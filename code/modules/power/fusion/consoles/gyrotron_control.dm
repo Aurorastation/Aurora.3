@@ -3,6 +3,7 @@
 	desc = "A terminal for controlling an INDRA Mk.II Tokamak Fusion core using Hephaestus software."
 	icon_keyboard = "yellow_key"
 	icon_screen = "power_monitor"
+	icon_keyboard_emis = "yellow_key_mask"
 	light_color = COLOR_ORANGE
 	ui_template = "FusionGyrotronControl"
 
@@ -11,6 +12,7 @@
 	icon = 'icons/obj/machinery/modular_terminal.dmi'
 	icon_screen = "rust_screen"
 	icon_keyboard = "generic_key"
+	icon_keyboard_emis = "generic_key_mask"
 	is_connected = TRUE
 	has_off_keyboards = TRUE
 	can_pass_under = FALSE
@@ -56,7 +58,7 @@
 			var/list/gyrotron = list()
 			var/obj/machinery/power/emitter/gyrotron/G = lan_gyrotrons[i]
 			gyrotron["id"] = "#[i]"
-			gyrotron["ref"] = "\ref[G]"
+			gyrotron["ref"] = "[REF(G)]"
 			gyrotron["active"] = G.active
 			gyrotron["firedelay"] = G.rate
 			gyrotron["energy"] = G.mega_energy

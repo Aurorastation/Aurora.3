@@ -1,7 +1,7 @@
 /obj/item/grenade
 	name = "grenade"
 	desc = "A hand held grenade, with an adjustable timer."
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	icon = 'icons/obj/grenade.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_grenade.dmi',
@@ -21,7 +21,7 @@
 
 /obj/item/grenade/proc/clown_check(var/mob/living/user)
 	if((user.is_clumsy()) && prob(50))
-		to_chat(user, "<span class='warning'>Huh? How does this thing work?</span>")
+		to_chat(user, SPAN_WARNING("Huh? How does this thing work?"))
 
 		activate(user)
 		add_fingerprint(user)
@@ -50,7 +50,7 @@
 /obj/item/grenade/attack_self(mob/user as mob)
 	if(!active)
 		if(clown_check(user))
-			to_chat(user, "<span class='warning'>You prime \the [name]! [det_time/10] seconds!</span>")
+			to_chat(user, SPAN_WARNING("You prime \the [name]! [det_time/10] seconds!"))
 
 			activate(user)
 			add_fingerprint(user)
@@ -69,7 +69,7 @@
 			var/mob/M = user
 			admin_attack_log(M, attacker_message = "primed \a [fake ? (" fake") : ("")][src]!", admin_message = "primed \a [fake ? ("fake ") : ("")][src]!")
 		else
-			message_admins("[user.name] primed \a [fake ? ("fake ") : ("")][src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
+			message_admins("[user.name] primed \a [fake ? ("fake ") : ("")][src] (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
 
 	icon_state = initial(icon_state) + "_active"
 	active = TRUE

@@ -46,38 +46,38 @@
 		MASK = new MASK_TYPE(src)
 
 /obj/machinery/suit_storage_unit/update_icon()
-	cut_overlays()
+	ClearOverlays()
 
 	if(panelopen)
-		add_overlay("[initial(icon_state)]_panel")
+		AddOverlays("[initial(icon_state)]_panel")
 	if(isopen)
-		add_overlay("[initial(icon_state)]_open")
+		AddOverlays("[initial(icon_state)]_open")
 		if(SUIT)
-			add_overlay("[initial(icon_state)]_suit")
+			AddOverlays("[initial(icon_state)]_suit")
 		if(HELMET)
-			add_overlay("[initial(icon_state)]_helm")
+			AddOverlays("[initial(icon_state)]_helm")
 		if(MASK)
-			add_overlay("[initial(icon_state)]_storage")
+			AddOverlays("[initial(icon_state)]_storage")
 	if(!isbroken && ispowered)
 		if(isopen)
-			add_overlay("[initial(icon_state)]_lights_open")
+			AddOverlays("[initial(icon_state)]_lights_open")
 		else
 			if(isUV)
 				if(issuperUV)
-					add_overlay("[initial(icon_state)]_super")
-				add_overlay("[initial(icon_state)]_lights_red")
+					AddOverlays("[initial(icon_state)]_super")
+				AddOverlays("[initial(icon_state)]_lights_red")
 			else
-				add_overlay("[initial(icon_state)]_lights_closed")
+				AddOverlays("[initial(icon_state)]_lights_closed")
 		//top lights
 		if(isUV)
 			if(issuperUV)
-				add_overlay("[initial(icon_state)]_uvstrong")
+				AddOverlays("[initial(icon_state)]_uvstrong")
 			else
-				add_overlay("[initial(icon_state)]_uv")
+				AddOverlays("[initial(icon_state)]_uv")
 		else if(islocked)
-			add_overlay("[initial(icon_state)]_locked")
+			AddOverlays("[initial(icon_state)]_locked")
 		else
-			add_overlay("[initial(icon_state)]_ready")
+			AddOverlays("[initial(icon_state)]_ready")
 
 /obj/machinery/suit_storage_unit/power_change()
 	..()
@@ -85,13 +85,15 @@
 		src.ispowered = 1
 		src.update_icon()
 	else
-		spawn(rand(0, 15))
-			src.ispowered = 0
-			src.islocked = 0
-			src.isopen = 1
-			src.dump_everything()
-			src.update_icon()
+		addtimer(CALLBACK(src, PROC_REF(handle_power_return)), rand(1, 15))
 
+
+/obj/machinery/suit_storage_unit/proc/handle_power_return()
+	src.ispowered = 0
+	src.islocked = 0
+	src.isopen = 1
+	src.dump_everything()
+	src.update_icon()
 
 /obj/machinery/suit_storage_unit/ex_act(severity)
 	switch(severity)
@@ -120,9 +122,9 @@
 		dat+= ""
 		dat+= "<Font color ='black'><B>Maintenance panel controls</B></font><HR>"
 		dat+= "<font color ='grey'>The panel is ridden with controls, button and meters, labeled in strange signs and symbols that <BR>you cannot understand. Probably the manufactoring world's language.<BR> Among other things, a few controls catch your eye.<BR><BR></font>"
-		dat+= text("<font color ='black'>A small dial with a \"ë\" symbol embroidded on it. It's pointing towards a gauge that reads []</font>.<BR> <span class='notice'><A href='?src=\ref[];toggleUV=1'> Turn towards []</A><BR></span>",(src.issuperUV ? "15nm" : "185nm"),src,(src.issuperUV ? "185nm" : "15nm") )
-		dat+= text("<font color ='black'>A thick old-style button, with 2 grimy LED lights next to it. The [] LED is on.</font><BR><font color ='blue'><A href='?src=\ref[];togglesafeties=1'>Press button</a></font>",(src.safetieson? "<font color='green'><B>GREEN</B></font>" : "<span class='warning'><B>RED</B></span>"),src)
-		dat+= text("<HR><BR><A href='?src=\ref[];mach_close=suit_storage_unit'>Close panel</A>", user)
+		dat+= "<font color ='black'>A small dial with a \"ë\" symbol embroidded on it. It's pointing towards a gauge that reads [(src.issuperUV ? "15nm" : "185nm")]</font>.<BR> <span class='notice'><A href='byond://?src=[REF(src)];toggleUV=1'> Turn towards [(src.issuperUV ? "185nm" : "15nm")]</A><BR></span>"
+		dat+= "<font color ='black'>A thick old-style button, with 2 grimy LED lights next to it. The [(src.safetieson? "<font color='green'><B>GREEN</B></font>" : SPAN_WARNING("<B>RED</B>"))] LED is on.</font><BR><font color ='blue'><A href='byond://?src=[REF(src)];togglesafeties=1'>Press button</a></font>"
+		dat+= "<HR><BR><A href='byond://?src=[REF(user)];mach_close=suit_storage_unit'>Close panel</A>"
 		//user << browse(dat, "window=ssu_m_panel;size=400x500")
 		//onclose(user, "ssu_m_panel")
 	else if(src.isUV) //The thing is running its cauterisation cycle. You have to wait.
@@ -137,32 +139,32 @@
 			dat+= ""
 			dat+= "<span class='notice'><font size = 4><B>U-Stor-It Suit Storage Unit, model DS1900</B></span><BR>"
 			dat+= "<B>Welcome to the Unit control panel.</B></FONT><HR>"
-			dat+= text("<font color='black'>Helmet storage compartment: <B>[]</B></font><BR>",(src.HELMET ? HELMET.name : "</font><font color ='grey'>No helmet detected.") )
+			dat+= "<font color='black'>Helmet storage compartment: <B>[(src.HELMET ? HELMET.name : "</font><font color ='grey'>No helmet detected.")]</B></font><BR>"
 			if(HELMET && src.isopen)
-				dat+=text("<A href='?src=\ref[];dispense_helmet=1'>Dispense helmet</A><BR>",src)
-			dat+= text("<font color='black'>Suit storage compartment: <B>[]</B></font><BR>",(src.SUIT ? SUIT.name : "</font><font color ='grey'>No exosuit detected.") )
+				dat += "<A href='byond://?src=[REF(src)];dispense_helmet=1'>Dispense helmet</A><BR>"
+			dat+= "<font color='black'>Suit storage compartment: <B>[(src.SUIT ? SUIT.name : "</font><font color ='grey'>No exosuit detected.")]</B></font><BR>"
 			if(SUIT && src.isopen)
-				dat+=text("<A href='?src=\ref[];dispense_suit=1'>Dispense suit</A><BR>",src)
-			dat+= text("<font color='black'>Breathmask storage compartment: <B>[]</B></font><BR>",(src.MASK ? MASK.name : "</font><font color ='grey'>No breathmask detected.") )
+				dat += "<A href='byond://?src=[REF(src)];dispense_suit=1'>Dispense suit</A><BR>"
+			dat+= "<font color='black'>Breathmask storage compartment: <B>[(src.MASK ? MASK.name : "</font><font color ='grey'>No breathmask detected.")]</B></font><BR>"
 			if(MASK && src.isopen)
-				dat+=text("<A href='?src=\ref[];dispense_mask=1'>Dispense mask</A><BR>",src)
+				dat += "<A href='byond://?src=[REF(src)];dispense_mask=1'>Dispense mask</A><BR>"
 			if(src.OCCUPANT)
 				dat+= "<HR><B><font color ='red'>WARNING: Biological entity detected inside the Unit's storage. Please remove.</B></font><BR>"
-				dat+= "<A href='?src=\ref[src];eject_guy=1'>Eject extra load</A>"
-			dat+= text("<HR><font color='black'>Unit is: [] - <A href='?src=\ref[];toggle_open=1'>[] Unit</A></font> ",(src.isopen ? "Open" : "Closed"),src,(src.isopen ? "Close" : "Open"))
+				dat+= "<A href='byond://?src=[REF(src)];eject_guy=1'>Eject extra load</A>"
+			dat += "<HR><font color='black'>Unit is: [(src.isopen ? "Open" : "Closed")] - <A href='byond://?src=[REF(src)];toggle_open=1'>[(src.isopen ? "Close" : "Open")] Unit</A></font> "
 			if(src.isopen)
 				dat+="<HR>"
 			else
-				dat+= text(" - <A href='?src=\ref[];toggle_lock=1'><font color ='orange'>*[] Unit*</A></font><HR>",src,(src.islocked ? "Unlock" : "Lock") )
-			dat+= text("Unit status: []",(src.islocked? "<font color ='red'><B>**LOCKED**</B></font><BR>" : "<font color ='green'><B>**UNLOCKED**</B></font><BR>") )
-			dat+= text("<A href='?src=\ref[];start_UV=1'>Start Disinfection cycle</A><BR>",src)
-			dat += text("<BR><BR><A href='?src=\ref[];mach_close=suit_storage_unit'>Close control panel</A>", user)
+				dat += " - <A href='byond://?src=[REF(src)];toggle_lock=1'><font color ='orange'>*[(src.islocked ? "Unlock" : "Lock")] Unit*</A></font><HR>"
+			dat+= "Unit status: [(src.islocked? "<font color ='red'><B>**LOCKED**</B></font><BR>" : "<font color ='green'><B>**UNLOCKED**</B></font><BR>")]"
+			dat+= "<A href='byond://?src=[REF(src)];start_UV=1'>Start Disinfection cycle</A><BR>"
+			dat += "<BR><BR><A href='byond://?src=[REF(user)];mach_close=suit_storage_unit'>Close control panel</A>"
 			//user << browse(dat, "window=Suit Storage Unit;size=400x500")
 			//onclose(user, "Suit Storage Unit")
 		else //Ohhhh shit it's dirty or broken! Let's inform the guy.
 			dat+= ""
 			dat+= "<font color='maroon'><B>Unit chamber is too contaminated to continue usage. Please call for a qualified individual to perform maintenance.</font></B><BR><BR>"
-			dat+= text("<HR><A href='?src=\ref[];mach_close=suit_storage_unit'>Close control panel</A>", user)
+			dat+= "<HR><A href='byond://?src=[REF(user)];mach_close=suit_storage_unit'>Close control panel</A>"
 			//user << browse(dat, "window=suit_storage_unit;size=400x500")
 			//onclose(user, "suit_storage_unit")
 
@@ -233,7 +235,7 @@
 
 	if(!protected)
 		playsound(src.loc, /singleton/sound_category/spark_sound, 75, 1, -1)
-		to_chat(user, "<span class='warning'>You try to touch the controls but you get zapped. There must be a short circuit somewhere.</span>")
+		to_chat(user, SPAN_WARNING("You try to touch the controls but you get zapped. There must be a short circuit somewhere."))
 		return*/
 	else  //welp, the guy is protected, we can continue
 		if(src.issuperUV)
@@ -259,7 +261,7 @@
 
 	if(!protected)
 		playsound(src.loc, /singleton/sound_category/spark_sound, 75, 1, -1)
-		to_chat(user, "<span class='warning'>You try to touch the controls but you get zapped. There must be a short circuit somewhere.</span>")
+		to_chat(user, SPAN_WARNING("You try to touch the controls but you get zapped. There must be a short circuit somewhere."))
 		return*/
 	else
 		to_chat(user, "You push the button. The coloured LED next to it changes.")
@@ -311,7 +313,7 @@
 
 /obj/machinery/suit_storage_unit/proc/toggle_open(mob/user as mob)
 	if(src.islocked || src.isUV)
-		to_chat(user, "<span class='warning'>Unable to open unit.</span>")
+		to_chat(user, SPAN_WARNING("Unable to open unit."))
 		return
 	if(src.OCCUPANT)
 		src.eject_occupant(user)
@@ -322,7 +324,7 @@
 
 /obj/machinery/suit_storage_unit/proc/toggle_lock(mob/user as mob)
 	if(src.OCCUPANT && src.safetieson)
-		to_chat(user, "<span class='warning'>The Unit's safety protocols disallow locking when a biological form is detected inside its compartments.</span>")
+		to_chat(user, SPAN_WARNING("The Unit's safety protocols disallow locking when a biological form is detected inside its compartments."))
 		return
 	if(src.isopen)
 		return
@@ -334,10 +336,10 @@
 	if(src.isUV || src.isopen) //I'm bored of all these sanity checks
 		return
 	if(src.OCCUPANT && src.safetieson)
-		to_chat(user, "<span class='warning'><B>WARNING:</B> Biological entity detected in the confines of the Unit's storage. Cannot initiate cycle.</span>")
+		to_chat(user, SPAN_WARNING("<B>WARNING:</B> Biological entity detected in the confines of the Unit's storage. Cannot initiate cycle."))
 		return
 	if(!src.HELMET && !src.MASK && !src.SUIT && !src.OCCUPANT ) //shit's empty yo
-		to_chat(user, "<span class='warning'>Unit storage bays empty. Nothing to disinfect -- Aborting.</span>")
+		to_chat(user, SPAN_WARNING("Unit storage bays empty. Nothing to disinfect -- Aborting."))
 		return
 	to_chat(user, "You start the Unit's cauterisation cycle.")
 	src.cycletime_left = 20
@@ -378,7 +380,7 @@
 					src.SUIT = null
 				if(src.MASK)
 					src.MASK = null
-				visible_message("<span class='warning'>With a loud whining noise, [src]'s door grinds open. Puffs of ashen smoke come out of its chamber.</span>", range = 3)
+				visible_message(SPAN_WARNING("With a loud whining noise, [src]'s door grinds open. Puffs of ashen smoke come out of its chamber."), range = 3)
 				src.isbroken = 1
 				src.isopen = 1
 				src.islocked = 0
@@ -402,9 +404,9 @@
 
 	if (src.OCCUPANT.client)
 		if(user != OCCUPANT)
-			to_chat(OCCUPANT, "<span class='notice'>The machine kicks you out!</span>")
+			to_chat(OCCUPANT, SPAN_NOTICE("The machine kicks you out!"))
 		if(user.loc != src.loc)
-			to_chat(OCCUPANT, "<span class='notice'>You leave the not-so-cozy confines of the SSU.</span>")
+			to_chat(OCCUPANT, SPAN_NOTICE("You leave the not-so-cozy confines of the SSU."))
 
 		src.OCCUPANT.client.eye = src.OCCUPANT.client.mob
 		src.OCCUPANT.client.perspective = MOB_PERSPECTIVE
@@ -438,15 +440,17 @@
 	if (usr.stat != 0)
 		return
 	if (!src.isopen)
-		to_chat(usr, "<span class='warning'>The unit's doors are shut.</span>")
+		to_chat(usr, SPAN_WARNING("The unit's doors are shut."))
 		return
 	if (!src.ispowered || src.isbroken)
-		to_chat(usr, "<span class='warning'>The unit is not operational.</span>")
+		to_chat(usr, SPAN_WARNING("The unit is not operational."))
 		return
 	if ( (src.OCCUPANT) || (src.HELMET) || (src.SUIT) )
-		to_chat(usr, "<span class='warning'>It's too cluttered inside for you to fit in!</span>")
+		to_chat(usr, SPAN_WARNING("It's too cluttered inside for you to fit in!"))
 		return
-	usr.visible_message("<span class='notice'>[usr] starts squeezing into [src]!</span>", "<span class='notice'>You start squeezing into [src]!</span>", range = 3)
+	usr.visible_message(SPAN_NOTICE("[usr] starts squeezing into [src]!"),
+						SPAN_NOTICE("You start squeezing into [src]!"), range = 3)
+
 	if(do_after(usr, 1 SECOND, src, DO_UNIQUE))
 		usr.stop_pulling()
 		usr.client.perspective = EYE_PERSPECTIVE
@@ -469,8 +473,8 @@
 		return TRUE
 	if(attacking_item.isscrewdriver())
 		src.panelopen = !src.panelopen
-		playsound(src.loc, attacking_item.usesound, 100, 1)
-		to_chat(user, text("<span class='notice'>You [] the unit's maintenance panel.</span>",(src.panelopen ? "open up" : "close") ))
+		attacking_item.play_tool_sound(get_turf(src), 100)
+		to_chat(user, SPAN_NOTICE("You [src.panelopen ? "open up" : "close"] the unit's maintenance panel."))
 		update_icon()
 		src.updateUsrDialog()
 		return TRUE
@@ -479,15 +483,18 @@
 		if( !(ismob(G.affecting)) )
 			return TRUE
 		if (!src.isopen)
-			to_chat(usr, "<span class='warning'>The unit's doors are shut.</span>")
+			to_chat(usr, SPAN_WARNING("The unit's doors are shut."))
 			return TRUE
 		if (!src.ispowered || src.isbroken)
-			to_chat(usr, "<span class='warning'>The unit is not operational.</span>")
+			to_chat(usr, SPAN_WARNING("The unit is not operational."))
 			return TRUE
 		if ( (src.OCCUPANT) || (src.HELMET) || (src.SUIT) ) //Unit needs to be absolutely empty
-			to_chat(user, "<span class='warning'>The unit's storage area is too cluttered.</span>")
+			to_chat(user, SPAN_WARNING("The unit's storage area is too cluttered."))
 			return TRUE
-		user.visible_message("<span class='notice'>[user] starts putting [G.affecting] into [src].</span>", "<span class='notice'>You start putting [G.affecting] into [src].</span>", range = 3)
+		user.visible_message(SPAN_NOTICE("[user] starts putting [G.affecting] into [src]."),
+								SPAN_NOTICE("You start putting [G.affecting] into [src]."),
+								range = 3)
+
 		if(do_after(user, 2 SECONDS, src, DO_UNIQUE))
 			if(!G || !G.affecting) return TRUE //derpcheck
 			var/mob/M = G.affecting
@@ -508,7 +515,7 @@
 			return TRUE
 		var/obj/item/clothing/suit/space/S = attacking_item
 		if(src.SUIT)
-			to_chat(user, "<span class='notice'>The unit already contains a suit.</span>")
+			to_chat(user, SPAN_NOTICE("The unit already contains a suit."))
 			return TRUE
 		to_chat(user, "You load the [S.name] into the storage compartment.")
 		user.drop_from_inventory(S,src)
@@ -521,7 +528,7 @@
 			return TRUE
 		var/obj/item/clothing/head/helmet/H = attacking_item
 		if(src.HELMET)
-			to_chat(user, "<span class='notice'>The unit already contains a helmet.</span>")
+			to_chat(user, SPAN_NOTICE("The unit already contains a helmet."))
 			return TRUE
 		to_chat(user, "You load the [H.name] into the storage compartment.")
 		user.drop_from_inventory(H,src)
@@ -534,7 +541,7 @@
 			return TRUE
 		var/obj/item/clothing/mask/M = attacking_item
 		if(src.MASK)
-			to_chat(user, "<span class='notice'>The unit already contains a mask.</span>")
+			to_chat(user, SPAN_NOTICE("The unit already contains a mask."))
 			return TRUE
 		to_chat(user, "You load the [M.name] into the storage compartment.")
 		user.drop_from_inventory(M,src)

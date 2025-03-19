@@ -14,9 +14,6 @@ SUBSYSTEM_DEF(icon_update)
 	///Deferred list, contains atoms that were not ready to be processed in the previous run
 	VAR_PRIVATE/list/deferred = list()
 
-/datum/controller/subsystem/icon_update/New()
-	NEW_SS_GLOBAL(SSicon_update)
-
 /datum/controller/subsystem/icon_update/stat_entry(msg)
 	msg = "QU:[icon_update_queue.len]"
 	return ..()
@@ -101,16 +98,6 @@ SUBSYSTEM_DEF(icon_update)
 		item_cache.icon_update_queued = FALSE
 		src.icon_update_queue -= item_cache
 		src.deferred -= item_cache
-
-/atom
-	///When was the last time (in `world.time`) that the icon of this atom was updated via `SSicon_update`
-	var/tmp/last_icon_update = null
-
-	///If the atom is currently queued to have it's icon updated in `SSicon_update`
-	var/tmp/icon_update_queued = FALSE
-
-	///Delay to apply before updating the icon in `SSicon_update`
-	var/icon_update_delay = null
 
 /atom/proc/update_icon()
 	SHOULD_NOT_SLEEP(TRUE)

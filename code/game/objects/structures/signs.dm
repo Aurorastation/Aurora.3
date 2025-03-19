@@ -9,8 +9,8 @@
 	anchored = TRUE
 	density = FALSE
 	opacity = FALSE
-	layer = 3.5
-	w_class = ITEMSIZE_NORMAL
+	layer = ABOVE_WINDOW_LAYER
+	w_class = WEIGHT_CLASS_NORMAL
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 
 /obj/structure/sign/ex_act(severity)
@@ -36,7 +36,7 @@
 	name = "sign"
 	desc = "A sign."
 	icon = 'icons/obj/signs.dmi'
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	var/sign_state = ""
 
 /obj/item/sign/attackby(obj/item/attacking_item, mob/user) // Construction.
@@ -353,13 +353,19 @@
 	name = "empty frame"
 	desc = "An empty painting frame."
 	icon_state = "painting_frame"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/sign/painting_frame
 	name = "empty frame"
 	desc = "An empty painting frame."
 	icon_state = "painting_frame"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
+
+/obj/structure/sign/painting_frame/tsunami_kami
+	name = "tsunami kami"
+	desc = "A painting designed to replicate traditional woodblock styles. This one seems to be based off an ancient and venerable painting of a wave, paired with that of a woman."
+	icon_state = "tsunami_kami"
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/structure/sign/painting_frame/hadii
 	name = "president Hadii portrait"
@@ -382,7 +388,7 @@
 
 /obj/structure/sign/painting_frame/nated
 	name = "supreme commander Nated portrait"
-	desc = "A portrait of Supreme Ccommander Nated. Commonly seen in junta controlled territories."
+	desc = "A portrait of Supreme Commander Nated. Commonly seen in junta controlled territories."
 	icon_state = "nated_painting"
 	desc_extended = "For a decade, Halkiikijr led the Liberation Army as an effective opposing force against the People's Republic and the New Kingdom. He favored the extensive use of irregular \
 	warfare coupled with the deployment of the army to secure decisive battles. A cult of personality formed around Halkiikijr; extremists claimed that he was a prophet sent by the Gods. The \
@@ -390,7 +396,7 @@
 
 /obj/item/sign/painting_frame/nated
 	name = "supreme commander Nated portrait"
-	desc = "A portrait of Supreme Ccommander Nated. Commonly seen in junta controlled territories."
+	desc = "A portrait of Supreme Commander Nated. Commonly seen in junta controlled territories."
 	icon_state = "nated_painting"
 	sign_state = "nated_painting"
 	desc_extended = "For a decade, Halkiikijr led the Liberation Army as an effective opposing force against the People's Republic and the New Kingdom. He favored the extensive use of irregular \

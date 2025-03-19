@@ -25,9 +25,7 @@
 /singleton/surgery_step/generic/cut_with_laser
 	name = "Make Laser Incision"
 	allowed_tools = list(
-	/obj/item/surgery/scalpel/laser3 = 95, \
-	/obj/item/surgery/scalpel/laser2 = 85, \
-	/obj/item/surgery/scalpel/laser1 = 75
+	/obj/item/surgery/scalpel/laser = 100
 	)
 	priority = 2
 	min_duration = 50
@@ -157,7 +155,7 @@
 /singleton/surgery_step/generic/cut_open_vaurca
 	name = "Cut Open Vaurca"
 	allowed_tools = list(
-	/obj/item/surgery/surgicaldrill = 85,
+	/obj/item/surgery/surgicaldrill = 100,
 	/obj/item/pickaxe/ = 15
 	)
 

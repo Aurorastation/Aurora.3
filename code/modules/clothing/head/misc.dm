@@ -11,7 +11,7 @@
 /obj/item/clothing/head/pin
 	name = "hair pin"
 	desc = "A nice hair pin."
-	icon = 'icons/obj/item/clothing/accessory/hair_pins.dmi'
+	icon = 'icons/obj/item/clothing/head/hair_pins.dmi'
 	contained_sprite = TRUE
 	icon_state = "pin"
 	item_state = "pin"
@@ -37,6 +37,7 @@
 	item_state = "magnetpin"
 	name = "magnetic 'pin'"
 	desc = "Finally, a hair pin even a robot chassis can use."
+	slot_flags = SLOT_HEAD
 	matter = list(DEFAULT_WALL_MATERIAL = 10)
 
 /obj/item/clothing/head/pin/flower
@@ -84,7 +85,7 @@
 /obj/item/clothing/head/pin/ribbon
 	name = "hair ribbon parent item"
 	desc = DESC_PARENT
-	icon = 'icons/obj/item/clothing/accessory/hair_ribbons.dmi'
+	icon = 'icons/obj/item/clothing/head/hair_ribbons.dmi'
 	contained_sprite = TRUE
 
 /obj/item/clothing/head/pin/ribbon/head
@@ -288,6 +289,16 @@
 	flags_inv = BLOCKHAIR
 	siemens_coefficient = 2.0 //why is it so conductive?!
 
+/obj/item/clothing/head/plain_hood
+	name = "plain hood"
+	desc = "A simple hood made of cloth, worn for myriad reasons - cultural, religious, protection from the elements, a fashion statement... or perhaps you simply want to look like you intend to give quests to adventurers who walk into your favorite tavern."
+	icon = 'icons/clothing/head/plain_hood.dmi'
+	icon_state = "plain_hood"
+	item_state = "plain_hood"
+	body_parts_covered = HEAD
+	flags_inv = HIDEEARS|BLOCKHEADHAIR
+	contained_sprite = TRUE
+
 /obj/item/clothing/head/hijab //It might've taken a year but here's your Hijab's, Dea.
 	name = "hijab"
 	desc = "Encompassing cloth headwear worn by some human cultures and religions."
@@ -483,6 +494,33 @@
 	item_state = "leader_headband"
 	contained_sprite = TRUE
 
+//all by budg
+/obj/item/clothing/head/slouch
+	name = "slouch hat"
+	desc = "A wide brimmed hat folded to form a slouch."
+	icon_state = "slouch"
+
+/obj/item/clothing/head/tight_beanie
+	name = "tight beanie"
+	desc = "A rather tight beanie, blocks hair."
+	icon_state = "tight_beanie"
+	flags_inv = BLOCKHEADHAIR
+	cold_protection = HEAD
+
+/obj/item/clothing/head/sun_visor
+	name = "sun visor"
+	desc = "A stylish visor intended for blocking out harsh sunlight."
+	icon_state = "sun_visor"
+
+/obj/item/clothing/head/newsboy
+	name = "newsboy cap"
+	desc = "A fashionable peaked cap!"
+	icon_state = "newsboy"
+
+/obj/item/clothing/head/legionnaire
+	name = "legionnaire cap"
+	desc = "A hate made to protect your neck from sunlight, not affiliated with the TCAF."
+	icon_state = "legionnaire"
 //sol stuff
 
 /obj/item/clothing/head/sol
@@ -493,7 +531,7 @@
 	item_state = "navy_utility"
 	contained_sprite = TRUE
 	armor = list(
-		melee = ARMOR_MELEE_MINOR
+		MELEE = ARMOR_MELEE_MINOR
 		)
 
 /obj/item/clothing/head/sol/dress
@@ -549,11 +587,11 @@
 	icon_state = "helmet_tac_sol"
 	item_state = "helmet_tac_sol"
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_RIFLE,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_RIFLE,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED
 	)
 	contained_sprite = TRUE
 
@@ -672,11 +710,11 @@
 	icon_state = "helmet_konyang_army"
 	item_state = "helmet_konyang_army"
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_RIFLE,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_RIFLE,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED
 	)
 	contained_sprite = TRUE
 
@@ -691,3 +729,98 @@
 	desc = "A white colored helmet made from advanced ceramic."
 	icon_state = "helmet_pilot"
 	item_state = "helmet_pilot"
+
+/obj/item/clothing/head/xanu
+	name = "xanu armed forces garrison cap"
+	desc = "A garrison cap belonging to a member of the All-Xanu Spacefleet."
+	icon = 'icons/clothing/under/uniforms/xanu.dmi'
+	icon_state = "xanu_garrison_enlisted"
+	item_state = "xanu_garrison_enlisted"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/xanu/officer
+	name = "xanu armed forces officer garrison cap"
+	desc = "A garrison cap belonging to an officer of the All-Xanu Spacefleet."
+	icon_state = "xanu_garrison_comm"
+	item_state = "xanu_garrison_comm"
+
+/obj/item/clothing/head/xanu/senior
+	name = "xanu armed forces senior officer garrison cap"
+	desc = "A garrison cap belonging to a high-ranking officer of the All-Xanu Spacefleet."
+	icon_state = "xanu_garrison_cap"
+	item_state = "xanu_garrison_cap"
+
+/obj/item/clothing/head/grupo_amapola
+	name = "Grupo Amapola officer cap"
+	desc = "A peaked officer's cap bearing the poppy of the military contracting group Grupo Amapola."
+	icon = 'icons/clothing/head/pmcg.dmi'
+	icon_state = "amapola_officer_hat"
+	item_state = "amapola_officer_hat"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/grupo_amapola/ute
+	name = "Grupo Amapola utility cover"
+	desc = "A softcap in green camo, issued to members of the military contracting group Grupo Amapola."
+	icon_state = "amapola_ute_hat"
+	item_state = "amapola_ute_hat"
+
+/obj/item/clothing/head/peaked_cap
+	name = "corporate peaked cap"
+	desc = "A military-style corporate peaked cap. This one bears the emblem of NanoTrasen Incorporated."
+	icon_state = "nt_warden_hat"
+	item_state = "nt_warden_hat"
+	icon = 'icons/obj/item/clothing/department_uniforms/security.dmi'
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/peaked_cap/no_logo
+	desc = "A military-style corporate peaked cap. This one bears the colors of NanoTrasen Incorporated."
+	icon_state = "nt_warden_hat_nologo"
+	item_state = "nt_warden_hat_nologo"
+
+/obj/item/clothing/head/peaked_cap/zavodskoi
+	desc = "A military-style corporate peaked cap. This one bears the emblem of Zavodskoi Interstellar."
+	icon_state = "zav_warden_hat"
+	item_state = "zav_warden_hat"
+
+/obj/item/clothing/head/peaked_cap/zavodskoi/no_logo
+	desc = "A military-style corporate peaked cap. This one bears the colors of Zavodskoi Interstellar."
+	icon_state = "zav_warden_hat_nologo"
+	item_state = "zav_warden_hat_nologo"
+
+/obj/item/clothing/head/peaked_cap/zavodskoi/alt
+	icon_state = "zav_warden_hat_alt"
+	item_state = "zav_warden_hat_alt"
+
+/obj/item/clothing/head/peaked_cap/zavodskoi/alt/no_logo
+	desc = "A military-style corporate peaked cap. This one bears the colors of Zavodskoi Interstellar."
+	icon_state = "zav_warden_hat_alt_nologo"
+	item_state = "zav_warden_hat_alt_nologo"
+
+/obj/item/clothing/head/peaked_cap/idris
+	desc = "A military-style corporate peaked cap. This one bears the emblem of Idris Incorporated."
+	icon_state = "idris_warden_hat"
+	item_state = "idris_warden_hat"
+
+/obj/item/clothing/head/peaked_cap/idris/no_logo
+	desc = "A military-style corporate peaked cap. This one bears the colors of Idris Incorporated."
+	icon_state = "idris_warden_hat_nologo"
+	item_state = "idris_warden_hat_nologo"
+
+/obj/item/clothing/head/peaked_cap/pmcg
+	desc = "A military-style corporate peaked cap. This one bears the emblem of the Private Military Contracting Group."
+	icon_state = "pmc_warden_hat"
+	item_state = "pmc_warden_hat"
+
+/obj/item/clothing/head/peaked_cap/pmcg/no_logo
+	desc = "A military-style corporate peaked cap. This one bears the colors of the Private Military Contracting Group."
+	icon_state = "pmc_warden_hat_nologo"
+	item_state = "pmc_warden_hat_nologo"
+
+//goblin.stev's stuff
+/obj/item/clothing/head/qeburger_visor
+	name = "Quick-E-Burger Food Technician Visor"
+	desc = "For stylish employees on the retail grind, the Quick-E-Burger Food Technician Visor is the latest in form-first fashion! Supplied and manufactured in bulk by Quick-E-Burger's parent company, Orion Express, the Food Technician Visor is equipped with an innovative easy-to-use velcro headstrap to keep the company's prime product sky-high, and its light-resistant plastic visor is perfect for keeping sun, lights, and disappointed family-members alike out of employees' eyes!"
+	icon = 'icons/obj/clothing/hats/orion.dmi'
+	icon_state = "quickeburger_visorcap"
+	item_state = "quickeburger_visorcap"
+	contained_sprite = TRUE

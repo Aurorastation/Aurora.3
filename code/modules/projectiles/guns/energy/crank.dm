@@ -12,7 +12,7 @@
 	fire_delay = 10
 	fire_delay_wielded = 8
 	origin_tech = list(TECH_COMBAT = 1, TECH_MAGNET = 1)
-	projectile_type = /obj/item/projectile/beam/midlaser/ice
+	projectile_type = /obj/projectile/beam/midlaser/ice
 	secondary_projectile_type = null
 	secondary_fire_sound = null
 	charge_failure_message = "'s charging socket was removed to make room for a crank."
@@ -31,19 +31,19 @@
 
 /obj/item/gun/energy/rifle/icelance/unique_action(mob/living/user)
 	if(is_charging)
-		to_chat(user, "<span class='warning'>You are already charging \the [src].</span>")
+		to_chat(user, SPAN_WARNING("You are already charging \the [src]."))
 		return
 	if(power_supply.charge < power_supply.maxcharge)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		user.visible_message(
-				"<span class='notice'>\The [user] begins to crank \the [src]!</span>",
-				"<span class='notice'>You begin to rotate \the [src]'s crank!</span>"
+				SPAN_NOTICE("\The [user] begins to crank \the [src]!"),
+				SPAN_NOTICE("You begin to rotate \the [src]'s crank!")
 				)
 		playsound(user.loc, 'sound/items/crank.ogg', 60, 1)
 		is_charging = TRUE
 		flick("crank", src)
 		if(do_after(user,2 SECONDS))
-			to_chat(user, "<span class='notice'>You finish charging \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You finish charging \the [src]."))
 			power_supply.give(charge_cost)
 			update_maptext()
 			update_icon()

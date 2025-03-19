@@ -82,22 +82,6 @@
 	key = "y"
 	flags = RESTRICTED | HIVEMIND
 
-/datum/language/terminator
-	name = LANGUAGE_TERMINATOR
-	desc = "A heavily encrypted communication network that piggybacks off of the state telecomms relays to covertly link Hephaestus black ops droids to their control AIs."
-	speech_verb = list("buzzes")
-	ask_verb = list("buzzes")
-	exclaim_verb = list("buzzes")
-	sing_verb = list("buzzes")
-	colour = "bad"
-	key = "hd"
-	flags = RESTRICTED | HIVEMIND
-	syllables = list("beep","beep","beep","beep","beep","boop","boop","boop","bop","bop","dee","dee","doo","doo","hiss","hss","buzz","buzz","bzz","ksssh","keey","wurr","wahh","tzzz")
-	space_chance = 10
-
-/datum/language/terminator/get_random_name()
-	return "HK [pick(list("Hera","Zeus","Artemis","Athena","Ares","Hades","Poseidon","Demeter","Apollo","Aphrodite","Hermes","Hestia","Dionysus","Persephone","Kronos","Odysseus","Ajax","Agamemnon","Chiron","Charon"))]-[rand(100, 999)]"
-
 /datum/language/revenant
 	name = LANGUAGE_REVENANT
 	desc = "The language of the forsaken bluespace inhabitants."
@@ -125,7 +109,7 @@
 	flags = RESTRICTED | HIVEMIND
 
 /datum/language/bug/liidra/broadcast(mob/living/speaker, message, speaker_mask)
-	log_say("[key_name(speaker)] : ([name]) [message]",ckey=key_name(speaker))
+	log_say("[key_name(speaker)] : ([name]) [message]")
 
 	if(!speaker_mask)
 		speaker_mask = speaker.real_name
@@ -142,7 +126,7 @@
 		return
 
 	for(var/mob/player in GLOB.player_list)
-		if(istype(player,/mob/abstract/observer) || check_special_condition(player))
+		if(isobserver(player) || check_special_condition(player))
 			if(!within_jamming_range(player))
 				to_chat(player, msg)
 
@@ -207,3 +191,6 @@
 	flags = RESTRICTED | NO_STUTTER | HIVEMIND
 	syllables = list("beep","beep","beep","beep","beep","boop","boop","boop","bop","bop","dee","dee","doo","doo","hiss","hss","buzz","buzz","bzz","ksssh","keey","wurr","wahh","tzzz")
 	space_chance = 10
+
+/datum/language/purpose/get_random_name()
+	return "[pick(list("HERA","ZEUS","ARTEMIS","ATHENA","ARES","HADES","POSEIDON","DEMETER","APOLLO","APHORDITE","HERMES","HESTIA","DIONYSUS","PERSEPHONE","KRONOS","ODYSSEUS","AJAX","AGAMENON","CHIRON","CHARON"))][rand(100, 999)]"

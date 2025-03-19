@@ -12,8 +12,6 @@
 			. += A
 
 /proc/get_area_turfs(var/area/A, var/list/predicates)
-	set background=1
-
 	. = new/list()
 	A = istype(A) ? A : locate(A)
 	if(!A)
@@ -90,9 +88,6 @@
 /proc/is_contact_area(var/area/A)
 	. = isContactLevel(A.z)
 
-/proc/is_player_area(var/area/A)
-	. = isPlayerLevel(A.z)
-
 /proc/is_not_space_area(var/area/A)
 	. = !istype(A,/area/space)
 
@@ -110,3 +105,15 @@
 
 /proc/is_not_maint_area(var/area/A)
 	. = !is_maint_area(A)
+
+/*
+	Area Sorting
+*/
+/proc/require_area_resort()
+	GLOB.sortedAreas = null
+
+/// Returns a sorted version of GLOB.areas, by name
+/proc/get_sorted_areas()
+	if(!GLOB.sortedAreas)
+		GLOB.sortedAreas = sortTim(GLOB.areas.Copy(), /proc/cmp_name_asc)
+	return GLOB.sortedAreas

@@ -2,7 +2,7 @@
 	name = "lifeform stasis unit"
 	desc = "A not so comfortable looking bed with some nozzles at the top and bottom. It will keep someone in stasis."
 	desc_info = "You can alt-click this to toggle it on or off."
-	icon = 'icons/obj/stasis_bed.dmi'
+	icon = 'icons/obj/machinery/sleeper.dmi'
 	icon_state = "stasis"
 	anchored = TRUE
 
@@ -71,15 +71,15 @@
 	return stasis_enabled && !(stat & (NOPOWER|BROKEN))
 
 /obj/machinery/stasis_bed/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(stat & BROKEN)
 		icon_state = "[initial(icon_state)]_broken"
 		return ..()
 	icon_state = initial(icon_state)
 	if(panel_open || (stat & MAINT))
-		add_overlay("stasis_maintenance")
+		AddOverlays("stasis_maintenance")
 	if(stasis_running())
-		add_overlay("stasis_on")
+		AddOverlays("stasis_on")
 
 /obj/machinery/stasis_bed/power_change()
 	. = ..()

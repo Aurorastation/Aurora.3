@@ -8,11 +8,11 @@
 		)
 	icon_state = "mop"
 	item_state = "mop"
-	force = 3.0
+	force = 3
 	throwforce = 10.0
 	throw_speed = 3
 	throw_range = 7
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	attack_verb = list("mopped", "bashed", "bludgeoned", "whacked")
 	drop_sound = 'sound/items/drop/woodweapon.ogg'
 	pickup_sound = 'sound/items/pickup/woodweapon.ogg'
@@ -80,7 +80,7 @@
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "advmop"
 	item_state = "advmop"
-	force = 6.0
+	force = 14
 	throwforce = 14
 	throw_range = 8
 	cleantime = 15

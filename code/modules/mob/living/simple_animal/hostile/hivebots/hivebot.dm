@@ -15,7 +15,7 @@
 	attacktext = "slashed"
 	attack_sound = /singleton/sound_category/hivebot_melee
 	projectilesound = 'sound/weapons/gunshot/gunshot_suppressed.ogg'
-	projectiletype = /obj/item/projectile/bullet/pistol/hivebotspike
+	projectiletype = /obj/projectile/bullet/pistol/hivebotspike
 	organ_names = list("head", "core", "side thruster", "bottom thruster")
 	faction = "hivebot"
 	min_oxy = 0
@@ -40,8 +40,29 @@
 	)
 	speak_chance = 5
 	attack_emote = "focuses on"
-	var/mob/living/simple_animal/hostile/hivebotbeacon/linked_parent = null
 	psi_pingable = FALSE
+	sample_data = null
+
+	/**
+	 * The hivebot beacon that we are liked to (and likely generated us)
+	 */
+	var/mob/living/simple_animal/hostile/hivebotbeacon/linked_parent = null
+
+/mob/living/simple_animal/hostile/hivebot/Initialize(mapload,mob/living/simple_animal/hostile/hivebot/hivebotbeacon)
+	. = ..()
+
+	if(hivebotbeacon)
+		linked_parent = hivebotbeacon
+
+	if(!mapload)
+		spark(get_turf(src), 2, GLOB.alldirs)
+
+/mob/living/simple_animal/hostile/hivebot/Destroy()
+	if(linked_parent)
+		linked_parent.linked_bots -= src
+		linked_parent = null
+
+	. = ..()
 
 /mob/living/simple_animal/hostile/hivebot/get_bullet_impact_effect_type(var/def_zone)
 	return BULLET_IMPACT_METAL
@@ -60,104 +81,32 @@
 	else
 		return "blood_overlay_armed"
 
-/mob/living/simple_animal/hostile/hivebot/guardian
-	health = 80
-	maxHealth = 45
-	melee_damage_lower = 20
-	melee_damage_upper = 20
-	wander = 0
-	icon_state = "hivebotguardian"
-	desc = "A primitive in design, hovering robot, with some menacing looking blades jutting out from it. It bears no manufacturer markings of any kind. This one seems to be of a larger design."
-	mob_bump_flag = HEAVY
-	mob_swap_flags = ~HEAVY
-	mob_push_flags = 0
-
-
-/mob/living/simple_animal/hostile/hivebot/guardian/Initialize(mapload,mob/living/simple_animal/hostile/hivebot/hivebotbeacon)
-	.=..()
-	if(hivebotbeacon && linked_parent)
-		linked_parent.guard_amt++
-
-/mob/living/simple_animal/hostile/hivebot/guardian/think()
-	. =..()
-	if(stance != HOSTILE_STANCE_IDLE)
-		wander = 1
-
-/mob/living/simple_animal/hostile/hivebot/guardian/Destroy()
-	.=..()
-	if(linked_parent)
-		linked_parent.guard_amt--
-
-/mob/living/simple_animal/hostile/hivebot/bomber
-	desc = "A primitive in design, hovering robot, with some menacing looking blades jutting out from it. It bears no manufacturer markings of any kind. This one appears round in design and moves slower than its brethren."
-	health = 100
-	maxHealth = 100
-	icon_state = "hivebotbomber"
-	organ_names = list("head", "core", "bottom thruster")
-	attacktext = "bumped"
-	move_to_delay = 8
-	var/has_exploded = FALSE
-
-/mob/living/simple_animal/hostile/hivebot/bomber/AttackingTarget()
-	..()
-	LoseTarget()
-	change_stance(HOSTILE_STANCE_TIRED)
-	stop_automated_movement = 1
-	wander = 0
-	if(!has_exploded)
-		playsound(src.loc, 'sound/items/countdown.ogg', 125, 1)
-		has_exploded = TRUE
-		addtimer(CALLBACK(src, PROC_REF(burst)), 20)
-
-/mob/living/simple_animal/hostile/hivebot/bomber/bullet_act(var/obj/item/projectile/Proj)
-	if(istype(Proj, /obj/item/projectile/bullet/pistol/hivebotspike) || istype(Proj, /obj/item/projectile/beam/hivebot))
-		Proj.no_attack_log = 1
-		return PROJECTILE_CONTINUE
-	else if(!has_exploded)
-		has_exploded = TRUE
-		burst()
-
-/mob/living/simple_animal/hostile/hivebot/bomber/proc/burst()
-	fragem(src,10,30,2,3,5,1,FALSE)
-	src.gib()
-
-/mob/living/simple_animal/hostile/hivebot/range
-	name = "Hivebot"
-	desc = "A primitive in design, hovering robot, with a simple looking launcher sticking out of it. It bears no manufacturer markings of any kind."
-	icon_state = "hivebotranged"
-	ranged = 1
-
-/mob/living/simple_animal/hostile/hivebot/range/rapid
-	projectiletype = /obj/item/projectile/bullet/pistol/hivebotspike/needle
-	rapid = 1
-
-//Creates a reference to its parent beacon on init.
-/mob/living/simple_animal/hostile/hivebot/Initialize(mapload,mob/living/simple_animal/hostile/hivebot/hivebotbeacon)
-	if(hivebotbeacon)
-		linked_parent = hivebotbeacon
-	.=..()
-	if(!mapload)
-		new /obj/effect/effect/smoke(src.loc,30)
-		playsound(src.loc, 'sound/effects/EMPulse.ogg', 25, 1)
-
-/mob/living/simple_animal/hostile/hivebot/bullet_act(var/obj/item/projectile/Proj)
-	if(istype(Proj, /obj/item/projectile/bullet/pistol/hivebotspike) || istype(Proj, /obj/item/projectile/beam/hivebot))
-		Proj.no_attack_log = 1
-		return PROJECTILE_CONTINUE
+/mob/living/simple_animal/hostile/hivebot/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	if(istype(hitting_projectile, /obj/projectile/bullet/pistol/hivebotspike) || istype(hitting_projectile, /obj/projectile/beam/hivebot))
+		return BULLET_ACT_BLOCK
 	else
-		return ..(Proj)
+		return ..()
 
 /mob/living/simple_animal/hostile/hivebot/death()
 	..(null,"blows apart!")
-	var/T = get_turf(src)
-	new /obj/effect/gibspawner/robot(T)
-	spark(T, 1, GLOB.alldirs)
-	qdel(src)
 
-/mob/living/simple_animal/hostile/hivebot/Destroy()
-	. = ..()
-	if(linked_parent)
-		linked_parent.linked_bots -= src
+	var/turf/current_turf = get_turf(src)
+	if(!current_turf)
+		qdel(src)
+		return
+
+	var/robot_gib_type = /obj/effect/decal/cleanable/blood/gibs/robot
+	var/atom/turf_gibs = locate(robot_gib_type) in current_turf
+	if(turf_gibs) // we only want to spawn gibs here if there aren't any already
+		return
+
+	var/list/gib_types = typesof(robot_gib_type)
+	var/selected_gib_type = pick(gib_types)
+	new selected_gib_type(current_turf)
+
+	spark(current_turf, 1, GLOB.alldirs)
+
+	qdel(src)
 
 /mob/living/simple_animal/hostile/hivebot/think()
 	. =..()
@@ -167,10 +116,10 @@
 		icon_state = "[initial(icon_state)]_armed"
 
 /mob/living/simple_animal/hostile/hivebot/Allow_Spacemove(var/check_drift = 0)
-	return 1
+	return TRUE
 
 /mob/living/simple_animal/hostile/hivebot/AirflowCanMove(n)
-	return 0
+	return FALSE
 
 /mob/living/simple_animal/hostile/hivebot/emp_act(severity)
 	. = ..()
@@ -185,3 +134,90 @@
 
 /mob/living/simple_animal/hostile/hivebot/proc/wakeup()
 	change_stance(HOSTILE_STANCE_IDLE)
+
+
+/*############
+	SUBTYPES
+############*/
+
+/**
+ * # Hivebot Guardian
+ */
+/mob/living/simple_animal/hostile/hivebot/guardian
+	health = 80
+	maxHealth = 45
+	melee_damage_lower = 20
+	melee_damage_upper = 20
+	wander = 0
+	icon_state = "hivebotguardian"
+	desc = "A primitive in design, hovering robot, with some menacing looking blades jutting out from it. It bears no manufacturer markings of any kind. This one seems to be of a larger design."
+	mob_bump_flag = HEAVY
+	mob_swap_flags = ~HEAVY
+	mob_push_flags = 0
+
+/mob/living/simple_animal/hostile/hivebot/guardian/Initialize(mapload,mob/living/simple_animal/hostile/hivebot/hivebotbeacon)
+	.=..()
+	if(hivebotbeacon && linked_parent)
+		linked_parent.guard_amt++
+
+/mob/living/simple_animal/hostile/hivebot/guardian/Destroy()
+	.=..()
+	if(linked_parent)
+		linked_parent.guard_amt--
+
+/mob/living/simple_animal/hostile/hivebot/guardian/think()
+	. =..()
+	if(stance != HOSTILE_STANCE_IDLE)
+		wander = 1
+
+/**
+ * # Hivebot Bomber
+ */
+/mob/living/simple_animal/hostile/hivebot/bomber
+	desc = "A primitive in design, hovering robot, with some menacing looking blades jutting out from it. It bears no manufacturer markings of any kind. This one appears round in design and moves slower than its brethren."
+	health = 100
+	maxHealth = 100
+	icon_state = "hivebotbomber"
+	organ_names = list("head", "core", "bottom thruster")
+	attacktext = "bumped"
+	speed = 8
+	var/has_exploded = FALSE
+
+/mob/living/simple_animal/hostile/hivebot/bomber/AttackingTarget()
+	..()
+	LoseTarget()
+	change_stance(HOSTILE_STANCE_TIRED)
+	stop_automated_movement = 1
+	wander = 0
+	if(!has_exploded)
+		playsound(src.loc, 'sound/items/countdown.ogg', 125, 1)
+		has_exploded = TRUE
+		addtimer(CALLBACK(src, PROC_REF(burst)), 20)
+
+/mob/living/simple_animal/hostile/hivebot/bomber/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	if(istype(hitting_projectile, /obj/projectile/bullet/pistol/hivebotspike) || istype(hitting_projectile, /obj/projectile/beam/hivebot))
+		return BULLET_ACT_BLOCK
+	else if(!has_exploded)
+		. = ..()
+		if(. != BULLET_ACT_HIT)
+			return .
+
+		has_exploded = TRUE
+		burst()
+
+/mob/living/simple_animal/hostile/hivebot/bomber/proc/burst()
+	fragem(src,10,30,2,3,5,1,FALSE)
+	src.gib()
+
+/**
+ * # Hivebot Ranged
+ */
+/mob/living/simple_animal/hostile/hivebot/range
+	name = "Hivebot"
+	desc = "A primitive in design, hovering robot, with a simple looking launcher sticking out of it. It bears no manufacturer markings of any kind."
+	icon_state = "hivebotranged"
+	ranged = 1
+
+/mob/living/simple_animal/hostile/hivebot/range/rapid
+	projectiletype = /obj/projectile/bullet/pistol/hivebotspike/needle
+	rapid = 1

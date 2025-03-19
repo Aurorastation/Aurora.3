@@ -67,7 +67,7 @@
 			if(isliving(load))
 				var/mob/living/D = load
 				to_chat(D, SPAN_WARNING("You hit [M]!"))
-				msg_admin_attack("[D.name] ([D.ckey]) hit [M.name] ([M.ckey]) with [src]. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(D),ckey_target=key_name(M))
+				msg_admin_attack("[D.name] ([D.ckey]) hit [M.name] ([M.ckey]) with [src]. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(D),ckey_target=key_name(M))
 
 
 //-------------------------------------------
@@ -84,14 +84,14 @@
 // Interaction procs
 //-------------------------------------------
 
-/obj/vehicle/train/MouseDrop_T(var/atom/movable/C, mob/user as mob)
+/obj/vehicle/train/mouse_drop_receive(atom/dropped, mob/user, params)
 	if(use_check_and_message(user))
 		return
-	if(istype(C, /obj/vehicle/train))
-		latch(C, user)
+	if(istype(dropped, /obj/vehicle/train))
+		latch(dropped, user)
 	else
-		if(!load(C))
-			to_chat(user, SPAN_WARNING("You were unable to load \the [C] on \the [src]."))
+		if(!load(dropped))
+			to_chat(user, SPAN_WARNING("You were unable to load \the [dropped] on \the [src]."))
 
 /obj/vehicle/train/attack_hand(mob/user as mob)
 	if(use_check_and_message(user))
@@ -104,7 +104,7 @@
 
 /obj/vehicle/train/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.iswrench())
-		playsound(loc, attacking_item.usesound, 70, FALSE)
+		attacking_item.play_tool_sound(get_turf(src), 70)
 		unattach(user)
 		return
 	return ..()
@@ -177,7 +177,7 @@
 
 		if(dir == T_dir) 	//if car is ahead
 			src.attach_to(T, user)
-		else if(reverse_direction(dir) == T_dir)	//else if car is behind
+		else if(REVERSE_DIR(dir) == T_dir)	//else if car is behind
 			T.attach_to(src, user)
 
 //returns 1 if this is the lead car of the train

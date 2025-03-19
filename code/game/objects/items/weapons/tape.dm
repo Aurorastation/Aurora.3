@@ -3,28 +3,29 @@
 	desc = "A roll of sticky tape. Possibly for taping ducks... or was that ducts?"
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "taperoll"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	surgerysound = /singleton/sound_category/rip_sound
 
-/obj/item/tape_roll/attack(var/mob/living/carbon/human/H, var/mob/user, var/target_zone)
+/obj/item/tape_roll/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/mob/living/carbon/human/H = target_mob
 	if(istype(H))
 		if(target_zone == BP_EYES)
 
 			if(!H.organs_by_name[BP_HEAD])
-				to_chat(user, "<span class='warning'>\The [H] doesn't have a head.</span>")
+				to_chat(user, SPAN_WARNING("\The [H] doesn't have a head."))
 				return
 			if(!H.has_eyes())
-				to_chat(user, "<span class='warning'>\The [H] doesn't have any eyes.</span>")
+				to_chat(user, SPAN_WARNING("\The [H] doesn't have any eyes."))
 				return
 			if(H.glasses)
-				to_chat(user, "<span class='warning'>\The [H] is already wearing something on their eyes.</span>")
+				to_chat(user, SPAN_WARNING("\The [H] is already wearing something on their eyes."))
 				return
 			if(H.head && (H.head.body_parts_covered & FACE))
-				to_chat(user, "<span class='warning'>Remove their [H.head] first.</span>")
+				to_chat(user, SPAN_WARNING("Remove their [H.head] first."))
 				return
-			user.visible_message("<span class='danger'>\The [user] begins taping over \the [H]'s eyes!</span>")
+			user.visible_message(SPAN_DANGER("\The [user] begins taping over \the [H]'s eyes!"))
 
 			if(!do_after(user, 3 SECONDS, H, DO_UNIQUE))
 				return
@@ -34,26 +35,26 @@
 				return
 
 			playsound(src, /singleton/sound_category/rip_sound, 25)
-			user.visible_message("<span class='danger'>\The [user] has taped up \the [H]'s eyes!</span>")
+			user.visible_message(SPAN_DANGER("\The [user] has taped up \the [H]'s eyes!"))
 			H.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/blindfold/tape(H), slot_glasses)
 			H.update_inv_glasses()
 
 		else if(target_zone == BP_MOUTH || target_zone == BP_HEAD)
 			if(!H.organs_by_name[BP_HEAD])
-				to_chat(user, "<span class='warning'>\The [H] doesn't have a head.</span>")
+				to_chat(user, SPAN_WARNING("\The [H] doesn't have a head."))
 				return
 			if(!H.check_has_mouth())
-				to_chat(user, "<span class='warning'>\The [H] doesn't have a mouth.</span>")
+				to_chat(user, SPAN_WARNING("\The [H] doesn't have a mouth."))
 				return
 			if(H.wear_mask)
-				to_chat(user, "<span class='warning'>\The [H] is already wearing a mask.</span>")
+				to_chat(user, SPAN_WARNING("\The [H] is already wearing a mask."))
 				return
 			if(H.head && (H.head.body_parts_covered & FACE))
-				to_chat(user, "<span class='warning'>Remove their [H.head] first.</span>")
+				to_chat(user, SPAN_WARNING("Remove their [H.head] first."))
 				return
 
 			playsound(src, /singleton/sound_category/rip_sound, 25)
-			user.visible_message("<span class='danger'>\The [user] begins taping up \the [H]'s mouth!</span>")
+			user.visible_message(SPAN_DANGER("\The [user] begins taping up \the [H]'s mouth!"))
 
 			if(!do_after(user, 3 SECONDS, H, DO_UNIQUE))
 				return
@@ -63,7 +64,7 @@
 				return
 
 			playsound(src, /singleton/sound_category/rip_sound,25)
-			user.visible_message("<span class='danger'>\The [user] has taped up \the [H]'s mouth!</span>")
+			user.visible_message(SPAN_DANGER("\The [user] has taped up \the [H]'s mouth!"))
 			H.equip_to_slot_or_del(new /obj/item/clothing/mask/muzzle/tape(H), slot_wear_mask)
 			H.update_inv_wear_mask()
 
@@ -92,8 +93,8 @@
 	desc = "A piece of sticky tape."
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "tape"
-	w_class = ITEMSIZE_TINY
-	layer = 4
+	w_class = WEIGHT_CLASS_TINY
+	layer = ABOVE_OBJ_LAYER
 	anchored = 1 //it's sticky, no you cant move it
 	drop_sound = null
 	var/obj/item/stuck = null
@@ -102,8 +103,10 @@
 	. = ..()
 	item_flags |= ITEM_FLAG_NO_BLUDGEON
 
-/obj/item/ducttape/examine(mob/user)
-	return stuck.examine(user)
+/obj/item/ducttape/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
+	SHOULD_CALL_PARENT(FALSE)
+
+	return stuck.examine(user, distance, is_adjacent, infix, suffix, show_extended)
 
 /obj/item/ducttape/proc/attach(var/obj/item/W)
 	stuck = W
@@ -136,8 +139,8 @@
 	var/dir_offset = 0
 	if(target_turf != source_turf)
 		dir_offset = get_dir(source_turf, target_turf)
-		if(!(dir_offset in GLOB.cardinal))
-			to_chat(user, "You cannot reach that from here.")		// can only place stuck papers in GLOB.cardinal directions, to)
+		if(!(dir_offset in GLOB.cardinals))
+			to_chat(user, "You cannot reach that from here.")		// can only place stuck papers in GLOB.cardinals directions, to)
 			return											// reduce papers around corners issue.
 
 	user.drop_from_inventory(src,source_turf)

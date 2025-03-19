@@ -36,11 +36,12 @@
 		can.pixel_y = positions[2]
 		underlays += can
 
-/obj/item/storage/box/fancy/yoke/MouseDrop(mob/user)
-	if(use_check_and_message(user))
+/obj/item/storage/box/fancy/yoke/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	var/mob/mob_dropped_over = over
+	if(use_check_and_message(mob_dropped_over))
 		return
-	to_chat(user, SPAN_NOTICE("You pick up \the [src]."))
-	user.put_in_hands(src)
+	to_chat(mob_dropped_over, SPAN_NOTICE("You pick up \the [src]."))
+	mob_dropped_over.put_in_hands(src)
 
 /obj/item/storage/box/fancy/yoke/attack_hand(mob/user)
 	if(!length(contents)) // no more cans, continue as normal
@@ -78,7 +79,9 @@
 			/obj/item/reagent_containers/food/drinks/cans/root_beer,
 			/obj/item/reagent_containers/food/drinks/cans/diet_cola,
 			/obj/item/reagent_containers/food/drinks/cans/peach_soda,
-			/obj/item/reagent_containers/food/drinks/cans/melon_soda
+			/obj/item/reagent_containers/food/drinks/cans/melon_soda,
+			/obj/item/reagent_containers/food/drinks/cans/himeokvass,
+			/obj/item/reagent_containers/food/drinks/cans/xanuchai
 		)
 		var/path = pick(soda_options)
 		if(starts_with[path])
@@ -93,7 +96,9 @@
 			/obj/item/reagent_containers/food/drinks/cans/beer,
 			/obj/item/reagent_containers/food/drinks/cans/beer/rice,
 			/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma,
-			/obj/item/reagent_containers/food/drinks/cans/beer/rice/moonlabor
+			/obj/item/reagent_containers/food/drinks/cans/beer/rice/moonlabor,
+			/obj/item/reagent_containers/food/drinks/cans/beer/earthmover,
+			/obj/item/reagent_containers/food/drinks/cans/beer/whistlingforest
 		)
 		var/path = pick(soda_options)
 		if(starts_with[path])
@@ -114,6 +119,11 @@
 /obj/item/storage/box/fancy/yoke/moonlabor
 	starts_with = list(/obj/item/reagent_containers/food/drinks/cans/beer/rice/moonlabor = 6)
 
+/obj/item/storage/box/fancy/yoke/earthmover
+	starts_with = list(/obj/item/reagent_containers/food/drinks/cans/beer/earthmover = 6)
+
+/obj/item/storage/box/fancy/yoke/whistlingforest
+	starts_with = list(/obj/item/reagent_containers/food/drinks/cans/beer/whistlingforest = 6)
 
 /obj/item/storage/box/fancy/yoke/energy
 	icon_state = "yoke_energy" //energy drinks are 2 pixels taller

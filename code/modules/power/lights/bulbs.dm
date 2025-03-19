@@ -7,7 +7,7 @@
 	icon = 'icons/obj/machinery/light.dmi'
 	force = 2
 	throwforce = 5
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	matter = list(DEFAULT_WALL_MATERIAL = 60)
 	drop_sound = 'sound/items/drop/drinkglass.ogg'
 	pickup_sound = 'sound/items/pickup/drinkglass.ogg'
@@ -36,25 +36,25 @@
 
 // update the icon state and description of the light
 /obj/item/light/proc/update()
-	cut_overlays()
+	ClearOverlays()
 	switch(status)
 		if(LIGHT_OK)
 			icon_state = "[lighttype]_attachment"
 			var/image/I = image(icon, "[lighttype]")
 			I.color = brightness_color
-			add_overlay(I)
+			AddOverlays(I)
 			desc = "A replacement [name]."
 		if(LIGHT_BURNED)
 			icon_state = "[lighttype]_attachment"
 			var/image/I = image(icon, "[lighttype]_burned")
 			I.color = brightness_color
-			add_overlay(I)
+			AddOverlays(I)
 			desc = "A burnt-out [name]."
 		if(LIGHT_BROKEN)
 			icon_state = "[lighttype]_attachment_broken"
 			var/image/I = image(icon, "[lighttype]_broken")
 			I.color = brightness_color
-			add_overlay(I)
+			AddOverlays(I)
 			desc = "A broken [name]."
 
 // attack bulb/tube with object
@@ -68,7 +68,7 @@
 
 		if(S.reagents.has_reagent(/singleton/reagent/toxin/phoron, 5))
 
-			log_admin("LOG: [user.name] ([user.ckey]) injected a light with phoron, rigging it to explode.",ckey=key_name(user))
+			log_admin("LOG: [user.name] ([user.ckey]) injected a light with phoron, rigging it to explode.")
 			message_admins("LOG: [user.name] ([user.ckey]) injected a light with phoron, rigging it to explode.")
 
 			rigged = TRUE
@@ -94,7 +94,7 @@
 	if(status == LIGHT_OK || status == LIGHT_BURNED)
 		visible_message(SPAN_WARNING("\The [src] shatters!"), SPAN_WARNING("You hear a small glass object shatter!"))
 		status = LIGHT_BROKEN
-		force = 5
+		force = 11
 		sharp = TRUE
 		playsound(get_turf(src), 'sound/effects/glass_hit.ogg', 75, TRUE)
 		new /obj/item/material/shard(get_turf(src))
@@ -138,7 +138,7 @@
 	brightness_color = LIGHT_COLOR_CYAN
 
 /obj/item/light/tube/large
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	name = "large light tube"
 	desc = "A replacement large light tube."
 	icon_state = "lstube_preset"
@@ -192,3 +192,8 @@
 /obj/item/light/throw_impact(atom/hit_atom)
 	..()
 	shatter()
+
+/obj/item/light/clean()
+	. = ..()
+	brightness_color = initial(brightness_color)
+	update()

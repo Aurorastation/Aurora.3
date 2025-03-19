@@ -105,9 +105,9 @@
 				user.drop_from_inventory(attacking_item,src)
 				state = 3
 			else
-				to_chat(user, "<span class='notice'>You can't put the item in right now.</span>")
+				to_chat(user, SPAN_NOTICE("You can't put the item in right now."))
 		else
-			to_chat(user, "<span class='notice'>The washing machine is full.</span>")
+			to_chat(user, SPAN_NOTICE("The washing machine is full."))
 	update_icon()
 	return ..()
 
@@ -128,7 +128,7 @@
 			crayon = null
 			state = 1
 		if(5)
-			to_chat(user, "<span class='warning'>\The [src] is busy.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] is busy."))
 		if(6)
 			state = 7
 		if(7)

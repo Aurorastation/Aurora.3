@@ -53,7 +53,7 @@
 	if(!control_area)
 		control_area = get_area(src)
 	else if(istext(control_area))
-		for(var/area/A in GLOB.all_areas)
+		for(var/area/A in get_sorted_areas())
 			if(A.name && A.name==control_area)
 				control_area = A
 				break
@@ -100,16 +100,16 @@
 	if(attacking_item.GetID())
 		if(src.allowed(usr))
 			if(emagged)
-				to_chat(user, "<span class='notice'>The turret control is unresponsive.</span>")
+				to_chat(user, SPAN_NOTICE("The turret control is unresponsive."))
 			else
 				locked = !locked
-				to_chat(user, "<span class='notice'>You [ locked ? "lock" : "unlock"] the panel.</span>")
+				to_chat(user, SPAN_NOTICE("You [ locked ? "lock" : "unlock"] the panel."))
 		return TRUE
 	return ..()
 
 /obj/machinery/turretid/emag_act(var/remaining_charges, var/mob/user)
 	if(!emagged)
-		to_chat(user, "<span class='danger'>You short out the turret controls' access analysis module.</span>")
+		to_chat(user, SPAN_DANGER("You short out the turret controls' access analysis module."))
 		emagged = 1
 		locked = 0
 		ailock = 0
@@ -156,7 +156,7 @@
 		if(control_area.turrets.len != LAZYLEN(data["turrets"]))
 			data["turrets"] = list()
 		for(var/obj/machinery/porta_turret/aTurret in control_area.turrets)
-			var/ref = "\ref[aTurret]"
+			var/ref = "[REF(aTurret)]"
 			data["turrets"] += list(list("name" = sanitize(aTurret.name + " [LAZYLEN(data["turrets"])]"), "ref" = ref, "settings" = aTurret.get_settings(), "enabled" = aTurret.enabled, "lethal" = aTurret.lethal))
 	return data
 

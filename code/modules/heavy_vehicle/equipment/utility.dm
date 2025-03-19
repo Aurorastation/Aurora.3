@@ -4,7 +4,7 @@
 	icon_state = "mecha_clamp"
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
 	restricted_software = list(MECH_SOFTWARE_UTILITY)
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	var/carrying_capacity = 5
 	var/list/obj/carrying = list()
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
@@ -190,7 +190,7 @@
 	desc = "An exosuit-mounted light."
 	icon_state = "mech_floodlight"
 	restricted_hardpoints = list(HARDPOINT_HEAD)
-	mech_layer = MECH_DECAL_LAYER
+	mech_layer = MECH_GEAR_LAYER
 
 	var/on = 0
 	var/brightness_on = 12		//can't remember what the maxed out value is
@@ -209,7 +209,7 @@
 	update_icon()
 	owner.update_icon()
 	active = on
-	passive_power_use = on ? 0.1 KILOWATTS : 0
+	passive_power_use = on ? 0.1 KILO WATTS : 0
 
 /obj/item/mecha_equipment/light/deactivate()
 	if(on)
@@ -244,11 +244,62 @@
 	origin_tech = list(TECH_MATERIAL = 4, TECH_ENGINEERING = 4, TECH_MAGNET = 4)
 	require_adjacent = FALSE
 
+	///For when targetting a single object, will create a warp beam
+	var/datum/beam = null
+	var/max_dist = 6
+	var/obj/effect/effect/warp/small/warpeffect = null
+
+/obj/effect/ebeam/warp
+	plane = WARP_EFFECT_PLANE
+	appearance_flags = DEFAULT_APPEARANCE_FLAGS | TILE_BOUND | NO_CLIENT_COLOR
+	z_flags = ZMM_IGNORE
+
+/obj/effect/effect/warp/small
+	plane = WARP_EFFECT_PLANE
+	appearance_flags = PIXEL_SCALE | NO_CLIENT_COLOR
+	icon = 'icons/effects/96x96.dmi'
+	icon_state = "singularity_s3"
+	pixel_x = -32
+	pixel_y = -32
+	z_flags = ZMM_IGNORE
+
+/obj/item/mecha_equipment/catapult/proc/beamdestroyed()
+	if(beam)
+		UnregisterSignal(beam, COMSIG_QDELETING)
+		beam = null
+	if(locked)
+		if(owner)
+			for(var/pilot in owner.pilots)
+				to_chat(pilot, SPAN_NOTICE("Lock on \the [locked] disengaged."))
+		endanimation()
+		locked = null
+	//It's possible beam self destroyed, match active
+	if(active)
+		deactivate()
+
+/obj/item/mecha_equipment/catapult/proc/endanimation()
+	if(locked)
+		animate(locked,pixel_y= initial(locked.pixel_y), time = 0)
+
+/obj/item/mecha_equipment/catapult/get_hardpoint_maptext()
+	var/string
+	if(locked)
+		string = locked.name + " - "
+	if(mode == 1)
+		string += "Pull"
+	else string += "Push"
+	return string
+
+/obj/item/mecha_equipment/catapult/deactivate()
+	. = ..()
+	if(beam)
+		QDEL_NULL(beam)
+
 /obj/item/mecha_equipment/catapult/attack_self(var/mob/user)
 	. = ..()
 	if(.)
 		mode = mode == CATAPULT_SINGLE ? CATAPULT_AREA : CATAPULT_SINGLE
-		to_chat(user, "<span class='notice'>You set \the [src] to [mode == CATAPULT_SINGLE ? "single" : "multi"]-target mode.</span>")
+		to_chat(user, SPAN_NOTICE("You set \the [src] to [mode == CATAPULT_SINGLE ? "single" : "multi"]-target mode."))
 		update_icon()
 
 /obj/item/mecha_equipment/catapult/afterattack(var/atom/target, var/mob/living/user, var/inrange, var/params)
@@ -264,18 +315,40 @@
 						to_chat(user, SPAN_NOTICE("Unable to lock on [target]."))
 						return
 					locked = AM
+					beam = owner.Beam(BeamTarget = target, icon_state = "r_beam", maxdistance = max_dist, beam_type = /obj/effect/ebeam/warp)
+					RegisterSignal(beam, COMSIG_QDELETING, PROC_REF(beamdestroyed))
+
+					animate(target,pixel_y= initial(target.pixel_y) - 2,time=1 SECOND, easing = SINE_EASING, flags = ANIMATION_PARALLEL, loop = -1)
+					animate(pixel_y= initial(target.pixel_y) + 2,time=1 SECOND)
+
+					active=TRUE
 					to_chat(user, SPAN_NOTICE("Locked onto \the [AM]."))
 					return
 				else if(target != locked)
 					if(locked in view(owner))
 						INVOKE_ASYNC(locked, TYPE_PROC_REF(/atom/movable, throw_at), target, 14, 1.5, owner)
 						log_and_message_admins("used [src] to throw [locked] at [target].", user, owner.loc)
+						endanimation()
 						locked = null
+						deactivate()
 						owner.use_cell_power(active_power_use * CELLRATE)
 					else
 						locked = null
 						to_chat(user, SPAN_NOTICE("Lock on \the [locked] disengaged."))
+						deactivate()
 			if(CATAPULT_AREA)
+				if(!warpeffect)
+					warpeffect = new
+				warpeffect.forceMove(get_turf(target))
+				var/matrix/start = matrix()
+				start.Scale(0)
+				var/matrix/end= matrix()
+				end.Scale(1)
+				warpeffect.alpha = 255
+				warpeffect.transform = start
+				animate(warpeffect,transform = end, alpha = 0, time= 1.25 SECONDS)
+				addtimer(CALLBACK(warpeffect, /atom/movable/proc/forceMove, null), 1.25 SECONDS)
+
 				var/list/atoms = list()
 				if(isturf(target))
 					atoms = range(target,3)
@@ -339,7 +412,7 @@
 	. = ..()
 	if(.)
 		if(drill_head)
-			owner.visible_message("<span class='warning'>[owner] revs the [drill_head], menacingly.</span>")
+			owner.visible_message(SPAN_WARNING("[owner] revs the [drill_head], menacingly."))
 			playsound(get_turf(src), 'sound/mecha/mechdrill.ogg', 50, 1)
 
 /obj/item/mecha_equipment/drill/get_hardpoint_maptext()
@@ -357,19 +430,19 @@
 		if(istype(target,/obj/item/material/drill_head))
 			var/obj/item/material/drill_head/DH = target
 			if(drill_head)
-				owner.visible_message("<span class='notice'>\The [owner] detaches the [drill_head] mounted on the [src].</span>")
+				owner.visible_message(SPAN_NOTICE("\The [owner] detaches the [drill_head] mounted on the [src]."))
 				drill_head.forceMove(owner.loc)
 			DH.forceMove(src)
 			drill_head = DH
-			owner.visible_message("<span class='notice'>\The [owner] mounts the [drill_head] on the [src].</span>")
+			owner.visible_message(SPAN_NOTICE("\The [owner] mounts the [drill_head] on the [src]."))
 			return
 
 		if(drill_head == null)
-			to_chat(user, "<span class='warning'>Your drill doesn't have a head!</span>")
+			to_chat(user, SPAN_WARNING("Your drill doesn't have a head!"))
 			return
 
 		owner.use_cell_power(active_power_use * CELLRATE)
-		owner.visible_message("<span class='danger'>\The [owner] starts to drill \the [target]</span>", "<span class='warning'>You hear a large drill.</span>")
+		owner.visible_message(SPAN_DANGER("\The [owner] starts to drill \the [target]"), SPAN_WARNING("You hear a large drill."))
 
 		var/T = target.loc
 
@@ -385,7 +458,7 @@
 				if(istype(target, /turf/simulated/wall))
 					var/turf/simulated/wall/W = target
 					if(max(W.material.hardness, W.reinf_material ? W.reinf_material.hardness : 0) > drill_head.material.hardness)
-						to_chat(user, "<span class='warning'>\The [target] is too hard to drill through with this drill head.</span>")
+						to_chat(user, SPAN_WARNING("\The [target] is too hard to drill through with this drill head."))
 					target.ex_act(2)
 					drill_head.durability -= 1
 					log_and_message_admins("used [src] on the wall [W].", user, owner.loc)
@@ -407,8 +480,8 @@
 								for(var/obj/item/ore/ore in range(owner,1))
 									if(get_dir(owner,ore)&owner.dir)
 										ore.Move(ore_box)
-				else if(istype(target, /turf/unsimulated/floor/asteroid))
-					for(var/turf/unsimulated/floor/asteroid/M in range(owner,1))
+				else if(istype(target, /turf/simulated/floor/exoplanet/asteroid))
+					for(var/turf/simulated/floor/exoplanet/asteroid/M in range(owner,1))
 						if(get_dir(owner,M)&owner.dir)
 							M.gets_dug()
 							drill_head.durability -= 1
@@ -548,7 +621,7 @@
 
 /obj/item/mecha_equipment/autolathe/afterattack(atom/target, mob/living/user, inrange, params)
 	. = ..()
-	if(istype(target, /obj/item/stack/material/steel) || istype(target, /obj/item/stack/material/glass))
+	if(is_type_in_list(target, list(/obj/item/stack/material/steel, /obj/item/stack/material/glass, /obj/item/stack/material/aluminium, /obj/item/stack/material/lead, /obj/item/stack/material/plastic)))
 		owner.visible_message(SPAN_NOTICE("\The [owner] loads \the [target] into \the [src]."))
 		lathe.attackby(target, owner)
 
@@ -633,7 +706,7 @@
 	desc = "A large back-mounted device with installed hydraulics, capable of quickly lifting the user into their piloting seat."
 	icon_state = "mecha_quickie"
 	restricted_hardpoints = list(HARDPOINT_BACK)
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 3)
 
 /obj/item/mecha_equipment/quick_enter/installed()
@@ -656,9 +729,9 @@
 	desc_info = "It needs an anomaly core to function. You can install some simply by using a core on it."
 	icon_state = "mecha_phazon"
 	restricted_hardpoints = list(HARDPOINT_BACK)
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	origin_tech = list(TECH_MATERIAL = 6, TECH_ENGINEERING = 6, TECH_BLUESPACE = 6)
-	active_power_use = 88 KILOWATTS
+	active_power_use = 88 KILO WATTS
 
 	var/obj/item/anomaly_core/AC
 	var/image/anomaly_overlay
@@ -674,16 +747,16 @@
 		desc_info = "\The [src] has an anomaly core installed! You can use a wrench to remove it."
 		anomaly_overlay = image(AC.icon, null, AC.icon_state)
 		anomaly_overlay.pixel_y = 3
-		add_overlay(anomaly_overlay)
+		AddOverlays(anomaly_overlay)
 		return TRUE
 	if(attacking_item.iswrench())
 		if(!AC)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have an anomaly core installed!"))
 			return TRUE
 		to_chat(user, SPAN_NOTICE("You remove \the [AC] from \the [src]."))
-		playsound(loc, attacking_item.usesound, 50, TRUE)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		user.put_in_hands(AC)
-		cut_overlay(anomaly_overlay)
+		CutOverlays(anomaly_overlay)
 		qdel(anomaly_overlay)
 		AC = null
 		if(owner)

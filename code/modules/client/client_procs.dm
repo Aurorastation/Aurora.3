@@ -1,7 +1,7 @@
-var/list/localhost_addresses = list(
+GLOBAL_LIST_INIT(localhost_addresses, list(
 	"127.0.0.1" = TRUE,
 	"::1" = TRUE
-)
+))
 
 	////////////
 	//SECURITY//
@@ -25,7 +25,8 @@ var/list/localhost_addresses = list(
 	If you have any  questions about this stuff feel free to ask. ~Carn
 	*/
 
-/client/Topic(href, href_list, hsrc)
+//the undocumented 4th argument is for ?[0x\ref] style topic links. hsrc is set to the reference and anything after the ] gets put into hsrc_command
+/client/Topic(href, href_list, hsrc, hsrc_command)
 	if(!usr || usr != mob)	//stops us calling Topic for somebody else's client. Also helps prevent usr=null
 		return
 
@@ -102,7 +103,7 @@ var/list/localhost_addresses = list(
 
 	if(href_list["discord_msg"])
 		if(!holder && received_discord_pm < world.time - 6000) //Worse they can do is spam IRC for 10 minutes
-			to_chat(usr, "<span class='warning'>You are no longer able to use this, it's been more then 10 minutes since an admin on Discord has responded to you</span>")
+			to_chat(usr, SPAN_WARNING("You are no longer able to use this, it's been more then 10 minutes since an admin on Discord has responded to you"))
 			return
 		if(mute_discord)
 			to_chat(usr, "<span class='warning'You cannot use this as your client has been muted from sending messages to the admins on Discord</span>")
@@ -145,7 +146,7 @@ var/list/localhost_addresses = list(
 		var/request_id = text2num(href_list["linkingrequest"])
 
 		if (!establish_db_connection(GLOB.dbcon))
-			to_chat(src, "<span class='warning'>Action failed! Database link could not be established!</span>")
+			to_chat(src, SPAN_WARNING("Action failed! Database link could not be established!"))
 			return
 
 
@@ -153,11 +154,11 @@ var/list/localhost_addresses = list(
 		check_query.Execute(list("id" = request_id))
 
 		if (!check_query.NextRow())
-			to_chat(src, "<span class='warning'>No request found!</span>")
+			to_chat(src, SPAN_WARNING("No request found!"))
 			return
 
 		if (ckey(check_query.item[1]) != ckey || check_query.item[2] != "new")
-			to_chat(src, "<span class='warning'>Request authentication failed!</span>")
+			to_chat(src, SPAN_WARNING("Request authentication failed!"))
 			return
 
 		var/query_contents = ""
@@ -169,15 +170,15 @@ var/list/localhost_addresses = list(
 				query_details["new_status"] = "confirmed"
 				query_details["id"] = request_id
 
-				feedback_message = "<span class='good'><b>Account successfully linked!</b></span>"
+				feedback_message = SPAN_DANGER("<b>Account successfully linked!</b>")
 			if ("deny")
 				query_contents = "UPDATE ss13_player_linking SET status = :new_status:, deleted_at = NOW() WHERE id = :id:"
 				query_details["new_status"] = "rejected"
 				query_details["id"] = request_id
 
-				feedback_message = "<span class='warning'><b>Link request rejected!</b></span>"
+				feedback_message = SPAN_WARNING("<b>Link request rejected!</b>")
 			else
-				to_chat(src, "<span class='warning'>Invalid command sent.</span>")
+				to_chat(src, SPAN_WARNING("Invalid command sent."))
 				return
 
 		var/DBQuery/update_query = GLOB.dbcon.NewQuery(query_contents)
@@ -216,7 +217,7 @@ var/list/localhost_addresses = list(
 			// Forum link from various panels.
 			if ("github")
 				if (!GLOB.config.githuburl)
-					to_chat(src, "<span class='danger'>GitHub URL not set in the config. Unable to open the site.</span>")
+					to_chat(src, SPAN_DANGER("GitHub URL not set in the config. Unable to open the site."))
 				else if (alert("This will open the GitHub page in your browser. Are you sure?",, "Yes", "No") == "Yes")
 					if (href_list["pr"])
 						var/pr_link = "[GLOB.config.githuburl]pull/[href_list["pr"]]"
@@ -235,19 +236,6 @@ var/list/localhost_addresses = list(
 			// Web interface href link from various panels.
 			if ("webint")
 				src.open_webint()
-
-			// Handle the updating of MotD and Memo tabs upon click.
-			if ("updateHashes")
-				var/save = 0
-				if (href_list["#motd-tab"])
-					src.prefs.motd_hash = href_list["#motd-tab"]
-					save = 1
-				if (href_list["#memo-tab"])
-					src.prefs.memo_hash = href_list["#memo-tab"]
-					save = 1
-
-				if (save)
-					src.prefs.save_preferences()
 
 		return
 
@@ -270,7 +258,16 @@ var/list/localhost_addresses = list(
 		if(QDELETED(real_src))
 			return
 
+	//fun fact: Topic() acts like a verb and is executed at the end of the tick like other verbs. So we have to queue it if the server is
+	//overloaded
+	if(hsrc && hsrc != holder && DEFAULT_TRY_QUEUE_VERB(VERB_CALLBACK(src, PROC_REF(_Topic), hsrc, href, href_list)))
+		return
 	..()	//redirect to hsrc.Topic()
+
+///dumb workaround because byond doesnt seem to recognize the Topic() typepath for /datum/proc/Topic() from the client Topic,
+///so we cant queue it without this
+/client/proc/_Topic(datum/hsrc, href, list/href_list)
+	return hsrc.Topic(href, href_list)
 
 /proc/client_by_ckey(ckey)
 	return GLOB.directory[ckey]
@@ -285,7 +282,7 @@ var/list/localhost_addresses = list(
 
 		if (spam_alert > 3 && !(prefs.muted & mute_type))
 			cmd_admin_mute(src.mob, mute_type, 1)
-			to_chat(src, "<span class='danger'>You have tripped the macro-trigger. An auto-mute was applied.</span>")
+			to_chat(src, SPAN_DANGER("You have tripped the macro-trigger. An auto-mute was applied."))
 			LOG_DEBUG("SPAM_PROTECT: [src] tripped macro-trigger, now muted.")
 			return TRUE
 
@@ -303,13 +300,13 @@ var/list/localhost_addresses = list(
 		LOG_DEBUG("SPAM_PROTECT: [src] tripped duplicate message filter. Last message count: [last_message_count]. Message: [message]")
 
 		if(last_message_count >= SPAM_TRIGGER_AUTOMUTE)
-			to_chat(src, "<span class='danger'>You have exceeded the spam filter limit for identical messages. An auto-mute was applied.</span>")
+			to_chat(src, SPAN_DANGER("You have exceeded the spam filter limit for identical messages. An auto-mute was applied."))
 			cmd_admin_mute(mob, mute_type, 1)
 			LOG_DEBUG("SPAM_PROTECT: [src] tripped duplicate message filter, now muted.")
 			last_message_count = 0
 			return TRUE
 		else if(last_message_count >= SPAM_TRIGGER_WARNING)
-			to_chat(src, "<span class='danger'>You are nearing the spam filter limit for identical messages.</span>")
+			to_chat(src, SPAN_DANGER("You are nearing the spam filter limit for identical messages."))
 			LOG_DEBUG("SPAM_PROTECT: [src] tripped duplicate message filter, now warned.")
 			return FALSE
 	else
@@ -321,7 +318,7 @@ var/list/localhost_addresses = list(
 	. = FALSE
 
 	if (prefs.muted & mute_type)
-		to_chat(src, "<span class='warning'>You are muted and cannot send messages.</span>")
+		to_chat(src, SPAN_WARNING("You are muted and cannot send messages."))
 		. = TRUE
 	else if (GLOB.config.automute_on && !holder && length(message))
 		. = . || automute_by_time(mute_type)
@@ -334,13 +331,13 @@ var/list/localhost_addresses = list(
 //This stops files larger than UPLOAD_LIMIT being sent from client to server via input(), client.Import() etc.
 /client/AllowUpload(filename, filelength)
 	if(filelength > UPLOAD_LIMIT)
-		to_chat(src, "<span class='warning'>Error: AllowUpload(): File Upload too large. Upload Limit: [UPLOAD_LIMIT/1024]KiB.</span>")
+		to_chat(src, SPAN_WARNING("Error: AllowUpload(): File Upload too large. Upload Limit: [UPLOAD_LIMIT/1024]KiB."))
 		return 0
 /*	//Don't need this at the moment. But it's here if it's needed later.
 	//Helps prevent multiple files being uploaded at once. Or right after eachother.
 	var/time_to_wait = fileaccess_timer - world.time
 	if(time_to_wait > 0)
-		to_chat(src, "<span class='warning'>Error: AllowUpload(): Spam prevention. Please wait [round(time_to_wait/10)] seconds.</span>")
+		to_chat(src, SPAN_WARNING("Error: AllowUpload(): Spam prevention. Please wait [round(time_to_wait/10)] seconds."))
 		return 0
 	fileaccess_timer = world.time + FTPDELAY	*/
 	return 1
@@ -362,6 +359,8 @@ var/list/localhost_addresses = list(
 		del(src)
 		return
 
+	dir = NORTH
+
 	GLOB.clients += src
 	GLOB.directory[ckey] = src
 	connection_time = world.time
@@ -371,7 +370,7 @@ var/list/localhost_addresses = list(
 	if (LAZYLEN(GLOB.config.client_blacklist_version))
 		var/client_version = "[byond_version].[byond_build]"
 		if (client_version in GLOB.config.client_blacklist_version)
-			to_chat_immediate(src, "<span class='danger'><b>Your version of BYOND is explicitly blacklisted from joining this server!</b></span>")
+			to_chat_immediate(src, SPAN_DANGER("<b>Your version of BYOND is explicitly blacklisted from joining this server!</b>"))
 			to_chat_immediate(src, "Your current version: [client_version].")
 			to_chat_immediate(src, "Visit http://www.byond.com/download/ to download a different version. Try looking for a newer one, or go one lower.")
 			log_access("Failed Login: [key] [computer_id] [address] - Blacklisted BYOND version: [client_version].")
@@ -420,15 +419,16 @@ var/list/localhost_addresses = list(
 		to_chat(src, SPAN_WARNING("Unable to access asset cache browser, if you are using a custom skin file, please allow DS to download the updated version, if you are not, then make a bug report. This is not a critical issue but can cause issues with resource downloading, as it is impossible to know when extra resources arrived to you."))
 
 	Master.UpdateTickRate()
+	fully_created = TRUE
 
 /client/proc/InitPrefs()
 	SHOULD_NOT_SLEEP(TRUE)
 
 	//preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum)
-	prefs = preferences_datums[ckey]
+	prefs = GLOB.preferences_datums[ckey]
 	if(!prefs)
 		prefs = new /datum/preferences(src)
-		preferences_datums[ckey] = prefs
+		GLOB.preferences_datums[ckey] = prefs
 
 		prefs.gather_notifications(src)
 	prefs.client = src					// Safety reasons here.
@@ -438,14 +438,17 @@ var/list/localhost_addresses = list(
 		fps = prefs.clientfps
 
 	if(prefs.toggles_secondary & FULLSCREEN_MODE)
-		toggle_fullscreen(TRUE)
+		addtimer(CALLBACK(src, VERB_REF(toggle_fullscreen), 1 SECONDS))
+
+	if(prefs.toggles_secondary & CLIENT_PREFERENCE_HIDE_MENU)
+		addtimer(CALLBACK(src, VERB_REF(toggle_menu), 1 SECONDS))
 
 /client/proc/InitClient()
 	SHOULD_NOT_SLEEP(TRUE)
 
 	to_chat_immediate(src, SPAN_ALERT("If the title screen is black, resources are still downloading. Please be patient until the title screen appears."))
 
-	var/local_connection = (GLOB.config.auto_local_admin && !GLOB.config.use_forumuser_api && (isnull(address) || localhost_addresses[address]))
+	var/local_connection = (GLOB.config.auto_local_admin && !GLOB.config.use_forumuser_api && (isnull(address) || GLOB.localhost_addresses[address]))
 	// Automatic admin rights for people connecting locally.
 	// Concept stolen from /tg/ with deepest gratitude.
 	// And ported from Nebula with love.
@@ -461,7 +464,7 @@ var/list/localhost_addresses = list(
 	log_client_to_db()
 
 	if (byond_version < GLOB.config.client_error_version)
-		to_chat_immediate(src, "<span class='danger'><b>Your version of BYOND is too old!</b></span>")
+		to_chat_immediate(src, SPAN_DANGER("<b>Your version of BYOND is too old!</b>"))
 		to_chat_immediate(src, GLOB.config.client_error_message)
 		to_chat_immediate(src, "Your version: [byond_version].")
 		to_chat_immediate(src, "Required version: [GLOB.config.client_error_version] or later.")
@@ -476,17 +479,17 @@ var/list/localhost_addresses = list(
 	// New player, and we don't want any.
 	if (!holder)
 		if (GLOB.config.access_deny_new_players && player_age == -1)
-			log_access("Failed Login: [key] [computer_id] [address] - New player attempting connection during panic bunker.", ckey = ckey)
+			log_access("Failed Login: [key] [computer_id] [address] - New player attempting connection during panic bunker.")
 			message_admins("Failed Login: [key] [computer_id] [address] - New player attempting connection during panic bunker.")
-			to_chat_immediate(src, "<span class='danger'>Apologies, but the server is currently not accepting connections from never before seen players.</span>")
+			to_chat_immediate(src, SPAN_DANGER("Apologies, but the server is currently not accepting connections from never before seen players."))
 			del(src)
 			return 0
 
 		// Check if the account is too young.
 		if (GLOB.config.access_deny_new_accounts != -1 && account_age != -1 && account_age <= GLOB.config.access_deny_new_accounts)
-			log_access("Failed Login: [key] [computer_id] [address] - Account too young to play. [account_age] days.", ckey = ckey)
+			log_access("Failed Login: [key] [computer_id] [address] - Account too young to play. [account_age] days.")
 			message_admins("Failed Login: [key] [computer_id] [address] - Account too young to play. [account_age] days.")
-			to_chat_immediate(src, "<span class='danger'>Apologies, but the server is currently not accepting connections from BYOND accounts this young.</span>")
+			to_chat_immediate(src, SPAN_DANGER("Apologies, but the server is currently not accepting connections from BYOND accounts this young."))
 			del(src)
 			return 0
 
@@ -630,7 +633,7 @@ var/list/localhost_addresses = list(
 	var/static/next_external_rsc = 0
 	var/list/external_rsc_urls = GLOB.config.external_rsc_urls
 	if(length(external_rsc_urls))
-		next_external_rsc = Wrap(next_external_rsc+1, 1, external_rsc_urls.len+1)
+		next_external_rsc = WRAP(next_external_rsc+1, 1, external_rsc_urls.len+1)
 		preload_rsc = external_rsc_urls[next_external_rsc]
 #endif
 
@@ -655,35 +658,57 @@ var/list/localhost_addresses = list(
 
 /client/verb/character_setup()
 	set name = "Character Setup"
-	set category = "Preferences"
+	set category = "Preferences.Character"
 	if(prefs)
 		prefs.ShowChoices(usr)
 
 /client/verb/toggle_fullscreen_preference()
 	set name = "Toggle Fullscreen Preference"
-	set category = "Preferences"
+	set category = "Preferences.Menu"
 	set desc = "Toggles whether the game window will be true fullscreen or normal."
 
 	prefs.toggles_secondary ^= FULLSCREEN_MODE
 	prefs.save_preferences()
-	toggle_fullscreen(prefs.toggles_secondary & FULLSCREEN_MODE)
+	if(prefs.toggles_secondary & FULLSCREEN_MODE)
+		toggle_fullscreen()
+
+/client/verb/toggle_hide_menu_preference()
+	set name = "Toggle Hide Menu Preference"
+	set category = "Preferences.Menu"
+	set desc = "Toggles whether the game window will have the top menu bar hidden or not."
+
+	prefs.toggles_secondary ^= CLIENT_PREFERENCE_HIDE_MENU
+	prefs.save_preferences()
+	if(prefs.toggles_secondary & CLIENT_PREFERENCE_HIDE_MENU)
+		toggle_menu()
 
 /client/verb/toggle_accent_tag_text()
 	set name = "Toggle Accent Tag Text"
-	set category = "Preferences"
+	set category = "Preferences.Game"
 	set desc = "Toggles whether accents will be shown as text or images.."
+
+	to_chat(usr, SPAN_NOTICE("You toggle the accent tag text [(prefs?.toggles_secondary & ACCENT_TAG_TEXT) ? "off" : "on"]."))
 
 	prefs.toggles_secondary ^= ACCENT_TAG_TEXT
 	prefs.save_preferences()
 
-/client/proc/toggle_fullscreen(new_value)
-	if(new_value)
-		winset(src, "mainwindow", "is-maximized=false;can-resize=false;titlebar=false;menu=menu")
-		winset(src, "mainwindow.mainvsplit", "pos=0x0")
-	else
-		winset(src, "mainwindow", "is-maximized=false;can-resize=true;titlebar=true;menu=menu")
-		winset(src, "mainwindow.mainvsplit", "pos=3x0")
-	winset(src, "mainwindow", "is-maximized=true")
+/client/verb/toggle_fullscreen()
+	set name = "Toggle Fullscreen"
+	set category = "Preferences.Menu"
+
+	fullscreen = !fullscreen
+
+	winset(src, "mainwindow", "menu=[fullscreen ? "" : "menu"];is-fullscreen=[fullscreen ? "true" : "false"];titlebar=[fullscreen ? "false" : "true"]")
+	attempt_auto_fit_viewport()
+
+/client/verb/toggle_menu()
+	set name = "Toggle Menu"
+	set category = "Preferences.Menu"
+
+	var/has_menu = winget(src, "mainwindow", "menu")
+
+	winset(src, "mainwindow", "menu=[has_menu ? "" : "menu"]")
+	attempt_auto_fit_viewport()
 
 /client/proc/apply_fps(var/client_fps)
 	if(world.byond_version >= 511 && byond_version >= 511 && client_fps >= 0 && client_fps <= 1000)
@@ -724,12 +749,12 @@ var/list/localhost_addresses = list(
 		var/linked_forum_name = null
 		if (GLOB.config.forumurl)
 			var/route_attributes = list2params(list("mode" = "viewprofile", "u" = request["forum_id"]))
-			linked_forum_name = "<a href='byond://?src=\ref[src];routeWebInt=forums/members;routeAttributes=[route_attributes]'>[request["forum_username"]]</a>"
+			linked_forum_name = "<a href='byond://?src=[REF(src)];routeWebInt=forums/members;routeAttributes=[route_attributes]'>[request["forum_username"]]</a>"
 
 		dat += "<hr>"
 		dat += "#[i] - Request to link your current key ([key]) to a forum account with the username of: <b>[linked_forum_name ? linked_forum_name : request["forum_username"]]</b>.<br>"
 		dat += "The request is [request["request_age"]] days old.<br>"
-		dat += "OPTIONS: <a href='byond://?src=\ref[src];linkingrequest=[request["id"]];linkingaction=accept'>Accept Request</a> | <a href='byond://?src=\ref[src];linkingrequest=[request["id"]];linkingaction=deny'>Deny Request</a>"
+		dat += "OPTIONS: <a href='byond://?src=[REF(src)];linkingrequest=[request["id"]];linkingaction=accept'>Accept Request</a> | <a href='byond://?src=[REF(src)];linkingrequest=[request["id"]];linkingaction=deny'>Deny Request</a>"
 
 	src << browse(dat, "window=LinkingRequests")
 	return
@@ -746,7 +771,7 @@ var/list/localhost_addresses = list(
 
 	if (select_query.NextRow())
 		if (text2num(select_query.item[1]) > 0)
-			return "You have [select_query.item[1]] account linking requests pending review. Click <a href='?JSlink=linking;notification=:src_ref'>here</a> to see them!"
+			return "You have [select_query.item[1]] account linking requests pending review. Click <a href='byond://?JSlink=linking;notification=:src_ref'>here</a> to see them!"
 
 	return null
 
@@ -801,7 +826,7 @@ var/list/localhost_addresses = list(
 			if (!holder)
 				message_admins("Proxy Detection: [key_name_admin(src)] IP intel rated [res.intel*100]% likely to be a proxy/VPN. They are being kicked because of this.")
 				log_admin("Proxy Detection: [key_name_admin(src)] IP intel rated [res.intel*100]% likely to be a proxy/VPN. They are being kicked because of this.")
-				to_chat(src, "<span class='danger'>Usage of proxies is not permitted by the rules. You are being kicked because of this.</span>")
+				to_chat(src, SPAN_DANGER("Usage of proxies is not permitted by the rules. You are being kicked because of this."))
 				del(src)
 			else
 				message_admins("Proxy Detection: [key_name_admin(src)] IP intel rated [res.intel*100]% likely to be a Proxy/VPN.")
@@ -822,7 +847,17 @@ var/list/localhost_addresses = list(
 		else
 			CRASH("Age check regex failed for [src.ckey]")
 
+/client/Click(atom/object, atom/location, control, params)
+	SEND_SIGNAL(src, COMSIG_CLIENT_CLICK, object, location, control, params, usr)
+	..()
+
 /client/MouseDrag(src_object, over_object, src_location, over_location, src_control, over_control, params)
+	var/list/modifiers = params2list(params)
+
+	if(!drag_start) // If we're just starting to drag
+		drag_start = world.time
+		drag_details = modifiers.Copy()
+
 	. = ..()
 
 	if(over_object)
@@ -830,11 +865,6 @@ var/list/localhost_addresses = list(
 			autofire_aiming_at[1] = over_object
 			autofire_aiming_at[2] = params
 		var/mob/living/M = mob
-		if(istype(get_turf(over_object), /atom))
-			var/atom/A = get_turf(over_object)
-			if(src && src.buildmode)
-				build_click(M, src.buildmode, params, A)
-				return
 
 		if(istype(M) && !M.incapacitated())
 			var/obj/item/I = M.get_active_hand()
@@ -845,32 +875,90 @@ var/list/localhost_addresses = list(
 
 	CHECK_TICK
 
-/client/MouseDown(object, location, control, params)
+/client/MouseDrop(atom/src_object, atom/over_object, atom/src_location, atom/over_location, src_control, over_control, params)
+	SHOULD_NOT_OVERRIDE(TRUE)
+
+	..()
+	drag_start = 0
+	drag_details = null
+
+/client/MouseDown(datum/object, location, control, params)
+	if(QDELETED(object)) //Yep, you can click on qdeleted things before they have time to nullspace. Fun.
+		return
+	SEND_SIGNAL(src, COMSIG_CLIENT_MOUSEDOWN, object, location, control, params)
+
 	var/obj/item/I = mob.get_active_hand()
 	var/obj/O = object
 	if(istype(I, /obj/item/gun) && !mob.in_throw_mode)
 		var/obj/item/gun/G = I
-		if(G.can_autofire(O, location, params) && O.is_auto_clickable() && !(G.safety()) && !(G == O))
-			autofire_aiming_at[1] = O
-			autofire_aiming_at[2] = params
-			var/accuracy_dec = 0
-			while(autofire_aiming_at[1])
-				G.Fire(autofire_aiming_at[1], mob, autofire_aiming_at[2], (get_dist(mob, location) <= 1), FALSE, accuracy_dec)
-				mob.set_dir(get_dir(mob, autofire_aiming_at[1]))
-				accuracy_dec = min(accuracy_dec + 0.25, 2)
-				sleep(G.fire_delay)
-			CHECK_TICK
+
+		// check if our gun can even autofire
+		var/can_autofire = G.can_autofire(O, location, params)
+		if(!can_autofire)
+			return
+
+		// check if the object we're clicking is auto clickable
+		var/can_autoclick_object = O.is_auto_clickable()
+		if(!can_autoclick_object)
+			return
+
+		// check if safety should block the shot
+		var/not_on_safety = mob.a_intent == I_HURT || (!G.safety())
+		if(!not_on_safety)
+			return
+
+		// check that we're not shooting anything on our person
+		var/object_not_on_us = O.loc != mob
+		if(!object_not_on_us)
+			return
+
+		// check whether we're putting it in a storage item / table / locker
+		var/object_not_storage_item = TRUE
+
+		var/is_adjacent_to_object = get_last_atom_before_turf(G) == mob
+		if(!is_adjacent_to_object)
+			var/distance_to_object = get_dist(mob, location)
+			is_adjacent_to_object = distance_to_object <= 1
+
+		if(is_adjacent_to_object) // if we're not next to it, blast it
+			var/list/storage_types = list(
+				/obj/item/storage,
+				/obj/structure/table,
+				/obj/structure/closet
+			)
+			var/is_storage_item = is_type_in_list(O, storage_types)
+			if(!is_storage_item)
+				is_storage_item = locate(/obj/item/storage) in O // some items will have storage within themselves
+			object_not_storage_item = !is_storage_item
+
+		if(!object_not_storage_item)
+			return
+
+		autofire_aiming_at[1] = O
+		autofire_aiming_at[2] = params
+
+		var/accuracy_dec = 0
+		while(autofire_aiming_at[1])
+			// stop shooting if we drop our gun
+			if(G.loc != mob)
+				break
+			G.Fire(autofire_aiming_at[1], mob, autofire_aiming_at[2], (get_dist(mob, location) <= 1), FALSE, accuracy_dec)
+			mob.set_dir(get_dir(mob, autofire_aiming_at[1]))
+			accuracy_dec = min(accuracy_dec + 0.25, 2)
+			sleep(G.fire_delay)
 
 /client/MouseUp(object, location, control, params)
+	if(SEND_SIGNAL(src, COMSIG_CLIENT_MOUSEUP, object, location, control, params) & COMPONENT_CLIENT_MOUSEUP_INTERCEPT)
+		src = src //This doesn't do shit, when you implement click interception change this
 	autofire_aiming_at[1] = null
 
 /atom/proc/is_auto_clickable()
 	return TRUE
 
-/obj/screen/is_auto_clickable()
+/atom/movable/screen/is_auto_clickable()
 	return FALSE
 
-/obj/screen/click_catcher/is_auto_clickable()
+/atom/movable/screen/click_catcher/is_auto_clickable()
 	return TRUE
 
 /**
@@ -913,4 +1001,4 @@ var/list/localhost_addresses = list(
 /client/proc/check_panel_loaded()
 	if(stat_panel.is_ready())
 		return
-	to_chat(src, SPAN_DANGER("Statpanel failed to load, click <a href='?src=[ref(src)];reload_statbrowser=1'>here</a> to reload the panel "))
+	to_chat(src, SPAN_DANGER("Statpanel failed to load, click <a href='byond://?src=[REF(src)];reload_statbrowser=1'>here</a> to reload the panel "))

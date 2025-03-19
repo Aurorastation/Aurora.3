@@ -26,6 +26,7 @@
 	contained_sprite = TRUE
 	icon_state = "cowboyhat"
 	item_state = "cowboyhat"
+	protects_against_weather = TRUE
 
 /obj/item/clothing/head/cowboy/wide
 	name = "wide-brimmed cowboy hat"
@@ -51,6 +52,11 @@
 	item_state = "boonie"
 	build_from_parts = TRUE
 	worn_overlay = "over"
+
+/obj/item/clothing/head/bucket/boonie/camo
+	icon_state = "camo_boonie"
+	item_state = "camo_boonie"
+	has_accents = TRUE
 
 /obj/item/clothing/head/bucket/boonie/green
 	icon_state = "green_boonie"

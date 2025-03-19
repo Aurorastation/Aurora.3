@@ -1,11 +1,11 @@
-var/list/admin_verbs_lighting = list(
+GLOBAL_LIST_INIT(admin_verbs_lighting, list(
 	/client/proc/lighting_hide_verbs,
 	/client/proc/lighting_flush,
 	/client/proc/lighting_reconsider_target,
 	/client/proc/lighting_build_overlay,
 	/client/proc/lighting_clear_overlay,
 	/client/proc/lighting_toggle_profiling
-)
+))
 
 /client/proc/lighting_show_verbs()
 	set category = "Debug"
@@ -15,7 +15,7 @@ var/list/admin_verbs_lighting = list(
 	if (!check_rights(R_DEBUG|R_DEV)) return
 
 	to_chat(src, SPAN_NOTICE("Lighting debug verbs have been shown."))
-	add_verb(src, admin_verbs_lighting)
+	add_verb(src, GLOB.admin_verbs_lighting)
 
 /client/proc/lighting_hide_verbs()
 	set category = "Lighting"
@@ -25,7 +25,7 @@ var/list/admin_verbs_lighting = list(
 	if (!check_rights(R_DEBUG|R_DEV)) return
 
 	to_chat(src, SPAN_NOTICE("Lighting debug verbs have been hidden."))
-	remove_verb(src, admin_verbs_lighting)
+	remove_verb(src, GLOB.admin_verbs_lighting)
 
 /client/proc/lighting_flush()
 	set category = "Lighting"
@@ -53,7 +53,7 @@ var/list/admin_verbs_lighting = list(
 		to_chat(src, "That turf is not dynamically lit.")
 		return
 
-	log_and_message_admins("has triggered a lighting update for turf \ref[T] - [T] at ([T.x],[T.y],[T.z]) in area [T.loc].")
+	log_and_message_admins("has triggered a lighting update for turf [REF(T)] - [T] at ([T.x],[T.y],[T.z]) in area [T.loc].")
 
 	T.reconsider_lights()
 
@@ -68,7 +68,7 @@ var/list/admin_verbs_lighting = list(
 		to_chat(src, "That turf already has a lighting overlay.")
 		return
 
-	log_and_message_admins("has generated a lighting overlay for turf \ref[T] - [T] ([T.x],[T.y],[T.z]) in area [T.loc].")
+	log_and_message_admins("has generated a lighting overlay for turf [REF(T)] - [T] ([T.x],[T.y],[T.z]) in area [T.loc].")
 
 	T.lighting_build_overlay()
 
@@ -83,7 +83,7 @@ var/list/admin_verbs_lighting = list(
 		to_chat(src, "That turf doesn't have a lighting overlay.")
 		return
 
-	log_and_message_admins("has cleared a lighting overlay for turf \ref[T] - [T] ([T.x],[T.y],[T.z]) in area [T.loc].")
+	log_and_message_admins("has cleared a lighting overlay for turf [REF(T)] - [T] ([T.x],[T.y],[T.z]) in area [T.loc].")
 
 	T.lighting_clear_overlay()
 
@@ -98,5 +98,5 @@ var/list/admin_verbs_lighting = list(
 		to_chat(usr, SPAN_ALERT("Unable to start profiling: No active database connection."))
 		return
 
-	lighting_profiling = !lighting_profiling
-	log_and_message_admins("has [lighting_profiling ? "enabled" : "disabled"] lighting profiling.")
+	GLOB.lighting_profiling = !GLOB.lighting_profiling
+	log_and_message_admins("has [GLOB.lighting_profiling ? "enabled" : "disabled"] lighting profiling.")

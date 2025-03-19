@@ -1,0 +1,80 @@
+2013-03-05:
+  CIB:
+  - rscadd: Added internal organs. They're currently all located in the chest. Use
+      advanced scanner to detect damage. Use the same surgery as for ruptured lungs
+      to fix them.
+  Cael Aislinn:
+  - soundadd: Set roundstart music to randomly choose between space.ogg and traitor.ogg
+      (see <a =href="http://baystation12.net/forums/viewtopic.php?f=5&amp;t=6972">http://baystation12.net/forums/viewtopic.php?f=5&amp;t;=6972</a>)
+  - experiment: All RUST components except for TEGs (which generate the power) are
+      now obtainable ingame, bored engineers should get hold of them and setup an
+      experimental reactor for testing purposes.
+2013-03-06:
+  Cael Aislinn:
+  - rscadd: Type 1 thermoelectric generators and the associated binary circulators
+      are now moveable (wrench to secure/unsecure) and orderable via Quartermaster.
+  - wip: code/maps/rust_test.dmm contains an example setup for a functional RUST reactor.
+      Maximum output is in the range of 12 to 20MW (12 to 20 million watts).
+  - bugfix: Removed double announcement for gridchecks, reduced duration of gridchecks.
+  RavingManiac:
+  - rscadd: You can now stab people with syringes using the "harm" intent. This destroys
+      the syringe and transfers a random percentage of its contents into the target.
+      Armor has a 50% chance of blocking the syringe.
+2013-03-09:
+  Cael Aislinn:
+  - rscadd: "Beekeeping is now possible. Construct an apiary of out wood and embed\
+      \ it into a hydroponics tray, then get a queen bee and bottle of BeezEez from\
+      \ cargo bay. \n\t\tHives produce honey and honeycomb, but be wary if the bees\
+      \ start swarming."
+2013-03-11:
+  CIB:
+  - rscadd: Cloning now requires you to put slabs of meat into the cloning pod to
+      replenish biomass.
+  Cael Aislinn:
+  - wip: The xenoarchaeology update is here. This includes a major content overhaul
+      and a bunch of new features for xenoarchaeology.
+  - tweak: Digsites (strange rock deposits) are now much more nuanced and interesting,
+      and a huge number of minor (non-artifact) finds have been added.
+  - rscadd: Excavation is now a complex process that involves digging into the rock
+      to the right depth.
+  - rscadd: Chemical analysis is required for safe excavation of the digsites, in
+      order to determine how best to extract the finds.
+  - bugfix: Anomalous artifacts have been overhauled and many longstanding bugs with
+      existing effects have been fixed - the anomaly utiliser should now work <i>much</i>
+      more often.
+  - rscadd: Numerous new artifact effects have been added and some new artifact types
+      can be dug up from the asteroid.
+  - rscadd: New tools and equipment have been added, including normal and spaceworthy
+      versions of the anomaly suits, excavation tools and other neat gadgets.
+  - rscadd: Five books have been written by subject matter experts from around the
+      galaxy to help the crew of the Exodus come to grips with this exacting new science
+      (over 3000 words of tutorials!).
+  Chinsky:
+  - rscadd: Sec HUDs now can see short versions of sec records.on examine. Med HUDs
+      do same for medical records, and can set medical status of patient.
+  - rscadd: Damage to the head can now cause brain damage.
+2013-03-14:
+  Spamcat:
+  - rscadd: Figured I should make one of these. Syringestabbing now produces a broken
+      syringe complete with fingerprints of attacker and blood of a victim, so dispose
+      your evidence carefully. Maximum transfer amount per stab is lowered to 10.
+2013-03-15:
+  Cael_Aislinn:
+  - rscadd: Mapped a compact research base on the mining asteroid, with multiple labs
+      and testing rooms. It's reachable through a new (old) shuttle dock that leaves
+      from the research wing on the main station.
+2013-03-26:
+  Spamcat:
+  - bugfix: Chemmaster now puts pills in pill bottles (if one is inserted).
+  - tweak: Stabbing someone with a syringe now deals 3 damage instead of 7 because
+      7 is like, a crowbar punch.
+  - bugfix: Lizards can now join mid-round again.
+  - rscadd: Chemicals in bloodstream will transfer with blood now, so don't get drunk
+      before your blood donation. Viruses and antibodies transfer through blood too.
+  - bugfix: Virology is working again.
+2013-03-27:
+  Asanadas:
+  - tweak: The Null Rod has recovered its de-culting ability, for balance reasons.
+      Metagaming with it is a big no-no!
+  - rscadd: Holy Water as a liquid is able to de-cult. Less effective, but less bloody.
+      May be changed over the course of time for balance.

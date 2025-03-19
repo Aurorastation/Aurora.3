@@ -104,3 +104,27 @@
 /obj/structure/largecrate/animal/hakhma
 	name = "hakhma crate"
 	held_type = /mob/living/simple_animal/hakhma
+
+/obj/structure/largecrate/animal/moghes
+	name = "moghresian animal crate"
+	held_type = /mob/living/simple_animal/threshbeast
+
+/obj/structure/largecrate/animal/moghes/warmount
+	held_type = /mob/living/simple_animal/hostile/retaliate/hegeranzi
+
+/obj/structure/largecrate/animal/moghes/miervesh
+	held_type = /mob/living/simple_animal/miervesh
+
+/obj/structure/largecrate/animal/moghes/otzek
+	held_type = /mob/living/simple_animal/otzek
+
+// Hostile mob crates! Use with caution.
+/obj/structure/largecrate/animal/shark
+	name = "shark crate"
+	held_type = /mob/living/simple_animal/hostile/carp/shark
+	desc = "A hefty wooden crate. This one has bright yellow and red markings on the sides warning of hazardous contents."
+
+/obj/structure/largecrate/animal/babycarp
+	name = "carp crate"
+	held_type = /mob/living/simple_animal/carp/baby
+	desc = "A hefty wooden crate. This one has bright yellow and red markings on the sides warning of hazardous contents."

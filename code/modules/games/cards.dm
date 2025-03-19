@@ -5,7 +5,7 @@
 	var/back_icon = "card_back"
 
 /obj/item/deck
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	icon = 'icons/obj/playing_cards.dmi'
 	var/list/cards = list()
 
@@ -171,17 +171,20 @@
 	playsound(src.loc, 'sound/items/cardshuffle.ogg', 100, 1, -4)
 	user.visible_message("<b>\The [user]</b> shuffles [src].")
 
-/obj/item/deck/MouseDrop(atom/over)
-	if(!usr || !over) return
-	if(!Adjacent(usr) || !over.Adjacent(usr)) return // should stop you from dragging through windows
+/obj/item/deck/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(!user || !over)
+		return
+	if(!Adjacent(user) || !over.Adjacent(user))
+		return // should stop you from dragging through windows
 
-	if(!ishuman(over) || !(over in viewers(3))) return
-
-	if(!cards.len)
-		to_chat(usr, SPAN_WARNING("There are no cards in the deck."))
+	if(!ishuman(over) || !(over in viewers(3)))
 		return
 
-	deal_at(usr, over)
+	if(!cards.len)
+		to_chat(user, SPAN_WARNING("There are no cards in the deck."))
+		return
+
+	deal_at(user, over)
 
 /obj/item/pack/
 	name = "card pack"
@@ -190,7 +193,7 @@
 	icon_state = "card_pack"
 	drop_sound = 'sound/items/drop/paper.ogg'
 	pickup_sound = 'sound/items/pickup/paper.ogg'
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	var/list/cards = list()
 
 
@@ -212,7 +215,7 @@
 	icon_state = null
 	drop_sound = 'sound/items/drop/paper.ogg'
 	pickup_sound = 'sound/items/pickup/paper.ogg'
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 	var/concealed = 0
 	var/list/cards = list()
@@ -294,17 +297,17 @@
 		name = "playing card"
 		desc = "A playing card."
 
-	cut_overlays()
+	ClearOverlays()
 
 	if(cards.len == 1)
 		var/datum/playingcard/P = cards[1]
 		var/image/I = new(src.icon, (concealed ? "[P.back_icon]" : "[P.card_icon]") )
 		I.pixel_x += (-5+rand(10))
 		I.pixel_y += (-5+rand(10))
-		add_overlay(I)
+		AddOverlays(I)
 		return
 
-	var/offset = FLOOR(20/cards.len)
+	var/offset = FLOOR(20/cards.len, 1)
 
 	var/matrix/M = matrix()
 	if(direction)
@@ -333,10 +336,10 @@
 			else
 				I.pixel_x = -7+(offset*i)
 		I.transform = M
-		add_overlay(I)
+		AddOverlays(I)
 		i++
 
-/obj/item/hand/dropped(mob/user as mob)
+/obj/item/hand/dropped(mob/user)
 	. = ..()
 	if(locate(/obj/structure/table, loc))
 		src.update_icon(user.dir)

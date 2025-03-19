@@ -6,19 +6,19 @@
 	item_state = "electronic"
 	throw_speed = 1
 	throw_range = 5
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	var/obj/item/implantcase/case = null
 	var/broadcasting = null
 	var/listening = TRUE
 
 /obj/item/implantpad/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	icon_state = "implantpad-[case ? "1" : "0"]"
-	if(case.imp)
+	if(case?.imp)
 		var/obj/item/implant/caseimplant = case.imp
 		var/implant_overlay_icon_state = "implantstorage_[caseimplant.implant_icon]"
 		var/mutable_appearance/implant_case_implant_overlay = mutable_appearance(icon, implant_overlay_icon_state)
-		add_overlay(implant_case_implant_overlay)
+		AddOverlays(implant_case_implant_overlay)
 
 
 /obj/item/implantpad/attack_hand(mob/user)
@@ -44,7 +44,7 @@
 	..()
 
 /obj/item/implantpad/attack_self(mob/user)
-	if(case.imp)
+	if(case?.imp)
 		case.imp.interact(user)
 	else
 		to_chat(user, SPAN_WARNING("There's no implant loaded in \the [src]!"))

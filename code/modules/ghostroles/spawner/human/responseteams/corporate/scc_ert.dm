@@ -4,7 +4,7 @@
 	desc = "A Stellar Corporate Conglomerate emergency responder."
 	welcome_message = "You are part of an SCC asset protection squad, sent in response to a distress call. Obey your commander and safeguard SCC assets."
 	max_count = 2
-	outfit = /datum/outfit/admin/ert/scc
+	outfit = /obj/outfit/admin/ert/scc
 	mob_name_prefix = "Tpr. "
 	possible_species = list(SPECIES_HUMAN) //no one made an scc skrellmet
 	spawnpoints = list("NTERTSpawn")
@@ -15,14 +15,14 @@
 	desc = "An engineering specialist of the Stellar Corporate Conglomerate ERT."
 	max_count = 1
 	mob_name_prefix = "S/Tpr. "
-	outfit = /datum/outfit/admin/ert/scc/engineer
+	outfit = /obj/outfit/admin/ert/scc/engineer
 
 /datum/ghostspawner/human/ert/scc/medic
 	name = "SCC Medical Specialist"
 	short_name = "sccmed"
 	desc = "A medical specialist of the Stellar Corporate Conglomerate ERT."
 	max_count = 1
-	outfit = /datum/outfit/admin/ert/scc/medic
+	outfit = /obj/outfit/admin/ert/scc/medic
 
 /datum/ghostspawner/human/ert/scc/commander
 	name = "SCC ERT Commander"
@@ -30,4 +30,4 @@
 	desc = "The commander of the Stellar Corporate Conglomerate ERT."
 	max_count = 1
 	mob_name_prefix = "L/Tpr. "
-	outfit = /datum/outfit/admin/ert/scc/commander
+	outfit = /obj/outfit/admin/ert/scc/commander

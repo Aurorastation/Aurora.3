@@ -8,7 +8,7 @@
 	set category = "OOC"
 
 	if(say_disabled)	//This is here to try to identify lag problems
-		to_chat(usr, "<span class='warning'>Speech is currently admin-disabled.</span>")
+		to_chat(usr, SPAN_WARNING("Speech is currently admin-disabled."))
 		return
 
 	if(!mob)
@@ -19,27 +19,30 @@
 		return
 
 	if(!(prefs.toggles & CHAT_OOC))
-		to_chat(src, "<span class='warning'>You have OOC muted.</span>")
+		to_chat(src, SPAN_WARNING("You have OOC muted."))
 		return
 
 	msg = sanitize(msg)
 
+	if(!msg)
+		return
+
 	if(!holder)
 		if(!GLOB.config.ooc_allowed)
-			to_chat(src, "<span class='danger'>OOC is globally muted.</span>")
+			to_chat(src, SPAN_DANGER("OOC is globally muted."))
 			return
 		if(!GLOB.config.dooc_allowed && (mob.stat == DEAD))
-			to_chat(usr, "<span class='danger'>OOC for dead mobs has been turned off.</span>")
+			to_chat(usr, SPAN_DANGER("OOC for dead mobs has been turned off."))
 			return
 		if(handle_spam_prevention(msg,MUTE_OOC))
 			return
 		if(findtext(msg, "byond://"))
 			to_chat(src, "<B>Advertising other servers is not allowed.</B>")
-			log_admin("[key_name(src)] has attempted to advertise in OOC: [msg]",ckey=key_name(src))
+			log_admin("[key_name(src)] has attempted to advertise in OOC: [msg]")
 			message_admins("[key_name_admin(src)] has attempted to advertise in OOC: [msg]")
 			return
 
-	log_ooc("[mob.name]/[key] : [msg]",ckey=key_name(mob))
+	log_ooc("[mob.name]/[key] : [msg]")
 
 	var/ooc_style = "everyone"
 	if(holder && !holder.fakekey)
@@ -54,7 +57,7 @@
 	msg = process_chat_markup(msg, list("*"))
 
 	for(var/client/target in GLOB.clients)
-		if(target.prefs.toggles & CHAT_OOC)
+		if(target.prefs?.toggles & CHAT_OOC)
 			var/display_name = src.key
 			if(holder)
 				if(holder.fakekey)
@@ -73,7 +76,7 @@
 	set category = "OOC"
 
 	if(say_disabled)	//This is here to try to identify lag problems
-		to_chat(usr, "<span class='danger'>Speech is currently admin-disabled.</span>")
+		to_chat(usr, SPAN_DANGER("Speech is currently admin-disabled."))
 		return
 
 	if(!mob)
@@ -89,28 +92,28 @@
 		return
 
 	if(!(prefs.toggles & CHAT_LOOC))
-		to_chat(src, "<span class='danger'>You have LOOC muted.</span>")
+		to_chat(src, SPAN_DANGER("You have LOOC muted."))
 		return
 	if(mob.stat == DEAD && !(prefs.toggles & CHAT_GHOSTLOOC))
-		to_chat(src, "<span class='danger'>You have observer LOOC muted.</span>")
+		to_chat(src, SPAN_DANGER("You have observer LOOC muted."))
 		return
 
 	if(!holder)
 		if(!GLOB.config.looc_allowed)
-			to_chat(src, "<span class='danger'>LOOC is globally muted.</span>")
+			to_chat(src, SPAN_DANGER("LOOC is globally muted."))
 			return
 		if(!GLOB.config.dead_looc_allowed && (mob.stat == DEAD))
-			to_chat(usr, "<span class='danger'>LOOC for dead mobs has been turned off.</span>")
+			to_chat(usr, SPAN_DANGER("LOOC for dead mobs has been turned off."))
 			return
 		if(handle_spam_prevention(msg, MUTE_OOC))
 			return
 		if(findtext(msg, "byond://"))
 			to_chat(src, "<B>Advertising other servers is not allowed.</B>")
-			log_admin("[key_name(src)] has attempted to advertise in OOC: [msg]",ckey=key_name(src))
+			log_admin("[key_name(src)] has attempted to advertise in OOC: [msg]")
 			message_admins("[key_name_admin(src)] has attempted to advertise in OOC: [msg]")
 			return
 
-	log_ooc("(LOCAL) [mob.name]/[key] : [msg]",ckey=key_name(mob))
+	log_ooc("(LOCAL) [mob.name]/[key] : [msg]")
 
 	var/mob/source = src.mob
 	var/list/messageturfs = list() //List of turfs we broadcast to.
@@ -156,7 +159,7 @@
 				prefix = "(R)"
 				admin_stuff += "/([source.key])"
 				if(target != source.client)
-					admin_stuff += "(<A HREF='?src=\ref[target.holder];adminplayerobservejump=\ref[mob]'>JMP</A>)"
+					admin_stuff += "(<A href='byond://?src=[REF(target.holder)];adminplayerobservejump=[REF(mob)]'>JMP</A>)"
 			if(target.mob in messagemobs)
 				prefix = ""
 			if((target.mob in messagemobs) || display_remote)
@@ -180,7 +183,7 @@
 	var/list/choice = list(2, 4, 6, 8, 10, 12, 20, 50, 100)
 	var/input = input("Select the Dice you want!", "Dice", null, null) in choice
 
-	to_chat(usr, "<span class='notice'>You roll [rand(1,input)] out of [input]!</span>")
+	to_chat(usr, SPAN_NOTICE("You roll [rand(1,input)] out of [input]!"))
 
 /client/verb/fit_viewport()
 	set name = "Fit Viewport"
@@ -192,21 +195,46 @@
 	var/aspect_ratio = view_size[1] / view_size[2]
 
 	// Calculate desired pixel width using window size and aspect ratio
-	var/sizes = params2list(winget(src, "mainwindow.mainvsplit;mapwindow", "size"))
-	var/map_size = splittext(sizes["mapwindow.size"], "x")
-	var/height = text2num(map_size[2])
-	var/desired_width = round(height * aspect_ratio)
+	var/list/sizes = params2list(winget(src, "mainwindow.split;mapwindow", "size"))
+
+	// Client closed the window? Some other error? This is unexpected behaviour, let's
+	// CRASH with some info.
+	if(!sizes["mapwindow.size"])
+		CRASH("sizes does not contain mapwindow.size key. This means a winget failed to return what we wanted. --- sizes var: [sizes] --- sizes length: [length(sizes)]")
+
+	var/list/map_size = splittext(sizes["mapwindow.size"], "x")
+
+	// Gets the type of zoom we're currently using from our view datum
+	// If it's 0 we do our pixel calculations based off the size of the mapwindow
+	// If it's not, we already know how big we want our window to be, since zoom is the exact pixel ratio of the map
+	var/zoom_value = /*src.view_size?.zoom ||*/ 0
+
+	var/desired_width = 0
+	if(zoom_value)
+		desired_width = round(view_size[1] * zoom_value * ICON_SIZE_X)
+	else
+
+		// Looks like we expect mapwindow.size to be "ixj" where i and j are numbers.
+		// If we don't get our expected 2 outputs, let's give some useful error info.
+		if(length(map_size) != 2)
+			CRASH("map_size of incorrect length --- map_size var: [map_size] --- map_size length: [length(map_size)]")
+		var/height = text2num(map_size[2])
+		desired_width = round(height * aspect_ratio)
+
 	if (text2num(map_size[1]) == desired_width)
 		// Nothing to do
 		return
 
-	var/split_size = splittext(sizes["mainwindow.mainvsplit.size"], "x")
+	var/split_size = splittext(sizes["mainwindow.split.size"], "x")
 	var/split_width = text2num(split_size[1])
+
+	// Avoid auto-resizing the statpanel and chat into nothing.
+	desired_width = min(desired_width, split_width - 300)
 
 	// Calculate and apply a best estimate
 	// +4 pixels are for the width of the splitter's handle
 	var/pct = 100 * (desired_width + 4) / split_width
-	winset(src, "mainwindow.mainvsplit", "splitter=[pct]")
+	winset(src, "mainwindow.split", "splitter=[pct]")
 
 	// Apply an ever-lowering offset until we finish or fail
 	var/delta
@@ -226,7 +254,16 @@
 			delta = -delta/2
 
 		pct += delta
-		winset(src, "mainwindow.mainvsplit", "splitter=[pct]")
+		winset(src, "mainwindow.split", "splitter=[pct]")
+
+/// Attempt to automatically fit the viewport, assuming the user wants it
+/client/proc/attempt_auto_fit_viewport()
+	/*if (!prefs.read_preference(/datum/preference/toggle/auto_fit_viewport))
+		return*/ //We do not have this in aurora yet
+	if(fully_created)
+		INVOKE_ASYNC(src, VERB_REF(fit_viewport))
+	else //Delayed to avoid wingets from Login calls.
+		addtimer(CALLBACK(src, VERB_REF(fit_viewport), 1 SECONDS))
 
 /client/verb/refresh_tgui()
 	set name = "Refresh TGUI"

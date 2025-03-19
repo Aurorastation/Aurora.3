@@ -1,62 +1,14 @@
-/obj/item/pocketwatch
-	name = "pocketwatch"
-	desc = "A watch that goes in your pocket."
-	desc_extended = "Because your wrists have better things to do."
-	icon = 'icons/obj/items.dmi'
-	icon_state = "pocketwatch"
-	drop_sound = 'sound/items/drop/accessory.ogg'
-	pickup_sound = 'sound/items/pickup/accessory.ogg'
-	matter = list(MATERIAL_GLASS = 150, MATERIAL_GOLD = 50)
-	recyclable = TRUE
-	w_class = ITEMSIZE_TINY
-	var/closed = FALSE
-
-/obj/item/pocketwatch/AltClick(mob/user)
-	if(!closed)
-		icon_state = "[initial(icon_state)]_closed"
-		to_chat(user, "You clasp the [name] shut.")
-		playsound(src.loc, 'sound/weapons/blade_close.ogg', 50, 1)
-	else
-		icon_state = "[initial(icon_state)]"
-		to_chat(user, "You flip the [name] open.")
-		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
-	closed = !closed
-
-/obj/item/pocketwatch/examine(mob/user, distance, is_adjacent)
-	. = ..()
-	if (distance <= 1)
-		checktime()
-
-/obj/item/pocketwatch/verb/checktime(mob/user)
-	set category = "Object"
-	set name = "Check Time"
-	set src in usr
-
-	if(closed)
-		to_chat(usr, "You check your watch, realising it's closed.")
-	else
-		to_chat(usr, "You check your watch, glancing over at the watch face, reading the time to be '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [GLOB.game_year]'.")
-
-/obj/item/pocketwatch/verb/pointatwatch()
-	set category = "Object"
-	set name = "Point at watch"
-	set src in usr
-
-	if(closed)
-		usr.visible_message (SPAN_NOTICE("[usr] taps their foot on the floor, arrogantly pointing at the [src] in their hand with a look of derision in their eyes, not noticing it's closed."), SPAN_NOTICE("You point down at the [src], an arrogant look about your eyes."))
-	else
-		usr.visible_message (SPAN_NOTICE("[usr] taps their foot on the floor, arrogantly pointing at the [src] in their hand with a look of derision in their eyes."), SPAN_NOTICE("You point down at the [src], an arrogant look about your eyes."))
-
 /obj/item/mesmetron
 	name = "mesmetron pocketwatch"
 	desc = "An elaborate pocketwatch, with a captivating gold etching and an enchanting face. . ."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/item/clothing/wrists/wrist.dmi'
 	icon_state = "pocketwatch"
+	item_state = "pocketwatch"
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 	matter = list(MATERIAL_GLASS = 150, MATERIAL_GOLD = 50)
 	recyclable = TRUE
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	atom_flags = ITEM_FLAG_NO_BLUDGEON
 	var/datum/weakref/thrall = null
 	var/time_counter = 0
@@ -129,7 +81,7 @@
 
 		var/thrall_response = alert(H, "Do you believe in hypnosis?", "Willpower", "Yes", "No")
 		if(thrall_response == "Yes")
-			to_chat(H, "<span class='notice'><i>... [text] ...</i></span>")
+			to_chat(H, SPAN_NOTICE("<i>... [text] ...</i>"))
 		else
 			thrall = null
 
@@ -143,7 +95,7 @@
 	if(!istype(H))
 		return
 
-	user.visible_message("<span class='warning'>[user] begins to mesmerizingly wave [src] like a pendulum before [H]'s very eyes!</span>")
+	user.visible_message(SPAN_WARNING("[user] begins to mesmerizingly wave [src] like a pendulum before [H]'s very eyes!"))
 
 	if(!do_mob(user, H, 10 SECONDS))
 		return
@@ -154,7 +106,7 @@
 	var/response = alert(H, "Do you believe in hypnosis?", "Willpower", "Yes", "No")
 
 	if(response == "Yes")
-		H.visible_message("<span class='warning'>[H] falls into a deep slumber!</span>", "<span class ='danger'>You fall into a deep slumber!</span>")
+		H.visible_message(SPAN_WARNING("[H] falls into a deep slumber!</span>"), SPAN_DANGER("You fall into a deep slumber!"))
 
 		H.sleeping = max(H.sleeping, 40)
 		H.drowsiness = max(H.drowsiness, 60)
@@ -181,14 +133,14 @@
 
 /obj/structure/metronome/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.iswrench())
-		playsound(src.loc, attacking_item.usesound, 50, 1)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		if(anchored)
-			to_chat(user, "<span class='notice'>You unanchor \the [src] and it destabilizes.</span>")
+			to_chat(user, SPAN_NOTICE("You unanchor \the [src] and it destabilizes."))
 			STOP_PROCESSING(SSfast_process, src)
 			icon_state = "metronome0"
 			anchored = 0
 		else
-			to_chat(user, "<span class='notice'>You anchor \the [src] and it restabilizes.</span>")
+			to_chat(user, SPAN_NOTICE("You anchor \the [src] and it restabilizes."))
 			START_PROCESSING(SSfast_process, src)
 			icon_state = "metronome1"
 			anchored = 1
@@ -212,5 +164,5 @@
 			ticktock = "Tock"
 		else
 			ticktock = "Tick"
-		to_chat(H, "<span class='notice'><i>[ticktock]. . .</i></span>")
+		to_chat(H, SPAN_NOTICE("<i>[ticktock]. . .</i>"))
 		sound_to(H, 'sound/effects/singlebeat.ogg')

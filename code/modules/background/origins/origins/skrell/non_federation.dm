@@ -5,7 +5,7 @@
 		/singleton/origin_item/origin/skrell_alliance,
 		/singleton/origin_item/origin/skrell_biesel,
 		/singleton/origin_item/origin/skrell_coalition,
-		/singleton/origin_item/origin/skrell_eum,
+		/singleton/origin_item/origin/skrell_consortium,
 		/singleton/origin_item/origin/skrell_ouerea
 	)
 
@@ -14,7 +14,7 @@
 	desc = "With first contact with Humanity, many Skrell elected to move into human space. The Nralakk Federation and the Sol Alliance have been historic allies, and a large majority of Skrell living outside of the Federation calls the Sol Alliance home."
 	important_information = "The Nralakk Federation is known to use its relationship with the Sol Alliance to step in when Skrell citizens are deemed dangerous to its national security."
 	possible_accents = list(ACCENT_SKRELLSOL, ACCENT_EUROPA, ACCENT_MICTLAN)
-	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_ERIDANI, CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION, CITIZENSHIP_EUM)
+	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_ERIDANI, CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION, CITIZENSHIP_CONSORTIUM)
 	possible_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_SUURKA, RELIGION_KIRGUL, RELIGION_OTHER, RELIGION_NONE)
 
 /singleton/origin_item/origin/skrell_biesel
@@ -22,7 +22,7 @@
 	desc = "With first contact with Humanity, many Skrell elected to move into human space. The Republic of Biesel has a considerable population of Skrell as it was a former Sol Alliance colony, and the population has only increased with the acceptance of former Sol Alliance planets into the Republic. The Republic of Biesel is also a popular destination for those fleeing the Nralakk Federation as there is precedence for the Republic to refuse to deport Federation Skrell if they join the Tau Ceti Foreign Legion."
 	important_information = "Skrell living in the Republic of Biesel are protected from deportation to the Nralakk Federation if they renounce their Nralakk citizenship and join the Tau Ceti Foreign Legion."
 	possible_accents = list(ACCENT_SKRELLCETI, ACCENT_GIBSON_OVAN)
-	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_ERIDANI, CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION, CITIZENSHIP_EUM)
+	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_ERIDANI, CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION, CITIZENSHIP_CONSORTIUM)
 	possible_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_SUURKA, RELIGION_KIRGUL, RELIGION_OTHER, RELIGION_NONE)
 
 /singleton/origin_item/origin/skrell_coalition
@@ -30,16 +30,18 @@
 	desc = "With first contact with Humanity, many Skrell elected to move into human space. The Coalition of Colonies does not have a large population of Skrell, although it is popular amongst those who wish to avoid Nralakk authorities or otherwise flee the Federation."
 	important_information = "The Nralakk Federation still monitors non-citizen Skrell living abroad, and is known to request deportation or otherwise detain reputable threats to its national security. The response to these requests depends on the planet in question due to the Coalition's decentralised nature."
 	possible_accents = list(ACCENT_SKRELLCOC)
-	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_ERIDANI, CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION, CITIZENSHIP_EUM)
+	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_ERIDANI, CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION, CITIZENSHIP_CONSORTIUM)
 	possible_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_SUURKA, RELIGION_KIRGUL, RELIGION_OTHER, RELIGION_NONE)
 
-/singleton/origin_item/origin/skrell_eum
-	name = "Co-operative Territories of Epsilon Ursea Minoris"
-	desc = "The Federation and CT-EUM have had close ties since the two nations first came into contact. Most Skrell living within CT-EUM are immigrants, living in the city-state of Nral'Daaq, but there is a growing group of Skrell who were born and raised on Epsilon Ursea Minoris."
-	important_information = "The Nralakk Federation has close ties to CT-EUM, and Skrell living here run the risk of being deported for anti-Federation actions. Skrell who were born within CT-EUM must be born on or after 2390."
-	possible_accents = list(ACCENT_SKRELLEUM, ACCENT_SKRELL, ACCENT_HOMEWORLD, ACCENT_QERRMALIC, ACCENT_ALIOSE, ACCENT_AWEIJI, ACCENT_TRAVERSE, ACCENT_TATTUQIG)
-	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_ERIDANI, CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION, CITIZENSHIP_EUM)
+/singleton/origin_item/origin/skrell_consortium
+	name = "The Consortium of Hieroaetheria"
+	desc = "The Federation and the Consortium of Hieroaetheria have had close ties since the two nations first came into contact. Most Skrell living within Hieroaetheria are immigrants, with the capital of the Consortium - Epigenia or Nral'daaq - being housing the largest population of skrell on Hieroaetheria, but there is a growing group of Skrell who were born and raised in the Consortium."
+	important_information = "The Nralakk Federation has close ties with the Consortium, and Skrell living here run the risk of being deported for anti-Federation actions. Skrell who were born within the Consortium must be born on or after 2390."
+	possible_accents = list(ACCENT_SKRELLCONSORTIUM)
+	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_ERIDANI, CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION, CITIZENSHIP_CONSORTIUM)
 	possible_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_SUURKA, RELIGION_KIRGUL, RELIGION_OTHER, RELIGION_NONE)
+	origin_traits = list(TRAIT_ORIGIN_HOT_RESISTANCE)
+	origin_traits_descriptions = list("are more acclimatised to the heat")
 
 /singleton/origin_item/origin/skrell_ouerea
 	name = "Ouerea"

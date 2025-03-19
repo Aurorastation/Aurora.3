@@ -10,11 +10,12 @@
 #define TURF_CAN_BREAK          BITFLAG(6)
 #define TURF_CAN_BURN           BITFLAG(7)
 #define TURF_HAS_EDGES          BITFLAG(8)
-#define TURF_HAS_CORNERS        BITFLAG(9)
-#define TURF_HAS_INNER_CORNERS	BITFLAG(10)
-#define TURF_IS_FRAGILE			BITFLAG(11)
-#define TURF_ACID_IMMUNE		BITFLAG(12)
-#define TURF_NORUINS            BITFLAG(13)
+#define TURF_OFFSET_EDGES 		BITFLAG(9)
+#define TURF_HAS_CORNERS        BITFLAG(10)
+#define TURF_HAS_INNER_CORNERS	BITFLAG(11)
+#define TURF_IS_FRAGILE			BITFLAG(12)
+#define TURF_ACID_IMMUNE		BITFLAG(13)
+#define TURF_NORUINS            BITFLAG(14)
 
 //Used for floor/wall smoothing
 #define SMOOTH_NONE 0	//Smooth only with itself
@@ -63,6 +64,22 @@
 ///Returns a turf from a coordinate `/list` (ie: list(X, Y, Z))
 #define TURF_FROM_COORDS_LIST(List) (locate(List[1], List[2], List[3]))
 
+/// Returns a list of turfs in the rectangle specified by BOTTOM LEFT corner and height/width, checks for being outside the world border for you
+#define CORNER_BLOCK(corner, width, height) CORNER_BLOCK_OFFSET(corner, width, height, 0, 0)
+
+/// Returns a list of turfs similar to CORNER_BLOCK but with offsets
+#define CORNER_BLOCK_OFFSET(corner, width, height, offset_x, offset_y) ((block(locate(corner.x + offset_x, corner.y + offset_y, corner.z), locate(min(corner.x + (width - 1) + offset_x, world.maxx), min(corner.y + (height - 1) + offset_y, world.maxy), corner.z))))
+
+/// Returns an outline (neighboring turfs) of the given block
+#define CORNER_OUTLINE(corner, width, height) ( \
+	CORNER_BLOCK_OFFSET(corner, width + 2, 1, -1, -1) + \
+	CORNER_BLOCK_OFFSET(corner, width + 2, 1, -1, height) + \
+	CORNER_BLOCK_OFFSET(corner, 1, height, -1, 0) + \
+	CORNER_BLOCK_OFFSET(corner, 1, height, width, 0))
+
+/// Returns a list of around us
+#define TURF_NEIGHBORS(turf) (CORNER_BLOCK_OFFSET(turf, 3, 3, -1, -1) - turf)
+
 /**
  * Get the turf that `A` resides in, regardless of any containers.
  *
@@ -78,36 +95,16 @@
  */
 #define get_area(A) (isarea(A) ? A : get_step(A, 0)?.loc)
 
+/// Turf will be passable if density is 0
+#define TURF_PATHING_PASS_DENSITY 0
+/// Turf will be passable depending on [CanAStarPass] return value
+#define TURF_PATHING_PASS_PROC 1
+/// Turf is never passable
+#define TURF_PATHING_PASS_NO 2
 
 /*##############################
 			AURORA SHIT
 ################################*/
-
-// Turf-only flags.
-///Blocks the jaunting spell from accessing the turf
-#define TURF_FLAG_NOJAUNT BITFLAG(1)
-
-///Used by shuttle movement to determine if it should be ignored by turf translation
-#define TURF_FLAG_BACKGROUND BITFLAG(2)
-
-
-/**
- * Get the turf above the current atom, if any
- *
- * Returns a `/turf` if there's a turf on the Z-level above, `null` otherwise
- *
- * * atom - The `/atom` you want to know the above turf of
- */
-#define GET_ABOVE(atom) (HasAbove(atom.z) ? get_step(atom, UP) : null)
-
-/**
- * Get the turf below the current atom, if any
- *
- * Returns a `/turf` if there's a turf on the Z-level below, `null` otherwise
- *
- * * atom - The `/atom` you want to know the below turf of
- */
-#define GET_BELOW(atom) (HasBelow(atom.z) ? get_step(atom, DOWN) : null)
 
 #define NORTH_OF_TURF(T)	locate(T.x, T.y + 1, T.z)
 #define EAST_OF_TURF(T)		locate(T.x + 1, T.y, T.z)

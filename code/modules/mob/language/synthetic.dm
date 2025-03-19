@@ -25,7 +25,7 @@
 
 	message = formalize_text(message)
 
-	log_say("[key_name(speaker)] : ([name]) [message]",ckey=key_name(speaker))
+	log_say("[key_name(speaker)] : ([name]) [message]")
 
 	var/message_start = "<span style='font-size: [speaker.get_binary_font_size()];'><i><span class='game say'>[name], <span class='name'>[get_speaker_name(speaker)]</span>"
 	var/message_body = span(message, "[speaker.say_quote(message)], \"[message]\"</span></span></i>")
@@ -38,7 +38,7 @@
 		if(drone_only && !isDrone(S))
 			continue
 		else if(isAI(S))
-			message_start = "<i><span class='game say'>[name], <a href='byond://?src=\ref[S];track2=\ref[S];track=\ref[speaker];trackname=[html_encode(speaker.name)]'><span class='name'>[get_speaker_name(speaker)]</span></a></span></i>"
+			message_start = "<i><span class='game say'>[name], <a href='byond://?src=[REF(S)];track2=[REF(S)];track=[REF(speaker)];trackname=[html_encode(speaker.name)]'><span class='name'>[get_speaker_name(speaker)]</span></a></span></i>"
 		else if (!S.binarycheck() || !can_hear(speaker, S))
 			continue
 

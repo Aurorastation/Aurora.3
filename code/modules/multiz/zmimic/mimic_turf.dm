@@ -19,12 +19,6 @@
 /turf/var/tmp/z_depth
 /turf/var/tmp/z_generation = 0
 
-/turf/Entered(atom/movable/thing, turf/oldLoc)
-	. = ..()
-	if (thing.bound_overlay || thing.no_z_overlay || !TURF_IS_MIMICING(above))
-		return
-	above.update_mimic()
-
 /turf/update_above()
 	if (TURF_IS_MIMICING(above))
 		above.update_mimic()
@@ -60,7 +54,7 @@
 		CRASH("Attempt to enable Z-mimic on already-enabled turf!")
 	shadower = new(src)
 	SSzcopy.openspace_turfs += 1
-	var/turf/under = GetBelow(src)
+	var/turf/under = GET_TURF_BELOW(src)
 	if (under)
 		below = under
 		below.above = src

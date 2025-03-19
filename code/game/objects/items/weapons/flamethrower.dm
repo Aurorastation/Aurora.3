@@ -6,7 +6,7 @@
 	item_state = "flamethrower_0"
 	contained_sprite = TRUE
 
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 3
 	throwforce = 10
@@ -65,19 +65,19 @@
 		location.hotspot_expose(700, 2)
 
 /obj/item/flamethrower/update_icon()
-	cut_overlays()
-	add_overlay("+[initial(welding_tool.icon_state)]")
+	ClearOverlays()
+	AddOverlays("+[initial(welding_tool.icon_state)]")
 
 	if(igniter)
-		add_overlay("+igniter[secured]")
+		AddOverlays("+igniter[secured]")
 
 	if(istype(gas_tank, /obj/item/tank/phoron))
-		add_overlay("+phoron_tank")
+		AddOverlays("+phoron_tank")
 	else if(istype(gas_tank, /obj/item/tank/hydrogen))
-		add_overlay("+hydro_tank")
+		AddOverlays("+hydro_tank")
 
 	if(lit)
-		add_overlay("+lit")
+		AddOverlays("+lit")
 		set_light(1.4, 2)
 		item_state = "flamethrower_1"
 	else
@@ -99,7 +99,7 @@
 	if(user && user.get_active_hand() == src)
 		var/turf/target_turf = get_turf(target)
 		if(target_turf)
-			var/turflist = get_turfs_in_cone(user, Get_Angle(user, target_turf), get_dist(user, target_turf), 30)
+			var/turflist = get_turfs_in_cone(user, get_angle(user, target_turf), get_dist(user, target_turf), 30)
 			flame_turf(turflist)
 
 /obj/item/flamethrower/attackby(obj/item/attacking_item, mob/user)
@@ -224,7 +224,7 @@
 	if(!pressure)
 		return
 	throw_amount += pressure
-	throw_amount = Clamp(50, throw_amount, 5000)
+	throw_amount = clamp(50, throw_amount, 5000)
 	if(ismob(user))
 		to_chat(user, SPAN_NOTICE("Pressure has been adjusted to [throw_amount] kPa."))
 

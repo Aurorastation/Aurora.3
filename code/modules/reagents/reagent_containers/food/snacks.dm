@@ -4,7 +4,7 @@
 	desc = "Yummy!"
 	icon_state = null
 	center_of_mass = list("x"=16, "y"=16)
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	is_liquid = FALSE
 	var/slice_path
 	var/slices_num
@@ -70,6 +70,8 @@
 
 		if (amount_eaten)
 			bitecount++
+			shake_animation()
+			playsound(loc, pick('sound/effects/creatures/nibble1.ogg','sound/effects/creatures/nibble2.ogg'), 30, 1)
 			if (amount_eaten >= m_bitesize)
 				user.visible_message(SPAN_NOTICE("\The [user] feeds \the [target] \the [src]."))
 				if (!istype(target.loc, /turf))//held mobs don't see visible messages
@@ -130,9 +132,9 @@
 			other_feed_message_finish(user,target)
 
 			var/contained = reagentlist()
-			target.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been fed [name] by [key_name(user)] Reagents: [contained]</font>")
-			user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Fed [name] to [key_name(target)] Reagents: [contained]</span>")
-			msg_admin_attack("[key_name_admin(user)] fed [key_name_admin(target)] with [name] Reagents: [contained] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
+			target.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been fed [name] by [key_name(user)] Reagents: [contained]</font>"
+			user.attack_log += "\[[time_stamp()]\] <span class='warning'>Fed [name] to [key_name(target)] Reagents: [contained]</span>"
+			msg_admin_attack("[key_name_admin(user)] fed [key_name_admin(target)] with [name] Reagents: [contained] (INTENT: [uppertext(user.a_intent)]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
 			reagents.trans_to_mob(target, min(reagents.total_volume,bitesize), CHEM_INGEST)
 
 	feed_sound(target)
@@ -199,11 +201,11 @@
 				to_chat(user, SPAN_NOTICE("You scoop up some of \the [src] with \the [U]."))
 
 				bitecount++
-				U.cut_overlays()
+				U.ClearOverlays()
 				U.loaded = src.name
 				var/image/I = new(U.icon, "loadedfood")
 				I.color = src.filling_color
-				U.add_overlay(I)
+				U.AddOverlays(I)
 
 				reagents.trans_to_obj(U, min(reagents.total_volume,U.transfer_amt))
 				if(is_liquid)
@@ -326,7 +328,7 @@
 	J.alpha = 200
 	J.blend_mode = BLEND_OVERLAY
 	J.tag = "coating"
-	add_overlay(J)
+	AddOverlays(J)
 
 	if (user)
 		user.visible_message(SPAN_NOTICE("[user] dips [src] into \the [applied_coating_reagent.name]"), SPAN_NOTICE("You dip [src] into \the [applied_coating_reagent.name]"))
@@ -357,7 +359,7 @@
 		var/image/J = image(I)
 		J.alpha = 200
 		J.tag = "coating"
-		add_overlay(J)
+		AddOverlays(J)
 
 		if (do_coating_prefix == 1)
 			name = "[our_coating.coated_adj] [name]"

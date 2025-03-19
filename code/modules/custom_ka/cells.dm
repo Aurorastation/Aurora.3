@@ -145,6 +145,41 @@
 	if(istype(external) && external.use(charge_to_give*5))
 		stored_charge += charge_to_give
 
+/obj/item/custom_ka_upgrade/cells/exosuit
+	name = "exosuit KA cell"
+	build_name = "battery powered"
+	desc = "A pumpless cell assembly that leaches power from the exosuit's power core."
+	icon_state = "cell_cyborg"
+	damage_increase = 0
+	recoil_increase = 0
+	cost_increase = 0
+	cell_increase = 150
+	capacity_increase = 0
+	mod_limit_increase = 0
+	firedelay_increase = 0.1 SECONDS
+
+	pump_restore = 0
+	pump_delay = 0
+
+	origin_tech = list()
+
+/obj/item/custom_ka_upgrade/cells/exosuit/on_update(var/obj/item/gun/custom_ka/the_gun)
+	var/charge_to_give = cell_increase - stored_charge
+	if(!charge_to_give)
+		return
+
+	var/obj/item/mecha_equipment/mounted_system/mining/kinetic_accelerator/owner_equipment = the_gun.loc
+	if(!istype(owner_equipment))
+		return
+
+	var/mob/living/heavy_vehicle/owner_exosuit = owner_equipment.loc
+	if(!istype(owner_exosuit))
+		return
+
+	var/obj/item/cell/external = owner_exosuit.get_cell()
+	if(istype(external) && external.use(charge_to_give * 5))
+		stored_charge += charge_to_give
+
 /obj/item/custom_ka_upgrade/cells/illegal
 	//Pump Action
 	name = "pump action KA cell"
@@ -212,16 +247,16 @@
 
 		var/amount_to_take = 1
 		if(stored_charge + charge_per_sheet > cell_increase)
-			to_chat(user,"<span class='notice'>You can't put any more [attacking_item] into \the [src].</span>")
+			to_chat(user,SPAN_NOTICE("You can't put any more [attacking_item] into \the [src]."))
 			return
 
 		amount_to_take = min(amount_to_take,the_sheet.amount)
 		the_sheet.amount -= amount_to_take
 		stored_charge += amount_to_take*charge_per_sheet
 
-		user.visible_message("<span class='notice'>\The [user] inserts a sheet [attacking_item] into \the [src].</span>", \
-			"<span class='notice'>You insert a sheet of [attacking_item]s into \the [src].</span>", \
-			"<span class='notice'>You hear mechanical whirring.</span>")
+		user.visible_message(SPAN_NOTICE("\The [user] inserts a sheet [attacking_item] into \the [src]."), \
+			SPAN_NOTICE("You insert a sheet of [attacking_item]s into \the [src]."), \
+			SPAN_NOTICE("You hear mechanical whirring."))
 
 
 		if(the_sheet.amount <= 0)

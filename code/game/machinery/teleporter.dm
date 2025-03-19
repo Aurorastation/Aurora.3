@@ -35,9 +35,11 @@
 	if(old_engaged != engaged)
 		update_icon()
 
-/obj/machinery/teleport/pad/CollidedWith(M as mob|obj)
+/obj/machinery/teleport/pad/CollidedWith(atom/bumped_atom)
+	. = ..()
+
 	if(engaged)
-		teleport(M)
+		teleport(bumped_atom)
 		use_power_oneoff(5000)
 
 /obj/machinery/teleport/pad/proc/teleport(atom/movable/M as mob|obj)
@@ -55,18 +57,18 @@
 		calibration = min(calibration + 5, 100)
 
 /obj/machinery/teleport/pad/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if (engaged)
 		var/image/I = image(icon, src, "[initial(icon_state)]_active_overlay")
-		I.layer = EFFECTS_ABOVE_LIGHTING_LAYER
-		add_overlay(I)
+		I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+		AddOverlays(I)
 		set_light(4, 0.4)
 	else
 		set_light(0)
 		if (operable())
 			var/image/I = image(icon, src, "[initial(icon_state)]_idle_overlay")
-			I.layer = EFFECTS_ABOVE_LIGHTING_LAYER
-			add_overlay(I)
+			I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+			AddOverlays(I)
 
 /obj/machinery/teleport/pad/proc/within_range(var/target)
 	if(ignore_distance)
@@ -121,3 +123,31 @@
 
 /obj/machinery/teleport/pad/ninja
 	ignore_distance = TRUE
+
+// -------------- odyssey teleporter
+
+/// Teleports actors to the odyssey scenario away site.
+/// Uses holomap POIs as possible destinations.
+/obj/machinery/teleport_odyssey
+	name = "teleport"
+	icon = 'icons/obj/teleporter.dmi'
+	icon_state = "pad_active"
+	density = TRUE
+	anchored = TRUE
+
+/obj/machinery/teleport_odyssey/attack_hand(mob/user)
+	// find valid POIs for the odyssey scenario site
+	var/list/obj/effect/landmark/minimap_poi/possible_pois = list()
+	for(var/obj/effect/landmark/minimap_poi/poi in SSholomap.pois)
+		if(poi.z in SSodyssey.scenario_zlevels)
+			possible_pois += poi
+
+	// ask the user
+	var/obj/effect/landmark/minimap_poi/poi = tgui_input_list(usr,
+		"Choose teleport destination, to go to the Odyssey Scenario site. You cannot go back to this area after teleporting.", "Teleport Destination",
+		possible_pois
+	)
+
+	// teleport them
+	if(poi)
+		user.forceMove(get_turf(poi))

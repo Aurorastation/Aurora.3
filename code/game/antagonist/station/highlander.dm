@@ -1,4 +1,4 @@
-var/datum/antagonist/highlander/highlanders
+GLOBAL_DATUM(highlanders, /datum/antagonist/highlander)
 
 /datum/antagonist/highlander
 	role_text = "Highlander"
@@ -16,7 +16,7 @@ var/datum/antagonist/highlander/highlanders
 
 /datum/antagonist/highlander/New()
 	..()
-	highlanders = src
+	GLOB.highlanders = src
 
 /datum/antagonist/highlander/create_objectives(var/datum/mind/player)
 
@@ -41,8 +41,8 @@ var/datum/antagonist/highlander/highlanders
 		if(I.loc != player)
 			qdel(I)
 
-	player.preEquipOutfit(/datum/outfit/admin/highlander, FALSE)
-	player.equipOutfit(/datum/outfit/admin/highlander, FALSE)
+	player.preEquipOutfit(/obj/outfit/admin/highlander, FALSE)
+	player.equipOutfit(/obj/outfit/admin/highlander, FALSE)
 	player.force_update_limbs()
 	player.update_eyes()
 	player.regenerate_icons()
@@ -56,7 +56,7 @@ var/datum/antagonist/highlander/highlanders
 	for(var/mob/living/carbon/human/H in GLOB.player_list)
 		if(H.stat == 2 || !(H.client)) continue
 		if(is_special_character(H)) continue
-		highlanders.add_antagonist(H.mind)
+		GLOB.highlanders.add_antagonist(H.mind)
 
-	message_admins("<span class='notice'>[key_name_admin(usr)] used THERE CAN BE ONLY ONE!</span>", 1)
-	log_admin("[key_name(usr)] used there can be only one.", admin_key=key_name(usr))
+	message_admins(SPAN_NOTICE("[key_name_admin(usr)] used THERE CAN BE ONLY ONE!"), 1)
+	log_admin("[key_name(usr)] used there can be only one.")

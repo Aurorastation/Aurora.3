@@ -9,6 +9,7 @@
 	desc = "A monitor that tracks the overall traffic of a telecommunications network, and displays a hierarchy of linked machines."
 	icon_screen = "comm_monitor"
 	icon_keyboard = "green_key"
+	icon_keyboard_emis = "green_key_mask"
 	light_color = LIGHT_COLOR_GREEN
 
 	var/screen = 0				// the screen number:
@@ -32,28 +33,28 @@
 
 		if(0)
 			dat += "<br>[temp]<br><br>"
-			dat += "<br>Current Network: <a href='?src=\ref[src];network=1'>[network]</a><br>"
+			dat += "<br>Current Network: <a href='byond://?src=[REF(src)];network=1'>[network]</a><br>"
 			if(machinelist.len)
 				dat += "<br>Detected Network Entities:<ul>"
 				for(var/obj/machinery/telecomms/T in machinelist)
-					dat += "<li><a href='?src=\ref[src];viewmachine=[T.id]'>\ref[T] [T.name]</a> ([T.id])</li>"
+					dat += "<li><a href='byond://?src=[REF(src)];viewmachine=[T.id]'>[REF(T)] [T.name]</a> ([T.id])</li>"
 				dat += "</ul>"
-				dat += "<br><a href='?src=\ref[src];operation=release'>\[Flush Buffer\]</a>"
+				dat += "<br><a href='byond://?src=[REF(src)];operation=release'>\[Flush Buffer\]</a>"
 			else
-				dat += "<a href='?src=\ref[src];operation=probe'>\[Probe Network\]</a>"
+				dat += "<a href='byond://?src=[REF(src)];operation=probe'>\[Probe Network\]</a>"
 
 
 		// --- Viewing Machine ---
 
 		if(1)
 			dat += "<br>[temp]<br>"
-			dat += "<center><a href='?src=\ref[src];operation=mainmenu'>\[Main Menu\]</a></center>"
+			dat += "<center><a href='byond://?src=[REF(src)];operation=mainmenu'>\[Main Menu\]</a></center>"
 			dat += "<br>Current Network: [network]<br>"
 			dat += "Selected Network Entity: [SelectedMachine.name] ([SelectedMachine.id])<br>"
 			dat += "Linked Entities: <ol>"
 			for(var/obj/machinery/telecomms/T in SelectedMachine.links)
 				if(!T.hide)
-					dat += "<li><a href='?src=\ref[src];viewmachine=[T.id]'>\ref[T.id] [T.name]</a> ([T.id])</li>"
+					dat += "<li><a href='byond://?src=[REF(src)];viewmachine=[T.id]'>[REF(T.id)] [T.name]</a> ([T.id])</li>"
 			dat += "</ol>"
 
 
@@ -110,7 +111,7 @@
 	if(href_list["network"])
 
 		var/newnet = sanitize(input(usr, "Which network do you want to view?", "Comm Monitor", network) as null|text)
-		if(newnet && ((usr in range(1, src) || issilicon(usr))))
+		if(newnet && (((usr in range(1, src)) || issilicon(usr))))
 			if(length(newnet) > 15)
 				temp = "<font color = #D70B00>- FAILED: NETWORK TAG STRING TOO LENGHTLY -</font>"
 
@@ -127,7 +128,7 @@
 	if(attacking_item.isscrewdriver())
 		if(attacking_item.use_tool(src, user, 20, volume = 50))
 			if (src.stat & BROKEN)
-				to_chat(user, "<span class='notice'>The broken glass falls out.</span>")
+				to_chat(user, SPAN_NOTICE("The broken glass falls out."))
 				var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )
 				new /obj/item/material/shard( src.loc )
 				var/obj/item/circuitboard/comm_monitor/M = new /obj/item/circuitboard/comm_monitor( A )
@@ -139,7 +140,7 @@
 				A.anchored = 1
 				qdel(src)
 			else
-				to_chat(user, "<span class='notice'>You disconnect the monitor.</span>")
+				to_chat(user, SPAN_NOTICE("You disconnect the monitor."))
 				var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )
 				var/obj/item/circuitboard/comm_monitor/M = new /obj/item/circuitboard/comm_monitor( A )
 				for (var/obj/C in src)
@@ -156,6 +157,6 @@
 	if(!emagged)
 		playsound(src.loc, 'sound/effects/sparks4.ogg', 75, 1)
 		emagged = 1
-		to_chat(user, "<span class='notice'>You you disable the security protocols</span>")
+		to_chat(user, SPAN_NOTICE("You you disable the security protocols"))
 		src.updateUsrDialog()
 		return 1

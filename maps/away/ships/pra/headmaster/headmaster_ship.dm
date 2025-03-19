@@ -2,10 +2,14 @@
 	name = "Headmaster Ship"
 	id = "headmaster_ship"
 	description = "A People's Republic Orbital Fleet ship."
-	suffixes = list("ships/pra/headmaster/headmaster_ship.dmm")
+
+	prefix = "ships/pra/headmaster/"
+	suffix = "headmaster_ship.dmm"
+
 	ship_cost = 1
 	spawn_weight = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/headmaster_shuttle)
+	spawn_weight_sector_dependent = list(SECTOR_SRANDMARR = 2, SECTOR_NRRAHRAHUL = 2, SECTOR_BADLANDS = 0.5)
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL)
 
 	unit_test_groups = list(3)
@@ -23,7 +27,7 @@
 	colors = list("#8C8A81")
 	vessel_mass = 10000
 	max_speed = 1/(2 SECONDS)
-	fore_dir = NORTH
+	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
 	scanimage = "headmaster.png"
 	designer = "People's Republic of Adhomai"
@@ -36,7 +40,9 @@
 		"nav_headmaster_ship_1",
 		"nav_headmaster_ship_2",
 		"nav_headmaster_ship_3",
-		"nav_headmaster_ship_4"
+		"nav_headmaster_ship_4",
+		"nav_headmaster_ship_dock_starboard",
+		"nav_headmaster_ship_dock_port"
 	)
 	initial_restricted_waypoints = list(
 		"Orbital Fleet Shuttle" = list("nav_headmaster_shuttle")
@@ -77,6 +83,20 @@
 	name = "Headmaster Ship Navpoint #4"
 	landmark_tag = "nav_headmaster_ship_4"
 
+/obj/effect/shuttle_landmark/nav_headmaster_ship/dock/starboard
+	name = "Starboard Dock"
+	landmark_tag = "nav_headmaster_ship_dock_starboard"
+	docking_controller = "nav_headmaster_ship_dock_starboard"
+	base_turf = /turf/space
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/nav_headmaster_ship/dock/port
+	name = "Port Dock"
+	landmark_tag = "nav_headmaster_ship_dock_port"
+	docking_controller = "nav_headmaster_ship_dock_port"
+	base_turf = /turf/space
+	base_area = /area/space
+
 //shuttle
 /obj/effect/overmap/visitable/ship/landable/headmaster_shuttle
 	name = "Orbital Fleet Shuttle"
@@ -90,13 +110,12 @@
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
-	fore_dir = NORTH
+	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/headmaster_shuttle
+/obj/machinery/computer/shuttle_control/explore/terminal/headmaster_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Orbital Fleet Shuttle"
-
 
 /datum/shuttle/autodock/overmap/headmaster_shuttle
 	name = "Orbital Fleet Shuttle"

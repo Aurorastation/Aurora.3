@@ -22,16 +22,16 @@ pixel_x = 8;
 		Otherwise, you would likely just use a handheld shortwave radio instead."
 	icon = 'icons/obj/machinery/wall/terminals.dmi'
 	icon_state = "intercom"
-	layer = 2.99
+	layer = ABOVE_WINDOW_LAYER
 	anchored = TRUE
 	appearance_flags = TILE_BOUND // prevents people from viewing the overlay through a wall
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	canhear_range = 2
 	atom_flags = ATOM_FLAG_NO_BLOOD
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED | OBJ_FLAG_CONDUCTABLE
+	z_flags = ZMM_MANGLE_PLANES
 	var/number = 0
 	var/obj/machinery/abstract/intercom_listener/power_interface
-	var/global/list/screen_overlays
 	var/radio_sound = null
 	clickvol = 40
 
@@ -340,17 +340,7 @@ pixel_x = 8;
 /obj/item/device/radio/intercom/Initialize()
 	. = ..()
 	power_interface = new(loc, src)
-	generate_overlays()
 	update_icon()
-
-/obj/item/device/radio/intercom/proc/generate_overlays(var/force = 0)
-	if(LAZYLEN(screen_overlays) && !force)
-		return
-	LAZYINITLIST(screen_overlays)
-	screen_overlays["intercom_screen"] = make_screen_overlay(icon, "intercom_screen")
-	screen_overlays["intercom_scanline"] = make_screen_overlay(icon, "intercom_scanline")
-	screen_overlays["intercom_b"] = make_screen_overlay(icon, "intercom_b")
-	screen_overlays["intercom_l"] = make_screen_overlay(icon, "intercom_l")
 
 /obj/item/device/radio/intercom/syndicate
 	name = "illegally modified intercom"
@@ -393,11 +383,6 @@ pixel_x = 8;
 /obj/item/device/radio/intercom/raider/east
 	PRESET_EAST
 
-/obj/item/device/radio/intercom/syndicate/Initialize()
-	. = ..()
-	set_frequency(RAID_FREQ)
-	internal_channels[num2text(RAID_FREQ)] = list(ACCESS_SYNDICATE)
-
 /obj/item/device/radio/intercom/Destroy()
 	QDEL_NULL(power_interface)
 	return ..()
@@ -421,7 +406,7 @@ pixel_x = 8;
 		if(!istype(position) || !(position.z in levels))
 			return FALSE
 
-	if(input_frequency in ANTAG_FREQS && !syndie)
+	if((input_frequency in ANTAG_FREQS) && !syndie)
 		return FALSE//Prevents broadcast of messages over devices lacking the encryption
 
 	return TRUE
@@ -435,19 +420,70 @@ pixel_x = 8;
 	..(dest)
 
 /obj/item/device/radio/intercom/update_icon()
-	cut_overlays()
+	ClearOverlays()
+	var/mutable_appearance/screen = overlay_image(icon, "intercom_screen")
+	var/mutable_appearance/screen_hologram = overlay_image(icon, "intercom_screen")
+	var/mutable_appearance/screen_emis = emissive_appearance(icon, "intercom_screen")
+	screen_hologram.filters += filter(type="color", color=list(
+		0, 0, 0, 0,
+		0, 0, 0, 0,
+		0, 0, 0, 0,
+		HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_OPACITY
+	))
+	screen.filters += filter(type="color", color=list(
+		HOLOSCREEN_ADDITION_OPACITY, 0, 0, 0,
+		0, HOLOSCREEN_ADDITION_OPACITY, 0, 0,
+		0, 0, HOLOSCREEN_ADDITION_OPACITY, 0,
+		0, 0, 0, 1
+	))
+	screen_hologram.blend_mode = BLEND_MULTIPLY
+	screen.blend_mode = BLEND_ADD
 	if(!on)
 		icon_state = initial(icon_state)
 		set_light(FALSE)
 		return
 	else
-		add_overlay(screen_overlays["intercom_screen"])
-		add_overlay(screen_overlays["intercom_scanline"])
+		AddOverlays(screen_hologram)
+		AddOverlays(screen)
+		AddOverlays(screen_emis)
+		AddOverlays("intercom_scanline")
 		set_light(1.4, 1.3, COLOR_CYAN)
 		if(broadcasting)
-			add_overlay(screen_overlays["intercom_b"])
+			var/mutable_appearance/screen_broadcasting = overlay_image(icon, "intercom_b")
+			var/mutable_appearance/screen_broadcasting_hologram = overlay_image(icon, "intercom_b")
+			screen_broadcasting_hologram.filters += filter(type="color", color=list(
+			0, 0, 0, 0,
+			0, 0, 0, 0,
+			0, 0, 0, 0,
+			HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_OPACITY
+			))
+			screen_broadcasting.filters += filter(type="color", color=list(
+				HOLOSCREEN_ADDITION_OPACITY, 0, 0, 0,
+				0, HOLOSCREEN_ADDITION_OPACITY, 0, 0,
+				0, 0, HOLOSCREEN_ADDITION_OPACITY, 0,
+				0, 0, 0, 1
+			))
+			screen_broadcasting_hologram.blend_mode = BLEND_MULTIPLY
+			screen_broadcasting.blend_mode = BLEND_ADD
+			AddOverlays(list(screen_broadcasting_hologram, screen_broadcasting))
 		if(listening)
-			add_overlay(screen_overlays["intercom_l"])
+			var/mutable_appearance/screen_listening = overlay_image(icon, "intercom_l")
+			var/mutable_appearance/screen_listening_hologram = overlay_image(icon, "intercom_l")
+			screen_listening_hologram.filters += filter(type="color", color=list(
+			0, 0, 0, 0,
+			0, 0, 0, 0,
+			0, 0, 0, 0,
+			HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_OPACITY
+			))
+			screen_listening.filters += filter(type="color", color=list(
+				HOLOSCREEN_ADDITION_OPACITY, 0, 0, 0,
+				0, HOLOSCREEN_ADDITION_OPACITY, 0, 0,
+				0, 0, HOLOSCREEN_ADDITION_OPACITY, 0,
+				0, 0, 0, 1
+			))
+			screen_listening_hologram.blend_mode = BLEND_MULTIPLY
+			screen_listening.blend_mode = BLEND_ADD
+			AddOverlays(list(screen_listening_hologram, screen_listening))
 
 /obj/item/device/radio/intercom/broadcasting/Initialize()
 	SHOULD_CALL_PARENT(FALSE)

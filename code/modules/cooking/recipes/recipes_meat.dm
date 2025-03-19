@@ -110,3 +110,40 @@
 		/obj/item/reagent_containers/food/snacks/cutlet
 	)
 	result = /obj/item/reagent_containers/food/snacks/donerkebab
+
+/singleton/recipe/meatballs_and_peas
+	appliance = SKILLET | SAUCEPAN
+	fruit = list("peas" = 1, "tomato" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/meatball,
+		/obj/item/reagent_containers/food/snacks/meatball,
+	)
+	result = /obj/item/reagent_containers/food/snacks/meatballs_and_peas
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/singleton/recipe/schnitzel
+	appliance = SKILLET
+	reagents = list(/singleton/reagent/nutriment/flour = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/meat
+	)
+	result = /obj/item/reagent_containers/food/snacks/schnitzel
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/singleton/recipe/cozmo_cubes
+	appliance = SKILLET
+	reagents = list(/singleton/reagent/nutriment/protein/egg = 3)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/fish/cosmozoan,
+		/obj/item/reagent_containers/food/snacks/breadslice
+	)
+	result = /obj/item/reagent_containers/food/snacks/cozmo_cubes
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/singleton/recipe/steak_tartare
+	fruit = list("onion" = 1)
+	appliance = MIX
+	reagents = list(/singleton/reagent/sodiumchloride = 1, /singleton/reagent/blackpepper = 1, /singleton/reagent/nutriment/protein/egg = 3)
+	items = list(/obj/item/reagent_containers/food/snacks/meat)
+	result = /obj/item/reagent_containers/food/snacks/steak_tartare
+	reagent_mix = RECIPE_REAGENT_REPLACE

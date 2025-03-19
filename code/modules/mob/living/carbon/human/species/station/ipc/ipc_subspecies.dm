@@ -5,10 +5,12 @@
 	name_plural = "Shells"
 	bodytype = BODYTYPE_HUMAN
 	species_height = HEIGHT_CLASS_AVERAGE
-	height_min = 140
+	height_min = 145
 	height_max = 230
 	default_genders = list(MALE, FEMALE)
 	selectable_pronouns = list(MALE, FEMALE, PLURAL, NEUTER)
+
+	alterable_internal_organs = list(BP_EYES)
 
 	burn_mod = 1.2
 	grab_mod = 1
@@ -64,7 +66,8 @@
 		)
 
 	base_color = "#25032"
-	character_color_presets = list("Dark" = "#000000", "Warm" = "#250302", "Cold" = "#1e1e29")
+
+	character_color_presets = list("Dark" = "#000000", "Warm" = "#250302", "Cold" = "#1e1e29", "Rubber" = "#000f36")
 
 	sprint_temperature_factor = 1.3
 	move_charge_factor = 0.85
@@ -127,6 +130,7 @@
 	bald = 1
 	bodytype = BODYTYPE_IPC_INDUSTRIAL
 	species_height = HEIGHT_CLASS_HUGE
+	height_min = 180
 	mob_size = 12
 
 	unarmed_types = list(/datum/unarmed_attack/industrial, /datum/unarmed_attack/palm/industrial)
@@ -190,8 +194,8 @@
 /datum/species/machine/industrial/handle_death(var/mob/living/carbon/human/H)
 	return
 
-/datum/species/machine/terminator
-	name = SPECIES_IPC_TERMINATOR
+/datum/species/machine/hunter_killer
+	name = SPECIES_IPC_PURPOSE_HK
 	short_name = "hks"
 	name_plural = "HKs"
 	bald = 1
@@ -200,8 +204,8 @@
 
 	blurb = "\[REDACTED\]"
 
-	icobase = 'icons/mob/human_races/ipc/r_terminator.dmi'
-	deform = 'icons/mob/human_races/ipc/r_terminator.dmi'
+	icobase = 'icons/mob/human_races/ipc/r_hunter_killer.dmi'
+	deform = 'icons/mob/human_races/ipc/r_hunter_killer.dmi'
 
 	light_range = 0
 	light_power = 0
@@ -209,8 +213,8 @@
 	unarmed_types = list(/datum/unarmed_attack/terminator)
 	rarity_value = 20
 
-	language = LANGUAGE_TERMINATOR
-	name_language = LANGUAGE_TERMINATOR
+	language = LANGUAGE_PURPOSE
+	name_language = LANGUAGE_PURPOSE
 
 	eyes = "eyes_terminator"
 	has_floating_eyes = 1
@@ -288,10 +292,10 @@
 	sprint_temperature_factor = 0.6
 	move_charge_factor = 0.3
 
-/datum/species/machine/terminator/get_light_color()
+/datum/species/machine/hunter_killer/get_light_color()
 	return
 
-/datum/species/machine/terminator/handle_death(var/mob/living/carbon/human/H)
+/datum/species/machine/hunter_killer/handle_death(var/mob/living/carbon/human/H)
 	..()
 	playsound(H.loc, 'sound/items/countdown.ogg', 125, 1)
 	spawn(15)
@@ -347,6 +351,8 @@
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/ipc/industrial/hephaestus)
 	)
 
+	flags = IS_IPC | ACCEPTS_COOLER | NO_EQUIP_SPEEDMODS
+
 
 /datum/species/machine/industrial/hephaestus/get_light_color(mob/living/carbon/human/H)
 	if (istype(H))
@@ -357,6 +363,7 @@
 	short_name = "xmf"
 	bodytype = BODYTYPE_IPC_INDUSTRIAL
 	species_height = HEIGHT_CLASS_TALL
+	height_min = 180
 
 	icobase = 'icons/mob/human_races/ipc/r_ind_xion.dmi'
 	deform = 'icons/mob/human_races/ipc/r_ind_xion.dmi'

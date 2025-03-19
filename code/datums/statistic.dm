@@ -127,15 +127,6 @@
 	var/ckey = values[1]
 	. = "[ckey], with [values[ckey]] deaths."
 
-/hook/death/proc/increment_statistics(mob/living/carbon/human/H, gibbed)
-	. = TRUE
-	if (!H.ckey)
-		return
-
-	SSstatistics.IncrementGroupedStat("ckey_deaths", H.ckey)
-	if (gibbed)
-		SSstatistics.IncrementSimpleStat("gibs")
-
 /hook/clone/proc/increment_statistics(mob/living/carbon/human/H)
 	. = TRUE
 	if (!H.ckey)

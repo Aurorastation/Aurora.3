@@ -1,4 +1,4 @@
-var/singleton/sound_player/sound_player = new()
+GLOBAL_DATUM_INIT(sound_player, /singleton/sound_player, new)
 
 /*
 	A sound player/manager for looping 3D sound effects.
@@ -47,7 +47,7 @@ var/singleton/sound_player/sound_player = new()
 	if(length(sound_tokens))
 		return
 
-	sound_channels.ReleaseChannel(channel)
+	GLOB.sound_channels.ReleaseChannel(channel)
 	taken_channels -= sound_id
 	sound_tokens_by_sound_id -= sound_id
 
@@ -56,7 +56,7 @@ var/singleton/sound_player/sound_player = new()
 
 	. = taken_channels[sound_id] // Does this sound_id already have an assigned channel?
 	if(!.) // If not, request a new one.
-		. = sound_channels.RequestChannel(sound_id)
+		. = GLOB.sound_channels.RequestChannel(sound_id)
 		if(!.) // Oh no, still no channel. Abort
 			return
 		taken_channels[sound_id] = .
@@ -104,7 +104,7 @@ var/singleton/sound_player/sound_player = new()
 	src.sound_type  = sound_type
 
 	if(sound.repeat) // Non-looping sounds may not reserve a sound channel due to the risk of not hearing when someone forgets to stop the token
-		var/channel = sound_player.PrivGetChannel(src) //Attempt to find a channel
+		var/channel = GLOB.sound_player.PrivGetChannel(src) //Attempt to find a channel
 		if(!isnum(channel))
 			CRASH("All available sound channels are in active use.")
 		sound.channel = channel
@@ -114,7 +114,7 @@ var/singleton/sound_player/sound_player = new()
 	listeners = list()
 	listener_status = list()
 
-	GLOB.destroyed_event.register(source, src, TYPE_PROC_REF(/datum, qdel_self))
+	RegisterSignal(source, COMSIG_QDELETING, TYPE_PROC_REF(/datum, qdel_self))
 
 	PrivLocateListeners()
 	START_PROCESSING(SSprocessing, src)
@@ -154,10 +154,10 @@ var/singleton/sound_player/sound_player = new()
 	listeners = null
 	listener_status = null
 
-	GLOB.destroyed_event.unregister(source, src, TYPE_PROC_REF(/datum, qdel_self))
+	UnregisterSignal(source, COMSIG_QDELETING)
 	source = null
 
-	sound_player.PrivStopSound(src)
+	GLOB.sound_player.PrivStopSound(src)
 	STOP_PROCESSING(SSprocessing, src)
 
 /datum/sound_token/process()
@@ -197,19 +197,19 @@ var/singleton/sound_player/sound_player = new()
 
 	listeners += listener
 
-	GLOB.moved_event.register(listener, src, PROC_REF(PrivUpdateListenerLoc))
-	GLOB.destroyed_event.register(listener, src, PROC_REF(PrivRemoveListener))
+	RegisterSignal(listener, COMSIG_MOVABLE_MOVED, PROC_REF(PrivUpdateListenerLoc))
+	RegisterSignal(listener, COMSIG_QDELETING, PROC_REF(PrivRemoveListener))
 
-	PrivUpdateListenerLoc(listener, FALSE)
+	PrivUpdateListenerLoc(listener, update_sound = FALSE)
 
 /datum/sound_token/proc/PrivRemoveListener(atom/listener, sound/null_sound)
 	null_sound = null_sound || new(channel = sound.channel)
 	sound_to(listener, null_sound)
-	GLOB.moved_event.unregister(listener, src, PROC_REF(PrivUpdateListenerLoc))
-	GLOB.destroyed_event.unregister(listener, src, PROC_REF(PrivRemoveListener))
+	UnregisterSignal(listener, COMSIG_MOVABLE_MOVED)
+	UnregisterSignal(listener, COMSIG_QDELETING)
 	listeners -= listener
 
-/datum/sound_token/proc/PrivUpdateListenerLoc(atom/listener, update_sound = TRUE)
+/datum/sound_token/proc/PrivUpdateListenerLoc(atom/movable/listener, atom/old_loc, dir, forced, list/old_locs, update_sound = TRUE)
 	var/turf/source_turf = get_turf(source)
 	var/turf/listener_turf = get_turf(listener)
 
@@ -250,7 +250,7 @@ var/singleton/sound_player/sound_player = new()
 
 /datum/sound_token/proc/PrivGetEnvironment(listener)
 	var/area/A = get_area(listener)
-	return A && PrivIsValidEnvironment(A.sound_env) ? A.sound_env : sound.environment
+	return A && PrivIsValidEnvironment(A.sound_environment) ? A.sound_environment : sound.environment
 
 /datum/sound_token/proc/PrivIsValidEnvironment(environment)
 	if(islist(environment) && length(environment) != 23)

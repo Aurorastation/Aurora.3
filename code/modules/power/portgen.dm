@@ -17,7 +17,7 @@
 
 /obj/machinery/power/portgen/Initialize()
 	. = ..()
-	soundloop = new(list(src), active)
+	soundloop = new(src, active)
 
 /obj/machinery/power/portgen/Destroy()
 	QDEL_NULL(soundloop)
@@ -291,7 +291,7 @@
 
 		else if(attacking_item.isscrewdriver())
 			open = !open
-			playsound(loc, attacking_item.usesound, 50, 1)
+			attacking_item.play_tool_sound(get_turf(src), 50)
 			if(open)
 				to_chat(user, SPAN_NOTICE("You open the access panel."))
 			else
@@ -332,7 +332,7 @@
 	if(loc)
 		var/datum/gas_mixture/environment = loc.return_air()
 		if(environment)
-			data["temperature_min"] = FLOOR(environment.temperature - T0C)
+			data["temperature_min"] = FLOOR(environment.temperature - T0C, 1)
 
 	data["output_min"] = initial(power_output)
 	data["is_broken"] = IsBroken()
@@ -411,6 +411,7 @@
 	board_path = "/obj/item/circuitboard/portgen/advanced"
 
 	power_gen = 50000 // 200 kW = safe max, 250 kW = unsafe max.
+	max_temperature = 340
 	temperature_gain = 60
 
 /obj/machinery/power/portgen/basic/advanced/UseFuel()
@@ -500,7 +501,7 @@
 		temperature_gain = 60
 		reagents.remove_any(coolant_use)
 		if(prob(2))
-			audible_message("<span class='notice'>[src] churns happily.</span>")
+			audible_message(SPAN_NOTICE("[src] churns happily."))
 	else
 		temperature_gain = initial(temperature_gain)
 	..()
@@ -519,10 +520,10 @@
 		var/obj/item/reagent_containers/R = attacking_item
 		if(R.standard_pour_into(user, src))
 			if(reagents.has_reagent(/singleton/reagent/coolant))
-				audible_message("<span class='notice'>[src] blips happily!</span>")
+				audible_message(SPAN_NOTICE("[src] blips happily!"))
 				playsound(get_turf(src),'sound/machines/synth_yes.ogg', 50, 0)
 			else
-				audible_message("<span class='warning'>[src] blips in disappointment!</span>")
+				audible_message(SPAN_WARNING("[src] blips in disappointment!"))
 				playsound(get_turf(src), 'sound/machines/synth_no.ogg', 50, 0)
 		return
 	..()

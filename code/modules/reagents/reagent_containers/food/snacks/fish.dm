@@ -8,7 +8,7 @@
 
 /obj/item/reagent_containers/food/snacks/fish/attackby(obj/item/attacking_item, mob/user)
 	if(is_sharp(attacking_item) && (locate(/obj/structure/table) in loc))
-		var/transfer_amt = FLOOR(reagents.total_volume/3)
+		var/transfer_amt = FLOOR(reagents.total_volume/3, 1)
 		for(var/i = 1 to 3)
 			var/obj/item/reagent_containers/food/snacks/sashimi/sashimi = new(get_turf(src), fish_type)
 			reagents.trans_to(sashimi, transfer_amt)
@@ -67,7 +67,7 @@
 
 /obj/item/mollusc
 	name = "mollusc"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	desc = "A small slimy mollusc. Fresh!"
 	desc_info = "You will need a sharp or edged implement to pry it open. You can also try opening it in your hand if you're strong enough."
 	icon = 'icons/obj/item/reagent_containers/food/meat.dmi'

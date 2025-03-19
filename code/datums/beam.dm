@@ -95,7 +95,7 @@
 	return ..()
 
 /datum/beam/proc/Draw()
-	var/Angle = round(Get_Angle(origin.z ? origin : get_turf(origin), target.z ? target : get_turf(target)))
+	var/Angle = round(get_angle(origin.z ? origin : get_turf(origin), target.z ? target : get_turf(target)))
 	var/matrix/rot_matrix = matrix()
 	rot_matrix.Turn(Angle)
 
@@ -124,10 +124,10 @@
 		var/x_offset = round(sin(Angle) * (N + world.icon_size/2))
 		var/y_offset = round(cos(Angle) * (N + world.icon_size/2))
 		//Position the effect so the beam is one continuous line
-		segment.x += SIMPLE_SIGN(x_offset) * FLOOR(abs(x_offset)/world.icon_size)
+		segment.x += SIMPLE_SIGN(x_offset) * FLOOR(abs(x_offset)/world.icon_size, 1)
 		x_offset %= world.icon_size
 
-		segment.y += SIMPLE_SIGN(y_offset) * FLOOR(abs(y_offset)/world.icon_size)
+		segment.y += SIMPLE_SIGN(y_offset) * FLOOR(abs(y_offset)/world.icon_size, 1)
 		y_offset %= world.icon_size
 
 		segment.pixel_x = x_offset
@@ -206,7 +206,8 @@
 /obj/effect/ebeam
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	anchored = 1
-	layer = EFFECTS_ABOVE_LIGHTING_LAYER
+	plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	layer = BEAM_PROJECTILE_LAYER
 	blend_mode = BLEND_ADD
 	var/datum/beam/owner
 

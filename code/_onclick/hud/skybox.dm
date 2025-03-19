@@ -4,8 +4,7 @@
 	anchored = TRUE
 	simulated = FALSE
 	screen_loc = "CENTER:-224,CENTER:-224"
-	plane = PLANE_SKYBOX
-	blend_mode = BLEND_MULTIPLY
+	plane = SKYBOX_PLANE
 
 /client
 	var/obj/skybox/skybox
@@ -26,12 +25,6 @@
 			skybox.screen_loc = "CENTER:[-224 - T.x],CENTER:[-224 - T.y]"
 
 /mob/Move()
-	var/old_z = GET_Z(src)
-	. = ..()
-	if(. && client)
-		client.update_skybox(old_z != GET_Z(src))
-
-/mob/forceMove()
 	var/old_z = GET_Z(src)
 	. = ..()
 	if(. && client)

@@ -116,6 +116,18 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("noodles" = 5 , "rich vegetable broth" = 3, "egg" =3))
 	bitesize = 3
 
+/obj/item/reagent_containers/food/snacks/aoyama_ramen
+	name = "aoyama ramen"
+	desc = "A bowl of Konyang-style spicy ramen composed of ramen noodles, fish, moss, ginger, chili peppers, and a slice of Narutomaki. The urban legend is that it was created by 5-Cheung gang members as a test to see if their new recruits can handle how spicy it is, but given that it's a popular dish that's not much spicier than many other foods out in the universe, that's probably nonsense. Most likely it was made by Konyang settlers looking to make Ramen out of local ingredients."
+	icon = 'icons/obj/item/reagent_containers/food/noodles.dmi'
+	icon_state = "aoyama_ramen"
+	trash = /obj/item/trash/snack_bowl
+	filling_color = "#91682b"
+	center_of_mass = list("x"=16, "y"=10)
+	reagents_to_add = list(/singleton/reagent/nutriment = 2, /singleton/reagent/nutriment/moss = 2, /singleton/reagent/nutriment/protein = 5, /singleton/reagent/water = 2, /singleton/reagent/capsaicin = 4)
+	reagent_data = list(/singleton/reagent/nutriment = list("noodles" = 5 , "chili" = 4, "rich vegetable broth" = 3), /singleton/reagent/nutriment/protein = list("fish" = 5))
+	bitesize = 3
+
 /obj/item/reagent_containers/food/snacks/spaghettibolognese
 	name = "spaghetti bolognese"
 	desc = "If it's not from the bologna region of italy it's really just sparkling noodles."
@@ -128,8 +140,7 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("spaghetti" = 5, "seasoned vegetables" = 4), /singleton/reagent/nutriment/protein= list ("ground beef" = 5))
 	bitesize = 3
 
-/obj/item/reagent_containers/food/snacks/ravioli
-	abstract_type = /obj/item/reagent_containers/food/snacks/ravioli
+ABSTRACT_TYPE(/obj/item/reagent_containers/food/snacks/ravioli)
 	icon = 'icons/obj/item/reagent_containers/food/noodles.dmi'
 	icon_state = "ravioli"
 	trash = /obj/item/trash/plate
@@ -158,3 +169,32 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 8)
 	reagent_data = list(/singleton/reagent/nutriment = list("pasta" = 5, "pumpkin squash" = 5, "creamy sauce" = 5))
 	filling_color = "#80d1e9"
+
+/obj/item/reagent_containers/food/snacks/ravioli/nakarka
+	name = "nakarka ravioli"
+	icon_state = "ravioli_nakarka"
+	desc = "Ravioli with Nakarka cheese filling in a sour cream and chives based sauce."
+	reagents_to_add = list(/singleton/reagent/nutriment = 10)
+	reagent_data = list(/singleton/reagent/nutriment = list("sharp tanginess" = 5, "pasta" = 4, "sour cream" = 4, "chives" = 3))
+
+/obj/item/reagent_containers/food/snacks/fettuccine_alfredo
+	name = "fettuccine alfredo"
+	desc = "Pasta lathered in a white, buttery parmesan cheese and cream sauce. Classic Italian!"
+	icon = 'icons/obj/item/reagent_containers/food/noodles.dmi'
+	icon_state = "alfredo"
+	trash = /obj/item/trash/plate
+	filling_color = "#f8e8b1"
+	center_of_mass = list("x"=16, "y"=10)
+	reagents_to_add = list(/singleton/reagent/nutriment = 6, /singleton/reagent/nutriment/protein/cheese = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("pasta" = 5, "garlic" = 3), /singleton/reagent/nutriment/protein/cheese = list("creamy parmesan" = 5))
+
+/obj/item/reagent_containers/food/snacks/fettuccine_alfredo/update_icon()
+	var/expected_initial_reagent_volume
+	for(var/k in src.reagents_to_add)
+		expected_initial_reagent_volume += reagents_to_add[k]
+	var/percent_fettuccine_alfredo = round((reagents.total_volume / expected_initial_reagent_volume) * 100)
+	switch(percent_fettuccine_alfredo)
+		if(0 to 49)
+			icon_state = "alfredo_half"
+		if(50 to INFINITY)
+			icon_state = "alfredo"

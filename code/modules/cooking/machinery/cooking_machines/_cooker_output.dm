@@ -11,7 +11,7 @@
 	var/max_scale = 2
 	var/scale = 1
 
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	var/prefix
 
 /obj/item/reagent_containers/food/snacks/variable/Initialize()
@@ -52,7 +52,7 @@
 	if (reagents && reagents.total_volume)
 		var/ratio = reagents.total_volume / size
 		scale = sqrt(ratio) //Scaling factor is square root of desired area
-		scale = Clamp(scale, min_scale, max_scale)
+		scale = clamp(scale, min_scale, max_scale)
 	else
 		scale = min_scale
 	w_class = round(initial(w_class) * scale)
@@ -64,6 +64,7 @@
 	var/matrix/M = matrix()
 	M.Scale(scale)
 	transform = M
+	. = ..()
 
 	if (!prefix || overwrite)
 		update_prefix()
@@ -73,14 +74,14 @@
 	desc = "A personalized pan pizza meant for only one person."
 	icon_state = "personal_pizza"
 	size = 20
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/reagent_containers/food/snacks/variable/bread
 	name = "bread"
 	desc = "Tasty bread."
 	icon_state = "breadcustom"
 	size = 40
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/reagent_containers/food/snacks/variable/pie
 	name = "pie"
@@ -95,29 +96,22 @@
 	slices_num = 5
 	slice_path = /obj/item/reagent_containers/food/snacks/variable/cakeslice
 	size = 40
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/reagent_containers/food/snacks/variable/cakeslice
 	name = "cake slice"
 	desc = "A slice of cake"
 	icon_state = "cakeslicecustom"
 	trash = /obj/item/trash/plate
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	size = 8
-
-/obj/item/reagent_containers/food/snacks/variable/cakeslice/update_icon()
-	. = ..()
-	//Filling overlay
-	var/image/I = image(icon, "[icon_state]_filling")
-	I.color = filling_color
-	overlays += I
 
 /obj/item/reagent_containers/food/snacks/variable/pocket
 	name = "hot pocket"
 	desc = "You wanna put a bangin- oh, nevermind."
 	icon_state = "donk"
 	size = 8
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/reagent_containers/food/snacks/variable/kebab
 	name = "kebab"
@@ -136,35 +130,35 @@
 	desc = "Sugar snap!"
 	icon_state = "cookie"
 	size = 6
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/reagent_containers/food/snacks/variable/donut
 	name = "filled donut"
 	desc = "Donut eat this!" // kill me
 	icon_state = "donut"
 	size = 8
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/reagent_containers/food/snacks/variable/jawbreaker
 	name = "flavored jawbreaker"
 	desc = "It's like cracking a molar on a rainbow."
 	icon_state = "jawbreaker"
 	size = 4
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/reagent_containers/food/snacks/variable/candybar
 	name = "flavored chocolate bar"
 	desc = "Made in a factory downtown."
 	icon_state = "bar"
 	size = 6
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/reagent_containers/food/snacks/variable/sucker
 	name = "flavored sucker"
 	desc = "Suck, suck, suck."
 	icon_state = "sucker"
 	size = 4
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/reagent_containers/food/snacks/variable/jelly
 	name = "jelly"
@@ -177,7 +171,7 @@
 	desc = "Crispy and flaky"
 	icon_state = "cereal_box"
 	size = 30
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/reagent_containers/food/snacks/variable/cereal/Initialize()
 	. =..()
@@ -186,6 +180,13 @@
 /obj/item/reagent_containers/food/snacks/variable/mob
 	desc = "Poor little thing."
 	size = 5
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	var/kitchen_tag = "animal"
 
+/obj/item/reagent_containers/food/snacks/variable/macaron
+	name = "macaron"
+	desc = "Fluffy, brittle, sweet macaron."
+	icon_state = "macaroncustom"
+	size = 15
+	w_class = WEIGHT_CLASS_TINY
+	bitesize = 6

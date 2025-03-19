@@ -3,7 +3,7 @@
 /obj/item/gripper
 	name = "magnetic gripper"
 	desc = "A simple grasping tool specialized in construction and engineering work."
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/item/gripper.dmi'
 	icon_state = "gripper"
 
 	item_flags = ITEM_FLAG_NO_BLUDGEON
@@ -35,10 +35,10 @@
 
 	var/force_holder
 
-/obj/item/gripper/examine(mob/user)
+/obj/item/gripper/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	. = ..()
 	if(wrapped)
-		wrapped.examine(user)
+		wrapped.examine(arglist(args))
 
 /obj/item/gripper/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
@@ -85,12 +85,13 @@
 /obj/item/gripper/update_icon()
 	underlays.Cut()
 	grippersafety(src)
-	if(wrapped && wrapped.icon)
-		var/mutable_appearance/MA = new(wrapped)
-		MA.layer = FLOAT_LAYER
+	if(wrapped)
+		var/mutable_appearance/MA = new (wrapped)
 		MA.pixel_y = -8
-
+		MA.plane = src.plane
+		MA.layer = FLOAT_LAYER
 		underlays += MA
+
 
 /obj/item/gripper/attack_self(mob/user)
 	if(wrapped)
@@ -107,7 +108,7 @@
 
 /obj/item/gripper/CtrlClick(mob/user)
 	if(wrapped)
-		drop(get_turf(src))
+		drop(get_turf(src), user)
 		return
 	to_chat(user, SPAN_WARNING("\The [src] isn't gripping anything!"))
 
@@ -118,7 +119,21 @@
 
 	drop(get_turf(src), usr)
 
-/obj/item/gripper/proc/drop(var/atom/target, mob/user, var/feedback = TRUE)
+/**
+ * Drop an item from the gripper onto the target
+ *
+ * * target - An `/atom` to drop (move) the item onto
+ * * user - The `/mob` that is dropping it
+ * * feedback - Boolean, if `TRUE` prints a message about the drop
+ */
+/obj/item/gripper/proc/drop(atom/target, mob/user, feedback = TRUE)
+	if(!istype(target))
+		crash_with("The target to drop the item onto is not specified or is incorrect!")
+
+	if(!istype(user))
+		crash_with("The user that is performing the drop is not specified or is incorrect!")
+
+
 	if(wrapped)
 		if(wrapped.loc == src)
 			if(force_holder)
@@ -128,39 +143,54 @@
 			force_holder = null
 		if(feedback)
 			to_chat(loc, SPAN_NOTICE("You release \the [wrapped].")) // loc will always be the cyborg
+
 	wrapped = null
 	update_icon()
 	return TRUE
 
-/obj/item/gripper/attack(mob/M, mob/user)
+/obj/item/gripper/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(wrapped) //The force of the wrapped obj gets set to zero during the attack() and afterattack().
 		force_holder = wrapped.force
 		wrapped.force = 0
-		var/resolved = wrapped.attack(M,user)
+
+		var/resolved = wrapped.attack(target_mob, user)
+
 		if(QDELETED(wrapped))
 			drop(get_turf(src), user, FALSE)
+
+		update_icon()
+
 		return resolved
+
 	else // mob interactions
+
 		switch(user.a_intent)
 			if(I_HELP)
-				user.visible_message("\The [user] [pick("boops", "squeezes", "pokes", "prods", "strokes", "bonks")] \the [M] with \the [src]")
+				user.visible_message("\The [user] [pick("boops", "squeezes", "pokes", "prods", "strokes", "bonks")] \the [target_mob] with \the [src]")
 			if(I_HURT)
-				M.attack_generic(user, user.mob_size, "crushed")//about 16 dmg for a cyborg
+				target_mob.attack_generic(user, user.mob_size, "crushed")//about 16 dmg for a cyborg
 				//Attack generic does a visible message so we dont need one here
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN * 3)
 				playsound(user, 'sound/effects/attackblob.ogg', 60, 1)
 				//Slow,powerful attack for borgs. No spamclicking
+
 	return FALSE
 
 /obj/item/gripper/attackby(obj/item/attacking_item, mob/user)
 	var/resolved = FALSE
+
 	if(wrapped)
 		if(attacking_item == wrapped)
 			attack_self(user) //Allows gripper to be clicked to use item.
 			return TRUE
+
 		resolved = wrapped.attackby(attacking_item,user)
+
 		if(!resolved)
 			attacking_item.afterattack(wrapped, user, TRUE)//We pass along things targeting the gripper, to objects inside the gripper. So that we can draw chemicals from held beakers for instance
+
+		update_icon()
+
 	return resolved
 
 /obj/item/gripper/afterattack(var/atom/target, var/mob/living/user, proximity, params)
@@ -256,6 +286,7 @@
 		/obj/item/stack/cable_coil, // again, for borg building,
 		/obj/item/circuitboard,
 		/obj/item/slime_extract,
+		/obj/item/device/slime_scanner,
 		/obj/item/reagent_containers/glass,
 		/obj/item/reagent_containers/food/snacks/monkeycube,
 		/obj/item/seeds, // To be able to plant things for Xenobotany
@@ -272,7 +303,8 @@
 		/obj/item/advanced_docility_serum,
 		/obj/item/remote_mecha,
 		/obj/item/smallDelivery,
-		/obj/item/gift
+		/obj/item/gift,
+		/obj/item/device/integrated_circuit_printer
 		)
 
 /obj/item/gripper/chemistry //A gripper designed for chemistry, to allow borgs to work efficiently in the lab

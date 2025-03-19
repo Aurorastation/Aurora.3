@@ -1,4 +1,4 @@
-var/list/sounds_cache = list()
+GLOBAL_LIST_INIT_TYPED(sounds_cache, /sound, list())
 
 /client/proc/play_sound(S as sound)
 	set category = "Fun"
@@ -8,12 +8,12 @@ var/list/sounds_cache = list()
 	var/sound/uploaded_sound = sound(S, repeat = 0, wait = 1, channel = 777)
 	uploaded_sound.priority = 250
 
-	sounds_cache += S
+	GLOB.sounds_cache += S
 
 	if(alert("Do you ready?\nSong: [S]\nNow you can also play this sound using \"Play Server Sound\".", "Confirmation request" ,"Play", "Cancel") == "Cancel")
 		return
 
-	log_admin("[key_name(src)] played sound [S]",admin_key=key_name(src))
+	log_admin("[key_name(src)] played sound [S]")
 	message_admins("[key_name_admin(src)] played sound [S]", 1)
 	for(var/mob/M in GLOB.player_list)
 		if(M.client.prefs.toggles & SOUND_MIDI)
@@ -26,7 +26,7 @@ var/list/sounds_cache = list()
 	set name = "Play Local Sound"
 	if(!check_rights(R_SOUNDS))	return
 
-	log_admin("[key_name(src)] played a local sound [S]",admin_key=key_name(src))
+	log_admin("[key_name(src)] played a local sound [S]")
 	message_admins("[key_name_admin(src)] played a local sound [S]", 1)
 	playsound(get_turf(src.mob), S, 50, 0, 0)
 	feedback_add_details("admin_verb","PLS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -39,7 +39,7 @@ var/list/sounds_cache = list()
 
 	var/list/sounds = file2list('sound/serversound_list.txt');
 	sounds += "--CANCEL--"
-	sounds += sounds_cache
+	sounds += GLOB.sounds_cache
 
 	var/melody = input("Select a sound from the server to play", "Server sound list", "--CANCEL--") in sounds
 

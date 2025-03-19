@@ -27,6 +27,7 @@
 	buckle_dir = SOUTH
 	buckle_lying = 1
 	build_amt = 2
+	pass_flags_self = PASSTABLE
 	var/material/padding_material
 
 	var/base_icon = "bed"
@@ -78,7 +79,7 @@
 	generate_strings()
 	// Prep icon.
 	icon_state = ""
-	cut_overlays()
+	ClearOverlays()
 	// Base icon.
 
 	generate_overlay_cache(material) //Generate base icon cache
@@ -105,7 +106,7 @@
 			else if(overlay_material.icon_colour) // Either that, or just fall back on the regular material color.
 				I.color = overlay_material.icon_colour
 		furniture_cache[cache_key] = I
-	add_overlay(furniture_cache[cache_key]) // Use image from cache key!
+	AddOverlays(furniture_cache[cache_key]) // Use image from cache key!
 
 /obj/structure/bed/proc/generate_strings()
 	if(material_alteration & MATERIAL_ALTERATION_NAME)
@@ -125,12 +126,6 @@
 	. = ..()
 	if(buckled)
 		buckled.forceMove(dest)
-
-/obj/structure/bed/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(istype(mover) && mover.checkpass(PASSTABLE))
-		return 1
-	else
-		return ..()
 
 /obj/structure/bed/ex_act(severity)
 	switch(severity)
@@ -202,7 +197,7 @@
 	else if(istype(attacking_item, /obj/item/grab))
 		var/obj/item/grab/G = attacking_item
 		var/mob/living/affecting = G.affecting
-		user.visible_message("<span class='notice'>[user] attempts to buckle [affecting] into \the [src]!</span>")
+		user.visible_message(SPAN_NOTICE("[user] attempts to buckle [affecting] into \the [src]!"))
 		if(do_after(user, 2 SECONDS, affecting, DO_UNIQUE))
 			affecting.forceMove(loc)
 			spawn(0)
@@ -304,7 +299,7 @@
 			occupant.visible_message(SPAN_DANGER("[pulling] has thrusted \the [name] into \the [A], throwing \the [occupant] out of it!"))
 			pulling.attack_log += "\[[time_stamp()]\]<span class='warning'> Crashed [occupant.name]'s ([occupant.ckey]) [name] into \a [A]</span>"
 			occupant.attack_log += "\[[time_stamp()]\]<font color='orange'> Thrusted into \a [A] by [pulling.name] ([pulling.ckey]) with \the [name]</font>"
-			msg_admin_attack("[pulling.name] ([pulling.ckey]) has thrusted [occupant.name]'s ([occupant.ckey]) [name] into \a [A] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[pulling.x];Y=[pulling.y];Z=[pulling.z]'>JMP</a>)",ckey=key_name(pulling),ckey_target=key_name(occupant))
+			msg_admin_attack("[pulling.name] ([pulling.ckey]) has thrusted [occupant.name]'s ([occupant.ckey]) [name] into \a [A] (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[pulling.x];Y=[pulling.y];Z=[pulling.z]'>JMP</a>)",ckey=key_name(pulling),ckey_target=key_name(occupant))
 		else
 			occupant.visible_message(SPAN_DANGER("[occupant] crashed into \the [A]!"))
 
@@ -390,7 +385,7 @@
 	return ..()
 
 /obj/structure/bed/roller/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	vis_contents = list()
 	if(density)
 		if(anchored)
@@ -404,18 +399,18 @@
 		var/percentage = round((beaker.reagents.total_volume / beaker.volume) * 100, 25)
 		var/image/filling = image(icon, "iv_filling[percentage]")
 		filling.color = beaker.reagents.get_color()
-		iv.add_overlay(filling)
+		iv.AddOverlays(filling)
 		if(percentage < 25)
-			iv.add_overlay(image(icon, "light_low"))
+			iv.AddOverlays(image(icon, "light_low"))
 		if(density)
 			iv.pixel_y = 7
-		add_overlay(iv)
+		AddOverlays(iv)
 		if(has_iv_light)
 			var/image/light = image(icon, "iv[iv_attached]_l")
-			add_overlay(light)
+			AddOverlays(light)
 	if(vitals)
 		vitals.update_monitor()
-		vis_contents += vitals
+		add_vis_contents(vitals)
 
 /obj/structure/bed/roller/attackby(obj/item/attacking_item, mob/user)
 	if(iswrench(attacking_item) || istype(attacking_item, /obj/item/stack) || iswirecutter(attacking_item))
@@ -497,27 +492,27 @@
 	update_icon()
 	STOP_PROCESSING(SSprocessing, src)
 
-/obj/structure/bed/roller/MouseDrop(over_object, src_location, over_location)
+/obj/structure/bed/roller/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	..()
-	if(use_check(usr) || !Adjacent(usr))
+	if(use_check(user) || !Adjacent(user))
 		return
-	if(!ishuman(usr) && (!isrobot(usr) || isDrone(usr))) //Humans and borgs can collapse, but not drones
+	if(!ishuman(user) && (!isrobot(user) || isDrone(user))) //Humans and borgs can collapse, but not drones
 		return
-	if(over_object == buckled && beaker)
+	if(over == buckled && beaker)
 		if(iv_attached)
-			detach_iv(buckled, usr)
+			detach_iv(buckled, user)
 		else
-			attach_iv(buckled, usr)
+			attach_iv(buckled, user)
 		return
-	if(usr != over_object && ishuman(over_object))
-		if(user_buckle(over_object, usr))
-			attach_iv(buckled, usr)
+	if(user != over && ishuman(over))
+		if(user_buckle(over, user))
+			attach_iv(buckled, user)
 			return
 	if(beaker)
-		remove_beaker(usr)
+		remove_beaker(user)
 		return
 	if(vitals)
-		remove_vitals(usr)
+		remove_vitals(user)
 		return
 	if(buckled)
 		return
@@ -528,7 +523,6 @@
 	if(buckled)
 		if(buckled.buckled_to == src)
 			buckled.forceMove(src.loc)
-			buckled.layer = src.layer + 1
 		else
 			buckled = null
 
@@ -570,18 +564,20 @@
 	desc = "A collapsed roller bed that can be carried around."
 	icon = 'icons/obj/rollerbed.dmi'
 	icon_state = "standard_folded"
+	base_icon = "standard"
 	item_state = "rbed"
 	contained_sprite = TRUE
 	drop_sound = 'sound/items/drop/axe.ogg'
 	pickup_sound = 'sound/items/pickup/axe.ogg'
 	center_of_mass = list("x" = 17,"y" = 7)
 	var/origin_type = /obj/structure/bed/roller
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/roller/hover
 	name = "medical hoverbed"
 	desc = "A collapsed hoverbed that can be carried around."
 	icon_state = "hover_folded"
+	base_icon = "hover"
 	item_state = "rbed_hover"
 	origin_type = /obj/structure/bed/roller/hover
 
@@ -633,3 +629,85 @@
 	R.add_fingerprint(user)
 	qdel(held)
 	held = null
+
+/**
+ * # Roller Rack
+ *
+ * A rack structure that can hold up to four roller bed items (Or subtypes i.e. Hoverbeds), stored in the `held` list.
+ *
+ * The `initial_beds` variable controls the number of beds the rack will spawn with.
+*/
+/obj/structure/roller_rack
+	name = "roller bed rack"
+	desc = "A rack for holding collapsed roller beds."
+	icon = 'icons/obj/rollerbed.dmi'
+	icon_state = "holder"
+
+	/**
+	 * List of held roller bed items.
+	 */
+	var/list/obj/item/roller/held = list()
+
+	/**
+	 * The number of beds the rack spawns with
+	 */
+	var/initial_beds = 4
+
+/obj/structure/roller_rack/Initialize()
+	. = ..()
+	for(var/_ in 1 to initial_beds)
+		var/obj/item/roller/RB = new /obj/item/roller(src)
+		held += RB
+	update_icon()
+
+/obj/structure/roller_rack/Destroy()
+	QDEL_LIST(held)
+	return ..()
+
+/obj/structure/roller_rack/update_icon()
+	. = ..()
+	ClearOverlays()
+	var/beds = 0
+	for(var/obj/item/roller/RB in held)
+		var/image/I = overlay_image(icon, "[icon_state]_bed_[RB.base_icon]")
+		I.pixel_x = (5 * beds)
+		beds++
+		AddOverlays(I)
+
+/obj/structure/roller_rack/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
+	desc = "[initial(desc)] \nIt is holding [LAZYLEN(held)] beds."
+	. = ..()
+
+/obj/structure/roller_rack/attack_hand(mob/user)
+	if(!LAZYLEN(held))
+		to_chat(user, SPAN_NOTICE("The rack is empty."))
+		return
+
+	var/obj/item/roller/RB = held[LAZYLEN(held)]
+	user.put_in_hands(RB)
+	held -= RB
+	to_chat(user, SPAN_NOTICE("You retrieve \the [RB] from the rack."))
+	update_icon()
+
+/obj/structure/roller_rack/attackby(obj/item/attacking_item, mob/user)
+	if(iswrench(attacking_item))
+		anchored = !anchored
+		to_chat(user, SPAN_NOTICE("You [anchored ? "bolt" : "unbolt"] \the [src] [anchored ? "to" : "from"] the ground."))
+
+	if(istype(attacking_item, /obj/item/roller))
+		var/obj/item/roller/RB = attacking_item
+
+		if(LAZYLEN(held) >= 4)
+			to_chat(user, SPAN_NOTICE("The rack has no space for \the [RB]"))
+			return
+
+		user.drop_from_inventory(RB, src)
+		held += RB
+		to_chat(user, SPAN_NOTICE("You place \the [RB] on the rack."))
+		update_icon()
+
+/obj/structure/roller_rack/two
+	initial_beds = 2
+
+/obj/structure/roller_rack/three
+	initial_beds = 3

@@ -3,7 +3,7 @@
 	desc = "A cube of shining metal, four inches to a side and covered in shallow grooves."
 	icon = 'icons/obj/assemblies.dmi'
 	icon_state = "posibrain"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 4, TECH_BLUESPACE = 2, TECH_DATA = 4)
 	req_access = list(ACCESS_ROBOTICS)
 	can_be_ipc = TRUE
@@ -53,7 +53,7 @@
 
 	to_chat(brainmob, "<b>You are a positronic brain, brought into existence on [station_name()].</b>")
 	to_chat(brainmob, "<b>As a synthetic intelligence, you answer to all crewmembers, as well as the AI.</b>")
-	to_chat(brainmob, "<b>Remember, the purpose of your existence is to serve the crew and the station. Above all else, do no harm.</b>")
+	to_chat(brainmob, "<b>Remember, the purpose of your existence is to serve the crew and the [station_name(TRUE)]. Above all else, do no harm.</b>")
 
 	var/area/A = get_area(src)
 	if(istype(A, /area/assembly/robotics))
@@ -75,8 +75,7 @@
 /obj/item/device/mmi/digital/posibrain/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 
-	. += "<span class='info'>*---------*</span>\nThis is [icon2html(src, user)] \a <EM>[src]</EM>!\n[desc]\n"
-	. += "<span class='warning'>"
+	. += "This is [icon2html(src, user)] \a <EM>[src]</EM>!\n[desc]\n"
 
 	if(brainmob?.key)
 		switch(brainmob.stat)
@@ -84,12 +83,11 @@
 				if(!src.brainmob.client)
 					. += "It appears to be in stand-by mode.\n" //afk
 			if(UNCONSCIOUS)
-				. += "<span class='warning'>It doesn't seem to be responsive.</span>\n"
+				. += SPAN_WARNING("It doesn't seem to be responsive.\n")
 			if(DEAD)
 				. += "<span class='deadsay'>It appears to be completely inactive.</span>\n"
 	else
 		. += "<span class='deadsay'>It appears to be completely inactive.</span>\n"
-	. += "</span><span class='info'>*---------*</span>"
 
 /obj/item/device/mmi/digital/posibrain/ready_for_use(var/mob/user)
 	if(!brainmob)

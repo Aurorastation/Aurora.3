@@ -9,8 +9,8 @@
 	spawnpoints = list("elyran_navy_crewman")
 	max_count = 2
 
-	outfit = /datum/outfit/admin/elyran_navy_crewman
-	possible_species = list(SPECIES_HUMAN)
+	outfit = /obj/outfit/admin/elyran_navy_crewman
+	possible_species = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Elyran Naval Infantryman"
@@ -20,7 +20,7 @@
 	culture_restriction = list(/singleton/origin_item/culture/elyran)
 
 
-/datum/outfit/admin/elyran_navy_crewman
+/obj/outfit/admin/elyran_navy_crewman
 	name = "Elyran Naval Infantryman"
 
 	uniform = /obj/item/clothing/under/rank/elyran_fatigues
@@ -34,9 +34,17 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
 
-/datum/outfit/admin/elyran_navy_crewman/get_id_access()
+/obj/outfit/admin/elyran_navy_crewman/get_id_access()
 	return list(ACCESS_ELYRAN_NAVAL_INFANTRY_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
 
+/obj/outfit/admin/elyran_navy_crewman/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	if(isipc(H)) // All Elyran Navy synthetics are tagged, self-owned, and have Elyran citizenship.
+		var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+		if(istype(tag))
+			tag.serial_number = uppertext(dd_limittext(md5(H.real_name), 12))
+			tag.ownership_info = IPC_OWNERSHIP_SELF
+			tag.citizenship_info = CITIZENSHIP_ELYRA
 
 // senior crewman
 /datum/ghostspawner/human/elyran_navy_crewman/nco
@@ -48,13 +56,13 @@
 	spawnpoints = list("elyran_navy_crewman_nco")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/elyran_navy_crewman/nco
+	outfit = /obj/outfit/admin/elyran_navy_crewman/nco
 
 	assigned_role = "Elyran Navy Senior Crewman"
 	special_role = "Elyran Navy Senior Crewman"
 
 
-/datum/outfit/admin/elyran_navy_crewman/nco
+/obj/outfit/admin/elyran_navy_crewman/nco
 	name = "Elyran Navy Senior Crewman"
 
 // engineer
@@ -67,13 +75,13 @@
 	spawnpoints = list("elyran_navy_crewman_engineer")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/elyran_navy_crewman/engineer
+	outfit = /obj/outfit/admin/elyran_navy_crewman/engineer
 
 	assigned_role = "Elyran Naval Engineer"
 	special_role = "Elyran Naval Engineer"
 
 
-/datum/outfit/admin/elyran_navy_crewman/engineer
+/obj/outfit/admin/elyran_navy_crewman/engineer
 	name = "Elyran Naval Engineer"
 
 // corpsman
@@ -86,13 +94,13 @@
 	spawnpoints = list("elyran_navy_crewman_corpsman")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/elyran_navy_crewman/corpsman
+	outfit = /obj/outfit/admin/elyran_navy_crewman/corpsman
 
 	assigned_role = "Elyran Navy Corpsman"
 	special_role = "Elyran Navy Corpsman"
 
 
-/datum/outfit/admin/elyran_navy_crewman/corpsman
+/obj/outfit/admin/elyran_navy_crewman/corpsman
 	name = "Elyran Navy Corpsman"
 
 // officer
@@ -105,13 +113,13 @@
 	spawnpoints = list("elyran_navy_crewman_officer")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/elyran_navy_crewman/officer
+	outfit = /obj/outfit/admin/elyran_navy_crewman/officer
 
 	assigned_role = "Elyran Navy Officer"
 	special_role = "Elyran Navy Officer"
 
 
-/datum/outfit/admin/elyran_navy_crewman/officer
+/obj/outfit/admin/elyran_navy_crewman/officer
 	name = "Elyran Navy Officer"
 	uniform = /obj/item/clothing/under/rank/elyran_fatigues/commander
 

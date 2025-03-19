@@ -60,14 +60,14 @@
 
 	if(attacking_item.iscrowbar())
 		playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
-		user.visible_message("<span class='notice'>[user] begins to take the glass off the solar panel.</span>")
+		user.visible_message(SPAN_NOTICE("[user] begins to take the glass off the solar panel."))
 		if(attacking_item.use_tool(src, user, 50, volume = 50))
 			var/obj/item/solar_assembly/S = locate() in src
 			if(S)
 				S.forceMove(src.loc)
 				S.give_glass()
 			playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
-			user.visible_message("<span class='notice'>[user] takes the glass off the solar panel.</span>")
+			user.visible_message(SPAN_NOTICE("[user] takes the glass off the solar panel."))
 			qdel(src)
 		return
 	else if (attacking_item)
@@ -91,11 +91,11 @@
 
 /obj/machinery/power/solar/update_icon()
 	..()
-	cut_overlays()
+	ClearOverlays()
 	if(stat & BROKEN)
-		add_overlay("solar_panel-b")
+		AddOverlays("solar_panel-b")
 	else
-		add_overlay("solar_panel")
+		AddOverlays("solar_panel")
 		set_angle(adir)
 	return
 
@@ -200,7 +200,7 @@
 	icon = 'icons/obj/power.dmi'
 	icon_state = "sp_base"
 	item_state = "electropack"
-	w_class = ITEMSIZE_LARGE // Pretty big!
+	w_class = WEIGHT_CLASS_BULKY // Pretty big!
 	anchored = 0
 	var/tracker = 0
 	var/glass_type = null
@@ -222,14 +222,14 @@
 	if(!anchored && isturf(loc))
 		if(attacking_item.iswrench())
 			anchored = 1
-			user.visible_message("<span class='notice'>[user] wrenches the solar assembly into place.</span>")
-			playsound(src.loc, attacking_item.usesound, 75, 1)
+			user.visible_message(SPAN_NOTICE("[user] wrenches the solar assembly into place."))
+			attacking_item.play_tool_sound(get_turf(src), 75)
 			return 1
 	else
 		if(attacking_item.iswrench())
 			anchored = 0
-			user.visible_message("<span class='notice'>[user] unwrenches the solar assembly from it's place.</span>")
-			playsound(src.loc, attacking_item.usesound, 75, 1)
+			user.visible_message(SPAN_NOTICE("[user] unwrenches the solar assembly from it's place."))
+			attacking_item.play_tool_sound(get_turf(src), 75)
 			return 1
 
 		if(istype(attacking_item, /obj/item/stack/material) && (attacking_item.get_material_name() == "glass" || attacking_item.get_material_name() == MATERIAL_GLASS_REINFORCED))
@@ -237,13 +237,13 @@
 			if(S.use(2))
 				glass_type = attacking_item.type
 				playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
-				user.visible_message("<span class='notice'>[user] places the glass on the solar assembly.</span>")
+				user.visible_message(SPAN_NOTICE("[user] places the glass on the solar assembly."))
 				if(tracker)
 					new /obj/machinery/power/tracker(get_turf(src), src)
 				else
 					new /obj/machinery/power/solar(get_turf(src), src)
 			else
-				to_chat(user, "<span class='warning'>You need two sheets of glass to put them into a solar panel.</span>")
+				to_chat(user, SPAN_WARNING("You need two sheets of glass to put them into a solar panel."))
 				return
 			return 1
 
@@ -252,13 +252,13 @@
 			tracker = 1
 			user.drop_from_inventory(attacking_item, get_turf(src))
 			qdel(attacking_item)
-			user.visible_message("<span class='notice'>[user] inserts the electronics into the solar assembly.</span>")
+			user.visible_message(SPAN_NOTICE("[user] inserts the electronics into the solar assembly."))
 			return 1
 	else
 		if(attacking_item.iscrowbar())
 			new /obj/item/tracker_electronics(src.loc)
 			tracker = 0
-			user.visible_message("<span class='notice'>[user] takes out the electronics from the solar assembly.</span>")
+			user.visible_message(SPAN_NOTICE("[user] takes out the electronics from the solar assembly."))
 			return 1
 	..()
 
@@ -357,21 +357,21 @@
 	t += "<B><span class='highlight'>Tracking:</span></B><div class='statusDisplay'>"
 	switch(track)
 		if(0)
-			t += "<span class='linkOn'>Off</span> <A href='?src=\ref[src];track=1'>Timed</A> <A href='?src=\ref[src];track=2'>Auto</A><BR>"
+			t += "<span class='linkOn'>Off</span> <A href='byond://?src=[REF(src)];track=1'>Timed</A> <A href='byond://?src=[REF(src)];track=2'>Auto</A><BR>"
 		if(1)
-			t += "<A href='?src=\ref[src];track=0'>Off</A> <span class='linkOn'>Timed</span> <A href='?src=\ref[src];track=2'>Auto</A><BR>"
+			t += "<A href='byond://?src=[REF(src)];track=0'>Off</A> <span class='linkOn'>Timed</span> <A href='byond://?src=[REF(src)];track=2'>Auto</A><BR>"
 		if(2)
-			t += "<A href='?src=\ref[src];track=0'>Off</A> <A href='?src=\ref[src];track=1'>Timed</A> <span class='linkOn'>Auto</span><BR>"
+			t += "<A href='byond://?src=[REF(src)];track=0'>Off</A> <A href='byond://?src=[REF(src)];track=1'>Timed</A> <span class='linkOn'>Auto</span><BR>"
 
 	t += "Tracking Rate: [rate_control(src,"tdir","[trackrate] deg/h ([trackrate<0 ? "CCW" : "CW"])",1,30,180)]</div><BR>"
 
 	t += "<B><span class='highlight'>Connected devices:</span></B><div class='statusDisplay'>"
 
-	t += "<A href='?src=\ref[src];search_connected=1'>Search for devices</A><BR>"
+	t += "<A href='byond://?src=[REF(src)];search_connected=1'>Search for devices</A><BR>"
 	t += "Solar panels : [connected_panels.len] connected<BR>"
-	t += "Solar tracker : [connected_tracker ? "<span class='good'>Found</span>" : "<span class='bad'>Not found</span>"]</div><BR>"
+	t += "Solar tracker : [connected_tracker ? SPAN_GOOD("Found") : SPAN_BAD("Not found")]</div><BR>"
 
-	t += "<A href='?src=\ref[src];close=1'>Close</A>"
+	t += "<A href='byond://?src=[REF(src)];close=1'>Close</A>"
 
 	var/datum/browser/popup = new(user, "solar", name)
 	popup.set_content(t)
@@ -384,7 +384,7 @@
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 		if(do_after(user, 2 SECONDS, src, DO_REPAIR_CONSTRUCT))
 			if (src.stat & BROKEN)
-				to_chat(user, "<span class='notice'>The broken glass falls out.</span>")
+				to_chat(user, SPAN_NOTICE("The broken glass falls out."))
 				var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )
 				new /obj/item/material/shard( src.loc )
 				var/obj/item/circuitboard/solar_control/M = new /obj/item/circuitboard/solar_control( A )
@@ -396,7 +396,7 @@
 				A.anchored = 1
 				qdel(src)
 			else
-				to_chat(user, "<span class='notice'>You disconnect the monitor.</span>")
+				to_chat(user, SPAN_NOTICE("You disconnect the monitor."))
 				var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )
 				var/obj/item/circuitboard/solar_control/M = new /obj/item/circuitboard/solar_control( A )
 				for (var/obj/C in src)
@@ -526,7 +526,7 @@
 	set_panels(cdir)
 
 /obj/machinery/power/solar_control/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(stat & NOPOWER)
 		set_light(0)
 		return
@@ -537,11 +537,13 @@
 
 	if(stat & BROKEN)
 		icon_state = "[initial(icon_state)]-broken"
-		holographic_overlay(src, src.icon, "broken")
-		add_overlay("red_key")
+		var/mutable_appearance/image_overlay = overlay_image(src.icon, "broken")
+		AddOverlays(image_overlay)
+		AddOverlays("red_key")
 	else
-		holographic_overlay(src, src.icon, "solar")
-		add_overlay("yellow_key")
+		var/mutable_appearance/image_overlay = overlay_image(src.icon, "solar")
+		AddOverlays(image_overlay)
+		AddOverlays("yellow_key")
 
 //
 // MISC
@@ -552,7 +554,7 @@
 	info = "<h1>Welcome</h1><p>At greencorps we love the environment, and space. With this package you are able to help mother nature and produce energy without any usage of fossil fuel or phoron! Singularity energy is dangerous while solar energy is safe, which is why it's better. Now here is how you setup your own solar array.</p><p>You can make a solar panel by wrenching the solar assembly onto a cable node. Adding a glass panel, reinforced or regular glass will do, will finish the construction of your solar panel. It is that easy!</p><p>Now after setting up 19 more of these solar panels you will want to create a solar tracker to keep track of our mother nature's gift, the sun. These are the same steps as before except you insert the tracker equipment circuit into the assembly before performing the final step of adding the glass. You now have a tracker! Now the last step is to add a computer to calculate the sun's movements and to send commands to the solar panels to change direction with the sun. Setting up the solar computer is the same as setting up any computer, so you should have no trouble in doing that. You do need to put a wire node under the computer, and the wire needs to be connected to the tracker.</p><p>Congratulations, you should have a working solar array. If you are having trouble, here are some tips. Make sure all solar equipment are on a cable node, even the computer. You can always deconstruct your creations if you make a mistake.</p><p>That's all to it, be safe, be green!</p>"
 
 /proc/rate_control(var/S, var/V, var/C, var/Min=1, var/Max=5, var/Limit=null) //How not to name vars
-	var/href = "<A href='?src=\ref[S];rate control=1;[V]"
+	var/href = "<A href='byond://?src=[REF(S)];rate control=1;[V]"
 	var/rate = "[href]=-[Max]'>-</A>[href]=-[Min]'>-</A> [(C?C : 0)] [href]=[Min]'>+</A>[href]=[Max]'>+</A>"
 	if(Limit) return "[href]=-[Limit]'>-</A>"+rate+"[href]=[Limit]'>+</A>"
 	return rate

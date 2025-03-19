@@ -5,7 +5,6 @@
 	desc = "A mounted flash. Disorientates anyone caught in its range."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "mflash1"
-	layer = OBJ_LAYER
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/id = null
 	var/range = 2 //this is roughly the size of brig cell
@@ -23,7 +22,6 @@
 	name = "portable flasher"
 	desc = "A portable flashing device. Wrench to activate and deactivate. Cannot detect slow movements."
 	icon_state = "pflash1"
-	layer = OBJ_LAYER - 0.01
 	strength = 8
 	anchored = 0
 	base_state = "pflash"
@@ -54,9 +52,9 @@
 		add_fingerprint(user)
 		src.disable = !src.disable
 		if (src.disable)
-			user.visible_message("<span class='warning'>[user] has disconnected the [src]'s flashbulb!</span>", "<span class='warning'>You disconnect the [src]'s flashbulb!</span>")
+			user.visible_message(SPAN_WARNING("[user] has disconnected the [src]'s flashbulb!"), SPAN_WARNING("You disconnect the [src]'s flashbulb!"))
 		if (!src.disable)
-			user.visible_message("<span class='warning'>[user] has connected the [src]'s flashbulb!</span>", "<span class='warning'>You connect the [src]'s flashbulb!</span>")
+			user.visible_message(SPAN_WARNING("[user] has connected the [src]'s flashbulb!"), SPAN_WARNING("You connect the [src]'s flashbulb!"))
 		return TRUE
 
 //Let the AI trigger them directly.
@@ -113,12 +111,12 @@
 		src.anchored = !src.anchored
 
 		if (!src.anchored)
-			user.show_message(text("<span class='warning'>[src] can now be moved.</span>"))
-			cut_overlays()
+			user.show_message(SPAN_WARNING("[src] can now be moved."))
+			ClearOverlays()
 
 		else if (src.anchored)
-			user.show_message(text("<span class='warning'>[src] is now secured.</span>"))
-			add_overlay("[base_state]-s")
+			user.show_message(SPAN_WARNING("[src] is now secured."))
+			AddOverlays("[base_state]-s")
 		return TRUE
 
 /obj/machinery/button/flasher
@@ -137,8 +135,7 @@
 
 	for(var/obj/machinery/flasher/M in SSmachinery.machinery)
 		if(M.id == src.id)
-			spawn()
-				M.flash()
+			M.flash()
 
 	sleep(50)
 

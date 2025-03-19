@@ -5,27 +5,6 @@
 	var/alarm_delay = 100 // Don't forget, there's another 10 seconds in queueAlarm()
 	movable_flags = MOVABLE_FLAG_PROXMOVE
 
-/obj/machinery/camera/internal_process()
-	// motion camera event loop
-	if (stat & (EMPED|NOPOWER))
-		return
-	if(!isMotion())
-		. = PROCESS_KILL
-		return
-	if (detectTime > 0)
-		var/elapsed = world.time - detectTime
-		if (elapsed > alarm_delay)
-			triggerAlarm()
-	else if (detectTime == -1)
-		for (var/mob/target in motionTargets)
-			if (target.stat == 2 || QDELING(target)) lostTarget(target)
-			// If not detecting with motion camera...
-			if (!area_motion)
-				// See if the camera is still in range
-				if(!in_range(src, target))
-					// If they aren't in range, lose the target.
-					lostTarget(target)
-
 /obj/machinery/camera/proc/newTarget(var/mob/target)
 	if(QDELETED(target))
 		return FALSE
@@ -50,7 +29,7 @@
 	if (!status || (stat & NOPOWER))
 		return 0
 	if (detectTime == -1)
-		motion_alarm.clearAlarm(loc, src)
+		GLOB.motion_alarm.clearAlarm(loc, src)
 	detectTime = 0
 	return 1
 
@@ -58,7 +37,7 @@
 	if (!status || (stat & NOPOWER))
 		return 0
 	if (!detectTime) return 0
-	motion_alarm.triggerAlarm(loc, src)
+	GLOB.motion_alarm.triggerAlarm(loc, src)
 	detectTime = -1
 	return 1
 

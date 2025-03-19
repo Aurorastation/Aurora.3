@@ -1,7 +1,6 @@
 /obj/random/tool
 	name = "random tool"
 	desc = "This is a random tool"
-	icon = 'icons/obj/random.dmi'
 	icon_state = "tool"
 	spawnlist = list(
 		/obj/item/screwdriver,
@@ -16,8 +15,8 @@
 /obj/random/technology_scanner
 	name = "random scanner"
 	desc = "This is a random technology scanner."
-	icon = 'icons/obj/device.dmi'
-	icon_state = "atmos"
+	icon = 'icons/obj/item/device/air_analyzer.dmi'
+	icon_state = "analyzer"
 	problist = list(
 		/obj/item/device/t_scanner = 5,
 		/obj/item/device/radio = 2,
@@ -27,13 +26,14 @@
 /obj/random/powercell
 	name = "random powercell"
 	desc = "This is a random powercell."
-	icon = 'icons/obj/random.dmi'
 	icon_state = "cell"
 	problist = list(
-		/obj/item/cell/crap = 10,
 		/obj/item/cell = 40,
 		/obj/item/cell/high = 40,
+		/obj/item/cell/crap = 10,
+		/obj/item/cell/mecha = 10,
 		/obj/item/cell/super = 9,
+		/obj/item/cell/mecha/nuclear = 5,
 		/obj/item/cell/hyper = 1
 	)
 
@@ -53,7 +53,6 @@
 /obj/random/toolbox
 	name = "random toolbox"
 	desc = "This is a random toolbox."
-	icon = 'icons/obj/random.dmi'
 	icon_state = "toolbox"
 	spawnlist = list(
 		/obj/item/storage/toolbox/mechanical = 3,
@@ -64,7 +63,6 @@
 /obj/random/tech_supply
 	name = "random tech supply"
 	desc = "This is a random piece of technology supplies."
-	icon = 'icons/obj/random.dmi'
 	icon_state = "tech_supply"
 	problist = list(
 		/obj/random/powercell = 3,
@@ -80,16 +78,20 @@
 		/obj/item/tape_roll = 2
 	)
 
+/// Spawns a random AI lawboard with 'evil' law sets
 /obj/random/bad_ai
 	name = "random evil AI module"
 	desc = "Contains a random evil AI module."
 	icon = 'icons/obj/module.dmi'
 	icon_state = "std_mod"
 	spawnlist = list(
-		/obj/item/aiModule/antimov = 1,
+		/obj/item/aiModule/antimov = 0.5,
 		/obj/item/aiModule/asimov = 1,
 		/obj/item/aiModule/purge = 1,
-		/obj/item/aiModule/quarantine = 1,
+		/obj/item/aiModule/robocop = 0.5,
+		/obj/item/aiModule/tyrant = 0.5,
+		/obj/item/aiModule/paladin = 0.5,
+		/obj/item/aiModule/hadiist = 0.2,
 		/obj/item/aiModule/freeform = 1,
 		/obj/item/aiModule/oneHuman = 0.5,
 		/obj/item/aiModule/oxygen = 1

@@ -2,6 +2,7 @@
 	name = "fuel injection control computer"
 	desc = "A terminal responsible for regulating fuel injection using Hephaestus software."
 	icon_keyboard = "yellow_key"
+	icon_keyboard_emis = "yellow_key_mask"
 	icon_screen = "explosive"
 	ui_template = "FusionInjectorControl"
 	var/global_rate = 100
@@ -11,6 +12,7 @@
 	icon = 'icons/obj/machinery/modular_terminal.dmi'
 	icon_screen = "power_screen"
 	icon_keyboard = "med_key"
+	icon_keyboard_emis = "med_key_mask"
 	is_connected = TRUE
 	has_off_keyboards = TRUE
 	can_pass_under = FALSE
@@ -75,7 +77,7 @@
 			var/list/injector = list()
 			var/obj/machinery/fusion_fuel_injector/I = fuel_injectors[i]
 			injector["id"] = "#[i]"
-			injector["ref"] = "\ref[I]"
+			injector["ref"] = "[REF(I)]"
 			injector["injecting"] =  I.injecting
 			injector["fueltype"] = "[I.cur_assembly ? I.cur_assembly.fuel_type : "No fuel inserted."]"
 			injector["depletion"] = I.cur_assembly ? (I.cur_assembly.percent_depleted * 100) : -1 //%

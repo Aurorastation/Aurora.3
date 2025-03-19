@@ -60,8 +60,8 @@ GLOBAL_LIST_EMPTY(ticket_panels)
 
 	broadcast_closure(key_name(closed_by))
 
-	to_chat(client_by_ckey(src.owner), "<span class='notice'><b>Your ticket has been closed by [closed_by].</b></span>")
-	message_admins("<span class='notice'><b>[src.owner]</b>'s ticket has been closed by <b>[key_name(closed_by)]</b>.</span>")
+	to_chat(client_by_ckey(src.owner), SPAN_NOTICE("<b>Your ticket has been closed by [closed_by].</b>"))
+	message_admins(SPAN_NOTICE("<b>[src.owner]</b>'s ticket has been closed by <b>[key_name(closed_by)]</b>."))
 
 	set_to_closed(closed_by.ckey)
 
@@ -76,8 +76,8 @@ GLOBAL_LIST_EMPTY(ticket_panels)
 
 	broadcast_closure("[closing_user] (Remotely)")
 
-	to_chat(client_by_ckey(src.owner), "<span class='notice'><b>Your ticket has been closed by [closing_user] (remotely).</b></span>")
-	message_admins("<span class='notice'><b>[src.owner]</b>'s ticket has been closed by <b>[closing_user] (remotely)</b>.</span>")
+	to_chat(client_by_ckey(src.owner), SPAN_NOTICE("<b>Your ticket has been closed by [closing_user] (remotely).</b>"))
+	message_admins(SPAN_NOTICE("<b>[src.owner]</b>'s ticket has been closed by <b>[closing_user] (remotely)</b>."))
 
 	set_to_closed(closing_user)
 
@@ -104,8 +104,8 @@ GLOBAL_LIST_EMPTY(ticket_panels)
 		SSdiscord.send_to_admins("[key_name(owner_client)]'s request for help has been taken by [key_name(assigned_admin)].")
 		owner_client.adminhelped = ADMINHELPED
 
-	message_admins("<span class='danger'><b>[key_name(assigned_admin)]</b> has assigned themself to <b>[src.owner]'s</b> ticket.</span>")
-	to_chat(owner_client, "<span class='notice'><b>[assigned_admin] has added themself to your ticket and should respond shortly. Thanks for your patience!</b></span>")
+	message_admins(SPAN_DANGER("<b>[key_name(assigned_admin)]</b> has assigned themself to <b>[src.owner]'s</b> ticket."))
+	to_chat(owner_client, SPAN_NOTICE("<b>[assigned_admin] has added themself to your ticket and should respond shortly. Thanks for your patience!</b>"))
 	to_chat(assigned_admin, get_options_bar(owner_client, 2, 1, 1))
 
 	update_ticket_panels()
@@ -123,11 +123,11 @@ GLOBAL_LIST_EMPTY(ticket_panels)
 		var/client/C = client_by_ckey(ckey)
 		if (C)
 			admin_found = TRUE
-			to_chat(C, "<span class='danger'><b>You have yet to close [owner]'s ticket!</b></span>")
+			to_chat(C, SPAN_DANGER("<b>You have yet to close [owner]'s ticket!</b>"))
 			sound_to(C, 'sound/effects/adminhelp.ogg')
 
 	if (!admin_found)
-		message_admins("<span class='danger'><b>[owner]'s ticket has yet to be closed!</b></span>")
+		message_admins(SPAN_DANGER("<b>[owner]'s ticket has yet to be closed!</b>"))
 		for(var/s in GLOB.staff)
 			var/client/C = s
 			if((C.holder.rights & (R_ADMIN|R_MOD)) && (C.prefs.toggles & SOUND_ADMINHELP))
@@ -234,18 +234,18 @@ GLOBAL_LIST_EMPTY(ticket_panels)
 			ticket_dat += "<li style='padding-bottom:10px;color:[color]'>"
 			if(open_ticket && open_ticket == ticket)
 				ticket_dat += "<i>"
-			ticket_dat += "Ticket #[id] - [ticket.owner] [owner_client ? "" : "(DC)"] - [status]<br /><a href='byond://?src=\ref[src];action=view;ticket=\ref[ticket]'>VIEW</a>"
+			ticket_dat += "Ticket #[id] - [ticket.owner] [owner_client ? "" : "(DC)"] - [status]<br /><a href='byond://?src=[REF(src)];action=view;ticket=[REF(ticket)]'>VIEW</a>"
 			if(ticket.status)
-				ticket_dat += " - <a href='byond://?src=\ref[src];action=pm;ticket=\ref[ticket]'>PM</a>"
+				ticket_dat += " - <a href='byond://?src=[REF(src)];action=pm;ticket=[REF(ticket)]'>PM</a>"
 				if(valid_holder)
-					ticket_dat += " - <a href='byond://?src=\ref[src];action=take;ticket=\ref[ticket]'>[(ticket.status == TICKET_OPEN) ? "TAKE" : "JOIN"]</a>"
+					ticket_dat += " - <a href='byond://?src=[REF(src)];action=take;ticket=[REF(ticket)]'>[(ticket.status == TICKET_OPEN) ? "TAKE" : "JOIN"]</a>"
 				if(ticket.status != TICKET_CLOSED && (valid_holder || ticket.status == TICKET_OPEN))
-					ticket_dat += " - <a href='byond://?src=\ref[src];action=close;ticket=\ref[ticket]'>CLOSE</a>"
+					ticket_dat += " - <a href='byond://?src=[REF(src)];action=close;ticket=[REF(ticket)]'>CLOSE</a>"
 			if(valid_holder)
 				var/ref_mob = ""
 				if(owner_client)
-					ref_mob = "\ref[owner_client.mob]"
-				ticket_dat += " - <A HREF='?_src_=holder;adminmoreinfo=[ref_mob]'>?</A> - <A HREF='?_src_=holder;adminplayeropts=[ref_mob]'>PP</A> - <A HREF='?_src_=vars;Vars=[ref_mob]'>VV</A> - <A HREF='?_src_=holder;subtlemessage=[ref_mob]'>SM</A>[owner_client ? "- [admin_jump_link(owner_client.mob, src)]" : ""]"
+					ref_mob = "[REF(owner_client.mob)]"
+				ticket_dat += " - <A href='byond://?_src_=holder;adminmoreinfo=[ref_mob]'>?</A> - <A href='byond://?_src_=holder;adminplayeropts=[ref_mob]'>PP</A> - <A href='byond://?_src_=vars;Vars=[ref_mob]'>VV</A> - <A href='byond://?_src_=holder;subtlemessage=[ref_mob]'>SM</A>[owner_client ? "- [admin_jump_link(owner_client.mob, src)]" : ""]"
 			if(open_ticket && open_ticket == ticket)
 				ticket_dat += "</i>"
 			ticket_dat += "</li>"
@@ -254,7 +254,7 @@ GLOBAL_LIST_EMPTY(ticket_panels)
 		dat += "<br /><div style='width:50%;float:left;'><p><b>Available tickets:</b></p><ul>[jointext(ticket_dat, null)]</ul></div>"
 
 		if(open_ticket)
-			dat += "<div style='width:50%;float:left;'><p><b>\[<a href='byond://?src=\ref[src];action=unview;'>X</a>\] Messages for ticket #[open_ticket.id]:</b></p>"
+			dat += "<div style='width:50%;float:left;'><p><b>\[<a href='byond://?src=[REF(src)];action=unview;'>X</a>\] Messages for ticket #[open_ticket.id]:</b></p>"
 
 			var/list/msg_dat = list()
 			for(var/datum/ticket_msg/msg in open_ticket.msgs)
@@ -309,7 +309,7 @@ GLOBAL_LIST_EMPTY(ticket_panels)
 						usr.client.cmd_admin_pm(admin_client, ticket = ticket)
 						break
 				if(!admin_found)
-					to_chat(usr, "<span class='warning'>Error: Private-Message: Client not found. They may have lost connection, so please be patient!</span>")
+					to_chat(usr, SPAN_WARNING("Error: Private-Message: Client not found. They may have lost connection, so please be patient!"))
 			else
 				usr.client.adminhelp(input(usr,"", "adminhelp \"text\"") as text)
 

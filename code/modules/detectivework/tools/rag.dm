@@ -16,7 +16,7 @@
 /obj/item/reagent_containers/glass/rag
 	name = "rag"
 	desc = "For cleaning up messes, you suppose."
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "rag"
 	amount_per_transfer_from_this = 5
@@ -125,11 +125,11 @@
 				user.visible_message("<b>[user]</b> finishes wiping [A].")
 		A.on_rag_wipe(src)
 
-/obj/item/reagent_containers/glass/rag/attack(atom/target as obj|turf|area, mob/user as mob , flag)
-	if(isliving(target))
-		var/mob/living/M = target
+/obj/item/reagent_containers/glass/rag/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(isliving(target_mob))
+		var/mob/living/M = target_mob
 		if(on_fire)
-			user.visible_message(SPAN_DANGER("\The [user] hits \the [target] with \the [src]!"))
+			user.visible_message(SPAN_DANGER("\The [user] hits \the [target_mob] with \the [src]!"))
 			user.do_attack_animation(src)
 			M.IgniteMob()
 		else if(ishuman(M))
@@ -146,8 +146,8 @@
 					for(var/_R in reagents.reagent_volumes)
 						var/singleton/reagent/R = GET_SINGLETON(_R)
 						var/strength = R.germ_adjust * reagents.reagent_volumes[_R]/4
-						if(ispath(_R, /singleton/reagent/alcohol))
-							var/singleton/reagent/alcohol/A = R
+						if(ispath(_R, /singleton/reagent/alcohol/ethanol))
+							var/singleton/reagent/alcohol/ethanol/A = R
 							strength = strength * (A.strength/100)
 						W.germ_level -= min(strength, W.germ_level)//Clean the wound a bit.
 						if (W.germ_level <= 0)
@@ -164,18 +164,18 @@
 				if(user.zone_sel.selecting == BP_MOUTH && !(M.wear_mask && M.wear_mask.item_flags & ITEM_FLAG_AIRTIGHT))
 					user.do_attack_animation(src)
 					user.visible_message(
-						SPAN_DANGER("\The [user] smothers [target] with [src]!"),
-						SPAN_WARNING("You smother [target] with [src]!"),
+						SPAN_DANGER("\The [user] smothers [target_mob] with [src]!"),
+						SPAN_WARNING("You smother [target_mob] with [src]!"),
 						"You hear some struggling and muffled cries of surprise."
 						)
 
 					//it's inhaled, so... maybe CHEM_BLOOD doesn't make a whole lot of sense but it's the best we can do for now
 					//^HA HA HA
-					reagents.trans_to_mob(target, amount_per_transfer_from_this, CHEM_BREATHE)
+					reagents.trans_to_mob(target_mob, amount_per_transfer_from_this, CHEM_BREATHE)
 					update_name()
 					update_icon()
 				else
-					wipe_down(target, user)
+					wipe_down(target_mob, user)
 			return
 
 	return ..()
@@ -206,7 +206,9 @@
 			wipe_down(A, user)
 		return
 
-/obj/item/reagent_containers/glass/rag/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/obj/item/reagent_containers/glass/rag/fire_act(exposed_temperature, exposed_volume)
+	. = ..()
+
 	if(exposed_temperature >= 50 + T0C)
 		ignite()
 	if(exposed_temperature >= 900 + T0C)
@@ -262,7 +264,7 @@
 	update_name()
 	update_icon()
 
-/obj/item/reagent_containers/glass/rag/process()
+/obj/item/reagent_containers/glass/rag/process(seconds_per_tick)
 	if(!can_ignite())
 		visible_message(SPAN_WARNING("\The [src] burns out."))
 		extinguish()
@@ -287,16 +289,16 @@
 
 	for(var/fuel_type in reagents.reagent_volumes)
 		if(ispath(fuel_type, /singleton/reagent/fuel) || ispath(fuel_type, /singleton/reagent/alcohol))
-			reagents.remove_reagent(reagents.reagent_volumes[fuel_type], reagents.maximum_volume/25)
+			reagents.remove_reagent(fuel_type, ((reagents.maximum_volume/25) * seconds_per_tick))
 			break
 	update_name()
 	update_icon()
-	burn_time--
+	burn_time -= seconds_per_tick
 
 /obj/item/reagent_containers/glass/rag/advanced
 	name = "microfiber cloth"
 	desc = "A synthetic fiber cloth; the split fibers and the size of the individual filaments make it more effective for cleaning purposes."
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "advrag"
 	amount_per_transfer_from_this = 10
@@ -306,7 +308,7 @@
 
 /obj/item/reagent_containers/glass/rag/advanced/idris
 	name = "Idris advanced service cloth"
-	desc = "An advanced rag developed and sold by Idris Incorporated at a steep price. It's dry-clean design and advanced insulating synthetic weave make this the pinnacle of service cloths for any self respecting chef or bartender!"
+	desc = "An advanced rag developed and sold by Idris Incorporated at a steep price. Its dry-clean design and advanced insulating synthetic weave make this the pinnacle of service cloths for any self-respecting chef or bartender!"
 	icon_state = "idrisrag"
 	volume = 15
 

@@ -43,7 +43,7 @@
 #define MODE_DEATHSQUAD "deathsquad"
 #define MODE_ERT "ert"
 #define MODE_MERCENARY "mercenary"
-#define MODE_NINJA "ninja"
+#define MODE_NINJA "operative"
 #define MODE_RAIDER_TECHNO "raider techno"
 #define MODE_RAIDER "raider"
 #define MODE_BURGLAR "burglar"
@@ -63,6 +63,8 @@
 #define MODE_REVENANT "revenant"
 #define MODE_GOLEM "golem"
 #define MODE_JOCKEY "jockey"
+#define MODE_ACTOR "actor"
+#define MODE_STORYTELLER "storyteller"
 
 #define DEFAULT_TELECRYSTAL_AMOUNT 20
 #define DEFAULT_BLUECRYSTAL_AMOUNT 15

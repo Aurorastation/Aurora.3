@@ -19,7 +19,9 @@
 	door_anim_squish = 0.30
 	door_anim_time = 3
 	door_anim_angle = 140
-	door_hinge = 3.5
+	door_hinge_x = 3.5
+	pass_flags_self = PASSSTRUCTURE | LETPASSTHROW
+
 	var/tablestatus = 0
 
 	var/azimuth_angle_2 = 180 //in this context the azimuth angle for over 90 degree
@@ -40,18 +42,25 @@
 	if(!door_obj) door_obj = new
 	if(animation_math == null) //checks if there is already a list for animation_math if not creates one to avoid runtimes
 		animation_math = new/list()
-	if(!door_anim_time == 0 && !animation_math["[door_anim_time]-[door_anim_angle]-[azimuth_angle_2]-[radius_2]-[door_hinge]"])
+	if(!door_anim_time == 0 && !animation_math["[door_anim_time]-[door_anim_angle]-[azimuth_angle_2]-[radius_2]-[door_hinge_x]"])
 		animation_list()
 	vis_contents |= door_obj
 	door_obj.icon = icon
 	door_obj.icon_state = "[icon_door || icon_state]_door"
 	is_animating_door = TRUE
-	var/num_steps = door_anim_time / world.tick_lag
-	var/list/animation_math_list = animation_math["[door_anim_time]-[door_anim_angle]-[azimuth_angle_2]-[radius_2]-[door_hinge]"]
+	var/num_steps = round(door_anim_time / world.tick_lag)
+	var/list/animation_math_list = animation_math["[door_anim_time]-[door_anim_angle]-[azimuth_angle_2]-[radius_2]-[door_hinge_x]"]
 	for(var/I in 0 to num_steps)
 		var/door_state = I == (closing ? num_steps : 0) ? "[icon_door || icon_state]_door" : animation_math_list[closing ? 2 * num_steps - I : num_steps + I] <= 0 ? "[icon_door_override ? icon_door : icon_state]_back" : "[icon_door || icon_state]_door"
-		var/door_layer = I == (closing ? num_steps : 0) ? ABOVE_MOB_LAYER : animation_math_list[closing ? 2 * num_steps - I : num_steps + I] <= 0 ? FLOAT_LAYER : ABOVE_MOB_LAYER
-		var/matrix/M = get_door_transform(I == (closing ? num_steps : 0) ? 0 : animation_math_list[closing ? num_steps - I : I], I == (closing ? num_steps : 0) ? 1 : animation_math_list[closing ?  2 * num_steps - I : num_steps + I])
+		var/door_layer = I == (closing ? num_steps : 0) ? ABOVE_HUMAN_LAYER : animation_math_list[closing ? 2 * num_steps - I : num_steps + I] <= 0 ? FLOAT_LAYER : ABOVE_HUMAN_LAYER
+		var/crateanim_1 = 0
+		var/crateanim_2 = 1
+
+		if(!(I == (closing ? num_steps : 0)))
+			crateanim_1 = animation_math_list[closing ? num_steps - I : I]
+			crateanim_2 = animation_math_list[closing ?  2 * num_steps - I : num_steps + I]
+
+		var/matrix/M = get_door_transform(crateanim_1, crateanim_2)
 		if(I == 0)
 			door_obj.transform = M
 			door_obj.icon_state = door_state
@@ -60,13 +69,14 @@
 			animate(door_obj, transform = M, icon_state = door_state, layer = door_layer, time = world.tick_lag, flags = ANIMATION_END_NOW)
 		else
 			animate(transform = M, icon_state = door_state, layer = door_layer, time = world.tick_lag)
-	addtimer(CALLBACK(src, PROC_REF(end_door_animation)),door_anim_time,TIMER_UNIQUE|TIMER_OVERRIDE)
+
+	addtimer(CALLBACK(src, PROC_REF(end_door_animation)), door_anim_time, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_CLIENT_TIME)
 
 /obj/structure/closet/crate/get_door_transform(crateanim_1, crateanim_2)
 	var/matrix/M = matrix()
-	M.Translate(0, -door_hinge)
+	M.Translate(0, -door_hinge_x)
 	M.Multiply(matrix(1, crateanim_1, 0, 0, crateanim_2, 0))
-	M.Translate(0, door_hinge)
+	M.Translate(0, door_hinge_x)
 	return M
 
 /obj/structure/closet/crate/proc/animation_list() //pre calculates a list of values for the crate animation cause byond not like math
@@ -79,7 +89,7 @@
 		var/radius_cr = angle_1 >= 90 ? radius_2 : 1
 		new_animation_math_sublist[I] = -sin(polar_angle) * sin(azimuth_angle) * radius_cr
 		new_animation_math_sublist[num_steps_1 + I] = cos(azimuth_angle) * sin(polar_angle) * radius_cr
-	animation_math["[door_anim_time]-[door_anim_angle]-[azimuth_angle_2]-[radius_2]-[door_hinge]"] = new_animation_math_sublist
+	animation_math["[door_anim_time]-[door_anim_angle]-[azimuth_angle_2]-[radius_2]-[door_hinge_x]"] = new_animation_math_sublist
 
 /*
 ==========================
@@ -87,16 +97,18 @@
 ==========================
 */
 /obj/structure/closet/crate/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(mover?.movement_type & PHASING)
+		return TRUE
 	if (istype(mover, /obj/structure/closet/crate))//Handle interaction with other crates
 		var/obj/structure/closet/crate/C = mover
 		if (tablestatus && tablestatus != C.tablestatus) // Crates can go under tables with crates on top of them, and vice versa
 			return TRUE
 		else
 			return FALSE
-	if (istype(mover,/obj/item/projectile))
+	if (istype(mover,/obj/projectile))
 		// Crates on a table always block shots, otherwise they only occasionally do so.
 		return tablestatus == ABOVE_TABLE ? FALSE : (prob(15) ? FALSE : TRUE)
-	else if(istype(mover) && mover.checkpass(PASSTABLE) && tablestatus == ABOVE_TABLE)
+	else if((istype(mover) && (mover.pass_flags & PASSTABLE)) && tablestatus == ABOVE_TABLE)
 		return TRUE
 	return ..()
 
@@ -124,19 +136,19 @@
 	spawn(3)//Short spawn prevents things popping up where they shouldnt
 		switch (target)
 			if (ABOVE_TABLE)
-				layer = LAYER_ABOVE_TABLE
+				layer = ABOVE_TABLE_LAYER
 				pixel_y = 8
 			if (FALSE)
 				layer = initial(layer)
 				pixel_y = 0
 			if (UNDER_TABLE)
-				layer = LAYER_UNDER_TABLE
+				layer = BELOW_TABLE_LAYER
 				pixel_y = -4
 
 //For putting on tables
-/obj/structure/closet/crate/MouseDrop(atom/over_object)
-	if (istype(over_object, /obj/structure/table))
-		put_on_table(over_object, usr)
+/obj/structure/closet/crate/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if (istype(over, /obj/structure/table))
+		put_on_table(over, user)
 		return TRUE
 	else
 		return ..()
@@ -218,7 +230,7 @@
 	door_anim_angle = 140
 	azimuth_angle_2 = 180
 	door_anim_time = 5
-	door_hinge = 5
+	door_hinge_x = 5
 
 /obj/structure/closet/crate/internals
 	name = "internals crate"
@@ -229,13 +241,13 @@
 	name = "trash cart"
 	desc = "A heavy, metal trashcart with wheels."
 	icon_state = "trashcart"
-	door_hinge = 2.5
+	door_hinge_x = 2.5
 
 /obj/structure/closet/crate/miningcart
 	desc = "A mining cart. This one doesn't work on rails, but has to be dragged."
 	name = "mining cart"
 	icon_state = "miningcart"
-	door_hinge = 2.5
+	door_hinge_x = 2.5
 
 /obj/structure/closet/crate/miningcart/ore/fill()
 	var/i_max = rand(3, 6)
@@ -246,9 +258,11 @@
 				/obj/item/ore/coal = 3,
 				/obj/item/ore/diamond = 1,
 				/obj/item/ore/glass = 3,
+				/obj/item/ore/aluminium = 3,
 				/obj/item/ore/gold = 2,
 				/obj/item/ore/iron = 3,
 				/obj/item/ore/osmium = 1,
+				/obj/item/ore/lead = 2,
 				/obj/item/ore/silver = 2,
 				/obj/item/ore/slag = 1,
 				/obj/item/ore/uranium = 1
@@ -328,7 +342,7 @@
 	name = "freezer"
 	desc = "A freezer."
 	icon_state = "freezer"
-	door_hinge = 4.5
+	door_hinge_x = 4.5
 	var/target_temp = T0C - 40
 	var/cooling_power = 40
 
@@ -381,13 +395,13 @@
 	name = "drop crate"
 	desc = "A large, sturdy crate meant for airdrops."
 	icon_state = "drop_crate"
-	door_hinge = 0.5
+	door_hinge_x = 0.5
 
 /obj/structure/closet/crate/drop/grey
 	name = "drop crate"
 	desc = "A large, sturdy crate meant for airdrops."
 	icon_state = "drop_crate-grey"
-	door_hinge = 0.5
+	door_hinge_x = 0.5
 
 /obj/structure/closet/crate/tool
 	name = "tool crate"
@@ -540,6 +554,22 @@
 					break
 	return
 
+/obj/structure/closet/crate/secure/large/larva // Spawns with one greimorian larva inside of it. Can mature inside, so be careful.
+
+/obj/structure/closet/crate/secure/large/larva/fill()
+	new /obj/effect/spider/spiderling(src)
+
+/obj/structure/closet/crate/secure/large/viscerator // Spawns with one viscerator inside of it.
+
+/obj/structure/closet/crate/secure/large/viscerator/fill()
+	new /mob/living/simple_animal/hostile/viscerator(src)
+
+/obj/structure/closet/crate/secure/large/rats // Spawns with rats inside it.
+
+/obj/structure/closet/crate/secure/large/rats/fill()
+	for(var/i=1,i<=5,i++)
+		new /mob/living/simple_animal/rat(src)
+
 /obj/structure/closet/crate/hydroponics
 	name = "hydroponics crate"
 	desc = "All you need to destroy those pesky weeds and pests."
@@ -558,7 +588,25 @@
 //	new /obj/item/pestspray(src)
 //	new /obj/item/pestspray(src)
 
+// Spawns with everything you need to make your very own field kitchen! (assuming you have power)
+// Contains enough to create a stove and oven. Using loops for anything above one for readability. Best paired with a freezer with ingredients.
+// Intended to provide enough equipment that more than just chefs can function as field cooks on expeditions.
+/obj/structure/closet/crate/field_kitchen
 
+/obj/structure/closet/crate/field_kitchen/fill()
+	for(var/_ in 1 to 6)
+		new /obj/item/stock_parts/capacitor(src)
+	for(var/_ in 1 to 4)
+		new /obj/item/stock_parts/matter_bin(src)
+	for(var/_ in 1 to 2)
+		new /obj/item/stock_parts/scanning_module(src)
+	new /obj/item/circuitboard/oven(src)
+	new /obj/item/circuitboard/stove(src)
+	new /obj/item/stack/cable_coil(src)
+	new /obj/item/storage/box/kitchen(src)
+	new /obj/item/reagent_containers/spray/cleaner(src)
+	new /obj/item/storage/box/gloves(src)
+	new /obj/item/storage/box/condiment(src)
 
 //A crate that populates itself with randomly selected loot from randomstock.dm
 //Can be passed in a rarity value, which is used as a multiplier on the rare/uncommon chance
@@ -608,11 +656,11 @@
 	var/stocktype = pickweight(spawntypes)
 	switch (stocktype)
 		if ("1")
-			return pickweight(random_stock_rare)
+			return pickweight(GLOB.random_stock_rare)
 		if ("2")
-			return pickweight(random_stock_uncommon)
+			return pickweight(GLOB.random_stock_uncommon)
 		if ("3")
-			return pickweight(random_stock_common)
+			return pickweight(GLOB.random_stock_common)
 
 /obj/structure/closet/crate/extinguisher_cartridges
 	name = "crate of extinguisher cartridges"

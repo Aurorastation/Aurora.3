@@ -8,20 +8,14 @@
 	flags_inv = BLOCKHEADHAIR
 	body_parts_covered = HEAD|EYES
 	armor = list(
-		melee = ARMOR_MELEE_KNIVES,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED
+		MELEE = ARMOR_MELEE_KNIVES,
+		BULLET = ARMOR_BALLISTIC_SMALL,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED
 	)
 	siemens_coefficient = 0.35
 	action_button_name = "Toggle Visor"
-
-	sprite_sheets = list(
-		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/helmet.dmi',
-		BODYTYPE_UNATHI = 'icons/mob/species/unathi/helmet.dmi'
-		)
-
 	var/visor_toggled = FALSE
 	var/obj/machinery/computer/shuttle_control/linked_console
 	var/obj/machinery/computer/ship/helm/linked_helm
@@ -146,8 +140,16 @@
 /obj/item/clothing/head/helmet/pilot/scc
 	name = "conglomerate flight helmet"
 	desc = "A pilot helmet with the deep colors of the Stellar Corporate Conglomerate. The highlight is a navy blue, and the mounted visor a striking, opaque cyan. The visor feeds its wearer in-flight information via an integrated heads-up display."
+	sprite_sheets = null // Can be filled in with unique species-specific sprites for races with snouts, see parent type. Keep null until sprites are implemented.
 	icon_state = "scc_pilot"
 	item_state = "scc_pilot"
+
+/obj/item/clothing/head/helmet/pilot/tcaf
+	name = "\improper TCAF flight helmet"
+	desc = "A pilot's helmet marked all over with the imagery of the Republic of Biesel, worn by the pilots of the Tau Ceti Armed Forces. It looks a little scuffed."
+	sprite_sheets = null // Can be filled in with unique species-specific sprites for races with snouts, see parent type. Keep null until sprites are implemented.
+	icon_state = "tcaf_pilot"
+	item_state = "tcaf_pilot"
 
 /obj/item/clothing/head/helmet/pilot/legion
 	name = "foreign legion flight helmet"

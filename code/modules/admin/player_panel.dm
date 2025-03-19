@@ -43,7 +43,7 @@
 
 			var/mob/M = locate(params["jump_to"])
 
-			if(!isobserver(usr))
+			if(!isghost(usr))
 				C.admin_ghost()
 			sleep(2)
 			C.jumptomob(M)
@@ -70,9 +70,9 @@
 	var/list/data = list()
 	data["gamemode"] = SSticker.mode.name
 	data["round_duration"] = get_round_duration_formatted()
-	data["evacuation_is_idle"] = evacuation_controller.is_idle()
-	data["time_left"] = evacuation_controller.get_eta()
-	data["waiting_to_leave"] = evacuation_controller.waiting_to_leave()
+	data["evacuation_is_idle"] = GLOB.evacuation_controller.is_idle()
+	data["time_left"] = GLOB.evacuation_controller.get_eta()
+	data["waiting_to_leave"] = GLOB.evacuation_controller.waiting_to_leave()
 	data["round_delayed"] = SSticker.delay_end
 	data["antagonists"] = list()
 	data["antagonist_types"] = list()
@@ -84,12 +84,12 @@
 				"role" = A.role_text_plural,
 				"name" = M ? M.real_name : null,
 				"stat" = M ? M.stat : null,
-				"ref" = ref(M)
+				"ref" = REF(M)
 			))
 			data["antagonist_types"] |= A.role_text_plural
 		if(A.flags & ANTAG_HAS_NUKE)
 			data["nuke_disks"] = list()
-			for(var/obj/item/disk/nuclear/N in nuke_disks)
+			for(var/obj/item/disk/nuclear/N in GLOB.nuke_disks)
 				var/turf/T = get_turf(N)
 				var/location_name
 				if(ismob(N.loc))
@@ -120,16 +120,16 @@
 				return
 			switch(params["call_shuttle"])
 				if("1")
-					if (evacuation_controller.call_evacuation(usr, TRUE))
+					if (GLOB.evacuation_controller.call_evacuation(usr, TRUE))
 						log_admin("[key_name(usr)] called an evacuation.")
 						message_admins("[key_name_admin(usr)] called an evacuation.", 1)
 						. = TRUE
 
 				if("2")
-					if (evacuation_controller.call_evacuation(usr, TRUE))
+					if (GLOB.evacuation_controller.call_evacuation(usr, TRUE))
 						log_admin("[key_name(usr)] called an evacuation.")
 						message_admins("[key_name_admin(usr)] called an evacuation.", 1)
-					else if (evacuation_controller.cancel_evacuation())
+					else if (GLOB.evacuation_controller.cancel_evacuation())
 						log_admin("[key_name(usr)] cancelled an evacuation.")
 						message_admins("[key_name_admin(usr)] cancelled an evacuation.", 1)
 						. = TRUE
@@ -145,7 +145,7 @@
 /datum/tgui_module/moderator/shared/player_panel/ui_data(mob/user)
 	var/list/data = list()
 	var/isMod = check_rights(R_MOD|R_ADMIN, 0, user)
-	data["holder_ref"] = "\ref[user.client.holder]"
+	data["holder_ref"] = "[REF(user.client.holder)]"
 	data["is_mod"] = isMod
 
 	var/list/mobs = sortmobs()
@@ -153,7 +153,7 @@
 	data["players"] = list()
 
 	for(var/mob/M in mobs)
-		var/ref = "\ref[M]"
+		var/ref = "[REF(M)]"
 		var/list/player = list()
 		player["ckey"] = TRUE
 		if(!M.ckey)
@@ -264,4 +264,6 @@
 		return "Monkey"
 	if(isalien(M))
 		return "Alien"
+	if(isstoryteller(M))
+		return "Storyteller"
 	return "Unknown"

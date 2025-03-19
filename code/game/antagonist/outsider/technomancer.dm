@@ -1,4 +1,4 @@
-var/datum/antagonist/technomancer/technomancers
+GLOBAL_DATUM(technomancers, /datum/antagonist/technomancer)
 
 /datum/antagonist/technomancer
 	id = MODE_TECHNOMANCER
@@ -6,10 +6,6 @@ var/datum/antagonist/technomancer/technomancers
 	role_text_plural = "Technomancers"
 	bantype = "wizard"
 	landmark_id = "wizard"
-	welcome_text = "You will need to purchase <b>functions</b> and perhaps some <b>equipment</b> from the various machines around your \
-	base. Choose your technological arsenal carefully.  Remember that without the <b>core</b> on your back, your functions are \
-	powerless, and therefore you will be as well.<br>\
-	In your pockets you will find a one-time use teleport device. Use it to leave the base and go to the station, when you are ready. Your clothing is holographic, you should change its look before leaving."
 	antag_sound = 'sound/effects/antag_notice/technomancer_alert.ogg'
 	flags = ANTAG_OVERRIDE_JOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_CHOOSE_NAME | ANTAG_SET_APPEARANCE | ANTAG_VOTABLE
 	antaghud_indicator = "hudwizard"
@@ -25,7 +21,11 @@ var/datum/antagonist/technomancer/technomancers
 
 /datum/antagonist/technomancer/New()
 	..()
-	technomancers = src
+	GLOB.technomancers = src
+	welcome_text = "You will need to purchase <b>functions</b> and perhaps some <b>equipment</b> from the various machines around your \
+	base. Choose your technological arsenal carefully.  Remember that without the <b>core</b> on your back, your functions are \
+	powerless, and therefore you will be as well.<br>\
+	In your pockets you will find a one-time use teleport device. Use it to leave the base and go to the [station_name()], when you are ready. Your clothing is holographic, you should change its look before leaving."
 
 /datum/antagonist/technomancer/update_antag_mob(var/datum/mind/technomancer)
 	..()
@@ -37,14 +37,14 @@ var/datum/antagonist/technomancer/technomancers
 	if(!..())
 		return FALSE
 
-	technomancer_mob.preEquipOutfit(/datum/outfit/admin/techomancer, FALSE)
-	technomancer_mob.equipOutfit(/datum/outfit/admin/techomancer, FALSE)
+	technomancer_mob.preEquipOutfit(/obj/outfit/admin/techomancer, FALSE)
+	technomancer_mob.equipOutfit(/obj/outfit/admin/techomancer, FALSE)
 
 	return TRUE
 
 /datum/antagonist/technomancer/proc/equip_apprentice(var/mob/living/carbon/human/technomancer_mob)
-	technomancer_mob.preEquipOutfit(/datum/outfit/admin/techomancer/apprentice, FALSE)
-	technomancer_mob.equipOutfit(/datum/outfit/admin/techomancer/apprentice, FALSE)
+	technomancer_mob.preEquipOutfit(/obj/outfit/admin/techomancer/apprentice, FALSE)
+	technomancer_mob.equipOutfit(/obj/outfit/admin/techomancer/apprentice, FALSE)
 	return TRUE
 
 /datum/antagonist/technomancer/check_victory()
@@ -56,11 +56,11 @@ var/datum/antagonist/technomancer/technomancers
 		break
 	if(!survivor)
 		feedback_set_details("round_end_result","loss - technomancer killed")
-		to_world("<span class='danger'><font size = 3>The [(current_antagonists.len>1)?"[role_text_plural] have":"[role_text] has"] been killed!</font></span>")
+		to_world(SPAN_DANGER("<font size = 3>The [(current_antagonists.len>1)?"[role_text_plural] have":"[role_text] has"] been killed!</font>"))
 
 /datum/antagonist/technomancer/print_player_summary()
 	..()
-	for(var/obj/item/technomancer_core/core in technomancer_belongings)
+	for(var/obj/item/technomancer_core/core in GLOB.technomancer_belongings)
 		if(core.wearer)
 			continue // Only want abandoned cores.
 		if(!core.spells.len)
@@ -83,7 +83,7 @@ var/datum/antagonist/technomancer/technomancers
 /datum/antagonist/technomancer/proc/is_technomancer(var/datum/mind/player)
 	if(player in current_antagonists)
 		return TRUE
-	if(raider_techno.is_antagonist(player))
+	if(GLOB.raider_techno.is_antagonist(player))
 		return TRUE
 	return FALSE
 

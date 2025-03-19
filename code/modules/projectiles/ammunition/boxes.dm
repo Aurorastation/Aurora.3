@@ -7,7 +7,7 @@
 	ammo_type = /obj/item/ammo_casing/a357
 	matter = list(DEFAULT_WALL_MATERIAL = 1260)
 	max_ammo = 8
-	multiple_sprites = 1
+	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/a454
 	name = "speed loader (.454)"
@@ -17,7 +17,7 @@
 	ammo_type = /obj/item/ammo_casing/a454
 	matter = list(DEFAULT_WALL_MATERIAL = 1260)
 	max_ammo = 7
-	multiple_sprites = 1
+	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/c38
 	name = "speed loader (.38)"
@@ -27,7 +27,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 360)
 	ammo_type = /obj/item/ammo_casing/c38
 	max_ammo = 6
-	multiple_sprites = 1
+	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/c38/rubber
 	name = "speed loader (.38 rubber)"
@@ -43,6 +43,8 @@
 	icon_state = "a454"
 	caliber = ".45"
 	ammo_type = /obj/item/ammo_casing/c45/revolver
+	max_ammo = 6
+	multiple_sprites = TRUE
 
 // End of Revolvos //
 
@@ -96,6 +98,11 @@
 	desc = "A custom .45 pistol magazine fitted with an extended baseplate, increasing capacity to eleven rounds."
 	icon_state = "45e"
 	max_ammo = 11
+
+/obj/item/ammo_magazine/c45m/stendo/rubber
+	name = "extended magazine (.45 rubber)"
+	ammo_type = /obj/item/ammo_casing/c45/rubber
+	icon_state = "r45e"
 
 /obj/item/ammo_magazine/c45m/lebman
 	name = "extended magazine (.45)"
@@ -314,7 +321,7 @@
 /obj/item/ammo_magazine/submachinedrum
 	name = "drum magazine (.45)"
 	icon_state = "tommy-drum"
-	w_class = ITEMSIZE_NORMAL // Bulky ammo doesn't fit in your pockets!
+	w_class = WEIGHT_CLASS_NORMAL // Bulky ammo doesn't fit in your pockets!
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/c45
 	matter = list(DEFAULT_WALL_MATERIAL = 3750)
@@ -686,7 +693,7 @@
 /obj/item/ammo_magazine/nuke
 	name = "nuclear launcher cartridge"
 	icon_state = "nukemag"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	mag_type = MAGAZINE
 	caliber = "nuke"
 	insert_sound = 'sound/weapons/reloads/rifle_slide3.ogg'
@@ -713,3 +720,35 @@
 	ammo_type = /obj/item/ammo_casing/shotgun
 	max_ammo = 9
 	multiple_sprites = 1
+
+/obj/item/ammo_magazine/spitterpistol
+	name = "spitter pistol magazine"
+	icon_state = "spitterpistol_mag"
+	caliber = "11.6mm"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/moghes_pistol
+	max_ammo = 8
+
+/obj/item/ammo_magazine/hookmg
+	name = "hook machinegun magazine"
+	icon_state = "hookmg_ammobox"
+	caliber = "5.8mm"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/moghes_rifle
+	max_ammo = 50
+
+/obj/item/ammo_magazine/crackrifle
+	name = "crack rifle magazine"
+	icon_state = "crackrifle_mag"
+	caliber = "5.8mm"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/moghes_rifle
+	max_ammo = 33
+
+/obj/item/ammo_magazine/tempestsmg
+	name = "tempest smg magazine"
+	icon_state = "tempestsmg_mag"
+	caliber = "11.6mm"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/moghes_pistol
+	max_ammo = 20

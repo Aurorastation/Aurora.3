@@ -67,7 +67,7 @@
 /obj/machinery/atmospherics/unary/engine{
 	dir = 4
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "ar" = (
 /obj/item/pipe{
@@ -135,14 +135,14 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white/airless,
 /area/template_noop)
-"az" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/airless,
-/area/template_noop)
 "aA" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#6C7364";
+	frame_color = "#6C7364";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/airless,
 /area/template_noop)
 "aB" = (
@@ -396,9 +396,14 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/template_noop)
 "aZ" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#6C7364";
+	frame_color = "#6C7364";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/airless,
 /area/template_noop)
 "ba" = (
@@ -984,7 +989,7 @@ af
 be
 al
 am
-az
+aA
 aI
 aQ
 aZ

@@ -90,17 +90,17 @@
 	name = "\proper space"
 	icon_state = "0"
 	footstep_sound = null
-	plane = PLANE_SPACE_BACKGROUND
+	plane = SPACE_PLANE
 	dynamic_lighting = 0
 
 /turf/simulated/floor/holofloor/space/Initialize()
 	. = ..()
 	icon_state = "[((x + y) ^ ~(x * y) + z) % 25]"
 	var/image/I = image('icons/turf/space_parallax1.dmi',"[icon_state]")
-	I.plane = PLANE_SPACE_DUST
+	I.plane = DUST_PLANE
 	I.alpha = 80
 	I.blend_mode = BLEND_ADD
-	add_overlay(I)
+	AddOverlays(I)
 
 /turf/simulated/floor/holofloor/beach
 	desc = "Uncomfortably gritty for a hologram."
@@ -143,7 +143,7 @@
 /turf/simulated/floor/holofloor/desert/Initialize()
 	. = ..()
 	if(prob(10))
-		add_overlay("asteroid[rand(0,9)]")
+		AddOverlays("asteroid[rand(0,9)]")
 
 /obj/structure/holostool
 	name = "stool"
@@ -174,11 +174,11 @@
 	if(attacking_item.item_flags & ITEM_FLAG_NO_BLUDGEON) return
 
 	if(attacking_item.isscrewdriver())
-		to_chat(user, ("<span class='notice'>It's a holowindow, you can't unfasten it!</span>"))
+		to_chat(user, (SPAN_NOTICE("It's a holowindow, you can't unfasten it!")))
 	else if(attacking_item.iscrowbar() && reinf && state <= 1)
-		to_chat(user, ("<span class='notice'>It's a holowindow, you can't pry it!</span>"))
+		to_chat(user, (SPAN_NOTICE("It's a holowindow, you can't pry it!")))
 	else if(attacking_item.iswrench() && !anchored && (!state || !reinf))
-		to_chat(user, ("<span class='notice'>It's a holowindow, you can't dismantle it!</span>"))
+		to_chat(user, (SPAN_NOTICE("It's a holowindow, you can't dismantle it!")))
 	else
 		if(attacking_item.damtype == DAMAGE_BRUTE || attacking_item.damtype == DAMAGE_BURN)
 			hit(attacking_item.force)
@@ -212,7 +212,7 @@
 	if(src.density && istype(attacking_item, /obj/item) && !istype(attacking_item, /obj/item/card))
 		var/aforce = attacking_item.force
 		playsound(src.loc, 'sound/effects/glass_hit.ogg', 75, 1)
-		visible_message("<span class='danger'>[src] was hit by [attacking_item].</span>")
+		visible_message(SPAN_DANGER("[src] was hit by [attacking_item]."))
 		if(attacking_item.damtype == DAMAGE_BRUTE || attacking_item.damtype == DAMAGE_BURN)
 			take_damage(aforce)
 		return
@@ -228,7 +228,7 @@
 			close()
 
 	else if (src.density)
-		flick(text("[]deny", src.base_state), src)
+		flick("[src.base_state]deny", src)
 
 	return
 
@@ -247,7 +247,7 @@
 
 /obj/structure/bed/stool/chair/holochair/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.iswrench())
-		to_chat(user, ("<span class='notice'>It's a holochair, you can't dismantle it!</span>"))
+		to_chat(user, (SPAN_NOTICE("It's a holochair, you can't dismantle it!")))
 	return
 
 /obj/item/holo
@@ -259,11 +259,11 @@
 	desc = "May the force be within you. Sorta."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "sword0"
-	force = 3.0
+	force = 3
 	throw_speed = 1
 	throw_range = 5
 	throwforce = 0
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	atom_flags = ATOM_FLAG_NO_BLOOD
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_energy.dmi',
@@ -280,12 +280,12 @@
 
 /obj/item/holo/esword/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(active && default_parry_check(user, attacker, damage_source) && prob(50))
-		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
+		user.visible_message(SPAN_DANGER("\The [user] parries [attack_text] with \the [src]!"))
 
 		spark(user.loc, 5)
 		playsound(user.loc, 'sound/weapons/blade.ogg', 50, 1)
-		return PROJECTILE_STOPPED
-	return FALSE
+		return BULLET_ACT_BLOCK
+	return BULLET_ACT_HIT
 
 /obj/item/holo/esword/New()
 	if(!item_color)
@@ -294,17 +294,17 @@
 /obj/item/holo/esword/attack_self(mob/living/user as mob)
 	active = !active
 	if (active)
-		force = 30
+		force = 33
 		icon_state = "sword[item_color]"
-		w_class = ITEMSIZE_LARGE
+		w_class = WEIGHT_CLASS_BULKY
 		playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
-		to_chat(user, "<span class='notice'>[src] is now active.</span>")
+		to_chat(user, SPAN_NOTICE("[src] is now active."))
 	else
 		force = 3
 		icon_state = "sword0"
-		w_class = ITEMSIZE_SMALL
+		w_class = WEIGHT_CLASS_SMALL
 		playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
-		to_chat(user, "<span class='notice'>[src] can now be concealed.</span>")
+		to_chat(user, SPAN_NOTICE("[src] can now be concealed."))
 
 	if(istype(user,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user
@@ -322,7 +322,7 @@
 	name = "basketball"
 	item_state = "basketball"
 	desc = "Here's your chance, do your dance at the Space Jam."
-	w_class = ITEMSIZE_LARGE //Stops people from hiding it in their bags/pockets
+	w_class = WEIGHT_CLASS_BULKY //Stops people from hiding it in their bags/pockets
 	drop_sound = 'sound/items/drop/basketball.ogg'
 	pickup_sound = 'sound/items/pickup/basketball.ogg'
 
@@ -331,39 +331,39 @@
 	desc = "Boom, Shakalaka!"
 	icon = 'icons/obj/basketball.dmi'
 	icon_state = "hoop"
-	anchored = 1
-	density = 1
-	throwpass = 1
+	anchored = TRUE
+	density = TRUE
+	pass_flags_self = PASSSTRUCTURE | LETPASSTHROW
 
 /obj/structure/holohoop/attackby(obj/item/attacking_item, mob/user)
 	if (istype(attacking_item, /obj/item/grab) && get_dist(src,user)<2)
 		var/obj/item/grab/G = attacking_item
 		if(G.state<2)
-			to_chat(user, "<span class='warning'>You need a better grip to do that!</span>")
+			to_chat(user, SPAN_WARNING("You need a better grip to do that!"))
 			return
 		G.affecting.forceMove(src.loc)
 		G.affecting.Weaken(5)
-		visible_message("<span class='warning'>[G.assailant] dunks [G.affecting] into the [src]!</span>", range = 3)
+		visible_message(SPAN_WARNING("[G.assailant] dunks [G.affecting] into the [src]!"), range = 3)
 		qdel(attacking_item)
 		return
 	else if (istype(attacking_item, /obj/item) && get_dist(src,user)<2)
 		user.drop_from_inventory(attacking_item, get_turf(src))
-		visible_message("<span class='notice'>[user] dunks [attacking_item] into the [src]!</span>", range = 3)
+		visible_message(SPAN_NOTICE("[user] dunks [attacking_item] into the [src]!"), range = 3)
 		return
 
 /obj/structure/holohoop/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if (istype(mover,/obj/item) && mover.throwing)
 		var/obj/item/I = mover
-		if(istype(I, /obj/item/projectile))
+		if(istype(I, /obj/projectile))
 			return
 		if(prob(50))
 			I.forceMove(src.loc)
-			visible_message("<span class='notice'>Swish! \the [I] lands in \the [src].</span>", range = 3)
+			visible_message(SPAN_NOTICE("Swish! \the [I] lands in \the [src]."), range = 3)
 		else
-			visible_message("<span class='warning'>\The [I] bounces off of \the [src]'s rim!</span>", range = 3)
+			visible_message(SPAN_WARNING("\The [I] bounces off of \the [src]'s rim!"), range = 3)
 		return 0
 	else
-		return ..(mover, target, height, air_group)
+		return ..()
 
 
 /obj/machinery/readybutton
@@ -379,7 +379,7 @@
 	use_power = POWER_USE_OFF // reason is because the holodeck already takes power so this can be powered as a result.
 
 /obj/machinery/readybutton/attack_ai(mob/user as mob)
-	to_chat(user, "The station AI is not to interact with these devices!")
+	to_chat(user, "The AI is not to interact with these devices!")
 	return
 
 /obj/machinery/readybutton/attackby(obj/item/attacking_item, mob/user)
@@ -444,6 +444,7 @@
 	meat_amount = 0
 	meat_type = null
 	light_range = 2
+	smart_melee = TRUE
 
 /mob/living/simple_animal/hostile/carp/holodeck/proc/set_safety(var/safe)
 	if (safe)
@@ -466,9 +467,19 @@
 	..()
 	derez()
 
-/mob/living/simple_animal/hostile/carp/holodeck/proc/derez()
-	visible_message("<span class='notice'>\The [src] fades away!</span>")
-	qdel(src)
+/mob/living/simple_animal/hostile/carp/holodeck/pain
+	damage_type = DAMAGE_PAIN
+
+/mob/living/simple_animal/hostile/carp/holodeck/pain/Initialize()
+	. = ..()
+	set_safety(FALSE)
+
+/mob/living/simple_animal/hostile/carp/holodeck/pain/set_safety(safe)
+	faction = "carp"
+	melee_damage_lower = 5
+	melee_damage_upper = 5
+	environment_smash = 0
+	destroy_surroundings = FALSE
 
 //Holo-penguin
 
@@ -504,6 +515,38 @@
 	..()
 	derez()
 
-/mob/living/simple_animal/penguin/holodeck/proc/derez()
-	visible_message("<span class='notice'>\The [src] fades away!</span>")
-	qdel(src)
+//Holo Animal babies
+
+/mob/living/simple_animal/corgi/puppy/holodeck
+	icon_gib = null
+	meat_amount = 0
+	meat_type = null
+	light_range = 2
+	hunger_enabled = FALSE
+
+/mob/living/simple_animal/corgi/puppy/holodeck/can_name(var/mob/living/M)
+	return FALSE
+
+/mob/living/simple_animal/corgi/puppy/holodeck/gib()
+	derez() //holograms can't gib
+
+/mob/living/simple_animal/corgi/puppy/holodeck/death()
+	..()
+	derez()
+
+/mob/living/simple_animal/cat/kitten/holodeck
+	icon_gib = null
+	meat_amount = 0
+	meat_type = null
+	light_range = 2
+	hunger_enabled = FALSE
+
+/mob/living/simple_animal/cat/kitten/holodeck/can_name(var/mob/living/M)
+	return FALSE
+
+/mob/living/simple_animal/cat/kitten/holodeck/gib()
+	derez() //holograms can't gib
+
+/mob/living/simple_animal/cat/kitten/holodeck/death()
+	..()
+	derez()

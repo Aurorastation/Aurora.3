@@ -7,6 +7,7 @@
 	icon = 'icons/obj/machinery/modular_terminal.dmi'
 	icon_screen = "solar_screen"
 	icon_keyboard = "id_key"
+	icon_keyboard_emis = "id_key_mask"
 	is_connected = TRUE
 	has_off_keyboards = TRUE
 	can_pass_under = FALSE
@@ -53,7 +54,7 @@
 			var/list/core = list()
 			var/obj/machinery/power/fusion_core/C = fusion_cores[i]
 			core["id"] = "#[i]"
-			core["ref"] = "\ref[C]"
+			core["ref"] = "[REF(C)]"
 			core["field"] = !isnull(C.owned_field)
 			core["power"] = "[C.field_strength / 10]"
 			core["field_strength"] = C.field_strength

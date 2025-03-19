@@ -5,7 +5,7 @@
 /obj/item/circuitboard/portgen
 	name = T_BOARD("portable generator")
 	build_path = /obj/machinery/power/portgen/basic
-	board_type = "machine"
+	board_type = BOARD_MACHINE
 	origin_tech = list(TECH_DATA = 3, TECH_POWER = 3, TECH_PHORON = 3, TECH_ENGINEERING = 3)
 	req_components = list(
 		"/obj/item/stock_parts/matter_bin" = 1,

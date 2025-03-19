@@ -4,11 +4,11 @@
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "red_phone"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	force = 3.0
+	force = 3
 	throwforce = 2.0
 	throw_speed = 1
 	throw_range = 4
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	attack_verb = list("called", "rang")
 	hitsound = 'sound/weapons/ring.ogg'
 
@@ -22,7 +22,7 @@
 	anchored = 0.0
 	var/stored_matter = 0
 	var/mode = 1
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/bikehorn
 	name = "bike horn"
@@ -31,7 +31,7 @@
 	icon_state = "bike_horn"
 	item_state = "bike_horn"
 	throwforce = 3
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 3
 	throw_range = 15
 	attack_verb = list("HONKED")
@@ -51,20 +51,20 @@
 	icon_state = "cane"
 	item_state = "stick"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	force = 10
+	force = 15
 	throwforce = 7.0
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
 	attack_verb = list("bludgeoned", "whacked", "disciplined", "thrashed")
 	var/can_support = TRUE
 
-/obj/item/cane/attack(mob/living/target, mob/living/carbon/human/user, target_zone = BP_CHEST)
+/obj/item/cane/attack(mob/living/target_mob, mob/living/user, target_zone)
 
-	if(!(istype(target) && istype(user)))
+	if(!(istype(target_mob) && istype(user)))
 		return ..()
 
-	var/targetIsHuman = ishuman(target)
-	var/mob/living/carbon/human/targetashuman = target
+	var/targetIsHuman = ishuman(target_mob)
+	var/mob/living/carbon/human/targetashuman = target_mob
 	var/wasselfattack = 0
 	var/verbtouse = pick(attack_verb)
 	var/punct = "!"
@@ -80,13 +80,13 @@
 		wasselfattack = 1
 
 	if (user.a_intent == I_HURT)
-		target_zone = get_zone_with_miss_chance(target_zone, target) //Vary the attack
+		target_zone = get_zone_with_miss_chance(target_zone, target_mob) //Vary the attack
 		damagetype = DAMAGE_BRUTE
 
 	if (targetIsHuman)
-		var/mob/living/carbon/human/targethuman = target
+		var/mob/living/carbon/human/targethuman = target_mob
 		armorpercent = targethuman.get_blocked_ratio(target_zone, DAMAGE_BRUTE, damage = force)*100
-		wasblocked = targethuman.check_shields(force, src, user, target_zone, null)
+		wasblocked = (targethuman.check_shields(force, src, user, target_zone, null) in list(BULLET_ACT_BLOCK, BULLET_ACT_FORCE_PIERCE))
 
 	var/damageamount = force
 
@@ -105,19 +105,19 @@
 			soundname = "punch"
 			if(targetIsHuman)
 				user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun("his")] [name]...</span>", "<span class='[class]'>You flip [src], preparing a disarm...</span>")
-				if (do_mob(user,target,chargedelay,display_progress=0))
+				if (do_mob(user,target_mob,chargedelay,display_progress=0))
 					if(!wasblocked && damageamount)
 						var/chancemod = (100 - armorpercent)*0.05*damageamount // Lower chance if lower damage + high armor. Base chance is 50% at 10 damage.
 						if(target_zone == BP_L_HAND || target_zone == BP_L_ARM)
-							if (prob(chancemod) && target.l_hand && target.l_hand != src)
+							if (prob(chancemod) && target_mob.l_hand && target_mob.l_hand != src)
 								shoulddisarm = 1
 						else if(target_zone == BP_R_HAND || target_zone == BP_R_ARM)
-							if (prob(chancemod) && target.r_hand && target.r_hand != src)
+							if (prob(chancemod) && target_mob.r_hand && target_mob.r_hand != src)
 								shoulddisarm = 2
 						else
-							if (prob(chancemod*0.5) && target.l_hand && target.l_hand != src)
+							if (prob(chancemod*0.5) && target_mob.l_hand && target_mob.l_hand != src)
 								shoulddisarm = 1
-							if (prob(chancemod*0.5) && target.r_hand && target.r_hand != src)
+							if (prob(chancemod*0.5) && target_mob.r_hand && target_mob.r_hand != src)
 								shoulddisarm += 2
 				else
 					user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun("his")] [name] back to its original position.</span>", "<span class='[class]'>You flip [src] back to its original position.</span>")
@@ -128,9 +128,9 @@
 			soundname = "punch"
 			if(targetIsHuman)
 				user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun("his")] [name]...</span>", "<span class='[class]'>You flip [src], preparing a grab...</span>")
-				if (do_mob(user,target,chargedelay,display_progress=0))
+				if (do_mob(user,target_mob,chargedelay,display_progress=0))
 					if(!wasblocked && damageamount)
-						user.start_pulling(target)
+						user.start_pulling(target_mob)
 					else
 						verbtouse = pick("awkwardly tries to hook","fails to grab")
 				else
@@ -142,102 +142,86 @@
 
 	// Damage Logs
 	/////////////////////////
-	user.lastattacked = target
-	target.lastattacker = user
+	user.lastattacked = target_mob
+	target_mob.lastattacker = user
 	if(!no_attack_log)
-		user.attack_log += "\[[time_stamp()]\]<span class='warning'> Attacked [target.name] ([target.ckey]) with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damagetype)])</span>"
-		target.attack_log += "\[[time_stamp()]\]<font color='orange'> Attacked by [user.name] ([user.ckey]) with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damagetype)])</font>"
-		msg_admin_attack("[key_name(user, highlight_special = 1)] attacked [key_name(target, highlight_special = 1)] with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damagetype)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target) )
+		user.attack_log += "\[[time_stamp()]\]<span class='warning'> Attacked [target_mob.name] ([target_mob.ckey]) with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damagetype)])</span>"
+		target_mob.attack_log += "\[[time_stamp()]\]<font color='orange'> Attacked by [user.name] ([user.ckey]) with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damagetype)])</font>"
+		msg_admin_attack("[key_name(user, highlight_special = 1)] attacked [key_name(target_mob, highlight_special = 1)] with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damagetype)]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target_mob) )
 	/////////////////////////
 
 	var/washit = 0
 	var/endmessage1st
 	var/endmessage3rd
 
-	if(!target_zone || get_dist(user,target) > 1) //Dodged
-		endmessage1st = "Your [name] was dodged by [target]"
-		endmessage3rd = "[target] dodged the [name]"
+	if(!target_zone || get_dist(user,target_mob) > 1) //Dodged
+		endmessage1st = "Your [name] was dodged by [target_mob]"
+		endmessage3rd = "[target_mob] dodged the [name]"
 		soundname = "punchmiss"
 	else if(wasblocked) // Blocked by Shield
-		endmessage1st = "Your [name] was blocked by [target]"
-		endmessage3rd = "[target] blocks the [name]"
+		endmessage1st = "Your [name] was blocked by [target_mob]"
+		endmessage3rd = "[target_mob] blocks the [name]"
 		soundname = "punchmiss"
 	else
 
 		washit = 1
-		var/noun = "[target]"
+		var/noun = "[target_mob]"
 		var/selfnoun = "your"
 
 		if(shoulddisarm)
 			if(wasselfattack)
 				selfnoun = "your grip"
-				noun = "[target.get_pronoun("his")] grip"
+				noun = "[target_mob.get_pronoun("his")] grip"
 			else
-				noun = "[target]'s grip"
+				noun = "[target_mob]'s grip"
 				selfnoun = noun
 		if (targetIsHuman && shoulddisarm != 3) // Query: Can non-humans hold objects in hands?
-			var/mob/living/carbon/human/targethuman = target
+			var/mob/living/carbon/human/targethuman = target_mob
 			var/obj/item/organ/external/O = targethuman.get_organ(target_zone)
 			if (O.is_stump())
 				if(wasselfattack)
 					selfnoun = "your missing [O.name]"
-					noun = "[target.get_pronoun("his")] missing [O.name]"
+					noun = "[target_mob.get_pronoun("his")] missing [O.name]"
 				else
-					noun = "[target]'s missing [O.name]"
+					noun = "[target_mob]'s missing [O.name]"
 					selfnoun = noun
 			else
 				if(wasselfattack)
 					selfnoun = "your [O.name]"
-					noun = "[target.get_pronoun("his")] [O.name]"
+					noun = "[target_mob.get_pronoun("his")] [O.name]"
 				else
-					noun = "[target]'s [O.name]"
+					noun = "[target_mob]'s [O.name]"
 					selfnoun = noun
 
 		switch(shoulddisarm)
 			if(1)
-				endmessage1st = "You [verbtouse] the [target.l_hand.name] out of [selfnoun]"
-				endmessage3rd = "[user] [verbtouse] the [target.l_hand.name] out of [noun]"
-				target.drop_l_hand()
+				endmessage1st = "You [verbtouse] the [target_mob.l_hand.name] out of [selfnoun]"
+				endmessage3rd = "[user] [verbtouse] the [target_mob.l_hand.name] out of [noun]"
+				target_mob.drop_l_hand()
 			if(2)
-				endmessage1st = "You [verbtouse] the [target.r_hand.name] out of [selfnoun]"
-				endmessage3rd = "[user] [verbtouse] the [target.r_hand.name] out of [noun]"
-				target.drop_r_hand()
+				endmessage1st = "You [verbtouse] the [target_mob.r_hand.name] out of [selfnoun]"
+				endmessage3rd = "[user] [verbtouse] the [target_mob.r_hand.name] out of [noun]"
+				target_mob.drop_r_hand()
 			if(3)
-				endmessage1st = "You [verbtouse] both the [target.r_hand.name] and the [target.l_hand.name] out of [selfnoun]"
-				endmessage3rd = "[user] [verbtouse] both the [target.r_hand.name] and the [target.l_hand.name] out of [noun]"
-				target.drop_l_hand()
-				target.drop_r_hand()
+				endmessage1st = "You [verbtouse] both the [target_mob.r_hand.name] and the [target_mob.l_hand.name] out of [selfnoun]"
+				endmessage3rd = "[user] [verbtouse] both the [target_mob.r_hand.name] and the [target_mob.l_hand.name] out of [noun]"
+				target_mob.drop_l_hand()
+				target_mob.drop_r_hand()
 			else
 				endmessage1st = "You [verbtouse] [selfnoun] with the [name]"
 				endmessage3rd = "[user] [verbtouse] [noun] with the [name]"
 
 	if(damageamount > 0) // Poking will no longer do damage until there is some fix that makes it so that 0.0001 HALLOS doesn't cause bleed.
-		target.standard_weapon_hit_effects(src, user, damageamount, armorpercent, target_zone)
+		target_mob.standard_weapon_hit_effects(src, user, damageamount, armorpercent, target_zone)
 
 	user.visible_message("<span class='[class]'>[endmessage3rd][punct]</span>", "<span class='[class]'>[endmessage1st][punct]</span>")
-	user.do_attack_animation(target)
+	user.do_attack_animation(target_mob)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
 	if(soundname)
 		playsound(src.loc, soundname, 50, 1, -1)
 
 	return washit
-
-/obj/item/cane/shaman
-	name = "shaman staff"
-	desc = "A seven foot staff traditionally carried by Unathi shamans both as a symbol of authority and to aid them in walking. It is made out of dark, polished wood and is curved at the end."
-	icon_state = "shaman_staff"
-	item_state = "shaman_staff"
-	w_class = ITEMSIZE_LARGE
-
-/obj/item/cane/shaman/afterattack(atom/A, mob/user as mob, proximity)
-	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	if(!proximity)
-		return
-	if (istype(A, /turf/simulated/floor))
-		user.visible_message("<span class='notice'>[user] loudly taps their [src.name] against the floor.</span>")
-		playsound(user.loc, 'sound/effects/shieldbash.ogg', 50, 1)
-		return
 
 /obj/item/cane/concealed
 	var/concealed_blade
@@ -250,7 +234,7 @@
 
 /obj/item/cane/concealed/attack_self(var/mob/user)
 	if(concealed_blade)
-		user.visible_message("<span class='warning'>[user] has unsheathed \a [concealed_blade] from [user.get_pronoun("his")] [src]!</span>", "You unsheathe \the [concealed_blade] from \the [src].")
+		user.visible_message(SPAN_WARNING("[user] has unsheathed \a [concealed_blade] from [user.get_pronoun("his")] [src]!"), "You unsheathe \the [concealed_blade] from \the [src].")
 		// Calling drop/put in hands to properly call item drop/pickup procs
 		playsound(user.loc, 'sound/weapons/holster/sheathout.ogg', 50, 1)
 		user.drop_from_inventory(src)
@@ -266,7 +250,7 @@
 /obj/item/cane/concealed/attackby(obj/item/attacking_item, mob/user)
 	var/obj/item/canesword/attacking_canesword = attacking_item
 	if(!src.concealed_blade && istype(attacking_canesword))
-		user.visible_message("<span class='warning'>[user] has sheathed \a [attacking_canesword] into [user.get_pronoun("his")] [src]!</span>", "You sheathe \the [attacking_canesword] into \the [src].")
+		user.visible_message(SPAN_WARNING("[user] has sheathed \a [attacking_canesword] into [user.get_pronoun("his")] [src]!"), "You sheathe \the [attacking_canesword] into \the [src].")
 		playsound(user.loc, 'sound/weapons/holster/sheathin.ogg', 50, 1)
 		user.drop_from_inventory(attacking_canesword)
 		attacking_canesword.forceMove(src)
@@ -313,7 +297,7 @@
 	icon = 'icons/obj/item/telecane.dmi'
 	icon_state = "telecane"
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_BELT
 	drop_sound = 'sound/items/drop/crowbar.ogg'
 	pickup_sound = 'sound/items/pickup/crowbar.ogg'
@@ -326,16 +310,16 @@
 		user.visible_message(SPAN_WARNING("With a flick of their wrist, [user] extends their telescopic cane."), SPAN_WARNING("You extend the cane."), SPAN_WARNING("You hear an ominous click."))
 		icon_state = "telecane_1"
 		item_state = "telestick"
-		w_class = ITEMSIZE_LARGE
+		w_class = WEIGHT_CLASS_BULKY
 		slot_flags = null
-		force = 6
+		force = 14
 		attack_verb = list("smacked", "struck", "slapped")
 		can_support = TRUE
 	else
 		user.visible_message(SPAN_NOTICE("\The [user] collapses their telescopic cane."), SPAN_NOTICE("You collapse the cane."), SPAN_NOTICE("You hear a click."))
 		icon_state = "telecane"
 		item_state = "telestick_0"
-		w_class = ITEMSIZE_SMALL
+		w_class = WEIGHT_CLASS_SMALL
 		slot_flags = SLOT_BELT
 		force = 3
 		attack_verb = list("hit", "punched")
@@ -367,7 +351,7 @@
 	var/size = 3.0
 	var/obj/item/gift = null
 	item_state = "gift"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/gift/random_pixel/Initialize()
 	. = ..()
@@ -379,6 +363,8 @@
 	desc = "Used to communicate, it appears."
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "radio"
+	item_state = "radio"
+	contained_sprite = TRUE
 	var/temp = null
 	var/uses = 4.0
 	var/selfdestruct = 0.0
@@ -386,12 +372,11 @@
 	var/obj/item/device/radio/origradio = null
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
-	item_state = "radio"
 	throwforce = 5
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 4
 	throw_range = 20
-	matter = list(DEFAULT_WALL_MATERIAL = 100)
+	matter = list(MATERIAL_ALUMINIUM = 25, MATERIAL_PLASTIC = 75)
 	origin_tech = list(TECH_MAGNET = 1)
 
 /obj/item/staff
@@ -399,11 +384,11 @@
 	desc = "A staff which only has the power to make you look like a nerd."
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "staff"
-	force = 3.0
+	force = 3
 	throwforce = 5.0
 	throw_speed = 1
 	throw_range = 5
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	attack_verb = list("bludgeoned", "whacked", "disciplined")
 
 /obj/item/staff/broom
@@ -425,16 +410,16 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "qstaff0"
 	item_state = "stick"
-	force = 3.0
+	force = 3
 	throwforce = 5.0
 	throw_speed = 1
 	throw_range = 5
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/module
 	icon = 'icons/obj/module.dmi'
 	icon_state = "std_mod"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	item_state = "electronic"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	usesound = 'sound/items/Deconstruct.ogg'
@@ -476,10 +461,10 @@
 
 /obj/item/device/camera_bug
 	name = "camera bug"
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/item/device/flash.dmi'
 	icon_state = "flash"
-	w_class = ITEMSIZE_TINY
-	item_state = "electronic"
+	item_state = "flash"
+	w_class = WEIGHT_CLASS_TINY
 	throw_speed = 4
 	throw_range = 20
 
@@ -489,7 +474,7 @@
 		if (C.bugged && C.status)
 			cameras.Add(C)
 	if (length(cameras) == 0)
-		to_chat(usr, "<span class='warning'>No bugged functioning cameras found.</span>")
+		to_chat(usr, SPAN_WARNING("No bugged functioning cameras found."))
 		return
 
 	var/list/friendly_cameras = new/list()
@@ -525,7 +510,7 @@
 /obj/item/neuralbroke/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.isscrewdriver())
 		new /obj/item/device/encryptionkey/hivenet(user.loc)
-		playsound(src.loc, attacking_item.usesound, 50, 1)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		to_chat(user, "You bypass the fried security chip and extract the encryption key.")
 		to_chat(user, "The fried neural socket crumbles away like dust.")
 		qdel(src)
@@ -537,15 +522,16 @@
 	icon_state = "RPED"
 	item_state = "RPED"
 	icon = 'icons/obj/storage/misc.dmi'
-	w_class = ITEMSIZE_HUGE
+	contained_sprite = TRUE
+	w_class = WEIGHT_CLASS_HUGE
 	can_hold = list(/obj/item/stock_parts,/obj/item/reagent_containers/glass/beaker)
 	storage_slots = 50
-	use_to_pickup = 1
-	allow_quick_gather = 1
-	allow_quick_empty = 1
+	use_to_pickup = TRUE
+	allow_quick_gather = TRUE
+	allow_quick_empty = TRUE
 	collection_mode = 1
-	display_contents_with_number = 1
-	max_w_class = ITEMSIZE_NORMAL
+	display_contents_with_number = TRUE
+	max_w_class = WEIGHT_CLASS_NORMAL
 	max_storage_space = 100
 
 /obj/item/ectoplasm

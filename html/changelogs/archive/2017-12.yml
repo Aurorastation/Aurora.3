@@ -1,0 +1,36 @@
+2017-12-08:
+  Lohikar:
+  - experiment: Made some changes to how the server deletes pipes; explosions will
+      probably be laggier, but there should no longer be crushing lag 5 minutes later.
+  Santa:
+  - rscadd: Merry Christmas NSS Aurora!
+2017-12-12:
+  Lohikar:
+  - bugfix: Engineering crews have corrected a fault in station wiring that caused
+      station lighting to be instead connected to the Equipment power pool. Officials
+      suspect a prank from misbehaving maintenance drones.
+  PoZe:
+  - bugfix: Fixed AI seeing mobs who use stealth suits. That is both ninja and raider's
+      stealth suit or anyone else with same technology.
+  - tweak: BST sunglasses now protect from welder damage
+  - tweak: GODMODE now also protects user from welder damage
+  Skull132:
+  - bugfix: CCIAA can now see the round type.
+2017-12-22:
+  Alberyk:
+  - bugfix: The tranquilizer rifle should work properly now.
+  - bugfix: Fixed some items, such as animals, not appearing when opening a christmas
+      gift.
+  LordFowl:
+  - bugfix: Mining drones no longer have all access IDs.
+  - rscadd: Mining drones can be upgraded with kinetic accelerators, further cementing
+      the obsolescence of the human shaft miner.
+  - tweak: Mining drones can no longer be upgraded with plasma cutters, and their
+      emag module is no longer a thermal drill.
+2017-12-30:
+  PoZe:
+  - tweak: Turret control panels who has turrets with one fire mode only no longer
+      can switch modes.
+  - tweak: Mix of turrets with different fire modes now will work as it should be.
+      Using turrets with same fire mode as desired.
+  - tweak: Built turrets now have same fire rate as the gun it was made of

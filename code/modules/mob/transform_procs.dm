@@ -105,7 +105,7 @@
 
 /mob/proc/AIize(move=1)
 	if(client)
-		src << sound(null, repeat = 0, wait = 0, volume = 85, channel = 1) // stop the jams for AIs)
+		src.stop_sound_channel(CHANNEL_LOBBYMUSIC) // stop the jams for AIs)
 
 	//The destination the mob will be spawned at
 	var/final_destination = loc
@@ -134,7 +134,7 @@
 			final_destination = loc_landmark.loc
 
 
-	var/mob/living/silicon/ai/O = new (final_destination, base_law_type,,1)//No MMI but safety is in effect.
+	var/mob/living/silicon/ai/O = new (final_destination, GLOB.base_law_type,,1)//No MMI but safety is in effect.
 	O.set_invisibility(0)
 	O.ai_restore_power_routine = 0
 
@@ -191,9 +191,7 @@
 	O.forceMove(loc)
 	O.job = "Cyborg"
 	if(O.mind.assigned_role == "Cyborg")
-		if(O.mind.role_alt_title == "Android")
-			O.mmi = new /obj/item/device/mmi/digital/posibrain(O)
-		else if(O.mind.role_alt_title == "Robot")
+		if(O.mind.role_alt_title == "Robot")
 			O.mmi = new /obj/item/device/mmi/digital/robot(O)
 		else
 			O.mmi = new /obj/item/device/mmi(O)
@@ -272,7 +270,7 @@
 	var/mobpath = input("Which type of mob should [src] turn into?", "Choose a type") in mobtypes
 
 	if(!safe_animal(mobpath))
-		to_chat(usr, "<span class='warning'>Sorry but this mob type is currently unavailable.</span>")
+		to_chat(usr, SPAN_WARNING("Sorry but this mob type is currently unavailable."))
 		return
 
 	if(transforming)
@@ -306,7 +304,7 @@
 	var/mobpath = input("Which type of mob should [src] turn into?", "Choose a type") in mobtypes
 
 	if(!safe_animal(mobpath))
-		to_chat(usr, "<span class='warning'>Sorry but this mob type is currently unavailable.</span>")
+		to_chat(usr, SPAN_WARNING("Sorry but this mob type is currently unavailable."))
 		return
 
 	var/mob/new_mob = new mobpath(src.loc)

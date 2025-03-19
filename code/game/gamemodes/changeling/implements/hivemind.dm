@@ -45,7 +45,7 @@
 	if(!message)
 		return
 
-	log_say("[changeling_mob] Hivemind/[src.key] : [message]", ckey=key_name(src))
+	log_say("[changeling_mob] Hivemind/[src.key] : [message]")
 
 	if(src.client?.prefs.muted & (MUTE_DEADCHAT|MUTE_IC))
 		to_chat(src, SPAN_WARNING("You cannot talk. (Admin Muted)"))
@@ -63,7 +63,7 @@
 	var/mob/living/simple_animal/hostile/morph/M = new /mob/living/simple_animal/hostile/morph(get_turf(changeling_mob))
 	M.stop_thinking = TRUE // prevent the AI from taking over when the player ghosts
 	M.ckey = ckey
-	morphs.add_antagonist(M.mind, TRUE, TRUE, FALSE, TRUE, TRUE)
+	GLOB.morphs.add_antagonist(M.mind, TRUE, TRUE, FALSE, TRUE, TRUE)
 
 	var/datum/changeling/changeling = changeling_mob.mind.antag_datums[MODE_CHANGELING]
 	changeling.hivemind_members -= src

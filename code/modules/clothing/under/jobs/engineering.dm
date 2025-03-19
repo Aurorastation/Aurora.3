@@ -7,7 +7,7 @@
 	item_state = "chief_engineer"
 	contained_sprite = TRUE
 	armor = list(
-		rad = ARMOR_RAD_MINOR
+		RAD = ARMOR_RAD_MINOR
 	)
 	siemens_coefficient = 0.75
 
@@ -36,7 +36,7 @@
 	item_state = "nt_engineer"
 	contained_sprite = TRUE
 	armor = list(
-		rad = ARMOR_RAD_MINOR
+		RAD = ARMOR_RAD_MINOR
 	)
 	siemens_coefficient = 0.75
 
@@ -47,6 +47,15 @@
 /obj/item/clothing/under/rank/engineer/zavod
 	icon_state = "zav_engineer"
 	item_state = "zav_engineer"
+
+/obj/item/clothing/under/rank/engineer/einstein
+	name = "einstein engineer's jumpsuit"
+	desc = "It's a grey-green high visibility jumpsuit worn by engineers. It has minor radiation shielding."
+	desc_extended = "Usually, but not necessarily worn by Einstein's Taipei Engineering Industrial subsidiary. Subsidiary or not, \
+	whoever wears this uniform probably knows a lot about the latest warp drives."
+	icon = 'icons/clothing/under/uniforms/einstein.dmi'
+	icon_state = "ee_engineer"
+	item_state = "ee_engineer"
 
 /obj/item/clothing/under/rank/engineer/apprentice
 	name = "engineering apprentice's jumpsuit"

@@ -37,16 +37,21 @@
 	health -= damage
 	healthcheck()
 
-/obj/effect/spider/bullet_act(var/obj/item/projectile/Proj)
-	..()
-	health -= Proj.get_structure_damage()
+/obj/effect/spider/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	health -= hitting_projectile.get_structure_damage()
 	healthcheck()
 
 /obj/effect/spider/proc/healthcheck()
 	if(health <= 0)
 		qdel(src)
 
-/obj/effect/spider/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/obj/effect/spider/fire_act(exposed_temperature, exposed_volume)
+	. = ..()
+
 	if(exposed_temperature > 300 + T0C)
 		health -= 5
 		healthcheck()
@@ -61,11 +66,13 @@
 		icon_state = "stickyweb2"
 
 	if(prob(75))
-		var/image/web_overlay = image(icon, icon_state = "[initial(icon_state)]-overlay[pick(1, 2, 3)]", layer = ABOVE_MOB_LAYER)
-		add_overlay(web_overlay)
+		var/image/web_overlay = image(icon, icon_state = "[initial(icon_state)]-overlay[pick(1, 2, 3)]", layer = ABOVE_HUMAN_LAYER)
+		AddOverlays(web_overlay)
 
 /obj/effect/spider/stickyweb/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || height == 0)
+		return TRUE
+	if(mover?.movement_type & PHASING)
 		return TRUE
 	if(istype(mover, /mob/living/simple_animal/hostile/giant_spider))
 		return TRUE
@@ -73,7 +80,7 @@
 		if(prob(50))
 			to_chat(mover, SPAN_WARNING("You get stuck in \the [src] for a moment."))
 			return FALSE
-	else if(istype(mover, /obj/item/projectile))
+	else if(istype(mover, /obj/projectile))
 		return prob(30)
 	return TRUE
 
@@ -120,7 +127,7 @@
 	else if (O && O.owner && prob(1))
 		if(world.time > last_itch + 30 SECONDS)
 			last_itch = world.time
-			to_chat(O.owner, "<span class='notice'>Your [O.name] itches.</span>")
+			to_chat(O.owner, SPAN_NOTICE("Your [O.name] itches."))
 
 /obj/effect/spider/eggcluster/proc/take_damage(var/damage)
 	health -= damage
@@ -228,7 +235,7 @@
 		var/list/nearby = oview(5, src)
 		if(nearby.len)
 			var/target_atom = pick(nearby)
-			walk_to(src, target_atom, 5)
+			GLOB.move_manager.move_to(src, target_atom, 0, 5)
 			if(prob(25))
 				src.visible_message(SPAN_NOTICE("\The [src] skitters[pick(" away"," around","")]."))
 	else if(prob(5))
@@ -236,7 +243,7 @@
 		for(var/obj/machinery/atmospherics/unary/vent_pump/v in view(7,src))
 			if(!v.welded)
 				entry_vent = v
-				walk_to(src, entry_vent, 5)
+				GLOB.move_manager.move_to(src, entry_vent, 0, 5)
 				break
 
 	if(isturf(loc) && amount_grown >= 100)
@@ -273,7 +280,7 @@
 		visible_message(SPAN_WARNING("\The [user] tries to stomp on \the [src], but misses!"))
 		var/list/nearby = oview(2, src)
 		if(length(nearby))
-			walk_to(src, pick(nearby), 2)
+			GLOB.move_manager.move_to(src, pick(nearby), 0, 2)
 			return
 	visible_message(SPAN_WARNING("\The [user] stomps \the [src] dead!"))
 	die()

@@ -1,4 +1,4 @@
-var/global/list/all_portal_masters
+GLOBAL_LIST_INIT_TYPED(all_portal_masters, /obj/effect/map_effect/portal/master, null)
 
 /*
 Portal map effects allow a mapper to join two distant places together, while looking somewhat seamlessly connected.
@@ -39,7 +39,6 @@ when portals are shortly lived, or when portals are made to be obvious with spec
 	name = "portal subtype"
 	invisibility = 0
 	opacity = TRUE
-	layer = ON_TURF_LAYER
 	appearance_flags = PIXEL_SCALE|KEEP_TOGETHER // Removed TILE_BOUND so things not visible on the other side stay hidden from the viewer.
 
 	var/obj/effect/map_effect/portal/counterpart = null // The portal line or master that this is connected to, on the 'other side'.
@@ -52,6 +51,15 @@ when portals are shortly lived, or when portals are made to be obvious with spec
 	var/portal_distance_x = 0 // How far the portal is from the left edge, in tiles.
 	var/portal_distance_y = 0 // How far the portal is from the top edge.
 
+/obj/effect/map_effect/portal/Initialize()
+	. = ..()
+
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
 /obj/effect/map_effect/portal/Destroy()
 	vis_contents = null
 	if(counterpart)
@@ -60,14 +68,15 @@ when portals are shortly lived, or when portals are made to be obvious with spec
 	return ..()
 
 // Called when something touches the portal, and usually teleports them to the other side.
-/obj/effect/map_effect/portal/Crossed(atom/movable/AM)
-	..()
-	if(!AM)
+/obj/effect/map_effect/portal/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	if(!arrived)
 		return
 	if(!counterpart)
 		return
 
-	go_through_portal(AM)
+	go_through_portal(arrived)
 
 
 /obj/effect/map_effect/portal/proc/go_through_portal(atom/movable/AM)
@@ -137,7 +146,7 @@ when portals are shortly lived, or when portals are made to be obvious with spec
 	var/list/portal_lines = list()
 
 /obj/effect/map_effect/portal/master/Initialize()
-	LAZYADD(all_portal_masters, src)
+	LAZYADD(GLOB.all_portal_masters, src)
 	become_hearing_sensitive()
 	find_lines()
 	..()
@@ -149,7 +158,7 @@ when portals are shortly lived, or when portals are made to be obvious with spec
 	apply_offset()
 
 /obj/effect/map_effect/portal/master/Destroy()
-	LAZYREMOVE(all_portal_masters, src)
+	LAZYREMOVE(GLOB.all_portal_masters, src)
 	for(var/thing in portal_lines)
 		qdel(thing)
 	return ..()
@@ -170,7 +179,7 @@ when portals are shortly lived, or when portals are made to be obvious with spec
 
 // Connects both sides of a portal together.
 /obj/effect/map_effect/portal/master/proc/find_counterparts()
-	for(var/thing in all_portal_masters)
+	for(var/thing in GLOB.all_portal_masters)
 		var/obj/effect/map_effect/portal/master/M = thing
 		if(M == src)
 			continue
@@ -202,7 +211,7 @@ when portals are shortly lived, or when portals are made to be obvious with spec
 			return
 
 		var/turf/T = P.counterpart.get_focused_turf()
-		P.vis_contents += T
+		P.add_vis_contents(T)
 
 		var/list/things = list()
 		DVIEW(things, world.view, T, INVISIBILITY_LIGHTING)
@@ -211,7 +220,7 @@ when portals are shortly lived, or when portals are made to be obvious with spec
 				if(turf in observed_turfs) // Avoid showing the same turf twice or more for improved performance.
 					continue
 
-				P.vis_contents += turf
+				P.add_vis_contents(turf)
 				observed_turfs += turf
 
 		P.calculate_dimensions()

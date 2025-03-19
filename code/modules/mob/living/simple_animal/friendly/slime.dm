@@ -46,7 +46,7 @@
 
 /mob/living/simple_animal/adultslime/Initialize()
 	. = ..()
-	add_overlay("aslime-:33")
+	AddOverlays("aslime-:33")
 
 
 /mob/living/simple_animal/adultslime/death()

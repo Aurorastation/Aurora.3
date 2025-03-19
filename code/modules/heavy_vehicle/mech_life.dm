@@ -4,7 +4,7 @@
 /mob/living/heavy_vehicle/handle_status_effects()
 	return
 
-/mob/living/heavy_vehicle/Life()
+/mob/living/heavy_vehicle/Life(seconds_per_tick, times_fired)
 
 	// Size offsets for large mechs.
 	if(offset_x && pixel_x != offset_x)
@@ -67,11 +67,11 @@
 	if(following)
 		if(isturf(loc) && can_move())
 			if(resolved_following)
-				walk_to(src, resolved_following, follow_distance, legs.move_delay)
+				GLOB.move_manager.move_to(src, resolved_following, follow_distance, legs.move_delay)
 			else
 				unassign_following()
 		else
-			walk(src, 0) // this stops them from moving
+			GLOB.move_manager.stop_looping(src)
 
 /mob/living/heavy_vehicle/get_cell(force)
 	RETURN_TYPE(/obj/item/cell)
@@ -96,6 +96,7 @@
 	return total_draw
 
 /mob/living/heavy_vehicle/handle_environment(var/datum/gas_mixture/environment)
+	..()
 	if(!environment) return
 	//Mechs and vehicles in general can be assumed to just tend to whatever ambient temperature
 	if(abs(environment.temperature - bodytemperature) > 10 )
@@ -105,7 +106,7 @@
 		apply_damage(damage = environment.temperature /5 , damagetype = DAMAGE_BURN)
 	//A possibility is to hook up interface icons here. But this works pretty well in my experience
 		if(prob(5))
-			visible_message("<span class='danger'>\The [src]'s hull bends and buckles under the intense heat!</span>")
+			visible_message(SPAN_DANGER("\The [src]'s hull bends and buckles under the intense heat!"))
 
 /mob/living/heavy_vehicle/death(var/gibbed)
 	// Salvage moves into the wreck unless we're exploding violently.

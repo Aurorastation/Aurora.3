@@ -7,7 +7,7 @@
 	icon_state = "recharger_off"
 	anchored = 1
 	idle_power_usage = 6
-	active_power_usage = 45 KILOWATTS
+	active_power_usage = 45 KILO WATTS
 	pass_flags = PASSTABLE
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/charging_efficiency = 1.3
@@ -55,7 +55,7 @@
 			return TRUE
 		anchored = !anchored
 		user.visible_message("<b>[user]</b> [anchored ? "attaches" : "detaches"] \the [src].", SPAN_NOTICE("You [anchored ? "attach" : "detach"] \the [src]."))
-		playsound(loc, attacking_item.usesound, 75, 1)
+		attacking_item.play_tool_sound(get_turf(src), 75)
 		return TRUE
 
 	if (istype(attacking_item, /obj/item/gripper))//Code for allowing cyborgs to use rechargers
@@ -176,7 +176,7 @@
 	desc = "A heavy duty wall recharger specialized for energy weaponry."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "wrecharger_off"
-	active_power_usage = 75 KILOWATTS
+	active_power_usage = 75 KILO WATTS
 	allowed_devices = list(
 		/obj/item/gun/energy,
 		/obj/item/melee/baton,

@@ -74,3 +74,21 @@
 		/obj/item/reagent_containers/food/snacks/phoroncandy
 	)
 	result = /obj/item/reagent_containers/food/snacks/phoron_river_loaf
+
+/singleton/recipe/koicomb
+	appliance = OVEN
+	items = list(
+		/obj/item/reagent_containers/food/snacks/friedkois,
+		/obj/item/reagent_containers/food/snacks/friedkois
+	)
+	reagents = list(/singleton/reagent/drink/milk/nemiik = 5)
+	result = /obj/item/reagent_containers/food/snacks/koicomb
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/singleton/recipe/nakarka_burger
+	appliance = MIX
+	items = list(
+		/obj/item/reagent_containers/food/snacks/koisburger,
+		/obj/item/reagent_containers/food/snacks/nakarka_wedge
+	)
+	result = /obj/item/reagent_containers/food/snacks/nakarka_burger

@@ -5,7 +5,7 @@
 	. = ..()
 	pockets = new/obj/item/storage/internal(src)
 	pockets.storage_slots = 2	//two slots
-	pockets.max_w_class = ITEMSIZE_SMALL		//fit only pocket sized items
+	pockets.max_w_class = WEIGHT_CLASS_SMALL		//fit only pocket sized items
 	pockets.max_storage_space = 4
 
 /obj/item/clothing/suit/storage/Destroy()
@@ -17,9 +17,9 @@
 	if (pockets.handle_attack_hand(user))
 		..(user)
 
-/obj/item/clothing/suit/storage/MouseDrop(obj/over_object as obj)
-	if (pockets.handle_mousedrop(usr, over_object))
-		..(over_object)
+/obj/item/clothing/suit/storage/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if (pockets.handle_mousedrop(user, over))
+		..()
 
 /obj/item/clothing/suit/storage/handle_middle_mouse_click(mob/user)
 	if(Adjacent(user))
@@ -75,7 +75,7 @@
 	. = ..()
 	pockets = new/obj/item/storage/internal(src)
 	pockets.storage_slots = 4
-	pockets.max_w_class = ITEMSIZE_SMALL
+	pockets.max_w_class = WEIGHT_CLASS_SMALL
 	pockets.max_storage_space = 8
 
 /obj/item/clothing/suit/storage/vest
@@ -99,6 +99,30 @@
 		to_chat(usr, "\The [src] does not have a vest badge.")
 		return
 	update_clothing_icon()
+
+// Greatcoats
+
+/obj/item/clothing/suit/storage/toggle/greatcoat
+	name = "black greatcoat"
+	desc = "A black greatcoat. It looks warmer, if a bit heavier, than most other clothing."
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/greatcoat.dmi'
+	icon_state = "greatcoat"
+	item_state = "greatcoat"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
+	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
+	armor = list(
+		BIO = ARMOR_BIO_MINOR
+	)
+	siemens_coefficient = 0.8
+	protects_against_weather = TRUE
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/toggle/greatcoat/brown
+	name = "brown greatcoat"
+	desc = "A brown greatcoat. It looks warmer, if a bit heavier, than most other clothing."
+	icon_state = "greatcoat_bwn"
+	item_state = "greatcoat_bwn"
 
 // Corporate Jackets
 

@@ -10,21 +10,22 @@ BREATH ANALYZER
 /obj/item/device/healthanalyzer
 	name = "health analyzer"
 	desc = "A hand-held body scanner able to distinguish vital signs of the subject."
+	icon = 'icons/obj/item/device/healthanalyzer.dmi'
 	icon_state = "health"
-	item_state = "healthanalyzer"
+	item_state = "analyzer"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	throwforce = 3
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 5
 	throw_range = 10
-	matter = list(DEFAULT_WALL_MATERIAL = 200)
+	matter = list(MATERIAL_ALUMINIUM = 200)
 	origin_tech = list(TECH_MAGNET = 1, TECH_BIO = 1)
 	var/last_scan = 0
 	var/mode = 1
 	var/sound_scan = FALSE
 
-/obj/item/device/healthanalyzer/attack(mob/living/M, mob/living/user)
+/obj/item/device/healthanalyzer/attack(mob/living/target_mob, mob/living/user, target_zone)
 	sound_scan = FALSE
 	if(last_scan <= world.time - 20) //Spam limiter.
 		last_scan = world.time
@@ -32,7 +33,7 @@ BREATH ANALYZER
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 	user.do_attack_animation(src)
 	flick("[icon_state]-scan", src)	//makes it so that it plays the scan animation on a successful scan
-	health_scan_mob(M, user, mode, sound_scan = sound_scan)
+	health_scan_mob(target_mob, user, mode, sound_scan = sound_scan)
 	add_fingerprint(user)
 
 /obj/item/device/healthanalyzer/attack_self(mob/user)
@@ -91,30 +92,33 @@ BREATH ANALYZER
 /proc/health_scan_mob(var/mob/M, var/mob/living/user, var/show_limb_damage = TRUE, var/just_scan = FALSE, var/sound_scan)
 	if(!just_scan)
 		if (((user.is_clumsy()) || (user.mutations & DUMB)) && prob(50))
-			user.visible_message("<b>[user]</b> runs the scanner over the floor.", "<span class='notice'>You run the scanner over the floor.</span>", "<span class='notice'>You hear metal repeatedly clunking against the floor.</span>")
-			to_chat(user, "<span class='notice'><b>Scan results for the ERROR:</b></span>")
+			user.visible_message("<b>[user]</b> runs the scanner over the floor.",
+									SPAN_NOTICE("You run the scanner over the floor."),
+									SPAN_NOTICE("You hear metal repeatedly clunking against the floor."))
+
+			to_chat(user, SPAN_NOTICE("<b>Scan results for the ERROR:</b>"))
 			if(sound_scan)
-				playsound(user.loc, 'sound/items/healthscanner/healthscanner_used.ogg', 25)
+				playsound(user.loc, 'sound/items/healthscanner/healthscanner_used.ogg', 25, extrarange = SILENCED_SOUND_EXTRARANGE)
 			return
 
 		if(!user.IsAdvancedToolUser())
-			to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
+			to_chat(user, SPAN_WARNING("You don't have the dexterity to do this!"))
 			return
 
-		user.visible_message("<b>[user]</b> runs a scanner over [M].","<span class='notice'>You run the scanner over [M].</span>")
+		user.visible_message("<b>[user]</b> runs a scanner over [M].",SPAN_NOTICE("You run the scanner over [M]."))
 
 	if(!istype(M, /mob/living/carbon/human))
-		to_chat(user, "<span class='warning'>This scanner is designed for humanoid patients only.</span>")
+		to_chat(user, SPAN_WARNING("This scanner is designed for humanoid patients only."))
 		if(sound_scan)
-			playsound(user.loc, 'sound/items/healthscanner/healthscanner_used.ogg', 25)
+			playsound(user.loc, 'sound/items/healthscanner/healthscanner_used.ogg', 25, extrarange = SILENCED_SOUND_EXTRARANGE)
 		return
 
 	var/mob/living/carbon/human/H = M
 
 	if(H.isSynthetic() && !H.isFBP())
-		to_chat(user, "<span class='warning'>This scanner is designed for organic humanoid patients only.</span>")
+		to_chat(user, SPAN_WARNING("This scanner is designed for organic humanoid patients only."))
 		if(sound_scan)
-			playsound(user.loc, 'sound/items/healthscanner/healthscanner_used.ogg', 25)
+			playsound(user.loc, 'sound/items/healthscanner/healthscanner_used.ogg', 25, extrarange = SILENCED_SOUND_EXTRARANGE)
 		return
 
 	. = list()
@@ -146,24 +150,24 @@ BREATH ANALYZER
 	if(sound_scan)
 		switch(brain_result)
 			if(0)
-				playsound(user.loc, 'sound/items/healthscanner/healthscanner_dead.ogg', 25)
+				playsound(user.loc, 'sound/items/healthscanner/healthscanner_dead.ogg', 25, extrarange = SILENCED_SOUND_EXTRARANGE)
 			if(-1)
-				playsound(user.loc, 'sound/items/healthscanner/healthscanner_used.ogg', 25)
+				playsound(user.loc, 'sound/items/healthscanner/healthscanner_used.ogg', 25, extrarange = SILENCED_SOUND_EXTRARANGE)
 			else
 				if(brain_result <= 25)
-					playsound(user.loc, 'sound/items/healthscanner/healthscanner_critical.ogg', 25)
+					playsound(user.loc, 'sound/items/healthscanner/healthscanner_critical.ogg', 25, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 				else if(brain_result <= 50)
-					playsound(user.loc, 'sound/items/healthscanner/healthscanner_danger.ogg', 25)
+					playsound(user.loc, 'sound/items/healthscanner/healthscanner_danger.ogg', 25, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 				else if(brain_result <= 90)
-					playsound(user.loc, 'sound/items/healthscanner/healthscanner_used.ogg', 25)
+					playsound(user.loc, 'sound/items/healthscanner/healthscanner_used.ogg', 25, extrarange = SILENCED_SOUND_EXTRARANGE)
 				else
-					playsound(user.loc, 'sound/items/healthscanner/healthscanner_stable.ogg', 25)
+					playsound(user.loc, 'sound/items/healthscanner/healthscanner_stable.ogg', 25, extrarange = SILENCED_SOUND_EXTRARANGE)
 
 	// Pulse rate.
 	var/pulse_result = "normal"
 	if(H.should_have_organ(BP_HEART))
 		if(H.status_flags & FAKEDEATH)
-			pulse_result = "<span class='danger'>0</span>"
+			pulse_result = SPAN_DANGER("0")
 		else
 			pulse_result = H.get_pulse(GETPULSE_TOOL)
 		if(H.pulse() == PULSE_NONE)
@@ -315,17 +319,17 @@ BREATH ANALYZER
 			var/singleton/reagent/R = GET_SINGLETON(_R)
 			if(R.scannable)
 				print_reagent_default_message = FALSE
-				reagentdata["[_R]"] = "<span class='notice'>    [round(REAGENT_VOLUME(H.reagents, _R), 1)]u [R.name]</span>"
+				reagentdata["[_R]"] = SPAN_NOTICE("    [round(REAGENT_VOLUME(H.reagents, _R), 1)]u [R.name]")
 			else
 				unknown++
 		if(reagentdata.len)
 			print_reagent_default_message = FALSE
-			dat += "<span class='notice'>Beneficial reagents detected in subject's blood:</span>"
+			dat += SPAN_NOTICE("Beneficial reagents detected in subject's blood:")
 			for(var/d in reagentdata)
 				dat += reagentdata[d]
 		if(unknown)
 			print_reagent_default_message = FALSE
-			dat += "<span class='warning'>Warning: Unknown substance[(unknown>1)?"s":""] detected in subject's blood.</span>"
+			dat += SPAN_WARNING("Warning: Unknown substance[(unknown>1)?"s":""] detected in subject's blood.")
 
 	var/datum/reagents/ingested = H.get_ingested_reagents()
 	if(ingested && ingested.total_volume)
@@ -334,12 +338,12 @@ BREATH ANALYZER
 			var/singleton/reagent/R = GET_SINGLETON(_R)
 			if(R.scannable)
 				print_reagent_default_message = FALSE
-				dat += "<span class='notice'>[R.name] found in subject's stomach.</span>"
+				dat += SPAN_NOTICE("[R.name] found in subject's stomach.")
 			else
 				++unknown
 		if(unknown)
 			print_reagent_default_message = FALSE
-			dat +=  "<span class='warning'>Non-medical reagent[(unknown > 1)?"s":""] found in subject's stomach.</span>"
+			dat +=  SPAN_WARNING("Non-medical reagent[(unknown > 1)?"s":""] found in subject's stomach.")
 
 	if(print_reagent_default_message)
 		dat += "No results."
@@ -370,18 +374,17 @@ BREATH ANALYZER
 /obj/item/device/analyzer
 	name = "analyzer"
 	desc = "A hand-held environmental scanner which reports current gas levels."
-	icon = 'icons/obj/item/tools/air_analyzer.dmi'
+	icon = 'icons/obj/item/device/air_analyzer.dmi'
 	icon_state = "analyzer"
 	item_state = "analyzer"
-	contained_sprite = TRUE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	throwforce = 5
 	throw_speed = 4
 	throw_range = 20
 
-	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 20)
+	matter = list(MATERIAL_ALUMINIUM = 30, MATERIAL_GLASS = 20)
 
 	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 1)
 
@@ -397,7 +400,7 @@ BREATH ANALYZER
 	if (user.stat)
 		return
 	if (!usr.IsAdvancedToolUser())
-		to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
+		to_chat(usr, SPAN_WARNING("You don't have the dexterity to do this!"))
 		return
 
 	analyze_gases(src, user)
@@ -406,9 +409,10 @@ BREATH ANALYZER
 /obj/item/device/mass_spectrometer
 	name = "mass spectrometer"
 	desc = "A hand-held mass spectrometer which identifies trace chemicals in a blood sample."
+	icon = 'icons/obj/item/device/mass_spectrometer.dmi'
 	icon_state = "spectrometer"
-	item_state = "analyzer"
-	w_class = ITEMSIZE_SMALL
+	item_state = "spectrometer"
+	w_class = WEIGHT_CLASS_SMALL
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
@@ -416,7 +420,7 @@ BREATH ANALYZER
 	throw_speed = 4
 	throw_range = 20
 
-	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 20)
+	matter = list(MATERIAL_ALUMINIUM = 30, MATERIAL_GLASS = 20)
 
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 2)
 	var/details = FALSE
@@ -468,27 +472,29 @@ BREATH ANALYZER
 /obj/item/device/mass_spectrometer/adv
 	name = "advanced mass spectrometer"
 	icon_state = "adv_spectrometer"
+	item_state = "adv_spectrometer"
 	details = TRUE
 	origin_tech = list(TECH_MAGNET = 4, TECH_BIO = 2)
 
 /obj/item/device/mass_spectrometer/adv/clear_blood_overlay()
-	cut_overlays()
+	ClearOverlays()
 
 /obj/item/device/mass_spectrometer/adv/add_blood_overlay(var/image/I)
-	add_overlay(I)
+	AddOverlays(I)
 
 /obj/item/device/reagent_scanner
 	name = "reagent scanner"
 	desc = "A hand-held reagent scanner which identifies chemical agents."
+	icon = 'icons/obj/item/device/reagent_scanner.dmi'
 	icon_state = "reagent_scanner"
 	item_state = "analyzer"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	throwforce = 5
 	throw_speed = 4
 	throw_range = 20
-	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 20)
+	matter = list(MATERIAL_ALUMINIUM = 30, MATERIAL_GLASS = 20)
 
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 2)
 	var/details = 0
@@ -515,26 +521,29 @@ BREATH ANALYZER
 /obj/item/device/reagent_scanner/adv
 	name = "advanced reagent scanner"
 	icon_state = "adv_reagent_scanner"
+	item_state = "analyzer"
 	details = 1
 	origin_tech = list(TECH_MAGNET = 4, TECH_BIO = 2)
 
 /obj/item/device/slime_scanner
 	name = "slime scanner"
-	icon_state = "adv_spectrometer"
+	icon = 'icons/obj/item/device/slime_scanner.dmi'
+	icon_state = "slime_scanner"
 	item_state = "analyzer"
 	origin_tech = list(TECH_BIO = 1)
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	throwforce = 0
 	throw_speed = 3
 	throw_range = 7
-	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 20)
+	matter = list(MATERIAL_ALUMINIUM = 30, MATERIAL_GLASS = 20)
 
-/obj/item/device/slime_scanner/attack(mob/living/M, mob/living/user)
-	if(!isslime(M))
+/obj/item/device/slime_scanner/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(!isslime(target_mob))
 		to_chat(user, SPAN_WARNING("This device can only scan slimes!"))
 		return
-	var/mob/living/carbon/slime/T = M
+
+	var/mob/living/carbon/slime/T = target_mob
 	to_chat(user, SPAN_NOTICE("**************************"))
 	to_chat(user, SPAN_NOTICE("Slime scan results:"))
 	to_chat(user, SPAN_NOTICE(capitalize_first_letters("[T.colour] [T.is_adult ? "adult" : "baby"] slime")))
@@ -564,10 +573,11 @@ BREATH ANALYZER
 /obj/item/device/price_scanner
 	name = "price scanner"
 	desc = "Using an up-to-date database of various costs and prices, this device estimates the market price of an item up to 0.001% accuracy."
+	icon = 'icons/obj/item/device/price_scanner.dmi'
 	icon_state = "price_scanner"
 	item_flags = ITEM_FLAG_NO_BLUDGEON
 	slot_flags = SLOT_BELT
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throwforce = 0
 	throw_speed = 3
 	throw_range = 3
@@ -584,32 +594,35 @@ BREATH ANALYZER
 /obj/item/device/breath_analyzer
 	name = "breath analyzer"
 	desc = "A hand-held breath analyzer that provides a robust amount of information about the subject's respiratory system."
+	icon = 'icons/obj/item/device/breath_analyzer.dmi'
 	icon_state = "breath_analyzer"
 	item_state = "analyzer"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	throwforce = 0
 	throw_speed = 3
 	throw_range = 3
-	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 20)
+	matter = list(MATERIAL_ALUMINIUM = 30, MATERIAL_GLASS = 20)
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 2)
 
-/obj/item/device/breath_analyzer/attack(mob/living/carbon/human/H, mob/living/user as mob)
+/obj/item/device/breath_analyzer/attack(mob/living/target_mob, mob/living/user, target_zone)
+
+	var/mob/living/carbon/human/H = target_mob
 
 	if (!istype(H))
-		to_chat(user,"<span class='warning'>You can't find a way to use \the [src] on [H]!</span>")
+		to_chat(user,SPAN_WARNING("You can't find a way to use \the [src] on [H]!"))
 		return
 
 	if ( ((user.is_clumsy()) || (user.mutations & DUMB)) && prob(20))
-		to_chat(user,"<span class='danger'>Your hand slips from clumsiness!</span>")
+		to_chat(user,SPAN_DANGER("Your hand slips from clumsiness!"))
 		if(!H.eyes_protected(src, FALSE))
 			eyestab(H,user)
-		to_chat(user,"<span class='danger'>Alert: No breathing detected.</span>")
+		to_chat(user,SPAN_DANGER("Alert: No breathing detected."))
 		return
 
 	if (!user.IsAdvancedToolUser())
-		to_chat(user,"<span class='warning'>You don't have the dexterity to do this!</span>")
+		to_chat(user,SPAN_WARNING("You don't have the dexterity to do this!"))
 		return
 
 	if(user == H && !H.can_eat(src))
@@ -620,7 +633,8 @@ BREATH ANALYZER
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 	user.do_attack_animation(H)
 
-	user.visible_message("<span class='notice'>[user] is trying to take a breath sample from [H].</span>","<span class='notice'>You gently insert \the [src] into [H]'s mouth.</span>")
+	user.visible_message(SPAN_NOTICE("[user] is trying to take a breath sample from [H]."),
+							SPAN_NOTICE("You gently insert \the [src] into [H]'s mouth."))
 
 	if (!LAZYLEN(src.other_DNA))
 		LAZYADD(src.other_DNA, H.dna.unique_enzymes)
@@ -629,50 +643,51 @@ BREATH ANALYZER
 	if (!do_after(user, 2 SECONDS, H, DO_UNIQUE & ~DO_BOTH_CAN_TURN))
 		return
 
-	user.visible_message("<span class='notice'>[user] takes a breath sample from [H].</span>","<span class='notice'>\The [src] clicks as it finishes reading [H]'s breath sample.</span>")
+	user.visible_message(SPAN_NOTICE("[user] takes a breath sample from [H]."),
+							SPAN_NOTICE("\The [src] clicks as it finishes reading [H]'s breath sample."))
 
 	to_chat(user,"<b>Breath Sample Results:</b>")
 
 	if(H.stat == DEAD || H.losebreath || !H.breathing)
-		to_chat(user,"<span class='danger'>Alert: No breathing detected.</span>")
-		playsound(user.loc, 'sound/items/healthscanner/healthscanner_dead.ogg', 25)
+		to_chat(user,SPAN_DANGER("Alert: No breathing detected."))
+		playsound(user.loc, 'sound/items/healthscanner/healthscanner_dead.ogg', 25, extrarange = SILENCED_SOUND_EXTRARANGE)
 		return
 
 	switch(H.getOxyLoss())
 		if(0 to 25)
 			to_chat(user,"Subject oxygen levels nominal.")
-			playsound(user.loc, 'sound/items/healthscanner/healthscanner_stable.ogg', 25)
+			playsound(user.loc, 'sound/items/healthscanner/healthscanner_stable.ogg', 25, extrarange = SILENCED_SOUND_EXTRARANGE)
 		if(25 to 50)
-			to_chat(user,"<span class='notice'>Subject oxygen levels abnormal.</span>")
-			playsound(user.loc, 'sound/items/healthscanner/healthscanner_danger.ogg', 25)
+			to_chat(user,SPAN_NOTICE("Subject oxygen levels abnormal."))
+			playsound(user.loc, 'sound/items/healthscanner/healthscanner_danger.ogg', 25, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 		if(50 to INFINITY)
-			to_chat(user,"<span class='notice'><b>Severe oxygen deprivation detected.</b></span>")
-			playsound(user.loc, 'sound/items/healthscanner/healthscanner_critical.ogg', 25)
+			to_chat(user,SPAN_NOTICE("<b>Severe oxygen deprivation detected.</b>"))
+			playsound(user.loc, 'sound/items/healthscanner/healthscanner_critical.ogg', 25, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 
 	var/obj/item/organ/internal/L = H.internal_organs_by_name[BP_LUNGS]
 	if(istype(L))
 		if(L.is_bruised())
-			to_chat(user,"<span class='warning'><b>Ruptured lung detected.</b></span>")
+			to_chat(user,SPAN_WARNING("<b>Ruptured lung detected.</b>"))
 		else if(L.is_damaged())
 			to_chat(user,"<b>Damaged lung detected.</b>")
 		else
 			to_chat(user,"Subject lung health nominal.")
 	else
-		to_chat(user,"<span class='warning'>Subject lung health unknown.</span>")
+		to_chat(user,SPAN_WARNING("Subject lung health unknown."))
 
 	var/additional_string = "<font color='green'>\[NORMAL\]</font>"
 	var/bac = H.get_blood_alcohol()
 	switch(bac)
 		if(INTOX_JUDGEIMP to INTOX_MUSCLEIMP)
 			additional_string = "\[LIGHTLY INTOXICATED\]"
-		if(INTOX_MUSCLEIMP to INTOX_VOMIT)
+		if(INTOX_MUSCLEIMP to INTOX_BALANCE)
 			additional_string = "\[MODERATELY INTOXICATED\]"
-		if(INTOX_VOMIT to INTOX_BALANCE)
+		if(INTOX_BALANCE to INTOX_BLACKOUT)
 			additional_string = "<span class='warning'>\[HEAVILY INTOXICATED\]</span>"
-		if(INTOX_BALANCE to INTOX_DEATH)
+		if(INTOX_BLACKOUT to INTOX_DEATH)
 			additional_string = "<span class='warning'>\[ALCOHOL POISONING LIKELY\]</span>"
 		if(INTOX_DEATH to INFINITY)
-			additional_string = "<span class='warning'>\[DEATH IMMINENT\]</span>"
+			additional_string = SPAN_WARNING("\[DEATH IMMINENT\]")
 	to_chat(user,"<span class='normal'>Blood Alcohol Content: [round(bac,0.01)] <b>[additional_string]</b></span>")
 
 	if(H.breathing && H.breathing.total_volume)
@@ -680,20 +695,21 @@ BREATH ANALYZER
 		for(var/_R in H.breathing.reagent_volumes)
 			var/singleton/reagent/R = GET_SINGLETON(_R)
 			if(R.scannable)
-				to_chat(user,"<span class='notice'>[R.name] found in subject's respiratory system.</span>")
+				to_chat(user,SPAN_NOTICE("[R.name] found in subject's respiratory system."))
 			else
 				++unknown
 		if(unknown)
-			to_chat(user,"<span class='warning'>Non-medical reagent[(unknown > 1)?"s":""] found in subject's respiratory system.</span>")
+			to_chat(user,SPAN_WARNING("Non-medical reagent[(unknown > 1)?"s":""] found in subject's respiratory system."))
 
 
 /obj/item/device/advanced_healthanalyzer
 	name = "advanced health analyzer"
-	desc = "An expensive and varied-use health analyzer of Zeng-Hu design that prints full-body scans after a short scanning delay."
-	icon_state = "adv-analyzer"
-	item_state = "adv-analyzer"
+	desc = "An expensive and varied-use health analyzer that prints full-body scans after a short scanning delay."
+	icon = 'icons/obj/item/device/advanced_healthanalyzer.dmi'
+	icon_state = "health_adv"
+	item_state = "analyzer"
 	slot_flags = SLOT_BELT
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 3)
 	var/obj/machinery/body_scanconsole/connected = null //this is used to print the date and to deal with extra
 
@@ -710,19 +726,27 @@ BREATH ANALYZER
 		QDEL_NULL(connected)
 	return ..()
 
-/obj/item/device/advanced_healthanalyzer/attack(mob/living/M, mob/living/user)
+/obj/item/device/advanced_healthanalyzer/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(!connected)
 		return
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 	user.do_attack_animation(src)
-	user.visible_message("<b>[user]</b> starts scanning \the [M] with \the [src].", SPAN_NOTICE("You start scanning \the [M] with \the [src]."))
-	if(do_after(user, 7 SECONDS, M, DO_UNIQUE))
-		print_scan(M, user)
+	user.visible_message("<b>[user]</b> starts scanning \the [target_mob] with \the [src].", SPAN_NOTICE("You start scanning \the [target_mob] with \the [src]."))
+	flick("[icon_state]-scan", src)
+	if(do_after(user, 7 SECONDS, target_mob, DO_UNIQUE))
+		print_scan(target_mob, user)
 		add_fingerprint(user)
 
 /obj/item/device/advanced_healthanalyzer/proc/print_scan(var/mob/M, var/mob/living/user)
-	var/obj/item/paper/medscan/R = new /obj/item/paper/medscan(src, connected.format_occupant_data(get_occupant_data(M)), "Scan ([M.name])", M)
+	var/obj/item/paper/medscan/R = new /obj/item/paper/medscan(src, connected.format_occupant_data(get_occupant_data(M)), "Scan ([M.name]) ([worldtime2text()])", M)
 	connected.print(R, message = "\The [src] beeps, printing \the [R] after a moment.", user = user)
+
+/// Variant of print_scan(), main difference is different method to print the paper
+/obj/item/device/advanced_healthanalyzer/cyborg/print_scan(var/mob/M, var/mob/living/user)
+	var/obj/item/paper/medscan/R = new /obj/item/paper/medscan(src, connected.format_occupant_data(get_occupant_data(M)), "Scan ([M.name]) ([worldtime2text()])", M)
+	user.visible_message(SPAN_NOTICE("\The [src] beeps, printing \the [R] after a moment."))
+	playsound(user.loc, /singleton/sound_category/print_sound, 50, 1)
+	R.forceMove(user.loc)
 
 /obj/item/device/advanced_healthanalyzer/proc/get_occupant_data(var/mob/living/carbon/human/H)
 	if (!ishuman(H))

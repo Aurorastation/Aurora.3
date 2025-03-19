@@ -7,6 +7,7 @@
 	desc = "A spike for collecting meat from animals."
 	density = 1
 	anchored = 1
+	pass_flags_self = PASSTABLE
 	var/meat = 0
 	var/occupied
 	var/meat_type
@@ -31,17 +32,17 @@
 	if(!istype(victim))
 		return
 
-	cut_overlays()
+	ClearOverlays()
 	if(istype(victim, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = victim
 		if(!issmall(H))
 			return 0
 		meat_type = H.species.meat_type
-		add_overlay(overlay_image(icon, "spikebloody"))
+		AddOverlays(overlay_image(icon, "spikebloody"))
 	else if(istype(victim, /mob/living/carbon/alien))
 		var/mob/living/carbon/alien/A = victim
 		meat_type = A.meat_type
-		add_overlay(overlay_image(icon, "spikebloodygreen"))
+		AddOverlays(overlay_image(icon, "spikebloodygreen"))
 	else
 		return 0
 
@@ -66,13 +67,13 @@
 	if (!mover)
 		return 1
 
-	if(istype(mover,/obj/item/projectile) && density)
+	if(mover.movement_type & PHASING)
+		return TRUE
+
+	if(istype(mover,/obj/projectile) && density)
 		if (!occupied && prob(80))
 		//Wiry frame, usually wont be cover
 			return 1
 		else
 			return 0
-	else if(mover.checkpass(PASSTABLE))
-//Animals can run under them, lots of empty space
-		return 1
 	return ..()

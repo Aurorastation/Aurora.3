@@ -1,9 +1,10 @@
 /obj/item/device/radio/headset
 	name = "radio headset"
 	desc = "An updated, modular intercom that fits over the head. Takes encryption keys."
+	icon = 'icons/obj/item/device/radio/headset.dmi'
 	icon_state = "headset"
 	item_state = "headset"
-	matter = list(DEFAULT_WALL_MATERIAL = 75)
+	matter = list(MATERIAL_ALUMINIUM = 75)
 	subspace_transmission = TRUE
 	canhear_range = 0 // can't hear headsets from very far away
 
@@ -193,6 +194,7 @@
 
 /obj/item/device/radio/headset/alt
 	name = "bowman headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "headset_alt"
 	item_state = "headset_alt"
 
@@ -200,6 +202,7 @@
 	name = "soundproof headset"
 	desc = "A sound isolating version of the common radio headset."
 	desc_info = "This radio doubles as a pair of earmuffs by providing sound protection."
+	icon = 'icons/obj/item/device/radio/headset_alt_double.dmi'
 	icon_state = "earset"
 	item_state = "earset"
 	item_flags = ITEM_FLAG_SOUND_PROTECTION
@@ -209,11 +212,12 @@
 	name = "wristbound radio"
 	desc = "A radio designed to fit on the wrist. Often known for broadcasting loudly enough that those closeby might overhear it."
 	desc_info = "This radio can be heard by people standing next to the one wearing it."
+	icon = 'icons/obj/item/device/radio/headset_wrist.dmi'
 	icon_state = "wristset"
 	item_state = "wristset"
 	slot_flags = SLOT_WRISTS
 	canhear_range = 1
-	var/normal_layer = TRUE
+	var/mob_wear_layer = ABOVE_SUIT_LAYER_WR
 	EarSound = FALSE
 
 /obj/item/device/radio/headset/wrist/verb/change_layer()
@@ -221,11 +225,58 @@
 	set name = "Change Wrist Layer"
 	set src in usr
 
-	normal_layer = !normal_layer
-	to_chat(usr, SPAN_NOTICE("\The [src] will now layer [normal_layer ? "over" : "under"] your outerwear."))
-	if (ismob(src.loc))
-		var/mob/M = src.loc
-		M.update_inv_wrists()
+	if(mob_wear_layer == ABOVE_SUIT_LAYER_WR)
+		mob_wear_layer = ABOVE_UNIFORM_LAYER_WR
+	else
+		mob_wear_layer = ABOVE_SUIT_LAYER_WR
+	to_chat(usr, SPAN_NOTICE("\The [src] will now layer [mob_wear_layer == ABOVE_SUIT_LAYER_WR ? "over" : "under"] your outerwear."))
+	if (ishuman(src.loc))
+		var/mob/living/carbon/human/H = src.loc
+		if(H.wrists == src)
+			H.update_inv_wrists()
+		else if(H.l_ear == src)
+			H.update_inv_l_ear()
+		else if(H.r_ear == src)
+			H.update_inv_r_ear()
+
+
+/obj/item/device/radio/headset/wrist/clip
+	name = "clip-on radio"
+	desc = "A radio designed to clip onto your clothes. Often known for broadcasting loudly enough that those closeby might overhear it."
+	desc_info = "This radio can be heard by people standing next to the one wearing it."
+	icon = 'icons/obj/item/device/radio/headset_clip.dmi'
+	icon_state = "clip"
+	item_state = "clip"
+	slot_flags = SLOT_WRISTS | SLOT_EARS
+
+/obj/item/device/radio/headset/wrist/clip/verb/flip_radio()
+	set category = "Object"
+	set name = "Flip Radio"
+	set src in usr
+
+	if(item_state == initial(item_state))
+		item_state = "[initial(item_state)]_r"
+	else
+		item_state = initial(item_state)
+	to_chat(usr, SPAN_NOTICE("\The [src] will now be worn on your [(item_state == initial(item_state)) ? "left" : "right"] side."))
+	if (ishuman(src.loc))
+		var/mob/living/carbon/human/H = src.loc
+		if(H.wrists == src)
+			H.update_inv_wrists()
+		else if(H.l_ear == src)
+			H.update_inv_l_ear()
+		else if(H.r_ear == src)
+			H.update_inv_r_ear()
+
+/obj/item/device/radio/headset/wrist/clip/get_wrist_examine_text(mob/living/carbon/human/user)
+	if(!istype(user))
+		return ..()
+	return "clipped to [user.get_pronoun("his")] [(mob_wear_layer == ABOVE_SUIT_LAYER_WR) && user.wear_suit ? user.wear_suit.name : user.w_uniform ? user.w_uniform.name : "chest"]"
+
+/obj/item/device/radio/headset/wrist/clip/get_ear_examine_text(mob/living/carbon/human/user)
+	if(!istype(user))
+		return ..()
+	return "clipped to [user.get_pronoun("his")] [user.wear_suit ? user.wear_suit.name : user.w_uniform ? user.w_uniform.name : "chest"]"
 
 /*
  * Civillian
@@ -235,12 +286,14 @@
 	name = "service radio headset"
 	desc = "Headset used by the service staff, tasked with keeping the station full, happy and clean."
 	icon_state = "srv_headset"
+	item_state = "srv_headset"
 	ks2type = /obj/item/device/encryptionkey/headset_service
 
 /obj/item/device/radio/headset/headset_service/alt
 	name = "service radio bowman headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "srv_headset_alt"
-	icon_state = "headset_alt"
+	item_state = "srv_headset_alt"
 
 /obj/item/device/radio/headset/alt/double/service
 	name = "soundproof service headset"
@@ -254,6 +307,12 @@
 	item_state = "wristset_srv"
 	ks2type = /obj/item/device/encryptionkey/headset_service
 
+/obj/item/device/radio/headset/wrist/clip/service
+	name = "clip-on service radio"
+	icon_state = "clip_srv"
+	item_state = "clip_srv"
+	ks2type = /obj/item/device/encryptionkey/headset_service
+
 /obj/item/device/radio/headset/heads/xo
 	name = "executive officer's headset"
 	desc = "The headset of the guy who will one day be captain."
@@ -262,6 +321,7 @@
 
 /obj/item/device/radio/headset/heads/xo/alt
 	name = "executive officer's bowman headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "hop_headset_alt"
 	item_state = "headset_alt"
 
@@ -277,6 +337,12 @@
 	item_state = "wristset_HoP"
 	ks2type = /obj/item/device/encryptionkey/heads/xo
 
+/obj/item/device/radio/headset/wrist/clip/xo
+	name = "executive officer's clip-on radio"
+	icon_state = "clip_HoP"
+	item_state = "clip_HoP"
+	ks2type = /obj/item/device/encryptionkey/heads/xo
+
 /*
  * Engineering
  */
@@ -289,6 +355,7 @@
 
 /obj/item/device/radio/headset/headset_eng/alt
 	name = "engineering bowman headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "eng_headset_alt"
 	item_state = "headset_alt"
 
@@ -304,6 +371,12 @@
 	item_state = "wristset_eng"
 	ks2type = /obj/item/device/encryptionkey/headset_eng
 
+/obj/item/device/radio/headset/wrist/clip/eng
+	name = "clip-on engineering radio"
+	icon_state = "clip_eng"
+	item_state = "clip_eng"
+	ks2type = /obj/item/device/encryptionkey/headset_eng
+
 /obj/item/device/radio/headset/heads/ce
 	name = "chief engineer's headset"
 	desc = "The headset of the guy who is in charge of morons."
@@ -312,6 +385,7 @@
 
 /obj/item/device/radio/headset/heads/ce/alt
 	name = "chief engineer's bowman headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "ce_headset_alt"
 	item_state = "headset_alt"
 
@@ -327,6 +401,11 @@
 	item_state = "wristset_CE"
 	ks2type = /obj/item/device/encryptionkey/heads/ce
 
+/obj/item/device/radio/headset/wrist/clip/ce
+	name = "chief engineer's clip-on radio"
+	icon_state = "clip_CE"
+	item_state = "clip_CE"
+	ks2type = /obj/item/device/encryptionkey/heads/ce
 
 /*
  * Cargo
@@ -340,6 +419,7 @@
 
 /obj/item/device/radio/headset/headset_cargo/alt
 	name = "cargo bowman headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "cargo_headset_alt"
 	item_state = "headset_alt"
 
@@ -355,6 +435,11 @@
 	item_state = "wristset_cargo"
 	ks2type = /obj/item/device/encryptionkey/headset_cargo
 
+/obj/item/device/radio/headset/wrist/clip/cargo
+	name = "clip-on cargo radio"
+	icon_state = "clip_cargo"
+	item_state = "clip_cargo"
+	ks2type = /obj/item/device/encryptionkey/headset_cargo
 
 /obj/item/device/radio/headset/headset_mining
 	name = "mining radio headset"
@@ -369,14 +454,19 @@
 
 /obj/item/device/radio/headset/alt/double/mining
 	name = "soundproof mining headset"
-	icon_state = "earset_Mine"
-	item_state = "earset_Mine"
+	icon_state = "earset_mine"
+	item_state = "earset_mine"
 	ks2type = /obj/item/device/encryptionkey/headset_cargo
 
 /obj/item/device/radio/headset/wrist/cargo/mining
 	name = "wristbound mining radio"
 	icon_state = "wristset_mine"
 	item_state = "wristset_mine"
+
+/obj/item/device/radio/headset/wrist/clip/cargo/mining
+	name = "clip-on mining radio"
+	icon_state = "clip_mine"
+	item_state = "clip_mine"
 
 /obj/item/device/radio/headset/operations_manager
 	name = "operations manager's headset"
@@ -386,6 +476,7 @@
 
 /obj/item/device/radio/headset/operations_manager/alt
 	name = "operations manager bowman headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "qm_headset_alt"
 	item_state = "headset_alt"
 
@@ -401,6 +492,12 @@
 	item_state = "wristset_QM"
 	ks2type = /obj/item/device/encryptionkey/headset_operations_manager
 
+/obj/item/device/radio/headset/wrist/clip/cargo/operations_manager
+	name = "clip-on operations manager radio"
+	icon_state = "clip_QM"
+	item_state = "clip_QM"
+	ks2type = /obj/item/device/encryptionkey/headset_operations_manager
+
 /*
  * Medical
  */
@@ -413,6 +510,7 @@
 
 /obj/item/device/radio/headset/headset_med/alt
 	name = "medical bowman headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "med_headset_alt"
 	item_state = "headset_alt"
 
@@ -428,6 +526,12 @@
 	item_state = "wristset_med"
 	ks2type = /obj/item/device/encryptionkey/headset_med
 
+/obj/item/device/radio/headset/wrist/clip/med
+	name = "clip-on medical radio"
+	icon_state = "clip_med"
+	item_state = "clip_med"
+	ks2type = /obj/item/device/encryptionkey/headset_med
+
 /obj/item/device/radio/headset/heads/cmo
 	name = "chief medical officer's headset"
 	desc = "The headset of the highly trained medical chief."
@@ -436,6 +540,7 @@
 
 /obj/item/device/radio/headset/heads/cmo/alt
 	name = "chief medical officer's bowman headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "cmo_headset_alt"
 	item_state = "headset_alt"
 
@@ -451,6 +556,12 @@
 	item_state = "wristset_CMO"
 	ks2type = /obj/item/device/encryptionkey/heads/cmo
 
+/obj/item/device/radio/headset/wrist/clip/cmo
+	name = "chief medical officer's clip-on radio"
+	icon_state = "clip_CMO"
+	item_state = "clip_CMO"
+	ks2type = /obj/item/device/encryptionkey/heads/cmo
+
 /*
  * Science
  */
@@ -463,6 +574,7 @@
 
 /obj/item/device/radio/headset/headset_sci/alt
 	name = "science bowman headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "sci_headset_alt"
 
 /obj/item/device/radio/headset/alt/double/sci
@@ -477,6 +589,12 @@
 	item_state = "wristset_sci"
 	ks2type = /obj/item/device/encryptionkey/headset_sci
 
+/obj/item/device/radio/headset/wrist/clip/sci
+	name = "clip-on science radio"
+	icon_state = "clip_sci"
+	item_state = "clip_sci"
+	ks2type = /obj/item/device/encryptionkey/headset_sci
+
 /obj/item/device/radio/headset/headset_xenoarch
 	name = "xenoarchaeology radio headset"
 	desc = "A sciency headset for Xenoarchaeologists."
@@ -485,6 +603,7 @@
 
 /obj/item/device/radio/headset/headset_xenoarch/alt
 	name = "xenoarchaeology bowman headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "sci_headset_alt"
 
 /obj/item/device/radio/headset/alt/double/xenoarch
@@ -497,6 +616,41 @@
 	name = "wristbound xenoarchaeology radio"
 	icon_state = "wristset_sci"
 	item_state = "wristset_sci"
+	ks2type = /obj/item/device/encryptionkey/headset_xenoarch
+
+/obj/item/device/radio/headset/wrist/clip/xenoarch
+	name = "clip-on xenoarchaeology radio"
+	icon_state = "clip_sci"
+	item_state = "clip_sci"
+	ks2type = /obj/item/device/encryptionkey/headset_xenoarch
+
+/obj/item/device/radio/headset/headset_anom
+	name = "anomalist radio headset"
+	desc = "A sciency headset for Anomalists."
+	icon_state = "sci_headset"
+	ks2type = /obj/item/device/encryptionkey/headset_xenoarch
+
+/obj/item/device/radio/headset/headset_anom/alt
+	name = "anomalist bowman headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
+	icon_state = "sci_headset_alt"
+
+/obj/item/device/radio/headset/alt/double/anom
+	name = "soundproof anomalist headset"
+	icon_state = "earset_sci"
+	item_state = "earset_sci"
+	ks2type = /obj/item/device/encryptionkey/headset_xenoarch
+
+/obj/item/device/radio/headset/wrist/anom
+	name = "wristbound anomalist radio"
+	icon_state = "wristset_sci"
+	item_state = "wristset_sci"
+	ks2type = /obj/item/device/encryptionkey/headset_xenoarch
+
+/obj/item/device/radio/headset/wrist/clip/anom
+	name = "clip-on anomalist radio"
+	icon_state = "clip_sci"
+	item_state = "clip_sci"
 	ks2type = /obj/item/device/encryptionkey/headset_xenoarch
 
 /obj/item/device/radio/headset/headset_rob
@@ -513,6 +667,7 @@
 
 /obj/item/device/radio/headset/heads/rd/alt
 	name = "research director's bowman headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "rd_headset_alt"
 	item_state = "headset_alt"
 
@@ -528,6 +683,12 @@
 	item_state = "wristset_RD"
 	ks2type = /obj/item/device/encryptionkey/heads/rd
 
+/obj/item/device/radio/headset/wrist/clip/rd
+	name = "research director's clip-on radio"
+	icon_state = "clip_RD"
+	item_state = "clip_RD"
+	ks2type = /obj/item/device/encryptionkey/heads/rd
+
 /*
  * Security
  */
@@ -540,19 +701,26 @@
 
 /obj/item/device/radio/headset/headset_sec/alt
 	name = "security bowman headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "sec_headset_alt"
 	item_state = "headset_alt"
 
 /obj/item/device/radio/headset/alt/double/sec
 	name = "soundproof security headset"
-	icon_state = "earset_Sec"
-	item_state = "earset_Sec"
+	icon_state = "earset_sec"
+	item_state = "earset_sec"
 	ks2type = /obj/item/device/encryptionkey/headset_sec
 
 /obj/item/device/radio/headset/wrist/sec
 	name = "wristbound security radio"
 	icon_state = "wristset_sec"
 	item_state = "wristset_sec"
+	ks2type = /obj/item/device/encryptionkey/headset_sec
+
+/obj/item/device/radio/headset/wrist/clip/sec
+	name = "clip-on security radio"
+	icon_state = "clip_sec"
+	item_state = "clip_sec"
 	ks2type = /obj/item/device/encryptionkey/headset_sec
 
 /obj/item/device/radio/headset/headset_warden
@@ -563,6 +731,7 @@
 
 /obj/item/device/radio/headset/headset_warden/alt
 	name = "warden bowman headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "sec_headset_alt"
 	item_state = "headset_alt"
 
@@ -572,6 +741,10 @@
 
 /obj/item/device/radio/headset/wrist/sec/warden
 	name = "wristbound warden radio"
+	ks2type = /obj/item/device/encryptionkey/headset_warden
+
+/obj/item/device/radio/headset/wrist/clip/sec/warden
+	name = "clip-on warden radio"
 	ks2type = /obj/item/device/encryptionkey/headset_warden
 
 /obj/item/device/radio/headset/headset_penal
@@ -588,6 +761,7 @@
 
 /obj/item/device/radio/headset/heads/hos/alt
 	name = "head of security's bowman headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "hos_headset_alt"
 	item_state = "headset_alt"
 
@@ -603,6 +777,12 @@
 	item_state = "wristset_HoS"
 	ks2type = /obj/item/device/encryptionkey/heads/hos
 
+/obj/item/device/radio/headset/wrist/clip/hos
+	name = "head of security's clip-on radio"
+	icon_state = "clip_HoS"
+	item_state = "clip_HoS"
+	ks2type = /obj/item/device/encryptionkey/heads/hos
+
 /*
  * Captain
  */
@@ -615,6 +795,7 @@
 
 /obj/item/device/radio/headset/headset_com/alt
 	name = "command bowman headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "com_headset_alt"
 	item_state = "headset_alt"
 
@@ -630,6 +811,12 @@
 	item_state = "wristset_com"
 	ks2type = /obj/item/device/encryptionkey/headset_com
 
+/obj/item/device/radio/headset/wrist/clip/command
+	name = "clip-on command radio"
+	icon_state = "clip_com"
+	item_state = "clip_com"
+	ks2type = /obj/item/device/encryptionkey/headset_com
+
 /obj/item/device/radio/headset/heads/captain
 	name = "captain's headset"
 	desc = "The headset of the boss."
@@ -638,6 +825,7 @@
 
 /obj/item/device/radio/headset/heads/captain/alt
 	name = "captain's bowman headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "cap_headset_alt"
 	item_state = "headset_alt"
 
@@ -651,6 +839,12 @@
 	name = "captain's wristbound radio"
 	icon_state = "wristset_cap"
 	item_state = "wristset_cap"
+	ks2type = /obj/item/device/encryptionkey/heads/captain
+
+/obj/item/device/radio/headset/wrist/clip/captain
+	name = "captain's clip-on radio"
+	icon_state = "clip_cap"
+	item_state = "clip_cap"
 	ks2type = /obj/item/device/encryptionkey/heads/captain
 
 /*
@@ -686,6 +880,7 @@
 
 /obj/item/device/radio/headset/syndicate/alt
 	name = "military bowman headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "syn_headset_alt"
 	item_state = "headset_alt"
 
@@ -733,17 +928,33 @@
 	if(!SSatlas.current_map.use_overmap)
 		return ..()
 
-	var/turf/T = get_turf(src)
-	var/obj/effect/overmap/visitable/V = GLOB.map_sectors["[T.z]"]
-	if(istype(V) && V.comms_support)
-		default_frequency = assign_away_freq(V.name)
-		if(V.comms_name)
-			name = "[V.comms_name] radio headset"
+	var/sector_z = get_sector_z()
+	var/obj/effect/overmap/visitable/V = GLOB.map_sectors["[sector_z]"]
+	if(istype(V))
+		if(V.comms_support)
+			default_frequency = assign_away_freq(V.name)
+			if(V.comms_name)
+				name = "[V.comms_name] radio headset"
+	else
+		if(SSodyssey.scenario && (sector_z in SSodyssey.scenario_zlevels))
+			default_frequency = assign_away_freq(SSodyssey.scenario.radio_frequency_name)
 
 	. = ..()
 
 	if (use_common)
 		set_frequency(PUB_FREQ)
+
+/obj/item/device/radio/headset/ship/proc/get_sector_z()
+	. = GET_Z(get_turf(src))
+
+/obj/item/device/radio/headset/ship/odyssey
+	ks1type = /obj/item/device/encryptionkey/ship/odyssey
+
+/obj/item/device/radio/headset/ship/odyssey/get_sector_z()
+	if(SSodyssey.scenario_zlevels && SSodyssey.scenario_zlevels.len)
+		. = SSodyssey.scenario_zlevels[1]
+	else // safe fallback
+		. = GET_Z(get_turf(src))
 
 /obj/item/device/radio/headset/ship/coalition_navy
 	icon_state = "coal_headset"
@@ -765,6 +976,7 @@
 
 /obj/item/device/radio/headset/ert/alt
 	name = "emergency response team bowman headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "com_headset_alt"
 	item_state = "headset_alt"
 
@@ -787,6 +999,7 @@
 
 /obj/item/device/radio/headset/representative/alt
 	name = "representative bowman headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "com_headset_alt"
 	item_state = "headset_alt"
 
@@ -806,12 +1019,9 @@
 	var/disabledAi = 0 // Atlantis: Used to manually disable AI's integrated radio via intellicard menu.
 
 /obj/item/device/radio/headset/heads/ai_integrated/Destroy()
+	myAi = null
 	. = ..()
 	GC_TEMPORARY_HARDDEL
 
 /obj/item/device/radio/headset/heads/ai_integrated/can_receive(input_frequency, level)
 	return ..(input_frequency, level, !disabledAi)
-
-/obj/item/device/radio/headset/heads/ai_integrated/Destroy()
-	myAi = null
-	return ..()

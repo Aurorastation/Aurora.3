@@ -2,7 +2,6 @@
 #define STATUS_ACTIVE 1
 #define STATUS_BROKEN -1
 
-#define LAYER_ATTACHED 3.2
 #define LAYER_NORMAL 3
 
 /obj/item/device/magnetic_lock
@@ -11,7 +10,7 @@
 	icon = 'icons/obj/magnetic_locks.dmi'
 	icon_state = "inactive_CENTCOM"
 	//icon_state = "inactive"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	req_access = list(ACCESS_CENT_SPECOPS)
 	health = 150
 
@@ -44,7 +43,7 @@
 	name = "legion magnetic door lock"
 	req_access = null
 	req_one_access = list(ACCESS_LEGION, ACCESS_TCAF_SHIPS)
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/device/magnetic_lock/security/legion/Initialize()
 	. = ..()
@@ -61,8 +60,8 @@
 	update_icon()
 	var/obj/machinery/door/airlock/newtarget = (locate(/obj/machinery/door/airlock) in get_turf(src))
 	if(newtarget)
-		var/direction = reverse_direction(dir)
-		forceMove(get_step(newtarget.loc, reverse_direction(direction)))
+		var/direction = REVERSE_DIR(dir)
+		forceMove(get_step(newtarget.loc, REVERSE_DIR(direction)))
 		for (var/obj/machinery/door/airlock/A in oview(1, newtarget))
 			var/rdir = get_dir(newtarget, A)
 			if (istype(A, newtarget.type) && (rdir == turn(direction, -90) || rdir == turn(direction, 90)))
@@ -80,13 +79,13 @@
 	. = ..()
 
 	if (status == STATUS_BROKEN)
-		. += "<span class='danger'>It looks broken!</span>"
+		. += SPAN_DANGER("It looks broken!")
 	else
 		if (powercell)
 			var/power = round(powercell.charge / powercell.maxcharge * 100)
-			. += "<span class='notice'>The powercell is at [power]% charge.</span>"
+			. += SPAN_NOTICE("The powercell is at [power]% charge.")
 		else
-			. += "<span class='warning'>It has no powercell to power it!"
+			. += SPAN_WARNING("It has no powercell to power it!")
 
 /obj/item/device/magnetic_lock/attack_hand(var/mob/user)
 	add_fingerprint(user)
@@ -103,17 +102,20 @@
 			detach()
 			return TRUE
 		else
-			to_chat(user, "<span class='warning'>\The [src] is locked in place!</span>")
+			to_chat(user, SPAN_WARNING("\The [src] is locked in place!"))
 	else
 		..()
 
-/obj/item/device/magnetic_lock/bullet_act(var/obj/item/projectile/Proj)
-	takedamage(Proj.damage)
-	..()
+/obj/item/device/magnetic_lock/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	takedamage(hitting_projectile.damage)
 
 /obj/item/device/magnetic_lock/attackby(obj/item/attacking_item, mob/user)
 	if (status == STATUS_BROKEN)
-		to_chat(user, "<span class='danger'>[src] is broken beyond repair!</span>")
+		to_chat(user, SPAN_DANGER("[src] is broken beyond repair!"))
 		return TRUE
 
 	if (istype(attacking_item, /obj/item/card/id))
@@ -124,26 +126,28 @@
 				var/msg = "[attacking_item] through \the [src] and it [locked ? "locks" : "unlocks"] with a beep."
 				var/pos_adj = "[user.name] swipes [user.get_pronoun("his")] "
 				var/fp_adj = "You swipe your "
-				user.visible_message("<span class='warning'>[addtext(pos_adj, msg)]</span>", "<span class='notice'>[addtext(fp_adj, msg)]</span>")
+				user.visible_message(SPAN_WARNING("[addtext(pos_adj, msg)]"), SPAN_NOTICE("[addtext(fp_adj, msg)]"))
 				update_icon()
 			else
 				playsound(src, 'sound/machines/buzz-sigh.ogg', 30, 1)
 				to_chat(user, SPAN_WARNING("\The [src] buzzes as you swipe your [attacking_item]."))
 				return
 		else
-			to_chat(user, "<span class='danger'>You cannot swipe your [attacking_item] through [src] with it partially dismantled!</span>")
+			to_chat(user, SPAN_DANGER("You cannot swipe your [attacking_item] through [src] with it partially dismantled!"))
 		return TRUE
 
 	if (istype(attacking_item, /obj/item) && user.a_intent == "harm")
 		if (attacking_item.force >= 18)
-			user.visible_message("<span class='danger'>[user] bashes [src] with [attacking_item]!</span>", "<span class='danger'>You strike [src] with [attacking_item], damaging it!</span>")
+			user.visible_message(SPAN_DANGER("[user] bashes [src] with [attacking_item]!"),
+							SPAN_DANGER("You strike [src] with [attacking_item], damaging it!"))
+
 			takedamage(attacking_item.force)
 			var/sound_to_play = pick(list('sound/weapons/genhit1.ogg', 'sound/weapons/genhit2.ogg', 'sound/weapons/genhit3.ogg'))
 			playsound(loc, sound_to_play, attacking_item.force*3, 1)
 			sound_to_play = pick(list('sound/effects/sparks1.ogg', 'sound/effects/sparks2.ogg', 'sound/effects/sparks3.ogg', 'sound/effects/sparks4.ogg'))
 			addtimer(CALLBACK(GLOBAL_PROC, /proc/playsound, loc, sound_to_play, 30, 1), 3, TIMER_CLIENT_TIME)
 		else
-			user.visible_message("<span class='danger'>[user] hits [src] with [attacking_item] but fails to damage it.</span>", "<span class='warning'>You hit [src] with [attacking_item], [attacking_item.force >= 10 ? "and it almost makes a dent!" : "but it appears to have no visible effect."]</span>")
+			user.visible_message(SPAN_DANGER("[user] hits [src] with [attacking_item] but fails to damage it."), SPAN_WARNING("You hit [src] with [attacking_item], [attacking_item.force >= 10 ? "and it almost makes a dent!" : "but it appears to have no visible effect."]"))
 			playsound(loc, 'sound/weapons/Genhit.ogg', attacking_item.force*2.5, 1)
 		return TRUE
 
@@ -154,7 +158,9 @@
 			if (istype(attacking_item, /obj/item/card/emag))
 				var/obj/item/card/emag/emagcard = attacking_item
 				emagcard.uses--
-				visible_message("<span class='danger'>[src] sparks and falls off the door!</span>", "<span class='danger'>You emag [src], frying its circuitry[status == STATUS_ACTIVE ? " and making it drop onto the floor" : ""]!</span>")
+				visible_message(SPAN_DANGER("[src] sparks and falls off the door!"),
+								SPAN_DANGER("You emag [src], frying its circuitry[status == STATUS_ACTIVE ? " and making it drop onto the floor" : ""]!"))
+
 
 				status = STATUS_BROKEN
 				if (target)
@@ -167,15 +173,15 @@
 				if (WT.use(2, user))
 					user.visible_message(SPAN_NOTICE("[user] starts welding the metal shell of [src]."), SPAN_NOTICE("You start [hacked ? "repairing" : "welding open"] the metal covering of [src]."))
 					playsound(loc, 'sound/items/Welder.ogg', 50, 1)
-					add_overlay("overlay_welding")
+					AddOverlays("overlay_welding")
 					if(WT.use_tool(src, user, 25, volume = 50))
 						to_chat(user, SPAN_NOTICE("You are able to [hacked ? "repair" : "weld through"] the metal shell of [src]."))
 						if (hacked) locked = 1
 						else locked = 0
 						hacked = !hacked
-						cut_overlay("overlay_welding")
+						CutOverlays("overlay_welding")
 					else
-						cut_overlay("overlay_welding")
+						CutOverlays("overlay_welding")
 					update_icon()
 				return TRUE
 
@@ -201,7 +207,7 @@
 		if (2)
 			if (attacking_item.isscrewdriver())
 				to_chat(user, SPAN_NOTICE("You unscrew and remove the wiring cover from \the [src]."))
-				playsound(loc, attacking_item.usesound, 50, 1)
+				attacking_item.play_tool_sound(get_turf(src), 50)
 				setconstructionstate(3)
 				return TRUE
 
@@ -227,7 +233,7 @@
 
 			if (attacking_item.isscrewdriver())
 				to_chat(user, SPAN_NOTICE("You replace and screw tight the wiring cover from \the [src]."))
-				playsound(loc, attacking_item.usesound, 50, 1)
+				attacking_item.play_tool_sound(get_turf(src), 50)
 				setconstructionstate(2)
 				return TRUE
 
@@ -281,7 +287,8 @@
 /obj/item/device/magnetic_lock/proc/attachto(var/obj/machinery/door/airlock/newtarget, var/mob/user as mob)
 	if (!check_target(newtarget, user)) return
 
-	user.visible_message("<span class='notice'>[user] starts mounting [src] onto [newtarget].</span>", "<span class='notice'>You begin mounting [src] onto [newtarget].</span>")
+	user.visible_message(SPAN_NOTICE("[user] starts mounting [src] onto [newtarget]."),
+							SPAN_NOTICE("You begin mounting [src] onto [newtarget]."))
 
 	if (do_after(user, 3.5 SECONDS))
 
@@ -289,16 +296,16 @@
 
 		if(powercell)
 			if(!powercell.charge)
-				to_chat(user, "<span class='warning'>\The [src] is clearly out of power.</span>")
+				to_chat(user, SPAN_WARNING("\The [src] is clearly out of power."))
 				return
 
 		var/direction = get_dir(user, newtarget)
-		if ((direction in GLOB.alldirs) && !(direction in GLOB.cardinal))
+		if ((direction in GLOB.alldirs) && !(direction in GLOB.cardinals))
 			direction = turn(direction, -45)
 			if (check_neighbor_density(get_turf(newtarget.loc), direction))
 				direction = turn(direction, 90)
 				if (check_neighbor_density(get_turf(newtarget.loc), direction))
-					to_chat(user, "<span class='warning'>There is something in the way of \the [newtarget]!</span>")
+					to_chat(user, SPAN_WARNING("There is something in the way of \the [newtarget]!"))
 					return
 
 		if (locate(/obj/machinery/door/airlock) in oview(1, newtarget))
@@ -319,11 +326,12 @@
 
 		user.drop_from_inventory(src, src.loc)
 
-		forceMove(get_step(newtarget.loc, reverse_direction(direction)))
-		set_dir(reverse_direction(direction))
+		forceMove(get_step(newtarget.loc, REVERSE_DIR(direction)))
+		set_dir(REVERSE_DIR(direction))
 		status = STATUS_ACTIVE
 		attach(newtarget)
-		user.visible_message("<span class='notice'>[user] attached [src] onto [newtarget] and flicks it on. The magnetic lock now seals [newtarget].</span>", "<span class='notice'>You attached [src] onto [newtarget] and switched on the magnetic lock.</span>")
+		user.visible_message(SPAN_NOTICE("[user] attached [src] onto [newtarget] and flicks it on. The magnetic lock now seals [newtarget]."),
+								SPAN_NOTICE("You attached [src] onto [newtarget] and switched on the magnetic lock."))
 		return
 
 
@@ -362,7 +370,7 @@
 		last_process_time = 0
 
 /obj/item/device/magnetic_lock/proc/attach(var/obj/machinery/door/airlock/newtarget as obj)
-	layer = LAYER_ATTACHED
+	layer = ABOVE_DOOR_LAYER
 
 	newtarget.bracer = src
 	target = newtarget
@@ -402,7 +410,7 @@
 	update_overlays()
 
 /obj/item/device/magnetic_lock/proc/update_overlays()
-	cut_overlays()
+	ClearOverlays()
 	switch (status)
 		if (STATUS_BROKEN)
 			icon_state = "broken"
@@ -410,16 +418,16 @@
 
 		if (STATUS_INACTIVE to STATUS_ACTIVE)
 			if (hacked)
-				add_overlay("overlay_hacked")
+				AddOverlays("overlay_hacked")
 			else if (locked)
-				add_overlay("overlay_locked")
+				AddOverlays("overlay_locked")
 			else
-				add_overlay("overlay_unlocked")
+				AddOverlays("overlay_unlocked")
 			switch (constructionstate)
 				if (0)
 					return
 				if (1 to 4)
-					add_overlay("overlay_deconstruct_[constructionstate]")
+					AddOverlays("overlay_deconstruct_[constructionstate]")
 
 /obj/item/device/magnetic_lock/proc/takedamage(var/damage)
 	if(invincible)
@@ -430,7 +438,7 @@
 		health = 0
 
 	if (health <= 0)
-		visible_message("<span class='danger'>[src] sparks[target ? " and falls off of \the [target]!" : "!"] It is now completely unusable!</span>")
+		visible_message(SPAN_DANGER("[src] sparks[target ? " and falls off of \the [target]!" : "!"] It is now completely unusable!"))
 		detach(0)
 		status = STATUS_BROKEN
 		update_icon()
@@ -453,7 +461,7 @@
 	switch (status)
 		if (STATUS_INACTIVE to STATUS_ACTIVE)
 			if(istype(src, /obj/item/device/magnetic_lock/keypad))
-				add_overlay("overlay_keypad")
+				AddOverlays("overlay_keypad")
 
 /obj/item/device/magnetic_lock/keypad/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -485,7 +493,7 @@
 				var/msg = "buttons on \the [src] and it [locked ? "locks" : "unlocks"] with a beep."
 				var/pos_adj = "[usr.name] presses "
 				var/fp_adj = "You press "
-				usr.visible_message("<span class='warning'>[addtext(pos_adj, msg)]</span>", "<span class='notice'>[addtext(fp_adj, msg)]</span>")
+				usr.visible_message(SPAN_WARNING("[addtext(pos_adj, msg)]"), SPAN_NOTICE("[addtext(fp_adj, msg)]"))
 				update_icon()
 				. = TRUE
 			else
@@ -509,5 +517,4 @@
 #undef STATUS_ACTIVE
 #undef STATUS_BROKEN
 
-#undef LAYER_ATTACHED
 #undef LAYER_NORMAL

@@ -1,0 +1,1553 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"bd" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/carpet/red{
+	temperature = 303.15
+	},
+/area/moghes_skakh)
+"bz" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/obj/structure/bed/stool/chair/sofa/pew/left{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/marble{
+	temperature = 303.15
+	},
+/area/moghes_skakh)
+"bP" = (
+/obj/item/bedsheet/brown,
+/obj/structure/bed,
+/obj/structure/curtain/open/bed,
+/obj/effect/ghostspawpoint{
+	identifier = "moghes_skakh_priest";
+	name = "igs - moghes_skakh_priest"
+	},
+/turf/simulated/floor/exoplanet/marble{
+	temperature = 303.15
+	},
+/area/moghes_skakh)
+"bS" = (
+/turf/simulated/wall/marble,
+/area/moghes_skakh)
+"bW" = (
+/obj/structure/table/wood,
+/obj/item/modular_computer/laptop/preset/civilian,
+/turf/simulated/floor/exoplanet/carpet/red{
+	temperature = 303.15
+	},
+/area/moghes_skakh)
+"et" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/moghes_skakh)
+"eI" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/food/drinks/bottle/sarezhiwine,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/wine,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/wine,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/carpet/red{
+	temperature = 303.15
+	},
+/area/moghes_skakh)
+"eT" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/marble{
+	temperature = 303.15
+	},
+/area/moghes_skakh)
+"hk" = (
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	icon_state = "edge";
+	dir = 4
+	},
+/area/moghes_skakh)
+"lg" = (
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
+/area/moghes_skakh)
+"lp" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/obj/structure/simple_door/wood,
+/turf/simulated/floor/exoplanet/marble{
+	temperature = 303.15
+	},
+/area/moghes_skakh)
+"lQ" = (
+/obj/effect/floor_decal/corner/yellow,
+/turf/simulated/floor/exoplanet/marble{
+	temperature = 303.15
+	},
+/area/moghes_skakh)
+"oi" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/exoplanet/marble{
+	temperature = 303.15
+	},
+/area/moghes_skakh)
+"os" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/marble{
+	temperature = 303.15
+	},
+/area/moghes_skakh)
+"oK" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/marble{
+	temperature = 303.15
+	},
+/area/moghes_skakh)
+"pK" = (
+/obj/structure/bed/stool/chair/sofa/pew/right{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/marble{
+	temperature = 303.15
+	},
+/area/moghes_skakh)
+"qi" = (
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/moghes_skakh)
+"sc" = (
+/obj/structure/table/wood,
+/obj/item/paper_bin,
+/obj/item/pen/black,
+/turf/simulated/floor/exoplanet/carpet/red{
+	temperature = 303.15
+	},
+/area/moghes_skakh)
+"se" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/marble{
+	temperature = 303.15
+	},
+/area/moghes_skakh)
+"sw" = (
+/obj/structure/closet,
+/obj/item/device/versebook/skakh,
+/obj/item/device/versebook/skakh,
+/obj/item/device/versebook/skakh,
+/obj/item/device/versebook/skakh,
+/obj/item/device/versebook/skakh,
+/obj/item/device/versebook/skakh,
+/obj/item/device/versebook/skakh,
+/obj/item/device/versebook/skakh,
+/obj/item/device/versebook/skakh,
+/turf/simulated/floor/exoplanet/carpet/red{
+	temperature = 303.15
+	},
+/area/moghes_skakh)
+"tn" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/marble{
+	temperature = 303.15
+	},
+/area/moghes_skakh)
+"ts" = (
+/obj/structure/bed/stool/chair/padded/brown{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/marble{
+	temperature = 303.15
+	},
+/area/moghes_skakh)
+"tQ" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/marble{
+	temperature = 303.15
+	},
+/area/moghes_skakh)
+"uX" = (
+/obj/structure/bed/stool/chair/sofa/left/red{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/marble{
+	temperature = 303.15
+	},
+/area/moghes_skakh)
+"vp" = (
+/obj/structure/flora/tree/jungle/random,
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/moghes_skakh)
+"yJ" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/moghes_skakh)
+"zP" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/marble{
+	temperature = 303.15
+	},
+/area/moghes_skakh)
+"Au" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/exoplanet/marble{
+	temperature = 303.15
+	},
+/area/moghes_skakh)
+"Bi" = (
+/obj/structure/bed/stool/chair/sofa/pew/left{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/marble{
+	temperature = 303.15
+	},
+/area/moghes_skakh)
+"Bj" = (
+/obj/machinery/light,
+/turf/simulated/floor/exoplanet/carpet/red{
+	temperature = 303.15
+	},
+/area/moghes_skakh)
+"BE" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/marble{
+	temperature = 303.15
+	},
+/area/moghes_skakh)
+"Ck" = (
+/obj/item/clothing/under/unathi/mogazali,
+/obj/item/clothing/under/unathi/mogazali/blue,
+/obj/item/clothing/under/unathi/mogazali/green,
+/obj/item/clothing/under/unathi/mogazali/orange,
+/obj/item/clothing/accessory/poncho/rockstone{
+	color = "#82420d"
+	},
+/obj/structure/closet/cabinet,
+/obj/item/storage/box/fancy/candle_box,
+/obj/item/flame/lighter/zippo,
+/obj/item/nullrod/staff,
+/obj/item/storage/bible{
+	icon_state = "book4";
+	item_state = "book4";
+	name = "Sk'akh legends";
+	desc = "The second most common religion, which is followed more by Unathi from the Izweski nation and enjoys a status as its unofficial state religion. It still follows \the ancestor worship of Th'akh, but with a major notable difference. The spirits of all Unathi who die become part of Sk'akh, the Great Spirit. Sk'akh is a gender neutral God, \being called 'he' or 'she' interchangeably to represent that Ska'kh is a collection of all Unathi, so it becomes a matter of preference. She is often called Three of One, \because the spirits combine into three minor aspects that are all part of Ska'kh: the Warrior, the Healer, the Fisherman. These three spirits are personifications of the most \important aspects of Unathi society. It is said that all three are equally important, and that disasters are caused by an imbalance in the Great Three. Priests often stress the \importance of balance, both in matters of spirit as well as in society and personal life. "
+	},
+/obj/item/storage/bible{
+	icon_state = "book4";
+	item_state = "book4";
+	name = "Sk'akh legends";
+	desc = "The second most common religion, which is followed more by Unathi from the Izweski nation and enjoys a status as its unofficial state religion. It still follows \the ancestor worship of Th'akh, but with a major notable difference. The spirits of all Unathi who die become part of Sk'akh, the Great Spirit. Sk'akh is a gender neutral God, \being called 'he' or 'she' interchangeably to represent that Ska'kh is a collection of all Unathi, so it becomes a matter of preference. She is often called Three of One, \because the spirits combine into three minor aspects that are all part of Ska'kh: the Warrior, the Healer, the Fisherman. These three spirits are personifications of the most \important aspects of Unathi society. It is said that all three are equally important, and that disasters are caused by an imbalance in the Great Three. Priests often stress the \importance of balance, both in matters of spirit as well as in society and personal life. "
+	},
+/obj/item/storage/bible{
+	icon_state = "book4";
+	item_state = "book4";
+	name = "Sk'akh legends";
+	desc = "The second most common religion, which is followed more by Unathi from the Izweski nation and enjoys a status as its unofficial state religion. It still follows \the ancestor worship of Th'akh, but with a major notable difference. The spirits of all Unathi who die become part of Sk'akh, the Great Spirit. Sk'akh is a gender neutral God, \being called 'he' or 'she' interchangeably to represent that Ska'kh is a collection of all Unathi, so it becomes a matter of preference. She is often called Three of One, \because the spirits combine into three minor aspects that are all part of Ska'kh: the Warrior, the Healer, the Fisherman. These three spirits are personifications of the most \important aspects of Unathi society. It is said that all three are equally important, and that disasters are caused by an imbalance in the Great Three. Priests often stress the \importance of balance, both in matters of spirit as well as in society and personal life. "
+	},
+/obj/item/clothing/suit/unathi/robe/robe_coat/red,
+/obj/item/clothing/suit/unathi/robe/robe_coat/orange,
+/obj/item/clothing/suit/unathi/robe/robe_coat/blue,
+/turf/simulated/floor/exoplanet/marble{
+	temperature = 303.15
+	},
+/area/moghes_skakh)
+"CH" = (
+/obj/structure/bed/stool/chair/sofa/right/red{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/marble{
+	temperature = 303.15
+	},
+/area/moghes_skakh)
+"DD" = (
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp/green,
+/turf/simulated/floor/exoplanet/marble{
+	temperature = 303.15
+	},
+/area/moghes_skakh)
+"Ea" = (
+/obj/effect/ghostspawpoint{
+	identifier = "moghes_skakh_faithful";
+	name = "igs - moghes_skakh_faithful"
+	},
+/obj/structure/bed/stool/chair/sofa/pew/right{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/marble{
+	temperature = 303.15
+	},
+/area/moghes_skakh)
+"EV" = (
+/turf/simulated/floor/exoplanet/carpet/red{
+	temperature = 303.15
+	},
+/area/moghes_skakh)
+"HN" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/simulated/wall/marble,
+/area/moghes_skakh)
+"Lf" = (
+/obj/structure/table/stone/marble,
+/obj/item/flame/candle,
+/turf/simulated/floor/exoplanet/marble{
+	temperature = 303.15
+	},
+/area/moghes_skakh)
+"Ly" = (
+/obj/effect/ghostspawpoint{
+	identifier = "moghes_skakh_faithful";
+	name = "igs - moghes_skakh_faithful"
+	},
+/obj/structure/bed/stool/chair/sofa/pew/left{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/marble{
+	temperature = 303.15
+	},
+/area/moghes_skakh)
+"LR" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/exoplanet/marble{
+	temperature = 303.15
+	},
+/area/moghes_skakh)
+"MI" = (
+/obj/structure/bed/stool/chair/padded/brown{
+	dir = 1
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "moghes_skakh";
+	name = "igs - moghes_skakh"
+	},
+/turf/simulated/floor/exoplanet/marble{
+	temperature = 303.15
+	},
+/area/moghes_skakh)
+"NI" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/obj/structure/bookcase,
+/turf/simulated/floor/exoplanet/marble{
+	temperature = 303.15
+	},
+/area/moghes_skakh)
+"Sr" = (
+/turf/simulated/floor/exoplanet/water/shallow/moghes,
+/area/moghes_skakh)
+"Sy" = (
+/obj/structure/table/wood,
+/obj/item/device/radio/phone,
+/turf/simulated/floor/exoplanet/carpet/red{
+	temperature = 303.15
+	},
+/area/moghes_skakh)
+"Tl" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/marble{
+	temperature = 303.15
+	},
+/area/moghes_skakh)
+"Ua" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/obj/structure/bed/stool/chair/sofa/pew/right{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/marble{
+	temperature = 303.15
+	},
+/area/moghes_skakh)
+"Uv" = (
+/turf/simulated/floor/exoplanet/marble{
+	temperature = 303.15
+	},
+/area/moghes_skakh)
+"US" = (
+/obj/structure/simple_door/wood,
+/turf/simulated/floor/exoplanet/marble{
+	temperature = 303.15
+	},
+/area/moghes_skakh)
+"Wm" = (
+/obj/structure/cargo_receptacle{
+	min_spawn = 0;
+	max_spawn = 2;
+	override_name = "Moghes - Sk'akh Chapel"
+	},
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/moghes_skakh)
+"XA" = (
+/obj/structure/table/stone/marble,
+/obj/item/material/hatchet/unathiknife,
+/turf/simulated/floor/exoplanet/marble{
+	temperature = 303.15
+	},
+/area/moghes_skakh)
+"Yw" = (
+/obj/structure/bed/stool/chair/office/dark,
+/turf/simulated/floor/exoplanet/carpet/red{
+	temperature = 303.15
+	},
+/area/moghes_skakh)
+"YA" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/marble{
+	temperature = 303.15
+	},
+/area/moghes_skakh)
+"YY" = (
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	icon_state = "edge";
+	dir = 8
+	},
+/area/moghes_skakh)
+
+(1,1,1) = {"
+qi
+qi
+qi
+et
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+et
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+"}
+(2,1,1) = {"
+qi
+qi
+et
+et
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+"}
+(3,1,1) = {"
+qi
+et
+et
+qi
+qi
+qi
+vp
+qi
+qi
+et
+et
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+"}
+(4,1,1) = {"
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+vp
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+et
+qi
+qi
+qi
+qi
+qi
+"}
+(5,1,1) = {"
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+et
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+"}
+(6,1,1) = {"
+qi
+et
+qi
+qi
+et
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+Sr
+qi
+Sr
+qi
+qi
+et
+et
+qi
+qi
+"}
+(7,1,1) = {"
+qi
+qi
+et
+qi
+qi
+qi
+bS
+bS
+bS
+bS
+bS
+bS
+qi
+qi
+qi
+et
+qi
+yJ
+qi
+qi
+qi
+qi
+Sr
+Sr
+Sr
+Sr
+qi
+qi
+qi
+qi
+qi
+qi
+"}
+(8,1,1) = {"
+qi
+qi
+et
+qi
+qi
+bS
+bS
+Ck
+uX
+CH
+NI
+bS
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+vp
+Sr
+Sr
+Sr
+Sr
+Sr
+qi
+qi
+qi
+qi
+qi
+"}
+(9,1,1) = {"
+qi
+qi
+qi
+qi
+bS
+bS
+DD
+Uv
+Uv
+Uv
+tQ
+bS
+qi
+qi
+qi
+et
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+Sr
+Sr
+Sr
+Sr
+qi
+qi
+qi
+qi
+qi
+"}
+(10,1,1) = {"
+qi
+qi
+qi
+bS
+bS
+bP
+Uv
+Uv
+oi
+Uv
+tQ
+bS
+bS
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+Sr
+Sr
+Sr
+qi
+qi
+qi
+qi
+qi
+qi
+"}
+(11,1,1) = {"
+qi
+qi
+qi
+HN
+bS
+bS
+bS
+bS
+bS
+bS
+lp
+bS
+bS
+bS
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+Sr
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+"}
+(12,1,1) = {"
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+bS
+bS
+EV
+os
+zP
+bS
+bS
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+"}
+(13,1,1) = {"
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+bS
+EV
+Uv
+tn
+eT
+bS
+bS
+bS
+bS
+bS
+bS
+bS
+bS
+bS
+bS
+bS
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+"}
+(14,1,1) = {"
+qi
+qi
+qi
+qi
+qi
+qi
+et
+qi
+qi
+bS
+EV
+EV
+Uv
+tn
+bz
+Tl
+bz
+Tl
+bz
+Tl
+bz
+Tl
+bz
+oK
+bS
+bS
+qi
+qi
+qi
+qi
+qi
+qi
+"}
+(15,1,1) = {"
+qi
+qi
+qi
+qi
+et
+qi
+qi
+qi
+qi
+bS
+bd
+EV
+EV
+Uv
+pK
+Uv
+Ea
+Uv
+pK
+Uv
+pK
+Uv
+pK
+tn
+eT
+bS
+qi
+qi
+qi
+qi
+qi
+qi
+"}
+(16,1,1) = {"
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+bS
+Uv
+XA
+EV
+EV
+EV
+EV
+EV
+EV
+EV
+EV
+EV
+EV
+EV
+EV
+Bj
+bS
+hk
+hk
+hk
+hk
+hk
+hk
+"}
+(17,1,1) = {"
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+bS
+Uv
+Lf
+EV
+EV
+EV
+EV
+EV
+EV
+EV
+EV
+EV
+EV
+EV
+EV
+EV
+US
+lg
+lg
+lg
+lg
+lg
+lg
+"}
+(18,1,1) = {"
+qi
+et
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+bS
+Uv
+Lf
+EV
+EV
+EV
+EV
+EV
+EV
+EV
+EV
+EV
+EV
+EV
+EV
+EV
+US
+lg
+lg
+lg
+lg
+lg
+lg
+"}
+(19,1,1) = {"
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+et
+qi
+bS
+Uv
+XA
+EV
+EV
+EV
+EV
+EV
+EV
+EV
+EV
+EV
+EV
+EV
+EV
+Bj
+bS
+YY
+YY
+YY
+YY
+YY
+YY
+"}
+(20,1,1) = {"
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+bS
+bd
+EV
+EV
+Uv
+Bi
+Uv
+Ly
+Uv
+Ly
+Uv
+Bi
+Uv
+Bi
+lQ
+se
+bS
+qi
+qi
+qi
+qi
+qi
+qi
+"}
+(21,1,1) = {"
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+bS
+EV
+EV
+Uv
+lQ
+Ua
+Au
+Ua
+Au
+Ua
+Au
+Ua
+Au
+Ua
+YA
+bS
+bS
+qi
+qi
+qi
+qi
+qi
+qi
+"}
+(22,1,1) = {"
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+Wm
+bS
+EV
+Uv
+lQ
+se
+bS
+bS
+bS
+bS
+bS
+bS
+bS
+bS
+bS
+bS
+bS
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+"}
+(23,1,1) = {"
+qi
+qi
+qi
+qi
+bS
+bS
+bS
+bS
+bS
+bS
+EV
+BE
+LR
+bS
+bS
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+et
+qi
+qi
+qi
+qi
+"}
+(24,1,1) = {"
+qi
+qi
+qi
+bS
+bS
+eI
+EV
+bW
+ts
+bS
+lp
+bS
+bS
+bS
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+"}
+(25,1,1) = {"
+qi
+qi
+qi
+bS
+bS
+sw
+Yw
+sc
+MI
+Uv
+tQ
+bS
+bS
+qi
+qi
+qi
+qi
+et
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+"}
+(26,1,1) = {"
+qi
+qi
+qi
+qi
+bS
+bS
+EV
+Sy
+MI
+Uv
+tQ
+bS
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+et
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+"}
+(27,1,1) = {"
+qi
+qi
+qi
+qi
+qi
+bS
+EV
+EV
+oi
+Uv
+tQ
+bS
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+et
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+vp
+qi
+qi
+qi
+"}
+(28,1,1) = {"
+qi
+qi
+qi
+qi
+qi
+qi
+bS
+bS
+bS
+bS
+bS
+bS
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+"}
+(29,1,1) = {"
+qi
+qi
+et
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+vp
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+"}
+(30,1,1) = {"
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+et
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+"}
+(31,1,1) = {"
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+vp
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+et
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+"}
+(32,1,1) = {"
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+"}

@@ -37,20 +37,20 @@
 			list(
 				'sound/music/ambispace.ogg',
 				'sound/music/main.ogg',
-				'sound/music/space.ogg',
-				'sound/music/traitor.ogg'
+				'sound/music/lobby/space.ogg',
+				'sound/music/lobby/traitor.ogg'
 			)
 		),
 		"picnicarea" = new /datum/holodeck_program(/area/horizon/holodeck/source_picnicarea,
-			list('sound/music/title2.ogg')
+			list('sound/music/lobby/title2.ogg')
 		),
 		"dininghall" = new /datum/holodeck_program(/area/horizon/holodeck/source_dininghall,
-			list('sound/music/title2.ogg')
+			list('sound/music/lobby/title2.ogg')
 		),
 		"theatre" = new /datum/holodeck_program(/area/horizon/holodeck/source_theatre),
 		"meetinghall" = new /datum/holodeck_program(/area/horizon/holodeck/source_meetinghall),
 		"courtroom" = new /datum/holodeck_program(/area/horizon/holodeck/source_courtroom,
-			list('sound/music/traitor.ogg')
+			list('sound/music/lobby/traitor.ogg')
 		),
 		"burntest" = new /datum/holodeck_program(/area/horizon/holodeck/source_burntest, list()),
 		"wildlifecarp" = new /datum/holodeck_program(/area/horizon/holodeck/source_wildlife, list()),
@@ -82,6 +82,12 @@
 				'sound/effects/wind/wind_5_1.ogg'
 			)
 		),
+		"lasertag" = new /datum/holodeck_program(/area/horizon/holodeck/source_lasertag,
+			list('sound/music/THUNDERDOME.ogg')
+		),
+		"combat_training" = new /datum/holodeck_program(/area/horizon/holodeck/source_combat_training,
+			list('sound/music/THUNDERDOME.ogg')
+		),
 		"chapel_tribunal" = new /datum/holodeck_program(/area/horizon/holodeck/source_tribunal),
 		"chapel_trinary" = new /datum/holodeck_program(/area/horizon/holodeck/source_trinary),
 		"konyang" = new /datum/holodeck_program(/area/horizon/holodeck/source_konyang),
@@ -89,12 +95,14 @@
 		"adhomai" = new /datum/holodeck_program(/area/horizon/holodeck/source_adhomai),
 		"pool" = new /datum/holodeck_program(/area/horizon/holodeck/source_pool),
 		"sauna" = new /datum/holodeck_program(/area/horizon/holodeck/source_sauna),
+		"animal_cafe" = new /datum/holodeck_program(/area/horizon/holodeck/source_cafe),
 		"turnoff" = new /datum/holodeck_program(/area/horizon/holodeck/source_plating)
 	)
 
 	holodeck_supported_programs = list(
 		"Empty Court"        = "emptycourt",
 		"Basketball Court"   = "basketball",
+		"Animal Cafe"		 = "animal_cafe",
 		"Thunderdome Court"  = "thunderdomecourt",
 		"Boxing Ring"        = "boxingcourt",
 		"Silversun Coast"    = "beach",
@@ -118,7 +126,9 @@
 		"Jupiter Upper Atmosphere" = "jupiter",
 		"Xavier Trasen Memorial Gymnasium" = "gym",
 		"Battle Monsters Duelling Arena" = "battlemonsters",
-		"Chessboard" = "chessboard"
+		"Chessboard" = "chessboard",
+		"Laser Tag Arena" = "lasertag",
+		"Combat Training Arena" = "combat_training"
 	)
 	holodeck_restricted_programs = list(
 		"Atmospheric Burn Simulation" = "burntest",

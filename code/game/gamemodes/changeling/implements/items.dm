@@ -5,8 +5,8 @@
 	icon_state = "arm_blade"
 	item_state = "arm_blade"
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_LARGE
-	force = 30
+	w_class = WEIGHT_CLASS_BULKY
+	force = 33
 	sharp = TRUE
 	edge = TRUE
 	anchored = TRUE
@@ -28,10 +28,10 @@
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/item/melee/arm_blade/dropped(var/mob/living/user)
+/obj/item/melee/arm_blade/dropped(mob/user)
 	. = ..()
-	visible_message("<span class='danger'>With a sickening crunch, [user] reforms their arm blade into an arm!</span>",
-	"<span class='warning'>You hear organic matter ripping and tearing!</span>")
+	visible_message(SPAN_DANGER("With a sickening crunch, [user] reforms their arm blade into an arm!"),
+	SPAN_WARNING("You hear organic matter ripping and tearing!"))
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
 	QDEL_IN(src, 1)
 
@@ -68,7 +68,7 @@
 	icon_state = "ling_shield"
 	item_state = "ling_shield"
 	contained_sprite = TRUE
-	force = 15 //Bash the crap out of people
+	force = 22 //Bash the crap out of people
 	slot_flags = null
 	anchored = TRUE
 	throwforce = 0 //Just to be on the safe side
@@ -86,10 +86,10 @@
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/item/shield/riot/changeling/dropped(var/mob/living/user)
+/obj/item/shield/riot/changeling/dropped(mob/user)
 	. = ..()
-	visible_message("<span class='danger'>With a sickening crunch, [user] reforms their shield into an arm!</span>",
-	"<span class='warning'>You hear organic matter ripping and tearing!</span>")
+	visible_message(SPAN_DANGER("With a sickening crunch, [user] reforms their shield into an arm!"),
+	SPAN_WARNING("You hear organic matter ripping and tearing!"))
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
 	QDEL_IN(src, 1)
 
@@ -109,9 +109,9 @@
 		QDEL_IN(src, 1)
 
 /obj/item/shield/riot/changeling/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
-	if(istype(damage_source, /obj/item/projectile))
-		var/obj/item/projectile/P = damage_source
-		if((is_sharp(P) && damage > 10) || istype(P, /obj/item/projectile/beam))
+	if(istype(damage_source, /obj/projectile))
+		var/obj/projectile/P = damage_source
+		if((is_sharp(P) && damage > 10) || istype(P, /obj/projectile/beam))
 			return base_block_chance / 2 //lings still have a 35% chance of blocking these kinds of attacks
 	return base_block_chance
 
@@ -123,8 +123,9 @@
 	item_state = "bolt"
 	sharp = TRUE
 	edge = FALSE
-	throwforce = 5
-	w_class = ITEMSIZE_SMALL
+	throwforce = 15
+	armor_penetration = 15
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/finger_lockpick
 	name = "finger lockpick"
@@ -155,7 +156,7 @@
 	//Airlocks require an ugly block of code, but we don't want to just call emag_act(), since we don't want to break airlocks forever.
 	if(istype(target, /obj/machinery/door))
 		var/obj/machinery/door/door = target
-		to_chat(user, "<span class='notice'>We send an electrical pulse up our finger, and into \the [target], attempting to open it.</span>")
+		to_chat(user, SPAN_NOTICE("We send an electrical pulse up our finger, and into \the [target], attempting to open it."))
 
 		if(door.density && door.operable())
 			door.do_animate("spark")
@@ -166,15 +167,15 @@
 
 					if(airlock.locked) //Check if we're bolted.
 						airlock.unlock()
-						to_chat(user, "<span class='notice'>We've unlocked \the [airlock].  Another pulse is requried to open it.</span>")
+						to_chat(user, SPAN_NOTICE("We've unlocked \the [airlock].  Another pulse is requried to open it."))
 					else	//We're not bolted, so open the door already.
 						airlock.open()
-						to_chat(user, "<span class='notice'>We've opened \the [airlock].</span>")
+						to_chat(user, SPAN_NOTICE("We've opened \the [airlock]."))
 				else
 					door.open() //If we're a windoor, open the windoor.
-					to_chat(user, "<span class='notice'>We've opened \the [door].</span>")
+					to_chat(user, SPAN_NOTICE("We've opened \the [door]."))
 		else //Probably broken or no power.
-			to_chat(user, "<span class='warning'>The door does not respond to the pulse.</span>")
+			to_chat(user, SPAN_WARNING("The door does not respond to the pulse."))
 		door.add_fingerprint(user)
 		log_and_message_admins("finger-lockpicked \an [door].", user)
 		changeling.use_charges(10)

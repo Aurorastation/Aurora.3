@@ -51,6 +51,33 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 
 /obj/item/organ/Initialize(mapload, internal)
 	. = ..()
+	var/mob/living/carbon/holder = loc
+	create_reagents(5)
+	if(!max_damage)
+		max_damage = min_broken_damage * 2
+	if(istype(holder))
+		src.owner = holder
+		species = GLOB.all_species[SPECIES_HUMAN]
+		if(holder.dna)
+			dna = holder.dna.Clone()
+			species = GLOB.all_species[dna.species]
+		else
+			LOG_DEBUG("[src] at [loc] spawned without a proper DNA.")
+		var/mob/living/carbon/human/H = holder
+		if(istype(H))
+			if(internal)
+				var/obj/item/organ/external/E = H.get_organ(parent_organ)
+				if(E)
+					if(E.internal_organs == null)
+						E.internal_organs = list()
+					E.internal_organs |= src
+			if(dna)
+				if(!blood_DNA)
+					blood_DNA = list()
+				blood_DNA[dna.unique_enzymes] = dna.b_type
+		if(internal)
+			holder.internal_organs |= src
+	START_PROCESSING(SSprocessing, src)
 
 
 /obj/item/organ/Destroy()
@@ -83,36 +110,6 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 /obj/item/organ/proc/update_health()
 	return
 
-/obj/item/organ/Initialize(mapload, internal)
-	. = ..()
-	var/mob/living/carbon/holder = loc
-	create_reagents(5)
-	if(!max_damage)
-		max_damage = min_broken_damage * 2
-	if(istype(holder))
-		src.owner = holder
-		species = GLOB.all_species[SPECIES_HUMAN]
-		if(holder.dna)
-			dna = holder.dna.Clone()
-			species = GLOB.all_species[dna.species]
-		else
-			LOG_DEBUG("[src] at [loc] spawned without a proper DNA.")
-		var/mob/living/carbon/human/H = holder
-		if(istype(H))
-			if(internal)
-				var/obj/item/organ/external/E = H.get_organ(parent_organ)
-				if(E)
-					if(E.internal_organs == null)
-						E.internal_organs = list()
-					E.internal_organs |= src
-			if(dna)
-				if(!blood_DNA)
-					blood_DNA = list()
-				blood_DNA[dna.unique_enzymes] = dna.b_type
-		if(internal)
-			holder.internal_organs |= src
-	START_PROCESSING(SSprocessing, src)
-
 /obj/item/organ/proc/set_dna(var/datum/dna/new_dna)
 	if(new_dna)
 		dna = new_dna.Clone()
@@ -140,7 +137,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 /obj/item/organ/proc/can_recover()
 	return (max_damage > 0) && !(status & ORGAN_DEAD) || death_time >= world.time - ORGAN_RECOVERY_THRESHOLD
 
-/obj/item/organ/process()
+/obj/item/organ/process(seconds_per_tick)
 	if(loc != owner)
 		owner = null
 
@@ -214,7 +211,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 /obj/item/organ/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(status & ORGAN_DEAD)
-		. += "<span class='notice'>The decay has set in.</span>"
+		. += SPAN_NOTICE("The decay has set in.")
 
 /obj/item/organ/proc/handle_germ_effects()
 	//** Handle the effects of infections
@@ -377,6 +374,13 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	if(robotic_name)
 		name = robotic_name
 
+/obj/item/organ/proc/derobotize() //Turn a robot organ back into a flesh one. Used for appearance changers, etc.
+	robotic = initial(robotic)
+	status = initial(status)
+	drop_sound = initial(drop_sound)
+	pickup_sound = initial(pickup_sound)
+	name = initial(name)
+
 /obj/item/organ/proc/mechassist() //Used to add things like pacemakers, etc
 	status = ORGAN_ASSISTED
 	robotic = ROBOTIC_ASSISTED
@@ -385,6 +389,8 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 			name = "pacemaker-assisted [initial(name)]"
 		if(BP_EYES)
 			name = "retinal overlayed [initial(name)]"
+		if(BP_BRAIN)
+			name = "positronic-implanted [initial(name)]"
 		else
 			name = "mechanically assisted [initial(name)]"
 	icon_state = initial(icon_state)
@@ -397,7 +403,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 
 	var/organ_fragility = 0.5
 
-	if((status & ORGAN_ROBOT))	//fully robotic organs take the normal emp damage, assited ones only suffer half of it
+	if((status & ORGAN_ROBOT))	//fully robotic organs take the normal emp damage, assisted ones only suffer half of it
 		organ_fragility = 1
 
 	switch (severity)
@@ -413,7 +419,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	if(!(status & ORGAN_ASSISTED))
 		return //We check earlier, but just to make sure.
 
-	surge_damage = Clamp(0, surge + surge_damage, MAXIMUM_SURGE_DAMAGE) //We want X seconds at most of hampered movement or what have you.
+	surge_damage = clamp(0, surge + surge_damage, MAXIMUM_SURGE_DAMAGE) //We want X seconds at most of hampered movement or what have you.
 	surge_time = world.time
 
 /obj/item/organ/proc/removed(var/mob/living/carbon/human/target,var/mob/living/user)
@@ -444,7 +450,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 		if(user)
 			user.attack_log += "\[[time_stamp()]\]<span class='warning'> removed a vital organ ([src]) from [owner.name] ([owner.ckey]) [user ? "(INTENT: [uppertext(user.a_intent)])" : ""]</span>"
 			owner.attack_log += "\[[time_stamp()]\]<font color='orange'> had a vital organ ([src]) removed by [user.name] ([user.ckey]) (INTENT: [uppertext(user.a_intent)])</font>"
-			msg_admin_attack("[user.name] ([user.ckey]) removed a vital organ ([src]) from [owner.name] ([owner.ckey]) (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(owner))
+			msg_admin_attack("[user.name] ([user.ckey]) removed a vital organ ([src]) from [owner.name] ([owner.ckey]) (INTENT: [uppertext(user.a_intent)]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(owner))
 		owner.death()
 
 	owner.update_action_buttons()
@@ -468,13 +474,13 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 		target.update_eyes()
 	..()
 
-/obj/item/organ/attack(var/mob/target, var/mob/user)
+/obj/item/organ/attack(mob/living/target_mob, mob/living/user, target_zone)
 
-	if(robotic || !istype(target) || !istype(user) || (user != target && user.a_intent == I_HELP))
+	if(robotic || !istype(target_mob) || !istype(user) || (user != target_mob && user.a_intent == I_HELP))
 		return ..()
 
 	if(alert("Do you really want to use this organ as food? It will be useless for anything else afterwards.",,"No.","Yes.") == "No.")
-		to_chat(user, "<span class='notice'>You successfully repress your cannibalistic tendencies.</span>")
+		to_chat(user, SPAN_NOTICE("You successfully repress your cannibalistic tendencies."))
 		return
 
 	user.drop_from_inventory(src)
@@ -490,7 +496,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 		O.fingerprintslast = fingerprintslast
 	user.put_in_active_hand(O)
 	qdel(src)
-	target.attackby(O, user)
+	target_mob.attackby(O, user)
 
 //used by stethoscope
 /obj/item/organ/proc/listen()

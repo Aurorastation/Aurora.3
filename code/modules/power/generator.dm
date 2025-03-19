@@ -77,7 +77,7 @@
 
 /obj/machinery/power/generator/update_icon()
 	icon_state = anchored ? "teg-assembled" : "teg-unassembled"
-	cut_overlays()
+	ClearOverlays()
 	if (circ1)
 		circ1.temperature_overlay = null
 	if (circ2)
@@ -86,7 +86,7 @@
 		return TRUE
 	else
 		if (lastgenlev != 0)
-			add_overlay("teg-op[lastgenlev]")
+			AddOverlays("teg-op[lastgenlev]")
 			if (circ1 && circ2)
 				var/extreme = (lastgenlev > 9) ? "ex" : ""
 				if (circ1.last_temperature < circ2.last_temperature)
@@ -129,7 +129,7 @@
 			else
 				air2.temperature = air2.temperature + heat/air2_heat_capacity
 				air1.temperature = air1.temperature - energy_transfer/air1_heat_capacity
-			playsound(get_turf(src), 'sound/effects/beam.ogg', 25, FALSE, 10, , required_preferences = ASFX_AMBIENCE)
+			playsound(get_turf(src), 'sound/effects/beam.ogg', 25, FALSE, 10, , required_preferences = ASFX_AMBIENCE, channel = CHANNEL_AMBIENCE)
 
 	//Transfer the air
 	if (air1)
@@ -172,7 +172,7 @@
 
 /obj/machinery/power/generator/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.iswrench())
-		playsound(src.loc, attacking_item.usesound, 75, 1)
+		attacking_item.play_tool_sound(get_turf(src), 75)
 		anchored = !anchored
 		user.visible_message("[user.name] [anchored ? "secures" : "unsecures"] the bolts holding [src.name] to the floor.", \
 					"You [anchored ? "secure" : "unsecure"] the bolts holding [src] to the floor.", \

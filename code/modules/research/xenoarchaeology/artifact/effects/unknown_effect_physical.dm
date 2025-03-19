@@ -44,7 +44,7 @@
 			var/weakness = GetAnomalySusceptibility(C)
 			if(prob(weakness * 100))
 				if(prob(10))
-					to_chat(C, "<span class='notice'>You feel a soothing energy radiating from something nearby.</span>")
+					to_chat(C, SPAN_NOTICE("You feel a soothing energy radiating from something nearby."))
 				C.adjustBruteLoss(-1 * weakness)
 				C.adjustFireLoss(-1 * weakness)
 				C.adjustToxLoss(-1 * weakness)
@@ -61,7 +61,7 @@
 				continue
 			var/weakness = GetAnomalySusceptibility(C)
 			if(prob(weakness * 100))
-				to_chat(C, "<span class='notice'>A wave of energy invigorates you.</span>")
+				to_chat(C, SPAN_NOTICE("A wave of energy invigorates you."))
 				C.adjustBruteLoss(-5 * weakness)
 				C.adjustFireLoss(-5 * weakness)
 				C.adjustToxLoss(-5 * weakness)
@@ -79,7 +79,7 @@
 		var/weakness = GetAnomalySusceptibility(toucher)
 		if(iscarbon(toucher) && prob(weakness * 100))
 			var/mob/living/carbon/C = toucher
-			to_chat(C, "<span class='danger'>A painful discharge of energy strikes you!</span>")
+			to_chat(C, SPAN_DANGER("A painful discharge of energy strikes you!"))
 			C.adjustOxyLoss(rand(5,25) * weakness)
 			C.adjustToxLoss(rand(5,25) * weakness)
 			C.adjustBruteLoss(rand(5,25) * weakness)
@@ -100,7 +100,7 @@
 			var/weakness = GetAnomalySusceptibility(C)
 			if(prob(weakness * 100))
 				if(prob(10))
-					to_chat(C, "<span class='danger'>You feel a painful force radiating from something nearby.</span>")
+					to_chat(C, SPAN_DANGER("You feel a painful force radiating from something nearby."))
 				C.adjustBruteLoss(1 * weakness)
 				C.adjustFireLoss(1 * weakness)
 				C.adjustToxLoss(1 * weakness)
@@ -116,7 +116,7 @@
 				continue
 			var/weakness = GetAnomalySusceptibility(C)
 			if(prob(weakness * 100))
-				to_chat(C, "<span class='danger'>A wave of painful energy strikes you!</span>")
+				to_chat(C, SPAN_DANGER("A wave of painful energy strikes you!"))
 				C.adjustBruteLoss(3 * weakness)
 				C.adjustFireLoss(3 * weakness)
 				C.adjustToxLoss(3 * weakness)
@@ -224,7 +224,10 @@
 		if(!toucher.isSynthetic())
 			if(ishuman(toucher) && prob(weakness * 100))
 				var/mob/living/carbon/human/H = toucher
-				to_chat(H, pick("<span class='notice'>You feel like taking a nap.</span>","<span class='notice'>You feel a yawn coming on.</span>","<span class='notice'>You feel a little tired.</span>"))
+				to_chat(H, pick(SPAN_NOTICE("You feel like taking a nap."),
+								SPAN_NOTICE("You feel a yawn coming on."),
+								SPAN_NOTICE("You feel a little tired.")))
+
 				H.drowsiness = min(H.drowsiness + rand(5,25) * weakness, 50 * weakness)
 				H.eye_blurry = min(H.eye_blurry + rand(1,3) * weakness, 50 * weakness)
 		else
@@ -243,7 +246,10 @@
 				var/weakness = GetAnomalySusceptibility(H)
 				if(prob(weakness * 100))
 					if(prob(10))
-						to_chat(H, pick("<span class='notice'>You feel like taking a nap.</span>","<span class='notice'>You feel a yawn coming on.</span>","<span class='notice'>You feel a little tired.</span>"))
+						to_chat(H, pick(SPAN_NOTICE("You feel like taking a nap."),
+										SPAN_NOTICE("You feel a yawn coming on."),
+										SPAN_NOTICE("You feel a little tired.")))
+
 					H.drowsiness = min(H.drowsiness + 1 * weakness, 25 * weakness)
 					H.eye_blurry = min(H.eye_blurry + 1 * weakness, 25 * weakness)
 		return TRUE
@@ -259,7 +265,10 @@
 				var/mob/living/carbon/human/H = L
 				var/weakness = GetAnomalySusceptibility(H)
 				if(prob(weakness * 100))
-					to_chat(H, pick("<span class='notice'>You feel like taking a nap.</span>","<span class='notice'>You feel a yawn coming on.</span>","<span class='notice'>You feel a little tired.</span>"))
+					to_chat(H, pick(SPAN_NOTICE("You feel like taking a nap."),
+									SPAN_NOTICE("<span class='notice'>You feel a yawn coming on."),
+									SPAN_NOTICE("You feel a little tired.")))
+
 					H.drowsiness = min(H.drowsiness + rand(5,15) * weakness, 50 * weakness)
 					H.eye_blurry = min(H.eye_blurry + rand(5,15) * weakness, 50 * weakness)
 
@@ -277,7 +286,7 @@
 		var/mob/living/carbon/C = toucher
 		var/susceptibility = GetAnomalySusceptibility(C)
 		if(prob(susceptibility * 100))
-			to_chat(C, "<span class='warning'>A powerful force overwhelms your consciousness.</span>")
+			to_chat(C, SPAN_WARNING("A powerful force overwhelms your consciousness."))
 			C.Weaken(rand(1,10) * susceptibility)
 			C.stuttering += 30 * susceptibility
 			C.Stun(rand(1,10) * susceptibility)
@@ -288,13 +297,13 @@
 		for (var/mob/living/carbon/C in range(effectrange,T))
 			var/susceptibility = GetAnomalySusceptibility(C)
 			if(prob(10 * susceptibility))
-				to_chat(C, "<span class='warning'>Your body goes numb for a moment.</span>")
+				to_chat(C, SPAN_WARNING("Your body goes numb for a moment."))
 				C.Weaken(2)
 				C.stuttering += 2
 				if(prob(10))
 					C.Stun(1)
 			else if(prob(10))
-				to_chat(C, "<span class='warning'>You feel numb.</span>")
+				to_chat(C, SPAN_WARNING("You feel numb."))
 
 /datum/artifact_effect/stun/DoEffectPulse()
 	if(holder)
@@ -302,7 +311,7 @@
 		for (var/mob/living/carbon/C in range(effectrange,T))
 			var/susceptibility = GetAnomalySusceptibility(C)
 			if(prob(100 * susceptibility))
-				to_chat(C, "<span class='warning'>A wave of energy overwhelms your senses!</span>")
+				to_chat(C, SPAN_WARNING("A wave of energy overwhelms your senses!"))
 				C.SetWeakened(4 * susceptibility)
 				C.stuttering = 4 * susceptibility
 				if(prob(10))

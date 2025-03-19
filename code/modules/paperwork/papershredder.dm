@@ -22,7 +22,7 @@
 		return
 
 	else if (attacking_item.iswrench())
-		playsound(loc, attacking_item.usesound, 50, 1)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		anchored = !anchored
 		user.visible_message(
 			SPAN_NOTICE("[anchored ? "\The [user] fastens \the [src] to \the [loc]." : "\The unfastens \the [src] from \the [loc]."]"),
@@ -116,18 +116,18 @@
 	return new /obj/item/shreddedp(get_turf(src))
 
 /obj/machinery/papershredder/update_icon() //makes it show how full the papershredder is while covering up the animation. Seemsgood - Wezzy
-	cut_overlays()
+	ClearOverlays()
 	switch(paperamount)
 		if(2 to 3)
-			add_overlay("papershredder1")
+			AddOverlays("papershredder1")
 		if(4 to 5)
-			add_overlay("papershredder2")
+			AddOverlays("papershredder2")
 		if(6 to 7)
-			add_overlay("papershredder3")
+			AddOverlays("papershredder3")
 		if(8 to 9)
-			add_overlay("papershredder4")
+			AddOverlays("papershredder4")
 		if(10)
-			add_overlay("papershredder5")
+			AddOverlays("papershredder5")
 
 /obj/item/shreddedp/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/flame/lighter))
@@ -173,6 +173,6 @@
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "shredp"
 	throwforce = 0
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	throw_range = 3
 	throw_speed = 1

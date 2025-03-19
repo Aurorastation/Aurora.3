@@ -11,7 +11,7 @@
 	icon_state = "generic"
 	cast_methods = CAST_MELEE
 	aspect = ASPECT_PSIONIC
-	force = 20
+	force = 25
 	armor_penetration = 20
 	cooldown = 0
 	psi_cost = 3

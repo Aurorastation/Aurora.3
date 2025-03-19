@@ -2,11 +2,11 @@
 	name = "welding kit"
 	desc = "A heavy-duty, portable welding fluid carrier."
 	slot_flags = SLOT_BACK
-	icon = 'icons/obj/item/tools/welderpack.dmi'
+	icon = 'icons/obj/item/reagent_containers/weldpack.dmi'
 	icon_state = "welderpack"
 	item_state = "welderpack"
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	volume = 350
 	reagents_to_add = list(/singleton/reagent/fuel = 350)
 	amount_per_transfer_from_this = 30
@@ -33,7 +33,7 @@
 			atom_flags &= ~ATOM_FLAG_OPEN_CONTAINER
 		else
 			atom_flags = ATOM_FLAG_OPEN_CONTAINER
-		playsound(src, attacking_item.usesound, 70)
+		attacking_item.play_tool_sound(get_turf(src), 70)
 		to_chat(user, SPAN_NOTICE("You wrench \the [src]'s fuel cap [(atom_flags & ATOM_FLAG_OPEN_CONTAINER) ? "open" : "closed"]."))
 		return
 	else if(attacking_item.iswelder())
@@ -50,7 +50,7 @@
 			return
 		if(T.welding & prob(50))
 			message_admins("[key_name_admin(user)] triggered a fueltank explosion.")
-			log_game("[key_name(user)] triggered a fueltank explosion.",ckey=key_name(user))
+			log_game("[key_name(user)] triggered a fueltank explosion.")
 			to_chat(user, SPAN_DANGER("That was stupid of you."))
 			explosion(get_turf(src),-1,0,2)
 			qdel(src)

@@ -1,9 +1,11 @@
 /datum/citizenship
 	var/name
 	var/description
-	var/datum/outfit/consular_outfit = /datum/outfit/job/representative/consular
+	var/obj/outfit/consular_outfit = /obj/outfit/job/representative/consular
+	var/obj/outfit/assistant_outfit = /obj/outfit/job/diplomatic_aide
 	var/demonym
 	var/list/job_species_blacklist = list()
+	var/linked_citizenship //a secondary citizenship tied to this one. only used for vaurca snowflake code.
 
 /datum/citizenship/proc/get_objectives(mission_level, var/mob/living/carbon/human/H)
 	var/rep_objectives
@@ -21,3 +23,6 @@
 
 
 	return rep_objectives
+
+/datum/citizenship/proc/get_records_name()
+	return name

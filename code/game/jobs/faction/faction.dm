@@ -40,6 +40,8 @@
 				. += role
 		else
 			var/datum/job/role = SSjobs.type_occupations[path]
+			if(!role)
+				continue
 			if(LAZYACCESS(job_species_blacklist, role.title))
 				role.blacklisted_species = job_species_blacklist[role.title]
 			else

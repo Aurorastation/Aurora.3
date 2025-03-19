@@ -1,12 +1,12 @@
-var/datum/antagonist/ninja/ninjas
+GLOBAL_DATUM(ninjas, /datum/antagonist/ninja)
 
 /datum/antagonist/ninja
 	id = MODE_NINJA
-	role_text = "Ninja"
-	role_text_plural = "Ninja"
+	role_text = "Operative"
+	role_text_plural = "Operatives"
 	bantype = "ninja"
 	landmark_id = "ninjastart"
-	welcome_text = "<span class='info'>You are an elite stealth agent. You can equip your suit with the latest technology using your uplink.</span>"
+	welcome_text = SPAN_INFO("You are an elite agent of some interest group. You have a variety of abilities at your disposal, thanks to your advanced hardsuit.")
 	restricted_species = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	flags = ANTAG_OVERRIDE_JOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_CHOOSE_NAME | ANTAG_RANDSPAWN | ANTAG_VOTABLE | ANTAG_SET_APPEARANCE | ANTAG_NO_FLAVORTEXT
 	antaghud_indicator = "hudninja"
@@ -23,7 +23,7 @@ var/datum/antagonist/ninja/ninjas
 
 /datum/antagonist/ninja/New()
 	..()
-	ninjas = src
+	GLOB.ninjas = src
 
 /datum/antagonist/ninja/attempt_random_spawn()
 	if(GLOB.config.ninjas_allowed) ..()
@@ -93,8 +93,8 @@ var/datum/antagonist/ninja/ninjas
 
 /datum/antagonist/ninja/update_antag_mob(var/datum/mind/player)
 	..()
-	var/ninja_title = pick(ninja_titles)
-	var/ninja_name = pick(ninja_names)
+	var/ninja_title = pick(GLOB.ninja_titles)
+	var/ninja_name = pick(GLOB.ninja_names)
 	var/mob/living/carbon/human/H = player.current
 	if(istype(H))
 		H.real_name = "[ninja_title] [ninja_name]"
@@ -111,8 +111,8 @@ var/datum/antagonist/ninja/ninjas
 		player.drop_from_inventory(I)
 		if(I.loc != player)
 			qdel(I)
-	player.preEquipOutfit(/datum/outfit/admin/syndicate/ninja, FALSE)
-	player.equipOutfit(/datum/outfit/admin/syndicate/ninja, FALSE)
+	player.preEquipOutfit(/obj/outfit/admin/syndicate/ninja, FALSE)
+	player.equipOutfit(/obj/outfit/admin/syndicate/ninja, FALSE)
 	player.force_update_limbs()
 	player.update_eyes()
 	player.regenerate_icons()

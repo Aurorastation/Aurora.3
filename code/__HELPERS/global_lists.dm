@@ -26,7 +26,9 @@ GLOBAL_LIST_EMPTY(topic_commands_names)
 GLOBAL_PROTECT(topic_commands_names)
 
 /// List of all landmarks.
-GLOBAL_LIST_EMPTY(landmarks_list)
+GLOBAL_LIST_EMPTY_TYPED(landmarks_list, /obj/effect/landmark)
+/// List of all ruin landmarks.
+GLOBAL_LIST_EMPTY_TYPED(ruin_landmarks, /obj/effect/landmark/ruin)
 /// Assoc list of force spawnpoints for event maps.
 GLOBAL_LIST_EMPTY(force_spawnpoints)
 /// List of all jobstypes, minus borg, merchant and AI.
@@ -44,17 +46,17 @@ GLOBAL_LIST_EMPTY(the_station_areas)
 /// List of all implants. Used for teleportation/tracking implants.
 GLOBAL_LIST_EMPTY(implants)
 
-/// Turf is added to this list if isStationLevel() passes when it's initialized.
+/// Turf is added to this list if is_station_level() passes when it's initialized.
 GLOBAL_LIST_EMPTY(station_turfs)
-/// List of all instanced areas by type.
+/// List of all instanced areas by type. THIS IS DIFFERENT FROM TG AS IT DOES NOT ONLY CONTAIN UNIQUE AREAS.
 GLOBAL_LIST_EMPTY(areas_by_type)
-/// List of all instanced areas.
-GLOBAL_LIST_EMPTY(all_areas)
 
 /// Languages/species/whitelist.
 GLOBAL_LIST_EMPTY_TYPED(all_species, /datum/species)
 /// Short names of all species.
 GLOBAL_LIST_EMPTY(all_species_short_names)
+/// Species short names by bodytype.
+GLOBAL_LIST_EMPTY(all_species_bodytypes)
 /// All language datums. String to instance.
 GLOBAL_LIST_EMPTY(all_languages)
 /// Table of say codes for all languages.
@@ -63,9 +65,6 @@ GLOBAL_LIST_EMPTY(language_keys)
 GLOBAL_LIST_INIT(whitelisted_species, list(SPECIES_HUMAN))
 /// A list of ALL playable species, whitelisted, latejoin or otherwise.
 GLOBAL_LIST_EMPTY(playable_species)
-
-/// Poster designs (/datum/poster).
-GLOBAL_LIST_EMPTY(poster_designs)
 
 /// All uplinks.
 GLOBAL_LIST_EMPTY_TYPED(world_uplinks, /obj/item/device/uplink)
@@ -107,7 +106,7 @@ GLOBAL_LIST_INIT(exclude_jobs, list(/datum/job/ai, /datum/job/cyborg, /datum/job
 GLOBAL_LIST_INIT(pdalist, list("Nothing", "Standard PDA", "Classic PDA", "Rugged PDA", "Slate PDA", "Smart PDA", "Tablet", "Wristbound"))
 
 /// Headset loadout choices.
-GLOBAL_LIST_INIT(headsetlist, list("Nothing", "Headset", "Bowman Headset", "Double Headset", "Wristbound Radio", "Sleek Wristbound Radio"))
+GLOBAL_LIST_INIT(headsetlist, list("Nothing", "Headset", "Bowman Headset", "Double Headset", "Wristbound Radio", "Sleek Wristbound Radio", "Clip-on Radio"))
 
 /// Primary Radio Slot loadout choices.
 GLOBAL_LIST_INIT(primary_radio_slot_choice, list("Left Ear", "Right Ear", "Wrist"))
@@ -119,10 +118,6 @@ GLOBAL_DATUM_INIT(cameranet, /datum/visualnet/camera, new)
 
 /// Escape locations for Nar'Sie. Escape shuttles, generally.
 GLOBAL_LIST_EMPTY(escape_list)
-/// Escape exits for universe states.
-GLOBAL_LIST_EMPTY(endgame_exits)
-/// Safe spawns  for universe states.
-GLOBAL_LIST_EMPTY(endgame_safespawns)
 
 GLOBAL_LIST_INIT(syndicate_access, list(ACCESS_MAINT_TUNNELS, ACCESS_SYNDICATE, ACCESS_EXTERNAL_AIRLOCKS))
 
@@ -134,6 +129,9 @@ GLOBAL_LIST_EMPTY(intent_listener)
 
 /// Cache for clothing species adaptability.
 GLOBAL_LIST_EMPTY(contained_clothing_species_adaption_cache)
+
+/// Cache for outfit selection.
+GLOBAL_LIST_EMPTY(outfit_cache)
 
 //////////////////////////
 /////Initial Building/////
@@ -225,6 +223,8 @@ GLOBAL_LIST_EMPTY(contained_clothing_species_adaption_cache)
 		if(length(S.autohiss_basic_map) || length(S.autohiss_extra_map) || length(S.autohiss_basic_extend) || length(S.autohiss_extra_extend))
 			S.has_autohiss = TRUE
 		GLOB.all_species[S.name] = S
+		if(!GLOB.all_species_bodytypes[S.bodytype])
+			GLOB.all_species_bodytypes[S.bodytype] = S.short_name
 		GLOB.all_species_short_names |= S.short_name
 
 	sortTim(GLOB.all_species, GLOBAL_PROC_REF(cmp_text_asc))
@@ -240,13 +240,7 @@ GLOBAL_LIST_EMPTY(contained_clothing_species_adaption_cache)
 		if(S.spawn_flags & IS_WHITELISTED)
 			GLOB.whitelisted_species += S.name
 
-	//Posters
-	paths = subtypesof(/datum/poster)
-	for(var/T in paths)
-		var/datum/poster/P = new T
-		GLOB.poster_designs += P
-
-	return 1
+	return TRUE
 
 GLOBAL_LIST_INIT(correct_punctuation, list("!" = TRUE, "." = TRUE, "?" = TRUE, "-" = TRUE, "~" = TRUE, \
 										"*" = TRUE, "/" = TRUE, ">" = TRUE, "\"" = TRUE, "'" = TRUE, \

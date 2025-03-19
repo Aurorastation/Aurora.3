@@ -197,3 +197,57 @@
 			icon_state = "lasagna_veg_half"
 		if(51 to INFINITY)
 			icon_state = "lasagna_veg"
+
+/obj/item/reagent_containers/food/snacks/pig_in_a_blanket
+	name = "pig in a blanket"
+	desc = "A mini sausage wrapped in dough. Like a tiny hot dog but cuter. Oink oink zzz..."
+	icon = 'icons/obj/item/reagent_containers/food/baked.dmi'
+	icon_state = "pig_blanket"
+	reagents_to_add = list(/singleton/reagent/nutriment = 1, /singleton/reagent/nutriment/protein = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("baked dough" = 5), /singleton/reagent/nutriment/protein = list("sausage" = 5))
+	filling_color = "#a02d1e"
+	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/stuffed_pepper_meat
+	name = "stuffed pepper with meat"
+	desc = "Half a bell pepper stuffed with meat, cheese, tomato sauce and chives. Who even needs bowls?"
+	icon = 'icons/obj/item/reagent_containers/food/baked.dmi'
+	icon_state = "pepper_rice1"
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/protein = 3, /singleton/reagent/nutriment/protein/cheese = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("bell pepper" = 5), /singleton/reagent/nutriment/protein = list("meat" = 5))
+	filling_color = "#b84e1e"
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/stuffed_pepper_meat/Initialize()
+	. = ..()
+	var/variant = pick("pepper_meat1", "pepper_meat2")
+	icon = 'icons/obj/item/reagent_containers/food/baked.dmi'
+	icon_state = "[variant]"
+	update_icon()
+
+/obj/item/reagent_containers/food/snacks/stuffed_pepper_rice
+	name = "stuffed pepper with rice"
+	desc = "Half a bell pepper stuffed with rice, beans and corn. Who even needs bowls when you're THIS vegan?"
+	icon = 'icons/obj/item/reagent_containers/food/baked.dmi'
+	icon_state = "pepper_rice1"
+	reagents_to_add = list(/singleton/reagent/nutriment = 8)
+	reagent_data = list(/singleton/reagent/nutriment = list("bell pepper" = 5, "beans" = 3, "corn" = 3))
+	filling_color = "#c5ddb6"
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/stuffed_pepper_rice/Initialize()
+	. = ..()
+	var/variant = pick("pepper_rice1", "pepper_rice2")
+	icon = 'icons/obj/item/reagent_containers/food/baked.dmi'
+	icon_state = "[variant]"
+	update_icon()
+
+/obj/item/reagent_containers/food/snacks/baked_apple
+	name = "baked apple"
+	desc = "A soft, vegan baked apple stufed with raisins, nuts, cinnamon and brown sugar. All of the nature without any of the healthy!" //Grammar bad on purpose because funny.
+	icon = 'icons/obj/item/reagent_containers/food/baked.dmi'
+	icon_state = "baked_apple"
+	trash = /obj/item/trash/plate
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/glucose = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("apple" = 5, "raisins" = 5, "nuts" = 3, "cinnamon" = 3))
+	filling_color = "#a04e1e"

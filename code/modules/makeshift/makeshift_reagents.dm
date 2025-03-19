@@ -3,10 +3,9 @@
 	icon = 'icons/obj/makeshift_workstation.dmi'
 	icon_state = "workstation"
 	desc = "It's a makeshift workstation for grinding, chopping, and heating."
-	density = 1
-
-	anchored = 1
-	throwpass = 1
+	density = TRUE
+	anchored = TRUE
+	pass_flags_self = PASSSTRUCTURE | LETPASSTHROW
 
 	var/obj/item/device/analyzer/analyzer
 	var/transfer_out = 0
@@ -219,13 +218,13 @@
 	if(!reagents?.total_volume) // can't distill nothing
 		return
 	for(var/_R in reagents.reagent_volumes)
-		if(!ispath(_R, /singleton/reagent/alcohol))
+		if(!ispath(_R, /singleton/reagent/alcohol/ethanol))
 			continue
-		var/singleton/reagent/alcohol/AR = GET_SINGLETON(_R)
+		var/singleton/reagent/alcohol/ethanol/AR = GET_SINGLETON(_R)
 		var/ARvol = REAGENT_VOLUME(reagents, _R)
 		var/alcohol_fraction = AR.strength/100
 		reagents.add_reagent(/singleton/reagent/water, (1-alcohol_fraction)*ARvol)
-		reagents.add_reagent(ispath(_R, /singleton/reagent/alcohol/butanol) ? /singleton/reagent/alcohol/butanol : /singleton/reagent/alcohol, alcohol_fraction*ARvol)
+		reagents.add_reagent(ispath(_R, /singleton/reagent/alcohol/butanol) ? /singleton/reagent/alcohol/butanol : /singleton/reagent/alcohol/ethanol, alcohol_fraction*ARvol)
 		reagents.remove_reagent(_R, ARvol)
 	icon_state = "distillery-off"
 

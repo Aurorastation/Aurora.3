@@ -1,7 +1,7 @@
-var/list/all_technomancer_spells = typesof(/datum/technomancer/spell) - /datum/technomancer/spell
-var/list/all_technomancer_equipment = typesof(/datum/technomancer/equipment) - /datum/technomancer/equipment
-var/list/all_technomancer_consumables = typesof(/datum/technomancer/consumable) - /datum/technomancer/consumable
-var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) - /datum/technomancer/assistance
+GLOBAL_LIST_INIT(all_technomancer_spells, (typesof(/datum/technomancer/spell) - /datum/technomancer/spell))
+GLOBAL_LIST_INIT(all_technomancer_equipment, (typesof(/datum/technomancer/equipment) - /datum/technomancer/equipment))
+GLOBAL_LIST_INIT(all_technomancer_consumables, (typesof(/datum/technomancer/consumable) - /datum/technomancer/consumable))
+GLOBAL_LIST_INIT(all_technomancer_assistance, (typesof(/datum/technomancer/assistance) - /datum/technomancer/assistance))
 
 /datum/technomancer
 	var/name = "technomancer thing"
@@ -26,7 +26,7 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 	requisition various things from.. where ever they came from."
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "ano91"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_BELT
 	var/budget = 1000
 	var/max_budget = 1000
@@ -69,7 +69,7 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 // Parameters: 1 (new_owner - mob that the book is trying to bind to)
 // Description: Links the catalog to hopefully the technomancer, so that only they can access it.
 /obj/item/technomancer_catalog/proc/bind_to_owner(var/mob/living/carbon/human/new_owner)
-	if(!owner && technomancers.is_technomancer(new_owner.mind))
+	if(!owner && GLOB.technomancers.is_technomancer(new_owner.mind))
 		owner = new_owner
 
 // Proc: New()
@@ -84,17 +84,17 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 // Description: Instantiates all the catalog datums for everything that can be bought.
 /obj/item/technomancer_catalog/proc/set_up()
 	if(!spell_instances.len)
-		for(var/S in all_technomancer_spells)
+		for(var/S in GLOB.all_technomancer_spells)
 			spell_instances += new S()
 	if(!equipment_instances.len)
-		for(var/E in all_technomancer_equipment)
+		for(var/E in GLOB.all_technomancer_equipment)
 			equipment_instances += new E()
 	if(!consumable_instances.len)
-		for(var/C in all_technomancer_consumables)
+		for(var/C in GLOB.all_technomancer_consumables)
 			consumable_instances += new C()
 	if(has_assistance_items)
 		if(!assistance_instances.len)
-			for(var/A in all_technomancer_assistance)
+			for(var/A in GLOB.all_technomancer_assistance)
 				assistance_instances += new A()
 
 // Proc: show_categories()
@@ -104,7 +104,7 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 /obj/item/technomancer_catalog/proc/show_categories(var/category)
 	if(category)
 		if(spell_tab != category)
-			return "<a href='byond://?src=\ref[src];spell_category=[category]'>[category]</a>"
+			return "<a href='byond://?src=[REF(src)];spell_category=[category]'>[category]</a>"
 		else
 			return "<b>[category]</b>"
 
@@ -115,7 +115,7 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 	if(!user)
 		return 0
 	if(owner && user != owner)
-		to_chat(user, "<span class='danger'>\The [src] knows that you're not the original owner, and has locked you out of it!</span>")
+		to_chat(user, SPAN_DANGER("\The [src] knows that you're not the original owner, and has locked you out of it!"))
 		return 0
 	else if(!owner)
 		bind_to_owner(user)
@@ -125,13 +125,13 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 			var/dat = ""
 			user.set_machine(src)
 			dat += "<align='center'><b>Functions</b> | "
-			dat += "<a href='byond://?src=\ref[src];tab_choice=1'>Equipment</a> | "
-			dat += "<a href='byond://?src=\ref[src];tab_choice=2'>Consumables</a> | "
+			dat += "<a href='byond://?src=[REF(src)];tab_choice=1'>Equipment</a> | "
+			dat += "<a href='byond://?src=[REF(src)];tab_choice=2'>Consumables</a> | "
 			if(length(assistance_instances))
-				dat += "<a href='byond://?src=\ref[src];tab_choice=3'>Assistance</a> | "
-			dat += "<a href='byond://?src=\ref[src];tab_choice=4'>Info</a></align><br>"
+				dat += "<a href='byond://?src=[REF(src)];tab_choice=3'>Assistance</a> | "
+			dat += "<a href='byond://?src=[REF(src)];tab_choice=4'>Info</a></align><br>"
 			dat += "You currently have a budget of <b>[budget]/[max_budget]</b>.<br><br>"
-			dat += "<a href='byond://?src=\ref[src];refund_functions=1'>Refund Functions</a><br><br>"
+			dat += "<a href='byond://?src=[REF(src)];refund_functions=1'>Refund Functions</a><br><br>"
 
 			dat += "[show_categories(ALL_SPELLS)] | [show_categories(OFFENSIVE_SPELLS)] | [show_categories(DEFENSIVE_SPELLS)] | \
 			[show_categories(UTILITY_SPELLS)] | [show_categories(SUPPORT_SPELLS)]<br>"
@@ -149,7 +149,7 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 				if(spell.has_additional_info)
 					dat += "<i><font color='green'>[spell.additional_info()]</font></i><br>"
 				if(spell.cost <= budget)
-					dat += "<a href='byond://?src=\ref[src];spell_choice=[spell.name]'>Purchase</a> ([spell.cost])<br><br>"
+					dat += "<a href='byond://?src=[REF(src)];spell_choice=[spell.name]'>Purchase</a> ([spell.cost])<br><br>"
 				else
 					dat += "<font color='red'><b>Cannot afford!</b></font><br><br>"
 			user << browse(dat, "window=radio")
@@ -157,12 +157,12 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 		if(1) //Equipment
 			var/dat = ""
 			user.set_machine(src)
-			dat += "<align='center'><a href='byond://?src=\ref[src];tab_choice=0'>Functions</a> | "
+			dat += "<align='center'><a href='byond://?src=[REF(src)];tab_choice=0'>Functions</a> | "
 			dat += "<b>Equipment</b> | "
-			dat += "<a href='byond://?src=\ref[src];tab_choice=2'>Consumables</a> | "
+			dat += "<a href='byond://?src=[REF(src)];tab_choice=2'>Consumables</a> | "
 			if(length(assistance_instances))
-				dat += "<a href='byond://?src=\ref[src];tab_choice=3'>Assistance</a> | "
-			dat += "<a href='byond://?src=\ref[src];tab_choice=4'>Info</a></align><br>"
+				dat += "<a href='byond://?src=[REF(src)];tab_choice=3'>Assistance</a> | "
+			dat += "<a href='byond://?src=[REF(src)];tab_choice=4'>Info</a></align><br>"
 			dat += "You currently have a budget of <b>[budget]/[max_budget]</b>.<br><br>"
 			for(var/datum/technomancer/equipment/E in equipment_instances)
 				dat += "<b>[E.name]</b><br>"
@@ -170,7 +170,7 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 				if(E.has_additional_info)
 					dat += "<i><font color='green'>[E.additional_info()]</font></i><br>"
 				if(E.cost <= budget)
-					dat += "<a href='byond://?src=\ref[src];item_choice=[E.name]'>Purchase</a> ([E.cost])<br><br>"
+					dat += "<a href='byond://?src=[REF(src)];item_choice=[E.name]'>Purchase</a> ([E.cost])<br><br>"
 				else
 					dat += "<font color='red'><b>Cannot afford!</b></font><br><br>"
 			user << browse(dat, "window=radio")
@@ -178,12 +178,12 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 		if(2) //Consumables
 			var/dat = ""
 			user.set_machine(src)
-			dat += "<align='center'><a href='byond://?src=\ref[src];tab_choice=0'>Functions</a> | "
-			dat += "<a href='byond://?src=\ref[src];tab_choice=1'>Equipment</a> | "
+			dat += "<align='center'><a href='byond://?src=[REF(src)];tab_choice=0'>Functions</a> | "
+			dat += "<a href='byond://?src=[REF(src)];tab_choice=1'>Equipment</a> | "
 			dat += "<b>Consumables</b> | "
 			if(length(assistance_instances))
-				dat += "<a href='byond://?src=\ref[src];tab_choice=3'>Assistance</a> | "
-			dat += "<a href='byond://?src=\ref[src];tab_choice=4'>Info</a></align><br>"
+				dat += "<a href='byond://?src=[REF(src)];tab_choice=3'>Assistance</a> | "
+			dat += "<a href='byond://?src=[REF(src)];tab_choice=4'>Info</a></align><br>"
 			dat += "You currently have a budget of <b>[budget]/[max_budget]</b>.<br><br>"
 			for(var/datum/technomancer/consumable/C in consumable_instances)
 				dat += "<b>[C.name]</b><br>"
@@ -191,7 +191,7 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 				if(C.has_additional_info)
 					dat += "<i><font color='green'>[C.additional_info()]</font></i><br>"
 				if(C.cost <= budget)
-					dat += "<a href='byond://?src=\ref[src];item_choice=[C.name]'>Purchase</a> ([C.cost])<br><br>"
+					dat += "<a href='byond://?src=[REF(src)];item_choice=[C.name]'>Purchase</a> ([C.cost])<br><br>"
 				else
 					dat += "<font color='red'><b>Cannot afford!</b></font><br><br>"
 			user << browse(dat, "window=radio")
@@ -199,11 +199,11 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 		if(3) //Assistance
 			var/dat = ""
 			user.set_machine(src)
-			dat += "<align='center'><a href='byond://?src=\ref[src];tab_choice=0'>Functions</a> | "
-			dat += "<a href='byond://?src=\ref[src];tab_choice=1'>Equipment</a> | "
-			dat += "<a href='byond://?src=\ref[src];tab_choice=2'>Consumables</a> | "
+			dat += "<align='center'><a href='byond://?src=[REF(src)];tab_choice=0'>Functions</a> | "
+			dat += "<a href='byond://?src=[REF(src)];tab_choice=1'>Equipment</a> | "
+			dat += "<a href='byond://?src=[REF(src)];tab_choice=2'>Consumables</a> | "
 			dat += "<b>Assistance</b> | "
-			dat += "<a href='byond://?src=\ref[src];tab_choice=4'>Info</a></align><br>"
+			dat += "<a href='byond://?src=[REF(src)];tab_choice=4'>Info</a></align><br>"
 			dat += "You currently have a budget of <b>[budget]/[max_budget]</b>.<br><br>"
 			for(var/datum/technomancer/assistance/A in assistance_instances)
 				dat += "<b>[A.name]</b><br>"
@@ -211,7 +211,7 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 				if(A.has_additional_info)
 					dat += "<i><font color='green'>[A.additional_info()]</font></i><br>"
 				if(A.cost <= budget)
-					dat += "<a href='byond://?src=\ref[src];item_choice=[A.name]'>Purchase</a> ([A.cost])<br><br>"
+					dat += "<a href='byond://?src=[REF(src)];item_choice=[A.name]'>Purchase</a> ([A.cost])<br><br>"
 				else
 					dat += "<font color='red'><b>Cannot afford!</b></font><br><br>"
 			user << browse(dat, "window=radio")
@@ -219,11 +219,11 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 		if(4) //Info
 			var/dat = ""
 			user.set_machine(src)
-			dat += "<align='center'><a href='byond://?src=\ref[src];tab_choice=0'>Functions</a> | "
-			dat += "<a href='byond://?src=\ref[src];tab_choice=1'>Equipment</a> | "
-			dat += "<a href='byond://?src=\ref[src];tab_choice=2'>Consumables</a> | "
+			dat += "<align='center'><a href='byond://?src=[REF(src)];tab_choice=0'>Functions</a> | "
+			dat += "<a href='byond://?src=[REF(src)];tab_choice=1'>Equipment</a> | "
+			dat += "<a href='byond://?src=[REF(src)];tab_choice=2'>Consumables</a> | "
 			if(length(assistance_instances))
-				dat += "<a href='byond://?src=\ref[src];tab_choice=3'>Assistance</a> | "
+				dat += "<a href='byond://?src=[REF(src)];tab_choice=3'>Assistance</a> | "
 			dat += "<b>Info</b></align><br>"
 			dat += "You currently have a budget of <b>[budget]/[max_budget]</b>.<br><br>"
 			dat += "<br>"
@@ -320,13 +320,13 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 				if(new_spell.cost <= budget)
 					if(!core.has_spell(new_spell))
 						budget -= new_spell.cost
-						to_chat(H, "<span class='notice'>You have just bought [new_spell.name].</span>")
+						to_chat(H, SPAN_NOTICE("You have just bought [new_spell.name]."))
 						core.add_spell(new_spell.obj_path, new_spell.name, new_spell.ability_icon_state)
 					else //We already own it.
-						to_chat(H, "<span class='danger'>You already have [new_spell.name]!</span>")
+						to_chat(H, SPAN_DANGER("You already have [new_spell.name]!"))
 						return
 				else //Can't afford.
-					to_chat(H, "<span class='danger'>You can't afford that!</span>")
+					to_chat(H, SPAN_DANGER("You can't afford that!"))
 					return
 
 		// This needs less copypasta.
@@ -340,19 +340,19 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 			if(desired_object)
 				if(desired_object.cost <= budget)
 					budget -= desired_object.cost
-					to_chat(H, "<span class='notice'>You have just bought \a [desired_object.name].</span>")
+					to_chat(H, SPAN_NOTICE("You have just bought \a [desired_object.name]."))
 					var/obj/O = new desired_object.obj_path(get_turf(H))
-					technomancer_belongings.Add(O) // Used for the Track spell.
+					GLOB.technomancer_belongings.Add(O) // Used for the Track spell.
 
 				else //Can't afford.
-					to_chat(H, "<span class='danger'>You can't afford that!</span>")
+					to_chat(H, SPAN_DANGER("You can't afford that!"))
 					return
 
 
 		if(href_list["refund_functions"])
 			var/turf/T = get_turf(H)
 			if(T.z in SSatlas.current_map.player_levels)
-				to_chat(H, "<span class='danger'>You can only refund at your base, it's too late now!</span>")
+				to_chat(H, SPAN_DANGER("You can only refund at your base, it's too late now!"))
 				return
 			var/obj/item/technomancer_core/core = H.get_technomancer_core()
 			if(core)
@@ -367,16 +367,16 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 /obj/item/technomancer_catalog/attackby(obj/item/attacking_item, mob/user)
 	var/turf/T = get_turf(user)
 	if(T.z in SSatlas.current_map.player_levels)
-		to_chat(user, "<span class='danger'>You can only refund at your base, it's too late now!</span>")
+		to_chat(user, SPAN_DANGER("You can only refund at your base, it's too late now!"))
 		return TRUE
 	for(var/datum/technomancer/equipment/E in equipment_instances + assistance_instances)
 		if(attacking_item.type == E.obj_path) // We got a match.
 			if(budget + E.cost > max_budget)
-				to_chat(user, "<span class='warning'>\The [src] will not allow you to overflow your maximum budget by refunding that.</span>")
+				to_chat(user, SPAN_WARNING("\The [src] will not allow you to overflow your maximum budget by refunding that."))
 				return TRUE
 			else
 				budget = budget + E.cost
-				to_chat(user, "<span class='notice'>You've refunded \the [attacking_item].</span>")
+				to_chat(user, SPAN_NOTICE("You've refunded \the [attacking_item]."))
 
 				// We sadly need to do special stuff here or else people who refund cores with spells will lose points permanently.
 				if(istype(attacking_item, /obj/item/technomancer_core))
@@ -385,7 +385,7 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 						for(var/datum/technomancer/spell/spell_datum in spell_instances)
 							if(spell_datum.obj_path == spell.spellpath)
 								budget += spell_datum.cost
-								to_chat(user, "<span class='notice'>[spell.name] was inside \the [core], and was refunded.</span>")
+								to_chat(user, SPAN_NOTICE("[spell.name] was inside \the [core], and was refunded."))
 								core.remove_spell(spell)
 								break
 				qdel(attacking_item)

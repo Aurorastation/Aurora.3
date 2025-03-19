@@ -145,14 +145,15 @@
 		if(nymph.nutrition > 100 && nutrilevel < 10)
 			nymph.adjustNutritionLoss((10-nutrilevel)*5)
 			nutrilevel = 10
-			nymph.visible_message("<span class='notice'><b>[nymph]</b> secretes a trickle of green liquid, refilling [src].</span>","<span class='notice'>You secrete a trickle of green liquid, refilling [src].</span>")
+			nymph.visible_message(SPAN_NOTICE("<b>[nymph]</b> secretes a trickle of green liquid, refilling [src]."),
+												SPAN_NOTICE("You secrete a trickle of green liquid, refilling [src]."))
 		return//Nymphs cant open and close lids
 	if(mechanical && !usr.incapacitated() && Adjacent(usr))
 		close_lid(usr)
 		return TRUE
 	return ..()
 
-/obj/machinery/portable_atmospherics/hydroponics/attack_ghost(var/mob/abstract/observer/user)
+/obj/machinery/portable_atmospherics/hydroponics/attack_ghost(var/mob/abstract/ghost/user)
 	if(!(seed && ispath(seed.product_type, /mob)))
 		to_chat(user, SPAN_WARNING("This tray doesn't have any seeds, or the planted seeds does not spawn a mob!"))
 		return
@@ -180,18 +181,21 @@
 		if(weedlevel > 0)
 			nymph.ingested.add_reagent(/singleton/reagent/nutriment, weedlevel/6)
 			weedlevel = 0
-			nymph.visible_message("<span class='notice'><b>[nymph]</b> roots through [src], ripping out weeds and eating them noisily.</span>","<span class='notice'>You root through [src], ripping out weeds and eating them noisily.</span>")
+			nymph.visible_message(SPAN_NOTICE("<b>[nymph]</b> roots through [src], ripping out weeds and eating them noisily."),
+												SPAN_NOTICE("You root through [src], ripping out weeds and eating them noisily."))
 			return
 		if (dead)//Let nymphs eat dead plants
 			nymph.ingested.add_reagent(/singleton/reagent/nutriment, 1)
-			nymph.visible_message("<span class='notice'><b>[nymph]</b> rips out the dead plants from [src], and loudly munches them.</span>","<span class='notice'>You root out the dead plants in [src], eating them with loud chewing sounds.</span>")
+			nymph.visible_message(SPAN_NOTICE("<b>[nymph]</b> rips out the dead plants from [src], and loudly munches them."),
+												SPAN_NOTICE("You root out the dead plants in [src], eating them with loud chewing sounds."))
 			remove_dead(user)
 			return
 		if (harvest)
 			harvest(user)
 			return
 		else
-			nymph.visible_message("<span class='notice'><b>[nymph]</b> rolls around in [src] for a bit.</span>","<span class='notice'>You roll around in [src] for a bit.</span>")
+			nymph.visible_message(SPAN_NOTICE("<b>[nymph]</b> rolls around in [src] for a bit."),
+												SPAN_NOTICE("You roll around in [src] for a bit."))
 		return
 
 /obj/machinery/portable_atmospherics/hydroponics/New()
@@ -204,31 +208,35 @@
 		connect()
 	update_icon()
 
-/obj/machinery/portable_atmospherics/hydroponics/bullet_act(var/obj/item/projectile/Proj)
+/obj/machinery/portable_atmospherics/hydroponics/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 
 	//Don't act on seeds like dionaea that shouldn't change.
 	if(seed && seed.get_trait(TRAIT_IMMUTABLE) > 0)
-		return
+		return BULLET_ACT_HIT
 
 	//Override for somatoray projectiles.
-	if(istype(Proj ,/obj/item/projectile/energy/floramut)&& prob(20))
-		if(istype(Proj, /obj/item/projectile/energy/floramut/gene))
-			var/obj/item/projectile/energy/floramut/gene/G = Proj
+	if(istype(hitting_projectile ,/obj/projectile/energy/floramut)&& prob(20))
+		if(istype(hitting_projectile, /obj/projectile/energy/floramut/gene))
+			var/obj/projectile/energy/floramut/gene/G = hitting_projectile
 			if(seed)
 				seed = seed.diverge_mutate_gene(G.gene, get_turf(loc))	//get_turf just in case it's not in a turf.
 		else
 			mutate(1)
-			return
-	else if(istype(Proj ,/obj/item/projectile/energy/florayield) && prob(20))
+			return BULLET_ACT_HIT
+	else if(istype(hitting_projectile ,/obj/projectile/energy/florayield) && prob(20))
 		yield_mod = min(10,yield_mod+rand(1,2))
-		return
+		return BULLET_ACT_HIT
 
-	..()
+	. = ..()
 
 /obj/machinery/portable_atmospherics/hydroponics/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(air_group || (height==0)) return TRUE
+	if(air_group || (height==0))
+		return TRUE
 
-	if(istype(mover) && mover.checkpass(PASSTABLE))
+	if(mover?.movement_type & PHASING)
+		return TRUE
+
+	if(istype(mover) && mover.pass_flags & PASSTABLE)
 		return TRUE
 	else
 		return !density
@@ -248,7 +256,7 @@
 	if(prob(min(25,max(1,seed.get_trait(TRAIT_POTENCY/2)))))
 		if(seed.get_trait(TRAIT_SPOROUS) && !closed_system)
 			seed.create_spores(get_turf(src))
-			visible_message("<span class='danger'>\The [src] releases its spores!</span>")
+			visible_message(SPAN_DANGER("\The [src] releases its spores!"))
 
 //Process reagents being input into the tray.
 /obj/machinery/portable_atmospherics/hydroponics/proc/process_reagents()
@@ -319,7 +327,7 @@
 	// Reset values.
 	if(seed.get_trait(TRAIT_SPOROUS))
 		seed.create_spores(get_turf(src))
-		visible_message("<span class='danger'>\The [src] releases its spores!</span>")
+		visible_message(SPAN_DANGER("\The [src] releases its spores!"))
 	harvest = 0
 	lastproduce = age
 
@@ -372,7 +380,7 @@
 	pestlevel = 0
 	sampled = 0
 	update_icon()
-	visible_message("<span class='notice'>[src] has been overtaken by [seed.display_name].</span>")
+	visible_message(SPAN_NOTICE("[src] has been overtaken by [seed.display_name]."))
 
 	return
 
@@ -450,7 +458,7 @@
 	weedlevel = 0
 
 	update_icon()
-	visible_message("<span class='danger'>The </span><span class='notice'>[previous_plant]</span><span class='danger'> has suddenly mutated into </span><span class='notice'>[seed.display_name]!</span>")
+	visible_message(SPAN_DANGER("The </span><span class='notice'>[previous_plant]</span><span class='danger'> has suddenly mutated into </span><span class='notice'>[seed.display_name]!"))
 
 	return
 
@@ -552,16 +560,18 @@
 			check_health()
 
 		else
-			to_chat(user, "<span class='danger'>\The [src] already has seeds in it!</span>")
+			to_chat(user, SPAN_DANGER("\The [src] already has seeds in it!"))
 
 	else if (istype(attacking_item, /obj/item/material/minihoe))  // The minihoe
 
 		if(weedlevel > 0)
-			user.visible_message("<span class='danger'>[user] starts uprooting the weeds.</span>", "<span class='danger'>You remove the weeds from the [src].</span>")
+			user.visible_message(SPAN_DANGER("[user] starts uprooting the weeds."),
+									SPAN_DANGER("You remove the weeds from the [src]."))
+
 			weedlevel = 0
 			update_icon()
 		else
-			to_chat(user, "<span class='danger'>This plot is completely devoid of weeds. It doesn't need uprooting.</span>")
+			to_chat(user, SPAN_DANGER("This plot is completely devoid of weeds. It doesn't need uprooting."))
 
 	else if (istype(attacking_item, /obj/item/storage/bag/plants))
 
@@ -591,13 +601,13 @@
 		if(locate(/obj/machinery/atmospherics/portables_connector/) in loc)
 			return ..()
 
-		playsound(loc, attacking_item.usesound, 50, 1)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		anchored = !anchored
 		to_chat(user, "You [anchored ? "wrench" : "unwrench"] \the [src].")
 
 	else if(attacking_item.force && seed)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		user.visible_message("<span class='danger'>\The [seed.display_name] has been attacked by [user] with \the [attacking_item]!</span>")
+		user.visible_message(SPAN_DANGER("\The [seed.display_name] has been attacked by [user] with \the [attacking_item]!"))
 		if(!dead)
 			var/total_damage = attacking_item.force
 			if ((attacking_item.sharp) || (attacking_item.damtype == "fire")) //fire and sharp things are more effective when dealing with plants
@@ -628,7 +638,7 @@
 		. += "[src] is empty."
 		return
 
-	. += "<span class='notice'>[seed.display_name] are growing here.</span>"
+	. += SPAN_NOTICE("[seed.display_name] are growing here.")
 
 	if(!is_adjacent)
 		return
@@ -642,7 +652,7 @@
 		. += "\The [src] is <span class='danger'>infested with tiny worms</span>!"
 
 	if(dead)
-		. += "<span class='danger'>The plant is dead.</span>"
+		. += SPAN_DANGER("The plant is dead.")
 	else if(health <= (seed.get_trait(TRAIT_ENDURANCE)/ 2))
 		. += "The plant looks <span class='danger'>unhealthy</span>."
 

@@ -1,5 +1,9 @@
 /mob/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(air_group || (height==0)) return 1
+	if(air_group || (height==0))
+		return TRUE
+
+	if(mover?.movement_type & PHASING)
+		return TRUE
 
 	if(ismob(mover))
 		var/mob/moving_mob = mover
@@ -89,7 +93,8 @@
 /client/verb/swap_hand()
 	set hidden = 1
 	if(istype(mob, /mob/living/carbon))
-		mob:swap_hand()
+		var/mob/living/carbon/C = mob
+		C.swap_hand()
 	if(istype(mob,/mob/living/silicon/robot))
 		var/mob/living/silicon/robot/R = mob
 		R.cycle_modules()
@@ -108,8 +113,11 @@
 	set hidden = 1
 	if(!istype(mob, /mob/living/carbon))
 		return
-	if (!mob.stat && isturf(mob.loc) && !mob.restrained())
-		mob:toggle_throw_mode()
+
+	var/mob/living/carbon/C = mob
+
+	if (!C.stat && isturf(C.loc) && !C.restrained())
+		C.toggle_throw_mode()
 	else
 		return
 
@@ -131,45 +139,85 @@
 	return
 
 //This proc should never be overridden elsewhere at /atom/movable to keep directions sane.
-/atom/movable/Move(newloc, direct)
-	if (direct & (direct - 1))
-		if (direct & 1)
-			if (direct & 4)
-				if (step(src, NORTH))
-					step(src, EAST)
+/atom/movable/Move(atom/newloc, direction, glide_size_override = 0, update_dir = TRUE) //Last 2 parameters are not used but they're caught
+	. = FALSE
+	if(!newloc || newloc == loc)
+		return
+
+	if(SEND_SIGNAL(src, COMSIG_MOVABLE_PRE_MOVE, newloc) & COMPONENT_MOVABLE_BLOCK_PRE_MOVE)
+		return
+
+	var/old_loc = loc
+
+	//Diagonal move
+	if(direction & (direction - 1))
+		if(direction & 1)
+			if(direction & 4)
+				if(step(src, NORTH))
+					. = step(src, EAST)
 				else
-					if (step(src, EAST))
-						step(src, NORTH)
+					if(step(src, EAST))
+						. = step(src, NORTH)
 			else
-				if (direct & 8)
-					if (step(src, NORTH))
-						step(src, WEST)
+				if(direction & 8)
+					if(step(src, NORTH))
+						. = step(src, WEST)
 					else
-						if (step(src, WEST))
-							step(src, NORTH)
+						if(step(src, WEST))
+							. = step(src, NORTH)
 		else
-			if (direct & 2)
-				if (direct & 4)
-					if (step(src, SOUTH))
-						step(src, EAST)
+			if(direction & 2)
+				if(direction & 4)
+					if(step(src, SOUTH))
+						. = step(src, EAST)
 					else
-						if (step(src, EAST))
-							step(src, SOUTH)
+						if(step(src, EAST))
+							. = step(src, SOUTH)
 				else
-					if (direct & 8)
-						if (step(src, SOUTH))
-							step(src, WEST)
+					if(direction & 8)
+						if(step(src, SOUTH))
+							. = step(src, WEST)
 						else
-							if (step(src, WEST))
-								step(src, SOUTH)
+							if(step(src, WEST))
+								. = step(src, SOUTH)
+
+	//Cardinal move
 	else
 		var/atom/A = src.loc
 
 		var/olddir = dir //we can't override this without sacrificing the rest of movable/New()
-		. = ..()
-		if(direct != olddir)
+		. = ..(newloc, direction)
+
+		if(.)
+			// Lighting.
+			if(light_sources)
+				var/datum/light_source/L
+				var/thing
+				for(thing in light_sources)
+					L = thing
+					L.source_atom.update_light()
+
+			// Openturf.
+			if(bound_overlay)
+				// The overlay will handle cleaning itself up on non-openspace turfs.
+				bound_overlay.forceMove(get_step(src, UP))
+				if(bound_overlay.dir != dir)
+					bound_overlay.set_dir(dir)
+
+			if(opacity)
+				updateVisibility(src)
+
+			//Mimics
+			if(bound_overlay)
+				bound_overlay.forceMove(get_step(src, UP))
+				if(bound_overlay.dir != dir)
+					bound_overlay.set_dir(dir)
+
+			Moved(old_loc, direction, FALSE)
+
+		if(direction != olddir)
 			dir = olddir
-			set_dir(direct)
+			set_dir(direction)
 
 		src.move_speed = world.time - src.l_move_time
 		src.l_move_time = world.time
@@ -187,28 +235,31 @@
 	return
 
 
-/client/Move(n, direct)
-	if(!mob)
-		return // Moved here to avoid nullrefs below
+/**
+ * Move a client in a direction
+ *
+ * This is called when a client tries to move, usually it dispatches the moving request to the mob it's controlling
+ */
+/client/Move(new_loc, direct)
+	if(world.time < move_delay) //do not move anything ahead of this check please
+		return FALSE
+
+	var/old_move_delay = move_delay
+
+	if(!direct || !new_loc)
+		return FALSE
+	if(!mob?.loc)
+		return FALSE
 
 	if(mob.control_object)
 		Move_object(direct)
 
-	if(mob.incorporeal_move && isobserver(mob))
+	if(mob.incorporeal_move && isabstractmob(mob))
 		Process_Incorpmove(direct, mob)
 		return
 
 	if(moving || world.time < move_delay)
 		return 0
-
-	//This compensates for the inaccuracy of move ticks
-	//Whenever world.time overshoots the movedelay, due to it only ticking once per decisecond
-	//The overshoot value is subtracted from our next delay, farther down where move delay is set.
-	//This doesn't entirely remove the problem, but it keeps travel times accurate to within 0.1 seconds
-	//Over an infinite distance, and prevents the inaccuracy from compounding. Thus making it basically a non-issue
-	var/leftover = world.time - move_delay
-	if (leftover > 1)
-		leftover = 0
 
 	if(mob.stat == DEAD && isliving(mob))
 		mob.ghostize()
@@ -216,12 +267,17 @@
 
 	// handle possible Eye movement
 	if(mob.eyeobj)
-		return mob.EyeMove(n,direct)
+		return mob.EyeMove(new_loc,direct)
 
 	if(mob.transforming)
 		return	//This is sota the goto stop mobs from moving var
 
+	var/add_delay = mob.cached_multiplicative_slowdown
+
 	if(isliving(mob))
+		if(SEND_SIGNAL(mob, COMSIG_MOB_CLIENT_PRE_LIVING_MOVE, new_loc, direct) & COMSIG_MOB_CLIENT_BLOCK_PRE_LIVING_MOVE)
+			return FALSE
+
 		var/mob/living/L = mob
 		if(L.incorporeal_move && isturf(mob.loc))//Move though walls
 			Process_Incorpmove(direct, mob)
@@ -259,6 +315,10 @@
 	if(!mob.lastarea)
 		mob.lastarea = get_area(mob.loc)
 
+	if(isobj(mob.loc) || ismob(mob.loc))	//Inside an object, tell it we are moving out
+		var/atom/O = mob.loc
+		return O.relaymove(mob, direct)
+
 	if(isturf(mob.loc))
 		if(!mob.check_solid_ground())
 			var/allowmove = mob.Allow_Spacemove(0)
@@ -271,29 +331,36 @@
 
 
 		if(mob.restrained())		//Why being pulled while cuffed prevents you from moving
-			for(var/mob/M in range(mob, 1))
-				if(M.pulling == mob)
-					if(!M.restrained() && M.stat == 0 && M.canmove && mob.Adjacent(M))
-						to_chat(src, SPAN_NOTICE("You're restrained! You can't move!"))
-						return 0
-					else
-						M.stop_pulling()
+			var/mob/puller = mob.pulledby
+			if(puller)
+				if(!puller.restrained() && puller.stat == 0 && puller.canmove && mob.Adjacent(puller))
+					to_chat(src, SPAN_NOTICE("You're restrained! You can't move!"))
+					return FALSE
+				else
+					puller.stop_pulling()
 
-		if(mob.pinned.len)
+		if(length(mob.pinned))
 			to_chat(src, SPAN_WARNING("You're pinned to a wall by [mob.pinned[1]]!"))
 			move_delay = world.time + 1 SECOND // prevent spam
-			return 0
+			return FALSE
 
-		move_delay = world.time - leftover//set move delay
+		//If the move was recent, count using old_move_delay
+		//We want fractional behavior and all
+		if(old_move_delay + world.tick_lag > world.time)
+			//Yes this makes smooth movement stutter if add_delay is too fractional
+			//Yes this is better then the alternative
+			move_delay = old_move_delay
+		else
+			move_delay = world.time
 
-		if (mob.buckled_to)
+		if(mob.buckled_to)
 			if(istype(mob.buckled_to, /obj/vehicle))
 				//manually set move_delay for vehicles so we don't inherit any mob movement penalties
 				//specific vehicle move delays are set in code\modules\vehicles\vehicle.dm
-				move_delay = world.time
+				move_delay = (old_move_delay + world.tick_lag > world.time) ? old_move_delay : world.time
 				//drunk driving
 				if(mob.confused && prob(25))
-					direct = pick(GLOB.cardinal)
+					direct = pick(GLOB.cardinals)
 				return mob.buckled_to.relaymove(mob,direct)
 
 			//TODO: Fuck wheelchairs.
@@ -309,7 +376,7 @@
 					min_move_delay = driver.min_walk_delay
 				//drunk wheelchair driving
 				if(mob.confused && prob(25))
-					direct = pick(GLOB.cardinal)
+					direct = pick(GLOB.cardinals)
 				move_delay += max((mob.movement_delay() + GLOB.config.walk_speed) * GLOB.config.walk_delay_multiplier, min_move_delay)
 				return mob.buckled_to.relaymove(mob,direct)
 
@@ -332,6 +399,7 @@
 			tally *= GLOB.config.walk_delay_multiplier
 
 		move_delay += tally
+		move_delay += add_delay
 
 		if(mob_is_human && mob.lying)
 			var/mob/living/carbon/human/H = mob
@@ -364,13 +432,13 @@
 						step(G.affecting, get_dir(G.affecting.loc, mob.loc))
 
 		if(mob.confused && prob(25) && mob.m_intent == M_RUN)
-			step(mob, pick(GLOB.cardinal))
+			step(mob, pick(GLOB.cardinals))
 		else
-			. = mob.SelfMove(n, direct)
+			. = mob.SelfMove(new_loc, direct)
 
-		for (var/obj/item/grab/G in list(mob:l_hand, mob:r_hand))
+		for (var/obj/item/grab/G in list(mob.l_hand, mob.r_hand))
 			if (G.state == GRAB_NECK)
-				mob.set_dir(GLOB.reverse_dir[direct])
+				mob.set_dir(REVERSE_DIR(direct))
 			G.adjust_position()
 
 		for (var/obj/item/grab/G in mob.grabbed_by)
@@ -381,10 +449,6 @@
 		if(sprint_tally && mob.loc != old_loc)
 			var/mob/living/carbon/human/H = mob
 			H.species.handle_sprint_cost(H, sprint_tally, FALSE)
-
-	if(isobj(mob.loc) || ismob(mob.loc))	//Inside an object, tell it we moved
-		var/atom/O = mob.loc
-		return O.relaymove(mob, direct)
 
 /mob/living/carbon/human/proc/get_crawl_tally()
 	var/obj/item/organ/external/rhand = organs_by_name[BP_R_HAND]

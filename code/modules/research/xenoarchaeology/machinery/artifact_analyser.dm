@@ -43,14 +43,14 @@
 		dat += "<b><font color=red>Unable to locate analysis pad.</font></b><br>"
 	else if(scan_in_progress)
 		dat += "Please wait. Analysis in progress.<br>"
-		dat += "<a href='?src=\ref[src];halt_scan=1'>Halt scanning.</a><br>"
+		dat += "<a href='byond://?src=[REF(src)];halt_scan=1'>Halt scanning.</a><br>"
 	else
 		dat += "Scanner is ready.<br>"
-		dat += "<a href='?src=\ref[src];begin_scan=1'>Begin scanning.</a><br>"
+		dat += "<a href='byond://?src=[REF(src)];begin_scan=1'>Begin scanning.</a><br>"
 
 	dat += "<br>"
 	dat += "<hr>"
-	dat += "<a href='?src=\ref[src]'>Refresh</a> <a href='?src=\ref[src];close=1'>Close</a>"
+	dat += "<a href='byond://?src=[REF(src)]'>Refresh</a> <a href='byond://?src=[REF(src)];close=1'>Close</a>"
 
 	user.set_machine(src)
 
@@ -155,6 +155,8 @@
 			phasing suggested?"
 		if(/obj/structure/crystal)
 			return "Crystal formation - Pseudo organic crystalline matrix, unlikely to have formed naturally. No known technology exists to synthesize this exact composition."
+		if(/obj/structure/hivebot_head)
+			return "Transmission drone core - composed of unidentified alien alloy consistent with hivebot construction patterns. Internal systems appear to be designed for obfuscation and amplification of a master control system. Severe damage consistent with repeated gunfire logged. Signal obfuscation appears to be inactive - the primary source can now be located."
 		if(/obj/machinery/artifact)
 			//the fun one
 			var/obj/machinery/artifact/A = scanned_obj

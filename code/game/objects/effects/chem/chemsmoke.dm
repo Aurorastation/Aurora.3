@@ -4,7 +4,6 @@
 /obj/effect/effect/smoke/chem
 	icon = 'icons/effects/chemsmoke.dmi'
 	opacity = 0
-	layer = 6
 	time_to_live = 300
 	pass_flags = PASSTABLE | PASSGRILLE | PASSGLASS //PASSGLASS is fine here, it's just so the visual effect can "flow" around glass
 	var/splash_amount = 10 //atoms moving through a smoke cloud get splashed with up to 10 units of reagent
@@ -20,17 +19,17 @@
 	if(cached_icon)
 		icon = cached_icon
 
-	set_dir(pick(GLOB.cardinal))
+	set_dir(pick(GLOB.cardinals))
 	pixel_x = -32 + rand(-8, 8)
 	pixel_y = -32 + rand(-8, 8)
 
 	//float over to our destination, if we have one
 	destination = dest_turf
 	if(destination)
-		walk_to(src, destination)
+		GLOB.move_manager.move_to(src, destination, priority = MOVEMENT_SPACE_PRIORITY)
 
 /obj/effect/effect/smoke/chem/Destroy()
-	walk(src, 0)
+	GLOB.move_manager.stop_looping(src)
 	return ..()
 
 /obj/effect/effect/smoke/chem/Move()
@@ -45,13 +44,14 @@
 			bound_width = 96
 			bound_height = 96
 
-/obj/effect/effect/smoke/chem/Crossed(atom/movable/AM)
+/obj/effect/effect/smoke/chem/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	..()
-	if(!istype(AM, /obj/effect/effect/smoke/chem))
-		if(istype(AM, /obj/item/reagent_containers) && !AM.is_open_container())
+
+	if(!istype(arrived, /obj/effect/effect/smoke/chem))
+		if(istype(arrived, /obj/item/reagent_containers) && !arrived.is_open_container())
 			return
 		else
-			reagents.splash(AM, splash_amount, copy = 1)
+			reagents.splash(arrived, splash_amount, copy = 1)
 
 /obj/effect/effect/smoke/chem/proc/initial_splash()
 	for(var/turf/T in view(1, src))
@@ -136,16 +136,16 @@
 	var/area/A = get_area(location)
 
 	var/where = "[A.name] | [location.x], [location.y]"
-	var/whereLink = "<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>[where]</a>"
+	var/whereLink = "<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>[where]</a>"
 
 	if(show_log)
 		if(carry.my_atom.fingerprintslast)
 			var/mob/M = get_mob_by_key(carry.my_atom.fingerprintslast)
 			var/more = ""
 			if(M)
-				more = "(<A HREF='?_src_=holder;adminmoreinfo=\ref[M]'>?</a>)"
+				more = "(<A href='byond://?_src_=holder;adminmoreinfo=[REF(M)]'>?</a>)"
 			message_admins("A chemical smoke reaction has taken place in ([whereLink])[contained]. Last associated key is [carry.my_atom.fingerprintslast][more].", 0, 1)
-			log_game("A chemical smoke reaction has taken place in ([where])[contained]. Last associated key is [carry.my_atom.fingerprintslast].",ckey=key_name(M))
+			log_game("A chemical smoke reaction has taken place in ([where])[contained]. Last associated key is [carry.my_atom.fingerprintslast].")
 		else
 			message_admins("A chemical smoke reaction has taken place in ([whereLink]). No associated key.", 0, 1)
 			log_game("A chemical smoke reaction has taken place in ([where])[contained]. No associated key.")
@@ -155,7 +155,7 @@
 			mobnames += "Affected players: "
 			var/i = 1
 			do
-				mobnames += "<A HREF='?_src_=holder;adminmoreinfo=\ref[touched_mobs[i]]'>?</a>"
+				mobnames += "<A href='byond://?_src_=holder;adminmoreinfo=[REF(touched_mobs[i])]'>?</a>"
 				if (touched_mobs[i+1])
 					mobnames += ", "
 				i++
@@ -285,7 +285,7 @@
 
 	while(pending.len)
 		for(var/turf/current in pending)
-			for(var/D in GLOB.cardinal)
+			for(var/D in GLOB.cardinals)
 				var/turf/target = get_step(current, D)
 				if(wallList)
 					if(istype(target, /turf/simulated/wall))

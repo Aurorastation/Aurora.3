@@ -105,11 +105,12 @@ pixel_x = 10;
 	anchored = 1
 	idle_power_usage = 90
 	active_power_usage = 1500 //For heating/cooling rooms. 1000 joules equates to about 1 degree every 2 seconds for a single tile of air.
-	power_channel = ENVIRON
+	power_channel = AREA_USAGE_ENVIRON
 	req_one_access = list(ACCESS_ATMOSPHERICS, ACCESS_ENGINE_EQUIP)
 	clicksound = /singleton/sound_category/button_sound
 	clickvol = 30
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
+	z_flags = ZMM_MANGLE_PLANES
 
 	var/alarm_id = null
 	var/breach_detection = 1 // Whether to use automatic breach detection or not
@@ -273,6 +274,21 @@ pixel_x = 10;
 /obj/machinery/alarm/cold/south
 	PRESET_SOUTH
 
+/obj/machinery/alarm/warm
+	target_temperature = T20C + 10
+
+/obj/machinery/alarm/warm/north
+	PRESET_NORTH
+
+/obj/machinery/alarm/warm/east
+	PRESET_EAST
+
+/obj/machinery/alarm/warm/west
+	PRESET_WEST
+
+/obj/machinery/alarm/warm/south
+	PRESET_SOUTH
+
 /obj/machinery/alarm/server/Initialize()
 	. = ..()
 	TLV[GAS_OXYGEN] =			list(-1.0, -1.0,-1.0,-1.0) // Partial pressure, kpa
@@ -318,6 +334,7 @@ pixel_x = 10;
 		wiresexposed = 1
 
 		update_icon()
+		set_pixel_offsets()
 		return
 
 	first_run()
@@ -455,7 +472,7 @@ pixel_x = 10;
 				var/energy_used = min( gas.get_thermal_energy_change(target_temperature) , active_power_usage * seconds_per_tick)
 
 				gas.add_thermal_energy(energy_used)
-				//use_power(energy_used, ENVIRON) //handle by update_use_power instead
+				//use_power(energy_used, AREA_USAGE_ENVIRON) //handle by update_use_power instead
 			else	//gas cooling
 				var/heat_transfer = min(abs(gas.get_thermal_energy_change(target_temperature)), active_power_usage * seconds_per_tick)
 
@@ -468,7 +485,7 @@ pixel_x = 10;
 
 				heat_transfer = -gas.add_thermal_energy(-heat_transfer)	//get the actual heat transfer
 
-				//use_power(heat_transfer / cop, ENVIRON)	//handle by update_use_power instead
+				//use_power(heat_transfer / cop, AREA_USAGE_ENVIRON)	//handle by update_use_power instead
 
 			environment.merge(gas)
 
@@ -494,14 +511,14 @@ pixel_x = 10;
 	return 0
 
 /obj/machinery/alarm/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	icon_state = "alarmp"
 
 	if(wiresexposed)
 		icon_state = "alarmx"
 
 	if((stat & (NOPOWER|BROKEN)) || shorted)
-		add_overlay("alarm_fan_off")
+		AddOverlays("alarm_fan_off")
 		set_light(0)
 		return
 
@@ -509,8 +526,11 @@ pixel_x = 10;
 	if(alarm_area?.atmosalm)
 		icon_level = max(icon_level, 1)	//if there's an atmos alarm but everything is okay locally, no need to go past yellow
 
-	alarm_overlay = make_screen_overlay(icon, "alarm[icon_level]")
-	add_overlay(alarm_overlay)
+	alarm_overlay = image(icon, "alarm[icon_level]")
+	AddOverlays(alarm_overlay)
+
+	var/emissive_overlay = emissive_appearance(icon, "alarm[icon_level]")
+	AddOverlays(emissive_overlay)
 
 	var/new_color = null
 	switch(icon_level)
@@ -524,9 +544,9 @@ pixel_x = 10;
 	set_light(l_range = L_WALLMOUNT_RANGE, l_power = L_WALLMOUNT_POWER, l_color = new_color)
 
 	if(regulating_temperature)
-		add_overlay("alarm_fan_on")
+		AddOverlays("alarm_fan_on")
 	else
-		add_overlay("alarm_fan_off")
+		AddOverlays("alarm_fan_off")
 
 /obj/machinery/alarm/proc/refresh_all()
 	for(var/id_tag in alarm_area.air_vent_names)
@@ -774,7 +794,7 @@ pixel_x = 10;
 		return STATUS_CLOSE
 
 	if(aidisabled && isAI(user))
-		to_chat(user, "<span class='warning'>AI control for \the [src] interface has been disabled.</span>")
+		to_chat(user, SPAN_WARNING("AI control for \the [src] interface has been disabled."))
 		return STATUS_CLOSE
 
 	. = shorted ? STATUS_DISABLED : STATUS_INTERACTIVE
@@ -810,10 +830,10 @@ pixel_x = 10;
 		var/min_temperature = max(selected[2] - T0C, MIN_TEMPERATURE)
 		var/input_temperature = tgui_input_number(usr, "What temperature would you like the system to mantain?", "Thermostat Controls", target_temperature - T0C, max_temperature, min_temperature)
 		if(isnum(input_temperature))
-			var/temp = Clamp(input_temperature, min_temperature, max_temperature)
+			var/temp = clamp(input_temperature, min_temperature, max_temperature)
 			if(input_temperature > max_temperature || input_temperature < min_temperature)
 				to_chat(usr, "Temperature must be between [min_temperature]C and [max_temperature]C. Target temperature clamped to [temp]C.")
-			target_temperature = Clamp(input_temperature + T0C, selected[2],  selected[3])
+			target_temperature = clamp(input_temperature + T0C, selected[2],  selected[3])
 		else
 			to_chat(usr, "Error, input not recognised. Temperature unchanged.")
 
@@ -940,12 +960,12 @@ pixel_x = 10;
 		if(2)
 			if(attacking_item.isscrewdriver())  // Opening that Air Alarm up.
 				wiresexposed = !wiresexposed
-				to_chat(user, "<span class='notice'>You [wiresexposed ? "open" : "close"] the maintenance panel.</span>")
+				to_chat(user, SPAN_NOTICE("You [wiresexposed ? "open" : "close"] the maintenance panel."))
 				update_icon()
 				return TRUE
 
 			if (wiresexposed && attacking_item.iswirecutter())
-				user.visible_message("<span class='warning'>[user] has cut the wires inside \the [src]!</span>", "You cut the wires inside \the [src].")
+				user.visible_message(SPAN_WARNING("[user] has cut the wires inside \the [src]!"), "You cut the wires inside \the [src].")
 				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 				new/obj/item/stack/cable_coil(get_turf(src), 5)
 				buildstage = 1
@@ -954,27 +974,27 @@ pixel_x = 10;
 
 			if (attacking_item.GetID())// trying to unlock the interface with an ID card
 				if(stat & (NOPOWER|BROKEN))
-					to_chat(user, "<span class='notice'>Nothing happens.</span>")
+					to_chat(user, SPAN_NOTICE("Nothing happens."))
 					return TRUE
 				else
 					if(allowed(usr) && !wires.is_cut(WIRE_IDSCAN))
 						locked = !locked
-						to_chat(user, "<span class='notice'>You [ locked ? "lock" : "unlock"] the Air Alarm interface.</span>")
+						to_chat(user, SPAN_NOTICE("You [ locked ? "lock" : "unlock"] the Air Alarm interface."))
 					else
-						to_chat(user, "<span class='warning'>Access denied.</span>")
+						to_chat(user, SPAN_WARNING("Access denied."))
 				return TRUE
 
 		if(1)
 			if(attacking_item.iscoil())
 				var/obj/item/stack/cable_coil/C = attacking_item
 				if (C.use(5))
-					to_chat(user, "<span class='notice'>You wire \the [src].</span>")
+					to_chat(user, SPAN_NOTICE("You wire \the [src]."))
 					buildstage = 2
 					update_icon()
 					first_run()
 					set_frequency(frequency)
 				else
-					to_chat(user, "<span class='warning'>You need 5 pieces of cable to do wire \the [src].</span>")
+					to_chat(user, SPAN_WARNING("You need 5 pieces of cable to do wire \the [src]."))
 				return TRUE
 
 			else if(attacking_item.iscrowbar())
@@ -998,7 +1018,7 @@ pixel_x = 10;
 			else if(attacking_item.iswrench())
 				to_chat(user, "You remove the air alarm assembly from the wall!")
 				new /obj/item/frame/air_alarm(get_turf(user))
-				playsound(src.loc, attacking_item.usesound, 50, 1)
+				attacking_item.play_tool_sound(src.loc, 50)
 				qdel(src)
 				return TRUE
 
@@ -1020,10 +1040,10 @@ Just a object used in constructing air alarms
 */
 /obj/item/airalarm_electronics
 	name = "air alarm electronics"
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/module.dmi'
 	icon_state = "door_electronics"
 	desc = "Looks like a circuit. Probably is."
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 50)
 
 // Fire Alarms moved to firealarm.dm

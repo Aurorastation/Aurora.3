@@ -44,6 +44,7 @@
 	color = "#60A584"
 	taste_description = "bitterness"
 	taste_mult = 0.4
+	value = 2.8
 
 /singleton/reagent/drugs/mms/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	..()
@@ -64,7 +65,7 @@
 	if(power > 20)
 		var/probmod = 5 + (power-20)
 		if(prob(probmod) && isturf(M.loc) && !istype(M.loc, /turf/space) && M.canmove && !M.restrained())
-			step(M, pick(GLOB.cardinal))
+			step(M, pick(GLOB.cardinals))
 
 	if(prob(7))
 		M.emote(pick("smile","giggle","moan","yawn","laugh","drool","twitch"))
@@ -83,6 +84,7 @@
 	taste_description = "bitterness"
 	fallback_specific_heat = 1.2
 	effect_messages = FALSE
+	value = 2.5
 
 /singleton/reagent/drugs/serotrotium/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	..()
@@ -110,6 +112,7 @@
 	overdose = REAGENTS_OVERDOSE
 	taste_description = "sourness"
 	effect_messages = FALSE
+	value = 2
 
 /singleton/reagent/drugs/cryptobiolin/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	..()
@@ -117,6 +120,33 @@
 	M.make_dizzy(4)
 	M.add_chemical_effect(CE_HALLUCINATE, power)
 	M.confused = max(M.confused, power)
+
+/singleton/reagent/drugs/snowflake
+	name = "Snowflake"
+	description = "A recreational stimulant refined from frost oil, found in certain plants."
+	taste_description = "metallic and bitter"
+	reagent_state = LIQUID
+	color = "#bbd7eb"
+	overdose = 15
+	fallback_specific_heat = 15
+	default_temperature = T0C - 40
+	initial_effect_message_list = list("You feel euphoric!", "You feel unstoppable.")
+	sober_message_list = list("You feel a bit more sluggish", "You feel terrible...", "You feel pretty dehydrated.")
+
+/singleton/reagent/drugs/snowflake/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	..()
+	M.add_chemical_effect(CE_PAINKILLER, 3 * power)
+	M.bodytemperature = max(M.bodytemperature - 15 * TEMPERATURE_DAMAGE_COEFFICIENT * power, 0)
+	if(prob(12))
+		M.emote(pick("shiver", "sniff"))
+	if(prob(5))
+		to_chat(M, SPAN_WARNING(pick("You just can't seem to stop sniffling...", "You feel impatient...", "Your eyes feel a bit dry.")))
+
+/singleton/reagent/drugs/snowflake/overdose(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	if(prob(35))
+		M.add_chemical_effect(CE_EMETIC, M.chem_doses[type])
+		M.add_chemical_effect(CE_NEUROTOXIC, 1)
+	..()
 
 /singleton/reagent/drugs/impedrezene
 	name = "Impedrezene"
@@ -126,6 +156,7 @@
 	overdose = REAGENTS_OVERDOSE
 	taste_description = "numbness"
 	effect_messages = FALSE
+	value = 1.8
 
 /singleton/reagent/drugs/impedrezene/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	..()
@@ -146,6 +177,7 @@
 	overdose = REAGENTS_OVERDOSE
 	taste_description = "sourness"
 	ignores_drug_resistance = TRUE
+	value = 0.6
 
 /singleton/reagent/drugs/mindbreaker/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	..()
@@ -167,6 +199,7 @@
 	metabolism = REM * 0.5
 	taste_description = "mushroom"
 	fallback_specific_heat = 1.2
+	value = 0.7
 	condiment_name = "Psilocybin"
 	condiment_desc = "A small bottle full of a pink liquid. Whatever could it do?"
 	condiment_icon_state = "psilocybin"
@@ -257,7 +290,30 @@
 		if(prob(85))
 			M.emote(pick("twitch", "shiver"))
 		else
-			M.seizure()
+			M.seizure(rand(2,3))
+
+/singleton/reagent/drugs/colorspace
+	name = "Colorspace"
+	description = "A psychedelic drug that alters thought and perception."
+	taste_description = "flavorless paste"
+	color = "#a7a6a4"
+	initial_effect_message_list = list("Your skin tickles.", "You seem to leave this world behind...")
+	sober_message_list = list("The world grows still again.", "Colors seem duller.")
+
+/singleton/reagent/drugs/colorspace/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	..()
+
+	var/drug_strength = 20 * power
+
+	if(alien == IS_SKRELL)
+		drug_strength *= 0.8
+
+	M.druggy = max(M.druggy, 15)
+	M.hallucination = max(M.hallucination, drug_strength)
+
+	if(prob(15))
+		to_chat(SPAN_GOOD(pick("The floor is melting...", "Everything is so much brighter! Wow!", "Everything is shifting around you.")))
+
 
 /singleton/reagent/drugs/night_juice
 	name = "Nightlife"
@@ -285,7 +341,6 @@
 	M.make_jittery(5 + holder.reagent_data[type]["special"])
 	M.drowsiness = max(0,M.drowsiness - (1 + holder.reagent_data[type]["special"]*0.1))
 	if(holder.reagent_data[type]["special"] > 5)
-		M.add_chemical_effect(CE_SPEEDBOOST, 1)
 		M.apply_effect(1 + holder.reagent_data[type]["special"]*0.25, STUTTER)
 		M.druggy = max(M.druggy, holder.reagent_data[type]["special"]*0.25)
 		M.make_jittery(holder.reagent_data[type]["special"])
@@ -342,6 +397,10 @@
 	overdose = 10
 	strength = 3
 
+/singleton/reagent/toxin/stimm/initial_effect(mob/living/carbon/M, alien, datum/reagents/holder)
+	. = ..()
+	M.add_movespeed_modifier(/datum/movespeed_modifier/reagent/stimm)
+
 /singleton/reagent/toxin/stimm/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	if(alien == IS_TAJARA)
 		removed *= 1.25
@@ -353,7 +412,10 @@
 	if(prob(5)) // average of 6 brute every 20 seconds.
 		M.visible_message("[M] shudders violently.", "You shudder uncontrollably, it hurts.")
 		M.take_organ_damage(6 * removed, 0)
-	M.add_up_to_chemical_effect(CE_SPEEDBOOST, 1)
+
+/singleton/reagent/toxin/stimm/final_effect(mob/living/carbon/M, datum/reagents/holder)
+	M.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/stimm)
+	. = ..()
 
 /singleton/reagent/toxin/krok
 	name = "Krok Juice"
@@ -424,6 +486,7 @@
 	taste_description = "spicy earth"
 	taste_mult = 0.4
 	fallback_specific_heat = 1.6
+	value = 2.8
 	condiment_name = "Ambrosia Extract Bottle"
 	condiment_desc = "A small dropper bottle full of a stoner's paradise."
 	condiment_icon_state = "ambrosiaextract"
@@ -539,17 +602,19 @@
 	if(prob(2))
 		to_chat(M, SPAN_GOOD(pick("You have a renewed sense of focus.", "You feel more determined to get things done.", "You feel more confident in your own abilities.", "Your head-space feels tidy and organised - now's the time to get to work.", "You could climb a mountain right now!")))
 
-/singleton/reagent/drugs/skrell_nootropic/final_effect(mob/living/carbon/M, alien, removed, datum/reagents/holder)
-	if(M.psi && psi_boosted)
-		M.psi.max_stamina = initial_stamina
-		psi_boosted = FALSE
-
 /singleton/reagent/drugs/skrell_nootropic/overdose(mob/living/carbon/M, alien, removed, datum/reagents/holder)
-	M.add_chemical_effect(CE_SPEEDBOOST, 0.5)
+	M.add_movespeed_modifier(/datum/movespeed_modifier/reagent/skrell_nootropic)
 	if(prob(25))
 		M.add_chemical_effect(CE_NEPHROTOXIC, 0.5)
 	if(prob(2))
 		to_chat(M, SPAN_WARNING(pick("You can't allow anyone to get between you and your tasks.", "You feel like screaming at the next person who interrupts you.", "No one can stop you!", "You can power through this...")))
+
+/singleton/reagent/drugs/skrell_nootropic/final_effect(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	M.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/skrell_nootropic)
+	if(M.psi && psi_boosted)
+		M.psi.max_stamina = initial_stamina
+		psi_boosted = FALSE
+	. = ..()
 
 /singleton/reagent/drugs/cocaine
 	name = "Cocaine"
@@ -673,10 +738,14 @@
 	initial_effect_message_list = list("A heat builds within you.", )
 	sober_message_list = list("The heat within you begins to dull...")
 
+/singleton/reagent/drugs/dionae_stimulant/initial_effect(mob/living/carbon/M, alien, datum/reagents/holder)
+	. = ..()
+	if(alien == IS_DIONA)
+		M.add_movespeed_modifier(/datum/movespeed_modifier/reagent/dionae_stimulant)
+
 /singleton/reagent/drugs/dionae_stimulant/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	M.apply_damage(10, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 	if(alien == IS_DIONA)
-		M.add_chemical_effect(CE_SPEEDBOOST, 1)
 		if(prob(5))
 			to_chat(M, SPAN_GOOD(pick("A bubbling sensation is felt by your nymphs.", "A nymph comments that this is the most energetic it has ever been!", "A warm energy builds within your central structure.", "Your nymphs can't stay still!")))
 			M.emote(pick("chirp", "twitch", "shiver"))
@@ -697,6 +766,11 @@
 			if(!glow)
 				new /obj/effect/decal/cleanable/greenglow(T)
 			return
+
+/singleton/reagent/drugs/dionae_stimulant/final_effect(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	if(alien == IS_DIONA)
+		M.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/dionae_stimulant)
+	. = ..()
 
 #undef DRUG_MESSAGE_DELAY
 

@@ -25,8 +25,8 @@ SUBSYSTEM_DEF(statpanels)
 		var/current_month = text2num(time2text(world.realtime, "MM"))
 		var/current_day = text2num(time2text(world.realtime, "DD"))
 		var/eta_status = "No ETA"
-		if(evacuation_controller)
-			eta_status = evacuation_controller.get_status_panel_eta()
+		if(GLOB.evacuation_controller)
+			eta_status = GLOB.evacuation_controller.get_status_panel_eta()
 		global_data = list(
 			"Map: [SSatlas.current_map.name]",
 			"Round ID: [GLOB.round_id ? GLOB.round_id : "NULL"]",
@@ -35,10 +35,15 @@ SUBSYSTEM_DEF(statpanels)
 			"Round Time: [get_round_duration_formatted()]",
 			"Ship Time: [worldtime2text()]",
 			"Current Space Sector: [SSatlas.current_sector.name]",
-			"Last Transfer Vote: [SSvote.last_transfer_vote ? time2text(SSvote.last_transfer_vote, "hh:mm") : "Never"]"
+			"Last Transfer Vote: [GLOB.last_transfer_vote ? time2text(GLOB.last_transfer_vote, "hh:mm") : "Never"]",
+			"Next Port Visit: [SSatlas.current_sector.next_port_visit_string]"
 		)
 		if(eta_status)
 			global_data += eta_status
+
+		if(SSodyssey && SSodyssey.scenario)
+			global_data += "Odyssey: [SSodyssey.scenario.name]"
+			global_data += "Storytellers: [length(SSodyssey.storytellers)]"
 
 		src.currentrun = GLOB.clients.Copy()
 		mc_data = null

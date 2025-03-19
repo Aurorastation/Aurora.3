@@ -89,7 +89,7 @@
 				to_chat(user, SPAN_WARNING("[src] spits your coin back out!"))
 			else
 				to_chat(user, SPAN_NOTICE("You insert [C] into [src]'s slot!"))
-				playsound(loc, 'sound/arcade/sloto_token.ogg', 10, 1, extrarange = -3, falloff = 10, required_asfx_toggles = ASFX_ARCADE)
+				playsound(loc, 'sound/arcade/sloto_token.ogg', 10, 1, extrarange = -3, falloff_distance = 10, required_asfx_toggles = ASFX_ARCADE)
 				balance += get_value(C)
 				updateUsrDialog()
 				qdel(C)
@@ -100,7 +100,7 @@
 		if(paymode == CREDITCHIP)
 			var/obj/item/spacecash/H = attacking_item
 			to_chat(user, SPAN_NOTICE("You insert [H.worth] credits into [src]'s slot!"))
-			playsound(loc, 'sound/arcade/sloto_token.ogg', 10, 1, extrarange = -3, falloff = 10, required_asfx_toggles = ASFX_ARCADE)
+			playsound(loc, 'sound/arcade/sloto_token.ogg', 10, 1, extrarange = -3, falloff_distance = 10, required_asfx_toggles = ASFX_ARCADE)
 			balance += H.worth
 			updateUsrDialog()
 			qdel(H)
@@ -148,11 +148,11 @@
 		<B>Credit Remaining:</B> [balance]<BR>
 		[plays] players have tried their luck today, and [jackpots] have won a jackpot!<BR>
 		<HR><BR>
-		<A href='?src=\ref[src];spin=1'>Play!</A><BR>
+		<A href='byond://?src=[REF(src)];spin=1'>Play!</A><BR>
 		<BR>
 		[reeltext]
 		<BR>
-		<font size='1'><A href='?src=\ref[src];refund=1'>Refund balance</font></A><BR>"}
+		<font size='1'><A href='byond://?src=[REF(src)];refund=1'>Refund balance</font></A><BR>"}
 
 	var/datum/browser/popup = new(user, "slotmachine", "Slot Machine")
 	popup.set_content(dat)
@@ -200,7 +200,7 @@
 	if(user)
 		the_name = user.real_name
 		visible_message(SPAN_NOTICE("[user] pulls the lever and the slot machine starts spinning!"))
-		playsound(loc, 'sound/arcade/sloto_lever.ogg', 10, 0, extrarange = -3, falloff = 10, required_asfx_toggles = ASFX_ARCADE)
+		playsound(loc, 'sound/arcade/sloto_lever.ogg', 10, 0, extrarange = -3, falloff_distance = 10, required_asfx_toggles = ASFX_ARCADE)
 		flick("slots_pull", src)
 	else
 		the_name = "Exaybachay"

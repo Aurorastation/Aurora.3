@@ -115,7 +115,7 @@
 	var/dir_offset = 0
 	if(target_turf != source_turf)
 		dir_offset = get_dir(source_turf, target_turf)
-		if(!(dir_offset in GLOB.cardinal))
+		if(!(dir_offset in GLOB.cardinals))
 			to_chat(user, SPAN_WARNING("You cannot reach that from here."))
 			return
 

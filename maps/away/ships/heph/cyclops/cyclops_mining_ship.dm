@@ -1,7 +1,10 @@
 /datum/map_template/ruin/away_site/cyclops_mining_vessel
 	name = "Cyclops Mining Vessel"
 	description = "This bulky vessel is designed and operated by Hephaestus Industries. From asteroid cracking to planetary operations, this ship can do it all. "
-	suffixes = list("ships/heph/cyclops/cyclops.dmm")
+
+	prefix = "ships/heph/cyclops/"
+	suffix = "cyclops.dmm"
+
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_WEEPING_STARS, SECTOR_UUEOAESA, SECTOR_BURZSIA)
 	spawn_weight = 1
 	ship_cost = 1
@@ -40,6 +43,11 @@
 		"nav_cyclops_3",
 		"nav_cyclops_4",
 		"nav_cyclops_5",
+		"nav_cyclops_6",
+		"nav_cyclops_7",
+		"nav_cyclops_8",
+		"nav_cyclops_9",
+		"nav_cyclops_10",
 	)
 
 	invisible_until_ghostrole_spawn = TRUE
@@ -59,9 +67,8 @@
 	base_area = /area/space
 
 /obj/effect/shuttle_landmark/cyclops/nav2
-	name = "Cyclops Mining Vessel - Port Airlock"
+	name = "Cyclops Mining Vessel - Port EVA Docking"
 	landmark_tag = "nav_cyclops_2"
-	docking_controller = "airlock_cyclops_dock"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
 
@@ -83,6 +90,36 @@
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
 
+/obj/effect/shuttle_landmark/cyclops/nav6
+	name = "Cyclops Mining Vessel - Port Fore EVA Docking"
+	landmark_tag = "nav_cyclops_6"
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/cyclops/nav7
+	name = "Cyclops Mining Vessel - Port Aft EVA Docking"
+	landmark_tag = "nav_cyclops_7"
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/cyclops/nav8
+	name = "Cyclops Mining Vessel - Starboard EVA Docking"
+	landmark_tag = "nav_cyclops_8"
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/cyclops/nav9
+	name = "Cyclops Mining Vessel - Starboard Fore EVA Docking"
+	landmark_tag = "nav_cyclops_9"
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/cyclops/nav10
+	name = "Cyclops Mining Vessel - Starboard Aft EVA Docking"
+	landmark_tag = "nav_cyclops_10"
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
+
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/cyclops_shuttle
 	name = "Cyclops Shuttle"
@@ -99,7 +136,7 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/cyclops_shuttle
+/obj/machinery/computer/shuttle_control/explore/terminal/cyclops_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Cyclops Shuttle"
 
@@ -118,7 +155,7 @@
 /obj/effect/shuttle_landmark/cyclops_shuttle/hangar
 	name = "Cyclops Shuttle Hangar"
 	landmark_tag = "nav_hangar_cyclops"
-	docking_controller = "airlock_shuttle_cyclops"
+	docking_controller = "airlock_cyclops_hangar"
 	base_area = /area/hephmining_ship/cyclops
 	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
@@ -127,3 +164,21 @@
 	name = "In transit"
 	landmark_tag = "nav_transit_cyclops_shuttle"
 	base_turf = /turf/space/transit/north
+
+// airlocks
+
+/obj/effect/map_effect/marker/airlock/heph_cyclops/port
+	name = "Port Airlock"
+	master_tag = "airlock_cyclops_port"
+
+/obj/effect/map_effect/marker/airlock/heph_cyclops/starboard
+	name = "Starboard Airlock"
+	master_tag = "airlock_cyclops_starboard"
+
+// shuttle airlock
+
+/obj/effect/map_effect/marker/airlock/shuttle/cyclops_shuttle/shuttle
+	name = "Cyclops Shuttle"
+	shuttle_tag = "Cyclops Shuttle"
+	master_tag = "airlock_shuttle_cyclops"
+	cycle_to_external_air = TRUE

@@ -57,7 +57,7 @@
 
 	if (pref.alternate_languages.len > S.num_alternate_languages)
 		if(pref.client)
-			to_chat(pref.client, "<span class='warning'>You have too many languages saved for [pref.species].<br><b>The list has been reset. Please check your languages in character creation!</b></span>")
+			to_chat(pref.client, SPAN_WARNING("You have too many languages saved for [pref.species].<br><b>The list has been reset. Please check your languages in character creation!</b>"))
 		pref.alternate_languages.Cut()
 		return
 
@@ -70,11 +70,11 @@
 	var/list/bad_langs = pref.alternate_languages - langs
 	if (bad_langs.len)
 		if(pref.client)
-			to_chat(pref.client, "<span class='warning'>[bad_langs.len] invalid language\s were found in your character setup! Please save your character again to stop this error from repeating!</span>")
+			to_chat(pref.client, SPAN_WARNING("[bad_langs.len] invalid language\s were found in your character setup! Please save your character again to stop this error from repeating!"))
 
 		for (var/L in bad_langs)
 			if(pref.client)
-				to_chat(pref.client, "<span class='notice'>Removing the language \"[L]\" from your character.</span>")
+				to_chat(pref.client, SPAN_NOTICE("Removing the language \"[L]\" from your character."))
 			pref.alternate_languages -= L
 
 		var/datum/category_group/player_setup_category/cat = category
@@ -91,17 +91,17 @@
 		if(pref.alternate_languages.len)
 			for(var/i = 1 to pref.alternate_languages.len)
 				var/lang = pref.alternate_languages[i]
-				dat += "- [lang] - <a href='?src=\ref[src];remove_language=[i]'>remove</a><br>"
+				dat += "- [lang] - <a href='byond://?src=[REF(src)];remove_language=[i]'>remove</a><br>"
 
 		if(pref.alternate_languages.len < S.num_alternate_languages)
-			dat += "- <a href='?src=\ref[src];add_language=1'>add</a> ([S.num_alternate_languages - pref.alternate_languages.len] remaining)<br>"
+			dat += "- <a href='byond://?src=[REF(src)];add_language=1'>add</a> ([S.num_alternate_languages - pref.alternate_languages.len] remaining)<br>"
 	else
 		dat += "- [pref.species] cannot choose secondary languages.<br>"
 
 	if(S.has_autohiss)
 		pref.autohiss_setting = clamp(pref.autohiss_setting, AUTOHISS_OFF, AUTOHISS_NUM - 1)
 		var/list/autohiss_to_word = list("Disabled", "Basic", "Full")
-		dat += "<br><a href='?src=\ref[src];autohiss=1'>Autohiss: [autohiss_to_word[pref.autohiss_setting + 1]]</a><br>"
+		dat += "<br><a href='byond://?src=[REF(src)];autohiss=1'>Autohiss: [autohiss_to_word[pref.autohiss_setting + 1]]</a><br>"
 
 	. = dat.Join()
 

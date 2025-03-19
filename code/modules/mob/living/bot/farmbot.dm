@@ -49,7 +49,7 @@
 		return
 
 	var/dat = ""
-	dat += "Status: <A href='?src=\ref[src];power=1'>[on ? "On" : "Off"]</A><BR>"
+	dat += "Status: <A href='byond://?src=[REF(src)];power=1'>[on ? "On" : "Off"]</A><BR>"
 	dat += "Water Tank: "
 	if (tank)
 		dat += "[tank.reagents.total_volume]/[tank.reagents.maximum_volume]"
@@ -58,16 +58,16 @@
 	dat += "<br>Behaviour controls are [locked ? "locked" : "unlocked"]<hr>"
 	if(!locked || issilicon(usr))
 		dat += "<TT>Watering controls:<br>"
-		dat += "Water plants : <A href='?src=\ref[src];water=1'>[waters_trays ? "Yes" : "No"]</A><BR>"
-		dat += "Refill watertank : <A href='?src=\ref[src];refill=1'>[refills_water ? "Yes" : "No"]</A><BR>"
+		dat += "Water plants : <A href='byond://?src=[REF(src)];water=1'>[waters_trays ? "Yes" : "No"]</A><BR>"
+		dat += "Refill watertank : <A href='byond://?src=[REF(src)];refill=1'>[refills_water ? "Yes" : "No"]</A><BR>"
 		dat += "<br>Preventive measures:<br>"
-		dat += "Weed plants: <A href='?src=\ref[src];weed=1'>[uproots_weeds ? "Yes" : "No"]</A><BR>"
-		dat += "Eradicate pests: <A href='?src=\ref[src];eradicatespests=1'>[eliminates_pests ? "Yes" : "No"]</A><BR>"
+		dat += "Weed plants: <A href='byond://?src=[REF(src)];weed=1'>[uproots_weeds ? "Yes" : "No"]</A><BR>"
+		dat += "Eradicate pests: <A href='byond://?src=[REF(src)];eradicatespests=1'>[eliminates_pests ? "Yes" : "No"]</A><BR>"
 		dat += "<br>Nutriment controls:<br>"
-		dat += "Replace fertilizer: <A href='?src=\ref[src];replacenutri=1'>[replaces_nutriment ? "Yes" : "No"]</A><BR>"
+		dat += "Replace fertilizer: <A href='byond://?src=[REF(src)];replacenutri=1'>[replaces_nutriment ? "Yes" : "No"]</A><BR>"
 		dat += "<br>Plant controls:<br>"
-		dat += "Collect produce: <A href='?src=\ref[src];collect=1'>[collects_produce ? "Yes" : "No"]</A><BR>"
-		dat += "Remove dead plants: <A href='?src=\ref[src];removedead=1'>[removes_dead ? "Yes" : "No"]</A><BR>"
+		dat += "Collect produce: <A href='byond://?src=[REF(src)];collect=1'>[collects_produce ? "Yes" : "No"]</A><BR>"
+		dat += "Remove dead plants: <A href='byond://?src=[REF(src)];removedead=1'>[removes_dead ? "Yes" : "No"]</A><BR>"
 		dat += "</TT>"
 
 	var/datum/browser/bot_win = new(user, "autofarm", "Automatic Farmbot v1.2 Controls")
@@ -79,7 +79,6 @@
 	if(!emagged)
 		if(user)
 			to_chat(user, SPAN_NOTICE("You short out [src]'s plant identifier circuits."))
-		spawn(rand(30, 50))
 			visible_message(SPAN_WARNING("[src] buzzes oddly."))
 			emagged = TRUE
 		return TRUE
@@ -121,13 +120,21 @@
 	attack_hand(usr)
 	return
 
+/mob/living/bot/farmbot/turn_on()
+	. = ..()
+	MOB_START_THINKING(src)
+
+/mob/living/bot/farmbot/turn_off()
+	MOB_STOP_THINKING(src)
+	. = ..()
+
 /mob/living/bot/farmbot/update_icon()
 	if(on && action)
 		icon_state = "farmbot_[action]"
 	else
 		icon_state = "farmbot[on]"
 
-/mob/living/bot/farmbot/Life()
+/mob/living/bot/farmbot/Life(seconds_per_tick, times_fired)
 	..()
 	if(emagged && prob(1))
 		flick("farmbot_broke", src)
@@ -139,7 +146,7 @@
 
 	if(target)
 		if(Adjacent(target))
-			INVOKE_ASYNC(src, PROC_REF(UnarmedAttack), target)
+			UnarmedAttack(target)
 			path = list()
 			target = null
 		else
@@ -162,26 +169,25 @@
 				target = H
 				break
 		else
-			for(var/obj/machinery/portable_atmospherics/hydroponics/tray in view(7, src))
-				if(!tray.seed) //No seed? We don't care.
-					continue
-				if(!process_tray(tray)) //If there's nothing for us to do with the plant, ignore this tray.
-					continue
-				if(pathfind(tray)) //If we can get there, we can accept it as a target.
-					target = tray
-					frustration = 0
-					break
-
 			if(check_tank())
-				for(var/obj/structure/sink/source in view(7, src))
-					if(pathfind(source)) //If we can find a valid path to this sink, it's our target
-						target = source
+				for(var/obj/structure/sink/S in view(7, src))
+					if(pathfind(get_turf(S)))
+						target = S
+						frustration = 0
+						break
+			else
+				for(var/obj/machinery/portable_atmospherics/hydroponics/tray in view(7, src))
+					if(!tray.seed) //No seed? We don't care.
+						continue
+					if(!process_tray(tray)) //If there's nothing for us to do with the plant, ignore this tray.
+						continue
+					if(pathfind(get_turf(tray))) //If we can get there, we can accept it as a target.
+						target = tray
 						frustration = 0
 						break
 
 
-/mob/living/bot/farmbot/proc/pathfind(var/atom/A)
-	var/turf/targetloc = get_turf(A)
+/mob/living/bot/farmbot/proc/pathfind(var/turf/targetloc)
 	if(!targetloc)
 		return FALSE
 
@@ -192,8 +198,8 @@
 
 	//If we got here, we know there's a space around it that we can use to access the tray/target. Let's try to find a path to it.
 	var/turf/location_goal = pick(freespaces)
-	path = AStar(loc, location_goal, /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, 30, id = botcard)
-	if(!path)
+	path = get_path_to(src, location_goal, 30, 0, botcard.GetAccess())
+	if(!length(path))
 		path = list()
 		return FALSE
 	return path
@@ -216,69 +222,47 @@
 				update_icon()
 				visible_message(SPAN_NOTICE("[src] starts [T.dead? "removing the plant from" : "harvesting"] \the [A]."))
 				attacking = TRUE
-				if(do_after(src, 30))
-					visible_message(SPAN_NOTICE("[src] [T.dead? "removes the plant from" : "harvests"] \the [A]."))
-					T.attack_hand(src)
+				addtimer(CALLBACK(src, PROC_REF(do_action_on_tray), FARMBOT_COLLECT, T), 3 SECONDS)
+
 			if(FARMBOT_WATER)
 				action = "water"
 				update_icon()
 				visible_message(SPAN_NOTICE("[src] starts watering \the [A]."))
 				attacking = TRUE
-				if(do_after(src, 30))
-					playsound(get_turf(src), 'sound/effects/slosh.ogg', 25, TRUE)
-					visible_message(SPAN_NOTICE("[src] waters \the [A]."))
-					tank.reagents.trans_to(T, 100 - T.waterlevel)
+				addtimer(CALLBACK(src, PROC_REF(do_action_on_tray), FARMBOT_WATER, T), 3 SECONDS)
+
 			if(FARMBOT_UPROOT)
 				action = "hoe"
 				update_icon()
 				visible_message(SPAN_NOTICE("[src] starts uprooting the weeds in \the [A]."))
 				attacking = TRUE
-				if(do_after(src, 30))
-					visible_message(SPAN_NOTICE("[src] uproots the weeds in \the [A]."))
-					T.weedlevel = 0
-					T.update_icon()
+				addtimer(CALLBACK(src, PROC_REF(do_action_on_tray), FARMBOT_UPROOT, T), 3 SECONDS)
+
 			if(FARMBOT_PESTKILL)
 				action = "hoe"
 				update_icon()
 				visible_message(SPAN_NOTICE("[src] starts eliminating the pests in \the [A]."))
 				attacking = TRUE
-				if(do_after(src, 30))
-					visible_message(SPAN_NOTICE("[src] eliminates the pests in \the [A]."))
-					T.pestlevel = 0
-					T.reagents.add_reagent(/singleton/reagent/nutriment, 0.5)
-					T.update_icon()
+				addtimer(CALLBACK(src, PROC_REF(do_action_on_tray), FARMBOT_PESTKILL, T), 3 SECONDS)
+
 			if(FARMBOT_NUTRIMENT)
 				action = "fertile"
 				update_icon()
 				visible_message(SPAN_NOTICE("[src] starts fertilizing \the [A]."))
 				attacking = TRUE
-				if(do_after(src, 30))
-					visible_message(SPAN_NOTICE("[src] waters \the [A]."))
-					T.reagents.add_reagent(/singleton/reagent/ammonia, 10)
-		attacking = FALSE
-		action = ""
-		update_icon()
-		T.update_icon()
+				addtimer(CALLBACK(src, PROC_REF(do_action_on_tray), FARMBOT_NUTRIMENT, T), 3 SECONDS)
+
 	else if(istype(A, /obj/structure/sink))
-		if(!tank || tank.reagents.total_volume >= tank.reagents.maximum_volume)
-			return
 		action = "water"
 		update_icon()
 		visible_message(SPAN_NOTICE("[src] starts refilling its tank from \the [A]."))
 		attacking = TRUE
-		while(do_after(src, 10) && tank.reagents.total_volume < tank.reagents.maximum_volume)
-			tank.reagents.add_reagent(/singleton/reagent/water, 10)
-			if(prob(5))
-				playsound(get_turf(src), 'sound/effects/slosh.ogg', 25, TRUE)
-		attacking = FALSE
-		action = ""
-		update_icon()
-		visible_message(SPAN_NOTICE("[src] finishes refilling its tank."))
+		addtimer(CALLBACK(src, PROC_REF(refill_water)), 3 SECONDS)
+
 	else if(emagged && ishuman(A))
 		var/action = pick("weed", "water")
 		attacking = TRUE
-		spawn(50) // Some delay
-			attacking = FALSE
+		addtimer(CALLBACK(src, PROC_REF(rearm_attacking)), 5 SECONDS)
 		switch(action)
 			if("weed")
 				flick("farmbot_hoe", src)
@@ -291,6 +275,51 @@
 			if("water")
 				flick("farmbot_water", src)
 				visible_message(SPAN_DANGER("[src] splashes [A] with water!")) // That's it. RP effect.
+
+/**
+ * Performs an action on the tray, call with a timer to have delays
+ *
+ * Remember to set `attacking = TRUE` before doing so, so multiple actions won't be queued at the same time
+ */
+/mob/living/bot/farmbot/proc/do_action_on_tray(action_to_take, obj/machinery/portable_atmospherics/hydroponics/T)
+	if(!QDELETED(T))
+		switch(action_to_take)
+			if(FARMBOT_COLLECT)
+				visible_message(SPAN_NOTICE("[src] [T.dead? "removes the plant from" : "harvests"] \the [T]."))
+				T.attack_hand(src)
+			if(FARMBOT_WATER)
+				playsound(get_turf(src), 'sound/effects/slosh.ogg', 25, TRUE)
+				visible_message(SPAN_NOTICE("[src] waters \the [T]."))
+				tank.reagents.trans_to(T, 100 - T.waterlevel)
+			if(FARMBOT_UPROOT)
+				visible_message(SPAN_NOTICE("[src] uproots the weeds in \the [T]."))
+				T.weedlevel = 0
+			if(FARMBOT_PESTKILL)
+				visible_message(SPAN_NOTICE("[src] eliminates the pests in \the [T]."))
+				T.pestlevel = 0
+				T.reagents.add_reagent(/singleton/reagent/nutriment, 0.5)
+			if(FARMBOT_NUTRIMENT)
+				visible_message(SPAN_NOTICE("[src] waters \the [T]."))
+				T.reagents.add_reagent(/singleton/reagent/ammonia, 10)
+
+	action = ""
+	update_icon()
+	T.update_icon()
+	attacking = FALSE
+
+/**
+ * Basically turns the `attacking` var back to `FALSE`,
+ * call with a timer for delays etc.
+ */
+/mob/living/bot/farmbot/proc/rearm_attacking()
+	attacking = FALSE
+
+/mob/living/bot/farmbot/proc/refill_water()
+	tank.reagents.add_reagent(/singleton/reagent/water, (tank.reagents.maximum_volume - tank.reagents.total_volume))
+	playsound(get_turf(src), 'sound/effects/slosh.ogg', 25, TRUE)
+	action = ""
+	update_icon()
+	attacking = FALSE
 
 /mob/living/bot/farmbot/explode()
 	visible_message(SPAN_DANGER("[src] blows apart!"))
@@ -331,7 +360,7 @@
 /mob/living/bot/farmbot/proc/check_tank()
 	if(!tank)
 		return FALSE
-	return ((!target && refills_water && tank.reagents.total_volume < tank.reagents.maximum_volume) || ((tank.reagents.total_volume ) / tank.reagents.maximum_volume) <= 0.3)
+	return (refills_water && (tank.reagents.total_volume / tank.reagents.maximum_volume) <= 0.3)
 
 /obj/item/farmbot_arm_assembly
 	name = "water tank/robot arm assembly"

@@ -9,11 +9,12 @@
 	item_state = "holster"
 	contained_sprite = TRUE
 	slot = ACCESSORY_SLOT_UTILITY
+	slot_flags = SLOT_BELT | SLOT_TIE
 	var/obj/item/holstered = null
 	var/sound_in = 'sound/weapons/holster/holsterin.ogg'
 	var/sound_out = 'sound/weapons/holster/holsterout.ogg'
 	flippable = 1
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/clothing/accessory/holster/Initialize()
 	. = ..()
@@ -28,11 +29,11 @@
 
 /obj/item/clothing/accessory/holster/proc/holster(var/obj/item/I, var/mob/living/user)
 	if(holstered && istype(user))
-		to_chat(user, "<span class='warning'>There is already \a [holstered] holstered here!</span>")
+		to_chat(user, SPAN_WARNING("There is already \a [holstered] holstered here!"))
 		return
 
 	if (!(I.slot_flags & SLOT_HOLSTER))
-		to_chat(user, "<span class='warning'>[I] won't fit in [src]!</span>")
+		to_chat(user, SPAN_WARNING("[I] won't fit in [src]!"))
 		return
 
 	if(sound_in)
@@ -44,7 +45,8 @@
 	user.drop_from_inventory(holstered, src)
 	holstered.add_fingerprint(user)
 	w_class = max(w_class, holstered.w_class)
-	user.visible_message("<span class='notice'>[user] holsters \the [holstered].</span>", "<span class='notice'>You holster \the [holstered].</span>")
+	user.visible_message(SPAN_NOTICE("[user] holsters \the [holstered]."),
+							SPAN_NOTICE("You holster \the [holstered]."))
 	update_name()
 
 /obj/item/clothing/accessory/holster/proc/clear_holster()
@@ -56,21 +58,21 @@
 		return
 
 	if(istype(user.get_active_hand(), /obj) && istype(user.get_inactive_hand(), /obj))
-		to_chat(user, "<span class='warning'>You need an empty hand to draw \the [holstered]!</span>")
+		to_chat(user, SPAN_WARNING("You need an empty hand to draw \the [holstered]!"))
 	else if (use_check(user))
-		to_chat(user, "<span class='warning'>You can't draw \the [holstered] in your current state!</span>")
+		to_chat(user, SPAN_WARNING("You can't draw \the [holstered] in your current state!"))
 	else
 		var/sound_vol = 25
 		if(user.a_intent == I_HURT)
 			sound_vol = 50
 			user.visible_message(
-				"<span class='danger'>[user] draws \the [holstered], ready to shoot!</span>",
-				"<span class='warning'>You draw \the [holstered], ready to shoot!</span>"
+				SPAN_DANGER("[user] draws \the [holstered], ready to shoot!"),
+				SPAN_WARNING("You draw \the [holstered], ready to shoot!")
 			)
 		else
 			user.visible_message(
-				"<span class='notice'>[user] draws \the [holstered], pointing it at the ground.</span>",
-				"<span class='notice'>You draw \the [holstered], pointing it at the ground.</span>"
+				SPAN_NOTICE("[user] draws \the [holstered], pointing it at the ground."),
+				SPAN_NOTICE("You draw \the [holstered], pointing it at the ground.")
 			)
 
 		if(sound_out)
@@ -82,12 +84,16 @@
 		clear_holster()
 
 /obj/item/clothing/accessory/holster/attack_hand(mob/user)
-	if (has_suit) // If we are part of a suit.
+	if (!ishuman(user))
+		return ..()
+
+	var/mob/living/carbon/human/human = user
+	if (has_suit || human.belt == src) // If we are part of a suit.
 		if (holstered)
-			unholster(user)
+			unholster(human)
 		return
 
-	..(user)
+	return ..(human)
 
 /obj/item/clothing/accessory/holster/attackby(obj/item/attacking_item, mob/user)
 	holster(attacking_item, user)
@@ -132,12 +138,12 @@
 		H = tacticool.holster
 
 	if (!H)
-		to_chat(usr, "<span class='warning'>Something is very wrong.</span>")
+		to_chat(usr, SPAN_WARNING("Something is very wrong."))
 
 	if(!H.holstered)
 		var/obj/item/W = usr.get_active_hand()
 		if(!istype(W, /obj/item))
-			to_chat(usr, "<span class='warning'>You need your gun equipped to holster it.</span>")
+			to_chat(usr, SPAN_WARNING("You need your gun equipped to holster it."))
 			return
 		H.holster(W, usr)
 	else
@@ -164,6 +170,7 @@
 	desc = "A black firearm hip holster."
 	icon_state = "holster_hip"
 	item_state = "holster_hip"
+
 
 /obj/item/clothing/accessory/holster/thigh
 	name = "black thigh holster"
@@ -251,7 +258,7 @@
 	name = "machete sheath"
 	desc = "A handsome synthetic leather sheath with matching belt."
 	icon_state = "holster_machete"
-	item_state = "thigh_brown"
+	item_state = "holster_machete"
 	icon = 'icons/obj/item/clothing/accessory/holster.dmi'
 	allowed_items = list(
 		/obj/item/material/hatchet/machete,

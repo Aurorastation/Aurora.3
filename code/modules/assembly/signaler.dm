@@ -138,7 +138,7 @@
 	radio_connection = SSradio.add_object(src, frequency, RADIO_CHAT)
 
 //Triggers the deadmanswitch if its dropped or moved into ones backpack
-/obj/item/device/assembly/signaler/dropped(var/mob/user)
+/obj/item/device/assembly/signaler/dropped(mob/user)
 	. = ..()
 	if(deadman)
 		if(!user.client)

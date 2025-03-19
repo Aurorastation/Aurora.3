@@ -307,3 +307,7 @@
 	network = "tcommsat"
 	produces_heat = 0
 	autolinkers = list("broadcasterCent")
+
+/obj/machinery/telecomms/message_server/preset
+	network = "tcommsat"
+	autolinkers = list("processor1", "processor2", "processor3", "processor4")

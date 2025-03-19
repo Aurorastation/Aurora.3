@@ -7,13 +7,14 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT | SLOT_EARS
 	throwforce = 1
-	w_class = ITEMSIZE_TINY
+	layer = BELOW_TABLE_LAYER
+	w_class = WEIGHT_CLASS_TINY
 
 	var/leaves_residue = 1
 	var/caliber = ""					//Which kind of guns it can be loaded into
 	var/max_stack = 5					// how many of us can fit in a pile
 	var/projectile_type					//The bullet type to create when New() is called
-	var/obj/item/projectile/BB = null	//The loaded bullet - make it so that the projectiles are created only when needed?
+	var/obj/projectile/BB = null	//The loaded bullet - make it so that the projectiles are created only when needed?
 	var/spent_icon = "s-casing-spent"
 
 	drop_sound = /singleton/sound_category/casing_drop_sound
@@ -43,18 +44,18 @@
 /obj/item/ammo_casing/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.isscrewdriver())
 		if(!BB)
-			to_chat(user, "<span class='notice'>There is no bullet in the casing to inscribe anything into.</span>")
+			to_chat(user, SPAN_NOTICE("There is no bullet in the casing to inscribe anything into."))
 			return
 
 		var/tmp_label = ""
 		var/label_text = sanitizeSafe( tgui_input_text(user, "Inscribe some text into \the [initial(BB.name)]", "Inscription", tmp_label, MAX_NAME_LEN), MAX_NAME_LEN )
 		if(length(label_text) > 20)
-			to_chat(user, "<span class='warning'>The inscription can be at most 20 characters long.</span>")
+			to_chat(user, SPAN_WARNING("The inscription can be at most 20 characters long."))
 		else if(!label_text)
-			to_chat(user, "<span class='notice'>You scratch the inscription off of [initial(BB)].</span>")
+			to_chat(user, SPAN_NOTICE("You scratch the inscription off of [initial(BB)]."))
 			BB.name = initial(BB.name)
 		else
-			to_chat(user, "<span class='notice'>You inscribe \"[label_text]\" into \the [initial(BB.name)].</span>")
+			to_chat(user, SPAN_NOTICE("You inscribe \"[label_text]\" into \the [initial(BB.name)]."))
 			BB.name = "[initial(BB.name)] (\"[label_text]\")"
 	else if(istype(attacking_item, /obj/item/ammo_casing))
 		if(attacking_item.type != src.type)
@@ -99,7 +100,7 @@
 	item_state = "box"
 	matter = list(DEFAULT_WALL_MATERIAL = 500)
 	throwforce = 5
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 4
 	throw_range = 10
 
@@ -108,15 +109,18 @@
 	var/caliber = "357"
 	var/max_ammo = 7
 
-	var/ammo_type = /obj/item/ammo_casing //ammo type that is initially loaded
+	/// Ammo type that is initially loaded
+	var/ammo_type = /obj/item/ammo_casing
 	var/initial_ammo = null
 
-	var/multiple_sprites = 0
+	var/multiple_sprites = FALSE
 	//because BYOND doesn't support numbers as keys in associative lists
 	var/list/icon_keys = list()		//keys
 	var/list/ammo_states = list()	//values
 
-	var/insert_sound = /singleton/sound_category/metal_slide_reload //sound it plays when it gets inserted into a gun.
+	/// sound item plays when it is inserted into a gun.
+	var/insert_sound = /singleton/sound_category/metal_slide_reload
+	/// sound item plays when it is ejected from a gun.
 	var/eject_sound = 'sound/weapons/magazine_eject.ogg'
 
 /obj/item/ammo_magazine/Initialize()
@@ -140,10 +144,10 @@
 	if(istype(attacking_item, /obj/item/ammo_casing))
 		var/obj/item/ammo_casing/C = attacking_item
 		if(C.caliber != caliber)
-			to_chat(user, "<span class='warning'>[C] does not fit into [src].</span>")
+			to_chat(user, SPAN_WARNING("[C] does not fit into [src]."))
 			return
 		if(stored_ammo.len >= max_ammo)
-			to_chat(user, "<span class='warning'>[src] is full!</span>")
+			to_chat(user, SPAN_WARNING("[src] is full!"))
 			return
 		user.remove_from_mob(C)
 		C.forceMove(src)
@@ -156,9 +160,9 @@
 
 /obj/item/ammo_magazine/attack_self(mob/user)
 	if(!stored_ammo.len)
-		to_chat(user, "<span class='notice'>[src] is already empty!</span>")
+		to_chat(user, SPAN_NOTICE("[src] is already empty!"))
 		return
-	to_chat(user, "<span class='notice'>You empty [src].</span>")
+	to_chat(user, SPAN_NOTICE("You empty [src]."))
 	for(var/obj/item/ammo_casing/C in stored_ammo)
 		C.forceMove(user.loc)
 		playsound(C, /singleton/sound_category/casing_drop_sound, 50, FALSE)

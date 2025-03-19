@@ -5,6 +5,7 @@
 	desc = "Used to upload laws to the AI."
 	icon_screen = "aiupload"
 	icon_keyboard = "blue_key"
+	icon_keyboard_emis = "blue_key_mask"
 	light_color = LIGHT_COLOR_BLUE
 	circuit = /obj/item/circuitboard/aiupload
 	var/mob/living/silicon/ai/current = null
@@ -20,15 +21,15 @@
 
 	opened = !opened
 	if(opened)
-		to_chat(usr, "<span class='notice'>The access panel is now open.</span>")
+		to_chat(usr, SPAN_NOTICE("The access panel is now open."))
 	else
-		to_chat(usr, "<span class='notice'>The access panel is now closed.</span>")
+		to_chat(usr, SPAN_NOTICE("The access panel is now closed."))
 	return
 
 
 /obj/machinery/computer/aiupload/attackby(obj/item/attacking_item, mob/user)
-	if(isNotStationLevel(src.z))
-		to_chat(user, "<span class='danger'>Unable to establish a connection:</span>")
+	if(!is_station_level(src.z))
+		to_chat(user, SPAN_DANGER("Unable to establish a connection:"))
 		return TRUE
 	if(istype(attacking_item, /obj/item/aiModule))
 		var/obj/item/aiModule/M = attacking_item
@@ -54,7 +55,7 @@
 		to_chat(user, "[src.current.name] selected for law changes.")
 	return
 
-/obj/machinery/computer/aiupload/attack_ghost(user as mob)
+/obj/machinery/computer/aiupload/attack_ghost(user)
 	return 1
 
 
@@ -63,6 +64,7 @@
 	desc = "Used to upload laws to Cyborgs."
 	icon_screen = "aiupload"
 	icon_keyboard = "blue_key"
+	icon_keyboard_emis = "blue_key_mask"
 	light_color = LIGHT_COLOR_BLUE
 	circuit = /obj/item/circuitboard/borgupload
 	var/mob/living/silicon/robot/current = null
@@ -70,8 +72,8 @@
 
 /obj/machinery/computer/borgupload/attackby(obj/item/attacking_item, mob/user)
 	var/obj/item/aiModule/module = attacking_item
-	if(isNotStationLevel(src.z))
-		to_chat(user, "<span class='danger'>Unable to establish a connection:</span>")
+	if(!is_station_level(src.z))
+		to_chat(user, SPAN_DANGER("Unable to establish a connection:"))
 		return TRUE
 	if(istype(module, /obj/item/aiModule))
 		module.install(src)
@@ -96,5 +98,5 @@
 		to_chat(user, "[src.current.name] selected for law changes.")
 	return
 
-/obj/machinery/computer/borgupload/attack_ghost(user as mob)
+/obj/machinery/computer/borgupload/attack_ghost(user)
 	return 1

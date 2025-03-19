@@ -46,10 +46,10 @@ pixel_x = 12;
 ///Forms database
 #define RCS_FORMS	 9
 
-var/req_console_assistance = list()
-var/req_console_supplies = list()
-var/req_console_information = list()
-var/list/obj/machinery/requests_console/allConsoles = list()
+GLOBAL_LIST_INIT(req_console_assistance, list())
+GLOBAL_LIST_INIT(req_console_supplies, list())
+GLOBAL_LIST_INIT(req_console_information, list())
+GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/machinery/requests_console, list())
 
 /obj/machinery/requests_console
 	name = "requests console"
@@ -63,6 +63,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		)
 	anchored = TRUE
 	appearance_flags = TILE_BOUND // prevents people from viewing the overlay through a wall
+	z_flags = ZMM_MANGLE_PLANES
 
 	///The list of all departments on the station (Determined from this variable on each unit) Set this to the same thing if you want several consoles in one department
 	var/department = "Unknown"
@@ -118,7 +119,6 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 
 	///List of PDAs we alert upon a request receipt
 	var/list/obj/item/modular_computer/alert_pdas = list()
-	var/global/list/screen_overlays
 
 /obj/machinery/requests_console/north
 	PRESET_NORTH
@@ -132,51 +132,60 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 /obj/machinery/requests_console/east
 	PRESET_EAST
 
-/obj/machinery/requests_console/proc/generate_overlays(var/force = 0)
-	if(LAZYLEN(screen_overlays) && !force)
-		return
-	LAZYINITLIST(screen_overlays)
-	screen_overlays["req_comp-idle"] = make_screen_overlay(icon, "req_comp-idle")
-	screen_overlays["req_comp-alert"] = make_screen_overlay(icon, "req_comp-alert")
-	screen_overlays["req_comp-redalert"] = make_screen_overlay(icon, "req_comp-redalert")
-	screen_overlays["req_comp-yellowalert"] = make_screen_overlay(icon, "req_comp-yellowalert")
-	screen_overlays["req_comp-scanline"] = make_screen_overlay(icon, "req_comp-scanline")
-
 /obj/machinery/requests_console/power_change()
 	..()
 	update_icon()
 
 /obj/machinery/requests_console/update_icon()
-	cut_overlays()
+	ClearOverlays()
+	var/mutable_appearance/screen = overlay_image(icon, "req_comp-idle")
+	var/mutable_appearance/screen_hologram = overlay_image(icon, "req_comp-idle")
+	var/mutable_appearance/screen_emis = emissive_appearance(icon, "req_comp-idle")
+	screen_hologram.filters += filter(type="color", color=list(
+		0, 0, 0, 0,
+		0, 0, 0, 0,
+		0, 0, 0, 0,
+		HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_OPACITY
+	))
+	screen.filters += filter(type="color", color=list(
+		HOLOSCREEN_ADDITION_OPACITY, 0, 0, 0,
+		0, HOLOSCREEN_ADDITION_OPACITY, 0, 0,
+		0, 0, HOLOSCREEN_ADDITION_OPACITY, 0,
+		0, 0, 0, 1
+	))
+	screen_hologram.blend_mode = BLEND_MULTIPLY
+	screen.blend_mode = BLEND_ADD
 	if(stat & NOPOWER)
 		icon_state = initial(icon_state)
 		set_light(FALSE)
 	else
 		switch(newmessagepriority)
 			if(0)
-				add_overlay(screen_overlays["req_comp-idle"])
+				screen = overlay_image(icon, "req_comp-idle")
 				set_light(1.4, 1.3, COLOR_CYAN)
 			if(1)
-				add_overlay(screen_overlays["req_comp-alert"])
+				screen = overlay_image(icon, "req_comp-alert")
 				set_light(1.4, 1.3, COLOR_CYAN)
 			if(2)
-				add_overlay(screen_overlays["req_comp-redalert"])
+				screen = overlay_image(icon, "req_comp-redalert")
 				set_light(1.4, 1.3, COLOR_ORANGE)
 			if(3)
-				add_overlay(screen_overlays["req_comp-yellowalert"])
+				screen = overlay_image(icon, "req_comp-yellowalert")
 				set_light(1.4, 1.3, COLOR_ORANGE)
-
-		add_overlay(screen_overlays["req_comp-scanline"])
+		AddOverlays(screen_hologram)
+		AddOverlays(screen)
+		AddOverlays(screen_emis)
+		AddOverlays(overlay_image(icon, "req_comp-scanline"))
 
 /obj/machinery/requests_console/Initialize(mapload, var/dir, var/building = 0)
 	. = ..()
 
+	desc = "A console intended to send requests to different departments on the [station_name(TRUE)]."
 	if(building)
 		if(dir)
 			src.set_dir(dir)
 		if(src.dir & NORTH)
 			alpha = 127
-		generate_overlays()
 		update_icon()
 
 		if(!mapload)
@@ -191,14 +200,13 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	announcement.newscast = 1
 
 	name = "[department] requests console"
-	allConsoles += src
+	GLOB.allConsoles += src
 	if (departmentType & RC_ASSIST)
-		req_console_assistance |= department
+		GLOB.req_console_assistance |= department
 	if (departmentType & RC_SUPPLY)
-		req_console_supplies |= department
+		GLOB.req_console_supplies |= department
 	if (departmentType & RC_INFO)
-		req_console_information |= department
-	generate_overlays()
+		GLOB.req_console_information |= department
 	update_icon()
 
 	if(!mapload)
@@ -209,19 +217,19 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	pixel_y = DIR2PIXEL_Y(dir)
 
 /obj/machinery/requests_console/Destroy()
-	allConsoles -= src
+	GLOB.allConsoles -= src
 	var/lastDeptRC = 1
-	for (var/obj/machinery/requests_console/Console in allConsoles)
+	for (var/obj/machinery/requests_console/Console in GLOB.allConsoles)
 		if (Console.department == department)
 			lastDeptRC = 0
 			break
 	if(lastDeptRC)
 		if (departmentType & RC_ASSIST)
-			req_console_assistance -= department
+			GLOB.req_console_assistance -= department
 		if (departmentType & RC_SUPPLY)
-			req_console_supplies -= department
+			GLOB.req_console_supplies -= department
 		if (departmentType & RC_INFO)
-			req_console_information -= department
+			GLOB.req_console_information -= department
 
 		alert_pdas.Cut()
 	return ..()
@@ -241,9 +249,9 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	data["silent"] = silent
 	data["announcementConsole"] = announcementConsole
 
-	data["assist_dept"] = req_console_assistance
-	data["supply_dept"] = req_console_supplies
-	data["info_dept"]   = req_console_information
+	data["assist_dept"] = GLOB.req_console_assistance
+	data["supply_dept"] = GLOB.req_console_supplies
+	data["info_dept"]   = GLOB.req_console_information
 
 	data["message"] = message
 	data["recipient"] = recipient
@@ -275,7 +283,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 
 	for (var/A in alert_pdas)
 		var/obj/item/modular_computer/pda = A
-		data["pda_list"] += list(list("name" = alert_pdas[pda], "pda" = "\ref[pda]"))
+		data["pda_list"] += list(list("name" = alert_pdas[pda], "pda" = "[REF(pda)]"))
 
 	data["lid"] = lid
 	data["paper"] = paperstock
@@ -339,7 +347,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		if(tempScreen == RCS_ANNOUNCE && !announcementConsole)
 			return
 		if(tempScreen == RCS_VIEWMSGS)
-			for (var/obj/machinery/requests_console/Console in allConsoles)
+			for (var/obj/machinery/requests_console/Console in GLOB.allConsoles)
 				if (Console.department == department)
 					Console.newmessagepriority = 0
 					Console.icon_state = "req_comp0"
@@ -356,22 +364,22 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	if(href_list["linkpda"])
 		var/obj/item/modular_computer/pda = usr.get_active_hand()
 		if (!pda || !istype(pda))
-			to_chat(usr, "<span class='warning'>You need to be holding a handheld computer to link it.</span>")
+			to_chat(usr, SPAN_WARNING("You need to be holding a handheld computer to link it."))
 		else if (pda in alert_pdas)
-			to_chat(usr, "<span class='notice'>\The [pda] appears to be already linked.</span>")
+			to_chat(usr, SPAN_NOTICE("\The [pda] appears to be already linked."))
 			//Update the name real quick.
 			alert_pdas[pda] = pda.name
 		else
 			alert_pdas += pda
 			alert_pdas[pda] = pda.name
-			to_chat(usr, "<span class='notice'>You link \the [pda] to \the [src]. It will now ping upon the arrival of a request to this machine.</span>")
+			to_chat(usr, SPAN_NOTICE("You link \the [pda] to \the [src]. It will now ping upon the arrival of a request to this machine."))
 
 	// Unlink a PDA.
 	if(href_list["unlink"])
 		var/obj/item/modular_computer/pda = locate(href_list["unlink"])
 		if (pda && istype(pda))
 			if (pda in alert_pdas)
-				to_chat(usr, "<span class='notice'>You unlink [alert_pdas[pda]] from \the [src]. It will no longer be notified of new requests.</span>")
+				to_chat(usr, SPAN_NOTICE("You unlink [alert_pdas[pda]] from \the [src]. It will no longer be notified of new requests."))
 				alert_pdas -= pda
 
 	// Sort the forms.
@@ -435,7 +443,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	// Toggle the paper bin lid.
 	if(href_list["setLid"])
 		lid = !lid
-		to_chat(usr, "<span class='notice'>You [lid ? "open" : "close"] the lid.</span>")
+		to_chat(usr, SPAN_NOTICE("You [lid ? "open" : "close"] the lid."))
 
 	updateUsrDialog()
 	return
@@ -443,10 +451,10 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 					//err... hacking code, which has no reason for existing... but anyway... it was once supposed to unlock priority 3 messanging on that console (EXTREME priority...), but the code for that was removed.
 /obj/machinery/requests_console/attackby(obj/item/attacking_item, mob/user)
 	if (istype(attacking_item, /obj/item/card/id))
-		if(inoperable(MAINT)) return TRUE
+		if(!operable(MAINT)) return TRUE
 		if(screen == RCS_MESSAUTH)
 			var/obj/item/card/id/T = attacking_item
-			msgVerified = text("<font color='green'><b>Verified by [T.registered_name], [T.assignment]</b></font>")
+			msgVerified = "<font color='green'><b>Verified by [T.registered_name], [T.assignment]</b></font>"
 			updateUsrDialog()
 		if(screen == RCS_ANNOUNCE)
 			var/obj/item/card/id/ID = attacking_item
@@ -455,14 +463,14 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 				announcement.announcer = ID.assignment ? "[ID.assignment] [ID.registered_name]" : ID.registered_name
 			else
 				reset_message()
-				to_chat(user, "<span class='warning'>You are not authorized to send announcements.</span>")
+				to_chat(user, SPAN_WARNING("You are not authorized to send announcements."))
 			updateUsrDialog()
 		return TRUE
 	else if (istype(attacking_item, /obj/item/stamp))
-		if(inoperable(MAINT)) return
+		if(!operable(MAINT)) return
 		if(screen == RCS_MESSAUTH)
 			var/obj/item/stamp/T = attacking_item
-			msgStamped = text("<span class='notice'><b>Stamped with the [T.name]</b></span>")
+			msgStamped = SPAN_NOTICE("<b>Stamped with the [T.name]</b>")
 			updateUsrDialog()
 		return TRUE
 	else if (istype(attacking_item, /obj/item/paper_bundle))
@@ -500,7 +508,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	return FALSE
 
 /obj/machinery/requests_console/proc/fax_send(var/obj/item/O, var/mob/user)
-	var/sendto = tgui_input_list(user, "Select department.", "Send Fax", allConsoles)
+	var/sendto = tgui_input_list(user, "Select department.", "Send Fax", GLOB.allConsoles)
 	if(!sendto)
 		return
 	if(use_check_and_message(user))
@@ -509,7 +517,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		var/msg = "NOTICE: No server detected!"
 		audible_message("<b>The Requests Console</b> beeps, [SPAN_WARNING(msg)]")
 		return
-	for(var/cc in allConsoles)
+	for(var/cc in GLOB.allConsoles)
 		var/obj/machinery/requests_console/Console = cc
 		if(Console == sendto)
 			var/paperstock_usage = 1
@@ -520,8 +528,8 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			if(Console.paperstock < paperstock_usage)
 				audible_message("<b>The Requests Console</b> beeps, \"Error! Receiving console out of paper! Aborting!\"")
 				return
-			playsound(Console.loc, 'sound/machines/twobeep.ogg')
-			playsound(Console.loc, 'sound/items/polaroid1.ogg')
+			playsound(Console.loc, 'sound/machines/twobeep.ogg', 40)
+			playsound(Console.loc, 'sound/items/polaroid1.ogg', 40)
 			if(!is_paper_bundle)
 				var/obj/item/paper/P = copy(Console, O, FALSE, FALSE, 0, 15, user)
 				P.forceMove(Console.loc)

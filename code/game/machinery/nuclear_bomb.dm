@@ -1,4 +1,4 @@
-var/bomb_set
+GLOBAL_VAR(bomb_set)
 
 /obj/machinery/nuclearbomb
 	name = "\improper Nuclear Fission Explosive"
@@ -49,22 +49,22 @@ var/bomb_set
 		if (src.auth)
 			if (panel_open == 0)
 				panel_open = 1
-				add_overlay("panel_open")
+				AddOverlays("panel_open")
 				to_chat(user, "You unscrew the control panel of [src].")
-				playsound(src,  attacking_item.usesound, 50, 1)
+				attacking_item.play_tool_sound(src, 50)
 			else
 				panel_open = 0
-				cut_overlay("panel_open")
+				CutOverlays("panel_open")
 				to_chat(user, "You screw the control panel of [src] back on.")
-				playsound(src, attacking_item.usesound, 50, 1)
+				attacking_item.play_tool_sound(src, 50)
 		else
 			if (panel_open == 0)
 				to_chat(user, "\The [src] emits a buzzing noise, the panel staying locked in.")
 			if (panel_open == 1)
 				panel_open = 0
-				cut_overlay("panel_open")
+				CutOverlays("panel_open")
 				to_chat(user, "You screw the control panel of \the [src] back on.")
-				playsound(src, attacking_item.usesound, 50, 1)
+				attacking_item.play_tool_sound(src, 50)
 			flick("lock", src)
 		return TRUE
 
@@ -85,7 +85,7 @@ var/bomb_set
 					var/obj/item/weldingtool/WT = attacking_item
 					if(!WT.isOn()) return TRUE
 					if (WT.get_fuel() < 5) // uses up 5 fuel.
-						to_chat(user, "<span class='warning'>You need more fuel to complete this task.</span>")
+						to_chat(user, SPAN_WARNING("You need more fuel to complete this task."))
 						return TRUE
 
 					user.visible_message("[user] starts cutting loose the anchoring bolt covers on [src].", "You start cutting loose the anchoring bolt covers with [attacking_item]...")
@@ -111,7 +111,7 @@ var/bomb_set
 					var/obj/item/weldingtool/WT = attacking_item
 					if(!WT.isOn()) return TRUE
 					if (WT.get_fuel() < 5) // uses up 5 fuel.
-						to_chat(user, "<span class='warning'>You need more fuel to complete this task.</span>")
+						to_chat(user, SPAN_WARNING("You need more fuel to complete this task."))
 						return TRUE
 
 					user.visible_message("[user] starts cutting apart the anchoring system sealant on [src].", "You start cutting apart the anchoring system's sealant with [attacking_item]...")
@@ -143,7 +143,7 @@ var/bomb_set
 				return TRUE
 	return ..()
 
-/obj/machinery/nuclearbomb/attack_ghost(mob/user as mob)
+/obj/machinery/nuclearbomb/attack_ghost(mob/user)
 	attack_hand(user)
 
 /obj/machinery/nuclearbomb/attack_hand(mob/user as mob)
@@ -155,9 +155,9 @@ var/bomb_set
 	else if (deployable)
 		if(removal_stage < 5)
 			src.anchored = 1
-			visible_message("<span class='warning'>With a steely snap, bolts slide out of [src] and anchor it to the flooring!</span>")
+			visible_message(SPAN_WARNING("With a steely snap, bolts slide out of [src] and anchor it to the flooring!"))
 		else
-			visible_message("<span class='warning'>\The [src] makes a highly unpleasant crunching noise. It looks like the anchoring bolts have been cut.</span>")
+			visible_message(SPAN_WARNING("\The [src] makes a highly unpleasant crunching noise. It looks like the anchoring bolts have been cut."))
 		extended = 1
 		if(!src.lighthack)
 			flick("lock", src)
@@ -206,10 +206,10 @@ var/bomb_set
 		return
 
 	if (src.deployable)
-		to_chat(usr, "<span class='warning'>You close several panels to make [src] undeployable.</span>")
+		to_chat(usr, SPAN_WARNING("You close several panels to make [src] undeployable."))
 		src.deployable = 0
 	else
-		to_chat(usr, "<span class='warning'>You adjust some panels to make [src] deployable.</span>")
+		to_chat(usr, SPAN_WARNING("You adjust some panels to make [src] deployable."))
 		src.deployable = 1
 	return
 
@@ -247,11 +247,11 @@ var/bomb_set
 					yes_code = 0
 					code = null
 				else
-					lastentered = text("[]", href_list["type"])
+					lastentered = "[href_list["type"]]"
 					if (text2num(lastentered) == null)
 						var/turf/LOC = get_turf(usr)
-						message_admins("[key_name_admin(usr)] tried to exploit a nuclear bomb by entering non-numerical codes: <a href='?_src_=vars;Vars=\ref[src]'>[lastentered]</a>! ([LOC ? "<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[LOC.x];Y=[LOC.y];Z=[LOC.z]'>JMP</a>" : "null"])", 0)
-						log_admin("EXPLOIT: [key_name(usr)] tried to exploit a nuclear bomb by entering non-numerical codes: [lastentered]!",ckey=key_name(usr))
+						message_admins("[key_name_admin(usr)] tried to exploit a nuclear bomb by entering non-numerical codes: <a href='byond://?_src_=vars;Vars=[REF(src)]'>[lastentered]</a>! ([LOC ? "<a href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[LOC.x];Y=[LOC.y];Z=[LOC.z]'>JMP</a>" : "null"])", 0)
+						log_admin("EXPLOIT: [key_name(usr)] tried to exploit a nuclear bomb by entering non-numerical codes: [lastentered]!")
 					else
 						code += lastentered
 						if (length(code) > 5)
@@ -260,28 +260,28 @@ var/bomb_set
 			if (href_list["time"])
 				var/time = text2num(href_list["time"])
 				timeleft += time
-				timeleft = Clamp(timeleft, 120, 600)
+				timeleft = clamp(timeleft, 120, 600)
 			if (href_list["timer"])
 				if (timing == -1)
 					SSnanoui.update_uis(src)
 					return
 				if (!anchored)
-					to_chat(usr, "<span class='warning'>\The [src] needs to be anchored.</span>")
+					to_chat(usr, SPAN_WARNING("\The [src] needs to be anchored."))
 					SSnanoui.update_uis(src)
 					return
 				if (safety)
-					to_chat(usr, "<span class='warning'>The safety is still on.</span>")
+					to_chat(usr, SPAN_WARNING("The safety is still on."))
 					SSnanoui.update_uis(src)
 					return
 				if (wires.is_cut(WIRE_TIMING))
-					to_chat(usr, "<span class='warning'>Nothing happens, something might be wrong with the wiring.</span>")
+					to_chat(usr, SPAN_WARNING("Nothing happens, something might be wrong with the wiring."))
 					SSnanoui.update_uis(src)
 					return
 
 				if (!timing && !safety)
 					timing = 1
 					log_and_message_admins("engaged a nuclear bomb")
-					bomb_set++ //There can still be issues with this resetting when there are multiple bombs. Not a big deal though for Nuke/N
+					GLOB.bomb_set++ //There can still be issues with this resetting when there are multiple bombs. Not a big deal though for Nuke/N
 					update_icon()
 				else
 					secure_device()
@@ -291,7 +291,7 @@ var/bomb_set
 					alerted = 1
 			if (href_list["safety"])
 				if (wires.is_cut(WIRE_SAFETY))
-					to_chat(usr, "<span class='warning'>Nothing happens, something might be wrong with the wiring.</span>")
+					to_chat(usr, SPAN_WARNING("Nothing happens, something might be wrong with the wiring."))
 					SSnanoui.update_uis(src)
 					return
 				safety = !safety
@@ -301,19 +301,19 @@ var/bomb_set
 			if (href_list["anchor"])
 				if(removal_stage == 5)
 					anchored = 0
-					visible_message("<span class='warning'>\The [src] makes a highly unpleasant crunching noise. It looks like the anchoring bolts have been cut.</span>")
+					visible_message(SPAN_WARNING("\The [src] makes a highly unpleasant crunching noise. It looks like the anchoring bolts have been cut."))
 					SSnanoui.update_uis(src)
 					return
 
 				if(!isinspace())
 					anchored = !anchored
 					if(anchored)
-						visible_message("<span class='warning'>With a steely snap, bolts slide out of [src] and anchor it to the flooring.</span>")
+						visible_message(SPAN_WARNING("With a steely snap, bolts slide out of [src] and anchor it to the flooring."))
 					else
 						secure_device()
-						visible_message("<span class='warning'>The anchoring bolts slide back into the depths of [src].</span>")
+						visible_message(SPAN_WARNING("The anchoring bolts slide back into the depths of [src]."))
 				else
-					to_chat(usr, "<span class='warning'>There is nothing to anchor to!</span>")
+					to_chat(usr, SPAN_WARNING("There is nothing to anchor to!"))
 
 	SSnanoui.update_uis(src)
 
@@ -321,9 +321,9 @@ var/bomb_set
 	if(timing <= 0)
 		return
 
-	bomb_set--
+	GLOB.bomb_set--
 	timing = 0
-	timeleft = Clamp(timeleft, 120, 600)
+	timeleft = clamp(timeleft, 120, 600)
 	update_icon()
 
 /obj/machinery/nuclearbomb/ex_act(severity)
@@ -345,25 +345,26 @@ var/bomb_set
 
 	var/off_station = 0
 	var/turf/bomb_location = get_turf(src)
-	if(bomb_location && isStationLevel(bomb_location.z))
+	if(bomb_location && is_station_level(bomb_location.z))
 		if( (bomb_location.x < (128-NUKERANGE)) || (bomb_location.x > (128+NUKERANGE)) || (bomb_location.y < (128-NUKERANGE)) || (bomb_location.y > (128+NUKERANGE)) )
 			off_station = 1
 	else
 		off_station = 2
 
-	if(SSticker.mode && SSticker.mode.name == "Mercenary")
+	if(istype(SSticker.mode, /datum/game_mode/nuclear))
+		var/datum/game_mode/nuclear/merc_current_mode = SSticker.mode
 		var/obj/machinery/computer/shuttle_control/multi/antag/syndicate/syndie_location = locate(/obj/machinery/computer/shuttle_control/multi/antag/syndicate)
 		if(syndie_location)
-			SSticker.mode:syndies_didnt_escape = isNotAdminLevel(syndie_location.z)
-		SSticker.mode:nuke_off_station = off_station
+			merc_current_mode.syndies_didnt_escape = isNotAdminLevel(syndie_location.z)
+		merc_current_mode.nuke_off_station = off_station
 
 	SSticker.station_explosion_cinematic(off_station, null, GetConnectedZlevels(z))
 	if(SSticker.mode)
 		SSticker.mode.explosion_in_progress = 0
 		if(off_station == 1)
-			to_world("<b>A nuclear device was set off, but the explosion was out of reach of the station!</b>")
+			to_world("<b>A nuclear device was set off, but the explosion was out of reach of the [station_name(TRUE)]!</b>")
 		else if(off_station == 2)
-			to_world("<b>A nuclear device was set off, but the device was not on the station!</b>")
+			to_world("<b>A nuclear device was set off, but the device was not on the [station_name(TRUE)]!</b>")
 		else
 			to_world("<b>The station was destoyed by the nuclear blast!</b>")
 
@@ -371,7 +372,7 @@ var/bomb_set
 														//kinda shit but I couldn't  get permission to do what I wanted to do.
 
 		if(!SSticker.mode.check_finished())//If the mode does not deal with the nuke going off so just reboot because everyone is stuck as is
-			universe_has_ended = 1
+			GLOB.universe_has_ended = 1
 			return
 
 /obj/machinery/nuclearbomb/update_icon()
@@ -392,15 +393,15 @@ var/bomb_set
 	desc = "Better keep this safe."
 	icon_state = "nucleardisk"
 	item_state = "card-id"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/disk/nuclear/Initialize()
 	. = ..()
-	nuke_disks |= src
+	GLOB.nuke_disks |= src
 
 /obj/item/disk/nuclear/Destroy()
-	nuke_disks -= src
-	if(!nuke_disks.len)
+	GLOB.nuke_disks -= src
+	if(!GLOB.nuke_disks.len)
 		var/turf/T = pick_area_turf(/area/maintenance, list(/proc/is_station_turf, /proc/not_turf_contains_dense_objects))
 		if(T)
 			var/obj/D = new /obj/item/disk/nuclear(T)

@@ -12,7 +12,6 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/mob/living/simple_animal/hostile/hivebot,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/hivebot_burrows_2)
 "aL" = (
@@ -119,7 +118,6 @@
 "cp" = (
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
-	layer = 9.1;
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -179,7 +177,6 @@
 "cR" = (
 /obj/random/dirt_75,
 /obj/structure/pit,
-/mob/living/simple_animal/hostile/hivebot,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_2)
 "cW" = (
@@ -227,7 +224,6 @@
 "dx" = (
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
-	layer = 9.1;
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -245,7 +241,6 @@
 "dI" = (
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
-	layer = 9.1;
 	dir = 8
 	},
 /obj/structure/flora/rock/konyang/small,
@@ -324,7 +319,6 @@
 /area/hivebot_burrows_2)
 "et" = (
 /obj/structure/lattice/catwalk/indoor/tatami{
-	layer = 2.1;
 	name = "inlaid tatami spread"
 	},
 /obj/random/dirt_75,
@@ -460,13 +454,11 @@
 /area/space)
 "fT" = (
 /obj/structure/lattice/catwalk/indoor/tatami{
-	layer = 2.1;
 	name = "inlaid tatami spread";
 	dir = 4
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/effect/landmark/corpse/scientist/hivebot_burrows,
 /obj/effect/decal/cleanable/blood/no_dry{
 	name = "dried blood";
 	basecolor = "#400000"
@@ -546,7 +538,6 @@
 /area/hivebot_burrows_2)
 "gX" = (
 /obj/structure/lattice/catwalk/indoor/tatami{
-	layer = 2.1;
 	name = "inlaid tatami spread";
 	dir = 4
 	},
@@ -585,8 +576,7 @@
 /area/hivebot_burrows_2)
 "hl" = (
 /obj/structure/rod_railing{
-	name = "imposing rod railing";
-	layer = 9.1
+	name = "imposing rod railing"
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/dirt_konyang,
@@ -698,7 +688,6 @@
 "jZ" = (
 /obj/structure/lattice/catwalk/indoor/tatami{
 	dir = 8;
-	layer = 2.1;
 	name = "inlaid tatami spread"
 	},
 /obj/effect/decal/cleanable/floor_damage/random_carpet_broken,
@@ -901,12 +890,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/dirt_konyang/cave,
 /area/hivebot_burrows_2)
-"my" = (
-/obj/structure/pit,
-/obj/random/dirt_75,
-/mob/living/simple_animal/hostile/hivebot/range,
-/turf/simulated/floor/exoplanet/basalt/cave,
-/area/hivebot_burrows_2)
 "mA" = (
 /obj/item/stack/material/steel{
 	pixel_y = 9;
@@ -925,7 +908,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/clothing/mask/gas/alt,
-/obj/item/clothing/glasses/science,
+/obj/item/clothing/glasses/safety/goggles/science,
 /obj/item/clothing/suit/space/anomaly,
 /obj/item/clothing/head/helmet/space/anomaly,
 /obj/random/dirt_75,
@@ -992,7 +975,6 @@
 /area/hivebot_burrows_2)
 "nM" = (
 /obj/structure/lattice/catwalk/indoor/tatami{
-	layer = 2.1;
 	name = "inlaid tatami spread";
 	dir = 8
 	},
@@ -1017,7 +999,6 @@
 /area/hivebot_burrows_2)
 "ob" = (
 /obj/structure/pit,
-/mob/living/simple_animal/hostile/hivebot,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave,
@@ -1072,11 +1053,6 @@
 	pixel_x = 3
 	},
 /obj/random/dirt_75,
-/obj/effect/decal/cleanable/blood/drip{
-	name = "dried drips of blood";
-	dries = 0;
-	basecolor = "#400000"
-	},
 /turf/simulated/floor/exoplanet/plating,
 /area/hivebot_burrows_2)
 "oI" = (
@@ -1207,15 +1183,6 @@
 	dir = 10
 	},
 /obj/random/dirt_75,
-/obj/effect/landmark/corpse/scientist/hivebot_burrows,
-/obj/effect/decal/cleanable/blood/no_dry{
-	name = "dried blood";
-	basecolor = "#400000"
-	},
-/obj/effect/decal/cleanable/blood/no_dry{
-	name = "dried blood";
-	basecolor = "#400000"
-	},
 /turf/simulated/floor/exoplanet/tiled/dark,
 /area/hivebot_burrows_2)
 "qJ" = (
@@ -1235,12 +1202,6 @@
 	pixel_x = 6
 	},
 /turf/simulated/floor/exoplanet/plating,
-/area/hivebot_burrows_2)
-"qQ" = (
-/obj/random/dirt_75,
-/mob/living/simple_animal/hostile/hivebot/bomber,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_2)
 "qR" = (
 /obj/random/dirt_75,
@@ -1406,10 +1367,6 @@
 	},
 /obj/random/dirt_75,
 /obj/random/junk,
-/obj/effect/decal/cleanable/blood/no_dry{
-	name = "dried blood";
-	basecolor = "#400000"
-	},
 /turf/simulated/floor/exoplanet/tiled/dark,
 /area/hivebot_burrows_2)
 "tj" = (
@@ -1447,7 +1404,6 @@
 	pixel_y = -11
 	},
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1622,7 +1578,6 @@
 "vW" = (
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
-	layer = 9.1;
 	dir = 1
 	},
 /obj/random/dirt_75,
@@ -1819,7 +1774,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning,
 /obj/item/clothing/mask/gas/alt,
-/obj/item/clothing/glasses/science,
+/obj/item/clothing/glasses/safety/goggles/science,
 /obj/item/clothing/suit/space/anomaly,
 /obj/item/clothing/head/helmet/space/anomaly,
 /obj/random/dirt_75,
@@ -1876,11 +1831,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
 /obj/random/dirt_75,
-/obj/effect/decal/cleanable/blood/drip{
-	name = "dried drips of blood";
-	dries = 0;
-	basecolor = "#400000"
-	},
 /turf/simulated/floor/exoplanet/tiled/dark,
 /area/hivebot_burrows_2)
 "zH" = (
@@ -1921,7 +1871,6 @@
 	},
 /obj/structure/lattice/catwalk/indoor/tatami{
 	dir = 4;
-	layer = 2.1;
 	name = "inlaid tatami spread"
 	},
 /obj/random/dirt_75,
@@ -1947,7 +1896,6 @@
 "AM" = (
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
-	layer = 9.1;
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/fullgrass,
@@ -1956,7 +1904,6 @@
 /area/hivebot_burrows_2)
 "AQ" = (
 /obj/structure/lattice/catwalk/indoor/tatami{
-	layer = 2.1;
 	name = "inlaid tatami spread"
 	},
 /obj/machinery/light{
@@ -1979,9 +1926,6 @@
 /obj/machinery/power/portgen/basic{
 	anchored = 1
 	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
@@ -1989,6 +1933,9 @@
 /obj/effect/decal/cleanable/floor_damage/broken4,
 /obj/machinery/light/small/emergency{
 	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled,
 /area/hivebot_burrows_2)
@@ -2095,11 +2042,6 @@
 	pixel_y = -4;
 	pixel_x = 5
 	},
-/obj/effect/decal/cleanable/blood/splatter{
-	basecolor = "#400000";
-	dries = 0;
-	name = "dried blood"
-	},
 /turf/simulated/floor/exoplanet/tiled/white,
 /area/hivebot_burrows_2)
 "Cr" = (
@@ -2166,7 +2108,6 @@
 /area/hivebot_burrows_2)
 "DA" = (
 /obj/structure/pit,
-/mob/living/simple_animal/hostile/hivebot,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_2)
@@ -2176,12 +2117,6 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/mob/living/simple_animal/hostile/hivebot,
-/obj/effect/decal/cleanable/blood/splatter{
-	basecolor = "#400000";
-	dries = 0;
-	name = "dried blood"
-	},
 /turf/simulated/floor/exoplanet/tiled/dark,
 /area/hivebot_burrows_2)
 "DI" = (
@@ -2259,8 +2194,7 @@
 /area/hivebot_burrows_2)
 "EG" = (
 /obj/structure/rod_railing{
-	name = "imposing rod railing";
-	layer = 9.1
+	name = "imposing rod railing"
 	},
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/bush/konyang_reeds,
@@ -2275,7 +2209,6 @@
 /area/hivebot_burrows_2)
 "ES" = (
 /obj/structure/lattice/catwalk/indoor/tatami{
-	layer = 2.1;
 	name = "inlaid tatami spread";
 	dir = 8
 	},
@@ -2316,7 +2249,6 @@
 "Fs" = (
 /obj/random/dirt_75,
 /obj/structure/pit,
-/mob/living/simple_animal/hostile/hivebot/range,
 /obj/item/pickaxe/hand{
 	pixel_x = 12;
 	pixel_y = 8
@@ -2344,7 +2276,6 @@
 	},
 /obj/structure/lattice/catwalk/indoor/tatami{
 	dir = 8;
-	layer = 2.1;
 	name = "inlaid tatami spread"
 	},
 /obj/random/dirt_75,
@@ -2369,7 +2300,6 @@
 "Gg" = (
 /obj/structure/lattice/catwalk/indoor/tatami{
 	dir = 4;
-	layer = 2.1;
 	name = "inlaid tatami spread"
 	},
 /obj/item/clothing/head/konyang{
@@ -2423,7 +2353,6 @@
 "GU" = (
 /obj/structure/lattice/catwalk/indoor/tatami{
 	dir = 1;
-	layer = 2.1;
 	name = "inlaid tatami spread"
 	},
 /obj/random/junk,
@@ -2441,7 +2370,6 @@
 /obj/item/bedsheet/black,
 /obj/structure/lattice/catwalk/indoor/tatami{
 	dir = 4;
-	layer = 2.1;
 	name = "inlaid tatami spread"
 	},
 /obj/effect/decal/cleanable/floor_damage/random_carpet_broken,
@@ -2645,11 +2573,10 @@
 /obj/effect/floor_decal/corner_wide/mauve/diagonal,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/mob/living/simple_animal/hostile/hivebot,
 /turf/simulated/floor/exoplanet/tiled/dark,
 /area/hivebot_burrows_2)
 "Le" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/reagent_containers/food/condiment/flour,
@@ -2960,7 +2887,6 @@
 /area/hivebot_burrows_2)
 "PL" = (
 /obj/structure/pit,
-/mob/living/simple_animal/hostile/hivebot,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_2)
 "PR" = (
@@ -3160,9 +3086,6 @@
 /turf/simulated/floor/exoplanet/dirt_konyang/cave,
 /area/hivebot_burrows_2)
 "RE" = (
-/obj/structure/cable/green{
-	icon_state = "0-4"
-	},
 /obj/machinery/constructable_frame/temp_deco{
 	icon_state = "box_1"
 	},
@@ -3308,17 +3231,6 @@
 	},
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_2)
-"Ts" = (
-/obj/structure/flora/rock/konyang/small,
-/obj/random/dirt_75,
-/obj/effect/decal/cleanable/blood/drip{
-	name = "dried drips of blood";
-	dries = 0;
-	basecolor = "#400000"
-	},
-/mob/living/simple_animal/hostile/hivebot/guardian,
-/turf/simulated/floor/exoplanet/basalt/cave,
-/area/hivebot_burrows_2)
 "Ty" = (
 /obj/effect/floor_decal/konyang_flowers,
 /obj/effect/decal/fake_object/light_source/invisible{
@@ -3353,7 +3265,6 @@
 "Ug" = (
 /obj/structure/lattice/catwalk/indoor/tatami{
 	dir = 1;
-	layer = 2.1;
 	name = "inlaid tatami spread"
 	},
 /obj/random/dirt_75,
@@ -3368,16 +3279,6 @@
 	dir = 5
 	},
 /obj/random/dirt_75,
-/obj/effect/decal/cleanable/blood/drip{
-	name = "dried drips of blood";
-	dries = 0;
-	basecolor = "#400000"
-	},
-/obj/effect/decal/cleanable/blood/drip{
-	name = "dried drips of blood";
-	dries = 0;
-	basecolor = "#400000"
-	},
 /turf/simulated/floor/exoplanet/tiled/dark,
 /area/hivebot_burrows_2)
 "Us" = (
@@ -3414,7 +3315,6 @@
 "Ux" = (
 /obj/structure/lattice/catwalk/indoor/tatami{
 	dir = 4;
-	layer = 2.1;
 	name = "inlaid tatami spread"
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup{
@@ -3534,11 +3434,6 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/hivebot_burrows_2)
-"VR" = (
-/obj/random/dirt_75,
-/mob/living/simple_animal/hostile/hivebot/guardian,
-/turf/simulated/floor/exoplanet/barren/cave,
-/area/hivebot_burrows_2)
 "Wf" = (
 /obj/structure/flora/rock/konyang{
 	density = 0
@@ -3569,7 +3464,6 @@
 	pixel_y = 6;
 	pixel_x = 6
 	},
-/mob/living/simple_animal/hostile/hivebot/guardian,
 /turf/simulated/floor/exoplanet/dirt_konyang/cave,
 /area/hivebot_burrows_2)
 "Wz" = (
@@ -3578,16 +3472,6 @@
 	pixel_x = 3
 	},
 /obj/random/dirt_75,
-/obj/effect/decal/cleanable/blood/drip{
-	name = "dried drips of blood";
-	dries = 0;
-	basecolor = "#400000"
-	},
-/obj/effect/decal/cleanable/blood/drip{
-	name = "dried drips of blood";
-	dries = 0;
-	basecolor = "#400000"
-	},
 /turf/simulated/floor/exoplanet/plating,
 /area/hivebot_burrows_2)
 "WD" = (
@@ -3598,11 +3482,6 @@
 /obj/item/pickaxe/hand{
 	pixel_x = -12;
 	pixel_y = 12
-	},
-/obj/effect/decal/cleanable/blood/splatter{
-	basecolor = "#400000";
-	dries = 0;
-	name = "dried blood"
 	},
 /turf/simulated/floor/exoplanet/tiled/dark,
 /area/hivebot_burrows_2)
@@ -3768,8 +3647,7 @@
 "YL" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/platform_deco{
-	dir = 8;
-	layer = 2.7
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
 /obj/random/dirt_75,
@@ -3871,7 +3749,6 @@
 	},
 /obj/structure/lattice/catwalk/indoor/tatami{
 	dir = 8;
-	layer = 2.1;
 	name = "inlaid tatami spread"
 	},
 /obj/effect/decal/cleanable/floor_damage/random_carpet_broken,
@@ -3888,7 +3765,6 @@
 "ZE" = (
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
-	layer = 9.1;
 	dir = 4
 	},
 /obj/structure/flora/rock/konyang/small,
@@ -4506,7 +4382,7 @@ NY
 XQ
 XQ
 XQ
-my
+DA
 if
 XQ
 XQ
@@ -4668,7 +4544,7 @@ XQ
 tP
 ud
 ud
-qQ
+ud
 WK
 ud
 ud
@@ -5078,7 +4954,7 @@ XQ
 XQ
 Pf
 oq
-VR
+AA
 fb
 AA
 JI
@@ -5387,7 +5263,7 @@ Gg
 Hh
 JG
 XQ
-my
+DA
 XQ
 XQ
 ww
@@ -5504,7 +5380,7 @@ NR
 Hl
 LV
 RL
-Ts
+zU
 lK
 pU
 dU

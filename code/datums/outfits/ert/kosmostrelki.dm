@@ -1,4 +1,4 @@
-/datum/outfit/admin/ert/pra_cosmonaut
+/obj/outfit/admin/ert/pra_cosmonaut
 	name = "Kosmostrelki Trooper"
 
 	id = /obj/item/card/id/ert
@@ -22,11 +22,12 @@
 	back = /obj/item/gun/projectile/automatic/rifle/adhomian
 	accessory = /obj/item/clothing/accessory/badge/hadii_card
 	r_pocket = /obj/item/crowbar/red
+	l_hand = /obj/item/martial_manual/tajara
 
-/datum/outfit/admin/ert/pra_cosmonaut/get_id_access()
+/obj/outfit/admin/ert/pra_cosmonaut/get_id_access()
 	return get_distress_access()
 
-/datum/outfit/admin/ert/pra_cosmonaut/commissar
+/obj/outfit/admin/ert/pra_cosmonaut/commissar
 	name = "Kosmostrelki Commissar"
 
 	uniform = /obj/item/clothing/under/tajaran/cosmonaut/commissar
@@ -40,17 +41,19 @@
 
 	back = /obj/item/storage/backpack/satchel/leather
 	backpack_contents = list(
-						/obj/item/book/manual/pra_manifesto = 1,
+						/obj/item/device/versebook/pra = 1,
 						/obj/item/storage/box/hadii_card = 1,
 						/obj/item/gun/projectile/deagle/adhomai = 1,
 						/obj/item/clothing/accessory/holster/hip/brown = 1,
+						/obj/item/clothing/accessory/badge/hadii_card/member = 1,
 						/obj/item/clothing/head/tajaran/cosmonaut_commissar = 1
 						)
 
 	l_pocket = /obj/item/device/megaphone
 	accessory = /obj/item/clothing/accessory/hadii_pin
+	l_hand = /obj/item/martial_manual/tajara
 
-/datum/outfit/admin/ert/pra_cosmonaut/commander
+/obj/outfit/admin/ert/pra_cosmonaut/commander
 	name = "Kosmostrelki Commander"
 
 	back = /obj/item/storage/backpack/satchel/leather
@@ -71,8 +74,9 @@
 						/obj/item/ammo_magazine/submachinedrum = 1)
 
 	l_pocket = /obj/item/device/megaphone
+	l_hand = /obj/item/martial_manual/tajara
 
-/datum/outfit/admin/ert/pra_cosmonaut/tesla
+/obj/outfit/admin/ert/pra_cosmonaut/tesla
 	name = "Tesla Trooper"
 	r_hand = /obj/item/gun/energy/rifle/icelance
 	l_hand = /obj/item/rig/tesla
@@ -87,23 +91,24 @@
 						/obj/item/grenade/frag = 2,
 						/obj/item/grenade/smokebomb = 1,
 						/obj/item/gun/projectile/pistol/adhomai = 1,
+						/obj/item/martial_manual/tajara = 1,
 						/obj/item/material/knife/trench = 1
 						)
 
-/datum/outfit/admin/ert/pra_cosmonaut/tesla/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/admin/ert/pra_cosmonaut/tesla/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	var/obj/item/organ/A = new /obj/item/organ/internal/augment/tesla/advanced(H)
 	var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
 	A.replaced(H, affected)
 	H.update_body()
 
-/datum/outfit/admin/ert/pra_cosmonaut/medic
+/obj/outfit/admin/ert/pra_cosmonaut/medic
 	name = "Kosmostrelki Combat Medic"
 
 	gloves = /obj/item/clothing/gloves/latex/nitrile/tajara
 
 	glasses = /obj/item/clothing/glasses/hud/health
 
-	belt = /obj/item/storage/belt/medical/first_responder/combat
+	belt = /obj/item/storage/belt/medical/paramedic/combat
 
 	back = /obj/item/storage/backpack/satchel/leather
 
@@ -127,7 +132,9 @@
 		/obj/item/device/healthanalyzer = 1
 	)
 
-/datum/outfit/admin/ert/pra_cosmonaut/engineer
+	l_hand = /obj/item/martial_manual/tajara
+
+/obj/outfit/admin/ert/pra_cosmonaut/engineer
 	name = "Kosmostrelki Sapper"
 
 	gloves = /obj/item/clothing/gloves/yellow/specialt
@@ -151,3 +158,4 @@
 	)
 
 	belt_contents = null
+	l_hand = /obj/item/martial_manual/tajara

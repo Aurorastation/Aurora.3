@@ -7,12 +7,12 @@
 
 /datum/gear/uniform/New()
 	..()
-	gear_tweaks += list(gear_tweak_uniform_rolled_state)
+	gear_tweaks += list(GLOB.gear_tweak_uniform_rolled_state)
 
 /datum/gear/uniform/iacjumpsuit
 	display_name = "IAC Jumpsuit"
 	path = /obj/item/clothing/under/rank/iacjumpsuit
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Medical Personnel")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Intern", "Medical Personnel")
 
 /datum/gear/uniform/jumpsuit
 	display_name = "generic jumpsuits"
@@ -49,30 +49,6 @@
 	path = /obj/item/clothing/under/color/colorable
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/uniform/skirt
-	display_name = "skirt selection"
-	description = "A selection of skirts."
-	path = /obj/item/clothing/under/skirt
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-
-/datum/gear/uniform/skirt/New()
-	..()
-	var/list/skirts = list()
-	skirts["casual skirt"] = /obj/item/clothing/under/skirt
-	skirts["puffy skirt"] = /obj/item/clothing/under/skirt/puffy
-	skirts["long skirt"] = /obj/item/clothing/under/skirt/long
-	skirts["pencil skirt"] = /obj/item/clothing/under/skirt/pencil
-	skirts["swept skirt"] = /obj/item/clothing/under/skirt/swept
-	skirts["plaid skirt"] = /obj/item/clothing/under/skirt/plaid
-	skirts["pleated skirt"] = /obj/item/clothing/under/skirt/pleated
-	skirts["high skirt"] = /obj/item/clothing/under/skirt/high
-	skirts["skater skirt"] = /obj/item/clothing/under/skirt/skater
-	skirts["tube skirt"] = /obj/item/clothing/under/skirt/tube
-	skirts["jumper skirt"] = /obj/item/clothing/under/skirt/jumper
-	skirts["jumper dress"] = /obj/item/clothing/under/skirt/jumper_highcut
-	skirts["long straight skirt"] = /obj/item/clothing/under/skirt/straightlong
-	gear_tweaks += new /datum/gear_tweak/path(skirts)
-
 /datum/gear/uniform/suit
 	display_name = "suit selection"
 	description = "A selection of formal suits."
@@ -99,7 +75,7 @@
 /datum/gear/uniform/scrubs
 	display_name = "scrubs selection"
 	path = /obj/item/clothing/under/rank/medical/surgeon/zavod
-	allowed_roles = list("Scientist","Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Research Director", "Investigator", "Medical Personnel", "Science Personnel")
+	allowed_roles = list("Scientist", "Research Intern", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Intern", "Xenobiologist", "Research Director", "Investigator", "Medical Personnel", "Science Personnel")
 
 /datum/gear/uniform/scrubs/New()
 	..()
@@ -112,6 +88,13 @@
 	scrubs["scrubs, idris green"] = /obj/item/clothing/under/rank/medical/surgeon/idris
 
 	gear_tweaks += new /datum/gear_tweak/path(scrubs)
+
+/datum/gear/uniform/colorable_scrubs
+	display_name = "colorable scrubs"
+	description = "It's made of a special fiber that provides minor protection against biohazards."
+	path = /obj/item/clothing/under/rank/medical/generic
+	allowed_roles = list("Scientist", "Research Intern", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Intern", "Xenobiologist", "Research Director", "Investigator", "Medical Personnel", "Science Personnel")
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 
 /datum/gear/uniform/dress
 	display_name = "dress selection"
@@ -158,88 +141,6 @@
 	bridgecrew["bridge crew uniform, san colettish, blue"] = /obj/item/clothing/under/rank/bridge_crew/sancolette/alt
 	gear_tweaks += new /datum/gear_tweak/path(bridgecrew)
 
-/datum/gear/uniform/pants
-	display_name = "pants and shorts selection"
-	description = "A selection of pants and shorts."
-	path = /obj/item/clothing/under/pants
-
-/datum/gear/uniform/pants/New()
-	..()
-	var/list/pants = list()
-
-	// Pants
-	pants["jeans"] = /obj/item/clothing/under/pants/jeans
-	pants["classic jeans"] = /obj/item/clothing/under/pants/classic
-	pants["mustang jeans"] = /obj/item/clothing/under/pants/mustang
-	pants["black jeans"] = /obj/item/clothing/under/pants/jeansblack
-	pants["white pants"] = /obj/item/clothing/under/pants/white
-	pants["black pants"] = /obj/item/clothing/under/pants/black
-	pants["red pants"] = /obj/item/clothing/under/pants/red
-	pants["tan pants"] = /obj/item/clothing/under/pants/tan
-	pants["khaki pants"] = /obj/item/clothing/under/pants/khaki
-	pants["track pants"] = /obj/item/clothing/under/pants/track
-	pants["blue track pants"] = /obj/item/clothing/under/pants/track/blue
-	pants["green track pants"] = /obj/item/clothing/under/pants/track/green
-	pants["white track pants"] = /obj/item/clothing/under/pants/track/white
-	pants["red track pants"] = /obj/item/clothing/under/pants/track/red
-	pants["camo pants"] = /obj/item/clothing/under/pants/camo
-	pants["tacticool pants"] = /obj/item/clothing/under/pants/tacticool
-	pants["designer jeans"] = /obj/item/clothing/under/pants/designer
-	pants["ripped jeans"] = /obj/item/clothing/under/pants/ripped
-	pants["black ripped jeans"] = /obj/item/clothing/under/pants/blackripped
-
-	// Shorts
-	pants["black shorts"] = /obj/item/clothing/under/shorts/black
-	pants["black short shorts"] = /obj/item/clothing/under/shorts/black/short
-	pants["khaki shorts"] = /obj/item/clothing/under/shorts/khaki
-	pants["khaki short shorts"] = /obj/item/clothing/under/shorts/khaki/short
-
-	// Jeans Shorts
-	pants["jeans shorts"] = /obj/item/clothing/under/shorts/jeans
-	pants["jeans short shorts"] = /obj/item/clothing/under/shorts/jeans/short
-	pants["classic jeans shorts"] = /obj/item/clothing/under/shorts/jeans/classic
-	pants["classic jeans short shorts"] = /obj/item/clothing/under/shorts/jeans/classic/short
-	pants["mustang jeans shorts"] = /obj/item/clothing/under/shorts/jeans/mustang
-	pants["mustang jeans short shorts"] = /obj/item/clothing/under/shorts/jeans/mustang/short
-	pants["black jeans shorts"] = /obj/item/clothing/under/shorts/jeans/black
-	pants["black jeans short shorts"] = /obj/item/clothing/under/shorts/jeans/black/short
-	pants["grey jeans shorts"] = /obj/item/clothing/under/shorts/jeans/grey
-	pants["grey jeans short shorts"] = /obj/item/clothing/under/shorts/jeans/grey/short
-
-	// Athletic Shorts
-	pants["black athletic shorts"] = /obj/item/clothing/under/shorts/athletic/black
-	pants["red athletic shorts"] = /obj/item/clothing/under/shorts/athletic/red
-	pants["green athletic shorts"] = /obj/item/clothing/under/shorts/athletic/green
-	pants["grey athletic shorts"] = /obj/item/clothing/under/shorts/athletic/grey
-	pants["SCC-branded athletic shorts"] = /obj/item/clothing/under/shorts/athletic/scc
-
-	gear_tweaks += new /datum/gear_tweak/path(pants)
-
-/datum/gear/uniform/colorpants
-	display_name = "pants and shorts selection (colourable)"
-	description = "A selection of colourable pants and shorts."
-	path = /obj/item/clothing/under/pants/dress
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-
-/datum/gear/uniform/colorpants/New()
-	..()
-	var/list/colorpants = list()
-
-	// Pants
-	colorpants["dress pants"] = /obj/item/clothing/under/pants/dress
-	colorpants["dress pants, with belt"] = /obj/item/clothing/under/pants/dress/belt
-	colorpants["striped pants"] = /obj/item/clothing/under/pants/striped
-	colorpants["flared pants"] = /obj/item/clothing/under/pants/flared
-	colorpants["mustang jeans"] = /obj/item/clothing/under/pants/mustang/colourable
-	colorpants["tailored jeans"] = /obj/item/clothing/under/pants/tailoredjeans
-
-	// Shorts
-	colorpants["shorts"] = /obj/item/clothing/under/shorts/colourable
-	colorpants["short shorts"] = /obj/item/clothing/under/shorts/colourable/short
-	colorpants["athletic shorts"] = /obj/item/clothing/under/shorts/athletic/colourable
-
-	gear_tweaks += new /datum/gear_tweak/path(colorpants)
-
 /datum/gear/uniform/turtleneck
 	display_name = "tacticool turtleneck"
 	path = /obj/item/clothing/under/syndicate/tacticool
@@ -259,6 +160,7 @@
 	suit["strelitz dominian suit"] = /obj/item/clothing/under/dominia/imperial_suit/strelitz
 	suit["volvalaad dominian suit"] = /obj/item/clothing/under/dominia/imperial_suit/volvalaad
 	suit["kazhkz dominian suit"] = /obj/item/clothing/under/dominia/imperial_suit/kazhkz
+	suit["han'san dominian suit"] = /obj/item/clothing/under/dominia/imperial_suit/hansan
 	suit["caladius dominian suit"] = /obj/item/clothing/under/dominia/imperial_suit/caladius
 	suit["zhao dominian suit"] = /obj/item/clothing/under/dominia/imperial_suit/zhao
 	suit["lyodsuit"] = /obj/item/clothing/under/dominia/lyodsuit
@@ -434,6 +336,24 @@
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 	origin_restriction = list(/singleton/origin_item/origin/galatea)
 
+/datum/gear/uniform/miscellaneous/dress_colorable
+	display_name = "dress selection (colorable)"
+	path = /obj/item/clothing/under/dress/colorable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/uniform/miscellaneous/dress_colorable/New()
+	..()
+	var/list/dress_colorable = list()
+	dress_colorable["strapless midi dress"] = /obj/item/clothing/under/dress/colorable
+	dress_colorable["sleeveless A-line dress"] = /obj/item/clothing/under/dress/colorable/sleeveless
+	dress_colorable["longsleeve A-line dress"] = /obj/item/clothing/under/dress/colorable/longsleeve
+	dress_colorable["evening gown"] = /obj/item/clothing/under/dress/colorable/evening_gown
+	dress_colorable["tea-length dress"] = /obj/item/clothing/under/dress/colorable/tea_dress
+	dress_colorable["open-shoulder dress"] = /obj/item/clothing/under/dress/colorable/open_shoulder
+	dress_colorable["asymmetric dress"] = /obj/item/clothing/under/dress/colorable/asymmetric
+
+	gear_tweaks += new /datum/gear_tweak/path(dress_colorable)
+
 /*
 	Uniform Rolled State Adjustment
 */
@@ -442,7 +362,7 @@
 #define UNIFORM_ROLLED_SLEEVES "Rolled Sleeves"
 #define UNIFORM_ROLLED_DOWN "Rolled Down"
 
-var/datum/gear_tweak/uniform_rolled_state/gear_tweak_uniform_rolled_state = new()
+GLOBAL_DATUM_INIT(gear_tweak_uniform_rolled_state, /datum/gear_tweak/uniform_rolled_state, new())
 
 /datum/gear_tweak/uniform_rolled_state/get_contents(var/metadata)
 	return "Rolled State: [metadata]"
@@ -470,7 +390,8 @@ var/datum/gear_tweak/uniform_rolled_state/gear_tweak_uniform_rolled_state = new(
 	if(rolled_down_state != -1 || ("[initial(uniform.icon_state)]_d[initial(uniform.contained_sprite) ? "_un" : "_s"]" in icon_states(under_icon)))
 		possible_states += UNIFORM_ROLLED_DOWN
 
-	var/input = input(user, "Choose in which state you want your uniform to spawn in.", "Uniform State", metadata) as null|anything in possible_states
+	var/input = tgui_input_list(user, "Choose in which state you want your uniform to spawn in.", "Uniform State", possible_states, metadata)
+
 	if(!input)
 		input = metadata
 	return input

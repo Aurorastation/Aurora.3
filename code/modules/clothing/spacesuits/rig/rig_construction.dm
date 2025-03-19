@@ -3,7 +3,7 @@
 	desc = "The assembly frame of a back-mounted hardsuit deployment and control mechanism."
 	icon = 'icons/obj/rig_modules.dmi'
 	var/icon_base = null
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 
 	///The type of board, a path of `/obj/item/circuitboard`
 	var/board_type = null
@@ -104,6 +104,7 @@
 	icon_state = "industrial1"
 	board_type = /obj/item/circuitboard/rig_assembly/civilian/industrial
 	rig_type = /obj/item/rig/industrial
+	convert_options = list(/obj/item/rig_assembly/industrial/himeo)
 
 /obj/item/rig_assembly/industrial/himeo
 	name = "himean industrial suit control module assembly"
@@ -112,6 +113,7 @@
 	icon_state = "himeo1"
 	board_type = /obj/item/circuitboard/rig_assembly/civilian/industrial
 	rig_type = /obj/item/rig/industrial/himeo
+	convert_options = list(/obj/item/rig_assembly/industrial)
 
 /obj/item/rig_assembly/hazmat
 	name = "AMI control module assembly"
@@ -199,13 +201,13 @@
 		else
 			return 0
 	else if(I.iswrench())
-		playsound(holder, I.usesound, 50, 1)
+		I.play_tool_sound(get_turf(I), 50)
 
 	else if(I.isscrewdriver())
-		playsound(holder, I.usesound, 50, 1)
+		I.play_tool_sound(get_turf(I), 50)
 
 	else if(I.iswirecutter())
-		playsound(holder, I.usesound, 50, 1)
+		I.play_tool_sound(get_turf(I), 50)
 
 	else if(I.iscoil())
 		var/obj/item/stack/cable_coil/C = used_atom

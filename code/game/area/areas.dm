@@ -6,8 +6,8 @@
 #define VOLUME_AMBIENT_HUM 18
 #define VOLUME_MUSIC 30
 
-/// This list of names is here to make sure we don't state our descriptive blurb to a person more than once.
-var/global/list/area_blurb_stated_to = list()
+/// This list of names is here to make sure we don't state the area blurb to a mob more than once.
+GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 
 /area
 	var/global/global_uid = 0
@@ -15,7 +15,10 @@ var/global/list/area_blurb_stated_to = list()
 	///Bitflag (Any of `AREA_FLAG_*`). See `code\__DEFINES\misc.dm`.
 	var/area_flags
 	var/holomap_color // Color of this area on the holomap. Must be a hex color (as string) or null.
-	var/fire = null
+
+	///Do we have an active fire alarm?
+	var/fire = FALSE
+
 	var/atmosalm = 0
 	var/poweralm = 1
 	var/party = null
@@ -24,9 +27,10 @@ var/global/list/area_blurb_stated_to = list()
 	name = "Unknown"
 	icon = 'icons/turf/areas.dmi'
 	icon_state = "unknown"
-	layer = 10
+	layer = AREA_LAYER
 	luminosity = 0
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	invisibility = INVISIBILITY_LIGHTING
 
 	var/obj/machinery/power/apc/apc = null
 	var/turf/base_turf // The base turf type of the area, which can be used to override the z-level's base turf.
@@ -48,9 +52,14 @@ var/global/list/area_blurb_stated_to = list()
 	var/oneoff_light 	= 0
 	var/oneoff_environ 	= 0
 
+	///Boolean, if this area has gravity
 	var/has_gravity = TRUE
-	var/alwaysgravity = 0
-	var/nevergravity = 0
+
+	///Boolean, if this area always has gravity
+	var/alwaysgravity = FALSE
+
+	///Boolean, if this area never has gravity
+	var/nevergravity = FALSE
 
 	var/list/all_doors = list() //Added by Strumpetplaya - Alarm Change - Contains a list of doors adjacent to this area
 	var/air_doors_activated = FALSE
@@ -58,13 +67,21 @@ var/global/list/area_blurb_stated_to = list()
 	var/list/ambience = list()
 	var/list/forced_ambience = null
 	var/list/music = list()
-	var/sound_env = STANDARD_STATION
+
+	///Used to decide what kind of reverb the area makes sound have
+	var/sound_environment = SOUND_AREA_STANDARD_STATION
 
 	var/no_light_control = FALSE // If TRUE, lights in area cannot be toggled with light controller.
 	var/allow_nightmode = FALSE // If TRUE, lights in area will be darkened by the night mode controller.
 	var/emergency_lights = FALSE
 
+	/**
+	 * Boolean, if the area is part of the station (aka main map)
+	 *
+	 * This includes any non-space area, including maintenance; it doesn't include space or shuttles (as they could be outside the station)
+	 */
 	var/station_area = FALSE
+
 	var/centcomm_area = FALSE
 
 	/// A text-based description of the area, can be used for sounds, notable things in the room, etc.
@@ -72,11 +89,14 @@ var/global/list/area_blurb_stated_to = list()
 	/// Used to filter description showing across subareas.
 	var/area_blurb_category
 
+	var/tmp/is_outside = OUTSIDE_NO
+
 // Don't move this to Initialize(). Things in here need to run before SSatoms does.
 /area/New()
 	// DMMS hook - Required for areas to work properly.
 	if (!GLOB.areas_by_type[type])
 		GLOB.areas_by_type[type] = src
+	GLOB.areas += src
 	// Atmos code needs this, so we need to make sure this is done by the time they initialize.
 	uid = ++global_uid
 	if(isnull(area_blurb_category))
@@ -85,7 +105,6 @@ var/global/list/area_blurb_stated_to = list()
 
 /area/Initialize(mapload)
 	icon_state = "white"
-	layer = 10
 
 	blend_mode = BLEND_MULTIPLY
 
@@ -116,6 +135,29 @@ var/global/list/area_blurb_stated_to = list()
 
 	. = ..()
 
+	if(dynamic_lighting)
+		luminosity = FALSE
+
+	if (mapload && turf_initializer)
+		for(var/turf/T in src)
+			turf_initializer.initialize(T)
+
+/area/Destroy()
+	if(GLOB.areas_by_type[type] == src)
+		GLOB.areas_by_type[type] = null
+	//this is not initialized until get_sorted_areas() is called so we have to do a null check
+	if(!isnull(GLOB.sortedAreas))
+		GLOB.sortedAreas -= src
+	//just for sanity sake cause why not
+	if(!isnull(GLOB.areas))
+		GLOB.areas -= src
+
+	GLOB.centcom_areas -= src
+	GLOB.the_station_areas -= src
+
+	//parent cleanup
+	return ..()
+
 /area/proc/is_prison()
 	return area_flags & AREA_FLAG_PRISON
 
@@ -144,9 +186,9 @@ var/global/list/area_blurb_stated_to = list()
 
 /area/proc/atmosalert(danger_level, var/alarm_source)
 	if (danger_level == 0)
-		atmosphere_alarm.clearAlarm(src, alarm_source)
+		GLOB.atmosphere_alarm.clearAlarm(src, alarm_source)
 	else
-		atmosphere_alarm.triggerAlarm(src, alarm_source, severity = danger_level)
+		GLOB.atmosphere_alarm.triggerAlarm(src, alarm_source, severity = danger_level)
 
 	//Check all the alarms before lowering atmosalm. Raising is perfectly fine.
 	for (var/obj/machinery/alarm/AA in src)
@@ -279,11 +321,26 @@ var/global/list/area_blurb_stated_to = list()
 
 #undef DO_PARTY
 
-var/list/mob/living/forced_ambiance_list = new
+/**
+ * Call back when an atom enters an area
+ *
+ * Sends signals COMSIG_AREA_ENTERED and COMSIG_ENTER_AREA (to a list of atoms)
+ *
+ * If the area has ambience, then it plays some ambience music to the ambience channel
+ */
+/area/Entered(atom/movable/arrived, area/old_area)
+	SEND_SIGNAL(src, COMSIG_AREA_ENTERED, arrived, old_area)
 
-/area/Entered(mob/living/L)
-	if(!istype(L, /mob/living) || !ROUND_IS_STARTED)
+	if(!arrived.important_recursive_contents?[RECURSIVE_CONTENTS_AREA_SENSITIVE])
 		return
+	for(var/atom/movable/recipient as anything in arrived.important_recursive_contents[RECURSIVE_CONTENTS_AREA_SENSITIVE])
+		SEND_SIGNAL(recipient, COMSIG_ENTER_AREA, src)
+
+	/* START aurora snowflake code */
+	if(!istype(arrived, /mob/living) || !ROUND_IS_STARTED)
+		return
+
+	var/mob/living/L = arrived
 
 	if(!L.ckey)	return
 
@@ -324,11 +381,26 @@ var/list/mob/living/forced_ambiance_list = new
 		stop_music(L)
 	do_area_blurb(L)
 
+	/* END aurora snowflake code */
+
+/**
+ * Called when an atom exits an area
+ *
+ * Sends signals COMSIG_AREA_EXITED and COMSIG_EXIT_AREA (to a list of atoms)
+ */
+/area/Exited(atom/movable/gone, direction)
+	SEND_SIGNAL(src, COMSIG_AREA_EXITED, gone, direction)
+	SEND_SIGNAL(gone, COMSIG_MOVABLE_EXITED_AREA, src, direction)
+	if(!gone.important_recursive_contents?[RECURSIVE_CONTENTS_AREA_SENSITIVE])
+		return
+	for(var/atom/movable/recipient as anything in gone.important_recursive_contents[RECURSIVE_CONTENTS_AREA_SENSITIVE])
+		SEND_SIGNAL(recipient, COMSIG_EXIT_AREA, src)
+
 // Play Ambience
 /area/proc/play_ambience(var/mob/living/L)
 	if((world.time >= L.client.ambience_last_played_time + 5 MINUTES) && prob(20))
 		var/picked_ambience = pick(ambience)
-		L << sound(picked_ambience, volume = VOLUME_AMBIENCE, channel = 2)
+		L << sound(picked_ambience, volume = VOLUME_AMBIENCE, channel = CHANNEL_AMBIENCE)
 		L.client.ambience_last_played_time = world.time
 
 // Stop Ambience
@@ -380,23 +452,12 @@ var/list/mob/living/forced_ambiance_list = new
 	for(var/obj/machinery/door/window/temp_windoor in src)
 		temp_windoor.open()
 
-/area/proc/has_gravity()
+/area/has_gravity(turf/gravity_turf)
 	if(alwaysgravity)
 		return TRUE
 	if(nevergravity)
 		return FALSE
 	return has_gravity
-
-/area/space/has_gravity()
-	return 0
-
-/proc/has_gravity(atom/AT, turf/T)
-	if(!T)
-		T = get_turf(AT)
-	var/area/A = get_area(T)
-	if(A && A.has_gravity())
-		return 1
-	return 0
 
 //A useful proc for events.
 //This returns a random area of the station which is meaningful. Ie, a room somewhere
@@ -406,7 +467,7 @@ var/list/mob/living/forced_ambiance_list = new
 		if(!Y)
 			continue
 		var/area/A = Y
-		if (isNotStationLevel(A.z))
+		if (!is_station_level(A.z))
 			continue
 		if (istype(A, /area/shuttle) || findtext(A.name, "Docked") || findtext(A.name, "Shuttle"))
 			continue
@@ -457,47 +518,27 @@ var/list/mob/living/forced_ambiance_list = new
 		return pick(turfs)
 	else return null
 
-// Changes the area of T to A. Do not do this manually.
-// Area is expected to be a non-null instance.
-/proc/ChangeArea(var/turf/T, var/area/A)
-	if(!istype(A))
-		CRASH("Area change attempt failed: invalid area supplied.")
-	var/area/old_area = get_area(T)
-	if(old_area == A)
-		return
-	A.contents.Add(T)
-	if(old_area)
-		old_area.Exited(T, A)
-		for(var/atom/movable/AM in T)
-			old_area.Exited(AM, A)
-	A.Entered(T, old_area)
-	for(var/atom/movable/AM in T)
-		A.Entered(AM, old_area)
-
-	for(var/obj/machinery/M in T)
-		M.shuttle_move(T)
-
 /**
 * Displays an area blurb on a mob's screen.
 *
 * Areas with blurbs set [/area/var/area_blurb] will display their blurb. Otherwise no blurb will be shown. Contains checks to avoid duplicate blurbs, pass the `override` variable to bypass this. If passed when an area has no blurb, will show a generic "no blurb" message.
 *
 * * `target_mob` - The mob to show an area blurb.
-* * `override` - Pass `TRUE` to override duplicate checks, for usage with verbs etc.
+* * `override` - Pass `TRUE` to override duplicate checks, for usage with verbs, etc.
 */
 /area/proc/do_area_blurb(mob/living/target_mob, override)
 	if(isnull(area_blurb))
 		if(override)
-			to_chat(target_mob, SPAN_NOTICE("No blurb set for this area."))
+			to_chat(target_mob, EXAMINE_BLOCK_GREY("There's nothing particularly noteworthy about this area."))
 		return
 
-	if(!(target_mob.ckey in global.area_blurb_stated_to[area_blurb_category]) || override)
-		LAZYADD(global.area_blurb_stated_to[area_blurb_category], target_mob.ckey)
-		to_chat(target_mob, SPAN_NOTICE("[area_blurb]"))
+	if(!(target_mob.ckey in GLOB.area_blurb_stated_to[area_blurb_category]) || override)
+		LAZYADD(GLOB.area_blurb_stated_to[area_blurb_category], target_mob.ckey)
+		to_chat(target_mob, EXAMINE_BLOCK_GREY(area_blurb))
 
 /// A verb to view an area's blurb on demand. Overrides the check for if you have seen the blurb before so you can always see it when used.
 /mob/living/verb/show_area_blurb()
-	set name = "Show area blurb"
+	set name = "Show Area Blurb"
 	set category = "IC"
 
 	if(!incapacitated(INCAPACITATION_KNOCKOUT))
@@ -506,8 +547,8 @@ var/list/mob/living/forced_ambiance_list = new
 			blurb_verb.do_area_blurb(src, TRUE)
 
 /// A ghost version of the view area blurb verb so you can view it while observing.
-/mob/abstract/observer/verb/ghost_show_area_blurb()
-	set name = "Show area blurb"
+/mob/abstract/ghost/observer/verb/ghost_show_area_blurb()
+	set name = "Show Area Blurb"
 	set category = "IC"
 
 	var/area/blurb_verb = get_area(src)

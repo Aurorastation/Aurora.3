@@ -1,9 +1,10 @@
 /obj/item/device/tvcamera
 	name = "press camera drone"
 	desc = "An Ingi Usang Entertainment Co. livestreaming press camera drone. Weapon of choice for war correspondents and reality show cameramen. It does not appear to have any internal memory storage."
+	icon = 'icons/obj/item/device/tvcamera.dmi'
 	icon_state = "camcorder"
 	item_state = "camcorder"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = SLOT_BELT
 	var/channel = "General News Feed"
 	var/obj/machinery/camera/network/news/camera
@@ -34,9 +35,9 @@
 	add_fingerprint(user)
 	user.set_machine(src)
 	var/dat = list()
-	dat += "Channel name is: <a href='?src=\ref[src];channel=1'>[channel ? channel : "unidentified broadcast"]</a><br>"
-	dat += "Video streaming is: <a href='?src=\ref[src];video=1'>[camera.status ? "Online" : "Offline"]</a><br>"
-	dat += "Microphone is: <a href='?src=\ref[src];sound=1'>[radio.get_broadcasting() ? "Online" : "Offline"]</a><br>"
+	dat += "Channel name is: <a href='byond://?src=[REF(src)];channel=1'>[channel ? channel : "unidentified broadcast"]</a><br>"
+	dat += "Video streaming is: <a href='byond://?src=[REF(src)];video=1'>[camera.status ? "Online" : "Offline"]</a><br>"
+	dat += "Microphone is: <a href='byond://?src=[REF(src)];sound=1'>[radio.get_broadcasting() ? "Online" : "Offline"]</a><br>"
 	dat += "Sound is being broadcasted on frequency: [format_frequency(radio.get_frequency())] ([get_frequency_name(radio.get_frequency())])<br>"
 	var/datum/browser/popup = new(user, "Press Camera Drone", "EyeBuddy", 300, 390, src)
 	popup.set_content(jointext(dat,null))
@@ -84,21 +85,6 @@
 		H.update_inv_r_hand(0)
 		H.update_inv_l_hand()
 
-/* Assembly by a roboticist */
-/obj/item/robot_parts/head/attackby(obj/item/attacking_item, mob/user)
-	var/obj/item/device/assembly/S = attacking_item
-	if(!istype(S))
-		return
-
-	if(!istype(S, /obj/item/device/assembly/infra))
-		..()
-		return
-	var/obj/item/tv_assembly/A = new(user)
-	qdel(S)
-	user.put_in_hands(A)
-	to_chat(user, SPAN_NOTICE("You add the infrared sensor to the robot head."))
-	qdel(src)
-
 /* Using camcorder icon as I can't sprite.
 Using robohead because of restricting to roboticist */
 /obj/item/tv_assembly
@@ -108,7 +94,7 @@ Using robohead because of restricting to roboticist */
 	icon_state = "head"
 	item_state = "head"
 	var/buildstep = 0
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/tv_assembly/attackby(obj/item/attacking_item, mob/user)
 	switch(buildstep)

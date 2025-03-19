@@ -6,7 +6,9 @@
 	desc = "Small device which allows rapid deployment and removal of inflatables."
 	icon = 'icons/obj/item/inflatables.dmi'
 	icon_state = "inf_deployer"
-	w_class = ITEMSIZE_NORMAL
+	item_state = "RPED" //inhands
+	contained_sprite = TRUE
+	w_class = WEIGHT_CLASS_NORMAL
 	var/deploying = FALSE
 	var/max_walls = 10
 	var/max_doors = 5

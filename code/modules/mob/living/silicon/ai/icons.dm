@@ -1,5 +1,5 @@
-var/datum/ai_icon/default_ai_icon = new/datum/ai_icon/blue()
-var/list/datum/ai_icon/ai_icons
+GLOBAL_DATUM_INIT(default_ai_icon, /datum/ai_icon, new/datum/ai_icon/blue())
+GLOBAL_LIST_INIT_TYPED(ai_icons, /datum/ai_icon, null)
 
 /datum/ai_icon
 	var/name
@@ -19,9 +19,9 @@ var/list/datum/ai_icon/ai_icons
 		src.alive_light = alive_light
 		src.nopower_light = nopower_light
 		src.dead_light = dead_light
-	if(!ai_icons)
-		ai_icons = list()
-		init_subtypes(/datum/ai_icon, ai_icons)
+	if(!GLOB.ai_icons)
+		GLOB.ai_icons = list()
+		init_subtypes(/datum/ai_icon, GLOB.ai_icons)
 	..()
 
 /datum/ai_icon/red

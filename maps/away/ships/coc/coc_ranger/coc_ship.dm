@@ -1,8 +1,12 @@
 /datum/map_template/ruin/away_site/ranger_corvette
 	name = "Ranger Gunboat"
 	description = "The Xansan-class is not, in fact, a distinct design in of itself. It is instead Xanu Prime’s variant of the Lagos-class gunboat, a Solarian light attack ship design. While the Lagos-class has been out of service with the Alliance’s navy for centuries, the blueprints were captured during the Interstellar war by Xanu Prime militiamen from a regional naval shipyard during the opening stages of the conflict, and were immediately used to construct ships of the class for use by Xanu Prime’s burgeoning military. While the Xansan-class has been retired from Xanu service, the leftover ships were donated en masse to the Frontier Marshal Bureau, and the Rangers make use of the craft to this day, in spite of their advanced age."
-	suffixes = list("ships/coc/coc_ranger/coc_ship.dmm")
+
+	prefix = "ships/coc/coc_ranger/"
+	suffix = "coc_ship.dmm"
+
 	sectors = list(SECTOR_BADLANDS, ALL_COALITION_SECTORS)
+	spawn_weight_sector_dependent = list(ALL_BADLAND_SECTORS = 0.3)
 	sectors_blacklist = list(SECTOR_HANEUNIM, SECTOR_BURZSIA)
 	spawn_weight = 1
 	ship_cost = 1
@@ -105,13 +109,23 @@
 
 	initial_generic_waypoints = list(
 		"nav_ranger_corvette_1",
-		"nav_ranger_corvette_2"
+		"nav_ranger_corvette_2",
+		"nav_ranger_corvette_3",
+		"nav_ranger_corvette_4",
+		"nav_ranger_corvette_dock_aft"
 	)
 
 	invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/ranger_corvette/New()
-	designation = "[pick("Nouvelle Rochelle", "Kuenoi", "Xansan", "Greentree", "Rautakaivos Kaupunki", "Dorshafen", "Inverkeithing", "Uusi Viipuri", "Horner Station", "Commander Ashia Patvardhan", "Sevaschaiv", "Rahe", "Czsari", "Suwon", "Kamoga", "Jagalaw", "Dalakyhr", "Gurmori", "Ohdker", "Dainshu", "Boch-Zivir", "Kill Emperor Boleslaw", "Expletive Sol", "Letter of Marque", "Free Fisanduh", "Gaucho", "Treaty of Xansan", "Pirates Beware", "Moroz Here We Come!", "This Ship Kills Privateers", "Lower The Black Flag", "Frontier Spirit", "Freedom", "Independence", "Self-Determination", "Let's Have A Second Collapse", "Send More Solarians", "You Can Run But You Can't Hide", "Frontier Alliance", "Here's To You, Governor Hawkins", "Remember Jamestown", "Good Riddance to Kambiz Entezam", "We're Coming For You In Hell, Terrence Hopper", "Warpway Safari Company", "Badlands Gun Club", "Light's Edge Light Foot", "Now Entering Free Xanu", "Weeping Stars, Weep No More", "Rebel's Reach Outreach Program", "Rugged Individualism", "Don't Tread On Me", "Snake In The Grass", "Konyang Yacht Club", "Ranger Ship")]"
+	designation = "[pick("Nouvelle Rochelle", "Kuenoi", "Xansan", "Greentree", "Rautakaivos Kaupunki", "Dorshafen", "Inverkeithing", "Uusi Viipuri",
+					"Horner Station", "Commander Ashia Patvardhan", "Sevaschaiv", "Rahe", "Czsari", "Suwon", "Kamoga", "Jagalaw", "Dalakyhr", "Gurmori", "Ohdker",
+					"Dainshu","Boch-Zivir", "Kill Emperor Boleslaw", "Expletive Sol", "Letter of Marque", "Free Fisanduh", "Gaucho", "Treaty of Xansan", "Pirates Beware",
+					"Moroz Here We Come!", "This Ship Kills Privateers", "Lower The Black Flag", "Frontier Spirit", "Freedom", "Independence", "Self-Determination",
+					"Let's Have A Second Collapse", "Send More Solarians", "You Can Run But You Can't Hide", "Frontier Alliance", "Here's To You, Governor Hawkins", "Remember Jamestown",
+					"Good Riddance to Kambiz Entezam", "We're Coming For You In Hell, Terrence Hopper", "Warpway Safari Company", "Badlands Gun Club", "Light's Edge Light Foot",
+					"Now Entering Free Xanu", "Weeping Stars, Weep No More", "Rebel's Reach Outreach Program", "Rugged Individualism", "Don't Tread On Me", "Snake In The Grass",
+					"Konyang Yacht Club", "Ranger Ship")]"
 	..()
 
 /obj/effect/overmap/visitable/ship/ranger_corvette/get_skybox_representation()
@@ -131,6 +145,29 @@
 	landmark_tag = "nav_ranger_corvette_2"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
+
+/obj/effect/shuttle_landmark/ranger_corvette/nav3
+	name = "Ranger Gunboat - Starboard Side"
+	landmark_tag = "nav_ranger_corvette_3"
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/ranger_corvette/nav4
+	name = "Ranger Gunboat - Aft side"
+	landmark_tag = "nav_ranger_corvette_4"
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
+
+// Aft Dock
+/obj/effect/shuttle_landmark/ranger_corvette/dock_aft
+	name = "Aft Docking Port"
+	docking_controller = "airlock_ranger_aft_dock"
+	landmark_tag = "nav_ranger_corvette_dock_aft"
+
+/obj/effect/map_effect/marker/airlock/docking/ranger_corvette/aft
+	name = "Aft Dock"
+	landmark_tag = "nav_ranger_corvette_dock_aft"
+	master_tag = "airlock_ranger_aft_dock"
 
 /obj/effect/shuttle_landmark/ranger_corvette/transit
 	name = "In transit"
@@ -163,11 +200,11 @@
 	shuttle_area = list(/area/shuttle/ranger_shuttle)
 	current_location = "nav_hangar_ranger"
 	landmark_transition = "nav_transit_ranger_shuttle"
+	dock_target = "ranger_shuttle_dock2"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_ranger"
 	// defer_initialisation = TRUE
-	dock_target = "ranger_shuttle_dock2"
 
 /obj/effect/shuttle_landmark/ranger_shuttle/hangar
 	name = "Ranger Shuttle Hangar"

@@ -97,24 +97,24 @@ FLOOR SAFES
 		else
 			icon_state = initial(icon_state)
 
-	cut_overlay(drill_overlay)
+	CutOverlays(drill_overlay)
 	if(istype(drill, /obj/item/thermal_drill))
 		var/drill_icon = istype(drill, /obj/item/thermal_drill/diamond_drill) ? "d" : "h"
-		var/state = "[initial(icon_state)]_[drill_icon]-drill-[isprocessing ? "on" : "off"]"
+		var/state = "[initial(icon_state)]_[drill_icon]-drill-[(datum_flags & DF_ISPROCESSING) ? "on" : "off"]"
 		drill_overlay = image(icon = 'icons/effects/drill.dmi', icon_state = state, pixel_x = drill_x_offset, pixel_y = drill_y_offset)
-		add_overlay(drill_overlay)
+		AddOverlays(drill_overlay)
 
 /obj/structure/safe/attack_hand(mob/user as mob)
 	if(drill)
-		switch(alert("What would you like to do?", "Thermal Drill", "Turn [isprocessing ? "Off" : "On"]", "Remove Drill", "Cancel"))
+		switch(alert("What would you like to do?", "Thermal Drill", "Turn [(datum_flags & DF_ISPROCESSING) ? "Off" : "On"]", "Remove Drill", "Cancel"))
 			if("Turn On")
-				if(!drill || isprocessing)
+				if(!drill || (datum_flags & DF_ISPROCESSING))
 					return
 				if(broken)
 					to_chat(user, SPAN_WARNING("\The [src] is already broken open!"))
 					return
 				if(do_after(user, 2 SECONDS))
-					if(!drill || isprocessing)
+					if(!drill || (datum_flags & DF_ISPROCESSING))
 						return
 					if(broken)
 						return
@@ -123,19 +123,19 @@ FLOOR SAFES
 					START_PROCESSING(SSprocessing, src)
 					update_icon()
 			if("Turn Off")
-				if(!drill || !isprocessing)
+				if(!drill || !(datum_flags & DF_ISPROCESSING))
 					return
 				if(do_after(user, 2 SECONDS))
-					if(!drill || !isprocessing)
+					if(!drill || !(datum_flags & DF_ISPROCESSING))
 						return
 					drill.soundloop.stop()
 					STOP_PROCESSING(SSprocessing, src)
 					update_icon()
 			if("Remove Drill")
-				if(isprocessing)
+				if(datum_flags & DF_ISPROCESSING)
 					to_chat(user, SPAN_WARNING("You cannot remove the drill while it's running!"))
 				else if(do_after(user, 2 SECONDS))
-					if(isprocessing)
+					if(datum_flags & DF_ISPROCESSING)
 						return
 					user.put_in_hands(drill)
 					drill = null
@@ -145,12 +145,12 @@ FLOOR SAFES
 	else
 		user.set_machine(src)
 		var/dat = "<center>"
-		dat += "<a href='?src=\ref[src];open=1'>[open ? "Close" : "Open"] [src]</a>[drill || broken ? "" : " | <a href='?src=\ref[src];decrement=1'>-</a> [dial * 5] <a href='?src=\ref[src];increment=1'>+</a>"]"
+		dat += "<a href='byond://?src=[REF(src)];open=1'>[open ? "Close" : "Open"] [src]</a>[drill || broken ? "" : " | <a href='byond://?src=[REF(src)];decrement=1'>-</a> [dial * 5] <a href='byond://?src=[REF(src)];increment=1'>+</a>"]"
 		if(open)
 			dat += "<table>"
 			for(var/i = contents.len, i>=1, i--)
 				var/obj/item/P = contents[i]
-				dat += "<tr><td><a href='?src=\ref[src];retrieve=\ref[P]'>[P.name]</a></td></tr>"
+				dat += "<tr><td><a href='byond://?src=[REF(src)];retrieve=[REF(P)]'>[P.name]</a></td></tr>"
 			dat += "</table></center>"
 		user << browse("<html><head><title>[name]</title></head><body>[dat]</body></html>", "window=safe;size=350x300")
 
@@ -264,7 +264,7 @@ FLOOR SAFES
 	icon_state = "floorsafe"
 	density = 0
 	level = 1	//underfloor
-	layer = 2.5
+	layer = BELOW_OBJ_LAYER
 	drill_x_offset = -1
 	drill_y_offset = 20
 

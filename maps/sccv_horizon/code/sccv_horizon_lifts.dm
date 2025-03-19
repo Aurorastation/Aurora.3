@@ -100,7 +100,7 @@
 
 /area/turbolift/scc_ship/morgue_lift
 	name = "Morgue Lift"
-	sound_env = TUNNEL_ENCLOSED
+	sound_environment = SOUND_AREA_TUNNEL_ENCLOSED
 	ambience = AMBIENCE_GHOSTLY
 
 //Operations Lift
@@ -140,7 +140,7 @@
 
 /area/turbolift/scc_ship/operations_lift
 	name = "Operations Lift"
-	sound_env = TUNNEL_ENCLOSED
+	sound_environment = SOUND_AREA_TUNNEL_ENCLOSED
 	ambience = AMBIENCE_GHOSTLY
 
 
@@ -184,7 +184,7 @@
 
 /area/turbolift/scc_ship/robotics_lift
 	name = "Robotics Lift"
-	sound_env = TUNNEL_ENCLOSED
+	sound_environment = SOUND_AREA_TUNNEL_ENCLOSED
 	ambience = AMBIENCE_GHOSTLY
 
 

@@ -1,7 +1,5 @@
 // Alien larva are quite simple.
-/mob/living/carbon/alien/Life()
-	set background = BACKGROUND_ENABLED
-
+/mob/living/carbon/alien/Life(seconds_per_tick, times_fired)
 	if (transforming)	return
 	if(!loc)			return
 
@@ -124,15 +122,15 @@
 		else
 			healths.icon_state = "health7"
 
-	client.screen.Remove(global_hud.blurry,global_hud.druggy,global_hud.vimpaired)
+	client.screen.Remove(GLOB.global_hud.blurry, GLOB.global_hud.druggy, GLOB.global_hud.vimpaired)
 
 	if(stat != DEAD)
 		if(blinded)
-			overlay_fullscreen("blind", /obj/screen/fullscreen/blind)
+			overlay_fullscreen("blind", /atom/movable/screen/fullscreen/blind)
 		else
 			clear_fullscreen("blind")
-			set_fullscreen(disabilities & NEARSIGHTED, "impaired", /obj/screen/fullscreen/impaired, 1)
-			set_fullscreen(eye_blurry, "blurry", /obj/screen/fullscreen/blurry)
+			set_fullscreen(disabilities & NEARSIGHTED, "impaired", /atom/movable/screen/fullscreen/impaired, 1)
+			set_fullscreen(eye_blurry, "blurry", /atom/movable/screen/fullscreen/blurry)
 		if(machine)
 			if (machine.check_eye(src) < 0)
 				reset_view(null)
@@ -143,6 +141,7 @@
 	return 1
 
 /mob/living/carbon/alien/handle_environment(var/datum/gas_mixture/environment)
+	..()
 	// Both alien subtypes survive in vaccum and suffer in high temperatures,
 	// so I'll just define this once, for both (see radiation comment above)
 	if(!environment) return
@@ -151,7 +150,7 @@
 		adjustFireLoss((environment.temperature - (T0C+66))/5) // Might be too high, check in testing.
 		if (fire) fire.icon_state = "fire2"
 		if(prob(20))
-			to_chat(src, "<span class='danger'>You feel a searing heat!</span>")
+			to_chat(src, SPAN_DANGER("You feel a searing heat!"))
 	else
 		if (fire) fire.icon_state = "fire0"
 

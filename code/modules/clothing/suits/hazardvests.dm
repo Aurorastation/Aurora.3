@@ -27,6 +27,13 @@
 	item_state = icon_state
 	update_clothing_icon()
 
+/obj/item/clothing/suit/storage/hazardvest/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(slot == slot_wear_suit_str)
+		var/image/emissive_overlay = emissive_appearance(mob_icon, "[opened ? "hazard_open-emissive" : "hazard-emissive"]", alpha = src.alpha)
+		I.AddOverlays(emissive_overlay)
+	return I
+
 /obj/item/clothing/suit/storage/hazardvest/blue
 	name = "blue hazard vest"
 	desc = "A high-visibility vest used in work zones. This one is blue."
@@ -95,5 +102,17 @@
 	item_state = "hazard_iac"
 	permeability_coefficient = 0.50
 	armor = list(
-		bio = ARMOR_BIO_MINOR
+		BIO = ARMOR_BIO_MINOR
 	)
+
+/obj/item/clothing/suit/storage/hazardvest/colorable
+	icon_state = "hazard_colorable"
+	item_state = "hazard_colorable"
+	build_from_parts = TRUE
+	worn_overlay = "stripes"
+
+/obj/item/clothing/suit/storage/hazardvest/colorable/alt
+	icon_state = "hazard_colorable_alt"
+	item_state = "hazard_colorable_alt"
+	has_accents = TRUE
+	build_from_parts = FALSE

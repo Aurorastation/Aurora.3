@@ -141,14 +141,15 @@
 
 /singleton/recipe/poppypretzel
 	appliance = OVEN
-	fruit = list("poppy" = 1)
 	reagent_mix = RECIPE_REAGENT_REPLACE
+	fruit = list("poppy" = 1)
 	items = list(/obj/item/reagent_containers/food/snacks/dough)
 	result = /obj/item/reagent_containers/food/snacks/poppypretzel
 	result_quantity = 2
 
 /singleton/recipe/bagel
 	appliance = OVEN
+	reagent_mix = RECIPE_REAGENT_REPLACE
 	fruit = list("poppy" = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/doughslice
@@ -234,13 +235,13 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/pbtoast
 
-/singleton/recipe/NTellabread
+/singleton/recipe/ntella_bread
 	appliance = MIX
 	reagents = list(/singleton/reagent/nutriment/choconutspread = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/breadslice
 	)
-	result = /obj/item/reagent_containers/food/snacks/NTellabread
+	result = /obj/item/reagent_containers/food/snacks/ntella_bread
 
 /singleton/recipe/slimetoast
 	appliance = SKILLET
@@ -336,6 +337,37 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/grilledcheese
 
+/singleton/recipe/grilled_mac_and_cheese_sandwich
+	appliance = SKILLET
+	items = list(
+		/obj/item/reagent_containers/food/snacks/breadslice,
+		/obj/item/reagent_containers/food/snacks/breadslice,
+		/obj/item/reagent_containers/food/snacks/macandcheese
+	)
+	result = /obj/item/reagent_containers/food/snacks/grilled_mac_and_cheese
+
+/singleton/recipe/grilled_triple_cheese_crunch_sandwich
+	appliance = SKILLET
+	items = list(
+		/obj/item/reagent_containers/food/snacks/breadslice,
+		/obj/item/reagent_containers/food/snacks/breadslice,
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/nakarka_wedge,
+		/obj/item/reagent_containers/food/snacks/cheesiehonkers
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+	result = /obj/item/reagent_containers/food/snacks/grilled_triple_cheese_crunch_sandwich
+
+/singleton/recipe/crab_leg_grilled_cheese_sandwich
+	appliance = SKILLET
+	items = list(
+		/obj/item/reagent_containers/food/snacks/breadslice,
+		/obj/item/reagent_containers/food/snacks/breadslice,
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/crabmeat
+	)
+	result = /obj/item/reagent_containers/food/snacks/crab_leg_grilled_cheese_sandwich
+
 /singleton/recipe/reubensandwich
 	reagents = list(/singleton/reagent/nutriment/mayonnaise = 5, /singleton/reagent/nutriment/ketchup = 5)
 	items = list(
@@ -411,6 +443,7 @@
 	)
 	fruit = list("eggplant" = 1)
 	result = /obj/item/reagent_containers/food/snacks/pita/sabich
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 
 /singleton/recipe/tunapita
 	items = list(
@@ -444,3 +477,26 @@
 	fruit = list("tomato" = 1)
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/reagent_containers/food/snacks/pita/falafel
+
+/singleton/recipe/peanut_butter_pita
+	items = list(
+	/obj/item/reagent_containers/food/snacks/pita,
+	)
+	reagents = list(/singleton/reagent/nutriment/peanutbutter = 5)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+	result = /obj/item/reagent_containers/food/snacks/pita/peanut_butter
+
+/singleton/recipe/omelette_pita //this recipe might get changed in the future
+	items = list(
+	/obj/item/reagent_containers/food/snacks/pita,
+	/obj/item/reagent_containers/food/snacks/omelette
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+	result = /obj/item/reagent_containers/food/snacks/pita/omelette
+
+/singleton/recipe/schnitzel_pita
+	items = list(
+	/obj/item/reagent_containers/food/snacks/pita,
+	/obj/item/reagent_containers/food/snacks/schnitzel
+	)
+	result = /obj/item/reagent_containers/food/snacks/pita/schnitzel

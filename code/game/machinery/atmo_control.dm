@@ -133,6 +133,7 @@
 	desc = "A console that gives an atmospheric condition readout of various sensors connected to it."
 	icon_screen = "tank"
 	icon_keyboard = "cyan_key"
+	icon_keyboard_emis = "cyan_key_mask"
 	light_color = LIGHT_COLOR_CYAN
 
 	var/frequency = 1439
@@ -215,6 +216,7 @@
 	icon = 'icons/obj/machinery/modular_terminal.dmi'
 	icon_screen = "tank"
 	icon_keyboard = "atmos_key"
+	icon_keyboard_emis = "atmos_key_mask"
 	is_connected = TRUE
 	has_off_keyboards = TRUE
 	can_pass_under = FALSE
@@ -230,6 +232,7 @@
 	icon = 'icons/obj/machinery/modular_terminal.dmi'
 	icon_screen = "tank"
 	icon_keyboard = "atmos_key"
+	icon_keyboard_emis = "atmos_key_mask"
 	is_connected = TRUE
 	has_off_keyboards = TRUE
 	can_pass_under = FALSE
@@ -317,6 +320,7 @@
 	icon = 'icons/obj/machinery/modular_terminal.dmi'
 	icon_screen = "tank"
 	icon_keyboard = "atmos_key"
+	icon_keyboard_emis = "atmos_key_mask"
 	ui_type = "AtmosControlSupermatter"
 	is_connected = TRUE
 	has_off_keyboards = TRUE
@@ -417,6 +421,7 @@
 /obj/machinery/computer/general_air_control/fuel_injection
 	icon_screen = "alert:0"
 	icon_keyboard = "cyan_key"
+	icon_keyboard_emis = "cyan_key_mask"
 	light_color = LIGHT_COLOR_CYAN
 	ui_type = "AtmosControlInjector"
 

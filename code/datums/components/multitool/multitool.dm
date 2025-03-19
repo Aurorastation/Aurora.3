@@ -28,7 +28,7 @@
 	. += "<b>Buffer Memory:</b><br>"
 	var/buffer_name = multitool.get_buffer_name()
 	if(buffer_name)
-		. += "[buffer_name] <a href='?src=\ref[src];send=\ref[multitool.buffer_object]'>Send</a> <a href='?src=\ref[src];purge=1'>Purge</a><br>"
+		. += "[buffer_name] <a href='byond://?src=[REF(src)];send=[REF(multitool.buffer_object)]'>Send</a> <a href='byond://?src=[REF(src)];purge=1'>Purge</a><br>"
 	else
 		. += "No connection stored in the buffer."
 
@@ -73,7 +73,7 @@
 	if(M.get_buffer() == buffer && buffer)
 		receive_buffer(M, buffer, user)
 	else if(!buffer)
-		to_chat(user, "<span class='warning'>Unable to acquire data from the buffered object. Purging from memory.</span>")
+		to_chat(user, SPAN_WARNING("Unable to acquire data from the buffered object. Purging from memory."))
 	return MT_REFRESH
 
 /datum/component/multitool/proc/receive_buffer(var/obj/item/device/multitool/M, var/atom/buffer, var/mob/user)

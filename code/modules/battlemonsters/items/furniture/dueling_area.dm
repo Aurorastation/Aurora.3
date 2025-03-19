@@ -1,16 +1,16 @@
 /obj/structure/dueling_table
 	name = "dueling table"
 	icon = 'icons/obj/battle_monsters/furniture.dmi'
-	anchored = 1
-	density = 1
+	anchored = TRUE
+	density = TRUE
 	climbable = TRUE
-	throwpass = 1
+	pass_flags_self = PASSSTRUCTURE | LETPASSTHROW
 
 /obj/structure/dueling_table/no_collide
 	density = 0
 
 /obj/structure/dueling_table/no_collide/above_layer
-	layer = ABOVE_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 
 /obj/effect/decal/battlemonsters_logo
 	name = "battlemonsters logo"

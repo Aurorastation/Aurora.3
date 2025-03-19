@@ -35,26 +35,26 @@ field_generator power level display
 
 
 /obj/machinery/field_generator/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(!active)
 		if(warming_up)
-			add_overlay("+a[warming_up]")
+			AddOverlays("+a[warming_up]")
 	if(fields.len)
-		add_overlay("+on")
+		AddOverlays("+on")
 	// Power level indicator
 	// Scale % power to % num_power_levels and truncate value
 	var/level = round(num_power_levels * power / field_generator_max_power)
 	// Clamp between 0 and num_power_levels for out of range power values
 	level = between(0, level, num_power_levels)
 	if(level)
-		add_overlay("+p[level]")
+		AddOverlays("+p[level]")
 	if(anchored)
-		add_overlay("+bolts")
+		AddOverlays("+bolts")
 		if(state == 2)
-			add_overlay("+welding")
+			AddOverlays("+welding")
 			var/image/lights_image = image(icon, null, "+lights")
-			lights_image.layer = EFFECTS_ABOVE_LIGHTING_LAYER
-			add_overlay(lights_image)
+			lights_image.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+			AddOverlays(lights_image)
 
 /obj/machinery/field_generator/process()
 	if(Varedit_start == 1)
@@ -101,7 +101,7 @@ field_generator power level display
 		switch(state)
 			if(0)
 				state = 1
-				playsound(src.loc, attacking_item.usesound, 75, 1)
+				attacking_item.play_tool_sound(get_turf(src), 75)
 				user.visible_message("[user.name] secures [src.name] to the floor.",
 										"You secure the external reinforcing bolts to the floor.",
 										"You hear ratchet")
@@ -109,20 +109,20 @@ field_generator power level display
 				update_icon()
 			if(1)
 				state = 0
-				playsound(src.loc, attacking_item.usesound, 75, 1)
+				attacking_item.play_tool_sound(get_turf(src), 75)
 				user.visible_message("[user.name] unsecures [src.name] reinforcing bolts from the floor.",
 										"You undo the external reinforcing bolts.",
 										"You hear ratchet")
 				src.anchored = 0
 				update_icon()
 			if(2)
-				to_chat(user, "<span class='warning'>The [src.name] needs to be unwelded from the floor.</span>")
+				to_chat(user, SPAN_WARNING("The [src.name] needs to be unwelded from the floor."))
 				return
 	else if(attacking_item.iswelder())
 		var/obj/item/weldingtool/WT = attacking_item
 		switch(state)
 			if(0)
-				to_chat(user, "<span class='warning'>The [src.name] needs to be wrenched to the floor.</span>")
+				to_chat(user, SPAN_WARNING("The [src.name] needs to be wrenched to the floor."))
 				return
 			if(1)
 				if (WT.use(0,user))
@@ -160,11 +160,14 @@ field_generator power level display
 
 	return 0
 
-/obj/machinery/field_generator/bullet_act(var/obj/item/projectile/Proj)
-	if(istype(Proj, /obj/item/projectile/beam))
-		power += Proj.damage * 1.25 * EMITTER_DAMAGE_POWER_TRANSFER
+/obj/machinery/field_generator/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	if(istype(hitting_projectile, /obj/projectile/beam))
+		power += hitting_projectile.damage * 1.25 * EMITTER_DAMAGE_POWER_TRANSFER
 		update_icon()
-	return 0
 
 
 /obj/machinery/field_generator/Destroy()

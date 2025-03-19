@@ -6,7 +6,6 @@
 	color = "#404040"
 	level = 2
 	connect_types = CONNECT_TYPE_HE
-	layer = 2.41
 	var/initialize_directions_he
 	var/surface = 2	//surface area in m^2
 	var/icon_temperature = T20C //stop small changes in temperature causing an icon refresh
@@ -32,7 +31,7 @@
 	var/node1_dir
 	var/node2_dir
 
-	for(var/direction in GLOB.cardinal)
+	for(var/direction in GLOB.cardinals)
 		if(direction&initialize_directions_he)
 			if (!node1_dir)
 				node1_dir = direction
@@ -59,12 +58,27 @@
 		..()
 	else
 		var/datum/gas_mixture/pipe_air = return_air()
-		if(istype(loc, /turf/space) || (isopenturf(loc) && (istype(GetBelow(loc), /turf/space) || istype(GetAbove(loc), /turf/space))))
+		var/turf/T = get_turf(loc)
+		var/turf/turf_above = GET_TURF_ABOVE(T)
+
+		if(istype(loc, /turf/space) || (isopenturf(loc) && (istype(GET_TURF_BELOW(T), /turf/space) || istype(turf_above, /turf/space))))
 			parent.radiate_heat_to_space(surface, 1)
-		else if(istype(loc, /turf/simulated/))
+
+		else if(istype(loc, /turf/simulated/lava))
+			// we want to heat up the pipe to some arbitrary temperature of lava
+			// need to add some thermal energy to pipe air
+			// but only up to a limit so it does not heat up instantly to max
+			// and stop heating when it is at that temperature
+			var/max_energy_change = 200 KILO WATTS
+			var/lava_temperature = 1500
+			var/energy_to_temp = parent.air.get_thermal_energy_change(lava_temperature)
+			parent.air.add_thermal_energy(max(min(energy_to_temp, max_energy_change), 0))
+
+		else if(istype(loc, /turf/simulated))
+			var/turf/simulated/simulated_turf = loc
 			var/environment_temperature = 0
-			if(loc:blocks_air)
-				environment_temperature = loc:temperature
+			if(simulated_turf.blocks_air)
+				environment_temperature = simulated_turf.temperature
 			else
 				var/datum/gas_mixture/environment = loc.return_air()
 				environment_temperature = environment.temperature

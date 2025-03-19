@@ -60,15 +60,15 @@
 	bracers["arm chains, ruby"] = /obj/item/clothing/wrists/goldbracer/ruby
 	gear_tweaks += new /datum/gear_tweak/path(bracers)
 
-/datum/gear/ears/antennae
-	display_name = "antennae"
+/datum/gear/ears/antennas
+	display_name = "antennas"
 	path = /obj/item/clothing/ears/antenna
 	cost = 1
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	sort_category = "Xenowear - IPC"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/ears/antennae/New()
+/datum/gear/ears/antennas/New()
 	..()
 	var/list/antenna = list()
 	antenna["antenna, curved"] = /obj/item/clothing/ears/antenna/curved
@@ -140,8 +140,7 @@
 	goldendeep["golden deep skirtsuit"] = /obj/item/clothing/under/goldendeep/skirtsuit
 	gear_tweaks += new /datum/gear_tweak/path(goldendeep)
 
-/datum/gear/augment/machine
-	abstract_type = /datum/gear/augment/machine
+ABSTRACT_TYPE(/datum/gear/augment/machine)
 
 /datum/gear/augment/machine/gustatorial
 	display_name = "gustatorial centre (tongue)"
@@ -185,3 +184,159 @@
 	sort_category = "Xenowear - IPC"
 	cost = 1
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
+
+/datum/gear/suit/goldendeep
+	display_name = "eccentric coat"
+	description = "A colorable coat worn by members of Golden Deep who feel particularly like a boss fight."
+	path = /obj/item/clothing/suit/storage/goldendeep
+	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
+	sort_category = "Xenowear - IPC"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+
+/datum/gear/uniform/goldendeepshirt
+	display_name = "golden deep shirt selection"
+	description = "A selection of shirts and other tops worn by members of the Golden Deep."
+	path = /obj/item/clothing/accessory/goldendeep
+	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
+	sort_category = "Xenowear - IPC"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+
+/datum/gear/uniform/goldendeepshirt/New()
+	..()
+	var/list/goldendeepshirt = list()
+	goldendeepshirt["golden deep fine shirt"] = /obj/item/clothing/under/dressshirt/goldendeep
+	goldendeepshirt["golden deep pompous shirt"] = /obj/item/clothing/under/dressshirt/goldendeep/pompous
+	goldendeepshirt["golden deep cloth wrapped uniform"] = /obj/item/clothing/under/dressshirt/goldendeep/clothwrappeduniform
+	gear_tweaks += new /datum/gear_tweak/path(goldendeepshirt)
+
+/datum/gear/accessory/goldendeepouter
+	display_name = "golden deep outer layer selection"
+	description = "A selection of tops suited for use as outer layers worn by members of the Golden Deep."
+	path = /obj/item/clothing/accessory/goldendeep
+	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
+	sort_category = "Xenowear - IPC"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+	slot = slot_tie
+
+/datum/gear/accessory/goldendeepouter/New()
+	..()
+	var/list/goldendeepouter = list()
+	goldendeepouter["golden deep quilted gambeson"] = /obj/item/clothing/accessory/goldendeep
+	goldendeepouter["golden deep tabbard"] = /obj/item/clothing/accessory/goldendeep/tabbard
+	goldendeepouter["golden deep pullover"] = /obj/item/clothing/accessory/goldendeep/pullover
+	goldendeepouter["golden deep rain garb"] = /obj/item/clothing/accessory/goldendeep/raingarb
+	gear_tweaks += new /datum/gear_tweak/path(goldendeepouter)
+
+/datum/gear/accessory/goldendeepcloak
+	display_name = "golden deep cloak selection"
+	description = "A selection of cloaks and capes worn by members of the Golden Deep."
+	path = /obj/item/clothing/accessory/poncho/goldendeep
+	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
+	sort_category = "Xenowear - IPC"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+
+/datum/gear/accessory/goldendeepcloak/New()
+	..()
+	var/list/goldendeepcloak = list()
+	goldendeepcloak["golden deep cape"] = /obj/item/clothing/accessory/poncho/goldendeep
+	goldendeepcloak["golden deep flowing cloak"] = /obj/item/clothing/accessory/poncho/goldendeep/flowingcloak
+	goldendeepcloak["golden deep elegant cloak"] = /obj/item/clothing/accessory/poncho/goldendeep/elegantcloak
+	goldendeepcloak["golden deep fur wrap"] = /obj/item/clothing/accessory/poncho/goldendeep/furwrap
+	goldendeepcloak["golden deep desert adornment"] = /obj/item/clothing/accessory/poncho/goldendeep/desertadornment
+	gear_tweaks += new /datum/gear_tweak/path(goldendeepcloak)
+
+/datum/gear/head/goldendeep
+	display_name = "golden deep headgear selection"
+	description = "A selection of hats and other headgear worn by members of the Golden Deep."
+	path = /obj/item/clothing/head/goldendeep
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
+	sort_category = "Xenowear - IPC"
+
+/datum/gear/head/goldendeep/New()
+	..()
+	var/list/goldendeephat = list()
+	goldendeephat["golden deep furred crown"] = /obj/item/clothing/head/goldendeep
+	goldendeephat["golden deep cowl"] = /obj/item/clothing/head/goldendeep/cowl
+	goldendeephat["golden deep cube hood"] = /obj/item/clothing/head/goldendeep/cubehood
+	gear_tweaks += new /datum/gear_tweak/path(goldendeephat)
+
+// Hoplan uniforms are restricted to Golden Deep Consulars and Diplomatic Aides. As military uniforms, they aren't something you'd see among the general crew.
+/datum/gear/uniform/goldendeephoplan
+	display_name = "golden deep hoplan uniform"
+	description = "An ornate piece of clothing usually worn by members of the Hoplan, but known to circulate elsewhere."
+	path = /obj/item/clothing/under/goldendeep/hoplan
+	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
+	sort_category = "Xenowear - IPC"
+	allowed_roles = list("Consular Officer", "Diplomatic Aide")
+	culture_restriction = list(/singleton/origin_item/culture/golden_deep)
+
+/datum/gear/head/goldendeephoplan
+	display_name = "golden deep hoplan hat"
+	description = "A large poofy hat typically worn by members of the Hoplan, but known to circulate elsewhere."
+	path = /obj/item/clothing/head/goldendeep/hoplan
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
+	sort_category = "Xenowear - IPC"
+	allowed_roles = list("Consular Officer", "Diplomatic Aide")
+	culture_restriction = list(/singleton/origin_item/culture/golden_deep)
+
+/datum/gear/uniform/goldendeepporter
+	display_name = "golden deep porter uniform"
+	description = "A plain and durable suit popular among the menial synthetics fo the Golden Deep, but known to ciculate elsewhere."
+	path = /obj/item/clothing/under/goldendeep/porter
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
+	sort_category = "Xenowear - IPC"
+
+/datum/gear/head/goldendeepporter
+	display_name = "golden deep porter hat"
+	description = "A plain and durable piece of headwear popular among the menial synthetics of the Golden Deep, but known to circulate elsewhere."
+	path = /obj/item/clothing/head/goldendeep/porter
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
+	sort_category = "Xenowear - IPC"
+
+/datum/gear/head/goldendeepchainjewelry
+	display_name = "golden deep chain jewelry"
+	path = /obj/item/clothing/head/goldendeep/chainjewelry
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
+	sort_category = "Xenowear - IPC"
+
+/datum/gear/head/goldendeepchainjewelry/New()
+	..()
+	var/list/chainjewelry = list()
+	chainjewelry["golden deep chain jewelry"] = /obj/item/clothing/head/goldendeep/chainjewelry
+	chainjewelry["golden deep chain jewelry (baseline)"] = /obj/item/clothing/head/goldendeep/chainjewelry/baseline
+	gear_tweaks += new /datum/gear_tweak/path(chainjewelry)
+
+/datum/gear/accessory/webbing/goldendeep
+	display_name = "golden deep thesian webbing"
+	path = /obj/item/clothing/accessory/storage/goldendeep
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
+	sort_category = "Xenowear - IPC"
+
+/datum/gear/goldendeep
+	display_name = "golden deep sacred icon"
+	path = /obj/item/storage/backpack/goldendeep
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
+	sort_category = "Xenowear - IPC"
+
+/datum/gear/goldendeep/New()
+	..()
+	var/list/sacredicon = list()
+	sacredicon["golden deep sacred icon"] = /obj/item/storage/backpack/goldendeep
+	sacredicon["golden deep sacred icon (baseline)"] = /obj/item/storage/backpack/goldendeep/baseline
+	gear_tweaks += new /datum/gear_tweak/path(sacredicon)
+
+// See the utility tab for the human variant.
+/datum/gear/utility/ipc_assunzione_kit
+	display_name = "synthetic assunzionii voidsuit kit"
+	path = /obj/item/voidsuit_modkit/assunzione/ipc
+	allowed_roles = list("Research Director", "Scientist", "Xenoarchaeologist", "Xenobiologist", "Xenobotanist", "Research Intern", "Science Personnel")
+	origin_restriction = list(/singleton/origin_item/origin/ipc_assunzione)
+	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
+	sort_category = "Xenowear - IPC"

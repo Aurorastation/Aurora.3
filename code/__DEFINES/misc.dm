@@ -28,9 +28,6 @@
 #define INVISIBILITY_MAXIMUM		100
 #define INVISIBILITY_ABSTRACT		101	// Special invis value that can never be seen by see_invisible.
 
-// Some arbitrary defines to be used by self-pruning global lists. (see master_controller)
-#define PROCESS_KILL 26 // Used to trigger removal from a processing list.
-
 // Preference toggles.
 #define SOUND_ADMINHELP 0x1
 #define SOUND_MIDI      0x2
@@ -50,14 +47,15 @@
 #define CHAT_NOICONS			0x8000
 #define CHAT_GHOSTLOOC			0x10000
 
-// 0x1 is free.
-// 0x2 is free.
-#define PROGRESS_BARS				0x4
-#define PARALLAX_IS_STATIC			0x8
-#define FLOATING_MESSAGES			0x10
-#define HOTKEY_DEFAULT				0x20
-#define FULLSCREEN_MODE				0x40
-#define ACCENT_TAG_TEXT				0x80
+#define SEE_ITEM_OUTLINES BITFLAG(1)
+#define HIDE_ITEM_TOOLTIPS BITFLAG(2)
+#define PROGRESS_BARS BITFLAG(3)
+#define PARALLAX_IS_STATIC BITFLAG(4)
+#define FLOATING_MESSAGES BITFLAG(5)
+#define HOTKEY_DEFAULT BITFLAG(6)
+#define FULLSCREEN_MODE BITFLAG(7)
+#define ACCENT_TAG_TEXT BITFLAG(8)
+#define CLIENT_PREFERENCE_HIDE_MENU BITFLAG(9)
 
 #define TOGGLES_DEFAULT (SOUND_ADMINHELP | SOUND_MIDI | SOUND_LOBBY | CHAT_OOC | CHAT_DEAD | CHAT_GHOSTEARS | CHAT_GHOSTSIGHT | CHAT_PRAYER | CHAT_RADIO | CHAT_ATTACKLOGS | CHAT_LOOC | CHAT_GHOSTLOOC)
 
@@ -137,6 +135,8 @@
 #define AREA_FLAG_NO_CREW_EXPECTED    	 BITFLAG(5) // Areas where crew is not expected to ever be. Used to tell antag bases and such from crew-accessible areas on centcom level.
 #define AREA_FLAG_PRISON              	 BITFLAG(6) // Marks prison area for purposes of checking if brigged/imprisoned
 #define AREA_FLAG_NO_GHOST_TELEPORT_ACCESS BITFLAG(7) // Marks whether ghosts should not have teleport access to this area
+#define AREA_FLAG_INDESTRUCTIBLE_TURFS			 BITFLAG(8) //Marks whether or not turfs in this area can be destroyed by explosions
+#define AREA_FLAG_IS_BACKGROUND 		 BITFLAG(9) //Marks whether or not blueprints can create areas on top of this area
 
 // Convoluted setup so defines can be supplied by Bay12 main server compile script.
 // Should still work fine for people jamming the icons into their repo.
@@ -230,12 +230,6 @@
 #define SCANNER_REAGENT BITFLAG(1)
 #define SCANNER_GAS BITFLAG(2)
 
-// Special return values from bullet_act(). Positive return values are already used to indicate the blocked level of the projectile.
-#define PROJECTILE_CONTINUE   -1 //if the projectile should continue flying after calling bullet_act()
-#define PROJECTILE_FORCE_MISS -2 //if the projectile should treat the attack as a miss (suppresses attack and admin logs) - only applies to mobs.
-#define PROJECTILE_DODGED     -3 //this is similar to the above, but the check and message is run on the mob, instead of on the projectile code. basically just has a unique message
-#define PROJECTILE_STOPPED    -4 //stops the projectile completely, as if a shield absorbed it
-
 //Camera capture modes
 #define CAPTURE_MODE_REGULAR 0 //Regular polaroid camera mode
 #define CAPTURE_MODE_ALL 1 //Admin camera mode
@@ -268,7 +262,7 @@
 
 #define MIDNIGHT_ROLLOVER		864000	//number of deciseconds in a day
 
-#define DEBUG_REF(D) (D ? "\ref[D]|[D] ([D.type])" : "NULL")
+#define DEBUG_REF(D) (D ? "[REF(D)]|[D]] ([D.type])" : "NULL")
 
 // MultiZAS directions.
 #define NORTHUP (NORTH|UP)
@@ -283,10 +277,6 @@
 #define NL_NOT_DISABLED      0
 #define NL_TEMPORARY_DISABLE 1
 #define NL_PERMANENT_DISABLE 2
-
-///Used for creating soft references to objects. A manner of storing an item reference
-///DO NOT USE, USE `WEAKREF()`
-#define SOFTREF(A) ref(A)
 
 #define ADD_VERB_IN(the_atom,time,verb) addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(add_verb), the_atom, verb), time, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
 #define ADD_VERB_IN_IF(the_atom,time,verb,callback) addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(add_verb), the_atom, verb, callback), time, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
@@ -321,12 +311,6 @@
 
 #define DEFAULT_SIGHT (SEE_SELF)
 
-#define isStationLevel(Z) ((Z) in SSatlas.current_map.station_levels)
-#define isNotStationLevel(Z) !isStationLevel(Z)
-
-#define isPlayerLevel(Z) ((Z) in SSatlas.current_map.player_levels)
-#define isNotPlayerLevel(Z) !isPlayerLevel(Z)
-
 #define isAdminLevel(Z) ((Z) in SSatlas.current_map.admin_levels)
 #define isNotAdminLevel(Z) !isAdminLevel(Z)
 
@@ -338,14 +322,6 @@
 #define CARGO_CONTAINER_FREEZER "freezer"
 #define CARGO_CONTAINER_BOX "box"
 #define CARGO_CONTAINER_BODYBAG "bodybag"
-
-// We should start using these.
-#define ITEMSIZE_TINY   1
-#define ITEMSIZE_SMALL  2
-#define ITEMSIZE_NORMAL 3
-#define ITEMSIZE_LARGE  4
-#define ITEMSIZE_HUGE   5
-#define ITEMSIZE_IMMENSE 6
 
 // getFlatIcon function altering defines
 #define GFI_ROTATION_DEFAULT 0 //Don't do anything special
@@ -370,7 +346,7 @@ example:
 	CALCULATE_NEIGHBORS(src, result, T, isopenturf(T))
 */
 #define CALCULATE_NEIGHBORS(ORIGIN, VAR, TVAR, FUNC) \
-	for (var/_tdir in GLOB.cardinal) {                    \
+	for (var/_tdir in GLOB.cardinals) {                    \
 		TVAR = get_step(ORIGIN, _tdir);              \
 		if ((TVAR) && (FUNC)) {                      \
 			VAR |= 1 << _tdir;                       \
@@ -462,17 +438,20 @@ example:
 
 //Map template flags
 /// Lets multiple copies of the template to be spawned
-#define TEMPLATE_FLAG_ALLOW_DUPLICATES 1
-/// Makes it ignore away site budget and just spawn (works only for away sites)
+#define TEMPLATE_FLAG_ALLOW_DUPLICATES BITFLAG(1)
+/// If it should ignore away site budget and just spawn (works only for away sites)
 /// A site needs to be set to spawn in current sector to be considered still
-#define TEMPLATE_FLAG_SPAWN_GUARANTEED 2
-/// if it should destroy objects it spawns on top of
-#define TEMPLATE_FLAG_CLEAR_CONTENTS   4
-/// if it should forbid ruins from spawning on top of it
-#define TEMPLATE_FLAG_NO_RUINS         8
+#define TEMPLATE_FLAG_SPAWN_GUARANTEED BITFLAG(2)
+/// If it should destroy objects it spawns on top of
+#define TEMPLATE_FLAG_CLEAR_CONTENTS   BITFLAG(3)
+/// If it should forbid ruins from spawning on top of it
+#define TEMPLATE_FLAG_NO_RUINS         BITFLAG(4)
+/// If it should always spawn if today is a port of call day
+#define TEMPLATE_FLAG_PORT_SPAWN       BITFLAG(5)
 
 //Ruin map template flags
-#define TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED 32  // Ruin is not available during spawning unless another ruin permits it, or whitelisted by the exoplanet
+/// Ruin is not available during spawning unless another ruin permits it, or whitelisted by the exoplanet
+#define TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED BITFLAG(6)
 
 #define LANDING_ZONE_RADIUS 15 // Used for autoplacing landmarks on exoplanets
 
@@ -507,3 +486,20 @@ example:
 #define GEAR_TWEAK_ACCESSORY_SLOT_SUIT "Suit"
 /// Spawns standalone in the suit slot
 #define GEAR_TWEAK_ACCESSORY_SLOT_SUIT_STANDALONE "Standalone Suit"
+
+//Turf/area values for 'this space is outside' checks
+#define OUTSIDE_AREA null
+#define OUTSIDE_NO   FALSE
+#define OUTSIDE_YES  TRUE
+#define OUTSIDE_UNCERTAIN null
+
+// Weather exposure values for being rained on or hailed on.
+#define WEATHER_IGNORE   -1
+#define WEATHER_EXPOSED   0
+#define WEATHER_ROOFED    1
+#define WEATHER_PROTECTED 2
+
+// arbitrary low pressure bound for wind weather effects
+#define MIN_WIND_PRESSURE 10
+
+#define NO_EMAG_ACT -50

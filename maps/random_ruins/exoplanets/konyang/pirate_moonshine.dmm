@@ -17,7 +17,7 @@
 /turf/simulated/floor/wood,
 /area/konyang_pirate_moonshine)
 "f" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/storage/box/donkpockets/gwok/takoyaki{
 	icon_state = "redbox"
 	},

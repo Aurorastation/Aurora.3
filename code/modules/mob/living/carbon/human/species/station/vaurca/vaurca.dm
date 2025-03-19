@@ -56,7 +56,7 @@
 	breath_eff_mul = 6 // 1/6 * breath_eff_mul = fraction of gas consumed
 	poison_type = GAS_NITROGEN //a species that breathes plasma shouldn't be poisoned by it.
 	breathing_sound = null //They don't work that way I guess? I'm a coder not a purple man.
-	mob_size = 13 //their half an inch thick exoskeleton and impressive height, plus all of their mechanical organs.
+	mob_size = 10 //their half an inch thick exoskeleton and impressive height, plus all of their mechanical organs.
 	natural_climbing = TRUE
 	climb_coeff = 0.75
 
@@ -76,7 +76,7 @@
 	heat_level_3 = 600 //Default 1000
 	flags = NO_SLIP | NO_CHUBBY | NO_ARTERIES | PHORON_IMMUNE | NO_COLD_SLOWDOWN
 	spawn_flags = CAN_JOIN | IS_WHITELISTED | NO_AGE_MINIMUM
-	appearance_flags = HAS_SKIN_COLOR | HAS_HAIR_COLOR
+	appearance_flags = HAS_SKIN_COLOR | HAS_HAIR_COLOR | HAS_SKIN_PRESET
 	blood_color = COLOR_VAURCA_BLOOD // dark yellow
 	flesh_color = "#E6E600"
 	base_color = "#575757"
@@ -147,6 +147,31 @@
 
 	alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_STOMACH, BP_APPENDIX)
 	psi_deaf = TRUE
+	possible_speech_bubble_types = list("robot", "default")
+	valid_prosthetics = list(PROSTHETIC_VAURCA)
+
+	sleeps_upright = TRUE
+	snore_key = "chitter"
+	indefinite_sleep = TRUE
+
+	character_color_presets = list(
+		"Zo'ra: Unbound Vaur" = "#3D0000", "Zo'ra: Bound Vaur" = "#290000",
+		"Zo'ra: Unbound Zoleth" = "#650015", "Zo'ra: Bound Zoleth" = "#6F1515",
+		"Zo'ra: Unbound Athvur" = "#83290B", "Zo'ra: Bound Athvur" = "#6F1500",
+		"Zo'ra: Unbound Scay" = "#47001F", "Zo'ra: Bound Scay" = "#470B33",
+		"Zo'ra: Unbound Xakt" = "#5B1F00", "Zo'ra: Bound Xakt" = "#511500",
+
+		"K'lax: Unbound Zkaii" = "#0B2B1B", "K'lax: Bound Zkaii" = "#335115",
+		"K'lax: Unbound Tupii" = "#299617", "K'lax: Bound Tupii" = "#74B72E",
+		"K'lax: Unbound Vedhra" = "#829614", "K'lax: Bound Vedhra" = "#14AA14",
+		"K'lax: Unbound Leto" = "#00503C", "K'lax: Bound Leto" = "#293B1A",
+		"K'lax: Unbound Vetju" = "#0B541F", "K'lax: Bound Vetju" = "#213F21",
+
+		"C'thur: Unbound C'thur" = "#002373", "C'thur: Bound C'thur" = "#00285A",
+		"C'thur: Unbound Vytel" = "#141437", "C'thur: Bound Vytel" = "#0A2337",
+		"C'thur: Unbound Mouv" = "#96B4FF", "C'thur: Bound Mouv" = "#5A96FF",
+		"C'thur: Unbound Xetl" = "#370078", "C'thur: Bound Xetl" = "#3C0F5F"
+	)
 
 /datum/species/bug/before_equip(var/mob/living/carbon/human/H)
 	. = ..()
@@ -168,7 +193,13 @@
 	return TRUE
 
 /datum/species/bug/can_hold_s_store(obj/item/I)
-	if(I.w_class <= ITEMSIZE_SMALL)
+	if(I.w_class <= WEIGHT_CLASS_SMALL)
 		return TRUE
 	return FALSE
 
+/datum/species/bug/sleep_msg(var/mob/M)
+	M.visible_message(SPAN_NOTICE("\The [M] locks [M.get_pronoun("his")] carapace in place, becoming completely still."))
+	to_chat(M, SPAN_NOTICE("You lock your carapace into place, becoming completely still."))
+
+/datum/species/bug/sleep_examine_msg(var/mob/M)
+	return SPAN_NOTICE("[M.get_pronoun("He")] has locked [M.get_pronoun("his")] carapace in place, and is standing completely still.\n")

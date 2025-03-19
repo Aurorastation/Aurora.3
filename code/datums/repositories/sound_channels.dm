@@ -1,4 +1,4 @@
-var/repository/sound_channels/sound_channels = new()
+GLOBAL_DATUM_INIT(sound_channels, /repository/sound_channels, new())
 // lobby_sound_channel = sound_channels.RequestChannel("LOBBY")
 // vote_sound_channel = sound_channels.RequestChannel("VOTE")
 // admin_sound_channel = sound_channels.RequestChannel("ADMIN_FUN")
@@ -12,9 +12,12 @@ var/repository/sound_channels/sound_channels = new()
 	var/list/keys_by_channel           // So we know who to blame if we run out
 	var/channel_ceiling	= 1024         // Initial value is the current BYOND maximum number of channels
 
+	var/weather_channel
+
 /repository/sound_channels/New()
 	..()
 	available_channels = new()
+	weather_channel = RequestChannel("WEATHER")
 
 /repository/sound_channels/proc/RequestChannel(key)
 	. = RequestChannels(key, 1)

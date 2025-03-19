@@ -59,7 +59,6 @@
 #define CE_NOPULSE      "heartstop"		// Stops heartbeat
 #define CE_SEDATE       "sedation"
 #define CE_SLOWDOWN     "goslow"
-#define CE_SPEEDBOOST   "gofast"		// Hyperzine
 #define CE_STABLE       "stable"		// Epinephrine
 #define CE_PACIFIED     "pacified"
 #define CE_PAINKILLER   "painkiller"
@@ -71,6 +70,7 @@
 #define CE_STRAIGHTWALK "straightwalk"  // prevents the confused walking chem side effect
 #define CE_NOSTUTTER    "nostutter"		// helps alleviate stuttering
 #define CE_HAUNTED      "haunted"       // Spectrocybin's ghost vision
+#define CE_BLOODTHIN    "bloodthin"     // Makes you bleed out quicker
 
 // Apply healing effects
 #define CE_ANTIBIOTIC   "antibiotic"	// Thetamycin
@@ -82,6 +82,7 @@
 #define CE_BLOODCLOT    "bloodclot"		// Coagzolug
 #define CE_ORGANREPAIR  "organrepair"	// Rezadone
 #define CE_ANTIPARASITE "antiparasite"  // Helmizole, garlic
+#define CE_ANTIBODIES   "antibodies"    // Hylemnomil-Zeta antibodies
 
 // Deal damage
 #define CE_BREATHLOSS   "breathloss"
@@ -91,28 +92,32 @@
 #define CE_HEPATOTOXIC  "livertoxic"	// Liver damage
 #define CE_CARDIOTOXIC  "hearttoxic"	// Heart damage
 #define CE_PNEUMOTOXIC  "lungtoxic"		// Lung damage
+#define CE_OCULOTOXIC   "eyetoxic"      // Eye damage
 
 //Alcohol
 #define INTOX_BUZZED     0.01
 #define INTOX_JUDGEIMP   0.03
 #define INTOX_MUSCLEIMP  0.08
 #define INTOX_REACTION   0.10
-#define INTOX_VOMIT		 0.12
 #define INTOX_BALANCE    0.15
+#define INTOX_VOMIT		 0.15
 #define INTOX_BLACKOUT   0.20
 #define INTOX_CONSCIOUS  0.30
 #define INTOX_DEATH      0.45
 
 //How many units of intoxication to remove per second
-#define INTOX_FILTER_HEALTHY 0.10
-#define INTOX_FILTER_BRUISED 0.07
-#define INTOX_FILTER_DAMAGED 0.03
+#define INTOX_FILTER_HEALTHY 0.015
+#define INTOX_FILTER_BRUISED 0.007
+#define INTOX_FILTER_DAMAGED 0.003
 
 #define	BASE_DIZZY 50 //Base dizziness from getting drunk.
 #define DIZZY_ADD_SCALE 15 //Amount added for every 0.01 percent over the JUDGEIMP limit
 
-#define	BASE_VOMIT_CHANCE 10 //Base chance
-#define	VOMIT_CHANCE_SCALE 2.5 //Percent change added for every 0.01 percent over the VOMIT limit
+#define	BASE_SLUR 5 //Base slurring from getting drunk.
+#define SLUR_ADD_SCALE 10 //Amount added for every 0.01 percent over the REACTION limit
+
+#define	BASE_VOMIT_CHANCE 1 //Base chance
+#define	VOMIT_CHANCE_SCALE 1 //Percent change added for every 0.01 percent over the VOMIT limit
 
 #define REAGENTS_FREE_SPACE(R) (R.maximum_volume - R.total_volume)
 

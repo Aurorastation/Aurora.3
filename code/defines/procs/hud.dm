@@ -1,9 +1,3 @@
-// Consider these images/atoms as part of the UI/HUD (apart of the appearance_flags)
-/// Used for progress bars and chat messages
-#define APPEARANCE_UI_IGNORE_ALPHA (RESET_COLOR|RESET_TRANSFORM|NO_CLIENT_COLOR|RESET_ALPHA|PIXEL_SCALE)
-/// Used for HUD objects
-#define APPEARANCE_UI (RESET_COLOR|RESET_TRANSFORM|NO_CLIENT_COLOR|PIXEL_SCALE)
-
 /* Using the HUD procs is simple. Call these procs in the life.dm of the intended mob.
 Use the regular_hud_updates() proc before process_med_hud(mob) or process_sec_hud(mob) so
 the HUD updates properly! */
@@ -103,14 +97,22 @@ the HUD updates properly! */
 	GLOB.sec_hud_users -= src
 
 /mob/proc/in_view(var/turf/T)
-	return view(T)
+	RETURN_TYPE(/list)
+
+	return get_hearers_in_LOS(client?.view, T)
 
 /mob/abstract/eye/in_view(var/turf/T)
-	var/list/viewed = new
-	for(var/mob/living/carbon/human/H in GLOB.mob_list)
-		if(get_dist(H, T) <= 7)
-			viewed += H
-	return viewed
+	RETURN_TYPE(/list)
+
+	// This was like this before, honestly i don't see the point of doing it this way hence the change, but I left the code for reference in case shit hits the fan
+	// var/list/viewed = new
+	// for(var/mob/living/carbon/human/H in GLOB.mob_list)
+	// 	if(get_dist(H, T) <= client?.view)
+	// 		viewed += H
+	// return viewed
+
+	//Some virtual eyes eg. the AI eye doesn't have a client but an owner, select it as preferred if so, otherwise use the mob's client itself
+	return get_hearers_in_range((src.owner ? src.owner.client?.view : src.client?.view), T)
 
 /proc/get_sec_hud_icon(var/mob/living/carbon/human/H)//This function is called from human/life,dm, ~line 1663
 	var/state

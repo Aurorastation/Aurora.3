@@ -28,7 +28,7 @@
 /area/hegemony_ship/temple
 	name = "Hegemony Corvette - Temple"
 	icon_state = "chapel"
-	sound_env = MEDIUM_SOFTFLOOR
+	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
 	ambience = AMBIENCE_CHAPEL
 
 /area/hegemony_ship/warpriests_quarters
@@ -43,7 +43,7 @@
 /area/hegemony_ship/ammo_storage
 	name = "Hegemony Corvette - Ammo Storage"
 	icon_state = "red"
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/hegemony_ship/gun_deck_bruiser
 	name = "Hegemony Corvette - Gunnery Deck"
@@ -60,7 +60,7 @@
 /area/hegemony_ship/tcomms
 	name = "Hegemony Corvette - Telecommunications"
 	icon_state = "server"
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/hegemony_ship/canteen
 	name = "Hegemony Corvette - Canteen"
@@ -77,7 +77,7 @@
 /area/hegemony_ship/crew_quarters
 	name = "Hegemony Corvette - Crew Quarters"
 	icon_state = "crew_quarters"
-	sound_env = SMALL_SOFTFLOOR
+	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
 
 /area/hegemony_ship/trophy_room
 	name = "Hegemony Corvette - Trophy Room"
@@ -94,7 +94,7 @@
 /area/hegemony_ship/captains_quarters
 	name = "Hegemony Corvette - Captain's Quarters"
 	icon_state = "captain"
-	sound_env = SMALL_SOFTFLOOR
+	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
 
 /area/hegemony_ship/brig
 	name = "Hegemony Corvette - Brig"
@@ -107,7 +107,7 @@
 /area/hegemony_ship/armory
 	name = "Hegemony Corvette - Armory"
 	icon_state = "armory"
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	ambience = AMBIENCE_HIGHSEC
 
 /area/hegemony_ship/gun_deck_flak

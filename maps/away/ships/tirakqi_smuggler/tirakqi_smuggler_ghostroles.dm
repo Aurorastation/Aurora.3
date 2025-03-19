@@ -7,7 +7,7 @@
 	spawnpoints = list("tirakqi_crew")
 	max_count = 2
 
-	outfit = /datum/outfit/admin/tirakqi_crew
+	outfit = /obj/outfit/admin/tirakqi_crew
 	possible_species = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -17,7 +17,7 @@
 
 	uses_species_whitelist = FALSE
 
-/datum/outfit/admin/tirakqi_crew
+/obj/outfit/admin/tirakqi_crew
 	name = "Ti'Rakqi Lu'fup"
 
 	uniform = list(
@@ -61,10 +61,10 @@
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
-/datum/outfit/admin/tirakqi_crew/get_id_access()
+/obj/outfit/admin/tirakqi_crew/get_id_access()
 	return list(ACCESS_SKRELL, ACCESS_EXTERNAL_AIRLOCKS)
 
-/datum/outfit/admin/tirakqi_crew/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/admin/tirakqi_crew/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 
 	H.h_style = pick("Headtails", "Headtails", "Long Headtails", "Short Headtails", "Very Short Headtails", "Short Headtails, tucked", "Short Headtails, slicked", "Headtails, behind")
@@ -91,7 +91,7 @@
 	spawnpoints = list("tirakqi_captain")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/tirakqi_crew/captain
+	outfit = /obj/outfit/admin/tirakqi_crew/captain
 	possible_species = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -101,11 +101,13 @@
 
 	uses_species_whitelist = TRUE
 
-/datum/outfit/admin/tirakqi_crew/captain
+/obj/outfit/admin/tirakqi_crew/captain
 	name = "Ti'Rakqi Qu'qrot"
 
 	uniform = /obj/item/clothing/under/skrell/wetsuit/tirakqi/star
 
+	accessory = /obj/item/clothing/accessory/holster/hip
+	accessory_contents = list(/obj/item/gun/energy/pistol = 1)
 	head = /obj/item/clothing/head/skrell/skrell_bandana/tirakqi/captain
 	suit = /obj/item/clothing/suit/storage/toggle/skrell/starcoat
 
@@ -119,7 +121,7 @@
 	spawnpoints = list("tirakqi_medic")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/tirakqi_crew/medic
+	outfit = /obj/outfit/admin/tirakqi_crew/medic
 	possible_species = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -129,7 +131,7 @@
 
 	uses_species_whitelist = TRUE
 
-/datum/outfit/admin/tirakqi_crew/medic
+/obj/outfit/admin/tirakqi_crew/medic
 	name = "Ti'Rakqi Medic"
 
 	uniform = list(
@@ -137,6 +139,7 @@
 		/obj/item/clothing/under/skrell/wetsuit/tirakqi/blue
 		)
 
+	accessory = /obj/item/clothing/accessory/storage/pouches/white
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat
 	glasses = /obj/item/clothing/glasses/hud/health
 
@@ -150,7 +153,7 @@
 	spawnpoints = list("tirakqi_engineer")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/tirakqi_crew/engineer
+	outfit = /obj/outfit/admin/tirakqi_crew/engineer
 	possible_species = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -160,10 +163,11 @@
 
 	uses_species_whitelist = TRUE
 
-/datum/outfit/admin/tirakqi_crew/engineer
+/obj/outfit/admin/tirakqi_crew/engineer
 	name = "Ti'Rakqi Engineer"
 
 	uniform = /obj/item/clothing/under/skrell/wetsuit/tirakqi/engineer
+
+	accessory = /obj/item/clothing/accessory/storage/pouches/brown
 	suit = /obj/item/clothing/suit/storage/toggle/highvis_alt
-	belt = /obj/item/storage/belt/utility/full
 	gloves = /obj/item/clothing/gloves/yellow

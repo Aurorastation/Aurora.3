@@ -4,14 +4,14 @@
 	icon = 'icons/mecha/mech_bay.dmi'
 	icon_state = "recharge_floor"
 	density = FALSE
-	layer = TURF_LAYER + 0.1
+	layer = ABOVE_TILE_LAYER
 	anchored = TRUE
 	idle_power_usage = 300	// Some electronics, passive drain.
-	active_power_usage = 90 KILOWATTS // When charging
+	active_power_usage = 90 KILO WATTS // When charging
 
 	var/mob/living/heavy_vehicle/charging
-	var/base_charge_rate = 90 KILOWATTS
-	var/repair_power_usage = 15 KILOWATTS		// Per 1 HP of health.
+	var/base_charge_rate = 90 KILO WATTS
+	var/repair_power_usage = 15 KILO WATTS		// Per 1 HP of health.
 	var/repair = 0
 	var/charge
 
@@ -22,14 +22,26 @@
 		/obj/item/stock_parts/manipulator = 2
 	)
 
-/obj/machinery/mech_recharger/Crossed(var/mob/living/heavy_vehicle/M)
+/obj/machinery/mech_recharger/Initialize(mapload)
 	. = ..()
-	if(istype(M) && charging != M)
-		start_charging(M)
 
-/obj/machinery/mech_recharger/Uncrossed(var/mob/living/heavy_vehicle/M)
-	. = ..()
-	if(M == charging)
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+		COMSIG_ATOM_EXITED = PROC_REF(on_exit),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
+/obj/machinery/mech_recharger/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	if(istype(arrived, /mob/living/heavy_vehicle) && charging != arrived)
+		start_charging(arrived)
+
+/obj/machinery/mech_recharger/proc/on_exit(atom/movable/gone, direction)
+	SIGNAL_HANDLER
+
+	if(gone == charging)
 		stop_charging()
 
 /obj/machinery/mech_recharger/RefreshParts()
@@ -118,9 +130,9 @@
 	desc = "A massive vehicle dock elevated slightly above the ground, constructed for equally massive charging speeds."
 	icon_state = "supermechcharger"
 	idle_power_usage = 400
-	active_power_usage = 120 KILOWATTS
+	active_power_usage = 120 KILO WATTS
 
-	base_charge_rate = 120 KILOWATTS
+	base_charge_rate = 120 KILO WATTS
 	repair = 1
 
 	component_types = list(

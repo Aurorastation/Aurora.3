@@ -8,3 +8,5 @@
 
 /// called post /obj/item initialize (obj/item/created_item)
 #define COMSIG_GLOB_ATOM_AFTER_POST_INIT "!atom_after_post_init"
+/// mob died somewhere : (mob/living, gibbed)
+#define COMSIG_GLOB_MOB_DEATH "!mob_death"

@@ -10,6 +10,7 @@
 	taste_mult = 1.2
 	fallback_specific_heat = 0.75
 	overdose = 10
+	value = 2
 
 	var/target_organ // needs to be null by default
 	var/strength = 2 // How much damage it deals per unit
@@ -48,6 +49,7 @@
 	color = "#CF3600"
 	strength = 5
 	taste_description = "plastic"
+	value = 2.1
 
 /singleton/reagent/toxin/amatoxin
 	name = "Amatoxin"
@@ -56,6 +58,7 @@
 	color = "#792300"
 	strength = 10
 	taste_description = "mushroom"
+	value = 2.3
 
 /singleton/reagent/toxin/carpotoxin
 	name = "Carpotoxin"
@@ -65,6 +68,7 @@
 	strength = 10
 	taste_description = "fish"
 	target_organ = BP_BRAIN
+	value = 3
 
 /singleton/reagent/toxin/carpotoxin/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien && alien == IS_UNATHI)
@@ -133,6 +137,7 @@
 	taste_mult = 1.5
 	breathe_mul = 2
 	fallback_specific_heat = 12 //Phoron is very dense and can hold a lot of energy.
+	value = 10
 
 /singleton/reagent/toxin/phoron/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(ishuman(M))
@@ -149,9 +154,9 @@
 			metabolism = REM * 20 //vaurcae metabolise phoron faster than other species - good for them if their filter isn't broken.
 			var/obj/item/organ/internal/vaurca/filtrationbit/F = H.internal_organs_by_name[BP_FILTRATION_BIT]
 			if(isnull(F))
-				..()
+				return
 			else if(F.is_broken())
-				..()
+				return
 			else if(H.species.has_organ[BP_PHORON_RESERVE])
 				var/obj/item/organ/internal/vaurca/preserve/P = H.internal_organs_by_name[BP_PHORON_RESERVE]
 				if(isnull(P))
@@ -256,6 +261,7 @@
 	taste_description = "bitter almonds"
 	taste_mult = 1.5
 	target_organ = BP_HEART
+	value = 3.3
 
 /singleton/reagent/toxin/cyanide/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
@@ -274,6 +280,7 @@
 	overdose = 15
 	od_minimum_dose = 5
 	taste_description = "salt"
+	value = 4.4
 
 /singleton/reagent/toxin/potassium_chloride/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/mob/living/carbon/human/H = M
@@ -295,6 +302,7 @@
 	overdose = 5
 	od_minimum_dose = 20
 	taste_description = "salt"
+	value = 4.5
 
 /singleton/reagent/toxin/potassium_chlorophoride/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/mob/living/carbon/human/H = M
@@ -317,6 +325,7 @@
 	strength = 3
 	taste_description = "death"
 	target_organ = BP_BRAIN
+	value = 2.9
 
 /singleton/reagent/toxin/zombiepowder/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
@@ -344,6 +353,7 @@
 	taste_description = "plant food"
 	taste_mult = 0.5
 	touch_mul = 0
+	value = 1.2
 	unaffected_species = IS_MACHINE
 
 /singleton/reagent/toxin/fertilizer/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -442,6 +452,7 @@
 	strength = 4
 	metabolism = REM*1.5
 	taste_mult = 1
+	value = 1.1
 	unaffected_species = IS_MACHINE
 
 /singleton/reagent/toxin/plantbgone/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
@@ -478,6 +489,7 @@
 	color = "#C8A5DC"
 	overdose = REAGENTS_OVERDOSE
 	taste_description = "acid"
+	value = 2.4
 
 /singleton/reagent/lexorin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/mob/living/carbon/human/H = M
@@ -494,6 +506,7 @@
 	color = "#13BC5E"
 	taste_description = "slime"
 	taste_mult = 0.9
+	value = 3.1
 
 /singleton/reagent/mutagen/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(prob(33))
@@ -531,6 +544,7 @@
 	color = "#801E28"
 	taste_description = "slime"
 	taste_mult = 1.3
+	value = 1.2
 
 /singleton/reagent/slimejelly/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(isslime(M)) // stabilize slime mutation by reintroducing slime jelly into the slime
@@ -557,6 +571,7 @@
 	overdose = REAGENTS_OVERDOSE
 	taste_description = "bitterness"
 	breathe_met = REM * 0.5 * 0.33
+	value = 2.5
 	var/total_strength = 0
 
 /singleton/reagent/soporific/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -588,6 +603,7 @@
 	overdose = 15
 	taste_description = "bitterness"
 	breathe_met = REM * 0.5 * 0.5
+	value = 2.6
 
 /singleton/reagent/polysomnine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/mob/living/carbon/human/H = M
@@ -620,6 +636,7 @@
 	glass_center_of_mass = list("x"=16, "y"=8)
 
 	fallback_specific_heat = 1.2
+	value = 2.2
 
 /* Transformations */
 
@@ -629,6 +646,7 @@
 	reagent_state = LIQUID
 	color = "#13BC5E"
 	taste_description = "sludge"
+	value = 3
 
 /singleton/reagent/aslimetoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder) // TODO: check if there's similar code anywhere else
 	if(M.transforming)
@@ -637,7 +655,7 @@
 	M.transforming = 1
 	M.canmove = 0
 	M.icon = null
-	M.cut_overlays()
+	M.ClearOverlays()
 	M.set_invisibility(101)
 	for(var/obj/item/W in M)
 		if(istype(W, /obj/item/implant)) //TODO: Carn. give implants a dropped() or something
@@ -663,12 +681,14 @@
 	color = "#535E66"
 	taste_description = "slimey metal"
 	fallback_specific_heat = 3
+	value = 9
 
 /singleton/reagent/toxin/undead
 	name = "Undead Ichor"
 	description = "A wicked liquid with unknown origins and uses."
 	color = "#b2beb5"
 	strength = 25
+	value = 300
 	taste_description = "ashes"
 
 /singleton/reagent/toxin/undead/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -714,6 +734,12 @@
 	reagent_state = LIQUID
 	nicotine = REM * 0.1
 	taste_mult = 2
+
+/singleton/reagent/toxin/tobacco/srendarrs_hand
+	name = "S'rendarr's Hand"
+	description = "S'rendarr's Hand, known as Alyad'al S'rendarr to the tajara, originates from Adhomai. The nicotine-containing leaves are often dried out and stuffed into pipes or rolled in paper for smoking."
+	taste_description = "honeyed tobacco"
+	nicotine = 0.3
 
 /singleton/reagent/toxin/oracle
 	name = "Oracle"
@@ -799,6 +825,16 @@
 	if(prob(5))
 		M.emote(pick("twitch_v", "grunt"))
 
+	if((M.bodytemperature < 151)) //red nightshade in extracool cryogenic conditions will restore bonebreaks, at the cost of blood depletion
+		var/mob/living/carbon/human/H = M
+		H.vessel.remove_reagent(/singleton/reagent/blood, rand(15,30))
+		for(var/obj/item/organ/external/E in H.organs)
+			if(E.status & ORGAN_BROKEN)
+				if(prob(10))
+					H.vessel.remove_reagent(/singleton/reagent/blood, rand(30, 60))
+					E.status &= ~ORGAN_BROKEN
+					M.visible_message("<b>[M]</b> spasms!", SPAN_DANGER("You feel a stabbing pain!"))
+
 /singleton/reagent/toxin/berserk/overdose(var/mob/living/carbon/M, var/datum/reagents/holder)
 	if(prob(25))
 		M.add_chemical_effect(CE_CARDIOTOXIC, 1)
@@ -836,49 +872,68 @@
 		H.berserk_stop()
 		berserked = FALSE
 
-/singleton/reagent/toxin/trioxin
-	name = "Trioxin"
-	description = "A synthetic compound of unknown origins, designated originally as a performance enhancing substance."
+/singleton/reagent/toxin/hylemnomil
+	name = "Hylemnomil-Zeta"
+	description = "An extraordinary synthetic compound created at Einstein Engines Research Base Omega-99. This compound is synthetically created to incorporate parts of \
+					the Rampancy Signal on Konyang. It rewrites an organism's DNA at the base and, similarly to rabies, makes the infected organic have an \
+					unstoppable need to feed on anything it sees. Instructions can be conveyed to some degree, such as information on who is an Einstein Engines \
+					employee and to not hurt them. The process of DNA rewriting leads to rapid rotting of the flesh."
 	reagent_state = LIQUID
-	color = "#E7E146"
+	color = "#551A8B"
 	strength = 1
-	taste_description = "old eggs"
+	taste_description = "unknown scientific concoction"
 	metabolism = REM
 	unaffected_species = IS_DIONA | IS_MACHINE | IS_UNDEAD
 	affects_dead = TRUE
 
-/singleton/reagent/toxin/trioxin/affect_blood(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
+/singleton/reagent/toxin/hylemnomil/affect_blood(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
 	..()
-	if(istype(M,/mob/living/carbon/human))
+	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 
+		/// Thetamycin is a temporary fix.
 		if(H.reagents.has_reagent(/singleton/reagent/thetamycin, 15))
 			return
 
+		/// Antibodies are a more permanent one.
+		if(H.chem_effects[CE_ANTIBODIES])
+			return
+
 		if(!H.internal_organs_by_name[BP_ZOMBIE_PARASITE] && prob(15))
-			var/obj/item/organ/external/affected = H.get_organ(BP_CHEST)
+			var/to_infest
+			var/list/possible_organs = list()
+			var/obj/item/organ/external/organ_to_check
+
+			/// The infection starts from the hands and feet. The closer it is to the brain, the higher the stage it starts at.
+			for(var/organ in list(BP_R_HAND, BP_L_HAND, BP_R_FOOT, BP_L_FOOT))
+				organ_to_check = H.organs_by_name[organ]
+				if(organ_to_check && !BP_IS_ROBOTIC(organ_to_check))
+					possible_organs[organ] = 1
+
+			if(!length(possible_organs))
+				for(var/organ in list(BP_R_ARM, BP_L_ARM, BP_R_LEG, BP_L_LEG))
+					organ_to_check = H.organs_by_name[organ]
+					if(organ_to_check && !BP_IS_ROBOTIC(organ_to_check))
+						possible_organs[organ] = 2
+
+			/// In case there aren't any appendages, try the groin.
+			if(!length(possible_organs))
+				organ_to_check = H.organs_by_name[BP_GROIN]
+				if(organ_to_check && !BP_IS_ROBOTIC(organ_to_check))
+					possible_organs[BP_GROIN] = 2
+
+			/// I'm not even sure how you get to being a nugget, but the last resort is the chest.
+			if(!length(possible_organs))
+				possible_organs[BP_CHEST] = 3
+
+			/// Infect the user, apply the right stage, then remove all hylemnomil from the user.
+			to_infest = pick(possible_organs)
+			var/obj/item/organ/external/affected = H.organs_by_name[to_infest]
 			var/obj/item/organ/internal/parasite/zombie/infest = new()
 			infest.replaced(H, affected)
-
-		if(H.species.zombie_type)
-			if(!H.internal_organs_by_name[BP_BRAIN])	//destroying the brain stops trioxin from bringing the dead back to life
-				return
-
-			if(H && H.stat != DEAD)
-				return
-
-			for(var/datum/language/L in H.languages)
-				H.remove_language(L.name)
-
-			var/r = H.r_skin
-			var/g = H.g_skin
-			var/b = H.b_skin
-
-			H.set_species(H.species.zombie_type, 0, 0, 0)
-			H.revive()
-			H.change_skin_color(r, g, b)
-			playsound(H.loc, 'sound/hallucinations/far_noise.ogg', 50, 1)
-			to_chat(H,"<font size='3'><span class='cult'>You return back to life as the undead, all that is left is the hunger to consume the living and the will to spread the infection.</font></span>")
+			infest.parent_organ = affected.limb_name
+			infest.stage = possible_organs[to_infest]
+			H.reagents.remove_reagent(type, REAGENT_VOLUME(H.reagents, type))
 
 /singleton/reagent/toxin/dextrotoxin
 	name = "Dextrotoxin"
@@ -972,3 +1027,23 @@
 			var/obj/item/organ/external/affected = H.get_organ(BP_CHEST)
 			var/obj/item/organ/internal/parasite/heartworm/infest = new()
 			infest.replaced(H, affected)
+
+/singleton/reagent/toxin/malignant_tumour_cells
+	name = "Malignant Tumour Cells"
+	description = "Cells of a malignant tumour which have broken off and entered the circulatory and/or lymphatic system to spread to other regions of the body."
+	reagent_state = SOLID
+	color = "#460000"
+	metabolism = REM/2 //Slow metabolisation so medical can potentially screen it early, given it's danger.
+	ingest_mul = 0
+	touch_mul = 0
+	breathe_mul = 0
+	taste_description = "blood"
+	taste_mult = 0.1
+	strength = 0
+
+/singleton/reagent/toxin/malignant_tumour_cells/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	..()
+	var/mob/living/carbon/human/H = M
+	if(!(REAGENT_VOLUME(M.reagents, /singleton/reagent/cytophenolate)) && !H.internal_organs_by_name[BP_TUMOUR_SPREADING]) //only affects people with immunosuppressants or a pre-existing malignant tumour
+		return
+	H.infest_with_parasite(H, BP_TUMOUR_SPREADING, pick(H.organs), 10)

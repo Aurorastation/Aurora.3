@@ -1,8 +1,7 @@
 /obj/machinery/ai_slipper
 	name = "\improper AI Liquid Dispenser"
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/machinery/ai_slipper.dmi'
 	icon_state = "motion0"
-	layer = 3
 	anchored = 1.0
 	idle_power_usage = 10
 	var/uses = 20
@@ -50,7 +49,7 @@
 				if (user.machine==src)
 					src.attack_hand(usr)
 		else
-			to_chat(user, "<span class='warning'>Access denied.</span>")
+			to_chat(user, SPAN_WARNING("Access denied."))
 	return TRUE
 
 /obj/machinery/ai_slipper/attack_ai(mob/user as mob)
@@ -63,17 +62,17 @@
 		return
 	if ( (get_dist(src, user) > 1 ))
 		if (!istype(user, /mob/living/silicon))
-			to_chat(user, text("Too far away."))
+			to_chat(user, "Too far away.")
 			user.unset_machine()
 			user << browse(null, "window=ai_slipper")
 			return
 
 	user.set_machine(src)
-	var/loc = src.loc
+	var/turf/loc = src.loc
 	if (istype(loc, /turf))
-		loc = loc:loc
+		loc = loc.loc
 	if (!istype(loc, /area))
-		to_chat(user, text("Turret badly positioned - loc.loc is [].", loc))
+		to_chat(user, "Turret badly positioned - loc.loc is [loc].")
 		return
 	var/area/area = loc
 	var/t = "<TT><B>AI Liquid Dispenser</B> ([area.name])<HR>"
@@ -81,8 +80,8 @@
 	if(src.locked && (!istype(user, /mob/living/silicon)))
 		t += "<I>(Swipe ID card to unlock control panel.)</I><BR>"
 	else
-		t += text("Dispenser [] - <A href='?src=\ref[];toggleOn=1'>[]?</a><br>\n", src.disabled?"deactivated":"activated", src, src.disabled?"Enable":"Disable")
-		t += text("Uses Left: [uses]. <A href='?src=\ref[src];toggleUse=1'>Activate the dispenser?</A><br>\n")
+		t += "Dispenser [(src.disabled ? "deactivated" : "activated")] - <A href='byond://?src=[REF(src)];toggleOn=1'>[(src.disabled ? "Enable" : "Disable")]?</a><br>\n"
+		t += "Uses Left: [uses]. <A href='byond://?src=[REF(src)];toggleUse=1'>Activate the dispenser?</A><br>\n"
 
 	user << browse(t, "window=computer;size=575x450")
 	onclose(user, "computer")

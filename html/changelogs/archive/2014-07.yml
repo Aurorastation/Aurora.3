@@ -1,0 +1,58 @@
+2014-07-01:
+  Various:
+  - experiment: Hardsuit breaching.
+  - experiment: Rewritten fire.
+  - experiment: Supermatter now glows and sucks things into it as it approaches criticality.
+  - rscadd: Station Vox (Vox pariahs) are now available.
+  - rscadd: Wheelchairs.
+  - rscadd: Cargo Trains.
+  - rscadd: Hardsuit cycler machinery.
+  - rscadd: Rewritten lighting (coloured lights!)
+  - rscadd: New Mining machinery and rewritten smelting.
+  - rscadd: Rewritten autolathe
+  - rscadd: Mutiny mode.
+  - rscadd: NanoUI airlock and docking controllers.
+  - rscadd: Completely rewritten shuttle code.
+  - rscadd: 'Derelict Z-level replacement: construction site.'
+  - rscadd: Computer3 laptops.
+  - rscadd: Constructable SMES units.
+  - rscadd: Omni-directional atmos machinery.
+  - rscadd: Climbable tables and crates.
+  - rscadd: Xenoflora added to Science.
+  - rscadd: Utensils can be used to eat food.
+  - rscadd: Decks of cards are now around the station.
+  - rscadd: Service robots can speak languages.
+  - wip: Xenoarch updates and fixes.
+  - tweak: Rewritten species-specific gear icon handling.
+  - tweak: Cats and borers can be picked up.
+  - tweak: Botanist renamed to Gardener.
+  - tweak: Hydroponics merged with the Kitchen.
+  - tweak: Latejoin spawn points (Arrivals, Cryostorage, Gateway).
+  - rscadd: Escape pods only launch automatically during emergency evacuations
+  - rscadd: Escape pods can be made to launch during regular crew transfers using
+      the control panel inside the pod, or by emagging the panel outside the pod
+  - rscadd: When swiped or emagged, the crew transfer shuttle can be delayed in addition
+      to being launched early
+2014-07-06:
+  HarpyEagle:
+  - rscadd: Re-enabled and rewrote the wound infection system
+  - rscadd: Infections can be prevented by properly bandaging and salving wounds
+  - rscadd: Infections are cured by spaceacillin
+2014-07-20:
+  PsiOmegaDelta:
+  - rscadd: AI can now store up to five camera locations and return to them when desired.
+  - rscadd: AI can now alt+left click turfs in camera view to list and interact with
+      the objects.
+  - rscadd: AI can now ctrl+click turret controls to enable/disable turrets.
+  - rscadd: AI can now alt+click turret controls to toggle stun/lethal mode.
+  - rscadd: AI can now select which channel to state laws on.
+2014-07-26:
+  Whitellama:
+  - rscadd: Added dynamic flavour text.
+  - bugfix: Fixed bug with suit fibers and fingerprints.
+2014-07-31:
+  HarpyEagle:
+  - tweak: Stun batons now work like tasers and deal agony instead of stun
+  - rscadd: Being hit in the hands with a stun weapon will cause whatever is being
+      held to be dropped
+  - tweak: Handcuffs now require an aggressive grab to be used

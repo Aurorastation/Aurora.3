@@ -5,7 +5,7 @@
 /obj/item/device/beacon_locator
 	name = "locater device"
 	desc = "Used to scan and locate signals on a particular frequency according ."
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/item/pinpointer.dmi'
 	icon_state = "pinoff"	//pinonfar, pinonmedium, pinonclose, pinondirect, pinonnull
 	item_state = "electronic"
 	var/frequency = PUB_FREQ
@@ -37,24 +37,22 @@
 			icon_state = "pinonnull"
 			scan_ticks++
 			if(prob(scan_ticks * 10))
-				spawn(0)
-					set background = 1
-					if(isprocessing)
-						//scan radios in the world to try and find one
-						var/cur_dist = 999
-						for(var/obj/item/device/radio/beacon/R in world)
-							if(R.z == src.z && R.get_frequency() == src.frequency)
-								var/check_dist = get_dist(src,R)
-								if(check_dist < cur_dist)
-									cur_dist = check_dist
-									target_radio = R
+				if(datum_flags & DF_ISPROCESSING)
+					//scan radios in the world to try and find one
+					var/cur_dist = 999
+					for(var/obj/item/device/radio/beacon/R in GLOB.teleportbeacons)
+						if(R.z == src.z && R.get_frequency() == src.frequency)
+							var/check_dist = get_dist(src,R)
+							if(check_dist < cur_dist)
+								cur_dist = check_dist
+								target_radio = R
 
-						scan_ticks = 0
-						var/turf/T = get_turf(src)
-						if(target_radio)
-							T.visible_message("[icon2html(src, viewers(get_turf(T)))] [src] [pick("chirps","chirrups","cheeps")] happily.")
-						else
-							T.visible_message("[icon2html(src, viewers(get_turf(T)))] [src] [pick("chirps","chirrups","cheeps")] sadly.")
+					scan_ticks = 0
+					var/turf/T = get_turf(src)
+					if(target_radio)
+						T.visible_message("[icon2html(src, viewers(get_turf(T)))] [src] [pick("chirps","chirrups","cheeps")] happily.")
+					else
+						T.visible_message("[icon2html(src, viewers(get_turf(T)))] [src] [pick("chirps","chirrups","cheeps")] sadly.")
 		else
 			icon_state = "pinoff"
 
@@ -64,16 +62,16 @@
 /obj/item/device/beacon_locator/interact(var/mob/user as mob)
 	var/dat = "<b>Radio frequency tracker</b><br>"
 	dat += {"
-				<A href='byond://?src=\ref[src];reset_tracking=1'>Reset tracker</A><BR>
+				<A href='byond://?src=[REF(src)];reset_tracking=1'>Reset tracker</A><BR>
 				Frequency:
-				<A href='byond://?src=\ref[src];freq=-10'>-</A>
-				<A href='byond://?src=\ref[src];freq=-2'>-</A>
+				<A href='byond://?src=[REF(src)];freq=-10'>-</A>
+				<A href='byond://?src=[REF(src)];freq=-2'>-</A>
 				[format_frequency(frequency)]
-				<A href='byond://?src=\ref[src];freq=2'>+</A>
-				<A href='byond://?src=\ref[src];freq=10'>+</A><BR>
+				<A href='byond://?src=[REF(src)];freq=2'>+</A>
+				<A href='byond://?src=[REF(src)];freq=10'>+</A><BR>
 				"}
 
-	dat += "<A href='?src=\ref[src];close=1'>Close</a><br>"
+	dat += "<A href='byond://?src=[REF(src)];close=1'>Close</a><br>"
 	user << browse(dat,"window=locater;size=300x150")
 	onclose(user, "locater")
 

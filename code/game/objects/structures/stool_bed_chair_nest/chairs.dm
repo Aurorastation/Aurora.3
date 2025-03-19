@@ -26,23 +26,23 @@
 /obj/structure/bed/stool/chair/update_icon()
 	..()	// This handles all chair-specific funky stuff, such as chair backrests, armrests, padding and buckles.
 
-	generate_overlay_cache(material, CACHE_TYPE_OVER, FLY_LAYER) // Generate overlay for backrest
+	generate_overlay_cache(material, CACHE_TYPE_OVER, ABOVE_HUMAN_LAYER) // Generate overlay for backrest
 	// Padding overlay.
 	if(padding_material)
-		generate_overlay_cache(padding_material, CACHE_TYPE_PADDING_OVER, FLY_LAYER, TRUE) // Generate padding overlay for backrest
+		generate_overlay_cache(padding_material, CACHE_TYPE_PADDING_OVER, ABOVE_ABOVE_HUMAN_LAYER, TRUE) // Generate padding overlay for backrest
 
 	if(buckled)
-		generate_overlay_cache(material, CACHE_TYPE_ARMREST, FLY_LAYER) // Generate armrests
+		generate_overlay_cache(material, CACHE_TYPE_ARMREST, ABOVE_HUMAN_LAYER) // Generate armrests
 		if(padding_material)
-			generate_overlay_cache(padding_material, CACHE_TYPE_PADDING_ARMREST, FLY_LAYER, TRUE) // Generate padding overlay for armrest
+			generate_overlay_cache(padding_material, CACHE_TYPE_PADDING_ARMREST, ABOVE_ABOVE_HUMAN_LAYER, TRUE) // Generate padding overlay for armrest
 
 /obj/structure/bed/stool/chair/set_dir()
 	. = ..()
 	if(buckled)
 		buckled.set_dir(dir)
 
-/obj/structure/bed/stool/chair/MouseDrop_T(mob/target, mob/user)
-	if(target == user && user.loc != loc && (GLOB.reverse_dir[dir] & angle2dir(Get_Angle(src, user))))
+/obj/structure/bed/stool/chair/mouse_drop_receive(atom/dropped, mob/user, params)
+	if(dropped == user && user.loc != loc && (REVERSE_DIR(dir) & angle2dir(get_angle(src, user))))
 		user.visible_message("<b>[user]</b> starts climbing over the back of \the [src]...", SPAN_NOTICE("You start climbing over the back of \the [src]..."))
 		if(do_after(user, 2 SECONDS, do_flags = DO_UNIQUE))
 			user.forceMove(loc)
@@ -51,7 +51,7 @@
 
 /obj/structure/bed/stool/chair/CanPass(atom/movable/mover, turf/target, height, air_group)
 	if(anchored && padding_material)
-		if(mover?.density && isliving(mover) && (GLOB.reverse_dir[dir] & angle2dir(Get_Angle(src, mover))))
+		if(mover?.density && isliving(mover) && (REVERSE_DIR(dir) & angle2dir(get_angle(src, mover))))
 			return FALSE
 	return ..()
 
@@ -225,7 +225,7 @@
 /obj/structure/bed/stool/chair/shuttle/update_icon()
 	..()
 	if(!buckled)
-		generate_overlay_cache(material, CACHE_TYPE_SPECIAL, ABOVE_MOB_LAYER)
+		generate_overlay_cache(material, CACHE_TYPE_SPECIAL, ABOVE_HUMAN_LAYER)
 
 /obj/structure/bed/stool/chair/cockpit
 	name = "cockpit seating"
@@ -245,7 +245,7 @@
 /obj/structure/bed/stool/chair/cockpit/update_icon()
 	..()
 	if(buckled)
-		generate_overlay_cache(material, CACHE_TYPE_SPECIAL, ABOVE_MOB_LAYER)
+		generate_overlay_cache(material, CACHE_TYPE_SPECIAL, ABOVE_HUMAN_LAYER)
 
 // pool chair, to sit with your feet in the water. only works when facing south, because water overlays weirdly otherwise
 /obj/structure/bed/stool/chair/pool
@@ -286,7 +286,7 @@
 	icon_state = "chair_item"
 	item_state = "chair"
 	base_icon = "chair"
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	force_divisor = 0.5
 	origin_type = /obj/structure/bed/stool/chair
 

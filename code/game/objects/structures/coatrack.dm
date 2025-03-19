@@ -3,7 +3,7 @@
 	desc = "Rack that holds coats, or hats, if you're so inclined."
 	icon = 'icons/obj/coatrack.dmi'
 	icon_state = "coatrack"
-	layer = ABOVE_MOB_LAYER //Hide behind coat racks. Because funny.
+	layer = ABOVE_HUMAN_LAYER
 	var/obj/item/clothing/coat
 	var/obj/item/clothing/head/hat
 	var/list/custom_sprites = list(/obj/item/clothing/head/beret/security, /obj/item/clothing/accessory/poncho/tajarancloak) // Custom manual sprite override.
@@ -11,18 +11,20 @@
 /obj/structure/coatrack/attack_hand(mob/user as mob)
 	if(use_check_and_message(user))
 		return
+	add_fingerprint(user)
 	if(coat && hat)
 		var/response = ""
 		response = alert(user, "Do you remove the coat, or the hat?", "Coat Rack Selection", "Coat", "Hat", "Cancel")
 		if(response == "Coat")
 			remove_coat(user)
+			return
 		if(response == "Hat")
 			remove_hat(user)
+			return
 	if(coat)
 		remove_coat(user)
-	if(hat)
+	else if(hat)
 		remove_hat(user)
-	add_fingerprint(user)
 	return
 
 /obj/structure/coatrack/proc/remove_coat(mob/user as mob)
@@ -58,10 +60,10 @@
 		return ..()
 
 /obj/structure/coatrack/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(coat)
 		if(is_type_in_list(coat, custom_sprites))
-			add_overlay(coat.icon_state)
+			AddOverlays(coat.icon_state)
 		else if(istype(coat, /obj/item/clothing/suit/storage/toggle)) // Using onmob sprites, because they're more consistent than object sprites.
 			var/obj/item/clothing/suit/storage/toggle/T = coat
 			if(!T.opened)
@@ -73,7 +75,7 @@
 			handle_coat_image(T)
 	if(hat)
 		if(is_type_in_list(hat, custom_sprites))
-			add_overlay(hat.icon_state)
+			AddOverlays(hat.icon_state)
 		else if(istype(hat, /obj/item/clothing/head))
 			var/obj/item/clothing/head/H = hat
 			var/matrix/M = matrix()
@@ -82,15 +84,15 @@
 				var/hat_icon_state = "[H.icon_state][WORN_HEAD]" // Needed to bypass contained sprite phoney baloney.
 				hat_image = image(H.icon, hat_icon_state, src.layer, EAST)
 				if(H.build_from_parts)
-					hat_image.add_overlay(overlay_image(H.icon, "[H.icon_state]_[H.worn_overlay]", flags=RESET_COLOR))
+					hat_image.AddOverlays(overlay_image(H.icon, "[H.icon_state]_[H.worn_overlay]", flags=RESET_COLOR))
 			else
 				hat_image = image(INV_HEAD_DEF_ICON, H.icon_state, src.layer, EAST)
 				if(H.build_from_parts)
-					hat_image.add_overlay(overlay_image(icon, "[INV_HEAD_DEF_ICON]_[H.worn_overlay]", flags=RESET_COLOR))
+					hat_image.AddOverlays(overlay_image(icon, "[INV_HEAD_DEF_ICON]_[H.worn_overlay]", flags=RESET_COLOR))
 			M.Turn(90) // Flip the hat over and stick it on the coatrack.
 			M.Translate(-6, 6)
 			hat_image.transform = M
-			add_overlay(hat_image)
+			AddOverlays(hat_image)
 
 /obj/structure/coatrack/proc/handle_coat_image(var/obj/item/clothing/T)
 	var/icon/coat_outline = icon('icons/obj/coatrack.dmi', "outline")
@@ -115,8 +117,8 @@
 		overlay_icon.SwapColor(rgb(255, 0, 220, 255), rgb(0, 0, 0, 0)) // Slice the overlay in half and slap it on the coat.
 		var/image/overlay_image = image(overlay_icon)
 		overlay_image.appearance_flags = RESET_COLOR
-		coat_image.add_overlay(overlay_image)
+		coat_image.AddOverlays(overlay_image)
 
 	M.Translate(-1, 5) // Stick it on the coat rack.
 	coat_image.transform = M
-	add_overlay(coat_image)
+	AddOverlays(coat_image)

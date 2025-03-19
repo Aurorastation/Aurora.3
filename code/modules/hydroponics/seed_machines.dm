@@ -3,7 +3,7 @@
 	desc = "A small disk used for carrying data on plant genetics."
 	icon = 'icons/obj/hydroponics_machines.dmi'
 	icon_state = "disk"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 	var/list/genes = list()
 	var/genesource = "unknown"
@@ -96,7 +96,7 @@
 
 	if(attacking_item.isscrewdriver())
 		open = !open
-		to_chat(user, "<span class='notice'>You [open ? "open" : "close"] the maintenance panel.</span>")
+		to_chat(user, SPAN_NOTICE("You [open ? "open" : "close"] the maintenance panel."))
 		return
 
 	if(open)

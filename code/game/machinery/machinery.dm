@@ -21,9 +21,9 @@ Class Variables:
 	power_channel (num)
 		What channel to draw from when drawing power for power mode
 		Possible Values:
-			EQUIP:0 -- Equipment Channel
-			LIGHT:2 -- Lighting Channel
-			ENVIRON:3 -- Environment Channel
+			AREA_USAGE_EQUIP:0 -- Equipment Channel
+			AREA_USAGE_LIGHT:2 -- Lighting Channel
+			AREA_USAGE_ENVIRON:3 -- Environment Channel
 
 	component_parts (list)
 		A list of component parts of machine used by frame based machines.
@@ -51,11 +51,11 @@ Class Procs:
 
 	Destroy()                     'game/machinery/machine.dm'
 
-	powered(chan = EQUIP)         'modules/power/power_usage.dm'
+	powered(chan = AREA_USAGE_EQUIP)         'modules/power/power_usage.dm'
 		Checks to see if area that contains the object has power available for power
 		channel given in 'chan'.
 
-	use_power_oneoff(amount, chan=EQUIP, autocalled)   'modules/power/power_usage.dm'
+	use_power_oneoff(amount, chan=AREA_USAGE_EQUIP, autocalled)   'modules/power/power_usage.dm'
 		Deducts 'amount' from the power channel 'chan' of the area that contains the object.
 		This is not a continuous draw, but rather will be cleared after one APC update.
 
@@ -83,9 +83,10 @@ Class Procs:
 /obj/machinery
 	name = "machinery"
 	icon = 'icons/obj/stationobjs.dmi'
-	w_class = ITEMSIZE_IMMENSE
-	layer = OBJ_LAYER - 0.1
+	w_class = WEIGHT_CLASS_GIGANTIC
+	layer = STRUCTURE_LAYER
 	init_flags = INIT_MACHINERY_PROCESS_SELF
+	pass_flags_self = PASSMACHINE | LETPASSCLICKS
 
 	var/stat = 0
 	var/emagged = 0
@@ -94,7 +95,7 @@ Class Procs:
 	var/idle_power_usage = 0
 	var/active_power_usage = 0
 	var/power_init_complete = FALSE
-	var/power_channel = EQUIP //EQUIP, ENVIRON or LIGHT
+	var/power_channel = AREA_USAGE_EQUIP //AREA_USAGE_EQUIP, AREA_USAGE_ENVIRON or AREA_USAGE_LIGHT
 	/* List of types that should be spawned as component_parts for this machine.
 		Structure:
 			type -> num_objects
@@ -129,6 +130,9 @@ Class Procs:
 	var/manufacturer = null
 
 /obj/machinery/Initialize(mapload, d = 0, populate_components = TRUE, is_internal = FALSE)
+	//Stupid macro used in power usage
+	CAN_BE_REDEFINED(TRUE)
+
 	. = ..()
 	if(d)
 		set_dir(d)
@@ -156,6 +160,9 @@ Class Procs:
 			RefreshParts()
 
 /obj/machinery/Destroy()
+	//Stupid macro used in power usage
+	CAN_BE_REDEFINED(TRUE)
+
 	STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_ALL)
 	SSmachinery.machinery -= src
 
@@ -201,7 +208,7 @@ Class Procs:
 		pulse2.icon_state = "empdisable"
 		pulse2.name = "emp sparks"
 		pulse2.anchored = 1
-		pulse2.set_dir(pick(GLOB.cardinal))
+		pulse2.set_dir(pick(GLOB.cardinals))
 
 		QDEL_IN(pulse2, 10)
 
@@ -220,19 +227,26 @@ Class Procs:
 				return
 	return
 
-/proc/is_operable(var/obj/machinery/M, var/mob/user)
-	return istype(M) && M.operable()
+/**
+ * Check to see if the machine is operable
+ *
+ * * `additional_flags` - Additional flags to check for, that could have been added to the `stat` variable
+ *
+ * Returns `TRUE` if the machine is operable, `FALSE` otherwise
+ */
+/obj/machinery/proc/operable(additional_flags = 0)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
 
-/obj/machinery/proc/operable(var/additional_flags = 0)
-	return !inoperable(additional_flags)
-
-/obj/machinery/proc/inoperable(var/additional_flags = 0)
-	return (stat & (NOPOWER|BROKEN|additional_flags))
+	if(stat & (NOPOWER|BROKEN|additional_flags))
+		return FALSE
+	else
+		return TRUE
 
 /obj/machinery/proc/toggle_power(power_set = -1, additional_flags = 0)
 	if(power_set >= 0)
 		update_use_power(power_set)
-	else if (use_power || inoperable(additional_flags))
+	else if (use_power || !operable(additional_flags))
 		update_use_power(POWER_USE_OFF)
 	else
 		update_use_power(initial(use_power))
@@ -271,13 +285,13 @@ Class Procs:
 		return src.attack_hand(user)
 
 /obj/machinery/attack_hand(mob/user as mob)
-	if(inoperable(MAINT))
+	if(!operable(MAINT))
 		return 1
 	if(user.lying || user.stat)
 		return 1
 	if ( ! (istype(usr, /mob/living/carbon/human) || \
 			istype(usr, /mob/living/silicon)))
-		to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
+		to_chat(usr, SPAN_WARNING("You don't have the dexterity to do this!"))
 		return 1
 /*
 	//distance checks are made by atom/proc/DblClick
@@ -287,10 +301,10 @@ Class Procs:
 	if (ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(H.getBrainLoss() >= 60)
-			visible_message("<span class='warning'>[H] stares cluelessly at [src] and drools.</span>")
+			visible_message(SPAN_WARNING("[H] stares cluelessly at [src] and drools."))
 			return 1
 		else if(prob(H.getBrainLoss()))
-			to_chat(user, "<span class='warning'>You momentarily forget how to use [src].</span>")
+			to_chat(user, SPAN_WARNING("You momentarily forget how to use [src]."))
 			return 1
 
 	src.add_fingerprint(user)
@@ -367,7 +381,7 @@ Class Procs:
 	playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0) //TODO: Check if that one is the correct sound
 
 /obj/machinery/proc/shock(mob/user, prb)
-	if(inoperable())
+	if(!operable())
 		return 0
 	if(!prob(prb))
 		return 0
@@ -393,9 +407,9 @@ Class Procs:
 /obj/machinery/proc/default_deconstruction_screwdriver(var/mob/user, var/obj/item/S)
 	if(!istype(S) || !S.isscrewdriver())
 		return FALSE
-	playsound(src.loc, S.usesound, 50, 1)
+	S.play_tool_sound(get_turf(src), 50)
 	panel_open = !panel_open
-	to_chat(user, "<span class='notice'>You [panel_open ? "open" : "close"] the maintenance hatch of [src].</span>")
+	to_chat(user, SPAN_NOTICE("You [panel_open ? "open" : "close"] the maintenance hatch of [src]."))
 	update_icon()
 	return TRUE
 
@@ -423,7 +437,7 @@ Class Procs:
 						component_parts -= G
 						component_parts += B
 						B.forceMove(src)
-						to_chat(user, "<span class='notice'>[G.name] replaced with [B.name].</span>")
+						to_chat(user, SPAN_NOTICE("[G.name] replaced with [B.name]."))
 						break
 		for(var/obj/item/stock_parts/A in component_parts)
 			for(var/D in CB.req_components)
@@ -439,13 +453,13 @@ Class Procs:
 						component_parts -= A
 						component_parts += B
 						B.forceMove(src)
-						to_chat(user, "<span class='notice'>[A.name] replaced with [B.name].</span>")
+						to_chat(user, SPAN_NOTICE("[A.name] replaced with [B.name]."))
 						parts_replaced = TRUE
 						break
 		RefreshParts()
 		update_icon()
 	else
-		to_chat(user, "<span class='notice'>The following parts have been detected in \the [src]:</span>")
+		to_chat(user, SPAN_NOTICE("The following parts have been detected in \the [src]:"))
 		to_chat(user, counting_english_list(component_parts))
 	if(parts_replaced) //only play sound when RPED actually replaces parts
 		playsound(src, 'sound/items/rped.ogg', 40, TRUE)
@@ -490,10 +504,13 @@ Class Procs:
 		paper.forceMove(loc)
 	printing = FALSE
 
-/obj/machinery/bullet_act(obj/item/projectile/P, def_zone)
+/obj/machinery/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	. = ..()
-	if(P.get_structure_damage() > 5)
-		bullet_ping(P)
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	if(hitting_projectile.get_structure_damage() > 5)
+		bullet_ping(hitting_projectile)
 
 /obj/machinery/proc/do_hair_pull(mob/living/carbon/human/H)
 	if(stat & (NOPOWER|BROKEN))
@@ -554,14 +571,14 @@ Class Procs:
 /obj/machinery/proc/set_emergency_state(var/new_security_level)
 	return
 
-/obj/machinery/hitby(atom/movable/AM, var/speed = THROWFORCE_SPEED_DIVISOR)
+/obj/machinery/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	. = ..()
-	if(isliving(AM))
-		var/mob/living/M = AM
-		M.turf_collision(src, speed)
+	if(isliving(hitting_atom))
+		var/mob/living/M = hitting_atom
+		M.turf_collision(src, throwingdatum.speed)
 		return
 	else
-		visible_message(SPAN_DANGER("\The [src] was hit by \the [AM]."))
+		visible_message(SPAN_DANGER("\The [src] was hit by \the [hitting_atom]."))
 
 /obj/machinery/ui_status(mob/user, datum/ui_state/state)
 	. = ..()

@@ -24,6 +24,8 @@
 			return ACCESS_HEADS
 		if(NETWORK_CRESCENT,NETWORK_ERT)
 			return ACCESS_CENT_SPECOPS
+		if(NETWORK_CRYO_OUTPOST)
+			return ACCESS_CRYO_OUTPOST
 
 	return ACCESS_SECURITY // Default for all other networks
 
@@ -63,7 +65,7 @@
 	data["networks"] = all_networks
 
 	if(current_network)
-		data["cameras"] = camera_repository.cameras_in_network(current_network)
+		data["cameras"] = GLOB.camera_repository.cameras_in_network(current_network)
 
 	return data
 
@@ -92,7 +94,7 @@
 	if(!network_access)
 		return TRUE
 
-	return (check_network_access(user, ACCESS_SECURITY) && security_level >= SEC_LEVEL_BLUE) || check_network_access(user, network_access)
+	return (check_network_access(user, ACCESS_SECURITY) && GLOB.security_level >= SEC_LEVEL_BLUE) || check_network_access(user, network_access)
 
 /datum/computer_file/program/camera_monitor/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()

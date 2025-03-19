@@ -41,7 +41,7 @@
 	icon_state = "tajcig"
 	drop_sound = 'sound/items/drop/paper.ogg'
 	pickup_sound = 'sound/items/pickup/paper.ogg'
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	var/list/figures = list("hadii", "tesla", "headmaster", "commissar", "almanq", "yasmin", "andrey", "paratrooper", "scout")
 
 /obj/item/tajcard/Initialize()
@@ -127,7 +127,7 @@
 			carrying primarily the essentials for survival and only a token amount of ammunition. Many detachments also make use of snow skiis in order to travel quickly in mountainous regions. \
 			They are well-known for their iconic thick light-colored cloaks which they wear while traversing the vast countrysides for warmth, as well as camouflage."
 
-/obj/item/pocketwatch/adhomai
+/obj/item/clothing/wrists/watch/pocketwatch/adhomai
 	name = "adhomian watch"
 	desc = "A watch made in the traditional adhomian style. It can be stored in a pocket or worn around the neck."
 	desc_extended = "Baltoris a fortress founded during the Gunpowder Age; it was the landing site of the royal armies during the Suns'wars. Baltor plays a strategic role in controlling the \
@@ -140,10 +140,10 @@
 	slot_flags = SLOT_MASK
 	var/static/months = list("Menshe-aysaif", "Sil'nryy-aysaif", "Menshe-rhazzimy", "Sil'nryy-rhazzimy")
 
-/obj/item/pocketwatch/adhomai/get_mask_examine_text(mob/user)
+/obj/item/clothing/wrists/watch/pocketwatch/adhomai/get_mask_examine_text(mob/user)
 	return "around [user.get_pronoun("his")] neck"
 
-/obj/item/pocketwatch/adhomai/checktime(mob/user)
+/obj/item/clothing/wrists/watch/pocketwatch/adhomai/checktime(mob/user)
 	set category = "Object"
 	set name = "Check Time"
 	set src in usr
@@ -168,7 +168,7 @@
 		var/adhomian_time = real_time
 		if(ISEVEN(current_day))
 			adhomian_time = real_time + 24
-		adhomian_day = FLOOR(current_day / 2)
+		adhomian_day = FLOOR(current_day / 2, 1)
 		to_chat(usr, "You check your [src.name], glancing over at the watch face, reading the time to be '[adhomian_time]'. Today's date is the '[adhomian_day]th day of [adhomian_month], [adhomian_year]'.")
 
 

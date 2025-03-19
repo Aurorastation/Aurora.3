@@ -1,8 +1,7 @@
 /obj/machinery/r_n_d/server
 	name = "\improper R&D server"
 	desc = "A server which houses a back-up of all station research. It can be used to restore lost data, or to act as another point of retrieval."
-	icon = 'icons/obj/machinery/research.dmi'
-	icon_state = "server"
+	icon_state = "RD-server"
 	var/datum/research/files
 	var/health = 100
 	var/list/id_with_upload = list()	//List of R&D consoles with upload to server access.
@@ -204,6 +203,7 @@
 
 	icon_screen = "rdcomp"
 	icon_keyboard = "purple_key"
+	icon_keyboard_emis = "purple_key_mask"
 	light_color = LIGHT_COLOR_PURPLE
 
 	circuit = /obj/item/circuitboard/rdservercontrol
@@ -220,7 +220,7 @@
 	add_fingerprint(usr)
 	usr.set_machine(src)
 	if(!allowed(usr) && !emagged)
-		to_chat(usr, "<span class='warning'>You do not have the required access level</span>")
+		to_chat(usr, SPAN_WARNING("You do not have the required access level"))
 		return
 
 	if(href_list["main"])
@@ -230,13 +230,20 @@
 		temp_server = null
 		consoles = list()
 		servers = list()
+		var/turf/T = get_turf(src)
 		for(var/obj/machinery/r_n_d/server/S in SSmachinery.machinery)
+			var/turf/ST = get_turf(S)
+			if(ST && !AreConnectedZLevels(ST.z, T.z))
+				continue
 			if(S.server_id == text2num(href_list["access"]) || S.server_id == text2num(href_list["data"]) || S.server_id == text2num(href_list[TRANSFER_CREW]))
 				temp_server = S
 				break
 		if(href_list["access"])
 			screen = 1
 			for(var/obj/machinery/computer/rdconsole/C in SSmachinery.machinery)
+				var/turf/CT = get_turf(C)
+				if(CT && !AreConnectedZLevels(CT.z, T.z))
+					continue
 				if(C.sync)
 					consoles += C
 		else if(href_list["data"])
@@ -244,7 +251,8 @@
 		else if(href_list[TRANSFER_CREW])
 			screen = 3
 			for(var/obj/machinery/r_n_d/server/S in SSmachinery.machinery)
-				if(S == src)
+				var/turf/ST = get_turf(S)
+				if(S == src || (ST && !AreConnectedZLevels(ST.z, T.z)))
 					continue
 				servers += S
 
@@ -289,14 +297,15 @@
 	switch(screen)
 		if(0) //Main Menu
 			dat += "Connected Servers:<BR><BR>"
-
+			var/turf/T = get_turf(src)
 			for(var/obj/machinery/r_n_d/server/S in SSmachinery.machinery)
-				if(istype(S, /obj/machinery/r_n_d/server/centcom) && !badmin)
+				var/turf/ST = get_turf(S)
+				if((istype(S, /obj/machinery/r_n_d/server/centcom) && !badmin) || (ST && !AreConnectedZLevels(ST.z, T.z)))
 					continue
 				dat += "[S.name] || "
-				dat += "<A href='?src=\ref[src];access=[S.server_id]'> Access Rights</A> | "
-				dat += "<A href='?src=\ref[src];data=[S.server_id]'>Data Management</A>"
-				if(badmin) dat += " | <A href='?src=\ref[src];transfer=[S.server_id]'>Server-to-Server Transfer</A>"
+				dat += "<A href='byond://?src=[REF(src)];access=[S.server_id]'> Access Rights</A> | "
+				dat += "<A href='byond://?src=[REF(src)];data=[S.server_id]'>Data Management</A>"
+				if(badmin) dat += " | <A href='byond://?src=[REF(src)];transfer=[S.server_id]'>Server-to-Server Transfer</A>"
 				dat += "<BR>"
 
 		if(1) //Access rights menu
@@ -304,7 +313,7 @@
 			dat += "Consoles with Upload Access<BR>"
 			for(var/obj/machinery/computer/rdconsole/C in consoles)
 				var/turf/console_turf = get_turf(C)
-				dat += "* <A href='?src=\ref[src];upload_toggle=[C.id]'>[console_turf.loc]" //FYI, these are all numeric ids, eventually.
+				dat += "* <A href='byond://?src=[REF(src)];upload_toggle=[C.id]'>[console_turf.loc]" //FYI, these are all numeric ids, eventually.
 				if(C.id in temp_server.id_with_upload)
 					dat += " (Remove)</A><BR>"
 				else
@@ -312,12 +321,12 @@
 			dat += "Consoles with Download Access<BR>"
 			for(var/obj/machinery/computer/rdconsole/C in consoles)
 				var/turf/console_turf = get_turf(C)
-				dat += "* <A href='?src=\ref[src];download_toggle=[C.id]'>[console_turf.loc]"
+				dat += "* <A href='byond://?src=[REF(src)];download_toggle=[C.id]'>[console_turf.loc]"
 				if(C.id in temp_server.id_with_download)
 					dat += " (Remove)</A><BR>"
 				else
 					dat += " (Add)</A><BR>"
-			dat += "<HR><A href='?src=\ref[src];main=1'>Main Menu</A>"
+			dat += "<HR><A href='byond://?src=[REF(src)];main=1'>Main Menu</A>"
 
 		if(2) //Data Management menu
 			dat += "[temp_server.name] Data ManagementP<BR><BR>"
@@ -325,20 +334,20 @@
 			for(var/path in temp_server.files.known_tech)
 				var/datum/tech/T = temp_server.files.known_tech[path]
 				dat += "* [T.name] "
-				dat += "<A href='?src=\ref[src];reset_tech=[T.id]'>(Reset)</A><BR>"
+				dat += "<A href='byond://?src=[REF(src)];reset_tech=[T.id]'>(Reset)</A><BR>"
 			dat += "Known Designs<BR>"
 			for(var/path in temp_server.files.known_designs)
 				var/datum/design/D = temp_server.files.known_designs[path]
 				dat += "* [D.name] "
-				dat += "<A href='?src=\ref[src];reset_design=[path]'>(Delete)</A><BR>"
-			dat += "<HR><A href='?src=\ref[src];main=1'>Main Menu</A>"
+				dat += "<A href='byond://?src=[REF(src)];reset_design=[path]'>(Delete)</A><BR>"
+			dat += "<HR><A href='byond://?src=[REF(src)];main=1'>Main Menu</A>"
 
 		if(3) //Server Data Transfer
 			dat += "[temp_server.name] Server to Server Transfer<BR><BR>"
 			dat += "Send Data to what server?<BR>"
 			for(var/obj/machinery/r_n_d/server/S in servers)
-				dat += "[S.name] <A href='?src=\ref[src];send_to=[S.server_id]'> (Transfer)</A><BR>"
-			dat += "<HR><A href='?src=\ref[src];main=1'>Main Menu</A>"
+				dat += "[S.name] <A href='byond://?src=[REF(src)];send_to=[S.server_id]'> (Transfer)</A><BR>"
+			dat += "<HR><A href='byond://?src=[REF(src)];main=1'>Main Menu</A>"
 	user << browse("<TITLE>R&D Server Control</TITLE><HR>[dat]", "window=server_control;size=575x400")
 	onclose(user, "server_control")
 	return
@@ -347,7 +356,7 @@
 	if(!emagged)
 		playsound(src.loc, 'sound/effects/sparks4.ogg', 75, 1)
 		emagged = 1
-		to_chat(user, "<span class='notice'>You you disable the security protocols.</span>")
+		to_chat(user, SPAN_NOTICE("You you disable the security protocols."))
 		src.updateUsrDialog()
 		return 1
 

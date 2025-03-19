@@ -87,6 +87,9 @@
 	var/hardness = 60            // Prob of wall destruction by hulk, used for edge damage in weapons. Also used for bullet protection in armor.
 	var/weight = 20              // Determines blunt damage/throwforce for weapons, and whether it can be flipped. Check DEFAULT_TABLE_FLIP_WEIGHT if you want your materai to be tableflippable.
 
+	/// The price value of the item
+	var/value = 1
+
 	// Noise when someone is faceplanted onto a table made of this material.
 	var/tableslam_noise = 'sound/weapons/tablehit1.ogg'
 	// Noise made when a simple door made of this material opens or closes.
@@ -119,29 +122,29 @@
 
 /material/proc/build_rod_product(var/mob/user, var/obj/item/stack/used_stack, var/obj/item/stack/target_stack)
 	if(!rod_product)
-		to_chat(user, "<span class='warning'>You cannot make anything out of \the [target_stack]</span>")
+		to_chat(user, SPAN_WARNING("You cannot make anything out of \the [target_stack]"))
 		return
 	if(used_stack.get_amount() < 1 || target_stack.get_amount() < 1)
-		to_chat(user, "<span class='warning'>You need one rod and one sheet of [display_name] to make anything useful.</span>")
+		to_chat(user, SPAN_WARNING("You need one rod and one sheet of [display_name] to make anything useful."))
 		return
 	used_stack.use(1)
 	target_stack.use(1)
-	to_chat(user, "<span class='notice'>You attach a rod to the [display_name].</span>")
+	to_chat(user, SPAN_NOTICE("You attach a rod to the [display_name]."))
 	var/obj/item/stack/S = new rod_product(get_turf(user))
 	S.add_fingerprint(user)
 	S.add_to_stacks(user)
 
 /material/proc/build_wired_product(var/mob/user, var/obj/item/stack/used_stack, var/obj/item/stack/target_stack)
 	if(!wire_product)
-		to_chat(user, "<span class='warning'>You cannot make anything out of \the [target_stack]</span>")
+		to_chat(user, SPAN_WARNING("You cannot make anything out of \the [target_stack]"))
 		return
 	if(used_stack.get_amount() < 5 || target_stack.get_amount() < 1)
-		to_chat(user, "<span class='warning'>You need five wires and one sheet of [display_name] to make anything useful.</span>")
+		to_chat(user, SPAN_WARNING("You need five wires and one sheet of [display_name] to make anything useful."))
 		return
 
 	used_stack.use(5)
 	target_stack.use(1)
-	to_chat(user, "<span class='notice'>You attach wires to the [display_name].</span>")
+	to_chat(user, SPAN_NOTICE("You attach wires to the [display_name]."))
 	var/obj/item/product = new wire_product(get_turf(user))
 	if(!(user.l_hand && user.r_hand))
 		user.put_in_hands(product)
@@ -199,6 +202,11 @@
 		if (multipart_reinf_icon)
 			multipart_reinf_icon = new(multipart_reinf_icon)
 			multipart_reinf_icon.Blend(blend_colour, ICON_MULTIPLY)
+
+/material/Destroy(force)
+	stack_trace("Someone tried to delete a /material.")
+	. = ..()
+	return QDEL_HINT_LETMELIVE //Materials cannot be deleted, as you cannot poof the concept out of existence
 
 // This is a placeholder for proper integration of windows/windoors into the system.
 /material/proc/build_windows(var/mob/living/user, var/obj/item/stack/used_stack)
@@ -279,6 +287,7 @@
 	icon_colour = "#007A00"
 	weight = 25
 	hardness = 20
+	value = 100
 	stack_origin_tech = list(TECH_MATERIAL = 5)
 	door_icon_base = "stone"
 	golem = SPECIES_GOLEM_URANIUM
@@ -289,6 +298,7 @@
 	flags = MATERIAL_UNMELTABLE
 	cut_delay = 60
 	icon_colour = "#00FFE1"
+	value = 170
 	opacity = 0.4
 	reflectivity = 0.6
 	conductivity = 1
@@ -307,6 +317,7 @@
 	icon_colour = "#EDD12F"
 	weight = 30
 	hardness = 15
+	value = 40
 	conductivity = 41
 	stack_origin_tech = list(TECH_MATERIAL = 4)
 	sheet_singular_name = "ingot"
@@ -318,6 +329,7 @@
 	stack_type = /obj/item/stack/material/bronze
 	weight = 30
 	hardness = 50
+	value = 25
 	conductivity = 11
 	icon_colour = "#EDD12F"
 	stack_origin_tech = list(TECH_MATERIAL = 2)
@@ -338,6 +350,7 @@
 	icon_colour = "#D1E6E3"
 	weight = 22
 	hardness = 50
+	value = 35
 	conductivity = 63
 	stack_origin_tech = list(TECH_MATERIAL = 3)
 	sheet_singular_name = "ingot"
@@ -352,6 +365,7 @@
 	icon_colour = "#FC2BC5"
 	shard_type = SHARD_SHARD
 	hardness = 30
+	value = 150
 	stack_origin_tech = list(TECH_MATERIAL = 2, TECH_PHORON = 2)
 	door_icon_base = "stone"
 	sheet_singular_name = "crystal"
@@ -400,17 +414,18 @@
 	icon_colour = "#b4b1a6"
 	weight = 26
 	hardness = 70
+	value = 4
 	stack_type = /obj/item/stack/material/marble
 	golem = SPECIES_GOLEM_MARBLE
 	drop_sound = 'sound/items/drop/boots.ogg'
 	pickup_sound = 'sound/items/pickup/boots.ogg'
 
-/material/stone/concrete
+/material/concrete
 	name = MATERIAL_CONCRETE
-	icon_base = "concrete"
-	icon_colour = "#D2D1CD"
-	colour_blend = FALSE
-	wall_icon = 'icons/turf/smooth/concrete_wall.dmi'
+	icon_colour = COLOR_CONCRETE
+	wall_colour = COLOR_CONCRETE
+	wall_icon = 'icons/turf/smooth/composite_solid_color.dmi'
+	table_icon = 'icons/obj/structure/tables/steel_table.dmi'
 	stack_type = null
 	golem = null
 
@@ -418,6 +433,7 @@
 	name = DEFAULT_WALL_MATERIAL
 	stack_type = /obj/item/stack/material/steel
 	integrity = 150
+	value = 4
 	conductivity = 11
 	protectiveness = 10 // 33%
 	wall_icon = 'icons/turf/smooth/composite_solid_color.dmi'
@@ -439,6 +455,7 @@
 	colour_blend = FALSE
 	integrity = 100
 	weight = 23
+	value = 5
 	// below is same as wood
 	melting_point = T0C + 300
 	ignition_point = T0C + 288
@@ -456,6 +473,7 @@
 	display_name = DEFAULT_WALL_MATERIAL
 	stack_type = null
 	shard_type = SHARD_NONE
+	value = 0
 
 /material/plasteel
 	name = MATERIAL_PLASTEEL
@@ -468,6 +486,7 @@
 	explosion_resistance = 25
 	hardness = 80
 	weight = 23
+	value = 12
 	protectiveness = 20 // 50%
 	conductivity = 10
 	stack_origin_tech = list(TECH_MATERIAL = 2)
@@ -483,6 +502,7 @@
 	conductivity = 2.38
 	hardness = 90
 	weight = 25
+	value = 10
 	protectiveness = 25
 	icon_base = "metal"
 	door_icon_base = "metal"
@@ -520,12 +540,12 @@
 		return 0
 
 	if(!user.IsAdvancedToolUser())
-		to_chat(user, "<span class='warning'>This task is too complex for your clumsy hands.</span>")
+		to_chat(user, SPAN_WARNING("This task is too complex for your clumsy hands."))
 		return 1
 
 	var/turf/T = user.loc
 	if(!istype(T))
-		to_chat(user, "<span class='warning'>You must be standing on open flooring to build a window.</span>")
+		to_chat(user, SPAN_WARNING("You must be standing on open flooring to build a window."))
 		return 1
 
 	var/title = "Sheet-[used_stack.name] ([used_stack.get_amount()] sheet\s left)"
@@ -535,7 +555,7 @@
 		return 1
 
 	// Get data for building windows here.
-	var/list/possible_directions = GLOB.cardinal.Copy()
+	var/list/possible_directions = GLOB.cardinals.Copy()
 	var/window_count = 0
 	for (var/obj/structure/window/check_window in user.loc)
 		window_count++
@@ -558,13 +578,13 @@
 				failed_to_build = 1
 			if(!failed_to_build && choice == "Windoor")
 				if(!is_reinforced())
-					to_chat(user, "<span class='warning'>This material is not reinforced enough to use for a door.</span>")
+					to_chat(user, SPAN_WARNING("This material is not reinforced enough to use for a door."))
 					return
 				for(var/obj/obstacle in T)
 					if((obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER) && obstacle.dir == user.dir)
 						failed_to_build = 1
 	if(failed_to_build)
-		to_chat(user, "<span class='warning'>There is no room in this location.</span>")
+		to_chat(user, SPAN_WARNING("There is no room in this location."))
 		return 1
 
 	var/build_path = /obj/structure/windoor_assembly
@@ -575,7 +595,7 @@
 		build_path = created_window
 
 	if(used_stack.get_amount() < sheets_needed)
-		to_chat(user, "<span class='warning'>You need at least [sheets_needed] sheets to build this.</span>")
+		to_chat(user, SPAN_WARNING("You need at least [sheets_needed] sheets to build this."))
 		return 1
 
 	// Build the structure and update sheet count etc.
@@ -617,6 +637,7 @@
 	tableslam_noise = 'sound/effects/glass_hit.ogg'
 	hardness = 40
 	weight = 30
+	value = 2
 	stack_origin_tech = list(TECH_MATERIAL = 2)
 	composite_material = list(DEFAULT_WALL_MATERIAL = 1875, MATERIAL_GLASS = 3750)
 	window_options = list("One Direction" = 1, "Full Window" = 4, "Windoor" = 5)
@@ -630,6 +651,7 @@
 	stack_type = /obj/item/stack/material/glass/phoronglass
 	flags = MATERIAL_BRITTLE
 	integrity = 100
+	value = 30
 	icon_colour = "#FC2BC5"
 	stack_origin_tech = list(TECH_MATERIAL = 4)
 	created_window = /obj/structure/window/borosilicate
@@ -646,8 +668,7 @@
 	created_window = /obj/structure/window/borosilicate/reinforced
 	hardness = 40
 	weight = 30
-	stack_origin_tech = list(TECH_MATERIAL = 2)
-	composite_material = list() //todo
+	value = 40
 	rod_product = null
 
 /material/plastic
@@ -684,6 +705,7 @@
 	stack_type = /obj/item/stack/material/mhydrogen
 	icon_colour = "#E6C5DE"
 	stack_origin_tech = list(TECH_MATERIAL = 6, TECH_POWER = 6, TECH_MAGNET = 5)
+	value = 100
 	conductivity = 100
 	golem = SPECIES_GOLEM_HYDROGEN
 	is_fusion_fuel = TRUE
@@ -693,6 +715,7 @@
 	stack_type = /obj/item/stack/material/platinum
 	icon_colour = "#9999FF"
 	weight = 27
+	value = 200
 	conductivity = 9.43
 	stack_origin_tech = list(TECH_MATERIAL = 2)
 	sheet_singular_name = "ingot"
@@ -703,10 +726,31 @@
 	stack_type = /obj/item/stack/material/iron
 	icon_colour = "#5C5454"
 	weight = 22
+	value = 5
 	conductivity = 10
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"
 	golem = SPECIES_GOLEM_IRON
+	hitsound = 'sound/weapons/smash.ogg'
+	weapon_hitsound = 'sound/weapons/metalhit.ogg'
+
+/material/aluminium
+	name = MATERIAL_ALUMINIUM
+	stack_type = /obj/item/stack/material/aluminium
+	icon_colour = "#cccdcc"
+	weight = 18
+	conductivity = 29.48
+	hitsound = 'sound/weapons/smash.ogg'
+	weapon_hitsound = 'sound/weapons/metalhit.ogg'
+
+/material/lead
+	name = MATERIAL_LEAD
+	stack_type = /obj/item/stack/material/lead
+	icon_colour = "#5f5960"
+	weight = 32
+	conductivity = 4.39
+	sheet_singular_name = "ingot"
+	sheet_plural_name = "ingots"
 	hitsound = 'sound/weapons/smash.ogg'
 	weapon_hitsound = 'sound/weapons/metalhit.ogg'
 
@@ -737,6 +781,7 @@
 	hardness = 15
 	weight = 18
 	protectiveness = 8 // 28%
+	value = 3
 	conductivity = 1
 	melting_point = T0C+300 //okay, not melting in this case, but hot enough to destroy wood
 	ignition_point = T0C+288
@@ -836,6 +881,7 @@
 	display_name = "wood"
 	stack_type = null
 	shard_type = SHARD_NONE
+	value = 0
 
 /material/cardboard
 	name = MATERIAL_CARDBOARD
@@ -846,6 +892,7 @@
 	hardness = 1
 	weight = 1
 	protectiveness = 0 // 0%
+	value = 0
 	ignition_point = T0C+232 //"the temperature at which book-paper catches fire, and burns." close enough
 	melting_point = T0C+232 //temperature at which cardboard walls would be destroyed
 	stack_origin_tech = list(TECH_MATERIAL = 1)
@@ -896,12 +943,13 @@
 
 /material/leather
 	name = MATERIAL_LEATHER
-	icon_colour = "#5C4831"
+	icon_colour = COLOR_LEATHER
 	stack_type = /obj/item/stack/material/leather
 	stack_origin_tech = list(TECH_MATERIAL = 2)
 	flags = MATERIAL_PADDING
 	hardness = 1
 	weight = 1
+	value = 3
 	ignition_point = T0C+300
 	melting_point = T0C+300
 	protectiveness = 3 // 13%
@@ -1020,7 +1068,7 @@
 	stack_origin_tech = list(TECH_MATERIAL = 2)
 	stack_type = /obj/item/stack/material/animalhide
 	door_icon_base = "wood"
-	icon_colour = "#5C4831"
+	icon_colour = COLOR_LEATHER
 	ignition_point = T0C+232
 	melting_point = T0C+300
 	flags = MATERIAL_PADDING
@@ -1030,6 +1078,7 @@
 	golem = SPECIES_GOLEM_MEAT
 	drop_sound = 'sound/items/drop/leather.ogg'
 	pickup_sound = 'sound/items/pickup/leather.ogg'
+	value = 5
 
 /material/hide/corgi
 	name = MATERIAL_HIDE_CORGI
@@ -1055,6 +1104,7 @@
 	name = MATERIAL_HIDE_HUMAN
 	stack_type = /obj/item/stack/material/animalhide/human
 	icon_colour = "#833C00"
+	value = 35
 
 /material/hide/barehide
 	name = "bare hide"
@@ -1074,6 +1124,7 @@
 	weight = 10
 	hardness = 20
 	integrity = 70
+	value = 5
 	stack_origin_tech = list(TECH_MATERIAL = 2)
 	door_icon_base = "stone"
 	protectiveness = 10 // 33%
@@ -1085,6 +1136,7 @@
 	integrity = 150
 	hardness = 60
 	protectiveness = 20 // 50%
+	value = 50
 
 /material/vaurca
 	name = MATERIAL_VAURCA

@@ -2,10 +2,13 @@
 	name = "kataphract ship"
 	id = "awaysite_kataphract_ship"
 	description = "Ship with lizard knights."
-	suffixes = list("ships/kataphracts/kataphract_ship.dmm")
+
+	prefix = "ships/kataphracts/"
+	suffix = "kataphract_ship.dmm"
+
 	ship_cost = 1
 	spawn_weight = 1
-	spawn_weight_sector_dependent = list(SECTOR_UUEOAESA=3)
+	spawn_weight_sector_dependent = list(SECTOR_UUEOAESA = 1.5)
 	sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_UUEOAESA, SECTOR_WEEPING_STARS)
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/kataphract_transport)
 	unit_test_groups = list(3)
@@ -14,7 +17,7 @@
 	name = "kataphract chapter ship"
 	desc = "A large corvette manufactured by a Hephaestus sponsored Hegemonic Guild. This is a heavily armoured Kataphract Chapter ship of the venerable 'Voidbreaker' class, a relative of the more common 'Foundation' \
 	class used by their counterparts in the Hegemony Navy. These vessels are rarely seen together and strive for maximum self-suffiency as they are the homes and primary means of transportation \
-	for questing Kataphracts and their followers. They usually carry enough firepower to deter the common pirate as well as a set of boarding pods for offensive actions. This ship however has no weapon hardpoints detected. It remains capable due to its sturdy design."
+	for questing Kataphracts and their followers. They usually carry enough firepower to deter the common pirate as well as a set of boarding pods for offensive actions. It remains capable due to its sturdy design."
 	class = "IHKV" //Izweski Hegemony Kataphract Vessel
 	icon_state = "voidbreaker"
 	moving_state = "voidbreaker_moving"
@@ -28,7 +31,7 @@
 	shiptype = "Specialist long-distance extended-duration combat utility"
 	vessel_mass = 10000
 	max_speed = 1/(2 SECONDS)
-	fore_dir = NORTH
+	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
 	initial_generic_waypoints = list(
 		"nav_kataphract_ship_1",
@@ -36,7 +39,8 @@
 		"nav_kataphract_ship_3",
 		"nav_kataphract_ship_4",
 		"nav_kataphract_ship_5",
-		"nav_kataphract_ship_portdock",
+		"nav_kataphract_ship_port",
+		"nav_kataphract_ship_starboard",
 	)
 	initial_restricted_waypoints = list(
 		"Kataphract Transport" = list("nav_hangar_kataphract_shuttle"),
@@ -73,13 +77,25 @@
 	name = "Kataphract Ship Navpoint #5"
 	landmark_tag = "nav_kataphract_ship_5"
 
-/obj/effect/shuttle_landmark/nav_kataphract_ship/starboarddock //any ship with a docking port on their left side assuming they have their landmark mapped in properly
+/obj/effect/shuttle_landmark/nav_kataphract_ship/starboard //any ship with a docking port on their left side assuming they have their landmark mapped in properly
 	name = "Kataphract Ship Starboard Docking"
-	landmark_tag = "nav_kataphract_ship_starboarddock"
+	landmark_tag = "nav_kataphract_ship_starboard"
+	docking_controller = "dock_kataphract_ship_starboard"
 
-/obj/effect/shuttle_landmark/nav_kataphract_ship/dockintrepid // restricted for the intrepid only or else other ships will be able to use this point, and not properly dock
-	name = "Kataphract Ship Intrepid Starboard Docking"
-	landmark_tag = "nav_kataphract_ship_dockintrepid"
+/obj/effect/map_effect/marker/airlock/docking/nav_kataphract_ship/starboard
+	name = "Starboard Dock"
+	landmark_tag = "nav_kataphract_ship_starboard"
+	master_tag = "airlock_kataphract_ship_starboard_dock"
+
+/obj/effect/shuttle_landmark/nav_kataphract_ship/port //any ship with a docking port on their left side assuming they have their landmark mapped in properly
+	name = "Kataphract Ship Port Docking"
+	landmark_tag = "nav_kataphract_ship_port"
+	docking_controller = "dock_kataphract_ship_port"
+
+/obj/effect/map_effect/marker/airlock/docking/nav_kataphract_ship/port
+	name = "Port Dock"
+	landmark_tag = "nav_kataphract_ship_port"
+	master_tag = "airlock_kataphract_ship_port_dock"
 
 //shuttle
 /obj/effect/overmap/visitable/ship/landable/kataphract_transport
@@ -94,10 +110,10 @@
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 6000 //Ship has a lot of thrusters, so if its too low the shuttle goes too fast. Also, imagine a hard egg flying towards you.
-	fore_dir = WEST
+	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/kataphract_transport
+/obj/machinery/computer/shuttle_control/explore/terminal/kataphract_transport
 	name = "shuttle control console"
 	shuttle_tag = "Kataphract Transport"
 	req_access = list(ACCESS_KATAPHRACT)
@@ -107,20 +123,31 @@
 	move_time = 20
 	shuttle_area = list(/area/shuttle/kataphract_shuttle/main_compartment, /area/shuttle/kataphract_shuttle/engine_compartment)
 	current_location = "nav_hangar_kataphract_shuttle"
-	dock_target = "kataphract_transport"
+	dock_target = "airlock_kataphract_transport"
 	landmark_transition = "nav_kataphract_transport_transit"
 	range = 2 // It's a big boy
 	fuel_consumption = 4
 	logging_home_tag = "nav_hangar_kataphract_shuttle"
 	defer_initialisation = TRUE
 
+/obj/effect/map_effect/marker/airlock/shuttle/kataphract_shuttle
+	name = "Kataphract Transport"
+	shuttle_tag = "Kataphract Transport"
+	master_tag = "airlock_kataphract_transport"
+	cycle_to_external_air = TRUE
+
 /obj/effect/shuttle_landmark/kataphract_transport/hangar
 	name = "Kataphract Transport Shuttle Hangar"
 	landmark_tag = "nav_hangar_kataphract_shuttle"
 	docking_controller = "kataphract_dock"
-	base_area = /area/kataphract_chapter/hangar
-	base_turf = /turf/simulated/floor/plating
+	base_turf = /turf/space
+	base_area = /area/space
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
+
+/obj/effect/map_effect/marker/airlock/docking/kataphract_shuttle/hangar
+	name = "Shuttle Dock"
+	landmark_tag = "nav_hangar_kataphract_shuttle"
+	master_tag = "nav_hangar_kataphract_shuttle"
 
 /obj/effect/shuttle_landmark/kataphract_transport/transit
 	name = "In transit"

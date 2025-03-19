@@ -19,6 +19,7 @@
 			SPECIES_DIONA_COEUS,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_ATTENDANT,
 			SPECIES_VAURCA_BULWARK,
 			SPECIES_VAURCA_BREEDER,
 			SPECIES_TAJARA_ZHAN,
@@ -27,7 +28,7 @@
 	)
 
 	titles_to_loadout = list(
-		"Off-Duty Crew Member" = /datum/outfit/job/visitor/nanotrasen
+		"Off-Duty Crew Member" = /obj/outfit/job/visitor/nanotrasen
 	)
 
 
@@ -38,20 +39,20 @@
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
 			objective = pick("Have [rand(1,4)] crewmember sign NT apprenticeship contracts",
-						"Make sure that the station fullfils [rand(4,12)] cargo bounties",
-						"Make sure that the station raises [rand(5000,12000)] credits by the end of the shift")
+						"Make sure that the [station_name()] fullfils [rand(4,12)] cargo bounties",
+						"Make sure that the [station_name()] raises [rand(5000,12000)] credits by the end of the shift")
 		if(REPRESENTATIVE_MISSION_MEDIUM)
 			objective = pick("Have [rand(2,5)] crewmembers sign contract extensions",
 						"Have [rand(2,5)] crewmembers buy Odin real estate",
 						"[rand(3,10)] crewmember must buy Getmore products from the vendors")
 		else
 			objective = pick("Conduct and present a survey on crew morale and content",
-						"Make sure that [rand(2,4)] complaints are solved on the station",
+						"Make sure that [rand(2,4)] complaints are solved on the [station_name()]",
 						"Have [rand(3,10)] crewmembers buy Getmore products from the vendors")
 
 	return objective
 
-/datum/outfit/job/visitor/nanotrasen
+/obj/outfit/job/visitor/nanotrasen
 	name = "Off-Duty Crew Member - NanoTrasen"
 
 	backpack_faction = /obj/item/storage/backpack/nt

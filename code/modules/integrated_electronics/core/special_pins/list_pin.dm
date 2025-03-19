@@ -14,20 +14,20 @@
 	var/list/my_list = data
 	var/t = "<h2>[src]</h2><br>"
 	t += "List length: [my_list.len]<br>"
-	t += "<a href='?src=\ref[src]'>Refresh</a>  |  "
-	t += "<a href='?src=\ref[src];add=1'>Add</a>  |  "
-	t += "<a href='?src=\ref[src];remove=1'>Remove</a>  |  "
-	t += "<a href='?src=\ref[src];edit=1'>Edit</a>  |  "
-	t += "<a href='?src=\ref[src];swap=1'>Swap</a>  |  "
-	t += "<a href='?src=\ref[src];clear=1'>Clear</a><br>"
+	t += "<a href='byond://?src=[REF(src)]'>Refresh</a>  |  "
+	t += "<a href='byond://?src=[REF(src)];add=1'>Add</a>  |  "
+	t += "<a href='byond://?src=[REF(src)];remove=1'>Remove</a>  |  "
+	t += "<a href='byond://?src=[REF(src)];edit=1'>Edit</a>  |  "
+	t += "<a href='byond://?src=[REF(src)];swap=1'>Swap</a>  |  "
+	t += "<a href='byond://?src=[REF(src)];clear=1'>Clear</a><br>"
 	t += "<hr>"
 	// Iterating by index simplifies editing/deletion in game,
 	// since the href_list["pos"] var is consistent
 	for(var/i = 1, i <= my_list.len; i++)
 		t += "#[i] | [display_data(my_list[i])]  |  "
-		t += "<a href='?src=\ref[src];edit=1;pos=[i]'>Edit</a>  |  "
-		t += "<a href='?src=\ref[src];remove=1;pos=[i]'>Remove</a><br>"
-	var/datum/browser/B = new(user, "list_pin_\ref[src]", null, 500, 400)
+		t += "<a href='byond://?src=[REF(src)];edit=1;pos=[i]'>Edit</a>  |  "
+		t += "<a href='byond://?src=[REF(src)];remove=1;pos=[i]'>Remove</a><br>"
+	var/datum/browser/B = new(user, "list_pin_[REF(src)]", null, 500, 400)
 	B.set_content(t)
 	B.open(FALSE)
 
@@ -47,7 +47,7 @@
 /datum/integrated_io/list/proc/remove_from_list_by_position(mob/user, position)
 	var/list/my_list = data
 	if(!my_list.len)
-		to_chat(user, "<span class='warning'>The list is empty, there's nothing to remove.</span>")
+		to_chat(user, SPAN_WARNING("The list is empty, there's nothing to remove."))
 		return
 	if(!position)
 		return
@@ -60,7 +60,7 @@
 /datum/integrated_io/list/proc/remove_from_list(mob/user, target_entry)
 	var/list/my_list = data
 	if(!my_list.len)
-		to_chat(user, "<span class='warning'>The list is empty, there's nothing to remove.</span>")
+		to_chat(user, SPAN_WARNING("The list is empty, there's nothing to remove."))
 		return
 	if(!target_entry)
 		target_entry = input("Which piece of data do you want to remove?", "Remove") as null|anything in my_list
@@ -70,7 +70,7 @@
 /datum/integrated_io/list/proc/edit_in_list(mob/user, target_entry)
 	var/list/my_list = data
 	if(!my_list.len)
-		to_chat(user, "<span class='warning'>The list is empty, there's nothing to modify.</span>")
+		to_chat(user, SPAN_WARNING("The list is empty, there's nothing to modify."))
 		return
 	if(!target_entry)
 		target_entry = input("Which piece of data do you want to edit?", "Edit") as null|anything in my_list
@@ -83,7 +83,7 @@
 /datum/integrated_io/list/proc/edit_in_list_by_position(mob/user, var/position)
 	var/list/my_list = data
 	if(!my_list.len)
-		to_chat(user, "<span class='warning'>The list is empty, there's nothing to modify.</span>")
+		to_chat(user, SPAN_WARNING("The list is empty, there's nothing to modify."))
 		return
 	if(!position)
 		return
@@ -98,7 +98,7 @@
 /datum/integrated_io/list/proc/swap_inside_list(mob/user, var/first_target, var/second_target)
 	var/list/my_list = data
 	if(my_list.len <= 1)
-		to_chat(user, "<span class='warning'>The list is empty, or too small to do any meaningful swapping.</span>")
+		to_chat(user, SPAN_WARNING("The list is empty, or too small to do any meaningful swapping."))
 		return
 	if(!first_target)
 		first_target = input("Which piece of data do you want to swap? (1)", "Swap") as null|anything in my_list

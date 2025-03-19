@@ -15,7 +15,7 @@
 	Feedon(M)
 
 /mob/living/carbon/slime/proc/invalidFeedTarget(var/mob/living/M)
-	if(!M || !istype(M))
+	if(!M || !istype(M) || istype(M, /mob/living/bot))
 		return "This subject is incompatible.."
 	if(istype(M, /mob/living/carbon/slime)) // No cannibalism... yet
 		return "I cannot feed on other slimes..."
@@ -127,7 +127,7 @@
 			health = maxHealth
 			amount_grown = 0
 			regenerate_icons()
-			name = text("[colour] [is_adult ? "adult" : "baby"] slime ([number])")
+			name = "[colour] [is_adult ? "adult" : "baby"] slime ([number])"
 			real_name = name
 			set_content(TRUE)
 			addtimer(CALLBACK(src, PROC_REF(set_content), FALSE), 1200) // You get two minutes of safety

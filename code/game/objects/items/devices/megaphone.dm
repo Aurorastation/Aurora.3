@@ -3,11 +3,10 @@
 	desc = "Pretend to be a director for a brief moment before someone tackles you to make you shut up."
 	desc_extended = "Annoy your colleagues! Scare interns! Impress no one!"
 	desc_info = "A device used to project your voice. Loudly."
-	icon = 'icons/obj/item/tools/megaphone.dmi'
+	icon = 'icons/obj/item/device/megaphone.dmi'
 	icon_state = "megaphone"
 	item_state = "megaphone"
-	contained_sprite = TRUE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 
 	var/spamcheck = 0

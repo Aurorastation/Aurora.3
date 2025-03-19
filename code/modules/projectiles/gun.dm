@@ -53,11 +53,11 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	throwforce = 5
 	throw_speed = 4
 	throw_range = 5
-	force = 5
+	force = 11
 	origin_tech = list(TECH_COMBAT = 1)
 	attack_verb = list("struck", "hit", "bashed")
 	zoomdevicename = "scope"
@@ -137,9 +137,9 @@
 	var/markings = 0 // for marking kills with a knife
 
 	//wielding information
-	var/fire_delay_wielded = 0
-	var/recoil_wielded = 0
-	var/accuracy_wielded = 0
+	var/fire_delay_wielded
+	var/recoil_wielded
+	var/accuracy_wielded
 	var/wielded = 0
 	var/needspin = TRUE
 	var/is_wieldable = FALSE
@@ -198,11 +198,11 @@
 		underlays += I
 
 	if(has_safety)
-		cut_overlay(safety_overlay, TRUE)
+		CutOverlays(safety_overlay, ATOM_ICON_CACHE_PROTECTED)
 		safety_overlay = null
 		if(!isturf(loc)) // In a mob, holster or bag or something
 			safety_overlay = image(gun_gui_icons,"[safety()]")
-			add_overlay(safety_overlay, TRUE)
+			AddOverlays(safety_overlay, ATOM_ICON_CACHE_PROTECTED)
 
 	if(is_wieldable)
 		if(wielded)
@@ -302,18 +302,18 @@
 	else
 		Fire(A,user,params) //Otherwise, fire normally.
 
-/obj/item/gun/attack(atom/A, mob/living/user, def_zone)
-	if (A == user && user.zone_sel.selecting == BP_MOUTH && !mouthshoot)
+/obj/item/gun/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if (target_mob == user && user.zone_sel.selecting == BP_MOUTH && !mouthshoot)
 		handle_suicide(user)
 	else if(user.a_intent != I_HURT && user.aiming && user.aiming.active) //if aim mode, don't pistol whip
-		if (user.aiming.aiming_at != A)
-			PreFire(A, user)
+		if (user.aiming.aiming_at != target_mob)
+			PreFire(target_mob, user)
 		else
-			Fire(A, user, pointblank=1)
+			Fire(target_mob, user, pointblank=1)
 	else if(user.a_intent == I_HURT) //point blank shooting
-		Fire(A, user, pointblank=1)
+		Fire(target_mob, user, pointblank=1)
 	else if(bayonet)
-		bayonet.attack(A, user, def_zone)
+		bayonet.attack(target_mob, user, target_zone)
 	else
 		return ..() //Pistolwhippin'
 
@@ -422,18 +422,19 @@
 			break
 
 		if(isprojectile(projectile))
-			var/obj/item/projectile/P = projectile
+			var/obj/projectile/P = projectile
 
 			var/acc = burst_accuracy[min(i, burst_accuracy.len)]
 			var/disp = dispersion[min(i, dispersion.len)]
 
 			P.accuracy = accuracy + acc
-			P.dispersion = disp
+			P.spread += disp
 
-			P.shot_from = src.name
 			P.suppressed =  suppressed
 
-			P.launch_projectile(target)
+			P.preparePixelProjectile(target, get_turf(src))
+			P.fired_from = src
+			P.fire()
 
 			handle_post_fire() // should be safe to not include arguments here, as there are failsafes in effect (?)
 
@@ -507,10 +508,10 @@
 	if(suppressed)
 		playsound(loc, suppressed_sound, suppressed_volume, vary_fire_sound)
 	else
-		playsound(loc, fire_sound, fire_sound_volume, vary_fire_sound, falloff = 0.5, is_global = TRUE)
+		playsound(loc, fire_sound, fire_sound_volume, vary_fire_sound, falloff_distance  = 0.5)
 
 /obj/item/gun/proc/process_point_blank(obj/projectile, mob/user, atom/target)
-	var/obj/item/projectile/P = projectile
+	var/obj/projectile/P = projectile
 	if(!istype(P))
 		return //default behaviour only applies to true projectiles
 
@@ -533,13 +534,13 @@
 	P.point_blank = TRUE
 
 /obj/item/gun/proc/process_accuracy(obj/projectile, mob/user, atom/target, acc_mod, dispersion)
-	var/obj/item/projectile/P = projectile
+	var/obj/projectile/P = projectile
 	if(!istype(P))
 		return //default behaviour only applies to true projectiles
 
 	//Accuracy modifiers
 	P.accuracy = accuracy + acc_mod
-	P.dispersion = dispersion
+	P.spread += dispersion
 
 	//Increasing accuracy across the board, ever so slightly
 	P.accuracy += 1
@@ -556,11 +557,11 @@
 		F = firemodes[sel_mode]
 	if(one_hand_fa_penalty > 2 && !wielded && F?.name == "full auto") // todo: make firemode names defines
 		P.accuracy -= one_hand_fa_penalty * 0.5
-		P.dispersion -= one_hand_fa_penalty * 0.5
+		P.spread -= one_hand_fa_penalty * 0.5
 
 //does the actual launching of the projectile
 /obj/item/gun/proc/process_projectile(obj/projectile, mob/user, atom/target, target_zone, params)
-	var/obj/item/projectile/P = projectile
+	var/obj/projectile/P = projectile
 	if(!istype(P))
 		return FALSE //default behaviour only applies to true projectiles
 
@@ -573,7 +574,12 @@
 		else if(mob.shock_stage > 70)
 			added_spread = 15
 
-	return !P.launch_from_gun(target, target_zone, user, params, null, added_spread, src)
+	P.preparePixelProjectile(target, src, deviation = added_spread)
+	P.firer = user
+	P.fired_from = src
+	P.def_zone = target_zone
+
+	return !P.fire()
 
 //Suicide handling.
 /obj/item/gun/var/mouthshoot = FALSE //To stop people from suiciding twice... >.>
@@ -588,7 +594,7 @@
 		M.visible_message(SPAN_GOOD("\The [user] takes \the [src] out of their mouth."))
 		mouthshoot = FALSE
 		return
-	var/obj/item/projectile/in_chamber = consume_next_projectile()
+	var/obj/projectile/in_chamber = consume_next_projectile()
 	if(istype(in_chamber))
 		user.visible_message(SPAN_DANGER("\The [user] pulls the trigger."))
 		if (!pin && needspin) // Checks the pin of the gun.
@@ -643,18 +649,7 @@
 /obj/item/gun/zoom()
 	..()
 	if(!zoom)
-		if(is_wieldable && wielded)
-			if(accuracy_wielded)
-				accuracy = accuracy_wielded
-			else
-				accuracy = initial(accuracy)
-			if(recoil_wielded)
-				recoil = recoil_wielded
-			else
-				recoil = initial(recoil)
-		else
-			accuracy = initial(accuracy)
-			recoil = initial(recoil)
+		update_firing_delays()
 
 ///Handles removing the suppressor from the gun
 /obj/item/gun/proc/clear_suppressor()
@@ -801,18 +796,18 @@
 
 /obj/item/gun/proc/update_firing_delays()
 	if(wielded)
-		if(fire_delay_wielded)
+		if(!isnull(fire_delay_wielded))
 			fire_delay = usr.lying_is_intentional ? (fire_delay_wielded * LYING_DOWN_FIRE_DELAY_AND_RECOIL_STAT_MULTIPLIER) : fire_delay_wielded
-		if(recoil_wielded)
+		if(!isnull(recoil_wielded))
 			recoil = usr.lying_is_intentional ? (recoil_wielded * LYING_DOWN_FIRE_DELAY_AND_RECOIL_STAT_MULTIPLIER) : recoil_wielded
-		if(accuracy_wielded)
+		if(!isnull(accuracy_wielded))
 			accuracy = usr.lying_is_intentional ? (accuracy_wielded * LYING_DOWN_ACCURACY_STAT_MULTIPLIER) : accuracy_wielded
 	else
-		if(fire_delay_wielded)
+		if(!isnull(fire_delay_wielded))
 			fire_delay = initial(fire_delay)
-		if(recoil_wielded)
+		if(!isnull(recoil_wielded))
 			recoil = initial(recoil)
-		if(accuracy_wielded)
+		if(!isnull(accuracy_wielded))
 			accuracy = initial(accuracy)
 
 #undef LYING_DOWN_FIRE_DELAY_AND_RECOIL_STAT_MULTIPLIER
@@ -834,8 +829,14 @@
 /obj/item/gun/on_give()
 	update_maptext()
 
-/obj/item/gun/dropped(mob/living/user)
+/obj/item/gun/dropped(mob/user)
 	..()
+
+	//Removing the lock and the buttons.
+	if(istype(user, /mob/living))
+		var/mob/living/living_user = user
+		living_user.stop_aiming(src)
+
 	queue_icon_update()
 	//Unwields the item when dropped, deletes the offhand
 	update_maptext()
@@ -855,7 +856,7 @@
 
 ///////////OFFHAND///////////////
 /obj/item/offhand
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "offhand"
 	item_state = "nothing"
@@ -878,7 +879,7 @@
 	else
 		qdel(src)
 
-/obj/item/offhand/dropped(mob/living/user)
+/obj/item/offhand/dropped(mob/user)
 	. = ..()
 	if(user)
 		var/obj/item/gun/O = user.get_inactive_hand()
@@ -1027,20 +1028,27 @@
 /obj/item/gun/proc/can_autofire(object, location, params)
 	return (can_autofire && world.time >= next_fire_time)
 
+/// Called when the gun's ammo state changes, checks if it's being held by a mob or in a mob's bag, and then updates the maptext
 /obj/item/gun/proc/update_maptext()
 	if(displays_maptext)
 		if(!ismob(loc) && !ismob(loc.loc))
 			maptext = ""
 			return
-		var/ammo = get_ammo()
-		if(ammo > 9)
-			if(ammo < 20)
-				maptext_x = 20
-			else
-				maptext_x = 18
+		handle_maptext()
+
+
+/// Updates the maptext for the gun when a holographic ammo display is attached. Called in update_maptext() in gun.dm
+/obj/item/gun/proc/handle_maptext()
+	SHOULD_NOT_SLEEP(TRUE)
+	var/ammo = get_ammo()
+	if(ammo > 9)
+		if(ammo < 20)
+			maptext_x = 20
 		else
-			maptext_x = 22
-		maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">[ammo]</span>"
+			maptext_x = 18
+	else
+		maptext_x = 22
+	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">[ammo]</span>"
 
 /obj/item/gun/get_print_info(var/no_clear = TRUE)
 	if(no_clear)

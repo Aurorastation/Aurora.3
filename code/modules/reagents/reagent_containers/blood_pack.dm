@@ -1,6 +1,6 @@
 /obj/item/storage/box/bloodpacks
-	name = "blood packs bags"
-	desc = "This box contains blood packs."
+	name = "\improper IV bags"
+	desc = "This box contains IV bags."
 	illustration = "blood"
 
 /obj/item/storage/box/bloodpacks/fill()
@@ -14,12 +14,12 @@
 	new /obj/item/reagent_containers/blood/empty(src)
 
 /obj/item/reagent_containers/blood
-	name = "blood pack"
+	name = "\improper IV bag"
 	desc = "Contains fluids used for transfusions."
 	icon = 'icons/obj/bloodpack.dmi'
 	icon_state = "bloodpack"
 	filling_states = "-10;10;25;50;75;80;100"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	volume = 200
 
 	amount_per_transfer_from_this = 0.2
@@ -37,9 +37,9 @@
 /obj/item/reagent_containers/blood/Initialize()
 	. = ..()
 	if(blood_type != null)
-		name = "blood pack [blood_type]"
+		name = "\improper IV bag - [blood_type] blood"
 		reagents.add_reagent(/singleton/reagent/blood, volume, list("donor"=null,"blood_DNA"=null,"blood_type"=blood_type,"trace_chem"=null,"dose_chem"=null))
-		w_class = ITEMSIZE_NORMAL
+		w_class = WEIGHT_CLASS_NORMAL
 		update_icon()
 
 /obj/item/reagent_containers/blood/Destroy()
@@ -50,24 +50,24 @@
 /obj/item/reagent_containers/blood/on_reagent_change()
 	update_icon()
 	if(reagents.total_volume > volume / 2)
-		w_class = ITEMSIZE_NORMAL
+		w_class = WEIGHT_CLASS_NORMAL
 	else
-		w_class = ITEMSIZE_SMALL
+		w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/reagent_containers/blood/update_icon()
-	cut_overlays()
+	ClearOverlays()
 
 	if(blood_type)
-		add_overlay(image('icons/obj/bloodpack.dmi', "[blood_type]"))
+		AddOverlays(image('icons/obj/bloodpack.dmi', "[blood_type]"))
 
 	if(attached_mob)
-		add_overlay(image('icons/obj/bloodpack.dmi', "dongle"))
+		AddOverlays(image('icons/obj/bloodpack.dmi', "dongle"))
 
 	if(reagents && reagents.total_volume)
-		add_overlay(overlay_image('icons/obj/bloodpack.dmi', "[icon_state][get_filling_state()]", color = reagents.get_color()))
+		AddOverlays(overlay_image('icons/obj/bloodpack.dmi', "[icon_state][get_filling_state()]", color = reagents.get_color()))
 
-/obj/item/reagent_containers/blood/attack(mob/living/carbon/human/M as mob, mob/living/carbon/human/user as mob, var/target_zone)
-	if(user == M && (MODE_VAMPIRE in user.mind?.antag_datums))
+/obj/item/reagent_containers/blood/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(user == target_mob && (MODE_VAMPIRE in user.mind?.antag_datums))
 		var/datum/vampire/vampire = user.mind.antag_datums[MODE_VAMPIRE]
 		if (being_feed)
 			to_chat(user, SPAN_NOTICE("You are already feeding on \the [src]."))
@@ -77,7 +77,7 @@
 			being_feed = TRUE
 			vampire_marks = TRUE
 			if (!LAZYLEN(src.other_DNA))
-				LAZYADD(src.other_DNA, M.dna.unique_enzymes)
+				LAZYADD(src.other_DNA, target_mob.dna.unique_enzymes)
 				src.other_DNA_type = "saliva"
 
 			while (do_after(user, 25, 5))
@@ -97,20 +97,20 @@
 	else
 		..()
 
-/obj/item/reagent_containers/blood/MouseDrop(over_object, src_location, over_location)
+/obj/item/reagent_containers/blood/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	if(!ismob(loc))
 		return
 	var/turf/our_turf = get_turf(src)
-	var/turf/target_turf = get_turf(over_object)
+	var/turf/target_turf = get_turf(over)
 	if(!our_turf.Adjacent(target_turf))
 		return
 	if(attached_mob)
 		remove_iv_mob()
-	else if(ishuman(over_object))
-		visible_message(SPAN_WARNING("\The [usr] starts hooking \the [over_object] up to \the [src]."))
-		if(do_after(usr, 30))
-			to_chat(usr, SPAN_NOTICE("You hook \the [over_object] up to \the [src]."))
-			attached_mob = WEAKREF(over_object)
+	else if(ishuman(over))
+		visible_message(SPAN_WARNING("\The [user] starts hooking \the [over] up to \the [src]."))
+		if(do_after(user, 30))
+			to_chat(user, SPAN_NOTICE("You hook \the [over] up to \the [src]."))
+			attached_mob = WEAKREF(over)
 			START_PROCESSING(SSprocessing, src)
 	update_icon()
 
@@ -163,26 +163,31 @@
 /obj/item/reagent_containers/blood/attackby(obj/item/attacking_item, mob/user)
 	..()
 	if (attacking_item.ispen())
-		if (REAGENT_VOLUME(reagents, /singleton/reagent/blood) && name != "empty blood pack") //Stops people mucking with bloodpacks that are filled
+		if (REAGENT_VOLUME(reagents, /singleton/reagent/blood) && name != "empty IV bag") //Stops people mucking with bloodpacks that are filled
 			to_chat(user, SPAN_NOTICE("You can't relabel [name] until it is empty!"))
 			return
-		var/blood_name = tgui_input_list(user, "What blood type would you like to label it as?", "Blood Types",  list("A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-", "Saline Plus", "Clear", "Cancel"))
+
+		var/choices = list("A+ blood", "A- blood", "B+ blood", "B- blood", "O+ blood", "O- blood", "AB+ blood", "AB- blood", "SBS blood", "Saline Plus", "Cryonics mixture", "Other mixture", "Clear", "Cancel")
+		var/blood_name = tgui_input_list(user, "What would you like to label the IV bag?", "Label Selection",  choices)
 		if(blood_name == "Cancel")
 			return
+
 		var/obj/item/i = user.get_active_hand()
 		if(!i.ispen() || !in_range(user, src)) //Checks to see if pen is still held or bloodpack is in range
 			return
+
 		if(blood_name == "Clear")
 			blood_type = null
 			name = initial(name)
 			desc = initial(desc)
-			to_chat(user, SPAN_NOTICE("You clear the blood pack label."))
+			to_chat(user, SPAN_NOTICE("You clear the IV bag label."))
 			update_icon()
 			return
+
 		blood_type = blood_name
-		name = "blood pack [blood_type]"
+		name = "\improper IV bag - [blood_type]"
 		desc = "Contains fluids used for transfusions."
-		to_chat(user, SPAN_NOTICE("You label the blood pack as [blood_type]."))
+		to_chat(user, SPAN_NOTICE("You label the IV bag as [blood_type]."))
 		update_icon()
 		return
 
@@ -268,13 +273,16 @@
 /obj/item/reagent_containers/blood/OMinus
 	blood_type = "O-"
 
+/obj/item/reagent_containers/blood/sbs
+	blood_type = "SBS"
+
 /obj/item/reagent_containers/blood/empty
-	name = "empty blood pack"
+	name = "empty IV bag"
 	desc = "Seems pretty useless... Maybe if there were a way to fill it?"
 	icon_state = "bloodpack"
 
 /obj/item/reagent_containers/blood/ripped
-	name = "ripped blood pack"
+	name = "ripped IV bag"
 	desc = "It's torn up and useless."
 	icon = 'icons/obj/bloodpack.dmi'
 	icon_state = "ripped"

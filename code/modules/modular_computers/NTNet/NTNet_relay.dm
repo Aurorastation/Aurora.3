@@ -5,7 +5,7 @@
 	use_power = POWER_USE_ACTIVE
 	active_power_usage = 20000 //20kW, appropriate for machine that keeps massive cross-Zlevel wireless network operational.
 	idle_power_usage = 100
-	icon_state = "ntnet"
+	icon_state = "relay"
 	icon = 'icons/obj/machinery/telecomms.dmi'
 	anchored = TRUE
 	density = TRUE
@@ -35,18 +35,18 @@
 	return TRUE
 
 /obj/machinery/ntnet_relay/update_icon()
-	icon_state = initial(icon_state)
-	cut_overlays()
+	ClearOverlays()
+	if(operable())
+		AddOverlays(emissive_appearance(icon, "[icon_state]_lights"))
+		AddOverlays("[icon_state]_lights")
+	if(dos_failure)
+		AddOverlays(emissive_appearance(icon, "[icon_state]_failure"))
+		AddOverlays("[icon_state]_failure")
+	if(!enabled)
+		AddOverlays(emissive_appearance(icon, "[icon_state]_lights_failure"))
+		AddOverlays("[icon_state]_lights_failure")
 	if(panel_open)
-		icon_state += "_o"
-	if(!operable())
-		icon_state += "_off"
-	else if(dos_failure)
-		add_overlay("ntnet_o_problem")
-	else if(!enabled)
-		add_overlay("ntnet_o_error")
-	else
-		add_overlay("ntnet_o_ok")
+		AddOverlays("[icon_state]_panel")
 
 /obj/machinery/ntnet_relay/process()
 	if(operable())
@@ -123,7 +123,7 @@
 
 /obj/machinery/ntnet_relay/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.isscrewdriver())
-		playsound(get_turf(src), attacking_item.usesound, 50, TRUE)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		panel_open = !panel_open
 		to_chat(user, SPAN_NOTICE("You [panel_open ? "open" : "close"] the maintenance hatch."))
 		return
@@ -131,7 +131,7 @@
 		if(!panel_open)
 			to_chat(user, SPAN_WARNING("Open the maintenance panel first."))
 			return
-		playsound(get_turf(src), attacking_item.usesound, 50, 1)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		to_chat(user, SPAN_NOTICE("You disassemble \the [src]!"))
 
 		for(var/atom/movable/A in component_parts)

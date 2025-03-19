@@ -8,31 +8,62 @@
 	var/gc_destroyed
 
 	var/tmp/list/active_timers
-	var/tmp/isprocessing = 0
+
+	/// Active timers with this datum as the target
+	var/list/_active_timers
 
 	/// Status traits attached to this datum. associative list of the form: list(trait name (string) = list(source1, source2, source3,...))
 	var/list/status_traits
-	/// Components attached to this datum
-	/// Lazy associated list in the structure of `type:component/list of components`
-	var/list/datum_components
-	/// Any datum registered to receive signals from this datum is in this list
-	/// Lazy associated list in the structure of `signal:registree/list of registrees`
-	var/list/comp_lookup
-	/// Lazy associated list in the structure of `signals:proctype` that are run when the datum receives that signal
-	var/list/list/datum/callback/signal_procs
-	/// Is this datum capable of sending signals?
-	/// Set to true when a signal has been registered
-	var/signal_enabled = FALSE
+
+	/**
+	 * Components attached to this datum
+	 *
+	 * Lazy associated list in the structure of `type -> component/list of components`
+	 */
+	var/list/_datum_components
+	/**
+	 * Any datum registered to receive signals from this datum is in this list
+	 *
+	 * Lazy associated list in the structure of `signal -> registree/list of registrees`
+	 */
+	var/list/_listen_lookup
+	/// Lazy associated list in the structure of `target -> list(signal -> proctype)` that are run when the datum receives that signal
+	var/list/list/_signal_procs
 
 	/// Datum level flags
 	var/datum_flags = NONE
 
+	/**
+	 * If set, a path at/above this one that expects not to be instantiated
+	 *
+	 * This is a `typepath`
+	 *
+	 * Do not instantiate a datum that has the path set as its abstract_type, this indicates
+	 * that the datum is abstract and is not meant to be spawned/used directly
+	*/
+	var/abstract_type
+
 	/// A weak reference to another datum
 	var/datum/weakref/weak_reference
 
+	/*
+	* Lazy associative list of currently active cooldowns.
+	*
+	* cooldowns [ COOLDOWN_INDEX ] = add_timer()
+	* add_timer() returns the truthy value of -1 when not stoppable, and else a truthy numeric index
+	*/
+	var/list/cooldowns
+
+	/// Used to avoid unnecessary refstring creation in Destroy().
+	var/tmp/has_state_machine = FALSE
+
 #ifdef REFERENCE_TRACKING
-	var/running_find_references
+	/// When was this datum last touched by a reftracker?
+	/// If this value doesn't match with the start of the search
+	/// We know this datum has never been seen before, and we should check it
 	var/last_find_references = 0
+	/// How many references we're trying to find when searching
+	var/references_to_clear = 0
 	#ifdef REFERENCE_TRACKING_DEBUG
 	///Stores info about where refs are found, used for sanity checks and testing
 	var/list/found_refs
@@ -43,26 +74,37 @@
 	// Create and destroy is weird and I wanna cover my bases
 	var/harddel_deets_dumped = FALSE
 
-// Default implementation of clean-up code.
-// This should be overridden to remove all references pointing to the object being destroyed.
-// Return the appropriate QDEL_HINT; in most cases this is QDEL_HINT_QUEUE.
+/**
+ * Default implementation of clean-up code.
+ *
+ * This should be overridden to remove all references pointing to the object being destroyed, if
+ * you do override it, make sure to call the parent and return it's return value by default
+ *
+ * Return an appropriate [QDEL_HINT][QDEL_HINT_QUEUE] to modify handling of your deletion;
+ * in most cases this is [QDEL_HINT_QUEUE].
+ *
+ * The base case is responsible for doing the following
+ * * Erasing timers pointing to this datum
+ * * Erasing compenents on this datum
+ * * Notifying datums listening to signals from this datum that we are going away
+ *
+ * Returns [QDEL_HINT_QUEUE]
+ */
 /datum/proc/Destroy(force=FALSE)
 	SHOULD_CALL_PARENT(TRUE)
-	//SHOULD_NOT_SLEEP(TRUE) //Soon my friend, soon...
+	SHOULD_NOT_SLEEP(TRUE)
 
 	tag = null
 	datum_flags &= ~DF_USE_TAG //In case something tries to REF us
 	weak_reference = null //ensure prompt GCing of weakref.
 
-	if(active_timers)
-		var/list/timers = active_timers
-		active_timers = null
-		if (timers)
-			for (var/thing in timers)
-				var/datum/timedevent/timer = thing
-				if (timer.spent)
-					continue
-				qdel(timer)
+	if(_active_timers)
+		var/list/timers = _active_timers
+		_active_timers = null
+		for(var/datum/timedevent/timer as anything in timers)
+			if (timer.spent && !(timer.flags & TIMER_DELETE_ME))
+				continue
+			qdel(timer)
 
 	#ifdef REFERENCE_TRACKING
 	#ifdef REFERENCE_TRACKING_DEBUG
@@ -70,77 +112,79 @@
 	#endif
 	#endif
 
-	GLOB.destroyed_event.raise_event(src)
 	if (!isturf(src))
 		cleanup_events(src)
 
-	var/ui_key = SOFTREF(src)
+	var/ui_key = REF(src)
 	if(LAZYISIN(SSnanoui.open_uis, ui_key))
 		SSnanoui.close_uis(src)
 
-
-	// Handle components & signals
-	signal_enabled = FALSE
-
 	//BEGIN: ECS SHIT
-	var/list/dc = datum_components
+	var/list/dc = _datum_components
 	if(dc)
-		var/all_components = dc[/datum/component]
-		if(length(all_components))
-			for(var/I in all_components)
-				var/datum/component/C = I
-				qdel(C, FALSE, TRUE)
-		else
-			var/datum/component/C = all_components
-			qdel(C, FALSE, TRUE)
+		for(var/component_key in dc)
+			var/component_or_list = dc[component_key]
+			if(islist(component_or_list))
+				for(var/datum/component/component as anything in component_or_list)
+					qdel(component, FALSE)
+			else
+				var/datum/component/C = component_or_list
+				qdel(C, FALSE)
 		dc.Cut()
 
-	var/list/lookup = comp_lookup
-	if(lookup)
-		for(var/sig in lookup)
-			var/list/comps = lookup[sig]
-			if(length(comps))
-				for(var/i in comps)
-					var/datum/component/comp = i
-					comp.UnregisterSignal(src, sig)
-			else
-				var/datum/component/comp = comps
-				comp.UnregisterSignal(src, sig)
-		comp_lookup = lookup = null
-
-	for(var/target in signal_procs)
-		UnregisterSignal(target, signal_procs[target])
+	_clear_signal_refs()
 	//END: ECS SHIT
 
 	return QDEL_HINT_QUEUE
 
+///Only override this if you know what you're doing. You do not know what you're doing
+///This is a threat
+/datum/proc/_clear_signal_refs()
+	var/list/lookup = _listen_lookup
+	if(lookup)
+		for(var/sig in lookup)
+			var/list/comps = lookup[sig]
+			if(length(comps))
+				for(var/datum/component/comp as anything in comps)
+					comp.UnregisterSignal(src, sig)
+			else
+				var/datum/component/comp = comps
+				comp.UnregisterSignal(src, sig)
+		_listen_lookup = lookup = null
+
+	for(var/target in _signal_procs)
+		UnregisterSignal(target, _signal_procs[target])
+
 /**
- * This proc is called on a datum on every "cycle" if it is being processed by a subsystem. The time between each cycle is determined by the subsystem's "wait" setting.
- * You can start and stop processing a datum using the START_PROCESSING and STOP_PROCESSING defines.
+ * Callback called by a timer to end an associative-list-indexed cooldown.
  *
- * Since the wait setting of a subsystem can be changed at any time, it is important that any rate-of-change that you implement in this proc is multiplied by the seconds_per_tick that is sent as a parameter,
- * Additionally, any "prob" you use in this proc should instead use the SPT_PROB define to make sure that the final probability per second stays the same even if the subsystem's wait is altered.
- * Examples where this must be considered:
- * - Implementing a cooldown timer, use `mytimer -= seconds_per_tick`, not `mytimer -= 1`. This way, `mytimer` will always have the unit of seconds
- * - Damaging a mob, do `L.adjustFireLoss(20 * seconds_per_tick)`, not `L.adjustFireLoss(20)`. This way, the damage per second stays constant even if the wait of the subsystem is changed
- * - Probability of something happening, do `if(SPT_PROB(25, seconds_per_tick))`, not `if(prob(25))`. This way, if the subsystem wait is e.g. lowered, there won't be a higher chance of this event happening per second
+ * Arguments:
+ * * source - datum storing the cooldown
+ * * index - string index storing the cooldown on the cooldowns associative list
  *
- * If you override this do not call parent, as it will return PROCESS_KILL. This is done to prevent objects that dont override process() from staying in the processing list
+ * This sends a signal reporting the cooldown end.
  */
-/datum/proc/process(seconds_per_tick)
-	set waitfor = FALSE
-	return PROCESS_KILL
+/proc/end_cooldown(datum/source, index)
+	if(QDELETED(source))
+		return
+	SEND_SIGNAL(source, COMSIG_CD_STOP(index))
+	TIMER_COOLDOWN_END(source, index)
 
-/datum/proc/can_vv_get(var_name)
-	return TRUE
 
-/datum/proc/vv_edit_var(var_name, var_value) //called whenever a var is edited
-	if(var_name == NAMEOF(src, vars))
-		return FALSE
-	if(!can_vv_get(var_name))
-		return FALSE
-	vars[var_name] = var_value
-	return TRUE
+/**
+ * Proc used by stoppable timers to end a cooldown before the time has ran out.
+ *
+ * Arguments:
+ * * source - datum storing the cooldown
+ * * index - string index storing the cooldown on the cooldowns associative list
+ *
+ * This sends a signal reporting the cooldown end, passing the time left as an argument.
+ */
+/proc/reset_cooldown(datum/source, index)
+	if(QDELETED(source))
+		return
+	SEND_SIGNAL(source, COMSIG_CD_RESET(index), S_TIMER_COOLDOWN_TIMELEFT(source, index))
+	TIMER_COOLDOWN_END(source, index)
 
 ///Generate a tag for this /datum, if it implements one
 ///Should be called as early as possible, best would be in New, to avoid weakref mistargets

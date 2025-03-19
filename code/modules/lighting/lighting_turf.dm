@@ -129,25 +129,12 @@
 	else
 		for (var/thing in src) // Loop through every movable atom on our tile
 			var/atom/movable/A = thing
-			if (A.opacity)
+			if (A.opacity && !QDELETED(A))
 				has_opaque_atom = TRUE
 				break 	// No need to continue if we find something opaque.
 
 #ifdef AO_USE_LIGHTING_OPACITY
 	if (old != has_opaque_atom)
-		regenerate_ao()
-#endif
-
-// If an opaque movable atom moves around we need to potentially update visibility.
-/turf/Entered(atom/movable/Obj, atom/OldLoc)
-	. = ..(Obj, OldLoc)
-
-	if (Obj && Obj.opacity && !has_opaque_atom)
-		has_opaque_atom = TRUE // Make sure to do this before reconsider_lights(), incase we're on instant updates. Guaranteed to be on in this case.
-		reconsider_lights()
-
-#ifdef AO_USE_LIGHTING_OPACITY
-		// Hook for AO.
 		regenerate_ao()
 #endif
 
@@ -158,7 +145,7 @@
 		recalc_atom_opacity() // Make sure to do this before reconsider_lights(), incase we're on instant updates.
 		reconsider_lights()
 
-/turf/change_area(area/old_area, area/new_area)
+/turf/proc/transfer_area_lighting(area/old_area, area/new_area)
 	if (new_area.dynamic_lighting != old_area.dynamic_lighting)
 		if (new_area.dynamic_lighting)
 			lighting_build_overlay()

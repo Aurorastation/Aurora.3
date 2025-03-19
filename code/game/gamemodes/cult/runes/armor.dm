@@ -10,7 +10,7 @@
 	if(istype(user, /mob/living/simple_animal/construct))
 		var/mob/living/simple_animal/construct/C = user
 		var/construct_class
-		if(narsie_cometh)
+		if(GLOB.narsie_cometh)
 			construct_class = alert(C, "Please choose which type of construct you wish to become.", "Construct Selection", "Juggernaut", "Wraith", "Harvester")
 		else
 			construct_class = alert(C, "Please choose which type of construct you wish to become.", "Construct Selection", "Juggernaut", "Wraith", "Artificer")
@@ -25,7 +25,7 @@
 		Z.health = Z.health * (C.health / C.maxHealth)
 		Z.key = C.key
 		if(iscultist(C))
-			cult.add_antagonist(Z.mind)
+			GLOB.cult.add_antagonist(Z.mind)
 		C.death()
 		construct_msg(Z, construct_class)
 		Z.cancel_camera()
@@ -51,3 +51,6 @@
 		if("Harvester")
 			to_chat(construct, SPAN_CULT("You are playing a Harvester. You are gifted with the ability to open doors with your mind, to draw runes at will, and to teleport back to Nar'Sie. Seek out all non-believers and bring them to the Geometer."))
 	to_chat(construct, SPAN_CULT("You are still bound to serve your creator, follow their orders and help them complete their goals at all costs."))
+
+/obj/effect/rune/armor/Initialize(mapload)
+	. = ..(mapload, SScult.runes_by_name[/datum/rune/armor::name])

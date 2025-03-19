@@ -8,10 +8,12 @@
 /obj/item/disposable_teleporter
 	name = "disposable teleporter"
 	desc = "A very compact personal teleportation device.  It's very precise and safe, however it can only be used a few times."
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/item/hand_tele.dmi'
 	icon_state = "hand_tele"
+	item_state = "electronic"
+	contained_sprite = TRUE
 	var/uses = 3.0
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	item_state = "paper"
 	origin_tech = list(TECH_BLUESPACE = 4, TECH_POWER = 3)
 
@@ -28,7 +30,7 @@
 
 /obj/item/disposable_teleporter/attack_self(mob/user as mob)
 	if(!uses)
-		to_chat(user, "<span class='danger'>\The [src] has ran out of uses, and is now useless to you!</span>")
+		to_chat(user, SPAN_DANGER("\The [src] has ran out of uses, and is now useless to you!"))
 		return
 	else
 		var/list/area/valid_areas = list()
@@ -74,8 +76,8 @@
 
 		if(destination)
 			user.forceMove(destination)
-			to_chat(user, "<span class='notice'>You are teleported to \the [A].</span>")
+			to_chat(user, SPAN_NOTICE("You are teleported to \the [A]."))
 			uses--
 			if(uses <= 0)
-				to_chat(user, "<span class='danger'>\The [src] has ran out of uses, and disintegrates from your hands.</span>")
+				to_chat(user, SPAN_DANGER("\The [src] has ran out of uses, and disintegrates from your hands."))
 				qdel(src)

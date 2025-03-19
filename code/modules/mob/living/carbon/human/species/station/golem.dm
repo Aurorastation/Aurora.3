@@ -1,22 +1,22 @@
-var/global/list/golem_types = list(
-									SPECIES_GOLEM_COAL,
-									SPECIES_GOLEM_IRON,
-									SPECIES_GOLEM_BRONZE,
-									SPECIES_GOLEM_STEEL,
-									SPECIES_GOLEM_PLASTEEL,
-									SPECIES_GOLEM_TITANIUM,
-									SPECIES_GOLEM_CLOTH,
-									SPECIES_GOLEM_CARDBOARD,
-									SPECIES_GOLEM_GLASS,
-									SPECIES_GOLEM_PHORON,
-									SPECIES_GOLEM_HYDROGEN,
-									SPECIES_GOLEM_WOOD,
-									SPECIES_GOLEM_DIAMOND,
-									SPECIES_GOLEM_SAND,
-									SPECIES_GOLEM_URANIUM,
-									SPECIES_GOLEM_MEAT,
-									SPECIES_GOLEM_ADAMANTINE
-								)
+GLOBAL_LIST_INIT(golem_types, list(
+	SPECIES_GOLEM_COAL,
+	SPECIES_GOLEM_IRON,
+	SPECIES_GOLEM_BRONZE,
+	SPECIES_GOLEM_STEEL,
+	SPECIES_GOLEM_PLASTEEL,
+	SPECIES_GOLEM_TITANIUM,
+	SPECIES_GOLEM_CLOTH,
+	SPECIES_GOLEM_CARDBOARD,
+	SPECIES_GOLEM_GLASS,
+	SPECIES_GOLEM_PHORON,
+	SPECIES_GOLEM_HYDROGEN,
+	SPECIES_GOLEM_WOOD,
+	SPECIES_GOLEM_DIAMOND,
+	SPECIES_GOLEM_SAND,
+	SPECIES_GOLEM_URANIUM,
+	SPECIES_GOLEM_MEAT,
+	SPECIES_GOLEM_ADAMANTINE
+))
 
 /datum/species/golem
 	name = SPECIES_GOLEM_COAL
@@ -392,12 +392,12 @@ var/global/list/golem_types = list(
 
 	golem_designation = "Glass"
 
-/datum/species/golem/glass/bullet_act(var/obj/item/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
-	if(istype(P, /obj/item/projectile/energy) || istype(P, /obj/item/projectile/beam))
+/datum/species/golem/glass/bullet_act(var/obj/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
+	if(istype(P, /obj/projectile/energy) || istype(P, /obj/projectile/beam))
 		var/reflectchance = 50 - round(P.damage/3)
 		if(prob(reflectchance))
-			H.visible_message("<span class='danger'>The [P.name] gets reflected by [H]!</span>", \
-							"<span class='danger'>The [P.name] gets reflected by [H]!</span>")
+			H.visible_message(SPAN_DANGER("The [P.name] gets reflected by [H]!"), \
+							SPAN_DANGER("The [P.name] gets reflected by [H]!"))
 
 			// Find a turf near or on the original location to bounce to
 			if(P.starting)
@@ -408,7 +408,7 @@ var/global/list/golem_types = list(
 				P.firer = H
 				P.old_style_target(locate(new_x, new_y, P.z))
 
-			return -1 // complete projectile permutation
+			return BULLET_ACT_FORCE_PIERCE // complete projectile permutation
 
 /datum/species/golem/glass/handle_death(var/mob/living/carbon/human/H)
 	for(var/i in 1 to 5)
@@ -598,12 +598,12 @@ var/global/list/golem_types = list(
 	H.update_dna()
 	..()
 
-/datum/species/golem/diamond/bullet_act(var/obj/item/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
-	if(istype(P, /obj/item/projectile/energy) || istype(P, /obj/item/projectile/beam))
+/datum/species/golem/diamond/bullet_act(var/obj/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
+	if(istype(P, /obj/projectile/energy) || istype(P, /obj/projectile/beam))
 		var/reflectchance = 80 - round(P.damage/3)
 		if(prob(reflectchance))
-			H.visible_message("<span class='danger'>The [P.name] gets reflected by [H]!</span>", \
-							"<span class='danger'>The [P.name] gets reflected by [H]!</span>")
+			H.visible_message(SPAN_DANGER("The [P.name] gets reflected by [H]!"), \
+							SPAN_DANGER("The [P.name] gets reflected by [H]!"))
 
 			// Find a turf near or on the original location to bounce to
 			if(P.starting)
@@ -614,7 +614,7 @@ var/global/list/golem_types = list(
 				P.firer = H
 				P.old_style_target(locate(new_x, new_y, P.z))
 
-			return -1 // complete projectile permutation
+			return BULLET_ACT_FORCE_PIERCE // complete projectile permutation
 
 /datum/species/golem/marble
 	name = SPECIES_GOLEM_MARBLE
@@ -696,7 +696,7 @@ var/global/list/golem_types = list(
 		return
 
 /datum/species/golem/sand/proc/glassify(var/mob/living/carbon/human/H)
-	H.visible_message("<span class='warning'>\The [H] vitrifies into a glass construct!</span>")
+	H.visible_message(SPAN_WARNING("\The [H] vitrifies into a glass construct!"))
 	H.set_species(SPECIES_GOLEM_GLASS)
 
 /datum/species/golem/plastic
@@ -805,7 +805,7 @@ var/global/list/golem_types = list(
 
 	meat_type = /obj/item/reagent_containers/food/snacks/meat
 
-	blood_color = "#5C4831"
+	blood_color = COLOR_LEATHER
 	flesh_color = "#FFC896"
 
 	death_message = "collapses into a pile of flesh!"

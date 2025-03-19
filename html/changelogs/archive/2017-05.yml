@@ -1,0 +1,23 @@
+2017-05-01:
+  Fire and Glory:
+  - bugfix: Brown Hijabs now have sprites.
+  Lohikar:
+  - bugfix: A fault in the production process of polaroid film has been corrected;
+      photos will no longer randomly develop as black.
+2017-05-14:
+  Alberyk:
+  - bugfix: Fixed manhacks attacking traitors, heisters and mercenaries.
+  - bugfix: Fixed ipcs being able to repair themselves using cable coil.
+2017-05-16:
+  Printer16:
+  - bugfix: Eggplants can now be mutated.
+  - bugfix: RnD can now print flora disks.
+  - bugfix: Crowbars can now lift strata and Linoleum tiles.
+  - bugfix: Blobs can no longer steal tools from borgs.
+  - bugfix: You can now unbuckle someone on a space bike.
+  - bugfix: If you fail to dislocate a limb there will now be a chat message.
+  - bugfix: Increased damage done to all simple_mobs slightly and added proper hit
+      verbs.
+  - bugfix: Smoking pipes have been made small items.
+  - bugfix: IPC's can now wear refitted voidsuits. (Only if refitted to human/skrell)
+  - bugfix: 'The holodeck thunderdome ready button no longer requires power. '

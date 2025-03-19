@@ -43,12 +43,13 @@
 /obj/item/clothing/accessory/poncho/dominia_cape
 	name = "dominian cape"
 	desc = "This is a cape in the style of Dominian nobility. It's the latest fashion across Dominian space."
-	icon = 'icons/clothing/suits/capes/dominia.dmi'
+	icon = 'icons/obj/item/clothing/accessory/poncho/dominia_cape.dmi'
 	icon_state = "dominian_cape"
 	item_state = "dominian_cape"
 	icon_override = null
 	contained_sprite = TRUE
 	var/cape_backing_state = "cape_backing"
+	protects_against_weather = FALSE
 
 /obj/item/clothing/accessory/poncho/dominia_cape/white
 	name = "white dominian cape"
@@ -66,13 +67,13 @@
 	var/image/I = ..()
 	if(slot == slot_wear_suit_str)
 		var/image/cape_backing = image(mob_icon, null, cape_backing_state, human ? human.layer - 0.01 : MOB_LAYER - 0.01)
-		I.add_overlay(cape_backing)
+		I.AddOverlays(cape_backing)
 	return I
 
 /obj/item/clothing/accessory/poncho/dominia_cape/get_accessory_mob_overlay(mob/living/carbon/human/human, force)
 	var/image/base = ..()
 	var/image/cape_backing = image(icon, null, cape_backing_state, human ? human.layer - 0.01 : MOB_LAYER - 0.01)
-	base.add_overlay(cape_backing)
+	base.AddOverlays(cape_backing)
 	return base
 
 /obj/item/clothing/accessory/poncho/dominia_cape/strelitz
@@ -129,6 +130,24 @@
 	item_state = "kazhkz_capez"
 	cape_backing_state = "capez_backing"
 
+/obj/item/clothing/accessory/poncho/dominia_cape/hansan
+	name = "clan han'san cape"
+	desc = "This is a cape in the style of Dominian nobility. This one is in the colours of Clan Han'san."
+	icon_state = "hansan_cape"
+	item_state = "hansan_cape"
+
+/obj/item/clothing/accessory/poncho/dominia_cape/hansan/white
+	name = "white clan han'san cape"
+	icon_state = "hansan_capew"
+	item_state = "hansan_capew"
+	cape_backing_state = "capew_backing"
+
+/obj/item/clothing/accessory/poncho/dominia_cape/hansan/zavod
+	name = "zavodskoi clan han'san cape"
+	icon_state = "hansan_capez"
+	item_state = "hansan_capez"
+	cape_backing_state = "capez_backing"
+
 /obj/item/clothing/accessory/poncho/dominia_cape/caladius
 	name = "house caladius cape"
 	desc = "This is a cape in the style of Dominian nobility. This one is in the colours of House Caladius."
@@ -164,6 +183,21 @@
 	icon_state = "zhao_capez"
 	item_state = "zhao_capez"
 	cape_backing_state = "capez_backing"
+
+/obj/item/clothing/accessory/poncho/dominia_cape/colorable
+	icon_state = "dominian_cape_colorable"
+	item_state = "dominian_cape_colorable"
+	has_accents = TRUE
+
+/obj/item/clothing/accessory/poncho/dominia_cape/white/colorable
+	icon_state = "dominian_capew_colorable"
+	item_state = "dominian_capew_colorable"
+	has_accents = TRUE
+
+/obj/item/clothing/accessory/poncho/dominia_cape/zavod/colorable
+	icon_state = "dominian_capez_colorable"
+	item_state = "dominian_capez_colorable"
+	has_accents = TRUE
 
 
 /obj/item/clothing/accessory/poncho/dominia_cape/mantle
@@ -276,6 +310,10 @@
 /obj/item/clothing/under/dominia/imperial_suit/kazhkz
 	name = "house kazhkz suit"
 	house = "kazhkz"
+
+/obj/item/clothing/under/dominia/imperial_suit/hansan
+	name = "house han'san suit"
+	house = "hansan"
 
 /obj/item/clothing/under/dominia/imperial_suit/caladius
 	name = "house caladius suit"
@@ -436,6 +474,10 @@
 	name = "kazhkz noble dress"
 	house = "kazhkz"
 
+/obj/item/clothing/under/dominia/dress/noble/hansan
+	name = "han'san noble dress"
+	house = "hansan"
+
 /obj/item/clothing/under/dominia/dress/noble/caladius
 	name = "caladius noble dress"
 	house = "caladius"
@@ -460,6 +502,10 @@
 	name = "black kazhkz noble dress"
 	house = "kazhkz"
 
+/obj/item/clothing/under/dominia/dress/noble/black/hansan
+	name = "black han'san noble dress"
+	house = "hansan"
+
 /obj/item/clothing/under/dominia/dress/noble/black/caladius
 	name = "black caladius noble dress"
 	house = "caladius"
@@ -468,12 +514,15 @@
 	name = "black zhao noble dress"
 	house = "zhao"
 
+/obj/item/clothing/accessory/poncho/dominia
+	protects_against_weather = FALSE
+
 /obj/item/clothing/accessory/poncho/dominia/red/surcoat
 	name = "tribunalist surcoat"
 	desc = "A simple red surcoat commonly worn by Dominian clergy members."
 	desc_extended = "Spun with rough but hardy fabrics from the Dominian frontier, this surcoat is commonly worn by poorer Tribunal clergy as well as missionaries\
 	seeking protection from the elements. This garment was popularized by the Kael'kah sect and remains respected as a symbol of humility and poverty amongst priests."
-	icon = 'icons/clothing/suits/capes/dominia_surcoat.dmi'
+	icon = 'icons/obj/item/clothing/accessory/poncho/dominia_surcoat.dmi'
 	icon_state = "dominian_surcoat"
 	item_state = "dominian_surcoat"
 	overlay_state = "dominian_surcoat"
@@ -485,7 +534,7 @@
 	desc_extended = "This style of cape is among the most flashy and ornate of the Tribunal's garb. Its weight and impracticality of use means that \
 	it is often only worn by clergy of high station and on special occasions. Lower ranking members of the Tribunal or those who wear it frequently \
 	are often frowned upon as arrogant and vain."
-	icon = 'icons/clothing/suits/capes/dominia_doublecape.dmi'
+	icon = 'icons/obj/item/clothing/accessory/poncho/dominia_doublecape.dmi'
 	icon_state = "dominian_doublecape"
 	item_state = "dominian_doublecape"
 	overlay_state = "dominian_doublecape"
@@ -497,7 +546,7 @@
 	desc_extended = "Dominian priests and priestesses are traditionally expected to wear red or golden clothing when discharging \
 	their duties. Capes are worn as both a fashion statement to attract the attention of crowds and as a simple form of protection\
 	against the elements."
-	icon = 'icons/clothing/suits/capes/dominia_red.dmi'
+	icon = 'icons/obj/item/clothing/accessory/poncho/dominia_red.dmi'
 	icon_state = "dominian_cape_red"
 	item_state = "dominian_cape_red"
 	overlay_state = "dominian_cape_red"
@@ -541,7 +590,7 @@
 	desc = "A truly majestic gold and red cape worn by members of the clergy affiliated with His Majesty's Diplomatic Service."
 	desc_extended = "His Majesty's Diplomatic Service - as with much of the Empire tends to be dominated by the great houses, though the Service also \
 	employs may commoners - as long as they can pass the rigorous examinations required to become a full member of the Diplomatic Service."
-	icon = 'icons/clothing/suits/capes/dominia_consular_cape.dmi'
+	icon = 'icons/obj/item/clothing/accessory/poncho/dominia_consular_cape.dmi'
 	icon_state = "dominia_cape_consular"
 	item_state = "dominia_cape_consular"
 	overlay_state = "dominia_cape_consular"
@@ -658,7 +707,7 @@
 	desc_extended = "One of the most prominent symbols of the Moroz Holy Tribunal is 'The Eye', with the square representing the four corners of the universe and the central 'eye' being the \
 	Tribunal that watches all. Necklaces and amulets made from this symbol often have the eye being able to rotate. Although there is no official stance, others argue that necklaces should be made \
 	from bare metal to represent how the Tribunal sees the unvarnished truth, while others insist that they must be made from gold to glorify the religion."
-	icon = 'icons/clothing/accessories/dominia_amulet.dmi'
+	icon = 'icons/obj/item/clothing/accessory/dominia_amulet.dmi'
 	item_state = "dominia_amulet"
 	icon_state = "dominia_amulet"
 	contained_sprite = TRUE
@@ -668,7 +717,7 @@
 	desc = "An amulet depicting the three animal aspects of Lyodic Tribunalism upon a bone plate. \
 			A prominent symbol of the Lyodic take on the religion, worn by both its shamans and followers."
 	desc_extended = ""
-	icon = 'icons/clothing/accessories/lyodii_amulet.dmi'
+	icon = 'icons/obj/item/clothing/accessory/lyodii_amulet.dmi'
 	icon_state = "lyodii_amulet"
 	item_state = "lyodii_amulet"
 
@@ -676,7 +725,7 @@
 	name = "tribunal investigator card"
 	desc = "A gold-gilded card given to those who are active investigators within the Tribunal Investigations Constabulary, otherwise known as TIC. \
 			In essence the religion police of the Tribunal, these investigators are found through the entirety of the Empire of Dominia."
-	icon = 'icons/clothing/accessories/tic_cards.dmi'
+	icon = 'icons/obj/item/clothing/accessory/tic_cards.dmi'
 	icon_state = "tic_card"
 	item_state = "tic_card"
 
@@ -684,6 +733,9 @@
 	name = "retired tribunal investigator card"
 	desc = "A silver-gilded card given to those who have since retired from the Tribunal Investigations Constabulary, otherwise known as TIC. \
 			This card holds a sleek grey coloration strip, denoting the owner as having been a standard investigator."
+	desc_extended = "The day-to-day work of investigating religious crimes and violations falls upon the shoulders of the people who fill the \
+	ranks of the Tribunal Investigation Constabulary. These investigators often collaborate with and work alongside the nominally secular \
+	His Imperial Majesty's Constable Service (HIMCS), the Empire's main policing agency."
 	icon_state = "tic_card_ret"
 	item_state = "tic_card_ret"
 
@@ -691,6 +743,9 @@
 	name = "retired tribunal investigator card"
 	desc = "A silver-gilded card given to those who have since retired from the Tribunal Investigations Constabulary, otherwise known as TIC. \
 			This card holds a color strip of House Caladius, denoting the owner as a priest of the Tribunal."
+	desc_extended = "The day-to-day work of investigating religious crimes and violations falls upon the shoulders of the people who fill the \
+	ranks of the Tribunal Investigation Constabulary. These investigators often collaborate with and work alongside the nominally secular \
+	His Imperial Majesty's Constable Service (HIMCS), the Empire's main policing agency."
 	icon_state = "tic_card_ret_alt"
 	item_state = "tic_card_ret_alt"
 
@@ -743,6 +798,10 @@
 /obj/item/clothing/under/dominia/dress/fancy/kazhkz
 	name = "house kazhkz Morozi dress"
 	house = "kazhkz"
+
+/obj/item/clothing/under/dominia/dress/fancy/hansan
+	name = "clan han'san Morozi dress"
+	house = "hansan"
 
 /obj/item/clothing/under/dominia/fleet
 	name = "fleet voidsman uniform"
@@ -833,7 +892,7 @@
 	desc = "A sleeve patch worn by non-commissioned officers of the Imperial Army."
 	desc_extended = "Non-commissioned officers form the backbone of the Imperial Army's troops. Typically recruited from Novi Jadran's countryside, they are well-trained \
 	and well-motivated soldiers focused on ensuring their troops' survival and their mission's success."
-	icon = 'icons/clothing/accessories/dominia_nco_badge.dmi'
+	icon = 'icons/obj/item/clothing/accessory/dominia_nco_badge.dmi'
 	icon_state = "dom_nco"
 	item_state = "dom_nco"
 

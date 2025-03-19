@@ -42,9 +42,9 @@
 	Although made for the Unathi anatomy, they have picked up popularity among other species."
 	icon_state = "caligae"
 	item_state = "caligae"
-	force = 5
+	force = 11
 	armor = list(
-			melee = ARMOR_MELEE_KNIVES
+			MELEE = ARMOR_MELEE_KNIVES
 			)
 	siemens_coefficient = 0.75
 	body_parts_covered = FEET|LEGS

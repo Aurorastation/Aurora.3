@@ -7,7 +7,11 @@
 	spawn_cost = 2
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_SRANDMARR)
-	suffixes = list("adhomai/adhomai_raskariim_hideout.dmm")
+
+	prefix = "adhomai/"
+	suffix = "adhomai_raskariim_hideout.dmm"
+
+	unit_test_groups = list(2)
 
 /area/adhomai_raskariim_hideout
 	name = "Abandoned House"
@@ -19,6 +23,7 @@
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	turf_initializer = new /datum/turf_initializer/maintenance/raskariim()
 	ambience = AMBIENCE_GHOSTLY
+	area_blurb = "You feel watched as you enter this old house."
 
 /datum/turf_initializer/maintenance/raskariim/initialize(var/turf/simulated/T)
 	..()
@@ -38,7 +43,7 @@
 	max_count = 3
 
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
-	outfit = /datum/outfit/admin/raskariim_hideout
+	outfit = /obj/outfit/admin/raskariim_hideout
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -48,16 +53,19 @@
 
 	uses_species_whitelist = FALSE
 
-/datum/outfit/admin/raskariim_hideout
+/obj/outfit/admin/raskariim_hideout
 	name = "Raskariim"
 
 	uniform = list(
 				/obj/item/clothing/under/tajaran,
-				/obj/item/clothing/under/tajaran/summer,
-				/obj/item/clothing/under/pants/tajaran,
-				/obj/item/clothing/under/pants,
-				/obj/item/clothing/under/pants/track
+				/obj/item/clothing/under/tajaran/summer
+
 	)
+
+	pants = list(
+				/obj/item/clothing/pants/tajaran,
+				/obj/item/clothing/pants/track
+				)
 
 	suit = list(
 				/obj/item/clothing/suit/storage/toggle/bomber,

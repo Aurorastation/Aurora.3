@@ -1,3 +1,7 @@
+/*#######################################################
+	LEGACY FILE, USE code\__DEFINES\maths.dm INSTEAD!
+########################################################*/
+
 // Math constants.
 #define M_PI 3.14159
 #define NUM_E 2.71828183
@@ -26,8 +30,6 @@
 #define TCMB 2.7
 
 #define QUANTIZE(variable) (round(variable,0.0001))
-#define ROUND_UP(x) ( -round(-(x)))
-#define CEILING(x, y) ( -round(-(x) / (y)) * (y) )
 
 #define INFINITY	1.#INF
 
@@ -36,12 +38,6 @@
 #define MAP(x, imin, imax, omin, omax) ((x - imin) * (omax - omin) / (imax - imin) + omin)
 
 #define RAND_F(LOW, HIGH) (rand()*(HIGH-LOW) + LOW)
-
-//"fancy" math for calculating time in ms from tick_usage percentage and the length of ticks
-//percent_of_tick_used * (ticklag * 100(to convert to ms)) / 100(percent ratio)
-//collapsed to percent_of_tick_used * tick_lag
-#define TICK_DELTA_TO_MS(percent_of_tick_used) ((percent_of_tick_used) * world.tick_lag)
-#define TICK_USAGE_TO_MS(starting_tickusage) (TICK_DELTA_TO_MS(world.tick_usage-starting_tickusage))
 
 //time of day but automatically adjusts to the server going into the next day within the same round.
 //for when you need a reliable time number that doesn't depend on byond time.
@@ -52,4 +48,3 @@
 #define station_time_in_ticks (roundstart_hour HOURS + round_duration_in_ticks)
 
 #define SIMPLE_SIGN(X) ((X) < 0 ? -1 : 1)
-#define SIGN(X)        ((X) ? SIMPLE_SIGN(X) : 0)

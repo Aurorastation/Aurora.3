@@ -21,7 +21,7 @@
 	icon_state = "syndie_bloodhound"
 	spawn_sound = 'sound/mecha/nominalsyndi.ogg'
 	pitch_toggle = FALSE
-	braintype = "Android" // Posibrain.
+	braintype = "Robot"
 
 	// ID and Access
 	req_access = list(ACCESS_SYNDICATE)
@@ -64,7 +64,7 @@
 	charge_meter = 0
 	max_shots = 20
 	charge_cost = 100
-	projectile_type = /obj/item/projectile/bullet/pistol/medium/ap
+	projectile_type = /obj/projectile/bullet/pistol/medium/ap
 	self_recharge = 1
 	use_external_power = 1
 	recharge_time = 5

@@ -63,7 +63,7 @@
 			icon_state = "[initial(icon_state)][src.opened]"
 			..()
 	else
-		cut_overlays()
+		ClearOverlays()
 		icon_state = "[initial(icon_state)]" // closed
 	..()
 
@@ -95,6 +95,7 @@
 	center_of_mass = list("x" = 16,"y" = 9)
 	can_hold = list(/obj/item/reagent_containers/food/snacks/donut)
 	starts_with = list(/obj/item/reagent_containers/food/snacks/donut/normal = 6)
+	max_storage_space = DEFAULT_BOX_STORAGE
 	storage_slots = 6
 	icon_overlays = FALSE
 	foldable = /obj/item/stack/material/cardboard
@@ -102,15 +103,14 @@
 /obj/item/storage/box/fancy/donut/update_icon() // One of the few unique update_icon()s, due to having to store both regular and sprinkled donuts.
 	. = ..()
 	if(opened)
-		cut_overlays()
+		ClearOverlays()
 		var/i = 0
 		for(var/obj/item/reagent_containers/food/snacks/donut/D in contents)
-			add_overlay("[i][D.overlay_state]")
+			AddOverlays("[i][D.overlay_state]")
 			i++
 
 /obj/item/storage/box/fancy/donut/empty
 	starts_with = null
-	max_storage_space = 12
 
 /*
  * Egg Box
@@ -161,7 +161,7 @@
 	pickup_sound = 'sound/items/pickup/wrapper.ogg'
 	closable = FALSE
 	storage_slots = 6
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	can_hold = list(/obj/item/reagent_containers/food/snacks/cracker)
 	starts_with = list(/obj/item/reagent_containers/food/snacks/cracker = 6)
 
@@ -177,7 +177,7 @@
 	item_state = "candlepack"
 	icon_type = "candle"
 	storage_type = "pack"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throwforce = 2
 	slot_flags = SLOT_BELT
 	storage_slots = 5
@@ -200,7 +200,7 @@
 	icon = 'icons/obj/storage/fancy/crayon.dmi'
 	icon_state = "crayonbox"
 	icon_type = "crayon"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_BELT
 	storage_slots = 6
 	can_hold = list(/obj/item/pen/crayon)
@@ -221,15 +221,15 @@
 
 /obj/item/storage/box/fancy/crayons/update_icon()
 	. = ..()
-	cut_overlays()
-	add_overlay("crayonbox")
+	ClearOverlays()
+	AddOverlays("crayonbox")
 	for(var/obj/item/pen/crayon/crayon in contents)
-		add_overlay("[crayon.colourName]")
+		AddOverlays("[crayon.colourName]")
 
 /obj/item/storage/box/fancy/crayons/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/pen/crayon))
 		var/obj/item/pen/crayon/W = attacking_item
-		switch(W:colourName)
+		switch(W.colourName)
 			if("mime")
 				to_chat(usr, "This crayon is too sad to be contained in this box.")
 				return
@@ -249,7 +249,7 @@
 	icon_state = "matchbox"
 	item_state = "box"
 	icon_type = "match"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	drop_sound = 'sound/items/drop/matchbox.ogg'
 	pickup_sound =  'sound/items/pickup/matchbox.ogg'
 	slot_flags = SLOT_BELT
@@ -298,7 +298,7 @@
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 	use_sound = 'sound/items/storage/wrapper.ogg'
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	throwforce = 2
 	slot_flags = SLOT_BELT
 	storage_slots = 6
@@ -326,39 +326,39 @@
 	reagents.trans_to_obj(C, (reagents.total_volume/contents.len))
 	return ..()
 
-/obj/item/storage/box/fancy/cigarettes/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, target_zone)
-	if(!ismob(M))
+/obj/item/storage/box/fancy/cigarettes/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(!ismob(target_mob))
 		return
 	if(!opened)
 		to_chat(user, SPAN_WARNING("\The [src] is closed."))
 		return
 	if(target_zone == BP_MOUTH && contents.len > 0)
-		if(M.wear_mask)
-			to_chat(user, SPAN_WARNING("\The [M.wear_mask] is in the way."))
+		if(target_mob.wear_mask)
+			to_chat(user, SPAN_WARNING("\The [target_mob.wear_mask] is in the way."))
 			return
 		var/obj/item/clothing/mask/smokable/cigarette/cig = locate() in src
 		if(!istype(cig))
 			to_chat(user, SPAN_WARNING("There isn't a cigarette in \the [src]!"))
 			return
-		if(M != user)
-			if(!use_check(M))
-				to_chat(user, SPAN_WARNING("[M.name] is in no condition to handle items!"))
+		if(target_mob != user)
+			if(!use_check(target_mob))
+				to_chat(user, SPAN_WARNING("[target_mob.name] is in no condition to handle items!"))
 				return
-			user.visible_message(SPAN_NOTICE("\The <b>[user]</b> holds up the open [src.name] to \the [M]'s mouth."), SPAN_NOTICE("You hold up the open [src.name] to \the [M]'s mouth, waiting for them to accept."))
-			var/response = alert(M, "\The [user] offers you \a [cig.name]. Do you accept?", "Smokable Offer", "Accept", "Decline")
+			user.visible_message(SPAN_NOTICE("\The <b>[user]</b> holds up the open [src.name] to \the [target_mob]'s mouth."), SPAN_NOTICE("You hold up the open [src.name] to \the [target_mob]'s mouth, waiting for them to accept."))
+			var/response = alert(target_mob, "\The [user] offers you \a [cig.name]. Do you accept?", "Smokable Offer", "Accept", "Decline")
 			if(response != "Accept")
-				M.visible_message(SPAN_NOTICE("<b>[M]</b> pushes [user]'s [src.name] away."))
+				target_mob.visible_message(SPAN_NOTICE("<b>[target_mob]</b> pushes [user]'s [src.name] away."))
 				return
-			if(!M.Adjacent(user))
+			if(!target_mob.Adjacent(user))
 				to_chat(user, SPAN_WARNING("You need to stay in reaching distance while giving an object."))
-				to_chat(M, SPAN_WARNING("\The [user] moved too far away."))
+				to_chat(target_mob, SPAN_WARNING("\The [user] moved too far away."))
 				return
-		remove_from_storage(cig, get_turf(M))
-		M.equip_to_slot_if_possible(cig, slot_wear_mask)
-		M.visible_message(SPAN_NOTICE("<b>[M]</b> casually pulls out a [icon_type] from \the [src] with [M.get_pronoun("his")] mouth."), SPAN_NOTICE("You casually pull out a [icon_type] from \the [src] with your mouth."), range = 3)
+		remove_from_storage(cig, get_turf(target_mob))
+		target_mob.equip_to_slot_if_possible(cig, slot_wear_mask)
+		target_mob.visible_message(SPAN_NOTICE("<b>[target_mob]</b> casually pulls out a [icon_type] from \the [src] with [target_mob.get_pronoun("his")] mouth."), SPAN_NOTICE("You casually pull out a [icon_type] from \the [src] with your mouth."), range = 3)
 		update_icon()
 		return
-	if(M == user && target_zone == BP_R_HAND || target_zone == BP_L_HAND) // Cig packing. Because obsessive smokers do it.
+	if(target_mob == user && target_zone == BP_R_HAND || target_zone == BP_L_HAND) // Cig packing. Because obsessive smokers do it.
 		user.visible_message(SPAN_NOTICE("<b>[user]</b> taps \the [src] against [user.get_pronoun("his")] palm."), SPAN_NOTICE("You tap \the [src] against your palm."))
 	else
 		..()
@@ -453,9 +453,9 @@
 	use_sound = 'sound/items/drop/glass.ogg'
 	drop_sound = 'sound/items/drop/toolbox.ogg'
 	pickup_sound = 'sound/items/pickup/toolbox.ogg'
-	max_w_class = ITEMSIZE_SMALL
+	max_w_class = WEIGHT_CLASS_SMALL
 	can_hold = list(/obj/item/reagent_containers/glass/beaker/vial)
-	max_storage_space = 12 //The sum of the w_classes of all the items in this storage item.
+	make_exact_fit = TRUE
 	storage_slots = 6
 	req_access = list(ACCESS_VIROLOGY)
 
@@ -467,15 +467,15 @@
 	. = ..()
 	var/total_contents = src.contents.len - itemremoved
 	src.icon_state = "vialbox[total_contents]"
-	cut_overlays()
+	ClearOverlays()
 	if (!broken)
-		add_overlay("led[locked]")
+		AddOverlays("led[locked]")
 		if(locked)
-			add_overlay("cover")
+			AddOverlays("cover")
 	else
-		add_overlay("ledb")
+		AddOverlays("ledb")
 
-/obj/item/storage/lockbox/vials/attackby(attacking_item, mob/user)
+/obj/item/storage/lockbox/vials/attackby(obj/item/attacking_item, mob/user, params)
 	..()
 	update_icon()
 
@@ -527,7 +527,7 @@
 	update_icon()
 
 /obj/item/pizzabox/update_icon()
-	cut_overlays()
+	ClearOverlays()
 
 	// Set appropriate description
 	if( open && pizza )
@@ -555,7 +555,7 @@
 		if( pizza )
 			var/image/pizzaimg = image(pizza.icon, pizza.icon_state)
 			pizzaimg.pixel_y = -2
-			add_overlay(pizzaimg)
+			AddOverlays(pizzaimg)
 
 		return
 	else
@@ -572,7 +572,7 @@
 		if( doimgtag )
 			var/image/tagimg = image(icon, icon_state = "pizzabox_tag")
 			tagimg.pixel_y = boxes.len * 3
-			add_overlay(tagimg)
+			AddOverlays(tagimg)
 
 	icon_state = "pizzabox[boxes.len+1]"
 
@@ -707,7 +707,7 @@
 	closable = FALSE
 	icon_overlays = FALSE
 	storage_slots = 6
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	can_hold = list(/obj/item/reagent_containers/food/snacks/chips)
 	starts_with = list(/obj/item/reagent_containers/food/snacks/chips = 6)
 
@@ -756,7 +756,7 @@
 	pickup_sound = 'sound/items/pickup/bottle.ogg'
 	storage_type = "glass"
 	storage_slots = 20
-	max_storage_space = 20
+	max_storage_space = DEFAULT_LARGEBOX_STORAGE
 	can_hold = list(
 		/obj/item/reagent_containers/food/snacks/cakepopselection
 	)
@@ -827,7 +827,7 @@
 	icon_type = "chocolate praline"
 	contained_sprite = TRUE
 	storage_slots = 10
-	max_storage_space = 10
+	make_exact_fit = TRUE
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	can_hold = list(

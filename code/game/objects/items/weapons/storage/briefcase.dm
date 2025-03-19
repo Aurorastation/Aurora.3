@@ -6,12 +6,12 @@
 	item_state = "briefcase"
 	contained_sprite = TRUE
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	force = 8.0
+	force = 18
 	throw_speed = 1
 	throw_range = 4
-	w_class = ITEMSIZE_LARGE
-	max_w_class = ITEMSIZE_NORMAL
-	max_storage_space = 16
+	w_class = WEIGHT_CLASS_BULKY
+	max_w_class = WEIGHT_CLASS_NORMAL
+	max_storage_space = DEFAULT_LARGEBOX_STORAGE
 	use_sound = 'sound/items/storage/briefcase.ogg'
 	drop_sound = 'sound/items/drop/backpack.ogg'
 	pickup_sound = 'sound/items/pickup/backpack.ogg'

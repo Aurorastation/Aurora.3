@@ -8,10 +8,10 @@
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	throwforce = 8
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	throw_speed = 2
 	throw_range = 10
-	force = 8
+	force = 18
 	matter = list(DEFAULT_WALL_MATERIAL = 90)
 	attack_verb = list("slammed", "whacked", "bashed", "thunked", "battered", "bludgeoned", "thrashed")
 	amount_per_transfer_from_this = 150
@@ -32,15 +32,17 @@
 	if(istype(attacking_item, /obj/item/extinguisher))
 		var/obj/item/extinguisher/E = attacking_item
 		if(is_open_container())
-			to_chat(user,"<span class='notice'>\The [src] needs to be secured first!</span>")
+			to_chat(user,SPAN_NOTICE("\The [src] needs to be secured first!"))
 		else if(reagents.total_volume <= 0)
-			to_chat(user,"<span class='notice'>\The [src] is empty!</span>")
+			to_chat(user,SPAN_NOTICE("\The [src] is empty!"))
 		else if(E.reagents.total_volume < E.reagents.maximum_volume)
 			reagents.trans_to(E, src.reagents.total_volume)
-			user.visible_message("<span class='notice'>[user] fills \the [E] with the [src].</span>", "<span class='notice'>You fill \the [E] with the [src].</span>")
+			user.visible_message(SPAN_NOTICE("[user] fills \the [E] with the [src]."),
+									SPAN_NOTICE("You fill \the [E] with the [src]."))
+
 			playsound(E.loc, 'sound/items/stimpack.ogg', 50, 1)
 		else
-			to_chat(user,"<span class='notice'>\The [E] is full!</span>")
+			to_chat(user,SPAN_NOTICE("\The [E] is full!"))
 		return TRUE
 
 	. = ..()
@@ -48,12 +50,12 @@
 /obj/item/reagent_containers/extinguisher_refill/attack_self(mob/user as mob) //Copied from inhalers.
 	if(is_open_container())
 		if(LAZYLEN(reagents.reagent_volumes))
-			to_chat(user,"<span class='notice'>With a quick twist of the cartridge's lid, you secure the reagents inside \the [src].</span>")
+			to_chat(user,SPAN_NOTICE("With a quick twist of the cartridge's lid, you secure the reagents inside \the [src]."))
 			atom_flags &= ~ATOM_FLAG_OPEN_CONTAINER
 		else
-			to_chat(user,"<span class='notice'>You can't secure the cartridge without putting reagents in!</span>")
+			to_chat(user,SPAN_NOTICE("You can't secure the cartridge without putting reagents in!"))
 	else
-		to_chat(user,"<span class='notice'>\The reagents inside [src] are already secured!</span>")
+		to_chat(user,SPAN_NOTICE("\The reagents inside [src] are already secured!"))
 	return
 
 /obj/item/reagent_containers/extinguisher_refill/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
@@ -90,10 +92,10 @@
 	hitsound = 'sound/weapons/smash.ogg'
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	throwforce = 10
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	throw_speed = 2
 	throw_range = 10
-	force = 10.0
+	force = 15
 	matter = list(DEFAULT_WALL_MATERIAL = 90)
 	attack_verb = list("slammed", "whacked", "bashed", "thunked", "battered", "bludgeoned", "thrashed")
 	drop_sound = 'sound/items/drop/gascan.ogg'
@@ -115,8 +117,8 @@
 	hitsound = null	//it is much lighter, after all.
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	throwforce = 2
-	w_class = ITEMSIZE_SMALL
-	force = 2.0
+	w_class = WEIGHT_CLASS_SMALL
+	force = 2
 	max_water = 60
 	spray_amount = 10
 	spray_particles = 1
@@ -135,8 +137,8 @@
 		. += SPAN_NOTICE("The safety is [safety ? "on" : "off"].")
 	return
 
-/obj/item/extinguisher/attack(mob/living/M, mob/living/user, target_zone)
-	if(ismob(M) && user.a_intent != I_HURT)
+/obj/item/extinguisher/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(ismob(target_mob) && user.a_intent != I_HURT)
 		return FALSE
 	return ..()
 
@@ -152,15 +154,17 @@
 	if(istype(attacking_item,/obj/item/reagent_containers/extinguisher_refill))
 		var/obj/item/reagent_containers/extinguisher_refill/ER = attacking_item
 		if(ER.is_open_container())
-			to_chat(user,"<span class='notice'>\The [ER] needs to be secured first!</span>")
+			to_chat(user,SPAN_NOTICE("\The [ER] needs to be secured first!"))
 		else if(ER.reagents.total_volume <= 0)
-			to_chat(user,"<span class='notice'>\The [ER] is empty!</span>")
+			to_chat(user,SPAN_NOTICE("\The [ER] is empty!"))
 		else if (src.reagents.total_volume < src.reagents.maximum_volume)
 			ER.reagents.trans_to(src, ER.reagents.total_volume)
-			user.visible_message("<span class='notice'>[user] fills \the [src] with the [ER].</span>", "<span class='notice'>You fill \the [src] with the [ER].</span>")
+			user.visible_message(SPAN_NOTICE("[user] fills \the [src] with the [ER]."),
+									SPAN_NOTICE("You fill \the [src] with the [ER]."))
+
 			playsound(ER.loc, 'sound/items/stimpack.ogg', 50, 1)
 		else
-			to_chat(user,"<span class='notice'>\The [src] is full!</span>")
+			to_chat(user,SPAN_NOTICE("\The [src] is full!"))
 		return TRUE
 
 	. = ..()

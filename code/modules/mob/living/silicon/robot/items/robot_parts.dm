@@ -31,7 +31,7 @@
 /obj/item/robot_parts/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(is_adjacent)
-		. = report_missing_parts(user)
+		. += report_missing_parts(user)
 
 /obj/item/robot_parts/proc/report_missing_parts(var/mob/user)
 	. = list()
@@ -121,19 +121,19 @@
 	update_icon()
 
 /obj/item/robot_parts/robot_suit/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(l_arm)
-		add_overlay("l_arm+o")
+		AddOverlays("l_arm+o")
 	if(r_arm)
-		add_overlay("r_arm+o")
+		AddOverlays("r_arm+o")
 	if(chest)
-		add_overlay("chest+o")
+		AddOverlays("chest+o")
 	if(l_leg)
-		add_overlay("l_leg+o")
+		AddOverlays("l_leg+o")
 	if(r_leg)
-		add_overlay("r_leg+o")
+		AddOverlays("r_leg+o")
 	if(head)
-		add_overlay("head+o")
+		AddOverlays("head+o")
 
 /obj/item/robot_parts/robot_suit/proc/check_completion()
 	if(l_arm && r_arm)
@@ -259,7 +259,7 @@
 				C.replace_cell(chest.cell)
 				//so people won't mess around with the chassis until it is deleted
 				forceMove(new_shell)
-				M.brainmob.mind.transfer_to(new_shell)
+				M.brainmob.mind?.transfer_to(new_shell)
 				qdel(M)
 				new_shell.add_language(LANGUAGE_EAL)
 				var/newname = sanitizeSafe( tgui_input_text(new_shell, "Enter a name, or leave blank for the default name.", "Name change", "", MAX_NAME_LEN), MAX_NAME_LEN )
@@ -270,13 +270,18 @@
 				new_shell.name = new_shell.real_name
 				var/obj/item/organ/internal/mmi_holder/posibrain/P = new_shell.internal_organs_by_name[BP_BRAIN]
 				P.setup_brain()
-				new_shell.change_appearance(APPEARANCE_ALL_HAIR | APPEARANCE_SKIN | APPEARANCE_EYE_COLOR, new_shell)
+				new_shell.change_appearance(APPEARANCE_PLASTICSURGERY, new_shell)
 				qdel(src)
 				return
 
 			else
 				if(jobban_isbanned(M.brainmob, "Cyborg"))
 					to_chat(user, SPAN_WARNING("\The [attacking_item] does not seem to fit. (The player has been banned from playing this role)"))
+					return
+
+				// So you cannot make a cyborg with a positronic in it.
+				if(istype(M, /obj/item/device/mmi/digital/posibrain))
+					to_chat(user, SPAN_WARNING("Positronic brains are not compatible with this kind of chassis."))
 					return
 
 				var/mob/living/silicon/robot/O = new /mob/living/silicon/robot(get_turf(src), TRUE)
@@ -289,7 +294,7 @@
 				O.custom_name = created_name
 				O.updatename("Default")
 
-				M.brainmob.mind.transfer_to(O)
+				M.brainmob.mind?.transfer_to(O)
 
 				O.job = "Cyborg"
 				O.cell = chest.cell
@@ -306,7 +311,7 @@
 				callHook("borgify", list(O))
 				O.Namepick()
 				qdel(src)
-		else
+		else if(!istype(M, /obj/item/device/mmi/digital/posibrain))
 			to_chat(user, SPAN_WARNING("\The [attacking_item] can only be inserted after everything else is installed."))
 		return
 
@@ -361,7 +366,16 @@
 
 /obj/item/robot_parts/head/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if(attacking_item.ismultitool())
+
+	if(istype(attacking_item, /obj/item/device/assembly/infra))
+		var/obj/item/device/assembly/S = attacking_item
+		var/obj/item/tv_assembly/A = new(user)
+		qdel(S)
+		user.put_in_hands(A)
+		to_chat(user, SPAN_NOTICE("You add the infrared sensor to the robot head."))
+		qdel(src)
+
+	else if(attacking_item.ismultitool())
 		if(law_manager)
 			to_chat(user, SPAN_NOTICE("You disable the lawing circuits on \the [src]."))
 			law_manager = FALSE
@@ -369,7 +383,7 @@
 			to_chat(user, SPAN_NOTICE("You enable the lawing circuits on \the [src]."))
 			law_manager = TRUE
 
-	if(istype(attacking_item, /obj/item/device/flash))
+	else if(istype(attacking_item, /obj/item/device/flash))
 		if(isrobot(user))
 			var/mob/living/silicon/robot/R = user
 			if(istype(R.module_active, /obj/item/device/flash))
@@ -379,6 +393,7 @@
 				add_flashes(attacking_item,user)
 		else
 			add_flashes(attacking_item,user)
+
 	else if(istype(attacking_item, /obj/item/stock_parts/manipulator))
 		to_chat(user, SPAN_NOTICE("You install some manipulators and modify the head, creating a functional spider-bot!"))
 		new /mob/living/simple_animal/spiderbot(get_turf(src))
@@ -386,7 +401,7 @@
 		qdel(attacking_item)
 		qdel(src)
 		return
-	return
+
 
 /obj/item/robot_parts/head/proc/add_flashes(obj/item/W, mob/user) //Made into a seperate proc to avoid copypasta
 	if(left_flash && right_flash)

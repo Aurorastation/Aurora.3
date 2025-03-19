@@ -48,7 +48,7 @@
 	if(damage > min_broken_damage)
 		var/scarring = damage / max_damage
 		scarring = 1 - 0.5 * scarring ** 2 // Between ~15 and 50 percent loss.
-		var/new_max_dam = FLOOR(scarring * max_damage)
+		var/new_max_dam = FLOOR(scarring * max_damage, 1)
 		if(new_max_dam < max_damage)
 			to_chat(user, SPAN_WARNING("Not every part of [src] could be saved; some dead tissue had to be removed, making it more susceptible to future damage."))
 			set_max_damage(new_max_dam)
@@ -76,7 +76,7 @@
 /obj/item/organ/internal/proc/special_condition() // For unique conditions
 	return
 
-/obj/item/organ/internal/robotize(var/company = "Unbranded")
+/obj/item/organ/internal/robotize(var/company = PROSTHETIC_UNBRANDED)
 	..()
 	min_bruised_damage += 5
 	min_broken_damage += 10
@@ -91,15 +91,19 @@
 
 			robotize_type = company
 
+/obj/item/organ/internal/mechassist()
+	..()
+	icon_state = "[initial(icon_state)]-assisted"
+
 /obj/item/organ/internal/proc/getToxLoss()
 	if(BP_IS_ROBOTIC(src))
 		return damage * 0.5
 	return damage
 
 /obj/item/organ/internal/proc/set_max_damage(var/ndamage)
-	max_damage = FLOOR(ndamage)
-	min_broken_damage = FLOOR(0.75 * max_damage)
-	min_bruised_damage = FLOOR(0.25 * max_damage)
+	max_damage = FLOOR(ndamage, 1)
+	min_broken_damage = FLOOR(0.75 * max_damage, 1)
+	min_bruised_damage = FLOOR(0.25 * max_damage, 1)
 
 /obj/item/organ/internal/proc/take_internal_damage(amount, var/silent=0)
 	if(BP_IS_ROBOTIC(src))
@@ -134,10 +138,10 @@
 			. = "necrotic and dead [.]"
 	. = "[.][name]"
 
-/obj/item/organ/internal/process()
+/obj/item/organ/internal/process(seconds_per_tick)
 	..()
 	if(istype(owner) && (toxin_type in owner.chem_effects))
-		take_damage(owner.chem_effects[toxin_type] * 0.1 * PROCESS_ACCURACY, prob(1))
+		take_damage(owner.chem_effects[toxin_type] * 0.1 * PROCESS_ACCURACY, SPT_PROB(1, seconds_per_tick))
 	handle_regeneration()
 	tick_surge_damage() //Yes, this is intentional.
 

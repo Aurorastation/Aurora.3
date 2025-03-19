@@ -64,7 +64,8 @@
 			new /datum/stack_recipe("spotlight fixture frame", /obj/item/frame/light/spot, 3),
 			new /datum/stack_recipe("apc frame", /obj/item/frame/apc, 2),
 			new /datum/stack_recipe("air alarm frame", /obj/item/frame/air_alarm, 2),
-			new /datum/stack_recipe("fire alarm frame", /obj/item/frame/fire_alarm, 2)
+			new /datum/stack_recipe("fire alarm frame", /obj/item/frame/fire_alarm, 2),
+			new /datum/stack_recipe("fuel port", /obj/item/fuel_port, 2, time = 2 SECONDS)
 		))
 
 	recipes += new /datum/stack_recipe_list("miscellaneous construction",
@@ -139,7 +140,7 @@
 			new /datum/stack_recipe("plastic rack", /obj/structure/table/rack, BUILD_AMT, time = 5, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("plastic crate", /obj/structure/closet/crate/plastic, BUILD_AMT, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("plastic bag", /obj/item/storage/bag/plasticbag, 3, on_floor = 1),
-			new /datum/stack_recipe("blood pack", /obj/item/reagent_containers/blood/empty, 4, on_floor = 0),
+			new /datum/stack_recipe("IV bag", /obj/item/reagent_containers/blood/empty, 4, on_floor = 0),
 			new /datum/stack_recipe("reagent dispenser cartridge (large)", /obj/item/reagent_containers/chem_disp_cartridge,        5, on_floor=0), // 500u
 			new /datum/stack_recipe("reagent dispenser cartridge (med)",   /obj/item/reagent_containers/chem_disp_cartridge/medium, 3, on_floor=0), // 250u
 			new /datum/stack_recipe("reagent dispenser cartridge (small)", /obj/item/reagent_containers/chem_disp_cartridge/small,  1, on_floor=0), // 100u

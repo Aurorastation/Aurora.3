@@ -96,19 +96,19 @@
 	use_external_power = TRUE
 	self_recharge = TRUE
 	has_safety = FALSE
-	projectile_type = /obj/item/projectile/beam/heavylaser/mech
+	projectile_type = /obj/projectile/beam/heavylaser/mech
 
 /obj/item/gun/energy/pulse/mounted/mech
 	use_external_power = TRUE
 	self_recharge = TRUE
 	has_safety = FALSE
-	projectile_type = /obj/item/projectile/beam/pulse/mech
+	projectile_type = /obj/projectile/beam/pulse/mech
 
 /obj/item/gun/energy/xray/mounted/mech
 	use_external_power = TRUE
 	self_recharge = TRUE
 	has_safety = FALSE
-	projectile_type = /obj/item/projectile/beam/xray/mech
+	projectile_type = /obj/projectile/beam/xray/mech
 
 /*Launchers*/
 
@@ -306,7 +306,7 @@
 
 /obj/item/mecha_equipment/shield/proc/stop_damage(var/damage)
 	var/difference = damage - charge
-	charge = Clamp(charge - damage, 0, max_charge)
+	charge = clamp(charge - damage, 0, max_charge)
 
 	last_recharge = world.time
 
@@ -325,9 +325,9 @@
 	aura.toggle()
 	aura.dir = owner.dir
 	if(aura.dir == NORTH)
-		aura.layer = MECH_UNDER_LAYER
+		aura.layer = MOB_LAYER
 	else
-		aura.layer = ABOVE_MOB_LAYER
+		aura.layer = ABOVE_HUMAN_LAYER
 	playsound(owner,'sound/weapons/flash.ogg', 35, TRUE)
 	update_icon()
 	if(aura.active)
@@ -335,7 +335,7 @@
 	else
 		STOP_PROCESSING(SSprocessing, src)
 	active = aura.active
-	passive_power_use = active ? 1 KILOWATTS : 0
+	passive_power_use = active ? 1 KILO WATTS : 0
 	owner.update_icon()
 
 /obj/item/mecha_equipment/shield/deactivate()
@@ -358,7 +358,7 @@
 	if((world.time - last_recharge) < cooldown)
 		return
 
-	var/actual_required_power = Clamp(max_charge - charge, 0, charging_rate)
+	var/actual_required_power = clamp(max_charge - charge, 0, charging_rate)
 	owner.use_cell_power(actual_required_power)
 
 /obj/item/mecha_equipment/shield/get_hardpoint_status_value()
@@ -372,14 +372,14 @@
 	name = "mechshield"
 	var/obj/item/mecha_equipment/shield/shields
 	var/active = FALSE
-	layer = ABOVE_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 	pixel_x = 8
 	pixel_y = 4
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /obj/aura/mechshield/added_to(mob/living/target)
 	..()
-	target.vis_contents += src
+	target.add_vis_contents(src)
 	dir = target.dir
 
 /obj/aura/mechshield/proc/set_holder(var/obj/item/mecha_equipment/shield/holder)
@@ -387,7 +387,7 @@
 
 /obj/aura/mechshield/Destroy()
 	if(user)
-		user.vis_contents -= src
+		user.remove_vis_contents(src)
 	shields = null
 	. = ..()
 
@@ -409,28 +409,31 @@
 	else
 		icon_state = "shield_null"
 
-/obj/aura/mechshield/bullet_act(obj/item/projectile/P, var/def_zone)
+/obj/aura/mechshield/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	if(!active)
 		return
+
+	. = ..()
+
 	if(shields?.charge)
-		P.damage = shields.stop_damage(P.damage)
+		hitting_projectile.damage = shields.stop_damage(hitting_projectile.damage)
 		user.visible_message(SPAN_WARNING("\The [shields.owner]'s shields flash and crackle."))
 		flick("shield_impact", src)
 		playsound(user, 'sound/effects/basscannon.ogg', 35, TRUE)
 		//light up the night.
 		new /obj/effect/effect/smoke/illumination(get_turf(src), 5, 4, 1, "#ffffff")
-		if(P.damage <= 0)
+		if(hitting_projectile.damage <= 0)
 			return AURA_FALSE|AURA_CANCEL
 
 		spark(get_turf(src), 5, GLOB.alldirs)
 		playsound(get_turf(src), /singleton/sound_category/spark_sound, 25, TRUE)
 
-/obj/aura/mechshield/hitby(atom/movable/M, var/speed)
+/obj/aura/mechshield/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	. = ..()
 	if(!active)
 		return
-	if(shields.charge && speed <= 5)
-		user.visible_message(SPAN_WARNING("\The [shields.owner]'s shields flash briefly as they deflect \the [M]."))
+	if(shields.charge && throwingdatum.speed <= 5)
+		user.visible_message(SPAN_WARNING("\The [shields.owner]'s shields flash briefly as they deflect \the [hitting_atom]."))
 		flick("shield_impact", src)
 		playsound(user, 'sound/effects/basscannon.ogg', 10, TRUE)
 		return AURA_FALSE|AURA_CANCEL

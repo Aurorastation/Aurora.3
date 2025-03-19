@@ -38,7 +38,7 @@
 	if(user.mind)
 		var/datum/vampire/vampire = user.mind.antag_datums[MODE_VAMPIRE]
 		if(vampire && !(vampire.status & VAMP_ISTHRALL))
-			to_chat(user, "<span class='notice'>Your reflection appears distorted on the surface of \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("Your reflection appears distorted on the surface of \the [src]."))
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
@@ -57,13 +57,16 @@
 		reflection.update_mirror_filters()
 
 
-/obj/structure/mirror/bullet_act(var/obj/item/projectile/Proj)
-	if(prob(Proj.get_structure_damage() * 2))
+/obj/structure/mirror/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	if(prob(hitting_projectile.get_structure_damage() * 2))
 		if(!shattered)
 			shatter()
 		else
 			playsound(src, 'sound/effects/hit_on_shattered_glass.ogg', 70, 1)
-	..()
 
 /obj/structure/mirror/attackby(obj/item/attacking_item, mob/user)
 	if(shattered)
@@ -71,10 +74,10 @@
 		return
 
 	if(prob(attacking_item.force * 2))
-		visible_message("<span class='warning'>[user] smashes [src] with [attacking_item]!</span>")
+		visible_message(SPAN_WARNING("[user] smashes [src] with [attacking_item]!"))
 		shatter()
 	else
-		visible_message("<span class='warning'>[user] hits [src] with [attacking_item]!</span>")
+		visible_message(SPAN_WARNING("[user] hits [src] with [attacking_item]!"))
 		playsound(src.loc, 'sound/effects/glass_hit.ogg', 70, 1)
 
 /obj/structure/mirror/attack_generic(var/mob/user, var/damage)
@@ -85,10 +88,10 @@
 		return 0
 
 	if(damage)
-		user.visible_message("<span class='danger'>[user] smashes [src]!</span>")
+		user.visible_message(SPAN_DANGER("[user] smashes [src]!"))
 		shatter()
 	else
-		user.visible_message("<span class='danger'>[user] hits [src] and bounces off!</span>")
+		user.visible_message(SPAN_DANGER("[user] hits [src] and bounces off!"))
 	return 1
 
 /obj/effect/reflection
@@ -148,7 +151,7 @@
 	for(var/mob/living/carbon/human/H in loc)
 		check_vampire_enter(H.loc, H)
 
-	vis_contents += get_turf(mirror)
+	add_vis_contents(get_turf(mirror))
 
 /obj/effect/reflection/proc/check_vampire_enter(var/turf/T, var/mob/living/carbon/human/H)
 	if(!istype(H))
@@ -175,13 +178,13 @@
 	desc = "A SalonPro Nano-Mirror(TM) brand mirror! Now a portable version."
 	icon = 'icons/obj/cosmetics.dmi'
 	icon_state = "mirror"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/mirror/attack_self(mob/user as mob)
 	if(user.mind)
 		var/datum/vampire/vampire = user.mind.antag_datums[MODE_VAMPIRE]
 		if(vampire && !(vampire.status & VAMP_ISTHRALL))
-			to_chat(user, "<span class='notice'>Your reflection appears distorted on the surface of \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("Your reflection appears distorted on the surface of \the [src]."))
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user

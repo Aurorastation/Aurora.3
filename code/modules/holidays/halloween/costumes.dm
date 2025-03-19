@@ -79,6 +79,16 @@
 	body_parts_covered = HEAD|UPPER_TORSO|LOWER_TORSO|ARMS|HANDS|LEGS|FEET
 	flags_inv = HIDEJUMPSUIT|HIDEWRISTS|HIDEFACE|HIDEEARS|BLOCKHAIR
 
+/obj/item/clothing/suit/upburger
+	name = "\improper UP!Burger mascot costume"
+	desc = "A costume of Norinori the Onigiri, popular mascot of Up!Burger. Some poor high school student's worst part time job."
+	icon = 'icons/holidays/halloween/costumes.dmi'
+	icon_state = "upburger"
+	item_state = "upburger"
+	contained_sprite = TRUE
+	body_parts_covered = FULL_BODY
+	flags_inv = HIDEJUMPSUIT|HIDEWRISTS|HIDEFACE|HIDEEARS|BLOCKHAIR|HIDEEYES|HIDEEARS|HIDESHOES|ALWAYSDRAW|HIDETAIL
+
 /obj/item/clothing/suit/sumo_costume
 	name = "sumo costume"
 	desc = "A rubber costume, making you appear very overweight, just like asian sumo ringers are supposed to look like."
@@ -294,7 +304,7 @@
 /obj/item/clothing/suit/storage/target_costume/Initialize()
 	. = ..()
 	pockets.storage_slots = 2
-	pockets.max_w_class = ITEMSIZE_NORMAL
+	pockets.max_w_class = WEIGHT_CLASS_NORMAL
 	pockets.max_storage_space = 8
 
 /obj/item/clothing/suit/storage/target_costume/attack_hand(mob/user)

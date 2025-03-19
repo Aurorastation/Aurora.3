@@ -4,6 +4,8 @@
 	density = TRUE
 	layer = 9
 	pixel_x = -16
+	protects_against_weather = TRUE
+	sample_data = list("Cellular structure indicitive of large plantlife.")
 	var/max_chop_health = 180
 	var/chop_health = 180 //15 hits with steel hatchet, 5 with wielded fireaxe
 	var/fall_force = 60

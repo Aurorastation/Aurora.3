@@ -62,7 +62,7 @@
 		. += "<hr>"
 		. += "<br><center><b>Native Database Specifications</b>"
 		. += "<br><img src = [scanimage]></center>"
-		. += "<br><small><b>Governing Body:</b> [alignment]"
+		. += "<br><small><b>Governing Body:</b> [alignment]</small>"
 		. += "<hr>"
 		. += "<br><center><b>Native Database Notes</b></center>"
 		. += "<br><small>[desc]</small>"
@@ -102,7 +102,7 @@
 		return INITIALIZE_HINT_QDEL
 
 	if(known)
-		layer = EFFECTS_ABOVE_LIGHTING_LAYER
+		plane = EFFECTS_ABOVE_LIGHTING_PLANE
 		for(var/obj/machinery/computer/ship/helm/H in SSmachinery.machinery)
 			H.get_known_sectors()
 	update_icon()
@@ -110,14 +110,26 @@
 	if(requires_contact)
 		set_invisibility(INVISIBILITY_OVERMAP)// Effects that require identification have their images cast to the client via sensors.
 
-/obj/effect/overmap/Crossed(var/obj/effect/overmap/visitable/other)
-	if(istype(other))
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+		COMSIG_ATOM_EXITED = PROC_REF(on_exit),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
+/obj/effect/overmap/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	if(istype(arrived, /obj/effect/overmap/visitable))
 		for(var/obj/effect/overmap/visitable/O in loc)
 			SSskybox.rebuild_skyboxes(O.map_z)
 
-/obj/effect/overmap/Uncrossed(var/obj/effect/overmap/visitable/other)
-	if(istype(other))
-		SSskybox.rebuild_skyboxes(other.map_z)
+/obj/effect/overmap/proc/on_exit(atom/movable/gone, direction)
+	SIGNAL_HANDLER
+
+	if(istype(gone, /obj/effect/overmap/visitable))
+		var/obj/effect/overmap/visitable/V = gone
+		SSskybox.rebuild_skyboxes(V.map_z)
 		for(var/obj/effect/overmap/visitable/O in loc)
 			SSskybox.rebuild_skyboxes(O.map_z)
 
@@ -177,7 +189,7 @@
 		C.targeting = FALSE
 		targeting = O
 		O.targeted_overlay = icon('icons/obj/overmap/overmap_effects.dmi', "lock")
-		O.add_overlay(O.targeted_overlay)
+		O.AddOverlays(O.targeted_overlay)
 		if(designation && class && !obfuscated)
 			if(!O.maptext)
 				O.maptext = SMALL_FONTS(6, "[class] [designation]")
@@ -192,21 +204,21 @@
 		O.maptext_x = -10
 		O.maptext_width = 72
 		O.maptext_height = 32
-		playsound(C, 'sound/items/goggles_charge.ogg')
+		playsound(C, 'sound/items/goggles_charge.ogg', 70)
 		C.visible_message(SPAN_DANGER("[usr] engages the targeting systems, acquiring a lock on the target!"))
 		if(istype(O, /obj/effect/overmap/visitable/ship))
 			var/obj/effect/overmap/visitable/ship/S = O
 			for(var/obj/machinery/computer/ship/SH in S.consoles)
 				if(istype(SH, /obj/machinery/computer/ship/sensors))
-					playsound(SH, 'sound/effects/ship_weapons/locked_on.ogg')
+					playsound(SH, 'sound/effects/ship_weapons/locked_on.ogg', 70)
 					SH.visible_message(SPAN_DANGER("<font size=4>\The [SH] beeps alarmingly, signaling an enemy lock-on!</font>"))
 	else
 		C.targeting = FALSE
 
 /obj/effect/overmap/visitable/proc/detarget(var/obj/effect/overmap/O,  var/obj/machinery/computer/C)
 	if(C)
-		playsound(C, 'sound/items/rfd_interrupt.ogg')
+		playsound(C, 'sound/items/rfd_interrupt.ogg', 70)
 	if(O)
-		O.cut_overlay(O.targeted_overlay)
+		O.CutOverlays(O.targeted_overlay)
 		O.maptext = null
 	targeting = null

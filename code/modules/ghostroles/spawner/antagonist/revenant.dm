@@ -21,7 +21,7 @@
 
 /datum/ghostspawner/revenant/cant_spawn(mob/user)
 	. = ..()
-	if(!. && revenants.rifts_left <= 0)
+	if(!. && GLOB.revenants.rifts_left <= 0)
 		return "The final rift has been closed."
 
 /datum/ghostspawner/revenant/spawn_mob(mob/user)
@@ -40,7 +40,7 @@
 		announce_ghost_joinleave(user, FALSE, "They are now a [name].")
 		R.ckey = user.ckey
 
-	revenants.add_antagonist(R.mind, TRUE, TRUE, FALSE, TRUE, TRUE)
+	GLOB.revenants.add_antagonist(R.mind, TRUE, TRUE, FALSE, TRUE, TRUE)
 	if(R.client)
 		to_chat(R, FONT_LARGE(SPAN_CULT("You can now speak with all revenants in the game world by using \"[R.client.prefs.language_prefixes[1]]rs\" before a message.")))
 	if(!has_fired)
@@ -54,15 +54,15 @@
 		var/mob/M = m
 		if(M.ear_deaf)
 			continue
-		M.playsound_simple(get_turf(M), 'sound/ambience/tension/tension.ogg', 75, FALSE)
+		M.playsound_local(get_turf(M), 'sound/ambience/tension/tension.ogg', 75, FALSE)
 		to_chat(M, FONT_LARGE(SPAN_CULT("A faint hum coming from the station walls fills your ears...")))
 	has_fired = TRUE
 
 /datum/ghostspawner/revenant/proc/check_rift()
-	if(revenants.revenant_rift || revenants.rifts_left <= 0)
+	if(GLOB.revenants.revenant_rift || GLOB.revenants.rifts_left <= 0)
 		return
-	var/kills_needed = ((initial(revenants.rifts_left) - revenants.rifts_left) + 1) * 5
-	if(revenants.kill_count > kills_needed)
+	var/kills_needed = ((initial(GLOB.revenants.rifts_left) - GLOB.revenants.rifts_left) + 1) * 5
+	if(GLOB.revenants.kill_count > kills_needed)
 		var/turf/rift_turf
 		var/list/possible_landmarks = list()
 		for(var/thing in GLOB.landmarks_list)

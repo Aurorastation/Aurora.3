@@ -378,9 +378,7 @@
 /turf/simulated/floor/sidewalk/dark/grid,
 /area/konyang/robotics_factory)
 "tU" = (
-/obj/structure/window/reinforced{
-	dir = 2
-	},
+/obj/structure/window/reinforced,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "uk" = (
@@ -604,9 +602,7 @@
 /turf/simulated/floor/foundation,
 /area/konyang/robotics_factory)
 "Go" = (
-/obj/structure/window/reinforced{
-	dir = 2
-	},
+/obj/structure/window/reinforced,
 /turf/simulated/floor/foundation,
 /area/konyang/robotics_factory)
 "GU" = (

@@ -7,13 +7,13 @@
 	item_state = "red"
 	center_of_mass = list("x" = 16,"y" = 11)
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	force = 5
+	force = 11
 	throwforce = 10
 	throw_speed = 1
 	throw_range = 7
-	w_class = ITEMSIZE_LARGE
-	max_w_class = ITEMSIZE_NORMAL
-	max_storage_space = 14 //enough to hold all starting contents
+	w_class = WEIGHT_CLASS_BULKY
+	max_w_class = WEIGHT_CLASS_NORMAL
+	max_storage_space = DEFAULT_BOX_STORAGE //enough to hold all starting contents
 	origin_tech = list(TECH_COMBAT = 1)
 	attack_verb = list("robusted")
 	use_sound = 'sound/items/storage/toolbox.ogg'
@@ -109,7 +109,7 @@
 	icon_state = "syndicate"
 	item_state = "syndicate"
 	origin_tech = list(TECH_COMBAT = 1, TECH_ILLEGAL = 1)
-	force = 7.0
+	force = 16
 	starts_with = list(\
 		/obj/item/clothing/gloves/yellow = 1,\
 		/obj/item/screwdriver = 1,\
@@ -131,14 +131,14 @@
 		update_force()
 
 
-/obj/item/storage/toolbox/attack(mob/living/M as mob, mob/user as mob, var/target_zone)
+/obj/item/storage/toolbox/attack(mob/living/target_mob, mob/living/user, target_zone)
 	update_force()
 	if (..())
 		if (contents.len)
-			spill(3, get_turf(M))
-			playsound(M, /singleton/sound_category/tray_hit_sound, 100, 1)  //sound playin' again
+			spill(3, get_turf(target_mob))
+			playsound(target_mob, /singleton/sound_category/tray_hit_sound, 100, 1)  //sound playin' again
 			update_force()
-			user.visible_message(SPAN_DANGER("[user] smashes the [src] into [M], causing it to break open and strew its contents across the area"))
+			user.visible_message(SPAN_DANGER("[user] smashes the [src] into [target_mob], causing it to break open and strew its contents across the area"))
 
 /obj/item/storage/toolbox/lunchbox
 	name = "rainbow lunchbox"
@@ -149,7 +149,7 @@
 	item_state = "lunchbox_rainbow"
 	desc = "A little lunchbox. This one is in the colors of the rainbow."
 	attack_verb = list("lunched")
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	max_storage_space = 8
 	var/filled = FALSE
 
@@ -208,7 +208,7 @@
 	filled = TRUE
 
 /obj/item/storage/toolbox/lunchbox/nymph
-	name = "\improper diona nymph lunchbox"
+	name = "Diona Nymph Lunchbox"
 	icon_state = "lunchbox_dionanymph"
 	item_state = "lunchbox_dionanymph"
 	desc = "A little lunchbox. This one has a diona nymph on the side."

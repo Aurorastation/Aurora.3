@@ -64,15 +64,6 @@
 	random_count = 1
 	wanted_types = list(/obj/item/grenade/chem_grenade/teargas)
 
-/datum/bounty/item/security/smoke
-	name = "Smoke Grenades"
-	description = "We need a few extra smoke grenades to restock the ERT. Any station that ships spares will be compensated."
-	reward_low = 2200
-	reward_high = 3200
-	required_count = 3
-	random_count = 1
-	wanted_types = list(/obj/item/grenade/chem_grenade/gas)
-
 /datum/bounty/item/security/pepper
 	name = "Pepper Spray"
 	description = "Time to help some civil protection troopers toughen their response to being pepper sprayed. Any station that helps will be compensated. I love this job. -%PERSONNAME"

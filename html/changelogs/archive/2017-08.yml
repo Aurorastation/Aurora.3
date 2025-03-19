@@ -1,0 +1,36 @@
+2017-08-02:
+  Lohikar:
+  - bugfix: Tesla coils now actually work without requiring server staff intervention.
+  - bugfix: Fixed a bug where orbits (such as the Tesla) didn't animate as they were
+      intended to.
+2017-08-03:
+  Skull132:
+  - rscdel: Genetics has been removed again.
+2017-08-04:
+  Lohikar:
+  - maptweak: Elevators now use small lights instead of tube lights.
+  - tweak: Lights will no longer mysteriously float in mid-air in elevator shafts.
+2017-08-05:
+  Alberyk:
+  - tweak: Changed the uprising gamemode to be revolution and traitor, instead of
+      revolution and cult.
+2017-08-07:
+  Lohikar:
+  - bugfix: Fixed a visual inconsistency where airlock hatches & maint panel overlays
+      would draw over the opening animation when they shouldn't have.
+2017-08-13:
+  Lohikar:
+  - bugfix: Crayons now have range sanity checks.
+  - bugfix: Cryopods no longer act as impromptu teleportation devices.
+  - bugfix: Fixed a bug which caused space parallax to always be static, regardless
+      of preferences.
+2017-08-15:
+  Lohikar:
+  - bugfix: Vaurca now have two hearts and one set of lungs as was originally intended
+      instead of three hearts and two sets of lungs.
+2017-08-23:
+  Lohikar:
+  - tweak: Nursing Intern has been renamed to Medical Resident.
+2017-08-27:
+  Printer16:
+  - bugfix: Hunter killers can repair themselves now.

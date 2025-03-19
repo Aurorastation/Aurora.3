@@ -60,5 +60,5 @@
 							SPAN_WARNING("You lay your palms on \the [A] and begin permeating psionic energy through its structure..."))
 			if(do_after(user, base_time))
 				user.visible_message(SPAN_WARNING("[user] disintegrates \the [A]!"), SPAN_WARNING("You disintegrate \the [A]!"))
-				playsound(A, 'sound/effects/meteorimpact.ogg')
+				playsound(A, 'sound/effects/meteorimpact.ogg', 40)
 				qdel(A)

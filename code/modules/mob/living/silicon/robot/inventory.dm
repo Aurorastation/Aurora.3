@@ -207,55 +207,58 @@
 	if(!(locate(O) in src.module.modules) && O != src.module.emag)
 		return
 	if(activated(O))
-		to_chat(src, "<span class='notice'>Already activated</span>")
+		to_chat(src, SPAN_NOTICE("Already activated"))
 		return
 	if(!module_state_1)
 		module_state_1 = O
-		O.layer = SCREEN_LAYER
+		O.hud_layerise()
 		O.screen_loc = inv1.screen_loc
 		contents += O
 		O.on_module_hotbar(src)
 	else if(!module_state_2)
 		module_state_2 = O
-		O.layer = SCREEN_LAYER
+		O.hud_layerise()
 		O.screen_loc = inv2.screen_loc
 		contents += O
 		O.on_module_hotbar(src)
 	else if(!module_state_3)
 		module_state_3 = O
-		O.layer = SCREEN_LAYER
+		O.hud_layerise()
 		O.screen_loc = inv3.screen_loc
 		contents += O
 		O.on_module_hotbar(src)
 	else
-		to_chat(src, "<span class='notice'>You need to disable a module first!</span>")
+		to_chat(src, SPAN_NOTICE("You need to disable a module first!"))
 
-/mob/living/silicon/robot/put_in_hands(var/obj/item/W) // Maybe hands.
+/mob/living/silicon/robot/put_in_hands(obj/item/item_to_equip) // Maybe hands.
+	if(QDELETED(item_to_equip) || !istype(item_to_equip))
+		return FALSE
+
 	var/obj/item/gripper/G = get_active_hand()
 	if (istype(G))
-		if(!G.wrapped && G.grip_item(W, src, TRUE))
+		if(!G.wrapped && G.grip_item(item_to_equip, src, TRUE))
 			return TRUE
 	if (istype(module_state_1, /obj/item/gripper))
 		G = module_state_1
-		if (!G.wrapped && G.grip_item(W, src, TRUE))
+		if (!G.wrapped && G.grip_item(item_to_equip, src, TRUE))
 			return TRUE
 	else if (istype(module_state_2, /obj/item/gripper))
 		G = module_state_2
-		if (!G.wrapped && G.grip_item(W, src, TRUE))
+		if (!G.wrapped && G.grip_item(item_to_equip, src, TRUE))
 			return TRUE
 	else if (istype(module_state_3, /obj/item/gripper))
 		G = module_state_3
-		if (!G.wrapped && G.grip_item(W, src, TRUE))
+		if (!G.wrapped && G.grip_item(item_to_equip, src, TRUE))
 			return TRUE
 
-	W.forceMove(get_turf(src))
+	item_to_equip.forceMove(get_turf(src))
 	return FALSE
 
 /mob/living/silicon/robot/remove_from_mob(var/obj/O) //Necessary to clear gripper when trying to place items in things (grinders, smartfridges, vendors, etc)
 	if(istype(module_active, /obj/item/gripper))
 		var/obj/item/gripper/G = module_active
 		if(G.wrapped == O)
-			G.drop(get_turf(src), FALSE) //We don't need to see the "released X item" message if we're putting stuff in fridges and the like.
+			G.drop(get_turf(src), src, FALSE) //We don't need to see the "released X item" message if we're putting stuff in fridges and the like.
 
 /mob/living/silicon/robot/drop_item()
 	if(istype(module_active, /obj/item/gripper))
@@ -272,7 +275,7 @@
 			target = loc
 		if (istype(W.loc, /obj/item/gripper))
 			var/obj/item/gripper/G = W.loc
-			G.drop(target, do_feedback)
+			G.drop(target, src, do_feedback)
 			return TRUE
 	return FALSE
 

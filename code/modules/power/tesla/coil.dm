@@ -14,12 +14,12 @@
 	)
 
 /obj/machinery/power/tesla_coil/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(anchored)
-		add_overlay("[icon_state]+bolts")
+		AddOverlays("[icon_state]+bolts")
 		var/image/lights_image = image(icon, null, "[icon_state]+lights")
-		lights_image.layer = EFFECTS_ABOVE_LIGHTING_LAYER
-		add_overlay(lights_image)
+		lights_image.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+		AddOverlays(lights_image)
 
 /obj/machinery/power/tesla_coil/RefreshParts()
 	var/power_multiplier = 0
@@ -37,8 +37,8 @@
 		return
 
 	if(attacking_item.iswrench())
-		playsound(src.loc, attacking_item.usesound, 50, 1)
-		to_chat(user, "<span class='notice'>You [anchored ? "unfasten" : "fasten"] [src] to the flooring.</span>")
+		attacking_item.play_tool_sound(get_turf(src), 50)
+		to_chat(user, SPAN_NOTICE("You [anchored ? "unfasten" : "fasten"] [src] to the flooring."))
 		anchored = !anchored
 		update_icon()
 		if(!anchored)
@@ -75,12 +75,12 @@
 	)
 
 /obj/machinery/power/grounding_rod/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(anchored)
-		add_overlay("[icon_state]+bolts")
+		AddOverlays("[icon_state]+bolts")
 		var/image/lights_image = image(icon, null, "[icon_state]+lights")
-		lights_image.layer = EFFECTS_ABOVE_LIGHTING_LAYER
-		add_overlay(lights_image)
+		lights_image.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+		AddOverlays(lights_image)
 
 /obj/machinery/power/grounding_rod/attackby(obj/item/attacking_item, mob/user)
 	if(default_deconstruction_screwdriver(user, attacking_item))
@@ -91,8 +91,8 @@
 		return
 
 	if(attacking_item.iswrench())
-		playsound(src.loc, attacking_item.usesound, 50, 1)
-		to_chat(user, "<span class='notice'>You [anchored ? "unfasten" : "fasten"] [src] to the flooring.</span>")
+		attacking_item.play_tool_sound(get_turf(src), 50)
+		to_chat(user, SPAN_NOTICE("You [anchored ? "unfasten" : "fasten"] [src] to the flooring."))
 		anchored = !anchored
 		update_icon()
 		return
@@ -106,7 +106,7 @@
 	build_path = /obj/machinery/power/tesla_coil
 	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
 	req_components = list("/obj/item/stock_parts/capacitor" = 1)
-	board_type = "machine"
+	board_type = BOARD_MACHINE
 
 /obj/item/circuitboard/grounding_rod
 	name = "grounding rod circuitry"
@@ -114,4 +114,4 @@
 	build_path = /obj/machinery/power/grounding_rod
 	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
 	req_components = list("/obj/item/stock_parts/capacitor" = 1)
-	board_type = "machine"
+	board_type = BOARD_MACHINE

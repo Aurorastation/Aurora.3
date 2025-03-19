@@ -24,17 +24,17 @@
 		icon_state = "[initial(icon_state)]-empty"
 	check_maptext(SMALL_FONTS(7, amount))
 
-/obj/item/stack/nanopaste/attack(atom/M, mob/user, var/target_zone)
-	if(!ismob(M) || !istype(user))
+/obj/item/stack/nanopaste/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(!ismob(target_mob) || !istype(user))
 		return 0
 	if (!can_use(1, user))
 		return 0
 
-	if (isrobot(M))	//Repairing cyborgs
-		var/mob/living/silicon/robot/R = M
+	if (isrobot(target_mob))	//Repairing cyborgs
+		var/mob/living/silicon/robot/R = target_mob
 		if (R.getBruteLoss() || R.getFireLoss() )
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-			if(do_mob(user, M, 7))
+			if(do_mob(user, target_mob, 7))
 				R.adjustBruteLoss(-15)
 				R.adjustFireLoss(-15)
 				R.updatehealth()
@@ -44,8 +44,8 @@
 		else
 			to_chat(user, SPAN_NOTICE("All [R]'s systems are nominal."))
 
-	else if(ishuman(M))		//Repairing robolimbs
-		var/mob/living/carbon/human/H = M
+	else if(ishuman(target_mob))		//Repairing robolimbs
+		var/mob/living/carbon/human/H = target_mob
 		var/obj/item/organ/external/S = H.get_organ(target_zone)
 
 		if (S && (S.status & ORGAN_ASSISTED))
@@ -61,12 +61,12 @@
 						to_chat(user, SPAN_WARNING("You can't apply [src] through [H.wear_suit]!"))
 						return
 
-				if(do_mob(user, M, 7))
+				if(do_mob(user, target_mob, 7))
 					S.heal_damage(15, 15, robo_repair = 1)
 					H.updatehealth()
 					use(1)
-					user.visible_message(SPAN_NOTICE("\The [user] applies some nanite paste at[user != M ? " \the [M]'s" : " \the [user]"] [S.name] with \the [src]."),\
-											SPAN_NOTICE("You apply some nanite paste at [user == M ? "your" : "[M]'s"] [S.name]."))
+					user.visible_message(SPAN_NOTICE("\The [user] applies some nanite paste at[user != target_mob ? " \the [target_mob]'s" : " \the [user]"] [S.name] with \the [src]."),\
+											SPAN_NOTICE("You apply some nanite paste at [user == target_mob ? "your" : "[target_mob]'s"] [S.name]."))
 			else
 				to_chat(user, SPAN_NOTICE("Nothing to fix here."))
 		else
@@ -87,7 +87,8 @@
 	var/used = FALSE
 	construction_cost = null
 
-/obj/item/stack/nanopaste/surge/attack(mob/living/carbon/human/M as mob, mob/user as mob, var/target_zone)
+/obj/item/stack/nanopaste/surge/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/mob/living/carbon/human/M = target_mob
 	if (!istype(M) || !istype(user))
 		return 0
 

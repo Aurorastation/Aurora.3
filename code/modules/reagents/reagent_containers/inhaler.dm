@@ -11,13 +11,14 @@
 	unacidable = 1
 	amount_per_transfer_from_this = 5
 	volume = 5
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	possible_transfer_amounts = null
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	slot_flags = SLOT_BELT
-	center_of_mass = null
 	var/name_label
 	var/spent = FALSE
+	/// Define to false if overlays aren't wanted, such as if the sprite isn't designed for them.
+	var/has_overlays = TRUE
 	matter = list(MATERIAL_GLASS = 400, DEFAULT_WALL_MATERIAL = 200)
 
 /obj/item/reagent_containers/inhaler/Initialize()
@@ -40,11 +41,11 @@
 		return
 
 	if(!reagents.total_volume)
-		to_chat(user,"<span class='warning'>\The [src] is empty.</span>")
+		to_chat(user,SPAN_WARNING("\The [src] is empty."))
 		return
 
 	if ( ((user.is_clumsy()) || (user.mutations & DUMB)) && prob(10))
-		to_chat(user,"<span class='danger'>Your hand slips from clumsiness!</span>")
+		to_chat(user,SPAN_DANGER("Your hand slips from clumsiness!"))
 		if(!H.eyes_protected(src, FALSE))
 			eyestab(H,user)
 		if(H.reagents)
@@ -52,14 +53,16 @@
 			var/trans = reagents.trans_to_mob(H, amount_per_transfer_from_this, CHEM_TOUCH)
 			admin_inject_log(user, H, src, contained, reagents.get_temperature(), trans)
 			playsound(src.loc, 'sound/items/stimpack.ogg', 50, 1)
-			user.visible_message("<span class='notice'>[user] accidentally sticks the [src] in [H]'s eyes!</span>","<span class='notice'>You accidentally stick the [src] in [H]'s eyes!</span>")
-			to_chat(user,"<span class='notice'>[trans] units injected. [reagents.total_volume] units remaining in \the [src].</span>")
+			user.visible_message(SPAN_NOTICE("[user] accidentally sticks the [src] in [H]'s eyes!"),
+									SPAN_NOTICE("You accidentally stick the [src] in [H]'s eyes!"))
+
+			to_chat(user,SPAN_NOTICE("[trans] units injected. [reagents.total_volume] units remaining in \the [src]."))
 			spent = TRUE
 			update_icon()
 		return
 
 	if (!user.IsAdvancedToolUser())
-		to_chat(user,"<span class='warning'>You don't have the dexterity to do this!</span>")
+		to_chat(user,SPAN_WARNING("You don't have the dexterity to do this!"))
 		return
 
 	if(user == H)
@@ -73,14 +76,19 @@
 	user.do_attack_animation(H)
 
 	if(user == H)
-		user.visible_message("<span class='notice'>\The [user] injects themselves with \the [src]</span>","<span class='notice'>You stick the \the [src] in your mouth and press the injection button.</span>")
+		user.visible_message(SPAN_NOTICE("\The [user] injects themselves with \the [src]"),
+								SPAN_NOTICE("You stick the \the [src] in your mouth and press the injection button."))
+
 	else
-		user.visible_message("<span class='warning'>\The [user] attempts to administer \the [src] to \the [H]...</span>","<span class='notice'>You attempt to administer \the [src] to \the [H]...</span>")
+		user.visible_message(SPAN_WARNING("\The [user] attempts to administer \the [src] to \the [H]..."),
+								SPAN_NOTICE("You attempt to administer \the [src] to \the [H]..."))
+
 		if (!do_after(user, 1 SECONDS, H))
-			to_chat(user,"<span class='notice'>You and the target need to be standing still in order to inject \the [src].</span>")
+			to_chat(user,SPAN_NOTICE("You and the target need to be standing still in order to inject \the [src]."))
 			return
 
-		user.visible_message("<span class='notice'>\The [user] injects \the [H] with \a [src].</span>","<span class='notice'>You stick \the [src] in \the [H]'s mouth and press the injection button.</span>")
+		user.visible_message(SPAN_NOTICE("\The [user] injects \the [H] with \a [src]."),
+								SPAN_NOTICE("You stick \the [src] in \the [H]'s mouth and press the injection button."))
 
 	if(H.reagents)
 		var/contained = reagentlist()
@@ -88,7 +96,7 @@
 		var/trans = reagents.trans_to_mob(H, amount_per_transfer_from_this, CHEM_BREATHE, bypass_checks = TRUE)
 		admin_inject_log(user, H, src, contained, temp, trans)
 		playsound(src.loc, 'sound/items/stimpack.ogg', 50, 1)
-		to_chat(user,"<span class='notice'>[trans] units injected. [reagents.total_volume] units remaining in \the [src].</span>")
+		to_chat(user,SPAN_NOTICE("[trans] units injected. [reagents.total_volume] units remaining in \the [src]."))
 		spent = TRUE
 
 	update_icon()
@@ -101,57 +109,58 @@
 	if(!proximity)
 		return
 
-/obj/item/reagent_containers/inhaler/attack(mob/M as mob, mob/user as mob)
+/obj/item/reagent_containers/inhaler/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(is_open_container())
-		to_chat(user,"<span class='notice'>You must secure the reagents inside \the [src] before using it!</span>")
+		to_chat(user,SPAN_NOTICE("You must secure the reagents inside \the [src] before using it!"))
 		return FALSE
 
 	else
-		inject(M, user, M.Adjacent(user))
+		inject(target_mob, user, target_mob.Adjacent(user))
 	. = ..()
 
 /obj/item/reagent_containers/inhaler/attack_self(mob/user as mob)
 	if(is_open_container())
 		if(LAZYLEN(reagents.reagent_volumes))
-			to_chat(user,"<span class='notice'>With a quick twist of \the [src]'s lid, you secure the reagents inside.</span>")
+			to_chat(user,SPAN_NOTICE("With a quick twist of \the [src]'s lid, you secure the reagents inside."))
 			atom_flags &= ~ATOM_FLAG_OPEN_CONTAINER
 			spent = FALSE
 			update_icon()
 		else
-			to_chat(user,"<span class='notice'>You can't secure \the [src] without putting reagents in!</span>")
+			to_chat(user,SPAN_NOTICE("You can't secure \the [src] without putting reagents in!"))
 	else
-		to_chat(user,"<span class='notice'>The reagents inside \the [src] are already secured.</span>")
+		to_chat(user,SPAN_NOTICE("The reagents inside \the [src] are already secured."))
 	return
 
 /obj/item/reagent_containers/inhaler/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.isscrewdriver() && !is_open_container())
-		to_chat(user,"<span class='notice'>Using \the [attacking_item], you unsecure the inhaler's lid.</span>") // it locks shut after being secured
+		to_chat(user,SPAN_NOTICE("Using \the [attacking_item], you unsecure the inhaler's lid.")) // it locks shut after being secured
 		atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 		update_icon()
 		return TRUE
 	. = ..()
 
 /obj/item/reagent_containers/inhaler/update_icon()
-	cut_overlays()
-	if(!is_open_container())
-		var/mutable_appearance/backing_overlay = mutable_appearance(icon, "autoinhaler_secured")
-		add_overlay(backing_overlay)
-
 	icon_state = "[initial(icon_state)][spent]"
 	item_state = "[initial(item_state)][spent]"
 
-	if(reagents.total_volume)
-		var/mutable_appearance/reagent_overlay = mutable_appearance(icon, "autoinhaler_reagents")
-		reagent_overlay.color = reagents.get_color()
-		add_overlay(reagent_overlay)
+	if(has_overlays)
+		ClearOverlays()
+		if(!is_open_container())
+			var/mutable_appearance/backing_overlay = mutable_appearance(icon, "autoinhaler_secured")
+			AddOverlays(backing_overlay)
+		if(reagents.total_volume)
+			var/mutable_appearance/reagent_overlay = mutable_appearance(icon, "autoinhaler_reagents")
+			reagent_overlay.color = reagents.get_color()
+			AddOverlays(reagent_overlay)
+
 	update_held_icon()
 
 /obj/item/reagent_containers/inhaler/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(LAZYLEN(reagents.reagent_volumes))
-		. += "<span class='notice'>It is currently loaded.</span>"
+		. += SPAN_NOTICE("It is currently loaded.")
 	else
-		. += "<span class='notice'>It is spent.</span>"
+		. += SPAN_NOTICE("It is spent.")
 
 /obj/item/reagent_containers/inhaler/dexalin
 	name_label = "dexalin"
@@ -211,10 +220,10 @@
 /obj/item/reagent_containers/inhaler/phoron_special
 	name = "vaurca autoinhaler (phoron)"
 	desc = "A strange device that contains some sort of heavy-duty bag and mouthpiece combo."
-	icon_state = "anthaler1"
+	icon_state = "anthaler"
 	atom_flags = 0
 	volume = 10
-	var/empty_state = "anthaler0"
+	has_overlays = FALSE
 
 /obj/item/reagent_containers/inhaler/phoron_special/Initialize()
 	. =..()

@@ -20,7 +20,7 @@
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "sliver1"	// 1 - 3
 	randpixel = 8
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	sharp = TRUE
 	var/datum/geosample/geologic_data
 
@@ -54,7 +54,6 @@
 
 //this should only need to be called once
 /datum/geosample/proc/UpdateTurf(var/turf/simulated/mineral/container)
-	set background = 1
 	if(!container || !istype(container))
 		return
 

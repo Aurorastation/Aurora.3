@@ -11,9 +11,9 @@
 
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BACK
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
-	force = 5.0
+	force = 11
 	throwforce = 10.0
 	throw_speed = 1
 	throw_range = 4
@@ -154,7 +154,7 @@
 			if(location.internal == src)
 				location.internal = null
 				location.internals.icon_state = "internal0"
-				to_chat(usr, "<span class='notice'>You close the tank release valve.</span>")
+				to_chat(usr, SPAN_NOTICE("You close the tank release valve."))
 				if (location.internals)
 					location.internals.icon_state = "internal0"
 			else
@@ -168,11 +168,11 @@
 
 				if(can_open_valve)
 					location.internal = src
-					to_chat(usr, "<span class='notice'>You open \the [src] valve.</span>")
+					to_chat(usr, SPAN_NOTICE("You open \the [src] valve."))
 					if (location.internals)
 						location.internals.icon_state = "internal1"
 				else
-					to_chat(usr, "<span class='warning'>You need something to connect to \the [src].</span>")
+					to_chat(usr, SPAN_WARNING("You need something to connect to \the [src]."))
 			. = TRUE
 			update_icon()
 	if(action=="setReleasePressure")
@@ -226,9 +226,9 @@
 		return
 
 	last_gauge_pressure = gauge_pressure
-	cut_overlays()
+	ClearOverlays()
 	// SSoverlay will handle icon caching.
-	add_overlay("[gauge_icon][(gauge_pressure == -1) ? "overload" : gauge_pressure]")
+	AddOverlays("[gauge_icon][(gauge_pressure == -1) ? "overload" : gauge_pressure]")
 
 /obj/item/tank/proc/percent()
 	var/gauge_pressure = 0

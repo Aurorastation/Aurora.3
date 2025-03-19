@@ -238,9 +238,6 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	var/allow_drone_spawn = 1				//assuming the admin allow them to.
 	var/drone_build_time = 1200				//A drone will become available every X ticks since last drone spawn. Default is 2 minutes.
 
-	var/disable_player_rats = 0
-	var/uneducated_rats = 0 //Set to 1 to prevent newly-spawned mice from understanding human speech
-
 	var/usealienwhitelist = 0
 	var/limitalienplayers = 0
 	var/alien_to_human_ratio = 0.5
@@ -253,7 +250,9 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	var/wikiurl
 	var/forumurl
 	var/forum_passphrase
+	var/rulesurl
 	var/githuburl
+	var/mainsiteurl
 
 	//Alert level description
 	var/alert_desc_green = "All threats to the ship have passed. Security may not have weapons visible, privacy laws are once again fully enforced."
@@ -279,9 +278,6 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	//Paincrit knocks someone down once they hit 60 shock_stage, so by default make it so that close to 100 additional damage needs to be dealt,
 	//so that it's similar to DAMAGE_PAIN. Lowered it a bit since hitting paincrit takes much longer to wear off than a halloss stun.
 	var/organ_damage_spillover_multiplier = 0.5
-
-	var/bones_can_break = 0
-	var/limbs_can_break = 0
 
 	var/revival_pod_plants = 1
 	var/revival_cloning = 1
@@ -399,10 +395,6 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 
 	// Master Controller settings.
 	var/fastboot = FALSE	// If true, take some shortcuts during boot to speed it up for testing. Probably should not be used on production servers.
-
-	//UDP GELF Logging
-	var/log_gelf_enabled = 0
-	var/log_gelf_addr = ""
 
 	//IP Intel vars
 	var/ipintel_email
@@ -649,11 +641,17 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 				if ("forumurl")
 					GLOB.config.forumurl = value
 
+				if ("rulesurl")
+					GLOB.config.rulesurl = value
+
 				if ("forum_passphrase")
 					GLOB.config.forum_passphrase = value
 
 				if ("githuburl")
 					GLOB.config.githuburl = value
+
+				if ("mainsiteurl")
+					GLOB.config.mainsiteurl = value
 
 				if ("ghosts_can_possess_animals")
 					GLOB.config.ghosts_can_possess_animals = value
@@ -824,12 +822,6 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 
 				if("time_offset")
 					GLOB.config.time_offset = text2num(value)
-
-				if("disable_player_rats")
-					GLOB.config.disable_player_rats = 1
-
-				if("uneducated_rats")
-					GLOB.config.uneducated_rats = 1
 
 				if("use_discord_pins")
 					GLOB.config.use_discord_pins = 1
@@ -1126,10 +1118,6 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 					GLOB.config.default_brain_health = text2num(value)
 					if(!GLOB.config.default_brain_health || GLOB.config.default_brain_health < 1)
 						GLOB.config.default_brain_health = initial(GLOB.config.default_brain_health)
-				if("bones_can_break")
-					GLOB.config.bones_can_break = value
-				if("limbs_can_break")
-					GLOB.config.limbs_can_break = value
 
 				if("walk_speed")
 					GLOB.config.walk_speed = value

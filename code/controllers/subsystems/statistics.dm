@@ -37,6 +37,9 @@ SUBSYSTEM_DEF(statistics)
 GENERAL_PROTECT_DATUM(/datum/controller/subsystem/statistics)
 
 /datum/controller/subsystem/statistics/Initialize(timeofday)
+
+	RegisterSignal(SSdcs, COMSIG_GLOB_MOB_DEATH, PROC_REF(something_died))
+
 	for (var/type in subtypesof(/datum/statistic) - list(/datum/statistic/numeric, /datum/statistic/grouped))
 		var/datum/statistic/S = new type
 		if (!S.name)
@@ -176,6 +179,12 @@ GENERAL_PROTECT_DATUM(/datum/controller/subsystem/statistics)
 		var/sql = "INSERT INTO ss13_feedback VALUES (null, Now(), \"[GLOB.round_id]\", \"[FV.get_variable()]\", [FV.get_value()], \"[FV.get_details()]\")"
 		var/DBQuery/query_insert = GLOB.dbcon.NewQuery(sql)
 		query_insert.Execute()
+
+/datum/controller/subsystem/statistics/proc/something_died(datum/source, mob/dead_mob, gibbed)
+	if(dead_mob.ckey)
+		IncrementGroupedStat("ckey_deaths", dead_mob.ckey)
+		if(gibbed)
+			IncrementSimpleStat("gibs")
 
 // Sanitize inputs to avoid SQL injection attacks
 /proc/sql_sanitize_text(var/text)

@@ -29,9 +29,7 @@
 	var/pressure_alert = 0
 	var/temperature_alert = 0
 
-/mob/living/carbon/human/Life()
-	set background = BACKGROUND_ENABLED
-
+/mob/living/carbon/human/Life(seconds_per_tick, times_fired)
 	if (transforming)
 		return
 
@@ -116,7 +114,7 @@
 		if(zone_exposure >= 1)
 			return 1
 		pressure_adjustment_coefficient = max(pressure_adjustment_coefficient, zone_exposure)
-	pressure_adjustment_coefficient = Clamp(pressure_adjustment_coefficient, 0, 1) // So it isn't less than 0 or larger than 1.
+	pressure_adjustment_coefficient = clamp(pressure_adjustment_coefficient, 0, 1) // So it isn't less than 0 or larger than 1.
 
 	return pressure_adjustment_coefficient
 
@@ -177,19 +175,18 @@
 
 	if (disabilities & EPILEPSY)
 		if ((prob(1) && paralysis < 1))
-			to_chat(src, "<span class='warning'>You have a seizure!</span>")
+			to_chat(src, SPAN_WARNING("You have a seizure!"))
 			for(var/mob/O in viewers(src, null))
 				if(O == src)
 					continue
-				O.show_message(text("<span class='danger'>[src] starts having a seizure!</span>"), 1)
+				O.show_message(SPAN_DANGER("[src] starts having a seizure!"), 1)
 			Paralyse(10)
 			make_jittery(1000)
 	if (disabilities & COUGHING)
 		if ((prob(5) && paralysis <= 1))
 			drop_item()
-			spawn( 0 )
-				emote("cough")
-				return
+			emote("cough")
+			return
 
 	if((disabilities & ASTHMA) && getOxyLoss() >= 10)
 		if(prob(5))
@@ -215,7 +212,7 @@
 		if(gene.is_active(src))
 			gene.OnMobLife(src)
 
-	total_radiation = Clamp(total_radiation,0,100)
+	total_radiation = clamp(total_radiation,0,100)
 
 	if (total_radiation)
 		if(src.is_diona())
@@ -232,13 +229,13 @@
 				total_radiation -= 1 * RADIATION_SPEED_COEFFICIENT
 				if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT))
 					src.apply_radiation(-5 * RADIATION_SPEED_COEFFICIENT)
-					to_chat(src, "<span class='warning'>You feel weak.</span>")
+					to_chat(src, SPAN_WARNING("You feel weak."))
 					Weaken(3)
 					if(!lying)
 						emote("collapse")
 				if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT) && species.name == SPECIES_HUMAN) //apes go bald
 					if((h_style != "Bald" || f_style != "Shaved" ))
-						to_chat(src, "<span class='warning'>Your hair falls out.</span>")
+						to_chat(src, SPAN_WARNING("Your hair falls out."))
 						h_style = "Bald"
 						f_style = "Shaved"
 						update_hair()
@@ -248,9 +245,9 @@
 				damage = 7
 				if(prob(5))
 					take_overall_damage(0, 10 * RADIATION_SPEED_COEFFICIENT, used_weapon = "Radiation Burns")
-					to_chat(src, "<span class='warning'>You feel a burning sensation!</span>")
+					to_chat(src, SPAN_WARNING("You feel a burning sensation!"))
 				if(prob(1))
-					to_chat(src, "<span class='warning'>You feel strange!</span>")
+					to_chat(src, SPAN_WARNING("You feel strange!"))
 					adjustCloneLoss(5 * RADIATION_SPEED_COEFFICIENT)
 					emote("gasp")
 				hallucination = max(hallucination, 20) //At this level, you're in a constant state of low-level hallucinations. As if you didn't have enough problems.
@@ -305,6 +302,8 @@
 	return breath
 
 /mob/living/carbon/human/handle_environment(datum/gas_mixture/environment)
+	..()
+
 	if(!environment)
 		return
 
@@ -630,7 +629,7 @@
 				set_see_invisible(SEE_INVISIBLE_CULT)
 				make_jittery(5)
 				if(prob(5))
-					visible_message("<b>[src]</b> trembles uncontrollably.", "<span class='warning'>You tremble uncontrollably.</span>")
+					visible_message("<b>[src]</b> trembles uncontrollably.", SPAN_WARNING("You tremble uncontrollably."))
 					to_chat(src, SPAN_CULT(pick("You feel fingers tracing up your back.", "You hear the distant wailing and sobbing of a departed loved one.", "You feel like you are being closely watched.", "You hear the hysterical laughter of a departed loved one.", "You no longer feel the reassuring presence of a departed loved one.", "You feel a hand taking hold of yours, digging its nails into you as it clings on.")))
 			if(haunted >= 10)
 				if(prob(5))
@@ -639,9 +638,10 @@
 
 		sprint_speed_factor = species.sprint_speed_factor
 		max_stamina = species.stamina
+		if(HAS_TRAIT(src, TRAIT_ORIGIN_STAMINA_BONUS))
+			max_stamina *= 1.1
 		stamina_recovery = species.stamina_recovery
 		sprint_cost_factor = species.sprint_cost_factor
-		move_delay_mod = 0
 
 		if(CE_ADRENALINE in chem_effects)
 			sprint_speed_factor += 0.1*chem_effects[CE_ADRENALINE]
@@ -649,21 +649,16 @@
 			sprint_cost_factor -= 0.35 * chem_effects[CE_ADRENALINE]
 			stamina_recovery += max ((stamina_recovery * 0.7 * chem_effects[CE_ADRENALINE]), 5)
 
-		if(CE_SPEEDBOOST in chem_effects)
-			sprint_speed_factor += 0.2 * chem_effects[CE_SPEEDBOOST]
-			stamina_recovery *= 1 + 0.3 * chem_effects[CE_SPEEDBOOST]
-			move_delay_mod += -1.5 * chem_effects[CE_SPEEDBOOST]
-
 		var/obj/item/clothing/C = wear_suit
 		if(!(C && (C.body_parts_covered & HANDS) && !(C.heat_protection & HANDS)) && !gloves)
 			for(var/obj/item/I in src)
 				if(I.contaminated && !(species.flags & PHORON_IMMUNE))
 					if(I == r_hand)
-						apply_damage(vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_R_HAND)
+						apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_R_HAND)
 					else if(I == l_hand)
-						apply_damage(vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_L_HAND)
+						apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_L_HAND)
 					else
-						adjustFireLoss(vsc.plc.CONTAMINATION_LOSS)
+						adjustFireLoss(GLOB.vsc.plc.CONTAMINATION_LOSS)
 
 	if (intoxication)
 		handle_intoxication()
@@ -730,6 +725,9 @@
 	if(status_flags & GODMODE)
 		return 0
 
+	if(recently_slept)
+		recently_slept -= 1
+
 	//SSD check, if a logged player is awake put them back to sleep!
 	if(species.show_ssd && (!client && !vr_mob) && !teleop && ((world.realtime - disconnect_time) >= 5 MINUTES)) //only sleep after 5 minutes, should help those with intermittent internet connections
 		Sleeping(2)
@@ -750,13 +748,14 @@
 
 		if(get_shock() >= species.total_health)
 			if(!stat && !paralysis)
-				to_chat(src, "<span class='warning'>[species.halloss_message_self]</span>")
+				to_chat(src, SPAN_WARNING("[species.halloss_message_self]"))
 				src.visible_message("<B>[src]</B> [species.halloss_message]")
 			Paralyse(10)
 
 		if(paralysis || sleeping || InStasis())
 			blinded = TRUE
-			if(sleeping)
+			if(sleeping && !stat)
+				species.sleep_msg(src)
 				set_stat(UNCONSCIOUS)
 				if(!sleeping_msg_debounce)
 					sleeping_msg_debounce = TRUE
@@ -776,10 +775,13 @@
 			if(mind)
 				//Are they SSD? If so we'll keep them asleep but work off some of that sleep var in case of stoxin or similar.
 				if(client || sleeping > 3 || istype(bg))
-					AdjustSleeping(-1)
-			if(prob(2) && health && !failed_last_breath && !isSynthetic() && !InStasis())
+					if(sleeping_indefinitely)
+						sleep_buffer++
+					else
+						AdjustSleeping(-1)
+			if(prob(2) && health && !failed_last_breath && !InStasis())
 				if(!paralysis)
-					emote("snore")
+					emote(species.snore_key)
 
 		//CONSCIOUS
 		else if(!InStasis())
@@ -873,7 +875,7 @@
 				if(-INFINITY to -95)	severity = 10
 			if(paralysis || InStasis())
 				severity = max(severity, 8)
-			overlay_fullscreen("crit", /obj/screen/fullscreen/crit, severity)
+			overlay_fullscreen("crit", /atom/movable/screen/fullscreen/crit, severity)
 		else
 			clear_fullscreen("crit")
 			//Oxygen damage overlay
@@ -887,7 +889,7 @@
 					if(35 to 40)		severity = 5
 					if(40 to 45)		severity = 6
 					if(45 to INFINITY)	severity = 7
-				overlay_fullscreen("oxy", /obj/screen/fullscreen/oxy, severity)
+				overlay_fullscreen("oxy", /atom/movable/screen/fullscreen/oxy, severity)
 			else
 				clear_fullscreen("oxy")
 
@@ -903,7 +905,7 @@
 				if(55 to 70)		severity = 4
 				if(70 to 85)		severity = 5
 				if(85 to INFINITY)	severity = 6
-			overlay_fullscreen("brute", /obj/screen/fullscreen/brute, severity)
+			overlay_fullscreen("brute", /atom/movable/screen/fullscreen/brute, severity)
 		else
 			clear_fullscreen("brute")
 
@@ -931,6 +933,27 @@
 					if(no_damage && (E.brute_dam || E.burn_dam))
 						no_damage = 0
 					health_images += E.get_damage_hud_image()
+
+				// Add wound overlays
+				for(var/obj/item/organ/external/O in organs)
+					if(O.damage_state == "00") continue
+					var/cache_index = "[O.damage_state]/[O.icon_name]/[get_blood_color()]/[species.get_bodytype()]"
+					var/list/damage_icon_parts = SSicon_cache.damage_icon_parts
+					var/icon/DI = damage_icon_parts[cache_index]
+					if(!DI)
+						DI = new /icon(species.damage_overlays, O.damage_state)			// the damage icon for whole human
+						DI.Blend(new /icon(species.damage_mask, O.icon_name), ICON_MULTIPLY)	// mask with this organ's pixels
+						DI.Blend(get_blood_color(), ICON_MULTIPLY)
+						damage_icon_parts[cache_index] = DI
+					health_images += DI
+					if(O.is_stump())
+						continue
+					var/bandage_icon = species.bandages_icon
+					if(!bandage_icon)
+						continue
+					var/bandage_level = O.bandage_level
+					if(bandage_level)
+						health_images += image(bandage_icon, "[O.icon_name][bandage_level]")
 
 				// Apply a fire overlay if we're burning.
 				if(on_fire)
@@ -960,7 +983,7 @@
 		//Update hunger and thirst UI less often, its not important
 		if((life_tick % 3 == 0))
 			if(nutrition_icon)
-				var/nut_factor = max_nutrition ? Clamp(nutrition / max_nutrition, 0, 1) : 1
+				var/nut_factor = max_nutrition ? clamp(nutrition / max_nutrition, 0, 1) : 1
 				var/nut_icon = 5 //5 to 0, with 5 being lowest, 0 being highest
 				if(nut_factor >= CREW_NUTRITION_OVEREATEN)
 					nut_icon = 0
@@ -977,7 +1000,7 @@
 					nutrition_icon.icon_state = new_val
 
 			if(hydration_icon)
-				var/hyd_factor = max_hydration ? Clamp(hydration / max_hydration, 0, 1) : 1
+				var/hyd_factor = max_hydration ? clamp(hydration / max_hydration, 0, 1) : 1
 				var/hyd_icon = 5
 				if(hyd_factor >= CREW_HYDRATION_OVERHYDRATED)
 					hyd_icon = 0
@@ -996,7 +1019,7 @@
 			if(isSynthetic())
 				var/obj/item/organ/internal/cell/IC = internal_organs_by_name[BP_CELL]
 				if(istype(IC) && IC.is_usable())
-					var/chargeNum = Clamp(Ceiling(IC.percent()/25), 0, 4)	//0-100 maps to 0-4, but give it a paranoid clamp just in case.
+					var/chargeNum = clamp(Ceiling(IC.percent()/25), 0, 4)	//0-100 maps to 0-4, but give it a paranoid clamp just in case.
 					cells.icon_state = "charge[chargeNum]"
 				else
 					cells.icon_state = "charge-empty"
@@ -1124,7 +1147,7 @@
 #undef POSING_STRING
 
 /mob/living/carbon/human/proc/add_status_to_hud(var/set_overlay, var/set_status_message)
-	var/obj/screen/status/new_status = new /obj/screen/status(null, ui_style2icon(client.prefs.UI_style), set_overlay, set_status_message)
+	var/atom/movable/screen/status/new_status = new /atom/movable/screen/status(null, ui_style2icon(client.prefs.UI_style), set_overlay, set_status_message)
 	new_status.alpha = client.prefs.UI_style_alpha
 	new_status.color = client.prefs.UI_style_color
 	new_status.screen_loc = get_status_loc(status_overlays ? LAZYLEN(status_overlays) + 1 : 1)
@@ -1157,7 +1180,7 @@
 	if(isturf(loc) && rand(1,1000) == 1)
 		var/turf/T = loc
 		if (T.get_lumcount() < 0.01)	// give a little bit of tolerance for near-dark areas.
-			playsound_simple(null, pick(GLOB.scarySounds), 50, TRUE)
+			playsound(null, pick(GLOB.scarySounds), 50, TRUE)
 
 		if(HAS_TRAIT(src, TRAIT_ORIGIN_DARK_AFRAID))
 			if(T.get_lumcount() < 0.1)
@@ -1395,7 +1418,7 @@
 
 /mob/living/carbon/human/handle_vision()
 	if(client)
-		client.screen.Remove(global_hud.blurry, global_hud.druggy, global_hud.vimpaired, global_hud.darkMask, global_hud.nvg, global_hud.thermal, global_hud.meson, global_hud.science)
+		client.screen.Remove(GLOB.global_hud.blurry, GLOB.global_hud.druggy, GLOB.global_hud.vimpaired, GLOB.global_hud.darkMask, GLOB.global_hud.nvg, GLOB.global_hud.thermal, GLOB.global_hud.meson, GLOB.global_hud.science)
 	var/machine_has_equipment_vision = FALSE
 	if(machine)
 		var/viewflags = machine.check_eye(src)
@@ -1489,11 +1512,11 @@
 		new_oxy = "oxydamageoverlay[severity]"
 
 		if(new_oxy != last_oxy_overlay)
-			damageoverlay.cut_overlay(last_oxy_overlay)
-			damageoverlay.add_overlay(new_oxy)
+			damageoverlay.CutOverlays(last_oxy_overlay)
+			damageoverlay.AddOverlays(new_oxy)
 			last_oxy_overlay = new_oxy
 	else if (last_oxy_overlay)
-		damageoverlay.cut_overlay(last_oxy_overlay)
+		damageoverlay.CutOverlays(last_oxy_overlay)
 		last_oxy_overlay = null
 
 //Fevers
@@ -1535,8 +1558,8 @@
 	return germs
 
 /mob/living/carbon/human/proc/do_fever_effects(var/fever)
-	if(prob(20/3)) // every 30 seconds, roughly
-		to_chat(src, SPAN_WARNING(pick("You feel cold and clammy...", "You shiver as if a breeze has passed through.", "Your muscles ache.", "You feel tired and fatigued.")))
+	var/list/fever_messages = list("You feel cold and clammy...", "You shiver as if a breeze has passed through.", "Your muscles ache.", "You feel tired and fatigued.")
+	notify_message(SPAN_WARNING(pick(fever_messages)), 30 SECONDS, key = "fever_effect_message")
 	if(prob(25)) // once every 8 seconds, roughly
 		drowsiness += 5
 	if(prob(20))

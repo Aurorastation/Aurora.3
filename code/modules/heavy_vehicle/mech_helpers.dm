@@ -8,13 +8,13 @@
 
 	if(!legs)
 		if(user)
-			to_chat(user, "<span class='warning'>\The [src] has no means of propulsion!</span>")
+			to_chat(user, SPAN_WARNING("\The [src] has no means of propulsion!"))
 		next_mecha_move = world.time + 3 // Just to stop them from getting spammed with messages.
 		return
 
 	if(!legs.motivator || legs.total_damage > 45)
 		if(user)
-			to_chat(user, "<span class='warning'>Your motivators are damaged! You can't move!</span>")
+			to_chat(user, SPAN_WARNING("Your motivators are damaged! You can't move!"))
 		next_mecha_move = world.time + 15
 		return
 
@@ -22,13 +22,13 @@
 
 	if(maintenance_protocols)
 		if(user)
-			to_chat(user, "<span class='warning'>Maintenance protocols are in effect.</span>")
+			to_chat(user, SPAN_WARNING("Maintenance protocols are in effect."))
 		return
 
 	var/obj/item/cell/C = get_cell()
 	if(!C || !C.check_charge(legs.power_use * CELLRATE))
 		if(user)
-			to_chat(user, "<span class='warning'>The power indicator flashes briefly.</span>")
+			to_chat(user, SPAN_WARNING("The power indicator flashes briefly."))
 		return
 
 	return TRUE
@@ -37,19 +37,30 @@
 	return offset_x
 
 /mob/living/heavy_vehicle/proc/toggle_maintenance_protocols()
-	var/obj/screen/mecha/toggle/maint/M = locate() in hud_elements
-	M.toggled()
-	return TRUE
+	var/atom/movable/screen/mecha/toggle/maint/M = locate() in hud_elements
+	if(M)
+		M.toggled()
+		return TRUE
 
 /mob/living/heavy_vehicle/proc/toggle_hatch()
-	var/obj/screen/mecha/toggle/hatch_open/H = locate() in hud_elements
-	H.toggled()
-	return TRUE
+	var/atom/movable/screen/mecha/toggle/hatch_open/H = locate() in hud_elements
+	if(H)
+		H.toggled()
+		return TRUE
+
+/// Called by voice command
+/// Ensures the hud element for power is updated, and sends special condition to have messages not be sent to the user
+/mob/living/heavy_vehicle/proc/toggle_power_remote()
+	var/atom/movable/screen/mecha/toggle/power_control/P = locate() in hud_elements
+	if(P)
+		P.toggled(TRUE)
+		return TRUE
 
 /mob/living/heavy_vehicle/proc/toggle_lock()
-	var/obj/screen/mecha/toggle/hatch/L = locate() in hud_elements
-	L.toggled()
-	return TRUE
+	var/atom/movable/screen/mecha/toggle/hatch/L = locate() in hud_elements
+	if(L)
+		L.toggled()
+		return TRUE
 
 /mob/living/heavy_vehicle/proc/can_listen()
 	return TRUE

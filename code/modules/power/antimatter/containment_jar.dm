@@ -4,7 +4,7 @@
 	desc_antag = "Antimatter is extremely volatile, and containment jars are not particularly strong. Weak explosions will reduce the container's integrity, and larger ones will cause it to explode immediately."
 	icon = 'icons/obj/machinery/antimatter.dmi'
 	icon_state = "jar"
-	force = 8
+	force = 18
 	throwforce = 10
 	throw_speed = 1
 	throw_range = 2

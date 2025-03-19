@@ -24,7 +24,10 @@
 	set src in usr
 
 	chamber_offset = 0
-	usr.visible_message("<span class='warning'>\The [usr] spins the cylinder of \the [src]!</span>", "<span class='warning'>You spin the cylinder of \the [src]!</span>", "<span class='notice'>You hear something metallic spin and click.</span>")
+	usr.visible_message(SPAN_WARNING("\The [usr] spins the cylinder of \the [src]!"),
+						SPAN_WARNING("You spin the cylinder of \the [src]!"),
+						SPAN_NOTICE("You hear something metallic spin and click."))
+
 	playsound(src.loc, 'sound/weapons/revolver_spin.ogg', 100, 1)
 	loaded = shuffle(loaded)
 	if(rand(1,max_shells) > loaded.len)
@@ -71,7 +74,7 @@
 	accuracy_wielded = 1
 	fire_delay = ROF_UNWIELDY
 	fire_delay_wielded = ROF_SUPERHEAVY
-	force = 10
+	force = 15
 	recoil = 10
 	recoil_wielded = 5
 
@@ -85,11 +88,11 @@
 			if(H.mob_size <10)
 				H.visible_message(SPAN_WARNING("\The [src] flies out of \the [H]'s' hand!"), SPAN_WARNING("\The [src] flies out of your hand!"))
 				H.drop_item(src)
-				src.throw_at(get_edge_target_turf(src, GLOB.reverse_dir[H.dir]), 2, 2)
+				src.throw_at(get_edge_target_turf(src, REVERSE_DIR(H.dir)), 2, 2)
 
 /obj/item/gun/projectile/revolver/detective
 	name = "antique revolver"
-	desc = "An old, obsolete revolver. It has no identifying marks, and is chambered in an equally antiquated caliber. Maybe the Tajara made it?"
+	desc = "An old, obsolete revolver. It has no identifying marks, and is chambered in an equally antiquated caliber."
 	icon = 'icons/obj/guns/detective.dmi'
 	icon_state = "detective"
 	item_state = "detective"
@@ -111,7 +114,7 @@
 	var/mob/M = usr
 	if(!M.mind)	return 0
 	if(!M.mind.assigned_role == "Investigator")
-		to_chat(M, "<span class='notice'>You don't feel cool enough to name this gun, chump.</span>")
+		to_chat(M, SPAN_NOTICE("You don't feel cool enough to name this gun, chump."))
 		return 0
 
 	var/input = sanitizeSafe(input("What do you want to name the gun?", ,""), MAX_NAME_LEN)
@@ -128,7 +131,7 @@
 	icon_state = "derringer"
 	item_state = "derringer"
 	accuracy = -1
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ILLEGAL = 3)
 	handle_casings = CYCLE_CASINGS
 	load_method = SINGLE_CASING
@@ -153,7 +156,7 @@
 /obj/item/gun/projectile/revolver/capgun/attackby(obj/item/attacking_item, mob/user)
 	if(!attacking_item.iswirecutter() || icon_state == "revolver")
 		return ..()
-	to_chat(user, "<span class='notice'>You snip off the toy markings off the [src].</span>")
+	to_chat(user, SPAN_NOTICE("You snip off the toy markings off the [src]."))
 	icon = 'icons/obj/guns/revolver.dmi'
 	name = "revolver"
 	icon_state = "revolver"
@@ -198,7 +201,7 @@
 	. = ..()
 
 /obj/item/gun/projectile/revolver/lemat/unique_action(mob/living/user)
-	to_chat(user, "<span class='notice'>You change the firing mode on \the [src].</span>")
+	to_chat(user, SPAN_NOTICE("You change the firing mode on \the [src]."))
 	if(!flipped_firing)
 		if(max_shells && secondary_max_shells)
 			max_shells = secondary_max_shells
@@ -240,8 +243,8 @@
 	set src in usr
 
 	chamber_offset = 0
-	visible_message("<span class='warning'>\The [usr] spins the cylinder of \the [src]!</span>", \
-	"<span class='notice'>You hear something metallic spin and click.</span>")
+	visible_message(SPAN_WARNING("\The [usr] spins the cylinder of \the [src]!"), \
+	SPAN_NOTICE("You hear something metallic spin and click."))
 	playsound(src.loc, 'sound/weapons/revolver_spin.ogg', 100, 1)
 	if(!flipped_firing)
 		loaded = shuffle(loaded)
@@ -288,7 +291,7 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 	ammo_type = /obj/item/ammo_casing/c38
 	magazine_type = /obj/item/ammo_magazine/c38
-	force = 15
+	force = 22
 	sharp = TRUE
 	edge = TRUE
 	fire_delay = ROF_PISTOL
@@ -297,8 +300,8 @@
 	if(default_parry_check(user, attacker, damage_source) && prob(20))
 		user.visible_message(SPAN_DANGER("\The [user] parries [attack_text] with \the [src]!"))
 		playsound(user.loc, "punchmiss", 50, 1)
-		return PROJECTILE_STOPPED
-	return FALSE
+		return BULLET_ACT_BLOCK
+	return BULLET_ACT_HIT
 
 /obj/item/gun/projectile/revolver/konyang/pirate
 	name = "reclaimed revolver"
@@ -328,7 +331,7 @@
 	icon = 'icons/obj/guns/konyang_weapons.dmi'
 	icon_state = "police_gun"
 	item_state = "police_gun"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	caliber = ".45"
 	ammo_type = /obj/item/ammo_casing/c45/revolver
 	magazine_type = /obj/item/ammo_magazine/c45/revolver

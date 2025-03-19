@@ -4,8 +4,10 @@
 	icon = 'icons/obj/geiger_counter.dmi'
 	icon_state = "geiger_off"
 	item_state = "multitool"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	action_button_name = "Toggle geiger counter"
+	matter = list(MATERIAL_PLASTIC = 100, DEFAULT_WALL_MATERIAL = 100, MATERIAL_GLASS = 50)
+	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 1)
 	var/scanning = 0
 	var/radiation_count = 0
 	var/datum/sound_token/sound_token
@@ -18,7 +20,7 @@
 
 /obj/item/device/geiger/proc/update_sound(playing)
 	if(playing && !sound_token)
-		sound_token = sound_player.PlayLoopingSound(src, sound_id, 'sound/items/geiger.ogg', volume = geiger_volume, range = 4, falloff = 3, prefer_mute = TRUE)
+		sound_token = GLOB.sound_player.PlayLoopingSound(src, sound_id, 'sound/items/geiger.ogg', volume = geiger_volume, range = 4, falloff = 3, prefer_mute = TRUE)
 	else if(!playing && sound_token)
 		QDEL_NULL(sound_token)
 

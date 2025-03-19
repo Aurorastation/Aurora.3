@@ -1,4 +1,4 @@
-var/datum/uplink_random_selection/default_uplink_selection = new/datum/uplink_random_selection/default()
+GLOBAL_DATUM_INIT(default_uplink_selection, /datum/uplink_random_selection, new/datum/uplink_random_selection/default())
 
 /datum/uplink_random_item
 	var/uplink_item				// The uplink item
@@ -12,7 +12,7 @@ var/datum/uplink_random_selection/default_uplink_selection = new/datum/uplink_ra
 	src.keep_probability = keep_probability
 	src.reselect_probability = reselect_probability
 
-/datum/uplink_random_selection
+ABSTRACT_TYPE(/datum/uplink_random_selection)
 	var/list/datum/uplink_random_item/items
 
 /datum/uplink_random_selection/New()
@@ -26,7 +26,7 @@ var/datum/uplink_random_selection/default_uplink_selection = new/datum/uplink_ra
 		var/datum/uplink_random_item/RI = pick(items)
 		if(!prob(RI.keep_probability))
 			continue
-		var/datum/uplink_item/I = uplink.items_assoc[RI.uplink_item]
+		var/datum/uplink_item/I = GLOB.uplink.items_assoc[RI.uplink_item]
 		if(I.telecrystal_cost(telecrystals) > telecrystals)
 			continue
 		if(bought_items && (I in bought_items) && !prob(RI.reselect_probability))
@@ -93,6 +93,6 @@ var/datum/uplink_random_selection/default_uplink_selection = new/datum/uplink_ra
 		A.print_player_summary()
 
 /proc/debug_uplink_item_assoc_list()
-	for(var/key in uplink.items_assoc)
-		to_world("[key] - [uplink.items_assoc[key]]")
+	for(var/key in GLOB.uplink.items_assoc)
+		to_world("[key] - [GLOB.uplink.items_assoc[key]]")
 #endif

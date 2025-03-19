@@ -1,5 +1,6 @@
 /obj/machinery/computer/fusion
 	icon_keyboard = "yellow_key"
+	icon_keyboard_emis = "yellow_key_mask"
 	icon_screen = "solar"
 	light_color = COLOR_ORANGE
 	idle_power_usage = 250

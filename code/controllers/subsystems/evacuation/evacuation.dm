@@ -1,4 +1,4 @@
-var/datum/evacuation_controller/evacuation_controller
+GLOBAL_DATUM(evacuation_controller, /datum/evacuation_controller)
 
 /datum/evacuation_controller
 
@@ -38,8 +38,7 @@ var/datum/evacuation_controller/evacuation_controller
 	recall = _recall
 
 /datum/evacuation_controller/proc/set_up()
-	set waitfor=0
-	set background=1
+	return
 
 /datum/evacuation_controller/proc/get_cooldown_message()
 	return "An evacuation cannot be called at this time. Please wait another [round((evac_cooldown_time-world.time)/600)] minute\s before trying again."
@@ -82,7 +81,7 @@ var/datum/evacuation_controller/evacuation_controller
 	state = EVAC_PREPPING
 	switch(evacuation_type)
 		if(TRANSFER_EMERGENCY)
-			for(var/area/A in GLOB.all_areas)
+			for(var/area/A in get_sorted_areas())
 				if(istype(A, /area/hallway))
 					A.readyalert()
 			if(!skip_announce)
@@ -112,7 +111,7 @@ var/datum/evacuation_controller/evacuation_controller
 	switch(evacuation_type)
 		if(TRANSFER_EMERGENCY)
 			evac_recalled.Announce(SSatlas.current_map.emergency_shuttle_recall_message, new_sound = 'sound/AI/emergency_shuttle_recall_message.ogg')
-			for(var/area/A in GLOB.all_areas)
+			for(var/area/A in get_sorted_areas())
 				if(istype(A, /area/hallway))
 					A.readyreset()
 		if(TRANSFER_JUMP)

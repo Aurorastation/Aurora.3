@@ -1,4 +1,4 @@
-var/datum/antagonist/cultist/cult
+GLOBAL_DATUM(cult, /datum/antagonist/cultist)
 
 /proc/iscultist(var/mob/player)
 	if(player.faction == "cult")
@@ -6,7 +6,7 @@ var/datum/antagonist/cultist/cult
 	if(player.mind)
 		if(player.mind.antag_datums[MODE_CULTIST])
 			return TRUE
-		if(cult && (player.mind in cult.current_antagonists))
+		if(GLOB.cult && (player.mind in GLOB.cult.current_antagonists))
 			return TRUE
 	return FALSE
 
@@ -19,7 +19,6 @@ var/datum/antagonist/cultist/cult
 	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Investigator")
 	feedback_tag = "cult_objective"
 	antag_indicator = "cult"
-	welcome_text = "You have a talisman in your possession; one that will help you start the cult on this station. Use it well and remember - there are others."
 	antag_sound = 'sound/effects/antag_notice/cult_alert.ogg'
 	victory_text = "The cult wins! It has succeeded in serving its dark masters!"
 	loss_text = "The staff managed to stop the cult!"
@@ -42,7 +41,8 @@ var/datum/antagonist/cultist/cult
 
 /datum/antagonist/cultist/New()
 	..()
-	cult = src
+	welcome_text = "You have a talisman in your possession; one that will help you start the cult on the [station_name(TRUE)]. Use it well and remember - there are others."
+	GLOB.cult = src
 
 /datum/antagonist/cultist/create_global_objectives()
 
@@ -71,7 +71,7 @@ var/datum/antagonist/cultist/cult
 /datum/antagonist/cultist/remove_antagonist(var/datum/mind/player, var/show_message, var/implanted)
 	if(!..())
 		return 0
-	to_chat(player.current, "<span class='danger'>An unfamiliar white light flashes through your mind, cleansing the taint of the dark-one and the memories of your time as his servant with it.</span>")
+	to_chat(player.current, SPAN_DANGER("An unfamiliar white light flashes through your mind, cleansing the taint of the dark-one and the memories of your time as his servant with it."))
 	player.memory = ""
 	if(show_message)
 		player.current.visible_message("<FONT size = 3>[player.current] looks like they just reverted to their old faith!</FONT>")
@@ -79,8 +79,13 @@ var/datum/antagonist/cultist/cult
 		player.current.remove_language(LANGUAGE_CULT)
 		player.current.remove_language(LANGUAGE_OCCULT)
 
-/datum/antagonist/cultist/add_antagonist(var/datum/mind/player)
-	. = ..()
+	remove_verb(player.current, /datum/antagonist/cultist/proc/appraise_offering)
+	remove_verb(player.current, /datum/cultist/proc/memorize_rune)
+	remove_verb(player.current, /datum/cultist/proc/forget_rune)
+	remove_verb(player.current, /datum/cultist/proc/scribe_rune)
+
+/datum/antagonist/cultist/add_antagonist(var/datum/mind/player, var/do_not_equip)
+	. = ..(player, do_not_equip=do_not_equip)
 	if(.)
 		to_chat(player, "You catch a glimpse of the Realm of Nar-Sie, the Geometer of Blood. You now see how flimsy the world is, you see that it should be open to the knowledge of That Which Waits. Assist your new compatriots in their dark dealings. Their goals are yours, and yours are theirs. You serve the Dark One above all else. Bring It back.")
 		if(player.current && !istype(player.current, /mob/living/simple_animal/construct))
@@ -91,15 +96,6 @@ var/datum/antagonist/cultist/cult
 			add_verb(player.current, /datum/cultist/proc/forget_rune)
 			add_verb(player.current, /datum/cultist/proc/scribe_rune)
 			player.antag_datums[MODE_CULTIST] = new /datum/cultist()
-
-
-/datum/antagonist/cultist/remove_antagonist(var/datum/mind/player)
-	. = ..()
-
-	remove_verb(player.current, /datum/antagonist/cultist/proc/appraise_offering)
-	remove_verb(player.current, /datum/cultist/proc/memorize_rune)
-	remove_verb(player.current, /datum/cultist/proc/forget_rune)
-	remove_verb(player.current, /datum/cultist/proc/scribe_rune)
 
 /datum/antagonist/cultist/can_become_antag(var/datum/mind/player, ignore_role = 1)
 	if(!..())
@@ -123,7 +119,7 @@ var/datum/antagonist/cultist/cult
 	if(!istype(target))
 		return
 
-	if(!cult.can_become_antag(target.mind) || jobban_isbanned(target, "cultist") || player_is_antag(target.mind))
+	if(!GLOB.cult.can_become_antag(target.mind) || jobban_isbanned(target, "cultist") || player_is_antag(target.mind))
 		to_chat(usr, SPAN_CULT("You get the sense that [target] would be an unworthy offering."))
 	else
 		to_chat(usr, SPAN_CULT("You get the sense that your master would be pleased to welcome [target] into the cult."))

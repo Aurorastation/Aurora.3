@@ -3,7 +3,7 @@
 	desc = "An ancient but well-liked cargo handling exosuit."
 
 	e_head = /obj/item/mech_component/sensors/ripley
-	e_body = /obj/item/mech_component/chassis/ripley
+	e_body = /obj/item/mech_component/chassis/ripley/cell
 	e_arms = /obj/item/mech_component/manipulators/ripley
 	e_legs = /obj/item/mech_component/propulsion/ripley
 	e_color = COLOR_RIPLEY
@@ -24,6 +24,10 @@
 /mob/living/heavy_vehicle/premade/ripley/loader/sol/damaged
 	name = "damaged solarian powerloader"
 	h_l_hand = null
+
+/mob/living/heavy_vehicle/premade/ripley/loader/tcaf
+	name = "TCAF powerloader"
+	e_color = COLOR_TCFL
 
 /mob/living/heavy_vehicle/premade/ripley/janitorial
 	name = "janitorial power loader"
@@ -80,6 +84,12 @@
 	. = ..()
 	mech_armor = new /obj/item/robot_parts/robot_component/armor/mech(src)
 
+/obj/item/mech_component/chassis/ripley/cell
+	cell_type = /obj/item/cell/mecha
+
+/obj/item/mech_component/chassis/ripley/nuclear
+	cell_type = /obj/item/cell/mecha/nuclear
+
 /obj/item/mech_component/chassis/ripley/Initialize()
 	pilot_positions = list(
 		list(
@@ -115,7 +125,7 @@
 	icon_state = "firefighter"
 
 	e_head = /obj/item/mech_component/sensors/ripley
-	e_body = /obj/item/mech_component/chassis/ripley
+	e_body = /obj/item/mech_component/chassis/ripley/cell
 	e_arms = /obj/item/mech_component/manipulators/ripley
 	e_legs = /obj/item/mech_component/propulsion/ripley
 	e_color = "#385b3c"
@@ -143,7 +153,7 @@
 	decal = "ripley_legion"
 
 	e_head = /obj/item/mech_component/sensors/combatripley
-	e_body = /obj/item/mech_component/chassis/ripley
+	e_body = /obj/item/mech_component/chassis/ripley/nuclear
 	e_arms = /obj/item/mech_component/manipulators/ripley
 	e_legs = /obj/item/mech_component/propulsion/ripley
 	e_color = COLOR_TCFL

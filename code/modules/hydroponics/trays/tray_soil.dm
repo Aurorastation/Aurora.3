@@ -30,7 +30,7 @@
 	if(istype(attacking_item, /obj/item/shovel))
 		if(attacking_item.use_tool(src, user, 50, volume = 50))
 			new /obj/item/stack/material/sandstone{amount = 3}(loc)
-			to_chat(user, "<span class='notice'>You remove the soil from the bed and dismantle the sandstone base.</span>")
+			to_chat(user, SPAN_NOTICE("You remove the soil from the bed and dismantle the sandstone base."))
 			playsound(src, 'sound/effects/stonedoor_openclose.ogg', 40, 1)
 			qdel(src)
 	else
@@ -51,7 +51,7 @@
 	icon_state = "blank"
 
 /obj/machinery/portable_atmospherics/hydroponics/soil/invisible/Initialize(var/newloc,var/datum/seed/newseed,var/start_mature)
-	..()
+	. = ..()
 	seed = newseed
 	dead = 0
 	age = start_mature ? seed.get_trait(TRAIT_MATURATION) : 1

@@ -4,8 +4,7 @@
 	sort_category = "Modular Computers"
 	cost = 2
 
-/datum/gear/computer/handheld
-	abstract_type = /datum/gear/computer/handheld
+ABSTRACT_TYPE(/datum/gear/computer/handheld)
 
 /datum/gear/computer/handheld/tablet
 	display_name = "tablet"
@@ -26,8 +25,7 @@
 	tablets["machinist tablet"] = /obj/item/modular_computer/handheld/preset/supply/machinist
 	gear_tweaks += new /datum/gear_tweak/path(tablets)
 
-/datum/gear/computer/handheld/wristbound
-	abstract_type = /datum/gear/computer/handheld/wristbound
+ABSTRACT_TYPE(/datum/gear/computer/handheld/wristbound)
 
 /datum/gear/computer/handheld/wristbound/selection
 	display_name = "wristbound computer selection"

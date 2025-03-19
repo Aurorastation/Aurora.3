@@ -27,6 +27,16 @@
 	icon_connect_type = "-aux"
 	connect_types = CONNECT_TYPE_AUX
 
+/obj/machinery/atmospherics/portables_connector/supply
+	icon_state = "map_connector-supply"
+	icon_connect_type = "-supply"
+	connect_types = CONNECT_TYPE_SUPPLY
+
+/obj/machinery/atmospherics/portables_connector/scrubber
+	icon_state = "map_connector-scrubber"
+	icon_connect_type = "-scrubber"
+	connect_types = CONNECT_TYPE_SCRUBBER
+
 
 /obj/machinery/atmospherics/portables_connector/Initialize()
 	initialize_directions = dir
@@ -146,7 +156,7 @@
 	if (!attacking_item.iswrench())
 		return ..()
 	if (connected_device)
-		to_chat(user, "<span class='warning'>You cannot unwrench \the [src], dettach \the [connected_device] first.</span>")
+		to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], dettach \the [connected_device] first."))
 		return TRUE
 	if (locate(/obj/machinery/portable_atmospherics, src.loc))
 		return TRUE
@@ -154,14 +164,14 @@
 	if(!loc) return FALSE
 	var/datum/gas_mixture/env_air = loc.return_air()
 	if ((int_air.return_pressure()-env_air.return_pressure()) > PRESSURE_EXERTED)
-		to_chat(user, "<span class='warning'>You cannot unwrench \the [src], it too exerted due to internal pressure.</span>")
+		to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], it too exerted due to internal pressure."))
 		add_fingerprint(user)
 		return TRUE
-	to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
+	to_chat(user, SPAN_NOTICE("You begin to unfasten \the [src]..."))
 	if(attacking_item.use_tool(src, user, istype(attacking_item, /obj/item/pipewrench) ? 80 : 40, volume = 50))
 		user.visible_message( \
-			"<span class='notice'>\The [user] unfastens \the [src].</span>", \
-			"<span class='notice'>You have unfastened \the [src].</span>", \
+			SPAN_NOTICE("\The [user] unfastens \the [src]."), \
+			SPAN_NOTICE("You have unfastened \the [src]."), \
 			"You hear a ratchet.")
 		new /obj/item/pipe(loc, make_from=src)
 		qdel(src)

@@ -6,14 +6,14 @@
 	icon_state = ""
 	var/on_mech_icon_state
 	matter = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_PLASTIC = 5000, MATERIAL_OSMIUM = 500)
-	force = 10
+	force = 15
 	var/restricted_hardpoints
 	var/mob/living/heavy_vehicle/owner
 	var/list/restricted_software
 	var/mech_layer = MECH_GEAR_LAYER
 	var/equipment_delay = 0
 	var/passive_power_use = 0
-	var/active_power_use = 1 KILOWATTS
+	var/active_power_use = 1 KILO WATTS
 	var/require_adjacent = TRUE
 	var/active = FALSE //For gear that has an active state (ie, floodlights)
 
@@ -26,7 +26,7 @@
 		var/software = english_list(restricted_software, and_text = ", ")
 		. += SPAN_NOTICE("<b>Exosuit Software Requirement:</b> [software]")
 
-/obj/item/mecha_equipment/attack() //Generally it's not desired to be able to attack with items
+/obj/item/mecha_equipment/attack(mob/living/target_mob, mob/living/user, target_zone) //Generally it's not desired to be able to attack with items
 	return 0
 
 /obj/item/mecha_equipment/proc/get_effective_obj()
@@ -45,7 +45,7 @@
 			return 0
 
 		if(!(owner.get_cell()?.check_charge(active_power_use * CELLRATE)))
-			to_chat(user, "<span class='warning'>The power indicator flashes briefly as you attempt to use \the [src].</span>")
+			to_chat(user, SPAN_WARNING("The power indicator flashes briefly as you attempt to use \the [src]."))
 			return 0
 		return 1
 	else
@@ -54,7 +54,7 @@
 /obj/item/mecha_equipment/attack_self(var/mob/user)
 	if (owner && loc == owner && ((user in owner.pilots) || user == owner))
 		if(!(owner.get_cell()?.check_charge(active_power_use * CELLRATE)))
-			to_chat(user, "<span class='warning'>The power indicator flashes briefly as you attempt to use \the [src].</span>")
+			to_chat(user, SPAN_WARNING("The power indicator flashes briefly as you attempt to use \the [src]."))
 			return 0
 		return 1
 	else
@@ -92,14 +92,14 @@
 
 /obj/item/mecha_equipment/mounted_system/proc/forget_holding()
 	if(holding) //It'd be strange for this to be called with this var unset
-		GLOB.destroyed_event.unregister(holding, src, PROC_REF(forget_holding))
+		UnregisterSignal(holding, COMSIG_QDELETING)
 		holding = null
 
 /obj/item/mecha_equipment/mounted_system/Initialize()
 	. = ..()
 	if(holding_type)
 		holding = new holding_type(src)
-		GLOB.destroyed_event.register(holding, src, PROC_REF(forget_holding))
+		RegisterSignal(holding, COMSIG_QDELETING, PROC_REF(forget_holding))
 	if(holding)
 		if(!icon_state)
 			icon = holding.icon

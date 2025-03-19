@@ -1,8 +1,13 @@
-var/list/obj/machinery/photocopier/faxmachine/allfaxes = list()
-var/list/arrived_faxes = list()	//cache for faxes that have been sent to the admins
-var/list/sent_faxes = list()	//cache for faxes that have been sent by the admins
-var/list/alldepartments = list()
-var/list/admin_departments
+GLOBAL_LIST_EMPTY_TYPED(allfaxes, /obj/machinery/photocopier/faxmachine)
+
+///cache for faxes that have been sent to the admins
+GLOBAL_LIST_EMPTY_TYPED(arrived_faxes, /obj/item)
+
+///cache for faxes that have been sent by the admins
+GLOBAL_LIST_EMPTY_TYPED(sent_faxes, /obj/item)
+
+GLOBAL_LIST_EMPTY(alldepartments)
+GLOBAL_LIST_EMPTY(admin_departments)
 
 /obj/machinery/photocopier/faxmachine
 	name = "fax machine"
@@ -35,13 +40,13 @@ var/list/admin_departments
 
 /obj/machinery/photocopier/faxmachine/Initialize()
 	. = ..()
-	allfaxes += src
-	if( !(("[department]" in alldepartments) || ("[department]" in admin_departments)) )
-		alldepartments |= department
+	GLOB.allfaxes += src
+	if( !(("[department]" in GLOB.alldepartments) || ("[department]" in GLOB.admin_departments)) )
+		GLOB.alldepartments |= department
 	destination = SSatlas.current_map.boss_name
 
 /obj/machinery/photocopier/faxmachine/Destroy()
-	allfaxes -= src
+	GLOB.allfaxes -= src
 	QDEL_NULL(identification)
 
 	. = ..()
@@ -63,9 +68,9 @@ var/list/admin_departments
 	data["alertpdas"] = list()
 	if (alert_pdas && alert_pdas.len)
 		for (var/obj/item/modular_computer/pda in alert_pdas)
-			data["alertpdas"] += list(list("name" = "[alert_pdas[pda]]", "ref" = "\ref[pda]"))
+			data["alertpdas"] += list(list("name" = "[alert_pdas[pda]]", "ref" = "[REF(pda)]"))
 	data["departments"] = list()
-	for (var/dept in (alldepartments + admin_departments + broadcast_departments))
+	for (var/dept in (GLOB.alldepartments + GLOB.admin_departments + broadcast_departments))
 		data["departments"] += "[dept]"
 
 	return data
@@ -89,11 +94,11 @@ var/list/admin_departments
 		if("send")
 			if (get_remaining_cooldown() > 0)
 				// Rate-limit sending faxes
-				to_chat(usr, "<span class='warning'>The fax machine isn't ready, yet!</span>")
+				to_chat(usr, SPAN_WARNING("The fax machine isn't ready, yet!"))
 				return
 
 			if(copy_item && is_authenticated())
-				if (destination in admin_departments)
+				if (destination in GLOB.admin_departments)
 					send_admin_fax(usr, destination)
 				else if (destination == broadcast_departments)
 					send_broadcast_fax()
@@ -106,9 +111,9 @@ var/list/admin_departments
 				copy_item.forceMove(loc)
 				if (get_dist(usr, src) < 2)
 					usr.put_in_hands(copy_item)
-					to_chat(usr, "<span class='notice'>You take \the [copy_item] out of \the [src].</span>")
+					to_chat(usr, SPAN_NOTICE("You take \the [copy_item] out of \the [src]."))
 				else
-					to_chat(usr, "<span class='notice'>You eject \the [copy_item] from \the [src].</span>")
+					to_chat(usr, SPAN_NOTICE("You eject \the [copy_item] from \the [src]."))
 				copy_item = null
 				return TRUE
 
@@ -134,23 +139,23 @@ var/list/admin_departments
 		if("linkpda")
 			var/obj/item/modular_computer/pda = usr.get_active_hand()
 			if (!pda || !istype(pda))
-				to_chat(usr, "<span class='warning'>You need to be holding a PDA to link it.</span>")
+				to_chat(usr, SPAN_WARNING("You need to be holding a PDA to link it."))
 			else if (pda in alert_pdas)
-				to_chat(usr, "<span class='notice'>\The [pda] appears to be already linked.</span>")
+				to_chat(usr, SPAN_NOTICE("\The [pda] appears to be already linked."))
 				//Update the name real quick.
 				alert_pdas[pda] = pda.name
 				return TRUE
 			else
 				alert_pdas += pda
 				alert_pdas[pda] = pda.name
-				to_chat(usr, "<span class='notice'>You link \the [pda] to \the [src]. It will now ping upon the arrival of a fax to this machine.</span>")
+				to_chat(usr, SPAN_NOTICE("You link \the [pda] to \the [src]. It will now ping upon the arrival of a fax to this machine."))
 				return TRUE
 
 		if("unlink")
 			var/obj/item/modular_computer/pda = locate(params["unlink"])
 			if (pda && istype(pda))
 				if (pda in alert_pdas)
-					to_chat(usr, "<span class='notice'>You unlink [alert_pdas[pda]] from \the [src]. It will no longer be notified of new faxes.</span>")
+					to_chat(usr, SPAN_NOTICE("You unlink [alert_pdas[pda]] from \the [src]. It will no longer be notified of new faxes."))
 					alert_pdas -= pda
 					return TRUE
 
@@ -207,7 +212,7 @@ var/list/admin_departments
 	use_power_oneoff(200)
 
 	var/success = 0
-	for(var/obj/machinery/photocopier/faxmachine/F in allfaxes)
+	for(var/obj/machinery/photocopier/faxmachine/F in GLOB.allfaxes)
 		if( F.department == destination )
 			success = F.receivefax(copy_item)
 
@@ -249,7 +254,7 @@ var/list/admin_departments
 
 /obj/machinery/photocopier/faxmachine/proc/send_broadcast_fax()
 	var success = 1
-	for (var/dest in (alldepartments - department))
+	for (var/dest in (GLOB.alldepartments - department))
 		// Send to everyone except this department
 		sleep(1)
 		success &= sendfax(dest, 0)	// 0: don't display success/error messages
@@ -281,7 +286,7 @@ var/list/admin_departments
 		return
 
 	rcvdcopy.forceMove(null)  //hopefully this shouldn't cause trouble
-	arrived_faxes += rcvdcopy
+	GLOB.arrived_faxes += rcvdcopy
 
 	//message badmins that a fax has arrived
 	if (destination == SSatlas.current_map.boss_name)
@@ -295,7 +300,7 @@ var/list/admin_departments
 
 
 /obj/machinery/photocopier/faxmachine/proc/message_admins(var/mob/sender, var/faxname, var/obj/item/sent, var/reply_type, font_colour="#006100")
-	var/msg = "<span class='notice'> <b><font color='[font_colour]'>[faxname]: </font>[key_name(sender, 1)] (<A HREF='?_src_=holder;adminplayeropts=\ref[sender]'>PP</A>) (<A HREF='?_src_=vars;Vars=\ref[sender]'>VV</A>) (<A HREF='?_src_=holder;subtlemessage=\ref[sender]'>SM</A>) (<A HREF='?_src_=holder;adminplayerobservejump=\ref[sender]'>JMP</A>) (<A HREF='?_src_=holder;secretsadmin=check_antagonist'>CA</A>) (<a href='?_src_=holder;[reply_type]=\ref[src];faxMachine=\ref[src]'>REPLY</a>)</b>: Receiving '[sent.name]' via secure connection ... <a href='?_src_=holder;AdminFaxView=\ref[sent]'>view message</a></span>"
+	var/msg = SPAN_NOTICE(" <b><font color='[font_colour]'>[faxname]: </font>[key_name(sender, 1)] (<A href='byond://?_src_=holder;adminplayeropts=[REF(sender)]'>PP</A>) (<A href='byond://?_src_=vars;Vars=[REF(sender)]'>VV</A>) (<A href='byond://?_src_=holder;subtlemessage=[REF(sender)]'>SM</A>) (<A href='byond://?_src_=holder;adminplayerobservejump=[REF(sender)]'>JMP</A>) (<A href='byond://?_src_=holder;secretsadmin=check_antagonist'>CA</A>) (<a href='byond://?_src_=holder;[reply_type]=[REF(src)];faxMachine=[REF(src)]'>REPLY</a>)</b>: Receiving '[sent.name]' via secure connection ... <a href='byond://?_src_=holder;AdminFaxView=[REF(sent)]'>view message</a>")
 
 	var/cciaa_present = 0
 	var/cciaa_afk = 0

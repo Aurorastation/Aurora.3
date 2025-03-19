@@ -1,0 +1,36 @@
+[package]
+name = "bapi"
+version = "1.0.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+crate-type = ["cdylib"]
+
+# -------------------------------------------------------
+
+[dependencies]
+
+# byondapi
+byondapi = { git = "https://github.com/spacestation13/byondapi-rs", rev = "5afdd9863a0fc1d8d1d42dd2128c9978f54e12ca" }
+# spacemandmm, also used by strongmandmm
+dmmtools = { git = "https://github.com/SpaceManiac/SpacemanDMM", rev = "6c5a751516ae0e8add4b2aa4388a1e84e96e7082", package = "dmm-tools" }
+# error-handling
+eyre = "0.6.12"
+# diffs between two strings/texts/files, used in tests
+diff = "0.1"
+# general utility lib for iterator operations
+itertools = "0.10.5"
+# fast hashmap
+fxhash = "0.2.1"
+# generating random numbers
+rand = "^0.8"
+# interface for serialization
+serde = { version = "1.0", features = ["derive"] }
+# json implementation for serde
+serde_json = { version = "1.0" }
+# utility function for walking through a dir recursively
+walkdir = "2.5.0"
+# regex
+regex = "1.10.5"

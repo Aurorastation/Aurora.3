@@ -35,9 +35,10 @@
 	minbodytemp = 0
 
 	faction = "mimic"
-	move_to_delay = 8
+	speed = 8
 
 	tameable = FALSE
+	sample_data = null
 
 /mob/living/simple_animal/hostile/mimic/FindTarget()
 	. = ..()
@@ -84,6 +85,12 @@
 	if(.)
 		icon_state = initial(icon_state)
 
+	var/mob/living/L = .
+	if(istype(L))
+		if(prob(15))
+			L.Weaken(2)
+			L.visible_message(SPAN_DANGER("\the [src] knocks down \the [L]!"))
+
 /mob/living/simple_animal/hostile/mimic/crate/proc/trigger()
 	if(!attempt_open)
 		visible_message("<b>[src]</b> starts to move!")
@@ -109,19 +116,11 @@
 		O.forceMove(C)
 	..()
 
-/mob/living/simple_animal/hostile/mimic/crate/AttackingTarget()
-	. =..()
-	var/mob/living/L = .
-	if(istype(L))
-		if(prob(15))
-			L.Weaken(2)
-			L.visible_message("<span class='danger'>\the [src] knocks down \the [L]!</span>")
-
 //
 // Copy Mimic
 //
 
-var/global/list/protected_objects = list(/obj/structure/table, /obj/structure/cable, /obj/structure/window, /obj/item/projectile/animate)
+GLOBAL_LIST_INIT(protected_objects, list(/obj/structure/table, /obj/structure/cable, /obj/structure/window, /obj/projectile/animate))
 
 /mob/living/simple_animal/hostile/mimic/copy
 
@@ -146,7 +145,7 @@ var/global/list/protected_objects = list(/obj/structure/table, /obj/structure/ca
 
 /mob/living/simple_animal/hostile/mimic/copy/proc/CopyObject(var/obj/O, var/mob/living/creator)
 
-	if((istype(O, /obj/item) || istype(O, /obj/structure)) && !is_type_in_list(O, protected_objects))
+	if((istype(O, /obj/item) || istype(O, /obj/structure)) && !is_type_in_list(O, GLOB.protected_objects))
 
 		O.forceMove(src)
 		appearance = O
@@ -164,12 +163,12 @@ var/global/list/protected_objects = list(/obj/structure/table, /obj/structure/ca
 			health = 15 * I.w_class
 			melee_damage_lower = 2 + I.force
 			melee_damage_upper = 2 + I.force
-			move_to_delay = 2 * I.w_class
+			speed = 2 * I.w_class
 
 		maxHealth = health
 		if(creator)
 			src.creator = creator
-			faction = "\ref[creator]" // very unique
+			faction = "[REF(creator)]" // very unique
 		return 1
 	return
 
@@ -184,4 +183,4 @@ var/global/list/protected_objects = list(/obj/structure/table, /obj/structure/ca
 		if(istype(L))
 			if(prob(15))
 				L.Weaken(1)
-				L.visible_message("<span class='danger'>\the [src] knocks down \the [L]!</span>")
+				L.visible_message(SPAN_DANGER("\the [src] knocks down \the [L]!"))

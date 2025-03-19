@@ -11,14 +11,20 @@
 	icon_state = "id_mod"
 	item_state = "electronic"
 	origin_tech = list(TECH_DATA = 2)
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	force = 5
+	force = 11
 	throwforce = 5
 	throw_speed = 3
 	throw_range = 15
 	var/build_path
-	var/board_type = "computer"
+
+	/**
+	 * The type of board
+	 *
+	 * One of the BOARD_* defines, see `code\game\objects\items\weapons\circuitboards\_defines.dm`
+	 */
+	var/board_type = BOARD_COMPUTER
 	var/list/req_components
 	var/contain_parts = 1
 

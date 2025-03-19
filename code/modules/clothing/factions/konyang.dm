@@ -137,7 +137,7 @@
 /obj/item/clothing/accessory/konyang
 	name = "male hanbok belt"
 	desc = "A traditional belt worn over hanbok typically tailored for men."
-	icon = 'icons/clothing/accessories/konyang_belt.dmi'
+	icon = 'icons/obj/item/clothing/accessory/konyang_belt.dmi'
 	icon_state = "konyang_belt"
 	item_state = "konyang_belt"
 	contained_sprite = TRUE

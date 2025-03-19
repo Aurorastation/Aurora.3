@@ -3,7 +3,7 @@
 a creative player the means to solve many problems.  Circuits are held inside an electronic assembly, and are wired using special tools.
 */
 
-/obj/item/integrated_circuit/examine(mob/user)
+/obj/item/integrated_circuit/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	interact(user)
 	external_examine(user)
 	. = ..()
@@ -78,7 +78,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 
 	var/input = sanitizeSafe(input("What do you want to name the circuit?", "Rename", src.name) as null|text, MAX_NAME_LEN)
 	if(src && input && assembly.check_interactivity(M))
-		to_chat(M, "<span class='notice'>The circuit '[src.name]' is now labeled '[input]'.</span>")
+		to_chat(M, SPAN_NOTICE("The circuit '[src.name]' is now labeled '[input]'."))
 		displayed_name = input
 
 /obj/item/integrated_circuit/interact(mob/user)
@@ -93,13 +93,13 @@ a creative player the means to solve many problems.  Circuits are held inside an
 	var/list/HTML = list(
 		"<div align='center'>",
 		"<table border='1' style='undefined;table-layout: fixed; width: 80%'>",
-		"<br><a href='?src=\ref[src];return=1'>Return to Assembly</a>",
-		"<br><a href='?src=\ref[src];'>Refresh</a>  |  ",
-		"<a href='?src=\ref[src];rename=1'>Rename</a>  |  ",
-		"<a href='?src=\ref[src];scan=1'>Scan with Device</a>  |  "
+		"<br><a href='byond://?src=[REF(src)];return=1'>Return to Assembly</a>",
+		"<br><a href='byond://?src=[REF(src)];'>Refresh</a>  |  ",
+		"<a href='byond://?src=[REF(src)];rename=1'>Rename</a>  |  ",
+		"<a href='byond://?src=[REF(src)];scan=1'>Scan with Device</a>  |  "
 	)
 	if(src.removable)
-		HTML += "<a href='?src=\ref[src];remove=1'>Remove</a><br>"
+		HTML += "<a href='byond://?src=[REF(src)];remove=1'>Remove</a><br>"
 
 	HTML += "<colgroup>"
 	HTML += "<col style='width: [table_edge_width]'>"
@@ -120,11 +120,11 @@ a creative player the means to solve many problems.  Circuits are held inside an
 				if(1)
 					io = get_pin_ref(IC_INPUT, i)
 					if(io)
-						words += "<b><a href=?src=\ref[src];pin_name=1;pin=\ref[io]>[io.display_pin_type()] [io.name]</a> <a href=?src=\ref[src];pin_data=1;pin=\ref[io]>[io.display_data(io.data)]</a></b><br>"
+						words += "<b><a href='byond://?src=[REF(src)];pin_name=1;pin=[REF(io)]>[io.display_pin_type()] [io.name]</a> <a href='byond://?src=[REF(src)];pin_data=1;pin=[REF(io)]>[io.display_data(io.data)]</a></b><br>"
 						if(io.linked.len)
 							for(var/datum/integrated_io/linked in io.linked)
-								words += "<a href=?src=\ref[src];pin_unwire=1;pin=\ref[io];link=\ref[linked]>[linked.name]</a> \
-								@ <a href=?src=\ref[linked.holder];examine=1;>[linked.holder.displayed_name]</a><br>"
+								words += "<a href='byond://?src=[REF(src)];pin_unwire=1;pin=[REF(io)];link=[REF(linked)]>[linked.name]</a> \
+								@ <a href='byond://?src=[REF(linked.holder)];examine=1;>[linked.holder.displayed_name]</a><br>"
 
 						if(outputs.len > inputs.len)
 							height = 1
@@ -137,11 +137,11 @@ a creative player the means to solve many problems.  Circuits are held inside an
 				if(3)
 					io = get_pin_ref(IC_OUTPUT, i)
 					if(io)
-						words += "<b><a href=?src=\ref[src];pin_name=1;pin=\ref[io]>[io.display_pin_type()] [io.name]</a> <a href=?src=\ref[src];pin_data=1;pin=\ref[io]>[io.display_data(io.data)]</a></b><br>"
+						words += "<b><a href='byond://?src=[REF(src)];pin_name=1;pin=[REF(io)]>[io.display_pin_type()] [io.name]</a> <a href='byond://?src=[REF(src)];pin_data=1;pin=[REF(io)]>[io.display_data(io.data)]</a></b><br>"
 						if(io.linked.len)
 							for(var/datum/integrated_io/linked in io.linked)
-								words += "<a href=?src=\ref[src];pin_unwire=1;pin=\ref[io];link=\ref[linked]>[linked.name]</a> \
-								@ <a href=?src=\ref[linked.holder];examine=1;>[linked.holder.displayed_name]</a><br>"
+								words += "<a href='byond://?src=[REF(src)];pin_unwire=1;pin=[REF(io)];link=[REF(linked)]>[linked.name]</a> \
+								@ <a href='byond://?src=[REF(linked.holder)];examine=1;>[linked.holder.displayed_name]</a><br>"
 
 						if(inputs.len > outputs.len)
 							height = 1
@@ -151,13 +151,13 @@ a creative player the means to solve many problems.  Circuits are held inside an
 	for(var/activator in activators)
 		var/datum/integrated_io/io = activator
 		var/words = list(
-			"<b><a href=?src=\ref[src];pin_name=1;pin=\ref[io]><span class='bad'>[io.name]</span></a> <a href=?src=\ref[src];pin_data=1;pin=\ref[io]><span class='bad'>[io.data?"\<PULSE OUT\>":"\<PULSE IN\>"]</span></a></b><br>"
+			"<b><a href='byond://?src=[REF(src)];pin_name=1;pin=[REF(io)]><span class='bad'>[io.name]</span></a> <a href='byond://?src=[REF(src)];pin_data=1;pin=[REF(io)]><span class='bad'>[io.data?"\<PULSE OUT\>":"\<PULSE IN\>"]</span></a></b><br>"
 		)
 
 		if(io.linked.len)
 			for(var/datum/integrated_io/linked in io.linked)
-				words += "<a href=?src=\ref[src];pin_unwire=1;pin=\ref[io];link=\ref[linked]><span class='bad'>[linked.name]</span></a> \
-				@ <a href=?src=\ref[linked.holder];examine=1;><span class='bad'>[linked.holder.displayed_name]</span></a><br>"
+				words += "<a href='byond://?src=[REF(src)];pin_unwire=1;pin=[REF(io)];link=[REF(linked)]><span class='bad'>[linked.name]</span></a> \
+				@ <a href='byond://?src=[REF(linked.holder)];examine=1;><span class='bad'>[linked.holder.displayed_name]</span></a><br>"
 
 		HTML += "<tr>"
 		HTML += "<td colspan='3' align='center'>[jointext(words, null)]</td>"
@@ -176,7 +176,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		HTML += "<br><span class='highlight'>Power Draw: [power_draw_per_use] W (Active)</span>" // Borgcode says that powercells' checked_use() takes joules as input.
 	HTML += "<br><span class='highlight'>[extended_desc]</span>"
 
-	var/datum/browser/B = new(user, assembly ? "assembly-\ref[assembly]" : "circuit-\ref[src]", (displayed_name && displayed_name != name) ? "[displayed_name] ([name])" : name, window_width, window_height)
+	var/datum/browser/B = new(user, assembly ? "assembly-[REF(assembly)]" : "circuit-[REF(src)]", (displayed_name && displayed_name != name) ? "[displayed_name] ([name])" : name, window_width, window_height)
 	B.set_content(HTML.Join())
 	B.open()
 
@@ -184,7 +184,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 	if(!check_interactivity(usr))
 		return
 	if (assembly && !assembly.opened)
-		to_chat(usr, "<span class='warning'>\The [assembly] is not open!</span>")
+		to_chat(usr, SPAN_WARNING("\The [assembly] is not open!"))
 		return
 	if(..())
 		return 1
@@ -248,7 +248,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 			if(pin)
 				debugger.write_data(pin, usr)
 		else
-			to_chat(usr, "<span class='warning'>You can't do a whole lot without the proper tools.</span>")
+			to_chat(usr, SPAN_WARNING("You can't do a whole lot without the proper tools."))
 
 	if(href_list["examine"])
 		var/obj/item/integrated_circuit/examined
@@ -275,23 +275,23 @@ a creative player the means to solve many problems.  Circuits are held inside an
 			if(D.accepting_refs)
 				D.afterattack(src, usr, TRUE)
 			else
-				to_chat(usr, "<span class='warning'>The Debugger's 'ref scanner' needs to be on.</span>")
+				to_chat(usr, SPAN_WARNING("The Debugger's 'ref scanner' needs to be on."))
 		else
-			to_chat(usr, "<span class='warning'>You need a multitool/debugger set to 'ref' mode to do that.</span>")
+			to_chat(usr, SPAN_WARNING("You need a multitool/debugger set to 'ref' mode to do that."))
 
 	if(href_list["return"])
 		if(A)
 			update_to_assembly = 1
-			usr << browse(null, "window=circuit-\ref[src]")
+			usr << browse(null, "window=circuit-[REF(src)]")
 		else
-			to_chat(usr, "<span class='warning'>This circuit is not in an assembly!</span>")
+			to_chat(usr, SPAN_WARNING("This circuit is not in an assembly!"))
 
 	if(href_list["remove"])
 		if(!A)
-			to_chat(usr, "<span class='warning'>This circuit is not in an assembly!</span>")
+			to_chat(usr, SPAN_WARNING("This circuit is not in an assembly!"))
 			return
 		if(!removable)
-			to_chat(usr, "<span class='warning'>\The [src] seems to be permanently attached to the case.</span>")
+			to_chat(usr, SPAN_WARNING("\The [src] seems to be permanently attached to the case."))
 			return
 		var/obj/item/device/electronic_assembly/ea = loc
 		disconnect_all()
@@ -299,7 +299,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		forceMove(T)
 		assembly = null
 		playsound(T, 'sound/items/crowbar_pry.ogg', 50, 1)
-		to_chat(usr, "<span class='notice'>You pop \the [src] out of the case, and slide it out.</span>")
+		to_chat(usr, SPAN_NOTICE("You pop \the [src] out of the case, and slide it out."))
 
 		if(istype(ea))
 			ea.interact(usr)

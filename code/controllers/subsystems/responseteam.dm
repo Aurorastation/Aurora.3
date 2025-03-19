@@ -77,25 +77,25 @@ SUBSYSTEM_DEF(distress)
 
 	send_emergency_team = FALSE //We completed the ERT handling, so let's allow admins to call another.
 
-/datum/controller/subsystem/distress/proc/trigger_overmap_distress_beacon(var/obj/effect/overmap/visitable/caller, var/distress_message, var/mob/user)
-	if(caller.has_called_distress_beacon)
+/datum/controller/subsystem/distress/proc/trigger_overmap_distress_beacon(var/obj/effect/overmap/visitable/requester, var/distress_message, var/mob/user)
+	if(requester.has_called_distress_beacon)
 		return
 
 	ert_count++
 	feedback_inc("responseteam_count")
 
-	command_announcement.Announce("A distress beacon has been broadcasted to nearby vessels in the sector. Please remain calm and make preparations for the arrival of third parties.", "[SSatlas.current_map.station_name] Distress Suite", 'sound/misc/announcements/security_level_old.ogg', zlevels = caller.map_z)
+	command_announcement.Announce("A distress beacon has been broadcasted to nearby vessels in the sector. Please remain calm and make preparations for the arrival of third parties.", "[SSatlas.current_map.station_name] Distress Suite", 'sound/misc/announcements/security_level_old.ogg', zlevels = requester.map_z)
 
-	log_and_message_admins("has launched a distress beacon from the [caller.name] with message: [distress_message].", user)
+	log_and_message_admins("has launched a distress beacon from the [requester.name] with message: [distress_message].", user)
 	var/datum/distress_beacon/beacon = new()
-	beacon.caller = caller
+	beacon.requester = requester
 	beacon.distress_message = distress_message
 	beacon.user = user
 	beacon.user_name = user.name //It is possible that the mob's name may change after the distress beacon is launched, so we keep this var to avoid stuff like that.
 
-	active_distress_beacons[caller.name] = beacon
+	active_distress_beacons[requester.name] = beacon
 
-	caller.toggle_distress_status()
+	requester.toggle_distress_status()
 
 /datum/controller/subsystem/distress/proc/handle_spawner()
 	for(var/N in typesof(picked_team.spawner)) //Find all spawners that are subtypes of the team we want.
@@ -130,13 +130,13 @@ SUBSYSTEM_DEF(distress)
 	set desc = "Send an emergency response team to the ship."
 
 	if(!holder)
-		to_chat(usr, "<span class='danger'>Only administrators may use this command.</span>")
+		to_chat(usr, SPAN_DANGER("Only administrators may use this command."))
 		return
 	if(!ROUND_IS_STARTED)
-		to_chat(usr, "<span class='danger'>The round hasn't started yet!</span>")
+		to_chat(usr, SPAN_DANGER("The round hasn't started yet!"))
 		return
 	if(SSdistress.send_emergency_team)
-		to_chat(usr, "<span class='danger'>[SSatlas.current_map.boss_name] has already dispatched an emergency response team!</span>")
+		to_chat(usr, SPAN_DANGER("[SSatlas.current_map.boss_name] has already dispatched an emergency response team!"))
 		return
 	if(alert("Do you want to dispatch an Emergency Response Team?",,"Yes","No") != "Yes")
 		return
@@ -152,11 +152,11 @@ SUBSYSTEM_DEF(distress)
 	var/choice = input(usr, "Select the response team type.","Response Team Selection", plaintext_teams)
 
 	if(SSdistress.send_emergency_team)
-		to_chat(usr, "<span class='danger'>Looks like somebody beat you to it!</span>")
+		to_chat(usr, SPAN_DANGER("Looks like somebody beat you to it!"))
 		return
 
 	message_admins("[key_name_admin(usr)] is dispatching a Response Team: [choice].", 1)
-	log_admin("[key_name(usr)] used Dispatch Response Team: [choice].",admin_key=key_name(usr))
+	log_admin("[key_name(usr)] used Dispatch Response Team: [choice].")
 	SSdistress.trigger_armed_response_team(choice)
 
 
@@ -172,11 +172,11 @@ SUBSYSTEM_DEF(distress)
 
 /datum/distress_beacon
 	var/distress_message
-	var/obj/effect/overmap/visitable/caller
+	var/obj/effect/overmap/visitable/requester
 	var/mob/living/carbon/human/user
 	var/user_name
 
 /datum/distress_beacon/Destroy()
-	caller = null
+	requester = null
 	user = null
 	return ..()

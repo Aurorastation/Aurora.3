@@ -47,7 +47,7 @@
 		var/turf/T = thing
 		if(our_turf == T)
 			continue
-		if(!istype(T, /turf/unsimulated/floor/asteroid))
+		if(!istype(T, /turf/simulated/floor/exoplanet/asteroid))
 			continue
 		if(locate(/obj/structure/reagent_crystal/dense) in T)
 			continue
@@ -105,7 +105,7 @@
 /obj/item/circuitboard/crystal_agitator
 	name = T_BOARD("Crystal Agitator")
 	build_path = /obj/machinery/power/crystal_agitator
-	board_type = "machine"
+	board_type = BOARD_MACHINE
 	origin_tech = list(
 		TECH_ENGINEERING = 3,
 		TECH_DATA = 2,

@@ -38,7 +38,7 @@
 	if(anchored)
 		..()
 	else
-		cut_overlays()
+		ClearOverlays()
 		if(damage >= broken_damage)
 			icon_state = icon_state_broken + "-closed"
 		else

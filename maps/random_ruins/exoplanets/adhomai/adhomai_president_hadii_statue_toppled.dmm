@@ -43,9 +43,7 @@
 /turf/simulated/floor/concrete,
 /area/exoplanet/adhomai)
 "N" = (
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "P" = (
 /obj/effect/floor_decal/concrete/large{

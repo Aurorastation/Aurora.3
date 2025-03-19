@@ -11,7 +11,7 @@
 	icon_state = "tray"
 	desc = "A metal tray to lay food on."
 	throwforce = 12.0
-	force = 10.0
+	force = 15
 	throw_speed = 1
 	throw_range = 5
 	w_class = 3.0
@@ -70,7 +70,7 @@
 /obj/item/tray/proc/attempt_load_item(var/obj/item/I, var/mob/user, var/messages = TRUE, var/click_params)
 	if(!I || (I in contents))
 		return
-	if(I == src || I.anchored || istype(I, /obj/item/projectile))
+	if(I == src || I.anchored || istype(I, /obj/projectile))
 		return
 	if(istype(I, /obj/item/tray))
 		var/obj/item/tray/T = I
@@ -104,10 +104,10 @@
 	I.forceMove(src)
 	auto_align(I, click_params)
 	current_weight += I.w_class
-	vis_contents += I
+	add_vis_contents(I)
 	I.vis_flags |= VIS_INHERIT_LAYER | VIS_INHERIT_PLANE
-	item_equipped_event.register(I, src, PROC_REF(pick_up))
-	GLOB.destroyed_event.register(I, src, PROC_REF(unload_item))
+	RegisterSignal(I, COMSIG_ITEM_EQUIPPED, PROC_REF(pick_up))
+	RegisterSignal(I, COMSIG_QDELETING, PROC_REF(unload_item))
 
 /obj/item/tray/verb/unload()
 	set name = "Unload Tray"
@@ -144,7 +144,8 @@
 	unload_item(contained, moved_to)
 
 /obj/item/tray/proc/unload_item(var/obj/item/contained, var/atom/dropspot = null)
-	item_equipped_event.unregister(contained, src)
+	UnregisterSignal(contained, COMSIG_ITEM_EQUIPPED)
+	UnregisterSignal(contained, COMSIG_QDELETING)
 	if(dropspot)
 		contained.forceMove(dropspot)
 	vis_contents.Remove(contained)

@@ -6,7 +6,7 @@
 	desc = "An enormous solenoid for generating extremely high power electromagnetic fields. It includes a kinetic energy harvester."
 	icon = 'icons/obj/machinery/fusion_core.dmi'
 	icon_state = "core0"
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 	density = TRUE
 	use_power = POWER_USE_IDLE
 	idle_power_usage = 50
@@ -55,9 +55,13 @@
 		owned_field.AddParticles(name, quantity)
 		. = 1
 
-/obj/machinery/power/fusion_core/bullet_act(obj/item/projectile/Proj)
+/obj/machinery/power/fusion_core/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
 	if(owned_field)
-		. = owned_field.bullet_act(Proj)
+		. = owned_field.bullet_act(hitting_projectile)
 
 /obj/machinery/power/fusion_core/proc/set_strength(value)
 	value = clamp(value, MIN_FIELD_STR, MAX_FIELD_STR)

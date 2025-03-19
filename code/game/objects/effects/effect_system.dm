@@ -48,10 +48,10 @@ would spawn and follow the beaker, even if it is carried or thrown.
 // will always spawn at the items location, even if it's moved.
 
 /* Example:
-var/datum/effect/system/steam_spread/steam = new /datum/effect/system/steam_spread() -- creates new system
-steam.set_up(5, 0, mob.loc) -- sets up variables
-OPTIONAL: steam.attach(mob)
-steam.start() -- spawns the effect
+	var/datum/effect/system/steam_spread/steam = new /datum/effect/system/steam_spread() -- creates new system
+	steam.set_up(5, 0, mob.loc) -- sets up variables
+	OPTIONAL: steam.attach(mob)
+	steam.start() -- spawns the effect
 */
 /////////////////////////////////////////////
 /obj/effect/effect/steam
@@ -78,7 +78,7 @@ steam.start() -- spawns the effect
 			var/obj/effect/effect/steam/steam = new /obj/effect/effect/steam(src.location)
 			var/direction
 			if(src.cardinals)
-				direction = pick(GLOB.cardinal)
+				direction = pick(GLOB.cardinals)
 			else
 				direction = pick(GLOB.alldirs)
 			for(i=0, i<pick(1,2,3), i++)
@@ -97,6 +97,7 @@ steam.start() -- spawns the effect
 	name = "smoke"
 	icon_state = "smoke"
 	opacity = 1
+	layer = ABOVE_PROJECTILE_LAYER
 	anchored = 0.0
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	var/amount = 6.0
@@ -113,16 +114,23 @@ steam.start() -- spawns the effect
 		time_to_live = duration
 	addtimer(CALLBACK(src, PROC_REF(kill)), time_to_live)
 
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
 /obj/effect/effect/smoke/proc/kill()
 	animate(src, alpha = 0, time = 2 SECONDS, easing = QUAD_EASING)
 	set_opacity(FALSE)
 
 	QDEL_IN(src, 2.5 SECONDS)
 
-/obj/effect/effect/smoke/Crossed(mob/living/carbon/M as mob )
-	..()
-	if(istype(M))
-		affect(M)
+/obj/effect/effect/smoke/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	if(istype(arrived, /mob/living/carbon))
+		affect(arrived)
 
 /obj/effect/effect/smoke/proc/affect(var/mob/living/carbon/M)
 	if (istype(M))
@@ -176,11 +184,17 @@ steam.start() -- spawns the effect
 			M.coughedtime = 0
 
 /obj/effect/effect/smoke/bad/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(air_group || (height==0)) return 1
-	if(istype(mover, /obj/item/projectile/beam))
-		var/obj/item/projectile/beam/B = mover
+	if(air_group || (height==0))
+		return TRUE
+
+	if(mover?.movement_type & PHASING)
+		return TRUE
+
+	if(istype(mover, /obj/projectile/beam))
+		var/obj/projectile/beam/B = mover
 		B.damage = (B.damage/2)
-	return 1
+
+	return TRUE
 /////////////////////////////////////////////
 // Sleep smoke
 /////////////////////////////////////////////
@@ -192,12 +206,12 @@ steam.start() -- spawns the effect
 	for(var/mob/living/carbon/M in get_turf(src))
 		affect(M)
 
-/obj/effect/effect/smoke/sleepy/affect(mob/living/carbon/M as mob )
+/obj/effect/effect/smoke/sleepy/affect(mob/living/carbon/M)
 	if (!..())
 		return 0
 
 	M.drop_item()
-	M:sleeping += 1
+	M.sleeping += 1
 	if (M.coughedtime != 1)
 		M.coughedtime = 1
 		M.emote("cough")
@@ -264,12 +278,11 @@ steam.start() -- spawns the effect
 			if(holder)
 				src.location = get_turf(holder)
 			var/obj/effect/effect/smoke/smoke = new smoke_type(src.location)
-			smoke.layer = ABOVE_MOB_LAYER
 			src.total_smoke++
 			var/direction = src.direction
 			if(!direction)
 				if(src.cardinals)
-					direction = pick(GLOB.cardinal)
+					direction = pick(GLOB.cardinals)
 				else
 					direction = pick(GLOB.alldirs)
 			for(i=0, i<pick(0,1,1,1,2,2,2,3), i++)
@@ -355,10 +368,10 @@ steam.start() -- spawns the effect
 		spark(location, 2)
 
 		for(var/mob/M in viewers(5, location))
-			to_chat(M, "<span class='warning'>The solution violently explodes.</span>")
+			to_chat(M, SPAN_WARNING("The solution violently explodes."))
 		for(var/mob/M in viewers(1, location))
 			if (prob (50 * amount))
-				to_chat(M, "<span class='warning'>The explosion knocks you down.</span>")
+				to_chat(M, SPAN_WARNING("The explosion knocks you down."))
 				M.Weaken(rand(1,5))
 		return
 	else
@@ -381,7 +394,7 @@ steam.start() -- spawns the effect
 			flash = (amount/4) * flashing_factor
 
 		for(var/mob/M in viewers(8, location))
-			to_chat(M, "<span class='warning'>The solution violently explodes.</span>")
+			to_chat(M, SPAN_WARNING("The solution violently explodes."))
 
 		explosion(
 			location,

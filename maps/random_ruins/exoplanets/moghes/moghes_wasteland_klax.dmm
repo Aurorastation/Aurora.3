@@ -1,0 +1,1986 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aO" = (
+/obj/machinery/door/urban,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes)
+"aQ" = (
+/obj/structure/table/standard,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/item/storage/box/beakers,
+/obj/item/reagent_containers/glass/beaker/large,
+/obj/item/reagent_containers/glass/beaker/large{
+	pixel_x = 4;
+	pixel_y = 3
+	},
+/obj/item/reagent_containers/dropper{
+	pixel_x = -10
+	},
+/obj/effect/floor_decal/corner_wide/orange/full{
+	dir = 1
+	},
+/obj/item/storage/box/syringes,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"bE" = (
+/obj/machinery/light,
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"bT" = (
+/obj/effect/floor_decal/corner/lime/full,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"cF" = (
+/obj/item/storage/box/freezer/organcooler,
+/obj/structure/closet/crate/freezer,
+/obj/effect/floor_decal/corner/lime{
+	dir = 5
+	},
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OPlus,
+/obj/item/reagent_containers/blood/AMinus,
+/obj/item/reagent_containers/blood/APlus,
+/obj/item/reagent_containers/blood/BMinus,
+/obj/item/reagent_containers/blood/BPlus,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"cQ" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/obj/structure/railing/fence,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes)
+"cR" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes)
+"dc" = (
+/obj/machinery/vending/hydronutrients,
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"ea" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/dark_green/full{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"ep" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"ex" = (
+/obj/effect/floor_decal/corner/dark_green/full,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"eA" = (
+/obj/structure/table/rack,
+/obj/item/gun/energy/vaurca/blaster,
+/obj/item/gun/energy/vaurca/blaster,
+/obj/item/clothing/accessory/holster/hip,
+/obj/item/clothing/accessory/holster/hip,
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"eH" = (
+/obj/machinery/door/window{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/orange{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"fh" = (
+/obj/structure/table/rack,
+/obj/item/melee/energy/vaurca_zweihander,
+/obj/item/melee/energy/vaurca,
+/obj/item/melee/energy/vaurca,
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"fl" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"fm" = (
+/obj/machinery/body_scanconsole{
+	dir = 1;
+	pixel_y = 6
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"fw" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"fz" = (
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"fL" = (
+/obj/machinery/door/airlock/medical{
+	name = "Bioscience";
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled/full,
+/area/moghes_klax)
+"ge" = (
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/moghes_klax)
+"gK" = (
+/obj/machinery/vending/hydroseeds,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/dark_green/full{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"gU" = (
+/obj/machinery/light/small,
+/obj/structure/closet/crate/freezer/rations,
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"hA" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"ib" = (
+/obj/structure/sink/kitchen{
+	dir = 4;
+	name = "sink";
+	pixel_x = -20
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner_wide/orange{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"ij" = (
+/obj/machinery/door/airlock{
+	name = "Power Generation";
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled/full,
+/area/moghes_klax)
+"ip" = (
+/obj/machinery/door/airlock/medical{
+	name = "Botany";
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled/full,
+/area/moghes_klax)
+"iD" = (
+/obj/structure/table/steel,
+/obj/item/storage/box/fancy/tray,
+/obj/item/clothing/gloves/latex/nitrile/vaurca,
+/obj/item/clothing/gloves/latex/nitrile/vaurca,
+/obj/item/stack/nanopaste,
+/obj/item/stack/nanopaste,
+/obj/effect/floor_decal/corner/lime/full{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"jF" = (
+/obj/effect/ghostspawpoint{
+	name = "igs - moghes_wasteland_klax";
+	identifier = "moghes_wasteland_klax"
+	},
+/obj/random/dirt_75,
+/obj/structure/bed/stool/chair/folding{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"kA" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"lz" = (
+/obj/structure/table/standard,
+/obj/structure/roller_rack/two,
+/obj/item/reagent_containers/spray/cleaner,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/lime{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"lB" = (
+/obj/item/lore_radio,
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"lI" = (
+/obj/machinery/power/terminal{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/moghes_klax)
+"lM" = (
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/glass/bucket,
+/obj/structure/reagent_dispensers/watertank,
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"mn" = (
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"ox" = (
+/obj/structure/table/rack,
+/obj/item/device/radio/off,
+/obj/item/device/radio/off,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"oE" = (
+/obj/structure/bookcase/manuals/medical,
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"oJ" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/lime{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"oO" = (
+/obj/machinery/smartfridge/chemistry,
+/obj/effect/floor_decal/corner_wide/orange/full{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"py" = (
+/obj/structure/table/rack,
+/obj/item/clothing/head/helmet/unathi/klax,
+/obj/item/clothing/head/helmet/unathi/klax,
+/obj/item/clothing/suit/armor/unathi/klax,
+/obj/item/clothing/suit/armor/unathi/klax,
+/obj/machinery/light/small,
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"pB" = (
+/obj/structure/plasticflaps/airtight,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"qx" = (
+/obj/machinery/door/airlock{
+	name = "Habitation";
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled/full,
+/area/moghes_klax)
+"rp" = (
+/obj/structure/sign/biohazard{
+	pixel_y = 32;
+	name = "WARNING: K'OIS"
+	},
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 5
+	},
+/obj/structure/sink{
+	pixel_y = 22
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"rP" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"se" = (
+/obj/structure/table/standard,
+/obj/machinery/reagentgrinder,
+/obj/item/device/reagent_scanner/adv{
+	pixel_x = -8
+	},
+/obj/item/device/mass_spectrometer/adv,
+/obj/effect/floor_decal/corner_wide/orange{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"ss" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 10
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"sJ" = (
+/obj/structure/closet/crate/large{
+	name = "Biological Subjects"
+	},
+/obj/item/storage/box/monkeycubes/vkrexicubes,
+/obj/item/storage/box/monkeycubes/vkrexicubes,
+/obj/item/storage/box/monkeycubes/stokcubes,
+/obj/item/storage/box/monkeycubes/stokcubes,
+/obj/effect/floor_decal/corner/lime/full{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"tf" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"uK" = (
+/obj/machinery/light,
+/obj/effect/floor_decal/corner/dark_green/full{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"uV" = (
+/obj/machinery/power/smes/buildable/third_party_shuttle,
+/obj/structure/cable/orange{
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"vd" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"vq" = (
+/obj/machinery/clonepod{
+	name = "Bio-Stasis Unit"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/tiled/dark/full,
+/area/moghes_klax)
+"wj" = (
+/obj/effect/ghostspawpoint{
+	name = "igs - moghes_wasteland_klax";
+	identifier = "moghes_wasteland_klax"
+	},
+/obj/structure/bed/stool/chair/folding,
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"wN" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"wV" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"wX" = (
+/obj/structure/railing/fence,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes)
+"xv" = (
+/obj/machinery/door/airlock/highsecurity{
+	name = "SECURE RESEARCH AREA - DO NOT ENTER"
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"xG" = (
+/obj/machinery/chem_master,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner_wide/orange{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"xI" = (
+/obj/structure/plasticflaps/airtight,
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"xK" = (
+/obj/machinery/clonepod{
+	name = "Bio-Stasis Unit"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/tiled/dark/full,
+/area/moghes_klax)
+"xY" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"yo" = (
+/obj/structure/closet/crate/hydroponics,
+/obj/item/seeds/koisspore,
+/obj/item/seeds/koisspore,
+/obj/item/seeds/koisspore,
+/obj/item/seeds/koisspore,
+/obj/effect/floor_decal/corner/dark_green/full{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"yC" = (
+/obj/structure/table/standard,
+/obj/item/vaurca/box{
+	pixel_y = 12
+	},
+/obj/item/reagent_containers/toothpaste{
+	pixel_x = -10
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"yH" = (
+/obj/structure/sign/flag/klax/unmovable{
+	pixel_y = 32
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes)
+"yZ" = (
+/obj/structure/bed/stool/padded/beige,
+/obj/item/toy/plushie/nymph,
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"Ad" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes)
+"AH" = (
+/obj/machinery/door/airlock/medical{
+	name = "Botany - Secure"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"AQ" = (
+/obj/structure/curtain/open/medical,
+/obj/effect/floor_decal/corner/lime{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"BA" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"BX" = (
+/obj/effect/ghostspawpoint{
+	name = "igs - moghes_wasteland_klax";
+	identifier = "moghes_wasteland_klax"
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"BZ" = (
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"Cz" = (
+/obj/structure/curtain/open/medical,
+/obj/effect/floor_decal/corner/lime{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"CU" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"CZ" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"Dh" = (
+/obj/structure/table/rack,
+/obj/item/gun/energy/vaurca/thermaldrill,
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 25;
+	pixel_x = 5
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"DL" = (
+/obj/machinery/chem_heater,
+/obj/effect/floor_decal/corner_wide/orange/full,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"Et" = (
+/obj/effect/ghostspawpoint{
+	name = "igs - moghes_wasteland_klax";
+	identifier = "moghes_wasteland_klax"
+	},
+/obj/effect/decal/cleanable/cobweb2,
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"EF" = (
+/obj/structure/table/rack,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/device/analyzer,
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"EL" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/obj/structure/sink/puddle,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes)
+"Fe" = (
+/obj/structure/closet/crate,
+/obj/item/clothing/glasses/sunglasses/blinders,
+/obj/item/clothing/glasses/sunglasses/blinders,
+/obj/item/clothing/glasses/sunglasses/blinders,
+/obj/item/clothing/glasses/sunglasses/blinders,
+/obj/item/clothing/suit/storage/toggle/labcoat,
+/obj/item/clothing/suit/storage/toggle/labcoat,
+/obj/item/clothing/suit/storage/toggle/labcoat,
+/obj/item/clothing/suit/vaurca/brown,
+/obj/item/clothing/suit/vaurca/brown,
+/obj/item/clothing/suit/vaurca/brown,
+/obj/item/clothing/suit/vaurca/brown,
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"Gi" = (
+/obj/structure/coatrack,
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"GJ" = (
+/obj/structure/closet/crate/freezer/kois,
+/obj/item/reagent_containers/food/snacks/koisbar_clean,
+/obj/item/reagent_containers/food/snacks/koisbar_clean,
+/obj/item/reagent_containers/food/snacks/koisbar_clean,
+/obj/item/reagent_containers/food/snacks/koisbar_clean,
+/obj/item/reagent_containers/food/snacks/koisbar_clean,
+/obj/item/reagent_containers/food/snacks/koisbar_clean,
+/obj/item/reagent_containers/food/snacks/koisbar_clean,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"Hi" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"Hu" = (
+/obj/effect/ghostspawpoint{
+	name = "igs - moghes_wasteland_klax";
+	identifier = "moghes_wasteland_klax"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"HM" = (
+/obj/machinery/chemical_dispenser/full{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner_wide/orange/full{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"Iu" = (
+/obj/machinery/power/portgen/basic/advanced,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/cobweb,
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"ID" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"IK" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"Jh" = (
+/obj/random/dirt_75,
+/obj/item/mop,
+/obj/item/reagent_containers/glass/bucket,
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"JO" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 6
+	},
+/obj/machinery/iv_drip,
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"Kq" = (
+/obj/machinery/light,
+/obj/effect/floor_decal/corner/dark_green/full,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"Kx" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"Lz" = (
+/obj/machinery/bodyscanner,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/tiled/dark/full,
+/area/moghes_klax)
+"LL" = (
+/obj/structure/closet/crate/hydroponics,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/item/device/analyzer/plant_analyzer,
+/obj/effect/floor_decal/corner/dark_green/full{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"MO" = (
+/obj/structure/table/rack,
+/obj/item/gun/energy/net,
+/obj/item/gun/energy/net,
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 25;
+	pixel_x = 5
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"Ni" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"NX" = (
+/obj/effect/floor_decal/corner/dark_green/full{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"Oa" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"Ob" = (
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"On" = (
+/obj/structure/table/rack,
+/obj/item/clothing/suit/space/void/scout,
+/obj/item/clothing/suit/space/void/scout,
+/obj/item/clothing/head/helmet/space/void/scout,
+/obj/item/clothing/head/helmet/space/void/scout,
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"OC" = (
+/obj/structure/curtain/open/medical,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"OD" = (
+/obj/effect/floor_decal/corner/lime/full,
+/obj/structure/table/standard,
+/obj/item/paper_bin,
+/obj/item/pen,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"Pb" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"Pf" = (
+/obj/structure/table/rack,
+/obj/item/tank/phoron,
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"Pt" = (
+/obj/structure/closet/crate,
+/obj/item/clothing/under/vaurca/gearharness/black,
+/obj/item/clothing/under/vaurca/gearharness/black,
+/obj/item/clothing/under/vaurca/gearharness/black,
+/obj/item/clothing/shoes/vaurca,
+/obj/item/clothing/shoes/vaurca,
+/obj/item/clothing/shoes/vaurca,
+/obj/item/clothing/shoes/vaurca,
+/obj/item/clothing/under/vaurca,
+/obj/item/clothing/under/vaurca,
+/obj/item/clothing/under/vaurca,
+/obj/item/clothing/under/vaurca,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"Rn" = (
+/obj/structure/closet/crate/hydroponics,
+/obj/item/device/analyzer/plant_analyzer,
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"RF" = (
+/obj/machinery/light/small,
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"RK" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"RR" = (
+/obj/machinery/door/airlock/security{
+	name = "Secure Equipment";
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled/full,
+/area/moghes_klax)
+"Sf" = (
+/obj/machinery/sleeper,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/tiled/dark/full,
+/area/moghes_klax)
+"SK" = (
+/obj/structure/table/rack,
+/obj/item/gun/energy/rifle/hegemony,
+/obj/item/gun/energy/rifle/hegemony,
+/obj/item/gun/energy/rifle/hegemony,
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 25;
+	pixel_x = 5
+	},
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"TB" = (
+/turf/simulated/wall/r_wall,
+/area/moghes_klax)
+"TK" = (
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes)
+"TO" = (
+/obj/machinery/optable,
+/obj/machinery/light,
+/obj/effect/floor_decal/corner/lime{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"TS" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/dark_green/full{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"Up" = (
+/obj/structure/cable/orange{
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc/north{
+	req_access = null
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating,
+/area/moghes_klax)
+"UT" = (
+/obj/random/dirt_75,
+/obj/structure/closet/crate/trashcart,
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"Vt" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"VC" = (
+/obj/machinery/portable_atmospherics/canister/phoron_scarce,
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"Wq" = (
+/obj/machinery/hologram/holopad/long_range,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"WK" = (
+/obj/structure/closet/crate/hydroponics,
+/obj/item/clothing/gloves/botanic_leather/vaurca,
+/obj/item/clothing/gloves/botanic_leather/vaurca,
+/obj/item/material/hatchet,
+/obj/item/material/hatchet,
+/obj/item/wirecutters/clippers,
+/obj/item/wirecutters/clippers,
+/obj/item/material/minihoe,
+/obj/item/material/minihoe,
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"WR" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"WS" = (
+/obj/structure/closet/crate/freezer/kois/rations,
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"WW" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"Xh" = (
+/obj/effect/floor_decal/corner/dark_green,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"Yh" = (
+/obj/structure/table/rack,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/oxygen,
+/obj/item/tank/emergency_oxygen,
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"Yy" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 9
+	},
+/obj/structure/sink/kitchen{
+	dir = 4;
+	name = "sink";
+	pixel_x = -20
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"YA" = (
+/obj/structure/railing/fence,
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes)
+"Zv" = (
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/glass/full,
+/obj/structure/table/rack,
+/obj/item/stack/material/graphite/full,
+/obj/item/stack/material/graphite/full,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"ZJ" = (
+/obj/structure/closet/walllocker/medical{
+	pixel_y = 32
+	},
+/obj/item/storage/firstaid/radiation,
+/obj/item/storage/firstaid/radiation,
+/obj/item/reagent_containers/inhaler/phoron_special,
+/obj/item/reagent_containers/inhaler/phoron_special,
+/obj/effect/floor_decal/corner/lime/full{
+	dir = 8
+	},
+/obj/item/storage/firstaid/large/adv,
+/obj/item/reagent_containers/hypospray,
+/obj/item/storage/belt/medical,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/moghes_klax)
+"ZL" = (
+/obj/effect/decal/cleanable/floor_damage/rust,
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+"ZT" = (
+/obj/structure/sign/flag/klax/large/south{
+	pixel_y = -32
+	},
+/obj/machinery/space_heater,
+/turf/simulated/floor/exoplanet/tiled,
+/area/moghes_klax)
+
+(1,1,1) = {"
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+"}
+(2,1,1) = {"
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+"}
+(3,1,1) = {"
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+"}
+(4,1,1) = {"
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+"}
+(5,1,1) = {"
+TK
+TK
+TK
+TK
+TK
+TK
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+"}
+(6,1,1) = {"
+TK
+TK
+TK
+TK
+TK
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TK
+TK
+wX
+Ad
+cQ
+TK
+"}
+(7,1,1) = {"
+TK
+TK
+TK
+TK
+TB
+TB
+Iu
+ge
+TB
+TS
+ep
+ep
+Kq
+TB
+gK
+lM
+wN
+Ni
+wN
+wN
+wN
+wN
+ex
+TB
+TB
+TK
+wX
+TK
+wX
+TK
+"}
+(8,1,1) = {"
+TK
+TK
+TK
+TK
+TB
+TB
+uV
+lI
+TB
+Vt
+mn
+Xh
+yo
+TB
+dc
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+Pb
+TB
+TB
+TK
+aO
+TK
+wX
+TK
+"}
+(9,1,1) = {"
+TK
+TK
+TK
+TK
+TB
+TB
+Up
+RF
+TB
+Vt
+mn
+Pb
+TB
+TB
+WK
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+bE
+TB
+TB
+TK
+wX
+EL
+YA
+TK
+"}
+(10,1,1) = {"
+TK
+TK
+TK
+TK
+TB
+TB
+BZ
+ZL
+TB
+Kx
+mn
+ss
+pB
+AH
+Hi
+mn
+fl
+fl
+fl
+fl
+fl
+fl
+Pb
+TB
+TB
+TK
+TK
+TK
+TK
+TK
+"}
+(11,1,1) = {"
+TK
+TK
+TK
+TK
+TB
+TB
+Zv
+tf
+TB
+Vt
+mn
+Pb
+TB
+TB
+rp
+CZ
+mn
+mn
+mn
+mn
+mn
+mn
+bE
+TB
+TB
+TK
+TK
+TK
+TK
+TK
+"}
+(12,1,1) = {"
+TK
+TK
+TK
+TK
+TB
+TB
+EF
+Ob
+TB
+Vt
+mn
+fw
+ex
+TB
+Rn
+mn
+mn
+mn
+mn
+CZ
+mn
+mn
+Pb
+TB
+TB
+yH
+TK
+TK
+TK
+TK
+"}
+(13,1,1) = {"
+TK
+TK
+TK
+TK
+TB
+TB
+fz
+ZL
+TB
+ea
+Oa
+Oa
+uK
+TB
+LL
+Oa
+wV
+wV
+WR
+wV
+wV
+wV
+NX
+TB
+TB
+TK
+TK
+TK
+TK
+TK
+"}
+(14,1,1) = {"
+TK
+TK
+TK
+TK
+TB
+TB
+TB
+ij
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+ip
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+cR
+TK
+TK
+TK
+TK
+"}
+(15,1,1) = {"
+TK
+TK
+TK
+TK
+TB
+TB
+UT
+Ob
+tf
+Ob
+Ob
+Ob
+Ob
+Ob
+Ob
+tf
+Ob
+tf
+fz
+tf
+Ob
+tf
+xI
+xv
+TK
+TK
+TK
+TK
+TK
+TK
+"}
+(16,1,1) = {"
+TK
+TK
+TK
+TK
+TB
+TB
+Jh
+Ob
+Ob
+tf
+vd
+Ob
+Ob
+Ob
+hA
+Ob
+tf
+Ob
+vd
+tf
+tf
+tf
+xI
+xv
+TK
+TK
+TK
+TK
+TK
+TK
+"}
+(17,1,1) = {"
+TK
+TK
+TK
+TK
+TB
+TB
+TB
+TB
+qx
+TB
+TB
+TB
+TB
+fL
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+RR
+TB
+TB
+TB
+cR
+TK
+TK
+TK
+TK
+"}
+(18,1,1) = {"
+TK
+TK
+TK
+TK
+TB
+TB
+WS
+Ob
+Ob
+Ob
+oE
+TB
+ZJ
+ID
+Yy
+OD
+HM
+ib
+DL
+TB
+Dh
+Ob
+On
+TB
+TB
+TK
+TK
+TK
+TK
+TK
+"}
+(19,1,1) = {"
+TK
+TK
+TK
+TK
+TB
+TB
+GJ
+Ob
+fz
+lB
+Ob
+TB
+lz
+mn
+mn
+RK
+xG
+mn
+se
+TB
+SK
+Ob
+py
+TB
+TB
+yH
+TK
+TK
+TK
+TK
+"}
+(20,1,1) = {"
+TK
+TK
+TK
+TK
+TB
+TB
+Pt
+tf
+Ob
+Ob
+yC
+TB
+Lz
+fm
+mn
+RK
+aQ
+eH
+oO
+TB
+MO
+tf
+fh
+TB
+TB
+TK
+TK
+TK
+TK
+TK
+"}
+(21,1,1) = {"
+TK
+TK
+TK
+TK
+TB
+TB
+Fe
+Ob
+Wq
+Ob
+fz
+TB
+Sf
+rP
+mn
+WW
+ID
+ID
+bT
+TB
+eA
+Ob
+ox
+TB
+TB
+TK
+TK
+TK
+TK
+TK
+"}
+(22,1,1) = {"
+TK
+TK
+TK
+TK
+TB
+TB
+Gi
+tf
+Ob
+yZ
+ZT
+TB
+cF
+mn
+mn
+mn
+OC
+OC
+Cz
+TB
+BA
+fz
+gU
+TB
+TB
+TK
+TK
+TK
+TK
+TK
+"}
+(23,1,1) = {"
+TK
+TK
+TK
+TK
+TB
+TB
+tf
+Ob
+Ob
+Ob
+tf
+TB
+oJ
+mn
+CU
+kA
+OC
+mn
+TO
+TB
+Yh
+Ob
+xY
+TB
+TB
+TK
+TK
+TK
+TK
+TK
+"}
+(24,1,1) = {"
+TK
+TK
+TK
+TK
+TB
+TB
+Et
+wj
+Hu
+jF
+BX
+TB
+sJ
+IK
+xK
+vq
+AQ
+JO
+iD
+TB
+Pf
+Ob
+VC
+TB
+TB
+TK
+TK
+TK
+TK
+TK
+"}
+(25,1,1) = {"
+TK
+TK
+TK
+TK
+TK
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TK
+TK
+TK
+TK
+TK
+TK
+"}
+(26,1,1) = {"
+TK
+TK
+TK
+TK
+TK
+TK
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TB
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+"}
+(27,1,1) = {"
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+"}
+(28,1,1) = {"
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+"}
+(29,1,1) = {"
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+"}
+(30,1,1) = {"
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+"}

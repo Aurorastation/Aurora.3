@@ -3,7 +3,8 @@
 /area/mine
 	icon_state = "mining"
 	music = list('sound/music/ambimine.ogg', 'sound/music/song_game.ogg')
-	sound_env = ASTEROID
+	sound_environment = SOUND_AREA_ASTEROID
+	area_flags = AREA_FLAG_IS_BACKGROUND
 
 /area/mine/explored
 	name = "Mine"
@@ -33,7 +34,7 @@
 // Main mining
 /area/outpost/mining_main
 	icon_state = "outpost_mine_main"
-	station_area = 1
+	station_area = TRUE
 	holomap_color = HOLOMAP_AREACOLOR_OPERATIONS
 
 /area/outpost/mining_main/dorms
@@ -60,7 +61,7 @@
 // Engineering
 /area/outpost/engineering
 	icon_state = "outpost_engine"
-	station_area = 1
+	station_area = TRUE
 	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
 
 /area/outpost/engineering/hallway
@@ -84,7 +85,7 @@
 // Research
 /area/outpost/research
 	icon_state = "outpost_research"
-	station_area = 1
+	station_area = TRUE
 	holomap_color = HOLOMAP_AREACOLOR_SCIENCE
 
 /area/outpost/research/hallway

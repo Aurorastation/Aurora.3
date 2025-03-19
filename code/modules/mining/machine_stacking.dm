@@ -19,8 +19,8 @@
 
 /obj/machinery/mineral/stacking_unit_console/Initialize(mapload, d, populate_components)
 	..()
-	var/mutable_appearance/screen_overlay = mutable_appearance(icon, "production_console-screen", EFFECTS_ABOVE_LIGHTING_LAYER)
-	add_overlay(screen_overlay)
+	var/mutable_appearance/screen_overlay = mutable_appearance(icon, "production_console-screen", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
+	AddOverlays(screen_overlay)
 	set_light(1.4, 1, COLOR_CYAN)
 	return INITIALIZE_HINT_LATELOAD
 
@@ -143,19 +143,19 @@
 		stack_paths[stacktype] = capitalize(initial(S.name))
 
 	//Locate our output and input machinery.
-	for(var/dir in GLOB.cardinal)
+	for(var/dir in GLOB.cardinals)
 		var/input_spot = locate(/obj/machinery/mineral/input, get_step(src, dir))
 		if(input_spot)
 			input = get_turf(input_spot) // thought of qdeling the spots here, but it's useful when rebuilding a destroyed machine
 			break
-	for(var/dir in GLOB.cardinal)
+	for(var/dir in GLOB.cardinals)
 		var/output_spot = locate(/obj/machinery/mineral/output, get_step(src, dir))
 		if(output)
 			output = get_turf(output_spot)
 			break
 
 	if(!input)
-		input = get_step(src, GLOB.reverse_dir[dir])
+		input = get_step(src, REVERSE_DIR(dir))
 	if(!output)
 		output = get_step(src, dir)
 

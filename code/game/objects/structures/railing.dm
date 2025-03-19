@@ -4,10 +4,10 @@
 	icon = 'icons/obj/structure/blocker/railing_basic.dmi'
 	icon_state = "railing0-1"
 	density = TRUE
-	throwpass = TRUE
 	climbable = TRUE
 	layer = OBJ_LAYER
 	anchored = FALSE
+	pass_flags_self = LETPASSTHROW|PASSSTRUCTURE|PASSRAILING
 
 	atom_flags = ATOM_FLAG_CHECKS_BORDER
 	obj_flags = OBJ_FLAG_ROTATABLE|OBJ_FLAG_MOVES_UNSUPPORTED
@@ -17,6 +17,8 @@
 	var/health = 70
 	var/maxhealth = 70
 	var/neighbor_status = 0
+
+	can_astar_pass = CANASTARPASS_ALWAYS_PROC
 
 /obj/structure/railing/mapped
 	color = COLOR_GUNMETAL
@@ -85,13 +87,20 @@
 	. += FONT_SMALL(SPAN_NOTICE("\The [src] is <b>[anchored ? "" : "not"] screwed</b> to the floor."))
 
 /obj/structure/railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(istype(mover,/obj/item/projectile))
+	if(mover?.movement_type & PHASING)
 		return TRUE
-	if(!istype(mover) || mover.checkpass(PASSRAILING))
+	if(istype(mover,/obj/projectile))
+		return TRUE
+	if(!istype(mover) || mover.pass_flags & PASSRAILING)
 		return TRUE
 	if(mover.throwing)
 		return TRUE
 	if(get_dir(loc, target) == dir)
+		return !density
+	return TRUE
+
+/obj/structure/railing/CanAStarPass(to_dir, datum/can_pass_info/pass_info)
+	if(to_dir == dir)
 		return !density
 	return TRUE
 
@@ -140,9 +149,9 @@
 
 /obj/structure/railing/update_icon(var/update_neighbors = TRUE)
 	NeighborsCheck(update_neighbors)
-	overlays.Cut()
+	CutOverlays()
 	if(dir == SOUTH)
-		layer = ABOVE_MOB_LAYER
+		layer = ABOVE_HUMAN_LAYER
 	else
 		layer = initial(layer)
 	if(!neighbor_status || !anchored)
@@ -150,11 +159,11 @@
 	else
 		icon_state = "railing1-[density]"
 		if(neighbor_status & 32)
-			overlays += image(icon, "corneroverlay[density]")
+			AddOverlays(image(icon, "corneroverlay[density]"))
 		if((neighbor_status & 16) || !(neighbor_status & 32) || (neighbor_status & 64))
-			overlays += image(icon, "frontoverlay_l[density]")
+			AddOverlays(image(icon, "frontoverlay_l[density]"))
 		if(!(neighbor_status & 2) || (neighbor_status & 1) || (neighbor_status & 4))
-			overlays += image(icon, "frontoverlay_r[density]")
+			AddOverlays(image(icon, "frontoverlay_r[density]"))
 			if(neighbor_status & 4)
 				var/pix_offset_x = 0
 				var/pix_offset_y = 0
@@ -167,7 +176,7 @@
 						pix_offset_y = -32
 					if(WEST)
 						pix_offset_y = 32
-				overlays += image(icon, "mcorneroverlay[density]", pixel_x = pix_offset_x, pixel_y = pix_offset_y)
+				AddOverlays(image(icon, "mcorneroverlay[density]", pixel_x = pix_offset_x, pixel_y = pix_offset_y))
 
 /obj/structure/railing/verb/flip() // This will help push railing to remote places, such as open space turfs
 	set name = "Flip Railing"
@@ -237,7 +246,7 @@
 			return
 	// Wrench Open
 		else
-			playsound(get_turf(src), attacking_item.usesound, 50, TRUE)
+			attacking_item.play_tool_sound(get_turf(src), 50)
 			if(density)
 				user.visible_message(SPAN_NOTICE("\The [user] wrenches \the [src] open."), SPAN_NOTICE("You wrench \the [src] open."))
 				density = FALSE
@@ -253,7 +262,7 @@
 			if(health >= maxhealth)
 				to_chat(user, SPAN_WARNING("\The [src] does not need repairs."))
 				return
-			playsound(get_turf(src), attacking_item.usesound, 50, TRUE)
+			attacking_item.play_tool_sound(get_turf(src), 50)
 			if(do_after(user, 20, src))
 				if(health >= maxhealth)
 					return
@@ -266,10 +275,10 @@
 		if(!density)
 			to_chat(user, SPAN_NOTICE("You need to wrench \the [src] from back into place first."))
 			return
-		user.visible_message(anchored ? "<span class='notice'>\The [user] begins unscrewing \the [src].</span>" : "<span class='notice'>\The [user] begins fastening \the [src].</span>" )
-		playsound(get_turf(src), attacking_item.usesound, 75, TRUE)
+		user.visible_message(anchored ? SPAN_NOTICE("\The [user] begins unscrewing \the [src].") : SPAN_NOTICE("\The [user] begins fastening \the [src].") )
+		attacking_item.play_tool_sound(get_turf(src), 75)
 		if(do_after(user, 10, src) && density)
-			to_chat(user, (anchored ? "<span class='notice'>You have unfastened \the [src] from the floor.</span>" : "<span class='notice'>You have fastened \the [src] to the floor.</span>"))
+			to_chat(user, (anchored ? SPAN_NOTICE("You have unfastened \the [src] from the floor.") : SPAN_NOTICE("You have fastened \the [src] to the floor.")))
 			anchored = !anchored
 			update_icon()
 		return

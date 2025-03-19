@@ -1,6 +1,6 @@
 // Hallways
 /area/hallway
-	sound_env = LARGE_ENCLOSED
+	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 	allow_nightmode = TRUE
 	station_area = TRUE
 	lightswitch = TRUE

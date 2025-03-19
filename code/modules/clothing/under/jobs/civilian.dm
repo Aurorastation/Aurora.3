@@ -93,6 +93,13 @@
 	icon_state = "orion_liaison"
 	item_state = "orion_liaison"
 
+/obj/item/clothing/under/rank/liaison/einstein
+	name = "einstein corporate liaison uniform"
+	desc_extended = "If you're seeing this outfit in an SCC facility, something somewhere has gone terribly, terribly wrong."
+	icon = 'icons/clothing/under/uniforms/einstein.dmi'
+	icon_state = "ee_liaison"
+	item_state = "ee_liaison"
+
 // Janitor
 /obj/item/clothing/under/rank/janitor
 	name = "janitor's jumpsuit"
@@ -102,7 +109,7 @@
 	icon_state = "nt_janitor"
 	item_state = "nt_janitor"
 	armor = list(
-		bio = ARMOR_BIO_MINOR
+		BIO = ARMOR_BIO_MINOR
 	)
 
 /obj/item/clothing/under/rank/janitor/alt
@@ -223,7 +230,6 @@
 	icon = 'icons/obj/item/clothing/department_uniforms/command.dmi'
 	icon_state = "bridge_crew"
 	item_state = "bridge_crew"
-	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/bridge_crew/alt
 	name = "bridge crew's skirt"
@@ -275,6 +281,14 @@
 	icon_state = "orion_machinist"
 	item_state = "orion_machinist"
 
+/obj/item/clothing/under/rank/machinist/einstein
+	name = "einstein machinist's jumpsuit"
+	desc_extended = "Usually, but not necessarily worn by Einstein's Terranaeus Diagnostics subsidiary. Subsidiary or not, \
+	whoever wears this uniform probably knows a lot about putting guns and cameras on robots."
+	icon = 'icons/clothing/under/uniforms/einstein.dmi'
+	icon_state = "ee_machinist"
+	item_state = "ee_machinist"
+
 /obj/item/clothing/under/rank/captain/hephaestus
 	name = "hephaestus captain's jumpsuit"
 	desc = "It's a green-and-orange jumpsuit with some gold markings denoting the rank of \"Captain\" used by Hephaestus Industries."
@@ -283,4 +297,22 @@
 	icon_state = "heph_captain"
 	item_state = "heph_captain"
 	worn_state = "heph_captain"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/captain/einstein
+	name = "einstein captain's jumpsuit"
+	desc = "It's a grey-green jumpsuit with some gold markings denoting the rank of \"Captain\" used by Einstein Engines."
+	desc_extended = "Any similarities to the captain's jumpsuits worn in the SCC are purely coincidental. Honest!"
+	icon = 'icons/clothing/under/uniforms/einstein.dmi'
+	icon_state = "ee_captain"
+	item_state = "ee_captain"
+	contained_sprite = TRUE
+
+//goblin.stev's stuff
+/obj/item/clothing/under/qeburgerjumpsuit
+	name = "Quick-E-Burger Food Technician Jumpsuit"
+	desc = "For valued employees on the go, the Quick-E-Burger Food Technician Jumpsuit is the perfect attire! Supplied and manufactured in bulk by Quick-E-Burger's parent company, Orion Express, the Food Technician Jumpsuit is lavishly appointed with a one-size-doesn't-quite-fit-anyone design, including a state-of-the-art button-up fastening system designed to enable quick and easy employee repair!"
+	icon = 'icons/clothing/under/uniforms/orion.dmi'
+	icon_state = "quickeburger_jumpsuit"
+	item_state = "quickeburger_jumpsuit"
 	contained_sprite = TRUE

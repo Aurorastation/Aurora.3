@@ -1,0 +1,352 @@
+2022-02-01:
+  ReadThisNamePkz:
+  - bugfix: Dead lizard mobs no longer vanish
+  Sparky_hotdog:
+  - bugfix: Fixed wall smoothing.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes chairs for real this time. Holy [Expletive]. Also fixed some chair
+      alignment by moving them one pixel.
+  - bugfix: Fixes spawned chair items not having colors.
+2022-02-02:
+  Alberyk, Ramke:
+  - rscadd: Added Tesla Powered internal organs to the Tajara species.
+  - bugfix: Skrell and Unathi no longer have the option to edit their appendix in
+      the character setup.
+  Geeves:
+  - rscadd: You can now combine dice of the same type into a die stack.
+  TheGreyWolf:
+  - bugfix: The job code now checks if a given job &amp; species preference is permitted
+      for a given faction when loading a character.
+  - rscadd: Added a lot of new skrell clothing related to the jargon state-owned enterprises,
+      to the loadout under several new options labelled as &#x27;work [clothing]&#x27;.
+  Waff-AI:
+  - rscadd: Added a pair of human lore-books, found in the religion and general tabs.
+  Wowzewow (Wezzy):
+  - rscadd: Fixes tie clips.
+  - rscadd: Fixes APC sprites. Again. Also, adds cover locking and locked states to
+      APCs to improve glance-ability.
+2022-02-03:
+  Omicega:
+  - tweak: Added a version of the security belt with some useful security gear pre-placed
+      inside it. It spawns inside security lockers at roundstart.
+  Sparky_hotdog:
+  - rscadd: Added a Zeng-Hu First Responder Coat to the loadout.
+  Wowzewow (Wezzy):
+  - rscadd: Adds new descriptions for PDAs. They&#x27;re funny.
+2022-02-04:
+  BLUNTFORCE420:
+  - rscadd: Updated legacy sprite for 10mm pistol/Tanto
+  - rscadd: Changed Zavod Heavy Asset Protection loadout to have a Zavod revolver
+      instead of this thing
+  Wowzewow, Kokonut:
+  - imageadd: Adds new sprites for pills and pill bottles, by Kokonut. Resprites Chem-master
+      to have the same color pallete as the chemical dispensers, and the chemical
+      cartriges. Adds new chemical jugs, ported from Goon, and new dropper sprite
+      from TG.
+  listerla:
+  - tweak: Renamed Dionae &#x27;cat ears&#x27; to &#x27;small horns.&#x27;
+  xxxxyobdab:
+  - rscadd: All hatchet and scythe type tools can destroy bushes.
+  - rscadd: Biogenerators can make plant bags for 500 points.
+2022-02-06:
+  Alberyk, Ramke:
+  - rscadd: Added Tesla Powered internal organs to the Tajara species.
+  - bugfix: Skrell and Unathi no longer have the option to edit their appendix in
+      the character setup.
+  Desven:
+  - rscadd: Vaurcae can now be Zavod.
+  - rscadd: Added Bulwark version of the Zavod research suit.
+  Geeves:
+  - tweak: It now takes two seconds to climb railings, down from five.
+  - tweak: It now takes two and a half seconds to make a railing, down from five.
+  - tweak: When climbing a railing, you always appear on the other side, no more shuffling
+      along it when approached from an angle.
+  - rscadd: Middle-clicking a climbable structure now makes you climb it.
+  Granodd:
+  - tweak: Battlemonster vendor stock increased and prices reduced.
+  - tweak: Amount of cards in each pack increased.
+  - spellcheck: Fixes the name of the Battlemonster legendary pack.
+  Sparky_hotdog:
+  - tweak: Reduced some of the things that could be put in wallets that realistically
+      shouldn&#x27;t have.
+  TheGreyWolf:
+  - tweak: The hull shield generator now also makes shields over some floor types
+      if they&#x27;re in space.
+  - bugfix: Consular, liaison and representative wrist &amp; double radio now works
+      properly instead of spawning without any radio keys.
+  Wowzewow, Cdey:
+  - imageadd: Resprites most, if not all robots, including eyes.
+  - imageadd: All robots now have unique maintenance panels.
+  - imageadd: Janicarts look better by extension now.
+  - imagedel: Removed SD-MAD and Unbranded-MAD sprites.
+  - imageadd: Adds eight new robot sprites - The Sputnik, Arthrodroid, Wide, Cricket,
+      Positron 03, Plantasonic, Coolermaster and Phage.
+  - tweak: Toileto-tron renamed to Kent, Arachnotron renamed to Spiderbot.
+  - bugfix: Fixed missing sprite for Mining Drones.
+  - bugfix: Fixed robot eyes going over tables.
+  - refactor: Refactors Cyborg sprites to work better.
+  - bugfix: Fixes sprite interaction between mobility module and eyes.
+  listerla:
+  - tweak: Stationbound synthetics can now access the New Hai Phong, Visegradi, Himean,
+      Eridani, Plutonian, and various Elyran accents.
+2022-02-08:
+  Dekser:
+  - tweak: Unathi hiss2 and growl emotes no longer appear as &#x27;softly.&#x27;
+  Geeves:
+  - rscadd: Added the redacted tag to papercode formatting, examine pens to learn
+      how to do it.
+  MattAtlas:
+  - tweak: Female characters no longer have a habsburg chin.
+  Sparky_hotdog:
+  - tweak: Changed the pickup and drop sounds for mechanical organs to be different
+      from organic ones.
+  Vrow:
+  - tweak: Autoinjectors can now go into ear slots.
+  listerla:
+  - tweak: Slightly lowered headbutt damage.
+2022-02-09:
+  Geeves:
+  - rscadd: Barefoot skrell now leave behind slimy footprints that will evaporate
+      after some time.
+  - rscadd: Vaurca hivenet speech is now color-coded based on hive. Additionally,
+      prefixing your message with ! makes it display as an emote.
+  - bugfix: Quickee&#x27;s Plastic Surgeon stations now work properly with apostrophes
+      in names.
+  ReadThisNamePlz:
+  - tweak: Buffed the Cyber Ninja suit. Net gun module added, 100 EMP defense, speed
+      boost to the suit, and an energy sword to the crate.
+  - rscdel: Removed Tajaran and IPC access to the cyberwarfare suit for balance reasons.
+  Vrow:
+  - rscadd: Added a togglable automatic blood injection stop for the IV drips, which
+      causes them to automatically and safely disengage from patients if their blood
+      volume is full.
+  readthisnameplz:
+  - rscadd: Added a white version of the Captains dress.
+2022-02-12:
+  Alberyk:
+  - bugfix: Fixed some robotic internal organs not having sprites.
+  MattAtlas:
+  - tweak: Station lighting is moodier overall.
+  - tweak: Lights now spawn with a random color between halogen, warm white and white.
+  - rscadd: Hallway lights now become red in code red, and reset on code green.
+  SierraKomodo:
+  - spellcheck: Fixed spelling of &#x27;Burzsia&#x27; in the passcard loadout item.
+  SleepyGem:
+  - rscadd: Re-added lighters and dice as valid wallet items.
+  - rscadd: Adds keys as valid wallet items.
+  The Stryker:
+  - tweak: The accent tag of Konyang has been changed to reflect the current flag
+      in lore.
+  TheGreyWolf:
+  - bugfix: Fixed blood overlays on clothes.
+  - bugfix: Fixed tracks still being left after cleaning shoes.
+  - bugfix: Held mob sprites should now work again.
+  - rscadd: The adhomian lighter can now be opened by alt clicking it.
+  Vrow:
+  - tweak: Tweaked the messages you get from blood loss. Now it&#x27;s not just the
+      same dizzy, faint, and woozy for all blood loss levels.
+2022-02-13:
+  Geeves:
+  - rscadd: Offworlders now have access to all human accents plus scarab fleets, minus
+      the silversun, pluto, europan, cytherean and gadpathurian accents.
+  Ramke:
+  - tweak: Adjusted the gruff tajara cloak&#x27;s hooded side sprites.
+  TheGreyWolf:
+  - rscadd: Added a verb to remove yarn on knitting needles.
+  - bugfix: Fixed animations on knitting needles.
+  - bugfix: Knitting needles no longer try to produce something when the selection
+      is cancelled.
+  Vrow:
+  - rscadd: Operating console is now more responsive, with alarms for some specific
+      conditions.
+  - rscadd: Inserting a Medical Scan into the Operating console now displays it accordingly,
+      which you can update whenever you want or need.
+  - tweak: Operating console also shows Blood Volume
+  - rscadd: 'Added a new paper type: Medscan papers.'
+  - imageadd: Medscan papers sprites added.
+  - tweak: Relevant machines and device print out the Medscan paper type.
+  - imageadd: The Operating Table pulse display now has a flatlined state!
+  mikomyazaki:
+  - bugfix: Fixed issue where trying to load a lathe with &lt;1 of a sheet of something
+      didn&#x27;t delete the sheet item.
+  - bugfix: Fixed issue where loading a lathe with an object consisting of &gt;1 materials
+      could provide incorrect messages about how full it is.
+2022-02-14:
+  MattAtlas:
+  - bugfix: The loadout will now substitute job clothing in the preview.
+  Vrow:
+  - bugfix: Vision Enhanced Retinas no longer has lights like the sightlights.
+  - bugfix: Fixed Icelance Icon disappearing when it has 2/3 shots remaining.
+  listerla:
+  - bugfix: Dominian suits are no longer assless.
+  mikomyazaki:
+  - bugfix: Space turfs will now properly display the camera static image when they
+      are not visible from a camera, to an AI or camera view.
+2022-02-15:
+  TheGreyWolf:
+  - bugfix: Using the whisper verb with a language should now show the message properly.
+  - bugfix: Radios now properly show what is spoken into rather than always picking
+      the item on the left ear slot.
+  - bugfix: Language specific whisper verbs will now be used again.
+  - bugfix: PDAs should no longer show up as &#x27;unknown&#x27; on roundstart.
+  Wowzewow (Wezzy), monster860:
+  - rscadd: Adds animation to opening and closing lockers and body bags.
+2022-02-16:
+  Sparky_hotdog:
+  - tweak: Fixed the Zeng-Hu Responder Coat having the wrong description.
+  Vrow:
+  - bugfix: Fixes the operating table&#x27;s neural suppressors occasionally not working.
+  - rscadd: Added a set transfer amount AltClick function for Hyposprays and Syringes.
+  - tweak: Syringes also have a set transfer amount of 10u. Finally the 1, 2, 5, 10,
+      15 train is complete.
+  Yonnimer:
+  - rscadd: Adds two new dionae religions as options in the setup, Ksshr and Shrkh
+  - tweak: Updates the old message nymphs got one growing up into a full gestalt
+  listerla:
+  - rscdel: Removed the ability of cats to see observers.
+  mikomyazaki:
+  - bugfix: Z-mimic will now update properly when something changes on the bottom
+      visible turf.
+  - bugfix: Pointing arrows should now delete themselves properly.
+2022-02-17:
+  Geeves:
+  - tweak: Bulwarks now move faster, a bit slower than their other vaurca brethren.
+      In exchange, their stamina has been halved.
+  SierraKomodo:
+  - maptweak: Replaced the windows between the kitchen and bar counter areas with
+      walls, to reduce the spam of conversational text on both sides.
+2022-02-18:
+  MattAtlas:
+  - experiment: Ported Baystation&#x27;s improvements to the maploader.
+  - experiment: Ported Baystation&#x27;s system for Overmap away sites and exoplanet
+      ruin generation.
+  Sparky_hotdog:
+  - rscadd: Added colourable shorts to the loadout.
+  TheGreyWolf:
+  - tweak: Changed how hoods works slightly. Shouldn&#x27;t be any player-facing changes.
+  Vrow:
+  - bugfix: Lung rescue properly clears the built up OxyLoss (but doesn&#x27;t prevent
+      it from increasing).
+  - tweak: Decreased pain caused by lung rescue from 75 to 50.
+  - rscadd: Added a spam prevention to the syringes.
+  mikomyazaki:
+  - bugfix: Being assigned a special role now clears &#x27;role_alt_title&#x27;, which
+      could lead to you getting an ID with your previous job on it when spawning as
+      an antagonist.
+  - bugfix: Atmospherics consoles linked to injector outlets (e.g. Supermatter coolant
+      control console) will no longer require you to click &#x27;Search for input
+      port&#x27; the first time you open it in a round, they will instead start with
+      their mapped injector already linked properly.
+  - bugfix: Crew Arrival Announcement/Records will now include a faction tag for valid
+      factions, so your crew manifest listing can match everyone else&#x27;s.
+  - tweak: The Agent ID can now have a faction name set.
+  - bugfix: It is now possible to safely heat nitroglycerin without explosions. Use
+      a large volume and heat it in small increments.
+  - rscadd: Chem heaters now have a &#x27;slow mode&#x27; option that will heat your
+      chemical in very small steps.
+  - bugfix: Fixes pressure regulators not creating the right underlays when connecting
+      to universal adapters in some cases.
+2022-02-19:
+  The Stryker, Kyres1, The Lancer:
+  - rscadd: Added earphones to the loadout in the loadout Earwear tab.
+  - rscadd: Added Konyanger jackets (blue, orange, and red with variants) and a Konyanger
+      overcoat to the loadout suits and overwear tab.
+  - rscadd: Added a male hanbok to the hanbok selection and a Konyanger dress to the
+      uniform tab.
+  - rscadd: Adds a gat to the loadout hat tab.
+  - rscadd: Added Assunzione robes to the loadout Religion tab.
+  - rscadd: Added comic books and manga to the loadout general tab.
+  TheGreyWolf:
+  - tweak: The hull shield generator now also create shields around the rock walls
+      found on the asteroid to guarantee station safety.
+  - bugfix: Hoodies and other suits with hoods can now be properly opened and closed
+      again.
+  Vrow:
+  - rscadd: You can now shove in IPCs via grabs or drag and drop into the rechargers.
+  - tweak: Shoving them in via grabs/drag and drop doesn&#x27;t take as long as stationbounds,
+      but it does take around 5 seconds.
+  - tweak: Autoinhaler sprites tweaked and subtly easier to click.
+  - tweak: Inhaler sprites refreshened and sligthyly larger and subtly easier to click.
+  - rscadd: Autoinhalers that spawn with reagents can have their labels removed properly
+  - rscadd: Inhaler Cartridge sprites revamped with the ability to show how much stuff
+      there is inside of them, like hyposprays!
+  - bugfix: Fixed autoinhalers letting you inject people without being twisted closed.
+  - bugfix: Fixed inhalers not properly making the sound or giving adminlogs.
+  - bugfix: Fixed stationbounds&#x27;s Medical Grippers being unable to hold inhaler
+      cartridges.
+  mikomyazaki:
+  - bugfix: Can now throw objects over railings.
+  - bugfix: ID card photos will now face the correct directions instead of both being
+      of the direction your character was facing when your ID card spawned.
+2022-02-22:
+  Aticius:
+  - bugfix: The Xion left leg sprite will no longer give you two feet.
+  mikomyazaki:
+  - bugfix: Replaces coloured shorts image that was accidentally removed.
+  - bugfix: Mining rovers no longer have red blood.
+  - bugfix: Ghosts pointing won&#x27;t show an outline filter.
+2022-02-23:
+  SierraKomodo:
+  - rscadd: You can now remove ID cards from wallets with AltClick. This only works
+      for human mobs, and only if you&#x27;re holding or wearing the wallet.
+  Wowzewow (Wezzy) & listerla:
+  - imageadd: Added a variety of new Unathi crests, frills, and horns based on dinosaurs.
+  mikomyazaki:
+  - bugfix: Converting from pencode to html (e.g. in the holomenu) will now properly
+      convert center, heading, tables, lists, and more.
+2022-02-24:
+  MattAtlas:
+  - bugfix: Red and blue mapped in lights no longer override their color with a random
+      one.
+  RyverStyx:
+  - bugfix: Fixes skrell body markings not using the proper colors when selected.
+2022-02-25:
+  Geeves:
+  - bugfix: Fixed some name sanitization issues when picking a ghostspawner or becoming
+      an antagonist, apostrophes will now work correctly.
+  - rscadd: Quickees Plastic Surgeon or changer machines will now update your ID as
+      well.
+  Vrow:
+  - rscadd: The Operating Console now automatically ejects the scan if the patient
+      isn&#x27;t on the table.
+  - bugfix: Patched some oversights which would lead to some bugs.
+  - tweak: Minor shuffling of the operating console code and adding a % to be Blood
+      Oxygenation.
+  Vrow, Granodd:
+  - rscadd: Added various bread-related recipes! Toast, Garlic Bread, Eggs in the
+      basket, Peanut Butter Toast, PBJ Sandwich, and Reuben Sandwich!
+  - rscadd: Added Sauerkraut, Mayonnaise, and Roasted Peanuts! You can also make Peanut
+      Oil and Peanut Butter!
+  - rscadd: You can also put toast in your mask slot for the funsies.
+  - imageadd: Added several more sprites for the new recipes and unique condiment
+      bottle sprites for Mayonnaise, Cherry Jelly, Peanut Butter, Ground Roasted Peanuts,
+      and Peanut Oil.
+  - imageadd: Ports the Garlic Bread sprite from tgstation.
+  mikomyazaki:
+  - tweak: Blast doors without power will only open when power is restored if they
+      were originally open.
+2022-02-26:
+  SleepyGem:
+  - bugfix: Hro&#x27;zamal Reagent typo fixed.
+  mikomyazaki:
+  - bugfix: Vending machines will now always show the correct icon for their product.
+2022-02-27:
+  SleepyGem:
+  - bugfix: Fixes a typo in Ka&#x27;Akaix&#x27;Pax C&#x27;thur&#x27;s custom item&#x27;s
+      description.
+  - bugfix: Vacuum flask typo fixed.
+  - bugfix: Silversun shirt selection in the loadout no longer defaults to the description
+      of the first shirt.
+2022-02-28:
+  Sparky_hotdog:
+  - bugfix: Fixed autoinhalers with reagents spawning unsecured
+  - tweak: The holomenu can now scan a sheet of paper and display its contents.
+  - bugfix: Fixed stripping mobs with an active item in your hand failing.
+  - tweak: Stripping an item off a mob now tries to put it in your hands first.
+  - tweak: Allows you to Alt Click on a mob when you have a medHUD to set their triage
+      tag.
+  - tweak: Allows you to Alt Click IVs to set their transfer rate.
+  mikomyazaki2:
+  - tweak: Maintenance drones can now choose to swap their hat when clicking on a
+      hat while wearing one, instead of receiving an error message about already wearing
+      a hat.

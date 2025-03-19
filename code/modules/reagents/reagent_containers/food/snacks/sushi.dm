@@ -70,13 +70,13 @@
 
 /obj/item/reagent_containers/food/snacks/sashimi/update_icon()
 	icon_state = "sashimi_base"
-	cut_overlays()
+	ClearOverlays()
 	var/slice_offset = (slices-1)*2
 	for(var/slice = 1 to slices)
 		var/image/I = image(icon = icon, icon_state = "sashimi")
 		I.pixel_x = slice_offset-((slice-1)*4)
 		I.pixel_y = I.pixel_x
-		add_overlay(I)
+		AddOverlays(I)
 
 /obj/item/reagent_containers/food/snacks/sashimi/attackby(obj/item/attacking_item, mob/user)
 	if(!(locate(/obj/structure/table) in loc))
@@ -131,22 +131,22 @@
 		return
 	. = ..()
 // Used for turning other food into sushi.
-/obj/item/reagent_containers/food/snacks/friedegg/attackby(obj/item/attacking_item, var/mob/user)
+/obj/item/reagent_containers/food/snacks/friedegg/attackby(obj/item/attacking_item, mob/user, params)
 	if((locate(/obj/structure/table) in loc) && istype(attacking_item, /obj/item/reagent_containers/food/snacks/boiledrice))
 		new /obj/item/reagent_containers/food/snacks/sushi(get_turf(src), attacking_item, src)
 		return
 	. = ..()
-/obj/item/reagent_containers/food/snacks/tofu/attackby(obj/item/attacking_item, var/mob/user)
+/obj/item/reagent_containers/food/snacks/tofu/attackby(obj/item/attacking_item, mob/user, params)
 	if((locate(/obj/structure/table) in loc) && istype(attacking_item, /obj/item/reagent_containers/food/snacks/boiledrice))
 		new /obj/item/reagent_containers/food/snacks/sushi(get_turf(src), attacking_item, src)
 		return
 	. = ..()
-/obj/item/reagent_containers/food/snacks/rawcutlet/attackby(obj/item/attacking_item, var/mob/user)
+/obj/item/reagent_containers/food/snacks/rawcutlet/attackby(obj/item/attacking_item, mob/user, params)
 	if((locate(/obj/structure/table) in loc) && istype(attacking_item, /obj/item/reagent_containers/food/snacks/boiledrice))
 		new /obj/item/reagent_containers/food/snacks/sushi(get_turf(src), attacking_item, src)
 		return
 	. = ..()
-/obj/item/reagent_containers/food/snacks/cutlet/attackby(obj/item/attacking_item, var/mob/user)
+/obj/item/reagent_containers/food/snacks/cutlet/attackby(obj/item/attacking_item, mob/user, params)
 	if((locate(/obj/structure/table) in loc) && istype(attacking_item, /obj/item/reagent_containers/food/snacks/boiledrice))
 		new /obj/item/reagent_containers/food/snacks/sushi(get_turf(src), attacking_item, src)
 		return

@@ -5,16 +5,17 @@
 	</br>This will not make you inaudible, your footsteps can still be heard, and it will make a very distinctive sound when uncloaking.\
 	</br>Any items you're holding in your hands can still be seen."
 	desc_antag  = "Being cloaked makes you impossible to click on, which offers a major advantage in combat. People can only hit you by blind-firing in your direction."
-
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/item/device/chameleon.dmi'
 	icon_state = "shield0"
+	item_state = "electronic"
+	contained_sprite = TRUE
 	var/active = 0.0
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	item_state = "electronic"
 	throwforce = 10.0
 	throw_speed = 2
 	throw_range = 10
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	origin_tech = list(TECH_MAGNET = 3, TECH_ILLEGAL = 4)
 
 	var/power_usage = 35000//A high powered cell allows 5 minutes of continuous usage
@@ -39,7 +40,7 @@
 	register_owner(user)
 
 //Handles dropped or thrown cloakers
-/obj/item/cloaking_device/dropped(var/mob/user)
+/obj/item/cloaking_device/dropped(mob/user)
 	..()
 	var/mob/M = get_holding_mob()
 	if(!M)
@@ -76,7 +77,7 @@
 	stop_modifier()
 	playsound(src, 'sound/effects/phasein.ogg', 10, 1, -2)//Cloaking is quieter than uncloaking
 	if (owner)
-		to_chat(owner, "<span class='notice'>\The [src] is now active.</span>")
+		to_chat(owner, SPAN_NOTICE("\The [src] is now active."))
 		start_modifier()
 
 /obj/item/cloaking_device/proc/deactivate()
@@ -85,7 +86,7 @@
 	active = 0
 	src.icon_state = "shield0"
 	if (owner)
-		to_chat(owner, "<span class='notice'>\The [src] is now inactive.</span>")
+		to_chat(owner, SPAN_NOTICE("\The [src] is now inactive."))
 
 	playsound(src, 'sound/effects/phasein.ogg', 50, 1)
 	stop_modifier()
@@ -123,17 +124,17 @@
 		if(!cell)
 			user.drop_from_inventory(attacking_item, src)
 			cell = attacking_item
-			to_chat(user, "<span class='notice'>You install a cell in [src].</span>")
+			to_chat(user, SPAN_NOTICE("You install a cell in [src]."))
 			update_icon()
 		else
-			to_chat(user, "<span class='notice'>[src] already has a cell.</span>")
+			to_chat(user, SPAN_NOTICE("[src] already has a cell."))
 
 	else if(attacking_item.isscrewdriver())
 		if(cell)
 			cell.update_icon()
 			cell.forceMove(get_turf(src.loc))
 			cell = null
-			to_chat(user, "<span class='notice'>You remove the cell from the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You remove the cell from the [src]."))
 			deactivate()
 			return
 	..()

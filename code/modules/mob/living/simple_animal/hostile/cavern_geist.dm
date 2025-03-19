@@ -12,6 +12,8 @@
 	mob_swap_flags = HUMAN|SIMPLE_ANIMAL|SLIME|MONKEY
 	mob_push_flags = ALLMOBS
 
+	faction = "Adhomai"
+
 	tameable = FALSE
 
 	organ_names = list("chest", "lower body", "left arm", "right arm", "left leg", "right leg", "head")
@@ -41,7 +43,7 @@
 	..()
 	anchored = TRUE
 
-/mob/living/simple_animal/hostile/cavern_geist/Life()
+/mob/living/simple_animal/hostile/cavern_geist/Life(seconds_per_tick, times_fired)
 	..()
 	adjustBruteLoss(-5)
 

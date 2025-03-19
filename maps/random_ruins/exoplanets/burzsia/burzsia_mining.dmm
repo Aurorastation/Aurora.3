@@ -910,15 +910,13 @@
 /obj/machinery/conveyor{
 	dir = 9;
 	id = "burzsia_mining";
-	layer = 2.9;
 	reversed = 1
 	},
 /turf/simulated/floor/plating,
 /area/burzsia_mining/mining)
 "zB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -1263,7 +1261,6 @@
 	},
 /obj/machinery/power/apc/north{
 	is_critical = 1;
-	pixel_x = 0;
 	req_access = list(202)
 	},
 /turf/simulated/floor,
@@ -1321,6 +1318,11 @@
 /obj/item/storage/toolbox/mechanical,
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/item/blueprints/outpost,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
 	},
 /turf/simulated/floor/tiled/steel,
 /area/burzsia_mining/mining)
@@ -1424,7 +1426,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "burzsia_mining";
-	layer = 2.9;
 	backwards = 1
 	},
 /turf/simulated/floor/plating,
@@ -1670,8 +1671,7 @@
 	icon_state = "1-4"
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/foreman)
@@ -1702,8 +1702,7 @@
 /obj/item/ore_detector,
 /obj/item/device/flashlight/lantern,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /obj/item/device/radio,
 /obj/item/stack/flag/yellow,
@@ -1728,7 +1727,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "burzsia_mining";
-	layer = 2.9;
 	backwards = 1
 	},
 /obj/structure/railing/mapped,
@@ -1846,7 +1844,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "burzsia_mining";
-	layer = 2.9;
 	backwards = 1
 	},
 /obj/effect/floor_decal/industrial/warning/cee{

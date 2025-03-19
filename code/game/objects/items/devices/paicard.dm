@@ -3,7 +3,7 @@
 	icon = 'icons/obj/pai.dmi'
 	icon_state = "pai"
 	item_state = "electronic"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_DATA = 2)
 	var/list/installed_encryptionkeys = list()
@@ -16,7 +16,9 @@
 	light_range = 1
 	light_color = COLOR_BRIGHT_GREEN
 
-/obj/item/device/paicard/relaymove(var/mob/user, var/direction)
+/obj/item/device/paicard/relaymove(mob/living/user, direction)
+	. = ..()
+
 	if(user.stat || user.stunned)
 		return
 	if(istype(loc, /mob/living/bot))
@@ -34,7 +36,7 @@
 
 /obj/item/device/paicard/Initialize()
 	. = ..()
-	add_overlay("pai_off")
+	AddOverlays("pai_off")
 	SSpai.all_pai_devices += src
 	update_light()
 
@@ -261,7 +263,7 @@
 		dat += {"
 			<table>
 				<td class="button">
-					<a href='byond://?src=\ref[src];setlaws=1' class='button'>Configure Directives</a>
+					<a href='byond://?src=[REF(src)];setlaws=1' class='button'>Configure Directives</a>
 				</td>
 			</table>
 		"}
@@ -269,7 +271,7 @@
 			dat += {"
 				<table>
 					<td class="button">
-						<a href='byond://?src=\ref[src];setdna=1' class='button'>Imprint Master DNA</a>
+						<a href='byond://?src=[REF(src)];setdna=1' class='button'>Imprint Master DNA</a>
 					</td>
 				</table>
 			"}
@@ -280,13 +282,13 @@
 				<table class="request">
 					<tr>
 						<td class="radio">Transmit:</td>
-						<td><a href='byond://?src=\ref[src];wires=4'>[radio.get_broadcasting() ? "<font color=#55FF55>En" : "<font color=#FF5555>Dis" ]abled</font></a>
+						<td><a href='byond://?src=[REF(src)];wires=4'>[radio.get_broadcasting() ? "<font color=#55FF55>En" : "<font color=#FF5555>Dis" ]abled</font></a>
 
 						</td>
 					</tr>
 					<tr>
 						<td class="radio">Receive:</td>
-						<td><a href='byond://?src=\ref[src];wires=2'>[radio.get_listening() ? "<font color=#55FF55>En" : "<font color=#FF5555>Dis" ]abled</font></a>
+						<td><a href='byond://?src=[REF(src)];wires=2'>[radio.get_listening() ? "<font color=#55FF55>En" : "<font color=#FF5555>Dis" ]abled</font></a>
 
 						</td>
 					</tr>
@@ -298,7 +300,7 @@
 			dat += "<font color=red><i>Radio firmware not loaded. Please install a pAI personality to load firmware.</i></font><br>"
 		dat += {"
 			<table>
-				<td class="button_red"><a href='byond://?src=\ref[src];wipe=1' class='button'>Wipe current pAI personality</a>
+				<td class="button_red"><a href='byond://?src=[REF(src)];wipe=1' class='button'>Wipe current pAI personality</a>
 
 				</td>
 			</table>
@@ -313,7 +315,7 @@
 				<table>
 					<tr>
 						<td class="button">
-							<a href='byond://?src=\ref[src];request=1' class="button">Refresh available personalities</a>
+							<a href='byond://?src=[REF(src)];request=1' class="button">Refresh available personalities</a>
 						</td>
 					</tr>
 				</table><br>
@@ -324,7 +326,7 @@
 				<p>No personality is installed.</p>
 				<table>
 					<tr>
-						<td class="button"><a href='byond://?src=\ref[src];request=1' class="button">Request personality</a>
+						<td class="button"><a href='byond://?src=[REF(src)];request=1' class="button">Request personality</a>
 						</td>
 					</tr>
 				</table>
@@ -389,19 +391,19 @@
 
 /obj/item/device/paicard/proc/setPersonality(mob/living/silicon/pai/personality)
 	src.pai = personality
-	add_overlay("pai-happy")
+	AddOverlays("pai-happy")
 	playsound(src, 'sound/effects/pai/pai_restore.ogg', 75)
 
 /obj/item/device/paicard/proc/removePersonality()
 	src.pai = null
-	cut_overlays()
-	add_overlay("pai-off")
+	ClearOverlays()
+	AddOverlays("pai-off")
 
 /obj/item/device/paicard
 	var/current_emotion = 1
 /obj/item/device/paicard/proc/setEmotion(var/emotion)
 	if(pai)
-		cut_overlays()
+		ClearOverlays()
 		var/new_state
 		switch(emotion)
 			if(1) new_state = "pai-happy"
@@ -420,7 +422,7 @@
 			if(14) new_state = "pai-exclamation"
 			if(15) new_state = "pai-question"
 		if (new_state)
-			add_overlay(new_state)
+			AddOverlays(new_state)
 		current_emotion = emotion
 
 /obj/item/device/paicard/proc/alertUpdate()

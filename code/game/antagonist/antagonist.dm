@@ -30,7 +30,7 @@
 	// Faction data.
 	var/faction_role_text                   // Role for sub-antags. Mandatory for faction role.
 	var/faction_descriptor                  // Description of the cause. Mandatory for faction role.
-	var/faction_verb                        // Verb added when becoming a member of the faction, if any.
+	var/list/faction_verbs                  // Verbs added when becoming a member of the faction, if any.
 	var/faction_welcome                     // Message shown to faction members.
 	var/faction = "neutral"			// Faction name, mostly used for simple animals.
 
@@ -53,6 +53,7 @@
 	var/suspicion_chance = 50               // Prob of being on the initial Command report
 	var/flags = 0                           // Various runtime options.
 	var/db_log_id = null                    // ID of the db entry used to track that antagonist
+	var/allow_no_mob = FALSE                // This antagonist allows ghosts as antag, or other mobs that don't fill out the current var.
 
 	// Used for setting appearance.
 	var/list/valid_species =       list(SPECIES_UNATHI,SPECIES_TAJARA,SPECIES_SKRELL,SPECIES_SKRELL_AXIORI,SPECIES_HUMAN)
@@ -93,11 +94,10 @@
 	if(antaghud_indicator)
 		if(!GLOB.hud_icon_reference)
 			GLOB.hud_icon_reference = list()
-		if(role_text) GLOB.hud_icon_reference[role_text] = antaghud_indicator
-		if(faction_role_text) GLOB.hud_icon_reference[faction_role_text] = antaghud_indicator
-
-/datum/antagonist/proc/tick()
-	return 1
+		if(role_text)
+			GLOB.hud_icon_reference[role_text] = antaghud_indicator
+		if(faction_role_text)
+			GLOB.hud_icon_reference[faction_role_text] = antaghud_indicator
 
 // Get the raw list of potential players.
 /datum/antagonist/proc/build_candidate_list(var/ghosts_only, var/allow_animals = 0)
@@ -186,6 +186,8 @@
 	return 1
 
 /datum/antagonist/proc/draft_antagonist(var/datum/mind/player)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	//Check if the player can join in this antag role, or if the player has already been given an antag role.
 	if(!can_become_antag(player))
 		log_traitor("[player.key] was selected for [role_text] by lottery, but is not allowed to be that role.")

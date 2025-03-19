@@ -6,7 +6,7 @@
 	density = 1
 	idle_power_usage = 30
 	active_power_usage = 200
-	power_channel = EQUIP
+	power_channel = AREA_USAGE_EQUIP
 	/// Item to copy.
 	var/obj/item/copy_item
 	/// How much toner is left.
@@ -129,7 +129,7 @@
 			flick("photocopier_notoner", src)
 			playsound(loc, 'sound/machines/buzz-two.ogg', 75, 1)
 	else if(attacking_item.iswrench())
-		playsound(loc, attacking_item.usesound, 50, 1)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		anchored = !anchored
 		to_chat(user, SPAN_NOTICE("You [anchored ? "wrench" : "unwrench"] \the [src]."))
 	return
@@ -205,7 +205,7 @@
 			img = image('icons/obj/bureaucracy.dmi', "paper_stamp-dots")
 		img.pixel_x = copy.offset_x[j]
 		img.pixel_y = copy.offset_y[j]
-		c.add_overlay(img)
+		c.AddOverlays(img)
 
 	if(!toner)
 		target.visible_message(SPAN_NOTICE("A red light on \the [target] flashes, indicating that it is out of toner."))
@@ -281,5 +281,6 @@
 /obj/item/device/toner
 	name = "toner cartridge"
 	desc = "A high-definition toner for colour photocopying and printer machines. Good thing it's a business expense."
+	icon = 'icons/obj/item/device/toner.dmi'
 	icon_state = "tonercartridge"
 	var/toner_amount = 30

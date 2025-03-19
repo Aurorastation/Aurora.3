@@ -2,11 +2,15 @@
 	name = "Database Freighter"
 	id = "database_freighter"
 	description = "Made from adapted designs of the first freighter Tajara ever worked upon, Database freighters are PRA vessels made specially for gathering information on star systems and what passes through them."
-	suffixes = list("ships/pra/database_freighter/database_freighter.dmm")
+
+	prefix = "ships/pra/database_freighter/"
+	suffix = "database_freighter.dmm"
+
 	ship_cost = 1
 	spawn_weight = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/database_freighter_shuttle)
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL)
+	spawn_weight_sector_dependent = list(SECTOR_BADLANDS = 0.5)
 
 	unit_test_groups = list(3)
 
@@ -23,7 +27,7 @@
 	colors = list("#8C8A81")
 	vessel_mass = 10000
 	max_speed = 1/(2 SECONDS)
-	fore_dir = NORTH
+	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
 	scanimage = "pra_freighter.png"
 	designer = "People's Republic of Adhomai"
@@ -91,19 +95,18 @@
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
-	fore_dir = NORTH
+	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/database_freighter_shuttle
+/obj/machinery/computer/shuttle_control/explore/terminal/database_freighter_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Database Freighter Shuttle"
-
 
 /datum/shuttle/autodock/overmap/database_freighter_shuttle
 	name = "Database Freighter Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/database_freighter_shuttle)
-	dock_target = "database_freighter_shuttle"
+	dock_target = "airlock_database_freighter_shuttle"
 	current_location = "nav_database_freighter_shuttle"
 	landmark_transition = "nav_transit_database_freighter_shuttle"
 	range = 1
@@ -111,15 +114,9 @@
 	logging_home_tag = "nav_database_freighter_shuttle"
 	defer_initialisation = TRUE
 
-/obj/effect/shuttle_landmark/database_freighter_shuttle/hangar
-	name = "Database Freighter Shuttle Hangar"
-	landmark_tag = "nav_database_freighter_shuttle"
-	docking_controller = "database_freighter_shuttle_dock"
-	base_area = /area/database_freighter/hangar
-	base_turf = /turf/simulated/floor/plating
-	movable_flags = MOVABLE_FLAG_EFFECTMOVE
-
-/obj/effect/shuttle_landmark/database_freighter_shuttle/transit
-	name = "In transit"
-	landmark_tag = "nav_transit_database_freighter_shuttle"
-	base_turf = /turf/space/transit/north
+/obj/effect/map_effect/marker/airlock/shuttle/database_freighter_shuttle
+	name = "Database Freighter Shuttle"
+	shuttle_tag = "Database Freighter Shuttle"
+	master_tag = "airlock_database_freighter_shuttle"
+	req_one_access = list(209)
+	cycle_to_external_air = TRUE

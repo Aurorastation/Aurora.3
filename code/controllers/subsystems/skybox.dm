@@ -17,13 +17,13 @@ SUBSYSTEM_DEF(skybox)
 	space_appearance_cache = new(26)
 	for (var/i in 0 to 25)
 		var/mutable_appearance/dust = mutable_appearance('icons/turf/space_dust.dmi', "[i]")
-		dust.plane = PLANE_SPACE_DUST
+		dust.plane = DUST_PLANE
 		dust.alpha = 80
 		dust.blend_mode = BLEND_ADD
 
 		var/mutable_appearance/space = new /mutable_appearance(/turf/space)
 		space.name = "space"
-		space.plane = PLANE_SPACE_BACKGROUND
+		space.plane = SPACE_PLANE
 		space.icon_state = "white"
 		space.overlays += dust
 		space_appearance_cache[i + 1] = space.appearance

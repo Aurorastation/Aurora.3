@@ -13,6 +13,13 @@
 /obj/structure/light_pole/r
 	icon_state = "rustlamp_r"
 
+/obj/structure/light_pole/decayed
+	desc = "A tall light source. The bulb appears to be decayed."
+	light_color = LIGHT_COLOR_DECAYED
+
+/obj/structure/light_pole/decayed/r
+	icon_state = "rustlamp_r"
+
 /obj/structure/light_pole/konyang
 	name = "dangling lamp"
 	desc = "A flame-lit lamp dangling precariously from a tall pole."
@@ -55,6 +62,15 @@
 	icon = 'icons/obj/structure/urban/streetpoles.dmi'
 	icon_state = "streetlight"
 
+/obj/effect/overlay/street_light
+	icon = 'icons/obj/structure/urban/poles.dmi'
+	icon_state = "street_light"
+	plane = EFFECTS_ABOVE_LIGHTING_PLANE
+
+/obj/effect/overlay/street_light/classic
+	icon_state = "classic_lamp_light"
+	density = 1
+
 /obj/structure/utility_pole/street/on
 	light_wedge = LIGHT_OMNI
 	light_color = "#e8ffeb"
@@ -92,6 +108,12 @@
 	light_range = 8
 	light_power = 1.9
 
+/obj/structure/utility_pole/street/on/Initialize(mapload)
+	. = ..()
+	ClearOverlays()
+	AddOverlays(/obj/effect/overlay/street_light)
+	return
+
 /obj/structure/utility_pole/street/konyang/classic
 	name = "\improper stone lamp"
 	desc = "A stone lamp commonly found in Konyang."
@@ -109,8 +131,8 @@
 
 /obj/structure/utility_pole/street/konyang/classic/on/Initialize(mapload)
 	. = ..()
-	cut_overlays()
-	overlays += /obj/effect/overlay/street_light/konyang/classic
+	ClearOverlays()
+	AddOverlays(/obj/effect/overlay/street_light/konyang/classic)
 	return
 
 /obj/effect/overlay/street_light/crosswalk
@@ -129,8 +151,8 @@
 
 /obj/structure/utility_pole/street/crosswalk/Initialize(mapload)
 	. = ..()
-	cut_overlays()
-	overlays += /obj/effect/overlay/street_light/crosswalk
+	ClearOverlays()
+	AddOverlays(/obj/effect/overlay/street_light/crosswalk)
 	return
 
 /obj/structure/utility_pole/street/traffic
@@ -144,6 +166,17 @@
 /obj/structure/utility_pole/street/traffic/konyang
 	icon_state = "trafficlight_konyang"
 
+/obj/structure/utility_pole/street/traffic/base/Initialize(mapload)
+	. = ..()
+	ClearOverlays()
+	AddOverlays(/obj/effect/overlay/street_light/traffic)
+	return
+
+/obj/structure/utility_pole/street/traffic/inverted/Initialize(mapload)
+	. = ..()
+	ClearOverlays()
+	AddOverlays(/obj/effect/overlay/street_light/traffic/inverted)
+	return
 /obj/structure/utility_pole/power
 	name = "power pole"
 	desc = "A very tall utility pole for urban infrastructure. This one is a basis for power lines overhead."

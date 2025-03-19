@@ -5,6 +5,7 @@
 	name = "helm control console"
 	icon_screen = "helm"
 	icon_keyboard = "cyan_key"
+	icon_keyboard_emis = "cyan_key_mask"
 	light_color = LIGHT_COLOR_CYAN
 	var/autopilot = 0
 	var/list/known_sectors = list()
@@ -29,6 +30,7 @@
 	icon = 'icons/obj/machinery/modular_terminal.dmi'
 	icon_screen = "helm"
 	icon_keyboard = "security_key"
+	icon_keyboard_emis = "security_key_mask"
 	is_connected = TRUE
 	has_off_keyboards = TRUE
 	can_pass_under = FALSE
@@ -43,7 +45,7 @@
 		PH.linked_helm = null
 	return ..()
 
-/obj/machinery/computer/ship/helm/attackby(obj/item/attacking_item, user)
+/obj/machinery/computer/ship/helm/attackby(obj/item/attacking_item, mob/user, params)
 	if(istype(attacking_item, /obj/item/clothing/head/helmet/pilot))
 		if(!connected)
 			to_chat(user, SPAN_WARNING("\The [src] isn't linked to any vessels!"))
@@ -61,7 +63,7 @@
 	return ..()
 
 /obj/machinery/computer/ship/helm/proc/get_known_sectors()
-	var/area/overmap/map = global.map_overmap
+	var/area/overmap/map = GLOB.map_overmap
 	if(!map)
 		return
 	for(var/obj/effect/overmap/visitable/sector/S in map)
@@ -107,7 +109,9 @@
 		PH.set_hud_maptext("| Ship Status | [connected.x]-[connected.y] |<br>Speed: [round(connected.get_speed()*1000, 0.01)] | Acceleration: [get_acceleration()]<br>ETA to Next Grid: [get_eta()]")
 		PH.check_ship_overlay(PH.loc, connected)
 
-/obj/machinery/computer/ship/helm/relaymove(var/mob/user, direction)
+/obj/machinery/computer/ship/helm/relaymove(mob/living/user, direction)
+	. = ..()
+
 	if(viewing_overmap(user) && connected)
 		connected.relaymove(user, direction, accellimit)
 		return 1
@@ -167,7 +171,7 @@
 			rdata["name"] = R.fields["name"]
 			rdata["x"] = R.fields["x"]
 			rdata["y"] = R.fields["y"]
-			rdata["reference"] = "\ref[R]"
+			rdata["reference"] = "[REF(R)]"
 			locations.Add(list(rdata))
 
 		data["locations"] = locations
@@ -200,7 +204,7 @@
 			sec_name = "Sector #[known_sectors.len]"
 		R.fields["name"] = sec_name
 		if(sec_name in known_sectors)
-			to_chat(usr, "<span class='warning'>Sector with that name already exists, please input a different name.</span>")
+			to_chat(usr, SPAN_WARNING("Sector with that name already exists, please input a different name."))
 			return TRUE
 		switch(params["add"])
 			if("current")
@@ -213,8 +217,8 @@
 				var/newy = input("Input new entry y coordinate", "Coordinate input", connected.y) as num
 				if(!CanInteract(usr, GLOB.physical_state))
 					return FALSE
-				R.fields["x"] = Clamp(newx, 1, world.maxx)
-				R.fields["y"] = Clamp(newy, 1, world.maxy)
+				R.fields["x"] = clamp(newx, 1, world.maxx)
+				R.fields["y"] = clamp(newy, 1, world.maxy)
 		known_sectors[sec_name] = R
 
 	if (action == "remove")
@@ -228,14 +232,14 @@
 		if(!CanInteract(usr, GLOB.physical_state))
 			return
 		if (newx)
-			dx = Clamp(newx, 1, world.maxx)
+			dx = clamp(newx, 1, world.maxx)
 
 	if (action == "sety")
 		var/newy = input("Input new destination y coordinate", "Coordinate input", dy) as num|null
 		if(!CanInteract(usr, GLOB.physical_state))
 			return
 		if (newy)
-			dy = Clamp(newy, 1, world.maxy)
+			dy = clamp(newy, 1, world.maxy)
 
 	if (action == "xy")
 		dx = text2num(params["x"])
@@ -264,7 +268,7 @@
 	if (action == "speedlimit")
 		var/newlimit = input("Input new speed limit for autopilot (0 to brake)", "Autopilot speed limit", speedlimit*1000) as num|null
 		if(newlimit)
-			speedlimit = Clamp(newlimit/1000, 0, 100)
+			speedlimit = clamp(newlimit/1000, 0, 100)
 
 	if (action == "accellimit")
 		var/newlimit = input("Input new acceleration limit", "Acceleration limit", accellimit*1000) as num|null
@@ -311,6 +315,7 @@
 	name = "navigation console"
 	icon_screen = "nav"
 	icon_keyboard = "cyan_key"
+	icon_keyboard_emis = "cyan_key_mask"
 	light_color = LIGHT_COLOR_CYAN
 	circuit = /obj/item/circuitboard/ship/navigation
 
@@ -327,6 +332,7 @@
 	icon = 'icons/obj/machinery/modular_terminal.dmi'
 	icon_screen = "nav"
 	icon_keyboard = "generic_key"
+	icon_keyboard_emis = "generic_key_mask"
 	is_connected = TRUE
 	has_off_keyboards = TRUE
 	can_pass_under = FALSE

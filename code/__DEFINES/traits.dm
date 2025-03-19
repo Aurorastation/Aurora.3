@@ -119,6 +119,7 @@
 // common trait sources
 #define TRAIT_GENERIC "generic"
 #define GENERIC_ITEM_TRAIT "generic_item"
+#define DISABILITY_TRAIT "disability"
 
 /// cannot be removed without admin intervention
 #define ROUNDSTART_TRAIT "roundstart"
@@ -174,3 +175,24 @@
 
 /// Traits given by psionics.
 #define TRAIT_SOURCE_PSIONICS "psionics"
+
+/// Traits given by augments
+#define TRAIT_SOURCE_AUGMENT "augment"
+
+/// This trait makes Check_Shoegrip return TRUE. Used for magboot-like behaviour.
+#define TRAIT_SHOE_GRIP "shoe_grip"
+
+// DISABILITY TRAITS
+
+/// Causes the mob to take twice as long to clot their wounds
+#define TRAIT_DISABILITY_HEMOPHILIA "disability_hemophilia"
+
+/// Causes the mob to never clot their wounds
+#define TRAIT_DISABILITY_HEMOPHILIA_MAJOR "disability_hemophilia_major"
+
+/// hnnnnnnnggggg..... you're pretty good....
+#define TRAIT_NICE_SHOT "nice_shot"
+/// Mobs with this trait cannot be hit by projectiles, meaning the projectiles will just go through.
+#define TRAIT_UNHITTABLE_BY_PROJECTILES "unhittable_by_projectiles"
+///This mob is currently blocking a projectile.
+#define TRAIT_BLOCKING_PROJECTILES "blocking_projectiles"

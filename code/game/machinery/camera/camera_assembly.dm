@@ -3,10 +3,10 @@
 	desc = "A pre-fabricated security camera kit, ready to be assembled and mounted to a surface."
 	icon = 'icons/obj/monitors.dmi'
 	icon_state = "cameracase"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	anchored = 0
 
-	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 300)
+	matter = list(MATERIAL_ALUMINIUM = 700, MATERIAL_GLASS = 300)
 
 	//	Motion, EMP-Proof, X-Ray
 	var/list/obj/item/possible_upgrades = list(/obj/item/device/assembly/prox_sensor, /obj/item/stack/material/osmium, /obj/item/stock_parts/scanning_module)
@@ -30,7 +30,7 @@
 		if(0)
 			// State 0
 			if(attacking_item.iswrench() && isturf(src.loc))
-				playsound(src.loc, attacking_item.usesound, 50, 1)
+				attacking_item.play_tool_sound(get_turf(src), 50)
 				to_chat(user, "You wrench the assembly into place.")
 				anchored = 1
 				state = 1
@@ -48,7 +48,7 @@
 				return TRUE
 
 			else if(attacking_item.iswrench())
-				playsound(src.loc, attacking_item.usesound, 50, 1)
+				attacking_item.play_tool_sound(get_turf(src), 50)
 				to_chat(user, "You unattach the assembly from its place.")
 				anchored = 0
 				update_icon()
@@ -60,10 +60,10 @@
 			if(attacking_item.iscoil())
 				var/obj/item/stack/cable_coil/C = attacking_item
 				if(C.use(2))
-					to_chat(user, "<span class='notice'>You add wires to the assembly.</span>")
+					to_chat(user, SPAN_NOTICE("You add wires to the assembly."))
 					state = 3
 				else
-					to_chat(user, "<span class='warning'>You need 2 coils of wire to wire the assembly.</span>")
+					to_chat(user, SPAN_WARNING("You need 2 coils of wire to wire the assembly."))
 				return TRUE
 
 			else if(attacking_item.iswelder())
@@ -78,7 +78,7 @@
 		if(3)
 			// State 3
 			if(attacking_item.isscrewdriver())
-				playsound(src.loc, attacking_item.usesound, 50, 1)
+				attacking_item.play_tool_sound(get_turf(src), 50)
 
 				var/input = sanitize( tgui_input_text(user, "Which networks would you like to connect this camera to? Separate networks with a comma. No Spaces!\nFor example: Station,Security,Secret",
 											"Set Network", (camera_network ? camera_network : NETWORK_STATION)) )
@@ -143,7 +143,7 @@
 		var/obj/U = locate(/obj) in upgrades
 		if(U)
 			to_chat(user, "You unattach an upgrade from the assembly.")
-			playsound(src.loc, attacking_item.usesound, 50, 1)
+			attacking_item.play_tool_sound(get_turf(src), 50)
 			U.forceMove(get_turf(src))
 			upgrades -= U
 		return
@@ -167,7 +167,7 @@
 	if(!WT.isOn())
 		return 0
 
-	to_chat(user, "<span class='notice'>You start to weld the [src]..</span>")
+	to_chat(user, SPAN_NOTICE("You start to weld the [src].."))
 	playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
 	user.flash_act(FLASH_PROTECTION_MAJOR)
 	busy = 1

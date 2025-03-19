@@ -14,7 +14,8 @@
 		tgt = CKM.ckey;				\
 	}
 
-var/list/jobban_keylist = list() // Global jobban list.
+GLOBAL_LIST_INIT(jobban_keylist, list())
+GLOBAL_PROTECT(jobban_keylist)
 
 /*
  * Expected format:
@@ -70,11 +71,11 @@ var/list/jobban_keylist = list() // Global jobban list.
 		return
 
 	// Create a new record if the client isn't logged already.
-	if (!jobban_keylist[key])
-		jobban_keylist[key] = list()
+	if (!GLOB.jobban_keylist[key])
+		GLOB.jobban_keylist[key] = list()
 
 	// Sanity catch. This shouldn't happen, but better safe than sorry.
-	if (jobban_keylist[key][rank] && !jobban_isexpired(jobban_keylist[key][rank], player, rank))
+	if (GLOB.jobban_keylist[key][rank] && !jobban_isexpired(GLOB.jobban_keylist[key][rank], player, rank))
 		log_and_message_admins("Attempted to apply a jobban to [key] while they already have an active ban. Job: [rank].")
 		return
 
@@ -84,7 +85,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 		unban_time = world.realtime + (minutes MINUTES)
 
 	// Create the entry.
-	jobban_keylist[key][rank] = list(reason, unban_time)
+	GLOB.jobban_keylist[key][rank] = list(reason, unban_time)
 
 	// Log the ban to the appropriate place.
 	if (GLOB.config.ban_legacy_system)
@@ -137,7 +138,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 			antag_ban = TRUE
 
 		// Get the user's ckey.
-		var/list/entry = jobban_keylist[ckey]
+		var/list/entry = GLOB.jobban_keylist[ckey]
 
 		// If this is false, then we have no entry. As such, they have no active
 		// bans!
@@ -165,11 +166,11 @@ var/list/jobban_keylist = list() // Global jobban list.
  */
 /proc/jobban_loadbanfile()
 	var/savefile/S = new("data/job_full.ban")
-	S["bans"] >> jobban_keylist
+	S["bans"] >> GLOB.jobban_keylist
 	log_admin("Loading jobban_rank")
 
-	if (!jobban_keylist)
-		jobban_keylist = list()
+	if (!GLOB.jobban_keylist)
+		GLOB.jobban_keylist = list()
 		log_admin("jobban_keylist was empty")
 
 /**
@@ -195,14 +196,14 @@ var/list/jobban_keylist = list() // Global jobban list.
 		var/job = query.item[3]
 		var/reason = query.item[4]
 
-		if (!jobban_keylist[ckey])
-			jobban_keylist[ckey] = list()
+		if (!GLOB.jobban_keylist[ckey])
+			GLOB.jobban_keylist[ckey] = list()
 
-		if (!jobban_keylist[ckey][job])
+		if (!GLOB.jobban_keylist[ckey][job])
 			// Insert it with 0 time because the expiration of a temp jobban for
 			// MySQL is dependent on the database and query itself. So we can just
 			// politely not care.
-			jobban_keylist[ckey][job] = list(reason, -1)
+			GLOB.jobban_keylist[ckey][job] = list(reason, -1)
 		else
 			// Woups. What happened here...?
 			log_and_message_admins("JOBBANS: Duplicate jobban entry in MySQL for [ckey]. Ban ID: #[query.item[1]]")
@@ -212,7 +213,7 @@ var/list/jobban_keylist = list() // Global jobban list.
  */
 /proc/jobban_savebanfile()
 	var/savefile/S = new("data/job_full.ban")
-	S["bans"] << jobban_keylist
+	S["bans"] << GLOB.jobban_keylist
 
 /**
  * Removes a jobban entry from the code and calls the config appropriate
@@ -234,7 +235,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 		return
 
 	// Check for a player record.
-	var/list/entry = jobban_keylist[ckey]
+	var/list/entry = GLOB.jobban_keylist[ckey]
 	if (entry)
 		// Find the specific ban.
 		var/list/ban = entry[rank]
@@ -245,8 +246,8 @@ var/list/jobban_keylist = list() // Global jobban list.
 
 			// If the entry is now empty, remove the entire ckey from the list.
 			if (!entry.len)
-				jobban_keylist[ckey] = null
-				jobban_keylist -= ckey
+				GLOB.jobban_keylist[ckey] = null
+				GLOB.jobban_keylist -= ckey
 
 			// Update appropriate ban files.
 			if (GLOB.config.ban_legacy_system)
@@ -290,7 +291,7 @@ var/list/jobban_keylist = list() // Global jobban list.
  * Opens the jobban panel, showing the bans of the passed mob or ckey.
  *
  * @param	str|mob tgt_ref The target we want to view jobbans of. Can be a reference
- * to a mob object (gotten with \ref[M]) or an actual mob object.
+ * to a mob object (gotten with [REF(M)]) or an actual mob object.
  */
 /datum/admins/proc/jobban_panel(var/tgt_ref = null)
 	if (!tgt_ref)
@@ -321,7 +322,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 	//Regular jobs
 	//Command
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr align='center' bgcolor='114dc1'><th colspan='[length(command_positions)]'><a href='?src=\ref[src];jobban_job=commanddept;jobban_tgt=[ckey]'>Command Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr align='center' bgcolor='114dc1'><th colspan='[length(command_positions)]'><a href='byond://?src=[REF(src)];jobban_job=commanddept;jobban_tgt=[ckey]'>Command Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in command_positions)
 		if (!jobPos)
 			continue
@@ -330,10 +331,10 @@ var/list/jobban_keylist = list() // Global jobban list.
 			continue
 
 		if (jobban_isbanned(ckey, job.title))
-			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
+			jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
 			counter++
 		else
-			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
+			jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
 			counter++
 
 		if (counter >= 6) //So things dont get squiiiiished!
@@ -343,7 +344,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 
 	//Command Support
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr align='center' bgcolor='114dc1'><th colspan='[length(command_support_positions)]'><a href='?src=\ref[src];jobban_job=commandsupportdept;jobban_tgt=[ckey]'>Command Support Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr align='center' bgcolor='114dc1'><th colspan='[length(command_support_positions)]'><a href='byond://?src=[REF(src)];jobban_job=commandsupportdept;jobban_tgt=[ckey]'>Command Support Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in command_support_positions)
 		if (!jobPos)
 			continue
@@ -352,10 +353,10 @@ var/list/jobban_keylist = list() // Global jobban list.
 			continue
 
 		if (jobban_isbanned(ckey, job.title))
-			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
+			jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
 			counter++
 		else
-			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
+			jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
 			counter++
 
 		if (counter >= 6) //So things dont get squiiiiished!
@@ -366,7 +367,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 	//Security
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='991818'><th colspan='[length(security_positions)]'><a href='?src=\ref[src];jobban_job=securitydept;jobban_tgt=[ckey]'>Security Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr bgcolor='991818'><th colspan='[length(security_positions)]'><a href='byond://?src=[REF(src)];jobban_job=securitydept;jobban_tgt=[ckey]'>Security Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in security_positions)
 		if (!jobPos)
 			continue
@@ -375,10 +376,10 @@ var/list/jobban_keylist = list() // Global jobban list.
 			continue
 
 		if (jobban_isbanned(ckey, job.title))
-			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
+			jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
 			counter++
 		else
-			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
+			jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
 			counter++
 
 		if (counter >= 5) //So things dont get squiiiiished!
@@ -389,7 +390,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 	//Engineering
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='c67519'><th colspan='[length(engineering_positions)]'><a href='?src=\ref[src];jobban_job=engineeringdept;jobban_tgt=[ckey]'>Engineering Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr bgcolor='c67519'><th colspan='[length(engineering_positions)]'><a href='byond://?src=[REF(src)];jobban_job=engineeringdept;jobban_tgt=[ckey]'>Engineering Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in engineering_positions)
 		if (!jobPos)
 			continue
@@ -398,10 +399,10 @@ var/list/jobban_keylist = list() // Global jobban list.
 			continue
 
 		if (jobban_isbanned(ckey, job.title))
-			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
+			jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
 			counter++
 		else
-			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
+			jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
 			counter++
 
 		if (counter >= 5) //So things dont get squiiiiished!
@@ -412,7 +413,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 	//Medical
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='15903a'><th colspan='[length(medical_positions)]'><a href='?src=\ref[src];jobban_job=medicaldept;jobban_tgt=[ckey]'>Medical Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr bgcolor='15903a'><th colspan='[length(medical_positions)]'><a href='byond://?src=[REF(src)];jobban_job=medicaldept;jobban_tgt=[ckey]'>Medical Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in medical_positions)
 		if (!jobPos)
 			continue
@@ -421,10 +422,10 @@ var/list/jobban_keylist = list() // Global jobban list.
 			continue
 
 		if (jobban_isbanned(ckey, job.title))
-			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
+			jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
 			counter++
 		else
-			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
+			jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
 			counter++
 
 		if (counter >= 5) //So things dont get squiiiiished!
@@ -435,7 +436,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 	//Science
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='a44799'><th colspan='[length(science_positions)]'><a href='?src=\ref[src];jobban_job=sciencedept;jobban_tgt=[ckey]'>Science Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr bgcolor='a44799'><th colspan='[length(science_positions)]'><a href='byond://?src=[REF(src)];jobban_job=sciencedept;jobban_tgt=[ckey]'>Science Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in science_positions)
 		if (!jobPos)
 			continue
@@ -444,10 +445,10 @@ var/list/jobban_keylist = list() // Global jobban list.
 			continue
 
 		if (jobban_isbanned(ckey, job.title))
-			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
+			jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
 			counter++
 		else
-			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
+			jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
 			counter++
 
 		if (counter >= 5) //So things dont get squiiiiished!
@@ -458,7 +459,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 	//Cargo
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='593616'><th colspan='[length(cargo_positions)]'><a href='?src=\ref[src];jobban_job=cargodept;jobban_tgt=[ckey]'>Cargo Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr bgcolor='593616'><th colspan='[length(cargo_positions)]'><a href='byond://?src=[REF(src)];jobban_job=cargodept;jobban_tgt=[ckey]'>Cargo Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in cargo_positions)
 		if (!jobPos)
 			continue
@@ -467,10 +468,10 @@ var/list/jobban_keylist = list() // Global jobban list.
 			continue
 
 		if (jobban_isbanned(ckey, job.title))
-			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
+			jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
 			counter++
 		else
-			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
+			jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
 			counter++
 
 		if (counter >= 5)
@@ -480,7 +481,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 	//Service
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='90524b'><th colspan='[length(service_positions)]'><a href='?src=\ref[src];jobban_job=servicedept;jobban_tgt=[ckey]'>Service Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr bgcolor='90524b'><th colspan='[length(service_positions)]'><a href='byond://?src=[REF(src)];jobban_job=servicedept;jobban_tgt=[ckey]'>Service Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in service_positions)
 		if (!jobPos)
 			continue
@@ -489,10 +490,10 @@ var/list/jobban_keylist = list() // Global jobban list.
 			continue
 
 		if (jobban_isbanned(ckey, job.title))
-			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
+			jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
 			counter++
 		else
-			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
+			jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
 			counter++
 
 		if (counter >= 5) //So things dont get squiiiiished!
@@ -503,7 +504,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 	//Civilian
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='999999'><th colspan='[length(civilian_positions)]'><a href='?src=\ref[src];jobban_job=civiliandept;jobban_tgt=[ckey]'>Civilian Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr bgcolor='999999'><th colspan='[length(civilian_positions)]'><a href='byond://?src=[REF(src)];jobban_job=civiliandept;jobban_tgt=[ckey]'>Civilian Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in civilian_positions)
 		if (!jobPos)
 			continue
@@ -512,10 +513,10 @@ var/list/jobban_keylist = list() // Global jobban list.
 			continue
 
 		if (jobban_isbanned(ckey, job.title))
-			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
+			jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
 			counter++
 		else
-			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
+			jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
 			counter++
 
 		if (counter >= 5) //So things dont get squiiiiished!
@@ -525,7 +526,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 	//Non-Human (Green)
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='ccffcc'><th colspan='[length(nonhuman_positions)+1]'><a href='?src=\ref[src];jobban_job=nonhumandept;jobban_tgt=[ckey]'>Non-human Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr bgcolor='ccffcc'><th colspan='[length(nonhuman_positions)+1]'><a href='byond://?src=[REF(src)];jobban_job=nonhumandept;jobban_tgt=[ckey]'>Non-human Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in nonhuman_positions)
 		if (!jobPos)
 			continue
@@ -534,10 +535,10 @@ var/list/jobban_keylist = list() // Global jobban list.
 			continue
 
 		if (jobban_isbanned(ckey, job.title))
-			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
+			jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
 			counter++
 		else
-			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
+			jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
 			counter++
 
 		if (counter >= 5) //So things dont get squiiiiished!
@@ -548,28 +549,28 @@ var/list/jobban_keylist = list() // Global jobban list.
 	//pAI isn't technically a job, but it goes in here.
 
 	if (jobban_isbanned(ckey, "pAI"))
-		jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=pAI;jobban_tgt=[ckey]'><font color=red>pAI</font></a></td>"
+		jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=pAI;jobban_tgt=[ckey]'><font color=red>pAI</font></a></td>"
 	else
-		jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=pAI;jobban_tgt=[ckey]'>pAI</a></td>"
+		jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=pAI;jobban_tgt=[ckey]'>pAI</a></td>"
 	if (jobban_isbanned(ckey, "AntagHUD"))
-		jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=AntagHUD;jobban_tgt=[ckey]'><font color=red>AntagHUD</font></a></td>"
+		jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=AntagHUD;jobban_tgt=[ckey]'><font color=red>AntagHUD</font></a></td>"
 	else
-		jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=AntagHUD;jobban_tgt=[ckey]'>AntagHUD</a></td>"
+		jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=AntagHUD;jobban_tgt=[ckey]'>AntagHUD</a></td>"
 	jobs += "</tr></table>"
 
 	//Antagonist (Orange)
 	counter = 0
 	var/isbanned_dept = jobban_isbanned(ckey, "Antagonist")
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='ffeeaa'><th colspan='10'><a href='?src=\ref[src];jobban_job=Antagonist;jobban_tgt=[ckey]'>Antagonist Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr bgcolor='ffeeaa'><th colspan='10'><a href='byond://?src=[REF(src)];jobban_job=Antagonist;jobban_tgt=[ckey]'>Antagonist Positions</a></th></tr><tr align='center'>"
 	for (var/antag_type in GLOB.all_antag_types)
 		var/datum/antagonist/antag = GLOB.all_antag_types[antag_type]
 		if (!antag || !antag.bantype)
 			continue
 		if (isbanned_dept || jobban_isbanned(ckey, antag.bantype))
-			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[antag.bantype];jobban_tgt=[ckey]'><font color=red>[replacetext("[antag.role_text]", " ", "&nbsp")]</font></a></td>"
+			jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=[antag.bantype];jobban_tgt=[ckey]'><font color=red>[replacetext("[antag.role_text]", " ", "&nbsp")]</font></a></td>"
 		else
-			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[antag.bantype];jobban_tgt=[ckey]'>[replacetext("[antag.role_text]", " ", "&nbsp")]</a></td>"
+			jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=[antag.bantype];jobban_tgt=[ckey]'>[replacetext("[antag.role_text]", " ", "&nbsp")]</a></td>"
 
 		counter++
 
@@ -583,9 +584,9 @@ var/list/jobban_keylist = list() // Global jobban list.
 	jobs += "<tr bgcolor='ccccff'><th colspan='1'>Other Races</th></tr><tr align='center'>"
 
 	if (jobban_isbanned(ckey, "Dionaea"))
-		jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=Dionaea;jobban_tgt=[ckey]'><font color=red>Dionaea</font></a></td>"
+		jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=Dionaea;jobban_tgt=[ckey]'><font color=red>Dionaea</font></a></td>"
 	else
-		jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=Dionaea;jobban_tgt=[ckey]'>Dionaea</a></td>"
+		jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=Dionaea;jobban_tgt=[ckey]'>Dionaea</a></td>"
 	jobs += "</tr></table>"
 	body = "<body>[jobs]</body>"
 	dat = "<tt>[header][body]</tt>"
@@ -597,7 +598,7 @@ var/list/jobban_keylist = list() // Global jobban list.
  *
  * Relays a new ban to jobban_fullban and also manages database insertions where needed.
  *
- * @param	str tgt_ref	The \ref[] of the target mob we want to dinbannu.
+ * @param	str tgt_ref	The REF() of the target mob we want to dinbannu.
  * @param	str job		The name of the job we want to ban the target from.
  *
  * @return	num		1 if something was done.
@@ -605,18 +606,18 @@ var/list/jobban_keylist = list() // Global jobban list.
  */
 /datum/admins/proc/jobban_handle(var/tgt_ref, var/job)
 	if (!check_rights(R_MOD, 0) && !check_rights(R_ADMIN, 0))
-		to_chat(usr, "<span class='warning'>You do not have the appropriate permissions to add job bans!</span>")
+		to_chat(usr, SPAN_WARNING("You do not have the appropriate permissions to add job bans!"))
 		return 0
 
 	if (check_rights(R_MOD, 0) && !check_rights(R_ADMIN, 0) && !GLOB.config.mods_can_job_tempban) // If mod and tempban disabled
-		to_chat(usr, "<span class='warning'>Mod jobbanning is disabled!</span>")
+		to_chat(usr, SPAN_WARNING("Mod jobbanning is disabled!"))
 		return 0
 
 	var/ckey = null
 	CKEY_OR_MOB(ckey, tgt_ref)
 
 	if (!ckey)
-		to_chat(usr, "<span class='warning'>No valid target sent. Cancelling.</span>")
+		to_chat(usr, SPAN_WARNING("No valid target sent. Cancelling."))
 		return 0
 
 	if (admin_datums[ckey])
@@ -724,13 +725,13 @@ var/list/jobban_keylist = list() // Global jobban list.
 		switch (alert("Temporary Ban?",,"Yes","No", "Cancel"))
 			if ("Yes")
 				if (!check_rights(R_MOD,0) && !check_rights(R_BAN, 0))
-					to_chat(usr, "<span class='warning'>You Cannot issue temporary job-bans!</span>")
+					to_chat(usr, SPAN_WARNING("You Cannot issue temporary job-bans!"))
 					return 0
 				var/mins = input(usr, "How long (in minutes)?", "Ban time", 1440) as num|null
 				if (!mins)
 					return 0
 				if (check_rights(R_MOD, 0) && !check_rights(R_BAN, 0) && mins > GLOB.config.mod_job_tempban_max)
-					to_chat(usr, "<span class='warning'>Moderators can only job tempban up to [GLOB.config.mod_job_tempban_max] minutes!</span>")
+					to_chat(usr, SPAN_WARNING("Moderators can only job tempban up to [GLOB.config.mod_job_tempban_max] minutes!"))
 					return 0
 				var/reason = sanitize(input(usr,"Reason?","Please State Reason","") as text|null)
 				if (!reason)
@@ -739,7 +740,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 				var/msg
 				for (var/R in notbannedlist)
 					ban_unban_log_save("[key_name(usr)] temp-jobbanned [ckey] from [R] for [mins] minutes. reason: [reason]")
-					log_admin("[key_name(usr)] temp-jobbanned [ckey] from [R] for [mins] minutes",admin_key=key_name(usr))
+					log_admin("[key_name(usr)] temp-jobbanned [ckey] from [R] for [mins] minutes")
 					feedback_inc("ban_job_tmp", 1)
 					feedback_add_details("ban_job_tmp","- [R]")
 					jobban_fullban(ckey, R, reason, mins)
@@ -752,12 +753,12 @@ var/list/jobban_keylist = list() // Global jobban list.
 					notes_add(ckey, "Banned from [msg] - [reason]", usr)
 				else
 					notes_add_sql(ckey, "Banned from [msg] - [reason]", usr)
-				message_admins("<span class='notice'>[key_name_admin(usr)] banned [ckey] from [msg] for [mins] minutes.</span>", 1)
+				message_admins(SPAN_NOTICE("[key_name_admin(usr)] banned [ckey] from [msg] for [mins] minutes."), 1)
 				if (ismob(tgt_ref))
 					var/mob/M = tgt_ref
-					to_chat(M, "<span class='danger'><BIG>You have been jobbanned by [usr.client.ckey] from: [msg].</BIG></span>")
-					to_chat(M, "<span class='danger'>The reason is: [reason]</span>")
-					to_chat(M, "<span class='warning'>This jobban will be lifted in [mins] minutes.</span>")
+					to_chat(M, SPAN_DANGER("<BIG>You have been jobbanned by [usr.client.ckey] from: [msg].</BIG>"))
+					to_chat(M, SPAN_DANGER("The reason is: [reason]"))
+					to_chat(M, SPAN_WARNING("This jobban will be lifted in [mins] minutes."))
 				jobban_panel(ckey)
 				return 1
 			if ("No")
@@ -768,7 +769,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 					var/msg
 					for (var/R in notbannedlist)
 						ban_unban_log_save("[key_name(usr)] perma-jobbanned [ckey] from [R]. reason: [reason]")
-						log_admin("[key_name(usr)] perma-banned [ckey] from [R]",admin_key=key_name(usr))
+						log_admin("[key_name(usr)] perma-banned [ckey] from [R]")
 						feedback_inc("ban_job", 1)
 						feedback_add_details("ban_job", "- [R]")
 						jobban_fullban(ckey, R, reason, -1)
@@ -781,12 +782,12 @@ var/list/jobban_keylist = list() // Global jobban list.
 						notes_add(ckey, "Banned  from [msg] - [reason]", usr)
 					else
 						notes_add_sql(ckey, "Banned from [msg] - [reason]", usr)
-					message_admins("<span class='notice'>[key_name_admin(usr)] banned [ckey] from [msg]</span>", 1)
+					message_admins(SPAN_NOTICE("[key_name_admin(usr)] banned [ckey] from [msg]"), 1)
 					if (ismob(tgt_ref))
 						var/mob/M = tgt_ref
-						to_chat(M, "<span class='danger'><BIG>You have been jobbanned by [usr.client.ckey] from: [msg].</BIG></span>")
-						to_chat(M, "<span class='danger'>The reason is: [reason]</span>")
-						to_chat(M, "<span class='warning'>Jobban can be lifted only upon request.</span>")
+						to_chat(M, SPAN_DANGER("<BIG>You have been jobbanned by [usr.client.ckey] from: [msg].</BIG>"))
+						to_chat(M, SPAN_DANGER("The reason is: [reason]"))
+						to_chat(M, SPAN_WARNING("Jobban can be lifted only upon request."))
 					jobban_panel(ckey)
 					return 1
 			if("Cancel")
@@ -810,7 +811,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 			switch (alert("Job: '[R]' Reason: '[reason]' Un-jobban?","Please Confirm","Yes","No"))
 				if ("Yes")
 					ban_unban_log_save("[key_name(usr)] unjobbanned [ckey] from [R]")
-					log_admin("[key_name(usr)] unbanned [ckey] from [R]",admin_key=key_name(usr),ckey=ckey)
+					log_admin("[key_name(usr)] unbanned [ckey] from [R]")
 					jobban_unban(ckey, R) // Refer to the jobban API.
 					feedback_inc("ban_job_unban",1)
 					feedback_add_details("ban_job_unban","- [R]")
@@ -821,10 +822,10 @@ var/list/jobban_keylist = list() // Global jobban list.
 				else
 					continue
 		if (msg)
-			message_admins("<span class='notice'>[key_name_admin(usr)] unbanned [ckey] from [msg]</span>", 1)
+			message_admins(SPAN_NOTICE("[key_name_admin(usr)] unbanned [ckey] from [msg]"), 1)
 			if (ismob(tgt_ref))
 				var/mob/M = tgt_ref
-				to_chat(M, "<span class='danger'><BIG>You have been un-jobbanned by [usr.client.ckey] from [msg].</BIG></span>")
+				to_chat(M, SPAN_DANGER("<BIG>You have been un-jobbanned by [usr.client.ckey] from [msg].</BIG>"))
 			jobban_panel(ckey)
 		return 1
 	return 0 //we didn't do anything!

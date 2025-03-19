@@ -3,10 +3,26 @@
 	full_name = "SCCV Horizon"
 	path = "sccv_horizon"
 
-	lobby_icons = list('icons/misc/titlescreens/sccv_horizon/sccv_horizon.dmi', 'icons/misc/titlescreens/aurora/synthetics.dmi', 'icons/misc/titlescreens/aurora/tajara.dmi', 'icons/misc/titlescreens/aurora/vaurca.dmi')
+	traits = list(
+		//Z1
+		list(ZTRAIT_STATION = TRUE, ZTRAIT_UP = TRUE, ZTRAIT_DOWN = FALSE),
+		//Z2
+		list(ZTRAIT_STATION = TRUE, ZTRAIT_UP = TRUE, ZTRAIT_DOWN = TRUE),
+		//Z3
+		list(ZTRAIT_STATION = TRUE, ZTRAIT_UP = FALSE, ZTRAIT_DOWN = TRUE),
+		//Centcomm
+		ZTRAITS_CENTCOM
+	)
+
+	lobby_icon_image_paths = list(
+								list('icons/misc/titlescreens/tajara/taj1.png', 'icons/misc/titlescreens/tajara/taj2.png', 'icons/misc/titlescreens/tajara/taj3.png', 'icons/misc/titlescreens/tajara/taj4.png', 'icons/misc/titlescreens/tajara/Ghostsofwar.png', 'icons/misc/titlescreens/tajara/crack.png', 'icons/misc/titlescreens/tajara/blind_eye.png', 'icons/misc/titlescreens/tajara/RoyalGrenadier.png', 'icons/misc/titlescreens/tajara/For_the_King.png'),
+								list('icons/misc/titlescreens/synths/baseline.png', 'icons/misc/titlescreens/synths/bishop.png', 'icons/misc/titlescreens/synths/g2.png', 'icons/misc/titlescreens/synths/shell.png', 'icons/misc/titlescreens/synths/zenghu.png'),
+								list('icons/misc/titlescreens/vaurca/cthur.png', 'icons/misc/titlescreens/vaurca/klax.png', 'icons/misc/titlescreens/vaurca/liidra.png', 'icons/misc/titlescreens/vaurca/zora.png'),
+								list('icons/misc/titlescreens/space/odin.png', 'icons/misc/titlescreens/space/starmap.png', 'icons/misc/titlescreens/space/undocking.png', 'icons/misc/titlescreens/space/voyage.png')
+								)
+
 	lobby_transitions = 10 SECONDS
 
-	station_levels = list(1, 2, 3)
 	admin_levels = list(4)
 	contact_levels = list(1, 2, 3)
 	player_levels = list(1, 2, 3, 5)
@@ -98,6 +114,9 @@
 	rogue_drone_end_message = "The hostile drone swarm has left the ship's proximity."
 	rogue_drone_destroyed_message = "Sensors indicate the unidentified drone swarm has left the immediate proximity of the ship."
 
+	overmap_visitable_type = /obj/effect/overmap/visitable/ship/sccv_horizon
+
+	ports_of_call = TRUE
 
 	map_shuttles = list(
 		/datum/shuttle/autodock/ferry/lift/scc_ship/morgue,
@@ -114,9 +133,11 @@
 		/datum/shuttle/autodock/multi/antag/merc_ship,
 		/datum/shuttle/autodock/multi/legion,
 		/datum/shuttle/autodock/multi/distress,
+		/datum/shuttle/autodock/multi/crescent,
 		/datum/shuttle/autodock/overmap/intrepid,
 		/datum/shuttle/autodock/overmap/mining,
 		/datum/shuttle/autodock/overmap/canary,
+		/datum/shuttle/autodock/overmap/quark,
 		/datum/shuttle/autodock/ferry/merchant_aurora,
 		/datum/shuttle/autodock/ferry/autoreturn/ccia,
 		/datum/shuttle/autodock/overmap/orion_express_shuttle,
@@ -139,8 +160,16 @@
 
 	warehouse_basearea = /area/operations/storage
 
+	shuttle_manifests = list(
+		"SCCV Canary" = list("color" = "blue", "icon" = "binoculars"),
+		"SCCV Intrepid" = list("color" = "blue", "icon" = "compass"),
+		"SCCV Spark" = list("color" = "brown", "icon" = "gem"),
+		"SCCV Quark" = list("color" = "purple", "icon" = "microscope"),
+	)
+	shuttle_missions = list("Exploration", "Research", "Prospecting", "Transport", "Combat", "Rescue", "Training")
+
 /datum/map/sccv_horizon/send_welcome()
-	var/obj/effect/overmap/visitable/ship/horizon = SSshuttle.ship_by_type(/obj/effect/overmap/visitable/ship/sccv_horizon)
+	var/obj/effect/overmap/visitable/ship/horizon = SSshuttle.ship_by_type(overmap_visitable_type)
 
 	var/welcome_text = "<center><img src = scclogo.png><br />[FONT_LARGE("<b>SCCV Horizon</b> Ultra-Range Sensor Readings:")]<br>"
 	welcome_text += "Report generated on [worlddate2text()] at [worldtime2text()]</center><br /><br />"
@@ -149,26 +178,12 @@
 	if (horizon) //If the overmap is disabled, it's possible for there to be no Horizon.
 		var/list/space_things = list()
 		welcome_text += "Current Coordinates:<br /><b>[horizon.x]:[horizon.y]</b><br /><br>"
-		welcome_text += "Next system targeted for jump:<br /><b>[SSatlas.current_sector.generate_system_name()]</b><br /><br>"
-		var/last_visit
-		var/current_day = time2text(world.realtime, "Day")
-		switch(current_day)
-			if("Monday")
-				last_visit = "1 day ago"
-			if("Tuesday")
-				last_visit = "2 days ago"
-			if("Wednesday")
-				last_visit = "3 days ago"
-			if("Thursday")
-				last_visit = "4 days ago"
-			if("Friday")
-				last_visit = "5 days ago"
-			if("Saturday")
-				last_visit = "6 days ago"
-			if("Sunday")
-				last_visit = "1 week ago"
-		welcome_text += "Last port visit: <br><b>[last_visit]</b><br><br>"
-		welcome_text += "Travel time to nearest port:<br /><b>[SSatlas.current_sector.get_port_travel_time()]</b><br /><br>"
+		welcome_text += "Available Ports of Call: <b>[english_list(SSatlas.current_sector.ports_of_call, "none")]</b><br>"
+		if(SSatlas.current_sector.next_port_visit)
+			welcome_text += "Next Port Visit: <b>in [SSatlas.current_sector.next_port_visit] days</b><br>"
+		else
+			welcome_text += "<b>There is no port visit scheduled.</b><br><br>"
+		welcome_text += "<b>It is advised to inform crew of the available ports of call and the date of the next port visit.</b><br><br>"
 		welcome_text += "Scan results show the following points of interest:<br />"
 
 		for(var/zlevel in GLOB.map_sectors)
@@ -192,8 +207,9 @@
 
 		welcome_text += "<hr>"
 
-	post_comm_message("SCCV Horizon Sensor Readings", welcome_text)
-	priority_announcement.Announce(message = "Long-range sensor readings have been printed out at all communication consoles.")
+	post_comm_message("SCCV Horizon Sensor Report", welcome_text)
+	var/report = "The long-range sensor readings have been printed out at all communication consoles."
+	priority_announcement.Announce(message = report)
 
 /datum/map/sccv_horizon/load_holodeck_programs()
 	// loads only if at least two engineers are present
@@ -204,3 +220,9 @@
 		for(var/obj/machinery/computer/holodeck_control/holo in GLOB.holodeck_controls)
 			if(!holo.active)
 				holo.load_random_program()
+
+/obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage
+	name = "Ops Warehouse, Small Storage"
+
+/obj/effect/map_effect/marker/mapmanip/submap/insert/sccv_horizon/ops_warehouse_small_storage
+	name = "Ops Warehouse, Small Storage"

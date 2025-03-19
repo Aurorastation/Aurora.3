@@ -90,6 +90,17 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/ramenbowl
 
+/singleton/recipe/aoyama_ramen
+	appliance = SAUCEPAN | POT
+	reagents = list(/singleton/reagent/water = 10, /singleton/reagent/nutriment/soysauce = 5)
+	fruit = list("moss" = 1, "chili" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/spaghetti,
+		/obj/item/reagent_containers/food/snacks/fish,
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/aoyama_ramen
+
 /singleton/recipe/spaghettibolognese
 	appliance = SAUCEPAN | POT
 	fruit = list("garlic" = 1, "onion" = 1, "tomato" = 1)
@@ -131,3 +142,27 @@
 	reagents = list(/singleton/reagent/water = 5, /singleton/reagent/drink/milk/soymilk = 5)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/ravioli/earthenroot
+
+/singleton/recipe/ravioli_nakarka
+	appliance = SAUCEPAN | POT
+	reagents = list(/singleton/reagent/water = 5, /singleton/reagent/drink/milk/cream = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/doughslice,
+		/obj/item/reagent_containers/food/snacks/doughslice,
+		/obj/item/reagent_containers/food/snacks/doughslice,
+		/obj/item/reagent_containers/food/snacks/nakarka_wedge
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/ravioli/nakarka
+
+/singleton/recipe/fettuccine_alfredo
+	appliance = SAUCEPAN | POT
+	fruit = list("garlic" = 1)
+	reagents = list(/singleton/reagent/water = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/spaghetti,
+		/obj/item/reagent_containers/food/snacks/spreads/butter,
+		/obj/item/reagent_containers/food/snacks/cheesewedge
+		)
+	result = /obj/item/reagent_containers/food/snacks/fettuccine_alfredo
+	reagent_mix = RECIPE_REAGENT_REPLACE

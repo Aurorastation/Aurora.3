@@ -45,9 +45,12 @@
 	var/obj/item/card/id/id_card
 	var/id_card_type = /obj/item/card/id/synthetic
 
-	var/list/possible_accents = list(ACCENT_TTS, ACCENT_CETI, ACCENT_GIBSON_OVAN, ACCENT_GIBSON_UNDIR, ACCENT_SOL, ACCENT_LUNA, ACCENT_MARTIAN, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_JUPITER, ACCENT_CALLISTO, ACCENT_COC, ACCENT_ELYRA, ACCENT_ERIDANI,
-									ACCENT_SILVERSUN_EXPATRIATE, ACCENT_KONYAN, ACCENT_EARTH, ACCENT_PERSEPOLIS, ACCENT_MEDINA, ACCENT_AEMAQ, ACCENT_NEWSUEZ, ACCENT_DAMASCUS, ACCENT_ERIDANI, ACCENT_PHONG,
-									ACCENT_VISEGRAD, ACCENT_HIMEO, ACCENT_PLUTO, ACCENT_XANU)
+	// ACCENT_ALL_IPC with the added consideration that this selection can be used by the ship AI itself, and should not look bad for the SCC. No dregs, Himeans, Trinarists, etc.
+	var/list/possible_accents = list(ACCENT_CETI, ACCENT_TTS, ACCENT_XANU, ACCENT_COC, ACCENT_ELYRA, ACCENT_ERIDANI, ACCENT_SOL, ACCENT_SILVERSUN_EXPATRIATE, ACCENT_SILVERSUN_ORIGINAL,
+	ACCENT_PHONG, ACCENT_MARTIAN, ACCENT_KONYAN, ACCENT_LUNA, ACCENT_GIBSON_OVAN, ACCENT_GIBSON_UNDIR, ACCENT_VYSOKA, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_JUPITER, ACCENT_CALLISTO,
+	ACCENT_EUROPA, ACCENT_EARTH, ACCENT_ASSUNZIONE, ACCENT_VISEGRAD, ACCENT_SANCOLETTE, ACCENT_VALKYRIE, ACCENT_MICTLAN, ACCENT_PERSEPOLIS, ACCENT_MEDINA, ACCENT_NEWSUEZ, ACCENT_AEMAQ, ACCENT_DAMASCUS)
+
+	var/can_hear_hivenet = TRUE
 
 	// Misc
 	uv_intensity = 175 //Lights cast by robots have reduced effect on diona
@@ -74,6 +77,9 @@
 	QDEL_NULL(common_radio)
 	for(var/datum/alarm_handler/AH in SSalarm.all_handlers)
 		AH.unregister_alarm(src)
+
+	QDEL_LIST_ASSOC_VAL(hud_list)
+
 	return ..()
 
 /mob/living/silicon/proc/init_id()
@@ -132,17 +138,19 @@
 /mob/living/silicon/IsAdvancedToolUser()
 	return TRUE
 
-/mob/living/silicon/bullet_act(obj/item/projectile/Proj)
-	if(!Proj.nodamage)
-		switch(Proj.damage_type)
-			if(DAMAGE_BRUTE)
-				adjustBruteLoss(Proj.damage)
-			if(DAMAGE_BURN)
-				adjustFireLoss(Proj.damage)
+/mob/living/silicon/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	SHOULD_CALL_PARENT(FALSE) //More shitcode
 
-	Proj.on_hit(src, 100)
+	if(hitting_projectile.damage > 0)
+		switch(hitting_projectile.damage_type)
+			if(DAMAGE_BRUTE)
+				adjustBruteLoss(hitting_projectile.damage)
+			if(DAMAGE_BURN)
+				adjustFireLoss(hitting_projectile.damage)
+
+	hitting_projectile.on_hit(src, 100)
 	updatehealth()
-	return 100
+	return BULLET_ACT_HIT
 
 /mob/living/silicon/apply_effect(var/effect = 0,var/effecttype = STUN, var/blocked = 0)
 	return FALSE
@@ -159,8 +167,8 @@
 
 // this function displays the shuttles ETA in the status panel if the shuttle has been called
 /mob/living/silicon/proc/show_emergency_shuttle_eta()
-	if(evacuation_controller)
-		var/eta_status = evacuation_controller.get_status_panel_eta()
+	if(GLOB.evacuation_controller)
+		var/eta_status = GLOB.evacuation_controller.get_status_panel_eta()
 		if(eta_status)
 			stat(null, eta_status)
 
@@ -210,15 +218,15 @@
 	var/dat = "<b><font size = 5>Known Languages</font></b><br/><br/>"
 
 	if(default_language)
-		dat += "Current default language: [default_language] - <a href='byond://?src=\ref[src];default_lang=reset'>reset</a><br/><br/>"
+		dat += "Current default language: [default_language] - <a href='byond://?src=[REF(src)];default_lang=reset'>reset</a><br/><br/>"
 
 	for(var/datum/language/L in languages)
 		if(!(L.flags & NONGLOBAL))
 			var/default_str
 			if(L == default_language)
-				default_str = " - default - <a href='byond://?src=\ref[src];default_lang=reset'>reset</a>"
+				default_str = " - default - <a href='byond://?src=[REF(src)];default_lang=reset'>reset</a>"
 			else
-				default_str = " - <a href='byond://?src=\ref[src];default_lang=\ref[L]'>set default</a>"
+				default_str = " - <a href='byond://?src=[REF(src)];default_lang=[REF(L)]'>set default</a>"
 
 			var/synth = (L in speech_synthesizer_langs)
 			dat += "<b>[L.name] ([get_language_prefix()][L.key])</b>[synth ? default_str : null]<br/>Speech Synthesizer: <i>[synth ? "YES" : "NOT SUPPORTED"]</i><br/>[L.desc]<br/><br/>"
@@ -325,20 +333,20 @@
 /mob/living/silicon/ai/raised_alarm(var/datum/alarm/A)
 	var/cameratext = ""
 	for(var/obj/machinery/camera/C in A.cameras())
-		cameratext += "[(cameratext == "")? "" : "|"]<A HREF=?src=\ref[src];switchcamera=\ref[C]>[C.c_tag]</A>"
+		cameratext += "[(cameratext == "")? "" : "|"]<A href='byond://?src=[REF(src)];switchcamera=[REF(C)]>[C.c_tag]</A>"
 	to_chat(src, "[A.alarm_name()]! ([(cameratext)? cameratext : "No Camera"])")
 
 
 /mob/living/silicon/proc/is_traitor()
-	return mind && (mind in traitors.current_antagonists)
+	return mind && (mind in GLOB.traitors.current_antagonists)
 
 /mob/living/silicon/proc/is_malf()
-	return mind && (mind in malf.current_antagonists)
+	return mind && (mind in GLOB.malf.current_antagonists)
 
 /mob/living/silicon/proc/is_malf_or_traitor()
 	return is_traitor() || is_malf()
 
-/mob/living/silicon/flash_act(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, ignore_inherent = FALSE, type = /obj/screen/fullscreen/flash, length = 2.5 SECONDS)
+/mob/living/silicon/flash_act(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, ignore_inherent = FALSE, type = /atom/movable/screen/fullscreen/flash, length = 2.5 SECONDS)
 	if(affect_silicon)
 		return ..()
 
@@ -369,8 +377,7 @@
 					underdoor = TRUE
 					break
 			if(!underdoor)
-				spawn(3)//A slight delay to let us finish walking out from under the door
-					layer = initial(layer)
+				layer = initial(layer)
 
 /mob/living/silicon/get_bullet_impact_effect_type(var/def_zone)
 	return BULLET_IMPACT_METAL

@@ -4,11 +4,11 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "eshield0"
 	item_state = "nothing"
-	layer = TURF_LAYER+0.2
+	layer = BELOW_TABLE_LAYER
 
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	force = 5.0
-	w_class = ITEMSIZE_TINY
+	force = 11
+	w_class = WEIGHT_CLASS_TINY
 	slot_flags = SLOT_EARS
 	throwforce = 5.0
 	throw_range = 15
@@ -58,7 +58,7 @@
 	icon_state = "pda"
 	item_state = "electronic"
 
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 	origin_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1, TECH_ILLEGAL = 3)
 
@@ -95,10 +95,10 @@
 
 /obj/item/device/spy_monitor/proc/pair(var/obj/item/device/spy_bug/SB, var/mob/living/user)
 	if(SB.camera in cameras)
-		to_chat(user, "<span class='notice'>\The [SB] has been unpaired from \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("\The [SB] has been unpaired from \the [src]."))
 		cameras -= SB.camera
 	else
-		to_chat(user, "<span class='notice'>\The [SB] has been paired with \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("\The [SB] has been paired with \the [src]."))
 		cameras += SB.camera
 
 /obj/item/device/spy_monitor/proc/view_cameras(mob/user)
@@ -118,10 +118,10 @@
 	spawn(0)
 		while(selected_camera && Adjacent(user))
 			var/turf/T = get_turf(selected_camera)
-			if(!T || !is_on_same_plane_or_station(T.z, user.z) || !selected_camera.can_use())
+			if(!T || !(T.z == user.z || !is_station_level(T.z) || !is_station_level(user.z)) || !selected_camera.can_use())
 				user.unset_machine()
 				user.reset_view(null)
-				to_chat(user, "<span class='notice'>[selected_camera] unavailable.</span>")
+				to_chat(user, SPAN_NOTICE("[selected_camera] unavailable."))
 				sleep(90)
 			else
 				user.set_machine(selected_camera)
@@ -135,8 +135,8 @@
 		return
 
 	if(!cameras.len)
-		to_chat(user, "<span class='warning'>No paired cameras detected!</span>")
-		to_chat(user, "<span class='warning'>Bring a bug in contact with this device to pair the camera.</span>")
+		to_chat(user, SPAN_WARNING("No paired cameras detected!"))
+		to_chat(user, SPAN_WARNING("Bring a bug in contact with this device to pair the camera."))
 		return
 
 	return 1

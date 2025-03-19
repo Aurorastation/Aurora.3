@@ -25,7 +25,7 @@
 /area/ship/kasf_corvette/hangar
 	name = "KASF Corvette - Hangar"
 	ambience = AMBIENCE_HANGAR
-	sound_env = HANGAR
+	sound_environment = SOUND_ENVIRONMENT_HANGAR
 
 /area/ship/kasf_corvette/armory
 	name = "KASF Corvette - Armory"
@@ -76,7 +76,7 @@
 
 /area/ship/kasf_corvette/washroom
 	name = "KASF Corvette - Washroom"
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/ship/kasf_corvette/brig
 	name = "KASF Corvette - Brig"

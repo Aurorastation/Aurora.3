@@ -70,7 +70,6 @@
 	var/disable = 0
 	var/last_spark = 0
 	var/base_state = "migniter"
-	layer = 3.3
 	anchored = 1
 	idle_power_usage = 2
 	active_power_usage = 4
@@ -107,9 +106,9 @@
 		add_fingerprint(user)
 		disable = !disable
 		if(disable)
-			user.visible_message("<span class='warning'>[user] has disabled the [src]!</span>", "<span class='warning'>You disable the connection to the [src].</span>")
+			user.visible_message(SPAN_WARNING("[user] has disabled the [src]!"), SPAN_WARNING("You disable the connection to the [src]."))
 		else if(!disable)
-			user.visible_message("<span class='warning'>[user] has reconnected the [src]!</span>", "<span class='warning'>You fix the connection to the [src].</span>")
+			user.visible_message(SPAN_WARNING("[user] has reconnected the [src]!"), SPAN_WARNING("You fix the connection to the [src]."))
 		update_icon()
 		return TRUE
 

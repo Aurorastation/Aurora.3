@@ -219,12 +219,12 @@
 	return
 
 /obj/machinery/smartfridge/drying_rack/update_overlays()
-	cut_overlays()
+	ClearOverlays()
 	if(length(contents))
-		add_overlay("drying_rack_drying")
+		AddOverlays("drying_rack_drying")
 	var/list/shown_contents = contents - component_parts
 	if(shown_contents.len)
-		add_overlay("drying_rack_filled")
+		AddOverlays("drying_rack_filled")
 
 /obj/machinery/smartfridge/process()
 	if(stat & (BROKEN|NOPOWER))
@@ -267,9 +267,9 @@
 	update_overlays()
 
 /obj/machinery/smartfridge/proc/update_overlays()
-	cut_overlays()
+	ClearOverlays()
 	if(panel_open)
-		add_overlay("[initial(icon_state)]-panel")
+		AddOverlays("[initial(icon_state)]-panel")
 	var/list/shown_contents = contents - component_parts
 	if(contents_path && shown_contents.len > 0)
 		var/contents_icon_state
@@ -280,8 +280,8 @@
 				contents_icon_state = "-2"
 			if(50 to INFINITY)
 				contents_icon_state = "-3"
-		add_overlay("[initial(icon_state)][contents_path][contents_icon_state]")
-	add_overlay("[initial(icon_state)]-glass[(stat & BROKEN) ? "-broken" : ""]")
+		AddOverlays("[initial(icon_state)][contents_path][contents_icon_state]")
+	AddOverlays("[initial(icon_state)]-glass[(stat & BROKEN) ? "-broken" : ""]")
 
 /*******************
 *   Item Adding
@@ -299,7 +299,7 @@
 		anchored = !anchored
 		user.visible_message("\The [user] [anchored ? "secures" : "unsecures"] the bolts holding \the [src] to the floor.",
 								"You [anchored ? "secure" : "unsecure"] the bolts holding \the [src] to the floor.")
-		playsound(get_turf(src), attacking_item.usesound, 50, 1)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		power_change()
 		return
 
@@ -427,7 +427,16 @@
 	if(.)
 		return
 
-	add_fingerprint(usr)
+	var/mob/user = ui.user
+
+	add_fingerprint(user)
+
+	if(stat & (NOPOWER|BROKEN) || !anchored)
+		return
+
+	if(!allowed(user) && !emagged && locked != -1 && is_secure)
+		to_chat(usr, SPAN_WARNING("Access denied."))
+		return
 
 	switch(action)
 		if("vendItem")
@@ -443,8 +452,8 @@
 				var/i = amount
 				for(var/obj/O in contents)
 					if(O.name == K)
-						if(Adjacent(usr))
-							usr.put_in_hands(O)
+						if(Adjacent(user))
+							user.put_in_hands(O)
 						else
 							O.forceMove(loc)
 						i--
@@ -475,8 +484,7 @@
 		break
 	if(!throw_item)
 		return FALSE
-	spawn(0)
-		throw_item.throw_at(target,16,3,src)
+	throw_item.throw_at(target,16,3,src)
 	visible_message(SPAN_DANGER("[src] launches [throw_item.name] at [target.name]!"))
 	return TRUE
 

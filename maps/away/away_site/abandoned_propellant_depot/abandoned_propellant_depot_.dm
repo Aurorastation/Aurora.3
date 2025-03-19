@@ -2,7 +2,10 @@
 	name = "Abandoned Propellant Depot"
 	description = "Abandoned Propellant Depot."
 	id = "abandoned_propellant_depot"
-	suffixes = list("away_site/abandoned_propellant_depot/abandoned_propellant_depot.dmm")
+
+	prefix = "away_site/abandoned_propellant_depot/"
+	suffix = "abandoned_propellant_depot.dmm"
+
 	spawn_cost = 1
 	spawn_weight = 1
 	sectors = list(ALL_POSSIBLE_SECTORS)
@@ -15,7 +18,6 @@
 /obj/effect/overmap/visitable/sector/abandoned_propellant_depot
 	name = "Abandoned Propellant Depot"
 	desc = "Industrial propellant depot of unknown designation or origin. Scanners detect it to be mostly cold, likely no movement or life inside, although appears to be pressurized."
-	icon_state = "outpost"
 	static_vessel = TRUE
 	generic_object = FALSE
 	icon = 'icons/obj/overmap/overmap_stationary.dmi'

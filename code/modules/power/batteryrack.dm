@@ -44,7 +44,7 @@
 		if(attacking_item.iscrowbar())
 			if (charge < (capacity / 100))
 				if (!output_attempt && !input_attempt)
-					playsound(get_turf(src), attacking_item.usesound, 50, 1)
+					attacking_item.play_tool_sound(get_turf(src), 50)
 					var/obj/machinery/constructable_frame/machine_frame/M = new /obj/machinery/constructable_frame/machine_frame(src.loc)
 					M.state = 2
 					M.icon_state = "box_1"
@@ -53,20 +53,20 @@
 					qdel(src)
 					return 1
 				else
-					to_chat(user, "<span class='warning'>Turn off the [src] before dismantling it.</span>")
+					to_chat(user, SPAN_WARNING("Turn off the [src] before dismantling it."))
 			else
-				to_chat(user, "<span class='warning'>Better let [src] discharge before dismantling it.</span>")
+				to_chat(user, SPAN_WARNING("Better let [src] discharge before dismantling it."))
 		else if ((istype(attacking_item, /obj/item/stock_parts/capacitor) && (capacitors_amount < 5)) || (istype(attacking_item, /obj/item/cell) && (cells_amount < 5)))
 			if (charge < (capacity / 100))
 				if (!output_attempt && !input_attempt)
 					user.drop_from_inventory(attacking_item,src)
 					component_parts += attacking_item
 					RefreshParts()
-					to_chat(user, "<span class='notice'>You upgrade the [src] with [attacking_item.name].</span>")
+					to_chat(user, SPAN_NOTICE("You upgrade the [src] with [attacking_item.name]."))
 				else
-					to_chat(user, "<span class='warning'>Turn off the [src] before dismantling it.</span>")
+					to_chat(user, SPAN_WARNING("Turn off the [src] before dismantling it."))
 			else
-				to_chat(user, "<span class='warning'>Better let [src] discharge before putting your hand inside it.</span>")
+				to_chat(user, SPAN_WARNING("Better let [src] discharge before putting your hand inside it."))
 		else
 			user.set_machine(src)
 			interact(user)
@@ -88,8 +88,8 @@
 /obj/machinery/power/smes/batteryrack/makeshift/update_icon()
 	.=..()
 	if(overcharge_percent > 100)
-		cut_overlays()
-		add_overlay("smes-crit")
+		ClearOverlays()
+		AddOverlays("smes-crit")
 
 //This mess of if-elses and magic numbers handles what happens if the engies don't pay attention and let it eat too much charge
 //What happens depends on how much capacity has the ghetto smes and how much it is overcharged.

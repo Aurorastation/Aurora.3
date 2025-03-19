@@ -5,7 +5,7 @@
 	item_flags = ITEM_FLAG_BLOCK_GAS_SMOKE_EFFECT | ITEM_FLAG_AIRTIGHT | ITEM_FLAG_THICK_MATERIAL
 	flags_inv = HIDEEARS|HIDEEYES|HIDEFACE
 	body_parts_covered = FACE|EYES
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	item_state = "gas_alt"
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
@@ -13,7 +13,7 @@
 	var/gas_filter_strength = 1			//For gas mask filters
 	var/list/filtered_gases = list(GAS_PHORON, GAS_N2O, GAS_CHLORINE, GAS_ALIEN)
 	armor = list(
-		bio = ARMOR_BIO_STRONG
+		BIO = ARMOR_BIO_STRONG
 	)
 
 /obj/item/clothing/mask/gas/filter_air(datum/gas_mixture/air)
@@ -40,7 +40,7 @@
 	desc = "A respirator that covers the mouth and nose. It can be connected to an air supply. Filters harmful gases from the air."
 	item_state = "halfgas"
 	icon_state = "halfgas"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	flags_inv = null
 	body_parts_covered = FACE
 	down_body_parts_covered = null
@@ -103,10 +103,10 @@
 	desc = "A compact carbon-fiber respirator covering the mouth and nose to protect against the inhalation of smoke and other harmful gasses."
 	icon_state = "fullgas"
 	item_state = "fullgas"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	armor = list(
-		melee = ARMOR_MELEE_SMALL,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_MINOR,
-		bio = ARMOR_BIO_STRONG
+		MELEE = ARMOR_MELEE_SMALL,
+		BULLET = ARMOR_BALLISTIC_SMALL,
+		LASER = ARMOR_LASER_MINOR,
+		BIO = ARMOR_BIO_STRONG
 	)

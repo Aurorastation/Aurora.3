@@ -3,17 +3,14 @@
 /obj/item/device/laser_pointer
 	name = "laser pointer"
 	desc = "Don't shine it in your eyes!"
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/item/device/laser_pointer.dmi'
 	icon_state = "pointer"
 	item_state = "pen"
 	var/pointer_icon_state
 	slot_flags = SLOT_BELT
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	var/turf/pointer_loc
 	var/obj/item/stock_parts/micro_laser/diode //cant use the laser without it
-
-
-
 
 /obj/item/device/laser_pointer/red
 	pointer_icon_state = "red_laser"
@@ -38,8 +35,8 @@
 
 
 
-/obj/item/device/laser_pointer/attack(mob/living/M, mob/user)
-	laser_act(M, user)
+/obj/item/device/laser_pointer/attack(mob/living/target_mob, mob/living/user, target_zone)
+	laser_act(target_mob, user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
 /obj/item/device/laser_pointer/attackby(obj/item/attacking_item, mob/user)
@@ -48,14 +45,14 @@
 			user.drop_item()
 			attacking_item.forceMove(src)
 			diode = attacking_item
-			to_chat(user, "<span class='notice'>You install a [diode.name] in [src].</span>")
+			to_chat(user, SPAN_NOTICE("You install a [diode.name] in [src]."))
 		else
-			to_chat(user, "<span class='notice'>[src] already has a laser diode.</span>")
+			to_chat(user, SPAN_NOTICE("[src] already has a laser diode."))
 		return TRUE
 
 	else if(attacking_item.isscrewdriver())
 		if(diode)
-			to_chat(user, "<span class='notice'>You remove the [diode.name] from the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You remove the [diode.name] from the [src]."))
 			diode.forceMove(get_turf(user))
 			diode = null
 		return TRUE
@@ -70,10 +67,10 @@
 	if( !(user in (viewers(7,target))) )
 		return
 	if (!diode)
-		to_chat(user, "<span class='notice'>You point \the [src] at \the [target], but nothing happens!</span>")
+		to_chat(user, SPAN_NOTICE("You point \the [src] at \the [target], but nothing happens!"))
 		return
 	if (!user.IsAdvancedToolUser())
-		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
+		to_chat(user, SPAN_WARNING("You don't have the dexterity to do this!"))
 		return
 
 	add_fingerprint(user)
@@ -88,23 +85,23 @@
 
 		if(prob(25))
 			C.emp_act(EMP_LIGHT)
-			selfmsg = "<span class='notice'>You hit the lens of \the [C] with \the [src], temporarily disabling the camera!</span>"
+			selfmsg = SPAN_NOTICE("You hit the lens of \the [C] with \the [src], temporarily disabling the camera!")
 
 			admin_attack_log(user, src,"hits the  camera with a laser pointer",  "EMPd a camera with a laser pointer")
 
 		else
-			selfmsg = "<span class='notice'>You fail to hit the lens of \the [C] with \the [src].</span>"
+			selfmsg = SPAN_NOTICE("You fail to hit the lens of \the [C] with \the [src].")
 		othermsg = "<b>[user]</b> shines \the [src] at \the [C]."
 
 	if(iscarbon(target))
 		if(user.zone_sel.selecting == BP_EYES)
 			var/mob/living/carbon/C = target
 			if(prob(30) && C.flash_act())
-				selfmsg = "<span class='notice'>You blind \the [C] with \the [src].</span>"
+				selfmsg = SPAN_NOTICE("You blind \the [C] with \the [src].")
 				othermsg = "<b>[user]</b> shines \the [src] at \the [C]'s eyes'."
 				C.eye_blind = 3
 			else
-				selfmsg = "<span class='notice'>You fail to blind \the [C] with \the [src].</span>"
+				selfmsg = SPAN_NOTICE("You fail to blind \the [C] with \the [src].")
 				othermsg = "<b>[user]</b> fails to blind \the [C] with \the [src]."
 
 	//laser pointer image
@@ -120,7 +117,7 @@
 	if(selfmsg)
 		user.visible_message(othermsg, selfmsg)
 	else
-		user.visible_message("<b>[user]</b> points \the [src] at \the [target].", "<span class='notice'>You point \the [src] at \the [target].</span>")
+		user.visible_message("<b>[user]</b> points \the [src] at \the [target].", SPAN_NOTICE("You point \the [src] at \the [target]."))
 
 
 	flick_overlay(I, showto, 15)

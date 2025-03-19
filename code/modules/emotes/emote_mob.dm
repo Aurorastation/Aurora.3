@@ -57,7 +57,7 @@
 
 	if(usr == src) //client-called emote
 		if (client && (client.prefs.muted & MUTE_IC))
-			to_chat(src, "<span class='warning'>You cannot send IC messages (muted).</span>")
+			to_chat(src, SPAN_WARNING("You cannot send IC messages (muted)."))
 			return
 
 		if(act == "help")
@@ -74,7 +74,7 @@
 			return
 
 		if(!can_emote(m_type))
-			to_chat(src, "<span class='warning'>You cannot currently [m_type == AUDIBLE_MESSAGE ? "audibly" : "visually"] emote!</span>")
+			to_chat(src, SPAN_WARNING("You cannot currently [m_type == AUDIBLE_MESSAGE ? "audibly" : "visually"] emote!"))
 			return
 
 		if(act == "me")
@@ -118,7 +118,7 @@
 	// Oh shit, we got this far! Let's see... did the user attempt to use more than one token?
 	if(findtext(subtext, anchor_char))
 		// abort abort!
-		to_chat(emoter, "<span class='warning'>You may use only one \"[anchor_char]\" symbol in your emote.</span>")
+		to_chat(emoter, SPAN_WARNING("You may use only one \"[anchor_char]\" symbol in your emote."))
 		return
 
 	if(pretext)
@@ -157,6 +157,8 @@
 	if(!message)
 		return
 
+	var/animated_chat_message = message
+
 	message = format_emote(src, message)
 
 	if (message)
@@ -167,6 +169,15 @@
 		visible_message(message, show_observers = do_show_observers)
 	else
 		audible_message(message, ghost_hearing = do_show_observers)
+
+	var/list/hearers = get_hearers_in_view(7, src)
+	var/list/hear_clients = list()
+	for(var/mob/M in hearers)
+		if(M.client)
+			hear_clients |= M.client
+
+	animated_chat_message = SPAN_COLOR("#f3ef09", "*") + animated_chat_message
+	animate_chat(animated_chat_message, null, TRUE, hear_clients, 30)
 
 // Specific mob type exceptions below.
 /mob/living/silicon/ai/emote(var/act, var/type, var/message)
@@ -179,18 +190,18 @@
 /mob/living/captive_brain/emote(var/message)
 	return
 
-/mob/abstract/observer/emote(var/act, var/type, var/message)
+/mob/abstract/ghost/observer/emote(var/act, var/type, var/message)
 	if(!message)
 		return
 
 	if(act != "me")
 		return
 
-	log_emote("Ghost/[src.key] : [message]",ckey=key_name(src))
+	log_emote("Ghost/[src.key] : [message]")
 
 	if(src.client)
 		if(src.client.prefs.muted & (MUTE_DEADCHAT|MUTE_IC))
-			to_chat(src, "<span class='warning'>You cannot emote in deadchat (muted).</span>")
+			to_chat(src, SPAN_WARNING("You cannot emote in deadchat (muted)."))
 			return
 
 	. = src.emote_dead(message)

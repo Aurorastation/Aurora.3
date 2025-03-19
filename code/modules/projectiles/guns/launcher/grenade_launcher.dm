@@ -4,8 +4,8 @@
 	icon = 'icons/obj/guns/grenade_launcher.dmi'
 	icon_state = "grenadelauncher"
 	item_state = "grenadelauncher"
-	w_class = ITEMSIZE_LARGE
-	force = 10
+	w_class = WEIGHT_CLASS_BULKY
+	force = 15
 
 	fire_sound = 'sound/weapons/grenadelaunch.ogg'
 	fire_sound_text = "a metallic thunk"
@@ -101,7 +101,7 @@
 
 /obj/item/gun/launcher/grenade/handle_post_fire(mob/user)
 	message_admins("[key_name_admin(user)] fired a grenade ([chambered.name]) from a grenade launcher ([src.name]).")
-	log_game("[key_name_admin(user)] used a grenade ([chambered.name]).",ckey=key_name(user))
+	log_game("[key_name_admin(user)] used a grenade ([chambered.name]).")
 	chambered = null
 	update_maptext()
 
@@ -112,8 +112,8 @@
 /obj/item/gun/launcher/grenade/underslung
 	name = "underslung grenade launcher"
 	desc = "Not much more than a tube and a firing mechanism, this grenade launcher is designed to be fitted to a rifle."
-	w_class = ITEMSIZE_NORMAL
-	force = 5
+	w_class = WEIGHT_CLASS_NORMAL
+	force = 11
 	max_grenades = 0
 
 //load and unload directly into chambered

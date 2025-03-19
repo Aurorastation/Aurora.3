@@ -43,6 +43,7 @@
 	key ="chirp"
 	emote_message_3p = "USER chirps!"
 	emote_sound = 'sound/misc/nymphchirp.ogg'
+	conscious = 0
 
 /singleton/emote/audible/multichirp
 	key ="mchirp"
@@ -65,6 +66,7 @@
 	key = "chitter"
 	emote_message_3p = "USER chitters."
 	emote_sound = list('sound/voice/chitter1.ogg', 'sound/voice/chitter2.ogg', 'sound/voice/chitter3.ogg')
+	conscious = 0
 
 /singleton/emote/audible/click
 	key = "click"
@@ -75,6 +77,12 @@
 	key = "clack"
 	emote_message_3p = "USER clacks USER_THEIR mandibles together."
 	emote_sound = 'sound/voice/bugclack.ogg'
+
+/singleton/emote/audible/rattle
+	key = "rattle"
+	emote_message_3p = "USER rattles USER_THEIR gaster."
+	emote_sound = 'sound/voice/bugrattle.ogg'
+
 /singleton/emote/audible/shriek
 	key = "shriek"
 	emote_message_3p = "USER shrieks!"
@@ -200,9 +208,9 @@
 
 /singleton/emote/audible/slap
 	key = "slap"
-	emote_message_1p_target = "<span class='warning'>You slap TARGET across the face!</span>"
+	emote_message_1p_target = SPAN_WARNING("You slap TARGET across the face!")
 	emote_message_1p = "You slap yourself across the face!"
-	emote_message_3p_target = "<span class='warning'>USER slaps TARGET across the face!</span>"
+	emote_message_3p_target = SPAN_WARNING("USER slaps TARGET across the face!")
 	emote_message_3p = "USER slaps USER_SELF across the face!"
 	emote_sound = 'sound/effects/snap.ogg'
 

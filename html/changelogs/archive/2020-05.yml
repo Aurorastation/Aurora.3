@@ -1,0 +1,445 @@
+2020-05-01:
+  Doxxmedearly:
+  - bugfix: Fixed hallucination values going negative and causing massive debug logs.
+  Geeves:
+  - rscadd: Vendors have given some glow in the dark capabilities.
+  - tweak: Vendors now output to your hands, or to your feet, if your hands are full.
+  ParadoxSpace:
+  - rscadd: Handcuffs now require an aggressive grab to apply.
+  - tweak: You can now resist once a second, rather than once every 0.8 seconds.
+2020-05-02:
+  Alberyk:
+  - rscdel: Removed the chaplain cult backpack, black hood and robes from their wardrobe.
+  - rscadd: Guns now throws casings around when fired.
+  - rscadd: Added caltrops to the traitor uplink.
+  Skull132:
+  - bugfix: Fixes a roughly 6+ year old bug where showering doesn't immediately update
+      your mob's icon.
+2020-05-03:
+  Skull132:
+  - bugfix: Attempting to view your job ban reason will actually work now.
+2020-05-04:
+  Geeves:
+  - rscadd: Some of the wall fixtures now glow in the dark, as they have bright cyan
+      screens.
+  - rscadd: ATMs now gain an overlay when a card is inserted. It's minute, so you'll
+      probably still forget your ID, like you always do.
+  - rscadd: Canisters now properly emit the light their icons portray them having.
+  - tweak: Canisters now eject tanks into any of your hands, dropping them to your
+      feet if your hands aren't free.
+  ParadoxSpace:
+  - balance: Antag emp grenades and artifacts have been halved in range.
+  - balance: Chem EMP grenades have been massively scaled back in range.
+  - balance: Radium no longer gives dionae extra healing.
+  - balance: Radiation no longer gives Dionae M'sai tier speed.
+  - balance: Diona now have a lower grab mod and resist mod, making it easier to grapple
+      them.
+  Skull132:
+  - bugfix: The Discord button works again.
+  Wowzewow (Wezzy):
+  - imageadd: New sprites for the holodeck, security and guest pass wall terminals.
+2020-05-06:
+  Skull132:
+  - bugfix: A bug fixed in remote auth where the HUD setup procs would crash during
+      a reconnect.
+2020-05-08:
+  Alberyk:
+  - rscdel: Removed the multitool option from the augment combitool.
+  Code by Geeves, Sprites by Scrambles:
+  - tweak: IPC tags have been completely changed, in appearance and function.
+  - rscadd: IPC tags now store a serial number, ownership status, and citizenship
+      data, all of which is editable by the player in character creation.
+  - tweak: Cyborg analyzers no longer pick up IPC tags, unless the IPC's head is open.
+  - tweak: You can no longer examine an IPC to see if they have an installed tag.
+  - rscadd: You can edit a tag's info as an in-game character by using a multitool
+      on it. Doing so without permission is highly illegal.
+  - rscadd: You can take the tag out of an IPC tag implanter by using a screwdriver
+      on it.
+  Karolis2011:
+  - rscadd: Added integrated computing device to pAIs.
+  - rscadd: Ported all relevant pAI programs to VueUI and integrated computers.
+  - balance: As pAIs software system is now reliant on modular computers, pAIs might
+      be more capable than before.
+  - tweak: pAI card icon selection is now available trough verb instead of software
+      interface.
+  - backend: Integrated computing devices has been restructured to allow restrictions
+      depending silicon type.
+  - bugfix: Adds ability to download suit sensor program to stationbounds.
+  - rscadd: Adds service abilities to modular computers. Services are like toggles
+      for programs.
+  - rscadd: NTNet Software Download Tool got ported to VueUI. Also it received ability
+      to have download queue.
+  - rscadd: NTNet Relay Chat Client got ability to have direct message channels.
+  - rscadd: NTNet Relay Chat Client got ability to join multiple channels at once.
+  - bugfix: NTNet Relay Chat Client no longer allows duplicate nicknames.
+  - rscadd: Crew manifest program was added.
+  - bugfix: Fixes cargo control program being broken.
+  MattAtlas:
+  - rscadd: Ghosts can now see visible messages such as surgery messages. This is
+      affected by the ghostsight preference.
+  - bugfix: Damage from ZAS fires should work properly now.
+  - bugfix: Ghosts should no longer get double the visible messages.
+  Skull132:
+  - bugfix: Fixed recorders and pAIs and other things not hearing anything while being
+      held in hands. (Bug only affected the server if it was using BYOND > 513.1512.)
+  Wowzewow (Wezzy):
+  - imageadd: New wall terminal sprites, i.e, newscaster, request console, ringer,
+      production console, etc.
+  - rscadd: Newscasters print to your hands instead of down to the floor.
+2020-05-09:
+  Arrow768:
+  - rscadd: Incompatible applications are no longer downloaded via the presets.
+  - tweak: Reduced/Adapted the size of various applications.
+  - tweak: The investigations / generic wristbounds are now enrolled aswell.
+  - tweak: Selecting a unenrolled device in the loadout no longer gives you the advanced
+      version of it.
+  - tweak: Adapts the modular computer news browser to work with our news system
+  Geeves:
+  - bugfix: Ghosts with ghostears can now see IRC communications properly.
+2020-05-10:
+  Arrow768:
+  - bugfix: Fixes app presets not properly installing on modular computers.
+  Kaedwuff:
+  - rscdel: Cleaned up the bounty list of many senseless/silly entries.
+  Scheveningen:
+  - balance: Lighting from light fixtures is much softer, making it notably harder
+      to see details now.
+2020-05-11:
+  Alberyk:
+  - tweak: Cyborgs can't remove items or clothing from human mobs anymore.
+  Geeves:
+  - rscadd: Added lights to pAI.
+  - rscadd: Disarming a pAI now causes them to fold up.
+  - tweak: pAI have been resprited to have green screens.
+  Skull132:
+  - bugfix: AOOC should now properly be re-added to the client in all cases.
+2020-05-12:
+  Karolis2011:
+  - bugfix: Cargo control and crusher control programs now will properly work.
+2020-05-13:
+  Alberyk:
+  - tweak: Renamed Necropolis Industries to Zavodskoi Interstellar.
+  - tweak: Idris contractors can no be longer be cargo technician and quartermaster.
+  - tweak: Zavodskoi/Necropolis contractors can no be longer be pharmacist and warden.
+  - tweak: Hephaestus Industries can no be longer be cargo technician, scientist and
+      quartermaster.
+  - tweak: Fruits with the teleporting gene do not randomly teleport people anymore.
+      They will now create a portal where they land.
+  Arrow768:
+  - admin: Changes the CCIA Recorder to prompt if there were antags involved in the
+      Incident.
+  Code by Geeves, Sprites by Kyres:
+  - tweak: Bluespace travel now has a bluespace aesthetic.
+  - bugfix: Fixes shuttle turfs not updating while in transit.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes missing inhands for RFDs, RPED, toy sword, plant bag and briefcases.
+  - bugfix: Fixes some problems with the human sprite.
+2020-05-14:
+  Alberyk:
+  - rscdel: Non-slip species flag should no longer grant immunity to lack of gravity
+      effects.
+  - bugfix: Fixed Zavodskoi Interstellar contractors being able to be Physician, they
+      should now have access to the surgeon role.
+  - bugfix: Fixed Zavodskoi Interstellar research uniform having the wrong sprite.
+  Arrow768:
+  - rscadd: The staffwho function now shows if a staff member is AFK.
+  Geeves:
+  - bugfix: Fixes internals appearing to be off, even when they're on, when spawning
+      or relogging.
+  ParadoxSpace:
+  - rscadd: IPCs can now be Zavodskoi contractors, except for liaisons. Do not join
+      as an IPC liaison, or your IPC/head whitelists will be stripped.
+2020-05-15:
+  Alberyk:
+  - tweak: Restricted the synthetic hair extensions to species that have hair.
+  Geeves:
+  - rscadd: Doing enough fire damage to a corpse will now turn it into a skeleton.
+  - rscadd: Added a personal shield device to the traitor tools uplink.
+  - rscadd: Added a radiant shielding aura spell to Battlemage and Cleric.
+  - rscadd: Added an exosuit shield drone to the mechfab.
+  - rscadd: == ADMIN FACING CHANGES ==
+  - rscadd: Adds full variants of stacks of items in the spawn menu.
+  - rscadd: Adds local narrate, which allows you to narrate to all mobs in a your
+      view or your view range tile radius.
+  - rscadd: Allows admins to reset stationbounds via right click or Special Verbs
+      menu.
+  - rscadd: Adds a random type golem rune to the spawn menu, if an admin wants to
+      adminbus a random golem into a round.
+  - rscadd: Spawned borers now get added to the Ghostspawner menu, allowing players
+      to inhabit them even if they didn't catch the original request.
+  - rscadd: Borers have gained the ability to survey their host's health, allowing
+      them to better choose when to administer certain chemicals.
+  - tweak: Borers now regenerate chemicals even if their host is unconscious.
+  - rscadd: Awakening psionics now take 15 seconds instead of 10, and the host now
+      gets a message about feeling something bad coming on, allowing them to make
+      a dash to safety and or seclusion.
+  - bugfix: Skrell returning from Srom no longer eject controlling borers to the lobby
+      by replacing their ckey into the aether.
+  - bugfix: Skrell no longer spontaneously die when entering Srom on a map that doesn't
+      have a Srom location.
+  ParadoxSpace:
+  - bugfix: Actually reduces nymph health to 33.3.
+  Teh Flamin'Taco:
+  - bugfix: Set-Ambition should no-longer be filled with HTML constructs when edited.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes request consoles having weird lighting.
+2020-05-16:
+  Alberyk:
+  - rscadd: Added augment disrupter implants to the armory.
+  Geeves:
+  - imageadd: Changed fire's sprite.
+  - tweak: Made fire layer over most things.
+  - rscadd: Made fires a bit brighter.
+  - bugfix: Held and worn uncollapsed pAI flashlights now work.
+  - rscadd: Heavy cell chargers now flash while they charge. Ported from Polaris.
+2020-05-17:
+  Alberyk:
+  - rscadd: Ported multiple custom loadout slots from baystation.
+  PoZe:
+  - bugfix: T-comms, Vault, Station self-destruct turrets controllers are now properly
+      mapped and connect to turrets.
+  - bugfix: KA AOE now properly works for asteroid mining and deals proper damage.
+  Teh Flamin' Taco:
+  - bugfix: Skrell are now able to wake up.
+  Wowzewow (Wezzy):
+  - soundadd: ' Adds sounds to falling over. Resting and buckling are still silent.'
+2020-05-18:
+  Alberyk:
+  - rscdel: Removed the Aut'akh subspecies.
+  - rscadd: Added the Aut'akh robotic limbs to the robotic limb option, and their
+      augments to the loadout.
+  - bugfix: Fixed security cadet and engineering apprentice not having a minimum age
+      of 18 years.
+  Geeves:
+  - rscadd: Ported inventory slot and zone select hover overlays from Polaris.
+  MattAtlas:
+  - tweak: The announcement sound has been changed to be the nightlight sound.
+  ParadoxSpace:
+  - rscadd: Some Engineering programs have been re-added to function on wristbounds.
+  - rscadd: All computers can now run Cargo Order and NTSL2 Interpreter.
+  - rscadd: Everyone now gets a Crew Manifest and News Browser on their computers.
+  Wowzewow (Wezzy):
+  - rscadd: Adds new jamjar and circle glasses in the loadout. Check them out.
+  - rscdel: Removes green glasses for being practically useless.
+2020-05-19:
+  Alberyk:
+  - bugfix: Fixed some ghost roles not being properly added at round start.
+  - tweak: Zhan-Khazan Tajara should now have access to two language slots.
+  Geeves:
+  - bugfix: Deadchat IRC messages have been fixed.
+  mikomyazaki, MattAtlas:
+  - rscadd: Ports components system from tg, no player-facing changes.
+2020-05-20:
+  Geeves:
+  - bugfix: Signalers can now be removed from wires without a need to have an item
+      in-hand.
+  Karolis2011:
+  - rscadd: Door control UI now have progress bars to inform about current status
+      about this door at a glance.
+  - rscadd: Door control UI has been ported to VueUI. This came with minor changes
+      to layout.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes RPD ammo counters.
+  - bugfix: Adds missing inhands for softcaps.
+  - bugfix: Adds missing inhands and directionals for flatcaps.
+  - rscadd: Adds black cap to the loadout.
+2020-05-21:
+  Skull132:
+  - rscadd: The game now pulls news from the forum threads. Showcasing the latest
+      10 posts per topic. Enjoy!
+  Wowzewow (Wezzy):
+  - refactor: Replaced description_fluff, description_info and description_antag with
+      desc_ infront instead. No front-facing changes, but it'll be easier to implement
+      descriptions.
+2020-05-22:
+  DanseMacabre:
+  - rscadd: 'Fully automatic drag-to-fire for a number of burst-capable weapons. Including,
+      but not limited to: SMGs, the STS-35, ZI-550, gatling gun, and the SAW.'
+  Geeves:
+  - rscadd: Full pain overlays have been added, or rather fixed, since they never
+      worked before. They're just small flashes of pain with an accompanying overlay.
+  - rscadd: Remotely controlled stuff will now have a neat scanline overlay, a gentle
+      reminder that this isn't your actual physical body.
+  MattAtlas:
+  - tweak: Changed the new player options window. It now has a cool blurb.
+  Wowzewow (Wezzy):
+  - imageadd: Adds new sprites for combat hyposprays.
+  - soundadd: Adds pickup sounds and more drop sounds.
+2020-05-24:
+  Geeves:
+  - experiment: Tweaked how computers display and layer their screens, mobs and objects
+      should now properly go under or over them when they should.
+  - tweak: AI and cyborgs can no longer bolt or electrify airlocks, only unbolt or
+      de-electrify on a five second timer. This restriction does not apply to antagonist
+      silicons.
+  - bugfix: Malf AI can no longer machine overload the forcefields they generate.
+  Wowzewow (Wezzy):
+  - imageadd: Adds a new sprite for the intercom.
+  - rscadd: Made scanner and cryopod screens light up.
+  - imageadd: New icons for robot storage and cryo storage.
+2020-05-25:
+  Alberyk:
+  - bugfix: Fixed laser beams creating blood splatters when hitting mobs.
+  Chada:
+  - bugfix: Fixes an error in how plurals are displayed in the Revolution endgame
+      screen which results in double 'The's.
+  Geeves:
+  - rscadd: Wizard spellbooks can now be stored in the belt slot.
+  - tweak: Necromancers now get 10 spell points, up from 8.
+  - bugfix: Smoke now properly layers over mobs, obscuring them.
+  - rscadd: Wizard Apprentices and Skeletons are now in the Ghost Spawner menu. The
+      former can be enabled by buying an Apprentice Pebble artifact, a new wizard
+      item which acts as a portable spawnpoint. The latter by casting Raise Dead on
+      a corpse.
+  - rscadd: Apprentices are now given additional spells at the bottom of their spellbook,
+      depending on which type of wizard their master is.
+  - rscadd: Bought artifacts now appear in your hands, if you have any free.
+  - bugfix: The Return to Master spell has received numerous bugfixes and should now
+      work as expected, most of the time.
+  - rscadd: Posibrains are now in the ghost spawner menu. Activating them is now a
+      one-and-done deal, as they remain open in the ghost spawner until someone disables
+      it or someone spawns in.
+  - rscadd: Syndicate Cyborgs have been added to the ghost spawner menu, and will
+      remain in a boot-up state until someone spawns into it.
+  - bugfix: Syndicate Cyborg eye overlays have been fixed.
+  - rscadd: Wizard Familiars have been added to the ghost spawner menu, same as above.
+  - rscadd: Mining Drones have been added to the ghost spawner menu, one swipe is
+      all you need, until someone joins in as them.
+  - rscadd: The agent ID card now makes you invisible to the AI when electronic warfare
+      is enabled.
+  - tweak: The price of the agent ID card have been upped to 4, from 3.
+  - tweak: Agent IDs now have a charge, which lasts for a few minutes. When the charge
+      runs out, electronic warfare is disabled.
+  Karolis2011:
+  - balance: AIs and silicons can no see unavailable buttons to electrocute doors
+      or bolt them.
+  PoZe:
+  - tweak: 'Capacitors reliability was buffed: reinforced 80 -> 100, uranium 50 ->
+      60, teranium 45 -> 55, phoron 40 -> 50, bluespace 30 -> 45.'
+  - rscadd: Added nano reinforced barrel which has 10 more reliability than reinforced
+      barrel.
+  - rscadd: Added enhanced grip MK2, which has improved fire delay by 0.2 compared
+      to MK1 grip.
+  - rscadd: Added stablity stock, which improves fire delay by 0.2 and accuracy by
+      0.5 compared to regular stock.
+  - tweak: Added animations to lots of modular components like all capacitors, almost
+      all modulators, lenses, etc.
+  - tweak: Modular guns now have to be assembled inside of weapons analyzers. You
+      cannot assemble them in hands anymore.
+  - rscadd: Added machinery called Weapons analyzer. Main purpose of it is to display
+      stats of any weapon or item. You can accepts anything that is an item, even
+      trash(probably). For modular guns it will also display table of components and
+      their statistics.
+  - rscadd: 'Added circuit board and ability to construct weapons analyzer in RND.
+      Circuit board required tech: engineering = 3, data = 2, combat = 2.'
+  - tweak: recharger and wall recharger now visually display on their icon how much
+      charge is inside of weapon/gun that is being charged.
+  Wowzewow (Wezzy):
+  - rscadd: Adds Fit Viewport verb in OOC tab. No more fiddling around with the screen,
+      this does it for you automatically!
+  - imageadd: Improves ore redemption console sprite.
+2020-05-26:
+  Aboshehab:
+  - rscadd: 'Adds eridani cap, acquirable in the loadout within the factions tab.
+      Sprites courtesy of Wigglesworth Jones '
+  PoZe:
+  - rscadd: Admin build mode now supports drag-and-build. Where you can hold mouse
+      to continously build.
+  Wowzewow (Wezzy):
+  - rscadd: Adds blazers, tubenecks, turtlenecks, sweaters, sweater vests, sweater
+      cardigans and sweater cardigans, as well as argyle styles for each!
+  - rscadd: These new clothing types can be found in the loadout, under new selections.
+      Check the loadout!
+  - tweak: Makes cardigans and sweaters look better. Check them out.
+  - tweak: Cardigans can now be buttoned and unbuttoned.
+  - rscdel: Killed off the green suit jacket for being practically useless.
+2020-05-27:
+  Alberyk:
+  - rscadd: Added a new icon to the personal shield and its aura.
+  - tweak: Personal shields can now be stored on the belt slot.
+  Geeves:
+  - rscadd: Added cult descriptions to items that can be reforged in a daemon forge.
+  - rscadd: Added some more items to be reforged.
+  - rscadd: Eldritch voidsuit sprites now have in-built shoes.
+  - bugfix: Fixed eldritch helmets not having the correct light colour.
+  MattAtlas:
+  - bugfix: CPR will actually break bones now.
+  - bugfix: Cryo cells no longer heal internal organ damage.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes sprites for argyle sweater vests and sweater underwear.
+  - rscadd: Renames the alt casual skirt to puffy skirt. Adds a new plaid skirt to
+      the loadout.
+  - imageadd: Improves the sprites of the skirts in the loadout.
+  - rscdel: Kills off the superfluous plaid skirt/shirt combo that spawns in closets.
+  - bugfix: Fixes invisible stacking machine console.
+  - rscadd: Fixes invisible casual skirts.
+  Wowzewow (Wezzy), TheDilShawn:
+  - rscadd: Adds more Diona marking customization options. Sprites courtesy of TheDilShawn.
+2020-05-28:
+  Geeves:
+  - bugfix: NTIRC works again.
+2020-05-29:
+  Geeves:
+  - bugfix: Most simple mobs can no longer communicate via floating messages.
+  - bugfix: Burning into a skeleton now properly makes you unidentifiable, and no
+      longer keeps your species torso.
+  - bugfix: Fixes Acolytes incorrectly spawning a wizard. It should now properly be
+      borer and cult.
+  - bugfix: Shuttles no longer drag bluespace along with them.
+  PoZe:
+  - bugfix: Building modular gun no longer spams admins.
+  - bugfix: Holding mouse in build mode no longer causes server lag or hanging.
+  TheDilShawn & ParadoxSpace:
+  - rscadd: Adds four variants of sarashi to the top underwear section.
+2020-05-30:
+  Alberyk, Sampletex:
+  - imageadd: Added welding mask sprites for Tajara and Unathi.
+  Geeves:
+  - rscadd: Added certain language augments to the Vaurca loadout.
+  - rscadd: The AI can now remotely control mechs in its network. It has one mapped
+      in near its core.
+  - rscadd: Messages received by your old body will now reach your VR body (does not
+      affect Skrell Srom).
+  - bugfix: Exosuit pilots can now interact with elevator panels without having to
+      get out.
+  - rscadd: Robotics and RnD can now create remote controlled mechs. The control centre
+      is in the protolathe, while the exosuit upgrade is in the circuit imprinter.
+  - tweak: Mechs can no longer be dismantled if it has a pilot in it.
+  - tweak: Dismantling a mech now takes a while.
+  - bugfix: Mechs can no longer be buckled to chairs or beds.
+  - bugfix: AIs now properly ghost after dying.
+  - rscadd: Added a new admin verb that allows admins to more easily put observers
+      into event bodies.
+  - tweak: Changed the Select equipment verb in the Fun menu to Set Human Outfit,
+      made it a little easier to use.
+  - rscadd: pAI can now pilot farmbots, cleanbots, floorbots and medbots.
+  - rscadd: Floating messages now appear even if you're inside an object or another
+      mob.
+  Skull132:
+  - bugfix: Mounted (sub)machinegun for mechs now works again. It had its safety enabled
+      otherwise.
+  Wowzewow (Wezzy):
+  - rscadd: Re-adds radio sounds. They should be working properly this time.
+  Yonnimer:
+  - rscadd: Makes it so if a Dionae deathsplits, their nymphs will start with only
+      20% of their max health.
+2020-05-31:
+  Geeves:
+  - bugfix: Mechs will now consistently stay fully charged if they're on top of an
+      exosuit dock / mech recharger.
+  - bugfix: Spiderbots can now properly hear and speak into the radio.
+  - bugfix: Fix spiderbots speaking floating chat.
+  Kaedwuff:
+  - tweak: The Visitor role has been separated from Assistant.
+  - tweak: People may now join as a Visitor from any faction. They still have assistant
+      level access by default.
+  - tweak: Visitors start with a slightly different default outfit now, and have their
+      own sechud icon.
+  - spellcheck: Job intros now use more appropriate prefixes.
+  - backend: Purged the mime and clown from the job defines.
+  MoondancerPnoy:
+  - rscadd: Added a glow effect to some emissive lighting sources.
+  - tweak: Changed some vendor sprites slightly to better represent the fact that
+      they have screens.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes colors in the health analyser.

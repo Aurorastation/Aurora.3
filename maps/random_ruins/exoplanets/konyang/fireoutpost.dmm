@@ -138,8 +138,7 @@
 /area/exoplanet/grass/konyang)
 "fx" = (
 /obj/effect/decal/curb{
-	dir = 1;
-	layer = 2.02
+	dir = 1
 	},
 /obj/effect/decal/curb,
 /obj/effect/floor_decal/konyang_flowers,
@@ -289,8 +288,7 @@
 /area/konyang_fireoutpost)
 "ja" = (
 /obj/effect/decal/curb{
-	dir = 1;
-	layer = 2.02
+	dir = 1
 	},
 /obj/effect/decal/curb,
 /obj/structure/flora/bush/konyang_reeds,
@@ -332,8 +330,7 @@
 	},
 /obj/effect/decal/curb,
 /obj/effect/decal/curb{
-	dir = 1;
-	layer = 2.02
+	dir = 1
 	},
 /obj/effect/decal/exterior_stairs/half{
 	dir = 8
@@ -480,9 +477,7 @@
 /turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/konyang_fireoutpost)
 "sK" = (
-/obj/structure/chainlink_fence{
-	layer = 9.1
-	},
+/obj/structure/chainlink_fence,
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_fireoutpost)
 "vb" = (
@@ -518,8 +513,7 @@
 	dir = 4
 	},
 /obj/effect/decal/curb{
-	dir = 1;
-	layer = 2.02
+	dir = 1
 	},
 /obj/effect/decal/curb,
 /obj/effect/decal/exterior_stairs/half{
@@ -619,9 +613,7 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/exoplanet/grass/konyang)
 "Au" = (
-/obj/structure/chainlink_fence{
-	layer = 9.1
-	},
+/obj/structure/chainlink_fence,
 /turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/konyang_fireoutpost)
 "BY" = (
@@ -642,8 +634,7 @@
 "CA" = (
 /obj/effect/decal/curb,
 /obj/effect/decal/curb{
-	dir = 1;
-	layer = 2.02
+	dir = 1
 	},
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/konyang/no_edge,
@@ -703,8 +694,7 @@
 /area/konyang_fireoutpost)
 "EG" = (
 /obj/effect/decal/curb{
-	dir = 1;
-	layer = 2.02
+	dir = 1
 	},
 /obj/effect/decal/curb,
 /obj/structure/flora/ausbushes/sparsegrass,
@@ -804,8 +794,7 @@
 "JV" = (
 /obj/effect/decal/curb,
 /obj/effect/decal/curb{
-	dir = 1;
-	layer = 2.02
+	dir = 1
 	},
 /obj/effect/floor_decal/konyang_flowers,
 /turf/simulated/floor/exoplanet/konyang/no_edge,
@@ -976,8 +965,7 @@
 /area/konyang_fireoutpost)
 "Pz" = (
 /obj/effect/decal/curb{
-	dir = 1;
-	layer = 2.02
+	dir = 1
 	},
 /obj/effect/decal/curb,
 /turf/simulated/floor/exoplanet/konyang/no_edge,
@@ -992,8 +980,7 @@
 "PE" = (
 /obj/structure/flora/bush/konyang_reeds,
 /obj/effect/decal/curb{
-	dir = 1;
-	layer = 2.02
+	dir = 1
 	},
 /obj/effect/decal/curb,
 /turf/simulated/floor/exoplanet/konyang/no_edge,
@@ -1048,8 +1035,7 @@
 /obj/structure/flora/bush/konyang_reeds,
 /obj/effect/decal/curb,
 /obj/effect/decal/curb{
-	dir = 1;
-	layer = 2.02
+	dir = 1
 	},
 /turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/konyang_fireoutpost)
@@ -1150,8 +1136,7 @@
 "Wq" = (
 /obj/effect/floor_decal/konyang_flowers,
 /obj/effect/decal/curb{
-	dir = 1;
-	layer = 2.02
+	dir = 1
 	},
 /obj/effect/decal/curb,
 /turf/simulated/floor/exoplanet/konyang/no_edge,
@@ -1177,8 +1162,7 @@
 "XG" = (
 /obj/effect/decal/curb,
 /obj/effect/decal/curb{
-	dir = 1;
-	layer = 2.02
+	dir = 1
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/exoplanet/konyang/no_edge,
@@ -1231,8 +1215,7 @@
 "Zy" = (
 /obj/effect/decal/curb,
 /obj/effect/decal/curb{
-	dir = 1;
-	layer = 2.02
+	dir = 1
 	},
 /turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/konyang_fireoutpost)

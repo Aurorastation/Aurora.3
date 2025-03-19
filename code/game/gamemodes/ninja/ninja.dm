@@ -1,5 +1,5 @@
 /datum/game_mode/ninja
-	name = "ninjas"
+	name = "operatives"
 	config_tag = "ninja"
 	required_players = 15
 	max_players = 30

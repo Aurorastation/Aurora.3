@@ -1,0 +1,204 @@
+2019-06-01:
+  Alberyk, Kyres1:
+  - rscadd: Added two new space ruins.
+2019-06-02:
+  Conspiir:
+  - bugfix: Vaurca now twitch their antennae 'rhythmically' instead of 'rythmically'.
+  Ferner:
+  - sounddel: Disabled the undocumented addition of radio sounds.
+  - bugfix: Ashtrays now have an icon again.
+  Rhicora:
+  - tweak: Carded intelligences may no longer wipe themselves, but may ahelp to have
+      it done for them if needed.
+  Wowzewow:
+  - rscadd: Adds some more uses to glass jar - now you can use it as a tip jar AND
+      a reagent container (You can also see reagents inside like a beaker!)
+  - imageadd: Improves sprites for wrapping paper, pocketwatches, nanopaste, and new
+      coinflip animations
+  - bugfix: Fixes missing inhand sprites for light replacers.
+2019-06-03:
+  Arrow768:
+  - rscdel: Removes the Schoolgirl Uniform.
+2019-06-04:
+  Alberyk:
+  - bugfix: Fixed shells not displaying their gender properly.
+2019-06-05:
+  MattAtlas:
+  - rscadd: '''Say'' will now autopunctuate sentences if they don''t end with a dash,
+      exclamation point, period or question mark.'
+  Subber:
+  - rscadd: Added bear plushies.
+2019-06-09:
+  Geeves:
+  - bugfix: Fixed VarEditing and Plastic Surgery machines giving apostrophes stupid
+      tags. Apostrophes fixed. Yay.
+  Karolis2011:
+  - rscadd: Added over powered admin only admin preset.
+2019-06-11:
+  Geeves:
+  - rscdel: Removed ability to see whether someone is starved or thirsty via examination.
+  - tweak: Cut the time to climb onto a table by half.
+2019-06-12:
+  Alberyk, Kyres1:
+  - rscadd: You can now butcher some animals for their hide.
+  - rscadd: Added a couple of adhomian animals.
+  AmoryBlaine, Ferner:
+  - imageadd: Replaced the grenade sprites with new ones made by AmoryBlaine.
+  Geeves:
+  - tweak: Changed stuff so that crew don't spawn thirsty. You can slurp me later.
+  - tweak: Buffed experimental welding tools. They now regenerate a unit of fuel every
+      40 seconds, instead of every minute and 20 seconds.
+2019-06-13:
+  Kaedwuff:
+  - tweak: The stealth field ninjas get now costs 750 to activate, but only drains
+      half as much as before.
+  - tweak: Deactivating the stealth suit is much quieter now.
+  - tweak: The power sink module now drains power twice as fast, and is possible to
+      use while stealthed for reduced charge speed.
+  - balance: The stealth suit deactivates if you interact with (click on) any mob.
+      This includes attacks as well as grabs, disarms, and taps.
+  - tweak: Leg actuators will no longer disable your stealth field.
+  MoondancerPony:
+  - tweak: Ice melts slowly and water freezes slowly.
+  - bugfix: The Wizard Federation has lifted its Tongue-Scalding Curse from the station's
+      cocktails.
+2019-06-14:
+  Wowzewow:
+  - rscadd: Added animations for lying down, speech bubbles, throwing things, progress
+      bars, sleepers, and an improved attack animation.
+2019-06-16:
+  Alberyk:
+  - bugfix: Fixed hardsuit actuator jump and leaping forcing people to do backflip
+      in mid air.
+2019-06-17:
+  AmoryBlaine, Ferner:
+  - imageadd: Overhauled the sprites of security's uniforms and equipment. (Spritework
+      by AmoryBlaine.)
+  - imageadd: Changed the uniforms of civilprotection. (Spritework by AmoryBlaine.)
+  - rscadd: Compacted, changed and added a few of loadout options.
+  - tweak: Changed the bandolier from a belt to an accessory.
+2019-06-18:
+  PoZe:
+  - bugfix: Fixed my shit that made everyone blind. Code is fucking ancient.
+  smallgreenant:
+  - rscadd: Added a series of requested clothing items for Unathi. Also added their
+      ability to be selected as Xenowear in the loadout menu at round start.
+2019-06-19:
+  Alberyk:
+  - rscdel: Nutriment should no longer deal toxin damage when injected.
+  - backend: Removed Resomi.
+  - bugfix: Slurring caused by traumas should no longer last forever.
+  - bugfix: The ESS now has the appropriate siemen's coefficient.
+  - bugfix: Fatshouter should now produce the correct milk.
+  - bugfix: Fixed the korlaaskak recipe having no reagents.
+  Geeves:
+  - tweak: Increased the time it takes to put someone in an exosuit mounted sleeper
+      to six seconds, if they're conscious.
+  - rscadd: People put inside mounted sleepers no longer get knocked out.
+  - rscadd: It is now possible to eject yourself from a mounted sleeper by moving.
+  - bugfix: Mechs now check your wallet to see if you have access to it, swipe on
+      it and use keycodes to set access requirements.
+  MattAtlas:
+  - bugfix: Autopunctuation will no longer autopunctuate if markup (* or /) is present
+      at the end of the sentence.
+  - bugfix: Autopunctuation will no longer send a period if you input an empty chat
+      box.
+  ParadoxSpace:
+  - bugfix: The Zo'zo and Gy'zao outfits are now selectable for Unathi.
+2019-06-20:
+  Geeves:
+  - tweak: Made fake announcements in the uplink cost less. Donut abuse, or perish.
+      :)
+2019-06-21:
+  Alberyk:
+  - bugfix: Fixes the armor plating item having no sprite.
+  Geeves:
+  - tweak: Changed fireaxe to only cleave when wielded with two hands.
+  PoZe:
+  - backend: Updated rust-g DLL to the latest version.
+  VTCobaltblood:
+  - tweak: Added drinking glasses and bottles to the autolathe. Brought illegal items
+      back to the bottom of the list.
+2019-06-22:
+  Furrycactys:
+  - maptweak: Altered the layout of disposals on the sublevel so that they all lead
+      to the crusher. Virology and Xenobiology disposals still lead to space.
+  - maptweak: Toeless workboots were added to engineering lockers. Workboots, Jackboots,
+      and Cloth Footwraps were also added to the Xeno Wardrobe on the Surface.
+  - maptweak: Wires in Tesla Bay were changed slightly to prevent an annoying power
+      alarm when the Tesla isn't set up.
+  - maptweak: Added two more maglights, crowbars, and radios to the Security equipment
+      room so Cadets and Officers don't need to fight over them.
+  - maptweak: The window into space in the Atmospherics port station has been replaced
+      with a wall so such a huge area doesn't always get vented due to carp.
+2019-06-23:
+  Skull132:
+  - bugfix: Fixed a case where leaving the multitool mode enabled as the AI would
+      cause your clicks to fail in 90% of the cases.
+2019-06-24:
+  Alberyk:
+  - rscadd: Ported makeshift splints, you can make them with rods and duct tape.
+  Arrow768:
+  - bugfix: Fixes minor color blindness not being curable.
+  - tweak: Removes the ckeys from the round-end screen.
+  Ferner:
+  - bugfix: Fixed the roof z-level always having air in it due to some unsimulated
+      plating tiles being exposed to space, also replaced roof z-level open turfs
+      with airless ones.
+  Geeves:
+  - bugfix: Fixed antagonist ambitions to actually appear at round end. Remember to
+      set them in the IC tab!
+  Wowzewow:
+  - tweak: Fixes mop sound artifacting, pen clicking doesn't spam logs anymore.
+2019-06-25:
+  Wowzewow, ferner:
+  - bugfix: Fixes immediately closing sleepers and scanners, as well as infinite cable
+      coil glitch.
+  - rscadd: You can make light tiles in hand now. Combining 5 cable coil and a glass
+      sheet followed by a steel sheet will give you a light tile. (Click on it in-hand
+      to deploy.)
+  - maptweak: Makes the therapy pod face the right way.
+  - tweak: Makes the racks look more like the tables.
+2019-06-28:
+  Alberyk:
+  - tweak: K'ois can now infect people by being injected into the bloodstream.
+  Geeves:
+  - bugfix: Fixes force gloves being able to upgrade instantly to red grab, locking
+      the grabbee in place.
+  - tweak: Improved the NTNetRelay's UI a little, should be easier and less soul-crushing
+      to use now.
+  PoZe:
+  - bugfix: Water and Fire extinguisher foam now properly reacts with Mobs and does
+      not dissapear entirely. Splashing people/slimes with water/foam will now work
+      properly.
+  Skull132:
+  - tweak: Edited the join text of heads of staff to no longer require them to adminhelp
+      upon disconnect. This really isn't useful information, believe it or not!
+  nicemoreoften:
+  - tweak: Removed the X-ray gun and energy net fabricator from the techno-conglomerate
+      RIG by default and created a new equipped version of the RIG with those modules
+      still in place.
+2019-06-30:
+  Alberyk:
+  - tweak: Telescience has been changed; it will now create two bluespace portals,
+      one at the telepad and other at the location of the coordinates.
+  - tweak: Teleporting into solid objects is now less punishing, dealing brute damage
+      instead of exploding limbs.
+  Arrow768:
+  - rscdel: Cameras from certain areas (where no cameras should be) have been removed.
+  - bugfix: Modular Computers can now also be used by non-living mobs.
+  Ferner:
+  - maptweak: Remapped the pool and construction site areas, Added an exterior airlock
+      to the fore of engineering and to the telecoms ladder shaft.
+  - maptweak: Added atmosphere purge blast doors to the anomaly isolation cells, a
+      monitor to watch the cameras, a storage room for researched artifacts.
+  - maptweak: Added cameras, lightswitches to some areas missing them. Adjusted the
+      merchant shuttle dock slightly, adjusted the toxins chambers to be a bit less
+      prone to melting. Added a mine cart at cargo interstitial.
+  - maptweak: Fixed a number of bugs and tweaked some areas' names to fit better,
+      made the investigations maintenance actually count as maintenance, fixed the
+      psychiatry isolation room monitor.
+  - maptweak: Added paramedic access to mining.
+  Skull132:
+  - bugfix: Fixed a bug where, as a human, if you enabled autohiss, you would be unable
+      to speak until you disabled it again.

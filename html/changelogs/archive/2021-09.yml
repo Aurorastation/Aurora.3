@@ -1,0 +1,327 @@
+2021-09-01:
+  Shadow Quill:
+  - bugfix: AIs will no longer be shot at by turrets set to eliminate silicons.
+  - bugfix: Punching bags now make sound when punched (again.)
+2021-09-02:
+  Desven:
+  - rscadd: Added religion and nationality to the agent ID card.
+  Omicega:
+  - tweak: Moved some first responder equipment (hypospray, helmet etc) from the roundstart
+      spawn gear list into their locker instead.
+  Shadow Quill:
+  - bugfix: Account numbers will now wrap around to 111111 (plus a bit random) when
+      they manage to exceed 999999.
+  - tweak: Human mobs can no longer use the strip panel if they don&#x27;t have working
+      hands.
+  TheGreyWolf:
+  - bugfix: The wristbound radio &amp; double headset now have proper descriptions
+      alongside a blurb on how they are different when examined.
+  WickedCybs:
+  - bugfix: A lot of Msai hairstyles had the ears pushed forward on the side sprites.
+      They&#x27;re now in line with how Taj ears usually are.
+  - bugfix: Also fixes the Msai inner ear colour gradient because it was designed
+      around the pushed forward ears.
+2021-09-03:
+  Desven:
+  - bugfix: Drinks now match their corresponding color when poured.
+  - rscadd: Added sprites for when holding V&#x27;krexi Snax.
+  - rscdel: Removed the butanol can from the softdrinks vendor.
+  MattAtlas:
+  - rscdel: Removed Blink from the Technomancer spells.
+  - tweak: The Tesla armor now uses lower power lightning shocks if the armor isn&#x27;t
+      ready for another shock instead of using full power shocks.
+  - tweak: Increased the Tesla armor recharge time by 5 seconds.
+  - bugfix: Fixed the Tesla armor lightning shocks not doing the tesla zap.
+  NeroCavalier:
+  - tweak: Replaced Investigator&#x27;s plate carrier with Officer&#x27;s plate carrier.
+  - tweak: Fixes refrigerator typo.
+2021-09-04:
+  Shadow Quill:
+  - bugfix: AIs can control turret controllers with hotkeys again. (Ctrl+Click toggles
+      activeness, Alt+Click toggles lethality)
+2021-09-05:
+  NeroCavalier:
+  - rscadd: Ports the Skrellian Helmet from bay. Security, HoP, and Captains will
+      be able to get it in their loadouts under Xenowear - Skrell
+  WickedCybs:
+  - rscadd: Adds V-Neck dress shirts to the loadout.
+2021-09-06:
+  Alberyk:
+  - bugfix: Fixed some barsign icons not having all directional sprites.
+  Geeves:
+  - tweak: Broken airlock electronics are now classified as trash, which means maintenance
+      drones can decompile them.
+  - rscadd: Various stack items now make use of maptext to show how many things are
+      left in the stack.
+  - tweak: Activating a synthetic jetpack now activates both the thrusters and stabilizers.
+  - rscadd: Examining maintenance, mining, and matriarch drone flavor text will now
+      give an expanded description of their duties and interactions.
+  - rscadd: You can now shut down mining drones by swiping your ID on them.
+  - rscadd: Construction and matriarch drones can now pull larger objects.
+  - rscdel: You can no longer swipe your ID on matriarch drones.
+  - rscadd: Drone grippers now have a blacklist rather than a whitelist of items it
+      can hold, meaning they can interact with more objects.
+  - bugfix: Drone cameras should now be named properly.
+  - rscadd: Stationbounds and drones now get a Rebuild Overlays button in the Robot
+      Commands tab that lets them cut and rebuild their overlays, helping with the
+      stuck talking indicator problem.
+  - tweak: Drone inventories have been reorganized to make more sense.
+  - rscadd: Drones now spawn with an engineering taperoll and an inflatables dispenser.
+  - rscadd: Construction and matriarch drones now spawn with a mining drill.
+  - rscadd: Drones can now activate disposal bins while sitting inside them.
+  WickedCybs:
+  - tweak: The TCFL dress beret has been tweaked to be a paler blue, to fit more with
+      the TCFL jackets available in the loadout
+2021-09-07:
+  MattAtlas:
+  - experiment: Ported Baystation&#x27;s evacuation controller for eventual usage
+      in the NBT. There may be some evacuation or transfer shuttle weirdness. Make
+      sure to report it on GitHub.
+  - tweak: The liver now only deals toxin damage to the rest of your body if you&#x27;re
+      intoxicated.
+  - tweak: Increased the speed at which oxygen loss decays.
+  NeroCavalier:
+  - rscadd: Adds a gas mask and face mask to HoS&#x27;s locker.
+  TheGreyWolf:
+  - bugfix: Fixes the eridani, rainbow, normal &amp; colorable softcaps in the loadout.
+  WickedCybs:
+  - bugfix: RFDs can now build flooring on open spaces.
+2021-09-08:
+  Connorjg1:
+  - tweak: Plasma Pistol can now be holstered.
+  - balance: Plasma Bolts now do more damage and should no longer be less useful then
+      traditional projectiles.
+  Desven:
+  - rscadd: Updated the jukebox sprites.
+2021-09-09:
+  Desven:
+  - rscadd: Updated the locker sprites.
+  TheGreyWolf & bunkyb:
+  - rscadd: A TCFL softcap has been added under the softcap selection in the loadout.
+  WickedCybs:
+  - tweak: The dark green first responder jacket can now hold medical equipment in
+      its suit slot. Both responder jackets can hold a helmet in the suit slot like
+      the chest rig can, too.
+  - tweak: Tweaked the side sprites of the open dark green first responder jacket
+      as it was identical to how it looked when closed.
+  - tweak: Condenses a lot of the common first responder suit wear, like the chest
+      rig and vest into its own selection to tidy up the loadout a bit. Look for the
+      medical outerwear selection to reselect stuff or browse the more expanded options.
+      You will have to reselect your gear from the new selection.
+  - tweak: Condenses the IAC suit gear into its own outwear catagory too. You will
+      have to reselect your gear from the new selection.
+2021-09-10:
+  Connorjg1:
+  - tweak: Medical Cryogenics will now heal organ damage again.
+  - balance: Medical Cryogenics will heal genetics damage at a faster rate.
+  NeroCavalier:
+  - rscadd: Roller beds can be deployed on adjacent tiles by clicking on them with
+      the roller bed in hand.
+  Omicega:
+  - rscadd: Split the integrated HUD sensors augment into an integrated security HUD
+      and integrated medical HUD. Reduced loadout cost accordingly.
+2021-09-11:
+  NeroCavalier:
+  - tweak: You no longer attack patients in surgery with tools if you are off HARM
+      intent.
+  - tweak: You can do surgery in DISARM or GRAB intent now.
+  - tweak: You can now examine the patient monitoring console in the OR to see your
+      patient&#x27;s status instead of having to click on it with an empty hand.
+  - spellcheck: Fixes grammar for rechargers.
+  WickedCybs:
+  - rscadd: Adds a new type of eyewear. Visor sunglasses. HUD variants are included
+      and can be selected from the loadout.
+2021-09-13:
+  Desven:
+  - rscadd: Updated meat sprites.
+  Desven, 50N00b:
+  - rscadd: Added new tattoo body marks.
+  - rscadd: Skrell and Vaurcae can now select hair fade options.
+  - rscadd: Added ribbons as an accessory to the loadout.
+  Geeves:
+  - tweak: Suit coolers now use charge a half the usual rate, doubling their lifespan.
+  - rscadd: You can now toggle a suit cooler on or near your person on-and-off by
+      alt-clicking it.
+  - rscadd: Suit coolers now have on-mob sprites that reflect the current charge.
+  - bugfix: Suit coolers now have suit storage slot sprites too.
+  - rscadd: Added glare dampeners to the augment loadout menu, available to Engineers
+      and Roboticists.
+  - bugfix: You can no longer remove corrective lenses by hand.
+  - refactor: Refactored drone speech, affecting maintenance drones, construction
+      drones, mining drones and the matriarch drone. Everything should still work
+      as expected.
+  - tweak: Maintenance drones laws have been modified, they are now allowed to interact
+      with both maintenance and mining drones by law, now.
+  - rscadd: Spesscafe Dark Blend has been renamed to Ganymede Dark Blend, additionally
+      the reagent container&#x27;s name has been changed to &#x27;jar of coffee beans.&#x27;
+  Lucaken:
+  - rscadd: Added a Vysokan flag and banner to the loadout.
+  Megarop:
+  - spellcheck: Changed &#x27;Failure is you will not tolerate&#x27; to &#x27;Failure
+      is something you will not tolerate&#x27; in the Zeng-Hu Pharmaceuticals description.
+  NeroCavalier:
+  - rscadd: Adds the normal baby penguin&#x27;s name and desc to holodeck baby penguins.
+  - rscadd: You are now able to handcuff people being aggressively grabbed by other
+      players.
+  - rscadd: Ports water coolers holding paper cups from bay. You can take out up to
+      12 cups from a water cooler by clicking on one with an empty hand.
+  WickedCybs:
+  - tweak: The tesla spine cost has been reduced from four loadout points to two.
+  - rscadd: Adds a new hairstyle called the Tajaran Swoop as well as a few variations
+      of it.
+2021-09-14:
+  Desven:
+  - rscadd: Added university sweatshirts to the loadout. You can rename them to be
+      from any school.
+  - bugfix: Fixed a missing pixel in the atmos jumpsuit.
+  Desven, 50N00b:
+  - rscadd: Updated the tunnel cloak sprites.
+  - rscadd: Added departamental tunnel cloaks.
+  Geeves:
+  - rscadd: Plate carriers now spawn with a removable set of pouches, the class of
+      carrier changing how large the set of pouches are. All pouches are interchangeable
+      with all carriers.
+  - rscadd: Plate carriers can now put special plate carrier holsters in the pouch
+      slot, if you&#x27;d rather have that. Three spare plate holsters have been mapped
+      into the armory.
+  NeroCavalier:
+  - rscadd: Surface garden&#x27;s doors are now symmetrical. The hydroponics crate
+      is no longer blocking disposals.
+  - maptweak: Adds more lights to several dark areas in the station. Please ping me
+      in discord if you want to add more lights somewhere.
+  - maptweak: Adds light switches to Bridge&#x27;s entrance, Chapel&#x27;s entrance,
+      and by the stairs in interstitial Psychologist&#x27;s area.
+  TheGreyWolf:
+  - bugfix: The camera console &amp; camera program&#x27;s map mode is now updated
+      to fit with the current map.
+  WickedCybs:
+  - rscadd: RFD-C&#x27;s are no longer the sole means of removing floor underplating.
+      You can now weaken it with a welder and pry it off with a crowbar.
+2021-09-15:
+  TheGreyWolf, Dronz & Ryverstyx:
+  - rscadd: Skrells now has unique beardstyles.
+2021-09-16:
+  Desven:
+  - rscadd: Added more overlays to the security belt.
+  NeroCavalier:
+  - rscadd: There&#x27;s a confirmation box for amputations. You must click yes to
+      continue with the amputation.
+2021-09-17:
+  50_N00b, Alberyk, Desven:
+  - rscadd: Added a new type of full window with new sprites. It can be build by making
+      a frame from metal sheets and then completing it with reinforced glass.
+  Desven:
+  - rscadd: Resprited the food condiment bottles.
+  - rscadd: Updated the smartfridge icons.
+  - tweak: Standarized vendors panels.
+  Geeves:
+  - tweak: All non-basic or emagged drones can now interact with ore processing consoles
+      and mining equipment vendors.
+  NeroCavalier:
+  - maptweak: Moves the kitchen ATM to the wall inbetween the kitchen and the Bar
+      to make it easier to tip the Bar.
+  TheGreyWolf:
+  - bugfix: Fixed runtimes related to renaming loadout items.
+  TheGreyWolf, bunkyb:
+  - tweak: Columbo is now hatless.
+2021-09-21:
+  MattAtlas:
+  - bugfix: Fixed duplicate announcement once the transfer or emergency shuttle arrives
+      at the Odin.
+  - bugfix: Dionae can now use the check light level verb.
+  NeroCavalier:
+  - tweak: Reduces Vannatusk&#x27;s attack sound noise level.
+2021-09-22:
+  Dronz:
+  - tweak: Tweaks the unathi caligae sprites.
+  NeroCavalier:
+  - bugfix: Fixes surgery safety check preventing people from being treated when on
+      roller beds. Also re-adds surgery safety check.
+  - rscadd: Adds nanopaste to list of items that bypasses the check.
+  - maptweak: Adds a waste bin to Security lobby.
+  - bugfix: Readds wooden floor underneath one of the garden&#x27;s door after accidental
+      deletion.
+  WickedCybs:
+  - rscadd: Adds the deep v-neck to the shirt selection menu. This is to go even further
+      beyond.
+  - tweak: The unmarked visitor role can now select from a wider variety of station
+      species and IPCs.
+  xxxxyobdab:
+  - rscadd: Added a Mint Plant.
+  - rscadd: Added a Coffee Plant.
+  - rscadd: Added a Tea Plant.
+  - rscadd: Added Tea Grounds reagent contained in Tea leaves.
+  - rscadd: Added Coffee Grounds reagent contained in Coffee Beans.
+  - rscadd: Added Mint Syrup Recipe. Simple Syrup (3 units) + Mint (2 units).
+  - rscadd: Added White Grape Juice reagent contained in Green Grapes.
+  - rscdel: Removed Grape juice in Green Grapes.
+  - rscadd: 'Added Blush Wine Recipe: Wine + White Wine.'
+  - rscadd: 'Added Melon Wine Recipe: Wine + Melon Liquor.'
+  - rscadd: 'Added White Wine recipe: White grape juice + Enzyme.'
+  - rscadd: 'Added Espresso Recipe: Coffee Grounds (1 unit) + Water (5 units).'
+  - rscadd: 'Added Coffee Recipe: Espresso(5 units) + Water(5 units).'
+  - rscadd: 'Fixed Material Door: Wood closing icon state spelling.'
+2021-09-23:
+  Desven:
+  - rscadd: Updated the sprite for the sterilizine bottle.
+  - rscadd: Changed the sprites of some chem bottles.
+  NeroCavalier:
+  - maptweak: Shocks the armory desk window.
+  - rscadd: Add six donuts to SecTech.
+  WickedCybs:
+  - tweak: The burglar pod ghost role can select Offworlders, the Taj subspecies and
+      Vaurca now.
+2021-09-24:
+  Desven:
+  - bugfix: Fixed the sterilizine hand sprites not matching the new sprite.
+  NeroCavalier:
+  - rscadd: Adds a 30 and 60 button to ChemMaster 3000.
+  xxxxyobdab:
+  - rscadd: Added a vanilla flower plant, containing vanilla extract
+  - rscadd: Added a vanilla extract reagent for the plant.
+  - rscadd: Added a vanilla syrup recipe. Simple Syrup(3 units) + Vanilla extract(2
+      units)
+  - rscadd: Added Vanilla seeds to vending machines.
+2021-09-25:
+  Desven:
+  - rscadd: Added hand sprites for Zo&#x27;ra soda, coffee cups and drinking glasses.
+  - rscadd: Added hand sprites for the roller bed.
+  - bugfix: Fixed the V&#x27;krexi Snax hand sprite not properly showing.
+  NeroCavalier:
+  - bugfix: Enables inhalers, stethoscopes, and breath analyzers usage on roller bed
+      again.
+  - rscadd: Rejuvenate proc should now restore stamina to full.
+  - rscadd: Changed Icelance&#x27;s laser to match the laser rifle.
+  - rscdel: Added two shots to Icelance for a total of FIVE.
+  - rscadd: Stops warden&#x27;s button from clipping through wall.
+  TheGreyWolf:
+  - bugfix: The sockless caligae sprite now properly fit on unathi again.
+  WickedCybs:
+  - tweak: The verb for when a mob sings in a Taj language is no longer &#x27;mrowmbles&#x27;.
+      It&#x27;s just &#x27;mrowls&#x27; now.
+2021-09-26:
+  NeroCavalier:
+  - rscadd: You can altclick your uniform in order to adjust the suit&#x27;s sensors.
+  Xxxxyobdab:
+  - rscadd: 'Recipe for Tea: Tea Grounds(1 unit) + Water(5 units).'
+  - rscadd: 'Recipe for Green Tea: Tea(5 units) + Mint(2 units).'
+2021-09-28:
+  Desven:
+  - rscadd: Added Vaurca nitrile and botany gloves.
+  TheGreyWolf:
+  - bugfix: Skrell whitelist now works properly again.
+  TheGreyWolf & Ryverstyx:
+  - rscadd: 'Changed the skrell species option to select between two skrell subspecies:
+      The Xiialt and the Axiori.'
+2021-09-29:
+  TheGreyWolf:
+  - rscadd: Cryo latejoins have been changed to need to get their equipment from an
+      AutoDrobe Vendor, much like when boarding the shuttle.
+  - maptweak: AutoDrobe Vendors can be found within command cryo, main level cryo
+      &amp; surface cryo.
+  - bugfix: Visitors who ready up at roundstart no longer get some of their equipment
+      dupicated upon boarding the shuttle.
+2021-09-30:
+  Desven:
+  - rscadd: Added sprites for the Vaurca atmos suit.
+  - bugfix: Vaurca atmos suit is no longer invisible.

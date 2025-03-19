@@ -3,11 +3,14 @@
 	desc_extended = "An overloader is a small disposable stick drive, commonly loaded with a program designed to temporarily reconfigure an IPC's priorities or inputs."
 	icon = 'icons/obj/item/ipc_overloaders.dmi'
 	icon_state = "classic"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	contained_sprite = TRUE
+	/// Total number of times an overloader can be used.
 	var/uses = 2
+	/// Total length of time between effects.
 	var/effect_time = 30 SECONDS
-	var/effects = 4
+	/// Determines how many midway overloader effects are experienced.
+	var/effects = 12
 
 	var/static/list/step_up_effects = list(
 		TRAIT_OVERLOADER_OD_INITIAL = TRAIT_OVERLOADER_OD_MEDIUM,
@@ -39,12 +42,14 @@
 		else
 			. += SPAN_WARNING("It's totally spent.")
 
+// Jabbing yourself with an overloader.
 /obj/item/ipc_overloader/attack_self(mob/user)
 	if(!uses)
 		to_chat(user, SPAN_WARNING("\The [src] is totally spent."))
 		return
 	if(isipc(user))
 		user.visible_message("<b>[user]</b> jabs themselves with \the [src].", SPAN_NOTICE("You jab yourself with \the [src]."))
+		user.do_attack_animation(user)
 		handle_overloader_effect(user)
 		if(effect_time)
 			addtimer(CALLBACK(src, PROC_REF(midway_overloader_effect), user, effects), effect_time)
@@ -53,21 +58,73 @@
 		return
 	to_chat(user, SPAN_WARNING("\The [src] has no use for you!"))
 
+// Jabbing someone else with an overloader.
+// TODO: Clean up the common ground with attack_self, there's a lot of clunkily repeated code right now.
+/obj/item/ipc_overloader/attack(mob/living/carbon/human/target_human, mob/user, target_zone)
+	if(!ishuman(target_human))
+		return
+
+	var/obj/item/organ/external/organ = target_human.get_organ(target_zone)
+	if (!organ)
+		to_chat(target_human, SPAN_NOTICE("\The [target_human] is missing that limb."))
+		return
+
+	if(!uses)
+		to_chat(user, SPAN_WARNING("\The [src] is totally spent."))
+		return
+
+	var/injection_modifier = target_human.get_bp_coverage(target_zone)
+	switch(injection_modifier)
+		if(INJECTION_FAIL)
+			to_chat(user, SPAN_WARNING("There is no exposed area on that body part."))
+			return
+
+		if(SUIT_INJECTION_MOD)
+			user.visible_message(SPAN_WARNING("\The [user] is searching for an injection port to jab \the [target_human] with \the [src]!"), SPAN_NOTICE("You are searching for an injection port to jab \the [target_human] with \the [src]."))
+		else
+			user.visible_message(SPAN_WARNING("\The [user] is trying to jab \the [target_human] with \the [src]!"), SPAN_NOTICE("You are trying to jab \the [target_human] with \the [src]."))
+
+	if(do_mob(user, target_human, 2 SECONDS * injection_modifier))
+		// Checking this again if the target put on armour after the injection began.
+		injection_modifier = target_human.get_bp_coverage(target_zone)
+		if(injection_modifier == INJECTION_FAIL)
+			to_chat(user, SPAN_WARNING("There is no exposed area on that body part."))
+			return
+
+		user.visible_message(SPAN_WARNING("\The [user] jabs \the [target_human] with \the [src]!"), SPAN_NOTICE("You jab \the [target_human] with \the [src]."))
+		user.do_attack_animation(target_human)
+
+		// If synthetic, they receive the overloader effects.
+		// There are no overt indications to the user that the target mob is synthetic, so this can't be used to check for secret shells.
+		if(isipc(target_human))
+			handle_overloader_effect(target_human)
+			if(effect_time)
+				addtimer(CALLBACK(src, PROC_REF(midway_overloader_effect), target_human, effects), effect_time)
+			uses--
+			update_icon()
+
+		// If not synthetic, and the targeted organ can feel pain, the target feels pain because they just got jabbed with a thumb drive.
+		else if (organ && ORGAN_CAN_FEEL_PAIN(organ))
+			to_chat(target_human, SPAN_DANGER("You are sharply jabbed by \the [src]!"))
+			target_human.apply_damage(2, DAMAGE_PAIN, target_zone)
+
+/// Procs immediately after using the overloader.
 /obj/item/ipc_overloader/proc/handle_overloader_effect(var/mob/living/carbon/human/target)
 	handle_overdose(target)
 
+/// Procs as many times as the effect_amount variable, with a time between effects determined by effect_time.
 /obj/item/ipc_overloader/proc/midway_overloader_effect(var/mob/living/carbon/human/target, var/effect_amount)
 	if(effect_amount)
 		addtimer(CALLBACK(src, PROC_REF(midway_overloader_effect), target, effect_amount - 1), effect_time)
 		return TRUE
-	addtimer(CALLBACK(src, PROC_REF(finish_overloader_effect), target), effect_time)
 	finish_overloader_effect(target)
 	return FALSE
 
+/// Procs once all effects are expended.
 /obj/item/ipc_overloader/proc/finish_overloader_effect(var/mob/living/carbon/human/target)
 	handle_overdose_stepdown(target)
 
-// use traits to step up and down from the overdose effects
+/// Uses traits to step up and down from the overdose effects.
 /obj/item/ipc_overloader/proc/handle_overdose(var/mob/living/carbon/human/target)
 	var/added_trait = FALSE
 	for(var/trait in step_up_effects)
@@ -258,8 +315,8 @@
 	icon_state = "box"
 	update_icon_on_init = TRUE
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_SMALL
-	max_w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_SMALL
+	max_w_class = WEIGHT_CLASS_TINY
 	storage_slots = 1
 	can_hold = list(/obj/item/ipc_overloader)
 	use_sound = 'sound/items/storage/briefcase.ogg'
@@ -284,12 +341,12 @@
 
 /obj/item/storage/overloader/update_icon()
 	. = ..()
-	cut_overlays()
+	ClearOverlays()
 	var/obj/item/ipc_overloader/overloader = locate() in contents
 	if(overloader)
-		add_overlay(image(overloader.icon, null, overloader.icon_state, sealed ? layer - 0.01 : layer + 0.01))
+		AddOverlays(image(overloader.icon, null, overloader.icon_state, sealed ? layer - 0.01 : layer + 0.01))
 		if(!sealed)
-			add_overlay(image(icon, null, "box-overlay", layer + 0.02))
+			AddOverlays(image(icon, null, "box-overlay", layer + 0.02))
 	if(!sealed)
 		icon_state = "box-open"
 

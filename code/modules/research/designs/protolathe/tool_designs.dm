@@ -56,6 +56,11 @@
 	materials = list (DEFAULT_WALL_MATERIAL = 20, MATERIAL_GLASS = 10)
 	build_path = /obj/item/device/radio/beacon
 
+/datum/design/item/tool/navbeacon
+	req_tech = list(TECH_BLUESPACE = 1)
+	materials = list (DEFAULT_WALL_MATERIAL = 20, MATERIAL_GLASS = 10)
+	build_path = /obj/machinery/navbeacon
+
 /datum/design/item/tool/power_cell_backpack
 	req_tech = list(TECH_MATERIAL = 4, TECH_MAGNET = 2, TECH_POWER = 4)
 	materials = list(DEFAULT_WALL_MATERIAL = 7500, MATERIAL_GLASS = 2500)
@@ -168,3 +173,9 @@
 	req_tech = list(TECH_POWER = 7, TECH_MATERIAL = 3, TECH_COMBAT = 5)
 	materials = list(DEFAULT_WALL_MATERIAL = 7000, MATERIAL_GLASS = 2250, MATERIAL_URANIUM = 3250, MATERIAL_GOLD = 2500)
 	build_path = /obj/item/recharger_backpack
+
+/datum/design/item/tool/spaceflare
+	name = "Bluespace Flare"
+	req_tech = list(TECH_BLUESPACE = 4, TECH_MAGNET = 3, TECH_DATA = 2)
+	materials = list(DEFAULT_WALL_MATERIAL = 1000, MATERIAL_GLASS = 1000, MATERIAL_PHORON = 400)
+	build_path = /obj/item/device/spaceflare

@@ -1,16 +1,15 @@
 /obj/item/device/pipe_painter
 	name = "pipe painter"
-	icon = 'icons/obj/item/tools/pipe_painter.dmi'
+	icon = 'icons/obj/item/device/pipe_painter.dmi'
 	icon_state = "pipe_painter"
 	item_state = "pipe_painter"
-	contained_sprite = TRUE
 	var/list/modes
 	var/mode
 
 /obj/item/device/pipe_painter/New()
 	..()
 	modes = new()
-	for(var/C in pipe_colors)
+	for(var/C in GLOB.pipe_colors)
 		modes += "[C]"
 	mode = pick(modes)
 
@@ -23,10 +22,10 @@
 		return
 	else if(istype(A,/obj/machinery/atmospherics/pipe))
 		var/obj/machinery/atmospherics/pipe/P = A
-		P.change_color(pipe_colors[mode])
-	else if(istype(A, /obj/item/pipe) && pipe_color_check(pipe_colors[mode]))
+		P.change_color(GLOB.pipe_colors[mode])
+	else if(istype(A, /obj/item/pipe) && pipe_color_check(GLOB.pipe_colors[mode]))
 		var/obj/item/pipe/P = A
-		P.color = pipe_colors[mode]
+		P.color = GLOB.pipe_colors[mode]
 
 /obj/item/device/pipe_painter/attack_self(var/mob/user)
 	mode = tgui_input_list(user, "Which colour do you want to use?", "Pipe Painter", modes, mode)

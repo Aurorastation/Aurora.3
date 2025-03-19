@@ -1,0 +1,303 @@
+2021-10-01:
+  Alberyk:
+  - tweak: Roundstart smes start with less charge and less upgraded parts.
+  Desven:
+  - rscadd: Added pozole and pulque to the game.
+  - rscadd: Added Vaurca filters to antag spawn lairs.
+  - tweak: Recolored the coffee and tea bags.
+  TheGreyWolf:
+  - rscadd: Added the ability to assign entire departments to a faction with a single
+      variable. No player facing changes yet.
+2021-10-02:
+  Desven:
+  - bugfix: Fixes autoinjectors hand sprites being the other way around.
+  - rscadd: Added some clothes for the upcoming Vaurca events.
+  - maptweak: Cleared the bar clutter. Most of the junk was moved to the bar storage.
+  NeroCavalier:
+  - tweak: Changes the HoP&#x27;s and Captain&#x27;s pcarrier to match colors with
+      the helmet they get.
+  TheGreyWolf:
+  - bugfix: Fixes securitron construction to take security helmets.
+  - bugfix: Phyiscal &amp; mental status in medical records can now be editted by
+      medical staff.
+  - bugfix: Autopsy scanners now work regardless of intent.
+  WickedCybs:
+  - rscadd: Added recolourable oxford shoes and sneakers to the shoe selection in
+      the loadout. You can see this in the new recolourable shoes section.
+2021-10-04:
+  LocoTokyoFunBus:
+  - soundadd: 'Adds 3 new emotes for Skrell: *croak, *croon, and *lwarble.'
+2021-10-05:
+  Geeves:
+  - tweak: Tweaks how on-mob sprites are generated, they should still function as
+      expected.
+  TheGreyWolf:
+  - bugfix: Tajaran cloaks, dresses &amp; religious clothes no longer give overheating
+      messages.
+2021-10-06:
+  Geeves:
+  - bugfix: Backpacks now properly spriteshift into the hand position.
+  TheGreyWolf:
+  - rscadd: Vampires draining blood will now show as biting someone when examined.
+  - rscadd: Added the ability for shield generators to cover multiple z-levels.
+  - bugfix: Odin arrival message will no longer appear when spawning at cryo.
+  - bugfix: Spawning at cryo will no longer show a message saying you have 10 min
+      to get to Aurora.
+  - bugfix: When using the autodrobe while playing a role getting a suit, such as
+      the chef, it will now be put into the bag if the suit slot is occupied.
+  TheGreyWolf, DronzTheWolf:
+  - rscadd: 'Added a new set of options to the tajaran loadout: Charms &amp; talismans.
+      The holy sun rosette is also included here.'
+  - rscadd: The null rod can now be made into an obsidian charm.
+  kyres1:
+  - rscadd: Adds a rooftop event map.
+  - rscadd: Adds rooftop event assets.
+2021-10-07:
+  TheGreyWolf:
+  - bugfix: Accessories no longer show up like they are worn when the item they are
+      attached to is being carried in hand.
+  - bugfix: Cigarettes will now properly be in the face slot when they go out, or
+      in the hand if carried there.
+  - bugfix: Cigarettes will now be dropped on the ground when intentionally put out.
+  WickedCybs:
+  - tweak: Nicotine overdoses no longer weaken and paralyze people.
+2021-10-08:
+  Desven:
+  - rscadd: Updated sprites for mining, botany and washing machines.
+  WickedCybs:
+  - tweak: Blobs can damage reinforced walls now.
+2021-10-09:
+  Desven, Xev:
+  - rscadd: Resprited Vaurca organs to be more lore accurate.
+  TheGreyWolf:
+  - bugfix: Belts will now properly stay on when using the autodrobe.
+  - bugfix: Accessories will now correctly transfer to the uniform when using the
+      autodrobe.
+  - tweak: The text guiding one to use the autodrobe when spawning at cryo now stands
+      out more.
+  - bugfix: Axiori can now use gradients &amp; beards just like skrell.
+2021-10-10:
+  Forester40:
+  - spellcheck: Fixes various typos in holo-warrants, the blurbs for Idris and Zavodskoi,
+      the message you get after using a himeo voidsuit modkit, and the descriptions
+      for TCFL uniforms, NT overalls, matter bins and default voidsuit modkits.
+  - backend: Deletes the lines of code for the descriptions of the upgraded versions
+      of micro manipulators, matter bins and micro lasers, since they were identical
+      to the descriptions of the base parts which the upgraded parts already inherit
+      the descriptions of.
+  Geeves:
+  - rscadd: Emotes can now be bolded and italicized with chat markup.
+  - rscadd: Added a fullscreen mode. Head to the Preferences tab and hit Toggle Fullscreen
+      Preference to enable it.
+  TheGreyWolf:
+  - rscadd: Added a fuller variant of the quarter-turf decal to the floor painter
+      called &#x27;full quarter-turf&#x27;.
+2021-10-11:
+  Desven:
+  - bugfix: Fixed the animation frames of the Vaurca heart sprite.
+  Geeves:
+  - bugfix: Fixed unathi multi-color clothes exploding violently.
+  TheGreyWolf:
+  - tweak: Revolution now only requires 15 players to be readied to start.
+  listerla:
+  - spellcheck: Soap is no longer capitalized in item names.
+2021-10-12:
+  Alberyk, Dongwaiver:
+  - rscadd: Added hammers a tool option. They can be used to repair tables, airlocks,
+      and barricades.
+  listerla:
+  - bugfix: Fixed Zo&#x27;ra soda animation frames, which were previously all set
+      to 1.
+  - bugfix: Removed needless animation frames on the coffee machine, which was not
+      animated.
+2021-10-13:
+  Geeves:
+  - bugfix: Fixed various Bulwark bugs. They can no longer wear armor, their talk
+      bubbles are no longer on their faces, their floating messages are centred, they
+      are now properly bald, they now successfully pass isvaurca checks, their shoes
+      no longer have a white dot, their vaurca clothes and hive cloak (one of them)
+      have icons.
+  - bugfix: Rad immune species no longer get radstorm radiation side-effects.
+  TheGreyWolf:
+  - rscadd: inoperable windoors can now be forced open with a crowbar.
+  - bugfix: Fixes skrell loadout for axiori.
+  - bugfix: The Axiori eye body marking is now properly restricted to only non-axiori
+      skrell and has the correct sprite.
+  - tweak: Skrell and Axiori will now show up when examined as &#x27;Xiialt Skrell&#x27;
+      and &#x27;Axiori Skrell&#x27; respectively.
+  - bugfix: Fixes medical&#x27;s ability to set the patient&#x27;s status in medical
+      records completely.
+  WickedCybs:
+  - bugfix: Antag implants will no longer potentially require the use of an emote
+      antags aren&#x27;t allowed to do. That would be &#x27;twitch_s&#x27;. It&#x27;s
+      been replaced with &#x27;twitch&#x27; instead.
+2021-10-14:
+  Omicega:
+  - rscadd: Adds a Reinstated Dreg accent.
+  - rscadd: Resprites the Lunan accent.
+  TheGreyWolf:
+  - bugfix: Windoors can be clicked on with an empty hand again to make them stay
+      open.
+  - bugfix: Skrell headtail equipment can now be worn again.
+  WickedCybs:
+  - tweak: The rampant vending machine event now has the announcement say which type
+      of vending machine was initially infected. Quick response will nip outbreaks
+      in the bud before they spread everywhere.
+2021-10-15:
+  DanseMacabre:
+  - rscadd: Added a Visegradi accent.
+  - rscadd: Added a Visegradi passcard.
+  - tweak: Refluffed the wine and gin bottles.
+  Desven:
+  - rscadd: Resprited the shield generators and capacitors.
+  - bugfix: Fixed bite sizes for k&#x27;ois food.
+  - rscadd: Added more clothes for the Bulwark.
+  - bugfix: Fixed some sprite errors with flannels and labcoats for the Bulwark.
+  TheGreyWolf:
+  - rscadd: Added hearing sensitivity. Species with hearing sensitivity (atm only
+      tajara) will risk taking more hearing based damage from various sources including
+      flashbangs. They also get a special ability to listen in which lets them hear
+      various machinery being activated around them even if they can&#x27;t see it,
+      and to get an extra range at which explosions can be heard to help determine
+      the distance to them.
+  - rscadd: Medical can now create inacusiate by mixing dylovene, carbon and sulfur.
+      This medicine will help heal any hearing based damage when injected, but is
+      very painful if overdosing by 10u or more.
+  - bugfix: Explosions now more accurately tells the direction in chat.
+  - bugfix: Megaphones now properly do audible messages rather than vision based ones.
+  TheGreyWolf & Ryverstyx:
+  - bugfix: The axiori tail outline is now consistent with the body.
+2021-10-16:
+  Desven:
+  - bugfix: Fixes some leather satchels and the pocketbook not appearing on the Bulwark.
+  Geeves:
+  - rscadd: Added another variant of sneakers to the recolorable shoe selection, the
+      tip of the shoes stays white.
+  TheGreyWolf:
+  - rscadd: The robotics lab door leading to the garage can now be opened by anyone
+      from within the lab. It still has access requirement from the garage/hallway
+      side.
+2021-10-17:
+  TheGreyWolf & Bunkyb:
+  - rscadd: 'Added several new coffee cups: CoC, Eridani, Elyra, Hegemony, Jargon,
+      Hepht, Idris &amp; Zeng.'
+2021-10-19:
+  Dekser:
+  - tweak: Teaks Unathi tongue-flick sensitivity.
+  Desven:
+  - bugfix: Pun Pun appears properly male when examined.
+  - tweak: Station pets have their genders defined in code.
+  Desven & CoffeeToffee:
+  - rscadd: 'Added two new dishes for Dominia: brudet and flatbread.'
+  - rscadd: Added a variant of pulque that is safe to consume for Unathi.
+  - rscadd: Added a K&#x27;laxan toothpaste cocktail.
+  - rscadd: Added phoron rock candy, it can be selected in the Vaurca lunchbox.
+  - rscadd: Added a name to the pulque bottle, and a bit of lore fluff.
+  Desven & Vrow:
+  - rscadd: Added more information to the cryo screens.
+  Geeves:
+  - rscadd: Added the Vaurca Bulwark to the Vaurca subspecies selection.
+  - bugfix: Integrated circuits should now work without multitools again.
+  TheGreyWolf:
+  - bugfix: Hijabs will now hide hair when worn on the ears &amp; show as being worn
+      on the head when worn there.
+  - bugfix: The &#x27;encoded incident form&#x27; given when sentencing people and
+      the &#x27;operation of the criminal sentencing computers&#x27; papers now properly
+      displays their contents.
+  TheGreyWolf & BunkyB:
+  - rscadd: 'EPMC now got 3 new labcoats in the faction loadout: security, security
+      alt and medical.'
+  TheGreyWolf & Ryverstyx:
+  - rscadd: Added a starlight residency card to the skrell loadout.
+  TheGreyWolf, RyverStyx & 50%Noob:
+  - rscadd: 'Added new things to skrell: A beard &#x27;pilot&#x27;, a new hair gradient
+      &#x27;spots&#x27; and multiple hairstyles &#x27;reserved&#x27;, &#x27;tucked&#x27;,
+      &#x27;long tuux&#x27;, &#x27;short tuux&#x27;, &#x27;slicked&#x27;, &#x27;behind,
+      left/right/both/both short/both long&#x27;.'
+  - rscdel: Removed the driftwood &amp; seaweed hairstyle from skrell.
+2021-10-22:
+  BLUNTFORCE420:
+  - rscadd: Resprited the AMR with a frontier-esque aesthetic.
+  - rscadd: Fixed some minor side-sprite issues with the short-barreled assault rifle.
+  Chevy:
+  - rscadd: Gave the checkpoint xenoblasters a unique sprite.
+  - rscadd: Gave charge cards a new sprite.
+  Desven:
+  - bugfix: Fixed the Bulwark overalls sprite.
+  - bugfix: Fixed the Bulwark not being able to select chef or bartender.
+  - bugfix: Fixed the sprite of the towel when worn by the Vaurca Bulwark.
+  - rscadd: Resprited the clothing machine.
+  - bugfix: Fixed the Xenogun icons not showing.
+  - bugfix: Humans can no longer carry the Vaurca Bulwark.
+  Desven & Stryker:
+  - rscadd: 'Added two new accents: Valkyrian and Mictlanian.'
+  LocoTokyoFunBus:
+  - tweak: Changes the recipes for Qilvo and Xuq&#x27;qil to use mollusc meat, instead
+      of squid meat and crab legs.
+  RyverStyx:
+  - bugfix: Fixed hair and beard sprites for Skrell. Changed the colors to match the
+      basic body outline as well.
+2021-10-23:
+  Desven:
+  - bugfix: Fixes the pixels of the Adhomai meat.
+2021-10-25:
+  Dekser:
+  - tweak: Tweaks what temperature Unathi receive discomfort messages for.
+  Geeves:
+  - rscadd: Hitting equip with an empty hand will now pull an eligible weapon out
+      of your suit slot, if it doesn&#x27;t find one, then it will pull from the back
+      slot.
+  - bugfix: MMIs can now be made again.
+  - bugfix: Bulwarks now have on-mob specific cuff sprites.
+  - bugfix: Bulwarks and Breeders can now be properly scanned in a body scanner.
+  - bugfix: Bulwark wrist items now get properly offset.
+  NeroCavalier:
+  - tweak: Damage for frag grenade pellets are 15 with 35 AP. This will let them affect
+      people in sec pcarriers.
+2021-10-27:
+  Alberyk, Frans:
+  - rscadd: 'Added a new diona subspecies: diona hebe.'
+2021-10-29:
+  Desven:
+  - bugfix: Off-worldlers can select Valkyrian accent.
+  - rscadd: Readded the normal leather satchel to the loadout. You can select it as
+      Classic leather satchel.
+  - rscadd: Added the default wallet to the loadout.
+  - spellcheck: Fixed the word purse being uppercase in the loadout selection.
+  TheGreyWolf:
+  - bugfix: Borgs can once more use windoors from a distance.
+  - rscadd: Vaurca breeders are now selectable for those with vaurca whitelist. They
+      can be K&#x27;lax, C&#x27;thur and Zo&#x27;ra consulars only.
+  martinlyra:
+  - bugfix: Fixed the flashing glow when pointing at a supermatter
+2021-10-30:
+  Alberyk:
+  - bugfix: Coeus Diona can now be bald.
+  Desven:
+  - rscadd: Updated sprites for the recharger, the corkboard and the plastic flaps.
+  - rscadd: Added work overalls and the skirtsuit for Bulwark Vaurca.
+  - rscadd: Added Shaper sprites and cloak tunnels for the Bulwark Vaurca.
+  - rscadd: Added the veterancy plate for the Bulwark Vaurca.
+  - rscadd: Added a new type of item, the horn adorns, for Bulwark Vaurca. Currently
+      you can choose recolourable rings from the loadout.
+  - rscadd: Both Diona subspecies can choose Skrell shoulder capes and projector from
+      the loadout.
+  - bugfix: Fixed toeless workboots not working for Bulwark Vaurca.
+  - bugfix: Fixed augments not working for Bulwark Vaurca.
+  - bugfix: Fixed the Jargon passport not being selectable for Bulwark Vaurca and
+      Diona Coeus.
+  - bugfix: Fixed blinders not properly working for the Bulwark Vaurca.
+  - bugfix: Fixed the purple suit not showing for the Bulwark Vaurca.
+  - bugfix: Fixed some stray pixels in the miner&#x27;s cloak tunnel sprite.
+  Geeves:
+  - rscadd: Pipeguns now take a makeshift 5.56mm magazine, crafted with steel sheets
+      under the Steel Weaponry tab. It holds 7 rounds.
+  - rscadd: Pipeguns can now be held on the suit storage slot regardless of what&#x27;s
+      in your suit slot.
+  - tweak: Pipeguns can now fire three guaranteed shots before the chance of jamming
+      sets in, per clean.
+  - bugfix: Cleaned up some funkiness with the jam mechanics, should feel nicer now.
+  - rscadd: Middle Mouse Clicking a storage item on your person or adjacent to you
+      will now open it.
+  TheGreyWolf:
+  - bugfix: Fixes it being impossible to spawn with the classic satchel.

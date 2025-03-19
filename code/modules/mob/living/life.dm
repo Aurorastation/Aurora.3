@@ -1,21 +1,19 @@
-/mob/living/Life()
-	set background = BACKGROUND_ENABLED
-
+/mob/living/Life(seconds_per_tick, times_fired)
 	if (QDELETED(src))	// If they're being deleted, why bother?
-		return
+		return FALSE
 
 	..()
 
-	if (transforming)
-		return
+	if(transforming)
+		return FALSE
 
 	if(!loc)
-		return
+		return FALSE
 
-	var/datum/gas_mixture/environment = loc.return_air()
+	var/datum/gas_mixture/gas_environment = loc.return_air()
 	//Handle temperature/pressure differences between body and environment
-	if(environment)
-		handle_environment(environment)
+	if(gas_environment)
+		handle_environment(gas_environment)
 
 	blinded = 0 // Placing this here just show how out of place it is.
 
@@ -23,7 +21,8 @@
 		handle_status_effects()
 
 	if(stat != DEAD)
-		aura_check(AURA_TYPE_LIFE)
+		if(LAZYLEN(auras))
+			aura_check(AURA_TYPE_LIFE)
 		if(!InStasis())
 			//Mutations and radiation
 			handle_mutations_and_radiation()
@@ -34,7 +33,7 @@
 	update_pulling()
 
 	for(var/obj/item/grab/G in src)
-		G.process()
+		INVOKE_ASYNC(G, TYPE_PROC_REF(/datum, process))
 
 	handle_actions()
 
@@ -44,6 +43,9 @@
 
 	if(languages.len == 1 && default_language != languages[1])
 		default_language = languages[1]
+
+	//Technonancer instability
+	handle_instability()
 
 	return 1
 
@@ -57,9 +59,6 @@
 	return
 
 /mob/living/proc/handle_random_events()
-	return
-
-/mob/living/proc/handle_environment(var/datum/gas_mixture/environment)
 	return
 
 /mob/living/proc/update_pulling()
@@ -133,13 +132,13 @@
 		return
 
 	if(eye_blind)
-		overlay_fullscreen("blind", /obj/screen/fullscreen/blind)
+		overlay_fullscreen("blind", /atom/movable/screen/fullscreen/blind)
 	else
 		clear_fullscreen("blind")
-		set_fullscreen(disabilities & NEARSIGHTED, "impaired", /obj/screen/fullscreen/impaired, 1)
-		set_fullscreen(eye_blurry, "blurry", /obj/screen/fullscreen/blurry)
+		set_fullscreen(disabilities & NEARSIGHTED, "impaired", /atom/movable/screen/fullscreen/impaired, 1)
+		set_fullscreen(eye_blurry, "blurry", /atom/movable/screen/fullscreen/blurry)
 
-	set_fullscreen(stat == UNCONSCIOUS, "blackout", /obj/screen/fullscreen/blackout)
+	set_fullscreen(stat == UNCONSCIOUS, "blackout", /atom/movable/screen/fullscreen/blackout)
 
 	if(machine)
 		var/viewflags = machine.check_eye(src)
@@ -148,6 +147,7 @@
 		else if(viewflags)
 			set_sight(viewflags)
 	else if(eyeobj)
+		eyeobj.apply_visual(src)
 		if(eyeobj.owner != src)
 			reset_view(null)
 	else if(!client.adminobs)
@@ -161,8 +161,11 @@
 		setEarDamage(-1, max(ear_deaf, 1))
 
 /mob/living/proc/update_sight()
+	if(stop_sight_update)
+		return
+
 	set_sight(0)
-	if(stat == DEAD || eyeobj)
+	if(stat == DEAD || (eyeobj && !eyeobj.living_eye))
 		update_dead_sight()
 	else
 		update_living_sight()
@@ -191,3 +194,57 @@
 
 /mob/living/proc/handle_hud_icons_health()
 	return
+
+/mob/living
+	var/datum/weakref/last_weather
+
+/mob/living/proc/is_outside()
+	var/turf/T = loc
+	return istype(T) && T.is_outside()
+
+/mob/living/proc/get_affecting_weather()
+	var/turf/my_turf = get_turf(src)
+	if(!istype(my_turf))
+		return
+	var/turf/actual_loc = loc
+	// If we're standing in the rain, use the turf weather.
+	. = istype(actual_loc) && actual_loc.weather
+	if(!.) // If we're under or inside shelter, use the z-level rain (for ambience)
+		. = SSweather.weather_by_z["[my_turf.z]"]
+
+/mob/living/proc/handle_environment(var/datum/gas_mixture/environment)
+
+	SHOULD_CALL_PARENT(TRUE)
+
+	// Handle physical effects of weather.
+	var/singleton/state/weather/weather_state
+	var/obj/abstract/weather_system/weather = get_affecting_weather()
+	if(weather)
+		weather_state = weather.weather_system.current_state
+		if(istype(weather_state))
+			weather_state.handle_exposure(src, get_weather_exposure(weather), weather)
+
+	// Refresh weather ambience.
+	// Show messages and play ambience.
+	if(client)
+
+		// Work out if we need to change or cancel the current ambience sound.
+		var/send_sound
+		var/mob_ref = WEAKREF(src)
+		if(istype(weather_state))
+			var/ambient_sounds = !is_outside() ? weather_state.ambient_indoors_sounds : weather_state.ambient_sounds
+			var/ambient_sound = length(ambient_sounds) && pick(ambient_sounds)
+			if(GLOB.current_mob_ambience[mob_ref] == ambient_sound)
+				return
+			send_sound = ambient_sound
+			GLOB.current_mob_ambience[mob_ref] = send_sound
+		else if(mob_ref in GLOB.current_mob_ambience)
+			GLOB.current_mob_ambience -= mob_ref
+		else
+			return
+
+		// Push sound to client. Pipe dream TODO: crossfade between the new and old weather ambience.
+		sound_to(src, sound(null, repeat = 0, wait = 0, volume = 0, channel = GLOB.sound_channels.weather_channel))
+		if(send_sound)
+			sound_to(src, sound(send_sound, repeat = TRUE, wait = 0, volume = 30, channel = GLOB.sound_channels.weather_channel))
+

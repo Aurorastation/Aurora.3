@@ -38,9 +38,9 @@
 
 		var/output
 		if(SSticker.mode.name == "Cult")
-			if(H.mind == cult.sacrifice_target)
+			if(H.mind == GLOB.cult.sacrifice_target)
 				if(cultists_in_range.len >= 3)
-					cult.sacrificed += H.mind
+					GLOB.cult.sacrificed += H.mind
 					if(isrobot(H))
 						H.dust() // To prevent the MMI from remaining
 					else
@@ -86,3 +86,6 @@
 			victim.dust() // To prevent the MMI from remaining
 		else
 			victim.gib()
+
+/obj/effect/rune/sacrifice/Initialize(mapload)
+	. = ..(mapload, SScult.runes_by_name[/datum/rune/sacrifice::name])

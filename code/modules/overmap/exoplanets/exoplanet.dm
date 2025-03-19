@@ -10,7 +10,10 @@
 	var/list/breathgas = list()	//list of gases animals/plants require to survive
 	var/badgas					//id of gas that is toxic to life here
 
-	var/lightlevel = 0 //This default makes turfs not generate light. Adjust to have exoplanents be lit.
+	/// This default makes turfs not generate light. Adjust to have exoplanents be lit.
+	var/lightlevel = 0
+	/// Change this to have the light be a different color. Useful for planets with special suns
+	var/lightcolor = COLOR_WHITE
 	var/night = TRUE
 
 // Fluff, specifically for celestial objects.
@@ -20,6 +23,10 @@
 	var/geology = "Dormant, unreadable tectonic activity"	//Anything unique about tectonics and its core activity
 	var/weather = "No substantial meteorological readings"	//Anything unique about terrestrial weather conditions
 	var/surfacewater = "NA/None Visible"					//Water visible on the surface
+	var/magnet_strength = "No magnetic field detected"
+	var/magnet_difference = "N/A"
+	var/day_length = "~1 BCY (Biesel Cycles)"
+	var/magnet_particles = "N/A"
 
 	var/maxx
 	var/maxy
@@ -54,6 +61,15 @@
 	var/list/possible_themes = list(/datum/exoplanet_theme)
 	var/datum/exoplanet_theme/theme
 
+	/// What weather state to use for this planet initially. If null, will not initialize any weather system. Must be a typepath rather than an instance.
+	var/singleton/state/weather/initial_weather_state = /singleton/state/weather/calm
+
+	/// Whether the weather system supports having watery weather
+	var/has_water_weather = FALSE
+
+	/// Whether the weather system supports having icy weather
+	var/has_icy_weather = FALSE
+
 	var/features_budget = 4
 	var/list/possible_features = list()
 	var/list/spawned_features
@@ -73,7 +89,13 @@
 
 	var/list/mobs_to_tolerate = list()
 	var/generated_name = TRUE
+	///The random name generated for the planet by generate_planet_name()
+	var/planet_name
 	var/ring_chance = 20 //the chance of this exoplanet spawning with a ring on its sprite
+
+	///A list of groups, as strings, that this exoplanet belongs to. When adding new map templates, try to keep this balanced on the CI execution time, or consider adding a new one
+	///ONLY IF IT'S THE LONGEST RUNNING CI POD AND THEY ARE ALREADY BALANCED
+	var/list/unit_test_groups = list()
 
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_habitability()
@@ -93,7 +115,35 @@
 /obj/effect/overmap/visitable/sector/exoplanet/update_icon()
 	icon_state = "globe[rand(1,3)]"
 
-/obj/effect/overmap/visitable/sector/exoplanet/New(nloc, max_x, max_y)
+/obj/effect/overmap/visitable/sector/exoplanet/New(loc, max_x, max_y, being_generated_for_unit_test = FALSE)
+
+	#if defined(UNIT_TEST)
+
+	//If we are being generated for unit testing, determine if we actually want to be generated here or not
+	if(being_generated_for_unit_test)
+
+		//Check that noone forgot to set the test group on an exoplanet, except for the lore ones, we don't care about them
+		//as we do not test them currently
+		if(!length(src.unit_test_groups) && src.ruin_planet_type != PLANET_LORE)
+			SSunit_tests_config.UT.fail("**** The exoplanet --> [src.name] - [src.type] <-- does not have any unit test group set! ****", __FILE__, __LINE__)
+			qdel_self()
+			return FALSE
+
+		//Check that we are in this test group, otherwise skip this exoplanet type from generation
+		var/in_this_test_group = FALSE
+		for(var/unit_test_group in src.unit_test_groups)
+			if((unit_test_group in SSunit_tests_config.config["exoplanet_types_unit_test_groups"]) || SSunit_tests_config.config["exoplanet_types_unit_test_groups"] == "*")
+				in_this_test_group = TRUE
+				break
+
+		if(!in_this_test_group)
+			SSunit_tests_config.UT.debug("**** The exoplanet --> [src.name] - [src.type] <-- was not loaded as its group is not in the exoplanet_types_unit_test_groups! ****", __FILE__, __LINE__)
+			qdel_self()
+			return FALSE
+
+	#endif //UNIT_TEST
+
+
 	if(!SSatlas.current_map.use_overmap)
 		return
 
@@ -102,11 +152,11 @@
 	planetary_area = new planetary_area()
 
 	if(generated_name)
-		name = "[generate_planet_name()], \a [name]"
+		planet_name = generate_planet_name()
+		name = "[planet_name], \a [name]"
 
-	world.maxz++
-	forceMove(locate(1,1,world.maxz))
-	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_Z, world.maxz)
+	var/datum/space_level/exoplanet_level = SSmapping.add_new_zlevel("Exoplanet [name]", ZTRAITS_AWAY, contain_turfs = FALSE)
+	forceMove(locate(1, 1, exoplanet_level.z_value))
 
 	pre_ruin_preparation()
 	if(LAZYLEN(possible_themes))
@@ -165,9 +215,12 @@
 /obj/effect/overmap/visitable/sector/exoplanet/proc/build_level()
 	generate_habitability()
 	generate_atmosphere()
+	if(ispath(initial_weather_state))
+		generate_weather()
 	generate_flora()
 	generate_map()
 	generate_features()
+	theme.after_map_generation(src)
 	generate_landing(2)
 	update_biome()
 	generate_planet_image()
@@ -213,7 +266,7 @@
 					var/mob/S = new mob_type(T)
 					animals += S
 					GLOB.death_event.register(S, src, PROC_REF(remove_animal))
-					GLOB.destroyed_event.register(S, src, PROC_REF(remove_animal))
+					RegisterSignal(S, COMSIG_QDELETING, PROC_REF(remove_animal))
 					adapt_animal(S)
 			if(animals.len >= max_animal_count)
 				repopulating = 0
@@ -232,23 +285,26 @@
 			daddy.group_multiplier = Z.air.group_multiplier
 			Z.air.equalize(daddy)
 
-/obj/effect/overmap/visitable/sector/exoplanet/proc/remove_animal(var/mob/M)
+/obj/effect/overmap/visitable/sector/exoplanet/proc/remove_animal(mob/M)
 	animals -= M
 	GLOB.death_event.unregister(M, src)
-	GLOB.destroyed_event.unregister(M, src)
+	UnregisterSignal(M, COMSIG_QDELETING)
 	repopulate_types |= M.type
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_map()
 	if(!istype(theme))
 		CRASH("Exoplanet [src] attempted to generate without valid theme!")
+
 	if(plant_colors)
 		var/list/grasscolors = plant_colors.Copy()
 		grasscolors -= "RANDOM"
 		if(length(grasscolors))
 			grass_color = pick(grasscolors)
 
+	// Generate the exoplanet surface using the exoplanet theme.
+	// Here `/turf/space` is used, as this is what new zlevels are created with.
 	theme.before_map_generation(src)
-	theme.generate_map(src, map_z[1], 1 + TRANSITIONEDGE, 1 + TRANSITIONEDGE, maxx - (1 + TRANSITIONEDGE), maxy - (1 + TRANSITIONEDGE))
+	theme.generate_map(map_z[1], 1 + TRANSITIONEDGE, 1 + TRANSITIONEDGE, maxx - (1 + TRANSITIONEDGE), maxy - (1 + TRANSITIONEDGE), /turf/space)
 
 	for (var/zlevel in map_z)
 		var/list/edges
@@ -434,6 +490,7 @@
 	. += "<br><large><b>[name]</b></large></center>"
 	. += "<br><b>Estimated Mass and Volume: </b><small>[massvolume]BSS(Biesels)</small>"
 	. += "<br><b>Surface Gravity: </b><small>[surfacegravity]Gs</small>"
+	. += "<br><b>Governing Body: </b><small>[alignment]</small>"
 	. += "<br><b>Charted: </b><small>[charted]</small>"
 	. += "<br><b>Geological Variables: </b><small>[geology]</small>"
 	. += "<br><b>Surface Water Coverage: </b><small>[surfacewater]</small>"
@@ -475,10 +532,6 @@
 
 	. += jointext(extra_data, "<br>")
 
-/obj/effect/overmap/visitable/sector/exoplanet/get_skybox_representation()
-	return skybox_image
-
-
 /obj/effect/overmap/visitable/sector/exoplanet/proc/get_surface_color()
 	return surface_color
 
@@ -501,3 +554,17 @@
 
 /obj/effect/landmark/exoplanet_spawn/proc/do_spawn(obj/effect/overmap/visitable/sector/exoplanet/planet)
 	return
+
+///Sets the given weather state to our planet replacing the old one, and trigger updates. Can be a type path or instance.
+/obj/effect/overmap/visitable/sector/exoplanet/proc/set_weather(var/singleton/state/weather/W)
+	initial_weather_state = W
+	//Tells all our levels exposed to the sky to force change the weather.
+	var/obj/abstract/weather_system/new_weather_system = SSweather.setup_weather_system(map_z[length(map_z)], initial_weather_state)
+	new_weather_system.has_water_weather = has_water_weather
+	new_weather_system.has_icy_weather = has_icy_weather
+
+///Setup the initial weather state for the planet. Doesn't apply it to our z levels however.
+/obj/effect/overmap/visitable/sector/exoplanet/proc/generate_weather()
+	if(ispath(initial_weather_state))
+		initial_weather_state = GET_SINGLETON(initial_weather_state)
+	set_weather(initial_weather_state)

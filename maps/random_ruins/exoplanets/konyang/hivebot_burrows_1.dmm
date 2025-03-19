@@ -1,7 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -38,7 +37,6 @@
 "ai" = (
 /obj/structure/closet/crate/miningcart/ore,
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -51,12 +49,10 @@
 	dries = 0;
 	basecolor = "#400000"
 	},
-/mob/living/simple_animal/hostile/hivebot,
 /turf/simulated/floor/exoplanet/dirt_konyang/cave,
 /area/hivebot_burrows_1)
 "aw" = (
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -79,7 +75,6 @@
 "bi" = (
 /obj/structure/pit,
 /obj/random/dirt_75,
-/mob/living/simple_animal/hostile/hivebot/range,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
 "bn" = (
@@ -96,7 +91,6 @@
 	},
 /obj/random/dirt_75,
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -110,7 +104,6 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -192,7 +185,6 @@
 "dv" = (
 /obj/random/bomb_supply,
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -201,7 +193,6 @@
 "dK" = (
 /obj/item/arrow/rod,
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -228,7 +219,6 @@
 /area/space)
 "et" = (
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -242,7 +232,6 @@
 /area/hivebot_burrows_1)
 "ex" = (
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -271,7 +260,6 @@
 	pixel_x = -4;
 	pixel_y = -13
 	},
-/obj/effect/decal/cleanable/blood/drip,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
@@ -380,7 +368,6 @@
 /area/space)
 "hb" = (
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -397,7 +384,6 @@
 /area/hivebot_burrows_1)
 "hi" = (
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -471,7 +457,6 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -588,7 +573,6 @@
 "kJ" = (
 /obj/item/device/flashlight/lantern,
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -615,12 +599,10 @@
 "lw" = (
 /obj/random/dirt_75,
 /obj/structure/pit,
-/mob/living/simple_animal/hostile/hivebot,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
 "lA" = (
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -665,15 +647,6 @@
 	pixel_y = 5;
 	name = "crumpled note"
 	},
-/obj/effect/decal/cleanable/blood/no_dry{
-	name = "dried blood";
-	basecolor = "#400000"
-	},
-/obj/effect/decal/cleanable/blood/no_dry{
-	name = "dried blood";
-	basecolor = "#400000"
-	},
-/obj/effect/landmark/corpse/miner/hivebot_burrows,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/space)
 "my" = (
@@ -707,13 +680,11 @@
 "mV" = (
 /obj/random/dirt_75,
 /obj/structure/pit,
-/mob/living/simple_animal/hostile/hivebot/range,
 /turf/simulated/floor/exoplanet/dirt_konyang/cave,
 /area/hivebot_burrows_1)
 "no" = (
 /obj/structure/flora/rock/konyang/small,
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -787,7 +758,6 @@
 	pixel_y = -6
 	},
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -809,7 +779,6 @@
 /area/hivebot_burrows_1)
 "qj" = (
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -820,12 +789,6 @@
 /obj/structure/flora/rock/konyang/small,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren/cave,
-/area/hivebot_burrows_1)
-"qs" = (
-/obj/random/dirt_75,
-/obj/item/stack/rods,
-/mob/living/simple_animal/hostile/hivebot/guardian,
-/turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
 "qt" = (
 /obj/random/dirt_75,
@@ -850,7 +813,6 @@
 /obj/structure/flora/rock/konyang/small,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/mob/living/simple_animal/hostile/hivebot/guardian,
 /obj/effect/decal/cleanable/blood/drip{
 	name = "dried drips of blood";
 	dries = 0;
@@ -872,7 +834,6 @@
 "rd" = (
 /obj/structure/flora/rock/konyang/small,
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -992,12 +953,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
-"ts" = (
-/obj/random/dirt_75,
-/mob/living/simple_animal/hostile/hivebot/bomber,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt/cave,
-/area/hivebot_burrows_1)
 "ty" = (
 /obj/structure/track,
 /turf/simulated/floor/exoplanet/basalt/cave,
@@ -1036,7 +991,6 @@
 /area/hivebot_burrows_1)
 "uy" = (
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1072,15 +1026,8 @@
 /obj/structure/ore_box,
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/hivebot_burrows_1)
-"vW" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/mob/living/simple_animal/hostile/hivebot/guardian,
-/turf/simulated/floor/exoplanet/basalt/cave,
-/area/hivebot_burrows_1)
 "wb" = (
 /obj/item/gun/projectile/shotgun/doublebarrel/pellet,
-/obj/effect/decal/cleanable/blood/drip,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave,
@@ -1095,11 +1042,6 @@
 	},
 /obj/effect/decal/cleanable/blood/drip,
 /obj/random/dirt_75,
-/obj/effect/decal/cleanable/blood/splatter{
-	basecolor = "#400000";
-	dries = 0;
-	name = "dried blood"
-	},
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
 "ww" = (
@@ -1207,7 +1149,6 @@
 	pixel_x = 7
 	},
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1228,23 +1169,6 @@
 /area/hivebot_burrows_1)
 "yl" = (
 /obj/item/arrow/rod,
-/turf/simulated/floor/exoplanet/basalt/cave,
-/area/hivebot_burrows_1)
-"yr" = (
-/obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
-	name = "duckboard"
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/corpse/miner/hivebot_burrows,
-/obj/effect/decal/cleanable/blood/no_dry{
-	name = "dried blood";
-	basecolor = "#400000"
-	},
-/obj/effect/decal/cleanable/blood/no_dry{
-	name = "dried blood";
-	basecolor = "#400000"
-	},
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
 "yw" = (
@@ -1311,7 +1235,6 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1406,7 +1329,6 @@
 	pixel_y = 11
 	},
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1419,17 +1341,11 @@
 	pixel_y = 6
 	},
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/barren,
 /area/space)
-"BH" = (
-/mob/living/simple_animal/hostile/hivebot/range,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt/cave,
-/area/hivebot_burrows_1)
 "BL" = (
 /obj/structure/flora/rock/konyang{
 	density = 0
@@ -1522,7 +1438,6 @@
 /area/space)
 "Cw" = (
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1546,7 +1461,6 @@
 "Da" = (
 /obj/structure/rope_post,
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1586,11 +1500,6 @@
 	pixel_x = 6
 	},
 /obj/random/dirt_75,
-/obj/effect/decal/cleanable/blood/drip{
-	name = "dried drips of blood";
-	dries = 0;
-	basecolor = "#400000"
-	},
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
 "ED" = (
@@ -1611,7 +1520,6 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/generic,
@@ -1662,29 +1570,8 @@
 /obj/structure/track,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
-"Gh" = (
-/obj/random/dirt_75,
-/mob/living/simple_animal/hostile/hivebot,
-/obj/effect/decal/cleanable/blood/drip{
-	name = "dried drips of blood";
-	dries = 0;
-	basecolor = "#400000"
-	},
-/obj/effect/decal/cleanable/blood/drip{
-	name = "dried drips of blood";
-	dries = 0;
-	basecolor = "#400000"
-	},
-/obj/effect/decal/cleanable/blood/drip{
-	name = "dried drips of blood";
-	dries = 0;
-	basecolor = "#400000"
-	},
-/turf/simulated/floor/exoplanet/basalt/cave,
-/area/hivebot_burrows_1)
 "Gl" = (
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/structure/rope_railing{
@@ -1714,7 +1601,6 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1780,24 +1666,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/hivebot_burrows_1)
-"Hj" = (
-/obj/structure/flora/rock/konyang{
-	density = 0
-	},
-/obj/effect/decal/cleanable/blood/splatter{
-	basecolor = "#400000";
-	dries = 0;
-	name = "dried blood"
-	},
-/turf/simulated/floor/exoplanet/basalt/cave,
-/area/hivebot_burrows_1)
 "HB" = (
 /obj/structure/flora/rock/pile,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/space)
 "HE" = (
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1817,7 +1691,6 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1861,7 +1734,6 @@
 /area/hivebot_burrows_1)
 "Jw" = (
 /obj/structure/pit,
-/mob/living/simple_animal/hostile/hivebot,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
 "JK" = (
@@ -1870,7 +1742,6 @@
 /area/hivebot_burrows_1)
 "JW" = (
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1897,17 +1768,10 @@
 "Kw" = (
 /obj/random/dirt_75,
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/machinery/door/urban,
 /turf/simulated/floor/exoplanet/barren/cave,
-/area/hivebot_burrows_1)
-"KC" = (
-/mob/living/simple_animal/hostile/hivebot/range,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
 "KD" = (
 /obj/random/dirt_75,
@@ -1957,7 +1821,6 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/structure/rope_post{
@@ -1986,7 +1849,6 @@
 "Mg" = (
 /obj/random/bomb_supply,
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2058,7 +1920,6 @@
 "NB" = (
 /obj/item/device/radio,
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2067,7 +1928,6 @@
 "NI" = (
 /obj/random/junk,
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2132,7 +1992,6 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2170,7 +2029,6 @@
 /obj/random/dirt_75,
 /obj/structure/flora/rock/konyang/small,
 /obj/structure/pit,
-/mob/living/simple_animal/hostile/hivebot/range,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
 "OZ" = (
@@ -2186,7 +2044,6 @@
 	pixel_y = 12
 	},
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2214,7 +2071,6 @@
 "PC" = (
 /obj/structure/ore_box,
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2270,18 +2126,12 @@
 /area/hivebot_burrows_1)
 "QC" = (
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/floodlight,
 /turf/simulated/floor/exoplanet/dirt_konyang/cave,
-/area/hivebot_burrows_1)
-"QO" = (
-/mob/living/simple_animal/hostile/hivebot,
-/obj/structure/track,
-/turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
 "RL" = (
 /obj/random/dirt_75,
@@ -2295,7 +2145,6 @@
 /area/hivebot_burrows_1)
 "RN" = (
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2313,12 +2162,6 @@
 /obj/random/dirt_75,
 /obj/structure/barricade/wooden,
 /turf/simulated/floor/exoplanet/barren/cave,
-/area/hivebot_burrows_1)
-"SB" = (
-/obj/random/dirt_75,
-/obj/structure/pit,
-/mob/living/simple_animal/hostile/hivebot/range,
-/turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
 "SE" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2403,7 +2246,6 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2422,13 +2264,6 @@
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/barren/cave,
-/area/hivebot_burrows_1)
-"UC" = (
-/mob/living/simple_animal/hostile/hivebot,
-/obj/structure/track,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
 "UU" = (
 /obj/random/dirt_75,
@@ -2523,7 +2358,6 @@
 "Ww" = (
 /obj/random/bomb_supply,
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2572,7 +2406,6 @@
 "XP" = (
 /obj/structure/rope_railing,
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2607,7 +2440,6 @@
 	pixel_y = 9
 	},
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/structure/rope_post,
@@ -2679,7 +2511,6 @@
 	pixel_y = 14
 	},
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2698,7 +2529,6 @@
 	pixel_x = -4
 	},
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -3294,7 +3124,7 @@ ve
 tf
 Ah
 YM
-qs
+cT
 xf
 xf
 xf
@@ -3505,7 +3335,7 @@ xf
 tr
 Ad
 VG
-BH
+JK
 hZ
 Gc
 De
@@ -3667,7 +3497,7 @@ xf
 xf
 xf
 xf
-QO
+ty
 ty
 xf
 xf
@@ -3827,7 +3657,7 @@ xf
 xf
 xf
 IQ
-TD
+JK
 Ew
 hZ
 xf
@@ -3879,8 +3709,8 @@ mV
 xf
 xf
 Jd
-Hj
-Yp
+oH
+JK
 wb
 NB
 xf
@@ -3923,7 +3753,7 @@ ib
 WX
 xi
 jt
-ts
+Wd
 Wd
 Wd
 Sl
@@ -3933,7 +3763,7 @@ xf
 hZ
 eV
 wj
-Gh
+JK
 no
 xf
 xf
@@ -3977,7 +3807,7 @@ Go
 tr
 xf
 xf
-vW
+Wd
 bZ
 xf
 xf
@@ -3985,7 +3815,7 @@ xf
 xs
 Ad
 sN
-yr
+RN
 NI
 xf
 xf
@@ -4143,7 +3973,7 @@ tr
 xf
 xf
 xf
-SB
+lw
 JK
 xf
 xf
@@ -4226,7 +4056,7 @@ Wd
 Wd
 Wd
 Lm
-UC
+Vx
 Vx
 Vx
 xf
@@ -4284,7 +4114,7 @@ Vx
 Vx
 tr
 JK
-KC
+Wd
 Fv
 Ad
 xf

@@ -5,7 +5,11 @@
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_SRANDMARR)
-	suffixes = list("adhomai/adhomai_tunneler_nest.dmm")
+
+	prefix = "adhomai/"
+	suffix = "adhomai_tunneler_nest.dmm"
+
+	unit_test_groups = list(1)
 
 
 /obj/structure/ice_tunneler_nest
@@ -29,7 +33,8 @@
 		return
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		var/obj/item/reagent_containers/food/snacks/egg/ice_tunnelers/E = new/obj/item/reagent_containers/food/snacks/egg/ice_tunnelers (get_turf(src))
+		var/obj/item/reagent_containers/food/snacks/egg/ice_tunnelers/E = new/obj/item/reagent_containers/food/snacks/egg/ice_tunnelers (get_turf(src), TRUE)
 		H.put_in_hands(E)
+		E.fertilize()
 		eggs--
 		update_icon()

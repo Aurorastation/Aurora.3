@@ -15,11 +15,12 @@
 	dir = 8;
 	pixel_y = -6
 	},
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_yacht_civ_dock_aft";
-	master_tag = "airlock_yacht_civ_dock_aft";
-	landmark_tag = "nav_yacht_civ_dock_aft";
-	req_one_access = null
+/obj/effect/map_effect/marker/airlock/docking/yacht_civ/dock/aft,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
@@ -56,6 +57,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/engineering)
+"aR" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/turf/simulated/floor/plating,
+/area/ship/yacht_civ/hallway_fore)
 "aS" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/oxygen,
@@ -63,16 +71,11 @@
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/storage)
 "aU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 6
-	},
 /obj/machinery/airlock_sensor{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = 6
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = -6
 	},
@@ -80,6 +83,20 @@
 	master_tag = "airlock_yacht_civ_mid";
 	name = "airlock_yacht_civ_mid";
 	req_one_access = null
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/lounge)
@@ -103,7 +120,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/turf/simulated/floor/wood/bamboo,
+/turf/simulated/floor/wood/walnut,
 /area/ship/yacht_civ/hallway_mid)
 "bG" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -135,6 +152,21 @@
 /obj/item/towel_flat,
 /turf/simulated/floor/exoplanet/grass,
 /area/ship/yacht_civ/hallway_mid)
+"cd" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/ship/yacht_civ/hallway_mid)
 "cj" = (
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 4
@@ -150,10 +182,17 @@
 /turf/simulated/floor/marble/dark,
 /area/ship/yacht_civ/hallway_mid)
 "cs" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_aft)
 "cu" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space{
@@ -173,6 +212,15 @@
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_aft)
 "cA" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 5
+	},
 /turf/simulated/floor/marble/dark,
 /area/ship/yacht_civ/kitchen)
 "cJ" = (
@@ -185,6 +233,9 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -225,6 +276,15 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 6
+	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/storage)
 "di" = (
@@ -254,7 +314,7 @@
 	pixel_y = 2;
 	pixel_x = -2
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/mahogany,
 /area/ship/yacht_civ/lounge)
 "dt" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -274,15 +334,15 @@
 /area/shuttle/yacht_civ_shuttle)
 "dF" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = -6
 	},
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_yacht_civ_dock_port";
-	master_tag = "airlock_yacht_civ_dock_port";
-	landmark_tag = "nav_yacht_civ_dock_port";
-	req_one_access = null
+/obj/effect/map_effect/marker/airlock/docking/yacht_civ/dock/port,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
@@ -298,10 +358,13 @@
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/lounge)
 "dQ" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/full,
 /area/ship/yacht_civ/lounge)
 "dW" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space{
@@ -326,6 +389,15 @@
 	},
 /obj/structure/cable{
 	icon_state = "1-4"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 1
 	},
 /turf/simulated/floor/marble/dark,
 /area/ship/yacht_civ/quarters)
@@ -360,7 +432,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/mahogany,
 /area/ship/yacht_civ/lounge)
 "ev" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
@@ -402,10 +474,23 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/turf/simulated/floor/wood/bamboo,
+/turf/simulated/floor/wood/walnut,
+/area/ship/yacht_civ/hallway_mid)
+"eF" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red,
+/turf/simulated/floor/tiled/full,
 /area/ship/yacht_civ/hallway_mid)
 "eI" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/lounge)
 "eL" = (
@@ -414,6 +499,9 @@
 	},
 /obj/machinery/alarm/south{
 	req_one_access = null
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
@@ -446,7 +534,7 @@
 	},
 /obj/item/reagent_containers/food/drinks/flask/barflask,
 /obj/item/storage/box/fancy/gum,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/mahogany,
 /area/ship/yacht_civ/lounge)
 "eZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -463,7 +551,7 @@
 "ff" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/item/storage/box/produce,
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/storage/box/produce,
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/item/reagent_containers/food/condiment/flour,
@@ -493,7 +581,7 @@
 /mob/living/simple_animal/cat/kitten{
 	dir = 8
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/mahogany,
 /area/ship/yacht_civ/lounge)
 "fA" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
@@ -551,7 +639,9 @@
 /obj/machinery/atmospherics/binary/pump/high_power/on{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/engineering)
 "gv" = (
@@ -565,6 +655,9 @@
 	icon_state = "1-4"
 	},
 /obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -587,21 +680,15 @@
 	},
 /obj/machinery/access_button{
 	pixel_x = 28;
-	pixel_y = 32;
-	dir = 2
+	pixel_y = 32
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_yacht_civ_dock_starboard";
-	master_tag = "airlock_yacht_civ_dock_starboard";
-	landmark_tag = "nav_yacht_civ_dock_starboard";
-	req_one_access = null
-	},
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/marker/airlock/docking/yacht_civ/dock/starboard,
+/turf/simulated/floor/tiled/dark,
 /area/ship/yacht_civ/hallway_aft)
 "gN" = (
 /obj/structure/cable{
@@ -615,7 +702,14 @@
 	dir = 8;
 	tag_door = "airlock_yacht_civ_shuttle_dock_door"
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/dark,
 /area/ship/yacht_civ/hallway_aft)
 "gO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -634,13 +728,15 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/full,
 /area/ship/yacht_civ/hallway_mid)
 "hb" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
-	pixel_x = 28;
-	dir = 2
+	pixel_x = 28
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/full,
@@ -655,6 +751,12 @@
 "hc" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/full,
 /area/ship/yacht_civ/hallway_fore)
@@ -685,10 +787,10 @@
 /area/ship/yacht_civ/bridge)
 "hI" = (
 /obj/machinery/portable_atmospherics/canister/air,
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/colored/decayed{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/engineering)
 "hR" = (
@@ -722,13 +824,12 @@
 	pixel_y = 3
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/wine{
-	pixel_x = 1;
-	pixel_y = 0
+	pixel_x = 1
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
-/turf/simulated/floor/wood/bamboo,
+/turf/simulated/floor/wood/walnut,
 /area/ship/yacht_civ/hallway_mid)
 "ik" = (
 /obj/structure/table/stone/marble,
@@ -766,6 +867,9 @@
 "iM" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/lounge)
@@ -806,6 +910,12 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 9
 	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_mid)
 "ja" = (
@@ -829,6 +939,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
 	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_aft)
@@ -883,17 +996,13 @@
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/bridge)
 "jw" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 10
-	},
+/obj/effect/floor_decal/industrial/outline_straight/grey,
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_aft)
 "jA" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/maintenance_hatch{
-	dir = 2
-	},
+/obj/machinery/door/airlock/maintenance_hatch,
 /turf/simulated/floor/tiled/dark,
 /area/ship/yacht_civ/engineering)
 "jJ" = (
@@ -912,23 +1021,42 @@
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/flora/ausbushes/palebush,
 /obj/effect/decal/cleanable/generic/beet_tree_petals,
-/obj/machinery/light/colored/red{
-	dir = 2
-	},
+/obj/machinery/light/colored/red,
 /turf/simulated/floor/exoplanet/grass,
+/area/ship/yacht_civ/hallway_mid)
+"kh" = (
+/obj/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/yacht_civ/hallway_aft)
+"kj" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_mid)
 "kk" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_yacht_civ_dock_aft";
-	master_tag = "airlock_yacht_civ_dock_aft";
-	landmark_tag = "nav_yacht_civ_dock_aft";
-	req_one_access = null
+/obj/effect/map_effect/marker/airlock/docking/yacht_civ/dock/aft,
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
 "kv" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /obj/effect/landmark/entry_point/fore,
 /turf/simulated/floor/plating,
 /area/shuttle/yacht_civ_shuttle)
@@ -947,17 +1075,29 @@
 /area/ship/yacht_civ/quarters)
 "ky" = (
 /obj/machinery/airlock_sensor{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = 6
 	},
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_yacht_civ_dock_starboard";
-	master_tag = "airlock_yacht_civ_dock_starboard";
-	landmark_tag = "nav_yacht_civ_dock_starboard";
-	req_one_access = null
+/obj/effect/map_effect/marker/airlock/docking/yacht_civ/dock/starboard,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
+/area/ship/yacht_civ/hallway_aft)
+"kB" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_aft)
 "kF" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -967,17 +1107,21 @@
 /area/ship/yacht_civ/bridge)
 "kH" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
-	frequency = 1441;
-	id = "co2_in";
-	name = "carbon dioxide injector";
-	use_power = 1;
 	dir = 4
+	},
+/obj/effect/map_effect/marker/large_tank{
+	master_tag = "yacht_civ_co2";
+	name = "yacht_civ_co2"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/yacht_civ/propulsion)
 "kK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_fore)
@@ -987,10 +1131,9 @@
 	dir = 1
 	},
 /obj/item/coin/gold{
-	pixel_x = 7;
-	pixel_y = -2
+	pixel_x = 7
 	},
-/obj/item/pocketwatch{
+/obj/item/clothing/wrists/watch/pocketwatch{
 	pixel_x = -4;
 	pixel_y = 6
 	},
@@ -1046,14 +1189,21 @@
 	dir = 10
 	},
 /obj/machinery/light,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 6
+	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_fore)
 "lx" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/turf/simulated/floor/wood/bamboo,
+/turf/simulated/floor/wood/walnut,
 /area/ship/yacht_civ/hallway_mid)
+"lC" = (
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled,
+/area/ship/yacht_civ/lounge)
 "lG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/effect/floor_decal/spline/plain/grey{
@@ -1064,24 +1214,24 @@
 /area/shuttle/yacht_civ_shuttle)
 "lP" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/accessory/dressshirt/alt/vneck,
+/obj/item/clothing/under/dressshirt/alt/vneck,
 /obj/item/clothing/accessory/sweater/argyle/crewneck{
 	color = "#44AA44"
 	},
 /obj/item/clothing/accessory/sweater/v_neck{
 	color = "#BB3333"
 	},
-/obj/item/clothing/accessory/dressshirt,
-/obj/item/clothing/accessory/dressshirt/alt{
+/obj/item/clothing/under/dressshirt,
+/obj/item/clothing/under/dressshirt/alt{
 	color = "#DEDEDE"
 	},
-/obj/item/clothing/accessory/dressshirt/asymmetric{
+/obj/item/clothing/under/dressshirt/asymmetric{
 	color = "#DEDEDE"
 	},
-/obj/item/clothing/accessory/dressshirt/alt/rolled{
+/obj/item/clothing/under/dressshirt/alt/rolled{
 	color = "#3131B1"
 	},
-/obj/item/clothing/accessory/dressshirt/alt/rolled{
+/obj/item/clothing/under/dressshirt/alt/rolled{
 	color = "#DEDEDE"
 	},
 /obj/item/clothing/accessory/sweater/argyle{
@@ -1100,7 +1250,7 @@
 	color = "#4B381D";
 	pixel_y = -9
 	},
-/obj/item/clothing/accessory/silversun/random,
+/obj/item/clothing/under/dressshirt/silversun/random,
 /obj/item/clothing/suit/storage/toggle/cardigan{
 	color = "#DDDDDD";
 	pixel_y = -6
@@ -1114,7 +1264,7 @@
 /obj/item/clothing/suit/storage/toggle/konyang/akira{
 	pixel_y = -4
 	},
-/obj/item/clothing/accessory/silversun/random,
+/obj/item/clothing/under/dressshirt/silversun/random,
 /obj/item/clothing/suit/storage/toggle/leather_jacket/designer{
 	pixel_y = -2
 	},
@@ -1149,6 +1299,12 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/full,
 /area/ship/yacht_civ/hallway_aft)
 "mi" = (
@@ -1164,6 +1320,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
 	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red,
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_aft)
 "mn" = (
@@ -1202,17 +1362,20 @@
 /turf/simulated/floor/exoplanet/grass,
 /area/ship/yacht_civ/hallway_mid)
 "mI" = (
-/obj/machinery/air_sensor{
-	frequency = 1441;
-	id_tag = "co2_sensor"
-	},
 /obj/machinery/light/small/emergency{
 	dir = 1
+	},
+/obj/machinery/air_sensor,
+/obj/effect/map_effect/marker/large_tank{
+	master_tag = "yacht_civ_co2"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/yacht_civ/propulsion)
 "mL" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/storage)
 "mM" = (
@@ -1246,7 +1409,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
-/turf/simulated/floor/wood/bamboo,
+/turf/simulated/floor/wood/walnut,
 /area/ship/yacht_civ/hallway_mid)
 "na" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1254,6 +1417,10 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/tiled/full,
 /area/ship/yacht_civ/hallway_mid)
 "nb" = (
@@ -1275,21 +1442,15 @@
 "nh" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
-	pixel_x = -28;
-	dir = 2
+	pixel_x = -28
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 8
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_yacht_civ_dock_fore";
-	master_tag = "airlock_yacht_civ_dock_fore";
-	landmark_tag = "nav_yacht_civ_dock_fore";
-	req_one_access = null
-	},
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/marker/airlock/docking/yacht_civ/dock/fore,
+/turf/simulated/floor/tiled/dark,
 /area/ship/yacht_civ/hallway_fore)
 "ns" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
@@ -1306,6 +1467,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/propulsion)
+"nD" = (
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/turf/simulated/floor/tiled/dark,
+/area/ship/yacht_civ/hallway_aft)
 "nE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
@@ -1321,7 +1489,9 @@
 /obj/machinery/atmospherics/binary/pump/high_power/on{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/engineering)
 "nH" = (
@@ -1329,18 +1499,47 @@
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_fore)
 "nI" = (
-/obj/machinery/computer/general_air_control/large_tank_control/terminal{
-	dir = 8;
-	input_tag = "co2_in";
-	output_tag = "co2_out";
-	sensors = list("co2_sensor"="Tank");
-	name = "propellant monitor"
-	},
 /obj/effect/floor_decal/corner/beige{
 	dir = 6
 	},
+/obj/machinery/computer/general_air_control/large_tank_control/terminal{
+	dir = 8;
+	name = "propellant monitor"
+	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/bridge)
+"nW" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 5
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/ship/yacht_civ/hangar)
+"oc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/ship/yacht_civ/hallway_mid)
 "og" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
@@ -1362,9 +1561,7 @@
 "oo" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/maintenance_hatch{
-	dir = 2
-	},
+/obj/machinery/door/airlock/maintenance_hatch,
 /turf/simulated/floor/tiled/dark,
 /area/ship/yacht_civ/kitchen)
 "ou" = (
@@ -1402,7 +1599,16 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
 	},
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
 /area/ship/yacht_civ/lounge)
 "oY" = (
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -1422,12 +1628,10 @@
 	dir = 4
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = -6
 	},
 /obj/machinery/airlock_sensor{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = 6
 	},
@@ -1438,6 +1642,16 @@
 	master_tag = "airlock_yacht_civ_hangar";
 	name = "airlock_yacht_civ_hangar";
 	req_one_access = null
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
@@ -1462,6 +1676,9 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/full,
 /area/ship/yacht_civ/lounge)
 "pn" = (
@@ -1470,6 +1687,12 @@
 	},
 /obj/structure/cable{
 	icon_state = "1-4"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_fore)
@@ -1529,7 +1752,7 @@
 /obj/item/crowbar,
 /obj/random/tech_supply,
 /obj/random/tool,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/engineering)
 "pO" = (
@@ -1549,7 +1772,7 @@
 /turf/simulated/floor/exoplanet/grass,
 /area/ship/yacht_civ/hallway_mid)
 "qb" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/closet/toolcloset,
 /obj/item/storage/belt/utility/full,
 /obj/item/stack/cable_coil,
@@ -1596,6 +1819,9 @@
 /obj/machinery/alarm/west{
 	req_one_access = null
 	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 10
+	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_aft)
 "qq" = (
@@ -1604,6 +1830,13 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/yacht_civ_shuttle)
+"qv" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/outline_straight/grey,
+/turf/simulated/floor/tiled,
+/area/ship/yacht_civ/hallway_aft)
 "qy" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -1617,12 +1850,13 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/full,
 /area/ship/yacht_civ/lounge)
 "qB" = (
-/obj/structure/bed/stool/chair/sofa/left/violet{
-	dir = 2
-	},
+/obj/structure/bed/stool/chair/sofa/left/violet,
 /turf/simulated/floor/carpet/purple,
 /area/ship/yacht_civ/lounge)
 "qC" = (
@@ -1641,8 +1875,7 @@
 	},
 /obj/structure/platform,
 /obj/machinery/shower{
-	pixel_y = 14;
-	layer = 2.999
+	pixel_y = 14
 	},
 /obj/item/bikehorn/rubberducky{
 	pixel_y = -5;
@@ -1651,7 +1884,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/ship/yacht_civ/hallway_mid)
 "rB" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -1659,12 +1892,11 @@
 /area/ship/yacht_civ/engineering)
 "rC" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux,
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_yacht_civ_dock_starboard";
-	master_tag = "airlock_yacht_civ_dock_starboard";
-	landmark_tag = "nav_yacht_civ_dock_starboard";
-	req_one_access = null
+/obj/effect/map_effect/marker/airlock/docking/yacht_civ/dock/starboard,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline_straight/red,
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
 "rN" = (
@@ -1695,7 +1927,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/mahogany,
 /area/ship/yacht_civ/lounge)
 "sk" = (
 /obj/structure/lattice/catwalk,
@@ -1712,7 +1944,9 @@
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/propulsion)
 "sA" = (
@@ -1769,16 +2003,20 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_yacht_civ_dock_aft";
-	master_tag = "airlock_yacht_civ_dock_aft";
-	landmark_tag = "nav_yacht_civ_dock_aft";
-	req_one_access = null
+/obj/effect/map_effect/marker/airlock/docking/yacht_civ/dock/aft,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
 "sY" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_mid)
 "tc" = (
@@ -1792,7 +2030,10 @@
 /turf/simulated/floor/marble/dark,
 /area/ship/yacht_civ/kitchen)
 "tf" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/kitchen)
 "to" = (
@@ -1824,15 +2065,15 @@
 "tB" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = -6
 	},
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_yacht_civ_dock_starboard";
-	master_tag = "airlock_yacht_civ_dock_starboard";
-	landmark_tag = "nav_yacht_civ_dock_starboard";
-	req_one_access = null
+/obj/effect/map_effect/marker/airlock/docking/yacht_civ/dock/starboard,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
@@ -1884,6 +2125,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/full,
 /area/ship/yacht_civ/hallway_aft)
 "uf" = (
@@ -1895,13 +2142,8 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_yacht_civ_dock_port";
-	master_tag = "airlock_yacht_civ_dock_port";
-	landmark_tag = "nav_yacht_civ_dock_port";
-	req_one_access = null
-	},
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/marker/airlock/docking/yacht_civ/dock/port,
+/turf/simulated/floor/tiled/dark,
 /area/ship/yacht_civ/hallway_aft)
 "un" = (
 /obj/structure/table/steel,
@@ -1928,6 +2170,15 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_aft)
 "ux" = (
@@ -1939,11 +2190,12 @@
 	dir = 8;
 	pixel_y = -6
 	},
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_yacht_civ_dock_fore";
-	master_tag = "airlock_yacht_civ_dock_fore";
-	landmark_tag = "nav_yacht_civ_dock_fore";
-	req_one_access = null
+/obj/effect/map_effect/marker/airlock/docking/yacht_civ/dock/fore,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_fore)
@@ -2006,9 +2258,12 @@
 	dir = 5
 	},
 /obj/structure/table/fancy,
-/turf/simulated/floor/wood/bamboo,
+/turf/simulated/floor/wood/walnut,
 /area/ship/yacht_civ/hallway_mid)
 "uN" = (
+/obj/effect/floor_decal/industrial/outline_straight/grey{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/engineering)
 "uR" = (
@@ -2017,8 +2272,7 @@
 	dir = 1
 	},
 /obj/machinery/access_button{
-	pixel_x = 28;
-	dir = 2
+	pixel_x = 28
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/full,
@@ -2116,13 +2370,8 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	shuttle_tag = "Civilian Yacht Shuttle";
-	master_tag = "airlock_yacht_civ_shuttle";
-	name = "airlock_yacht_civ_shuttle";
-	req_one_access = null
-	},
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/marker/airlock/shuttle/yacht_civ_shuttle,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/yacht_civ_shuttle)
 "vW" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -2174,8 +2423,14 @@
 	pixel_x = 1;
 	pixel_y = 2
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/mahogany,
 /area/ship/yacht_civ/lounge)
+"wB" = (
+/obj/effect/floor_decal/industrial/outline_straight/grey{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/ship/yacht_civ/engineering)
 "wM" = (
 /obj/structure/bed/stool/chair/folding{
 	dir = 8
@@ -2189,6 +2444,10 @@
 /obj/effect/floor_decal/corner/green/diagonal{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red,
 /turf/simulated/floor/marble/dark,
 /area/ship/yacht_civ/hallway_mid)
 "wZ" = (
@@ -2232,9 +2491,7 @@
 /turf/simulated/floor/carpet/purple,
 /area/ship/yacht_civ/lounge)
 "xN" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 2
-	},
+/obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/engineering)
 "xO" = (
@@ -2266,6 +2523,13 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_aft)
 "xS" = (
@@ -2287,6 +2551,20 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_fore)
+"yo" = (
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline_segment/grey{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/ship/yacht_civ/storage)
 "yu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2309,15 +2587,16 @@
 "yx" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/maintenance_hatch{
-	dir = 2
-	},
+/obj/machinery/door/airlock/maintenance_hatch,
 /turf/simulated/floor/tiled/dark,
 /area/ship/yacht_civ/quarters)
 "yy" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/alarm/west{
 	req_one_access = null
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 8
 	},
 /turf/simulated/floor/marble,
 /area/ship/yacht_civ/kitchen)
@@ -2355,11 +2634,17 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_fore)
 "zi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/engineering)
@@ -2370,6 +2655,9 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 10
+	},
 /turf/simulated/floor/marble/dark,
 /area/ship/yacht_civ/kitchen)
 "zR" = (
@@ -2379,10 +2667,27 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 9
+	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/lounge)
 "Ab" = (
 /turf/simulated/floor/marble,
+/area/ship/yacht_civ/hallway_mid)
+"Ac" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/full,
 /area/ship/yacht_civ/hallway_mid)
 "Al" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2438,6 +2743,9 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 9
+	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_fore)
 "Bu" = (
@@ -2467,32 +2775,23 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	shuttle_tag = "Civilian Yacht Shuttle";
-	master_tag = "airlock_yacht_civ_shuttle";
-	name = "airlock_yacht_civ_shuttle";
-	req_one_access = null
+/obj/effect/map_effect/marker/airlock/shuttle/yacht_civ_shuttle,
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/yacht_civ_shuttle)
 "By" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/obj/machinery/access_button{
-	pixel_x = 12;
-	pixel_y = 28;
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/effect/floor_decal/industrial/warning/full,
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_yacht_civ_mid";
-	name = "airlock_yacht_civ_mid";
-	req_one_access = null
-	},
-/turf/simulated/floor/plating,
+/obj/structure/lattice/catwalk,
+/obj/item/hullbeacon/red,
+/turf/simulated/floor/airless,
 /area/ship/yacht_civ/lounge)
 "BA" = (
 /obj/effect/floor_decal/corner/green{
@@ -2540,6 +2839,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/bridge)
+"BO" = (
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/ship/yacht_civ/hallway_mid)
 "BP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -2549,6 +2855,13 @@
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/bridge)
@@ -2578,13 +2891,8 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/cee,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_yacht_civ_dock_starboard";
-	master_tag = "airlock_yacht_civ_dock_starboard";
-	landmark_tag = "nav_yacht_civ_dock_starboard";
-	req_one_access = null
-	},
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/marker/airlock/docking/yacht_civ/dock/starboard,
+/turf/simulated/floor/tiled/dark,
 /area/ship/yacht_civ/hallway_aft)
 "CC" = (
 /obj/structure/bed/stool/chair/sofa/violet,
@@ -2602,6 +2910,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/yacht_civ/hallway_fore)
 "CF" = (
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 4
+	},
 /turf/simulated/floor/marble/dark,
 /area/ship/yacht_civ/quarters)
 "CK" = (
@@ -2617,16 +2932,21 @@
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_mid)
 "CL" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	dir = 8
+/obj/machinery/door/airlock/external{
+	dir = 4
 	},
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_yacht_civ_mid";
 	name = "airlock_yacht_civ_mid";
 	req_one_access = null
+	},
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = -20;
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/lounge)
@@ -2658,9 +2978,7 @@
 "CQ" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/maintenance_hatch{
-	dir = 2
-	},
+/obj/machinery/door/airlock/maintenance_hatch,
 /turf/simulated/floor/tiled/dark,
 /area/ship/yacht_civ/storage)
 "CT" = (
@@ -2684,12 +3002,11 @@
 /area/ship/yacht_civ/quarters)
 "Da" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux,
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_yacht_civ_dock_port";
-	master_tag = "airlock_yacht_civ_dock_port";
-	landmark_tag = "nav_yacht_civ_dock_port";
-	req_one_access = null
+/obj/effect/map_effect/marker/airlock/docking/yacht_civ/dock/port,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
 	},
+/obj/effect/floor_decal/industrial/outline_straight/red,
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
 "De" = (
@@ -2751,6 +3068,15 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/full,
 /area/ship/yacht_civ/hallway_fore)
 "Dq" = (
@@ -2758,6 +3084,17 @@
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/ship/yacht_civ/hallway_fore)
+"Dt" = (
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/ship/yacht_civ/engineering)
 "Dx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
@@ -2806,6 +3143,7 @@
 /turf/simulated/floor/marble/dark,
 /area/ship/yacht_civ/hallway_mid)
 "DP" = (
+/obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_fore)
 "DU" = (
@@ -2843,6 +3181,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red,
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_aft)
 "Eg" = (
@@ -2850,7 +3195,7 @@
 	dir = 9
 	},
 /obj/random/pottedplant,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/mahogany,
 /area/ship/yacht_civ/lounge)
 "Ek" = (
 /obj/structure/undies_wardrobe,
@@ -2859,6 +3204,13 @@
 	},
 /turf/simulated/floor/wood/bamboo,
 /area/ship/yacht_civ/quarters)
+"En" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled,
+/area/ship/yacht_civ/hallway_aft)
 "Es" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -2872,7 +3224,10 @@
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_fore)
 "Eu" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /obj/effect/landmark/entry_point/port{
 	name = "port, fore"
 	},
@@ -2897,6 +3252,12 @@
 	},
 /obj/machinery/alarm/west{
 	req_one_access = null
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/lounge)
@@ -2929,13 +3290,8 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_yacht_civ_dock_starboard";
-	master_tag = "airlock_yacht_civ_dock_starboard";
-	landmark_tag = "nav_yacht_civ_dock_starboard";
-	req_one_access = null
-	},
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/marker/airlock/docking/yacht_civ/dock/starboard,
+/turf/simulated/floor/tiled/dark,
 /area/ship/yacht_civ/hallway_aft)
 "EP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2983,6 +3339,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
 	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/yacht_civ_shuttle)
 "Fk" = (
@@ -2995,12 +3360,22 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/full,
 /area/ship/yacht_civ/lounge)
 "Fo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red,
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
 "Fz" = (
@@ -3011,6 +3386,10 @@
 	},
 /obj/effect/floor_decal/corner/grey{
 	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/lounge)
@@ -3034,13 +3413,21 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/yacht_civ/hallway_aft)
 "FU" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_aft)
@@ -3085,8 +3472,25 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/yacht_civ/propulsion)
 "GB" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/ship/yacht_civ/hallway_mid)
+"GO" = (
+/obj/machinery/light,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/yacht_civ/hallway_aft)
 "GP" = (
 /obj/machinery/power/smes/buildable/third_party_shuttle,
 /obj/structure/cable{
@@ -3104,6 +3508,9 @@
 	},
 /obj/machinery/light{
 	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/full,
 /area/ship/yacht_civ/lounge)
@@ -3127,6 +3534,9 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_aft)
 "Hb" = (
@@ -3139,6 +3549,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 9
 	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red,
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/engineering)
 "He" = (
@@ -3191,6 +3608,15 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/full,
 /area/ship/yacht_civ/hallway_mid)
 "Hr" = (
@@ -3214,8 +3640,7 @@
 	pixel_y = 4
 	},
 /obj/item/flame/candle{
-	pixel_x = 9;
-	pixel_y = 0
+	pixel_x = 9
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/item/towel/random{
@@ -3232,6 +3657,10 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/ship/yacht_civ/hallway_mid)
+"Hw" = (
+/obj/effect/floor_decal/industrial/outline_straight/red,
+/turf/simulated/floor/tiled,
+/area/ship/yacht_civ/hallway_aft)
 "Hx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -3240,6 +3669,10 @@
 	},
 /obj/effect/floor_decal/corner/grey{
 	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_aft)
@@ -3263,7 +3696,7 @@
 	frequency = 1380;
 	id_tag = "airlock_yacht_civ_shuttle_dock_door"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/ship/yacht_civ/hallway_aft)
 "HG" = (
 /obj/effect/floor_decal/spline/plain/grey{
@@ -3295,6 +3728,16 @@
 /obj/item/hullbeacon/red,
 /turf/simulated/floor/airless,
 /area/ship/yacht_civ/hallway_fore)
+"Ig" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red,
+/turf/simulated/floor/marble/dark,
+/area/ship/yacht_civ/hallway_mid)
 "It" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
@@ -3305,13 +3748,8 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_yacht_civ_dock_aft";
-	master_tag = "airlock_yacht_civ_dock_aft";
-	landmark_tag = "nav_yacht_civ_dock_aft";
-	req_one_access = null
-	},
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/marker/airlock/docking/yacht_civ/dock/aft,
+/turf/simulated/floor/tiled/dark,
 /area/ship/yacht_civ/hallway_aft)
 "Iv" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -3320,8 +3758,10 @@
 /turf/simulated/floor/reinforced/airless,
 /area/ship/yacht_civ/hangar)
 "Iw" = (
-/obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3342,6 +3782,19 @@
 	},
 /turf/simulated/floor/carpet/purple,
 /area/ship/yacht_civ/lounge)
+"Iy" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 6
+	},
+/turf/simulated/floor/marble/dark,
+/area/ship/yacht_civ/hallway_mid)
 "IH" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/light,
@@ -3379,13 +3832,8 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/cee,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_yacht_civ_dock_port";
-	master_tag = "airlock_yacht_civ_dock_port";
-	landmark_tag = "nav_yacht_civ_dock_port";
-	req_one_access = null
-	},
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/marker/airlock/docking/yacht_civ/dock/port,
+/turf/simulated/floor/tiled/dark,
 /area/ship/yacht_civ/hallway_aft)
 "IW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
@@ -3394,6 +3842,7 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/yacht_civ/engineering)
 "Jb" = (
+/obj/effect/floor_decal/industrial/outline_segment/red,
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/lounge)
 "Jd" = (
@@ -3414,6 +3863,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/yacht_civ_shuttle)
+"Jk" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/ship/yacht_civ/hallway_mid)
 "Jo" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
@@ -3423,11 +3881,10 @@
 	pixel_y = 6;
 	pixel_x = 20
 	},
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_yacht_civ_dock_fore";
-	master_tag = "airlock_yacht_civ_dock_fore";
-	landmark_tag = "nav_yacht_civ_dock_fore";
-	req_one_access = null
+/obj/effect/map_effect/marker/airlock/docking/yacht_civ/dock/fore,
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_fore)
@@ -3435,6 +3892,29 @@
 /obj/effect/floor_decal/corner/beige/diagonal,
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/bridge)
+"JK" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red,
+/turf/simulated/floor/tiled,
+/area/ship/yacht_civ/hallway_aft)
+"JM" = (
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/effect/floor_decal/industrial/outline_straight/grey{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_straight/grey{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/grey{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/ship/yacht_civ/storage)
 "JP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -3470,6 +3950,12 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 9
+	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_aft)
 "JX" = (
@@ -3478,6 +3964,9 @@
 	},
 /obj/machinery/alarm/north{
 	req_one_access = null
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_aft)
@@ -3493,13 +3982,8 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_yacht_civ_dock_aft";
-	master_tag = "airlock_yacht_civ_dock_aft";
-	landmark_tag = "nav_yacht_civ_dock_aft";
-	req_one_access = null
-	},
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/marker/airlock/docking/yacht_civ/dock/aft,
+/turf/simulated/floor/tiled/dark,
 /area/ship/yacht_civ/hallway_aft)
 "JZ" = (
 /obj/effect/floor_decal/corner/green{
@@ -3512,6 +3996,25 @@
 /area/ship/yacht_civ/hallway_mid)
 "Kd" = (
 /obj/machinery/light/small/emergency,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/ship/yacht_civ/lounge)
+"Ke" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
+	},
+/obj/machinery/alarm/west{
+	req_one_access = null
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 10
+	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/lounge)
 "Km" = (
@@ -3524,6 +4027,9 @@
 	},
 /obj/structure/mopbucket,
 /obj/item/mop,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/lounge)
 "Ko" = (
@@ -3552,12 +4058,10 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/mahogany,
 /area/ship/yacht_civ/lounge)
 "KL" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 2
-	},
+/obj/machinery/atmospherics/pipe/manifold/hidden,
 /obj/machinery/light/colored/decayed,
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/propulsion)
@@ -3574,6 +4078,12 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_aft)
 "KX" = (
@@ -3585,6 +4095,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_fore)
@@ -3598,7 +4112,10 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/yacht_civ_shuttle)
 "Ln" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/bridge)
 "Lo" = (
@@ -3615,13 +4132,21 @@
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_mid)
 "Lp" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/yacht_civ_shuttle)
 "Lr" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/cable{
 	icon_state = "1-8"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
 	},
 /turf/simulated/floor/marble,
 /area/ship/yacht_civ/kitchen)
@@ -3658,6 +4183,15 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/propulsion)
 "LE" = (
@@ -3671,6 +4205,12 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 5
+	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_mid)
 "LK" = (
@@ -3680,12 +4220,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_yacht_civ_dock_aft";
-	master_tag = "airlock_yacht_civ_dock_aft";
-	landmark_tag = "nav_yacht_civ_dock_aft";
-	req_one_access = null
-	},
+/obj/effect/map_effect/marker/airlock/docking/yacht_civ/dock/aft,
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
 "LY" = (
@@ -3693,12 +4228,11 @@
 	dir = 4
 	},
 /obj/machinery/light/small/emergency,
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_yacht_civ_dock_starboard";
-	master_tag = "airlock_yacht_civ_dock_starboard";
-	landmark_tag = "nav_yacht_civ_dock_starboard";
-	req_one_access = null
+/obj/effect/map_effect/marker/airlock/docking/yacht_civ/dock/starboard,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
 	},
+/obj/effect/floor_decal/industrial/outline_straight/red,
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
 "Mb" = (
@@ -3717,6 +4251,18 @@
 	},
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/yacht_civ_shuttle)
+"Mn" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/full,
+/area/ship/yacht_civ/hallway_mid)
 "Mr" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /turf/simulated/floor/tiled,
@@ -3752,13 +4298,8 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_yacht_civ_dock_port";
-	master_tag = "airlock_yacht_civ_dock_port";
-	landmark_tag = "nav_yacht_civ_dock_port";
-	req_one_access = null
-	},
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/marker/airlock/docking/yacht_civ/dock/port,
+/turf/simulated/floor/tiled/dark,
 /area/ship/yacht_civ/hallway_aft)
 "MB" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
@@ -3801,10 +4342,16 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 5
+	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_aft)
 "ME" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/engineering)
 "MO" = (
@@ -3865,7 +4412,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/yacht_civ_shuttle)
 "NY" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/closet/toolcloset,
 /obj/item/storage/belt/utility/full,
 /obj/item/pipewrench,
@@ -3890,7 +4437,10 @@
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_mid)
 "Oc" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -3982,11 +4532,15 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
-/turf/simulated/floor/wood/bamboo,
+/turf/simulated/floor/wood/walnut,
 /area/ship/yacht_civ/hallway_mid)
 "OR" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_aft)
@@ -3997,13 +4551,8 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_yacht_civ_dock_fore";
-	master_tag = "airlock_yacht_civ_dock_fore";
-	landmark_tag = "nav_yacht_civ_dock_fore";
-	req_one_access = null
-	},
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/marker/airlock/docking/yacht_civ/dock/fore,
+/turf/simulated/floor/tiled/dark,
 /area/ship/yacht_civ/hallway_fore)
 "OZ" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
@@ -4023,13 +4572,8 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_yacht_civ_dock_aft";
-	master_tag = "airlock_yacht_civ_dock_aft";
-	landmark_tag = "nav_yacht_civ_dock_aft";
-	req_one_access = null
-	},
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/marker/airlock/docking/yacht_civ/dock/aft,
+/turf/simulated/floor/tiled/dark,
 /area/ship/yacht_civ/hallway_aft)
 "Pu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -4040,8 +4584,20 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/propulsion)
+"Py" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/ship/yacht_civ/hallway_aft)
 "PA" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /obj/effect/landmark/entry_point/port{
 	name = "port, bridge"
 	},
@@ -4071,20 +4627,35 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/lounge)
+"PK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/ship/yacht_civ/lounge)
 "PM" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_yacht_civ_dock_fore";
-	master_tag = "airlock_yacht_civ_dock_fore";
-	landmark_tag = "nav_yacht_civ_dock_fore";
-	req_one_access = null
+/obj/effect/map_effect/marker/airlock/docking/yacht_civ/dock/fore,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_fore)
 "PO" = (
 /obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 10
+	},
 /turf/simulated/floor/marble/dark,
 /area/ship/yacht_civ/hallway_mid)
 "PW" = (
@@ -4100,23 +4671,31 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_yacht_civ_dock_aft";
-	master_tag = "airlock_yacht_civ_dock_aft";
-	landmark_tag = "nav_yacht_civ_dock_aft";
-	req_one_access = null
-	},
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/marker/airlock/docking/yacht_civ/dock/aft,
+/turf/simulated/floor/tiled/dark,
 /area/ship/yacht_civ/hallway_aft)
 "Qa" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
 	},
 /obj/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_aft)
+"Qm" = (
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/effect/floor_decal/industrial/outline_straight/grey{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/ship/yacht_civ/storage)
 "Qn" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 10
@@ -4127,6 +4706,10 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red,
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_aft)
 "Qr" = (
@@ -4227,8 +4810,7 @@
 "QM" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
-	pixel_x = 28;
-	dir = 2
+	pixel_x = 28
 	},
 /obj/effect/shuttle_landmark/yacht_civ/dock/fore{
 	dir = 1
@@ -4238,13 +4820,8 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_yacht_civ_dock_fore";
-	master_tag = "airlock_yacht_civ_dock_fore";
-	landmark_tag = "nav_yacht_civ_dock_fore";
-	req_one_access = null
-	},
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/marker/airlock/docking/yacht_civ/dock/fore,
+/turf/simulated/floor/tiled/dark,
 /area/ship/yacht_civ/hallway_fore)
 "Re" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
@@ -4257,6 +4834,15 @@
 /obj/machinery/shipsensors,
 /turf/simulated/floor/airless,
 /area/ship/yacht_civ/hallway_fore)
+"Rr" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/ship/yacht_civ/hallway_fore)
 "Ru" = (
 /obj/machinery/alarm/south{
 	req_one_access = null
@@ -4266,54 +4852,54 @@
 "RA" = (
 /obj/effect/floor_decal/corner/blue/full,
 /obj/structure/closet/cabinet,
-/obj/item/clothing/under/skirt/long{
+/obj/item/clothing/pants/skirt/long{
 	color = "#c1a61d"
 	},
-/obj/item/clothing/under/skirt/jumper{
+/obj/item/clothing/pants/skirt/jumper{
 	color = "#BB3333"
 	},
-/obj/item/clothing/under/pants/designer{
+/obj/item/clothing/pants/designer{
 	pixel_y = 4
 	},
-/obj/item/clothing/under/pants/black,
-/obj/item/clothing/under/pants/jeans{
+/obj/item/clothing/pants/black,
+/obj/item/clothing/pants/jeans{
 	pixel_y = 4
 	},
-/obj/item/clothing/under/pants/white,
-/obj/item/clothing/under/skirt/high{
+/obj/item/clothing/pants/white,
+/obj/item/clothing/pants/skirt/high{
 	color = "#4B381D"
 	},
-/obj/item/clothing/under/skirt{
+/obj/item/clothing/pants/skirt{
 	color = "#3131B1"
 	},
-/obj/item/clothing/under/skirt/tube{
+/obj/item/clothing/pants/skirt/tube{
 	color = "#333333"
 	},
-/obj/item/clothing/under/skirt/plaid{
+/obj/item/clothing/pants/skirt/plaid{
 	color = "#44AA44"
 	},
-/obj/item/clothing/under/pants/ripped{
+/obj/item/clothing/pants/ripped{
 	pixel_x = -2;
 	pixel_y = 4
 	},
-/obj/item/clothing/under/skirt/straightlong{
+/obj/item/clothing/pants/skirt/straightlong{
 	color = "#DDDDDD"
 	},
-/obj/item/clothing/under/skirt/skater{
+/obj/item/clothing/pants/skirt/skater{
 	color = "#2C3A7F"
 	},
-/obj/item/clothing/under/skirt/pencil{
+/obj/item/clothing/pants/skirt/pencil{
 	color = "#333333"
 	},
-/obj/item/clothing/under/pants/striped,
-/obj/item/clothing/under/pants/tailoredjeans{
+/obj/item/clothing/pants/striped,
+/obj/item/clothing/pants/tailoredjeans{
 	color = "#4B381D"
 	},
 /obj/machinery/alarm/west{
 	req_one_access = null
 	},
-/obj/item/clothing/under/pants/tan,
-/obj/item/clothing/under/pants/tailoredjeans{
+/obj/item/clothing/pants/tan,
+/obj/item/clothing/pants/tailoredjeans{
 	color = "#2C3A7F";
 	pixel_y = 3
 	},
@@ -4324,6 +4910,21 @@
 /obj/structure/closet/firecloset,
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/lounge)
+"RF" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/ship/yacht_civ/hallway_aft)
 "RI" = (
 /turf/simulated/floor/reinforced/airless,
 /area/ship/yacht_civ/hangar)
@@ -4350,11 +4951,25 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/ship/yacht_civ/kitchen)
+"RY" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 5
+	},
+/turf/simulated/floor/marble/dark,
+/area/ship/yacht_civ/quarters)
 "RZ" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/propulsion)
 "Sq" = (
@@ -4382,15 +4997,28 @@
 /obj/machinery/alarm/west{
 	req_one_access = null
 	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/lounge)
+"Ss" = (
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/ship/yacht_civ/hallway_aft)
 "SC" = (
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 8
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/ship/yacht_civ/lounge)
 "SD" = (
 /obj/machinery/hologram/holopad/long_range,
@@ -4430,6 +5058,10 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/item/blueprints,
+/obj/item/pen/drafting/blue{
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/engineering)
 "SQ" = (
@@ -4441,11 +5073,10 @@
 	pixel_y = 6;
 	pixel_x = 20
 	},
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_yacht_civ_dock_aft";
-	master_tag = "airlock_yacht_civ_dock_aft";
-	landmark_tag = "nav_yacht_civ_dock_aft";
-	req_one_access = null
+/obj/effect/map_effect/marker/airlock/docking/yacht_civ/dock/aft,
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
@@ -4508,7 +5139,7 @@
 /area/ship/yacht_civ/lounge)
 "Tl" = (
 /obj/structure/flora/ausbushes/ppflowers,
-/obj/structure/flora/pottedplant/orientaltree,
+/obj/structure/flora/pottedplant/cherrytree,
 /turf/simulated/floor/exoplanet/grass,
 /area/ship/yacht_civ/hallway_mid)
 "Tw" = (
@@ -4528,12 +5159,11 @@
 	dir = 8
 	},
 /obj/machinery/light/small/emergency,
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_yacht_civ_dock_port";
-	master_tag = "airlock_yacht_civ_dock_port";
-	landmark_tag = "nav_yacht_civ_dock_port";
-	req_one_access = null
+/obj/effect/map_effect/marker/airlock/docking/yacht_civ/dock/port,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline_straight/red,
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
 "TF" = (
@@ -4561,7 +5191,6 @@
 	pixel_x = 6
 	},
 /obj/item/material/knife{
-	layer = 2.99;
 	pixel_x = -9
 	},
 /turf/simulated/floor/marble,
@@ -4580,12 +5209,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/yacht_civ/kitchen)
 "TQ" = (
-/obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/yacht_civ/hallway_aft)
@@ -4605,6 +5236,9 @@
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup{
 	pixel_x = 7
+	},
+/obj/machinery/button/distress{
+	pixel_y = 8
 	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/bridge)
@@ -4638,9 +5272,39 @@
 /obj/effect/landmark/entry_point/port,
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/yacht_civ_shuttle)
+"Uy" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/full,
+/area/ship/yacht_civ/hallway_aft)
+"UA" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/ship/yacht_civ/hallway_aft)
 "UD" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/yacht_civ/kitchen)
+"UH" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/ship/yacht_civ/hallway_aft)
 "UI" = (
 /obj/machinery/power/terminal{
 	dir = 1
@@ -4648,6 +5312,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
+/obj/effect/floor_decal/industrial/hatch_small/yellow,
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/engineering)
 "UL" = (
@@ -4682,20 +5347,20 @@
 	pixel_x = 3;
 	pixel_y = 1
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/mahogany,
 /area/ship/yacht_civ/lounge)
 "UO" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/machinery/airlock_sensor{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = 6
 	},
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_yacht_civ_dock_port";
-	master_tag = "airlock_yacht_civ_dock_port";
-	landmark_tag = "nav_yacht_civ_dock_port";
-	req_one_access = null
+/obj/effect/map_effect/marker/airlock/docking/yacht_civ/dock/port,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
@@ -4703,23 +5368,38 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/full,
+/area/ship/yacht_civ/hallway_aft)
+"UV" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 5
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_aft)
 "UX" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/storage)
 "Va" = (
-/obj/machinery/computer/general_air_control/large_tank_control/terminal{
-	dir = 8;
-	input_tag = "co2_in";
-	output_tag = "co2_out";
-	sensors = list("co2_sensor"="Tank");
-	name = "propellant monitor"
-	},
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 10
+	},
+/obj/effect/map_effect/marker/large_tank{
+	master_tag = "yacht_civ_co2"
+	},
+/obj/machinery/computer/general_air_control/large_tank_control/terminal{
+	dir = 8;
+	name = "propellant monitor"
 	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/propulsion)
@@ -4727,11 +5407,10 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_yacht_civ_dock_fore";
-	master_tag = "airlock_yacht_civ_dock_fore";
-	landmark_tag = "nav_yacht_civ_dock_fore";
-	req_one_access = null
+/obj/effect/map_effect/marker/airlock/docking/yacht_civ/dock/fore,
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_fore)
@@ -4741,20 +5420,14 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/access_button{
-	pixel_x = 28;
-	dir = 2
+	pixel_x = 28
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	shuttle_tag = "Civilian Yacht Shuttle";
-	master_tag = "airlock_yacht_civ_shuttle";
-	name = "airlock_yacht_civ_shuttle";
-	req_one_access = null
-	},
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/marker/airlock/shuttle/yacht_civ_shuttle,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/yacht_civ_shuttle)
 "VG" = (
 /obj/effect/landmark/entry_point/starboard{
@@ -4773,7 +5446,6 @@
 	pixel_y = -3
 	},
 /obj/item/storage/box/fancy/cigpaper/fine{
-	pixel_y = 0;
 	pixel_x = -4
 	},
 /obj/item/storage/box/fancy/cigpaper{
@@ -4823,7 +5495,10 @@
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/engineering)
 "VV" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/quarters)
 "Wa" = (
@@ -4836,19 +5511,15 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/cee,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_yacht_civ_dock_starboard";
-	master_tag = "airlock_yacht_civ_dock_starboard";
-	landmark_tag = "nav_yacht_civ_dock_starboard";
-	req_one_access = null
-	},
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/marker/airlock/docking/yacht_civ/dock/starboard,
+/turf/simulated/floor/tiled/dark,
 /area/ship/yacht_civ/hallway_aft)
 "Wc" = (
-/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
-	frequency = 1441;
-	id_tag = "co2_out";
+/obj/machinery/atmospherics/unary/vent_pump/siphon/atmos{
 	dir = 4
+	},
+/obj/effect/map_effect/marker/large_tank{
+	master_tag = "yacht_civ_co2"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/yacht_civ/propulsion)
@@ -4859,9 +5530,7 @@
 /area/ship/yacht_civ/lounge)
 "Wu" = (
 /obj/random/pottedplant,
-/obj/machinery/light/colored/blue{
-	dir = 2
-	},
+/obj/machinery/light/colored/blue,
 /turf/simulated/floor/marble/dark,
 /area/ship/yacht_civ/hallway_mid)
 "WA" = (
@@ -4936,13 +5605,8 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/cee,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_yacht_civ_dock_port";
-	master_tag = "airlock_yacht_civ_dock_port";
-	landmark_tag = "nav_yacht_civ_dock_port";
-	req_one_access = null
-	},
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/marker/airlock/docking/yacht_civ/dock/port,
+/turf/simulated/floor/tiled/dark,
 /area/ship/yacht_civ/hallway_aft)
 "WP" = (
 /obj/machinery/atmospherics/binary/pump/fuel/on,
@@ -4954,6 +5618,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
 	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/lounge)
@@ -4981,7 +5651,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/mahogany,
 /area/ship/yacht_civ/lounge)
 "Xc" = (
 /obj/effect/shuttle_landmark/yacht_civ/space/fore_port{
@@ -4993,7 +5663,7 @@
 /turf/template_noop,
 /area/space)
 "Xp" = (
-/turf/simulated/floor/wood/bamboo,
+/turf/simulated/floor/wood/walnut,
 /area/ship/yacht_civ/hallway_mid)
 "Xs" = (
 /obj/machinery/door/airlock/external,
@@ -5008,13 +5678,8 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_yacht_civ_dock_fore";
-	master_tag = "airlock_yacht_civ_dock_fore";
-	landmark_tag = "nav_yacht_civ_dock_fore";
-	req_one_access = null
-	},
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/marker/airlock/docking/yacht_civ/dock/fore,
+/turf/simulated/floor/tiled/dark,
 /area/ship/yacht_civ/hallway_fore)
 "Xw" = (
 /obj/effect/landmark/entry_point/starboard,
@@ -5024,13 +5689,15 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/yacht_civ/hallway_aft)
 "XM" = (
 /obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/mahogany,
 /area/ship/yacht_civ/lounge)
 "XR" = (
 /obj/effect/floor_decal/corner/beige{
@@ -5077,7 +5744,7 @@
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/machinery/light,
-/turf/simulated/floor/wood/bamboo,
+/turf/simulated/floor/wood/walnut,
 /area/ship/yacht_civ/hallway_mid)
 "XZ" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -5093,6 +5760,10 @@
 "Ya" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
 /area/ship/yacht_civ/hallway_fore)
@@ -5160,8 +5831,10 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
 /obj/machinery/door/airlock/multi_tile/glass,
 /turf/simulated/floor/tiled/dark,
 /area/ship/yacht_civ/hallway_aft)
@@ -5201,12 +5874,27 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_aft)
 "Zo" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/yellow,
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/yacht_civ/engineering)
+"ZJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/ship/yacht_civ/lounge)
 "ZK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -5233,7 +5921,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/propulsion)
 "ZO" = (
@@ -35167,7 +35855,7 @@ rC
 uU
 pd
 hb
-Iv
+nW
 Oo
 Oo
 vY
@@ -35676,7 +36364,7 @@ XV
 Hb
 WF
 fA
-KR
+UH
 ml
 qm
 Fo
@@ -35933,8 +36621,8 @@ oS
 Hb
 UX
 fA
-uv
-cs
+UV
+Hw
 xf
 eL
 uU
@@ -36186,14 +36874,14 @@ hS
 WC
 st
 ov
-Mr
-Mr
-Mr
+JM
+Qm
+yo
 CQ
-vj
-jw
-EL
-yU
+Uy
+En
+kh
+GO
 uU
 Ys
 Mf
@@ -36447,7 +37135,7 @@ WB
 Mr
 OJ
 fA
-Qa
+RF
 Zk
 XI
 gN
@@ -36728,7 +37416,7 @@ Ev
 kQ
 yw
 yx
-CF
+RY
 wM
 eh
 CF
@@ -36749,8 +37437,8 @@ GT
 Tw
 Tw
 Tw
-Tw
-Tw
+aR
+aR
 pA
 Xj
 Xj
@@ -36979,7 +37667,7 @@ RI
 RI
 be
 VO
-PO
+Iy
 cl
 Ev
 WT
@@ -37219,7 +37907,7 @@ NJ
 fA
 fA
 JX
-mi
+qv
 cX
 lc
 uU
@@ -37255,7 +37943,7 @@ Re
 oY
 Re
 fE
-Jb
+lC
 Dq
 hc
 Es
@@ -37263,7 +37951,7 @@ Dp
 tt
 Ya
 Dq
-Bk
+Rr
 lu
 Tw
 Tw
@@ -37474,7 +38162,7 @@ gv
 qo
 UP
 OR
-EL
+kh
 GZ
 mi
 HG
@@ -37493,18 +38181,18 @@ be
 be
 gZ
 JZ
-Uh
+Ac
 gy
 iY
 pO
 KM
-iY
+kj
 Bf
 Sr
 pk
 iM
 DZ
-EB
+Ke
 Bf
 EB
 hR
@@ -37730,7 +38418,7 @@ ua
 MD
 vp
 sF
-jh
+UA
 FT
 jh
 uA
@@ -37738,7 +38426,7 @@ fI
 YU
 Hx
 YL
-Cg
+oc
 hr
 qn
 Al
@@ -37746,7 +38434,7 @@ qn
 Cg
 GV
 JQ
-Cg
+cd
 ZL
 eZ
 Oa
@@ -37757,9 +38445,9 @@ Qw
 cP
 na
 CX
-WR
+PK
 PD
-WR
+ZJ
 Fk
 qh
 CX
@@ -37990,12 +38678,12 @@ ev
 ev
 ev
 FU
-cs
+Py
 vW
 PB
-cs
-EL
-KZ
+Ss
+kh
+Jk
 yu
 Uh
 Uh
@@ -38003,11 +38691,11 @@ Uh
 KZ
 CT
 eM
-KZ
+BO
 gy
-Uh
+Mn
 BA
-Uh
+eF
 be
 be
 be
@@ -38246,8 +38934,8 @@ aM
 SI
 om
 ev
-Iw
-Iw
+nD
+nD
 uU
 uU
 uU
@@ -38504,7 +39192,7 @@ Bh
 VS
 ev
 Qa
-cs
+JK
 vJ
 dW
 dW
@@ -38521,7 +39209,7 @@ xO
 PO
 wU
 be
-LK
+Ig
 Ab
 LK
 be
@@ -38548,8 +39236,8 @@ Eu
 tf
 UD
 UD
-Tw
-Tw
+aR
+aR
 QC
 Xj
 Xj
@@ -38758,9 +39446,9 @@ DU
 ns
 gA
 Ez
-Ez
+Dt
 jA
-vj
+Uy
 jw
 cX
 vj
@@ -39018,7 +39706,7 @@ uN
 XZ
 ev
 KR
-cs
+kB
 un
 cu
 dW
@@ -39271,11 +39959,11 @@ HV
 xN
 lZ
 sA
-uN
+wB
 IH
 ev
-Iw
-Iw
+nD
+nD
 uU
 uU
 uU

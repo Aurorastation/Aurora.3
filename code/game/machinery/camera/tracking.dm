@@ -6,7 +6,7 @@
 /mob/living/silicon/ai/var/stored_locations[0]
 
 /proc/InvalidPlayerTurf(turf/T as turf)
-	return !(T && isStationLevel(T.z))
+	return !(T && is_station_level(T.z))
 
 /mob/living/silicon/ai/proc/get_camera_list()
 	if(src.stat == 2)
@@ -16,7 +16,7 @@
 	for (var/obj/machinery/camera/C in GLOB.cameranet.cameras)
 		var/list/tempnetwork = C.network&src.network
 		if (tempnetwork.len)
-			T[text("[][]", C.c_tag, (C.can_use() ? null : " (Deactivated)"))] = C
+			T["[C.c_tag][(C.can_use() ? null : " (Deactivated)")]"] = C
 
 	track = new()
 	track.cameras = T
@@ -45,20 +45,20 @@
 
 	loc = sanitize(loc)
 	if(!loc)
-		to_chat(src, "<span class='warning'>Must supply a location name</span>")
+		to_chat(src, SPAN_WARNING("Must supply a location name"))
 		return
 
 	if(stored_locations.len >= max_locations)
-		to_chat(src, "<span class='warning'>Cannot store additional locations. Remove one first</span>")
+		to_chat(src, SPAN_WARNING("Cannot store additional locations. Remove one first"))
 		return
 
 	if(loc in stored_locations)
-		to_chat(src, "<span class='warning'>There is already a stored location by this name</span>")
+		to_chat(src, SPAN_WARNING("There is already a stored location by this name"))
 		return
 
 	var/L = src.eyeobj.getLoc()
 	if (InvalidPlayerTurf(get_turf(L)))
-		to_chat(src, "<span class='warning'>Unable to store this location</span>")
+		to_chat(src, SPAN_WARNING("Unable to store this location"))
 		return
 
 	stored_locations[loc] = L
@@ -73,7 +73,7 @@
 	set desc = "Returns to the selected camera location"
 
 	if (!(loc in stored_locations))
-		to_chat(src, "<span class='warning'>Location [loc] not found</span>")
+		to_chat(src, SPAN_WARNING("Location [loc] not found"))
 		return
 
 	var/L = stored_locations[loc]
@@ -85,7 +85,7 @@
 	set desc = "Deletes the selected camera location"
 
 	if (!(loc in stored_locations))
-		to_chat(src, "<span class='warning'>Location [loc] not found</span>")
+		to_chat(src, SPAN_WARNING("Location [loc] not found"))
 		return
 
 	stored_locations.Remove(loc)
@@ -113,7 +113,7 @@
 		var/name = M.name
 		if (name in TB.names)
 			TB.namecounts[name]++
-			name = text("[] ([])", name, TB.namecounts[name])
+			name = "[name] ([TB.namecounts[name]])"
 		else
 			TB.names.Add(name)
 			TB.namecounts[name] = 1
@@ -248,7 +248,7 @@
 
 	if(. == TRACKING_NO_COVERAGE)
 		var/turf/T = get_turf(src)
-		if(T && isStationLevel(T.z) && hassensorlevel(src, SUIT_SENSOR_TRACKING))
+		if(T && is_station_level(T.z) && hassensorlevel(src, SUIT_SENSOR_TRACKING))
 			return TRACKING_POSSIBLE
 
 /mob/living/proc/tracking_initiated()
@@ -256,14 +256,14 @@
 /mob/living/silicon/robot/tracking_initiated()
 	tracking_entities++
 	if(tracking_entities == 1 && has_zeroth_law())
-		to_chat(src, "<span class='warning'>Internal camera is currently being accessed.</span>")
+		to_chat(src, SPAN_WARNING("Internal camera is currently being accessed."))
 
 /mob/living/proc/tracking_cancelled()
 
-/mob/living/silicon/robot/tracking_initiated()
+/mob/living/silicon/robot/tracking_cancelled()
 	tracking_entities--
 	if(!tracking_entities && has_zeroth_law())
-		to_chat(src, "<span class='notice'>Internal camera is no longer being accessed.</span>")
+		to_chat(src, SPAN_NOTICE("Internal camera is no longer being accessed."))
 
 
 #undef TRACKING_POSSIBLE
