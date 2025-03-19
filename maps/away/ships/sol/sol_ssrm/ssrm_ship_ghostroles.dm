@@ -71,20 +71,20 @@
 /obj/outfit/admin/ssrm_navy_officer/get_id_access()
 	return list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
 
-/datum/ghostspawner/human/ssrm_navy_crewman/senior
-	short_name = "ssrm_navy_senior_crewman"
-	name = "Sol Navy Recon Chief"
+/datum/ghostspawner/human/ssrm_navy_chief_petty_officer
+	short_name = "ssrm_navy_chief_petty_officer"
+	name = "Sol Navy Recon Chief Petty Officer"
 	desc = "Serve as the second-in-command of a Solarian naval recon corvette, under the command of Fleet Admiral Klaudia Szalai's Southern Solarian Reconstruction Mandate. Closely monitor and investigate pirate (especially SFA remnant) activity within the region, while serving the interests of the Solarian government, and the SSRM. (OOC Note: Because the bulk of the SSRM's forces are people from the planet Visegrad or the rest of the Southern Solarian Reconstruction Mandate, it is recommended that your character use the Visegradi or general Solarian accent.)"
 	mob_name_prefix = "CPO. "
 
-	spawnpoints = list("ssrm_navy_crewman")
+	spawnpoints = list("ssrm_navy_chief_petty_officer")
 	max_count = 1
 
-	assigned_role = "Sol Navy Recon Chief"
-	special_role = "Sol Navy Recon Chief"
+	assigned_role = "Sol Navy Recon Chief Petty Officer"
+	special_role = "Sol Navy Recon Chief Petty Officer"
 
-/obj/outfit/admin/ssrm_navy_crewman/senior
-	name = "Sol Navy Recon Chief"
+/obj/outfit/admin/ssrm_navy_chief_petty_officer
+	name = "Sol Navy Recon Chief Petty Officer"
 
 	uniform = /obj/item/clothing/under/rank/sol/dress/pettyofficer
 	shoes = /obj/item/clothing/shoes/laceup
