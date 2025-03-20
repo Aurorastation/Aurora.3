@@ -476,7 +476,7 @@
 		if(other_obj == src)
 			continue
 
-		if(other_obj.density == TRUE)
+		if(other_obj.density)
 			return // Whatever other structure is blocking the hop-down effect.
 
 	if(get_dir(src, bumped_atom) == REVERSE_DIR(dir))
