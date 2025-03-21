@@ -182,3 +182,32 @@
   - bugfix: Protolathes now display the proper cost of an item after being upgraded.
   Wowzewow (Wezzy):
   - bugfix: Fixes filling overlay for stovetop cooking containers.
+2025-03-21:
+  ASmallCuteCat:
+  - qol: Added a sink to the Intrepid's medbay. Folded up the roller bed that occupied
+      its tile, and placed it on the table just outside the Medbay room.
+  - qol: The Intrepid's medbay now has curtains, to afford patients some privacy without
+      having to close the emergency shutters.
+  CourierBravo:
+  - rscadd: Added airtight flaps to the xenobotany maintenance doors.
+  - rscadd: Slightly changed the doctors smoking lounge to be more comfy looking.
+  - rscadd: Changed the look of the area outside the gym a little, moving floor decals
+      around.
+  - rscadd: Changed the outline decals around the ports for the hot/cold loop on the
+      supermatter. The hot side is now red, the cold side is now blue.
+  - rscdel: Removed a civilian sign in the lifts.
+  - bugfix: Fixed APC rotation in the corporate representative office
+  - bugfix: Added shutters to the library desk, so the button actually serves a purpose.
+  - bugfix: Placed medical floor outlines under first aid lockers with a solid floor
+      under them.
+  FlamingLily:
+  - imageadd: Makes the cross on the EMT Messenger bag a bit more visible when worn.
+  GeneralCamo:
+  - qol: Rewrote the messages when interacting with a supermatter crystal.
+  SimpleMaroon:
+  - rscadd: Added an electronic passport for the Golden Deep under Xenowear - IPC
+      in the loadout. Can be taken by all IPCs, but also humans, with Golden Deep
+      membership.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes invisible thermal lance inhands.
+  - bugfix: Fixes bulwark chat bubbles.
