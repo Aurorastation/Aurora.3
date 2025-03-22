@@ -678,34 +678,34 @@
 /obj/item/clothing/accessory/chaps{
 	pixel_y = 10
 	},
-/obj/item/clothing/under/pants/jeans{
+/obj/item/clothing/pants/jeans{
 	pixel_x = 9
 	},
-/obj/item/clothing/under/pants/jeans{
+/obj/item/clothing/pants/jeans{
 	pixel_x = 9
 	},
-/obj/item/clothing/under/pants/jeans{
+/obj/item/clothing/pants/jeans{
 	pixel_x = 9
 	},
-/obj/item/clothing/under/pants/jeans{
+/obj/item/clothing/pants/jeans{
 	pixel_x = 9
 	},
-/obj/item/clothing/under/pants/jeans{
+/obj/item/clothing/pants/jeans{
 	pixel_x = 9
 	},
-/obj/item/clothing/under/pants/jeans{
+/obj/item/clothing/pants/jeans{
 	pixel_x = 9
 	},
-/obj/item/clothing/under/pants/jeans{
+/obj/item/clothing/pants/jeans{
 	pixel_x = 9
 	},
-/obj/item/clothing/under/pants/jeans{
+/obj/item/clothing/pants/jeans{
 	pixel_x = 9
 	},
-/obj/item/clothing/under/pants/jeans{
+/obj/item/clothing/pants/jeans{
 	pixel_x = 9
 	},
-/obj/item/clothing/under/pants/jeans{
+/obj/item/clothing/pants/jeans{
 	pixel_x = 9
 	},
 /obj/item/clothing/accessory/wcoat{
@@ -3336,7 +3336,7 @@
 /turf/simulated/floor/carpet/red,
 /area/city/kitchen)
 "nS" = (
-/obj/structure/closet/secure_closet/freezer/meat/super_meat,
+/obj/structure/closet/secure_closet/freezer/meat,
 /turf/simulated/floor/tiled/freezer,
 /area/city/kitchen)
 "nT" = (
@@ -3563,7 +3563,7 @@
 /turf/simulated/floor/wood,
 /area/city/horrorhouse)
 "oW" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/freezer,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/reagent_containers/food/drinks/carton/milk,
@@ -9476,7 +9476,7 @@
 "Mf" = (
 /obj/machinery/vending/cola{
 	name = "Free Robust Softdrinks";
-	prices = list().5;
+	prices = list();
 	pixel_y = 16
 	},
 /turf/simulated/floor/tiled/full,
@@ -11674,7 +11674,7 @@
 "SK" = (
 /obj/machinery/vending/snack{
 	name = "Free Chocolate Corp";
-	prices = list().5
+	prices = list()
 	},
 /obj/structure/railing/mapped{
 	dir = 1
