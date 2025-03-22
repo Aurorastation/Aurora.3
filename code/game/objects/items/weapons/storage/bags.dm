@@ -327,4 +327,8 @@
 	max_storage_space = 200
 	w_class = WEIGHT_CLASS_BULKY
 	slowdown = 1
-	can_hold = list(/obj/item/reagent_containers/pill,/obj/item/reagent_containers/glass/beaker,/obj/item/reagent_containers/glass/bottle)
+	can_hold = list(
+		/obj/item/reagent_containers/pill,
+		/obj/item/reagent_containers/glass/beaker,
+		/obj/item/reagent_containers/glass/bottle,
+		/obj/item/reagent_containers/personal_inhaler_cartridge)
