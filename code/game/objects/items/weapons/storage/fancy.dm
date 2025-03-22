@@ -425,6 +425,20 @@
 	item_state = "Fpacket"
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/oracle
 
+/obj/item/storage/box/fancy/cigarettes/case
+	name = "cigarette case"
+	desc = "A luxurious tote for your fat tokes."
+	icon_state = "cigarettecase"
+	item_state = "cigarettecase"
+	storage_type = "scase"
+	drop_sound = 'sound/items/drop/weldingtool.ogg'
+	pickup_sound = 'sound/items/pickup/weldingtool.ogg'
+	use_sound = 'sound/items/storage/briefcase.ogg'
+	storage_slots = 14
+	max_storage_space = 14
+	cigarette_to_spawn = null
+	chewable = FALSE
+
 /*
  * Vial Box
  */
