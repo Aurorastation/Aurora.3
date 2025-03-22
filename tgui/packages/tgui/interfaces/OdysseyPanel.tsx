@@ -77,7 +77,13 @@ export const RoleDisplay = (props, context) => {
         You are not beholden to following the role names and descriptions. You
         can use their equipment and change up the premises or what your
         objective is as you like! These are just guidelines in the end, or how
-        the developer envisioned the story. Your creativity is the limit!
+        the author envisioned the story. Your creativity is the limit!
+      </NoticeBox>
+      <NoticeBox color="grey">
+        You are not locked into the first outfit you equip, you can try
+        different outfits. Some roles also have outfits with randomly picked
+        items, and you can equip the same outfit multiple times to see the
+        different variations.
       </NoticeBox>
       {data.scenario_roles.map((role) => (
         <Section

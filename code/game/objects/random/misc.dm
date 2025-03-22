@@ -521,3 +521,51 @@
 		/obj/item/reagent_containers/food/condiment/rice = 1,
 		/obj/item/reagent_containers/food/condiment/cocoa = 1
 	)
+
+/obj/random/maintenance_junk_or_loot
+	name = "random maintenance junk or loot"
+	desc = "Spawns any of: junk, loot, trash, trash pile, locker with junk or loot, (or other things)."
+	icon_state = "maint_junk_loot"
+	spawn_nothing_percentage = 25
+	has_postspawn = TRUE
+	problist = list(
+		// spawn just one thing:
+		/obj/random/junk = 3,
+		/obj/random/dirt_75 = 1,
+		/obj/random/loot = 1,
+		/obj/structure/trash_pile = 1,
+		/obj/random/tool = 0.2,
+		/obj/random/tech_supply = 0.1,
+		/obj/structure/girder = 0.1,
+		/obj/random/canister/empty = 0.1,
+		/obj/random/canister/filled = 0.05,
+		/obj/structure/closet/crate/loot = 0.01,
+
+		// spawn a container and maybe fill it with more junk:
+		/obj/structure/table/rack = 1,
+		/obj/structure/table/steel = 1,
+		/obj/structure/closet/crate = 1,
+		/obj/structure/closet/crate/trashcart = 0.2,
+		/obj/structure/closet/crate/plastic = 0.1,
+	)
+
+	var/list/more_junk_problist = list(
+		/obj/random/junk = 2,
+		/obj/random/loot = 1,
+		/obj/random/tech_supply = 0.2,
+		/obj/random/tool = 0.2,
+	)
+
+/obj/random/maintenance_junk_or_loot/post_spawn(var/obj/spawned)
+	if(istype(spawned, /obj/structure/table))
+		if(prob(65))
+			var/obj/more_junk = pickweight(more_junk_problist)
+			new more_junk(spawned.loc)
+	else if(istype(spawned, /obj/structure/closet))
+		if(prob(90))
+			var/i_max = rand(1, 4)
+			for(var/i in 1 to i_max)
+				var/obj/more_junk = pickweight(more_junk_problist)
+				new more_junk(spawned.loc)
+
+
