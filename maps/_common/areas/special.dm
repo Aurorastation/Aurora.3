@@ -144,7 +144,6 @@
 /area/antag/wizard
 	name = "Wizard Mind Palace"
 	icon_state = "wizard"
-	dynamic_lighting = FALSE
 
 /area/antag/actor
 	name = "Actor Preparation"
