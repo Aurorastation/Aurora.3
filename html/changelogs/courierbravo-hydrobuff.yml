@@ -55,11 +55,11 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Remaped hydroponics and the garden to hopefully breathe some new life into the gardener role."
+  - rscadd: "Remapped hydroponics and the garden to hopefully breathe some new life into the gardener role."
   - rscadd: "Added a series of new items to the biogenerator."
   - rscadd: "Added all the plushies I could find to the plushie randomizer"
   - imageadd: "Added a new type of magazine, Horticulture Today! Added sprites to go along with each issue."
   - balance: "Added two new subtypes of vending machine for the garden and hydroponics. The public garden vendor now costs credits to use."
   - balance: "Added a few new bounties that work in favor of the gardener role."
-  - balance: "Added some soysauce bottles to the kitchen, given its increasing prevalence as an ingredient."
-  - balance: "Nerf'd the price of the produce box in the operations ordering program from 50 credits to 100."
+  - balance: "Added some soy sauce bottles to the kitchen, given its increasing prevalence as an ingredient."
+  - balance: "Increased the price of the produce box in the operations ordering program from 50 credits to 100."
