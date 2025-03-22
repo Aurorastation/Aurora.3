@@ -1976,34 +1976,34 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/item/clothing/under/shorts/athletic/red,
-/obj/item/clothing/under/shorts/athletic/red,
-/obj/item/clothing/under/shorts/athletic/red,
-/obj/item/clothing/under/shorts/athletic/red,
-/obj/item/clothing/under/shorts/athletic/red,
-/obj/item/clothing/under/shorts/athletic/red,
-/obj/item/clothing/under/shorts/athletic/green,
-/obj/item/clothing/under/shorts/athletic/green,
-/obj/item/clothing/under/shorts/athletic/green,
-/obj/item/clothing/under/shorts/athletic/green,
-/obj/item/clothing/under/shorts/athletic/green,
-/obj/item/clothing/under/shorts/athletic/green,
-/obj/item/clothing/under/shorts/athletic/grey,
-/obj/item/clothing/under/shorts/athletic/grey,
-/obj/item/clothing/under/shorts/athletic/grey,
-/obj/item/clothing/under/shorts/athletic/grey,
-/obj/item/clothing/under/shorts/athletic/grey,
-/obj/item/clothing/under/shorts/athletic/blue,
-/obj/item/clothing/under/shorts/athletic/blue,
-/obj/item/clothing/under/shorts/athletic/blue,
-/obj/item/clothing/under/shorts/athletic/blue,
-/obj/item/clothing/under/shorts/athletic/blue,
-/obj/item/clothing/under/shorts/athletic/blue,
-/obj/item/clothing/under/shorts/athletic/black,
-/obj/item/clothing/under/shorts/athletic/black,
-/obj/item/clothing/under/shorts/athletic/black,
-/obj/item/clothing/under/shorts/athletic/black,
-/obj/item/clothing/under/shorts/athletic/black,
+/obj/item/clothing/pants/shorts/athletic/red,
+/obj/item/clothing/pants/shorts/athletic/red,
+/obj/item/clothing/pants/shorts/athletic/red,
+/obj/item/clothing/pants/shorts/athletic/red,
+/obj/item/clothing/pants/shorts/athletic/red,
+/obj/item/clothing/pants/shorts/athletic/red,
+/obj/item/clothing/pants/shorts/athletic/green,
+/obj/item/clothing/pants/shorts/athletic/green,
+/obj/item/clothing/pants/shorts/athletic/green,
+/obj/item/clothing/pants/shorts/athletic/green,
+/obj/item/clothing/pants/shorts/athletic/green,
+/obj/item/clothing/pants/shorts/athletic/green,
+/obj/item/clothing/pants/shorts/athletic/grey,
+/obj/item/clothing/pants/shorts/athletic/grey,
+/obj/item/clothing/pants/shorts/athletic/grey,
+/obj/item/clothing/pants/shorts/athletic/grey,
+/obj/item/clothing/pants/shorts/athletic/grey,
+/obj/item/clothing/pants/shorts/athletic/blue,
+/obj/item/clothing/pants/shorts/athletic/blue,
+/obj/item/clothing/pants/shorts/athletic/blue,
+/obj/item/clothing/pants/shorts/athletic/blue,
+/obj/item/clothing/pants/shorts/athletic/blue,
+/obj/item/clothing/pants/shorts/athletic/blue,
+/obj/item/clothing/pants/shorts/athletic/black,
+/obj/item/clothing/pants/shorts/athletic/black,
+/obj/item/clothing/pants/shorts/athletic/black,
+/obj/item/clothing/pants/shorts/athletic/black,
+/obj/item/clothing/pants/shorts/athletic/black,
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -4457,7 +4457,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/book/manual/dpra_manifesto,
+/obj/item/device/versebook/dpra,
 /turf/simulated/floor/wood,
 /area/cruise/pool)
 "dsS" = (
@@ -7327,7 +7327,7 @@
 /area/cruise/escort)
 "fLY" = (
 /turf/unsimulated/wall/fakeairlock{
-	icon = 'icons/obj/doors/Doorext.dmi';
+	icon = 'icons/obj/doors/Doorele.dmi';
 	icon_state = "door_locked";
 	name = "Service Airlock"
 	},
@@ -13264,7 +13264,7 @@
 /area/cruise/dining_hall)
 "kzj" = (
 /turf/unsimulated/wall/fakeairlock{
-	icon = 'icons/obj/doors/Doorext.dmi';
+	icon = 'icons/obj/doors/Doorele.dmi';
 	icon_state = "door_locked";
 	name = "Service Airlock"
 	},
@@ -19315,7 +19315,7 @@
 /area/cruise/main_bar/aft)
 "pok" = (
 /turf/unsimulated/wall/fakeairlock{
-	icon = 'icons/obj/doors/Doorext.dmi';
+	icon = 'icons/obj/doors/Doorele.dmi';
 	icon_state = "door_locked";
 	name = "Service Airlock"
 	},
@@ -20177,7 +20177,7 @@
 /area/cruise/beach)
 "pZN" = (
 /turf/unsimulated/wall/fakeairlock{
-	icon = 'icons/obj/doors/Doorext.dmi';
+	icon = 'icons/obj/doors/Doorele.dmi';
 	icon_state = "door_locked";
 	name = "Service Airlock"
 	},

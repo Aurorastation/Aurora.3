@@ -736,7 +736,7 @@
 	},
 /area/city/mendell/interior)
 "dV" = (
-/obj/item/book/manual/dpra_manifesto,
+/obj/item/device/versebook/dpra,
 /turf/simulated/floor/carpet,
 /area/city/mendell/interior)
 "dZ" = (
@@ -966,7 +966,7 @@
 /area/city/mendell/interior)
 "fc" = (
 /turf/unsimulated/wall/fakeairlock{
-	icon = 'icons/obj/doors/Doorext.dmi';
+	icon = 'icons/obj/doors/Doorele.dmi';
 	icon_state = "door_locked";
 	name = "Service Airlock"
 	},
@@ -2680,7 +2680,7 @@
 /area/city/mendell)
 "pv" = (
 /turf/unsimulated/wall/fakeairlock{
-	icon = 'icons/obj/doors/Doorext.dmi';
+	icon = 'icons/obj/doors/Doorele.dmi';
 	icon_state = "door_locked";
 	name = "Mass Transit Incoming"
 	},
@@ -2773,7 +2773,7 @@
 	density = 1;
 	desc = "What jerk stacked these here?";
 	icon = 'icons/obj/crate.dmi';
-	icon_state = "tcfl_crate_preview";;
+	icon_state = "tcfl_crate_preview";
 	name = "inconveniently placed crate";
 	pixel_x = 3;
 	pixel_y = 8
@@ -3669,7 +3669,7 @@
 /area/city/mendell/interior)
 "vx" = (
 /turf/unsimulated/wall/fakeairlock{
-	icon = 'icons/obj/doors/Doorext.dmi';
+	icon = 'icons/obj/doors/Doorele.dmi';
 	icon_state = "door_locked";
 	name = "Service Airlock"
 	},
