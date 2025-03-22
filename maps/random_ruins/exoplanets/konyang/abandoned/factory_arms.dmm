@@ -678,7 +678,7 @@
 /turf/simulated/floor/foundation,
 /area/konyang/arms_factory)
 "zb" = (
-/obj/structure/street_sign/yield_konyang{
+/obj/structure/street_sign/yield{
 	pixel_x = -16
 	},
 /turf/simulated/floor/sidewalk/flat,
@@ -983,7 +983,6 @@
 /area/exoplanet/grass/konyang)
 "Om" = (
 /obj/structure/sign/exit{
-	dir = 4;
 	pixel_x = 6;
 	pixel_y = 7
 	},

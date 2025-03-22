@@ -5,7 +5,7 @@
 	icon_state = "car"
 	anchored = TRUE
 	density = TRUE
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 
 /obj/random/automobile
 	name = "random civilian automobile"
@@ -205,7 +205,7 @@
 	desc = "A stop sign to direct traffic. Sometimes a demand."
 	icon = 'icons/obj/structure/urban/street_signs.dmi'
 	icon_state = "stop"
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 	anchored = TRUE
 
 /obj/structure/street_sign/stop_konyang
@@ -217,7 +217,7 @@
 	desc = "A yield sign which tells you to slow down, rather politely. Let's hope you listen."
 	icon_state = "yield"
 
-/obj/structure/street_sign/yield_konyang
+/obj/structure/street_sign/yield/konyang
 	desc = "A yield sign. In Konyang!"
 	icon_state = "yield_konyang"
 
@@ -455,7 +455,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	icon_state = "sign1"
 	anchored = TRUE
 	layer = ABOVE_HUMAN_LAYER
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 
 /obj/structure/shipping_container
 	name = "freight container"
@@ -465,7 +465,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	anchored = TRUE
 	density = TRUE
 	layer = ABOVE_HUMAN_LAYER
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 
 /obj/effect/overlay/container_logo
 	name = "Hephaestus Industries emblem"
@@ -489,9 +489,8 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	icon = 'icons/obj/structure/urban/blockers.dmi'
 	icon_state = "rod_railing"
 	density = TRUE
-	throwpass = TRUE
 	climbable = TRUE
-	layer = ABOVE_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 	anchored = TRUE
 	pass_flags_self = PASSSTRUCTURE | LETPASSTHROW
 	climbable = TRUE
@@ -526,7 +525,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	density = TRUE
 	anchored = TRUE
 	pass_flags_self = PASSSTRUCTURE | LETPASSTHROW
-	layer = ABOVE_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 
 /obj/structure/road_barrier
 	name = "roadway barrier"
@@ -537,7 +536,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	pass_flags_self = PASSSTRUCTURE | LETPASSTHROW
 	climbable = TRUE
 	anchored = TRUE
-	layer = ABOVE_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 
 //smoothing these things would suck so here you go. i have no idea why you would want these buildable. map them manually
 /obj/structure/road_barrier/bot_in
@@ -576,7 +575,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 
 /obj/structure/chainlink_fence
 	name = "chainlink fence"
-	desc = "A tall, imposing metal fence. Not to be confused with the slightly more popular Chainlink of recent years."
+	desc = "A tall, imposing metal fence."
 	icon = 'icons/obj/structure/obstacles/obstacles.dmi'
 	density = TRUE
 	icon_state = "normal_fence"
@@ -584,8 +583,6 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	anchored = TRUE
 	can_be_unanchored = FALSE
 
-/obj/structure/chainlink_fence/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)//So bullets will fly over and stuff.
-	if(mover?.movement_type & PHASING)
 /obj/structure/chainlink_fence/corner
 	icon_state = "fence_corner"
 
@@ -598,8 +595,8 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 /obj/structure/chainlink_fence/intersect_corner
 	icon_state = "fence_intersect_corner"
 
-/obj/structure/chainlink_fence/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(istype(mover,/obj/item/projectile))
+/obj/structure/chainlink_fence/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)//So bullets will fly over and stuff.
+	if(mover?.movement_type & PHASING)
 		return TRUE
 	if(air_group || (height==0))
 		return TRUE
@@ -673,7 +670,6 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	density = TRUE
 	anchored = TRUE
 
-
 /obj/structure/statue/buddha
 	name = "buddha statue"
 	desc = "A bronze statue of the Amitabha Buddha, the Buddha of Limitless Light."
@@ -683,13 +679,6 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	name = "gusoku"
 	desc = "A set of armor modelled after historical designs. Pieces replicating ancient artifacts are common on Konyang and viewed as favored pieces of art."
 	icon_state = "gusoku"
-
-/obj/structure/sign/urban
-	name = "exit sign"
-	desc = "A sign indicating where you should probably go in a hurry."
-	icon = 'icons/obj/structure/urban/infrastructure.dmi'
-	icon_state = "exit"
-	layer = ABOVE_HUMAN_LAYER
 
 /obj/structure/sign/billboard
 	name = "commercial billboard"

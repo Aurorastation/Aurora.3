@@ -25,7 +25,7 @@
 	desc = "A flame-lit lamp dangling precariously from a tall pole."
 	icon = 'icons/obj/structure/urban/streetpoles.dmi'
 	icon_state = "lamp"
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 	anchored = TRUE
 	density = FALSE
 	light_color = "#FA644B"
@@ -43,7 +43,7 @@
 	desc = "A very tall utility pole for urban infrastructure."
 	icon = 'icons/obj/structure/urban/streetpoles.dmi'
 	icon_state = "junction"
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 	anchored = TRUE
 	pixel_x = -32
 	pixel_y = 8
@@ -63,7 +63,7 @@
 	icon_state = "streetlight"
 
 /obj/effect/overlay/street_light
-	icon = 'icons/obj/structure/urban/poles.dmi'
+	icon = 'icons/obj/structure/urban/streetpoles.dmi'
 	icon_state = "street_light"
 	plane = EFFECTS_ABOVE_LIGHTING_PLANE
 
@@ -166,11 +166,17 @@
 /obj/structure/utility_pole/street/traffic/konyang
 	icon_state = "trafficlight_konyang"
 
+/obj/effect/overlay/street_light/traffic
+	icon_state = "traffic_lights"
+
 /obj/structure/utility_pole/street/traffic/base/Initialize(mapload)
 	. = ..()
 	ClearOverlays()
 	AddOverlays(/obj/effect/overlay/street_light/traffic)
 	return
+
+/obj/effect/overlay/street_light/traffic/inverted
+	icon_state = "traffic_lights_inverse"
 
 /obj/structure/utility_pole/street/traffic/inverted/Initialize(mapload)
 	. = ..()
@@ -189,7 +195,7 @@
 	name = "overhead utility line"
 	icon = 'icons/obj/structure/urban/streetpoles.dmi'
 	icon_state = "line"
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 	pixel_x = -32
 	pixel_y = 8
 

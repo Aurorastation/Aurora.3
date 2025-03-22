@@ -638,7 +638,7 @@
 	name = "exit sign"
 	desc = "A sign indicating where you should probably go in a hurry."
 	icon_state = "exit"
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 
 /obj/structure/sign/restroom
 	name = "restroom sign"

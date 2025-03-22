@@ -716,7 +716,7 @@
 /atom/movable/proc/get_bullet_impact_effect_type()
 	return BULLET_IMPACT_NONE
 
-// /atom/movable/proc/do_pickup_animation(atom/target, var/image/pickup_animation = image(icon, loc, icon_state, ABOVE_ALL_MOB_LAYER, dir, pixel_x, pixel_y))
+// /atom/movable/proc/do_pickup_animation(atom/target, var/image/pickup_animation = image(icon, loc, icon_state, ABOVE_HUMAN_LAYER, dir, pixel_x, pixel_y))
 /obj/item/proc/do_pickup_animation(atom/target, turf/source)
 	if(!source)
 		if(!istype(loc, /turf))

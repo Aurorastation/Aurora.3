@@ -23,4 +23,4 @@
 	icon_state = "radio_ship"
 	anchored = TRUE
 	density = TRUE
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER

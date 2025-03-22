@@ -2,7 +2,7 @@
 "ac" = (
 /obj/structure/chainlink_fence,
 /obj/structure/flora/bush/konyang_reeds,
-/obj/structure/road_sign/yield{
+/obj/structure/street_sign/yield{
 	name = "NO TRESPASSING sign";
 	desc = "A sign which declares this area as SCC property and staunchly declines any thought of trespassing."
 	},
@@ -298,7 +298,7 @@
 /area/konyang_telecomms_outpost)
 "on" = (
 /obj/effect/decal/road_marking/thin,
-/obj/machinery/mech_recharger/automobile,
+/obj/machinery/mech_recharger,
 /turf/simulated/floor/asphalt,
 /area/konyang_telecomms_outpost)
 "oG" = (
@@ -348,7 +348,7 @@
 /area/konyang_telecomms_outpost)
 "rm" = (
 /obj/effect/decal/road_marking/thin,
-/obj/machinery/mech_recharger/automobile,
+/obj/machinery/mech_recharger,
 /obj/vehicle/bike/speeder{
 	dir = 4
 	},
@@ -428,7 +428,7 @@
 /area/konyang_telecomms_outpost)
 "uR" = (
 /obj/structure/chainlink_fence,
-/obj/structure/road_sign/yield{
+/obj/structure/street_sign/yield{
 	name = "NO TRESPASSING sign";
 	desc = "A sign which declares this area as SCC property and staunchly declines any thought of trespassing."
 	},
@@ -511,7 +511,7 @@
 /area/konyang_telecomms_outpost)
 "yr" = (
 /obj/effect/decal/road_marking/thin,
-/obj/machinery/mech_recharger/automobile,
+/obj/machinery/mech_recharger,
 /obj/vehicle/bike/speeder{
 	dir = 8
 	},

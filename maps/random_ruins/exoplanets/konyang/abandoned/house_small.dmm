@@ -45,7 +45,7 @@
 /turf/simulated/floor/exoplanet/wood/bamboo,
 /area/konyang/house_small)
 "cL" = (
-/obj/machinery/mech_recharger/automobile,
+/obj/machinery/mech_recharger,
 /obj/effect/decal/curb{
 	dir = 10
 	},
@@ -194,7 +194,7 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/grass/konyang)
 "ki" = (
-/obj/machinery/mech_recharger/automobile,
+/obj/machinery/mech_recharger,
 /obj/effect/decal/curb{
 	dir = 6
 	},

@@ -43,14 +43,14 @@
 	desc = "The *other* kind of power-point."
 	icon = 'icons/obj/structure/miscellaneous.dmi'
 	icon_state = "outlet"
-	layer = LAYER_UNDER_TABLE
+	layer = BELOW_TABLE_LAYER
 
 /obj/structure/vent
 	name = "wall vent"
 	desc = "A nondescript vent."
 	icon = 'icons/obj/structure/miscellaneous.dmi'
 	icon_state = "vent"
-	layer = LAYER_UNDER_TABLE
+	layer = BELOW_TABLE_LAYER
 
 /obj/structure/window
 	name = "window"
@@ -66,7 +66,7 @@
 	icon = 'icons/obj/structure/64x64_misc.dmi'
 	icon_state = "umbrella"
 	anchored = TRUE
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 
 /obj/structure/beach_umbrella/alt
 	icon_state = "umbrella_alt"
@@ -78,7 +78,7 @@
 	icon_state = "crane"
 	anchored = TRUE
 	density = TRUE
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 
 /obj/structure/crane/body
 	icon_state = "crane_body"
