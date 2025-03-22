@@ -419,7 +419,8 @@
 /obj/vehicle/bike/casino/Move(var/turf/destination)
 	if(!paid)
 		return
-	..()
+
+	. = ..()
 
 /obj/vehicle/bike/casino/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/coin/casino))

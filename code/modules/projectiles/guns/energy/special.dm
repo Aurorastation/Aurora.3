@@ -651,7 +651,7 @@
 		user.update_inv_back()
 
 /obj/item/gun/energy/galatea/Move()
-	..()
+	. = ..()
 	if(loc != source.loc)
 		INVOKE_ASYNC(source, TYPE_PROC_REF(/obj/item/laserpack, remove_gun)) // prevent even weirder shit
 

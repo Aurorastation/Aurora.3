@@ -808,8 +808,8 @@ var/global/enabled_spooking = 0
 	set desc="Start the round RIGHT NOW"
 	set name="Start Now"
 	if(!MC_RUNNING())
-		alert("Unable to start the game as it is not set up.")
-		return
+		to_chat(usr, SPAN_NOTICE("The round will be started automatically as soon as ready."))
+		UNTIL(SSticker?.current_state == GAME_STATE_PREGAME)
 	if(SSticker.current_state == GAME_STATE_PREGAME)
 		SSticker.current_state = GAME_STATE_SETTING_UP
 		log_admin("[usr.key] has started the game.")

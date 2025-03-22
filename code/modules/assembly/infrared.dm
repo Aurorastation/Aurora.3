@@ -106,10 +106,9 @@
 
 /obj/item/device/assembly/infra/Move()
 	var/t = dir
-	..()
+	. = ..()
 	set_dir(t)
 	QDEL_NULL(first)
-	return
 
 /obj/item/device/assembly/infra/holder_movement()
 	if(!holder)

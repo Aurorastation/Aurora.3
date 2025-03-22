@@ -4,6 +4,8 @@
 	icon_state = "object"
 	color = "#fffffe"
 	mouse_opacity = MOUSE_OPACITY_ICON
+	layer = OVERMAP_SECTOR_LAYER
+	set_dir_on_move = FALSE
 
 //RP fluff details to appear on scan readouts for any object we want to include these details with
 	var/scanimage = "no_data.png"
@@ -19,7 +21,6 @@
 	var/static_vessel = FALSE //Used to expand scan details for visible space stations
 	var/landing_site = FALSE //Used for unique landing sites that occupy the same overmap tile as another - for example, the implementation of Point Verdant and Konyang
 
-	layer = OVERMAP_SECTOR_LAYER
 
 	var/list/map_z = list()
 
