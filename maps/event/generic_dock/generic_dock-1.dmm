@@ -8554,7 +8554,7 @@
 /area/centcom/control)
 "jqa" = (
 /turf/unsimulated/wall/fakeairlock{
-	icon = 'icons/obj/doors/Doorele.dmi';
+	icon = 'icons/obj/doors/Doorext.dmi';
 	icon_state = "door_locked";
 	name = "Service Airlock"
 	},
@@ -9534,7 +9534,7 @@
 /area/centcom/specops)
 "kCI" = (
 /turf/unsimulated/wall/fakeairlock{
-	icon = 'icons/obj/doors/Doorele.dmi';
+	icon = 'icons/obj/doors/Doorext.dmi';
 	icon_state = "door_locked"
 	},
 /area/centcom/specops)
@@ -17266,7 +17266,7 @@
 /area/centcom/evac)
 "wOf" = (
 /turf/unsimulated/wall/fakeairlock{
-	icon = 'icons/obj/doors/Doorele.dmi';
+	icon = 'icons/obj/doors/Doorext.dmi';
 	icon_state = "door_locked";
 	name = "service airlock"
 	},
