@@ -147,21 +147,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
-"aeF" = (
-/obj/structure/street_sign/turn{
-	pixel_x = -16;
-	dir = 2;
-	pixel_y = -9
-	},
-/obj/effect/decal/road_marking{
-	dir = 1
-	},
-/obj/effect/decal/curb{
-	dir = 1
-	},
-/obj/structure/road_barrier,
-/turf/simulated/floor/asphalt,
-/area/point_verdant/outdoors)
 "afo" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/random/dirt_75,
@@ -7489,7 +7474,7 @@
 /area/point_verdant/outdoors)
 "egp" = (
 /obj/structure/street_sign/turn{
-	pixel_x = 13
+	dir = 4
 	},
 /turf/simulated/floor/sidewalk/paved,
 /area/point_verdant/interior/parking)
@@ -9185,19 +9170,6 @@
 /obj/structure/lattice,
 /turf/simulated/open,
 /area/point_verdant/interior/arcade)
-"eXY" = (
-/obj/effect/decal/road_marking/crosswalk{
-	dir = 1
-	},
-/obj/effect/decal/curb{
-	dir = 1
-	},
-/obj/structure/street_sign/turn{
-	pixel_x = 15;
-	pixel_y = -7
-	},
-/turf/simulated/floor/asphalt,
-/area/point_verdant/outdoors)
 "eYd" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 1
@@ -10404,17 +10376,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
-"fEa" = (
-/obj/structure/street_sign/warnings{
-	pixel_x = -1;
-	dir = 4;
-	pixel_y = 7
-	},
-/obj/structure/ledge/quarter{
-	dir = 1
-	},
-/turf/simulated/floor/exoplanet/konyang/no_edge,
-/area/point_verdant/outdoors)
 "fEu" = (
 /obj/machinery/button/remote/blast_door{
 	id = "konyang_clinic";
@@ -16206,9 +16167,6 @@
 /obj/effect/decal/road_marking{
 	dir = 8
 	},
-/obj/structure/street_sign/turn{
-	pixel_x = -11
-	},
 /obj/effect/decal/curb{
 	dir = 4
 	},
@@ -17307,8 +17265,7 @@
 /area/point_verdant/outdoors)
 "jOp" = (
 /obj/structure/street_sign/turn{
-	dir = 2;
-	pixel_x = -14
+	dir = 4
 	},
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
@@ -30737,6 +30694,9 @@
 	street_name = "Listor Bend Street";
 	pixel_y = 30
 	},
+/obj/structure/street_sign/turn{
+	dir = 4
+	},
 /turf/simulated/floor/sidewalk/detail,
 /area/point_verdant/outdoors)
 "rLl" = (
@@ -39535,7 +39495,9 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior/tunnels)
 "wXO" = (
-/obj/structure/street_sign/turn,
+/obj/structure/street_sign/turn{
+	dir = 4
+	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "wXX" = (
@@ -128035,8 +127997,8 @@ quY
 cJz
 gjb
 lxf
-aeF
-fEa
+wMJ
+uKj
 xsB
 pAO
 lVT
@@ -132332,7 +132294,7 @@ kfn
 xwS
 fju
 xwS
-eXY
+olz
 rNy
 ipp
 ipp
