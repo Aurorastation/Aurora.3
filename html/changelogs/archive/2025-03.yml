@@ -211,3 +211,7 @@
   Wowzewow (Wezzy):
   - bugfix: Fixes invisible thermal lance inhands.
   - bugfix: Fixes bulwark chat bubbles.
+2025-03-22:
+  FlamingLily:
+  - bugfix: Fixes hopping down platforms so that they do not pull people through railings
+      and down into the depths below.
