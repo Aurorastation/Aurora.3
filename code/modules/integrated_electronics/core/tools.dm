@@ -231,6 +231,7 @@
 		/obj/item/screwdriver,
 		/obj/item/device/multitool
 	)
+	make_exact_fit = TRUE
 
 /obj/item/storage/bag/circuits/basic/fill()
 	new /obj/item/storage/bag/circuits/mini/arithmetic(src)
@@ -251,7 +252,6 @@
 	new /obj/item/device/multitool(src)
 	new /obj/item/screwdriver(src)
 	new /obj/item/crowbar(src)
-	make_exact_fit()
 
 /obj/item/storage/bag/circuits/all/fill()
 	..()
@@ -276,7 +276,6 @@
 	new /obj/item/device/integrated_electronics/wirer(src)
 	new /obj/item/device/integrated_electronics/debugger(src)
 	new /obj/item/crowbar(src)
-	make_exact_fit()
 
 /obj/item/storage/bag/circuits/mini
 	name = "circuit box"
@@ -297,8 +296,6 @@
 		if (IC.spawn_flags & spawn_flags_to_use)
 			for (var/i in 1 to 4)
 				new IC.type(src)
-
-	make_exact_fit()
 
 /obj/item/storage/bag/circuits/mini/arithmetic
 	name = "arithmetic circuit box"

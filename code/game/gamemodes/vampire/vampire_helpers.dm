@@ -20,7 +20,7 @@
 
 	add_verb(src, /datum/antagonist/vampire/proc/vampire_help)
 
-	for(var/datum/power/vampire/P in vampirepowers)
+	for(var/datum/power/vampire/P in GLOB.vampirepowers)
 		if(!(P in vampire.purchased_powers))
 			if(!P.blood_cost)
 				vampire.add_power(mind, P, 0)
@@ -35,7 +35,7 @@
 	if(!vampire)
 		return
 
-	for (var/datum/power/vampire/P in vampirepowers)
+	for (var/datum/power/vampire/P in GLOB.vampirepowers)
 		if (P.blood_cost <= vampire.blood_total)
 			if (!(P in vampire.purchased_powers))
 				vampire.add_power(mind, P, 1)

@@ -21,7 +21,7 @@
 	icon_state = "syndie_bloodhound"
 	spawn_sound = 'sound/mecha/nominalsyndi.ogg'
 	pitch_toggle = FALSE
-	braintype = "Android" // Posibrain.
+	braintype = "Robot"
 
 	// ID and Access
 	req_access = list(ACCESS_SYNDICATE)

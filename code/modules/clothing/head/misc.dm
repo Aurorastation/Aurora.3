@@ -531,7 +531,7 @@
 	item_state = "navy_utility"
 	contained_sprite = TRUE
 	armor = list(
-		melee = ARMOR_MELEE_MINOR
+		MELEE = ARMOR_MELEE_MINOR
 		)
 
 /obj/item/clothing/head/sol/dress
@@ -587,11 +587,11 @@
 	icon_state = "helmet_tac_sol"
 	item_state = "helmet_tac_sol"
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_RIFLE,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_RIFLE,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED
 	)
 	contained_sprite = TRUE
 
@@ -710,11 +710,11 @@
 	icon_state = "helmet_konyang_army"
 	item_state = "helmet_konyang_army"
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_RIFLE,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_RIFLE,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED
 	)
 	contained_sprite = TRUE
 
@@ -815,3 +815,12 @@
 	desc = "A military-style corporate peaked cap. This one bears the colors of the Private Military Contracting Group."
 	icon_state = "pmc_warden_hat_nologo"
 	item_state = "pmc_warden_hat_nologo"
+
+//goblin.stev's stuff
+/obj/item/clothing/head/qeburger_visor
+	name = "Quick-E-Burger Food Technician Visor"
+	desc = "For stylish employees on the retail grind, the Quick-E-Burger Food Technician Visor is the latest in form-first fashion! Supplied and manufactured in bulk by Quick-E-Burger's parent company, Orion Express, the Food Technician Visor is equipped with an innovative easy-to-use velcro headstrap to keep the company's prime product sky-high, and its light-resistant plastic visor is perfect for keeping sun, lights, and disappointed family-members alike out of employees' eyes!"
+	icon = 'icons/obj/clothing/hats/orion.dmi'
+	icon_state = "quickeburger_visorcap"
+	item_state = "quickeburger_visorcap"
+	contained_sprite = TRUE

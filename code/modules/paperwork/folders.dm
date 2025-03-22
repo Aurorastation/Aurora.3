@@ -54,13 +54,13 @@
 	var/dat = "<title>[name]</title>"
 
 	for(var/obj/item/paper/P in src)
-		dat += "[can_write ? "<A href='?src=[REF(src)];write=[REF(P)]'>Write</A> " : ""]<A href='?src=[REF(src)];remove=[REF(P)]'>Remove</A> <A href='?src=[REF(src)];rename=[REF(P)]'>Rename</A> - <A href='?src=[REF(src)];read=[REF(P)]'>[P.name]</A><BR>"
+		dat += "[can_write ? "<A href='byond://?src=[REF(src)];write=[REF(P)]'>Write</A> " : ""]<A href='byond://?src=[REF(src)];remove=[REF(P)]'>Remove</A> <A href='byond://?src=[REF(src)];rename=[REF(P)]'>Rename</A> - <A href='byond://?src=[REF(src)];read=[REF(P)]'>[P.name]</A><BR>"
 	for(var/obj/item/photo/Ph in src)
-		dat += "<A href='?src=[REF(src)];remove=[REF(Ph)]'>Remove</A> <A href='?src=[REF(src)];rename=[REF(Ph)]'>Rename</A> - <A href='?src=[REF(src)];look=[REF(Ph)]'>[Ph.name]</A><BR>"
+		dat += "<A href='byond://?src=[REF(src)];remove=[REF(Ph)]'>Remove</A> <A href='byond://?src=[REF(src)];rename=[REF(Ph)]'>Rename</A> - <A href='byond://?src=[REF(src)];look=[REF(Ph)]'>[Ph.name]</A><BR>"
 	for(var/obj/item/paper_bundle/Pb in src)
-		dat += "<A href='?src=[REF(src)];remove=[REF(Pb)]'>Remove</A> <A href='?src=[REF(src)];rename=[REF(Pb)]'>Rename</A> - <A href='?src=[REF(src)];browse=[REF(Pb)]'>[Pb.name]</A><BR>"
+		dat += "<A href='byond://?src=[REF(src)];remove=[REF(Pb)]'>Remove</A> <A href='byond://?src=[REF(src)];rename=[REF(Pb)]'>Rename</A> - <A href='byond://?src=[REF(src)];browse=[REF(Pb)]'>[Pb.name]</A><BR>"
 	for(var/obj/item/sample/Pf in src)
-		dat += "<A href='?src=[REF(src)];remove=[REF(Pf)]'>Remove</A> - [Pf.name]<BR>"
+		dat += "<A href='byond://?src=[REF(src)];remove=[REF(Pf)]'>Remove</A> - [Pf.name]<BR>"
 	user << browse(dat, "window=folder")
 	onclose(user, "folder")
 	add_fingerprint(usr)

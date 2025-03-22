@@ -113,16 +113,16 @@
 		dat += "Not Detected<br>"
 	dat += "Power: "
 	if(on)
-		dat += "<A href='?src=[REF(src)];op=off'>On</A><br>"
+		dat += "<A href='byond://?src=[REF(src)];op=off'>On</A><br>"
 	else
-		dat += "<A href='?src=[REF(src)];op=on'>Off</A><br>"
+		dat += "<A href='byond://?src=[REF(src)];op=on'>Off</A><br>"
 
 	dat += "Power Level: [cell ? round(cell.percent(),1) : 0]%<br><br>"
 
 	dat += "Set Temperature: "
-	dat += "<A href='?src=[REF(src)];op=temp;val=-5'>-</A>"
+	dat += "<A href='byond://?src=[REF(src)];op=temp;val=-5'>-</A>"
 	dat += " [set_temperature]K ([set_temperature-T0C]&deg;C) "
-	dat += "<A href='?src=[REF(src)];op=temp;val=5'>+</A><br>"
+	dat += "<A href='byond://?src=[REF(src)];op=temp;val=5'>+</A><br>"
 
 	user.set_machine(src)
 	var/datum/browser/heater_win = new(user, "spaceheater", "Space Heater Control Panel")

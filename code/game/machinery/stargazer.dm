@@ -18,7 +18,7 @@
 /obj/machinery/stargazer/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(!(stat & BROKEN) && !(stat & NOPOWER))
-		. += SPAN_NOTICE("\The [src] shows the current sector to be <a href='?src=[REF(src)];examine=1'>[SSatlas.current_sector.name]</a>.")
+		. += SPAN_NOTICE("\The [src] shows the current sector to be <a href='byond://?src=[REF(src)];examine=1'>[SSatlas.current_sector.name]</a>.")
 
 /obj/machinery/stargazer/power_change()
 	..()

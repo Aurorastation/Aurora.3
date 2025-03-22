@@ -70,43 +70,43 @@
 	if(chosen == "gold")
 		dat += "chosen"
 	else
-		dat += "<A href='?src=[REF(src)];choose=gold'>Choose</A>"
+		dat += "<A href='byond://?src=[REF(src)];choose=gold'>Choose</A>"
 	dat += "<br><font color='#888888'><b>Silver inserted: </b>[amt_silver]</font> "
 	if(chosen == "silver")
 		dat += "chosen"
 	else
-		dat += "<A href='?src=[REF(src)];choose=silver'>Choose</A>"
+		dat += "<A href='byond://?src=[REF(src)];choose=silver'>Choose</A>"
 	dat += "<br><font color='#555555'><b>Iron inserted: </b>[amt_iron]</font> "
 	if(chosen == DEFAULT_WALL_MATERIAL)
 		dat += "chosen"
 	else
-		dat += "<A href='?src=[REF(src)];choose=metal'>Choose</A>"
+		dat += "<A href='byond://?src=[REF(src)];choose=metal'>Choose</A>"
 	dat += "<br><font color='#8888FF'><b>Diamond inserted: </b>[amt_diamond]</font> "
 	if(chosen == "diamond")
 		dat += "chosen"
 	else
-		dat += "<A href='?src=[REF(src)];choose=diamond'>Choose</A>"
+		dat += "<A href='byond://?src=[REF(src)];choose=diamond'>Choose</A>"
 	dat += "<br><font color='#FF8800'><b>Phoron inserted: </b>[amt_phoron]</font> "
 	if(chosen == "phoron")
 		dat += "chosen"
 	else
-		dat += "<A href='?src=[REF(src)];choose=phoron'>Choose</A>"
+		dat += "<A href='byond://?src=[REF(src)];choose=phoron'>Choose</A>"
 	dat += "<br><font color='#008800'><b>Uranium inserted: </b>[amt_uranium]</font> "
 	if(chosen == "uranium")
 		dat += "chosen"
 	else
-		dat += "<A href='?src=[REF(src)];choose=uranium'>Choose</A>"
+		dat += "<A href='byond://?src=[REF(src)];choose=uranium'>Choose</A>"
 
 	dat += "<br><br>Will produce [coinsToProduce] [chosen] coins if enough materials are available.<br>"
-	dat += "<A href='?src=[REF(src)];chooseAmt=-10'>-10</A> "
-	dat += "<A href='?src=[REF(src)];chooseAmt=-5'>-5</A> "
-	dat += "<A href='?src=[REF(src)];chooseAmt=-1'>-1</A> "
-	dat += "<A href='?src=[REF(src)];chooseAmt=1'>+1</A> "
-	dat += "<A href='?src=[REF(src)];chooseAmt=5'>+5</A> "
-	dat += "<A href='?src=[REF(src)];chooseAmt=10'>+10</A> "
+	dat += "<A href='byond://?src=[REF(src)];chooseAmt=-10'>-10</A> "
+	dat += "<A href='byond://?src=[REF(src)];chooseAmt=-5'>-5</A> "
+	dat += "<A href='byond://?src=[REF(src)];chooseAmt=-1'>-1</A> "
+	dat += "<A href='byond://?src=[REF(src)];chooseAmt=1'>+1</A> "
+	dat += "<A href='byond://?src=[REF(src)];chooseAmt=5'>+5</A> "
+	dat += "<A href='byond://?src=[REF(src)];chooseAmt=10'>+10</A> "
 
 	dat += "<br><br>In total this machine produced <font color='green'><b>[newCoins]</b></font> coins."
-	dat += "<br><A href='?src=[REF(src)];makeCoins=[1]'>Make coins</A>"
+	dat += "<br><A href='byond://?src=[REF(src)];makeCoins=[1]'>Make coins</A>"
 	user << browse("[dat]", "window=mint")
 
 /obj/machinery/mineral/mint/Topic(href, href_list)

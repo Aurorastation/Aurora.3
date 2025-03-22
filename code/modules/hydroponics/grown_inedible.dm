@@ -9,6 +9,7 @@
 		slot_l_hand_str = 'icons/mob/items/lefthand_grown.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_grown.dmi',
 		)
+	storage_slot_sort_by_name = TRUE
 	var/plantname
 	var/potency = 1
 

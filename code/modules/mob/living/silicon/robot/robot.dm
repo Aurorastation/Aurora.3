@@ -100,7 +100,7 @@
 
 	// Laws
 	var/mob/living/silicon/ai/connected_ai
-	var/law_preset = /datum/ai_laws/nanotrasen
+	var/law_preset = /datum/ai_laws/conglomerate
 	var/law_update = TRUE // Whether they sync with their AI or not.
 
 	// Access
@@ -346,11 +346,11 @@
 	if(module)
 		selecting_module = FALSE
 		return
-	if(!(mod_type in robot_modules))
+	if(!(mod_type in GLOB.robot_modules))
 		selecting_module = FALSE
 		return
 
-	var/module_type = robot_modules[mod_type]
+	var/module_type = GLOB.robot_modules[mod_type]
 	playsound(get_turf(src), 'sound/effects/pop.ogg', 100, TRUE)
 	spark(get_turf(src), 5, GLOB.alldirs)
 
@@ -369,9 +369,7 @@
 	if(prefix)
 		mod_type = prefix
 
-	if(istype(mmi, /obj/item/device/mmi/digital/posibrain))
-		braintype = "Android"
-	else if(istype(mmi, /obj/item/device/mmi/digital/robot))
+	if(istype(mmi, /obj/item/device/mmi/digital/robot))
 		braintype = "Robot"
 	else
 		braintype = "Cyborg"
@@ -874,9 +872,9 @@
 	dat += {"
 	<B>Activated Modules</B>
 	<BR>
-	Module 1: [module_state_1 ? "<A HREF=?src=[REF(src)];mod=[REF(module_state_1)]>[module_state_1]<A>" : "No Module"]<BR>
-	Module 2: [module_state_2 ? "<A HREF=?src=[REF(src)];mod=[REF(module_state_2)]>[module_state_2]<A>" : "No Module"]<BR>
-	Module 3: [module_state_3 ? "<A HREF=?src=[REF(src)];mod=[REF(module_state_3)]>[module_state_3]<A>" : "No Module"]<BR>
+	Module 1: [module_state_1 ? "<A href='byond://?src=[REF(src)];mod=[REF(module_state_1)]>[module_state_1]<A>" : "No Module"]<BR>
+	Module 2: [module_state_2 ? "<A href='byond://?src=[REF(src)];mod=[REF(module_state_2)]>[module_state_2]<A>" : "No Module"]<BR>
+	Module 3: [module_state_3 ? "<A href='byond://?src=[REF(src)];mod=[REF(module_state_3)]>[module_state_3]<A>" : "No Module"]<BR>
 	<BR>
 	<B>Installed Modules</B><BR><BR>"}
 
@@ -887,17 +885,17 @@
 		else if(activated(obj))
 			dat += "[obj]: <B>Activated</B><BR>"
 		else
-			dat += "[obj]: <A HREF=?src=[REF(src)];act=[REF(obj)]>Activate</A><BR>"
+			dat += "[obj]: <A href='byond://?src=[REF(src)];act=[REF(obj)]>Activate</A><BR>"
 	if(emagged)
 		if(activated(module.emag))
 			dat += "[module.emag]: <B>Activated</B><BR>"
 		else
-			dat += "[module.emag]: <A HREF=?src=[REF(src)];act=[REF(module.emag)]>Activate</A><BR>"
+			dat += "[module.emag]: <A href='byond://?src=[REF(src)];act=[REF(module.emag)]>Activate</A><BR>"
 	if(malf_AI_module)
 		if(activated(module.malf_AI_module))
 			dat += "[module.malf_AI_module]: <B>Activated</B><BR>"
 		else
-			dat += "[module.malf_AI_module]: <A HREF=?src=[REF(src)];act=[REF(module.malf_AI_module)]>Activate</A><BR>"
+			dat += "[module.malf_AI_module]: <A href='byond://?src=[REF(src)];act=[REF(module.malf_AI_module)]>Activate</A><BR>"
 	src << browse(dat, "window=robotmod")
 
 

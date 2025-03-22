@@ -449,7 +449,7 @@
 				var/mirror_count = 0
 				var/mirror_data = "<br>"
 				while (mirror_query.NextRow())
-					mirror_data += "Active mirror for #[mirror_query.item[1]] (<a href='?src=[REF(src)];dbsearchckey=[mirror_query.item[2]];'>View Ban</a>)<br>"
+					mirror_data += "Active mirror for #[mirror_query.item[1]] (<a href='byond://?src=[REF(src)];dbsearchckey=[mirror_query.item[2]];'>View Ban</a>)<br>"
 					mirror_count++
 
 				if (mirror_count)

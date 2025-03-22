@@ -220,8 +220,8 @@
 /mob/living/simple_animal/ice_catcher/Move()
 	if(burrowed)
 		return
-	else
-		..()
+
+	. = ..()
 
 /mob/living/simple_animal/ice_catcher/proc/unburrow()
 	burrowed = FALSE
@@ -288,9 +288,9 @@
 	meat_amount = 4
 	vehicle_version = /obj/vehicle/animal/climber
 	natural_armor = list(
-		melee = ARMOR_MELEE_MEDIUM,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		bomb = ARMOR_BOMB_MINOR
+		MELEE = ARMOR_MELEE_MEDIUM,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		BOMB = ARMOR_BOMB_MINOR
 	)
 
 /mob/living/simple_animal/climber/saddle

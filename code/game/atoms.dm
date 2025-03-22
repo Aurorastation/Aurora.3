@@ -107,10 +107,9 @@
  */
 /atom/proc/emp_act(var/severity)
 	SHOULD_CALL_PARENT(TRUE)
+	SHOULD_NOT_SLEEP(TRUE)
 
 	var/protection = SEND_SIGNAL(src, COMSIG_ATOM_PRE_EMP_ACT, severity)
-
-	RETURN_TYPE(protection)
 
 	SEND_SIGNAL(src, COMSIG_ATOM_EMP_ACT, severity, protection)
 	return protection // Pass the protection value collected here upwards
@@ -548,12 +547,6 @@
 			if(!(H in hearers))
 				if(src.z == H.z && get_dist(src, H) <= range)
 					H.intent_listen(src, message)
-
-/atom/proc/change_area(var/area/oldarea, var/area/newarea)
-	change_area_name(oldarea.name, newarea.name)
-
-/atom/proc/change_area_name(var/oldname, var/newname)
-	name = replacetext(name,oldname,newname)
 
 /atom/movable/proc/dropInto(var/atom/destination)
 	while(istype(destination))

@@ -71,7 +71,7 @@
 				<A href='byond://?src=[REF(src)];freq=10'>+</A><BR>
 				"}
 
-	dat += "<A href='?src=[REF(src)];close=1'>Close</a><br>"
+	dat += "<A href='byond://?src=[REF(src)];close=1'>Close</a><br>"
 	user << browse(dat,"window=locater;size=300x150")
 	onclose(user, "locater")
 

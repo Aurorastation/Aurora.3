@@ -130,7 +130,7 @@
 #define HOLOSCREEN_MULTIPLICATION_OPACITY 1
 
 // Just so we can avoid unneeded proc calls when profiling is disabled.
-#define L_PROF(O,T) if (lighting_profiling) {lprof_write(O,T);}
+#define L_PROF(O,T) if (GLOB.lighting_profiling) {lprof_write(O,T);}
 
 // -- Ambient Occlusion --
 

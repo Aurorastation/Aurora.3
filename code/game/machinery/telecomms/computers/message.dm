@@ -103,10 +103,10 @@
 	dat += "<center><h4><font color='blue'[message]</h5></center>"
 
 	if(auth)
-		dat += "<h4><dd><A href='?src=[REF(src)];auth=1'>&#09;<font color='green'>\[Authenticated\]</font></a>&#09;/"
-		dat += " Server Power: <A href='?src=[REF(src)];active=1'>[src.linkedServer && src.linkedServer.use_power ? "<font color='green'>\[On\]</font>":SPAN_WARNING("\[Off\]")]</a></h4>"
+		dat += "<h4><dd><A href='byond://?src=[REF(src)];auth=1'>&#09;<font color='green'>\[Authenticated\]</font></a>&#09;/"
+		dat += " Server Power: <A href='byond://?src=[REF(src)];active=1'>[src.linkedServer && src.linkedServer.use_power ? "<font color='green'>\[On\]</font>":SPAN_WARNING("\[Off\]")]</a></h4>"
 	else
-		dat += "<h4><dd><A href='?src=[REF(src)];auth=1'>&#09;<span class='warning'>\[Unauthenticated\]</span></a>&#09;/"
+		dat += "<h4><dd><A href='byond://?src=[REF(src)];auth=1'>&#09;<span class='warning'>\[Unauthenticated\]</span></a>&#09;/"
 		dat += " Server Power: <u>[src.linkedServer && src.linkedServer.use_power ? "<font color='green'>\[On\]</font>":SPAN_WARNING("\[Off\]")]</u></h4>"
 
 	if(hacking || emag)
@@ -120,24 +120,24 @@
 		if(0)
 			//&#09; = TAB
 			var/i = 0
-			dat += "<dd><A href='?src=[REF(src)];find=1'>&#09;[++i]. Link To A Server</a></dd>"
+			dat += "<dd><A href='byond://?src=[REF(src)];find=1'>&#09;[++i]. Link To A Server</a></dd>"
 			if(auth)
 				if(!linkedServer || (linkedServer.stat & (NOPOWER|BROKEN)))
 					dat += "<dd><A>&#09;ERROR: Server not found!</A><br></dd>"
 				else
-					dat += "<dd><A href='?src=[REF(src)];view=1'>&#09;[++i]. View Message Logs </a><br></dd>"
-					dat += "<dd><A href='?src=[REF(src)];viewr=1'>&#09;[++i]. View Requests Console Logs </a></br></dd>"
-					dat += "<dd><A href='?src=[REF(src)];clear=1'>&#09;[++i]. Clear Message Logs</a><br></dd>"
-					dat += "<dd><A href='?src=[REF(src)];clearr=1'>&#09;[++i]. Clear Requests Console Logs</a><br></dd>"
-					dat += "<dd><A href='?src=[REF(src)];pass=1'>&#09;[++i]. Set Custom Key</a><br></dd>"
-					dat += "<dd><A href='?src=[REF(src)];msg=1'>&#09;[++i]. Send Admin Message</a><br></dd>"
-					dat += "<dd><A href='?src=[REF(src)];spam=1'>&#09;[++i]. Modify Spam Filter</a><br></dd>"
+					dat += "<dd><A href='byond://?src=[REF(src)];view=1'>&#09;[++i]. View Message Logs </a><br></dd>"
+					dat += "<dd><A href='byond://?src=[REF(src)];viewr=1'>&#09;[++i]. View Requests Console Logs </a></br></dd>"
+					dat += "<dd><A href='byond://?src=[REF(src)];clear=1'>&#09;[++i]. Clear Message Logs</a><br></dd>"
+					dat += "<dd><A href='byond://?src=[REF(src)];clearr=1'>&#09;[++i]. Clear Requests Console Logs</a><br></dd>"
+					dat += "<dd><A href='byond://?src=[REF(src)];pass=1'>&#09;[++i]. Set Custom Key</a><br></dd>"
+					dat += "<dd><A href='byond://?src=[REF(src)];msg=1'>&#09;[++i]. Send Admin Message</a><br></dd>"
+					dat += "<dd><A href='byond://?src=[REF(src)];spam=1'>&#09;[++i]. Modify Spam Filter</a><br></dd>"
 			else
 				for(var/n = ++i; n <= optioncount; n++)
 					dat += "<dd><span class='notice'>&#09;[n]. ---------------</span><br></dd>"
 			if((istype(user, /mob/living/silicon/ai) || istype(user, /mob/living/silicon/robot)) && (user.mind.special_role && user.mind.original == user))
 				//Malf/Traitor AIs can bruteforce into the system to gain the Key.
-				dat += "<dd><A href='?src=[REF(src)];hack=1'><i><span class='warning'>*&@#. Bruteforce Key</span></i></font></a><br></dd>"
+				dat += "<dd><A href='byond://?src=[REF(src)];hack=1'><i><span class='warning'>*&@#. Bruteforce Key</span></i></font></a><br></dd>"
 			else
 				dat += "<br>"
 
@@ -155,7 +155,7 @@
 				var/index = 3000
 				dat += "<br><hr><dd>" + SPAN_ALERT("Only the last [index] messages are stored!") + "</span>"
 
-				dat += "<center><A href='?src=[REF(src)];back=1'>Back</a> - <A href='?src=[REF(src)];refresh=1'>Refresh</center><hr></a>"
+				dat += "<center><A href='byond://?src=[REF(src)];back=1'>Back</a> - <A href='byond://?src=[REF(src)];refresh=1'>Refresh</center><hr></a>"
 
 				for(var/datum/data_pda_msg/message in src.linkedServer.pda_msgs)
 					if(index-- <= 0)
@@ -218,7 +218,7 @@
 				var/id_auth = "Unauthenticated"					 - 15%
 				var/priority = "Normal"							 - 10%
 			*/
-			dat += "<center><A href='?src=[REF(src)];back=1'>Back</a> - <A href='?src=[REF(src)];refresh=1'>Refresh</center><hr>"
+			dat += "<center><A href='byond://?src=[REF(src)];back=1'>Back</a> - <A href='byond://?src=[REF(src)];refresh=1'>Refresh</center><hr>"
 			dat += {"<table border='1' width='100%'><tr><th width = '5%'>X</th><th width='15%'>Sending Dep.</th><th width='15%'>Receiving Dep.</th>
 			<th width='300px' word-wrap: break-word>Message</th><th width='15%'>Stamp</th><th width='15%'>ID Auth.</th><th width='15%'>Priority.</th></tr>"}
 			for(var/datum/data_rc_msg/rc in src.linkedServer.rc_msgs)
@@ -227,22 +227,22 @@
 					break
 				// Del - Sender   - Recepient - Message
 				// X   - Al Green - Your Mom  - WHAT UP!?
-				dat += {"<tr><td width = '5%'><center><A href='?src=[REF(src)];deleter=[REF(rc)]' style='color: rgb(255,0,0)'>X</a></center></td><td width='15%'>[rc.send_dpt]</td>
+				dat += {"<tr><td width = '5%'><center><A href='byond://?src=[REF(src)];deleter=[REF(rc)]' style='color: rgb(255,0,0)'>X</a></center></td><td width='15%'>[rc.send_dpt]</td>
 				<td width='15%'>[rc.rec_dpt]</td><td width='300px'>[rc.message]</td><td width='15%'>[rc.stamp]</td><td width='15%'>[rc.id_auth]</td><td width='15%'>[rc.priority]</td></tr>"}
 			dat += "</table>"
 
 		//Spam filter modification
 		if(5)
-			dat += "<center><A href='?src=[REF(src)];back=1'>Back</a> - <A href='?src=[REF(src)];refresh=1'>Refresh</center><hr>"
+			dat += "<center><A href='byond://?src=[REF(src)];back=1'>Back</a> - <A href='byond://?src=[REF(src)];refresh=1'>Refresh</center><hr>"
 			var/index = 0
 			for(var/token in src.linkedServer.spamfilter)
 				index++
 				if(index > 3000)
 					break
-				dat += "<dd>[index]&#09; <a href='?src=[REF(src)];deltoken=[index]'>\[[token]\]</a><br></dd>"
+				dat += "<dd>[index]&#09; <a href='byond://?src=[REF(src)];deltoken=[index]'>\[[token]\]</a><br></dd>"
 			dat += "<hr>"
 			if (linkedServer.spamfilter.len < linkedServer.spamfilter_limit)
-				dat += "<a href='?src=[REF(src)];addtoken=1'>Add token</a><br>"
+				dat += "<a href='byond://?src=[REF(src)];addtoken=1'>Add token</a><br>"
 
 
 	dat += "</body>"

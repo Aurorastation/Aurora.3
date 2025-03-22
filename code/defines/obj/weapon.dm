@@ -147,7 +147,7 @@
 	if(!no_attack_log)
 		user.attack_log += "\[[time_stamp()]\]<span class='warning'> Attacked [target_mob.name] ([target_mob.ckey]) with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damagetype)])</span>"
 		target_mob.attack_log += "\[[time_stamp()]\]<font color='orange'> Attacked by [user.name] ([user.ckey]) with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damagetype)])</font>"
-		msg_admin_attack("[key_name(user, highlight_special = 1)] attacked [key_name(target_mob, highlight_special = 1)] with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damagetype)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target_mob) )
+		msg_admin_attack("[key_name(user, highlight_special = 1)] attacked [key_name(target_mob, highlight_special = 1)] with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damagetype)]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target_mob) )
 	/////////////////////////
 
 	var/washit = 0
@@ -526,11 +526,11 @@
 	w_class = WEIGHT_CLASS_HUGE
 	can_hold = list(/obj/item/stock_parts,/obj/item/reagent_containers/glass/beaker)
 	storage_slots = 50
-	use_to_pickup = 1
-	allow_quick_gather = 1
-	allow_quick_empty = 1
+	use_to_pickup = TRUE
+	allow_quick_gather = TRUE
+	allow_quick_empty = TRUE
 	collection_mode = 1
-	display_contents_with_number = 1
+	display_contents_with_number = TRUE
 	max_w_class = WEIGHT_CLASS_NORMAL
 	max_storage_space = 100
 

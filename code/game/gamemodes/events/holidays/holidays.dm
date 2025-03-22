@@ -97,6 +97,7 @@ var/global/Holiday = null
 					if(prob(50))				Holiday = "DPRA Liberation Day"
 				if(7)							Holiday = "Dominian Founding Day"
 				if(16)							Holiday = "Lunarian Apollo Day"
+				if(17)							Holiday = "Solarian Reunification Day"
 				if(29)							Holiday = "Dominian Victory Day"
 
 
@@ -191,12 +192,3 @@ var/global/Holiday = null
 				Christmas_Game_Start()
 
 	return
-
-//Nested in the random events loop. Will be triggered every 2 minutes.
-/proc/Holiday_Random_Event()
-	switch(Holiday)			//special holidays
-
-		if("",null)			//no Holiday today! Back to work!
-			return
-		if("Christmas","Christmas Eve")
-			if(prob(eventchance))	ChristmasEvent()

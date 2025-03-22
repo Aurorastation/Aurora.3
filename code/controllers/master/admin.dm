@@ -66,22 +66,22 @@
 
 // Subsystems that cmd_ss_panic can hard-restart.
 // *MUST* have New() use NEW_SS_GLOBAL.
-var/list/panic_targets = list(
+GLOBAL_LIST_INIT(panic_targets, list(
 	"Garbage" = /datum/controller/subsystem/garbage,
 	"Air" = /datum/controller/subsystem/air,
 	"Explosives" = /datum/controller/subsystem/explosives,
 	"Game Ticker" = /datum/controller/subsystem/ticker,
 	"Timer" = /datum/controller/subsystem/timer,
 	"Effects Master" = /datum/controller/subsystem/effects
-)
+))
 
 // Subsystems that might do funny things or lose data if hard-restarted.
 // Makes subsystem require an additional confirmation to restart.
-var/list/panic_targets_data_loss = list(
+GLOBAL_LIST_INIT(panic_targets_data_loss, list(
 	"Game Ticker" = TRUE
-)
+))
 
-/client/proc/cmd_ss_panic(controller in panic_targets)
+/client/proc/cmd_ss_panic(controller in GLOB.panic_targets)
 	set category = "Server"
 	set name = "Force-Restart Subsystem"
 	set desc = "Hard-restarts a subsystem. May break things, use with caution."
@@ -94,7 +94,7 @@ var/list/panic_targets_data_loss = list(
 		return
 
 	// If it's marked as potentially causing data-loss (like SStimer), require another confirmation.
-	if (panic_targets_data_loss[controller])
+	if (GLOB.panic_targets_data_loss[controller])
 		if (alert("This subsystem ([controller]) may cause data loss or strange behavior if restarted! Continue?", "AAAAAA", "No", "No", "Yes") != "Yes")
 			to_chat(usr, "Aborted.")
 			return
@@ -103,7 +103,7 @@ var/list/panic_targets_data_loss = list(
 	LOG_DEBUG("SS PANIC: [controller] hard-restart by [usr]!")
 
 	// NEW_SS_GLOBAL will handle destruction of old controller & data transfer, just create a new one and add it to the MC.
-	var/ctype = panic_targets[controller]
+	var/ctype = GLOB.panic_targets[controller]
 	Master.subsystems += new ctype
 
 	sortTim(Master.subsystems, GLOBAL_PROC_REF(cmp_subsystem_display))

@@ -1,4 +1,4 @@
-var/bomb_set
+GLOBAL_VAR(bomb_set)
 
 /obj/machinery/nuclearbomb
 	name = "\improper Nuclear Fission Explosive"
@@ -250,7 +250,7 @@ var/bomb_set
 					lastentered = "[href_list["type"]]"
 					if (text2num(lastentered) == null)
 						var/turf/LOC = get_turf(usr)
-						message_admins("[key_name_admin(usr)] tried to exploit a nuclear bomb by entering non-numerical codes: <a href='?_src_=vars;Vars=[REF(src)]'>[lastentered]</a>! ([LOC ? "<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[LOC.x];Y=[LOC.y];Z=[LOC.z]'>JMP</a>" : "null"])", 0)
+						message_admins("[key_name_admin(usr)] tried to exploit a nuclear bomb by entering non-numerical codes: <a href='byond://?_src_=vars;Vars=[REF(src)]'>[lastentered]</a>! ([LOC ? "<a href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[LOC.x];Y=[LOC.y];Z=[LOC.z]'>JMP</a>" : "null"])", 0)
 						log_admin("EXPLOIT: [key_name(usr)] tried to exploit a nuclear bomb by entering non-numerical codes: [lastentered]!")
 					else
 						code += lastentered
@@ -281,7 +281,7 @@ var/bomb_set
 				if (!timing && !safety)
 					timing = 1
 					log_and_message_admins("engaged a nuclear bomb")
-					bomb_set++ //There can still be issues with this resetting when there are multiple bombs. Not a big deal though for Nuke/N
+					GLOB.bomb_set++ //There can still be issues with this resetting when there are multiple bombs. Not a big deal though for Nuke/N
 					update_icon()
 				else
 					secure_device()
@@ -321,7 +321,7 @@ var/bomb_set
 	if(timing <= 0)
 		return
 
-	bomb_set--
+	GLOB.bomb_set--
 	timing = 0
 	timeleft = clamp(timeleft, 120, 600)
 	update_icon()
@@ -372,7 +372,7 @@ var/bomb_set
 														//kinda shit but I couldn't  get permission to do what I wanted to do.
 
 		if(!SSticker.mode.check_finished())//If the mode does not deal with the nuke going off so just reboot because everyone is stuck as is
-			universe_has_ended = 1
+			GLOB.universe_has_ended = 1
 			return
 
 /obj/machinery/nuclearbomb/update_icon()
@@ -397,11 +397,11 @@ var/bomb_set
 
 /obj/item/disk/nuclear/Initialize()
 	. = ..()
-	nuke_disks |= src
+	GLOB.nuke_disks |= src
 
 /obj/item/disk/nuclear/Destroy()
-	nuke_disks -= src
-	if(!nuke_disks.len)
+	GLOB.nuke_disks -= src
+	if(!GLOB.nuke_disks.len)
 		var/turf/T = pick_area_turf(/area/maintenance, list(/proc/is_station_turf, /proc/not_turf_contains_dense_objects))
 		if(T)
 			var/obj/D = new /obj/item/disk/nuclear(T)

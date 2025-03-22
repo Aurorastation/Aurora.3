@@ -1,4 +1,4 @@
-var/datum/antagonist/vampire/vamp = null
+GLOBAL_DATUM(vamp, /datum/antagonist/vampire)
 
 /datum/antagonist/vampire
 	id = MODE_VAMPIRE
@@ -31,10 +31,10 @@ var/datum/antagonist/vampire/vamp = null
 /datum/antagonist/vampire/New()
 	..()
 
-	vamp = src
+	GLOB.vamp = src
 
-	for (var/type in vampirepower_types)
-		vampirepowers += new type()
+	for (var/type in GLOB.vampirepower_types)
+		GLOB.vampirepowers += new type()
 
 	vampire_data = {"
 		<p>This guide contains important OOC information on vampire related mechanics, as well as a short lore introduction.</p>
@@ -52,7 +52,7 @@ var/datum/antagonist/vampire/vamp = null
 		<hr>
 	"}
 
-	for(var/thing in vampirepowers)
+	for(var/thing in GLOB.vampirepowers)
 		var/datum/power/vampire/VP = thing
 		vampire_data += "<div class='rune-block'>"
 		vampire_data += "<b>[capitalize_first_letters(VP.name)]</b>: <i>[VP.desc]</i><br>"
@@ -77,7 +77,7 @@ var/datum/antagonist/vampire/vamp = null
 	. = ..()
 	if(.)
 		remove_verb(player.current, /datum/antagonist/vampire/proc/vampire_help)
-		for(var/datum/power/vampire/P in vampirepowers)
+		for(var/datum/power/vampire/P in GLOB.vampirepowers)
 			remove_verb(player.current, P.verbpath)
 	else
 		// something went wrong when removing the antag status, readd them
@@ -113,6 +113,6 @@ var/datum/antagonist/vampire/vamp = null
 	set desc = "Opens a help window with overview of available powers and other important information."
 
 	var/datum/browser/vampire_win = new(usr, "VampirePowers", "The Veil", 600, 700)
-	vampire_win.set_content(vamp.vampire_data)
+	vampire_win.set_content(GLOB.vamp.vampire_data)
 	vampire_win.add_stylesheet("cult", 'html/browser/cult.css')
 	vampire_win.open()

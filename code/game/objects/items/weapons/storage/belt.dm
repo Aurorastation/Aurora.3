@@ -7,7 +7,7 @@
 	force = 2
 	storage_slots = 7
 	max_w_class = WEIGHT_CLASS_NORMAL
-	max_storage_space = 28
+	max_storage_space = DEFAULT_BACKPACK_STORAGE
 	slot_flags = SLOT_BELT
 	attack_verb = list("whipped", "lashed", "disciplined")
 	drop_sound = 'sound/items/drop/toolbelt.ogg'
@@ -251,7 +251,7 @@
 	name = "tactical medical belt"
 	desc = "A sturdy black webbing belt with attached pouches. This one is designed for medical professionals who expect to enter conflict zones on the daily. It has increased storage and utility."
 	storage_slots = 9
-	max_storage_space = 28
+	max_storage_space = DEFAULT_BACKPACK_STORAGE
 	can_hold = list(
 		/obj/item/device/breath_analyzer,
 		/obj/item/device/healthanalyzer,
@@ -414,7 +414,7 @@
 	item_state = "swatbelt"
 	storage_slots = 9
 	max_w_class = WEIGHT_CLASS_NORMAL
-	max_storage_space = 28
+	max_storage_space = DEFAULT_BACKPACK_STORAGE
 
 /obj/item/storage/belt/military
 	name = "military belt"
@@ -423,7 +423,7 @@
 	item_state = "militarybelt"
 	storage_slots = 9 //same as a combat belt now
 	max_w_class = WEIGHT_CLASS_NORMAL
-	max_storage_space  = 28
+	max_storage_space  = DEFAULT_BACKPACK_STORAGE
 	can_hold = list(
 		/obj/item/grenade,
 		/obj/item/handcuffs,
@@ -587,7 +587,7 @@
 	item_state = "security"
 	storage_slots = 9
 	max_w_class = WEIGHT_CLASS_BULKY
-	max_storage_space = 28
+	max_storage_space = DEFAULT_BACKPACK_STORAGE
 
 	can_hold = list(
 		/obj/item/grenade,
@@ -643,7 +643,7 @@
 	name = "component pouch"
 	desc = "A dorky fannypack for keeping small items in. Also stores magickal components!"
 	starts_with = list(/obj/item/toy/snappop/syndi = 3, /obj/item/reagent_containers/glass/beaker/vial/random/toxin = 2, /obj/item/storage/pill_bottle/dice = 1)
-	max_storage_space = 14
+	max_storage_space = DEFAULT_BOX_STORAGE
 
 /obj/item/storage/belt/shumaila_buckle
 	name = "hammer buckle belt"

@@ -107,7 +107,8 @@
 	matter = list(MATERIAL_GLASS = 500)
 	drop_sound = 'sound/items/drop/drinkglass.ogg'
 	pickup_sound = 'sound/items/pickup/drinkglass.ogg'
-	fragile = 1
+	fragile = TRUE
+	storage_slot_sort_by_name = TRUE
 
 /obj/item/reagent_containers/glass/beaker/Initialize()
 	. = ..()

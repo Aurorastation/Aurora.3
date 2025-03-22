@@ -400,11 +400,6 @@
 	else
 		return FALSE
 
-/mob/living/carbon/human/get_talk_bubble()
-	if(!species || !species.talk_bubble_icon)
-		return ..()
-	return species.talk_bubble_icon
-
 /mob/living/carbon/human/get_floating_chat_x_offset()
 	if(!species)
 		return ..()

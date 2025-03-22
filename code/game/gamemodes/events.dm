@@ -1,6 +1,3 @@
-var/eventchance = 10 // Percent chance per 5 minutes.
-var/hadevent    = 0
-
 //Changing this to affect the main station. Blame Urist. --Pete
 /proc/prison_break() // -- Callagan
 

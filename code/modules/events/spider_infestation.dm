@@ -1,4 +1,4 @@
-/var/global/sent_spiders_to_station = 0
+
 
 /datum/event/spider_infestation
 	announceWhen	= 90
@@ -9,7 +9,6 @@
 /datum/event/spider_infestation/setup()
 	announceWhen = rand(announceWhen, announceWhen + 60)
 	spawncount = rand(4 * severity, 6 * severity)	//spiderlings only have a 50% chance to grow big and strong
-	sent_spiders_to_station = 0
 	possible_spiders = list(/mob/living/simple_animal/hostile/giant_spider, /mob/living/simple_animal/hostile/giant_spider/nurse, /mob/living/simple_animal/hostile/giant_spider/emp, /mob/living/simple_animal/hostile/giant_spider/hunter, /mob/living/simple_animal/hostile/giant_spider/bombardier)
 
 /datum/event/spider_infestation/announce()

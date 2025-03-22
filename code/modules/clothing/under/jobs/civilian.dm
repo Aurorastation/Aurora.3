@@ -109,7 +109,7 @@
 	icon_state = "nt_janitor"
 	item_state = "nt_janitor"
 	armor = list(
-		bio = ARMOR_BIO_MINOR
+		BIO = ARMOR_BIO_MINOR
 	)
 
 /obj/item/clothing/under/rank/janitor/alt
@@ -306,4 +306,13 @@
 	icon = 'icons/clothing/under/uniforms/einstein.dmi'
 	icon_state = "ee_captain"
 	item_state = "ee_captain"
+	contained_sprite = TRUE
+
+//goblin.stev's stuff
+/obj/item/clothing/under/qeburgerjumpsuit
+	name = "Quick-E-Burger Food Technician Jumpsuit"
+	desc = "For valued employees on the go, the Quick-E-Burger Food Technician Jumpsuit is the perfect attire! Supplied and manufactured in bulk by Quick-E-Burger's parent company, Orion Express, the Food Technician Jumpsuit is lavishly appointed with a one-size-doesn't-quite-fit-anyone design, including a state-of-the-art button-up fastening system designed to enable quick and easy employee repair!"
+	icon = 'icons/clothing/under/uniforms/orion.dmi'
+	icon_state = "quickeburger_jumpsuit"
+	item_state = "quickeburger_jumpsuit"
 	contained_sprite = TRUE

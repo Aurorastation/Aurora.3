@@ -39,7 +39,7 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/cmo
 	suit_store = /obj/item/device/flashlight/pen
 	shoes = /obj/item/clothing/shoes/sneakers/brown
-	id = /obj/item/card/id/scc/silver
+	id = /obj/item/card/id/silver
 	l_hand = /obj/item/storage/firstaid/adv
 
 	headset = /obj/item/device/radio/headset/heads/cmo
@@ -139,7 +139,7 @@
 	jobtype = /datum/job/surgeon
 
 	uniform = /obj/item/clothing/under/rank/medical/surgeon
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/nt
+	suit = /obj/item/clothing/suit/storage/surgical_gown/nt
 	shoes = /obj/item/clothing/shoes/sneakers/medsci
 
 /obj/outfit/job/doctor/surgeon/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)

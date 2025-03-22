@@ -166,40 +166,40 @@
 /datum/category_item/player_setup_item/general/basic/content(var/mob/user)
 	var/list/dat = list("<b>Name:</b> ")
 	if (pref.can_edit_name)
-		dat += "<a href='?src=[REF(src)];rename=1'><b>[pref.real_name]</b></a><br>"
+		dat += "<a href='byond://?src=[REF(src)];rename=1'><b>[pref.real_name]</b></a><br>"
 	else
-		dat += "<b>[pref.real_name]</b><br> (<a href='?src=[REF(src)];namehelp=1'>?</a>)"
+		dat += "<b>[pref.real_name]</b><br> (<a href='byond://?src=[REF(src)];namehelp=1'>?</a>)"
 	if (pref.can_edit_name)
-		dat += "(<a href='?src=[REF(src)];random_name=1'>Random Name</A>)"
+		dat += "(<a href='byond://?src=[REF(src)];random_name=1'>Random Name</A>)"
 	dat += "<br>"
-	dat += "<b>Sex:</b> <a href='?src=[REF(src)];gender=1'><b>[capitalize(lowertext(pref.gender))]</b></a><br>"
+	dat += "<b>Sex:</b> <a href='byond://?src=[REF(src)];gender=1'><b>[capitalize(lowertext(pref.gender))]</b></a><br>"
 	var/datum/species/S = GLOB.all_species[pref.species]
 	if(length(S.selectable_pronouns))
-		dat += "<b>Pronouns:</b> <a href='?src=[REF(src)];pronouns=1'><b>[capitalize_first_letters(pref.pronouns)]</b></a><br>"
-	dat += "<b>Age:</b> <a href='?src=[REF(src)];age=1'>[pref.age]</a><br>"
-	dat += "<b>Height:</b> <a href='?src=[REF(src)];height=1'>[pref.height]</a><br>"
-	dat += "<b>Spawn Point</b>: <a href='?src=[REF(src)];spawnpoint=1'>[pref.spawnpoint]</a><br>"
-	dat += "<b>Floating Chat Color:</b> <a href='?src=[REF(src)];select_floating_chat_color=1'><b>[pref.floating_chat_color]</b></a><br>"
-	dat += "<b>Speech Bubble Type:</b> <a href='?src=[REF(src)];speech_bubble_type=1'><b>[capitalize_first_letters(pref.speech_bubble_type)]</b></a><br>"
+		dat += "<b>Pronouns:</b> <a href='byond://?src=[REF(src)];pronouns=1'><b>[capitalize_first_letters(pref.pronouns)]</b></a><br>"
+	dat += "<b>Age:</b> <a href='byond://?src=[REF(src)];age=1'>[pref.age]</a><br>"
+	dat += "<b>Height:</b> <a href='byond://?src=[REF(src)];height=1'>[pref.height]</a><br>"
+	dat += "<b>Spawn Point</b>: <a href='byond://?src=[REF(src)];spawnpoint=1'>[pref.spawnpoint]</a><br>"
+	dat += "<b>Floating Chat Color:</b> <a href='byond://?src=[REF(src)];select_floating_chat_color=1'><b>[pref.floating_chat_color]</b></a><br>"
+	dat += "<b>Speech Bubble Type:</b> <a href='byond://?src=[REF(src)];speech_bubble_type=1'><b>[capitalize_first_letters(pref.speech_bubble_type)]</b></a><br>"
 	if(istype(S, /datum/species/machine))
 		if(pref.can_edit_ipc_tag)
-			dat += "<b>Has Tag:</b> <a href='?src=[REF(src)];ipc_tag=1'>[pref.machine_tag_status ? "Yes" : "No"]</a><br>"
+			dat += "<b>Has Tag:</b> <a href='byond://?src=[REF(src)];ipc_tag=1'>[pref.machine_tag_status ? "Yes" : "No"]</a><br>"
 		else
-			dat += "<b>Has Tag:</b> [pref.machine_tag_status ? "Yes" : "No"] (<a href='?src=[REF(src)];namehelp=1'>?</a>)<br>"
+			dat += "<b>Has Tag:</b> [pref.machine_tag_status ? "Yes" : "No"] (<a href='byond://?src=[REF(src)];namehelp=1'>?</a>)<br>"
 		if(pref.machine_tag_status)
 			if(!pref.machine_serial_number)
 				var/generated_serial = uppertext(dd_limittext(md5(pref.real_name), 12))
 				pref.machine_serial_number = generated_serial
 			if(pref.can_edit_ipc_tag)
-				dat += "<b>Serial Number:</b> <a href='?src=[REF(src)];serial_number=1'>[pref.machine_serial_number]</a><br>"
-				dat += "(<a href='?src=[REF(src)];generate_serial=1'>Generate Serial Number</A>)<br>"
-				dat += "<b>Ownership Status:</b> <a href='?src=[REF(src)];ownership_status=1'>[pref.machine_ownership_status]</a><br>"
+				dat += "<b>Serial Number:</b> <a href='byond://?src=[REF(src)];serial_number=1'>[pref.machine_serial_number]</a><br>"
+				dat += "(<a href='byond://?src=[REF(src)];generate_serial=1'>Generate Serial Number</A>)<br>"
+				dat += "<b>Ownership Status:</b> <a href='byond://?src=[REF(src)];ownership_status=1'>[pref.machine_ownership_status]</a><br>"
 			else
-				dat += "<b>Serial Number:</b> [pref.machine_serial_number] (<a href='?src=[REF(src)];namehelp=1'>?</a>)<br>"
-				dat += "<b>Ownership Status:</b> [pref.machine_ownership_status] (<a href='?src=[REF(src)];namehelp=1'>?</a>)<br>"
+				dat += "<b>Serial Number:</b> [pref.machine_serial_number] (<a href='byond://?src=[REF(src)];namehelp=1'>?</a>)<br>"
+				dat += "<b>Ownership Status:</b> [pref.machine_ownership_status] (<a href='byond://?src=[REF(src)];namehelp=1'>?</a>)<br>"
 	if(GLOB.config.allow_Metadata)
-		dat += "<b>OOC Notes:</b> <a href='?src=[REF(src)];metadata=1'> Edit </a>" \
-			+ "<a href='?src=[REF(src)];clear_metadata=1'>Clear</a>" + "<br>"
+		dat += "<b>OOC Notes:</b> <a href='byond://?src=[REF(src)];metadata=1'> Edit </a>" \
+			+ "<a href='byond://?src=[REF(src)];clear_metadata=1'>Clear</a>" + "<br>"
 
 	. = dat.Join()
 

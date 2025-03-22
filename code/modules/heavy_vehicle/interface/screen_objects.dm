@@ -236,9 +236,9 @@
 	maptext_x = 1
 	maptext_y = 11
 
-/atom/movable/screen/mecha/toggle/power_control/toggled()
+/atom/movable/screen/mecha/toggle/power_control/toggled(var/remote = FALSE)
 	toggled = !toggled
-	owner.toggle_power(usr)
+	owner.toggle_power(usr, remote)
 	var/main_color = toggled ? "#d1d1d1" : "#525252"
 	maptext = "<span style=\"font-family: 'Small Fonts'; color: [main_color]; -dm-text-outline: 1 #242424; font-size: 6px;\">POWER</span>"
 

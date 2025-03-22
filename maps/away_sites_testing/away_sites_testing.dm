@@ -11,7 +11,7 @@
 	contact_levels = list(1)
 	player_levels = list(1)
 	accessible_z_levels = list(1)
-	lobby_icons = list('icons/misc/titlescreens/runtime/away.dmi')
+	lobby_icon_image_paths = list(list('icons/misc/titlescreens/runtime/test.png'))
 	lobby_transitions = 10 SECONDS
 	allowed_spawns = list()
 
@@ -62,7 +62,7 @@
 
 
 		// fin
-		testing("[ascii_green]LOADING AWAY SITE:[ascii_reset] Spawning [away_site] on Z [english_list(GetConnectedZlevels(world.maxz))]")
+		testing("LOADING AWAY SITE: Spawning [away_site] on Z [english_list(GetConnectedZlevels(world.maxz))]")
 
 #else
 
@@ -81,5 +81,5 @@
 					exoplanet_theme.generate_map(z_index, 1, 1, 254, 254, marker_turf_type)
 
 		// fin
-		testing("[ascii_green]LOADING AWAY SITE:[ascii_reset] Spawning [away_site] on Z [english_list(GetConnectedZlevels(world.maxz))]")
+		testing("LOADING AWAY SITE: Spawning [away_site] on Z [english_list(GetConnectedZlevels(world.maxz))]")
 #endif

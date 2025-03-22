@@ -31,7 +31,7 @@
 			//Must be done here, as light data is not fully carried over by ChangeTurf (but overlays are).
 			set_light(MINIMUM_USEFUL_LIGHT_RANGE, exoplanet.lightlevel, exoplanet.lightcolor)
 			if(exoplanet.planetary_area && istype(loc, world.area))
-				ChangeArea(src, exoplanet.planetary_area)
+				change_area(loc, exoplanet.planetary_area)
 		// if away site
 		else if(istype(template, /datum/map_template/ruin/away_site))
 			var/datum/map_template/ruin/away_site/away_site = template
@@ -109,12 +109,14 @@
 
 /turf/simulated/floor/exoplanet/water/shallow
 	name = "shallow water"
+	desc = "Some water shallow enough to wade through."
 	icon = 'icons/misc/beach.dmi'
 	icon_state = "seashallow"
 	footstep_sound = /singleton/sound_category/water_footstep
 
 /turf/simulated/floor/exoplanet/permafrost
 	name = "permafrost"
+	desc = "The ground here is frozen solid by the cold."
 	icon = 'icons/turf/flooring/snow.dmi'
 	icon_state = "permafrost"
 	footstep_sound = /singleton/sound_category/asteroid_footstep
@@ -175,7 +177,7 @@
 	if(!istype(E))
 		return
 	if(E.planetary_area && istype(loc, world.area))
-		ChangeArea(src, E.planetary_area)
+		change_area(loc, E.planetary_area)
 	var/new_x = bumped_atom.x
 	var/new_y = bumped_atom.y
 	if(x <= TRANSITIONEDGE)

@@ -26,6 +26,30 @@
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
 
+/obj/item/card/Initialize()
+	. = ..()
+	update_icon()
+
+/obj/item/card/pickup(mob/user)
+	..()
+	update_icon()
+
+/obj/item/card/dropped(mob/user)
+	..()
+	update_icon()
+
+/obj/item/card/attack_hand()
+	..()
+	update_icon()
+
+/obj/item/card/update_icon()
+	var/matrix/tf = matrix()
+	var/obj/item/storage/S = loc
+	if(istype(S, /obj/item/storage) && !S.storage_slots)
+		tf.Turn(-90) //Vertical for storing compactly
+		tf.Translate(-1, 0) //Could do this with pixel_x but let's just update the appearance once.
+	transform = tf
+
 /obj/item/card/data
 	name = "data disk"
 	desc = "A disk of data."
@@ -66,7 +90,6 @@
 	item_state = "card-id"
 	origin_tech = list(TECH_MAGNET = 2, TECH_ILLEGAL = 2)
 
-var/const/NO_EMAG_ACT = -50
 /obj/item/card/emag/resolve_attackby(atom/A, mob/user, var/click_parameters)
 	var/used_uses = A.emag_act(uses, user, src)
 	if(used_uses == NO_EMAG_ACT)
@@ -392,32 +415,12 @@ var/const/NO_EMAG_ACT = -50
 	access = get_all_station_access() | get_all_centcom_access()
 	..()
 
-// SCC ID cards
-
-/obj/item/card/id/scc
-	desc = "A high-tech holocard displaying the credentials of a SCC employee."
-	icon_state = "bridge_card"
-
-/obj/item/card/id/scc/bridge
-	desc = "A high-tech holocard displaying the lowly credentials of a SCC bridge crewman."
-	icon_state = "bridge_card"
-
-/obj/item/card/id/scc/silver
-	desc = "A high-tech holocard displaying the credentials of a SCC command member."
-	icon_state = "command_card"
-
-/obj/item/card/id/scc/gold
-	desc = "A high-tech holocard displaying the intimidating credentials of a SCC employee."
-	icon_state = "captain_card"
-
-/obj/item/card/id/scc/gold/captain
-	desc = "A high-tech holocard displaying the commanding credentials of a SCC captain."
-	icon_state = "captain_card"
-
 /obj/item/card/id/captains_spare
 	name = "captain's spare identification card"
 	desc = "A captain's spare identification card."
-	icon_state = "captain_card"
+	icon_state = "gold"
+	item_state = "gold_id"
+	overlay_state = "gold"
 	registered_name = "Captain"
 	assignment = "Captain"
 
@@ -479,11 +482,14 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/ccia
 	name = "\improper CentCom. Internal Affairs identification card"
-	desc = "A high-tech holocard displaying the blood-chilling credentials of an Internal Affairs agent."
+	desc = "A synthleather ID displaying the blood-chilling credentials of an Internal Affairs agent."
 	icon_state = "ccia"
 	overlay_state = "ccia"
 	drop_sound = /singleton/sound_category/generic_drop_sound
 	pickup_sound = /singleton/sound_category/generic_pickup_sound
+
+/obj/item/card/id/ccia/update_icon()
+	return
 
 /obj/item/card/id/ccia/id_flash(var/mob/user)
 	var/add_text = "Done with prejudice and professionalism, [user.get_pronoun("he")] means business."
@@ -558,6 +564,9 @@ var/const/NO_EMAG_ACT = -50
 	icon_state = "pmc_card"
 	overlay_state = "pmc_card"
 
+/obj/item/card/distress/ap_eridani/update_icon()
+	return
+
 /obj/item/card/id/distress/ap_eridani/New()
 	access = get_distress_access()
 	..()
@@ -592,6 +601,9 @@ var/const/NO_EMAG_ACT = -50
 	icon_state = "idris_card"
 	overlay_state = "idris_card"
 
+/obj/item/card/id/idris/update_icon()
+	return
+
 /obj/item/card/id/idris/sec
 	icon_state = "idrissec_card"
 	overlay_state = "idrissec_card"
@@ -602,17 +614,26 @@ var/const/NO_EMAG_ACT = -50
 	icon_state = "iru_card"
 	overlay_state = "iru_card"
 
+/obj/item/card/id/iru/update_icon()
+	return
+
 /obj/item/card/id/pmc
 	name = "\improper PMCG identification card"
 	desc = "A high-tech holobadge, identifying the owner as a contractor from one of the many PMCs from the Private Military Contracting Group."
 	icon_state = "pmc_card"
 	overlay_state = "pmc_card"
 
+/obj/item/card/id/pmc/update_icon()
+	return
+
 /obj/item/card/id/zeng_hu
 	name = "\improper Zeng-Hu Pharmaceuticals identification card"
 	desc = "A synthleather card, belonging to one of the highly skilled members of Zeng-Hu."
 	icon_state = "zhu_card"
 	overlay_state = "zhu_card"
+
+/obj/item/card/zeng_hu/update_icon()
+	return
 
 /obj/item/card/id/hephaestus
 	name = "\improper Hephaestus Industries identification card"

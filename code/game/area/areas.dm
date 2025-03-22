@@ -7,7 +7,7 @@
 #define VOLUME_MUSIC 30
 
 /// This list of names is here to make sure we don't state the area blurb to a mob more than once.
-var/global/list/area_blurb_stated_to = list()
+GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 
 /area
 	var/global/global_uid = 0
@@ -15,7 +15,10 @@ var/global/list/area_blurb_stated_to = list()
 	///Bitflag (Any of `AREA_FLAG_*`). See `code\__DEFINES\misc.dm`.
 	var/area_flags
 	var/holomap_color // Color of this area on the holomap. Must be a hex color (as string) or null.
-	var/fire = null
+
+	///Do we have an active fire alarm?
+	var/fire = FALSE
+
 	var/atmosalm = 0
 	var/poweralm = 1
 	var/party = null
@@ -27,6 +30,7 @@ var/global/list/area_blurb_stated_to = list()
 	layer = AREA_LAYER
 	luminosity = 0
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	invisibility = INVISIBILITY_LIGHTING
 
 	var/obj/machinery/power/apc/apc = null
 	var/turf/base_turf // The base turf type of the area, which can be used to override the z-level's base turf.
@@ -182,9 +186,9 @@ var/global/list/area_blurb_stated_to = list()
 
 /area/proc/atmosalert(danger_level, var/alarm_source)
 	if (danger_level == 0)
-		atmosphere_alarm.clearAlarm(src, alarm_source)
+		GLOB.atmosphere_alarm.clearAlarm(src, alarm_source)
 	else
-		atmosphere_alarm.triggerAlarm(src, alarm_source, severity = danger_level)
+		GLOB.atmosphere_alarm.triggerAlarm(src, alarm_source, severity = danger_level)
 
 	//Check all the alarms before lowering atmosalm. Raising is perfectly fine.
 	for (var/obj/machinery/alarm/AA in src)
@@ -317,11 +321,26 @@ var/global/list/area_blurb_stated_to = list()
 
 #undef DO_PARTY
 
-var/list/mob/living/forced_ambiance_list = new
+/**
+ * Call back when an atom enters an area
+ *
+ * Sends signals COMSIG_AREA_ENTERED and COMSIG_ENTER_AREA (to a list of atoms)
+ *
+ * If the area has ambience, then it plays some ambience music to the ambience channel
+ */
+/area/Entered(atom/movable/arrived, area/old_area)
+	SEND_SIGNAL(src, COMSIG_AREA_ENTERED, arrived, old_area)
 
-/area/Entered(mob/living/L)
-	if(!istype(L, /mob/living) || !ROUND_IS_STARTED)
+	if(!arrived.important_recursive_contents?[RECURSIVE_CONTENTS_AREA_SENSITIVE])
 		return
+	for(var/atom/movable/recipient as anything in arrived.important_recursive_contents[RECURSIVE_CONTENTS_AREA_SENSITIVE])
+		SEND_SIGNAL(recipient, COMSIG_ENTER_AREA, src)
+
+	/* START aurora snowflake code */
+	if(!istype(arrived, /mob/living) || !ROUND_IS_STARTED)
+		return
+
+	var/mob/living/L = arrived
 
 	if(!L.ckey)	return
 
@@ -361,6 +380,21 @@ var/list/mob/living/forced_ambiance_list = new
 	else
 		stop_music(L)
 	do_area_blurb(L)
+
+	/* END aurora snowflake code */
+
+/**
+ * Called when an atom exits an area
+ *
+ * Sends signals COMSIG_AREA_EXITED and COMSIG_EXIT_AREA (to a list of atoms)
+ */
+/area/Exited(atom/movable/gone, direction)
+	SEND_SIGNAL(src, COMSIG_AREA_EXITED, gone, direction)
+	SEND_SIGNAL(gone, COMSIG_MOVABLE_EXITED_AREA, src, direction)
+	if(!gone.important_recursive_contents?[RECURSIVE_CONTENTS_AREA_SENSITIVE])
+		return
+	for(var/atom/movable/recipient as anything in gone.important_recursive_contents[RECURSIVE_CONTENTS_AREA_SENSITIVE])
+		SEND_SIGNAL(recipient, COMSIG_EXIT_AREA, src)
 
 // Play Ambience
 /area/proc/play_ambience(var/mob/living/L)
@@ -484,32 +518,6 @@ var/list/mob/living/forced_ambiance_list = new
 		return pick(turfs)
 	else return null
 
-// Changes the area of T to A. Do not do this manually.
-// Area is expected to be a non-null instance.
-/proc/ChangeArea(var/turf/T, var/area/A)
-	if(!istype(A))
-		CRASH("Area change attempt failed: invalid area supplied.")
-	var/old_outside = T.is_outside()
-	var/area/old_area = get_area(T)
-	if(old_area == A)
-		return
-	A.contents.Add(T)
-	if(old_area)
-		old_area.Exited(T, A)
-		for(var/atom/movable/AM in T)
-			old_area.Exited(AM, A)
-	A.Entered(T, old_area)
-	for(var/atom/movable/AM in T)
-		A.Entered(AM, old_area)
-
-	for(var/obj/machinery/M in T)
-		M.shuttle_move(T)
-
-	T.last_outside_check = OUTSIDE_UNCERTAIN
-	var/outside_changed = T.is_outside() != old_outside
-	if(T.is_outside == OUTSIDE_AREA && outside_changed)
-		T.update_weather()
-
 /**
 * Displays an area blurb on a mob's screen.
 *
@@ -524,8 +532,8 @@ var/list/mob/living/forced_ambiance_list = new
 			to_chat(target_mob, EXAMINE_BLOCK_GREY("There's nothing particularly noteworthy about this area."))
 		return
 
-	if(!(target_mob.ckey in global.area_blurb_stated_to[area_blurb_category]) || override)
-		LAZYADD(global.area_blurb_stated_to[area_blurb_category], target_mob.ckey)
+	if(!(target_mob.ckey in GLOB.area_blurb_stated_to[area_blurb_category]) || override)
+		LAZYADD(GLOB.area_blurb_stated_to[area_blurb_category], target_mob.ckey)
 		to_chat(target_mob, EXAMINE_BLOCK_GREY(area_blurb))
 
 /// A verb to view an area's blurb on demand. Overrides the check for if you have seen the blurb before so you can always see it when used.

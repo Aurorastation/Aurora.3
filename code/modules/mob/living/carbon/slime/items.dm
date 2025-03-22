@@ -295,7 +295,7 @@
 
 /obj/effect/golemrune/random_type/Initialize()
 	. = ..()
-	golem_type = pick(golem_types)
+	golem_type = pick(GLOB.golem_types)
 
 /obj/effect/golemrune/Destroy()
 	SSghostroles.remove_spawn_atom("golem", src)

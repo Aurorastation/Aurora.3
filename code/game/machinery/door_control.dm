@@ -2,7 +2,7 @@
 	name = "remote object control"
 	desc = "It controls objects, remotely."
 	icon_state = "doorctrl0"
-	power_channel = ENVIRON
+	power_channel = AREA_USAGE_ENVIRON
 	var/desiredstate = 0
 	var/exposedwires = 0
 	var/wires = 3
