@@ -90,7 +90,6 @@
 	desc = "The distant cityscape of Mendell City.";
 	icon = 'icons/effects/1152x544.dmi';
 	icon_state = "cityscape_bg";
-	layer = 2.01;
 	name = "Mendell City"
 	},
 /turf/simulated/abyss{
@@ -227,11 +226,9 @@
 	pixel_y = 8
 	},
 /obj/item/storage/firstaid/regular{
-	layer = 3.01;
 	pixel_x = 6
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 3.01;
 	pixel_x = -13
 	},
 /obj/item/storage/firstaid/adv{
@@ -239,11 +236,9 @@
 	pixel_y = 8
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 3.01;
 	pixel_x = -13
 	},
 /obj/item/storage/firstaid/regular{
-	layer = 3.01;
 	pixel_x = 6
 	},
 /turf/unsimulated/floor{
@@ -343,7 +338,6 @@
 "bH" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4.1;
 	opacity = 0
 	},
 /turf/simulated/floor/gold,
@@ -566,11 +560,9 @@
 	pixel_y = 8
 	},
 /obj/item/storage/firstaid/regular{
-	layer = 3.01;
 	pixel_x = 6
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 3.01;
 	pixel_x = -13
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -579,11 +571,9 @@
 	pixel_y = 8
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 3.01;
 	pixel_x = -13
 	},
 /obj/item/storage/firstaid/regular{
-	layer = 3.01;
 	pixel_x = 6
 	},
 /turf/unsimulated/floor{
@@ -784,7 +774,6 @@
 	desc = "It's used to monitor rooms.";
 	icon = 'icons/obj/monitors.dmi';
 	icon_state = "camera";
-	layer = 3.02;
 	name = "surveillance camera"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -855,7 +844,6 @@
 	dir = 8;
 	icon = 'icons/obj/monitors.dmi';
 	icon_state = "camera";
-	layer = 3.02;
 	name = "surveillance camera"
 	},
 /turf/simulated/floor/wood,
@@ -945,7 +933,6 @@
 	desc = "It's used to monitor rooms.";
 	icon = 'icons/obj/monitors.dmi';
 	icon_state = "camera";
-	layer = 3.02;
 	name = "surveillance camera"
 	},
 /turf/simulated/floor/lino,
@@ -1289,11 +1276,9 @@
 "gE" = (
 /obj/structure/table/rack,
 /obj/item/storage/briefcase/aluminium{
-	layer = 2.99;
 	pixel_y = 6
 	},
 /obj/item/storage/briefcase/aluminium{
-	layer = 2.99;
 	pixel_y = 6
 	},
 /obj/item/storage/lockbox/cciaa/bssb{
@@ -1336,7 +1321,6 @@
 "gO" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4.1;
 	opacity = 0
 	},
 /turf/unsimulated/floor{
@@ -1456,7 +1440,6 @@
 	density = 1;
 	icon = 'icons/obj/doors/rapid_pdoor.dmi';
 	icon_state = "shutterhalf";
-	layer = 2.4;
 	name = "shutter"
 	},
 /obj/effect/decal/fake_object{
@@ -1474,7 +1457,6 @@
 	desc = "A huge lamp post.";
 	icon = 'icons/effects/32x96.dmi';
 	icon_state = "lamp_on";
-	layer = 9;
 	name = "tall lamp post";
 	opacity = 1
 	},
@@ -1564,7 +1546,6 @@
 "hW" = (
 /obj/structure/table/wood,
 /obj/structure/television{
-	layer = 9;
 	pixel_y = 15
 	},
 /obj/structure/window/reinforced{
@@ -1612,7 +1593,6 @@
 "il" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/fancy/tray{
-	layer = 2.99
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/unsimulated/floor{
@@ -1747,17 +1727,13 @@
 	pixel_x = 6;
 	pixel_y = 8
 	},
-/obj/item/storage/firstaid/fire{
-	layer = 3.01
-	},
+/obj/item/storage/firstaid/fire,
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/item/storage/firstaid/toxin{
 	pixel_x = 6;
 	pixel_y = 8
 	},
-/obj/item/storage/firstaid/fire{
-	layer = 3.01
-	},
+/obj/item/storage/firstaid/fire,
 /obj/structure/sign/nosmoking_1{
 	pixel_y = 30
 	},
@@ -1989,7 +1965,6 @@
 	desc = "An automated turret.";
 	icon = 'icons/obj/turrets.dmi';
 	icon_state = "cover_1";
-	layer = 3.02;
 	name = "turret"
 	},
 /obj/effect/decal/warning_stripes,
@@ -2016,7 +1991,6 @@
 "kS" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4.1;
 	opacity = 0
 	},
 /turf/simulated/floor/wood,
@@ -2066,7 +2040,6 @@
 /obj/machinery/light/small,
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4.1;
 	opacity = 0
 	},
 /turf/unsimulated/floor{
@@ -2212,12 +2185,10 @@
 	},
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/reagent_containers/glass/bottle/thetamycin{
-	layer = 2.99;
 	pixel_x = 9;
 	pixel_y = 7
 	},
 /obj/item/reagent_containers/glass/bottle/antitoxin{
-	layer = 2.99;
 	pixel_y = 7
 	},
 /obj/item/reagent_containers/glass/bottle/dexalin_plus{
@@ -2795,7 +2766,6 @@
 	desc = "What jerk stacked these here?";
 	icon = 'icons/obj/crate.dmi';
 	icon_state = "tcfl_crate_preview";
-	layer = 3.02;
 	name = "inconveniently placed crate";
 	pixel_x = 1
 	},
@@ -2803,8 +2773,7 @@
 	density = 1;
 	desc = "What jerk stacked these here?";
 	icon = 'icons/obj/crate.dmi';
-	icon_state = "tcfl_crate_preview";
-	layer = 3.01;
+	icon_state = "tcfl_crate_preview";;
 	name = "inconveniently placed crate";
 	pixel_x = 3;
 	pixel_y = 8
@@ -2813,7 +2782,6 @@
 	desc = "What jerk stacked these here?";
 	icon = 'icons/obj/crate.dmi';
 	icon_state = "tcfl_crate_preview";
-	layer = 3.02;
 	name = "inconveniently placed crate";
 	pixel_x = 2;
 	pixel_y = 19
@@ -2936,7 +2904,6 @@
 	},
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4.1;
 	opacity = 0
 	},
 /turf/unsimulated/floor{
@@ -3253,7 +3220,6 @@
 	dir = 8;
 	icon = 'icons/obj/monitors.dmi';
 	icon_state = "camera";
-	layer = 3.02;
 	name = "surveillance camera"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3507,7 +3473,6 @@
 	desc = "A big, scary derelict mech!";
 	icon = 'icons/effects/96x96.dmi';
 	icon_state = "derelict_mech";
-	layer = 9;
 	name = "derelict mech"
 	},
 /obj/structure/flora/grass/jungle{
@@ -3779,7 +3744,6 @@
 "vS" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4.1;
 	opacity = 0
 	},
 /turf/simulated/floor/lino,
@@ -4064,12 +4028,10 @@
 	},
 /obj/structure/table/rack,
 /obj/item/storage/firstaid/o2{
-	layer = 2.99;
 	pixel_x = 2;
 	pixel_y = 5
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 2.99;
 	pixel_x = 2;
 	pixel_y = 5
 	},
@@ -4236,7 +4198,6 @@
 	},
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4.1;
 	opacity = 0
 	},
 /turf/unsimulated/floor{
@@ -4278,7 +4239,6 @@
 "yl" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4.1;
 	opacity = 0
 	},
 /turf/unsimulated/floor{
@@ -4298,7 +4258,6 @@
 	},
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4.1;
 	opacity = 0
 	},
 /turf/unsimulated/floor{
@@ -4814,7 +4773,6 @@
 	desc = "An automated turret.";
 	icon = 'icons/obj/turrets.dmi';
 	icon_state = "cover_1";
-	layer = 3.02;
 	name = "turret"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -5086,7 +5044,6 @@
 	desc = "A huge lamp post.";
 	icon = 'icons/effects/32x96.dmi';
 	icon_state = "lamp_on";
-	layer = 9;
 	name = "tall lamp post";
 	opacity = 1
 	},
@@ -5228,7 +5185,6 @@
 "DP" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4.1;
 	opacity = 0
 	},
 /turf/unsimulated/floor{
@@ -5297,9 +5253,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell/interior)
 "Ez" = (
-/obj/structure/console{
-	layer = 2.7
-	},
+/obj/structure/console,
 /turf/simulated/floor/carpet,
 /area/city/mendell/interior)
 "EA" = (
@@ -5937,7 +5891,6 @@
 	desc = "The distant cityscape of Mendell City.";
 	icon = 'icons/effects/256x672.dmi';
 	icon_state = "cityscape";
-	layer = 2.01;
 	name = "Mendell City"
 	},
 /turf/simulated/abyss{
@@ -6517,7 +6470,6 @@
 	desc = "A big, sad derelict hovercar!";
 	icon = 'icons/effects/64x64.dmi';
 	icon_state = "derelict_hovercar";
-	layer = 9;
 	name = "derelict hovercar"
 	},
 /obj/structure/flora/grass/jungle{
@@ -6897,12 +6849,10 @@
 	},
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/reagent_containers/glass/bottle/thetamycin{
-	layer = 2.99;
 	pixel_x = 9;
 	pixel_y = 7
 	},
 /obj/item/reagent_containers/glass/bottle/antitoxin{
-	layer = 2.99;
 	pixel_y = 7
 	},
 /obj/item/reagent_containers/glass/bottle/dexalin_plus{
@@ -7126,16 +7076,12 @@
 	pixel_x = 6;
 	pixel_y = 8
 	},
-/obj/item/storage/firstaid/fire{
-	layer = 3.01
-	},
+/obj/item/storage/firstaid/fire,
 /obj/item/storage/firstaid/toxin{
 	pixel_x = 6;
 	pixel_y = 8
 	},
-/obj/item/storage/firstaid/fire{
-	layer = 3.01
-	},
+/obj/item/storage/firstaid/fire,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -7661,8 +7607,7 @@
 /area/city/mendell)
 "SG" = (
 /obj/structure/toilet{
-	dir = 4;
-	layer = 2.6;
+	dir = 4
 	pixel_y = 1
 	},
 /obj/machinery/light/small{
@@ -7676,7 +7621,6 @@
 	dir = 8;
 	icon = 'icons/obj/monitors.dmi';
 	icon_state = "camera";
-	layer = 3.02;
 	name = "surveillance camera"
 	},
 /turf/simulated/floor/wood,
@@ -7716,7 +7660,6 @@
 	desc = "A crate of military supplies.";
 	icon = 'icons/obj/crate.dmi';
 	icon_state = "dropcrate";
-	layer = 3.02;
 	name = "metal crate";
 	pixel_x = 1;
 	pixel_y = 4
@@ -7775,7 +7718,6 @@
 	density = 1;
 	icon = 'icons/obj/doors/rapid_pdoor.dmi';
 	icon_state = "shutterhalf";
-	layer = 2.4;
 	name = "shutter"
 	},
 /turf/simulated/floor/plating,
@@ -7835,17 +7777,14 @@
 	},
 /obj/structure/table/rack,
 /obj/item/clothing/suit/storage/toggle/bssb{
-	layer = 2.99;
 	pixel_x = 6;
 	pixel_y = 2
 	},
 /obj/item/clothing/suit/storage/toggle/bssb{
-	layer = 2.99;
 	pixel_x = 6;
 	pixel_y = 2
 	},
 /obj/item/clothing/suit/storage/toggle/bssb{
-	layer = 2.99;
 	pixel_x = 6;
 	pixel_y = 2
 	},
@@ -8014,7 +7953,6 @@
 	desc = "An automated turret.";
 	icon = 'icons/obj/turrets.dmi';
 	icon_state = "cover_1";
-	layer = 3.02;
 	name = "turret"
 	},
 /obj/effect/decal/warning_stripes,
@@ -8418,7 +8356,6 @@
 	desc = "The distant cityscape of Mendell City.";
 	icon = 'icons/effects/1152x544.dmi';
 	icon_state = "cityscale_scrolling";
-	layer = 2.01;
 	name = "Mendell City"
 	},
 /turf/simulated/abyss{
@@ -8560,7 +8497,6 @@
 	desc = "A huge pillar! It's holding up a roof.";
 	icon = 'icons/effects/32x96.dmi';
 	icon_state = "pillar";
-	layer = 9;
 	name = "tall white pillar";
 	opacity = 1
 	},
@@ -8572,7 +8508,6 @@
 "Yd" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4.1;
 	opacity = 0
 	},
 /turf/unsimulated/floor{
@@ -8685,11 +8620,9 @@
 	pixel_y = 8
 	},
 /obj/item/storage/firstaid/regular{
-	layer = 3.01;
 	pixel_x = 6
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 3.01;
 	pixel_x = -13
 	},
 /obj/item/storage/firstaid/adv{
@@ -8697,11 +8630,9 @@
 	pixel_y = 8
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 3.01;
 	pixel_x = -13
 	},
 /obj/item/storage/firstaid/regular{
-	layer = 3.01;
 	pixel_x = 6
 	},
 /obj/item/storage/firstaid/adv{

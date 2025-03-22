@@ -848,13 +848,7 @@
 /turf/simulated/floor/exoplanet/tiled/white,
 /area/konyang/house_small)
 "Vx" = (
-/obj/effect/decal/fake_object{
-	density = 1;
-	desc = "A bland air conditioning unit.";
-	icon = 'icons/effects/city.dmi';
-	icon_state = "ac";
-	name = "AC unit"
-	},
+/obj/structure/ac_unit,
 /turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/grass/konyang)
 "Wv" = (

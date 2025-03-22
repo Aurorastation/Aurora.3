@@ -13254,13 +13254,7 @@
 /turf/simulated/floor/bluegrid,
 /area/point_verdant/interior/offices)
 "hyo" = (
-/obj/effect/decal/fake_object{
-	density = 1;
-	desc = "A bland air conditioning unit.";
-	icon = 'icons/effects/city.dmi';
-	icon_state = "ac";
-	name = "AC unit"
-	},
+/obj/structure/ac_unit,
 /obj/machinery/light/small/floor,
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
@@ -32903,13 +32897,7 @@
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/restaurant)
 "tgv" = (
-/obj/effect/decal/fake_object{
-	density = 1;
-	desc = "A bland air conditioning unit.";
-	icon = 'icons/effects/city.dmi';
-	icon_state = "ac";
-	name = "AC unit"
-	},
+/obj/structure/ac_unit,
 /obj/structure/rod_railing{
 	dir = 4
 	},
@@ -38234,13 +38222,7 @@
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices/basement)
 "wli" = (
-/obj/effect/decal/fake_object{
-	density = 1;
-	desc = "A bland air conditioning unit.";
-	icon = 'icons/effects/city.dmi';
-	icon_state = "ac";
-	name = "AC unit"
-	},
+/obj/structure/ac_unit,
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
 "wly" = (
@@ -41943,13 +41925,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "yjj" = (
-/obj/effect/decal/fake_object{
-	density = 1;
-	desc = "A bland air conditioning unit.";
-	icon = 'icons/effects/city.dmi';
-	icon_state = "ac";
-	name = "AC unit"
-	},
+/obj/structure/ac_unit,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "yjG" = (

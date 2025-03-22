@@ -35,7 +35,6 @@
 	pixel_y = 16
 	},
 /obj/item/clothing/head/pumpkin/lantern{
-	layer = 12;
 	pixel_y = 48;
 	pixel_x = 16
 	},
@@ -189,7 +188,6 @@
 /area/city/outside)
 "aU" = (
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /obj/structure/bed/stool/chair/padded/red{
 	dir = 8
@@ -246,7 +244,6 @@
 /area/city/pool)
 "bd" = (
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
@@ -497,14 +494,12 @@
 "bG" = (
 /obj/structure/flora/rock/konyang/small,
 /obj/effect/floor_decal/spline/plain/brown{
-	dir = 9;
-	layer = 3
+	dir = 9
 	},
 /turf/simulated/floor/grass,
 /area/city/outside)
 "bJ" = (
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /obj/effect/floor_decal/corner/red/full{
 	color = "#400000"
@@ -803,8 +798,7 @@
 /area/city/costumeroom)
 "bS" = (
 /obj/structure/platform{
-	dir = 8;
-	layer = 3
+	dir = 8
 	},
 /obj/effect/map_effect/perma_light/brighter{
 	color = "#FFA500";
@@ -931,9 +925,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/structure/bookcase/libraryspawn/fiction{
-	layer = 3.5
-	},
+/obj/structure/bookcase/libraryspawn/fiction,
 /turf/simulated/floor/marble/dark,
 /area/city/hallway)
 "cB" = (
@@ -1054,7 +1046,6 @@
 /area/city/dining)
 "de" = (
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /obj/structure/bed/stool/padded/orange,
 /turf/simulated/floor/wood,
@@ -1107,7 +1098,6 @@
 /area/city/bar)
 "dr" = (
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /obj/structure/railing/mapped{
 	dir = 8
@@ -1119,7 +1109,6 @@
 /area/city/bar)
 "dt" = (
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /turf/simulated/floor/marble/dark,
 /area/city/costumeroom)
@@ -1194,7 +1183,6 @@
 "dv" = (
 /obj/structure/platform,
 /obj/machinery/media/jukebox/audioconsole{
-	layer = 3;
 	pixel_x = 15;
 	anchored = 1
 	},
@@ -1217,14 +1205,11 @@
 /area/city/bar)
 "dK" = (
 /obj/structure/railing/fence,
-/obj/item/clothing/head/pumpkin/lantern{
-	layer = 2
-	},
+/obj/item/clothing/head/pumpkin/lantern,
 /turf/simulated/floor/grass,
 /area/city/hallway)
 "dL" = (
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/spider/stickyweb,
@@ -1241,12 +1226,8 @@
 /turf/simulated/floor/tiled/white,
 /area/city/horrorhouse)
 "dN" = (
-/obj/structure/ac_unit{
-	layer = 3.3
-	},
-/obj/structure/railing/mapped{
-	layer = 3.4
-	},
+/obj/structure/ac_unit,
+/obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 1;
 	pixel_y = 6
@@ -1443,8 +1424,7 @@
 "eg" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/effect/floor_decal/spline/plain/brown{
-	dir = 9;
-	layer = 3
+	dir = 9
 	},
 /turf/simulated/floor/grass,
 /area/city/outside)
@@ -1489,7 +1469,6 @@
 /area/city/medical)
 "eu" = (
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /obj/structure/table/stone/marble{
 	color = "#ccc3b8"
@@ -1576,14 +1555,12 @@
 /area/city/horrorhouse)
 "eD" = (
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /turf/simulated/floor/wood,
 /area/city/outside)
 "eF" = (
 /obj/structure/platform,
 /obj/machinery/media/jukebox/audioconsole{
-	layer = 3;
 	pixel_x = -1;
 	anchored = 1
 	},
@@ -1601,7 +1578,6 @@
 /obj/effect/map_effect/perma_light/brighter,
 /turf/simulated/abyss{
 	name = "distant cityscape";
-	layer = 1
 	},
 /area/city/nouvelle)
 "eS" = (
@@ -1650,7 +1626,6 @@
 /area/city/kitchen)
 "fc" = (
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /obj/machinery/vending/coffee/free,
 /obj/effect/floor_decal/spline/plain/black{
@@ -1696,7 +1671,6 @@
 /area/city/horrorhouse)
 "fm" = (
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /obj/structure/table/wood,
 /obj/item/flame/candle,
@@ -1771,12 +1745,10 @@
 /obj/effect/decal/fake_object{
 	icon = 'icons/effects/256x672.dmi';
 	icon_state = "cityscape";
-	pixel_x = -1;
-	layer = 1.1
+	pixel_x = -1
 	},
 /turf/simulated/abyss{
-	name = "distant cityscape";
-	layer = 1
+	name = "distant cityscape"
 	},
 /area/city/nouvelle)
 "fE" = (
@@ -1805,7 +1777,6 @@
 	dir = 8
 	},
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /obj/machinery/media/jukebox/audioconsole/wall{
 	pixel_x = 31
@@ -1883,7 +1854,6 @@
 /area/city/kitchen)
 "gh" = (
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /obj/structure/bed/stool/chair/padded/red{
 	dir = 4
@@ -2123,7 +2093,6 @@
 	dir = 4
 	},
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /obj/machinery/floor_light/dance/alternate{
 	color = "#8B0000";
@@ -2138,7 +2107,6 @@
 /area/city/costumeroom)
 "gZ" = (
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/item/clothing/head/pumpkin/lantern,
@@ -2151,7 +2119,6 @@
 /area/city/bar)
 "hf" = (
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /obj/structure/railing/mapped{
 	dir = 4
@@ -2392,7 +2359,6 @@
 /area/city/bar)
 "hU" = (
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /obj/structure/table/stone/marble{
 	color = "#ccc3b8"
@@ -2458,15 +2424,12 @@
 "id" = (
 /obj/structure/table/rack,
 /obj/item/storage/firstaid/o2{
-	layer = 3.01;
 	pixel_x = -13
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 3.01;
 	pixel_x = -13
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 3.01;
 	pixel_x = -13
 	},
 /obj/item/clothing/mask/snorkel,
@@ -2497,7 +2460,6 @@
 /area/city/outside)
 "if" = (
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /obj/structure/table/stone/marble{
 	color = "#ccc3b8"
@@ -2562,7 +2524,6 @@
 /area/city/bar)
 "iv" = (
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /obj/structure/table/wood,
 /obj/item/clothing/head/pumpkin/lantern,
@@ -2766,7 +2727,6 @@
 /area/city/outside)
 "jk" = (
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /obj/effect/map_effect/perma_light{
 	color = "#8B0000";
@@ -2826,8 +2786,7 @@
 "jv" = (
 /obj/machinery/light/colored/red,
 /obj/effect/floor_decal/spline/plain/brown{
-	dir = 10;
-	layer = 3
+	dir = 10
 	},
 /turf/simulated/floor/grass,
 /area/city/outside)
@@ -2851,7 +2810,6 @@
 /obj/machinery/vending/cola{
 	name = "Free Robust Softdrinks";
 	prices = list();
-	layer = 3.5;
 	pixel_y = 16
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -2869,7 +2827,6 @@
 /area/city/outside)
 "jG" = (
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /obj/structure/bed/stool/chair/padded/red{
 	dir = 4
@@ -3146,12 +3103,10 @@
 	},
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/reagent_containers/glass/bottle/thetamycin{
-	layer = 2.99;
 	pixel_x = 9;
 	pixel_y = 7
 	},
 /obj/item/reagent_containers/glass/bottle/antitoxin{
-	layer = 2.99;
 	pixel_y = 7
 	},
 /obj/item/reagent_containers/glass/bottle/dexalin_plus{
@@ -3346,7 +3301,6 @@
 /area/city/hallway)
 "nG" = (
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
 	dir = 4
@@ -3372,8 +3326,7 @@
 "nQ" = (
 /obj/effect/decal/cleanable/floor_damage/random_broken,
 /obj/structure/rod_railing{
-	dir = 6;
-	layer = 3
+	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/city/horrorhouse)
@@ -3591,9 +3544,7 @@
 	pixel_x = 6;
 	pixel_y = 14
 	},
-/obj/item/storage/box/fancy/tray{
-	layer = 2.99
-	},
+/obj/item/storage/box/fancy/tray,
 /turf/simulated/floor/tiled/white,
 /area/city/medical)
 "oU" = (
@@ -3656,7 +3607,6 @@
 	dir = 1
 	},
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /turf/simulated/floor/grass,
 /area/city/hallway)
@@ -3695,7 +3645,6 @@
 /area/city/pool)
 "pu" = (
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
@@ -3743,7 +3692,6 @@
 /area/city/bar)
 "pL" = (
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
@@ -3801,14 +3749,12 @@
 	icon_state = "cityscape"
 	},
 /turf/simulated/abyss{
-	name = "distant cityscape";
-	layer = 1
+	name = "distant cityscape"
 	},
 /area/city/nouvelle)
 "qh" = (
 /obj/effect/floor_decal/spline/plain/brown{
-	dir = 9;
-	layer = 3
+	dir = 9
 	},
 /turf/simulated/floor/grass,
 /area/city/outside)
@@ -3882,8 +3828,7 @@
 "qt" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/effect/floor_decal/spline/plain/brown{
-	dir = 8;
-	layer = 3
+	dir = 8
 	},
 /turf/simulated/floor/grass,
 /area/city/outside)
@@ -4216,12 +4161,10 @@
 /obj/effect/decal/fake_object{
 	icon = 'icons/effects/256x672.dmi';
 	icon_state = "cityscape";
-	layer = 2;
 	pixel_y = -96
 	},
 /turf/simulated/abyss{
-	name = "distant cityscape";
-	layer = 1
+	name = "distant cityscape"
 	},
 /area/city/nouvelle)
 "rD" = (
@@ -4331,12 +4274,9 @@
 /turf/simulated/floor/marble/dark,
 /area/city/bar)
 "rK" = (
-/obj/structure/punching_bag{
-	layer = 4
-	},
+/obj/structure/punching_bag,
 /obj/structure/rod_railing{
 	dir = 10;
-	layer = 5
 	},
 /turf/simulated/floor/tiled,
 /area/city/horrorhouse)
@@ -4456,7 +4396,6 @@
 "sg" = (
 /obj/structure/platform,
 /obj/machinery/media/jukebox/audioconsole{
-	layer = 3;
 	pixel_x = -14;
 	anchored = 1;
 	density = 0
@@ -4576,7 +4515,6 @@
 	desc_extended = "Your ex in a nutshell";
 	pixel_y = 13;
 	pixel_x = 41;
-	layer = 6
 	},
 /turf/simulated/floor/beach/water/pool,
 /area/city/pool)
@@ -4702,8 +4640,7 @@
 	light_color = "#FFA500"
 	},
 /turf/simulated/abyss{
-	name = "distant cityscape";
-	layer = 1
+	name = "distant cityscape"
 	},
 /area/city/nouvelle)
 "ty" = (
@@ -4952,7 +4889,6 @@
 /area/city/costumeroom)
 "uy" = (
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /obj/effect/decal/fake_object{
 	icon = 'icons/mob/mob.dmi';
@@ -5036,7 +4972,6 @@
 /area/city/hallway)
 "uS" = (
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/decal/fake_object{
@@ -5700,7 +5635,6 @@
 	dir = 4
 	},
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /turf/simulated/floor/marble/dark,
 /area/city/costumeroom)
@@ -5713,8 +5647,7 @@
 	pixel_y = -16
 	},
 /obj/structure/platform{
-	dir = 8;
-	layer = 3
+	dir = 8
 	},
 /obj/effect/decal/fake_object{
 	icon = 'icons/mob/human_races/golem/r_flesh.dmi';
@@ -5792,7 +5725,6 @@
 /area/city/outside)
 "wF" = (
 /obj/item/gun/projectile/automatic/rifle/z8{
-	layer = 2.99;
 	pixel_y = 10
 	},
 /obj/item/gun/projectile/automatic/rifle/z8{
@@ -5864,7 +5796,6 @@
 /area/city/bar)
 "wQ" = (
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /obj/structure/platform{
 	dir = 1
@@ -6101,7 +6032,6 @@
 /area/city/hallway)
 "yw" = (
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/bed/stool/chair/padded/red{
@@ -6143,8 +6073,7 @@
 /area/city/costumeroom)
 "yH" = (
 /obj/machinery/vending/cigarette/hacked{
-	pixel_y = 15;
-	layer = 3.2;
+	pixel_y = 15.2;
 	pixel_x = -5;
 	density = 0
 	},
@@ -6467,7 +6396,6 @@
 /obj/item/clothing/under/swimsuit/purple,
 /obj/structure/table/rack,
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /turf/simulated/floor/wood/mahogany,
 /area/city/pool)
@@ -6494,24 +6422,19 @@
 "AC" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/effect/floor_decal/spline/plain/brown{
-	dir = 1;
-	layer = 3
+	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain/brown{
-	layer = 3
-	},
+/obj/effect/floor_decal/spline/plain/brown,
 /obj/item/clothing/head/pumpkin/lantern,
 /turf/simulated/floor/grass,
 /area/city/outside)
 "AH" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/effects/1152x544.dmi';
-	icon_state = "cityscape";
-	layer = 1.1
+	icon_state = "cityscape"
 	},
 /turf/simulated/abyss{
-	name = "distant cityscape";
-	layer = 1
+	name = "distant cityscape"
 	},
 /area/city/nouvelle)
 "AI" = (
@@ -6570,12 +6493,10 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/effect/floor_decal/spline/plain/corner/brown{
-	layer = 3;
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/plain/brown{
-	dir = 1;
-	layer = 3
+	dir = 1
 	},
 /turf/simulated/floor/grass,
 /area/city/outside)
@@ -6707,14 +6628,12 @@
 "Bv" = (
 /obj/effect/landmark/start,
 /turf/simulated/abyss{
-	name = "distant cityscape";
-	layer = 1
+	name = "distant cityscape"
 	},
 /area/city/nouvelle)
 "Bx" = (
 /obj/structure/platform{
-	dir = 8;
-	layer = 3
+	dir = 8
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 6;
@@ -6754,7 +6673,6 @@
 	desc = "A Generic Statue"
 	},
 /obj/item/clothing/head/pumpkin/lantern{
-	layer = 12;
 	pixel_y = 33
 	},
 /turf/simulated/floor/grass,
@@ -6936,7 +6854,6 @@
 /area/city/bar)
 "Cv" = (
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /obj/item/toy/balloon/ghost,
 /turf/simulated/floor/marble/dark,
@@ -6975,7 +6892,6 @@
 /area/city/bar)
 "CL" = (
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /turf/simulated/floor/marble/dark,
 /area/city/bar)
@@ -7046,12 +6962,10 @@
 	},
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/reagent_containers/glass/bottle/thetamycin{
-	layer = 2.99;
 	pixel_x = 9;
 	pixel_y = 7
 	},
 /obj/item/reagent_containers/glass/bottle/antitoxin{
-	layer = 2.99;
 	pixel_y = 7
 	},
 /obj/item/reagent_containers/glass/bottle/dexalin_plus{
@@ -7161,12 +7075,8 @@
 /turf/simulated/floor/wood,
 /area/city/horrorhouse)
 "Dp" = (
-/obj/structure/ac_unit{
-	layer = 3.3
-	},
-/obj/structure/railing/mapped{
-	layer = 3.4
-	},
+/obj/structure/ac_unit,
+/obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 1;
 	pixel_y = 6
@@ -7181,7 +7091,6 @@
 /area/city/pool)
 "Dq" = (
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /obj/structure/table/stone/marble{
 	color = "#ccc3b8"
@@ -7273,7 +7182,6 @@
 /area/city/outside)
 "DS" = (
 /obj/machinery/media/jukebox/audioconsole{
-	layer = 3;
 	pixel_x = -1;
 	anchored = 1
 	},
@@ -7321,8 +7229,7 @@
 /obj/structure/sign/double/barsign{
 	pixel_x = 11;
 	pixel_y = 34;
-	icon_state = "Scotch Servin' Willy's";
-	layer = 2
+	icon_state = "Scotch Servin' Willy's"
 	},
 /turf/simulated/floor/tiled/full,
 /area/city/bar)
@@ -7334,7 +7241,6 @@
 	dir = 8
 	},
 /obj/machinery/vending/battlemonsters{
-	layer = 3;
 	pixel_y = 9
 	},
 /turf/simulated/floor/tiled/red,
@@ -7368,18 +7274,15 @@
 /area/city/horrorhouse)
 "Ex" = (
 /obj/effect/floor_decal/spline/plain/brown{
-	dir = 8;
-	layer = 3
+	dir = 8
 	},
 /obj/effect/floor_decal/spline/plain/brown{
-	dir = 4;
-	layer = 3
+	dir = 4
 	},
 /obj/structure/table/stone/marble{
 	color = "#ccc3b8"
 	},
 /obj/item/clothing/head/pumpkin/lantern{
-	layer = 12;
 	pixel_y = 19
 	},
 /obj/item/flame/candle{
@@ -8038,8 +7941,7 @@
 "Fj" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/effects/1152x544.dmi';
-	icon_state = "cityscape";
-	layer = 1.1
+	icon_state = "cityscape".1
 	},
 /turf/simulated/wall,
 /area/city/nouvelle)
@@ -8050,12 +7952,9 @@
 "Fl" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/effect/floor_decal/spline/plain/brown{
-	dir = 1;
-	layer = 3
+	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain/brown{
-	layer = 3
-	},
+/obj/effect/floor_decal/spline/plain/brown,
 /turf/simulated/floor/grass,
 /area/city/outside)
 "Fm" = (
@@ -8069,8 +7968,7 @@
 /area/city/hallway)
 "Fo" = (
 /turf/simulated/abyss{
-	name = "distant cityscape";
-	layer = 1
+	name = "distant cityscape"
 	},
 /area/city/nouvelle)
 "Fq" = (
@@ -8148,8 +8046,7 @@
 "FQ" = (
 /obj/structure/closet/boxinggloves,
 /obj/structure/rod_railing{
-	dir = 5;
-	layer = 2
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/city/horrorhouse)
@@ -8187,7 +8084,6 @@
 	dir = 4
 	},
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /turf/simulated/floor/marble/dark,
 /area/city/bar)
@@ -8291,7 +8187,6 @@
 	desc = "A Generic Statue"
 	},
 /obj/item/clothing/head/pumpkin/lantern{
-	layer = 12;
 	pixel_y = 33
 	},
 /turf/simulated/floor/grass,
@@ -8343,10 +8238,8 @@
 /area/city/pool)
 "GO" = (
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /obj/machinery/media/jukebox/audioconsole{
-	layer = 3;
 	pixel_x = -1;
 	anchored = 1
 	},
@@ -8460,8 +8353,7 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/effect/floor_decal/spline/plain/brown{
-	dir = 5;
-	layer = 3
+	dir = 5
 	},
 /turf/simulated/floor/grass,
 /area/city/outside)
@@ -8500,7 +8392,6 @@
 	pixel_y = 2
 	},
 /obj/item/clothing/head/pumpkin/lantern{
-	layer = 12;
 	pixel_y = 34
 	},
 /turf/simulated/floor/tiled/full,
@@ -8515,8 +8406,7 @@
 "HB" = (
 /obj/structure/punching_bag,
 /obj/structure/rod_railing{
-	dir = 9;
-	layer = 2
+	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/city/horrorhouse)
@@ -8684,8 +8574,7 @@
 	pixel_y = -102
 	},
 /turf/simulated/abyss{
-	name = "distant cityscape";
-	layer = 1
+	name = "distant cityscape"
 	},
 /area/city/nouvelle)
 "Ih" = (
@@ -8695,13 +8584,11 @@
 "Io" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/effects/1152x544.dmi';
-	icon_state = "cityscape";
-	layer = 1.1;
+	icon_state = "cityscape".1;
 	pixel_y = 55
 	},
 /turf/simulated/abyss{
-	name = "distant cityscape";
-	layer = 1
+	name = "distant cityscape"
 	},
 /area/city/nouvelle)
 "Ip" = (
@@ -8765,8 +8652,7 @@
 /area/city/hallway)
 "IB" = (
 /obj/structure/rod_railing{
-	dir = 5;
-	layer = 2
+	dir = 5
 	},
 /turf/simulated/floor/concrete,
 /area/city/hallway)
@@ -9016,8 +8902,7 @@
 "JD" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/effect/floor_decal/spline/plain/brown{
-	dir = 6;
-	layer = 3
+	dir = 6
 	},
 /turf/simulated/floor/grass,
 /area/city/outside)
@@ -9125,9 +9010,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/machinery/computer/arcade/battle{
-	layer = 3.5
-	},
+/obj/machinery/computer/arcade/battle,
 /turf/simulated/floor/wood,
 /area/city/outside)
 "Ka" = (
@@ -9227,13 +9110,11 @@
 	light_color = "#FFA500"
 	},
 /turf/simulated/abyss{
-	name = "distant cityscape";
-	layer = 1
+	name = "distant cityscape"
 	},
 /area/city/nouvelle)
 "Kv" = (
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/swimmingfins{
@@ -9439,7 +9320,6 @@
 /area/city/bar)
 "Ld" = (
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /obj/structure/table/wood,
 /obj/item/flame/candle,
@@ -9467,7 +9347,6 @@
 /obj/item/clothing/under/swimsuit/purple,
 /obj/structure/table/rack,
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /turf/simulated/floor/wood/mahogany,
 /area/city/pool)
@@ -9597,8 +9476,7 @@
 "Mf" = (
 /obj/machinery/vending/cola{
 	name = "Free Robust Softdrinks";
-	prices = list();
-	layer = 3.5;
+	prices = list().5;
 	pixel_y = 16
 	},
 /turf/simulated/floor/tiled/full,
@@ -9614,19 +9492,16 @@
 "Mj" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/effect/floor_decal/spline/plain/brown{
-	dir = 10;
-	layer = 3
+	dir = 10
 	},
 /obj/effect/floor_decal/spline/plain/corner/brown{
-	layer = 3;
 	dir = 1
 	},
 /turf/simulated/floor/grass,
 /area/city/outside)
 "Mk" = (
 /obj/structure/rod_railing{
-	dir = 8;
-	layer = 2
+	dir = 8
 	},
 /obj/structure/platform,
 /obj/structure/railing/mapped{
@@ -9729,9 +9604,7 @@
 "MP" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/item/storage/box/fancy/tray{
-	layer = 2.99
-	},
+/obj/item/storage/box/fancy/tray,
 /obj/item/reagent_containers/glass/bottle/peridaxon{
 	pixel_x = 6;
 	pixel_y = 14
@@ -9888,7 +9761,6 @@
 	dir = 1
 	},
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /turf/simulated/floor/grass,
 /area/city/hallway)
@@ -9997,7 +9869,6 @@
 /area/city/hallway)
 "NV" = (
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /obj/machinery/floor_light/dance/alternate{
 	default_light_colour = "#300056";
@@ -10031,7 +9902,6 @@
 /area/city/costumeroom)
 "Of" = (
 /obj/effect/floor_decal/spline/plain/cee/brown{
-	layer = 3;
 	dir = 1
 	},
 /turf/simulated/floor/grass,
@@ -10136,11 +10006,9 @@
 /area/city/hallway)
 "Ox" = (
 /obj/structure/platform{
-	dir = 8;
-	layer = 2.3
+	dir = 8.3
 	},
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /obj/machinery/vending/cigarette/hacked,
 /obj/effect/floor_decal/spline/plain/black{
@@ -10426,8 +10294,7 @@
 	icon_state = "cityscape"
 	},
 /turf/simulated/abyss{
-	name = "distant cityscape";
-	layer = 1
+	name = "distant cityscape"
 	},
 /area/city/nouvelle)
 "PN" = (
@@ -10660,9 +10527,7 @@
 /turf/simulated/floor/wood,
 /area/city/costumeroom)
 "Qo" = (
-/obj/structure/table/wood{
-	layer = 3.4
-	},
+/obj/structure/table/wood,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
@@ -10682,7 +10547,6 @@
 /area/city/security)
 "Qs" = (
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /obj/structure/table/stone/marble{
 	color = "#ccc3b8"
@@ -10713,7 +10577,6 @@
 /area/city/bar)
 "Qu" = (
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
@@ -10731,7 +10594,6 @@
 	light_color = "#811e73"
 	},
 /obj/machinery/media/jukebox/audioconsole{
-	layer = 3;
 	pixel_x = -1;
 	anchored = 1
 	},
@@ -11745,8 +11607,7 @@
 "Ss" = (
 /obj/machinery/vending/coffee/free{
 	pixel_y = 16;
-	density = 0;
-	layer = 3.4
+	density = 0.4
 	},
 /obj/effect/floor_decal/spline/plain/blue{
 	dir = 1
@@ -11774,8 +11635,7 @@
 /area/city/kitchen)
 "Sz" = (
 /obj/structure/rod_railing{
-	dir = 9;
-	layer = 2
+	dir = 9
 	},
 /turf/simulated/floor/concrete,
 /area/city/hallway)
@@ -11814,8 +11674,7 @@
 "SK" = (
 /obj/machinery/vending/snack{
 	name = "Free Chocolate Corp";
-	prices = list();
-	layer = 3.5
+	prices = list().5
 	},
 /obj/structure/railing/mapped{
 	dir = 1
@@ -11824,7 +11683,6 @@
 /area/city/outside)
 "ST" = (
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /obj/structure/table/rack,
 /obj/item/beach_ball,
@@ -11990,8 +11848,7 @@
 	light_color = "#FFA500"
 	},
 /turf/simulated/abyss{
-	name = "distant cityscape";
-	layer = 1
+	name = "distant cityscape"
 	},
 /area/city/nouvelle)
 "TI" = (
@@ -12089,20 +11946,16 @@
 	pixel_y = 10
 	},
 /obj/item/material/knife{
-	layer = 2.99;
 	pixel_x = -9
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -5
 	},
 /obj/item/material/knife{
-	layer = 2.99;
 	pixel_x = -9
 	},
 /obj/item/material/knife{
-	layer = 2.99;
 	pixel_x = -9
 	},
 /obj/item/material/kitchen/rollingpin{
@@ -12114,12 +11967,10 @@
 	pixel_y = 10
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -5
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -5
 	},
@@ -12137,8 +11988,7 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/effect/floor_decal/spline/plain/brown{
-	dir = 4;
-	layer = 3
+	dir = 4
 	},
 /turf/simulated/floor/grass,
 /area/city/outside)
@@ -12150,15 +12000,12 @@
 /area/city/hallway)
 "Ut" = (
 /obj/effect/floor_decal/spline/plain/cee/brown{
-	layer = 3;
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/plain/cee/brown{
-	layer = 3;
 	dir = 4
 	},
 /obj/item/clothing/head/pumpkin/lantern{
-	layer = 12;
 	pixel_y = 33
 	},
 /obj/structure/statue{
@@ -12169,13 +12016,11 @@
 /area/city/outside)
 "Ux" = (
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /turf/simulated/floor/wood,
 /area/city/hallway)
 "Uz" = (
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
@@ -12193,8 +12038,7 @@
 	light_color = "#FFA500"
 	},
 /turf/simulated/abyss{
-	name = "distant cityscape";
-	layer = 1
+	name = "distant cityscape"
 	},
 /area/city/nouvelle)
 "UJ" = (
@@ -12284,39 +12128,30 @@
 	pixel_y = 8
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 3.01;
 	pixel_x = -13
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 3.01;
 	pixel_x = -13
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 3.01;
 	pixel_x = -13
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 3.01;
 	pixel_x = -13
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 3.01;
 	pixel_x = -13
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 3.01;
 	pixel_x = -13
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 3.01;
 	pixel_x = -13
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 3.01;
 	pixel_x = -13
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 3.01;
 	pixel_x = -13
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -12330,7 +12165,6 @@
 /area/city/hallway)
 "Vd" = (
 /obj/item/clothing/head/pumpkin/lantern{
-	layer = 12;
 	pixel_y = 50;
 	pixel_x = -16
 	},
@@ -12352,8 +12186,7 @@
 /area/city/kitchen)
 "Vl" = (
 /obj/structure/platform{
-	dir = 8;
-	layer = 3
+	dir = 8
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 6;
@@ -12380,12 +12213,10 @@
 /area/city/bar)
 "Vn" = (
 /obj/effect/floor_decal/spline/plain/brown{
-	dir = 8;
-	layer = 3
+	dir = 8
 	},
 /obj/effect/floor_decal/spline/plain/brown{
-	dir = 4;
-	layer = 3
+	dir = 4
 	},
 /obj/structure/table/stone/marble{
 	color = "#ccc3b8"
@@ -12427,7 +12258,6 @@
 /area/city/dining)
 "VC" = (
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /obj/structure/table/stone/marble{
 	color = "#ccc3b8"
@@ -12467,8 +12297,7 @@
 /area/city/dining)
 "VH" = (
 /obj/machinery/vending/snack{
-	pixel_y = 16;
-	layer = 3.5
+	pixel_y = 16.5
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/full,
@@ -12502,15 +12331,12 @@
 	pixel_y = 16
 	},
 /obj/item/clothing/head/pumpkin/lantern{
-	layer = 12;
 	pixel_y = 50
 	},
 /turf/simulated/floor/grass,
 /area/city/outside)
 "VY" = (
-/obj/machinery/computer/arcade/orion_trail{
-	layer = 3.4
-	},
+/obj/machinery/computer/arcade/orion_trail,
 /obj/structure/railing/mapped{
 	dir = 1
 	},
@@ -12557,8 +12383,7 @@
 	light_color = "#8B0000"
 	},
 /turf/simulated/abyss{
-	name = "distant cityscape";
-	layer = 1
+	name = "distant cityscape"
 	},
 /area/city/nouvelle)
 "Ws" = (
@@ -12599,7 +12424,6 @@
 /area/city/dining)
 "Wy" = (
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /obj/effect/map_effect/perma_light/brighter{
 	color = "#FFA500";
@@ -12931,7 +12755,6 @@
 /area/city/kitchen)
 "Xd" = (
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/decal/fake_object{
@@ -13003,8 +12826,7 @@
 /area/city/kitchen)
 "Xx" = (
 /obj/machinery/vending/snack{
-	pixel_y = 16;
-	layer = 3.5
+	pixel_y = 16.5
 	},
 /turf/simulated/floor/tiled/full,
 /area/city/hallway)
@@ -13102,7 +12924,6 @@
 /area/city/bar)
 "XU" = (
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/full,
@@ -13375,14 +13196,12 @@
 /area/city/costumeroom)
 "Yk" = (
 /obj/structure/platform{
-	dir = 8;
-	layer = 2.3
+	dir = 8.3
 	},
 /turf/simulated/floor/beach/water/pool,
 /area/city/hallway)
 "Yp" = (
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /obj/machinery/floor_light/dance/alternate{
 	color = "#8B0000";
@@ -13478,8 +13297,7 @@
 	pixel_y = -67
 	},
 /turf/simulated/abyss{
-	name = "distant cityscape";
-	layer = 1
+	name = "distant cityscape"
 	},
 /area/city/nouvelle)
 "YV" = (
@@ -13508,9 +13326,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/structure/bookcase/libraryspawn/fiction{
-	layer = 3.5
-	},
+/obj/structure/bookcase/libraryspawn/fiction,
 /turf/simulated/floor/marble/dark,
 /area/city/hallway)
 "Zh" = (
@@ -13521,12 +13337,9 @@
 /area/city/hallway)
 "Zj" = (
 /obj/structure/ac_unit{
-	layer = 3.3;
 	pixel_x = -2
 	},
-/obj/structure/railing/mapped{
-	layer = 3.4
-	},
+/obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 1;
 	pixel_y = 6
@@ -13540,7 +13353,6 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/effect/floor_decal/spline/plain/corner/brown{
-	layer = 3;
 	dir = 4
 	},
 /turf/simulated/floor/grass,
@@ -13548,8 +13360,7 @@
 "Zl" = (
 /obj/structure/table/wood,
 /obj/structure/television{
-	pixel_y = 25;
-	layer = 3.5
+	pixel_y = 25.5
 	},
 /obj/structure/console,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -13579,7 +13390,6 @@
 /obj/structure/table/wood,
 /obj/item/flame/candle,
 /obj/structure/railing/mapped{
-	layer = 3.1
 	},
 /obj/structure/railing/mapped{
 	dir = 8
@@ -13812,30 +13622,24 @@
 "ZR" = (
 /obj/structure/table/stone/marble,
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -5
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -5
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -5
 	},
 /obj/item/material/knife{
-	layer = 2.99;
 	pixel_x = -9
 	},
 /obj/item/material/knife{
-	layer = 2.99;
 	pixel_x = -9
 	},
 /obj/item/material/knife{
-	layer = 2.99;
 	pixel_x = -9
 	},
 /obj/item/material/kitchen/rollingpin{
@@ -13865,7 +13669,6 @@
 /area/city/bar)
 "ZU" = (
 /obj/machinery/media/jukebox/audioconsole{
-	layer = 3;
 	pixel_x = -1;
 	anchored = 1;
 	pixel_y = 7

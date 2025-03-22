@@ -278,13 +278,7 @@
 /turf/simulated/floor/exoplanet/lino/diamond,
 /area/konyang_telecomms_outpost)
 "nt" = (
-/obj/effect/decal/fake_object{
-	density = 1;
-	desc = "A bland air conditioning unit.";
-	icon = 'icons/effects/city.dmi';
-	icon_state = "ac";
-	name = "AC unit"
-	},
+/obj/structure/ac_unit,
 /turf/simulated/floor/bluegrid/cooled,
 /area/konyang_telecomms_outpost)
 "nz" = (

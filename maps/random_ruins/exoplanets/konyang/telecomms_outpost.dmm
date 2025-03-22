@@ -713,13 +713,7 @@
 /turf/simulated/floor/exoplanet/lino/diamond,
 /area/konyang_telecomms_outpost)
 "Nh" = (
-/obj/effect/decal/fake_object{
-	density = 1;
-	desc = "A bland air conditioning unit.";
-	icon = 'icons/effects/city.dmi';
-	icon_state = "ac";
-	name = "AC unit"
-	},
+/obj/structure/ac_unit,
 /turf/simulated/floor/bluegrid/cooled,
 /area/konyang_telecomms_outpost)
 "Nm" = (
@@ -999,14 +993,7 @@
 /area/konyang_telecomms_outpost)
 "YL" = (
 /obj/structure/table/wood,
-/obj/effect/decal/fake_object{
-	desc = "An expensive flatscreen holo-television. This one's connection to the extranet seems to be severed.";
-	dir = 4;
-	icon = 'icons/effects/city.dmi';
-	icon_state = "flatscreen";
-	name = "expensive flatscreen holovision";
-	pixel_y = 15
-	},
+/obj/structure/television,
 /turf/simulated/floor/exoplanet/lino/diamond,
 /area/konyang_telecomms_outpost)
 "YY" = (
