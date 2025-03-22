@@ -8191,7 +8191,7 @@
 /obj/effect/decal/fake_object{
 	density = 1;
 	desc = "Ding.";
-	icon = 'icons/obj/doors/doorlift.dmi';
+	icon = 'icons/obj/doors/Doorele.dmi';
 	icon_state = "door_closed";
 	name = "elevator door";
 	opacity = 1

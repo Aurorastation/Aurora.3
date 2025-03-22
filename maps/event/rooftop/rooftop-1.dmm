@@ -1997,7 +1997,6 @@
 /area/city/mendell/interior)
 "kV" = (
 /obj/structure/table/stone/marble,
-/obj/structure/table/stone/marble,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
 	},
@@ -4811,7 +4810,6 @@
 	},
 /area/city/mendell/interior)
 "Cr" = (
-/obj/structure/table/wood,
 /obj/structure/table/wood,
 /obj/item/flame/candle,
 /turf/unsimulated/floor{

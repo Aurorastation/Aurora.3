@@ -8584,7 +8584,7 @@
 "Io" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/effects/1152x544.dmi';
-	icon_state = "cityscape".1;
+	icon_state = "cityscape";
 	pixel_y = 55
 	},
 /turf/simulated/abyss{
