@@ -304,7 +304,7 @@
 	slot_flags = SLOT_BELT
 	storage_slots = 6
 	can_hold = list(/obj/item/clothing/mask/smokable/cigarette, /obj/item/flame/lighter, /obj/item/trash/cigbutt)
-	cant_hold = /obj/item/clothing/mask/smokable/cigarette/cigar // prevents cigars from being put in regular cigarettes packs, because thats kind of silly
+	cant_hold = list(/obj/item/clothing/mask/smokable/cigarette/cigar) // prevents cigars from being put in regular cigarettes packs, because thats kind of silly
 	var/cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette
 
 /obj/item/storage/box/fancy/cigarettes/Initialize()
@@ -396,6 +396,7 @@
 	use_sound = 'sound/items/storage/briefcase.ogg'
 	storage_slots = 8
 	can_hold = list(/obj/item/clothing/mask/smokable/cigarette/cigar)
+	cant_hold = list() //allows cigar cases to hold cigars
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/cigar
 	chewable = FALSE
 
