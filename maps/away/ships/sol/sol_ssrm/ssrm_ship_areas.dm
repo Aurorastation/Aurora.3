@@ -7,8 +7,17 @@
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	ambience = AMBIENCE_ENGINEERING
 
+/area/ship/ssrm_corvette/hallway
+	name = "Sol Recon Corvette - Hallway"
+
 /area/ship/ssrm_corvette/cic
 	name = "Sol Recon Corvette - CIC"
+
+/area/ship/ssrm_corvette/safe_room
+	name = "Sol Recon Corvette - Safe Room"
+
+/area/ship/ssrm_corvette/telecomms
+	name = "Sol Recon Corvette - Telecommunications"
 
 /area/ship/ssrm_corvette/docking_port
 	name = "Sol Recon Corvette - Docking Port"
