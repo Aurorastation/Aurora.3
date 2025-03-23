@@ -1301,9 +1301,6 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 	if(camera)
 		camera.c_tag = real_name
 
-/mob/proc/get_talk_bubble()
-	return 'icons/mob/talk.dmi'
-
 /mob/proc/adjust_typing_indicator_offsets(var/atom/movable/typing_indicator/indicator)
 	return
 
