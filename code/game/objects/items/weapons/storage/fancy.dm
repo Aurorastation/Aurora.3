@@ -313,8 +313,9 @@
 	. = ..()
 
 /obj/item/storage/box/fancy/cigarettes/fill()
-	for(var/i = 1 to storage_slots)
-		new cigarette_to_spawn(src)
+	if(cigarette_to_spawn)
+		for(var/i = 1 to storage_slots)
+			new cigarette_to_spawn(src)
 
 /obj/item/storage/box/fancy/cigarettes/update_icon()
 	. = ..()
