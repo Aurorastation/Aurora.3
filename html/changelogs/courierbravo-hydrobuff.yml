@@ -60,6 +60,7 @@ changes:
   - rscadd: "Added all the plushies I could find to the plushie randomizer"
   - imageadd: "Added a new type of magazine, Horticulture Today! Added sprites to go along with each issue."
   - balance: "Added two new subtypes of vending machine for the garden and hydroponics. The public garden vendor now costs credits to use."
+  - balance: "Increased the capacity of the biogenerator by double. Changed prices for biogenerator recipes to make them more reasonable for product input."
   - balance: "Added a few new bounties that work in favor of the gardener role."
   - balance: "Added some soy sauce bottles to the kitchen, given its increasing prevalence as an ingredient."
   - balance: "Increased the price of the produce box in the operations ordering program from 50 credits to 100."
