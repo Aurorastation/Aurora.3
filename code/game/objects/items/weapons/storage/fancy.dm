@@ -444,8 +444,10 @@
 	max_storage_space = 14 //A janky but functional solution since I could not figure out how to increase the maximum storage to match how much the case is designed to hold in any other way
 	cigarette_to_spawn = null
 
-
-/obj/item/storage/box/fancy/cigarettes/case/handle_open_icon() // Added a new function to allow the base sprite (unopened) to still utilize the regular opened sprites (the ones that go from 0 to 1 to 2 etc etc etc), without needing to add them as separate items in the DMI file. Could be used with the cigar cases in the future if someone chooses to give them new closed sprites for fluff. But also allows contributors to add their own unique cigarette case sprites without adding additional confusing bloat.
+/// Added a new function to allow the base sprite (unopened) to still utilize the regular opened sprites (the ones that go from 0 to 1 to 2 etc etc etc),
+/// without needing to add them as separate items in the DMI file. Could be used with the cigar cases in the future if someone chooses to give them new closed sprites for fluff.
+/// Also allows contributors to add their own unique cigarette case sprites without adding additional confusing bloat.
+/obj/item/storage/box/fancy/cigarettes/case/handle_open_icon()
 	icon_state = "cigarettecase[contents.len]"
 
 // List of different cigarette cases (unique closed states sprites) - Add new ones here, please
