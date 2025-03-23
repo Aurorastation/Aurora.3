@@ -136,7 +136,7 @@ FOODSTUFFS
 	cost = 100
 
 /singleton/biorecipe/food/sprinkles
-	name = "Sprinke Shaker"
+	name = "Sprinkle Shaker"
 	object = /obj/item/reagent_containers/food/condiment/shaker/sprinkles
 	cost = 100
 
