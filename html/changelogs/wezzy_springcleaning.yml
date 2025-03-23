@@ -38,7 +38,8 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - imageadd: "Updates Hotel Montparnasse and Mendell City event sprites and standardizes them so they can be used for future events."
+  - imageadd: "Updates and refactors Hotel Montparnasse and Mendell City event sprites and standardizes them so they can be used for future events."
   - imageadd: "Adds new generic props for mapping."
   - imageadd: "Tweaks generic map props such as street lamps and infrastructure so they can also be used for other away sites and planets."
   - rscadd: "Changes prop names and descriptions to be more generic so they can be used in more enviroments."
+  - refactor: "Refactors some city fake_objects (which is a horrendously bad practice in the first place) into actual structures."
