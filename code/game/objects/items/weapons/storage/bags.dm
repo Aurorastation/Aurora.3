@@ -83,6 +83,13 @@
 			return 1
 	..()
 
+/obj/item/storage/bag/trash/filled/fill()
+	var/i_max = rand(3,6)
+	for(var/i=1, i<=i_max, i++)
+		new /obj/random/junk(src)
+	if(prob(2))
+		new /obj/random/contraband(src)
+
 /obj/item/storage/bag/trash/bluespace
 	name = "bluespace trash bag"
 	desc = "A highly advanced trashbag with a huge storage capacity!"
