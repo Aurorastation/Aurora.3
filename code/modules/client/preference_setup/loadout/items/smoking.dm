@@ -153,8 +153,8 @@
 /datum/gear/smoking/cigarettecase/New()
 	..()
 	var/list/cigarettecase = list()
-	cigarettecase["Cigarette Case"] = /obj/item/storage/box/fancy/cigarettes/case
-	cigarettecase["Decorated Cigarette Case"] = /obj/item/storage/box/fancy/cigarettes/case/mus
-	cigarettecase["Solarian Cigarette Case"] = /obj/item/storage/box/fancy/cigarettes/case/sol
-	cigarettecase["Biesel Cigarette Case"] = /obj/item/storage/box/fancy/cigarettes/case/tc
+	cigarettecase["cigarette case"] = /obj/item/storage/box/fancy/cigarettes/case
+	cigarettecase["cigarette case, decorated"] = /obj/item/storage/box/fancy/cigarettes/case/mus
+	cigarettecase["cigarette case, sol"] = /obj/item/storage/box/fancy/cigarettes/case/sol
+	cigarettecase["cigarette case, biesel"] = /obj/item/storage/box/fancy/cigarettes/case/tc
 	gear_tweaks += new /datum/gear_tweak/path(cigarettecase)
