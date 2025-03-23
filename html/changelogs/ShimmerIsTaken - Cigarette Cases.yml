@@ -58,3 +58,4 @@ changes:
   - rscadd: "Added a new item to the smoking loadout, an empty cigarette case that can be filled with rolled cigarettes or bought one's, and kept in a nice pretty package."
   - bugfix: "Fixes cigarette packs and the cigar case not displaying their in-hand sprites."
   - bugfix: "Fixed cigarette packs being able to hold cigars. Same applies to the newly added item, cigars can only be stored in cigar cases."
+  - imageadd: "Added new cigarette case sprites, blank, Biesel, Sol, and decorated, item and inhand. Modified the inhand sprites of certain existing cigarette packets and cigar case to fix the northfacing sprite."
