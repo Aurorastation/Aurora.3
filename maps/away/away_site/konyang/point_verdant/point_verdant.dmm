@@ -198,7 +198,8 @@
 "agy" = (
 /obj/structure/street_sign{
 	pixel_y = -4;
-	pixel_x = -13
+	pixel_x = -13;
+	dir = 4
 	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
@@ -1155,18 +1156,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/spaceport)
-"aIp" = (
-/obj/structure/utility_pole/street/on{
-	dir = 1
-	},
-/obj/effect/decal/road_marking{
-	dir = 1
-	},
-/obj/effect/decal/curb{
-	dir = 1
-	},
-/turf/simulated/floor/asphalt,
-/area/point_verdant/outdoors)
 "aIr" = (
 /obj/effect/decal/curb/corner{
 	dir = 8
@@ -5677,7 +5666,8 @@
 "deX" = (
 /obj/structure/street_sign{
 	pixel_y = -4;
-	pixel_x = -13
+	pixel_x = -13;
+	dir = 4
 	},
 /obj/structure/utility_pole/street/on{
 	dir = 8
@@ -7473,8 +7463,8 @@
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "egp" = (
-/obj/structure/street_sign/turn{
-	dir = 4
+/obj/structure/street_sign/directional/blue{
+	dir = 10
 	},
 /turf/simulated/floor/sidewalk/paved,
 /area/point_verdant/interior/parking)
@@ -13609,7 +13599,8 @@
 	},
 /obj/structure/street_sign{
 	pixel_y = 30;
-	pixel_x = -10
+	pixel_x = -10;
+	dir = 8
 	},
 /obj/structure/street_sign/street{
 	pixel_x = 1;
@@ -17264,8 +17255,8 @@
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
 "jOp" = (
-/obj/structure/street_sign/turn{
-	dir = 4
+/obj/structure/street_sign/directional/blue{
+	dir = 10
 	},
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
@@ -20623,7 +20614,9 @@
 	dir = 4;
 	street_name = "Spaceport Avenue"
 	},
-/obj/structure/street_sign,
+/obj/structure/street_sign{
+	dir = 4
+	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "lGi" = (
@@ -29150,15 +29143,6 @@
 /obj/structure/light_pole/konyang/left,
 /turf/simulated/floor/exoplanet/dirt_konyang/sand,
 /area/point_verdant/outdoors)
-"qNI" = (
-/obj/effect/decal/curb{
-	dir = 10
-	},
-/obj/structure/utility_pole/street/on{
-	dir = 8
-	},
-/turf/simulated/floor/asphalt,
-/area/point_verdant/outdoors)
 "qPt" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
@@ -30694,8 +30678,8 @@
 	street_name = "Listor Bend Street";
 	pixel_y = 30
 	},
-/obj/structure/street_sign/turn{
-	dir = 4
+/obj/structure/street_sign/directional/blue{
+	dir = 10
 	},
 /turf/simulated/floor/sidewalk/detail,
 /area/point_verdant/outdoors)
@@ -36098,18 +36082,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
-"vag" = (
-/obj/effect/decal/road_marking{
-	dir = 8
-	},
-/obj/effect/decal/curb{
-	dir = 4
-	},
-/obj/structure/utility_pole/street/on{
-	dir = 4
-	},
-/turf/simulated/floor/asphalt,
-/area/point_verdant/outdoors)
 "vaj" = (
 /obj/effect/decal/road_marking{
 	dir = 4
@@ -39093,7 +39065,8 @@
 "wMm" = (
 /obj/structure/street_sign{
 	pixel_y = -4;
-	pixel_x = -13
+	pixel_x = -13;
+	dir = 4
 	},
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
@@ -39495,8 +39468,8 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior/tunnels)
 "wXO" = (
-/obj/structure/street_sign/turn{
-	dir = 4
+/obj/structure/street_sign/directional/blue{
+	dir = 10
 	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
@@ -132551,8 +132524,8 @@ quY
 lxf
 bmm
 lxf
-aIp
-rNy
+pDu
+eSP
 ipp
 irz
 irz
@@ -134093,8 +134066,8 @@ quY
 lxf
 bmm
 lxf
-jzO
-rNy
+pDu
+eSP
 irz
 irz
 irz
@@ -138745,7 +138718,7 @@ rSs
 uqn
 uqn
 uqn
-uqn
+ikl
 uqn
 uJj
 quY
@@ -139002,7 +138975,7 @@ lJA
 lJA
 lJA
 lJA
-vag
+lJA
 lJA
 lJA
 omA
@@ -139505,12 +139478,12 @@ sRU
 kUT
 jrZ
 rNy
-qNI
+bew
 iSg
 iSg
 iSg
 iSg
-bbY
+iSg
 czD
 lxf
 cJz
@@ -139762,12 +139735,12 @@ moJ
 moJ
 qWN
 rNy
-rNy
+nHt
 rNy
 xMP
 rNy
 rNy
-uJj
+hdO
 bAa
 blm
 tsj

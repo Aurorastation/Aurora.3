@@ -208,18 +208,10 @@
 	layer = ABOVE_HUMAN_LAYER
 	anchored = TRUE
 
-/obj/structure/street_sign/stop_konyang
-	icon_state = "stop_konyang"
-	desc = "A stop sign. You can't be really sure unless you speak Konyang."
-
 /obj/structure/street_sign/yield
 	name = "yield sign"
 	desc = "A yield sign which tells you to slow down, rather politely. Let's hope you listen."
 	icon_state = "yield"
-
-/obj/structure/street_sign/yield/konyang
-	desc = "A yield sign. In Konyang!"
-	icon_state = "yield_konyang"
 
 /obj/structure/street_sign/warnings
 	name = "warning sign"
@@ -231,8 +223,8 @@
 	desc = "A directional sign. How the turntables..."
 	icon_state = "directional"
 
-/obj/structure/street_sign/directional/yellow
-	icon_state = "directional_yellow"
+/obj/structure/street_sign/directional/blue
+	icon_state = "directional_blue"
 
 /obj/structure/street_sign/street
 	name = "street sign"

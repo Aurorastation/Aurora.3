@@ -40,4 +40,5 @@ delete-after: True
 changes:
   - imageadd: "Updates Hotel Montparnasse and Mendell City event sprites and standardizes them so they can be used for future events."
   - imageadd: "Adds new generic props for mapping."
-  - imageadd: "Tweaks generic map props such as street lamps and infrastructure so they can also be used for other away sites and planets. Konyang-specific sprites are mostly untouched."
+  - imageadd: "Tweaks generic map props such as street lamps and infrastructure so they can also be used for other away sites and planets."
+  - rscadd: "Changes prop names and descriptions to be more generic so they can be used in more enviroments."

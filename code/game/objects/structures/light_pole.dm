@@ -77,15 +77,6 @@
 	light_range = 8
 	light_power = 1.9
 
-/obj/structure/utility_pole/street/konyang
-	icon_state = "streetlight_konyang"
-
-/obj/structure/utility_pole/street/konyang/on
-	light_wedge = LIGHT_OMNI
-	light_color = "#e8ffeb"
-	light_range = 8
-	light_power = 1.9
-
 /obj/structure/utility_pole/street/corner
 	name = "\improper street lamp"
 	desc = "A tall light source. What more is there to say?"
@@ -146,9 +137,6 @@
 	light_range = 3.1
 	light_power = 2.6
 
-/obj/structure/utility_pole/street/crosswalk/konyang
-	icon_state = "crosswalk_konyang"
-
 /obj/structure/utility_pole/street/crosswalk/Initialize(mapload)
 	. = ..()
 	ClearOverlays()
@@ -162,9 +150,6 @@
 	light_color = LIGHT_COLOR_HALOGEN
 	light_range = 3.1
 	light_power = 2.6
-
-/obj/structure/utility_pole/street/traffic/konyang
-	icon_state = "trafficlight_konyang"
 
 /obj/effect/overlay/street_light/traffic
 	icon_state = "traffic_lights"
