@@ -148,6 +148,9 @@
 #define BP_ACTUATORS_LEFT	"left arm actuators"
 #define BP_ACTUATORS_RIGHT	"right arm actuators"
 
+// Bishop frame only.
+#define BP_WIRELESS_ACCESS "wireless access point"
+
 // Parasite organs
 #define BP_ZOMBIE_PARASITE "black tumour"
 #define BP_WORM_HEART "heart fluke"

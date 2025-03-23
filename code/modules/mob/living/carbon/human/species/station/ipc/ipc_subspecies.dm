@@ -497,6 +497,22 @@
 
 	blurb = "Bishop Cybernetics frames are among the sleeker, flashier frames widely produced for IPCs. This brand-new, high end design has a focus on pioneering energy efficiency without sacrifice, fitting to Bishop's company vision. Cutting-edge technology in power management means this frame can operate longer while running more demanding processing algorithms than most. This extreme push to minimize power draw means this frame can be equipped with all sorts of extra equipment: a hologram for a face, flashing status displays and embedded lights solely meant for show. The one thing holding this frame back from perfection is the same common criticism leveled against almost all Bishop products: the shiny chrome and glass meant to put all of this tech on display means it's exposed and fragile. It's because of Bishop's unrelenting pursuit of vanity in their designs that these frames often suffer from issues with reliability and struggle to safely perform the same work as cheaper, more rugged frames."
 
+
+	has_organ = list(
+		BP_BRAIN   = /obj/item/organ/internal/machine/posibrain,
+		BP_VOICE_SYNTHESIZER = /obj/item/organ/internal/machine/voice_synthesizer,
+		BP_DIAGNOSTICS_SUITE = /obj/item/organ/internal/machine/internal_diagnostics,
+		BP_HYDRAULICS = /obj/item/organ/internal/machine/hydraulics,
+		BP_ACTUATORS_LEFT = /obj/item/organ/internal/machine/actuators/left,
+		BP_ACTUATORS_RIGHT = /obj/item/organ/internal/machine/actuators/right,
+		BP_COOLING_UNIT = /obj/item/organ/internal/machine/cooling_unit,
+		BP_CELL    = /obj/item/organ/internal/machine/cell,
+		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
+		BP_IPCTAG = /obj/item/organ/internal/ipc_tag,
+		BP_WIRELESS_ACCESS = /obj/item/organ/internal/machine/wireless_access
+	)
+
+
 	has_limbs = list(
 		BP_CHEST  = list("path" = /obj/item/organ/external/chest/ipc/industrial/bishop),
 		BP_GROIN  = list("path" = /obj/item/organ/external/groin/ipc/industrial/bishop),
