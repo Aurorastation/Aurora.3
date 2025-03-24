@@ -219,11 +219,10 @@
 /turf/simulated/floor/exoplanet/konyang/pink,
 /area/kowloon_junction/outdoors)
 "aG" = (
-/obj/effect/decal/curb{
+/obj/effect/decal/curb/corner{
 	dir = 1
 	},
-/obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "aH" = (
 /obj/structure/table/standard,
@@ -266,8 +265,7 @@
 	},
 /obj/random/dirt_75,
 /obj/machinery/light{
-	dir = 1;
-	pixel_y = 0
+	dir = 1
 	},
 /obj/item/reagent_containers/food/drinks/cans/beer/rice{
 	pixel_x = -9
@@ -362,7 +360,6 @@
 	pixel_y = -2
 	},
 /obj/item/reagent_containers/food/condiment/shaker/salt{
-	pixel_y = 0;
 	pixel_x = -11
 	},
 /turf/simulated/floor/lino,
@@ -393,7 +390,7 @@
 	},
 /obj/structure/flora/bush/konyang_reeds,
 /obj/effect/floor_decal/konyang_flowers,
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "ba" = (
 /obj/machinery/door/airlock/freezer{
@@ -422,7 +419,6 @@
 "bf" = (
 /obj/structure/toilet{
 	pixel_y = 16;
-	color = blue;
 	pixel_x = -8
 	},
 /obj/effect/floor_decal/corner_wide/black/diagonal{
@@ -574,16 +570,17 @@
 /turf/simulated/floor/sidewalk,
 /area/kowloon_junction/outdoors)
 "by" = (
-/obj/effect/decal/curb,
-/obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/exoplanet/konyang,
+/obj/effect/shuttle_landmark/kowloon_junction/spaceport_canary{
+	dir = 1
+	},
+/turf/simulated/floor/asphalt,
 /area/kowloon_junction/outdoors)
 "bz" = (
 /obj/structure/flora/rock/konyang/small,
 /obj/effect/decal/curb/corner{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "bA" = (
 /obj/random/dirt_75,
@@ -625,7 +622,7 @@
 "bE" = (
 /obj/structure/rope_railing,
 /obj/structure/rope_post,
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "bF" = (
 /obj/structure/light_pole/konyang/left,
@@ -679,7 +676,7 @@
 	dir = 1
 	},
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "bN" = (
 /obj/structure/table/rack/clothing{
@@ -909,12 +906,13 @@
 /turf/simulated/floor/asphalt,
 /area/kowloon_junction/interior/shallow)
 "co" = (
-/obj/effect/decal/curb{
-	dir = 8
+/obj/effect/step_trigger/thrower{
+	icon_state = "dir_arrow";
+	tiles = 1;
+	dir = 1
 	},
-/obj/effect/floor_decal/konyang_flowers,
-/turf/simulated/floor/exoplanet/konyang,
-/area/kowloon_junction/outdoors)
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/kowloon_junction/coast)
 "cp" = (
 /obj/effect/decal/curb{
 	dir = 4
@@ -986,11 +984,9 @@
 	pixel_y = 11
 	},
 /obj/item/reagent_containers/food/condiment/shaker/salt{
-	pixel_y = 0;
 	pixel_x = -11
 	},
 /obj/item/reagent_containers/food/condiment/shaker/peppermill{
-	pixel_y = 0;
 	pixel_x = -4
 	},
 /turf/simulated/floor/lino/diamond,
@@ -1011,7 +1007,7 @@
 /obj/structure/rod_railing{
 	dir = 6
 	},
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/kowloon_junction/outdoors)
 "cD" = (
 /obj/machinery/light{
@@ -1078,14 +1074,13 @@
 	dir = 1
 	},
 /obj/structure/flora/tree/konyang/spring,
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "cP" = (
 /obj/machinery/button/remote/blast_door{
 	id = "konyang_church_backdoor";
 	name = "Back Door";
 	pixel_y = -18;
-	dir = 2;
 	req_access = list(219)
 	},
 /turf/simulated/floor/sidewalk/blocks,
@@ -1333,7 +1328,6 @@
 	id = "konyang_church_outside";
 	name = "Door Shutters";
 	pixel_y = -18;
-	dir = 2;
 	req_access = list(219);
 	pixel_x = 8
 	},
@@ -1341,7 +1335,6 @@
 	id = "konyang_church_windows";
 	name = "Window Shutters";
 	pixel_y = -18;
-	dir = 2;
 	req_access = list(219);
 	pixel_x = -8
 	},
@@ -1441,7 +1434,6 @@
 	id = "konyang_upburger_topside";
 	name = "Door Shutters";
 	pixel_y = -18;
-	dir = 2;
 	req_access = list(219)
 	},
 /turf/simulated/floor/wood,
@@ -1635,6 +1627,12 @@
 /obj/structure/urban_grate,
 /turf/simulated/floor/asphalt,
 /area/kowloon_junction/interior/shallow)
+"ej" = (
+/obj/effect/shuttle_landmark/kowloon_junction/spaceport_spark{
+	dir = 1
+	},
+/turf/simulated/floor/asphalt,
+/area/kowloon_junction/outdoors)
 "em" = (
 /obj/structure/table/standard,
 /obj/item/newspaper,
@@ -1701,7 +1699,7 @@
 	dir = 1
 	},
 /obj/structure/flora/rock/konyang,
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "ev" = (
 /obj/effect/decal/road_marking{
@@ -2001,15 +1999,6 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/kowloon_junction/interior/public_bathroom)
-"fp" = (
-/obj/structure/flora/rock/konyang/water,
-/obj/structure/flora/bush/konyang_reeds/water,
-/obj/structure/rod_railing{
-	dir = 4;
-	pixel_y = 0
-	},
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
-/area/kowloon_junction/outdoors)
 "fq" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -2108,11 +2097,9 @@
 	pixel_y = 11
 	},
 /obj/item/reagent_containers/food/condiment/shaker/salt{
-	pixel_y = 0;
 	pixel_x = 11
 	},
 /obj/item/reagent_containers/food/condiment/shaker/peppermill{
-	pixel_y = 0;
 	pixel_x = 4
 	},
 /turf/simulated/floor/lino/diamond,
@@ -2305,7 +2292,7 @@
 /area/kowloon_junction/interior/shallow)
 "gk" = (
 /obj/structure/rod_railing,
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/kowloon_junction/outdoors)
 "gl" = (
 /obj/structure/flora/bush/konyang_reeds/water,
@@ -2577,6 +2564,10 @@
 /obj/structure/bed/stool/chair/sofa/corner/concave/brown{
 	dir = 4
 	},
+/obj/effect/ghostspawpoint{
+	identifier = "nhk_gwok";
+	name = "igs - Up! Burger Employee"
+	},
 /turf/simulated/floor/carpet/magenta,
 /area/kowloon_junction/interior/restaurant_top)
 "gU" = (
@@ -2649,7 +2640,7 @@
 	dir = 8
 	},
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "hf" = (
 /obj/effect/decal/curb/corner{
@@ -2688,7 +2679,7 @@
 /obj/structure/ledge/quarter{
 	dir = 9
 	},
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "hj" = (
 /obj/effect/decal/curb{
@@ -2716,7 +2707,7 @@
 /obj/structure/rod_railing{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/kowloon_junction/interior/shallow)
 "hn" = (
 /obj/machinery/light/colored/decayed{
@@ -2792,7 +2783,6 @@
 	dir = 4
 	},
 /obj/structure/flora/tree/konyang/fall{
-	pixel_y = 0;
 	pixel_x = -46
 	},
 /turf/simulated/floor/exoplanet/konyang/pink,
@@ -2803,12 +2793,13 @@
 /turf/simulated/floor/exoplanet/konyang/wilting,
 /area/kowloon_junction/outdoors)
 "hz" = (
-/obj/effect/decal/curb{
-	dir = 4
+/obj/effect/step_trigger/thrower{
+	icon_state = "dir_arrow";
+	tiles = 1;
+	dir = 8
 	},
-/obj/effect/floor_decal/konyang_flowers,
-/turf/simulated/floor/exoplanet/konyang,
-/area/kowloon_junction/outdoors)
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/kowloon_junction/coast)
 "hA" = (
 /obj/effect/decal/road_marking/thin{
 	dir = 1
@@ -2877,7 +2868,6 @@
 "hL" = (
 /obj/structure/road_sign{
 	dir = 4;
-	pixel_y = 0;
 	pixel_x = -13
 	},
 /turf/simulated/floor/sidewalk/blocks,
@@ -3040,6 +3030,10 @@
 /obj/item/device/megaphone/stagemicrophone{
 	pixel_x = 5;
 	pixel_y = -5
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "benevolent_guild_boss";
+	name = "igs - benevolent guild lieutenant"
 	},
 /turf/simulated/floor/carpet/aquablue,
 /area/kowloon_junction/interior/gang/gang_topfloor)
@@ -3343,7 +3337,7 @@
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "iR" = (
 /obj/structure/table/rack/retail_shelf,
@@ -3486,7 +3480,7 @@
 /obj/structure/rod_railing{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/kowloon_junction/interior/shallow)
 "jh" = (
 /obj/machinery/light/small/built,
@@ -3606,7 +3600,7 @@
 /area/kowloon_junction/interior)
 "jx" = (
 /obj/structure/flora/bush/konyang_reeds/water,
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/kowloon_junction/interior/shallow)
 "jz" = (
 /obj/structure/bed/stool/chair/wood{
@@ -3732,7 +3726,7 @@
 	dir = 4
 	},
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "jO" = (
 /obj/effect/decal/exterior_stairs/half/center{
@@ -3747,6 +3741,10 @@
 /obj/machinery/door/window/northright,
 /turf/simulated/floor/lino,
 /area/kowloon_junction/interior/restaurant_bottom)
+"jQ" = (
+/obj/effect/shuttle_landmark/kowloon_junction/dock_01,
+/turf/simulated/floor/asphalt,
+/area/kowloon_junction/outdoors)
 "jR" = (
 /obj/structure/rod_railing{
 	dir = 10
@@ -3763,7 +3761,7 @@
 /area/kowloon_junction)
 "jU" = (
 /obj/structure/ledge/quarter,
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "jV" = (
 /obj/structure/table/standard,
@@ -3947,8 +3945,7 @@
 "km" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/machinery/light{
-	dir = 1;
-	pixel_y = 0
+	dir = 1
 	},
 /obj/item/reagent_containers/food/drinks/cans/beer/rice/moonlabor{
 	pixel_x = -10
@@ -4001,7 +3998,7 @@
 /obj/structure/rope_railing{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "kp" = (
 /obj/structure/ledge/corner,
@@ -4084,7 +4081,7 @@
 	},
 /obj/structure/rod_railing,
 /obj/structure/flora/rock/konyang/water,
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/kowloon_junction/interior/shallow)
 "ky" = (
 /obj/effect/decal/road_marking{
@@ -4265,7 +4262,6 @@
 "kW" = (
 /obj/structure/table/standard,
 /obj/item/folder/red{
-	pixel_y = 0;
 	pixel_x = -5
 	},
 /obj/item/folder/red{
@@ -4410,11 +4406,13 @@
 /turf/simulated/floor/concrete/square,
 /area/kowloon_junction/interior/minimart)
 "ln" = (
-/obj/effect/decal/curb{
-	dir = 10
+/obj/effect/step_trigger/thrower{
+	icon_state = "dir_arrow";
+	tiles = 1;
+	dir = 9
 	},
-/turf/simulated/floor/exoplanet/konyang,
-/area/kowloon_junction/outdoors)
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/kowloon_junction/coast)
 "lo" = (
 /obj/structure/table/reinforced/wood,
 /obj/item/storage/box/fancy/cigarettes/rugged{
@@ -4551,7 +4549,7 @@
 /turf/simulated/floor/asphalt,
 /area/kowloon_junction/outdoors)
 "lG" = (
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/kowloon_junction/outdoors)
 "lH" = (
 /obj/structure/flora/rock/konyang/small,
@@ -4575,6 +4573,12 @@
 	},
 /turf/simulated/floor/sidewalk,
 /area/kowloon_junction/interior/shallow)
+"lL" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/kowloon_junction/interior/gang)
 "lM" = (
 /obj/structure/platform_stairs/full/east_west_cap{
 	dir = 8
@@ -4804,7 +4808,7 @@
 /obj/structure/rod_railing{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/kowloon_junction/interior/shallow)
 "mr" = (
 /obj/structure/table/standard,
@@ -4893,7 +4897,7 @@
 /obj/structure/ledge/quarter{
 	dir = 10
 	},
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "mE" = (
 /obj/structure/rod_railing{
@@ -5054,9 +5058,7 @@
 /turf/simulated/floor/sidewalk/paved,
 /area/kowloon_junction/interior/shallow)
 "nc" = (
-/obj/machinery/light{
-	pixel_y = 0
-	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/kowloon_junction/interior/vendingmart)
 "nd" = (
@@ -5094,7 +5096,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/generic/beet_tree_petals,
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "ni" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -5182,7 +5184,7 @@
 "nt" = (
 /obj/structure/flora/bush/konyang_reeds,
 /obj/effect/decal/curb/corner,
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "nu" = (
 /turf/simulated/floor/carpet/orange,
@@ -5650,8 +5652,7 @@
 "oI" = (
 /obj/structure/road_sign/pedestrian{
 	pixel_x = 8;
-	dir = 4;
-	pixel_y = 0
+	dir = 4
 	},
 /obj/structure/urban_grate,
 /turf/simulated/floor/sidewalk/blocks,
@@ -5694,7 +5695,6 @@
 	id = "konyang_minimart";
 	name = "Store Shutters";
 	pixel_y = -18;
-	dir = 2;
 	req_access = list(219)
 	},
 /obj/structure/ledge/quarter,
@@ -5872,7 +5872,7 @@
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "pq" = (
 /obj/structure/bed/stool/chair/office/bridge/generic{
@@ -6088,12 +6088,14 @@
 /turf/simulated/floor/sidewalk/blocks,
 /area/kowloon_junction/outdoors)
 "pS" = (
-/obj/effect/decal/curb{
-	dir = 8
+/obj/structure/flora/rock/konyang/water,
+/obj/effect/step_trigger/thrower{
+	icon_state = "dir_arrow";
+	tiles = 1;
+	dir = 1
 	},
-/obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/exoplanet/konyang,
-/area/kowloon_junction/outdoors)
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/kowloon_junction/coast)
 "pT" = (
 /obj/effect/decal/exterior_stairs/half/center,
 /obj/machinery/door/urban,
@@ -6113,7 +6115,7 @@
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "pY" = (
 /obj/machinery/light/small{
@@ -6713,7 +6715,7 @@
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "rx" = (
 /obj/structure/undies_wardrobe,
@@ -6889,7 +6891,7 @@
 /area/kowloon_junction/outdoors)
 "rZ" = (
 /obj/structure/flora/bush/konyang_reeds/water,
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/kowloon_junction/outdoors)
 "sa" = (
 /obj/effect/decal/road_marking/thin,
@@ -6940,8 +6942,7 @@
 /area/kowloon_junction/interior/shallow)
 "sg" = (
 /obj/machinery/light/colored/blue{
-	dir = 8;
-	pixel_y = 0
+	dir = 8
 	},
 /turf/simulated/floor/lino,
 /area/kowloon_junction/interior/gang/divebar)
@@ -6952,8 +6953,7 @@
 "sj" = (
 /obj/structure/road_sign/pedestrian{
 	pixel_x = -1;
-	dir = 4;
-	pixel_y = 0
+	dir = 4
 	},
 /turf/simulated/floor/sidewalk,
 /area/kowloon_junction/outdoors)
@@ -7290,7 +7290,7 @@
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "te" = (
 /obj/structure/table/wood,
@@ -7449,7 +7449,7 @@
 	},
 /obj/structure/flora/bush/konyang_reeds,
 /obj/effect/decal/cleanable/generic/beet_tree_petals,
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "tB" = (
 /obj/machinery/door/airlock/freezer{
@@ -7714,7 +7714,6 @@
 	pixel_x = 4
 	},
 /obj/item/folder/red{
-	pixel_y = 0;
 	pixel_x = -5
 	},
 /turf/simulated/floor/wood,
@@ -7773,7 +7772,7 @@
 /obj/structure/rod_railing{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/kowloon_junction/interior/shallow)
 "ur" = (
 /obj/structure/ledge/quarter/corner,
@@ -7925,7 +7924,7 @@
 /obj/structure/ledge/quarter/corner,
 /obj/effect/decal/cleanable/generic/beet_tree_petals,
 /obj/effect/floor_decal/konyang_flowers,
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "uO" = (
 /obj/structure/table/wood,
@@ -7948,7 +7947,7 @@
 /obj/effect/decal/curb/corner{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "uR" = (
 /obj/structure/reagent_dispensers/fueltank,
@@ -8152,6 +8151,16 @@
 	pixel_y = 7
 	},
 /turf/simulated/floor/tiled/freezer,
+/area/kowloon_junction/interior/restaurant_top)
+"vA" = (
+/obj/effect/ghostspawpoint{
+	identifier = "nhk_gwok";
+	name = "igs - Up! Burger Employee"
+	},
+/obj/structure/bed/stool/chair/office/light{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
 /area/kowloon_junction/interior/restaurant_top)
 "vB" = (
 /obj/structure/rod_railing{
@@ -8374,7 +8383,7 @@
 	},
 /obj/structure/rope_post,
 /obj/structure/rope_railing,
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "wb" = (
 /obj/structure/table/standard,
@@ -8403,6 +8412,14 @@
 	},
 /turf/simulated/floor/sidewalk,
 /area/kowloon_junction/outdoors)
+"wg" = (
+/obj/effect/step_trigger/thrower{
+	icon_state = "dir_arrow";
+	tiles = 1;
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
+/area/kowloon_junction/coast)
 "wh" = (
 /obj/effect/decal/road_marking/thin,
 /turf/simulated/floor/asphalt,
@@ -8455,7 +8472,7 @@
 /obj/structure/rod_railing{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/kowloon_junction/interior/shallow)
 "wo" = (
 /obj/machinery/light/colored/decayed{
@@ -8481,11 +8498,9 @@
 /turf/simulated/floor/sidewalk/flat,
 /area/kowloon_junction/interior/shallow)
 "wr" = (
-/obj/effect/decal/curb{
-	dir = 9
-	},
-/turf/simulated/floor/exoplanet/konyang,
-/area/kowloon_junction/outdoors)
+/obj/structure/flora/rock/konyang/water,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
+/area/kowloon_junction/coast)
 "ws" = (
 /obj/random/dirt_75,
 /obj/effect/step_trigger/thrower{
@@ -8531,6 +8546,10 @@
 /area/kowloon_junction/interior/restaurant_bottom)
 "wx" = (
 /obj/structure/bed/stool/chair/office/dark,
+/obj/effect/ghostspawpoint{
+	identifier = "benevolent_guild";
+	name = "igs - benevolent guild muscle"
+	},
 /turf/simulated/floor/wood,
 /area/kowloon_junction/interior/gang/gang_topfloor)
 "wy" = (
@@ -8704,8 +8723,7 @@
 	dir = 6
 	},
 /obj/machinery/light{
-	dir = 1;
-	pixel_y = 0
+	dir = 1
 	},
 /turf/simulated/floor/concrete,
 /area/kowloon_junction/interior/shallow)
@@ -8812,7 +8830,7 @@
 /obj/structure/rope_railing{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "xo" = (
 /obj/structure/table/wood,
@@ -8832,8 +8850,7 @@
 /area/kowloon_junction/interior/police)
 "xp" = (
 /obj/machinery/light{
-	dir = 1;
-	pixel_y = 0
+	dir = 1
 	},
 /obj/structure/closet/crate/bin/urban/compact{
 	pixel_y = 24
@@ -8856,7 +8873,7 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "xt" = (
 /obj/effect/decal/road_marking/thin,
@@ -8999,13 +9016,13 @@
 /obj/structure/rod_railing{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/kowloon_junction/outdoors)
 "xP" = (
 /obj/structure/rope_railing,
 /obj/structure/rope_post,
 /obj/effect/floor_decal/konyang_flowers,
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "xQ" = (
 /obj/effect/decal/curb/corner{
@@ -9065,11 +9082,13 @@
 /turf/simulated/open,
 /area/kowloon_junction/outdoors)
 "xX" = (
-/obj/effect/decal/curb{
-	dir = 8
+/obj/effect/step_trigger/thrower{
+	icon_state = "dir_arrow";
+	tiles = 1;
+	dir = 10
 	},
-/turf/simulated/floor/exoplanet/konyang,
-/area/kowloon_junction/outdoors)
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/kowloon_junction/coast)
 "xY" = (
 /obj/effect/decal/road_marking,
 /obj/effect/decal/road_marking/thin{
@@ -9123,7 +9142,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/konyang_flowers,
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "yf" = (
 /obj/machinery/light/small{
@@ -9154,7 +9173,7 @@
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "yl" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -9167,7 +9186,7 @@
 /obj/structure/rod_railing{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/kowloon_junction/outdoors)
 "yn" = (
 /obj/structure/table/reinforced/wood,
@@ -9264,7 +9283,7 @@
 /area/kowloon_junction/interior/self_serve_hotel)
 "yw" = (
 /obj/structure/rod_railing,
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/kowloon_junction/interior/shallow)
 "yx" = (
 /turf/simulated/floor/concrete/square,
@@ -9322,8 +9341,7 @@
 "yE" = (
 /obj/structure/road_sign/pedestrian{
 	pixel_x = -1;
-	dir = 4;
-	pixel_y = 0
+	dir = 4
 	},
 /turf/simulated/floor/sidewalk/blocks,
 /area/kowloon_junction/outdoors)
@@ -9363,12 +9381,8 @@
 /turf/simulated/floor/concrete,
 /area/kowloon_junction/interior/shallow)
 "yL" = (
-/obj/structure/bed/stool{
-	dir = 8
-	},
 /obj/machinery/light/colored/blue{
-	dir = 1;
-	pixel_y = 0
+	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
 /area/kowloon_junction/interior/gang/divebar)
@@ -9450,7 +9464,6 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
 /obj/item/device/quikpay{
-	pixel_y = 0;
 	pixel_x = -6
 	},
 /obj/item/device/quikpay{
@@ -9931,7 +9944,7 @@
 /area/kowloon_junction/outdoors)
 "Ae" = (
 /obj/effect/decal/curb/corner,
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "Af" = (
 /obj/effect/decal/road_marking{
@@ -9978,7 +9991,7 @@
 /obj/structure/ledge/quarter/corner{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "Am" = (
 /obj/machinery/light/small{
@@ -10426,7 +10439,7 @@
 	dir = 4
 	},
 /obj/structure/flora/rock/konyang,
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "Bs" = (
 /obj/effect/decal/curb{
@@ -10662,7 +10675,7 @@
 "BT" = (
 /obj/structure/flora/rock/konyang/water,
 /obj/structure/flora/bush/konyang_reeds/water,
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/kowloon_junction/outdoors)
 "BU" = (
 /obj/structure/flora/rock/konyang/moss,
@@ -10682,7 +10695,7 @@
 	dir = 8
 	},
 /obj/structure/rod_railing,
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/kowloon_junction/interior/shallow)
 "BX" = (
 /obj/structure/konyang_cliff,
@@ -10756,7 +10769,7 @@
 	dir = 4
 	},
 /obj/structure/rod_railing,
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/kowloon_junction/interior/shallow)
 "Cj" = (
 /obj/machinery/light{
@@ -10773,6 +10786,10 @@
 "Cl" = (
 /obj/structure/bed/stool/chair/padded/red{
 	dir = 4
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "nhk_superintendent";
+	name = "igs - kowloon superintendant"
 	},
 /turf/simulated/floor/carpet/lightblue,
 /area/kowloon_junction/interior/police)
@@ -10820,7 +10837,7 @@
 "Cq" = (
 /obj/effect/decal/curb/corner,
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "Cr" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -10902,7 +10919,7 @@
 /obj/structure/ledge/quarter{
 	dir = 5
 	},
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "Cy" = (
 /obj/structure/ledge/roof{
@@ -10935,11 +10952,14 @@
 /turf/simulated/floor/sidewalk/paved,
 /area/kowloon_junction/outdoors)
 "CD" = (
-/obj/structure/ledge/quarter{
-	dir = 1
+/obj/structure/flora/rock/konyang/water,
+/obj/effect/step_trigger/thrower{
+	icon_state = "dir_arrow";
+	tiles = 1;
+	dir = 10
 	},
-/turf/simulated/floor/exoplanet/konyang,
-/area/kowloon_junction/outdoors)
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/kowloon_junction/coast)
 "CE" = (
 /obj/effect/decal/curb{
 	dir = 1
@@ -10982,7 +11002,7 @@
 /obj/structure/ledge/quarter{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "CL" = (
 /obj/structure/bed/padded,
@@ -11060,7 +11080,7 @@
 /obj/effect/decal/curb{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/interior/shallow)
 "CY" = (
 /obj/effect/decal/road_marking/crosswalk{
@@ -11222,7 +11242,7 @@
 /obj/structure/rod_railing{
 	dir = 6
 	},
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/kowloon_junction/interior/shallow)
 "Dy" = (
 /obj/structure/chainlink_fence{
@@ -11437,7 +11457,7 @@
 /obj/structure/rope_railing,
 /obj/structure/rope_post,
 /obj/structure/flora/tree/konyang/spring,
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "Eb" = (
 /obj/effect/floor_decal/corner/black{
@@ -11659,7 +11679,7 @@
 /obj/structure/rod_railing{
 	dir = 10
 	},
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/kowloon_junction/interior/shallow)
 "EG" = (
 /obj/structure/chainlink_fence{
@@ -11870,7 +11890,7 @@
 /obj/structure/ledge/quarter{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "Fk" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
@@ -11919,7 +11939,7 @@
 "Fr" = (
 /obj/effect/decal/curb,
 /obj/structure/flora/rock/konyang/small,
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "Fs" = (
 /obj/machinery/vending/coffee/free,
@@ -12066,7 +12086,6 @@
 "FO" = (
 /obj/structure/toilet{
 	pixel_y = 16;
-	color = blue;
 	pixel_x = 8
 	},
 /obj/effect/floor_decal/corner_wide/black/diagonal{
@@ -12138,7 +12157,7 @@
 /obj/structure/rod_railing{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/kowloon_junction/outdoors)
 "FU" = (
 /turf/simulated/floor/carpet/red,
@@ -12197,7 +12216,7 @@
 	dir = 1
 	},
 /obj/structure/flora/rock/konyang/moss,
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "Gf" = (
 /obj/structure/rod_railing{
@@ -12307,13 +12326,13 @@
 /obj/effect/decal/curb{
 	dir = 5
 	},
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "Gs" = (
 /obj/structure/flora/rock/konyang/water,
 /obj/structure/flora/bush/konyang_reeds/water,
 /obj/structure/rod_railing,
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/kowloon_junction/interior/shallow)
 "Gt" = (
 /obj/structure/flora/bush/konyang_reeds,
@@ -12321,10 +12340,14 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/generic/beet_tree_petals,
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "Gu" = (
 /obj/structure/bed/stool/chair/office/dark,
+/obj/effect/ghostspawpoint{
+	identifier = "benevolent_bar";
+	name = "igs - benevolent bartender"
+	},
 /turf/simulated/floor/wood,
 /area/kowloon_junction/interior/gang)
 "Gv" = (
@@ -12369,13 +12392,6 @@
 	},
 /turf/simulated/floor/reinforced/airmix,
 /area/kowloon_junction/outdoors)
-"GD" = (
-/obj/structure/rod_railing{
-	dir = 4;
-	pixel_y = 0
-	},
-/turf/simulated/floor/sidewalk,
-/area/kowloon_junction/interior/shallow)
 "GE" = (
 /obj/effect/decal/cleanable/generic/beet_tree_petals,
 /turf/simulated/floor/exoplanet/konyang,
@@ -12383,7 +12399,7 @@
 "GF" = (
 /obj/structure/flora/rock/konyang/water,
 /obj/structure/rod_railing,
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/kowloon_junction/outdoors)
 "GG" = (
 /obj/effect/decal/road_marking/no_pass{
@@ -12766,12 +12782,10 @@
 	pixel_x = 12
 	},
 /obj/item/reagent_containers/food/condiment/shaker/spacespice{
-	pixel_x = -11;
-	pixel_y = 0
+	pixel_x = -11
 	},
 /obj/item/reagent_containers/food/condiment/shaker/spacespice{
-	pixel_x = -2;
-	pixel_y = 0
+	pixel_x = -2
 	},
 /obj/item/reagent_containers/food/condiment/shaker/spacespice{
 	pixel_x = -2;
@@ -12946,10 +12960,13 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/kowloon_junction/outdoors)
 "HU" = (
-/obj/effect/decal/curb,
-/obj/effect/floor_decal/konyang_flowers,
-/turf/simulated/floor/exoplanet/konyang,
-/area/kowloon_junction/outdoors)
+/obj/effect/step_trigger/thrower{
+	icon_state = "dir_arrow";
+	tiles = 1;
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
+/area/kowloon_junction/coast)
 "HV" = (
 /obj/structure/chainlink_fence,
 /obj/structure/chainlink_fence{
@@ -12984,6 +13001,10 @@
 /obj/random/dirt_75,
 /obj/structure/bed/stool/wood{
 	dir = 4
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "nhk_minimart";
+	name = "igs - min mart employee"
 	},
 /turf/simulated/floor/concrete/square,
 /area/kowloon_junction/interior/minimart)
@@ -13323,8 +13344,7 @@
 "IT" = (
 /obj/structure/rod_railing,
 /obj/structure/rod_railing{
-	dir = 4;
-	pixel_y = 0
+	dir = 4
 	},
 /turf/simulated/open,
 /area/kowloon_junction/interior/corporate_office_top)
@@ -13531,7 +13551,7 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "JD" = (
 /obj/machinery/light/small{
@@ -13713,6 +13733,10 @@
 /obj/structure/bed/stool/chair{
 	dir = 8
 	},
+/obj/effect/ghostspawpoint{
+	identifier = "nhk_priest";
+	name = "igs - trinarist priest"
+	},
 /turf/simulated/floor/tiled/slate,
 /area/kowloon_junction/interior/chapel_office)
 "JW" = (
@@ -13876,7 +13900,7 @@
 /obj/structure/ledge/quarter{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "Kt" = (
 /obj/structure/ledge/quarter{
@@ -13897,7 +13921,6 @@
 	},
 /obj/structure/road_barrier/bot_in{
 	dir = 4;
-	pixel_y = 0;
 	pixel_x = -23
 	},
 /obj/structure/road_barrier{
@@ -13918,7 +13941,7 @@
 "Kx" = (
 /obj/structure/flora/rock/konyang/water,
 /obj/structure/flora/bush/konyang_reeds/water,
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/kowloon_junction/interior/shallow)
 "Ky" = (
 /obj/structure/bed/stool/chair/wood,
@@ -14007,7 +14030,6 @@
 /area/kowloon_junction/outdoors)
 "KL" = (
 /obj/structure/bed/stool/chair/sofa/brown{
-	pixel_y = 0;
 	dir = 8
 	},
 /obj/machinery/light/colored/decayed{
@@ -14151,7 +14173,7 @@
 /obj/structure/rod_railing{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/kowloon_junction/outdoors)
 "Ld" = (
 /obj/effect/floor_decal/corner_wide/white/full{
@@ -14197,7 +14219,6 @@
 	pixel_y = -2
 	},
 /obj/item/reagent_containers/food/condiment/shaker/salt{
-	pixel_y = 0;
 	pixel_x = -11
 	},
 /turf/simulated/floor/lino,
@@ -14260,8 +14281,7 @@
 /obj/structure/road_sign/street{
 	pixel_x = 11;
 	icon_state = "street_left";
-	street_name = "Spaceport Avenue";
-	pixel_y = 0
+	street_name = "Spaceport Avenue"
 	},
 /turf/simulated/floor/sidewalk/blocks,
 /area/kowloon_junction/outdoors)
@@ -14271,7 +14291,7 @@
 /obj/structure/rod_railing{
 	dir = 6
 	},
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/kowloon_junction/outdoors)
 "Lw" = (
 /obj/effect/decal/road_marking,
@@ -14287,11 +14307,10 @@
 /turf/simulated/floor/asphalt,
 /area/kowloon_junction/outdoors)
 "Lx" = (
-/obj/effect/decal/curb{
-	dir = 1
+/obj/structure/konyang_cliff{
+	icon_state = "cliff-east"
 	},
-/obj/effect/floor_decal/konyang_flowers,
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "Ly" = (
 /obj/structure/table/stone/marble,
@@ -14403,7 +14422,6 @@
 /obj/structure/rope_post,
 /obj/structure/rope_railing,
 /obj/structure/flora/tree/konyang/fall{
-	pixel_y = 0;
 	pixel_x = -46
 	},
 /turf/simulated/floor/exoplanet/konyang/pink,
@@ -14683,7 +14701,7 @@
 /obj/structure/ledge/quarter{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "Ms" = (
 /turf/simulated/wall/concrete,
@@ -14739,7 +14757,6 @@
 /area/kowloon_junction/interior/corporate_office_top)
 "MC" = (
 /obj/structure/utility_pole/street/on{
-	pixel_y = 0;
 	pixel_x = 8
 	},
 /turf/simulated/floor/sidewalk/blocks,
@@ -14756,7 +14773,7 @@
 /obj/structure/rod_railing{
 	dir = 10
 	},
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/kowloon_junction/outdoors)
 "MG" = (
 /obj/machinery/mech_recharger/automobile,
@@ -14833,7 +14850,7 @@
 /obj/structure/ledge/quarter{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/konyang/wilting,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "MT" = (
 /obj/effect/decal/curb{
@@ -14841,7 +14858,7 @@
 	},
 /obj/structure/flora/bush/konyang_reeds,
 /obj/effect/floor_decal/konyang_flowers,
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "MU" = (
 /obj/structure/rod_railing{
@@ -14942,7 +14959,7 @@
 	dir = 6
 	},
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "Ng" = (
 /obj/structure/bed/stool/chair/sofa/right/brown{
@@ -15008,20 +15025,8 @@
 /turf/simulated/floor/concrete/square,
 /area/kowloon_junction/outdoors)
 "Np" = (
-/obj/structure/table/rack,
-/obj/item/device/camera_film,
-/obj/item/device/camera_film,
-/obj/item/device/camera{
-	desc = "A one use - polaroid camera. 30 photos left.";
-	name = "detectives camera";
-	pictures_left = 30
-	},
-/obj/item/device/camera{
-	desc = "A one use - polaroid camera. 30 photos left.";
-	name = "detectives camera";
-	pictures_left = 30
-	},
-/turf/simulated/floor/tiled,
+/obj/machinery/telecomms/allinone/ship,
+/turf/simulated/floor/tiled/full,
 /area/kowloon_junction/interior/police)
 "Nq" = (
 /obj/structure/ledge{
@@ -15088,6 +15093,17 @@
 /obj/random/contraband/pillbottle,
 /turf/simulated/floor/wood,
 /area/kowloon_junction/interior/gang)
+"NB" = (
+/obj/machinery/media/jukebox/audioconsole/wall{
+	pixel_y = 32
+	},
+/obj/structure/table/reinforced,
+/obj/item/device/megaphone/stagemicrophone{
+	pixel_x = 5;
+	pixel_y = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/kowloon_junction/interior/gang/divebar)
 "NC" = (
 /obj/machinery/atmospherics/portables_connector/aux,
 /turf/simulated/floor/airless,
@@ -15210,12 +15226,11 @@
 /turf/simulated/floor/asphalt,
 /area/kowloon_junction/outdoors)
 "NM" = (
-/obj/effect/decal/curb{
-	dir = 4
+/obj/effect/shuttle_landmark/kowloon_junction/dock_02{
+	dir = 1
 	},
-/obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/exoplanet/konyang,
-/area/kowloon_junction/outdoors)
+/turf/simulated/floor/asphalt,
+/area/kowloon_junction/interior/shallow)
 "NN" = (
 /obj/structure/stairs/south,
 /turf/simulated/floor/concrete,
@@ -15262,7 +15277,6 @@
 	pixel_x = 10
 	},
 /obj/item/reagent_containers/food/condiment/ketchup{
-	pixel_y = 0;
 	pixel_x = 10
 	},
 /obj/item/reagent_containers/food/condiment/ketchup{
@@ -15272,11 +15286,8 @@
 	pixel_y = 20;
 	pixel_x = -10
 	},
+/obj/item/reagent_containers/food/condiment/ketchup,
 /obj/item/reagent_containers/food/condiment/ketchup{
-	pixel_y = 0
-	},
-/obj/item/reagent_containers/food/condiment/ketchup{
-	pixel_y = 0;
 	pixel_x = -10
 	},
 /turf/simulated/floor/tiled/steel,
@@ -15398,7 +15409,7 @@
 /obj/structure/rod_railing{
 	dir = 10
 	},
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/kowloon_junction/outdoors)
 "Oj" = (
 /obj/structure/stairs/urban/north,
@@ -15417,7 +15428,7 @@
 /obj/structure/rope_railing{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "Ol" = (
 /obj/structure/structural_support,
@@ -15461,11 +15472,11 @@
 /turf/simulated/floor/wood,
 /area/kowloon_junction/interior/police)
 "Oq" = (
-/obj/effect/decal/curb{
-	dir = 6
+/obj/effect/shuttle_landmark/kowloon_junction/dock_03{
+	dir = 8
 	},
-/turf/simulated/floor/exoplanet/konyang,
-/area/kowloon_junction/outdoors)
+/turf/simulated/floor/asphalt,
+/area/kowloon_junction/interior/shallow)
 "Os" = (
 /obj/random/dirt_75,
 /obj/machinery/light/small,
@@ -15504,7 +15515,6 @@
 "Oz" = (
 /obj/structure/lattice/catwalk/indoor/planks/deep,
 /obj/item/reagent_containers/food/drinks/bottle/soju{
-	pixel_y = 0;
 	pixel_x = 11
 	},
 /turf/simulated/floor/exoplanet/konyang/pink,
@@ -15691,7 +15701,7 @@
 /obj/structure/ledge/quarter{
 	dir = 6
 	},
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "OX" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -15740,6 +15750,12 @@
 	},
 /turf/simulated/floor/wood,
 /area/kowloon_junction/interior/gang/gang_topfloor)
+"Pd" = (
+/obj/effect/shuttle_landmark/kowloon_junction/dock_04{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/kowloon_junction/interior/shallow)
 "Pe" = (
 /obj/structure/railing{
 	color = "#e6d2ba";
@@ -16038,8 +16054,7 @@
 /obj/structure/table/reinforced/wood,
 /obj/item/glass_jar{
 	desc = "A small empty jar that is mostly used for giving a tip.";
-	name = "tip jar";
-	pixel_y = 0
+	name = "tip jar"
 	},
 /turf/simulated/floor/lino/diamond,
 /area/kowloon_junction/interior/gang/divebar)
@@ -16133,9 +16148,13 @@
 /area/kowloon_junction/outdoors)
 "Qe" = (
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "Qf" = (
 /obj/structure/bed/stool/chair/office/light,
+/obj/effect/ghostspawpoint{
+	identifier = "nhk_cop";
+	name = "igs - kowloon cop"
+	},
 /turf/simulated/floor/wood,
 /area/kowloon_junction/interior/police)
 "Qg" = (
@@ -16361,7 +16380,7 @@
 "QB" = (
 /obj/structure/ledge/quarter,
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "QC" = (
 /obj/structure/railing/mapped{
@@ -16569,7 +16588,7 @@
 	dir = 4
 	},
 /obj/structure/flora/rock/konyang,
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "Rh" = (
 /obj/effect/decal/curb,
@@ -16600,18 +16619,10 @@
 /area/kowloon_junction)
 "Rm" = (
 /obj/structure/rod_railing{
-	dir = 4;
-	pixel_y = 0
+	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/kowloon_junction/interior/corporate_office_bottom)
-"Rn" = (
-/obj/structure/rod_railing{
-	dir = 4;
-	pixel_y = 0
-	},
-/turf/simulated/floor/concrete,
-/area/kowloon_junction/outdoors)
 "Ro" = (
 /obj/effect/decal/road_marking/center{
 	dir = 8
@@ -16697,6 +16708,10 @@
 "RB" = (
 /obj/structure/bed/stool/chair/office/light,
 /obj/random/dirt_75,
+/obj/effect/ghostspawpoint{
+	identifier = "nhk_senior_cop";
+	name = "igs - kowloon senior cop"
+	},
 /turf/simulated/floor/wood,
 /area/kowloon_junction/interior/police)
 "RC" = (
@@ -16728,7 +16743,7 @@
 /turf/simulated/floor/sidewalk/paved,
 /area/kowloon_junction/interior/shallow)
 "RG" = (
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/kowloon_junction/interior/shallow)
 "RH" = (
 /obj/structure/table/stone/marble,
@@ -16761,7 +16776,7 @@
 /turf/simulated/wall/wood,
 /area/kowloon_junction/interior)
 "RM" = (
-/obj/effect/overmap/visitable/sector/point_verdant,
+/obj/effect/overmap/visitable/sector/kowloon_junction,
 /turf/simulated/floor/concrete,
 /area/kowloon_junction/outdoors)
 "RN" = (
@@ -16948,7 +16963,7 @@
 /obj/structure/rope_railing,
 /obj/structure/rope_post,
 /obj/effect/floor_decal/konyang_flowers,
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "Sk" = (
 /obj/structure/bed/stool/chair/office/dark,
@@ -16983,7 +16998,7 @@
 /obj/structure/rod_railing{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/kowloon_junction/outdoors)
 "Sq" = (
 /obj/structure/window/reinforced{
@@ -17082,8 +17097,7 @@
 /area/kowloon_junction/outdoors)
 "SC" = (
 /obj/structure/rod_railing{
-	dir = 4;
-	pixel_y = 0
+	dir = 4
 	},
 /turf/simulated/open,
 /area/kowloon_junction/interior/corporate_office_top)
@@ -17198,7 +17212,7 @@
 	dir = 10
 	},
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "SQ" = (
 /obj/random/dirt_75,
@@ -17711,6 +17725,12 @@
 /obj/structure/undies_wardrobe,
 /turf/simulated/floor/carpet/brown,
 /area/kowloon_junction/interior/self_serve_hotel)
+"Uh" = (
+/obj/structure/bed/stool{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/full,
+/area/kowloon_junction/interior/gang/divebar)
 "Ui" = (
 /obj/structure/railing{
 	color = "#e6d2ba";
@@ -17736,8 +17756,7 @@
 /obj/structure/flora/bush/konyang_reeds/water,
 /obj/structure/rod_railing,
 /obj/structure/rod_railing{
-	dir = 4;
-	pixel_y = 0
+	dir = 4
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/kowloon_junction/interior/corporate_office_bottom)
@@ -17770,7 +17789,7 @@
 	},
 /obj/structure/flora/bush/konyang_reeds,
 /obj/effect/floor_decal/konyang_flowers,
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "Uq" = (
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
@@ -17825,8 +17844,10 @@
 /turf/simulated/floor/tiled/slate,
 /area/kowloon_junction/interior/chapel_office)
 "Uw" = (
-/obj/effect/decal/curb,
-/turf/simulated/floor/exoplanet/konyang,
+/obj/effect/decal/curb/corner{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "Ux" = (
 /obj/structure/ledge/quarter{
@@ -17848,7 +17869,7 @@
 /obj/structure/rod_railing{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/kowloon_junction/interior/shallow)
 "UB" = (
 /obj/machinery/papershredder,
@@ -17971,7 +17992,7 @@
 	},
 /obj/structure/flora/bush/konyang_reeds,
 /obj/effect/floor_decal/konyang_flowers,
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "US" = (
 /obj/machinery/light{
@@ -18183,8 +18204,7 @@
 /area/kowloon_junction/interior/gang/divebar)
 "Vr" = (
 /obj/machinery/light{
-	dir = 1;
-	pixel_y = 0
+	dir = 1
 	},
 /turf/simulated/floor/sidewalk/paved,
 /area/kowloon_junction/interior/shallow)
@@ -18326,7 +18346,7 @@
 	dir = 4
 	},
 /obj/structure/rod_railing,
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/kowloon_junction/interior/shallow)
 "VM" = (
 /obj/structure/rope_post{
@@ -18336,7 +18356,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/konyang_flowers,
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "VO" = (
 /obj/effect/decal/exterior_stairs/left{
@@ -18363,9 +18383,7 @@
 /obj/effect/decal/curb{
 	dir = 4
 	},
-/obj/structure/closet/crate/bin/urban/compact{
-	pixel_y = 0
-	},
+/obj/structure/closet/crate/bin/urban/compact,
 /turf/simulated/floor/lino,
 /area/kowloon_junction/interior/restaurant_bottom)
 "VR" = (
@@ -18728,7 +18746,7 @@
 /obj/structure/rod_railing{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/kowloon_junction/outdoors)
 "WL" = (
 /obj/structure/table/stone/marble,
@@ -19111,7 +19129,7 @@
 	dir = 1
 	},
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "XJ" = (
 /obj/effect/decal/curb/corner,
@@ -19160,10 +19178,9 @@
 /turf/simulated/floor/tiled,
 /area/kowloon_junction/interior/police)
 "XQ" = (
-/obj/effect/decal/curb{
-	dir = 1
-	},
-/turf/simulated/floor/exoplanet/konyang,
+/obj/structure/flora/bush/konyang_reeds,
+/obj/effect/floor_decal/konyang_flowers,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "XR" = (
 /obj/random/dirt_75{
@@ -19203,6 +19220,13 @@
 /obj/machinery/door/urban/glass_sliding/double,
 /turf/simulated/floor/wood,
 /area/kowloon_junction/interior)
+"XV" = (
+/obj/structure/rod_railing,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/open,
+/area/kowloon_junction/interior/gang)
 "XX" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 8
@@ -19314,7 +19338,6 @@
 	id = "konyang_upburger";
 	name = "Store Shutters";
 	pixel_y = -19;
-	dir = 2;
 	req_access = list(219);
 	pixel_x = 5
 	},
@@ -19365,7 +19388,7 @@
 /obj/structure/rod_railing{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/kowloon_junction/interior/shallow)
 "Yv" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
@@ -19464,7 +19487,7 @@
 	},
 /obj/structure/flora/bush/konyang_reeds,
 /obj/effect/floor_decal/konyang_flowers,
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/kowloon_junction/outdoors)
 "YF" = (
 /obj/machinery/light/small/built,
@@ -19635,6 +19658,12 @@
 	},
 /turf/simulated/floor/lino,
 /area/kowloon_junction/interior/arcade)
+"Zd" = (
+/obj/effect/shuttle_landmark/kowloon_junction/spaceport_intrepid{
+	dir = 1
+	},
+/turf/simulated/floor/asphalt,
+/area/kowloon_junction/outdoors)
 "Ze" = (
 /obj/structure/rope_post,
 /obj/structure/rope_post{
@@ -38849,7 +38878,7 @@ rj
 rj
 rj
 lP
-vD
+ef
 vD
 Ue
 Xv
@@ -39106,7 +39135,7 @@ rj
 rj
 rj
 lP
-ef
+Uh
 vD
 dw
 vp
@@ -39620,7 +39649,7 @@ rj
 rj
 rj
 lP
-vD
+NB
 vD
 zB
 lI
@@ -99498,74 +99527,74 @@ rj
 rj
 MA
 YE
-xX
-xX
-pS
-xX
-xX
-xX
-xX
-pS
-xX
-co
-xX
-xX
-xX
-xX
-xX
-pS
-pS
-pS
-xX
-xX
-xX
-xX
-xX
-xX
-pS
-pS
-pS
-xX
-co
-pS
-pS
-pS
-xX
-xX
-co
-xX
-xX
-xX
-xX
-xX
-pS
-pS
-pS
-xX
-xX
-xX
-xX
-xX
-xX
-co
-xX
-xX
-xX
-xX
-pS
-pS
-xX
-xX
-xX
-xX
-xX
-xX
-xX
-xX
-xX
-xX
-xX
-xX
+JO
+JO
+pv
+JO
+JO
+JO
+JO
+pv
+JO
+tV
+JO
+JO
+JO
+JO
+JO
+pv
+pv
+pv
+JO
+JO
+JO
+JO
+JO
+JO
+pv
+pv
+pv
+JO
+tV
+pv
+pv
+pv
+JO
+JO
+tV
+JO
+JO
+JO
+JO
+JO
+pv
+pv
+pv
+JO
+JO
+JO
+JO
+JO
+JO
+tV
+JO
+JO
+JO
+JO
+pv
+pv
+JO
+JO
+JO
+JO
+JO
+JO
+JO
+JO
+JO
+JO
+JO
+JO
 Ae
 MA
 yi
@@ -99754,7 +99783,7 @@ rj
 rj
 rj
 MA
-XQ
+Bv
 HJ
 HJ
 HJ
@@ -99823,7 +99852,7 @@ HJ
 HJ
 HJ
 HJ
-Uw
+Ei
 dN
 MA
 MA
@@ -100011,7 +100040,7 @@ rj
 rj
 MA
 MA
-XQ
+Bv
 HJ
 pR
 pR
@@ -100080,7 +100109,7 @@ pR
 pR
 HJ
 HJ
-Uw
+Ei
 MA
 MA
 yi
@@ -100337,40 +100366,40 @@ Ma
 pR
 eM
 HJ
-ln
-xX
-co
-xX
-xX
-xX
-xX
-xX
-xX
-xX
-xX
+Gj
+JO
+tV
+JO
+JO
+JO
+JO
+JO
+JO
+JO
+JO
 kR
 kR
-xX
-xX
-xX
-xX
-xX
-xX
-kR
-kR
-kR
+JO
+JO
+JO
+JO
+JO
+JO
 kR
 kR
 kR
 kR
-xX
-xX
-xX
-xX
-pS
-pS
-pS
-xX
+kR
+kR
+kR
+JO
+JO
+JO
+JO
+pv
+pv
+pv
+JO
 Cq
 BX
 Kf
@@ -100525,7 +100554,7 @@ rj
 rj
 MA
 yi
-aG
+zX
 HJ
 pR
 Ad
@@ -100628,7 +100657,7 @@ yF
 yF
 yF
 yF
-by
+uT
 BX
 Kf
 ZE
@@ -100782,7 +100811,7 @@ rj
 rj
 MA
 yi
-aG
+zX
 Df
 pR
 Ad
@@ -100885,7 +100914,7 @@ XL
 XL
 xk
 yF
-Uw
+Ei
 BX
 Kf
 ZE
@@ -101039,7 +101068,7 @@ rj
 rj
 MA
 yi
-XQ
+Bv
 HJ
 pR
 Ad
@@ -101142,7 +101171,7 @@ OP
 rY
 FP
 yF
-by
+uT
 BX
 Kf
 ZE
@@ -101296,7 +101325,7 @@ rj
 rj
 MA
 yi
-XQ
+Bv
 HJ
 pR
 Ad
@@ -101399,7 +101428,7 @@ Vp
 ve
 FP
 yF
-by
+uT
 BX
 Kf
 ZE
@@ -101553,7 +101582,7 @@ rj
 rj
 MA
 yi
-XQ
+Bv
 HJ
 pR
 Ad
@@ -101810,7 +101839,7 @@ rj
 rj
 MA
 MA
-XQ
+Bv
 HJ
 yE
 Ad
@@ -102067,7 +102096,7 @@ rj
 rj
 dN
 yi
-XQ
+Bv
 HJ
 fk
 Ad
@@ -102324,7 +102353,7 @@ rj
 rj
 MA
 MA
-XQ
+Bv
 HJ
 pR
 Ad
@@ -102593,7 +102622,7 @@ Af
 HJ
 wZ
 Fw
-vg
+lL
 vg
 vg
 vg
@@ -102838,7 +102867,7 @@ rj
 rj
 yi
 yi
-XQ
+Bv
 HJ
 pR
 Ad
@@ -103095,7 +103124,7 @@ rj
 rj
 MA
 MA
-XQ
+Bv
 HJ
 pR
 Ad
@@ -103352,7 +103381,7 @@ rj
 rj
 MA
 MA
-aG
+zX
 HJ
 sq
 Ad
@@ -103364,7 +103393,7 @@ Af
 Ed
 Hb
 Fw
-Di
+XV
 vg
 lT
 vg
@@ -103609,7 +103638,7 @@ rj
 rj
 MA
 qC
-XQ
+Bv
 HJ
 pR
 Ad
@@ -103866,7 +103895,7 @@ rj
 rj
 MA
 MA
-XQ
+Bv
 HJ
 pR
 Ad
@@ -104123,7 +104152,7 @@ rj
 rj
 MA
 MA
-XQ
+Bv
 HJ
 pR
 Ad
@@ -104380,7 +104409,7 @@ rj
 rj
 dN
 MA
-XQ
+Bv
 HJ
 pR
 Ad
@@ -104637,7 +104666,7 @@ rj
 rj
 yi
 yi
-XQ
+Bv
 HJ
 fk
 Ad
@@ -104894,7 +104923,7 @@ rj
 rj
 MA
 MA
-XQ
+Bv
 HJ
 pR
 Ad
@@ -105151,7 +105180,7 @@ rj
 rj
 MA
 MA
-XQ
+Bv
 Df
 pR
 Ad
@@ -105408,7 +105437,7 @@ rj
 rj
 MA
 MA
-aG
+zX
 HJ
 pR
 Ad
@@ -105665,7 +105694,7 @@ rj
 rj
 yi
 MA
-XQ
+Bv
 HJ
 pR
 Ad
@@ -105922,7 +105951,7 @@ rj
 rj
 yi
 JZ
-aG
+zX
 HJ
 sq
 Ad
@@ -106179,7 +106208,7 @@ rj
 rj
 MA
 MA
-XQ
+Bv
 HJ
 pR
 dL
@@ -106693,7 +106722,7 @@ rj
 rj
 MA
 yi
-XQ
+Bv
 HJ
 pR
 Ad
@@ -106950,7 +106979,7 @@ rj
 rj
 dN
 yi
-XQ
+Bv
 HJ
 pR
 Ad
@@ -107207,7 +107236,7 @@ rj
 rj
 MA
 MA
-XQ
+Bv
 HJ
 MC
 Ad
@@ -107464,7 +107493,7 @@ rj
 rj
 MA
 MA
-XQ
+Bv
 HJ
 pR
 gV
@@ -107721,7 +107750,7 @@ rj
 rj
 yi
 MA
-XQ
+Bv
 HJ
 pR
 Ad
@@ -107734,8 +107763,8 @@ HJ
 eo
 tN
 HN
-GD
-GD
+Ft
+Ft
 zl
 zl
 zl
@@ -107978,7 +108007,7 @@ rj
 rj
 yi
 yi
-XQ
+Bv
 HJ
 pR
 Ad
@@ -108492,7 +108521,7 @@ rj
 rj
 MA
 MA
-XQ
+Bv
 HJ
 pR
 Ad
@@ -108514,7 +108543,7 @@ zl
 tN
 tN
 PA
-CD
+MS
 dN
 MA
 MA
@@ -108749,7 +108778,7 @@ rj
 rj
 MA
 dN
-XQ
+Bv
 HJ
 sq
 Ad
@@ -108771,7 +108800,7 @@ zl
 tN
 tN
 PA
-CD
+MS
 MA
 qN
 MA
@@ -108869,8 +108898,8 @@ Bp
 Bp
 Bp
 Bp
-xX
-xX
+JO
+JO
 Cq
 yi
 BX
@@ -109006,7 +109035,7 @@ rj
 rj
 MA
 JZ
-aG
+zX
 HJ
 pR
 Ad
@@ -109091,7 +109120,7 @@ LU
 LU
 LU
 LU
-LU
+Pd
 LU
 LU
 LU
@@ -109263,7 +109292,7 @@ rj
 rj
 MA
 MA
-aG
+zX
 Df
 pR
 Ad
@@ -109520,7 +109549,7 @@ rj
 rj
 MA
 MA
-aG
+zX
 HJ
 pR
 Ad
@@ -109542,7 +109571,7 @@ HN
 tN
 tN
 PA
-CD
+MS
 yp
 MA
 yi
@@ -109643,7 +109672,7 @@ aM
 fZ
 FP
 yF
-Uw
+Ei
 HF
 Kf
 ZE
@@ -109777,7 +109806,7 @@ rj
 rj
 MA
 qC
-XQ
+Bv
 HJ
 pR
 Ad
@@ -109799,7 +109828,7 @@ zl
 tN
 tN
 PA
-CD
+MS
 MA
 MA
 hT
@@ -109900,7 +109929,7 @@ wD
 yK
 FP
 yF
-by
+uT
 HF
 Kf
 ZE
@@ -110034,7 +110063,7 @@ rj
 rj
 MA
 MA
-XQ
+Bv
 HJ
 fk
 Ad
@@ -110056,7 +110085,7 @@ zl
 an
 tN
 Re
-CD
+MS
 hT
 hT
 hT
@@ -110157,7 +110186,7 @@ wD
 yK
 FP
 yF
-Uw
+Ei
 HF
 Kf
 ZE
@@ -110291,7 +110320,7 @@ rj
 rj
 MA
 MA
-XQ
+Bv
 HJ
 pR
 Ad
@@ -110414,7 +110443,7 @@ uf
 yK
 FP
 yF
-Uw
+Ei
 HF
 Kf
 ZE
@@ -110548,7 +110577,7 @@ rj
 rj
 dN
 yi
-aG
+zX
 HJ
 pR
 Ad
@@ -110605,7 +110634,7 @@ lq
 HG
 yi
 dN
-XQ
+Bv
 yF
 HJ
 HJ
@@ -110671,7 +110700,7 @@ wD
 yK
 FP
 yF
-by
+uT
 HF
 Kf
 ZE
@@ -110805,7 +110834,7 @@ rj
 rj
 MA
 yi
-aG
+zX
 HJ
 pR
 Ad
@@ -110862,7 +110891,7 @@ nY
 nY
 dN
 yi
-XQ
+Bv
 yF
 HJ
 sj
@@ -110928,7 +110957,7 @@ wD
 yK
 FP
 yF
-Uw
+Ei
 HF
 Kf
 ZE
@@ -111062,7 +111091,7 @@ rj
 rj
 MA
 yi
-XQ
+Bv
 HJ
 pR
 Ad
@@ -111084,7 +111113,7 @@ zl
 tN
 tN
 zL
-CD
+MS
 MA
 MA
 qC
@@ -111119,7 +111148,7 @@ yi
 yi
 MA
 qC
-XQ
+Bv
 yF
 HJ
 HJ
@@ -111185,7 +111214,7 @@ wD
 yK
 FP
 yF
-Uw
+Ei
 HF
 Kf
 ZE
@@ -111319,7 +111348,7 @@ rj
 rj
 MA
 dN
-XQ
+Bv
 HJ
 sq
 Ad
@@ -111442,7 +111471,7 @@ wD
 yK
 FP
 yF
-by
+uT
 HF
 Kf
 ZE
@@ -111576,7 +111605,7 @@ rj
 rj
 MA
 MA
-XQ
+Bv
 HJ
 pR
 Ad
@@ -111598,7 +111627,7 @@ zl
 an
 an
 PA
-CD
+MS
 MA
 yi
 dN
@@ -111699,7 +111728,7 @@ wD
 yK
 FP
 yF
-by
+uT
 HF
 Kf
 ZE
@@ -111833,7 +111862,7 @@ rj
 rj
 MA
 MA
-aG
+zX
 HJ
 pR
 Ad
@@ -111855,7 +111884,7 @@ zl
 an
 tN
 PA
-CD
+MS
 yi
 yi
 MA
@@ -111890,7 +111919,7 @@ MA
 qC
 MA
 MA
-XQ
+Bv
 yF
 HJ
 HJ
@@ -111956,7 +111985,7 @@ wD
 yK
 FP
 yF
-Uw
+Ei
 HF
 Kf
 ZE
@@ -112090,7 +112119,7 @@ rj
 rj
 MA
 MA
-XQ
+Bv
 HJ
 pR
 Ad
@@ -112112,7 +112141,7 @@ zl
 tN
 Ut
 PA
-CD
+MS
 yi
 yi
 MA
@@ -112213,7 +112242,7 @@ wD
 yK
 FP
 yF
-Uw
+Ei
 HF
 Kf
 ZE
@@ -112347,7 +112376,7 @@ rj
 rj
 yi
 yi
-XQ
+Bv
 HJ
 pR
 Ad
@@ -112369,7 +112398,7 @@ zl
 tN
 tN
 PA
-CD
+MS
 yp
 MA
 MA
@@ -112383,17 +112412,17 @@ nY
 lq
 ny
 MA
-MA
-MA
+Ho
+Ho
 uQ
-xX
+JO
 xs
-xX
+JO
 JB
-xX
+JO
 nt
-yi
-MA
+up
+Ho
 MA
 qC
 hT
@@ -112470,7 +112499,7 @@ wD
 yK
 FP
 yF
-by
+uT
 HF
 Kf
 ZE
@@ -112604,7 +112633,7 @@ rj
 rj
 yi
 yi
-XQ
+Bv
 HJ
 fk
 Ad
@@ -112626,7 +112655,7 @@ HN
 tN
 tN
 PA
-CD
+MS
 MA
 qC
 MA
@@ -112640,7 +112669,7 @@ EV
 lq
 lq
 yi
-MA
+Ho
 kj
 kj
 Tq
@@ -112650,7 +112679,7 @@ rt
 rt
 kj
 kj
-yi
+up
 yi
 MA
 hT
@@ -112661,7 +112690,7 @@ MA
 yi
 MA
 JZ
-XQ
+Bv
 yF
 HJ
 ZZ
@@ -112727,7 +112756,7 @@ wD
 yK
 FP
 yF
-by
+uT
 HF
 Kf
 ZE
@@ -112861,7 +112890,7 @@ rj
 rj
 MA
 MA
-XQ
+Bv
 HJ
 pR
 Ad
@@ -112883,7 +112912,7 @@ HN
 tN
 tN
 PA
-CD
+MS
 MA
 dN
 yi
@@ -112918,7 +112947,7 @@ JZ
 yi
 qC
 yi
-XQ
+Bv
 yF
 HJ
 HJ
@@ -112984,7 +113013,7 @@ wD
 yK
 FP
 yF
-by
+uT
 HF
 Kf
 ZE
@@ -113118,7 +113147,7 @@ rj
 rj
 MA
 MA
-XQ
+Bv
 HJ
 pR
 Ad
@@ -113154,7 +113183,7 @@ Jv
 vV
 Uj
 lq
-XQ
+Bv
 Pe
 hD
 hD
@@ -113241,7 +113270,7 @@ wD
 yK
 FP
 yF
-Uw
+Ei
 HF
 Kf
 ZE
@@ -113375,7 +113404,7 @@ rj
 rj
 yi
 dN
-XQ
+Bv
 HJ
 pR
 Ad
@@ -113411,7 +113440,7 @@ Jv
 qW
 EJ
 nY
-XQ
+Bv
 qM
 hD
 hD
@@ -113464,7 +113493,7 @@ kB
 IX
 nx
 LU
-LU
+NM
 LU
 LU
 LU
@@ -113498,7 +113527,7 @@ wD
 yK
 FP
 yF
-Uw
+Ei
 GW
 jl
 ka
@@ -113632,7 +113661,7 @@ rj
 rj
 yi
 MA
-XQ
+Bv
 HJ
 pR
 Ad
@@ -113654,7 +113683,7 @@ tK
 Xm
 Sm
 PA
-CD
+MS
 nY
 Uj
 yi
@@ -113755,7 +113784,7 @@ wD
 yK
 FP
 yF
-Uw
+Ei
 MA
 MA
 HF
@@ -113911,7 +113940,7 @@ tK
 Xm
 Sm
 PA
-CD
+MS
 HG
 yi
 xr
@@ -113925,7 +113954,7 @@ AV
 Jv
 lq
 HG
-XQ
+Bv
 qM
 hD
 hD
@@ -114012,7 +114041,7 @@ wD
 yK
 FP
 yF
-Uw
+Ei
 yi
 MA
 HF
@@ -114146,7 +114175,7 @@ rj
 rj
 MA
 MA
-XQ
+Bv
 HJ
 pR
 Ad
@@ -114182,7 +114211,7 @@ qW
 Jv
 nY
 lq
-XQ
+Bv
 Pe
 hD
 hD
@@ -114269,7 +114298,7 @@ wD
 yK
 FP
 yF
-Uw
+Ei
 yi
 MA
 HF
@@ -114403,7 +114432,7 @@ rj
 rj
 MA
 MA
-XQ
+Bv
 HJ
 pR
 Ad
@@ -114439,7 +114468,7 @@ Jv
 Hd
 lq
 nY
-Pf
+Uw
 kj
 se
 hD
@@ -114449,7 +114478,7 @@ hD
 hD
 zK
 kj
-NO
+aG
 yi
 yi
 Uj
@@ -114460,7 +114489,7 @@ EJ
 hT
 pm
 hT
-XQ
+Bv
 yF
 HJ
 HJ
@@ -114526,7 +114555,7 @@ wD
 yK
 FP
 yF
-by
+uT
 wO
 MA
 HF
@@ -114660,7 +114689,7 @@ rj
 MA
 MA
 yi
-XQ
+Bv
 HJ
 pR
 Ad
@@ -114682,7 +114711,7 @@ zl
 tN
 tN
 PA
-CD
+MS
 yi
 qC
 dN
@@ -114696,7 +114725,7 @@ sF
 Jv
 lq
 lq
-yi
+up
 kj
 kj
 VS
@@ -114706,7 +114735,7 @@ VS
 VS
 kj
 kj
-MA
+Ho
 xr
 nY
 Uj
@@ -114783,7 +114812,7 @@ wD
 yK
 FP
 yF
-by
+uT
 yi
 MA
 HF
@@ -114917,7 +114946,7 @@ rj
 MA
 MA
 MA
-XQ
+Bv
 HJ
 pR
 Ad
@@ -114939,7 +114968,7 @@ zl
 tN
 tN
 PA
-CD
+MS
 yi
 yi
 qN
@@ -114953,17 +114982,17 @@ Jv
 Ml
 Uj
 MA
-MA
-MA
-Pf
-Qa
-Qa
-Qa
-Qa
-Qa
-NO
-MA
-JZ
+Ho
+Ho
+Uw
+Bh
+Bh
+Bh
+Bh
+Bh
+aG
+Ho
+XQ
 lq
 lq
 Qh
@@ -115040,7 +115069,7 @@ wD
 yK
 FP
 yF
-by
+uT
 yi
 MA
 HF
@@ -115174,7 +115203,7 @@ rj
 MA
 qC
 MA
-Lx
+uu
 HJ
 fk
 Ad
@@ -115196,7 +115225,7 @@ zl
 tN
 Ut
 PA
-CD
+MS
 yi
 yi
 yi
@@ -115231,7 +115260,7 @@ hT
 hT
 yi
 yi
-XQ
+Bv
 yF
 HJ
 ZZ
@@ -115297,7 +115326,7 @@ wD
 yK
 FP
 yF
-Uw
+Ei
 MA
 MA
 HF
@@ -115431,7 +115460,7 @@ rj
 MA
 MA
 MA
-XQ
+Bv
 HJ
 pR
 Ad
@@ -115453,7 +115482,7 @@ zl
 tN
 tN
 PA
-CD
+MS
 yi
 yp
 yi
@@ -115554,7 +115583,7 @@ wD
 yK
 FP
 yF
-Uw
+Ei
 MA
 MA
 HF
@@ -115688,7 +115717,7 @@ rj
 MA
 MA
 MA
-XQ
+Bv
 HJ
 pR
 Ad
@@ -115710,7 +115739,7 @@ HN
 an
 tN
 PA
-CD
+MS
 MA
 dN
 yi
@@ -115745,7 +115774,7 @@ hT
 hT
 MA
 yi
-XQ
+Bv
 yF
 HJ
 HJ
@@ -115811,7 +115840,7 @@ wD
 yK
 FP
 yF
-Uw
+Ei
 yi
 MA
 HF
@@ -115945,7 +115974,7 @@ rj
 MA
 yi
 MA
-XQ
+Bv
 HJ
 pR
 Ad
@@ -116202,7 +116231,7 @@ rj
 dN
 yi
 yi
-XQ
+Bv
 HJ
 pR
 Ad
@@ -116224,7 +116253,7 @@ zl
 tN
 tN
 Re
-CD
+MS
 yi
 yi
 qC
@@ -116325,7 +116354,7 @@ tU
 NZ
 FP
 yF
-by
+uT
 yi
 yi
 HF
@@ -116459,7 +116488,7 @@ rj
 MA
 MA
 MA
-XQ
+Bv
 HJ
 sq
 Ad
@@ -116516,7 +116545,7 @@ hT
 hT
 yi
 yi
-XQ
+Bv
 yF
 HJ
 dx
@@ -116582,7 +116611,7 @@ lp
 EW
 Kv
 yF
-by
+uT
 yi
 yi
 HF
@@ -116716,7 +116745,7 @@ rj
 MA
 MA
 MA
-XQ
+Bv
 HJ
 pR
 Ad
@@ -116839,7 +116868,7 @@ fW
 LD
 yF
 yF
-Uw
+Ei
 yi
 yi
 HF
@@ -116973,7 +117002,7 @@ rj
 MA
 MA
 qC
-XQ
+Bv
 HJ
 pR
 Ad
@@ -117030,7 +117059,7 @@ hT
 MA
 MA
 yi
-XQ
+Bv
 yF
 HJ
 HJ
@@ -117096,7 +117125,7 @@ nL
 ey
 yF
 yF
-Uw
+Ei
 MA
 MA
 HF
@@ -117230,7 +117259,7 @@ rj
 MA
 yi
 MA
-XQ
+Bv
 HJ
 pR
 Ad
@@ -117252,7 +117281,7 @@ zl
 an
 tN
 zL
-CD
+MS
 yi
 yi
 hT
@@ -117353,7 +117382,7 @@ nL
 ey
 yF
 yF
-by
+uT
 MA
 yi
 HF
@@ -117487,7 +117516,7 @@ rj
 MA
 yi
 MA
-XQ
+Bv
 HJ
 pR
 Ad
@@ -117509,7 +117538,7 @@ zl
 an
 tN
 PA
-CD
+MS
 yi
 yi
 MA
@@ -117571,7 +117600,7 @@ LU
 LU
 LU
 LU
-LU
+Oq
 LU
 LU
 LU
@@ -117610,7 +117639,7 @@ nL
 ey
 yF
 yF
-by
+uT
 MA
 MA
 HF
@@ -117744,7 +117773,7 @@ rj
 MA
 yi
 MA
-XQ
+Bv
 HJ
 fk
 Ad
@@ -117766,7 +117795,7 @@ zl
 tN
 tN
 PA
-CD
+MS
 MA
 MA
 yi
@@ -117867,7 +117896,7 @@ nL
 ey
 yF
 yF
-Uw
+Ei
 MA
 yi
 HF
@@ -118001,7 +118030,7 @@ rj
 MA
 MA
 MA
-XQ
+Bv
 HJ
 pR
 Ad
@@ -118023,7 +118052,7 @@ zl
 tN
 an
 PA
-CD
+MS
 MA
 qC
 yi
@@ -118124,7 +118153,7 @@ nL
 ey
 yF
 yF
-Uw
+Ei
 qC
 yi
 HF
@@ -118258,7 +118287,7 @@ rj
 MA
 MA
 MA
-XQ
+Bv
 HJ
 ry
 Ad
@@ -118280,7 +118309,7 @@ zl
 tN
 tN
 PA
-CD
+MS
 yi
 MA
 yi
@@ -118315,7 +118344,7 @@ MA
 yi
 yi
 yi
-XQ
+Bv
 yF
 HJ
 HJ
@@ -118381,7 +118410,7 @@ nL
 ey
 yF
 yF
-Uw
+Ei
 MA
 yi
 HF
@@ -118515,7 +118544,7 @@ rj
 MA
 MA
 yi
-XQ
+Bv
 HJ
 pR
 Ad
@@ -118537,7 +118566,7 @@ zl
 tN
 tN
 PA
-CD
+MS
 yi
 MA
 yi
@@ -118638,7 +118667,7 @@ LU
 ey
 yF
 yF
-by
+uT
 yi
 MA
 HF
@@ -118772,7 +118801,7 @@ rj
 MA
 MA
 MA
-XQ
+Bv
 HJ
 pR
 Ad
@@ -118785,8 +118814,8 @@ Df
 eo
 tN
 HN
-GD
-GD
+Ft
+Ft
 zl
 zl
 zl
@@ -118794,7 +118823,7 @@ zl
 tN
 an
 PA
-CD
+MS
 qN
 MA
 yi
@@ -118895,7 +118924,7 @@ LU
 ey
 yF
 yF
-Uw
+Ei
 wO
 MA
 HF
@@ -119029,7 +119058,7 @@ rj
 yi
 MA
 MA
-Lx
+uu
 HJ
 sq
 Ad
@@ -119051,7 +119080,7 @@ HN
 tN
 tN
 PA
-CD
+MS
 MA
 qC
 yi
@@ -119152,7 +119181,7 @@ LU
 ey
 yF
 yF
-Uw
+Ei
 yi
 qC
 HF
@@ -119286,7 +119315,7 @@ rj
 yi
 MA
 MA
-XQ
+Bv
 HJ
 pR
 Ad
@@ -119409,7 +119438,7 @@ LU
 ey
 yF
 yF
-Uw
+Ei
 MA
 MA
 HF
@@ -119543,7 +119572,7 @@ MA
 MA
 MA
 MA
-XQ
+Bv
 HJ
 pR
 Ad
@@ -119666,7 +119695,7 @@ LU
 ey
 yF
 yF
-Uw
+Ei
 dH
 EA
 Bq
@@ -119800,7 +119829,7 @@ MA
 MA
 qC
 MA
-aG
+zX
 HJ
 pR
 gV
@@ -119923,7 +119952,7 @@ LU
 PF
 yF
 WV
-by
+uT
 HF
 Kf
 ZE
@@ -120057,7 +120086,7 @@ MA
 MA
 MA
 yi
-XQ
+Bv
 HJ
 pR
 Ad
@@ -120180,7 +120209,7 @@ nL
 Af
 yF
 qT
-by
+uT
 HF
 Kf
 ZE
@@ -120314,7 +120343,7 @@ MA
 MA
 MA
 MA
-XQ
+Bv
 HJ
 fk
 Ad
@@ -120437,7 +120466,7 @@ nL
 Af
 yF
 qT
-Uw
+Ei
 HF
 Kf
 ZE
@@ -120571,7 +120600,7 @@ MA
 dN
 MA
 MA
-XQ
+Bv
 HJ
 yE
 Ad
@@ -120694,7 +120723,7 @@ LU
 ev
 yF
 mv
-by
+uT
 HF
 Kf
 ZE
@@ -120828,7 +120857,7 @@ MA
 MA
 yi
 yi
-XQ
+Bv
 HJ
 pR
 Ad
@@ -120951,7 +120980,7 @@ LU
 ey
 yF
 yF
-by
+uT
 HF
 Kf
 ZE
@@ -121085,7 +121114,7 @@ MA
 MA
 yi
 yi
-XQ
+Bv
 HJ
 pR
 Ad
@@ -121208,7 +121237,7 @@ LU
 ey
 pR
 pR
-Uw
+Ei
 HF
 Kf
 ZE
@@ -121342,7 +121371,7 @@ MA
 MA
 MA
 MA
-XQ
+Bv
 HJ
 pR
 Ad
@@ -121465,7 +121494,7 @@ LU
 ey
 pR
 HJ
-by
+uT
 HF
 Kf
 ZE
@@ -121599,7 +121628,7 @@ MA
 MA
 MA
 yi
-XQ
+Bv
 HJ
 sq
 Ad
@@ -121722,7 +121751,7 @@ kT
 ey
 pR
 HJ
-by
+uT
 HF
 Kf
 ZE
@@ -121856,7 +121885,7 @@ MA
 yi
 dN
 yi
-XQ
+Bv
 HJ
 pR
 Ad
@@ -121979,7 +122008,7 @@ Mm
 Zv
 pR
 HJ
-Uw
+Ei
 HF
 Kf
 ZE
@@ -122113,7 +122142,7 @@ MA
 yi
 MA
 yi
-XQ
+Bv
 HJ
 pR
 Ad
@@ -122236,7 +122265,7 @@ LU
 ey
 Fp
 HJ
-Uw
+Ei
 HF
 Kf
 ZE
@@ -122370,7 +122399,7 @@ MA
 MA
 MA
 MA
-XQ
+Bv
 HJ
 pR
 Ad
@@ -122627,7 +122656,7 @@ MA
 MA
 MA
 dN
-XQ
+Bv
 HJ
 pR
 Ad
@@ -122750,7 +122779,7 @@ LU
 ey
 pR
 HJ
-Uw
+Ei
 HF
 Kf
 ZE
@@ -122884,7 +122913,7 @@ MA
 MA
 MA
 MA
-XQ
+Bv
 HJ
 fk
 Ad
@@ -123007,7 +123036,7 @@ KW
 ey
 pR
 HJ
-by
+uT
 HF
 Kf
 ZE
@@ -123141,7 +123170,7 @@ MA
 yi
 MA
 qC
-XQ
+Bv
 HJ
 pR
 Ad
@@ -123264,7 +123293,7 @@ Qw
 vM
 pR
 HJ
-by
+uT
 HF
 Kf
 ZE
@@ -123398,7 +123427,7 @@ MA
 yi
 MA
 MA
-XQ
+Bv
 HJ
 pR
 Ad
@@ -123427,7 +123456,7 @@ HJ
 eM
 HJ
 CA
-fp
+WK
 xm
 QG
 yg
@@ -123521,7 +123550,7 @@ Sh
 VE
 pR
 HJ
-by
+uT
 HF
 Kf
 ZE
@@ -123655,7 +123684,7 @@ MA
 MA
 MA
 MA
-XQ
+Bv
 HJ
 pR
 Ad
@@ -123777,7 +123806,7 @@ zl
 zl
 HJ
 HJ
-Oq
+Zj
 bM
 HF
 Kf
@@ -123912,7 +123941,7 @@ MA
 MA
 yi
 yi
-XQ
+Bv
 HJ
 pR
 Ad
@@ -124032,9 +124061,9 @@ QO
 QO
 QO
 CX
-Qa
-Qa
-NO
+Bh
+Bh
+aG
 MA
 HF
 Kf
@@ -124169,7 +124198,7 @@ dN
 MA
 yi
 yi
-XQ
+Bv
 HJ
 sq
 Ad
@@ -124426,7 +124455,7 @@ MA
 MA
 MA
 MA
-XQ
+Bv
 HJ
 ry
 Ad
@@ -124683,7 +124712,7 @@ MA
 MA
 MA
 dN
-XQ
+Bv
 HJ
 pR
 Ad
@@ -124940,7 +124969,7 @@ MA
 qC
 MA
 MA
-XQ
+Bv
 HJ
 pR
 Ad
@@ -125197,7 +125226,7 @@ MA
 MA
 yi
 yi
-XQ
+Bv
 HJ
 HJ
 Ad
@@ -125454,7 +125483,7 @@ MA
 dN
 MA
 MA
-XQ
+Bv
 HJ
 dx
 Ad
@@ -125562,7 +125591,7 @@ Jh
 ey
 pR
 HJ
-Uw
+Ei
 dN
 MA
 MA
@@ -125705,13 +125734,13 @@ rj
 rj
 rj
 rj
-xX
-xX
-xX
-xX
-xX
-xX
-wr
+JO
+JO
+JO
+JO
+JO
+JO
+tD
 HJ
 HJ
 gV
@@ -125819,7 +125848,7 @@ Jh
 PF
 pR
 KC
-Uw
+Ei
 yi
 MA
 qC
@@ -126076,7 +126105,7 @@ Ik
 xA
 pR
 df
-Uw
+Ei
 yi
 yi
 MA
@@ -126333,7 +126362,7 @@ Jh
 ev
 pR
 zI
-Uw
+Ei
 MA
 yi
 MA
@@ -126590,7 +126619,7 @@ Hh
 ey
 pR
 HJ
-Uw
+Ei
 MA
 yi
 MA
@@ -126847,7 +126876,7 @@ Hh
 ey
 pR
 HJ
-Uw
+Ei
 qC
 MA
 MA
@@ -127104,7 +127133,7 @@ Hh
 ey
 pR
 HJ
-Uw
+Ei
 MA
 dN
 yp
@@ -127361,7 +127390,7 @@ eE
 vM
 pR
 HJ
-Uw
+Ei
 dN
 yi
 yi
@@ -127618,7 +127647,7 @@ Bx
 lA
 pR
 HJ
-Uw
+Ei
 MA
 yi
 yi
@@ -127761,12 +127790,12 @@ rj
 rj
 rj
 rj
-Qa
-Qa
-hz
+Bh
+Bh
+Dc
 UR
-NM
-Qa
+Bs
+Bh
 Gr
 HJ
 HJ
@@ -127875,7 +127904,7 @@ HJ
 Df
 HJ
 HJ
-Uw
+Ei
 MA
 yi
 MA
@@ -128024,7 +128053,7 @@ MA
 MA
 MA
 MA
-XQ
+Bv
 HJ
 dx
 Ad
@@ -128131,8 +128160,8 @@ HJ
 HJ
 HJ
 HJ
-Oq
-NO
+Zj
+aG
 MA
 MA
 qC
@@ -128281,7 +128310,7 @@ MA
 MA
 qC
 qN
-aG
+zX
 HJ
 HJ
 Ad
@@ -128339,56 +128368,56 @@ Af
 pR
 HJ
 HJ
-Oq
-Qa
-hz
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
+Zj
+Bh
+Dc
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
 HT
-Qa
-Qa
-Qa
-NM
-NM
-NM
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-NM
-NM
-Qa
-Qa
-Qa
-NO
+Bh
+Bh
+Bh
+Bs
+Bs
+Bs
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bs
+Bs
+Bh
+Bh
+Bh
+aG
 MA
 yi
 yi
@@ -128538,7 +128567,7 @@ MA
 MA
 MA
 dN
-aG
+zX
 HJ
 pR
 Ad
@@ -128596,7 +128625,7 @@ Af
 pR
 Df
 Df
-by
+uT
 dN
 yi
 yi
@@ -128795,7 +128824,7 @@ MA
 yi
 yi
 MA
-aG
+zX
 Df
 pR
 Ad
@@ -128853,7 +128882,7 @@ Af
 pR
 HJ
 HJ
-by
+uT
 MA
 yi
 yi
@@ -129052,7 +129081,7 @@ MA
 yi
 yi
 MA
-Lx
+uu
 HJ
 pR
 Ad
@@ -129110,7 +129139,7 @@ ev
 pR
 HJ
 HJ
-by
+uT
 yi
 MA
 qC
@@ -129309,7 +129338,7 @@ MA
 yi
 yi
 yi
-XQ
+Bv
 HJ
 sq
 Ad
@@ -129367,7 +129396,7 @@ nv
 pR
 HJ
 HJ
-Uw
+Ei
 yi
 MA
 MA
@@ -129566,7 +129595,7 @@ MA
 qN
 MA
 yi
-XQ
+Bv
 HJ
 pR
 Ad
@@ -129624,7 +129653,7 @@ ey
 pR
 HJ
 HJ
-by
+uT
 dN
 yi
 MA
@@ -129823,7 +129852,7 @@ MA
 dN
 MA
 yi
-XQ
+Bv
 HJ
 pR
 Ad
@@ -129881,7 +129910,7 @@ ey
 pR
 HJ
 HJ
-by
+uT
 dN
 yi
 yi
@@ -130080,7 +130109,7 @@ rj
 dN
 WI
 yi
-XQ
+Bv
 HJ
 pR
 Ad
@@ -130138,7 +130167,7 @@ ey
 pR
 HJ
 HJ
-Uw
+Ei
 MA
 yi
 yi
@@ -130337,7 +130366,7 @@ rj
 MA
 MA
 MA
-aG
+zX
 HJ
 pR
 Ad
@@ -130395,7 +130424,7 @@ ey
 pR
 HJ
 HJ
-Uw
+Ei
 MA
 yi
 yi
@@ -130441,9 +130470,9 @@ dH
 ee
 Eu
 nD
-zs
-vn
-vn
+wr
+ol
+wg
 ZE
 vS
 ZE
@@ -130594,7 +130623,7 @@ rj
 rj
 MA
 MA
-aG
+zX
 HJ
 fk
 Ad
@@ -130652,7 +130681,7 @@ ey
 pR
 HJ
 HJ
-Uw
+Ei
 qC
 MA
 MA
@@ -130698,9 +130727,9 @@ Eu
 nD
 mz
 mz
+ol
 vn
-vn
-zs
+pS
 ZE
 ZE
 ZE
@@ -130851,7 +130880,7 @@ rj
 rj
 rj
 MA
-aG
+zX
 HJ
 pR
 Ad
@@ -130909,7 +130938,7 @@ ey
 pR
 HJ
 HJ
-Uw
+Ei
 MA
 MA
 MA
@@ -130955,9 +130984,9 @@ mz
 mz
 mz
 mz
-zs
+wr
 vn
-vn
+co
 ZE
 ZE
 ZE
@@ -131108,7 +131137,7 @@ rj
 rj
 rj
 MA
-aG
+zX
 HJ
 pR
 Ad
@@ -131166,7 +131195,7 @@ nC
 pR
 Df
 HJ
-Uw
+Ei
 MA
 MA
 MA
@@ -131212,9 +131241,9 @@ mz
 mz
 mz
 mz
+ol
 vn
-vn
-vn
+co
 ZE
 ZE
 ZE
@@ -131365,7 +131394,7 @@ rj
 rj
 rj
 dN
-aG
+zX
 HJ
 pR
 Ad
@@ -131423,7 +131452,7 @@ ey
 pR
 Df
 HJ
-by
+uT
 MA
 yi
 dN
@@ -131469,9 +131498,9 @@ mz
 mg
 Zh
 mz
+ol
 vn
-vn
-vn
+co
 ZE
 ZE
 ZE
@@ -131622,7 +131651,7 @@ rj
 rj
 rj
 dN
-XQ
+Bv
 HJ
 pR
 Ad
@@ -131680,7 +131709,7 @@ ey
 pR
 Df
 HJ
-by
+uT
 MA
 MA
 MA
@@ -131726,9 +131755,9 @@ mz
 mz
 mz
 mz
+ol
 vn
-vn
-vn
+co
 ZE
 ZE
 ZE
@@ -131879,7 +131908,7 @@ rj
 rj
 rj
 yp
-XQ
+Bv
 HJ
 sq
 Ad
@@ -131937,7 +131966,7 @@ ey
 sq
 HJ
 HJ
-Uw
+Ei
 MA
 yi
 yi
@@ -131983,10 +132012,10 @@ ok
 FS
 mz
 mz
+ol
 vn
-vn
-vn
-vn
+co
+co
 ZE
 ZE
 ZE
@@ -132136,7 +132165,7 @@ rj
 rj
 rj
 yi
-XQ
+Bv
 HJ
 pR
 Ad
@@ -132194,7 +132223,7 @@ ey
 pR
 HJ
 HJ
-Uw
+Ei
 qC
 MA
 yi
@@ -132239,11 +132268,11 @@ rN
 rN
 IB
 mz
+ol
+ol
 vn
 vn
-vn
-vn
-vn
+co
 ZE
 ZE
 ZE
@@ -132393,7 +132422,7 @@ rj
 rj
 rj
 yi
-XQ
+Bv
 HJ
 pR
 Ad
@@ -132451,7 +132480,7 @@ ey
 pR
 HJ
 HJ
-by
+uT
 MA
 yp
 MA
@@ -132496,11 +132525,11 @@ kD
 yJ
 IB
 mz
+ol
 vn
 vn
 vn
-vn
-vn
+co
 ZE
 ZE
 ZE
@@ -132650,7 +132679,7 @@ rj
 rj
 rj
 MA
-aG
+zX
 HJ
 pR
 Ad
@@ -132708,7 +132737,7 @@ ey
 pR
 HJ
 HJ
-by
+uT
 dN
 yi
 MA
@@ -132752,12 +132781,12 @@ rN
 rN
 rN
 IB
-vn
-vn
+ol
+ol
 vn
 zs
 vn
-vn
+co
 ZE
 ZE
 ZE
@@ -132907,7 +132936,7 @@ rj
 rj
 rj
 yi
-aG
+zX
 HJ
 pR
 Ad
@@ -132965,7 +132994,7 @@ ey
 pR
 HJ
 HJ
-Uw
+Ei
 MA
 yi
 MA
@@ -133009,12 +133038,12 @@ JN
 JN
 JN
 lC
+ol
 vn
 vn
 vn
 vn
-vn
-vn
+co
 ZE
 ZE
 ZE
@@ -133164,7 +133193,7 @@ rj
 rj
 rj
 yi
-aG
+zX
 HJ
 fk
 Ad
@@ -133222,7 +133251,7 @@ ey
 pR
 HJ
 HJ
-HU
+kl
 yi
 MA
 MA
@@ -133266,13 +133295,13 @@ mg
 mz
 mz
 mz
+ol
 vn
 vn
 vn
 vn
-vn
-vn
-vn
+co
+co
 ZE
 ZE
 ZE
@@ -133421,7 +133450,7 @@ rj
 rj
 rj
 MA
-aG
+zX
 HJ
 pR
 Ad
@@ -133479,7 +133508,7 @@ ey
 pR
 HJ
 HJ
-Uw
+Ei
 yi
 hT
 hT
@@ -133523,13 +133552,13 @@ mz
 mz
 rF
 mz
+ol
 vn
 vn
 vn
 vn
 vn
-vn
-vn
+co
 ZE
 ZE
 ZE
@@ -133678,7 +133707,7 @@ rj
 rj
 rj
 dN
-XQ
+Bv
 Df
 pR
 Ad
@@ -133736,7 +133765,7 @@ ey
 pR
 HJ
 HJ
-by
+uT
 MA
 hT
 hT
@@ -133780,13 +133809,13 @@ mz
 vd
 mz
 mz
+ol
 vn
 vn
 vn
 vn
 vn
-vn
-vn
+co
 ZE
 ZE
 ZE
@@ -133935,7 +133964,7 @@ rj
 rj
 rj
 MA
-Lx
+uu
 HJ
 pR
 Ad
@@ -133956,7 +133985,7 @@ Ho
 Zr
 vT
 Fa
-Np
+Yb
 Yb
 Yb
 Vu
@@ -133993,7 +134022,7 @@ ey
 pR
 HJ
 HJ
-Uw
+Ei
 hT
 hT
 hT
@@ -134036,14 +134065,14 @@ mz
 mz
 mz
 mz
+ol
+ol
 vn
 vn
 vn
 vn
 vn
-vn
-vn
-vn
+co
 ZE
 ZE
 ZE
@@ -134192,7 +134221,7 @@ rj
 rj
 rj
 MA
-XQ
+Bv
 HJ
 pR
 Ad
@@ -134250,7 +134279,7 @@ ey
 pR
 HJ
 HJ
-Uw
+Ei
 hT
 hT
 hT
@@ -134293,14 +134322,14 @@ mz
 mz
 Lz
 mz
+ol
 vn
 vn
 vn
 vn
 vn
 vn
-vn
-vn
+co
 ZE
 ZE
 ZE
@@ -134449,7 +134478,7 @@ rj
 rj
 rj
 MA
-aG
+zX
 HJ
 sq
 Ad
@@ -134470,7 +134499,7 @@ up
 Zr
 bD
 ec
-ec
+Np
 Zq
 Tj
 Mx
@@ -134507,7 +134536,7 @@ ub
 pR
 HJ
 HJ
-Uw
+Ei
 hT
 hT
 hT
@@ -134550,15 +134579,15 @@ mz
 mz
 mz
 mz
+ol
 vn
 vn
 vn
 vn
 vn
 vn
-vn
-vn
-vn
+co
+co
 ZE
 ZE
 ZE
@@ -134706,7 +134735,7 @@ rj
 rj
 rj
 qN
-aG
+zX
 HJ
 pR
 Ad
@@ -134764,7 +134793,7 @@ ey
 pR
 HJ
 HJ
-by
+uT
 hT
 hT
 hT
@@ -134806,6 +134835,8 @@ mg
 mz
 mz
 mz
+ol
+ol
 vn
 vn
 vn
@@ -134813,9 +134844,7 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
+co
 ZE
 ZE
 ZE
@@ -134963,7 +134992,7 @@ rj
 rj
 rj
 MA
-aG
+zX
 HJ
 ry
 Ad
@@ -135021,7 +135050,7 @@ ey
 pR
 HJ
 HJ
-by
+uT
 hT
 hT
 hT
@@ -135062,6 +135091,8 @@ mz
 mz
 mz
 mz
+ol
+ol
 vn
 vn
 vn
@@ -135070,9 +135101,7 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
+co
 ZE
 ZE
 ZE
@@ -135220,7 +135249,7 @@ rj
 rj
 rj
 MA
-aG
+zX
 HJ
 pR
 Ad
@@ -135278,7 +135307,7 @@ ey
 pR
 HJ
 HJ
-by
+uT
 hT
 hT
 hT
@@ -135318,6 +135347,8 @@ mz
 mz
 mz
 mz
+ol
+ol
 vn
 vn
 vn
@@ -135327,9 +135358,7 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
+co
 ZE
 ZE
 ZE
@@ -135477,7 +135506,7 @@ rj
 rj
 rj
 qN
-aG
+zX
 HJ
 pR
 Ad
@@ -135535,7 +135564,7 @@ ey
 pR
 HJ
 HJ
-Uw
+Ei
 hT
 hT
 hT
@@ -135575,6 +135604,7 @@ mz
 mz
 mz
 mz
+ol
 vn
 vn
 vn
@@ -135585,8 +135615,7 @@ vn
 vn
 vn
 vn
-vn
-vn
+co
 ZE
 ZE
 ZE
@@ -135734,7 +135763,7 @@ rj
 rj
 rj
 qN
-aG
+zX
 HJ
 fk
 Ad
@@ -135792,7 +135821,7 @@ ey
 pR
 Df
 HJ
-by
+uT
 hT
 hT
 hT
@@ -135831,6 +135860,8 @@ IB
 mz
 ot
 mz
+ol
+ol
 vn
 vn
 vn
@@ -135841,9 +135872,7 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
+co
 ZE
 ZE
 ZE
@@ -135991,7 +136020,7 @@ rj
 rj
 rj
 MA
-XQ
+Bv
 HJ
 pR
 Ad
@@ -136049,7 +136078,7 @@ PF
 sq
 HJ
 HJ
-Uw
+Ei
 hT
 hT
 hT
@@ -136088,6 +136117,7 @@ IB
 mz
 mz
 mz
+ol
 vn
 vn
 vn
@@ -136099,8 +136129,7 @@ vn
 vn
 vn
 vn
-vn
-vn
+co
 ZE
 ZE
 ZE
@@ -136345,7 +136374,7 @@ lC
 mz
 mz
 mz
-vn
+ol
 vn
 vn
 zs
@@ -136357,7 +136386,7 @@ vn
 vn
 vn
 vn
-vn
+co
 ZE
 ZE
 ZE
@@ -136505,7 +136534,7 @@ rj
 rj
 rj
 dN
-XQ
+Bv
 HJ
 pR
 Ad
@@ -136602,6 +136631,7 @@ mz
 mz
 mz
 mz
+ol
 vn
 vn
 vn
@@ -136613,8 +136643,7 @@ vn
 vn
 vn
 vn
-vn
-vn
+co
 ZE
 ZE
 ZE
@@ -136762,7 +136791,7 @@ rj
 rj
 rj
 MA
-XQ
+Bv
 HJ
 pR
 Ad
@@ -136858,6 +136887,8 @@ mz
 Zh
 mz
 mz
+ol
+ol
 vn
 vn
 vn
@@ -136869,9 +136900,7 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
+co
 ZE
 ZE
 ZE
@@ -137019,7 +137048,7 @@ rj
 rj
 rj
 MA
-XQ
+Bv
 HJ
 pR
 Ad
@@ -137077,7 +137106,7 @@ ev
 pR
 HJ
 Df
-Uw
+Ei
 MA
 os
 hT
@@ -137114,6 +137143,8 @@ mz
 mz
 mz
 mz
+ol
+ol
 vn
 vn
 vn
@@ -137126,9 +137157,7 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
+co
 ZE
 ZE
 ZE
@@ -137276,7 +137305,7 @@ rj
 rj
 rj
 yi
-aG
+zX
 HJ
 Ln
 Ad
@@ -137334,7 +137363,7 @@ NR
 pR
 HJ
 HJ
-Uw
+Ei
 yi
 MA
 hT
@@ -137370,6 +137399,8 @@ mz
 mz
 mz
 mz
+ol
+ol
 vn
 vn
 vn
@@ -137383,9 +137414,7 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
+co
 ZE
 ZE
 ZE
@@ -137533,7 +137562,7 @@ rj
 rj
 rj
 yi
-aG
+zX
 HJ
 Hc
 ud
@@ -137591,7 +137620,7 @@ dX
 pR
 HJ
 HJ
-Uw
+Ei
 yi
 MA
 MA
@@ -137626,6 +137655,8 @@ mz
 mz
 mz
 mz
+ol
+ol
 vn
 vn
 vn
@@ -137640,9 +137671,7 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
+co
 ZE
 ZE
 ZE
@@ -137790,7 +137819,7 @@ rj
 rj
 rj
 yi
-aG
+zX
 HJ
 Fe
 Bx
@@ -137848,7 +137877,7 @@ VE
 pR
 HJ
 HJ
-Uw
+Ei
 MA
 yp
 yi
@@ -137882,6 +137911,8 @@ mz
 mz
 mz
 mz
+ol
+ol
 vn
 vn
 vn
@@ -137897,9 +137928,7 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
+co
 ZE
 ZE
 ZE
@@ -138047,7 +138076,7 @@ rj
 rj
 rj
 yi
-aG
+zX
 HJ
 pR
 HJ
@@ -138104,8 +138133,8 @@ HJ
 HJ
 Df
 HJ
-Oq
-NO
+Zj
+aG
 MA
 MA
 yi
@@ -138138,6 +138167,8 @@ mz
 mz
 mz
 mg
+ol
+ol
 vn
 vn
 vn
@@ -138153,10 +138184,8 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
-vn
+co
+co
 ZE
 ZE
 ZE
@@ -138304,7 +138333,7 @@ rj
 rj
 rj
 MA
-Lx
+uu
 HJ
 Df
 HJ
@@ -138361,7 +138390,7 @@ HJ
 HJ
 HJ
 Nf
-NO
+aG
 MA
 qC
 MA
@@ -138395,6 +138424,7 @@ mz
 mz
 mz
 mz
+ol
 vn
 vn
 vn
@@ -138411,8 +138441,7 @@ vn
 vn
 vn
 vn
-vn
-vn
+co
 ZE
 ZE
 ZE
@@ -138561,63 +138590,63 @@ rj
 rj
 rj
 MA
-Pf
-Qa
-NM
-Qa
-Qa
-Qa
-Qa
-Qa
-NM
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-Qa
-NM
-Qa
-Qa
-Qa
-Qa
-Qa
-NO
+Uw
+Bh
+Bs
+Bh
+Bh
+Bh
+Bh
+Bh
+Bs
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bh
+Bs
+Bh
+Bh
+Bh
+Bh
+Bh
+aG
 MA
 MA
 MA
@@ -138651,6 +138680,8 @@ mz
 mz
 mz
 mz
+ol
+ol
 vn
 vn
 vn
@@ -138665,11 +138696,9 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
-vn
-vn
+ln
+ln
+co
 ZE
 ZE
 ZE
@@ -138908,6 +138937,7 @@ mz
 mz
 mz
 mz
+ol
 vn
 vn
 vn
@@ -138922,9 +138952,8 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
+ln
+ln
 ZE
 ZE
 ZE
@@ -139164,6 +139193,8 @@ IB
 mz
 mz
 mz
+ol
+ol
 vn
 vn
 vn
@@ -139178,9 +139209,7 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
+ln
 ZE
 ZE
 ZE
@@ -139420,6 +139449,8 @@ rN
 IB
 mz
 mz
+ol
+ol
 vn
 vn
 vn
@@ -139435,9 +139466,7 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
+ln
 ZE
 ZE
 ZE
@@ -139677,7 +139706,7 @@ JN
 lC
 mz
 mz
-vn
+ol
 vn
 vn
 zs
@@ -139692,9 +139721,9 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
+ln
+ln
+ln
 ZE
 ZE
 ZE
@@ -139934,6 +139963,7 @@ Zh
 mz
 mz
 mz
+ol
 vn
 vn
 vn
@@ -139947,9 +139977,8 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
+ln
+ln
 ZE
 ZE
 ZE
@@ -140191,6 +140220,7 @@ mz
 mz
 mz
 mz
+ol
 vn
 vn
 vn
@@ -140204,8 +140234,7 @@ vn
 vn
 vn
 vn
-vn
-vn
+ln
 ZE
 ZE
 ZE
@@ -140447,6 +140476,8 @@ mz
 mz
 mz
 mz
+ol
+ol
 vn
 vn
 vn
@@ -140458,11 +140489,9 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
-vn
-vn
+ln
+ln
+ln
 ZE
 ZE
 ZE
@@ -140703,6 +140732,8 @@ mz
 mz
 mz
 mz
+ol
+ol
 vn
 vn
 vn
@@ -140714,10 +140745,8 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
-vn
+ln
+ln
 ZE
 ZE
 ZE
@@ -140959,6 +140988,8 @@ mz
 mz
 mz
 mz
+ol
+ol
 vn
 vn
 vn
@@ -140971,9 +141002,7 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
+ln
 ZE
 ZE
 ZE
@@ -141213,6 +141242,10 @@ mz
 ot
 mz
 mz
+ol
+ol
+ol
+ol
 vn
 vn
 vn
@@ -141226,11 +141259,7 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
-vn
-vn
+ln
 ZE
 ZE
 ZE
@@ -141393,17 +141422,17 @@ rj
 rj
 rj
 rj
-MA
-MA
-MA
-MA
-MA
-MA
-MA
-MA
-MA
-MA
-MA
+Ho
+Ho
+Ho
+Ho
+Ho
+Ho
+Ho
+Ho
+Ho
+Ho
+Ho
 MA
 MA
 MA
@@ -141470,6 +141499,7 @@ mz
 mz
 mz
 mz
+ol
 vn
 vn
 vn
@@ -141486,8 +141516,7 @@ vn
 vn
 vn
 vn
-vn
-vn
+ln
 ZE
 ZE
 ZE
@@ -141650,18 +141679,18 @@ rj
 rj
 dH
 ee
-zJ
-zJ
-zJ
-zJ
-zJ
-zJ
-zJ
-zJ
-zJ
-zJ
-zJ
-zJ
+Lx
+Lx
+Lx
+Lx
+Lx
+Lx
+Lx
+Lx
+Lx
+Lx
+Lx
+Lx
 zJ
 zJ
 zJ
@@ -141726,6 +141755,8 @@ mz
 mz
 mz
 mz
+ol
+ol
 vn
 vn
 vn
@@ -141741,10 +141772,8 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
-vn
+ln
+ln
 ZE
 ZE
 ZE
@@ -141907,8 +141936,8 @@ dH
 ee
 Eu
 ib
-vn
-vn
+ol
+ol
 mz
 mz
 mz
@@ -141982,6 +142011,8 @@ mz
 mg
 mz
 mz
+ol
+ol
 vn
 vn
 vn
@@ -141997,10 +142028,8 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
-vn
+ln
+ln
 ZE
 ZE
 ZE
@@ -142162,12 +142191,12 @@ dH
 ee
 Eu
 ib
+xX
 vn
 vn
-vn
-vn
-vn
-zs
+ol
+ol
+wr
 mz
 mz
 mz
@@ -142239,6 +142268,7 @@ mz
 mz
 mz
 mz
+ol
 vn
 vn
 vn
@@ -142255,8 +142285,7 @@ vn
 vn
 vn
 vn
-vn
-vn
+ln
 ZE
 ZE
 ZE
@@ -142419,13 +142448,13 @@ Bq
 cN
 ZE
 ZE
+xX
 vn
 vn
 vn
 vn
-vn
-vn
-vn
+ol
+ol
 mz
 mz
 mz
@@ -142495,6 +142524,8 @@ mz
 mz
 mz
 mz
+ol
+ol
 vn
 vn
 vn
@@ -142510,10 +142541,8 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
-vn
+ln
+ln
 ZE
 ZE
 ZE
@@ -142676,13 +142705,13 @@ ZE
 ZE
 ZE
 ZE
-zs
+CD
+xX
 vn
 vn
 vn
 vn
-vn
-vn
+ol
 mz
 mz
 mz
@@ -142749,6 +142778,10 @@ mz
 vd
 mz
 mz
+ol
+ol
+ol
+ol
 vn
 vn
 vn
@@ -142765,11 +142798,7 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
-vn
-vn
+ln
 ZE
 ZE
 ZE
@@ -142934,13 +142963,13 @@ ZE
 ZE
 ZE
 ZE
+xX
 vn
 vn
 vn
 vn
-vn
-vn
-vn
+ol
+ol
 mz
 mz
 mz
@@ -143005,6 +143034,8 @@ mz
 mz
 mz
 mz
+ol
+ol
 vn
 vn
 vn
@@ -143023,10 +143054,8 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
-vn
+ln
+ln
 ZE
 ZE
 ZE
@@ -143191,15 +143220,15 @@ ZE
 ZE
 ZE
 ZE
+xX
 vn
 vn
 vn
 vn
 vn
-vn
-vn
-zs
-vn
+ol
+wr
+ol
 mz
 mz
 mz
@@ -143261,8 +143290,8 @@ mz
 mz
 mz
 mz
-vn
-vn
+ol
+ol
 vn
 vn
 vn
@@ -143282,7 +143311,7 @@ vn
 vn
 vn
 vn
-vn
+ln
 ZE
 ZE
 ZE
@@ -143448,16 +143477,16 @@ ZE
 ZE
 ZE
 ZE
-vn
-vn
+xX
+xX
 vn
 vn
 vn
 zs
 vn
 vn
-vn
-vn
+ol
+ol
 mz
 mz
 mz
@@ -143516,6 +143545,9 @@ mz
 mz
 mz
 mz
+ol
+ol
+ol
 vn
 vn
 vn
@@ -143536,10 +143568,7 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
-vn
+ln
 ZE
 ZE
 ZE
@@ -143706,17 +143735,17 @@ ZE
 ZE
 ZE
 ZE
+xX
+xX
 vn
 vn
 vn
 vn
 vn
 vn
-vn
-vn
-vn
-vn
-vn
+ol
+ol
+ol
 mz
 mz
 mz
@@ -143769,6 +143798,11 @@ mz
 mz
 mz
 mz
+ol
+ol
+ol
+ol
+ol
 vn
 vn
 vn
@@ -143791,12 +143825,7 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
-vn
-vn
-vn
+ln
 ZE
 ZE
 ZE
@@ -143964,6 +143993,7 @@ ZE
 ZE
 ZE
 ZE
+xX
 vn
 vn
 vn
@@ -143972,8 +144002,7 @@ vn
 vn
 vn
 vn
-vn
-vn
+ol
 mz
 mz
 mz
@@ -144025,6 +144054,8 @@ mz
 vd
 mz
 mz
+ol
+ol
 vn
 vn
 vn
@@ -144051,9 +144082,7 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
+ln
 ZE
 ZE
 ZE
@@ -144221,16 +144250,16 @@ ZE
 ZE
 ZE
 ZE
+xX
+xX
+xX
 vn
 vn
 vn
 vn
 vn
 vn
-vn
-vn
-vn
-vn
+ol
 mz
 mz
 mz
@@ -144282,7 +144311,7 @@ mz
 mz
 mz
 mz
-vn
+ol
 vn
 vn
 vn
@@ -144310,7 +144339,7 @@ vn
 vn
 vn
 vn
-vn
+ln
 ZE
 ZE
 ZE
@@ -144480,16 +144509,16 @@ ZE
 ZE
 ZE
 ZE
+xX
 vn
 vn
 vn
 vn
 vn
 vn
-vn
-vn
-vn
-vn
+ol
+ol
+ol
 mz
 mz
 mz
@@ -144538,6 +144567,8 @@ mz
 mz
 mz
 mz
+ol
+ol
 vn
 vn
 vn
@@ -144564,10 +144595,8 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
-vn
+ln
+ln
 ZE
 ZE
 ZE
@@ -144737,6 +144766,8 @@ ZE
 ZE
 ZE
 ZE
+xX
+xX
 vn
 vn
 vn
@@ -144744,10 +144775,8 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
-vn
+ol
+ol
 mg
 mz
 mz
@@ -144791,6 +144820,11 @@ mz
 mz
 mz
 mz
+ol
+ol
+ol
+ol
+ol
 vn
 vn
 vn
@@ -144816,14 +144850,9 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
+hz
+hz
+ln
 ZE
 ZE
 ZE
@@ -144995,6 +145024,8 @@ ZE
 ZE
 ZE
 ZE
+xX
+xX
 vn
 vn
 vn
@@ -145002,9 +145033,7 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
+ol
 mz
 mz
 mz
@@ -145045,6 +145074,10 @@ mz
 mz
 mz
 mz
+ol
+ol
+ol
+ol
 vn
 vn
 vn
@@ -145071,14 +145104,10 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
+hz
+hz
+hz
+hz
 ZE
 ZE
 ZE
@@ -145253,6 +145282,7 @@ ZE
 ZE
 ZE
 ZE
+xX
 vn
 vn
 vn
@@ -145260,9 +145290,8 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
+ol
+ol
 mz
 mz
 mg
@@ -145300,6 +145329,9 @@ mz
 mz
 mz
 mz
+ol
+ol
+ol
 vn
 vn
 vn
@@ -145329,10 +145361,7 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
-vn
+co
 ZE
 ZE
 ZE
@@ -145510,6 +145539,7 @@ ZE
 ZE
 ZE
 ZE
+xX
 vn
 vn
 vn
@@ -145518,8 +145548,7 @@ vn
 vn
 vn
 vn
-vn
-vn
+ol
 mz
 mz
 mz
@@ -145548,6 +145577,16 @@ mz
 mz
 mz
 mz
+ol
+ol
+ol
+ol
+ol
+ol
+ol
+ol
+ol
+ol
 vn
 vn
 vn
@@ -145575,21 +145614,11 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
+hz
+hz
+hz
+hz
+hz
 ZE
 ZE
 ZE
@@ -145767,6 +145796,8 @@ ZE
 ZE
 ZE
 ZE
+xX
+xX
 vn
 vn
 vn
@@ -145774,11 +145805,9 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
-vn
-vn
+ol
+ol
+ol
 Zh
 mz
 mz
@@ -145803,6 +145832,9 @@ mz
 mz
 mz
 mz
+ol
+ol
+ol
 vn
 vn
 vn
@@ -145832,17 +145864,14 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
+hz
+hz
+hz
+hz
+hz
+hz
+hz
+hz
 ZE
 ZE
 ZE
@@ -146025,7 +146054,7 @@ ZE
 ZE
 ZE
 ZE
-zs
+CD
 vn
 vn
 vn
@@ -146035,7 +146064,7 @@ zs
 vn
 vn
 vn
-vn
+ol
 mz
 mz
 mz
@@ -146059,6 +146088,8 @@ mg
 mz
 mz
 mz
+ol
+ol
 vn
 vn
 vn
@@ -146086,13 +146117,11 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
+hz
+hz
+hz
+hz
+hz
 ZE
 ZE
 ZE
@@ -146282,6 +146311,8 @@ ZE
 ZE
 ZE
 ZE
+xX
+xX
 vn
 vn
 vn
@@ -146290,15 +146321,13 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
+ol
+ol
+ol
+ol
+ol
+ol
+ol
 mz
 mz
 mz
@@ -146311,6 +146340,12 @@ mz
 mz
 mz
 mz
+ol
+ol
+ol
+ol
+ol
+ol
 vn
 vn
 vn
@@ -146337,15 +146372,9 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
+hz
+hz
+hz
 ZE
 ZE
 ZE
@@ -146540,6 +146569,8 @@ ZE
 ZE
 ZE
 ZE
+xX
+xX
 vn
 vn
 vn
@@ -146553,11 +146584,24 @@ vn
 vn
 vn
 vn
+ol
+ol
+ol
+ol
+ol
+ol
+ol
+ol
+ol
+ol
+ol
+ol
+ol
+ol
 vn
 vn
 vn
-vn
-vn
+zs
 vn
 vn
 vn
@@ -146584,23 +146628,8 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
-zs
-vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
+hz
+hz
 ZE
 ZE
 ZE
@@ -146798,6 +146827,8 @@ ZE
 ZE
 ZE
 ZE
+xX
+xX
 vn
 vn
 vn
@@ -146852,11 +146883,9 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
-vn
-vn
+hz
+hz
+hz
 ZE
 ZE
 ZE
@@ -147056,6 +147085,7 @@ ZE
 ZE
 ZE
 ZE
+xX
 vn
 vn
 vn
@@ -147103,15 +147133,14 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
+hz
+hz
+hz
+hz
+hz
+hz
+hz
+hz
 ZE
 ZE
 ZE
@@ -147313,6 +147342,9 @@ ZE
 ZE
 ZE
 ZE
+hz
+hz
+hz
 vn
 vn
 vn
@@ -147350,18 +147382,15 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
+hz
+hz
+hz
+hz
+hz
+hz
+hz
+hz
+hz
 ZE
 ZE
 ZE
@@ -147572,6 +147601,7 @@ ZE
 ZE
 ZE
 ZE
+xX
 vn
 vn
 vn
@@ -147604,13 +147634,12 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
+hz
+hz
+hz
+hz
+hz
+hz
 ZE
 ZE
 ZE
@@ -147829,10 +147858,10 @@ ZE
 ZE
 ZE
 ZE
-vn
-vn
-vn
-vn
+hz
+hz
+hz
+hz
 vn
 vn
 vn
@@ -147856,13 +147885,13 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
+hz
+hz
+hz
+hz
+hz
+hz
+hz
 ZE
 ZE
 ZE
@@ -148089,6 +148118,10 @@ ZE
 ZE
 ZE
 ZE
+hz
+hz
+hz
+hz
 vn
 vn
 vn
@@ -148105,15 +148138,11 @@ vn
 vn
 vn
 vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
-vn
+hz
+hz
+hz
+hz
+hz
 ZE
 ZE
 ZE
@@ -148349,24 +148378,24 @@ ZE
 ZE
 ZE
 ZE
-ol
-ol
-ol
-ol
-ol
-ol
-ol
-ol
-ol
-ol
-ol
-ol
-ol
-ol
-ol
-ol
-ol
-ol
+HU
+HU
+HU
+HU
+HU
+HU
+HU
+HU
+HU
+HU
+HU
+HU
+HU
+HU
+HU
+HU
+HU
+HU
 ZE
 ZE
 ZE
@@ -171803,7 +171832,7 @@ Vp
 Vp
 LL
 Jh
-Jh
+Zd
 Jh
 Jh
 Jh
@@ -173269,9 +173298,9 @@ ue
 Yh
 Vp
 fj
-Rn
-Rn
-Rn
+wB
+wB
+wB
 Vp
 Vp
 fj
@@ -180533,7 +180562,7 @@ Vp
 Vp
 LL
 Jh
-Jh
+by
 Jh
 Jh
 Jh
@@ -180552,7 +180581,7 @@ Vp
 Vp
 LL
 Jh
-Jh
+ej
 Jh
 Jh
 Jh
@@ -184320,9 +184349,9 @@ ue
 Yh
 Vp
 fj
-Rn
-Rn
-Rn
+wB
+wB
+wB
 Vp
 Vp
 fj
@@ -185603,7 +185632,7 @@ ue
 ue
 ue
 Yh
-Rn
+wB
 Vp
 Vp
 Vp
@@ -186987,7 +187016,7 @@ Jh
 Jh
 Jh
 Jh
-Jh
+jQ
 Jh
 JX
 Vp
@@ -187947,7 +187976,7 @@ PY
 PQ
 aK
 om
-yz
+vA
 yz
 yz
 yz
@@ -188278,7 +188307,7 @@ Vp
 Vp
 yW
 ko
-qC
+tZ
 bE
 eW
 Vp
@@ -188535,7 +188564,7 @@ Vp
 Vp
 yW
 VM
-MA
+Ho
 xP
 eW
 Vp
@@ -188792,7 +188821,7 @@ Vp
 Vp
 yW
 VM
-MA
+Ho
 DZ
 eW
 Vp

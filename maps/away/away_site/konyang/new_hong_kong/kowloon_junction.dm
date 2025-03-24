@@ -42,20 +42,10 @@
 	freq_name = "Corporate District Patrol"
 
 	initial_generic_waypoints = list(
-		"nav_point_verdant_waterdock_01",
-		"nav_point_verdant_waterdock_02",
-		"nav_point_verdant_waterdock_03",
-		"nav_point_verdant_waterdock_04",
-		"nav_point_verdant_waterdock_05",
-		"nav_point_verdant_waterdock_06",
-		"nav_point_verdant_waterdock_07",
-		"nav_point_verdant_waterdock_08",
-		"nav_point_verdant_waterdock_09",
-		"nav_point_verdant_waterdock_10",
-		"nav_point_verdant_waterdock_11",
-		"nav_point_verdant_waterdock_12",
-		"nav_point_verdant_waterdock_13",
-		"nav_point_verdant_waterdock_14",
+		"nav_kowloon_junction_dock_01",
+		"nav_kowloon_junction_dock_02",
+		"nav_kowloon_junction_dock_03",
+		"nav_kowloon_junction_dock_04",
 	)
 	initial_restricted_waypoints = list(
 		"Intrepid" = list("nav_kowloon_junction_spaceport_intrepid"),

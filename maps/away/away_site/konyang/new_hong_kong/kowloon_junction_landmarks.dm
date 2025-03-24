@@ -13,18 +13,18 @@
 	name = "Kowloon Junction, Spaceport Landing Pad C (Canary)"
 	landmark_tag = "nav_point_kowloon_junction_canary"
 
-/obj/effect/shuttle_landmark/point_verdant/dock_01
+/obj/effect/shuttle_landmark/kowloon_junction/dock_01
 	name = "Kowloon Junction, Spaceport 01"
 	landmark_tag = "nav_kowloon_junction_dock_01"
 
-/obj/effect/shuttle_landmark/point_verdant/dock_02
+/obj/effect/shuttle_landmark/kowloon_junction/dock_02
 	name = "Kowloon Junction, Spaceport 02"
 	landmark_tag = "nav_kowloon_junction_dock_02"
 
-/obj/effect/shuttle_landmark/point_verdant/dock_03
+/obj/effect/shuttle_landmark/kowloon_junction/dock_03
 	name = "Kowloon Junction, Spaceport 03"
 	landmark_tag = "nav_kowloon_junction_dock_03"
 
-/obj/effect/shuttle_landmark/point_verdant/dock_04
+/obj/effect/shuttle_landmark/kowloon_junction/dock_04
 	name = "Kowloon Junction, Spaceport 04"
 	landmark_tag = "nav_kowloon_junction_dock_04"

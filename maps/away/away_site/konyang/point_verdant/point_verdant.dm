@@ -16,9 +16,8 @@
 	prefix = "away_site/konyang/point_verdant/"
 	suffix = "point_verdant.dmm"
 
-	spawn_weight = 1
+	spawn_weight = 0
 	spawn_cost = 1
-	template_flags = TEMPLATE_FLAG_PORT_SPAWN
 
 	unit_test_groups = list(2)
 

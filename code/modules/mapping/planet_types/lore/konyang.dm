@@ -54,7 +54,7 @@
 /obj/effect/overmap/visitable/sector/exoplanet/konyang/Initialize()
 	. = ..()
 	var/area/overmap/map = GLOB.map_overmap
-	for(var/obj/effect/overmap/visitable/sector/point_verdant/P in map)
+	for(var/obj/effect/overmap/visitable/sector/kowloon_junction/P in map)
 		P.x = x
 		P.y = y
 

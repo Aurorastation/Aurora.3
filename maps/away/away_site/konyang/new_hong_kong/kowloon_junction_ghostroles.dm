@@ -125,7 +125,7 @@
 	back = /obj/item/storage/backpack/satchel
 	l_pocket = /obj/item/storage/wallet/random
 	r_pocket = /obj/item/device/versebook/trinary
-	acessory = /obj/item/clothing/accessory/badge/trinary
+	accessory = /obj/item/clothing/accessory/badge/trinary
 	id = /obj/item/card/id
 
 /obj/outfit/admin/nhk/vendor/get_id_access()
@@ -163,8 +163,9 @@
 /datum/ghostspawner/human/benevolent_guild/boss
 	name = "Benevolent Guild Lieutenant"
 	short_name = "benevolent_guild_boss"
-	desc = "Manage the local operations of Benevolent Guild. Keep your goons in line and away from the scrutiny of the police. Collect money from\
-	guild owned enterprises. Lament that you cant abduct synthetics anymore because there's a Trinary church next door now."
+	desc = "You are a Lieutenant in the Benevolent Guild, the most powerful gang in New Hong Kong. Manage the local operations of Benevolent Guild.\
+	Keep your goons in line and away from the scrutiny of the police. Collect money from guild owned enterprises. Lament that you cant abduct synthetics\
+	anymore because there's a Trinary church next door now."
 	max_count = 1
 	spawnpoints = list("benevolent_guild_boss")
 	outfit = /obj/outfit/admin/nhk/benevolent_guild/boss
@@ -180,7 +181,7 @@
 
 /datum/ghostspawner/human/benevolent_guild/bartender
 	name = "Benevolent Guild Bartender"
-	short_name = "konyang_bar"
+	short_name = "benevolent_bar"
 	desc = "You are a bartender discreetly under the employ of the Benevolent Guild. You run an ostensibly legitimate and theoretically highly\
 	profitable business. Sell alcohol to anyone willing to pay, obey your boss, and try to keep the fighting out of the bar when you can."
 	max_count = 1
