@@ -1653,6 +1653,21 @@
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
 /obj/random/dirt_75,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/restaurant)
 "aWE" = (
@@ -13858,10 +13873,11 @@
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "hOF" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/machinery/portable_atmospherics/hydroponics,
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/restaurant)
 "hPc" = (
@@ -17091,11 +17107,16 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/arcade)
 "jFh" = (
-/obj/structure/reagent_dispensers/cookingoil,
 /obj/machinery/light/small{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/table/stone/marble,
+/obj/machinery/chemical_dispenser/bar_soft/full{
+	dir = 8;
+	pixel_x = 7;
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/restaurant)
 "jFE" = (
@@ -24536,6 +24557,14 @@
 	},
 /obj/structure/window/reinforced,
 /obj/effect/floor_decal/corner/green/diagonal,
+/obj/item/reagent_containers/glass/fertilizer/ez,
+/obj/item/reagent_containers/glass/fertilizer/ez,
+/obj/item/reagent_containers/glass/fertilizer/ez,
+/obj/item/seeds/mossseed,
+/obj/item/seeds/mossseed,
+/obj/item/seeds/mossseed,
+/obj/item/seeds/mossseed,
+/obj/item/seeds/mossseed,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/restaurant)
 "nOI" = (
@@ -35118,12 +35147,10 @@
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/interior/arcade)
 "usD" = (
-/obj/structure/flora/pottedplant/cherrytree,
-/obj/effect/floor_decal/corner_wide/mauve{
-	dir = 5
-	},
-/turf/simulated/floor/tiled,
-/area/point_verdant/interior/offices)
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/reagent_dispensers/cookingoil,
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior/restaurant)
 "usQ" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -121448,7 +121475,7 @@ vya
 dVi
 fOT
 xcq
-usD
+avA
 vya
 vya
 avA
@@ -137906,7 +137933,7 @@ haT
 haT
 emO
 haT
-wsO
+usD
 kzP
 ciW
 ryF
@@ -138164,7 +138191,7 @@ ksE
 ksE
 haT
 ksE
-ksE
+wsO
 ciW
 cDm
 ryi

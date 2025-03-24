@@ -144,3 +144,108 @@
   - rscadd: 'Adds Hazel #S-H9.09''s Aut''akh Leg custom item.'
   - bugfix: The SCCV Intrepid now correctly receives power from the SCCV Horizon's
       power grid.
+2025-03-14:
+  Ben10083:
+  - config: Odyssey gamemode now put beside Secret and Extended in gamemode vote list.
+2025-03-15:
+  Wowzewow (Wezzy):
+  - bugfix: Fixes mining and chem bags.
+  greenjoe12345:
+  - rscadd: Alters some of the planetside pois for Konyang to make them fit the setting
+      now the rampancy virus has been gone for a while.
+2025-03-17:
+  Acetrea:
+  - bugfix: Fixes access issue on medical smartfridges.
+  - bugfix: Checks if the smartfridge is broken, has no power, or is not anchored.
+  CometBlaze:
+  - imageadd: Resprited colourable ponchos.
+  ShimmerIsTaken:
+  - rscadd: Added five new Solarian accent tags. Sol System receives Mercury, Eris
+      and Titania as options. Saturn becomes a new origin, receives Iapetus, Enceladus
+      as options.
+  - rscadd: Adds those accents to the Sol IPC and regular IPC accent lists.
+2025-03-18:
+  Ben10083:
+  - qol: Point Verdant police now can pass through police tape.
+  - bugfix: Bikes can now drive over lattice such as grates or catwalks without being
+      considered as in space.
+  FlamingLily:
+  - bugfix: Fixed throwing and maneuvering over platforms.
+  - bugfix: Fixed a bug where early aborting a climb over platforms would render that
+      platform permanently not-climable.
+  - qol: Made it possible to go down a platform by walking. This also allows mechs,
+      vehicles, etc. to go down a platform.
+  GeneralCamo:
+  - rscadd: Added radiation collectors, which use phoron to generate power from radiation.
+  - bugfix: Fix Konyang utility pole overlays.
+  Nalarac:
+  - bugfix: Protolathes now display the proper cost of an item after being upgraded.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes filling overlay for stovetop cooking containers.
+2025-03-21:
+  ASmallCuteCat:
+  - qol: Added a sink to the Intrepid's medbay. Folded up the roller bed that occupied
+      its tile, and placed it on the table just outside the Medbay room.
+  - qol: The Intrepid's medbay now has curtains, to afford patients some privacy without
+      having to close the emergency shutters.
+  CourierBravo:
+  - rscadd: Added airtight flaps to the xenobotany maintenance doors.
+  - rscadd: Slightly changed the doctors smoking lounge to be more comfy looking.
+  - rscadd: Changed the look of the area outside the gym a little, moving floor decals
+      around.
+  - rscadd: Changed the outline decals around the ports for the hot/cold loop on the
+      supermatter. The hot side is now red, the cold side is now blue.
+  - rscdel: Removed a civilian sign in the lifts.
+  - bugfix: Fixed APC rotation in the corporate representative office
+  - bugfix: Added shutters to the library desk, so the button actually serves a purpose.
+  - bugfix: Placed medical floor outlines under first aid lockers with a solid floor
+      under them.
+  FlamingLily:
+  - imageadd: Makes the cross on the EMT Messenger bag a bit more visible when worn.
+  GeneralCamo:
+  - qol: Rewrote the messages when interacting with a supermatter crystal.
+  SimpleMaroon:
+  - rscadd: Added an electronic passport for the Golden Deep under Xenowear - IPC
+      in the loadout. Can be taken by all IPCs, but also humans, with Golden Deep
+      membership.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes invisible thermal lance inhands.
+  - bugfix: Fixes bulwark chat bubbles.
+2025-03-22:
+  FlamingLily:
+  - bugfix: Fixes hopping down platforms so that they do not pull people through railings
+      and down into the depths below.
+2025-03-23:
+  ASmallCuteCat:
+  - qol: Added 15x Meat to one of the refrigerators in the Point Verdant Up!Burger
+      location.
+  - qol: Added a hydroponics tray, moss seeds, and some jugs of EZ-Nutrient to the
+      Up!Burger.
+  ChangeMe:
+  - refactor: Refactored (second passage) how movement works, now it's mostly in line
+      with TG handling and avoids calling 3 gazillion Cross() Uncross() etc. on every
+      atom in a turf.
+  - bugfix: Fixed EMP protection from species not actually protecting (this includes
+      the surge prevention for IPCs).
+  - bugfix: Fixed EMP 3D calculation runtiming because I forgot to make the value
+      absolute and it was doing the square root of a negative number.
+  - server: It's now possible to queue the round to start with the Start Round verb
+      even while the system is initializing, for an even faster pain train to enter
+      the round and test things.
+  FlamingLily:
+  - qol: Swapped the brown sneakers in the CE's clothing satchel with brown workboots.
+  FluffyGhost:
+  - refactor: Updated the renderers to work with BYOND 516.
+  - refactor: Some update of ZAS to hopefully be more efficient, and cold/hot air
+      effects.
+  - qol: Gas effects are now less prominent.
+  Wowzewow (Wezzy):
+  - rscadd: Hides and mutes newplayer spawn.
+  - bugfix: Fixes double-door cabinet animations.
+  hazelmouse:
+  - rscadd: Made several QoL changes to make the off-ship antag areas more in-line
+      with the mapping standards of newer maps in the codebase, including primarily
+      cosmetic alterations to the raider, burglar, and mercenary shuttles.
+  notagonk:
+  - qol: Gives the Security Belt the ability to hold the Head of Security's energy
+      pistol.
