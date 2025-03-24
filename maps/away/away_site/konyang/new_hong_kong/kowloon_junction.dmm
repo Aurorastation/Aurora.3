@@ -11718,11 +11718,9 @@
 "EL" = (
 /obj/structure/table/stone/marble,
 /obj/item/material/knife{
-	layer = 2.99;
 	pixel_x = -9
 	},
 /obj/item/material/knife{
-	layer = 2.99;
 	pixel_x = -4
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -14206,7 +14204,6 @@
 /area/kowloon_junction/outdoors)
 "Ll" = (
 /obj/structure/table/stone/marble,
-/obj/structure/table/stone/marble,
 /obj/machinery/light/small,
 /obj/item/reagent_containers/food/condiment/ketchup,
 /obj/item/reagent_containers/food/condiment/shaker/peppermill{
@@ -16378,8 +16375,7 @@
 /area/kowloon_junction/outdoors)
 "QC" = (
 /obj/structure/railing/mapped{
-	dir = 4;
-	layer = 6
+	dir = 4
 	},
 /turf/simulated/floor/lino,
 /area/kowloon_junction/interior/restaurant_bottom)
