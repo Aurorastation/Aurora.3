@@ -2833,8 +2833,7 @@
 /area/kowloon_junction/interior/shallow)
 "hG" = (
 /obj/structure/window/reinforced{
-	dir = 1;
-	layer = 3
+	dir = 1
 	},
 /turf/simulated/floor/lino,
 /area/kowloon_junction/interior/restaurant_bottom)
@@ -2898,17 +2897,14 @@
 	name = "shelves"
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -5
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = 4
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = 15
 	},
@@ -3188,8 +3184,7 @@
 /obj/structure/window/urban/external,
 /obj/structure/curtain/black{
 	icon_state = "open";
-	opacity = 0;
-	layer = 2.02
+	opacity = 0
 	},
 /turf/simulated/floor/wood,
 /area/kowloon_junction/interior/self_serve_hotel)
@@ -15327,8 +15322,7 @@
 	},
 /obj/structure/curtain/black{
 	icon_state = "open";
-	opacity = 0;
-	layer = 2.02
+	opacity = 0
 	},
 /turf/simulated/floor/wood,
 /area/kowloon_junction/interior/self_serve_hotel)
@@ -17002,7 +16996,6 @@
 /area/kowloon_junction/outdoors)
 "Sq" = (
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted window"
 	},
 /obj/machinery/smartfridge/foodheater/buffet,
@@ -18137,13 +18130,12 @@
 /obj/structure/table/stone/marble,
 /obj/structure/cash_register{
 	dir = 8;
-	pixel_y = 5
+	pixel_y = 12
 	},
 /obj/structure/window/reinforced{
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted window"
 	},
 /turf/simulated/floor/tiled,
