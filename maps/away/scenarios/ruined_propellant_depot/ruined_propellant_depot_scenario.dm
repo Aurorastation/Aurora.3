@@ -4,6 +4,9 @@
 		An independent propellant depot near some asteroid field, that has launched a distress beacon, requesting help. \
 		SCCV Horizon, the closest ship in this sector, was sent by CC to investigate. \
 		"
+
+	possible_scenario_types = list(SCENARIO_TYPE_NONCANON, SCENARIO_TYPE_CANON)
+
 	scenario_site_id = "ruined_propellant_depot"
 
 	min_player_amount = 0
