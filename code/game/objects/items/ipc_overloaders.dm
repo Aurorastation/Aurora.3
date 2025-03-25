@@ -235,7 +235,7 @@
 
 /obj/item/ipc_overloader/tranquil/finish_overloader_effect(var/mob/living/carbon/human/target)
 	. = ..()
-	to_chat(target, SPAN_GOOD("You feel a sharp sensation in your internals. Your threat detection subsytems crackle back to life, and you are cautious once more..."))
+	to_chat(target, SPAN_GOOD("You feel a sharp sensation in your internals. Your threat detection subsystems crackle back to life, and you are cautious once more..."))
 
 
 // RAINBOW
