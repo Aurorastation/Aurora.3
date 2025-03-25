@@ -194,7 +194,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -495,7 +495,7 @@
 /turf/simulated/floor,
 /area/crumbling_station/engi/atmospherics)
 "abg" = (
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 1
 	},
 /obj/structure/table/reinforced/steel,
@@ -604,7 +604,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 4
 	},
 /obj/structure/table/reinforced/steel,
@@ -709,7 +709,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
-/obj/machinery/light/colored/decayed,
+/obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/crumbling_station/docking/docking_ports)
 "abK" = (
@@ -881,7 +881,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -1051,7 +1051,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/light/colored/decayed,
+/obj/machinery/light,
 /turf/simulated/floor,
 /area/crumbling_station/docking/docking_ports)
 "acG" = (
@@ -1129,7 +1129,7 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1198,7 +1198,7 @@
 /obj/effect/floor_decal/corner_wide/yellow/full{
 	dir = 4
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -1576,7 +1576,7 @@
 	anchored = 1
 	},
 /obj/effect/floor_decal/industrial/outline/medical,
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 1
 	},
 /obj/structure/sign/staff_only{
@@ -1817,7 +1817,7 @@
 "aeu" = (
 /obj/effect/floor_decal/industrial/outline/service,
 /obj/machinery/seed_storage,
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -1988,7 +1988,7 @@
 /turf/simulated/floor,
 /area/crumbling_station/maints/security)
 "aeX" = (
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -2257,7 +2257,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/gunmetal,
@@ -2403,7 +2403,7 @@
 	dir = 8
 	},
 /obj/machinery/alarm/north,
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 8
 	},
 /obj/structure/table/reinforced/steel,
@@ -2541,7 +2541,7 @@
 /turf/simulated/floor/tiled/white,
 /area/crumbling_station/medical/gtr)
 "agx" = (
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 8
 	},
 /obj/machinery/atmospherics/omni/filter{
@@ -2879,7 +2879,7 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3183,7 +3183,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/crumbling_station/civilian/hallway_central)
 "air" = (
-/obj/machinery/light/colored/decayed,
+/obj/machinery/light,
 /obj/machinery/atmospherics/pipe/simple/hidden/green{
 	dir = 8
 	},
@@ -3339,7 +3339,7 @@
 /area/crumbling_station/maints/reactor)
 "aiQ" = (
 /obj/structure/table/rack/retail_shelf,
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 1
 	},
 /obj/random/dirt_75,
@@ -3369,7 +3369,7 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
 	},
-/obj/machinery/light/colored/decayed,
+/obj/machinery/light,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -3783,7 +3783,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/light/colored/decayed,
+/obj/machinery/light,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -3936,7 +3936,7 @@
 /area/crumbling_station/engi/workshop)
 "akz" = (
 /obj/structure/table/rack,
-/obj/machinery/light/colored/decayed,
+/obj/machinery/light,
 /obj/random/loot,
 /obj/random/dirt_75,
 /turf/simulated/floor/lino,
@@ -3995,7 +3995,7 @@
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 4
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -4351,7 +4351,7 @@
 	dir = 4
 	},
 /obj/structure/table/rack,
-/obj/machinery/light/colored/decayed,
+/obj/machinery/light,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/storage/bag/inflatable{
 	pixel_y = 3
@@ -4493,7 +4493,7 @@
 "amd" = (
 /obj/effect/floor_decal/industrial/outline/medical,
 /obj/machinery/vending/cigarette,
-/obj/machinery/light/colored/decayed,
+/obj/machinery/light,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/service/dining)
@@ -4537,7 +4537,7 @@
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/crumbling_station/engi/atmospherics)
 "ami" = (
-/obj/machinery/light/colored/decayed,
+/obj/machinery/light,
 /obj/random/dirt_75,
 /turf/simulated/floor/lino,
 /area/crumbling_station/service/shop)
@@ -5494,7 +5494,7 @@
 /turf/simulated/floor,
 /area/crumbling_station/engi/atmospherics)
 "aoJ" = (
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -6399,7 +6399,7 @@
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 4
 	},
-/obj/machinery/light/colored/decayed,
+/obj/machinery/light,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
@@ -6532,7 +6532,7 @@
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -7045,7 +7045,7 @@
 /area/crumbling_station/civilian/hallway_west)
 "atl" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -7064,7 +7064,7 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -7135,7 +7135,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 1
 	},
 /obj/random/dirt_75,
@@ -7622,7 +7622,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/gunmetal,
@@ -7679,7 +7679,7 @@
 /area/crumbling_station/command/foyer)
 "auL" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 1
 	},
 /obj/structure/closet/secure_closet/engineering_welding,
@@ -8326,7 +8326,7 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -8407,7 +8407,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 8
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -8482,7 +8482,7 @@
 /area/crumbling_station/civilian/hallway_west)
 "axb" = (
 /obj/structure/table/wood,
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 4
 	},
 /obj/item/storage/box/fancy/chewables/tobacco/nico{
@@ -8500,7 +8500,7 @@
 /turf/simulated/floor/carpet/brown,
 /area/crumbling_station/service/smoking)
 "axd" = (
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 8
 	},
 /obj/structure/closet/bombclosetsecurity,
@@ -8527,7 +8527,7 @@
 /obj/structure/closet/crate/hydroponics{
 	opened = 1
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 8
 	},
 /obj/item/reagent_containers/glass/fertilizer/ez{
@@ -8605,7 +8605,7 @@
 /area/crumbling_station/service/dining)
 "axt" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/light/colored/decayed,
+/obj/machinery/light,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
@@ -8943,7 +8943,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/brown{
@@ -8975,7 +8975,7 @@
 /turf/simulated/floor/plating,
 /area/crumbling_station/engi/reactor)
 "ays" = (
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -9307,7 +9307,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/crumbling_station/maints/civilian)
 "azi" = (
-/obj/machinery/light/colored/decayed,
+/obj/machinery/light,
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
@@ -9392,7 +9392,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
@@ -9783,7 +9783,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/brown/full{
@@ -9918,7 +9918,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -9972,7 +9972,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/light/colored/decayed,
+/obj/machinery/light,
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
@@ -10411,7 +10411,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -10506,7 +10506,7 @@
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 4
 	},
-/obj/machinery/light/colored/decayed,
+/obj/machinery/light,
 /obj/random/dirt_75{
 	pixel_x = -1
 	},
@@ -10825,7 +10825,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 1
 	},
 /obj/structure/table/reinforced/steel,
@@ -11055,7 +11055,7 @@
 "aEi" = (
 /obj/effect/floor_decal/corner/lime/full,
 /obj/structure/table/rack,
-/obj/machinery/light/colored/decayed,
+/obj/machinery/light,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/stack/material/steel{
 	amount = 50
@@ -11195,7 +11195,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -11763,7 +11763,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 1
 	},
 /obj/structure/table/wood,
@@ -11905,7 +11905,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 1
 	},
 /obj/random/dirt_75,
@@ -11980,7 +11980,7 @@
 /obj/effect/floor_decal/corner/dark_green/full{
 	dir = 4
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -12331,7 +12331,7 @@
 /area/crumbling_station/engi/hallway)
 "aHW" = (
 /obj/effect/floor_decal/corner/brown/full,
-/obj/machinery/light/colored/decayed,
+/obj/machinery/light,
 /obj/random/dirt_75,
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/dark,
@@ -12562,7 +12562,7 @@
 /turf/simulated/floor/tiled/gridded,
 /area/crumbling_station/service/shop)
 "aIG" = (
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/green{
@@ -12584,7 +12584,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/light/colored/decayed,
+/obj/machinery/light,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -12615,7 +12615,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/docking/docking_approach)
 "aIQ" = (
-/obj/machinery/light/colored/decayed,
+/obj/machinery/light,
 /obj/structure/bed/stool/bar/padded/red{
 	dir = 8
 	},
@@ -12652,7 +12652,7 @@
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 8
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 1
 	},
 /obj/structure/flora/pottedplant/dead2,
@@ -12745,7 +12745,7 @@
 /turf/simulated/floor,
 /area/crumbling_station/maints/solar1)
 "aJi" = (
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -12814,7 +12814,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -12990,7 +12990,7 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -13293,7 +13293,7 @@
 /obj/effect/floor_decal/corner/dark_green/full{
 	dir = 4
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -13419,7 +13419,7 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -14162,7 +14162,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/machinery/light/colored/decayed,
+/obj/machinery/light,
 /obj/structure/table/wood,
 /obj/random/dirt_75{
 	pixel_x = -1
@@ -14667,7 +14667,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
-/obj/machinery/light/colored/decayed,
+/obj/machinery/light,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/crumbling_station/command/foyer)
@@ -14800,7 +14800,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/brown{
@@ -14831,7 +14831,7 @@
 /area/crumbling_station/civilian/quarters_6)
 "aPc" = (
 /obj/structure/table/rack,
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 1
 	},
 /obj/random/junk,
@@ -14995,7 +14995,7 @@
 /area/crumbling_station/engi/atmospherics)
 "aPD" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light/colored/decayed,
+/obj/machinery/light,
 /obj/machinery/portable_atmospherics/canister/empty,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -15125,7 +15125,7 @@
 /area/space)
 "aQa" = (
 /obj/effect/floor_decal/corner/dark_green/full,
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -15197,7 +15197,7 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -15206,7 +15206,7 @@
 /turf/simulated/wall/r_wall,
 /area/crumbling_station/engi/storage)
 "aQt" = (
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -15344,7 +15344,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/service/custodial)
 "aQH" = (
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/dark_green/full,
@@ -15455,7 +15455,7 @@
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 1
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 1
 	},
 /obj/random/pottedplant,
@@ -16335,7 +16335,7 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
 	},
-/obj/machinery/light/colored/decayed,
+/obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/crumbling_station/civilian/hallway_central)
 "aTC" = (
@@ -17433,7 +17433,7 @@
 /turf/simulated/floor,
 /area/crumbling_station/maints/disposals)
 "aWJ" = (
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 1
 	},
 /obj/random/dirt_75,
@@ -17591,7 +17591,7 @@
 /obj/effect/floor_decal/corner_wide/yellow/full{
 	dir = 1
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -17633,7 +17633,7 @@
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 1
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/gridded,
@@ -17768,7 +17768,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -17851,7 +17851,7 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/crumbling_station/engi/storage)
 "aXM" = (
-/obj/machinery/light/colored/decayed,
+/obj/machinery/light,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/docking/storage)
 "aXN" = (
@@ -17962,7 +17962,7 @@
 /area/crumbling_station/civilian/hallway_central)
 "aYi" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/light/colored/decayed,
+/obj/machinery/light,
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 4
 	},
@@ -18146,7 +18146,7 @@
 /obj/structure/bed/stool/chair/sofa/left/beige{
 	dir = 4
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -18344,7 +18344,7 @@
 /area/crumbling_station/command/administrator)
 "aZh" = (
 /obj/effect/floor_decal/corner/brown/full,
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 8
 	},
 /obj/structure/reagent_dispensers/extinguisher,
@@ -18554,7 +18554,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/crumbling_station/civilian/hallway_east)
 "aZO" = (
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/brown/full{
@@ -18967,7 +18967,7 @@
 /area/crumbling_station/civilian/hallway_east)
 "cwY" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 1
 	},
 /obj/machinery/vending/engivend{
@@ -19779,7 +19779,7 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 1
 	},
 /obj/random/dirt_75,
@@ -19787,7 +19787,7 @@
 /area/crumbling_station/civilian/hallway_central)
 "flU" = (
 /obj/structure/table/rack/retail_shelf,
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 8
 	},
 /obj/item/storage/box/fancy/cigarettes/dyn{
@@ -20019,7 +20019,7 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -20390,7 +20390,7 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
 	},
-/obj/machinery/light/colored/decayed,
+/obj/machinery/light,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/crumbling_station/civilian/hallway_central)
@@ -21269,7 +21269,7 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 4
 	},
 /obj/structure/bed/stool/bar/padded/red{
@@ -21558,7 +21558,7 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -21759,7 +21759,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 1
 	},
 /obj/random/dirt_75,
@@ -21790,7 +21790,7 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
@@ -22005,7 +22005,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/light/colored/decayed,
+/obj/machinery/light,
 /obj/random/dirt_75,
 /turf/simulated/floor,
 /area/crumbling_station/docking/docking_ports)
@@ -22279,7 +22279,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -22550,7 +22550,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 1
 	},
 /obj/random/dirt_75,
@@ -22674,7 +22674,7 @@
 /turf/simulated/floor,
 /area/crumbling_station/maints/radiator)
 "oyt" = (
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -22729,7 +22729,7 @@
 /turf/simulated/floor,
 /area/crumbling_station/maints/solar1)
 "oHM" = (
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 4
 	},
 /obj/random/dirt_75{
@@ -22995,7 +22995,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 8
 	},
 /obj/structure/table/reinforced/steel,
@@ -23089,11 +23089,11 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/obj/machinery/light/colored/decayed,
+/obj/machinery/light,
 /turf/simulated/floor/tiled/gunmetal,
 /area/crumbling_station/engi/hallway)
 "pQm" = (
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 1
 	},
 /obj/random/dirt_75,
@@ -23404,7 +23404,7 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -23508,7 +23508,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -23560,7 +23560,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 1
 	},
 /obj/random/dirt_75,
@@ -23570,7 +23570,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -23690,7 +23690,7 @@
 /turf/simulated/floor,
 /area/crumbling_station/maints/disposals)
 "rLE" = (
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/security,
@@ -23703,7 +23703,7 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -23716,7 +23716,7 @@
 /area/crumbling_station/security/ready)
 "rQE" = (
 /obj/structure/table/steel,
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 8
 	},
 /obj/item/paper_bin{
@@ -24170,7 +24170,7 @@
 /obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
@@ -24267,7 +24267,7 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -24388,7 +24388,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 8
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -24697,7 +24697,7 @@
 /turf/simulated/floor,
 /area/crumbling_station/maints/reactor)
 "urG" = (
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/dark_green{
@@ -24756,7 +24756,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/crumbling_station/engi/atmospherics)
 "uBl" = (
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 8
 	},
 /obj/random/dirt_75{
@@ -24796,7 +24796,7 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
 	},
-/obj/machinery/light/colored/decayed,
+/obj/machinery/light,
 /obj/structure/sign/staff_only{
 	pixel_y = -32
 	},
@@ -25010,7 +25010,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
-/obj/machinery/light/colored/decayed,
+/obj/machinery/light,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/crumbling_station/docking/docking_ports)
@@ -25322,7 +25322,7 @@
 /turf/simulated/floor/tiled/white,
 /area/crumbling_station/medical/lobby)
 "wmA" = (
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -25362,7 +25362,7 @@
 /area/crumbling_station/service/shop)
 "wsz" = (
 /obj/effect/floor_decal/corner/dark_green/diagonal,
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 1
 	},
 /obj/random/dirt_75,
@@ -25550,7 +25550,7 @@
 /turf/simulated/floor,
 /area/crumbling_station/maints/reactor)
 "xgX" = (
-/obj/machinery/light/colored/decayed,
+/obj/machinery/light,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/docking/storage)
