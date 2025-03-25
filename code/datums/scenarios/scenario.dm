@@ -44,11 +44,18 @@
 	/// The name of the frequency that will be used by the radios on the away site.
 	var/radio_frequency_name = "Sector"
 
+	/// A list of access datums that are available for actors to pick.
+	var/list/datum/access/actor_accesses = list()
+
 /singleton/scenario/Initialize()
 	. = ..()
+
 	if(!ispath(scenario_announcements))
 		crash_with("Scenario [type] tried initializing without appropriate announcements!")
 	scenario_announcements = GET_SINGLETON(scenario_announcements)
+
+	if(actor_accesses && !islist(actor_accesses))
+		actor_accesses = list(actor_accesses)
 
 /**
  * This proc handles the creation and spawning of everything that the odyssey needs.
