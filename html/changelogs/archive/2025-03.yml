@@ -249,3 +249,8 @@
   notagonk:
   - qol: Gives the Security Belt the ability to hold the Head of Security's energy
       pistol.
+2025-03-25:
+  Acetrea:
+  - rscadd: Allows pharmacy bags to hold inhaler cartridges.
+  notagonk:
+  - qol: Updates the Hiskyn's Revanchists ship.
