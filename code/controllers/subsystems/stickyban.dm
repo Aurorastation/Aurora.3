@@ -53,79 +53,84 @@ SUBSYSTEM_DEF(stickyban)
 /datum/controller/subsystem/stickyban/proc/Populatedbcache()
 	var/newdbcache = list() //so if we runtime or the db connection dies we don't kill the existing cache
 
-	var/DBQuery/query_stickybans = GLOB.dbcon.NewQuery("SELECT ckey, reason, banning_admin, datetime FROM ss13_stickyban ORDER BY ckey")
-	var/DBQuery/query_ckey_matches = GLOB.dbcon.NewQuery("SELECT stickyban, matched_ckey, first_matched, last_matched, exempt FROM ss13_stickyban_matched_ckey ORDER BY first_matched")
-	var/DBQuery/query_cid_matches = GLOB.dbcon.NewQuery("SELECT stickyban, matched_cid, first_matched, last_matched FROM ss13_stickyban_matched_cid ORDER BY first_matched")
-	var/DBQuery/query_ip_matches = GLOB.dbcon.NewQuery("SELECT stickyban, INET_NTOA(matched_ip), first_matched, last_matched FROM ss13_stickyban_matched_ip ORDER BY first_matched")
+	var/datum/db_query/stickyban_query_stickybans = SSdbcore.NewQuery("SELECT ckey, reason, banning_admin, datetime FROM ss13_stickyban ORDER BY ckey")
+	var/datum/db_query/stickyban_query_ckey_matches = SSdbcore.NewQuery("SELECT stickyban, matched_ckey, first_matched, last_matched, exempt FROM ss13_stickyban_matched_ckey ORDER BY first_matched")
+	var/datum/db_query/stickyban_query_cid_matches = SSdbcore.NewQuery("SELECT stickyban, matched_cid, first_matched, last_matched FROM ss13_stickyban_matched_cid ORDER BY first_matched")
+	var/datum/db_query/stickyban_query_ip_matches = SSdbcore.NewQuery("SELECT stickyban, INET_NTOA(matched_ip), first_matched, last_matched FROM ss13_stickyban_matched_ip ORDER BY first_matched")
 
-	if (!query_stickybans.Execute())
+	if (!stickyban_query_stickybans.Execute())
 		return
 
-	while (query_stickybans.NextRow())
+	while (stickyban_query_stickybans.NextRow())
 		var/list/ban = list()
 
-		ban["ckey"] = query_stickybans.item[1]
-		ban["message"] = query_stickybans.item[2]
-		ban["reason"] = "(InGameBan)([query_stickybans.item[3]])"
-		ban["admin"] = query_stickybans.item[3]
-		ban["datetime"] = query_stickybans.item[4]
+		ban["ckey"] = stickyban_query_stickybans.item[1]
+		ban["message"] = stickyban_query_stickybans.item[2]
+		ban["reason"] = "(InGameBan)([stickyban_query_stickybans.item[3]])"
+		ban["admin"] = stickyban_query_stickybans.item[3]
+		ban["datetime"] = stickyban_query_stickybans.item[4]
 		ban["type"] = list("sticky")
 
-		newdbcache["[query_stickybans.item[1]]"] = ban
+		newdbcache["[stickyban_query_stickybans.item[1]]"] = ban
+	qdel(stickyban_query_stickybans)
 
 
-	if (query_ckey_matches.Execute())
-		while (query_ckey_matches.NextRow())
+	if (stickyban_query_ckey_matches.Execute())
+		while (stickyban_query_ckey_matches.NextRow())
 			var/list/match = list()
 
-			match["stickyban"] = query_ckey_matches.item[1]
-			match["matched_ckey"] = query_ckey_matches.item[2]
-			match["first_matched"] = query_ckey_matches.item[3]
-			match["last_matched"] = query_ckey_matches.item[4]
-			match["exempt"] = text2num(query_ckey_matches.item[5])
+			match["stickyban"] = stickyban_query_ckey_matches.item[1]
+			match["matched_ckey"] = stickyban_query_ckey_matches.item[2]
+			match["first_matched"] = stickyban_query_ckey_matches.item[3]
+			match["last_matched"] = stickyban_query_ckey_matches.item[4]
+			match["exempt"] = text2num(stickyban_query_ckey_matches.item[5])
 
-			var/ban = newdbcache[query_ckey_matches.item[1]]
+			var/ban = newdbcache[stickyban_query_ckey_matches.item[1]]
 			if (!ban)
 				continue
-			var/keys = ban[text2num(query_ckey_matches.item[5]) ? "whitelist" : "keys"]
+			var/keys = ban[text2num(stickyban_query_ckey_matches.item[5]) ? "whitelist" : "keys"]
 			if (!keys)
-				keys = ban[text2num(query_ckey_matches.item[5]) ? "whitelist" : "keys"] = list()
-			keys[query_ckey_matches.item[2]] = match
+				keys = ban[text2num(stickyban_query_ckey_matches.item[5]) ? "whitelist" : "keys"] = list()
+			keys[stickyban_query_ckey_matches.item[2]] = match
+		qdel(stickyban_query_ckey_matches)
 
-	if (query_cid_matches.Execute())
-		while (query_cid_matches.NextRow())
+
+	if (stickyban_query_cid_matches.Execute())
+		while (stickyban_query_cid_matches.NextRow())
 			var/list/match = list()
 
-			match["stickyban"] = query_cid_matches.item[1]
-			match["matched_cid"] = query_cid_matches.item[2]
-			match["first_matched"] = query_cid_matches.item[3]
-			match["last_matched"] = query_cid_matches.item[4]
+			match["stickyban"] = stickyban_query_cid_matches.item[1]
+			match["matched_cid"] = stickyban_query_cid_matches.item[2]
+			match["first_matched"] = stickyban_query_cid_matches.item[3]
+			match["last_matched"] = stickyban_query_cid_matches.item[4]
 
-			var/ban = newdbcache[query_cid_matches.item[1]]
+			var/ban = newdbcache[stickyban_query_cid_matches.item[1]]
 			if (!ban)
 				continue
 			var/computer_ids = ban["computer_id"]
 			if (!computer_ids)
 				computer_ids = ban["computer_id"] = list()
-			computer_ids[query_cid_matches.item[2]] = match
+			computer_ids[stickyban_query_cid_matches.item[2]] = match
+		qdel(stickyban_query_cid_matches)
 
 
-	if (query_ip_matches.Execute())
-		while (query_ip_matches.NextRow())
+	if (stickyban_query_ip_matches.Execute())
+		while (stickyban_query_ip_matches.NextRow())
 			var/list/match = list()
 
-			match["stickyban"] = query_ip_matches.item[1]
-			match["matched_ip"] = query_ip_matches.item[2]
-			match["first_matched"] = query_ip_matches.item[3]
-			match["last_matched"] = query_ip_matches.item[4]
+			match["stickyban"] = stickyban_query_ip_matches.item[1]
+			match["matched_ip"] = stickyban_query_ip_matches.item[2]
+			match["first_matched"] = stickyban_query_ip_matches.item[3]
+			match["last_matched"] = stickyban_query_ip_matches.item[4]
 
-			var/ban = newdbcache[query_ip_matches.item[1]]
+			var/ban = newdbcache[stickyban_query_ip_matches.item[1]]
 			if (!ban)
 				continue
 			var/IPs = ban["IP"]
 			if (!IPs)
 				IPs = ban["IP"] = list()
-			IPs[query_ip_matches.item[2]] = match
+			IPs[stickyban_query_ip_matches.item[2]] = match
+		qdel(stickyban_query_ip_matches)
 
 	dbcache = newdbcache
 	dbcacheexpire = world.time+STICKYBAN_DB_CACHE_TIME
