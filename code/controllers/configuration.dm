@@ -477,7 +477,7 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	var/asset_cdn_webroot = ""
 	var/asset_cdn_url = null
 
-	var/storage_cdn_iframe = "https://aurorastation.github.io/aurora.3/iframe.html"
+	var/storage_cdn_iframe = "https://aurorastation.github.io/Aurora.3/iframe.html"
 
 GENERAL_PROTECT_DATUM(/datum/configuration)
 
