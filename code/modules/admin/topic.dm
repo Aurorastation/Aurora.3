@@ -1571,6 +1571,20 @@
 			error_viewer.show_to(owner, locate(href_list["viewruntime_backto"]), href_list["viewruntime_linear"])
 		else
 			error_viewer.show_to(owner, null, href_list["viewruntime_linear"])
+	else if(href_list["slowquery"])
+		if(!check_rights(R_ADMIN))
+			return
+
+		var/data = list("key" = usr.key)
+		var/answer = href_list["slowquery"]
+		if(answer == "yes")
+			if(tgui_alert(usr, "Did you just press any admin buttons?", "Query server hang report", list("Yes", "No")) == "Yes")
+				var/response = input(usr,"What were you just doing?","Query server hang report") as null|text
+				if(response)
+					data["response"] = response
+			log_subsystem_dbcore("SLOW QUERY - SERVER HANG - [json_encode(data)]") //We really need a better logging system (BRING BACK GELF)
+		else if(answer == "no")
+			log_subsystem_dbcore("SLOW QUERY - NO SERVER HANG - [json_encode(data)]") //We really need a better logging system (BRING BACK GELF)
 
 /mob/living/proc/can_centcom_reply()
 	return 0

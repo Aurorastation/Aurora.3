@@ -19,6 +19,7 @@ SUBSYSTEM_DEF(dbcore)
 
 	var/last_error
 
+	/// The maximum number of queries that can be executed at the same time
 	var/max_concurrent_queries = 25
 
 	/// Number of all queries, reset to 0 when logged in SStime_track. Used by SStime_track
@@ -41,10 +42,8 @@ SUBSYSTEM_DEF(dbcore)
 	/// We are in the process of shutting down and should not allow more DB connections
 	var/shutting_down = FALSE
 
-
-	var/connection  // Arbitrary handle returned from rust_g.
-
-	var/db_daemon_started = FALSE
+	/// Arbitrary handle returned from rust_g.
+	var/connection
 
 /datum/controller/subsystem/dbcore/stat_entry(msg)
 	msg = "P:[length(all_queries)]|Active:[length(queries_active)]|Standby:[length(queries_standby)]"
@@ -112,7 +111,6 @@ SUBSYSTEM_DEF(dbcore)
 	return TRUE
 
 /datum/controller/subsystem/dbcore/proc/run_query_sync(datum/db_query/query)
-
 	run_query(query)
 	UNTIL(query.process())
 	return query
@@ -121,7 +119,6 @@ SUBSYSTEM_DEF(dbcore)
 	query.job_id = rustg_sql_query_async(connection, query.sql, json_encode(query.arguments))
 
 /datum/controller/subsystem/dbcore/proc/queue_query(datum/db_query/query)
-
 	if (!length(queries_standby) && length(queries_active) < max_concurrent_queries)
 		create_active_query(query)
 		return
@@ -197,8 +194,8 @@ SUBSYSTEM_DEF(dbcore)
 		return FALSE
 	return ..()
 
+/// Loads the DB Configuration from the config/dbconfig.txt - To be replaced with a config subsystem at some point
 /datum/controller/subsystem/dbcore/proc/GetDBConfig()
-
 	var/list/data = list(
 		"address"="localhost",
 		"port"="3306",
@@ -245,6 +242,7 @@ SUBSYSTEM_DEF(dbcore)
 
 	return data
 
+/// Establish a Connection with the Database if we are not already connected
 /datum/controller/subsystem/dbcore/proc/Connect()
 	if(IsConnected())
 		return TRUE
@@ -301,13 +299,14 @@ SUBSYSTEM_DEF(dbcore)
 			//basic exponential backoff algorithm
 			failed_connection_timeout = world.time + ((2 ** failed_connection_timeout_count) SECONDS)
 
-
+/// Disconnect from the Database
 /datum/controller/subsystem/dbcore/proc/Disconnect()
 	failed_connections = 0
 	if (connection)
 		rustg_sql_disconnect_pool(connection)
 	connection = null
 
+/// Check if we have established a DB Connection
 /datum/controller/subsystem/dbcore/proc/IsConnected()
 	if(!GLOB.config.sql_enabled)
 		return FALSE
@@ -315,6 +314,7 @@ SUBSYSTEM_DEF(dbcore)
 		return FALSE
 	return json_decode(rustg_sql_connected(connection))["status"] == "online"
 
+/// Returns the last error message
 /datum/controller/subsystem/dbcore/proc/ErrorMsg()
 	if(!GLOB.config.sql_enabled)
 		return "Database disabled by configuration"
@@ -323,6 +323,15 @@ SUBSYSTEM_DEF(dbcore)
 /datum/controller/subsystem/dbcore/proc/ReportError(error)
 	last_error = error
 
+/**
+ * Creates a new /datum/db_query
+ *
+ * * sql_query - The Query string to be executed
+ * * arguments - The Arguments for the quey
+ * * allow_during_shutdown - If the query can be executed during shutdown
+ *
+ * Returns /datum/db_query
+ */
 /datum/controller/subsystem/dbcore/proc/NewQuery(sql_query, arguments, allow_during_shutdown=FALSE)
 	//If the subsystem is shutting down, disallow new queries
 	if(!allow_during_shutdown && shutting_down)
@@ -330,105 +339,39 @@ SUBSYSTEM_DEF(dbcore)
 
 	return new /datum/db_query(connection, sql_query, arguments)
 
-/** QuerySelect
-	Run a list of query datums in parallel, blocking until they all complete.
-	* queries - List of queries or single query datum to run.
-	* warn - Controls rather warn_execute() or Execute() is called.
-	* qdel - If you don't care about the result or checking for errors, you can have the queries be deleted afterwards.
-		This can be combined with invoke_async as a way of running queries async without having to care about waiting for them to finish so they can be deleted.
-*/
-/datum/controller/subsystem/dbcore/proc/QuerySelect(list/queries, warn = FALSE, qdel = FALSE)
-	if (!islist(queries))
-		if (!istype(queries, /datum/db_query))
-			CRASH("Invalid query passed to QuerySelect: [queries]")
-		queries = list(queries)
-	else
-		queries = queries.Copy() //we don't want to hide bugs in the parent caller by removing invalid values from this list.
+/**
+ * Creates a new /datum/db_query_template
+ * The returned template then needs to be Execute()´d to get a /datum/db_query
+ *
+ * * sql_query - The Query string to be executed
+ *
+ * Returns /datum/db_query_template
+ */
+/datum/controller/subsystem/dbcore/proc/NewQueryTemplate(sql_query)
+	return new /datum/db_query_template(sql_query)
 
-	for (var/datum/db_query/query as anything in queries)
-		if (!istype(query))
-			queries -= query
-			stack_trace("Invalid query passed to QuerySelect: `[query]` [REF(query)]")
-			continue
+/// The DB Query Template is used to prepare db queries that are re-used repeatedly
+/datum/db_query_template
+	var/sql
+/**
+ * Creates a new query template that can be reused multiple times
+ *
+ * * sql - The query to be Executed
+ *
+ */
+/datum/db_query_template/New(sql)
+	src.sql = sql
 
-		if (warn)
-			INVOKE_ASYNC(query, TYPE_PROC_REF(/datum/db_query, warn_execute))
-		else
-			INVOKE_ASYNC(query, TYPE_PROC_REF(/datum/db_query, Execute))
+/**
+ * Executes a new instance of the query with the supplied arguments
+ *
+ * * arguments - The parameters of the query
+ * * allow_during_shutdown - If the query is permited to be executed during shutdown
+ *
+ */
+/datum/db_query_template/proc/Execute(arguments, allow_during_shutdown=FALSE)
+	return SSdbcore.NewQuery(sql, arguments, allow_during_shutdown)
 
-	for (var/datum/db_query/query as anything in queries)
-		query.sync()
-		if (qdel)
-			qdel(query)
-
-
-
-/*
-Takes a list of rows (each row being an associated list of column => value) and inserts them via a single mass query.
-Rows missing columns present in other rows will resolve to SQL NULL
-You are expected to do your own escaping of the data, and expected to provide your own quotes for strings.
-The duplicate_key arg can be true to automatically generate this part of the query
-	or set to a string that is appended to the end of the query
-Ignore_errors instructes mysql to continue inserting rows if some of them have errors.
-	the erroneous row(s) aren't inserted and there isn't really any way to know why or why errored
-*/
-/datum/controller/subsystem/dbcore/proc/MassInsert(table, list/rows, duplicate_key = FALSE, ignore_errors = FALSE, warn = FALSE, async = TRUE, special_columns = null)
-	if (!table || !rows || !istype(rows))
-		return
-
-	// Prepare column list
-	var/list/columns = list()
-	var/list/has_question_mark = list()
-	for (var/list/row in rows)
-		for (var/column in row)
-			columns[column] = "?"
-			has_question_mark[column] = TRUE
-	for (var/column in special_columns)
-		columns[column] = special_columns[column]
-		has_question_mark[column] = findtext(special_columns[column], "?")
-
-	// Prepare SQL query full of placeholders
-	var/list/query_parts = list("INSERT")
-	if (ignore_errors)
-		query_parts += " IGNORE"
-	query_parts += " INTO "
-	query_parts += table
-	query_parts += "\n([columns.Join(", ")])\nVALUES"
-
-	var/list/arguments = list()
-	var/has_row = FALSE
-	for (var/list/row in rows)
-		if (has_row)
-			query_parts += ","
-		query_parts += "\n  ("
-		var/has_col = FALSE
-		for (var/column in columns)
-			if (has_col)
-				query_parts += ", "
-			if (has_question_mark[column])
-				var/name = "p[arguments.len]"
-				query_parts += replacetext(columns[column], "?", ":[name]")
-				arguments[name] = row[column]
-			else
-				query_parts += columns[column]
-			has_col = TRUE
-		query_parts += ")"
-		has_row = TRUE
-
-	if (duplicate_key == TRUE)
-		var/list/column_list = list()
-		for (var/column in columns)
-			column_list += "[column] = VALUES([column])"
-		query_parts += "\nON DUPLICATE KEY UPDATE [column_list.Join(", ")]"
-	else if (duplicate_key != FALSE)
-		query_parts += duplicate_key
-
-	var/datum/db_query/Query = NewQuery(query_parts.Join(), arguments)
-	if (warn)
-		. = Query.warn_execute(async)
-	else
-		. = Query.Execute(async)
-	qdel(Query)
 
 /datum/db_query
 	// Inputs
