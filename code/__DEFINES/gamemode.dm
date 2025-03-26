@@ -65,6 +65,7 @@
 #define MODE_JOCKEY "jockey"
 #define MODE_ACTOR "actor"
 #define MODE_STORYTELLER "storyteller"
+#define MODE_OUTBREAK "outbreak"
 
 #define DEFAULT_TELECRYSTAL_AMOUNT 20
 #define DEFAULT_BLUECRYSTAL_AMOUNT 15

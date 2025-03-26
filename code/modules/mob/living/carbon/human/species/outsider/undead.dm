@@ -247,6 +247,106 @@
 		to_chat(H, SPAN_DANGER("You're too exhausted to run anymore!"))
 		return FALSE
 
+/mob/living/carbon/human
+	var/mob/living/carbon/human/target = null
+
+/mob/living/carbon/human/Destroy()
+	target = null
+	return ..()
+
+/datum/species/zombie/handle_npc(mob/living/carbon/human/H)
+	H.resting = FALSE
+	if (H.client || H.stat != CONSCIOUS)
+		walk(H, 0) //Stop dead-walking
+		return
+
+	if (prob(5))
+		H.custom_emote("wails!")
+	else if (prob(5))
+		H.custom_emote("groans!")
+	if (H.restrained() && prob(8))
+		H.custom_emote("thrashes and writhes!")
+
+	if (H.lying)
+		walk(H, 0)
+		return
+
+	if (H.restrained() || H.buckled_to)
+		H.resist()
+		return
+
+	addtimer(CALLBACK(src, .proc/handle_action, H), rand(10, 20), TIMER_UNIQUE)
+
+/datum/species/zombie/handle_death(mob/living/carbon/human/H, gibbed)
+	. = ..()
+	if(!gibbed)
+		H.target = null
+		walk(H, 0)
+
+/datum/species/zombie/proc/handle_action(mob/living/carbon/human/H)
+	var/dist = 128
+	for(var/mob/living/M in get_hearers_in_LOS(15, H))
+		if ((ishuman(M) || istype(M, /mob/living/heavy_vehicle)) && !iszombie(M) && !M.is_diona()) //Don't attack fellow zombies, or diona
+			if (istype(M, /mob/living/heavy_vehicle))
+				var/mob/living/heavy_vehicle/MC = M
+				if (!LAZYLEN(MC.pilots))
+					continue //Don't attack empty mechs
+			if (M.stat == DEAD && H.target)
+				continue //Only eat corpses when no living (and able) targets are around
+			var/D = get_dist(M, H)
+			if (D <= dist * 0.5) //Must be significantly closer to change targets
+				H.target = M //For closest target
+				dist = D
+
+	H.setClickCooldown(DEFAULT_ATTACK_COOLDOWN*2)
+	if (H.target)
+		if (iszombie(H.target))
+			H.target = null
+			return
+
+		if (!H.Adjacent(H.target))
+			var/turf/dir = get_step_towards(H, H.target)
+			for(var/type in obstacles) //Break obstacles
+				var/obj/obstacle = locate(type) in dir
+				if(istype(obstacle, /obj/machinery/door))
+					var/obj/machinery/door/D = obstacle
+					if(D.stat & BROKEN)
+						H.visible_message(SPAN_DANGER("[H] pries \the [D] open!"))
+						D.open(TRUE)
+				if (obstacle)
+					H.face_atom(obstacle)
+					obstacle.attack_generic(H, rand(10, 30), "smashes")
+					break
+
+			walk_to(H, H.target.loc, 1, H.species.slowdown * 1.25)
+
+		else
+			if (!H.target.lying) //Subdue meals
+				H.face_atom(H.target)
+
+				if (!H.zone_sel)
+					H.zone_sel = new /atom/movable/screen/zone_sel(null)
+				H.zone_sel.selecting = BP_CHEST
+				H.a_intent = I_HURT
+				H.target.attack_hand(H)
+
+			else //Eat said meals
+				walk_to(H, H.target.loc, 0, H.species.slowdown * 2.5) //Move over them
+				if (H.Adjacent(H.target)) //Check we're still next to them
+					H.consume()
+
+		for(var/mob/living/M in get_hearers_in_LOS(15, H))
+			if (H.target == M) //If our target is still nearby
+				return
+		H.target = null //Target lost
+
+	else
+		if (!H.lying)
+			walk(H, 0) //Clear walking
+			if (prob(33) && isturf(H.loc) && !H.pulledby)
+				var/turf/T = get_step(H, pick(GLOB.cardinals))
+				H.SelfMove(T, get_dir(H, T))
+
 /datum/species/zombie/tajara
 	name = SPECIES_ZOMBIE_TAJARA
 	name_plural = "Tajara Zombies"
