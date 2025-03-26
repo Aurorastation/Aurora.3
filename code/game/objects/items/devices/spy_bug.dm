@@ -29,7 +29,7 @@
 	. = ..()
 	if(distance <= 0)
 		. += "It's a tiny camera, microphone, and transmission device in a happy union."
-		. += "Needs to be both configured and brought in contact with monitor device to be fully functional."
+		. += "Needs to be both configured and brought in contact with monitor device to be fully functional. A pen can also be used to label the device on a given network."
 
 /obj/item/device/spy_bug/attack_self(mob/user)
 	radio.set_broadcasting(!radio.get_broadcasting())
@@ -48,7 +48,7 @@
 		return ..()
 
 /obj/item/device/spy_bug/hear_talk(mob/M, var/msg, verb, datum/language/speaking)
-	radio.hear_talk(M, msg, speaking)
+	radio.hear_talk(M, msg, verb, speaking)
 
 
 /obj/item/device/spy_monitor
@@ -148,7 +148,7 @@
 /obj/machinery/camera/spy
 	// These cheap toys are accessible from the mercenary camera console as well
 	network = list(NETWORK_MERCENARY)
-	active_power_usage = 0
+	active_power_usage = FALSE
 
 /obj/machinery/camera/spy/Initialize()
 	. = ..()
@@ -157,6 +157,18 @@
 
 /obj/machinery/camera/spy/check_eye(var/mob/user as mob)
 	return 0
+
+/obj/machinery/camera/spy/attackby(obj/item/attacking_item, mob/user)
+	if(!istype(user))
+		return
+
+	if(attacking_item.ispen())
+		var/n_tag = sanitizeSafe( tgui_input_text(user, "What would you like to label the camera?", "Bug Labelling", default = c_tag, max_length = MAX_NAME_LEN), MAX_NAME_LEN )
+		if(Adjacent(user) && user.stat == 0)
+			c_tag = n_tag
+			return TRUE
+	else
+		return ..()
 
 /obj/item/device/radio/spy
 	canhear_range = 7
