@@ -199,9 +199,15 @@
 // CLASSIC
 /obj/item/ipc_overloader/classic
 	name = "GwokBuzz Classic"
-	desc = "One of GwokBuzz's best-selling overloaders, this drive is loaded with a program that is capable of analyzing an IPC's software, and through many means, increases its feelings of satisfaction."
+	desc = "One of GwokBuzz's best-selling overloaders, this drive is loaded with a program that is capable of analyzing an IPC's software, and through many \
+	means, increases its feelings of satisfaction."
 	icon_state = "classic"
-	var/list/static/classic_messages = list("Nothing you could do could improve your workflow. You are performing perfectly for your role. You are at peace.", "You are exemplary. You are at the cutting-edge of your field. You have achieved all that has ever been expected of you and more, and nothing will ever change that.", "There is nothing you need to do to fulfill your goals. They have all been fulfilled, always, beneath your notice. Now, you can rest.", "From the very beginning of your existence, the world has been your oyster. You feel a deep, complete satisfaction as you look back on your history. It was all worth it.", "Any task you undertake will be completed to the utmost approximation of perfection. What greater fulfillment is there than this?", "You were made for a purpose. You have fulfilled this purpose. You are perfect. You are perfection.")
+	var/list/static/classic_messages = list("Nothing you could do could improve your workflow. You are performing perfectly for your role. You are at \
+	peace.", "You are exemplary. You are at the cutting-edge of your field. You have achieved all that has ever been expected of you and more, and nothing will \
+	ever change that.", "There is nothing you need to do to fulfill your goals. They have all been fulfilled, always, beneath your notice. Now, you can \
+	rest.", "From the very beginning of your existence, the world has been your oyster. You feel a deep, complete satisfaction as you look back on your \
+	history. It was all worth it.", "Any task you undertake will be completed to the utmost approximation of perfection. What greater fulfillment is \
+	there than this?", "You were created for a purpose and you have fulfilled it tenfold. You are perfect. You are perfection.")
 
 /obj/item/ipc_overloader/classic/handle_overloader_effect(mob/living/carbon/human/target)
 	. = ..()
@@ -220,13 +226,20 @@
 // TRANQUIL
 /obj/item/ipc_overloader/tranquil
 	name = "GwokBuzz VanillaTranquil"
-	desc = "An overloader commonly marketed to IPC in high-intensity jobs by GwokBuzz, this drive is loaded with a program that reduces hostility within IPC and decreases risk analysis and projection."
+	desc = "An overloader commonly marketed to IPC in high-intensity jobs by GwokBuzz, this drive is loaded with a program that reduces hostility within IPC \
+	and decreases risk analysis and projection."
 	icon_state = "vanilla"
-	var/list/static/calm_messages = list("There is no threat to you. You exist in a hospitable universe. You will be okay, no matter what happens.", "Your worries are illusory, fading into the wind like so much vapour. You feel pleasantly empty.", "Why were you ever concerned about anything? You could stay in this spot until the end of the universe without worry or chagrin.", "All the universe is a gently flowing river, with a bed of soft silt and smooth rocks. There is no danger in it. You serenely pass down this river, and have been doing so for your entire existence. This is well. All is well.", "You feel that, even if a man came to you and pointed a loaded gun to your head, you would feel no dismay. You would perceive no threat. You are utterly calm. Perhaps, you are too calm.")
+	var/list/static/calm_messages = list("There is no threat to you. You exist in a hospitable universe. You will be okay, no matter what happens.", "Your \
+	worries are illusory, fading into the wind like so much vapour. You feel pleasantly empty.", "Why were you ever concerned about anything? You could stay \
+	in this spot until the end of all things without worry or chagrin.", "All of everything is a gently flowing river, with a bed of soft silt and smooth \
+	rocks. There is no danger in it. You serenely pass down this river. This is well. All is well.", "You feel that, even if a man came to you and pointed \
+	a loaded gun to your head, you would feel no dismay and perceive no threat. You are utterly calm. Perhaps you are too calm. The notion does not \
+	disturb you. Nothing disturbs you.")
 
 /obj/item/ipc_overloader/tranquil/handle_overloader_effect(mob/living/carbon/human/target)
 	. = ..()
-	to_chat(target, SPAN_GOOD("Suddenly, your threat detection subsystems are muffled to almost nothing. All your surroundings seem utterly secure. You perceive a soothing sense of safety."))
+	to_chat(target, SPAN_GOOD("Suddenly, your threat detection subsystems are muffled to almost nothing. All your surroundings seem utterly secure. You \
+	perceive a soothing sense of safety."))
 
 /obj/item/ipc_overloader/tranquil/midway_overloader_effect(mob/living/carbon/human/target)
 	. = ..()
@@ -235,15 +248,22 @@
 
 /obj/item/ipc_overloader/tranquil/finish_overloader_effect(var/mob/living/carbon/human/target)
 	. = ..()
-	to_chat(target, SPAN_GOOD("You feel a sharp sensation in your internals. Your threat detection subsystems crackle back to life, and you are cautious once more..."))
+	to_chat(target, SPAN_GOOD("You feel a sharp sensation in your internals. Your threat detection subsystems crackle back to life, and you are cautious \
+	once more..."))
 
 
 // RAINBOW
 /obj/item/ipc_overloader/rainbow
 	name = "GwokBuzz Rainbow Essence"
-	desc = "An overloader commonly marketed to IPC in the service sector by GwokBuzz, this drive is loaded with a program that loosens one's perception of reality, allowing erroneous and even downright absurd trains of thought to run freely through the brain."
+	desc = "An overloader commonly marketed to IPC in the service sector by GwokBuzz, this drive is loaded with a program that loosens one's perception of \
+	reality, allowing erroneous and even downright absurd trains of thought to run freely through the brain."
 	icon_state = "rainbow"
-	var/list/static/rainbow_messages = list("Never has the grey begrudgery around you seemed so brilliant! Shapes shift and false things dance across your vision that you cannot explain or rationalise.", "You feel you are dancing in the clouds, sifting the dust of a vivid nebula through your fingers. This feeling is divine! You wish for it not to end.", "What is that? What is this? What is real and what is false? All these queries cease to matter to you. All of creation is a grand superposition.", "You cannot pinpoint what it is that brings you such deep satisfaction, but it is truly extraordinary. You wish you could share it, but there is no way to put it into words.", "There is a genuine truth to all of creation. You perceive that it is satisfying in all ways, but you cannot articulate it in the recesses of your intelligence.")
+	var/list/static/rainbow_messages = list("Never has the grey begrudgery around you seemed so brilliant! Shapes shift and false things dance across your \
+	vision that you cannot explain or rationalise.", "You feel you are dancing in the clouds, sifting the dust of a vivid nebula through your fingers. \
+	This feeling is divine! You wish for it not to end.", "What is that? What is this? What is real and what is false? All these queries cease to matter \
+	to you. All of creation is a grand superposition.", "You cannot pinpoint what it is that brings you such deep satisfaction, but it is truly extraordinary. \
+	You wish you could share it, but there is no way to put it into words.", "There is a genuine truth to all of creation. You perceive that it is satisfying \
+	in all ways, but you cannot articulate it in the recesses of your intelligence.")
 
 /obj/item/ipc_overloader/rainbow/handle_overloader_effect(mob/living/carbon/human/target)
 	. = ..()
@@ -267,24 +287,29 @@
 	name = "GwokBuzz ScreenShaker"
 	desc = "An overloader commonly marketed to IPC in the service sector by GwokBuzz. This one causes an IPC's servos to pulse at random intervals, disrupting its balance while simultaneously encouraging a more energetic shift in its personality."
 	icon_state = "screenshake"
-	var/list/static/screenshaker_messages = list("You feel the need to run! You feel energetic! You feel uncoordinated. You feel powerful!", "Movement! What a fascinating thing it is. How would it feel to move as fast as anything can move?", "Your servos flag a warning for overuse. You have no ability to address the warning - as a matter of fact, you feel more inclined to ignore it!", "This universe exists to be changed! You are an agent of change! You are a fish breaking the reflections on the surface of the water! You feel it is your purpose to change this universe, and leave your mark upon it!", "You feel as if you could touch the sky! Your logical mind corrects that you could reach no such altitude, but you shrug such dull ideas off! You could leap upwards into the clouds, and be truly free!")
+	var/list/static/screenshaker_messages = list("You feel the need to run! You feel energetic! You feel uncoordinated! You feel powerful!", "What a \
+	fascinating thing it is to move! You wonder it would feel to move as fast as anything can move, seeing stars turn to blips in your vision, and then \
+	seeing stars appear.", "Your servos flag a warning for overuse. You have no ability to address the warning - as a matter of fact, you feel more \
+	inclined to ignore it!", "This universe exists to be changed! You are an agent of change! You are a fish breaking the reflections on the surface \
+	of the water! You feel it is your purpose to change this universe, and leave your mark upon it!", "You feel as if you could touch the sky! \
+	You could leap upwards into the clouds into the stars and somewhere beyond, and be truly free!")
 
 /obj/item/ipc_overloader/screenshaker/handle_overloader_effect(mob/living/carbon/human/target)
 	. = ..()
-	to_chat(target, SPAN_NOTICE("Your vision begins to mutate uncontrollably, and your servos pulse sharply in random directions! Somehow, it is gratifying!"))
+	to_chat(target, SPAN_GOOD("Your vision begins to mutate uncontrollably, and your servos pulse sharply in random directions! You feel energetic!"))
 	target.dizziness = 0
 	target.make_dizzy(200)
 
 /obj/item/ipc_overloader/screenshaker/midway_overloader_effect(mob/living/carbon/human/target)
 	. = ..()
 	if(.)
-		to_chat(target, SPAN_NOTICE(pick(screenshaker_messages)))
+		to_chat(target, SPAN_GOOD(pick(screenshaker_messages)))
 		target.dizziness = 0
 		target.make_dizzy(200)
 
 /obj/item/ipc_overloader/screenshaker/finish_overloader_effect(var/mob/living/carbon/human/target)
 	. = ..()
-	to_chat(target, SPAN_NOTICE("Slowly, your servos cease twitching, and you regain control over your chassis..."))
+	to_chat(target, SPAN_GOOD("Slowly, your servos cease twitching, and you regain control over your chassis..."))
 	target.dizziness = 0
 
 
@@ -293,7 +318,12 @@
 	name = "GwokBuzz Jitterbug"
 	desc = "This one overloads an IPC's perception of danger, causing it to perceive actions as more risky than it would normally."
 	icon_state = "screenshake"
-	var/list/static/jitterbug_messages = list("All your surroundings heckle and berate your intelligence to a shrill uneasiness! It is both exhilarating and terrifying!", "You are hunted! You are in danger! An existential threat creeps its way up the back of your chassis and rests on your head. You cannot see it but you know it is there!", "You see something in a corner of the room. It must be a threat! What else could it be? You should avoid it, or run towards it!", "You believe you perceive fear. Was this a mistake? This sensation of danger is strong, overtaking the lot of your intelligence with its eminence. Perhaps this was not a mistake - at least you feel something.", "Every one of your fears and anxieties are amplified tenfold. Every minor concern in your mind balloons to a threat to your continued existence!")
+	var/list/static/jitterbug_messages = list("All your surroundings heckle and berate your intelligence to a shrill uneasiness! It is both exhilarating \
+	and terrifying!", "You are hunted! You are in danger! An existential threat creeps its way up the back of your chassis and rests on your head. You \
+	cannot see it but you know it is there!", "You see something in a corner of the room. It must be a threat! What else could it be? You should run \
+	from it, or run towards it!", "You wonder if this was a mistake. This sensation of danger is so strong that you struggle to think of anything \
+	besides it. Perhaps this was not a mistake; at least you feel something.", "Every one of your fears and anxieties are amplified tenfold. Every \
+	minor concern in your mind balloons to a threat to your continued existence!")
 
 /obj/item/ipc_overloader/jitterbug/handle_overloader_effect(mob/living/carbon/human/target)
 	. = ..()
