@@ -56,4 +56,5 @@ delete-after: True
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
   - bugfix: "Spy bug microphones now properly handle different languages."
+  - bugfix: "Spy bug recognize connected z-levels, allowing use of bugs on offships and different horizon z-levels."
   - qol: "Spy bugs can be labeled with pen to allow for an easier time switching between cameras."
