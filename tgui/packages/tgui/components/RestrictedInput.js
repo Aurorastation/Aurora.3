@@ -162,6 +162,7 @@ export class RestrictedInput extends Component {
         <div className="Input__baseline">.</div>
         <input
           className="Input__input"
+          type="search"
           onChange={this.handleChange}
           onInput={this.handleInput}
           onFocus={this.handleFocus}
