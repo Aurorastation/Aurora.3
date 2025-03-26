@@ -289,7 +289,7 @@
 	icon_state = "screenshake"
 	var/list/static/screenshaker_messages = list("You feel the need to run! You feel energetic! You feel uncoordinated! You feel powerful!", "What a \
 	fascinating thing it is to move! You wonder it would feel to move as fast as anything can move, seeing stars turn to blips in your vision, and then \
-	seeing stars appear.", "Your servos flag a warning for overuse. You have no ability to address the warning - as a matter of fact, you feel more \
+	seeing new stars appear.", "Your servos flag a warning for overuse. You have little inkling to address the warning; as a matter of fact, you feel more \
 	inclined to ignore it!", "This universe exists to be changed! You are an agent of change! You are a fish breaking the reflections on the surface \
 	of the water! You feel it is your purpose to change this universe, and leave your mark upon it!", "You feel as if you could touch the sky! \
 	You could leap upwards into the clouds into the stars and somewhere beyond, and be truly free!")
