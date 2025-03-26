@@ -44,6 +44,12 @@
 		var/obj/item/device/spy_monitor/SM = attacking_item
 		SM.pair(src, user)
 		return TRUE
+	if(attacking_item.ispen())
+		var/n_tag = sanitizeSafe( tgui_input_text(user, "What would you like to label the camera?", "Bug Labelling", default = src.camera.c_tag, max_length = MAX_NAME_LEN), MAX_NAME_LEN )
+		if(Adjacent(user) && user.stat == 0 && n_tag)
+			src.camera.c_tag = n_tag
+			src.camera.name = "[src.camera.initial_name] - [n_tag]"
+			return TRUE
 	else
 		return ..()
 
@@ -108,16 +114,26 @@
 	selected_camera = cameras[1]
 	view_camera(user)
 
-	operating = 1
+	operating = TRUE
 	while(selected_camera && Adjacent(user))
 		selected_camera = tgui_input_list(user, "Select camera bug to view.", "Spy Monitor", cameras)
 	selected_camera = null
-	operating = 0
+	operating = FALSE
 
 /obj/item/device/spy_monitor/proc/view_camera(mob/user)
 	spawn(0)
 		while(selected_camera && Adjacent(user))
 			var/turf/T = get_turf(selected_camera)
+			if(!T)
+				admin_notice(SPAN_DANGER("[selected_camera] CANT FIND TURF."), R_DEBUG)
+			if(!T.z == user.z)
+				admin_notice(SPAN_DANGER("[selected_camera] not same z-level as user (This is expected look for other errors as well)."), R_DEBUG)
+			if(!is_station_level(T.z))
+				admin_notice(SPAN_DANGER("[selected_camera] CAMERA ISNT ON STATION LEVEL."), R_DEBUG)
+			if(!is_station_level(user.z))
+				admin_notice(SPAN_DANGER("[selected_camera] USER ISNT ON STATION LEVEL."), R_DEBUG)
+			if(!selected_camera.can_use())
+				admin_notice(SPAN_DANGER("[selected_camera] CAMERA NO WORK!!!"), R_DEBUG)
 			if(!T || !(T.z == user.z || !is_station_level(T.z) || !is_station_level(user.z)) || !selected_camera.can_use())
 				user.unset_machine()
 				user.reset_view(null)
@@ -149,26 +165,17 @@
 	// These cheap toys are accessible from the mercenary camera console as well
 	network = list(NETWORK_MERCENARY)
 	active_power_usage = FALSE
+	/// Set on Initialize(), simulates initial() but for the name variable so we can restore it when needed
+	var/initial_name
 
 /obj/machinery/camera/spy/Initialize()
 	. = ..()
 	name = "DV-136ZB #[rand(1000,9999)]"
+	initial_name = name
 	c_tag = name
 
 /obj/machinery/camera/spy/check_eye(var/mob/user as mob)
-	return 0
-
-/obj/machinery/camera/spy/attackby(obj/item/attacking_item, mob/user)
-	if(!istype(user))
-		return
-
-	if(attacking_item.ispen())
-		var/n_tag = sanitizeSafe( tgui_input_text(user, "What would you like to label the camera?", "Bug Labelling", default = c_tag, max_length = MAX_NAME_LEN), MAX_NAME_LEN )
-		if(Adjacent(user) && user.stat == 0)
-			c_tag = n_tag
-			return TRUE
-	else
-		return ..()
+	return FALSE
 
 /obj/item/device/radio/spy
 	canhear_range = 7
