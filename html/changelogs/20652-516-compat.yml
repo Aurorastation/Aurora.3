@@ -1,0 +1,6 @@
+author: harry
+
+delete-after: True
+
+changes:
+  - rscadd: "compatibility in 516 for browser elements, like the chat and tgui popups"
