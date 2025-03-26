@@ -413,7 +413,7 @@
 
 	dellog += "</ol>"
 
-	usr << browse(dellog.Join(), "window=dellog")
+	usr << browse(HTML_SKELETON(dellog.Join()), "window=dellog")
 
 /**
  * Same as `cmd_display_del_log`, but only shows harddels
@@ -454,14 +454,14 @@
 
 	dellog += "</ol>"
 
-	usr << browse(dellog.Join(), "window=harddellog")
+	usr << browse(HTML_SKELETON(dellog.Join()), "window=harddellog")
 
 /client/proc/cmd_display_init_log()
 	set category = "Debug"
 	set name = "Display Initialize() Log"
 	set desc = "Displays a list of things that didn't handle Initialize() properly"
 
-	usr << browse(replacetext(SSatoms.InitLog(), "\n", "<br>"), "window=initlog")
+	usr << browse(HTML_SKELETON(replacetext(SSatoms.InitLog(), "\n", "<br>")), "window=initlog")
 
 /client/proc/reload_nanoui_resources()
 	set category = "Debug"

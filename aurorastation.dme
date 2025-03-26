@@ -71,6 +71,7 @@
 #include "code\__DEFINES\gradient.dm"
 #include "code\__DEFINES\guns.dm"
 #include "code\__DEFINES\hallucinations.dm"
+#include "code\__DEFINES\html.dm"
 #include "code\__DEFINES\hud.dm"
 #include "code\__DEFINES\hydroponics.dm"
 #include "code\__DEFINES\icon_layering.dm"
