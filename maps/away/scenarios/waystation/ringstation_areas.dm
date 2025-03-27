@@ -83,6 +83,7 @@
 /area/ringstation/z2/hall/central_ring
 	name = "Waystation - Central Ring"
 	color = "#ff4646"
+	area_blurb = "A long, curved hallway that offers almost no deviation; someone could get lost walking this same hallway over and over."
 
 // Z2 Civilian Facilities
 /area/ringstation/z2/computer_hardware_store
@@ -112,6 +113,7 @@
 	name = "Waystation - Cafeteria"
 	icon_state = "courtroom"
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
+	area_blurb = "A large cafeteria with the fragrant, sticky-sweet odor of cheap and quick cooking. The sterile tiling doesn't help, but at least there's a view into space..."
 
 /area/ringstation/z2/cafeteria/kitchen
 	name = "Waystation - Cafeteria - Kitchen"
@@ -136,18 +138,25 @@
 
 /area/ringstation/z2/motel/room
 	name = "Waystation - Motel - Room A"
+	area_blurb_category = "ringstation_motel_room"
+	area_blurb = "A neat, recently cleaned room that smells of air freshener. Plenty of space to store your belongings and get some rest..."
 
 /area/ringstation/z2/motel/room/b
 	name = "Waystation - Motel - Room B"
+	area_blurb_category = "ringstation_motel_room"
+	area_blurb = "A neat, recently cleaned room that smells of air freshener. Plenty of space to store your belongings and get some rest..."
 
 /area/ringstation/z2/motel/room/c
 	name = "Waystation - Motel - Room C"
+	area_blurb_category = "ringstation_motel_room"
+	area_blurb = "A neat, recently cleaned room that smells of air freshener. Plenty of space to store your belongings and get some rest..."
 
 // Z2 Medical
 /area/ringstation/z2/medical
 	name = "Waystation - Clinic"
 	icon_state = "medbay"
 	holomap_color = HOLOMAP_AREACOLOR_MEDICAL
+	area_blurb = "This place is even more sterile than the rest of this station..."
 
 /area/ringstation/z2/medical/reception
 	name = "Waystation - Clinic - Reception"
@@ -216,15 +225,18 @@
 /area/ringstation/z2/supply/warehouse
 	name = "Waystation - Supply - Warehouse"
 	icon_state = "quartloading"
+	area_blurb = "A crowded warehouse with a dusty smell. Utterly disorganised and with crates haphazardly strewn wherever, it would be a miracle digging anything out of this."
 
 /area/ringstation/z2/supply/hangar
 	name = "Waystation - Supply - Hangar"
 	icon_state = "quartloading"
+	area_blurb = "An expansive hangar, still packed with yet-opened shipping containers. A large crane looms over a raised platform."
 
 // Z2 Maintenance Tunnels
 /area/ringstation/z2/maintenance
 	name = "Waystation - Maintenance"
 	icon_state = "maintenance"
+	area_blurb = "Scarcely lit, cramped, and filled with stale, dusty air. Around you hisses compressed air through the pipes, a buzz of electrical charge through the wires, and muffled rumbles of the hull settling. This place may feel alien compared to the interior of the ship and is a place where one could get lost or badly hurt, but some may find the isolation comforting."
 
 /area/ringstation/z2/maintenance/cafe2motel
 	name = "Waystation - Maintenance - Cafeteria-Motel Median"
@@ -279,6 +291,7 @@
 	name = "Waystation - Staff Pod - Station Control Room"
 	icon_state = "bridge"
 	holomap_color = "#7c85ff"
+	area_blurb = "Up here, a half-dozen holocomputers hum and beep. Looking outside of the windows, the whole top surface of the waystation is visible, including the docking ports north, west and south."
 
 /area/ringstation/z3/dock
 	icon_state = "arrivals_dock"
@@ -288,7 +301,7 @@
 	name = "Waystation - West Dock, Public Access"
 
 /area/ringstation/z3/dock/premium
-	name = "Waystation - North Dock, VIP Access"
+	name = "Waystation - North Dock, Staff/VIP Access"
 
 /area/ringstation/z3/dock/emergency
 	name = "Waystation - South Dock, Emergency Access"
