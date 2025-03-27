@@ -80,6 +80,7 @@
 	singular_name = "nanite swarm"
 	desc = "A tube of paste containing swarms of repair nanites. This one appears to contain different nanites."
 	icon_state = "tube-surge"
+	item_state = "tube-surge"
 	origin_tech = list(TECH_MATERIAL = 4, TECH_ENGINEERING = 4, TECH_MAGNET = 5, TECH_POWER = 5, TECH_COMBAT = 3, TECH_ILLEGAL = 4)
 	amount = 20
 	var/used = FALSE
