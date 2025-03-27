@@ -20,7 +20,7 @@
 			deal_card(user, target_mob)
 
 /obj/item/deck/attack_self(mob/user, modifiers)
-	if(length(cards) && (user.l_hand == src || user.r_hand == src))
+	if(length(cards))
 		deal_card(user, user)
 	. = ..()
 
@@ -58,7 +58,7 @@
 		cards += P
 
 /obj/item/deck/attack_hand(mob/user)
-	if(length(cards))
+	if(length(cards) && (user.l_hand == src || user.r_hand == src))
 		deal_card(user, user)
 	else
 		..()
