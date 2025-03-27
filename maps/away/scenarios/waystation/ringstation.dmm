@@ -175,6 +175,7 @@
 	name = "KEEP CLEAR: DOCKING AREA";
 	pixel_x = 32
 	},
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /turf/simulated/floor/reinforced/airless,
 /area/ringstation/exterior/roof)
 "agE" = (
@@ -1010,6 +1011,7 @@
 	name = "KEEP CLEAR: DOCKING AREA";
 	pixel_y = 32
 	},
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /turf/simulated/floor/reinforced/airless,
 /area/ringstation/exterior/roof)
 "aQY" = (
@@ -5280,6 +5282,15 @@
 	},
 /turf/template_noop,
 /area/ringstation/exterior/atmos)
+"eHi" = (
+/obj/effect/floor_decal/corner/mauve/full{
+	dir = 8
+	},
+/obj/structure/engineer_maintenance/electric/wall{
+	name = "motel extranet box"
+	},
+/turf/simulated/floor/tiled/white,
+/area/ringstation/z2/motel/hall)
 "eHw" = (
 /turf/unsimulated/wall/fakepdoor{
 	dir = 4
@@ -5591,6 +5602,7 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /turf/simulated/floor/reinforced/airless,
 /area/ringstation/exterior/roof)
 "eTN" = (
@@ -6174,6 +6186,7 @@
 	dir = 8
 	},
 /obj/item/hullbeacon/red,
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /turf/simulated/floor/reinforced/airless,
 /area/ringstation/exterior/roof)
 "fyj" = (
@@ -7034,6 +7047,9 @@
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 1
 	},
+/obj/structure/engineer_maintenance/pipe/wall{
+	name = "washing machine plumbing box"
+	},
 /turf/simulated/floor/tiled,
 /area/ringstation/z2/motel/utility)
 "guz" = (
@@ -7560,6 +7576,7 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /turf/simulated/floor/reinforced/airless,
 /area/ringstation/exterior/roof)
 "gVc" = (
@@ -7846,6 +7863,7 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /turf/simulated/floor/reinforced/airless,
 /area/ringstation/exterior/roof)
 "hgk" = (
@@ -8312,6 +8330,7 @@
 	icon_state = "4-8"
 	},
 /obj/item/hullbeacon/red,
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /turf/simulated/floor/reinforced/airless,
 /area/ringstation/exterior/roof)
 "hBQ" = (
@@ -8641,6 +8660,7 @@
 	pixel_y = 8
 	},
 /obj/item/hullbeacon/red,
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /turf/simulated/floor/reinforced/airless,
 /area/ringstation/exterior/roof)
 "hPc" = (
@@ -11768,6 +11788,11 @@
 /obj/machinery/recharge_station,
 /turf/simulated/floor/reinforced,
 /area/ringstation/z2/supply/hangar)
+"kgG" = (
+/obj/item/hullbeacon/red,
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
+/turf/simulated/floor/reinforced/airless,
+/area/ringstation/exterior/roof)
 "khn" = (
 /obj/structure/trash_pile,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -11886,6 +11911,7 @@
 	pixel_x = 32
 	},
 /obj/item/hullbeacon/green,
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /turf/simulated/floor/reinforced/airless,
 /area/ringstation/exterior/roof)
 "klK" = (
@@ -12373,6 +12399,13 @@
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 8
 	},
+/obj/structure/engineer_maintenance/electric/wall{
+	name = "cryopods power supply control"
+	},
+/obj/structure/engineer_maintenance/pipe/wall{
+	pixel_y = 29;
+	name = "cryopods coolant supply control"
+	},
 /turf/simulated/floor/tiled/white,
 /area/ringstation/z1/cryogenics)
 "kET" = (
@@ -12496,6 +12529,7 @@
 	pixel_x = -32
 	},
 /obj/item/hullbeacon/green,
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /turf/simulated/floor/reinforced/airless,
 /area/ringstation/exterior/roof)
 "kJT" = (
@@ -13573,6 +13607,7 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /turf/simulated/floor/reinforced/airless,
 /area/ringstation/exterior/roof)
 "lDt" = (
@@ -14039,10 +14074,10 @@
 /turf/simulated/floor/tiled/white,
 /area/ringstation/z2/hall/north/stairwell)
 "lYq" = (
-/obj/machinery/firealarm/north,
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled/white,
 /area/ringstation/z2/cafeteria)
 "lYX" = (
@@ -14460,6 +14495,15 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ringstation/z2/motel/reception)
+"mqz" = (
+/obj/structure/morgue{
+	dir = 2
+	},
+/obj/structure/engineer_maintenance/electric/wall{
+	name = "morgue stasis control box"
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/ringstation/z2/medical/morgue)
 "mqD" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -15087,6 +15131,7 @@
 	icon_state = "railing0-0"
 	},
 /obj/item/hullbeacon/red,
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /turf/simulated/floor/reinforced/airless,
 /area/ringstation/exterior/roof)
 "mYO" = (
@@ -15338,6 +15383,7 @@
 	name = "KEEP CLEAR: DOCKING AREA";
 	pixel_y = -32
 	},
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /turf/simulated/floor/reinforced/airless,
 /area/ringstation/exterior/roof)
 "nlE" = (
@@ -17419,6 +17465,7 @@
 	icon_state = "1-2"
 	},
 /obj/item/hullbeacon/red,
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /turf/simulated/floor/reinforced/airless,
 /area/ringstation/exterior/roof)
 "pbL" = (
@@ -17823,6 +17870,9 @@
 /area/ringstation/z3/dock/emergency)
 "prl" = (
 /obj/machinery/alarm/north,
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/white,
 /area/ringstation/z3/dock/public)
 "prn" = (
@@ -19471,6 +19521,7 @@
 	pixel_y = 8
 	},
 /obj/item/hullbeacon/red,
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /turf/simulated/floor/reinforced/airless,
 /area/ringstation/exterior/roof)
 "qGb" = (
@@ -20430,6 +20481,7 @@
 /area/ringstation/z2/staffpod)
 "rmZ" = (
 /obj/item/hullbeacon/green,
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /turf/simulated/floor/reinforced/airless,
 /area/ringstation/exterior/roof)
 "rnA" = (
@@ -21322,6 +21374,9 @@
 	pixel_x = 6
 	},
 /obj/effect/floor_decal/corner/diagonal,
+/obj/structure/engineer_maintenance/pipe/wall{
+	name = "cafe bathrooms plumbing box"
+	},
 /turf/simulated/floor/tiled/white,
 /area/ringstation/z2/cafeteria)
 "rWl" = (
@@ -21796,6 +21851,9 @@
 /obj/machinery/light/floor{
 	dir = 1
 	},
+/obj/structure/engineer_maintenance/electric/wall{
+	name = "body scanner electrical box"
+	},
 /turf/simulated/floor/tiled/white,
 /area/ringstation/z2/medical/imaging)
 "stM" = (
@@ -21972,6 +22030,13 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/ringstation/z2/motel/hall)
+"sDt" = (
+/obj/structure/engineer_maintenance/pipe{
+	name = "washing machines plumbing box";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/ringstation/z2/staffpod/washing)
 "sDv" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -22170,6 +22235,7 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /turf/simulated/floor/reinforced/airless,
 /area/ringstation/exterior/roof)
 "sKn" = (
@@ -23585,6 +23651,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/white,
 /area/ringstation/z3/dock/public)
 "tTj" = (
@@ -23957,6 +24026,7 @@
 	icon_state = "railing0-0"
 	},
 /obj/item/hullbeacon/red,
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /turf/simulated/floor/reinforced/airless,
 /area/ringstation/exterior/roof)
 "ugu" = (
@@ -24253,6 +24323,7 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /turf/simulated/floor/reinforced/airless,
 /area/ringstation/exterior/roof)
 "uwy" = (
@@ -24403,6 +24474,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/ringstation/z2/staffpod/eva)
+"uEm" = (
+/obj/item/hullbeacon/red,
+/obj/structure/lattice,
+/turf/template_noop,
+/area/space)
 "uEr" = (
 /obj/structure/cable{
 	icon_state = "1-4"
@@ -26552,6 +26628,11 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ringstation/z2/hall/central_ring)
+"wJW" = (
+/obj/item/hullbeacon/green,
+/obj/structure/lattice,
+/turf/template_noop,
+/area/space)
 "wKE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -27715,6 +27796,7 @@
 	name = "KEEP CLEAR: DOCKING AREA";
 	pixel_x = -32
 	},
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /turf/simulated/floor/reinforced/airless,
 /area/ringstation/exterior/roof)
 "xJO" = (
@@ -28284,6 +28366,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ringstation/z3/dock/public)
+"ykR" = (
+/obj/structure/engineer_maintenance/electric{
+	dir = 4;
+	name = "hangar crane electrical box"
+	},
+/turf/simulated/floor/reinforced,
+/area/ringstation/z2/supply/hangar)
 "yle" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -116626,8 +116715,8 @@ lBs
 lBs
 lBs
 lBs
-lBs
-lBs
+gAs
+qqw
 lBs
 lBs
 lBs
@@ -116880,10 +116969,10 @@ lBs
 lBs
 lBs
 lBs
+gAs
+gAs
 lBs
-lBs
-lBs
-lBs
+gAs
 lBs
 lBs
 lBs
@@ -117136,11 +117225,11 @@ fps
 lBs
 lBs
 lBs
-lBs
-lBs
-lBs
-lBs
-lBs
+gAs
+gAs
+gAs
+gAs
+gAs
 lBs
 lBs
 lBs
@@ -117393,7 +117482,7 @@ fps
 bZq
 fps
 lBs
-lBs
+gAs
 lBs
 lBs
 lBs
@@ -118371,7 +118460,7 @@ lBs
 lBs
 lBs
 lBs
-lBs
+qqw
 lBs
 lBs
 lBs
@@ -118628,7 +118717,7 @@ lBs
 lBs
 lBs
 lBs
-lBs
+gAs
 lBs
 lBs
 lBs
@@ -118885,9 +118974,9 @@ lBs
 lBs
 lBs
 lBs
-lBs
-lBs
-lBs
+gAs
+gAs
+gAs
 lBs
 lBs
 lBs
@@ -119144,7 +119233,7 @@ lBs
 lBs
 lBs
 lBs
-lBs
+gAs
 lBs
 lBs
 lBs
@@ -119401,9 +119490,9 @@ lBs
 lBs
 lBs
 lBs
-lBs
-lBs
-lBs
+gAs
+gAs
+gAs
 jcB
 jcB
 dsA
@@ -119658,7 +119747,7 @@ lBs
 lBs
 lBs
 lBs
-lBs
+gAs
 lBs
 jcB
 jcB
@@ -119915,7 +120004,7 @@ lBs
 lBs
 lBs
 lBs
-lBs
+gAs
 qHF
 jcB
 pBI
@@ -120434,7 +120523,7 @@ qHF
 kfd
 bfd
 jcB
-dle
+eHi
 ffb
 mEG
 qmo
@@ -120743,7 +120832,7 @@ bPL
 neh
 bPL
 tyJ
-uoP
+mqz
 uce
 nMk
 bDt
@@ -121012,8 +121101,8 @@ lBs
 lBs
 lBs
 lBs
-lBs
-lBs
+gAs
+qqw
 lBs
 lBs
 lBs
@@ -121267,9 +121356,9 @@ nzb
 lBs
 lBs
 lBs
-lBs
-lBs
-lBs
+gAs
+gAs
+gAs
 lBs
 lBs
 lBs
@@ -121522,9 +121611,9 @@ rer
 pws
 ahv
 ahv
-lBs
-lBs
-lBs
+gAs
+gAs
+gAs
 lBs
 lBs
 lBs
@@ -125045,8 +125134,8 @@ lBs
 lBs
 lBs
 lBs
-lBs
-lBs
+gAs
+gAs
 wPp
 pQv
 wPp
@@ -125297,11 +125386,11 @@ lBs
 lBs
 lBs
 lBs
-lBs
-lBs
-lBs
-lBs
-lBs
+gAs
+gAs
+gAs
+gAs
+gAs
 lBs
 lBs
 wPp
@@ -125552,15 +125641,15 @@ lBs
 lBs
 lBs
 lBs
+qqw
+gAs
+gAs
 lBs
 lBs
 lBs
-lBs
-lBs
-lBs
-lBs
-lBs
-lBs
+gAs
+gAs
+gAs
 wPp
 wPp
 jsD
@@ -126378,7 +126467,7 @@ eHx
 lFu
 lFu
 wlH
-lFu
+sDt
 lFu
 gKv
 xUI
@@ -128129,8 +128218,8 @@ lBs
 lBs
 lBs
 lBs
-lBs
-lBs
+wJW
+gAs
 jON
 rHW
 rQN
@@ -132255,7 +132344,7 @@ naw
 naw
 krq
 hox
-neS
+ykR
 neS
 neS
 bjT
@@ -134053,7 +134142,7 @@ lBs
 lBs
 lBs
 lBs
-lBs
+gAs
 lBs
 eAZ
 eAZ
@@ -134309,8 +134398,8 @@ lBs
 lBs
 lBs
 lBs
-lBs
-lBs
+wJW
+gAs
 lBs
 lBs
 lBs
@@ -135088,7 +135177,7 @@ lBs
 lBs
 lBs
 lBs
-lBs
+gAs
 rOL
 rOL
 rOL
@@ -135345,7 +135434,7 @@ lBs
 lBs
 lBs
 lBs
-lBs
+gAs
 lBs
 lBs
 rOL
@@ -135602,10 +135691,10 @@ lBs
 lBs
 lBs
 lBs
+gAs
 lBs
 lBs
-lBs
-lBs
+gAs
 lBs
 rOL
 rOL
@@ -135859,10 +135948,10 @@ lBs
 lBs
 lBs
 lBs
-lBs
-lBs
-lBs
-lBs
+gAs
+gAs
+gAs
+gAs
 lBs
 lBs
 lBs
@@ -136117,7 +136206,7 @@ lBs
 lBs
 lBs
 lBs
-lBs
+gAs
 lBs
 lBs
 lBs
@@ -136374,7 +136463,7 @@ lBs
 lBs
 lBs
 lBs
-lBs
+gAs
 lBs
 lBs
 lBs
@@ -136630,8 +136719,8 @@ lBs
 lBs
 lBs
 lBs
-lBs
-lBs
+gAs
+gAs
 lBs
 lBs
 lBs
@@ -136887,7 +136976,7 @@ lBs
 lBs
 lBs
 lBs
-lBs
+gAs
 lBs
 lBs
 lBs
@@ -137144,7 +137233,7 @@ lBs
 lBs
 lBs
 lBs
-lBs
+gAs
 lBs
 lBs
 lBs
@@ -137401,8 +137490,8 @@ lBs
 lBs
 lBs
 lBs
-lBs
-lBs
+gAs
+gAs
 lBs
 lBs
 lBs
@@ -137659,7 +137748,7 @@ lBs
 lBs
 lBs
 lBs
-lBs
+uEm
 lBs
 lBs
 lBs
@@ -186266,7 +186355,7 @@ ybd
 ybd
 ybd
 ybd
-vYX
+kgG
 ybd
 ybd
 ybd
@@ -190358,7 +190447,7 @@ iIy
 iIy
 iIy
 iIy
-ybd
+kgG
 ybd
 ybd
 ybd
@@ -190371,7 +190460,7 @@ mbV
 ybd
 ybd
 ybd
-ybd
+kgG
 iIy
 iIy
 iIy
@@ -193699,7 +193788,7 @@ iIy
 iIy
 iIy
 iIy
-ybd
+kgG
 ybd
 ybd
 ybd
@@ -193712,7 +193801,7 @@ mbV
 ybd
 ybd
 ybd
-ybd
+kgG
 iIy
 iIy
 iIy
@@ -196505,11 +196594,11 @@ ybd
 ybd
 ybd
 ybd
-vYX
+kgG
 ybd
 ybd
 ybd
-vYX
+kgG
 ybd
 ybd
 ybd
@@ -197298,7 +197387,7 @@ ybd
 ybd
 ybd
 ybd
-vYX
+kgG
 ybd
 ybd
 ybd
@@ -197533,11 +197622,11 @@ iIy
 ybd
 ybd
 ybd
-vYX
+kgG
 ybd
 ybd
 ybd
-vYX
+kgG
 ybd
 ybd
 ybd
@@ -198326,11 +198415,11 @@ ybd
 ybd
 ybd
 ybd
-vYX
+kgG
 ybd
 ybd
 ybd
-vYX
+kgG
 ybd
 ybd
 ybd
