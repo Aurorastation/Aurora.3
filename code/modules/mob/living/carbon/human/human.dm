@@ -147,6 +147,8 @@
 			qdel(an_hud_overlay)
 		hud_list = null
 
+	target = null
+
 	. = ..()
 
 /mob/living/carbon/human/can_devour(atom/movable/victim, var/silent = FALSE)

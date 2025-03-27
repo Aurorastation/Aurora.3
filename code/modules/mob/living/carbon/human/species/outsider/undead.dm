@@ -305,10 +305,6 @@
 /mob/living/carbon/human
 	var/mob/living/carbon/human/target = null
 
-/mob/living/carbon/human/Destroy()
-	target = null
-	return ..()
-
 /datum/species/zombie/handle_npc(mob/living/carbon/human/H)
 	H.resting = FALSE
 	if (H.client || H.stat != CONSCIOUS)
