@@ -309,7 +309,7 @@ GLOBAL_PROTECT(jobban_keylist)
 		return
 
 	var/dat = ""
-	var/header = "<head><title>Job-Ban Panel: [ckey]</title></head>"
+	var/header = ""
 	var/body
 	var/jobs = ""
 
