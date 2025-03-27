@@ -9,11 +9,12 @@
 	is_outside = TRUE
 	var/lighting = FALSE //Is this area automatically lit?
 
-/area/point_verdant/Initialize()
+/area/kowloon_junction/Initialize()
 	. = ..()
 	if(lighting)
 		for(var/turf/T in src)
 			T.set_light(MINIMUM_USEFUL_LIGHT_RANGE, 50, COLOR_WHITE) //Same light level as Konyang proper
+
 //outside
 /area/kowloon_junction/outdoors
 	name = "Kowloon Junction - Outdoors"
@@ -42,6 +43,7 @@
 /area/kowloon_junction/interior
 	name = "Kowloon Junction - Indoors"
 	icon_state = "purple"
+	requires_power = 0
 	sound_environment = SOUND_AREA_LARGE_SOFTFLOOR
 	ambience = AMBIENCE_KONYANG_RAIN_MUFFLED
 	is_outside = FALSE

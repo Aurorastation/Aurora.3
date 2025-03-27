@@ -18,13 +18,13 @@
 
 	spawn_weight = 1
 	spawn_cost = 1
-	template_flags = TEMPLATE_FLAG_PORT_SPAWN
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 	unit_test_groups = list(2)
 
-/singleton/submap_archetype/point_verdant
-	map = "point_verdant"
-	descriptor = "A landing zone within Point Verdant city limits."
+/singleton/submap_archetype/kowloon_junction
+	map = "kowloon_junction"
+	descriptor = "A landing zone within New Hong Kong city limits."
 
 /obj/effect/overmap/visitable/sector/kowloon_junction
 	name = "Konyang - Kowloon Junction Spaceport"

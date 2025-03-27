@@ -3888,7 +3888,6 @@
 #include "maps\away\away_site\konyang\new_hong_kong\kowloon_junction_areas.dm"
 #include "maps\away\away_site\konyang\new_hong_kong\kowloon_junction_ghostroles.dm"
 #include "maps\away\away_site\konyang\new_hong_kong\kowloon_junction_landmarks.dm"
-#include "maps\away\away_site\konyang\new_hong_kong\kowloon_junction.dmm"
 #include "maps\away\away_site\konyang\point_verdant\point_verdant.dm"
 #include "maps\away\away_site\konyang\point_verdant\point_verdant_areas.dm"
 #include "maps\away\away_site\konyang\point_verdant\point_verdant_ghostroles.dm"

@@ -55,6 +55,7 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Added a new PoI to replace Point Verdant: Kowloon Junction, in the city of New Hong Kong. Mapping done by CourierBravo, code done by hazelmouse."
+  - rscadd: "Added a new PoI to replace Point Verdant: Kowloon Junction, in the city of New Hong Kong. Mapping done by CourierBravo, code done in part by and assisted by hazelmouse."
   - rscadd: "Added a new statue for Kowloon Junction, The Lady of Stone. The sprite was made by tomixcomics."
   - rscadd: "Added a generic collision object for use in maps. Its intended use is the same as the car filler structure, functioning as an invisible wall for large objects."
+  - rscadd: "Added a new access for a konyang gang. This is to allow them to easily button up without having to share access with other storefronts."

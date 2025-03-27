@@ -26,6 +26,9 @@
 	r_pocket = /obj/item/storage/wallet/random
 	back = /obj/item/storage/backpack/satchel
 
+/obj/outfit/admin/nkh/cop/get_id_access()
+	return list(ACCESS_KONYANG_POLICE)
+
 /datum/ghostspawner/human/nhk_cop/senior
 	name = "New Hong Kong Senior Patrolman"
 	short_name = "nhk_senior_cop"
