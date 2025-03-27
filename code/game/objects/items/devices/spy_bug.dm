@@ -154,7 +154,7 @@
 /obj/machinery/camera/spy
 	// These cheap toys are accessible from the mercenary camera console as well
 	network = list(NETWORK_MERCENARY)
-	active_power_usage = FALSE
+	active_power_usage = 0
 	/// Set on Initialize(), simulates initial() but for the name variable so we can restore it when needed
 	var/initial_name
 
