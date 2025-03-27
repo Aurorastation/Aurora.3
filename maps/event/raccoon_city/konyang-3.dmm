@@ -429,7 +429,7 @@
 /turf/simulated/floor/carpet/lightblue,
 /area/point_verdant/interior/decrepit)
 "cy" = (
-/obj/random/konyang_gun/pistols,
+/obj/random/gun_with_ammo/pistols,
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
 "cz" = (
@@ -2369,7 +2369,7 @@
 	dir = 4
 	},
 /obj/structure/undies_wardrobe,
-/obj/random/konyang_gun/automatic,
+/obj/random/gun_with_ammo/automatic,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/laundromat)
 "qI" = (
@@ -2673,7 +2673,7 @@
 /area/point_verdant/interior/minimart)
 "sj" = (
 /obj/structure/ledge/roof,
-/obj/random/konyang_gun/pistols,
+/obj/random/gun_with_ammo/pistols,
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
 "sk" = (
@@ -3005,7 +3005,7 @@
 /obj/structure/ledge/roof{
 	dir = 5
 	},
-/obj/random/konyang_gun/automatic,
+/obj/random/gun_with_ammo/automatic,
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
 "vj" = (
@@ -3347,10 +3347,6 @@
 /obj/item/storage/box/cups,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tailor)
-"xs" = (
-/obj/abstract/weather_marker/konyang,
-/turf/simulated/open,
-/area/point_verdant/outdoors)
 "xx" = (
 /obj/structure/ledge/roof,
 /obj/structure/rod_railing,
@@ -3955,7 +3951,7 @@
 /turf/simulated/floor/carpet,
 /area/point_verdant/interior/hotel)
 "BC" = (
-/obj/structure/automobile/random{
+/obj/random/automobile{
 	dir = 8
 	},
 /obj/random/barricade_kit,
@@ -5109,7 +5105,7 @@
 /obj/structure/toilet{
 	pixel_x = -8
 	},
-/obj/random/konyang_gun/automatic,
+/obj/random/gun_with_ammo/automatic,
 /turf/simulated/floor/tiled/freezer,
 /area/point_verdant/interior/arcade)
 "Jb" = (
@@ -5660,7 +5656,7 @@
 	},
 /obj/item/pen,
 /obj/item/device/binoculars,
-/obj/random/konyang_gun/pistols,
+/obj/random/gun_with_ammo/pistols,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/spaceport)
 "MV" = (
@@ -12814,7 +12810,7 @@ Cw
 Cw
 Cw
 Cw
-xs
+Cw
 ER
 ER
 ER

@@ -5679,7 +5679,7 @@
 /turf/unsimulated/floor,
 /area/centcom/bar)
 "amB" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/freezer/meat,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/reagent_containers/food/drinks/carton/soymilk,
@@ -7011,7 +7011,7 @@
 /turf/unsimulated/floor,
 /area/centcom/specops)
 "arf" = (
-/obj/item/aimodule/conglomerate,
+/obj/item/aiModule/conglomerate,
 /obj/item/aiModule/reset,
 /obj/item/aiModule/freeformcore,
 /obj/item/aiModule/protectStation,
@@ -23962,7 +23962,7 @@
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "bgW" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/freezer/meat,
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "bgX" = (
