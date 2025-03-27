@@ -7011,7 +7011,7 @@
 /turf/unsimulated/floor,
 /area/centcom/specops)
 "arf" = (
-/obj/item/aiModule/nanotrasen,
+/obj/item/aimodule/conglomerate,
 /obj/item/aiModule/reset,
 /obj/item/aiModule/freeformcore,
 /obj/item/aiModule/protectStation,
@@ -22747,7 +22747,7 @@
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "bep" = (
-/obj/structure/closet/secure_closet/freezer/kitchen{
+/obj/structure/closet/secure_closet/freezer/meat{
 	req_access = null
 	},
 /obj/structure/sign/poster{
@@ -22979,12 +22979,12 @@
 /area/centcom/legion/hangar5)
 "beT" = (
 /obj/structure/table/rack,
-/obj/item/storage/belt/medical/first_responder/combat/full{
+/obj/item/storage/belt/medical/paramedic/combat/full{
 	pixel_x = 5;
 	pixel_y = -5
 	},
-/obj/item/storage/belt/medical/first_responder/combat/full,
-/obj/item/storage/belt/medical/first_responder/combat/full{
+/obj/item/storage/belt/medical/paramedic/combat/full,
+/obj/item/storage/belt/medical/paramedic/combat/full{
 	pixel_x = -4;
 	pixel_y = 5
 	},
@@ -29210,7 +29210,7 @@
 /obj/item/clothing/mask/surgical,
 /obj/item/clothing/mask/surgical,
 /obj/item/storage/belt/medical,
-/obj/item/storage/belt/medical/first_responder/combat,
+/obj/item/storage/belt/medical/paramedic/combat,
 /obj/item/storage/belt/medical,
 /obj/structure/sink{
 	dir = 4;

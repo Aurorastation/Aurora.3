@@ -391,7 +391,7 @@
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
 "abd" = (
-/obj/structure/automobile/random{
+/obj/random/automobile{
 	dir = 4
 	},
 /turf/simulated/floor/asphalt,
@@ -1167,7 +1167,7 @@
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
 "adx" = (
-/obj/structure/automobile/random{
+/obj/random/automobile{
 	dir = 8
 	},
 /turf/simulated/floor/asphalt,
@@ -1275,7 +1275,7 @@
 "adK" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/random/dirt_75,
-/obj/random/konyang_gun/pistols,
+/obj/random/gun_with_ammo/pistols,
 /obj/random/barricade_materials,
 /obj/random/barricade_materials,
 /turf/simulated/floor/tiled,
@@ -1510,7 +1510,7 @@
 /obj/effect/decal/curb{
 	dir = 4
 	},
-/obj/structure/automobile/random{
+/obj/random/automobile{
 	dir = 4
 	},
 /obj/random/barricade_materials,
@@ -1897,7 +1897,7 @@
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outdoors)
 "afv" = (
-/obj/structure/automobile/random{
+/obj/random/automobile{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -2210,7 +2210,7 @@
 /area/point_verdant/outdoors)
 "agm" = (
 /obj/structure/flora/bush/konyang_reeds,
-/obj/random/konyang_gun/pistols,
+/obj/random/gun_with_ammo/pistols,
 /turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/point_verdant/outdoors)
 "agn" = (
@@ -2858,10 +2858,6 @@
 /obj/random/survival_weapon,
 /turf/simulated/floor/carpet/magenta,
 /area/point_verdant/interior/tailor)
-"ahW" = (
-/obj/item/paper/fluff/wanted_poster,
-/turf/simulated/wall/wood,
-/area/point_verdant/interior/bar)
 "ahX" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille,
 /turf/simulated/floor/tiled/full,
@@ -3351,10 +3347,6 @@
 /obj/structure/table/stone/marble,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/minimart)
-"ajs" = (
-/obj/item/paper/fluff/wanted_poster,
-/turf/simulated/wall,
-/area/point_verdant/interior/streetvendor)
 "ajt" = (
 /obj/structure/flora/rock/konyang/water,
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
@@ -3539,7 +3531,7 @@
 /obj/item/reagent_containers/food/snacks/ricetub{
 	pixel_y = -5
 	},
-/obj/random/konyang_gun/pistols,
+/obj/random/gun_with_ammo/pistols,
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/streetvendor)
 "ajW" = (
@@ -3684,7 +3676,7 @@
 "ako" = (
 /obj/structure/table/standard,
 /obj/item/pen,
-/obj/random/konyang_gun/pistols,
+/obj/random/gun_with_ammo/pistols,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices)
 "akp" = (
@@ -3760,10 +3752,6 @@
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/outdoors)
-"akz" = (
-/obj/item/paper/fluff/wanted_poster,
-/turf/simulated/wall,
-/area/point_verdant/interior/police)
 "akA" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -3841,40 +3829,6 @@
 /obj/structure/table/rack/clothing{
 	dir = 4;
 	layer = 3.1
-	},
-/obj/item/clothing/accessory/dressshirt{
-	pixel_y = 4;
-	pixel_x = 6
-	},
-/obj/item/clothing/accessory/dressshirt{
-	pixel_y = 4;
-	pixel_x = 6
-	},
-/obj/item/clothing/accessory/dressshirt{
-	pixel_x = 6
-	},
-/obj/item/clothing/accessory/dressshirt{
-	pixel_x = 6
-	},
-/obj/item/clothing/accessory/dressshirt{
-	pixel_y = -4;
-	pixel_x = 6
-	},
-/obj/item/clothing/accessory/dressshirt{
-	pixel_y = -4;
-	pixel_x = 6
-	},
-/obj/item/clothing/under/pants/black{
-	pixel_y = 7;
-	pixel_x = -6
-	},
-/obj/item/clothing/under/pants/black{
-	pixel_y = 3;
-	pixel_x = -6
-	},
-/obj/item/clothing/under/pants/black{
-	pixel_y = -1;
-	pixel_x = -6
 	},
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/minimart)
@@ -4914,7 +4868,7 @@
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "anx" = (
-/obj/structure/automobile/random,
+/obj/random/automobile,
 /obj/effect/decal/road_marking{
 	dir = 8
 	},
@@ -5972,10 +5926,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices)
-"aqb" = (
-/obj/item/paper/fluff/wanted_poster,
-/turf/simulated/wall/wood,
-/area/point_verdant/interior/tailor)
 "aqc" = (
 /obj/effect/decal/road_marking/crosswalk{
 	dir = 4
@@ -6425,10 +6375,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/restaurant)
-"ark" = (
-/obj/item/paper/fluff/wanted_poster,
-/turf/simulated/wall/wood,
-/area/point_verdant/interior/cafe)
 "arl" = (
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/rod_railing{
@@ -7072,10 +7018,6 @@
 /obj/item/herb/red,
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/hotel)
-"asS" = (
-/obj/item/paper/fluff/wanted_poster,
-/turf/simulated/wall/wood,
-/area/point_verdant/interior/arcade)
 "asT" = (
 /obj/structure/ledge/quarter/corner{
 	dir = 8
@@ -7097,10 +7039,6 @@
 /obj/structure/rod_railing,
 /turf/simulated/open,
 /area/point_verdant/outdoors)
-"asV" = (
-/obj/item/paper/fluff/wanted_poster,
-/turf/simulated/wall/wood,
-/area/point_verdant/interior/spaceport)
 "asW" = (
 /obj/structure/ledge{
 	dir = 4
@@ -8645,11 +8583,6 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
-"awG" = (
-/obj/structure/flora/bush/konyang_reeds,
-/obj/effect/ghostspawpoint/zombie,
-/turf/simulated/floor/exoplanet/konyang,
-/area/point_verdant/outdoors)
 "awH" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-west"
@@ -8724,7 +8657,6 @@
 /area/point_verdant/outdoors)
 "awS" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/closet/secure_closet/freezer/fridge,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
@@ -8815,13 +8747,6 @@
 /area/point_verdant/outdoors)
 "axf" = (
 /obj/structure/table/rack/retail_shelf,
-/obj/item/toy/plushie/fluff/oz_plushie{
-	pixel_y = 10;
-	pixel_x = 12
-	},
-/obj/item/toy/plushie/fluff{
-	pixel_y = 6
-	},
 /obj/item/toy/plushie/ipc{
 	pixel_y = 17;
 	pixel_x = -14
@@ -9048,7 +8973,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "axI" = (
-/obj/structure/automobile/random{
+/obj/random/automobile{
 	dir = 1
 	},
 /turf/simulated/floor/asphalt,
@@ -9194,7 +9119,7 @@
 /turf/simulated/floor/exoplanet/konyang/pink,
 /area/point_verdant/interior/shallow)
 "ayb" = (
-/obj/structure/automobile/random{
+/obj/random/automobile{
 	dir = 8
 	},
 /obj/effect/decal/road_marking{
@@ -10710,10 +10635,6 @@
 /obj/structure/table/wood,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior)
-"aBW" = (
-/obj/effect/ghostspawpoint/zombie,
-/turf/simulated/floor/sidewalk/paved,
-/area/point_verdant/interior/parking)
 "aBX" = (
 /obj/effect/decal/road_marking/thin,
 /obj/effect/decal/road_marking/thin{
@@ -10792,10 +10713,6 @@
 /obj/effect/floor_decal/corner_wide/grey,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices)
-"aCj" = (
-/obj/effect/ghostspawpoint/zombie,
-/turf/simulated/floor/exoplanet/konyang,
-/area/point_verdant/outdoors)
 "aCk" = (
 /obj/effect/decal/road_marking/center{
 	dir = 8
@@ -11118,7 +11035,7 @@
 	dir = 8
 	},
 /obj/effect/decal/curb,
-/obj/structure/automobile/random{
+/obj/random/automobile{
 	dir = 4
 	},
 /turf/simulated/floor/asphalt,
@@ -11174,7 +11091,7 @@
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/minimart)
 "aDk" = (
-/obj/structure/automobile/random{
+/obj/random/automobile{
 	dir = 4
 	},
 /obj/random/survival_weapon,
@@ -12676,10 +12593,6 @@
 	},
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
-"aHq" = (
-/obj/item/paper/fluff/wanted_poster,
-/turf/simulated/wall/wood,
-/area/point_verdant/interior/restaurant)
 "aHr" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner/grey/diagonal{
@@ -13376,7 +13289,7 @@
 	spawns_with_key = 0
 	},
 /obj/random/dirt_75,
-/obj/random/konyang_gun/pistols,
+/obj/random/gun_with_ammo/pistols,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/parking)
 "aJi" = (
@@ -15760,7 +15673,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "aPi" = (
-/obj/structure/automobile/random{
+/obj/random/automobile{
 	dir = 1
 	},
 /turf/simulated/floor/asphalt,
@@ -15885,10 +15798,6 @@
 "aPx" = (
 /turf/simulated/open,
 /area/point_verdant/interior/police)
-"aPz" = (
-/obj/item/paper/fluff/wanted_poster,
-/turf/simulated/wall,
-/area/point_verdant/interior/robotics)
 "aPA" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp{
@@ -15986,10 +15895,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/konyang/wilting,
 /area/point_verdant/outdoors)
-"aPM" = (
-/obj/item/paper/fluff/wanted_poster,
-/turf/simulated/wall,
-/area/point_verdant/interior/pharmacy)
 "aPN" = (
 /obj/structure/road_barrier,
 /obj/structure/utility_pole/street/on,
@@ -16432,7 +16337,7 @@
 	spawns_with_key = 0
 	},
 /obj/random/dirt_75,
-/obj/random/konyang_gun/pistols,
+/obj/random/gun_with_ammo/pistols,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/parking)
 "aQU" = (
@@ -16592,10 +16497,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
-/area/point_verdant/outdoors)
-"aRr" = (
-/obj/effect/ghostspawpoint/zombie,
-/turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
 "aRs" = (
 /obj/structure/konyang_cliff,
@@ -17121,10 +17022,6 @@
 /obj/structure/stairs/urban/south,
 /turf/simulated/floor/concrete,
 /area/point_verdant/interior/shallow)
-"aSR" = (
-/obj/item/paper/fluff/wanted_poster,
-/turf/simulated/wall/wood,
-/area/point_verdant/interior/laundromat)
 "aSS" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
@@ -17339,7 +17236,7 @@
 	dir = 8
 	},
 /obj/effect/decal/road_marking/thin,
-/obj/structure/automobile/random{
+/obj/random/automobile{
 	dir = 4
 	},
 /obj/random/barricade_kit,
@@ -17564,7 +17461,7 @@
 	},
 /obj/random/dirt_75,
 /obj/structure/closet/cabinet,
-/obj/random/konyang_gun/pistols,
+/obj/random/gun_with_ammo/pistols,
 /obj/random/med_stack,
 /obj/random/med_stack,
 /turf/simulated/floor/carpet/purple,
@@ -18238,7 +18135,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "aVJ" = (
-/obj/structure/automobile/random,
+/obj/random/automobile,
 /obj/effect/decal/road_marking{
 	dir = 8
 	},
@@ -18694,7 +18591,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "aWW" = (
-/obj/structure/automobile/random{
+/obj/random/automobile{
 	dir = 8
 	},
 /obj/item/herb,
@@ -18851,10 +18748,6 @@
 /obj/random/barricade_kit,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/offices)
-"aXk" = (
-/obj/item/paper/fluff/wanted_poster,
-/turf/simulated/wall,
-/area/point_verdant/interior/minimart)
 "aXl" = (
 /obj/structure/ledge{
 	dir = 1
@@ -19136,10 +19029,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
-"aXT" = (
-/obj/effect/ghostspawpoint/zombie,
-/turf/simulated/floor/sidewalk/flat,
-/area/point_verdant/outdoors)
 "aXU" = (
 /obj/effect/konyang_waterfall{
 	pixel_y = -16
@@ -19305,7 +19194,7 @@
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior)
 "aYv" = (
-/obj/structure/automobile/random{
+/obj/random/automobile{
 	dir = 4
 	},
 /obj/random/barricade_materials,
@@ -19752,7 +19641,7 @@
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/restaurant)
 "aZQ" = (
-/obj/structure/automobile/random{
+/obj/random/automobile{
 	dir = 4
 	},
 /turf/simulated/floor/asphalt,
@@ -20268,12 +20157,8 @@
 	},
 /turf/simulated/floor/carpet,
 /area/point_verdant/interior)
-"jdg" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
-/turf/simulated/floor/wood,
-/area/point_verdant/interior)
 "jjR" = (
-/obj/structure/automobile/random{
+/obj/random/automobile{
 	dir = 8
 	},
 /obj/effect/decal/road_marking{
@@ -20478,13 +20363,6 @@
 	},
 /obj/structure/barricade/metal/wired,
 /turf/simulated/floor/asphalt,
-/area/point_verdant/interior)
-"lKM" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/wood,
 /area/point_verdant/interior)
 "mbv" = (
 /obj/structure/table/wood,
@@ -20905,7 +20783,7 @@
 /turf/simulated/floor/carpet,
 /area/point_verdant/interior)
 "vwO" = (
-/obj/random/konyang_gun/automatic,
+/obj/random/gun_with_ammo/automatic,
 /turf/unsimulated/mineral/konyang,
 /area/point_verdant/interior)
 "vEz" = (
@@ -20915,7 +20793,7 @@
 /obj/effect/decal/curb{
 	dir = 4
 	},
-/obj/structure/automobile/random{
+/obj/random/automobile{
 	dir = 4
 	},
 /turf/simulated/floor/asphalt,
@@ -20934,7 +20812,7 @@
 /obj/effect/decal/road_marking/no_pass{
 	dir = 8
 	},
-/obj/random/konyang_gun/pistols,
+/obj/random/gun_with_ammo/pistols,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior)
 "wbZ" = (
@@ -28640,7 +28518,7 @@ aAl
 aAl
 aAl
 aAl
-aCj
+aAl
 aAl
 aAl
 aAl
@@ -33620,7 +33498,7 @@ aFs
 aAl
 aAl
 aAl
-awG
+aOq
 aqs
 aMA
 aVR
@@ -35373,7 +35251,7 @@ aUK
 aUK
 aUK
 aUK
-akz
+aUK
 awh
 aUK
 aUK
@@ -35814,7 +35692,7 @@ aOq
 axu
 axu
 axu
-aCj
+aAl
 aFs
 aTT
 aWh
@@ -36651,7 +36529,7 @@ awd
 aYf
 apg
 aQq
-akz
+aUK
 aBT
 aiz
 aLN
@@ -37313,7 +37191,7 @@ acf
 aBP
 aAl
 aWb
-jdg
+aAv
 wbZ
 aBV
 aWb
@@ -37327,7 +37205,7 @@ aFq
 aBT
 aAl
 aqp
-jdg
+aAv
 eIi
 kow
 aVa
@@ -39789,7 +39667,7 @@ aAl
 aOq
 aAl
 aBP
-aCj
+aAl
 aAl
 aAl
 aFr
@@ -39883,7 +39761,7 @@ acf
 aAl
 aAl
 aWb
-jdg
+aAv
 gxp
 aBV
 aWb
@@ -40472,7 +40350,7 @@ aLr
 aXx
 aEI
 aPR
-aPM
+aVp
 aoo
 aLN
 aiL
@@ -40751,7 +40629,7 @@ agK
 awg
 aUx
 aix
-aPz
+agK
 aeb
 aod
 aod
@@ -41019,7 +40897,7 @@ aYq
 aYx
 ayc
 aUV
-aXk
+auO
 aBT
 aBT
 awP
@@ -41184,7 +41062,7 @@ aAl
 aqp
 dQZ
 aAv
-lKM
+pjW
 eIi
 aqp
 aAl
@@ -41985,7 +41863,7 @@ axu
 aOq
 aAl
 aAl
-aCj
+aAl
 aOq
 aAl
 aur
@@ -42107,7 +41985,7 @@ any
 aAl
 aAl
 aAl
-aCj
+aAl
 aAl
 aMA
 aMA
@@ -42528,7 +42406,7 @@ adC
 aje
 axm
 aFp
-aPM
+aVp
 aie
 aLN
 aiL
@@ -46919,7 +46797,7 @@ aoV
 aoV
 aoV
 aoV
-ahW
+aoV
 ave
 aJa
 aBT
@@ -47702,7 +47580,7 @@ agD
 aHA
 aua
 aRG
-ark
+aJK
 aBT
 aBT
 aLN
@@ -48441,7 +48319,7 @@ aAV
 apk
 aYS
 aOB
-aHq
+aOB
 aBT
 aLN
 aiL
@@ -50016,7 +49894,7 @@ aKN
 aKN
 aKN
 aKN
-asS
+aKN
 abV
 aLN
 aiL
@@ -50331,7 +50209,7 @@ aAl
 aAl
 aAl
 aAl
-aCj
+aAl
 aMA
 aMA
 awK
@@ -51012,7 +50890,7 @@ aLY
 apk
 aOB
 aOB
-aHq
+aOB
 aBT
 aKJ
 azx
@@ -51286,7 +51164,7 @@ atV
 atV
 atV
 atV
-aqb
+atV
 aEK
 aDe
 aiL
@@ -52096,7 +51974,7 @@ aYw
 aDV
 ahQ
 ahQ
-asV
+ajN
 asu
 asu
 aHC
@@ -53859,7 +53737,7 @@ aOT
 acg
 auX
 ady
-aSR
+akP
 aBT
 aBT
 afW
@@ -56183,7 +56061,7 @@ ajL
 adM
 adM
 aeQ
-ajs
+aKL
 aBT
 aIr
 aLN
@@ -56633,7 +56511,7 @@ afG
 afG
 afG
 aod
-aXT
+aod
 aod
 aod
 awx
@@ -57155,7 +57033,7 @@ acY
 aaA
 aWC
 aFI
-aRr
+acY
 acY
 acY
 acY
@@ -57459,7 +57337,7 @@ acY
 adw
 adw
 acY
-aRr
+acY
 aHE
 aRE
 aod
@@ -57994,7 +57872,7 @@ aIr
 aBT
 afW
 aod
-aXT
+aod
 avJ
 avJ
 avJ
@@ -60570,7 +60448,7 @@ avJ
 avJ
 avJ
 avJ
-aBW
+aEo
 aEo
 aEo
 aEo
@@ -60590,7 +60468,7 @@ aEo
 aEo
 aEo
 aEo
-aBW
+aEo
 aEo
 aEo
 aKl

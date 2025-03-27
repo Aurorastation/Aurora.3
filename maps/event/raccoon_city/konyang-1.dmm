@@ -1233,7 +1233,7 @@
 /obj/item/clothing/accessory/konyang{
 	color = "#0000FF"
 	},
-/obj/random/konyang_gun/pistols,
+/obj/random/gun_with_ammo/pistols,
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/hotel)
 "baW" = (
@@ -2321,7 +2321,7 @@
 /area/point_verdant/interior/bar)
 "bRr" = (
 /obj/structure/table/rack,
-/obj/random/konyang_gun/automatic,
+/obj/random/gun_with_ammo/automatic,
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -2758,7 +2758,7 @@
 /area/point_verdant/interior)
 "cmB" = (
 /obj/structure/undies_wardrobe,
-/obj/random/konyang_gun/automatic,
+/obj/random/gun_with_ammo/automatic,
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
 "cmC" = (
@@ -4912,7 +4912,7 @@
 	pixel_y = 9;
 	pixel_x = 3
 	},
-/obj/random/konyang_gun/automatic,
+/obj/random/gun_with_ammo/automatic,
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/decrepit)
 "dVF" = (
@@ -5002,7 +5002,7 @@
 /obj/item/ammo_magazine/c45/revolver,
 /obj/item/ammo_magazine/c45/revolver,
 /obj/item/ammo_magazine/c45/revolver,
-/obj/random/konyang_gun/pistols,
+/obj/random/gun_with_ammo/pistols,
 /turf/simulated/floor/tiled/dark,
 /area/point_verdant/interior/police)
 "dYH" = (
@@ -5898,7 +5898,7 @@
 /area/point_verdant/interior)
 "eMP" = (
 /obj/structure/table/rack,
-/obj/random/konyang_gun/pistols,
+/obj/random/gun_with_ammo/pistols,
 /obj/machinery/light{
 	pixel_y = -2
 	},
@@ -7469,7 +7469,7 @@
 "gaT" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate,
-/obj/random/konyang_gun/pistols,
+/obj/random/gun_with_ammo/pistols,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/reinforced,
@@ -8964,7 +8964,7 @@
 	pixel_y = 5
 	},
 /obj/random/dirt_75,
-/obj/random/konyang_gun/automatic,
+/obj/random/gun_with_ammo/automatic,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "hlu" = (
@@ -9384,7 +9384,7 @@
 "hBs" = (
 /obj/structure/table/rack,
 /obj/item/clothing/suit/armor/carrier/generic,
-/obj/random/konyang_gun/pistols,
+/obj/random/gun_with_ammo/pistols,
 /turf/simulated/floor/tiled/dark,
 /area/point_verdant/interior)
 "hBu" = (
@@ -10007,7 +10007,7 @@
 /obj/structure/closet/cabinet,
 /obj/item/melee/telebaton,
 /obj/item/clothing/glasses/sunglasses/aviator,
-/obj/random/konyang_gun/pistols,
+/obj/random/gun_with_ammo/pistols,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/police)
 "idk" = (
@@ -10030,7 +10030,7 @@
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
 "ien" = (
-/obj/structure/closet/secure_closet/freezer/kitchen,
+/obj/structure/closet/secure_closet/freezer/meat,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior)
 "ier" = (
@@ -10385,7 +10385,7 @@
 /area/point_verdant/interior/tunnels)
 "ipE" = (
 /obj/structure/table/rack,
-/obj/random/konyang_gun/automatic,
+/obj/random/gun_with_ammo/automatic,
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/point_verdant/interior)
@@ -10643,7 +10643,7 @@
 /area/point_verdant/outdoors)
 "iyB" = (
 /obj/structure/undies_wardrobe,
-/obj/random/konyang_gun/pistols,
+/obj/random/gun_with_ammo/pistols,
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
 "iyQ" = (
@@ -11127,7 +11127,7 @@
 /obj/item/clothing/suit/storage/toggle/konyang/orange,
 /obj/item/clothing/suit/storage/toggle/konyang/dbjacket,
 /obj/item/reagent_containers/glass/rag,
-/obj/random/konyang_gun/automatic,
+/obj/random/gun_with_ammo/automatic,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/hotel)
 "iSi" = (
@@ -12038,7 +12038,7 @@
 /area/point_verdant/interior)
 "jDi" = (
 /obj/structure/closet/crate,
-/obj/random/konyang_gun/pistols,
+/obj/random/gun_with_ammo/pistols,
 /obj/machinery/light{
 	dir = 1;
 	pixel_y = 24
@@ -12239,7 +12239,7 @@
 /obj/random/junk,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/random/konyang_gun/pistols,
+/obj/random/gun_with_ammo/pistols,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior)
 "jLQ" = (
@@ -12853,7 +12853,7 @@
 /obj/item/device/flash,
 /obj/item/device/flash,
 /obj/item/device/flash,
-/obj/random/konyang_gun/pistols,
+/obj/random/gun_with_ammo/pistols,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "kmL" = (
@@ -13362,7 +13362,7 @@
 	dir = 8
 	},
 /obj/item/inflatable_duck,
-/obj/random/konyang_gun/pistols,
+/obj/random/gun_with_ammo/pistols,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/sewer)
 "kGH" = (
@@ -13736,7 +13736,7 @@
 /area/point_verdant/interior)
 "kUf" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/closet/secure_closet/freezer/kitchen,
+/obj/structure/closet/secure_closet/freezer/meat,
 /turf/simulated/floor/tiled/freezer,
 /area/point_verdant/interior)
 "kUQ" = (
@@ -13757,7 +13757,7 @@
 	pixel_y = 5
 	},
 /obj/random/dirt_75,
-/obj/random/konyang_gun/pistols,
+/obj/random/gun_with_ammo/pistols,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "kVg" = (
@@ -15242,7 +15242,7 @@
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
 "mih" = (
-/obj/structure/automobile/random{
+/obj/random/automobile{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -15525,7 +15525,7 @@
 /area/point_verdant/interior)
 "msV" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/closet/secure_closet/freezer/kitchen,
+/obj/structure/closet/secure_closet/freezer/meat,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/freezer,
@@ -16094,7 +16094,7 @@
 /obj/item/device/camera_film,
 /obj/item/device/camera_film,
 /obj/item/device/camera_film,
-/obj/random/konyang_gun/pistols,
+/obj/random/gun_with_ammo/pistols,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/police)
 "mPc" = (
@@ -16211,7 +16211,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/random/konyang_gun/pistols,
+/obj/random/gun_with_ammo/pistols,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "mSD" = (
@@ -16555,7 +16555,7 @@
 /area/point_verdant/interior)
 "ngD" = (
 /obj/structure/table/rack,
-/obj/random/konyang_gun/automatic,
+/obj/random/gun_with_ammo/automatic,
 /obj/machinery/light{
 	dir = 1;
 	pixel_y = 24
@@ -16712,7 +16712,7 @@
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/interior/tunnels)
 "nnG" = (
-/obj/structure/automobile/random{
+/obj/random/automobile{
 	dir = 8;
 	pixel_y = 12
 	},
@@ -17374,7 +17374,7 @@
 "nQj" = (
 /obj/structure/table/rack,
 /obj/item/clothing/suit/armor/carrier/generic,
-/obj/random/konyang_gun/pistols,
+/obj/random/gun_with_ammo/pistols,
 /obj/machinery/light{
 	dir = 1;
 	pixel_y = 24
@@ -18214,7 +18214,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/random/konyang_gun/pistols,
+/obj/random/gun_with_ammo/pistols,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/police)
 "oxS" = (
@@ -19798,7 +19798,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/sewer)
 "pQN" = (
-/obj/random/konyang_gun/automatic,
+/obj/random/gun_with_ammo/automatic,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior/tunnels)
 "pQV" = (
@@ -20665,7 +20665,7 @@
 	pixel_x = 8;
 	pixel_y = -2
 	},
-/obj/random/konyang_gun/pistols,
+/obj/random/gun_with_ammo/pistols,
 /obj/item/device/radio,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/tunnels)
@@ -20731,7 +20731,7 @@
 /area/point_verdant/interior/streetvendor)
 "qDm" = (
 /obj/structure/table/rack,
-/obj/random/konyang_gun/pistols,
+/obj/random/gun_with_ammo/pistols,
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/item/handcuffs,
 /obj/random/dirt_75,
@@ -22096,7 +22096,7 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior/hotel)
 "rGi" = (
-/obj/random/konyang_gun/pistols,
+/obj/random/gun_with_ammo/pistols,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior/tunnels)
 "rGW" = (
@@ -24678,7 +24678,7 @@
 /turf/simulated/floor/plating,
 /area/point_verdant/interior)
 "tCI" = (
-/obj/structure/automobile/random{
+/obj/random/automobile{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -26464,7 +26464,7 @@
 /area/point_verdant/interior)
 "vhQ" = (
 /obj/structure/closet/crate,
-/obj/random/konyang_gun/automatic,
+/obj/random/gun_with_ammo/automatic,
 /obj/machinery/light{
 	pixel_y = -2
 	},
@@ -28329,7 +28329,7 @@
 	pixel_y = 5
 	},
 /obj/random/dirt_75,
-/obj/random/konyang_gun/pistols,
+/obj/random/gun_with_ammo/pistols,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "wCM" = (
@@ -28521,7 +28521,7 @@
 	},
 /obj/item/clothing/suit/armor/carrier/riot,
 /obj/item/clothing/head/helmet/riot,
-/obj/random/konyang_gun/pistols,
+/obj/random/gun_with_ammo/pistols,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/police)
 "wHn" = (
@@ -28670,7 +28670,7 @@
 /obj/structure/bed/stool/chair{
 	dir = 4
 	},
-/obj/random/konyang_gun/pistols,
+/obj/random/gun_with_ammo/pistols,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior)
 "wNo" = (
@@ -28802,7 +28802,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/random/konyang_gun/automatic,
+/obj/random/gun_with_ammo/automatic,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/spaceport)
 "wTE" = (
@@ -28854,7 +28854,7 @@
 	dir = 8
 	},
 /obj/structure/automobile_filler,
-/obj/random/konyang_gun/pistols,
+/obj/random/gun_with_ammo/pistols,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/outdoors)
 "wUK" = (
@@ -30160,7 +30160,7 @@
 "ygI" = (
 /obj/structure/table/rack,
 /obj/item/clothing/suit/armor/carrier/generic,
-/obj/random/konyang_gun/pistols,
+/obj/random/gun_with_ammo/pistols,
 /obj/machinery/light{
 	pixel_y = -2
 	},
