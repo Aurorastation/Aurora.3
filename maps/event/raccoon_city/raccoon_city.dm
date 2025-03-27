@@ -2,7 +2,7 @@
 	name = "Point Verdant"
 	full_name = "Point Verdant"
 	path = "event/raccoon_city"
-	lobby_icon_image_paths = list('icons/misc/titlescreens/raccoon_city/title.png')
+	lobby_icon_image_paths = list(list('icons/misc/titlescreens/raccoon_city/title.png'))
 	lobby_transitions = 0
 
 	allowed_jobs = list(/datum/job/visitor, /datum/job/passenger)
@@ -33,8 +33,9 @@
 
 	use_overmap = FALSE
 	force_spawnpoint = TRUE
+
 	map_shuttles = list(
-		///datum/shuttle/autodock/ferry/event_transport,
+		/datum/shuttle/autodock/ferry/event_transport,
 	)
 
 /area/shuttle/scc
