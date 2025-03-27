@@ -10,4 +10,4 @@
 		dat += "<li>[l]</li>"
 	if(!GLOB.admin_log.len)
 		dat += "No-one has done anything this round!"
-	user << browse(dat, "window=admin_log")
+	user << browse(HTML_SKELETON(dat), "window=admin_log")

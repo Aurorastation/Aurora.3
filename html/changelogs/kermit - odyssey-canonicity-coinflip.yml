@@ -1,0 +1,7 @@
+author: kermit
+
+delete-after: True
+
+changes:
+  - rscadd: "Allows Odyssey Scenarios to have a list of possible canonicities set per scenario."
+  - rscadd: "The Ruined Propellant Depot now has Non-Canon and Canon as options to pick from."

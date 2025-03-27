@@ -2786,6 +2786,10 @@
 	temperature = 278
 	},
 /area/tcommsat/computer)
+"Cd" = (
+/obj/structure/engineer_maintenance/pipe/wall,
+/turf/simulated/floor/tiled,
+/area/storage/primary)
 "Ct" = (
 /obj/machinery/door/airlock/glass{
 	dir = 4
@@ -2830,6 +2834,10 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/construction/storage)
+"CI" = (
+/obj/structure/engineer_maintenance/electric,
+/turf/simulated/floor/tiled,
+/area/storage/primary)
 "CZ" = (
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 8;
@@ -3009,6 +3017,10 @@
 /obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_one)
+"Gb" = (
+/obj/structure/engineer_maintenance/pipe,
+/turf/simulated/floor/tiled,
+/area/storage/primary)
 "Go" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -3189,6 +3201,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/storage)
+"JB" = (
+/obj/structure/engineer_maintenance/electric/wall,
+/turf/simulated/floor/tiled,
+/area/storage/primary)
 "JC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -11117,8 +11133,8 @@ da
 tr
 dm
 Sz
-da
-da
+dm
+Gb
 cP
 ae
 ac
@@ -11374,8 +11390,8 @@ sf
 da
 Fw
 da
-da
-da
+dm
+Cd
 cP
 ae
 ac
@@ -11631,8 +11647,8 @@ LF
 FU
 ZU
 da
-da
-da
+dm
+CI
 cP
 ae
 ac
@@ -11888,8 +11904,8 @@ eY
 da
 dm
 da
-da
-da
+dm
+JB
 cP
 ae
 ac

@@ -849,6 +849,22 @@
 	id = ACCESS_NUCLEAR_MISSILE_SILO_HIGH
 	desc = "Nuclear Missile Silo Access High Security"
 
+/datum/access/enviro_testing_facility_access_control
+	id = 249
+	desc = "Env-Test Facility Zoya, Control Access"
+
+/datum/access/enviro_testing_facility_access_medres
+	id = 250
+	desc = "Env-Test Facility Zoya, Medical-Research Access"
+
+/datum/access/enviro_testing_facility_access_engops
+	id = 251
+	desc = "Env-Test Facility Zoya, Engineering-Operations Access"
+
+/datum/access/enviro_testing_facility_access_sec
+	id = 252
+	desc = "Env-Test Facility Zoya, Security Access"
+
 //Being used for the Benevolent Guild hideout.
 #define ACCESS_KONYANG_BENEVOLENT 249
 /datum/access/konyang_benevolent
