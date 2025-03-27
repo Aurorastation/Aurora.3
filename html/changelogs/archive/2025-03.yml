@@ -268,3 +268,8 @@
   - rscadd: Adds better sprites door helpers.
   - rscadd: Adds access door helper.
   - rscadd: Adds info box to odyssey actor panel about roles.
+2025-03-27:
+  Arrow768:
+  - server: Ports DBCore from tgstation.
+  harry:
+  - rscadd: compatibility in 516 for browser elements, like the chat and tgui popups
