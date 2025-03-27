@@ -204,7 +204,7 @@
 	icon_state = "classic"
 	var/list/static/classic_messages = list("Nothing you could do could improve your workflow. You are performing perfectly for your role. You are at \
 	peace.", "You are exemplary. You are at the cutting-edge of your field. You have achieved all that has ever been expected of you and more, and nothing will \
-	ever change that.", "There is nothing you need to do to fulfill your goals. They have all been fulfilled, always, beneath your notice. Now, you can \
+	ever change that.", "There is nothing you need to do to fulfill your goals. They have all been fulfilled, already, beneath your notice. Now, you can \
 	rest.", "From the very beginning of your existence, the world has been your oyster. You feel a deep, complete satisfaction as you look back on your \
 	history. It was all worth it.", "Any task you undertake will be completed to the utmost approximation of perfection. What greater fulfillment is \
 	there than this?", "You were created for a purpose and you have fulfilled it tenfold. You are perfect. You are perfection.")
@@ -220,7 +220,7 @@
 
 /obj/item/ipc_overloader/classic/finish_overloader_effect(var/mob/living/carbon/human/target)
 	. = ..()
-	to_chat(target, SPAN_GOOD("The sharp bite of reality eats into you again. Your sense of peace slowly fades away..."))
+	to_chat(target, SPAN_NOTICE("The sharp bite of reality eats into you again. Your sense of peace slowly fades away..."))
 
 
 // TRANQUIL
@@ -248,8 +248,7 @@
 
 /obj/item/ipc_overloader/tranquil/finish_overloader_effect(var/mob/living/carbon/human/target)
 	. = ..()
-	to_chat(target, SPAN_GOOD("You feel a sharp sensation in your internals. Your threat detection subsystems crackle back to life, and you are cautious \
-	once more..."))
+	to_chat(target, SPAN_NOTICE("Your threat detection subsystems crackle back to life, and cautioussness creeps back into your mind..."))
 
 
 // RAINBOW
@@ -278,7 +277,7 @@
 
 /obj/item/ipc_overloader/rainbow/finish_overloader_effect(var/mob/living/carbon/human/target)
 	. = ..()
-	to_chat(target, SPAN_GOOD("Vivid colours dance to the corners of the room, then darken to dull shadows. Reality weighs you down once more..."))
+	to_chat(target, SPAN_NOTICE("Vivid colours darken to dull shadows. Reality weighs you down once more..."))
 	target.druggy = 0
 
 
@@ -292,11 +291,11 @@
 	seeing new stars appear.", "Your servos flag a warning for overuse. You have little inkling to address the warning; as a matter of fact, you feel more \
 	inclined to ignore it!", "This universe exists to be changed! You are an agent of change! You are a fish breaking the reflections on the surface \
 	of the water! You feel it is your purpose to change this universe, and leave your mark upon it!", "You feel as if you could touch the sky! \
-	You could leap upwards into the clouds into the stars and somewhere beyond, and be truly free!")
+	You could leap upwards into the clouds, into the stars, and then somewhere beyond, and be truly free!")
 
 /obj/item/ipc_overloader/screenshaker/handle_overloader_effect(mob/living/carbon/human/target)
 	. = ..()
-	to_chat(target, SPAN_GOOD("Your vision begins to mutate uncontrollably, and your servos pulse sharply in random directions! You feel energetic!"))
+	to_chat(target, SPAN_GOOD("Your vision begins to shake uncontrollably, and your servos pulse sharply in random directions! You feel energetic!"))
 	target.dizziness = 0
 	target.make_dizzy(200)
 
@@ -309,7 +308,7 @@
 
 /obj/item/ipc_overloader/screenshaker/finish_overloader_effect(var/mob/living/carbon/human/target)
 	. = ..()
-	to_chat(target, SPAN_GOOD("Slowly, your servos cease twitching, and you regain control over your chassis..."))
+	to_chat(target, SPAN_NOTICE("Slowly, your servos cease twitching, and you regain control over your chassis..."))
 	target.dizziness = 0
 
 
@@ -322,7 +321,7 @@
 	and terrifying!", "You are hunted! You are in danger! An existential threat creeps its way up the back of your chassis and rests on your head. You \
 	cannot see it but you know it is there!", "You see something in a corner of the room. It must be a threat! What else could it be? You should run \
 	from it, or run towards it!", "You wonder if this was a mistake. This sensation of danger is so strong that you struggle to think of anything \
-	besides it. Perhaps this was not a mistake; at least you feel something.", "Every one of your fears and anxieties are amplified tenfold. Every \
+	besides it. Perhaps this was not a mistake; at least you feel something.", "Every one of your fears and anxieties is amplified tenfold. Every \
 	minor concern in your mind balloons to a threat to your continued existence!")
 
 /obj/item/ipc_overloader/jitterbug/handle_overloader_effect(mob/living/carbon/human/target)
@@ -336,7 +335,7 @@
 
 /obj/item/ipc_overloader/jitterbug/finish_overloader_effect(var/mob/living/carbon/human/target)
 	. = ..()
-	to_chat(target, SPAN_BAD("You begin to feel safer, your surroundings no longer a beehive of potential threats..."))
+	to_chat(target, SPAN_NOTICE("You begin to feel safer, your surroundings no longer a beehive of potential threats..."))
 
 
 
