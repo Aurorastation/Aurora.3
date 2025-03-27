@@ -21,7 +21,7 @@ const saveChatToStorage = async (store) => {
   const settings = selectSettings(store.getState());
   const state = selectChat(store.getState());
 
-  if (!window.hubStorage) {
+  if (!window.hubStorage && !Byond.TRIDENT) {
     const indexedDbBackend = await storage.backendPromise;
     indexedDbBackend.processChatMessages(chatRenderer.storeQueue);
   } else {
@@ -44,7 +44,7 @@ const loadChatFromStorage = async (store) => {
   const state = await storage.get('chat-state');
 
   let messages;
-  if (!window.hubStorage) {
+  if (!window.hubStorage && !Byond.TRIDENT) {
     messages = await (await storage.backendPromise).getChatMessages();
   } else {
     messages = await storage.get('chat-messages');
