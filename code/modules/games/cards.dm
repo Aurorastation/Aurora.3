@@ -13,14 +13,14 @@
 /obj/item/deck/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if (user.a_intent == I_HURT)
 		. = ..()
-	if(cards.len)
+	if(length(cards))
 		if(target_mob == user)
 			attack_self(user)
 		else
 			deal_card(user, target_mob)
 
 /obj/item/deck/attack_self(mob/user, modifiers)
-	if(cards.len && (user.l_hand == src || user.r_hand == src))
+	if(length(cards) && (user.l_hand == src || user.r_hand == src))
 		deal_card(user, user)
 	. = ..()
 
@@ -58,7 +58,7 @@
 		cards += P
 
 /obj/item/deck/attack_hand(mob/user)
-	if(cards.len && (user.l_hand == src || user.r_hand == src))
+	if(length(cards))
 		deal_card(user, user)
 	else
 		..()
@@ -85,7 +85,7 @@
 		return
 	if(!iscarbon(user))
 		to_chat(user, SPAN_WARNING("Your simple form can't operate \the [src]."))
-	if(!cards.len)
+	if(!length(cards))
 		to_chat(usr, SPAN_WARNING("There are no cards in \the [src]."))
 		return
 
@@ -108,7 +108,7 @@
 	cards -= P
 	H.update_icon()
 	balloon_alert_to_viewers("<b>\The [user]</b> draws a card.")
-	if(!cards.len)
+	if(!length(cards))
 		qdel(src)
 
 /obj/item/deck/verb/pickcard()
@@ -124,7 +124,7 @@
 		return
 	if(!iscarbon(user))
 		to_chat(user, SPAN_WARNING("Your simple form can't operate \the [src]."))
-	if(!cards.len)
+	if(!length(cards))
 		to_chat(usr, SPAN_WARNING("There are no cards in \the [src]."))
 		return
 
@@ -152,7 +152,7 @@
 	cards -= P
 	H.update_icon()
 	balloon_alert_to_viewers("<b>\The [user]</b> picks out a card.")
-	if(!cards.len)
+	if(!length(cards))
 		qdel(src)
 
 /obj/item/deck/verb/dealcard()
@@ -168,7 +168,7 @@
 		return
 	if(!iscarbon(user))
 		to_chat(user, SPAN_WARNING("Your simple form can't operate \the [src]."))
-	if(!cards.len)
+	if(!length(cards))
 		to_chat(usr, SPAN_WARNING("There are no cards in \the [src]."))
 		return
 
@@ -187,7 +187,7 @@
 	if(istype(get_step(target,target.dir), /obj/machinery/door/window) || istype(get_step(target,target.dir), (/obj/structure/window)))
 		return // should stop you from dragging through windows
 
-	if(!cards.len)
+	if(!length(cards))
 		to_chat(user, SPAN_WARNING("There are no cards in the deck."))
 		return
 
@@ -203,7 +203,7 @@
 	user.do_attack_animation(src, null)
 	balloon_alert_to_viewers("<b>\The [user]</b> deals a card.")
 	H.throw_at(get_step(target,target.dir), 10, 1, user, FALSE)
-	if(!cards.len)
+	if(!length(cards))
 		qdel(src)
 
 /obj/item/hand/attackby(obj/item/attacking_item, mob/user)
@@ -239,7 +239,7 @@
 /obj/item/deck/AltClick(var/mob/user as mob)
 	. = ..()
 	var/list/newcards = list()
-	while(cards.len)
+	while(length(cards))
 		var/datum/playingcard/P = pick(cards)
 		newcards += P
 		cards -= P
@@ -286,7 +286,7 @@
 
 /obj/item/hand/MouseEntered(location, control, params)
 	. = ..()
-	if(cards.len == 1 && !concealed)
+	if(length(cards) == 1 && !concealed)
 		var/datum/playingcard/P = cards[1]
 		openToolTip(usr, src, params, P.name)
 
@@ -327,11 +327,11 @@
 	else
 		user.put_in_hands(H)
 
-	if(!cards.len)
+	if(!length(cards))
 		qdel(src)
 
 /obj/item/hand/attack_hand(mob/user)
-	if(cards.len > 1 && (user.l_hand == src || user.r_hand == src))
+	if(length(cards) > 1 && (user.l_hand == src || user.r_hand == src))
 		pick_card(user, FALSE)
 	else
 		..()
@@ -356,8 +356,8 @@
 
 /obj/item/hand/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	if((!concealed || src.loc == user) && cards.len)
-		if(cards.len > 1)
+	if((!concealed || src.loc == user) && length(cards))
+		if(length(cards) > 1)
 			. += "It contains: "
 		for(var/datum/playingcard/P in cards)
 			. += "The [P.name]. [P.desc ? "<i>[P.desc]</i>" : ""]"
@@ -367,10 +367,10 @@
 		randpixel = 0
 		randpixel_xy(0)
 
-	if(!cards.len)
+	if(!length(cards))
 		qdel(src)
 		return
-	else if(cards.len > 1)
+	else if(length(cards) > 1)
 		name = "hand of cards"
 		desc = "Some playing cards."
 	else
@@ -379,13 +379,13 @@
 
 	ClearOverlays()
 
-	if(cards.len == 1)
+	if(length(cards) == 1)
 		var/datum/playingcard/P = cards[1]
 		var/image/I = new(src.icon, (concealed ? "[P.back_icon]" : "[P.card_icon]") )
 		AddOverlays(I)
 		return
 
-	var/offset = FLOOR(20/cards.len, 1)
+	var/offset = FLOOR(20/length(cards), 1)
 
 	var/matrix/M = matrix()
 	if(direction)
@@ -439,7 +439,7 @@
 		return
 	if(!iscarbon(user))
 		to_chat(user, SPAN_WARNING("Your simple form can't operate \the [src]."))
-	if(!cards.len)
+	if(!length(cards))
 		to_chat(usr, SPAN_WARNING("There are no cards in \the [src]."))
 		return
 	if(!deck_type)
