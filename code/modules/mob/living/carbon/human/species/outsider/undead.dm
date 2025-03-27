@@ -226,10 +226,65 @@
 
 	gluttonous = 1
 	show_ssd = null
+	var/static/list/obstacles = list(
+		/obj/structure/window,
+		/obj/structure/closet,
+		/obj/machinery/door/airlock,
+		/obj/structure/table,
+		/obj/structure/grille,
+		/obj/structure/barricade,
+		/obj/structure/window_frame,
+		/obj/structure/railing,
+		/obj/structure/girder,
+		/turf/simulated/wall,
+		/obj/machinery/door/blast/shutters,
+		/obj/machinery/door,
+		/obj/structure/chainlink_fence,
+		/obj/structure/railing
+	)
 
 /mob/living/carbon/human/zombie/Initialize(mapload)
 	. = ..(mapload, SPECIES_ZOMBIE)
-	set_name("zombie")
+	var/list/possible_outfits = list(
+		/obj/outfit/admin/konyang/cop,
+		/obj/outfit/admin/konyang/clinic,
+		/obj/outfit/admin/konyang/firewatcher,
+		/obj/outfit/admin/konyang/goon,
+		/obj/outfit/admin/konyang/gwok,
+		/obj/outfit/admin/konyang/homesteader,
+		/obj/outfit/admin/konyang/pharm,
+		/obj/outfit/admin/konyang/utility,
+		/obj/outfit/admin/konyang/vendor,
+		/obj/outfit/admin/konyang/villager,
+		/obj/outfit/admin/konyang/zh,
+		/obj/outfit/admin/konyang/army_response/mechpilot,
+		/obj/outfit/admin/konyang/army_response/officer
+	)
+	var/obj/outfit/O = pick(possible_outfits)
+	preEquipOutfit(O, FALSE)
+	equipOutfit(O, FALSE)
+
+	// This zombie will drop loot.
+	if(prob(25))
+		var/list/possible_loot = list(
+			/obj/random/gun_with_ammo/pistols,
+			/obj/random/splints,
+			/obj/random/med_stack,
+			/obj/random/light,
+			/obj/random/survival_weapon,
+			/obj/random/tool,
+			/obj/random/barbed_wire,
+			/obj/random/barricade_materials
+		)
+		var/loot_amount = rand(1, 3)
+		for(var/i = 1 to loot_amount)
+			var/loot_type = pick(possible_loot)
+			new loot_type(back)
+	else
+		var/obj/item/I = back
+		drop_from_inventory(back)
+		qdel(I)
+	regenerate_icons()
 
 /datum/species/zombie/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.mutations |= CLUMSY
@@ -346,6 +401,11 @@
 			if (prob(33) && isturf(H.loc) && !H.pulledby)
 				var/turf/T = get_step(H, pick(GLOB.cardinals))
 				H.SelfMove(T, get_dir(H, T))
+
+/mob/living/carbon/human/zombie/adminspawn/Initialize(mapload)
+	thinking_enabled = FALSE
+	. = ..()
+	SSghostroles.add_spawn_atom("aszombie", src)
 
 /datum/species/zombie/tajara
 	name = SPECIES_ZOMBIE_TAJARA
@@ -469,6 +529,7 @@
 
 /mob/living/carbon/human/bull/Initialize(mapload, new_species)
 	. = ..(mapload, SPECIES_ZOMBIE_BULL)
+	SSghostroles.add_spawn_atom("szombie", src)
 
 ///A zombie tuned to hunt preys
 /datum/species/zombie/hunter
@@ -503,6 +564,7 @@
 
 /mob/living/carbon/human/hunter/Initialize(mapload, new_species)
 	. = ..(mapload, SPECIES_ZOMBIE_HUNTER)
+	SSghostroles.add_spawn_atom("szombie", src)
 
 ///A zombie tuned for charge attacks
 /datum/species/zombie/rhino
@@ -548,6 +610,7 @@
 
 /mob/living/carbon/human/rhino/Initialize(mapload, new_species)
 	. = ..(mapload, SPECIES_ZOMBIE_RHINO)
+	SSghostroles.add_spawn_atom("szombie", src)
 
 /mob/living/carbon/proc/consume()
 	set name = "Consume"
