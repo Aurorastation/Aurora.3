@@ -116,12 +116,16 @@
 /mob/verb/say_wrapper()
 	set name = ".Say"
 	set hidden = TRUE
-	winset(src, null, "command=[client.tgui_say_create_open_command(SAY_CHANNEL)]")
+	var/message = input("","say (text)") as text|null
+	if(message)
+		say_verb(message)
 
 /mob/verb/me_wrapper()
 	set name = ".Me"
 	set hidden = TRUE
-	winset(src, null, "command=[client.tgui_say_create_open_command(ME_CHANNEL)]")
+	var/message = input("","me (text)") as text|null
+	if(message)
+		me_verb(message)
 
 /client/verb/typing_indicator()
 	set name = "Show/Hide Typing Indicator"
