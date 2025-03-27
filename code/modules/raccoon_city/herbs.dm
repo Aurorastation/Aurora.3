@@ -4,7 +4,7 @@
 			and heal some organ damage.</span> It can be combined with a red herb to make a stronger herb."
 	icon = 'icons/obj/raccoon_city/herbs.dmi'
 	icon_state = "green"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	force = 1
 	var/herb_type = "green"
 

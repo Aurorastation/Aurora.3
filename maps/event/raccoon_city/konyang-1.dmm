@@ -2794,7 +2794,7 @@
 /turf/simulated/floor/plating,
 /area/point_verdant/interior)
 "coN" = (
-/obj/structure/flora/pottedplant/orientaltree,
+/obj/structure/flora/pottedplant/cherrytree,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
 "cqb" = (
@@ -25276,7 +25276,7 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/offices/kaf)
 "tZM" = (
-/obj/structure/flora/pottedplant/orientaltree,
+/obj/structure/flora/pottedplant/cherrytree,
 /turf/simulated/floor/sidewalk/dark,
 /area/point_verdant/interior)
 "uat" = (
