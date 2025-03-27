@@ -712,7 +712,7 @@
 		/obj/item/storage/box/gloves,
 		/obj/item/clothing/gloves/latex,
 		/obj/item/clothing/gloves/latex/nitrile,
-		/obj/item/clothing/glasses/science,
+		/obj/item/clothing/glasses/safety,
 		/obj/item/stock_parts/micro_laser/high,
 		/obj/item/device/analyzer,
 		/obj/item/device/robotanalyzer,

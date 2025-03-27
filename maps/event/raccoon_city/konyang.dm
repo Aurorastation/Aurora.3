@@ -14,8 +14,6 @@
 		list(ZTRAIT_STATION = TRUE, ZTRAIT_UP = TRUE, ZTRAIT_DOWN = TRUE),
 		//Z3
 		list(ZTRAIT_STATION = TRUE, ZTRAIT_UP = FALSE, ZTRAIT_DOWN = TRUE),
-		//Centcomm
-		ZTRAITS_CENTCOM
 	)
 
 	admin_levels = list(4)

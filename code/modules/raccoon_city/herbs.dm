@@ -48,7 +48,7 @@
 	for(var/obj/item/organ/internal/I in H.internal_organs)
 		if((I.damage > 0) && (I.robotic != 2))
 			I.damage = max(I.damage - 15, 0)
-	H.add_blood_simple(H.bloodstr.total_volume * 0.15)
+	//H.add_blood_simple(H.bloodstr.total_volume * 0.15)
 	return TRUE
 
 /obj/item/herb/red
@@ -64,7 +64,7 @@
 	for(var/obj/item/organ/internal/I in H.internal_organs)
 		if((I.damage > 0) && (I.robotic != 2))
 			I.damage = max(I.damage - 5, 0)
-	H.add_blood_simple(H.bloodstr.total_volume * 0.10)
+	//H.add_blood_simple(H.bloodstr.total_volume * 0.10)
 	return TRUE
 
 /obj/item/herb/mixed
@@ -81,4 +81,4 @@
 		if((I.damage > 0) && (I.robotic != 2))
 			I.damage = max(I.damage - 25, 0)
 	H.bloodstr.add_reagent(/singleton/reagent/adipemcina, 10)
-	H.add_blood_simple(H.bloodstr.total_volume * 0.25)
+	//H.add_blood_simple(H.bloodstr.total_volume * 0.25)

@@ -51,5 +51,6 @@
 
 	. = ..()
 
-/obj/machinery/computer/shuttle_control/event_transport/ui_data_more()
+/*/obj/machinery/computer/shuttle_control/event_transport/ui_data_more()
 	. = list("auth_code" = auth_code)
+*/

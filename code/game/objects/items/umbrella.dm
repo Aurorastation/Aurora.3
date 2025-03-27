@@ -2,7 +2,7 @@
 	name = "umbrella"
 	desc = "A perfect tool to protect you from the elements."
 	icon = 'icons/obj/item/umbrellas.dmi'
-	icon_state = "umbrella_yellow_closed"
+	icon_state = "umbrella_yellow"
 	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	matter = list(MATERIAL_PLASTIC = 1000)
