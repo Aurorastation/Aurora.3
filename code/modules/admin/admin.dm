@@ -338,7 +338,7 @@ var/global/enabled_spooking = 0
 		dat += "<A href='byond://?src=[REF(src)];add_player_info=[key]'>Add Comment</A><br>"
 
 		dat += "</body></html>"
-		show_browser(usr, dat, "window=adminplayerinfo;size=480x480")
+		show_browser(usr, HTML_SKELETON(dat), "window=adminplayerinfo;size=480x480")
 	else
 		show_notes_sql(key)
 
