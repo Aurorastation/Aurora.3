@@ -56,4 +56,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
   - bugfix: "Nanopaste no longer becomes invisible on character sprites after being partially used."
-  - rscadd: "Nanopaste now uses contained sprites."
+  - refactor: "Nanopaste now uses contained sprites."
