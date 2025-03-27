@@ -206,9 +206,10 @@
 /mob/living/emp_act(severity)
 	. = ..()
 
-	var/list/L = src.get_contents()
-	for(var/obj/O in L)
-		O.emp_act(severity)
+	//If no protection of the contents, apply the EMP effect to the contents
+	if(!(. & EMP_PROTECT_CONTENTS))
+		for(var/obj/O in get_contents())
+			O.emp_act(severity)
 
 /mob/living/flash_act(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, ignore_inherent = FALSE, type = /atom/movable/screen/fullscreen/flash, length = 2.5 SECONDS)
 	if(is_blind() && !(override_blindness_check || affect_silicon))

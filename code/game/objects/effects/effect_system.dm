@@ -93,7 +93,7 @@ would spawn and follow the beaker, even if it is carried or thrown.
 /////////////////////////////////////////////
 
 
-/obj/effect/effect/smoke
+/obj/effect/smoke
 	name = "smoke"
 	icon_state = "smoke"
 	opacity = 1
@@ -108,8 +108,9 @@ would spawn and follow the beaker, even if it is carried or thrown.
 	pixel_x = -32
 	pixel_y = -32
 
-/obj/effect/effect/smoke/New(var/loc, var/duration = 0)
-	..()
+/obj/effect/smoke/Initialize(mapload, duration = 0)
+	. = ..()
+
 	if (duration)
 		time_to_live = duration
 	addtimer(CALLBACK(src, PROC_REF(kill)), time_to_live)
@@ -120,19 +121,19 @@ would spawn and follow the beaker, even if it is carried or thrown.
 
 	AddElement(/datum/element/connect_loc, loc_connections)
 
-/obj/effect/effect/smoke/proc/kill()
+/obj/effect/smoke/proc/kill()
 	animate(src, alpha = 0, time = 2 SECONDS, easing = QUAD_EASING)
 	set_opacity(FALSE)
 
 	QDEL_IN(src, 2.5 SECONDS)
 
-/obj/effect/effect/smoke/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+/obj/effect/smoke/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	SIGNAL_HANDLER
 
 	if(istype(arrived, /mob/living/carbon))
 		affect(arrived)
 
-/obj/effect/effect/smoke/proc/affect(var/mob/living/carbon/M)
+/obj/effect/smoke/proc/affect(var/mob/living/carbon/M)
 	if (istype(M))
 		return 0
 	if (M.internal != null)
@@ -149,13 +150,13 @@ would spawn and follow the beaker, even if it is carried or thrown.
 // Illumination
 /////////////////////////////////////////////
 
-/obj/effect/effect/smoke/illumination
+/obj/effect/smoke/illumination
 	name = "illumination"
 	opacity = 0
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "sparks"
 
-/obj/effect/effect/smoke/illumination/New(var/newloc, var/brightness=15, var/lifetime=10)
+/obj/effect/smoke/illumination/New(var/newloc, var/brightness=15, var/lifetime=10)
 	time_to_live=lifetime
 	..()
 	set_light(brightness)
@@ -164,15 +165,15 @@ would spawn and follow the beaker, even if it is carried or thrown.
 // Bad smoke
 /////////////////////////////////////////////
 
-/obj/effect/effect/smoke/bad
+/obj/effect/smoke/bad
 	time_to_live = 200
 
-/obj/effect/effect/smoke/bad/Move()
-	..()
+/obj/effect/smoke/bad/Move()
+	. = ..()
 	for(var/mob/living/carbon/M in get_turf(src))
 		affect(M)
 
-/obj/effect/effect/smoke/bad/affect(var/mob/living/carbon/M)
+/obj/effect/smoke/bad/affect(var/mob/living/carbon/M)
 	if (!..())
 		return 0
 	M.drop_item()
@@ -183,7 +184,7 @@ would spawn and follow the beaker, even if it is carried or thrown.
 		spawn ( 20 )
 			M.coughedtime = 0
 
-/obj/effect/effect/smoke/bad/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+/obj/effect/smoke/bad/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0))
 		return TRUE
 
@@ -199,14 +200,14 @@ would spawn and follow the beaker, even if it is carried or thrown.
 // Sleep smoke
 /////////////////////////////////////////////
 
-/obj/effect/effect/smoke/sleepy
+/obj/effect/smoke/sleepy
 
-/obj/effect/effect/smoke/sleepy/Move()
-	..()
+/obj/effect/smoke/sleepy/Move()
+	. = ..()
 	for(var/mob/living/carbon/M in get_turf(src))
 		affect(M)
 
-/obj/effect/effect/smoke/sleepy/affect(mob/living/carbon/M)
+/obj/effect/smoke/sleepy/affect(mob/living/carbon/M)
 	if (!..())
 		return 0
 
@@ -222,16 +223,16 @@ would spawn and follow the beaker, even if it is carried or thrown.
 /////////////////////////////////////////////
 
 
-/obj/effect/effect/smoke/mustard
+/obj/effect/smoke/mustard
 	name = "mustard gas"
 	icon_state = "mustard"
 
-/obj/effect/effect/smoke/mustard/Move()
-	..()
+/obj/effect/smoke/mustard/Move()
+	. = ..()
 	for(var/mob/living/carbon/human/R in get_turf(src))
 		affect(R)
 
-/obj/effect/effect/smoke/mustard/affect(var/mob/living/carbon/human/R)
+/obj/effect/smoke/mustard/affect(var/mob/living/carbon/human/R)
 	if (!..())
 		return 0
 	if (R.wear_suit != null)
@@ -253,7 +254,7 @@ would spawn and follow the beaker, even if it is carried or thrown.
 /datum/effect/effect/system/smoke_spread
 	var/total_smoke = 0 // To stop it being spammed and lagging!
 	var/direction
-	var/smoke_type = /obj/effect/effect/smoke
+	var/smoke_type = /obj/effect/smoke
 	var/smoke_duration
 
 /datum/effect/effect/system/smoke_spread/set_up(n = 5, c = 0, loca, direct, duration = 0)
@@ -277,7 +278,7 @@ would spawn and follow the beaker, even if it is carried or thrown.
 		spawn(0)
 			if(holder)
 				src.location = get_turf(holder)
-			var/obj/effect/effect/smoke/smoke = new smoke_type(src.location)
+			var/obj/effect/smoke/smoke = new smoke_type(src.location)
 			src.total_smoke++
 			var/direction = src.direction
 			if(!direction)
@@ -294,14 +295,14 @@ would spawn and follow the beaker, even if it is carried or thrown.
 
 
 /datum/effect/effect/system/smoke_spread/bad
-	smoke_type = /obj/effect/effect/smoke/bad
+	smoke_type = /obj/effect/smoke/bad
 
 /datum/effect/effect/system/smoke_spread/sleepy
-	smoke_type = /obj/effect/effect/smoke/sleepy
+	smoke_type = /obj/effect/smoke/sleepy
 
 
 /datum/effect/effect/system/smoke_spread/mustard
-	smoke_type = /obj/effect/effect/smoke/mustard
+	smoke_type = /obj/effect/smoke/mustard
 
 /////////////////////////////////////////////
 //////// Attach a steam trail to an object (eg. a reacting beaker) that will follow it

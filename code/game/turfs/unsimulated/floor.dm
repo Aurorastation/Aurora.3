@@ -78,6 +78,14 @@
 	name = "Marker Turf, Blue"
 	color = "#2f519b"
 
+/turf/unsimulated/marker/yellow
+	name = "Marker Turf, Yellow"
+	color = "#ffda0b"
+
+/turf/unsimulated/marker/purple
+	name = "Marker Turf, Purple"
+	color = "#7e34f7"
+
 /turf/unsimulated/marker/teal
 	name = "Marker Turf, Teal"
 	color = "#008080"

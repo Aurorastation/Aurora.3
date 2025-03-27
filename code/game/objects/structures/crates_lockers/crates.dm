@@ -113,7 +113,8 @@
 	return ..()
 
 /obj/structure/closet/crate/Move(var/turf/destination, dir)
-	if(..())
+	. = ..()
+	if(.)
 		if (locate(/obj/structure/table) in destination)
 			if(locate(/obj/structure/table/rack) in destination)
 				set_tablestatus(ABOVE_TABLE)

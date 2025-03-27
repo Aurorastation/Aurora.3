@@ -14,6 +14,7 @@ import { THEMES } from '../themes';
 import { changeSettingsTab, updateSettings, addHighlightSetting, removeHighlightSetting, updateHighlightSetting } from './actions';
 import { SETTINGS_TABS, FONTS, MAX_HIGHLIGHT_SETTINGS } from './constants';
 import { selectActiveTab, selectSettings, selectHighlightSettings, selectHighlightSettingById } from './selectors';
+import { IMPL_IFRAME_INDEXED_DB, storage } from 'common/storage';
 
 export const SettingsPanel = (props, context) => {
   const activeTab = useSelector(context, selectActiveTab);
@@ -159,13 +160,19 @@ export const SettingsGeneral = (props, context) => {
             maxValue={32000}
             value={maxMessages}
             format={(value) => toFixed(value)}
-            onChange={(e, value) =>
+            onChange={(e, value) => {
+              storage.backendPromise.then((promise) => {
+                if (promise.impl === IMPL_IFRAME_INDEXED_DB) {
+                  promise.setNumberStored(value);
+                }
+              });
+
               dispatch(
                 updateSettings({
                   maxMessages: value,
                 })
-              )
-            }
+              );
+            }}
           />
         </LabeledList.Item>
       </LabeledList>

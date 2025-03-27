@@ -303,10 +303,6 @@ jobs:
           tools/bootstrap/python -m mapmerge2.dmm_test
           tools/bootstrap/python -m tools.maplint.source
 
-      - name: Scan DMMs
-        run: |
-          tools/bootstrap/python -m dmm_scanner.scan_camera_ctags
-
 ###########################################
 ############## GENERIC TESTS ##############
 ###########################################

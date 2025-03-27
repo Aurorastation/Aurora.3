@@ -110,6 +110,7 @@ class ChatRenderer {
     /** @type {HTMLElement} */
     this.rootNode = null;
     this.queue = [];
+    this.storeQueue = [];
     this.messages = [];
     this.visibleMessages = [];
     this.page = null;
@@ -326,6 +327,8 @@ class ChatRenderer {
     let node;
     for (let payload of batch) {
       const message = createMessage(payload);
+      let historical = message.stored;
+
       // Combine messages
       const combinable = this.getCombinableMessage(message);
       if (combinable) {
@@ -425,6 +428,10 @@ class ChatRenderer {
             imgNode.addEventListener('error', handleImageError);
           }
         }
+      }
+
+      if (!historical) {
+        this.storeQueue.push({ ...message, stored: true });
       }
       // Store the node in the message
       message.node = node;
@@ -572,13 +579,13 @@ class ChatRenderer {
       + '</body>\n'
       + '</html>\n';
     // Create and send a nice blob
-    const blob = new Blob([pageHtml]);
+    const blob = new Blob([pageHtml], { type: 'text/plain' });
     const timestamp = new Date()
       .toISOString()
       .substring(0, 19)
       .replace(/[-:]/g, '')
       .replace('T', '-');
-    window.navigator.msSaveBlob(blob, `ss13-chatlog-${timestamp}.html`);
+    Byond.saveBlob(blob, `ss13-chatlog-${timestamp}.html`, '.html');
   }
 
   clear() {
