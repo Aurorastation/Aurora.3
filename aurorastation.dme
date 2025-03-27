@@ -3386,6 +3386,7 @@
 #include "code\modules\psionics\mob\armour.dm"
 #include "code\modules\psionics\mob\mob.dm"
 #include "code\modules\psionics\mob\mob_helpers.dm"
+#include "code\modules\raccoon_city\herbs.dm"
 #include "code\modules\radiation\radiation.dm"
 #include "code\modules\random_map\_random_map_setup.dm"
 #include "code\modules\random_map\random_map.dm"

@@ -2,12 +2,22 @@
 	name = "Point Verdant"
 	full_name = "Point Verdant"
 	path = "event/raccoon_city"
-	lobby_icons = list('icons/misc/titlescreens/raccoon_city/raccoon_city.dmi')
+	lobby_icon_image_paths = list('icons/misc/titlescreens/raccoon_city/title.png')
 	lobby_transitions = 0
 
 	allowed_jobs = list(/datum/job/visitor, /datum/job/passenger)
 
-	station_levels = list(1,2,3)
+	traits = list(
+		//Z1
+		list(ZTRAIT_STATION = TRUE, ZTRAIT_UP = TRUE, ZTRAIT_DOWN = FALSE),
+		//Z2
+		list(ZTRAIT_STATION = TRUE, ZTRAIT_UP = TRUE, ZTRAIT_DOWN = TRUE),
+		//Z3
+		list(ZTRAIT_STATION = TRUE, ZTRAIT_UP = FALSE, ZTRAIT_DOWN = TRUE),
+		//Centcomm
+		ZTRAITS_CENTCOM
+	)
+
 	admin_levels = list(4)
 	contact_levels = list(1,2,3)
 	player_levels = list(1,2,3)
@@ -26,7 +36,7 @@
 	use_overmap = FALSE
 	force_spawnpoint = TRUE
 	map_shuttles = list(
-		/datum/shuttle/autodock/ferry/event_transport,
+		///datum/shuttle/autodock/ferry/event_transport,
 	)
 
 /area/shuttle/scc
