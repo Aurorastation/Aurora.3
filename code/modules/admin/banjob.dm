@@ -590,7 +590,7 @@ GLOBAL_PROTECT(jobban_keylist)
 	jobs += "</tr></table>"
 	body = "<body>[jobs]</body>"
 	dat = "<tt>[header][body]</tt>"
-	usr << browse(dat, "window=jobban_panel;size=800x490")
+	usr << browse(HTML_SKELETON(dat), "window=jobban_panel;size=800x490")
 	return
 
 /**
