@@ -55,5 +55,5 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Implements a remap of the spawning area for Actors, as part of the Odyssey gamemode, to hopefully be more enjoyable and intuitive."
+  - rscadd: "Implements a remap of the spawning area for Actors, as part of the Odyssey gamemode, to hopefully be more enjoyable and intuitive. Now featuring a big table for everyone to get around on to disagree on the gimmick until the Storyteller tells you off."
   - rscadd: "Adds a generic clothing vendor to CC, available to every off-ship antagonist. This permits players to choose from a variety of generic clothing items, in addition to allowing them to recolour all recolourable items to their preference."
