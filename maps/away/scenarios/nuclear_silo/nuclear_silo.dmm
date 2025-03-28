@@ -17743,7 +17743,7 @@
 /area/nuclear_silo/lower_level/nuke_monitoring)
 "Nv" = (
 /obj/structure/table/wood/mahogany,
-/obj/structure/cash_register{
+/obj/structure/closet/crate/cash_register{
 	pixel_y = 5;
 	dir = 8;
 	pixel_x = 5

@@ -1297,7 +1297,7 @@
 /area/point_verdant/outdoors)
 "aNy" = (
 /obj/structure/table/wood,
-/obj/structure/cash_register{
+/obj/structure/closet/crate/cash_register{
 	pixel_x = -5;
 	pixel_y = 1
 	},
@@ -6029,7 +6029,7 @@
 /area/point_verdant/outdoors)
 "dmS" = (
 /obj/structure/table/wood,
-/obj/structure/cash_register{
+/obj/structure/closet/crate/cash_register{
 	dir = 4;
 	pixel_y = 13;
 	pixel_x = -7
@@ -7683,7 +7683,7 @@
 /obj/structure/window/urban/framed{
 	dir = 8
 	},
-/obj/structure/cash_register{
+/obj/structure/closet/crate/cash_register{
 	dir = 4;
 	pixel_y = 13
 	},
@@ -8697,7 +8697,7 @@
 /area/point_verdant/interior/shallow)
 "eLf" = (
 /obj/structure/table/stone/marble,
-/obj/structure/cash_register{
+/obj/structure/closet/crate/cash_register{
 	pixel_x = -6;
 	pixel_y = 5
 	},
@@ -9986,7 +9986,7 @@
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices/kaf)
 "fvd" = (
-/obj/structure/cash_register{
+/obj/structure/closet/crate/cash_register{
 	dir = 1
 	},
 /obj/structure/window/reinforced,
@@ -13276,7 +13276,7 @@
 /turf/simulated/open,
 /area/point_verdant/outdoors)
 "hzC" = (
-/obj/structure/cash_register{
+/obj/structure/closet/crate/cash_register{
 	dir = 8;
 	pixel_y = 5
 	},
@@ -18334,7 +18334,7 @@
 	pixel_y = 6;
 	pixel_x = 10
 	},
-/obj/structure/cash_register{
+/obj/structure/closet/crate/cash_register{
 	pixel_x = -6;
 	pixel_y = 5
 	},
@@ -25299,7 +25299,7 @@
 /area/point_verdant/interior/robotics)
 "ouk" = (
 /obj/structure/table/wood,
-/obj/structure/cash_register{
+/obj/structure/closet/crate/cash_register{
 	pixel_y = 7
 	},
 /obj/item/toy/desk/fan{
@@ -27404,7 +27404,7 @@
 /area/point_verdant/outdoors)
 "pEu" = (
 /obj/structure/table/wood,
-/obj/structure/cash_register{
+/obj/structure/closet/crate/cash_register{
 	dir = 8;
 	pixel_y = 5
 	},
@@ -32602,7 +32602,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/cash_register{
+/obj/structure/closet/crate/cash_register{
 	dir = 8;
 	pixel_y = 5
 	},
@@ -39111,7 +39111,7 @@
 /area/point_verdant/interior/hotel)
 "wNC" = (
 /obj/structure/table/wood,
-/obj/structure/cash_register{
+/obj/structure/closet/crate/cash_register{
 	dir = 4;
 	pixel_y = 13
 	},
@@ -39607,7 +39607,7 @@
 /area/point_verdant/outdoors)
 "xaF" = (
 /obj/structure/table/wood,
-/obj/structure/cash_register{
+/obj/structure/closet/crate/cash_register{
 	dir = 4;
 	pixel_y = 4
 	},

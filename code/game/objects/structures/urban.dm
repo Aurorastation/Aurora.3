@@ -198,100 +198,6 @@
 	anchored = TRUE
 	density = TRUE
 
-// Street Signs
-
-/obj/structure/street_sign
-	name = "stop sign"
-	desc = "A stop sign to direct traffic. Sometimes a demand."
-	icon = 'icons/obj/structure/urban/street_signs.dmi'
-	icon_state = "stop"
-	layer = ABOVE_HUMAN_LAYER
-	anchored = TRUE
-
-/obj/structure/street_sign/yield
-	name = "yield sign"
-	desc = "A yield sign which tells you to slow down, rather politely. Let's hope you listen."
-	icon_state = "yield"
-
-/obj/structure/street_sign/warnings
-	name = "warning sign"
-	desc = "A sign. You think it's trying to warn you of something."
-	icon_state = "warnings"
-
-/obj/structure/street_sign/directional
-	name = "turn ahead sign"
-	desc = "A directional sign. How the turntables..."
-	icon_state = "directional"
-
-/obj/structure/street_sign/directional/blue
-	icon_state = "directional_blue"
-
-/obj/structure/street_sign/street
-	name = "street sign"
-	desc = "A street sign. As common as they are, sometimes people still get lost."
-	icon_state = "street"
-
-	var/street_name = null
-
-/obj/structure/street_sign/street/Initialize(mapload)
-	. = ..()
-	name = "[street_name]"
-	desc = "A street sign for [street_name]. As common as they are, sometimes people still get lost."
-
-/obj/structure/street_sign/street/both
-	dir = NORTH
-
-/obj/structure/street_sign/street/right
-	dir = WEST
-
-/obj/structure/street_sign/street/left
-	dir = EAST
-
-/obj/structure/ms13/street_sign/turning
-	desc = "A stop sign. Looks like you've passed the point of no return."
-	icon_state = "noturn"
-
-/obj/structure/street_sign/parking
-	desc = "A sign. No parking allowed."
-	icon_state = "noparking"
-
-/obj/structure/street_sign/one_way
-	desc = "A sign. Apparently you can only go one direction..."
-	icon_state = "direction"
-
-/obj/structure/street_sign/bus
-	desc = "A bus sign. If you had to guess, you have to wait for a bus here."
-	icon_state = "busstop"
-
-/obj/structure/street_sign/railroad
-	desc = "A sign. This one is a big white X. Wonder what that entails?"
-	icon_state = "railcrossing"
-
-/obj/structure/street_sign/only_direction
-	desc = "A sign. It's telling you to only go this way."
-	icon_state = "onlydir"
-
-/obj/structure/street_sign/speed
-	desc = "A sign. Always trying to slow you down."
-	icon_state = "speed"
-
-/obj/structure/street_sign/turn
-	desc = "A sign. It's pointing a direction with arrows on it. Cool."
-	icon_state = "turn"
-
-/obj/structure/street_sign/exit
-	desc = "A sign. It's showing you to an exit."
-	icon_state = "exit"
-
-/obj/structure/street_sign/nopedestrian
-	desc = "A sign. Only operators of heavy machinery allowed!"
-	icon_state = "nopedestrian"
-
-/obj/structure/street_sign/drive_thru
-	name = "drive thru sign"
-	desc = "A drive-thru sign."
-	icon_state = "drivethru"
-
 // infrastructure
 
 ABSTRACT_TYPE(/obj/structure/stairs/urban)
@@ -568,7 +474,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 /obj/structure/chainlink_fence
 	name = "chainlink fence"
 	desc = "A tall, imposing metal fence."
-	icon = 'icons/obj/structure/obstacles/obstacles.dmi'
+	icon = 'mojave/icons/obj/structure/obstacles.dmi'
 	density = TRUE
 	icon_state = "normal_fence"
 	color = null
@@ -779,31 +685,6 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 
 /obj/structure/blocker/exterior_wall/blue
 	color = COLOR_COMMAND_BLUE
-
-/obj/structure/cash_register
-	name = "cash register machine"
-	desc = "A retail nightmare object."
-	desc_info = "Drag this onto yourself to open the cash compartment."
-	icon = 'icons/obj/structure/urban/infrastructure.dmi'
-	icon_state = "cashier"
-	layer = 2.99
-	density = 0
-	anchored = 0
-	var/storage_type = /obj/item/storage/toolbox/cash_register_storage
-	var/obj/item/storage/storage_compartment
-
-/obj/structure/cash_register/Initialize(mapload)
-	. = ..()
-	if(storage_type)
-		storage_compartment = new storage_type(src)
-
-/obj/item/storage/toolbox/cash_register_storage
-	name = "cash compartment"
-
-/obj/structure/cash_register/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
-	if(user == over && ishuman(over))
-		var/mob/living/carbon/human/H = over
-		storage_compartment.open(H)
 
 /**
  * # Urban doors
