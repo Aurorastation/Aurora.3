@@ -23,7 +23,7 @@
 /obj/structure/light_pole/konyang
 	name = "dangling lamp"
 	desc = "A flame-lit lamp dangling precariously from a tall pole."
-	icon = 'icons/obj/structure/urban/streetpoles.dmi'
+	icon = 'icons/obj/structure/streetpoles.dmi'
 	icon_state = "lamp"
 	layer = ABOVE_HUMAN_LAYER
 	anchored = TRUE
@@ -41,7 +41,7 @@
 /obj/structure/utility_pole
 	name = "tall pole"
 	desc = "A very tall utility pole for urban infrastructure."
-	icon = 'icons/obj/structure/urban/streetpoles.dmi'
+	icon = 'icons/obj/structure/streetpoles.dmi'
 	icon_state = "junction"
 	layer = ABOVE_HUMAN_LAYER
 	anchored = TRUE
@@ -59,11 +59,11 @@
 /obj/structure/utility_pole/street
 	name = "\improper street lamp"
 	desc = "A tall light source. What more is there to say?"
-	icon = 'mojave/icons/obj/structure/urban/streetpoles.dmi'
+	icon = 'mojave/icons/obj/structure/streetpoles.dmi'
 	icon_state = "streetlight"
 
 /obj/effect/overlay/street_light
-	icon = 'mojave/icons/obj/structure/urban/streetpoles.dmi'
+	icon = 'mojave/icons/obj/structure/streetpoles.dmi'
 	icon_state = "street_light"
 	plane = EFFECTS_ABOVE_LIGHTING_PLANE
 
@@ -127,13 +127,13 @@
 	return
 
 /obj/effect/overlay/street_light/crosswalk
-	icon = 'icons/obj/structure/urban/streetpoles.dmi'
+	icon = 'icons/obj/structure/streetpoles.dmi'
 	icon_state = "crosswalk_go"
 
 /obj/structure/utility_pole/street/crosswalk
 	name = "crosswalk indicator"
 	desc = "A very tall crosswalk indicator which can be manually used to scan for danger, before letting the viewer know whether it's safe to cross the road or not."
-	icon = 'icons/obj/structure/urban/streetpoles.dmi'
+	icon = 'icons/obj/structure/streetpoles.dmi'
 	icon_state = "crosswalk"
 	light_color = LIGHT_COLOR_GREEN
 	light_range = 3.1
@@ -183,7 +183,7 @@
 
 /obj/effect/overlay/overhead_line
 	name = "overhead utility line"
-	icon = 'icons/obj/structure/urban/streetpoles.dmi'
+	icon = 'icons/obj/structure/streetpoles.dmi'
 	icon_state = "line"
 	layer = ABOVE_HUMAN_LAYER
 	pixel_x = -32
