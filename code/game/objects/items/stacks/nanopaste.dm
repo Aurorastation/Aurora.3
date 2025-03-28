@@ -109,7 +109,7 @@
 				to_chat(user, SPAN_NOTICE("Nothing to fix in here."))
 
 
-// Antagonist-specific nanopaste. Functions similarly to usual nanoapste, except that it also applies a surge protection organ to the target.
+// Antagonist-specific nanopaste. Functions similarly to usual nanopaste, except that it also applies a surge protection organ to the target.
 // This organ protects the target from a specific number of EMPs. Intended to provide antagonist IPCs counterplay to ions.
 /obj/item/stack/nanopaste/surge
 	name = "modified nanopaste"
