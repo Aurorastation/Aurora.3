@@ -72,7 +72,7 @@ SUBSYSTEM_DEF(law)
 		INSERT IGNORE INTO ss13_law
 			(law_id, name, description, min_fine, max_fine, min_brig_time, max_brig_time, severity, felony)
 		VALUES
-			(:law_id:, :name:, :desc:, :min_fine:, :max_fine:, :min_brig_time:, :max_brig_time:, :severity:, :felony:)
+			(:law_id, :name, :desc, :min_fine, :max_fine, :min_brig_time, :max_brig_time, :severity, :felony)
 		"})
 	for(var/datum/law/L in laws)
 		log_subsystem_law("Migrating law [L.id] to SQL")
