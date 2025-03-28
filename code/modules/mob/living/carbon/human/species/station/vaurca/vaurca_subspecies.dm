@@ -332,14 +332,16 @@
 	icobase = 'icons/mob/human_races/vaurca/r_vaurcae.dmi'
 	deform = 'icons/mob/human_races/vaurca/r_vaurcae.dmi'
 	canvas_icon = 'icons/mob/base_48.dmi'
-	talk_bubble_icon = 'icons/mob/talk_bulwark.dmi'
 
 	default_h_style = "Bulwark Classic Antennae"
 
-	icon_x_offset = -9
+	icon_x_offset = -8
+	floating_chat_x_offset = 8
+	floating_chat_y_offset = 14
+	typing_indicator_x_offset = 16
+	typing_indicator_y_offset = 12
 	healths_x = 22
 	healths_overlay_x = 9
-	floating_chat_x_offset = 6
 
 	damage_overlays = 'icons/mob/human_races/masks/dam_mask_bulwark.dmi'
 	damage_mask = 'icons/mob/human_races/masks/dam_mask_bulwark.dmi'
@@ -409,16 +411,16 @@ Bulwarks are much larger and have significantly thicker carapaces than most Vaur
 /datum/species/bug/type_e/New()
 	..()
 	equip_adjust = list(
-		slot_head_str    = list(                                     "[EAST]" = list("x" = 16, "y" = 0),  "[SOUTH]" = list("x" = 9, "y" = 0), "[WEST]" = list("x" = 0, "y" = 0)),
-		slot_glasses_str = list(                                     "[EAST]" = list("x" = 15, "y" = 0),  "[SOUTH]" = list("x" = 9, "y" = 0), "[WEST]" = list("x" = 1, "y" = 0)),
-		slot_l_hand_str  = list("[NORTH]" = list("x" = 6, "y" = 0),  "[EAST]" = list("x" = 9, "y" = 2),  "[SOUTH]" = list("x" = 12, "y" = 0), "[WEST]" = list("x" = 4, "y" = 0)),
-		slot_r_hand_str  = list("[NORTH]" = list("x" = 12, "y" = 0), "[EAST]" = list("x" = 12, "y" = 0), "[SOUTH]" = list("x" = 6, "y" = 0),  "[WEST]" = list("x" = 7, "y" = 2)),
-		slot_l_ear_str   = list(                                     "[EAST]" = list("x" = 0, "y" = 0),  "[SOUTH]" = list("x" = 9, "y" = 0),  "[WEST]" = list("x" = 0, "y" = 0)),
-		slot_r_ear_str   = list(                                     "[EAST]" = list("x" = 16, "y" = 0), "[SOUTH]" = list("x" = 9, "y" = 0),  "[WEST]" = list("x" = 0, "y" = 0)),
-		slot_belt_str    = list("[NORTH]" = list("x" = 9, "y" = 2),  "[EAST]" = list("x" = 10, "y" = 1), "[SOUTH]" = list("x" = 9, "y" = 2),  "[WEST]" = list("x" = 6, "y" = 1)),
-		slot_wear_id_str = list("[NORTH]" = list("x" = 0, "y" = 0),  "[EAST]" = list("x" = 12, "y" = 0), "[SOUTH]" = list("x" = 9, "y" = 0),  "[WEST]" = list("x" = 0, "y" = 0)),
-		slot_wrists_str  = list("[NORTH]" = list("x" = 15, "y" = 0), "[EAST]" = list("x" = 12, "y" = 0), "[SOUTH]" = list("x" = 4, "y" = 0),  "[WEST]" = list("x" = 9, "y" = 0)),
-		slot_shoes_str   = list("[NORTH]" = list("x" = 9, "y" = 0),  "[EAST]" = list("x" = 8, "y" = 0),  "[SOUTH]" = list("x" = 9, "y" = 0),  "[WEST]" = list("x" = 8, "y" = 0))
+		slot_head_str    = list(                                     "[EAST]" = list("x" = 15, "y" = 0), "[SOUTH]" = list("x" = 8, "y" = 0),  "[WEST]" = list("x" = 0, "y" = 0)),
+		slot_glasses_str = list(                                     "[EAST]" = list("x" = 14, "y" = 0), "[SOUTH]" = list("x" = 8, "y" = 0),  "[WEST]" = list("x" = 0, "y" = 0)),
+		slot_l_hand_str  = list("[NORTH]" = list("x" = 5, "y" = 0),  "[EAST]" = list("x" = 8, "y" = 2),  "[SOUTH]" = list("x" = 11, "y" = 0), "[WEST]" = list("x" = 3, "y" = 0)),
+		slot_r_hand_str  = list("[NORTH]" = list("x" = 11, "y" = 0), "[EAST]" = list("x" = 11, "y" = 0), "[SOUTH]" = list("x" = 5, "y" = 0),  "[WEST]" = list("x" = 6, "y" = 2)),
+		slot_l_ear_str   = list(                                     "[EAST]" = list("x" = 0, "y" = 0),  "[SOUTH]" = list("x" = 8, "y" = 0),  "[WEST]" = list("x" = 0, "y" = 0)),
+		slot_r_ear_str   = list(                                     "[EAST]" = list("x" = 15, "y" = 0), "[SOUTH]" = list("x" = 8, "y" = 0),  "[WEST]" = list("x" = 0, "y" = 0)),
+		slot_belt_str    = list("[NORTH]" = list("x" = 8, "y" = 2),  "[EAST]" = list("x" = 9, "y" = 1),  "[SOUTH]" = list("x" = 8, "y" = 2),  "[WEST]" = list("x" = 5, "y" = 1)),
+		slot_wear_id_str = list("[NORTH]" = list("x" = 0, "y" = 0),  "[EAST]" = list("x" = 11, "y" = 0), "[SOUTH]" = list("x" = 8, "y" = 0),  "[WEST]" = list("x" = 0, "y" = 0)),
+		slot_wrists_str  = list("[NORTH]" = list("x" = 14, "y" = 0), "[EAST]" = list("x" = 11, "y" = 0), "[SOUTH]" = list("x" = 3, "y" = 0),  "[WEST]" = list("x" = 8, "y" = 0)),
+		slot_shoes_str   = list("[NORTH]" = list("x" = 8, "y" = 0),  "[EAST]" = list("x" = 7, "y" = 0),  "[SOUTH]" = list("x" = 8, "y" = 0),  "[WEST]" = list("x" = 7, "y" = 0))
 	)
 
 /datum/species/bug/type_e/can_double_fireman_carry()

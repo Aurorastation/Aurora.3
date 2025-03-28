@@ -998,7 +998,7 @@ GLOBAL_LIST_INIT(valid_bloodtypes, list(
 	dat += "</center>"
 
 
-	user << browse(dat.Join(), "window=species;size=700x400")
+	user << browse(HTML_SKELETON(dat.Join()), "window=species;size=700x400")
 
 /// This proc verifies if a sprite accessory can be put on a robolimb, checking its manufacturer.
 /datum/category_item/player_setup_item/general/body/proc/verify_robolimb_appropriate(datum/sprite_accessory/S)

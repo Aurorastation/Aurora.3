@@ -20,6 +20,9 @@
 		BIOME_ARID = 1.0
 	)
 
+/datum/exoplanet_theme/barren/mountain
+	mountain_threshold = 0.0
+
 /datum/exoplanet_theme/barren/raskara
 	name = "Raskara"
 	surface_turfs = list(

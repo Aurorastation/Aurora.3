@@ -100,7 +100,7 @@
 	clear_important_client_contents(client)
 	enable_client_mobs_in_contents(client)
 
-	CreateRenderers()
+	AddDefaultRenderers()
 	update_client_color()
 	add_click_catcher()
 
