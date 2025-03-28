@@ -3,11 +3,9 @@
 	singular_name = "nanite swarm"
 	desc = "A tube of paste containing swarms of repair nanites. Very effective in repairing robotic machinery."
 	icon = 'icons/obj/item/stacks/nanopaste.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_nanopaste.dmi',
-		slot_r_hand_str = 'icons/mob/items/stacks/righthand_nanopaste.dmi',
-		)
 	icon_state = "tube"
+	item_state = "tube"
+	contained_sprite = TRUE
 	origin_tech = list(TECH_MATERIAL = 4, TECH_ENGINEERING = 3)
 	amount = 10
 	surgerysound = 'sound/items/surgery/bonegel.ogg'
@@ -82,6 +80,7 @@
 	singular_name = "nanite swarm"
 	desc = "A tube of paste containing swarms of repair nanites. This one appears to contain different nanites."
 	icon_state = "tube-surge"
+	item_state = "tube-surge"
 	origin_tech = list(TECH_MATERIAL = 4, TECH_ENGINEERING = 4, TECH_MAGNET = 5, TECH_POWER = 5, TECH_COMBAT = 3, TECH_ILLEGAL = 4)
 	amount = 20
 	var/used = FALSE
