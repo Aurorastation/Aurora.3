@@ -24,10 +24,6 @@ GLOBAL_VAR(last_transfer_vote)
 	if(forced)
 		return TRUE
 
-	if(GLOB.security_level >= SEC_LEVEL_RED)
-		to_chat(by_who, "The current alert status is too high to call for a crew transfer!")
-		return FALSE
-
 	//If enought time from the start passed, allows the vote
 	var/next_allowed_time = 0
 	if(GLOB.last_transfer_vote)
