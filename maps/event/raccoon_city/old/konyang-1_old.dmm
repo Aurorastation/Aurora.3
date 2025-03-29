@@ -792,7 +792,7 @@
 "aJh" = (
 /obj/structure/closet,
 /obj/random/high_grade_weapon,
-/obj/outfit/admin/raccoon_city/ee_guard,
+/obj/outfit/admin/raccoon_city/nt_guard,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
 "aJA" = (
@@ -1808,7 +1808,7 @@
 	pixel_x = 12
 	},
 /obj/machinery/button/remote/blast_door{
-	id = "konyang_ee_labs_entry";
+	id = "konyang_nt_labs_entry";
 	req_access = list(255);
 	dir = 2;
 	pixel_y = -20
@@ -2210,7 +2210,7 @@
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 1
 	},
-/obj/effect/ghostspawpoint/ee_guard,
+/obj/effect/ghostspawpoint/nt_guard,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior)
@@ -4573,7 +4573,7 @@
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 1
 	},
-/obj/effect/ghostspawpoint/ee_scientist,
+/obj/effect/ghostspawpoint/nt_scientist,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior)
 "dHa" = (
@@ -5167,7 +5167,7 @@
 /area/point_verdant/interior)
 "ecA" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
-/obj/effect/ghostspawpoint/ee_director,
+/obj/effect/ghostspawpoint/nt_director,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
@@ -5412,7 +5412,7 @@
 "eog" = (
 /obj/structure/closet,
 /obj/random/tool_konyang,
-/obj/outfit/admin/raccoon_city/ee_engineer,
+/obj/outfit/admin/raccoon_city/nt_engineer,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
 "eoZ" = (
@@ -6306,7 +6306,7 @@
 "fgH" = (
 /obj/structure/closet,
 /obj/random/tool_konyang,
-/obj/outfit/admin/raccoon_city/ee_machinist,
+/obj/outfit/admin/raccoon_city/nt_machinist,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
@@ -6574,7 +6574,7 @@
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 1
 	},
-/obj/effect/ghostspawpoint/ee_intern,
+/obj/effect/ghostspawpoint/nt_intern,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior)
 "ftR" = (
@@ -6654,7 +6654,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/point_verdant/interior)
 "fyg" = (
-/obj/effect/ghostspawpoint/ee_synth,
+/obj/effect/ghostspawpoint/nt_synth,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
@@ -7522,7 +7522,7 @@
 /obj/machinery/door/blast/odin{
 	dir = 4;
 	name = "Solutions Department";
-	id = "konyang_ee_labs_entry"
+	id = "konyang_nt_labs_entry"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/point_verdant/interior)
@@ -8377,7 +8377,7 @@
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 1
 	},
-/obj/effect/ghostspawpoint/ee_guard,
+/obj/effect/ghostspawpoint/nt_guard,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior)
 "gPg" = (
@@ -9737,7 +9737,7 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/random/dirt_75,
 /obj/machinery/button/remote/blast_door{
-	id = "konyang_ee_labs_exit";
+	id = "konyang_nt_labs_exit";
 	req_access = list(255);
 	dir = 1;
 	pixel_y = 28
@@ -10436,7 +10436,7 @@
 "irF" = (
 /obj/structure/closet,
 /obj/random/tool_konyang,
-/obj/outfit/admin/raccoon_city/ee_machinist,
+/obj/outfit/admin/raccoon_city/nt_machinist,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
 "irI" = (
@@ -11576,7 +11576,7 @@
 "jjY" = (
 /obj/structure/closet,
 /obj/random/high_grade_weapon,
-/obj/outfit/admin/raccoon_city/ee_guard,
+/obj/outfit/admin/raccoon_city/nt_guard,
 /obj/item/device/flash,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
@@ -14021,7 +14021,7 @@
 /obj/machinery/light{
 	pixel_y = -2
 	},
-/obj/outfit/admin/raccoon_city/ee_synth,
+/obj/outfit/admin/raccoon_city/nt_synth,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -14837,7 +14837,7 @@
 	dir = 4
 	},
 /obj/structure/closet,
-/obj/outfit/admin/raccoon_city/ee_scientist,
+/obj/outfit/admin/raccoon_city/nt_scientist,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior)
 "lTu" = (
@@ -16412,7 +16412,7 @@
 /area/point_verdant/interior)
 "ncP" = (
 /obj/structure/closet,
-/obj/outfit/admin/raccoon_city/ee_scientist,
+/obj/outfit/admin/raccoon_city/nt_scientist,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior)
 "ncQ" = (
@@ -16534,7 +16534,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/button/remote/blast_door{
-	id = "konyang_ee_labs_entry";
+	id = "konyang_nt_labs_entry";
 	req_access = list(255);
 	dir = 1;
 	pixel_y = 28
@@ -17810,7 +17810,7 @@
 	dir = 5
 	},
 /obj/structure/closet,
-/obj/outfit/admin/raccoon_city/ee_scientist,
+/obj/outfit/admin/raccoon_city/nt_scientist,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
 "oiv" = (
@@ -18477,7 +18477,7 @@
 /area/point_verdant/sewer)
 "oKO" = (
 /obj/structure/closet,
-/obj/outfit/admin/raccoon_city/ee_guard,
+/obj/outfit/admin/raccoon_city/nt_guard,
 /obj/item/device/flash,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
@@ -18528,7 +18528,7 @@
 "oOv" = (
 /obj/structure/closet,
 /obj/random/barricade_kit,
-/obj/outfit/admin/raccoon_city/ee_guard,
+/obj/outfit/admin/raccoon_city/nt_guard,
 /obj/item/device/flash,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
@@ -20038,7 +20038,7 @@
 "qdu" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/closet,
-/obj/outfit/admin/raccoon_city/ee_scientist,
+/obj/outfit/admin/raccoon_city/nt_scientist,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior)
 "qdC" = (
@@ -20466,7 +20466,7 @@
 /obj/structure/closet,
 /obj/random/tool_konyang,
 /obj/effect/floor_decal/corner/brown/diagonal,
-/obj/outfit/admin/raccoon_city/ee_engineer,
+/obj/outfit/admin/raccoon_city/nt_engineer,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
 "qtk" = (
@@ -20772,7 +20772,7 @@
 /area/point_verdant/interior)
 "qEC" = (
 /obj/structure/closet,
-/obj/outfit/admin/raccoon_city/ee_synth,
+/obj/outfit/admin/raccoon_city/nt_synth,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
 "qER" = (
@@ -23336,7 +23336,7 @@
 	dir = 10
 	},
 /obj/structure/closet,
-/obj/outfit/admin/raccoon_city/ee_scientist,
+/obj/outfit/admin/raccoon_city/nt_scientist,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior)
 "sAX" = (
@@ -24220,7 +24220,7 @@
 /area/point_verdant/interior)
 "tit" = (
 /obj/structure/closet,
-/obj/outfit/admin/raccoon_city/ee_synth,
+/obj/outfit/admin/raccoon_city/nt_synth,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
@@ -27560,7 +27560,7 @@
 "waY" = (
 /obj/machinery/door/blast/odin{
 	dir = 4;
-	id = "konyang_ee_labs_exit"
+	id = "konyang_nt_labs_exit"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/point_verdant/interior)
@@ -29482,7 +29482,7 @@
 	dir = 10
 	},
 /obj/structure/closet,
-/obj/outfit/admin/raccoon_city/ee_scientist,
+/obj/outfit/admin/raccoon_city/nt_scientist,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/point_verdant/interior)

@@ -312,3 +312,19 @@ FLOOR SAFES
 	new /obj/random/highvalue/no_weapon(src)
 	new /obj/random/highvalue/no_weapon(src)
 	new /obj/random/highvalue/no_weapon(src)
+
+/obj/structure/safe/konyang
+	name = "important-looking safe"
+	desc = "Hmmm... maybe I should do something with this. <span class='notice'>Looks like something valuable is in there.</span>"
+
+/obj/structure/safe/konyang/Initialize()
+	. = ..()
+	var/list/super_high_value_weapon = list(
+		/obj/item/gun/projectile/pistol/super_heavy,
+		/obj/item/gun/projectile/revolver,
+		/obj/item/gun/projectile/recoilless_rifle,
+		/obj/item/gun/projectile/deagle,
+		/obj/item/gun/projectile/dragunov
+	)
+	var/super_weapon = pick(super_high_value_weapon)
+	new super_weapon(src)

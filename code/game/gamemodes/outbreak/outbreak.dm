@@ -1,5 +1,7 @@
+GLOBAL_VAR_INIT(outbreak_has_begun, FALSE)
+
 /datum/game_mode/outbreak
-	name = "Project Dusk's Bloom"
+	name = "Adverse Reactions"
 	config_tag = "outbreak"
 	required_players = 0
 	required_enemies = 0
@@ -66,6 +68,8 @@
 			for(var/i = 1 to rand(5, 9))
 				var/turf/T = get_random_turf_in_range(user, 7, 0, TRUE, FALSE)
 				new /mob/living/carbon/human/zombie/adminspawn(T)
+
+		// add break lights in range verb
 
 /obj/effect/landmark/outbreak_zombie
 	name = "Simple Zombie Marker"

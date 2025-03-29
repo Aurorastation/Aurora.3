@@ -6,6 +6,49 @@
 	anchored = TRUE
 	density = TRUE
 	layer = 7
+	var/searched = FALSE
+
+/obj/structure/automobile/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended)
+	. = ..()
+	. += SPAN_NOTICE("[searched ? "It looks like it's been rummaged through already." : "It looks closed and untouched."]")
+
+/obj/structure/automobile/attack_hand(mob/living/user)
+	. = ..()
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(use_check_and_message(H))
+			return
+
+		if(!GLOB.outbreak_has_begun)
+			to_chat(user, SPAN_WARNING(FONT_HUGE("I probably shouldn't go messing with people's cars when nothing's going wrong just yet.")))
+			return
+
+		if(searched)
+			to_chat(user, SPAN_WARNING("This car has already been searched. Damn!"))
+			return
+
+		to_chat(H, SPAN_NOTICE("You open the trunk and start searching in the car... This might take a bit."))
+		if(do_after(user, 10 SECONDS, src))
+			if(prob(50))
+				to_chat(user, SPAN_WARNING("Nothing here. Shit!"))
+				searched = TRUE
+				return
+			var/list/possible_loot = list(
+				/obj/random/tool_konyang = 20,
+				/obj/random/survival_weapon = 25,
+				/obj/random/high_grade_weapon = 5,
+				/obj/random/light = 10,
+				/obj/random/med_stack = 10,
+				/obj/random/splints = 10,
+				/obj/random/gun_with_ammo/pistols = 5,
+				/obj/random/shotgun = 1,
+				/obj/random/semiautos = 1,
+				/obj/random/barricade_kit = 13
+			)
+			to_chat(user, SPAN_NOTICE("You pull something out of the car! Bingo!"))
+			var/obj/random/loot = pickweight(possible_loot)
+			loot = new loot(get_turf(src))
+			searched = TRUE
 
 /obj/random/automobile
 	name = "random civilian automobile"

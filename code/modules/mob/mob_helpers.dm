@@ -259,17 +259,17 @@
 
 ///The base miss chance for the different defence zones
 GLOBAL_LIST_INIT(base_miss_chance, list(
-	BP_HEAD = 70,
-	BP_CHEST = 10,
-	BP_GROIN = 20,
-	BP_L_LEG = 40,
-	BP_R_LEG = 40,
-	BP_L_ARM = 40,
-	BP_R_ARM = 40,
-	BP_L_HAND = 60,
-	BP_R_HAND = 60,
-	BP_L_FOOT = 60,
-	BP_R_FOOT = 60
+	BP_HEAD = 30,
+	BP_CHEST = 5,
+	BP_GROIN = 5,
+	BP_L_LEG = 10,
+	BP_R_LEG = 10,
+	BP_L_ARM = 10,
+	BP_R_ARM = 10,
+	BP_L_HAND = 20,
+	BP_R_HAND = 20,
+	BP_L_FOOT = 25,
+	BP_R_FOOT = 25
 ))
 
 ///Used to weight organs when an organ is hit randomly (i.e. not a directed, aimed attack).

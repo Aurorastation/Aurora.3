@@ -532,6 +532,10 @@
 
 /obj/projectile/bullet/recoilless_rifle/on_hit(atom/target, blocked, def_zone)
 	explosion(target, -1, heavy_impact_range, 2)
+	if(iszombie(target))
+		var/mob/living/carbon/human/Z = target
+		Z.visible_message(FONT_HUGE(SPAN_DANGER("[Z] explodes in a shower of gore!")))
+		Z.gib()
 	. = ..()
 
 /obj/projectile/bullet/peac

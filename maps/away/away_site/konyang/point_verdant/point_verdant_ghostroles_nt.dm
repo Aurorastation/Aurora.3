@@ -35,28 +35,28 @@
 
 // ----------------------------- SCIENTIST
 
-/datum/ghostspawner/human/ee_scientist
+/datum/ghostspawner/human/nt_scientist
 	name = "Nanotrasen Laboratory Scientist"
 	desc = "Research Hylemnomil-Zeta, a dangerous but potentially miraculous and Spur-changing artificial chemical."
-	short_name = "ee_sci"
+	short_name = "nt_sci"
 	loc_type = GS_LOC_POS
 	spawn_mob = /mob/living/carbon/human
 	tags = list("Nanotrasen Laboratory")
 	max_count = 2
-	password = "ee_sci"
+	password = "nt_sci"
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Nanotrasen Laboratory Scientist"
 	special_role = "Nanotrasen Laboratory Scientist"
-	spawnpoints = list("ee_sci")
-	outfit = /obj/outfit/admin/raccoon_city/ee_scientist
+	spawnpoints = list("nt_sci")
+	outfit = /obj/outfit/admin/raccoon_city/nt_scientist
 	respawn_flag = null
 
-/obj/effect/ghostspawpoint/ee_scientist
-	name = "igs - EE Scientist"
-	identifier = "ee_sci"
+/obj/effect/ghostspawpoint/nt_scientist
+	name = "igs - NT Scientist"
+	identifier = "nt_sci"
 
-/obj/outfit/admin/raccoon_city/ee_scientist
-	name = "EE Scientist"
+/obj/outfit/admin/raccoon_city/nt_scientist
+	name = "NT Scientist"
 	uniform = /obj/item/clothing/under/rank/scientist
 	suit = list(
 		/obj/item/clothing/suit/storage/toggle/labcoat/nt,
@@ -95,10 +95,10 @@
 
 // ----------------------------- LABS DIRECTOR
 
-/datum/ghostspawner/human/ee_labs_director
+/datum/ghostspawner/human/nt_labs_director
 	name = "Nanotrasen Laboratory Director"
 	desc = "Direct Nanotrasen Research Facility Omega's experiment on Hylemnomil."
-	short_name = "ee_director"
+	short_name = "nt_director"
 	loc_type = GS_LOC_POS
 	spawn_mob = /mob/living/carbon/human
 	tags = list("Nanotrasen Laboratory")
@@ -107,12 +107,12 @@
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Nanotrasen Laboratory Director"
 	special_role = "Nanotrasen Laboratory Director"
-	spawnpoints = list("ee_director")
-	outfit = /obj/outfit/admin/raccoon_city/ee_scientist/ee_labs_director
+	spawnpoints = list("nt_director")
+	outfit = /obj/outfit/admin/raccoon_city/nt_scientist/nt_labs_director
 	respawn_flag = null
 
-/obj/outfit/admin/raccoon_city/ee_scientist/ee_labs_director
-	name = "EE Facility Director"
+/obj/outfit/admin/raccoon_city/nt_scientist/nt_labs_director
+	name = "NT Facility Director"
 	head = /obj/item/clothing/head/beret/red
 	accessory = /obj/item/clothing/accessory/holster/thigh
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/cmoalt
@@ -126,16 +126,16 @@
 		/obj/item/folder/white,
 	)
 
-/obj/effect/ghostspawpoint/ee_director
-	name = "igs - EE Facility Director"
-	identifier = "ee_director"
+/obj/effect/ghostspawpoint/nt_director
+	name = "igs - NT Facility Director"
+	identifier = "nt_director"
 
 // ----------------------------- LABS LEAD
 
-/datum/ghostspawner/human/ee_labs_lead
+/datum/ghostspawner/human/nt_labs_lead
 	name = "Nanotrasen Laboratory Project Lead"
 	desc = "Supervise the Nanotrasen Research Facility Omega's experiment on Hylemnomil."
-	short_name = "ee_plead"
+	short_name = "nt_plead"
 	loc_type = GS_LOC_POS
 	spawn_mob = /mob/living/carbon/human
 	tags = list("Nanotrasen Laboratory")
@@ -144,12 +144,12 @@
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Nanotrasen Laboratory Project Lead"
 	special_role = "Nanotrasen Laboratory Project Lead"
-	spawnpoints = list("ee_plead")
-	outfit = /obj/outfit/admin/raccoon_city/ee_scientist/ee_lead_scientist
+	spawnpoints = list("nt_plead")
+	outfit = /obj/outfit/admin/raccoon_city/nt_scientist/ee_lead_scientist
 	respawn_flag = null
 
-/obj/outfit/admin/raccoon_city/ee_scientist/ee_lead_scientist
-	name = "EE Lead Scientist"
+/obj/outfit/admin/raccoon_city/nt_scientist/ee_lead_scientist
+	name = "NT Lead Scientist"
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/nt/letterman
 	belt = null
 	backpack_contents = list(
@@ -165,29 +165,29 @@
 	)
 
 /obj/effect/ghostspawpoint/ee_lead_scientist
-	name = "igs - EE Lead Scientist"
-	identifier = "ee_plead"
+	name = "igs - NT Lead Scientist"
+	identifier = "nt_plead"
 
 // ----------------------------- INTERN
 
-/datum/ghostspawner/human/ee_intern
+/datum/ghostspawner/human/nt_intern
 	name = "Nanotrasen Laboratory Intern"
 	desc = "Serve coffee to your corporate overlords. Be noticed in the hopes for a promotion. Help out. Avoid dying a horrible death."
-	short_name = "ee_intern"
+	short_name = "nt_intern"
 	loc_type = GS_LOC_POS
 	spawn_mob = /mob/living/carbon/human
 	tags = list("Nanotrasen Laboratory")
 	max_count = 1
-	password = "ee_intern"
+	password = "nt_intern"
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Nanotrasen Laboratory Intern"
 	special_role = "Nanotrasen Laboratory Intern"
-	spawnpoints = list("ee_intern")
-	outfit = /obj/outfit/admin/raccoon_city/ee_intern
+	spawnpoints = list("nt_intern")
+	outfit = /obj/outfit/admin/raccoon_city/nt_intern
 	respawn_flag = null
 
-/obj/outfit/admin/raccoon_city/ee_intern
-	name = "EE Intern"
+/obj/outfit/admin/raccoon_city/nt_intern
+	name = "NT Intern"
 
 	backpack_contents = list(
 		/obj/item/modular_computer/laptop/preset,
@@ -195,35 +195,35 @@
 		/obj/item/reagent_containers/glass/beaker/pitcher/coffee
 	)
 
-/obj/effect/ghostspawpoint/ee_intern
-	name = "igs - EE Intern"
-	identifier = "ee_intern"
+/obj/effect/ghostspawpoint/nt_intern
+	name = "igs - NT Intern"
+	identifier = "nt_intern"
 
 // ----------------------------- GUARD
 
-/datum/ghostspawner/human/ee_guard
+/datum/ghostspawner/human/nt_guard
 	name = "Nanotrasen Laboratory Guard"
 	desc = "You want to think that you're going to prevent dangerous experiments from getting loose, but in reality you're just lounging around at the checkpoint. \
 			Today will be just another one of those days. Right...?"
-	short_name = "ee_guard"
+	short_name = "nt_guard"
 	loc_type = GS_LOC_POS
 	spawn_mob = /mob/living/carbon/human
 	tags = list("Nanotrasen Laboratory")
 	max_count = 2
-	password = "ee_guard"
+	password = "nt_guard"
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Nanotrasen Laboratory Guard"
-	special_role = "ee_guard Facility Guard"
-	spawnpoints = list("ee_guard")
-	outfit = /obj/outfit/admin/raccoon_city/ee_guard
+	special_role = "Nanotrasen Laboratory Facility Guard"
+	spawnpoints = list("nt_guard")
+	outfit = /obj/outfit/admin/raccoon_city/nt_guard
 	respawn_flag = null
 
-/obj/effect/ghostspawpoint/ee_guard
-	name = "igs - EE Guard"
-	identifier = "ee_guard"
+/obj/effect/ghostspawpoint/nt_guard
+	name = "igs - NT Guard"
+	identifier = "nt_guard"
 
-/obj/outfit/admin/raccoon_city/ee_guard
-	name = "EE Guard"
+/obj/outfit/admin/raccoon_city/nt_guard
+	name = "NT Guard"
 
 	uniform = /obj/item/clothing/under/rank/security/pmc/nexus
 	suit = /obj/item/clothing/suit/armor/carrier
@@ -283,28 +283,28 @@
 
 // ----------------------------- ENGINEER
 
-/datum/ghostspawner/human/ee_engineer
+/datum/ghostspawner/human/nt_engineer
 	name = "Nanotrasen Laboratory Engineer"
-	desc = ""
-	short_name = "ee_engineer"
+	desc = "Be an engineer for the Nanotrasen laboratories."
+	short_name = "nt_engineer"
 	loc_type = GS_LOC_POS
 	spawn_mob = /mob/living/carbon/human
 	tags = list("Nanotrasen Laboratory")
 	max_count = 2
-	password = "ee_engineer"
+	password = "nt_engineer"
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Nanotrasen Laboratory Engineer"
-	special_role = "ee_engineer Facility Engineer"
-	spawnpoints = list("ee_engineer")
-	outfit = /obj/outfit/admin/raccoon_city/ee_engineer
+	special_role = "nt_engineer Facility Engineer"
+	spawnpoints = list("nt_engineer")
+	outfit = /obj/outfit/admin/raccoon_city/nt_engineer
 	respawn_flag = null
 
-/obj/effect/ghostspawpoint/ee_engineer
-	name = "igs - EE Engineer"
-	identifier = "ee_engineer"
+/obj/effect/ghostspawpoint/nt_engineer
+	name = "igs - NT Engineer"
+	identifier = "nt_engineer"
 
-/obj/outfit/admin/raccoon_city/ee_engineer
-	name = "EE Engineer"
+/obj/outfit/admin/raccoon_city/nt_engineer
+	name = "NT Engineer"
 	uniform = /obj/item/clothing/under/rank/scientist
 	suit = list(
 		/obj/item/clothing/suit/storage/toggle/highvis,
@@ -337,28 +337,28 @@
 
 // ----------------------------- MACHINIST
 
-/datum/ghostspawner/human/ee_machinist
+/datum/ghostspawner/human/nt_machinist
 	name = "Nanotrasen Laboratory Machinist"
-	desc = "."
-	short_name = "ee_machinist"
+	desc = "Machinist for the Nanotrasen labs."
+	short_name = "nt_machinist"
 	loc_type = GS_LOC_POS
 	spawn_mob = /mob/living/carbon/human
 	tags = list("Nanotrasen Laboratory")
 	max_count = 2
-	password = "ee_machinist"
+	password = "nt_machinist"
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Nanotrasen Laboratory Machinist"
-	special_role = "ee_machinist Facility Machinist"
-	spawnpoints = list("ee_machinist")
-	outfit = /obj/outfit/admin/raccoon_city/ee_machinist
+	special_role = "nt_machinist Facility Machinist"
+	spawnpoints = list("nt_machinist")
+	outfit = /obj/outfit/admin/raccoon_city/nt_machinist
 	respawn_flag = null
 
-/obj/effect/ghostspawpoint/ee_machinist
-	name = "igs - EE Machinist"
-	identifier = "ee_machinist"
+/obj/effect/ghostspawpoint/nt_machinist
+	name = "igs - NT Machinist"
+	identifier = "nt_machinist"
 
-/obj/outfit/admin/raccoon_city/ee_machinist
-	name = "EE Machinist"
+/obj/outfit/admin/raccoon_city/nt_machinist
+	name = "NT Machinist"
 	uniform = /obj/item/clothing/under/rank/machinist
 	belt = list(
 		/obj/item/storage/belt/utility/full,
@@ -382,28 +382,28 @@
 
 // ----------------------------- SYNTH
 
-/datum/ghostspawner/human/ee_synth
+/datum/ghostspawner/human/nt_synth
 	name = "Nanotrasen Laboratory Synthetic"
 	desc = "The Director's personal bodyguard."
-	short_name = "ee_synth"
+	short_name = "nt_synth"
 	loc_type = GS_LOC_POS
 	spawn_mob = /mob/living/carbon/human/shell
 	tags = list("Nanotrasen Laboratory")
 	max_count = 2
-	password = "ee_synth"
+	password = "nt_synth"
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Nanotrasen Laboratory Synth"
-	special_role = "ee_synth Facility Synth"
-	spawnpoints = list("ee_synth")
-	outfit = /obj/outfit/admin/raccoon_city/ee_synth
+	special_role = "nt_synth Facility Synth"
+	spawnpoints = list("nt_synth")
+	outfit = /obj/outfit/admin/raccoon_city/nt_synth
 	respawn_flag = null
 
-/obj/effect/ghostspawpoint/ee_synth
-	name = "igs - EE Synth"
-	identifier = "ee_synth"
+/obj/effect/ghostspawpoint/nt_synth
+	name = "igs - NT Synth"
+	identifier = "nt_synth"
 
-/obj/outfit/admin/raccoon_city/ee_synth
-	name = "EE Synth"
+/obj/outfit/admin/raccoon_city/nt_synth
+	name = "NT Synth"
 	uniform = /obj/item/clothing/under/rank/scientist
 	shoes = list(
 		/obj/item/clothing/shoes/sneakers/tip,
@@ -424,7 +424,7 @@
 
 // ----------------------------- OUTFITS FOR LOCKERS
 
-/obj/outfit/admin/raccoon_city/ee_locker
+/obj/outfit/admin/raccoon_city/nt_locker
 	id = null
 	uniform = list(
 		/obj/item/clothing/under/rank/scientist
@@ -452,7 +452,7 @@
 		/obj/random/desk_clutter/science,
 	)
 
-/obj/outfit/admin/raccoon_city/ee_locker/alt
+/obj/outfit/admin/raccoon_city/nt_locker/alt
 	uniform = list(
 		/obj/item/clothing/under/color/white,
 		/obj/item/clothing/under/color/green,
@@ -479,18 +479,18 @@
 	)
 
 /obj/random/ee_locker_outfit
-	name = "random EE labs locker outfit"
+	name = "random NT labs locker outfit"
 	icon = 'icons/effects/map_effects.dmi'
 	icon_state = "outfit"
 	problist = list(
-		/obj/outfit/admin/raccoon_city/ee_locker,
-		/obj/outfit/admin/raccoon_city/ee_locker/alt,
-		/obj/outfit/admin/raccoon_city/ee_engineer,
-		/obj/outfit/admin/raccoon_city/ee_guard,
-		/obj/outfit/admin/raccoon_city/ee_intern,
-		/obj/outfit/admin/raccoon_city/ee_machinist,
-		/obj/outfit/admin/raccoon_city/ee_scientist,
-		/obj/outfit/admin/raccoon_city/ee_synth,
+		/obj/outfit/admin/raccoon_city/nt_locker,
+		/obj/outfit/admin/raccoon_city/nt_locker/alt,
+		/obj/outfit/admin/raccoon_city/nt_engineer,
+		/obj/outfit/admin/raccoon_city/nt_guard,
+		/obj/outfit/admin/raccoon_city/nt_intern,
+		/obj/outfit/admin/raccoon_city/nt_machinist,
+		/obj/outfit/admin/raccoon_city/nt_scientist,
+		/obj/outfit/admin/raccoon_city/nt_synth,
 	)
 
 // -----------------------------
