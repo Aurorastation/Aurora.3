@@ -7,7 +7,15 @@
 	item_state = "engspace_suit"
 	icon_auto_adapt = TRUE
 	icon_supported_species_tags = list("skr", "taj", "una")
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 100, rad = 100)
+	armor = list(
+		MELEE = 0,
+		BULLET = 0,
+		LASER = 0,
+		ENERGY = 0,
+		BOMB = 0,
+		BIO = 100,
+		RAD = 100,
+	)
 	anomaly_protection = 0.6
 
 /obj/item/clothing/head/hazmat/anomaly
@@ -17,7 +25,15 @@
 	item_state = "engspace_helmet"
 	icon_auto_adapt = TRUE
 	icon_supported_species_tags = list("skr", "taj", "una")
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 100, rad = 100)
+	armor = list(
+		MELEE = 0,
+		BULLET = 0,
+		LASER = 0,
+		ENERGY = 0,
+		BOMB = 0,
+		BIO = 100,
+		RAD = 100,
+	)
 	anomaly_protection = 0.3
 
 /obj/item/clothing/suit/space/anomaly
@@ -25,7 +41,15 @@
 	desc = "A pressure resistant excavation suit partially capable of insulating against exotic alien energies."
 	icon_state = "cespace_suit"
 	item_state = "cespace_suit"
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 100, rad = 100)
+	armor = list(
+		MELEE = 0,
+		BULLET = 0,
+		LASER = 0,
+		ENERGY = 0,
+		BOMB = 0,
+		BIO = 100,
+		RAD = 100,
+	)
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit)
 	contained_sprite = FALSE
 	icon = 'icons/obj/clothing/suits.dmi'
@@ -36,7 +60,15 @@
 	desc = "A pressure resistant excavation hood partially capable of insulating against exotic alien energies."
 	icon_state = "cespace_helmet"
 	item_state = "cespace_helmet"
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 100, rad = 100)
+	armor = list(
+		MELEE = 0,
+		BULLET = 0,
+		LASER = 0,
+		ENERGY = 0,
+		BOMB = 0,
+		BIO = 100,
+		RAD = 100,
+	)
 	icon = 'icons/obj/clothing/hats.dmi'
 	contained_sprite = FALSE
 	anomaly_protection = 0.2

@@ -19,6 +19,8 @@
 
 	var/storage_cost
 
+	var/storage_slot_sort_by_name = FALSE
+
 	///Dimensions of the icon file used when this item is worn, eg: hats.dmi (32x32 sprite, 64x64 sprite, etc.). Allows inhands/worn sprites to be of any size, but still centered on a mob properly
 	var/worn_x_dimension = 32
 
@@ -223,7 +225,6 @@
 	///Used to override hardcoded clothing dmis in human clothing pr
 	var/icon_override
 
-
 	var/charge_failure_message = " cannot be recharged."
 	var/held_maptext
 
@@ -354,7 +355,7 @@
 	. = ..(user, distance, "", "It is a [size] item.", get_extended = get_extended)
 	var/datum/component/armor/armor_component = GetComponent(/datum/component/armor)
 	if(armor_component)
-		. += FONT_SMALL(SPAN_NOTICE("\[?\] This item has armor values. <a href='byond://?src=[REF(src)];examine_armor=1>\[Show Armor Values\]</a>"))
+		. += FONT_SMALL(SPAN_NOTICE("\[?\] This item has armor values. <a href='byond://?src=[REF(src)];examine_armor=1'>\[Show Armor Values\]</a>"))
 
 /obj/item/Topic(href, href_list)
 	if(href_list["examine_armor"])

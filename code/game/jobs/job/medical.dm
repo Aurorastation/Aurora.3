@@ -139,7 +139,7 @@
 	jobtype = /datum/job/surgeon
 
 	uniform = /obj/item/clothing/under/rank/medical/surgeon
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/nt
+	suit = /obj/item/clothing/suit/storage/surgical_gown/nt
 	shoes = /obj/item/clothing/shoes/sneakers/medsci
 
 /obj/outfit/job/doctor/surgeon/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)

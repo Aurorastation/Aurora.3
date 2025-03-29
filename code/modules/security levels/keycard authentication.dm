@@ -87,7 +87,7 @@
 		dat += "<p><A href='byond://?src=[REF(src)];reset=1'>Back</A>"
 
 
-	user << browse(dat, "window=keycard_auth;size=500x350")
+	user << browse(HTML_SKELETON(dat), "window=keycard_auth;size=500x350")
 	return
 
 

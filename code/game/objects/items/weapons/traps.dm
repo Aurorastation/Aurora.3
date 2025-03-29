@@ -670,7 +670,7 @@
 		..()
 
 /obj/item/trap/animal/Move()
-	..()
+	. = ..()
 	if(captured)
 		var/datum/M = captured.resolve()
 		if(isliving(M))

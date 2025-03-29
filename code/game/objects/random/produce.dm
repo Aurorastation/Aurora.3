@@ -67,6 +67,7 @@
 						"cacao" = 0.5,
 						"cherry" = 0.25,
 						"onion" = 0.5,
+						"garlic" = 0.5,
 						"bellpepper" = 0.25
 					)
 
