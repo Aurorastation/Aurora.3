@@ -37,7 +37,7 @@
 
 /datum/ghostspawner/human/nt_scientist
 	name = "Nanotrasen Laboratory Scientist"
-	desc = "Research Hylemnomil-Zeta, a dangerous but potentially miraculous and Spur-changing artificial chemical."
+	desc = "Getmore research is so cool, guys!"
 	short_name = "nt_sci"
 	loc_type = GS_LOC_POS
 	spawn_mob = /mob/living/carbon/human
@@ -97,7 +97,7 @@
 
 /datum/ghostspawner/human/nt_labs_director
 	name = "Nanotrasen Laboratory Director"
-	desc = "Direct Nanotrasen Research Facility Omega's experiment on Hylemnomil."
+	desc = "Direct your band of merry chickens to cross the road safely. By which I mean, totally not exterminating Point Verdant with a zombie virus."
 	short_name = "nt_director"
 	loc_type = GS_LOC_POS
 	spawn_mob = /mob/living/carbon/human
@@ -134,7 +134,7 @@
 
 /datum/ghostspawner/human/nt_labs_lead
 	name = "Nanotrasen Laboratory Project Lead"
-	desc = "Supervise the Nanotrasen Research Facility Omega's experiment on Hylemnomil."
+	desc = "Are you Albert Wesker, or are you Elon MuSCC?"
 	short_name = "nt_plead"
 	loc_type = GS_LOC_POS
 	spawn_mob = /mob/living/carbon/human
@@ -384,7 +384,7 @@
 
 /datum/ghostspawner/human/nt_synth
 	name = "Nanotrasen Laboratory Synthetic"
-	desc = "The Director's personal bodyguard."
+	desc = "A synthetic assigned to the Nanotrasen laboratory."
 	short_name = "nt_synth"
 	loc_type = GS_LOC_POS
 	spawn_mob = /mob/living/carbon/human/shell
