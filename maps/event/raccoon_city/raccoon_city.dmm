@@ -14268,6 +14268,7 @@
 	dir = 1
 	},
 /obj/effect/ghostspawpoint/nt_guard,
+/obj/effect/ghostspawpoint/konyang_assetpro,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior)
 "fXr" = (

@@ -245,6 +245,7 @@
 
 /mob/living/carbon/human/zombie/Initialize(mapload)
 	. = ..(mapload, SPECIES_ZOMBIE)
+	set_name("zombie")
 	var/list/possible_outfits = list(
 		/obj/outfit/admin/konyang/cop,
 		/obj/outfit/admin/konyang/clinic,
@@ -288,6 +289,7 @@
 
 /mob/living/carbon/human/zombie_armored/Initialize(mapload)
 	. = ..(mapload, SPECIES_ZOMBIE)
+	set_name("zombie")
 	var/list/possible_outfits = list(
 		/obj/outfit/admin/konyang/army_response/mechpilot,
 		/obj/outfit/admin/konyang/army_response/officer,
@@ -429,6 +431,7 @@
 	thinking_enabled = FALSE
 	. = ..()
 	SSghostroles.add_spawn_atom("aszombie", src)
+	set_name("zombie")
 
 /datum/species/zombie/tajara
 	name = SPECIES_ZOMBIE_TAJARA
@@ -553,6 +556,7 @@
 /mob/living/carbon/human/bull/Initialize(mapload, new_species)
 	. = ..(mapload, SPECIES_ZOMBIE_BULL)
 	SSghostroles.add_spawn_atom("szombie", src)
+	set_name("zombie bull")
 
 ///A zombie tuned to hunt preys
 /datum/species/zombie/hunter
@@ -588,6 +592,7 @@
 /mob/living/carbon/human/hunter/Initialize(mapload, new_species)
 	. = ..(mapload, SPECIES_ZOMBIE_HUNTER)
 	SSghostroles.add_spawn_atom("szombie", src)
+	set_name("zombie hunter")
 
 ///A zombie tuned for charge attacks
 /datum/species/zombie/rhino
@@ -634,6 +639,7 @@
 /mob/living/carbon/human/rhino/Initialize(mapload, new_species)
 	. = ..(mapload, SPECIES_ZOMBIE_RHINO)
 	SSghostroles.add_spawn_atom("szombie", src)
+	set_name("zombie rhino")
 
 /mob/living/carbon/proc/consume()
 	set name = "Consume"

@@ -172,7 +172,7 @@
 	assigned_role = "Nanotrasen Laboratory Synth"
 	special_role = "konyang_assetpro Facility Synth"
 	spawnpoints = list("konyang_assetpro")
-	outfit = /obj/outfit/admin/konyang/army_response/officer
+	outfit = /obj/outfit/admin/deathsquad
 	respawn_flag = null
 
 /obj/effect/ghostspawpoint/konyang_assetpro
