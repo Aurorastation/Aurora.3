@@ -70,7 +70,7 @@
 		to_chat(src, "Some accounts did not have proper ages set in their clients.  This function requires database to be present")
 
 	if(msg != "")
-		src << browse(msg, "window=Player_age_check")
+		src << browse(HTML_SKELETON(msg), "window=Player_age_check")
 	else
 		to_chat(src, "No matches for that age range found.")
 

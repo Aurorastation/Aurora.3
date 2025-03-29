@@ -215,3 +215,61 @@
   FlamingLily:
   - bugfix: Fixes hopping down platforms so that they do not pull people through railings
       and down into the depths below.
+2025-03-23:
+  ASmallCuteCat:
+  - qol: Added 15x Meat to one of the refrigerators in the Point Verdant Up!Burger
+      location.
+  - qol: Added a hydroponics tray, moss seeds, and some jugs of EZ-Nutrient to the
+      Up!Burger.
+  ChangeMe:
+  - refactor: Refactored (second passage) how movement works, now it's mostly in line
+      with TG handling and avoids calling 3 gazillion Cross() Uncross() etc. on every
+      atom in a turf.
+  - bugfix: Fixed EMP protection from species not actually protecting (this includes
+      the surge prevention for IPCs).
+  - bugfix: Fixed EMP 3D calculation runtiming because I forgot to make the value
+      absolute and it was doing the square root of a negative number.
+  - server: It's now possible to queue the round to start with the Start Round verb
+      even while the system is initializing, for an even faster pain train to enter
+      the round and test things.
+  FlamingLily:
+  - qol: Swapped the brown sneakers in the CE's clothing satchel with brown workboots.
+  FluffyGhost:
+  - refactor: Updated the renderers to work with BYOND 516.
+  - refactor: Some update of ZAS to hopefully be more efficient, and cold/hot air
+      effects.
+  - qol: Gas effects are now less prominent.
+  Wowzewow (Wezzy):
+  - rscadd: Hides and mutes newplayer spawn.
+  - bugfix: Fixes double-door cabinet animations.
+  hazelmouse:
+  - rscadd: Made several QoL changes to make the off-ship antag areas more in-line
+      with the mapping standards of newer maps in the codebase, including primarily
+      cosmetic alterations to the raider, burglar, and mercenary shuttles.
+  notagonk:
+  - qol: Gives the Security Belt the ability to hold the Head of Security's energy
+      pistol.
+2025-03-25:
+  Acetrea:
+  - rscadd: Allows pharmacy bags to hold inhaler cartridges.
+  notagonk:
+  - qol: Updates the Hiskyn's Revanchists ship.
+2025-03-26:
+  DreamySkrell:
+  - rscadd: Adds Environmental Testing Facility odyssey scenario. Big map.
+  - rscadd: Removes green tint from the minimap program/reader.
+  - rscadd: Adds/reorganizes some generic outfits.
+  - rscadd: Adds some generic odyssey actor roles.
+  - rscadd: Adds actor accesses system to odyssey scenarios, and a self-service access
+      terminal.
+  - rscadd: Adds some warnings to odyssey actor teleporter, in case ID access or headset
+      are missing.
+  - rscadd: Adds some more random spawners.
+  - rscadd: Adds better sprites door helpers.
+  - rscadd: Adds access door helper.
+  - rscadd: Adds info box to odyssey actor panel about roles.
+2025-03-27:
+  Arrow768:
+  - server: Ports DBCore from tgstation.
+  harry:
+  - rscadd: compatibility in 516 for browser elements, like the chat and tgui popups

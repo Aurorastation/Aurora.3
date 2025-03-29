@@ -993,3 +993,36 @@
 		'sound/items/polaroid1.ogg',
 		'sound/items/polaroid2.ogg'
 	)
+
+/singleton/sound_category/hatch_open
+	sounds = list(
+		'sound/machines/hatch_open1.ogg',
+		'sound/machines/hatch_open2.ogg',
+		'sound/machines/hatch_open3.ogg',
+		'sound/machines/hatch_open4.ogg'
+	)
+
+/singleton/sound_category/hatch_close
+	sounds = list(
+		'sound/machines/hatch_close1.ogg',
+		'sound/machines/hatch_close2.ogg'
+	)
+
+/singleton/sound_category/electrical_hum
+	sounds = list(
+		'sound/machines/electrical_hum1.ogg',
+		'sound/machines/electrical_hum2.ogg'
+	)
+
+/singleton/sound_category/electrical_spark
+	sounds = list(
+		'sound/machines/electrical_spark1.ogg'
+	)
+
+/singleton/sound_category/steam_pipe
+	sounds = list(
+		'sound/machines/steam_pipe1.ogg',
+		'sound/machines/steam_pipe2.ogg',
+		'sound/machines/steam_pipe3.ogg',
+		'sound/machines/steam_pipe4.ogg'
+	)

@@ -1,0 +1,6 @@
+author: Geeves, KingOfThePing, Kyres1, Wowzewow (Wezzy), PrefabQuasar, hazelmouse
+
+delete-after: True
+
+changes:
+  - rscadd: "Added maintenance and large maintenance panels to various areas around the ship. These are fluff objects that have no mechanical impact, but serve as RP tools engineers can use to go to and interact with departments."
