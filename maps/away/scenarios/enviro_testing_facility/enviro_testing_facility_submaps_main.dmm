@@ -2475,7 +2475,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/engineering/reactors)
 "crP" = (
-/obj/structure/utility_pole/street/classic/on{
+/obj/structure/utility_pole/street/konyang/classic{
 	pixel_y = 23
 	},
 /turf/simulated/floor/sidewalk,
@@ -9905,7 +9905,7 @@
 /area/enviro_testing_facility/inside/engineering/reactors)
 "jUd" = (
 /obj/structure/table/stone/marble,
-/obj/structure/cash_register{
+/obj/structure/closet/crate/cash_register{
 	dir = 8;
 	pixel_y = 7;
 	pixel_x = 5
@@ -10196,7 +10196,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/template_noop)
 "kjK" = (
-/obj/structure/utility_pole/street/classic/on,
+/obj/structure/utility_pole/street/konyang/classic,
 /turf/simulated/floor/sidewalk/detail,
 /area/template_noop)
 "kjN" = (
@@ -10273,7 +10273,7 @@
 /area/enviro_testing_facility/inside/medical/paramedic)
 "knb" = (
 /obj/structure/table/stone/marble,
-/obj/structure/cash_register{
+/obj/structure/closet/crate/cash_register{
 	dir = 4;
 	pixel_y = 13
 	},
@@ -15465,7 +15465,7 @@
 /area/enviro_testing_facility/inside/research/meeting)
 "pzD" = (
 /obj/structure/table/stone/marble,
-/obj/structure/cash_register{
+/obj/structure/closet/crate/cash_register{
 	dir = 4;
 	pixel_y = 13
 	},
@@ -16326,7 +16326,7 @@
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/research/rnd)
 "qsW" = (
-/obj/structure/utility_pole/street/classic/on{
+/obj/structure/utility_pole/street/konyang/classic{
 	pixel_y = 23
 	},
 /obj/random/dirt_75,
@@ -21601,7 +21601,7 @@
 /area/template_noop)
 "vQa" = (
 /obj/structure/table/wood,
-/obj/structure/cash_register{
+/obj/structure/closet/crate/cash_register{
 	pixel_x = 2;
 	pixel_y = 1
 	},
