@@ -7632,10 +7632,6 @@
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior/shallow)
-"diP" = (
-/obj/structure/bed/stool/chair/office/bridge/generic,
-/turf/simulated/floor/tiled/full,
-/area/point_verdant/interior)
 "diX" = (
 /obj/structure/barricade/wooden{
 	dir = 8
@@ -23107,7 +23103,6 @@
 /obj/structure/closet,
 /obj/random/tool_konyang,
 /obj/effect/floor_decal/corner/brown/diagonal,
-/obj/outfit/admin/raccoon_city/nt_engineer,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
 "jQT" = (
@@ -38203,12 +38198,6 @@
 /obj/random/tool_konyang,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/robotics)
-"qwE" = (
-/obj/structure/bed/stool/chair/office/bridge/generic{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/full,
-/area/point_verdant/interior)
 "qwK" = (
 /obj/random/dirt_75,
 /obj/structure/utility_pole/street/on{
@@ -49915,12 +49904,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/hotel)
-"vHn" = (
-/obj/structure/closet,
-/obj/random/tool_konyang,
-/obj/outfit/admin/raccoon_city/nt_engineer,
-/turf/simulated/floor/tiled,
-/area/point_verdant/interior)
 "vHs" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /turf/simulated/floor/tiled/full,
@@ -50993,7 +50976,6 @@
 /obj/machinery/light{
 	pixel_y = -2
 	},
-/obj/outfit/admin/raccoon_city/nt_synth,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -52239,11 +52221,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior/tunnels)
-"wFz" = (
-/obj/effect/ghostspawpoint/nt_synth,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled,
-/area/point_verdant/interior)
 "wFE" = (
 /obj/effect/decal/road_marking/crosswalk,
 /obj/effect/decal/curb,
@@ -73373,7 +73350,7 @@ ckx
 ckx
 pBI
 gBb
-vHn
+oBE
 kQQ
 soq
 soq
@@ -74681,10 +74658,10 @@ fbl
 soq
 kQQ
 pin
-wFz
+gBb
 sTf
 pin
-diP
+qpL
 orh
 bRL
 dfa
@@ -74943,7 +74920,7 @@ afE
 fML
 nlw
 sKL
-qwE
+bRL
 dfa
 aio
 dde
@@ -75455,7 +75432,7 @@ vvq
 jzP
 jzP
 use
-diP
+qpL
 vIQ
 ghl
 fvc
@@ -75712,7 +75689,7 @@ tmj
 aio
 aio
 fML
-diP
+qpL
 gwF
 ghl
 lUG
