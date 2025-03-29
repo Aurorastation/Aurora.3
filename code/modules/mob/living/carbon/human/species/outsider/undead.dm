@@ -286,6 +286,33 @@
 		qdel(I)
 	regenerate_icons()
 
+/mob/living/carbon/human/zombie_armored/Initialize(mapload)
+	. = ..(mapload, SPECIES_ZOMBIE)
+	var/list/possible_outfits = list(
+		/obj/outfit/admin/konyang/army_response/mechpilot,
+		/obj/outfit/admin/konyang/army_response/officer,
+		/obj/outfit/admin/konyang/army_response/medic
+	)
+	var/obj/outfit/O = pick(possible_outfits)
+	preEquipOutfit(O, FALSE)
+	equipOutfit(O, FALSE)
+
+	var/list/possible_armor = list(
+		/obj/item/clothing/suit/armor/carrier/officer = /obj/item/clothing/head/helmet/security,
+		/obj/item/clothing/suit/armor/carrier/heavy = /obj/item/clothing/head/helmet/security/heavy,
+		/obj/item/clothing/suit/armor/carrier/riot = /obj/item/clothing/head/helmet/riot,
+		/obj/item/clothing/suit/armor/carrier/ablative = /obj/item/clothing/head/helmet/ablative,
+		/obj/item/clothing/suit/armor/carrier/ballistic = /obj/item/clothing/head/helmet/ballistic
+	)
+
+	var/random = pick(1, 5)
+	var/obj/item/clothing/armor = possible_armor[random]
+	var/obj/item/clothing/helmet = possible_armor[armor]
+	armor = new armor()
+	helmet = new helmet()
+	equip_to_slot_or_del(armor, slot_wear_suit)
+	equip_to_slot_or_del(helmet, slot_head)
+
 /datum/species/zombie/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.mutations |= CLUMSY
 	var/datum/martial_art/zombie/Z = new /datum/martial_art/zombie()

@@ -31,6 +31,13 @@ export const Outbreak = (props, context) => {
                 onClick={() => act('spawn_normal')}
               />
             </LabeledList.Item>
+            <LabeledList.Item label="Armored Zombie Single Spawn">
+              <Button
+                content="Spawn"
+                icon="radiation"
+                onClick={() => act('spawn_armored')}
+              />
+            </LabeledList.Item>
             <LabeledList.Item label="Single Special Spawn">
               <Button
                 content="Spawn"
@@ -69,6 +76,13 @@ export const Outbreak = (props, context) => {
               <Button
                 content="Spawn"
                 icon="radiation"
+                onClick={() => act('spawn_normal_adminspawn_group')}
+              />
+            </LabeledList.Item>
+            <LabeledList.Item label="Break Lights">
+              <Button
+                content="cross"
+                icon="sync"
                 onClick={() => act('spawn_normal_adminspawn_group')}
               />
             </LabeledList.Item>

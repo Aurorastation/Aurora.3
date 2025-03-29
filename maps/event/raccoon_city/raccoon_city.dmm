@@ -3626,7 +3626,6 @@
 "bzH" = (
 /obj/structure/closet,
 /obj/random/tool_konyang,
-/obj/outfit/admin/raccoon_city/nt_machinist,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
@@ -13886,7 +13885,6 @@
 "fNO" = (
 /obj/structure/closet,
 /obj/random/high_grade_weapon,
-/obj/outfit/admin/raccoon_city/nt_guard,
 /obj/item/device/flash,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
@@ -26285,7 +26283,7 @@
 /area/point_verdant/interior/robotics)
 "lgM" = (
 /obj/structure/closet,
-/obj/outfit/admin/raccoon_city/nt_guard,
+/obj/outfit/admin/konyang/army_response,
 /obj/item/device/flash,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices/basement)
@@ -26708,7 +26706,6 @@
 /area/point_verdant/interior)
 "lqP" = (
 /obj/structure/closet,
-/obj/outfit/admin/raccoon_city/nt_synth,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
 "lrd" = (
@@ -29550,7 +29547,7 @@
 "mAW" = (
 /obj/structure/closet,
 /obj/random/high_grade_weapon,
-/obj/outfit/admin/raccoon_city/nt_guard,
+/obj/outfit/admin/konyang/army_response,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
 "mBg" = (
@@ -34100,7 +34097,6 @@
 "oBE" = (
 /obj/structure/closet,
 /obj/random/tool_konyang,
-/obj/outfit/admin/raccoon_city/nt_machinist,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
 "oBI" = (
@@ -34781,7 +34777,6 @@
 /area/point_verdant/interior)
 "oQg" = (
 /obj/structure/closet,
-/obj/outfit/admin/raccoon_city/nt_synth,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
@@ -35612,7 +35607,7 @@
 "pkR" = (
 /obj/structure/closet,
 /obj/random/barricade_kit,
-/obj/outfit/admin/raccoon_city/nt_guard,
+/obj/outfit/admin/konyang/army_response,
 /obj/item/device/flash,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
@@ -37913,7 +37908,6 @@
 /area/point_verdant/interior)
 "qpL" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
-/obj/effect/ghostspawpoint/ee_lead_scientist,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior)
 "qpZ" = (
@@ -38211,7 +38205,6 @@
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 1
 	},
-/obj/effect/ghostspawpoint/nt_intern,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior)
 "qwK" = (

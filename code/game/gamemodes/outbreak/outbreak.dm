@@ -1,7 +1,7 @@
 GLOBAL_VAR_INIT(outbreak_has_begun, FALSE)
 
 /datum/game_mode/outbreak
-	name = "Adverse Reactions"
+	name = "Outbreak"
 	config_tag = "outbreak"
 	required_players = 0
 	required_enemies = 0
@@ -45,6 +45,10 @@ GLOBAL_VAR_INIT(outbreak_has_begun, FALSE)
 					if("hunter")
 						new /mob/living/carbon/human/hunter(T)
 
+		if("spawn_armored")
+			var/turf/T = get_turf(user)
+			new /mob/living/carbon/human/zombie_armored(T)
+
 		if("spawn_special")
 			var/special = pick("rhino", "bull", "hunter")
 			var/turf/T = get_turf(usr)
@@ -69,7 +73,9 @@ GLOBAL_VAR_INIT(outbreak_has_begun, FALSE)
 				var/turf/T = get_random_turf_in_range(user, 7, 0, TRUE, FALSE)
 				new /mob/living/carbon/human/zombie/adminspawn(T)
 
-		// add break lights in range verb
+		if("break_lights")
+			for(var/obj/machinery/light/light in range(7))
+				light.shatter()
 
 /obj/effect/landmark/outbreak_zombie
 	name = "Simple Zombie Marker"

@@ -142,7 +142,8 @@ GLOBAL_LIST_INIT(admin_verbs_fun, list(
 	/client/proc/fab_tip,
 	/client/proc/apply_sunstate,
 	/datum/admins/proc/ccannoucment,
-	/datum/admins/proc/set_odyssey
+	/datum/admins/proc/set_odyssey,
+	/client/proc/outbreak_menu
 	))
 
 GLOBAL_LIST_INIT(admin_verbs_spawn, list(
@@ -1084,6 +1085,20 @@ GLOBAL_LIST_INIT(admin_verbs_cciaa, list(
 		to_chat(usr, "You now will get debug log messages")
 	else
 		to_chat(usr, "You now won't get debug log messages")
+
+/client/proc/outbreak_menu()
+	set category = "Fun"
+	set name = "Open Outbreak Menu"
+	set desc = "Opens the Outbreak menu."
+
+	if(SSticker.current_state != GAME_STATE_PLAYING)
+		to_chat(usr, SPAN_WARNING("The game hasn't started yet."))
+		return FALSE
+
+	if(!check_rights(R_ADMIN, TRUE, usr))
+		return FALSE
+
+	SSticker.mode.ui_interact(usr)
 
 /client/proc/damage_menu(mob/living/carbon/human/H as null|mob in GLOB.human_mob_list)
 	set name = "Damage Menu"
