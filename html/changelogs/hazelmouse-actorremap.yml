@@ -57,3 +57,4 @@ delete-after: True
 changes:
   - rscadd: "Implements a remap of the spawning area for Actors, as part of the Odyssey gamemode, to hopefully be more enjoyable and intuitive. Now featuring a big table for everyone to get around on to disagree on the gimmick until the Storyteller tells you off."
   - rscadd: "Adds a generic clothing vendor to CC, available to every off-ship antagonist. This permits players to choose from a variety of generic clothing items, in addition to allowing them to recolour all recolourable items to their preference."
+  - refactor: "Shifts many of the unsimulated floors on the CC z-level, but not all of them, to dedicated subtypes instead of a single varedited type."
