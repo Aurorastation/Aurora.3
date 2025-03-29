@@ -520,24 +520,21 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	color = null
 	anchored = TRUE
 	can_be_unanchored = FALSE
+	atom_flags = ATOM_FLAG_CHECKS_BORDER
+	layer = ABOVE_HUMAN_LAYER //The sprite will be in front of players when positioned correctly.
 
 /obj/structure/chainlink_fence/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)//So bullets will fly over and stuff.
 	if(mover?.movement_type & PHASING)
 		return TRUE
-	if(air_group || (height==0))
-		return TRUE
 	if(istype(mover, /obj/projectile))
-		var/obj/projectile/P = mover
-		if(P.original == src)
+		if(isliving(mover))
 			return FALSE
-		if(P.firer && Adjacent(P.firer))
-			return TRUE
 		return prob(35)
-	if(isliving(mover))
-		return FALSE
-	if(istype(mover) && mover.pass_flags & PASSTABLE)
+	if(!istype(mover) || mover.pass_flags & PASSGRILLE)
 		return TRUE
-	return FALSE
+	if(get_dir(loc, target) == dir)
+		return !density
+	return TRUE
 
 /obj/structure/chainlink_fence/CheckExit(var/atom/movable/O, var/turf/target)
 	if(istype(O) && CanPass(O, target))
