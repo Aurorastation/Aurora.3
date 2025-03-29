@@ -13751,6 +13751,7 @@
 /area/point_verdant/interior)
 "fKC" = (
 /obj/effect/landmark/lobby_mobs_location,
+/obj/effect/landmark/newplayer_start,
 /turf/unsimulated/floor,
 /area/point_verdant/outdoors)
 "fKF" = (
