@@ -37,7 +37,7 @@
 /obj/item/tajcard
 	name = "collectable tajaran card"
 	desc = "A collectable card with an illustration of a famous Tajaran figure, usually found inside cigarette packets."
-	icon = 'icons/obj/playing_cards.dmi'
+	icon = 'icons/obj/item/playing_cards.dmi'
 	icon_state = "tajcig"
 	drop_sound = 'sound/items/drop/paper.ogg'
 	pickup_sound = 'sound/items/pickup/paper.ogg'
