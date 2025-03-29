@@ -1,0 +1,55 @@
+/datum/map_template/ruin/away_site/kowloon_junction
+	name = "Konyang - Kowloon Junction Spaceport"
+	id = "kowloon_junction"
+	description = "A landing zone designated by local authorities within an SCC-affiliated spaceport. Accommodations have been made to ensure full visitation of any open facilities present."
+	sectors = list(SECTOR_HANEUNIM)
+
+	traits = list(
+		//Z1
+		list(ZTRAIT_AWAY = TRUE, ZTRAIT_UP = TRUE, ZTRAIT_DOWN = FALSE),
+		//Z2
+		list(ZTRAIT_AWAY = TRUE, ZTRAIT_UP = TRUE, ZTRAIT_DOWN = TRUE),
+		//Z3
+		list(ZTRAIT_AWAY = TRUE, ZTRAIT_UP = FALSE, ZTRAIT_DOWN = TRUE),
+	)
+
+	prefix = "away_site/konyang/new_hong_kong/"
+	suffix = "kowloon_junction.dmm"
+
+	spawn_weight = 1
+	spawn_cost = 1
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
+
+	unit_test_groups = list(2)
+
+/singleton/submap_archetype/kowloon_junction
+	map = "kowloon_junction"
+	descriptor = "A landing zone within New Hong Kong city limits."
+
+/obj/effect/overmap/visitable/sector/kowloon_junction
+	name = "Konyang - Kowloon Junction Spaceport"
+	desc = "A landing zone designated by local authorities within an SCC-affiliated spaceport. Accommodations have been made to ensure full visitation of any open facilities present."
+	icon_state = "poi"
+	scanimage = "konyang_point_verdant.png"
+	place_near_main = list(0,0)
+	landing_site = TRUE
+	alignment = "Coalition of Colonies"
+	requires_contact = FALSE
+	instant_contact = TRUE
+
+	comms_support = TRUE
+	comms_name = "National Police" //these comms should only be used by Konyang Police ghostroles
+	freq_name = "Corporate District Patrol"
+
+	initial_generic_waypoints = list(
+		"nav_kowloon_junction_dock_01",
+		"nav_kowloon_junction_dock_02",
+		"nav_kowloon_junction_dock_03",
+		"nav_kowloon_junction_dock_04",
+	)
+	initial_restricted_waypoints = list(
+		"Intrepid" = list("nav_point_kowloon_junction_intrepid"),
+		"Spark" = list("nav_point_kowloon_junction_spark"),
+		"Canary" = list("nav_point_kowloon_junction_canary"),
+		"Quark" = list("nav_point_kowloon_junction_intrepid"),
+	)

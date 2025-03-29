@@ -864,3 +864,9 @@
 /datum/access/enviro_testing_facility_access_sec
 	id = 252
 	desc = "Env-Test Facility Zoya, Security Access"
+
+//Being used for the Benevolent Guild hideout.
+#define ACCESS_KONYANG_BENEVOLENT 249
+/datum/access/konyang_benevolent
+	id = ACCESS_KONYANG_BENEVOLENT
+	access_type = ACCESS_TYPE_CENTCOM
