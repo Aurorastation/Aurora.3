@@ -75,14 +75,12 @@ GENERAL_PROTECT_DATUM(/datum/controller/subsystem/statistics)
 		for(var/mob/M in GLOB.player_list)
 			if(M.client)
 				playercount += 1
-		if(!establish_db_connection(GLOB.dbcon))
+		if(!SSdbcore.Connect())
 			log_game("SQL ERROR during population polling. Failed to connect.")
 		else
-			var/sqltime = time2text(world.realtime, "YYYY-MM-DD hh:mm:ss")
-			var/DBQuery/query = GLOB.dbcon.NewQuery("INSERT INTO `ss13_population` (`playercount`, `admincount`, `time`) VALUES ([playercount], [admincount], '[sqltime]')")
-			if(!query.Execute())
-				var/err = query.ErrorMsg()
-				log_game("SQL ERROR during population polling. Error : \[[err]\]\n")
+			var/datum/db_query/stats_query = SSdbcore.NewQuery("INSERT INTO `ss13_population` (`playercount`, `admincount`, `time`) VALUES (:playercount, :admincount, NOW())",list("playercount"=playercount,"admincount"=admincount))
+			stats_query.Execute()
+			qdel(stats_query)
 
 	if (status_needs_update)
 		// Update world status.
