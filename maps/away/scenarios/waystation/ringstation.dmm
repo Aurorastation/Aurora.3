@@ -13805,11 +13805,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/ringstation/z3/dock/public)
-"lkx" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/turf/template_noop,
-/area/ringstation/exterior/ring_median)
 "lkH" = (
 /obj/structure/bed/stool/chair,
 /obj/effect/floor_decal/corner/blue{
@@ -16960,7 +16955,6 @@
 "nVb" = (
 /obj/structure/lattice,
 /obj/item/hullbeacon/red,
-/obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 10
 	},
@@ -19752,7 +19746,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ringstation/z2/supply/hangar)
 "qal" = (
-/obj/structure/lattice,
 /obj/machinery/atmospherics/omni/mixer{
 	active_power_usage = 7500;
 	name = "air mixer";
@@ -53289,7 +53282,7 @@ plp
 jYz
 plp
 gAs
-akB
+gAs
 plp
 elI
 plp
@@ -56888,7 +56881,7 @@ lUs
 lUs
 jKu
 jKu
-lkx
+lUs
 lUs
 jKu
 jKu
@@ -201097,7 +201090,7 @@ sdx
 evr
 evr
 evr
-pII
+evr
 dbl
 dbl
 dbl
