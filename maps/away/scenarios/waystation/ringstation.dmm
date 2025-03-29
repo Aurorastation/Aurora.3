@@ -19313,11 +19313,6 @@
 "pIz" = (
 /turf/simulated/floor/tiled,
 /area/ringstation/z2/engineering/hall)
-"pII" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/lattice/catwalk,
-/turf/template_noop,
-/area/space)
 "pIV" = (
 /obj/structure/table/stone/marble,
 /obj/structure/curtain/open,
@@ -53802,7 +53797,7 @@ elI
 xLp
 gAs
 gAs
-wdo
+qqw
 lBs
 gAs
 lBs
@@ -55329,7 +55324,7 @@ gAs
 gAs
 akB
 gAs
-akB
+gAs
 lBs
 lBs
 xLp
@@ -201347,7 +201342,7 @@ dbl
 dbl
 dbl
 dbl
-pII
+evr
 iSD
 iSD
 iSD
