@@ -722,3 +722,74 @@
 	return pilot_access
 
 #undef ID_CARD_UNSET
+
+//Guest room ID's
+/obj/item/card/id/guest_room_1
+	name = "hotel guest room card - 1"
+	desc = "A disposable hotel room card. This card is marked Room 1."
+	icon_state = "guest"
+	overlay_state = "guest"
+	access = list(ACCESS_GUEST_ROOM_1)
+
+/obj/item/card/id/guest_room_2
+	name = "hotel guest room card - 2"
+	desc = "A disposable hotel room card. This card is marked Room 2."
+	icon_state = "guest"
+	overlay_state = "guest"
+	access = list(ACCESS_GUEST_ROOM_2)
+
+/obj/item/card/id/guest_room_3
+	name = "hotel guest room card - 3"
+	desc = "A disposable hotel room card. This card is marked Room 3."
+	icon_state = "guest"
+	overlay_state = "guest"
+	access = list(ACCESS_GUEST_ROOM_3)
+
+/obj/item/card/id/guest_room_4
+	name = "hotel guest room card - 4"
+	desc = "A disposable hotel room card. This card is marked Room 4."
+	icon_state = "guest"
+	overlay_state = "guest"
+	access = list(ACCESS_GUEST_ROOM_4)
+
+/obj/item/card/id/guest_room_5
+	name = "hotel guest room card - 5"
+	desc = "A disposable hotel room card. This card is marked Room 5."
+	icon_state = "guest"
+	overlay_state = "guest"
+	access = list(ACCESS_GUEST_ROOM_5)
+
+/obj/item/card/id/guest_room_6
+	name = "hotel guest room card - 6"
+	desc = "A disposable hotel room card. This card is marked Room 6."
+	icon_state = "guest"
+	overlay_state = "guest"
+	access = list(ACCESS_GUEST_ROOM_6)
+
+/obj/item/card/id/guest_room_7
+	name = "hotel guest room card - 7"
+	desc = "A disposable hotel room card. This card is marked Room 7."
+	icon_state = "guest"
+	overlay_state = "guest"
+	access = list(ACCESS_GUEST_ROOM_7)
+
+/obj/item/card/id/guest_room_8
+	name = "hotel guest room card - 8"
+	desc = "A disposable hotel room card. This card is marked Room 8."
+	icon_state = "guest"
+	overlay_state = "guest"
+	access = list(ACCESS_GUEST_ROOM_8)
+
+/obj/item/card/id/guest_room_9
+	name = "hotel guest room card - 9"
+	desc = "A disposable hotel room card. This card is marked Room 9."
+	icon_state = "guest"
+	overlay_state = "guest"
+	access = list(ACCESS_GUEST_ROOM_9)
+
+/obj/item/card/id/guest_room_10
+	name = "hotel guest room card - 10"
+	desc = "A disposable hotel room card. This card is marked Room 10."
+	icon_state = "guest"
+	overlay_state = "guest"
+	access = list(ACCESS_GUEST_ROOM_10)

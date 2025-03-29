@@ -1889,3 +1889,27 @@
 	)
 	light_color = COLOR_GUNMETAL
 	random_itemcount = FALSE
+
+/obj/machinery/vending/kowloon_hotel
+	name = "Hotel Guest Pass Vendor"
+	desc = "An automated hotel receptionist, issuing room passes."
+	vend_id = "hotel"
+	icon_state = "generic"
+	icon_vend = "generic-vend"
+	light_mask = "generic-lightmask"
+	products = list(
+		/obj/item/card/id/guest_room_1 = 1,
+		/obj/item/card/id/guest_room_2 = 1,
+		/obj/item/card/id/guest_room_3 = 1,
+		/obj/item/card/id/guest_room_4 = 1,
+		/obj/item/card/id/guest_room_5 = 1,
+		/obj/item/card/id/guest_room_6 = 1
+	)
+	prices = list(
+		/obj/item/card/id/guest_room_1 = 175,
+		/obj/item/card/id/guest_room_2 = 150,
+		/obj/item/card/id/guest_room_3 = 175,
+		/obj/item/card/id/guest_room_4 = 200,
+		/obj/item/card/id/guest_room_5 = 200,
+		/obj/item/card/id/guest_room_6 = 200
+	)

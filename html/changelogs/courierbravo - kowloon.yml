@@ -59,3 +59,4 @@ changes:
   - rscadd: "Added a new statue for Kowloon Junction, The Lady of Stone. The sprite was made by tomixcomics."
   - rscadd: "Added a generic collision object for use in maps. Its intended use is the same as the car filler structure, functioning as an invisible wall for large objects."
   - rscadd: "Added a new access for a konyang gang. This is to allow them to easily button up without having to share access with other storefronts."
+  - rscadd: "Adds a new vending machine for hotel guest ID's, along with 10 ID's preset with the hotel guest room access. Also adds a division in access.dm to make it easier to see where hotel access stops and other access starts again."

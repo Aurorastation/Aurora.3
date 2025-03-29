@@ -162,7 +162,7 @@
 	l_pocket = /obj/item/storage/wallet/random
 	r_pocket = /obj/item/material/knife/butterfly/switchblade
 	back = /obj/item/storage/backpack/satchel
-	id = null
+	id = /obj/item/card/id
 
 /datum/ghostspawner/human/benevolent_guild/boss
 	name = "Benevolent Guild Lieutenant"

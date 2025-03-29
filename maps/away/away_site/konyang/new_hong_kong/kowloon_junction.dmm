@@ -2854,7 +2854,8 @@
 "hP" = (
 /obj/machinery/door/airlock/service{
 	dir = 4;
-	name = "Room 4"
+	name = "Room 4";
+	req_one_access = list(234)
 	},
 /turf/simulated/floor/tiled/full,
 /area/kowloon_junction/interior/self_serve_hotel)
@@ -5785,7 +5786,8 @@
 /area/kowloon_junction/outdoors)
 "pn" = (
 /obj/machinery/door/airlock/service{
-	name = "Room 1"
+	name = "Room 1";
+	req_one_access = list(231)
 	},
 /turf/simulated/floor/tiled/full,
 /area/kowloon_junction/interior/self_serve_hotel)
@@ -6894,7 +6896,8 @@
 "sn" = (
 /obj/machinery/door/airlock/service{
 	dir = 4;
-	name = "Room 6"
+	name = "Room 6";
+	req_one_access = list(236)
 	},
 /turf/simulated/floor/tiled/full,
 /area/kowloon_junction/interior/self_serve_hotel)
@@ -9393,6 +9396,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kowloon_junction/interior/police)
+"za" = (
+/obj/machinery/vending/kowloon_hotel,
+/turf/simulated/floor/lino,
+/area/kowloon_junction/interior/self_serve_hotel)
 "zb" = (
 /obj/structure/road_barrier/top_end{
 	dir = 8
@@ -9907,7 +9914,8 @@
 "Ar" = (
 /obj/machinery/door/airlock/service{
 	dir = 4;
-	name = "Room 3"
+	name = "Room 3";
+	req_one_access = list(233)
 	},
 /turf/simulated/floor/tiled/full,
 /area/kowloon_junction/interior/self_serve_hotel)
@@ -13154,7 +13162,8 @@
 "IV" = (
 /obj/machinery/door/airlock/service{
 	dir = 4;
-	name = "Room 2"
+	name = "Room 2";
+	req_one_access = list(232)
 	},
 /turf/simulated/floor/tiled/full,
 /area/kowloon_junction/interior/self_serve_hotel)
@@ -17053,7 +17062,8 @@
 "Tb" = (
 /obj/machinery/door/airlock/service{
 	dir = 4;
-	name = "Room 5"
+	name = "Room 5";
+	req_one_access = list(235)
 	},
 /turf/simulated/floor/tiled/full,
 /area/kowloon_junction/interior/self_serve_hotel)
@@ -170195,7 +170205,7 @@ cd
 cd
 cd
 cd
-Vi
+za
 Vi
 Vi
 Vi
