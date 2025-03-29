@@ -330,3 +330,8 @@
       scenario.
   - rscadd: The Ruined Propellant Depot now has Non-Canon and Canon as options to
       pick from.
+2025-03-29:
+  hazelmouse:
+  - bugfix: Nanopaste no longer becomes invisible on character sprites after being
+      partially used.
+  - refactor: Nanopaste now uses contained sprites.
