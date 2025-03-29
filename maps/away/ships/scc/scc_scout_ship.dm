@@ -33,7 +33,6 @@
 	sizeclass = "Serendipity-class Scout Ship"
 	shiptype = "Multi-purpose scout"
 	max_speed = 1/(2 SECONDS)
-	burn_delay = 1 SECONDS
 	vessel_mass = 5000
 	vessel_size = SHIP_SIZE_SMALL
 	fore_dir = SOUTH
@@ -71,7 +70,6 @@
 	moving_state = "intrepid_moving"
 	colors = list("#cfd4ff", "#78adf8")
 	max_speed = 1/(2 SECONDS)
-	burn_delay = 1 SECONDS
 	vessel_mass = 3000
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
