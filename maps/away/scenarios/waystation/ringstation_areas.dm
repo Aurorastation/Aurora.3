@@ -6,7 +6,7 @@
 
 //// Z1 - Maintenance Z-Level ////
 /area/ringstation/z1
-	name = "Waystation - Maintenance Tunnels - "
+	name = "Waystation - Maintenance Tunnels"
 	icon_state = "maintenance"
 	sound_environment = SOUND_AREA_TUNNEL_ENCLOSED
 
@@ -14,21 +14,25 @@
 	name = "Waystation - Maintenance Tunnels - North"
 	area_blurb_category = "ringstation_maintenance_level"
 	area_blurb = "The varied sounds of the station above you cease. It is quieter down here, but so incredibly cramped and dark..."
+	sound_environment = SOUND_ENVIRONMENT_SEWER_PIPE
 
 /area/ringstation/z1/maintenance_east
 	name = "Waystation - Maintenance Tunnels - East"
 	area_blurb_category = "ringstation_maintenance_level"
 	area_blurb = "The varied sounds of the station above you cease. It is quieter down here, but so incredibly cramped and dark..."
+	sound_environment = SOUND_ENVIRONMENT_SEWER_PIPE
 
 /area/ringstation/z1/maintenance_south
 	name = "Waystation - Maintenance Tunnels - South"
 	area_blurb_category = "ringstation_maintenance_level"
 	area_blurb = "The varied sounds of the station above you cease. It is quieter down here, but so incredibly cramped and dark..."
+	sound_environment = SOUND_ENVIRONMENT_SEWER_PIPE
 
 /area/ringstation/z1/maintenance_west
 	name = "Waystation - Maintenance Tunnels - West"
 	area_blurb_category = "ringstation_maintenance_level"
 	area_blurb = "The varied sounds of the station above you cease. It is quieter down here, but so incredibly cramped and dark..."
+	sound_environment = SOUND_ENVIRONMENT_SEWER_PIPE
 
 // Z1 Non-tunnels
 /area/ringstation/z1/cafeteria_hydroponics
@@ -59,6 +63,7 @@
 	name = "Waystation - Hallway"
 	icon_state = "hallC"
 	holomap_color = HOLOMAP_AREACOLOR_HALLWAYS
+	sound_environment = SOUND_ENVIRONMENT_HALLWAY
 
 /area/ringstation/z2/hall/north
 	name = "Waystation - North Hallway"
@@ -89,7 +94,7 @@
 /area/ringstation/z2/computer_hardware_store
 	name = "Waystation - Computer Hardware Store"
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
-	icon = "green"
+	icon_state = "green"
 
 /area/ringstation/z2/computer_hardware_store/storage
 	name = "Waystation - Computer Hardware Store - Storage"
@@ -98,7 +103,7 @@
 /area/ringstation/z2/grocery_store
 	name = "Waystation - Grocery Store"
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
-	icon = "green"
+	icon_state = "green"
 
 /area/ringstation/z2/grocery_store/storage
 	name = "Waystation - Grocery Store - Storage"
@@ -107,13 +112,14 @@
 /area/ringstation/z2/survival_store
 	name = "Waystation - Void Survival Store"
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
-	icon = "green"
+	icon_state = "green"
 
 /area/ringstation/z2/cafeteria
 	name = "Waystation - Cafeteria"
 	icon_state = "courtroom"
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 	area_blurb = "A large cafeteria with the fragrant, sticky-sweet odor of cheap and quick cooking. The sterile tiling doesn't help, but at least there's a view into space..."
+	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 
 /area/ringstation/z2/cafeteria/kitchen
 	name = "Waystation - Cafeteria - Kitchen"
@@ -129,6 +135,7 @@
 
 /area/ringstation/z2/motel/hall
 	name = "Waystation - Motel - Hallway"
+	sound_environment = SOUND_ENVIRONMENT_HALLWAY
 
 /area/ringstation/z2/motel/utility
 	name = "Waystation - Motel - Utility Room"
@@ -140,6 +147,7 @@
 	name = "Waystation - Motel - Room A"
 	area_blurb_category = "ringstation_motel_room"
 	area_blurb = "A neat, recently cleaned room that smells of air freshener. Plenty of space to store your belongings and get some rest..."
+	sound_environment = SOUND_ENVIRONMENT_LIVINGROOM
 
 /area/ringstation/z2/motel/room/b
 	name = "Waystation - Motel - Room B"
@@ -157,6 +165,7 @@
 	icon_state = "medbay"
 	holomap_color = HOLOMAP_AREACOLOR_MEDICAL
 	area_blurb = "This place is even more sterile than the rest of this station..."
+	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 
 /area/ringstation/z2/medical/reception
 	name = "Waystation - Clinic - Reception"
@@ -166,10 +175,12 @@
 
 /area/ringstation/z2/medical/imaging
 	name = "Waystation - Clinic - Imaging Room"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/ringstation/z2/medical/surgery
 	name = "Waystation - Clinic - Operating Theatre"
 	icon_state = "surgery"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/ringstation/z2/medical/recovery
 	name = "Waystation - Clinic - Inpatient Ward"
@@ -177,10 +188,12 @@
 
 /area/ringstation/z2/medical/storage
 	name = "Waystation - Clinic - Equipment Room"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/ringstation/z2/medical/morgue
 	name = "Waystation - Clinic - Morgue"
 	icon_state = "morgue"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 // Z2 Engineering
 /area/ringstation/z2/engineering
@@ -190,6 +203,7 @@
 
 /area/ringstation/z2/engineering/hall
 	name = "Waystation - Engineering - Hallway"
+	sound_environment = SOUND_ENVIRONMENT_HALLWAY
 
 /area/ringstation/z2/engineering/equipment_room
 	name = "Waystation - Engineering - Equipment Storage"
@@ -198,10 +212,12 @@
 /area/ringstation/z2/engineering/atmospherics
 	name = "Waystation - Engineering - Atmospherics Control Room"
 	icon_state = "atmos"
+	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 
 /area/ringstation/z2/engineering/reactor
 	name = "Waystation - Engineering - Reactor Room"
 	icon_state = "engine"
+	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 
 /area/ringstation/z2/engineering/reactor_monitoring
 	name = "Waystation - Engineering - Reactor Monitoring"
@@ -226,17 +242,20 @@
 	name = "Waystation - Supply - Warehouse"
 	icon_state = "quartloading"
 	area_blurb = "A crowded warehouse with a dusty smell. Utterly disorganised and with crates haphazardly strewn wherever, it would be a miracle digging anything out of this."
+	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 
 /area/ringstation/z2/supply/hangar
 	name = "Waystation - Supply - Hangar"
 	icon_state = "quartloading"
 	area_blurb = "An expansive hangar, still packed with yet-opened shipping containers. A large crane looms over a raised platform."
+	sound_environment = SOUND_ENVIRONMENT_HANGAR
 
 // Z2 Maintenance Tunnels
 /area/ringstation/z2/maintenance
 	name = "Waystation - Maintenance"
 	icon_state = "maintenance"
 	area_blurb = "Scarcely lit, cramped, and filled with stale, dusty air. Around you hisses compressed air through the pipes, a buzz of electrical charge through the wires, and muffled rumbles of the hull settling. This place may feel alien compared to the interior of the ship and is a place where one could get lost or badly hurt, but some may find the isolation comforting."
+	sound_environment = SOUND_ENVIRONMENT_SEWER_PIPE
 
 /area/ringstation/z2/maintenance/cafe2motel
 	name = "Waystation - Maintenance - Cafeteria-Motel Median"
