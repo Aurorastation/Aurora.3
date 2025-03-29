@@ -83,16 +83,17 @@ SUBSYSTEM_DEF(discord)
 		else
 			return 1
 	else
-		var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT url, tags, mention FROM ss13_webhooks")
-		query.Execute()
-		while (query.NextRow())
-			var/url = query.item[1]
-			var/list/tags = splittext(query.item[2], ";")
-			var/mention = query.item[3]
+		var/datum/db_query/discord_webhook_query = SSdbcore.NewQuery("SELECT url, tags, mention FROM ss13_webhooks")
+		discord_webhook_query.Execute()
+		while (discord_webhook_query.NextRow())
+			var/url = discord_webhook_query.item[1]
+			var/list/tags = splittext(discord_webhook_query.item[2], ";")
+			var/mention = discord_webhook_query.item[3]
 			var/datum/webhook/W = new(url, tags)
 			webhooks += W
 			if(mention)
 				W.mention = mention
+		qdel(discord_webhook_query)
 	return 0
 
 /**
@@ -116,31 +117,31 @@ SUBSYSTEM_DEF(discord)
 	channels_to_group.Cut()
 	channels.Cut()
 
-	var/DBQuery/channel_query = GLOB.dbcon.NewQuery("SELECT channel_group, channel_id, pin_flag, server_id FROM discord_channels")
-	channel_query.Execute()
+	var/datum/db_query/discord_channel_query = SSdbcore.NewQuery("SELECT channel_group, channel_id, pin_flag, server_id FROM discord_channels")
+	discord_channel_query.Execute()
 
-	while (channel_query.NextRow())
+	while (discord_channel_query.NextRow())
 		// Create the channel map.
-		if (isnull(channels_to_group[channel_query.item[1]]))
-			channels_to_group[channel_query.item[1]] = list()
+		if (isnull(channels_to_group[discord_channel_query.item[1]]))
+			channels_to_group[discord_channel_query.item[1]] = list()
 
-		var/datum/discord_channel/B = channels[channel_query.item[2]]
+		var/datum/discord_channel/B = channels[discord_channel_query.item[2]]
 
 		// We don't have this channel datum yet.
 		if (isnull(B))
-			B = new(channel_query.item[2], channel_query.item[4], text2num(channel_query.item[3]))
+			B = new(discord_channel_query.item[2], discord_channel_query.item[4], text2num(discord_channel_query.item[3]))
 
 			if (!B)
-				log_subsystem_discord("UpdateChannels - Error - Bad channel data during update channels - [jointext(channel_query.item, ", ")]")
+				log_subsystem_discord("UpdateChannels - Error - Bad channel data during update channels - [jointext(discord_channel_query.item, ", ")]")
 				continue
 
-			channels[channel_query.item[2]] = B
+			channels[discord_channel_query.item[2]] = B
 
-		if (text2num(channel_query.item[3]))
-			B.pin_flag |= text2num(channel_query.item[3])
+		if (text2num(discord_channel_query.item[3]))
+			B.pin_flag |= text2num(discord_channel_query.item[3])
 
 		// Add the channel to the required lists.
-		channels_to_group[channel_query.item[1]] += B
+		channels_to_group[discord_channel_query.item[1]] += B
 
 	if (!isnull(channels_to_group[CHAN_INVITE]))
 		invite_channel = channels_to_group[CHAN_INVITE][1]
@@ -148,6 +149,7 @@ SUBSYSTEM_DEF(discord)
 		log_subsystem_discord("UpdateChannels - No Invite Channel Designated")
 
 	log_subsystem_discord("UpdateChannels - Completed")
+	qdel(discord_channel_query)
 	return 0
 
 /**
