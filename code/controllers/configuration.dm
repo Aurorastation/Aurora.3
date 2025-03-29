@@ -477,6 +477,8 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	var/asset_cdn_webroot = ""
 	var/asset_cdn_url = null
 
+	var/storage_cdn_iframe = "https://aurorastation.github.io/Aurora.3/iframe.html"
+
 GENERAL_PROTECT_DATUM(/datum/configuration)
 
 /datum/configuration/New()
@@ -1087,6 +1089,9 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 				if("asset_cdn_url")
 					asset_cdn_url = (value[length(value)] != "/" ? (value + "/") : value)
 
+				if("storage_cdn_iframe")
+					storage_cdn_iframe = value
+
 				else
 					log_config("Unknown setting in configuration: '[name]'")
 
@@ -1180,6 +1185,8 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 	load_logging_config()
 	load_away_sites_config()
 	load_exoplanets_config()
+
+	Master.OnConfigLoad()
 
 /datum/configuration/proc/save_logging_config()
 	rustg_file_write(json_encode(GLOB.config.logsettings), "config/logging.json")

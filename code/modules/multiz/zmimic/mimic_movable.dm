@@ -156,9 +156,9 @@
 	SHOULD_CALL_PARENT(FALSE)
 	. = associated_atom.examine(arglist(args))	// just pass all the args to the copied atom
 
-/atom/movable/openspace/mimic/forceMove(turf/dest)
+/atom/movable/openspace/mimic/forceMove(atom/destination)
 	. = ..()
-	if (TURF_IS_MIMICING(dest))
+	if (TURF_IS_MIMICING(destination))
 		if (destruction_timer)
 			deltimer(destruction_timer)
 			destruction_timer = null

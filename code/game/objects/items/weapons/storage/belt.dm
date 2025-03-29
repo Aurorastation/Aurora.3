@@ -332,6 +332,7 @@
 		/obj/item/melee,
 		/obj/item/crowbar,
 		/obj/item/gun/projectile/sec,
+		/obj/item/gun/energy/repeater/pistol,
 		/obj/item/gun/energy/disruptorpistol,
 		/obj/item/taperoll/police,
 		/obj/item/material/knife/trench,

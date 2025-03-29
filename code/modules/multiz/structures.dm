@@ -472,6 +472,13 @@
 
 /obj/structure/platform/CollidedWith(atom/bumped_atom)
 	. = ..()
+	for(var/obj/other_obj in get_turf(src))
+		if(other_obj == src)
+			continue
+
+		if(other_obj.density)
+			return // Whatever other structure is blocking the hop-down effect.
+
 	if(get_dir(src, bumped_atom) == REVERSE_DIR(dir))
 		var/atom/movable/bumped_movable = bumped_atom
 		if(ismob(bumped_movable))
