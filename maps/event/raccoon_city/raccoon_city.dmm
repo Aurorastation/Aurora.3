@@ -18457,7 +18457,7 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/blast/odin{
 	dir = 4;
-	name = "Inner Laboratory"s";
+	name = "Inner Laboratory";
 	id = "konyang_nt_labs_p2"
 	},
 /turf/simulated/floor/tiled,
@@ -28906,7 +28906,7 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/blast/odin{
 	dir = 4;
-	name = "Inner Laboratory"s";
+	name = "Inner Laboratory";
 	id = "konyang_nt_labs_entry"
 	},
 /turf/simulated/floor/tiled,
@@ -40871,7 +40871,7 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/blast/odin{
 	dir = 4;
-	name = "Inner Laboratory"s";
+	name = "Inner Laboratory";
 	id = "konyang_nt_labs_p2"
 	},
 /turf/simulated/floor/tiled,
@@ -53242,7 +53242,7 @@
 "xao" = (
 /obj/random/dirt_75,
 /obj/machinery/door/blast/odin{
-	name = "Inner Laboratory"s";
+	name = "Inner Laboratory";
 	id = "konyang_nt_labs_p2"
 	},
 /turf/simulated/floor/tiled,
