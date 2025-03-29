@@ -305,7 +305,7 @@
 		/obj/item/clothing/suit/armor/carrier/ballistic = /obj/item/clothing/head/helmet/ballistic
 	)
 
-	var/random = pick(1, 5)
+	var/random = rand(1, 5)
 	var/obj/item/clothing/armor = possible_armor[random]
 	var/obj/item/clothing/helmet = possible_armor[armor]
 	armor = new armor()
