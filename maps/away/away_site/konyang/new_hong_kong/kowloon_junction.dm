@@ -48,7 +48,8 @@
 		"nav_kowloon_junction_dock_04",
 	)
 	initial_restricted_waypoints = list(
-		"Intrepid" = list("nav_kowloon_junction_spaceport_intrepid"),
-		"Spark" = list("nav_kowloon_junction_spaceport_spark"),
-		"Canary" = list("nav_kowloon_junction_spaceport_canary"),
+		"Intrepid" = list("nav_point_kowloon_junction_intrepid"),
+		"Spark" = list("nav_point_kowloon_junction_spark"),
+		"Canary" = list("nav_point_kowloon_junction_canary"),
+		"Quark" = list("nav_point_kowloon_junction_intrepid"),
 	)

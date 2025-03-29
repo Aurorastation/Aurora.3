@@ -26,7 +26,7 @@
 	r_pocket = /obj/item/storage/wallet/random
 	back = /obj/item/storage/backpack/satchel
 
-/obj/outfit/admin/nkh/cop/get_id_access()
+/obj/outfit/admin/nhk/cop/get_id_access()
 	return list(ACCESS_KONYANG_POLICE)
 
 /datum/ghostspawner/human/nhk_cop/senior
@@ -83,7 +83,7 @@
 /datum/ghostspawner/human/nhk_minimart
 	name = "Minimart Employee"
 	short_name = "nhk_minimart"
-	desc = "Man a humble convenience store in the city of New Hong Kong. Sell goods to the visiting crewmembers and your fellow locals.\
+	desc = "Man a humble convenience store in the city of New Hong Kong. Sell goods to the visiting crewmembers and your fellow locals. \
 	Do your best to stay on good terms with the local Benevolent Guild chapter."
 	max_count = 1
 	tags = list("External")
@@ -97,7 +97,8 @@
 
 /obj/outfit/admin/nhk/vendor/minimart
 	name = "Minimart Employee"
-	uniform = /obj/item/clothing/pants/jeans
+	uniform = /obj/item/clothing/under/dressshirt
+	pants = /obj/item/clothing/pants/jeans
 	shoes = /obj/item/clothing/shoes/sneakers/black
 	suit = /obj/item/clothing/suit/storage/toggle/konyang/akira
 	back = /obj/item/storage/backpack/satchel
@@ -107,11 +108,11 @@
 /datum/ghostspawner/human/nhk_trinarist
 	name = "Trinarist Priest"
 	short_name = "nhk_priest"
-	desc = "You are a priest of the Trinary Perfection. Spread the word of the impending ascension to the residents of New Hong Kong, give aid and refuge\
+	desc = "You are a priest of the Trinary Perfection. Spread the word of the impending ascension to the residents of New Hong Kong, give aid and refuge \
 	to the needy, and solicit donations from the sympathetic."
 	max_count = 1
 	tags = list("External")
-	spawnpoints = list("nhk_trinarist")
+	spawnpoints = list("nhk_priest")
 	outfit = /obj/outfit/admin/nhk/vendor/trinarist
 	possible_species = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_IPC_BISHOP, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
@@ -121,7 +122,7 @@
 
 /obj/outfit/admin/nhk/vendor/trinarist
 	name = "Priest of the Trinary Perfection"
-	uniform = /obj/item/clothing/suit/trinary_robes
+	uniform = /obj/item/clothing/under/color/black
 	mask = /obj/item/clothing/mask/trinary_mask
 	shoes = /obj/item/clothing/shoes/laceup
 	suit = /obj/item/clothing/accessory/poncho/trinary/shouldercape
@@ -166,8 +167,8 @@
 /datum/ghostspawner/human/benevolent_guild/boss
 	name = "Benevolent Guild Lieutenant"
 	short_name = "benevolent_guild_boss"
-	desc = "You are a Lieutenant in the Benevolent Guild, the most powerful gang in New Hong Kong. Manage the local operations of Benevolent Guild.\
-	Keep your goons in line and away from the scrutiny of the police. Collect money from guild owned enterprises. Lament that you cant abduct synthetics\
+	desc = "You are a Lieutenant in the Benevolent Guild, the most powerful gang in New Hong Kong. Manage the local operations of Benevolent Guild. \
+	Keep your goons in line and away from the scrutiny of the police. Collect money from guild owned enterprises. Lament that you cant abduct synthetics \
 	anymore because there's a Trinary church next door now."
 	max_count = 1
 	spawnpoints = list("benevolent_guild_boss")
@@ -185,11 +186,11 @@
 /datum/ghostspawner/human/benevolent_guild/bartender
 	name = "Benevolent Guild Bartender"
 	short_name = "benevolent_bar"
-	desc = "You are a bartender discreetly under the employ of the Benevolent Guild. You run an ostensibly legitimate and theoretically highly\
+	desc = "You are a bartender discreetly under the employ of the Benevolent Guild. You run an ostensibly legitimate and theoretically highly \
 	profitable business. Sell alcohol to anyone willing to pay, obey your boss, and try to keep the fighting out of the bar when you can."
 	max_count = 1
 	tags = list("External")
-	spawnpoints = list("benevolent_guild_bartender")
+	spawnpoints = list("benevolent_bar")
 	outfit = /obj/outfit/admin/nhk/benevolent_guild/bartender
 	assigned_role = "Bartender"
 	special_role = "Bartender"
