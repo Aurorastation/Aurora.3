@@ -276,9 +276,9 @@
 		var/obj/item/organ/organ = human.get_organ(target_zone)
 
 		if(isipc(L) || isrobot(L))
-			playsound(src, 'sound/weapons/smash.ogg', 100, 1)
+			playsound(src, 'sound/weapons/smash.ogg', 100, TRUE)
 		else
-			playsound(src, 'sound/weapons/heavysmash.ogg', 100, 1)
+			playsound(src, 'sound/weapons/heavysmash.ogg', 100, TRUE)
 
 		human.visible_message(SPAN_DANGER("\The [human] steps on \the [src]!"),
 								SPAN_WARNING(FONT_LARGE(SPAN_DANGER("You step on \the [src], feel your body fall, and something sharp penetrate your [organ.name]!"))),
