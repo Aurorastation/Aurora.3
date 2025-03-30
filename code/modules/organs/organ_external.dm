@@ -140,7 +140,7 @@
 	var/artery_name = "artery"
 
 	///Multiplier for bleeding in a limb
-	var/arterial_bleed_severity = 1
+	var/arterial_bleed_severity = 0.7
 
 	///Descriptive string used in amputation
 	var/amputation_point
