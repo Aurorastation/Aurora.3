@@ -597,10 +597,14 @@
 		if(!prevent_warning)
 			for(var/mob/M in viewers(user, null))
 				if(M == usr)
+					if(W?.w_class < WEIGHT_CLASS_NORMAL)
+						M.show_message(SPAN_NOTICE("You slip [W] into [src].")) // Differentiate small items (which have a smaller visible range)
+					else
+						M.show_message(SPAN_NOTICE("You put [W] into [src]."))
 					continue
 				else if (M in range(1)) //If someone is standing close enough, they can tell what it is...
 					M.show_message(SPAN_NOTICE("\The [user] puts [W] into [src]."))
-				else if (W && W.w_class >= WEIGHT_CLASS_NORMAL) //Otherwise they can only see large or normal items from a distance...
+				else if (W?.w_class >= WEIGHT_CLASS_NORMAL) //Otherwise they can only see large or normal items from a distance...
 					M.show_message(SPAN_NOTICE("\The [user] puts [W] into [src]."))
 		orient2hud(user)
 		if(user.s_active)
