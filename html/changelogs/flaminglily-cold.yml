@@ -55,4 +55,4 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - balance: "Reduced the cooling effects of frost oil and snowflake. Frost oil, a condiment, no longer damages the consumer (now about -5 celcius). Snowflake no longer reduces the user's temperatrure to NEGATIVE 200 CELCIUS. It still gets you cold enough to burn a little though (about -40 celcius)."
+  - balance: "Reduced the cooling effects of frost oil and snowflake. Frost oil, a condiment, no longer damages the consumer (now about -5 celsius). Snowflake no longer reduces the user's temperature to NEGATIVE 200 CELSIUS. It still gets you cold enough to burn a little though (about -40 celsius)."
