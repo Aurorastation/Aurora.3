@@ -109,7 +109,7 @@ SUBSYSTEM_DEF(discord)
 		log_subsystem_discord("UpdateChannels - Failed - Discord bot is not active")
 		return 1
 
-	if (!establish_db_connection(GLOB.dbcon))
+	if (!SSdbcore.Connect())
 		log_subsystem_discord("UpdateChannels - Failed - Unable to connect to database")
 		return 2
 
@@ -118,7 +118,8 @@ SUBSYSTEM_DEF(discord)
 	channels.Cut()
 
 	var/datum/db_query/discord_channel_query = SSdbcore.NewQuery("SELECT channel_group, channel_id, pin_flag, server_id FROM discord_channels")
-	discord_channel_query.Execute()
+	if(!discord_channel_query.Execute())
+		log_subsystem_discord("UpdateChannels - Failed - Execute Error: [discord_channel_query.last_error]")
 
 	while (discord_channel_query.NextRow())
 		// Create the channel map.
