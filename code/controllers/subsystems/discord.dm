@@ -66,11 +66,13 @@ SUBSYSTEM_DEF(discord)
  */
 /datum/controller/subsystem/discord/proc/initialize_webhooks()
 	PRIVATE_PROC(TRUE)
-	if(!establish_db_connection(GLOB.dbcon))
+	if(!SSdbcore.Connect())
+		log_subsystem_discord("initialize_webhooks - Unable to connect to db - Loading from File")
 		var/file = return_file_text("config/webhooks.json")
 		if (file)
 			var/jsonData = json_decode(file)
 			if(!jsonData)
+				log_subsystem_discord("initialize_webhooks - Invalid JSON in config/webhooks.json")
 				return 1
 			for(var/hook in jsonData)
 				if(!hook["url"] || !hook["tags"])
@@ -81,10 +83,14 @@ SUBSYSTEM_DEF(discord)
 					W.mention = hook["mention"]
 			return 0
 		else
-			return 1
+			log_subsystem_discord("initialize_webhooks - config/webhooks.json does not exist")
+			return 2
 	else
 		var/datum/db_query/discord_webhook_query = SSdbcore.NewQuery("SELECT url, tags, mention FROM ss13_webhooks")
-		discord_webhook_query.Execute()
+		if(!discord_webhook_query.Execute())
+			log_subsystem_discord("initialize_webhooks - Error while executing webhook query: [discord_webhook_query.last_error]")
+			qdel(discord_webhook_query)
+			return 3
 		while (discord_webhook_query.NextRow())
 			var/url = discord_webhook_query.item[1]
 			var/list/tags = splittext(discord_webhook_query.item[2], ";")
@@ -93,6 +99,7 @@ SUBSYSTEM_DEF(discord)
 			webhooks += W
 			if(mention)
 				W.mention = mention
+		log_subsystem_discord("initialize_webhooks - Loaded [webhooks.len] webhooks")
 		qdel(discord_webhook_query)
 	return 0
 
@@ -120,6 +127,8 @@ SUBSYSTEM_DEF(discord)
 	var/datum/db_query/discord_channel_query = SSdbcore.NewQuery("SELECT channel_group, channel_id, pin_flag, server_id FROM discord_channels")
 	if(!discord_channel_query.Execute())
 		log_subsystem_discord("UpdateChannels - Failed - Execute Error: [discord_channel_query.last_error]")
+		qdel(discord_channel_query)
+		return 3
 
 	while (discord_channel_query.NextRow())
 		// Create the channel map.
