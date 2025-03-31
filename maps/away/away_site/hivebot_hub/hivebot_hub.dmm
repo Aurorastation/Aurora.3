@@ -2467,7 +2467,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/fabricator/hacked,
+/obj/machinery/fabricator/autolathe/hacked,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/portdocks)
 "qZ" = (

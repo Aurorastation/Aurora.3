@@ -7243,7 +7243,7 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/portentry)
 "XZ" = (
-/obj/machinery/fabricator,
+/obj/machinery/fabricator/autolathe,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)

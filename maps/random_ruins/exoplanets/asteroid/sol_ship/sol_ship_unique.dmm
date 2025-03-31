@@ -31,7 +31,7 @@
 /turf/simulated/floor/shuttle/dark_blue/airless,
 /area/template_noop)
 "dX" = (
-/obj/machinery/fabricator,
+/obj/machinery/fabricator/autolathe,
 /obj/machinery/light/colored/red{
 	dir = 8
 	},

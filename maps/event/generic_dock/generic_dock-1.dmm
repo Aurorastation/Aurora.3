@@ -16860,7 +16860,7 @@
 	},
 /area/centcom/holding)
 "wjW" = (
-/obj/machinery/fabricator/hacked,
+/obj/machinery/fabricator/autolathe/hacked,
 /turf/unsimulated/floor/plating,
 /area/centcom/specops)
 "wkk" = (

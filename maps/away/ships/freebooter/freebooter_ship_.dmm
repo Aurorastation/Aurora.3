@@ -4385,7 +4385,7 @@
 /area/ship/freebooter_ship/foyer)
 "rfn" = (
 /obj/effect/floor_decal/corner/orange/full,
-/obj/machinery/fabricator,
+/obj/machinery/fabricator/autolathe,
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},

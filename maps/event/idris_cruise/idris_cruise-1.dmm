@@ -20044,7 +20044,7 @@
 /turf/simulated/floor/beach/water/pool,
 /area/cruise/pool/sauna1)
 "qNh" = (
-/obj/machinery/fabricator/hacked,
+/obj/machinery/fabricator/autolathe/hacked,
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{

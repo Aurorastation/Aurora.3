@@ -179,7 +179,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
-/obj/machinery/fabricator,
+/obj/machinery/fabricator/autolathe,
 /turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_autakh)
 "pC" = (

@@ -56,6 +56,7 @@ delete-after: True
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
   - rscadd: "Ported the microlathe from Bay. This is a small autolathe that can make cutlery and drinking glasses."
+  - rscadd: "Autolathes now make a sound when producing something."
   - refactor: "Refactored the autolathe to have its recipes handled by a subsystem, in preparation for further refactors."
   - qol: "Changed the autolathe interface to show time remaining to print an item, in seconds."
   - balance: "Stacks of materials printed from an autolathe, now multiply the amount of time required to print the item."

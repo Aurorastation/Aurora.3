@@ -31,6 +31,7 @@
 		fab_status_flags &= ~FAB_BUSY
 		update_use_power(POWER_USE_IDLE)
 		update_icon()
+		STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 
 /obj/machinery/fabricator/proc/get_next_build()
 	currently_printing = null

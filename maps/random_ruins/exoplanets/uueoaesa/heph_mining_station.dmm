@@ -1808,7 +1808,7 @@
 	},
 /area/heph_mining_station/engineer)
 "AD" = (
-/obj/machinery/fabricator,
+/obj/machinery/fabricator/autolathe,
 /obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor{
 	temperature = 303.15

@@ -1719,7 +1719,7 @@
 /turf/simulated/floor/carpet/magenta,
 /area/konyang_landing_zone/command_center/living)
 "wJ" = (
-/obj/machinery/fabricator,
+/obj/machinery/fabricator/autolathe,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},

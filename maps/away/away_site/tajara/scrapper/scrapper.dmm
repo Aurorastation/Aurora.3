@@ -1303,7 +1303,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
 "oE" = (
-/obj/machinery/fabricator/hacked,
+/obj/machinery/fabricator/autolathe/hacked,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 8

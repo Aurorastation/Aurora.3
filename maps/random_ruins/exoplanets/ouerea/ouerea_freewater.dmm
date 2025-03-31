@@ -1086,7 +1086,7 @@
 	},
 /area/ouerea_freewater)
 "Zx" = (
-/obj/machinery/fabricator,
+/obj/machinery/fabricator/autolathe,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled{
 	temperature = 298.15

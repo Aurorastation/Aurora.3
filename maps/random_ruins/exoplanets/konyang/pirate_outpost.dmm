@@ -935,7 +935,7 @@
 /area/konyang_pirate_outpost)
 "WP" = (
 /obj/random/dirt_75,
-/obj/machinery/fabricator/hacked,
+/obj/machinery/fabricator/autolathe/hacked,
 /turf/simulated/floor/wood,
 /area/konyang_pirate_outpost)
 "WV" = (
