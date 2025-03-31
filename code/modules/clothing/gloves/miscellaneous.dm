@@ -94,9 +94,6 @@
 	icon_state = "zeng_gloves"
 	item_state = "zeng_gloves"
 
-/obj/item/clothing/gloves/latex/nitrile/zeng/attackby() //No fun for Zeng-Hu
-	return
-
 /obj/item/clothing/gloves/latex/nitrile/unathi
 	name = "unathi nitrile gloves"
 	desc = "Sterile nitrile gloves. Designed for Unathi use."
