@@ -3814,6 +3814,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/maintenance)
+"ty" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/ship/freebooter_salvager/maintenance)
 "tA" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4056,8 +4060,7 @@
 "uE" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille,
 /obj/structure/curtain{
-	color = "#493b3b";
-	layer = 4.15
+	color = "#493b3b"
 	},
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/holding_cell)
@@ -7549,10 +7552,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/engineering)
-"Nc" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/ship/freebooter_salvager/maintenance)
 "Nd" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
@@ -105466,7 +105465,7 @@ oj
 IG
 Bw
 kP
-Nc
+ty
 WS
 PR
 sF
