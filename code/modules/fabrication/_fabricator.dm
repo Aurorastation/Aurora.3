@@ -1,8 +1,4 @@
-/obj/machinery/fabricator
-	name = "autolathe"
-	desc = "A large device loaded with various item schematics. It produces common day to day items from a variety of materials."
-	icon = 'icons/obj/machinery/fabricators/autolathe.dmi'
-	icon_state = "autolathe"
+ABSTRACT_TYPE(/obj/machinery/fabricator)
 	density = TRUE
 	anchored = TRUE
 	use_power = POWER_USE_IDLE
@@ -15,7 +11,7 @@
 	/// What location to print to. Only used for mounted autolathes
 	var/atom/print_loc
 
-	/// Class of fabricator. Determines recipes loaded. See entires in [__fabricator_defines.dm]
+	/// Class of fabricator. Determines recipes loaded. See entries in [__fabricator_defines.dm]
 	var/fabricator_class = FABRICATOR_CLASS_GENERAL
 	/// List of stored materials.
 	var/list/stored_material = list()
@@ -60,7 +56,7 @@
 		/obj/item/stock_parts/console_screen
 	)
 
-/obj/machinery/fabricator/Initialize()
+/obj/machinery/fabricator/Initialize(mapload)
 	wires = new(src)
 	print_loc = src
 	stored_material = list()
@@ -103,6 +99,7 @@
 	data["materials"] = list()
 	data["categories"] = SSfabrication.get_categories(fabricator_class)|"All"
 	data["build_time"] = currently_printing?.remaining_time
+	data["show_category"] = show_category
 	for(var/material in stored_material)
 		data["materials"] += list(list("material" = material, "stored" = stored_material[material], "max_capacity" = storage_capacity[material]))
 	data["recipes"] = list()
@@ -201,6 +198,7 @@
 	playsound(src, /singleton/sound_category/keyboard_sound, 50)
 
 	if(action == "make")
+		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 		var/multiplier = text2num(params["multiplier"])
 		var/singleton/fabricator_recipe/R = GET_SINGLETON(text2path(params["recipe"]))
 		if(!istype(R))
@@ -230,7 +228,7 @@
 		AddOverlays(emissive_appearance(icon, "[icon_state]_lights_working"))
 		AddOverlays("[icon_state]_lights_working")
 		AddOverlays("[icon_state]_process")
-	else if (powered())
+	else if(powered())
 		AddOverlays(emissive_appearance(icon, "[icon_state]_lights"))
 		AddOverlays("[icon_state]_lights")
 
@@ -238,7 +236,6 @@
 	CutOverlays(mat_overlay)
 	update_icon()
 
-//Updates overall lathe storage size.
 /obj/machinery/fabricator/RefreshParts()
 	..()
 	var/mb_rating = 0
@@ -264,15 +261,3 @@
 			qdel(S)
 	..()
 	return TRUE
-
-/obj/machinery/fabricator/mounted
-	name = "\improper mounted autolathe"
-	density = FALSE
-	anchored = FALSE
-	idle_power_usage = FALSE
-	active_power_usage = FALSE
-	interact_offline = TRUE
-	does_flick = FALSE
-
-/obj/machinery/fabricator/mounted/ui_state(mob/user)
-	return GLOB.heavy_vehicle_state

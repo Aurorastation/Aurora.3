@@ -1252,7 +1252,7 @@
 /turf/simulated/floor/carpet,
 /area/dungeon/crashed_ship)
 "zq" = (
-/obj/machinery/fabricator/hacked,
+/obj/machinery/fabricator/autolathe/hacked,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled,
 /area/dungeon/crashed_ship)

@@ -2792,7 +2792,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
 "jC" = (
-/obj/machinery/fabricator,
+/obj/machinery/fabricator/autolathe,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
@@ -3663,7 +3663,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
 "mv" = (
-/obj/machinery/fabricator,
+/obj/machinery/fabricator/autolathe,
 /obj/machinery/light_switch{
 	pixel_x = -27
 	},

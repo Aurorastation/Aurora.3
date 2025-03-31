@@ -1,4 +1,4 @@
-/obj/machinery/fabricator/micro
+/obj/machinery/fabricator/microlathe
 	name = "microlathe"
 	desc = "It produces small items from common resources."
 	icon = 'icons/obj/machinery/fabricators/microlathe.dmi'
@@ -13,20 +13,33 @@
 		MATERIAL_BAMBOO = 5000
 	)
 	manufacturer = "idris"
+	var/datum/looping_sound/fabricator/minilathe/soundloop
+
+/obj/machinery/fabricator/microlathe/Destroy()
+	QDEL_NULL(soundloop)
+	. = ..()
+
+/obj/machinery/fabricator/microlathe/start_building()
+	. = ..()
+	soundloop.start()
+
+/obj/machinery/fabricator/microlathe/stop_building()
+	. = ..()
+	soundloop.stop()
 
 //Subtype for mapping, starts preloaded and set to print glasses
-/obj/machinery/fabricator/micro/bartender
+/obj/machinery/fabricator/microlathe/bartender
 	show_category = "Drinking Glasses"
 
-/obj/machinery/fabricator/micro/bartender/Initialize()
+/obj/machinery/fabricator/microlathe/bartender/Initialize(mapload)
 	. = ..()
 	stored_material[MATERIAL_GLASS] = storage_capacity[MATERIAL_GLASS]
 
 //Subtype for mapping, starts preloaded and set to print cutlery
-/obj/machinery/fabricator/micro/cafe
+/obj/machinery/fabricator/microlathe/cafe
 	show_category = "Cutlery"
 
-/obj/machinery/fabricator/micro/cafe/Initialize()
+/obj/machinery/fabricator/microlathe/cafe/Initialize(mapload)
 	. = ..()
 	stored_material[MATERIAL_PLASTIC] = storage_capacity[MATERIAL_PLASTIC]
 	stored_material[MATERIAL_BAMBOO] = storage_capacity[MATERIAL_BAMBOO]

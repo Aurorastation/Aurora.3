@@ -1093,7 +1093,7 @@
 	},
 /area/template_noop)
 "wR" = (
-/obj/machinery/fabricator/hacked,
+/obj/machinery/fabricator/autolathe/hacked,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/airless,
 /area/template_noop)

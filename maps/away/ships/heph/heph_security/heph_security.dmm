@@ -2288,7 +2288,7 @@
 /area/heph_security_ship/engineering)
 "pn" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/fabricator,
+/obj/machinery/fabricator/autolathe,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor,
 /area/heph_security_ship/engineering)

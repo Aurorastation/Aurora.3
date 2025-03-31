@@ -188,7 +188,7 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "jm" = (
-/obj/machinery/fabricator/hacked,
+/obj/machinery/fabricator/autolathe/hacked,
 /obj/machinery/light{
 	dir = 4
 	},

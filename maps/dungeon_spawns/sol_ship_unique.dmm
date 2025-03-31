@@ -46,7 +46,7 @@
 	},
 /area/dungeon/crashed_ship)
 "dX" = (
-/obj/machinery/fabricator,
+/obj/machinery/fabricator/autolathe,
 /obj/machinery/light/colored/red{
 	dir = 8
 	},

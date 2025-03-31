@@ -5667,7 +5667,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sfa_patrol_ship/Officer)
 "qXN" = (
-/obj/machinery/fabricator/hacked,
+/obj/machinery/fabricator/autolathe/hacked,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
