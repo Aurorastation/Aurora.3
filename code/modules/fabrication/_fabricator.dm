@@ -229,6 +229,8 @@ ABSTRACT_TYPE(/obj/machinery/fabricator)
 		update_current_build(seconds_per_tick)
 
 /obj/machinery/fabricator/update_icon()
+	if(!does_flick)
+		return
 	ClearOverlays()
 	if(panel_open)
 		AddOverlays("[icon_state]_panel")
