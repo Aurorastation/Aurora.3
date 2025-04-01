@@ -8,8 +8,8 @@
 	name = "\improper mounted autolathe"
 	density = FALSE
 	anchored = FALSE
-	idle_power_usage = FALSE
-	active_power_usage = FALSE
+	idle_power_usage = 0
+	active_power_usage = 0
 	interact_offline = TRUE
 	does_flick = FALSE
 

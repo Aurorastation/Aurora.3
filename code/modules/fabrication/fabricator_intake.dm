@@ -50,7 +50,7 @@
 		to_chat(user, SPAN_NOTICE("You fill \the [src] with [english_list(fill_status[FILL_INCOMPLETELY])][is_stack ? "." : " from \the [eating]."]"))
 
 	// Plays metal insertion animation.
-	if(istype(eating, /obj/item/stack/material))
+	if(istype(eating, /obj/item/stack/material) && does_flick)
 		var/obj/item/stack/material/sheet = eating
 		var/image/adding_mat_overlay = overlay_image(icon, "[icon_state]_mat")
 		adding_mat_overlay.color = sheet.material.icon_colour
@@ -58,7 +58,7 @@
 		CUT_OVERLAY_IN(adding_mat_overlay, 1 SECOND)
 
 	// Play the lights animation (even if what we inserted wasn't a stack)
-	if(powered())
+	if(powered() && does_flick)
 		flick_overlay_view(mutable_appearance(icon, "[icon_state]_progress"), 1 SECONDS)
 
 	if(istype(eating, /obj/item/stack))
