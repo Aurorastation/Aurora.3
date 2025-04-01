@@ -22,11 +22,17 @@
 
 /obj/machinery/fabricator/proc/start_building()
 	if(!(fab_status_flags & FAB_BUSY) && is_functioning())
+		//Start the fabricator's looping sound
+		if (fabricator_looping_sound == null)
+			fabricator_looping_sound = new fabricating_sound_loop(src)
+			fabricator_looping_sound.start()
 		fab_status_flags |= FAB_BUSY
 		update_use_power(POWER_USE_ACTIVE)
 		update_icon()
 
 /obj/machinery/fabricator/proc/stop_building()
+	fabricator_looping_sound.stop()
+	QDEL_NULL(fabricator_looping_sound)
 	if(fab_status_flags & FAB_BUSY)
 		fab_status_flags &= ~FAB_BUSY
 		update_use_power(POWER_USE_IDLE)
