@@ -57,6 +57,10 @@
 		AddOverlays(adding_mat_overlay)
 		CUT_OVERLAY_IN(adding_mat_overlay, 1 SECOND)
 
+	// Play the lights animation (even if what we inserted wasn't a stack)
+	if(powered())
+		flick_overlay_view(mutable_appearance(icon, "[icon_state]_progress"), 1 SECONDS)
+
 	if(istype(eating, /obj/item/stack))
 		var/obj/item/stack/stack = eating
 		var/amount_needed = total_used / mass_per_sheet

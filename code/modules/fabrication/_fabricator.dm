@@ -79,6 +79,7 @@ ABSTRACT_TYPE(/obj/machinery/fabricator)
 			else if(ispath(mat, /singleton/reagent))
 				var/singleton/reagent/reg = mat
 				stored_substances_to_names[mat] = initial(reg.name)
+	update_icon()
 	. = ..()
 
 /obj/machinery/fabricator/Destroy()
