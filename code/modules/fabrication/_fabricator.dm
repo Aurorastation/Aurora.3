@@ -56,6 +56,12 @@ ABSTRACT_TYPE(/obj/machinery/fabricator)
 		/obj/item/stock_parts/console_screen
 	)
 
+	///The sound this fabricator will emit while running
+	var/fabricating_sound_loop = /datum/looping_sound/fabricator
+
+	///The looping sound used while the fabricator is running
+	VAR_PRIVATE/datum/looping_sound/fabricator_looping_sound
+
 /obj/machinery/fabricator/Initialize(mapload)
 	wires = new(src)
 	print_loc = src
@@ -81,6 +87,7 @@ ABSTRACT_TYPE(/obj/machinery/fabricator)
 	QDEL_NULL(wires)
 
 	QDEL_LIST(print_queue)
+	QDEL_NULL(fabricator_looping_sound)
 
 	return ..()
 

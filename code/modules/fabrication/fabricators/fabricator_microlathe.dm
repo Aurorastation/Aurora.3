@@ -13,19 +13,8 @@
 		MATERIAL_BAMBOO = 5000
 	)
 	manufacturer = "idris"
-	var/datum/looping_sound/fabricator/minilathe/soundloop
 
-/obj/machinery/fabricator/microlathe/Destroy()
-	QDEL_NULL(soundloop)
-	. = ..()
-
-/obj/machinery/fabricator/microlathe/start_building()
-	. = ..()
-	soundloop.start()
-
-/obj/machinery/fabricator/microlathe/stop_building()
-	. = ..()
-	soundloop.stop()
+	fabricating_sound_loop = /datum/looping_sound/fabricator/minilathe
 
 //Subtype for mapping, starts preloaded and set to print glasses
 /obj/machinery/fabricator/microlathe/bartender
