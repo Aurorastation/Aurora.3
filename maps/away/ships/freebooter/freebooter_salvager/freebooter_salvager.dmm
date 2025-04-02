@@ -3571,28 +3571,26 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/button/remote/airlock{
-	dir = 8;
-	id = "fbs_mass_interior";
-	specialfunctions = 4;
-	pixel_x = -22;
-	pixel_y = 11;
-	name = "Interior Hatch"
-	},
-/obj/machinery/button/remote/airlock{
-	dir = 8;
-	id = "fbs_mass_exterior";
-	specialfunctions = 4;
-	pixel_x = -22;
-	pixel_y = 1;
-	name = "Exterior Hatch"
-	},
 /obj/machinery/button/remote/driver{
 	dir = 4;
 	pixel_x = -22;
 	pixel_y = -10;
 	id = "fbs_mass_driver";
 	name = "Mass Driver Control"
+	},
+/obj/machinery/button/remote/blast_door{
+	pixel_y = 11;
+	pixel_x = -22;
+	id = "fbs_mass_interior";
+	name = "Interior Hatch";
+	dir = 8
+	},
+/obj/machinery/button/remote/blast_door{
+	pixel_y = 1;
+	pixel_x = -22;
+	id = "fbs_mass_exterior";
+	name = "Exterior Hatch";
+	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/freebooter_salvager/medbay)
@@ -4409,7 +4407,9 @@
 	dir = 8;
 	id = "fbs_mass_driver"
 	},
-/obj/machinery/door/window/brigdoor/westleft,
+/obj/machinery/door/window/brigdoor/westleft{
+	req_access = null
+	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/medbay)
@@ -5559,15 +5559,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/atmospherics)
-"zs" = (
-/obj/machinery/button/switch/windowtint{
-	dir = 8;
-	id = "fbs_cell_window";
-	pixel_x = -22;
-	pixel_y = -4
-	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/freebooter_salvager/holding_cell)
 "zv" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
@@ -9281,10 +9272,11 @@
 /obj/machinery/light/small/emergency{
 	dir = 1
 	},
-/obj/machinery/computer/shuttle_control/explore/terminal/freebooter_salvager{
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/computer/shuttle_control/explore/freebooter_salvager{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/freebooter_salvager)
 "QO" = (
@@ -9784,10 +9776,10 @@
 	name = "The REAL Medbay";
 	id = "fbs_mass_interior"
 	},
-/obj/machinery/door/window/brigdoor/westleft,
+/obj/machinery/door/window/brigdoor/westleft{
+	req_access = null
+	},
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/random/loot,
-/obj/random/loot,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/medbay)
 "Tk" = (
@@ -102952,7 +102944,7 @@ QM
 QM
 QM
 QM
-zs
+DU
 DU
 DU
 DU
@@ -104259,8 +104251,8 @@ VI
 xa
 QM
 eC
-QM
-QM
+qD
+qD
 dL
 QM
 QM
@@ -110941,7 +110933,7 @@ ys
 ys
 dL
 QM
-QM
+qD
 Ab
 Ab
 QM

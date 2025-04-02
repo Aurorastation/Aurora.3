@@ -33,7 +33,7 @@
 	color = "#a0a8ec"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
-	vessel_mass = 5000
+	vessel_mass = 10000 // very inefficient in terms of thrust
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
 	invisible_until_ghostrole_spawn = TRUE
@@ -79,7 +79,7 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/terminal/freebooter_salvager
+/obj/machinery/computer/shuttle_control/explore/freebooter_salvager
 	name = "shuttle control console"
 	shuttle_tag = "Freebooter Salvager Shuttle"
 
