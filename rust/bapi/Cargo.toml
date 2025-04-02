@@ -1,6 +1,6 @@
 [package]
 name = "bapi"
-version = "1.0.0"
+version = "2.0.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
@@ -11,11 +11,11 @@ crate-type = ["cdylib"]
 # -------------------------------------------------------
 
 [dependencies]
-
 # byondapi
-byondapi = { git = "https://github.com/spacestation13/byondapi-rs", rev = "5afdd9863a0fc1d8d1d42dd2128c9978f54e12ca" }
+byondapi = { git = "https://github.com/spacestation13/byondapi-rs.git", version = "0.5.14", default-features = false }
 # spacemandmm, also used by strongmandmm
 dmmtools = { git = "https://github.com/SpaceManiac/SpacemanDMM", rev = "6c5a751516ae0e8add4b2aa4388a1e84e96e7082", package = "dmm-tools" }
+dreammaker = { git = "https://github.com/SpaceManiac/SpacemanDMM", rev = "6c5a751516ae0e8add4b2aa4388a1e84e96e7082", package = "dreammaker" }
 # error-handling
 eyre = "0.6.12"
 # diffs between two strings/texts/files, used in tests
@@ -25,7 +25,7 @@ itertools = "0.10.5"
 # fast hashmap
 fxhash = "0.2.1"
 # generating random numbers
-rand = "^0.8"
+rand = { version = "0.8.5", features = ["small_rng"] }
 # interface for serialization
 serde = { version = "1.0", features = ["derive"] }
 # json implementation for serde
