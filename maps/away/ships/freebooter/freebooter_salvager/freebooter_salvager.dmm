@@ -8331,8 +8331,7 @@
 /obj/item/clothing/head/cowboy{
 	pixel_y = 6;
 	pixel_x = -2;
-	color = "#5C4033";
-	layer = 3.1
+	color = "#5C4033"
 	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/warehouse)
