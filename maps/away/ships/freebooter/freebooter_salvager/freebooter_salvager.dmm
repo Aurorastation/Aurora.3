@@ -1,30 +1,54 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/green{
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/engineering)
 "ab" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/atmospherics)
+"af" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "fbs_windows";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ship/freebooter_salvager/ore_extraction)
 "ag" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
-/obj/machinery/door/blast/regular/open{
-	id = "junker_bridge"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/green{
 	dir = 8
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "fbs_combustion_viewing"
 	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/engineering)
 "ai" = (
+/obj/machinery/alarm/east{
+	req_one_access = null
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/holding_cell)
+"aj" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/yellow,
+/obj/machinery/firealarm/south,
+/obj/machinery/mineral/equipment_vendor,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/ship/freebooter_salvager/ore_extraction)
 "ak" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -40,6 +64,10 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/reinforced/airless,
 /area/ship/freebooter_salvager/ammo)
 "at" = (
@@ -67,6 +95,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/airlock/freebooter_salvager/port,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/mining)
 "ax" = (
@@ -89,7 +118,6 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/computer/general_air_control/large_tank_control/terminal{
 	dir = 4;
 	output_tag = "fbs_thrust_out";
@@ -98,13 +126,16 @@
 	sensors = list("fbs_thrust_sensor"="Propellant Chamber");
 	name = "Propellant Chamber Control"
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/engineering)
 "aB" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/loot,
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
@@ -121,11 +152,11 @@
 	},
 /obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/cable/yellow{
-	icon_state = "1-4"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/engineering)
@@ -160,6 +191,24 @@
 /obj/effect/floor_decal/spline/plain/beige{
 	dir = 5
 	},
+/obj/item/device/flashlight/flare{
+	pixel_x = -9
+	},
+/obj/item/device/flashlight/flare{
+	pixel_x = -9
+	},
+/obj/item/device/flashlight/flare{
+	pixel_x = -9
+	},
+/obj/item/device/flashlight/flare{
+	pixel_x = -9
+	},
+/obj/item/device/flashlight/flare{
+	pixel_x = -9
+	},
+/obj/item/device/flashlight/flare{
+	pixel_x = -9
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/freebooter_salvager/armory)
 "aR" = (
@@ -184,6 +233,9 @@
 /obj/machinery/light/colored/dying{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/arrow/engineering{
+	dir = 8
+	},
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/engineering)
 "aW" = (
@@ -202,13 +254,27 @@
 	dir = 4
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/light/colored/dying,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/engineering)
+"aX" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/yellow,
+/obj/machinery/mineral/processing_unit_console{
+	id = "fbs_processing_2";
+	pixel_x = -32;
+	light_power = 0
+	},
+/obj/machinery/mineral/stacking_unit_console{
+	id = "fbs_stacking_1";
+	pixel_y = -23;
+	light_power = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/freebooter_salvager/ore_extraction)
 "ba" = (
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
 /obj/effect/floor_decal/industrial/warning,
@@ -226,10 +292,10 @@
 	dir = 4
 	},
 /obj/structure/cable{
-	icon_state = "1-8"
+	icon_state = "1-2"
 	},
 /obj/structure/cable{
-	icon_state = "1-2"
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/afthallway)
@@ -241,6 +307,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/airlock/freebooter_salvager/fore_upper_deck,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/forehallway)
 "bf" = (
@@ -266,8 +333,6 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /obj/structure/cable{
@@ -295,6 +360,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 1
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/holding_cell)
 "bp" = (
@@ -346,12 +412,35 @@
 	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/meter,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/engineering)
+"bA" = (
+/obj/machinery/button/switch/windowtint{
+	dir = 8;
+	id = "fbs_cell_window";
+	pixel_x = -22;
+	pixel_y = -4;
+	name = "Holding Cell Window Tints"
+	},
+/obj/machinery/button/remote/airlock{
+	dir = 8;
+	id = "fbs_cell_airlock";
+	specialfunctions = 4;
+	pixel_x = -22;
+	pixel_y = 10;
+	name = "Holding Cell Bolt"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/freebooter_salvager/holding_cell)
 "bE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 1
 	},
+/obj/machinery/meter,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/crew_quarters)
 "bH" = (
@@ -368,7 +457,7 @@
 	pixel_y = -6
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/ship/freebooter_salvager/exterior)
+/area/ship/freebooter_salvager/warehouse)
 "bJ" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/decal/cleanable/dirt,
@@ -411,7 +500,6 @@
 	req_access = null
 	},
 /obj/structure/cable{
-	d2 = 4;
 	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -422,7 +510,8 @@
 	spawn_grille = 1
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "junker_bridge"
+	dir = 2;
+	id = "fbs_windows"
 	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/kitchen)
@@ -448,8 +537,6 @@
 	dir = 1
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /obj/structure/cable{
@@ -471,10 +558,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/effect/floor_decal/corner/dark_blue,
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/obj/effect/floor_decal/corner/dark_blue,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/afthallway)
 "co" = (
@@ -483,6 +570,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/afthallway)
+"cp" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, starboard nacelle thrusters"
+	},
+/turf/simulated/floor/airless,
+/area/ship/freebooter_salvager/holding_cell)
 "cq" = (
 /obj/machinery/computer/ship/helm{
 	dir = 1
@@ -498,6 +592,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/engineering)
+"ct" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/freebooter_salvager/afthallway)
 "cx" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
@@ -550,8 +652,6 @@
 "cG" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
@@ -559,6 +659,9 @@
 "cI" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
+	},
+/obj/machinery/alarm/north{
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/afthallway)
@@ -570,14 +673,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/afthallway)
 "cL" = (
-/obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
-	},
 /obj/machinery/power/apc/north{
 	req_access = null
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/freebooter_salvager/toilets)
 "cQ" = (
@@ -587,12 +689,10 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_salvager/engineering)
 "cR" = (
+/obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/forehallway)
 "cU" = (
@@ -600,16 +700,16 @@
 	pixel_y = 14;
 	pixel_x = -9
 	},
-/obj/item/clothing/shoes/workboots{
-	pixel_y = 15
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/item/clothing/shoes/jackboots{
+	pixel_y = 16
 	},
 /obj/item/clothing/shoes/workboots{
 	pixel_y = 15;
 	pixel_x = 9
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/ore_extraction)
@@ -627,8 +727,18 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/crate/internals,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/afthallway)
+"dd" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/effect/shuttle_landmark/freebooter_salvager/nav7,
+/turf/space,
+/area/ship/freebooter_salvager/exterior)
 "df" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
@@ -677,8 +787,23 @@
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/forehallway)
+"dm" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, starboard nacelle junction"
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "fbs_windows"
+	},
+/turf/simulated/floor/plating,
+/area/ship/freebooter_salvager/afthallway)
 "dn" = (
 /obj/effect/decal/cleanable/cobweb2,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/afthallway)
 "dr" = (
@@ -705,9 +830,6 @@
 	icon_state = "0-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/engineering)
 "dw" = (
@@ -732,8 +854,6 @@
 	dir = 1
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -767,15 +887,13 @@
 /area/space)
 "dM" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking/freebooter_salvager/shuttle_hangar,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/mining)
 "dO" = (
@@ -783,11 +901,12 @@
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
-/obj/machinery/door/blast/regular/open{
-	id = "junker_bridge"
-	},
 /obj/structure/curtain/open{
 	color = "#493b3b"
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 2;
+	id = "fbs_windows"
 	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/captains_quarters)
@@ -827,12 +946,11 @@
 /obj/machinery/power/apc/east{
 	req_access = null
 	},
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2"
-	},
 /obj/machinery/light/small/emergency{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/crew_quarters)
@@ -850,14 +968,12 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/mining)
 "ev" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/structure/bed/stool/chair/office/bridge/pilot{
 	dir = 1
 	},
@@ -865,6 +981,9 @@
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/bridge)
 "ez" = (
@@ -910,6 +1029,9 @@
 "eF" = (
 /obj/structure/girder,
 /obj/item/stack/material/steel,
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, ammunition storage"
+	},
 /turf/simulated/floor/airless,
 /area/ship/freebooter_salvager/ammo)
 "eG" = (
@@ -945,8 +1067,29 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/reinforced/steel,
+/obj/item/paper/crumpled{
+	pixel_x = -8;
+	pixel_y = 10
+	},
+/obj/item/lore_radio{
+	pixel_x = 5;
+	pixel_y = 10
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/einstein/alt{
+	pixel_x = 7
+	},
+/obj/item/paper/fluff/freebooter_salvager/crew_note{
+	pixel_y = -4;
+	pixel_x = -6
+	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/freebooter_salvager/bridge)
+"eQ" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, francisca emplacement"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/freebooter_salvager/francisca)
 "eR" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
@@ -961,6 +1104,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
+/obj/effect/map_effect/marker/airlock/freebooter_salvager/starboard,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/mining)
 "eU" = (
@@ -970,11 +1114,12 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/cyan{
 	dir = 4
 	},
-/obj/structure/cable/yellow{
-	icon_state = "4-8"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
+	},
+/obj/machinery/meter,
+/obj/structure/cable{
+	icon_state = "2-4"
 	},
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/engineering)
@@ -986,12 +1131,13 @@
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/engineering)
 "fc" = (
-/obj/machinery/door/blast/regular/open{
-	id = "junker_bridge"
-	},
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
 	spawn_firedoor = 1;
 	spawn_grille = 1
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 2;
+	id = "fbs_windows"
 	},
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/atmospherics)
@@ -1035,21 +1181,24 @@
 	pixel_y = -5
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/mineral/processing_unit_console{
+	id = "fbs_processing_1";
+	pixel_x = -32;
+	light_power = 0
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/ore_extraction)
 "fx" = (
 /obj/structure/bed/handrail{
 	dir = 4
 	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/freebooter_salvager)
 "fy" = (
@@ -1093,13 +1242,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/machinery/door/airlock/glass{
-	dir = 4
+	dir = 4;
+	name = "Dorms"
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/cryo)
@@ -1129,7 +1277,7 @@
 /area/ship/freebooter_salvager/engineering)
 "fQ" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Main Compartment";
+	name = "Warehouse";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -1139,16 +1287,19 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/afthallway)
 "fV" = (
-/obj/machinery/air_sensor,
+/obj/machinery/air_sensor{
+	id_tag = "fbs_combust_sensor";
+	frequency = 1513
+	},
 /obj/effect/map_effect/perma_light,
 /turf/simulated/floor/reinforced/airless,
 /area/ship/freebooter_salvager/engineering)
@@ -1182,6 +1333,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/airlock/freebooter_salvager/port,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/mining)
 "gb" = (
@@ -1214,15 +1366,6 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/atmospherics)
-"gi" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/white,
-/area/ship/freebooter_salvager/medbay)
 "gj" = (
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/maintenance)
@@ -1278,34 +1421,44 @@
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/hydroponics)
 "gu" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/structure/railing/mapped{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/mining)
+"gv" = (
+/obj/structure/closet,
+/obj/random/loot,
+/turf/simulated/floor/tiled/dark,
+/area/ship/freebooter_salvager/holding_cell)
 "gy" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/gridded,
 /area/ship/freebooter_salvager/armory)
 "gz" = (
-/obj/machinery/light/colored/decayed{
-	dir = 1
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/alarm/south{
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/freebooter_salvager/afthallway)
+/area/ship/freebooter_salvager/ore_extraction)
 "gA" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille,
 /obj/structure/curtain/open{
 	color = "#493b3b"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 1
+	},
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille{
+	id = "fbs_cell_window"
 	},
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/holding_cell)
@@ -1320,6 +1473,10 @@
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/bridge)
 "gL" = (
+/obj/item/trash/candy{
+	pixel_y = 8;
+	pixel_x = 6
+	},
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/holding_cell)
 "gO" = (
@@ -1354,6 +1511,9 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/sign/poster/science/bay_61{
+	pixel_x = 32
+	},
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -1393,6 +1553,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning,
+/obj/machinery/meter,
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/engineering)
 "hh" = (
@@ -1405,7 +1566,8 @@
 	spawn_grille = 1
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "junker_bridge"
+	dir = 2;
+	id = "fbs_windows"
 	},
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/engineering)
@@ -1413,7 +1575,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 4
 	},
-/obj/machinery/vending/engineering,
+/obj/machinery/vending/engineering{
+	req_access = null
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/engineering)
 "hq" = (
@@ -1424,14 +1588,11 @@
 /turf/simulated/open/airless,
 /area/ship/freebooter_salvager/exterior)
 "hr" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/engineering)
 "hs" = (
@@ -1468,8 +1629,10 @@
 /obj/structure/fuel_port/phoron{
 	pixel_x = -32
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/atmospherics/portables_connector,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/lattice,
+/turf/simulated/floor,
 /area/shuttle/freebooter_salvager)
 "hN" = (
 /obj/structure/bed/stool/chair{
@@ -1483,14 +1646,14 @@
 "hU" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-4"
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
 	},
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/forehallway)
@@ -1504,8 +1667,6 @@
 	dir = 4
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -1533,14 +1694,12 @@
 /area/ship/freebooter_salvager/engineering)
 "im" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/mining)
@@ -1557,12 +1716,16 @@
 /area/ship/freebooter_salvager/captains_quarters)
 "ip" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/airlock/mining,
+/obj/machinery/door/airlock/mining{
+	name = "Ore Refinery"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/ore_extraction)
 "iq" = (
 /obj/structure/bed/stool/chair/folding,
-/obj/machinery/atmospherics/valve/open,
+/obj/machinery/atmospherics/valve/open{
+	name = "Thrust Supply Valve"
+	},
 /obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/crew_quarters)
@@ -1579,15 +1742,25 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/brown,
-/obj/effect/floor_decal/industrial/arrow/engineering{
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/computer/general_air_control/large_tank_control/terminal{
+	name = "Fuel Injection Control";
+	frequency = 1513;
+	input_tag = "fbs_teg_fuel_in";
+	sensors = list("fbs_combust_sensor"="Combustion Chamber");
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/engineering)
 "iv" = (
-/obj/machinery/door/blast/shutters,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/blast/shutters{
+	id = "fbs_armory"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/armory)
 "iz" = (
@@ -1648,7 +1821,6 @@
 /area/ship/freebooter_salvager/holding_cell)
 "iN" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate/loot,
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
@@ -1682,6 +1854,12 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/gridded,
 /area/ship/freebooter_salvager/armory)
+"iS" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, nacelle"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/freebooter_salvager/crew_quarters)
 "iU" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
@@ -1784,8 +1962,6 @@
 	dir = 4
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
@@ -1800,7 +1976,6 @@
 	req_access = null
 	},
 /obj/structure/cable{
-	d2 = 2;
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/white,
@@ -1821,8 +1996,6 @@
 	dir = 4
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1838,10 +2011,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/ore_extraction)
-"jC" = (
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 10
+"jA" = (
+/obj/structure/railing/mapped{
+	dir = 1
 	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/ship/freebooter_salvager/ore_extraction)
+"jC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -1851,7 +2028,8 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/lattice,
+/turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/captains_quarters)
 "jG" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
@@ -1866,6 +2044,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/freebooter_salvager/fore_upper_deck,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/forehallway)
 "jK" = (
@@ -1885,6 +2064,9 @@
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
+	},
+/obj/effect/floor_decal/industrial/arrow/engineering{
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/engineering)
@@ -1937,13 +2119,32 @@
 /obj/item/device/gps{
 	pixel_x = 9
 	},
-/obj/item/device/gps,
 /obj/effect/floor_decal/spline/plain/beige{
 	dir = 1
 	},
 /obj/item/clothing/head/helmet/riot{
 	pixel_y = -3;
 	pixel_x = -7
+	},
+/obj/item/clothing/glasses/sunglasses/aviator{
+	pixel_y = 9;
+	pixel_x = -6
+	},
+/obj/item/clothing/glasses/sunglasses/aviator{
+	pixel_y = 9;
+	pixel_x = -6
+	},
+/obj/item/clothing/glasses/sunglasses/aviator{
+	pixel_y = 9;
+	pixel_x = -6
+	},
+/obj/item/clothing/glasses/sunglasses/aviator{
+	pixel_y = 9;
+	pixel_x = -6
+	},
+/obj/item/clothing/glasses/sunglasses/aviator{
+	pixel_y = 9;
+	pixel_x = -6
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/freebooter_salvager/armory)
@@ -1967,6 +2168,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/ship/freebooter_salvager/bridge)
 "jY" = (
@@ -1977,7 +2181,8 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/glass_mining{
-	dir = 4
+	dir = 4;
+	name = "Warehouse"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/warehouse)
@@ -2003,6 +2208,12 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/rack,
+/obj/item/storage/bag/inflatable{
+	pixel_y = 3
+	},
+/obj/item/storage/bag/inflatable{
+	pixel_y = -2
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/engineering)
 "kd" = (
@@ -2018,11 +2229,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/cryo)
 "kh" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/afthallway)
@@ -2031,8 +2242,9 @@
 /obj/machinery/power/apc/east{
 	req_access = null
 	},
+/obj/machinery/recharge_station,
+/obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/cable{
-	d2 = 2;
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2042,11 +2254,11 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/forehallway)
@@ -2111,7 +2323,10 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable/yellow{
-	icon_state = "1-4"
+	icon_state = "4-8"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-8"
 	},
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/engineering)
@@ -2120,8 +2335,6 @@
 	dir = 1
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2146,6 +2359,10 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/maintenance)
+"kQ" = (
+/obj/effect/landmark/entry_point/port,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/freebooter_salvager)
 "kS" = (
 /obj/machinery/door/firedoor/noid{
 	dir = 4
@@ -2171,8 +2388,7 @@
 	},
 /obj/structure/lattice,
 /obj/structure/cable{
-	icon_state = "11-2";
-	dir = 1
+	icon_state = "11-1"
 	},
 /turf/simulated/open,
 /area/ship/freebooter_salvager/maintenance)
@@ -2210,12 +2426,17 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
 	},
+/obj/machinery/sparker{
+	id = "fbs_igniter";
+	pixel_x = -15
+	},
 /turf/simulated/floor/reinforced/airless,
 /area/ship/freebooter_salvager/engineering)
 "lq" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/closet/crate/internals,
 /obj/effect/decal/cleanable/dirt,
+/obj/random/loot,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/forehallway)
 "ls" = (
@@ -2247,6 +2468,15 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/freebooter_salvager/bridge)
 "lA" = (
+/obj/structure/closet/crate,
+/obj/item/reagent_containers/syringe/drugs,
+/obj/item/reagent_containers/syringe/drugs,
+/obj/item/reagent_containers/inhaler/space_drugs,
+/obj/item/reagent_containers/inhaler/space_drugs,
+/obj/item/reagent_containers/inhaler/space_drugs,
+/obj/item/storage/pill_bottle/joy,
+/obj/item/storage/pill_bottle/smart,
+/obj/item/reagent_containers/hypospray/autoinjector/impedrezene,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/toilets)
 "lK" = (
@@ -2267,6 +2497,9 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/cryo)
 "lP" = (
@@ -2278,17 +2511,21 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/steel,
+/obj/item/device/flashlight/heavy{
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/ore_extraction)
 "lQ" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 1
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
-/obj/machinery/portable_atmospherics/powered/scrubber,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/freebooter_salvager)
+/obj/machinery/door/blast/regular/open{
+	id = "fbs_windows"
+	},
+/turf/simulated/floor/plating,
+/area/ship/freebooter_salvager/ore_extraction)
 "lU" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 4
@@ -2309,20 +2546,28 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
-	icon_state = "2-4"
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/engineering)
+"mc" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/alarm/west{
+	req_one_access = null
+	},
+/turf/simulated/floor/plating,
+/area/ship/freebooter_salvager/maintenance)
 "mf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/forehallway)
 "mg" = (
@@ -2342,12 +2587,11 @@
 /obj/machinery/power/apc/west{
 	req_access = null
 	},
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2"
-	},
 /obj/machinery/light/colored/decayed/lone_spacer_dimmed{
 	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/hydroponics)
@@ -2375,12 +2619,12 @@
 /turf/simulated/floor/plating,
 /area/shuttle/freebooter_salvager)
 "mv" = (
-/obj/machinery/door/blast/regular/open{
-	id = "junker_bridge"
-	},
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
 	spawn_firedoor = 1;
 	spawn_grille = 1
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "fbs_propulsion"
 	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/engineering)
@@ -2388,7 +2632,6 @@
 /obj/structure/ladder/up,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
-	d2 = 4;
 	icon_state = "0-4"
 	},
 /obj/structure/cable{
@@ -2408,7 +2651,7 @@
 /area/ship/freebooter_salvager/mining)
 "mF" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Main Compartment";
+	name = "Hydroponics";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
@@ -2421,8 +2664,6 @@
 	dir = 4
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -2454,6 +2695,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/freebooter_salvager/starboard,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/mining)
 "mL" = (
@@ -2477,10 +2719,18 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/green{
 	dir = 5
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/computer/general_air_control/large_tank_control/terminal{
-	dir = 8
+	dir = 8;
+	name = "Combustion Chamber Control";
+	sensors = list("fbs_combust_sensor"="Combustion Chamber");
+	frequency = 1513;
+	input_tag = "fbs_teg_in";
+	output_tag = "fbs_teg_out"
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/engineering)
 "mR" = (
@@ -2518,14 +2768,14 @@
 /obj/machinery/power/apc/east{
 	req_access = null
 	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/structure/cable,
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/forehallway)
 "nj" = (
@@ -2536,6 +2786,7 @@
 	pixel_y = -8
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/map_effect/marker/airlock/freebooter_salvager/fore_upper_deck,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/forehallway)
 "nk" = (
@@ -2546,10 +2797,10 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
@@ -2614,10 +2865,14 @@
 /obj/machinery/power/apc/east{
 	req_access = null
 	},
+/obj/structure/table/reinforced/steel,
+/obj/item/device/binoculars,
+/obj/item/device/binoculars/high_power{
+	pixel_y = 6
+	},
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/bridge)
 "nH" = (
@@ -2631,8 +2886,6 @@
 	dir = 4
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -2640,8 +2893,6 @@
 "nI" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
@@ -2650,6 +2901,9 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/oil,
+/obj/structure/cable/yellow{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/engineering)
 "nN" = (
@@ -2684,14 +2938,14 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/cable{
-	icon_state = "2-4"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/mining)
@@ -2699,12 +2953,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/forehallway)
 "nV" = (
@@ -2759,8 +3011,6 @@
 	dir = 4
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2790,22 +3040,32 @@
 	dir = 4
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/afthallway)
+"oo" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, combustion chamber"
+	},
+/obj/machinery/door/blast/regular{
+	id = "fbs_combustion_exterior"
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/ship/freebooter_salvager/engineering)
 "op" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/bridge)
 "oq" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Main Compartment";
+	name = "Captain's Quarters";
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2854,6 +3114,12 @@
 	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/alarm/west{
+	req_one_access = null
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/engineering)
 "oF" = (
@@ -2863,10 +3129,34 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/gym)
 "oH" = (
+/obj/structure/closet/crate,
+/obj/item/clothing/shoes/laceup,
+/obj/item/clothing/shoes/laceup/brown,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/shoes/jackboots/cavalry,
+/obj/item/clothing/shoes/jackboots/toeless,
+/obj/item/clothing/shoes/cowboy,
+/obj/item/clothing/shoes/cowboy/classic,
+/obj/item/clothing/shoes/cowboy/lizard,
+/obj/item/clothing/shoes/winter,
+/obj/item/clothing/shoes/winter/toeless,
+/obj/item/clothing/shoes/workboots,
+/obj/item/clothing/shoes/workboots/brown,
+/obj/item/clothing/shoes/workboots/toeless,
+/obj/item/clothing/shoes/konyang,
+/obj/item/clothing/shoes/sneakers/rainbow,
+/obj/item/clothing/shoes/sneakers/blue,
+/obj/item/clothing/shoes/sandals/caligae,
+/obj/item/clothing/shoes/workboots/toeless,
 /obj/effect/floor_decal/spline/plain/beige{
 	dir = 9
 	},
-/obj/structure/bed/stool/padded,
+/obj/machinery/alarm/west{
+	req_one_access = null
+	},
+/obj/item/clothing/shoes/workboots/dark,
+/obj/item/clothing/shoes/workboots/dark,
+/obj/item/clothing/shoes/workboots/toeless/dark,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/freebooter_salvager/crew_quarters)
 "oK" = (
@@ -2875,16 +3165,12 @@
 	dir = 4
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/afthallway)
 "oL" = (
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2908,12 +3194,10 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
-	icon_state = "2-8"
+	icon_state = "4-8"
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/afthallway)
@@ -2927,17 +3211,16 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_salvager/gym)
 "oW" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
-	spawn_firedoor = 1;
-	spawn_grille = 1
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, ore extraction"
 	},
-/obj/machinery/door/blast/regular/open{
-	id = "junker_bridge"
-	},
-/turf/simulated/floor,
-/area/ship/freebooter_salvager/atmospherics)
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/freebooter_salvager/ore_extraction)
 "oY" = (
-/obj/machinery/door/airlock/maintenance_hatch,
+/obj/machinery/door/airlock/maintenance_hatch{
+	id_tag = "fbs_cell_airlock";
+	name = "Holding Cell"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/holding_cell)
 "oZ" = (
@@ -2971,16 +3254,14 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_salvager/medbay)
 "pi" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/mining)
@@ -2992,6 +3273,14 @@
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/maintenance)
+"pn" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/effect/shuttle_landmark/freebooter_salvager/nav8,
+/turf/space,
+/area/ship/freebooter_salvager/exterior)
 "po" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/green{
 	dir = 1
@@ -3018,8 +3307,6 @@
 	dir = 4
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /obj/structure/cable{
@@ -3037,6 +3324,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/freebooter_salvager/fore_upper_deck,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/forehallway)
 "px" = (
@@ -3108,7 +3396,7 @@
 /area/ship/freebooter_salvager/mining)
 "pV" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Main Compartment";
+	name = "Crew Quarters";
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
@@ -3207,12 +3495,14 @@
 	dir = 5
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/binary/pump{
-	dir = 4
-	},
 /obj/machinery/light/colored/dying{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/engineering)
 "qw" = (
@@ -3229,6 +3519,9 @@
 /obj/item/stack/tile/floor_dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/alarm/east{
+	req_one_access = null
+	},
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -3240,11 +3533,12 @@
 	dir = 4
 	},
 /obj/structure/cable/yellow{
-	dir = 1
+	icon_state = "0-2"
 	},
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/engineering)
 "qA" = (
+/obj/structure/closet/crate/bin/urban,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/afthallway)
 "qB" = (
@@ -3277,10 +3571,46 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/button/remote/airlock{
+	dir = 8;
+	id = "fbs_mass_interior";
+	specialfunctions = 4;
+	pixel_x = -22;
+	pixel_y = 11;
+	name = "Interior Hatch"
+	},
+/obj/machinery/button/remote/airlock{
+	dir = 8;
+	id = "fbs_mass_exterior";
+	specialfunctions = 4;
+	pixel_x = -22;
+	pixel_y = 1;
+	name = "Exterior Hatch"
+	},
+/obj/machinery/button/remote/driver{
+	dir = 4;
+	pixel_x = -22;
+	pixel_y = -10;
+	id = "fbs_mass_driver";
+	name = "Mass Driver Control"
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/freebooter_salvager/medbay)
 "qK" = (
 /obj/structure/closet/cabinet,
+/obj/item/clothing/accessory/holster/utility/machete,
+/obj/item/material/hatchet/machete/deluxe,
+/obj/random/spacecash,
+/obj/random/spacecash,
+/obj/random/spacecash,
+/obj/random/spacecash,
+/obj/random/spacecash,
+/obj/random/spacecash,
+/obj/random/spacecash,
+/obj/item/gun/projectile/recoilless_rifle,
+/obj/item/ammo_magazine/c38,
+/obj/item/ammo_magazine/c38,
+/obj/item/gun/projectile/revolver/knife,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/captains_quarters)
 "qM" = (
@@ -3288,6 +3618,7 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 1
 	},
+/obj/random/loot,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/forehallway)
 "qP" = (
@@ -3297,16 +3628,54 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/engineering)
 "qR" = (
 /obj/effect/floor_decal/spline/plain/beige,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/bed/stool/padded{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/structure/table/rack,
+/obj/item/clothing/mask/gas/tactical{
+	pixel_x = -8;
+	pixel_y = -6
+	},
+/obj/item/clothing/mask/gas/tactical{
+	pixel_y = -6
+	},
+/obj/item/clothing/mask/gas/tactical{
+	pixel_y = -6;
+	pixel_x = 8
+	},
+/obj/item/clothing/mask/gas/syndicate{
+	pixel_x = -5
+	},
+/obj/item/clothing/mask/gas/syndicate{
+	pixel_x = -5
+	},
+/obj/item/clothing/mask/gas/alt{
+	pixel_x = 5;
+	pixel_y = 4
+	},
+/obj/item/clothing/mask/gas/alt{
+	pixel_x = 5;
+	pixel_y = 4
+	},
+/obj/item/clothing/mask/gas/alt{
+	pixel_x = 5;
+	pixel_y = 4
+	},
+/obj/item/clothing/mask/balaclava/grey{
+	pixel_x = -3;
+	pixel_y = 8
+	},
+/obj/item/clothing/mask/balaclava/grey{
+	pixel_x = -3;
+	pixel_y = 8
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/freebooter_salvager/armory)
@@ -3315,12 +3684,11 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/yellow,
-/obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
-	},
 /obj/machinery/power/apc/south{
 	req_access = null
+	},
+/obj/structure/cable{
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/ore_extraction)
@@ -3336,18 +3704,20 @@
 /obj/structure/bed/sleeping_bag{
 	color = "#605353"
 	},
+/obj/item/reagent_containers/food/drinks/waterbottle{
+	pixel_x = -8;
+	pixel_y = 13
+	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/holding_cell)
 "ra" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/machinery/door/airlock/glass_medical{
 	dir = 4;
-	name = "Pharmacy";
-	req_access = list(33)
+	name = "Medbay"
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark/full{
 	color = "#ffffff"
@@ -3376,6 +3746,12 @@
 "rl" = (
 /obj/effect/floor_decal/corner/dark_blue,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/button/remote/blast_door{
+	pixel_y = -21;
+	pixel_x = -3;
+	id = "fbs_armory";
+	name = "Armory Shutters Control"
+	},
 /turf/simulated/floor/tiled/gridded,
 /area/ship/freebooter_salvager/armory)
 "rm" = (
@@ -3459,6 +3835,7 @@
 /area/ship/freebooter_salvager/mining)
 "ry" = (
 /obj/effect/floor_decal/industrial/warning,
+/obj/machinery/light/small/emergency,
 /turf/simulated/floor/reinforced/airless,
 /area/ship/freebooter_salvager/ammo)
 "rz" = (
@@ -3473,8 +3850,6 @@
 	dir = 1
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /obj/structure/cable{
@@ -3507,7 +3882,9 @@
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 8
 	},
-/obj/structure/table/rack,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/engineering)
 "rI" = (
@@ -3576,6 +3953,18 @@
 /obj/structure/lattice,
 /turf/simulated/open/airless,
 /area/ship/freebooter_salvager/exterior)
+"rZ" = (
+/obj/effect/landmark/entry_point/starboard,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/freebooter_salvager)
+"sc" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/handrail{
+	dir = 8
+	},
+/turf/simulated/floor/airless,
+/area/shuttle/freebooter_salvager)
 "sg" = (
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 1
@@ -3607,6 +3996,20 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/freebooter_salvager/medbay)
+"si" = (
+/obj/machinery/iff_beacon/name_change,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/freebooter_salvager)
 "so" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor/noid{
@@ -3653,15 +4056,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/engineering)
 "sy" = (
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/mining)
@@ -3698,6 +4101,13 @@
 /obj/structure/dispenser/oxygen,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/freebooter_salvager/armory)
+"sI" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, portside nacelle thrusters"
+	},
+/turf/simulated/floor/airless,
+/area/ship/freebooter_salvager/crew_quarters)
 "sK" = (
 /turf/space,
 /area/space)
@@ -3738,17 +4148,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/engineering)
 "sW" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/machinery/door/airlock/external,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
@@ -3756,6 +4158,10 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/shuttle/freebooter_salvager,
+/obj/effect/landmark/entry_point/aft,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/freebooter_salvager)
 "sX" = (
@@ -3766,6 +4172,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 1
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/holding_cell)
 "sZ" = (
@@ -3788,12 +4195,30 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/atmospherics)
 "tn" = (
+/obj/item/ammo_casing/rifle/used{
+	dir = 4;
+	pixel_y = -9;
+	pixel_x = -10
+	},
+/obj/item/ammo_casing/rifle/used{
+	dir = 6;
+	pixel_y = -6;
+	pixel_x = -2
+	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/freebooter_salvager/bridge)
 "tp" = (
 /obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
+	},
+/obj/item/paper_bin{
+	pixel_x = -2;
+	pixel_y = 4
+	},
+/obj/item/pen/black{
+	pixel_y = 4;
+	pixel_x = -6
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/freebooter_salvager/bridge)
@@ -3811,6 +4236,10 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small/emergency{
 	dir = 4
+	},
+/obj/item/reagent_containers/glass/bucket{
+	pixel_y = 9;
+	pixel_x = 8
 	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/maintenance)
@@ -3838,6 +4267,11 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/blood/oil,
+/obj/item/ammo_casing/rifle/used{
+	dir = 9;
+	pixel_y = -6;
+	pixel_x = -2
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/forehallway)
 "tG" = (
@@ -3857,8 +4291,6 @@
 	dir = 5
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/gridded,
@@ -3905,22 +4337,24 @@
 	desc = "An unmarked overloader. Better be careful, anything could be on this.";
 	name = "unmarked overloader"
 	},
+/obj/item/paper/fluff/freebooter_salvager/captain_note{
+	pixel_y = -4;
+	pixel_x = 9
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/freebooter_salvager/crew_quarters)
 "tU" = (
 /obj/structure/bed/handrail{
 	dir = 4
 	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/map_effect/marker/airlock/shuttle/freebooter_salvager,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/freebooter_salvager)
 "tV" = (
@@ -3933,14 +4367,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/afthallway)
@@ -3948,8 +4380,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
@@ -3963,13 +4393,21 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/valve/open{
-	dir = 4
+	dir = 4;
+	name = "Thrust Supply Valve"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/engineering)
+"tY" = (
+/obj/effect/shuttle_landmark/freebooter_salvager/nav4{
+	dir = 4
+	},
+/turf/template_noop,
+/area/space)
 "ua" = (
 /obj/machinery/mass_driver{
-	dir = 8
+	dir = 8;
+	id = "fbs_mass_driver"
 	},
 /obj/machinery/door/window/brigdoor/westleft,
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -4034,6 +4472,7 @@
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/warehouse)
 "uy" = (
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/reinforced/airless,
 /area/ship/freebooter_salvager/ammo)
 "uA" = (
@@ -4043,7 +4482,10 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "junker_bridge"
+	id = "fbs_windows"
+	},
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, kitchen compartment"
 	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/kitchen)
@@ -4058,9 +4500,11 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/freebooter_salvager/mining_blaster)
 "uE" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille,
 /obj/structure/curtain{
 	color = "#493b3b"
+	},
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille{
+	id = "fbs_cell_window"
 	},
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/holding_cell)
@@ -4101,6 +4545,9 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/alarm/east{
+	req_one_access = null
+	},
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/francisca)
 "uN" = (
@@ -4125,6 +4572,15 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/ship/freebooter_salvager/afthallway)
+"uV" = (
+/obj/effect/floor_decal/corner/dark_blue,
+/obj/item/ammo_casing/rifle/used{
+	dir = 9;
+	pixel_y = -6;
+	pixel_x = -2
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/afthallway)
 "uW" = (
@@ -4167,10 +4623,21 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/ore_extraction)
+"vj" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/freebooter_salvager/starboard,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/freebooter_salvager/mining)
 "vk" = (
 /obj/effect/floor_decal/corner/dark_green,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/fruit_smudge,
+/obj/machinery/alarm/west{
+	req_one_access = null
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/hydroponics)
 "vn" = (
@@ -4236,15 +4703,23 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/forehallway)
-"vD" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+"vx" = (
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 5
 	},
+/obj/structure/lattice,
+/obj/effect/map_effect/perma_light/starlight/wide,
+/turf/simulated/open/airless,
+/area/ship/freebooter_salvager/exterior)
+"vD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/airlock/mining,
+/obj/machinery/door/airlock/mining{
+	name = "Ore Refinery"
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/ore_extraction)
 "vE" = (
@@ -4254,6 +4729,13 @@
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/freebooter_salvager/bridge)
+"vG" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, main thrusters"
+	},
+/turf/simulated/floor/airless,
+/area/ship/freebooter_salvager/engineering)
 "vH" = (
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/airless,
@@ -4276,6 +4758,18 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/ship/freebooter_salvager/kitchen)
+"vP" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet,
+/obj/random/loot,
+/turf/simulated/floor,
+/area/ship/freebooter_salvager/atmospherics)
+"vR" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, propulsion storage"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/freebooter_salvager/engineering)
 "vS" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -4295,6 +4789,16 @@
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/airless,
 /area/shuttle/freebooter_salvager)
+"vZ" = (
+/obj/machinery/mineral/processing_unit{
+	id = "fbs_processing_1";
+	dir = 4;
+	light_power = 0;
+	light_range = 0
+	},
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/plating,
+/area/ship/freebooter_salvager/ore_extraction)
 "wa" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_salvager/mining_blaster)
@@ -4326,6 +4830,8 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/obj/structure/reagent_dispensers/extinguisher,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/engineering)
 "wl" = (
@@ -4335,7 +4841,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "junker_bridge"
+	id = "fbs_windows"
 	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/afthallway)
@@ -4344,11 +4850,11 @@
 /turf/simulated/floor/plating,
 /area/turbolift/freebooter_salvager/fbs_lift)
 "wo" = (
+/obj/machinery/door/airlock/maintenance_hatch{
+	name = "Maintenance"
+	},
 /obj/structure/cable{
 	icon_state = "1-2"
-	},
-/obj/machinery/door/airlock/maintenance_hatch{
-	name = "Thrust Control"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/maintenance)
@@ -4365,13 +4871,18 @@
 	pixel_x = 8;
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/freebooter_salvager/port,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/mining)
 "ws" = (
-/obj/machinery/pipedispenser,
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 4
 	},
+/obj/machinery/power/portgen/basic{
+	anchored = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/engineering)
 "wx" = (
@@ -4390,8 +4901,9 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
-/obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/window/southleft,
+/obj/effect/floor_decal/industrial/loading/yellow,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/warehouse)
 "wE" = (
@@ -4400,11 +4912,11 @@
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/ore_extraction)
 "wF" = (
@@ -4414,16 +4926,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/gym)
 "wJ" = (
-/obj/structure/railing/mapped{
-	dir = 1
+/obj/machinery/alarm/west{
+	req_one_access = null
 	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/machinery/iff_beacon/name_change,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/reinforced/airless,
-/area/shuttle/freebooter_salvager)
+/turf/simulated/floor/carpet/rubber,
+/area/ship/freebooter_salvager/gym)
 "wK" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/railing/mapped{
@@ -4438,11 +4945,11 @@
 /area/space)
 "wP" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/power/apc/west{
 	req_access = null
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /obj/structure/cable,
 /turf/simulated/floor/plating,
@@ -4452,13 +4959,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/forehallway)
@@ -4499,11 +5004,6 @@
 /area/ship/freebooter_salvager/bridge)
 "xr" = (
 /obj/machinery/door/airlock/external,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/airlock_sensor{
@@ -4515,26 +5015,38 @@
 	pixel_y = -8
 	},
 /obj/effect/map_effect/marker/airlock/docking/freebooter_salvager/shuttle_hangar,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/mining)
 "xu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/forehallway)
 "xx" = (
 /obj/machinery/power/apc/south{
 	req_access = null
 	},
-/obj/structure/cable,
 /obj/structure/closet/crate/internals,
+/obj/item/storage/firstaid/o2,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/mask/breath,
+/obj/item/tank/emergency_oxygen,
+/obj/item/tank/emergency_oxygen,
+/obj/item/tank/emergency_oxygen,
+/obj/item/clothing/head/helmet/space/emergency,
+/obj/item/clothing/head/helmet/space/emergency,
+/obj/item/clothing/suit/space/emergency,
+/obj/item/clothing/suit/space/emergency,
+/obj/structure/cable,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/cryo)
 "xy" = (
@@ -4557,6 +5069,7 @@
 /obj/item/reagent_containers/glass/bucket/wood,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/holding_cell)
 "xE" = (
@@ -4592,21 +5105,17 @@
 	dir = 4
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/afthallway)
 "xL" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/machinery/door/airlock/maintenance{
-	name = "Main Compartment";
+	name = "Mining Blaster Compartment";
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/mining_blaster)
@@ -4633,6 +5142,12 @@
 /obj/item/clothing/accessory/holster/armpit/brown,
 /obj/item/clothing/accessory/holster/armpit/brown,
 /obj/item/clothing/accessory/holster/thigh/brown,
+/obj/machinery/alarm/south{
+	req_one_access = null
+	},
+/obj/item/melee/baton/loaded,
+/obj/item/melee/baton/loaded,
+/obj/item/storage/box/zipties,
 /turf/simulated/floor/tiled/gridded,
 /area/ship/freebooter_salvager/armory)
 "xR" = (
@@ -4647,19 +5162,20 @@
 	pixel_x = -32
 	},
 /obj/item/stack/tile/floor_dark,
-/obj/machinery/light/colored/dying{
-	dir = 8
-	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/warehouse)
 "xU" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/door/airlock/maintenance_hatch{
 	dir = 1;
-	name = "Thrust Control"
+	name = "Maintenance"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/blast/regular/open{
+	id = "fbs_bridge";
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/maintenance)
 "xV" = (
@@ -4708,6 +5224,10 @@
 	dir = 10
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/alarm/south{
+	req_one_access = null
+	},
+/obj/structure/undies_wardrobe,
 /turf/simulated/floor/tiled/white,
 /area/ship/freebooter_salvager/toilets)
 "yf" = (
@@ -4722,15 +5242,13 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/bridge)
@@ -4746,8 +5264,6 @@
 	dir = 4
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -4757,11 +5273,12 @@
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
-/obj/machinery/door/blast/regular/open{
-	id = "junker_bridge"
-	},
 /obj/structure/curtain/open{
 	color = "#493b3b"
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 2;
+	id = "fbs_windows"
 	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/cryo)
@@ -4782,14 +5299,14 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan,
-/obj/structure/cable/yellow{
-	icon_state = "4-8"
-	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
 /obj/structure/cable/yellow{
-	icon_state = "2-8"
+	icon_state = "2-4"
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
 	},
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/engineering)
@@ -4824,6 +5341,10 @@
 /area/ship/freebooter_salvager/engineering)
 "yu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/forehallway)
 "yy" = (
@@ -4863,6 +5384,12 @@
 /mob/living/heavy_vehicle/premade/miner,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/engineering)
+"yK" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/closet,
+/obj/random/loot,
+/turf/simulated/floor/plating,
+/area/ship/freebooter_salvager/maintenance)
 "yO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 10
@@ -4872,8 +5399,6 @@
 "yQ" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor,
@@ -4916,29 +5441,60 @@
 	dir = 4
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/afthallway)
 "za" = (
+/obj/machinery/door/airlock/glass_mining{
+	name = "Warehouse"
+	},
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/glass_mining,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/warehouse)
 "zd" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/flora/pottedplant/dead,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
+/obj/structure/closet,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/designer/red,
+/obj/item/clothing/suit/storage/hooded/wintercoat/mars,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/military/tan,
+/obj/item/clothing/suit/storage/toggle/bomber,
+/obj/item/clothing/gloves/fingerless,
+/obj/item/clothing/suit/storage/leathercoat,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/green,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/white,
+/obj/random/gloves,
+/obj/random/gloves,
+/obj/item/clothing/suit/storage/toggle/trench,
+/obj/item/clothing/suit/storage/toggle/dominia/bomber,
+/obj/random/hoodie,
+/obj/random/hoodie,
+/obj/item/clothing/mask/offworlder{
+	color = "#495681"
+	},
+/obj/item/rig/light/offworlder,
+/obj/item/clothing/accessory/badge/passcard/scarab{
+	pixel_x = -2;
+	pixel_y = -2
+	},
+/obj/item/clothing/suit/storage/toggle/trench/colorable/random,
+/obj/item/clothing/suit/storage/toggle/trench/colorable/random,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/military/old,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/military/old,
+/obj/item/clothing/suit/storage/toggle/greatcoat,
+/obj/item/clothing/suit/storage/toggle/greatcoat/brown,
+/obj/item/clothing/suit/storage/toggle/himeo,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/crew_quarters)
 "ze" = (
-/obj/machinery/atmospherics/binary/pump,
+/obj/machinery/atmospherics/binary/pump{
+	name = "Cold Loop Supply Pump"
+	},
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
@@ -4951,6 +5507,10 @@
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
 	spawn_firedoor = 1;
 	spawn_grille = 1
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "fbs_bridge";
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/bridge)
@@ -4968,11 +5528,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
@@ -4980,8 +5535,10 @@
 	req_access = null
 	},
 /obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
+	icon_state = "0-8"
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/afthallway)
@@ -5002,6 +5559,15 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/atmospherics)
+"zs" = (
+/obj/machinery/button/switch/windowtint{
+	dir = 8;
+	id = "fbs_cell_window";
+	pixel_x = -22;
+	pixel_y = -4
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/freebooter_salvager/holding_cell)
 "zv" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
@@ -5014,8 +5580,6 @@
 	dir = 1
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
@@ -5032,7 +5596,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/hydroponics)
 "zB" = (
-/obj/machinery/mineral/stacking_machine,
+/obj/machinery/mineral/stacking_machine{
+	id = "fbs_stacking_2"
+	},
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/ore_extraction)
@@ -5041,13 +5607,45 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
-/obj/item/storage/toolbox/mechanical,
+/obj/item/pen/drafting/blue{
+	pixel_y = -3;
+	pixel_x = 11
+	},
+/obj/item/storage/toolbox/emergency{
+	pixel_y = 6;
+	pixel_x = -5
+	},
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = -1;
+	pixel_x = -4
+	},
+/obj/item/clothing/head/welding{
+	pixel_x = 7;
+	pixel_y = 9
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/engineering)
-"zF" = (
-/obj/machinery/door/blast/regular/open{
-	id = "junker_bridge"
+"zE" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 8
 	},
+/obj/effect/floor_decal/corner/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/pickaxe/drill{
+	pixel_y = -6;
+	pixel_x = -3
+	},
+/obj/item/pickaxe/drill{
+	pixel_y = -1;
+	pixel_x = -3
+	},
+/obj/structure/table/rack,
+/obj/item/pickaxe,
+/obj/item/gun/custom_ka/frame01/prebuilt,
+/obj/effect/floor_decal/industrial/outline/operations,
+/turf/simulated/floor/tiled/dark,
+/area/ship/freebooter_salvager/ore_extraction)
+"zF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 10
 	},
@@ -5055,17 +5653,19 @@
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/machinery/door/blast/regular/open{
+	id = "fbs_propulsion"
+	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/engineering)
 "zJ" = (
-/obj/machinery/light/small/emergency{
-	dir = 4
-	},
+/obj/structure/trash_pile,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/afthallway)
 "zL" = (
 /obj/machinery/door/airlock/glass_mining{
-	dir = 4
+	dir = 4;
+	name = "Warehouse"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/warehouse)
@@ -5108,6 +5708,17 @@
 /area/ship/freebooter_salvager/holding_cell)
 "zZ" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/alarm/south{
+	req_one_access = null
+	},
+/obj/structure/sink/kitchen{
+	dir = 4;
+	name = "sink";
+	pixel_x = -21
+	},
+/obj/structure/sign/deathsposal{
+	pixel_x = -32
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/freebooter_salvager/medbay)
 "Ab" = (
@@ -5116,11 +5727,6 @@
 /turf/simulated/open/airless,
 /area/space)
 "Ac" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 4
 	},
@@ -5129,6 +5735,9 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/mining)
 "Ae" = (
@@ -5171,6 +5780,9 @@
 	},
 /obj/machinery/light/small/emergency{
 	dir = 4
+	},
+/obj/structure/sign/botany{
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/afthallway)
@@ -5225,6 +5837,9 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/mining)
 "AK" = (
@@ -5333,6 +5948,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/freebooter_salvager/kitchen)
+"Bt" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 1
+	},
+/obj/structure/bed/stool/chair/folding,
+/turf/simulated/floor/tiled/dark,
+/area/ship/freebooter_salvager/afthallway)
 "Bv" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
@@ -5357,15 +5979,20 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/gridded,
 /area/ship/freebooter_salvager/armory)
+"BI" = (
+/obj/machinery/mineral/stacking_machine{
+	id = "fbs_stacking_1"
+	},
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/plating,
+/area/ship/freebooter_salvager/ore_extraction)
 "BM" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/freebooter_salvager)
@@ -5400,11 +6027,11 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/light/small/emergency{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/crew_quarters)
@@ -5428,17 +6055,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/afthallway)
-"Cf" = (
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
-	dir = 8
-	},
-/obj/effect/map_effect/perma_light/starlight/wide,
-/obj/structure/lattice,
-/turf/simulated/open/airless,
-/area/ship/freebooter_salvager/exterior)
 "Cg" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
@@ -5468,16 +6084,14 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/mining)
@@ -5522,6 +6136,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/engineering)
+"Cy" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/alarm/south{
+	req_one_access = null
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/freebooter_salvager/afthallway)
 "CC" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
@@ -5563,6 +6184,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/freebooter_salvager/port,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/mining)
 "CK" = (
@@ -5589,7 +6211,7 @@
 /area/ship/freebooter_salvager/forehallway)
 "CU" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Main Compartment";
+	name = "Toilet";
 	dir = 1
 	},
 /obj/structure/cable{
@@ -5612,11 +6234,6 @@
 /obj/structure/bed/handrail{
 	dir = 4
 	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	pixel_x = -23;
 	dir = 4
@@ -5626,6 +6243,9 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/map_effect/marker/airlock/shuttle/freebooter_salvager,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/freebooter_salvager)
 "Db" = (
@@ -5665,8 +6285,6 @@
 	dir = 4
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -5741,8 +6359,6 @@
 	dir = 9
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /obj/structure/cable{
@@ -5765,10 +6381,10 @@
 "DR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/forehallway)
 "DS" = (
@@ -5830,9 +6446,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -5841,6 +6454,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/freebooter_salvager)
@@ -5862,9 +6478,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/crate/loot,
 /obj/effect/decal/cleanable/cobweb2,
-/obj/machinery/light/colored/dying{
-	dir = 1
-	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/warehouse)
 "El" = (
@@ -5943,18 +6556,23 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/atmospherics)
 "EP" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille,
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille{
+	id = "fbs_cell_window"
+	},
 /obj/structure/curtain/open{
 	color = "#493b3b"
 	},
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/holding_cell)
 "ES" = (
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/freebooter_salvager/mining_blaster)
 "EV" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Main Compartment";
+	name = "Armory";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -5964,8 +6582,6 @@
 	dir = 4
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -5985,14 +6601,22 @@
 	dir = 4
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/atmospherics)
+"EX" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/extinguisher_cabinet/west,
+/turf/simulated/floor/tiled/dark,
+/area/ship/freebooter_salvager/forehallway)
 "Fj" = (
-/obj/machinery/door/blast/shutters,
+/obj/machinery/door/blast/shutters{
+	id = "fbs_armory"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/armory)
 "Fl" = (
@@ -6012,6 +6636,16 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/engineering)
+"Fp" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/effect/shuttle_landmark/freebooter_salvager/nav5{
+	dir = 8
+	},
+/turf/space,
+/area/ship/freebooter_salvager/exterior)
 "Fs" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 4
@@ -6021,7 +6655,7 @@
 /area/ship/freebooter_salvager/ore_extraction)
 "Ft" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Main Compartment";
+	name = "Francisca Compartment";
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
@@ -6095,11 +6729,15 @@
 "FG" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/closet,
+/obj/random/loot,
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/atmospherics)
 "FH" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/atmos{
-	dir = 8
+	dir = 8;
+	frequency = 1513;
+	id_tag = "fbs_teg_out"
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/ship/freebooter_salvager/engineering)
@@ -6118,8 +6756,6 @@
 	dir = 4
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -6143,6 +6779,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/airlock/freebooter_salvager/port,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/mining)
 "FO" = (
@@ -6212,20 +6849,64 @@
 	dir = 9
 	},
 /obj/machinery/light/colored/dying,
+/obj/structure/table/rack,
+/obj/item/stack/material/lead/full{
+	pixel_y = 3
+	},
+/obj/item/stack/material/aluminium/full{
+	pixel_x = -6
+	},
+/obj/item/stack/material/plastic/full{
+	pixel_x = 6
+	},
+/obj/item/stack/material/steel/full{
+	pixel_y = 7;
+	pixel_x = -6
+	},
+/obj/item/stack/material/glass/full{
+	pixel_x = 6;
+	pixel_y = 7
+	},
+/obj/item/stack/material/plasteel/full{
+	pixel_y = 4
+	},
+/obj/item/stack/material/graphite{
+	amount = 50;
+	pixel_y = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/engineering)
 "Gg" = (
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/warehouse)
-"Gn" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 1
+"Gh" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
-/obj/machinery/atmospherics/portables_connector,
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/turf/simulated/floor,
-/area/shuttle/freebooter_salvager)
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "fbs_windows"
+	},
+/turf/simulated/floor/plating,
+/area/ship/freebooter_salvager/kitchen)
+"Gk" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/mineral/stacking_unit_console{
+	id = "fbs_stacking_2";
+	pixel_y = -23;
+	light_power = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/freebooter_salvager/ore_extraction)
+"Gn" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/carpet/darkblue,
+/area/ship/freebooter_salvager/captains_quarters)
 "Gr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/dark_green{
@@ -6272,8 +6953,6 @@
 	dir = 4
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /obj/structure/cable{
@@ -6310,9 +6989,11 @@
 /area/ship/freebooter_salvager/crew_quarters)
 "GE" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/atmospherics/pipe/manifold/hidden/green{
-	dir = 4
+/obj/machinery/atmospherics/binary/pump/high_power{
+	name = "Cold Loop Flow Pump";
+	dir = 1
 	},
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/engineering)
 "GF" = (
@@ -6333,6 +7014,7 @@
 	pixel_y = 32
 	},
 /obj/structure/bed/roller,
+/obj/item/clothing/accessory/stethoscope,
 /turf/simulated/floor/tiled/white,
 /area/ship/freebooter_salvager/medbay)
 "GG" = (
@@ -6348,6 +7030,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/warning,
+/obj/machinery/meter,
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/engineering)
 "GL" = (
@@ -6356,7 +7039,8 @@
 	spawn_grille = 1
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "junker_bridge"
+	dir = 2;
+	id = "fbs_windows"
 	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/warehouse)
@@ -6374,6 +7058,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/effect/map_effect/marker/airlock/freebooter_salvager/fore_upper_deck,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/forehallway)
 "GW" = (
@@ -6412,15 +7097,18 @@
 "Hd" = (
 /obj/structure/closet/crate/loot,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/mining)
 "Hi" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/valve/open{
+	name = "Thrust Supply Valve"
+	},
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/valve/open,
-/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/atmospherics)
 "Hk" = (
@@ -6436,6 +7124,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/atmospherics)
+"Hm" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, warehouse"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/freebooter_salvager/warehouse)
 "Ho" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -6464,6 +7158,9 @@
 /obj/machinery/computer/ship/engines/terminal{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/engineering)
@@ -6487,13 +7184,13 @@
 	},
 /obj/structure/platform_stairs/full/east_west_cap,
 /obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/structure/cable{
 	icon_state = "1-8"
 	},
 /obj/structure/cable{
 	icon_state = "1-4"
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/afthallway)
@@ -6506,18 +7203,44 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/freebooter_salvager/bridge)
 "HA" = (
+/obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/mining)
+"HC" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, nacelle"
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 2;
+	id = "fbs_windows"
+	},
+/turf/simulated/floor,
+/area/ship/freebooter_salvager/atmospherics)
+"HG" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, mining blaster emplacement"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/freebooter_salvager/mining_blaster)
 "HL" = (
 /obj/structure/closet/crate/bin,
 /turf/simulated/floor/wood/walnut,
 /area/ship/freebooter_salvager/kitchen)
+"HP" = (
+/obj/machinery/atmospherics/unary/outlet_injector{
+	dir = 8;
+	frequency = 1513;
+	id = "fbs_teg_in"
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/ship/freebooter_salvager/engineering)
 "HQ" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
@@ -6549,6 +7272,43 @@
 /obj/machinery/light/colored/dying{
 	dir = 8
 	},
+/obj/structure/table/rack,
+/obj/item/storage/belt/military{
+	pixel_y = 5;
+	pixel_x = 2
+	},
+/obj/item/storage/belt/military{
+	pixel_y = 5;
+	pixel_x = 2
+	},
+/obj/item/storage/belt/military{
+	pixel_y = 5;
+	pixel_x = 2
+	},
+/obj/item/clothing/accessory/holster/thigh/brown{
+	pixel_x = -2;
+	pixel_y = -2
+	},
+/obj/item/clothing/accessory/holster/thigh/brown{
+	pixel_x = -2;
+	pixel_y = -2
+	},
+/obj/item/clothing/accessory/holster/hip/brown{
+	pixel_x = 4;
+	pixel_y = 3
+	},
+/obj/item/clothing/accessory/holster/hip/brown{
+	pixel_x = 4;
+	pixel_y = 3
+	},
+/obj/item/clothing/accessory/storage/pouches/brown{
+	pixel_x = 5;
+	pixel_y = -2
+	},
+/obj/item/clothing/accessory/storage/pouches/brown{
+	pixel_x = 5;
+	pixel_y = -2
+	},
 /turf/simulated/floor/tiled/gridded,
 /area/ship/freebooter_salvager/armory)
 "HW" = (
@@ -6570,7 +7330,6 @@
 	req_access = null
 	},
 /obj/structure/cable{
-	d2 = 2;
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -6584,15 +7343,13 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 4
 	},
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/atmospherics)
 "Id" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
@@ -6604,6 +7361,9 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking/freebooter_salvager/shuttle_hangar,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/mining)
 "Ig" = (
@@ -6627,7 +7387,7 @@
 /area/ship/freebooter_salvager/exterior)
 "Il" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Main Compartment";
+	name = "Atmospherics";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
@@ -6640,21 +7400,17 @@
 	dir = 4
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/afthallway)
 "Ir" = (
 /obj/machinery/door/airlock/external,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/docking/freebooter_salvager/shuttle_hangar,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/mining)
 "Is" = (
@@ -6669,7 +7425,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/ship/freebooter_salvager/exterior)
+/area/ship/freebooter_salvager/medbay)
 "Iu" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/railing/mapped{
@@ -6683,13 +7439,14 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/forehallway)
@@ -6720,15 +7477,15 @@
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/holding_cell)
 "II" = (
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
 /obj/effect/floor_decal/corner/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/mining)
 "IJ" = (
@@ -6777,7 +7534,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/atmospherics)
 "IQ" = (
-/obj/machinery/door/blast/regular,
+/obj/machinery/door/blast/regular{
+	id = "fbs_mass_exterior"
+	},
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/medbay)
@@ -6836,6 +7595,17 @@
 /obj/structure/lattice,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/bridge)
+"Je" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 4
+	},
+/obj/item/ammo_casing/rifle/used{
+	dir = 6;
+	pixel_y = -6;
+	pixel_x = -2
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/freebooter_salvager/afthallway)
 "Jg" = (
 /obj/structure/platform,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
@@ -6847,12 +7617,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/afthallway)
 "Ji" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/forehallway)
 "Jk" = (
@@ -6864,11 +7632,15 @@
 	req_access = null
 	},
 /obj/structure/cable{
-	d2 = 2;
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/atmospherics)
+"Jl" = (
+/obj/structure/railing/mapped,
+/obj/structure/lattice,
+/turf/simulated/floor/plating,
+/area/ship/freebooter_salvager/ore_extraction)
 "Jm" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -6888,6 +7660,7 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/map_effect/marker/airlock/freebooter_salvager/fore_upper_deck,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/forehallway)
 "Jw" = (
@@ -6900,6 +7673,12 @@
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_salvager/engineering)
+"JE" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, starboard mining storage"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/freebooter_salvager/mining)
 "JG" = (
 /obj/structure/bed/padded,
 /obj/effect/decal/cleanable/dirt,
@@ -6940,11 +7719,21 @@
 /obj/structure/lattice/catwalk,
 /turf/simulated/floor/airless,
 /area/ship/freebooter_salvager/exterior)
+"JP" = (
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 9
+	},
+/obj/structure/lattice,
+/obj/effect/map_effect/perma_light/starlight/wide,
+/turf/simulated/open/airless,
+/area/ship/freebooter_salvager/exterior)
 "JQ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/railing/mapped{
 	dir = 1
 	},
+/obj/structure/mopbucket,
+/obj/item/mop,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/maintenance)
 "JS" = (
@@ -6971,6 +7760,10 @@
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/machinery/door/blast/regular/open{
+	id = "fbs_windows";
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/maintenance)
 "JV" = (
@@ -6979,7 +7772,9 @@
 	},
 /obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/valve/open,
+/obj/machinery/atmospherics/valve/open{
+	name = "Thrust Supply Valve"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/engineering)
 "JW" = (
@@ -7013,6 +7808,14 @@
 /obj/item/hullbeacon/red,
 /turf/simulated/floor/airless,
 /area/ship/freebooter_salvager/exterior)
+"Kb" = (
+/obj/effect/floor_decal/corner/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/alarm/east{
+	req_one_access = null
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/freebooter_salvager/mining)
 "Kd" = (
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/freelancer,
@@ -7033,7 +7836,7 @@
 	icon_state = "2-4"
 	},
 /obj/structure/cable{
-	icon_state = "1-4"
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/atmospherics)
@@ -7061,13 +7864,12 @@
 /obj/machinery/power/terminal{
 	dir = 8
 	},
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2"
-	},
 /obj/machinery/alarm/east,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/freebooter_salvager)
 "Ks" = (
@@ -7192,6 +7994,7 @@
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/reinforced/airless,
 /area/ship/freebooter_salvager/ammo)
 "Lf" = (
@@ -7205,10 +8008,10 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/cable{
-	icon_state = "1-4"
+	icon_state = "1-8"
 	},
 /obj/structure/cable{
-	icon_state = "1-8"
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/afthallway)
@@ -7230,8 +8033,9 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
+/obj/machinery/atmospherics/binary/pump{
+	dir = 4;
+	name = "Propellant Supply Pump"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/engineering)
@@ -7268,9 +8072,26 @@
 	},
 /obj/structure/table/wood,
 /obj/item/toy/plushie/ipc{
-	pixel_x = -1
+	pixel_x = 9;
+	pixel_y = 6
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/random/suit{
+	pixel_y = -3;
+	pixel_x = -5
+	},
+/obj/random/suit{
+	pixel_y = -3;
+	pixel_x = -5
+	},
+/obj/random/suit{
+	pixel_y = -3;
+	pixel_x = -5
+	},
+/obj/item/storage/backpack/messenger/syndie{
+	pixel_x = -8;
+	pixel_y = 9
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/freebooter_salvager/crew_quarters)
 "LF" = (
@@ -7379,12 +8200,29 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/ship/freebooter_salvager/toilets)
+"Ma" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, portside nacelle junction"
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "fbs_windows"
+	},
+/turf/simulated/floor/plating,
+/area/ship/freebooter_salvager/afthallway)
 "Mb" = (
-/obj/machinery/door/airlock/maintenance{
-	name = "Main Compartment";
+/obj/machinery/door/firedoor/noid{
 	dir = 1
 	},
-/obj/machinery/door/firedoor/noid{
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 1
+	},
+/obj/machinery/door/airlock/maintenance{
+	name = "Engineering";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -7411,6 +8249,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/freebooter_salvager/starboard,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/mining)
 "Mh" = (
@@ -7421,6 +8260,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
+/obj/structure/extinguisher_cabinet/east,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/atmospherics)
 "Mo" = (
@@ -7439,6 +8279,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/structure/flora/pottedplant/dead,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/crew_quarters)
 "Mt" = (
@@ -7481,6 +8322,18 @@
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/atmospherics)
 "MF" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/cobweb2,
+/obj/item/toy/plushie/slime{
+	pixel_y = -4;
+	pixel_x = -2
+	},
+/obj/item/clothing/head/cowboy{
+	pixel_y = 6;
+	pixel_x = -2;
+	color = "#5C4033";
+	layer = 3.1
+	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/warehouse)
 "MG" = (
@@ -7497,6 +8350,16 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/mining)
+"MK" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/shuttle_landmark/freebooter_salvager/fore_upper_deck{
+	dir = 1
+	},
+/turf/space,
+/area/ship/freebooter_salvager/exterior)
 "MN" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 10
@@ -7535,6 +8398,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/bridge)
 "MZ" = (
@@ -7544,11 +8410,11 @@
 /area/ship/freebooter_salvager/mining)
 "Na" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
-/obj/machinery/door/blast/regular/open{
-	id = "junker_bridge"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 4
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "fbs_combustion_viewing"
 	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/engineering)
@@ -7564,12 +8430,10 @@
 	dir = 4
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /obj/structure/cable{
-	icon_state = "2-8"
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/afthallway)
@@ -7691,16 +8555,30 @@
 /area/ship/freebooter_salvager/armory)
 "Nq" = (
 /obj/structure/lattice,
+/obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/toilets)
+"Ns" = (
+/obj/machinery/door/blast/regular/open{
+	id = "fbs_propulsion"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ship/freebooter_salvager/engineering)
 "Nx" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/map_effect/marker/airlock/freebooter_salvager/fore_upper_deck,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/forehallway)
 "NF" = (
@@ -7746,14 +8624,15 @@
 	dir = 10
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/ship/freebooter_salvager/exterior)
+/area/ship/freebooter_salvager/warehouse)
 "NU" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "junker_bridge"
+	dir = 2;
+	id = "fbs_windows"
 	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/hydroponics)
@@ -7779,6 +8658,10 @@
 /obj/item/clothing/suit/armor/material/makeshift,
 /obj/item/melee/energy/sword/knife,
 /obj/random/civgun,
+/obj/item/grenade/dynamite,
+/obj/item/grenade/dynamite,
+/obj/item/flame/lighter/zippo,
+/obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/tiled/gridded,
 /area/ship/freebooter_salvager/armory)
 "Og" = (
@@ -7789,6 +8672,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
+/obj/effect/map_effect/marker/airlock/freebooter_salvager/port,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/mining)
 "Oi" = (
@@ -7811,11 +8695,15 @@
 	pixel_x = -7
 	},
 /obj/item/material/ashtray/glass{
-	pixel_y = -4;
-	pixel_x = -1
+	pixel_y = -6;
+	pixel_x = -2
 	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 4
+	},
+/obj/random/desktoy{
+	pixel_x = -7;
+	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/captains_quarters)
@@ -7831,8 +8719,6 @@
 	dir = 4
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -7851,6 +8737,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/crew_quarters)
+"Ot" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, portside mining storage"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/freebooter_salvager/mining)
 "Ov" = (
 /obj/effect/decal/cleanable/blood/oil,
 /obj/effect/decal/cleanable/dirt,
@@ -7863,7 +8755,25 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/ore_extraction)
 "Ow" = (
-/obj/structure/undies_wardrobe,
+/obj/structure/closet/cabinet,
+/obj/item/clothing/head/dominia/fleet/armsman,
+/obj/item/clothing/head/dominia/fleet/armsman,
+/obj/item/clothing/head/dominia/fleet,
+/obj/item/clothing/head/dominia/fleet,
+/obj/item/clothing/head/softcap/himeo,
+/obj/item/clothing/head/sol/garrison,
+/obj/item/clothing/head/sol/army/service/officer,
+/obj/item/clothing/head/sol/marine/grey,
+/obj/item/clothing/head/sol/marine,
+/obj/item/clothing/head/ushanka/dominia,
+/obj/item/clothing/head/softcap/tcfl,
+/obj/item/clothing/head/beret/legion/field,
+/obj/item/clothing/suit/storage/legion,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/designer/black,
+/obj/item/clothing/head/softcap,
+/obj/item/clothing/head/turban,
+/obj/item/clothing/head/turban/gadpathur,
+/obj/item/clothing/head/headbando/random,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/crew_quarters)
 "Oz" = (
@@ -7880,13 +8790,11 @@
 /area/ship/freebooter_salvager/maintenance)
 "OH" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/mining)
 "OJ" = (
@@ -7894,11 +8802,11 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/cable{
-	icon_state = "0-8"
-	},
 /obj/machinery/power/apc/north{
 	req_access = null
+	},
+/obj/structure/cable{
+	icon_state = "0-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/mining)
@@ -7907,6 +8815,10 @@
 	dir = 8
 	},
 /obj/machinery/light/colored/decayed,
+/obj/structure/table/steel,
+/obj/item/storage/box/bodybags{
+	pixel_y = 4
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/freebooter_salvager/medbay)
 "ON" = (
@@ -7914,6 +8826,9 @@
 	dir = 6
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/arrow/engineering{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/engineering)
 "OR" = (
@@ -7957,12 +8872,12 @@
 /area/ship/freebooter_salvager/mining)
 "Pg" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small/emergency{
 	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/maintenance)
@@ -7999,13 +8914,21 @@
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor/reinforced/airless,
 /area/ship/freebooter_salvager/ammo)
+"Pm" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, starboard thrusters"
+	},
+/turf/simulated/floor/airless,
+/area/ship/freebooter_salvager/engineering)
+"Pn" = (
+/obj/effect/shuttle_landmark/freebooter_salvager/nav3{
+	dir = 8
+	},
+/turf/template_noop,
+/area/space)
 "Po" = (
 /obj/machinery/door/airlock/external,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/machinery/airlock_sensor{
 	pixel_x = -26;
 	pixel_y = -23;
@@ -8018,6 +8941,9 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/shuttle/freebooter_salvager,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/freebooter_salvager)
 "Pq" = (
@@ -8047,14 +8973,14 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 8
 	},
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/freebooter_salvager)
@@ -8086,14 +9012,12 @@
 /area/ship/freebooter_salvager/engineering)
 "PF" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Main Compartment";
+	name = "Ammunition";
 	dir = 4;
 	welded = 1
 	},
 /obj/structure/inflatable/wall,
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -8117,6 +9041,28 @@
 /area/ship/freebooter_salvager/forehallway)
 "PN" = (
 /obj/structure/closet/cabinet,
+/obj/item/clothing/under/dominia/fleet,
+/obj/item/clothing/under/dominia/fleet,
+/obj/item/clothing/under/dominia/fleet/armsman,
+/obj/item/clothing/under/dominia/fleet/armsman,
+/obj/item/clothing/under/konyang/pirate,
+/obj/item/clothing/under/konyang/pirate,
+/obj/item/clothing/under/rank/sol/army/service/officer,
+/obj/item/clothing/under/rank/sol/army/grey,
+/obj/item/clothing/under/rank/sol/service/marine,
+/obj/item/clothing/under/rank/sol/marine,
+/obj/item/clothing/under/syndicate/tacticool,
+/obj/item/clothing/under/syndicate/tacticool,
+/obj/item/clothing/pants/jeans,
+/obj/item/clothing/under/syndicate/tracksuit,
+/obj/item/clothing/under/service_overalls,
+/obj/item/clothing/under/uniform/gadpathur,
+/obj/item/clothing/under/syndicate/combat,
+/obj/item/clothing/under/rank/elyran_fatigues,
+/obj/random/colored_jumpsuit,
+/obj/random/colored_jumpsuit,
+/obj/random/colored_jumpsuit,
+/obj/item/clothing/under/vysoka,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/crew_quarters)
 "PP" = (
@@ -8160,17 +9106,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/afthallway)
 "PZ" = (
+/obj/effect/floor_decal/corner/yellow,
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/corner/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/mining)
 "Qa" = (
 /obj/machinery/mineral/processing_unit{
-	id = "processing_2";
+	id = "fbs_processing_2";
 	dir = 4;
 	light_power = 0;
 	light_range = 0
@@ -8217,11 +9161,17 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/captains_quarters)
 "Qh" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/alarm/west{
+	req_one_access = null
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/warehouse)
 "Qi" = (
@@ -8259,6 +9209,19 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/atmospherics)
+"Qq" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/obj/effect/landmark/entry_point/port{
+	name = "port, ore extraction"
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "fbs_windows"
+	},
+/turf/simulated/floor/plating,
+/area/ship/freebooter_salvager/ore_extraction)
 "Qu" = (
 /turf/simulated/floor/tiled/gridded,
 /area/ship/freebooter_salvager/armory)
@@ -8289,11 +9252,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/structure/cable{
-	icon_state = "2-4"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/afthallway)
@@ -8308,7 +9271,6 @@
 	req_access = null
 	},
 /obj/structure/cable{
-	d2 = 4;
 	icon_state = "0-4"
 	},
 /turf/simulated/floor,
@@ -8335,19 +9297,15 @@
 /obj/random/poster/civilian{
 	pixel_y = -32
 	},
-/obj/structure/bed/stool/chair/folding{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/light/small/emergency,
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/engineering)
@@ -8389,7 +9347,8 @@
 	spawn_grille = 1
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "junker_bridge"
+	dir = 2;
+	id = "fbs_windows"
 	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/engineering)
@@ -8454,7 +9413,7 @@
 /area/ship/freebooter_salvager/mining)
 "RM" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Main Compartment";
+	name = "Engineering";
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid{
@@ -8474,6 +9433,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
 	},
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/engineering)
@@ -8497,6 +9459,9 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/alarm/south{
+	req_one_access = null
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/cryo)
 "RU" = (
@@ -8519,6 +9484,8 @@
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/holding_cell)
 "Sd" = (
@@ -8541,11 +9508,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -8553,8 +9515,25 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/red,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/freebooter_salvager)
+"Sg" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, ore extraction"
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "fbs_windows";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ship/freebooter_salvager/ore_extraction)
 "Sh" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
@@ -8567,8 +9546,6 @@
 	dir = 4
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -8605,15 +9582,14 @@
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
+/obj/machinery/pipedispenser,
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/engineering)
 "Sp" = (
+/obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/ship/freebooter_salvager/medbay)
 "Sq" = (
@@ -8635,9 +9611,9 @@
 	req_access = null
 	},
 /obj/structure/cable{
-	d2 = 2;
 	icon_state = "0-2"
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/reinforced/airless,
 /area/ship/freebooter_salvager/ammo)
 "Sr" = (
@@ -8681,6 +9657,9 @@
 "Sw" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/handrail{
+	dir = 4
+	},
 /turf/simulated/floor/airless,
 /area/shuttle/freebooter_salvager)
 "Sx" = (
@@ -8716,6 +9695,9 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 4
 	},
+/obj/machinery/recharge_station,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/afthallway)
 "SS" = (
@@ -8732,10 +9714,10 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/arrow/engineering{
-	dir = 8
-	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/engineering)
 "SV" = (
@@ -8753,12 +9735,9 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+/obj/structure/bed/stool/chair/folding{
+	dir = 1
 	},
-/obj/machinery/light/colored/dying,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/engineering)
 "SW" = (
@@ -8798,14 +9777,18 @@
 "Ti" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/closet/crate/bin/urban,
+/obj/random/loot,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/forehallway)
 "Tj" = (
 /obj/machinery/door/blast/regular{
-	name = "The REAL Medbay"
+	name = "The REAL Medbay";
+	id = "fbs_mass_interior"
 	},
 /obj/machinery/door/window/brigdoor/westleft,
 /obj/effect/floor_decal/industrial/outline/red,
+/obj/random/loot,
+/obj/random/loot,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/medbay)
 "Tk" = (
@@ -8858,10 +9841,20 @@
 /area/ship/freebooter_salvager/bridge)
 "Tw" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
-	dir = 8
+	dir = 8;
+	frequency = 1513;
+	id = "fbs_teg_fuel_in"
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/ship/freebooter_salvager/engineering)
+"Tx" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped,
+/obj/effect/shuttle_landmark/freebooter_salvager/nav6{
+	dir = 4
+	},
+/turf/space,
+/area/ship/freebooter_salvager/exterior)
 "TA" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/extinguisher_cabinet/north,
@@ -8878,8 +9871,6 @@
 	},
 /obj/machinery/light/floor/decayed,
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -8927,7 +9918,10 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4;
-	name = "Thrust Control"
+	name = "Maintenance"
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/maintenance)
@@ -8936,14 +9930,17 @@
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/engineering)
 "TQ" = (
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/mining)
@@ -8958,9 +9955,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/door/blast/regular/open{
+	id = "fbs_bridge"
+	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -8970,6 +9968,13 @@
 /obj/effect/floor_decal/corner/dark_blue,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/afthallway)
+"TU" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, portside thrusters"
+	},
+/turf/simulated/floor/airless,
+/area/ship/freebooter_salvager/engineering)
 "TW" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/rack/folding_table,
@@ -8989,8 +9994,32 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/button/remote/blast_door{
+	dir = 4;
+	id = "fbs_combustion_viewing";
+	name = "Chamber Shutters";
+	pixel_y = -6;
+	pixel_x = 22
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 4;
+	id = "fbs_combustion_exterior";
+	name = "Emergency Chamber Vent";
+	pixel_y = 7;
+	pixel_x = 22
+	},
+/obj/machinery/button/ignition{
+	id = "fbs_igniter";
+	pixel_y = -7;
+	dir = 8;
+	pixel_x = 30
+	},
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/engineering)
+"Ua" = (
+/obj/effect/shuttle_landmark/freebooter_salvager/nav2,
+/turf/template_noop,
+/area/space)
 "Ue" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -9008,12 +10037,16 @@
 /obj/machinery/door/airlock/command{
 	name = "Bridge"
 	},
+/obj/machinery/door/blast/regular/open{
+	id = "fbs_bridge";
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/bridge)
 "Ul" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /obj/machinery/door/blast/regular/open{
-	id = "junker_bridge"
+	id = "fbs_combustion_viewing"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 4
@@ -9149,8 +10182,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -9168,11 +10199,13 @@
 	name = "HIGH VOLTAGE";
 	pixel_x = 32
 	},
-/obj/machinery/power/smes/buildable/main_engine,
 /obj/structure/cable/yellow{
-	dir = 1
+	icon_state = "0-2"
 	},
 /obj/structure/cable,
+/obj/machinery/power/smes/buildable/main_engine{
+	charge = 3e+007
+	},
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/engineering)
 "Vp" = (
@@ -9248,18 +10281,41 @@
 	dir = 8
 	},
 /obj/structure/table/reinforced/steel,
+/obj/structure/noticeboard{
+	pixel_y = 32
+	},
+/obj/machinery/button/distress{
+	pixel_x = 6;
+	pixel_y = 7
+	},
+/obj/machinery/button/remote/blast_door{
+	pixel_y = 9;
+	pixel_x = -6;
+	id = "fbs_windows";
+	name = "Window Blast Doors Control";
+	dir = 10
+	},
+/obj/machinery/button/remote/blast_door{
+	pixel_y = -2;
+	pixel_x = -6;
+	id = "fbs_bridge";
+	name = "Bridge Lockdown Control";
+	dir = 10
+	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/freebooter_salvager/bridge)
 "VH" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/green{
-	dir = 4
-	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/black{
+	dir = 4
+	},
+/obj/item/paper/fluff/freebooter_salvager/teg_manual,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/engineering)
 "VI" = (
@@ -9270,10 +10326,10 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/forehallway)
 "VL" = (
@@ -9282,6 +10338,9 @@
 	dir = 6
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/alarm/east{
+	req_one_access = null
+	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/freebooter_salvager/bridge)
 "VQ" = (
@@ -9301,7 +10360,7 @@
 	dir = 1
 	},
 /obj/machinery/door/airlock/maintenance_hatch{
-	name = "Thrust Control"
+	name = "Nacelle Thrusters"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/crew_quarters)
@@ -9369,13 +10428,12 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/machinery/meter,
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/engineering)
 "Wl" = (
 /obj/effect/decal/cleanable/ash,
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/wood/walnut,
@@ -9385,9 +10443,6 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
@@ -9395,9 +10450,10 @@
 	dir = 9
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/mining)
@@ -9492,6 +10548,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
+/obj/effect/landmark/entry_point/fore,
 /turf/simulated/floor/plating,
 /area/shuttle/freebooter_salvager)
 "Xe" = (
@@ -9502,6 +10559,8 @@
 /area/ship/freebooter_salvager/atmospherics)
 "Xf" = (
 /obj/effect/decal/cleanable/cobweb2,
+/obj/structure/closet,
+/obj/random/loot,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/crew_quarters)
 "Xg" = (
@@ -9535,6 +10594,12 @@
 /obj/structure/extinguisher_cabinet/north,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/afthallway)
+"Xo" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, portside nacelle captains quarters"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/freebooter_salvager/captains_quarters)
 "Xs" = (
 /obj/effect/floor_decal/corner/dark_blue,
 /turf/simulated/floor/tiled/dark,
@@ -9566,6 +10631,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/airlock/freebooter_salvager/starboard,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/mining)
 "XC" = (
@@ -9573,6 +10639,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/mining)
+"XD" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
+/turf/simulated/floor/wood/walnut,
+/area/ship/freebooter_salvager/kitchen)
 "XG" = (
 /obj/machinery/computer/ship/engines{
 	dir = 4
@@ -9606,9 +10679,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/atmospherics/pipe/manifold/hidden/green{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black,
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/engineering)
 "XO" = (
@@ -9624,6 +10695,10 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = 6
+	},
+/obj/structure/table/rack,
 /obj/structure/railing/mapped,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/mining)
@@ -9631,14 +10706,21 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/glass{
+	dir = 1;
+	name = "Kitchen"
+	},
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/glass{
-	dir = 1
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/kitchen)
+"XY" = (
+/obj/effect/shuttle_landmark/freebooter_salvager/nav1{
+	dir = 1
+	},
+/turf/template_noop,
+/area/space)
 "Ya" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
 	dir = 4
@@ -9690,6 +10772,15 @@
 	pixel_y = 4
 	},
 /obj/item/storage/bag/ore,
+/obj/item/device/flashlight/heavy{
+	pixel_x = -4
+	},
+/obj/item/device/flashlight/heavy{
+	pixel_x = -4
+	},
+/obj/item/device/flashlight/heavy{
+	pixel_x = -4
+	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/mining)
 "Yr" = (
@@ -9739,17 +10830,18 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
+/obj/structure/closet/crate/freezer/kois/rations,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/warehouse)
 "YL" = (
-/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/atmospherics/binary/pump/high_power,
+/obj/machinery/atmospherics/pipe/simple/hidden/black,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/engineering)
 "YO" = (
@@ -9766,6 +10858,7 @@
 	pixel_x = -8;
 	dir = 8
 	},
+/obj/effect/map_effect/marker/airlock/freebooter_salvager/starboard,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/mining)
 "YU" = (
@@ -9774,6 +10867,12 @@
 	dir = 5
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/engineering)
 "YV" = (
@@ -9783,11 +10882,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/table/steel,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/light/small/emergency{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/afthallway)
@@ -9802,7 +10901,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/ore_extraction)
 "YX" = (
-/obj/machinery/door/blast/regular,
+/obj/machinery/door/blast/regular{
+	id = "fbs_combustion_exterior"
+	},
 /turf/simulated/floor/reinforced/airless,
 /area/ship/freebooter_salvager/engineering)
 "Za" = (
@@ -9819,6 +10920,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/freebooter_salvager/fore_upper_deck,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/forehallway)
 "Zi" = (
@@ -9831,7 +10933,9 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/freebooter_salvager/medbay)
 "Zm" = (
-/obj/machinery/vending/engivend,
+/obj/machinery/vending/engivend{
+	req_access = null
+	},
 /obj/effect/floor_decal/corner/brown/full,
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 4
@@ -9890,11 +10994,11 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/light/colored/decayed{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/afthallway)
@@ -35524,8 +36628,6 @@ QM
 QM
 QM
 QM
-Ds
-QM
 QM
 Ds
 QM
@@ -35547,6 +36649,8 @@ QM
 QM
 Ds
 QM
+QM
+Ds
 QM
 QM
 QM
@@ -36061,8 +37165,8 @@ QM
 QM
 QM
 QM
-vn
 QM
+vn
 QM
 QM
 QM
@@ -36832,8 +37936,8 @@ QM
 QM
 QM
 QM
-vn
 QM
+vn
 QM
 QM
 QM
@@ -37603,6 +38707,7 @@ QM
 QM
 QM
 QM
+QM
 vn
 QM
 QM
@@ -37611,7 +38716,6 @@ QM
 QM
 QM
 QM
-QM
 Ds
 QM
 QM
@@ -37620,8 +38724,8 @@ QM
 QM
 Ds
 QM
-QM
-QM
+Au
+Tx
 QM
 Ds
 QM
@@ -38118,7 +39222,7 @@ QM
 QM
 QM
 QM
-Tl
+dd
 Ij
 Tl
 Tl
@@ -38888,8 +39992,8 @@ QM
 QM
 QM
 QM
-vn
 QM
+vn
 QM
 QM
 QM
@@ -38905,7 +40009,7 @@ Bw
 Bw
 QM
 CV
-CI
+vj
 YT
 CV
 QM
@@ -39412,7 +40516,7 @@ Oj
 Oj
 Oj
 Oj
-Oj
+oW
 Oj
 Bw
 nI
@@ -39659,18 +40763,18 @@ QM
 QM
 QM
 QM
-vn
 QM
+vn
 QM
 Au
 Oj
 Oj
-YO
+Jl
 rR
 jx
 oO
 fu
-Cu
+aX
 Bw
 Pg
 Al
@@ -39691,7 +40795,7 @@ QM
 vX
 fh
 wp
-wp
+rZ
 wp
 wp
 sR
@@ -39927,7 +41031,7 @@ Yl
 le
 oO
 Xg
-uG
+Gk
 Bw
 Bw
 TO
@@ -39939,12 +41043,12 @@ IN
 ZV
 Fv
 Fv
-CV
+JE
 pa
 QM
 QM
-wp
-wp
+QM
+QM
 wp
 Ur
 jZ
@@ -40177,7 +41281,7 @@ QM
 QM
 QM
 Au
-ls
+Sg
 yj
 Yc
 Yl
@@ -40202,7 +41306,7 @@ QM
 QM
 vX
 iC
-Gn
+iC
 hE
 Ho
 Kk
@@ -40430,14 +41534,14 @@ QM
 QM
 QM
 QM
-vn
 QM
+vn
 QM
 Au
 Oj
 lP
 YO
-Qa
+vZ
 Qa
 CY
 Dz
@@ -40921,8 +42025,6 @@ QM
 QM
 QM
 QM
-Ds
-QM
 QM
 Ds
 QM
@@ -40944,6 +42046,8 @@ QM
 QM
 Ds
 QM
+QM
+Ds
 QM
 QM
 Bw
@@ -40951,9 +42055,9 @@ lX
 Ve
 Bw
 YW
+BI
 zB
-zB
-nz
+jA
 Gb
 wE
 vD
@@ -40980,8 +42084,8 @@ Ci
 yG
 RO
 wp
-Sw
-Sw
+sc
+sc
 jP
 vH
 QM
@@ -41212,7 +42316,7 @@ nf
 GX
 DD
 GW
-uG
+zE
 Oj
 TD
 tc
@@ -41497,7 +42601,7 @@ wp
 QN
 ZX
 mt
-QM
+si
 QM
 QM
 QM
@@ -41692,8 +42796,6 @@ QM
 QM
 QM
 QM
-Ds
-QM
 QM
 Ds
 QM
@@ -41715,6 +42817,8 @@ QM
 QM
 Ds
 QM
+QM
+Ds
 QM
 QM
 Bw
@@ -41744,7 +42848,7 @@ QM
 QM
 vX
 iC
-lQ
+iC
 nO
 nZ
 GG
@@ -41976,14 +43080,14 @@ QM
 QM
 QM
 Au
-ls
+af
 cy
 fq
 Ov
 HR
 IO
 cU
-uG
+gz
 Oj
 RL
 pT
@@ -41999,8 +43103,8 @@ CV
 CV
 CV
 QM
-wp
-wp
+QM
+QM
 wp
 Ur
 Az
@@ -42229,8 +43333,8 @@ QM
 QM
 QM
 QM
-vn
 QM
+vn
 QM
 Au
 Oj
@@ -42240,11 +43344,11 @@ SA
 rI
 TW
 ob
-Cu
+aj
 Oj
 CV
 TK
-hX
+Kb
 ZY
 jh
 hX
@@ -42261,7 +43365,7 @@ QM
 vX
 gD
 wp
-wp
+kQ
 wp
 wp
 wp
@@ -42511,7 +43615,7 @@ Fv
 ba
 wn
 wn
-CV
+Ot
 QM
 QM
 QM
@@ -42519,10 +43623,10 @@ QM
 QM
 QM
 QM
-wJ
-wp
-wp
-wp
+QM
+QM
+QM
+QM
 QM
 QM
 QM
@@ -42750,9 +43854,9 @@ jr
 sZ
 Oj
 Oj
-ls
-ls
-ls
+lQ
+Qq
+lQ
 Oj
 Oj
 fM
@@ -43000,8 +44104,8 @@ QM
 QM
 QM
 QM
-vn
 QM
+vn
 QM
 QM
 jr
@@ -43515,7 +44619,7 @@ QM
 QM
 QM
 QM
-Tl
+pn
 Tl
 Tl
 Tl
@@ -44285,6 +45389,7 @@ QM
 QM
 QM
 QM
+QM
 vn
 QM
 QM
@@ -44293,7 +45398,6 @@ QM
 QM
 QM
 QM
-QM
 Ds
 QM
 QM
@@ -44302,8 +45406,8 @@ QM
 QM
 Ds
 QM
-QM
-QM
+Fp
+pa
 QM
 Ds
 QM
@@ -45056,8 +46160,8 @@ QM
 QM
 QM
 QM
-vn
 QM
+vn
 QM
 QM
 QM
@@ -45547,8 +46651,6 @@ QM
 QM
 QM
 QM
-Ds
-QM
 QM
 Ds
 QM
@@ -45570,6 +46672,8 @@ QM
 QM
 Ds
 QM
+QM
+Ds
 QM
 QM
 QM
@@ -90037,7 +91141,7 @@ QM
 QM
 QM
 QM
-QM
+tY
 QM
 QM
 QM
@@ -101603,8 +102707,8 @@ DU
 DU
 DU
 VI
-oW
 fc
+HC
 fc
 VI
 VI
@@ -101849,7 +102953,7 @@ QM
 QM
 QM
 QM
-DU
+zs
 DU
 DU
 DU
@@ -101857,7 +102961,7 @@ DU
 DU
 DU
 iJ
-ai
+gv
 DU
 zM
 yq
@@ -102111,7 +103215,7 @@ xD
 Bg
 LF
 oY
-ai
+bA
 bZ
 HQ
 HT
@@ -102362,9 +103466,9 @@ QM
 QM
 QM
 QM
-KP
+cp
 Zs
-gL
+Jw
 IH
 gL
 EP
@@ -102638,12 +103742,12 @@ Kg
 kv
 Kt
 MC
-MC
+vP
 xa
 uM
 Rl
 OZ
-xa
+eQ
 QM
 dL
 dL
@@ -103392,7 +104496,7 @@ Db
 BT
 tN
 BT
-tN
+vx
 BT
 tN
 BT
@@ -103647,11 +104751,11 @@ QM
 Db
 BT
 qw
-Cf
 qw
 qw
 qw
-Cf
+qw
+qw
 qw
 RV
 hu
@@ -103921,7 +105025,7 @@ QC
 oc
 Sh
 gm
-wl
+dm
 qD
 qD
 qD
@@ -103950,34 +105054,34 @@ QM
 QM
 QM
 QM
+Ds
 QM
 QM
+Ds
 QM
 QM
+Ds
 QM
 QM
+Ds
 QM
 QM
+Ds
 QM
 QM
+Ds
 QM
 QM
+Ds
 QM
 QM
+Ds
 QM
 QM
+Ds
 QM
 QM
-QM
-QM
-QM
-QM
-QM
-QM
-QM
-QM
-QM
-QM
+Ds
 QM
 QM
 QM
@@ -104416,7 +105520,7 @@ QM
 Ue
 fj
 fj
-fj
+vR
 fj
 fj
 rH
@@ -104462,7 +105566,7 @@ QM
 QM
 QM
 QM
-QM
+vn
 QM
 QM
 QM
@@ -104956,7 +106060,7 @@ gj
 Ki
 oV
 SK
-uB
+wJ
 Vh
 zh
 ZL
@@ -105186,7 +106290,7 @@ xE
 Ae
 cr
 fj
-mv
+Ns
 mv
 zF
 CO
@@ -105205,7 +106309,7 @@ wg
 QC
 cJ
 oj
-SM
+Je
 Bw
 pm
 Bw
@@ -105233,7 +106337,7 @@ ZB
 ZB
 ZB
 QM
-QM
+vn
 QM
 QM
 QM
@@ -105435,7 +106539,7 @@ QM
 QM
 QM
 QM
-kr
+Pm
 JA
 JV
 Ya
@@ -105466,7 +106570,7 @@ IG
 Bw
 kP
 ty
-WS
+mc
 PR
 sF
 gl
@@ -105724,7 +106828,7 @@ Bw
 Bw
 Bw
 tx
-PR
+yK
 kt
 ki
 oF
@@ -105732,7 +106836,7 @@ Du
 ZI
 ZL
 sg
-gi
+Sp
 gn
 ZL
 uW
@@ -105746,7 +106850,7 @@ JW
 ZB
 by
 Vv
-uA
+Gh
 QM
 QM
 QM
@@ -106003,7 +107107,8 @@ WH
 jk
 VE
 FO
-uA
+Gh
+vn
 QM
 QM
 QM
@@ -106049,8 +107154,7 @@ QM
 QM
 QM
 QM
-QM
-QM
+XY
 QM
 QM
 QM
@@ -106239,7 +107343,7 @@ IG
 so
 LK
 PK
-PK
+EX
 DW
 oL
 uc
@@ -106253,14 +107357,14 @@ tF
 wT
 JK
 ZB
-Sn
+XD
 Wl
 SS
 Sn
 hv
 Sn
 bp
-uA
+Gh
 QM
 QM
 QM
@@ -106421,6 +107525,7 @@ QM
 QM
 QM
 QM
+Ua
 QM
 QM
 QM
@@ -106469,8 +107574,7 @@ QM
 QM
 QM
 QM
-QM
-kr
+vG
 km
 TA
 Nn
@@ -106736,7 +107840,7 @@ fa
 YU
 QO
 fj
-gz
+Lk
 jy
 qA
 up
@@ -106775,7 +107879,7 @@ BX
 fL
 ZB
 ZB
-QM
+vn
 QM
 QM
 QM
@@ -106993,7 +108097,7 @@ yn
 kB
 SV
 fj
-Qv
+ct
 oK
 up
 up
@@ -107491,7 +108595,7 @@ QM
 QM
 QM
 QM
-kr
+TU
 hs
 Fl
 nX
@@ -107546,7 +108650,7 @@ Zb
 nj
 us
 us
-us
+MK
 QM
 QM
 QM
@@ -108034,7 +109138,7 @@ dH
 qB
 up
 tV
-Ah
+Cy
 eD
 eD
 eD
@@ -108060,7 +109164,7 @@ uW
 jU
 QM
 QM
-QM
+vn
 QM
 QM
 QM
@@ -108272,7 +109376,7 @@ fj
 fj
 FH
 fV
-Tw
+HP
 jj
 GZ
 lc
@@ -108528,7 +109632,7 @@ QM
 NH
 fj
 YX
-YX
+oo
 YX
 jj
 Fw
@@ -108557,14 +109661,14 @@ Wr
 xH
 eD
 eD
-eD
+Hm
 eD
 eD
 eD
 eD
 wa
 wa
-wa
+HG
 EH
 EH
 EH
@@ -108831,7 +109935,7 @@ QM
 QM
 QM
 QM
-QM
+vn
 QM
 QM
 QM
@@ -109058,7 +110162,7 @@ LT
 cL
 ye
 LT
-cJ
+uV
 zv
 lU
 eU
@@ -109301,11 +110405,11 @@ QM
 Db
 CF
 qw
-Cf
 qw
 qw
 qw
-Cf
+qw
+qw
 qw
 rY
 hu
@@ -109317,8 +110421,8 @@ Nq
 CU
 uj
 pr
-oc
-wl
+Bt
+Ma
 qD
 qD
 qD
@@ -109560,7 +110664,7 @@ Db
 CF
 Ts
 CF
-Ts
+JP
 CF
 Ts
 CF
@@ -109602,7 +110706,7 @@ QM
 QM
 QM
 QM
-QM
+vn
 QM
 QM
 QM
@@ -110350,7 +111454,7 @@ oq
 fz
 bk
 On
-Xu
+Gn
 ys
 QM
 QM
@@ -110373,7 +111477,7 @@ QM
 QM
 QM
 QM
-QM
+vn
 QM
 QM
 QM
@@ -110586,7 +111690,7 @@ QM
 QM
 QM
 QM
-fZ
+sI
 SY
 MS
 Tp
@@ -110608,7 +111712,7 @@ jC
 oR
 io
 fE
-ys
+Xo
 QM
 QM
 QM
@@ -110889,34 +111993,34 @@ QM
 QM
 QM
 QM
+Ds
 QM
 QM
+Ds
 QM
 QM
+Ds
 QM
 QM
+Ds
 QM
 QM
+Ds
 QM
 QM
+Ds
 QM
 QM
+Ds
 QM
 QM
+Ds
 QM
 QM
+Ds
 QM
 QM
-QM
-QM
-QM
-QM
-QM
-QM
-QM
-QM
-QM
-QM
+Ds
 QM
 QM
 QM
@@ -111367,7 +112471,7 @@ KF
 gQ
 gQ
 gQ
-gQ
+iS
 gQ
 gQ
 wh
@@ -122932,7 +124036,7 @@ QM
 QM
 QM
 QM
-QM
+Pn
 QM
 QM
 QM

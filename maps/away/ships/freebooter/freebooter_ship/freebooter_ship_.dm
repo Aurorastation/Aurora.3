@@ -11,10 +11,9 @@
 	sectors = list(ALL_POSSIBLE_SECTORS)
 	spawn_weight = 1
 	ship_cost = 1
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 	id = "freebooter_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/freebooter_shuttle)
-	//ban_ruins = list(/datum/map_template/ruin/away_site/freebooter_salvager)
+	ban_ruins = list(/datum/map_template/ruin/away_site/freebooter_salvager)
 
 	unit_test_groups = list(2)
 

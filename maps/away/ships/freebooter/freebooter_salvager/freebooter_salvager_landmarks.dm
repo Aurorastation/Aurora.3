@@ -18,11 +18,43 @@
 	name = "Freebooter Salvager Ship, Starboard"
 	landmark_tag = "fbs_nav4"
 
+/obj/effect/shuttle_landmark/freebooter_salvager/fore_upper_deck
+	name = "Freebooter Salvager Ship, Upper Deck Fore EVA Docking"
+	landmark_tag = "fbs_upfore"
+
+/obj/effect/shuttle_landmark/freebooter_salvager/nav5
+	name = "Freebooter Salvager Ship, Lower Deck Port EVA Docking"
+	landmark_tag = "fbs_nav5"
+
+/obj/effect/shuttle_landmark/freebooter_salvager/nav6
+	name = "Freebooter Salvager Ship, Lower Deck Starboard EVA Docking"
+	landmark_tag = "fbs_nav6"
+
+/obj/effect/shuttle_landmark/freebooter_salvager/nav7
+	name = "Freebooter Salvager Ship, Lower Deck Aft Starboard EVA Docking"
+	landmark_tag = "fbs_nav7"
+
+/obj/effect/shuttle_landmark/freebooter_salvager/nav8
+	name = "Freebooter Salvager Ship, Lower Deck Aft Port EVA Docking"
+	landmark_tag = "fbs_nav8"
+
 // Non-docking airlocks
+
+/obj/effect/map_effect/marker/airlock/freebooter_salvager/fore_upper_deck
+	name = "Upper Deck Fore"
+	master_tag = "airlock_fbs_upfore"
 
 /obj/effect/map_effect/marker/airlock/freebooter_salvager/fore
 	name = "Fore Airlock"
 	master_tag = "airlock_fbs_fore"
+
+/obj/effect/map_effect/marker/airlock/freebooter_salvager/port
+	name = "Port Airlock"
+	master_tag = "airlock_fbs_port"
+
+/obj/effect/map_effect/marker/airlock/freebooter_salvager/starboard
+	name = "Starboard Airlock"
+	master_tag = "airlock_fbs_starboard"
 
 // Lift
 
