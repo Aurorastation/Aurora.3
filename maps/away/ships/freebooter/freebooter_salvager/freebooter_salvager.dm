@@ -38,7 +38,7 @@
 	vessel_size = SHIP_SIZE_SMALL
 	invisible_until_ghostrole_spawn = TRUE
 	designer = "Einstein Engines"
-	volume = "56 meters length, 39 meters beam/width, 25 meters vertical height"
+	volume = "55 meters length, 43 meters beam/width, 22 meters vertical height"
 	drive = "Low-Speed Warp Acceleration FTL Drive"
 	weapons = "Dual improvised weapon arrays, underside shuttle docking compartment."
 	sizeclass = "Tartarus-class Bulk Hauler"
