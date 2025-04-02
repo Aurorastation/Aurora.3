@@ -1886,6 +1886,7 @@
 		/obj/item/device/radio/headset/ship/odyssey = 12,
 		/obj/item/portable_map_reader/odyssey = 12,
 		/obj/item/card/id/syndicate = 12,
+		/obj/item/storage/box/syndie_kit/chameleon = 12,
 	)
 	light_color = COLOR_GUNMETAL
 	random_itemcount = FALSE
