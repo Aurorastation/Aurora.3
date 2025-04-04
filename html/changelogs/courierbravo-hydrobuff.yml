@@ -58,6 +58,7 @@ changes:
   - rscadd: "Remapped hydroponics and the garden to hopefully breathe some new life into the gardener role."
   - rscadd: "Added a series of new items to the biogenerator."
   - rscadd: "Added all the plushies I could find to the plushie randomizer"
+  - rscdel: "Removed synthetic blood, the pet mushroom, human hide, and the hostile tree from the bio generator."
   - imageadd: "Added a new type of magazine, Horticulture Today! Added sprites to go along with each issue."
   - balance: "Added two new subtypes of vending machine for the garden and hydroponics. The public garden vendor now costs credits to use."
   - balance: "Increased the capacity of the biogenerator by double. Changed prices for biogenerator recipes to make them more reasonable for product input."
