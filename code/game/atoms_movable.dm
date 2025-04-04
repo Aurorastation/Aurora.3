@@ -5,7 +5,9 @@
 	appearance_flags = DEFAULT_APPEARANCE_FLAGS | TILE_BOUND
 
 	var/last_move = null
-	var/anchored = 0
+	/// A list containing arguments for Moved().
+	VAR_PRIVATE/tmp/list/active_movement
+	var/anchored = FALSE
 	var/movable_flags
 
 	///Used to scale icons up or down horizonally in update_transform().
@@ -42,6 +44,9 @@
 	///Delay in deciseconds between inertia based movement
 	var/inertia_move_delay = 5
 
+	///0: not doing a diagonal move. 1 and 2: doing the first/second step of the diagonal move
+	var/moving_diagonally = 0
+
 	///Holds information about any movement loops currently running/waiting to run on the movable. Lazy, will be null if nothing's going on
 	var/datum/movement_packet/move_packet
 
@@ -70,6 +75,9 @@
 	var/blocks_emissive = EMISSIVE_BLOCK_NONE
 	///Internal holder for emissive blocker object, DO NOT USE DIRECTLY. Use blocks_emissive
 	var/mutable_appearance/em_block
+
+	/// Whether this atom should have its dir automatically changed when it moves. Setting this to FALSE allows for things such as directional windows to retain dir on moving without snowflake code all of the place.
+	var/set_dir_on_move = TRUE
 
 /atom/movable/Initialize(mapload, ...)
 	. = ..()
@@ -148,7 +156,7 @@
 		if(old_area)
 			old_area.Exited(src, NONE)
 
-	Moved(oldloc, NONE, TRUE, null)
+	RESOLVE_ACTIVE_MOVEMENT
 
 // Make sure you know what you're doing if you call this
 // You probably want CanPass()
@@ -162,7 +170,7 @@
 ///default byond proc that is deprecated for us in lieu of signals. do not call
 /atom/movable/Crossed(atom/movable/crossed_atom, oldloc)
 	SHOULD_NOT_OVERRIDE(TRUE)
-	// CRASH("atom/movable/Crossed() was called!") //pending rework of /atom/movable/Move() this is suppressed
+	CRASH("atom/movable/Crossed() was called!")
 
 /**
  * `Uncross()` is a default BYOND proc that is called when something is *going*
@@ -187,7 +195,7 @@
 /atom/movable/Uncross()
 	. = TRUE
 	SHOULD_NOT_OVERRIDE(TRUE)
-	// CRASH("Uncross() should not be being called, please read the doc-comment for it for why.") //pending rework of /atom/movable/Move() this is suppressed
+	CRASH("Uncross() should not be being called, please read the doc-comment for it for why.")
 
 /**
  * default byond proc that is normally called on everything inside the previous turf
@@ -197,7 +205,7 @@
  */
 /atom/movable/Uncrossed(atom/movable/uncrossed_atom)
 	SHOULD_NOT_OVERRIDE(TRUE)
-	// CRASH("/atom/movable/Uncrossed() was called") //pending rework of /atom/movable/Move() this is suppressed
+	CRASH("/atom/movable/Uncrossed() was called")
 
 /**
  * Pretend this is `Bump()`
@@ -486,14 +494,20 @@
 
 // Core movement hooks & procs.
 /atom/movable/proc/forceMove(atom/destination)
+	. = FALSE
+	RESOLVE_ACTIVE_MOVEMENT
+
 	if(!destination)
 		return FALSE
 	if(loc)
 		loc.Exited(src, destination)
-	var/old_loc = loc
+	var/oldloc = loc
+
+	SET_ACTIVE_MOVEMENT(oldloc, NONE, TRUE, null)
+
 	loc = destination
-	loc.Entered(src, old_loc)
-	Moved(old_loc, get_dir(old_loc, destination), TRUE)
+	loc.Entered(src, oldloc)
+	Moved(oldloc, get_dir(oldloc, destination), TRUE)
 
 	//Zmimic
 	if(bound_overlay)
@@ -514,6 +528,8 @@
 	for (thing in light_sources)
 		L = thing
 		L.source_atom.update_light()
+
+	RESOLVE_ACTIVE_MOVEMENT
 
 	return TRUE
 
@@ -857,13 +873,162 @@
  * most of the time you want forceMove()
  */
 /atom/movable/proc/abstract_move(atom/new_loc)
-	// RESOLVE_ACTIVE_MOVEMENT // This should NEVER happen, but, just in case...
+	RESOLVE_ACTIVE_MOVEMENT // This should NEVER happen, but, just in case...
 	var/atom/old_loc = loc
 	var/direction = get_dir(old_loc, new_loc)
 	loc = new_loc
 
 	//is Moved(old_loc, direction, TRUE, momentum_change = FALSE) in tg
 	Moved(old_loc, direction, TRUE)
+
+////////////////////////////////////////
+// Here's where we rewrite how byond handles movement except slightly different
+// To be removed on step_ conversion
+// All this work to prevent a second bump
+/atom/movable/Move(atom/newloc, direction, glide_size_override = 0, update_dir = TRUE) //Last 2 parameters are not used but they're caught
+	CAN_BE_REDEFINED(TRUE)
+	. = FALSE
+	if(!newloc || newloc == loc)
+		return
+
+	// A mid-movement... movement... occurred, resolve that first.
+	RESOLVE_ACTIVE_MOVEMENT
+
+	if(!direction)
+		direction = get_dir(src, newloc)
+
+	// TEMPORARY OFF because i remember this giving some issues on something i don't quite remember
+	if(set_dir_on_move && dir != direction && update_dir)
+		set_dir(direction)
+
+	//There should be some multitile code above, it was cut as we don't do multitile movement (yet)
+	if(!loc.Exit(src, direction))
+		return
+
+	//There should be some multitile code above, it was cut as we don't do multitile movement (yet)
+	if(!newloc.Enter(src))
+		return
+	if(SEND_SIGNAL(src, COMSIG_MOVABLE_PRE_MOVE, newloc) & COMPONENT_MOVABLE_BLOCK_PRE_MOVE)
+		return
+
+	var/atom/oldloc = loc
+	var/area/oldarea = get_area(oldloc)
+	var/area/newarea = get_area(newloc)
+
+	SET_ACTIVE_MOVEMENT(oldloc, direction, FALSE, list()) //This is different from TG because we don't have multitile movement (yet)
+	loc = newloc
+
+	. = TRUE
+
+	oldloc.Exited(src, direction)
+	if(oldarea != newarea)
+		oldarea.Exited(src, direction)
+
+	newloc.Entered(src, oldloc) //This is different from TG because we don't have multitile movement (yet)
+	if(oldarea != newarea)
+		newarea.Entered(src, oldarea)
+
+	// Lighting.
+	if(light_sources)
+		var/datum/light_source/L
+		var/thing
+		for(thing in light_sources)
+			L = thing
+			L.source_atom.update_light()
+
+	// Openturf.
+	if(bound_overlay)
+		// The overlay will handle cleaning itself up on non-openspace turfs.
+		bound_overlay.forceMove(get_step(src, UP))
+		if(bound_overlay.dir != dir)
+			bound_overlay.set_dir(dir)
+
+	if(opacity)
+		updateVisibility(src)
+
+	//Mimics
+	if(bound_overlay)
+		bound_overlay.forceMove(get_step(src, UP))
+		if(bound_overlay.dir != dir)
+			bound_overlay.set_dir(dir)
+
+	src.move_speed = world.time - src.l_move_time
+	src.l_move_time = world.time
+	if ((oldloc != src.loc && oldloc && oldloc.z == src.z))
+		src.last_move = get_dir(oldloc, src.loc)
+
+	RESOLVE_ACTIVE_MOVEMENT
+
+////////////////////////////////////////
+
+/atom/movable/Move(atom/newloc, direct, glide_size_override = 0, update_dir = TRUE)
+	CAN_BE_REDEFINED(TRUE)
+	// var/atom/movable/pullee = pulling
+	// var/turf/current_turf = loc
+
+	if(!loc || !newloc)
+		return FALSE
+
+	if(loc != newloc)
+		if (!(direct & (direct - 1))) //Cardinal move
+			. = ..()
+		else //Diagonal move, split it into cardinal moves
+			moving_diagonally = FIRST_DIAG_STEP
+			var/first_step_dir
+			// The `&& moving_diagonally` checks are so that a forceMove taking
+			// place due to a Crossed, Bumped, etc. call will interrupt
+			// the second half of the diagonal movement, or the second attempt
+			// at a first half if step() fails because we hit something.
+			if (direct & NORTH)
+				if (direct & EAST)
+					if (step(src, NORTH) && moving_diagonally)
+						first_step_dir = NORTH
+						moving_diagonally = SECOND_DIAG_STEP
+						. = step(src, EAST)
+					else if (moving_diagonally && step(src, EAST))
+						first_step_dir = EAST
+						moving_diagonally = SECOND_DIAG_STEP
+						. = step(src, NORTH)
+				else if (direct & WEST)
+					if (step(src, NORTH) && moving_diagonally)
+						first_step_dir = NORTH
+						moving_diagonally = SECOND_DIAG_STEP
+						. = step(src, WEST)
+					else if (moving_diagonally && step(src, WEST))
+						first_step_dir = WEST
+						moving_diagonally = SECOND_DIAG_STEP
+						. = step(src, NORTH)
+			else if (direct & SOUTH)
+				if (direct & EAST)
+					if (step(src, SOUTH) && moving_diagonally)
+						first_step_dir = SOUTH
+						moving_diagonally = SECOND_DIAG_STEP
+						. = step(src, EAST)
+					else if (moving_diagonally && step(src, EAST))
+						first_step_dir = EAST
+						moving_diagonally = SECOND_DIAG_STEP
+						. = step(src, SOUTH)
+				else if (direct & WEST)
+					if (step(src, SOUTH) && moving_diagonally)
+						first_step_dir = SOUTH
+						moving_diagonally = SECOND_DIAG_STEP
+						. = step(src, WEST)
+					else if (moving_diagonally && step(src, WEST))
+						first_step_dir = WEST
+						moving_diagonally = SECOND_DIAG_STEP
+						. = step(src, SOUTH)
+			if(moving_diagonally == SECOND_DIAG_STEP)
+				if(!. && set_dir_on_move && update_dir)
+					set_dir(first_step_dir)
+				else if(!inertia_moving)
+					newtonian_move(dir2angle(direct))
+
+			moving_diagonally = 0
+			return
+
+	last_move = direct
+	if(set_dir_on_move && dir != direct && update_dir)
+		set_dir(direct)
 
 /**
  * Adds the red drop-shadow filter when pointed to by a mob.

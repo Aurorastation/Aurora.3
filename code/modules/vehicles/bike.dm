@@ -198,7 +198,7 @@
 
 /obj/vehicle/bike/proc/check_destination(var/turf/destination)
 	var/static/list/types = typecacheof(list(/turf/space))
-	if(is_type_in_typecache(destination,types) || pulledby)
+	if((is_type_in_typecache(destination,types) && !locate(/obj/structure/lattice))  || pulledby)
 		return TRUE
 	else
 		return FALSE
@@ -217,11 +217,11 @@
 
 	if(is_on_space)
 		if(!space_speed)
-			return 0
+			return FALSE
 		move_delay = (is_careful ? space_speed_careful : space_speed)
 	else
 		if(!land_speed)
-			return 0
+			return FALSE
 		move_delay = (is_careful ? land_speed_careful : land_speed)
 
 	return ..()
@@ -304,7 +304,7 @@
 				var/mob/living/carbon/human/H = AM
 				M.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed by [src]</font>"
 				M.attack_log += "\[[time_stamp()]\] <span class='warning'>rammed[M.name] ([M.ckey]) rammed [H.name] ([H.ckey]) with the [src].</span>"
-				msg_admin_attack("[src] crashed into [key_name(H)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
+				msg_admin_attack("[src] crashed into [key_name(H)] at (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
 				src.visible_message(SPAN_DANGER("\The [src] smashes into \the [H]!"))
 				playsound(src, /singleton/sound_category/swing_hit_sound, 50, 1)
 				H.apply_damage(20, DAMAGE_BRUTE)
@@ -380,7 +380,7 @@
 	if(M.m_intent == M_RUN)
 		M.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed by [src]</font>"
 		M.attack_log += "\[[time_stamp()]\] <span class='warning'>rammed[M.name] ([M.ckey]) rammed [H.name] ([H.ckey]) with the [src].</span>"
-		msg_admin_attack("[src] crashed into [key_name(H)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
+		msg_admin_attack("[src] crashed into [key_name(H)] at (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
 		src.visible_message(SPAN_DANGER("\The [src] runs over \the [H]!"))
 		H.apply_damage(30, DAMAGE_BRUTE)
 		H.apply_effect(4, WEAKEN)
@@ -388,7 +388,7 @@
 
 /obj/vehicle/bike/monowheel/check_destination(var/turf/destination)
 	var/static/list/types = typecacheof(list(/turf/space))
-	if(is_type_in_typecache(destination,types) || pulledby)
+	if((is_type_in_typecache(destination,types) && !locate(/obj/structure/lattice)) || pulledby)
 		return TRUE
 	else
 		return FALSE
@@ -419,7 +419,8 @@
 /obj/vehicle/bike/casino/Move(var/turf/destination)
 	if(!paid)
 		return
-	..()
+
+	. = ..()
 
 /obj/vehicle/bike/casino/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/coin/casino))
@@ -436,7 +437,7 @@
 
 /obj/vehicle/bike/casino/check_destination(var/turf/destination)
 	var/static/list/types = typecacheof(list(/turf/space))
-	if(is_type_in_typecache(destination,types) || pulledby)
+	if((is_type_in_typecache(destination,types) && !locate(/obj/structure/lattice))  || pulledby)
 		return TRUE
 	else
 		return FALSE
@@ -466,7 +467,7 @@
 
 /obj/vehicle/bike/motor/check_destination(turf/destination)
 	var/static/list/types = typecacheof(list(/turf/space, /turf/simulated/floor/exoplanet/water))
-	if(is_type_in_typecache(destination,types) || pulledby)
+	if((is_type_in_typecache(destination,types) && !locate(/obj/structure/lattice)) || pulledby)
 		return TRUE
 	else
 		return FALSE

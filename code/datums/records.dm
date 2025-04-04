@@ -238,10 +238,10 @@
 	var/authorization = "Unauthorized"
 	var/wtype = "Unknown"
 
-var/warrant_uid = 0
+GLOBAL_VAR_INIT(warrant_uid, 0)
 /datum/record/warrant/New()
 	..()
-	id = warrant_uid++
+	id = GLOB.warrant_uid++
 
 // Virus record
 /datum/record/virus
@@ -259,10 +259,10 @@ var/warrant_uid = 0
 	var/pilot = FALSE
 	var/lead = FALSE
 
-var/shuttle_uid = 0
+GLOBAL_VAR_INIT(shuttle_uid, 0)
 /datum/record/shuttle_manifest/New()
 	..()
-	id = shuttle_uid++
+	id = GLOB.shuttle_uid++
 
 /datum/record/shuttle_assignment
 	var/shuttle

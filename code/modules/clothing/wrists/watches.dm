@@ -94,8 +94,8 @@
 
 	if(wired && screwed)
 		to_chat(usr, "You check your watch, spotting a digital collection of numbers reading '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [GLOB.game_year]'.")
-		if (evacuation_controller.get_status_panel_eta())
-			to_chat(usr, SPAN_WARNING("Time until Bluespace Jump: [evacuation_controller.get_status_panel_eta()]."))
+		if (GLOB.evacuation_controller.get_status_panel_eta())
+			to_chat(usr, SPAN_WARNING("Time until Bluespace Jump: [GLOB.evacuation_controller.get_status_panel_eta()]."))
 	else if(wired && !screwed)
 		to_chat(usr, "You check your watch, realising it's still open.")
 	else

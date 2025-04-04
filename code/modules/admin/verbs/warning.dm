@@ -68,7 +68,7 @@
 	var/datum/preferences/D
 	var/client/C = GLOB.directory[warned_ckey]
 	if(C)	D = C.prefs
-	else	D = preferences_datums[warned_ckey]
+	else	D = GLOB.preferences_datums[warned_ckey]
 
 	if(!D)
 		to_chat(src, SPAN_WARNING("Error: warn_legacy(): No such ckey found."))
@@ -201,7 +201,7 @@
 		dat += "</tr>"
 
 	dat += "</table>"
-	show_browser(usr, dat, "window=mywarnings;size=900x500")
+	show_browser(usr, HTML_SKELETON(dat), "window=mywarnings;size=900x500")
 
 /*
  * A proc for acknowledging a warning
@@ -266,7 +266,7 @@
 
 	var/list/data = list("unread" = "", "expired" = "")
 	if (count)
-		data["unread"] = "You have <b>[count] unread warning\s!</b> Click <a href='?JSlink=warnings;notification=:src_ref'>here</a> to review and acknowledge them!"
+		data["unread"] = "You have <b>[count] unread warning\s!</b> Click <a href='byond://?JSlink=warnings;notification=:src_ref'>here</a> to review and acknowledge them!"
 	if (count_expire)
 		data["expired"] = "[count_expire] of your warnings have expired."
 
@@ -410,7 +410,7 @@
 
 		dat +="</table>"
 
-	show_browser(usr, dat, "window=lookupwarns;size=900x500")
+	show_browser(usr, HTML_SKELETON(dat), "window=lookupwarns;size=900x500")
 	feedback_add_details("admin_verb","WARN-LKUP")
 
 //Admin Proc to add a new User Notification

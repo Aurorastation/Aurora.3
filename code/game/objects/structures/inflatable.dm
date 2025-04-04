@@ -297,7 +297,7 @@
 	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_NORMAL
 	display_contents_with_number = TRUE
-	max_storage_space = 28
+	max_storage_space = DEFAULT_BACKPACK_STORAGE
 	force_column_number = 3 // we want 4 slots to appear, so 3 columns + 1 free (to insert stuff)
 	storage_slots = 14
 	can_hold = list(/obj/item/inflatable)

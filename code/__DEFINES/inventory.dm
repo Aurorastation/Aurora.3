@@ -13,3 +13,17 @@
 #define WEIGHT_CLASS_HUGE 5
 /// Essentially means it cannot be picked up or placed in an inventory, (e.g. mech parts, safe)
 #define WEIGHT_CLASS_GIGANTIC 6
+// Use this to forbid item from being placed in a container.
+#define WEIGHT_CLASS_NO_CONTAINER INFINITY
+
+#define BASE_STORAGE_COST(w_class) (2**(w_class-1)) //1,2,4,8,16,...
+
+//linear increase. Using many small storage containers is more space-efficient than using large ones,
+//in exchange for being limited in the w_class of items that will fit
+#define BASE_STORAGE_CAPACITY(w_class) (7*(w_class-1))
+
+#define DEFAULT_HOLDING_STORAGE   BASE_STORAGE_CAPACITY(9)
+#define DEFAULT_DUFFELBAG_STORAGE BASE_STORAGE_CAPACITY(6)
+#define DEFAULT_BACKPACK_STORAGE  BASE_STORAGE_CAPACITY(5)
+#define DEFAULT_LARGEBOX_STORAGE  BASE_STORAGE_CAPACITY(4)
+#define DEFAULT_BOX_STORAGE       BASE_STORAGE_CAPACITY(3)

@@ -91,3 +91,97 @@
       when worn as an accessory.
   hazelmouse:
   - balance: Greimorian queens and servants now die in vacuum.
+2025-02-18:
+  Ben10083:
+  - bugfix: Ammunition Storage turrets now properly linked to control panel, allowing
+      for settings to be changed.
+  FluffyGhost:
+  - refactor: Turned a ton of unmanaged globals into managed globals.
+  - refactor: Refactored some UT output.
+  - rscdel: Removed some unused things, including vars.
+  - server: Added a test to ensure people don't keep adding new unmanaged vars.
+  - server: Removed away_mission deprecated system, made initialization a little faster.
+  - server: Made global uplink datum a GLOB.
+2025-02-21:
+  Ben10083:
+  - rscadd: 'New voice command for exosuits: toggle power.'
+  - qol: Exosuits with no pilot and no link can be given a command to toggle maintenance
+      protocols, allowing the exosuit to be linked without needing to enter the exosuit.
+  CourierBravo:
+  - rscadd: Changed and added floor decals to the area in front of Consular Office
+      B. Moved a couple decals in front of Consular Office A as well.
+  - rscadd: 'Added an engineering floor decal to the warehouse. Also, moved around
+      the floor outline decals in the warehouse. Now it goes top to bottom: Medical,
+      Engineering, Science, Security, Service, and Operations.'
+  - rscadd: Removed girder and angled section layered on a hull wall next to R&D office.
+      Just makes it look a little nicer.
+  - rscadd: Altered the outline decals in xenobiology. Made some full decals half
+      decals, and changed the decals around water dispensing objects to be blue instead
+      of yellow.
+  - bugfix: Fixed out of place air alarm in the Intrepid. Also moved around some objects
+      to prevent odd overlapping.
+  - bugfix: Fixed a corner wall in Bluespace Drive being a reinforced wall instead
+      of a spaceship hull wall.
+  - bugfix: Fixed an overlapping wall light and medical cabinet in the gym.
+  - bugfix: Removed outlining decals on grass in the animal pen.
+  - bugfix: Added missing floor spline in Research Director's office.
+  - bugfix: Fixed an odd flood decal in the shields room.
+  FluffyGhost:
+  - bugfix: Fixed comet expulsion event not triggering (hopefully).
+  - refactor: Slight refactor of the event container events list.
+  SimpleMaroon:
+  - qol: Wheelchairs in the loadout can now be customized by name, description, and
+      colorability.
+  hazelmouse:
+  - rscadd: Synthetics on the SCCV Horizon now receive a visceral forewarning to hivebot
+      invasions before they are announced to the wider crew. You perceive something
+      is terribly wrong...
+  - bugfix: Rough desert turfs no longer appear with an invalid sprite.
+2025-02-22:
+  CourierBravo:
+  - bugfix: 'Replaced empty kois freezers with full ones on the following maps: Kataphract
+      ship, Hephaestus Security ship, Idris Cruise ship.'
+  Flpfs:
+  - balance: Orderly, Technical and Wait Staff now have respective radios for their
+      departments. Orderly now has mourge access.
+  SimpleMaroon:
+  - qol: Made the wheelchair in the loadout cost 2 points, down from 4 points.
+  - code_imp: Changed the loadout wheelchair's datum path name to make more sense.
+2025-02-26:
+  CourierBravo:
+  - rscadd: Added power outlets to some tables in the deck 3 cafe area, deck 3 observation
+      lounge, and operations.
+  FlamingLily:
+  - rscadd: Added more patient lockers to the medbay, and more medical gowns to the
+      patient lockers.
+  SimpleMaroon:
+  - rscadd: Dogtags accessory items can now be tucked or untucked on help intent,
+      meaning the sprite will not show up when worn as an accessory when tucked.
+  - rscadd: All three existing variants of dogtags (regular, Gadpathurian, Adhomian)
+      can now be separated, instead of just the Gadpathurian and Adhomian tags.
+  - rscadd: The description assigned to your dogtags will now be assigned to both
+      individual tags on separation.
+  Wowzewow (Wezzy):
+  - bugfix: Sweaters can be worn in the shirt slot now. Fixes sweaters not layering
+      when worn as an accessory.
+  Wowzewow (Wezzy), Fluffyghost:
+  - imageadd: Updated the lobby art to use .pngs. Resprites lobby UI.
+2025-02-28:
+  Wowzewow (Wezzy):
+  - bugfix: Fixes inventory sprite z-fighting.
+  - refactor: Adds some storage defines.
+  goblin.stev & hazelmouse:
+  - bugfix: All Quick-E-Burger loadout options should now correctly display in the
+      loadout.
+  - bugfix: The Quick-E-Burger apron should now appear ingame when worn as a suit,
+      and both the apron and jumpsuit shouldn't spawn inside the players' bag at roundstart.
+  hazelmouse:
+  - qol: Custom item prosthetics will no longer cause objects to be unequipped when
+      joining.
+  - bugfix: The solar arrays of the Sadar Scout Ship should now work as intended.
+  - rscadd: You can now jab other people with overloaders, after a short delay.
+  - rscadd: Overloaders now provide more messages to the user than before.
+  - code_imp: Expanded documentation in overloader code.
+  - bugfix: Overloaders should no longer play multiple messages while ending.
+  - rscadd: Added an accent tag for Reade, accessible via the Reade origin and to
+      IPCs with access to all human accents.

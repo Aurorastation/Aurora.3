@@ -15,9 +15,10 @@
 
 /obj/item/wirecutters/clippers/update_icon()
 	var/matrix/tf = matrix()
-	if(istype(loc, /obj/item/storage))
+	var/obj/item/storage/S = loc
+	if(istype(S, /obj/item/storage) && !S.storage_slots)
 		tf.Turn(-90) //Vertical for storing compactly
-		tf.Translate(-1,0) //Could do this with pixel_x but let's just update the appearance once.
+		tf.Translate(-1, 0) //Could do this with pixel_x but let's just update the appearance once.
 	transform = tf
 
 /obj/item/device/analyzer/plant_analyzer
@@ -224,7 +225,7 @@
 
 	if(dat)
 		last_data = dat
-		dat += "<br><br>\[<a href='?src=[REF(src)];print=1'>print report</a>\]"
-		user << browse(dat,"window=plant_analyzer")
+		dat += "<br><br>\[<a href='byond://?src=[REF(src)];print=1'>print report</a>\]"
+		user << browse(HTML_SKELETON(dat),"window=plant_analyzer")
 
 	return

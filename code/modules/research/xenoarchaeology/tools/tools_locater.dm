@@ -71,8 +71,8 @@
 				<A href='byond://?src=[REF(src)];freq=10'>+</A><BR>
 				"}
 
-	dat += "<A href='?src=[REF(src)];close=1'>Close</a><br>"
-	user << browse(dat,"window=locater;size=300x150")
+	dat += "<A href='byond://?src=[REF(src)];close=1'>Close</a><br>"
+	user << browse(HTML_SKELETON(dat),"window=locater;size=300x150")
 	onclose(user, "locater")
 
 /obj/item/device/beacon_locator/Topic(href, href_list)

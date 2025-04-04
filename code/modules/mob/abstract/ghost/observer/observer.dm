@@ -69,9 +69,9 @@
 				name = body.real_name
 			else
 				if(gender == MALE)
-					name = capitalize(pick(first_names_male)) + " " + capitalize(pick(last_names))
+					name = capitalize(pick(GLOB.first_names_male)) + " " + capitalize(pick(GLOB.last_names))
 				else
-					name = capitalize(pick(first_names_female)) + " " + capitalize(pick(last_names))
+					name = capitalize(pick(GLOB.first_names_female)) + " " + capitalize(pick(GLOB.last_names))
 
 		mind = body.mind	//we don't transfer the mind but we keep a reference to it.
 
@@ -85,7 +85,7 @@
 	forceMove(T)
 
 	if(!name)							//To prevent nameless ghosts
-		name = capitalize(pick(first_names_male)) + " " + capitalize(pick(last_names))
+		name = capitalize(pick(GLOB.first_names_male)) + " " + capitalize(pick(GLOB.last_names))
 	real_name = name
 
 /mob/abstract/ghost/observer/Destroy()
@@ -203,7 +203,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 			return
 		resting = 1
 		var/turf/location = get_turf(src)
-		message_admins("[key_name_admin(usr)] has ghosted. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)")
+		message_admins("[key_name_admin(usr)] has ghosted. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)")
 		log_game("[key_name_admin(usr)] has ghosted.")
 		var/mob/abstract/ghost/observer/ghost = ghostize(0)	//0 parameter is so we can never re-enter our body, "Charlie, you can never come baaaack~" :3
 		ghost.timeofdeath = world.time // Because the living mob won't have a time of death and we want the respawn timer to work properly.
@@ -310,7 +310,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if(check_rights(R_ADMIN|R_FUN, 0, src))
 		return 0
 
-	return (T && T.holy) && (invisibility <= SEE_INVISIBLE_LIVING || (mind in cult.current_antagonists))
+	return (T && T.holy) && (invisibility <= SEE_INVISIBLE_LIVING || (mind in GLOB.cult.current_antagonists))
 
 /mob/abstract/ghost/observer/verb/jumptomob(input in getmobs()) //Moves the ghost instead of just changing the ghosts's eye -Nodrak
 	set category = "Ghost"

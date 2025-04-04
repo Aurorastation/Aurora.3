@@ -1,4 +1,4 @@
-var/global/list/all_cargo_receptacles = list()
+GLOBAL_LIST_INIT_TYPED(all_cargo_receptacles, /obj/structure/cargo_receptacle, list())
 
 /obj/structure/cargo_receptacle
 	name = "cargo delivery point"
@@ -49,7 +49,7 @@ var/global/list/all_cargo_receptacles = list()
 	else
 		delivery_sector = null
 
-	all_cargo_receptacles += src
+	GLOB.all_cargo_receptacles += src
 
 	if(spawns_packages)
 		var/list/warehouse_turfs = list()
@@ -67,7 +67,7 @@ var/global/list/all_cargo_receptacles = list()
 				new /obj/item/cargo_package(random_turf, src)
 
 /obj/structure/cargo_receptacle/Destroy()
-	all_cargo_receptacles -= src
+	GLOB.all_cargo_receptacles -= src
 	return ..()
 
 /obj/structure/cargo_receptacle/attackby(obj/item/attacking_item, mob/user)

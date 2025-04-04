@@ -1,4 +1,4 @@
-var/datum/antagonist/burglar/burglars
+GLOBAL_DATUM(burglars, /datum/antagonist/burglar)
 
 /datum/antagonist/burglar
 	id = MODE_BURGLAR
@@ -22,7 +22,7 @@ var/datum/antagonist/burglar/burglars
 
 /datum/antagonist/burglar/New()
 	..()
-	burglars = src
+	GLOB.burglars = src
 	welcome_text = "You are a Burglar, someone underequipped to deal with the [station_name()]. You will probably not survive for the whole round, so don't sweat it if you die!<br>\
 	Your (syndicate) sponsored uplink will grant you access to various tools you may need to attempt to accomplish your goal.<br>\
 	You can use :H or :B to talk on your encrypted channel, which only you and your partner can read.<br>\

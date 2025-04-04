@@ -17,7 +17,7 @@
 		B.update_icon()
 
 	single_spark(T)
-	new /obj/effect/effect/smoke/illumination(T, brightness=15)
+	new /obj/effect/smoke/illumination(T, brightness=15)
 	qdel(src)
 
 /obj/item/grenade/flashbang/explode_in_hand(var/mob/living/carbon/human/victim, var/obj/item/organ/external/exploded_hand)

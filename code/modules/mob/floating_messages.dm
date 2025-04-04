@@ -1,5 +1,5 @@
 // Thanks to Burger from Burgerstation for the foundation for this
-var/list/floating_chat_colors = list()
+GLOBAL_LIST_INIT(floating_chat_colors, list())
 
 ///Compute an unique key that is used to associate an image to the client that received said image
 #define STORED_CHAT_TEXT_HASH(client) "[client.ckey]"
@@ -16,7 +16,7 @@ var/list/floating_chat_colors = list()
 	return get_random_colour(0, 160, 230)
 
 /atom/movable/proc/set_floating_chat_color(color)
-	floating_chat_colors[name] = color
+	GLOB.floating_chat_colors[name] = color
 
 /atom/movable/proc/animate_chat(message, datum/language/language, small, list/show_to, duration, override_color)
 	SHOULD_NOT_SLEEP(TRUE)
@@ -37,9 +37,9 @@ var/list/floating_chat_colors = list()
 	if(istype(language, /datum/language/noise))
 		message = "<font color='#7F7F7F'>*</font> " + uncapitalize(message)
 
-	if(!floating_chat_colors[name])
-		floating_chat_colors[name] = get_floating_chat_color()
-	style += "color: [floating_chat_colors[name]];"
+	if(!GLOB.floating_chat_colors[name])
+		GLOB.floating_chat_colors[name] = get_floating_chat_color()
+	style += "color: [GLOB.floating_chat_colors[name]];"
 
 	send_chat_floating_text_to_clients(show_to, message, fontsize, style, duration, language)
 

@@ -1,5 +1,6 @@
 //admin verb groups - They can overlap if you so wish. Only one of each verb will exist in the verbs list regardless
-var/list/admin_verbs_default = list(
+
+GLOBAL_LIST_INIT(admin_verbs_default, list(
 	/datum/admins/proc/show_player_panel,	//shows an interface for individual players, with various links (links require additional flags),
 	/client/proc/player_panel_modern,
 	/client/proc/toggleadminhelpsound,	/*toggles whether we hear a sound when adminhelps/PMs are used*/
@@ -8,8 +9,9 @@ var/list/admin_verbs_default = list(
 	/client/proc/hide_most_verbs,		/*hides all our hideable adminverbs*/
 	/client/proc/cmd_mentor_check_new_players,
 	/client/proc/notification_add		/*allows everyone to set up player notifications*/
-	)
-var/list/admin_verbs_admin = list(
+	))
+
+GLOBAL_LIST_INIT(admin_verbs_admin, list(
 	/client/proc/debug_variables,		/*allows us to -see- the variables of any instance in the game.*/
 	/client/proc/invisimin,				/*allows our mob to go invisible/visible*/
 //	/datum/admins/proc/show_traitor_panel,	/*interface which shows a mob's mind*/ -Removed due to rare practical use. Moved to debug verbs ~Errorage */
@@ -69,7 +71,6 @@ var/list/admin_verbs_admin = list(
 	/datum/admins/proc/show_player_info,
 	/client/proc/free_slot,			//frees slot for chosen job,
 	/client/proc/cmd_admin_change_custom_event,
-	/client/proc/cmd_admin_rejuvenate,
 	/client/proc/toggleattacklogs,
 	/client/proc/toggledebuglogs,
 	/client/proc/toggleghostwriters,
@@ -103,19 +104,22 @@ var/list/admin_verbs_admin = list(
 	/client/proc/toggle_aooc,
 	/client/proc/force_away_mission,
 	/client/proc/alooc
-)
-var/list/admin_verbs_ban = list(
+))
+
+GLOBAL_LIST_INIT(admin_verbs_ban, list(
 	/client/proc/unban_panel,
 	/client/proc/jobbans,
 	/client/proc/warning_panel,
 	/client/proc/stickybanpanel
-	)
-var/list/admin_verbs_sounds = list(
+	))
+
+GLOBAL_LIST_INIT(admin_verbs_sounds, list(
 	/client/proc/play_local_sound,
 	/client/proc/play_sound,
 	/client/proc/play_server_sound
-	)
-var/list/admin_verbs_fun = list(
+	))
+
+GLOBAL_LIST_INIT(admin_verbs_fun, list(
 	/client/proc/object_talk,
 	/client/proc/cmd_admin_dress,
 	/client/proc/cmd_admin_grab_observers,
@@ -139,18 +143,20 @@ var/list/admin_verbs_fun = list(
 	/client/proc/apply_sunstate,
 	/datum/admins/proc/ccannoucment,
 	/datum/admins/proc/set_odyssey
-	)
+	))
 
-var/list/admin_verbs_spawn = list(
+GLOBAL_LIST_INIT(admin_verbs_spawn, list(
 	/client/proc/game_panel,
 	/datum/admins/proc/spawn_fruit,
 	/datum/admins/proc/spawn_custom_item,
 	/datum/admins/proc/spawn_plant,
 	/datum/admins/proc/spawn_atom,		// allows us to spawn instances,
+	/client/proc/cmd_admin_delete,		// delete an instance/object/mob/etc,
 	/client/proc/respawn_character,
 	/client/proc/spawn_chemdisp_cartridge
-	)
-var/list/admin_verbs_server = list(
+	))
+
+GLOBAL_LIST_INIT(admin_verbs_server, list(
 	/datum/admins/proc/capture_map_part,
 	/client/proc/Set_Holiday,
 	/datum/admins/proc/startnow,
@@ -160,7 +166,6 @@ var/list/admin_verbs_server = list(
 	/datum/admins/proc/immreboot,
 	/client/proc/everyone_random,
 	/datum/admins/proc/toggleAI,
-	/client/proc/cmd_admin_delete,		// delete an instance/object/mob/etc,
 	/client/proc/cmd_debug_del_all,
 	/datum/admins/proc/adrev,
 	/datum/admins/proc/adspawn,
@@ -175,8 +180,9 @@ var/list/admin_verbs_server = list(
 	/client/proc/configure_access_control,
 	/datum/admins/proc/togglehubvisibility, //toggles visibility on the BYOND Hub
 	/client/proc/force_away_mission
-	)
-var/list/admin_verbs_debug = list(
+	))
+
+GLOBAL_LIST_INIT(admin_verbs_debug, list(
 	/client/proc/getruntimelog,                     // allows us to access runtime logs to somebody,
 	/client/proc/cmd_admin_list_open_jobs,
 	/client/proc/Debug2,
@@ -237,27 +243,32 @@ var/list/admin_verbs_debug = list(
 	/datum/admins/proc/force_initialize_weather,
 	/datum/admins/proc/force_weather_state,
 	/datum/admins/proc/force_kill_weather
-	)
+	))
 
-var/list/admin_verbs_paranoid_debug = list(
+GLOBAL_LIST_INIT(admin_verbs_paranoid_debug, list(
 	/client/proc/callproc,
 	/client/proc/callproc_target,
 	/client/proc/debug_controller
-	)
+	))
 
-var/list/admin_verbs_possess = list(
+
+GLOBAL_LIST_INIT(admin_verbs_possess, list(
 	/proc/possess,
 	/proc/release
-	)
-var/list/admin_verbs_permissions = list(
+	))
+
+GLOBAL_LIST_INIT(admin_verbs_permissions, list(
 	/client/proc/edit_admin_permissions
-	)
-var/list/admin_verbs_rejuv = list(
-	/client/proc/respawn_character
-	)
+	))
+
+GLOBAL_LIST_INIT(admin_verbs_rejuv, list(
+	/client/proc/respawn_character,
+	/client/proc/cmd_admin_rejuvenate
+	))
+
 
 //verbs which can be hidden
-var/list/admin_verbs_hideable = list(
+GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/client/proc/allow_character_respawn,
 	/client/proc/toggle_view_range,
 	/client/proc/stealth,
@@ -414,8 +425,9 @@ var/list/admin_verbs_hideable = list(
 	/proc/release,
 	/client/proc/force_away_mission,
 	/client/proc/profiler_start,
-	)
-var/list/admin_verbs_mod = list(
+	))
+
+GLOBAL_LIST_INIT(admin_verbs_mod, list(
 	/client/proc/cmd_admin_pm_context,	// right-click adminPM interface,
 	/client/proc/cmd_admin_pm_panel,	// admin-pm list,
 	/client/proc/debug_variables,		// allows us to -see- the variables of any instance in the game.,
@@ -439,9 +451,10 @@ var/list/admin_verbs_mod = list(
 	/client/proc/toggle_aooc,
 	/client/proc/alooc,
 	/client/proc/allow_character_respawn
-)
+))
 
-var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
+
+GLOBAL_LIST_INIT(admin_verbs_dev, list( //will need to be altered - Ryan784
 	///datum/admins/proc/restart,
 	/client/proc/Jump,
 	/client/proc/jumptokey,				/*allows us to jump to the location of a mob with a certain ckey*/
@@ -486,8 +499,10 @@ var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
 	/client/proc/cmd_generate_lag,
 	/client/proc/create_poll, //Allows to create polls
 	/client/proc/profiler_start,
-)
-var/list/admin_verbs_cciaa = list(
+	/client/proc/allow_browser_inspect,
+))
+
+GLOBAL_LIST_INIT(admin_verbs_cciaa, list(
 	/client/proc/cmd_admin_pm_panel,	/*admin-pm list*/
 	/client/proc/cmd_admin_create_centcom_report,
 	/client/proc/cmd_cciaa_say,
@@ -498,54 +513,55 @@ var/list/admin_verbs_cciaa = list(
 	/client/proc/check_antagonists,
 	/client/proc/odyssey_panel,
 	/client/proc/toggle_aooc
-)
+))
+
 
 /client/proc/add_admin_verbs()
 	SHOULD_NOT_SLEEP(TRUE)
 
 	if(holder)
-		add_verb(src, admin_verbs_default)
+		add_verb(src, GLOB.admin_verbs_default)
 		if(holder.rights & R_BUILDMODE)		add_verb(src, /client/proc/togglebuildmodeself)
-		if(holder.rights & R_ADMIN)			add_verb(src, admin_verbs_admin)
-		if(holder.rights & R_BAN)			add_verb(src, admin_verbs_ban)
-		if(holder.rights & R_FUN)			add_verb(src, admin_verbs_fun)
-		if(holder.rights & R_SERVER)		add_verb(src, admin_verbs_server)
+		if(holder.rights & R_ADMIN)			add_verb(src, GLOB.admin_verbs_admin)
+		if(holder.rights & R_BAN)			add_verb(src, GLOB.admin_verbs_ban)
+		if(holder.rights & R_FUN)			add_verb(src, GLOB.admin_verbs_fun)
+		if(holder.rights & R_SERVER)		add_verb(src, GLOB.admin_verbs_server)
 		if(holder.rights & R_DEBUG)
-			add_verb(src, admin_verbs_debug)
+			add_verb(src, GLOB.admin_verbs_debug)
 			if(GLOB.config.debugparanoid && !(holder.rights & R_ADMIN))
-				remove_verb(src, admin_verbs_paranoid_debug)			//Right now it's just callproc but we can easily add others later on.
-		if(holder.rights & R_POSSESS)		add_verb(src, admin_verbs_possess)
-		if(holder.rights & R_PERMISSIONS)	add_verb(src, admin_verbs_permissions)
+				remove_verb(src, GLOB.admin_verbs_paranoid_debug)			//Right now it's just callproc but we can easily add others later on.
+		if(holder.rights & R_POSSESS)		add_verb(src, GLOB.admin_verbs_possess)
+		if(holder.rights & R_PERMISSIONS)	add_verb(src, GLOB.admin_verbs_permissions)
 		if(holder.rights & R_STEALTH)		add_verb(src, /client/proc/stealth)
-		if(holder.rights & R_REJUVINATE)	add_verb(src, admin_verbs_rejuv)
-		if(holder.rights & R_SPAWN)			add_verb(src, admin_verbs_spawn)
-		if(holder.rights & R_SOUNDS)		add_verb(src, admin_verbs_sounds)
-		if(holder.rights & R_MOD)			add_verb(src, admin_verbs_mod)
-		if(holder.rights & R_DEV)			add_verb(src, admin_verbs_dev)
-		if(holder.rights & R_CCIAA)			add_verb(src, admin_verbs_cciaa)
+		if(holder.rights & R_REJUVENATE)	add_verb(src, GLOB.admin_verbs_rejuv)
+		if(holder.rights & R_SPAWN)			add_verb(src, GLOB.admin_verbs_spawn)
+		if(holder.rights & R_SOUNDS)		add_verb(src, GLOB.admin_verbs_sounds)
+		if(holder.rights & R_MOD)			add_verb(src, GLOB.admin_verbs_mod)
+		if(holder.rights & R_DEV)			add_verb(src, GLOB.admin_verbs_dev)
+		if(holder.rights & R_CCIAA)			add_verb(src, GLOB.admin_verbs_cciaa)
 
 /client/proc/remove_admin_verbs()
-	remove_verb(src, admin_verbs_default)
+	remove_verb(src, GLOB.admin_verbs_default)
 	remove_verb(src, /client/proc/togglebuildmodeself)
-	remove_verb(src, admin_verbs_admin)
-	remove_verb(src, admin_verbs_ban)
-	remove_verb(src, admin_verbs_fun)
-	remove_verb(src, admin_verbs_server)
-	remove_verb(src, admin_verbs_debug)
-	remove_verb(src, admin_verbs_possess)
-	remove_verb(src, admin_verbs_permissions)
+	remove_verb(src, GLOB.admin_verbs_admin)
+	remove_verb(src, GLOB.admin_verbs_ban)
+	remove_verb(src, GLOB.admin_verbs_fun)
+	remove_verb(src, GLOB.admin_verbs_server)
+	remove_verb(src, GLOB.admin_verbs_debug)
+	remove_verb(src, GLOB.admin_verbs_possess)
+	remove_verb(src, GLOB.admin_verbs_permissions)
 	remove_verb(src, /client/proc/stealth)
-	remove_verb(src, admin_verbs_rejuv)
-	remove_verb(src, admin_verbs_sounds)
-	remove_verb(src, admin_verbs_spawn)
-	remove_verb(src, debug_verbs)
+	remove_verb(src, GLOB.admin_verbs_rejuv)
+	remove_verb(src, GLOB.admin_verbs_sounds)
+	remove_verb(src, GLOB.admin_verbs_spawn)
+	remove_verb(src, GLOB.debug_verbs)
 	add_aooc_if_necessary()
 
 /client/proc/hide_most_verbs()//Allows you to keep some functionality while hiding some verbs
 	set name = "Adminverbs - Hide Most"
 	set category = "Admin"
 
-	remove_verb(src, admin_verbs_hideable)
+	remove_verb(src, GLOB.admin_verbs_hideable)
 	add_verb(src, /client/proc/show_verbs)
 
 	to_chat(src, "<span class='interface'>Most of your adminverbs have been hidden.</span>")
@@ -1021,7 +1037,7 @@ var/list/admin_verbs_cciaa = list(
 
 /client/proc/toggleattacklogs()
 	set name = "Toggle Attack Log Messages"
-	set category = "Preferences"
+	set category = "Preferences.Admin"
 
 	prefs.toggles ^= CHAT_ATTACKLOGS
 	if (prefs.toggles & CHAT_ATTACKLOGS)
@@ -1061,7 +1077,7 @@ var/list/admin_verbs_cciaa = list(
 
 /client/proc/toggledebuglogs()
 	set name = "Toggle Debug Log Messages"
-	set category = "Preferences"
+	set category = "Preferences.Admin"
 
 	prefs.toggles ^= CHAT_DEBUGLOGS
 	if (prefs.toggles & CHAT_DEBUGLOGS)
@@ -1104,7 +1120,7 @@ var/list/admin_verbs_cciaa = list(
 	set category = "Fun"
 	set name = "Give Spell"
 	set desc = "Gives a spell to a mob."
-	var/spell/S = input("Choose the spell to give to that guy", "ABRAKADABRA") as null|anything in spells
+	var/spell/S = input("Choose the spell to give to that guy", "ABRAKADABRA") as null|anything in GLOB.spells
 	if(!S) return
 	T.add_spell(new S)
 	feedback_add_details("admin_verb","GS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -1138,7 +1154,7 @@ var/list/admin_verbs_cciaa = list(
 	if (!check_rights(R_ADMIN))
 		return
 
-	var/mob/living/silicon/ai/target = tgui_input_list(usr, "Choose the AI to force-wipe.", "AI Termination", ai_list)
+	var/mob/living/silicon/ai/target = tgui_input_list(usr, "Choose the AI to force-wipe.", "AI Termination", GLOB.ai_list)
 
 	if (!target || alert("Are you sure you want to wipe [target.name]? They will be ghosted and their job slot freed.", "Confirm AI Termination", "No", "No", "Yes") != "Yes")
 		return
@@ -1353,7 +1369,7 @@ var/list/admin_verbs_cciaa = list(
 			prefix = "(R)"
 			admin_stuff += "/([source.key])"
 			if(target != source.client)
-				admin_stuff += "(<A HREF='?src=[REF(target.holder)];adminplayerobservejump=[REF(mob)]'>JMP</A>)"
+				admin_stuff += "(<A href='byond://?src=[REF(target.holder)];adminplayerobservejump=[REF(mob)]'>JMP</A>)"
 		if(target.mob in messagemobs)
 			prefix = ""
 		if((target.mob in messagemobs) || display_remote)

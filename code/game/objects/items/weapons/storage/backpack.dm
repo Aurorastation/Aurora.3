@@ -17,7 +17,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = SLOT_BACK
 	max_w_class = WEIGHT_CLASS_NORMAL
-	max_storage_space = 28
+	max_storage_space = DEFAULT_BACKPACK_STORAGE
 	var/species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 	drop_sound = 'sound/items/drop/backpack.ogg'
 	pickup_sound = 'sound/items/pickup/backpack.ogg'
@@ -140,7 +140,7 @@
 	icon_state = "holdingpack"
 	item_state = "holdingpack"
 	max_w_class = WEIGHT_CLASS_BULKY
-	max_storage_space = 56
+	max_storage_space = DEFAULT_HOLDING_STORAGE
 	storage_cost = 29
 	empty_delay = 0.8 SECOND
 
@@ -156,15 +156,6 @@
 	if(istype(W, /obj/item/storage/backpack/holding))
 		return 1
 	return ..()
-
-/obj/item/storage/backpack/santabag
-	name = "\improper Santa's gift bag"
-	desc = "Space Santa uses this to deliver toys to all the nice children in space in Christmas! Wow, it's pretty big!"
-	icon_state = "giftbag0"
-	item_state = "giftbag"
-	w_class = WEIGHT_CLASS_BULKY
-	max_storage_space = 200 // can store a ton of shit!
-	empty_delay = 1 SECOND
 
 /obj/item/storage/backpack/cultpack
 	name = "trophy rack"
@@ -395,7 +386,7 @@
 	icon = 'icons/obj/unathi_items.dmi'
 	icon_state = "hegemony_satchel"
 	item_state = "hegemony_satchel"
-	max_storage_space = 32
+	max_storage_space = DEFAULT_DUFFELBAG_STORAGE
 	allow_quick_empty = FALSE // Pouches 'n shit.
 
 /obj/item/storage/backpack/satchel/eng
@@ -563,7 +554,7 @@
 	w_class = WEIGHT_CLASS_HUGE // to avoid recursive backpacks
 	slot_flags = SLOT_BACK
 	max_w_class = WEIGHT_CLASS_NORMAL
-	max_storage_space = 20
+	max_storage_space = DEFAULT_LARGEBOX_STORAGE
 	build_from_parts = TRUE
 	worn_overlay = "overlay"
 
@@ -580,7 +571,6 @@
 	desc = "A small, fashionable bag typically worn over the shoulder."
 	icon_state = "purse"
 	item_state = "purse"
-	max_storage_space = 16
 	straps = FALSE
 
 // Duffel Bags
@@ -592,7 +582,7 @@
 	icon_state = "duffel"
 	item_state = "duffel"
 	slowdown = 1
-	max_storage_space = 38
+	max_storage_space = DEFAULT_DUFFELBAG_STORAGE
 	straps = TRUE
 
 /obj/item/storage/backpack/duffel/cap
@@ -926,7 +916,7 @@
 	contained_sprite = FALSE
 	w_class = WEIGHT_CLASS_HUGE
 	slot_flags = SLOT_BACK
-	max_storage_space = 12
+	max_storage_space = DEFAULT_BOX_STORAGE
 	canremove = FALSE
 	species_restricted = list(BODYTYPE_VAURCA_BREEDER)
 	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/back.dmi')

@@ -17,6 +17,7 @@
 	volume = 60
 	drop_sound = 'sound/items/drop/food.ogg'
 	pickup_sound = 'sound/items/pickup/food.ogg'
+	storage_slot_sort_by_name = TRUE
 
 /obj/item/reagent_containers/pill/New()
 	..()
@@ -51,7 +52,7 @@
 		var/contained = reagentlist()
 		target_mob.attack_log +="\[[time_stamp()]\] <font color='orange'>Has been fed [name] by [key_name(user)] Reagents: [contained]</font>"
 		user.attack_log += "\[[time_stamp()]\] <span class='warning'>Fed [name] to [key_name(target_mob)] Reagents: [contained]</span>"
-		msg_admin_attack("[key_name_admin(user)] fed [key_name_admin(target_mob)] with [name] Reagents: [contained] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target_mob))
+		msg_admin_attack("[key_name_admin(user)] fed [key_name_admin(target_mob)] with [name] Reagents: [contained] (INTENT: [uppertext(user.a_intent)]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target_mob))
 
 		if(reagents.total_volume)
 			reagents.trans_to_mob(target_mob, reagents.total_volume, CHEM_INGEST)
@@ -69,7 +70,7 @@
 		to_chat(user, SPAN_NOTICE("You dissolve \the [src] in [target]."))
 
 		user.attack_log += "\[[time_stamp()]\] <span class='warning'>Spiked \a [target] with a pill. Reagents: [reagentlist()]</span>"
-		msg_admin_attack("[user.name] ([user.ckey]) spiked \a [target] with a pill. Reagents: [reagentlist()] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
+		msg_admin_attack("[user.name] ([user.ckey]) spiked \a [target] with a pill. Reagents: [reagentlist()] (INTENT: [uppertext(user.a_intent)]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
 
 		reagents.trans_to(target, reagents.total_volume)
 		for(var/mob/O in viewers(2, user))

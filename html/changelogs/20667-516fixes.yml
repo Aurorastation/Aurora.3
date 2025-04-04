@@ -1,0 +1,8 @@
+author: harry, shadowlarkens, Absolucy
+
+delete-after: True
+
+changes:
+  - bugfix: "tgui-say now opens properly again."
+  - bugfix: "the chat no longer flickers weirdly."
+  - bugfix: "the chat now exports properly."

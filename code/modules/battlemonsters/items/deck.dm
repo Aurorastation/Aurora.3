@@ -176,9 +176,9 @@
 			var/datum/battle_monsters/title/suffix_datum = SSbattle_monsters.FindMatchingSuffix(splitstring[3])
 			formatted_data = SSbattle_monsters.FormatMonsterText(SSbattle_monsters.GetMonsterFormatting(),prefix_datum,root_datum,suffix_datum)
 
-		browse_data = "[formatted_data]<br><a href='?src=[REF(src)];selection=[cardname]'>Draw Card</a><br><hr>[browse_data]"
+		browse_data = "[formatted_data]<br><a href='byond://?src=[REF(src)];selection=[cardname]'>Draw Card</a><br><hr>[browse_data]"
 
-	user << browse(browse_data, "window=battlemonsters_hand")
+	user << browse(HTML_SKELETON(browse_data), "window=battlemonsters_hand")
 
 /obj/item/battle_monsters/deck/Topic(href,href_list)
 	if(..())

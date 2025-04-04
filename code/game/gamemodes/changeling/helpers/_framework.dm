@@ -1,4 +1,4 @@
-var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","Epsilon","Zeta","Eta","Theta","Iota","Kappa","Lambda","Mu","Nu","Xi","Omicron","Pi","Rho","Sigma","Tau","Upsilon","Phi","Chi","Psi","Omega")
+GLOBAL_LIST_INIT(possible_changeling_IDs, list("Alpha","Beta","Gamma","Delta","Epsilon","Zeta","Eta","Theta","Iota","Kappa","Lambda","Mu","Nu","Xi","Omicron","Pi","Rho","Sigma","Tau","Upsilon","Phi","Chi","Psi","Omega"))
 
 /datum/changeling //stores changeling powers, changeling recharge thingie, changeling absorbed DNA and changeling ID (for changeling hivemind)
 	var/list/datum/absorbed_dna/absorbed_dna = list()
@@ -26,9 +26,9 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 /datum/changeling/New(var/gender=FEMALE)
 	..()
 	var/honorific = (gender == FEMALE) ? "Ms." : "Mr."
-	if(possible_changeling_IDs.len)
-		changelingID = pick(possible_changeling_IDs)
-		possible_changeling_IDs -= changelingID
+	if(GLOB.possible_changeling_IDs.len)
+		changelingID = pick(GLOB.possible_changeling_IDs)
+		GLOB.possible_changeling_IDs -= changelingID
 		changelingID = "[honorific] [changelingID]"
 	else
 		changelingID = "[honorific] [rand(1,999)]"
@@ -137,14 +137,18 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 		changeling = mind.antag_datums[MODE_CHANGELING]
 	if(!changeling)
 		return
+
 	for(var/datum/power/changeling/P in changeling.purchasedpowers)
 		if(P.isVerb && !reset_powers)
 			remove_verb(src, P.verbpath)
 		else if(reset_powers && (P.genomecost != 0))
 			if(P.isVerb)
 				remove_verb(src, P.verbpath)
+
+			// Instead of deleting, return the power to the available list
 			changeling.purchasedpowers -= P
-			qdel(P)
+			if(!(P in powerinstances)) // Ensure it's not duplicated
+				powerinstances += P
 	if(!reset_powers)
 		remove_language(LANGUAGE_CHANGELING)
 

@@ -59,7 +59,7 @@ emp_act
 				c_hand = r_hand
 
 			if(c_hand && (stun_amount || agony_amount > 10))
-				msg_admin_attack("[src.name] ([src.ckey]) was disarmed by a stun effect (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src))
+				msg_admin_attack("[src.name] ([src.ckey]) was disarmed by a stun effect (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src))
 
 				drop_from_inventory(c_hand)
 				if (affected.status & ORGAN_ROBOT)
@@ -73,11 +73,11 @@ emp_act
 /mob/living/carbon/human/get_blocked_ratio(def_zone, damage_type, damage_flags, armor_pen, damage)
 	if(!def_zone && (damage_flags & DAMAGE_FLAG_DISPERSED))
 		var/tally
-		for(var/zone in organ_rel_size)
-			tally += organ_rel_size[zone]
-		for(var/zone in organ_rel_size)
+		for(var/zone in GLOB.organ_rel_size)
+			tally += GLOB.organ_rel_size[zone]
+		for(var/zone in GLOB.organ_rel_size)
 			def_zone = zone
-			. += .() * organ_rel_size/tally
+			. += .() * GLOB.organ_rel_size/tally
 		return
 	return ..()
 
@@ -165,13 +165,24 @@ emp_act
 	return BULLET_ACT_HIT
 
 /mob/living/carbon/human/emp_act(severity)
+	/*
+		OK LISTEN UP this is absolutely shitcode but it works, basically we need the species EMP protection
+		to avoid antag IPCs being smoked by EMPs in one hit and the surge protection nanopaste is handled in their specie
+		and we have to call parent to have the signals working properly, hence we add an element to the mob to handle the protection
+		and then we remove it after the EMP is done. Yes this is garbage, but it works
+	*/
+	var/emp_protect_ipc = species.handle_emp_act(src, severity)
+	if(emp_protect_ipc)
+		AddElement(/datum/element/empprotection, emp_protect_ipc)
+
 	. = ..()
 
-	if(species.handle_emp_act(src, severity))
-		return // blocks the EMP
+	if(emp_protect_ipc)
+		RemoveElement(/datum/element/empprotection, emp_protect_ipc)
 
-	for(var/obj/O in src)
-		O.emp_act(severity)
+	if(!(.|emp_protect_ipc & EMP_PROTECT_CONTENTS))
+		for(var/obj/O in src)
+			O.emp_act(severity)
 
 /mob/living/carbon/human/get_attack_victim(obj/item/I, mob/living/user, var/target_zone)
 	if(a_intent != I_HELP)
@@ -251,7 +262,7 @@ emp_act
 				//Harder to score a stun but if you do it lasts a bit longer
 				if(prob(effective_force) && head && !istype(head, /obj/item/clothing/head/helmet))
 					visible_message(SPAN_DANGER("[src] [species.knockout_message]"))
-					apply_effect(20, PARALYZE, blocked)
+					apply_effect(20, PARALYZE, GLOB.blocked)
 
 		//Apply blood
 		if(!(I.atom_flags & ATOM_FLAG_NO_BLOOD))
@@ -374,7 +385,7 @@ emp_act
 				src.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been hit with a [O], thrown by [M.name] ([assailant.ckey])</font>"
 				M.attack_log += "\[[time_stamp()]\] <span class='warning'>Hit [src.name] ([src.ckey]) with a thrown [O]</span>"
 				if(!istype(src,/mob/living/simple_animal/rat))
-					msg_admin_attack("[src.name] ([src.ckey]) was hit by a [O], thrown by [M.name] ([assailant.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(M),ckey_target=key_name(src))
+					msg_admin_attack("[src.name] ([src.ckey]) was hit by a [O], thrown by [M.name] ([assailant.ckey]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(M),ckey_target=key_name(src))
 
 		//thrown weapon embedded object code.
 		if(dtype == DAMAGE_BRUTE && istype(O,/obj/item))

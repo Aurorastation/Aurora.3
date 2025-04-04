@@ -76,13 +76,13 @@
 	icon_state = "industrial_rig"
 	icon_supported_species_tags = list("ipc", "skr", "taj", "una")
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_RESISTANT,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_RESISTANT
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_PISTOL,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_RESISTANT,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_RESISTANT
 	)
 	siemens_coefficient = 0.35
 	slowdown = 2
@@ -141,13 +141,13 @@
 	icon_state = "eva_rig"
 	icon_supported_species_tags = list("ipc", "skr", "taj", "una")
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_MINOR,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SHIELDED
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_MINOR,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SHIELDED
 	)
 	slowdown = 0
 	offline_slowdown = 3
@@ -191,13 +191,13 @@
 	icon_state = "pilot_rig"
 	icon_supported_species_tags = list("ipc", "skr", "taj", "una")
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_RESISTANT,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SHIELDED
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_PISTOL,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_RESISTANT,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SHIELDED
 	)
 
 /obj/item/rig/eva/pilot/equipped
@@ -217,13 +217,13 @@
 	icon_state = "ce_rig"
 	icon_supported_species_tags = list("ipc", "skr", "taj", "una")
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SHIELDED
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_SMALL,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SHIELDED
 	)
 	slowdown = 0
 	offline_slowdown = 3
@@ -234,7 +234,7 @@
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/ce
 	glove_type = /obj/item/clothing/gloves/rig/ce
-	boot_type = /obj/item/clothing/shoes/magboots/advance
+	boot_type = /obj/item/clothing/shoes/magboots/rig/advanced
 
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/bag/ore,/obj/item/device/t_scanner,/obj/item/pickaxe,/obj/item/material/twohanded/fireaxe,/obj/item/rfd/construction,/obj/item/storage/backpack/cell,/obj/item/storage/toolbox,/obj/item/storage/bag/inflatable)
 
@@ -267,13 +267,13 @@
 	icon_state = "hazmat_rig"
 	icon_supported_species_tags = list("ipc", "skr", "taj", "una")
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_STRONG,
-		bomb = ARMOR_BOMB_RESISTANT,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SHIELDED
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_STRONG,
+		BOMB = ARMOR_BOMB_RESISTANT,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SHIELDED
 	)
 	siemens_coefficient = 0.50
 	offline_vision_restriction = TINT_HEAVY
@@ -307,13 +307,13 @@
 	icon_state = "medical_rig"
 	icon_supported_species_tags = list("ipc", "skr", "taj", "una")
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_RESISTANT,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SHIELDED
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_RESISTANT,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SHIELDED
 	)
 	siemens_coefficient = 0.50
 	slowdown = 1
@@ -350,13 +350,13 @@
 	icon_state = "hazard_rig"
 	icon_supported_species_tags = list("ipc", "skr", "taj", "una")
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_MEDIUM,
-		energy = ARMOR_ENERGY_RESISTANT,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_RESISTANT
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_PISTOL,
+		LASER = ARMOR_LASER_MEDIUM,
+		ENERGY = ARMOR_ENERGY_RESISTANT,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_RESISTANT
 	)
 	offline_slowdown = 3
 	offline_vision_restriction = TINT_HEAVY
@@ -395,13 +395,13 @@
 	icon = 'icons/clothing/rig/diving.dmi'
 	icon_state = "diving_rig"
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_RESISTANT,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SHIELDED
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_RESISTANT,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SHIELDED
 	)
 	slowdown = 3
 	offline_slowdown = 4

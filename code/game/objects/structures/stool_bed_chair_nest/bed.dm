@@ -122,10 +122,10 @@
 		painted_colour = new_colour
 		return painted_colour != last_colour
 
-/obj/structure/bed/forceMove(atom/dest)
+/obj/structure/bed/forceMove(atom/destination)
 	. = ..()
 	if(buckled)
-		buckled.forceMove(dest)
+		buckled.forceMove(destination)
 
 /obj/structure/bed/ex_act(severity)
 	switch(severity)
@@ -299,7 +299,7 @@
 			occupant.visible_message(SPAN_DANGER("[pulling] has thrusted \the [name] into \the [A], throwing \the [occupant] out of it!"))
 			pulling.attack_log += "\[[time_stamp()]\]<span class='warning'> Crashed [occupant.name]'s ([occupant.ckey]) [name] into \a [A]</span>"
 			occupant.attack_log += "\[[time_stamp()]\]<font color='orange'> Thrusted into \a [A] by [pulling.name] ([pulling.ckey]) with \the [name]</font>"
-			msg_admin_attack("[pulling.name] ([pulling.ckey]) has thrusted [occupant.name]'s ([occupant.ckey]) [name] into \a [A] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[pulling.x];Y=[pulling.y];Z=[pulling.z]'>JMP</a>)",ckey=key_name(pulling),ckey_target=key_name(occupant))
+			msg_admin_attack("[pulling.name] ([pulling.ckey]) has thrusted [occupant.name]'s ([occupant.ckey]) [name] into \a [A] (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[pulling.x];Y=[pulling.y];Z=[pulling.z]'>JMP</a>)",ckey=key_name(pulling),ckey_target=key_name(occupant))
 		else
 			occupant.visible_message(SPAN_DANGER("[occupant] crashed into \the [A]!"))
 
@@ -519,7 +519,7 @@
 	collapse()
 
 /obj/structure/bed/roller/Move()
-	..()
+	. = ..()
 	if(buckled)
 		if(buckled.buckled_to == src)
 			buckled.forceMove(src.loc)

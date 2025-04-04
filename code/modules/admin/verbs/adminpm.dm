@@ -128,7 +128,7 @@
 
 	var/sender_message = "<span class='pm'><span class='out'>" + create_text_tag("PM <-", src) + " to <span class='name'>[get_options_bar(C, holder ? 1 : 0, holder ? 1 : 0, 1)]</span>"
 	if(holder)
-		sender_message += " (<a href='?_src_=holder;take_ticket=[REF(ticket)]'>[(ticket.status == TICKET_OPEN) ? "TAKE" : "JOIN"]</a>) (<a href='?src=[REF(usr)];close_ticket=[REF(ticket)]'>CLOSE</a>)"
+		sender_message += " (<a href='byond://?_src_=holder;take_ticket=[REF(ticket)]'>[(ticket.status == TICKET_OPEN) ? "TAKE" : "JOIN"]</a>) (<a href='byond://?src=[REF(usr)];close_ticket=[REF(ticket)]'>CLOSE</a>)"
 		sender_message += ": <span class='message linkify'>[generate_ahelp_key_words(mob, msg)]</span>"
 	else
 		sender_message += ": <span class='message linkify'>[msg]</span>"
@@ -137,7 +137,7 @@
 
 	var/receiver_message = "<span class='pm'><span class='in'>" + create_text_tag("PM ->", C) + " <b>\[[receive_pm_type] PM\]</b> <span class='name'>[get_options_bar(src, C.holder ? 1 : 0, C.holder ? 1 : 0, 1)]</span>"
 	if(C.holder)
-		receiver_message += " (<a href='?_src_=holder;take_ticket=[REF(ticket)]'>[(ticket.status == TICKET_OPEN) ? "TAKE" : "JOIN"]</a>) (<a href='?src=[REF(usr)];close_ticket=[REF(ticket)]'>CLOSE</a>)"
+		receiver_message += " (<a href='byond://?_src_=holder;take_ticket=[REF(ticket)]'>[(ticket.status == TICKET_OPEN) ? "TAKE" : "JOIN"]</a>) (<a href='byond://?src=[REF(usr)];close_ticket=[REF(ticket)]'>CLOSE</a>)"
 		receiver_message += ": <span class='message linkify'>[generate_ahelp_key_words(C.mob, msg)]</span>"
 	else
 		receiver_message += ": <span class='message linkify'>[msg]</span>"
@@ -160,7 +160,7 @@
 		if(X == C || X == src)
 			continue
 		if(X.key != key && X.key != C.key && (X.holder.rights & (R_ADMIN|R_MOD)))
-			to_chat(X, "<span class='pm'><span class='other'>" + create_text_tag("PM <->", X) + " <span class='name'>[key_name(src, X, 0, ticket)]</span> to <span class='name'>[key_name(C, X, 0, ticket)]</span> (<a href='?_src_=holder;take_ticket=[REF(ticket)]'>[(ticket.status == TICKET_OPEN) ? "TAKE" : "JOIN"]</a>) (<a href='?src=[REF(usr)];close_ticket=[REF(ticket)]'>CLOSE</a>): <span class='message linkify'>[msg]</span></span></span>")
+			to_chat(X, "<span class='pm'><span class='other'>" + create_text_tag("PM <->", X) + " <span class='name'>[key_name(src, X, 0, ticket)]</span> to <span class='name'>[key_name(C, X, 0, ticket)]</span> (<a href='byond://?_src_=holder;take_ticket=[REF(ticket)]'>[(ticket.status == TICKET_OPEN) ? "TAKE" : "JOIN"]</a>) (<a href='byond://?src=[REF(usr)];close_ticket=[REF(ticket)]'>CLOSE</a>): <span class='message linkify'>[msg]</span></span></span>")
 
 /client/proc/cmd_admin_discord_pm(sender)
 	if(prefs.muted & MUTE_ADMINHELP)

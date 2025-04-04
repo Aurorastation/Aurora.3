@@ -4959,7 +4959,7 @@
 /obj/item/reagent_containers/food/snacks/koissteak,
 /obj/item/reagent_containers/food/snacks/koissteak,
 /obj/item/reagent_containers/food/snacks/koismuffin,
-/obj/structure/closet/secure_closet/freezer/kois,
+/obj/structure/closet/secure_closet/freezer/kois/spores,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15

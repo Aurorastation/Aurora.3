@@ -533,12 +533,12 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "thea_teabox"
 	foldable = null
 	can_hold = list(/obj/item/reagent_containers/glass/beaker/teapot/fluff/thea_teapot, /obj/item/reagent_containers/food/drinks/fluff/thea_teacup)
+	make_exact_fit = TRUE
 
 /obj/item/storage/box/fluff/thea_teabox/fill()
 	new /obj/item/reagent_containers/glass/beaker/teapot/fluff/thea_teapot(src)
 	for(var/i in 1 to 4)
 		new /obj/item/reagent_containers/food/drinks/fluff/thea_teacup(src)
-	make_exact_fit()
 
 /obj/item/fluff/fraseq_journal //Fraseq's Journal of Mysteries - Quorrdash Fraseq - kingoftheping
 	name = "leather journal"
@@ -2012,3 +2012,21 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "kira_carrier"
 	item_state = "kira_carrier"
 	contained_sprite = TRUE
+
+/obj/item/organ/external/leg/right/fluff/nines_autakh // Prosthetic Aut'akh Left Leg - Hazel #S-H9.09 - hazelmouse
+	robotize_type = PROSTHETIC_AUTAKH
+	skin_color = FALSE
+	override_robotize_force_icon = 'icons/mob/human_races/fluff/nines_leg.dmi'
+	override_robotize_painted = FALSE
+	robotize_children = FALSE
+
+/obj/item/organ/external/leg/right/fluff/nines_autakh/Initialize(mapload)
+	. = ..()
+	LAZYADD(children, new /obj/item/organ/external/foot/right/fluff/nines_autakh(src))
+
+/obj/item/organ/external/foot/right/fluff/nines_autakh // Prosthetic Aut'akh Left Foot - Hazel #S-H9.09 - hazelmouse
+	robotize_type = PROSTHETIC_AUTAKH
+	skin_color = FALSE
+	override_robotize_force_icon = 'icons/mob/human_races/fluff/nines_leg.dmi'
+	override_robotize_painted = FALSE
+	robotize_children = FALSE

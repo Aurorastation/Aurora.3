@@ -1,4 +1,4 @@
-var/datum/antagonist/rogue_ai/malf
+GLOBAL_DATUM(malf, /datum/antagonist/rogue_ai)
 
 /datum/antagonist/rogue_ai
 	id = MODE_MALFUNCTION
@@ -21,7 +21,7 @@ var/datum/antagonist/rogue_ai/malf
 /datum/antagonist/rogue_ai/New()
 	..()
 	victory_text = "The AI has taken control of all of the [station_name(TRUE)]'s systems."
-	malf = src
+	GLOB.malf = src
 
 
 /datum/antagonist/rogue_ai/build_candidate_list()
@@ -55,7 +55,7 @@ var/datum/antagonist/rogue_ai/malf
 		return 0
 	spawn(0)
 		A.setup_for_malf()
-		A.laws = new /datum/ai_laws/nanotrasen/malfunction
+		A.laws = new /datum/ai_laws/conglomerate/malfunction
 
 
 		var/mob/living/silicon/ai/malf = player.current

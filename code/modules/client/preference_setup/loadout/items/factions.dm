@@ -370,10 +370,10 @@
 
 /datum/gear/faction/pmc_modsuit/New()
 	..()
-	gear_tweaks += list(gear_tweak_modsuit_configuration)
+	gear_tweaks += list(GLOB.gear_tweak_modsuit_configuration)
 
 
-var/datum/gear_tweak/modsuit_configuration/gear_tweak_modsuit_configuration = new()
+GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_configuration, new())
 
 /datum/gear_tweak/modsuit_configuration
 	/// the configuration of the modsuit, using just a list of the names
@@ -443,7 +443,7 @@ var/datum/gear_tweak/modsuit_configuration/gear_tweak_modsuit_configuration = ne
 	pmcg_sec_uniforms["Grupo Amapola uniform"] = /obj/item/clothing/under/rank/security/pmc/grupo_amapola
 	pmcg_sec_uniforms["Nexus Corporate uniform"] = /obj/item/clothing/under/rank/security/pmc/nexus
 	gear_tweaks += new /datum/gear_tweak/path(pmcg_sec_uniforms)
-	gear_tweaks += list(gear_tweak_uniform_rolled_state)
+	gear_tweaks += list(GLOB.gear_tweak_uniform_rolled_state)
 
 /datum/gear/faction/erisec_patch
 	display_name = "EPMC sleeve patch"
@@ -760,7 +760,6 @@ var/datum/gear_tweak/modsuit_configuration/gear_tweak_modsuit_configuration = ne
 	orion_labcoats["orion corporate jacket, alt"] = /obj/item/clothing/suit/storage/toggle/corp/orion/alt
 	orion_labcoats["orion winter coat"] = /obj/item/clothing/suit/storage/hooded/wintercoat/orion
 	orion_labcoats["orion winter coat, alt"] = /obj/item/clothing/suit/storage/hooded/wintercoat/orion/alt
-	orion_labcoats["Quick-E-Burger apron"] = /obj/item/clothing/accessory/apron/qeburgerapron
 	gear_tweaks += new /datum/gear_tweak/path(orion_labcoats)
 
 /datum/gear/faction/orion_headwear
@@ -780,10 +779,18 @@ var/datum/gear_tweak/modsuit_configuration/gear_tweak_modsuit_configuration = ne
 	orion_headwear["Quick-E-Burger visor"] = /obj/item/clothing/head/qeburger_visor
 	gear_tweaks += new /datum/gear_tweak/path(orion_headwear)
 
+/datum/gear/faction/orion_qeburger_apron
+	display_name = "Quick-E-Burger apron"
+	description = "An apron for employees of Quick-E-Burger, a subsidiary of Orion Express."
+	path = /obj/item/clothing/accessory/apron/qeburgerapron
+	slot = slot_wear_suit
+	faction = "Orion Express"
+
 /datum/gear/faction/orion_qeburger_suit
 	display_name = "Quick-E-Burger jumpsuit"
-	description = "A jumpsuit for employees of Quick-E-Burger."
+	description = "A jumpsuit for employees of Quick-E-Burger, a subsidiary of Orion Express."
 	path = /obj/item/clothing/under/qeburgerjumpsuit
+	slot = slot_w_uniform
 	faction = "Orion Express"
 
 //SCC

@@ -125,7 +125,7 @@
 
 /client/verb/typing_indicator()
 	set name = "Show/Hide Typing Indicator"
-	set category = "Preferences"
+	set category = "Preferences.Game"
 	set desc = "Toggles showing an indicator when you are typing emote or say message."
 	prefs.toggles ^= HIDE_TYPING_INDICATOR
 	prefs.save_preferences()
@@ -369,14 +369,14 @@
 /mob/proc/show_inv(mob/user)
 	user.set_machine(src)
 	var/dat = {"
-	<BR><B>Head(Mask):</B> <A href='?src=[REF(src)];item=mask'>[(wear_mask ? wear_mask : "Nothing")]</A>
-	<BR><B>Left Hand:</B> <A href='?src=[REF(src)];item=l_hand'>[(l_hand ? l_hand  : "Nothing")]</A>
-	<BR><B>Right Hand:</B> <A href='?src=[REF(src)];item=r_hand'>[(r_hand ? r_hand : "Nothing")]</A>
-	<BR><B>Back:</B> <A href='?src=[REF(src)];item=back'>[(back ? back : "Nothing")]</A> [((istype(wear_mask, /obj/item/clothing/mask) && istype(back, /obj/item/tank) && !( internal )) ? " <A href='?src=[REF(src)];item=internal'>Set Internal</A>" : "")]
-	<BR>[(internal ? "<A href='?src=[REF(src)];item=internal'>Remove Internal</A>" : "")]
-	<BR><A href='?src=[REF(src)];item=pockets'>Empty Pockets</A>
-	<BR><A href='?src=[REF(user)];refresh=1'>Refresh</A>
-	<BR><A href='?src=[REF(user)];mach_close=mob[name]'>Close</A>
+	<BR><B>Head(Mask):</B> <A href='byond://?src=[REF(src)];item=mask'>[(wear_mask ? wear_mask : "Nothing")]</A>
+	<BR><B>Left Hand:</B> <A href='byond://?src=[REF(src)];item=l_hand'>[(l_hand ? l_hand  : "Nothing")]</A>
+	<BR><B>Right Hand:</B> <A href='byond://?src=[REF(src)];item=r_hand'>[(r_hand ? r_hand : "Nothing")]</A>
+	<BR><B>Back:</B> <A href='byond://?src=[REF(src)];item=back'>[(back ? back : "Nothing")]</A> [((istype(wear_mask, /obj/item/clothing/mask) && istype(back, /obj/item/tank) && !( internal )) ? " <A href='byond://?src=[REF(src)];item=internal'>Set Internal</A>" : "")]
+	<BR>[(internal ? "<A href='byond://?src=[REF(src)];item=internal'>Remove Internal</A>" : "")]
+	<BR><A href='byond://?src=[REF(src)];item=pockets'>Empty Pockets</A>
+	<BR><A href='byond://?src=[REF(user)];refresh=1'>Refresh</A>
+	<BR><A href='byond://?src=[REF(user)];mach_close=mob[name]'>Close</A>
 	<BR>"}
 
 	var/datum/browser/mob_win = new(user, "mob[name]", capitalize_first_letters(name))
@@ -1277,12 +1277,12 @@
 	else
 		return ..(ndir)
 
-/mob/forceMove(atom/dest)
+/mob/forceMove(atom/destination)
 	var/old_z = GET_Z(src)
 
 	var/atom/movable/AM
-	if (dest != loc && istype(dest, /atom/movable))
-		AM = dest
+	if (destination != loc && istype(destination, /atom/movable))
+		AM = destination
 		LAZYADD(AM.contained_mobs, src)
 		if(ismob(pulledby))
 			var/mob/M = pulledby

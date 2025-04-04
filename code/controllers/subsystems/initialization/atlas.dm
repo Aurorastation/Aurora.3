@@ -18,6 +18,17 @@ SUBSYSTEM_DEF(atlas)
 
 	var/datum/space_sector/current_sector
 	var/list/possible_sectors = list()
+
+	/// A list of icons used for the lobby image
+	var/list/icon/lobby_icons = list()
+
+	/**
+	 * Delay between lobby transitions, in deciseconds
+	 *
+	 * If set to 0, no transitions will be used
+	 */
+	var/lobby_transitions = 0
+
 	//Note that the dirs here are REVERSE because they're used for entry points, so it'd be the dir facing starboard for example.
 	//These are strings because otherwise the list indexes would be out of bounds. Thanks BYOND.
 	var/list/naval_to_dir = list(
@@ -213,7 +224,23 @@ SUBSYSTEM_DEF(atlas)
 
 	setup_spawnpoints()
 
+	setup_lobby_icons()
+
 	return SS_INIT_SUCCESS
+
+/datum/controller/subsystem/atlas/proc/setup_lobby_icons()
+	SHOULD_NOT_SLEEP(TRUE)
+
+	var/list/paths = current_sector.lobby_icon_image_paths || current_map.lobby_icon_image_paths
+
+	if(!length(paths))
+		stack_trace("No lobby icons found! Setup either the map or the sector ones!")
+		lobby_icons += icon('icons/misc/titlescreens/runtime/test.png')
+		return
+
+	var/random_path = pick(paths)
+	for(var/path in random_path)
+		lobby_icons += icon(path)
 
 /datum/controller/subsystem/atlas/proc/load_map_directory(directory, overwrite_default_z = FALSE)
 	. = 0
@@ -266,7 +293,7 @@ SUBSYSTEM_DEF(atlas)
 	SHOULD_NOT_SLEEP(TRUE)
 	// This needs to be done after current_map is set, but before mapload.
 
-	admin_departments = list(
+	GLOB.admin_departments = list(
 		"[current_map.boss_name]",
 		"External Routing",
 		"Supply"
