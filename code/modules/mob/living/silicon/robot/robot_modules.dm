@@ -573,7 +573,7 @@ GLOBAL_LIST_INIT(robot_modules, list(
 	modules += new /obj/item/extinguisher/mini(src) // For navigating space and/or low grav, and just being useful.
 	modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
 	modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
-	modules += new /obj/item/wetfloor_holder(src) // test
+	modules += new /obj/item/wetfloor_holder(src) // it hold da warning sign so hopefully no slippy :3
 	emag = new /obj/item/reagent_containers/spray(src)
 	emag.reagents.add_reagent(/singleton/reagent/lube, 250)
 	emag.name = "Lube spray"
@@ -610,7 +610,7 @@ GLOBAL_LIST_INIT(robot_modules, list(
 		var/obj/item/wetfloor_holder/WFH = attacking_item
 		if(!WFH.held)
 			to_chat(user, SPAN_NOTICE("You collect the wet floor sign."))
-			src.forceMove(WFH)
+			forceMove(WFH)
 			WFH.held = src
 		return TRUE
 
