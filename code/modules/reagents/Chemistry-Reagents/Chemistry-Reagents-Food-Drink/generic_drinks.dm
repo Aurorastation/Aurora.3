@@ -3603,6 +3603,19 @@
 	glass_name = "glass of forbidden apple"
 	glass_desc = "A champagne cocktail spiked with applejack and orange liqueur."
 
+/singleton/reagent/alcohol/andalusia
+	name = "Andalusia"
+	description = "A nice, strangely named drink."
+	color = "#ffff66"
+	strength = 35
+	taste_description = "lemons"
+
+	value = 0.15
+
+	glass_icon_state = "andalusia"
+	glass_name = "glass of Andalusia"
+	glass_desc = "A nice, strange named drink."
+	glass_center_of_mass = list("x"=16, "y"=9)
 //
 // To Be Removed
 //
