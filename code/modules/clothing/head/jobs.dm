@@ -194,13 +194,13 @@
 	item_state = "side_cap"
 
 /obj/item/clothing/head/sidecap/zavod
-	name = "zavodskoi pilotka cap"
+	name = "zavodskoi side cap"
 	desc = "A simple cap, often worn by pilots. This one is in Zavodskoi colors."
-	icon_state = "zavodskoi_pilotka"
-	item_state = "zavodskoi_pilotka"
+	icon_state = "zavodskoi_side_cap"
+	item_state = "zavodskoi_side_cap"
 
 /obj/item/clothing/head/sidecap/pmcg
-	name = "pmcg garrison cap"
+	name = "pmcg side cap"
 	desc = "A simple cap, often worn by pilots. This one is in PMCG colors."
 	icon_state = "pmcg_side_cap"
 	item_state = "pmcg_side_cap"
@@ -212,7 +212,7 @@
 	item_state = "heph_side_cap"
 
 /obj/item/clothing/head/sidecap/zavod/alt
-	name = "black zavodskoi pilotka cap"
+	name = "black zavodskoi side cap"
 	desc = "A simple cap, often worn by pilots. This one is in Zavodskoi colors."
-	icon_state = "zavodskoi_pilotka_alt"
-	item_state = "zavodskoi_pilotka_alt"
+	icon_state = "zavodskoi_side_cap_alt"
+	item_state = "zavodskoi_side_cap_alt"
