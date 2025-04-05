@@ -261,6 +261,10 @@
 	return TRUE
 
 /obj/machinery/optable/mouse_drop_receive(atom/dropped, mob/user, params)
+	//If the user is a ghost, stop.
+	if(isghost(user))
+		return
+
 	if(istype(dropped, /obj/item))
 		user.drop_from_inventory(dropped, get_turf(src))
 
