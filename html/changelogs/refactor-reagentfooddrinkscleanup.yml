@@ -55,4 +55,5 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - refactor: "Refactors the Chemistry-Reagents-Food-Drinks mega-file into 15 new files for easier maintenance and readability. Food/drinks are divided into either general food and drinks or cultural food and drinks. From there, they're divided by human groups, then nonhuman species. Also marks several for review or removal at a later date for being blatant references or not real drinks."
+  - refactor: "Refactored the Chemistry-Reagents-Food-Drinks mega-file into 15 new files for easier maintenance and readability. Food/drinks are divided into either general food and drinks or cultural food and drinks. From there, they're divided by human groups, then nonhuman species. Also marks several for review or removal at a later date for being blatant references or not real drinks."
+  - rscdel: "Removed Chemistry-Reagents-Food-Drinks.dm"
