@@ -2465,6 +2465,8 @@
 /obj/item/clothing/suit/storage/hooded/wintercoat/idris,
 /obj/item/clothing/suit/storage/toggle/labcoat/idris/alt,
 /obj/machinery/firealarm/south,
+/obj/item/clothing/under/dress/idris,
+/obj/item/clothing/under/dress/idris,
 /turf/simulated/floor/tiled/full,
 /area/ship/idris_cruiser/crew_quarters)
 "jK" = (
@@ -6683,6 +6685,8 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
+/obj/item/clothing/under/dress/idris,
+/obj/item/clothing/under/dress/idris,
 /turf/simulated/floor/tiled/full,
 /area/ship/idris_cruiser/crew_quarters)
 "xU" = (
