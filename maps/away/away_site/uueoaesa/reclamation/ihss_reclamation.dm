@@ -96,7 +96,6 @@
 	weapons = "Single fore-mounted ballistic weapon."
 	colors = list("#e38222", "#f0ba3e")
 	max_speed = 1/(1 SECONDS)
-	burn_delay = 1 SECONDS
 	vessel_mass = 3000
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
