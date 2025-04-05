@@ -229,6 +229,24 @@
 	condiment_desc = "Tasteful and rich peanut oil used in cooking. Made from roasted peanuts."
 	condiment_icon_state = "peanut_oil"
 
+/singleton/reagent/nutriment/pumpkinpulp
+	name = "Pumpkin Pulp"
+	description = "The gooey insides of a slain pumpkin. This day is the greatest..."
+	color = "#f9ab28"
+	taste_description = "gooey pumpkin"
+	condiment_name = "Pumpkin Pulp Jar"
+	condiment_desc = "An orange jar with a picture of a pumpkin on its label. Spooky."
+	condiment_icon_state = "pumpkinpulp"
+	condiment_center_of_mass = list("x"=16, "y"=8)
+
+/singleton/reagent/condiment/gravy
+	name = "Gravy"
+	description = "A thick sauce made from the juice of meat that occurs naturally during cooking."
+	taste_description = "gravy"
+	color = "#a36a35"
+	condiment_desc = "A thick meaty sauce for your dishes."
+	taste_mult = 3
+
 //
 // Chemistry things people probably shouldnt eat.
 //
@@ -241,3 +259,35 @@
 	taste_description = "vomit"
 	taste_mult = 2
 	value = 0.15
+
+//
+// Ramen
+//
+/singleton/reagent/drink/dry_ramen
+	name = "Dry Ramen"
+	description = "Space age food, since August 25, 1958. Contains dried noodles, vegetables, and chemicals that boil in contact with water."
+	reagent_state = SOLID
+	nutrition = 1
+	hydration = 0
+	color = "#d44557"
+	taste_description = "dry and cheap noodles"
+
+/singleton/reagent/drink/hot_ramen
+	name = "Hot Ramen"
+	description = "The noodles are boiled, the flavors are artificial, just like being back in school."
+	reagent_state = LIQUID
+	color = "#d44557"
+	nutrition = 5
+	hydration = 5
+	adj_temp = 5
+	taste_description = "wet and cheap noodles"
+
+/singleton/reagent/drink/hell_ramen
+	name = "Hell Ramen"
+	description = "The noodles are boiled, the flavors are artificial, just like being back in school."
+	reagent_state = LIQUID
+	color = "#a82323"
+	nutrition = 5
+	hydration = 5
+	taste_description = "wet and cheap noodles on fire"
+	adj_temp = 20

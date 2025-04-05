@@ -168,6 +168,18 @@
 	if(.)
 		M.add_chemical_effect(CE_ANTIPARASITE, 10)
 
+/singleton/reagent/nutriment/sweet_chili
+	name = "Sweet Chili Sauce"
+	description = "Spicy AND sweet!"
+	reagent_state = LIQUID
+	color = "#dd4103"
+	taste_description = "sweet chili"
+	taste_mult = 1.5
+	value = 0.2
+	condiment_name = "sweet chili"
+	condiment_desc = "Sweet chili sauce, for those who want spicy food but are afraid to commit."
+	condiment_icon_state = "sweet_chili"
+
 /singleton/reagent/nutriment/mayonnaise
 	name = "Mayonnaise"
 	description = "Mayonnaise, a staple classic for sandwiches."
@@ -551,6 +563,24 @@
 	condiment_icon_state = "spacespicebottle"
 	condiment_center_of_mass = list("x"=16, "y"=10)
 
+/singleton/reagent/nutriment/vanilla
+	name = "Vanilla Extract"
+	description = "The extract from vanilla beans..."
+	color = "#e8efe5"
+	taste_description = "vanilla"
+	condiment_desc = "A cute little bottle holding great and intense powers within. The power of Vanilla extract."
+	condiment_icon_state = "vanilla"
+
+/singleton/reagent/spacespice/pumpkinspice
+	name = "Pumpkin Spice"
+	description = "A delicious seasonal flavoring."
+	color = "#AE771C"
+	taste_description = "autumn bliss"
+	condiment_name = "Pumpkin Spice"
+	condiment_desc = "Every teenager's favorite seasonal ingredient."
+	condiment_icon_state = "pumpkinspice"
+	condiment_center_of_mass = list("x"=16, "y"=8)
+
 /singleton/reagent/browniemix
 	name = "Brownie Mix"
 	description = "A dry mix for making delicious brownies."
@@ -569,3 +599,309 @@
 	condiment_icon_state = "gello"
 	condiment_desc = "An unassuming box of raw powdered gelatin. Let's get jiggly."
 	condiment_center_of_mass = list("x"=16, "y"=8)
+
+/singleton/reagent/drink/ice
+	name = "Ice"
+	description = "Frozen water, your dentist wouldn't like you chewing this."
+	reagent_state = SOLID
+	color = "#619494"
+	taste_description = "ice"
+	taste_mult = 1.5
+	hydration = 8
+
+	value = 0
+
+	glass_icon_state = "iceglass"
+	glass_name = "glass of ice"
+	glass_desc = "Generally, you're supposed to put something else in there too..."
+
+	default_temperature = T0C - 10
+
+/singleton/reagent/drink/nothing
+	name = "Nothing"
+	description = "Absolutely nothing."
+	taste_description = "nothing"
+
+	value = 0
+
+	glass_icon_state = "nothing"
+	glass_name = "glass of nothing"
+	glass_desc = "Absolutely nothing."
+
+/singleton/reagent/condiment/syrup_simple
+	name = "Simple Syrup"
+	description = "Thick, unflavored syrup used as a base for drinks or flavorings."
+	taste_description = "molasses"
+	color = "#ccccbb"
+	glass_name = "simple syrup"
+	glass_desc = "Thick, unflavored syrup used as a base for drinks or flavorings."
+	condiment_desc = "Thick, flavorless, pointless, joyless syrup. Needs an extra something-something. Unless you're just trying to feed bees."
+	condiment_icon_state = "syrup_simple"
+	condiment_center_of_mass = list("x"=16, "y"=8)
+
+/singleton/reagent/nutriment/caramel
+	name = "Caramel Sugar"
+	reagent_state = SOLID
+	description = "Caramelised sugar, used in various recipes."
+	taste_description = "toasty sweetness"
+
+/singleton/reagent/drink/caramel
+	name = "Caramel Sauce"
+	reagent_state = LIQUID
+	description = "A caramel-based sauce. Now you're caramel dancin'."
+	taste_description = "toasty sweet cream"
+	taste_mult = 2
+
+/singleton/reagent/drink/boba
+	name = "Boba Pearls"
+	description = "Tiny balls made of Tapioca, waiting to be added to a drink or flavored."
+	reagent_state = SOLID
+	nutrition = 13
+	hydration = 0
+	color = "#1c1727"
+	taste_description = "tapioca"
+
+//
+// Syrup
+//
+/singleton/reagent/drink/mintsyrup
+	name = "Mint Syrup"
+	description = "A simple syrup that tastes strongly of mint."
+	color = "#539830"
+	taste_description = "mint"
+	taste_mult = 5
+	glass_icon_state = "mint_syrupglass"
+	glass_name = "glass of mint syrup"
+	glass_desc = "Pure mint syrup. Prepare your tastebuds."
+	glass_center_of_mass = list("x"=17, "y"=6)
+
+/singleton/reagent/drink/grenadine
+	name = "Grenadine Syrup"
+	description = "Made in the modern day with proper pomegranate substitute. Who uses real fruit, anyways?"
+	color = "#FF004F"
+	taste_description = "100% pure pomegranate"
+
+	glass_icon_state = "grenadineglass"
+	glass_name = "glass of grenadine syrup"
+	glass_desc = "Sweet and tangy, a bar syrup used to add color or flavor to drinks."
+	glass_center_of_mass = list("x"=17, "y"=6)
+
+/singleton/reagent/condiment/syrup_chocolate
+	name = "Chocolate Syrup"
+	description = "Thick chocolate syrup used to flavor drinks."
+	taste_description = "chocolate"
+	color = "#542a0c"
+	glass_name = "chocolate syrup"
+	glass_desc = "Thick chocolate syrup used to flavor drinks."
+	condiment_desc = "Must... resist... urge... to directly... pour... in mouth..."
+	condiment_icon_state = "syrup_chocolate"
+	taste_mult = 5
+	condiment_center_of_mass = list("x"=16, "y"=8)
+
+/singleton/reagent/condiment/syrup_caramel
+	name = "Caramel Syrup"
+	description = "Thick caramel syrup used to flavor drinks."
+	taste_description = "caramel"
+	color = "#85461e"
+	glass_name = "caramel syrup"
+	glass_desc = "Thick caramel syrup used to flavor drinks."
+	condiment_desc = "There wasn't enough sugar in your sugar so we added sugar to it."
+	condiment_icon_state = "syrup_caramel"
+	taste_mult = 5
+	condiment_center_of_mass = list("x"=16, "y"=8)
+
+/singleton/reagent/condiment/syrup_vanilla
+	name = "Vanilla Syrup"
+	description = "Thick vanilla syrup used to flavor drinks."
+	taste_description = "vanilla"
+	color = "#f3e5ab"
+	glass_name = "vanilla syrup"
+	glass_desc = "Thick vanilla syrup used to flavor drinks."
+	condiment_desc = "A bottle of vanilla flavored syrup. For pancakes, drinks and... whatever else!"
+	condiment_icon_state = "syrup_vanilla"
+	taste_mult = 5
+	condiment_center_of_mass = list("x"=16, "y"=8)
+
+/singleton/reagent/condiment/syrup_pumpkin
+	name = "Pumpkin Spice Syrup"
+	description = "Thick spiced pumpkin syrup used to flavor drinks."
+	taste_description = "spiced pumpkin"
+	color = "#d88b4c"
+	glass_name = "pumpkin spice syrup"
+	glass_desc = "Thick spiced pumpkin syrup used to flavor drinks."
+	condiment_desc = "A concentrated, emergency ration of pumpkin spice to apply in case of cold weather."
+	condiment_icon_state = "syrup_pumpkin"
+	taste_mult = 5
+	condiment_center_of_mass = list("x"=16, "y"=8)
+
+/singleton/reagent/condiment/syrup_berry
+	name = "Berry Syrup"
+	description = "Thick berry syrup used to flavor drinks."
+	taste_description = "berry"
+	color = "#c00726"
+	glass_name = "berry syrup"
+	glass_desc = "Thick berry syrup used to flavor drinks."
+	condiment_desc = "It's not just berry, it's VERY berry! Which berry? Don't worry about it!"
+	condiment_icon_state = "syrup_berry"
+	taste_mult = 5
+	condiment_center_of_mass = list("x"=16, "y"=8)
+
+/singleton/reagent/condiment/syrup_strawberry
+	name = "Strawberry Syrup"
+	description = "Thick strawberry syrup used to flavor drinks."
+	taste_description = "strawberry"
+	color = "#b40000"
+	glass_name = "strawberry syrup"
+	glass_desc = "Thick strawberry syrup used to flavor drinks."
+	condiment_desc = "Made with real strawberries! Probably! Somewhere in there, I'm sure!"
+	condiment_icon_state = "syrup_strawberry"
+	taste_mult = 5
+	condiment_center_of_mass = list("x"=16, "y"=8)
+
+/singleton/reagent/condiment/syrup_blueberry
+	name = "Blueberry Syrup"
+	description = "Thick blueberry syrup used to flavor drinks."
+	taste_description = "blueberry"
+	color = "#0a0094"
+	glass_name = "blueberry syrup"
+	glass_desc = "Thick blueberry syrup used to flavor drinks."
+	condiment_desc = "Da ba dee da be da."
+	condiment_icon_state = "syrup_blueberry"
+	taste_mult = 5
+	condiment_center_of_mass = list("x"=16, "y"=8)
+
+/singleton/reagent/condiment/syrup_raspberry
+	name = "Raspberry Syrup"
+	description = "Thick raspberry syrup used to flavor drinks."
+	taste_description = "raspberry"
+	color = "#ad0042"
+	glass_name = "raspberry syrup"
+	glass_desc = "Thick raspberry syrup used to flavor drinks."
+	condiment_desc = "Ra ra raspberry concentrated flavoring!"
+	condiment_icon_state = "syrup_raspberry"
+	taste_mult = 5
+	condiment_center_of_mass = list("x"=16, "y"=8)
+
+/singleton/reagent/condiment/syrup_blackraspberry
+	name = "Black Raspberry Syrup"
+	description = "Thick black raspberry syrup used to flavor drinks."
+	taste_description = "black raspberry"
+	color = "#1b1618"
+	glass_name = "black raspberry syrup"
+	glass_desc = "Thick black raspberry syrup used to flavor drinks."
+	taste_mult = 5
+	condiment_center_of_mass = list("x"=16, "y"=8)
+
+/singleton/reagent/condiment/syrup_blueraspberry
+	name = "Blue Raspberry Syrup"
+	description = "Thick blue raspberry syrup used to flavor drinks."
+	taste_description = "blue raspberry"
+	color = "#21154d"
+	glass_name = "blue raspberry syrup"
+	glass_desc = "Thick blue raspberry syrup used to flavor drinks."
+	taste_mult = 5
+	condiment_desc = "Now with extra GMOs!"
+	condiment_icon_state = "syrup_blue_raspberry"
+	condiment_center_of_mass = list("x"=16, "y"=8)
+
+/singleton/reagent/condiment/syrup_glowberry
+	name = "Glowberry Syrup"
+	description = "Thick glowberry syrup used to flavor drinks."
+	taste_description = "glowberry"
+	color = "#f3e5ab"
+	glass_name = "glowberry syrup"
+	glass_desc = "Thick glowberry syrup used to flavor drinks."
+	taste_mult = 5
+
+/singleton/reagent/condiment/syrup_poisonberry
+	name = "Poison Berry Syrup"
+	description = "Thick poison berry syrup used to flavor drinks."
+	taste_description = "something sweet"
+	color = "#f3e5ab"
+	glass_name = "poison berry syrup"
+	glass_desc = "Thick poison berry syrup used to flavor drinks."
+	taste_mult = 5
+
+/singleton/reagent/condiment/syrup_deathberry
+	name = "Death Berry Syrup"
+	description = "Thick death berry syrup used to flavor drinks."
+	taste_description = "something sweet"
+	color = "#f3e5ab"
+	glass_name = "death berry syrup"
+	glass_desc = "Thick death berry syrup used to flavor drinks."
+	taste_mult = 5
+
+//
+//Milk
+//
+/singleton/reagent/drink/milk
+	name = "Milk"
+	description = "An opaque white liquid produced by the mammary glands of mammals."
+	color = "#DFDFDF"
+	taste_description = "milk"
+
+	glass_icon_state = "glass_white"
+	glass_name = "glass of milk"
+	glass_desc = "White and nutritious goodness!"
+
+	default_temperature = T0C + 5
+
+/singleton/reagent/drink/milk/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	..()
+	if(alien != IS_DIONA)
+		M.heal_organ_damage(0.1 * removed, 0)
+		holder.remove_reagent(/singleton/reagent/capsaicin, 10 * removed)
+
+/singleton/reagent/drink/milk/steamed_milk
+	name = "Steamed Milk"
+	description = "A frothy opaque white liquid made by adding steam to milk."
+	color = "#bebebb"
+	taste_description =  "hot creamy milk"
+
+	glass_icon_state = "glass_white"
+	glass_name = "glass of steamed milk"
+	glass_desc = "Hot and creamy milk. Would go great with coffee!"
+	default_temperature = T0C + 66
+
+/singleton/reagent/drink/milk/cream
+	name = "Cream"
+	description = "The fatty, still liquid part of milk. Why don't you mix this with sum scotch, eh?"
+	color = "#DFD7AF"
+	taste_description = "creamy milk"
+
+	value = 0.12
+
+	glass_icon_state = "glass_white"
+	glass_name = "glass of cream"
+	glass_desc = "Ewwww..."
+
+/singleton/reagent/drink/milk/soymilk
+	name = "Soy Milk"
+	description = "An opaque white liquid made from soybeans."
+	color = "#DFDFC7"
+	taste_description = "soy milk"
+
+	glass_icon_state = "glass_white"
+	glass_name = "glass of soy milk"
+	glass_desc = "White and nutritious soy goodness!"
+
+/singleton/reagent/drink/milk/chocolate
+	name = "Chocolate Milk"
+	description = "A mixture of perfectly healthy milk and delicious chocolate."
+	color = "#74533b"
+	taste_description = "chocolate milk"
+	value = 0.11
+
+	glass_icon_state = "glass_chocolate"
+	glass_name = "glass of chocolate milk"
+	glass_desc = "A mixture of perfectly healthy milk and delicious chocolate."
+
+/singleton/reagent/drink/milk/strawberry
+	name = "Strawberry Milk"
+	description = "A mixture of perfectly healthy milk and delicious strawberry."
+	color = "#fc5a8d"
+	taste_description = "strawberry milk"
+
+	glass_icon_state = "glass_strawberry"
+	glass_name = "glass of strawberry milk"
+	glass_desc = "A mixture of perfectly healthy milk and delicious strawberry."
