@@ -7,8 +7,8 @@
 	icon_dead = "otherthing-dead"
 	health = 80
 	maxHealth = 80
-	melee_damage_lower = 25
-	melee_damage_upper = 50
+	melee_damage_lower = 20
+	melee_damage_upper = 30
 	organ_names = list("meaty core")
 	attacktext = "chomped"
 	attack_sound = 'sound/weapons/bite.ogg'
