@@ -319,7 +319,8 @@
 	return positronic
 
 /mob/living/simple_animal/spiderbot/Move(newloc, direct)
-	..(newloc,direct)
+	. = ..()
+
 	if (underdoor)
 		underdoor = 0
 		if ((layer == UNDERDOOR))//if this is false, then we must have used hide, or had our layer changed by something else. We wont do anymore checks for this move proc

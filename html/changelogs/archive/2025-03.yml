@@ -56,3 +56,288 @@
       you details instead of bluescreening.
   - qol: Added some UI elements to the Cargo Order app to make it prettier and show
       tooltips on suppliers. Also now has search functionality.
+2025-03-10:
+  CourierBravo:
+  - rscdel: Changed the potted oriental tree's name and description to now be a potted
+      Kwanzan cherry tree.
+  Myphicbowser:
+  - rscadd: Added a single psionic firing pin to the RDs firing pin box.
+  - rscdel: Removed a single hilarious firing pin from the RDs firing pin box.
+  SimpleMaroon:
+  - rscadd: All origins under the Biesellite culture can now opt to have Sol Alliance
+      citizenship.
+  - qol: The faces on face IPC screen and cigarette IPC screen have been moved a pixel
+      lower to better fit with facial attire.
+  - bugfix: Characters with Orepit citizenship can no longer join as Diplomatic Aides.
+  hazelmouse:
+  - rscadd: Made some minor tweaks in layout to the SCCV Intrepid, introduced new
+      tables to cargo areas, streamlined outer hull.
+  - rscadd: Added a bluespace beacon to the SCCV Quark.
+  - rscadd: The bluespace beacon's exact location is now visible on the SCCV Quark,
+      Spark, Canary, and Intrepid.
+  - bugfix: All Intrepid cameras should now be fully accessible from camera consoles.
+  kermit:
+  - bugfix: Fixed the rolled up cropped dress shirt not having rolled up sleeves.
+2025-03-11:
+  Greenjoe12345:
+  - rscadd: Makes it so the generic exoplanet dirt ground doesn't leave footprints.
+  - rscadd: Gives exoplanet turfs descriptions so they don't just say they are the
+      bare hull. Adjusts some names as well.
+  Myphicbowser:
+  - rscadd: Added toolbelts and a table to the engineering bay of the Tarwa ship.
+  - rscadd: Made the RobCo ToolVendor require no access on the Tarwa ship.
+  - rscadd: Hacked the Cigarette machine on the Tarwa.
+  - rscadd: Added metallic walls to the Tarwa burn chamber, other metallic walls were
+      turned to Dionae ones to keep the flesh-steel ratio the same.
+  Tag103:
+  - rscadd: Added Reunification Day, celebrated on July 17, to the holiday system.
+  Tomixcomics:
+  - rscadd: Added 8 new food dishes (including 6 new Konyanger dishes) and 1 new sauce
+      (sweet chili).
+  - rscadd: Added macarons to the custom foods you can make with the oven.
+  - rscadd: Waffles and fries now visually change based on some specific syrups or
+      condiments you might pour onto them.
+  - rscdel: Removed the feature of batter (and by extention, a lot of fried foods)
+      making people throw up.
+  - code_imp: Moved a few foods around in the code to be in the correct food categories
+      (such as Elotes being listed with other Mictlani food now).
+  - qol: Made produce boxes sometimes spawn garlic as random produce, and made onions
+      a bit more likely to spawn as well, now that more recipes require them.
+  goblin.stev:
+  - bugfix: Fixed Clan Hood accessory sprite not showing (hopefully.
+  - bugfix: Properly separated Zazali Top's layers.
+  - bugfix: Properly separated Huytai Outfit's layers, tweaked for side-sprite consistency,
+      and replaced outdated 'fisherwomen' gender reference in description for 'fisher'
+  nauticall:
+  - rscadd: Added surgical gowns. Includes faction-specific variants as well as a
+      colorable generic variant. Available in the loadout, on Surgeons by default
+      and in medical lockers.
+2025-03-13:
+  ASmallCuteCat:
+  - qol: Added some more lights to the Armory. Now you can see what you're taking
+      out of the shelves!
+  Ben10083:
+  - rscadd: Adds the Conglomerate Aggressive lawboard, and places one in AI Secure
+      Storage.
+  - spellcheck: Renames default and NT Aggressive lawboard to Conglomerate and Conglomerate
+      Aggressive respectively.
+  - code_imp: DMdocs for AI lawsets and modules.
+  FluffyGhost:
+  - code_imp: Hopefully helps fixes some hard references being left when deleting
+      modular computers, in their programs.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes plant bags - now uses storage_slot system, along with other bag
+      subtypes.
+  - bugfix: Borgs can interact with tables again.
+  - refactor: Refactors make_exact_fit to be a binary variable.
+  - refactor: Refactors storage items to use make_exact_fit instead of arbitrary max_storage_space
+      values.
+  - refactor: Refactors storage items to use defines for storage space.
+  - bugfix: Fixes monkey cube boxes having superfluous overlay.
+  - rscadd: Updates the progress bar toggle message.
+  - qol: Objects that rotated 90 degrees in storage no longer rotate in storage slots.
+  hazelmouse:
+  - rscdel: You can no longer play as an android, or otherwise install a positronic
+      brain into a shipbound chassis. You can still play as a cyborg or robot, which
+      are mechanically identical except for lacking a positronic brain.
+  - rscdel: Removes the two positronic brains from the workshop.
+  - rscadd: 'Adds Hazel #S-H9.09''s Aut''akh Leg custom item.'
+  - bugfix: The SCCV Intrepid now correctly receives power from the SCCV Horizon's
+      power grid.
+2025-03-14:
+  Ben10083:
+  - config: Odyssey gamemode now put beside Secret and Extended in gamemode vote list.
+2025-03-15:
+  Wowzewow (Wezzy):
+  - bugfix: Fixes mining and chem bags.
+  greenjoe12345:
+  - rscadd: Alters some of the planetside pois for Konyang to make them fit the setting
+      now the rampancy virus has been gone for a while.
+2025-03-17:
+  Acetrea:
+  - bugfix: Fixes access issue on medical smartfridges.
+  - bugfix: Checks if the smartfridge is broken, has no power, or is not anchored.
+  CometBlaze:
+  - imageadd: Resprited colourable ponchos.
+  ShimmerIsTaken:
+  - rscadd: Added five new Solarian accent tags. Sol System receives Mercury, Eris
+      and Titania as options. Saturn becomes a new origin, receives Iapetus, Enceladus
+      as options.
+  - rscadd: Adds those accents to the Sol IPC and regular IPC accent lists.
+2025-03-18:
+  Ben10083:
+  - qol: Point Verdant police now can pass through police tape.
+  - bugfix: Bikes can now drive over lattice such as grates or catwalks without being
+      considered as in space.
+  FlamingLily:
+  - bugfix: Fixed throwing and maneuvering over platforms.
+  - bugfix: Fixed a bug where early aborting a climb over platforms would render that
+      platform permanently not-climable.
+  - qol: Made it possible to go down a platform by walking. This also allows mechs,
+      vehicles, etc. to go down a platform.
+  GeneralCamo:
+  - rscadd: Added radiation collectors, which use phoron to generate power from radiation.
+  - bugfix: Fix Konyang utility pole overlays.
+  Nalarac:
+  - bugfix: Protolathes now display the proper cost of an item after being upgraded.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes filling overlay for stovetop cooking containers.
+2025-03-21:
+  ASmallCuteCat:
+  - qol: Added a sink to the Intrepid's medbay. Folded up the roller bed that occupied
+      its tile, and placed it on the table just outside the Medbay room.
+  - qol: The Intrepid's medbay now has curtains, to afford patients some privacy without
+      having to close the emergency shutters.
+  CourierBravo:
+  - rscadd: Added airtight flaps to the xenobotany maintenance doors.
+  - rscadd: Slightly changed the doctors smoking lounge to be more comfy looking.
+  - rscadd: Changed the look of the area outside the gym a little, moving floor decals
+      around.
+  - rscadd: Changed the outline decals around the ports for the hot/cold loop on the
+      supermatter. The hot side is now red, the cold side is now blue.
+  - rscdel: Removed a civilian sign in the lifts.
+  - bugfix: Fixed APC rotation in the corporate representative office
+  - bugfix: Added shutters to the library desk, so the button actually serves a purpose.
+  - bugfix: Placed medical floor outlines under first aid lockers with a solid floor
+      under them.
+  FlamingLily:
+  - imageadd: Makes the cross on the EMT Messenger bag a bit more visible when worn.
+  GeneralCamo:
+  - qol: Rewrote the messages when interacting with a supermatter crystal.
+  SimpleMaroon:
+  - rscadd: Added an electronic passport for the Golden Deep under Xenowear - IPC
+      in the loadout. Can be taken by all IPCs, but also humans, with Golden Deep
+      membership.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes invisible thermal lance inhands.
+  - bugfix: Fixes bulwark chat bubbles.
+2025-03-22:
+  FlamingLily:
+  - bugfix: Fixes hopping down platforms so that they do not pull people through railings
+      and down into the depths below.
+2025-03-23:
+  ASmallCuteCat:
+  - qol: Added 15x Meat to one of the refrigerators in the Point Verdant Up!Burger
+      location.
+  - qol: Added a hydroponics tray, moss seeds, and some jugs of EZ-Nutrient to the
+      Up!Burger.
+  ChangeMe:
+  - refactor: Refactored (second passage) how movement works, now it's mostly in line
+      with TG handling and avoids calling 3 gazillion Cross() Uncross() etc. on every
+      atom in a turf.
+  - bugfix: Fixed EMP protection from species not actually protecting (this includes
+      the surge prevention for IPCs).
+  - bugfix: Fixed EMP 3D calculation runtiming because I forgot to make the value
+      absolute and it was doing the square root of a negative number.
+  - server: It's now possible to queue the round to start with the Start Round verb
+      even while the system is initializing, for an even faster pain train to enter
+      the round and test things.
+  FlamingLily:
+  - qol: Swapped the brown sneakers in the CE's clothing satchel with brown workboots.
+  FluffyGhost:
+  - refactor: Updated the renderers to work with BYOND 516.
+  - refactor: Some update of ZAS to hopefully be more efficient, and cold/hot air
+      effects.
+  - qol: Gas effects are now less prominent.
+  Wowzewow (Wezzy):
+  - rscadd: Hides and mutes newplayer spawn.
+  - bugfix: Fixes double-door cabinet animations.
+  hazelmouse:
+  - rscadd: Made several QoL changes to make the off-ship antag areas more in-line
+      with the mapping standards of newer maps in the codebase, including primarily
+      cosmetic alterations to the raider, burglar, and mercenary shuttles.
+  notagonk:
+  - qol: Gives the Security Belt the ability to hold the Head of Security's energy
+      pistol.
+2025-03-25:
+  Acetrea:
+  - rscadd: Allows pharmacy bags to hold inhaler cartridges.
+  notagonk:
+  - qol: Updates the Hiskyn's Revanchists ship.
+2025-03-26:
+  DreamySkrell:
+  - rscadd: Adds Environmental Testing Facility odyssey scenario. Big map.
+  - rscadd: Removes green tint from the minimap program/reader.
+  - rscadd: Adds/reorganizes some generic outfits.
+  - rscadd: Adds some generic odyssey actor roles.
+  - rscadd: Adds actor accesses system to odyssey scenarios, and a self-service access
+      terminal.
+  - rscadd: Adds some warnings to odyssey actor teleporter, in case ID access or headset
+      are missing.
+  - rscadd: Adds some more random spawners.
+  - rscadd: Adds better sprites door helpers.
+  - rscadd: Adds access door helper.
+  - rscadd: Adds info box to odyssey actor panel about roles.
+2025-03-27:
+  Arrow768:
+  - server: Ports DBCore from tgstation.
+  harry:
+  - rscadd: compatibility in 516 for browser elements, like the chat and tgui popups
+2025-03-28:
+  ASmallCuteCat:
+  - rscadd: Added a karaoke setup to the Point Verdant bar.
+  - rscdel: Removed the piano from the Point Verdant Bar to make room for the karaoke
+      setup.
+  Ben10083:
+  - bugfix: Spy bug microphones now properly handle different languages.
+  - bugfix: Spy bug recognize connected z-levels, allowing use of bugs on offships
+      and different horizon z-levels.
+  - qol: Spy bugs can be labeled with pen to allow for an easier time switching between
+      cameras.
+  CourierBravo:
+  - rscadd: Moved around some firefighting equipment on deck 3 thats too concentrated.
+  - rscadd: Replaced an emergency closet blocking an airlock with a wall locker.
+  - rscadd: Based on feedback, alters the supermatter hot/cold inputs again to look
+      a little nicer.
+  - bugfix: Swapped the colors of the pipes for the atmos turbine to match the input/output
+      pattern established by the Supermatter.
+  - bugfix: Fixed some of the medbay lockdown shutters facing north/south on east/west
+      doors.
+  Dr_Trench:
+  - rscadd: Four new POIs for both Desert and Grove planets, including a Smuggler
+      Base, SDF Outpost, Batcave and Desert Camp.
+  Geeves, KingOfThePing, Kyres1, Wowzewow (Wezzy), PrefabQuasar, hazelmouse:
+  - rscadd: Added maintenance and large maintenance panels to various areas around
+      the ship. These are fluff objects that have no mechanical impact, but serve
+      as RP tools engineers can use to go to and interact with departments.
+  GeneralCamo:
+  - bugfix: Fix extended examine text not working correctly.
+  QuestioningMark:
+  - bugfix: Did a little edit to how the menus handle the removal of the armblade
+      power so it actually can be re-purchased a second time after re-evolution as
+      a changeling
+  QuestioningMark, Wezzy:
+  - bugfix: In 7264630 wrong global list was used for INDRA, this fixes that.
+  ShimmerIsTaken:
+  - rscadd: Added a new item to the smoking loadout, an empty cigarette case that
+      can be filled with rolled cigarettes or bought one's, and kept in a nice pretty
+      package.
+  - bugfix: Fixes cigarette packs and the cigar case not displaying their in-hand
+      sprites.
+  - bugfix: Fixed cigarette packs being able to hold cigars. Same applies to the newly
+      added item, cigars can only be stored in cigar cases.
+  - imageadd: Added new cigarette case sprites, blank, Biesel, Sol, and decorated,
+      item and inhand. Modified the inhand sprites of certain existing cigarette packets
+      and cigar case to fix the northfacing sprite.
+  arrow768:
+  - bugfix: Removes a old permissions from the default admin ranks config.
+  harry, shadowlarkens, Absolucy:
+  - bugfix: tgui-say now opens properly again.
+  - bugfix: the chat no longer flickers weirdly.
+  - bugfix: the chat now exports properly.
+  kermit:
+  - rscadd: Allows Odyssey Scenarios to have a list of possible canonicities set per
+      scenario.
+  - rscadd: The Ruined Propellant Depot now has Non-Canon and Canon as options to
+      pick from.
+2025-03-29:
+  hazelmouse:
+  - bugfix: Nanopaste no longer becomes invisible on character sprites after being
+      partially used.
+  - refactor: Nanopaste now uses contained sprites.
+2025-03-31:
+  Arrow768:
+  - server: Moves the Law Subsystem to the DBCore.
+  - server: Move Population Stats Tracking to DBCore
+  - server: Move the Discord subsystem to the new DBCore
+  - server: Move Antag Tracking to SSdbcore

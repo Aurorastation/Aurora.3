@@ -217,7 +217,7 @@
 			dat += "<b><a href='byond://?src=[REF(src)];menu=3'>No</a></b>"
 
 
-	user << browse(dat, "window=cloning")
+	user << browse(HTML_SKELETON(dat), "window=cloning")
 	onclose(user, "cloning")
 	return
 

@@ -7,6 +7,7 @@ GLOBAL_LIST_EMPTY(plant_seed_sprites)
 	icon_state = "random"
 	w_class = WEIGHT_CLASS_SMALL
 
+	storage_slot_sort_by_name = TRUE
 	var/seed_type
 	var/datum/seed/seed
 	var/modified = 0

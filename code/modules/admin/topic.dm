@@ -416,7 +416,7 @@
 		dat += {"<A href='byond://?src=[REF(src)];c_mode2=secret'>Secret</A><br>"}
 		dat += {"<A href='byond://?src=[REF(src)];c_mode2=random'>Random</A><br>"}
 		dat += {"Now: [GLOB.master_mode]"}
-		usr << browse(dat, "window=c_mode")
+		usr << browse(HTML_SKELETON(dat), "window=c_mode")
 
 	else if(href_list["f_secret"])
 		if(!check_rights(R_ADMIN))
@@ -431,7 +431,7 @@
 			dat += {"<A href='byond://?src=[REF(src)];f_secret2=[mode]'>[GLOB.config.mode_names[mode]]</A><br>"}
 		dat += {"<A href='byond://?src=[REF(src)];f_secret2=secret'>Random (default)</A><br>"}
 		dat += {"Now: [GLOB.secret_force_mode]"}
-		usr << browse(dat, "window=f_secret")
+		usr << browse(HTML_SKELETON(dat), "window=f_secret")
 
 	else if(href_list["c_mode2"])
 		if(!check_rights(R_ADMIN|R_SERVER))
@@ -981,7 +981,7 @@
 				var/obj/pageobj = B.pages[page]
 				data += "<A href='byond://?src=[REF(src)];AdminFaxViewPage=[page];paper_bundle=[REF(B)]'>Page [page] - [pageobj.name]</A><BR>"
 
-			usr << browse(data, "window=[B.name]")
+			usr << browse(HTML_SKELETON(data), "window=[B.name]")
 		else
 			to_chat(usr, SPAN_WARNING("The faxed item is not viewable. This is probably a bug, and should be reported on the tracker: [fax.type]"))
 
@@ -1571,6 +1571,20 @@
 			error_viewer.show_to(owner, locate(href_list["viewruntime_backto"]), href_list["viewruntime_linear"])
 		else
 			error_viewer.show_to(owner, null, href_list["viewruntime_linear"])
+	else if(href_list["slowquery"])
+		if(!check_rights(R_ADMIN))
+			return
+
+		var/data = list("key" = usr.key)
+		var/answer = href_list["slowquery"]
+		if(answer == "yes")
+			if(tgui_alert(usr, "Did you just press any admin buttons?", "Query server hang report", list("Yes", "No")) == "Yes")
+				var/response = input(usr,"What were you just doing?","Query server hang report") as null|text
+				if(response)
+					data["response"] = response
+			log_subsystem_dbcore("SLOW QUERY - SERVER HANG - [json_encode(data)]") //We really need a better logging system (BRING BACK GELF)
+		else if(answer == "no")
+			log_subsystem_dbcore("SLOW QUERY - NO SERVER HANG - [json_encode(data)]") //We really need a better logging system (BRING BACK GELF)
 
 /mob/living/proc/can_centcom_reply()
 	return 0

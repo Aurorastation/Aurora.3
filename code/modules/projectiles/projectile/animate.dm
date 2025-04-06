@@ -3,7 +3,7 @@
 	icon_state = "ice_1"
 	damage = 0
 	damage_type = DAMAGE_BURN
-	check_armor = "energy"
+	check_armor = ENERGY
 
 /obj/projectile/animate/Collide(atom/change)
 	if((istype(change, /obj/item) || istype(change, /obj/structure)) && !is_type_in_list(change, GLOB.protected_objects))

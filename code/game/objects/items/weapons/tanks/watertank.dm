@@ -114,7 +114,7 @@
 	return
 
 /obj/item/reagent_containers/spray/chemsprayer/mister/Move()
-	..()
+	. = ..()
 	if(loc != tank.loc)
 		forceMove(tank.loc)
 

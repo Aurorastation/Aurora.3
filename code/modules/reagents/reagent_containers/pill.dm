@@ -17,6 +17,7 @@
 	volume = 60
 	drop_sound = 'sound/items/drop/food.ogg'
 	pickup_sound = 'sound/items/pickup/food.ogg'
+	storage_slot_sort_by_name = TRUE
 
 /obj/item/reagent_containers/pill/New()
 	..()

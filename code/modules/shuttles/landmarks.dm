@@ -57,7 +57,7 @@
 		if(!istype(docking_controller))
 			LOG_DEBUG("Could not find docking controller for shuttle waypoint '[name]', docking tag was '[docking_tag]'.")
 
-/obj/effect/shuttle_landmark/forceMove()
+/obj/effect/shuttle_landmark/forceMove(atom/destination)
 	var/obj/effect/overmap/visitable/map_origin = GLOB.map_sectors["[z]"]
 	. = ..()
 	var/obj/effect/overmap/visitable/map_destination = GLOB.map_sectors["[z]"]

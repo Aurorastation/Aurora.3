@@ -1,4 +1,9 @@
 /turf/simulated/floor/exoplanet/water
+	name = "water"
+	gender = PLURAL
+	icon = 'icons/misc/beach.dmi'
+	icon_state = "seadeep"
+	desc = "It is wet."
 	footstep_sound = /singleton/sound_category/water_footstep
 	movement_cost = 4
 	has_resources = FALSE
@@ -109,6 +114,7 @@
 
 /turf/simulated/floor/exoplanet/water/shallow
 	name = "shallow water"
+	desc = "Some water shallow enough to wade through."
 	icon = 'icons/misc/beach.dmi'
 	icon_state = "seashallow"
 	footstep_sound = /singleton/sound_category/water_footstep

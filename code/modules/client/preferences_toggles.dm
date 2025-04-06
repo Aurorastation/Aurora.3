@@ -151,10 +151,7 @@
 
 	prefs.toggles_secondary ^= PROGRESS_BARS
 	prefs.save_preferences()
-	if (prefs.toggles_secondary & PROGRESS_BARS)
-		to_chat(src, "You will now see progress bars on delayed actions.")
-	else
-		to_chat(src, "You will no longer see progress bars on delayed actions.")
+	to_chat(src, SPAN_NOTICE("Progress bars are now [prefs.toggles_secondary & PROGRESS_BARS ? "enabled" : "disabled"]."))
 
 /client/verb/toggle_floating_messages()
 	set name = "Toggle Floating Messages"

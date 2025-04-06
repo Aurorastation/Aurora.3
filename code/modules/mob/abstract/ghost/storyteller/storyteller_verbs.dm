@@ -18,7 +18,7 @@
 		<A href='byond://?src=[REF(src)]];create_mob=1'>Create Mob</A><br>
 		"}
 
-	usr << browse(dat, "window=storytellerpanel;size=210x280")
+	usr << browse(HTML_SKELETON(dat), "window=storytellerpanel;size=210x280")
 
 /mob/abstract/ghost/storyteller/Topic(href, href_list)
 	. = ..()

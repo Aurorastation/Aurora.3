@@ -14,7 +14,7 @@
 	cable.amount = max_cable
 
 /obj/machinery/cablelayer/Move(new_turf,M_Dir)
-	..()
+	. = ..()
 	if(on)
 		layCable(new_turf,M_Dir)
 

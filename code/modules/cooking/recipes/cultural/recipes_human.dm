@@ -191,15 +191,23 @@
 	result = /obj/item/reagent_containers/food/snacks/biscuits_and_gravy
 	reagent_mix = RECIPE_REAGENT_REPLACE
 
-/singleton/recipe/elotes
-	appliance = OVEN | GRILL
-	reagents = list(/singleton/reagent/nutriment/mayonnaise = 5, /singleton/reagent/spacespice = 2)
-	fruit = list("corn" = 2, "lime" = 1)
+/singleton/recipe/mozzarella_sticks
+	appliance = FRYER
+	reagents = list(/singleton/reagent/nutriment/flour = 5, /singleton/reagent/nutriment/protein/egg = 3, /singleton/reagent/sodiumchloride = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/cheesewedge
 	)
-	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
-	result = /obj/item/reagent_containers/food/snacks/elotes
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/bowl/mozzarella_sticks
+
+/singleton/recipe/mozzarella_sticks_alt
+	appliance = FRYER
+	items = list(
+		/obj/item/reagent_containers/food/snacks/cheesewedge
+	)
+	coating = /singleton/reagent/nutriment/coating/batter
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/bowl/mozzarella_sticks
 
 // Konyang
 
@@ -232,6 +240,51 @@
 	items = list(/obj/item/reagent_containers/food/snacks/meat)
 	result = /obj/item/reagent_containers/food/snacks/soup/miyeokguk
 
+/singleton/recipe/sweet_chili_chicken
+	appliance = SAUCEPAN | POT
+	fruit = list("lime" = 1)
+	reagents = list(/singleton/reagent/nutriment/soysauce = 5,  /singleton/reagent/nutriment/sweet_chili= 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/meat/chicken,
+		/obj/item/reagent_containers/food/snacks/boiledrice,
+	)
+	result = /obj/item/reagent_containers/food/snacks/sweet_chili_chicken
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+
+/singleton/recipe/eggrolls_vegetable
+	appliance = FRYER
+	fruit = list("cabbage" = 1, "carrot" = 1)
+	reagents = list(/singleton/reagent/nutriment/flour = 5,  /singleton/reagent/nutriment/protein/egg = 3)
+	result = /obj/item/reagent_containers/food/snacks/bowl/eggrolls_vegetable
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+
+/singleton/recipe/eggrolls_vegetable_vegan
+	appliance = FRYER
+	fruit = list("cabbage" = 1, "carrot" = 1)
+	reagents = list(/singleton/reagent/nutriment/flour = 5,  /singleton/reagent/water = 5)
+	result = /obj/item/reagent_containers/food/snacks/bowl/eggrolls_vegetable
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+
+/singleton/recipe/eggrolls_meat
+	appliance = FRYER
+	fruit = list("cabbage" = 1)
+	reagents = list(/singleton/reagent/nutriment/flour = 5,  /singleton/reagent/nutriment/protein/egg = 3)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/cutlet,
+	)
+	result = /obj/item/reagent_containers/food/snacks/bowl/eggrolls_meat
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+
+/singleton/recipe/eggrolls_meat_alt
+	appliance = FRYER
+	fruit = list("cabbage" = 1)
+	reagents = list(/singleton/reagent/nutriment/flour = 5, /singleton/reagent/water = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/cutlet,
+	)
+	result = /obj/item/reagent_containers/food/snacks/bowl/eggrolls_meat
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+
 // Mictlani
 
 /singleton/recipe/pozole
@@ -240,6 +293,16 @@
 	reagents = list(/singleton/reagent/water = 10)
 	items = list(/obj/item/reagent_containers/food/snacks/meat)
 	result = /obj/item/reagent_containers/food/snacks/soup/pozole
+
+/singleton/recipe/elotes
+	appliance = OVEN | GRILL
+	reagents = list(/singleton/reagent/nutriment/mayonnaise = 5, /singleton/reagent/spacespice = 2)
+	fruit = list("corn" = 2, "lime" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+	result = /obj/item/reagent_containers/food/snacks/elotes
 
 // Dominia
 
@@ -340,6 +403,20 @@
 	fruit = list("banana" = 2)
 	reagents = list(/singleton/reagent/water = 5)
 	result = /obj/item/reagent_containers/food/snacks/bowl/fufus
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/singleton/recipe/dodo_ikire
+	appliance = SKILLET | SAUCEPAN
+	fruit = list("banana" = 2, "chili" = 1)
+	reagents = list(/singleton/reagent/sodiumchloride = 1)
+	result = /obj/item/reagent_containers/food/snacks/dodo_ikire
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/singleton/recipe/crimson_lime
+	appliance = SAUCEPAN
+	fruit = list("lime" = 1, "chili" = 1)
+	reagents = list(/singleton/reagent/nutriment/coco = 5, /singleton/reagent/drink/milk = 5)
+	result = /obj/item/reagent_containers/food/snacks/crimson_lime
 	reagent_mix = RECIPE_REAGENT_REPLACE
 
 //Silversun
