@@ -40,6 +40,13 @@
 	idris_sec_uniforms["idris detective uniform"] = /obj/item/clothing/under/det/idris/alt
 	gear_tweaks += new /datum/gear_tweak/path(idris_sec_uniforms)
 
+/datum/gear/faction/idris_dress
+	display_name = "idris hospitality dress"
+	description = "A snazzy teal dress typically worn by Idris service staff."
+	path = /obj/item/clothing/under/dress/idris
+	slot = slot_w_uniform
+	faction = "Idris Incorporated"
+
 /datum/gear/faction/idris_armband
 	display_name = "idris armband"
 	path = /obj/item/clothing/accessory/armband/idris
