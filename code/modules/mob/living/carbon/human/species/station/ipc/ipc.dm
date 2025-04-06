@@ -70,7 +70,7 @@
 	heat_level_3 = 2400
 
 	body_temperature = null
-	passive_temp_gain = 10  // This should cause IPCs to stabilize at ~80 C in a 20 C environment.
+	passive_temp_gain = 20
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/change_monitor,

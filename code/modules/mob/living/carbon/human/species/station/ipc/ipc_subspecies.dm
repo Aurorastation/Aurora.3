@@ -10,7 +10,7 @@
 	default_genders = list(MALE, FEMALE)
 	selectable_pronouns = list(MALE, FEMALE, PLURAL, NEUTER)
 
-	alterable_internal_organs = list(BP_EYES)
+	alterable_internal_organs = list(BP_EYES, BP_COOLING_UNIT)
 
 	burn_mod = 1.2
 	grab_mod = 1
@@ -104,6 +104,12 @@
 
 	has_organ = list(
 		BP_BRAIN   = /obj/item/organ/internal/machine/posibrain,
+		BP_VOICE_SYNTHESIZER = /obj/item/organ/internal/machine/voice_synthesizer,
+		BP_DIAGNOSTICS_SUITE = /obj/item/organ/internal/machine/internal_diagnostics,
+		BP_HYDRAULICS = /obj/item/organ/internal/machine/hydraulics,
+		BP_ACTUATORS_LEFT = /obj/item/organ/internal/machine/actuators/left,
+		BP_ACTUATORS_RIGHT = /obj/item/organ/internal/machine/actuators/right,
+		BP_COOLING_UNIT = /obj/item/organ/internal/machine/cooling_unit,
 		BP_CELL    = /obj/item/organ/internal/machine/cell,
 		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
 		"surge"   = /obj/item/organ/internal/surge/advanced
@@ -235,7 +241,6 @@
 	heat_level_3 = 5000
 
 	body_temperature = null
-	passive_temp_gain = 0
 
 	flags = IS_IPC | ACCEPTS_COOLER
 	spawn_flags = IS_RESTRICTED
@@ -251,9 +256,15 @@
 	)
 
 	has_organ = list(
-		BP_BRAIN = /obj/item/organ/internal/machine/posibrain/terminator,
-		BP_CELL = /obj/item/organ/internal/machine/cell/terminator,
-		BP_EYES = /obj/item/organ/internal/eyes/optical_sensor/terminator,
+		BP_BRAIN   = /obj/item/organ/internal/machine/posibrain,
+		BP_VOICE_SYNTHESIZER = /obj/item/organ/internal/machine/voice_synthesizer,
+		BP_DIAGNOSTICS_SUITE = /obj/item/organ/internal/machine/internal_diagnostics,
+		BP_HYDRAULICS = /obj/item/organ/internal/machine/hydraulics,
+		BP_ACTUATORS_LEFT = /obj/item/organ/internal/machine/actuators/left,
+		BP_ACTUATORS_RIGHT = /obj/item/organ/internal/machine/actuators/right,
+		BP_COOLING_UNIT = /obj/item/organ/internal/machine/cooling_unit,
+		BP_CELL    = /obj/item/organ/internal/machine/cell,
+		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
 		"data core" = /obj/item/organ/internal/data,
 		"surge" = /obj/item/organ/internal/surge/advanced
 	)
@@ -383,7 +394,6 @@
 
 	eyes = "xion_eyes"
 	flags = IS_IPC
-	passive_temp_gain = 0
 
 	examine_color = "#bc4b00"
 
@@ -410,7 +420,13 @@
 	spawn_flags = IS_RESTRICTED
 
 	has_organ = list(
-		BP_BRAIN   = /obj/item/organ/internal/machine/posibrain/circuit,
+		BP_BRAIN   = /obj/item/organ/internal/machine/posibrain,
+		BP_VOICE_SYNTHESIZER = /obj/item/organ/internal/machine/voice_synthesizer,
+		BP_DIAGNOSTICS_SUITE = /obj/item/organ/internal/machine/internal_diagnostics,
+		BP_HYDRAULICS = /obj/item/organ/internal/machine/hydraulics,
+		BP_ACTUATORS_LEFT = /obj/item/organ/internal/machine/actuators/left,
+		BP_ACTUATORS_RIGHT = /obj/item/organ/internal/machine/actuators/right,
+		BP_COOLING_UNIT = /obj/item/organ/internal/machine/cooling_unit,
 		BP_CELL    = /obj/item/organ/internal/machine/cell,
 		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
 		BP_IPCTAG = /obj/item/organ/internal/ipc_tag
@@ -512,7 +528,6 @@
 		BP_WIRELESS_ACCESS = /obj/item/organ/internal/machine/wireless_access
 	)
 
-
 	has_limbs = list(
 		BP_CHEST  = list("path" = /obj/item/organ/external/chest/ipc/industrial/bishop),
 		BP_GROIN  = list("path" = /obj/item/organ/external/groin/ipc/industrial/bishop),
@@ -578,7 +593,13 @@
 	spawn_flags = IS_RESTRICTED
 
 	has_organ = list(
-		BP_BRAIN   = /obj/item/organ/internal/machine/posibrain/circuit,
+		BP_BRAIN   = /obj/item/organ/internal/machine/posibrain,
+		BP_VOICE_SYNTHESIZER = /obj/item/organ/internal/machine/voice_synthesizer,
+		BP_DIAGNOSTICS_SUITE = /obj/item/organ/internal/machine/internal_diagnostics,
+		BP_HYDRAULICS = /obj/item/organ/internal/machine/hydraulics,
+		BP_ACTUATORS_LEFT = /obj/item/organ/internal/machine/actuators/left,
+		BP_ACTUATORS_RIGHT = /obj/item/organ/internal/machine/actuators/right,
+		BP_COOLING_UNIT = /obj/item/organ/internal/machine/cooling_unit,
 		BP_CELL    = /obj/item/organ/internal/machine/cell,
 		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
 		BP_IPCTAG = /obj/item/organ/internal/ipc_tag

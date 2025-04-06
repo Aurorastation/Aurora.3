@@ -142,6 +142,16 @@
 						if (ORGAN_PREF_REMOVED)
 							qdel(I)
 
+						if(ORGAN_PREF_LIQUIDCOOLED)
+							if(istype(I, /obj/item/organ/internal/machine/cooling_unit))
+								var/obj/item/organ/internal/machine/cooling_unit/cooling_unit = I
+								cooling_unit.set_cooling_type(ORGAN_PREF_LIQUIDCOOLED)
+
+						if(ORGAN_PREF_PASSIVECOOLED)
+							if(istype(I, /obj/item/organ/internal/machine/cooling_unit))
+								var/obj/item/organ/internal/machine/cooling_unit/cooling_unit = I
+								cooling_unit.set_cooling_type(ORGAN_PREF_PASSIVECOOLED)
+
 	if (apply_markings)
 		for(var/N in organs_by_name)
 			var/obj/item/organ/external/O = organs_by_name[N]

@@ -55,7 +55,7 @@
 /obj/item/organ/external/hand/right/ipc
 	dislocated = -1
 	encased = "support frame"
-	robotize_type = PROSTHETIC_IP
+	robotize_type = PROSTHETIC_IPC
 
 /obj/item/organ/internal/surge
 	name = "surge preventor"
