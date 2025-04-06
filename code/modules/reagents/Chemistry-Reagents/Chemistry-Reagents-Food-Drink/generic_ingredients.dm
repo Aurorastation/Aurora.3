@@ -471,8 +471,9 @@
 	condiment_name = "Grape Jelly"
 	condiment_desc = "A jar of jelly derived from grapes. Superior to cherry jelly."
 	condiment_icon_state = "grapejelly"
+	condiment_center_of_mass = list("x"=16, "y"=8)
 
-	/singleton/reagent/nutriment/cherryjelly
+/singleton/reagent/nutriment/cherryjelly
 	name = "Cherry Jelly"
 	description = "Totally the best. Only to be spread on foods with excellent lateral symmetry."
 	reagent_state = LIQUID
