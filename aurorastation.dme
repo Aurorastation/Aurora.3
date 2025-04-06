@@ -3426,7 +3426,7 @@
 #include "code\modules\reagents\Chemistry-Reagents\Chemistry-Reagents-Food-Drink\food_drink_dominia.dm"
 #include "code\modules\reagents\Chemistry-Reagents\Chemistry-Reagents-Food-Drink\food_drink_elyra.dm"
 #include "code\modules\reagents\Chemistry-Reagents\Chemistry-Reagents-Food-Drink\food_drink_eridani.dm"
-#include "code\modules\reagents\Chemistry-Reagents\Chemistry-Reagents-Food-Drink\food_drink_solalience.dm"
+#include "code\modules\reagents\Chemistry-Reagents\Chemistry-Reagents-Food-Drink\food_drink_solalliance.dm"
 #include "code\modules\reagents\Chemistry-Reagents\Chemistry-Reagents-Food-Drink\food_drink_species_diona.dm"
 #include "code\modules\reagents\Chemistry-Reagents\Chemistry-Reagents-Food-Drink\food_drink_species_skrell.dm"
 #include "code\modules\reagents\Chemistry-Reagents\Chemistry-Reagents-Food-Drink\food_drink_species_tajara.dm"
