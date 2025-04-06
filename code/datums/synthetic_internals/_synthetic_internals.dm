@@ -13,6 +13,11 @@
 	/// The organ this synthetic internal belongs to.
 	var/obj/item/organ/internal/machine/organ
 
+	/// The world.time of the last damage proc.
+	var/last_damage_time = 0
+	/// The amount of time that has to pass between each damage proc.
+	var/damage_cooldown = 60 SECONDS
+
 /datum/synthetic_internal/New(obj/item/organ/internal/machine/attached_organ)
 	. = ..()
 	if(istype(attached_organ))
@@ -24,6 +29,13 @@
 	else
 		LOG_DEBUG("Synthetic internal [type] generated on invalid organ [attached_organ]. Aborting.")
 		qdel(src)
+
+/**
+ * The proc that handles taking damage. As some components take damage differently,
+ * this is overridden by them.
+ */
+/datum/synthetic_internal/proc/take_damage(amount)
+	return
 
 /**
  * This proc returns the status of this synthetic internal as a percentage.
@@ -46,3 +58,11 @@
  */
 /datum/synthetic_internal/proc/analyze_integrity_precise()
 	return
+
+/**
+ * Returns the modified damage cooldown time depending on damage.
+ * More severe damage = more annoying events.
+ */
+/datum/synthetic_internal/proc/get_damage_cooldown()
+	var/integrity_percent = get_status()
+	return damage_cooldown * (integrity_percent / 100)

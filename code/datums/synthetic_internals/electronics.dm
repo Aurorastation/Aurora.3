@@ -11,3 +11,7 @@
 
 /datum/synthetic_internal/electronics/get_status()
 	return (integrity / max_integrity) * 100
+
+/datum/synthetic_internal/electronics/take_damage(amount)
+	// Integrity is really slow to damage. Hacking does a way better job than just shooting the thing.
+	integrity = max(integrity - (amount * 0.75), 0)

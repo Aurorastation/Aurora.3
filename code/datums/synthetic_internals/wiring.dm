@@ -10,3 +10,8 @@
 
 /datum/synthetic_internal/wiring/get_status()
 	return (wires / max_wires) * 100
+
+/datum/synthetic_internal/wiring/take_damage(amount)
+	// Not a lot of wires - you can hit some useless ones, or fail.
+	if(prob(wires * 5))
+		wires -= max(wires - round(amount / 2), 0)
