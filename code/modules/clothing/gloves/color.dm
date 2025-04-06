@@ -210,13 +210,6 @@
 	item_state = "full_leather_colour"
 	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 
-/obj/item/clothing/gloves/zeng
-	name = "zeng-hu vinyl gloves"
-	desc = "A key design element in the labwear was utility and compatibility with the Zeng-Hu positronic chassis workers that are ubiquitous throughout the corporation. \
-	As a result they are breathable yet non-porous, allowing for ample airflow while retaining the cleanroom standards expected of a medical and scientific uniform."
-	icon_state = "zeng_gloves"
-	item_state = "zeng_gloves"
-
 /obj/item/clothing/gloves/kala
 	name = "skrell gloves"
 	desc = "A sleek pair of gloves! They seem to be retaining moisture."

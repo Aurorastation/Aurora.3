@@ -628,7 +628,7 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 
 /datum/gear/faction/zenghu_gloves
 	display_name = "zeng-hu vinyl gloves"
-	path = /obj/item/clothing/gloves/zeng
+	path = /obj/item/clothing/gloves/latex/nitrile/zeng
 	slot = slot_gloves
 	faction = "Zeng-Hu Pharmaceuticals"
 
