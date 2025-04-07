@@ -34,3 +34,10 @@ serde_json = { version = "1.0" }
 walkdir = "2.5.0"
 # regex
 regex = "1.10.5"
+# time
+chrono = "0.4.39"
+
+[features]
+default = ["byond-516"]
+byond-515 = ["byondapi/byond-515-1621"]
+byond-516 = ["byondapi/byond-516-1651"]
