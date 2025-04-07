@@ -35,9 +35,11 @@
 
 #define BAPI (__bapi || __detect_bapi())
 
-#define BAPI_CALL(func, args...) call_ext(BAPI, "byond:[#func]")(args)
+#define BAPI_CALL(func, args...) call_ext(BAPI, "byond:[#func]_ffi")(args)
 
 // ------------------------------------------- bapi functions callable from dm
 // Should only call functions ending with `_ffi`.
 
-#define bapi_read_dmm_file(arg) BAPI_CALL(read_dmm_file_ffi, arg)
+// #define bapi_read_dmm_file(arg) BAPI_CALL(read_dmm_file, arg)
+/proc/bapi_read_dmm_file(mapname)
+	return BAPI_CALL(read_dmm_file, mapname)

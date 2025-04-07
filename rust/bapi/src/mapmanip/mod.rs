@@ -419,7 +419,7 @@ fn mapmanip_orientation_randomize(map: &mut GridMap) -> eyre::Result<()> {
 
 ///
 #[byondapi::bind]
-fn read_dmm_file_ffi(path: ByondValue) -> eyre::Result<ByondValue> {
+fn read_dmm_file(path: ByondValue) -> eyre::Result<ByondValue> {
     internal_mapmanip_read_dmm_file(path)
 }
 
@@ -474,7 +474,12 @@ pub(crate) fn internal_mapmanip_read_dmm_file(path: ByondValue) -> eyre::Result<
 /// and write it to a `.mapmanipout.dmm` file in the same location.
 #[no_mangle]
 pub unsafe extern "C" fn all_mapmanip_configs_execute_ffi() {
-    all_mapmanip_configs_execute("./_maps".into());
+    std::panic::set_hook(Box::new(|info| {
+        let msg = format!("RUST BAPI PANIC \n {info}");
+        let _ = std::fs::write("bapi_panic.txt", msg.clone());
+    }));
+
+    all_mapmanip_configs_execute("../../maps".into());
 }
 
 fn all_mapmanip_configs_execute(root_path: String) {
