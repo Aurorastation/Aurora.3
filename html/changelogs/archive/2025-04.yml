@@ -1,0 +1,21 @@
+2025-04-05:
+  Greenjoe12345:
+  - rscadd: Makes it so the Enviromental testing facility Odyssey map can roll canon
+      scenarios.
+2025-04-07:
+  ASmallCuteCat:
+  - qol: Reduced the damage done by the 'creature' mob that sometimes spawns from
+      certain Xenoarchaology finds.
+  Comet Blaze, hazelmouse:
+  - rscadd: Added a teal dress for Idris Incorporated to the loadout, accessible to
+      characters of the appropriate corporation, intended primarily for use by Idris
+      service staff.
+  - rscadd: Added the new Idris Incorporated dress to the Idris Cruiser ghostrole.
+  ElorgRHG:
+  - imageadd: Resprited the corporate and department jackets.
+  - bugfix: The large Visegrad flags in the loadout are now actually large.
+  - balance: Zeng-Hu vinyl gloves are now on par with nitrile gloves.
+  Evandorf:
+  - bugfix: Makes the open sides of the chainlink fence passable.
+  hazelmouse:
+  - bugfix: Ghosts can no longer drag items onto operating tables.
