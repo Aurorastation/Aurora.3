@@ -1231,6 +1231,9 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/cryo)
 "fL" = (
@@ -1260,6 +1263,9 @@
 "fQ" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Warehouse";
+	dir = 1
+	},
+/obj/machinery/door/firedoor/noid{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -1660,6 +1666,9 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/gym)
 "ie" = (
@@ -1709,6 +1718,9 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock/mining{
 	name = "Ore Refinery"
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/ore_extraction)
@@ -1828,6 +1840,9 @@
 "iQ" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Main Compartment";
+	dir = 1
+	},
+/obj/machinery/door/firedoor/noid{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -2167,6 +2182,9 @@
 /obj/machinery/door/airlock/glass_mining{
 	dir = 4;
 	name = "Warehouse"
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/warehouse)
@@ -2650,6 +2668,9 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/hydroponics)
 "mI" = (
@@ -3062,6 +3083,9 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/captains_quarters)
 "or" = (
@@ -3396,6 +3420,9 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/cryo)
 "pY" = (
@@ -3470,6 +3497,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/shuttle/freebooter_salvager,
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/freebooter_salvager)
 "qr" = (
@@ -3705,6 +3733,9 @@
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full{
 	color = "#ffffff"
@@ -4075,6 +4106,9 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "Thrust Control"
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/gym)
@@ -4703,6 +4737,9 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/ore_extraction)
 "vE" = (
@@ -4834,6 +4871,9 @@
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/maintenance)
@@ -5096,6 +5136,9 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/mining_blaster)
 "xM" = (
@@ -5154,6 +5197,9 @@
 /obj/machinery/door/blast/regular/open{
 	id = "fbs_bridge";
 	dir = 4
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/maintenance)
@@ -5438,6 +5484,9 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/warehouse)
 "zd" = (
@@ -5649,6 +5698,9 @@
 /obj/machinery/door/airlock/glass_mining{
 	dir = 4;
 	name = "Warehouse"
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/warehouse)
@@ -6200,6 +6252,9 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/toilets)
 "CV" = (
@@ -6564,6 +6619,9 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/armory)
 "EW" = (
@@ -6641,6 +6699,9 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
 	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 1
 	},
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/francisca)
@@ -7378,6 +7439,9 @@
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/afthallway)
@@ -9925,6 +9989,9 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/bridge)
 "TT" = (
@@ -10005,6 +10072,9 @@
 /obj/machinery/door/blast/regular/open{
 	id = "fbs_bridge";
 	dir = 4
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/bridge)
@@ -10324,6 +10394,9 @@
 	},
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "Nacelle Thrusters"
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/crew_quarters)
@@ -10676,6 +10749,9 @@
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/kitchen)
