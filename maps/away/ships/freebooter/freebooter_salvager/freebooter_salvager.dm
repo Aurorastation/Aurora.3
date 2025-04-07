@@ -11,13 +11,13 @@
 		list(ZTRAIT_AWAY = TRUE, ZTRAIT_UP = FALSE, ZTRAIT_DOWN = TRUE),
 	)
 
-	ship_cost = 1
-	spawn_weight = 1
+	ship_cost = 0.5 // halved from 1 as this is a variation
+	spawn_weight = 0.5
 
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/freebooter_salvager, /datum/shuttle/autodock/multi/lift/fbs)
+	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/freebooter_salvager, /datum/shuttle/autodock/multi/lift/freebooter_salvager)
 	sectors = list(ALL_POSSIBLE_SECTORS)
 	ban_ruins = list(/datum/map_template/ruin/away_site/freebooter_ship)
-
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 	unit_test_groups = list(1)
 
 /singleton/submap_archetype/freebooter_salvager
@@ -44,23 +44,22 @@
 	sizeclass = "Tartarus-class Bulk Hauler"
 	shiptype = "Long-term shipping utilities"
 	initial_restricted_waypoints = list(
-		"Freebooter Salvager Shuttle" = list("fbs_nav_hangar")
+		"Freebooter Salvager Shuttle" = list("freebooter_salvager_nav_hangar")
 	)
 	initial_generic_waypoints = list(
-		"fbs_nav1",
-		"fbs_nav2",
-		"fbs_nav3",
-		"fbs_nav4",
-		"fbs_nav5",
-		"fbs_nav6",
-		"fbs_nav7",
-		"fbs_nav8",
-		"fbs_upfore"
+		"freebooter_salvager_fore",
+		"freebooter_salvager_aft",
+		"freebooter_salvager_port",
+		"freebooter_salvager_starboard",
+		"freebooter_salvager_eva_port",
+		"freebooter_salvager_eva_starboard",
+		"freebooter_salvager_eva_aft_starboard",
+		"freebooter_salvager_eva_aft_port",
+		"freebooter_salvager_upfore"
 	)
 
-// copy-pasted from original freebooters
 /obj/effect/overmap/visitable/ship/freebooter_salvager/New()
-	designation = "[pick("Peaceful", "Charming", "Jackal", "Friendly", "Boar", "One and Done", "Nothing Suspicious", "Death Valley", "Scan Again", "Pickpocket", "Dashing Rogue", "Port Authority", "Customs Patrol Ship", "Pay Transit Tolls Here", "Immigration Inspector", "For Hire", "Ex-Military", "Eat Shit", "Fuck Off", "Big Brother", "Wrong Turn", "Claim Jumper", "Davy Jones", "Thenardier", "Killer Queen", "Gunpowder", "Dynamite", "Phoron Collection Service", "We Never Liked Working Anyway", "The Orphanage", "Undertaker", "Flip and Burn", "Emphasis on Independent", "Widowmaker", "Irregular", "Ned Kelly", "Pay Your Union Dues Here", "We Support You!", "Jean Valjean", "Not Pirates", "Let's Be Friends!", "Alms For The Poor", "REAL KILLERS", "A Single Grain Of Sand", "What's It Matter To You?", "IFF Broken", "Or Something", "Nitroglycerin", "The Ghost of Christmas Present", "God's With Us So You Better Back Off Pal", "Faster Than You", "our shift key is broken", "It Is What It Is", "Bases Loaded", "We Support Law Enforcement", "Cash-Rich, Credit-Poor", "Cunning", "We Never Liked Beauchamp Anyway", "Civilian Ship", "We Didn't Start The Fire, Honest!", "Arson", "Jaywalking", "Bail Bondsmen", "Bail Jumper", "On Parole", "Don't Tell My Probation Officer", "Quit Your Bitching", "And The Then Or Thank You", "Sensor Glitch", "Not My Problem", "Mind Your Business", "Private Vessel Of The Dread Pirate King With His Entire Fleet And Crew In Tow So Back Off", "Daisy", "Sally", "Jane", "Pretty Little Thing", "We Like To Party", "No Squares Here")]"
+	designation = pick(/obj/effect/overmap/visitable/ship/freebooter_ship::designations)
 	..()
 
 //Shuttle
@@ -87,28 +86,28 @@
 	name = "Freebooter Salvager Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/freebooter_salvager)
-	current_location = "fbs_nav_hangar"
-	landmark_transition = "fbs_nav_transit"
-	dock_target = "airlock_fbs_shuttle"
+	current_location = "freebooter_salvager_nav_hangar"
+	landmark_transition = "freebooter_salvager_nav_transit"
+	dock_target = "airlock_freebooter_salvager_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "fbs_nav_hangar"
+	logging_home_tag = "freebooter_salvager_nav_hangar"
 	defer_initialisation = TRUE
 
 /obj/effect/map_effect/marker/airlock/shuttle/freebooter_salvager
 	name = "Freebooter Salvager Shuttle"
 	shuttle_tag = "Freebooter Salvager Shuttle"
-	master_tag = "airlock_fbs_shuttle"
+	master_tag = "airlock_freebooter_salvager_shuttle"
 	cycle_to_external_air = TRUE
 
 /obj/effect/map_effect/marker/airlock/docking/freebooter_salvager/shuttle_hangar
 	name = "Shuttle Dock"
-	landmark_tag = "fbs_nav_hangar"
+	landmark_tag = "freebooter_salvager_nav_hangar"
 	master_tag = "freebooter_salvager_hangar"
 
 /obj/effect/shuttle_landmark/freebooter_salvager_shuttle/hangar
 	name = "Freebooter Salvager Ship - Hangar"
-	landmark_tag = "fbs_nav_hangar"
+	landmark_tag = "freebooter_salvager_nav_hangar"
 	docking_controller = "freebooter_salvager_hangar"
 	base_turf = /turf/space
 	base_area = /area/space
@@ -116,7 +115,7 @@
 
 /obj/effect/shuttle_landmark/freebooter_salvager_shuttle/transit
 	name = "In transit"
-	landmark_tag = "fbs_nav_transit"
+	landmark_tag = "freebooter_salvager_nav_transit"
 	base_turf = /turf/space/transit/north
 
 /obj/item/paper/fluff/freebooter_salvager/captain_note

@@ -13,16 +13,12 @@
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/atmospherics)
 "af" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
-	spawn_firedoor = 1;
-	spawn_grille = 1
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 8
 	},
-/obj/machinery/door/blast/regular/open{
-	id = "fbs_windows";
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/ship/freebooter_salvager/ore_extraction)
+/turf/simulated/floor/airless,
+/area/ship/freebooter_salvager/exterior)
 "ag" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /obj/machinery/atmospherics/pipe/simple/hidden/green{
@@ -120,16 +116,16 @@
 	},
 /obj/machinery/computer/general_air_control/large_tank_control/terminal{
 	dir = 4;
-	output_tag = "fbs_thrust_out";
-	input_tag = "fbs_thrust_in";
-	frequency = 1512;
-	sensors = list("fbs_thrust_sensor"="Propellant Chamber");
 	name = "Propellant Chamber Control"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/map_effect/marker/large_tank{
+	name = "freebooter_salvager_co2";
+	master_tag = "freebooter_salvager_co2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/engineering)
 "aB" = (
@@ -168,8 +164,8 @@
 	dir = 4
 	},
 /obj/effect/ghostspawpoint{
-	identifier = "freebooter_altered_crew";
-	name = "igs - freebooter altered crew"
+	identifier = "freebooter_crew";
+	name = "igs - freebooter crew"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/crew_quarters)
@@ -509,10 +505,6 @@
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
-/obj/machinery/door/blast/regular/open{
-	dir = 2;
-	id = "fbs_windows"
-	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/kitchen)
 "cd" = (
@@ -545,7 +537,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/engineering)
 "ch" = (
-/obj/effect/shuttle_landmark/lift/fbs_second_deck,
+/obj/effect/shuttle_landmark/lift/freebooter_salvager_second_deck,
 /turf/simulated/open,
 /area/ship/freebooter_salvager/warehouse)
 "cn" = (
@@ -606,6 +598,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/engineering)
 "cy" = (
@@ -736,7 +729,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/effect/shuttle_landmark/freebooter_salvager/nav7,
+/obj/effect/shuttle_landmark/freebooter_salvager/eva_aft_starboard,
 /turf/space,
 /area/ship/freebooter_salvager/exterior)
 "df" = (
@@ -795,10 +788,6 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, starboard nacelle junction"
 	},
-/obj/machinery/door/blast/regular/open{
-	dir = 4;
-	id = "fbs_windows"
-	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/afthallway)
 "dn" = (
@@ -830,6 +819,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/engineering)
 "dw" = (
@@ -903,10 +893,6 @@
 	},
 /obj/structure/curtain/open{
 	color = "#493b3b"
-	},
-/obj/machinery/door/blast/regular/open{
-	dir = 2;
-	id = "fbs_windows"
 	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/captains_quarters)
@@ -1047,11 +1033,11 @@
 "eH" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/floor_decal/industrial/hatch_tiny/operations,
-/obj/machinery/computer/shuttle_control/multi/lift/fbs{
-	pixel_y = 10
+/obj/machinery/computer/shuttle_control/multi/lift/freebooter_salvager{
+	pixel_y = 9
 	},
 /turf/simulated/floor/plating,
-/area/turbolift/freebooter_salvager/fbs_lift)
+/area/turbolift/freebooter_salvager/freebooter_salvager_lift)
 "eI" = (
 /obj/structure/railing/mapped,
 /obj/structure/lattice/catwalk,
@@ -1134,10 +1120,6 @@
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
 	spawn_firedoor = 1;
 	spawn_grille = 1
-	},
-/obj/machinery/door/blast/regular/open{
-	dir = 2;
-	id = "fbs_windows"
 	},
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/atmospherics)
@@ -1556,6 +1538,14 @@
 /obj/machinery/meter,
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/engineering)
+"hd" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/airless,
+/area/ship/freebooter_salvager/exterior)
 "hh" = (
 /obj/structure/inflatable/wall,
 /turf/simulated/floor/plating,
@@ -1593,6 +1583,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/engineering)
 "hs" = (
@@ -1883,8 +1874,8 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/hatch_tiny/operations,
-/obj/machinery/computer/shuttle_control/multi/lift/fbs{
-	pixel_y = 10
+/obj/machinery/computer/shuttle_control/multi/lift/freebooter_salvager{
+	pixel_y = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/warehouse)
@@ -1896,11 +1887,12 @@
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/engineering)
 "jb" = (
-/obj/machinery/air_sensor{
-	frequency = 1512;
-	id_tag = "fbs_thrust_sensor"
-	},
+/obj/machinery/air_sensor,
 /obj/effect/map_effect/perma_light,
+/obj/effect/map_effect/marker/large_tank{
+	name = "freebooter_salvager_co2";
+	master_tag = "freebooter_salvager_co2"
+	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/freebooter_salvager/engineering)
 "jh" = (
@@ -1914,14 +1906,6 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_salvager/hydroponics)
 "jk" = (
-/obj/effect/decal/fake_object{
-	desc = "Used for watching various sources of entertainment, it appears to have been 'jailbroken'. This one while idle flips through four or five scenic nature vistas.";
-	icon = 'icons/obj/computer.dmi';
-	icon_state = "wallframe";
-	name = "Telescreen";
-	pixel_x = -32;
-	pixel_y = 3
-	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
@@ -2420,6 +2404,9 @@
 /area/ship/freebooter_salvager/atmospherics)
 "lo" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/engineering)
 "lp" = (
@@ -2517,15 +2504,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/ore_extraction)
 "lQ" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
-	spawn_firedoor = 1;
-	spawn_grille = 1
+/obj/effect/shuttle_landmark/freebooter_salvager/starboard{
+	dir = 4
 	},
-/obj/machinery/door/blast/regular/open{
-	id = "fbs_windows"
-	},
-/turf/simulated/floor/plating,
-/area/ship/freebooter_salvager/ore_extraction)
+/turf/template_noop,
+/area/space)
 "lU" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 4
@@ -2548,6 +2531,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/engineering)
 "mc" = (
@@ -2603,8 +2587,8 @@
 	dir = 4
 	},
 /obj/effect/ghostspawpoint{
-	identifier = "freebooter_altered_crew";
-	name = "igs - freebooter altered crew"
+	identifier = "freebooter_crew";
+	name = "igs - freebooter crew"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/crew_quarters)
@@ -2731,6 +2715,9 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/engineering)
 "mR" = (
@@ -2764,7 +2751,6 @@
 /area/ship/freebooter_salvager/mining)
 "ni" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/power/apc/east{
 	req_access = null
 	},
@@ -2775,6 +2761,9 @@
 /obj/structure/cable,
 /obj/structure/cable{
 	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/forehallway)
@@ -3278,7 +3267,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/effect/shuttle_landmark/freebooter_salvager/nav8,
+/obj/effect/shuttle_landmark/freebooter_salvager/eva_aft_port,
 /turf/space,
 /area/ship/freebooter_salvager/exterior)
 "po" = (
@@ -3924,9 +3913,6 @@
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
-/obj/machinery/door/blast/regular/open{
-	id = "junker_bridge"
-	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/gym)
 "rX" = (
@@ -4144,6 +4130,9 @@
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4397,11 +4386,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/engineering)
 "tY" = (
-/obj/effect/shuttle_landmark/freebooter_salvager/nav4{
-	dir = 4
-	},
-/turf/template_noop,
-/area/space)
+/obj/structure/lattice/catwalk,
+/turf/simulated/floor/airless,
+/area/ship/freebooter_salvager/exterior)
 "ua" = (
 /obj/machinery/mass_driver{
 	dir = 8;
@@ -4479,10 +4466,6 @@
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
 	spawn_firedoor = 1;
 	spawn_grille = 1
-	},
-/obj/machinery/door/blast/regular/open{
-	dir = 4;
-	id = "fbs_windows"
 	},
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, kitchen compartment"
@@ -4839,16 +4822,12 @@
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
-/obj/machinery/door/blast/regular/open{
-	dir = 4;
-	id = "fbs_windows"
-	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/afthallway)
 "wn" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
-/area/turbolift/freebooter_salvager/fbs_lift)
+/area/turbolift/freebooter_salvager/freebooter_salvager_lift)
 "wo" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "Maintenance"
@@ -5345,6 +5324,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/extinguisher_cabinet/west,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/forehallway)
 "yy" = (
@@ -5363,6 +5343,12 @@
 /obj/effect/map_effect/perma_light/starlight/wide,
 /turf/space,
 /area/ship/freebooter_salvager/exterior)
+"yC" = (
+/obj/effect/shuttle_landmark/freebooter_salvager/port{
+	dir = 8
+	},
+/turf/template_noop,
+/area/space)
 "yG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
@@ -5503,6 +5489,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/engineering)
+"zf" = (
+/obj/effect/shuttle_landmark/freebooter_salvager/fore{
+	dir = 1
+	},
+/turf/template_noop,
+/area/space)
 "zg" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
 	spawn_firedoor = 1;
@@ -6380,9 +6372,6 @@
 /area/ship/freebooter_salvager/forehallway)
 "DS" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 1
 	},
@@ -6632,7 +6621,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/effect/shuttle_landmark/freebooter_salvager/nav5{
+/obj/effect/shuttle_landmark/freebooter_salvager/eva_port{
 	dir = 8
 	},
 /turf/space,
@@ -6871,16 +6860,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/warehouse)
 "Gh" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
-	spawn_firedoor = 1;
-	spawn_grille = 1
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 9
 	},
-/obj/machinery/door/blast/regular/open{
-	dir = 4;
-	id = "fbs_windows"
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
 	},
-/turf/simulated/floor/plating,
-/area/ship/freebooter_salvager/kitchen)
+/turf/simulated/floor,
+/area/ship/freebooter_salvager/engineering)
 "Gk" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 8
@@ -6898,6 +6887,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/carpet/darkblue,
 /area/ship/freebooter_salvager/captains_quarters)
+"Gp" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/bed/handrail,
+/turf/simulated/floor/airless,
+/area/ship/freebooter_salvager/exterior)
 "Gr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/dark_green{
@@ -7028,10 +7022,6 @@
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
 	spawn_firedoor = 1;
 	spawn_grille = 1
-	},
-/obj/machinery/door/blast/regular/open{
-	dir = 2;
-	id = "fbs_windows"
 	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/warehouse)
@@ -7208,10 +7198,6 @@
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, nacelle"
 	},
-/obj/machinery/door/blast/regular/open{
-	dir = 2;
-	id = "fbs_windows"
-	},
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/atmospherics)
 "HG" = (
@@ -7359,9 +7345,9 @@
 /area/ship/freebooter_salvager/mining)
 "Ig" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/effect/shuttle_landmark/lift/fbs_first_deck,
+/obj/effect/shuttle_landmark/lift/freebooter_salvager_first_deck,
 /turf/simulated/floor/plating,
-/area/turbolift/freebooter_salvager/fbs_lift)
+/area/turbolift/freebooter_salvager/freebooter_salvager_lift)
 "Ii" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/black{
 	dir = 1
@@ -7438,6 +7424,9 @@
 	},
 /obj/structure/cable{
 	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/forehallway)
@@ -7678,8 +7667,8 @@
 	dir = 4
 	},
 /obj/effect/ghostspawpoint{
-	identifier = "freebooter_altered_crew";
-	name = "igs - freebooter altered crew"
+	identifier = "freebooter_crew";
+	name = "igs - freebooter crew"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/crew_quarters)
@@ -8179,7 +8168,7 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/engineering)
@@ -8198,10 +8187,6 @@
 	},
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, portside nacelle junction"
-	},
-/obj/machinery/door/blast/regular/open{
-	dir = 4;
-	id = "fbs_windows"
 	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/afthallway)
@@ -8274,13 +8259,7 @@
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/crew_quarters)
 "Mt" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 4
-	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 6
 	},
@@ -8348,7 +8327,7 @@
 /obj/effect/shuttle_landmark/freebooter_salvager/fore_upper_deck{
 	dir = 1
 	},
-/turf/space,
+/turf/simulated/floor/airless,
 /area/ship/freebooter_salvager/exterior)
 "MN" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -8620,10 +8599,6 @@
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
-/obj/machinery/door/blast/regular/open{
-	dir = 2;
-	id = "fbs_windows"
-	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/hydroponics)
 "NX" = (
@@ -8722,8 +8697,8 @@
 	dir = 4
 	},
 /obj/effect/ghostspawpoint{
-	identifier = "freebooter_altered_crew";
-	name = "igs - freebooter altered crew"
+	identifier = "freebooter_crew";
+	name = "igs - freebooter crew"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/crew_quarters)
@@ -8766,6 +8741,10 @@
 /obj/item/clothing/head/headbando/random,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/crew_quarters)
+"Oy" = (
+/obj/structure/lattice,
+/turf/simulated/floor/airless,
+/area/ship/freebooter_salvager/exterior)
 "Oz" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/table/rack,
@@ -8912,11 +8891,12 @@
 /turf/simulated/floor/airless,
 /area/ship/freebooter_salvager/engineering)
 "Pn" = (
-/obj/effect/shuttle_landmark/freebooter_salvager/nav3{
-	dir = 8
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 4
 	},
-/turf/template_noop,
-/area/space)
+/turf/simulated/floor/airless,
+/area/ship/freebooter_salvager/exterior)
 "Po" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/airlock_sensor{
@@ -9206,9 +9186,6 @@
 	},
 /obj/effect/landmark/entry_point/port{
 	name = "port, ore extraction"
-	},
-/obj/machinery/door/blast/regular/open{
-	id = "fbs_windows"
 	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/ore_extraction)
@@ -9519,10 +9496,6 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, ore extraction"
 	},
-/obj/machinery/door/blast/regular/open{
-	id = "fbs_windows";
-	dir = 4
-	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/ore_extraction)
 "Sh" = (
@@ -9723,11 +9696,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
 /obj/structure/bed/stool/chair/folding{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/engineering)
@@ -9841,7 +9814,7 @@
 "Tx" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
-/obj/effect/shuttle_landmark/freebooter_salvager/nav6{
+/obj/effect/shuttle_landmark/freebooter_salvager/eva_starboard{
 	dir = 4
 	},
 /turf/space,
@@ -10008,9 +9981,10 @@
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/engineering)
 "Ua" = (
-/obj/effect/shuttle_landmark/freebooter_salvager/nav2,
-/turf/template_noop,
-/area/space)
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped,
+/turf/simulated/floor/airless,
+/area/ship/freebooter_salvager/exterior)
 "Ue" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -10218,8 +10192,8 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/hatch_tiny/operations,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/computer/shuttle_control/multi/lift/fbs{
-	pixel_y = 10
+/obj/machinery/computer/shuttle_control/multi/lift/freebooter_salvager{
+	pixel_y = 9
 	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/mining)
@@ -10314,13 +10288,11 @@
 /area/ship/freebooter_salvager/atmospherics)
 "VK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4
-	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_salvager/forehallway)
 "VL" = (
@@ -10373,7 +10345,6 @@
 	pixel_y = 7;
 	pixel_x = -6
 	},
-/obj/random/contraband,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/crew_quarters)
 "Wc" = (
@@ -10392,9 +10363,11 @@
 /area/ship/freebooter_salvager/atmospherics)
 "Wf" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/atmos{
-	dir = 4;
-	id_tag = "fbs_thrust_out";
-	frequency = 1512
+	dir = 4
+	},
+/obj/effect/map_effect/marker/large_tank{
+	name = "freebooter_salvager_co2";
+	master_tag = "freebooter_salvager_co2"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/freebooter_salvager/engineering)
@@ -10707,9 +10680,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/kitchen)
 "XY" = (
-/obj/effect/shuttle_landmark/freebooter_salvager/nav1{
-	dir = 1
-	},
+/obj/effect/shuttle_landmark/freebooter_salvager/aft,
 /turf/template_noop,
 /area/space)
 "Ya" = (
@@ -10791,8 +10762,8 @@
 /obj/item/bedsheet/brown,
 /obj/structure/bed/padded,
 /obj/effect/ghostspawpoint{
-	identifier = "freebooter_altered_crew_captain";
-	name = "igs - freebooter altered crew captain"
+	identifier = "freebooter_crew_captain";
+	name = "igs - freebooter crew captain"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/captains_quarters)
@@ -10955,9 +10926,11 @@
 /area/ship/freebooter_salvager/holding_cell)
 "Zu" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
-	dir = 4;
-	id = "fbs_thrust_in";
-	frequency = 1512
+	dir = 4
+	},
+/obj/effect/map_effect/marker/large_tank{
+	name = "freebooter_salvager_co2";
+	master_tag = "freebooter_salvager_co2"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/freebooter_salvager/engineering)
@@ -43071,7 +43044,7 @@ QM
 QM
 QM
 Au
-af
+ls
 cy
 fq
 Ov
@@ -43845,9 +43818,9 @@ jr
 sZ
 Oj
 Oj
-lQ
+ls
 Qq
-lQ
+ls
 Oj
 Oj
 fM
@@ -91132,7 +91105,7 @@ QM
 QM
 QM
 QM
-tY
+QM
 QM
 QM
 QM
@@ -93961,7 +93934,7 @@ QM
 QM
 QM
 QM
-QM
+lQ
 QM
 QM
 QM
@@ -105045,7 +105018,6 @@ QM
 QM
 QM
 QM
-Ds
 QM
 QM
 Ds
@@ -105075,6 +105047,7 @@ QM
 Ds
 QM
 QM
+Ds
 QM
 QM
 QM
@@ -105557,9 +105530,9 @@ QM
 QM
 QM
 QM
+QM
+QM
 vn
-QM
-QM
 QM
 QM
 QM
@@ -106069,9 +106042,9 @@ Nl
 QI
 ZB
 AY
-QM
-QM
-QM
+tY
+tY
+hd
 QM
 QM
 QM
@@ -106327,10 +106300,10 @@ Sx
 ZB
 ZB
 ZB
-QM
+tY
+tY
+hd
 vn
-QM
-QM
 QM
 QM
 QM
@@ -106585,8 +106558,8 @@ Ak
 Sn
 ZB
 ZB
-QM
-QM
+Gp
+Ua
 QM
 QM
 QM
@@ -106841,9 +106814,9 @@ JW
 ZB
 by
 Vv
-Gh
-QM
-QM
+ca
+tY
+Ua
 QM
 QM
 QM
@@ -107009,7 +106982,7 @@ QM
 QM
 QM
 QM
-QM
+XY
 QM
 QM
 QM
@@ -107098,7 +107071,9 @@ WH
 jk
 VE
 FO
-Gh
+ca
+tY
+Ua
 vn
 QM
 QM
@@ -107144,8 +107119,6 @@ QM
 QM
 QM
 QM
-QM
-XY
 QM
 QM
 QM
@@ -107355,9 +107328,9 @@ Sn
 hv
 Sn
 bp
-Gh
-QM
-QM
+ca
+tY
+Ua
 QM
 QM
 QM
@@ -107516,7 +107489,7 @@ QM
 QM
 QM
 QM
-Ua
+QM
 QM
 QM
 QM
@@ -107613,8 +107586,8 @@ DO
 IX
 HL
 uA
-QM
-QM
+tY
+Ua
 QM
 QM
 QM
@@ -107870,6 +107843,8 @@ BX
 fL
 ZB
 ZB
+Gp
+Ua
 vn
 QM
 QM
@@ -107916,9 +107891,7 @@ QM
 QM
 QM
 QM
-QM
-QM
-QM
+zf
 QM
 QM
 QM
@@ -108127,8 +108100,8 @@ FJ
 ZB
 ZB
 JZ
-QM
-QM
+tY
+Ua
 QM
 QM
 QM
@@ -108338,7 +108311,7 @@ AO
 cd
 ZG
 PP
-ZG
+Gh
 cx
 lZ
 du
@@ -108382,11 +108355,11 @@ jI
 bd
 Jn
 Nx
-Tl
-Tl
-Tl
-QM
-QM
+af
+af
+tY
+tY
+af
 QM
 QM
 QM
@@ -108639,11 +108612,11 @@ GT
 pw
 Zb
 nj
-us
-us
+Pn
+Pn
+tY
+tY
 MK
-QM
-QM
 QM
 QM
 QM
@@ -108896,7 +108869,7 @@ Pt
 pC
 Si
 uW
-pk
+Oy
 JZ
 QM
 QM
@@ -109153,11 +109126,11 @@ uW
 uW
 uW
 jU
+pk
+QM
 QM
 QM
 vn
-QM
-QM
 QM
 QM
 QM
@@ -109926,9 +109899,9 @@ QM
 QM
 QM
 QM
+QM
+QM
 vn
-QM
-QM
 QM
 QM
 QM
@@ -110697,9 +110670,9 @@ QM
 QM
 QM
 QM
+QM
+QM
 vn
-QM
-QM
 QM
 QM
 QM
@@ -111468,9 +111441,9 @@ QM
 QM
 QM
 QM
+QM
+QM
 vn
-QM
-QM
 QM
 QM
 QM
@@ -111984,7 +111957,6 @@ QM
 QM
 QM
 QM
-Ds
 QM
 QM
 Ds
@@ -112014,6 +111986,7 @@ QM
 Ds
 QM
 QM
+Ds
 QM
 QM
 QM
@@ -121202,7 +121175,7 @@ QM
 QM
 QM
 QM
-QM
+yC
 QM
 QM
 QM
@@ -124027,7 +124000,7 @@ QM
 QM
 QM
 QM
-Pn
+QM
 QM
 QM
 QM

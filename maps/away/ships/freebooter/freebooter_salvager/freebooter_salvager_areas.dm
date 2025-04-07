@@ -105,7 +105,7 @@
 	requires_power = TRUE
 
 // Lift
-/area/turbolift/freebooter_salvager/fbs_lift
+/area/turbolift/freebooter_salvager/freebooter_salvager_lift
 	name = "Freebooter Salvager Lift"
 	station_area = FALSE
 	area_flags = AREA_FLAG_RAD_SHIELDED
