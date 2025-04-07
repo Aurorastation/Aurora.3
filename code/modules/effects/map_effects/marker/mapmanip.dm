@@ -6,7 +6,7 @@
 	pixel_x = -32
 	pixel_y = -32
 
-	/// Allows extract markers to have a shared name, even across submap operations,
+	/// Allows extract markers to have a shared name across submap operations,
 	/// eliminating submaps with the same name from the selection pool.
 	/// For example, allows having a map with 4 submaps, where each of them has 4 different
 	/// and unique versions of different departments, but they won't repeat (and for example, have 3 medbays).

@@ -417,7 +417,8 @@ fn mapmanip_orientation_randomize(map: &mut GridMap) -> eyre::Result<()> {
     Ok(())
 }
 
-///
+/// Function exposed to dm.
+/// The `_ffi` suffix is applied by the byondapi bind macro.
 #[byondapi::bind]
 fn read_dmm_file(path: ByondValue) -> eyre::Result<ByondValue> {
     internal_mapmanip_read_dmm_file(path)

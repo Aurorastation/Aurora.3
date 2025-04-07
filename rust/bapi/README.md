@@ -1,6 +1,3 @@
-# Paradise Rust Libraries
-
-## Info
 
 # On FFI
 
@@ -10,8 +7,6 @@ If we do want them to "talk", we need to find some other language, one that is c
 It currently handles:
 
 Rust functions callable from DM should end with `_ffi`, and have a very "raw" form, and do the least things possible to just call the actual Rust functions.
-
-## Building
 
 # On safety
 
