@@ -4,7 +4,6 @@
 FFI means "foreign function interface". Basically, different languages can't easily "talk" to each other, as they have different features and mechanisms.
 One exception is scripting languages (like Python or Lua), but that is neither DM nor Rust. 
 If we do want them to "talk", we need to find some other language, one that is common and basic, that both DM and Rust can understand. And that is C.
-It currently handles:
 
 Rust functions callable from DM should end with `_ffi`, and have a very "raw" form, and do the least things possible to just call the actual Rust functions.
 
