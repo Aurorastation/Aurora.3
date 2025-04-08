@@ -211,6 +211,7 @@ class ChatRenderer {
       const highlightColor = setting.highlightColor;
       const highlightWholeMessage = setting.highlightWholeMessage;
       const backgroundHighlightColor = setting.backgroundHighlightColor;
+      const backgroundHighlightOpacity = setting.backgroundHighlightOpacity;
       const matchWord = setting.matchWord;
       const matchCase = setting.matchCase;
       const allowedRegex = /^[a-z0-9_\-$/^[\s\]\\]+$/gi;
@@ -273,6 +274,7 @@ class ChatRenderer {
         highlightColor,
         highlightWholeMessage,
         backgroundHighlightColor,
+        backgroundHighlightOpacity,
       });
     });
   }
@@ -435,7 +437,8 @@ class ChatRenderer {
             );
             if (highlighted && parser.highlightWholeMessage) {
               const transparentBackgroundHighlightColor = makeHexTransparent(
-                parser.backgroundHighlightColor
+                parser.backgroundHighlightColor,
+                parser.backgroundHighlightOpacity / 100
               );
               node.style.setProperty(
                 '--highlight-color-transparent',

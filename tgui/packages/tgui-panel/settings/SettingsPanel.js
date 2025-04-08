@@ -240,6 +240,7 @@ const TextHighlightSetting = (props, context) => {
     highlightText,
     highlightWholeMessage,
     backgroundHighlightColor,
+    backgroundHighlightOpacity,
     matchWord,
     matchCase,
   } = highlightSettingById[id];
@@ -259,6 +260,31 @@ const TextHighlightSetting = (props, context) => {
               )
             }
           />
+        </Flex.Item>
+        <Flex.Item>
+          {highlightWholeMessage && (
+            <>
+              <label>Opacity: </label>
+              <NumberInput
+                width="4em"
+                step={1}
+                stepPixelSize={5}
+                minValue={1}
+                maxValue={100}
+                unit="%"
+                value={backgroundHighlightOpacity}
+                format={(value) => toFixed(value)}
+                onDrag={(e, value) =>
+                  dispatch(
+                    updateHighlightSetting({
+                      id: id,
+                      backgroundHighlightOpacity: value,
+                    })
+                  )
+                }
+              />
+            </>
+          )}
         </Flex.Item>
         <Flex.Item shrink={0}>
           {highlightWholeMessage && (
