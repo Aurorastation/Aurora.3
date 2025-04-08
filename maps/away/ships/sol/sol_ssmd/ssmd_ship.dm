@@ -106,7 +106,6 @@
 	sizeclass = "Uhlan-class Corvette"
 	shiptype = "Military reconnaissance and extended-duration combat utility"
 	max_speed = 1/(2 SECONDS)
-	burn_delay = 1 SECONDS
 	vessel_mass = 5000
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
@@ -159,7 +158,6 @@
 	moving_state = "shuttle_moving"
 	colors = list("#9dc04c", "#52c24c")
 	max_speed = 1/(3 SECONDS)
-	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
