@@ -1252,12 +1252,7 @@
 /turf/simulated/floor/carpet,
 /area/dungeon/crashed_ship)
 "zq" = (
-/obj/machinery/autolathe{
-	desc = "Your typical Autolathe. It appears to have much more options than your regular one, however...";
-	hacked = 1;
-	name = "modified autolathe";
-	pixel_y = 2
-	},
+/obj/machinery/fabricator/autolathe/hacked,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled,
 /area/dungeon/crashed_ship)

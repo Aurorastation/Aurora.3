@@ -381,7 +381,7 @@
 /turf/simulated/floor/airless,
 /area/wrecked_nt_ship)
 "hC" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
