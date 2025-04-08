@@ -809,6 +809,7 @@
 	id = ACCESS_GUEST_ROOM_10
 	desc = "Guest Room 10"
 
+//================================//
 #define ACCESS_FISHING_LEAGUE 241
 /datum/access/unathi_trawler_access
 	id = ACCESS_FISHING_LEAGUE
@@ -864,3 +865,9 @@
 /datum/access/enviro_testing_facility_access_sec
 	id = 252
 	desc = "Env-Test Facility Zoya, Security Access"
+
+//Being used for the Benevolent Guild hideout.
+#define ACCESS_KONYANG_BENEVOLENT 249
+/datum/access/konyang_benevolent
+	id = ACCESS_KONYANG_BENEVOLENT
+	access_type = ACCESS_TYPE_CENTCOM
