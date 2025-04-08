@@ -719,6 +719,8 @@
 	density = FALSE //It is wall-mounted, and thus, not dense. --Superxpdude
 	vend_id = "meds"
 	products = list(
+		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 3,
+		/obj/item/reagent_containers/hypospray/autoinjector/coagzolug = 3,
 		/obj/item/stack/medical/bruise_pack = 3,
 		/obj/item/stack/medical/ointment = 3,
 		/obj/item/reagent_containers/pill/perconol = 4,
