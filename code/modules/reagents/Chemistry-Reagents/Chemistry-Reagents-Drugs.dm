@@ -136,7 +136,7 @@
 /singleton/reagent/drugs/snowflake/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	..()
 	M.add_chemical_effect(CE_PAINKILLER, 3 * power)
-	M.bodytemperature = max(M.bodytemperature - 15 * TEMPERATURE_DAMAGE_COEFFICIENT * power, 0)
+	M.bodytemperature = max(M.bodytemperature - 10 * TEMPERATURE_DAMAGE_COEFFICIENT, 0)
 	if(prob(12))
 		M.emote(pick("shiver", "sniff"))
 	if(prob(5))
