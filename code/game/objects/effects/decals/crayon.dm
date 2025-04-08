@@ -4,11 +4,11 @@
 	icon = 'icons/obj/rune.dmi'
 	anchored = 1
 
-/obj/effect/decal/cleanable/crayon/Initialize(mapload, main = "#FFFFFF", shade = "#000000", var/type = "rune")
+/obj/effect/decal/cleanable/crayon/Initialize(mapload, main = "#FFFFFF", shade = "#000000", var/type = "rune", medium = "crayon")
 	. = ..()
 
 	name = type
-	desc = "A [type] drawn in crayon."
+	desc = "A [type] drawn in [medium]."
 
 	switch(type)
 		if("rune")

@@ -27,23 +27,41 @@
 /obj/item/pen/drafting/attack_self(var/mob/user)
 	return
 
-/obj/item/pen/drafting/afterattack(turf/target, mob/user, proximity)
-	if (!proximity || !istype(target, /turf/simulated) || target.density || target.is_hole)
-		return
+/obj/item/pen/drafting/afterattack(atom/target, mob/user as mob, proximity)
+	if(!proximity) return
+	if(istype(target,/turf/simulated/floor))
+		var/originaloc = user.loc
+		var/drawtype = input("Choose what you'd like to draw.", "Chalk scribbles") in list("line","graffiti","rune","letter","arrow")
+		C.color = color
+		if (user.loc != originaloc)
+			to_chat(user, SPAN_NOTICE("You moved!"))
+			return
 
-	to_chat(user, "You start marking a line on [target].")
-
-	if (!do_after(user, 1 SECONDS, target))
-		return
-
-	for (var/obj/effect/decal/cleanable/draftingchalk/C in target)
-		qdel(C)
-
-	to_chat(user, "You mark a line on [target].")
-
-	var/obj/effect/decal/cleanable/draftingchalk/C = new(target)
-	C.color = color
-	target.add_fingerprint(user)
+		switch(drawtype)
+			if("line")
+				for (var/obj/effect/decal/cleanable/draftingchalk/C in target)
+					qdel(C)
+				var/obj/effect/decal/cleanable/draftingchalk/C = new(target)
+					if (!do_after(user, 1 SECONDS, target))
+						return
+				to_chat(user, "You mark a line on [target].")
+				target.add_fingerprint(user)
+				return
+			if("letter")
+				drawtype = input("Choose the letter.", "Chalk scribbles") in list("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z")
+				to_chat(user, "You start drawing a letter on the [target.name].")
+			if("graffiti")
+				to_chat(user, "You start drawing graffiti on the [target.name].")
+			if("rune")
+				to_chat(user, "You start drawing a rune on the [target.name].")
+			if("arrow")
+				drawtype = input("Choose the arrow.", "Chalk scribbles") in list("left", "right", "up", "down")
+				to_chat(user, "You start drawing an arrow on the [target.name].")
+		if(instant || do_after(user, 50))
+			new /obj/effect/decal/cleanable/crayon(target,color,color,drawtype,"chalk")
+			to_chat(user, "You finish drawing.")
+			target.add_fingerprint(user)		// Adds their fingerprints to the floor the chalk is drawn on.
+	return
 
 /obj/item/pen/drafting/red
 	name = "red drafting chalk"
