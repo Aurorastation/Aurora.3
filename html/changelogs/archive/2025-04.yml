@@ -19,3 +19,13 @@
   - bugfix: Makes the open sides of the chainlink fence passable.
   hazelmouse:
   - bugfix: Ghosts can no longer drag items onto operating tables.
+2025-04-08:
+  ASmallCuteCat:
+  - qol: Slightly reduced the volume of Crusher's meows.
+  CourierBravo:
+  - balance: Increases ammo count for most commonly seen energy weapons. Laser pistols
+      see increases of 2-3 shots, averaging between 10-12 shots, carbines and rifles
+      gain 3-5 more rounds, with some skipped due to high ammo counts or powerful
+      projectiles. And blasters have had increases of 2-6, depending on the model.
+      Anything scoped, recharging, a disruptor, or otherwise unique/odd is kept the
+      same for balance.
