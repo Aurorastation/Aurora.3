@@ -212,6 +212,11 @@
 /obj/item/ammo_magazine/mc9mm/empty
 	initial_ammo = 0
 
+/obj/item/ammo_magazine/mc9mm/subsonic
+	name = "magazine (9mm subsonic)"
+	icon_state = "9x19p_s"
+	ammo_type = /obj/item/ammo_casing/c9mm/subsonic
+
 /obj/item/ammo_magazine/mc9mm/flash
 	name = "magazine (9mm flash)"
 	ammo_type = /obj/item/ammo_casing/c9mm/flash
@@ -277,6 +282,11 @@
 	ammo_type = /obj/item/ammo_casing/c10mm
 	max_ammo = 20
 	multiple_sprites = 1
+
+/obj/item/ammo_magazine/a10mm/subsonic
+	name = "magazine (10mm subsonic)"
+	icon_state = "12mm_s"
+	ammo_type = /obj/item/ammo_casing/c10mm/subsonic
 
 /obj/item/ammo_magazine/a10mm/empty
 	initial_ammo = 0
