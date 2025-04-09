@@ -441,3 +441,10 @@
 	desc = "Contains 5u of phoron."
 	icon_state = "packet_small_yellow"
 	reagents_to_add = list(/singleton/reagent/toxin/phoron = 5)
+
+/obj/item/reagent_containers/food/condiment/sweet_chili
+	icon_state = "sweet_chili"
+	name = "sweet chili"
+	empty_icon_state = "sweet_chili_empty"
+	reagents_to_add = list(/singleton/reagent/nutriment/sweet_chili = 50)
+	amount_per_transfer_from_this = 1

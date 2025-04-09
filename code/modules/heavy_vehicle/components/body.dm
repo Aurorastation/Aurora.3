@@ -6,13 +6,13 @@
 	center_of_mass = list("x"=24, "y"=20)
 
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_RESISTANT,
-		rad = ARMOR_RAD_MINOR
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_PISTOL,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_RESISTANT,
+		RAD = ARMOR_RAD_MINOR
 	)
 
 	var/mech_health = 600
@@ -67,11 +67,11 @@
 	. = ..()
 
 	if(!cell)
-		. += SPAN_WARNING("It is missing a <a href='?src=[REF(src)];info=cell'>power core</a>.")
+		. += SPAN_WARNING("It is missing a <a href='byond://?src=[REF(src)];info=cell'>power core</a>.")
 	if(!diagnostics)
-		. += SPAN_WARNING("It is missing a <a href='?src=[REF(src)];info=diagnostics'>diagnostics unit</a>.")
+		. += SPAN_WARNING("It is missing a <a href='byond://?src=[REF(src)];info=diagnostics'>diagnostics unit</a>.")
 	if(!mech_armor)
-		. += SPAN_WARNING("It is missing <a href='?src=[REF(src)];info=diagnostics'>armor plating</a>.")
+		. += SPAN_WARNING("It is missing <a href='byond://?src=[REF(src)];info=diagnostics'>armor plating</a>.")
 
 /obj/item/mech_component/chassis/Topic(href, href_list)
 	. = ..()

@@ -153,6 +153,7 @@
 			. = TRUE
 
 /datum/computer_file/program/teleporter/ninja
-	required_access_run = list()
+	filename = "ninjateleporter"
+	filedesc = "Ninja Teleporter Control"
 	requires_ntnet = FALSE
 	requires_access_to_run = FALSE

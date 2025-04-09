@@ -6,7 +6,7 @@
 
 /datum/gear/head/New()
 	..()
-	gear_tweaks += list(gear_tweak_hair_block)
+	gear_tweaks += list(GLOB.gear_tweak_hair_block)
 
 /datum/gear/head/boonie_blue
 	display_name = "blue boonie hat"
@@ -532,7 +532,8 @@
 /*
 	Block Hair Adjustment
 */
-var/datum/gear_tweak/hair_block/gear_tweak_hair_block = new()
+
+GLOBAL_DATUM_INIT(gear_tweak_hair_block, /datum/gear_tweak/hair_block, new())
 
 /datum/gear_tweak/hair_block/get_contents(var/metadata)
 	return "Blocks Hair: [metadata]"

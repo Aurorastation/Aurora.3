@@ -137,7 +137,7 @@
 		for(var/mob/living/M in orange(1,src))
 			if(M != src)
 				M.apply_damage(50, DAMAGE_BRUTE)
-				M.apply_effect(6, STUN, blocked)
+				M.apply_effect(6, STUN, GLOB.blocked)
 				M.throw_at(get_random_turf_in_range(get_turf(src), 1), 2)
 
 /mob/living/simple_animal/hostile/phoron_worm/small

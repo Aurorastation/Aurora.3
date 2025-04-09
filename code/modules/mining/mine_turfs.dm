@@ -13,12 +13,12 @@
 /turf/unsimulated/mineral/konyang
 	color = "#514e5c"
 
-// This is a global list so we can share the same list with all mineral turfs; it's the same for all of them anyways.
-var/list/mineral_can_smooth_with = list(
+/// This is a global list so we can share the same list with all mineral turfs; it's the same for all of them anyways.
+GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 	/turf/simulated/mineral,
 	/turf/simulated/wall,
 	/turf/unsimulated/wall
-)
+))
 
 /turf/simulated/mineral
 	name = "rock"
@@ -84,7 +84,7 @@ var/list/mineral_can_smooth_with = list(
 	has_opaque_atom = TRUE
 
 	if(smoothing_flags)
-		canSmoothWith = mineral_can_smooth_with
+		canSmoothWith = GLOB.mineral_can_smooth_with
 
 	rock_health = rand(10,20)
 
@@ -730,13 +730,13 @@ var/list/mineral_can_smooth_with = list(
 	roof_type = null
 	turf_flags = TURF_FLAG_BACKGROUND
 
-// Same as the other, this is a global so we don't have a lot of pointless lists floating around.
-// Basalt is explicitly omitted so ash will spill onto basalt turfs.
-var/list/asteroid_floor_smooth = list(
+/// Same as the other, this is a global so we don't have a lot of pointless lists floating around.
+/// Basalt is explicitly omitted so ash will spill onto basalt turfs.
+GLOBAL_LIST_INIT(asteroid_floor_smooth, list(
 	/turf/simulated/floor/exoplanet/asteroid/ash,
 	/turf/simulated/mineral,
 	/turf/simulated/wall
-)
+))
 
 // Copypaste parent for performance.
 /turf/simulated/floor/exoplanet/asteroid/Initialize(mapload)
@@ -762,7 +762,7 @@ var/list/asteroid_floor_smooth = list(
 		queue_ao()
 
 	if(smoothing_flags)
-		canSmoothWith = asteroid_floor_smooth
+		canSmoothWith = GLOB.asteroid_floor_smooth
 		pixel_x = -4
 		pixel_y = -4
 

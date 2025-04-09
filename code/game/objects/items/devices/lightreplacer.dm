@@ -95,7 +95,7 @@
 
 	if(istype(attacking_item, /obj/item/light))
 		var/obj/item/light/L = attacking_item
-		if(L.status == 0) // LIGHT OKAY
+		if(L.status == 0) // AREA_USAGE_LIGHT OKAY
 			if(uses < max_uses)
 				AddUses(1)
 				to_chat(user, SPAN_NOTICE("You insert \the [L] into \the [src]. You have [uses] light\s remaining."))

@@ -38,22 +38,22 @@
 	for(var/area/A in typecache_filter_list_reverse(get_sorted_areas(), exempt_areas))
 		if(is_station_level(A.z))
 			area_test_count++
-			var/bad_msg = "[ascii_red]--------------- [A.name] ([A.type])"
+			var/bad_msg = TEST_OUTPUT_RED("--------------- [A.name] ([A.type])")
 
 			if(!A.apc && !is_type_in_typecache(A, exempt_from_apc))
-				TEST_FAIL("[bad_msg] lacks an APC.[ascii_reset]")
+				TEST_FAIL(TEST_OUTPUT_RED("[bad_msg] lacks an APC."))
 				bad_apc++
 
 			if(!A.air_scrub_info.len && !is_type_in_typecache(A, exempt_from_atmos))
-				TEST_FAIL("[bad_msg] lacks an air scrubber.[ascii_reset]")
+				TEST_FAIL(TEST_OUTPUT_RED("[bad_msg] lacks an air scrubber."))
 				bad_airs++
 
 			if(!A.air_vent_info.len && !is_type_in_typecache(A, exempt_from_atmos))
-				TEST_FAIL("[bad_msg] lacks an air vent.[ascii_reset]")
+				TEST_FAIL(TEST_OUTPUT_RED("[bad_msg] lacks an air vent."))
 				bad_airv++
 
 			if(!(locate(/obj/machinery/firealarm) in A) && !is_type_in_typecache(A, exempt_from_fire))
-				TEST_FAIL("[bad_msg] lacks a fire alarm.[ascii_reset]")
+				TEST_FAIL(TEST_OUTPUT_RED("[bad_msg] lacks a fire alarm."))
 				bad_fire++
 
 	if(bad_apc)
@@ -91,7 +91,7 @@
 			cable_turfs |= get_turf(C)
 
 	for(T in cable_turfs)
-		var/bad_msg = "[ascii_red]--------------- [T.name] \[[T.x] / [T.y] / [T.z]\]"
+		var/bad_msg = TEST_OUTPUT_RED("--------------- [T.name] \[[T.x] / [T.y] / [T.z]\]")
 		dirs_checked.Cut()
 		for(C in T)
 			wire_test_count++

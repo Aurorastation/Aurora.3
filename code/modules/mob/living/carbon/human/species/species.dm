@@ -29,8 +29,6 @@
 	var/preview_icon = 'icons/mob/human_races/human/human_preview.dmi'
 	var/bandages_icon
 
-	var/talk_bubble_icon
-
 	// Damage overlay and masks.
 	var/damage_overlays = 'icons/mob/human_races/masks/dam_human.dmi'
 	var/damage_mask = 'icons/mob/human_races/masks/dam_mask_human.dmi'
@@ -427,9 +425,9 @@
 /datum/species/proc/get_random_name(var/gender)
 	if(!name_language)
 		if(gender == FEMALE)
-			return capitalize(pick(first_names_female)) + " " + capitalize(pick(last_names))
+			return capitalize(pick(GLOB.first_names_female)) + " " + capitalize(pick(GLOB.last_names))
 		else
-			return capitalize(pick(first_names_male)) + " " + capitalize(pick(last_names))
+			return capitalize(pick(GLOB.first_names_male)) + " " + capitalize(pick(GLOB.last_names))
 
 	var/datum/language/species_language = GLOB.all_languages[name_language]
 	if(!species_language)
@@ -503,7 +501,7 @@
 		target.IgniteMob()
 		H.visible_message(SPAN_DANGER("[H] taps [target], setting [target.get_pronoun("his")] ablaze!"), \
 						SPAN_WARNING("You tap [target], setting [target.get_pronoun("him")] ablaze!"))
-		msg_admin_attack("[key_name(H)] spread fire to [target.name] ([target.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)",ckey=key_name(H),ckey_target=key_name(target))
+		msg_admin_attack("[key_name(H)] spread fire to [target.name] ([target.ckey]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)",ckey=key_name(H),ckey_target=key_name(target))
 	else
 		H.visible_message(SPAN_NOTICE("[H] taps [target] to get [target.get_pronoun("his")] attention!"), \
 						SPAN_NOTICE("You tap [target] to get [target.get_pronoun("his")] attention!"))
@@ -642,7 +640,7 @@
 	H.set_fullscreen(H.eye_blurry, "blurry", /atom/movable/screen/fullscreen/blurry)
 
 	if(H.druggy)
-		H.client.screen += global_hud.druggy
+		H.client.screen += GLOB.global_hud.druggy
 	if(H.druggy > 5)
 		H.add_client_color(/datum/client_color/oversaturated)
 	else
@@ -857,9 +855,18 @@
 		return src
 	return name
 
-// prevents EMP damage if return it returns TRUE
-/datum/species/proc/handle_emp_act(var/mob/living/carbon/human/H, var/severity)
-	return FALSE
+/**
+ * Handles EMP act for a specie
+ *
+ * * hit_mob - The mob that was hit by the EMP (aka the mob that is this specie)
+ * * severity - The severity of the EMP, one of the EMP_ defines in empulse.dm
+ *
+ * returns a bitfield with the EMP_PROTECT_* defines to determine what should happen from the mob perspective
+ */
+/datum/species/proc/handle_emp_act(mob/living/carbon/human/hit_mob, severity)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_CALL_PARENT(FALSE)
+	return NONE
 
 /**
  * DEPRECATED: Use `/datum/movespeed_modifier` instead

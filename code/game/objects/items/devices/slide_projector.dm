@@ -93,7 +93,7 @@
 /obj/item/storage/slide_projector/interact(mob/user)
 	var/data = list()
 	if(projection)
-		data += "<a href='?src=[REF(src)];stop_projector=1'>Disable Projector</a>"
+		data += "<a href='byond://?src=[REF(src)];stop_projector=1'>Disable Projector</a>"
 	else
 		data += "Projector Inactive"
 
@@ -104,7 +104,7 @@
 		if(I == current_slide)
 			table += "<td><b>[I.name]</b></td><td>SHOWING</td>"
 		else
-			table += "<td>[I.name]</td><td><a href='?src=[REF(src)];set_active=[i]'>SHOW</a></td>"
+			table += "<td>[I.name]</td><td><a href='byond://?src=[REF(src)];set_active=[i]'>SHOW</a></td>"
 		table += "</tr>"
 		i++
 	table += "</table>"

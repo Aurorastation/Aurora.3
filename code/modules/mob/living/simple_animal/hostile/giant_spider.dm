@@ -86,11 +86,6 @@
 	speed = -2
 	poison_type = /singleton/reagent/soporific
 	fed = 1
-	minbodytemp = 0
-	maxbodytemp = 350
-	min_oxy = 0
-	max_co2 = 0
-	max_tox = 0
 	var/playable = TRUE
 	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Cellular structures indicative of high offspring production", "Tissue sample contains high neural cell content")
 
@@ -194,7 +189,7 @@
 		var/list/armors = target.get_armors_by_zone(limb.limb_name, DAMAGE_BRUTE, DAMAGE_FLAG_SHARP)
 		for(var/armor in armors)
 			var/datum/component/armor/armor_datum = armor
-			inject_probability -= armor_datum.armor_values["melee"] * 1.8
+			inject_probability -= armor_datum.armor_values[MELEE] * 1.8
 		if(prob(inject_probability))
 			to_chat(target, SPAN_WARNING("You feel a tiny prick."))
 			target.reagents.add_reagent(poison_type, poison_per_bite)

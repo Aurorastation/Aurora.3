@@ -134,7 +134,7 @@
 			final_destination = loc_landmark.loc
 
 
-	var/mob/living/silicon/ai/O = new (final_destination, base_law_type,,1)//No MMI but safety is in effect.
+	var/mob/living/silicon/ai/O = new (final_destination, GLOB.base_law_type,,1)//No MMI but safety is in effect.
 	O.set_invisibility(0)
 	O.ai_restore_power_routine = 0
 
@@ -191,9 +191,7 @@
 	O.forceMove(loc)
 	O.job = "Cyborg"
 	if(O.mind.assigned_role == "Cyborg")
-		if(O.mind.role_alt_title == "Android")
-			O.mmi = new /obj/item/device/mmi/digital/posibrain(O)
-		else if(O.mind.role_alt_title == "Robot")
+		if(O.mind.role_alt_title == "Robot")
 			O.mmi = new /obj/item/device/mmi/digital/robot(O)
 		else
 			O.mmi = new /obj/item/device/mmi(O)

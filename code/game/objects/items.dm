@@ -19,6 +19,8 @@
 
 	var/storage_cost
 
+	var/storage_slot_sort_by_name = FALSE
+
 	///Dimensions of the icon file used when this item is worn, eg: hats.dmi (32x32 sprite, 64x64 sprite, etc.). Allows inhands/worn sprites to be of any size, but still centered on a mob properly
 	var/worn_x_dimension = 32
 
@@ -223,7 +225,6 @@
 	///Used to override hardcoded clothing dmis in human clothing pr
 	var/icon_override
 
-
 	var/charge_failure_message = " cannot be recharged."
 	var/held_maptext
 
@@ -291,6 +292,7 @@
 	pickup_sound = 'sound/items/pickup/device.ogg'
 	drop_sound = 'sound/items/drop/device.ogg'
 	contained_sprite = TRUE
+	item_state = "electronic"
 
 /atom/proc/get_cell()
 	return DEVICE_NO_CELL
@@ -353,7 +355,7 @@
 	. = ..(user, distance, "", "It is a [size] item.", get_extended = get_extended)
 	var/datum/component/armor/armor_component = GetComponent(/datum/component/armor)
 	if(armor_component)
-		. += FONT_SMALL(SPAN_NOTICE("\[?\] This item has armor values. <a href=?src=[REF(src)];examine_armor=1>\[Show Armor Values\]</a>"))
+		. += FONT_SMALL(SPAN_NOTICE("\[?\] This item has armor values. <a href='byond://?src=[REF(src)];examine_armor=1'>\[Show Armor Values\]</a>"))
 
 /obj/item/Topic(href, href_list)
 	if(href_list["examine_armor"])
@@ -623,8 +625,8 @@
 /obj/item/proc/item_action_slot_check(mob/user, slot)
 	return TRUE
 
-//Defines which slots correspond to which slot flags
-var/list/global/slot_flags_enumeration = list(
+///Defines which slots correspond to which slot flags
+GLOBAL_LIST_INIT(slot_flags_enumeration, list(
 	"[slot_wear_mask]" = SLOT_MASK,
 	"[slot_back]" = SLOT_BACK,
 	"[slot_wear_suit]" = SLOT_OCLOTHING,
@@ -640,7 +642,7 @@ var/list/global/slot_flags_enumeration = list(
 	"[slot_tie]" = SLOT_TIE,
 	"[slot_wrists]" = SLOT_WRISTS,
 	"[slot_pants]" = SLOT_PANTS
-	)
+	))
 
 //the mob M is attempting to equip this item into the slot passed through as 'slot'. Return 1 if it can do this and 0 if it can't.
 //If you are making custom procs but would like to retain partial or complete functionality of this one, include a 'return ..()' to where you want this to happen.
@@ -661,8 +663,8 @@ var/list/global/slot_flags_enumeration = list(
 		return 0
 
 	//First check if the item can be equipped to the desired slot.
-	if("[slot]" in slot_flags_enumeration)
-		var/req_flags = slot_flags_enumeration["[slot]"]
+	if("[slot]" in GLOB.slot_flags_enumeration)
+		var/req_flags = GLOB.slot_flags_enumeration["[slot]"]
 		if(!(req_flags & slot_flags))
 			return 0
 
@@ -909,7 +911,7 @@ var/list/global/slot_flags_enumeration = list(
 /obj/item/proc/showoff(mob/user)
 	for (var/mob/M in view(user))
 		if(!user.is_invisible_to(M))
-			M.show_message("<b>[user]</b> holds up [icon2html(src, viewers(get_turf(src)))] [src]. <a HREF=?src=[REF(M)];lookitem=[REF(src)]>Take a closer look.</a>",1)
+			M.show_message("<b>[user]</b> holds up [icon2html(src, viewers(get_turf(src)))] [src]. <a href='byond://?src=[REF(M)];lookitem=[REF(src)]>Take a closer look.</a>",1)
 
 /mob/living/carbon/verb/showoff()
 	set name = "Show Held Item"
@@ -947,7 +949,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	if(M.stat || !(ishuman(M)))
 		to_chat(M, SPAN_WARNING("You are unable to focus through \the [devicename]!"))
 		cannotzoom = 1
-	else if(!zoom && (global_hud.darkMask[1] in M.client.screen))
+	else if(!zoom && (GLOB.global_hud.darkMask[1] in M.client.screen))
 		to_chat(M, SPAN_WARNING("Your visor gets in the way of looking through the [devicename]!"))
 		cannotzoom = 1
 	else if(do_device_check && !zoom && M.get_active_hand() != src)

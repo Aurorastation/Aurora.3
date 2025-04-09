@@ -1835,8 +1835,8 @@
 /obj/machinery/vending/ramen
 	name = "ramen vendor"
 	desc = "A generic brand vending machine capable of cooking tonkotsu ramen at the push of a button. Truly a pinnacle of human engineering!"
-	icon_state = "ramenvend"
-	icon_vend = "ramenvend"
+	icon_state = "ramen"
+	icon_vend = "ramen-vend"
 	product_slogans = "Irasshaimase!"
 	vend_id = "ramen"
 	products = list(
@@ -1877,7 +1877,7 @@
 
 /obj/machinery/vending/actor
 	name = "Actor Vendor"
-	desc = ""
+	desc = "Has all your odyssey actor items, to let you effectively do your odysseying and actoring."
 	vend_id = "actor"
 	icon_state = "generic"
 	icon_vend = "generic-vend"
@@ -1888,5 +1888,4 @@
 		/obj/item/card/id/syndicate = 12,
 	)
 	light_color = COLOR_GUNMETAL
-
-
+	random_itemcount = FALSE

@@ -400,6 +400,9 @@
 
 	if(ismob(load))
 		unbuckle(user)
+		if(ishuman(load))
+			var/mob/living/carbon/human/H = load
+			H.update_body()
 
 	load = null
 

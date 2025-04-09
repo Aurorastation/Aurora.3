@@ -13,12 +13,12 @@
 		"}
 	dat += {"
 		<BR>
-		<A href='?src=[REF(src)];create_object=1'>Create Object</A><br>
-		<A href='?src=[REF(src)];create_turf=1'>Create Turf</A><br>
-		<A href='?src=[REF(src)]];create_mob=1'>Create Mob</A><br>
+		<A href='byond://?src=[REF(src)];create_object=1'>Create Object</A><br>
+		<A href='byond://?src=[REF(src)];create_turf=1'>Create Turf</A><br>
+		<A href='byond://?src=[REF(src)]];create_mob=1'>Create Mob</A><br>
 		"}
 
-	usr << browse(dat, "window=storytellerpanel;size=210x280")
+	usr << browse(HTML_SKELETON(dat), "window=storytellerpanel;size=210x280")
 
 /mob/abstract/ghost/storyteller/Topic(href, href_list)
 	. = ..()

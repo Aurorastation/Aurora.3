@@ -235,7 +235,7 @@ GLOBAL_LIST_EMPTY(process_objectives)
 /datum/objective/hijack/check_completion()
 	if(!owner.current || owner.current.stat)
 		return 0
-	if(!evacuation_controller.round_over())
+	if(!GLOB.evacuation_controller.round_over())
 		return 0
 	if(issilicon(owner.current))
 		return 0
@@ -257,7 +257,7 @@ GLOBAL_LIST_EMPTY(process_objectives)
 /datum/objective/block/check_completion()
 	if(!istype(owner.current, /mob/living/silicon))
 		return 0
-	if(!evacuation_controller.round_over())
+	if(!GLOB.evacuation_controller.round_over())
 		return 0
 	if(!owner.current)
 		return 0
@@ -275,7 +275,7 @@ GLOBAL_LIST_EMPTY(process_objectives)
 	explanation_text = "Do not allow anyone to escape the [station_name()].  Only allow the shuttle to be called when everyone is dead and your story is the only one left."
 
 /datum/objective/silence/check_completion()
-	if(!evacuation_controller.round_over())
+	if(!GLOB.evacuation_controller.round_over())
 		return 0
 
 	for(var/mob/living/player in GLOB.player_list)
@@ -300,7 +300,7 @@ GLOBAL_LIST_EMPTY(process_objectives)
 		return 0
 	if(isbrain(owner.current))
 		return 0
-	if(!evacuation_controller.round_over())
+	if(!GLOB.evacuation_controller.round_over())
 		return 0
 	if(!owner.current || owner.current.stat ==2)
 		return 0
@@ -713,7 +713,7 @@ GLOBAL_LIST_EMPTY(process_objectives)
 			if(istype(I,target)) total_amount++
 		if(total_amount >= target_amount) return 1
 
-	for(var/datum/mind/raider in raiders.current_antagonists)
+	for(var/datum/mind/raider in GLOB.raiders.current_antagonists)
 		if(raider.current)
 			for(var/obj/O in raider.current.get_contents())
 				if(istype(O,target)) total_amount++
@@ -768,7 +768,7 @@ GLOBAL_LIST_EMPTY(process_objectives)
 					S = I
 					total_amount += S.get_amount()
 
-	for(var/datum/mind/raider in raiders.current_antagonists)
+	for(var/datum/mind/raider in GLOB.raiders.current_antagonists)
 		if(raider.current)
 			for(var/obj/item/O in raider.current.get_contents())
 				if(istype(O,/obj/item/stack/material))
@@ -784,7 +784,7 @@ GLOBAL_LIST_EMPTY(process_objectives)
 	explanation_text = "Do not leave anyone behind, alive or dead."
 
 /datum/objective/heist/preserve_crew/check_completion()
-	if(raiders && raiders.is_raider_crew_safe()) return 1
+	if(GLOB.raiders?.is_raider_crew_safe()) return 1
 	return 0
 
 //Borer objective(s).
@@ -827,9 +827,9 @@ GLOBAL_LIST_EMPTY(process_objectives)
 
 /datum/objective/cult/survive/check_completion()
 	var/acolytes_survived = 0
-	if(!cult)
+	if(!GLOB.cult)
 		return 0
-	for(var/datum/mind/cult_mind in cult.current_antagonists)
+	for(var/datum/mind/cult_mind in GLOB.cult.current_antagonists)
 		if (cult_mind.current && cult_mind.current.stat!=2)
 			var/area/A = get_area(cult_mind.current )
 			if ( is_type_in_list(A, GLOB.centcom_areas))
@@ -852,14 +852,14 @@ GLOBAL_LIST_EMPTY(process_objectives)
 	var/list/possible_targets = list()
 	if(!possible_targets.len)
 		for(var/mob/living/carbon/human/player in GLOB.player_list)
-			if(player.mind && !(player.mind in cult))
+			if(player.mind && !(player.mind in GLOB.cult))
 				possible_targets += player.mind
 	if(possible_targets.len > 0)
 		target = pick(possible_targets)
 	if(target) explanation_text = "Sacrifice [target.name], the [target.assigned_role]. You will need the sacrifice rune and three acolytes to do so."
 
 /datum/objective/cult/sacrifice/check_completion()
-	return (target && cult && !cult.sacrificed.Find(target))
+	return (target && GLOB.cult && !GLOB.cult.sacrificed.Find(target))
 
 /datum/objective/rev/find_target()
 	..()
@@ -887,7 +887,7 @@ GLOBAL_LIST_EMPTY(process_objectives)
 		if(H.stat == DEAD || H.restrained())
 			return 1
 		// Check if they're converted
-		if(target in revs.current_antagonists)
+		if(target in GLOB.revs.current_antagonists)
 			return 1
 		var/turf/T = get_turf(H)
 		if(T && !is_station_level(T.z))			//If they leave the station they count as dead for this

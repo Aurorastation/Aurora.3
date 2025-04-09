@@ -26,7 +26,7 @@
 /********
 * photo *
 ********/
-var/global/photo_count = 0
+GLOBAL_VAR_INIT(photo_count, 0)
 
 /obj/item/photo
 	name = "photo"
@@ -47,7 +47,7 @@ var/global/photo_count = 0
 
 /obj/item/photo/New()
 	. = ..()
-	id = photo_count++
+	id = GLOB.photo_count++
 
 /obj/item/photo/attack_self(mob/user as mob)
 	examinate(user, src)
@@ -74,7 +74,7 @@ var/global/photo_count = 0
 		+ "<img src='tmp_photo_[id].png' width='[64*photo_size]' style='-ms-interpolation-mode:nearest-neighbor' />" \
 		+ "[scribble ? "<br>Written on the back:<br><i>[scribble]</i>" : ""]" \
 		+ "</body></html>"
-	show_browser(user, dat, "window=book;size=[64*photo_size]x[scribble ? 400 : 64*photo_size]")
+	show_browser(user, HTML_SKELETON(dat), "window=book;size=[64*photo_size]x[scribble ? 400 : 64*photo_size]")
 	onclose(user, "[name]")
 	return
 

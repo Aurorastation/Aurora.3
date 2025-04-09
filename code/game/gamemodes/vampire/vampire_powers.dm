@@ -761,7 +761,7 @@
 		return
 
 	to_chat(T, SPAN_DANGER("Your mind blanks as you finish feeding from [src]'s wrist."))
-	thralls.add_antagonist(T.mind, 1, 1, 0, 1, 1)
+	GLOB.thralls.add_antagonist(T.mind, 1, 1, 0, 1, 1)
 
 	var/datum/vampire/T_vampire = T.mind.antag_datums[MODE_VAMPIRE]
 	T_vampire.assign_master(T, src, vampire)
@@ -915,7 +915,7 @@
 					to_chat(src, SPAN_NOTICE("[denial_response]"))
 					return
 
-				thralls.remove_antagonist(T.mind, 0, 0)
+				GLOB.thralls.remove_antagonist(T.mind, 0, 0)
 				qdel(draining_vamp)
 				draining_vamp = null
 			else
@@ -956,7 +956,7 @@
 				to_chat(T, SPAN_DANGER("A dark force pushes you back into your body. You find yourself somehow still clinging to life."))
 
 	T.Weaken(15)
-	vamp.add_antagonist(T.mind, 1, 1, 0, 0, 1)
+	GLOB.vamp.add_antagonist(T.mind, 1, 1, 0, 0, 1)
 
 	admin_attack_log(src, T, "successfully embraced [key_name(T)]", "was successfully embraced by [key_name(src)]", "successfully embraced and turned into a vampire")
 

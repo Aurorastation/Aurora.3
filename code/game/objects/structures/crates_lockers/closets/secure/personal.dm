@@ -18,8 +18,11 @@
 /obj/structure/closet/secure_closet/personal/patient/fill()
 	if(prob(50))
 		new /obj/item/clothing/under/medical_gown(src)
+		new /obj/item/clothing/under/medical_gown(src)
 	else
 		new /obj/item/clothing/under/medical_gown/white(src)
+		new /obj/item/clothing/under/medical_gown/white(src)
+	new /obj/item/clothing/shoes/sneakers( src )
 	new /obj/item/clothing/shoes/sneakers( src )
 
 
@@ -29,7 +32,7 @@
 	close_sound = 'sound/machines/wooden_closet_close.ogg'
 	door_anim_angle = 160
 	door_anim_squish = 0.22
-	door_hinge_alt = 7.5
+	door_hinge_x_alt = 7.5
 	double_doors = TRUE
 
 /obj/structure/closet/secure_closet/personal/cabinet/fill()

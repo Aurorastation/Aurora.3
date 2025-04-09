@@ -1,4 +1,4 @@
-var/global/const/base_law_type = /datum/ai_laws/nanotrasen
+GLOBAL_VAR_INIT(base_law_type, /datum/ai_laws/conglomerate)
 
 /datum/ai_law
 	var/law = ""

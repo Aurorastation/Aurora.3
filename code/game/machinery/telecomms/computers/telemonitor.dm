@@ -24,7 +24,7 @@
 	if(stat & (BROKEN|NOPOWER))
 		return
 	user.set_machine(src)
-	var/dat = "<TITLE>Telecommunications Monitor</TITLE><center><b>Telecommunications Monitor</b></center>"
+	var/dat = "<center><b>Telecommunications Monitor</b></center>"
 
 	switch(screen)
 
@@ -33,33 +33,33 @@
 
 		if(0)
 			dat += "<br>[temp]<br><br>"
-			dat += "<br>Current Network: <a href='?src=[REF(src)];network=1'>[network]</a><br>"
+			dat += "<br>Current Network: <a href='byond://?src=[REF(src)];network=1'>[network]</a><br>"
 			if(machinelist.len)
 				dat += "<br>Detected Network Entities:<ul>"
 				for(var/obj/machinery/telecomms/T in machinelist)
-					dat += "<li><a href='?src=[REF(src)];viewmachine=[T.id]'>[REF(T)] [T.name]</a> ([T.id])</li>"
+					dat += "<li><a href='byond://?src=[REF(src)];viewmachine=[T.id]'>[REF(T)] [T.name]</a> ([T.id])</li>"
 				dat += "</ul>"
-				dat += "<br><a href='?src=[REF(src)];operation=release'>\[Flush Buffer\]</a>"
+				dat += "<br><a href='byond://?src=[REF(src)];operation=release'>\[Flush Buffer\]</a>"
 			else
-				dat += "<a href='?src=[REF(src)];operation=probe'>\[Probe Network\]</a>"
+				dat += "<a href='byond://?src=[REF(src)];operation=probe'>\[Probe Network\]</a>"
 
 
 		// --- Viewing Machine ---
 
 		if(1)
 			dat += "<br>[temp]<br>"
-			dat += "<center><a href='?src=[REF(src)];operation=mainmenu'>\[Main Menu\]</a></center>"
+			dat += "<center><a href='byond://?src=[REF(src)];operation=mainmenu'>\[Main Menu\]</a></center>"
 			dat += "<br>Current Network: [network]<br>"
 			dat += "Selected Network Entity: [SelectedMachine.name] ([SelectedMachine.id])<br>"
 			dat += "Linked Entities: <ol>"
 			for(var/obj/machinery/telecomms/T in SelectedMachine.links)
 				if(!T.hide)
-					dat += "<li><a href='?src=[REF(src)];viewmachine=[T.id]'>[REF(T.id)] [T.name]</a> ([T.id])</li>"
+					dat += "<li><a href='byond://?src=[REF(src)];viewmachine=[T.id]'>[REF(T.id)] [T.name]</a> ([T.id])</li>"
 			dat += "</ol>"
 
 
 
-	user << browse(dat, "window=comm_monitor;size=575x400")
+	user << browse(HTML_SKELETON_TITLE("Telecommunications Monitor", dat), "window=comm_monitor;size=575x400")
 	onclose(user, "server_control")
 
 	temp = ""

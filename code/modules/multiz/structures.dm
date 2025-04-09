@@ -423,6 +423,7 @@
 	atom_flags = ATOM_FLAG_CHECKS_BORDER|ATOM_FLAG_ALWAYS_ALLOW_PICKUP
 	climbable = TRUE
 	color = COLOR_TILED
+	pass_flags_self = LETPASSTHROW|PASSSTRUCTURE|PASSRAILING
 
 /obj/structure/platform/dark
 	icon_state = "platform_dark"
@@ -435,8 +436,6 @@
 	if(istype(mover, /obj/projectile))
 		return TRUE
 	if(!istype(mover) || mover.pass_flags & PASSRAILING)
-		return TRUE
-	if(mover.throwing)
 		return TRUE
 	if(get_dir(mover, target) == REVERSE_DIR(dir))
 		return FALSE
@@ -462,10 +461,31 @@
 			var/climb_text = same_turf ? "over" : "down"
 			LAZYADD(climbers, user)
 			user.visible_message(SPAN_NOTICE("[user] starts climbing [climb_text] \the [src]..."), SPAN_NOTICE("You start climbing [climb_text] \the [src]..."))
-			if(do_after(user, 1 SECOND) && can_climb(user, TRUE))
-				user.visible_message(SPAN_NOTICE("[user] climbs [climb_text] \the [src]."), SPAN_NOTICE("You climb [climb_text] \the [src]."))
-				user.forceMove(next_turf)
-				LAZYREMOVE(climbers, user)
+
+			if(!do_after(user, 1 SECOND) || !can_climb(user, TRUE))
+				LAZYREMOVE(climbers, user) // Prevents early-cancellation not clearing the climber off the list
+				return
+
+			user.visible_message(SPAN_NOTICE("[user] climbs [climb_text] \the [src]."), SPAN_NOTICE("You climb [climb_text] \the [src]."))
+			user.forceMove(next_turf)
+			LAZYREMOVE(climbers, user)
+
+/obj/structure/platform/CollidedWith(atom/bumped_atom)
+	. = ..()
+	for(var/obj/other_obj in get_turf(src))
+		if(other_obj == src)
+			continue
+
+		if(other_obj.density)
+			return // Whatever other structure is blocking the hop-down effect.
+
+	if(get_dir(src, bumped_atom) == REVERSE_DIR(dir))
+		var/atom/movable/bumped_movable = bumped_atom
+		if(ismob(bumped_movable))
+			visible_message(SPAN_NOTICE("[bumped_movable] hops down the platform."))
+		else
+			visible_message(SPAN_NOTICE("[bumped_movable] goes over the platform."))
+		bumped_movable.forceMove(src.loc)
 
 /obj/structure/platform/ledge
 	icon_state = "ledge"

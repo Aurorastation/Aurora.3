@@ -257,7 +257,7 @@
 	if(item3_type)
 		new item3_type(src)
 
-/obj/item/storage/wallet/sol_rich/fill()
+/obj/item/storage/wallet/rich/fill()
 	..()
 	var/item1_type = pick(
 		/obj/item/spacecash/ewallet/c10000,
@@ -280,4 +280,3 @@
 	new item1_type(src)
 	new item2_type(src)
 	new item3_type(src)
-	new /obj/item/clothing/accessory/badge/passport/sol(src)

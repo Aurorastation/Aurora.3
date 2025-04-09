@@ -175,9 +175,9 @@
 		output += "<td align='center'>[details["source"]]</td>"
 		output += "<td align='center'>[details["ckey"]]</td>"
 		output += "<td align='center'>[details["date"]]</td>"
-		output += "<td align='center'><a href='?_src_=holder;dbbanmirroract=[details["id"]];mirrorstatus=[details["inactive"]]'>[details["inactive"] ? "Reactivate" : "Deactivate"]</a>"
+		output += "<td align='center'><a href='byond://?_src_=holder;dbbanmirroract=[details["id"]];mirrorstatus=[details["inactive"]]'>[details["inactive"] ? "Reactivate" : "Deactivate"]</a>"
 		if (details["extra"])
-			output += " | <a href='?_src_=holder;dbbanmirroract=[details["id"]];mirrorckeys=1'>View Ckeys</a>"
+			output += " | <a href='byond://?_src_=holder;dbbanmirroract=[details["id"]];mirrorckeys=1'>View Ckeys</a>"
 		output += "</td></tr>"
 
 		output += "<tr bgcolor='[bg]'>"
@@ -188,7 +188,7 @@
 		i = (++i % 2)
 
 	output += "</table>"
-	user << browse(output, "window=banmirrors;size=600x400")
+	user << browse(HTML_SKELETON(output), "window=banmirrors;size=600x400")
 
 /proc/display_mirrors_ckeys(mob/user, mirror_id)
 	if (!user || !check_rights(R_MOD|R_ADMIN) || !mirror_id)
@@ -209,7 +209,7 @@
 		to_chat(user, SPAN_NOTICE("No attached ckeys were found."))
 		return
 
-	var/output = "<a href='?_src_=holder;dbbanmirrors=[query.item[2]];'>Back</a><br><br>"
+	var/output = "<a href='byond://?_src_=holder;dbbanmirrors=[query.item[2]];'>Back</a><br><br>"
 	try
 		var/list/ckeys = json_decode(query.item[1])
 
@@ -222,8 +222,8 @@
 		to_chat(user, SPAN_NOTICE("Maligned data found. Please alert the system administrator."))
 		return
 
-	output += "<br><br><a href='?_src_=holder;dbbanmirrors=[query.item[2]];'>Back</a>"
-	user << browse(output, "window=banmirrors")
+	output += "<br><br><a href='byond://?_src_=holder;dbbanmirrors=[query.item[2]];'>Back</a>"
+	user << browse(HTML_SKELETON(output), "window=banmirrors")
 
 /proc/toggle_mirror_status(mob/user, mirror_id, inactive = FALSE)
 	if (!user || !check_rights(R_MOD|R_ADMIN) || !mirror_id)
