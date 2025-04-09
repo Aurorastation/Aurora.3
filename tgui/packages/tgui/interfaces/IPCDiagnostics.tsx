@@ -51,9 +51,9 @@ export const Broken = (props, context) => {
   return (
     <Section title="CRITICAL ERROR 0x0127F29">
       <Box as="span" textColor="red" fontSize={3}>
-        ERROR ER0RR $R0RRO$!R41.%%!!(%$^^__+ @#F0E4'ERROR ER0RR
-        $R0RRO$!R41.%%!!(%$^^__+ @#F0E4'ERROR ER0RR $R0RRO$!R41.%%!!(%$^^__+
-        @#F0E4'ERROR ER0RR $R0RRO$!R41.%%!!(%$^^__+ @#F0E4'
+        ERROR ER0RR $R0RRO$!R41.%%!!(%$^^__+ @#F0E4/ERROR ER0RR
+        $R0RRO$!R41.%%!!(%$^^__+ @#F0E4/ERROR ER0RR $R0RRO$!R41.%%!!(%$^^__+
+        @#F0E4/ERROR ER0RR $R0RRO$!R41.%%!!(%$^^__+ @#F0E4/
       </Box>
     </Section>
   );
