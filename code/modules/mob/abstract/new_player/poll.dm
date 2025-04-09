@@ -27,7 +27,7 @@
 
 		output += "</table>"
 
-		src << browse(output,"window=playerpolllist;size=500x300")
+		src << browse(HTML_SKELETON(output),"window=playerpolllist;size=500x300")
 
 /mob/abstract/new_player/proc/show_poll_link(var/pollid = -1)
 	if(pollid == -1) return
@@ -129,7 +129,7 @@
 				output += "</div>"
 
 
-				src << browse(output,"window=playerpoll;size=500x250")
+				src << browse(HTML_SKELETON(output),"window=playerpoll;size=500x250")
 
 			//Polls with a text input
 			if("TEXT")
@@ -175,7 +175,7 @@
 					output += "[vote_text]"
 
 
-				src << browse(output,"window=playerpoll;size=500x500")
+				src << browse(HTML_SKELETON(output),"window=playerpoll;size=500x500")
 
 			//Polls with a text input
 			if("NUMVAL")
@@ -250,7 +250,7 @@
 					output += "</form>"
 
 
-				src << browse(output,"window=playerpoll;size=500x500")
+				src << browse(HTML_SKELETON(output),"window=playerpoll;size=500x500")
 
 			if("MULTICHOICE")
 				var/DBQuery/voted_query = GLOB.dbcon.NewQuery("SELECT optionid FROM ss13_poll_vote WHERE pollid = [pollid] AND ckey = '[usr.ckey]'")
@@ -317,7 +317,7 @@
 				output += "</div>"
 
 
-				src << browse(output,"window=playerpoll;size=500x250")
+				src << browse(HTML_SKELETON(output),"window=playerpoll;size=500x250")
 		return
 
 /mob/abstract/new_player/proc/vote_on_poll(var/pollid = -1, var/optionid = -1, var/multichoice = 0)

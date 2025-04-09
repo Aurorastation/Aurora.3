@@ -4322,10 +4322,11 @@
 /turf/simulated/floor/reinforced,
 /area/point_verdant/interior/robotics)
 "crU" = (
-/obj/structure/ledge/quarter{
-	dir = 1
-	},
 /obj/effect/map_effect/particle_emitter/bar_smoke,
+/obj/structure/ledge/quarter{
+	dir = 5
+	},
+/obj/effect/decal/exterior_stairs/half,
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/bar)
 "csl" = (
@@ -5317,10 +5318,9 @@
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/hotel)
 "cUW" = (
-/obj/structure/ledge/quarter{
-	dir = 1
-	},
-/turf/simulated/floor/lino,
+/obj/structure/table/reinforced/wood,
+/obj/item/device/megaphone/stagemicrophone,
+/turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/bar)
 "cVd" = (
 /obj/effect/decal/road_marking/thin,
@@ -13507,12 +13507,6 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
-"hCW" = (
-/obj/structure/ledge/quarter/corner{
-	dir = 8
-	},
-/turf/simulated/floor/lino,
-/area/point_verdant/interior/bar)
 "hDH" = (
 /obj/effect/decal/road_marking{
 	dir = 8
@@ -19554,9 +19548,6 @@
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/laundromat)
 "kXe" = (
-/obj/structure/bed/stool{
-	dir = 8
-	},
 /obj/machinery/light/colored/blue{
 	dir = 1;
 	pixel_y = 22
@@ -20164,7 +20155,9 @@
 /turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/point_verdant/outdoors)
 "lqn" = (
-/obj/effect/decal/exterior_stairs/half,
+/obj/structure/ledge/quarter{
+	dir = 5
+	},
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/bar)
 "lqo" = (
@@ -21986,7 +21979,7 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/offices)
 "mpm" = (
-/obj/structure/synthesized_instrument/synthesizer/piano,
+/obj/machinery/media/jukebox,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/bar)
 "mpn" = (
@@ -68302,7 +68295,7 @@ qjz
 kUu
 aDQ
 eQd
-hCW
+wUq
 wUq
 cYB
 qXz
@@ -68557,9 +68550,9 @@ qWF
 duW
 duW
 vWM
-mpm
 fFf
-cUW
+fFf
+lqn
 wUq
 qjz
 wih
@@ -69071,8 +69064,8 @@ qWF
 qWF
 duW
 vWM
-fFf
-fFf
+cUW
+mpm
 lqn
 wUq
 cqj

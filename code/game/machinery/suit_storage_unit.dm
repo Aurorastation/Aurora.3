@@ -169,7 +169,7 @@
 			//onclose(user, "suit_storage_unit")
 
 
-	user << browse(dat, "window=suit_storage_unit;size=400x500")
+	user << browse(HTML_SKELETON(dat), "window=suit_storage_unit;size=400x500")
 	onclose(user, "suit_storage_unit")
 	return
 
