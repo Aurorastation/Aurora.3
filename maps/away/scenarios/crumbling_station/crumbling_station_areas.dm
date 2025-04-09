@@ -11,7 +11,6 @@
 	no_light_control = FALSE
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_INDESTRUCTIBLE_TURFS //| AREA_FLAG_IS_BACKGROUND (must check what this does)
 	holomap_color = "#2c301f"
-	area_blurb = "The air reeks of damp stagnancy and something faintly like a distant rot. The noises of small mechanical faults emanate from every direction - the hissing of pressurised air most of them all - and scuttering can be heard in the walls. This place is old, and the years have not been kind to it."
 
 // For the asteroid bits.
 /area/crumbling_station/asteroid
@@ -28,6 +27,9 @@
 // Docking.
 /area/crumbling_station/docking
 	icon_state = "dk_yellow"
+	area_blurb = "The air reeks of damp stagnancy and something faintly like a distant rot. The noises of small mechanical faults emanate from every \
+	direction - the hissing of pressurised air most of them all - and scuttering can be heard in the walls. This place is old, and the years have \
+	not been kind to it."
 
 /area/crumbling_station/docking/docking_ports
 	name = "Docking Ports"

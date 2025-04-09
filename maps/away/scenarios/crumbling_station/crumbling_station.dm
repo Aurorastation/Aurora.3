@@ -19,8 +19,3 @@
 	icon = 'icons/obj/overmap/overmap_stationary.dmi'
 	icon_state = "outpost"
 	color = "#34423a"
-
-// Shuttle stuff!
-/obj/machinery/computer/shuttle_control/explore/terminal/crumbling_station
-	name = "shuttle control console"
-	shuttle_tag = "Crumbling Station Shuttle"

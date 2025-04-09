@@ -18,6 +18,7 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/map_effect/marker/airlock/crumbling_station/westdocks,
 /turf/simulated/floor,
 /area/crumbling_station/docking/docking_ports)
 "aac" = (
@@ -431,6 +432,7 @@
 	},
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/crumbling_station/southwest,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/maints/reactor)
 "aaZ" = (
@@ -1123,6 +1125,7 @@
 	},
 /obj/random/dirt_75,
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station/docking1,
 /turf/simulated/floor,
 /area/crumbling_station/docking/docking_ports)
 "acO" = (
@@ -2195,6 +2198,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/crumbling_station/shuttle,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/crumbling)
 "afx" = (
@@ -3195,6 +3199,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/airlock/crumbling_station/northdocks,
 /turf/simulated/floor,
 /area/crumbling_station/docking/docking_approach)
 "aip" = (
@@ -3462,6 +3467,7 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/light/small,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/crumbling_station/disposals,
 /turf/simulated/floor,
 /area/crumbling_station/maints/disposals)
 "aje" = (
@@ -3686,6 +3692,7 @@
 /obj/machinery/door/airlock/external,
 /obj/random/dirt_75,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/crumbling_station/southeast,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/maints/custodial)
 "ajI" = (
@@ -3729,6 +3736,7 @@
 	},
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/crumbling_station/westpanels,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/maints/solar2)
 "ajR" = (
@@ -3949,6 +3957,7 @@
 	must_start_working = 1
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/crumbling_station/southeast,
 /turf/simulated/floor,
 /area/crumbling_station/maints/custodial)
 "aku" = (
@@ -4446,6 +4455,10 @@
 	},
 /obj/random/dirt_75,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station/docking7,
+/obj/effect/shuttle_landmark/crumbling_station/docking7{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/docking/docking_ports)
 "alK" = (
@@ -4639,6 +4652,7 @@
 	dir = 6
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
+/obj/effect/map_effect/marker/airlock/crumbling_station/shuttle,
 /turf/simulated/floor/plating,
 /area/shuttle/crumbling)
 "amt" = (
@@ -5497,6 +5511,7 @@
 	},
 /obj/random/dirt_75,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/crumbling_station/northdocks,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/docking/docking_approach)
 "aox" = (
@@ -5771,6 +5786,7 @@
 	},
 /obj/random/dirt_75,
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/crumbling_station/disposals,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/maints/disposals)
 "api" = (
@@ -6059,6 +6075,7 @@
 	},
 /obj/random/dirt_75,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/crumbling_station/disposals,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/maints/disposals)
 "aqg" = (
@@ -6421,6 +6438,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/airlock/crumbling_station/southdocks,
 /turf/simulated/floor,
 /area/crumbling_station/docking/docking_ports)
 "ari" = (
@@ -7296,6 +7314,7 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/random/dirt_75,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station/docking5,
 /turf/simulated/floor,
 /area/crumbling_station/docking/docking_ports)
 "atC" = (
@@ -7675,6 +7694,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/blue{
 	dir = 8
 	},
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/machinery/power/terminal{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/crumbling)
 "auA" = (
@@ -7710,6 +7736,12 @@
 "auD" = (
 /obj/random/dirt_75,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/crumbling_station_shuttle,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/crumbling)
 "auE" = (
@@ -8957,6 +8989,10 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/shuttle_landmark/crumbling_station/docking6{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station/docking6,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/docking/docking_ports)
 "aya" = (
@@ -9349,6 +9385,7 @@
 	},
 /obj/random/dirt_75,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station_shuttle_port,
 /turf/simulated/floor,
 /area/crumbling_station/maints/hangar)
 "ayX" = (
@@ -9760,6 +9797,7 @@
 	},
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/crumbling_station/eastpanels,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/maints/solar1)
 "azZ" = (
@@ -10356,6 +10394,7 @@
 /obj/machinery/door/airlock/external,
 /obj/random/dirt_75,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/crumbling_station/southdocks,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/docking/docking_ports)
 "aBL" = (
@@ -11207,6 +11246,11 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor,
 /area/crumbling_station/maints/hangar)
 "aEl" = (
@@ -11693,6 +11737,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/crumbling_station/eastdocks,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/docking/docking_ports)
 "aFL" = (
@@ -13204,6 +13249,7 @@
 /obj/random/dirt_75,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station_shuttle_port,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/maints/hangar)
 "aJT" = (
@@ -14393,6 +14439,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station/docking6,
 /turf/simulated/floor,
 /area/crumbling_station/docking/docking_ports)
 "aNz" = (
@@ -15139,6 +15186,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station/docking3,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/docking/docking_ports)
 "aPA" = (
@@ -17299,6 +17347,11 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/maints/hangar)
 "aVR" = (
@@ -18083,6 +18136,7 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/light/small,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/crumbling_station/engine,
 /turf/simulated/floor,
 /area/crumbling_station/maints/radiator)
 "aXT" = (
@@ -18592,6 +18646,7 @@
 	},
 /obj/random/dirt_75,
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/crumbling_station/engine,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/maints/radiator)
 "aZs" = (
@@ -18886,6 +18941,7 @@
 /obj/machinery/door/airlock/external,
 /obj/random/dirt_75,
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/crumbling_station/southeast,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/maints/custodial)
 "bmC" = (
@@ -18980,6 +19036,16 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/medical/lobby)
+"bxq" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station/docking7,
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/docking/docking_ports)
 "byr" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/green{
@@ -19003,6 +19069,15 @@
 /obj/structure/table/rack,
 /turf/simulated/floor,
 /area/crumbling_station/maints/hydroponics)
+"bAp" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station/docking2,
+/turf/simulated/floor,
+/area/crumbling_station/docking/docking_ports)
 "bAU" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/lino,
@@ -19080,6 +19155,16 @@
 /obj/random/loot,
 /turf/simulated/floor,
 /area/crumbling_station/maints/hydroponics)
+"bMq" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station/docking7,
+/turf/simulated/floor,
+/area/crumbling_station/docking/docking_ports)
 "bMM" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/alarm/north,
@@ -19138,6 +19223,16 @@
 	},
 /turf/simulated/floor,
 /area/crumbling_station/maints/engi)
+"bSn" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station/docking2,
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/docking/docking_ports)
 "bTJ" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 9
@@ -19214,6 +19309,7 @@
 	},
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/crumbling_station/eastpanels,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/maints/solar1)
 "cjv" = (
@@ -19231,6 +19327,14 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/crumbling_station/civilian/quarters_1)
+"cti" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/random/dirt_75,
+/obj/structure/barricade/wooden{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/crumbling_station/civilian/hallway_east)
 "ctX" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/green{
@@ -19490,6 +19594,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/service/shop_storage)
+"dgy" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/map_effect/marker/airlock/crumbling_station/eastpanels,
+/turf/simulated/floor,
+/area/crumbling_station/maints/solar1)
 "dhw" = (
 /obj/machinery/floodlight/randomcharge{
 	dir = 4
@@ -19576,6 +19685,7 @@
 /obj/random/dirt_75,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/effect/map_effect/marker/airlock/shuttle/crumbling_station_shuttle,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/crumbling)
 "dnr" = (
@@ -19719,6 +19829,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station/docking1,
 /turf/simulated/floor,
 /area/crumbling_station/docking/docking_ports)
 "dyj" = (
@@ -20121,6 +20232,13 @@
 	},
 /turf/simulated/floor/wood,
 /area/crumbling_station/command/control)
+"ezD" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station/docking1,
+/turf/simulated/floor,
+/area/crumbling_station/docking/docking_ports)
 "eAj" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/bed/handrail{
@@ -20129,6 +20247,7 @@
 /obj/random/dirt_75,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/effect/map_effect/marker_helper/airlock/out,
+/obj/effect/map_effect/marker/airlock/shuttle/crumbling_station_shuttle,
 /turf/simulated/floor,
 /area/shuttle/crumbling)
 "eAp" = (
@@ -20179,6 +20298,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/crumbling_station/medical/hallway)
+"eNQ" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/crumbling_station/engine,
+/turf/simulated/floor,
+/area/crumbling_station/maints/radiator)
 "ePc" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/random/dirt_75,
@@ -20237,6 +20362,16 @@
 /obj/random/dirt_75,
 /turf/simulated/floor,
 /area/crumbling_station/maints/custodial)
+"fea" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station/docking2,
+/turf/simulated/floor,
+/area/crumbling_station/docking/docking_ports)
 "feI" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -20283,6 +20418,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/crumbling_station/northdocks,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/docking/docking_approach)
 "flU" = (
@@ -20384,6 +20520,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/shuttle/crumbling_station_shuttle,
 /turf/simulated/floor,
 /area/shuttle/crumbling)
 "fsj" = (
@@ -20482,6 +20619,27 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/crumbling_station/civilian/quarters_3)
+"fyF" = (
+/obj/machinery/door/airlock/external{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 4
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/crumbling_station/westdocks,
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/docking/docking_ports)
+"fyH" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station/docking7,
+/turf/simulated/floor,
+/area/crumbling_station/docking/docking_ports)
 "fAm" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/green{
@@ -20604,6 +20762,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/airlock/shuttle/crumbling_station_shuttle,
 /turf/simulated/floor,
 /area/shuttle/crumbling)
 "fVt" = (
@@ -20716,6 +20875,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/blue{
 	dir = 8
 	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/crumbling)
 "gjm" = (
@@ -20737,6 +20899,13 @@
 	},
 /obj/structure/bed/stool/chair/folding,
 /turf/simulated/floor/tiled/dark,
+/area/crumbling_station/docking/docking_ports)
+"gll" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station/docking7,
+/turf/simulated/floor,
 /area/crumbling_station/docking/docking_ports)
 "glE" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -20782,6 +20951,7 @@
 /area/shuttle/crumbling)
 "gqr" = (
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/crumbling_station/disposals,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/maints/disposals)
 "gqG" = (
@@ -20809,6 +20979,33 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/crumbling_station/civilian/hallway_east)
+"gtk" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station/docking4,
+/obj/effect/shuttle_landmark/crumbling_station/docking4,
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/docking/docking_ports)
+"gtq" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station_shuttle_port,
+/obj/effect/shuttle_landmark/crumbling_station_shuttle/hangar,
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/maints/hangar)
 "guq" = (
 /obj/effect/floor_decal/industrial/arrow/service{
 	dir = 4
@@ -20862,6 +21059,10 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/docking/docking_ports)
+"gxp" = (
+/obj/effect/shuttle_landmark/crumbling_station_shuttle/transit,
+/turf/space/transit/north,
+/area/space)
 "gxt" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -20993,6 +21194,17 @@
 /obj/item/device/radio/intercom/hailing/west,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/crumbling)
+"gJa" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station/docking4,
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/docking/docking_ports)
 "gKv" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
@@ -21119,6 +21331,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/crumbling_station/westdocks,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/docking/docking_ports)
 "gZh" = (
@@ -21142,6 +21355,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/lino/diamond,
 /area/crumbling_station/service/dining)
+"hbn" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station/docking4,
+/turf/simulated/floor,
+/area/crumbling_station/docking/docking_ports)
 "hbF" = (
 /obj/structure/bed/stool/chair/folding{
 	dir = 4
@@ -21194,6 +21414,15 @@
 /obj/structure/trash_pile,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/docking/docking_ports)
+"hhg" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station/docking3,
+/turf/simulated/floor,
+/area/crumbling_station/docking/docking_ports)
 "hik" = (
 /obj/machinery/door/firedoor/noid{
 	dir = 8
@@ -21219,6 +21448,11 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/docking/docking_ports)
+"hiR" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/map_effect/marker/airlock/crumbling_station/southwest,
+/turf/simulated/floor,
+/area/crumbling_station/maints/reactor)
 "hjO" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
@@ -21401,6 +21635,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/engi/reactor)
+"hOv" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/crumbling_station/westpanels,
+/turf/simulated/floor,
+/area/crumbling_station/maints/solar2)
 "hPq" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/light/small,
@@ -21539,6 +21781,17 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/crumbling_station/docking/docking_ports)
+"ifY" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station/docking7,
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/docking/docking_ports)
 "iga" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/greenglow,
@@ -21601,6 +21854,7 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/random/dirt_75,
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station/docking2,
 /turf/simulated/floor,
 /area/crumbling_station/docking/docking_ports)
 "ipD" = (
@@ -21751,8 +22005,10 @@
 /area/crumbling_station/civilian/hallway_east)
 "iMy" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/computer/ship/engines/terminal{
-	dir = 4
+/obj/machinery/power/smes/buildable/third_party_shuttle,
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/crumbling)
@@ -21936,6 +22192,7 @@
 "jaX" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/crumbling_station/engine,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/maints/radiator)
 "jdJ" = (
@@ -21989,6 +22246,7 @@
 	},
 /obj/random/dirt_75,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station_shuttle_port,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/maints/hangar)
 "jhR" = (
@@ -22211,6 +22469,12 @@
 /obj/random/dirt_75,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/crumbling_station_shuttle,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/crumbling)
 "jLV" = (
@@ -22397,8 +22661,26 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
 	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/crumbling_station_shuttle,
 /turf/simulated/floor,
 /area/shuttle/crumbling)
+"kpN" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station/docking3,
+/turf/simulated/floor,
+/area/crumbling_station/docking/docking_ports)
 "kqe" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -22442,6 +22724,9 @@
 	dir = 9
 	},
 /obj/random/dirt_75,
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/crumbling)
 "kww" = (
@@ -22624,6 +22909,19 @@
 /obj/random/dirt_75,
 /turf/simulated/floor,
 /area/crumbling_station/maints/security)
+"kVN" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station/docking1,
+/obj/effect/shuttle_landmark/crumbling_station/docking1{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/docking/docking_ports)
 "kXP" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
@@ -22728,6 +23026,11 @@
 /obj/effect/decal/cleanable/greenglow,
 /turf/simulated/floor,
 /area/crumbling_station/maints/custodial)
+"lmS" = (
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/crumbling_station/southeast,
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/maints/custodial)
 "lnp" = (
 /obj/machinery/optable,
 /obj/random/dirt_75,
@@ -22757,6 +23060,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/airlock/crumbling_station/shuttle,
 /turf/simulated/floor/plating,
 /area/shuttle/crumbling)
 "lsh" = (
@@ -22780,6 +23084,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/civilian/hallway_east)
+"lvw" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/crumbling_station/engine,
+/turf/simulated/floor,
+/area/crumbling_station/maints/radiator)
 "lxz" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -22908,6 +23221,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
 	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/crumbling)
 "lPc" = (
@@ -23028,6 +23346,7 @@
 /obj/machinery/door/airlock/external,
 /obj/random/dirt_75,
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/shuttle/crumbling_station_shuttle,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/crumbling)
 "mjI" = (
@@ -23142,6 +23461,16 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/docking/docking_approach)
+"mHx" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station/docking4,
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/docking/docking_ports)
 "mHO" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -23182,6 +23511,12 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/random/dirt_75,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station_shuttle_port,
 /turf/simulated/floor,
 /area/crumbling_station/maints/hangar)
 "mPU" = (
@@ -23318,6 +23653,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor,
 /area/crumbling_station/engi/atmospherics)
+"nmB" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/crumbling_station/disposals,
+/turf/simulated/floor,
+/area/crumbling_station/maints/disposals)
 "nng" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
@@ -23634,12 +23978,14 @@
 "omg" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector/aux{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
+	},
+/obj/structure/bed/handrail{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/crumbling)
@@ -23680,6 +24026,22 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/engi/workshop)
+"ozH" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station_shuttle_port,
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/maints/hangar)
 "ozS" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -23775,6 +24137,16 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/maints/radiator)
+"oJJ" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station/docking1,
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/docking/docking_ports)
 "oLq" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -23802,6 +24174,17 @@
 /obj/random/loot,
 /turf/simulated/floor,
 /area/crumbling_station/maints/custodial)
+"oMY" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 4
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station/docking6,
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/docking/docking_ports)
 "oOx" = (
 /obj/machinery/alarm/nobreach/north,
 /obj/machinery/atmospherics/binary/pump{
@@ -23855,6 +24238,7 @@
 	},
 /obj/random/dirt_75,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station/docking4,
 /turf/simulated/floor,
 /area/crumbling_station/docking/docking_ports)
 "oUY" = (
@@ -24079,6 +24463,7 @@
 	},
 /obj/random/dirt_75,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/crumbling_station/engine,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/maints/radiator)
 "pDb" = (
@@ -24286,6 +24671,11 @@
 	name = "Canister to Thrusters"
 	},
 /obj/effect/floor_decal/industrial/hatch_tiny/yellow,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/crumbling)
 "pTN" = (
@@ -24311,11 +24701,28 @@
 	},
 /turf/simulated/floor,
 /area/crumbling_station/maints/reactor)
+"pZd" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/structure/barricade/wooden{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/crumbling_station/civilian/hallway_east)
 "pZU" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/random/dirt_75,
 /turf/simulated/floor,
 /area/crumbling_station/maints/auxiliary)
+"pZV" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/maints/hangar)
 "qad" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/green{
@@ -24441,6 +24848,16 @@
 /obj/random/dirt_75,
 /turf/simulated/floor,
 /area/crumbling_station/maints/disposals)
+"qya" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station/docking5,
+/turf/simulated/floor,
+/area/crumbling_station/docking/docking_ports)
 "qAm" = (
 /obj/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
@@ -24485,6 +24902,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station/docking6,
 /turf/simulated/floor,
 /area/crumbling_station/docking/docking_ports)
 "qKu" = (
@@ -24618,6 +25036,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station/docking3,
 /turf/simulated/floor,
 /area/crumbling_station/docking/docking_ports)
 "rcU" = (
@@ -24631,6 +25050,11 @@
 	},
 /turf/simulated/floor,
 /area/crumbling_station/maints/reactor)
+"rfb" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/map_effect/marker/airlock/crumbling_station/westpanels,
+/turf/simulated/floor,
+/area/crumbling_station/maints/solar2)
 "rfS" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -24826,6 +25250,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/crumbling_station/service/hydro)
+"rEi" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/crumbling_station/southeast,
+/turf/simulated/floor,
+/area/crumbling_station/maints/custodial)
 "rEU" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/random/dirt_75,
@@ -24851,6 +25281,21 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/docking/docking_ports)
+"rGU" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station/docking6,
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/docking/docking_ports)
 "rIf" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -24859,6 +25304,7 @@
 /obj/random/dirt_75,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station/docking2,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/docking/docking_ports)
 "rIp" = (
@@ -24985,6 +25431,15 @@
 /obj/machinery/vending/snack,
 /turf/simulated/floor/tiled/dark,
 /area/crumbling_station/docking/docking_approach)
+"rUW" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station/docking6,
+/turf/simulated/floor,
+/area/crumbling_station/docking/docking_ports)
 "rVh" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
@@ -25022,6 +25477,17 @@
 /obj/item/storage/box/fancy/tray/machinist,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/engi/workshop)
+"rZc" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station/docking1,
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/docking/docking_ports)
 "rZA" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
@@ -25071,12 +25537,13 @@
 /turf/simulated/floor,
 /area/crumbling_station/maints/reactor)
 "sbU" = (
-/obj/structure/bed/handrail{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
-/turf/simulated/floor/plating,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/crumbling)
 "sdt" = (
 /obj/structure/bed/handrail{
@@ -25088,6 +25555,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/plating,
 /area/shuttle/crumbling)
+"seQ" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/light/small{
+	dir = 8;
+	must_start_working = 1
+	},
+/obj/effect/map_effect/marker/airlock/crumbling_station/eastpanels,
+/turf/simulated/floor,
+/area/crumbling_station/maints/solar1)
 "sgy" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/empty,
@@ -25118,6 +25594,17 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/maints/engi)
+"siN" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station/docking5,
+/obj/effect/shuttle_landmark/crumbling_station/docking5,
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/docking/docking_ports)
 "skH" = (
 /obj/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch_door/medical{
@@ -25296,6 +25783,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 6
 	},
+/obj/effect/overmap/visitable/ship/landable/crumbling_station_shuttle,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/crumbling)
 "sNe" = (
@@ -25417,6 +25905,18 @@
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor,
 /area/crumbling_station/maints/engi)
+"teJ" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station/docking3,
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/docking/docking_ports)
 "tfg" = (
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -25540,6 +26040,10 @@
 	},
 /obj/structure/bed/handrail,
 /obj/random/dirt_75,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/north,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/crumbling)
 "tuO" = (
@@ -25847,8 +26351,8 @@
 /obj/structure/bed/handrail{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/shuttle/crumbling)
 "tWt" = (
@@ -25949,6 +26453,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/crumbling_station/eastdocks,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/docking/docking_ports)
 "ujN" = (
@@ -26059,6 +26564,10 @@
 	},
 /obj/random/dirt_75,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station/docking3,
+/obj/effect/shuttle_landmark/crumbling_station/docking3{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/docking/docking_ports)
 "upP" = (
@@ -26190,6 +26699,24 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/command/control)
+"uCi" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station/docking2,
+/obj/effect/shuttle_landmark/crumbling_station/docking2{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/docking/docking_ports)
+"uCJ" = (
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/crumbling_station/engine,
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/maints/radiator)
 "uDn" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/green{
@@ -26458,6 +26985,9 @@
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/crumbling_station/engi/hard_storage)
+"vlj" = (
+/turf/space/transit/north,
+/area/space)
 "vom" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -26517,6 +27047,7 @@
 	},
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/crumbling_station/westpanels,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/maints/solar2)
 "vsb" = (
@@ -26607,6 +27138,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/airlock/crumbling_station/shuttle,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/crumbling)
 "vIx" = (
@@ -26715,6 +27247,7 @@
 /obj/random/dirt_75,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station/docking5,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/docking/docking_ports)
 "vUg" = (
@@ -26938,6 +27471,7 @@
 	},
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/crumbling_station/southwest,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/maints/reactor)
 "wyT" = (
@@ -27045,6 +27579,10 @@
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor,
 /area/crumbling_station/docking/docking_approach)
+"wNT" = (
+/obj/effect/step_trigger/teleporter,
+/turf/space/transit/north,
+/area/space)
 "wOl" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -27112,6 +27650,12 @@
 	},
 /turf/simulated/floor,
 /area/crumbling_station/docking/docking_ports)
+"xgt" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock/crumbling_station/disposals,
+/turf/simulated/floor,
+/area/crumbling_station/maints/disposals)
 "xgX" = (
 /obj/machinery/light,
 /obj/random/dirt_75,
@@ -27329,6 +27873,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/crumbling_station_shuttle,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/crumbling)
 "xEK" = (
@@ -27356,6 +27906,7 @@
 /obj/random/dirt_75,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/effect/map_effect/marker/airlock/crumbling_station/southdocks,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/docking/docking_ports)
 "xHn" = (
@@ -27393,6 +27944,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crumbling_station/docking/docking_approach)
+"xIT" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking/crumbling_station/docking5,
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/docking/docking_ports)
 "xLm" = (
 /obj/random/dirt_75,
 /obj/machinery/portable_atmospherics/canister/air,
@@ -27528,6 +28089,7 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/map_effect/marker/airlock/crumbling_station/eastdocks,
 /turf/simulated/floor,
 /area/crumbling_station/docking/docking_ports)
 "ygH" = (
@@ -27839,42 +28401,42 @@ ayn
 ayn
 ayn
 ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
 "}
 (2,1,1) = {"
 ayn
@@ -28096,42 +28658,42 @@ ayn
 ayn
 ayn
 ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
+wNT
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+wNT
 "}
 (3,1,1) = {"
 ayn
@@ -28353,42 +28915,42 @@ ayn
 ayn
 ayn
 ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
+wNT
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+wNT
 "}
 (4,1,1) = {"
 ayn
@@ -28610,42 +29172,42 @@ ayn
 ayn
 ayn
 ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
+wNT
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+wNT
 "}
 (5,1,1) = {"
 ayn
@@ -28867,42 +29429,42 @@ ayn
 ayn
 ayn
 ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
+wNT
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+wNT
 "}
 (6,1,1) = {"
 ayn
@@ -29124,42 +29686,42 @@ ayn
 ayn
 ayn
 ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
+wNT
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+wNT
 "}
 (7,1,1) = {"
 ayn
@@ -29381,42 +29943,42 @@ ayn
 ayn
 ayn
 ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
+wNT
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+wNT
 "}
 (8,1,1) = {"
 ayn
@@ -29638,42 +30200,42 @@ ayn
 ayn
 ayn
 ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
+wNT
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+wNT
 "}
 (9,1,1) = {"
 ayn
@@ -29895,42 +30457,42 @@ ayn
 ayn
 ayn
 ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
+wNT
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+wNT
 "}
 (10,1,1) = {"
 ayn
@@ -30152,42 +30714,42 @@ ayn
 ayn
 ayn
 ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
+wNT
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+wNT
 "}
 (11,1,1) = {"
 ayn
@@ -30409,42 +30971,42 @@ ayn
 ayn
 ayn
 ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
+wNT
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+wNT
 "}
 (12,1,1) = {"
 ayn
@@ -30666,42 +31228,42 @@ ayn
 ayn
 ayn
 ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
+wNT
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+wNT
 "}
 (13,1,1) = {"
 ayn
@@ -30923,42 +31485,42 @@ ayn
 ayn
 ayn
 ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
+wNT
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+gxp
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+wNT
 "}
 (14,1,1) = {"
 ayn
@@ -31180,42 +31742,42 @@ ayn
 ayn
 ayn
 ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
+wNT
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+wNT
 "}
 (15,1,1) = {"
 ayn
@@ -31437,42 +31999,42 @@ ayn
 ayn
 ayn
 ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
+wNT
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+wNT
 "}
 (16,1,1) = {"
 ayn
@@ -31694,42 +32256,42 @@ ayn
 ayn
 ayn
 ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
+wNT
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+wNT
 "}
 (17,1,1) = {"
 ayn
@@ -31951,42 +32513,42 @@ ayn
 ayn
 ayn
 ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
+wNT
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+wNT
 "}
 (18,1,1) = {"
 ayn
@@ -32208,42 +32770,42 @@ ayn
 ayn
 ayn
 ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
+wNT
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+wNT
 "}
 (19,1,1) = {"
 ayn
@@ -32465,42 +33027,42 @@ ayn
 ayn
 ayn
 ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
+wNT
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+wNT
 "}
 (20,1,1) = {"
 ayn
@@ -32722,42 +33284,42 @@ ayn
 ayn
 ayn
 ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
+wNT
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+wNT
 "}
 (21,1,1) = {"
 ayn
@@ -32979,42 +33541,42 @@ ayn
 ayn
 ayn
 ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
+wNT
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+wNT
 "}
 (22,1,1) = {"
 ayn
@@ -33236,42 +33798,42 @@ ayn
 ayn
 ayn
 ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
+wNT
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+wNT
 "}
 (23,1,1) = {"
 ayn
@@ -33493,42 +34055,42 @@ ayn
 ayn
 ayn
 ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
+wNT
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+wNT
 "}
 (24,1,1) = {"
 ayn
@@ -33750,42 +34312,42 @@ ayn
 ayn
 ayn
 ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
+wNT
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+wNT
 "}
 (25,1,1) = {"
 ayn
@@ -34007,42 +34569,42 @@ ayn
 ayn
 ayn
 ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
+wNT
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+wNT
 "}
 (26,1,1) = {"
 ayn
@@ -34264,42 +34826,42 @@ ayn
 ayn
 ayn
 ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
+wNT
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+vlj
+wNT
 "}
 (27,1,1) = {"
 ayn
@@ -34521,42 +35083,42 @@ ayn
 ayn
 ayn
 ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
-ayn
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
+wNT
 "}
 (28,1,1) = {"
 ayn
@@ -35432,9 +35994,9 @@ aPx
 aPx
 aPx
 aNV
-kmH
+xgt
 gqr
-kmH
+xgt
 aNV
 aPx
 ayn
@@ -35640,11 +36202,11 @@ jKn
 auD
 kpE
 xEJ
-jhn
+gtq
 mLH
-aJS
+ozH
 aVP
-apH
+pZV
 apH
 apH
 bqc
@@ -35689,7 +36251,7 @@ aPx
 aPx
 aPx
 aNV
-egW
+nmB
 gqr
 ajd
 aNV
@@ -35901,7 +36463,7 @@ jhn
 ayW
 aJS
 rUk
-amc
+aPa
 bqc
 amc
 bqc
@@ -36158,7 +36720,7 @@ aSA
 aSA
 aSA
 atU
-amc
+aPa
 aZX
 amc
 apH
@@ -40106,9 +40668,9 @@ aPx
 aPx
 aPx
 anf
-iPq
+eNQ
 jaX
-iPq
+eNQ
 anf
 aPx
 aPx
@@ -40363,8 +40925,8 @@ aPx
 aPx
 aPx
 anf
-avs
-jEb
+lvw
+uCJ
 aXS
 anf
 aPx
@@ -42820,8 +43382,8 @@ axA
 ayI
 ayI
 ajP
-aoE
-aOn
+rfb
+hOv
 vrz
 aoE
 aoE
@@ -50673,7 +51235,7 @@ ayn
 ayn
 add
 aFr
-upk
+teJ
 upk
 aFr
 add
@@ -50891,7 +51453,7 @@ aeF
 akP
 akP
 wyP
-akP
+hiR
 aaY
 ayn
 ayn
@@ -51187,8 +51749,8 @@ ayn
 ayn
 ayn
 aFr
-aNy
-cQv
+kpN
+hhg
 aFr
 aFr
 aFr
@@ -53249,9 +53811,9 @@ alC
 alC
 jPh
 rIf
-acN
-dxu
-alH
+fea
+bAp
+bSn
 ayn
 ayn
 ayn
@@ -53507,8 +54069,8 @@ jRE
 aKC
 rIf
 inY
-dxu
-alH
+bAp
+uCi
 ayn
 ayn
 ayn
@@ -55038,9 +55600,9 @@ ayn
 ayn
 ayn
 ayn
-alH
-atA
-vSA
+gtk
+hbn
+gJa
 xlk
 xEK
 aZd
@@ -55295,9 +55857,9 @@ ayn
 ayn
 ayn
 ayn
-alH
+mHx
 oUR
-vSA
+gJa
 eJP
 bol
 aZd
@@ -59151,7 +59713,7 @@ aVo
 ayn
 ayn
 aFr
-aFK
+fyF
 aFr
 aYZ
 atr
@@ -60187,10 +60749,10 @@ rjm
 vZB
 vZB
 enP
-rIf
+rZc
 acN
 dxu
-alH
+oJJ
 ayn
 ayn
 ayn
@@ -60444,10 +61006,10 @@ asf
 agj
 agj
 acu
-rIf
-inY
+rZc
+ezD
 dxu
-alH
+kVN
 ayn
 ayn
 ayn
@@ -61324,8 +61886,8 @@ axA
 ayI
 ayI
 chl
-aFW
-aDH
+dgy
+seQ
 azY
 aFW
 aFW
@@ -65283,7 +65845,7 @@ sUF
 bPn
 aLf
 akt
-fbk
+rEi
 aLf
 ayn
 ayn
@@ -65539,8 +66101,8 @@ aKf
 azM
 aHu
 bkG
-aCL
-aCL
+lmS
+lmS
 ajG
 ayn
 ayn
@@ -65575,7 +66137,7 @@ ayn
 ayn
 ayn
 ayn
-alH
+siN
 atA
 vSA
 qry
@@ -65832,8 +66394,8 @@ ayn
 ayn
 ayn
 ayn
-alH
-oUR
+xIT
+qya
 vSA
 pzN
 agF
@@ -66524,7 +67086,7 @@ sHQ
 hSP
 kTM
 iUm
-oTv
+cti
 oTv
 lpn
 hZd
@@ -66781,7 +67343,7 @@ dZu
 hSP
 sHQ
 aye
-rEU
+pZd
 rEU
 diL
 hZd
@@ -67383,10 +67945,10 @@ aJP
 alC
 alC
 enP
-rIf
-acN
-dxu
-alH
+ifY
+bMq
+fyH
+bxq
 ayn
 ayn
 ayn
@@ -67640,9 +68202,9 @@ acU
 ayR
 ayR
 eqy
-rIf
-inY
-dxu
+ifY
+gll
+fyH
 alH
 ayn
 ayn
@@ -69434,8 +69996,8 @@ ayn
 ayn
 aFr
 aFr
-aPz
-aPz
+rGU
+rGU
 aFr
 aLp
 ggv
@@ -69692,7 +70254,7 @@ ayn
 ayn
 aFr
 aNy
-cQv
+rUW
 aFr
 aFr
 aFr
@@ -70206,7 +70768,7 @@ ayn
 add
 aFr
 axW
-axW
+oMY
 aFr
 add
 ayn
