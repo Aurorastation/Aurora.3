@@ -974,3 +974,10 @@
  */
 /datum/species/proc/can_speak(mob/living/carbon/human/speaker, datum/language/speaking, message)
 	return TRUE
+
+/**
+ * This proc handles the species temperature regulation. By default, it just adds `passive_temp_gain` to the human's bodytemperature.
+ * Can be overridden for more complex calculations.
+ */
+/datum/species/proc/handle_temperature_regulation(mob/living/carbon/human/human)
+	human.bodytemperature += passive_temp_gain
