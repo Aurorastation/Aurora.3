@@ -125,7 +125,7 @@
 
 /client/verb/typing_indicator()
 	set name = "Show/Hide Typing Indicator"
-	set category = "Preferences"
+	set category = "Preferences.Game"
 	set desc = "Toggles showing an indicator when you are typing emote or say message."
 	prefs.toggles ^= HIDE_TYPING_INDICATOR
 	prefs.save_preferences()
@@ -1277,12 +1277,12 @@
 	else
 		return ..(ndir)
 
-/mob/forceMove(atom/dest)
+/mob/forceMove(atom/destination)
 	var/old_z = GET_Z(src)
 
 	var/atom/movable/AM
-	if (dest != loc && istype(dest, /atom/movable))
-		AM = dest
+	if (destination != loc && istype(destination, /atom/movable))
+		AM = destination
 		LAZYADD(AM.contained_mobs, src)
 		if(ismob(pulledby))
 			var/mob/M = pulledby

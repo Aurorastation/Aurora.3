@@ -97,6 +97,7 @@ var/global/Holiday = null
 					if(prob(50))				Holiday = "DPRA Liberation Day"
 				if(7)							Holiday = "Dominian Founding Day"
 				if(16)							Holiday = "Lunarian Apollo Day"
+				if(17)							Holiday = "Solarian Reunification Day"
 				if(29)							Holiday = "Dominian Victory Day"
 
 

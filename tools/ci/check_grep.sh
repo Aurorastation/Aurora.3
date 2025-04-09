@@ -208,6 +208,18 @@ else
     echo "PASS: No new unmanaged globals are being added" >> code_error.log
 fi
 
+##############################################################
+#	Armor is a list, make sure to use it that way
+##############################################################
+WRONG_ARMOR_REGEXP='\s+armor\s*=[\s*](?!(list\()|(null))'
+WRONG_ARMORS=`grep -r -o --include \*.dm -P --regexp=$WRONG_ARMOR_REGEXP`
+if [[ $WRONG_ARMORS != '' ]]; then
+    ERROR_COUNT=$(($ERROR_COUNT+1))
+    echo "FAIL: Armor was set incorrectly! It's a list!" >> code_error.log
+    echo $WRONG_ARMORS >> code_error.log
+else
+    echo "PASS: All armors are correctly set" >> code_error.log
+fi
 
 #######################################
 #	Output the result of the checks

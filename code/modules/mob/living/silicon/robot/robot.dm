@@ -100,7 +100,7 @@
 
 	// Laws
 	var/mob/living/silicon/ai/connected_ai
-	var/law_preset = /datum/ai_laws/nanotrasen
+	var/law_preset = /datum/ai_laws/conglomerate
 	var/law_update = TRUE // Whether they sync with their AI or not.
 
 	// Access
@@ -369,9 +369,7 @@
 	if(prefix)
 		mod_type = prefix
 
-	if(istype(mmi, /obj/item/device/mmi/digital/posibrain))
-		braintype = "Android"
-	else if(istype(mmi, /obj/item/device/mmi/digital/robot))
+	if(istype(mmi, /obj/item/device/mmi/digital/robot))
 		braintype = "Robot"
 	else
 		braintype = "Cyborg"
@@ -487,7 +485,7 @@
 		to_chat(src, SPAN_WARNING("WARNING: Power too low for self-diagnostic functions."))
 		return
 	var/dat = self_diagnosis()
-	src << browse(dat, "window=robotdiagnosis")
+	src << browse(HTML_SKELETON(dat), "window=robotdiagnosis")
 
 /mob/living/silicon/robot/verb/toggle_component()
 	set category = "Robot Commands"
@@ -898,7 +896,7 @@
 			dat += "[module.malf_AI_module]: <B>Activated</B><BR>"
 		else
 			dat += "[module.malf_AI_module]: <A href='byond://?src=[REF(src)];act=[REF(module.malf_AI_module)]>Activate</A><BR>"
-	src << browse(dat, "window=robotmod")
+	src << browse(HTML_SKELETON(dat), "window=robotmod")
 
 
 /mob/living/silicon/robot/Topic(href, href_list)

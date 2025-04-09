@@ -1,4 +1,4 @@
-GLOBAL_LIST_EMPTY(fusion_reactions)
+GLOBAL_LIST(fusion_reactions)
 
 /singleton/fusion_reaction
 	var/p_react = "" // Primary reactant.

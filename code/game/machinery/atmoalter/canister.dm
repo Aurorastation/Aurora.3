@@ -55,8 +55,10 @@
 /obj/machinery/portable_atmospherics/canister/oxygen/Initialize()
 	. = ..()
 	src.air_contents.adjust_gas(GAS_OXYGEN, MolesForPressure())
+
 /obj/machinery/portable_atmospherics/canister/oxygen/prechilled
 	name = "Canister: \[O2 (Cryo)\]"
+
 /obj/machinery/portable_atmospherics/canister/oxygen/prechilled/Initialize()
 	. = ..()
 	src.air_contents.temperature = 80
@@ -69,6 +71,7 @@
 /obj/machinery/portable_atmospherics/canister/phoron/Initialize()
 	. = ..()
 	src.air_contents.adjust_gas(GAS_PHORON, MolesForPressure())
+
 /obj/machinery/portable_atmospherics/canister/phoron_scarce // replacing on-station canisters with this for scarcity - full-capacity canisters are staying to avoid mapping errors in future
 	name = "Canister \[Phoron\]"
 	icon_state = "orange"
@@ -92,6 +95,7 @@
 /obj/machinery/portable_atmospherics/canister/hydrogen/Initialize()
 	. = ..()
 	air_contents.adjust_gas(GAS_HYDROGEN, MolesForPressure())
+
 /obj/machinery/portable_atmospherics/canister/hydrogen/deuterium
 	name = "Canister \[2H\]"
 	icon_state = "teal"
@@ -100,6 +104,7 @@
 /obj/machinery/portable_atmospherics/canister/hydrogen/deuterium/Initialize()
 	. = ..()
 	air_contents.adjust_gas(GAS_DEUTERIUM, MolesForPressure())
+
 /obj/machinery/portable_atmospherics/canister/hydrogen/tritium
 	name = "Canister \[3H\]"
 	icon_state = "pink"
@@ -126,6 +131,7 @@
 /obj/machinery/portable_atmospherics/canister/boron/Initialize()
 	. = ..()
 	air_contents.adjust_gas(GAS_BORON, MolesForPressure())
+
 /obj/machinery/portable_atmospherics/canister/chlorine
 	name = "\improper Chlorine \[Cl2\]"
 	icon_state = "darkyellow"

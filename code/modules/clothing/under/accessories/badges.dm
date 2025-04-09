@@ -607,6 +607,12 @@
 	icon_state = "passport_hegemony"
 	item_state = "passport_hegemony"
 
+/obj/item/clothing/accessory/badge/passport/goldendeep
+	name = "golden deep passport"
+	desc = "A electronic passport issued to a member of the Golden Deep Collective. This device lists and updates the owner's net worth in real time."
+	icon_state = "passport_goldendeep"
+	item_state = "passport_goldendeep"
+
 #undef CANT_OPEN
 #undef CLOSED
 #undef OPEN

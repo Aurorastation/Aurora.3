@@ -28,7 +28,7 @@
 /area/centcom/start
 	name = "New Player Spawn"
 	dynamic_lighting = 0
-	sound_environment = SOUND_ENVIRONMENT_NONE
+	sound_environment = SOUND_ENVIRONMENT_OFF
 
 /area/centcom/evac
 	name = "Centcom Emergency Shuttle"
@@ -144,7 +144,6 @@
 /area/antag/wizard
 	name = "Wizard Mind Palace"
 	icon_state = "wizard"
-	dynamic_lighting = FALSE
 
 /area/antag/actor
 	name = "Actor Preparation"

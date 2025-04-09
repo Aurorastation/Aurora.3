@@ -41,6 +41,7 @@
 
 
 //default byond sound environments
+#define SOUND_ENVIRONMENT_OFF -2
 #define SOUND_ENVIRONMENT_NONE -1
 #define SOUND_ENVIRONMENT_GENERIC 0
 #define SOUND_ENVIRONMENT_PADDED_CELL 1

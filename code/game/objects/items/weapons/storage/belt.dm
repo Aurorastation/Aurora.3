@@ -332,6 +332,7 @@
 		/obj/item/melee,
 		/obj/item/crowbar,
 		/obj/item/gun/projectile/sec,
+		/obj/item/gun/energy/repeater/pistol,
 		/obj/item/gun/energy/disruptorpistol,
 		/obj/item/taperoll/police,
 		/obj/item/material/knife/trench,
@@ -423,7 +424,7 @@
 	item_state = "militarybelt"
 	storage_slots = 9 //same as a combat belt now
 	max_w_class = WEIGHT_CLASS_NORMAL
-	max_storage_space  = 28
+	max_storage_space  = DEFAULT_BACKPACK_STORAGE
 	can_hold = list(
 		/obj/item/grenade,
 		/obj/item/handcuffs,
