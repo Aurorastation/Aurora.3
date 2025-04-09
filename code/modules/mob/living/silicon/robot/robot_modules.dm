@@ -583,29 +583,23 @@ GLOBAL_LIST_INIT(robot_modules, list(
 	desc = "A module that deploys a Wet Floor sign."
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "caution"
-	var/obj/item/borg_wetfloor/held
-
-/obj/item/borg_wetfloor
-	name = "wet floor sign"
-	desc = "A sign that notes that the nearby floor is wet and slippery. This one looks like it was deployed by a cyborg."
-	icon = 'icons/obj/janitor.dmi'
-	icon_state = "caution_blinking"
+	var/obj/item/clothing/suit/caution/held
 
 /obj/item/wetfloor_holder/New()
 	..()
-	held = new /obj/item/borg_wetfloor(src)
+	held = new /obj/item/clothing/suit/caution(src)
 
 /obj/item/wetfloor_holder/attack_self(mob/user as mob)
 	if(!held)
 		to_chat(user, SPAN_NOTICE("The module is empty."))
 		return
 	to_chat(user, SPAN_NOTICE("You deploy the Wet Floor sign."))
-	var/obj/item/borg_wetfloor/R = new /obj/item/borg_wetfloor(user.loc)
+	var/obj/item/clothing/suit/caution/R = new /obj/item/clothing/suit/caution(user.loc)
 	R.add_fingerprint(user)
 	qdel(held)
 	held = null
 
-/obj/item/borg_wetfloor/attackby(obj/item/attacking_item, mob/user)
+/obj/item/clothing/suit/caution/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/wetfloor_holder))
 		var/obj/item/wetfloor_holder/WFH = attacking_item
 		if(!WFH.held)
