@@ -114,26 +114,58 @@
 		if(beaker)
 			to_chat(user, SPAN_WARNING("A beaker is already loaded into the machine."))
 			return TRUE
-
 		beaker = attacking_item
 		user.drop_from_inventory(attacking_item,src)
 		user.visible_message("\The [user] adds \a [attacking_item] to \the [src]!", "You add \a [attacking_item] to \the [src]!")
 		return TRUE
-	else if (!istype(attacking_item, /obj/item/grab))
-		return
+
 	var/obj/item/grab/G = attacking_item
-	if (!ismob(G.affecting))
-		return TRUE
-	if (src.occupant)
+	if (!istype(G, /obj/item/grab) || !isliving(G.affecting) )
+		return
+	if (occupant)
 		to_chat(user, SPAN_WARNING("The scanner is already occupied!"))
 		return TRUE
-	if (G.affecting.abiotic())
-		to_chat(user, SPAN_WARNING("The subject cannot have abiotic items on."))
+
+	var/mob/living/M = G.affecting
+	var/bucklestatus = M.bucklecheck(user)
+	if (!bucklestatus)
 		return TRUE
-	put_in(G.affecting)
+
+	user.visible_message(SPAN_NOTICE("\The [user] starts putting \the [M] into \the [src]."), SPAN_NOTICE("You start putting \the [M] into \the [src]."), range = 3)
+	if (do_mob(user, G.affecting, 30, needhand = 0))
+		put_in(G.affecting)
 	src.add_fingerprint(user)
 	qdel(G)
 	return TRUE
+
+/obj/machinery/dna_scannernew/mouse_drop_receive(atom/dropped, mob/user, params)
+	if(!istype(user))
+		return
+
+	if(!ismob(dropped))
+		return
+
+	if (occupant)
+		to_chat(user, SPAN_NOTICE("<B>The scanner is already occupied!</B>"))
+		return
+
+	var/mob/living/L = dropped
+	var/bucklestatus = L.bucklecheck(user)
+	if (!bucklestatus)
+		return
+
+	if(L == user)
+		user.visible_message("\The <b>[user]</b> starts climbing into \the [src].", SPAN_NOTICE("You start climbing into \the [src]."), range = 3)
+	else
+		user.visible_message("\The <b>[user]</b> starts putting \the [L] into \the [src].", SPAN_NOTICE("You start putting \the [L] into \the [src]."), range = 3)
+
+	if (do_mob(user, L, 30, needhand = 0))
+		if (bucklestatus == 2)
+			var/obj/structure/LB = L.buckled_to
+			LB.user_unbuckle(user)
+		put_in(L)
+	add_fingerprint(user)
+	return
 
 /obj/machinery/dna_scannernew/proc/put_in(var/mob/M)
 	if(M.client)
@@ -142,6 +174,7 @@
 	M.forceMove(src)
 	src.occupant = M
 	src.icon_state = "scanner_1"
+	playsound(loc, 'sound/machines/cryopod/cryopod_enter.ogg', 25)
 
 	// search for ghosts, if the corpse is empty and the scanner is connected to a cloner
 	if(locate(/obj/machinery/computer/cloning, get_step(src, NORTH)) \
@@ -165,6 +198,7 @@
 	src.occupant.forceMove(src.loc)
 	src.occupant = null
 	src.icon_state = "scanner_0"
+	playsound(loc, 'sound/machines/cryopod/cryopod_exit.ogg', 25)
 	return
 
 /obj/machinery/dna_scannernew/ex_act(severity)
@@ -233,10 +267,9 @@
 
 /obj/machinery/computer/scan_consolenew/LateInitialize()
 	. = ..()
-	for(dir in list(NORTH,EAST,SOUTH,WEST))
-		connected = locate(/obj/machinery/dna_scannernew, get_step(src, dir))
-		if(!isnull(connected))
-			break
+	for(var/obj/machinery/dna_scannernew/C in orange(1,src))
+		connected = C
+		break
 
 	src.injector_ready = 1
 
