@@ -865,7 +865,7 @@
 	id = 252
 	desc = "Env-Test Facility Zoya, Security Access"
 
-#define ACCESS_CRUMBLING_STATION_COMMAND 249
+#define ACCESS_CRUMBLING_STATION_COMMAND 253
 /datum/access/crumbling_station_command
 	id = ACCESS_NUCLEAR_MISSILE_SILO_HIGH
 	desc = "Independent Commercial Station Command"
