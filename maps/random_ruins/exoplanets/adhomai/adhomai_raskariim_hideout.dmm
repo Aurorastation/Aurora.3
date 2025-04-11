@@ -457,7 +457,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_raskariim_hideout)
 "DU" = (
-/obj/item/storage/box/fancy/crayons/chalkbox{
+/obj/item/storage/box/fancy/drafting/chalkbox{
 	pixel_y = 7
 	},
 /obj/item/storage/box/fancy/crayons{

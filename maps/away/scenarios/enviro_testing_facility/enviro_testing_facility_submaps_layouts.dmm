@@ -4950,7 +4950,7 @@
 /area/enviro_testing_facility/inside/maintenance/center_west)
 "qE" = (
 /obj/structure/table/steel,
-/obj/item/storage/box/fancy/crayons/chalkbox{
+/obj/item/storage/box/fancy/drafting/chalkbox{
 	pixel_x = 5
 	},
 /obj/effect/floor_decal/corner/brown{
@@ -10544,7 +10544,7 @@
 /area/template_noop)
 "Ji" = (
 /obj/structure/table/steel,
-/obj/item/storage/box/fancy/crayons/chalkbox{
+/obj/item/storage/box/fancy/drafting/chalkbox{
 	pixel_x = 5
 	},
 /turf/simulated/floor/plating,

@@ -12419,7 +12419,7 @@
 	pixel_x = -8
 	},
 /obj/item/device/lightreplacer/advanced,
-/obj/item/storage/box/fancy/crayons/chalkbox{
+/obj/item/storage/box/fancy/drafting/chalkbox{
 	pixel_y = 8
 	},
 /obj/item/blueprints,
