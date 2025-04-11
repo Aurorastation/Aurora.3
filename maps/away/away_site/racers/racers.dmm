@@ -3550,7 +3550,7 @@
 /area/space)
 "rfa" = (
 /obj/structure/table/wood/gamblingtable,
-/obj/item/storage/box/fancy/crayons/chalkbox,
+/obj/item/storage/box/fancy/drafting/chalkbox,
 /turf/simulated/floor/plating,
 /area/racers)
 "rgE" = (

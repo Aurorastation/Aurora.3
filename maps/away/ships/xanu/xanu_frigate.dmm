@@ -33,10 +33,10 @@
 /area/ship/xanu_frigate/cargo_bay)
 "ad" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/storage/box/fancy/crayons/chalkbox{
+/obj/item/storage/box/fancy/drafting/chalkbox{
 	pixel_y = 9
 	},
-/obj/item/storage/box/fancy/crayons/chalkbox{
+/obj/item/storage/box/fancy/drafting/chalkbox{
 	pixel_y = 4
 	},
 /obj/item/blueprints,

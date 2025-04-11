@@ -4675,7 +4675,7 @@
 /area/ruined_propellant_depot/crew_quarters)
 "pd" = (
 /obj/structure/table/wood,
-/obj/item/storage/box/fancy/crayons/chalkbox{
+/obj/item/storage/box/fancy/drafting/chalkbox{
 	pixel_x = 4;
 	pixel_y = -4
 	},
