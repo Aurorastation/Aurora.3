@@ -6346,12 +6346,12 @@
 /area/crumbling_station/civilian/quarters_3)
 "aqW" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/hydrogen,
 /obj/structure/sign/radiation{
 	pixel_x = -32
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/machinery/portable_atmospherics/canister/nitrogen/prechilled,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/engi/hallway)
 "aqX" = (
@@ -9628,10 +9628,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/crumbling_station/security/hallway)
 "azE" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/nitrogen/prechilled,
-/obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/table/reinforced/steel,
+/obj/item/storage/toolbox/mechanical{
+	pixel_x = 2;
+	pixel_y = 9
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/engi/reactor)
 "azH" = (
 /obj/structure/cable/green{
@@ -10469,9 +10474,9 @@
 /area/crumbling_station/service/hydro)
 "aBU" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/hydrogen,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/machinery/portable_atmospherics/canister/nitrogen/prechilled,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/engi/hallway)
 "aBW" = (
@@ -14127,9 +14132,9 @@
 /turf/simulated/floor,
 /area/crumbling_station/maints/engi)
 "aMy" = (
-/obj/machinery/portable_atmospherics/canister/nitrogen/prechilled,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor/plating,
 /area/crumbling_station/engi/reactor)
 "aMz" = (
@@ -22072,9 +22077,9 @@
 /area/crumbling_station/civilian/hallway_east)
 "iUM" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/nitrogen/prechilled,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor/plating,
 /area/crumbling_station/engi/reactor)
 "iVF" = (
@@ -25704,8 +25709,8 @@
 /area/crumbling_station/civilian/quarters_5)
 "szS" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/hydrogen,
 /obj/random/dirt_75,
+/obj/machinery/portable_atmospherics/canister/nitrogen/prechilled,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/engi/hallway)
 "sBr" = (
@@ -26010,6 +26015,9 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/wrench,
 /obj/random/dirt_75,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/crumbling_station/docking/docking_approach)
 "tsk" = (
@@ -27495,6 +27503,9 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/cobweb2,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/docking/docking_approach)
 "wEu" = (
@@ -42971,8 +42982,8 @@ adt
 ala
 hNZ
 aWf
-azE
-azE
+aMy
+aMy
 aLs
 aPx
 aPx
@@ -45280,7 +45291,7 @@ adQ
 aBR
 apr
 aIa
-apr
+azE
 aro
 aeE
 aLs
