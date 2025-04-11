@@ -41,7 +41,6 @@
 	if(type == "line")
 			var/obj/effect/decal/cleanable/drawing/C = new(target)
 			C.main = color
-			target.add_fingerprint(user)
 
 	if(type != "line")
 		var/icon/mainOverlay = SSicon_cache.crayon_cache[type]

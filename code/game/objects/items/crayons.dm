@@ -6,6 +6,7 @@
 	colour = "#FFFFFF"
 	shadeColour = "#EFEFEF"
 	var/colourName = "whitec"
+	medium = "chalk"
 
 /obj/item/pen/drafting/red
 	name = "red drafting chalk"
@@ -202,7 +203,7 @@
 	if(!proximity) return
 	if(istype(target,/turf/simulated/floor))
 		var/originaloc = user.loc
-		var/drawtype = input("Choose what you'd like to draw.", "Scribbles") in list("graffiti","rune","letter","arrow")
+		var/drawtype = input("Choose what you'd like to draw.", "Scribbles") in list("graffiti","rune","letter","arrow","line")
 		if (user.loc != originaloc)
 			to_chat(user, SPAN_NOTICE("You moved!"))
 			return
@@ -219,7 +220,7 @@
 				drawtype = input("Choose the arrow.", "Crayon scribbles") in list("left", "right", "up", "down")
 				to_chat(user, "You start drawing an arrow on the [target.name].")
 			if("line")
-				to_chat(userm "You start marking a line on the [target.name]")
+				to_chat(user, "You start marking a line on the [target.name].")
 		if(instant || do_after(user, 50))
 			new /obj/effect/decal/cleanable/drawing(target,colour,shadeColour,drawtype,medium)
 			to_chat(user, "You finish drawing.")
