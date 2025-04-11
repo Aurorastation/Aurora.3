@@ -593,8 +593,8 @@ GLOBAL_LIST_INIT(robot_modules, list(
 	if(!held)
 		to_chat(user, SPAN_NOTICE("The module is empty."))
 		return
-	to_chat(user, SPAN_NOTICE("You deploy the Wet Floor sign."))
 	var/obj/item/clothing/suit/caution/R = new /obj/item/clothing/suit/caution(user.loc)
+	to_chat(user, SPAN_NOTICE("You deploy \the [R]."))
 	R.add_fingerprint(user)
 	qdel(held)
 	held = null
@@ -603,7 +603,7 @@ GLOBAL_LIST_INIT(robot_modules, list(
 	if(istype(attacking_item, /obj/item/wetfloor_holder))
 		var/obj/item/wetfloor_holder/WFH = attacking_item
 		if(!WFH.held)
-			to_chat(user, SPAN_NOTICE("You collect the wet floor sign."))
+			to_chat(user, SPAN_NOTICE("You collect \the [src]."))
 			forceMove(WFH)
 			WFH.held = src
 		return TRUE
