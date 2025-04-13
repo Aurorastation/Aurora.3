@@ -514,7 +514,8 @@
 	var/obj/item/organ/internal/brain/brain = H.internal_organs_by_name[BP_BRAIN]
 	if(!brain) return //no brain
 
-	H.setBrainLoss(DEFIB_BRAIN_ACTIVITY_SET)
+	brain.set_max_damage(initial(brain.max_damage) * 0.5) //permanently scar the brain if we're reviving them via this method.
+	H.setBrainLoss(min(DEFIB_BRAIN_ACTIVITY_SET, brain.max_damage))
 
 /obj/item/shockpaddles/proc/make_announcement(message, msg_class)
 	audible_message("<b>\The [src]</b> [message]", "\The [src] vibrates slightly.")
