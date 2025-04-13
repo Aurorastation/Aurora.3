@@ -585,8 +585,12 @@ GLOBAL_LIST_INIT(robot_modules, list(
 	icon_state = "caution"
 	var/obj/item/clothing/suit/caution/held
 
-/obj/item/wetfloor_holder/New()
-	..()
+/obj/item/wetfloor_holder/Destroy()
+    QDEL_NULL(held)
+    return ..()
+
+/obj/item/wetfloor_holder/Initialize()
+	. = ..()
 	held = new /obj/item/clothing/suit/caution(src)
 
 /obj/item/wetfloor_holder/attack_self(mob/user as mob)
@@ -596,17 +600,8 @@ GLOBAL_LIST_INIT(robot_modules, list(
 	var/obj/item/clothing/suit/caution/R = new /obj/item/clothing/suit/caution(user.loc)
 	to_chat(user, SPAN_NOTICE("You deploy \the [R]."))
 	R.add_fingerprint(user)
-	qdel(held)
-	held = null
+	QDEL_NULL(held)
 
-/obj/item/clothing/suit/caution/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/wetfloor_holder))
-		var/obj/item/wetfloor_holder/WFH = attacking_item
-		if(!WFH.held)
-			to_chat(user, SPAN_NOTICE("You collect \the [src]."))
-			forceMove(WFH)
-			WFH.held = src
-		return TRUE
 
 /obj/item/robot_module/janitor/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
 	..()
