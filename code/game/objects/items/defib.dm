@@ -325,7 +325,6 @@
 /obj/item/shockpaddles/proc/can_revive(mob/living/carbon/human/H) //This is checked right before attempting to revive
 	if(world.time - H.timeofdeath > DEFIB_TIME_LIMIT)
 		return "buzzes, \"Shock delivered - Severe neurological decay detected. Further attempts futile.\""
-
 	if(H.stat == DEAD && !prob(DEFIB_REVIVE_CHANCE))
 		H.apply_damage(burn_damage_amt, DAMAGE_BURN, BP_CHEST) //We just zapped them, deal damage!
 		return "buzzes, \"Shock delivered - No heart rhythm detected. Resume CPR. \""
