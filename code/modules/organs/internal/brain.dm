@@ -116,6 +116,7 @@
 	damage_threshold_value = round(max_damage / damage_threshold_count)
 
 /obj/item/organ/internal/brain/process(seconds_per_tick)
+	if(!owner.can_recover()) return //the brain is dead, skip all the maths.
 	if(owner)
 		if(damage > (max_damage * 0.75) && healed_threshold)
 			handle_severe_brain_damage()
