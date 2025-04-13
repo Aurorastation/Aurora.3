@@ -329,7 +329,8 @@
 	if(H.stat == DEAD && !prob(DEFIB_REVIVE_CHANCE))
 		H.apply_damage(burn_damage_amt, DAMAGE_BURN, BP_CHEST) //We just zapped them, deal damage!
 		return "buzzes, \"Shock delivered - No heart rhythm detected. Resume CPR. \""
-	make_alive(H, H.timeofdeath)
+	else if (H.stat == DEAD) //there is probably a cleaner way to route this that doesn't require checking twice. But I'm not sure of the return behavior here.
+		make_alive(H, H.timeofdeath)
 
 /obj/item/shockpaddles/proc/check_contact(mob/living/carbon/human/H)
 	if(!combat)
