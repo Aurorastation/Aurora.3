@@ -515,7 +515,7 @@
 	if(!brain) return //no brain
 
 	brain.set_max_damage(initial(brain.max_damage) * 0.5) //permanently scar the brain if we're reviving them via this method.
-	H.setBrainLoss(min(DEFIB_BRAIN_ACTIVITY_SET, brain.max_damage))
+	H.setBrainLoss(DEFIB_BRAIN_ACTIVITY_SET)
 
 /obj/item/shockpaddles/proc/make_announcement(message, msg_class)
 	audible_message("<b>\The [src]</b> [message]", "\The [src] vibrates slightly.")
