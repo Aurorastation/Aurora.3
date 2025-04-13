@@ -329,7 +329,7 @@
 	if(H.stat == DEAD && !prob(DEFIB_REVIVE_CHANCE))
 		H.apply_damage(burn_damage_amt, DAMAGE_BURN, BP_CHEST) //We just zapped them, deal damage!
 		return "buzzes, \"Shock delivered - No heart rhythm detected. Resume CPR. \""
-	make_alive(H)
+	make_alive(H, H.timeofdeath)
 
 /obj/item/shockpaddles/proc/check_contact(mob/living/carbon/human/H)
 	if(!combat)
