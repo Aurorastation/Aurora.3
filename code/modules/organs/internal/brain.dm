@@ -116,70 +116,66 @@
 	damage_threshold_value = round(max_damage / damage_threshold_count)
 
 /obj/item/organ/internal/brain/process(seconds_per_tick)
-	if(!owner || !owner.can_recover())
-		..()
-		return //the brain is dead, skip all the maths.
+	if(owner)
+		if(damage > (max_damage * 0.75) && healed_threshold)
+			handle_severe_brain_damage()
 
-	if(damage > (max_damage * 0.75) && healed_threshold)
-		handle_severe_brain_damage()
+		if(damage < (max_damage / 4))
+			healed_threshold = 1
 
-	if(damage < (max_damage / 4))
-		healed_threshold = 1
+		handle_damage_effects()
 
-	handle_damage_effects()
+		// Brain damage from low oxygenation or lack of blood.
+		if(owner.should_have_organ(BP_HEART))
 
-	// Brain damage from low oxygenation or lack of blood.
-	if(!owner.should_have_organ(BP_HEART))
-		..()
-		return
+			// No heart? You are going to have a very bad time. Not 100% lethal because heart transplants should be a thing.
+			var/blood_volume = owner.get_blood_oxygenation()
+			if(blood_volume < BLOOD_VOLUME_SURVIVE)
+				if(!owner.chem_effects[CE_STABLE] || prob(60))
+					oxygen_reserve = max(0, oxygen_reserve-1)
+			else
+				oxygen_reserve = min(initial(oxygen_reserve), oxygen_reserve+1)
 
-	// No heart? You are going to have a very bad time. Not 100% lethal because heart transplants should be a thing.
-	var/blood_volume = owner.get_blood_oxygenation()
-	if(blood_volume < BLOOD_VOLUME_SURVIVE)
-		if(!owner.chem_effects[CE_STABLE] || prob(60))
-			oxygen_reserve = max(0, oxygen_reserve-1)
-	else
-		oxygen_reserve = min(initial(oxygen_reserve), oxygen_reserve+1)
+			if(!oxygen_reserve) //(hardcrit)
+				owner.Paralyse(10)
 
-	if(!oxygen_reserve) //(hardcrit)
-		owner.Paralyse(10)
-
-	var/can_heal = (damage && damage < max_damage && (damage % damage_threshold_value || owner.chem_effects[CE_BRAIN_REGEN] || (!past_damage_threshold(3) && owner.chem_effects[CE_STABLE]))) && (!(owner.chem_effects[CE_NEUROTOXIC]) || owner.chem_effects[CE_ANTITOXIN])
-	var/dammod
-	var/brain_regen_amount = owner.chem_effects[CE_BRAIN_REGEN]	* seconds_per_tick
-	var/brain_damage_amount = brain_damage_per_second * seconds_per_tick
-	//Effects of bloodloss
-	switch(blood_volume)
-		if(BLOOD_VOLUME_SAFE to INFINITY)
-			damage = can_heal && owner.chem_effects[CE_BRAIN_REGEN]
-				? max(damage - brain_regen_amount, 0) * safe_damage_modifier
-				: max(damage - brain_damage_amount, 0) * safe_damage_modifier
-		if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
-			owner.notify_message(SPAN_WARNING("You feel a bit [pick("lightheaded","dizzy","pale")]..."), rand(20 SECONDS, 40 SECONDS), key = "blood_volume_okay")
-			dammod = owner.chem_effects[CE_STABLE] ? okay_stabilized_mod : okay_unstable_mod
-			if(!past_damage_threshold(2))
-				take_internal_damage(brain_damage_amount * dammod * okay_damage_modifier)
-		if(BLOOD_VOLUME_BAD to BLOOD_VOLUME_OKAY)
-			owner.notify_message(SPAN_WARNING("You feel [pick("weak","disoriented","faint","cold")]."), rand(20 SECONDS, 40 SECONDS), key = "blood_volume_bad")
-			owner.eye_blurry = max(owner.eye_blurry,6)
-			dammod = owner.chem_effects[CE_STABLE] ? bad_stabilized_mod : bad_unstable_mod
-			if(!past_damage_threshold(4))
-				take_internal_damage(brain_damage_amount * dammod * bad_damage_modifier)
-			if(!owner.paralysis && prob(10))
-				owner.Paralyse(rand(1,3))
-		if(BLOOD_VOLUME_SURVIVE to BLOOD_VOLUME_BAD)
-			owner.notify_message(SPAN_WARNING("You feel <b>extremely</b> [pick("cold","woozy","faint","weak","confused","tired","lethargic")]."), rand(20 SECONDS, 40 SECONDS), key = "blood_volume_survive")
-			owner.eye_blurry = max(owner.eye_blurry,6)
-			dammod = owner.chem_effects[CE_STABLE] ? crit_stabilized_mod : crit_unstable_mod
-			if(!past_damage_threshold(6))
-				take_internal_damage(brain_damage_amount * dammod * crit_damage_modifier)
-			if(!owner.paralysis && prob(15))
-				owner.Paralyse(rand(3, 5))
-		if(-(INFINITY) to BLOOD_VOLUME_SURVIVE) // Also see heart.dm, being below this point puts you into cardiac arrest.
-			owner.notify_message(SPAN_DANGER("You feel like death is imminent."), rand(20 SECONDS, 40 SECONDS), key = "blood_volume_dying")
-			owner.eye_blurry = max(owner.eye_blurry,6)
-			dammod = owner.chem_effects[CE_STABLE] ? dying_stabilized_mod : dying_unstable_mod
-			take_internal_damage(brain_damage_amount * dammod * dying_damage_modifier)
+			var/can_heal = (damage && damage < max_damage && (damage % damage_threshold_value || owner.chem_effects[CE_BRAIN_REGEN] || (!past_damage_threshold(3) && owner.chem_effects[CE_STABLE]))) && (!(owner.chem_effects[CE_NEUROTOXIC]) || owner.chem_effects[CE_ANTITOXIN])
+			var/dammod
+			var/brain_regen_amount = owner.chem_effects[CE_BRAIN_REGEN]	* seconds_per_tick
+			var/brain_damage_amount = brain_damage_per_second * seconds_per_tick
+			//Effects of bloodloss
+			switch(blood_volume)
+				if(BLOOD_VOLUME_SAFE to INFINITY)
+					if(can_heal && owner.chem_effects[CE_BRAIN_REGEN])
+						damage = max(damage - brain_regen_amount, 0) * safe_damage_modifier
+					else if(can_heal)
+						damage = max(damage - brain_damage_amount, 0) * safe_damage_modifier
+				if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
+					owner.notify_message(SPAN_WARNING("You feel a bit [pick("lightheaded","dizzy","pale")]..."), rand(20 SECONDS, 40 SECONDS), key = "blood_volume_okay")
+					dammod = owner.chem_effects[CE_STABLE] ? okay_stabilized_mod : okay_unstable_mod
+					if(!past_damage_threshold(2))
+						take_internal_damage(brain_damage_amount * dammod * okay_damage_modifier)
+				if(BLOOD_VOLUME_BAD to BLOOD_VOLUME_OKAY)
+					owner.notify_message(SPAN_WARNING("You feel [pick("weak","disoriented","faint","cold")]."), rand(20 SECONDS, 40 SECONDS), key = "blood_volume_bad")
+					owner.eye_blurry = max(owner.eye_blurry,6)
+					dammod = owner.chem_effects[CE_STABLE] ? bad_stabilized_mod : bad_unstable_mod
+					if(!past_damage_threshold(4))
+						take_internal_damage(brain_damage_amount * dammod * bad_damage_modifier)
+					if(!owner.paralysis && prob(10))
+						owner.Paralyse(rand(1,3))
+				if(BLOOD_VOLUME_SURVIVE to BLOOD_VOLUME_BAD)
+					owner.notify_message(SPAN_WARNING("You feel <b>extremely</b> [pick("cold","woozy","faint","weak","confused","tired","lethargic")]."), rand(20 SECONDS, 40 SECONDS), key = "blood_volume_survive")
+					owner.eye_blurry = max(owner.eye_blurry,6)
+					dammod = owner.chem_effects[CE_STABLE] ? crit_stabilized_mod : crit_unstable_mod
+					if(!past_damage_threshold(6))
+						take_internal_damage(brain_damage_amount * dammod * crit_damage_modifier)
+					if(!owner.paralysis && prob(15))
+						owner.Paralyse(rand(3, 5))
+				if(-(INFINITY) to BLOOD_VOLUME_SURVIVE) // Also see heart.dm, being below this point puts you into cardiac arrest.
+					owner.notify_message(SPAN_DANGER("You feel like death is imminent."), rand(20 SECONDS, 40 SECONDS), key = "blood_volume_dying")
+					owner.eye_blurry = max(owner.eye_blurry,6)
+					dammod = owner.chem_effects[CE_STABLE] ? dying_stabilized_mod : dying_unstable_mod
+					take_internal_damage(brain_damage_amount * dammod * dying_damage_modifier)
 	..()
 
 /obj/item/organ/internal/brain/proc/handle_severe_brain_damage()
