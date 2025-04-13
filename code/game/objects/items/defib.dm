@@ -1,4 +1,4 @@
-#define DEFIB_TIME_LIMIT (2 MINUTES) //give medical players a brief window where they can enjoy their "Defib the flatlining person" drama.
+#define DEFIB_TIME_LIMIT (45 SECONDS) //give medical players a brief window where they can enjoy their "Defib the flatlining person" drama.
 									//It's not likely to do anything, because this isn't realistic.
 									//but realism is boring, and anyone who has ever watched a medical drama is going to expect this.
 									//I wouldn't recommend setting this higher than 5 minutes.
