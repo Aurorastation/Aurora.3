@@ -1,5 +1,10 @@
-#define DEFIB_TIME_LIMIT (8 MINUTES) //past this many seconds, defib is useless. Currently 8 Minutes
-#define DEFIB_TIME_LOSS  (2 MINUTES) //past this many seconds, brain damage occurs. Currently 2 minutes
+#define DEFIB_TIME_LIMIT (2 MINUTES) //give medical players a brief window where they can enjoy their "Defib the flatlining person" drama.
+									//It's not likely to do anything, because this isn't realistic.
+									//but realism is boring, and anyone who has ever watched a medical drama is going to expect this.
+									//I wouldn't recommend setting this higher than 5 minutes.
+#define DEFIB_BRAIN_ACTIVITY_SET (85) //when miraculously reviving someone for dramatic effect, you're still not done, and you might just lose them anyways. Get to work.
+#define DEFIB_REVIVE_CHANCE (5) //for dramatic effect, so that medical players are encouraged to defib them a few times after they flatline.
+								//And then have someone say, "He's dead, call the time", after your 2 minutes are up.
 
 //backpack item
 /obj/item/defibrillator
@@ -318,8 +323,13 @@
 		return "buzzes, \"Patient's chest is obstructed. Operation aborted.\""
 
 /obj/item/shockpaddles/proc/can_revive(mob/living/carbon/human/H) //This is checked right before attempting to revive
-	if(H.stat == DEAD)
-		return "buzzes, \"Resuscitation failed - Severe neurological decay makes recovery of patient impossible. Further attempts futile.\""
+	if(world.time - H.timeofdeath > DEFIB_TIME_LIMIT)
+		return "buzzes, \"Shock delivered - Severe neurological decay detected. Further attempts futile.\""
+
+	if(H.stat == DEAD && !prob(DEFIB_REVIVE_CHANCE))
+		H.apply_damage(burn_damage_amt, DAMAGE_BURN, BP_CHEST) //We just zapped them, deal damage!
+		return "buzzes, \"Shock delivered - No heart rhythm detected. Resume CPR. \""
+	H.make_alive()
 
 /obj/item/shockpaddles/proc/check_contact(mob/living/carbon/human/H)
 	if(!combat)
@@ -499,15 +509,12 @@
 	apply_brain_damage(M, deadtime)
 
 /obj/item/shockpaddles/proc/apply_brain_damage(mob/living/carbon/human/H, deadtime)
-	if(deadtime < DEFIB_TIME_LOSS) return
-
 	if(!H.should_have_organ(BP_BRAIN)) return //no brain
 
 	var/obj/item/organ/internal/brain/brain = H.internal_organs_by_name[BP_BRAIN]
 	if(!brain) return //no brain
 
-	var/brain_damage = clamp((deadtime - DEFIB_TIME_LOSS)/(DEFIB_TIME_LIMIT - DEFIB_TIME_LOSS)*brain.max_damage, H.getBrainLoss(), brain.max_damage)
-	H.setBrainLoss(brain_damage)
+	H.setBrainLoss(DEFIB_BRAIN_ACTIVITY_SET)
 
 /obj/item/shockpaddles/proc/make_announcement(message, msg_class)
 	audible_message("<b>\The [src]</b> [message]", "\The [src] vibrates slightly.")
@@ -711,4 +718,4 @@
 	device = /obj/item/shockpaddles/rig
 
 #undef DEFIB_TIME_LIMIT
-#undef DEFIB_TIME_LOSS
+#undef DEFIB_BRAIN_ACTIVITY_SET
