@@ -1,7 +1,6 @@
 #define DEFIB_TIME_LIMIT (45 SECONDS) //give medical players a brief window where they can enjoy their "Defib the flatlining person" drama.
 									//It's not likely to do anything, because this isn't realistic.
 									//but realism is boring, and anyone who has ever watched a medical drama is going to expect this.
-									//I wouldn't recommend setting this higher than 5 minutes.
 #define DEFIB_BRAIN_ACTIVITY_SET (85) //when miraculously reviving someone for dramatic effect, you're still not done, and you might just lose them anyways. Get to work.
 #define DEFIB_REVIVE_CHANCE (5) //for dramatic effect, so that medical players are encouraged to defib them a few times after they flatline.
 								//And then have someone say, "He's dead, call the time", after your 2 minutes are up.
