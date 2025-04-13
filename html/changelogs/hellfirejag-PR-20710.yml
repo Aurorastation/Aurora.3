@@ -1,4 +1,4 @@
 author: hellfirejag
 delete-after: True
 changes:
-  - rscadd: "made the auto-resuscitator no longer useless. There is now a 2 minute window when someone dies where you can shock their corpse for an extremely small chance to revive them."
+  - rscadd: "made the auto-resuscitator no longer useless. There is now a 2 minute window when someone dies where you can shock their corpse for an extremely small chance to revive them. Each time someone is revived by this, they receive a permanent brain scar."
