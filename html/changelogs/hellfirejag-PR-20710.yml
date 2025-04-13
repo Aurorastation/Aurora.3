@@ -1,0 +1,4 @@
+author: hellfirejag
+delete-after: True
+changes:
+  - bugfix: "made the auto-resuscitator no longer useless. There is now a 2 minute window when someone dies where you can shock their corpse for an extremely small chance to revive them."
