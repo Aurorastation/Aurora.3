@@ -513,7 +513,7 @@
 	var/obj/item/organ/internal/brain/brain = H.internal_organs_by_name[BP_BRAIN]
 	if(!brain) return //no brain
 
-	alert(H.find_mob_consciousness(), "You feel as though some part of you has fallen through a hole into nothingness", "Brain Scarred")
+	alert(H.find_mob_consciousness(), "You feel as though some part of you has fallen through a hole into nothingness. You have received a permanent brain scar. Some of your mental or physical faculties have been permanently impaired. Feel free to determine the extent and severity of your new injury.", "Brain Scarred")
 	brain.set_max_damage(initial(brain.max_damage) * 0.5) //permanently scar the brain if we're reviving them via this method.
 	H.setBrainLoss(DEFIB_BRAIN_ACTIVITY_SET)
 
