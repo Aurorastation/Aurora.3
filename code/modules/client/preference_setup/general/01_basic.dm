@@ -367,7 +367,7 @@
 			return TOPIC_REFRESH
 
 	else if(href_list["hidden_status"])
-		var/choice = alert(user, "Do you want to be a hidden Shell? This will label your Shell as a Human in records and ID.\n\n WARNING: This is highly illegal in the Republic of Biesel", "Hidden Shell Status", "Yes", "No")
+		var/choice = alert(user, "Do you want to be a hidden Shell? This will label your Shell as a Human in their records.\n\n WARNING: This would involve forging of records or some other form of fraud, and is highly illegal in the Republic of Biesel", "Hidden Shell Status", "Yes", "No")
 		if(CanUseTopic(user))
 			if(choice == "Yes")
 				pref.hidden_shell_status = TRUE
