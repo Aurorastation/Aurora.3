@@ -103,27 +103,6 @@ const updateMessageBadge = (message) => {
   }
 };
 
-const makeHexTransparent = (hex, alpha = 0.1) => {
-  if (!hex) return `rgba(255, 221, 68, ${alpha})`;
-
-  let r, g, b;
-
-  if (hex.length === 4) {
-    // Handle shorthand like #191
-    r = parseInt(hex[1] + hex[1], 16);
-    g = parseInt(hex[2] + hex[2], 16);
-    b = parseInt(hex[3] + hex[3], 16);
-  } else if (hex.length === 7) {
-    r = parseInt(hex.slice(1, 3), 16);
-    g = parseInt(hex.slice(3, 5), 16);
-    b = parseInt(hex.slice(5, 7), 16);
-  } else {
-    return `rgba(255, 221, 68, ${alpha})`;
-  }
-
-  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
-};
-
 class ChatRenderer {
   constructor() {
     /** @type {HTMLElement} */
@@ -436,17 +415,13 @@ class ChatRenderer {
               (text) => createHighlightNode(text, parser.highlightColor)
             );
             if (highlighted && parser.highlightWholeMessage) {
-              const transparentBackgroundHighlightColor = makeHexTransparent(
-                parser.backgroundHighlightColor,
-                parser.backgroundHighlightOpacity / 100
-              );
               node.style.setProperty(
-                '--highlight-color-transparent',
-                transparentBackgroundHighlightColor
-              );
-              node.style.setProperty(
-                '--highlight-color-opaque',
+                '--highlight-color',
                 parser.backgroundHighlightColor || 'rgba(255, 221, 68)'
+              );
+              node.style.setProperty(
+                '--highlight-color-opacity',
+                (parser.backgroundHighlightOpacity ?? 10) / 100
               );
               node.className += ' ChatMessage--highlighted';
             }
