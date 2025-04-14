@@ -92,6 +92,7 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	var/machine_tag_status = TRUE
 	var/machine_serial_number
 	var/machine_ownership_status = IPC_OWNERSHIP_COMPANY
+	var/hidden_shell_status = FALSE
 
 		//Some faction information.
 	var/home_system = "Unset"           //System of birth.

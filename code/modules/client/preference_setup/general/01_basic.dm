@@ -17,6 +17,8 @@
 		S["ipc_tag_status"] >> pref.machine_tag_status
 		S["ipc_serial_number"] >> pref.machine_serial_number
 		S["ipc_ownership_status"] >> pref.machine_ownership_status
+	if(istype(GLOB.all_species[pref.species], /datum/species/machine/shell))
+		S["hidden_shell_status"] >> pref.hidden_shell_status
 
 /datum/category_item/player_setup_item/general/basic/save_character(var/savefile/S)
 	S["real_name"]  << pref.real_name
@@ -33,6 +35,8 @@
 		S["ipc_tag_status"] << pref.machine_tag_status
 		S["ipc_serial_number"] << pref.machine_serial_number
 		S["ipc_ownership_status"] << pref.machine_ownership_status
+	if(istype(GLOB.all_species[pref.species], /datum/species/machine/shell))
+		S["hidden_shell_status"] << pref.hidden_shell_status
 
 // if table_name and pref.var_name is different, then do it like
 // "table_name" = "pref.var_name", as below
@@ -57,7 +61,8 @@
 			"vars" = list(
 				"tag_status" = "machine_tag_status",
 				"serial_number" = "machine_serial_number",
-				"ownership_status" = "machine_ownership_status"
+				"ownership_status" = "machine_ownership_status",
+				"hidden_status" = "machine_hidden_status"
 				),
 			"args" = list("char_id")
 		)
@@ -91,6 +96,7 @@
 			"tag_status",
 			"serial_number",
 			"ownership_status",
+			"hidden_status",
 			"char_id" = 1 // = 1 signifies argument
 		)
 	)
@@ -108,6 +114,7 @@
 		"tag_status" = pref.machine_tag_status,
 		"serial_number" = pref.machine_serial_number,
 		"ownership_status" = pref.machine_ownership_status,
+		"hidden_status" = pref.hidden_shell_status,
 		"id" = pref.current_character,
 		"char_id" = pref.current_character,
 		"floating_chat_color" = pref.floating_chat_color,
@@ -197,6 +204,8 @@
 			else
 				dat += "<b>Serial Number:</b> [pref.machine_serial_number] (<a href='byond://?src=[REF(src)];namehelp=1'>?</a>)<br>"
 				dat += "<b>Ownership Status:</b> [pref.machine_ownership_status] (<a href='byond://?src=[REF(src)];namehelp=1'>?</a>)<br>"
+		if(istype(S, /datum/species/machine/shell))
+			dat += "<b>Is Hidden Shell:</b> [pref.hidden_shell_status ? "Hidden" : "Not Hidden"] (<a href='byond://?src=[REF(src)];hidden_status=1'>?</a>)<br>"
 	if(GLOB.config.allow_Metadata)
 		dat += "<b>OOC Notes:</b> <a href='byond://?src=[REF(src)];metadata=1'> Edit </a>" \
 			+ "<a href='byond://?src=[REF(src)];clear_metadata=1'>Clear</a>" + "<br>"
@@ -355,6 +364,15 @@
 		var/new_ownership_status = input(user, "Choose your IPC's ownership status.", "IPC Ownership Status") as null|anything in ownership_options
 		if(new_ownership_status && CanUseTopic(user))
 			pref.machine_ownership_status = new_ownership_status
+			return TOPIC_REFRESH
+
+	else if(href_list["hidden_status"])
+		var/choice = alert(user, "Do you want to be a hidden Shell? This will label your Shell as a Human in records and ID.\n\n WARNING: This is highly illegal in the Republic of Biesel", "Hidden Shell Status", "Yes", "No")
+		if(CanUseTopic(user))
+			if(choice == "Yes")
+				pref.hidden_shell_status = TRUE
+			else
+				pref.hidden_shell_status = FALSE
 			return TOPIC_REFRESH
 
 	else if (href_list["clear_metadata"])
