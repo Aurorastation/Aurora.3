@@ -62,7 +62,7 @@
 				"tag_status" = "machine_tag_status",
 				"serial_number" = "machine_serial_number",
 				"ownership_status" = "machine_ownership_status",
-				"hidden_status" = "machine_hidden_status"
+				"hidden_status" = "hidden_shell_status"
 				),
 			"args" = list("char_id")
 		)
