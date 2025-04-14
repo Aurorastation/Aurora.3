@@ -320,7 +320,7 @@
 		if(!pref.can_edit_ipc_tag)
 			to_chat(usr, SPAN_WARNING("You are unable to edit your IPC tag due to a timelock restriction. If you got here, it is either a hack or a bug."))
 			return
-		var/choice = alert(user, "Do you wish for your IPC to have a tag?\n\nWARNING: Being an untagged IPC in Tau space is highly illegal!", "IPC Tag", "Yes", "No")
+		var/choice = alert(user, "Do you wish for your IPC to have a tag?\n\nWARNING: Being an untagged IPC in the Repblic of Biesel is highly illegal!", "IPC Tag", "Yes", "No")
 		if(CanUseTopic(user))
 			if(choice == "Yes")
 				pref.machine_tag_status = TRUE
