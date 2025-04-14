@@ -3910,7 +3910,7 @@
 /obj/structure/sign/flag/zenghu{
 	pixel_x = 32
 	},
-/obj/item/clothing/gloves/zeng,
+/obj/item/clothing/gloves/latex/nitrile/zeng,
 /obj/item/clothing/head/beret/corporate/zeng,
 /obj/item/clothing/suit/storage/toggle/para_jacket/zeng,
 /obj/item/clothing/suit/storage/toggle/labcoat/zeng,
