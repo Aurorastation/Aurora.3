@@ -1,7 +1,0 @@
-author: kermit
-
-delete-after: True
-
-changes:
-  - rscadd: "The Civilian Yacht has been reflavoured to include affluent individuals from places besides the Sol Alliance."
-  - rscadd: "The Civilian Yacht Crew ghostrole allows you to select Skrell and Synthetics, in addition to Human."
