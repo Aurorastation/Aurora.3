@@ -205,7 +205,7 @@
 				dat += "<b>Serial Number:</b> [pref.machine_serial_number] (<a href='byond://?src=[REF(src)];namehelp=1'>?</a>)<br>"
 				dat += "<b>Ownership Status:</b> [pref.machine_ownership_status] (<a href='byond://?src=[REF(src)];namehelp=1'>?</a>)<br>"
 		if(istype(S, /datum/species/machine/shell))
-			dat += "<b>Is Hidden Shell:</b> [pref.hidden_shell_status ? "Hidden" : "Not Hidden"] (<a href='byond://?src=[REF(src)];hidden_status=1'>?</a>)<br>"
+			dat += "<b>Is Hidden Shell:</b> <a href='byond://?src=[REF(src)];hidden_status=1'>[pref.hidden_shell_status ? "Hidden" : "Not Hidden"]</a><br>"
 	if(GLOB.config.allow_Metadata)
 		dat += "<b>OOC Notes:</b> <a href='byond://?src=[REF(src)];metadata=1'> Edit </a>" \
 			+ "<a href='byond://?src=[REF(src)];clear_metadata=1'>Clear</a>" + "<br>"
