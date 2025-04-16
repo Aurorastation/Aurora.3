@@ -306,7 +306,8 @@ GLOBAL_LIST_INIT(severity_to_string, list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 			0, list(ASSIGNMENT_ENGINEER = 15, ASSIGNMENT_CYBORG = 20), TRUE),
 
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Radiation Storm", /datum/event/radiation_storm,
-			100, list(ASSIGNMENT_MEDICAL = 20)),
+			100, list(ASSIGNMENT_MEDICAL = 20),
+			pop_needed = 8),
 
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Random Antagonist", /datum/event/random_antag,
 			0, list(ASSIGNMENT_ANY = 1, ASSIGNMENT_SECURITY = 1), FALSE, 10, 125,
@@ -316,7 +317,8 @@ GLOBAL_LIST_INIT(severity_to_string, list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 			15, list(ASSIGNMENT_SECURITY = 15)),
 
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Moderate Spider Infestation", /datum/event/spider_infestation/moderate,
-			50, list(ASSIGNMENT_SECURITY = 10)),
+			50, list(ASSIGNMENT_SECURITY = 10),
+			pop_needed = 8),
 
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Moderate Vermin Infestation", /datum/event/infestation/moderate,
 			30, list(ASSIGNMENT_JANITOR = 15, ASSIGNMENT_SECURITY = 15, ASSIGNMENT_MEDICAL = 10)),
