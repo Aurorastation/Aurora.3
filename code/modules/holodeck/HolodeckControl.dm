@@ -75,13 +75,13 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/machinery/computer/holodeck_cont
 
 	if(!linkedholodeck)
 		dat += SPAN_DANGER("Warning: Unable to locate holodeck.<br>")
-		user << browse(dat, "window=computer;size=400x500")
+		user << browse(HTML_SKELETON(dat), "window=computer;size=400x500")
 		onclose(user, "computer")
 		return
 
 	if(!SSatlas.current_map.holodeck_supported_programs.len)
 		dat += SPAN_DANGER("Warning: No supported holo-programs loaded.<br>")
-		user << browse(dat, "window=computer;size=400x500")
+		user << browse(HTML_SKELETON(dat), "window=computer;size=400x500")
 		onclose(user, "computer")
 		return
 
@@ -126,7 +126,7 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/machinery/computer/holodeck_cont
 		dat = "<B>Holodeck Control System</B><BR>"
 		dat += "Holodeck is <A href='byond://?src=[REF(src)];togglehololock=1'><font color=red>(LOCKED)</font></A><BR>"
 
-	user << browse(dat, "window=computer;size=400x500")
+	user << browse(HTML_SKELETON(dat), "window=computer;size=400x500")
 	onclose(user, "computer")
 	return
 

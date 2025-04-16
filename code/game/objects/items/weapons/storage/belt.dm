@@ -118,7 +118,10 @@
 		/obj/item/device/debugger,
 		/obj/item/device/eftpos,
 		/obj/item/tape_roll,
-		/obj/item/device/geiger
+		/obj/item/device/geiger,
+		/obj/item/clothing/gloves/yellow,
+		/obj/item/clothing/gloves/yellow/specialu,
+		/obj/item/clothing/gloves/yellow/specialt
 	)
 	content_overlays = TRUE
 
@@ -332,6 +335,7 @@
 		/obj/item/melee,
 		/obj/item/crowbar,
 		/obj/item/gun/projectile/sec,
+		/obj/item/gun/energy/repeater/pistol,
 		/obj/item/gun/energy/disruptorpistol,
 		/obj/item/taperoll/police,
 		/obj/item/material/knife/trench,

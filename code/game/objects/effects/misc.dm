@@ -86,3 +86,7 @@
 	icon_state = "singularity_s11"
 	pixel_x = -176
 	pixel_y = -176
+
+/obj/effect/obfuscation
+	icon_state = "1"
+	layer = OBFUSCATION_LAYER

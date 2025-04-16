@@ -18,6 +18,7 @@
 	origin_tech = list(TECH_BIO = 2, TECH_MATERIAL = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 250)
 	center_of_mass = null
+	storage_slot_sort_by_name = TRUE
 
 /obj/item/reagent_containers/personal_inhaler_cartridge/on_reagent_change()
 	update_icon()

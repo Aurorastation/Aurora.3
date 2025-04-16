@@ -340,7 +340,7 @@ ABSTRACT_TYPE(/obj/machinery/howitzer)
 		else
 			break
 
-	new /obj/effect/effect/smoke(smoke_position, 2 SECONDS)
+	new /obj/effect/smoke(smoke_position, 2 SECONDS)
 
 	for(var/mob/living/carbon/human/H in range(3, src))
 		if(H.client)

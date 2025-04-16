@@ -3,6 +3,9 @@
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "tiled_preview"
 
+/turf/unsimulated/floor/monotile
+	icon_state = "monotile_preview"
+
 /turf/unsimulated/floor/elevatorshaft
 	name = "elevator machinery"
 	icon_state = "elevatorshaft"
@@ -27,6 +30,50 @@
 	name = "mask"
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "rockvault"
+
+/turf/unsimulated/floor/carpet
+	name = "carpet"
+	icon_state = "carpet"
+
+/turf/unsimulated/floor/rubber_carpet
+	name = "rubber carpet"
+	icon = 'icons/turf/flooring/carpet.dmi'
+	icon_state = "rub_carpet"
+
+/turf/unsimulated/floor/dark
+	color = "#4c535b"
+	icon_state = "dark"
+
+/turf/unsimulated/floor/dark_monotile
+	color = "#4c535b"
+	icon_state = "monotile_dark"
+
+/turf/unsimulated/floor/linoleum
+	icon = 'icons/turf/flooring/linoleum.dmi'
+	icon_state = "lino_diamond_preview"
+
+/turf/unsimulated/floor/grass
+	name = "grass"
+	icon = 'icons/turf/flooring/grass.dmi'
+	icon_state = "grass0"
+
+/turf/unsimulated/floor/wood
+	name = "wooden floor"
+	color = "#8f5847"
+	icon_state = "wood"
+
+/turf/unsimulated/floor/freezer
+	icon_state = "freezer"
+
+/turf/unsimulated/floor/marble
+	icon_state = "textured"
+
+/turf/unsimulated/floor/stairs
+	icon_state = "ramptop"
+
+/turf/unsimulated/floor/blue_circuit
+	icon = 'icons/turf/flooring/circuit.dmi'
+	icon_state = "bcircuit"
 
 /turf/unsimulated/mask/ChangeTurf(path, tell_universe = TRUE, force_lighting_update = FALSE, ignore_override = FALSE, mapload = FALSE)
 	if(!path)
@@ -77,6 +124,14 @@
 /turf/unsimulated/marker/blue
 	name = "Marker Turf, Blue"
 	color = "#2f519b"
+
+/turf/unsimulated/marker/yellow
+	name = "Marker Turf, Yellow"
+	color = "#ffda0b"
+
+/turf/unsimulated/marker/purple
+	name = "Marker Turf, Purple"
+	color = "#7e34f7"
 
 /turf/unsimulated/marker/teal
 	name = "Marker Turf, Teal"

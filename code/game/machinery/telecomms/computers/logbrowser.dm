@@ -28,7 +28,7 @@
 	if(stat & (BROKEN|NOPOWER))
 		return
 	user.set_machine(src)
-	var/dat = "<TITLE>Telecommunication Server Monitor</TITLE><center><b>Telecommunications Server Monitor</b></center>"
+	var/dat = "<center><b>Telecommunications Server Monitor</b></center>"
 
 	switch(screen)
 
@@ -64,7 +64,7 @@
 
 			dat += log_entries_to_text(user, SelectedServer)
 
-	user << browse(dat, "window=comm_monitor;size=575x400")
+	user << browse(HTML_SKELETON_TITLE("Telecommunications Server Monitor", dat), "window=comm_monitor;size=575x400")
 	onclose(user, "server_control")
 
 	temp = ""
