@@ -1,20 +1,13 @@
-/obj/effect/shuttle_landmark/ssrm_corvette/nav1
-	name = "Sol Recon Corvette - Port Side"
-	landmark_tag = "nav_ssrm_corvette_1"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
+// Aft airlocks
+/obj/effect/map_effect/marker/airlock/ssrm_ship/aft
+	name = "Maintenance Hatch"
+	master_tag = "ssrm_aft"
+// --------
 
-/obj/effect/shuttle_landmark/ssrm_corvette/nav2
-	name = "Sol Recon Corvette - Starboard Side"
-	landmark_tag = "nav_ssrm_corvette_2"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
-
-/obj/effect/shuttle_landmark/ssrm_corvette/transit
-	name = "In transit"
-	landmark_tag = "nav_transit_ssrm_corvette"
-	base_turf = /turf/space/transit/north
-
+// Fore airlocks
+/obj/effect/map_effect/marker/airlock/ssrm_ship/fore
+	name = "Maintenance Hatch"
+	master_tag "ssrm_fore"
 // --------
 
 // Space landmarks

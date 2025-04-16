@@ -20,7 +20,7 @@
 /obj/outfit/admin/ssrm_navy_crewman
 	name = "Sol Recon Navy Crewman"
 
-	uniform = /obj/item/clothing/under/rank/sol/
+	uniform = /obj/item/clothing/under/rank/sol
 	shoes = /obj/item/clothing/shoes/jackboots
 	back = /obj/item/storage/backpack/satchel
 	head = /obj/item/clothing/head/sol
