@@ -87,6 +87,13 @@
 	balloon = /obj/item/toy/balloon/latex/nitrile
 	anomaly_protection = 0.1
 
+/obj/item/clothing/gloves/latex/nitrile/zeng
+	name = "zeng-hu vinyl gloves"
+	desc = "A key design element in the labwear was utility and compatibility with the Zeng-Hu positronic chassis workers that are ubiquitous throughout the corporation. \
+	As a result they are breathable yet non-porous, allowing for ample airflow while retaining the cleanroom standards expected of a medical and scientific uniform."
+	icon_state = "zeng_gloves"
+	item_state = "zeng_gloves"
+
 /obj/item/clothing/gloves/latex/nitrile/unathi
 	name = "unathi nitrile gloves"
 	desc = "Sterile nitrile gloves. Designed for Unathi use."
