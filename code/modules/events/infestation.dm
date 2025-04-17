@@ -41,7 +41,7 @@
 			INFESTATION_SLIMES = 1
 		)
 	if(player_count >= 8)
-		possible mobs = list(
+		possible_mobs = list(
 			INFESTATION_SPIDERLINGS = 1,
 			INFESTATION_SLIMES = 1
 		)
