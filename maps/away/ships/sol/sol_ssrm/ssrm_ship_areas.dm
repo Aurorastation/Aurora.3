@@ -13,9 +13,6 @@
 /area/ship/ssrm_corvette/cic
 	name = "Sol Recon Corvette - CIC"
 
-/area/ship/ssrm_corvette/safe_room
-	name = "Sol Recon Corvette - Safe Room"
-
 /area/ship/ssrm_corvette/telecomms
 	name = "Sol Recon Corvette - Telecommunications"
 
@@ -67,6 +64,9 @@
 /area/ship/ssrm_corvette/head
 	name = "Sol Recon Corvette - Head"
 
+/area/ship/ssrm_corvette/safe_room
+	name = "Sol Recon Corvette - Secure Storage"
+
 /area/ship/ssrm_corvette/captain_office
 	name = "Sol Recon Corvette - Captain's Office"
 
@@ -77,7 +77,7 @@
 	name = "Sol Recon Corvette - Chief Petty Officer's Cabin"
 
 /area/ship/ssrm_corvette/canteen
-	name = "Sol Recon Corvette - Canteen"
+	name = "Sol Recon Corvette - Mess Hall"
 
 /area/ship/ssrm_corvette/freezer
 	name = "Sol Recon Corvette - Freezer"
@@ -96,6 +96,6 @@
 
 // Shuttles
 /area/shuttle/ssrm_shuttle
-	name = "Recon Corvette Shuttle"
+	name = "Sol Recon Corvette - Shuttle"
 	icon_state = "shuttle2"
 	requires_power = TRUE

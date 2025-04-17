@@ -2,7 +2,7 @@
 	name = "Sol Recon Corvette Shuttle"
 	class = "SAMV"
 	designation = "Vizsla"
-	desc = "A modestly sized shuttle design used by the Solarian armed forces, the Destrier is well-armored but somewhat slow, and was explicitly designed to be as survivable as possible for operations during combat."
+	desc = "A modestly sized shuttle design used by the Solarian Armed Forces, the Destrier is well-armored but somewhat slow, and was explicitly designed to be as survivable as possible for operations during combat."
 	shuttle = "SSRM Shuttle"
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"

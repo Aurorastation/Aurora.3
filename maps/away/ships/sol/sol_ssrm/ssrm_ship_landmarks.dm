@@ -7,7 +7,7 @@
 // Fore airlocks
 /obj/effect/map_effect/marker/airlock/ssrm_ship/fore
 	name = "Maintenance Hatch"
-	master_tag "ssrm_fore"
+	master_tag = "ssrm_fore"
 // --------
 
 // Space landmarks
