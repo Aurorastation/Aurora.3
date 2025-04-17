@@ -248,7 +248,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "ssrm_airlocks"
+	id = "ssrm_docking_port_lockdown"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette/docking_port)
@@ -5082,8 +5082,8 @@
 	req_access = list(203)
 	},
 /obj/machinery/button/remote/blast_door{
-	id = "ssrm_cpo_windows_exterior";
-	name = "CPO's Cabin Observation Lockdown";
+	id = "ssrm_docking_port_lockdown";
+	name = "Docking Port Lockdown";
 	pixel_x = 6;
 	dir = 10;
 	pixel_y = -1;
