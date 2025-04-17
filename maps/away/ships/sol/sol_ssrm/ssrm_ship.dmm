@@ -596,7 +596,7 @@
 /obj/effect/landmark/entry_point/aft,
 /obj/effect/map_effect/marker/airlock/shuttle/ssrm_shuttle,
 /obj/machinery/button/remote/blast_door{
-	id = "ssmd_shuttle_airlock";
+	id = "ssrm_shuttle_airlock";
 	name = "Airlock Lockdown";
 	req_access = list(203);
 	dir = 1;
@@ -2127,7 +2127,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/button/remote/blast_door{
-	id = "ssmd_shuttle_window";
+	id = "ssrm_shuttle_window";
 	name = "Window Shielding";
 	req_access = list(203);
 	dir = 8;
@@ -5764,7 +5764,7 @@
 	},
 /obj/effect/map_effect/marker/airlock/shuttle/ssrm_shuttle,
 /obj/machinery/button/remote/blast_door{
-	id = "ssmd_shuttle_airlock";
+	id = "ssrm_shuttle_airlock";
 	name = "Airlock Lockdown";
 	req_access = list(203);
 	dir = 1;
@@ -6537,7 +6537,7 @@
 /obj/machinery/ship_weapon/grauwolf{
 	pixel_x = -32;
 	pixel_y = -192;
-	weapon_id = "SSMD Grauwolf Flak Battery"
+	weapon_id = "SSRM Grauwolf Flak Battery"
 	},
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/reinforced,
@@ -6884,7 +6884,7 @@
 	density = 0;
 	dir = 4;
 	icon_state = "pdoor0";
-	id = "ssmd_shuttle_window";
+	id = "ssrm_shuttle_window";
 	name = "Blast Doors";
 	opacity = 0
 	},
@@ -7110,7 +7110,7 @@
 	density = 0;
 	dir = 2;
 	icon_state = "pdoor0";
-	id = "ssmd_shuttle_window";
+	id = "ssrm_shuttle_window";
 	name = "Blast Doors";
 	opacity = 0
 	},
@@ -10586,7 +10586,7 @@
 	density = 0;
 	dir = 4;
 	icon_state = "pdoor0";
-	id = "ssmd_shuttle_window";
+	id = "ssrm_shuttle_window";
 	name = "Blast Doors";
 	opacity = 0
 	},
