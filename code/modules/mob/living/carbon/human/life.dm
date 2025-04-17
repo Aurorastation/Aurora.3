@@ -599,9 +599,6 @@
 		if(CE_PAINKILLER in chem_effects)
 			analgesic = chem_effects[CE_PAINKILLER]
 
-		if(CE_TOXIN in chem_effects)
-			adjustToxLoss(chem_effects[CE_TOXIN])
-
 		if(CE_EMETIC in chem_effects)
 			if(prob(chem_effects[CE_EMETIC]))
 				delayed_vomit()
@@ -1169,12 +1166,20 @@
 		return
 
 	// Puke if toxloss is too high
-	if(!stat)
-		if (getToxLoss() >= 45 && !lastpuke)
-			if (prob(3))
-				delayed_vomit()
-			else if (prob(1))
-				vomit()
+	var/vomit_score = 0
+
+	for(var/tag in list(BP_LIVER,BP_KIDNEYS))
+		var/obj/item/organ/internal/I = internal_organs_by_name[tag]
+		if(I)
+			vomit_score += I.damage
+		else if(should_have_organ(tag))
+			vomit_score += 45
+	if(chem_effects[CE_TOXIN] || radiation)
+		vomit_score += 0.5 * getToxLoss()
+	if(chem_effect[CE_ALCOHOL])
+		vomit_score += 10
+	if(stat != DEAD && vomit_score > 25 && prob(10))
+		vomit(vomit_score, vomit_score/25)
 
 	//0.1% chance of playing a scary sound to someone who's in complete darkness
 	if(isturf(loc) && rand(1,1000) == 1)
