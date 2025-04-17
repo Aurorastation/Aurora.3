@@ -169,7 +169,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
-/area/ship/ssrm_corvette/saferoom)
+/area/ship/ssrm_corvette/safe_room)
 "aCd" = (
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor,
@@ -1232,7 +1232,7 @@
 /obj/item/gun/projectile/pistol,
 /obj/item/storage/firstaid/light,
 /turf/simulated/floor/tiled/dark/full,
-/area/ship/ssrm_corvette/saferoom)
+/area/ship/ssrm_corvette/safe_room)
 "cNn" = (
 /obj/machinery/iff_beacon/name_change{
 	pixel_y = 14
@@ -4741,7 +4741,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/ssrm_corvette/saferoom)
+/area/ship/ssrm_corvette/safe_room)
 "kkc" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/decal/remains/rat,
@@ -4931,7 +4931,7 @@
 /obj/machinery/suit_storage_unit/standard_unit,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
-/area/ship/ssrm_corvette/saferoom)
+/area/ship/ssrm_corvette/safe_room)
 "kLl" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
@@ -5916,7 +5916,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/ssrm_corvette/saferoom)
+/area/ship/ssrm_corvette/safe_room)
 "mNu" = (
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 4
@@ -6849,7 +6849,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/ssrm_corvette/saferoom)
+/area/ship/ssrm_corvette/safe_room)
 "pbu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -7182,7 +7182,7 @@
 /turf/simulated/wall/shuttle/raider{
 	can_open = 1
 	},
-/area/ship/ssrm_corvette/saferoom)
+/area/ship/ssrm_corvette/safe_room)
 "pUt" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/media/jukebox{
@@ -7260,7 +7260,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/ship/ssrm_corvette/saferoom)
+/area/ship/ssrm_corvette/safe_room)
 "qcA" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/effect/floor_decal/industrial/warning/full,
@@ -7349,7 +7349,7 @@
 /area/ship/ssrm_corvette/brig)
 "qoF" = (
 /turf/simulated/wall/shuttle/raider,
-/area/ship/ssrm_corvette/saferoom)
+/area/ship/ssrm_corvette/safe_room)
 "qrR" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
@@ -7756,7 +7756,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/ssrm_corvette/saferoom)
+/area/ship/ssrm_corvette/safe_room)
 "rqR" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
@@ -10328,7 +10328,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/ssrm_corvette/saferoom)
+/area/ship/ssrm_corvette/safe_room)
 "xCq" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -40844,7 +40844,7 @@ xRX
 xRX
 xRX
 xRX
-qoF
+nIW
 qoF
 roP
 aBD
@@ -41100,8 +41100,8 @@ xRX
 xRX
 xRX
 xRX
-qoF
-qoF
+nIW
+nIW
 qoF
 qbB
 qoF
