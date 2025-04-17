@@ -40,6 +40,11 @@
 			INFESTATION_HIVEBOTS = 1,
 			INFESTATION_SLIMES = 1
 		)
+	if(player_count >= 8)
+		possible mobs = list(
+			INFESTATION_SPIDERLINGS = 1,
+			INFESTATION_SLIMES = 1
+		)
 	else
 		possible_mobs = list(
 			INFESTATION_SLIMES = 1
@@ -122,15 +127,12 @@
 			var/chosen_slime_type = pick(slime_types)
 			for(var/i = 1, i < rand(5,8),i++)
 				chosen_mob_types += chosen_slime_type
-		// Greimorians already have a dedicated event in spider_infestation.dm
-		/*
 		if(INFESTATION_SPIDERLINGS)
 			event_name = "Greimorian Infestation"
 			chosen_verb = "have burrowed into"
 			for(var/i = 1, i < rand(3,6),i++)
 				chosen_mob_types += /obj/effect/spider/spiderling
 			chosen_mob_types += /obj/effect/spider/eggcluster
-		*/
 
 /datum/event/infestation/proc/spawn_mobs()
 	for(var/spawned_mob in chosen_mob_types)
@@ -149,6 +151,6 @@
 #undef INFESTATION_RATS
 #undef INFESTATION_LIZARDS
 #undef INFESTATION_SPACE_BATS
-// #undef INFESTATION_SPIDERLINGS
+#undef INFESTATION_SPIDERLINGS
 #undef INFESTATION_HIVEBOTS
 #undef INFESTATION_SLIMES
