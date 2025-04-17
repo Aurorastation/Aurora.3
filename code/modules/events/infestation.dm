@@ -23,8 +23,8 @@
 
 /datum/event/infestation/moderate
 	possible_mobs = list(
-		INFESTATION_SPACE_BATS = 1
-		// INFESTATION_SPIDERLINGS = 1
+		INFESTATION_SPACE_BATS = 1,
+		INFESTATION_SPIDERLINGS = 1
 	)
 
 /datum/event/infestation/major/setup()
