@@ -100,3 +100,13 @@
 /obj/item/organ/internal/machine/cell/listen()
 	if(get_charge())
 		return "faint hum of the power bank"
+
+/obj/item/organ/internal/machine/cell/terminator
+	name = "shielded power core"
+	desc = "A small, powerful power core for use in fully prosthetic bodies. Equipped with a Faraday shield."
+	icon = 'icons/obj/power.dmi'
+	icon_state = "scell"
+	organ_tag = "shielded cell"
+	parent_organ = BP_CHEST
+	vital = TRUE
+	emp_coeff = 0.1

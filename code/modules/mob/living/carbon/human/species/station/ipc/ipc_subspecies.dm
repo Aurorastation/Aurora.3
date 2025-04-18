@@ -112,7 +112,7 @@
 		BP_COOLING_UNIT = /obj/item/organ/internal/machine/cooling_unit,
 		BP_CELL    = /obj/item/organ/internal/machine/cell,
 		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
-		"surge"   = /obj/item/organ/internal/surge/advanced
+		"surge"   = /obj/item/organ/internal/machine/surge/advanced
 	)
 
 	unarmed_types = list(
@@ -265,8 +265,8 @@
 		BP_COOLING_UNIT = /obj/item/organ/internal/machine/cooling_unit,
 		BP_CELL    = /obj/item/organ/internal/machine/cell,
 		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
-		"data core" = /obj/item/organ/internal/data,
-		"surge" = /obj/item/organ/internal/surge/advanced
+		"data core" = /obj/item/organ/internal/machine/data,
+		"surge" = /obj/item/organ/internal/machine/surge/advanced
 	)
 
 	has_limbs = list(
@@ -413,6 +413,19 @@
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/ipc/industrial/xion)
 	)
 
+	has_organ = list(
+		BP_BRAIN   = /obj/item/organ/internal/machine/posibrain,
+		BP_VOICE_SYNTHESIZER = /obj/item/organ/internal/machine/voice_synthesizer,
+		BP_DIAGNOSTICS_SUITE = /obj/item/organ/internal/machine/internal_diagnostics,
+		BP_HYDRAULICS = /obj/item/organ/internal/machine/hydraulics,
+		BP_ACTUATORS_LEFT = /obj/item/organ/internal/machine/actuators/left,
+		BP_ACTUATORS_RIGHT = /obj/item/organ/internal/machine/actuators/right,
+		BP_COOLING_UNIT = /obj/item/organ/internal/machine/cooling_unit/xion,
+		BP_CELL    = /obj/item/organ/internal/machine/cell,
+		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
+		BP_IPCTAG = /obj/item/organ/internal/machine/ipc_tag
+	)
+
 /datum/species/machine/industrial/xion/remote
 	name = SPECIES_IPC_XION_REMOTE
 	short_name = "rem_xmf"
@@ -429,7 +442,7 @@
 		BP_COOLING_UNIT = /obj/item/organ/internal/machine/cooling_unit,
 		BP_CELL    = /obj/item/organ/internal/machine/cell,
 		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
-		BP_IPCTAG = /obj/item/organ/internal/ipc_tag
+		BP_IPCTAG = /obj/item/organ/internal/machine/ipc_tag
 	)
 
 /datum/species/machine/industrial/xion/get_light_color(mob/living/carbon/human/H)
@@ -462,6 +475,19 @@
 	examine_color = "#ff00ff"
 
 	blurb = "Being a corporation focused primarily on medical sciences and treatments, Zeng-Hu Pharmaceuticals had little interest in the market of synthetics in the beginning (especially considering a good portion of Zeng-Hu employees are Skrellian). However, after seeing the advances in almost all fields of the galactic market after the advent of synthetics, Zeng-Hu set aside some funds for their own robotics department, focused mainly on medical service and even science related operations. Having taken some inspiration from biological life, the chassis has an interesting leg design: digitigrade legs provide the chassis with enhanced speed. A downside to this development was the reduction of metals on the chassis. Most plates covering the sensitive interior electronics are polymer casts to reduce the weight of the unit, resulting in a not-so-durable android."
+
+	has_organ = list(
+		BP_BRAIN   = /obj/item/organ/internal/machine/posibrain,
+		BP_VOICE_SYNTHESIZER = /obj/item/organ/internal/machine/voice_synthesizer,
+		BP_DIAGNOSTICS_SUITE = /obj/item/organ/internal/machine/internal_diagnostics,
+		BP_HYDRAULICS = /obj/item/organ/internal/machine/hydraulics,
+		BP_ACTUATORS_LEFT = /obj/item/organ/internal/machine/actuators/left,
+		BP_ACTUATORS_RIGHT = /obj/item/organ/internal/machine/actuators/right,
+		BP_COOLING_UNIT = /obj/item/organ/internal/machine/cooling_unit/zenghu,
+		BP_CELL    = /obj/item/organ/internal/machine/cell,
+		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
+		BP_IPCTAG = /obj/item/organ/internal/machine/ipc_tag
+	)
 
 	has_limbs = list(
 		BP_CHEST  = list("path" = /obj/item/organ/external/chest/ipc/industrial/zenghu),
@@ -524,7 +550,7 @@
 		BP_COOLING_UNIT = /obj/item/organ/internal/machine/cooling_unit,
 		BP_CELL    = /obj/item/organ/internal/machine/cell,
 		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
-		BP_IPCTAG = /obj/item/organ/internal/ipc_tag,
+		BP_IPCTAG = /obj/item/organ/internal/machine/ipc_tag,
 		BP_WIRELESS_ACCESS = /obj/item/organ/internal/machine/wireless_access
 	)
 
@@ -602,7 +628,7 @@
 		BP_COOLING_UNIT = /obj/item/organ/internal/machine/cooling_unit,
 		BP_CELL    = /obj/item/organ/internal/machine/cell,
 		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
-		BP_IPCTAG = /obj/item/organ/internal/ipc_tag
+		BP_IPCTAG = /obj/item/organ/internal/machine/ipc_tag
 	)
 
 /datum/species/machine/unbranded/get_light_color(mob/living/carbon/human/H)

@@ -86,6 +86,8 @@
 	flesh_color = "#575757"
 	reagent_tag = IS_MACHINE
 
+	// If you add a new organ to IPCs, remember that a lot of the normal subspecies have overrides because of custom subtype organs.
+	// You'll need to add the new organ there too.
 	has_organ = list(
 		BP_BRAIN   = /obj/item/organ/internal/machine/posibrain,
 		BP_VOICE_SYNTHESIZER = /obj/item/organ/internal/machine/voice_synthesizer,
@@ -96,7 +98,7 @@
 		BP_COOLING_UNIT = /obj/item/organ/internal/machine/cooling_unit,
 		BP_CELL    = /obj/item/organ/internal/machine/cell,
 		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
-		BP_IPCTAG = /obj/item/organ/internal/ipc_tag
+		BP_IPCTAG = /obj/item/organ/internal/machine/ipc_tag
 	)
 
 	vision_organ = BP_EYES
@@ -178,13 +180,29 @@
 /datum/species/machine/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost, var/pre_move)
 	if(!pre_move && H.stat == CONSCIOUS)
 		H.bodytemperature += cost * sprint_temperature_factor
+	var/obj/item/organ/internal/machine/hydraulics/hydraulics = H.internal_organs_by_name[BP_HYDRAULICS]
+	if(istype(hydraulics))
+		var/hydraulics_integrity = hydraulics.get_integrity()
+		if(hydraulics_integrity < 75)
+			var/damage_mod = 2
+			if(hydraulics.is_bruised())
+				damage_mod = 3
+			if(hydraulics.is_broken())
+				damage_mod = 5
+
+			// x = x * (2 + 100 - y ) / 100
+			// x = x * (2 + 100 - 75) / 100 -> x = x * (2 + (25 / 100)) --> x = x * 2.25
+			// increases depending on integrity
+
+			cost *= (damage_mod + (100 - hydraulics_integrity) / 100)
+
 	var/obj/item/organ/internal/machine/cell/C = H.internal_organs_by_name[BP_CELL]
-	if(C)
+	if(!istype(C))
 		C.use(cost * sprint_cost_factor)
 	return TRUE
 
 /datum/species/machine/handle_emp_act(mob/living/carbon/human/hit_mob, severity)
-	var/obj/item/organ/internal/surge/S = hit_mob.internal_organs_by_name["surge"]
+	var/obj/item/organ/internal/machine/surge/S = hit_mob.internal_organs_by_name["surge"]
 	if(!isnull(S))
 		if(S.surge_left >= 1)
 			playsound(hit_mob.loc, 'sound/magic/LightningShock.ogg', 25, 1)
@@ -210,14 +228,14 @@
 
 /datum/species/machine/proc/check_tag(var/mob/living/carbon/human/new_machine, var/client/player)
 	if(!new_machine || !player)
-		var/obj/item/organ/internal/ipc_tag/tag = new_machine.internal_organs_by_name[BP_IPCTAG]
+		var/obj/item/organ/internal/machine/ipc_tag/tag = new_machine.internal_organs_by_name[BP_IPCTAG]
 		if(tag)
 			tag.serial_number = uppertext(dd_limittext(md5(new_machine.real_name), 12))
 			tag.ownership_info = IPC_OWNERSHIP_COMPANY
 			tag.citizenship_info = CITIZENSHIP_BIESEL
 		return
 
-	var/obj/item/organ/internal/ipc_tag/tag = new_machine.internal_organs_by_name[BP_IPCTAG]
+	var/obj/item/organ/internal/machine/ipc_tag/tag = new_machine.internal_organs_by_name[BP_IPCTAG]
 
 	if(player.prefs.machine_tag_status)
 		tag.serial_number = player.prefs.machine_serial_number

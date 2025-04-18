@@ -47,12 +47,11 @@
 
 /**
  * This is a function used to return an overall integrity number that takes
- * the average of wiring + electronics.
- * Those are the soft bits - plating is what defends them.
+ * the average of wiring + electronics. Those are the soft bits - plating is what defends them.
  * Returns a percentage.
  */
 /obj/item/organ/internal/machine/proc/get_integrity()
-	return (wiring.get_status() + electronics.get_status() + plating.get_status()) / 3
+	return (wiring.get_status() + electronics.get_status()) / 2
 
 /**
  * This function returns the damage level of an organ, only calculating its damage and max_damage.
@@ -74,13 +73,10 @@
 
 	switch(integrity)
 		if(50 to 75)
-			brain.take_internal_damage(1)
 			low_integrity_damage(integrity)
 		if(25 to 50)
-			brain.take_internal_damage(2)
 			medium_integrity_damage(integrity)
 		if(0 to 25)
-			brain.take_internal_damage(3)
 			high_integrity_damage(integrity)
 
 /**
@@ -97,9 +93,18 @@
 	if(last_damage_time + damage_cooldown > world.time)
 		return FALSE
 
+	if(prob(25))
+		take_damage(1, TRUE)
+
 /**
  * The proc called to do high-intensity integrity damage (0 to 25% damage).
  */
 /obj/item/organ/internal/machine/proc/high_integrity_damage(integrity)
 	if(last_damage_time + damage_cooldown > world.time)
 		return FALSE
+	take_damage(1, TRUE)
+
+/**
+ * Returns extra diagnostics info, viewable from the diagnostics unit verbs or through a robot scanner.
+ */
+/obj/item/organ/internal/machine/proc/get_diagnostics_info()

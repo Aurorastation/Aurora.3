@@ -13,3 +13,7 @@
 
 /datum/synthetic_internal/plating/get_status()
 	return (health / max_health) * 100
+
+/datum/synthetic_internal/plating/replace_health(new_max_health)
+	max_health = new_max_health
+	health = new_max_health

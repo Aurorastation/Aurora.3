@@ -99,7 +99,7 @@
 				for(var/obj/item/organ/O in H.internal_organs)
 					if(!(O.status & ORGAN_ROBOT))
 						continue
-					if(!show_tag && istype(O, /obj/item/organ/internal/ipc_tag))
+					if(!show_tag && istype(O, /obj/item/organ/internal/machine/ipc_tag))
 						continue
 					organ_found = TRUE
 					to_chat(user, "[O.name]: <span class='warning'>[O.damage]</span>")

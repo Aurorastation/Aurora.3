@@ -53,3 +53,10 @@
  */
 /datum/synthetic_internal/proc/analyze_integrity_precise()
 	return
+
+/**
+ * Replaces the health by setting a new max health and setting the health to the new max_health value.
+ * Needs to be overridden on every subtype.
+ */
+/datum/synthetic_internal/proc/replace_health(new_max_health)
+	return

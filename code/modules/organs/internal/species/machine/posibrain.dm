@@ -55,3 +55,10 @@
 	name = "robotic intelligence circuit"
 	desc = "The pinnacle of artifical intelligence which can be achieved using classical computer science."
 	robotic_brain_type = /obj/item/device/mmi/digital/robot
+
+/obj/item/organ/internal/machine/posibrain/terminator
+	name = BP_BRAIN
+	organ_tag = BP_BRAIN
+	parent_organ = BP_CHEST
+	vital = TRUE
+	emp_coeff = 0.1

@@ -24,6 +24,7 @@ type Organ = {
   wiring_status: number;
   plating_status: number;
   electronics_status: number;
+  diagnostics_info: string;
 };
 
 type Limb = {
@@ -144,6 +145,11 @@ export const OrganDisplay = (props, context) => {
                 .
               </Box>
             </>
+          ) : (
+            ''
+          )}
+          {organ.diagnostics_info ? (
+            <Section title="Diagnostics">{organ.diagnostics_info}</Section>
           ) : (
             ''
           )}

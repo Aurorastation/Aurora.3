@@ -1084,7 +1084,7 @@
 	if(use_check_and_message(usr))
 		return
 
-	var/obj/item/organ/internal/ipc_tag/tag = internal_organs_by_name[BP_IPCTAG]
+	var/obj/item/organ/internal/machine/ipc_tag/tag = internal_organs_by_name[BP_IPCTAG]
 	if(isnull(tag) || !tag)
 		to_chat(src, SPAN_WARNING("Error: No Tag Found."))
 		return

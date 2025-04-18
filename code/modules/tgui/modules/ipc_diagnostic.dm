@@ -31,6 +31,7 @@
 				organ_data["wiring_status"] = edit_organ_status(machine_organ.wiring.get_status(), diagnostics)
 				organ_data["plating_status"] = edit_organ_status(machine_organ.plating.get_status(), diagnostics)
 				organ_data["electronics_status"] = edit_organ_status(machine_organ.electronics.get_status(), diagnostics)
+				organ_data["diagnostics_info"] = machine_organ.get_diagnostics_info()
 
 			data["organs"] += list(organ_data)
 

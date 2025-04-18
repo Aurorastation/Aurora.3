@@ -36,6 +36,8 @@
 #define ORGAN_PREF_REMOVED "removed"
 /// Note that a "normal" limb or organ has no pref, so there's no define for it.
 
+/// Air cooling. Technically not used, but we need this for the linked lists in cooling_unit.dm.
+#define ORGAN_PREF_AIRCOOLED "air_cooled"
 /// Liquid cooling. For IPC cooling units. Default is air cooling.
 #define ORGAN_PREF_LIQUIDCOOLED "liquid_cooled"
 /// Passive cooling. For IPC cooling units. Default is air cooling.

@@ -152,6 +152,10 @@
 								var/obj/item/organ/internal/machine/cooling_unit/cooling_unit = I
 								cooling_unit.set_cooling_type(ORGAN_PREF_PASSIVECOOLED)
 
+						// If you add any more liquid cooling presets here, make sure to update set_cooling_type() @ cooling_unit.dm.
+						// The reason is that the air cooled cooling unit is the default pref, but "default pref" is actually "the absence of any pref".
+						// Meaning that we check for unique organ prefs first, and if we don't find a unique organ pref, then we default to air cooling.
+
 	if (apply_markings)
 		for(var/N in organs_by_name)
 			var/obj/item/organ/external/O = organs_by_name[N]

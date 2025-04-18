@@ -20,36 +20,37 @@
 	/// The maximum value the thermostat can reach. 50C.
 	var/thermostat_max = 323.15
 
+	/// Can this cooling unit work in space?
+	var/spaceproof = FALSE
+
+	/// The list of cooling unit presets to use. Linked list of ORGAN_PREF to /singleton/cooling_unit_preset.
+	var/list/cooling_unit_presets = list(
+		ORGAN_PREF_AIRCOOLED = /singleton/cooling_unit_preset/air,
+		ORGAN_PREF_LIQUIDCOOLED = /singleton/cooling_unit_preset/liquid,
+		ORGAN_PREF_PASSIVECOOLED = /singleton/cooling_unit_preset/passive
+	)
+
 /**
  * Called when prefs are synced to the organ to set the proper cooling type.
  * By default, this is an air cooled organ. No pref = air cooled unit.
  * TODOMATT: make this work with acting/changer.
  */
 /obj/item/organ/internal/machine/cooling_unit/proc/set_cooling_type(cooling_type)
+	var/singleton/cooling_unit_preset/cooling_preset
 	switch(cooling_type)
 		if(ORGAN_PREF_LIQUIDCOOLED)
-			name = "liquid-cooling pump and radiator array"
-			desc = "An extremely complex set of cooling pipes that transport coolant throughout a synthetic's body. The most efficient type of cooling, but also the most vulnerable."
-
-			passive_temp_change = 3
-			plating.max_health = 20
-			plating.health = 20
+			cooling_preset = GET_SINGLETON(cooling_unit_presets[ORGAN_PREF_LIQUIDCOOLED])
 
 		if(ORGAN_PREF_PASSIVECOOLED)
-			name = "passive radiator block array"
-			desc = "A simplistic, but efficient block of large cooling fins, which cool down a synthetic's body enough to make it work. Quite cheap, but durable."
-
-			passive_temp_change = 1
-			plating.max_health = 120
-			plating.health = 120
-
+			cooling_preset = GET_SINGLETON(cooling_unit_presets[ORGAN_PREF_PASSIVECOOLED])
 		else
-			name = "air cooling unit"
-			desc = "One of the most complex and vital components of a synthetic. It regulates its internal temperature and prevents the chassis from overheating."
+			cooling_preset = GET_SINGLETON(cooling_unit_presets[ORGAN_PREF_AIRCOOLED])
 
-			passive_temp_change = 2
-			plating.max_health = 50
-			plating.health = 50
+	if(!istype(cooling_preset))
+		crash_with("Invalid cooling preset [cooling_preset]! Defaulting to the base type.")
+
+	passive_temp_change = cooling_preset.passive_temp_change
+	plating.replace_health(cooling_preset.plating_max_health)
 
 /obj/item/organ/internal/machine/cooling_unit/attack_self(var/mob/user)
 	. = ..()
@@ -104,7 +105,7 @@
 		// Some odd scenarios can cause there to be no turf. Like getting teleported into the game from lobby.
 		return
 
-	if(isspaceturf(T))
+	if(isspaceturf(T) && !spaceproof)
 		// Uh oh! No cooling here...
 		owner.bodytemperature =  max(owner.bodytemperature + passive_temp_change, 500)
 	else
@@ -113,16 +114,70 @@
 			owner.bodytemperature =  max(owner.bodytemperature + passive_temp_change, 500)
 			return
 
+		var/temperature_change = passive_temp_change
 		if(thermostat < owner.bodytemperature)
-			owner.bodytemperature = max(owner.bodytemperature - passive_temp_change, thermostat)
+			if((owner.bodytemperature - temperature_change) < thermostat)
+				temperature_change = owner.bodytemperature - thermostat
+			owner.bodytemperature = max(owner.bodytemperature - temperature_change, thermostat)
 		else
-			owner.bodytemperature = min(owner.bodytemperature + passive_temp_change, thermostat)
+			if((owner.bodytemperature + temperature_change) > thermostat)
+				temperature_change = thermostat - owner.bodytemperature
+			owner.bodytemperature = min(owner.bodytemperature + temperature_change, thermostat)
 
 /obj/item/organ/internal/machine/cooling_unit/low_integrity_damage(integrity)
 	. = ..()
 	if(!.)
 		return
 
-	if(prob(integrity))
+	if(prob(10 + (100 - integrity) / 100))
 		to_chat(owner, SPAN_WARNING("Your temperature sensors pick up a spike in temperature."))
 		owner.bodytemperature += 10
+
+/obj/item/organ/internal/machine/cooling_unit/medium_integrity_damage(integrity)
+	. = ..()
+	if(!.)
+		return
+
+	if(prob(5 + (100 - integrity) / 100))
+		to_chat(owner, SPAN_WARNING("Your thermostat's temperature setting goes haywire!"))
+		thermostat = rand(thermostat_min, thermostat_max)
+
+/obj/item/organ/internal/machine/cooling_unit/high_integrity_damage(integrity)
+	. = ..()
+	if(!.)
+		return
+
+	if(prob(1 + (100 - integrity) / 100))
+		if(spaceproof)
+			playsound(owner, pick(SOUNDS_LASER_METAL), 50)
+			to_chat(owner, SPAN_DANGER(FONT_LARGE("Your sensors notify you that part of your cooling unit has melted - it will not work in space anymore!")))
+			spaceproof = FALSE
+
+		if(thermostat_min < (initial(thermostat_min) + 100))
+			to_chat(owner, SPAN_DANGER(FONT_LARGE("Part of your cooling unit melts away...!")))
+			update_thermostat(thermostat_min + round(rand(10, 50)))
+
+/obj/item/organ/internal/machine/cooling_unit/proc/update_thermostat(new_thermostat_min, new_thermostat_max)
+	if(new_thermostat_min)
+		thermostat_min = new_thermostat_min
+		if(thermostat < new_thermostat_min)
+			thermostat = new_thermostat_min
+
+	if(new_thermostat_max)
+		thermostat_max = new_thermostat_max
+
+/obj/item/organ/internal/machine/cooling_unit/xion
+	spaceproof = TRUE
+	cooling_unit_presets = list(
+		ORGAN_PREF_AIRCOOLED = /singleton/cooling_unit_preset/air_xion,
+		ORGAN_PREF_LIQUIDCOOLED = /singleton/cooling_unit_preset/liquid_xion,
+		ORGAN_PREF_PASSIVECOOLED = /singleton/cooling_unit_preset/passive_xion
+	)
+
+
+/obj/item/organ/internal/machine/cooling_unit/zenghu
+	cooling_unit_presets = list(
+		ORGAN_PREF_AIRCOOLED = /singleton/cooling_unit_preset/air_zenghu,
+		ORGAN_PREF_LIQUIDCOOLED = /singleton/cooling_unit_preset/liquid_zenghu,
+		ORGAN_PREF_PASSIVECOOLED = /singleton/cooling_unit_preset/passive_zenghu
+	)

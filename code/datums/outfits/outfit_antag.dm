@@ -42,7 +42,7 @@
 		U.hidden_uplink.bluecrystals = round(uplink_uses / 2)
 		U.hidden_uplink.tgui_menu = 1
 	if(isipc(H))
-		var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+		var/obj/item/organ/internal/machine/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
 		if(istype(tag))
 			tag.modify_tag_data(TRUE)
 
