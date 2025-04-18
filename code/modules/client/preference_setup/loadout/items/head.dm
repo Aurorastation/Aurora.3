@@ -255,7 +255,6 @@
 /datum/gear/head/hijab
 	display_name = "hijab selection"
 	path = /obj/item/clothing/head/hijab
-	slot = slot_r_ear
 
 /datum/gear/head/hijab/New()
 	..()
@@ -274,7 +273,6 @@
 	display_name = "colorable hijab"
 	path = /obj/item/clothing/head/hijab
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-	slot = slot_r_ear
 
 /datum/gear/head/plain_hood
 	display_name = "colorable hood"
