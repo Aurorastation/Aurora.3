@@ -109,7 +109,7 @@
 
 /obj/machinery/telecomms/update_icon()
 	ClearOverlays()
-	if(operable())
+	if(operable() && use_power)
 		AddOverlays(emissive_appearance(icon, "[icon_state]_lights"))
 		AddOverlays("[icon_state]_lights")
 	if(panel_open)
