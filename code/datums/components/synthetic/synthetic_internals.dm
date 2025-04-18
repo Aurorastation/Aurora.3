@@ -20,4 +20,7 @@
 
 /datum/component/synthetic_internals/Destroy(force)
 	. = ..()
+	QDEL_NULL(wiring)
+	QDEL_NULL(plating)
+	QDEL_NULL(electronics)
 	synthetic = null

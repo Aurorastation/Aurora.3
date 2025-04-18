@@ -25,6 +25,10 @@
 		LOG_DEBUG("Synthetic internal [type] generated on invalid organ [attached_organ]. Aborting.")
 		qdel(src)
 
+/datum/synthetic_internal/Destroy(force)
+	organ = null
+	return ..()
+
 /**
  * The proc that handles taking damage. As some components take damage differently,
  * this is overridden by them.
