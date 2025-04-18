@@ -312,7 +312,7 @@
 /obj/random/telecrystals
 	name = "random telecrystals"
 	desc = "Contains a random amount of telecrystals."
-	icon_state = "crystal"
+	icon_state = "coin"
 	spawnlist = list(
 		/obj/item/stack/telecrystal{amount = 10} = 0.5,
 		/obj/item/stack/telecrystal{amount = 15} = 0.4,
@@ -323,7 +323,7 @@
 /obj/random/contraband
 	name = "random contraband"
 	desc = "This is some random contraband."
-	icon_state = "need_sprite"
+	icon_state = "coin"
 	problist = list(
 		/obj/item/storage/pill_bottle/mortaphenyl = 3,
 		/obj/item/storage/pill_bottle/happy = 2,
@@ -367,7 +367,6 @@
 /obj/random/contraband/pill
 	name = "random contraband pill"
 	desc = "This is a random pill of illegal drugs."
-	icon_state = "knife"
 	problist = list(
 		/obj/item/reagent_containers/pill/cocaine = 3,
 		/obj/item/reagent_containers/pill/contemplus = 3,
@@ -380,7 +379,6 @@
 /obj/random/contraband/pillbottle
 	name = "random contraband pill bottle"
 	desc = "This is a random bottle of illegal pills."
-	icon_state = "knife"
 	problist = list(
 		/obj/item/storage/pill_bottle/cocaine = 1,
 		/obj/item/storage/pill_bottle/contemplus = 1,
@@ -406,7 +404,6 @@
 /obj/random/spacecash
 	name = "random credit chips"
 	desc = "This is a random credit chip."
-	icon_state = "cash"
 	problist = list(
 		/obj/item/spacecash/c1 = 6,
 		/obj/item/spacecash/c10 = 3,
