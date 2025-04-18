@@ -21,7 +21,7 @@
 		new /obj/structure/closet/crate/loot(spawn_loc, rarity, quantity)
 		log_and_message_admins("Unusual container spawned at (<a href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[spawn_loc.x];Y=[spawn_loc.y];Z=[spawn_loc.z]'>JMP</a>)")
 	else
-		var/quantity = rand(1, 10)
+		var/quantity = rand(3, 10)
 		new /obj/structure/closet/crate/loot/contraband(spawn_loc, quantity)
 		log_and_message_admins("Contraband container spawned at (<a href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[spawn_loc.x];Y=[spawn_loc.y];Z=[spawn_loc.z]'>JMP</a>)")
 
