@@ -116,6 +116,11 @@
 			owner.bodytemperature =  max(owner.bodytemperature + passive_temp_change, 500)
 			return
 
+		// Too much heat is bad for the cooling unit.
+		if(owner.bodytemperature > initial(thermostat_max) * 1.5)
+			if(prob(owner.bodytemperature / 100))
+				take_internal_damage(owner.bodytemperature / 200)
+
 		var/temperature_change = passive_temp_change
 		if(thermostat < owner.bodytemperature)
 			if((owner.bodytemperature - temperature_change) < thermostat)
