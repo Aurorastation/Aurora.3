@@ -188,6 +188,8 @@
 		/mob/living/carbon/human/proc/check_tag
 		)
 
+	diagnostics_theme = "hephaestus"
+
 /datum/species/machine/industrial/get_light_color()
 	return LIGHT_COLOR_TUNGSTEN
 
@@ -296,6 +298,8 @@
 	sprint_temperature_factor = 0.6
 	move_charge_factor = 0.3
 
+	diagnostics_theme = "syndicate"
+
 /datum/species/machine/hunter_killer/get_light_color()
 	return
 
@@ -355,6 +359,8 @@
 	)
 
 	flags = IS_IPC | ACCEPTS_COOLER | NO_EQUIP_SPEEDMODS
+
+	diagnostics_theme = "hephaestus"
 
 
 /datum/species/machine/industrial/hephaestus/get_light_color(mob/living/carbon/human/H)
@@ -425,6 +431,8 @@
 		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
 		BP_IPCTAG = /obj/item/organ/internal/machine/ipc_tag
 	)
+
+	diagnostics_theme = "hephaestus"
 
 /datum/species/machine/industrial/xion/remote
 	name = SPECIES_IPC_XION_REMOTE
@@ -510,6 +518,8 @@
 		/singleton/maneuver/leap/zenghu
 	)
 
+	diagnostics_theme = "zenghu"
+
 
 /datum/species/machine/zenghu/get_light_color(mob/living/carbon/human/H)
 	if (istype(H))
@@ -571,6 +581,8 @@
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/check_tag
 		)
+
+	diagnostics_theme = "zenghu"
 
 /datum/species/machine/bishop/get_light_color(mob/living/carbon/human/H)
 	if (istype(H))

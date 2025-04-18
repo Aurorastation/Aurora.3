@@ -10,6 +10,7 @@
 
 	if(isipc(user))
 		var/mob/living/carbon/human/ipc = user
+		var/datum/species/machine/machine_species = ipc.species
 		var/obj/item/organ/internal/machine/internal_diagnostics/diagnostics = ipc.internal_organs_by_name[BP_DIAGNOSTICS_SUITE]
 		if(!istype(diagnostics))
 			data["broken"] = TRUE
@@ -17,6 +18,7 @@
 		data["broken"] = diagnostics.is_broken()
 		data["integrity"] = diagnostics.get_integrity()
 		data["temp"] = round(convert_k2c(ipc.bodytemperature))
+		data["diagnostics_theme"] = machine_species.diagnostics_theme
 
 		data["organs"] = list()
 		for(var/obj/item/organ/internal/organ in ipc.internal_organs)

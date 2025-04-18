@@ -49,6 +49,8 @@
 	if(!istype(cooling_preset))
 		crash_with("Invalid cooling preset [cooling_preset]! Defaulting to the base type.")
 
+	name = cooling_preset.name
+	desc = cooling_preset.desc
 	passive_temp_change = cooling_preset.passive_temp_change
 	plating.replace_health(cooling_preset.plating_max_health)
 
@@ -163,8 +165,13 @@
 		if(thermostat < new_thermostat_min)
 			thermostat = new_thermostat_min
 
+		if(thermostat_max < new_thermostat_max)
+			thermostat_max = new_thermostat_min
+
 	if(new_thermostat_max)
 		thermostat_max = new_thermostat_max
+		if(new_thermostat_max < thermostat_min)
+			thermostat_min = new_thermostat_max
 
 /obj/item/organ/internal/machine/cooling_unit/xion
 	spaceproof = TRUE

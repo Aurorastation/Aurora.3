@@ -1,11 +1,12 @@
 import { BooleanLike } from 'common/react';
 import { useBackend } from '../backend';
-import { Box, Collapsible, Divider, Section } from '../components';
+import { AnimatedNumber, Box, Collapsible, Divider, Section } from '../components';
 import { Window } from '../layouts';
 
 export type DiagnosticsData = {
   broken: BooleanLike;
   integrity: number;
+  diagnostics_theme: string;
 
   temp: number;
   robolimb_self_repair_cap: number;
@@ -38,7 +39,9 @@ export const IPCDiagnostics = (props, context) => {
   const { act, data } = useBackend<DiagnosticsData>(context);
 
   return (
-    <Window resizable theme={data.broken ? 'spookyconsole' : 'hackerman'}>
+    <Window
+      resizable
+      theme={data.broken ? 'spookyconsole' : data.diagnostics_theme}>
       <Window.Content scrollable>
         {data.broken ? <Broken /> : <DiagnosticsWindow />}
       </Window.Content>
@@ -76,7 +79,8 @@ export const DiagnosticsWindow = (props, context) => {
         <Box>
           My temperature is{' '}
           <Box as="span" bold>
-            {data.temp}°C
+            <AnimatedNumber value={data.temp} />
+            °C
           </Box>
           .
         </Box>
@@ -112,7 +116,7 @@ export const OrganDisplay = (props, context) => {
             </Box>
             .
           </Box>
-          {organ.wiring_status !== null ? (
+          {organ.wiring_status ? (
             <>
               <Box>
                 My {organ.name}'s wiring is{' '}
@@ -148,11 +152,16 @@ export const OrganDisplay = (props, context) => {
           ) : (
             ''
           )}
-          {organ.diagnostics_info ? (
-            <Section title="Diagnostics">{organ.diagnostics_info}</Section>
-          ) : (
-            ''
-          )}
+          <>
+            <Divider />
+            {organ.diagnostics_info ? (
+              <Box fontSize={0.8} italic>
+                {organ.diagnostics_info}
+              </Box>
+            ) : (
+              ''
+            )}
+          </>
         </Collapsible>
       ))}
     </Section>
