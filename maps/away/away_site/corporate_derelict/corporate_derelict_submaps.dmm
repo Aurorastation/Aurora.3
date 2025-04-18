@@ -1,4 +1,8 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ad" = (
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/full,
+/area/ship/nanotrasen_patrol/ammo)
 "ag" = (
 /obj/effect/floor_decal/corner/purple,
 /turf/simulated/floor/tiled/white,
@@ -8,18 +12,26 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/nanotrasen_patrol/aft)
 "am" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/space)
+"ar" = (
+/turf/template_noop,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/junction)
+"aw" = (
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/atmospherics)
 "aA" = (
 /turf/simulated/floor/tiled/bitile{
 	dir = 1
 	},
-/area/space)
+/area/ship/nanotrasen_patrol/junction)
 "aD" = (
 /obj/effect/decal/cleanable/floor_damage/broken1,
 /obj/structure/grille/broken,
@@ -28,7 +40,7 @@
 "aT" = (
 /obj/effect/floor_decal/corner/paleblue,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/nanotrasen_patrol/ammo)
 "bf" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 10
@@ -41,6 +53,9 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
+"bp" = (
+/turf/simulated/floor/tiled/dark,
+/area/ship/nanotrasen_patrol/ammo)
 "bz" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 9
@@ -54,12 +69,28 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/space)
+"bI" = (
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/reactor)
+"cc" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/nanotrasen_patrol/gunnery)
 "cf" = (
 /obj/machinery/ship_weapon/autocannon{
 	weapon_id = "tcaf_autocannon"
 	},
-/turf/template_noop,
-/area/space)
+/obj/structure/lattice/catwalk/indoor,
+/turf/space/dynamic,
+/area/ship/nanotrasen_patrol/gunnery)
+"cj" = (
+/turf/simulated/wall/shuttle/scc_space_ship,
+/area/ship/nanotrasen_patrol/aft)
 "cn" = (
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 1
@@ -77,21 +108,43 @@
 	dir = 9
 	},
 /turf/simulated/floor,
-/area/space)
+/area/ship/nanotrasen_patrol/port_nacelle)
+"cK" = (
+/turf/simulated/wall/shuttle/scc_space_ship,
+/area/ship/nanotrasen_patrol/reactor)
 "cU" = (
 /obj/effect/floor_decal/corner/dark_green/full{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/nanotrasen_patrol/mess)
+"cW" = (
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/gunnery)
 "cX" = (
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor,
 /area/space)
+"cZ" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/ship/nanotrasen_patrol/mess)
 "df" = (
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
+"dl" = (
+/turf/simulated/wall/shuttle/scc_space_ship,
+/area/ship/nanotrasen_patrol/shuttle_dock)
+"ds" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/ship/nanotrasen_patrol/junction)
 "dv" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 9
@@ -101,6 +154,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/space)
+"dy" = (
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/atmospherics)
 "dI" = (
 /obj/effect/floor_decal/corner/purple/full{
 	dir = 8
@@ -140,7 +199,11 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/nanotrasen_patrol/ammo)
+"eQ" = (
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/full,
+/area/ship/nanotrasen_patrol/mess)
 "eZ" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
@@ -150,19 +213,34 @@
 "fe" = (
 /turf/template_noop,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/ship/nanotrasen_patrol/gunnery)
 "fE" = (
 /obj/effect/floor_decal/corner/purple{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
+"fL" = (
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/aft)
+"fZ" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/simulated/floor,
+/area/ship/nanotrasen_patrol/port_nacelle)
 "gd" = (
 /obj/effect/floor_decal/corner_wide/brown/full{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/space)
+"ge" = (
+/turf/simulated/floor/tiled/full,
+/area/ship/nanotrasen_patrol/mess)
 "gz" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -174,7 +252,14 @@
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/space)
+/area/ship/nanotrasen_patrol/reactor)
+"gI" = (
+/obj/machinery/computer/ship/engines/terminal{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/bridge)
 "gP" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 5
@@ -199,23 +284,65 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/template_noop,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/ship/nanotrasen_patrol/gunnery)
 "ht" = (
 /obj/machinery/door/firedoor/noid/closed{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
+"hv" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/nanotrasen_patrol/ammo)
+"hy" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/turf/simulated/floor/wood,
+/area/ship/nanotrasen_patrol/mess)
 "ie" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/space)
+"ih" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/turf/simulated/floor,
+/area/ship/nanotrasen_patrol/port_nacelle)
+"ij" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/utilities)
+"il" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/ship/nanotrasen_patrol/port_nacelle)
+"iC" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/turf/simulated/floor,
+/area/ship/nanotrasen_patrol/utilities)
+"jd" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/turf/simulated/floor,
+/area/ship/nanotrasen_patrol/shuttle_dock)
 "jf" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /turf/simulated/floor,
 /area/space)
+"jp" = (
+/turf/simulated/floor/reinforced/airless,
+/area/ship/nanotrasen_patrol/starboard_nacelle)
 "jr" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -236,6 +363,12 @@
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
+"jQ" = (
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/nanotrasen_patrol/aft)
 "jY" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor,
@@ -257,7 +390,12 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/nanotrasen_patrol/mess)
+"kE" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/rack,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/reactor)
 "kH" = (
 /obj/effect/floor_decal/corner/purple{
 	dir = 1
@@ -268,7 +406,7 @@
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/structure/table/stone/marble,
 /turf/simulated/floor/marble,
-/area/space)
+/area/ship/nanotrasen_patrol/mess)
 "ld" = (
 /obj/effect/floor_decal/corner/purple{
 	dir = 4
@@ -283,6 +421,10 @@
 /obj/effect/floor_decal/corner/yellow/full,
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"lq" = (
+/obj/machinery/power/portgen/basic/fusion,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/reactor)
 "lB" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -291,19 +433,22 @@
 /area/space)
 "lF" = (
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/nanotrasen_patrol/junction)
 "lJ" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/nanotrasen_patrol/ammo)
 "lK" = (
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/nanotrasen_patrol/junction)
+"lR" = (
+/turf/simulated/wall/shuttle/scc_space_ship,
+/area/ship/nanotrasen_patrol/bridge)
 "lS" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -316,6 +461,16 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
+"mk" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/turf/simulated/floor/wood,
+/area/ship/nanotrasen_patrol/mess)
+"mm" = (
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/turf/simulated/floor,
+/area/ship/nanotrasen_patrol/utilities)
 "mr" = (
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /turf/simulated/floor/tiled,
@@ -325,7 +480,17 @@
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/space)
+/area/ship/nanotrasen_patrol/reactor)
+"mF" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/nanotrasen_patrol/gunnery)
+"mM" = (
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/aft)
 "mT" = (
 /obj/machinery/door/firedoor/noid{
 	dir = 4
@@ -336,12 +501,15 @@
 /obj/effect/decal/cleanable/floor_damage/broken2,
 /turf/simulated/floor/airless,
 /area/space)
+"mZ" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/reactor)
 "nd" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
 /turf/simulated/floor,
-/area/space)
+/area/ship/nanotrasen_patrol/shuttle_dock)
 "nh" = (
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 8
@@ -353,7 +521,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/wood/bamboo,
-/area/space)
+/area/ship/nanotrasen_patrol/captain)
 "nj" = (
 /turf/simulated/floor/tiled/full,
 /area/space)
@@ -372,6 +540,9 @@
 	},
 /turf/simulated/floor/wood,
 /area/space)
+"nJ" = (
+/turf/simulated/wall/shuttle/scc_space_ship,
+/area/ship/nanotrasen_patrol/captain)
 "oc" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
@@ -396,28 +567,55 @@
 "oP" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor,
-/area/space)
+/area/ship/nanotrasen_patrol/reactor)
+"pb" = (
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/full,
+/area/ship/nanotrasen_patrol/bridge)
+"pf" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/ship/nanotrasen_patrol/junction)
 "pp" = (
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/nanotrasen_patrol/aft)
 "pr" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor,
-/area/space)
+/area/ship/nanotrasen_patrol/atmospherics)
 "pu" = (
 /obj/effect/floor_decal/corner/brown/full,
 /turf/simulated/floor/tiled/gridded,
 /area/space)
+"pv" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/gunnery)
+"pK" = (
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/ammo)
+"pS" = (
+/turf/simulated/floor/tiled/dark,
+/area/ship/nanotrasen_patrol/gunnery)
 "pZ" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /turf/simulated/floor/tiled,
 /area/space)
+"qf" = (
+/obj/effect/floor_decal/corner/paleblue/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/ship/nanotrasen_patrol/bridge)
 "qn" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
@@ -428,12 +626,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/space)
+"qr" = (
+/obj/structure/bed/stool/chair/office/bridge/pilot,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/bridge)
 "qt" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
+"qS" = (
+/turf/simulated/wall/shuttle/scc_space_ship,
+/area/ship/nanotrasen_patrol/freezer)
 "rf" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 10
@@ -446,6 +651,9 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
+"rv" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/bridge)
 "rZ" = (
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark/full,
@@ -456,6 +664,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/space)
+"sk" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/gunnery)
 "sn" = (
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 4
@@ -465,7 +676,7 @@
 "sq" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /turf/simulated/floor/marble,
-/area/space)
+/area/ship/nanotrasen_patrol/mess)
 "sr" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 1
@@ -476,16 +687,30 @@
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/full,
 /area/space)
+"sx" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/gunnery)
 "sI" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/space)
+/area/ship/nanotrasen_patrol/eva)
 "sM" = (
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/full,
 /area/space)
+"sN" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/ship/nanotrasen_patrol/bridge)
+"sQ" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/ship/nanotrasen_patrol/port_nacelle)
 "sZ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
@@ -496,7 +721,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/nanotrasen_patrol/junction)
 "tf" = (
 /obj/effect/floor_decal/corner_wide/mauve/diagonal,
 /turf/simulated/floor/tiled,
@@ -504,21 +729,34 @@
 "tg" = (
 /obj/effect/floor_decal/corner/dark_green/full,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/nanotrasen_patrol/mess)
 "th" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/nanotrasen_patrol/mess)
 "tp" = (
 /turf/simulated/floor/tiled/white,
 /area/space)
+"tE" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor,
+/area/ship/nanotrasen_patrol/gunnery)
 "tL" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/machinery/appliance/cooker/stove,
 /turf/simulated/floor/marble,
-/area/space)
+/area/ship/nanotrasen_patrol/mess)
+"tM" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/ship/nanotrasen_patrol/gunnery)
+"tS" = (
+/turf/simulated/wall/shuttle/scc_space_ship,
+/area/ship/nanotrasen_patrol/port_nacelle)
 "tT" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -542,6 +780,12 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
+"uU" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/turf/simulated/floor/wood,
+/area/ship/nanotrasen_patrol/mess)
 "vp" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
@@ -554,7 +798,7 @@
 	dir = 9
 	},
 /turf/simulated/floor,
-/area/space)
+/area/ship/nanotrasen_patrol/mess)
 "vA" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/structure/table/reinforced/steel,
@@ -565,7 +809,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/nanotrasen_patrol/junction)
 "vF" = (
 /obj/machinery/computer/ship/engines/terminal{
 	dir = 4
@@ -577,20 +821,47 @@
 	dir = 4
 	},
 /turf/simulated/floor/wood/bamboo,
-/area/space)
+/area/ship/nanotrasen_patrol/captain)
 "wa" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"wh" = (
+/turf/simulated/floor/tiled/dark,
+/area/ship/nanotrasen_patrol/junction)
+"wF" = (
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/full,
+/area/ship/nanotrasen_patrol/captain)
 "wY" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
 	},
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/nanotrasen_patrol/mess)
+"wZ" = (
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/shuttle_dock)
+"xf" = (
+/turf/simulated/floor/tiled/full,
+/area/ship/nanotrasen_patrol/junction)
+"xl" = (
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/junction)
+"xn" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/port_nacelle)
 "xs" = (
 /obj/structure/filingcabinet/filingcabinet{
 	pixel_x = 9;
@@ -601,6 +872,9 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
+"xD" = (
+/turf/simulated/wall/shuttle/scc_space_ship,
+/area/ship/nanotrasen_patrol/junction)
 "xF" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 6
@@ -628,7 +902,7 @@
 	},
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/nanotrasen_patrol/mess)
 "yb" = (
 /obj/effect/floor_decal/spline/plain/mauve{
 	dir = 1
@@ -636,30 +910,52 @@
 /obj/effect/floor_decal/spline/plain/mauve,
 /turf/simulated/floor/carpet/rubber,
 /area/space)
+"yd" = (
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/gunnery)
 "yi" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
+"yu" = (
+/obj/machinery/atmospherics/unary/engine,
+/turf/simulated/floor,
+/area/ship/nanotrasen_patrol/port_nacelle)
 "yy" = (
 /obj/effect/floor_decal/corner/dark_green/full{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/nanotrasen_patrol/mess)
 "yJ" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"yO" = (
+/obj/structure/lattice/catwalk/indoor,
+/turf/space/dynamic,
+/area/ship/nanotrasen_patrol/gunnery)
 "yQ" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/space)
+"yR" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/starboard_nacelle)
+"yV" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/ship/nanotrasen_patrol/junction)
 "yW" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
@@ -674,6 +970,25 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
+"zt" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/ammo)
+"zE" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/nanotrasen_patrol/ammo)
+"zJ" = (
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/full,
+/area/ship/nanotrasen_patrol/bridge)
+"zQ" = (
+/turf/simulated/wall/shuttle/scc_space_ship,
+/area/ship/nanotrasen_patrol/utilities)
 "Ah" = (
 /obj/machinery/shower{
 	pixel_y = 17
@@ -681,23 +996,81 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/space)
+"Am" = (
+/obj/effect/floor_decal/corner/paleblue/full,
+/obj/structure/filingcabinet/chestdrawer{
+	pixel_x = -6;
+	pixel_y = 1
+	},
+/obj/structure/filingcabinet/filingcabinet{
+	pixel_x = 9;
+	pixel_y = 1
+	},
+/turf/simulated/floor/tiled,
+/area/ship/nanotrasen_patrol/bridge)
+"AO" = (
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/shuttle_dock)
 "BC" = (
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/nanotrasen_patrol/junction)
+"BM" = (
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/aft)
+"BT" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/simulated/floor,
+/area/ship/nanotrasen_patrol/eva)
+"BZ" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/ship/nanotrasen_patrol/starboard_nacelle)
+"Ce" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/ship/nanotrasen_patrol/bridge)
+"CM" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/ship/nanotrasen_patrol/gunnery)
 "De" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/machinery/appliance/cooker/oven,
 /turf/simulated/floor/marble,
-/area/space)
+/area/ship/nanotrasen_patrol/mess)
 "Dj" = (
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"Dn" = (
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/turf/simulated/floor,
+/area/ship/nanotrasen_patrol/starboard_nacelle)
+"Dp" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/starboard_nacelle)
+"DV" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
+/obj/machinery/photocopier,
+/turf/simulated/floor/tiled,
+/area/ship/nanotrasen_patrol/bridge)
 "Ez" = (
 /obj/effect/decal/cleanable/floor_damage/broken4,
 /obj/structure/girder,
@@ -708,21 +1081,36 @@
 /area/space)
 "EE" = (
 /obj/structure/plasticflaps/airtight,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/ship/nanotrasen_patrol/freezer)
+"EU" = (
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/turf/simulated/floor,
+/area/ship/nanotrasen_patrol/atmospherics)
+"EV" = (
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/bridge)
 "EY" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
 /turf/simulated/floor,
-/area/space)
+/area/ship/nanotrasen_patrol/eva)
 "Fo" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
-/area/space)
+/area/ship/nanotrasen_patrol/mess)
+"Fq" = (
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/port_nacelle)
 "Ft" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/full,
@@ -732,7 +1120,11 @@
 	dir = 6
 	},
 /turf/simulated/floor/wood/bamboo,
-/area/space)
+/area/ship/nanotrasen_patrol/captain)
+"FS" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor,
+/area/ship/nanotrasen_patrol/eva)
 "FY" = (
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 8
@@ -759,10 +1151,24 @@
 /area/space)
 "GR" = (
 /turf/simulated/floor/tiled/bitile,
-/area/space)
+/area/ship/nanotrasen_patrol/junction)
+"Ha" = (
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/turf/simulated/floor,
+/area/ship/nanotrasen_patrol/aft)
 "Hl" = (
 /turf/simulated/floor/tiled/ridged,
-/area/space)
+/area/ship/nanotrasen_patrol/port_nacelle)
+"Hm" = (
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/captain)
+"Hq" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/ship/nanotrasen_patrol/starboard_nacelle)
 "Hs" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/effect/floor_decal/spline/plain/yellow{
@@ -770,6 +1176,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
+"Ht" = (
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/starboard_nacelle)
 "HE" = (
 /turf/simulated/floor/reinforced,
 /area/space)
@@ -777,6 +1189,15 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
+"HL" = (
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/ammo)
+"Ij" = (
+/turf/simulated/wall/shuttle/scc_space_ship,
+/area/ship/nanotrasen_patrol/mess)
 "In" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
@@ -789,6 +1210,18 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/space)
+"Iq" = (
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/ship/nanotrasen_patrol/junction)
+"Iv" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/bridge)
 "IQ" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
@@ -796,6 +1229,10 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
+"IT" = (
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/turf/simulated/floor,
+/area/ship/nanotrasen_patrol/shuttle_dock)
 "IY" = (
 /obj/effect/floor_decal/spline/plain/yellow{
 	dir = 5
@@ -808,31 +1245,61 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
+"Jq" = (
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/turf/simulated/floor,
+/area/ship/nanotrasen_patrol/eva)
 "Ju" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/space)
+/area/ship/nanotrasen_patrol/atmospherics)
+"JI" = (
+/obj/effect/floor_decal/corner/paleblue/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/ship/nanotrasen_patrol/ammo)
 "Kc" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/nanotrasen_patrol/gunnery)
+"KF" = (
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/gunnery)
 "KJ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
 /turf/simulated/floor,
-/area/space)
+/area/ship/nanotrasen_patrol/starboard_nacelle)
+"KP" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/turf/simulated/floor,
+/area/ship/nanotrasen_patrol/reactor)
 "KZ" = (
 /obj/effect/floor_decal/corner_wide/brown/full{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/space)
+"La" = (
+/obj/machinery/atmospherics/unary/engine,
+/turf/simulated/floor,
+/area/ship/nanotrasen_patrol/starboard_nacelle)
+"Lj" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor,
+/area/ship/nanotrasen_patrol/reactor)
 "Ln" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled,
@@ -842,20 +1309,31 @@
 	dir = 8
 	},
 /turf/simulated/floor/wood/bamboo,
-/area/space)
+/area/ship/nanotrasen_patrol/captain)
+"Ly" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/atmospherics)
 "LF" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
 /obj/structure/table/wood/gamblingtable,
 /turf/simulated/floor/wood,
-/area/space)
+/area/ship/nanotrasen_patrol/mess)
+"LL" = (
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/turf/simulated/floor,
+/area/ship/nanotrasen_patrol/port_nacelle)
 "LP" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
+"LR" = (
+/turf/simulated/wall/shuttle/scc_space_ship,
+/area/ship/nanotrasen_patrol/gunnery)
 "LS" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
@@ -876,6 +1354,13 @@
 /obj/machinery/door/firedoor/noid/closed,
 /turf/simulated/floor/tiled/full,
 /area/space)
+"Mp" = (
+/obj/machinery/computer/ship/helm/terminal{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/bridge)
 "MA" = (
 /turf/template_noop,
 /area/space)
@@ -919,6 +1404,9 @@
 	},
 /turf/simulated/floor/wood,
 /area/space)
+"NM" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/shuttle_dock)
 "NP" = (
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -947,7 +1435,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/wood/bamboo,
-/area/space)
+/area/ship/nanotrasen_patrol/captain)
 "OF" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 9
@@ -969,38 +1457,74 @@
 	},
 /turf/simulated/floor/wood,
 /area/space)
+"OX" = (
+/obj/effect/floor_decal/corner/dark_blue/full,
+/turf/simulated/floor/tiled/dark,
+/area/ship/nanotrasen_patrol/aft)
 "Pa" = (
 /obj/structure/table/stone/marble,
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/ship/nanotrasen_patrol/mess)
+"Pg" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/ship/nanotrasen_patrol/bridge)
+"Ph" = (
+/turf/simulated/floor,
+/area/ship/nanotrasen_patrol/starboard_nacelle)
 "Pm" = (
 /turf/simulated/floor/reinforced/airless,
 /area/space)
 "Pn" = (
 /turf/simulated/wall/shuttle/raider,
 /area/space)
+"PB" = (
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/turf/simulated/floor,
+/area/ship/nanotrasen_patrol/reactor)
 "PE" = (
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
 	},
-/area/space)
+/area/ship/nanotrasen_patrol/freezer)
+"PO" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/ship/nanotrasen_patrol/bridge)
 "Qe" = (
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
+"Qt" = (
+/obj/machinery/computer/ship/sensors/terminal{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/bridge)
 "Qy" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"QB" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/ship/nanotrasen_patrol/reactor)
 "QS" = (
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/nanotrasen_patrol/aft)
 "QV" = (
 /obj/effect/floor_decal/corner/purple{
 	dir = 9
@@ -1012,7 +1536,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/wood/bamboo,
-/area/space)
+/area/ship/nanotrasen_patrol/captain)
 "QZ" = (
 /obj/effect/floor_decal/corner_wide/brown/full{
 	dir = 8
@@ -1021,7 +1545,7 @@
 /area/space)
 "Rg" = (
 /turf/simulated/floor/lino/diamond,
-/area/space)
+/area/ship/nanotrasen_patrol/mess)
 "Rh" = (
 /obj/machinery/door/firedoor/noid{
 	dir = 8
@@ -1032,10 +1556,17 @@
 /obj/structure/bed/stool/chair/office/bridge/generic,
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
+"Sd" = (
+/turf/simulated/wall/shuttle/scc_space_ship,
+/area/ship/nanotrasen_patrol/starboard_nacelle)
 "So" = (
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge,
 /turf/template_noop,
 /area/space)
+"Sp" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/aft)
 "Ss" = (
 /obj/effect/floor_decal/industrial/outline/custodial,
 /turf/simulated/floor/tiled/full,
@@ -1052,6 +1583,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/space)
+"SK" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/ammo)
 "SQ" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/structure/table/stone/marble,
@@ -1059,11 +1594,14 @@
 	pixel_y = 19
 	},
 /turf/simulated/floor/marble,
-/area/space)
+/area/ship/nanotrasen_patrol/mess)
 "ST" = (
 /obj/machinery/vending/dinnerware/plastic,
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/ship/nanotrasen_patrol/mess)
+"Tf" = (
+/turf/simulated/floor,
+/area/ship/nanotrasen_patrol/port_nacelle)
 "Tk" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
@@ -1088,10 +1626,25 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
+"TA" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/starboard_nacelle)
+"TW" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/eva)
+"TY" = (
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/reactor)
 "Ua" = (
 /obj/structure/lattice/catwalk/indoor,
 /turf/space/dynamic,
 /area/space)
+"Ug" = (
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/eva)
 "Um" = (
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 1
@@ -1119,7 +1672,11 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/nanotrasen_patrol/mess)
+"Vh" = (
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/bridge)
 "Vj" = (
 /obj/structure/sink{
 	dir = 8;
@@ -1132,11 +1689,18 @@
 /obj/machinery/ammunition_loader/autocannon,
 /turf/template_noop,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/ship/nanotrasen_patrol/gunnery)
 "Vr" = (
 /obj/effect/floor_decal/corner_wide/brown/full,
 /turf/simulated/floor/tiled,
 /area/space)
+"VJ" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/ship/nanotrasen_patrol/mess)
+"VS" = (
+/turf/simulated/wall/shuttle/scc_space_ship,
+/area/ship/nanotrasen_patrol/ammo)
 "Wb" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /turf/simulated/floor/tiled/dark/full,
@@ -1175,22 +1739,64 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"Xi" = (
+/turf/simulated/wall/shuttle/scc_space_ship,
+/area/ship/nanotrasen_patrol/atmospherics)
 "Xt" = (
 /obj/effect/floor_decal/corner/paleblue/full,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/nanotrasen_patrol/junction)
+"XA" = (
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/port_nacelle)
 "XE" = (
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
 	dir = 8
 	},
 /turf/template_noop,
 /area/space)
+"XN" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/turf/simulated/floor,
+/area/ship/nanotrasen_patrol/eva)
+"XR" = (
+/turf/simulated/wall/shuttle/scc_space_ship,
+/area/ship/nanotrasen_patrol/eva)
+"Yc" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/simulated/floor,
+/area/ship/nanotrasen_patrol/utilities)
+"Yh" = (
+/obj/machinery/computer/ship/targeting/terminal{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/bridge)
 "Yj" = (
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/space)
+"Ym" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/nanotrasen_patrol/aft)
+"Yn" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/aft)
+"Yq" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/ship/nanotrasen_patrol/ammo)
 "Yt" = (
 /obj/effect/floor_decal/corner_wide/brown/full{
 	dir = 4
@@ -1207,6 +1813,10 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/space)
+"YQ" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/eva)
 "YT" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
@@ -1220,6 +1830,12 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
+"Zk" = (
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nanotrasen_patrol/utilities)
 "ZW" = (
 /turf/simulated/wall/shuttle/scc_space_ship,
 /area/space)
@@ -1228,7 +1844,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/nanotrasen_patrol/junction)
 
 (1,1,1) = {"
 MA
@@ -2019,13 +2635,13 @@ MA
 MA
 MA
 MA
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
+cK
+cK
+cK
+cK
+cK
+cK
+cK
 MA
 MA
 MA
@@ -2276,13 +2892,13 @@ MA
 MA
 MA
 MA
-ZW
+cK
 oP
-zh
-ov
-zh
-sI
-ZW
+kE
+lq
+kE
+QB
+cK
 MA
 MA
 MA
@@ -2533,13 +3149,13 @@ MA
 MA
 MA
 MA
-ZW
+cK
 oP
-ov
-ov
-ov
-sI
-ZW
+mZ
+mZ
+mZ
+QB
+cK
 MA
 MA
 MA
@@ -2790,13 +3406,13 @@ MA
 MA
 MA
 MA
-ZW
+cK
 mD
-nd
-MR
-cA
+KP
+PB
+Lj
 gD
-ZW
+cK
 MA
 MA
 MA
@@ -3047,13 +3663,13 @@ MA
 MA
 MA
 MA
-ZW
-ZW
-ZW
-ov
-ZW
-ZW
-ZW
+cK
+cK
+cK
+bI
+cK
+cK
+cK
 MA
 MA
 MA
@@ -3292,13 +3908,13 @@ MA
 So
 MA
 MA
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
+Sd
+Sd
+Sd
+Sd
+Sd
+Sd
+Sd
 MA
 MA
 MA
@@ -3306,9 +3922,9 @@ MA
 MA
 MA
 MA
-Qe
-MR
-Qe
+TY
+PB
+TY
 MA
 MA
 MA
@@ -3549,47 +4165,47 @@ MA
 So
 MA
 MA
-cX
-ZW
-ov
-sI
-Ur
-Ur
-ZW
-ZW
-ZW
-ZW
-ZW
+La
+Sd
+Dp
+Hq
+Ph
+Ph
+Sd
+Sd
+Sd
+Sd
+Sd
 MA
 MA
 MA
-Qe
-MR
-Qe
-MA
-MA
-MA
-MA
+TY
+PB
+TY
 MA
 MA
 MA
 MA
 MA
 MA
-ZW
-ZW
-Qe
-Qe
-ZW
-ZW
-ZW
-Qe
-Qe
-Qe
-ZW
-Qe
-Qe
-ZW
+MA
+MA
+MA
+MA
+VS
+VS
+pK
+pK
+VS
+VS
+nJ
+Hm
+Hm
+Hm
+lR
+Vh
+Vh
+lR
 MA
 MA
 MA
@@ -3806,26 +4422,26 @@ MA
 So
 MA
 MA
-cX
-ZW
-ov
+La
+Sd
+Dp
 KJ
-jf
-jf
-ZW
-Pm
-Pm
-Pm
-ZW
-ZW
-ZW
-ZW
-ZW
-ov
-ZW
-ZW
-ZW
-ZW
+BZ
+BZ
+Sd
+jp
+jp
+jp
+Sd
+Sd
+Sd
+cj
+cj
+fL
+cj
+cj
+cj
+cj
 MA
 MA
 MA
@@ -3833,20 +4449,20 @@ MA
 MA
 MA
 MA
-ZW
-zh
-NP
-ho
-HH
-zh
-ZW
+VS
+SK
+bp
+hv
+zt
+SK
+nJ
 On
 Lq
 ni
-ZW
-ov
-ov
-ZW
+lR
+gI
+EV
+lR
 MA
 MA
 MA
@@ -4063,50 +4679,50 @@ MA
 So
 MA
 MA
-cX
-ZW
-ov
-ov
-ov
-ov
-ZW
-jt
-jt
-jt
-ZW
-zh
-zh
-ZW
-MR
-MR
-ho
-ZW
-zh
-ZW
+La
+Sd
+Dp
+Dp
+Dp
+Dp
+Sd
+TA
+TA
+TA
+Sd
+yR
+yR
+cj
+Ha
+Ha
+Ym
+cj
+Sp
+cj
 MA
 MA
 MA
 MA
-ZW
-ZW
-ZW
-ZW
-zh
-wa
+xD
+xD
+xD
+VS
+SK
+zE
 eO
-HH
-zh
-ZW
+zt
+SK
+nJ
 QY
 vO
 Fv
-ZW
-ov
-ov
-ZW
-ZW
-Qe
-Qe
+lR
+rv
+Iv
+lR
+lR
+Vh
+Vh
 MA
 OR
 MA
@@ -4320,51 +4936,51 @@ MA
 So
 MA
 MA
-ZW
-ZW
-ZW
-ZW
-ov
-ZW
-ZW
-ov
-ov
-ov
-MR
-ov
-ov
-ZW
-MR
-ov
-ho
-ZW
-MR
-ZW
-ZW
+Sd
+Sd
+Sd
+Sd
+Ht
+Sd
+Sd
+Dp
+Dp
+Dp
+Dn
+Dp
+Dp
+cj
+Ha
+Yn
+Ym
+cj
+Ha
+cj
+cj
 Ua
 Ua
 Ua
-ZW
+xD
 aA
 GR
-ZW
-ZW
-ov
-ZW
-ZW
-ZW
-ZW
-ZW
-nj
-ZW
-ZW
-yQ
-yQ
-Xt
-ov
-ov
-Qe
-MA
+VS
+VS
+HL
+VS
+VS
+VS
+nJ
+nJ
+wF
+nJ
+lR
+Pg
+Pg
+Am
+Qt
+EV
+Vh
+Vh
 OR
 MA
 MA
@@ -4580,48 +5196,48 @@ MA
 MA
 MA
 MA
-ZW
-ov
-MR
-MR
-MR
-MR
-MR
-MR
-MR
-MR
-ov
-MR
-MR
-MR
-ov
+Sd
+Dp
+Dn
+Dn
+Dn
+Dn
+Dn
+Dn
+Dn
+Dn
+mM
+Ha
+Ha
+Ha
+mM
 pp
-le
-ZW
+OX
+cj
 Oa
 Oa
 Oa
-ZW
-yQ
-yQ
-ZW
-qn
-qn
-qn
-qn
-qn
-qn
-nj
+xD
+pf
+pf
+VS
+Yq
+Yq
+Yq
+Yq
+Yq
+aT
 lJ
 lJ
-nj
-qn
-qn
-ZX
-ov
-ov
-Qe
-MA
+lJ
+pb
+sN
+sN
+Ce
+qr
+qr
+Mp
+Vh
 OR
 MA
 MA
@@ -4840,45 +5456,45 @@ MA
 ZW
 ZW
 ZW
-ov
-ov
+Qe
+Qe
 ZW
 ZW
 ZW
-ZW
-MR
-ZW
-ZW
-ov
-ZW
-ZW
+Sd
+Dn
+XR
+XR
+TW
+XR
+XR
 ai
-ho
-ZW
-ZW
-ZW
-ZW
-ZW
+Ym
+cj
+xD
+xD
+xD
+xD
 lF
 lF
-nj
-qn
+ad
+Yq
 aT
 lJ
 lJ
 lJ
-lJ
-ZW
-ZW
-ZW
-ZW
-lJ
-lJ
-tb
-ov
-ov
-Qe
-MA
+JI
+VS
+VS
+VS
+lR
+DV
+PO
+qf
+Yh
+EV
+Vh
+Vh
 OR
 MA
 MA
@@ -5102,39 +5718,39 @@ MA
 MA
 MA
 MA
-ZW
-MR
-ZW
-oP
-MR
+Sd
+Dn
+XR
+FS
+Jq
 sI
-ZW
-MR
-ho
-ov
-qn
-qn
-nj
-ZW
-ZW
-nj
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
+XR
+Ha
+Ym
+mM
+ds
+ds
+xf
+xD
+xD
+Iq
+xD
+xD
+Ij
+Ij
+Ij
+Ij
+Ij
+qS
 PE
 PE
-ZW
-ZW
-nj
-ZW
-ZW
-Qe
-Qe
+lR
+lR
+zJ
+lR
+lR
+Vh
+Vh
 MA
 OR
 MA
@@ -5356,39 +5972,39 @@ ZW
 ZW
 sr
 MA
-ZW
-ZW
-ZW
-ZW
-MR
-ZW
-oP
-MR
+dl
+dl
+dl
+dl
+AO
+XR
+FS
+Jq
 sI
-ZW
-MR
-ho
-ZW
-nj
-qn
-nj
-ZW
+XR
+Ha
+Ym
+cj
+xf
+ds
+xf
+xD
 lK
-qn
-yQ
+ds
+pf
 Xt
-ZW
-qn
-qn
-qn
-qn
+Ij
+VJ
+VJ
+VJ
+VJ
 EE
 PE
 PE
-ZW
-vC
-qn
-ZW
+qS
+tM
+CM
+LR
 MA
 MA
 MA
@@ -5613,39 +6229,39 @@ ov
 ZW
 ZW
 ZW
-ZW
-MR
-ZW
+dl
+IT
+dl
+jd
+IT
+XR
 EY
-MR
-ZW
-EY
-MR
+Jq
 sI
-ZW
-MR
-ho
-ZW
-ZW
-nj
-ZW
-ZW
+XR
+Ha
+Ym
+cj
+xD
+Iq
+xD
+xD
 vC
-qn
-nj
+ds
+xf
 ZX
-ZW
-qn
+Ij
+VJ
 xX
 wY
 tg
-ZW
-ZW
-ZW
-ZW
-vC
-qn
-ZW
+qS
+qS
+qS
+qS
+tM
+CM
+LR
 MA
 MA
 MA
@@ -5870,39 +6486,39 @@ NP
 LP
 MR
 LP
-LP
-MR
-LP
-ov
-ov
-ov
-MR
-MR
+wZ
+IT
+wZ
+NM
+NM
+Ug
+Jq
+Jq
 sI
-ZW
-MR
-ho
-ZW
-nj
-qn
-qn
-qn
-qn
-qn
-qn
-qn
-nj
-qn
+XR
+Ha
+Ym
+cj
+xf
+ds
+ds
+ds
+ds
+ds
+ds
+ds
+eQ
+VJ
 th
-nj
+ge
 Vg
 vs
-qn
-qn
-nj
-qn
-qn
-ZW
+VJ
+VJ
+eQ
+CM
+CM
+LR
 MA
 MA
 MA
@@ -6127,39 +6743,39 @@ ov
 ZW
 ZW
 ZW
-ZW
-MR
-ZW
+dl
+IT
+dl
 nd
-MR
-ZW
-nd
-MR
+IT
+XR
+XN
+Jq
 sI
-ZW
-MR
-ho
-ZW
-ZW
-ov
-ZW
-ZW
+XR
+Ha
+Ym
+cj
+zQ
+Zk
+zQ
+xD
 vC
-qn
-nj
+ds
+xf
 ZX
-ZW
+Ij
 ST
 yy
 kz
 cU
-Gq
-OS
-LS
-ZW
-vC
-qn
-ZW
+hy
+cZ
+mk
+Ij
+tM
+CM
+LR
 MA
 MA
 MA
@@ -6384,39 +7000,39 @@ ZW
 ZW
 sr
 MA
-ZW
-ZW
-ZW
-ZW
-MR
-ZW
+dl
+dl
+dl
+dl
+AO
+XR
 EY
-MR
-KJ
-ZW
-MR
-ho
-ZW
-EY
-MR
-KJ
-ZW
+Jq
+BT
+XR
+Ha
+Ym
+cj
+iC
+mm
+Yc
+xD
 BC
-qn
-lJ
+ds
+yV
 tb
-ZW
+Ij
 Rg
 Rg
 Rg
 Rg
 LF
 Fo
-ks
-ZW
-vC
-qn
-ZW
+uU
+Ij
+tM
+CM
+LR
 MA
 MA
 MA
@@ -6644,39 +7260,39 @@ MA
 MA
 MA
 MA
-ZW
-MR
-ZW
-zh
-ov
-zh
-ZW
-MR
-ho
-ZW
-ov
-ov
-ov
-ZW
-ZW
-ov
-ZW
-ZW
-ZW
+tS
+LL
+XR
+YQ
+TW
+YQ
+XR
+Ha
+Ym
+cj
+ij
+ij
+ij
+xD
+xD
+xl
+LR
+LR
+Ij
 Pa
 Pa
 Pa
-nj
-ZW
-ZW
-ZW
-ZW
-ZW
-ov
-ZW
-ZW
-ZW
-ZW
+ge
+LR
+LR
+LR
+LR
+LR
+cW
+LR
+LR
+LR
+LR
 MA
 OR
 MA
@@ -6893,47 +7509,47 @@ MA
 MA
 MA
 MA
-ZW
-ZW
-ZW
-ov
-ov
-ZW
-ZW
-ZW
-ZW
-MR
-ZW
-ZW
-ZW
-ZW
-ZW
+tS
+tS
+tS
+XA
+XA
+tS
+tS
+tS
+tS
+LL
+XR
+XR
+XR
+XR
+XR
 ai
-ho
-ZW
-ZW
-ZW
-ZW
-ZW
-NP
-NP
-ov
-jY
-ZW
+Ym
+cj
+zQ
+zQ
+zQ
+xD
+wh
+wh
+KF
+tE
+Ij
 SQ
 sq
 sq
 sq
-ZW
+LR
 hs
-HH
-ai
-NP
+sx
+mF
+pS
 fe
-ov
-ov
-Zj
-MA
+sk
+sk
+pv
+yO
 cf
 OR
 MA
@@ -7150,48 +7766,48 @@ MA
 MA
 MA
 MA
-ZW
-ov
-MR
-MR
-MR
-MR
-MR
-MR
-MR
-MR
-ov
-MR
-MR
-MR
-ov
+tS
+xn
+LL
+LL
+LL
+LL
+LL
+LL
+LL
+LL
+mM
+Ha
+Ha
+Ha
+mM
 QS
-eO
-ZW
+jQ
+cj
 Oa
 Oa
 Oa
-ZW
-NP
-NP
-ZW
-jY
-ZW
+xD
+wh
+wh
+LR
+tE
+Ij
 sq
 sq
 sq
 sq
-ZW
+LR
 hs
-HH
-ai
+sx
+mF
 fe
-jY
-ov
-ov
-Zj
-MA
-MA
+tE
+sk
+sk
+pv
+yO
+yO
 OR
 MA
 MA
@@ -7404,51 +8020,51 @@ MA
 So
 MA
 MA
-ZW
-ZW
-ZW
-ZW
-ov
-ZW
-ZW
-ZW
-ov
-ZW
-ZW
-ov
-ZW
-ZW
-ov
-MR
-ov
-ZW
-eN
-ZW
-ZW
+tS
+tS
+tS
+tS
+Fq
+tS
+tS
+tS
+xn
+tS
+tS
+xn
+tS
+cj
+Yn
+Ha
+Yn
+cj
+BM
+cj
+cj
 Ua
 Ua
 Ua
-ZW
-fe
-fe
-ZW
-jY
-ZW
+xD
+ar
+ar
+LR
+tE
+Ij
 De
 tL
 kI
 kI
-ZW
-ZW
-ZW
-ai
+LR
+LR
+LR
+mF
 fe
-jY
-ov
-ov
-Zj
-MA
-MA
+tE
+sk
+sk
+pv
+yO
+yO
 OR
 MA
 MA
@@ -7661,50 +8277,50 @@ MA
 So
 MA
 MA
-cX
-ZW
-ov
-ov
-ov
-ov
-ZW
-EY
-MR
-KJ
-ZW
+yu
+tS
+xn
+xn
+xn
+xn
+tS
+ih
+LL
+fZ
+tS
+xn
+xn
+cj
+Yn
+Ha
+Yn
+cj
+Ha
+cj
 MA
 MA
-ZW
-ov
-MR
-ov
-ZW
-MR
-ZW
 MA
 MA
-MA
-MA
-ZW
-ZW
-ZW
-ZW
+xD
+xD
+xD
+LR
 fe
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-In
-In
+Ij
+Ij
+Ij
+Ij
+Ij
+LR
+cc
+cc
 Kc
-NP
-jY
+pS
+tE
 Vl
-ZW
-ZW
-ZW
+LR
+LR
+LR
 MA
 OR
 MA
@@ -7918,26 +8534,26 @@ MA
 So
 MA
 MA
-cX
-ZW
-ov
+yu
+tS
+xn
 cA
-gz
-gz
-ZW
+sQ
+sQ
+tS
 Hl
 Hl
 Hl
-ZW
-ZW
-ov
-ZW
-ZW
-ov
-ZW
-ZW
-eN
-ZW
+tS
+tS
+tS
+cj
+cj
+fL
+cj
+cj
+BM
+cj
 MA
 MA
 MA
@@ -7945,21 +8561,21 @@ MA
 MA
 MA
 MA
-ZW
-jY
+LR
+tE
 fe
-jY
-jY
-jY
-jY
-ov
+tE
+tE
+tE
+tE
+KF
 fe
-jY
-jY
-jY
-jY
+tE
+tE
+tE
+tE
 fe
-ZW
+LR
 MA
 MA
 MA
@@ -8175,48 +8791,48 @@ MA
 So
 MA
 MA
-cX
-ZW
-ov
-sI
-Ur
-Ur
-ZW
-ZW
-ZW
-ZW
-ZW
+yu
+tS
+xn
+il
+Tf
+Tf
+tS
+tS
+tS
+tS
+tS
 MA
 MA
 MA
-Qe
-MR
-Qe
-MA
-MA
-MA
-MA
+aw
+EU
+aw
 MA
 MA
 MA
 MA
 MA
 MA
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-Qe
-Qe
-ZW
-ZW
-ZW
+MA
+MA
+MA
+MA
+LR
+LR
+LR
+LR
+LR
+LR
+LR
+LR
+LR
+LR
+yd
+yd
+LR
+LR
+LR
 MA
 MA
 MA
@@ -8432,13 +9048,13 @@ MA
 So
 MA
 MA
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
+tS
+tS
+tS
+tS
+tS
+tS
+tS
 MA
 MA
 MA
@@ -8446,9 +9062,9 @@ MA
 MA
 MA
 MA
-Qe
-MR
-Qe
+aw
+EU
+aw
 MA
 MA
 MA
@@ -8701,13 +9317,13 @@ MA
 MA
 MA
 MA
-ZW
-ZW
-ZW
-ov
-ZW
-ZW
-ZW
+Xi
+Xi
+Xi
+dy
+Xi
+Xi
+Xi
 MA
 MA
 MA
@@ -8958,13 +9574,13 @@ MA
 MA
 MA
 MA
-ZW
-zh
+Xi
+Ly
 Ju
-MR
+EU
 pr
-zh
-ZW
+Ly
+Xi
 MA
 MA
 MA
@@ -9215,13 +9831,13 @@ MA
 MA
 MA
 MA
-ZW
-zh
+Xi
+Ly
 Ju
-MR
+EU
 pr
-zh
-ZW
+Ly
+Xi
 MA
 MA
 MA
@@ -9472,13 +10088,13 @@ MA
 MA
 MA
 MA
-ZW
-zh
+Xi
+Ly
 Ju
-MR
+EU
 pr
-zh
-ZW
+Ly
+Xi
 MA
 MA
 MA
@@ -9729,13 +10345,13 @@ MA
 MA
 MA
 MA
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
+Xi
+Xi
+Xi
+Xi
+Xi
+Xi
+Xi
 MA
 MA
 MA
