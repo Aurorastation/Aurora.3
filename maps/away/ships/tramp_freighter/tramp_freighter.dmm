@@ -7712,7 +7712,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/afthallway)
 "Oj" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /obj/machinery/light{
 	dir = 8
 	},

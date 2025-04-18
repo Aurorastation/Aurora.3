@@ -2687,9 +2687,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/obj/machinery/autolathe{
-	hacked = 1
-	},
+/obj/machinery/fabricator/autolathe/hacked,
 /obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship/engineering)
