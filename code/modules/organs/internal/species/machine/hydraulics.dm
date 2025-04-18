@@ -5,7 +5,7 @@
 	organ_tag = BP_HYDRAULICS
 	parent_organ = BP_GROIN
 
-/obj/item/organ/internal/machine/actuators/high_integrity_damage(integrity)
+/obj/item/organ/internal/machine/hydraulics/high_integrity_damage(integrity)
 	. = ..()
 	if(!.)
 		return
