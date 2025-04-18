@@ -34,7 +34,6 @@
 	sizeclass = "Argentum-class Cruise Yacht"
 	shiptype = "Luxury cruise yacht"
 	max_speed = 1/(2 SECONDS)
-	burn_delay = 1 SECONDS
 	vessel_mass = 5000
 	vessel_size = SHIP_SIZE_SMALL
 	fore_dir = SOUTH
@@ -70,7 +69,6 @@
 	moving_state = "pod_moving"
 	colors = "#5acfc0"
 	max_speed = 1/(2 SECONDS)
-	burn_delay = 1 SECONDS
 	vessel_mass = 1000
 	fore_dir = EAST
 	vessel_size = SHIP_SIZE_TINY
