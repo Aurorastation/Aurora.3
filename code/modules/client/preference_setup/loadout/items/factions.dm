@@ -40,6 +40,13 @@
 	idris_sec_uniforms["idris detective uniform"] = /obj/item/clothing/under/det/idris/alt
 	gear_tweaks += new /datum/gear_tweak/path(idris_sec_uniforms)
 
+/datum/gear/faction/idris_dress
+	display_name = "idris hospitality dress"
+	description = "A snazzy teal dress typically worn by Idris service staff."
+	path = /obj/item/clothing/under/dress/idris
+	slot = slot_w_uniform
+	faction = "Idris Incorporated"
+
 /datum/gear/faction/idris_armband
 	display_name = "idris armband"
 	path = /obj/item/clothing/accessory/armband/idris
@@ -621,7 +628,7 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 
 /datum/gear/faction/zenghu_gloves
 	display_name = "zeng-hu vinyl gloves"
-	path = /obj/item/clothing/gloves/zeng
+	path = /obj/item/clothing/gloves/latex/nitrile/zeng
 	slot = slot_gloves
 	faction = "Zeng-Hu Pharmaceuticals"
 

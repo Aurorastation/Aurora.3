@@ -187,7 +187,7 @@
 		out += "None."
 	out += "<br><a href='byond://?src=[REF(src)];obj_add=1'>\[add\]</a>"
 	out += "<b>Ambitions:</b> [ambitions ? ambitions : "None"] <a href='byond://?src=[REF(src)];amb_edit=[REF(src)]'>\[edit\]</a></br>"
-	usr << browse(out, "window=edit_memory[src]")
+	usr << browse(HTML_SKELETON(out), "window=edit_memory[src]")
 
 /datum/mind/Topic(href, href_list)
 	if(!check_rights(R_ADMIN))	return

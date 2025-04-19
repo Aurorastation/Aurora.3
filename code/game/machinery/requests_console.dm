@@ -438,7 +438,7 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/machinery/requests_console, list())
 			dat += "<b>[department] Department</b><hr>"
 			dat += "[info]"
 		dat += "</center>"
-		usr << browse(dat, "window=Information;size=560x240")
+		usr << browse(HTML_SKELETON(dat), "window=Information;size=560x240")
 
 	// Toggle the paper bin lid.
 	if(href_list["setLid"])

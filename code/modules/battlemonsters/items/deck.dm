@@ -126,7 +126,7 @@
 		SPAN_NOTICE("You shuffle \the [src].")\
 	)
 
-	playsound(src.loc, 'sound/items/cardshuffle.ogg', 100, 1, -4)
+	playsound(src.loc, 'sound/items/cards/cardshuffle.ogg', 100, 1, -4)
 
 	stored_card_names = shuffle(stored_card_names)
 
@@ -178,7 +178,7 @@
 
 		browse_data = "[formatted_data]<br><a href='byond://?src=[REF(src)];selection=[cardname]'>Draw Card</a><br><hr>[browse_data]"
 
-	user << browse(browse_data, "window=battlemonsters_hand")
+	user << browse(HTML_SKELETON(browse_data), "window=battlemonsters_hand")
 
 /obj/item/battle_monsters/deck/Topic(href,href_list)
 	if(..())

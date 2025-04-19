@@ -5,8 +5,10 @@
 	var/desc = "A generic scenario that should not be in the rotation."
 	/// What sectors this scenario can spawn in. An empty list is all sectors.
 	var/list/sector_whitelist = list()
-	/// The type of scenario this is. NOT a boolean or a bitfield.
-	var/scenario_type = SCENARIO_TYPE_NONCANON
+	/// The type of scenario this is. NOT a boolean or a bitfield. This is automatically set on /datum/controller/subsystem/odyssey/proc/setup_scenario_variables().
+	var/scenario_type
+	/// A list containing the options for type of scenario. An empty list will default to SCENARIO_TYPE_NONCANON.
+	var/list/possible_scenario_types = list()
 	/// Whether or not landing on the Odyssey away site is restricted by default. Has to be either unrestricted by Storytellers manually, or happens forcefully at 40 minutes in.
 	var/site_landing_restricted = TRUE
 
