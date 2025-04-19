@@ -313,6 +313,44 @@
 
 	add_fingerprint(user)
 	return
+// ASCC holodeck practice sword
+
+/obj/item/holo/practicesword
+	name = "practice sword"
+	desc = "A holographic fascimile of a sword, except this one has no sharp points or edges that might cause injury."
+	icon = 'icons/obj/sword.dmi'
+	icon_state = "longsword"
+	item_state = "longsword"
+	contained_sprite = TRUE
+	slot_flags = SLOT_BELT|SLOT_BACK
+	w_class = WEIGHT_CLASS_BULKY
+	atom_flags = ATOM_FLAG_NO_BLOOD
+	force = 1
+	throw_speed = 1
+	throw_range = 3
+	hitsound = 'sound/weapons/bladeslice.ogg'
+	can_embed = 0
+	drop_sound = 'sound/items/drop/sword.ogg'
+	pickup_sound = /singleton/sound_category/sword_pickup_sound
+	equip_sound = /singleton/sound_category/sword_equip_sound
+
+/obj/item/holo/practicesword/holorapier
+	name = "fencing rapier"
+	desc = "A light sword with a cupped hilt which protects the hand, and a very thin blade that ends in a fine point. This one is but a hologram, unable to inflict actual wounds. Hopefully."
+	icon = 'icons/obj/sword.dmi'
+	icon_state = "rapier"
+	item_state = "rapier"
+	slot_flags = SLOT_BELT
+
+/obj/item/holo/practicesword/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+	if(default_parry_check(user, attacker, damage_source) && prob(50))
+		user.visible_message(SPAN_DANGER("\The [user] parries [attack_text] with \the [src]!"))
+		playsound(user.loc, 'sound/weapons/bladeparry.ogg', 50, 1)
+		return BULLET_ACT_BLOCK
+	return BULLET_ACT_HIT
+
+
+// end
 
 //BASKETBALL OBJECTS
 
