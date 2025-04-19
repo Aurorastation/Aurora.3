@@ -280,13 +280,6 @@
 	icon_state = "crate"
 	icon_opened = "crateopen"
 	icon_closed = "crate"
-
-/obj/structure/closet/crate/contraband
-	name = "Poster crate"
-	desc = "A random assortment of posters manufactured by providers NOT listed under NanoTrasen's whitelist."
-	icon_state = "crate"
-	icon_opened = "crateopen"
-	icon_closed = "crate"
 */
 
 /obj/structure/closet/crate/medical
@@ -614,6 +607,8 @@
 //Quantity of spawns is number of discrete selections from the loot lists, default 10
 
 /obj/structure/closet/crate/loot
+	name = "unusual container"
+	desc = "A mysterious container of unknown origins. What mysteries lie within?"
 	icon = 'icons/obj/random.dmi'
 	icon_state = "loot_crate"
 	var/rarity = 1
@@ -631,15 +626,14 @@
 
 	var/list/crates_to_use = typesof(/obj/structure/closet/crate) - typesof(/obj/structure/closet/crate/secure/gear_loadout)
 	crates_to_use -= /obj/structure/closet/crate/loot
+	crates_to_use -= /obj/structure/closet/crate/loot/contraband
 	var/icontype = pick(crates_to_use)
 	var/obj/structure/closet/crate/C = new icontype(get_turf(src), TRUE) //TRUE as we do not want the crate to fill(), we will fill it ourselves.
 
-	C.name = "unusual container"
-	C.desc = "A mysterious container of unknown origins. What mysteries lie within?"
+	C.name = name
+	C.desc = desc
 
-	for(var/i in 1 to quantity)
-		var/newtype = get_spawntype()
-		call(newtype)(C)
+	fill_spawned_crate(C, quantity)
 
 	if(C.secure || C.locked) //These should always be accessible
 		C.secure = FALSE
@@ -662,6 +656,19 @@
 			return pickweight(GLOB.random_stock_uncommon)
 		if ("3")
 			return pickweight(GLOB.random_stock_common)
+
+/obj/structure/closet/crate/loot/proc/fill_spawned_crate(var/obj/structure/closet/crate/spawned_crate, var/quantity)
+	for(var/i in 1 to quantity)
+		var/newtype = get_spawntype()
+		call(newtype)(spawned_crate)
+
+/obj/structure/closet/crate/loot/contraband
+	name = "suspicious container"
+	desc = "A container of some kind. Any and all identifying markings have been filed away. Who knows what it could hold!"
+
+/obj/structure/closet/crate/loot/contraband/fill_spawned_crate(spawned_crate, quantity)
+	for(var/i in 1 to quantity)
+		new /obj/random/contraband(spawned_crate)
 
 /obj/structure/closet/crate/extinguisher_cartridges
 	name = "crate of extinguisher cartridges"
