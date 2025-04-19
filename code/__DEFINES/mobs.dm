@@ -141,6 +141,15 @@
 #define BP_CELL     "cell"
 #define BP_OPTICS   "optics"
 #define BP_IPCTAG   "ipc tag"
+#define BP_VOICE_SYNTHESIZER "voice synthesizer"
+#define BP_DIAGNOSTICS_SUITE "internal diagnostics suite"
+#define BP_HYDRAULICS		 "hydraulics system"
+#define BP_COOLING_UNIT		"cooling unit"
+#define BP_ACTUATORS_LEFT	"left arm actuators"
+#define BP_ACTUATORS_RIGHT	"right arm actuators"
+
+// Bishop frame only.
+#define BP_WIRELESS_ACCESS "wireless access point"
 
 // Parasite organs
 #define BP_ZOMBIE_PARASITE "black tumour"

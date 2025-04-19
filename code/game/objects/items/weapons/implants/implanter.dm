@@ -68,11 +68,11 @@
 /obj/item/implanter/ipc_tag
 	name = "IPC tag implanter"
 	desc = "A special implanter used for implanting synthetics with a special tag."
-	var/obj/item/organ/internal/ipc_tag/ipc_tag
+	var/obj/item/organ/internal/machine/ipc_tag/ipc_tag
 
 /obj/item/implanter/ipc_tag/Initialize()
 	. = ..()
-	ipc_tag = new /obj/item/organ/internal/ipc_tag(src)
+	ipc_tag = new /obj/item/organ/internal/machine/ipc_tag(src)
 	update_icon()
 
 /obj/item/implanter/ipc_tag/update_icon()
@@ -121,7 +121,7 @@
 		ipc_tag = null
 		update_icon()
 		return
-	if(istype(attacking_item, /obj/item/organ/internal/ipc_tag))
+	if(istype(attacking_item, /obj/item/organ/internal/machine/ipc_tag))
 		if(ipc_tag)
 			to_chat(user, SPAN_WARNING("\The [src] already has an IPC tag loaded."))
 			return

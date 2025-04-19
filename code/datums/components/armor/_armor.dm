@@ -109,6 +109,11 @@
 			key = RAD
 	return key
 
+// Used for natural armor for species.
+/datum/component/armor/natural
+	full_block_message = "Your natural armor blocks the blow!"
+	partial_block_message = "Your natural armor softens the blow!"
+
 /datum/component/armor/toggle
 	var/active = TRUE
 

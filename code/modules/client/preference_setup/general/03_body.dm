@@ -890,6 +890,14 @@ GLOBAL_LIST_INIT(valid_bloodtypes, list(
 			if("Removed")
 				pref.organ_data[organ_name] = ORGAN_PREF_REMOVED
 
+			// IPC cooling unit options.
+			if("Air Cooling")
+				pref.organ_data[organ_name] = null
+			if("Liquid Cooling")
+				pref.organ_data[organ_name] = ORGAN_PREF_LIQUIDCOOLED
+			if("Passive Cooling")
+				pref.organ_data[organ_name] = ORGAN_PREF_PASSIVECOOLED
+
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["reset_organs"])

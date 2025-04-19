@@ -221,7 +221,7 @@
 			. += "Tank Pressure: [internal.air_contents.return_pressure()]"
 			. += "Distribution Pressure: [internal.distribute_pressure]"
 
-	var/obj/item/organ/internal/cell/IC = internal_organs_by_name[BP_CELL]
+	var/obj/item/organ/internal/machine/cell/IC = internal_organs_by_name[BP_CELL]
 	if(IC && IC.cell)
 		. += "Battery charge: [IC.get_charge()]/[IC.cell.maxcharge]"
 
@@ -2049,8 +2049,8 @@
 
 // Check if we should die.
 /mob/living/carbon/human/proc/handle_death_check()
-	if(should_have_organ(BP_BRAIN) && !is_mechanical()) //robots don't die via brain damage
-		var/obj/item/organ/internal/brain/brain = internal_organs_by_name[BP_BRAIN]
+	if(should_have_organ(BP_BRAIN))
+		var/obj/item/organ/internal/brain = internal_organs_by_name[BP_BRAIN]
 		if(!brain || (brain.status & ORGAN_DEAD))
 			return TRUE
 	return species.handle_death_check(src)

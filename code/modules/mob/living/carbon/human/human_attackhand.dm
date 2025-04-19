@@ -306,7 +306,7 @@
 				return FALSE
 
 			var/disarm_cost
-			var/obj/item/organ/internal/cell/cell = M.internal_organs_by_name[BP_CELL]
+			var/obj/item/organ/internal/machine/cell/cell = M.internal_organs_by_name[BP_CELL]
 			var/obj/item/cell/potato
 			if(cell)
 				potato = cell.cell
