@@ -180,10 +180,9 @@
 
 /datum/gear/augment/sightlights
 	display_name = "ocular installed sightlights"
-	description = "Originally designed to assist Zeng-Hu medical personnel in darker areas or places experiencing periodic power issues, Sightlights allow one to use their eyes as a flashlight."
+	description = "Originally designed to assist Zeng-Hu medical personnel in darker areas or places experiencing periodic power issues, Sightlights allow one to use their eyes as a flashlight. Later SCC-mediated negotiation loosened the augment's patent restrictions, allowing their manufacture and use by other members of the Chainlink."
 	path = /obj/item/organ/internal/augment/sightlights
 	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
-	faction = "Zeng-Hu Pharmaceuticals"
 	cost = 3
 	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "Paramedic", "Psychiatrist", "Medical Intern", "Corporate Liaison", "Research Director","Scientist", "Xenobiologist", "Xenobotanist", "Xenoarchaeologist", "Research Intern", "Assistant", "Off-Duty Crew Member", "Corporate Reporter", "Captain", "Bridge Crew", "Chief Engineer", "Engineer", "Atmospheric Technician", "Engineering Apprentice", "Engineering Personnel", "Medical Personnel", "Science Personnel")
 
