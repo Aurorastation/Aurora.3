@@ -7,8 +7,8 @@
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
 	designer = "Zhurong Naval Arsenal, Empire of Dominia"
-	sizeclass = "x."
-	shiptype = "x."
+	sizeclass = "Yupmi-class Shuttle"
+	shiptype = "Short-distance cargo and personnel transport"
 	colors = list("#df1032", "#d4296b")
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
@@ -16,7 +16,7 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/dominian_shuttle
+/obj/machinery/computer/shuttle_control/explore/terminal/dominian_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Dominian Shuttle"
 	req_access = list(ACCESS_IMPERIAL_FLEET_VOIDSMAN_SHIP)
@@ -40,7 +40,7 @@
 	landmark_tag = "nav_hangar_dominia"
 	docking_controller = "dominian_shuttle_dock"
 	base_area = /area/space
-	base_turf = /turf/space/dynamic
+	base_turf = /turf/space
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 // Transit landmark
