@@ -136,12 +136,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssrm_corvette)
-"awG" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/turf/simulated/floor/reinforced,
-/area/ship/ssrm_corvette/starboard_battery)
 "aBD" = (
 /obj/machinery/button/remote/airlock{
 	dir = 4;
@@ -431,8 +425,12 @@
 /turf/simulated/floor/reinforced,
 /area/ship/ssrm_corvette/port_gunnery)
 "aSm" = (
-/obj/effect/floor_decal/industrial/warning/corner,
-/obj/structure/ship_weapon_dummy,
+/obj/machinery/door/firedoor/noid,
+/obj/structure/viewport,
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "ssrm_windows_exterior"
+	},
 /turf/simulated/floor/reinforced,
 /area/ship/ssrm_corvette/port_battery)
 "aSJ" = (
@@ -1053,11 +1051,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/structure/cable{
-	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
-	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/white,
 /area/ship/ssrm_corvette/infirmary)
@@ -1340,11 +1333,6 @@
 "cYP" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/structure/cable{
-	icon_state = "1-4";
-	d1 = 1;
-	d2 = 4
-	},
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 5
 	},
@@ -1437,15 +1425,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssrm_corvette)
-"dfe" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 6
-	},
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/ship/ssrm_corvette/atmospherics)
 "dfm" = (
 /obj/structure/closet/walllocker/medical{
 	pixel_y = 32
@@ -1460,11 +1439,6 @@
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
-	},
 /obj/machinery/door/airlock/medical{
 	name = "Pharmacy";
 	req_access = list(203);
@@ -1996,7 +1970,8 @@
 "efJ" = (
 /obj/machinery/ship_weapon/francisca/compact{
 	pixel_y = -91;
-	pixel_x = -39
+	pixel_x = -39;
+	weapon_id = "SSRM Francisca Rotary Cannon"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -2540,7 +2515,8 @@
 /area/ship/ssrm_corvette/docking_port)
 "fek" = (
 /obj/machinery/ammunition_loader/francisca{
-	dir = 1
+	dir = 1;
+	weapon_id = "SSRM Francisca Rotary Cannon"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/ssrm_shuttle)
@@ -2779,6 +2755,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssrm_corvette/brig)
+"fGr" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/ship_weapon/autocannon{
+	weapon_id = "SSRM Goshawk Heavy Autocannon"
+	},
+/turf/space,
+/area/ship/ssrm_corvette/port_battery)
 "fGw" = (
 /obj/effect/shuttle_landmark/ssrm_ship/nav2,
 /turf/template_noop,
@@ -4494,6 +4477,13 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/ssrm_corvette/reactor)
+"jrz" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft engines, port"
+	},
+/obj/machinery/atmospherics/unary/engine,
+/turf/simulated/floor,
+/area/ship/ssrm_corvette/port_thrusters)
 "jrO" = (
 /obj/machinery/power/apc/south{
 	req_access = list(203)
@@ -4648,12 +4638,14 @@
 /turf/simulated/floor/plating,
 /area/ship/ssrm_corvette/atmospherics)
 "jLw" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
+/obj/machinery/ship_weapon/grauwolf{
+	pixel_x = -32;
+	pixel_y = -192;
+	weapon_id = "SSRM Grauwolf Flak Battery"
 	},
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/reinforced,
-/area/ship/ssrm_corvette/port_battery)
+/area/ship/ssrm_corvette/starboard_battery)
 "jMS" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -4695,7 +4687,7 @@
 /area/ship/ssrm_corvette/port_gunnery)
 "jZd" = (
 /obj/machinery/ammunition_loader/autocannon{
-	weapon_id = "tcaf_autocannon"
+	weapon_id = "SSRM Goshawk Heavy Autocannon"
 	},
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/reinforced,
@@ -5116,6 +5108,13 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor,
 /area/ship/ssrm_corvette/starboard_gunnery)
+"lct" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/ship_weapon_dummy,
+/turf/simulated/floor/reinforced,
+/area/ship/ssrm_corvette/port_battery)
 "ldk" = (
 /obj/machinery/door/firedoor/noid{
 	dir = 4
@@ -6445,6 +6444,17 @@
 	},
 /turf/simulated/floor/airless,
 /area/ship/ssrm_corvette/port_battery)
+"nWf" = (
+/obj/structure/viewport,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "ssrm_windows_exterior"
+	},
+/turf/simulated/floor/reinforced,
+/area/ship/ssrm_corvette/starboard_battery)
 "nWO" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 10
@@ -6494,13 +6504,8 @@
 	},
 /area/ship/ssrm_corvette/freezer)
 "odL" = (
-/obj/structure/viewport,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 6
-	},
-/obj/machinery/door/blast/regular/open{
-	dir = 4;
-	id = "ssrm_windows_exterior"
+	dir = 8
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/ssrm_corvette/starboard_battery)
@@ -7416,13 +7421,10 @@
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/ship/ssrm_corvette/eva_preperation)
-"qCZ" = (
-/obj/structure/lattice/catwalk,
-/obj/machinery/ship_weapon/autocannon,
-/turf/space,
-/area/ship/ssrm_corvette/port_battery)
 "qDa" = (
-/obj/machinery/ammunition_loader/grauwolf,
+/obj/machinery/ammunition_loader/grauwolf{
+	weapon_id = "SSRM Grauwolf Flak Battery"
+	},
 /turf/simulated/floor/reinforced,
 /area/ship/ssrm_corvette/starboard_battery)
 "qFW" = (
@@ -7529,15 +7531,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/plating,
 /area/ship/ssrm_corvette/docking_port)
-"qQn" = (
-/obj/machinery/door/firedoor/noid,
-/obj/structure/viewport,
-/obj/machinery/door/blast/regular/open{
-	dir = 4;
-	id = "ssrm_windows_exterior"
-	},
-/turf/simulated/floor/reinforced,
-/area/ship/ssrm_corvette/port_battery)
 "qSe" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -7590,6 +7583,15 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/ssrm_corvette/head)
+"qXU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 6
+	},
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/ship/ssrm_corvette/atmospherics)
 "qYT" = (
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 4
@@ -8143,13 +8145,6 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/power/apc/north{
-	req_access = list(203)
-	},
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2"
-	},
 /obj/structure/table/standard,
 /obj/item/reagent_containers/glass/beaker/large{
 	pixel_x = -7;
@@ -10047,12 +10042,10 @@
 /turf/simulated/floor,
 /area/ship/ssrm_corvette/cpo_cabin)
 "wXi" = (
-/obj/effect/landmark/entry_point/aft{
-	name = "aft engines, port"
-	},
-/obj/machinery/atmospherics/unary/engine,
-/turf/simulated/floor,
-/area/ship/ssrm_corvette/port_thrusters)
+/obj/effect/floor_decal/industrial/warning/corner,
+/obj/structure/ship_weapon_dummy,
+/turf/simulated/floor/reinforced,
+/area/ship/ssrm_corvette/port_battery)
 "wYf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -10232,15 +10225,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssrm_corvette/garage)
-"xoc" = (
-/obj/machinery/ship_weapon/grauwolf{
-	pixel_x = -32;
-	pixel_y = -192;
-	weapon_id = "SSRM Grauwolf Flak Battery"
-	},
-/obj/structure/ship_weapon_dummy,
-/turf/simulated/floor/reinforced,
-/area/ship/ssrm_corvette/starboard_battery)
 "xon" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -37994,7 +37978,7 @@ rmR
 rmR
 fif
 gLO
-dfe
+qXU
 uYP
 cLC
 rYc
@@ -38281,7 +38265,7 @@ unA
 jAa
 pOd
 suy
-awG
+odL
 gqH
 hNE
 hqY
@@ -38538,7 +38522,7 @@ qvF
 sru
 qhH
 sDo
-xoc
+jLw
 csf
 cJU
 hqY
@@ -39054,7 +39038,7 @@ xni
 sDo
 qDa
 hTa
-odL
+nWf
 ajL
 ajL
 xRX
@@ -46509,7 +46493,7 @@ doX
 doX
 bwI
 vUu
-qCZ
+fGr
 pzk
 xRX
 xRX
@@ -46982,7 +46966,7 @@ xRX
 xRX
 xRX
 xRX
-wXi
+jrz
 cpj
 kMV
 itD
@@ -47019,8 +47003,8 @@ sIJ
 ode
 jNb
 laP
-aSm
-jLw
+wXi
+lct
 pfE
 vUu
 vUu
@@ -47535,7 +47519,7 @@ fWG
 ebx
 nDn
 cbQ
-qQn
+aSm
 vUu
 xRX
 xRX
