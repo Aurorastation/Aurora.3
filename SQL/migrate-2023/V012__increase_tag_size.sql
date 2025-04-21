@@ -3,4 +3,4 @@
 --
 
 ALTER TABLE `ss13_characters_ipc_tags` 
-MODIFY COLUMN `machine_serial_number` VARCHAR(20);
+MODIFY COLUMN `serial_number` VARCHAR(20);
