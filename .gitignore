@@ -70,3 +70,4 @@ define_sanity_output.txt
 
 # Unit test / coverage reports
 .cache
+.qodo
