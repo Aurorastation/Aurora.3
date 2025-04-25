@@ -186,6 +186,9 @@
 
 	var/nymph_child
 
+	///Whether the limb has an emissive icon state associated with it
+	var/is_emissive = FALSE
+
 /obj/item/organ/external/proc/invalidate_marking_cache()
 	cached_markings = null
 
@@ -320,6 +323,9 @@
 		robotize(robotize_type)
 		drop_sound = 'sound/items/drop/prosthetic.ogg'
 		pickup_sound = 'sound/items/pickup/prosthetic.ogg'
+	else
+		//HACK: Make sure non-emissive organs, if swapped to, are not treated as emissive. Robotized organs have their own handling, but we still need to cover the case where it is somehow swapped to an organic limb
+		is_emissive = initial(is_emissive)
 
 	. = ..(mapload, FALSE)
 	if(isnull(pain_disability_threshold))
@@ -1259,6 +1265,10 @@ Note that amputating the affected organ does in fact remove the infection from t
 				desc = "[R.desc]"
 			if(R.paintable || !isnull(override_robotize_painted))
 				painted = !isnull(override_robotize_painted) ? override_robotize_painted : TRUE
+			if(R.emissive)
+				is_emissive = TRUE
+			else
+				is_emissive = FALSE
 			brute_mod = R.brute_mod
 			burn_mod = R.burn_mod
 			robotize_type = company
