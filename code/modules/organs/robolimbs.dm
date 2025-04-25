@@ -98,6 +98,7 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 	linked_frame = SPECIES_IPC_BISHOP
 	fabricator_available = TRUE
 	allows_internal = FALSE
+	emissive = TRUE
 
 /datum/robolimb/hesphaistos
 	company = PROSTHETIC_HI
@@ -106,6 +107,7 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 	linked_frame = SPECIES_IPC_G2
 	fabricator_available = TRUE
 	allows_internal = FALSE
+	emissive = TRUE
 
 /datum/robolimb/zenghu
 	company = PROSTHETIC_ZH
@@ -114,6 +116,7 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 	linked_frame = SPECIES_IPC_ZENGHU
 	fabricator_available = TRUE
 	allows_internal = FALSE
+	emissive = TRUE
 
 /datum/robolimb/xion
 	company = PROSTHETIC_XMG
@@ -122,6 +125,7 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 	linked_frame = SPECIES_IPC_XION
 	fabricator_available = TRUE
 	allows_internal = FALSE
+	emissive = TRUE
 
 /datum/robolimb/ipc
 	company = PROSTHETIC_IPC
@@ -141,6 +145,7 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 	linked_frame = SPECIES_IPC_G1
 	fabricator_available = TRUE
 	allows_internal = FALSE
+	emissive = TRUE
 
 /datum/robolimb/terminator
 	company = PROSTHETIC_HK
@@ -221,6 +226,7 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 	linked_frame = SPECIES_IPC
 	icon = 'icons/mob/human_races/ipc/indricus.dmi'
 	allowed_external_organs = list(BP_HEAD)
+	emissive = TRUE
 
 /datum/robolimb/raxus
 	company = PROSTHETIC_RAXUS
@@ -231,6 +237,7 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 	linked_frame = SPECIES_IPC
 	icon = 'icons/mob/human_races/ipc/raxus.dmi'
 	allowed_external_organs = list(BP_HEAD)
+	emissive = TRUE
 
 /datum/robolimb/selen
 	company = PROSTHETIC_SELEN
