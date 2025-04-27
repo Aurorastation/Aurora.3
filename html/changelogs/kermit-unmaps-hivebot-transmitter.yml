@@ -1,6 +1,0 @@
-author: kermit
-
-delete-after: True
-
-changes:
-  - rscdel: "Unmaps the Hivebot Transmitter from Xenoarchaeology."
