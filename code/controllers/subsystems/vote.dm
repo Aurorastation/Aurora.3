@@ -133,7 +133,6 @@ SUBSYSTEM_DEF(vote)
 	else
 		voted += voter.ckey
 
-	feedback_set_details("restartvote_[time2text(world.time)]", voter.mind.assigned_role, voter.mind.special_role, their_vote)
 	current_vote.choices_by_ckey[voter.ckey] = their_vote
 	current_vote.choices[their_vote]++
 
