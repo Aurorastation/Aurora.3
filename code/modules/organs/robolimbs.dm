@@ -48,6 +48,10 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 	var/paintable = 0
 	/// If this prosthetic glows in the dark
 	var/emissive = FALSE
+	/// If this prosthetic has an active overlay
+	var/overlay = FALSE
+	/// If this prosthetic is a tesla limb (required for some special handling)
+	var/is_tesla = FALSE
 	/// Which IPC species this prosthetic type will create.
 	var/linked_frame = SPECIES_IPC_UNBRANDED
 	/// How resistant this prosthetic type is to brute damage.
@@ -180,6 +184,9 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 	species_can_use = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	internal_organ_suffix = "tesla"
 	allowed_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH, BP_APPENDIX)
+	overlay = TRUE
+	emissive = TRUE
+	is_tesla = TRUE
 
 /datum/robolimb/tesla/malfunctioning_check(var/mob/living/carbon/human/H)
 	var/obj/item/organ/internal/augment/tesla/T = H.internal_organs_by_name[BP_AUG_TESLA]
