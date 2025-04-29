@@ -3901,6 +3901,8 @@
 #include "maps\away\away_site\magshield\magshield_areas.dm"
 #include "maps\away\away_site\orion\orion_automated_station.dm"
 #include "maps\away\away_site\overgrown_mining_station\overgrown_mining_station.dm"
+#include "maps\away\away_site\phoron_deposit\phoron_deposit.dm"
+#include "maps\away\away_site\phoron_deposit\phoron_deposit_objects.dm"
 #include "maps\away\away_site\pirate_base\pirate_base.dm"
 #include "maps\away\away_site\pirate_base\pirate_base_areas.dm"
 #include "maps\away\away_site\pirate_base\pirate_base_ghostroles.dm"
