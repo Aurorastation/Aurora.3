@@ -22,6 +22,17 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/dominian_corvette/helm)
+"aaN" = (
+/obj/structure/morgue{
+	dir = 2
+	},
+/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/machinery/light/small{
+	dir = 1;
+	must_start_working = 1
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/dominian_corvette/morgue)
 "abE" = (
 /obj/machinery/slime_extractor,
 /obj/effect/floor_decal/industrial/hatch/blue,
@@ -51,21 +62,12 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/dominian_corvette/thrust_starboard)
-"ahx" = (
-/obj/machinery/power/apc/west{
-	req_access = list(212)
+"ahz" = (
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 8
 	},
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
-/turf/simulated/floor,
-/area/dominian_corvette/fc_port)
+/turf/simulated/floor/tiled/gunmetal,
+/area/dominian_corvette/hangar)
 "ahM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/structure/cable/green,
@@ -94,9 +96,6 @@
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
-/obj/machinery/light{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 8;
@@ -104,6 +103,12 @@
 	},
 /turf/simulated/floor,
 /area/dominian_corvette/central_ring)
+"akS" = (
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/dominian_corvette/hangar)
 "alk" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/industrial/warning,
@@ -123,6 +128,15 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/dominian_corvette/gunnery_port)
+"aln" = (
+/obj/effect/floor_decal/corner_wide/brown/full{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/dominian_corvette/fc_starboard)
 "alu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 9
@@ -216,12 +230,6 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/dominian_corvette/magazine_port)
-"aqB" = (
-/obj/effect/floor_decal/corner_wide/yellow{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/dominian_corvette/central_lift)
 "aqF" = (
 /obj/structure/toilet{
 	pixel_y = 12
@@ -366,6 +374,12 @@
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/dominian_corvette/helm)
+"aBX" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gunmetal/full,
+/area/dominian_corvette/armoury)
 "aBY" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/brown,
@@ -375,6 +389,24 @@
 	},
 /turf/simulated/floor/carpet/red,
 /area/dominian_corvette/co_cabin)
+"aCK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor,
+/area/dominian_corvette/central_ring)
 "aEc" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/effect/floor_decal/spline/fancy/wood/corner{
@@ -430,22 +462,14 @@
 /area/dominian_corvette/hangar)
 "aHt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
-/obj/machinery/light/small/red{
-	dir = 1
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8";
-	d1 = 4;
-	d2 = 8
-	},
 /turf/simulated/floor,
-/area/dominian_corvette/central_ring)
+/area/dominian_corvette/armoury)
 "aIf" = (
 /turf/simulated/floor/wood,
 /area/dominian_corvette/helm)
@@ -507,9 +531,6 @@
 	dir = 4
 	},
 /obj/item/hullbeacon/red,
-/obj/effect/floor_decal/industrial/arrow/red{
-	pixel_x = -16
-	},
 /turf/simulated/floor/airless,
 /area/dominian_corvette/exterior)
 "aQe" = (
@@ -522,18 +543,10 @@
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/dominian_corvette/hangar)
 "aRn" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor,
-/area/shuttle/dominian_shuttle)
+/obj/machinery/appliance/cooker/stove,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/white,
+/area/dominian_corvette/galley)
 "aVD" = (
 /obj/machinery/air_sensor,
 /obj/effect/map_effect/marker/large_tank{
@@ -565,14 +578,10 @@
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/dominian_corvette/bathroom)
 "aZa" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/machinery/light{
+	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/gunmetal,
 /area/dominian_corvette/fore_hallway)
 "aZQ" = (
 /obj/effect/map_effect/window_spawner/full/shuttle{
@@ -615,6 +624,17 @@
 /obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/tiled/gunmetal,
 /area/dominian_corvette/bunks)
+"bgU" = (
+/obj/machinery/atmospherics/portables_connector/scrubber{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/empty{
+	name = "waste canister"
+	},
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/machinery/light/small,
+/turf/simulated/floor,
+/area/shuttle/dominian_shuttle)
 "bie" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/yellow,
 /turf/simulated/wall/shuttle/space_ship/mercenary,
@@ -664,21 +684,6 @@
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /turf/simulated/floor,
 /area/dominian_corvette/central_lift)
-"boZ" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
-/obj/machinery/alarm/west{
-	req_one_access = null;
-	req_access = list(212)
-	},
-/turf/simulated/floor,
-/area/dominian_corvette/central_ring)
 "bpi" = (
 /obj/structure/closet/secure_closet/evidence{
 	name = "personal belongings storage";
@@ -710,6 +715,19 @@
 	},
 /turf/simulated/floor/carpet/red,
 /area/dominian_corvette/co_cabin)
+"bqW" = (
+/obj/effect/floor_decal/industrial/outline_corner/grey,
+/obj/effect/floor_decal/industrial/outline_segment/grey{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/outline_segment/grey{
+	dir = 8
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/dominian_shuttle)
 "bsd" = (
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	spawn_firedoor = 1;
@@ -823,6 +841,15 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/dominian_corvette/infirmary)
+"bzY" = (
+/obj/effect/floor_decal/corner_wide/brown/full{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/dominian_corvette/fc_port)
 "bAS" = (
 /obj/structure/cable/orange{
 	dir = 1
@@ -850,6 +877,12 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/dominian_corvette/galley)
+"bES" = (
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/dominian_corvette/central_lift)
 "bFS" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -894,11 +927,25 @@
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/dominian_corvette/central_lift)
 "bKn" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
+/obj/machinery/light{
+	dir = 1
 	},
-/turf/simulated/floor/tiled/dark/full,
-/area/shuttle/dominian_shuttle)
+/turf/simulated/floor/tiled/gunmetal,
+/area/dominian_corvette/central_ring)
+"bLO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/sign/greencross{
+	pixel_x = 32
+	},
+/turf/simulated/floor,
+/area/dominian_corvette/central_lift)
 "bMb" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
@@ -938,11 +985,6 @@
 /obj/item/spacecash/c1000,
 /turf/simulated/floor/tiled/gunmetal,
 /area/dominian_corvette/co_cabin)
-"bOa" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/effect/overmap/visitable/ship/dominian_corvette,
-/turf/simulated/floor/tiled/gunmetal,
-/area/dominian_corvette/helm)
 "bOQ" = (
 /obj/effect/floor_decal/industrial/outline_segment/grey{
 	dir = 5
@@ -1087,11 +1129,17 @@
 /turf/simulated/floor,
 /area/dominian_corvette/central_lift)
 "bXv" = (
-/obj/effect/floor_decal/corner/paleblue/full{
+/obj/effect/floor_decal/industrial/warning/cee,
+/obj/effect/floor_decal/industrial/hatch_small/yellow,
+/obj/machinery/power/terminal{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/dominian_corvette/armoury)
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/reinforced,
+/area/shuttle/dominian_shuttle)
 "bYN" = (
 /obj/machinery/computer/shuttle_control/multi/lift/dominian_corvette{
 	pixel_y = 10
@@ -1298,14 +1346,14 @@
 "cxT" = (
 /obj/structure/cable/green{
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 4;
+	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /turf/simulated/floor,
@@ -1364,6 +1412,15 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/dominian_corvette/gunnery_starboard)
+"cDK" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/gunmetal/full,
+/area/dominian_corvette/gunnery_port)
 "cEB" = (
 /obj/machinery/door/firedoor{
 	dir = 4
@@ -1398,6 +1455,11 @@
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /turf/simulated/floor,
 /area/dominian_corvette/docking_arm)
+"cJE" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/tiled/gunmetal,
+/area/dominian_corvette/gunnery_port)
 "cJQ" = (
 /turf/simulated/wall/shuttle/dark/cardinal/red,
 /area/dominian_corvette/mess_hall)
@@ -1430,12 +1492,6 @@
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/dominian_corvette/brig)
-"cQb" = (
-/obj/effect/floor_decal/corner_wide/yellow{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/dominian_corvette/central_lift)
 "cQs" = (
 /obj/structure/undies_wardrobe{
 	pixel_x = -1
@@ -1466,10 +1522,6 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/dominian_corvette/gunnery_port)
-"cRm" = (
-/obj/effect/floor_decal/corner_wide/yellow,
-/turf/simulated/floor/tiled/gunmetal,
-/area/dominian_corvette/central_lift)
 "cRo" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/structure/lattice/catwalk/indoor,
@@ -1598,17 +1650,6 @@
 /obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/tiled/gunmetal,
 /area/dominian_corvette/hydroponics)
-"dbT" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4
-	},
-/obj/effect/map_effect/marker/airlock/shuttle/dominian_shuttle,
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/shuttle/dominian_shuttle)
 "deg" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -1690,21 +1731,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/dominian_corvette/co_office)
-"dni" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
-/obj/structure/cable/green{
-	icon_state = "4-8";
-	d1 = 4;
-	d2 = 8
-	},
-/turf/simulated/floor,
-/area/dominian_corvette/gunnery_starboard)
 "dov" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 9
@@ -1857,20 +1883,14 @@
 /turf/simulated/floor,
 /area/dominian_corvette/lounge)
 "dxU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
-/obj/structure/cable/green{
-	icon_state = "4-8";
-	d1 = 4;
-	d2 = 8
+/obj/machinery/atmospherics/pipe/manifold/hidden/yellow,
+/obj/machinery/meter,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light{
+	dir = 1
 	},
 /turf/simulated/floor,
-/area/dominian_corvette/gunnery_port)
+/area/dominian_corvette/thrust_port)
 "dzq" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -1898,15 +1918,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/dominian_corvette/thrust_starboard)
-"dzz" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner_wide/brown{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/dominian_corvette/gunnery_port)
 "dzO" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/standard,
@@ -2233,26 +2244,12 @@
 	},
 /turf/simulated/floor,
 /area/dominian_corvette/brig)
-"dZo" = (
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 4
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline/grey,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/dominian_shuttle)
 "dZt" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor,
-/area/shuttle/dominian_shuttle)
+/turf/simulated/floor/tiled/gunmetal,
+/area/dominian_corvette/central_lift)
 "dZG" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 8
@@ -2304,6 +2301,13 @@
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/dominian_corvette/fore_hallway)
+"eeB" = (
+/obj/machinery/light/small{
+	dir = 8;
+	must_start_working = 1
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/dominian_corvette/morgue)
 "eeK" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -2343,10 +2347,6 @@
 	req_access = list(212);
 	name = "Close Quarters Armaments"
 	},
-/obj/item/shield/energy/dominia,
-/obj/item/shield/energy/dominia,
-/obj/item/melee/energy/sword/pirate/generic,
-/obj/item/melee/energy/sword/pirate/generic,
 /obj/item/storage/belt/security/full/alt,
 /obj/item/storage/belt/security/full/alt,
 /obj/item/material/knife/bayonet,
@@ -2359,6 +2359,12 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/gunmetal,
 /area/dominian_corvette/armoury)
+"ejl" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/gunmetal/full,
+/area/dominian_corvette/gunnery_port)
 "ejK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -2454,17 +2460,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/dominian_corvette/helm)
-"esJ" = (
-/obj/machinery/atmospherics/portables_connector/scrubber{
-	dir = 1
-	},
-/obj/machinery/portable_atmospherics/canister/empty{
-	name = "waste canister"
-	},
-/obj/effect/floor_decal/industrial/outline/red,
-/obj/machinery/light/small,
-/turf/simulated/floor,
-/area/shuttle/dominian_shuttle)
 "etL" = (
 /turf/space/transit/north,
 /area/space)
@@ -2662,17 +2657,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/marble,
 /area/dominian_corvette/bathroom)
-"eHq" = (
-/obj/machinery/computer/ship/sensors/terminal{
-	dir = 8;
-	req_access = list(212)
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/gunmetal/full,
-/area/dominian_corvette/helm)
 "eHO" = (
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/machinery/door/airlock/external{
@@ -2765,24 +2749,6 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/dominian_corvette/thrust_starboard)
-"eOk" = (
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor,
-/area/dominian_corvette/central_ring)
 "eOA" = (
 /obj/structure/table/glass,
 /obj/item/book/manual/dominia_honor{
@@ -2822,6 +2788,26 @@
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/dominian_corvette/fo_office)
+"eRk" = (
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4;
+	req_access = list(212)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gunmetal/full,
+/area/shuttle/dominian_shuttle)
 "eRw" = (
 /obj/structure/lattice,
 /obj/structure/ladder{
@@ -2833,6 +2819,12 @@
 	},
 /turf/simulated/open/airless,
 /area/dominian_corvette/central_lift)
+"eRA" = (
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/dominian_corvette/hangar)
 "eRN" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/bed/stool/chair/office/bridge/pilot,
@@ -2891,6 +2883,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/dominian_corvette/cargo)
+"eVo" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/dominian_shuttle)
 "eVp" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -2965,6 +2963,21 @@
 /obj/structure/ship_weapon_dummy,
 /turf/space/dynamic,
 /area/dominian_corvette/gunnery_starboard)
+"eXH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/cable/green{
+	icon_state = "4-8";
+	d1 = 4;
+	d2 = 8
+	},
+/turf/simulated/floor,
+/area/dominian_corvette/fore_hallway)
 "eYq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -2984,6 +2997,30 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/dominian_corvette/mess_hall)
+"eZc" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/alarm/west{
+	req_one_access = null;
+	req_access = list(212)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/turf/simulated/floor,
+/area/dominian_corvette/gunnery_port)
+"eZM" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/gunmetal/full,
+/area/dominian_corvette/gunnery_starboard)
 "fan" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 1
@@ -3049,11 +3086,23 @@
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/dominian_corvette/mess_hall)
 "fha" = (
-/obj/machinery/light{
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/dominian_corvette/mess_hall)
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/machinery/light/small/red{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8";
+	d1 = 4;
+	d2 = 8
+	},
+/turf/simulated/floor,
+/area/dominian_corvette/central_ring)
 "fiE" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/structure/lattice/catwalk/indoor,
@@ -3204,10 +3253,33 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/dominian_shuttle)
 "fwc" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
 	},
-/turf/simulated/floor/tiled/gunmetal/full,
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor,
+/area/shuttle/dominian_shuttle)
+"fyu" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/cable/green{
+	icon_state = "4-8";
+	d1 = 4;
+	d2 = 8
+	},
+/turf/simulated/floor,
 /area/dominian_corvette/gunnery_starboard)
 "fAR" = (
 /obj/effect/floor_decal/corner/orange/full{
@@ -3258,28 +3330,45 @@
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/dominian_corvette/fore_hallway)
 "fKa" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/yellow,
-/obj/machinery/meter,
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4;
+	req_access = list(212)
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8";
+	d1 = 4;
+	d2 = 8
+	},
+/turf/simulated/floor/tiled/gunmetal/full,
+/area/shuttle/dominian_shuttle)
+"fLw" = (
+/obj/effect/floor_decal/corner_wide/brown/full{
+	dir = 8
+	},
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor,
-/area/dominian_corvette/thrust_port)
-"fLO" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
-	dir = 4
+/turf/simulated/floor/tiled/gunmetal,
+/area/dominian_corvette/fc_port)
+"fQA" = (
+/obj/machinery/light{
+	dir = 1
 	},
-/obj/machinery/meter,
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor,
-/area/shuttle/dominian_shuttle)
-"fNF" = (
-/obj/effect/floor_decal/corner_wide/yellow{
-	dir = 4
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/gunmetal,
-/area/dominian_corvette/hangar)
+/area/dominian_corvette/gunnery_port)
 "fWH" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
@@ -3377,26 +3466,18 @@
 /turf/simulated/floor,
 /area/dominian_corvette/central_lift)
 "gjd" = (
-/obj/structure/table/stone/marble,
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/door/firedoor,
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
-	pixel_x = -7;
-	pixel_y = 7
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
 	},
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
-	pixel_x = 1;
-	pixel_y = 9
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/shuttle/dominian_shuttle,
+/obj/machinery/airlock_sensor/airlock_exterior{
+	pixel_y = 6;
+	pixel_x = -25;
+	dir = 4
 	},
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
-	pixel_x = 10;
-	pixel_y = 6
-	},
-/obj/machinery/chemical_dispenser/coffee/full{
-	pixel_y = -8
-	},
-/turf/simulated/floor/tiled/gunmetal/full,
-/area/dominian_corvette/galley)
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/dominian_shuttle)
 "glf" = (
 /obj/effect/floor_decal/corner/orange/full,
 /obj/effect/floor_decal/industrial/hatch/engineering,
@@ -3412,28 +3493,18 @@
 /turf/simulated/floor/tiled/white,
 /area/dominian_corvette/galley)
 "glW" = (
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 8
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline/grey,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/dominian_shuttle)
-"glY" = (
-/obj/effect/floor_decal/industrial/hatch_door/red,
-/obj/machinery/door/firedoor{
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/gunmetal/full,
-/area/dominian_corvette/central_ring)
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor,
+/area/shuttle/dominian_shuttle)
 "gnT" = (
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/simulated/floor/tiled/gunmetal,
@@ -3517,6 +3588,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/wood,
 /area/dominian_corvette/lounge)
+"gwl" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/yellow,
+/obj/machinery/meter,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/dominian_corvette/thrust_starboard)
 "gwR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -3589,19 +3669,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/dominian_corvette/infirmary)
-"gzT" = (
-/obj/machinery/atmospherics/binary/pump/scrubber/on{
-	dir = 1;
-	target_pressure = 15000;
-	name = "Scrubbers to Canister"
-	},
-/obj/effect/floor_decal/industrial/hatch_tiny/red{
-	dir = 4;
-	pixel_x = 3
-	},
-/obj/effect/floor_decal/industrial/outline/red,
-/turf/simulated/floor/tiled/dark/full,
-/area/shuttle/dominian_shuttle)
 "gBf" = (
 /obj/structure/cable/orange{
 	dir = 1
@@ -3623,13 +3690,6 @@
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /turf/simulated/floor,
 /area/dominian_corvette/central_lift)
-"gDW" = (
-/obj/effect/floor_decal/industrial/outline/medical,
-/obj/machinery/light/small{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/shuttle/dominian_shuttle)
 "gEX" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -3660,6 +3720,30 @@
 	},
 /turf/simulated/floor/carpet/red,
 /area/dominian_corvette/co_office)
+"gHM" = (
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/door/airlock/external{
+	req_access = list(212)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/dominian_corvette/aft_hangar,
+/obj/machinery/door/blast/regular/open{
+	id = "dominia_airlock";
+	dir = 4
+	},
+/obj/machinery/access_button{
+	pixel_x = 25;
+	pixel_y = -30;
+	dir = 8;
+	req_access = list(212)
+	},
+/turf/simulated/floor/tiled/gunmetal/full,
+/area/dominian_corvette/hangar)
 "gLb" = (
 /obj/effect/floor_decal/corner_wide/brown/full{
 	dir = 8
@@ -3669,6 +3753,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/dominian_corvette/mess_hall)
+"gLd" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/dominian_corvette/gunnery_starboard)
 "gMs" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -3719,34 +3809,6 @@
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /turf/simulated/floor,
 /area/dominian_corvette/docking_arm)
-"gOR" = (
-/obj/structure/table/reinforced/steel,
-/obj/effect/floor_decal/industrial/outline_corner/grey{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline_segment/grey{
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/outline_segment/grey{
-	dir = 4
-	},
-/obj/item/device/binoculars{
-	pixel_y = 5;
-	pixel_x = -1
-	},
-/obj/item/clothing/ears/earmuffs{
-	pixel_y = -13;
-	pixel_x = 1
-	},
-/obj/item/clothing/glasses/safety/goggles{
-	pixel_y = -16;
-	pixel_x = -3
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/gunmetal/full,
-/area/dominian_corvette/fc_starboard)
 "gPM" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
@@ -3755,12 +3817,6 @@
 /obj/effect/map_effect/marker/airlock/shuttle/dominian_shuttle,
 /turf/simulated/floor,
 /area/shuttle/dominian_shuttle)
-"gSn" = (
-/obj/effect/floor_decal/corner_wide/yellow{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/dominian_corvette/central_lift)
 "gUw" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
@@ -3867,6 +3923,15 @@
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /turf/simulated/floor,
 /area/dominian_corvette/central_ring)
+"hcK" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/dominian_corvette/gunnery_starboard)
 "hfc" = (
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	spawn_firedoor = 1;
@@ -3987,31 +4052,24 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/alarm/west{
-	req_one_access = null;
-	req_access = list(212)
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /turf/simulated/floor,
 /area/dominian_corvette/gunnery_port)
-"hpu" = (
-/obj/effect/floor_decal/corner_wide/yellow{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/dominian_corvette/hangar)
 "hpQ" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/effect/map_effect/marker/airlock/docking/dominian_corvette/starboard_dock,
 /turf/simulated/floor,
 /area/dominian_corvette/fore_hallway)
-"hqf" = (
-/obj/random/dirt_75,
-/obj/machinery/light,
-/turf/simulated/floor/wood,
-/area/dominian_corvette/lounge)
+"hrl" = (
+/obj/effect/floor_decal/corner_wide/yellow,
+/turf/simulated/floor/tiled/gunmetal,
+/area/dominian_corvette/central_lift)
 "hrs" = (
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	spawn_firedoor = 1;
@@ -4149,50 +4207,19 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/dominian_corvette/thrust_port)
-"hBx" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
-/turf/simulated/floor,
-/area/dominian_corvette/gunnery_starboard)
 "hDf" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/effect/floor_decal/industrial/warning/cee{
+/obj/effect/floor_decal/corner_wide/brown/full{
+	dir = 8
+	},
+/obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/reinforced/airless,
-/area/shuttle/dominian_shuttle)
+/turf/simulated/floor/tiled/gunmetal,
+/area/dominian_corvette/fc_starboard)
 "hDC" = (
-/obj/structure/cable/green{
-	icon_state = "4-8";
-	d1 = 4;
-	d2 = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/obj/machinery/power/apc/south{
-	req_access = list(212)
-	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
-/turf/simulated/floor,
-/area/dominian_corvette/central_ring)
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/turf/simulated/floor/tiled/gunmetal,
+/area/dominian_corvette/helm)
 "hHn" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -4241,16 +4268,6 @@
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/reinforced,
 /area/dominian_corvette/gunnery_starboard)
-"hPr" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/arrow/red{
-	pixel_x = -2
-	},
-/turf/simulated/floor/airless,
-/area/dominian_corvette/exterior)
 "hQq" = (
 /obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -4306,20 +4323,8 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/dominian_corvette/infirmary)
-"hSj" = (
-/obj/effect/floor_decal/corner_wide/yellow{
-	dir = 6
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/dominian_corvette/hangar)
-"hTf" = (
-/obj/effect/floor_decal/corner_wide/yellow,
-/turf/simulated/floor/tiled/gunmetal,
-/area/dominian_corvette/hangar)
 "hUe" = (
-/obj/machinery/light{
-	dir = 1
-	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/gunmetal,
 /area/dominian_corvette/fore_hallway)
 "hVB" = (
@@ -4349,6 +4354,21 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor,
 /area/dominian_corvette/cryogenics)
+"hZP" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/turf/simulated/floor,
+/area/dominian_corvette/gunnery_port)
 "iaE" = (
 /obj/machinery/door/blast/regular/open{
 	id = "dominia_helm"
@@ -4389,11 +4409,17 @@
 /turf/simulated/floor/wood,
 /area/dominian_corvette/fo_office)
 "ibm" = (
-/obj/effect/floor_decal/corner_wide/yellow{
-	dir = 6
+/obj/effect/floor_decal/industrial/outline_corner/grey{
+	dir = 1
 	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/dominian_corvette/central_lift)
+/obj/effect/floor_decal/industrial/outline_segment/grey{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline_segment/grey{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/dominian_shuttle)
 "ibY" = (
 /turf/simulated/wall/shuttle/dark/cardinal/red,
 /area/dominian_corvette/eva_prep)
@@ -4427,13 +4453,6 @@
 	},
 /turf/simulated/floor,
 /area/dominian_corvette/reactor)
-"ihi" = (
-/obj/machinery/light/small{
-	dir = 8;
-	must_start_working = 1
-	},
-/turf/simulated/floor/tiled/freezer,
-/area/dominian_corvette/morgue)
 "ihj" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
@@ -4471,25 +4490,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white,
 /area/dominian_corvette/infirmary)
-"iob" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor,
-/obj/effect/map_effect/marker/airlock/docking/dominian_corvette/shuttle_port,
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	pixel_x = -24;
-	dir = 4;
-	pixel_y = -6;
-	req_access = list(212)
-	},
-/obj/machinery/airlock_sensor/airlock_exterior{
-	pixel_y = 6;
-	pixel_x = -25;
-	dir = 4
-	},
-/turf/simulated/floor,
-/area/dominian_corvette/hangar)
 "ipe" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/sink{
@@ -4548,6 +4548,21 @@
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/dominian_corvette/central_lift)
+"ixt" = (
+/obj/machinery/power/apc/east{
+	req_access = list(212)
+	},
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/turf/simulated/floor,
+/area/dominian_corvette/fc_starboard)
 "ixH" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1;
@@ -4784,12 +4799,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/dominian_shuttle)
-"iLZ" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/gunmetal/full,
-/area/dominian_corvette/armoury)
 "iMj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 5
@@ -4801,24 +4810,41 @@
 /obj/machinery/light,
 /turf/simulated/floor,
 /area/dominian_corvette/atmospherics)
-"iMy" = (
-/obj/effect/floor_decal/corner_wide/yellow{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/dominian_corvette/hangar)
 "iNM" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/turbolift/dominian_corvette/dominian_lift)
+"iNQ" = (
+/obj/machinery/computer/ship/helm/terminal{
+	dir = 1;
+	req_access = list(212)
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/dominian_shuttle)
 "iNW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 4
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/dominian_shuttle)
+"iOy" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/turf/simulated/floor,
+/area/dominian_corvette/gunnery_starboard)
 "iPG" = (
 /obj/machinery/shieldgen,
 /obj/effect/floor_decal/corner_wide/yellow/full{
@@ -4925,20 +4951,6 @@
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/dominian_corvette/eva_prep)
-"jif" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor,
-/area/dominian_corvette/central_lift)
 "joh" = (
 /obj/structure/closet/secure_closet/cabinet{
 	req_access = list(212);
@@ -4960,12 +4972,10 @@
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/dominian_corvette/fo_cabin)
-"jsM" = (
-/obj/effect/floor_decal/corner_wide/brown{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/dominian_corvette/gunnery_port)
+"jqd" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/dominian_shuttle)
 "jtC" = (
 /obj/structure/bed/handrail{
 	dir = 4
@@ -4987,12 +4997,14 @@
 	},
 /turf/simulated/floor/wood,
 /area/dominian_corvette/lounge)
-"jvZ" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+"jwv" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/gunmetal/full,
-/area/dominian_corvette/armoury)
+/obj/machinery/meter,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor,
+/area/shuttle/dominian_shuttle)
 "jwV" = (
 /obj/structure/table/stone/marble,
 /obj/structure/sign/painting_frame/goddess/scholar,
@@ -5016,17 +5028,26 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor,
 /area/shuttle/dominian_shuttle)
-"jAb" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	dir = 8
+"jBE" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
 	},
-/obj/structure/lattice/catwalk/indoor,
-/obj/effect/map_effect/marker/airlock/shuttle/dominian_shuttle,
-/obj/machinery/light/small{
+/turf/simulated/floor/tiled/gunmetal,
+/area/dominian_corvette/armoury)
+"jCi" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/shuttle/dominian_shuttle)
+/area/dominian_corvette/central_lift)
 "jCC" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
@@ -5044,11 +5065,24 @@
 /turf/simulated/floor,
 /area/dominian_corvette/mess_hall)
 "jEg" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 6
+/obj/structure/cable/green{
+	icon_state = "4-8";
+	d1 = 4;
+	d2 = 8
 	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/dominian_corvette/armoury)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/machinery/alarm/north{
+	req_one_access = null;
+	req_access = list(212)
+	},
+/turf/simulated/floor,
+/area/dominian_corvette/central_ring)
 "jFX" = (
 /obj/structure/lattice/catwalk,
 /turf/space/dynamic,
@@ -5094,22 +5128,6 @@
 	},
 /turf/simulated/floor,
 /area/dominian_corvette/central_ring)
-"jJc" = (
-/obj/effect/floor_decal/corner/lime/diagonal,
-/turf/simulated/floor/tiled/gunmetal,
-/area/dominian_corvette/bunks)
-"jJj" = (
-/obj/effect/floor_decal/industrial/outline_corner/grey{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline_segment/grey{
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/outline_segment/grey{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/dominian_shuttle)
 "jJr" = (
 /obj/structure/bed/handrail{
 	dir = 8
@@ -5124,12 +5142,6 @@
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/dominian_corvette/brig)
-"jJH" = (
-/obj/effect/floor_decal/corner_wide/yellow{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/dominian_corvette/central_lift)
 "jLv" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8;
@@ -5142,14 +5154,27 @@
 /turf/simulated/floor,
 /area/dominian_corvette/thrust_port)
 "jLV" = (
-/obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/outline/red,
-/obj/structure/cable/green,
-/obj/machinery/power/apc/west{
+/obj/structure/cable/green{
+	icon_state = "4-8";
+	d1 = 4;
+	d2 = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc/south{
 	req_access = list(212)
 	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/dominian_corvette/gunnery_port)
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/turf/simulated/floor,
+/area/dominian_corvette/central_ring)
 "jNy" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 4
@@ -5173,6 +5198,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/dominian_corvette/infirmary)
+"jRS" = (
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/dominian_corvette/hangar)
 "jTd" = (
 /turf/simulated/wall/shuttle/dark/cardinal/red,
 /area/dominian_corvette/cryogenics)
@@ -5237,15 +5268,6 @@
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/dominian_corvette/mess_hall)
-"keZ" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner_wide/brown{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/dominian_corvette/gunnery_starboard)
 "kfr" = (
 /obj/machinery/alarm/freezer/north{
 	req_one_access = null;
@@ -5267,11 +5289,18 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/dominian_corvette/engineering)
 "khR" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector/aux{
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline/blue,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8";
+	d1 = 4;
+	d2 = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor,
 /area/shuttle/dominian_shuttle)
 "kjg" = (
@@ -5333,19 +5362,37 @@
 	},
 /turf/simulated/floor,
 /area/dominian_corvette/thrust_starboard)
+"kse" = (
+/obj/effect/floor_decal/industrial/outline/medical,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/shuttle/dominian_shuttle)
 "ksW" = (
 /obj/structure/table/reinforced/steel,
-/obj/effect/floor_decal/industrial/outline_corner/grey,
-/obj/effect/floor_decal/industrial/outline_segment/grey{
-	dir = 5
+/obj/effect/floor_decal/industrial/outline_corner/grey{
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline_segment/grey{
-	dir = 8
+	dir = 10
 	},
-/obj/item/storage/toolbox/mechanical{
-	pixel_y = 2
+/obj/effect/floor_decal/industrial/outline_segment/grey{
+	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/item/device/binoculars{
+	pixel_y = 5;
+	pixel_x = -1
+	},
+/obj/item/clothing/ears/earmuffs{
+	pixel_y = -13;
+	pixel_x = 1
+	},
+/obj/item/clothing/glasses/safety/goggles{
+	pixel_y = -16;
+	pixel_x = -3
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/gunmetal,
@@ -5568,11 +5615,6 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
-/obj/structure/cable/green{
-	icon_state = "4-8";
-	d1 = 4;
-	d2 = 8
-	},
 /turf/simulated/floor,
 /area/dominian_corvette/fore_hallway)
 "kYC" = (
@@ -5634,6 +5676,17 @@
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /turf/simulated/floor,
 /area/dominian_corvette/hangar)
+"lea" = (
+/obj/machinery/computer/ship/sensors/terminal{
+	dir = 8;
+	req_access = list(212)
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gunmetal/full,
+/area/dominian_corvette/helm)
 "lfY" = (
 /obj/effect/floor_decal/industrial/outline_corner/custodial{
 	dir = 4
@@ -5733,20 +5786,6 @@
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/dominian_corvette/central_lift)
-"lrv" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor,
-/area/shuttle/dominian_shuttle)
 "luI" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -5776,6 +5815,27 @@
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /turf/simulated/floor,
 /area/dominian_corvette/cargo)
+"lwo" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/cable/green{
+	icon_state = "4-8";
+	d1 = 4;
+	d2 = 8
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor,
+/area/dominian_corvette/gunnery_port)
 "lwX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -5923,6 +5983,19 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_shuttle)
+"lJR" = (
+/obj/machinery/atmospherics/binary/pump/scrubber/on{
+	dir = 1;
+	target_pressure = 15000;
+	name = "Scrubbers to Canister"
+	},
+/obj/effect/floor_decal/industrial/hatch_tiny/red{
+	dir = 4;
+	pixel_x = 3
+	},
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/dominian_shuttle)
 "lKN" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -5937,14 +6010,15 @@
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /turf/simulated/floor,
 /area/dominian_corvette/reactor)
+"lLZ" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/dominian_corvette/armoury)
 "lMr" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/dominian_corvette/thrust_starboard)
-"lMY" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/ship_weapon_dummy/barrel,
-/turf/space/dynamic,
-/area/dominian_corvette/docking_arm)
 "lOp" = (
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	spawn_firedoor = 1;
@@ -5954,6 +6028,12 @@
 	},
 /turf/simulated/floor,
 /area/dominian_corvette/reactor)
+"lQM" = (
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/dominian_corvette/hangar)
 "lRG" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -5988,6 +6068,7 @@
 	id = "dominia_shuttle_airlock"
 	},
 /obj/effect/map_effect/marker/airlock/shuttle/dominian_shuttle,
+/obj/effect/landmark/entry_point/aft,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/shuttle/dominian_shuttle)
 "lRW" = (
@@ -6021,15 +6102,6 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/dominian_corvette/gunnery_port)
-"lWR" = (
-/obj/machinery/atmospherics/pipe/tank/air{
-	start_pressure = 6000;
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/hatch/blue,
-/obj/machinery/light,
-/turf/simulated/floor,
-/area/dominian_corvette/atmospherics)
 "lXK" = (
 /obj/structure/sign/flag/dominia/large/north{
 	pixel_y = 32
@@ -6104,6 +6176,23 @@
 	},
 /turf/simulated/floor,
 /area/dominian_corvette/mess_hall)
+"mgr" = (
+/obj/structure/table/reinforced/steel,
+/obj/effect/floor_decal/industrial/outline_corner/grey,
+/obj/effect/floor_decal/industrial/outline_segment/grey{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/outline_segment/grey{
+	dir = 8
+	},
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = 2
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/dominian_corvette/fc_port)
 "mgN" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -6219,13 +6308,7 @@
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /turf/simulated/floor,
 /area/dominian_corvette/central_lift)
-"mtk" = (
-/obj/effect/shuttle_landmark/dominian_corvette/nav4{
-	dir = 8
-	},
-/turf/template_noop,
-/area/space)
-"mtt" = (
+"msx" = (
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -6242,6 +6325,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/dominian_corvette/galley)
+"mtk" = (
+/obj/effect/shuttle_landmark/dominian_corvette/nav4{
+	dir = 8
+	},
+/turf/template_noop,
+/area/space)
 "muk" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
@@ -6496,6 +6585,21 @@
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /turf/simulated/floor,
 /area/dominian_corvette/central_ring)
+"mHt" = (
+/obj/machinery/power/apc/west{
+	req_access = list(212)
+	},
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/turf/simulated/floor,
+/area/dominian_corvette/fc_port)
 "mHX" = (
 /obj/structure/closet/secure_closet/cabinet{
 	req_access = list(212);
@@ -6711,23 +6815,37 @@
 /turf/simulated/floor/marble,
 /area/dominian_corvette/bathroom)
 "mWe" = (
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/structure/cable/green{
-	icon_state = "4-8";
-	d1 = 4;
-	d2 = 8
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/machinery/light{
+	dir = 4
 	},
 /turf/simulated/floor,
-/area/dominian_corvette/mess_hall)
+/area/dominian_corvette/central_ring)
+"naU" = (
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/dominian_corvette/central_lift)
 "nbH" = (
-/obj/machinery/light{
-	dir = 1
+/obj/structure/table/reinforced/steel,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
+/obj/machinery/power/apc/north{
+	req_access = list(212)
 	},
-/turf/simulated/floor/tiled/gunmetal/full,
-/area/dominian_corvette/gunnery_starboard)
+/turf/simulated/floor/tiled/freezer,
+/area/dominian_corvette/morgue)
 "ncl" = (
 /turf/simulated/wall/shuttle/dark/cardinal/red,
 /area/dominian_corvette/morgue)
@@ -6871,23 +6989,29 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor,
 /area/shuttle/dominian_shuttle)
-"noS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/shuttle/dominian_shuttle)
+"nob" = (
+/obj/machinery/atmospherics/pipe/tank/air{
+	start_pressure = 6000;
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/hatch/blue,
+/obj/machinery/light,
+/turf/simulated/floor,
+/area/dominian_corvette/atmospherics)
 "nps" = (
-/obj/effect/floor_decal/industrial/outline_corner/grey,
-/obj/effect/floor_decal/industrial/outline_segment/grey{
-	dir = 5
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/industrial/outline_segment/grey{
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/light/small{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/dominian_shuttle)
+/turf/simulated/floor,
+/area/dominian_corvette/central_lift)
 "nrb" = (
 /obj/effect/decal/cleanable/floor_damage/wood_broken7,
 /obj/random/dirt_75,
@@ -6922,24 +7046,14 @@
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /turf/template_noop,
 /area/space)
-"nyv" = (
-/obj/machinery/alarm/west{
-	req_one_access = null;
-	req_access = list(212)
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
-/turf/simulated/floor,
-/area/dominian_corvette/fc_port)
-"nzy" = (
-/obj/effect/floor_decal/industrial/warning/cee{
+"nyK" = (
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector/aux{
 	dir = 4
 	},
-/obj/item/hullbeacon/red,
-/turf/simulated/floor/airless,
-/area/dominian_corvette/exterior)
+/obj/effect/floor_decal/industrial/outline/blue,
+/turf/simulated/floor,
+/area/shuttle/dominian_shuttle)
 "nzP" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -6954,34 +7068,6 @@
 	},
 /turf/simulated/floor,
 /area/dominian_corvette/fore_hallway)
-"nAX" = (
-/obj/structure/table/reinforced/steel,
-/obj/effect/floor_decal/industrial/outline_corner/grey{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline_segment/grey{
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/outline_segment/grey{
-	dir = 4
-	},
-/obj/item/device/binoculars{
-	pixel_y = 5;
-	pixel_x = -1
-	},
-/obj/item/clothing/ears/earmuffs{
-	pixel_y = -13;
-	pixel_x = 1
-	},
-/obj/item/clothing/glasses/safety/goggles{
-	pixel_y = -16;
-	pixel_x = -3
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/dominian_corvette/fc_port)
 "nBE" = (
 /obj/effect/shuttle_landmark/lift/dominia_first_deck,
 /turf/simulated/floor,
@@ -7067,6 +7153,16 @@
 	},
 /turf/simulated/floor,
 /area/dominian_corvette/thrust_starboard)
+"nHR" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/dominian_shuttle)
 "nIC" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -7082,24 +7178,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/dominian_corvette/lounge)
-"nIG" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor,
-/area/dominian_corvette/central_ring)
 "nJj" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -7129,11 +7207,6 @@
 /area/shuttle/dominian_shuttle)
 "nMj" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/structure/cable/green{
-	icon_state = "4-8";
-	d1 = 4;
-	d2 = 8
-	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/dominian_corvette/bunks)
 "nMM" = (
@@ -7212,6 +7285,18 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/dominian_corvette/mess_hall)
+"nTD" = (
+/obj/machinery/mech_recharger,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/dominian_shuttle)
+"nTI" = (
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/dominian_corvette/central_lift)
 "nUe" = (
 /obj/machinery/shower{
 	dir = 4
@@ -7220,17 +7305,12 @@
 /turf/simulated/floor,
 /area/dominian_corvette/bathroom)
 "nUP" = (
-/obj/effect/floor_decal/corner_wide/yellow{
-	dir = 8
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/sign/greencross{
+	pixel_x = 32
 	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/dominian_corvette/hangar)
-"nVN" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/dominian_corvette/central_ring)
+/turf/simulated/floor,
+/area/dominian_corvette/central_lift)
 "nWB" = (
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -7243,6 +7323,24 @@
 	},
 /turf/simulated/floor,
 /area/dominian_corvette/brig)
+"nZy" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8";
+	d1 = 4;
+	d2 = 8
+	},
+/turf/simulated/floor,
+/area/dominian_corvette/mess_hall)
 "nZL" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -7274,18 +7372,28 @@
 "ocM" = (
 /turf/simulated/floor/marble/dark,
 /area/dominian_corvette/chapel)
+"odc" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor,
+/area/shuttle/dominian_shuttle)
 "odC" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/turbolift/dominian_corvette/dominian_lift)
-"ofg" = (
-/obj/effect/floor_decal/corner_wide/brown{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/dominian_corvette/fc_port)
 "ogc" = (
 /turf/simulated/wall/shuttle/dark/cardinal/red,
 /area/dominian_corvette/hangar)
@@ -7329,18 +7437,21 @@
 	},
 /turf/simulated/floor,
 /area/dominian_corvette/central_lift)
-"okv" = (
+"ojx" = (
 /obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	icon_state = "4-8";
+	d1 = 4;
+	d2 = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
-/obj/machinery/alarm/east{
-	req_one_access = null;
-	req_access = list(212)
+/obj/machinery/light{
+	dir = 1
 	},
 /turf/simulated/floor,
 /area/dominian_corvette/central_ring)
@@ -7355,17 +7466,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/dominian_corvette/cargo)
-"okX" = (
-/obj/structure/morgue{
-	dir = 2
-	},
-/obj/effect/floor_decal/industrial/hatch/grey,
-/obj/machinery/light/small{
-	dir = 1;
-	must_start_working = 1
-	},
-/turf/simulated/floor/tiled/freezer,
-/area/dominian_corvette/morgue)
 "olk" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(212);
@@ -7466,24 +7566,11 @@
 /turf/simulated/floor/tiled/white,
 /area/dominian_corvette/infirmary)
 "opu" = (
-/obj/structure/table/reinforced/steel,
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/button/remote/blast_door{
-	id = "dominia_shuttle_windows";
-	name = "Window Shields";
-	dir = 10;
-	pixel_x = -6
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
+/obj/machinery/door/blast/shutters/open{
+	id = "dominia_shuttle_windows"
 	},
-/obj/machinery/button/remote/blast_door{
-	id = "dominia_shuttle_airlock";
-	name = "Airlock Shields";
-	dir = 10;
-	pixel_x = 6
-	},
-/obj/machinery/button/distress{
-	pixel_y = 9
-	},
-/turf/simulated/floor/tiled/gunmetal,
+/turf/simulated/floor,
 /area/shuttle/dominian_shuttle)
 "ovI" = (
 /turf/simulated/floor/tiled/gunmetal,
@@ -7524,6 +7611,12 @@
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/dominian_corvette/thrust_port)
+"ozd" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/dominian_corvette/mess_hall)
 "ozh" = (
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	spawn_firedoor = 1;
@@ -7573,6 +7666,13 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/dominian_corvette/chapel)
+"oBi" = (
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/turf/simulated/floor/wood,
+/area/dominian_corvette/lounge)
 "oCa" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 4
@@ -7584,20 +7684,6 @@
 	},
 /turf/simulated/floor,
 /area/dominian_corvette/docking_arm)
-"oEr" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor,
-/area/dominian_corvette/central_ring)
 "oFx" = (
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor,
@@ -7674,12 +7760,14 @@
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/dominian_corvette/central_ring)
 "oTw" = (
-/obj/machinery/computer/ship/sensors/terminal{
-	dir = 8;
-	req_access = list(212)
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/dark/full,
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor,
 /area/shuttle/dominian_shuttle)
 "oTN" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -7700,29 +7788,12 @@
 	},
 /turf/simulated/floor,
 /area/dominian_corvette/fc_port)
-"oVN" = (
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
-/obj/structure/sign/greencross{
-	pixel_x = 32
-	},
-/turf/simulated/floor,
-/area/dominian_corvette/central_lift)
 "oXz" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/dominian_corvette/infirmary)
-"pbZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
-/turf/simulated/floor,
-/area/dominian_corvette/armoury)
 "pcc" = (
 /obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
@@ -7737,13 +7808,15 @@
 /turf/simulated/floor/wood,
 /area/dominian_corvette/lounge)
 "pdo" = (
-/obj/effect/floor_decal/corner_wide/brown/full{
-	dir = 1
+/obj/machinery/alarm/west{
+	req_one_access = null;
+	req_access = list(212)
 	},
-/obj/machinery/light{
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
 	},
-/turf/simulated/floor/tiled/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/turf/simulated/floor,
 /area/dominian_corvette/fc_port)
 "peb" = (
 /obj/structure/railing/mapped{
@@ -7801,30 +7874,6 @@
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/white,
 /area/dominian_corvette/mess_hall)
-"pfS" = (
-/obj/effect/floor_decal/industrial/hatch_door/red{
-	dir = 1
-	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/door/airlock/external{
-	req_access = list(212)
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 1
-	},
-/obj/effect/map_effect/marker/airlock/dominian_corvette/aft_hangar,
-/obj/machinery/door/blast/regular/open{
-	id = "dominia_airlock";
-	dir = 4
-	},
-/obj/machinery/access_button{
-	pixel_x = 25;
-	pixel_y = -30;
-	dir = 8;
-	req_access = list(212)
-	},
-/turf/simulated/floor/tiled/gunmetal/full,
-/area/dominian_corvette/hangar)
 "pgu" = (
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/machinery/door/firedoor{
@@ -7865,6 +7914,16 @@
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/dominian_corvette/fore_hallway)
+"phF" = (
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 8
+	},
+/obj/item/hullbeacon/red,
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/dominian_corvette/exterior)
 "pia" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(212);
@@ -7953,12 +8012,6 @@
 /obj/effect/map_effect/marker/airlock/docking/dominian_corvette/shuttle_port,
 /turf/simulated/floor,
 /area/dominian_corvette/hangar)
-"ppu" = (
-/obj/machinery/mech_recharger,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light/small,
-/turf/simulated/floor/tiled/dark/full,
-/area/shuttle/dominian_shuttle)
 "ppz" = (
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/machinery/door/firedoor{
@@ -7982,21 +8035,14 @@
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/dominian_corvette/eva_prep)
-"ppT" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
+"ppY" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
+/obj/machinery/door/blast/shutters/open{
+	dir = 4;
+	id = "dominia_shuttle_windows"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /turf/simulated/floor,
-/area/dominian_corvette/gunnery_port)
+/area/shuttle/dominian_shuttle)
 "pqD" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 5
@@ -8017,35 +8063,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/dominian_corvette/infirmary)
-"pqZ" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/gunmetal/full,
-/area/dominian_corvette/gunnery_port)
 "ptm" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
 /turf/simulated/floor/reinforced,
 /area/dominian_corvette/gunnery_starboard)
-"puy" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor,
-/area/dominian_corvette/central_ring)
 "pwW" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -8114,11 +8137,8 @@
 /turf/simulated/floor,
 /area/dominian_corvette/co_office)
 "pAL" = (
-/obj/effect/floor_decal/corner_wide/brown/full{
-	dir = 1
-	},
-/obj/machinery/light{
-	dir = 1
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/dominian_corvette/fc_starboard)
@@ -8159,31 +8179,12 @@
 /turf/simulated/floor/tiled/white,
 /area/dominian_corvette/infirmary)
 "pDR" = (
-/obj/structure/cable/green{
-	icon_state = "4-8";
-	d1 = 4;
-	d2 = 8
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
-/obj/machinery/alarm/north{
-	req_one_access = null;
-	req_access = list(212)
-	},
-/turf/simulated/floor,
-/area/dominian_corvette/central_ring)
-"pEB" = (
-/obj/effect/floor_decal/industrial/warning/cee{
-	dir = 8
-	},
-/obj/item/hullbeacon/red,
-/obj/effect/map_effect/map_helper/ruler_tiles_3{
-	dir = 4
+/obj/effect/floor_decal/industrial/arrow/red{
+	pixel_x = -2
 	},
 /turf/simulated/floor/airless,
 /area/dominian_corvette/exterior)
@@ -8229,14 +8230,22 @@
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /turf/simulated/floor,
 /area/dominian_corvette/central_ring)
+"pKH" = (
+/obj/random/dirt_75,
+/obj/machinery/light,
+/turf/simulated/floor/wood,
+/area/dominian_corvette/lounge)
 "pLf" = (
-/obj/machinery/computer/ship/helm/terminal{
-	dir = 1;
+/obj/machinery/alarm/east{
+	req_one_access = null;
 	req_access = list(212)
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/dark/full,
-/area/shuttle/dominian_shuttle)
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/turf/simulated/floor,
+/area/dominian_corvette/fc_starboard)
 "pLQ" = (
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	spawn_firedoor = 1;
@@ -8330,6 +8339,17 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/dominian_corvette/galley)
+"pSE" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/dominian_shuttle,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/dominian_shuttle)
 "pTK" = (
 /obj/structure/cable/green{
 	icon_state = "4-8";
@@ -8356,27 +8376,6 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/dominian_corvette/freezer)
-"pUu" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
-/obj/structure/cable/green{
-	icon_state = "4-8";
-	d1 = 4;
-	d2 = 8
-	},
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/turf/simulated/floor,
-/area/dominian_corvette/gunnery_port)
 "pUM" = (
 /obj/effect/floor_decal/corner{
 	dir = 6
@@ -8403,14 +8402,11 @@
 /turf/simulated/floor/exoplanet/plating,
 /area/dominian_corvette/helm)
 "pWv" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/yellow,
-/obj/machinery/meter,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light{
-	dir = 1
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 4
 	},
-/turf/simulated/floor,
-/area/dominian_corvette/thrust_starboard)
+/turf/simulated/floor/tiled/gunmetal,
+/area/dominian_corvette/central_lift)
 "pXP" = (
 /obj/structure/platform_stairs/full/east_west_cap,
 /obj/structure/platform/cutout/dark{
@@ -8421,6 +8417,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/dominian_corvette/helm)
+"pYv" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/ship_weapon_dummy/barrel,
+/turf/space/dynamic,
+/area/dominian_corvette/docking_arm)
 "pYG" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -8562,18 +8563,6 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/dominian_corvette/thrust_starboard)
-"qjs" = (
-/obj/structure/table/reinforced/steel,
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/obj/machinery/power/apc/north{
-	req_access = list(212)
-	},
-/turf/simulated/floor/tiled/freezer,
-/area/dominian_corvette/morgue)
 "qkd" = (
 /obj/machinery/vending/tool{
 	req_access = list(212)
@@ -8662,6 +8651,16 @@
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/reinforced,
 /area/dominian_corvette/gunnery_port)
+"qtS" = (
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 4
+	},
+/obj/item/hullbeacon/red,
+/obj/effect/floor_decal/industrial/arrow/red{
+	pixel_x = -16
+	},
+/turf/simulated/floor/airless,
+/area/dominian_corvette/exterior)
 "que" = (
 /obj/effect/step_trigger/teleporter,
 /turf/space/transit/north,
@@ -8813,6 +8812,18 @@
 /obj/structure/table/stone/marble,
 /turf/simulated/floor/marble/dark,
 /area/dominian_corvette/chapel)
+"qKv" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gunmetal/full,
+/area/dominian_corvette/gunnery_starboard)
+"qLu" = (
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/dominian_corvette/central_lift)
 "qLz" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
@@ -8927,17 +8938,15 @@
 	},
 /turf/simulated/floor,
 /area/dominian_corvette/gunnery_starboard)
-"rcT" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector/aux{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline/blue,
-/obj/machinery/light{
-	dir = 1
+"rdl" = (
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/cable/green{
+	icon_state = "4-8";
+	d1 = 4;
+	d2 = 8
 	},
 /turf/simulated/floor,
-/area/dominian_corvette/docking_arm)
+/area/dominian_corvette/mess_hall)
 "rel" = (
 /obj/structure/trash_pile,
 /obj/random/dirt_75,
@@ -8980,6 +8989,20 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark/full,
 /area/dominian_corvette/co_office)
+"rpf" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/dominian_corvette/central_ring)
 "rqr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
@@ -9005,6 +9028,23 @@
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/dominian_corvette/chapel)
+"rqQ" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc/east{
+	req_access = list(212)
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/dominian_corvette/bunks)
+"rtc" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/dominian_shuttle)
 "rvh" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/random/dirt_75,
@@ -9050,13 +9090,6 @@
 	},
 /turf/simulated/floor,
 /area/dominian_corvette/central_lift)
-"rDt" = (
-/obj/effect/floor_decal/corner/green/diagonal,
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/dominian_corvette/hydroponics)
 "rEo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -9116,24 +9149,17 @@
 "rRy" = (
 /turf/simulated/wall/shuttle/dark/cardinal/red,
 /area/dominian_corvette/brig)
-"rSj" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
+"rSq" = (
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/red{
+	req_access = list(212);
+	name = "Bunks"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor,
-/area/dominian_corvette/central_ring)
+/turf/simulated/floor/tiled/dark/full,
+/area/dominian_corvette/bunks)
 "rSD" = (
 /obj/structure/platform_deco/dark{
 	dir = 8
@@ -9222,25 +9248,16 @@
 "rXs" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/red,
+/obj/structure/cable/green,
+/obj/machinery/power/apc/west{
+	req_access = list(212)
+	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/dominian_corvette/gunnery_port)
 "rZr" = (
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/reinforced,
 /area/dominian_corvette/gunnery_port)
-"saA" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/shuttle/dominian_shuttle,
-/obj/machinery/airlock_sensor/airlock_exterior{
-	pixel_y = 6;
-	pixel_x = -25;
-	dir = 4
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/shuttle/dominian_shuttle)
 "sbO" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(212);
@@ -9264,12 +9281,6 @@
 "scf" = (
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_shuttle)
-"sdq" = (
-/obj/effect/floor_decal/corner_wide/yellow{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/dominian_corvette/hangar)
 "seW" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -9331,6 +9342,27 @@
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/dominian_corvette/hangar)
+"skO" = (
+/obj/structure/table/stone/marble,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/door/firedoor,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
+	pixel_x = -7;
+	pixel_y = 7
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
+	pixel_x = 1;
+	pixel_y = 9
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
+	pixel_x = 10;
+	pixel_y = 6
+	},
+/obj/machinery/chemical_dispenser/coffee/full{
+	pixel_y = -8
+	},
+/turf/simulated/floor/tiled/gunmetal/full,
+/area/dominian_corvette/galley)
 "snL" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -9392,12 +9424,6 @@
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/dominian_corvette/brig)
-"ssM" = (
-/obj/effect/floor_decal/corner_wide/brown{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/dominian_corvette/fc_starboard)
 "ssT" = (
 /obj/structure/platform_deco/dark{
 	dir = 4
@@ -9571,17 +9597,14 @@
 /turf/simulated/floor,
 /area/dominian_corvette/central_ring)
 "sER" = (
-/obj/effect/floor_decal/industrial/warning/cee,
-/obj/effect/floor_decal/industrial/hatch_small/yellow,
-/obj/machinery/power/terminal{
-	dir = 1
-	},
+/obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/cable/green{
-	d2 = 4;
-	icon_state = "0-4"
+	icon_state = "4-8";
+	d1 = 4;
+	d2 = 8
 	},
-/turf/simulated/floor/reinforced,
-/area/shuttle/dominian_shuttle)
+/turf/simulated/floor/tiled/gunmetal,
+/area/dominian_corvette/bunks)
 "sFI" = (
 /obj/machinery/computer/ship/targeting/terminal{
 	dir = 8;
@@ -9612,24 +9635,6 @@
 	},
 /turf/simulated/floor,
 /area/dominian_corvette/atmospherics)
-"sJf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8";
-	d1 = 4;
-	d2 = 8
-	},
-/turf/simulated/floor,
-/area/dominian_corvette/mess_hall)
 "sJi" = (
 /obj/structure/lattice/catwalk,
 /turf/space/dynamic,
@@ -9684,6 +9689,12 @@
 	},
 /turf/simulated/floor/wood,
 /area/dominian_corvette/lounge)
+"sMV" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/dominian_corvette/fc_port)
 "sNP" = (
 /obj/structure/cryofeed{
 	dir = 4
@@ -9750,44 +9761,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/dominian_corvette/central_ring)
-"sPU" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor,
-/area/shuttle/dominian_shuttle)
-"sQA" = (
-/obj/effect/floor_decal/corner_wide/brown/full{
-	dir = 8
-	},
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/dominian_corvette/fc_port)
 "sTu" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner,
 /turf/simulated/floor/wood,
 /area/dominian_corvette/helm)
-"sVu" = (
-/obj/effect/floor_decal/corner_wide/brown/full{
-	dir = 8
-	},
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/dominian_corvette/fc_starboard)
 "sVK" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -9878,6 +9855,12 @@
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/dominian_corvette/magazine_port)
+"tcW" = (
+/obj/effect/floor_decal/corner/paleblue/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/dominian_corvette/armoury)
 "tcZ" = (
 /obj/structure/sign/flag/zhao{
 	pixel_y = 32
@@ -9893,6 +9876,10 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/dominian_corvette/docking_arm)
+"tdG" = (
+/obj/effect/landmark/entry_point/starboard,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/dominian_shuttle)
 "tfs" = (
 /obj/machinery/bodyscanner,
 /obj/effect/floor_decal/corner/beige/full{
@@ -9993,6 +9980,13 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor,
+/area/shuttle/dominian_shuttle)
+"tmb" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
 /area/shuttle/dominian_shuttle)
 "tnS" = (
 /obj/structure/railing/mapped{
@@ -10458,21 +10452,6 @@
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/dominian_corvette/fc_starboard)
-"tQK" = (
-/obj/machinery/power/apc/east{
-	req_access = list(212)
-	},
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
-/turf/simulated/floor,
-/area/dominian_corvette/fc_starboard)
 "tRJ" = (
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor,
@@ -10483,17 +10462,6 @@
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/turbolift/dominian_corvette/dominian_lift)
-"tUv" = (
-/obj/effect/floor_decal/corner/lime/diagonal,
-/obj/structure/cable/green{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/obj/machinery/power/apc/east{
-	req_access = list(212)
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/dominian_corvette/bunks)
 "tYJ" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
@@ -10517,17 +10485,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/dominian_corvette/helm)
-"tYL" = (
-/obj/machinery/alarm/east{
-	req_one_access = null;
-	req_access = list(212)
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
-/turf/simulated/floor,
-/area/dominian_corvette/fc_starboard)
 "tZg" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -10578,24 +10535,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/dominian_corvette/thrust_port)
-"ucy" = (
-/obj/structure/cable/green{
-	icon_state = "4-8";
-	d1 = 4;
-	d2 = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/dominian_corvette/central_ring)
 "ucA" = (
 /obj/structure/sign/painting_frame/goddess{
 	pixel_x = -32
@@ -10615,27 +10554,30 @@
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/dominian_corvette/central_ring)
-"uhN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8";
-	d1 = 4;
-	d2 = 8
-	},
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor,
-/area/shuttle/dominian_shuttle)
 "uiE" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/dominian_corvette/infirmary)
+"ukv" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/dominian_corvette/central_ring)
 "unT" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/gunmetal,
@@ -10741,11 +10683,16 @@
 /turf/simulated/floor,
 /area/dominian_corvette/reactor)
 "uIT" = (
-/obj/effect/floor_decal/corner_wide/brown{
-	dir = 5
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 8
 	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/dominian_corvette/gunnery_starboard)
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/dominian_corvette/docking_arm)
 "uJe" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/hatch_tiny/yellow{
@@ -10818,12 +10765,10 @@
 	},
 /turf/simulated/floor,
 /area/dominian_corvette/docking_arm)
-"uOZ" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/gunmetal/full,
-/area/dominian_corvette/gunnery_port)
+"uQA" = (
+/obj/effect/floor_decal/corner_wide/yellow,
+/turf/simulated/floor/tiled/gunmetal,
+/area/dominian_corvette/hangar)
 "uTP" = (
 /obj/machinery/power/apc/east{
 	req_access = list(212)
@@ -10873,21 +10818,6 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/dominian_corvette/chapel)
-"vbY" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_corner/grey{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline_segment/grey{
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/outline_segment/grey{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/dominian_shuttle)
 "vcT" = (
 /obj/effect/decal/cleanable/floor_damage/wood_broken6,
 /obj/random/dirt_75,
@@ -10911,21 +10841,6 @@
 	},
 /turf/simulated/floor,
 /area/dominian_corvette/brig)
-"ved" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
-/turf/simulated/floor,
-/area/dominian_corvette/gunnery_port)
 "veL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -10935,8 +10850,8 @@
 	icon_state = "1-2"
 	},
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
-/obj/machinery/light{
-	dir = 4
+/obj/structure/sign/securearea{
+	pixel_x = -32
 	},
 /turf/simulated/floor,
 /area/dominian_corvette/central_lift)
@@ -11018,6 +10933,14 @@
 /obj/effect/map_effect/marker/airlock/docking/dominian_corvette/port_dock,
 /turf/simulated/floor,
 /area/dominian_corvette/mess_hall)
+"vmT" = (
+/obj/machinery/computer/ship/sensors/terminal{
+	dir = 8;
+	req_access = list(212)
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/dominian_shuttle)
 "voS" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -11064,6 +10987,25 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor,
 /area/dominian_corvette/gunnery_starboard)
+"vuh" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor,
+/obj/effect/map_effect/marker/airlock/docking/dominian_corvette/shuttle_port,
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_x = -24;
+	dir = 4;
+	pixel_y = -6;
+	req_access = list(212)
+	},
+/obj/machinery/airlock_sensor/airlock_exterior{
+	pixel_y = 6;
+	pixel_x = -25;
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/dominian_corvette/hangar)
 "vur" = (
 /obj/structure/cryofeed{
 	dir = 2
@@ -11075,13 +11017,6 @@
 /obj/machinery/light/small/red,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/dominian_corvette/cryogenics)
-"vuB" = (
-/obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
-/turf/simulated/floor/wood,
-/area/dominian_corvette/lounge)
 "vuM" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -11219,12 +11154,39 @@
 	},
 /turf/simulated/floor,
 /area/dominian_corvette/reactor)
-"vAT" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
+"vAB" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
 	},
-/turf/simulated/floor/tiled/dark/full,
-/area/shuttle/dominian_shuttle)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/dominian_corvette/central_ring)
+"vAT" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/machinery/alarm/east{
+	req_one_access = null;
+	req_access = list(212)
+	},
+/turf/simulated/floor,
+/area/dominian_corvette/central_ring)
 "vBe" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8;
@@ -11238,40 +11200,19 @@
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/dominian_corvette/atmospherics)
 "vCa" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
-/obj/structure/sign/greencross{
-	pixel_x = 32
+/obj/structure/lattice/catwalk/indoor,
+/obj/effect/map_effect/marker/airlock/shuttle/dominian_shuttle,
+/obj/machinery/light/small{
+	dir = 4
 	},
 /turf/simulated/floor,
-/area/dominian_corvette/central_lift)
+/area/shuttle/dominian_shuttle)
 "vCk" = (
-/obj/effect/floor_decal/industrial/hatch_door/red,
-/obj/machinery/door/firedoor{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/door/airlock/maintenance_hatch{
-	dir = 4;
-	req_access = list(212)
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8";
-	d1 = 4;
-	d2 = 8
-	},
-/turf/simulated/floor/tiled/gunmetal/full,
+/obj/effect/landmark/entry_point/port,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/dominian_shuttle)
 "vCs" = (
 /obj/machinery/computer/ship/sensors/terminal{
@@ -11420,6 +11361,14 @@
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/dominian_corvette/mess_hall)
+"vTS" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
+/obj/machinery/door/blast/shutters/open{
+	id = "dominia_shuttle_windows"
+	},
+/obj/effect/landmark/entry_point/fore,
+/turf/simulated/floor,
+/area/shuttle/dominian_shuttle)
 "vUs" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
@@ -11437,17 +11386,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/dominian_corvette/helm)
-"vVv" = (
-/obj/effect/floor_decal/industrial/hatch_door/red{
-	dir = 1
-	},
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/red{
-	req_access = list(212);
-	name = "Bunks"
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/dominian_corvette/bunks)
 "vWG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -11518,6 +11456,21 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor,
 /area/dominian_corvette/gunnery_port)
+"wcu" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/machinery/alarm/west{
+	req_one_access = null;
+	req_access = list(212)
+	},
+/turf/simulated/floor,
+/area/dominian_corvette/central_ring)
 "wcv" = (
 /obj/machinery/sleeper,
 /obj/effect/floor_decal/corner/beige/full{
@@ -11601,6 +11554,19 @@
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/dominian_corvette/fore_hallway)
+"woq" = (
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gunmetal/full,
+/area/dominian_corvette/central_ring)
 "wpb" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
@@ -11622,10 +11588,10 @@
 /turf/simulated/floor/wood,
 /area/dominian_corvette/co_cabin)
 "wpQ" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 5
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
 	},
-/turf/simulated/floor/tiled/gunmetal,
+/turf/simulated/floor/tiled/gunmetal/full,
 /area/dominian_corvette/armoury)
 "wqo" = (
 /obj/structure/cable/green{
@@ -11673,12 +11639,24 @@
 /turf/simulated/floor,
 /area/dominian_corvette/mess_hall)
 "wwK" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
-/obj/machinery/door/blast/shutters/open{
-	dir = 4;
-	id = "dominia_shuttle_windows"
+/obj/structure/table/reinforced/steel,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/button/remote/blast_door{
+	id = "dominia_shuttle_windows";
+	name = "Window Shields";
+	dir = 10;
+	pixel_x = -6
 	},
-/turf/simulated/floor,
+/obj/machinery/button/remote/blast_door{
+	id = "dominia_shuttle_airlock";
+	name = "Airlock Shields";
+	dir = 10;
+	pixel_x = 6
+	},
+/obj/machinery/button/distress{
+	pixel_y = 9
+	},
+/turf/simulated/floor/tiled/gunmetal,
 /area/shuttle/dominian_shuttle)
 "wyn" = (
 /obj/effect/floor_decal/corner/paleblue{
@@ -11703,10 +11681,18 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/dominian_corvette/eva_prep)
 "wzc" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
-/obj/machinery/door/blast/shutters/open{
-	id = "dominia_shuttle_windows"
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8";
+	d1 = 4;
+	d2 = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor,
 /area/shuttle/dominian_shuttle)
 "wAi" = (
@@ -11757,6 +11743,13 @@
 	},
 /turf/simulated/floor,
 /area/dominian_corvette/mess_hall)
+"wEL" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/dominian_corvette/hydroponics)
 "wGR" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
@@ -11826,21 +11819,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/dominian_corvette/thrust_starboard)
-"wPp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/turf/simulated/floor,
-/area/dominian_corvette/central_ring)
 "wQa" = (
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, brig"
@@ -11930,22 +11908,27 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/dominian_corvette/cargo)
-"xeu" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+"xei" = (
 /obj/structure/cable/green{
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
 	},
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
-/obj/structure/sign/securearea{
-	pixel_x = -32
+/obj/machinery/light{
+	dir = 4
 	},
 /turf/simulated/floor,
-/area/dominian_corvette/central_lift)
+/area/dominian_corvette/central_ring)
 "xeU" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/overmap/visitable/ship/dominian_corvette,
 /turf/simulated/floor/tiled/gunmetal,
 /area/dominian_corvette/helm)
 "xff" = (
@@ -11960,6 +11943,12 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/dominian_corvette/infirmary)
+"xfW" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/dominian_corvette/gunnery_port)
 "xkW" = (
 /obj/effect/floor_decal/corner{
 	dir = 10
@@ -11971,6 +11960,12 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/dominian_corvette/chapel)
+"xlj" = (
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/dominian_corvette/hangar)
 "xlW" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
@@ -12019,26 +12014,6 @@
 	},
 /turf/simulated/floor,
 /area/dominian_corvette/hangar)
-"xpL" = (
-/obj/effect/floor_decal/industrial/hatch_door/red,
-/obj/machinery/door/firedoor{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/door/airlock/maintenance_hatch{
-	dir = 4;
-	req_access = list(212)
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/gunmetal/full,
-/area/shuttle/dominian_shuttle)
 "xqe" = (
 /obj/machinery/atmospherics/portables_connector/aux,
 /obj/effect/floor_decal/industrial/outline/blue,
@@ -12049,10 +12024,43 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/dominian_corvette/mess_hall)
 "xtv" = (
-/obj/machinery/appliance/cooker/stove,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/white,
-/area/dominian_corvette/galley)
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/dominian_shuttle)
+"xuJ" = (
+/obj/structure/table/reinforced/steel,
+/obj/effect/floor_decal/industrial/outline_corner/grey{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/grey{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline_segment/grey{
+	dir = 4
+	},
+/obj/item/device/binoculars{
+	pixel_y = 5;
+	pixel_x = -1
+	},
+/obj/item/clothing/ears/earmuffs{
+	pixel_y = -13;
+	pixel_x = 1
+	},
+/obj/item/clothing/glasses/safety/goggles{
+	pixel_y = -16;
+	pixel_x = -3
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gunmetal/full,
+/area/dominian_corvette/fc_starboard)
 "xvb" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/structure/lattice/catwalk/indoor,
@@ -12183,6 +12191,21 @@
 	},
 /turf/simulated/floor,
 /area/dominian_corvette/fc_starboard)
+"xDV" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_corner/grey{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/grey{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline_segment/grey{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/dominian_shuttle)
 "xFb" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/ship_weapon_dummy,
@@ -12268,21 +12291,6 @@
 	},
 /turf/simulated/floor,
 /area/dominian_corvette/lounge)
-"xQT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8";
-	d1 = 4;
-	d2 = 8
-	},
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor,
-/area/shuttle/dominian_shuttle)
 "xRX" = (
 /turf/template_noop,
 /area/space)
@@ -12334,12 +12342,6 @@
 /obj/effect/floor_decal/industrial/outline/blue,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/dominian_shuttle)
-"xZb" = (
-/obj/effect/floor_decal/corner_wide/yellow{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/dominian_corvette/central_lift)
 "xZd" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -12435,10 +12437,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/dominian_corvette/thrust_starboard)
-"ygn" = (
-/obj/machinery/light,
-/turf/simulated/floor/tiled/gunmetal,
-/area/dominian_corvette/fore_hallway)
 "yiy" = (
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/machinery/door/firedoor{
@@ -12513,6 +12511,21 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/gunmetal,
 /area/dominian_corvette/eva_prep)
+"ylq" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/cable/green{
+	icon_state = "4-8";
+	d1 = 4;
+	d2 = 8
+	},
+/turf/simulated/floor,
+/area/dominian_corvette/gunnery_port)
 "yls" = (
 /obj/effect/floor_decal/industrial/outline/custodial,
 /obj/structure/closet/crate/trashcart,
@@ -43507,7 +43520,7 @@ mMc
 xRX
 mMc
 mMc
-mMc
+tdG
 mMc
 mMc
 mMc
@@ -43759,14 +43772,14 @@ xRX
 xRX
 xRX
 xRX
-hDf
+tmb
 mcV
 mMc
 mMc
-vbY
-nps
+xDV
+bqW
 lJB
-sER
+bXv
 mMc
 xRX
 xRX
@@ -44022,7 +44035,7 @@ jXM
 jtC
 lUi
 dqX
-xQT
+wzc
 veU
 mMc
 mMc
@@ -44273,19 +44286,19 @@ xRX
 xRX
 xRX
 xRX
-dbT
+pSE
 iNW
-gDW
+kse
 mIn
 lUi
 scf
-uhN
+khR
 scf
-ppu
+nTD
 mMc
 mMc
-wwK
-wzc
+ppY
+opu
 xRX
 xRX
 xRX
@@ -44518,32 +44531,32 @@ xRX
 ogc
 kEn
 wuc
-hTf
+uQA
 skL
-hSj
+jRS
 aQe
-fNF
+eRA
 ybu
 ogc
 ogc
 mxF
 ogc
 gwR
-noS
+jqd
 gXL
 iNW
 mMc
 mMc
 mMc
 qSa
-vCk
+fKa
 qSa
 mMc
 mMc
 mmS
 iKD
-wwK
-wzc
+ppY
+opu
 xRX
 xRX
 xRX
@@ -44782,25 +44795,25 @@ biT
 vJZ
 ybu
 ogc
-iob
+vuh
 pnH
 ogc
 nKq
 kKZ
 qLz
 iNW
-khR
+nyK
 wMG
 cXp
-dZo
-uhN
+xtv
+khR
 cXp
 vUs
 qSa
-vAT
+eVo
 wsH
-pLf
-wzc
+iNQ
+opu
 xRX
 xRX
 xRX
@@ -45032,11 +45045,11 @@ inJ
 luI
 tou
 wuc
-iMy
+lQM
 biT
 biT
 biT
-hpu
+xlj
 nZL
 bvM
 rVt
@@ -45047,17 +45060,17 @@ jaR
 qcn
 trE
 vvH
-dZt
-dZt
-sPU
-lrv
+oTw
+oTw
+odc
+fwc
 nso
 nso
 mAf
 pxL
 xJU
-opu
-wzc
+wwK
+vTS
 xRX
 xRX
 xRX
@@ -45286,7 +45299,7 @@ xRX
 jFX
 vMi
 xpB
-pfS
+gHM
 hsZ
 eYq
 rmm
@@ -45300,21 +45313,21 @@ dRh
 jcj
 ogc
 mMc
-jAb
+vCa
 gPM
 iNW
-jJj
+ibm
 sOD
 nhf
+nHR
 glW
-aRn
 nhf
 lJC
 qSa
-bKn
+rtc
 wsH
 omt
-wzc
+opu
 xRX
 xRX
 xRX
@@ -45546,9 +45559,9 @@ ogc
 ogc
 ogc
 wHX
-nUP
+ahz
 tqM
-sdq
+akS
 hjH
 bYN
 ubd
@@ -45564,14 +45577,14 @@ mMc
 mMc
 mMc
 qSa
-xpL
+eRk
 qSa
 mMc
 mMc
 nJX
-oTw
-wwK
-wzc
+vmT
+ppY
+opu
 xRX
 xRX
 xRX
@@ -45815,19 +45828,19 @@ xRX
 xRX
 xRX
 xRX
-saA
+gjd
 iNW
 xHu
 sDi
 xYQ
 nnx
 onn
-gzT
-esJ
+lJR
+bgU
 mMc
 mMc
-wwK
-wzc
+ppY
+opu
 xRX
 xRX
 xRX
@@ -46329,13 +46342,13 @@ xRX
 xRX
 xRX
 xRX
-hDf
+tmb
 dov
 mMc
 mMc
 vZx
 uJe
-fLO
+jwv
 jxK
 mMc
 xRX
@@ -46591,7 +46604,7 @@ mMc
 xRX
 mMc
 mMc
-mMc
+vCk
 mMc
 mMc
 mMc
@@ -103898,7 +103911,7 @@ sAf
 sAf
 sAf
 sAf
-keZ
+hcK
 cgX
 xCM
 xCM
@@ -103909,7 +103922,7 @@ eXs
 eXs
 eXs
 qmG
-aQc
+qtS
 xRX
 xRX
 xRX
@@ -104151,11 +104164,11 @@ xRX
 xRX
 sAf
 sAf
-sVu
+hDf
 tPp
 pzw
 xDs
-uIT
+gLd
 cgX
 xCM
 xCM
@@ -104408,11 +104421,11 @@ xRX
 xRX
 jFX
 lUC
-ssM
+pAL
 siM
 vCs
 xDs
-uIT
+gLd
 cgX
 hga
 hNY
@@ -104665,11 +104678,11 @@ xRX
 xRX
 jFX
 lUC
-ssM
-gOR
+pAL
+xuJ
 icR
 sAf
-fwc
+qKv
 ptm
 tki
 bat
@@ -104922,12 +104935,12 @@ xRX
 xRX
 sAf
 sAf
-pAL
-tYL
-tQK
+aln
+pLf
+ixt
 eal
+iOy
 cxT
-hBx
 cGa
 kVY
 kVY
@@ -105183,8 +105196,8 @@ kyl
 kyl
 kyl
 kyl
-nbH
-dni
+eZM
+fyu
 bsW
 kVY
 xRX
@@ -106453,7 +106466,7 @@ xRX
 xRX
 fpS
 bie
-pWv
+gwl
 lxU
 mzE
 iBg
@@ -107243,7 +107256,7 @@ sIV
 llB
 llB
 gWy
-lWR
+nob
 dvx
 xRX
 xRX
@@ -107274,7 +107287,7 @@ jFX
 vMT
 jFX
 jFX
-pEB
+phF
 xRX
 xRX
 xRX
@@ -107530,7 +107543,7 @@ jFX
 rhu
 rhu
 rhu
-lMY
+pYv
 wGR
 xRX
 xRX
@@ -107788,7 +107801,7 @@ rhu
 rhu
 jFX
 jFX
-nzy
+aQc
 xRX
 xRX
 xRX
@@ -108259,15 +108272,15 @@ mRG
 hfx
 avL
 ttP
-wpQ
-jvZ
+jBE
+aBX
 ybe
 ttP
 bTJ
 pgw
 nGd
 uwa
-aHt
+fha
 oPp
 oPp
 oPp
@@ -108517,7 +108530,7 @@ unT
 ihj
 ttP
 uEC
-pbZ
+aHt
 dJL
 ttP
 qBa
@@ -108543,14 +108556,14 @@ wBO
 cJQ
 cJQ
 hxR
-xtv
+aRn
 llk
 cTb
 tds
 kfr
 dKe
 tds
-hUe
+aZa
 bUE
 bQm
 oTN
@@ -108774,7 +108787,7 @@ tBD
 vuM
 qZT
 nfD
-iLZ
+wpQ
 eij
 ttP
 uwa
@@ -109030,23 +109043,23 @@ eIz
 vWG
 sqo
 ttP
-bXv
-jEg
+tcW
+lLZ
 qAE
 ttP
-eOk
+vAB
 mGk
 kze
 hcb
 xTZ
 qAB
 sPS
-puy
+rpf
 jIN
 hcb
-boZ
+wcu
 kze
-nIG
+ukv
 cJQ
 izm
 dRg
@@ -109064,10 +109077,10 @@ tds
 tds
 tds
 tds
-aZa
+kYB
 hHn
 iyY
-rcT
+uIT
 bwm
 xGG
 iyY
@@ -109291,7 +109304,7 @@ dWl
 qFK
 ttP
 ttP
-pDR
+jEg
 oPG
 uFf
 oaa
@@ -109560,7 +109573,7 @@ chs
 tiv
 tiv
 bTU
-glY
+woq
 cJQ
 wdY
 nWB
@@ -109574,7 +109587,7 @@ eMs
 llk
 cpP
 qkn
-mtt
+msx
 qkn
 aMY
 hxR
@@ -109796,15 +109809,15 @@ dtB
 dYb
 rRy
 tHA
-jif
-xeu
+nps
+veL
 ozk
-xeu
+veL
 rLm
-jif
+nps
 avR
 xUa
-ucy
+ojx
 oPG
 oPG
 vXG
@@ -109816,7 +109829,7 @@ dMj
 fGW
 xBX
 tiv
-nVN
+bKn
 pTK
 cJQ
 tHL
@@ -109828,7 +109841,7 @@ nTe
 mAt
 tzK
 eMs
-gjd
+skO
 hxR
 hxR
 hxR
@@ -110054,11 +110067,11 @@ xUa
 xUa
 eRw
 cfU
-cRm
+hrl
 ylQ
-ibm
+nTI
 peb
-jJH
+pWv
 auN
 xUa
 xvI
@@ -110335,22 +110348,22 @@ pTK
 ngd
 xqO
 mdq
-fha
+ozd
 aGc
 nSI
 mmZ
 uTP
-fha
+ozd
 mdq
 epw
 fWS
 ecm
-kYB
+eXH
 iil
 ejK
 pgM
-kYB
-ygn
+eXH
+hUe
 koq
 tYJ
 muk
@@ -110568,11 +110581,11 @@ vxs
 snL
 sDB
 qDU
-cQb
+bES
 odC
 nta
 vHa
-xZb
+naU
 bWY
 bJS
 hxK
@@ -110845,7 +110858,7 @@ vaL
 gXv
 rqN
 uWt
-hDC
+jLV
 eoL
 pcc
 jvJ
@@ -110855,7 +110868,7 @@ tqK
 tBp
 mbl
 bBt
-sJf
+nZy
 kdb
 kbm
 iaY
@@ -110871,7 +110884,7 @@ olk
 uyG
 lXK
 cBc
-bOa
+xeU
 qDf
 xvv
 qad
@@ -111082,9 +111095,9 @@ xUa
 xUa
 oaE
 gDz
-aqB
+dZt
 iwa
-gSn
+qLu
 raU
 olX
 auN
@@ -111105,10 +111118,10 @@ oPG
 pTK
 xPN
 gUU
-vuB
+oBi
 gtK
-vVv
-jJc
+rSq
+nMj
 ciT
 vWP
 taD
@@ -111335,18 +111348,18 @@ nwx
 xRX
 ncl
 deH
-ihi
+eeB
 ncl
 ctj
 pee
-oVN
+nUP
 mru
-vCa
+bLO
 vvd
-veL
+jCi
 oOZ
 xUa
-ucy
+ojx
 oPG
 oPG
 vXG
@@ -111358,12 +111371,12 @@ jGb
 aWi
 sYZ
 tiv
-nVN
+bKn
 pTK
 xPN
 cpy
 nrb
-hqf
+pKH
 bBt
 lIz
 wjC
@@ -111603,7 +111616,7 @@ rkh
 rkh
 rkh
 rkh
-wPp
+akr
 wAN
 oPG
 tiv
@@ -111623,7 +111636,7 @@ xBH
 pkK
 bBt
 mHX
-nMj
+sER
 mwV
 bBt
 twq
@@ -111640,7 +111653,7 @@ azb
 wpb
 vEM
 skg
-xeU
+hDC
 gpE
 irg
 sFI
@@ -111861,7 +111874,7 @@ izV
 gNd
 rkh
 rkh
-pDR
+jEg
 oPG
 uFf
 udO
@@ -111880,10 +111893,10 @@ vgX
 gtK
 bBt
 tLl
-tUv
+rqQ
 mwQ
 bBt
-mWe
+rdl
 tLN
 xTI
 nCS
@@ -111897,7 +111910,7 @@ uyG
 fdQ
 cBV
 uyG
-eHq
+lea
 ggY
 koq
 erT
@@ -112105,7 +112118,7 @@ xRX
 nwx
 xRX
 usf
-okX
+aaN
 cZv
 hml
 ncl
@@ -112118,19 +112131,19 @@ bRe
 uiE
 cVr
 rkh
-akr
+aCK
 sVK
 kze
 bFS
 pyi
 qAB
 sPS
-oEr
+mWe
 ezp
 bFS
-okv
+vAT
 kze
-rSj
+xei
 eoL
 sMN
 mCK
@@ -112363,7 +112376,7 @@ xRX
 xRX
 ncl
 ncl
-qjs
+nbH
 qKc
 pYG
 ftc
@@ -112642,7 +112655,7 @@ qVz
 spM
 rEo
 uNK
-rDt
+wEL
 rMc
 caK
 jFX
@@ -112893,7 +112906,7 @@ iGW
 oFx
 vur
 jTd
-aHt
+fha
 nNN
 ogq
 mNi
@@ -114677,7 +114690,7 @@ xRX
 xRX
 nhD
 mcH
-fKa
+dxU
 mJt
 cFR
 ryX
@@ -115720,9 +115733,9 @@ dra
 aqh
 tzA
 tcN
-hoO
-pUu
-jLV
+eZc
+lwo
+rXs
 uOn
 xRX
 xRX
@@ -115977,9 +115990,9 @@ csD
 csD
 csD
 csD
-pqZ
-dxU
-rXs
+cDK
+ylq
+cJE
 uOn
 xRX
 xRX
@@ -116230,12 +116243,12 @@ xRX
 xRX
 pPr
 pPr
-sQA
-nyv
-ahx
+fLw
+pdo
+mHt
 sKm
-ved
-ppT
+hoO
+hZP
 mBS
 uOn
 uOn
@@ -116487,11 +116500,11 @@ xRX
 xRX
 jFX
 mDz
-ofg
-nAX
+sMV
 ksW
+mgr
 pPr
-uOZ
+ejl
 fWH
 lVB
 cRh
@@ -116744,18 +116757,18 @@ xRX
 xRX
 jFX
 mDz
-ofg
+sMV
 eRN
 nFf
 oUi
-jsM
+xfW
 arX
 uAK
 rZr
 bGg
 djK
 vfh
-hPr
+pDR
 xRX
 xRX
 xRX
@@ -117001,11 +117014,11 @@ xRX
 xRX
 pPr
 pPr
-pdo
+bzY
 raE
 cDq
 oUi
-jsM
+xfW
 arX
 rZr
 rZr
@@ -117262,14 +117275,14 @@ pPr
 pPr
 pPr
 pPr
-dzz
+fQA
 arX
 veY
 qrU
 tKR
 lzs
 lzs
-nzy
+aQc
 nwx
 xRX
 xRX
