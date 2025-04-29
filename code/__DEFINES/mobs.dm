@@ -141,6 +141,7 @@
 #define BP_CELL     "cell"
 #define BP_OPTICS   "optics"
 #define BP_IPCTAG   "ipc tag"
+#define BP_REACTOR "reactor"
 #define BP_VOICE_SYNTHESIZER "voice synthesizer"
 #define BP_DIAGNOSTICS_SUITE "internal diagnostics suite"
 #define BP_HYDRAULICS		 "hydraulics system"

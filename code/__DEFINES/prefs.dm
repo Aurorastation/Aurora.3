@@ -42,3 +42,12 @@
 #define ORGAN_PREF_LIQUIDCOOLED "liquid_cooled"
 /// Passive cooling. For IPC cooling units. Default is air cooling.
 #define ORGAN_PREF_PASSIVECOOLED "passive_cooled"
+
+/// Externally powered only. Technically not used, but we need this for the linked lists in reactor.dm.
+#define ORGAN_PREF_ELECTRICPOWER "electric_power"
+/// Biological power reactor. Nutrients, food, etc.
+#define ORGAN_PREF_BIOPOWER "biological_power"
+/// Kinetic power reactor. Walking, running.
+#define ORGAN_PREF_KINETICPOWER "kinetic_power"
+/// Solar powered. Stand in the sun. Or LED lights. It's the future, fuck you.
+#define ORGAN_PREF_SOLARPOWER "solar_power"

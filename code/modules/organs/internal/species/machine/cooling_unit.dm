@@ -4,7 +4,12 @@
 	organ_tag = BP_COOLING_UNIT
 	parent_organ = BP_CHEST
 	possible_modifications = list("Air Cooling", "Liquid Cooling", "Passive Cooling")
-
+	organ_presets = list(
+		ORGAN_PREF_AIRCOOLED = /singleton/synthetic_organ_preset/cooling_unit/air,
+		ORGAN_PREF_LIQUIDCOOLED = /singleton/synthetic_organ_preset/cooling_unit/liquid,
+		ORGAN_PREF_PASSIVECOOLED = /singleton/synthetic_organ_preset/cooling_unit/passive
+	)
+	default_preset = ORGAN_PREF_AIRCOOLED
 	action_button_name = "Regulate Thermostat"
 
 	/// The passive temperature change. Basically, cooling units counteract an IPC's passive temperature gain. But the IPC's temperature goes to get itself fucked if the cooling unit dies.
@@ -22,37 +27,6 @@
 
 	/// Can this cooling unit work in space?
 	var/spaceproof = FALSE
-
-	/// The list of cooling unit presets to use. Linked list of ORGAN_PREF to /singleton/cooling_unit_preset.
-	var/list/cooling_unit_presets = list(
-		ORGAN_PREF_AIRCOOLED = /singleton/cooling_unit_preset/air,
-		ORGAN_PREF_LIQUIDCOOLED = /singleton/cooling_unit_preset/liquid,
-		ORGAN_PREF_PASSIVECOOLED = /singleton/cooling_unit_preset/passive
-	)
-
-/**
- * Called when prefs are synced to the organ to set the proper cooling type.
- * By default, this is an air cooled organ. No pref = air cooled unit.
- * TODOMATT: make this work with acting/changer.
- */
-/obj/item/organ/internal/machine/cooling_unit/proc/set_cooling_type(cooling_type)
-	var/singleton/cooling_unit_preset/cooling_preset
-	switch(cooling_type)
-		if(ORGAN_PREF_LIQUIDCOOLED)
-			cooling_preset = GET_SINGLETON(cooling_unit_presets[ORGAN_PREF_LIQUIDCOOLED])
-
-		if(ORGAN_PREF_PASSIVECOOLED)
-			cooling_preset = GET_SINGLETON(cooling_unit_presets[ORGAN_PREF_PASSIVECOOLED])
-		else
-			cooling_preset = GET_SINGLETON(cooling_unit_presets[ORGAN_PREF_AIRCOOLED])
-
-	if(!istype(cooling_preset))
-		crash_with("Invalid cooling preset [cooling_preset]! Defaulting to the base type.")
-
-	name = cooling_preset.name
-	desc = cooling_preset.desc
-	passive_temp_change = cooling_preset.passive_temp_change
-	plating.replace_health(cooling_preset.plating_max_health)
 
 /obj/item/organ/internal/machine/cooling_unit/attack_self(var/mob/user)
 	. = ..()
@@ -180,16 +154,16 @@
 
 /obj/item/organ/internal/machine/cooling_unit/xion
 	spaceproof = TRUE
-	cooling_unit_presets = list(
-		ORGAN_PREF_AIRCOOLED = /singleton/cooling_unit_preset/air_xion,
-		ORGAN_PREF_LIQUIDCOOLED = /singleton/cooling_unit_preset/liquid_xion,
-		ORGAN_PREF_PASSIVECOOLED = /singleton/cooling_unit_preset/passive_xion
+	organ_presets = list(
+		ORGAN_PREF_AIRCOOLED = /singleton/synthetic_organ_preset/cooling_unit/air_xion,
+		ORGAN_PREF_LIQUIDCOOLED = /singleton/synthetic_organ_preset/cooling_unit/liquid_xion,
+		ORGAN_PREF_PASSIVECOOLED = /singleton/synthetic_organ_preset/cooling_unit/passive_xion
 	)
 
 
 /obj/item/organ/internal/machine/cooling_unit/zenghu
-	cooling_unit_presets = list(
-		ORGAN_PREF_AIRCOOLED = /singleton/cooling_unit_preset/air_zenghu,
-		ORGAN_PREF_LIQUIDCOOLED = /singleton/cooling_unit_preset/liquid_zenghu,
-		ORGAN_PREF_PASSIVECOOLED = /singleton/cooling_unit_preset/passive_zenghu
+	organ_presets = list(
+		ORGAN_PREF_AIRCOOLED = /singleton/synthetic_organ_preset/cooling_unit/air_zenghu,
+		ORGAN_PREF_LIQUIDCOOLED = /singleton/synthetic_organ_preset/cooling_unit/liquid_zenghu,
+		ORGAN_PREF_PASSIVECOOLED = /singleton/synthetic_organ_preset/cooling_unit/passive_zenghu
 	)

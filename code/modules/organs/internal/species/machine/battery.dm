@@ -1,6 +1,6 @@
 /obj/item/organ/internal/machine/cell
 	name = "power core"
-	desc = "A powerful cell for use in fully prosthetic bodies."
+	desc = "An advanced power storage system for use in fully prosthetic bodies."
 	icon = 'icons/obj/power.dmi'
 	icon_state = "scell"
 	organ_tag = BP_CELL
@@ -9,8 +9,11 @@
 	relative_size = 30
 	robotic_sprite = FALSE
 
+	/// If the battery's hatch is open. Battery can be removed if TRUE.
 	var/open = FALSE
+	/// The type (and later instance) of the cell inside this organ.
 	var/obj/item/cell/cell = /obj/item/cell/super
+	/// The cost of movement below (check process()) is multiplied by this factor.
 	var/move_charge_factor = 1
 
 	/// At 0.8 completely depleted after 60ish minutes of constant walking or 130 minutes of standing still.
@@ -24,7 +27,7 @@
 /obj/item/organ/internal/machine/cell/proc/percent()
 	if(!cell)
 		return 0
-	return get_charge()/cell.maxcharge * 100
+	return get_charge() / cell.maxcharge * 100
 
 /obj/item/organ/internal/machine/cell/proc/get_charge()
 	if(!cell)

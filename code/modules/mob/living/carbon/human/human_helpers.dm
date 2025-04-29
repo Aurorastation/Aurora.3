@@ -142,19 +142,14 @@
 						if (ORGAN_PREF_REMOVED)
 							qdel(I)
 
-						if(ORGAN_PREF_LIQUIDCOOLED)
-							if(istype(I, /obj/item/organ/internal/machine/cooling_unit))
-								var/obj/item/organ/internal/machine/cooling_unit/cooling_unit = I
-								cooling_unit.set_cooling_type(ORGAN_PREF_LIQUIDCOOLED)
+						if(istype(I, /obj/item/organ/internal/machine))
+							var/obj/item/organ/internal/machine/machine_organ = I
+							if(length(machine_organ.possible_modifications))
+								machine_organ.set_organ_preset(status)
 
-						if(ORGAN_PREF_PASSIVECOOLED)
-							if(istype(I, /obj/item/organ/internal/machine/cooling_unit))
-								var/obj/item/organ/internal/machine/cooling_unit/cooling_unit = I
-								cooling_unit.set_cooling_type(ORGAN_PREF_PASSIVECOOLED)
-
-						// If you add any more liquid cooling presets here, make sure to update set_cooling_type() @ cooling_unit.dm.
-						// The reason is that the air cooled cooling unit is the default pref, but "default pref" is actually "the absence of any pref".
-						// Meaning that we check for unique organ prefs first, and if we don't find a unique organ pref, then we default to air cooling.
+							// If you add any more presets here, make sure to update the presets on the organ as well.
+							// Remember also that the default pref, but "default pref" is actually "the absence of any pref".
+							// We check for unique prefs and if we don't find a unique organ pref, then we default to the base type.
 
 	if (apply_markings)
 		for(var/N in organs_by_name)

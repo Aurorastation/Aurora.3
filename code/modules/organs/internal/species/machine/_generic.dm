@@ -3,6 +3,12 @@
 	parent_organ = BP_CHEST
 	organ_tag = "generic machine organ"
 
+	/// The list of organ presets to use. Linked list of ORGAN_PREF to /singleton/synthetic_organ_preset. Use only if your organ has pref settings and presets.
+	/// For an example, see cooling_unit.dm.
+	var/list/organ_presets
+	/// The default preset to fall back to if there is no pref (aka people want the base type). It MUST match the base type!
+	var/default_preset
+
 	/// The wiring datum of this organ.
 	var/datum/synthetic_internal/wiring/wiring
 	/// The plating datum of this organ.
@@ -44,6 +50,23 @@
 			wiring.take_damage(amount)
 		if("electronics")
 			electronics.take_damage(amount)
+
+/**
+ * Called when prefs are synced to the organ to set the proper synthetic organ preset.
+ * Remember that the base type is the default, AKA when no prefs are set that organ will spawn.
+ * TODOMATT: make this work with acting/changer.
+ */
+/obj/item/organ/internal/machine/proc/set_organ_preset(organ_pref)
+	var/singleton/synthetic_organ_preset/new_preset
+	if(organ_pref && (organ_pref in organ_presets))
+		new_preset = GET_SINGLETON(organ_presets[organ_pref])
+	else
+		new_preset = GET_SINGLETON(default_preset)
+
+	if(!istype(new_preset))
+		crash_with("Invalid organ preset [new_preset]!")
+
+	new_preset.apply_preset(src)
 
 /**
  * This is a function used to return an overall integrity number that takes
@@ -108,3 +131,5 @@
  * Returns extra diagnostics info, viewable from the diagnostics unit verbs or through a robot scanner.
  */
 /obj/item/organ/internal/machine/proc/get_diagnostics_info()
+	return
+
