@@ -131,25 +131,24 @@
 			else
 				var/obj/item/organ/I = internal_organs_by_name[name]
 				if(I)
-					switch (status)
-						if (ORGAN_PREF_ASSISTED)
-							I.mechassist()
-						if (ORGAN_PREF_MECHANICAL)
-							if (rlimb_data[name])
-								I.robotize(rlimb_data[name])
-							else
-								I.robotize()
-						if (ORGAN_PREF_REMOVED)
-							qdel(I)
-
-						if(istype(I, /obj/item/organ/internal/machine))
-							var/obj/item/organ/internal/machine/machine_organ = I
-							if(length(machine_organ.possible_modifications))
-								machine_organ.set_organ_preset(status)
-
-							// If you add any more presets here, make sure to update the presets on the organ as well.
-							// Remember also that the default pref, but "default pref" is actually "the absence of any pref".
-							// We check for unique prefs and if we don't find a unique organ pref, then we default to the base type.
+					if(istype(I, /obj/item/organ/internal/machine))
+						var/obj/item/organ/internal/machine/machine_organ = I
+						if(length(machine_organ.possible_modifications))
+							machine_organ.set_organ_preset(status)
+						// If you add any more presets here, make sure to update the presets on the organ as well.
+						// Remember also that the default pref, but "default pref" is actually "the absence of any pref".
+						// We check for unique prefs and if we don't find a unique organ pref, then we default to the base type.
+					else
+						switch (status)
+							if (ORGAN_PREF_ASSISTED)
+								I.mechassist()
+							if (ORGAN_PREF_MECHANICAL)
+								if (rlimb_data[name])
+									I.robotize(rlimb_data[name])
+								else
+									I.robotize()
+							if (ORGAN_PREF_REMOVED)
+								qdel(I)
 
 	if (apply_markings)
 		for(var/N in organs_by_name)

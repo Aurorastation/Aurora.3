@@ -15,6 +15,9 @@
 		return
 
 	var/obj/item/organ/internal/machine/reactor/reactor = organ
+	reactor.base_power_generation = base_power_generation
+	reactor.power_supply_type = power_supply_type
+	reactor.external_charge_multiplier = external_charge_multiplier
 
 /singleton/synthetic_organ_preset/reactor/electric
 	name = "electrical power supply unit"

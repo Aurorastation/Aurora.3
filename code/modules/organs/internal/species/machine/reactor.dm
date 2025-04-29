@@ -33,3 +33,5 @@
 	var/power_supply_type = POWER_SUPPLY_ELECTRIC
 	/// Base power generation for active power supplies.
 	var/base_power_generation = 0
+	/// The multiplier for power gained by charging from external sources like an IPC or a cyborg charger.
+	var/external_charge_multiplier = 1.3
