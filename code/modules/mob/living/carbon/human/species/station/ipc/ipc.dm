@@ -204,7 +204,7 @@
 	return TRUE
 
 /datum/species/machine/handle_emp_act(mob/living/carbon/human/hit_mob, severity)
-	var/obj/item/organ/internal/machine/surge/S = hit_mob.internal_organs_by_name["surge"]
+	var/obj/item/organ/internal/machine/surge/S = hit_mob.internal_organs_by_name[BP_SURGE_PROTECTOR]
 	if(!isnull(S))
 		if(S.surge_left >= 1)
 			playsound(hit_mob.loc, 'sound/magic/LightningShock.ogg', 25, 1)

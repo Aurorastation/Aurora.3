@@ -3,7 +3,7 @@
 	desc = "A small device that give immunity to EMP for few pulses."
 	icon = 'icons/obj/robot_component.dmi'
 	icon_state = "surge_ipc"
-	organ_tag = "surge"
+	organ_tag = BP_SURGE_PROTECTOR
 	parent_organ = BP_CHEST
 	vital = FALSE
 	robotic_sprite = FALSE

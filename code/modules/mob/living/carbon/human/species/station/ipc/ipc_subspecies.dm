@@ -112,7 +112,7 @@
 		BP_COOLING_UNIT = /obj/item/organ/internal/machine/cooling_unit,
 		BP_CELL    = /obj/item/organ/internal/machine/cell,
 		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
-		"surge"   = /obj/item/organ/internal/machine/surge/advanced
+		BP_SURGE_PROTECTOR   = /obj/item/organ/internal/machine/surge/advanced
 	)
 
 	unarmed_types = list(
@@ -268,7 +268,7 @@
 		BP_CELL    = /obj/item/organ/internal/machine/cell,
 		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
 		"data core" = /obj/item/organ/internal/machine/data,
-		"surge" = /obj/item/organ/internal/machine/surge/advanced
+		BP_SURGE_PROTECTOR = /obj/item/organ/internal/machine/surge/advanced
 	)
 
 	has_limbs = list(

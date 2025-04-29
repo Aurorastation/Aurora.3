@@ -148,6 +148,7 @@
 #define BP_COOLING_UNIT		"cooling unit"
 #define BP_ACTUATORS_LEFT	"left arm actuators"
 #define BP_ACTUATORS_RIGHT	"right arm actuators"
+#define BP_SURGE_PROTECTOR "surge"
 
 // Bishop frame only.
 #define BP_WIRELESS_ACCESS "wireless access point"
