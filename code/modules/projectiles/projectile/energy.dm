@@ -212,9 +212,6 @@
 	damage = 35
 	armor_penetration = 10
 
-/obj/projectile/energy/blaster/ap
-	armor_penetration = 10
-
 /obj/projectile/energy/blaster/incendiary
 	icon_state = "laser"
 	damage = 35
