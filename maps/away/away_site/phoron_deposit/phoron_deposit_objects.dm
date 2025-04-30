@@ -225,11 +225,11 @@
 From: Central Command<br>\
 To: EEV Origination<br>\
 <br>\
-We have recieved credible intelligence that a large Conglomerate vessel is inbound to the sector, the sensor equipment on this vessel is very likely to detect the deposit. Therefore, awaiting further reinforcements is no longer an option. The deposit must be extracted before our competitors reach it.<br>\
+We have received credible intelligence that a large Conglomerate vessel is inbound to the sector, the sensor equipment on this vessel is very likely to detect the deposit. Therefore, awaiting further reinforcements is no longer an option. The deposit must be extracted before our competitors reach it.<br>\
 <br>\
 We understand your concerns regarding the caverns and the presence of fauna. We've prepared a plan of action to ensure the extraction is conducted safely, despite shortage of personnel.<br>\
 <br>\
-1. Gather all avaliable resources.<br>\
+1. Gather all available resources.<br>\
 An abundance of ammunition may prove necessary, bring as much as possible. Steel and plasteel will also be required in order to fortify the area around your drilling equipment. Additionally, you are advised to bring medicinal injectors in the event of an emergency, especially painkillers.<br>\
 <br>\
 2. Construct a defensive perimeter around the deposit. <br>\
@@ -241,7 +241,7 @@ Be prepared to defend yourselves upon activation of drilling equipment. We estim
 4. Evacuate the site.<br>\
 Once the deposit is empty, abandon the defenses and quickly exfiltrate with the phoron. Should the presence of fauna be as intense as we anticipate, it is vital that the area is evacuated with haste. Do not attempt to hold the position.<br>\
 <br>\
-Follow these steps precisely, and the likelihood of a switft and safe extraction is high. Report back immiediately upon mission success.<br>\
+Follow these steps precisely, and the likelihood of a swift and safe extraction is high. Report back immediately upon mission success.<br>\
 <br>\
 Good luck.<br>\
 <font size=1>Einstein Engines. Lead by our history, leading our future.</font>"
