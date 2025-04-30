@@ -16,12 +16,12 @@
 	var/max_active_mobs = 5
 	var/pit_present = FALSE
 	var/list/mob_choices = list(
-        /mob/living/simple_animal/hostile/carp/phoron_deposit,
-        /mob/living/simple_animal/hostile/carp/shark/phoron_deposit,
-        /mob/living/simple_animal/hostile/carp/shark/reaver/phoron_deposit,
-        /mob/living/simple_animal/hostile/carp/shark/reaver/eel/phoron_deposit,
-        /mob/living/simple_animal/hostile/gnat/phoron_deposit
-    )
+		/mob/living/simple_animal/hostile/carp/phoron_deposit,
+		/mob/living/simple_animal/hostile/carp/shark/phoron_deposit,
+		/mob/living/simple_animal/hostile/carp/shark/reaver/phoron_deposit,
+		/mob/living/simple_animal/hostile/carp/shark/reaver/eel/phoron_deposit,
+		/mob/living/simple_animal/hostile/gnat/phoron_deposit
+	)
 
 /obj/effect/fauna_spawner/Initialize()
 	. = ..()
@@ -193,6 +193,7 @@
 		if (!length(T.resources))
 			T.has_resources = FALSE
 	..()
+	return QDEL_HINT_LETMELIVE
 
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky/phoron_deposit/gets_dug(var/mob/user)
 	..()
