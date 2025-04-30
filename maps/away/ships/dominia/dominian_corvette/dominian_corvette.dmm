@@ -6160,6 +6160,14 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/item/device/radio/hailing{
+	pixel_x = -6;
+	pixel_y = 6
+	},
+/obj/item/device/radio{
+	pixel_x = 7;
+	pixel_y = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_shuttle)
 "mmZ" = (
@@ -7103,6 +7111,14 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/item/clothing/head/helmet/pilot,
+/obj/item/clothing/head/helmet/pilot,
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = -2
+	},
+/obj/item/storage/toolbox/emergency,
+/obj/item/device/binoculars,
+/obj/item/device/binoculars/high_power,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_shuttle)
 "nKq" = (
@@ -7850,6 +7866,14 @@
 /obj/machinery/recharger{
 	pixel_x = 5;
 	pixel_y = 3
+	},
+/obj/item/device/radio/hailing{
+	pixel_x = -6;
+	pixel_y = 6
+	},
+/obj/item/device/radio{
+	pixel_x = 7;
+	pixel_y = 6
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/dominian_corvette/helm)
