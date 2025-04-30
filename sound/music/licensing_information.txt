@@ -84,6 +84,7 @@ Link: https://github.com/Aurorastation/Aurora.3/pull/7729
 File Name: phoron_deposit.ogg
 Original Title: Rumbling 12 & Dark and Suspenseful Atmosphere
 Author: bretbernhoft & Universfield
-License: CC0 1.0 (?)
+License: Pixabay Content License
+License Link: https://pixabay.com/service/license-summary/
 Link:https://pixabay.com/music/mystery-rumbling-12-201171/
 Link 2:https://pixabay.com/music/upbeat-dark-and-suspenseful-atmosphere-227742/
