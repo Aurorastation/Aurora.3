@@ -6,11 +6,11 @@
 	suffix = "phoron_deposit.dmm"
 
 	sectors = list(ALL_POSSIBLE_SECTORS)
+	sectors_blacklist = list(SECTOR_HANEUNIM)
 	spawn_weight = 1
 	spawn_cost = 2
 	id = "deposit"
 	unit_test_groups = list(3)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /singleton/submap_archetype/deposit
 	map = "phoron deposit"
