@@ -31,48 +31,48 @@
 	first_spawn_done = FALSE
 
 /obj/effect/fauna_spawner/Destroy()
-    if(islist(GLOB.fauna_spawners))
-        GLOB.fauna_spawners -= src
-    return ..()
+	if(islist(GLOB.fauna_spawners))
+		GLOB.fauna_spawners -= src
+	return ..()
 
 /obj/effect/fauna_spawner/proc/start_spawning()
-    if (spawning_enabled)
-        return
-    spawning_enabled = TRUE
-    spawn()
-        while (spawning_enabled && src)
-            if (length(active_mobs) < max_active_mobs)
-                spawn_mob()
-            sleep(rand(5 SECONDS, 10 SECONDS))
+	if (spawning_enabled)
+		return
+	spawning_enabled = TRUE
+	spawn()
+		while (spawning_enabled && src)
+			if (length(active_mobs) < max_active_mobs)
+				spawn_mob()
+			sleep(rand(5 SECONDS, 10 SECONDS))
 
 /obj/effect/fauna_spawner/proc/spawn_mob()
-    var/mob_type
-    if (!first_spawn_done)
-        mob_type = /mob/living/simple_animal/hostile/carp/shark/reaver/eel/phoron_deposit
-        first_spawn_done = TRUE
-    else
-        mob_type = pick(mob_choices)
-    var/mob/living/simple_animal/hostile/new_mob = new mob_type(src.loc)
-    if (!new_mob)
-        return
-    new_mob.spawner_source = src
-    active_mobs += new_mob
-    if (!pit_present)
-        new /obj/structure/pit(src.loc)
-        pit_present = TRUE
+	var/mob_type
+	if (!first_spawn_done)
+		mob_type = /mob/living/simple_animal/hostile/carp/shark/reaver/eel/phoron_deposit
+		first_spawn_done = TRUE
+	else
+		mob_type = pick(mob_choices)
+	var/mob/living/simple_animal/hostile/new_mob = new mob_type(src.loc)
+	if (!new_mob)
+		return
+	new_mob.spawner_source = src
+	active_mobs += new_mob
+	if (!pit_present)
+		new /obj/structure/pit(src.loc)
+		pit_present = TRUE
 
 /obj/effect/fauna_spawner/proc/mob_died(var/mob/living/simple_animal/hostile/mob_ref)
-     active_mobs -= mob_ref
+	active_mobs -= mob_ref
 
 /obj/effect/fauna_spawner/proc/stop_spawning()
-    spawning_enabled = FALSE
+	spawning_enabled = FALSE
 
 /proc/activate_fauna_spawners(var/z)
-    if(!islist(GLOB.fauna_spawners) || !length(GLOB.fauna_spawners))
-        return
-    for(var/obj/effect/fauna_spawner/F in GLOB.fauna_spawners)
-        if(F?.loc?.z == z)
-            F.start_spawning()
+	if(!islist(GLOB.fauna_spawners) || !length(GLOB.fauna_spawners))
+		return
+	for(var/obj/effect/fauna_spawner/F in GLOB.fauna_spawners)
+		if(F?.loc?.z == z)
+			F.start_spawning()
 
 // Mob stuff
 
@@ -121,52 +121,52 @@
 		GLOB.move_manager.move_towards(src, target_turf, 5, TRUE) //The mobs move to the deposit at different speeds. Hence why they aren't initialized under a shared proc
 
 /mob/living/simple_animal/hostile/carp/phoron_deposit/Initialize()
-    . = ..()
-    var/turf/target = locate(132, 176, src.z)
-    if (isturf(target))
-        GLOB.move_manager.move_towards(src, target, 3, TRUE)
+	. = ..()
+	var/turf/target = locate(132, 176, src.z)
+	if (isturf(target))
+		GLOB.move_manager.move_towards(src, target, 3, TRUE)
 
 /mob/living/simple_animal/hostile/carp/shark/phoron_deposit/Initialize()
-    . = ..()
-    var/turf/target = locate(132, 176, src.z)
-    if (isturf(target))
-        GLOB.move_manager.move_towards(src, target, 3, TRUE)
+	. = ..()
+	var/turf/target = locate(132, 176, src.z)
+	if (isturf(target))
+		GLOB.move_manager.move_towards(src, target, 3, TRUE)
 
 /mob/living/simple_animal/hostile/carp/shark/reaver/phoron_deposit/Initialize()
-    . = ..()
-    var/turf/target = locate(132, 176, src.z)
-    if (isturf(target))
-        GLOB.move_manager.move_towards(src, target, 5, TRUE)
+	. = ..()
+	var/turf/target = locate(132, 176, src.z)
+	if (isturf(target))
+		GLOB.move_manager.move_towards(src, target, 5, TRUE)
 
 /mob/living/simple_animal/hostile/gnat/phoron_deposit/Initialize()
-    . = ..()
-    var/turf/target = locate(132, 176, src.z)
-    if (isturf(target))
-        GLOB.move_manager.move_towards(src, target, 1, TRUE)
+	. = ..()
+	var/turf/target = locate(132, 176, src.z)
+	if (isturf(target))
+		GLOB.move_manager.move_towards(src, target, 1, TRUE)
 
 /mob/living/simple_animal/hostile/proc/phoron_deposit_death_notify()
-    if(spawner_source)
-        spawner_source.mob_died(src)
+	if(spawner_source)
+		spawner_source.mob_died(src)
 
 /mob/living/simple_animal/hostile/carp/phoron_deposit/death()
-    ..()
-    phoron_deposit_death_notify()
+	..()
+	phoron_deposit_death_notify()
 
 /mob/living/simple_animal/hostile/carp/shark/phoron_deposit/death()
-    ..()
-    phoron_deposit_death_notify()
+	..()
+	phoron_deposit_death_notify()
 
 /mob/living/simple_animal/hostile/carp/shark/reaver/phoron_deposit/death()
-    ..()
-    phoron_deposit_death_notify()
+	..()
+	phoron_deposit_death_notify()
 
 /mob/living/simple_animal/hostile/carp/shark/reaver/eel/phoron_deposit/death()
-    ..()
-    phoron_deposit_death_notify()
+	..()
+	phoron_deposit_death_notify()
 
 /mob/living/simple_animal/hostile/gnat/phoron_deposit/death()
-    ..()
-    phoron_deposit_death_notify()
+	..()
+	phoron_deposit_death_notify()
 
 // Phoron deposit turf
 
@@ -183,6 +183,8 @@
 		if (!T.resources)
 			T.resources = list()
 		T.resources[ORE_PHORON] = mineral_amount
+
+	return INITIALIZE_HINT_NORMAL
 
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky/phoron_deposit/Destroy()
 	var/turf/T = get_turf(src)
