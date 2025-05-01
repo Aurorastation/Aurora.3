@@ -14,7 +14,6 @@
 	var/spawning_enabled = FALSE
 	var/list/active_mobs = list()
 	var/max_active_mobs = 5
-	var/pit_present = FALSE
 	var/list/mob_choices = list(
 		/mob/living/simple_animal/hostile/carp/phoron_deposit,
 		/mob/living/simple_animal/hostile/carp/shark/phoron_deposit,
@@ -48,7 +47,8 @@
 /obj/effect/fauna_spawner/proc/spawn_mob()
 	var/mob_type
 	if (!first_spawn_done)
-		mob_type = /mob/living/simple_animal/hostile/carp/shark/reaver/eel/phoron_deposit
+		mob_type = /mob/living/simple_animal/hostile/carp/shark/reaver/eel/phoron_deposit // Eel is spawned first to clear any potential walls
+		new /obj/structure/pit(src.loc)
 		first_spawn_done = TRUE
 	else
 		mob_type = pick(mob_choices)
@@ -57,9 +57,6 @@
 		return
 	new_mob.spawner_source = src
 	active_mobs += new_mob
-	if (!pit_present)
-		new /obj/structure/pit(src.loc)
-		pit_present = TRUE
 
 /obj/effect/fauna_spawner/proc/mob_died(var/mob/living/simple_animal/hostile/mob_ref)
 	active_mobs -= mob_ref
@@ -77,17 +74,22 @@
 // Mob stuff
 
 /mob/living/simple_animal/hostile/carp/shark/phoron_deposit
-	maxHealth = 55
-	health = 55
+	maxHealth = 60
+	health = 60
 
 /mob/living/simple_animal/hostile/carp/shark/reaver/phoron_deposit
-	maxHealth = 55
-	health = 55
-	speed = 5
+	maxHealth = 60
+	health = 60
+	speed = 6
+
+/mob/living/simple_animal/hostile/gnat/phoron_deposit
+	maxHealth = 15
+	health = 15
+	destroy_surroundings = TRUE
 
 /mob/living/simple_animal/hostile/carp/shark/reaver/eel/phoron_deposit
-	maxHealth = 70
-	health = 70
+	maxHealth = 90
+	health = 90
 	speed = 3
 	var/tmp/wall_breaking_allowed = FALSE // The eel gets to break walls just to make sure the event can't be cheesed by building them
 	var/tmp/breaking_wall = FALSE
@@ -124,13 +126,13 @@
 	. = ..()
 	var/turf/target = locate(132, 176, src.z)
 	if (isturf(target))
-		GLOB.move_manager.move_towards(src, target, 3, TRUE)
+		GLOB.move_manager.move_towards(src, target, 2, TRUE)
 
 /mob/living/simple_animal/hostile/carp/shark/phoron_deposit/Initialize()
 	. = ..()
 	var/turf/target = locate(132, 176, src.z)
 	if (isturf(target))
-		GLOB.move_manager.move_towards(src, target, 3, TRUE)
+		GLOB.move_manager.move_towards(src, target, 4, TRUE)
 
 /mob/living/simple_animal/hostile/carp/shark/reaver/phoron_deposit/Initialize()
 	. = ..()

@@ -6,7 +6,7 @@
 	suffix = "phoron_deposit.dmm"
 
 	sectors = list(ALL_POSSIBLE_SECTORS)
-	sectors_blacklist = list(SECTOR_HANEUNIM)
+	sectors_blacklist = list(SECTOR_HANEUNIM, SECTOR_TAU_CETI)
 	spawn_weight = 1
 	spawn_cost = 2
 	id = "deposit"
