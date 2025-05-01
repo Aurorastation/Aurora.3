@@ -118,7 +118,10 @@
 		/obj/item/device/debugger,
 		/obj/item/device/eftpos,
 		/obj/item/tape_roll,
-		/obj/item/device/geiger
+		/obj/item/device/geiger,
+		/obj/item/clothing/gloves/yellow,
+		/obj/item/clothing/gloves/yellow/specialu,
+		/obj/item/clothing/gloves/yellow/specialt
 	)
 	content_overlays = TRUE
 
