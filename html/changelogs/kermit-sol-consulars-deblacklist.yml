@@ -1,0 +1,6 @@
+author: kermit
+
+delete-after: True
+
+changes:
+  - rscadd: "Reallows Solarian Consulars."
