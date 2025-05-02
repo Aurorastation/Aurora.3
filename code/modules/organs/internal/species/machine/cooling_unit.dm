@@ -9,7 +9,7 @@
 		ORGAN_PREF_LIQUIDCOOLED = /singleton/synthetic_organ_preset/cooling_unit/liquid,
 		ORGAN_PREF_PASSIVECOOLED = /singleton/synthetic_organ_preset/cooling_unit/passive
 	)
-	default_preset = ORGAN_PREF_AIRCOOLED
+	default_preset = /singleton/synthetic_organ_preset/cooling_unit/air
 	action_button_name = "Regulate Thermostat"
 
 	/// The passive temperature change. Basically, cooling units counteract an IPC's passive temperature gain. But the IPC's temperature goes to get itself fucked if the cooling unit dies.
@@ -159,7 +159,7 @@
 		ORGAN_PREF_LIQUIDCOOLED = /singleton/synthetic_organ_preset/cooling_unit/liquid_xion,
 		ORGAN_PREF_PASSIVECOOLED = /singleton/synthetic_organ_preset/cooling_unit/passive_xion
 	)
-
+	default_preset = /singleton/synthetic_organ_preset/cooling_unit/air_xion
 
 /obj/item/organ/internal/machine/cooling_unit/zenghu
 	organ_presets = list(
@@ -167,3 +167,4 @@
 		ORGAN_PREF_LIQUIDCOOLED = /singleton/synthetic_organ_preset/cooling_unit/liquid_zenghu,
 		ORGAN_PREF_PASSIVECOOLED = /singleton/synthetic_organ_preset/cooling_unit/passive_zenghu
 	)
+	default_preset = /singleton/synthetic_organ_preset/cooling_unit/air_zenghu

@@ -96,6 +96,7 @@
 		BP_ACTUATORS_LEFT = /obj/item/organ/internal/machine/actuators/left,
 		BP_ACTUATORS_RIGHT = /obj/item/organ/internal/machine/actuators/right,
 		BP_COOLING_UNIT = /obj/item/organ/internal/machine/cooling_unit,
+		BP_REACTOR = /obj/item/organ/internal/machine/reactor,
 		BP_CELL    = /obj/item/organ/internal/machine/cell,
 		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
 		BP_IPCTAG = /obj/item/organ/internal/machine/ipc_tag
@@ -141,7 +142,7 @@
 		/singleton/origin_item/culture/scrapper
 	)
 
-	alterable_internal_organs = list(BP_COOLING_UNIT)
+	alterable_internal_organs = list(BP_COOLING_UNIT, BP_REACTOR)
 	possible_speech_bubble_types = list("robot", "default")
 
 	// Special snowflake machine vars.
@@ -196,11 +197,12 @@
 			// x = x * (2 + 100 - 75) / 100 -> x = x * (2 + (25 / 100)) --> x = x * 2.25
 			// increases depending on integrity
 
-			cost *= (damage_mod + (100 - hydraulics_integrity) / 100)
+			cost *= damage_mod + ((100 - hydraulics_integrity) / 100)
 
 	var/obj/item/organ/internal/machine/cell/C = H.internal_organs_by_name[BP_CELL]
 	if(!istype(C))
 		C.use(cost * sprint_cost_factor)
+		SEND_SIGNAL(H, COMSIG_IPC_HAS_SPRINTED)
 	return TRUE
 
 /datum/species/machine/handle_emp_act(mob/living/carbon/human/hit_mob, severity)

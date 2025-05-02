@@ -10,7 +10,7 @@
 	var/desc = "It is super epic and cool."
 
 /singleton/synthetic_organ_preset/proc/apply_preset(obj/item/organ/internal/machine/organ)
-	SHOULD_CALL_PARENT(true)
+	SHOULD_CALL_PARENT(TRUE)
 	if(!istype(organ))
 		crash_with("Synthetic organ preset called with invalid organ [organ]")
 

@@ -149,6 +149,7 @@
 #define BP_ACTUATORS_LEFT	"left arm actuators"
 #define BP_ACTUATORS_RIGHT	"right arm actuators"
 #define BP_SURGE_PROTECTOR "surge"
+#define BP_DATACORE "data core"
 
 // Bishop frame only.
 #define BP_WIRELESS_ACCESS "wireless access point"
@@ -561,3 +562,16 @@
 #define DO_MISSING_TARGET (-2)
 #define DO_INCAPACITATED (-3)
 #define DO_EXTRA_CHECKS (-4)
+
+// These are the power supply organ defines.
+// They are bitflags because it should be technically possible to have a power supply do multiple things at once if you wish.
+// Just be wary of balancing issues.
+
+/// The default functioning of a power reactor. Externally powered only. Allows recharging from APCs. Has a multiplier for faster recharging from power stations.
+#define POWER_SUPPLY_ELECTRIC 1
+/// Recharges by walking/running. Far slower at charging from external sources.
+#define POWER_SUPPLY_KINETIC 2
+/// Recharges through consuming nutrients/food. Slower at recharging from external sources.
+#define POWER_SUPPLY_BIOLOGICAL 4
+/// Recharges from external lighting. Slower at recharging from external sources.
+#define POWER_SUPPLY_SOLAR 8

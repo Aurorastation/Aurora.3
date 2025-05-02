@@ -4,9 +4,9 @@
 	organ_tag = "generic machine organ"
 
 	/// The list of organ presets to use. Linked list of ORGAN_PREF to /singleton/synthetic_organ_preset. Use only if your organ has pref settings and presets.
-	/// For an example, see cooling_unit.dm.
+	/// For an example, see cooling_unit.dm. Remember to also update code\modules\client\preference_setup\general\03_body.dm at line 893!
 	var/list/organ_presets
-	/// The default preset to fall back to if there is no pref (aka people want the base type). It MUST match the base type!
+	/// The default preset to fall back to if there is no pref (aka people want the base type). Must be of type /singleton/synthetic_organ_preset.
 	var/default_preset
 
 	/// The wiring datum of this organ.
@@ -29,7 +29,7 @@
 	electronics = new(src)
 
 /obj/item/organ/internal/machine/process(seconds_per_tick)
-	. = ..()
+	..()
 
 	var/integrity = get_integrity()
 	if(integrity < 75)
@@ -44,11 +44,11 @@
 		return
 
 	// After that, it's open season.
-	var/bits_to_hit = pick("wiring", "electronics")
+	var/bits_to_hit = pick(1, 2)
 	switch(bits_to_hit)
-		if("wiring")
+		if(1)
 			wiring.take_damage(amount)
-		if("electronics")
+		if(2)
 			electronics.take_damage(amount)
 
 /**
@@ -92,7 +92,7 @@
 /obj/item/organ/internal/machine/proc/integrity_damage(integrity)
 	var/obj/item/organ/internal/machine/posibrain/brain = owner.internal_organs_by_name[BP_BRAIN]
 	if(!istype(brain)) //???
-		log_debug("[src]: [owner] somehow didn't have a posibrain.")
+		crash_with("[src]: [owner] somehow didn't have a posibrain.")
 
 	switch(integrity)
 		if(50 to 75)
@@ -125,7 +125,6 @@
 /obj/item/organ/internal/machine/proc/high_integrity_damage(integrity)
 	if(last_damage_time + damage_cooldown > world.time)
 		return FALSE
-	take_damage(1, TRUE)
 
 /**
  * Returns extra diagnostics info, viewable from the diagnostics unit verbs or through a robot scanner.

@@ -10,7 +10,7 @@
 	default_genders = list(MALE, FEMALE)
 	selectable_pronouns = list(MALE, FEMALE, PLURAL, NEUTER)
 
-	alterable_internal_organs = list(BP_EYES, BP_COOLING_UNIT)
+	alterable_internal_organs = list(BP_EYES, BP_COOLING_UNIT, BP_REACTOR)
 
 	burn_mod = 1.2
 	grab_mod = 1
@@ -110,6 +110,7 @@
 		BP_ACTUATORS_LEFT = /obj/item/organ/internal/machine/actuators/left,
 		BP_ACTUATORS_RIGHT = /obj/item/organ/internal/machine/actuators/right,
 		BP_COOLING_UNIT = /obj/item/organ/internal/machine/cooling_unit,
+		BP_REACTOR = /obj/item/organ/internal/machine/reactor,
 		BP_CELL    = /obj/item/organ/internal/machine/cell,
 		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
 		BP_SURGE_PROTECTOR   = /obj/item/organ/internal/machine/surge/advanced
@@ -265,9 +266,10 @@
 		BP_ACTUATORS_LEFT = /obj/item/organ/internal/machine/actuators/left,
 		BP_ACTUATORS_RIGHT = /obj/item/organ/internal/machine/actuators/right,
 		BP_COOLING_UNIT = /obj/item/organ/internal/machine/cooling_unit,
+		BP_REACTOR = /obj/item/organ/internal/machine/reactor,
 		BP_CELL    = /obj/item/organ/internal/machine/cell,
 		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
-		"data core" = /obj/item/organ/internal/machine/data,
+		BP_DATACORE = /obj/item/organ/internal/machine/data,
 		BP_SURGE_PROTECTOR = /obj/item/organ/internal/machine/surge/advanced
 	)
 
@@ -427,6 +429,7 @@
 		BP_ACTUATORS_LEFT = /obj/item/organ/internal/machine/actuators/left,
 		BP_ACTUATORS_RIGHT = /obj/item/organ/internal/machine/actuators/right,
 		BP_COOLING_UNIT = /obj/item/organ/internal/machine/cooling_unit/xion,
+		BP_REACTOR = /obj/item/organ/internal/machine/reactor,
 		BP_CELL    = /obj/item/organ/internal/machine/cell,
 		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
 		BP_IPCTAG = /obj/item/organ/internal/machine/ipc_tag
@@ -448,6 +451,7 @@
 		BP_ACTUATORS_LEFT = /obj/item/organ/internal/machine/actuators/left,
 		BP_ACTUATORS_RIGHT = /obj/item/organ/internal/machine/actuators/right,
 		BP_COOLING_UNIT = /obj/item/organ/internal/machine/cooling_unit,
+		BP_REACTOR = /obj/item/organ/internal/machine/reactor,
 		BP_CELL    = /obj/item/organ/internal/machine/cell,
 		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
 		BP_IPCTAG = /obj/item/organ/internal/machine/ipc_tag
@@ -492,6 +496,7 @@
 		BP_ACTUATORS_LEFT = /obj/item/organ/internal/machine/actuators/left,
 		BP_ACTUATORS_RIGHT = /obj/item/organ/internal/machine/actuators/right,
 		BP_COOLING_UNIT = /obj/item/organ/internal/machine/cooling_unit/zenghu,
+		BP_REACTOR = /obj/item/organ/internal/machine/reactor,
 		BP_CELL    = /obj/item/organ/internal/machine/cell,
 		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
 		BP_IPCTAG = /obj/item/organ/internal/machine/ipc_tag
@@ -558,6 +563,7 @@
 		BP_ACTUATORS_LEFT = /obj/item/organ/internal/machine/actuators/left,
 		BP_ACTUATORS_RIGHT = /obj/item/organ/internal/machine/actuators/right,
 		BP_COOLING_UNIT = /obj/item/organ/internal/machine/cooling_unit,
+		BP_REACTOR = /obj/item/organ/internal/machine/reactor,
 		BP_CELL    = /obj/item/organ/internal/machine/cell,
 		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
 		BP_IPCTAG = /obj/item/organ/internal/machine/ipc_tag,
@@ -638,6 +644,7 @@
 		BP_ACTUATORS_LEFT = /obj/item/organ/internal/machine/actuators/left,
 		BP_ACTUATORS_RIGHT = /obj/item/organ/internal/machine/actuators/right,
 		BP_COOLING_UNIT = /obj/item/organ/internal/machine/cooling_unit,
+		BP_REACTOR = /obj/item/organ/internal/machine/reactor,
 		BP_CELL    = /obj/item/organ/internal/machine/cell,
 		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
 		BP_IPCTAG = /obj/item/organ/internal/machine/ipc_tag

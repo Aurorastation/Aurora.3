@@ -24,35 +24,61 @@
 	replace_cell(new cell(src))
 	. = ..()
 
+/**
+ * Returns current charge in %.
+ */
 /obj/item/organ/internal/machine/cell/proc/percent()
 	if(!cell)
-		return 0
+		return FALSE
+
 	return get_charge() / cell.maxcharge * 100
 
+/**
+ * Returns current charge level, modified by damage.
+ */
 /obj/item/organ/internal/machine/cell/proc/get_charge()
 	if(!cell)
-		return 0
+		return FALSE
+
 	if(status & ORGAN_DEAD)
-		return 0
+		return FALSE
+
 	return round(cell.charge*(1 - damage/max_damage))
+
+/**
+ * Wrapper for /obj/item/cell/proc/give.
+ */
+/obj/item/organ/internal/machine/cell/proc/give(amount)
+	if(!cell)
+		return
+
+	return cell.give(amount)
 
 /obj/item/organ/internal/machine/cell/use(var/amount)
 	if(!is_usable() || !cell)
 		return
+
 	return cell.use(amount)
 
 /obj/item/organ/internal/machine/cell/process()
 	..()
+
 	if(!owner)
 		return
+
 	if(owner.stat == DEAD)	//not a drain anymore
 		return
+
 	var/cost = get_power_drain()
 	if(world.time - owner.l_move_time < 15)
 		cost *= 2
+
 	cost *= move_charge_factor
 	use(cost)
 
+/**
+ * Gets the cost for walking. For some reason, handled in the fucking cell.
+ */
 /obj/item/organ/internal/machine/cell/proc/get_power_drain()
 	return servo_cost
 
