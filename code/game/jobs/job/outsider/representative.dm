@@ -288,6 +288,7 @@
 	supervisors = "the Consular Officer"
 	selection_color = "#6186cf"
 	economic_modifier = 5
+	alt_titles = list("Diplomatic Bodyguard")
 
 	minimum_character_age = list(
 		SPECIES_HUMAN = 18,
@@ -334,6 +335,7 @@
 	supervisors = "the Corporate Representative"
 	selection_color = "#6186cf"
 	economic_modifier = 5
+	alt_titles = list("Corporate Bodyguard")
 
 	minimum_character_age = list(
 		SPECIES_HUMAN = 18,
