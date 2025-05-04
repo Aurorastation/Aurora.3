@@ -14,6 +14,7 @@
 	S["tgui_inputs"]			>> pref.tgui_inputs
 	S["tgui_buttons_large"]		>> pref.tgui_buttons_large
 	S["tgui_inputs_swapped"]	>> pref.tgui_inputs_swapped
+	S["ui_scale"]				>> pref.ui_scale
 
 /datum/category_item/player_setup_item/player_global/ui/save_preferences(var/savefile/S)
 	S["UI_style"]				<< pref.UI_style
@@ -27,6 +28,7 @@
 	S["tgui_inputs"]			<< pref.tgui_inputs
 	S["tgui_buttons_large"]		<< pref.tgui_buttons_large
 	S["tgui_inputs_swapped"]	<< pref.tgui_inputs_swapped
+	S["ui_scale"]				<< pref.ui_scale
 
 /datum/category_item/player_setup_item/player_global/ui/gather_load_query()
 	return list(
@@ -42,7 +44,8 @@
 				"tooltip_style",
 				"tgui_inputs",
 				"tgui_buttons_large",
-				"tgui_inputs_swapped"
+				"tgui_inputs_swapped",
+				"ui_scale",
 			),
 			"args" = list("ckey")
 		)
@@ -65,6 +68,7 @@
 			"tgui_inputs",
 			"tgui_buttons_large",
 			"tgui_inputs_swapped",
+			"ui_scale",
 			"ckey" = 1
 		)
 	)
@@ -82,7 +86,8 @@
 		"tooltip_style" = pref.tooltip_style,
 		"tgui_inputs" = pref.tgui_inputs,
 		"tgui_buttons_large" = pref.tgui_buttons_large,
-		"tgui_inputs_swapped" = pref.tgui_inputs_swapped
+		"tgui_inputs_swapped" = pref.tgui_inputs_swapped,
+		"ui_scale" = pref.ui_scale
 	)
 
 /datum/category_item/player_setup_item/player_global/ui/sanitize_preferences()
@@ -157,6 +162,10 @@
 
 	else if(href_list["tgui_inputs_swapped"])
 		pref.tgui_inputs_swapped = !pref.tgui_inputs_swapped
+		return TOPIC_REFRESH
+
+	else if(href_list["ui_scale"])
+		pref.ui_scale = !pref.ui_scale
 		return TOPIC_REFRESH
 
 	else if(href_list["select_ooc_color"])

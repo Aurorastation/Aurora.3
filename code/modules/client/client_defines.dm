@@ -78,6 +78,8 @@
 
 	///Hide top bars
 	var/fullscreen = FALSE
+	///Hide status bar (bottom left)
+	var/show_status_bar = TRUE
 
 	/// our current tab
 	var/stat_tab
@@ -95,3 +97,6 @@
 	var/drag_start = 0
 	///The params we were passed at the start of the drag, in list form
 	var/list/drag_details
+
+	/// The DPI scale of the client. 1 is equivalent to 100% window scaling, 2 will be 200% window scaling
+	var/window_scaling
