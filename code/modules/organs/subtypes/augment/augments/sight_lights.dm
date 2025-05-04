@@ -1,6 +1,6 @@
 /obj/item/organ/internal/augment/sightlights
-	name = "ocular installed sightlights "
-	desc = "Designed to assist medical personnel in darker areas or places experiencing periodic power issues, " \
+	name = "ocular installed Zeng-Hu sightlights "
+	desc = "Designed to assist personnel in darker areas or places experiencing periodic power issues, " \
 		+ "Sightlights will allow one to be able to use their eyes as a flashlight."
 	icon_state = "sightlights"
 	organ_tag = BP_AUG_SIGHTLIGHTS
@@ -10,6 +10,15 @@
 	cooldown = 30
 	activable = TRUE
 	var/lights_on = FALSE
+	var/lights_color = "#e9dfea" // Pale violet, very Zeng-Hu.
+	var/lights_range = 6
+	var/lights_intensity = 2
+
+/obj/item/organ/internal/augment/sightlights/generic
+	name = "ocular installed sightlights "
+	var/lights_color = LIGHT_COLOR_TUNGSTEN
+	var/lights_range = 3
+	var/lights_intensity = 2
 
 /obj/item/organ/internal/augment/sightlights/attack_self(var/mob/user)
 	. = ..()
@@ -20,7 +29,7 @@
 	lights_on = !lights_on
 
 	if(lights_on)
-		set_light(5, 2, LIGHT_COLOR_TUNGSTEN, uv = 0, angle = LIGHT_WIDE)
+		set_light(lights_range, lights_intensity, LIGHT_COLOR_TUNGSTEN, uv = 0, angle = LIGHT_WIDE)
 	else
 		set_light(0)
 
