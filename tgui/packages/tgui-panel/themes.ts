@@ -12,16 +12,20 @@ const COLORS = {
     BG_SECOND: '#161515',
     BUTTON: '#414040',
     TEXT: '#A6A6A6',
+    // AURORA SNOWFLAKE
+    HOTKEY_BACKGROUND: '#492020',
   },
   LIGHT: {
     BG_BASE: '#EFEEEE',
     BG_SECOND: '#FFFFFF',
     BUTTON: '#FFFEFE',
     TEXT: '#000000',
+    // AURORA SNOWFLAKE
+    HOTKEY_BACKGROUND: '#494949',
   },
 };
 
-let setClientThemeTimer: null;
+let setClientThemeTimer: NodeJS.Timeout;
 
 /**
  * Darkmode preference, originally by Kmc2000.
@@ -63,20 +67,20 @@ export const setClientTheme = (name) => {
     'mainwindow.background-color': themeColor.BG_BASE,
     'split.background-color': themeColor.BG_BASE,
     // Buttons
-    'changelog.background-color': themeColor.BUTTON,
-    'changelog.text-color': themeColor.TEXT,
-    'rulesb.background-color': themeColor.BUTTON,
-    'rulesb.text-color': themeColor.TEXT,
-    'wikib.background-color': themeColor.BUTTON,
-    'wikib.text-color': themeColor.TEXT,
-    'forumb.background-color': themeColor.BUTTON,
-    'forumb.text-color': themeColor.TEXT,
-    'discordb.background-color': themeColor.BUTTON,
-    'discordb.text-color': themeColor.TEXT,
-    'interfaceb.background-color': themeColor.BUTTON,
-    'interfaceb.text-color': themeColor.TEXT,
-    'reportbugb.background-color': themeColor.BUTTON,
-    'reportbugb.text-color': themeColor.TEXT,
+    'rules.background-color': themeColor.BUTTON,
+    'rules.text-color': themeColor.TEXT,
+    'wiki.background-color': themeColor.BUTTON,
+    'wiki.text-color': themeColor.TEXT,
+    'forum.background-color': themeColor.BUTTON,
+    'forum.text-color': themeColor.TEXT,
+    'discord.background-color': themeColor.BUTTON,
+    'discord.text-color': themeColor.TEXT,
+    'interface.background-color': themeColor.BUTTON,
+    'interface.text-color': themeColor.TEXT,
+    'github.background-color': themeColor.BUTTON,
+    'github.text-color': themeColor.TEXT,
+    'report-issue.background-color': themeColor.BUTTON,
+    'report-issue.text-color': themeColor.TEXT,
     // Status and verb tabs
     'output.background-color': themeColor.BG_BASE,
     'output.text-color': themeColor.TEXT,
@@ -87,7 +91,7 @@ export const setClientTheme = (name) => {
     'oocbutton.text-color': themeColor.TEXT,
     'mebutton.background-color': themeColor.BG_BASE,
     'mebutton.text-color': themeColor.TEXT,
-    'hotkey_toggle.background-color': themeColor.BG_BASE,
+    'hotkey_toggle.background-color': themeColor.HOTKEY_BACKGROUND,
     'hotkey_toggle.text-color': themeColor.TEXT,
     'asset_cache_browser.background-color': themeColor.BG_BASE,
     'asset_cache_browser.text-color': themeColor.TEXT,

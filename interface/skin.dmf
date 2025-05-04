@@ -1061,7 +1061,7 @@ window "infobuttons"
 		anchor1 = 71,0
 		anchor2 = 85,100
 		saved-params = "is-checked"
-		text = "WI Link"
+		text = "Web Interface"
 		command = "open_webint"
 	elem "discord"
 		type = BUTTON

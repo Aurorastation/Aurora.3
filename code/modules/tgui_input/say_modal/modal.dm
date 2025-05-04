@@ -67,8 +67,6 @@
 	winset(client, "tgui_say", "pos=848,500;is-visible=0;")
 
 	window.send_message("props", list(
-		"lightMode" = client.prefs?.tgui_say_light_mode,
-		"scale" = client.prefs?.ui_scale,
 		"maxLength" = max_length,
 	))
 

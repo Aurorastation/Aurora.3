@@ -48,7 +48,7 @@
 	src.head_content += head_content
 
 /datum/browser/proc/set_head_content(head_content)
- 	src.head_content = head_content
+	src.head_content = head_content
 
 /datum/browser/proc/set_title_buttons(title_buttons)
 	src.title_buttons = title_buttons
@@ -88,12 +88,12 @@
 
 	if(user.client?.window_scaling && user.client?.window_scaling != 1 && !user.client?.prefs.ui_scale && width && height)
 		new_head_content += {"
- 			<style>
- 				body {
- 					zoom: [100 / user.client?.window_scaling]%;
- 				}
- 			</style>
- 			"}
+			<style>
+				body {
+					zoom: [100 / user.client?.window_scaling]%;
+				}
+			</style>
+			"}
 
 	for (var/file as anything in scripts)
 		new_head_content += "<script type='text/javascript' src='[SSassets.transport.get_asset_url(file)]'></script>"
