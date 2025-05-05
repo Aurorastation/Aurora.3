@@ -6,13 +6,7 @@
 
 import { storage } from 'common/storage';
 import { setClientTheme } from '../themes';
-import {
-  addHighlightSetting,
-  loadSettings,
-  removeHighlightSetting,
-  updateHighlightSetting,
-  updateSettings,
-} from './actions';
+import { addHighlightSetting, loadSettings, removeHighlightSetting, updateHighlightSetting, updateSettings } from './actions';
 import { selectSettings } from './selectors';
 import { FONTS_DISABLED } from './constants';
 import { setDisplayScaling } from './scaling';
@@ -37,7 +31,7 @@ function updateGlobalOverrideRule() {
 
   if (overrideRule === undefined) {
     overrideRule = document.createElement('style');
-    document.querySelector('head')!.append(overrideRule);
+    document.querySelector('head')?.append(overrideRule);
   }
 
   // no other way to force a CSS refresh other than to update its innerText
@@ -49,18 +43,22 @@ function updateGlobalOverrideRule() {
 function setGlobalFontSize(
   fontSize: string,
   statFontSize: string,
-  statLinked: boolean,
+  statLinked: boolean
 ) {
   overrideFontSize = `${fontSize}px`;
 
   // Used solution from theme.ts
   clearInterval(statFontTimer);
   Byond.command(
-    `.output statbrowser:set_font_size ${statLinked ? fontSize : statFontSize}px`,
+    `.output statbrowser:set_font_size ${
+      statLinked ? fontSize : statFontSize
+    }px`
   );
   statFontTimer = setTimeout(() => {
     Byond.command(
-      `.output statbrowser:set_font_size ${statLinked ? fontSize : statFontSize}px`,
+      `.output statbrowser:set_font_size ${
+        statLinked ? fontSize : statFontSize
+      }px`
     );
   }, 1500);
 }
@@ -113,7 +111,7 @@ export const settingsMiddleware = (store) => {
       setGlobalFontSize(
         settings.fontSize,
         settings.statFontSize,
-        settings.statLinked,
+        settings.statLinked
       );
       setGlobalFontFamily(settings.fontFamily);
       updateGlobalOverrideRule();
