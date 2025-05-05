@@ -1053,7 +1053,7 @@ window "infobuttons"
 		anchor2 = 71,100
 		saved-params = "is-checked"
 		text = "Report Issue"
-		command = "reportissue"
+		command = "report-issue"
 	elem "interface"
 		type = BUTTON
 		pos = 461,5

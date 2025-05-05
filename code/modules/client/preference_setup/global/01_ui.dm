@@ -115,6 +115,7 @@
 	dat += "<b>TGUI Inputs:</b> <a href='byond://?src=[REF(src)];tgui_inputs=1'><b>[pref.tgui_inputs ? "ON" : "OFF"]</b></a><br>"
 	dat += "<b>TGUI Input Large Buttons:</b> <a href='byond://?src=[REF(src)];tgui_inputs_large=1'><b>[pref.tgui_buttons_large ? "ON" : "OFF"]</b></a><br>"
 	dat += "<b>TGUI Input Swapped Buttons:</b> <a href='byond://?src=[REF(src)];tgui_inputs_swapped=1'><b>[pref.tgui_inputs_swapped ? "ON" : "OFF"]</b></a><br>"
+	dat += "<b>UI Scaling:</b> <a href='byond://?src=[REF(src)];ui_scale=1'><b>[pref.ui_scale ? "ON" : "OFF"]</b></a><br>"
 	dat += "<b>FPS:</b> <a href='byond://?src=[REF(src)];select_fps=1'><b>[pref.clientfps]</b></a> - <a href='byond://?src=[REF(src)];reset=fps'>reset</a><br>"
 	if(can_select_ooc_color(user))
 		dat += "<b>OOC Color:</b> "
