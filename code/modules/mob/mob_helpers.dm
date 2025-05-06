@@ -1204,7 +1204,10 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 		update_canmove()
 		W.set_dir(dir)
 		W.buckled = src
+		W.post_buckle()
 		W.add_fingerprint(src)
+		W.buckled_original_layer = src.layer
+		src.layer = layer + 0.1
 
 /mob/proc/set_intent(var/set_intent)
 	a_intent = set_intent

@@ -194,7 +194,8 @@ GLOBAL_LIST_EMPTY(all_particles)
 	paths = subtypesof(/datum/character_disabilities)
 	for(var/path in paths)
 		var/datum/character_disabilities/T = new path()
-		GLOB.chargen_disabilities_list[T.name] = T
+		if(!is_abstract(T))
+			GLOB.chargen_disabilities_list[T.name] = T
 
 	sortTim(GLOB.chargen_disabilities_list, GLOBAL_PROC_REF(cmp_text_asc))
 

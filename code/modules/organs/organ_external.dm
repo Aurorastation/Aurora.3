@@ -186,6 +186,9 @@
 
 	var/nymph_child
 
+	///The specific TRAIT_PARALYSIS_XXX define to associate with this limb
+	var/paralysis_trait
+
 /obj/item/organ/external/proc/invalidate_marking_cache()
 	cached_markings = null
 
@@ -348,6 +351,12 @@
 			species = owner.species
 		for(var/obj/item/organ/organ in src)
 			organ.replaced(owner,src)
+		if(HAS_TRAIT(owner, paralysis_trait))
+			ADD_TRAIT(src, TRAIT_PARALYSIS, paralysis_trait)
+			RegisterSignal(owner, SIGNAL_REMOVETRAIT(paralysis_trait), PROC_REF(on_owner_paralysis_loss))
+		else
+			REMOVE_TRAIT(src, TRAIT_PARALYSIS, paralysis_trait)
+			RegisterSignal(owner, SIGNAL_ADDTRAIT(paralysis_trait), PROC_REF(on_owner_paralysis_gain))
 
 	if(!parent && parent_organ)
 		parent = owner.organs_by_name[src.parent_organ]
@@ -1030,6 +1039,12 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if(!(limb_flags & ORGAN_CAN_AMPUTATE) || !owner)
 		return
 
+	if(HAS_TRAIT(owner, paralysis_trait))
+		UnregisterSignal(owner, SIGNAL_REMOVETRAIT(paralysis_trait))
+		REMOVE_TRAIT(src, TRAIT_PARALYSIS, paralysis_trait)
+	else
+		UnregisterSignal(owner, SIGNAL_ADDTRAIT(paralysis_trait))
+
 	switch(disintegrate)
 		if(DROPLIMB_EDGE)
 			if(!clean)
@@ -1304,6 +1319,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 /obj/item/organ/external/is_usable()
 	if(is_stump())
+		return FALSE
+	if(HAS_TRAIT(src, TRAIT_PARALYSIS))
 		return FALSE
 	if(ORGAN_IS_DISLOCATED(src))
 		return FALSE
@@ -1616,3 +1633,17 @@ Note that amputating the affected organ does in fact remove the infection from t
 		var/mob/living/carbon/human/victim = srom_pulling.resolve()
 		victim.srom_pulled_by = null
 		srom_pulling = null
+
+///Proc to react to the owner gaining the TRAIT_PARALYSIS_XXX trait.
+/obj/item/organ/external/proc/on_owner_paralysis_gain(mob/living/carbon/source)
+	SIGNAL_HANDLER
+	ADD_TRAIT(src, TRAIT_PARALYSIS, paralysis_trait)
+	UnregisterSignal(owner, SIGNAL_ADDTRAIT(paralysis_trait))
+	RegisterSignal(owner, SIGNAL_REMOVETRAIT(paralysis_trait), PROC_REF(on_owner_paralysis_loss))
+
+///Proc to react to the owner losing the TRAIT_PARALYSIS_XXX trait.
+/obj/item/organ/external/proc/on_owner_paralysis_loss(mob/living/carbon/source)
+	SIGNAL_HANDLER
+	REMOVE_TRAIT(src, TRAIT_PARALYSIS, paralysis_trait)
+	UnregisterSignal(owner, SIGNAL_REMOVETRAIT(TRAIT_PARALYSIS_L_ARM))
+	RegisterSignal(owner, SIGNAL_ADDTRAIT(TRAIT_PARALYSIS_L_ARM), PROC_REF(on_owner_paralysis_gain))

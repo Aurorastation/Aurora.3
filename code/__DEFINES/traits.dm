@@ -190,9 +190,19 @@
 /// Causes the mob to never clot their wounds
 #define TRAIT_DISABILITY_HEMOPHILIA_MAJOR "disability_hemophilia_major"
 
+/// These are used for brain-based paralysis, where replacing the limb won't fix it
+#define TRAIT_PARALYSIS_L_ARM "para-l-arm"
+#define TRAIT_PARALYSIS_R_ARM "para-r-arm"
+#define TRAIT_PARALYSIS_L_LEG "para-l-leg"
+#define TRAIT_PARALYSIS_R_LEG "para-r-leg"
+
 /// hnnnnnnnggggg..... you're pretty good....
 #define TRAIT_NICE_SHOT "nice_shot"
 /// Mobs with this trait cannot be hit by projectiles, meaning the projectiles will just go through.
 #define TRAIT_UNHITTABLE_BY_PROJECTILES "unhittable_by_projectiles"
 ///This mob is currently blocking a projectile.
 #define TRAIT_BLOCKING_PROJECTILES "blocking_projectiles"
+
+//non-mob traits
+/// Used for limb-based paralysis, where replacing the limb will fix it.
+#define TRAIT_PARALYSIS "paralysis"

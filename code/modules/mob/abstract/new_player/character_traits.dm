@@ -1,6 +1,6 @@
 //Character trait system. Currently geared only for disabilities but a refactor to make it trait neutral would be trivial.
 
-/datum/character_disabilities
+ABSTRACT_TYPE(/datum/character_disabilities)
 	var/name = "Enigma"
 	var/desc = "This trait was not meant to be seen by mortal minds."
 
@@ -105,3 +105,26 @@ ORGAN_DISABILITY(stomach, "Stomach", BP_STOMACH)
 ORGAN_DISABILITY(appendix, "Appendix", BP_APPENDIX)
 
 #undef ORGAN_DISABILITY
+
+ABSTRACT_TYPE(/datum/character_disabilities/paralysis)
+	name = "Paralysis"
+	var/trait_type
+	var/spawn_wheelchair
+
+/datum/character_disabilities/paralysis/apply_self(var/mob/living/carbon/human/H)
+	ADD_TRAIT(H, trait_type, DISABILITY_TRAIT)
+	if(spawn_wheelchair)
+		H.equip_wheelchair()
+
+#define ORGAN_PARALYSIS(ORGAN_PATH, ORGAN_NAME, TRAIT_NAME, SPAWN_WHEELCHAIR) \
+/datum/character_disabilities/paralysis/##ORGAN_PATH { \
+	name = "Paralysis: " + ##ORGAN_NAME; \
+	trait_type = ##TRAIT_NAME; \
+	spawn_wheelchair = ##SPAWN_WHEELCHAIR; \
+}
+ORGAN_PARALYSIS(left_arm, "Left Arm", TRAIT_PARALYSIS_L_ARM, FALSE)
+ORGAN_PARALYSIS(right_arm, "Right Arm", TRAIT_PARALYSIS_R_ARM, FALSE)
+ORGAN_PARALYSIS(left_leg, "Left Leg", TRAIT_PARALYSIS_L_LEG, TRUE)
+ORGAN_PARALYSIS(right_leg, "Right Leg", TRAIT_PARALYSIS_R_LEG, TRUE)
+
+#undef ORGAN_PARALYSIS

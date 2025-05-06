@@ -83,6 +83,7 @@
 	arterial_bleed_severity = 0.75
 	amputation_point = "left shoulder"
 	augment_limit = 2
+	paralysis_trait = TRAIT_PARALYSIS_L_ARM
 
 /obj/item/organ/external/arm/body_part_class()
 	return ARMS
@@ -99,6 +100,7 @@
 	tendon_name = "cruciate ligament"
 	artery_name = "brachial artery"
 	amputation_point = "right shoulder"
+	paralysis_trait = TRAIT_PARALYSIS_R_ARM
 
 /obj/item/organ/external/leg
 	limb_name = BP_L_LEG
@@ -117,6 +119,7 @@
 	amputation_point = "left hip"
 	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_HAS_TENDON
 	augment_limit = 2
+	paralysis_trait = TRAIT_PARALYSIS_L_LEG
 
 /obj/item/organ/external/leg/body_part_class()
 	return LEGS
@@ -132,6 +135,7 @@
 	icon_position = RIGHT
 	joint = "right knee"
 	amputation_point = "right hip"
+	paralysis_trait = TRAIT_PARALYSIS_R_LEG
 
 /obj/item/organ/external/foot
 	limb_name = BP_L_FOOT
