@@ -325,6 +325,34 @@ export const ListActive = (props, context) => {
         <LabeledList.Item label="Sex">
           {capitalize(data.active.sex)}
         </LabeledList.Item>
+        <LabeledList.Item label="Species">
+          {data.editable & 1 ? (
+            <Box>
+              {editingSpecies ? (
+                <Input
+                  placeholder={data.active.species}
+                  width="100%"
+                  onInput={(e, v) =>
+                    act('editrecord', {
+                      key: 'species',
+                      value: v,
+                    })
+                  }
+                />
+              ) : (
+                <Box>
+                  {data.active.species}&nbsp;
+                  <Button
+                    icon="pencil-ruler"
+                    onClick={() => setEditingSpecies(true)}
+                  />
+                </Box>
+              )}
+            </Box>
+          ) : (
+            data.active.species
+          )}
+        </LabeledList.Item>
         <LabeledList.Item label="Rank">{data.active.rank}</LabeledList.Item>
         <LabeledList.Item label="Physical Status">
           {data.editable & 1 || data.editable & 2 ? (
@@ -570,34 +598,6 @@ export const ListActive = (props, context) => {
         )}
         {data.available_types & 1 && recordTab === 'General' ? (
           <>
-            <LabeledList.Item label="Species">
-              {data.editable & 1 ? (
-                <Box>
-                  {editingSpecies ? (
-                    <Input
-                      placeholder={data.active.species}
-                      width="100%"
-                      onInput={(e, v) =>
-                        act('editrecord', {
-                          key: 'species',
-                          value: v,
-                        })
-                      }
-                    />
-                  ) : (
-                    <Box>
-                      {data.active.species}&nbsp;
-                      <Button
-                        icon="pencil-ruler"
-                        onClick={() => setEditingSpecies(true)}
-                      />
-                    </Box>
-                  )}
-                </Box>
-              ) : (
-                data.active.species
-              )}
-            </LabeledList.Item>
             <LabeledList.Item label="Citizenship">
               {data.editable & 1 ? (
                 <Box>
