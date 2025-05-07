@@ -16,9 +16,9 @@
 
 /obj/item/organ/internal/augment/sightlights/generic
 	name = "ocular installed sightlights "
-	var/lights_color = LIGHT_COLOR_TUNGSTEN
-	var/lights_range = 4
-	var/lights_intensity = 2
+	lights_color = LIGHT_COLOR_TUNGSTEN
+	lights_range = 4
+	lights_intensity = 2
 
 /obj/item/organ/internal/augment/sightlights/attack_self(var/mob/user)
 	. = ..()
