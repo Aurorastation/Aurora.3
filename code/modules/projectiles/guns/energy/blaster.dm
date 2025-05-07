@@ -13,7 +13,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	offhand_accuracy = 1
 	projectile_type = /obj/projectile/energy/blaster
-	max_shots = 6
+	max_shots = 12
 
 	burst_delay = 2
 	sel_mode = 1
@@ -41,7 +41,7 @@
 /obj/item/gun/energy/blaster/pilot_special
 	name = "pilot's sidearm"
 	desc = "A robust, low in maintenance blaster pistol. Customized for peak performance and perfect for self-defense purposes."
-	max_shots = 8
+	max_shots = 12
 	accuracy = 2 // Likely to get nothing else, so they gotta know how to make it count.
 	offhand_accuracy = 2
 
@@ -66,7 +66,7 @@
 	icon = 'icons/obj/guns/blaster_carbine.dmi'
 	icon_state = "blaster_carbine"
 	item_state = "blaster_carbine"
-	max_shots = 12
+	max_shots = 16
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	offhand_accuracy = 0
 	projectile_type = /obj/projectile/energy/blaster
@@ -116,7 +116,7 @@
 	icon = 'icons/obj/guns/blaster_ar.dmi'
 	icon_state = "blaster_ar"
 	item_state = "blaster_ar"
-	max_shots = 20
+	max_shots = 24
 	projectile_type = /obj/projectile/energy/blaster/heavy
 	fire_sound = 'sound/weapons/laserstrong.ogg'
 	slot_flags = SLOT_BACK
@@ -145,7 +145,7 @@
 	icon = 'icons/obj/guns/himeo_blaster.dmi'
 	icon_state = "himeoblaster"
 	item_state = "himeoblaster"
-	projectile_type = /obj/projectile/energy/blaster
+	projectile_type = /obj/projectile/energy/blaster/heavy
 	usesound = 'sound/weapons/plasma_cutter.ogg'
 	fire_sound = 'sound/weapons/gunshot/slammer.ogg'
 	cell_type = /obj/item/cell/hydrogen

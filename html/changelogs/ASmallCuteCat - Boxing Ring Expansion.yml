@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: arrow768
+author: ASmallCuteCat
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,4 +55,6 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - bugfix: "Removes a old permissions from the default admin ranks config."
+  - rscadd: "Added two new holodeck items, the Practice Sword and the Fencing Rapier. Renamed the Boxing Ring holodeck setting to Sparring Ring, where the new items can be found."
+  - rscadd: "Added interactions for the Practice Sword and Fencing Rapier to the Punching Bag."
+  - rscadd: "Added two Punching Bags to the Sparring Ring."
