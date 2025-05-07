@@ -1,7 +1,8 @@
 /obj/item/organ/internal/augment/sightlights
 	name = "ocular installed Zeng-Hu sightlights "
-	desc = "Designed to assist personnel in darker areas or places experiencing periodic power issues, " \
-		+ "Sightlights will allow one to be able to use their eyes as a flashlight."
+	desc = "Designed to assist Zeng-Hu medical personnel in darker areas or places experiencing periodic power issues, " \
+		+ "Sightlights will allow one to be able to use their eyes as a flashlight. " \
+		+ "These are the original high-spec models available exclusively through Zeng-Hu."
 	icon_state = "sightlights"
 	organ_tag = BP_AUG_SIGHTLIGHTS
 	parent_organ = BP_HEAD
@@ -16,6 +17,11 @@
 
 /obj/item/organ/internal/augment/sightlights/generic
 	name = "ocular installed sightlights "
+	desc = "Designed to assist personnel in darker areas or places experiencing periodic power issues, " \
+		+ "Sightlights will allow one to be able to use their eyes as a flashlight. " \
+		+ "Later SCC-mediated negotiation loosened the augment's patent restrictions, " \
+		+ "allowing offbrand manufacture and use by other members of the Chainlink."
+	icon_state = "m2eyes"
 	lights_color = LIGHT_COLOR_TUNGSTEN
 	lights_range = 4
 	lights_intensity = 2
