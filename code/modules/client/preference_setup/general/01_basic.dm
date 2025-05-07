@@ -333,7 +333,7 @@
 			to_chat(usr, SPAN_WARNING("You are unable to edit your IPC tag due to a timelock restriction. If you got here, it is either a hack or a bug."))
 			return
 		var/new_serial_number = sanitize(input(user, "Enter what you want to set your serial number to.", "IPC Serial Number", pref.machine_serial_number) as message|null)
-		new_serial_number = uppertext(dd_limittext(new_serial_number, 12))
+		new_serial_number = uppertext(dd_limittext(new_serial_number, 20))
 		if(new_serial_number && CanUseTopic(user))
 			pref.machine_serial_number = sanitize(new_serial_number)
 			return TOPIC_REFRESH
