@@ -76,13 +76,34 @@
 		/obj/item/toy/plushie/mouse,
 		/obj/item/toy/plushie/kitten,
 		/obj/item/toy/plushie/lizard,
+		/obj/item/toy/plushie/spider,
 		/obj/item/toy/plushie/farwa,
-		/obj/item/toy/plushie/squid,
 		/obj/item/toy/plushie/bear,
 		/obj/item/toy/plushie/bearfire,
+		/obj/item/toy/plushie/schlorrgo,
+		/obj/item/toy/plushie/coolschlorrgo,
+		/obj/item/toy/plushie/slime,
+		/obj/item/toy/plushie/bee,
+		/obj/item/toy/plushie/shark,
+		/obj/item/toy/plushie/greimorian,
 		/obj/item/toy/plushie/herring_gull,
 		/obj/item/toy/plushie/cockatoo,
-		/obj/item/toy/plushie/norinori
+		/obj/item/toy/plushie/norinori,
+		/obj/item/toy/plushie/fox,
+		/obj/item/toy/plushie/fox/black,
+		/obj/item/toy/plushie/fox/marble,
+		/obj/item/toy/plushie/fox/blue,
+		/obj/item/toy/plushie/fox/orange,
+		/obj/item/toy/plushie/fox/coffee,
+		/obj/item/toy/plushie/fox/pink,
+		/obj/item/toy/plushie/fox/purple,
+		/obj/item/toy/plushie/fox/crimson,
+		/obj/item/toy/plushie/axic,
+		/obj/item/toy/plushie/qill,
+		/obj/item/toy/plushie/xana,
+		/obj/item/toy/plushie/ipc,
+		/obj/item/toy/plushie/domadice,
+		/obj/item/toy/plushie/squid
 	)
 
 /obj/random/balloon
@@ -568,4 +589,30 @@
 				var/obj/more_junk = pickweight(more_junk_problist)
 				new more_junk(spawned.loc)
 
+/obj/random/yarn
+	name = "random yarn"
+	desc = "This is a random ball of yarn."
+	icon = 'icons/obj/item/knitting.dmi'
+	icon_state = "white_ball"
+	spawnlist = list(
+		/obj/item/yarn/blue,
+		/obj/item/yarn/green,
+		/obj/item/yarn/purple,
+		/obj/item/yarn/red,
+		/obj/item/yarn/yellow
+	)
+
+/obj/random/horticulture_magazine
+	name = "random horticulture magazine"
+	desc = "This is a random magazine."
+	icon = 'icons/obj/library.dmi'
+	icon_state = "horticulture1"
+	spawnlist = list(
+		/obj/item/toy/comic/magazine/horticulturetoday/issue1,
+		/obj/item/toy/comic/magazine/horticulturetoday/issue2,
+		/obj/item/toy/comic/magazine/horticulturetoday/issue3,
+		/obj/item/toy/comic/magazine/horticulturetoday/issue4,
+		/obj/item/toy/comic/magazine/horticulturetoday/issue5,
+		/obj/item/toy/comic/magazine/horticulturetoday/issue6
+	)
 

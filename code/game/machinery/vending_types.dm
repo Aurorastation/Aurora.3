@@ -867,7 +867,8 @@
 	)
 	premium = list(
 		/obj/item/reagent_containers/glass/bottle/ammonia = 10,
-		/obj/item/reagent_containers/glass/bottle/diethylamine = 5
+		/obj/item/reagent_containers/glass/bottle/diethylamine = 5,
+		/obj/random/horticulture_magazine = 4
 	)
 	contraband = list(
 		/obj/item/reagent_containers/glass/bottle/mutagen = 2
@@ -879,13 +880,83 @@
 /obj/machinery/vending/hydronutrients/xenobotany
 	products = list(
 		/obj/item/reagent_containers/glass/fertilizer/ez = 6,
-		/obj/item/reagent_containers/glass/fertilizer/l4z = 5,
+		/obj/item/reagent_containers/glass/fertilizer/l4z = 6,
 		/obj/item/reagent_containers/glass/fertilizer/rh = 3,
 		/obj/item/plantspray/pests = 20,
-		/obj/item/reagent_containers/syringe = 5,
-		/obj/item/storage/bag/plants = 5,
+		/obj/item/reagent_containers/syringe = 6,
+		/obj/item/storage/bag/plants = 6,
+		/obj/item/device/analyzer/plant_analyzer = 2,
+		/obj/item/material/minihoe = 2,
+		/obj/item/material/hatchet = 2,
+		/obj/item/wirecutters/clippers = 2,
+		/obj/item/reagent_containers/spray/plantbgone = 2,
 		/obj/item/reagent_containers/glass/bottle/mutagen = 3
 	)
+
+//Used specifically for more advanced setups, includes analyzers and tools inside the machine.
+/obj/machinery/vending/hydronutrients/hydroponics
+	name = "HydroVend"
+	desc = "A one stop shop for all your hydroponics needs."
+
+	products = list(
+		/obj/item/reagent_containers/glass/fertilizer/ez = 6,
+		/obj/item/reagent_containers/glass/fertilizer/l4z = 6,
+		/obj/item/reagent_containers/glass/fertilizer/rh = 3,
+		/obj/item/plantspray/pests = 10,
+		/obj/item/reagent_containers/syringe = 6,
+		/obj/item/storage/bag/plants = 6,
+		/obj/item/device/analyzer/plant_analyzer = 2,
+		/obj/item/material/minihoe = 2,
+		/obj/item/material/hatchet = 2,
+		/obj/item/wirecutters/clippers = 2,
+		/obj/item/reagent_containers/spray/plantbgone = 2
+	)
+	premium = list(
+		/obj/item/reagent_containers/glass/bottle/ammonia = 10,
+		/obj/item/reagent_containers/glass/bottle/diethylamine = 5,
+		/obj/random/horticulture_magazine = 4
+	)
+	contraband = list(
+		/obj/item/reagent_containers/glass/bottle/mutagen = 2
+	)
+
+//Meant to replace garden vending machines in public spaces, has a price list for items. Nothing unreasonable.
+/obj/machinery/vending/hydronutrients/gardenvend
+	name = "GardenVend"
+	desc = "A one stop shop for all your gardening needs."
+
+	products = list(
+		/obj/item/reagent_containers/glass/fertilizer/ez = 6,
+		/obj/item/reagent_containers/glass/fertilizer/l4z = 6,
+		/obj/item/reagent_containers/glass/fertilizer/rh = 3,
+		/obj/item/plantspray/pests = 10,
+		/obj/item/storage/bag/plants = 6,
+		/obj/item/material/minihoe = 2,
+		/obj/item/material/hatchet = 2,
+		/obj/item/wirecutters/clippers = 2,
+		/obj/item/reagent_containers/spray/plantbgone = 2
+	)
+	prices = list(
+		/obj/item/reagent_containers/glass/fertilizer/ez = 25,
+		/obj/item/reagent_containers/glass/fertilizer/l4z = 25,
+		/obj/item/reagent_containers/glass/fertilizer/rh = 50,
+		/obj/item/plantspray/pests = 15,
+		/obj/item/storage/bag/plants = 25,
+		/obj/item/material/minihoe = 25,
+		/obj/item/material/hatchet = 25,
+		/obj/item/wirecutters/clippers = 25,
+		/obj/item/reagent_containers/spray/plantbgone = 100
+	)
+
+	premium = list(
+		/obj/item/reagent_containers/glass/bottle/ammonia = 10,
+		/obj/item/reagent_containers/glass/bottle/diethylamine = 5,
+		/obj/random/horticulture_magazine = 4
+	)
+	contraband = list(
+		/obj/item/reagent_containers/glass/bottle/mutagen = 2
+	)
+
 
 /obj/machinery/vending/hydroseeds
 	name = "MegaSeed Servitor"

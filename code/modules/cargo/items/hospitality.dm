@@ -157,7 +157,7 @@
 	name = "produce box"
 	supplier = "nanotrasen"
 	description = "A large box of random, leftover produce."
-	price = 50
+	price = 100
 	items = list(
 		/obj/item/storage/box/produce
 	)
