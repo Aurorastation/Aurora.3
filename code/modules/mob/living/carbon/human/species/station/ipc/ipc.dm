@@ -12,6 +12,7 @@
 	economic_modifier = 3
 	default_genders = list(NEUTER)
 	selectable_pronouns = list(NEUTER, PLURAL)
+	mob_weight = MOB_WEIGHT_HEAVY
 
 	blurb = "IPCs are, quite simply, \"Integrated Positronic Chassis.\" In this scenario, 'positronic' implies that the chassis possesses a positronic processing core (or positronic brain), meaning that an IPC must be positronic to be considered an IPC. The Baseline model is more of a category - the long of the short is that they represent all unbound synthetic units. Baseline models cover anything that is not an Industrial chassis or a Shell chassis. They can be custom made or assembly made. The most common feature of the Baseline model is a simple design, skeletal or semi-humanoid, and ordinary atmospheric diffusion cooling systems."
 
@@ -200,7 +201,7 @@
 			cost *= damage_mod + ((100 - hydraulics_integrity) / 100)
 
 	var/obj/item/organ/internal/machine/cell/C = H.internal_organs_by_name[BP_CELL]
-	if(!istype(C))
+	if(istype(C))
 		C.use(cost * sprint_cost_factor)
 		SEND_SIGNAL(H, COMSIG_IPC_HAS_SPRINTED)
 	return TRUE

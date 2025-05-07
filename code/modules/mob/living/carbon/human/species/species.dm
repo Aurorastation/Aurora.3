@@ -71,6 +71,10 @@
 	var/race_key = 0       	                             // Used for mob icon cache string.
 	var/icon/icon_template                               // Used for mob icon generation for non-32x32 species.
 	var/mob_size	= MOB_MEDIUM
+	/// The weight of the mob. Affects if the mob can be easily lifted or not. Separate from size, as some mobs may be big but not particularly heavy.
+	var/mob_weight = MOB_WEIGHT_MEDIUM
+	/// The strength of the mob. A bonus to the checks on lifting/throwing other mobs.
+	var/mob_strength = MOB_STRENGTH_NORMAL
 	var/show_ssd = "in a deep slumber"
 	var/short_sighted
 	var/bald = 0
@@ -530,13 +534,15 @@
 
 	return
 
-/datum/species/proc/handle_post_spawn(var/mob/living/carbon/human/H,var/kpg = 0) //Handles anything not already covered by basic species assignment. Keepgene value should only be used by genetics.
+/datum/species/proc/handle_post_spawn(var/mob/living/carbon/human/H, var/kpg = 0) //Handles anything not already covered by basic species assignment. Keepgene value should only be used by genetics.
 	add_inherent_verbs(H)
 	H.mob_bump_flag = bump_flag
 	H.mob_swap_flags = swap_flags
 	H.mob_push_flags = push_flags
 	H.pass_flags = pass_flags
 	H.mob_size = mob_size
+	H.mob_weight = mob_weight
+	H.mob_strength = mob_strength
 	H.eat_types = allowed_eat_types
 	if(!kpg)
 		if(islesserform(H))

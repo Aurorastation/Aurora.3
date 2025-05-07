@@ -293,6 +293,24 @@
 #define MOB_TINY 		4
 #define MOB_MINISCULE	1
 
+// Mob weight, separate from mob size. Affects how easy a mob is to lift.
+/// Light mobs, can be lifted by anyone.
+#define MOB_WEIGHT_LIGHT 1
+/// Medium weight mobs, the default for humanoids. Can be lifted by medium+.
+#define MOB_WEIGHT_MEDIUM 2
+/// Heavy mobs. They need speecial equipment or a heavy+ mob to lift.
+#define MOB_WEIGHT_HEAVY 3
+/// Superheavy mobs. Gonna need a lot of help with those.
+#define MOB_WEIGHT_SUPERHEAVY 4
+
+// Mob strength. This allows us to represent stronger mobs with a bit more granularity. Robots should be stronger than normal people. A bonus to the checks on lifting/throwing mobs, essentially.
+/// A normal mob, basically. Does not get us any buffs.
+#define MOB_STRENGTH_NORMAL 0
+/// A strong mob. Small bonus.
+#define MOB_STRENGTH_STRONG 1
+/// A very strong mob. Big bonus.
+#define MOB_STRENGTH_VERY_STRONG 2
+
 #define BASE_MAX_NUTRITION	600
 #define HUNGER_FACTOR		0.04 // Factor of how fast mob nutrition decreases over time.
 

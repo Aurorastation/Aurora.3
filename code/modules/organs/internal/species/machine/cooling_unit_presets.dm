@@ -15,9 +15,6 @@
 
 /singleton/synthetic_organ_preset/cooling_unit/apply_preset(obj/item/organ/internal/machine/organ)
 	. = ..()
-	if(!.)
-		return
-
 	var/obj/item/organ/internal/machine/cooling_unit/cooling_unit = organ
 	cooling_unit.passive_temp_change = passive_temp_change
 	cooling_unit.plating.replace_health(plating_max_health)

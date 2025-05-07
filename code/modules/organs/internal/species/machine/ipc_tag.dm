@@ -13,10 +13,6 @@
 	var/ownership_info = IPC_OWNERSHIP_COMPANY
 	var/citizenship_info = CITIZENSHIP_NONE
 
-/obj/item/organ/internal/machine/ipc_tag/Initialize()
-	robotize()
-	. = ..()
-
 /obj/item/organ/internal/machine/ipc_tag/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	. += SPAN_NOTICE("Serial Autogeneration: [auto_generate ? "Yes" : "No"]")

@@ -90,6 +90,9 @@
  * Only called below 75.
  */
 /obj/item/organ/internal/machine/proc/integrity_damage(integrity)
+	if(!owner)
+		return
+
 	var/obj/item/organ/internal/machine/posibrain/brain = owner.internal_organs_by_name[BP_BRAIN]
 	if(!istype(brain)) //???
 		crash_with("[src]: [owner] somehow didn't have a posibrain.")

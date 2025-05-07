@@ -9,6 +9,7 @@
 	height_max = 230
 	default_genders = list(MALE, FEMALE)
 	selectable_pronouns = list(MALE, FEMALE, PLURAL, NEUTER)
+	mob_weight = MOB_WEIGHT_MEDIUM // Would be really easy to find untagged shells otherwise.
 
 	alterable_internal_organs = list(BP_EYES, BP_COOLING_UNIT, BP_REACTOR)
 
@@ -483,6 +484,7 @@
 	resist_mod = 4 // Not super strong, but still rather strong
 
 	appearance_flags = HAS_EYE_COLOR | HAS_UNDERWEAR | HAS_SOCKS
+	flags = IS_IPC | NO_SLIP
 
 	examine_color = "#ff00ff"
 

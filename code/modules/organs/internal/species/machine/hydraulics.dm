@@ -13,6 +13,7 @@
  * Handles sprint effects. For example, recharging with the kinetic reactor.
  */
 /obj/item/organ/internal/machine/hydraulics/proc/handle_hydraulics()
+	SIGNAL_HANDLER
 	if(!owner)
 		return
 

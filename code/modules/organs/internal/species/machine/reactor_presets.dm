@@ -11,9 +11,6 @@
 
 /singleton/synthetic_organ_preset/reactor/apply_preset(obj/item/organ/internal/machine/organ)
 	. = ..()
-	if(!.)
-		return
-
 	var/obj/item/organ/internal/machine/reactor/reactor = organ
 	reactor.base_power_generation = base_power_generation
 	reactor.power_supply_type = power_supply_type
@@ -32,7 +29,7 @@
 	desc = "A simple, but effective power generator that uses motion to generate power."
 
 	external_charge_multiplier = 0.5
-	base_power_generation = 100
+	base_power_generation = 5
 	power_supply_type = POWER_SUPPLY_KINETIC
 
 /singleton/synthetic_organ_preset/reactor/biological

@@ -48,7 +48,8 @@
 	if(!istype(cell))
 		return
 
-	. = cell.give(base_power_generation)
+	. = cell.give(amount)
+	last_power_generated = .
 	total_power_generated += .
 
 /obj/item/organ/internal/machine/reactor/get_diagnostics_info()
