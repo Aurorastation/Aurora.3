@@ -359,6 +359,55 @@
 	visible_message(SPAN_WARNING("\The [src] quivers slightly, then splits apart with a wet slithering noise."))
 	qdel(src)
 
+/**
+Movespeed modifier used in the root_to_ground proc. This determines how much the ability slows you down by.
+ */
+/datum/movespeed_modifier/root_to_ground
+	multiplicative_slowdown = 1.5
+
+/**
+This verb lets the Diona anchor themselves to the ground, giving them magboot properties.
+Slows you down while being used, and cannot be used below 50 nutrition and 20 energy.
+*/
+/mob/living/carbon/human/proc/root_to_ground()
+	set name = "Extend Roots"
+	set desc = "Extend your roots to keep yourself upright in case of pressure changes."
+	set category = "Abilities"
+
+	if(use_check_and_message(src))
+		return
+
+	if(nutrition <= 50)
+		to_chat(src, SPAN_WARNING("You lack nutrition to perform this action!"))
+		return
+
+	if(DS.stored_energy <= 20)
+		to_chat(src, SPAN_WARNING("You lack energy to perform this action!"))
+		return
+
+	if(last_special > world.time)
+		to_chat(src, SPAN_WARNING("You've used an ability too recently! Wait a bit."))
+		return
+
+	if(!has_organ(BP_R_FOOT) && !has_organ(BP_L_FOOT))
+		to_chat(src, SPAN_WARNING("You have no supporting limbs to extend your roots from!"))
+		return
+
+	last_special = world.time + 2 SECONDS
+
+	if(HAS_TRAIT(src, TRAIT_SHOE_GRIP))
+		visible_message(SPAN_NOTICE("[src] retracts the roots growing from their feet back into their body.")
+		, SPAN_NOTICE("You retract your roots back into your body."))
+		REMOVE_TRAIT(src, TRAIT_SHOE_GRIP, TRAIT_SOURCE_SPECIES_VERB)
+		remove_movespeed_modifier(/datum/movespeed_modifier/root_to_ground)
+		playsound(src, 'sound/species/diona/gestalt_split.ogg', 20, extrarange = SILENCED_SOUND_EXTRARANGE)
+	else
+		visible_message(SPAN_NOTICE("[src] extends an array of roots out from their feet, clutching at any available surface!")
+		, SPAN_NOTICE("You extend strong roots from your feet, serving as natural braces to keep your footing secure."))
+		ADD_TRAIT(src, TRAIT_SHOE_GRIP, TRAIT_SOURCE_SPECIES_VERB)
+		add_movespeed_modifier(/datum/movespeed_modifier/root_to_ground)
+		playsound(src, 'sound/species/diona/gestalt_grow.ogg', 30, extrarange = SILENCED_SOUND_EXTRARANGE)
+
 #undef COLD_DAMAGE_LEVEL_1
 #undef COLD_DAMAGE_LEVEL_2
 #undef COLD_DAMAGE_LEVEL_3
