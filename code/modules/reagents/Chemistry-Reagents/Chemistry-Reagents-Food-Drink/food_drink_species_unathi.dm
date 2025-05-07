@@ -258,14 +258,6 @@
 
 	var/last_taste_time = -100
 
-/singleton/reagent/alcohol/butanol/trizkizki_tea/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	if(alien == IS_DIONA)
-		if(last_taste_time + 800 < world.time) // Not to spam message
-			to_chat(M, SPAN_DANGER("Your body withers as you feel slight pain throughout."))
-			last_taste_time = world.time
-		metabolism = REM * 0.33
-		M.adjustToxLoss(1.5 * removed)
-
 /singleton/reagent/alcohol/butanol/pulque
 	name = "Xuizi pulque"
 	description = "A variation of Mictlanian pulque that is safe to consume for Unathi."
