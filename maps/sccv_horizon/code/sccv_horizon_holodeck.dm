@@ -104,7 +104,7 @@
 		"Basketball Court"   = "basketball",
 		"Animal Cafe"		 = "animal_cafe",
 		"Thunderdome Court"  = "thunderdomecourt",
-		"Boxing Ring"        = "boxingcourt",
+		"Sparring Ring"      = "boxingcourt",
 		"Silversun Coast"    = "beach",
 		"Desert"             = "desert",
 		"Space"              = "space",
