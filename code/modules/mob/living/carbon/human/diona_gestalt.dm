@@ -359,9 +359,9 @@
 	visible_message(SPAN_WARNING("\The [src] quivers slightly, then splits apart with a wet slithering noise."))
 	qdel(src)
 
-/**
+/*
 Movespeed modifier used in the root_to_ground proc. This determines how much the ability slows you down by.
- */
+*/
 /datum/movespeed_modifier/root_to_ground
 	multiplicative_slowdown = 1.5
 
