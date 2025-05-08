@@ -162,6 +162,7 @@
 		pref.real_name      = random_name(pref.gender, pref.species)
 	pref.spawnpoint         = sanitize_inlist(pref.spawnpoint, SSatlas.spawn_locations, initial(pref.spawnpoint))
 	pref.machine_tag_status = text2num(pref.machine_tag_status) // SQL queries return as text, so make this a num
+	pref.hidden_shell_status = text2num(pref.hidden_shell_status) // this too
 	pref.floating_chat_color = sanitize_hexcolor(pref.floating_chat_color, get_random_colour(0, 160, 230))
 	var/datum/species/S = GLOB.all_species[pref.species]
 	if(!pref.speech_bubble_type || !(pref.speech_bubble_type in S.possible_speech_bubble_types))
