@@ -9,3 +9,38 @@
 2025-05-06:
   FlamingLily:
   - qol: Reduced the cost of large flags to 1 point.
+2025-05-08:
+  ASmallCuteCat:
+  - rscadd: Added two new holodeck items, the Practice Sword and the Fencing Rapier.
+      Renamed the Boxing Ring holodeck setting to Sparring Ring, where the new items
+      can be found.
+  - rscadd: Added interactions for the Practice Sword and Fencing Rapier to the Punching
+      Bag.
+  - rscadd: Added two Punching Bags to the Sparring Ring.
+  CourierBravo:
+  - rscadd: Remapped hydroponics and the garden to hopefully breathe some new life
+      into the gardener role.
+  - rscadd: Added a series of new items to the biogenerator.
+  - rscadd: Added all the plushies I could find to the plushie randomizer
+  - rscdel: Removed synthetic blood, the pet mushroom, human hide, and the hostile
+      tree from the bio generator.
+  - imageadd: Added a new type of magazine, Horticulture Today! Added sprites to go
+      along with each issue.
+  - balance: Added two new subtypes of vending machine for the garden and hydroponics.
+      The public garden vendor now costs credits to use.
+  - balance: Increased the capacity of the biogenerator by double. Changed prices
+      for biogenerator recipes to make them more reasonable for product input.
+  - balance: Added a few new bounties that work in favor of the gardener role.
+  - balance: Added some soy sauce bottles to the kitchen, given its increasing prevalence
+      as an ingredient.
+  - balance: Increased the price of the produce box in the operations ordering program
+      from 50 credits to 100.
+  FlamingLily:
+  - qol: Increased maximum IPC tag size to 20 characters. Hazels rejoice. Auto-generated
+      tags remain at 12.
+  - rscadd: Added an option to character setup to allow shells to play human. This
+      alters what species is listed in records, and is no longer tied to the shell's
+      tag status.
+  - qol: Moved the 'Species' entry in records out of employment records and to the
+      global records. It really didn't make sense that medical and security couldn't
+      see what species a person is.
