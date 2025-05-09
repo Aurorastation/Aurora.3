@@ -56,7 +56,7 @@ ABSTRACT_TYPE(/obj/structure/engineer_maintenance)
 		. += SPAN_NOTICE("---")
 		. += SPAN_NOTICE(detailed_desc)
 		. += SPAN_NOTICE("---")
-	. += SPAN_NOTICE("A wrench, or an impact drill with the wrenchbit selected, can be used with the DISARM Intent to open/close the panel.")
+	. += SPAN_NOTICE("Any wrench, or an impact drill with the wrenchbit selected, can be used to open/close the panel.")
 	if(panel_open)
 		. += SPAN_NOTICE("---")
 		. += SPAN_NOTICE("The following tools can be used to interact with the panel:")
@@ -72,7 +72,7 @@ ABSTRACT_TYPE(/obj/structure/engineer_maintenance)
 	icon_state = "[panel_location]_[panel_type]_[icon_number]"
 
 /obj/structure/engineer_maintenance/attackby(obj/item/attacking_item, mob/user, params)
-	if((istype(attacking_item, /obj/item/powerdrill) || istype(attacking_item, /obj/item/wrench)) && user.a_intent == I_DISARM) // Powerdrill w/ wrenchbit will open fast, regular wrench opens it slower
+	if(istype(attacking_item, /obj/item/powerdrill) || istype(attacking_item, /obj/item/wrench)) // Any wrench is good, but we explicltly include the impact drill to send a helpful msg if they just have the screwdriver bit attached.
 		if(!attacking_item.iswrench())
 			to_chat(user, SPAN_WARNING("\The [attacking_item] must have its wrenchbit inserted to remove \the [src]'s bolts!"))
 			return
@@ -113,7 +113,6 @@ ABSTRACT_TYPE(/obj/structure/engineer_maintenance)
 		"4" = "A high-pressure pipe, together with an electrical flow meter and a keypad can be seen in this hatch. High pressure pipes like these usually carry gases around the place. Probably in higher quantities than usual. The interface allows the user to adjust the flow rate or to close the pipe completely."
 	)
 	panel_tools = list(
-		/obj/item/wrench = /singleton/engineer_maintenance_tool/steam_pipe,
 		/obj/item/pipewrench = /singleton/engineer_maintenance_tool/steam_pipe,
 		/obj/item/hammer = /singleton/engineer_maintenance_tool/steam_pipe,
 		/obj/item/device/multitool = /singleton/engineer_maintenance_tool/steam_pipe
