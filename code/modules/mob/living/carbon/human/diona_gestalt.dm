@@ -409,7 +409,7 @@ Slows you down while being used, and cannot be used below 50 nutrition and 20 en
 
 /// Engages Diona magboot roots.
 /mob/living/carbon/human/proc/root_enable()
-	visible_message(SPAN_NOTICE("[src] extends an array of roots out from their feet, clutching at any available surface!"),
+	visible_message(SPAN_NOTICE("[src] extends an array of roots out from their feet, clutching at any available surface!")
 	, SPAN_NOTICE("You extend strong roots from your feet, serving as natural braces to keep your footing secure."))
 	ADD_TRAIT(src, TRAIT_SHOE_GRIP, TRAIT_SOURCE_SPECIES_VERB)
 	add_movespeed_modifier(/datum/movespeed_modifier/root_to_ground)
