@@ -136,14 +136,17 @@ Nymphs have 100 health, so without armor there is a small possibility for each n
 //1.5 is the maximum energy that can be lost per proc
 //2.1 is the approximate delay between procs
 /mob/living/carbon/human/proc/setup_dionastats()
-	//Diona time variables, these differ slightly between a gestalt and a nymph. All values are times in seconds
-	var/energy_duration = 120//How long this diona can exist in total darkness before its energy runs out
-	var/dark_consciousness = 120//How long this diona can stay on its feet and keep moving in darkness after energy is gone.
-	var/dark_survival = 180//How long this diona can survive in darkness after energy is gone, before it dies
+	// Diona time variables. These differ slightly between a gestalt and a nymph. All values are times in seconds.
 
+	/// How long this diona can exist in total darkness before its energy runs out.
+	var/energy_duration = 120
+	/// How long this diona can stay on its feet and keep moving in darkness after energy is gone.
+	var/dark_consciousness = 120
+	/// How long this diona can survive in darkness after energy is gone, before it dies.
+	var/dark_survival = 180
 
-
-	var/MLS = (1.5 / 2.1)//Maximum (energy) lost per second, in total darkness
+	/// Maximum (energy) lost per second, in total darkness.
+	var/MLS = (1.5 / 2.1)s
 	DS = new/datum/dionastats()
 	DS.max_energy = energy_duration * MLS
 	DS.max_health = maxHealth*2
