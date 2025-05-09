@@ -146,7 +146,7 @@ Nymphs have 100 health, so without armor there is a small possibility for each n
 	var/dark_survival = 180
 
 	/// Maximum (energy) lost per second, in total darkness.
-	var/MLS = (1.5 / 2.1)s
+	var/MLS = (1.5 / 2.1)
 	DS = new/datum/dionastats()
 	DS.max_energy = energy_duration * MLS
 	DS.max_health = maxHealth*2
