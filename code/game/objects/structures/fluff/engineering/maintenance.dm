@@ -56,7 +56,7 @@ ABSTRACT_TYPE(/obj/structure/engineer_maintenance)
 		. += SPAN_NOTICE("---")
 		. += SPAN_NOTICE(detailed_desc)
 		. += SPAN_NOTICE("---")
-	. += SPAN_NOTICE("An impact wrench with the wrenchbit selected can be used to open/close the panel.")
+	. += SPAN_NOTICE("A wrench, or an impact wrench with the wrenchbit selected, can be used with the DISARM Intent to open/close the panel.")
 	if(panel_open)
 		. += SPAN_NOTICE("---")
 		. += SPAN_NOTICE("The following tools can be used to interact with the panel:")
@@ -72,15 +72,22 @@ ABSTRACT_TYPE(/obj/structure/engineer_maintenance)
 	icon_state = "[panel_location]_[panel_type]_[icon_number]"
 
 /obj/structure/engineer_maintenance/attackby(obj/item/attacking_item, mob/user, params)
-	if(istype(attacking_item, /obj/item/powerdrill)) // these will always open the panel
+	if((istype(attacking_item, /obj/item/powerdrill) || istype(attacking_item, /obj/item/wrench)) && user.a_intent == I_DISARM) // Powerdrill w/ wrenchbit will open fast, regular wrench opens it slower
 		if(!attacking_item.iswrench())
 			to_chat(user, SPAN_WARNING("\The [attacking_item] must have its wrenchbit inserted to remove \the [src]'s bolts!"))
 			return
-		user.visible_message("[SPAN_BOLD("[user]")] starts [panel_open ? "closing" : "opening"] \the [src]...", SPAN_NOTICE("You start [panel_open ? "closing" : "opening"] \the [src]..."), SPAN_NOTICE("You hear the whirr of an impact wrench..."))
+		if (istype(attacking_item, /obj/item/powerdrill))
+			user.visible_message("[SPAN_BOLD("[user]")] starts [panel_open ? "closing" : "opening"] \the [src]...", SPAN_NOTICE("You start [panel_open ? "closing" : "opening"] \the [src]..."), SPAN_NOTICE("You hear the whirr of an impact wrench..."))
+		else
+			user.visible_message("[SPAN_BOLD("[user]")] starts manually [panel_open ? "closing" : "opening"] \the [src]...", SPAN_NOTICE("You start manually [panel_open ? "closing" : "opening"] \the [src]..."))
 		if(attacking_item.usesound)
 			playsound(get_turf(src), attacking_item.usesound, 30, TRUE)
-		if(!do_after(user, rand(2, 3) SECONDS, src))
-			return
+		if (istype(attacking_item, /obj/item/powerdrill))
+			if(!do_after(user, rand(2, 3) SECONDS, src))
+				return
+		else
+			if(!do_after(user, rand(5, 7) SECONDS, src))
+				return
 		user.visible_message("[SPAN_BOLD("[user]")] [panel_open ? "closes" : "opens"] \the [src]!", SPAN_NOTICE("You [panel_open ? "close" : "open"] \the [src]!"))
 		panel_open = !panel_open
 		update_icon()
