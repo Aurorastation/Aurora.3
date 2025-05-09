@@ -44,3 +44,6 @@
   - qol: Moved the 'Species' entry in records out of employment records and to the
       global records. It really didn't make sense that medical and security couldn't
       see what species a person is.
+2025-05-09:
+  FlamingLily:
+  - bugfix: Fixes shells being hidden automatically. Oops.
