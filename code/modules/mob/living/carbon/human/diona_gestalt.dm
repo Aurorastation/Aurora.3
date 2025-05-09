@@ -12,7 +12,7 @@
 
 
 /mob/living/carbon/human/proc/setup_gestalt()
-	composition_reagent = /singleton/reagent/nutriment //Dionae are plants, so eating them doesn't give animal protein
+	composition_reagent = /singleton/reagent/nutriment //Dionae aren't animals, so eating them doesn't give animal protein
 	setup_dionastats()
 	add_verb(src, /mob/living/carbon/human/proc/check_light)
 	add_verb(src, /mob/living/carbon/human/proc/diona_split_nymph)
@@ -155,6 +155,7 @@ Nymphs have 100 health, so without armor there is a small possibility for each n
 //Splitting functions
 //====================
 
+/// A verb accessible to Diona players, calls the split proc.
 /mob/living/carbon/human/proc/diona_split_nymph()
 	set name = "Split"
 	set desc = "Split your humanoid form into its constituent nymphs."
@@ -165,8 +166,7 @@ Nymphs have 100 health, so without armor there is a small possibility for each n
 
 	diona_split_into_nymphs()
 
-
-//This function allows a reformed gestalt to set its name, once only
+/// Allows a newly reformed gestalt to set their name, but only once. This isn't available to gestalts that haven't reformed.
 /mob/living/carbon/human/proc/gestalt_set_name()
 	set name = "Set Gestalt Name"
 	set desc = "Choose a name for your new collective."
@@ -190,7 +190,7 @@ Nymphs have 100 health, so without armor there is a small possibility for each n
 		to_chat(src, "<span class=notice>Our collective shall now be known as [real_name] !</span>")
 		verbs.Remove(/mob/living/carbon/human/proc/gestalt_set_name)
 
-
+/// Halts regeneration, so you don't grow a new limb when you don't wish to.
 /mob/living/carbon/human/proc/pause_regen_process()
 	set name = "Halt Metabolism"
 	set desc = "Allows you to pause any regeneration process."
@@ -200,6 +200,7 @@ Nymphs have 100 health, so without armor there is a small possibility for each n
 		DS.pause_regen = !DS.pause_regen
 		to_chat(usr, SPAN_NOTICE("You have [!DS.pause_regen ? "started" : "paused"] regeneration process."))
 
+/// Allows the player to detach a single nymph from their head or hands and control it seperately.
 /mob/living/carbon/human/proc/diona_detach_nymph()
 	set name = "Detach Nymph"
 	set desc = "Allows you to detach specific nymph, and control it."
@@ -271,6 +272,7 @@ Nymphs have 100 health, so without armor there is a small possibility for each n
 	diona_handle_regeneration(DS)
 	playsound(src, 'sound/species/diona/gestalt_grow.ogg', 30, 1)
 
+/// Allows the player to switch between their gestalt and a nymph they've split off.
 /mob/living/carbon/human/proc/switch_to_nymph()
 	set name = "Switch to Nymph"
 	set desc = "Allows you to switch control back to your detached Nymph."
@@ -362,6 +364,9 @@ Nymphs have 100 health, so without armor there is a small possibility for each n
 
 	visible_message(SPAN_WARNING("\The [src] quivers slightly, then splits apart with a wet slithering noise."))
 	qdel(src)
+
+// Miscellaneous abilities
+//================================
 
 /**
 This verb lets the Diona anchor themselves to the ground, giving them magboot properties.
