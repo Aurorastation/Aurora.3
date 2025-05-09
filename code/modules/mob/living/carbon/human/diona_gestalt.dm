@@ -424,7 +424,7 @@ Slows you down while being used, and cannot be used below 50 nutrition and 20 en
 	playsound(src, 'sound/species/diona/gestalt_split.ogg', 20, extrarange = SILENCED_SOUND_EXTRARANGE)
 
 /**
-This is used to check if any criteria have been reached where any Diona abilities should be disabled. Please add to it if necessary!
+This is used to check if any criteria have been reached where any Diona abilities should be disabled.
 Currently checks if the roots ability should be disabled based on energy, nutrition, and whether the gestalt still has any feet.
 */
 /mob/living/carbon/human/proc/check_diona_abilities(var/datum/dionastats/DS)
