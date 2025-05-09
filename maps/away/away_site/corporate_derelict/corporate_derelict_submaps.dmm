@@ -6,7 +6,7 @@
 "ag" = (
 /obj/effect/floor_decal/corner/purple,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/ship/zeng_science_ship/starboard_laboratory)
 "ai" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
@@ -18,7 +18,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/ship/orion_light_freight/main_hall)
 "ar" = (
 /turf/template_noop,
 /turf/simulated/floor/tiled/dark/full,
@@ -36,45 +36,67 @@
 /obj/effect/decal/cleanable/floor_damage/broken1,
 /obj/structure/grille/broken,
 /turf/simulated/floor/airless,
-/area/space)
+/area/ship/orion_light_freight/crew_quarters)
 "aT" = (
 /obj/effect/floor_decal/corner/paleblue,
 /turf/simulated/floor/tiled,
 /area/ship/nanotrasen_patrol/ammo)
+"aX" = (
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#8a7387";
+	frame_color = "#8a7387";
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	req_one_access = list(204)
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/zeng_science_ship/bridge)
 "bf" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/zeng_science_ship/port_nacelle)
 "bj" = (
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/ship/orion_light_freight/kitchen)
 "bp" = (
 /turf/simulated/floor/tiled/dark,
 /area/ship/nanotrasen_patrol/ammo)
+"bs" = (
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/zeng_science_ship/port_nacelle)
 "bz" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/orion_light_freight/main_hall)
 "bD" = (
 /obj/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/ship/orion_light_freight/engineering)
 "bI" = (
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nanotrasen_patrol/reactor)
+"bS" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/ship/zeng_science_ship/bridge)
 "cc" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
@@ -96,22 +118,32 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/orion_light_freight/engineering)
 "cw" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/ship/orion_light_freight/main_hall)
 "cA" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
 /turf/simulated/floor,
 /area/ship/nanotrasen_patrol/port_nacelle)
+"cD" = (
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/full,
+/area/ship/zeng_science_ship/lab_atrium)
 "cK" = (
 /turf/simulated/wall/shuttle/scc_space_ship,
 /area/ship/nanotrasen_patrol/reactor)
+"cS" = (
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/orion_light_freight/life_support)
 "cU" = (
 /obj/effect/floor_decal/corner/dark_green/full{
 	dir = 4
@@ -127,7 +159,7 @@
 "cX" = (
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor,
-/area/space)
+/area/ship/orion_light_freight/engineering)
 "cZ" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -137,7 +169,7 @@
 "df" = (
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/ship/orion_light_freight/bridge)
 "dl" = (
 /turf/simulated/wall/shuttle/scc_space_ship,
 /area/ship/nanotrasen_patrol/shuttle_dock)
@@ -153,7 +185,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/orion_light_freight/main_hall)
 "dy" = (
 /obj/machinery/door/firedoor/noid{
 	dir = 4
@@ -165,41 +197,77 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/ship/zeng_science_ship/starboard_nacelle)
 "dL" = (
 /obj/effect/floor_decal/corner/dark_green/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/orion_light_freight/crew_quarters)
 "dM" = (
 /obj/effect/floor_decal/corner_wide/brown/full,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/zeng_science_ship/port_nacelle)
+"dO" = (
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/corporate_derelict)
 "ed" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/ship/orion_light_freight/life_support)
+"ee" = (
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/zeng_science_ship/main_hall)
+"ef" = (
+/turf/simulated/wall/shuttle/palepurple,
+/area/ship/zeng_science_ship/bridge)
+"en" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/zeng_science_ship/starboard_nacelle)
 "ep" = (
 /obj/effect/decal/cleanable/floor_damage/broken3,
 /turf/simulated/floor/airless,
-/area/space)
+/area/ship/orion_light_freight/crew_quarters)
+"ex" = (
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/orion_light_freight/kitchen)
 "ey" = (
 /obj/effect/floor_decal/corner/purple{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/ship/zeng_science_ship/starboard_laboratory)
+"eA" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/ship/orion_light_freight/main_hall)
+"eL" = (
+/obj/effect/floor_decal/corner/purple/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/ship/zeng_science_ship/main_hall)
 "eN" = (
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/ship/orion_light_freight/engineering)
 "eO" = (
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/nanotrasen_patrol/ammo)
+"eP" = (
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/ship/orion_light_freight/engineering)
 "eQ" = (
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/full,
@@ -209,17 +277,31 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/orion_light_freight/engineering)
+"fa" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/zeng_science_ship/port_nacelle)
 "fe" = (
 /turf/template_noop,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nanotrasen_patrol/gunnery)
+"fA" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor,
+/area/ship/zeng_science_ship/port_nacelle)
 "fE" = (
 /obj/effect/floor_decal/corner/purple{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/ship/zeng_science_ship/starboard_nacelle)
+"fK" = (
+/obj/effect/floor_decal/corner/mauve/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/ship/zeng_science_ship/main_hall)
 "fL" = (
 /obj/machinery/door/firedoor/noid{
 	dir = 4
@@ -237,16 +319,25 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/orion_light_freight/bridge)
 "ge" = (
 /turf/simulated/floor/tiled/full,
 /area/ship/nanotrasen_patrol/mess)
+"gm" = (
+/turf/simulated/wall/shuttle/palepurple,
+/area/ship/zeng_science_ship/starboard_laboratory)
+"gt" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/orion_light_freight/storage_pod_6)
 "gz" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/space)
+/area/ship/zeng_science_ship/port_nacelle)
 "gD" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
@@ -260,26 +351,36 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nanotrasen_patrol/bridge)
+"gO" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/zeng_science_ship/bridge)
 "gP" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/zeng_science_ship/port_nacelle)
+"gT" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/orion_light_freight/engineering)
+"hd" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/zeng_science_ship/port_nacelle)
 "hh" = (
 /obj/effect/floor_decal/corner/mauve,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/zeng_science_ship/bridge)
 "hl" = (
 /obj/effect/floor_decal/corner/mauve/full,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/zeng_science_ship/main_hall)
 "ho" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/orion_light_freight/life_support)
 "hs" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/template_noop,
@@ -290,7 +391,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/ship/orion_light_freight/crew_quarters)
 "hv" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -303,10 +404,16 @@
 	},
 /turf/simulated/floor/wood,
 /area/ship/nanotrasen_patrol/mess)
+"hZ" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/ship/orion_light_freight/bridge)
 "ie" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/ship/orion_light_freight/kitchen)
 "ih" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -322,12 +429,25 @@
 	},
 /turf/simulated/floor,
 /area/ship/nanotrasen_patrol/port_nacelle)
+"is" = (
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/full,
+/area/ship/zeng_science_ship/main_hall)
+"iy" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/orion_light_freight/storage_pod_1)
 "iC" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
 /turf/simulated/floor,
 /area/ship/nanotrasen_patrol/utilities)
+"iD" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/ship/zeng_science_ship/port_nacelle)
 "jd" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -339,7 +459,13 @@
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/space)
+/area/ship/zeng_science_ship/port_nacelle)
+"jl" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/orion_light_freight/storage_pod_5)
 "jp" = (
 /turf/simulated/floor/reinforced/airless,
 /area/ship/nanotrasen_patrol/starboard_nacelle)
@@ -348,7 +474,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/wood,
-/area/space)
+/area/ship/zeng_science_ship/captain)
 "js" = (
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	color = "#8a7387";
@@ -358,11 +484,20 @@
 	req_one_access = list(204)
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/ship/zeng_science_ship/lab_atrium)
 "jt" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/ship/orion_light_freight/engineering)
+"jB" = (
+/obj/effect/floor_decal/corner_wide/brown/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/ship/orion_light_freight/bridge)
+"jN" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/zeng_science_ship/lab_atrium)
 "jQ" = (
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 4
@@ -372,19 +507,25 @@
 "jY" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor,
-/area/space)
+/area/ship/orion_light_freight/engineering)
+"km" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/turf/simulated/floor/wood,
+/area/ship/zeng_science_ship/captain)
 "kr" = (
 /obj/effect/floor_decal/spline/plain/yellow{
 	dir = 9
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/ship/orion_light_freight/kitchen)
 "ks" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
 /turf/simulated/floor/wood,
-/area/space)
+/area/ship/zeng_science_ship/captain)
 "kz" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
@@ -396,44 +537,63 @@
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nanotrasen_patrol/reactor)
+"kF" = (
+/obj/effect/floor_decal/corner/mauve/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/ship/zeng_science_ship/main_hall)
 "kH" = (
 /obj/effect/floor_decal/corner/purple{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/ship/zeng_science_ship/starboard_nacelle)
 "kI" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/structure/table/stone/marble,
 /turf/simulated/floor/marble,
 /area/ship/nanotrasen_patrol/mess)
+"kZ" = (
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/zeng_science_ship/port_nacelle)
 "ld" = (
 /obj/effect/floor_decal/corner/purple{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/ship/zeng_science_ship/starboard_laboratory)
 "le" = (
 /obj/effect/floor_decal/corner/dark_blue/full,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/orion_light_freight/life_support)
 "lm" = (
 /obj/effect/floor_decal/corner/yellow/full,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/orion_light_freight/engineering)
 "lq" = (
 /obj/machinery/power/portgen/basic/fusion,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nanotrasen_patrol/reactor)
+"lA" = (
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/corporate_derelict)
 "lB" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/ship/zeng_science_ship/port_nacelle)
 "lF" = (
 /turf/simulated/floor/tiled,
 /area/ship/nanotrasen_patrol/junction)
+"lI" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/orion_light_freight/storage_pod_2)
 "lJ" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
@@ -454,13 +614,13 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/ship/orion_light_freight/engineering)
 "lT" = (
 /obj/effect/floor_decal/spline/plain/yellow{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/ship/orion_light_freight/kitchen)
 "mk" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
@@ -474,7 +634,13 @@
 "mr" = (
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/orion_light_freight/main_hall)
+"mu" = (
+/obj/effect/floor_decal/corner/purple/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/zeng_science_ship/lab_atrium)
 "mD" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
@@ -491,16 +657,22 @@
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nanotrasen_patrol/aft)
+"mS" = (
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/full,
+/area/ship/zeng_science_ship/captain)
 "mT" = (
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/ship/zeng_science_ship/starboard_nacelle)
 "mX" = (
 /obj/effect/decal/cleanable/floor_damage/broken2,
 /turf/simulated/floor/airless,
-/area/space)
+/area/ship/orion_light_freight/crew_quarters)
 "mZ" = (
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nanotrasen_patrol/reactor)
@@ -515,7 +687,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/orion_light_freight/engineering)
 "ni" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
@@ -524,13 +696,22 @@
 /area/ship/nanotrasen_patrol/captain)
 "nj" = (
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/ship/orion_light_freight/bridge)
+"nn" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/turf/simulated/floor/wood,
+/area/ship/zeng_science_ship/bridge)
 "nr" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/ship/orion_light_freight/engineering)
+"ny" = (
+/turf/simulated/wall/shuttle/palepurple,
+/area/ship/zeng_science_ship/starboard_nacelle)
 "nF" = (
 /turf/simulated/wall/shuttle/palepurple,
 /area/space)
@@ -539,16 +720,26 @@
 	dir = 5
 	},
 /turf/simulated/floor/wood,
-/area/space)
+/area/ship/zeng_science_ship/captain)
 "nJ" = (
 /turf/simulated/wall/shuttle/scc_space_ship,
 /area/ship/nanotrasen_patrol/captain)
+"nZ" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/orion_light_freight/storage_pod_4)
 "oc" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/ship/orion_light_freight/main_hall)
+"og" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor,
+/area/ship/zeng_science_ship/lab_atrium)
 "ot" = (
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
 	dir = 4
@@ -557,21 +748,30 @@
 /area/space)
 "ov" = (
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/ship/orion_light_freight/storage_pod_6)
 "oz" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/orion_light_freight/bridge)
 "oP" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor,
 /area/ship/nanotrasen_patrol/reactor)
+"oY" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/orion_light_freight/storage_pod_5)
 "pb" = (
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/full,
 /area/ship/nanotrasen_patrol/bridge)
+"pd" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/zeng_science_ship/port_nacelle)
 "pf" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
@@ -594,7 +794,7 @@
 "pu" = (
 /obj/effect/floor_decal/corner/brown/full,
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/ship/orion_light_freight/main_hall)
 "pv" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark/full,
@@ -606,10 +806,22 @@
 "pS" = (
 /turf/simulated/floor/tiled/dark,
 /area/ship/nanotrasen_patrol/gunnery)
+"pX" = (
+/obj/effect/floor_decal/corner/purple{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/zeng_science_ship/lab_atrium)
+"pY" = (
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/full,
+/area/ship/zeng_science_ship/bridge)
 "pZ" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/orion_light_freight/life_support)
 "qf" = (
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 4
@@ -619,13 +831,19 @@
 "qn" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/space)
+/area/ship/orion_light_freight/main_hall)
 "qo" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/zeng_science_ship/bridge)
+"qq" = (
+/obj/effect/floor_decal/corner/purple{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/zeng_science_ship/lab_atrium)
 "qr" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot,
 /turf/simulated/floor/tiled/dark/full,
@@ -635,35 +853,66 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/ship/orion_light_freight/engineering)
+"qz" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/orion_light_freight/storage_pod_3)
 "qS" = (
 /turf/simulated/wall/shuttle/scc_space_ship,
 /area/ship/nanotrasen_patrol/freezer)
+"ra" = (
+/turf/simulated/wall/shuttle/raider,
+/area/ship/orion_light_freight/engineering)
+"rd" = (
+/obj/effect/floor_decal/corner/purple{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/zeng_science_ship/lab_atrium)
 "rf" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/orion_light_freight/bridge)
+"rg" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/shuttle/corporate_derelict)
+"rk" = (
+/turf/simulated/wall/shuttle/raider,
+/area/ship/orion_light_freight/bridge)
+"ro" = (
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/full,
+/area/ship/zeng_science_ship/bridge)
+"rr" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/zeng_science_ship/starboard_laboratory)
 "rs" = (
 /obj/machinery/computer/ship/helm/terminal{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/ship/orion_light_freight/bridge)
 "rv" = (
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nanotrasen_patrol/bridge)
+"rO" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/orion_light_freight/storage_pod_4)
 "rZ" = (
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/ship/orion_light_freight/life_support)
 "sa" = (
 /obj/effect/floor_decal/corner_wide/brown/full{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/orion_light_freight/main_hall)
 "sk" = (
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nanotrasen_patrol/gunnery)
@@ -672,21 +921,18 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/zeng_science_ship/bridge)
 "sq" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /turf/simulated/floor/marble,
 /area/ship/nanotrasen_patrol/mess)
 "sr" = (
-/obj/machinery/atmospherics/unary/engine{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/space)
+/turf/simulated/wall/shuttle/raider,
+/area/ship/orion_light_freight/storage_pod_6)
 "sw" = (
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/ship/zeng_science_ship/starboard_laboratory)
 "sx" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
@@ -697,14 +943,28 @@
 	},
 /turf/simulated/floor,
 /area/ship/nanotrasen_patrol/eva)
+"sJ" = (
+/obj/effect/floor_decal/corner/mauve/full,
+/turf/simulated/floor/tiled,
+/area/ship/zeng_science_ship/bridge)
+"sL" = (
+/obj/effect/floor_decal/corner/purple/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/zeng_science_ship/starboard_laboratory)
 "sM" = (
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/ship/orion_light_freight/bridge)
 "sN" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/nanotrasen_patrol/bridge)
+"sO" = (
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/corporate_derelict)
 "sQ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -715,7 +975,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/ship/orion_light_freight/crew_quarters)
 "tb" = (
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 4
@@ -725,7 +985,7 @@
 "tf" = (
 /obj/effect/floor_decal/corner_wide/mauve/diagonal,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/orion_light_freight/main_hall)
 "tg" = (
 /obj/effect/floor_decal/corner/dark_green/full,
 /turf/simulated/floor/tiled,
@@ -738,7 +998,7 @@
 /area/ship/nanotrasen_patrol/mess)
 "tp" = (
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/ship/orion_light_freight/kitchen)
 "tE" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor,
@@ -754,6 +1014,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/nanotrasen_patrol/gunnery)
+"tO" = (
+/obj/effect/floor_decal/corner/purple{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/zeng_science_ship/lab_atrium)
 "tS" = (
 /turf/simulated/wall/shuttle/scc_space_ship,
 /area/ship/nanotrasen_patrol/port_nacelle)
@@ -762,36 +1028,51 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/ship/orion_light_freight/engineering)
 "tX" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /turf/simulated/wall/shuttle/raider,
-/area/space)
+/area/ship/orion_light_freight/bridge)
+"tY" = (
+/turf/simulated/wall/shuttle/palepurple,
+/area/ship/zeng_science_ship/captain)
 "ul" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/wood,
-/area/space)
+/area/ship/zeng_science_ship/bridge)
+"uo" = (
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/orion_light_freight/engineering)
 "uC" = (
 /turf/simulated/floor/airless,
-/area/space)
+/area/ship/orion_light_freight/crew_quarters)
+"uM" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/orion_light_freight/engineering)
 "uO" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/ship/orion_light_freight/engineering)
 "uU" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
 /turf/simulated/floor/wood,
 /area/ship/nanotrasen_patrol/mess)
+"vk" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/zeng_science_ship/main_hall)
 "vp" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/ship/orion_light_freight/engineering)
 "vs" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -799,11 +1080,17 @@
 	},
 /turf/simulated/floor,
 /area/ship/nanotrasen_patrol/mess)
+"vt" = (
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/ship/orion_light_freight/engineering)
 "vA" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/ship/zeng_science_ship/lab_atrium)
 "vC" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -815,22 +1102,38 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/ship/orion_light_freight/bridge)
+"vL" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/ship/zeng_science_ship/bridge)
 "vO" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
 /turf/simulated/floor/wood/bamboo,
 /area/ship/nanotrasen_patrol/captain)
+"vQ" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/zeng_science_ship/port_nacelle)
 "wa" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/orion_light_freight/kitchen)
 "wh" = (
 /turf/simulated/floor/tiled/dark,
 /area/ship/nanotrasen_patrol/junction)
+"wi" = (
+/obj/machinery/door/blast/regular,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/zeng_science_ship/starboard_laboratory)
 "wF" = (
 /obj/machinery/door/firedoor/noid{
 	dir = 8
@@ -862,6 +1165,12 @@
 "xn" = (
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nanotrasen_patrol/port_nacelle)
+"xq" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/ship/zeng_science_ship/bridge)
 "xs" = (
 /obj/structure/filingcabinet/filingcabinet{
 	pixel_x = 9;
@@ -871,7 +1180,7 @@
 	pixel_x = -6
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/ship/orion_light_freight/bridge)
 "xD" = (
 /turf/simulated/wall/shuttle/scc_space_ship,
 /area/ship/nanotrasen_patrol/junction)
@@ -880,13 +1189,13 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/zeng_science_ship/main_hall)
 "xJ" = (
 /obj/effect/floor_decal/spline/plain/yellow{
 	dir = 6
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/ship/orion_light_freight/kitchen)
 "xU" = (
 /obj/effect/floor_decal/corner_wide/brown/full{
 	dir = 8
@@ -895,7 +1204,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/orion_light_freight/main_hall)
 "xX" = (
 /obj/effect/floor_decal/corner/dark_green/full{
 	dir = 8
@@ -903,13 +1212,17 @@
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled,
 /area/ship/nanotrasen_patrol/mess)
+"xZ" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/orion_light_freight/kitchen)
 "yb" = (
 /obj/effect/floor_decal/spline/plain/mauve{
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/plain/mauve,
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/ship/zeng_science_ship/bridge)
 "yd" = (
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
 /turf/simulated/floor/tiled/dark/full,
@@ -919,7 +1232,10 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/ship/orion_light_freight/bridge)
+"yq" = (
+/turf/simulated/floor/tiled/full,
+/area/ship/zeng_science_ship/bridge)
 "yu" = (
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor,
@@ -935,7 +1251,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/zeng_science_ship/port_nacelle)
 "yO" = (
 /obj/structure/lattice/catwalk/indoor,
 /turf/space/dynamic,
@@ -945,7 +1261,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/zeng_science_ship/captain)
 "yR" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
@@ -961,19 +1277,25 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/ship/orion_light_freight/engineering)
 "yX" = (
 /obj/effect/floor_decal/corner/purple/full,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/ship/zeng_science_ship/starboard_laboratory)
 "zh" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/ship/orion_light_freight/crew_quarters)
 "zt" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nanotrasen_patrol/ammo)
+"zv" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/turf/simulated/floor/wood,
+/area/ship/zeng_science_ship/bridge)
 "zE" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
@@ -989,13 +1311,23 @@
 "zQ" = (
 /turf/simulated/wall/shuttle/scc_space_ship,
 /area/ship/nanotrasen_patrol/utilities)
+"zR" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/full,
+/area/ship/zeng_science_ship/starboard_nacelle)
+"zW" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/ship/zeng_science_ship/main_hall)
 "Ah" = (
 /obj/machinery/shower{
 	pixel_y = 17
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/space)
+/area/ship/orion_light_freight/life_support)
 "Am" = (
 /obj/effect/floor_decal/corner/paleblue/full,
 /obj/structure/filingcabinet/chestdrawer{
@@ -1008,12 +1340,40 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/nanotrasen_patrol/bridge)
+"Ap" = (
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/full,
+/area/ship/zeng_science_ship/port_nacelle)
+"At" = (
+/turf/simulated/wall/shuttle/scc_space_ship,
+/area/shuttle/corporate_derelict)
+"AH" = (
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/zeng_science_ship/lab_atrium)
 "AO" = (
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nanotrasen_patrol/shuttle_dock)
+"AP" = (
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/full,
+/area/ship/zeng_science_ship/starboard_nacelle)
+"AU" = (
+/turf/simulated/floor/tiled/full,
+/area/ship/zeng_science_ship/main_hall)
+"BA" = (
+/obj/effect/floor_decal/corner/purple/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/zeng_science_ship/starboard_laboratory)
 "BC" = (
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 1
@@ -1042,21 +1402,43 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/nanotrasen_patrol/bridge)
+"Cj" = (
+/obj/effect/floor_decal/corner/purple/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/zeng_science_ship/starboard_nacelle)
+"Ct" = (
+/obj/effect/floor_decal/corner_wide/brown/full,
+/turf/simulated/floor/tiled,
+/area/ship/orion_light_freight/bridge)
 "CM" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/nanotrasen_patrol/gunnery)
+"CU" = (
+/turf/simulated/wall/shuttle/palepurple,
+/area/ship/zeng_science_ship/lab_atrium)
 "De" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/machinery/appliance/cooker/oven,
 /turf/simulated/floor/marble,
 /area/ship/nanotrasen_patrol/mess)
+"Df" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/zeng_science_ship/port_nacelle)
+"Di" = (
+/turf/simulated/wall/shuttle/raider,
+/area/ship/orion_light_freight/life_support)
 "Dj" = (
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/orion_light_freight/engineering)
 "Dn" = (
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /turf/simulated/floor,
@@ -1071,14 +1453,23 @@
 /obj/machinery/photocopier,
 /turf/simulated/floor/tiled,
 /area/ship/nanotrasen_patrol/bridge)
+"Ep" = (
+/obj/effect/floor_decal/corner/purple{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/zeng_science_ship/starboard_nacelle)
+"Ey" = (
+/turf/simulated/wall/shuttle/palepurple,
+/area/ship/zeng_science_ship/main_hall)
 "Ez" = (
 /obj/effect/decal/cleanable/floor_damage/broken4,
 /obj/structure/girder,
 /turf/simulated/floor/airless,
-/area/space)
+/area/ship/orion_light_freight/crew_quarters)
 "EA" = (
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/ship/orion_light_freight/life_support)
 "EE" = (
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/firedoor/noid,
@@ -1114,7 +1505,7 @@
 "Ft" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/ship/orion_light_freight/main_hall)
 "Fv" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
@@ -1125,30 +1516,37 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor,
 /area/ship/nanotrasen_patrol/eva)
+"FX" = (
+/turf/simulated/floor/reinforced,
+/area/ship/zeng_science_ship/starboard_laboratory)
 "FY" = (
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/zeng_science_ship/bridge)
 "Gq" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
 /turf/simulated/floor/wood,
-/area/space)
+/area/ship/zeng_science_ship/captain)
 "GC" = (
 /obj/effect/floor_decal/spline/plain/cee/mauve{
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/ship/zeng_science_ship/bridge)
+"GI" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor,
+/area/ship/zeng_science_ship/main_hall)
 "GO" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/ship/orion_light_freight/life_support)
 "GR" = (
 /turf/simulated/floor/tiled/bitile,
 /area/ship/nanotrasen_patrol/junction)
@@ -1156,6 +1554,10 @@
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /turf/simulated/floor,
 /area/ship/nanotrasen_patrol/aft)
+"Hg" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/corporate_derelict)
 "Hl" = (
 /turf/simulated/floor/tiled/ridged,
 /area/ship/nanotrasen_patrol/port_nacelle)
@@ -1175,7 +1577,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/ship/orion_light_freight/kitchen)
 "Ht" = (
 /obj/machinery/door/firedoor/noid{
 	dir = 4
@@ -1184,17 +1586,28 @@
 /area/ship/nanotrasen_patrol/starboard_nacelle)
 "HE" = (
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/ship/zeng_science_ship/starboard_nacelle)
 "HH" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/ship/orion_light_freight/main_hall)
 "HL" = (
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nanotrasen_patrol/ammo)
+"HT" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/zeng_science_ship/port_nacelle)
+"Ib" = (
+/turf/simulated/wall/shuttle/raider,
+/area/ship/orion_light_freight/storage_pod_4)
+"Ie" = (
+/obj/effect/floor_decal/corner/purple/full,
+/turf/simulated/floor/tiled/white,
+/area/ship/zeng_science_ship/starboard_nacelle)
 "Ij" = (
 /turf/simulated/wall/shuttle/scc_space_ship,
 /area/ship/nanotrasen_patrol/mess)
@@ -1203,13 +1616,13 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/orion_light_freight/life_support)
 "Io" = (
 /obj/machinery/door/firedoor/noid{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/ship/orion_light_freight/main_hall)
 "Iq" = (
 /obj/machinery/door/firedoor/noid{
 	dir = 4
@@ -1228,7 +1641,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/ship/orion_light_freight/engineering)
 "IT" = (
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /turf/simulated/floor,
@@ -1238,13 +1651,20 @@
 	dir = 5
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/ship/orion_light_freight/kitchen)
+"Jb" = (
+/turf/simulated/wall/shuttle/palepurple,
+/area/ship/zeng_science_ship/port_nacelle)
 "Jc" = (
 /obj/effect/floor_decal/corner/purple/full{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/ship/zeng_science_ship/starboard_laboratory)
+"Jm" = (
+/obj/effect/floor_decal/corner/purple/full,
+/turf/simulated/floor/tiled/white,
+/area/ship/zeng_science_ship/lab_atrium)
 "Jq" = (
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /turf/simulated/floor,
@@ -1256,18 +1676,42 @@
 	},
 /turf/simulated/floor,
 /area/ship/nanotrasen_patrol/atmospherics)
+"JA" = (
+/obj/structure/lattice,
+/turf/space/dynamic,
+/area/ship/orion_light_freight/crew_quarters)
+"JB" = (
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/full,
+/area/ship/zeng_science_ship/main_hall)
 "JI" = (
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/ship/nanotrasen_patrol/ammo)
+"JJ" = (
+/turf/simulated/wall/shuttle/raider,
+/area/ship/orion_light_freight/kitchen)
+"JQ" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/ship/orion_light_freight/main_hall)
+"JU" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/orion_light_freight/life_support)
 "Kc" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/nanotrasen_patrol/gunnery)
+"Kt" = (
+/obj/machinery/atmospherics/unary/engine,
+/turf/simulated/floor,
+/area/ship/zeng_science_ship/port_nacelle)
 "KF" = (
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark/full,
@@ -1284,12 +1728,21 @@
 	},
 /turf/simulated/floor,
 /area/ship/nanotrasen_patrol/reactor)
+"KT" = (
+/turf/simulated/floor/reinforced/airless,
+/area/ship/zeng_science_ship/port_nacelle)
+"KU" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/ship/orion_light_freight/main_hall)
 "KZ" = (
 /obj/effect/floor_decal/corner_wide/brown/full{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/orion_light_freight/main_hall)
 "La" = (
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor,
@@ -1303,7 +1756,7 @@
 "Ln" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/zeng_science_ship/main_hall)
 "Lq" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -1314,6 +1767,10 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nanotrasen_patrol/atmospherics)
+"LA" = (
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/full,
+/area/ship/zeng_science_ship/starboard_laboratory)
 "LF" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
@@ -1325,12 +1782,16 @@
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /turf/simulated/floor,
 /area/ship/nanotrasen_patrol/port_nacelle)
+"LM" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/full,
+/area/ship/zeng_science_ship/bridge)
 "LP" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/ship/orion_light_freight/engineering)
 "LR" = (
 /turf/simulated/wall/shuttle/scc_space_ship,
 /area/ship/nanotrasen_patrol/gunnery)
@@ -1339,21 +1800,21 @@
 	dir = 10
 	},
 /turf/simulated/floor/wood,
-/area/space)
+/area/ship/zeng_science_ship/bridge)
 "LW" = (
 /obj/effect/floor_decal/industrial/arrow/yellow{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/ship/orion_light_freight/engineering)
 "Mc" = (
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
 	},
 /obj/machinery/door/firedoor/noid/closed,
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/ship/orion_light_freight/main_hall)
 "Mp" = (
 /obj/machinery/computer/ship/helm/terminal{
 	dir = 1
@@ -1361,59 +1822,93 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nanotrasen_patrol/bridge)
+"Mr" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/orion_light_freight/storage_pod_3)
 "MA" = (
 /turf/template_noop,
 /area/space)
+"MK" = (
+/obj/effect/floor_decal/corner_wide/brown/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/ship/orion_light_freight/bridge)
 "ML" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/orion_light_freight/engineering)
+"MP" = (
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/ship/orion_light_freight/engineering)
 "MR" = (
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/corporate_derelict)
+"Na" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/full,
+/area/ship/zeng_science_ship/starboard_laboratory)
 "Ne" = (
 /obj/structure/toilet{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/ship/orion_light_freight/life_support)
+"Ni" = (
+/turf/simulated/floor,
+/area/ship/zeng_science_ship/port_nacelle)
+"Nk" = (
+/obj/effect/floor_decal/corner/purple{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/zeng_science_ship/starboard_laboratory)
 "Ns" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/ship/zeng_science_ship/port_nacelle)
 "Ny" = (
 /obj/effect/floor_decal/corner/purple{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/ship/zeng_science_ship/starboard_laboratory)
 "NC" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/orion_light_freight/bridge)
+"NG" = (
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/corporate_derelict)
 "NL" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
 /turf/simulated/floor/wood,
-/area/space)
+/area/ship/zeng_science_ship/bridge)
 "NM" = (
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nanotrasen_patrol/shuttle_dock)
 "NP" = (
-/turf/simulated/floor/tiled/dark,
-/area/space)
+/turf/simulated/wall/shuttle/raider,
+/area/ship/orion_light_freight/main_hall)
 "NZ" = (
 /obj/machinery/door/blast/regular,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/ship/zeng_science_ship/starboard_nacelle)
 "Oa" = (
 /obj/structure/lattice,
 /turf/space/dynamic,
@@ -1423,28 +1918,37 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/ship/orion_light_freight/bridge)
 "Oj" = (
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/zeng_science_ship/main_hall)
+"Om" = (
+/turf/simulated/wall/shuttle/raider,
+/area/ship/orion_light_freight/storage_pod_3)
 "On" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
 /turf/simulated/floor/wood/bamboo,
 /area/ship/nanotrasen_patrol/captain)
+"Oo" = (
+/obj/effect/floor_decal/corner/purple{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/zeng_science_ship/starboard_laboratory)
 "OF" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/zeng_science_ship/port_nacelle)
 "OL" = (
 /turf/simulated/floor/tiled/dark/full/airless,
-/area/space)
+/area/ship/orion_light_freight/crew_quarters)
 "OR" = (
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
 	dir = 1
@@ -1456,7 +1960,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/wood,
-/area/space)
+/area/ship/zeng_science_ship/captain)
 "OX" = (
 /obj/effect/floor_decal/corner/dark_blue/full,
 /turf/simulated/floor/tiled/dark,
@@ -1476,10 +1980,10 @@
 /area/ship/nanotrasen_patrol/starboard_nacelle)
 "Pm" = (
 /turf/simulated/floor/reinforced/airless,
-/area/space)
+/area/ship/orion_light_freight/engineering)
 "Pn" = (
 /turf/simulated/wall/shuttle/raider,
-/area/space)
+/area/ship/orion_light_freight/crew_quarters)
 "PB" = (
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /turf/simulated/floor,
@@ -1512,13 +2016,31 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/zeng_science_ship/port_nacelle)
 "QB" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /turf/simulated/floor,
 /area/ship/nanotrasen_patrol/reactor)
+"QG" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/turf/simulated/floor/wood,
+/area/ship/zeng_science_ship/bridge)
+"QJ" = (
+/obj/effect/floor_decal/corner/purple/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/zeng_science_ship/lab_atrium)
+"QR" = (
+/obj/effect/floor_decal/corner/mauve/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/ship/zeng_science_ship/bridge)
 "QS" = (
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 1
@@ -1530,7 +2052,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/ship/zeng_science_ship/starboard_nacelle)
 "QY" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
@@ -1542,7 +2064,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/zeng_science_ship/port_nacelle)
 "Rg" = (
 /turf/simulated/floor/lino/diamond,
 /area/ship/nanotrasen_patrol/mess)
@@ -1551,14 +2073,34 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/ship/orion_light_freight/crew_quarters)
+"RB" = (
+/obj/effect/floor_decal/corner/purple/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/zeng_science_ship/lab_atrium)
 "RG" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/ship/orion_light_freight/bridge)
+"RS" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/ship/orion_light_freight/main_hall)
+"RV" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor,
+/area/shuttle/corporate_derelict)
 "Sd" = (
 /turf/simulated/wall/shuttle/scc_space_ship,
 /area/ship/nanotrasen_patrol/starboard_nacelle)
+"Se" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/ship/zeng_science_ship/main_hall)
 "So" = (
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge,
 /turf/template_noop,
@@ -1570,19 +2112,19 @@
 "Ss" = (
 /obj/effect/floor_decal/industrial/outline/custodial,
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/ship/orion_light_freight/main_hall)
 "SG" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/zeng_science_ship/main_hall)
 "SI" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/zeng_science_ship/bridge)
 "SK" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
@@ -1602,34 +2144,53 @@
 "Tf" = (
 /turf/simulated/floor,
 /area/ship/nanotrasen_patrol/port_nacelle)
+"Th" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/ship/orion_light_freight/main_hall)
 "Tk" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/orion_light_freight/kitchen)
 "Tr" = (
 /obj/effect/floor_decal/corner/purple{
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/zeng_science_ship/lab_atrium)
 "Tw" = (
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/ship/orion_light_freight/main_hall)
 "Ty" = (
 /obj/effect/floor_decal/corner/purple/full{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/ship/zeng_science_ship/starboard_nacelle)
 "TA" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nanotrasen_patrol/starboard_nacelle)
+"TM" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/full,
+/area/ship/zeng_science_ship/main_hall)
+"TO" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/zeng_science_ship/bridge)
+"TR" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/ship/zeng_science_ship/main_hall)
 "TW" = (
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nanotrasen_patrol/eva)
@@ -1650,14 +2211,17 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/ship/orion_light_freight/main_hall)
 "Ur" = (
 /turf/simulated/floor,
-/area/space)
+/area/ship/orion_light_freight/engineering)
 "UF" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/ship/orion_light_freight/life_support)
+"UL" = (
+/turf/simulated/wall/shuttle/raider,
+/area/ship/orion_light_freight/storage_pod_2)
 "UU" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
@@ -1666,7 +2230,13 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/ship/orion_light_freight/bridge)
+"UX" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/orion_light_freight/storage_pod_1)
 "Vg" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
@@ -1684,7 +2254,7 @@
 	},
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/orion_light_freight/life_support)
 "Vl" = (
 /obj/machinery/ammunition_loader/autocannon,
 /turf/template_noop,
@@ -1693,7 +2263,7 @@
 "Vr" = (
 /obj/effect/floor_decal/corner_wide/brown/full,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ship/orion_light_freight/main_hall)
 "VJ" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
@@ -1701,44 +2271,54 @@
 "VS" = (
 /turf/simulated/wall/shuttle/scc_space_ship,
 /area/ship/nanotrasen_patrol/ammo)
+"VU" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/corporate_derelict)
 "Wb" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/ship/orion_light_freight/bridge)
 "Wd" = (
 /obj/effect/floor_decal/spline/plain/cee/mauve{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/ship/zeng_science_ship/bridge)
 "Wo" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/ship/orion_light_freight/engineering)
+"WF" = (
+/turf/simulated/wall/shuttle/raider,
+/area/ship/orion_light_freight/storage_pod_5)
 "WJ" = (
 /obj/effect/floor_decal/spline/plain/yellow{
 	dir = 10
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/ship/orion_light_freight/kitchen)
 "WQ" = (
 /obj/structure/lattice/catwalk/indoor/grate/gridded,
 /turf/simulated/floor,
-/area/space)
+/area/ship/orion_light_freight/main_hall)
 "WY" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/ship/orion_light_freight/engineering)
 "Xb" = (
 /obj/effect/floor_decal/corner_wide/brown/full{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/zeng_science_ship/port_nacelle)
+"Xf" = (
+/obj/effect/floor_decal/corner/brown/full,
+/turf/simulated/floor/tiled/gridded,
+/area/ship/orion_light_freight/engineering)
 "Xi" = (
 /turf/simulated/wall/shuttle/scc_space_ship,
 /area/ship/nanotrasen_patrol/atmospherics)
@@ -1756,6 +2336,16 @@
 	},
 /turf/template_noop,
 /area/space)
+"XG" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/zeng_science_ship/main_hall)
+"XK" = (
+/obj/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch_door/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/full,
+/area/ship/orion_light_freight/main_hall)
 "XN" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -1783,7 +2373,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/ship/orion_light_freight/main_hall)
 "Ym" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -1802,17 +2392,27 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/zeng_science_ship/port_nacelle)
 "Yv" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/ship/zeng_science_ship/lab_atrium)
+"YF" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/full,
+/area/ship/zeng_science_ship/lab_atrium)
+"YG" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/orion_light_freight/storage_pod_2)
+"YL" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/orion_light_freight/kitchen)
 "YM" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/ship/orion_light_freight/life_support)
 "YQ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
@@ -1822,20 +2422,33 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/ship/orion_light_freight/main_hall)
 "Zf" = (
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/ship/orion_light_freight/engineering)
+"Zi" = (
+/turf/simulated/wall/shuttle/raider,
+/area/ship/orion_light_freight/storage_pod_1)
 "Zj" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/ship/zeng_science_ship/port_nacelle)
 "Zk" = (
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nanotrasen_patrol/utilities)
+"Zm" = (
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/zeng_science_ship/lab_atrium)
+"Zo" = (
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/ship/zeng_science_ship/lab_atrium)
 "ZW" = (
 /turf/simulated/wall/shuttle/scc_space_ship,
 /area/space)
@@ -5965,12 +6578,12 @@ So
 MA
 MA
 MA
-ZW
-Qe
-ZW
-ZW
-ZW
-sr
+At
+sO
+At
+At
+At
+rg
 MA
 dl
 dl
@@ -6221,14 +6834,14 @@ MA
 So
 MA
 MA
-ZW
-ZW
-ov
-ov
-ov
-ZW
-ZW
-ZW
+At
+At
+VU
+VU
+VU
+At
+At
+At
 dl
 IT
 dl
@@ -6478,14 +7091,14 @@ MA
 So
 MA
 MA
-Qe
-ov
-NP
-NP
-NP
-LP
+sO
+VU
+lA
+lA
+lA
+dO
 MR
-LP
+dO
 wZ
 IT
 wZ
@@ -6735,14 +7348,14 @@ MA
 So
 MA
 MA
-ZW
-ZW
-ov
-ov
-ov
-ZW
-ZW
-ZW
+At
+At
+VU
+VU
+VU
+At
+At
+At
 dl
 IT
 dl
@@ -6993,12 +7606,12 @@ So
 MA
 MA
 MA
-ZW
-Qe
-ZW
-ZW
-ZW
-sr
+At
+sO
+At
+At
+At
+rg
 MA
 dl
 dl
@@ -11906,12 +12519,12 @@ MA
 MA
 MA
 MA
-nF
-nF
-nF
-nF
-nF
-nF
+Jb
+Jb
+Jb
+Jb
+Jb
+Jb
 MA
 MA
 MA
@@ -12163,13 +12776,13 @@ MA
 MA
 MA
 MA
-cX
-nF
-Ur
-Ur
-Ur
-nF
-nF
+Kt
+Jb
+Ni
+Ni
+Ni
+Jb
+Jb
 MA
 MA
 MA
@@ -12419,15 +13032,15 @@ MA
 MA
 MA
 MA
-nF
-nF
-nF
-nF
-nF
-Ur
-Ur
-nF
-nF
+Jb
+Jb
+Jb
+Jb
+Jb
+Ni
+Ni
+Jb
+Jb
 MA
 MA
 MA
@@ -12647,21 +13260,17 @@ So
 MA
 MA
 MA
-nF
-nF
-nF
-nF
+gm
+gm
+gm
+gm
 MA
 MA
 MA
-nF
-nF
-nF
-nF
-MA
-MA
-MA
-MA
+gm
+gm
+gm
+gm
 MA
 MA
 MA
@@ -12676,16 +13285,20 @@ MA
 MA
 MA
 MA
-cX
-nF
-qt
+MA
+MA
+MA
+MA
+Kt
+Jb
+Df
 lB
-nF
+Jb
 jf
 jf
 jf
-nF
-nF
+Jb
+Jb
 MA
 MA
 MA
@@ -12904,18 +13517,18 @@ So
 MA
 MA
 MA
-nF
-Ft
-Ft
-nF
-nF
-nF
-nF
-nF
+gm
+Na
+Na
+gm
+gm
+gm
+gm
+gm
 sw
 sw
-nF
-nF
+gm
+gm
 MA
 MA
 MA
@@ -12932,17 +13545,17 @@ MA
 MA
 MA
 MA
-nF
-nF
-nF
-lS
+Jb
+Jb
+Jb
+pd
 Zj
-rZ
-jY
-jY
-jY
-ov
-nF
+kZ
+fA
+fA
+fA
+hd
+Jb
 MA
 MA
 MA
@@ -13161,18 +13774,18 @@ So
 MA
 MA
 MA
-nF
-dI
-QV
-QV
-QV
-QV
-QV
-QV
-QV
+gm
+sL
+Oo
+Oo
+Oo
+Oo
+Oo
+Oo
+Oo
 yX
 sw
-nF
+gm
 MA
 MA
 MA
@@ -13189,17 +13802,17 @@ MA
 MA
 MA
 MA
-cX
-nF
-nF
-nr
+Kt
+Jb
+Jb
+vQ
 Ns
-nF
-ov
-ov
-jY
-ov
-nF
+Jb
+hd
+hd
+fA
+hd
+Jb
 MA
 MA
 MA
@@ -13418,18 +14031,18 @@ So
 MA
 MA
 MA
-nF
-Ty
-fE
-fE
-fE
-fE
-fE
+gm
+BA
+Nk
+Nk
+Nk
+Nk
+Nk
 ld
 ag
 Jc
 sw
-nF
+gm
 MA
 MA
 MA
@@ -13446,17 +14059,17 @@ MA
 MA
 MA
 MA
-nF
-nF
-nF
-nF
-nF
-nF
-nF
-nF
-Rh
-nF
-nF
+Jb
+Jb
+Jb
+Jb
+Jb
+Jb
+Jb
+Jb
+bs
+Jb
+Jb
 MA
 MA
 MA
@@ -13675,19 +14288,19 @@ So
 MA
 MA
 MA
-nF
-ov
-ov
-nF
-ov
-ov
-nF
+gm
+rr
+rr
+gm
+rr
+rr
+gm
 ey
 Ny
-nF
-nF
-nF
-nF
+gm
+gm
+gm
+gm
 MA
 MA
 MA
@@ -13709,10 +14322,10 @@ MA
 MA
 MA
 nF
-zh
+fa
 gP
-qn
-nF
+iD
+Jb
 MA
 MA
 MA
@@ -13932,23 +14545,23 @@ So
 MA
 MA
 MA
-nF
-HE
-HE
-nF
-HE
-HE
-nF
-Ty
+gm
+FX
+FX
+gm
+FX
+FX
+gm
+BA
 Jc
-sM
-dI
+LA
+sL
 yX
-nF
-nF
-nF
-eN
-nF
+gm
+CU
+CU
+Zm
+CU
 MA
 MA
 MA
@@ -13956,20 +14569,20 @@ MA
 MA
 MA
 MA
-nF
-eN
-nF
-nF
-nF
-nF
-nF
-nF
-nF
-nF
-zh
+Ey
+ee
+tY
+tY
+tY
+tY
+tY
+ef
+ef
+ef
+fa
 gP
-qn
-nF
+iD
+Jb
 MA
 MA
 MA
@@ -14189,23 +14802,23 @@ So
 MA
 MA
 MA
-nF
-HE
-HE
-nF
-HE
-HE
-nF
-nF
-nF
-nF
+gm
+FX
+FX
+gm
+FX
+FX
+gm
+gm
+gm
+gm
 ey
 Ny
 sw
-nF
-jY
-ov
-nF
+CU
+og
+jN
+CU
 MA
 MA
 MA
@@ -14213,23 +14826,23 @@ MA
 MA
 MA
 MA
-nF
-jY
-nF
+Ey
+GI
+tY
 Gq
 OS
-LS
-nF
-nj
-Ft
-nF
-nF
-nF
-Io
-nF
-js
-js
-nF
+km
+tY
+yq
+LM
+ef
+Jb
+Jb
+Ap
+Jb
+aX
+aX
+ef
 MA
 MA
 MA
@@ -14446,23 +15059,23 @@ So
 MA
 MA
 MA
-nF
-NZ
-NZ
-nF
-NZ
-NZ
-nF
+gm
+wi
+wi
+gm
+wi
+wi
+gm
 MA
 MA
-nF
-Ty
+gm
+BA
 Jc
 sw
-nF
-jY
-ov
-nF
+CU
+og
+jN
+CU
 MA
 MA
 MA
@@ -14470,24 +15083,24 @@ MA
 MA
 MA
 MA
-nF
-jY
-nF
+Ey
+GI
+tY
 nI
 jr
 ks
-nF
-Io
-nF
-nF
-zh
-zh
-qn
-nF
-ov
-ov
-nF
-nF
+tY
+pY
+ef
+ef
+fa
+fa
+iD
+Jb
+TO
+TO
+ef
+ef
 MA
 MA
 OR
@@ -14712,39 +15325,39 @@ MA
 MA
 MA
 MA
-nF
-nF
-mT
-nF
-nF
-nF
-eN
-nF
+CU
+CU
+Zo
+CU
+CU
+CU
+Zm
+CU
 Ua
 Ua
 Ua
 Ua
-nF
-nF
-nF
-nF
-eN
-nF
+Ey
+Ey
+Ey
+Ey
+ee
+tY
 yQ
 yQ
 yQ
-nF
-xF
-xF
-xF
-xF
-xF
-xF
-sM
+tY
+vL
+vL
+vL
+vL
+vL
+vL
+ro
 FY
-hl
-ov
-nF
+sJ
+TO
+ef
 MA
 MA
 OR
@@ -14959,50 +15572,50 @@ MA
 So
 MA
 MA
+At
+sO
+At
+At
+At
+rg
 MA
-ZW
-Qe
-ZW
-ZW
-ZW
-sr
-MA
-nF
-nF
-nF
-dI
-QV
-QV
-QV
-QV
-yX
-nF
+CU
+CU
+CU
+CU
+RB
+pX
+pX
+pX
+pX
+Jm
+CU
 Oa
 Oa
 Oa
 Oa
-nF
-nF
-zh
-nF
-ov
-nF
-nF
-Io
-nF
-nF
-Io
-nF
-nF
-Io
-Io
-nF
-nF
-gP
-SG
-ov
-nF
-nF
+Ey
+Ey
+vk
+Ey
+XG
+tY
+tY
+mS
+tY
+tY
+is
+ef
+ef
+pY
+pY
+ef
+ef
+bS
+xq
+TO
+ef
+ef
 MA
 OR
 MA
@@ -15215,51 +15828,51 @@ MA
 MA
 So
 MA
-MA
-ZW
-ZW
-ov
-ov
-ov
-ZW
-ZW
-ZW
-nF
-jY
-nF
-ey
+At
+At
+VU
+VU
+VU
+At
+At
+At
+CU
+og
+CU
+jN
+qq
 vA
 vA
 Yv
 vA
-Ny
-nF
+tO
+CU
 js
 js
 js
 js
-nF
-FY
-qo
-qo
-qo
-qo
-qo
-qo
-qo
-qo
+Ey
+fK
+TR
+TR
+TR
+TR
+TR
+TR
+TR
+TR
 hl
-js
+aX
 GC
-Gq
+zv
 LS
 GC
-js
-gP
+aX
+bS
 SI
-hl
-ov
-js
+sJ
+TO
+aX
 MA
 OR
 MA
@@ -15472,51 +16085,51 @@ MA
 MA
 So
 MA
-MA
-Qe
-ov
-NP
-NP
-NP
-LP
-jY
-LP
-LP
-ov
-LP
-ey
+sO
+VU
+lA
+lA
+lA
+dO
+RV
+dO
+AH
+jN
+AH
+jN
+qq
 Yv
 Yv
 Yv
 vA
-Ny
-sM
-ov
-ov
-ov
-ov
-sM
-gP
-qn
-qn
-qn
-nj
-nj
-qn
-qn
-qn
+tO
+cD
+jN
+jN
+jN
+jN
+JB
+zW
+Se
+Se
+Se
+AU
+AU
+Se
+Se
+Se
 SG
-js
+aX
 yb
 NL
 ul
 yb
-js
-gP
-nj
-SG
-ov
-js
+aX
+bS
+yq
+xq
+TO
+aX
 MA
 OR
 MA
@@ -15729,30 +16342,30 @@ MA
 MA
 So
 MA
-MA
-ZW
-ZW
-ov
-ov
-ov
-ZW
-ZW
-ZW
-nF
-jY
-nF
-ey
+At
+At
+VU
+VU
+VU
+At
+At
+At
+CU
+og
+CU
+jN
+qq
 vA
 vA
 Yv
 vA
-Ny
-nF
+tO
+CU
 js
 js
 js
 js
-nF
+Ey
 Oj
 xF
 xF
@@ -15762,18 +16375,18 @@ xF
 xF
 xF
 xF
-sn
-js
+kF
+aX
 Wd
-nI
-ks
+nn
+QG
 Wd
-js
-gP
+aX
+bS
 hh
 sn
-ov
-js
+TO
+aX
 MA
 OR
 MA
@@ -15987,50 +16600,50 @@ MA
 So
 MA
 MA
+At
+sO
+At
+At
+At
+rg
 MA
-ZW
-Qe
-ZW
-ZW
-ZW
-sr
-MA
-nF
-nF
-nF
-Ty
-fE
-fE
-fE
-fE
-Jc
-nF
+CU
+CU
+CU
+CU
+QJ
+rd
+rd
+rd
+rd
+mu
+CU
 Oa
 Oa
 Oa
 Oa
-nF
-nF
-zh
-nF
-Io
-nF
-nF
-Io
-nF
-nF
-Io
-nF
-nF
-Io
-Io
-nF
-nF
-gP
-SG
-ov
-nF
-nF
+Ey
+Ey
+vk
+Ey
+is
+Ey
+Ey
+is
+Ey
+Ey
+is
+ef
+ef
+pY
+pY
+ef
+ef
+bS
+xq
+TO
+ef
+ef
 MA
 OR
 MA
@@ -16254,39 +16867,39 @@ MA
 MA
 MA
 MA
-nF
-nF
-mT
-nF
-nF
-mT
-nF
-nF
+CU
+CU
+Zo
+CU
+CU
+Zo
+CU
+CU
 Ua
 Ua
 Ua
 Ua
-nF
-nF
-nF
-nF
+Ey
+Ey
+Ey
+Ey
 Ln
 Ln
-nF
-Yv
-Yv
-nF
+Ey
+eL
+eL
+ef
 qo
 qo
 qo
 qo
 qo
 qo
-sM
-Oj
+ro
+QR
 sn
-ov
-nF
+TO
+ef
 MA
 MA
 OR
@@ -16502,23 +17115,23 @@ So
 MA
 MA
 MA
-nF
+ny
 NZ
 NZ
-nF
+ny
 NZ
 NZ
-nF
+ny
 MA
 MA
-nF
+ny
 dI
-yX
-sw
-nF
+Ie
+AP
+CU
 Tr
-Ft
-nF
+YF
+CU
 MA
 MA
 MA
@@ -16526,24 +17139,24 @@ MA
 MA
 MA
 MA
-nF
+Ey
 Ln
 Ln
-nF
-Yv
-Yv
-nF
-Io
-nF
-nF
-zh
-zh
-qn
-nF
-ov
-ov
-nF
-nF
+Ey
+eL
+eL
+ef
+pY
+ef
+ef
+fa
+fa
+iD
+Jb
+TO
+TO
+ef
+ef
 MA
 MA
 OR
@@ -16759,23 +17372,23 @@ So
 MA
 MA
 MA
-nF
+ny
 HE
 HE
-nF
+ny
 HE
 HE
-nF
-nF
-nF
-nF
+ny
+ny
+ny
+ny
 kH
-Ny
-sw
-nF
+Ep
+AP
+CU
 Tr
-Ft
-nF
+YF
+CU
 MA
 MA
 MA
@@ -16783,23 +17396,23 @@ MA
 MA
 MA
 MA
-nF
-Ft
-Ft
-nF
-Yv
-Yv
-nF
-nj
-zh
-nF
-nF
-nF
-Io
-nF
-js
-js
-nF
+Ey
+TM
+TM
+Ey
+eL
+eL
+ef
+yq
+gO
+ef
+Jb
+Jb
+Ap
+Jb
+aX
+aX
+ef
 MA
 MA
 MA
@@ -17016,23 +17629,23 @@ So
 MA
 MA
 MA
-nF
+ny
 HE
 HE
-nF
+ny
 HE
 HE
-nF
+ny
 Ty
 fE
 fE
 fE
-Jc
-nF
-nF
-nF
-nF
-nF
+Cj
+ny
+CU
+CU
+CU
+CU
 MA
 MA
 MA
@@ -17040,20 +17653,20 @@ MA
 MA
 MA
 MA
-nF
-nF
-nF
-nF
-nF
-nF
-nF
-nF
-nj
-nF
-zh
+Ey
+Ey
+Ey
+Ey
+Ey
+Ey
+ef
+ef
+yq
+ef
+fa
 gP
-qn
-nF
+iD
+Jb
 MA
 MA
 MA
@@ -17273,19 +17886,19 @@ So
 MA
 MA
 MA
-nF
-ov
-ov
-nF
-ov
-ov
-nF
+ny
+en
+en
+ny
+en
+en
+ny
 mT
-nF
-nF
-nF
-nF
-nF
+ny
+ny
+ny
+ny
+ny
 MA
 MA
 MA
@@ -17306,11 +17919,11 @@ MA
 MA
 MA
 MA
-nF
-zh
+Jb
+fa
 gP
-qn
-nF
+iD
+Jb
 MA
 MA
 MA
@@ -17530,7 +18143,7 @@ So
 MA
 MA
 MA
-nF
+ny
 dI
 QV
 QV
@@ -17539,9 +18152,9 @@ QV
 QV
 QV
 QV
-yX
-sw
-nF
+Ie
+AP
+ny
 MA
 MA
 MA
@@ -17558,17 +18171,17 @@ MA
 MA
 MA
 MA
-nF
-nF
-nF
-nF
-nF
-nF
-nF
-nF
-Rh
-nF
-nF
+Jb
+Jb
+Jb
+Jb
+Jb
+Jb
+Jb
+Jb
+bs
+Jb
+Jb
 MA
 MA
 MA
@@ -17787,7 +18400,7 @@ So
 MA
 MA
 MA
-nF
+ny
 Ty
 fE
 fE
@@ -17796,9 +18409,9 @@ fE
 fE
 fE
 fE
-Jc
-sw
-nF
+Cj
+AP
+ny
 MA
 MA
 MA
@@ -17815,17 +18428,17 @@ MA
 MA
 MA
 MA
-cX
-nF
-nF
-Pm
-jt
-ov
+Kt
+Jb
+Jb
+KT
+HT
+hd
 QZ
 OF
 dM
-zh
-nF
+fa
+Jb
 MA
 MA
 MA
@@ -18044,18 +18657,18 @@ So
 MA
 MA
 MA
-nF
-Ft
-Ft
-nF
-nF
-nF
-nF
-nF
-sw
-sw
-nF
-nF
+ny
+zR
+zR
+ny
+ny
+ny
+ny
+ny
+AP
+AP
+ny
+ny
 MA
 MA
 MA
@@ -18072,17 +18685,17 @@ MA
 MA
 MA
 MA
-nF
-nF
-nF
-Pm
-jt
-ov
+Jb
+Jb
+Jb
+KT
+HT
+hd
 yJ
-ov
+hd
 bf
-zh
-nF
+fa
+Jb
 MA
 MA
 MA
@@ -18301,21 +18914,17 @@ So
 MA
 MA
 MA
-nF
-nF
-nF
-nF
+ny
+ny
+ny
+ny
 MA
 MA
 MA
-nF
-nF
-nF
-nF
-MA
-MA
-MA
-MA
+ny
+ny
+ny
+ny
 MA
 MA
 MA
@@ -18330,16 +18939,20 @@ MA
 MA
 MA
 MA
-cX
-nF
-Pm
-jt
-ov
+MA
+MA
+MA
+MA
+Kt
+Jb
+KT
+HT
+hd
 Xb
 Qy
 Yt
-nF
-nF
+Jb
+Jb
 MA
 MA
 MA
@@ -18587,15 +19200,15 @@ MA
 MA
 MA
 MA
-nF
-nF
-nF
-nF
+Jb
+Jb
+Jb
+Jb
 gz
 gz
 gz
-nF
-nF
+Jb
+Jb
 MA
 MA
 MA
@@ -18845,13 +19458,13 @@ MA
 MA
 MA
 MA
-cX
-nF
-Ur
-Ur
-Ur
-nF
-nF
+Kt
+Jb
+Ni
+Ni
+Ni
+Jb
+Jb
 MA
 MA
 MA
@@ -19102,12 +19715,12 @@ MA
 MA
 MA
 MA
-nF
-nF
-nF
-nF
-nF
-nF
+Jb
+Jb
+Jb
+Jb
+Jb
+Jb
 MA
 MA
 MA
@@ -21641,14 +22254,14 @@ MA
 So
 MA
 MA
-Pn
-Pn
-Pn
-Pn
-Pn
-Pn
-Pn
-Pn
+JJ
+JJ
+JJ
+JJ
+JJ
+JJ
+JJ
+JJ
 MA
 MA
 MA
@@ -21673,14 +22286,14 @@ MA
 MA
 MA
 MA
-Pn
-Pn
-Pn
-Pn
-Pn
-Pn
-Pn
-Pn
+Di
+Di
+Di
+Di
+Di
+Di
+Di
+Di
 MA
 MA
 MA
@@ -21898,46 +22511,46 @@ MA
 So
 MA
 MA
-Wb
+xZ
 kr
 WJ
-Pn
+JJ
 tp
 ie
 tp
-Pn
-Pn
-Pn
-Pn
+JJ
+JJ
+JJ
+JJ
 MA
 MA
-Pn
-Pn
-Pn
-Pn
-Pn
+Zi
+Zi
+Zi
+Zi
+Zi
 MA
-Pn
-Pn
-Pn
-Pn
-Pn
+UL
+UL
+UL
+UL
+UL
 MA
-Pn
-Pn
-Pn
-Pn
-Pn
+Om
+Om
+Om
+Om
+Om
 MA
 MA
-Pn
+Di
 EA
 UF
 ed
 ed
 YM
 EA
-Pn
+Di
 MA
 MA
 MA
@@ -22155,46 +22768,46 @@ MA
 So
 MA
 MA
-Wb
+xZ
 IY
 xJ
-Pn
+JJ
 lT
 Hs
 lT
-Pn
-ov
-ov
-Pn
+JJ
+YL
+YL
+JJ
 MA
 MA
-Pn
-ov
-ov
-ov
-Pn
+Zi
+iy
+iy
+iy
+Zi
 MA
-Pn
-ov
-ov
-ov
-Pn
+UL
+YG
+YG
+YG
+UL
 MA
-Pn
-ov
-ov
-ov
-Pn
+Om
+qz
+qz
+qz
+Om
 MA
 MA
-Pn
+Di
 EA
 UF
 GO
 GO
 YM
 EA
-Pn
+Di
 MA
 MA
 MA
@@ -22412,48 +23025,48 @@ MA
 So
 MA
 MA
-Wb
+xZ
 Tk
 Tk
-rZ
+ex
 Tk
 Tk
 Tk
-rZ
+ex
 wa
 wa
-Pn
+JJ
 MA
 MA
-Pn
-ov
-ov
-ov
-Pn
+Zi
+iy
+iy
+iy
+Zi
 MA
-Pn
-ov
-ov
-ov
-Pn
+UL
+YG
+YG
+YG
+UL
 MA
-Pn
-ov
-ov
-ov
-Pn
+Om
+qz
+qz
+qz
+Om
 MA
 MA
-Pn
-Pn
-Pn
-Pn
-Rh
-Pn
-Pn
-Pn
-Pn
-Pn
+Di
+Di
+Di
+Di
+cS
+Di
+Di
+Di
+Di
+Di
 MA
 MA
 MA
@@ -22669,48 +23282,48 @@ MA
 So
 MA
 MA
-Pn
-Pn
-Pn
-Pn
-Pn
-Pn
-Pn
-Pn
-Pn
+JJ
+JJ
+JJ
+JJ
+JJ
+JJ
+JJ
+JJ
+JJ
 bj
-Pn
-Pn
+JJ
+JJ
 MA
-Pn
-ov
-ov
-ov
-Pn
+Zi
+iy
+iy
+iy
+Zi
 MA
-Pn
-ov
-ov
-ov
-Pn
+UL
+YG
+YG
+YG
+UL
 MA
-Pn
-ov
-ov
-ov
-Pn
+Om
+qz
+qz
+qz
+Om
 MA
 MA
 MA
 Ua
 Oa
-Pn
+Di
 In
 le
 rZ
 Vj
 Vj
-Pn
+Di
 MA
 MA
 MA
@@ -22935,39 +23548,39 @@ LP
 Ur
 Ur
 LP
-Tw
-pu
-Pn
+MP
+Xf
+ra
 MA
-Pn
-ov
-ov
-ov
-Pn
+Zi
+iy
+iy
+iy
+Zi
 MA
-Pn
-ov
-ov
-ov
-Pn
+UL
+YG
+YG
+YG
+UL
 MA
-Pn
-ov
-ov
-ov
-Pn
+Om
+qz
+qz
+qz
+Om
 MA
 MA
 MA
 Ua
 Oa
-Pn
-ov
+Di
+JU
 ho
-Pn
+Di
 Ah
 pZ
-Pn
+Di
 MA
 MA
 MA
@@ -23188,43 +23801,43 @@ MA
 Ua
 Oa
 Oa
-Pn
-Pn
-Pn
-Pn
+ra
+ra
+ra
+ra
 Wo
 vp
-Pn
+ra
 MA
-Pn
-ov
-ov
-ov
-Pn
+Zi
+iy
+iy
+iy
+Zi
 MA
-Pn
-ov
-ov
-ov
-Pn
+UL
+YG
+YG
+YG
+UL
 MA
-Pn
-ov
-ov
-ov
-Pn
+Om
+qz
+qz
+qz
+Om
 MA
 MA
-Pn
-Pn
-Pn
-Pn
-Pn
-Rh
-Pn
-Pn
+NP
+NP
+NP
+Di
+Di
+cS
+Di
+Di
 Ne
-Pn
+Di
 MA
 MA
 MA
@@ -23442,47 +24055,47 @@ MA
 MA
 MA
 MA
-Pn
-Pn
-Pn
-Pn
+ra
+ra
+ra
+ra
 Pm
 Pm
-Pn
+ra
 Wo
 vp
-Pn
+ra
 MA
-Pn
-Pn
-oc
-Pn
-Pn
+Zi
+Zi
+UX
+Zi
+Zi
 MA
-Pn
-Pn
-oc
-Pn
-Pn
+UL
+UL
+lI
+UL
+UL
 MA
-Pn
-Pn
-oc
-Pn
-Pn
+Om
+Om
+Mr
+Om
+Om
 MA
 MA
-Pn
+NP
 Ss
 tf
 Ss
-Pn
+rk
 gd
-Vr
-Pn
-Pn
-Pn
-Pn
+Ct
+rk
+rk
+rk
+rk
 MA
 MA
 OR
@@ -23697,49 +24310,49 @@ MA
 So
 MA
 MA
-Pn
-Pn
-Pn
+ra
+ra
+ra
 Ur
 Ur
-Pn
+ra
 jt
 jt
-Pn
+ra
 Wo
 vp
-Pn
+ra
 MA
 MA
-Pn
+NP
 HH
-Pn
+NP
 MA
 MA
 MA
-Pn
+NP
 HH
-Pn
+NP
 MA
 MA
 MA
-Pn
+NP
 HH
-Pn
+NP
 MA
 MA
 MA
-Pn
+NP
 Ss
 tf
 Ss
-Pn
+rk
 oz
 rf
-Pn
+rk
 vF
 df
-Pn
+rk
 MA
 MA
 OR
@@ -23955,48 +24568,48 @@ So
 MA
 MA
 cX
-Pn
+ra
 qt
 uO
 uO
-Pn
+ra
 uO
 uO
-Pn
+ra
 Wo
 vp
-Pn
-Pn
-Pn
-Pn
+ra
+NP
+NP
+NP
 oc
-Pn
-Pn
-Pn
-Pn
-Pn
+NP
+NP
+NP
+NP
+NP
 oc
-Pn
-Pn
-Pn
-Pn
-Pn
+NP
+NP
+NP
+NP
+NP
 oc
-Pn
-Pn
-Pn
-Pn
-Pn
-Pn
+NP
+NP
+NP
+NP
+NP
+NP
 Io
-Pn
-Pn
+NP
+rk
 oz
 rf
-Pn
+rk
 UU
 df
-Pn
+rk
 tX
 MA
 OR
@@ -24212,47 +24825,47 @@ So
 MA
 MA
 cX
-Pn
+ra
 lS
 nh
 lm
-Pn
+ra
 yW
 yW
-Pn
+ra
 Wo
 vp
-Pn
+ra
 Tw
 am
 am
 am
 am
 pu
-Pn
+NP
 Tw
 am
 am
 am
 pu
-Pn
+NP
 Tw
 am
 am
 am
 am
 pu
-Pn
+NP
 xU
 dv
 bz
 Vr
-Pn
+rk
 oz
 rf
-Pn
-bz
-Vr
+rk
+hZ
+Ct
 vF
 Wb
 Wb
@@ -24468,42 +25081,42 @@ MA
 So
 MA
 MA
-Pn
-Pn
+ra
+ra
 lS
 ML
 eZ
-rZ
+uo
 Zf
 Zf
-rZ
+uo
 Wo
 vp
 bD
-Wo
+KU
 WQ
 WQ
 WQ
 WQ
-vp
+eA
 Mc
-Wo
+KU
 WQ
 WQ
 WQ
-vp
+eA
 Mc
-Wo
+KU
 WQ
 WQ
 WQ
 WQ
-vp
-bD
-oz
+eA
+XK
+Th
 qn
 qn
-rf
+JQ
 sM
 oz
 rf
@@ -24726,47 +25339,47 @@ So
 MA
 MA
 cX
-Pn
+ra
 lS
 cn
 Dj
-Pn
+ra
 WY
 WY
-Pn
+ra
 Wo
 vp
-Pn
+ra
 Um
 cw
 cw
 cw
 cw
 Yj
-Pn
+NP
 Um
 cw
 cw
 cw
 Yj
-Pn
+NP
 Um
 cw
 cw
 cw
 cw
 Yj
-Pn
+NP
 sa
-NC
-NC
+RS
+RS
 KZ
-Pn
+rk
 oz
 rf
-Pn
+rk
 NC
-KZ
+MK
 Oe
 Wb
 Wb
@@ -24983,48 +25596,48 @@ So
 MA
 MA
 cX
-Pn
+ra
 nr
 tT
 tT
-Pn
-Pn
-Pn
-Pn
+ra
+ra
+ra
+ra
 Wo
 vp
-Pn
-Pn
-Pn
-Pn
+ra
+NP
+NP
+NP
 YT
-Pn
-Pn
-Pn
-Pn
-Pn
+NP
+NP
+NP
+NP
+NP
 YT
-Pn
-Pn
-Pn
-Pn
-Pn
+NP
+NP
+NP
+NP
+NP
 YT
-Pn
-Pn
-Pn
-Pn
-Pn
-Pn
-Pn
+NP
+NP
+NP
+NP
+NP
+NP
+NP
 Io
-Pn
+rk
 oz
 rf
-Pn
+rk
 yi
 xs
-Pn
+rk
 tX
 MA
 OR
@@ -25239,49 +25852,49 @@ MA
 So
 MA
 MA
-Pn
-Pn
-Pn
+ra
+ra
+ra
 Ur
 Ur
-Pn
-ov
-ov
+ra
+gT
+gT
 LP
 Wo
 vp
-Pn
+ra
 MA
 MA
-Pn
+NP
 HH
-Pn
+NP
 MA
 MA
 MA
-Pn
+NP
 HH
-Pn
+NP
 MA
 MA
 MA
-Pn
+NP
 HH
-Pn
+NP
 MA
 MA
 MA
-Pn
+NP
 Ft
 mr
 mr
-Pn
+rk
 oz
 rf
-Pn
+rk
 df
 df
-Pn
+rk
 MA
 MA
 OR
@@ -25498,47 +26111,47 @@ MA
 MA
 MA
 MA
-Pn
-Wb
-Wb
-Pn
+ra
+uM
+uM
+ra
 jY
 jY
-Pn
+ra
 Wo
 vp
-Pn
+ra
 MA
-Pn
-Pn
-YT
-Pn
-Pn
+sr
+sr
+gt
+sr
+sr
 MA
-Pn
-Pn
-YT
-Pn
-Pn
+WF
+WF
+jl
+WF
+WF
 MA
-Pn
-Pn
-YT
-Pn
-Pn
+Ib
+Ib
+nZ
+Ib
+Ib
 MA
 MA
-Pn
+NP
 Ft
 mr
 Ft
-Pn
-sa
-KZ
-Pn
-Pn
-Pn
-Pn
+rk
+jB
+MK
+rk
+rk
+rk
+rk
 MA
 MA
 OR
@@ -25758,36 +26371,36 @@ MA
 MA
 MA
 MA
-Pn
-Pn
+ra
+ra
 eN
-Pn
+ra
 Wo
 vp
-Pn
+ra
 MA
-Pn
+sr
 ov
 ov
 ov
-Pn
+sr
 MA
-Pn
-ov
-ov
-ov
-Pn
+WF
+oY
+oY
+oY
+WF
 MA
-Pn
-ov
-ov
-ov
-Pn
+Ib
+rO
+rO
+rO
+Ib
 MA
 MA
-Pn
-Pn
-Pn
+NP
+NP
+NP
 Pn
 Pn
 Rh
@@ -26018,28 +26631,28 @@ MA
 MA
 Ua
 Ua
-Pn
+ra
 Wo
 vp
-Pn
+ra
 MA
-Pn
+sr
 ov
 ov
 ov
-Pn
+sr
 MA
-Pn
-ov
-ov
-ov
-Pn
+WF
+oY
+oY
+oY
+WF
 MA
-Pn
-ov
-ov
-ov
-Pn
+Ib
+rO
+rO
+rO
+Ib
 MA
 MA
 MA
@@ -26267,36 +26880,36 @@ MA
 So
 MA
 MA
-Pn
-Wb
-Pn
-Pn
-Pn
-sr
+NG
+Hg
+NG
+NG
+NG
+rg
 Ua
 Oa
-Pn
-Um
-Yj
-Pn
+ra
+eP
+vt
+ra
 MA
-Pn
+sr
 ov
 ov
 ov
-Pn
+sr
 MA
-Pn
-ov
-ov
-ov
-Pn
+WF
+oY
+oY
+oY
+WF
 MA
-Pn
-ov
-ov
-ov
-Pn
+Ib
+rO
+rO
+rO
+Ib
 MA
 MA
 MA
@@ -26523,37 +27136,37 @@ MA
 MA
 So
 MA
-Pn
-Pn
-ov
-ov
-ov
-Pn
-Pn
-Pn
-Pn
-Pn
-Pn
+NG
+NG
+VU
+VU
+VU
+NG
+NG
+NG
+ra
+ra
+ra
 IQ
-Pn
+ra
 MA
-Pn
+sr
 ov
 ov
 ov
-Pn
+sr
 MA
-Pn
-ov
-ov
-ov
-Pn
+WF
+oY
+oY
+oY
+WF
 MA
-Pn
-ov
-ov
-ov
-Pn
+Ib
+rO
+rO
+rO
+Ib
 MA
 MA
 Pn
@@ -26780,37 +27393,37 @@ MA
 MA
 So
 MA
-Wb
-ov
-NP
-NP
-NP
-LP
-jY
-LP
+Hg
+VU
+lA
+lA
+lA
+dO
+RV
+dO
 LP
 jY
 LP
 LW
-Pn
+ra
 MA
-Pn
+sr
 ov
 ov
 ov
-Pn
+sr
 MA
-Pn
-ov
-ov
-ov
-Pn
+WF
+oY
+oY
+oY
+WF
 MA
-Pn
-ov
-ov
-ov
-Pn
+Ib
+rO
+rO
+rO
+Ib
 MA
 MA
 Pn
@@ -27037,42 +27650,42 @@ MA
 MA
 So
 MA
-Pn
-Pn
-ov
-ov
-ov
-Pn
-Pn
-Pn
-Pn
+NG
+NG
+VU
+VU
+VU
+NG
+NG
+NG
+ra
 jY
-Pn
-Pn
-Pn
+ra
+ra
+ra
 MA
-Pn
-Pn
-Pn
-Pn
-Pn
+sr
+sr
+sr
+sr
+sr
 MA
-Pn
-Pn
-Pn
-Pn
-Pn
+WF
+WF
+WF
+WF
+WF
 MA
-Pn
-Pn
-Pn
-Pn
-Pn
+Ib
+Ib
+Ib
+Ib
+Ib
 MA
 MA
 Pn
 uC
-Oa
+JA
 ep
 OL
 OL
@@ -27295,16 +27908,16 @@ MA
 So
 MA
 MA
-Pn
-Wb
-Pn
-Pn
-Pn
-sr
+NG
+Hg
+NG
+NG
+NG
+rg
 MA
-Pn
-Pn
-Pn
+ra
+ra
+ra
 MA
 MA
 MA
