@@ -247,7 +247,7 @@
 	name = "towercap"
 	seed_name = "tower cap"
 	display_name = "tower caps"
-	chems = list(/singleton/reagent/woodpulp = list(10,1))
+	chems = list(/singleton/reagent/woodpulp = list(10,1), /singleton/reagent/acetone = list(3,4))
 	mutants = null
 
 /datum/seed/mushroom/towercap/setup_traits()
@@ -289,7 +289,7 @@
 	seed_name = "plastellium"
 	display_name = "plastellium"
 	mutants = null
-	chems = list(/singleton/reagent/toxin/plasticide = list(1,10))
+	chems = list(/singleton/reagent/toxin/plasticide = list(1,10), /singleton/reagent/carbon = list(4, 6))
 
 /datum/seed/mushroom/plastic/setup_traits()
 	..()

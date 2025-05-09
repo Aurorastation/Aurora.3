@@ -5,7 +5,7 @@
 	seed_name = "dyn"
 	display_name = "dyn bush"
 	mutants = null
-	chems = list(/singleton/reagent/drink/dynjuice = list(2, 2), /singleton/reagent/dylovene = list(0, 1))
+	chems = list(/singleton/reagent/drink/dynjuice = list(2, 2), /singleton/reagent/dylovene = list(2, 3))
 	kitchen_tag = "dyn leaf"
 
 /datum/seed/dyn/setup_traits()
@@ -144,7 +144,7 @@
 	seed_name = "fjylozyn"
 	display_name = "fjylozyn"
 	mutants = null
-	chems = list(/singleton/reagent/nutriment = list(3, 5), /singleton/reagent/toxin = list(2, 3))
+	chems = list(/singleton/reagent/nutriment = list(3, 5), /singleton/reagent/toxin = list(2, 3), /singleton/reagent/ammonia = list(2, 3))
 	kitchen_tag = "fjylozyn"
 
 /datum/seed/fjylozyn/setup_traits()
