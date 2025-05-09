@@ -70,10 +70,12 @@
 //Environmental Functions
 //================================
 
-//This function is called when a gestalt is cold enough to take damage from icy temperatures
-//It will also deal damage to contained nymphs, making them much less likely to survive and split if the diona dies of cold
-//Damage is slightly randomised for each nymph, some will live longer than others, but in the long run all will die eventually
-//Nymphs are slightly insulated from the cold within a gestalt. The temperature to hurt a nymph is 40k lower than what hurts the gestalt
+/**
+This function is called when a gestalt is cold enough to take damage from icy temperatures.
+It will also deal damage to contained nymphs, making them much less likely to survive and split if the diona dies of cold.
+Damage is slightly randomised for each nymph, some will live longer than others, but in the long run all will die eventually.
+Nymphs are slightly insulated from the cold within a gestalt. The temperature to hurt a nymph is 40k lower than what hurts the gestalt.
+*/
 /mob/living/carbon/human/proc/diona_contained_cold_damage()
 	if (bodytemperature < (species.cold_level_1-40))
 		var/damage
@@ -89,11 +91,13 @@
 			D.updatehealth()
 
 
-//This is called when a gestalt is hit by an explosion. Nymphs will take damage too
-//Damage to nymphs depends on the severity of the blast, and on explosive-resistant armor worn by the gestalt
-//A severity 1 explosion without armor will usually kill all nymphs in the gestalt
-//Damage is randomised for each nymph, often some will survive and others wont
-//Nymphs have 100 health, so without armor there is a small possibility for each nymph to survive a severity 1 blast
+/**
+This is called when a gestalt is hit by an explosion. Nymphs will take damage too!
+Damage to nymphs depends on the severity of the blast, and on explosive-resistant armor worn by the gestalt.
+A severity 1 explosion without armor will usually kill all nymphs in the gestalt.
+Damage is randomised for each nymph, often some will survive and others wont.
+Nymphs have 100 health, so without armor there is a small possibility for each nymph to survive a severity 1 blast.
+*/
 /mob/living/carbon/human/proc/diona_contained_explosion_damage(var/severity)
 	var/damage = 0
 	var/damage_factor = 0.1 //Safety value
@@ -359,12 +363,6 @@
 	visible_message(SPAN_WARNING("\The [src] quivers slightly, then splits apart with a wet slithering noise."))
 	qdel(src)
 
-/*
-Movespeed modifier used in the root_to_ground proc. This determines how much the ability slows you down by.
-*/
-/datum/movespeed_modifier/root_to_ground
-	multiplicative_slowdown = 1.5
-
 /**
 This verb lets the Diona anchor themselves to the ground, giving them magboot properties.
 Slows you down while being used, and cannot be used below 50 nutrition and 20 energy.
@@ -376,37 +374,54 @@ Slows you down while being used, and cannot be used below 50 nutrition and 20 en
 
 	if(use_check_and_message(src))
 		return
-
 	if(nutrition <= 50)
 		to_chat(src, SPAN_WARNING("You lack nutrition to perform this action!"))
 		return
-
 	if(DS.stored_energy <= 20)
 		to_chat(src, SPAN_WARNING("You lack energy to perform this action!"))
 		return
-
 	if(last_special > world.time)
 		to_chat(src, SPAN_WARNING("You've used an ability too recently! Wait a bit."))
 		return
-
 	if(!has_organ(BP_R_FOOT) && !has_organ(BP_L_FOOT))
 		to_chat(src, SPAN_WARNING("You have no supporting limbs to extend your roots from!"))
 		return
 
 	last_special = world.time + 2 SECONDS
 
+	// Checks whether we want to disable or enable the ability with this call.
 	if(HAS_TRAIT(src, TRAIT_SHOE_GRIP))
-		visible_message(SPAN_NOTICE("[src] retracts the roots growing from their feet back into their body.")
-		, SPAN_NOTICE("You retract your roots back into your body."))
-		REMOVE_TRAIT(src, TRAIT_SHOE_GRIP, TRAIT_SOURCE_SPECIES_VERB)
-		remove_movespeed_modifier(/datum/movespeed_modifier/root_to_ground)
-		playsound(src, 'sound/species/diona/gestalt_split.ogg', 20, extrarange = SILENCED_SOUND_EXTRARANGE)
+		root_disable()
 	else
-		visible_message(SPAN_NOTICE("[src] extends an array of roots out from their feet, clutching at any available surface!")
-		, SPAN_NOTICE("You extend strong roots from your feet, serving as natural braces to keep your footing secure."))
-		ADD_TRAIT(src, TRAIT_SHOE_GRIP, TRAIT_SOURCE_SPECIES_VERB)
-		add_movespeed_modifier(/datum/movespeed_modifier/root_to_ground)
-		playsound(src, 'sound/species/diona/gestalt_grow.ogg', 30, extrarange = SILENCED_SOUND_EXTRARANGE)
+		root_enable()
+
+/// Movespeed modifier used in the root_to_ground proc. This determines how much the ability slows you down by.
+/datum/movespeed_modifier/root_to_ground
+	multiplicative_slowdown = 1.5
+
+/// Engages Diona magboot roots.
+/mob/living/carbon/human/proc/root_enable()
+	visible_message(SPAN_NOTICE("[src] extends an array of roots out from their feet, clutching at any available surface!"),
+	 SPAN_NOTICE("You extend strong roots from your feet, serving as natural braces to keep your footing secure."))
+	ADD_TRAIT(src, TRAIT_SHOE_GRIP, TRAIT_SOURCE_SPECIES_VERB)
+	add_movespeed_modifier(/datum/movespeed_modifier/root_to_ground)
+	playsound(src, 'sound/species/diona/gestalt_grow.ogg', 30, extrarange = SILENCED_SOUND_EXTRARANGE)
+
+/// Disables Diona magboot roots.
+/mob/living/carbon/human/proc/root_disable()
+	visible_message(SPAN_NOTICE("[src] retracts the roots growing from their feet back into their body.")
+	, SPAN_NOTICE("You retract your roots back into your body."))
+	REMOVE_TRAIT(src, TRAIT_SHOE_GRIP, TRAIT_SOURCE_SPECIES_VERB)
+	remove_movespeed_modifier(/datum/movespeed_modifier/root_to_ground)
+	playsound(src, 'sound/species/diona/gestalt_split.ogg', 20, extrarange = SILENCED_SOUND_EXTRARANGE)
+
+/**
+This is used to check if any criteria have been reached where any Diona abilities should be disabled. Please add to it if necessary!
+Currently checks if the roots ability should be disabled based on energy, nutrition, and whether the gestalt still has any feet.
+*/
+/mob/living/carbon/human/proc/check_diona_abilities(var/datum/dionastats/DS)
+	if (HAS_TRAIT(src, TRAIT_SHOE_GRIP) && ((nutrition <= 50 || DS.stored_energy <= 20) || (!has_organ(BP_R_FOOT) && !has_organ(BP_L_FOOT))))
+		root_disable()
 
 #undef COLD_DAMAGE_LEVEL_1
 #undef COLD_DAMAGE_LEVEL_2

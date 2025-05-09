@@ -73,6 +73,7 @@
 
 		if (is_diona())
 			diona_handle_light(DS)
+			check_diona_abilities(DS)
 
 		handle_shared_dreaming()
 
