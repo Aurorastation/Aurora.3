@@ -711,3 +711,12 @@
 	desc = "A secure security crate. Secure."
 	icon_state = "security_crate"
 	secure = TRUE
+
+// Props
+
+/obj/structure/closet/crate/cash_register
+	name = "cash register"
+	desc = "A retail nightmare object."
+	icon = 'mojave/icons/obj/structure/crates.dmi'
+	icon_state = "register_clean"
+	door_anim_time = 0
