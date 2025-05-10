@@ -47,3 +47,16 @@
 2025-05-09:
   FlamingLily:
   - bugfix: Fixes shells being hidden automatically. Oops.
+2025-05-10:
+  FlamingLily:
+  - rscadd: Added joy messages to aphrodite.
+  - rscadd: Added a message to placing an item in your own storage container (bags,
+      etc.).
+  GeneralCamo:
+  - bugfix: Added another sanity check to roller beds, to make sure no instance of
+      ghost buckling is caused from them.
+  hazelmouse:
+  - balance: Arterial bleeding now causes less rapid blood loss.
+  - qol: All traps now produce a noise when set up, and punji traps produce a noise
+      when a mob falls into them.
+  - balance: Punji traps now cause victims to collapse after falling into them.
