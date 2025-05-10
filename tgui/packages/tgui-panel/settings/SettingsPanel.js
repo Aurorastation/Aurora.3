@@ -13,6 +13,7 @@ import { rebuildChat, saveChatToDisk, clearChatMessages } from '../chat/actions'
 import { THEMES } from '../themes';
 import { changeSettingsTab, updateSettings, addHighlightSetting, removeHighlightSetting, updateHighlightSetting } from './actions';
 import { SETTINGS_TABS, FONTS, MAX_HIGHLIGHT_SETTINGS } from './constants';
+import { resetPaneSplitters, setEditPaneSplitters } from './scaling';
 import { selectActiveTab, selectSettings, selectHighlightSettings, selectHighlightSettingById } from './selectors';
 import { IMPL_IFRAME_INDEXED_DB, storage } from 'common/storage';
 
@@ -57,6 +58,11 @@ export const SettingsGeneral = (props, context) => {
   );
   const dispatch = useDispatch(context);
   const [freeFont, setFreeFont] = useLocalState(context, 'freeFont', false);
+  const [editingPanes, setEditingPanes] = useLocalState(
+    context,
+    'uiScaling',
+    false
+  );
   return (
     <Section>
       <LabeledList>
@@ -72,6 +78,28 @@ export const SettingsGeneral = (props, context) => {
               )
             }
           />
+        </LabeledList.Item>
+        <LabeledList.Item label="UI sizes">
+          <Stack>
+            <Stack.Item>
+              <Button
+                onClick={() =>
+                  setEditingPanes((val) => {
+                    setEditPaneSplitters(!val);
+                    return !val;
+                  })
+                }
+                color={editingPanes ? 'red' : undefined}
+                icon={editingPanes ? 'save' : undefined}>
+                {editingPanes ? 'Save' : 'Adjust UI Sizes'}
+              </Button>
+            </Stack.Item>
+            <Stack.Item>
+              <Button onClick={resetPaneSplitters} icon="refresh" color="red">
+                Reset
+              </Button>
+            </Stack.Item>
+          </Stack>
         </LabeledList.Item>
         <LabeledList.Item label="Font style">
           <Stack inline align="baseline">
