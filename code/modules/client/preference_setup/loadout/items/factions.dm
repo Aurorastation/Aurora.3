@@ -708,7 +708,6 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	nt_labcoats["nanotrasen labcoat, long"] = /obj/item/clothing/suit/storage/toggle/longcoat/nt
 	nt_labcoats["nanotrasen corporate jacket"] = /obj/item/clothing/suit/storage/toggle/corp/nt
 	nt_labcoats["nanotrasen winter coat"] = /obj/item/clothing/suit/storage/hooded/wintercoat/nt
-	nt_labcoats["nanotrasen winter coat, alt"] = /obj/item/clothing/suit/storage/hooded/wintercoat/nt/alt
 	gear_tweaks += new /datum/gear_tweak/path(nt_labcoats)
 
 /datum/gear/faction/nt_custodialjumpsuit

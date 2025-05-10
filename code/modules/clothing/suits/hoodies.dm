@@ -208,10 +208,6 @@
 	icon_state = "coatnt"
 	item_state = "coatnt"
 
-/obj/item/clothing/suit/storage/hooded/wintercoat/nt/alt
-	icon_state = "coatnt_alt"
-	item_state = "coatnt_alt"
-
 /obj/item/clothing/suit/storage/hooded/wintercoat/zeng
 	name = "zeng-hu winter coat"
 	icon_state = "coatzeng"
