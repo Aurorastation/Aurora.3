@@ -8,12 +8,18 @@
 	stat = POWEROFF
 	use_power = POWER_USE_OFF
 	req_access = list(ACCESS_KITCHEN)
-	var/unpacked = FALSE											/// When it's anchored and has all it's things outside
-	var/obj/machinery/appliance/cooker/grill/stand/cart_griddle		/// Griddle inside of the foodcart
-	var/obj/machinery/smartfridge/foodheater/stand/cart_smartfridge /// Smartfridge inside of foodcart
-	var/obj/structure/table/reinforced/wood/cart_table				/// Table inside of foodcart
-	var/obj/effect/food_cart_stand/cart_tent						/// Overlay that spawns once foodcart is setup
-	var/list/packed_things /// Contains cart_griddle, cart_smartfridge, cart_table, cart_cent
+	var/unpacked = FALSE
+	/// When it's anchored and has all it's things outside
+	var/obj/machinery/appliance/cooker/grill/stand/cart_griddle
+	/// Griddle inside of the foodcart
+	var/obj/machinery/smartfridge/foodheater/stand/cart_smartfridge
+	/// Smartfridge inside of foodcart
+	var/obj/structure/table/reinforced/wood/cart_table
+	/// Table inside of foodcart
+	var/obj/effect/food_cart_stand/cart_tent
+	/// Overlay that spawns once foodcart is setup
+	var/list/packed_things
+	/// Contains cart_griddle, cart_smartfridge, cart_table, cart_cent
 
 /obj/machinery/food_cart/Initialize(mapload)
 	. = ..()
@@ -46,7 +52,10 @@
 	. += SPAN_NOTICE("The stand's [SPAN_BOLD("fridge")] seems fine.") //weirdly enough, these fridges don't break
 	. += SPAN_NOTICE("The stand's [SPAN_BOLD("table")] seems fine.")
 
-/obj/machinery/food_cart/proc/pack_up() // Retract the structures into the food cart
+/**
+ * Retract the structures into the food cart
+ */
+/obj/machinery/food_cart/proc/pack_up()
 	if(!unpacked)
 		return
 	visible_message(SPAN_NOTICE("[src] retracts all of it's unpacked components."))
@@ -95,6 +104,7 @@
 	var/obj/item/card/id/id_card = user.GetIdCard()
 	if(!check_access(id_card))
 		playsound(src, 'sound/machines/buzz-sigh.ogg', 30, TRUE)
+		to_chat(usr, SPAN_WARNING("Access denied."))
 		return
 	playsound(get_turf(src), 'sound/items/rfd_start.ogg', 50, FALSE)
 	to_chat(user, SPAN_NOTICE("You attempt to [unpacked ? "pack up" :"unpack"] [src]..."))

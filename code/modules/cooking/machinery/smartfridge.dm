@@ -124,6 +124,9 @@
 	idle_power_usage = 0
 	active_power_usage = 0
 
+/obj/machinery/smartfridge/foodheater/stand/powered()
+	return TRUE
+
 /obj/machinery/smartfridge/foodheater/abandoned
 	// badly stocked, with trash, junk, etc
 	desc = "Used to keep food nice and warm in the past, now it is all dirty, and doesn't look like it'll ever run again."
