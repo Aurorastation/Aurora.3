@@ -1019,5 +1019,3 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 /// This grabs the DPI of the user per their skin
 /client/proc/acquire_dpi()
 	window_scaling = text2num(winget(src, null, "dpi"))
-
-	//debug_admins("scalies: [window_scaling]")
