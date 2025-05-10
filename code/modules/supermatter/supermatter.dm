@@ -371,10 +371,11 @@
 	ui_interact(user)
 
 /obj/machinery/power/supermatter/attack_hand(mob/user as mob)
-	user.visible_message("<span class=\"warning\">\The [user] reaches out and touches \the [src], inducing a resonance... [user.get_pronoun("he")] body starts to glow and bursts into flames before flashing into ash.</span>",\
-		"<span class=\"danger\">You reach out and touch \the [src]. Everything starts burning and all you can hear is ringing. Your last thought is \"That was not a wise decision.\"</span>",\
-		"<span class=\"warning\">You hear an uneartly ringing, then what sounds like a shrilling kettle as you are washed with a wave of heat.</span>")
-
+	user.visible_message(
+		SPAN_WARNING("\The [user] reaches out and touches \the [src], inducing a resonance. For a brief instant, [user.get_pronoun("his")] body glows brilliantly, then flashes into ash."),
+		SPAN_DANGER(FONT_LARGE("You reach out and touch \the [src]. Instantly, you feel a curious sensation as your body turns into new and exciting forms of plasma. That was not a wise decision.")),
+		SPAN_WARNING("You hear an unearthly ringing, then what sounds like a shrilling kettle as you are washed with a wave of heat.")
+	)
 	Consume(user)
 
 // Only accessed by AIs or robots.
@@ -400,9 +401,11 @@
 	if(!istype(living_user))
 		return
 
-	living_user.visible_message("<span class=\"warning\">\The [living_user] touches \a [attacking_item] to \the [src] as a silence fills the room...</span>",\
-		"<span class=\"danger\">You touch \the [attacking_item] to \the [src] when everything suddenly goes silent.\"</span>\n<span class=\"notice\">\The [attacking_item] flashes into dust as you flinch away from \the [src].</span>",\
-		"<span class=\"warning\">Everything suddenly goes silent.</span>")
+	living_user.visible_message(
+		SPAN_WARNING("\The [living_user] touches \a [attacking_item] to \the [src], then flinches away as it flashes instantly into dust. Silence blankets the air."),
+		SPAN_DANGER("You touch \the [attacking_item] to \the [src]. Everything suddenly goes silent as it flashes into dust, and you flinch away."),
+		SPAN_WARNING("For a brief moment, you hear an oppressive, unnatural silence.")
+	)
 
 	living_user.drop_from_inventory(attacking_item)
 	Consume(attacking_item)
@@ -419,12 +422,16 @@
 	if(isprojectile(bumped_atom))
 		return
 	if(istype(bumped_atom, /mob/living))
-		bumped_atom.visible_message("<span class=\"warning\">\The [bumped_atom] slams into \the [src] inducing a resonance... [bumped_atom.get_pronoun("his")] body starts to glow and catch flame before flashing into ash.</span>",\
-		"<span class=\"danger\">You slam into \the [src] as your ears are filled with unearthly ringing. Your last thought is \"Oh, fuck.\"</span>",\
-		"<span class=\"warning\">You hear an uneartly ringing, then what sounds like a shrilling kettle as you are washed with a wave of heat.</span>")
+		bumped_atom.visible_message(
+			SPAN_WARNING("\The [bumped_atom] slams \the [src], inducing a resonance. For a brief instant, [bumped_atom.get_pronoun("his")] body glows brilliantly, then flashes into ash."),
+			SPAN_DANGER(FONT_LARGE("You slam into \the [src], and your mind fills with unearthly shrieking. Your vision floods with light as your body instantly dissolves into dust.")),
+			SPAN_WARNING("You hear an unearthly ringing, then what sounds like a shrilling kettle as you are washed with a wave of heat.")
+		)
 	else if(!grav_pulling) //To prevent spam, detonating supermatter does not indicate non-mobs being destroyed
-		bumped_atom.visible_message("<span class=\"warning\">\The [bumped_atom] smacks into \the [src] and rapidly flashes to ash.</span>",\
-		"<span class=\"warning\">You hear a loud crack as you are washed with a wave of heat.</span>")
+		bumped_atom.visible_message(
+			SPAN_WARNING("\The [bumped_atom] smacks into \the [src] and rapidly flashes to ash."),
+			SPAN_WARNING("You hear a loud crack as you are washed with a wave of heat.")
+		)
 
 	Consume(bumped_atom)
 

@@ -144,3 +144,17 @@
 	ecig["ordinary electronic cigarette"] = /obj/item/clothing/mask/smokable/ecig/util
 	ecig["deluxe electronic cigarette"] = /obj/item/clothing/mask/smokable/ecig/deluxe
 	gear_tweaks += new /datum/gear_tweak/path(ecig)
+
+/datum/gear/smoking/cigarettecase //loadout list for cigarette cases. add new custom one's here
+	display_name = "cigarette cases selection"
+	description = "A selection of empty cigarette cases."
+	path = /obj/item/storage/box/fancy/cigarettes/case
+
+/datum/gear/smoking/cigarettecase/New()
+	..()
+	var/list/cigarettecase = list()
+	cigarettecase["cigarette case"] = /obj/item/storage/box/fancy/cigarettes/case
+	cigarettecase["cigarette case, decorated"] = /obj/item/storage/box/fancy/cigarettes/case/mus
+	cigarettecase["cigarette case, sol"] = /obj/item/storage/box/fancy/cigarettes/case/sol
+	cigarettecase["cigarette case, biesel"] = /obj/item/storage/box/fancy/cigarettes/case/tc
+	gear_tweaks += new /datum/gear_tweak/path(cigarettecase)

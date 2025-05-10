@@ -65,6 +65,7 @@
 	user.visible_message("[SPAN_BOLD("[user]")] starts deploying \the [src]...", SPAN_NOTICE("You begin deploying \the [src]!"), SPAN_WARNING("You hear the slow creaking of a spring."))
 
 	if(do_after(user, 5 SECONDS))
+		playsound(src, 'sound/items/crank.ogg', 50, TRUE)
 		user.visible_message("[SPAN_BOLD("[user]")] deploys \the [src].", SPAN_WARNING("You deploy \the [src]!"), SPAN_WARNING("You hear a latch click loudly."))
 		deployed = TRUE
 		update_icon()
@@ -198,6 +199,7 @@
 /obj/item/trap/tripwire/deploy(mob/user)
 	user.visible_message(SPAN_WARNING("\The [user] starts to deploy \the [src]."), SPAN_WARNING("You begin deploying \the [src]!"))
 	if(do_after(user, 5 SECONDS))
+		playsound(src, 'sound/items/crank.ogg', 50, TRUE)
 		user.visible_message(SPAN_WARNING("\The [user] deploys \the [src]."), SPAN_WARNING("You deploy \the [src]!"))
 		deployed = TRUE
 		update_icon()
@@ -256,6 +258,8 @@
 
 	//Try to apply the damage
 	var/success = L.apply_damage(50, DAMAGE_BRUTE, target_zone, used_weapon = src, armor_pen = activated_armor_penetration)
+	//Apply weakness, so the victim doesn't walk immediately back out of the trap
+	L.Weaken(10)
 
 	//If successfully applied, give the message
 	if(success)
@@ -270,6 +274,11 @@
 
 		var/mob/living/carbon/human/human = L
 		var/obj/item/organ/organ = human.get_organ(target_zone)
+
+		if(isipc(L) || isrobot(L))
+			playsound(src, 'sound/weapons/smash.ogg', 100, TRUE)
+		else
+			playsound(src, 'sound/weapons/heavysmash.ogg', 100, TRUE)
 
 		human.visible_message(SPAN_DANGER("\The [human] steps on \the [src]!"),
 								SPAN_WARNING(FONT_LARGE(SPAN_DANGER("You step on \the [src], feel your body fall, and something sharp penetrate your [organ.name]!"))),
@@ -670,7 +679,7 @@
 		..()
 
 /obj/item/trap/animal/Move()
-	..()
+	. = ..()
 	if(captured)
 		var/datum/M = captured.resolve()
 		if(isliving(M))

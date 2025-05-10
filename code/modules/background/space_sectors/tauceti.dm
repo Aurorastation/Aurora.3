@@ -3,8 +3,14 @@
 	description = "Tau Ceti is a system located in close proximity of Sol, and serves as the main base of operation for the megacorporation NanoTrasen. Tau Ceti is governed by the \
 	Republic of Biesel, a young Republic that became independent of the economically troubled Sol Alliance in 2452 due to heavy pressure by NanoTrasen. There is still resentment in \
 	the Sol Alliance over the loss of such a wealthy system, while NanoTrasen continues to have a heavy hand in all levels of Tau Ceti."
-	cargo_price_coef = list("nt" = 0.8, "hpi" = 0.8, "zhu" = 0.8, "een" = 1, "get" = 0.8, "arz" = 1, "blm" = 1,
-								"iac" = 1, "zsc" = 1, "vfc" = 1, "bis" = 0,8, "xmg" = 0.8, "npi" = 0.8)
+	cargo_price_coef = list(
+		"nanotrasen" = 0.8,
+		"orion" = 1,
+		"getmore" = 0.7,
+		"arizi" = 1.2,
+		"vysoka" = 1.2,
+		)
+
 	guaranteed_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/biesel)
 	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/lava/caprice, /obj/effect/overmap/visitable/sector/exoplanet/desert/luthien, /obj/effect/overmap/visitable/sector/exoplanet/barren/valkyrie,
 							/obj/effect/overmap/visitable/sector/exoplanet/snow/new_gibson, /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/ice/chandras, /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/dumas)

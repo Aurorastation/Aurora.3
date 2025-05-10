@@ -11,7 +11,7 @@
 #define CUT       "cut"
 #define BRUISE    "bruise"
 #define PIERCE    "pierce"
-#define LASER     "laser"
+//#define LASER     "laser"
 
 #define DAMAGE_FLAG_EDGE      1
 #define DAMAGE_FLAG_SHARP     2

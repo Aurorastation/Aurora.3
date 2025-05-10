@@ -9,7 +9,7 @@
 	slot_flags = SLOT_BACK
 	w_class = WEIGHT_CLASS_BULKY
 	force = 15
-	max_shots = 20
+	max_shots = 25
 	fire_delay = 6
 	burst_delay = 3
 	accuracy = -1
@@ -46,7 +46,7 @@
 	item_state = "laserrifle"
 	has_item_ratio = FALSE // the back and suit slots have ratio sprites but the in-hands dont
 	fire_sound = 'sound/weapons/laser1.ogg'
-	max_shots = 15
+	max_shots = 20
 	fire_delay = 6
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	projectile_type = /obj/projectile/beam/midlaser
@@ -75,7 +75,7 @@
 	icon = 'icons/obj/guns/crew_laser.dmi'
 	icon_state = "trilaser"
 	item_state = "trilaser"
-	max_shots = 12
+	max_shots = 15
 	fire_delay = 5
 	burst_delay = 5
 	origin_tech = list(TECH_COMBAT = 8, TECH_MAGNET = 4)
@@ -250,7 +250,7 @@
 	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
-	max_shots = 15
+	max_shots = 18
 	can_turret = TRUE
 	turret_is_lethal = TRUE
 	projectile_type = /obj/projectile/beam/midlaser/hegemony

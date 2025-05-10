@@ -76,13 +76,34 @@
 		/obj/item/toy/plushie/mouse,
 		/obj/item/toy/plushie/kitten,
 		/obj/item/toy/plushie/lizard,
+		/obj/item/toy/plushie/spider,
 		/obj/item/toy/plushie/farwa,
-		/obj/item/toy/plushie/squid,
 		/obj/item/toy/plushie/bear,
 		/obj/item/toy/plushie/bearfire,
+		/obj/item/toy/plushie/schlorrgo,
+		/obj/item/toy/plushie/coolschlorrgo,
+		/obj/item/toy/plushie/slime,
+		/obj/item/toy/plushie/bee,
+		/obj/item/toy/plushie/shark,
+		/obj/item/toy/plushie/greimorian,
 		/obj/item/toy/plushie/herring_gull,
 		/obj/item/toy/plushie/cockatoo,
-		/obj/item/toy/plushie/norinori
+		/obj/item/toy/plushie/norinori,
+		/obj/item/toy/plushie/fox,
+		/obj/item/toy/plushie/fox/black,
+		/obj/item/toy/plushie/fox/marble,
+		/obj/item/toy/plushie/fox/blue,
+		/obj/item/toy/plushie/fox/orange,
+		/obj/item/toy/plushie/fox/coffee,
+		/obj/item/toy/plushie/fox/pink,
+		/obj/item/toy/plushie/fox/purple,
+		/obj/item/toy/plushie/fox/crimson,
+		/obj/item/toy/plushie/axic,
+		/obj/item/toy/plushie/qill,
+		/obj/item/toy/plushie/xana,
+		/obj/item/toy/plushie/ipc,
+		/obj/item/toy/plushie/domadice,
+		/obj/item/toy/plushie/squid
 	)
 
 /obj/random/balloon
@@ -504,6 +525,7 @@
 		/obj/item/reagent_containers/food/condiment/ntella = 1,
 		/obj/item/reagent_containers/food/condiment/peanut_butter = 1,
 		/obj/item/reagent_containers/food/condiment/cherry_jelly = 1,
+		/obj/item/reagent_containers/food/condiment/sweet_chili = 0.8,
 		/obj/item/reagent_containers/food/condiment/grape_jelly = 0.5
 	)
 
@@ -520,3 +542,77 @@
 		/obj/item/reagent_containers/food/condiment/rice = 1,
 		/obj/item/reagent_containers/food/condiment/cocoa = 1
 	)
+
+/obj/random/maintenance_junk_or_loot
+	name = "random maintenance junk or loot"
+	desc = "Spawns any of: junk, loot, trash, trash pile, locker with junk or loot, (or other things)."
+	icon_state = "maint_junk_loot"
+	spawn_nothing_percentage = 25
+	has_postspawn = TRUE
+	problist = list(
+		// spawn just one thing:
+		/obj/random/junk = 3,
+		/obj/random/dirt_75 = 1,
+		/obj/random/loot = 1,
+		/obj/structure/trash_pile = 1,
+		/obj/random/tool = 0.2,
+		/obj/random/tech_supply = 0.1,
+		/obj/structure/girder = 0.1,
+		/obj/random/canister/empty = 0.1,
+		/obj/random/canister/filled = 0.05,
+		/obj/structure/closet/crate/loot = 0.01,
+
+		// spawn a container and maybe fill it with more junk:
+		/obj/structure/table/rack = 1,
+		/obj/structure/table/steel = 1,
+		/obj/structure/closet/crate = 1,
+		/obj/structure/closet/crate/trashcart = 0.2,
+		/obj/structure/closet/crate/plastic = 0.1,
+	)
+
+	var/list/more_junk_problist = list(
+		/obj/random/junk = 2,
+		/obj/random/loot = 1,
+		/obj/random/tech_supply = 0.2,
+		/obj/random/tool = 0.2,
+	)
+
+/obj/random/maintenance_junk_or_loot/post_spawn(var/obj/spawned)
+	if(istype(spawned, /obj/structure/table))
+		if(prob(65))
+			var/obj/more_junk = pickweight(more_junk_problist)
+			new more_junk(spawned.loc)
+	else if(istype(spawned, /obj/structure/closet))
+		if(prob(90))
+			var/i_max = rand(1, 4)
+			for(var/i in 1 to i_max)
+				var/obj/more_junk = pickweight(more_junk_problist)
+				new more_junk(spawned.loc)
+
+/obj/random/yarn
+	name = "random yarn"
+	desc = "This is a random ball of yarn."
+	icon = 'icons/obj/item/knitting.dmi'
+	icon_state = "white_ball"
+	spawnlist = list(
+		/obj/item/yarn/blue,
+		/obj/item/yarn/green,
+		/obj/item/yarn/purple,
+		/obj/item/yarn/red,
+		/obj/item/yarn/yellow
+	)
+
+/obj/random/horticulture_magazine
+	name = "random horticulture magazine"
+	desc = "This is a random magazine."
+	icon = 'icons/obj/library.dmi'
+	icon_state = "horticulture1"
+	spawnlist = list(
+		/obj/item/toy/comic/magazine/horticulturetoday/issue1,
+		/obj/item/toy/comic/magazine/horticulturetoday/issue2,
+		/obj/item/toy/comic/magazine/horticulturetoday/issue3,
+		/obj/item/toy/comic/magazine/horticulturetoday/issue4,
+		/obj/item/toy/comic/magazine/horticulturetoday/issue5,
+		/obj/item/toy/comic/magazine/horticulturetoday/issue6
+	)
+

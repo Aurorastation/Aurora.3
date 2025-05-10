@@ -29,8 +29,6 @@
 	var/preview_icon = 'icons/mob/human_races/human/human_preview.dmi'
 	var/bandages_icon
 
-	var/talk_bubble_icon
-
 	// Damage overlay and masks.
 	var/damage_overlays = 'icons/mob/human_races/masks/dam_human.dmi'
 	var/damage_mask = 'icons/mob/human_races/masks/dam_mask_human.dmi'
@@ -857,9 +855,18 @@
 		return src
 	return name
 
-// prevents EMP damage if return it returns TRUE
-/datum/species/proc/handle_emp_act(var/mob/living/carbon/human/H, var/severity)
-	return FALSE
+/**
+ * Handles EMP act for a specie
+ *
+ * * hit_mob - The mob that was hit by the EMP (aka the mob that is this specie)
+ * * severity - The severity of the EMP, one of the EMP_ defines in empulse.dm
+ *
+ * returns a bitfield with the EMP_PROTECT_* defines to determine what should happen from the mob perspective
+ */
+/datum/species/proc/handle_emp_act(mob/living/carbon/human/hit_mob, severity)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_CALL_PARENT(FALSE)
+	return NONE
 
 /**
  * DEPRECATED: Use `/datum/movespeed_modifier` instead

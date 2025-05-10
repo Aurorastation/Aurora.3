@@ -5,6 +5,7 @@
 	icon = 'icons/obj/storage/bags.dmi'
 	icon_state = "satchel"
 	slot_flags = SLOT_BELT | SLOT_POCKET
+	storage_slots = 50
 	max_storage_space = 100
 	can_hold = list(/obj/item/ore)
 	var/obj/structure/ore_box/linked_box

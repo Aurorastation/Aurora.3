@@ -273,6 +273,7 @@
 	species = list(BODYTYPE_HUMAN)
 	suit = /obj/item/clothing/suit/space/void/sol
 	helmet = /obj/item/clothing/head/helmet/space/void/sol
+	mask = /obj/item/clothing/mask/gas/half
 
 /obj/machinery/suit_cycler/offship/sol/fsf
 	suit = /obj/item/clothing/suit/space/void/sol/fsf
@@ -365,3 +366,15 @@
 	req_access = list(ACCESS_GOLDEN_DEEP)
 	suit = /obj/item/clothing/suit/space/void/golden_deep
 	helmet = /obj/item/clothing/head/helmet/space/void/golden_deep
+
+/obj/machinery/suit_cycler/offship/hiskyn
+	model_text = "Hiskyn's Revanchists"
+	req_access = list(ACCESS_UNATHI_PIRATE)
+	departments = list("Hiskyn's Revanchists")
+	species = list(BODYTYPE_UNATHI)
+	suit = /obj/item/clothing/suit/space/void/unathi_pirate/hiskyn
+	helmet = /obj/item/clothing/head/helmet/space/void/unathi_pirate/hiskyn
+
+/obj/machinery/suit_cycler/offship/hiskyn/captain
+	suit = /obj/item/clothing/suit/space/void/unathi_pirate/hiskyn/captain
+	helmet = /obj/item/clothing/head/helmet/space/void/unathi_pirate/hiskyn/captain

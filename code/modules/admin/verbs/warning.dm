@@ -201,7 +201,7 @@
 		dat += "</tr>"
 
 	dat += "</table>"
-	show_browser(usr, dat, "window=mywarnings;size=900x500")
+	show_browser(usr, HTML_SKELETON(dat), "window=mywarnings;size=900x500")
 
 /*
  * A proc for acknowledging a warning
@@ -410,7 +410,7 @@
 
 		dat +="</table>"
 
-	show_browser(usr, dat, "window=lookupwarns;size=900x500")
+	show_browser(usr, HTML_SKELETON(dat), "window=lookupwarns;size=900x500")
 	feedback_add_details("admin_verb","WARN-LKUP")
 
 //Admin Proc to add a new User Notification

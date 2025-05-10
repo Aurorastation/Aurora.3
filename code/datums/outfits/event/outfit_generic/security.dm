@@ -28,6 +28,11 @@
 		/obj/item/clothing/glasses/sunglasses/big,
 		/obj/item/clothing/glasses/sunglasses/visor,
 	)
+	gloves = list(
+		/obj/item/clothing/gloves/brown,
+		/obj/item/clothing/gloves/black_leather,
+		/obj/item/clothing/gloves/fingerless,
+	)
 	shoes = list(
 		/obj/item/clothing/shoes/jackboots,
 		/obj/item/clothing/shoes/workboots,

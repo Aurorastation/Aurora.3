@@ -39,7 +39,7 @@
 	Tile Update: [SSair.tiles_to_update.len]<BR>
 "}
 
-	usr << browse(output,"window=airreport")
+	usr << browse(HTML_SKELETON(output), "window=airreport")
 
 /client/proc/fix_next_move()
 	set category = "Debug"
@@ -95,7 +95,7 @@
 				else
 					output += "&nbsp;&nbsp;&nbsp;&nbsp;[device]<br>"
 
-	usr << browse(output,"window=radioreport")
+	usr << browse(HTML_SKELETON(output), "window=radioreport")
 	feedback_add_details("admin_verb","RR") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/reload_admins()

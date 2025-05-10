@@ -1,6 +1,6 @@
 import { BooleanLike } from '../../common/react';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Icon, LabeledList, Section, Table, Tabs } from '../components';
+import { Box, Button, Icon, LabeledList, Section, Table, Tabs, Tooltip, Stack, Input } from '../components';
 import { NtosWindow } from '../layouts';
 import { sanitizeText } from '../sanitize';
 
@@ -34,6 +34,7 @@ type Item = {
   id: number;
   supplier: string;
   supplier_data: Supplier;
+  access: string;
 };
 
 type Supplier = {
@@ -83,9 +84,9 @@ export const CargoOrder = (props, context) => {
   const { act, data } = useBackend<CargoData>(context);
 
   return (
-    <NtosWindow resizable>
+    <NtosWindow resizable width={800} height={800}>
       <NtosWindow.Content scrollable>
-        <Tabs fitted>
+        <Tabs fluid>
           <Tabs.Tab
             onClick={() => act('page', { page: 'main' })}
             selected={data.page === 'main'}>
@@ -110,85 +111,137 @@ export const MainPage = (props, context) => {
     'details',
     false
   );
+  const [searchTerm, setSearchTerm] = useLocalState<string>(
+    context,
+    `searchTerm`,
+    ``
+  );
 
   return (
-    <Section>
+    <Stack vertical>
       <Section title={'Welcome, ' + data.username}>
-        <Box fontSize={1.3} bold>
-          Order
-        </Box>
-        <LabeledList>
-          <LabeledList.Item label="Items">
-            {data.order_item_count}
-          </LabeledList.Item>
-          <LabeledList.Item label="Price">
-            {data.order_value} 电
-          </LabeledList.Item>
-          {data.status_message && (
-            <LabeledList.Item label="Status">
-              {data.status_message}
-            </LabeledList.Item>
-          )}
-        </LabeledList>
-        <Box py={1}>
-          <Button
-            content="Details"
-            icon="shopping-cart"
-            onClick={() => setDetails(!details)}
-          />
-          <Button
-            content="Clear"
-            color="red"
-            icon="stop"
-            onClick={() => act('clear_order')}
-          />
-          <Button
-            content="Submit Order"
-            icon="check"
-            onClick={() => act('submit_order')}
-          />
-        </Box>
-        {details && <ShowDetails />}
-      </Section>
-      <Section title="Catalog">
-        <Tabs>
-          {data.cargo_categories.map((category) => (
-            <Tabs.Tab
-              key={category.name}
-              selected={data.selected_category === category.name}
-              onClick={() =>
-                act('select_category', { select_category: category.name })
-              }>
-              <Icon name={category.icon} /> {category.display_name}
-            </Tabs.Tab>
-          ))}
-        </Tabs>
-        {data.category_items.map((item) => (
-          <Section
-            title={item.name}
-            key={item.name}
-            buttons={
-              <Button
-                content={item.price_adjusted + '电'}
-                disabled={
-                  !item.supplier_data.available && item.price_adjusted <= 0
-                }
-                icon="shopping-basket"
-                onClick={
-                  () => act('add_item', { add_item: item.id.toString() }) // don't ask why this is the way it is
-                }
-              />
-            }>
-            {item.description}
+        <Stack vertical>
+          <Stack.Item fontSize={1.4} bold>
+            Your Basket
+          </Stack.Item>
+          <Stack.Item>
             <LabeledList>
-              <LabeledList.Item label="Shipped By">
-                {item.supplier_data.name}
+              <LabeledList.Item label="Items">
+                {data.order_item_count}
               </LabeledList.Item>
+              <LabeledList.Item label="Price">
+                {data.order_value} 电
+              </LabeledList.Item>
+              {data.status_message && (
+                <LabeledList.Item label="Status">
+                  {data.status_message}
+                </LabeledList.Item>
+              )}
             </LabeledList>
-          </Section>
-        ))}
+          </Stack.Item>
+          <Stack.Item>
+            <Button
+              content="Details"
+              icon="list"
+              onClick={() => setDetails(!details)}
+            />
+            <Button
+              content="Clear"
+              color="red"
+              icon="stop"
+              onClick={() => act('clear_order')}
+            />
+            <Button
+              content="Submit Order"
+              icon="check"
+              onClick={() => act('submit_order')}
+            />
+          </Stack.Item>
+          {details && <ShowDetails />}
+        </Stack>
       </Section>
-    </Section>
+      <Section
+        title="Catalog"
+        buttons={
+          <Input
+            autoFocus
+            autoSelect
+            placeholder="Search by name"
+            maxLength={512}
+            onInput={(e, value) => {
+              setSearchTerm(value);
+            }}
+            value={searchTerm}
+          />
+        }
+      />
+      <Stack>
+        {/* Left Side: Tabs Section */}
+        <Stack.Item width={'175px'}>
+          <Tabs vertical>
+            {data.cargo_categories.map((category) => (
+              <Tabs.Tab
+                key={category.name}
+                selected={data.selected_category === category.name}
+                onClick={() =>
+                  act('select_category', { select_category: category.name })
+                }>
+                <Icon name={category.icon} /> {category.display_name}
+              </Tabs.Tab>
+            ))}
+          </Tabs>
+        </Stack.Item>
+
+        {/* Right Side: Content Section */}
+        <Stack.Item grow>
+          {data.category_items
+            .filter(
+              (c) =>
+                c.name?.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
+            )
+            .map((item) => (
+              <Section
+                title={item.name}
+                key={item.name}
+                buttons={
+                  <Button
+                    content={item.price_adjusted + '电'}
+                    disabled={
+                      !item.supplier_data.available && item.price_adjusted <= 0
+                    }
+                    tooltip="Add to Basket"
+                    icon="shopping-basket"
+                    onClick={() =>
+                      act('add_item', { add_item: item.name.toString() })
+                    }
+                  />
+                }>
+                <Stack vertical>
+                  <Stack.Item>{item.description}</Stack.Item>
+                  <Stack.Item>
+                    <LabeledList>
+                      <Tooltip content={item.supplier_data.description}>
+                        <LabeledList.Item label="Shipped By">
+                          {item.supplier_data.name}
+                        </LabeledList.Item>
+                      </Tooltip>
+                      <LabeledList.Item label="Required Access">
+                        {item.access !== 'none' ? (
+                          <Tooltip content="This item has restricted access.">
+                            <Icon name="lock" /> {item.access}
+                          </Tooltip>
+                        ) : (
+                          <>None</>
+                        )}
+                      </LabeledList.Item>
+                    </LabeledList>
+                  </Stack.Item>
+                </Stack>
+              </Section>
+            ))}
+        </Stack.Item>
+      </Stack>
+    </Stack>
   );
 };
 
@@ -200,23 +253,19 @@ export const ShowDetails = (props, context) => {
       <Table>
         <Table.Row header>
           <Table.Cell>Name</Table.Cell>
-          <Table.Cell>Supplier</Table.Cell>
           <Table.Cell>Price</Table.Cell>
         </Table.Row>
         <Table.Row>
           <Table.Cell>Handling Fee</Table.Cell>
-          <Table.Cell>Operations</Table.Cell>
           <Table.Cell>{data.handling_fee} 电</Table.Cell>
         </Table.Row>
         <Table.Row>
           <Table.Cell>Crate Fee</Table.Cell>
-          <Table.Cell>Operations</Table.Cell>
           <Table.Cell>{data.crate_fee} 电</Table.Cell>
         </Table.Row>
         {data.order_items.map((item) => (
           <Table.Row key={item.name}>
             <Table.Cell>{item.name}</Table.Cell>
-            <Table.Cell>{item.supplier_data.name}</Table.Cell>
             <Table.Cell>{item.price} 电</Table.Cell>
           </Table.Row>
         ))}

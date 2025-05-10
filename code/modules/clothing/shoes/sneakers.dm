@@ -114,7 +114,7 @@
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
 	armor = list(
-		bio = ARMOR_BIO_RESISTANT
+		BIO = ARMOR_BIO_RESISTANT
 	)
 
 /obj/item/clothing/shoes/sneakers/medsci/zeng

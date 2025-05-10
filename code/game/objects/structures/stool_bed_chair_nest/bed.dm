@@ -122,10 +122,10 @@
 		painted_colour = new_colour
 		return painted_colour != last_colour
 
-/obj/structure/bed/forceMove(atom/dest)
+/obj/structure/bed/forceMove(atom/destination)
 	. = ..()
 	if(buckled)
-		buckled.forceMove(dest)
+		buckled.forceMove(destination)
 
 /obj/structure/bed/ex_act(severity)
 	switch(severity)
@@ -447,6 +447,9 @@
 		update_icon()
 
 /obj/structure/bed/roller/proc/collapse()
+	if(buckled)
+		to_chat(usr, SPAN_WARNING("\The [buckled] is on \the [src]. Remove them first."))
+		return
 	usr.visible_message(SPAN_NOTICE("<b>[usr]</b> collapses \the [src]."), SPAN_NOTICE("You collapse \the [src]"))
 	new held_item(get_turf(src))
 	qdel(src)
@@ -515,11 +518,12 @@
 		remove_vitals(user)
 		return
 	if(buckled)
+		to_chat(user, SPAN_WARNING("\The [buckled] is on \the [src]. Remove them first."))
 		return
 	collapse()
 
 /obj/structure/bed/roller/Move()
-	..()
+	. = ..()
 	if(buckled)
 		if(buckled.buckled_to == src)
 			buckled.forceMove(src.loc)

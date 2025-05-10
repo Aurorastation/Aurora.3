@@ -33,8 +33,8 @@
 	var/obj/machinery/dna_scannernew/scannerf = null
 
 	//Try to find scanner on adjacent tiles first
-	for(dir in list(NORTH,EAST,SOUTH,WEST))
-		scannerf = locate(/obj/machinery/dna_scannernew, get_step(src, dir))
+	for(var/obj/machinery/dna_scannernew/C in orange(1,src))
+		scannerf = C
 		if (scannerf)
 			return scannerf
 
@@ -217,7 +217,7 @@
 			dat += "<b><a href='byond://?src=[REF(src)];menu=3'>No</a></b>"
 
 
-	user << browse(dat, "window=cloning")
+	user << browse(HTML_SKELETON(dat), "window=cloning")
 	onclose(user, "cloning")
 	return
 
