@@ -30,6 +30,10 @@
 	SEND_SIGNAL(src, COMSIG_ITEM_UPDATE_STATE)
 	update_icon()
 
+/obj/item/clothing/suit/storage/hooded/AltClick(mob/user)
+	ToggleHood(user)
+
+
 //hoodies and the like
 
 /obj/item/clothing/suit/storage/hooded/wintercoat
@@ -131,16 +135,6 @@
 			return TRUE
 	return FALSE
 
-/obj/item/clothing/suit/storage/hooded/wintercoat/red
-	name = "red winter coat"
-	icon_state = "coatred"
-	item_state = "coatred"
-
-/obj/item/clothing/suit/storage/hooded/wintercoat/captain
-	name = "captain's winter coat"
-	icon_state = "coatcaptain"
-	item_state = "coatcaptain"
-
 /obj/item/clothing/suit/storage/hooded/wintercoat/security
 	name = "security winter coat"
 	icon_state = "coatsecurity"
@@ -166,25 +160,15 @@
 	icon_state = "coatengineer"
 	item_state = "coatengineer"
 
-/obj/item/clothing/suit/storage/hooded/wintercoat/engineering/atmos
-	name = "atmospherics winter coat"
-	icon_state = "coatatmos"
-	item_state = "coatatmos"
-
-/obj/item/clothing/suit/storage/hooded/wintercoat/hydro
-	name = "hydroponics winter coat"
-	icon_state = "coathydro"
-	item_state = "coathydro"
+/obj/item/clothing/suit/storage/hooded/wintercoat/service
+	name = "service winter coat"
+	icon_state = "coatservice"
+	item_state = "coatservice"
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/cargo
 	name = "operations winter coat"
 	icon_state = "coatcargo"
 	item_state = "coatcargo"
-
-/obj/item/clothing/suit/storage/hooded/wintercoat/miner
-	name = "mining winter coat"
-	icon_state = "coatminer"
-	item_state = "coatminer"
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/idris
 	name = "idris winter coat"
@@ -219,18 +203,10 @@
 	icon_state = "coatheph"
 	item_state = "coatheph"
 
-/obj/item/clothing/suit/storage/hooded/wintercoat/heph/alt
-	icon_state = "coatheph_alt"
-	item_state = "coatheph_alt"
-
 /obj/item/clothing/suit/storage/hooded/wintercoat/nt
 	name = "nanotrasen winter coat"
 	icon_state = "coatnt"
 	item_state = "coatnt"
-
-/obj/item/clothing/suit/storage/hooded/wintercoat/nt/alt
-	icon_state = "coatnt_alt"
-	item_state = "coatnt_alt"
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/zeng
 	name = "zeng-hu winter coat"
