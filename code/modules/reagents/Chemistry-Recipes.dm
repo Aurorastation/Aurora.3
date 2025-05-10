@@ -1270,6 +1270,7 @@
 		/mob/living/simple_animal/hostile/gift,
 		/mob/living/simple_animal/hostile/hivebotbeacon,
 		/mob/living/simple_animal/hostile/hivebotbeacon/incendiary,
+		/mob/living/simple_animal/hostile/hivebotbeacon/weakened,
 		/mob/living/simple_animal/hostile/republicon,
 		/mob/living/simple_animal/hostile/republicon/ranged,
 		/mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen,
