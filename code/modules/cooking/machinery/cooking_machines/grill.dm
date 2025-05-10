@@ -64,6 +64,10 @@
 				return CI
 	return FALSE
 
+/// Grills do not require power to work.
+/obj/machinery/appliance/cooker/grill/powered()
+	return TRUE
+
 /obj/machinery/appliance/cooker/grill/proc/update_grilling_audio()
 	if(!grill_loop)
 		return
