@@ -13,4 +13,4 @@ changes:
   - imageadd: "Resprited winter coats."
   - rscadd: "Reflavored the hydroponics winter coat to a more general service winter coat."
   - rscadd: "Alt-clicking the winter coats will now pull their hoods up."
-  - rscdel: "Removed the red, Hephaestus alt, miner, atmospherics and captain winter coats for consistency with corporate/departmental jackets."
+  - rscdel: "Removed the red, Hephaestus alt, Nanotrasen alt, miner, atmospherics and captain winter coats for consistency with corporate/departmental jackets."
