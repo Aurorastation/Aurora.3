@@ -21,6 +21,7 @@
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/barren
 	area_flags = AREA_FLAG_RAD_SHIELDED
+	is_outside = OUTSIDE_NO
 
 /area/burzsia_mining/mess_hall
 	name = "Hephaestus Burzsia Mining Outpost Mess Hall"

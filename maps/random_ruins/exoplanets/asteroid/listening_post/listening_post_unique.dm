@@ -21,6 +21,7 @@
 	requires_power = TRUE
 	dynamic_lighting = TRUE
 	no_light_control = TRUE
+	is_outside = OUTSIDE_NO
 
 /area/listening_post/entrance
 	name = "Listening Post Installation - Entrance"
