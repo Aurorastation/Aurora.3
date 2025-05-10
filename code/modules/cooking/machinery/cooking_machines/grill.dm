@@ -118,6 +118,8 @@
 	off_icon = "grill_cart_off"
 	desc = "A more commercialized version of your traditional grill. What happened to the good old days where people grilled with passion?"
 	use_power = POWER_USE_OFF
+	idle_power_usage = 0
+	active_power_usage = 0
 
 /obj/machinery/appliance/cooker/grill/stand/update_icon()
 	..()
