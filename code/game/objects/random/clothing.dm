@@ -175,10 +175,12 @@
 	problist = list(
 		/obj/item/clothing/suit/storage/hooded/wintercoat = 5,
 		/obj/item/clothing/suit/storage/hooded/wintercoat/engineering = 3,
+		/obj/item/clothing/suit/storage/hooded/wintercoat/engineering/atmos = 3,
 		/obj/item/clothing/suit/storage/hooded/wintercoat/medical = 3,
 		/obj/item/clothing/suit/storage/hooded/wintercoat/science = 3,
 		/obj/item/clothing/suit/storage/hooded/wintercoat/hydro = 3,
 		/obj/item/clothing/suit/storage/hooded/wintercoat/cargo = 3,
+		/obj/item/clothing/suit/storage/hooded/wintercoat/miner = 3,
 		/obj/item/clothing/suit/storage/hooded/wintercoat/security = 2,
 		/obj/item/clothing/suit/storage/hooded/wintercoat/captain = 1
 	)

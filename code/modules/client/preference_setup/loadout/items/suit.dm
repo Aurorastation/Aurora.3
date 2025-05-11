@@ -291,13 +291,14 @@
 	..()
 	var/list/wintercoat = list()
 	wintercoat["winter coat"] = /obj/item/clothing/suit/storage/hooded/wintercoat
+	wintercoat["winter coat, captain"] = /obj/item/clothing/suit/storage/hooded/wintercoat/captain
 	wintercoat["winter coat, security"] = /obj/item/clothing/suit/storage/hooded/wintercoat/security
 	wintercoat["winter coat, science"] = /obj/item/clothing/suit/storage/hooded/wintercoat/science
 	wintercoat["winter coat, IAC"] = /obj/item/clothing/suit/storage/hooded/wintercoat/iac
 	wintercoat["winter coat, medical"] = /obj/item/clothing/suit/storage/hooded/wintercoat/medical
 	wintercoat["winter coat, engineering"] = /obj/item/clothing/suit/storage/hooded/wintercoat/engineering
 	wintercoat["winter coat, atmospherics"] = /obj/item/clothing/suit/storage/hooded/wintercoat/engineering/atmos
-	wintercoat["winter coat, service"] = /obj/item/clothing/suit/storage/hooded/wintercoat/hydro
+	wintercoat["winter coat, hydroponics"] = /obj/item/clothing/suit/storage/hooded/wintercoat/hydro
 	wintercoat["winter coat, operations"] = /obj/item/clothing/suit/storage/hooded/wintercoat/cargo
 	wintercoat["winter coat, mining"] = /obj/item/clothing/suit/storage/hooded/wintercoat/miner
 	gear_tweaks += new /datum/gear_tweak/path(wintercoat)
