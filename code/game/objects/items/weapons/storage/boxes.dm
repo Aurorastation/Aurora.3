@@ -1371,3 +1371,17 @@
 	starts_with = list(
 		/obj/item/toy/stressball = 6
 	)
+
+/obj/item/storage/box/mms_inhaler
+	name = "mms inhaler kit"
+	desc = "A box filled with an inhaler and cartridges containing Mercury Monolithium Sucrose."
+	illustration = "inhalers"
+	starts_with = list(
+		/obj/item/personal_inhaler = 1, /obj/item/reagent_containers/personal_inhaler_cartridge/mms = 3
+	)
+
+/obj/item/storage/box/ambrosia
+	name = "ambrosia box"
+	starts_with = list(
+		/obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris/dried = 4
+	)

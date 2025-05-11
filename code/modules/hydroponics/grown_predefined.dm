@@ -21,6 +21,12 @@
 /obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris
 	plantname = "ambrosia"
 
+/obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris/dried/Initialize()
+	. = ..()
+	dry = TRUE
+	name = "dried [name]"
+	color = "#aaaaaa"
+
 /obj/item/reagent_containers/food/snacks/grown/ambrosiadeus
 	plantname = "ambrosiadeus"
 
