@@ -184,8 +184,6 @@
 	..()
 	var/list/otc = list()
 	otc["Antidexafen pills"] = /obj/item/storage/pill_bottle/antidexafen
-	otc["Dexalin pills"] = /obj/item/storage/pill_bottle/dexalin
-	otc["Dylovene pills"] = /obj/item/storage/pill_bottle/dylovene
 	otc["Vitamin supplement pills"] = /obj/item/storage/pill_bottle/vitamin
 	otc["Cetahydramine pills"] = /obj/item/storage/pill_bottle/cetahydramine
 	otc["Caffeine pills"] = /obj/item/storage/pill_bottle/caffeine

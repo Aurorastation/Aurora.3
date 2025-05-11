@@ -57,6 +57,6 @@ delete-after: True
 changes:
   - rscadd: "Changes the name of the 'smoking' loadout tab to 'drugs and medicines'."
   - rscadd: "Psychiatric medication has been moved from the utility tab to the drugs and medicines tab in the loadout."
-  - rscadd: "Added some basic over-the-counter medicines to the loadout, the same ones that can be found in the public NanoPharm vendor."
+  - rscadd: "Added some basic over-the-counter medicines to the loadout, most of the ones that can be found in the public NanoPharm vendor."
   - rscadd: "Adds some legal recreational drugs to the loadout."
   
