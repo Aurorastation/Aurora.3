@@ -135,6 +135,11 @@
 			return TRUE
 	return FALSE
 
+/obj/item/clothing/suit/storage/hooded/wintercoat/red
+	name = "red winter coat"
+	icon_state = "coatred"
+	item_state = "coatred"
+
 /obj/item/clothing/suit/storage/hooded/wintercoat/captain
 	name = "captain's winter coat"
 	icon_state = "coatcaptain"

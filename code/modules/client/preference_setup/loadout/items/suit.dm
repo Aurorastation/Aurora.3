@@ -291,6 +291,7 @@
 	..()
 	var/list/wintercoat = list()
 	wintercoat["winter coat"] = /obj/item/clothing/suit/storage/hooded/wintercoat
+	wintercoat["winter coat, red"] = /obj/item/clothing/suit/storage/hooded/wintercoat/red
 	wintercoat["winter coat, captain"] = /obj/item/clothing/suit/storage/hooded/wintercoat/captain
 	wintercoat["winter coat, security"] = /obj/item/clothing/suit/storage/hooded/wintercoat/security
 	wintercoat["winter coat, science"] = /obj/item/clothing/suit/storage/hooded/wintercoat/science
