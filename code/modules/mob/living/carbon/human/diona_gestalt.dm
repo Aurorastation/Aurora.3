@@ -398,7 +398,7 @@ Slows you down while being used, and cannot be used below 50 nutrition and 20 en
 	last_special = world.time + 2 SECONDS
 
 	// Checks whether we want to disable or enable the ability with this call.
-	if(HAS_TRAIT(src, TRAIT_SHOE_GRIP))
+	if(HAS_TRAIT_FROM(src, TRAIT_SHOE_GRIP, TRAIT_SOURCE_SPECIES_VERB))
 		root_disable()
 	else
 		root_enable()
@@ -417,7 +417,7 @@ Slows you down while being used, and cannot be used below 50 nutrition and 20 en
 
 /// Disables Diona magboot roots.
 /mob/living/carbon/human/proc/root_disable()
-	visible_message(SPAN_NOTICE("[src] retracts the roots growing from their feet back into their body.")
+	visible_message(SPAN_NOTICE("[src] retracts the roots growing from their body.")
 	, SPAN_NOTICE("You retract your roots back into your body."))
 	REMOVE_TRAIT(src, TRAIT_SHOE_GRIP, TRAIT_SOURCE_SPECIES_VERB)
 	remove_movespeed_modifier(/datum/movespeed_modifier/root_to_ground)
