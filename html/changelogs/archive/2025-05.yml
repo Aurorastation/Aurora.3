@@ -60,3 +60,10 @@
   - qol: All traps now produce a noise when set up, and punji traps produce a noise
       when a mob falls into them.
   - balance: Punji traps now cause victims to collapse after falling into them.
+2025-05-12:
+  4000daniel1:
+  - rscadd: Changed the max player requirement of Loner from 8 to 15, making it the
+      same as Technomancer.
+  hazelmouse:
+  - bugfix: Prevents weather, such as rain, from rendering inside several indoors
+      areas.
