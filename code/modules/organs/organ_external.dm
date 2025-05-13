@@ -995,10 +995,12 @@ Note that amputating the affected organ does in fact remove the infection from t
 		heal_amt = heal_amt / (LAZYLEN(wounds) + 1)
 		// making it look prettier on scanners
 		heal_amt = round(heal_amt,0.1)
-		W.heal_damage(heal_amt)
 		var/dam_type = DAMAGE_BRUTE
 		if (W.damage_type == INJURY_TYPE_BURN)
 			dam_type = DAMAGE_BURN
+
+		if(owner.can_autoheal(dam_type))
+			W.heal_damage(heal_amt)
 
 		// Salving also helps against infection
 		if(W.germ_level > 0 && W.salved && prob(2))
@@ -1055,8 +1057,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 /obj/item/organ/external/proc/update_damage_ratios()
 	var/limb_loss_threshold = max_damage * 2
-	brute_ratio = Percent(brute_dam, limb_loss_threshold, 0)
-	burn_ratio = Percent(burn_dam, limb_loss_threshold, 0)
+	brute_ratio = Percent(brute_dam, limb_loss_threshold)
+	burn_ratio = Percent(burn_dam, limb_loss_threshold)
 
 // new damage icon system
 // returns just the brute/burn damage code
@@ -1480,7 +1482,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 	// Grab all the internal giblets too.
 	for(var/obj/item/organ/organ in internal_organs)
-		organ.removed(user, drop_organ = FALSE, detach = FALSE) // Organ stays inside and connected
+		organ.removed(user, FALSE, FALSE) // Organ stays inside and connected
 		organ.forceMove(src)
 
 	// Remove parent references
