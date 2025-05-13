@@ -180,7 +180,7 @@
 	if(ishuman(imp_in) && part)
 		//No tearing off these parts since it's pretty much killing. Mangle them.
 		if(part.vital && !istype(part, /obj/item/organ/external/head)) //Head explodes
-			part.createwound(BRUISE, 70)
+			part.createwound(INJURY_TYPE_BRUISE, 70)
 			part.add_pain(50)
 			imp_in.visible_message(SPAN_WARNING("\The [imp_in]'s [part.name] bursts open with a horrible ripping noise!"),
 									SPAN_DANGER("Your [part.name] bursts open with a horrible ripping noise!"),

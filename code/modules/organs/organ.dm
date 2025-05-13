@@ -422,7 +422,14 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	surge_damage = clamp(0, surge + surge_damage, MAXIMUM_SURGE_DAMAGE) //We want X seconds at most of hampered movement or what have you.
 	surge_time = world.time
 
-/obj/item/organ/proc/removed(var/mob/living/carbon/human/target,var/mob/living/user)
+/**
+ *  Remove an organ
+ *
+ *  drop_organ - if true, organ will be dropped at the loc of its former owner
+ *  detach - if true, organ will be detached from parent. Keep false for organs
+ *           removed together with parent, as with an amputation.
+ */
+/obj/item/organ/proc/removed(mob/living/carbon/human/target, mob/living/user, drop_organ = TRUE, detach = TRUE)
 	if(!istype(owner))
 		return
 
@@ -433,10 +440,14 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	owner.internal_organs_by_name -= null
 	owner.internal_organs -= src
 
-	var/obj/item/organ/external/affected = owner.get_organ(parent_organ)
-	if(affected) affected.internal_organs -= src
+	if(detach)
+		var/obj/item/organ/external/affected = owner.get_organ(parent_organ)
+		if(affected)
+			affected.internal_organs -= src
 
-	loc = get_turf(owner)
+	if(drop_organ)
+		dropInto(owner.loc)
+
 	START_PROCESSING(SSprocessing, src)
 	rejecting = null
 	if (!reagents)
