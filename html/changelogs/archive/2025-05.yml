@@ -67,3 +67,6 @@
   hazelmouse:
   - bugfix: Prevents weather, such as rain, from rendering inside several indoors
       areas.
+2025-05-13:
+  steviii:
+  - imageadd: Changed the Burzsia banner a bit and added a flag.
