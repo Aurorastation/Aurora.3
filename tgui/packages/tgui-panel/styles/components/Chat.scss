@@ -83,7 +83,7 @@ $color-bg-section: base.$color-bg-section !default;
 
 .ChatMessage--highlighted {
   position: relative;
-  border-left: math.div(1em, 6) solid rgba(255, 221, 68);
+  border-left: math.div(1em, 6) solid var(--highlight-color, rgb(255, 221, 68));
   padding-left: 0.5em;
 
   &:after {
@@ -93,7 +93,8 @@ $color-bg-section: base.$color-bg-section !default;
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(255, 221, 68, 0.1);
+    opacity: var(--highlight-color-opacity, 0.1);
+    background-color: var(--highlight-color, rgb(255, 221, 68));
     // Make this click-through since this is an overlay
     pointer-events: none;
   }
