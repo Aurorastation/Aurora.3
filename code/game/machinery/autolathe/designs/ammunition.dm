@@ -96,7 +96,7 @@ ABSTRACT_TYPE(/singleton/autolathe_recipe/ammunition)
 	path = /obj/item/ammo_magazine/c45uzi
 	security_level = SEC_LEVEL_RED
 
-/singleton/autolathe_recipe/ammunition/magazine_xanu
+/singleton/autolathe_recipe/ammunition/magazine_xanu_pistol
 	name = "magazine (4.6mm)"
 	path = /obj/item/ammo_magazine/c46m
 	security_level = SEC_LEVEL_RED
@@ -147,6 +147,11 @@ ABSTRACT_TYPE(/singleton/autolathe_recipe/ammunition)
 /singleton/autolathe_recipe/ammunition/magazine_smallcarbinepolymer
 	name = "magazine (5.56mm polymer, carbine)"
 	path = /obj/item/ammo_magazine/a556/carbine/polymer
+	security_level = SEC_LEVEL_RED
+
+/singleton/autolathe_recipe/ammunition/magazine_xanu_rifle
+	name = "magazine (6.5mm, rifle)"
+	path = /obj/item/ammo_magazine/a65
 	security_level = SEC_LEVEL_RED
 
 /singleton/autolathe_recipe/ammunition/magazine_arifle
