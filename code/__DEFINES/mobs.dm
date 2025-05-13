@@ -154,6 +154,9 @@
 // Bishop frame only.
 #define BP_WIRELESS_ACCESS "wireless access point"
 
+// G2 frame only.
+#define BP_INTERNAL_STORAGE "internal storage system"
+
 // Parasite organs
 #define BP_ZOMBIE_PARASITE "black tumour"
 #define BP_WORM_HEART "heart fluke"

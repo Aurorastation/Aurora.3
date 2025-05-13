@@ -21,6 +21,10 @@
 	if(!istype(reactor))
 		return
 
+	if(get_integrity() < 75)
+		if(prob(10 * (damage / 10)))
+			spark(get_turf(owner), rand(1, 5), GLOB.alldirs)
+
 	if(reactor.power_supply_type & POWER_SUPPLY_KINETIC)
 		reactor.generate_power(reactor.base_power_generation)
 
@@ -30,6 +34,6 @@
 		return
 
 	if(prob(damage))
-		spark(owner, 2, GLOB.alldirs)
+		spark(owner, 5, GLOB.alldirs)
 		to_chat(owner, SPAN_WARNING("Your hydraulics malfunction and you trip!"))
 		owner.Weaken(1)

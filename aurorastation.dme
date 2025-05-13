@@ -3047,6 +3047,7 @@
 #include "code\modules\organs\internal\species\machine\data_core.dm"
 #include "code\modules\organs\internal\species\machine\hydraulics.dm"
 #include "code\modules\organs\internal\species\machine\internal_diagnostics.dm"
+#include "code\modules\organs\internal\species\machine\internal_storage.dm"
 #include "code\modules\organs\internal\species\machine\ipc_tag.dm"
 #include "code\modules\organs\internal\species\machine\optical_sensor.dm"
 #include "code\modules\organs\internal\species\machine\posibrain.dm"

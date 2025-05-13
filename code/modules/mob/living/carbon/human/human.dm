@@ -188,6 +188,11 @@
 		var/obj/item/organ/internal/stomach/stomach = internal_organs_by_name[BP_STOMACH]
 		if(stomach)
 			return stomach.ingested
+
+	if(should_have_organ(BP_REACTOR))
+		var/obj/item/organ/internal/machine/reactor/reactor = internal_organs_by_name[BP_REACTOR]
+		if(reactor && (reactor.power_supply_type & POWER_SUPPLY_BIOLOGICAL))
+			return reactor.bio_reagents
 	return touching
 
 /mob/living/carbon/human/proc/metabolize_ingested_reagents()
@@ -1867,6 +1872,10 @@
 	return 0
 
 /mob/living/carbon/human/proc/can_drink(var/obj/item/I)
+	if(should_have_organ(BP_REACTOR))
+		var/obj/item/organ/internal/machine/reactor/reactor = internal_organs_by_name[BP_REACTOR]
+		if(reactor && (reactor.power_supply_type & POWER_SUPPLY_BIOLOGICAL))
+			return TRUE
 	if(!check_has_mouth())
 		to_chat(src, SPAN_NOTICE("Where do you intend to put \the [I]? You don't have a mouth!"))
 		return FALSE

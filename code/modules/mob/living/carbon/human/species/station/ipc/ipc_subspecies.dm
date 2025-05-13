@@ -361,6 +361,22 @@
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/ipc/industrial/hephaestus)
 	)
 
+
+	has_organ = list(
+		BP_BRAIN   = /obj/item/organ/internal/machine/posibrain,
+		BP_VOICE_SYNTHESIZER = /obj/item/organ/internal/machine/voice_synthesizer,
+		BP_DIAGNOSTICS_SUITE = /obj/item/organ/internal/machine/internal_diagnostics,
+		BP_HYDRAULICS = /obj/item/organ/internal/machine/hydraulics,
+		BP_ACTUATORS_LEFT = /obj/item/organ/internal/machine/actuators/left,
+		BP_ACTUATORS_RIGHT = /obj/item/organ/internal/machine/actuators/right,
+		BP_COOLING_UNIT = /obj/item/organ/internal/machine/cooling_unit,
+		BP_INTERNAL_STORAGE = /obj/item/organ/internal/machine/internal_storage,
+		BP_REACTOR = /obj/item/organ/internal/machine/reactor,
+		BP_CELL    = /obj/item/organ/internal/machine/cell,
+		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
+		BP_IPCTAG = /obj/item/organ/internal/machine/ipc_tag
+	)
+
 	flags = IS_IPC | ACCEPTS_COOLER | NO_EQUIP_SPEEDMODS
 
 	diagnostics_theme = "hephaestus"

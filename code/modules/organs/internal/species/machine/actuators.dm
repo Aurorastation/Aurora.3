@@ -16,6 +16,6 @@
 		return
 
 	if(prob(damage))
-		spark(owner, 2, GLOB.alldirs)
+		spark(owner, 5, GLOB.alldirs)
 		to_chat(owner, SPAN_WARNING("Your actuators malfunction and you drop what you're holding!"))
 		owner.drop_item()

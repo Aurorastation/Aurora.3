@@ -27,6 +27,12 @@
 	var/last_power_generated = 0
 	/// The total amount of power generated. Used in get_diagnostics_info().
 	var/total_power_generated = 0
+	/// Used only in the bioreactor to contain nutrient to process into energy.
+	var/datum/reagents/bio_reagents
+
+/obj/item/organ/internal/machine/reactor/Destroy()
+	QDEL_NULL(bio_reagents)
+	return ..()
 
 /obj/item/organ/internal/machine/reactor/process(seconds_per_tick)
 	..()
@@ -43,14 +49,30 @@
 			var/power_generation = min(T.get_uv_lumcount(100, 200), base_power_generation)
 			generate_power(power_generation)
 
+	if(power_supply_type & POWER_SUPPLY_BIOLOGICAL)
+		var/nutriment_amount = REAGENT_VOLUME(bio_reagents, /singleton/reagent/nutriment)
+		if(nutriment_amount)
+			var/reagents_to_process = min(rand(0.1, 0.3), nutriment_amount)
+			bio_reagents.remove_reagent(/singleton/reagent/nutriment, reagents_to_process)
+			generate_power(reagents_to_process * 1000)
+
 /obj/item/organ/internal/machine/reactor/proc/generate_power(amount)
 	var/obj/item/organ/internal/machine/cell/cell = owner.internal_organs_by_name[BP_CELL]
 	if(!istype(cell))
 		return
+
+	if(is_broken())
+		return
+
+	amount *= (get_integrity() / 100)
 
 	. = cell.give(amount)
 	last_power_generated = .
 	total_power_generated += .
 
 /obj/item/organ/internal/machine/reactor/get_diagnostics_info()
-	return "Last Power Generated: [last_power_generated] W | Total Power Generated: [total_power_generated] W"
+	. = "Last Power Generated: [last_power_generated] W | Total Power Generated: [total_power_generated] W"
+
+	if(power_supply_type & POWER_SUPPLY_BIOLOGICAL)
+		var/nutriment_amount = REAGENT_VOLUME(bio_reagents, /singleton/reagent/nutriment)
+		. += "| Processing Biomass: [nutriment_amount ? nutriment_amount : 0]u"
