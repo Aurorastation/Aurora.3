@@ -96,6 +96,16 @@ ABSTRACT_TYPE(/singleton/autolathe_recipe/ammunition)
 	path = /obj/item/ammo_magazine/c45uzi
 	security_level = SEC_LEVEL_RED
 
+/singleton/autolathe_recipe/ammunition/magazine_xanu
+	name = "magazine (4.6mm)"
+	path = /obj/item/ammo_magazine/c46m
+	security_level = SEC_LEVEL_RED
+
+/singleton/autolathe_recipe/ammunition/magazine_xanu_smg
+	name = "magazine (4.6mm, extended)"
+	path = /obj/item/ammo_magazine/c46m/extended
+	security_level = SEC_LEVEL_RED
+
 /singleton/autolathe_recipe/ammunition/magazine_stetchkin
 	name = "magazine (9mm)"
 	path = /obj/item/ammo_magazine/mc9mm
