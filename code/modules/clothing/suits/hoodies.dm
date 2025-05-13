@@ -33,7 +33,6 @@
 /obj/item/clothing/suit/storage/hooded/AltClick(mob/user)
 	ToggleHood(user)
 
-
 //hoodies and the like
 
 /obj/item/clothing/suit/storage/hooded/wintercoat
