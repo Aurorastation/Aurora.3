@@ -10,9 +10,7 @@
  * string - A JSON encoded message to open the modal.
  */
 /client/proc/tgui_say_create_open_command(channel)
-	var/message = TGUI_CREATE_MESSAGE("open", list(
-		channel = channel,
-	))
+	var/message = TGUI_CREATE_OPEN_MESSAGE(channel)
 	return "\".output tgui_say.browser:update [message]\""
 
 /**
@@ -64,9 +62,11 @@
 /datum/tgui_say/proc/load()
 	window_open = FALSE
 
-	winset(client, "tgui_say", "pos=848,500;is-visible=0;")
+	winset(client, "tgui_say", "pos=700,500;is-visible=0;")
 
 	window.send_message("props", list(
+		"lightMode" = client?.prefs.tgui_say_light_mode,
+		"scale" = client?.prefs.ui_scale,
 		"maxLength" = max_length,
 	))
 
