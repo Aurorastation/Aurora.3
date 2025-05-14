@@ -373,6 +373,7 @@
 	flags["flag, Pluto"] = /obj/item/flag/pluto/l
 	flags["flag, Antique Visegrad"] = /obj/item/flag/old_visegrad/l
 	flags["flag, Visegrad"] = /obj/item/flag/visegrad/l
+	flags["flag, Burzsia"] = /obj/item/flag/burzsia/l
 	flags["flag, HPS Narrows"] = /obj/item/flag/narrows/l
 	gear_tweaks += new /datum/gear_tweak/path(flags)
 

@@ -405,6 +405,8 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 	)
 	addtimer(CALLBACK(src, PROC_REF(check_panel_loaded)), 30 SECONDS)
 
+	INVOKE_ASYNC(src, PROC_REF(acquire_dpi))
+
 	// Initialize tgui panel
 	tgui_panel.initialize()
 
@@ -700,6 +702,17 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 
 	winset(src, "mainwindow", "menu=[fullscreen ? "" : "menu"];is-fullscreen=[fullscreen ? "true" : "false"];titlebar=[fullscreen ? "false" : "true"]")
 	attempt_auto_fit_viewport()
+
+/client/verb/toggle_status_bar()
+	set name = "Toggle Status Bar"
+	set category = "Preferences.Menu"
+
+	show_status_bar = !show_status_bar
+
+	if (show_status_bar)
+		winset(src, "mapwindow.status_bar", "is-visible=true")
+	else
+		winset(src, "mapwindow.status_bar", "is-visible=false")
 
 /client/verb/toggle_menu()
 	set name = "Toggle Menu"
@@ -1002,3 +1015,7 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 	if(stat_panel.is_ready())
 		return
 	to_chat(src, SPAN_DANGER("Statpanel failed to load, click <a href='byond://?src=[REF(src)];reload_statbrowser=1'>here</a> to reload the panel "))
+
+/// This grabs the DPI of the user per their skin
+/client/proc/acquire_dpi()
+	window_scaling = text2num(winget(src, null, "dpi"))
