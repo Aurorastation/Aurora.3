@@ -268,7 +268,7 @@
 	..()
 	set_trait(TRAIT_PRODUCT_COLOUR,"#bb0202")
 
-/obj/item/seeds/strawberryseed
+/obj/item/seeds/cranberryseed
 	seed_type = "cranberries"
 
 //////////////
