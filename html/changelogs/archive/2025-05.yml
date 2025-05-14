@@ -70,3 +70,15 @@
 2025-05-13:
   steviii:
   - imageadd: Changed the Burzsia banner a bit and added a flag.
+2025-05-14:
+  Batrachophreno:
+  - rscadd: Maintenance Panels can be opened and closed with standard wrenches, not
+      just impact drill with wrenchbit.
+  - rscdel: Opened atmos Maintenance Panels can no longer be tinkered with using the
+      standard wrench, though pipe wrenches remain usable.
+  hazelmouse:
+  - rscadd: Implements several tweaks and minor fixes to hydroponics, particularly
+      affecting the component on the first deck. This includes some rearranged machines,
+      layout tweaks, filling in some missing decals, and correcting some erroneous
+      space turfs.
+  - rscadd: Hydroponics lockers now naturally spawn with a water tank inside them.
