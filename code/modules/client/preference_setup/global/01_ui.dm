@@ -14,6 +14,8 @@
 	S["tgui_inputs"]			>> pref.tgui_inputs
 	S["tgui_buttons_large"]		>> pref.tgui_buttons_large
 	S["tgui_inputs_swapped"]	>> pref.tgui_inputs_swapped
+	S["tgui_say_light_mode"]	>> pref.tgui_say_light_mode
+	S["ui_scale"]				>> pref.ui_scale
 
 /datum/category_item/player_setup_item/player_global/ui/save_preferences(var/savefile/S)
 	S["UI_style"]				<< pref.UI_style
@@ -27,6 +29,8 @@
 	S["tgui_inputs"]			<< pref.tgui_inputs
 	S["tgui_buttons_large"]		<< pref.tgui_buttons_large
 	S["tgui_inputs_swapped"]	<< pref.tgui_inputs_swapped
+	S["tgui_say_light_mode"]	<< pref.tgui_say_light_mode
+	S["ui_scale"]				<< pref.ui_scale
 
 /datum/category_item/player_setup_item/player_global/ui/gather_load_query()
 	return list(
@@ -42,7 +46,9 @@
 				"tooltip_style",
 				"tgui_inputs",
 				"tgui_buttons_large",
-				"tgui_inputs_swapped"
+				"tgui_inputs_swapped",
+				"tgui_say_light_mode",
+				"ui_scale",
 			),
 			"args" = list("ckey")
 		)
@@ -65,6 +71,7 @@
 			"tgui_inputs",
 			"tgui_buttons_large",
 			"tgui_inputs_swapped",
+			"ui_scale",
 			"ckey" = 1
 		)
 	)
@@ -82,7 +89,8 @@
 		"tooltip_style" = pref.tooltip_style,
 		"tgui_inputs" = pref.tgui_inputs,
 		"tgui_buttons_large" = pref.tgui_buttons_large,
-		"tgui_inputs_swapped" = pref.tgui_inputs_swapped
+		"tgui_inputs_swapped" = pref.tgui_inputs_swapped,
+		"ui_scale" = pref.ui_scale
 	)
 
 /datum/category_item/player_setup_item/player_global/ui/sanitize_preferences()
@@ -110,6 +118,8 @@
 	dat += "<b>TGUI Inputs:</b> <a href='byond://?src=[REF(src)];tgui_inputs=1'><b>[pref.tgui_inputs ? "ON" : "OFF"]</b></a><br>"
 	dat += "<b>TGUI Input Large Buttons:</b> <a href='byond://?src=[REF(src)];tgui_inputs_large=1'><b>[pref.tgui_buttons_large ? "ON" : "OFF"]</b></a><br>"
 	dat += "<b>TGUI Input Swapped Buttons:</b> <a href='byond://?src=[REF(src)];tgui_inputs_swapped=1'><b>[pref.tgui_inputs_swapped ? "ON" : "OFF"]</b></a><br>"
+	dat += "<b>TGUI Say Light Mode:</b> <a href='byond://?src=[REF(src)];tgui_say_light_mode=1'><b>[pref.tgui_say_light_mode ? "ON" : "OFF"]</b></a><br>"
+	dat += "<b>UI Scaling:</b> <a href='byond://?src=[REF(src)];ui_scale=1'><b>[pref.ui_scale ? "ON" : "OFF"]</b></a><br>"
 	dat += "<b>FPS:</b> <a href='byond://?src=[REF(src)];select_fps=1'><b>[pref.clientfps]</b></a> - <a href='byond://?src=[REF(src)];reset=fps'>reset</a><br>"
 	if(can_select_ooc_color(user))
 		dat += "<b>OOC Color:</b> "
@@ -157,6 +167,16 @@
 
 	else if(href_list["tgui_inputs_swapped"])
 		pref.tgui_inputs_swapped = !pref.tgui_inputs_swapped
+		return TOPIC_REFRESH
+
+	else if(href_list["tgui_say_light_mode"])
+		pref.tgui_say_light_mode = !pref.tgui_say_light_mode
+		user.client.tgui_say?.load()
+		return TOPIC_REFRESH
+
+	else if(href_list["ui_scale"])
+		pref.ui_scale = !pref.ui_scale
+		user.client.tgui_say?.load()
 		return TOPIC_REFRESH
 
 	else if(href_list["select_ooc_color"])
