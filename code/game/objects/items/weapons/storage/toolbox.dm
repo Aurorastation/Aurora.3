@@ -86,7 +86,8 @@
 	contained_sprite = TRUE
 	starts_with = list(
 		/obj/item/crowbar = 1,
-		/obj/item/powerdrill = 1,
+		/obj/item/screwdriver = 1,
+		/obj/item/wrench = 1,
 		/obj/item/mining_scanner = 1,
 		/obj/item/cell/high = 1,
 		/obj/item/device/orbital_dropper/drill = 1

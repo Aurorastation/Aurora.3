@@ -488,6 +488,132 @@
 	groupable = TRUE
 	spawn_amount = 1
 
+/singleton/cargo_item/cream
+	category = "hospitality"
+	name = "milk cream carton"
+	supplier = "getmore"
+	description = "It's cream. Made from milk. What else did you think you'd find in there?"
+	price = 15
+	items = list(
+		/obj/item/reagent_containers/food/drinks/carton/cream
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/fatshouters
+	category = "hospitality"
+	name = "fatshouters milk carton"
+	supplier = "getmore"
+	description = "Fatty fatshouters milk in a carton."
+	price = 20
+	items = list(
+		/obj/item/reagent_containers/food/drinks/carton/fatshouters
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/orangejuice
+	category = "hospitality"
+	name = "orange juice carton"
+	supplier = "getmore"
+	description = "Full of vitamins and deliciousness!"
+	price = 15
+	items = list(
+		/obj/item/reagent_containers/food/drinks/carton/orangejuice
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/tomatojuice
+	category = "hospitality"
+	name = "tomato juice carton"
+	supplier = "getmore"
+	description = "Well, at least it LOOKS like tomato juice. You can't tell with all that redness."
+	price = 15
+	items = list(
+		/obj/item/reagent_containers/food/drinks/carton/tomatojuice
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/limejuice
+	category = "hospitality"
+	name = "lime juice carton"
+	supplier = "getmore"
+	description = "Sweet-sour goodness."
+	price = 15
+	items = list(
+		/obj/item/reagent_containers/food/drinks/carton/limejuice
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/cranberryjuice
+	category = "hospitality"
+	name = "cranberry juice carton"
+	supplier = "getmore"
+	description = "Tart and sweet. A unique flavor for a unique berry."
+	price = 15
+	items = list(
+		/obj/item/reagent_containers/food/drinks/carton/cranberryjuice
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/lemonjuice
+	category = "hospitality"
+	name = "lemon juice carton"
+	supplier = "getmore"
+	description = "This juice is VERY sour."
+	price = 15
+	items = list(
+		/obj/item/reagent_containers/food/drinks/carton/lemonjuice
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/dynjuice
+	category = "hospitality"
+	name = "dyn juice carton"
+	supplier = "getmore"
+	description = "Juice from a Skrell medicinal herb. It's supposed to be diluted."
+	price = 20
+	items = list(
+		/obj/item/reagent_containers/food/drinks/carton/dynjuice
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/applejuice
+	category = "hospitality"
+	name = "apple juice carton"
+	supplier = "getmore"
+	description = "Juice from an apple. Yes."
+	price = 15
+	items = list(
+		/obj/item/reagent_containers/food/drinks/carton/applejuice
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = TRUE
+	spawn_amount = 1
+
 /singleton/cargo_item/chipmultipackcrate
 	category = "hospitality"
 	name = "chip multipack crate"
@@ -771,3 +897,159 @@
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
+
+/singleton/cargo_item/beer
+	category = "hospitality"
+	name = "Virklunder beer (x6)"
+	supplier = "getmore"
+	description = "A 6-pack yoke of Virklunder beers, for cracking open a cold one."
+	price = 220
+	items = list(
+		/obj/item/storage/box/fancy/yoke/beer
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/ebisu
+	category = "hospitality"
+	name = "Ebisu Super Dry rice beer (x6)"
+	supplier = "getmore"
+	description = "A 6-pack yoke of Ebisu Super Dry rice beer, for cracking open a cold one."
+	price = 220
+	items = list(
+		/obj/item/storage/box/fancy/yoke/ebisu
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/shimauma
+	category = "hospitality"
+	name = "Shimauma Ichiban rice beer (x6)"
+	supplier = "getmore"
+	description = "A 6-pack yoke of Shimauma Ichiban rice beer, for cracking open a cold one."
+	price = 220
+	items = list(
+		/obj/item/storage/box/fancy/yoke/shimauma
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/moonlabor
+	category = "hospitality"
+	name = "Moonlabor Malt's rice beer (x6)"
+	supplier = "getmore"
+	description = "A 6-pack yoke of Moonlabor Malt's rice beer, for cracking open a cold one."
+	price = 220
+	items = list(
+		/obj/item/storage/box/fancy/yoke/moonlabor
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/moonlabor
+	category = "hospitality"
+	name = "Moonlabor Malt's rice beer (x6)"
+	supplier = "getmore"
+	description = "A 6-pack yoke of Moonlabor Malt's rice beer, for cracking open a cold one."
+	price = 220
+	items = list(
+		/obj/item/storage/box/fancy/yoke/moonlabor
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/earthmover
+	category = "hospitality"
+	name = "Inverkeithing Imports Earthmover ale (x6)"
+	supplier = "getmore"
+	description = "A 6-pack yoke of Inverkeithing Imports Earthmover ale, for cracking open a cold one."
+	price = 250
+	items = list(
+		/obj/item/storage/box/fancy/yoke/earthmover
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/whistlingforest
+	category = "hospitality"
+	name = "Whistling Forest Pale Ale (x6)"
+	supplier = "getmore"
+	description = "A 6-pack yoke of Whistling Forest Pale Ale, for cracking open a cold one."
+	price = 250
+	items = list(
+		/obj/item/storage/box/fancy/yoke/whistlingforest
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/dental_hygiene
+	category = "hospitality"
+	name = "Dental Hygiene Kit"
+	supplier = "getmore"
+	description = "A box containing a toothbrush, a tube of toothpaste, and a bottle of mouthwash."
+	price = 150
+	items = list(
+		/obj/item/storage/box/toothpaste
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/sencha
+	category = "hospitality"
+	name = "Sencha Tins (x7)"
+	supplier = "getmore"
+	description = "A box containing some tins of green tea leaves."
+	price = 100
+	items = list(
+		/obj/item/storage/box/tea
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/sencha
+	category = "hospitality"
+	name = "Sencha-cha Tins (x7)"
+	supplier = "getmore"
+	description = "A box containing some tins of green tea leaves."
+	price = 100
+	items = list(
+		/obj/item/storage/box/tea
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/tieguanyin
+	category = "hospitality"
+	name = "Tieguanyin-cha Tins (x7)"
+	supplier = "getmore"
+	description = "A box containing some tins of oolong tea leaves."
+	price = 100
+	items = list(
+		/obj/item/storage/box/tea/tieguanyin
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/jaekseol
+	category = "hospitality"
+	name = "Jaeksol-cha Tins (x7)"
+	supplier = "getmore"
+	description = "A box containing some tins of black tea leaves."
+	price = 100
+	items = list(
+		/obj/item/storage/box/tea/jaekseol
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE

@@ -122,14 +122,7 @@
 		/obj/item/reagent_containers/food/drinks/cans/tonic = 8,
 		/obj/item/reagent_containers/food/drinks/cans/threetowns = 6,
 		/obj/item/reagent_containers/food/drinks/cans/beer/rice = 8,
-		/obj/item/reagent_containers/food/drinks/carton/applejuice = 4,
 		/obj/item/reagent_containers/food/drinks/carton/cream = 4,
-		/obj/item/reagent_containers/food/drinks/carton/dynjuice = 4,
-		/obj/item/reagent_containers/food/drinks/carton/limejuice = 4,
-		/obj/item/reagent_containers/food/drinks/carton/lemonjuice = 4,
-		/obj/item/reagent_containers/food/drinks/carton/orangejuice = 4,
-		/obj/item/reagent_containers/food/drinks/carton/tomatojuice = 4,
-		/obj/item/reagent_containers/food/drinks/carton/cranberryjuice = 4,
 		/obj/item/reagent_containers/food/drinks/carton/fatshouters = 2,
 		/obj/item/reagent_containers/food/drinks/carton/mutthir = 2,
 		/obj/item/reagent_containers/food/drinks/boba = 2,
@@ -1024,6 +1017,7 @@
 		/obj/item/seeds/soyaseed = 3,
 		/obj/item/seeds/sthberryseed = 3,
 		/obj/item/seeds/strawberryseed = 3,
+		/obj/item/seeds/cranberryseed = 3,
 		/obj/item/seeds/sugarcaneseed = 3,
 		/obj/item/seeds/sunflowerseed = 3,
 		/obj/item/seeds/sugartree = 2,
@@ -1104,6 +1098,7 @@
 		/obj/item/seeds/shandseed = 60,
 		/obj/item/seeds/soyaseed = 40,
 		/obj/item/seeds/strawberryseed = 40,
+		/obj/item/seeds/cranberryseed = 40,
 		/obj/item/seeds/sugarcaneseed = 20,
 		/obj/item/seeds/sunflowerseed = 20,
 		/obj/item/seeds/sugartree = 40,
@@ -1314,7 +1309,6 @@
 	vend_id = "tools"
 	products = list(
 		/obj/item/device/multitool = 4,
-		/obj/item/powerdrill = 2,
 		/obj/item/taperoll/engineering = 4,
 		/obj/item/clothing/glasses/safety/goggles = 4,
 		/obj/item/airlock_electronics = 20,
@@ -1409,7 +1403,6 @@
 		/obj/item/wirecutters = 8,
 		/obj/item/device/multitool = 8,
 		/obj/item/wrench = 8,
-		/obj/item/powerdrill = 4,
 		/obj/item/device/t_scanner = 8,
 		/obj/item/stack/cable_coil/random = 10,
 		/obj/item/cell = 5,
@@ -2072,4 +2065,51 @@ If you want to expand this to more than primarily generic items, I recommend des
 		/obj/item/clothing/shoes/laceup/colourable = 6,
 		/obj/item/clothing/shoes/heels = 6,
 		/obj/item/clothing/shoes/winter = 6,
+	)
+
+/obj/machinery/vending/cola
+	name = "Idris Re-Fresh"
+	desc = "A soft drink vendor provided by an Idris subsidiary."
+	icon_state = "cola_machine"
+	icon_vend = "cola_machine-vend"
+	icon_deny = "cola_machine-deny"
+	icon_screen = "cola_machine-screen"
+	light_mask = "cola_machine-lightmask"
+	product_slogans = "Idris Re-Fresh: the more expensive the place, the more of us you'll seee!"
+	product_ads = "Refreshing!;Hope you're thirsty!;Thirsty? Why not cola?;Please, have a drink!;Drink up!;The best drinks in space."
+	vend_id = "cola"
+
+/obj/machinery/vending/lavatory
+	name = "\improper Lavatory Essentials"
+	desc = "Vends things that make you less reviled in the work-place!"
+	icon_state = "lavatory"
+	icon_vend = "lavatory-vend"
+	icon_deny = "lavatory-deny"
+	product_ads = "Take a shower you hippie.;Get a haircut, hippie!;Reeking of Vaurca taint? Take a shower!;You reek! Freshen up!;Hey, you dropped something!;Cleansing the world, one person at a time!"
+	prices = list(
+		/obj/item/soap = 20,
+		/obj/item/mirror = 40,
+		/obj/item/haircomb/random = 40,
+		/obj/item/towel/random = 50,
+		/obj/item/reagent_containers/spray/cleaner/deodorant = 30,
+		/obj/item/reagent_containers/toothpaste = 40,
+		/obj/item/reagent_containers/toothbrush = 20,
+		/obj/item/reagent_containers/food/drinks/flask/vacuumflask/mouthwash = 30
+	)
+	products = list(
+		/obj/item/soap = 12,
+		/obj/item/mirror = 8,
+		/obj/item/haircomb/random = 8,
+		/obj/item/towel/random = 6,
+		/obj/item/reagent_containers/spray/cleaner/deodorant = 5,
+		/obj/item/reagent_containers/toothpaste = 5,
+		/obj/item/reagent_containers/toothbrush = 12,
+		/obj/item/reagent_containers/food/drinks/flask/vacuumflask/mouthwash = 5
+	)
+	premium = list(
+		/obj/item/inflatable_duck = 1
+	)
+	contraband = list(
+		/obj/item/cane/concealed = 1,
+		/obj/item/grenade/chem_grenade/metalfoam = 0,
 	)

@@ -47,6 +47,7 @@
 	var/singleton/reagent/master = reagents.get_primary_reagent_decl()
 	name = master.condiment_name || (reagents.reagent_volumes.len == 1 ? "[lowertext(master.name)] bottle" : "condiment bottle")
 	desc = master.condiment_desc || (reagents.reagent_volumes.len == 1 ? master.description : "A mixture of various condiments. [master.name] is one of them.")
+	icon = master.condiment_icon || 'icons/obj/item/reagent_containers/food/condiment.dmi'
 	icon_state = master.condiment_icon_state || "mixedcondiments"
 	center_of_mass = master.condiment_center_of_mass || list("x"=16, "y"=6)
 
