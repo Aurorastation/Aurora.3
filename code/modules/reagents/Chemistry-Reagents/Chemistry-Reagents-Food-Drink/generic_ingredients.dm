@@ -847,7 +847,7 @@
 
 	condiment_name = "space milk"
 	condiment_desc = "It's milk. White and nutritious goodness!"
-	condiment_icon = 'icons/obj/item/reagent_containers/food/carton.dmi'
+	condiment_icon = 'icons/obj/item/reagent_containers/food/drinks/carton.dmi'
 	condiment_icon_state = "milk"
 
 	default_temperature = T0C + 5
@@ -883,7 +883,7 @@
 
 	condiment_name = "milk cream"
 	condiment_desc = "It's cream. Made from milk. What else did you think you'd find in there?"
-	condiment_icon = 'icons/obj/item/reagent_containers/food/carton.dmi'
+	condiment_icon = 'icons/obj/item/reagent_containers/food/drinks/carton.dmi'
 	condiment_icon_state = "cream"
 
 /singleton/reagent/drink/milk/soymilk
@@ -898,7 +898,7 @@
 
 	condiment_name = "soy milk"
 	condiment_desc = "It's soy milk. White and nutritious goodness!"
-	condiment_icon = 'icons/obj/item/reagent_containers/food/carton.dmi'
+	condiment_icon = 'icons/obj/item/reagent_containers/food/drinks/carton.dmi'
 	condiment_icon_state = "soymilk"
 
 /singleton/reagent/drink/milk/chocolate

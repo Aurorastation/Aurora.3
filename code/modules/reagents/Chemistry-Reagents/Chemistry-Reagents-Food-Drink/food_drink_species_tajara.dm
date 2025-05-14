@@ -118,7 +118,7 @@
 
 	condiment_name = "mutthir carton"
 	condiment_desc = "A beverage made with Fatshouters' yogurt mixed with Nm'shaan's sugar and sweet herbs."
-	condiment_icon = 'icons/obj/item/reagent_containers/food/carton.dmi'
+	condiment_icon = 'icons/obj/item/reagent_containers/food/drinks/carton.dmi'
 	condiment_icon_state = "mutthir"
 
 /singleton/reagent/drink/milk/schlorrgo

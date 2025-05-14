@@ -125,7 +125,7 @@
 
 	condiment_name = "dyn juice"
 	condiment_desc = "Juice from a Skrell medicinal herb. It's supposed to be diluted."
-	condiment_icon = 'icons/obj/item/reagent_containers/food/carton.dmi'
+	condiment_icon = 'icons/obj/item/reagent_containers/food/drinks/carton.dmi'
 	condiment_icon_state = "dynjuice"
 
 /singleton/reagent/drink/dynjuice/hot

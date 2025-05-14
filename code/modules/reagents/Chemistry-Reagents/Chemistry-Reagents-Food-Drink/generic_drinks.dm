@@ -207,7 +207,7 @@
 
 	condiment_name = "lemon juice"
 	condiment_desc = "This juice is VERY sour."
-	condiment_icon = 'icons/obj/item/reagent_containers/food/carton.dmi'
+	condiment_icon = 'icons/obj/item/reagent_containers/food/drinks/carton.dmi'
 	condiment_icon_state = "lemonjuice"
 
 /singleton/reagent/drink/limejuice
@@ -223,7 +223,7 @@
 
 	condiment_name = "lime juice"
 	condiment_desc = "Sweet-sour goodness."
-	condiment_icon = 'icons/obj/item/reagent_containers/food/carton.dmi'
+	condiment_icon = 'icons/obj/item/reagent_containers/food/drinks/carton.dmi'
 	condiment_icon_state = "limejuice"
 
 /singleton/reagent/drink/orangejuice
@@ -238,7 +238,7 @@
 
 	condiment_name = "orange juice"
 	condiment_desc = "Full of vitamins and deliciousness!"
-	condiment_icon = 'icons/obj/item/reagent_containers/food/carton.dmi'
+	condiment_icon = 'icons/obj/item/reagent_containers/food/drinks/carton.dmi'
 	condiment_icon_state = "orangejuice"
 
 /singleton/reagent/drink/orangejuice/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -259,7 +259,7 @@
 
 	condiment_name = "cranberry juice"
 	condiment_desc = "Tart and sweet. A unique flavor for a unique berry."
-	condiment_icon = 'icons/obj/item/reagent_containers/food/carton.dmi'
+	condiment_icon = 'icons/obj/item/reagent_containers/food/drinks/carton.dmi'
 	condiment_icon_state = "cranberryjuice"
 
 /singleton/reagent/drink/potatojuice
@@ -285,7 +285,7 @@
 
 	condiment_name = "tomato juice"
 	condiment_desc = "Well, at least it LOOKS like tomato juice. You can't tell with all that redness."
-	condiment_icon = 'icons/obj/item/reagent_containers/food/carton.dmi'
+	condiment_icon = 'icons/obj/item/reagent_containers/food/drinks/carton.dmi'
 	condiment_icon_state = "tomatojuice"
 
 /singleton/reagent/drink/tomatojuice/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -351,7 +351,7 @@
 
 	condiment_name = "apple juice"
 	condiment_desc = "Juice from an apple. Yes."
-	condiment_icon = 'icons/obj/item/reagent_containers/food/carton.dmi'
+	condiment_icon = 'icons/obj/item/reagent_containers/food/drinks/carton.dmi'
 	condiment_icon_state = "applejuice"
 
 /singleton/reagent/drink/pearjuice
