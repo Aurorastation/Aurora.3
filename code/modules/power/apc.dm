@@ -645,11 +645,11 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 					to_chat(user, SPAN_NOTICE("You place the power control board inside the frame."))
 					qdel(attacking_item)
 
-	// WELDER: If the cover is open and APC has been stripped down, dismantle it back into steel.
-	//         If the APC is broken and the cover is closed, remove the cover.
+	// WELDER: If the APC is broken, remove the cover.
+	//         If the cover is open and APC has been stripped down, dismantle it back into steel.
 	else if (attacking_item.isWelder())
 		var/obj/item/weldingtool/WT = attacking_item
-		if (opened == COVER_CLOSED && (stat & BROKEN))
+		if ((stat & BROKEN))
 			if (!WT.isOn()) return
 			if (WT.get_fuel() <1)
 				to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
