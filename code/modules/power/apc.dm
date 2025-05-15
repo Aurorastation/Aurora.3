@@ -647,7 +647,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 
 	// WELDER: If the APC is broken, remove the cover.
 	//         If the cover is open and APC has been stripped down, dismantle it back into steel.
-	else if (attacking_item.isWelder())
+	else if (attacking_item.iswelder())
 		var/obj/item/weldingtool/WT = attacking_item
 		if (opened != COVER_REMOVED && (stat & BROKEN))
 			if (!WT.isOn()) return
