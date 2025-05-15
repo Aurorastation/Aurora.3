@@ -226,7 +226,7 @@
 		var/material_name = S.get_material_name()
 		if(S.get_amount() >= 2)
 			if(material_name != MATERIAL_GLASS_REINFORCED)
-				to_chat(user, SPAN_WARNING("\You can only use reinforced glass to install a window into an airlock assembly."))
+				to_chat(user, SPAN_WARNING("You can only use reinforced glass to install a window into an airlock assembly."))
 				return
 			if(material_name == MATERIAL_GLASS_REINFORCED)
 				user.visible_message("<b>[user]</b> starts installing \the [S] into the airlock assembly.", SPAN_WARNING("You start installing \the [S] into the airlock assembly."))
