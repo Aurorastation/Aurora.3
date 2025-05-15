@@ -44,12 +44,8 @@
 		return
 
 	// After that, it's open season.
-	var/bits_to_hit = pick(1, 2)
-	switch(bits_to_hit)
-		if(1)
-			wiring.take_damage(amount)
-		if(2)
-			electronics.take_damage(amount)
+	var/datum/synthetic_internal/bits_to_hit = pick(wiring, electronics)
+	bits_to_hit.take_damage(amount)
 
 /**
  * Called when prefs are synced to the organ to set the proper synthetic organ preset.
@@ -74,7 +70,9 @@
  * Returns a percentage.
  */
 /obj/item/organ/internal/machine/proc/get_integrity()
-	return (wiring.get_status() + electronics.get_status()) / 2
+	var/wiring_status = wiring ? wiring.get_status() : 0
+	var/electronics_status = electronics ? electronics.get_status() : 0
+	return (wiring_status + electronics_status) / 2
 
 /**
  * This function returns the damage level of an organ, only calculating its damage and max_damage.
@@ -86,8 +84,8 @@
 
 	return (damage / max_damage) * 100
 /**
- * This proc is overridden by the organ to do cool damage events based on integrity.
- * Only called below 75.
+ * This proc is used to determine which integrity damage threshold we are at, and execute the proper proc..
+ * Only called below 75%.
  */
 /obj/item/organ/internal/machine/proc/integrity_damage(integrity)
 	if(!owner)
@@ -97,6 +95,7 @@
 	if(!istype(brain)) //???
 		crash_with("[src]: [owner] somehow didn't have a posibrain.")
 
+	// The cooldowns are handled in the other procs because feasibly we might want to add different cooldowns for different organs and different thresholds.
 	switch(integrity)
 		if(50 to 75)
 			low_integrity_damage(integrity)
@@ -110,7 +109,7 @@
  */
 /obj/item/organ/internal/machine/proc/low_integrity_damage(integrity)
 	if(last_damage_time + damage_cooldown > world.time)
-		return FALSE
+		return
 
 /**
  * The proc called to do mediumlow-intensity integrity damage (25 to 50% damage).
@@ -118,9 +117,6 @@
 /obj/item/organ/internal/machine/proc/medium_integrity_damage(integrity)
 	if(last_damage_time + damage_cooldown > world.time)
 		return FALSE
-
-	if(prob(25))
-		take_damage(1, TRUE)
 
 /**
  * The proc called to do high-intensity integrity damage (0 to 25% damage).

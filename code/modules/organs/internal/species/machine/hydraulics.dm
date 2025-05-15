@@ -28,12 +28,23 @@
 	if(reactor.power_supply_type & POWER_SUPPLY_KINETIC)
 		reactor.generate_power(reactor.base_power_generation)
 
+/obj/item/organ/internal/machine/hydraulics/medium_integrity_damage(integrity)
+	. = ..()
+	if(!.)
+		return
+
+	if(prob(damage / 2))
+		spark(owner, 3, GLOB.alldirs)
+		to_chat(owner, SPAN_WARNING("Your hydraulics lock up for a second!"))
+		owner.Stun(1)
+
+
 /obj/item/organ/internal/machine/hydraulics/high_integrity_damage(integrity)
 	. = ..()
 	if(!.)
 		return
 
-	if(prob(damage))
+	if(prob(damage / 2))
 		spark(owner, 5, GLOB.alldirs)
 		to_chat(owner, SPAN_WARNING("Your hydraulics malfunction and you trip!"))
 		owner.Weaken(1)
