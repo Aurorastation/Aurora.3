@@ -681,13 +681,13 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 				if (emagged || (stat & BROKEN) || opened == COVER_REMOVED)
 					new /obj/item/stack/material/steel(loc)
 					user.visible_message(\
-						SPAN_WARNING("[src] has been cut apart by [user.name] with the weldingtool."),\
+						SPAN_WARNING("[src] has been cut apart by [user.name] with the welding tool."),\
 						SPAN_NOTICE("You disassembled the broken APC frame."),\
 						"You hear welding.")
 				else
 					new /obj/item/frame/apc(loc)
 					user.visible_message(\
-						SPAN_WARNING("[src] has been cut from the wall by [user.name] with the weldingtool."),\
+						SPAN_WARNING("[src] has been cut from the wall by [user.name] with the welding tool."),\
 						SPAN_NOTICE("You cut the APC frame from the wall."),\
 						"You hear welding.")
 				qdel(src)
