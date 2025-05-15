@@ -448,3 +448,10 @@
 	empty_icon_state = "sweet_chili_empty"
 	reagents_to_add = list(/singleton/reagent/nutriment/sweet_chili = 50)
 	amount_per_transfer_from_this = 1
+
+/obj/item/reagent_containers/food/condiment/wulumunusha
+	name = "wulumunusha extract bottle"
+	desc = "A small dropper bottle full of a stoner's paradise. A warning label warns of muteness as a side effect."
+	icon_state = "wuluextract"
+	fixed_state = TRUE
+	reagents_to_add = list(/singleton/reagent/wulumunusha = 30)

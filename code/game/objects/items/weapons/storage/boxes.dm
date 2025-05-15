@@ -1385,3 +1385,15 @@
 	starts_with = list(
 		/obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris/dried = 4
 	)
+
+/obj/item/storage/box/reishi
+	name = "reishi box"
+	starts_with = list(
+		/obj/item/reagent_containers/food/snacks/grown/mushroom/reishi/dried = 4
+	)
+
+/obj/item/storage/box/wulumunusha
+	name = "wulumunusha box"
+	starts_with = list(
+		/obj/item/reagent_containers/food/snacks/grown/wulumunusha/dried = 4
+	)

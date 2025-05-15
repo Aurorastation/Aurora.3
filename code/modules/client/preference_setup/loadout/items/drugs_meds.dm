@@ -199,8 +199,11 @@
 	..()
 	var/list/legal_rec = list()
 	legal_rec["Mercury Monolithium Sucrose inhaler"] = /obj/item/storage/box/mms_inhaler
-	legal_rec["Ambrosia leaves"] = /obj/item/storage/box/ambrosia
+	legal_rec["Dried ambrosia leaves"] = /obj/item/storage/box/ambrosia
+	legal_rec["Dried reishi"] = /obj/item/storage/box/reishi
+	legal_rec["Dried wulumunusha"] = /obj/item/storage/box/wulumunusha
 	legal_rec["Colorspace pills"] = /obj/item/storage/pill_bottle/colorspace
 	legal_rec["Snowflake pills"] = /obj/item/storage/pill_bottle/snowflake
 	legal_rec["Psilocybin pills"] = /obj/item/storage/pill_bottle/psilocybin
+	legal_rec["Wulumunusha extract bottle"] = /obj/item/reagent_containers/food/condiment/wulumunusha
 	gear_tweaks += new /datum/gear_tweak/path(legal_rec)
