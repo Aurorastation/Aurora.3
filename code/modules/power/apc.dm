@@ -649,7 +649,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 	//         If the cover is open and APC has been stripped down, dismantle it back into steel.
 	else if (attacking_item.isWelder())
 		var/obj/item/weldingtool/WT = attacking_item
-		if ((stat & BROKEN))
+		if (opened != COVER_REMOVED && (stat & BROKEN))
 			if (!WT.isOn()) return
 			if (WT.get_fuel() <1)
 				to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
@@ -658,7 +658,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 			if(attacking_item.use_tool(src, user, 10, volume = 50))
 				if(!src || !WT.use(1, user))
 					return
-				if ((stat & BROKEN))
+				else
 					new /obj/item/stack/material/steel(loc)
 					user.visible_message(\
 						SPAN_WARNING("[user.name] cuts the cover off of the broken APC."),\
@@ -757,7 +757,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 
 	// ANYTHING ELSE: Beat the crap out of it.
 	else
-		else if (((stat & BROKEN) || hacker) \
+		if (((stat & BROKEN) || hacker) \
 				&& opened == COVER_CLOSED \
 				&& attacking_item.force >= 5 \
 				&& attacking_item.w_class >= WEIGHT_CLASS_NORMAL \
