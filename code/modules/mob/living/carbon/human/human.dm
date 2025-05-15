@@ -957,6 +957,13 @@
 	return
 
 /mob/living/carbon/human/proc/check_has_mouth()
+	// Look, it's not really a mouth, but you gotta do what you gotta do.
+	// Imagine the Bender shit from Futurama where he opens his stomach hatch and drops shit in there.
+	if(should_have_organ(BP_REACTOR))
+		var/obj/item/organ/internal/machine/reactor/reactor = internal_organs_by_name[BP_REACTOR]
+		if(reactor && (reactor.power_supply_type & POWER_SUPPLY_BIOLOGICAL))
+			return TRUE
+
 	// Todo, check stomach organ when implemented.
 	var/obj/item/organ/external/E = get_organ(BP_HEAD)
 	if(E && !E.is_stump())

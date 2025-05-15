@@ -231,6 +231,12 @@
 /datum/species/machine/sanitize_name(var/new_name)
 	return sanitizeName(new_name, allow_numbers = 1)
 
+/datum/species/machine/bypass_food_fullness(mob/living/carbon/human/H)
+	var/obj/item/organ/internal/machine/reactor/reactor = H.internal_organs_by_name[BP_REACTOR]
+	if(reactor && (reactor.power_supply_type & POWER_SUPPLY_BIOLOGICAL))
+		return TRUE
+	return FALSE
+
 /datum/species/machine/proc/check_tag(var/mob/living/carbon/human/new_machine, var/client/player)
 	if(!new_machine || !player)
 		var/obj/item/organ/internal/machine/ipc_tag/tag = new_machine.internal_organs_by_name[BP_IPCTAG]

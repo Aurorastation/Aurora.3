@@ -29,7 +29,7 @@
 
 	if(get_integrity() < 75)
 		to_chat(user, SPAN_NOTICE("You struggle to pry open the hatch to your internal storage..."))
-		if(!do_after(1 SECOND), src)
+		if(!do_after(1 SECOND, src))
 			return
 
 	storage.open(user)

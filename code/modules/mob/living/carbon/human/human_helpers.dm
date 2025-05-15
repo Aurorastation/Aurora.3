@@ -13,7 +13,7 @@
 		return 1
 	if(feedback)
 		if(status[1] == HUMAN_EATING_NO_MOUTH)
-			to_chat(src, "Where do you intend to put \the [food]? You don't have a mouth!")
+			to_chat(src, SPAN_NOTICE("Where do you intend to put \the [food]? You don't have a mouth!"))
 		else if(status[1] == HUMAN_EATING_BLOCKED_MOUTH)
 			to_chat(src, SPAN_WARNING("\The [status[2]] is in the way!"))
 	return 0

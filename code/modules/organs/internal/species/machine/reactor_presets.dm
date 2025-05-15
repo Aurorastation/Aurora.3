@@ -33,8 +33,8 @@
 	power_supply_type = POWER_SUPPLY_KINETIC
 
 /singleton/synthetic_organ_preset/reactor/biological
-	name = "biological power generator"
-	desc = "An advanced artificial emulation of an organic's internal power generation method."
+	name = "catalytic biomass reactor"
+	desc = "An advanced, artificial emulation of an organic creature's internal power generation method."
 
 	external_charge_multiplier = 0.25
 	base_power_generation = 15
@@ -43,7 +43,7 @@
 /singleton/synthetic_organ_preset/reactor/biological/apply_preset(obj/item/organ/internal/machine/organ)
 	. = ..()
 	var/obj/item/organ/internal/machine/reactor/reactor = organ
-	reactor.reagents = new(30, reactor)
+	reactor.bio_reagents = new(30, reactor)
 
 /singleton/synthetic_organ_preset/reactor/solar
 	name = "solar power generator"
