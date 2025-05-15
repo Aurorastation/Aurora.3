@@ -667,31 +667,31 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 					opened = COVER_REMOVED
 					update_icon()
 		else if (opened != COVER_CLOSED && has_electronics == HAS_ELECTRONICS_NONE && !terminal)
-				if (!WT.isOn()) return
-				if (WT.get_fuel() < 3)
-					to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
+			if (!WT.isOn()) return
+			if (WT.get_fuel() < 3)
+				to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
+				return
+			user.visible_message(SPAN_WARNING("[user.name] welds [src]."), \
+								"You start welding the APC frame...", \
+								"You hear welding.")
+			playsound(loc, 'sound/items/Welder.ogg', 50, 1)
+			if(attacking_item.use_tool(src, user, 50, volume = 50))
+				if(!src || !WT.use(3, user))
 					return
-				user.visible_message(SPAN_WARNING("[user.name] welds [src]."), \
-									"You start welding the APC frame...", \
-									"You hear welding.")
-				playsound(loc, 'sound/items/Welder.ogg', 50, 1)
-				if(attacking_item.use_tool(src, user, 50, volume = 50))
-					if(!src || !WT.use(3, user))
-						return
-					if (emagged || (stat & BROKEN) || opened == COVER_REMOVED)
-						new /obj/item/stack/material/steel(loc)
-						user.visible_message(\
-							SPAN_WARNING("[src] has been cut apart by [user.name] with the weldingtool."),\
-							SPAN_NOTICE("You disassembled the broken APC frame."),\
-							"You hear welding.")
-					else
-						new /obj/item/frame/apc(loc)
-						user.visible_message(\
-							SPAN_WARNING("[src] has been cut from the wall by [user.name] with the weldingtool."),\
-							SPAN_NOTICE("You cut the APC frame from the wall."),\
-							"You hear welding.")
-					qdel(src)
-					return
+				if (emagged || (stat & BROKEN) || opened == COVER_REMOVED)
+					new /obj/item/stack/material/steel(loc)
+					user.visible_message(\
+						SPAN_WARNING("[src] has been cut apart by [user.name] with the weldingtool."),\
+						SPAN_NOTICE("You disassembled the broken APC frame."),\
+						"You hear welding.")
+				else
+					new /obj/item/frame/apc(loc)
+					user.visible_message(\
+						SPAN_WARNING("[src] has been cut from the wall by [user.name] with the weldingtool."),\
+						SPAN_NOTICE("You cut the APC frame from the wall."),\
+						"You hear welding.")
+				qdel(src)
+				return
 
 	// APC FRAME: If cover is open or has been removed, install a new cover.
 	//            If broken, replace the entire frame.
