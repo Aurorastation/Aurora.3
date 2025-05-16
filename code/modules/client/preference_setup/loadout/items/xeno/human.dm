@@ -99,3 +99,9 @@
 	sort_category = "Xenowear - Human"
 	flags = GEAR_HAS_DESC_SELECTION
 	origin_restriction = list(/singleton/origin_item/origin/coa_spacer)
+
+/datum/gear/drugs_meds/rmt_bottle
+	display_name = "RMT pill bottle"
+	path = /obj/item/storage/pill_bottle/rmt
+	whitelisted = list(SPECIES_HUMAN_OFFWORLD)
+	sort_category = "Xenowear - Human"
