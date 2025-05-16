@@ -78,6 +78,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle/kahlua = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/triplesec = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/champagne = 5,
+		/obj/item/reagent_containers/food/drinks/bottle/vodka = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/pulque = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/fireball = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/whiskey = 5,
