@@ -70,4 +70,4 @@ changes:
   - balance: "Certain juices are now cartons when separated in a CondiMaster."
   - balance: "Removed coffee, milk and sugar from soda machines, as they are made redundant by CoffeeMasters."
   - balance: "Non-CoffeeMaster coffee machines now just dispense coffee instead of espresso."
-  - balance: "Cuts down the produce boxes in the kitchen to one."
+  - balance: "Adds cream to the kitchen's fridge to supplement its removal from soda machines."
