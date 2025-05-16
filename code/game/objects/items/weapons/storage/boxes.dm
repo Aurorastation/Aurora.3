@@ -1372,6 +1372,32 @@
 		/obj/item/toy/stressball = 6
 	)
 
+/obj/item/storage/box/mms_inhaler
+	name = "mms inhaler kit"
+	desc = "A box filled with an inhaler and cartridges containing Mercury Monolithium Sucrose."
+	illustration = "inhalers"
+	starts_with = list(
+		/obj/item/personal_inhaler = 1, /obj/item/reagent_containers/personal_inhaler_cartridge/mms = 3
+	)
+
+/obj/item/storage/box/ambrosia
+	name = "ambrosia box"
+	starts_with = list(
+		/obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris/dried = 4
+	)
+
+/obj/item/storage/box/reishi
+	name = "reishi box"
+	starts_with = list(
+		/obj/item/reagent_containers/food/snacks/grown/mushroom/reishi/dried = 4
+	)
+
+/obj/item/storage/box/wulumunusha
+	name = "wulumunusha box"
+	starts_with = list(
+		/obj/item/reagent_containers/food/snacks/grown/wulumunusha/dried = 4
+	)
+
 /obj/item/storage/box/ale
 	name = "pack of ale"
 	desc = "A box containing a six pack of ale."

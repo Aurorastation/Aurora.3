@@ -82,3 +82,32 @@
       layout tweaks, filling in some missing decals, and correcting some erroneous
       space turfs.
   - rscadd: Hydroponics lockers now naturally spawn with a water tank inside them.
+2025-05-15:
+  ElorgRHG:
+  - imageadd: Resprited winter coats.
+  - rscadd: Alt-clicking the winter coats will now pull their hoods up.
+  - rscdel: Removed the red, Hephaestus alt, Nanotrasen alt for consistency with corporate/departmental
+      jackets.
+  GeneralCamo:
+  - rscadd: Added a setting to set TGUI Say to light mode.
+  - bugfix: Several radio channels that did not define a color in TGUI Say, now do
+      so.
+  GeneralCamo, LemonInTheDark:
+  - code_imp: Brought browser code up to standard with the rest of the codebase.
+  - bugfix: Repaired several hard dels that were likely occuring with browser datums.
+  GeneralCamo, harry:
+  - qol: Under the chat settings, you can now press "Adjust UI Sizes" to drag around
+      some of the panel sizes.
+  - bugfix: The input at the bottom right is no longer so teeny tiny on 516 if you
+      use a window scaling that is greater than 100%.
+  - qol: There's a new UI preference called UI scale which allows people that use
+      windows scaling to have their UIs original size with the contents zoomed out,
+      instead of the default, which is the UIs being larger with the contents 'normal'
+      size.
+  - bugfix: Various UIs did not respect windows scaling, they now do.
+  willox, GeneralCamo:
+  - bugfix: TGUI and Tooltip windows now work with high-DPI settings.
+2025-05-16:
+  Batrachophreno:
+  - bugfix: Mortaphenyl bottle in Cargo database no longer mislabeled as Inaprovaline
+      bottle.

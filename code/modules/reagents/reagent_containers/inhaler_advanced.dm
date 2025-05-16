@@ -241,3 +241,14 @@
 	atom_flags ^= ATOM_FLAG_OPEN_CONTAINER
 	update_icon()
 	return
+
+/obj/item/reagent_containers/personal_inhaler_cartridge/mms
+	name = "inhaler cartridge (Mercury Monolithium Sucrose)"
+	desc = "An inhaler cartridge containing 15 units of MMS."
+
+/obj/item/reagent_containers/personal_inhaler_cartridge/mms/Initialize()
+	. = ..()
+	reagents.add_reagent(/singleton/reagent/drugs/mms, volume)
+	atom_flags ^= ATOM_FLAG_OPEN_CONTAINER
+	update_icon()
+	return
