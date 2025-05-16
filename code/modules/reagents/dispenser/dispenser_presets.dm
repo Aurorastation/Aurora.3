@@ -124,7 +124,8 @@
 			/obj/item/reagent_containers/chem_disp_cartridge/ale,
 			/obj/item/reagent_containers/chem_disp_cartridge/mead,
 			/obj/item/reagent_containers/chem_disp_cartridge/grenadine,
-			/obj/item/reagent_containers/chem_disp_cartridge/cream
+			/obj/item/reagent_containers/chem_disp_cartridge/cream,
+			/obj/item/reagent_containers/chem_disp_cartridge/rice_beer
 		)
 
 /obj/machinery/chemical_dispenser/bar_alc/full/space //Spacebar away site. Gets much more to make the best drinks, hassle-free.
@@ -153,6 +154,7 @@
 			/obj/item/reagent_containers/chem_disp_cartridge/mead,
 			/obj/item/reagent_containers/chem_disp_cartridge/grenadine,
 			/obj/item/reagent_containers/chem_disp_cartridge/cream,
+			/obj/item/reagent_containers/chem_disp_cartridge/rice_beer,
 			/obj/item/reagent_containers/chem_disp_cartridge/ethanol,
 			/obj/item/reagent_containers/chem_disp_cartridge/berryjuice,
 			/obj/item/reagent_containers/chem_disp_cartridge/radium/small,
