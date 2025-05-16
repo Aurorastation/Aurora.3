@@ -107,3 +107,7 @@
   - bugfix: Various UIs did not respect windows scaling, they now do.
   willox, GeneralCamo:
   - bugfix: TGUI and Tooltip windows now work with high-DPI settings.
+2025-05-16:
+  Batrachophreno:
+  - bugfix: Mortaphenyl bottle in Cargo database no longer mislabeled as Inaprovaline
+      bottle.
