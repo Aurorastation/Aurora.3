@@ -111,3 +111,18 @@
   Batrachophreno:
   - bugfix: Mortaphenyl bottle in Cargo database no longer mislabeled as Inaprovaline
       bottle.
+2025-05-17:
+  Batrachophreno:
+  - bugfix: Iron fuel assemblies for the INDRA can also be created using five iron
+      ingots, not just the iron reagent cartridge.
+  - bugfix: Unanchored airlock assemblies can now be deconstructed with a welder.
+  - bugfix: Borgs now able to access fire alarm UI.
+  Greenjoe:
+  - rscadd: Changes the name of the 'smoking' loadout tab to 'drugs and medicines'.
+  - rscadd: Psychiatric medication has been moved from the utility tab to the drugs
+      and medicines tab in the loadout.
+  - rscadd: Added some basic over-the-counter medicines to the loadout, most of the
+      ones that can be found in the public NanoPharm vendor.
+  - rscadd: Adds some legal recreational drugs to the loadout.
+  steviii:
+  - rscadd: Added the Xanan 4.6mm and 6.5mm rounds to the autolathe.
