@@ -71,3 +71,4 @@ changes:
   - balance: "Removed coffee, milk and sugar from soda machines, as they are made redundant by CoffeeMasters."
   - balance: "Non-CoffeeMaster coffee machines now just dispense coffee instead of espresso."
   - balance: "Adds cream to the kitchen's fridge to supplement its removal from soda machines."
+  - rscadd: "Adds deodorant and a new sprite for mouthwash."
