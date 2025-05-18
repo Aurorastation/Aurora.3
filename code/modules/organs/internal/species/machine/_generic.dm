@@ -34,7 +34,7 @@
 	var/integrity = get_integrity()
 	if(integrity < 75)
 		// This is when things start going Fucking Wrong.
-		integrity_damage(integrity)
+		do_integrity_damage_effects(integrity)
 
 /obj/item/organ/internal/machine/take_internal_damage(amount, silent)
 	. = ..()
@@ -87,7 +87,7 @@
  * This proc is used to determine which integrity damage threshold we are at, and execute the proper proc..
  * Only called below 75%.
  */
-/obj/item/organ/internal/machine/proc/integrity_damage(integrity)
+/obj/item/organ/internal/machine/proc/do_integrity_damage_effects(integrity)
 	if(!owner)
 		return
 
@@ -109,7 +109,8 @@
  */
 /obj/item/organ/internal/machine/proc/low_integrity_damage(integrity)
 	if(last_damage_time + damage_cooldown > world.time)
-		return
+		return FALSE
+	return TRUE
 
 /**
  * The proc called to do mediumlow-intensity integrity damage (25 to 50% damage).
@@ -117,6 +118,7 @@
 /obj/item/organ/internal/machine/proc/medium_integrity_damage(integrity)
 	if(last_damage_time + damage_cooldown > world.time)
 		return FALSE
+	return TRUE
 
 /**
  * The proc called to do high-intensity integrity damage (0 to 25% damage).
@@ -124,6 +126,7 @@
 /obj/item/organ/internal/machine/proc/high_integrity_damage(integrity)
 	if(last_damage_time + damage_cooldown > world.time)
 		return FALSE
+	return TRUE
 
 /**
  * Returns extra diagnostics info, viewable from the diagnostics unit verbs or through a robot scanner.

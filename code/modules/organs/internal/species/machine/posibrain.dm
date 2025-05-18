@@ -20,6 +20,10 @@
 	else
 		set_max_damage(200)
 
+/obj/item/organ/internal/machine/posibrain/Destroy()
+	QDEL_NULL(stored_mmi)
+	return ..()
+
 /obj/item/organ/internal/machine/posibrain/proc/update_from_mmi()
 	if(!stored_mmi)
 		return
@@ -50,6 +54,28 @@
 	else
 		stored_mmi.forceMove(get_turf(src))
 		qdel(src)
+
+/obj/item/organ/internal/machine/posibrain/process(seconds_per_tick)
+	if(!owner)
+		return
+
+	// 150C
+	if(owner.bodytemperature > 423)
+		// placeholder values
+		take_internal_damage(owner.bodytemperature / 100)
+
+	..()
+
+/obj/item/organ/internal/machine/posibrain/low_integrity_damage(integrity)
+	. = ..()
+	if(!.)
+		return
+
+	var/damage_probability = -(100 - integrity)
+	if(prob(damage_probability))
+		var/hex = pick("A", "B", "C", "D", "E", "F") + "[rand(0, 999999)]"
+		to_chat(owner, SPAN_MACHINE_WARNING("Internal damage sustained at block 0x[hex]."))
+		damage++
 
 /obj/item/organ/internal/machine/posibrain/circuit
 	name = "robotic intelligence circuit"

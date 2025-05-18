@@ -15,18 +15,25 @@
 	/// The passive temperature change. Basically, cooling units counteract an IPC's passive temperature gain. But the IPC's temperature goes to get itself fucked if the cooling unit dies.
 	/// Remember, can be negative or positive. Depends on what we're trying to stabilize towards.
 	var/passive_temp_change = 2
-
 	/// The temperature that this cooling unit tries to regulate towards.
 	var/thermostat = T20C
-
 	/// The minimum value the thermostat can reach. 0C.
 	var/thermostat_min = T0C
-
 	/// The maximum value the thermostat can reach. 50C.
 	var/thermostat_max = 323.15
-
 	/// Can this cooling unit work in space?
 	var/spaceproof = FALSE
+	/// The temperature at which this cooling unit will disable running if safeties are on.
+	var/maximum_safe_temperature = 423.15
+	/// If the safeties that automatically disable sprinting when bodytemperature exceeds safe limits are disabled or not.
+	var/temperature_safety = TRUE
+	/// If the safety has been burnt and thus will not engage.
+	var/safety_burnt = FALSE
+
+/obj/item/organ/internal/machine/cooling_unit/Initialize()
+	. = ..()
+	if(owner)
+		RegisterSignal(owner, COMSIG_IPC_HAS_SPRINTED, PROC_REF(handle_safeties))
 
 /obj/item/organ/internal/machine/cooling_unit/attack_self(var/mob/user)
 	. = ..()
@@ -123,6 +130,10 @@
 		to_chat(owner, SPAN_WARNING("Your thermostat's temperature setting goes haywire!"))
 		thermostat = rand(thermostat_min, thermostat_max)
 
+		if(prob(25) && !safety_burnt)
+			to_chat(owner, SPAN_WARNING("Your temperature safeties burn out! They won't work anymore!"))
+			safety_burnt = TRUE
+
 /obj/item/organ/internal/machine/cooling_unit/high_integrity_damage(integrity)
 	. = ..()
 	if(!.)
@@ -131,11 +142,11 @@
 	if(prob(1 + (100 - integrity) / 100))
 		if(spaceproof)
 			playsound(owner, pick(SOUNDS_LASER_METAL), 50)
-			to_chat(owner, SPAN_DANGER(FONT_LARGE("Your sensors notify you that part of your cooling unit has melted - it will not work in space anymore!")))
+			to_chat(owner, SPAN_DANGER(FONT_LARGE("Your laminar cooling stratum has melted. Your cooling unit will not work in space anymore!")))
 			spaceproof = FALSE
 
 		if(thermostat_min < (initial(thermostat_min) + 100))
-			to_chat(owner, SPAN_DANGER(FONT_LARGE("Part of your cooling unit melts away...!")))
+			to_chat(owner, SPAN_DANGER(FONT_LARGE("Parts of your cooling unit melt away...!")))
 			update_thermostat(thermostat_min + round(rand(10, 50)))
 
 /obj/item/organ/internal/machine/cooling_unit/proc/update_thermostat(new_thermostat_min, new_thermostat_max)
@@ -151,6 +162,16 @@
 		thermostat_max = new_thermostat_max
 		if(new_thermostat_max < thermostat_min)
 			thermostat_min = new_thermostat_max
+
+/obj/item/organ/internal/machine/cooling_unit/proc/handle_safeties()
+	if(!owner)
+		return
+
+	if((owner.bodytemperature > maximum_safe_temperature) && temperature_safety && !safety_burnt)
+		to_chat(owner, SPAN_DANGER("Your temperature safeties engage and stop you from running further!"))
+		owner.balloon_alert(owner, "safeties engaged")
+		owner.m_intent = M_WALK
+		owner.hud_used.move_intent.update_move_icon(owner)
 
 /obj/item/organ/internal/machine/cooling_unit/xion
 	spaceproof = TRUE

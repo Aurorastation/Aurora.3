@@ -71,8 +71,8 @@
 	total_power_generated += .
 
 /obj/item/organ/internal/machine/reactor/get_diagnostics_info()
-	. = "Last Power Generated: [last_power_generated] W | Total Power Generated: [total_power_generated] W"
+	. = "Last Power Generated: [round(last_power_generated, 1)] W | Total Power Generated: [round(total_power_generated, 1)] W"
 
 	if(power_supply_type & POWER_SUPPLY_BIOLOGICAL)
 		var/nutriment_amount = REAGENT_VOLUME(bio_reagents, /singleton/reagent/nutriment)
-		. += "| Processing Biomass: [nutriment_amount ? nutriment_amount : 0]u"
+		. += "| Processing Biomass: [nutriment_amount ? round(nutriment_amount, 1) : 0]u"

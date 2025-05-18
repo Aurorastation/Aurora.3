@@ -17,5 +17,9 @@
 
 	if(prob(damage / 2))
 		spark(owner, 5, GLOB.alldirs)
-		to_chat(owner, SPAN_WARNING("Your actuators malfunction and you drop what you're holding!"))
-		owner.drop_item()
+		to_chat(owner, SPAN_WARNING("Your [src] malfunction making you drop what you're holding!"))
+		switch(parent_organ)
+			if(BP_L_ARM)
+				owner.drop_l_hand()
+			if(BP_R_ARM)
+				owner.drop_r_hand()
