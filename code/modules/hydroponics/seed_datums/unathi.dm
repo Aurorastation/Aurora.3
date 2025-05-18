@@ -124,6 +124,7 @@
 	name = "serkiflower"
 	seed_name = "S'erki flower"
 	display_name = "S'erki flowers"
+	chems = list(/singleton/reagent/nutriment = list(3,5), /singleton/reagent/perconol = list(3,5), /singleton/reagent/soporific = list(3,5))
 
 /datum/seed/flower/serkiflower/setup_traits()
 	..()
