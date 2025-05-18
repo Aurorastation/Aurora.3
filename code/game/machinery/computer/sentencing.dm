@@ -442,15 +442,14 @@
 		buzz("\The [src] buzzes, \"Could not get suspect account!\"")
 		return
 
+	if(suspect_account.money > incident.fine)
+		ping("\The [src] pings, \"[card.registered_name] has been fined for their crimes!\"")
 	if(suspect_account.money < incident.fine)
-		buzz("\The [src] buzzes, \"There is not enough money in the account to pay the fine!\"")
-		return
+		ping("\The [src] pings, \"There is not enough money in the account. [card.registered_name] has been placed into debt to pay the fine!\"")
 
 	SSeconomy.charge_to_account(suspect_account.account_number,security_account.owner_name,"Incident: [incident.UID]","Sentencing Console",-incident.fine)
 	SSeconomy.charge_to_account(security_account.account_number,suspect_account.owner_name,"Incident: [incident.UID]Fine","Sentencing Console",incident.fine)
 	print_incident_overview(incident.renderGuilty(user,1))
-
-	ping("\The [src] pings, \"[card.registered_name] has been fined for their crimes!\"")
 
 	incident = null
 	menu_screen = "main_menu"
