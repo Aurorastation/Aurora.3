@@ -255,6 +255,22 @@
 
 /obj/item/seeds/strawberryseed
 	seed_type = "strawberries"
+
+/datum/seed/berry/cranberry
+	name = "cranberries"
+	seed_name = "cranberry"
+	display_name = "cranberry bush"
+	mutants = list("berries","poisonberries","glowberries")
+	chems = list(/singleton/reagent/nutriment = list(1,10), /singleton/reagent/drink/cranberryjuice = list(10,10))
+	kitchen_tag = "cranberries"
+
+/datum/seed/berry/cranberry/setup_traits()
+	..()
+	set_trait(TRAIT_PRODUCT_COLOUR,"#bb0202")
+
+/obj/item/seeds/cranberryseed
+	seed_type = "cranberries"
+
 //////////////
 //  Apples  //
 //////////////

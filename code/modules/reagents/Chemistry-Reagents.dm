@@ -21,6 +21,7 @@
 	var/glass_name = null
 	var/glass_desc = null
 	var/glass_center_of_mass = null
+	var/condiment_icon = null
 	var/condiment_icon_state = null
 	var/condiment_name = null
 	var/condiment_desc = null

@@ -79,9 +79,6 @@
 	spawn_cartridges = list(
 			/obj/item/reagent_containers/chem_disp_cartridge/water,
 			/obj/item/reagent_containers/chem_disp_cartridge/ice,
-			/obj/item/reagent_containers/chem_disp_cartridge/coffee{temperature_override = 369},
-			/obj/item/reagent_containers/chem_disp_cartridge/hot_coco{temperature_override = 349},
-			/obj/item/reagent_containers/chem_disp_cartridge/cream,
 			/obj/item/reagent_containers/chem_disp_cartridge/tea{temperature_override = 349},
 			/obj/item/reagent_containers/chem_disp_cartridge/icetea,
 			/obj/item/reagent_containers/chem_disp_cartridge/cola,
@@ -92,15 +89,7 @@
 			/obj/item/reagent_containers/chem_disp_cartridge/tonic,
 			/obj/item/reagent_containers/chem_disp_cartridge/sodawater,
 			/obj/item/reagent_containers/chem_disp_cartridge/lemon_lime,
-			/obj/item/reagent_containers/chem_disp_cartridge/sugar,
-			/obj/item/reagent_containers/chem_disp_cartridge/orange,
-			/obj/item/reagent_containers/chem_disp_cartridge/lime,
-			/obj/item/reagent_containers/chem_disp_cartridge/apple,
-			/obj/item/reagent_containers/chem_disp_cartridge/lemon,
-			/obj/item/reagent_containers/chem_disp_cartridge/cranberry,
-			/obj/item/reagent_containers/chem_disp_cartridge/watermelon,
 			/obj/item/reagent_containers/chem_disp_cartridge/clean_kois,
-			/obj/item/reagent_containers/chem_disp_cartridge/banana,
 			/obj/item/reagent_containers/chem_disp_cartridge/root_beer
 		)
 
@@ -118,9 +107,6 @@
 /obj/machinery/chemical_dispenser/bar_alc/full
 	spawn_cartridges = list(
 			/obj/item/reagent_containers/chem_disp_cartridge/lemon_lime,
-			/obj/item/reagent_containers/chem_disp_cartridge/sugar,
-			/obj/item/reagent_containers/chem_disp_cartridge/orange,
-			/obj/item/reagent_containers/chem_disp_cartridge/lime,
 			/obj/item/reagent_containers/chem_disp_cartridge/sodawater,
 			/obj/item/reagent_containers/chem_disp_cartridge/tonic,
 			/obj/item/reagent_containers/chem_disp_cartridge/beer,
@@ -138,7 +124,8 @@
 			/obj/item/reagent_containers/chem_disp_cartridge/ale,
 			/obj/item/reagent_containers/chem_disp_cartridge/mead,
 			/obj/item/reagent_containers/chem_disp_cartridge/grenadine,
-			/obj/item/reagent_containers/chem_disp_cartridge/cream
+			/obj/item/reagent_containers/chem_disp_cartridge/cream,
+			/obj/item/reagent_containers/chem_disp_cartridge/rice_beer
 		)
 
 /obj/machinery/chemical_dispenser/bar_alc/full/space //Spacebar away site. Gets much more to make the best drinks, hassle-free.
@@ -167,6 +154,7 @@
 			/obj/item/reagent_containers/chem_disp_cartridge/mead,
 			/obj/item/reagent_containers/chem_disp_cartridge/grenadine,
 			/obj/item/reagent_containers/chem_disp_cartridge/cream,
+			/obj/item/reagent_containers/chem_disp_cartridge/rice_beer,
 			/obj/item/reagent_containers/chem_disp_cartridge/ethanol,
 			/obj/item/reagent_containers/chem_disp_cartridge/berryjuice,
 			/obj/item/reagent_containers/chem_disp_cartridge/radium/small,
@@ -214,5 +202,5 @@
 
 /obj/machinery/chemical_dispenser/coffee/full
 	spawn_cartridges = list(
-			/obj/item/reagent_containers/chem_disp_cartridge/espresso{temperature_override = 369.15}
+			/obj/item/reagent_containers/chem_disp_cartridge/coffee{temperature_override = 369}
 		)

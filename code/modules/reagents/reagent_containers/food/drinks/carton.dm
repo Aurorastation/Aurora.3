@@ -54,7 +54,7 @@
 /obj/item/reagent_containers/food/drinks/carton/lemonjuice
 	name = "lemon juice"
 	desc = "This juice is VERY sour."
-	icon_state = "lemoncarton"
+	icon_state = "lemonjuice"
 	reagents_to_add = list(/singleton/reagent/drink/lemonjuice = 100)
 
 /obj/item/reagent_containers/food/drinks/carton/dynjuice

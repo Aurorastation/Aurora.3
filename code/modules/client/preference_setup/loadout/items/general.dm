@@ -411,15 +411,15 @@
 	gear_tweaks += new /datum/gear_tweak/path(comics)
 
 /datum/gear/toothpaste
-	display_name = "toothpaste and toothbrush"
+	display_name = "dental hygiene kit"
 	path = /obj/item/storage/box/toothpaste
 
 /datum/gear/toothpaste/New()
 	..()
 	var/list/toothpaste = list()
-	toothpaste["toothpaste and blue toothbrush"] = /obj/item/storage/box/toothpaste
-	toothpaste["toothpaste and green toothbrush"] = /obj/item/storage/box/toothpaste/green
-	toothpaste["toothpaste and red toothbrush"] = /obj/item/storage/box/toothpaste/red
+	toothpaste["dental hygiene kit, blue toothbrush"] = /obj/item/storage/box/toothpaste
+	toothpaste["dental hygiene kit, green toothbrush"] = /obj/item/storage/box/toothpaste/green
+	toothpaste["dental hygiene kit, red toothbrush"] = /obj/item/storage/box/toothpaste/red
 	gear_tweaks += new /datum/gear_tweak/path(toothpaste)
 
 /datum/gear/photo

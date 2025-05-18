@@ -535,6 +535,5 @@
 		/obj/item/weldingtool = 1,
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters = 1,
-		/obj/item/stack/cable_coil/random = 1,
-		/obj/item/powerdrill = 1
+		/obj/item/stack/cable_coil/random = 1
 	)
