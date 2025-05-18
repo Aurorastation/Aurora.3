@@ -55,5 +55,4 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "The security sentencing console can now fine people even if their account balance cannot cover the fine. In this case the convict will be placed into debt to pay the fine."
   - rscadd: "Adds some new levels of economic status, bankrupt (no money at all in your account) and several levels of debt."
