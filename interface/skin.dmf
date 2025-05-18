@@ -944,6 +944,14 @@ window "mainwindow"
 		anchor2 = -1,-1
 		is-visible = false
 		saved-params = ""
+	elem "guestbrowser"
+		type = BROWSER
+		pos = 0,0
+		size = 640x440
+		anchor1 = 0,0
+		anchor2 = 100,100
+		is-visible = false
+		is-disabled = true
 
 window "mapwindow"
 	elem "mapwindow"
