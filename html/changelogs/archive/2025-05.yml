@@ -126,3 +126,8 @@
   - rscadd: Adds some legal recreational drugs to the loadout.
   steviii:
   - rscadd: Added the Xanan 4.6mm and 6.5mm rounds to the autolathe.
+2025-05-18:
+  GeneralCamo:
+  - bugfix: Fixed offline authentication failing to load UI elements.
+  - qol: The offline authentication window is now integrated into the main game window.
+  - code_imp: Fixed up the HTML tags on the offline authentication window.
