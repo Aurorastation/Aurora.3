@@ -88,7 +88,7 @@
 				/datum/seed/watermelon,
 				/datum/seed/citrus,
 				/datum/seed/cherries,
-				/datum/seed/nifberries,
+				/datum/seed/dirtberries,
 				/datum/seed/dyn,
 				/datum/seed/wulumunusha,
 				/datum/seed/nmshaan)

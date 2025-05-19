@@ -76,16 +76,16 @@
 /obj/item/seeds/earthenroot
 	seed_type = "earthenroot"
 
-/datum/seed/nifberries
-	name = "nifberries"
+/datum/seed/dirtberries
+	name = "dirtberries"
 	seed_name = "dirt berries"
 	display_name = "dirt berries shrub"
 	product_desc = "a pile of Adhomian berries used by the Tajara for its oil."
 	product_desc_extended = "An above-ground evergreen shrub that grows sweet, starchy legumes underground in thick pods. 'Dirt Berries', or Zhu'hagha Nifs, grow like peanuts but bear several nuts like peas in a pod, typically around 8 thumb-sized nifs in each pod. Their flavor is rich, fatty, and savory, and they are used to produce oil."
 	chems = list(/singleton/reagent/nutriment = list(0, 15), /singleton/reagent/nutriment/triglyceride/oil = list(1, 5), /singleton/reagent/drink/dirtberryjuice = list(10,10))
-	kitchen_tag = "nifberries"
+	kitchen_tag = "dirtberries"
 
-/datum/seed/nifberries/setup_traits()
+/datum/seed/dirtberries/setup_traits()
 	..()
 	set_trait(TRAIT_HARVEST_REPEAT, 1)
 	set_trait(TRAIT_JUICY, 1)
@@ -101,8 +101,8 @@
 	set_trait(TRAIT_WATER_CONSUMPTION, 6)
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
 
-/obj/item/seeds/nifberries
-	seed_type = "nifberries"
+/obj/item/seeds/dirtberries
+	seed_type = "dirtberries"
 
 /datum/seed/mushroom/nfrihi
 	name = "nfrihi"

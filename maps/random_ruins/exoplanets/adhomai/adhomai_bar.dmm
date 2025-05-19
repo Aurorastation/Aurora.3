@@ -14,8 +14,8 @@
 /obj/item/seeds/earthenroot,
 /obj/item/seeds/blizzard,
 /obj/item/seeds/blizzard,
-/obj/item/seeds/nifberries,
-/obj/item/seeds/nifberries,
+/obj/item/seeds/dirtberries,
+/obj/item/seeds/dirtberries,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_bar)
 "bf" = (
@@ -865,8 +865,8 @@
 /obj/item/seeds/blizzard,
 /obj/item/seeds/sugartree,
 /obj/item/seeds/sugartree,
-/obj/item/seeds/nifberries,
-/obj/item/seeds/nifberries,
+/obj/item/seeds/dirtberries,
+/obj/item/seeds/dirtberries,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_bar)
 "Wa" = (
