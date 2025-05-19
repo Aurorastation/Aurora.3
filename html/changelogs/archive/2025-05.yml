@@ -131,3 +131,33 @@
   - bugfix: Fixed offline authentication failing to load UI elements.
   - qol: The offline authentication window is now integrated into the main game window.
   - code_imp: Fixed up the HTML tags on the offline authentication window.
+2025-05-19:
+  Wowzewow (Wezzy):
+  - rscadd: Adds Lavatory vendors to the public bathrooms, that dispense hygiene goods.
+  - refactor: Migrates bartender's supply of 6 pack beers and Sencha teas to the cargo
+      database.
+  - refactor: Migrates impact wrenches to the cargo database.
+  - balance: Removes the extraneous dylovene, kelotane, bicaridine and coagzulug in
+      medical. Migrates medication to the medication closet.
+  - balance: Removes the unused Nanomed Minis in medical. Replaces the surgery side
+      Nanomed Plus with a Nanomed Mini.
+  - balance: Removes the two large medical kits from medical storage, and the kit
+      in the exam room. Moves the wheelchairs from the morgue lift to medical storage.
+  - rscadd: Adds cranberries to the game. Now you can actually make cranberry juice!
+  - refactor: Juices found in soda machines, booze dispensers and the booze-o-mat
+      have been migrated to the cargo database. Except Orange, Lime and Lemon juice
+      in the booze-o-mat.
+  - refactor: Most lore-specific mostly flavor alcoholic bottles have been migrated
+      to the cargo database.
+  - refactor: Special glasses and flasks in the booze-o-mat have been moved to the
+      drinking glass dispenser.
+  - qol: Adjusts the bar's Chemical Heater to be less in the way.
+  - rscadd: Cream and fatshouters milk cartons can be ordered from cargo.
+  - balance: Certain juices are now cartons when separated in a CondiMaster.
+  - balance: Removed coffee, milk and sugar from soda machines, as they are made redundant
+      by CoffeeMasters.
+  - balance: Non-CoffeeMaster coffee machines now just dispense coffee instead of
+      espresso.
+  - balance: Adds cream to the kitchen's fridge to supplement its removal from soda
+      machines.
+  - rscadd: Adds deodorant and a new sprite for mouthwash.
