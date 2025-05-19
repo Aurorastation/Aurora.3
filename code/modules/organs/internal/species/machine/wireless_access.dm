@@ -52,7 +52,7 @@
 		if(pda_cell?.percent() < 95)
 			pda_cell.give((pda_cell.maxcharge * 0.1))
 			// There would be some bonkers power usage if we did 1:1 cell usage.
-			microbattery.use(pda_cell.maxcharge * 0.01)
+			microbattery.use(pda_cell.maxcharge * 0.05)
 
 /obj/item/modular_computer/handheld/pda/synthetic_internal
 	name = "internal computer"
@@ -68,7 +68,7 @@
 		if(potential_access_point.owner)
 			access_point = potential_access_point
 		else
-			log_debug("Something terrible happened in synthetic internal PDA init! Loc: [loc]")
+			crash_with("Something terrible happened in synthetic internal PDA init! Loc: [loc]")
 
 /obj/item/modular_computer/handheld/pda/synthetic_internal/Destroy()
 	QDEL_NULL(access_point)

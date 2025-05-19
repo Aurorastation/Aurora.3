@@ -21,7 +21,7 @@
 	if(!istype(reactor))
 		return
 
-	if(get_integrity() < 75)
+	if(get_integrity() < IPC_INTEGRITY_THRESHOLD_LOW)
 		if(prob(10 * (damage / 10)))
 			spark(get_turf(owner), rand(1, 5), GLOB.alldirs)
 
@@ -33,7 +33,7 @@
 	if(!.)
 		return
 
-	if(prob(damage / 2))
+	if(prob(get_integrity_damage_probability()))
 		spark(owner, 3, GLOB.alldirs)
 		to_chat(owner, SPAN_WARNING("Your hydraulics lock up for a second!"))
 		owner.Stun(1)
@@ -44,7 +44,7 @@
 	if(!.)
 		return
 
-	if(prob(damage / 2))
+	if(prob(get_integrity_damage_probability()))
 		spark(owner, 5, GLOB.alldirs)
 		to_chat(owner, SPAN_WARNING("Your hydraulics malfunction and you trip!"))
 		owner.Weaken(1)

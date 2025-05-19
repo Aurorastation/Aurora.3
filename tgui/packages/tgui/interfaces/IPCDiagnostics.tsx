@@ -6,7 +6,7 @@ import { Window } from '../layouts';
 export type DiagnosticsData = {
   broken: BooleanLike;
   integrity: number;
-  diagnostics_theme: string;
+  machine_ui_theme: string;
 
   temp: number;
   robolimb_self_repair_cap: number;
@@ -41,7 +41,7 @@ export const IPCDiagnostics = (props, context) => {
   return (
     <Window
       resizable
-      theme={data.broken ? 'spookyconsole' : data.diagnostics_theme}>
+      theme={data.broken ? 'spookyconsole' : data.machine_ui_theme}>
       <Window.Content scrollable>
         {data.broken ? <Broken /> : <DiagnosticsWindow />}
       </Window.Content>

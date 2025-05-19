@@ -1,3 +1,6 @@
+#define COOLING_UNIT_DEFAULT_THERMOSTAT_MAX 323.15
+#define COOLING_UNIT_DEFAULT_MAX_SAFE_TEMP 423.15
+
 /obj/item/organ/internal/machine/cooling_unit
 	name = "air cooling unit"
 	desc = "One of the most complex and vital components of a synthetic. It regulates its internal temperature and prevents the chassis from overheating."
@@ -20,11 +23,11 @@
 	/// The minimum value the thermostat can reach. 0C.
 	var/thermostat_min = T0C
 	/// The maximum value the thermostat can reach. 50C.
-	var/thermostat_max = 323.15
+	var/thermostat_max = COOLING_UNIT_DEFAULT_THERMOSTAT_MAX
 	/// Can this cooling unit work in space?
 	var/spaceproof = FALSE
 	/// The temperature at which this cooling unit will disable running if safeties are on.
-	var/maximum_safe_temperature = 423.15
+	var/maximum_safe_temperature = COOLING_UNIT_DEFAULT_MAX_SAFE_TEMP
 	/// If the safeties that automatically disable sprinting when bodytemperature exceeds safe limits are disabled or not.
 	var/temperature_safety = TRUE
 	/// If the safety has been burnt and thus will not engage.
@@ -66,6 +69,8 @@
 	data["thermostat_max"] = thermostat_max - 273.15
 	data["passive_temp_change"] = passive_temp_change
 	data["bodytemperature"] = owner.bodytemperature - 273.15
+	data["temperature_safety"] = temperature_safety
+	data["safety_burnt"] = safety_burnt
 	return data
 
 /obj/item/organ/internal/machine/cooling_unit/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
@@ -76,6 +81,15 @@
 		new_thermostat += 273.15
 		if(new_thermostat >= thermostat_min && new_thermostat <= thermostat_max)
 			thermostat = new_thermostat
+		. = TRUE
+
+	if(action == "temperature_safety")
+		if(safety_burnt)
+			return
+
+		temperature_safety = !temperature_safety
+		to_chat(usr, temperature_safety ? SPAN_NOTICE("You re-enable your temperature safety.") : SPAN_WARNING("You disable your temperature safety!"))
+		. = TRUE
 
 /obj/item/organ/internal/machine/cooling_unit/process(seconds_per_tick)
 	. = ..()
@@ -117,7 +131,7 @@
 	if(!.)
 		return
 
-	if(prob(10 + (100 - integrity) / 100))
+	if(get_integrity_damage_probability() / 2)
 		to_chat(owner, SPAN_WARNING("Your temperature sensors pick up a spike in temperature."))
 		owner.bodytemperature += 10
 
@@ -126,7 +140,7 @@
 	if(!.)
 		return
 
-	if(prob(5 + (100 - integrity) / 100))
+	if(get_integrity_damage_probability() / 3)
 		to_chat(owner, SPAN_WARNING("Your thermostat's temperature setting goes haywire!"))
 		thermostat = rand(thermostat_min, thermostat_max)
 
@@ -139,15 +153,17 @@
 	if(!.)
 		return
 
-	if(prob(1 + (100 - integrity) / 100))
+	if(get_integrity_damage_probability() / 5)
 		if(spaceproof)
 			playsound(owner, pick(SOUNDS_LASER_METAL), 50)
 			to_chat(owner, SPAN_DANGER(FONT_LARGE("Your laminar cooling stratum has melted. Your cooling unit will not work in space anymore!")))
 			spaceproof = FALSE
+			return
 
 		if(thermostat_min < (initial(thermostat_min) + 100))
 			to_chat(owner, SPAN_DANGER(FONT_LARGE("Parts of your cooling unit melt away...!")))
 			update_thermostat(thermostat_min + round(rand(10, 50)))
+			return
 
 /obj/item/organ/internal/machine/cooling_unit/proc/update_thermostat(new_thermostat_min, new_thermostat_max)
 	if(new_thermostat_min)
@@ -189,3 +205,6 @@
 		ORGAN_PREF_PASSIVECOOLED = /singleton/synthetic_organ_preset/cooling_unit/passive_zenghu
 	)
 	default_preset = /singleton/synthetic_organ_preset/cooling_unit/air_zenghu
+
+#undef COOLING_UNIT_DEFAULT_THERMOSTAT_MAX
+#undef COOLING_UNIT_DEFAULT_MAX_SAFE_TEMP

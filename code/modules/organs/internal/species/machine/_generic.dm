@@ -32,12 +32,11 @@
 	..()
 
 	var/integrity = get_integrity()
-	if(integrity < 75)
+	if(integrity < IPC_INTEGRITY_THRESHOLD_LOW)
 		// This is when things start going Fucking Wrong.
 		do_integrity_damage_effects(integrity)
 
 /obj/item/organ/internal/machine/take_internal_damage(amount, silent)
-	. = ..()
 	// Plating defends the internal bits. First, you have to get through it.
 	if(plating.get_status() > 0)
 		plating.take_damage(amount)
@@ -46,6 +45,8 @@
 	// After that, it's open season.
 	var/datum/synthetic_internal/bits_to_hit = pick(wiring, electronics)
 	bits_to_hit.take_damage(amount)
+
+	. = ..()
 
 /**
  * Called when prefs are synced to the organ to set the proper synthetic organ preset.
@@ -103,6 +104,16 @@
 			medium_integrity_damage(integrity)
 		if(0 to 25)
 			high_integrity_damage(integrity)
+
+/**
+ * Returns the damage percentage of total integrity.
+ * Basically the opposite of get_integrity(). Useful for damage probabilities, where you want a scaling number the more integrity damage there is on an organ.
+ */
+/obj/item/organ/internal/machine/proc/get_integrity_damage_probability(integrity)
+	// integrity is a probability, so first of all check the difference between max probability and probaiblity
+	// 100 + (-100) = 0 | 100 + (-50) = 50
+	var/damage_probability = 100 + (-integrity)
+	return damage_probability
 
 /**
  * The proc called to do low-intensity integrity damage (50 to 75% damage).

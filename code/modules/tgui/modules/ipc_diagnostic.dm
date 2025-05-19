@@ -18,7 +18,7 @@
 		data["broken"] = diagnostics.is_broken()
 		data["integrity"] = diagnostics.get_integrity()
 		data["temp"] = round(convert_k2c(ipc.bodytemperature))
-		data["diagnostics_theme"] = machine_species.diagnostics_theme
+		data["machine_ui_theme"] = machine_species.machine_ui_theme
 
 		data["organs"] = list()
 		for(var/obj/item/organ/internal/organ in ipc.internal_organs)
@@ -56,13 +56,14 @@
 /datum/tgui_module/ipc_diagnostic/proc/edit_organ_status(number, obj/item/organ/internal/machine/internal_diagnostics/diagnostics)
 	if(!diagnostics)
 		// what the hell are we doing here
+		return 0
+
+	var/integrity = diagnostics.get_integrity()
+	if(integrity > IPC_INTEGRITY_THRESHOLD_LOW)
 		return number
 
-	if(diagnostics.get_damage_percent() < 25)
-		return number
-
-	var/variancy = (100 / diagnostics.get_damage_percent() * rand(1, (100 / diagnostics.get_damage_percent() * 10)))
+	var/variancy = (100 / integrity * rand(1, (100 / integrity * 10)))
 	var/sign = prob(variancy) ? pick(1, -1) : 1
-	var/random_number = sign * (rand(1, 100 / diagnostics.get_damage_percent()))
+	var/random_number = sign * (rand(1, 100 / integrity))
 
 	return number + (sign * rand(1, variancy) + random_number)

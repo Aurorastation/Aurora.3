@@ -27,7 +27,7 @@
 		to_chat(user, SPAN_WARNING("The hatch to your internal storage is completely destroyed!"))
 		return
 
-	if(get_integrity() < 75)
+	if(get_integrity() < IPC_INTEGRITY_THRESHOLD_LOW)
 		to_chat(user, SPAN_NOTICE("You struggle to pry open the hatch to your internal storage..."))
 		if(!do_after(1 SECOND, src))
 			return

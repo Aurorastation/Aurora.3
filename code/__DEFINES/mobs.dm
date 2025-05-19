@@ -584,6 +584,13 @@
 #define DO_INCAPACITATED (-3)
 #define DO_EXTRA_CHECKS (-4)
 
+// Threshold defines for integrity damage. Used for when you want to check for a specific threshold to do damage effects.
+
+#define IPC_INTEGRITY_THRESHOLD_LOW 75
+#define IPC_INTEGRITY_THRESHOLD_MEDIUM 50
+#define IPC_INTEGRITY_THRESHOLD_HIGH 25
+#define IPC_INTEGRITY_THRESHOLD_VERY_HIGH 10
+
 // These are the power supply organ defines.
 // They are bitflags because it should be technically possible to have a power supply do multiple things at once if you wish.
 // Just be wary of balancing issues.
@@ -596,3 +603,5 @@
 #define POWER_SUPPLY_BIOLOGICAL 4
 /// Recharges from external lighting. Slower at recharging from external sources.
 #define POWER_SUPPLY_SOLAR 8
+
+

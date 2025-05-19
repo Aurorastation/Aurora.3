@@ -1,6 +1,6 @@
 import { BooleanLike } from 'common/react';
 import { useBackend } from '../backend';
-import { AnimatedNumber, Box, Knob, Section } from '../components';
+import { AnimatedNumber, Box, Button, Knob, Section } from '../components';
 import { Window } from '../layouts';
 
 export type ThermostatData = {
@@ -10,6 +10,8 @@ export type ThermostatData = {
   thermostat_max: number;
   passive_temp_change: number;
   bodytemperature: number;
+  temperature_safety: number;
+  safety_burnt: BooleanLike;
 };
 
 export const CoolingUnitThermostat = (props, context) => {
@@ -56,6 +58,23 @@ export const ThermostatWindow = (props, context) => {
         <AnimatedNumber value={data.bodytemperature} />
         °C.
       </Box>
+      {data.safety_burnt ? (
+        <Box textAlign="centre" bold textColor="bad">
+          TEMPERATURE SAFETY UNAVAILABLE
+        </Box>
+      ) : (
+        <Box textAlign="centre" bold>
+          Temperature safety:{' '}
+          <Button.Checkbox
+            content={data.temperature_safety ? 'engaged' : 'DISENGAGED'}
+            disabled={data.safety_burnt}
+            color={data.temperature_safety ? 'good' : 'bad'}
+            icon={data.temperature_safety ? 'lock' : 'unlock'}
+            checked={data.temperature_safety}
+            onClick={() => act('temperature_safety')}
+          />
+        </Box>
+      )}
     </Section>
   );
 };

@@ -149,8 +149,8 @@
 	// Special snowflake machine vars.
 	var/sprint_temperature_factor = 1.15
 	var/move_charge_factor = 1
-	/// The theme of the diagnostics unit UI, if not broken.
-	var/diagnostics_theme = "hackerman"
+	/// The theme of the IPC's personal UIs, if not broken.
+	var/machine_ui_theme = "hackerman"
 
 	use_alt_hair_layer = TRUE
 	psi_deaf = TRUE

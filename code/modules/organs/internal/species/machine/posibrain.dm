@@ -71,7 +71,7 @@
 	if(!.)
 		return
 
-	var/damage_probability = -(100 - integrity)
+	var/damage_probability = get_integrity_damage_probability(integrity)
 	if(prob(damage_probability))
 		var/hex = pick("A", "B", "C", "D", "E", "F") + "[rand(0, 999999)]"
 		to_chat(owner, SPAN_MACHINE_WARNING("Internal damage sustained at block 0x[hex]."))
