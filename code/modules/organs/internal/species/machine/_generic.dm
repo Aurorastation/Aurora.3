@@ -9,6 +9,9 @@
 	/// The default preset to fall back to if there is no pref (aka people want the base type). Must be of type /singleton/synthetic_organ_preset.
 	var/default_preset
 
+	/// If an organ shows up in the diagnostics suite (the IPC organ verb).
+	var/diagnostics_suite_visible = TRUE
+
 	/// The wiring datum of this organ.
 	var/datum/synthetic_internal/wiring/wiring
 	/// The plating datum of this organ.

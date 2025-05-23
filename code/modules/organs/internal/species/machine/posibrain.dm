@@ -5,6 +5,7 @@
 	parent_organ = BP_HEAD
 	vital = TRUE
 	robotic_sprite = FALSE
+	diagnostics_suite_visible = FALSE
 
 	/// The type of 'robotic brain'. Must be a subtype of /obj/item/device/mmi/digital.
 	var/robotic_brain_type = /obj/item/device/mmi/digital/posibrain

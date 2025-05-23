@@ -98,6 +98,7 @@
 		BP_ACTUATORS_RIGHT = /obj/item/organ/internal/machine/actuators/right,
 		BP_COOLING_UNIT = /obj/item/organ/internal/machine/cooling_unit,
 		BP_REACTOR = /obj/item/organ/internal/machine/reactor,
+		BP_ACCESS_PORT = /obj/item/organ/internal/machine/access_port,
 		BP_CELL    = /obj/item/organ/internal/machine/cell,
 		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
 		BP_IPCTAG = /obj/item/organ/internal/machine/ipc_tag

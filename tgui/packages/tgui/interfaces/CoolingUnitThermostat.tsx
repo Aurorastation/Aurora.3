@@ -21,8 +21,8 @@ export const CoolingUnitThermostat = (props, context) => {
     <Window
       resizable
       theme={data.broken ? 'spookyconsole' : 'hephaestus'}
-      width={300}
-      height={200}>
+      width={400}
+      height={300}>
       <Window.Content scrollable>
         {data.broken ? <Broken /> : <ThermostatWindow />}
       </Window.Content>

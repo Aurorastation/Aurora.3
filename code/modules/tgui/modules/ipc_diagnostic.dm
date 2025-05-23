@@ -23,17 +23,22 @@
 		data["organs"] = list()
 		for(var/obj/item/organ/internal/organ in ipc.internal_organs)
 			var/list/organ_data = list()
-			organ_data["name"] = organ.name
-			organ_data["desc"] = organ.desc
-			organ_data["damage"] = edit_organ_status(organ.damage, diagnostics)
-			organ_data["max_damage"] = organ.max_damage
 
+			// this check is here first so we can avoid useless calculations in case the organ isn't visible from the diag suite
 			if(istype(organ, /obj/item/organ/internal/machine))
 				var/obj/item/organ/internal/machine/machine_organ = organ
+				if(!machine_organ.diagnostics_suite_visible)
+					continue
+
 				organ_data["wiring_status"] = edit_organ_status(machine_organ.wiring.get_status(), diagnostics)
 				organ_data["plating_status"] = edit_organ_status(machine_organ.plating.get_status(), diagnostics)
 				organ_data["electronics_status"] = edit_organ_status(machine_organ.electronics.get_status(), diagnostics)
 				organ_data["diagnostics_info"] = machine_organ.get_diagnostics_info()
+
+			organ_data["name"] = organ.name
+			organ_data["desc"] = organ.desc
+			organ_data["damage"] = edit_organ_status(organ.damage, diagnostics)
+			organ_data["max_damage"] = organ.max_damage
 
 			data["organs"] += list(organ_data)
 

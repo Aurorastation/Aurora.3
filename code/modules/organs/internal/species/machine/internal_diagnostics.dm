@@ -16,8 +16,13 @@
 	if(user.incapacitated(INCAPACITATION_KNOCKOUT|INCAPACITATION_STUNNED))
 		return
 
-	to_chat(user, SPAN_NOTICE("You query your internal diagnostics system and gather some information."))
+	// it's an organ, should never be not human type
+	var/mob/living/carbon/human/synth = user
 
-	var/datum/tgui_module/ipc_diagnostic/diagnostic = new /datum/tgui_module/ipc_diagnostic(user)
+	to_chat(synth, SPAN_NOTICE("You query your internal diagnostics system and gather some information."))
+
+	var/datum/tgui_module/ipc_diagnostic/diagnostic = new /datum/tgui_module/ipc_diagnostic(synth)
 	diagnostic.ui_interact(usr)
+
+	synth.last_special = world.time
 

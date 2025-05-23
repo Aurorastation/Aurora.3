@@ -15,7 +15,6 @@
 	var/obj/item/cell/cell = /obj/item/cell/super
 	/// The cost of movement below (check process()) is multiplied by this factor.
 	var/move_charge_factor = 1
-
 	/// At 0.8 completely depleted after 60ish minutes of constant walking or 130 minutes of standing still.
 	var/servo_cost = 0.8
 
