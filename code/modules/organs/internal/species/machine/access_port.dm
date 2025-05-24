@@ -7,13 +7,14 @@
 	action_button_name = "Extend Cable"
 
 	/// Our access cable, which can be extended to connect into things.
-	var/obj/item/access_cable/access_cable
+	var/obj/item/access_cable/access_cable = /obj/item/access_cable/synthetic
 	/// The internal port. This is where things get connected to to retrieve information or do effects.
 	var/obj/item/internal_port
 
 /obj/item/organ/internal/machine/access_port/Initialize()
 	. = ..()
-	access_cable = new(src, src)
+	access_cable = new access_cable(src, src)
+	RegisterSignal(access_cable, COMSIG_QDELETING, PROC_REF(clear_cable))
 
 /obj/item/organ/internal/machine/access_port/attack_self(mob/user)
 	. = ..()
@@ -26,8 +27,13 @@
 	if(user.incapacitated(INCAPACITATION_KNOCKOUT|INCAPACITATION_STUNNED))
 		return
 
-	if(access_cable)
+	if(!access_cable)
+		to_chat(user, SPAN_WARNING("You don't have an access cable anymore!"))
+		return
+
+	if(access_cable.loc != src)
 		to_chat(user, SPAN_WARNING("Your access cable is already extended!"))
+		return
 
 	// it's an organ, should never be not human type
 	var/mob/living/carbon/human/synth = user
@@ -36,33 +42,51 @@
 		return
 
 	synth.visible_message(SPAN_NOTICE("[synth] extends their universal access cable from their neck."), SPAN_NOTICE("You retrieve your universal access cable from your neck."))
-	access_cable = new(get_turf(synth), synth)
 	synth.put_in_any_hand_if_possible(access_cable)
+	access_cable.extend(owner, access_cable)
 
 	synth.last_special = world.time
 
 /obj/item/organ/internal/machine/access_port/proc/insert_item(obj/item/jack)
+	SIGNAL_HANDLER
 	if(internal_port)
-		crash_with("Insert_item with [jack] on access port called with [internal_port] already present!")
+		crash_with("Insert_item with [jack] on access port called with [internal_port] of [owner] already present!")
 
 	internal_port = jack
 	jack.forceMove(src)
 	RegisterSignal(internal_port, COMSIG_QDELETING, PROC_REF(clear_port))
 	to_chat(owner, SPAN_MACHINE_WARNING("Internal firewall notice: [internal_port] inserted into access port."))
 
+/obj/item/organ/internal/machine/access_port/proc/clear_cable()
+	SIGNAL_HANDLER
+	if(!access_cable)
+		return
+
+	UnregisterSignal(access_cable, COMSIG_QDELETING)
+	access_cable = null
+	to_chat(owner, SPAN_WARNING("You lose contact with your access cable!"))
+
 /obj/item/organ/internal/machine/access_port/proc/clear_port()
+	if(!internal_port)
+		return
+
+	UnregisterSignal(internal_port, COMSIG_QDELETING)
 	internal_port = null
 
 /obj/item/access_cable
 	name = "external access cable"
 	desc = "A cable with universal access pins at its end. This is meant for jacking into synthetics to access their data."
 	icon = 'icons/obj/cloning.dmi'
-	icon_state = "harddisk"
+	icon_state = "access_cable" //todomatt move this icon somewhere where it makes sense
 
 	/// Where this cable is extending from.
 	var/atom/movable/source
+	///The actual source of the /datum/beam coming from the cable.
+	var/atom/movable/beam_source
 	/// Where this cable is attached to.
 	var/atom/movable/target
+	/// The actual target of the /datum/beam coming from the cable.
+	var/atom/movable/beam_target
 	/// The beam connecting us to the source.
 	var/datum/beam/cable
 	/// The range this cable has. Past this range, it will disconnect.
@@ -70,37 +94,67 @@
 
 /obj/item/access_cable/Initialize(mapload, atom/movable/new_source)
 	. = ..()
-	if(!source)
+	if(!new_source)
 		crash_with("Access cable spawned without a source: [x] [y] [z]")
 
 	source = new_source
+	RegisterSignal(src, COMSIG_MOVABLE_MOVED, PROC_REF(check_retract_range), TRUE)
 
 /obj/item/access_cable/Destroy()
 	source = null
 	target = null
-	QDEL_NULL(cable)
+	beam_target = null
+	beam_source = null
+	if(cable)
+		cable.End()
+		QDEL_NULL(cable)
 	return ..()
 
-/obj/item/access_cable/proc/extend()
-	cable = new(source, src, beam_icon_state = "cable", time = -1, maxdistance = range)
+/**
+ * When the cable is actually taken out of an object and thus is shown in world.
+ * The parameters here might be different from the source/target variables on the cable itself.
+ * For example, the source of a synthetic access cable is the power port, although that's physically inside a human mob and so we can't draw a beam to it.
+ * We have to draw a beam from the human in that case.
+ */
+/obj/item/access_cable/proc/extend(var/atom/new_source, var/atom/new_target)
+	beam_source = new_source
+	beam_target = new_target
+	RegisterSignal(beam_source, COMSIG_MOVABLE_MOVED, PROC_REF(check_retract_range), TRUE)
+	RegisterSignal(beam_target, COMSIG_MOVABLE_MOVED, PROC_REF(check_retract_range), TRUE)
+	cable = new(beam_source, beam_target, beam_icon_state = "cable", time = -1, maxdistance = range)
+	cable.Start()
 
+/**
+ * Signal handler.
+ * If the cable moves beyond its range, automatically retract it.
+ */
+/obj/item/access_cable/proc/check_retract_range()
+	SIGNAL_HANDLER
+	if(source == loc)
+		return
+
+	if(get_dist(source, src) > range)
+		visible_message(SPAN_NOTICE("\The [src] automatically retracts!"))
+		forceMove(source)
+		retract()
+
+/**
+ * Retracts the cable back into the parent object.
+ */
 /obj/item/access_cable/proc/retract()
-	source.visible_message(SPAN_NOTICE("\The [src] retracts into [source]!"))
-	qdel(src)
+	if(beam_source)
+		UnregisterSignal(beam_source, COMSIG_MOVABLE_MOVED)
+	if(beam_target)
+		UnregisterSignal(beam_target, COMSIG_MOVABLE_MOVED)
 
-/obj/item/access_cable/attack_self(mob/user, modifiers)
-	if(isipc(user))
-		var/mob/living/carbon/human/synth = user
-		var/obj/item/organ/internal/machine/access_port/access_port = synth.internal_organs_by_name[BP_ACCESS_PORT]
-		if(!access_port)
-			to_chat(synth, SPAN_WARNING("Where's your access port?!"))
-			return ..()
+	beam_source = null
+	beam_target = null
 
-		if(access_port.get_integrity() <= IPC_INTEGRITY_THRESHOLD_MEDIUM)
-			synth.visible_message(SPAN_WARNING("[synth] tries to jam \the [src] back into their access port..."), SPAN_WARNING("You try to jam your [src] back into your access port..."))
-			if(do_after(synth, 3 SECONDS))
-				retract()
+	if(cable)
+		cable.End()
+		QDEL_NULL(cable)
 
+	target = null
 
 /obj/item/access_cable/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	if(ishuman(target) && proximity_flag)
@@ -112,6 +166,10 @@
 		var/obj/item/organ/internal/machine/access_port/access_port = human.internal_organs_by_name[BP_ACCESS_PORT]
 		if(!access_port)
 			to_chat(user, SPAN_WARNING("[human] does not have an access port!"))
+			return
+
+		if(access_port.access_cable == src)
+			to_chat(user, SPAN_WARNING("You can't put your own cable into your own access port, as funny as it would be."))
 			return
 
 		if(access_port.is_broken())
@@ -138,3 +196,29 @@
 			user.visible_message(SPAN_WARNING("[user] jacks \the [src] into their access port!"), SPAN_WARNING("You jack \the [src] into your access port!"))
 
 		access_port.insert_item(src)
+
+/obj/item/access_cable/synthetic
+	name = "universal access cable"
+	desc = "A cable with universal access pins at its end. This particular access cable comes with most synthetics' access ports for quick access to electronics, firewalls, or other synthetics' diagnostics systems."
+
+/obj/item/access_cable/synthetic/attack_self(mob/user, modifiers)
+	if(isipc(user))
+		var/mob/living/carbon/human/synth = user
+		var/obj/item/organ/internal/machine/access_port/access_port = synth.internal_organs_by_name[BP_ACCESS_PORT]
+		if(!access_port)
+			to_chat(synth, SPAN_WARNING("Where's your access port?!"))
+			return ..()
+
+		if(access_port.is_broken())
+			to_chat(synth, SPAN_WARNING("Your access port is completely broken! It won't go in!"))
+			return ..()
+
+		if(access_port.get_integrity() <= IPC_INTEGRITY_THRESHOLD_MEDIUM)
+			synth.visible_message(SPAN_WARNING("[synth] tries to jam [synth.get_pronoun("his")] access cable back into their access port..."), SPAN_WARNING("You try to jam your access cable back into your access port..."))
+			if(!do_after(synth, 3 SECONDS))
+				return ..()
+
+		synth.visible_message(SPAN_NOTICE("[synth] retracts [synth.get_pronoun("his")] access cable back into their access port."), SPAN_NOTICE("You retract your access cable back into your access port."))
+		synth.drop_from_inventory(src, get_turf(src))
+		forceMove(access_port)
+		retract()
