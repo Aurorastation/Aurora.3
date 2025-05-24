@@ -373,7 +373,7 @@ Nymphs have 100 health, so without armor there is a small possibility for each n
 
 /**
 This verb lets the Diona anchor themselves to the ground, giving them magboot properties.
-Slows you down while being used, and cannot be used below 50 nutrition and 20 energy.
+Slows you down while being used, and will be automatically retracted if both feet are severed.
 */
 /mob/living/carbon/human/proc/root_to_ground()
 	set name = "Extend Roots"
@@ -381,12 +381,6 @@ Slows you down while being used, and cannot be used below 50 nutrition and 20 en
 	set category = "Abilities"
 
 	if(use_check_and_message(src))
-		return
-	if(nutrition <= 50)
-		to_chat(src, SPAN_WARNING("You lack nutrition to perform this action!"))
-		return
-	if(DS.stored_energy <= 20)
-		to_chat(src, SPAN_WARNING("You lack energy to perform this action!"))
 		return
 	if(last_special > world.time)
 		to_chat(src, SPAN_WARNING("You've used an ability too recently! Wait a bit."))
@@ -409,6 +403,8 @@ Slows you down while being used, and cannot be used below 50 nutrition and 20 en
 
 /// Engages Diona magboot roots.
 /mob/living/carbon/human/proc/root_enable()
+	RegisterSignal(src, COMSIG_LIMB_LOSS, PROC_REF(check_roots))
+
 	visible_message(SPAN_NOTICE("[src] extends an array of roots out from their feet, clutching at any available surface!")
 	, SPAN_NOTICE("You extend strong roots from your feet, serving as natural braces to keep your footing secure."))
 	ADD_TRAIT(src, TRAIT_SHOE_GRIP, TRAIT_SOURCE_SPECIES_VERB)
@@ -417,6 +413,8 @@ Slows you down while being used, and cannot be used below 50 nutrition and 20 en
 
 /// Disables Diona magboot roots.
 /mob/living/carbon/human/proc/root_disable()
+	UnregisterSignal(src, COMSIG_LIMB_LOSS)
+
 	visible_message(SPAN_NOTICE("[src] retracts the roots growing from their body.")
 	, SPAN_NOTICE("You retract your roots back into your body."))
 	REMOVE_TRAIT(src, TRAIT_SHOE_GRIP, TRAIT_SOURCE_SPECIES_VERB)
@@ -424,11 +422,12 @@ Slows you down while being used, and cannot be used below 50 nutrition and 20 en
 	playsound(src, 'sound/species/diona/gestalt_split.ogg', 20, extrarange = SILENCED_SOUND_EXTRARANGE)
 
 /**
-This is used to check if any criteria have been reached where any Diona abilities should be disabled.
-Currently checks if the roots ability should be disabled based on energy, nutrition, and whether the gestalt still has any feet.
+Checks if the roots should still be enabled or not, proccing whenever any limb is lost. The roots will retract if you have neither foot.
 */
-/mob/living/carbon/human/proc/check_diona_abilities(var/datum/dionastats/DS)
-	if (HAS_TRAIT(src, TRAIT_SHOE_GRIP) && ((nutrition <= 50 || DS.stored_energy <= 20) || (!has_organ(BP_R_FOOT) && !has_organ(BP_L_FOOT))))
+/mob/living/carbon/human/proc/check_roots()
+	SIGNAL_HANDLER
+
+	if(!has_organ(BP_R_FOOT) && !has_organ(BP_L_FOOT))
 		root_disable()
 
 #undef COLD_DAMAGE_LEVEL_1

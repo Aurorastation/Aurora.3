@@ -1078,6 +1078,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			stump.update_damages()
 
 	post_droplimb(victim)
+	SEND_SIGNAL(victim, COMSIG_LIMB_LOSS)
 
 	switch(disintegrate)
 		if(DROPLIMB_EDGE)

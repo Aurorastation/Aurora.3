@@ -36,3 +36,6 @@
 
 ///From base of mob/update_movespeed():area
 #define COMSIG_MOB_MOVESPEED_UPDATED "mob_update_movespeed"
+
+/// For loss of limbs.
+#define COMSIG_LIMB_LOSS "lost_limb"
