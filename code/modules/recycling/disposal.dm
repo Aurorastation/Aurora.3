@@ -22,6 +22,7 @@
 	anchored = 1
 	density = 1
 	var/datum/wires/disposal/wires
+	var/wires_exposed = FALSE
 	var/datum/gas_mixture/air_contents	// internal reservoir
 	var/mode = MODE_CHARGING
 	var/can_flush = TRUE
@@ -132,11 +133,11 @@
 			switch(mode)
 				if(MODE_OFF)
 					mode = MODE_UNSCREWED
-					to_chat(user, SPAN_NOTICE("You remove the screws around the power connection."))
+					to_chat(user, SPAN_NOTICE("You remove the panel covering the wiring and power connection."))
 					return TRUE
 				if(MODE_UNSCREWED)
 					mode = MODE_OFF
-					to_chat(user, SPAN_NOTICE("You attach the screws around the power connection."))
+					to_chat(user, SPAN_NOTICE("You reattach the panel covering the wiring and power connection."))
 			return TRUE
 		else if(attacking_item.iswelder() && mode == MODE_UNSCREWED)
 			if(contents_count())
@@ -167,7 +168,7 @@
 			else
 				to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
 				return TRUE
-		else if(attacking_item.ismultitool() || attacking_item.iswirecutter() || issignaler(attacking_item))
+		else if(MODE_UNSCREWED)
 			wires.interact(user)
 			return TRUE
 
