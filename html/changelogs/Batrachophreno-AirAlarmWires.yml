@@ -56,4 +56,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
   - bugfix: "Air alarms will no longer always show their wire interface- panel must be opened first"
-  - qol: "Machines (if their wiring panels are open) no longer require certain tools in-hand to access the wires interface.
+  - qol: "Machines (if their wiring panels are open) no longer require certain tools in-hand to access the wires interface."
