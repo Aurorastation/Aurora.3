@@ -168,9 +168,6 @@
 			else
 				to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
 				return TRUE
-		else if(MODE_UNSCREWED)
-			wires.interact(user)
-			return TRUE
 
 	if(istype(attacking_item, /obj/item/melee/energy/blade))
 		to_chat(user, SPAN_WARNING("You can't place that item inside the disposal unit."))
@@ -348,6 +345,10 @@
 	if(user.loc == src)
 		to_chat(usr, SPAN_WARNING("You cannot reach the controls from inside."))
 		return
+
+	else if(MODE_UNSCREWED)
+		wires.interact(user)
+		return TRUE
 
 	// Clumsy folks can only flush it.
 	if(user.IsAdvancedToolUser(1))
