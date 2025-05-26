@@ -134,7 +134,7 @@
 	seed_type = "nfrihi"
 
 /datum/seed/nmshaan
-	name = "nmshaan"
+	name = "sugar tree"
 	seed_name = "sugar tree"
 	display_name = "sugar trees"
 	product_desc = "the fruit of the Sugar Tree, native to Adhomai. It is sweet and commonly used in candies."
@@ -142,7 +142,7 @@
 	seed_noun = SEED_NOUN_SEEDS
 	mutants = null
 	chems = list(/singleton/reagent/sugar = list(2, 10), /singleton/reagent/nutriment/gelatin = list(2, 5))
-	kitchen_tag = "nmshaan"
+	kitchen_tag = "sugartree"
 
 /datum/seed/nmshaan/setup_traits()
 	..()
@@ -150,13 +150,13 @@
 	set_trait(TRAIT_MATURATION, 9)
 	set_trait(TRAIT_PRODUCTION, 5)
 	set_trait(TRAIT_YIELD, 2)
-	set_trait(TRAIT_PRODUCT_ICON,"nmshaan")
+	set_trait(TRAIT_PRODUCT_ICON,"sugartree")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#fffdf7")
 	set_trait(TRAIT_PLANT_COLOUR,"#31331c")
-	set_trait(TRAIT_PLANT_ICON,"nmshaan")
+	set_trait(TRAIT_PLANT_ICON,"sugartree")
 	set_trait(TRAIT_IDEAL_HEAT, 253)
 	set_trait(TRAIT_WATER_CONSUMPTION, 4)
 	set_trait(TRAIT_IDEAL_LIGHT, 3)
 
 /obj/item/seeds/sugartree
-	seed_type = "nmshaan"
+	seed_type = "sugartree"

@@ -840,8 +840,8 @@
 	reagents_to_add = list(/singleton/reagent/alcohol/shyyrkirrtyr_wine = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/nmshaan_liquor
-	name = "nm'shaan liquor"
-	desc = "A strong Adhomian liquor reserved for special occasions. A label on the bottle recommends diluting it with icy water before drinking."
+	name = "sugar tree liquor"
+	desc = "Also called nm'shaan liquor in native Siik'maas: a strong Adhomian liquor reserved for special occasions. A label on the bottle recommends diluting it with icy water before drinking."
 	icon_state = "nmshaanliquor"
 	center_of_mass = list("x" = 16,"y" = 5)
 	desc_extended = "An alcoholic drink manufactured from the fruit of the Nm'shaan plant. It usually has a high level of alcohol by volume. Nm'shaan liquor was once reserved for the \

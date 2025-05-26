@@ -321,7 +321,7 @@
 // Tajaran candy
 /singleton/recipe/tajcandy
 	appliance = OVEN
-	fruit = list("nmshaan" = 2)
+	fruit = list("sugartree" = 2)
 	reagents = list(/singleton/reagent/drink/milk/adhomai = 5, /singleton/reagent/nutriment/protein/egg = 3)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	items = list(
@@ -364,7 +364,7 @@
 
 /singleton/recipe/fruitgello
 	appliance = MIX
-	fruit = list("nmshaan" = 2, "dirtberries" = 1)
+	fruit = list("sugartree" = 2, "dirtberries" = 1)
 	reagents = list(/singleton/reagent/nutriment/gelatin = 10, /singleton/reagent/water = 5, /singleton/reagent/sugar = 5, /singleton/reagent/drink/milk/cream = 5)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/fruitgello
@@ -385,7 +385,7 @@
 
 /singleton/recipe/fatshouterbake
 	appliance = OVEN
-	fruit = list("nmshaan" = 2)
+	fruit = list("sugartree" = 2)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/adhomian_can,
 		/obj/item/reagent_containers/food/snacks/adhomian_can
