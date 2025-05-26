@@ -217,7 +217,7 @@
 	glass_name = "glass of shyyr kirr'tyr wine"
 	glass_desc = "Tajaran spirit infused with some eel-like Adhomian creature."
 
-/singleton/reagent/alcohol/nmshaan_liquor
+/singleton/reagent/alcohol/sugartree_liquor
 	name = "Sugar Tree Liquor"
 	color = "#FE6B03"
 	description = "A strong Adhomian nm'shaan liquor reserved for special occasions."
@@ -225,11 +225,11 @@
 
 	strength = 70
 
-	glass_icon_state = "nmshaanliquor_glass"
+	glass_icon_state = "sugartreeliquor_glass"
 	glass_name = "glass of sugar tree liquor"
 	glass_desc = "A strong nm'shaan Adhomian liquor reserved for special occasions."
 
-/singleton/reagent/alcohol/nmshaan_liquor/darmadhirbrew
+/singleton/reagent/alcohol/sugartree_liquor/darmadhirbrew
 	name = "Darmadhir Brew"
 	color = "#E4A769"
 	description = "A rare and expensive brand of nm'shaan liquor."

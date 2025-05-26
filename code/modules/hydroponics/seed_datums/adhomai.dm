@@ -133,7 +133,7 @@
 /obj/item/seeds/blizzard
 	seed_type = "nfrihi"
 
-/datum/seed/nmshaan
+/datum/seed/sugartree
 	name = "sugar tree"
 	seed_name = "sugar tree"
 	display_name = "sugar trees"
@@ -144,7 +144,7 @@
 	chems = list(/singleton/reagent/sugar = list(2, 10), /singleton/reagent/nutriment/gelatin = list(2, 5))
 	kitchen_tag = "sugartree"
 
-/datum/seed/nmshaan/setup_traits()
+/datum/seed/sugartree/setup_traits()
 	..()
 	set_trait(TRAIT_HARVEST_REPEAT, 1)
 	set_trait(TRAIT_MATURATION, 9)
