@@ -185,7 +185,6 @@
 /obj/item/hand/tarot/lyodii
 	deck_type = /obj/item/deck/tarot/lyodii
 
-
 /obj/item/deck/tarot/lyodii/generate_deck()
 	var/datum/playingcard/P
 	for(var/name in list("The Chieftain","The Shaman","The Crown of Ice","The Dreaming Girl","The Flamewalker","The Tall Stranger","The Mother","The Hollowed Man","The Tenelote","The Arctic Fox","The Bisumoi","The Prejoroub",
