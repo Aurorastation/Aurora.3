@@ -199,8 +199,8 @@
 /obj/item/deck/tarot/lyodii/spirits
 	name = "lyodii fatesayer spirits deck"
 	desc = "A traditionally made deck of fatesayer cards, used by the people of the Lyod. This stack contains the Spirits cards. "
-	icon_state = "spirits"
-	item_state = "spirits"
+	icon_state = "lyodii_deck"
+	item_state = "lyodii_deck"
 
 /obj/item/deck/tarot/lyodii/spirits/generate_deck()
 	var/datum/playingcard/P
@@ -237,8 +237,8 @@
 /obj/item/deck/tarot/lyodii/paths
 	name = "lyodii fatesayer paths deck"
 	desc = "A traditionally made deck of fatesayer cards, used by the people of the Lyod. This stack contains the Paths cards. "
-	icon_state = "paths"
-	item_state = "paths"
+	icon_state = "lyodii_deck"
+	item_state = "lyodii_deck"
 
 /obj/item/deck/tarot/lyodii/paths/generate_deck()
 	var/datum/playingcard/P
@@ -272,8 +272,8 @@
 /obj/item/deck/tarot/lyodii/beasts
 	name = "lyodii fatesayer beasts deck"
 	desc = "A traditionally made deck of fatesayer cards, used by the people of the Lyod. This stack contains the Beasts cards. "
-	icon_state = "beasts"
-	item_state = "beasts"
+	icon_state = "lyodii_deck"
+	item_state = "lyodii_deck"
 
 /obj/item/deck/tarot/lyodii/beasts/generate_deck()
 	var/datum/playingcard/P
@@ -311,8 +311,8 @@
 /obj/item/deck/tarot/lyodii/winds
 	name = "lyodii fatesayer winds deck"
 	desc = "A traditionally made deck of fatesayer cards, used by the people of the Lyod. This stack contains the Winds cards. "
-	icon_state = "winds"
-	item_state = "winds"
+	icon_state = "lyodii_deck"
+	item_state = "lyodii_deck"
 
 /obj/item/deck/tarot/lyodii/winds/generate_deck()
 	var/datum/playingcard/P
@@ -347,8 +347,8 @@
 /obj/item/deck/tarot/lyodii/bones
 	name = "lyodii fatesayer bones deck"
 	desc = "A traditionally made deck of fatesayer cards, used by the people of the Lyod. This stack contains the Bones cards. "
-	icon_state = "bones"
-	item_state = "bones"
+	icon_state = "lyodii_deck"
+	item_state = "lyodii_deck"
 
 /obj/item/deck/tarot/lyodii/bones/generate_deck()
 	var/datum/playingcard/P
@@ -366,6 +366,7 @@
 			if("\The Goddess")
 				P.desc = "A glowing, diffuse spectral form floats above a ritual circle of bones. Light spills from the heavens onto it. Snowflakes falling nearby take on different shapes of animals, eyes and hands. It is associated with: \
 				divine will, judgement, revelation."
+				P.card_icon = "goddess"
 		P.card_icon = "bones"
 		P.back_icon = "card_back_lyodii"
 		cards += P
