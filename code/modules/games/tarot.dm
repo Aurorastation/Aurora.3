@@ -172,6 +172,8 @@
 /// Lyodii tarot deck.
 /obj/item/deck/tarot/lyodii
 	name = "lyodii fatesayer deck"
+	icon = 'icons/obj/lyodii_tarot.dmi'
+	icon_state = "lyodii_deck"
 	desc = "A traditionally made deck of fatesayer cards, used by the people of the Lyod to tell one's fate."
 	desc_extended = "These 'cards' are actually rectangular pieces of bone, engraved with different religious imagery. They are then painted with soot or blood-ink. Usually made by tribal shamans in \
 	agonizingly difficult work, these are hand-crafted by each tribe - thus some imagery can deviate from one another. A deck consists of 36 pieces, divided as follows: Spirits, Beasts, Winds and Paths \
@@ -190,14 +192,13 @@
 	for(var/name in list("The Chieftain","The Shaman","The Crown of Ice","The Dreaming Girl","The Flamewalker","The Tall Stranger","The Mother","The Hollowed Man","The Tenelote","The Arctic Fox","The Bisumoi","The Prejoroub",
 	"The Yastr","The Ptarmigan","The Reindeer","The Snow Hare","The North Wind","The South Wind","The East Wind","The West Wind","The Windless Day","The Black Gale","The Whisper Breeze","The Stormcry","The Frozen Footprint",
 	"The Shared Fire","The Broken Edict","The Silent Hunt","The Lost Tribe","The Marked Bone","The Buried Blade","The Icebound Oath","The Bone of Birth","The Bone of Death","The Bone of Choice","The Goddess"))
-	P = new()
-	P.name = "[name]"
-	var/suit = "lyodii"
-	switch(name)
-		if("The Chieftain")
+		P = new()
+		P.name = "[name]"
+
 /obj/item/deck/tarot/lyodii/spirits
 	name = "lyodii fatesayer spirits deck"
 	desc = "A traditionally made deck of fatesayer cards, used by the people of the Lyod. This stack contains the Spirits cards. "
+	icon_state = "spirits"
 
 /obj/item/deck/tarot/lyodii/spirits/generate_deck()
 	var/datum/playingcard/P
@@ -231,6 +232,7 @@
 /obj/item/deck/tarot/lyodii/paths
 	name = "lyodii fatesayer paths deck"
 	desc = "A traditionally made deck of fatesayer cards, used by the people of the Lyod. This stack contains the Paths cards. "
+	icon_state = "paths"
 
 /obj/item/deck/tarot/lyodii/paths/generate_deck()
 	var/datum/playingcard/P
@@ -261,7 +263,7 @@
 /obj/item/deck/tarot/lyodii/beasts
 	name = "lyodii fatesayer beasts deck"
 	desc = "A traditionally made deck of fatesayer cards, used by the people of the Lyod. This stack contains the Beasts cards. "
-
+	icon_state = "beasts"
 /obj/item/deck/tarot/lyodii/beasts/generate_deck()
 	var/datum/playingcard/P
 	for(var/name in list("The Tenelote","The Arctic Fox","The Bisumoi","The Prejoroub","The Yastr","The Ptarmigan","The Reindeer","The Snow Hare"))
@@ -296,6 +298,7 @@
 /obj/item/deck/tarot/lyodii/winds
 	name = "lyodii fatesayer winds deck"
 	desc = "A traditionally made deck of fatesayer cards, used by the people of the Lyod. This stack contains the Winds cards. "
+	icon_state = "winds"
 
 /obj/item/deck/tarot/lyodii/winds/generate_deck()
 	var/datum/playingcard/P
@@ -327,6 +330,7 @@
 /obj/item/deck/tarot/lyodii/bones
 	name = "lyodii fatesayer bones deck"
 	desc = "A traditionally made deck of fatesayer cards, used by the people of the Lyod. This stack contains the Bones cards. "
+	icon_state = "bones"
 
 /obj/item/deck/tarot/lyodii/bones/generate_deck()
 	var/datum/playingcard/P
