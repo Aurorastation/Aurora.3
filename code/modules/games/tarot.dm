@@ -172,7 +172,7 @@
 /// Lyodii tarot deck.
 /obj/item/deck/tarot/lyodii
 	name = "lyodii fatesayer deck"
-	icon = 'icons/obj/lyodii_tarot.dmi'
+	icon = 'icons/obj/item/playing_cards.dmi'
 	icon_state = "lyodii_deck"
 	desc = "A traditionally made deck of fatesayer cards, used by the people of the Lyod to tell one's fate."
 	desc_extended = "These 'cards' are actually rectangular pieces of bone, engraved with different religious imagery. They are then painted with soot or blood-ink. Usually made by tribal shamans in \
@@ -201,6 +201,7 @@
 	name = "lyodii fatesayer spirits deck"
 	desc = "A traditionally made deck of fatesayer cards, used by the people of the Lyod. This stack contains the Spirits cards. "
 	icon_state = "spirits"
+	item_state = "spirits"
 
 /obj/item/deck/tarot/lyodii/spirits/generate_deck()
 	var/datum/playingcard/P
@@ -208,36 +209,37 @@
 		P = new()
 		P.name = "[name]"
 		switch(name)
-			if("The Chieftain")
+			if("\The Chieftain")
 				P.desc = "A tall figure stands before a wind-beaten tent, draped in heavy furs. One hand holds a carved antler staff, the other raised toward a gathering of smaller shadowy figures. The chieftain's eyes are closed in \
 				burdened contemplation. Behind him, the sun is barely visible over the horizon. It is associated with: leadership, burden, guidance."
-			if("The Shaman")
+			if("\The Shaman")
 				P.desc = "A kneeling figure surrounded by animal bones and burning herbs. Her face is painted with blood and soot. Behind her, a spectral shape looms but no details can be made out. It is associated with: wisdom, communion \
 				with spirits, madness."
-			if("The Crown of Ice")
+			if("\The Crown of Ice")
 				P.desc = "A throne of cracked glacier-ice, on it sitting a crown of deep blue ice. There are two sockets embedded in the crown, one with a sapphire, one empty. It is associated with: harsh judge, death's herald."
-			if("The Dreaming Girl")
+			if("\The Dreaming Girl")
 				P.desc = "A young girl sleeping in a snowdrift, untouched by cold. Above her, the night sky swirls with auroras forming vague shapes. Her expression is peaceful, but a tear of blood escapes one eye. It is associated with: \
 				prophecy, confusion, hidden truths."
-			if("The Flamewalker")
+			if("\The Flamewalker")
 				P.desc = "A cloaked figure walking across an icefield. He's burning. Fire doesn’t consume him— it emerges from his footprints. He carries a bundle of books and bones wrapped in red cloth. It is associated with: \
 				change-bringing, exile, innovation."
-			if("The Tall Stranger")
+			if("\The Tall Stranger")
 				P.desc = "A faceless, well-built and tall standing figure in fine red-gilded robes stands at atop a snowdrift. He holds a sword in one hand, the other's clenched to a fist. No footprints are left where he stands. \
 				It is associated with: deception, fate disguised, dishonesty."
-			if("The Mother")
+			if("\The Mother")
 				P.desc = "A woman cradling a baby in one arm, a ceremonial blade in the other. Her expression is conflicted. Behind her, two paths diverge—one leads to a firelit camp, the other into a storm. It is associated with: \
 				choices, nurture vs. law, duality."
-			if("The Hollowed Man")
+			if("\The Hollowed Man")
 				P.desc = "A man torso unclothed, kneels in the snow. A hole where his heart should be reveals a swirling void inside. Spirits drift around him. It is associated with: sacrifice, emptiness, spiritual rebirth."
-		P.card_icon = "[suit]_[lowertext(name)]"
-		P.back_icon = "card_off_[suit]"
+		P.card_icon = "spirits"
+		P.back_icon = "card_back_lyodii"
 		cards += P
 
 /obj/item/deck/tarot/lyodii/paths
 	name = "lyodii fatesayer paths deck"
 	desc = "A traditionally made deck of fatesayer cards, used by the people of the Lyod. This stack contains the Paths cards. "
 	icon_state = "paths"
+	item_state = "paths"
 
 /obj/item/deck/tarot/lyodii/paths/generate_deck()
 	var/datum/playingcard/P
@@ -245,33 +247,34 @@
 		P = new()
 		P.name = "[name]"
 		switch(name)
-			if("The Frozen Footprint")
+			if("\The Frozen Footprint")
 				P.desc = "A single footprint frozen solid in a cracked icy path. It glows faintly, untouched by time. Around it, scattered is a bloodied cloth and a broken spearhead. It is associated with: missed opportunity, consequences."
-			if("The Shared Fire")
+			if("\The Shared Fire")
 				P.desc = "everal figures gather around a fire in the middle of a blizzard. Though cold rages around them, their circle is warm. Shadows on the tent walls show animals instead of people. One figure extends a \
 				hand to the viewer. It is associated with: community, sacrifice, loyality."
-			if("The Broken Edict")
+			if("\The Broken Edict")
 				P.desc = "A sacred tablet cracked down the middle, one half buried in snow, the crack forms a lightning-shaped glyph. A fox sits nearby, watching. It is associated with: rebellion, righteousness, moral ambiguity."
-			if("The Silent Hunt")
+			if("\The Silent Hunt")
 				P.desc = "A hunter crouches in the snow, bow drawn, breath invisible. Behind them, a spectral beast stalks them in silence. No footprints in the snow. Both hunter and hunted wear the same carved mask. It is associated with: \
 				patience, waiting, unspoken action."
-			if("The Lost Tribe")
+			if("\The Lost Tribe")
 				P.desc = "A caravan of silhouettes walks endlessly across a snowplain beneath a starry sky. One member carries a banner with, but it is impossible to see what it shows. It is associated with: disconnection, wandering."
-			if("The Marked Bone")
+			if("\The Marked Bone")
 				P.desc = "A long, polished bone lies on a shrine, carved with fresh glyphs bleeding red ink, a spectral bird watches from above. The glyphs emit a faint glow. It is associated with: signs from the Goddess, omens."
-			if("The Buried Blade")
+			if("\The Buried Blade")
 				P.desc = "A ritual dagger protrudes from a snowbank, only its hilt visible. Blood stains the snow nearby. The hilt is wrapped in two colors. A snowflake lands, forming a glyph for 'lies'. It is associated with: \
 				hidden conflict, denial."
-			if("The Icebound Oath")
+			if("\The Icebound Oath")
 				P.desc = "Two figures clasp wrists, their hands frozen together by blue ice. One looks determined, the other regretful. A small fire burns in the background. It is associated with: duty, promise, burdens kept too long."
-		P.card_icon = "[suit]_[lowertext(name)]"
-		P.back_icon = "card_off_[suit]"
+		P.card_icon = "paths"
+		P.back_icon = "card_back_lyodii"
 		cards += P
 
 /obj/item/deck/tarot/lyodii/beasts
 	name = "lyodii fatesayer beasts deck"
 	desc = "A traditionally made deck of fatesayer cards, used by the people of the Lyod. This stack contains the Beasts cards. "
 	icon_state = "beasts"
+	item_state = "beasts"
 
 /obj/item/deck/tarot/lyodii/beasts/generate_deck()
 	var/datum/playingcard/P
@@ -279,38 +282,38 @@
 		P = new()
 		P.name = "[name]"
 		switch(name)
-			if("The Tenelote")
+			if("\The Tenelote")
 				P.desc = "A massive white-furred Tenelote, horned, stands atop a frozen ridge. Its eyes glow faintly blue, snow spirals upward around it. Broken spears stick out of its flank, yet it stands unbowed. Behind it, \
 				a blizzard is approaching. It is associated with: strength, endurance, ferocity."
-			if("The Arctic Fox")
+			if("\The Arctic Fox")
 				P.desc = "A small, sleek fox slinks through moonlit snow, looking back over its shoulder with knowing eyes. One pawprint glows faintly. Its tail is split in two. In the snow nearby: a discarded bone dice and a \
 				trail of feathers. It is associated with: cunning, hidden paths, trickery."
-			if("The Bisumoi")
+			if("\The Bisumoi")
 				P.desc = "A towering moose-like creature with two sets of twisted antlers resembling roots and glyphs. It gazes at the viewer through milky eyes while snow falls silently around it. It is associated with: \
 				 ancient wisdom, balance, ancestral memory."
-			if("The Prejoroub")
+			if("\The Prejoroub")
 				P.desc = "A long-winged bird, vulture-like but with a face that resembles a skull, circles over a field strewn with bones. Feathers fall from its wings, where they land, fire erupts. Its shadow is shaped like a wolf. \
 				It is associated with: death, scavenging, what must be taken."
-			if("The Yastr")
+			if("\The Yastr")
 				P.desc = "A flock of thin-necked bird with long wings fly across the tundra under a blazing sunset. The lead bird looks back, as if uncertain. A single figure watches from afar, unseen by the beasts. It is associated with: \
 			migration, movement, restlessness."
-			if("The Ptarmigan")
+			if("\The Ptarmigan")
 				P.desc = " deceptively calm snowbird perches on a branch above a frozen lake. Beneath the ice, shadows twist and churn. One eye of the bird is missing. A bloodied feather drifts down toward the viewer. It is associated with: \
 				danger beneath calm, betrayal."
-			if("The Reindeer")
+			if("\The Reindeer")
 				P.desc = "A scarred reindeer stands within a ring of tribal totems. It bows its head, offering its antlers to a shamanic figure. Runes burned into its flank. Each totem around it is engraved with different runes. \
 				It is associated with: loyalty, hunger, bonds."
-			if("The Snow Hare")
+			if("\The Snow Hare")
 				P.desc = "A white hare dashes through the snow under a full moon, carrying a leaf bundle in its mouth. Behind it in the sky there's a shooting star. Three small spirits follow behind, barely visible. Snowflakes around \
 				the hare are all different glyphs. It is associated with: small joys, fleeting beauty, messages."
-		P.card_icon = "[suit]_[lowertext(name)]"
-		P.back_icon = "card_off_[suit]"
+		P.card_icon = "beasts"
+		P.back_icon = "card_back_lyodii"
 		cards += P
-
 /obj/item/deck/tarot/lyodii/winds
 	name = "lyodii fatesayer winds deck"
 	desc = "A traditionally made deck of fatesayer cards, used by the people of the Lyod. This stack contains the Winds cards. "
 	icon_state = "winds"
+	item_state = "winds"
 
 /obj/item/deck/tarot/lyodii/winds/generate_deck()
 	var/datum/playingcard/P
@@ -318,34 +321,35 @@
 		P = new()
 		P.name = "[name]"
 		switch(name)
-			if("The North Wind")
+			if("\The North Wind")
 				P.desc = "A gentle, blue-hued gust flows over a landscape, moving over a firelit camp. Spirals of warmth rise from the fires. The wind forms a protective circle. It is associated with: mercy, home, unexpected aid."
-			if("The South Wind")
+			if("\The South Wind")
 				P.desc = "A crimson gale howls down a mountainside, tearing trees from the ground. A figure walks into it, teeth bared. Faint, distorted faces can be seen in the gusts. Shattered ice-crystals fly like knives. \
 				It is associated with: cruelty, challenge, reckoning."
-			if("The East Wind")
+			if("\The East Wind")
 				P.desc = "A pale wind carries seeds and starlight across a dark horizon. Dawn breaks just as the wind touches the earth. One cloud overhead resembles an open eye. It is associated with: beginnings, clarity, sacred insight."
-			if("The West Wind")
+			if("\The West Wind")
 				P.desc = "A wind brushes over a field of grave markers made of bone. Spirits rise gently in its wake. Faint faces drift briefly along the wind. The moon watches in the sky. It is associated with: endings, \
 				mystery, ancestral voices."
-			if("The Windless Day")
+			if("\The Windless Day")
 				P.desc = "A completely still scene, a frozen lake, unmoving trees, a bird suspended in midair. A sense of being trapped in time. A small crack in the lake surface forms the glyph for 'waiting'. It is associated with: \
 				stagnation, hidden tension."
-			if("The Black Gale")
+			if("\The Black Gale")
 				P.desc = "A storm-black wind crashes into tents, tearing them apart as lightning strikes nearby. The wind has claws. Each lightning bolt forms a different rune for destruction, punishment. It is associated with: \
 				upheaval, divine punishment."
-			if("The Whisper Breeze")
+			if("\The Whisper Breeze")
 				P.desc = "A soft breeze curls around a sleeping child’s ear, one candle stands nearby. It is associated with: secrets, subtle shifts."
-			if("The Stormcry")
+			if("\The Stormcry")
 				P.desc = "Rain and wind mix with wailing spirit-faces. A lone figure kneels on a clifftop, arms raised in anguish. Tears fall upward, the wind feels heavy. It is associated with: rage, grief, release."
-		P.card_icon = "[suit]_[lowertext(name)]"
-		P.back_icon = "card_off_[suit]"
+		P.card_icon = "winds"
+		P.back_icon = "card_back_lyodii"
 		cards += P
 
 /obj/item/deck/tarot/lyodii/bones
 	name = "lyodii fatesayer bones deck"
 	desc = "A traditionally made deck of fatesayer cards, used by the people of the Lyod. This stack contains the Bones cards. "
 	icon_state = "bones"
+	item_state = "bones"
 
 /obj/item/deck/tarot/lyodii/bones/generate_deck()
 	var/datum/playingcard/P
@@ -353,16 +357,16 @@
 		P = new()
 		P.name = "[name]"
 		switch(name)
-			if("The Bone of Birth")
+			if("\The Bone of Birth")
 				P.desc = "A curved rib bone floats in a pool of water, illuminated from below. Inside it, a tiny sprout grows. In the water’s reflection, the bone looks like a cradle. It is associated with: legacy, fate beginning to move."
-			if("The Bone of Death")
+			if("\The Bone of Death")
 				P.desc = "A skull, half-buried in snow, with a single red flower growing from one eye socket. A spirit form rises behind the skull, birds fly overhead. It is associated with: inevitable ends, sacred cycles."
-			if("The Bone of Choice")
+			if("\The Bone of Choice")
 				P.desc = "A forked femur lies between two paths—one lined with fire, the other shadowy. A hand hesitates above it. The bone is marked with tally marks and blood-stained glyphs. It is associated with: the moment of truth, \
 				taking action."
-			if("The Goddess")
+			if("\The Goddess")
 				P.desc = "A glowing, diffuse spectral form floats above a ritual circle of bones. Light spills from the heavens onto it. Snowflakes falling nearby take on different shapes of animals, eyes and hands. It is associated with: \
 				divine will, judgement, revelation."
-		P.card_icon = "[suit]_[lowertext(name)]"
-		P.back_icon = "card_off_[suit]"
+		P.card_icon = "bones"
+		P.back_icon = "card_back_lyodii"
 		cards += P
