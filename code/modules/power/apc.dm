@@ -598,7 +598,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 		user.visible_message(SPAN_WARNING("[user.name] adds cables to the APC frame."), \
 							"You start adding cables to the APC frame...")
 		if(attacking_item.use_tool(src, user, 20, volume = 50))
-			if (C.amount >= 10) // Need at least 10 in stack to build the terminal.
+			if (C.amount >= 10 && !terminal && opened != COVER_CLOSED && has_electronics != HAS_ELECTRONICS_SECURED) // Need at least 10 in stack to build the terminal.
 				var/obj/structure/cable/N = T.get_cable_node()
 				if (prob(50) && electrocute_mob(usr, N, N))
 					spark(src, 5, GLOB.alldirs)
