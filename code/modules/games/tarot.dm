@@ -180,7 +180,6 @@
 	each having eight cards in their stack and Bones, with four cards. Traditionally a Bone card is drawn, then one each of the rest. The Bone cards put the other four cards into perspective so one's fate \
 	can be determined. More modern iterations of these Fatesayer decks are also made by the few permanent settlements in the Lyod, to sell them off. They are not using real bone and the imagery is usually more \
 	refined and detailed, since they are machine-made."
-	icon_state = "deck_lyodii"
 	hand_type = /obj/item/hand/tarot/lyodii
 
 /obj/item/hand/tarot/lyodii
@@ -194,6 +193,9 @@
 	"The Shared Fire","The Broken Edict","The Silent Hunt","The Lost Tribe","The Marked Bone","The Buried Blade","The Icebound Oath","The Bone of Birth","The Bone of Death","The Bone of Choice","The Goddess"))
 		P = new()
 		P.name = "[name]"
+		P.card_icon = "beasts"
+		P.back_icon = "card_back_lyodii"
+		cards += P
 
 /obj/item/deck/tarot/lyodii/spirits
 	name = "lyodii fatesayer spirits deck"
@@ -228,6 +230,9 @@
 				choices, nurture vs. law, duality."
 			if("The Hollowed Man")
 				P.desc = "A man torso unclothed, kneels in the snow. A hole where his heart should be reveals a swirling void inside. Spirits drift around him. It is associated with: sacrifice, emptiness, spiritual rebirth."
+		P.card_icon = "[suit]_[lowertext(name)]"
+		P.back_icon = "card_off_[suit]"
+		cards += P
 
 /obj/item/deck/tarot/lyodii/paths
 	name = "lyodii fatesayer paths deck"
@@ -259,11 +264,15 @@
 				hidden conflict, denial."
 			if("The Icebound Oath")
 				P.desc = "Two figures clasp wrists, their hands frozen together by blue ice. One looks determined, the other regretful. A small fire burns in the background. It is associated with: duty, promise, burdens kept too long."
+		P.card_icon = "[suit]_[lowertext(name)]"
+		P.back_icon = "card_off_[suit]"
+		cards += P
 
 /obj/item/deck/tarot/lyodii/beasts
 	name = "lyodii fatesayer beasts deck"
 	desc = "A traditionally made deck of fatesayer cards, used by the people of the Lyod. This stack contains the Beasts cards. "
 	icon_state = "beasts"
+
 /obj/item/deck/tarot/lyodii/beasts/generate_deck()
 	var/datum/playingcard/P
 	for(var/name in list("The Tenelote","The Arctic Fox","The Bisumoi","The Prejoroub","The Yastr","The Ptarmigan","The Reindeer","The Snow Hare"))
@@ -294,6 +303,9 @@
 			if("The Snow Hare")
 				P.desc = "A white hare dashes through the snow under a full moon, carrying a leaf bundle in its mouth. Behind it in the sky there's a shooting star. Three small spirits follow behind, barely visible. Snowflakes around \
 				the hare are all different glyphs. It is associated with: small joys, fleeting beauty, messages."
+		P.card_icon = "[suit]_[lowertext(name)]"
+		P.back_icon = "card_off_[suit]"
+		cards += P
 
 /obj/item/deck/tarot/lyodii/winds
 	name = "lyodii fatesayer winds deck"
@@ -326,6 +338,9 @@
 				P.desc = "A soft breeze curls around a sleeping child’s ear, one candle stands nearby. It is associated with: secrets, subtle shifts."
 			if("The Stormcry")
 				P.desc = "Rain and wind mix with wailing spirit-faces. A lone figure kneels on a clifftop, arms raised in anguish. Tears fall upward, the wind feels heavy. It is associated with: rage, grief, release."
+		P.card_icon = "[suit]_[lowertext(name)]"
+		P.back_icon = "card_off_[suit]"
+		cards += P
 
 /obj/item/deck/tarot/lyodii/bones
 	name = "lyodii fatesayer bones deck"
@@ -346,5 +361,8 @@
 				P.desc = "A forked femur lies between two paths—one lined with fire, the other shadowy. A hand hesitates above it. The bone is marked with tally marks and blood-stained glyphs. It is associated with: the moment of truth, \
 				taking action."
 			if("The Goddess")
-				P.desc = "A glowing, diffuse spectral form floats above a ritual circle of bones. Light spills from the heavens onto it. Snowflakes falling nearby take on different shapes of animals, eyes, and hands. It is associated with: \
+				P.desc = "A glowing, diffuse spectral form floats above a ritual circle of bones. Light spills from the heavens onto it. Snowflakes falling nearby take on different shapes of animals, eyes and hands. It is associated with: \
 				divine will, judgement, revelation."
+		P.card_icon = "[suit]_[lowertext(name)]"
+		P.back_icon = "card_off_[suit]"
+		cards += P
