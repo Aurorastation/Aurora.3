@@ -78,7 +78,7 @@
 
 /datum/seed/dirtberries
 	name = "dirtberries"
-	seed_name = "dirt berries"
+	seed_name = "dirtberries"
 	display_name = "dirt berries shrub"
 	product_desc = "a pile of Adhomian berries used by the Tajara for its oil."
 	product_desc_extended = "An above-ground evergreen shrub that grows sweet, starchy legumes underground in thick pods. 'Dirt Berries', or Zhu'hagha Nifs, grow like peanuts but bear several nuts like peas in a pod, typically around 8 thumb-sized nifs in each pod. Their flavor is rich, fatty, and savory, and they are used to produce oil."
