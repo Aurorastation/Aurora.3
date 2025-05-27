@@ -256,7 +256,7 @@
 				P.desc = "A hunter crouches in the snow, bow drawn, breath invisible. Behind them, a spectral beast stalks them in silence. No footprints in the snow. Both hunter and hunted wear the same carved mask. It is associated with: \
 				patience, waiting, unspoken action."
 			if("The Lost Tribe")
-				P.desc = "A caravan of silhouettes walks endlessly across a snowplain beneath a starry sky. One member carries a banner with, but it is impossible to see what it shows. It is associated with: disconnction, wandering."
+				P.desc = "A caravan of silhouettes walks endlessly across a snowplain beneath a starry sky. One member carries a banner with, but it is impossible to see what it shows. It is associated with: disconnection, wandering."
 			if("The Marked Bone")
 				P.desc = "A long, polished bone lies on a shrine, carved with fresh glyphs bleeding red ink, a spectral bird watches from above. The glyphs emit a faint glow. It is associated with: signs from the Goddess, omens."
 			if("The Buried Blade")
