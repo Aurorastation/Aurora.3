@@ -168,3 +168,24 @@
 		P.back_icon = "card_off_[suit]"
 		cards += P
 
+/obj/item/deck/tarot/lyodii
+	name = "lyodii fatesayer cards deck"
+	desc = "A traditionally made deck of fatesayer cards, used by the people of the Lyod."
+	desc_extended = "These 'cards' are actually rectangular pieces of bone, engraved with different religious imagery. They are then painted with soot or blood-ink. Usually made by tribal shamans in \
+	agonizingly difficult work, these are hand-crafted by each tribe - thus some imagery can deviate from one another. A deck consists of 36 pieces, divided as follows: Spirits, Beasts, Winds and Paths \
+	each having eight cards in their stack and Bones, with four cards. Traditionally a Bone card is drawn, then one each of the rest. The Bone cards put the other four cards into perspective so one's fate \
+	can be determined. More modern iterations of these Fatesayer decks are also made by the few permanent settlements in the Lyod, to sell them off. They are not using real bone and the imagery is usually more \
+	refined and detailed, since they are machine-made."
+	icon_state = "deck_lyodii"
+	deck_type = /obj/item/hand/tarot/lyodii
+
+/obj/item/deck/tarot/lyodii/generate_deck()
+	var/datum/playingcard/P
+	for(var/name in list("The Chieftain","The Shaman","The Crown of Ice", "The Dreaming Girl", "The Flamewalker", "The Tall Stranger","The Mother","The Hollowed Man","The Tenelote","The Arctic Fox","The Bisumoi","The Prejoroub",
+	"The Yastr","The Ptarmigan","The Reindeer","The Snow Hare","The North Wind","The South Wind","The East Wind","The West Wind","The Windless Day","The Black Gale","The Whisper Breeze","The Stormcry","The Frozen Footprint",
+	"The Shared Fire","The Broken Edict","The Silent Hunt","The Lost Tribe","The Marked Bone","The Buried Blade","The Icebound Oath","The Bone of Birth","The Bone of Death","The Bone of Choice","The Goddess"))
+	P = new()
+	P.name = "[name]"
+	var/suit = "lyodii"
+	switch(name)
+		if("The Chieftain")
