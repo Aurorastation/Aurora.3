@@ -58,14 +58,8 @@
 	if(open)
 
 		// Hacking.
-		if(attacking_item.iswirecutter() || attacking_item.ismultitool())
+		wires.interact(user)
 
-			if(open)
-				wires.interact(user)
-			else
-				to_chat(user, SPAN_ALERT("You can't reach the wiring."))
-
-			return
 		// Air tank.
 		if(istype(attacking_item,/obj/item/tank)) //Todo, some kind of check for suits without integrated air supplies.
 
@@ -132,7 +126,7 @@
 		else if(attacking_item.iswrench())
 
 			if(!air_supply)
-				to_chat(user, SPAN_WARNING("There is not tank to remove."))
+				to_chat(user, SPAN_WARNING("There is no tank to remove."))
 				return
 
 			if(user.r_hand && user.l_hand)
