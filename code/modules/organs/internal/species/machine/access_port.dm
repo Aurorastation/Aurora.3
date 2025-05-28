@@ -156,9 +156,9 @@
 
 	target = null
 
-/obj/item/access_cable/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
-	if(ishuman(target) && proximity_flag)
-		var/mob/living/carbon/human/human = target
+/obj/item/access_cable/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(ishuman(target_mob))
+		var/mob/living/carbon/human/human = target_mob
 		if(!isipc(human))
 			to_chat(user, SPAN_WARNING("Where are you planning to put that...?"))
 			return
@@ -196,6 +196,8 @@
 			user.visible_message(SPAN_WARNING("[user] jacks \the [src] into their access port!"), SPAN_WARNING("You jack \the [src] into your access port!"))
 
 		access_port.insert_item(src)
+	else
+		. = ..()
 
 /obj/item/access_cable/synthetic
 	name = "universal access cable"
@@ -222,3 +224,55 @@
 		synth.drop_from_inventory(src, get_turf(src))
 		forceMove(access_port)
 		retract()
+
+/mob/living/carbon/human/proc/access_cable()
+	set name = "Access Cable"
+	set category = "Object"
+
+	if(!isipc(src))
+		return
+
+	var/obj/item/organ/internal/machine/access_port/access_port = internal_organs_by_name[BP_ACCESS_PORT]
+	if(!access_port)
+		to_chat(src, SPAN_WARNING("Where's your access port?!"))
+		return
+
+	if(access_port.is_broken())
+		to_chat(src, SPAN_WARNING("Your access port's only feedback is crackling static and jumbled code!"))
+		return
+
+	var/obj/item/access_cable/access_cable = access_port.access_cable
+	if(!access_cable)
+		to_chat(src, SPAN_WARNING("Your access cable is missing!"))
+		return
+
+	if(!access_cable.target)
+		to_chat(src, SPAN_WARNING("You need to connect your cable to another IPC first!"))
+		return
+
+	if(!isipc(access_cable.target))
+		to_chat(src, SPAN_WARNING("You can't access any useful information from that!"))
+		return
+
+	var/mob/living/carbon/human/synth = access_cable.target
+	to_chat(src, SPAN_NOTICE("You begin accessing various diagnostic information from [target]'s systems..."))
+	for(var/obj/item/organ/internal/organ in synth.internal_organs)
+		if(!do_after(2 SECONDS))
+			return
+
+		// this check is here first so we can avoid useless calculations in case the organ isn't visible from the diag suite
+		if(istype(organ, /obj/item/organ/internal/machine))
+			var/obj/item/organ/internal/machine/machine_organ = organ
+			if(!machine_organ.diagnostics_suite_visible)
+				continue
+
+			organ_data["wiring_status"] = edit_organ_status(machine_organ.wiring.get_status(), diagnostics)
+			organ_data["plating_status"] = edit_organ_status(machine_organ.plating.get_status(), diagnostics)
+			organ_data["electronics_status"] = edit_organ_status(machine_organ.electronics.get_status(), diagnostics)
+			organ_data["diagnostics_info"] = machine_organ.get_diagnostics_info()
+
+		organ_data["name"] = organ.name
+		organ_data["desc"] = organ.desc
+		organ_data["damage"] = edit_organ_status(organ.damage, diagnostics)
+		organ_data["max_damage"] = organ.max_damage
+
