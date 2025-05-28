@@ -180,22 +180,36 @@
 	each having eight cards in their stack and Bones, with four cards. Traditionally a Bone card is drawn, then one each of the rest. The Bone cards put the other four cards into perspective so one's fate \
 	can be determined. More modern iterations of these Fatesayer decks are also made by the few permanent settlements in the Lyod, to sell them off. They are not using real bone and the imagery is usually more \
 	refined and detailed, since they are machine-made."
+	drop_sound = 'sound/items/drop/bone_drop.ogg'
+	pickup_sound = 'sound/items/drop/bone_drop.ogg'
 	hand_type = /obj/item/hand/tarot/lyodii
+
+/obj/item/deck/tarot/lyodii/AltClick(var/mob/user as mob)
+	var/list/newcards = list()
+	while(cards.len)
+		var/datum/playingcard/P = pick(cards)
+		P.name = replacetext(P.name," reversed","")
+		if(prob(50))
+			P.name += " reversed"
+		newcards += P
+		cards -= P
+	cards = newcards
+	playsound(src.loc, 'sound/items/cards/bone_shuffle.ogg', 100, 1, -4)
+	user.visible_message("\The [user] rearranges \the [src].")
 
 /obj/item/hand/tarot/lyodii
 	deck_type = /obj/item/deck/tarot/lyodii
-
+/*
 /obj/item/deck/tarot/lyodii/generate_deck()
 	var/datum/playingcard/P
 	for(var/name in list("The Chieftain","The Shaman","The Crown of Ice","The Dreaming Girl","The Flamewalker","The Tall Stranger","The Mother","The Hollowed Man","The Tenelote","The Arctic Fox","The Bisumoi","The Prejoroub",
 	"The Yastr","The Ptarmigan","The Reindeer","The Snow Hare","The North Wind","The South Wind","The East Wind","The West Wind","The Windless Day","The Black Gale","The Whisper Breeze","The Stormcry","The Frozen Footprint",
 	"The Shared Fire","The Broken Edict","The Silent Hunt","The Lost Tribe","The Marked Bone","The Buried Blade","The Icebound Oath","The Bone of Birth","The Bone of Death","The Bone of Choice","The Goddess"))
 		P = new()
-		P.name = "[name]"
 		P.card_icon = "beasts"
 		P.back_icon = "card_back_lyodii"
 		cards += P
-
+*/
 /obj/item/deck/tarot/lyodii/spirits
 	name = "lyodii fatesayer spirits deck"
 	desc = "A traditionally made deck of fatesayer cards, used by the people of the Lyod. This stack contains the Spirits cards. "
@@ -204,7 +218,7 @@
 
 /obj/item/deck/tarot/lyodii/spirits/generate_deck()
 	var/datum/playingcard/P
-	for(var/name in list("The Chieftain","The Shaman","The Crown of Ice","The Dreaming Girl","The Flamewalker","The Tall Stranger","The Mother","The Hollowed Man"))
+	for(var/name in list("\The Chieftain","\The Shaman","\The Crown of Ice","\The Dreaming Girl","\The Flamewalker","\The Tall Stranger","\The Mother","\The Hollowed Man"))
 		P = new()
 		P.name = "[name]"
 		switch(name)
@@ -242,7 +256,7 @@
 
 /obj/item/deck/tarot/lyodii/paths/generate_deck()
 	var/datum/playingcard/P
-	for(var/name in list("The Frozen Footprint","The Shared Fire","The Broken Edict","The Silent Hunt","The Lost Tribe","The Marked Bone","The Buried Blade","The Icebound Oath"))
+	for(var/name in list("\The Frozen Footprint","\The Shared Fire","\The Broken Edict","\The Silent Hunt","\The Lost Tribe","\The Marked Bone","\The Buried Blade","\The Icebound Oath"))
 		P = new()
 		P.name = "[name]"
 		switch(name)
@@ -277,7 +291,7 @@
 
 /obj/item/deck/tarot/lyodii/beasts/generate_deck()
 	var/datum/playingcard/P
-	for(var/name in list("The Tenelote","The Arctic Fox","The Bisumoi","The Prejoroub","The Yastr","The Ptarmigan","The Reindeer","The Snow Hare"))
+	for(var/name in list("\The Tenelote","\The Arctic Fox","\The Bisumoi","\The Prejoroub","\The Yastr","\The Ptarmigan","\The Reindeer","\The Snow Hare"))
 		P = new()
 		P.name = "[name]"
 		switch(name)
@@ -316,7 +330,7 @@
 
 /obj/item/deck/tarot/lyodii/winds/generate_deck()
 	var/datum/playingcard/P
-	for(var/name in list("The North Wind","The South Wind","The East Wind","The West Wind","The Windless Day","The Black Gale","The Whisper Breeze","The Stormcry"))
+	for(var/name in list("\The North Wind","\The South Wind","\The East Wind","\The West Wind","\The Windless Day","\The Black Gale","\The Whisper Breeze","\The Stormcry"))
 		P = new()
 		P.name = "[name]"
 		switch(name)
@@ -352,9 +366,11 @@
 
 /obj/item/deck/tarot/lyodii/bones/generate_deck()
 	var/datum/playingcard/P
-	for(var/name in list("The Bone of Birth","The Bone of Death","The Bone of Choice","The Goddess"))
+	for(var/name in list("\The Bone of Birth","\The Bone of Death","\The Bone of Choice","\The Goddess"))
 		P = new()
 		P.name = "[name]"
+		P.card_icon = "bones"
+		P.back_icon = "card_back_lyodii"
 		switch(name)
 			if("\The Bone of Birth")
 				P.desc = "A curved rib bone floats in a pool of water, illuminated from below. Inside it, a tiny sprout grows. In the water’s reflection, the bone looks like a cradle. It is associated with: legacy, fate beginning to move."
@@ -367,6 +383,4 @@
 				P.desc = "A glowing, diffuse spectral form floats above a ritual circle of bones. Light spills from the heavens onto it. Snowflakes falling nearby take on different shapes of animals, eyes and hands. It is associated with: \
 				divine will, judgement, revelation."
 				P.card_icon = "goddess"
-		P.card_icon = "bones"
-		P.back_icon = "card_back_lyodii"
 		cards += P
