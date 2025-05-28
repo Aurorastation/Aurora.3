@@ -199,6 +199,9 @@
 
 /obj/item/hand/tarot/lyodii
 	deck_type = /obj/item/deck/tarot/lyodii
+	drop_sound = 'sound/items/drop/bone_drop.ogg'
+	pickup_sound = 'sound/items/drop/bone_drop.ogg'
+
 /*
 /obj/item/deck/tarot/lyodii/generate_deck()
 	var/datum/playingcard/P
