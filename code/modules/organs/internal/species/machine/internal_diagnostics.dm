@@ -21,7 +21,7 @@
 
 	to_chat(synth, SPAN_NOTICE("You query your internal diagnostics system and gather some information."))
 
-	var/datum/tgui_module/ipc_diagnostic/diagnostic = new /datum/tgui_module/ipc_diagnostic(synth)
+	var/datum/tgui_module/ipc_diagnostic/diagnostic = new /datum/tgui_module/ipc_diagnostic(synth, synth)
 	diagnostic.ui_interact(usr)
 
 	synth.last_special = world.time
