@@ -7,7 +7,12 @@
 	var/unknown_pain_location = TRUE // if TRUE, pain messages will point to the parent organ, otherwise it will print the organ name
 	var/toxin_type = "undefined"
 	var/relative_size = 25 //Used for size calcs
+	/// The icon state to overlay on the mob
 	var/on_mob_icon
+	/// If the icon state has an active overlay
+	var/active_overlay = FALSE
+	/// If the icon state has an active emissive overlay
+	var/active_emissive = FALSE
 	var/list/possible_modifications = list("Normal","Assisted","Mechanical") //this is used in the character setup
 
 	min_broken_damage = 10 //Internal organs are frail, man.

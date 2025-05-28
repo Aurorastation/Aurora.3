@@ -1,8 +1,11 @@
 /obj/item/organ/internal/augment/tesla
 	name = "tesla spine"
+	icon = 'icons/mob/human_races/augments_external.dmi'
 	icon_state = "tesla_spine"
 	organ_tag = BP_AUG_TESLA
 	on_mob_icon = 'icons/mob/human_races/augments_external.dmi'
+	active_overlay = TRUE
+	active_emissive = TRUE
 	species_restricted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	var/max_charges = 1
 	var/actual_charges = 0
