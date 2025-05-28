@@ -185,15 +185,6 @@
 	hand_type = /obj/item/hand/tarot/lyodii
 
 /obj/item/deck/tarot/lyodii/AltClick(var/mob/user as mob)
-	var/list/newcards = list()
-	while(cards.len)
-		var/datum/playingcard/P = pick(cards)
-		P.name = replacetext(P.name," reversed","")
-		if(prob(50))
-			P.name += " reversed"
-		newcards += P
-		cards -= P
-	cards = newcards
 	playsound(src.loc, 'sound/items/cards/bone_shuffle.ogg', 100, 1, -4)
 	user.visible_message("\The [user] rearranges \the [src].")
 
@@ -387,3 +378,21 @@
 				divine will, judgement, revelation."
 				P.card_icon = "goddess"
 		cards += P
+
+/obj/item/storage/box/lyodii
+	name = "fatesayer box"
+	desc = "A small leather case to to hold all 36 cards of a Fatesayer deck."
+	icon_state = "card_holder_empty"
+	icon = 'icons/obj/storage/misc.dmi'
+	can_hold = list(/obj/item/deck/tarot/lyodii, /obj/item/hand, /obj/item/card)
+	storage_slots = 5 //Needs to hold all five Fatesayer cards. Can't hold BM cards, though.
+	use_sound = 'sound/items/drop/shoes.ogg'
+	drop_sound = 'sound/items/drop/hat.ogg'
+
+/obj/item/storage/box/lyodii/fill()
+	..()
+	new /obj/item/deck/tarot/lyodii/spirits(src)
+	new /obj/item/deck/tarot/lyodii/paths(src)
+	new /obj/item/deck/tarot/lyodii/beasts(src)
+	new /obj/item/deck/tarot/lyodii/winds(src)
+	new /obj/item/deck/tarot/lyodii/bones(src)
