@@ -139,7 +139,7 @@
 	tag_icon = "ouerea"
 	text_tag = "OUE"
 
-/datum/accent/ouerea
+/datum/accent/dominia_unathi
 	name = ACCENT_UNATHI_MOROZI
 	description = "An accent most often heard in Unathi Communities across Moroz, and spoken by most members of the Kazhkz and Han'san clans. The Unathi Morozi accent, also called Dominian Unathi by some, is a \
 	phonetic mixbag. Finding its origins in Sinta'azaziba, the Unathi Morozi accent carries the droning tones of its predecessor, though it trades the usual guttural sounds of traditional Azaziba with the more \
