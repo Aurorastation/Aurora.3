@@ -174,7 +174,7 @@
 	name = "lyodii fatesayer deck"
 	icon = 'icons/obj/item/playing_cards.dmi'
 	icon_state = "lyodii_deck"
-	desc = "A traditionally made deck of Fatesayer cards, used by the people of the Lyod to tell one's fate."
+	desc = "A traditionally-made deck of Fatesayer cards, used by the people of the Lyod to tell one's fate."
 	desc_extended = "These 'cards' are actually rectangular pieces of bone, engraved with different religious imagery. They are then painted with soot or blood-ink. Usually made by tribal shamans in \
 	agonizingly difficult work, these are hand-crafted by each tribe - thus some imagery can deviate from one another. A deck consists of 36 pieces, divided as follows: Spirits, Beasts, Winds and Paths \
 	each having eight cards in their stack and Bones, with four cards. Traditionally a Bone card is drawn, then one each of the rest. The Bone cards put the other four cards into perspective so one's fate \
@@ -184,7 +184,7 @@
 	pickup_sound = 'sound/items/drop/bone_drop.ogg'
 	hand_type = /obj/item/hand/tarot/lyodii
 
-/obj/item/deck/tarot/lyodii/AltClick(var/mob/user as mob)
+/obj/item/deck/tarot/lyodii/AltClick(var/mob/user)
 	playsound(src.loc, 'sound/items/cards/bone_shuffle.ogg', 100, 1, -4)
 	user.visible_message("\The [user] rearranges \the [src].")
 
@@ -196,7 +196,7 @@
 
 /obj/item/deck/tarot/lyodii/spirits
 	name = "lyodii fatesayer spirits deck"
-	desc = "A traditionally made deck of Fatesayer cards, used by the people of the Lyod. This stack contains the Spirits cards. "
+	desc = "A traditionally-made deck of Fatesayer cards, used by the people of the Lyod. This stack contains the Spirits cards. "
 	icon_state = "lyodii_deck"
 	item_state = "lyodii_deck"
 
@@ -207,7 +207,7 @@
 		P.name = "[name]"
 		switch(name)
 			if("Chieftain")
-				P.desc = "A tall figure stands before a wind-beaten tent, draped in heavy furs. One hand holds a carved antler staff, the other raised toward a gathering of smaller shadowy figures. The chieftain's eyes are closed in \
+				P.desc = "A tall figure stands before a wind-beaten tent, draped in heavy furs. One hand holds a carved antler staff, the other is raised toward a gathering of smaller shadowy figures. The chieftain's eyes are closed in \
 				burdened contemplation. Behind him, the sun is barely visible over the horizon. It is associated with: leadership, burden, guidance."
 			if("Shaman")
 				P.desc = "A kneeling figure surrounded by animal bones and burning herbs. Her face is painted with blood and soot. Behind her, a spectral shape looms but no details can be made out. It is associated with: wisdom, communion \
@@ -218,7 +218,7 @@
 				P.desc = "A young girl sleeping in a snowdrift, untouched by cold. Above her, the night sky swirls with auroras forming vague shapes. Her expression is peaceful, but a tear of blood escapes one eye. It is associated with: \
 				prophecy, confusion, hidden truths."
 			if("Flamewalker")
-				P.desc = "A cloaked figure walking across an icefield. He's burning. Fire doesn’t consume him— it emerges from his footprints. He carries a bundle of books and bones wrapped in red cloth. It is associated with: \
+				P.desc = "A cloaked figure walking across an icefield. He's burning. Fire doesn’t consume him—it emerges from his footprints. He carries a bundle of books and bones wrapped in red cloth. It is associated with: \
 				change-bringing, exile, innovation."
 			if("Tall Stranger")
 				P.desc = "A faceless, well-built and tall standing figure in fine red-gilded robes stands at atop a snowdrift. He holds a sword in one hand, the other's clenched to a fist. No footprints are left where he stands. \
@@ -234,7 +234,7 @@
 
 /obj/item/deck/tarot/lyodii/paths
 	name = "lyodii fatesayer paths deck"
-	desc = "A traditionally made deck of Fatesayer cards, used by the people of the Lyod. This stack contains the Paths cards. "
+	desc = "A traditionally-made deck of Fatesayer cards, used by the people of the Lyod. This stack contains the Paths cards. "
 	icon_state = "lyodii_deck"
 	item_state = "lyodii_deck"
 
@@ -247,7 +247,7 @@
 			if("Frozen Footprint")
 				P.desc = "A single footprint frozen solid in a cracked icy path. It glows faintly, untouched by time. Around it, scattered is a bloodied cloth and a broken spearhead. It is associated with: missed opportunity, consequences."
 			if("Shared Fire")
-				P.desc = "everal figures gather around a fire in the middle of a blizzard. Though cold rages around them, their circle is warm. Shadows on the tent walls show animals instead of people. One figure extends a \
+				P.desc = "Several figures gather around a fire in the middle of a blizzard. Though cold rages around them, their circle is warm. Shadows on the tent walls show animals instead of people. One figure extends a \
 				hand to the viewer. It is associated with: community, sacrifice, loyality."
 			if("Broken Edict")
 				P.desc = "A sacred tablet cracked down the middle, one half buried in snow, the crack forms a lightning-shaped glyph. A fox sits nearby, watching. It is associated with: rebellion, righteousness, moral ambiguity."
@@ -269,7 +269,7 @@
 
 /obj/item/deck/tarot/lyodii/beasts
 	name = "lyodii fatesayer beasts deck"
-	desc = "A traditionally made deck of Fatesayer cards, used by the people of the Lyod. This stack contains the Beasts cards. "
+	desc = "A traditionally-made deck of Fatesayer cards, used by the people of the Lyod. This stack contains the Beasts cards."
 	icon_state = "lyodii_deck"
 	item_state = "lyodii_deck"
 
@@ -295,20 +295,21 @@
 				P.desc = "A flock of thin-necked bird with long wings fly across the tundra under a blazing sunset. The lead bird looks back, as if uncertain. A single figure watches from afar, unseen by the beasts. It is associated with: \
 			migration, movement, restlessness."
 			if("Ptarmigan")
-				P.desc = " deceptively calm snowbird perches on a branch above a frozen lake. Beneath the ice, shadows twist and churn. One eye of the bird is missing. A bloodied feather drifts down toward the viewer. It is associated with: \
+				P.desc = "A deceptively calm snowbird perches on a branch above a frozen lake. Beneath the ice, shadows twist and churn. One of the eyes of the bird is missing. A bloodied feather drifts down toward the viewer. It is associated with: \
 				danger beneath calm, betrayal."
 			if("Reindeer")
 				P.desc = "A scarred reindeer stands within a ring of tribal totems. It bows its head, offering its antlers to a shamanic figure. Runes burned into its flank. Each totem around it is engraved with different runes. \
 				It is associated with: loyalty, hunger, bonds."
 			if("Snow Hare")
-				P.desc = "A white hare dashes through the snow under a full moon, carrying a leaf bundle in its mouth. Behind it in the sky there's a shooting star. Three small spirits follow behind, barely visible. Snowflakes around \
+				P.desc = "A white hare dashes through the snow under a full moon, carrying a leaf bundle in its mouth. Behind it in the sky, there's a shooting star. Three small spirits follow behind, barely visible. Snowflakes around \
 				the hare are all different glyphs. It is associated with: small joys, fleeting beauty, messages."
 		P.card_icon = "beasts"
 		P.back_icon = "card_back_lyodii"
 		cards += P
+
 /obj/item/deck/tarot/lyodii/winds
 	name = "lyodii fatesayer winds deck"
-	desc = "A traditionally made deck of Fatesayer cards, used by the people of the Lyod. This stack contains the Winds cards. "
+	desc = "A traditionally-made deck of Fatesayer cards, used by the people of the Lyod. This stack contains the Winds cards. "
 	icon_state = "lyodii_deck"
 	item_state = "lyodii_deck"
 
@@ -344,7 +345,7 @@
 
 /obj/item/deck/tarot/lyodii/bones
 	name = "lyodii fatesayer bones deck"
-	desc = "A traditionally made deck of Fatesayer cards, used by the people of the Lyod. This stack contains the Bones cards. "
+	desc = "A traditionally-made deck of Fatesayer cards, used by the people of the Lyod. This stack contains the Bones cards. "
 	icon_state = "lyodii_deck"
 	item_state = "lyodii_deck"
 
@@ -374,8 +375,8 @@
 	desc = "A small leather case to to hold all 36 cards of a Fatesayer deck."
 	icon_state = "card_holder_empty"
 	icon = 'icons/obj/storage/misc.dmi'
-	can_hold = list(/obj/item/deck/tarot/lyodii, /obj/item/hand, /obj/item/card)
-	storage_slots = 5 //Needs to hold all five Fatesayer cards. Can't hold BM cards, though.
+	can_hold = list(/obj/item/deck, /obj/item/hand, /obj/item/card)
+	storage_slots = 5 //Needs to hold all five Fatesayer cards.
 	use_sound = 'sound/items/drop/shoes.ogg'
 	drop_sound = 'sound/items/drop/hat.ogg'
 
