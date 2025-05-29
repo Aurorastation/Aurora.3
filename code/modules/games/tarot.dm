@@ -174,7 +174,7 @@
 	name = "lyodii fatesayer deck"
 	icon = 'icons/obj/item/playing_cards.dmi'
 	icon_state = "lyodii_deck"
-	desc = "A traditionally made deck of fatesayer cards, used by the people of the Lyod to tell one's fate."
+	desc = "A traditionally made deck of Fatesayer cards, used by the people of the Lyod to tell one's fate."
 	desc_extended = "These 'cards' are actually rectangular pieces of bone, engraved with different religious imagery. They are then painted with soot or blood-ink. Usually made by tribal shamans in \
 	agonizingly difficult work, these are hand-crafted by each tribe - thus some imagery can deviate from one another. A deck consists of 36 pieces, divided as follows: Spirits, Beasts, Winds and Paths \
 	each having eight cards in their stack and Bones, with four cards. Traditionally a Bone card is drawn, then one each of the rest. The Bone cards put the other four cards into perspective so one's fate \
@@ -196,7 +196,7 @@
 
 /obj/item/deck/tarot/lyodii/spirits
 	name = "lyodii fatesayer spirits deck"
-	desc = "A traditionally made deck of fatesayer cards, used by the people of the Lyod. This stack contains the Spirits cards. "
+	desc = "A traditionally made deck of Fatesayer cards, used by the people of the Lyod. This stack contains the Spirits cards. "
 	icon_state = "lyodii_deck"
 	item_state = "lyodii_deck"
 
@@ -234,7 +234,7 @@
 
 /obj/item/deck/tarot/lyodii/paths
 	name = "lyodii fatesayer paths deck"
-	desc = "A traditionally made deck of fatesayer cards, used by the people of the Lyod. This stack contains the Paths cards. "
+	desc = "A traditionally made deck of Fatesayer cards, used by the people of the Lyod. This stack contains the Paths cards. "
 	icon_state = "lyodii_deck"
 	item_state = "lyodii_deck"
 
@@ -269,7 +269,7 @@
 
 /obj/item/deck/tarot/lyodii/beasts
 	name = "lyodii fatesayer beasts deck"
-	desc = "A traditionally made deck of fatesayer cards, used by the people of the Lyod. This stack contains the Beasts cards. "
+	desc = "A traditionally made deck of Fatesayer cards, used by the people of the Lyod. This stack contains the Beasts cards. "
 	icon_state = "lyodii_deck"
 	item_state = "lyodii_deck"
 
@@ -308,7 +308,7 @@
 		cards += P
 /obj/item/deck/tarot/lyodii/winds
 	name = "lyodii fatesayer winds deck"
-	desc = "A traditionally made deck of fatesayer cards, used by the people of the Lyod. This stack contains the Winds cards. "
+	desc = "A traditionally made deck of Fatesayer cards, used by the people of the Lyod. This stack contains the Winds cards. "
 	icon_state = "lyodii_deck"
 	item_state = "lyodii_deck"
 
@@ -344,7 +344,7 @@
 
 /obj/item/deck/tarot/lyodii/bones
 	name = "lyodii fatesayer bones deck"
-	desc = "A traditionally made deck of fatesayer cards, used by the people of the Lyod. This stack contains the Bones cards. "
+	desc = "A traditionally made deck of Fatesayer cards, used by the people of the Lyod. This stack contains the Bones cards. "
 	icon_state = "lyodii_deck"
 	item_state = "lyodii_deck"
 
