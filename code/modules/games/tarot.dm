@@ -184,28 +184,16 @@
 	pickup_sound = 'sound/items/drop/bone_drop.ogg'
 	hand_type = /obj/item/hand/tarot/lyodii
 
-/*
 /obj/item/deck/tarot/lyodii/AltClick(var/mob/user as mob)
 	playsound(src.loc, 'sound/items/cards/bone_shuffle.ogg', 100, 1, -4)
 	user.visible_message("\The [user] rearranges \the [src].")
-*/
+
 /obj/item/hand/tarot/lyodii
 	deck_type = /obj/item/deck/tarot/lyodii
 	desc = "A deck of lyodii Fatesayer cards."
 	drop_sound = 'sound/items/drop/bone_drop.ogg'
 	pickup_sound = 'sound/items/drop/bone_drop.ogg'
 
-/*
-/obj/item/deck/tarot/lyodii/generate_deck()
-	var/datum/playingcard/P
-	for(var/name in list("The Chieftain","The Shaman","The Crown of Ice","The Dreaming Girl","The Flamewalker","The Tall Stranger","The Mother","The Hollowed Man","The Tenelote","The Arctic Fox","The Bisumoi","The Prejoroub",
-	"The Yastr","The Ptarmigan","The Reindeer","The Snow Hare","The North Wind","The South Wind","The East Wind","The West Wind","The Windless Day","The Black Gale","The Whisper Breeze","The Stormcry","The Frozen Footprint",
-	"The Shared Fire","The Broken Edict","The Silent Hunt","The Lost Tribe","The Marked Bone","The Buried Blade","The Icebound Oath","The Bone of Birth","The Bone of Death","The Bone of Choice","The Goddess"))
-		P = new()
-		P.card_icon = "beasts"
-		P.back_icon = "card_back_lyodii"
-		cards += P
-*/
 /obj/item/deck/tarot/lyodii/spirits
 	name = "lyodii fatesayer spirits deck"
 	desc = "A traditionally made deck of fatesayer cards, used by the people of the Lyod. This stack contains the Spirits cards. "
