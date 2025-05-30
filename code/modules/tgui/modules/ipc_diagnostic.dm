@@ -1,14 +1,11 @@
 /datum/tgui_module/ipc_diagnostic
-	var/mob/ui_user
 	var/mob/patient
 
 /datum/tgui_module/ipc_diagnostic/New(mob/user, mob/target)
 	. = ..()
-	ui_user = user
 	patient = target
 
 /datum/tgui_module/ipc_diagnostic/Destroy(force)
-	ui_user = null
 	patient = null
 	return ..()
 
@@ -24,14 +21,16 @@
 
 	if(isipc(patient))
 		var/mob/living/carbon/human/ipc = patient
+		var/datum/species/machine/machine_species = ipc.species // need to manually set to ipc species because of machine_ui_theme
 		var/obj/item/organ/internal/machine/internal_diagnostics/diagnostics = ipc.internal_organs_by_name[BP_DIAGNOSTICS_SUITE]
 		if(!istype(diagnostics))
 			data["broken"] = TRUE
 
+		data["patient_name"] = ipc.real_name
 		data["broken"] = diagnostics.is_broken()
 		data["integrity"] = diagnostics.get_integrity()
 		data["temp"] = round(convert_k2c(ipc.bodytemperature))
-		data["machine_ui_theme"] = ipc.species.machine_ui_theme
+		data["machine_ui_theme"] = machine_species.machine_ui_theme
 
 		data["organs"] = list()
 		for(var/obj/item/organ/internal/organ in ipc.internal_organs)

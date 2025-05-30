@@ -1,12 +1,14 @@
 import { BooleanLike } from 'common/react';
+import { capitalize } from 'common/string';
 import { useBackend } from '../backend';
-import { AnimatedNumber, Box, Collapsible, Divider, Section } from '../components';
+import { AnimatedNumber, Box, Collapsible, Divider, LabeledList, Section } from '../components';
 import { Window } from '../layouts';
 
 export type DiagnosticsData = {
   broken: BooleanLike;
   integrity: number;
   machine_ui_theme: string;
+  patient_name: string;
 
   temp: number;
   robolimb_self_repair_cap: number;
@@ -68,16 +70,16 @@ export const DiagnosticsWindow = (props, context) => {
 
   return (
     <>
-      <Section title="Internal Information">
+      <Section title={data.patient_name + ': Internal Information'}>
         <Box>
-          My diagnostics unit's integrity is{' '}
+          Diagnostics unit integrity at{' '}
           <Box as="span" bold textColor={damageLabel(data.integrity)}>
             {describeIntegrity(data.integrity)}
           </Box>
           .
         </Box>
         <Box>
-          My temperature is{' '}
+          Frame temperature at{' '}
           <Box as="span" bold>
             <AnimatedNumber value={data.temp} />
             °C
@@ -85,7 +87,7 @@ export const DiagnosticsWindow = (props, context) => {
           .
         </Box>
         <Box>
-          My battery's charge is at{' '}
+          Battery charge at{' '}
           <Box as="span" bold textColor={damageLabel(data.charge_percent)}>
             {data.charge_percent}%
           </Box>
@@ -101,13 +103,13 @@ export const OrganDisplay = (props, context) => {
   const { act, data } = useBackend<DiagnosticsData>(context);
 
   return (
-    <Section title="Internal Components">
+    <Section title={data.patient_name + ': Internal Components'}>
       {data.organs.map((organ) => (
         <Collapsible open={1} content={organ.name} key={organ.name}>
           <Box italic>{organ.desc}</Box>
           <Divider />
           <Box>
-            My {organ.name}'s internal components are{' '}
+            The {organ.name}'s internal components are{' '}
             <Box
               as="span"
               bold
@@ -117,38 +119,32 @@ export const OrganDisplay = (props, context) => {
             .
           </Box>
           {organ.wiring_status ? (
-            <>
-              <Box>
-                My {organ.name}'s wiring is{' '}
+            <LabeledList>
+              <LabeledList.Item label="Wiring">
                 <Box
                   as="span"
                   bold
                   textColor={damageLabel(organ.wiring_status)}>
-                  {describeIntegrity(organ.wiring_status)}
+                  {capitalize(describeIntegrity(organ.wiring_status))}
                 </Box>
-                .
-              </Box>
-              <Box>
-                My {organ.name}'s plating is{' '}
+              </LabeledList.Item>
+              <LabeledList.Item label="Plating">
                 <Box
                   as="span"
                   bold
                   textColor={damageLabel(organ.plating_status)}>
-                  {describeIntegrity(organ.plating_status)}
+                  {capitalize(describeIntegrity(organ.plating_status))}
                 </Box>
-                .
-              </Box>
-              <Box>
-                My {organ.name}'s electronics are{' '}
+              </LabeledList.Item>
+              <LabeledList.Item label="Electronics">
                 <Box
                   as="span"
                   bold
                   textColor={damageLabel(organ.electronics_status)}>
-                  {describeIntegrity(organ.electronics_status)}
+                  {capitalize(describeIntegrity(organ.electronics_status))}
                 </Box>
-                .
-              </Box>
-            </>
+              </LabeledList.Item>
+            </LabeledList>
           ) : (
             ''
           )}
@@ -168,7 +164,7 @@ export const OrganDisplay = (props, context) => {
   );
 };
 
-const describeIntegrity = (integrity, max_integrity = 100) => {
+export const describeIntegrity = (integrity, max_integrity = 100) => {
   if (integrity >= max_integrity) {
     return 'undamaged';
   } else if (integrity > max_integrity * 0.75) {
@@ -181,6 +177,8 @@ const describeIntegrity = (integrity, max_integrity = 100) => {
     return 'falling apart';
   } else if (integrity <= 0) {
     return 'destroyed';
+  } else {
+    return 'unknown';
   }
 };
 
@@ -216,6 +214,8 @@ const describeOrganDamage = (damage, max_damage) => {
     return 'mostly responsive';
   } else if (damage <= 0) {
     return 'fully responsive';
+  } else {
+    return 'unknown';
   }
 };
 

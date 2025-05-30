@@ -7,22 +7,24 @@
 
 /obj/item/organ/internal/machine/internal_diagnostics/attack_self(var/mob/user)
 	. = ..()
-	if(owner.last_special > world.time)
-		return
-
 	if(user.stat == DEAD)
 		return
 
 	if(user.incapacitated(INCAPACITATION_KNOCKOUT|INCAPACITATION_STUNNED))
 		return
 
-	// it's an organ, should never be not human type
-	var/mob/living/carbon/human/synth = user
+	to_chat(user, SPAN_NOTICE("You query your internal diagnostics system and gather some information."))
+	open_diagnostics(user)
 
-	to_chat(synth, SPAN_NOTICE("You query your internal diagnostics system and gather some information."))
+/obj/item/organ/internal/machine/internal_diagnostics/proc/open_diagnostics(mob/user)
+	if(!ishuman(user))
+		return
 
-	var/datum/tgui_module/ipc_diagnostic/diagnostic = new /datum/tgui_module/ipc_diagnostic(synth, synth)
-	diagnostic.ui_interact(usr)
+	if(is_broken())
+		to_chat(user, SPAN_WARNING("You receive no feedback from the diagnostics unit!"))
+		return
 
-	synth.last_special = world.time
+	var/mob/living/carbon/human/human = user
 
+	var/datum/tgui_module/ipc_diagnostic/diagnostic = new(human, owner)
+	diagnostic.ui_interact(user)
