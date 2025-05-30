@@ -11,6 +11,10 @@
 	var/robotic_brain_type = /obj/item/device/mmi/digital/posibrain
 	/// The stored MMI object.
 	var/obj/item/device/mmi/stored_mmi
+	/// The cooldown between each 'patch'.
+	var/patching_cooldown = 30 SECONDS
+	/// The world.time of the last 'patch'.
+	var/last_patch_time = 0
 
 /obj/item/organ/internal/machine/posibrain/Initialize(mapload)
 	stored_mmi = new robotic_brain_type(src)
@@ -56,6 +60,13 @@
 		stored_mmi.forceMove(get_turf(src))
 		qdel(src)
 
+/**
+ * Generates a random hex number for cool hacking aesthetic.
+ */
+/obj/item/organ/internal/machine/posibrain/proc/generate_hex()
+	var/hex = pick("A", "B", "C", "D", "E", "F") + "[rand(0, 999999)]"
+	return hex
+
 /obj/item/organ/internal/machine/posibrain/process(seconds_per_tick)
 	if(!owner)
 		return
@@ -63,8 +74,13 @@
 	// 150C
 	if(owner.bodytemperature > 423)
 		// placeholder values
-		take_internal_damage(owner.bodytemperature / 100)
+		take_internal_damage(owner.bodytemperature / 4)
 
+	if(damage)
+		if(damage < max_damage * 0.25)
+			if(last_patch_time < world.time + patching_cooldown)
+				heal_damage(rand(1, 5))
+				to_chat(owner, SPAN_MACHINE_WARNING("Neural pathway patch automatically applied to block [generate_hex()]."))
 	..()
 
 /obj/item/organ/internal/machine/posibrain/low_integrity_damage(integrity)
@@ -74,9 +90,18 @@
 
 	var/damage_probability = get_integrity_damage_probability(integrity)
 	if(prob(damage_probability))
-		var/hex = pick("A", "B", "C", "D", "E", "F") + "[rand(0, 999999)]"
-		to_chat(owner, SPAN_MACHINE_WARNING("Internal damage sustained at block 0x[hex]."))
-		damage++
+		to_chat(owner, SPAN_MACHINE_WARNING("Neural pathway error located at block 0x[generate_hex()]."))
+		take_internal_damage(4)
+
+/obj/item/organ/internal/machine/posibrain/medium_integrity_damage(integrity)
+	. = ..()
+	if(!.)
+		return
+
+	var/damage_probability = get_integrity_damage_probability(integrity)
+	//if(prob(damage_probability))
+		//if()
+	to_chat(owner, SPAN_MACHINE_DANGER("Irreversible damage detected. Warning: further damage may result in /#!&!@#!!°!2*#"))
 
 /obj/item/organ/internal/machine/posibrain/circuit
 	name = "robotic intelligence circuit"

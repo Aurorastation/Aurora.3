@@ -380,7 +380,15 @@ em {
   border: 1px solid #080808;
   background-color: #000;
 }
+.machine-danger {
+  color: #00ff00;
+  font-weight: bold;
+  border: 3px solid #080808;
+  background-color: #000;
+  display: block;
 
+  animation: glitch 1s infinite;
+}
 
 /* Admin: Private Messages */
 .pm .howto {
@@ -675,4 +683,28 @@ h2.alert {
   height: 1.5em;
   margin: 0;
   padding: 0;
+}
+
+/*Keyframes. Taken from CM-SS13.*/
+
+@keyframes glitch {
+  25% {
+    color: #00ff00;
+    transform: translate(-2px, -1px);
+  }
+
+  50% {
+    color: #009900;
+    transform: translate(1px, -2px);
+  }
+
+  75% {
+    color: #007000;
+    transform: translate(-1px, 2px);
+  }
+
+  100% {
+    color: #003a00;
+    transform: translate(1px, 1px);
+  }
 }
