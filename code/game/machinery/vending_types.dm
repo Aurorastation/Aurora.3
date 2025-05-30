@@ -95,6 +95,7 @@
 		/obj/item/reagent_containers/food/drinks/carton/limejuice = 4,
 		/obj/item/reagent_containers/food/drinks/carton/lemonjuice = 4,
 		/obj/item/reagent_containers/food/drinks/carton/orangejuice = 4,
+		/obj/item/reagent_containers/food/drinks/carton/dynjuice = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/small/skrellbeerdyn = 8,
 		/obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice = 8,
 		/obj/item/reagent_containers/food/drinks/boba = 2,
