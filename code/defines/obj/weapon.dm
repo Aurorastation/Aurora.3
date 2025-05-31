@@ -279,9 +279,36 @@
 /obj/item/cane/white
 	name = "white cane"
 	desc = "A white cane, used by the visually impaired."
+	icon = 'icons/obj/item/whitecane.dmi'
 	icon_state = "whitecane"
-	item_state = "whitecane"
+	contained_sprite = TRUE
 	can_support = FALSE
+	var/on = FALSE
+	w_class = WEIGHT_CLASS_SMALL
+	slot_flags = SLOT_BELT
+
+/obj/item/cane/white/attack_self(mob/user)
+	on = !on
+	if(on)
+		user.visible_message(SPAN_WARNING("With a flick of their wrist, [user] extends their white cane."), SPAN_NOTICE("You extend the cane."), SPAN_NOTICE("You hear a click."))
+		icon_state = "whitecane_extended"
+		item_state = "whitecane"
+		w_class = WEIGHT_CLASS_BULKY
+		slot_flags = null
+	else
+		user.visible_message(SPAN_NOTICE("\The [user] collapses their white cane."), SPAN_NOTICE("You collapse the cane."), SPAN_NOTICE("You hear a click."))
+		icon_state = "whitecane"
+		item_state = "whitecane_0"
+		w_class = WEIGHT_CLASS_SMALL
+		slot_flags = SLOT_BELT
+
+	if(istype(user,/mob/living/carbon/human))
+		var/mob/living/carbon/human/H = user
+		H.update_inv_l_hand()
+		H.update_inv_r_hand()
+
+	playsound(src.loc, 'sound/weapons/click.ogg', 50, 1)
+	add_fingerprint(user)
 
 /obj/item/cane/shillelagh
 	name = "adhomian shillelagh"
