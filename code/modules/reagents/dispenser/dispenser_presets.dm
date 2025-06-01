@@ -89,7 +89,10 @@
 			/obj/item/reagent_containers/chem_disp_cartridge/tonic,
 			/obj/item/reagent_containers/chem_disp_cartridge/sodawater,
 			/obj/item/reagent_containers/chem_disp_cartridge/lemon_lime,
+			/obj/item/reagent_containers/chem_disp_cartridge/sugar,
+			/obj/item/reagent_containers/chem_disp_cartridge/watermelon,
 			/obj/item/reagent_containers/chem_disp_cartridge/clean_kois,
+			/obj/item/reagent_containers/chem_disp_cartridge/banana,
 			/obj/item/reagent_containers/chem_disp_cartridge/root_beer
 		)
 
