@@ -32,7 +32,6 @@
 
 /obj/structure/closet/secure_closet/cabinet/beer/fill()
 	new /obj/item/storage/box/fancy/yoke/beer(src)
-	new /obj/item/storage/box/fancy/yoke/beer(src)
 	new /obj/item/storage/box/fancy/yoke/ebisu(src)
 	new /obj/item/storage/box/fancy/yoke/shimauma(src)
 	new /obj/item/storage/box/fancy/yoke/moonlabor(src)
