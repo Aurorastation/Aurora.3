@@ -388,7 +388,8 @@
 /obj/machinery/smartfridge/attack_hand(mob/user)
 	if(stat & (NOPOWER|BROKEN))
 		return
-	wires.interact(user)
+	if(panel_open)
+		wires.interact(user)
 	ui_interact(user)
 
 /*******************
