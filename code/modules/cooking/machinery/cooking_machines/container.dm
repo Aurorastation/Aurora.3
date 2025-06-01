@@ -367,3 +367,10 @@
 		var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state][get_filling_state()]")
 		filling.color = reagents.get_color()
 		AddOverlays(filling)
+
+/obj/item/reagent_containers/cooking_container/still_pot
+	name = "still pot"
+	shortname = "pot"
+	desc = "Copper makes alcohol taste better, don't you know?"
+	icon_state = "still_pot"
+	appliancetype = STILL
