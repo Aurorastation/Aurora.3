@@ -38,6 +38,7 @@
 	new /obj/item/storage/box/fancy/yoke/moonlabor(src)
 	new /obj/item/storage/box/fancy/yoke/earthmover(src)
 	new /obj/item/storage/box/fancy/yoke/whistlingforest(src)
+	new /obj/item/storage/box/fancy/yoke/threetowns(src)
 
 /obj/structure/closet/secure_closet/cabinet/beer/horizon
 	req_access = list(ACCESS_BAR)
