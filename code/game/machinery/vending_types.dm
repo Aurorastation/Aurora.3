@@ -90,7 +90,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle/sake = 1,
 		/obj/item/reagent_containers/food/drinks/bottle/cremewhite = 4,
 		/obj/item/reagent_containers/food/drinks/bottle/mintsyrup = 5,
-		/obj/item/reagent_containers/food/drinks/bottle/nmshaan_liquor = 2,
+		/obj/item/reagent_containers/food/drinks/bottle/sugartree_liquor = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/chartreuseyellow = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/messa_mead = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/dominian_wine = 1,
