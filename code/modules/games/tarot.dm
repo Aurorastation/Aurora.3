@@ -185,8 +185,10 @@
 	hand_type = /obj/item/hand/tarot/lyodii
 
 /obj/item/deck/tarot/lyodii/AltClick(var/mob/user)
+	if(use_check_and_message(src))
+		return
 	playsound(src.loc, 'sound/items/cards/bone_shuffle.ogg', 100, 1, -4)
-	user.visible_message("\The [user] rearranges \the [src].")
+	SPAN_NOTICE("[user] rearranges \the [src].")
 
 /obj/item/hand/tarot/lyodii
 	deck_type = /obj/item/deck/tarot/lyodii
