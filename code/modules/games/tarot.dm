@@ -184,11 +184,9 @@
 	pickup_sound = 'sound/items/drop/bone_drop.ogg'
 	hand_type = /obj/item/hand/tarot/lyodii
 
-/obj/item/deck/tarot/lyodii/AltClick(var/mob/user)
-	if(use_check_and_message(src))
-		return
+/obj/item/deck/tarot/lyodii/AltClick(mob/user)
 	playsound(src.loc, 'sound/items/cards/bone_shuffle.ogg', 100, 1, -4)
-	SPAN_NOTICE("[user] rearranges \the [src].")
+	to_chat(SPAN_NOTICE("[user] rearranges \the [src]."))
 
 /obj/item/hand/tarot/lyodii
 	deck_type = /obj/item/deck/tarot/lyodii
