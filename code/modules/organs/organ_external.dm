@@ -190,6 +190,9 @@
 	cached_markings = null
 
 /obj/item/organ/external/Destroy()
+
+	QDEL_LIST(wounds)
+
 	if(parent?.children)
 		parent.children -= src
 
@@ -214,7 +217,6 @@
 
 	QDEL_LIST(children)
 	QDEL_LIST(internal_organs)
-	QDEL_LIST(wounds)
 	QDEL_LIST(implants)
 
 	infect_target_internal = null
