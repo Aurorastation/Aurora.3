@@ -271,11 +271,6 @@ ITEMS
 	object = /obj/item/storage/firstaid/empty
 	cost = 200
 
-/singleton/biorecipe/item/emptybox
-	name = "Empty Box"
-	object = /obj/item/storage/box
-	cost = 200
-
 /*
 FLAGS
 */
