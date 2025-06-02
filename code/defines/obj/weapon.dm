@@ -276,18 +276,15 @@
 	icon_state = "crutch"
 	item_state = "crutch"
 
-/obj/item/cane/white
+/obj/item/cane/telecane/white
 	name = "white cane"
 	desc = "A white cane, used by the visually impaired."
 	icon = 'icons/obj/item/whitecane.dmi'
 	icon_state = "whitecane"
-	contained_sprite = TRUE
-	can_support = FALSE
-	var/on = FALSE
-	w_class = WEIGHT_CLASS_SMALL
-	slot_flags = SLOT_BELT
+	drop_sound =  /singleton/sound_category/generic_drop_sound
+	pickup_sound =  /singleton/sound_category/generic_pickup_sound
 
-/obj/item/cane/white/attack_self(mob/user)
+/obj/item/cane/telecane/white/attack_self(mob/user)
 	on = !on
 	if(on)
 		user.visible_message(SPAN_WARNING("With a flick of their wrist, [user] extends their white cane."), SPAN_NOTICE("You extend the cane."), SPAN_NOTICE("You hear a click."))
@@ -295,13 +292,20 @@
 		item_state = "whitecane"
 		w_class = WEIGHT_CLASS_BULKY
 		slot_flags = null
-		update_held_icon()
+		attack_verb = list("smacked", "struck", "slapped")
+		can_support = TRUE
+		force = 8
 	else
 		user.visible_message(SPAN_NOTICE("\The [user] collapses their white cane."), SPAN_NOTICE("You collapse the cane."), SPAN_NOTICE("You hear a click."))
 		icon_state = "whitecane"
 		item_state = "whitecane_0"
 		w_class = WEIGHT_CLASS_SMALL
 		slot_flags = SLOT_BELT
+		attack_verb = list("hit", "punched")
+		can_support = FALSE
+		force = 2
+
+	if(istype(user,/mob/living/carbon/human))
 		update_held_icon()
 
 	playsound(src.loc, 'sound/weapons/click.ogg', 50, 1)
@@ -350,9 +354,7 @@
 		can_support = FALSE
 
 	if(istype(user,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = user
-		H.update_inv_l_hand()
-		H.update_inv_r_hand()
+		update_held_icon()
 
 	playsound(src.loc, 'sound/weapons/click.ogg', 50, 1)
 	add_fingerprint(user)
