@@ -967,10 +967,12 @@ Note that amputating the affected organ does in fact remove the infection from t
 		heal_amt = heal_amt / (LAZYLEN(wounds) + 1)
 		// making it look prettier on scanners
 		heal_amt = round(heal_amt,0.1)
-		W.heal_damage(heal_amt)
 		var/dam_type = DAMAGE_BRUTE
 		if (W.damage_type == INJURY_TYPE_BURN)
 			dam_type = DAMAGE_BURN
+
+		if(owner.can_autoheal(dam_type))
+			W.heal_damage(heal_amt)
 
 		// Salving also helps against infection
 		if(W.germ_level > 0 && W.salved && prob(2))

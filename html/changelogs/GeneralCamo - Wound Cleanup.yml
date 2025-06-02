@@ -57,9 +57,10 @@ delete-after: True
 changes:
   - code_imp: "Damage ratios now use integers instead of decimals, reducing the impact of floating point rounding errors."
   - bugfix: "Implants now remain in amputated limbs."
-  - rscadd: "Amputated external organs now retain their implants and internal_organs."
+  - rscadd: "Amputated external organs now retain their implants and internal organs."
   - code_imp: "Embedded objects are now stored in wounds, not in limbs (at least, not directly)."
   - balance: "Larger embedded objects now halt bleeding in wounds."
   - balance: "Embedded objects now halt healing in wounds."
   - code_imp: "Untangled damage flags and injury type flags."
   - balance: "Pinning no longer blocks yanking out items."
+  - balance: "Generalise the autoheal threshold so wounds don't autoheal when a limb has taken either too much overall damage or the mob has taken significant damage."

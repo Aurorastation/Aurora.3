@@ -284,6 +284,15 @@
 			amount -= E.add_pain(amount)
 	BITSET(hud_updateflag, HEALTH_HUD)
 
+/mob/living/carbon/human/proc/can_autoheal(dam_type)
+	if(!species || !dam_type) return FALSE
+
+	if (dam_type == DAMAGE_BRUTE)
+		return(getBruteLoss() < species.total_health / 2)
+	else if (dam_type == DAMAGE_BURN)
+		return(getFireLoss() < species.total_health / 2)
+	return FALSE
+
 ////////////////////////////////////////////
 
 //Returns a list of damaged organs
