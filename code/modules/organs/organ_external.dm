@@ -85,7 +85,7 @@
 	var/hair_color
 
 	///A `/list` of wounds
-	var/list/datum/wound/wounds = list()
+	var/list/wounds
 
 	///A list of implants present in this organ
 	var/list/implants = list()
@@ -191,6 +191,8 @@
 
 /obj/item/organ/external/Destroy()
 
+	. = ..()
+
 	if(parent?.children)
 		parent.children -= src
 
@@ -213,8 +215,8 @@
 	cached_markings = null
 	mob_icon = null
 
-	if(length(wounds))
-		QDEL_LIST(wounds)
+	for(var/datum/wound/wound in wounds)
+		qdel(wound)
 
 	QDEL_LIST(children)
 	QDEL_LIST(internal_organs)
@@ -228,8 +230,6 @@
 	QDEL_NULL(nymph)
 
 	QDEL_NULL(tendon)
-
-	. = ..()
 
 
 /obj/item/organ/external/attack_self(var/mob/user)
