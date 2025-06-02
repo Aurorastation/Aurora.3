@@ -84,7 +84,7 @@
 	var/hair_color
 
 	/// A `/list` of wounds
-	var/list/datum/wound/wounds = list()
+	var/list/wounds
 
 	/// A list of implants present in this organ
 	var/list/implants = list()
@@ -223,6 +223,9 @@
 		limb_flags &= ~ORGAN_HAS_TENDON
 
 /obj/item/organ/external/Destroy()
+
+	. = ..()
+
 	if(parent?.children)
 		parent.children -= src
 
@@ -245,9 +248,11 @@
 	cached_markings = null
 	mob_icon = null
 
+	for(var/datum/wound/wound in wounds)
+		qdel(wound)
+
 	QDEL_LIST(children)
 	QDEL_LIST(internal_organs)
-	QDEL_LIST(wounds)
 	QDEL_LIST(implants)
 
 	infect_target_internal = null
@@ -259,7 +264,6 @@
 
 	QDEL_NULL(tendon)
 
-	. = ..()
 
 /obj/item/organ/external/proc/invalidate_marking_cache()
 	cached_markings = null
