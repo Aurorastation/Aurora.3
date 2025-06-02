@@ -179,7 +179,7 @@
 	if(LAZYLEN(embedded_objects))
 		return amount // heal nothing
 	if(parent_organ)
-		if (damage_type == INJURY_TYPE_BURN && !parent_organ.burn_ratio < 100)
+		if (damage_type == INJURY_TYPE_BURN && !(parent_organ.burn_ratio < 100))
 			return amount // We don't want to heal wounds on irreparable organs
 		else if(!(parent_organ.brute_ratio < 100))
 			return amount
