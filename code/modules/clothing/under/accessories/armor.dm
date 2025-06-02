@@ -18,6 +18,7 @@
 		BOMB = ARMOR_BOMB_PADDED
 	)
 	body_parts_covered = LEGS|FEET
+	item_flags = ITEM_FLAG_THICK_MATERIAL
 	drop_sound = 'sound/items/drop/boots.ogg'
 	pickup_sound = 'sound/items/pickup/boots.ogg'
 
@@ -194,6 +195,7 @@
 	slot = ACCESSORY_SLOT_ARM_GUARDS
 	accessory_layer = ACCESSORY_LAYER_LOWER
 	body_parts_covered = HANDS|ARMS
+	item_flags = ITEM_FLAG_THICK_MATERIAL
 	armor = list(
 		MELEE = ARMOR_MELEE_KEVLAR,
 		BULLET = ARMOR_BALLISTIC_MEDIUM,
