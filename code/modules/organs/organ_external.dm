@@ -191,8 +191,6 @@
 
 /obj/item/organ/external/Destroy()
 
-	QDEL_LIST(wounds)
-
 	if(parent?.children)
 		parent.children -= src
 
@@ -214,6 +212,9 @@
 	temporary_markings = null
 	cached_markings = null
 	mob_icon = null
+
+	if(length(wounds))
+		QDEL_LIST(wounds)
 
 	QDEL_LIST(children)
 	QDEL_LIST(internal_organs)
