@@ -89,7 +89,20 @@
 	SEND_SIGNAL(src, COMSIG_UI_ACT, usr, action)
 	// If UI is not interactive or usr calling Topic is not the UI user, bail.
 	if(!ui || ui.status != UI_INTERACTIVE)
+		CouldNotUseUI(usr)
 		return TRUE
+
+	CouldUseUI(usr)
+
+///Called when the UI was able to be used
+/datum/proc/CouldUseUI(mob/user)
+	SHOULD_CALL_PARENT(TRUE)
+	//nada
+
+///Called when the UI was unable to be used
+/datum/proc/CouldNotUseUI(mob/user)
+	SHOULD_CALL_PARENT(TRUE)
+	//nada
 
 /**
  * public
