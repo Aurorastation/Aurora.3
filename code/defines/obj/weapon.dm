@@ -276,41 +276,6 @@
 	icon_state = "crutch"
 	item_state = "crutch"
 
-/obj/item/cane/telecane/white
-	name = "white cane"
-	desc = "A white cane, used by the visually impaired."
-	icon = 'icons/obj/item/whitecane.dmi'
-	icon_state = "whitecane"
-	drop_sound =  /singleton/sound_category/generic_drop_sound
-	pickup_sound =  /singleton/sound_category/generic_pickup_sound
-
-/obj/item/cane/telecane/white/attack_self(mob/user)
-	on = !on
-	if(on)
-		user.visible_message(SPAN_WARNING("With a flick of their wrist, [user] extends their white cane."), SPAN_NOTICE("You extend the cane."), SPAN_NOTICE("You hear a click."))
-		icon_state = "whitecane_extended"
-		item_state = "whitecane"
-		w_class = WEIGHT_CLASS_BULKY
-		slot_flags = null
-		attack_verb = list("smacked", "struck", "slapped")
-		can_support = TRUE
-		force = 8
-	else
-		user.visible_message(SPAN_NOTICE("\The [user] collapses their white cane."), SPAN_NOTICE("You collapse the cane."), SPAN_NOTICE("You hear a click."))
-		icon_state = "whitecane"
-		item_state = "whitecane_0"
-		w_class = WEIGHT_CLASS_SMALL
-		slot_flags = SLOT_BELT
-		attack_verb = list("hit", "punched")
-		can_support = FALSE
-		force = 2
-
-	if(istype(user,/mob/living/carbon/human))
-		update_held_icon()
-
-	playsound(src.loc, 'sound/weapons/click.ogg', 50, 1)
-	add_fingerprint(user)
-
 /obj/item/cane/shillelagh
 	name = "adhomian shillelagh"
 	desc = "A sturdy walking stick made from adhomian wood."
@@ -331,22 +296,26 @@
 	pickup_sound = 'sound/items/pickup/crowbar.ogg'
 	var/on = FALSE
 	can_support = FALSE
+	var/extended_icon_state = "telecane_1"
+	var/extended_item_state = "telestick"
+	var/retracted_icon_state = "telecane"
+	var/retracted_item_state = "telestick_0"
 
 /obj/item/cane/telecane/attack_self(mob/user)
 	on = !on
 	if(on)
-		user.visible_message(SPAN_WARNING("With a flick of their wrist, [user] extends their telescopic cane."), SPAN_WARNING("You extend the cane."), SPAN_WARNING("You hear an ominous click."))
-		icon_state = "telecane_1"
-		item_state = "telestick"
+		user.visible_message(SPAN_NOTICE("With a flick of their wrist, [user] extends their [src.name]"), SPAN_NOTICE("You extend the [src.name]."), SPAN_NOTICE("You hear a click."))
+		icon_state = extended_icon_state
+		item_state = extended_item_state
 		w_class = WEIGHT_CLASS_BULKY
 		slot_flags = null
 		force = 14
 		attack_verb = list("smacked", "struck", "slapped")
 		can_support = TRUE
 	else
-		user.visible_message(SPAN_NOTICE("\The [user] collapses their telescopic cane."), SPAN_NOTICE("You collapse the cane."), SPAN_NOTICE("You hear a click."))
-		icon_state = "telecane"
-		item_state = "telestick_0"
+		user.visible_message(SPAN_NOTICE("\The [user] collapses their [src.name]."), SPAN_NOTICE("You collapse the [src.name]."), SPAN_NOTICE("You hear a click."))
+		icon_state = retracted_icon_state
+		item_state = retracted_item_state
 		w_class = WEIGHT_CLASS_SMALL
 		slot_flags = SLOT_BELT
 		force = 3
@@ -358,6 +327,18 @@
 
 	playsound(src.loc, 'sound/weapons/click.ogg', 50, 1)
 	add_fingerprint(user)
+
+/obj/item/cane/telecane/white
+	name = "white cane"
+	desc = "A white cane, used by the visually impaired."
+	icon = 'icons/obj/item/whitecane.dmi'
+	icon_state = "whitecane"
+	drop_sound =  /singleton/sound_category/generic_drop_sound
+	pickup_sound =  /singleton/sound_category/generic_pickup_sound
+	extended_icon_state = "whitecane_extended"
+	extended_item_state = "whitecane"
+	retracted_icon_state = "whitecane"
+	retracted_item_state = "whitecane_0"
 
 /obj/item/disk
 	name = "disk"
