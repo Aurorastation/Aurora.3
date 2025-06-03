@@ -58,3 +58,4 @@ changes:
   - rscadd: "Added the phoron deposit away site."
   - balance: "Hostile mobs now attack barricades & girders in their way."
   - balance: "Barricades with barbed wire now deal slightly less damage to attacking mobs."
+  - bugfix: "Fixed a bug where hostile mobs rarely continue chasing their target even after dying."

@@ -312,6 +312,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 /mob/living/simple_animal/hostile/death()
 	..()
 	GLOB.move_manager.stop_looping(src)
+	LoseTarget() //Ensure we always stop chasing upon death
 
 /mob/living/simple_animal/hostile/think()
 	..()
