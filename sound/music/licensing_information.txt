@@ -82,9 +82,8 @@ License Link: https://github.com/Aurorastation/Aurora.3/pull/7729#issuecomment-5
 Link: https://github.com/Aurorastation/Aurora.3/pull/7729
 ----------
 File Name: phoron_deposit.ogg
-Original Title: Rumbling 12 & Dark and Suspenseful Atmosphere
-Author: bretbernhoft & Universfield
-License: Pixabay Content License
-License Link: https://pixabay.com/service/license-summary/
-Link:https://pixabay.com/music/mystery-rumbling-12-201171/
-Link 2:https://pixabay.com/music/upbeat-dark-and-suspenseful-atmosphere-227742/
+Original Title: earth rumble & Perpetual Tension
+Author: Reitanna & Zander Noriega
+License: CC0 & CC-BY 3.0
+Link: https://freesound.org/people/Reitanna/sounds/217657/
+Link 2: https://opengameart.org/content/perpetual-tension
