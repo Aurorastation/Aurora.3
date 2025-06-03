@@ -26,3 +26,8 @@
   - rscdel: Tea no longer poisons Dionae.
   notagonk:
   - rscadd: Dominian Corvette has been remapped.
+2025-06-03:
+  SimpleMaroon:
+  - rscadd: 'Added three Commonwealth of Hieroaetheria passports to the Xenowear -
+      Diona loadout: Consortium, Union of Gla''orr, and Eternal Republic.'
+  - spellcheck: Fixed an incorrect indefinite article in the Golden Deep passport.
