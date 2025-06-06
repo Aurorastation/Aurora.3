@@ -134,15 +134,6 @@
 /mob/abstract/ghost/storyteller/can_ztravel(direction)
 	return TRUE
 
-// Allows storytellers to move freely between z-levels.
-/mob/abstract/ghost/storyteller/zMove(direction)
-	var/turf/T = get_turf(src)
-	var/turf/destination = (direction == UP) ? GET_TURF_ABOVE(T) : GET_TURF_BELOW(T)
-	if(destination)
-		forceMove(destination)
-	else
-		to_chat(src, SPAN_NOTICE("There is nothing of interest in this direction."))
-
 /mob/abstract/ghost/storyteller/verb/odyssey_panel()
 	set name = "Odyssey Panel"
 	set category = "Storyteller"
