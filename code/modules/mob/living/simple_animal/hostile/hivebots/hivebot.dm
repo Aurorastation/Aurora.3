@@ -226,8 +226,8 @@
 	name = "Hivebot destroyer"
 	desc = "A primitive-yet-sturdy hovering robot, with some menacing looking blades jutting out from it. This one seems unusually aware of its surroundings."
 	icon_state = "hivebotdestroyer"
-	health = 150
-	maxHealth = 150
+	health = 350
+	maxHealth = 350
 	melee_damage_lower = 20
 	melee_damage_upper = 30
 	armor_penetration = 20
@@ -253,8 +253,8 @@
 	name = "Hivebot marksman"
 	desc = "A primitive-yet-sturdy hovering robot, with some menacing looking blades jutting out from it. This one seems to be carefully surveying all activity."
 	icon_state = "hivebotmarksman"
-	health = 100
-	maxHealth = 100
+	health = 250
+	maxHealth = 250
 	melee_damage_lower = 10
 	melee_damage_upper = 20
 	armor_penetration = 20
@@ -280,8 +280,8 @@
 	name = "Hivebot overseer"
 	desc = "A primitive-yet-sturdy hovering robot, with some menacing looking blades jutting out from it. This one seems to be buzzing with unseen activity from within."
 	icon_state = "hivebotoverseer"
-	health = 200
-	maxHealth = 200
+	health = 300
+	maxHealth = 300
 	melee_damage_lower = 10
 	melee_damage_upper = 10
 	armor_penetration = 10
