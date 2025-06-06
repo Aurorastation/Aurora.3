@@ -1,7 +1,7 @@
 /datum/ghostspawner/hivebotdestroyer
 	short_name = "hivebotdestroyer"
 	name = "Hivebot Destroyer"
-	desc = "Provide your fellow hivebots from any potential threats."
+	desc = "Protect your fellow hivebots from any potential threats."
 	tags = list("Antagonist")
 
 	observers_only = TRUE
@@ -25,7 +25,7 @@
 /datum/ghostspawner/hivebotmarksman
 	short_name = "hivebotmarksman"
 	name = "Hivebot Marksman"
-	desc = "Provide your fellow hivebots from any potential threats."
+	desc = "Protect your fellow hivebots from any potential threats."
 	tags = list("Antagonist")
 
 	observers_only = TRUE
@@ -49,7 +49,7 @@
 /datum/ghostspawner/hivebotoverseer
 	short_name = "hivebotoverseer"
 	name = "Hivebot Overseer"
-	desc = "Provide your fellow hivebots from any potential threats. Assemble new hivebots as necessary."
+	desc = "Protect your fellow hivebots from any potential threats. Assemble new hivebots as necessary."
 	tags = list("Antagonist")
 
 	observers_only = TRUE
