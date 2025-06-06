@@ -134,7 +134,7 @@
 /mob/abstract/ghost/storyteller/can_ztravel(direction)
 	return TRUE
 
-/// Allows storytellers to move freely between z-levels.
+// Allows storytellers to move freely between z-levels.
 /mob/abstract/ghost/storyteller/zMove(direction)
 	var/turf/T = get_turf(src)
 	var/turf/destination = (direction == UP) ? GET_TURF_ABOVE(T) : GET_TURF_BELOW(T)
