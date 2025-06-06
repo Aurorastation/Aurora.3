@@ -234,7 +234,7 @@
 	attacktext = "eviscerated"
 	projectiletype = null
 	var/playable = TRUE
-	speed = 2
+	speed = -2
 
 /mob/living/simple_animal/hostile/hivebot/playable/Initialize(mapload)
 	. = ..()
@@ -261,7 +261,7 @@
 	attacktext = "stabbed"
 	ranged = 1
 	projectiletype = /obj/projectile/bullet/pistol/medium
-	speed = 1
+	speed = -3
 
 /mob/living/simple_animal/hostile/hivebot/playable/ranged/Initialize(mapload)
 	. = ..()
@@ -286,7 +286,7 @@
 	melee_damage_upper = 10
 	armor_penetration = 10
 	attacktext = "slashed"
-	ranged = 1
+	ranged = -1
 	projectiletype = /obj/projectile/bullet/pistol/
 
 /mob/living/simple_animal/hostile/hivebot/playable/overseer/Initialize(mapload)
@@ -302,17 +302,13 @@
 	. = ..()
 	SSghostroles.remove_spawn_atom("hivebotoverseer", src)
 
-/mob/living/simple_animal/hostile/hivebot/playable/overseer/verb/bot()
-	set name = "Assemble hivebot"
-	set desc = "Assemble a hivebot."
-	set category = "Hivebot"
+/mob/living/simple_animal/hostile/hivebot/playable/overseer/verb/build_bot()
+    set name = "Assemble hivebot"
+    set desc = "Assemble a hivebot."
+    set category = "Hivebot"
 
-
-	var/obj/effect/spider/eggcluster/E = locate() in get_turf(src)
-	if(!E)
-		src.visible_message("\The [src] begins to construct a hivebot.")
-		if(!do_after(src, 120))
-			return
-		E = locate() in get_turf(src)
-		if(!E)
-			new /mob/living/simple_animal/hostile/hivebot
+    src.visible_message("\The [src] begins to construct a hivebot.", "You begin to construct a hivebot.", "You hear the sounds of fabrication...")
+    if(!do_after(src, 12 SECONDS))
+        return
+    src.visible_message("\The [src] constructs a hivebot!", "You construct a hivebot!")
+    new /mob/living/simple_animal/hostile/hivebot(get_turf(src))
