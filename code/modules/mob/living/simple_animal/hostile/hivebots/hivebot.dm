@@ -303,12 +303,12 @@
 	SSghostroles.remove_spawn_atom("hivebotoverseer", src)
 
 /mob/living/simple_animal/hostile/hivebot/playable/overseer/verb/build_bot()
-    set name = "Assemble hivebot"
-    set desc = "Assemble a hivebot."
-    set category = "Hivebot"
+	set name = "Assemble hivebot"
+	set desc = "Assemble a hivebot."
+	set category = "Hivebot"
 
-    src.visible_message("\The [src] begins to construct a hivebot.", "You begin to construct a hivebot.", "You hear the sounds of fabrication...")
-    if(!do_after(src, 12 SECONDS))
-        return
-    src.visible_message("\The [src] constructs a hivebot!", "You construct a hivebot!")
-    new /mob/living/simple_animal/hostile/hivebot(get_turf(src))
+	src.visible_message("\The [src] begins to construct a hivebot.", "You begin to construct a hivebot.", "You hear the sounds of fabrication...")
+	if(!do_after(src, 12 SECONDS))
+		return
+	src.visible_message("\The [src] constructs a hivebot!", "You construct a hivebot!")
+	new /mob/living/simple_animal/hostile/hivebot(get_turf(src))
