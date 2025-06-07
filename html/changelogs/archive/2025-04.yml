@@ -86,3 +86,27 @@
       from places besides the Sol Alliance.
   - rscadd: The Civilian Yacht Crew ghostrole allows you to select Skrell and Synthetics,
       in addition to Human.
+2025-04-19:
+  ChangeMe:
+  - bugfix: Fixed hijab and colorable hijab not equipping upon spawning in.
+  FlamingLily:
+  - spellcheck: Fixed a typo in the no-tag IPC warning.
+  - balance: Reduced the cooling effects of frost oil and snowflake. Frost oil, a
+      condiment, no longer damages the consumer (now about -5 celsius). Snowflake
+      no longer reduces the user's temperature to NEGATIVE 200 CELSIUS. It still gets
+      you cold enough to burn a little though (about -40 celsius).
+  Kano:
+  - rscadd: Added a Freebooter Ship variation.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes and updates putting people into dna scanners.
+  - bugfix: Fixes being unable to order proto-humans from cargo.
+  hazelmouse:
+  - bugfix: Telecommunications servers no longer continue to appear active while unpowered.
+2025-04-26:
+  FlamingLily:
+  - rscadd: Added a low chance of the random crate spawn to spawn full of contraband.
+  notagonk:
+  - qol: Updates the Sol Recon Corvette with minor remapping and a new ghostrole.
+2025-04-27:
+  kermit:
+  - rscdel: Unmaps the Hivebot Transmitter from Xenoarchaeology.

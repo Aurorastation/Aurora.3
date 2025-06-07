@@ -1,0 +1,176 @@
+2025-05-03:
+  Greenjoe:
+  - rscadd: Made it so the Kataphract ship can spawn in Burzsia's sector.
+  Snowy1237:
+  - balance: Tweaked the Himean assault blaster to have slightly more AP, as it had
+      none before.
+  kermit:
+  - rscadd: Reallows Solarian Consulars.
+2025-05-06:
+  FlamingLily:
+  - qol: Reduced the cost of large flags to 1 point.
+2025-05-08:
+  ASmallCuteCat:
+  - rscadd: Added two new holodeck items, the Practice Sword and the Fencing Rapier.
+      Renamed the Boxing Ring holodeck setting to Sparring Ring, where the new items
+      can be found.
+  - rscadd: Added interactions for the Practice Sword and Fencing Rapier to the Punching
+      Bag.
+  - rscadd: Added two Punching Bags to the Sparring Ring.
+  CourierBravo:
+  - rscadd: Remapped hydroponics and the garden to hopefully breathe some new life
+      into the gardener role.
+  - rscadd: Added a series of new items to the biogenerator.
+  - rscadd: Added all the plushies I could find to the plushie randomizer
+  - rscdel: Removed synthetic blood, the pet mushroom, human hide, and the hostile
+      tree from the bio generator.
+  - imageadd: Added a new type of magazine, Horticulture Today! Added sprites to go
+      along with each issue.
+  - balance: Added two new subtypes of vending machine for the garden and hydroponics.
+      The public garden vendor now costs credits to use.
+  - balance: Increased the capacity of the biogenerator by double. Changed prices
+      for biogenerator recipes to make them more reasonable for product input.
+  - balance: Added a few new bounties that work in favor of the gardener role.
+  - balance: Added some soy sauce bottles to the kitchen, given its increasing prevalence
+      as an ingredient.
+  - balance: Increased the price of the produce box in the operations ordering program
+      from 50 credits to 100.
+  FlamingLily:
+  - qol: Increased maximum IPC tag size to 20 characters. Hazels rejoice. Auto-generated
+      tags remain at 12.
+  - rscadd: Added an option to character setup to allow shells to play human. This
+      alters what species is listed in records, and is no longer tied to the shell's
+      tag status.
+  - qol: Moved the 'Species' entry in records out of employment records and to the
+      global records. It really didn't make sense that medical and security couldn't
+      see what species a person is.
+2025-05-09:
+  FlamingLily:
+  - bugfix: Fixes shells being hidden automatically. Oops.
+2025-05-10:
+  FlamingLily:
+  - rscadd: Added joy messages to aphrodite.
+  - rscadd: Added a message to placing an item in your own storage container (bags,
+      etc.).
+  GeneralCamo:
+  - bugfix: Added another sanity check to roller beds, to make sure no instance of
+      ghost buckling is caused from them.
+  hazelmouse:
+  - balance: Arterial bleeding now causes less rapid blood loss.
+  - qol: All traps now produce a noise when set up, and punji traps produce a noise
+      when a mob falls into them.
+  - balance: Punji traps now cause victims to collapse after falling into them.
+2025-05-12:
+  4000daniel1:
+  - rscadd: Changed the max player requirement of Loner from 8 to 15, making it the
+      same as Technomancer.
+  hazelmouse:
+  - bugfix: Prevents weather, such as rain, from rendering inside several indoors
+      areas.
+2025-05-13:
+  steviii:
+  - imageadd: Changed the Burzsia banner a bit and added a flag.
+2025-05-14:
+  Batrachophreno:
+  - rscadd: Maintenance Panels can be opened and closed with standard wrenches, not
+      just impact drill with wrenchbit.
+  - rscdel: Opened atmos Maintenance Panels can no longer be tinkered with using the
+      standard wrench, though pipe wrenches remain usable.
+  hazelmouse:
+  - rscadd: Implements several tweaks and minor fixes to hydroponics, particularly
+      affecting the component on the first deck. This includes some rearranged machines,
+      layout tweaks, filling in some missing decals, and correcting some erroneous
+      space turfs.
+  - rscadd: Hydroponics lockers now naturally spawn with a water tank inside them.
+2025-05-15:
+  ElorgRHG:
+  - imageadd: Resprited winter coats.
+  - rscadd: Alt-clicking the winter coats will now pull their hoods up.
+  - rscdel: Removed the red, Hephaestus alt, Nanotrasen alt for consistency with corporate/departmental
+      jackets.
+  GeneralCamo:
+  - rscadd: Added a setting to set TGUI Say to light mode.
+  - bugfix: Several radio channels that did not define a color in TGUI Say, now do
+      so.
+  GeneralCamo, LemonInTheDark:
+  - code_imp: Brought browser code up to standard with the rest of the codebase.
+  - bugfix: Repaired several hard dels that were likely occuring with browser datums.
+  GeneralCamo, harry:
+  - qol: Under the chat settings, you can now press "Adjust UI Sizes" to drag around
+      some of the panel sizes.
+  - bugfix: The input at the bottom right is no longer so teeny tiny on 516 if you
+      use a window scaling that is greater than 100%.
+  - qol: There's a new UI preference called UI scale which allows people that use
+      windows scaling to have their UIs original size with the contents zoomed out,
+      instead of the default, which is the UIs being larger with the contents 'normal'
+      size.
+  - bugfix: Various UIs did not respect windows scaling, they now do.
+  willox, GeneralCamo:
+  - bugfix: TGUI and Tooltip windows now work with high-DPI settings.
+2025-05-16:
+  Batrachophreno:
+  - bugfix: Mortaphenyl bottle in Cargo database no longer mislabeled as Inaprovaline
+      bottle.
+2025-05-17:
+  Batrachophreno:
+  - bugfix: Iron fuel assemblies for the INDRA can also be created using five iron
+      ingots, not just the iron reagent cartridge.
+  - bugfix: Unanchored airlock assemblies can now be deconstructed with a welder.
+  - bugfix: Borgs now able to access fire alarm UI.
+  Greenjoe:
+  - rscadd: Changes the name of the 'smoking' loadout tab to 'drugs and medicines'.
+  - rscadd: Psychiatric medication has been moved from the utility tab to the drugs
+      and medicines tab in the loadout.
+  - rscadd: Added some basic over-the-counter medicines to the loadout, most of the
+      ones that can be found in the public NanoPharm vendor.
+  - rscadd: Adds some legal recreational drugs to the loadout.
+  steviii:
+  - rscadd: Added the Xanan 4.6mm and 6.5mm rounds to the autolathe.
+2025-05-18:
+  GeneralCamo:
+  - bugfix: Fixed offline authentication failing to load UI elements.
+  - qol: The offline authentication window is now integrated into the main game window.
+  - code_imp: Fixed up the HTML tags on the offline authentication window.
+2025-05-19:
+  Wowzewow (Wezzy):
+  - rscadd: Adds Lavatory vendors to the public bathrooms, that dispense hygiene goods.
+  - refactor: Migrates bartender's supply of 6 pack beers and Sencha teas to the cargo
+      database.
+  - refactor: Migrates impact wrenches to the cargo database.
+  - balance: Removes the extraneous dylovene, kelotane, bicaridine and coagzulug in
+      medical. Migrates medication to the medication closet.
+  - balance: Removes the unused Nanomed Minis in medical. Replaces the surgery side
+      Nanomed Plus with a Nanomed Mini.
+  - balance: Removes the two large medical kits from medical storage, and the kit
+      in the exam room. Moves the wheelchairs from the morgue lift to medical storage.
+  - rscadd: Adds cranberries to the game. Now you can actually make cranberry juice!
+  - refactor: Juices found in soda machines, booze dispensers and the booze-o-mat
+      have been migrated to the cargo database. Except Orange, Lime and Lemon juice
+      in the booze-o-mat.
+  - refactor: Most lore-specific mostly flavor alcoholic bottles have been migrated
+      to the cargo database.
+  - refactor: Special glasses and flasks in the booze-o-mat have been moved to the
+      drinking glass dispenser.
+  - qol: Adjusts the bar's Chemical Heater to be less in the way.
+  - rscadd: Cream and fatshouters milk cartons can be ordered from cargo.
+  - balance: Certain juices are now cartons when separated in a CondiMaster.
+  - balance: Removed coffee, milk and sugar from soda machines, as they are made redundant
+      by CoffeeMasters.
+  - balance: Non-CoffeeMaster coffee machines now just dispense coffee instead of
+      espresso.
+  - balance: Adds cream to the kitchen's fridge to supplement its removal from soda
+      machines.
+  - rscadd: Adds deodorant and a new sprite for mouthwash.
+2025-05-28:
+  ASmallCuteCat:
+  - bugfix: The kitchen's first aid closet should no longer have non-first aid items
+      in it. Soy sauce bottles were moved to the fridge, potted plant has been removed.
+  Batrachophreno:
+  - bugfix: Stickers now correctly display a warning message when trying to attach
+      them to Status Displays.
+  GeneralCamo:
+  - bugfix: Firesuits (including Atmos Firesuits) no longer lack on-mob icons for
+      tajara and unathi.
+  - rscadd: Atmospheric technician fire helmets now include an emissive layer.
+  - code_imp: Refactored the firesuit emissive code to be more generic (to potentially
+      allow custom variants later).

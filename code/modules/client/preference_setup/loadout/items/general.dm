@@ -294,7 +294,7 @@
 
 /datum/gear/flag
 	display_name = "flag selection"
-	cost = 2
+	cost = 1
 	path = /obj/item/flag
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -373,6 +373,7 @@
 	flags["flag, Pluto"] = /obj/item/flag/pluto/l
 	flags["flag, Antique Visegrad"] = /obj/item/flag/old_visegrad/l
 	flags["flag, Visegrad"] = /obj/item/flag/visegrad/l
+	flags["flag, Burzsia"] = /obj/item/flag/burzsia/l
 	flags["flag, HPS Narrows"] = /obj/item/flag/narrows/l
 	gear_tweaks += new /datum/gear_tweak/path(flags)
 
@@ -410,15 +411,15 @@
 	gear_tweaks += new /datum/gear_tweak/path(comics)
 
 /datum/gear/toothpaste
-	display_name = "toothpaste and toothbrush"
+	display_name = "dental hygiene kit"
 	path = /obj/item/storage/box/toothpaste
 
 /datum/gear/toothpaste/New()
 	..()
 	var/list/toothpaste = list()
-	toothpaste["toothpaste and blue toothbrush"] = /obj/item/storage/box/toothpaste
-	toothpaste["toothpaste and green toothbrush"] = /obj/item/storage/box/toothpaste/green
-	toothpaste["toothpaste and red toothbrush"] = /obj/item/storage/box/toothpaste/red
+	toothpaste["dental hygiene kit, blue toothbrush"] = /obj/item/storage/box/toothpaste
+	toothpaste["dental hygiene kit, green toothbrush"] = /obj/item/storage/box/toothpaste/green
+	toothpaste["dental hygiene kit, red toothbrush"] = /obj/item/storage/box/toothpaste/red
 	gear_tweaks += new /datum/gear_tweak/path(toothpaste)
 
 /datum/gear/photo

@@ -1,0 +1,33 @@
+2025-06-02:
+  Batrachophreno:
+  - bugfix: Air alarms will no longer always show their wire interface- panel must
+      be opened first
+  - qol: Machines (if their wiring panels are open) no longer require certain tools
+      in-hand to access the wires interface.
+  - bugfix: Broken APCs (tentatively) able to be more reliably dismantled.
+  - refactor: Minor internal APC refactor and code documentation.
+  - qol: Updated instances of 'nifberries' to 'dirtberries' in recipes/ingredients/products
+      for general consistency.
+  - qol: Updated instances of 'nm'shaan' to 'sugar tree' in recipes/ingredients/products
+      for general consistency.
+  FlamingLily:
+  - rscadd: Added a latejoin/off-duty spawn point for the medbay's recovery ward,
+      available only to off-duty crew and passengers.
+  - rscadd: Vastly expanded the medbay recovery ward, adding more opportunities for
+      extended RP focusing in the room.
+  Wowzewow (Wezzy):
+  - rscadd: Adds a new food cart to the kitchen.
+  - bugfix: Fixes grill and oven to play their loop sounds only when turned on.
+  - bugfix: Fixes update_icon() of grill and oven so they actually look turned on
+      when turned on.
+  - rscdel: Removes rice, berries and fruits from the produce box rotation.
+  - rscadd: Adds bags of rice to the kitchen.
+  hazelmouse:
+  - rscdel: Tea no longer poisons Dionae.
+  notagonk:
+  - rscadd: Dominian Corvette has been remapped.
+2025-06-03:
+  SimpleMaroon:
+  - rscadd: 'Added three Commonwealth of Hieroaetheria passports to the Xenowear -
+      Diona loadout: Consortium, Union of Gla''orr, and Eternal Republic.'
+  - spellcheck: Fixed an incorrect indefinite article in the Golden Deep passport.

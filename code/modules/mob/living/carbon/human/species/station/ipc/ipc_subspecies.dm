@@ -83,8 +83,7 @@
 /datum/species/machine/shell/get_species(var/reference, var/mob/living/carbon/human/H, var/records)
 	if(reference)
 		return src
-	// it's illegal for shells in Tau Ceti space to not have tags, so their records would have to be falsified
-	if(records && !H.internal_organs_by_name[BP_IPCTAG])
+	if(records && H.client.prefs.hidden_shell_status)
 		return "Human"
 	return name
 

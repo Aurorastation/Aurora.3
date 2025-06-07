@@ -48,6 +48,8 @@ var/global/enabled_spooking = 0
 		to_chat(usr, "Error: you are not an admin!")
 		return
 
+	var/ui_scale = owner.prefs?.ui_scale
+
 	var/body = "<html><head><title>Options for [M.key]</title></head>"
 	body += "<body>Options panel for <b>[M]</b>"
 	if(M.client)
@@ -219,7 +221,11 @@ var/global/enabled_spooking = 0
 		</body></html>
 	"}
 
-	usr << browse(body, "window=adminplayeropts;size=550x515")
+	var/window_size = "size=550x515"
+	if(owner.window_scaling && ui_scale)
+		window_size = "size=[550 * owner.window_scaling]x[515 * owner.window_scaling]"
+
+	usr << browse(body, "window=adminplayeropts;[window_size]")
 	feedback_add_details("admin_verb","SPP") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 

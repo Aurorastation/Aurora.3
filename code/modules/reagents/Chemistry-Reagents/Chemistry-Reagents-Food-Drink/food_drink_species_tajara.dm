@@ -116,6 +116,11 @@
 	glass_desc = "A beverage made with Fatshouters' yogurt mixed with Nm'shaan's sugar and sweet herbs."
 	glass_icon_state = "mutthir_glass"
 
+	condiment_name = "mutthir carton"
+	condiment_desc = "A beverage made with Fatshouters' yogurt mixed with Nm'shaan's sugar and sweet herbs."
+	condiment_icon = 'icons/obj/item/reagent_containers/food/drinks/carton.dmi'
+	condiment_icon_state = "mutthir"
+
 /singleton/reagent/drink/milk/schlorrgo
 	name = "Schlorrgo Milk"
 	description = "An opaque white liquid produced by the mammary glands of the Schlorrgo."
@@ -212,19 +217,19 @@
 	glass_name = "glass of shyyr kirr'tyr wine"
 	glass_desc = "Tajaran spirit infused with some eel-like Adhomian creature."
 
-/singleton/reagent/alcohol/nmshaan_liquor
-	name = "Nm'shaan Liquor"
+/singleton/reagent/alcohol/sugartree_liquor
+	name = "Sugar Tree Liquor"
 	color = "#FE6B03"
-	description = "A strong Adhomian liquor reserved for special occasions."
+	description = "A strong Adhomian nm'shaan liquor reserved for special occasions."
 	taste_description = "sweet and silky alcohol"
 
 	strength = 70
 
-	glass_icon_state = "nmshaanliquor_glass"
-	glass_name = "glass of nm'shaan liquor"
-	glass_desc = "A strong Adhomian liquor reserved for special occasions."
+	glass_icon_state = "sugartreeliquor_glass"
+	glass_name = "glass of sugar tree liquor"
+	glass_desc = "A strong nm'shaan Adhomian liquor reserved for special occasions."
 
-/singleton/reagent/alcohol/nmshaan_liquor/darmadhirbrew
+/singleton/reagent/alcohol/sugartree_liquor/darmadhirbrew
 	name = "Darmadhir Brew"
 	color = "#E4A769"
 	description = "A rare and expensive brand of nm'shaan liquor."
