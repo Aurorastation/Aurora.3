@@ -116,7 +116,7 @@
 
 	if(ishuman(occupant))
 		var/mob/living/carbon/human/H = occupant
-		var/obj/item/organ/internal/machine/cell/IC = H.internal_organs_by_name[BP_CELL]
+		var/obj/item/organ/internal/machine/power_core/IC = H.internal_organs_by_name[BP_CELL]
 		if(istype(IC))
 			target = IC.cell
 

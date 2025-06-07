@@ -3,6 +3,8 @@
 	desc = "A module that allows a Bishop frame to wirelessly access machines that it is authorized to interact with."
 	organ_tag = BP_WIRELESS_ACCESS
 	parent_organ = BP_HEAD
+	icon = 'icons/obj/robot_component.dmi'
+	icon_state = "binradio"
 
 	action_button_name = "Access Internal Computer"
 
@@ -46,7 +48,7 @@
 
 /obj/item/organ/internal/machine/wireless_access/process()
 	. = ..()
-	var/obj/item/organ/internal/machine/cell/microbattery = owner.internal_organs_by_name[BP_CELL]
+	var/obj/item/organ/internal/machine/power_core/microbattery = owner.internal_organs_by_name[BP_CELL]
 	if(microbattery)
 		var/obj/item/cell/pda_cell = internal_pda.battery_module.get_cell()
 		if(pda_cell?.percent() < 95)

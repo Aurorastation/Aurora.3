@@ -31,6 +31,20 @@
 	plating = new(src)
 	electronics = new(src)
 
+/obj/item/organ/internal/machine/Destroy()
+	QDEL_NULL(wiring)
+	QDEL_NULL(plating)
+	QDEL_NULL(electronics)
+	return ..()
+
+/obj/item/organ/internal/machine/refresh_action_button()
+	. = ..()
+	if(.)
+		if(action_button_name)
+			action.button_icon_state = initial(icon_state)
+			if(action.button)
+				action.button.update_icon()
+
 /obj/item/organ/internal/machine/process(seconds_per_tick)
 	..()
 

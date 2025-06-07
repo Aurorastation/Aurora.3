@@ -1,6 +1,8 @@
 /obj/item/organ/internal/machine/internal_storage
 	name = "internal storage system"
 	desc = "A simple internal casing used by G2 frames for internal storage."
+	icon = 'icons/obj/organs/augments.dmi'
+	icon_state = "anchor"
 	organ_tag = BP_INTERNAL_STORAGE
 	parent_organ = BP_GROIN
 
@@ -24,11 +26,11 @@
 
 /obj/item/organ/internal/machine/internal_storage/attack_self(mob/user)
 	if(is_broken())
-		to_chat(user, SPAN_WARNING("The hatch to your internal storage is completely destroyed!"))
+		to_chat(user, SPAN_WARNING("The hatch to the internal storage is completely destroyed!"))
 		return
 
 	if(get_integrity() < IPC_INTEGRITY_THRESHOLD_LOW)
-		to_chat(user, SPAN_NOTICE("You struggle to pry open the hatch to your internal storage..."))
+		to_chat(user, SPAN_NOTICE("You struggle to pry open the hatch to the internal storage..."))
 		if(!do_after(1 SECOND, src))
 			return
 

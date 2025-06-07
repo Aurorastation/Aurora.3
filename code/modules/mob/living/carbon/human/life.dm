@@ -1018,7 +1018,7 @@
 					hydration_icon.icon_state = new_val
 
 			if(isSynthetic())
-				var/obj/item/organ/internal/machine/cell/IC = internal_organs_by_name[BP_CELL]
+				var/obj/item/organ/internal/machine/power_core/IC = internal_organs_by_name[BP_CELL]
 				if(istype(IC) && IC.is_usable())
 					var/chargeNum = clamp(Ceiling(IC.percent()/25), 0, 4)	//0-100 maps to 0-4, but give it a paranoid clamp just in case.
 					cells.icon_state = "charge[chargeNum]"

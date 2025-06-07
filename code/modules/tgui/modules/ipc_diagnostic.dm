@@ -60,7 +60,7 @@
 			if(limb.brute_dam || limb.burn_dam)
 				data["limbs"] += list(list("name" = limb.name, "brute_damage" = edit_organ_status(limb.brute_dam, diagnostics), "burn_damage" = edit_organ_status(limb.burn_dam, diagnostics), "max_damage" = limb.max_damage))
 
-		var/obj/item/organ/internal/machine/cell/C = ipc.internal_organs_by_name[BP_CELL]
+		var/obj/item/organ/internal/machine/power_core/C = ipc.internal_organs_by_name[BP_CELL]
 		if(C)
 			data["charge_percent"] = C.percent()
 

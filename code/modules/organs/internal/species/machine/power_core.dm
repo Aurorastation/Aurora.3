@@ -1,15 +1,15 @@
-/obj/item/organ/internal/machine/cell
+/obj/item/organ/internal/machine/power_core
 	name = "power core"
 	desc = "An advanced power storage system for use in fully prosthetic bodies."
-	icon = 'icons/obj/power.dmi'
-	icon_state = "scell"
+	icon = 'icons/obj/machinery/cell_charger.dmi'
+	icon_state = "nuclear_core"
 	organ_tag = BP_CELL
 	parent_organ = BP_CHEST
 	max_damage = 80
 	relative_size = 30
 	robotic_sprite = FALSE
 
-	/// If the battery's hatch is open. Battery can be removed if TRUE.
+	/// If the power core's hatch is open. Battery can be removed if TRUE.
 	var/open = FALSE
 	/// The type (and later instance) of the cell inside this organ.
 	var/obj/item/cell/cell = /obj/item/cell/super
@@ -18,7 +18,7 @@
 	/// At 0.8 completely depleted after 60ish minutes of constant walking or 130 minutes of standing still.
 	var/servo_cost = 0.8
 
-/obj/item/organ/internal/machine/cell/Initialize()
+/obj/item/organ/internal/machine/power_core/Initialize()
 	robotize()
 	replace_cell(new cell(src))
 	. = ..()
@@ -26,7 +26,7 @@
 /**
  * Returns current charge in %.
  */
-/obj/item/organ/internal/machine/cell/proc/percent()
+/obj/item/organ/internal/machine/power_core/proc/percent()
 	if(!cell)
 		return FALSE
 
@@ -35,7 +35,7 @@
 /**
  * Returns current charge level, modified by damage.
  */
-/obj/item/organ/internal/machine/cell/proc/get_charge()
+/obj/item/organ/internal/machine/power_core/proc/get_charge()
 	if(!cell)
 		return FALSE
 
@@ -47,19 +47,19 @@
 /**
  * Wrapper for /obj/item/cell/proc/give.
  */
-/obj/item/organ/internal/machine/cell/proc/give(amount)
+/obj/item/organ/internal/machine/power_core/proc/give(amount)
 	if(!cell)
 		return
 
 	return cell.give(amount * get_damage_multiplier())
 
-/obj/item/organ/internal/machine/cell/use(var/amount)
+/obj/item/organ/internal/machine/power_core/use(var/amount)
 	if(!is_usable() || !cell)
 		return
 
 	return cell.use(amount)
 
-/obj/item/organ/internal/machine/cell/process()
+/obj/item/organ/internal/machine/power_core/process()
 	..()
 	if(!owner)
 		return
@@ -77,10 +77,10 @@
 /**
  * Gets the cost for walking. For some reason, handled in the fucking cell.
  */
-/obj/item/organ/internal/machine/cell/proc/get_power_drain()
+/obj/item/organ/internal/machine/power_core/proc/get_power_drain()
 	return servo_cost
 
-/obj/item/organ/internal/machine/cell/emp_act(severity)
+/obj/item/organ/internal/machine/power_core/emp_act(severity)
 	. = ..()
 
 	if(electronics.get_status() > 0)
@@ -91,7 +91,7 @@
 	if(cell)
 		cell.emp_act(severity)
 
-/obj/item/organ/internal/machine/cell/attackby(obj/item/attacking_item, mob/user)
+/obj/item/organ/internal/machine/power_core/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.isscrewdriver())
 		if(open)
 			open = FALSE
@@ -121,7 +121,7 @@
 		else
 			to_chat(user, SPAN_WARNING("You need to unscrew the battery panel first."))
 
-/obj/item/organ/internal/machine/cell/low_integrity_damage(integrity)
+/obj/item/organ/internal/machine/power_core/low_integrity_damage(integrity)
 	. = ..()
 	if(!.)
 		return
@@ -129,7 +129,7 @@
 	to_chat(owner, SPAN_WARNING("Your [src]'s wiring fizzles."))
 	electronics.take_damage(10)
 
-/obj/item/organ/internal/machine/cell/medium_integrity_damage(integrity)
+/obj/item/organ/internal/machine/power_core/medium_integrity_damage(integrity)
 	. = ..()
 	if(!.)
 		return
@@ -138,7 +138,7 @@
 		to_chat(owner, SPAN_DANGER("Your [src]'s power conduits burn!"))
 		servo_cost *= 1.5
 
-/obj/item/organ/internal/machine/cell/high_integrity_damage(integrity)
+/obj/item/organ/internal/machine/power_core/high_integrity_damage(integrity)
 	. = ..()
 	if(!.)
 		return
@@ -149,7 +149,7 @@
 		cell.maxcharge *= 0.85
 		cell.use(old_charge - cell.maxcharge)
 
-/obj/item/organ/internal/machine/cell/proc/replace_cell(var/obj/item/cell/C)
+/obj/item/organ/internal/machine/power_core/proc/replace_cell(var/obj/item/cell/C)
 	if(istype(cell))
 		qdel(cell)
 	if(C.loc != src)
@@ -157,13 +157,13 @@
 	cell = C
 	desc = initial(desc) + "This appears embedded with a [C.name]."
 
-/obj/item/organ/internal/machine/cell/listen()
+/obj/item/organ/internal/machine/power_core/listen()
 	if(get_charge())
 		return "faint hum of \the [src]"
 
-/obj/item/organ/internal/machine/cell/terminator
+/obj/item/organ/internal/machine/power_core/terminator
 	name = "shielded power core"
-	desc = "A small, powerful power core for use in fully prosthetic bodies. Equipped with a Faraday shield."
+	desc = "A small, powerful power core for use in fully prosthetic bodies. Equipped with anti-electromagnetic plating."
 	icon = 'icons/obj/power.dmi'
 	icon_state = "scell"
 	organ_tag = "shielded cell"

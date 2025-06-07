@@ -1,6 +1,8 @@
 /obj/item/organ/internal/machine/actuators
 	name = "actuators"
 	desc = "This mixture of electronic, pneumatic and hydraulic components allow a positronic chassis' arms to produce force and torque to allow them to move their artificial limbs."
+	icon = 'icons/obj/organs/augments.dmi'
+	icon_state = "suspension"
 
 /obj/item/organ/internal/machine/actuators/left
 	name = "right arm actuators"

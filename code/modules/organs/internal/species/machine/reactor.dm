@@ -1,6 +1,8 @@
 /obj/item/organ/internal/machine/reactor
 	name = "electrical power supply unit"
 	desc = "An electrical power supply system for a synthetic. It feeds from external sources."
+	icon = 'icons/obj/robot_component.dmi'
+	icon_state = "motor"
 	organ_tag = BP_REACTOR
 	parent_organ = BP_CHEST
 	possible_modifications = list(
@@ -39,7 +41,7 @@
 	if(!owner)
 		return
 
-	var/obj/item/organ/internal/machine/cell/cell = owner.internal_organs_by_name[BP_CELL]
+	var/obj/item/organ/internal/machine/power_core/cell = owner.internal_organs_by_name[BP_CELL]
 	if(!cell)
 		return
 
@@ -57,7 +59,7 @@
 			generate_power(reagents_to_process * 1000)
 
 /obj/item/organ/internal/machine/reactor/proc/generate_power(amount)
-	var/obj/item/organ/internal/machine/cell/cell = owner.internal_organs_by_name[BP_CELL]
+	var/obj/item/organ/internal/machine/power_core/cell = owner.internal_organs_by_name[BP_CELL]
 	if(!istype(cell))
 		return
 

@@ -1,6 +1,8 @@
 /obj/item/organ/internal/machine/access_port
 	name = "universal access port"
 	desc = "A slot built into nearly all synthetics for universal access to information such as diagnostics or internal processes."
+	icon = 'icons/obj/robot_component.dmi'
+	icon_state = "radio"
 	organ_tag = BP_ACCESS_PORT
 	parent_organ = BP_HEAD
 

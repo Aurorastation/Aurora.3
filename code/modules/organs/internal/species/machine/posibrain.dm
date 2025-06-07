@@ -1,6 +1,8 @@
 /obj/item/organ/internal/machine/posibrain
 	name = "positronic brain"
 	desc = "A cube of shining metal, four inches to a side and covered in shallow grooves."
+	icon = 'icons/obj/assemblies.dmi'
+	icon_state = "posibrain"
 	organ_tag = BP_BRAIN
 	parent_organ = BP_HEAD
 	vital = TRUE

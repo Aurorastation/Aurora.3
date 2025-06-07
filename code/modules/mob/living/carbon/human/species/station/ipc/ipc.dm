@@ -99,7 +99,7 @@
 		BP_COOLING_UNIT = /obj/item/organ/internal/machine/cooling_unit,
 		BP_REACTOR = /obj/item/organ/internal/machine/reactor,
 		BP_ACCESS_PORT = /obj/item/organ/internal/machine/access_port,
-		BP_CELL    = /obj/item/organ/internal/machine/cell,
+		BP_CELL    = /obj/item/organ/internal/machine/power_core,
 		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
 		BP_IPCTAG = /obj/item/organ/internal/machine/ipc_tag
 	)
@@ -178,7 +178,7 @@
 /datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	. = ..()
 	check_tag(H, H.client)
-	var/obj/item/organ/internal/machine/cell/C = H.internal_organs_by_name[BP_CELL]
+	var/obj/item/organ/internal/machine/power_core/C = H.internal_organs_by_name[BP_CELL]
 	if(C)
 		C.move_charge_factor = move_charge_factor
 
@@ -201,7 +201,7 @@
 
 			cost *= damage_mod + ((100 - hydraulics_integrity) / 100)
 
-	var/obj/item/organ/internal/machine/cell/C = H.internal_organs_by_name[BP_CELL]
+	var/obj/item/organ/internal/machine/power_core/C = H.internal_organs_by_name[BP_CELL]
 	if(istype(C))
 		C.use(cost * sprint_cost_factor)
 		SEND_SIGNAL(H, COMSIG_IPC_HAS_SPRINTED)
@@ -431,13 +431,13 @@
 	check_tag(H, H.client)
 
 /datum/species/machine/has_stamina_for_pushup(var/mob/living/carbon/human/human)
-	var/obj/item/organ/internal/machine/cell/C = human.internal_organs_by_name[BP_CELL]
+	var/obj/item/organ/internal/machine/power_core/C = human.internal_organs_by_name[BP_CELL]
 	if(!C.cell)
 		return FALSE
 	return C.cell.charge > (C.cell.maxcharge / 10)
 
 /datum/species/machine/drain_stamina(var/mob/living/carbon/human/human, var/stamina_cost)
-	var/obj/item/organ/internal/machine/cell/C = human.internal_organs_by_name[BP_CELL]
+	var/obj/item/organ/internal/machine/power_core/C = human.internal_organs_by_name[BP_CELL]
 	if(C)
 		C.use(stamina_cost * 8)
 

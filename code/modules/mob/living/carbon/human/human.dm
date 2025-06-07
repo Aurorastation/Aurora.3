@@ -226,7 +226,7 @@
 			. += "Tank Pressure: [internal.air_contents.return_pressure()]"
 			. += "Distribution Pressure: [internal.distribute_pressure]"
 
-	var/obj/item/organ/internal/machine/cell/IC = internal_organs_by_name[BP_CELL]
+	var/obj/item/organ/internal/machine/power_core/IC = internal_organs_by_name[BP_CELL]
 	if(IC && IC.cell)
 		. += "Battery charge: [IC.get_charge()]/[IC.cell.maxcharge]"
 
