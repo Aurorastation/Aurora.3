@@ -71,6 +71,10 @@
 	QDEL_NULL(talking_atom)
 	return ..()
 
+/obj/CouldUseUI(mob/user)
+	..()
+	user.AddTopicPrint(src)
+
 /obj/Topic(href, href_list, var/datum/ui_state/state = GLOB.default_state)
 	if(..())
 		return 1
