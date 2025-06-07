@@ -329,6 +329,20 @@
 			return TRUE
 		uninstall_component(user, H)
 		return TRUE
+
+	if(istype(attacking_item, /obj/item/access_cable))
+		var/obj/item/access_cable/access_cable = attacking_item
+		if(!universal_port)
+			to_chat(user, SPAN_WARNING("There isn't a port to slot \the [access_cable] into!"))
+			return
+
+		if(universal_port.access_cable)
+			to_chat(user, SPAN_WARNING("There's already a cable in the universal port!"))
+			return
+
+		if(do_after(user, 1 SECONDS))
+			visible_message(SPAN_NOTICE("[user] slots \the [access_cable] into \the [src]."))
+			universal_port.insert_cable(access_cable, user)
 	return ..()
 
 /obj/item/modular_computer/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)

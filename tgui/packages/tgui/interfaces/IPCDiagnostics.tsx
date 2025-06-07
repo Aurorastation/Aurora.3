@@ -72,7 +72,7 @@ export const DiagnosticsWindow = (props, context) => {
     <>
       <Section title={data.patient_name + ': Internal Information'}>
         <Box>
-          Diagnostics unit integrity at{' '}
+          Diagnostics unit integrity{' '}
           <Box as="span" bold textColor={damageLabel(data.integrity)}>
             {describeIntegrity(data.integrity)}
           </Box>

@@ -387,7 +387,11 @@ em {
   background-color: #000;
   display: block;
 
-  animation: glitch 1s infinite;
+  text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+    -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+    -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+
+  animation: glitch 650ms infinite;
 }
 
 /* Admin: Private Messages */
@@ -685,26 +689,38 @@ h2.alert {
   padding: 0;
 }
 
-/*Keyframes. Taken from CM-SS13.*/
-
 @keyframes glitch {
-  25% {
-    color: #00ff00;
-    transform: translate(-2px, -1px);
+  0% {
+    text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.85),
+      -0.04em -0.03em 0 rgba(0, 255, 0, 0.85),
+      -0.03em 0.05em 0 rgba(0, 0, 255, 0.85);
   }
-
+  20% {
+    text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.85),
+      -0.04em -0.03em 0 rgba(0, 255, 0, 0.85),
+      -0.03em 0.05em 0 rgba(0, 0, 255, 0.85);
+  }
+  21% {
+    text-shadow: -0.04em -0.03em 0 rgba(255, 0, 0, 0.85),
+      0.025em 0.025em 0 rgba(0, 255, 0, 0.85),
+      -0.04em -0.04em 0 rgba(0, 0, 255, 0.85);
+  }
+  49% {
+    text-shadow: -0.04em -0.03em 0 rgba(255, 0, 0, 0.85),
+      0.025em 0.025em 0 rgba(0, 255, 0, 0.85),
+      -0.04em -0.04em 0 rgba(0, 0, 255, 0.85);
+  }
   50% {
-    color: #009900;
-    transform: translate(1px, -2px);
+    text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.85),
+      0.05em 0 0 rgba(0, 255, 0, 0.85), 0 -0.04em 0 rgba(0, 0, 255, 0.85);
   }
-
-  75% {
-    color: #007000;
-    transform: translate(-1px, 2px);
+  99% {
+    text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.85),
+      0.05em 0 0 rgba(0, 255, 0, 0.85), 0 -0.04em 0 rgba(0, 0, 255, 0.85);
   }
-
   100% {
-    color: #003a00;
-    transform: translate(1px, 1px);
+    text-shadow: -0.03em 0 0 rgba(255, 0, 0, 0.85),
+      -0.03em -0.03em 0 rgba(0, 255, 0, 0.85),
+      -0.03em -0.04em 0 rgba(0, 0, 255, 0.85);
   }
 }

@@ -87,6 +87,17 @@
 		return 0
 
 	return (damage / max_damage) * 100
+
+/**
+ * This function returns a damage multiplier, starting from 1 and dropping to 0, depending on damage.
+ * Returns a multiplier between 0 and 1.
+ */
+/obj/item/organ/internal/machine/proc/get_damage_multiplier()
+	if(!damage)
+		return 1
+
+	return 1 - (damage / max_damage)
+
 /**
  * This proc is used to determine which integrity damage threshold we are at, and execute the proper proc..
  * Only called below 75%.
@@ -114,8 +125,8 @@
  */
 /obj/item/organ/internal/machine/proc/get_integrity_damage_probability(integrity)
 	// integrity is a probability, so first of all check the difference between max probability and probaiblity
-	// 100 + (-100) = 0 | 100 + (-50) = 50
-	var/damage_probability = 100 + (-integrity)
+	// 100 - 100 = 0 | 100 - 50 = 50
+	var/damage_probability = 100 - integrity
 	return damage_probability
 
 /**

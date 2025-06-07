@@ -51,7 +51,7 @@
 	if(!cell)
 		return
 
-	return cell.give(amount)
+	return cell.give(amount * get_damage_multiplier())
 
 /obj/item/organ/internal/machine/cell/use(var/amount)
 	if(!is_usable() || !cell)
@@ -61,7 +61,6 @@
 
 /obj/item/organ/internal/machine/cell/process()
 	..()
-
 	if(!owner)
 		return
 
@@ -83,6 +82,11 @@
 
 /obj/item/organ/internal/machine/cell/emp_act(severity)
 	. = ..()
+
+	if(electronics.get_status() > 0)
+		to_chat(owner, SPAN_MACHINE_WARNING("Power core electronics damaged. Caution. Caution."))
+		electronics.take_damage(severity * 10)
+		return
 
 	if(cell)
 		cell.emp_act(severity)
@@ -117,6 +121,34 @@
 		else
 			to_chat(user, SPAN_WARNING("You need to unscrew the battery panel first."))
 
+/obj/item/organ/internal/machine/cell/low_integrity_damage(integrity)
+	. = ..()
+	if(!.)
+		return
+
+	to_chat(owner, SPAN_WARNING("Your [src]'s wiring fizzles."))
+	electronics.take_damage(10)
+
+/obj/item/organ/internal/machine/cell/medium_integrity_damage(integrity)
+	. = ..()
+	if(!.)
+		return
+
+	if(prob(get_integrity_damage_probability()))
+		to_chat(owner, SPAN_DANGER("Your [src]'s power conduits burn!"))
+		servo_cost *= 1.5
+
+/obj/item/organ/internal/machine/cell/high_integrity_damage(integrity)
+	. = ..()
+	if(!.)
+		return
+
+	if(prob(get_integrity_damage_probability()))
+		to_chat(owner, SPAN_DANGER("Your [src]'s cell melts under the overvoltage!"))
+		var/old_charge = cell.maxcharge
+		cell.maxcharge *= 0.85
+		cell.use(old_charge - cell.maxcharge)
+
 /obj/item/organ/internal/machine/cell/proc/replace_cell(var/obj/item/cell/C)
 	if(istype(cell))
 		qdel(cell)
@@ -127,7 +159,7 @@
 
 /obj/item/organ/internal/machine/cell/listen()
 	if(get_charge())
-		return "faint hum of the power bank"
+		return "faint hum of \the [src]"
 
 /obj/item/organ/internal/machine/cell/terminator
 	name = "shielded power core"

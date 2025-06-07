@@ -17,11 +17,16 @@
 	RegisterSignal(access_cable, COMSIG_QDELETING, PROC_REF(clear_cable))
 	add_verb(owner, /mob/living/carbon/human/proc/access_cable)
 
+/obj/item/organ/internal/machine/access_port/replaced(mob/living/carbon/human/target, obj/item/organ/external/affected)
+	. = ..()
+	add_verb(owner, /mob/living/carbon/human/proc/access_cable)
+
+/obj/item/organ/internal/machine/access_port/removed(mob/living/carbon/human/target, mob/living/user)
+	remove_verb(owner, /mob/living/carbon/human/proc/access_cable)
+	. = ..()
+
 /obj/item/organ/internal/machine/access_port/attack_self(mob/user)
 	. = ..()
-	if(owner.last_special > world.time)
-		return
-
 	if(user.stat == DEAD)
 		return
 
@@ -45,7 +50,6 @@
 	synth.visible_message(SPAN_NOTICE("[synth] extends their universal access cable from their neck."), SPAN_NOTICE("You retrieve your universal access cable from your neck."))
 	synth.put_in_active_hand(access_cable)
 
-	synth.last_special = world.time
 
 /**
  * This proc is called whenever anything is inserted into the internal port.
@@ -86,7 +90,7 @@
 	UnregisterSignal(internal_port, COMSIG_QDELETING)
 	internal_port = null
 
-/obj/item/organ/internal/machine/access_port/insert_cable(obj/item/access_cable/cable)
+/obj/item/organ/internal/machine/access_port/insert_cable(obj/item/access_cable/cable, mob/user)
 	. = ..()
 	insert_item(cable)
 
@@ -96,6 +100,11 @@
 		to_chat(user, SPAN_WARNING("There is no diagnostics unit!"))
 		return
 
+	var/obj/item/organ/internal/machine/posibrain/posibrain = owner.internal_organs_by_name[BP_BRAIN]
+	if(istype(posibrain))
+		if(posibrain.firewall)
+			to_chat(user, SPAN_MACHINE_WARNING("Firewall block detected. Aborting."))
+			to_chat(diagnostics_unit.owner, SPAN_MACHINE_WARNING("Your firewall has blocked an unrecognized access attempt."))
 	diagnostics_unit.open_diagnostics(user)
 
 /obj/item/access_cable
@@ -144,22 +153,22 @@
  * We have to draw a beam from the human in that case.
  */
 /obj/item/access_cable/proc/create_cable(var/atom/new_source, var/atom/new_target)
-	clear_cable()
+	clear_cable_full()
 	beam_source = new_source
 	beam_target = new_target
 	RegisterSignal(beam_source, COMSIG_MOVABLE_MOVED, PROC_REF(check_retract_range), TRUE)
 	RegisterSignal(beam_target, COMSIG_MOVABLE_MOVED, PROC_REF(check_retract_range), TRUE)
-	cable = new(beam_source, beam_target, beam_icon_state = "cable", time = -1, maxdistance = range)
+	cable = new(beam_source, beam_target, beam_icon_state = "cable", time = -1, maxdistance = range + 1)
 	cable.Start()
 
 /obj/item/access_cable/dropped(mob/user)
 	. = ..()
-	clear_cable()
+	clear_cable_visuals()
 	create_cable(beam_source, src)
 
 /obj/item/access_cable/pickup(mob/user)
 	. = ..()
-	clear_cable()
+	clear_cable_visuals()
 
 /**
  * Signal handler.
@@ -171,22 +180,36 @@
 		return
 
 	if(get_dist(source, src) > range)
-		visible_message(SPAN_NOTICE("\The [src] automatically retracts!"))
-		forceMove(source)
-		clear_cable()
+		retract()
+
+/**
+ * Automatically drop the cable and then retract it to the parent.
+ */
+/obj/item/access_cable/proc/retract()
+	if(target)
+		target.remove_cable()
+	visible_message(SPAN_NOTICE("\The [src] automatically retracts!"))
+	forceMove(source)
+	clear_cable_full()
 
 /**
  * Retracts the cable back into the parent object.
  */
-/obj/item/access_cable/proc/clear_cable()
+/obj/item/access_cable/proc/clear_cable_full()
 	if(beam_source)
 		UnregisterSignal(beam_source, COMSIG_MOVABLE_MOVED)
+
+	target = null
+	clear_cable_visuals()
+
+/**
+ * Only clears the cable visuals (so, just the beam).
+ */
+/obj/item/access_cable/proc/clear_cable_visuals()
 	if(beam_target)
 		UnregisterSignal(beam_target, COMSIG_MOVABLE_MOVED)
 
 	beam_target = null
-	target = null
-
 	if(cable)
 		cable.End()
 		QDEL_NULL(cable)
@@ -236,9 +259,8 @@
 		else
 			user.visible_message(SPAN_WARNING("[user] jacks \the [src] into their access port!"), SPAN_WARNING("You jack \the [src] into your access port!"))
 
-		user.drop_from_inventory(src)
 		create_cable(beam_source, human)
-		access_port.insert_cable(src)
+		access_port.insert_cable(src, user)
 	else
 		. = ..()
 
@@ -266,7 +288,7 @@
 		synth.visible_message(SPAN_NOTICE("[synth] retracts [synth.get_pronoun("his")] access cable back into their access port."), SPAN_NOTICE("You retract your access cable back into your access port."))
 		synth.drop_from_inventory(src, get_turf(src))
 		forceMove(access_port)
-		clear_cable()
+		clear_cable_full()
 
 /mob/living/carbon/human/proc/access_cable()
 	set name = "Access Cable"

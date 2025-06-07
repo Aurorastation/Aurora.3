@@ -324,8 +324,17 @@
 /**
  * Called when an access cable - from an IPC or from a roboticist tool - is inserted into an object.
  */
-/obj/proc/insert_cable(obj/item/access_cable/cable)
+/obj/proc/insert_cable(obj/item/access_cable/cable, mob/user)
+	user.drop_from_inventory(cable)
+	cable.forceMove(src)
 	cable.target = src
+
+/**
+ * Called when an access cable is removed from something, forcibly or not.
+ * Override as needed to clear variables up.
+ */
+/obj/proc/remove_cable(obj/item/access_cable/cable)
+	return
 
 /**
  * Called when an access cable - from an IPC or from a roboticist tool - is used on an object to interact with it.

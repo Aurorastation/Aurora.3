@@ -79,6 +79,8 @@
 	var/obj/item/computer_hardware/ai_slot/ai_slot							// AI slot, an intellicard housing that allows modifications of AIs.
 	var/obj/item/computer_hardware/tesla_link/tesla_link					// Tesla Link, Allows remote charging from nearest APC.
 	var/obj/item/device/paicard/personal_ai									// Personal AI, can control the device via a verb when installed
+	/// The universal port. Allows connection from IPCs through access cables.
+	var/obj/item/computer_hardware/universal_port/universal_port
 	var/obj/item/computer_hardware/flashlight/flashlight
 	var/listener/listener
 
