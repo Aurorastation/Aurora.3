@@ -28,12 +28,21 @@
 	// The zlevel that this computer is spawned on.
 	var/starting_z_level = null
 
+	/// The access cable inserted into this computer, if any.
+	var/obj/item/access_cable/inserted_cable
+
 /obj/machinery/computer/Initialize()
 	. = ..()
 	overlay_layer = layer
 	starting_z_level = src.z
 	power_change()
 	update_icon()
+
+/obj/machinery/computer/Destroy()
+	if(inserted_cable)
+		inserted_cable.retract()
+		inserted_cable = null
+	return ..()
 
 /obj/machinery/computer/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = TRUE)
 	if(!operable() || !is_station_level(z) || user.stat)
@@ -45,7 +54,6 @@
 
 	if(prob(20/severity))
 		set_broken()
-
 
 /obj/machinery/computer/ex_act(severity)
 	switch(severity)
@@ -222,6 +230,19 @@
 /obj/machinery/computer/can_attach_sticker(var/mob/user, var/obj/item/sticker/S)
 	to_chat(user, SPAN_WARNING("\The [src]'s non-stick surface prevents you from attaching a sticker to it!"))
 	return FALSE
+
+/obj/machinery/computer/insert_cable(obj/item/access_cable/cable, mob/user)
+	. = ..()
+	inserted_cable = cable
+	cable.create_cable(cable.beam_source, src)
+
+/obj/machinery/computer/cable_interact(obj/item/access_cable/cable, mob/user)
+	. = ..()
+	attack_hand(user)
+
+/obj/machinery/computer/remove_cable(obj/item/access_cable/cable)
+	. = ..()
+	inserted_cable = null
 
 /obj/machinery/computer/terminal
 	name = "terminal"

@@ -188,6 +188,11 @@
 		var/obj/item/organ/internal/stomach/stomach = internal_organs_by_name[BP_STOMACH]
 		if(stomach)
 			return stomach.ingested
+
+	if(should_have_organ(BP_REACTOR))
+		var/obj/item/organ/internal/machine/reactor/reactor = internal_organs_by_name[BP_REACTOR]
+		if(reactor && (reactor.power_supply_type & POWER_SUPPLY_BIOLOGICAL))
+			return reactor.bio_reagents
 	return touching
 
 /mob/living/carbon/human/proc/metabolize_ingested_reagents()
@@ -221,7 +226,7 @@
 			. += "Tank Pressure: [internal.air_contents.return_pressure()]"
 			. += "Distribution Pressure: [internal.distribute_pressure]"
 
-	var/obj/item/organ/internal/cell/IC = internal_organs_by_name[BP_CELL]
+	var/obj/item/organ/internal/machine/power_core/IC = internal_organs_by_name[BP_CELL]
 	if(IC && IC.cell)
 		. += "Battery charge: [IC.get_charge()]/[IC.cell.maxcharge]"
 
@@ -952,6 +957,13 @@
 	return
 
 /mob/living/carbon/human/proc/check_has_mouth()
+	// Look, it's not really a mouth, but you gotta do what you gotta do.
+	// Imagine the Bender shit from Futurama where he opens his stomach hatch and drops shit in there.
+	if(should_have_organ(BP_REACTOR))
+		var/obj/item/organ/internal/machine/reactor/reactor = internal_organs_by_name[BP_REACTOR]
+		if(reactor && (reactor.power_supply_type & POWER_SUPPLY_BIOLOGICAL))
+			return TRUE
+
 	// Todo, check stomach organ when implemented.
 	var/obj/item/organ/external/E = get_organ(BP_HEAD)
 	if(E && !E.is_stump())
@@ -1867,6 +1879,10 @@
 	return 0
 
 /mob/living/carbon/human/proc/can_drink(var/obj/item/I)
+	if(should_have_organ(BP_REACTOR))
+		var/obj/item/organ/internal/machine/reactor/reactor = internal_organs_by_name[BP_REACTOR]
+		if(reactor && (reactor.power_supply_type & POWER_SUPPLY_BIOLOGICAL))
+			return TRUE
 	if(!check_has_mouth())
 		to_chat(src, SPAN_NOTICE("Where do you intend to put \the [I]? You don't have a mouth!"))
 		return FALSE
@@ -2049,8 +2065,8 @@
 
 // Check if we should die.
 /mob/living/carbon/human/proc/handle_death_check()
-	if(should_have_organ(BP_BRAIN) && !is_mechanical()) //robots don't die via brain damage
-		var/obj/item/organ/internal/brain/brain = internal_organs_by_name[BP_BRAIN]
+	if(should_have_organ(BP_BRAIN))
+		var/obj/item/organ/internal/brain = internal_organs_by_name[BP_BRAIN]
 		if(!brain || (brain.status & ORGAN_DEAD))
 			return TRUE
 	return species.handle_death_check(src)

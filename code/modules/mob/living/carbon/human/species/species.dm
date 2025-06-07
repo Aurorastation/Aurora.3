@@ -71,6 +71,10 @@
 	var/race_key = 0       	                             // Used for mob icon cache string.
 	var/icon/icon_template                               // Used for mob icon generation for non-32x32 species.
 	var/mob_size	= MOB_MEDIUM
+	/// The weight of the mob. Affects if the mob can be easily lifted or not. Separate from size, as some mobs may be big but not particularly heavy.
+	var/mob_weight = MOB_WEIGHT_MEDIUM
+	/// The strength of the mob. A bonus to the checks on lifting/throwing other mobs.
+	var/mob_strength = MOB_STRENGTH_NORMAL
 	var/show_ssd = "in a deep slumber"
 	var/short_sighted
 	var/bald = 0
@@ -304,6 +308,7 @@
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right)
 		)
 
+	var/natural_armor_type = /datum/component/armor/natural
 	var/list/natural_armor
 
 	// Bump vars
@@ -454,7 +459,7 @@
 	if(H.bad_external_organs)     H.bad_external_organs.Cut()
 	if(H.bad_internal_organs)     H.bad_internal_organs.Cut()
 
-	var/datum/component/armor/armor_component = H.GetComponent(/datum/component/armor)
+	var/datum/component/armor/armor_component = H.GetComponent(natural_armor_type)
 	if(armor_component)
 		qdel(armor_component)
 
@@ -493,7 +498,7 @@
 			I.status |= ORGAN_ADV_ROBOT
 
 	if(natural_armor)
-		H.AddComponent(/datum/component/armor, natural_armor)
+		H.AddComponent(natural_armor_type, natural_armor)
 
 /datum/species/proc/tap(var/mob/living/carbon/human/H,var/mob/living/target)
 	if(H.on_fire)
@@ -529,13 +534,15 @@
 
 	return
 
-/datum/species/proc/handle_post_spawn(var/mob/living/carbon/human/H,var/kpg = 0) //Handles anything not already covered by basic species assignment. Keepgene value should only be used by genetics.
+/datum/species/proc/handle_post_spawn(var/mob/living/carbon/human/H, var/kpg = 0) //Handles anything not already covered by basic species assignment. Keepgene value should only be used by genetics.
 	add_inherent_verbs(H)
 	H.mob_bump_flag = bump_flag
 	H.mob_swap_flags = swap_flags
 	H.mob_push_flags = push_flags
 	H.pass_flags = pass_flags
 	H.mob_size = mob_size
+	H.mob_weight = mob_weight
+	H.mob_strength = mob_strength
 	H.eat_types = allowed_eat_types
 	if(!kpg)
 		if(islesserform(H))
@@ -965,3 +972,18 @@
  */
 /datum/species/proc/sleep_examine_msg(var/mob/M)
 	return SPAN_NOTICE("[M.get_pronoun("He")] appears to be fast asleep.\n")
+
+/**
+ * This proc is used to override speech checks for human mobs.
+ * If it returns FALSE, the mob will not be able to speak.
+ * Make sure to give the user the relevant error message in the override.
+ */
+/datum/species/proc/can_speak(mob/living/carbon/human/speaker, datum/language/speaking, message)
+	return TRUE
+
+/**
+ * This proc handles the species temperature regulation. By default, it just adds `passive_temp_gain` to the human's bodytemperature.
+ * Can be overridden for more complex calculations.
+ */
+/datum/species/proc/handle_temperature_regulation(mob/living/carbon/human/human)
+	human.bodytemperature += passive_temp_gain

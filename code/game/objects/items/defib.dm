@@ -420,7 +420,7 @@
 	make_announcement("pings, \"Resuscitation successful.\"", "notice")
 	playsound(get_turf(src), 'sound/machines/defib_success.ogg', 50, 0)
 	H.resuscitate()
-	var/obj/item/organ/internal/cell/potato = H.internal_organs_by_name[BP_CELL]
+	var/obj/item/organ/internal/machine/power_core/potato = H.internal_organs_by_name[BP_CELL]
 	if(istype(potato) && potato.cell)
 		var/obj/item/cell/C = potato.cell
 		C.give(chargecost)
