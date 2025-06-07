@@ -864,3 +864,8 @@
 /datum/access/enviro_testing_facility_access_sec
 	id = 252
 	desc = "Env-Test Facility Zoya, Security Access"
+
+#define ACCESS_CRUMBLING_STATION_COMMAND 253
+/datum/access/crumbling_station_command
+	id = ACCESS_CRUMBLING_STATION_COMMAND
+	desc = "Independent Commercial Station Command"
