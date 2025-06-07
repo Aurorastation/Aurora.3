@@ -34,6 +34,7 @@
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS
+	item_flags = ITEM_FLAG_THICK_MATERIAL
 
 	///Initial name of the firesuit's emissive overlay. Will be changed based on [icon_supported_species_tags], above
 	var/initial_emissive_state = "firesuit_emissive"

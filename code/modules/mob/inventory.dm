@@ -526,12 +526,19 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 		drop_from_inventory(I)
 		qdel(I)
 
-/mob/proc/get_covering_equipped_items(var/body_parts)
+/// Returns all items which covers any given body part
+/mob/proc/get_covering_equipped_items(body_parts)
 	. = list()
-	for(var/entry in get_equipped_items())
+	for(var/entry as anything in get_equipped_items())
 		var/obj/item/I = entry
 		if(I.body_parts_covered & body_parts)
 			. += I
+		if(isclothing(I))
+			var/obj/item/clothing/clothing = I
+			if(LAZYLEN(clothing.accessories))
+				for(var/obj/item/clothing/accessory/accessory as anything in clothing.accessories)
+					if(accessory.body_parts_covered & body_parts)
+						. += accessory
 
 /mob/living/carbon/human/proc/equipOutfit(outfit, visualsOnly = FALSE)
 	SHOULD_NOT_SLEEP(TRUE)
@@ -563,12 +570,17 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 
 	return O.pre_equip(src, visualsOnly)
 
-// Returns the first item which covers any given body part
-/mob/proc/get_covering_equipped_item(var/body_parts)
-	for(var/entry in get_equipped_items())
-		var/obj/item/I = entry
-		if(I.body_parts_covered & body_parts)
-			return I
+/// Returns the first item which covers any given body part
+/mob/proc/get_covering_equipped_item(body_parts)
+	for(var/obj/item/entry as anything in get_equipped_items())
+		if(entry.body_parts_covered & body_parts)
+			return entry
+		if(isclothing(entry))
+			var/obj/item/clothing/clothing = entry
+			if(LAZYLEN(clothing.accessories))
+				for(var/obj/item/clothing/accessory/accessory as anything in clothing.accessories)
+					if(accessory.body_parts_covered & body_parts)
+						return accessory
 
 //When you drop an extremely heavy 406mm shell onto your foot. Oops!
 /mob/living/carbon/proc/throw_fail_consequences(var/obj/item/I)
