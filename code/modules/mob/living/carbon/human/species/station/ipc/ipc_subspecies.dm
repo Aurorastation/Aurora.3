@@ -401,7 +401,7 @@
 		to_chat(src, SPAN_WARNING("You need your hand to be free!"))
 		return
 
-	var/obj/item/organ/external/limb_list = list()
+	var/limb_list = list()
 	for(var/obj/item/organ/external/limb in organs)
 		if(limb.limb_name in list(BP_CHEST, BP_GROIN, BP_HEAD))
 			continue

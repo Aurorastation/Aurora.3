@@ -136,7 +136,7 @@ export const OrganDisplay = (props, context) => {
           <Box italic>{organ.desc}</Box>
           <Divider />
           <Box>
-            The {organ.name}'s internal components are{' '}
+            The {organ.name}&apos;s internal components are{' '}
             <Box
               as="span"
               bold
