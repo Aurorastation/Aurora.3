@@ -26,7 +26,7 @@
 			P.back_icon = "card_back_tarot"
 			cards += P
 
-/obj/item/deck/tarot/AltClick(var/mob/user as mob)
+/obj/item/deck/tarot/AltClick(mob/user)
 	var/list/newcards = list()
 	while(cards.len)
 		var/datum/playingcard/P = pick(cards)
@@ -37,7 +37,7 @@
 		cards -= P
 	cards = newcards
 	playsound(src.loc, 'sound/items/cards/cardshuffle.ogg', 100, 1, -4)
-	user.visible_message("\The [user] shuffles \the [src].")
+	balloon_alert_to_viewers("shuffling")
 
 
 /obj/item/deck/tarot/adhomai

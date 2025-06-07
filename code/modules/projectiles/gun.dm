@@ -285,7 +285,7 @@
 	else
 		if(needspin)
 			to_chat(user, SPAN_WARNING("\The [src]'s trigger is locked. This weapon doesn't have a firing pin installed!"))
-			balloon_alert(user, "Trigger locked, firing pin needed!")
+			balloon_alert(user, "trigger locked, firing pin needed!")
 			return FALSE
 		else
 			return TRUE
@@ -705,7 +705,7 @@
 	safety_state = !safety_state
 	update_icon()
 	if(user)
-		balloon_alert(user, "Safety [safety_state ? "on" : "off"].")
+		balloon_alert(user, "safety [safety_state ? "on" : "off"].")
 		if(!safety_state)
 			playsound(src, safetyon_sound, 30, 1)
 		else
@@ -933,15 +933,15 @@
 /obj/item/gun/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/material/knife/bayonet))
 		if(!can_bayonet)
-			balloon_alert(user, "\the [attacking_item.name] doesn't fit")
+			balloon_alert(user, "doesn't fit!")
 			return ..()
 
 		if(bayonet)
-			balloon_alert(user, "\the [src] already has a bayonet")
+			balloon_alert(user, "already has a bayonet!")
 			return TRUE
 
 		if(user.l_hand != attacking_item && user.r_hand != attacking_item)
-			balloon_alert(user, "not in hand")
+			balloon_alert(user, "not in hand!")
 			return
 
 		user.drop_from_inventory(attacking_item,src)
@@ -956,19 +956,19 @@
 
 	if(istype(attacking_item, /obj/item/ammo_display))
 		if(!can_ammo_display)
-			balloon_alert(user, "\the [attacking_item.name] doesn't fit")
+			balloon_alert(user, "doesn't fit!")
 			return TRUE
 
 		if(ammo_display)
-			balloon_alert(user, "\the [src] already has an ammo display")
+			balloon_alert(user, "already has an ammo display!")
 			return TRUE
 
 		if(user.l_hand != attacking_item && user.r_hand != attacking_item)
-			balloon_alert(user, "not in hand")
+			balloon_alert(user, "not in hand!")
 			return
 
 		if(displays_maptext)
-			balloon_alert(user, "\the [src] is already displaying its ammo count")
+			balloon_alert(user, "already displaying its ammo count!")
 			return TRUE
 
 		user.drop_from_inventory(attacking_item, src)

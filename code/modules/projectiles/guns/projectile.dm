@@ -235,15 +235,15 @@
 	if(istype(attacking_item, /obj/item/suppressor))
 		var/obj/item/suppressor/S = attacking_item
 		if(!can_suppress)
-			balloon_alert(user, "\the [S.name] doesn't fit")
+			balloon_alert(user, "doesn't fit!")
 			return
 
 		if(suppressed)
-			balloon_alert(user, "already has a suppressor")
+			balloon_alert(user, "already has a suppressor!")
 			return
 
 		if(user.l_hand != S && user.r_hand != S)
-			balloon_alert(user, "not in hand")
+			balloon_alert(user, "not in hand!")
 			return
 
 		user.drop_from_inventory(suppressor, src)
