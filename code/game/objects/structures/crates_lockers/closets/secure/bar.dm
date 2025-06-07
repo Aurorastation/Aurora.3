@@ -23,3 +23,21 @@
 	new /obj/item/reagent_containers/food/drinks/bottle/small/beer(src)
 	new /obj/item/reagent_containers/food/drinks/bottle/small/beer(src)
 	new /obj/item/reagent_containers/food/drinks/bottle/small/beer(src)
+
+/obj/structure/closet/secure_closet/cabinet/beer
+	name = "beer closet"
+	desc = "A cabinet stacked end-to-end with six packs of beer."
+	req_access = null
+	storage_capacity = 45
+
+/obj/structure/closet/secure_closet/cabinet/beer/fill()
+	new /obj/item/storage/box/fancy/yoke/beer(src)
+	new /obj/item/storage/box/fancy/yoke/ebisu(src)
+	new /obj/item/storage/box/fancy/yoke/shimauma(src)
+	new /obj/item/storage/box/fancy/yoke/moonlabor(src)
+	new /obj/item/storage/box/fancy/yoke/earthmover(src)
+	new /obj/item/storage/box/fancy/yoke/whistlingforest(src)
+	new /obj/item/storage/box/fancy/yoke/threetowns(src)
+
+/obj/structure/closet/secure_closet/cabinet/beer/horizon
+	req_access = list(ACCESS_BAR)
