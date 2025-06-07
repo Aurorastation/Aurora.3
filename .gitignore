@@ -70,3 +70,8 @@ define_sanity_output.txt
 
 # Unit test / coverage reports
 .cache
+code/modules/projectiles/guns/projectile/automatic.dm
+code/modules/projectiles/ammunition/boxes.dm
+code/modules/projectiles/ammunition/bullets.dm
+code/modules/projectiles/guns/projectile/automatic.dm
+code/modules/projectiles/guns/projectile/pistol.dm
