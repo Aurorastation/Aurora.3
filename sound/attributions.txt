@@ -34,6 +34,12 @@ All sounds listed above in this section part of "Valhalla", licensed under CC0 1
 ATTRIBUTIONS SECTION END
 
 ATTRIBUTIONS SECTION START
+sound/items/drop/bone_drop.ogg - "MugClinks", licensed under CC0. Obtained from https://freesound.org/people/sidequesting/sounds/547489/
+sound/item/cards/bone_flip.ogg - "MugClinks", licensed under CC0. Obtained from https://freesound.org/people/sidequesting/sounds/547489/
+sound/item/cards/bone_shuffle.ogg - "Porcelain Shards", licensed under CC0. Obtained from https://freesound.org/people/IENBA/sounds/763616/
+ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTION START
 sound/weapons/gunshot/ship_weapons/120mm_mortar.ogg - "Mortar", licensed under CC0. Obtained from https://freesound.org/people/Mozfoo/sounds/529239/
 sound/weapons/gunshot/ship_weapons/rotary_fire.ogg - "Minigun", licensed under CC0. Obtained and edited from https://freesound.org/people/Breviceps/sounds/557595/
 sound/weapons/gunshot/ship_weapons/flak_fire.ogg - "Minigun Fire", licensed under CC0. Obtained and edited from https://freesound.org/people/Bratish/sounds/500304/
