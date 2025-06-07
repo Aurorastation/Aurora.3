@@ -16,6 +16,13 @@ export type DiagnosticsData = {
 
   organs: Organ[];
   limbs: Limb[];
+
+  armor_data: ArmorDamage[];
+};
+
+type ArmorDamage = {
+  key: string;
+  status: string;
 };
 
 type Organ = {
@@ -93,6 +100,26 @@ export const DiagnosticsWindow = (props, context) => {
           </Box>
           .
         </Box>
+        {data.armor_data.length ? (
+          <Box>
+            <Divider />
+            Internal armor plating condition:{' '}
+            <LabeledList>
+              {data.armor_data.map((armor) => (
+                <LabeledList.Item label={capitalize(armor.key)} key={armor.key}>
+                  <Box
+                    as="span"
+                    bold
+                    textColor={armorDamageLabel(armor.status)}>
+                    {capitalize(armor.status)}
+                  </Box>
+                </LabeledList.Item>
+              ))}
+            </LabeledList>
+          </Box>
+        ) : (
+          'Internal armor plating nominal.'
+        )}
       </Section>
       <OrganDisplay />
     </>
@@ -198,6 +225,18 @@ const damageLabel = (value, max_value = 100) => {
     return 'good';
   } else {
     return 'green';
+  }
+};
+
+const armorDamageLabel = (value, max_value = 100) => {
+  if (value === 'minor') {
+    return 'good';
+  } else if (value === 'moderate') {
+    return 'average';
+  } else if (value === 'serious') {
+    return 'orange';
+  } else if (value === 'catastrophic') {
+    return 'bad';
   }
 };
 

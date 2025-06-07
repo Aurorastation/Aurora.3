@@ -342,7 +342,9 @@
 	heat_discomfort_level = 900
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/check_tag
+		/mob/living/carbon/human/proc/check_tag,
+		/mob/living/carbon/human/proc/discard_limb,
+		/mob/living/carbon/human/proc/attach_hephaestus_limb
 	)
 
 	examine_color = "#688359"
@@ -384,6 +386,78 @@
 
 	machine_ui_theme = "hephaestus"
 
+	natural_armor = list(
+		ballistic = ARMOR_BALLISTIC_SMALL,
+		melee = ARMOR_MELEE_KEVLAR
+	)
+
+/mob/living/carbon/human/proc/discard_limb()
+	set name = "Discard Limb"
+	set category = "Object"
+
+	if(incapacitated(INCAPACITATION_DEFAULT))
+		return
+
+	if(get_active_hand())
+		to_chat(src, SPAN_WARNING("You need your hand to be free!"))
+		return
+
+	var/obj/item/organ/external/limb_list = list()
+	for(var/obj/item/organ/external/limb in organs)
+		if(limb.limb_name in list(BP_CHEST, BP_GROIN, BP_HEAD))
+			continue
+
+		if(limb.robotize_type == PROSTHETIC_HI)
+			limb_list[capitalize_first_letters(limb.name)] = limb
+
+	var/chosen_limb = tgui_input_list(src, "Choose a limb to discard.", "Discard Limb", limb_list)
+	if(!chosen_limb)
+		return
+
+	var/obj/item/organ/external/oopsie = limb_list[chosen_limb]
+	visible_message(SPAN_DANGER("[src] ejects [get_pronoun("his")] [oopsie] with a hiss!"))
+	oopsie.droplimb(TRUE, DROPLIMB_EDGE)
+
+/mob/living/carbon/human/proc/attach_hephaestus_limb()
+	set name = "Attach Limb"
+	set category = "Object"
+
+	if(incapacitated(INCAPACITATION_DEFAULT))
+		return
+
+	var/obj/item/organ/external/limb = get_active_hand()
+	if(!istype(limb))
+		to_chat(src, SPAN_WARNING("You need to be holding a compatible Hephaestus Industries limb!"))
+		return
+
+	if(!limb.robotic)
+		to_chat(src, SPAN_WARNING("That is not a compatible Hephaestus Industries limb!"))
+		return
+
+	if(limb.robotize_type != PROSTHETIC_HI)
+		to_chat(src,SPAN_WARNING("That prosthetic does not have the right ports for your joint!"))
+		return
+
+	if(organs_by_name[limb.limb_name])
+		to_chat(src,SPAN_WARNING("You already have a limb of this type!"))
+		return
+
+	if(!organs_by_name[limb.parent_organ])
+		to_chat(src,SPAN_WARNING("You are missing the appropriate joint to attach that limb!"))
+		return
+
+	visible_message(SPAN_NOTICE("[src] begins attaching \the [limb] to the appropriate joint..."))
+	if(!do_after(src, 10 SECONDS))
+		return
+
+
+	drop_from_inventory(limb)
+	limb.replaced(src)
+
+	visible_message(SPAN_NOTICE("[src] attaches \the [limb] to their body!"))
+	update_body()
+	updatehealth()
+	UpdateDamageIcon()
 
 /datum/species/machine/industrial/hephaestus/get_light_color(mob/living/carbon/human/H)
 	if (istype(H))

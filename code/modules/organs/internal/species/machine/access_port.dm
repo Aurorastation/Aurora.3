@@ -4,7 +4,7 @@
 	organ_tag = BP_ACCESS_PORT
 	parent_organ = BP_HEAD
 
-	action_button_name = "Extend Cable"
+	action_button_name = "Extend or Retract Cable"
 
 	/// Our access cable, which can be extended to connect into things.
 	var/obj/item/access_cable/access_cable = /obj/item/access_cable/synthetic
@@ -16,6 +16,11 @@
 	access_cable = new access_cable(src, src, owner)
 	RegisterSignal(access_cable, COMSIG_QDELETING, PROC_REF(clear_cable))
 	add_verb(owner, /mob/living/carbon/human/proc/access_cable)
+
+/obj/item/organ/internal/machine/access_port/Destroy()
+	QDEL_NULL(access_cable)
+	QDEL_NULL(internal_port)
+	return ..()
 
 /obj/item/organ/internal/machine/access_port/replaced(mob/living/carbon/human/target, obj/item/organ/external/affected)
 	. = ..()
@@ -37,19 +42,28 @@
 		to_chat(user, SPAN_WARNING("You don't have an access cable anymore!"))
 		return
 
-	if(access_cable.loc != src)
-		to_chat(user, SPAN_WARNING("Your access cable is already extended!"))
-		return
-
 	// it's an organ, should never be not human type
 	var/mob/living/carbon/human/synth = user
 	if(synth.get_active_hand())
 		to_chat(synth, SPAN_WARNING("You need a free hand to retrieve your universal access cable!"))
 		return
 
+	if(access_cable.loc != src)
+		// not sure how NOT having a target and being here would work, but it's a fallback just in case things bug out
+		if(access_cable.target)
+			visible_message(SPAN_NOTICE("[owner] disconnects their [access_cable] from \the [access_cable.target]."))
+			access_cable.target.remove_cable(access_cable)
+		access_cable.clear_cable_full()
+		access_cable.forceMove(src)
+		return
+
+	if(get_integrity() < 75)
+		to_chat(user, SPAN_WARNING("You struggle to pry the cable out of the damaged port..."))
+		if(!do_after(user, 2 SECONDS))
+			return
+
 	synth.visible_message(SPAN_NOTICE("[synth] extends their universal access cable from their neck."), SPAN_NOTICE("You retrieve your universal access cable from your neck."))
 	synth.put_in_active_hand(access_cable)
-
 
 /**
  * This proc is called whenever anything is inserted into the internal port.
@@ -153,7 +167,7 @@
  * We have to draw a beam from the human in that case.
  */
 /obj/item/access_cable/proc/create_cable(var/atom/new_source, var/atom/new_target)
-	clear_cable_full()
+	clear_cable_visuals()
 	beam_source = new_source
 	beam_target = new_target
 	RegisterSignal(beam_source, COMSIG_MOVABLE_MOVED, PROC_REF(check_retract_range), TRUE)
@@ -186,8 +200,6 @@
  * Automatically drop the cable and then retract it to the parent.
  */
 /obj/item/access_cable/proc/retract()
-	if(target)
-		target.remove_cable()
 	visible_message(SPAN_NOTICE("\The [src] automatically retracts!"))
 	forceMove(source)
 	clear_cable_full()
@@ -199,6 +211,8 @@
 	if(beam_source)
 		UnregisterSignal(beam_source, COMSIG_MOVABLE_MOVED)
 
+	if(target)
+		target.remove_cable(src)
 	target = null
 	clear_cable_visuals()
 

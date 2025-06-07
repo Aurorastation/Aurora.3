@@ -1065,9 +1065,6 @@
 
 		drop_from_inventory(O)
 		O.replaced(src)
-		update_body()
-		updatehealth()
-		UpdateDamageIcon()
 
 		update_body()
 		updatehealth()

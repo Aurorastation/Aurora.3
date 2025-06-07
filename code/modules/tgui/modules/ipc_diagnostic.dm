@@ -64,6 +64,13 @@
 		if(C)
 			data["charge_percent"] = C.percent()
 
+		var/datum/component/armor/synthetic/synth_armor = ipc.GetComponent(/datum/component/armor/synthetic)
+		if(istype(synth_armor))
+			data["armor_data"] = list()
+			var/list/armor_damage = synth_armor.get_visible_damage()
+			for(var/key in armor_damage)
+				data["armor_data"] += list(list("key" = key, "status" = armor_damage[key]))
+
 	return data
 
 /**

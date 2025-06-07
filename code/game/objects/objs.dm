@@ -334,7 +334,7 @@
  * Override as needed to clear variables up.
  */
 /obj/proc/remove_cable(obj/item/access_cable/cable)
-	return
+	cable.clear_cable_full()
 
 /**
  * Called when an access cable - from an IPC or from a roboticist tool - is used on an object to interact with it.
