@@ -119,7 +119,7 @@
 	department_flag = MEDSCI
 	faction = "Station"
 	alt_titles = list("Anomalist")
-	alt_outfits = list("Anomalist" = "/obj/outfit/job/scientist/anomalist")
+	alt_outfits = list("Anomalist" = /obj/outfit/job/scientist/anomalist)
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the research director"
