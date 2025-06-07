@@ -409,9 +409,8 @@ could not use `::` as the provided types are not static.
 Unless absolutely unavoidable, use the compile-time operator `.` to access vars instead of the runtime operator `:`.
 
 ### Text variables
-Do not leave empty lines just to isolate the text, the text should start right after the `"` and end right before the `"`.
-
-Any newline should be preceded by the space in a phrase, and phrases should only be broken in a newline after complete words
+Line breaks should be consistent, and shouldn't break words in the middle.
+If the text is long and has a lot of lines, the opening and closing quotes may be empty, with the actual text content within.
 
 ```dm
 // Good
@@ -419,17 +418,26 @@ Any newline should be preceded by the space in a phrase, and phrases should only
 	var/text_var = "This is a test variable \
 					that spans multiple lines"
 
-// Bad, wasted lines
+// Good
 /obj/item/mything
 	var/text_var = "\
-					This is a test variable \
-					that spans multiple lines\
-					"
+		This is a very long test variable \
+		that spans multiple lines. \
+		It could be a very long description \
+		or some other kind of long message. \
+	"
 
 // Bad, breaks incorrectly
 /obj/item/mything
 	var/text_var = "This is a test varia\
 					ble that spans multiple lines"
+
+// Bad, wasted lines
+/obj/item/mything
+	var/text_var = "\
+		Short text.\
+	"
+
 ```
 
 Regular expressions, especially complex ones, should use the unescapable raw string delimiter with single apostrophe (`@'my_regex'`) over escaping special characters.
