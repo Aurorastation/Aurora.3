@@ -37,7 +37,7 @@
 
 /datum/event_meta/New(event_severity, event_name, datum/event/type, event_weight, list/job_weights,
 						is_one_shot = FALSE, min_event_weight = 0, max_event_weight = 0, list/excluded_roundtypes,
-						add_to_queue = TRUE, list/minimum_job_requirement_list, pop_needed = 0)
+						add_to_queue = TRUE, list/minimum_job_requirement_list, pop_needed = 1)
 
 	name = event_name
 	severity = event_severity
