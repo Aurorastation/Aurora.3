@@ -227,10 +227,9 @@
 	if(!buckled)
 		generate_overlay_cache(material, CACHE_TYPE_SPECIAL, ABOVE_HUMAN_LAYER)
 
-//Unique feature - you can put two seats on same tile with different pixel_offsets, humans will be buckled with respective offsets
-//and only when both seats taken, seats will be made dense and, therefore, tile will become unpassible
-
-//DOES NOT SUPPORT MORE THAN TWO SEATS ON TILE
+/// Unique feature - you can put two seats on same tile with different pixel_offsets, humans will be buckled with respective offsets
+/// and only when both seats taken, seats will be made dense and, therefore, tile will become unpassible
+/// **Does not support more than two seats on a tile. It causes layer issues when used facing horizontal directions in a vertical row.**
 
 /obj/structure/bed/stool/chair/shuttle/double
 	obj_flags = NONE // We don't want this subtype able to be rotated.
@@ -253,7 +252,7 @@
 	if(pixel_y != 0)
 		buckle_offset_y = pixel_y
 
-// Buckling offset and density adjustment
+/// Buckling offset and density adjustment.
 
 /obj/structure/bed/stool/chair/shuttle/double/post_buckle(mob/M)
 	. = ..()
