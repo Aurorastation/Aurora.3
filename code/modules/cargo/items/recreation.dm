@@ -358,7 +358,7 @@
 /singleton/cargo_item/lyodiicards
 	category = "recreation"
 	name = "lyodii fatesayer cards"
-	supplier = "empire of dominia"
+	supplier = "orion"
 	description = "A lyodii Fatesayer card deck. Exported from Moroz, used to tell your fate."
 	price = 300 //It's a niche novelty thing made in relatively small export quantities
 	items = list(
