@@ -202,7 +202,7 @@
  * Automatically drop the cable and then retract it to the parent.
  */
 /obj/item/access_cable/proc/retract()
-	visible_message(SPAN_NOTICE("\The [src] automatically retracts!"))
+	visible_message(SPAN_NOTICE("\The [src] automatically retracts into \the [source]!"))
 	forceMove(source)
 	clear_cable_full()
 

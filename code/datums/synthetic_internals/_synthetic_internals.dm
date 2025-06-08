@@ -37,6 +37,13 @@
 	return
 
 /**
+ * The proc that handles restoring damage. As some components restore damage differently,
+ * this is overridden by them.
+ */
+/datum/synthetic_internal/proc/heal_damage(amount)
+	return
+
+/**
  * This proc returns the status of this synthetic internal as a percentage.
  * It will return 100 if the component is 100% healthy, a value between 0 and 100 if not, and 0 if broken.
  * This logic can be overridden for custom behaviour.

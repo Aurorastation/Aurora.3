@@ -11,6 +11,9 @@
 /datum/synthetic_internal/plating/take_damage(amount)
 	health = max(health - amount, 0)
 
+/datum/synthetic_internal/plating/heal_damage(amount)
+	health = min(health + amount, max_health)
+
 /datum/synthetic_internal/plating/get_status()
 	return (health / max_health) * 100
 
