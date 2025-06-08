@@ -196,3 +196,8 @@
 #define TRAIT_UNHITTABLE_BY_PROJECTILES "unhittable_by_projectiles"
 ///This mob is currently blocking a projectile.
 #define TRAIT_BLOCKING_PROJECTILES "blocking_projectiles"
+
+/// This trait is used for double shuttle seats in a single tile, used in handling occupant density.
+#define TRAIT_DOUBLE_SEATS "double_seats"
+/// Apply this to make a mob passable by other mobs.
+#define TRAIT_UNDENSE "undense"
