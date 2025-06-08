@@ -74,3 +74,23 @@
 			C.set_occupant(victim, 1)
 			to_chat(victim, SPAN_NOTICE("You have arrived from the living quarters aboard the [SSatlas.current_map.station_name]."))
 			return
+
+/datum/spawnpoint/medbay_recovery
+	display_name = "Medbay Recovery Ward"
+	msg = "has awoken in the Medbay Recovery Ward"
+	restrict_job = list("Off-Duty Crew Member", "Passenger")
+
+/datum/spawnpoint/medbay_recovery/New()
+	..()
+	turfs = GLOB.latejoin_medbay_recovery
+
+/datum/spawnpoint/medbay_recovery/after_join(mob/victim)
+	if(!istype(victim))
+		return
+	var/area/A = get_area(victim)
+	for(var/obj/machinery/cryopod/C in A)
+		if(!C.occupant)
+			C.set_occupant(victim, 1)
+			victim.Sleeping(3)
+			to_chat(victim, SPAN_NOTICE("You are slowly waking up from the medical cryostasis aboard [SSatlas.current_map.station_name]. It might take a few seconds."))
+			return

@@ -167,6 +167,7 @@
 #define ACCENT_ZAZ_LOW "Zazalai Mountains Peasant"
 #define ACCENT_ZAZ_HIGH "Zazalai Mountains Noble"
 #define ACCENT_OUEREA "Ouerea"
+#define ACCENT_UNATHI_MOROZI "Unathi Morozi"
 
 #define ACCENT_SKRELL "Standard Nral'Malic"
 #define ACCENT_HOMEWORLD "Qerrbalak"
