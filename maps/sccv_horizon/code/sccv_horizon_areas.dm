@@ -322,8 +322,8 @@
 /area/shuttle/intrepid/main_compartment
 	name = "Intrepid Main Compartment"
 
-/area/shuttle/intrepid/cargo_bay
-	name = "Intrepid Cargo Bay"
+/area/shuttle/intrepid/buffet
+	name = "Intrepid Buffet"
 
 /area/shuttle/intrepid/medical
 	name = "Intrepid Medical Compartment"
