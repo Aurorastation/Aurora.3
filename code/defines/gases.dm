@@ -128,5 +128,3 @@
 	name = "Nitrogen Dioxide"
 	specific_heat = 33	// J/(mol*K)
 	molar_mass = 0.046	// kg/mol
-
-	flags = XGM_GAS_OXIDIZER | XGM_GAS_FUSION_FUEL
