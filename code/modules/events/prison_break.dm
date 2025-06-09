@@ -15,7 +15,7 @@
 	//Area types to include.
 	var/list/areaType = list(/area/security)
 	//Area types to specifically exclude.
-	var/list/areaNotType = list(/area/security/armory, area/security/nuke_storage, /area/security/checkpoint, /area/security/checkpoint2, /area/security/bridge_surface_checkpoint, /area/security/penal_colony)
+	var/list/areaNotType = list(/area/security/armory, /area/security/nuke_storage, /area/security/checkpoint, /area/security/checkpoint2, /area/security/bridge_surface_checkpoint, /area/security/penal_colony)
 
 /datum/event/prison_break/xenobiology
 	eventDept = "Science"
