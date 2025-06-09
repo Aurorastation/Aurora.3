@@ -44,3 +44,8 @@
   - bugfix: Horticultural magazines no longer have broken sprites.
   - imageadd: Introduced in-hand sprites for horticultural magazines.
   - code_imp: Transitioned some documentation in hydroponics tray code to DMDocs.
+2025-06-09:
+  Batrachophreno:
+  - balance: Added additional minimum active population requirement of 8 for Greimorian
+      Infestation events.
+  - qol: Events paused when no population is active.
