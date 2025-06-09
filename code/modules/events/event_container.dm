@@ -287,7 +287,8 @@ GLOBAL_LIST_INIT(severity_to_string, list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 			100),
 
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Comms Blackout - Damage", /datum/event/communications_blackout/damage_machinery,
-			100, list(ASSIGNMENT_ENGINEER = 25)),
+			100, list(ASSIGNMENT_ENGINEER = 25),
+			pop_needed = 6),
 
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Electrical Storm", /datum/event/electrical_storm,
 			50, list(ASSIGNMENT_ENGINEER = 15, ASSIGNMENT_JANITOR = 20)),
@@ -357,7 +358,8 @@ GLOBAL_LIST_INIT(severity_to_string, list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 			pop_needed = 10),
 
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Space Vines", /datum/event/spacevine,
-			0, list(ASSIGNMENT_ANY = 1, ASSIGNMENT_ENGINEER = 10, ASSIGNMENT_GARDENER = 20), TRUE),
+			0, list(ASSIGNMENT_ANY = 1, ASSIGNMENT_ENGINEER = 10, ASSIGNMENT_GARDENER = 20), TRUE,
+			pop_needed = 4),
 
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Spider Infestation", /datum/event/spider_infestation,
 			25, list(ASSIGNMENT_SECURITY = 10, ASSIGNMENT_MEDICAL = 5), TRUE),
@@ -366,7 +368,8 @@ GLOBAL_LIST_INIT(severity_to_string, list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 			15, list(ASSIGNMENT_SECURITY = 15, ASSIGNMENT_MEDICAL = 5)),
 
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Drone Revolution", /datum/event/rogue_maint_drones,
-			0, list(ASSIGNMENT_ENGINEER = 10, ASSIGNMENT_MEDICAL = 5, ASSIGNMENT_SECURITY = 5)),
+			0, list(ASSIGNMENT_ENGINEER = 10, ASSIGNMENT_MEDICAL = 5, ASSIGNMENT_SECURITY = 5),
+			pop_needed = 4),
 
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Comet Expulsion", /datum/event/comet_expulsion,
 			1, list(ASSIGNMENT_BRIDGE_CREW = 5, ASSIGNMENT_ENGINEER = 2), is_one_shot = TRUE,

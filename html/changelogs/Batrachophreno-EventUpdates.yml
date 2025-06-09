@@ -55,7 +55,8 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Added variant of the Communications Blackout event which has the potential to damage telecomms machinery (only fires if engineering on manifest)."
+  - rscadd: "Added variant of the Communications Blackout event which has the potential to damage telecomms machinery (weighted towards Engineering being on-manifest)."
   - rscadd: "Telecomms Processors now factor damage into account when uncompressing messages (gibberish factor increases with damage)."
   - balance: "Prison Break event adjusted to be in line with Containment events (now affects all of Security excepting certain highly secured areas)."
+  - balance: "Space Vines, Drone Revolution major events now require minimum population of 4."
   - qol: "Majorly updated Event Probabilities sheet (updated multiple changed events, removed retired events, added missing new events, etc.)"
