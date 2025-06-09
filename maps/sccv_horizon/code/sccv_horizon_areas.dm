@@ -322,13 +322,13 @@
 /area/shuttle/intrepid/main_compartment
 	name = "Intrepid Main Compartment"
 
-area/shuttle/intrepid/port_compartment
+/area/shuttle/intrepid/port_compartment
 	name = "Intrepid Port Compartment"
 
-area/shuttle/intrepid/starboard_compartment
+/area/shuttle/intrepid/starboard_compartment
 	name = "Intrepid Starboard Compartment"
 
-area/shuttle/intrepid/junction_compartment
+/area/shuttle/intrepid/junction_compartment
 	name = "Intrepid Junction Compartment"
 
 /area/shuttle/intrepid/buffet
