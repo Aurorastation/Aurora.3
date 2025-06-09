@@ -319,4 +319,4 @@
 			if(mob.client)
 				clients_in_hearers += mob.client
 		if(length(clients_in_hearers))
-			INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, animate_chat), message, null, FALSE, clients_in_hearers, overhead_time)
+			langchat_speech(message, hearers, GLOB.all_languages, skip_language_check = TRUE)

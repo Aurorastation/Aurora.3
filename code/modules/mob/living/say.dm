@@ -352,7 +352,7 @@ var/list/channel_to_radio_key = new
 	speech_bubble.appearance_flags = RESET_COLOR|RESET_ALPHA
 	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(animate_speechbubble), speech_bubble, hear_clients, 30)
 
-	animate_chat(message, speaking, italics, hear_clients, 30)
+	langchat_speech(message, get_hearers_in_view(world.view, src), speaking, skip_language_check = TRUE)
 
 	var/bypass_listen_obj = (speaking && (speaking.flags & PASSLISTENOBJ))
 	if(!bypass_listen_obj)

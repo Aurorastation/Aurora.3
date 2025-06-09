@@ -33,6 +33,8 @@
 
 #define SPAN_HIGHDANGER(str) (FONT_LARGE(SPAN_DANGER(str)))
 
+#define SPAN_LANGCHAT(X) "<span class='langchat'>[X]</span>"
+
 /*
 #####################
 	Font sizes

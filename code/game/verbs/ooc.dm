@@ -145,6 +145,8 @@
 
 	msg = process_chat_markup(msg, list("*"))
 
+	mob.langchat_speech(msg, messagemobs, override_color = "#ff47d7", skip_language_check = TRUE)
+
 	var/prefix
 	var/admin_stuff
 	for(var/client/target in GLOB.clients)
