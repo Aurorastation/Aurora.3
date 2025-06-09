@@ -8,14 +8,20 @@
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	var/amount_per_transfer_from_this = 5	//shit I dunno, adding this so syringes stop runtime erroring. --NeoFite
 	var/bucketsize = 600 //about 2x the size relative to a regular bucket.
+	// If it's Horizon janitorial supplies, track it for the app.
+	var/tracked_supply = 0
 
 /obj/structure/mopbucket/Initialize()
 	. = ..()
 	create_reagents(bucketsize)
-	GLOB.janitorial_supplies |= src
+
+	if(is_station_turf(get_turf(src)))
+		tracked_supply = 1
+		GLOB.janitorial_supplies |= src
 
 /obj/structure/mopbucket/Destroy()
-	GLOB.janitorial_supplies -= src
+	if(tracked_supply)
+		GLOB.janitorial_supplies -= src
 	return ..()
 
 /obj/structure/mopbucket/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)

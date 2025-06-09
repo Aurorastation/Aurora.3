@@ -7,6 +7,7 @@ export type JanitorData = {
   supplies: Supply[];
   user_x: number;
   user_y: number;
+  user_z: number;
 };
 
 type Supply = {
@@ -14,6 +15,7 @@ type Supply = {
   key: number;
   x: number;
   y: number;
+  z: number;
   dir: string;
   status: string;
   supply_type: string;
@@ -51,7 +53,7 @@ export const Janitor = (props, context) => {
                       {supply.name} (#{supply.key})
                     </Table.Cell>
                     <Table.Cell>
-                      ({supply.x}, {supply.y})
+                      ({supply.x}, {supply.y}, {supply.z})
                     </Table.Cell>
                     <Table.Cell>{supply.dir}</Table.Cell>
                     <Table.Cell>{supply.status}</Table.Cell>
