@@ -27,3 +27,6 @@
 	for(var/obj/machinery/telecomms/T in SSmachinery.all_telecomms)
 		if(T.z in affecting_z)
 			T.emp_act(EMP_HEAVY)
+		// 10% chance for a given machine to take damage: slight delays in transmission time or slight message garbling until repaired.
+		if(prob(10))
+			T.emp_damage()
