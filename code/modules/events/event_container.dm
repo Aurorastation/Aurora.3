@@ -128,6 +128,7 @@ GLOBAL_LIST_INIT(severity_to_string, list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 //WHAT THE FUCK IS THIS, WHY
 /// Returns how many characters are currently active (not logged out, not AFK for more than 10 minutes) with a specific role.
 /// Note that this isn't sorted by department, because e.g. having a roboticist shouldn't make meteors spawn.
+/// The higher this value is, the greater likelihood that the event will occur with each active dept member.
 /proc/number_active_with_role()
 	var/list/active_with_role = list()
 	active_with_role[ASSIGNMENT_ANY] = 0
@@ -286,7 +287,7 @@ GLOBAL_LIST_INIT(severity_to_string, list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 			100),
 
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Comms Blackout - Damage", /datum/event/communications_blackout/damage_machinery,
-			100, list(ASSIGNMENT_ENGINEER = 15)),
+			100, list(ASSIGNMENT_ENGINEER = 25)),
 
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Electrical Storm", /datum/event/electrical_storm,
 			50, list(ASSIGNMENT_ENGINEER = 15, ASSIGNMENT_JANITOR = 20)),
@@ -303,7 +304,7 @@ GLOBAL_LIST_INIT(severity_to_string, list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 			0, list(ASSIGNMENT_SECURITY = 15, ASSIGNMENT_CYBORG = 20), TRUE),
 
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Containment Error - Xenobiology", /datum/event/prison_break/xenobiology,
-			0, list(ASSIGNMENT_SCIENTIST = 15, ASSIGNMENT_CYBORG = 20), TRUE),
+			0, list(ASSIGNMENT_SCIENTIST = 25, ASSIGNMENT_CYBORG = 20), TRUE),
 
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Containment Error - Bridge", /datum/event/prison_break/bridge,
 			0, list(ASSIGNMENT_ENGINEER = 15, ASSIGNMENT_CYBORG = 20), TRUE),
