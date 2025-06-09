@@ -121,32 +121,24 @@
 	..()
 
 /obj/item/organ/internal/machine/posibrain/low_integrity_damage(integrity)
-	. = ..()
-	if(!.)
-		return
-
 	var/damage_probability = get_integrity_damage_probability(integrity)
 	if(prob(damage_probability))
 		to_chat(owner, SPAN_MACHINE_WARNING("Neural pathway error located at block 0x[generate_hex()]."))
 		take_internal_damage(4)
+	. = ..()
 
 /obj/item/organ/internal/machine/posibrain/medium_integrity_damage(integrity)
-	. = ..()
-	if(!.)
-		return
-
 	var/damage_probability = get_integrity_damage_probability(integrity)
 	if(prob(damage_probability))
 		to_chat(owner, SPAN_MACHINE_DANGER("Irreversible damage detected. Warning: further damage may result in /#!&!@#!!°!2*#"))
+	. = ..()
 
 /obj/item/organ/internal/machine/posibrain/high_integrity_damage(integrity)
-	. = ..()
-	if(!.)
-		return
 	var/damage_probability = get_integrity_damage_probability(integrity)
 	if(prob(damage_probability))
 		to_chat(owner, SPAN_MACHINE_DANGER(FONT_LARGE("You can feel your positronic begin to fragment...")))
 		take_internal_damage(2)
+	. = ..()
 
 /obj/item/organ/internal/machine/posibrain/circuit
 	name = "robotic intelligence circuit"

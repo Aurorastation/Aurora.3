@@ -129,19 +129,12 @@
 			owner.bodytemperature = min(owner.bodytemperature + temperature_change, thermostat)
 
 /obj/item/organ/internal/machine/cooling_unit/low_integrity_damage(integrity)
-	. = ..()
-	if(!.)
-		return
-
 	if(get_integrity_damage_probability() / 2)
 		to_chat(owner, SPAN_WARNING("Your temperature sensors pick up a spike in temperature."))
 		owner.bodytemperature += 10
+	. = ..()
 
 /obj/item/organ/internal/machine/cooling_unit/medium_integrity_damage(integrity)
-	. = ..()
-	if(!.)
-		return
-
 	if(get_integrity_damage_probability() / 3)
 		to_chat(owner, SPAN_WARNING("Your thermostat's temperature setting goes haywire!"))
 		thermostat = rand(thermostat_min, thermostat_max)
@@ -149,23 +142,18 @@
 		if(prob(25) && !safety_burnt)
 			to_chat(owner, SPAN_WARNING("Your temperature safeties burn out! They won't work anymore!"))
 			safety_burnt = TRUE
+	. = ..()
 
 /obj/item/organ/internal/machine/cooling_unit/high_integrity_damage(integrity)
-	. = ..()
-	if(!.)
-		return
-
 	if(get_integrity_damage_probability() / 5)
 		if(spaceproof)
 			playsound(owner, pick(SOUNDS_LASER_METAL), 50)
 			to_chat(owner, SPAN_DANGER(FONT_LARGE("Your laminar cooling stratum has melted. Your cooling unit will not work in space anymore!")))
 			spaceproof = FALSE
-			return
-
-		if(thermostat_min < (initial(thermostat_min) + 100))
+		else if(thermostat_min < (initial(thermostat_min) + 100))
 			to_chat(owner, SPAN_DANGER(FONT_LARGE("Parts of your cooling unit melt away...!")))
 			update_thermostat(thermostat_min + round(rand(10, 50)))
-			return
+	. = ..()
 
 /obj/item/organ/internal/machine/cooling_unit/proc/update_thermostat(new_thermostat_min, new_thermostat_max)
 	if(new_thermostat_min)

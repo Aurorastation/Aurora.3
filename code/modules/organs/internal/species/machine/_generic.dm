@@ -125,13 +125,14 @@
 		crash_with("[src]: [owner] somehow didn't have a posibrain.")
 
 	// The cooldowns are handled in the other procs because feasibly we might want to add different cooldowns for different organs and different thresholds.
-	switch(integrity)
-		if(50 to 75)
-			low_integrity_damage(integrity)
-		if(25 to 50)
-			medium_integrity_damage(integrity)
-		if(0 to 25)
-			high_integrity_damage(integrity)
+	if(can_do_integrity_damage())
+		switch(integrity)
+			if(50 to 75)
+				low_integrity_damage(integrity)
+			if(25 to 50)
+				medium_integrity_damage(integrity)
+			if(0 to 25)
+				high_integrity_damage(integrity)
 
 /**
  * Returns the damage percentage of total integrity.
@@ -144,27 +145,32 @@
 	return damage_probability
 
 /**
+ * Returns TRUE if the cooldown for integrity damage has expired.
+ */
+/obj/item/organ/internal/machine/proc/can_do_integrity_damage()
+	if(last_damage_time + damage_cooldown > world.time)
+		return FALSE
+	return TRUE
+
+/**
  * The proc called to do low-intensity integrity damage (50 to 75% damage).
  */
 /obj/item/organ/internal/machine/proc/low_integrity_damage(integrity)
-	if(last_damage_time + damage_cooldown > world.time)
-		return FALSE
+	last_damage_time = world.time
 	return TRUE
 
 /**
  * The proc called to do mediumlow-intensity integrity damage (25 to 50% damage).
  */
 /obj/item/organ/internal/machine/proc/medium_integrity_damage(integrity)
-	if(last_damage_time + damage_cooldown > world.time)
-		return FALSE
+	last_damage_time = world.time
 	return TRUE
 
 /**
  * The proc called to do high-intensity integrity damage (0 to 25% damage).
  */
 /obj/item/organ/internal/machine/proc/high_integrity_damage(integrity)
-	if(last_damage_time + damage_cooldown > world.time)
-		return FALSE
+	last_damage_time = world.time
 	return TRUE
 
 /**

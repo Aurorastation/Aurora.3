@@ -122,32 +122,23 @@
 			to_chat(user, SPAN_WARNING("You need to unscrew the battery panel first."))
 
 /obj/item/organ/internal/machine/power_core/low_integrity_damage(integrity)
-	. = ..()
-	if(!.)
-		return
-
 	to_chat(owner, SPAN_WARNING("Your [src]'s wiring fizzles."))
 	electronics.take_damage(10)
+	. = ..()
 
 /obj/item/organ/internal/machine/power_core/medium_integrity_damage(integrity)
-	. = ..()
-	if(!.)
-		return
-
 	if(prob(get_integrity_damage_probability()))
 		to_chat(owner, SPAN_DANGER("Your [src]'s power conduits burn!"))
 		servo_cost *= 1.5
+	. = ..()
 
 /obj/item/organ/internal/machine/power_core/high_integrity_damage(integrity)
-	. = ..()
-	if(!.)
-		return
-
 	if(prob(get_integrity_damage_probability()))
 		to_chat(owner, SPAN_DANGER("Your [src]'s cell melts under the overvoltage!"))
 		var/old_charge = cell.maxcharge
 		cell.maxcharge *= 0.85
 		cell.use(old_charge - cell.maxcharge)
+	. = ..()
 
 /obj/item/organ/internal/machine/power_core/proc/replace_cell(var/obj/item/cell/C)
 	if(istype(cell))

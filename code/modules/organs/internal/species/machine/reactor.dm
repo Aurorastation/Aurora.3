@@ -73,10 +73,6 @@
 	total_power_generated += .
 
 /obj/item/organ/internal/machine/reactor/high_integrity_damage(integrity)
-	. = ..()
-	if(!.)
-		return
-
 	if(prob(get_integrity_damage_probability()))
 		if(base_power_generation)
 			to_chat(owner, SPAN_DANGER("Some capacitors in your [src] stop responding!"))
@@ -84,6 +80,7 @@
 		else if(external_charge_multiplier)
 			to_chat(owner, SPAN_DANGER("The traces in your [src] melt!"))
 			base_power_generation *= 0.75
+	. = ..()
 
 /obj/item/organ/internal/machine/reactor/get_diagnostics_info()
 	. = "Last Power Generated: [round(last_power_generated, 1)] W | Total Power Generated: [round(total_power_generated, 1)] W"

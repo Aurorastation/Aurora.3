@@ -5,7 +5,7 @@
 	icon_state = "suspension"
 
 /obj/item/organ/internal/machine/actuators/left
-	name = "right arm actuators"
+	name = "left arm actuators"
 	parent_organ = BP_L_ARM
 
 /obj/item/organ/internal/machine/actuators/right
@@ -13,10 +13,6 @@
 	parent_organ = BP_R_ARM
 
 /obj/item/organ/internal/machine/actuators/high_integrity_damage(integrity)
-	. = ..()
-	if(!.)
-		return
-
 	if(prob(get_integrity_damage_probability()))
 		spark(owner, 5, GLOB.alldirs)
 		to_chat(owner, SPAN_WARNING("Your [src] malfunction, making you drop what you're holding!"))
@@ -25,3 +21,4 @@
 				owner.drop_l_hand()
 			if(BP_R_ARM)
 				owner.drop_r_hand()
+	. = ..()
