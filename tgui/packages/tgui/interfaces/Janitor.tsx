@@ -7,7 +7,6 @@ export type JanitorData = {
   supplies: Supply[];
   user_x: number;
   user_y: number;
-  user_z: number;
 };
 
 type Supply = {
@@ -60,9 +59,6 @@ export const Janitor = (props, context) => {
                   </Table.Row>
                 )
             )}
-            <Table.Row>
-              User Location: ({data.user_x}, {data.user_y})
-            </Table.Row>
           </Table>
         </Section>
       </NtosWindow.Content>
