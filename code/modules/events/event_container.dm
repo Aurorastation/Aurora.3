@@ -299,7 +299,7 @@ GLOBAL_LIST_INIT(severity_to_string, list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Ion Storm", /datum/event/ionstorm,
 			0, list(ASSIGNMENT_AI = 45, ASSIGNMENT_CYBORG = 25, ASSIGNMENT_ENGINEER = 6, ASSIGNMENT_SCIENTIST = 6)),
 
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Prison Break", /datum/event/prison_break,
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Containment Error - Security", /datum/event/prison_break,
 			0, list(ASSIGNMENT_SECURITY = 15, ASSIGNMENT_CYBORG = 20), TRUE),
 
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Containment Error - Xenobiology", /datum/event/prison_break/xenobiology,
@@ -319,8 +319,7 @@ GLOBAL_LIST_INIT(severity_to_string, list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 			15, list(ASSIGNMENT_SECURITY = 15)),
 
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Moderate Spider Infestation", /datum/event/spider_infestation/moderate,
-			50, list(ASSIGNMENT_SECURITY = 10),
-			pop_needed = 8),
+			50, list(ASSIGNMENT_SECURITY = 10)),
 
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Moderate Vermin Infestation", /datum/event/infestation/moderate,
 			30, list(ASSIGNMENT_JANITOR = 15, ASSIGNMENT_SECURITY = 15, ASSIGNMENT_MEDICAL = 10)),
@@ -360,8 +359,7 @@ GLOBAL_LIST_INIT(severity_to_string, list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 			0, list(ASSIGNMENT_ANY = 1, ASSIGNMENT_ENGINEER = 10, ASSIGNMENT_GARDENER = 20), TRUE),
 
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Spider Infestation", /datum/event/spider_infestation,
-			25, list(ASSIGNMENT_SECURITY = 10, ASSIGNMENT_MEDICAL = 5), TRUE,
-			pop_needed = 8),
+			25, list(ASSIGNMENT_SECURITY = 10, ASSIGNMENT_MEDICAL = 5), TRUE),
 
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Major Vermin Infestation", /datum/event/infestation/major,
 			15, list(ASSIGNMENT_SECURITY = 15, ASSIGNMENT_MEDICAL = 5)),
