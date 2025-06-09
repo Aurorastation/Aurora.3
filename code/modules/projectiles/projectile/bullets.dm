@@ -183,7 +183,7 @@
 
 /obj/projectile/bullet/pistol/polymer
         damage = 12
-        armor_penetration = 30
+        armor_penetration = 31
 
 /obj/projectile/bullet/pistol/medium
 	damage = 30
