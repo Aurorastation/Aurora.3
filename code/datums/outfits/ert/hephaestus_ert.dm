@@ -103,4 +103,3 @@
 /obj/outfit/admin/ert/hephaestus/leader
 	name = "Hephaestus Asset Protection - Squad Leader"
 	uniform = /obj/item/clothing/under/ert/hephaestus/leader
-	head = /obj/item/clothing/head/caphat/cap/hephaestus
