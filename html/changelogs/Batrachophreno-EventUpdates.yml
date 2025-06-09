@@ -60,3 +60,4 @@ changes:
   - balance: "Prison Break event adjusted to be in line with Containment events (now affects all of Security excepting certain highly secured areas)."
   - balance: "Space Vines, Drone Revolution major events now require minimum population of 4."
   - qol: "Majorly updated Event Probabilities sheet (updated multiple changed events, removed retired events, added missing new events, etc.)"
+  - bugfix: "Event selection now respects minimum pop requirement param."
