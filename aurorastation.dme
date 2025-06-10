@@ -2270,6 +2270,7 @@
 #include "code\modules\ghostroles\spawner\atom\living_plant.dm"
 #include "code\modules\ghostroles\spawner\atom\matriarchmaintdrone.dm"
 #include "code\modules\ghostroles\spawner\atom\mining_drone.dm"
+#include "code\modules\ghostroles\spawner\atom\phoron_worm.dm"
 #include "code\modules\ghostroles\spawner\atom\posibrain.dm"
 #include "code\modules\ghostroles\spawner\atom\shade.dm"
 #include "code\modules\ghostroles\spawner\atom\skeleton.dm"

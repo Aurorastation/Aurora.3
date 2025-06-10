@@ -151,3 +151,52 @@
 	resist_mod = 1
 	mob_size = 15
 	environment_smash = 1
+
+/mob/living/simple_animal/hostile/phoron_worm/playable
+	var/playable = TRUE
+	armor_penetration = = 15
+
+/mob/living/simple_animal/hostile/phoron_worm/playable/Initialize(mapload)
+	. = ..()
+	add_language(LANGUAGE_WORM)
+	var/number = rand(1000,9999)
+	name = initial(name) + " ([number])"
+	real_name = name
+	if(playable && !ckey && !client)
+		SSghostroles.add_spawn_atom("phoron_worm", src)
+
+/mob/living/simple_animal/hostile/phoron_worm/playable/Destroy()
+	. = ..()
+	SSghostroles.remove_spawn_atom("phoron_worm", src)
+
+/mob/living/simple_animal/hostile/phoron_worm/playable/verb/build_bot()
+	set name = "Birth Phoron Worm"
+	set desc = "Birth Phoron Worm"
+	set category = "Phoron Worm"
+
+	src.visible_message("\The [src] begins give birth to a phoron worm.", "You begin to give birth to a phoron worm", "You hear disgusting squelching sounds.")
+	if(!do_after(src, 12 SECONDS))
+		return
+	src.visible_message("\The [src] gives birth to a disgusting phoron worm!", "You give birth to a disgusting phoron worm!")
+	new /mob/living/simple_animal/hostile/phoron_worm/small/playable(get_turf(src))
+
+/mob/living/simple_animal/hostile/phoron_worm/small/playable
+	playable = TRUE
+	maxHealth = 150
+	health = 150
+	melee_damage_lower = 15
+	melee_damage_upper = 20
+	armor_penetration = 15
+
+/mob/living/simple_animal/hostile/phoron_worm/small/playable/Initialize(mapload)
+	. = ..()
+	add_language(LANGUAGE_WORM)
+	var/number = rand(1000,9999)
+	name = initial(name) + " ([number])"
+	real_name = name
+	if(playable && !ckey && !client)
+		SSghostroles.add_spawn_atom("phoron_worm_small", src)
+
+/mob/living/simple_animal/hostile/phoron_worm/small/playable/Destroy()
+	. = ..()
+	SSghostroles.remove_spawn_atom("phoron_worm_small", src)
