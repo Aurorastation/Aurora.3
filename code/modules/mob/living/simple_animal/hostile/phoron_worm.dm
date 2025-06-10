@@ -154,7 +154,7 @@
 
 /mob/living/simple_animal/hostile/phoron_worm/playable
 	var/playable = TRUE
-	armor_penetration = = 15
+	armor_penetration = 15
 
 /mob/living/simple_animal/hostile/phoron_worm/playable/Initialize(mapload)
 	. = ..()
