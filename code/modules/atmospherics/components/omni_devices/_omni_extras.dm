@@ -19,6 +19,8 @@
 #define ATM_NO2		14	//Nitrogen Dioxide
 #define ATM_CL2		15	//Chlorine
 #define ATM_H2O 	16	//Steam
+#define ATM_PUR     17  //Purble
+#define ATM_TEE     18  //Teel
 
 //--------------------------------------------
 // Omni port datum
@@ -131,5 +133,9 @@
 			return GAS_CHLORINE
 		if(ATM_H2O)
 			return GAS_STEAM
+		if(ATM_PUR)
+			return GAS_PURBLE
+		if(ATM_TEE)
+			return GAS_TEEL
 		else
 			return null

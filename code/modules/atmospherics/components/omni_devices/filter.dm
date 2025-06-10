@@ -173,6 +173,10 @@
 			return "Chlorine"
 		if(ATM_H2O)
 			return "Steam"
+		if(ATM_PUR)
+			return "Purble"
+		if(ATM_TEE)
+			return "Teel"
 		else
 			return null
 
@@ -235,6 +239,10 @@
 			return ATM_CL2
 		if("Steam")
 			return ATM_H2O
+		if("Purble")
+			return ATM_PUR
+		if("Teel")
+			return ATM_TEE
 		if("in")
 			return ATM_INPUT
 		if("out")

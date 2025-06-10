@@ -122,3 +122,21 @@
 	specific_heat = 11
 	molar_mass = 0.011
 	flags = XGM_GAS_FUSION_FUEL
+
+/singleton/xgm_gas/purble
+	id = GAS_PURBLE
+	name = "Purble"
+	specific_heat = 300
+	molar_mass = 0.300
+	tile_overlay = "phoron"
+	tile_color = "aa00ff"
+	overlay_limit = 0.9
+
+/singleton/xgm_gas/teel
+	id = GAS_TEEL
+	name = "Teel"
+	specific_heat = 300
+	molar_mass = 0.300
+	tile_overlay = "phoron"
+	tile_color = "00ffcc"
+	overlay_limit = 0.9
