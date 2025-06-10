@@ -56,4 +56,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
   - rscadd: "Added Armor-Piericing 9mm Pistol Magazines, currently only available on Antagonist Uplinks."
-  - spellcheck: "Round Capacity for .45 and 9mm is now displayed correctly on Antagonist Uplinks."
+  - spellcheck: "Fixed the Incorrect number of rounds in a magazine that the Uplink displays for both .45 and 9mm."
