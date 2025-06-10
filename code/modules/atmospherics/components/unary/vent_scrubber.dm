@@ -155,6 +155,8 @@
 		"filter_no2" = (GAS_NO2 in scrubbing_gas),
 		"filter_cl" = (GAS_CHLORINE in scrubbing_gas),
 		"filter_h2o" = (GAS_STEAM in scrubbing_gas),
+		"filter_pur" = (GAS_PURBLE in scrubbing_gas),
+		"filter_tee" = (GAS_TEEL in scrubbing_gas),
 		"sigtype" = "status"
 	)
 
@@ -323,6 +325,16 @@
 		toggle += GAS_STEAM
 	else if(signal.data["toggle_h2o_scrub"])
 		toggle += GAS_STEAM
+
+	if(!isnull(signal.data["pur_scrub"]) && text2num(signal.data["pur_scrub"]) != (GAS_PURBLE in scrubbing_gas))
+		toggle += GAS_PURBLE
+	else if(signal.data["toggle_pur_scrub"])
+		toggle += GAS_PURBLE
+
+	if(!isnull(signal.data["tee_scrub"]) && text2num(signal.data["tee_scrub"]) != (GAS_PURBLE in scrubbing_gas))
+		toggle += GAS_TEEL
+	else if(signal.data["toggle_tee_scrub"])
+		toggle += GAS_TEEL
 
 	scrubbing_gas ^= toggle
 

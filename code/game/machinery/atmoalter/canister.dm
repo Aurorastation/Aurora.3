@@ -174,6 +174,24 @@
 	canister_color = "grey"
 	can_label = 0
 
+/obj/machinery/portable_atmospherics/canister/purble
+	name = "\improper Purble \[PURB\]"
+	icon_state = "purple"
+	canister_color = "purple"
+	can_label = 0
+/obj/machinery/portable_atmospherics/canister/purble/Initialize()
+	. = ..()
+	air_contents.adjust_gas(GAS_PURBLE, MolesForPressure())
+
+/obj/machinery/portable_atmospherics/canister/teel
+	name = "\improper Teel \[TEE\]"
+	icon_state = "teal"
+	canister_color = "teal"
+	can_label = 0
+/obj/machinery/portable_atmospherics/canister/purble/Initialize()
+	. = ..()
+	air_contents.adjust_gas(GAS_TEEL, MolesForPressure())
+
 /obj/machinery/portable_atmospherics/canister/air/airlock
 	start_pressure = 6 * ONE_ATMOSPHERE
 
@@ -240,6 +258,14 @@
 	name = "Canister \[H2O\]"
 	icon_state = "whitebrs"
 	canister_color = "whitebrs"
+/obj/machinery/portable_atmospherics/canister/empty/purble
+	name = "Canister \[PURB\]"
+	icon_state = "purple"
+	canister_color = "purple"
+/obj/machinery/portable_atmospherics/canister/empty/teel
+	name = "Canister \[TEE\]"
+	icon_state = "teal"
+	canister_color = "teal"
 
 
 

@@ -12,6 +12,8 @@
 #define SIGNAL_NITROGEN_DIOXIDE 2048
 #define SIGNAL_CHLORINE 4096
 #define SIGNAL_STEAM 8192
+#define SIGNAL_PURBLE 16364
+#define SIGNAL_TEEL 32768
 
 /obj/machinery/air_sensor
 	name = "gas sensor"
@@ -44,6 +46,8 @@
 	// 2048 for nitrogen dioxide concentration
 	// 4096 for chlorine concentration
 	// 8192 for steam concentration
+	// 16384 for purble concentration
+	// 32768 for teel concentration
 
 	var/datum/radio_frequency/radio_connection
 
@@ -95,6 +99,10 @@
 					signal.data[GAS_CHLORINE] = round(100*air_sample.gas[GAS_CHLORINE]/total_moles,0.1)
 				if(output&SIGNAL_STEAM)
 					signal.data[GAS_STEAM] = round(100*air_sample.gas[GAS_STEAM]/total_moles,0.1)
+				if(output&SIGNAL_PURBLE)
+					signal.data[GAS_PURBLE] = round(100*air_sample.gas[GAS_STEAM]/total_moles,0.1)
+				if(output&SIGNAL_TEEL)
+					signal.data[GAS_TEEL] = round(100*air_sample.gas[GAS_TEEL]/total_moles,0.1)
 			else
 				signal.data[GAS_OXYGEN] = 0
 				signal.data[GAS_PHORON] = 0
@@ -110,6 +118,8 @@
 				signal.data[GAS_NO2] = 0
 				signal.data[GAS_CHLORINE] = 0
 				signal.data[GAS_STEAM]= 0
+				signal.data[GAS_PURBLE]= 0
+				signal.data[GAS_TEEL]= 0
 		signal.data["sigtype"]="status"
 		radio_connection.post_signal(src, signal, filter = RADIO_ATMOSIA)
 
@@ -556,3 +566,5 @@
 #undef SIGNAL_NITROGEN_DIOXIDE
 #undef SIGNAL_CHLORINE
 #undef SIGNAL_STEAM
+#undef SIGNAL_PURBLE
+#undef SIGNAL_TEEL
