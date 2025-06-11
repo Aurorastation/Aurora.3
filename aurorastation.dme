@@ -3967,7 +3967,7 @@
 #include "maps\away\scenarios\crumbling_station\crumbling_station_roles.dm"
 #include "maps\away\scenarios\crumbling_station\crumbling_station_scenario.dm"
 #include "maps\away\scenarios\crumbling_station\crumbling_station_shuttle.dm"
-/* #include "maps\away\scenarios\cryo_outpost\cryo_outpost_.dm"
+#include "maps\away\scenarios\cryo_outpost\cryo_outpost_.dm"
 #include "maps\away\scenarios\cryo_outpost\cryo_outpost_areas.dm"
 #include "maps\away\scenarios\cryo_outpost\cryo_outpost_landmarks.dm"
 #include "maps\away\scenarios\cryo_outpost\cryo_outpost_outfits.dm"
@@ -3988,7 +3988,7 @@
 #include "maps\away\scenarios\ruined_propellant_depot\ruined_propellant_depot_.dm"
 #include "maps\away\scenarios\ruined_propellant_depot\ruined_propellant_depot_areas.dm"
 #include "maps\away\scenarios\ruined_propellant_depot\ruined_propellant_depot_landmarks.dm"
-#include "maps\away\scenarios\ruined_propellant_depot\ruined_propellant_depot_scenario.dm" */
+#include "maps\away\scenarios\ruined_propellant_depot\ruined_propellant_depot_scenario.dm"
 #include "maps\away\ships\biesel\tcaf_corvette\tcaf_corvette.dm"
 #include "maps\away\ships\biesel\tcaf_corvette\tcaf_corvette_areas.dm"
 #include "maps\away\ships\biesel\tcaf_corvette\tcaf_corvette_ghostroles.dm"
