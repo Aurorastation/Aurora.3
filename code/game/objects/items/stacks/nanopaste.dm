@@ -132,7 +132,7 @@
 		return 0
 
 	if (isipc(M))
-		var/obj/item/organ/internal/surge/s = M.internal_organs_by_name["surge"]
+		var/obj/item/organ/internal/machine/surge/s = M.internal_organs_by_name[BP_SURGE_PROTECTOR]
 		if(isnull(s))
 			user.visible_message(
 			SPAN_NOTICE("[user] is trying to apply [src] to [(M == user) ? ("itself") : (M)]!"),
@@ -142,9 +142,9 @@
 			if (!do_mob(user, M, 2))
 				return 0
 
-			s = new /obj/item/organ/internal/surge()
+			s = new /obj/item/organ/internal/machine/surge()
 			M.internal_organs += s
-			M.internal_organs_by_name["surge"] = s
+			M.internal_organs_by_name[BP_SURGE_PROTECTOR] = s
 			user.visible_message(
 			SPAN_NOTICE("[user] applies some nanite paste to [(M == user) ? ("itself") : (M)]!"),
 			SPAN_NOTICE("You apply [src] to [(M == user) ? ("youself") : (M)].")

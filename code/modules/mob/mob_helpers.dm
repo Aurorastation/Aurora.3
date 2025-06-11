@@ -1338,3 +1338,7 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 		message_notifications.Cut(1, 2)
 
 	message_notifications[key_check] = world.time + next_message_time
+
+/// Gets a mob's strength.
+/mob/proc/get_mob_strength()
+	return mob_weight + mob_strength

@@ -190,6 +190,11 @@
 	update_icon()
 
 /obj/item/modular_computer/ui_status(mob/user, datum/ui_state/state)
+	if(universal_port?.access_cable)
+		if(istype(universal_port.access_cable.source, /obj/item/organ/internal/machine/access_port))
+			var/obj/item/organ/internal/machine/access_port/port = universal_port.access_cable.source
+			if(user == port.owner)
+				return UI_INTERACTIVE
 	. = ..()
 	if(. < UI_INTERACTIVE)
 		if(user.machine)

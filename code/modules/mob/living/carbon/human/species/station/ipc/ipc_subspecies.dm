@@ -9,8 +9,9 @@
 	height_max = 230
 	default_genders = list(MALE, FEMALE)
 	selectable_pronouns = list(MALE, FEMALE, PLURAL, NEUTER)
+	mob_weight = MOB_WEIGHT_MEDIUM // Would be really easy to find untagged shells otherwise.
 
-	alterable_internal_organs = list(BP_EYES)
+	alterable_internal_organs = list(BP_EYES, BP_COOLING_UNIT, BP_REACTOR)
 
 	burn_mod = 1.2
 	grab_mod = 1
@@ -73,7 +74,6 @@
 	move_charge_factor = 0.85
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/self_diagnostics,
 		/mob/living/carbon/human/proc/check_tag,
 		/mob/living/carbon/human/proc/tie_hair)
 
@@ -103,10 +103,18 @@
 	break_cuffs = TRUE
 
 	has_organ = list(
-		BP_BRAIN   = /obj/item/organ/internal/mmi_holder/posibrain,
-		BP_CELL    = /obj/item/organ/internal/cell,
+		BP_BRAIN   = /obj/item/organ/internal/machine/posibrain,
+		BP_VOICE_SYNTHESIZER = /obj/item/organ/internal/machine/voice_synthesizer,
+		BP_DIAGNOSTICS_SUITE = /obj/item/organ/internal/machine/internal_diagnostics,
+		BP_HYDRAULICS = /obj/item/organ/internal/machine/hydraulics,
+		BP_ACTUATORS_LEFT = /obj/item/organ/internal/machine/actuators/left,
+		BP_ACTUATORS_RIGHT = /obj/item/organ/internal/machine/actuators/right,
+		BP_COOLING_UNIT = /obj/item/organ/internal/machine/cooling_unit,
+		BP_REACTOR = /obj/item/organ/internal/machine/reactor,
+		BP_ACCESS_PORT = /obj/item/organ/internal/machine/access_port,
+		BP_CELL    = /obj/item/organ/internal/machine/power_core,
 		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
-		"surge"   = /obj/item/organ/internal/surge/advanced
+		BP_SURGE_PROTECTOR   = /obj/item/organ/internal/machine/surge/advanced
 	)
 
 	unarmed_types = list(
@@ -114,10 +122,6 @@
 		/datum/unarmed_attack/kick/ipc,
 		/datum/unarmed_attack/terminator,
 		/datum/unarmed_attack/bite/strong)
-
-	inherent_verbs = list(
-		/mob/living/carbon/human/proc/self_diagnostics
-		)
 
 /datum/species/machine/shell/rogue/check_tag(var/mob/living/carbon/human/new_machine, var/client/player)
 	return
@@ -183,9 +187,10 @@
 	move_charge_factor = 1.1
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/self_diagnostics,
 		/mob/living/carbon/human/proc/check_tag
 		)
+
+	machine_ui_theme = "hephaestus"
 
 /datum/species/machine/industrial/get_light_color()
 	return LIGHT_COLOR_TUNGSTEN
@@ -240,7 +245,6 @@
 	heat_level_3 = 5000
 
 	body_temperature = null
-	passive_temp_gain = 0
 
 	flags = IS_IPC | ACCEPTS_COOLER
 	spawn_flags = IS_RESTRICTED
@@ -252,16 +256,23 @@
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/self_destruct,
 		/mob/living/carbon/human/proc/detonate_flechettes,
-		/mob/living/carbon/human/proc/state_laws,
-		/mob/living/carbon/human/proc/self_diagnostics
+		/mob/living/carbon/human/proc/state_laws
 	)
 
 	has_organ = list(
-		BP_BRAIN = /obj/item/organ/internal/mmi_holder/posibrain/terminator,
-		BP_CELL = /obj/item/organ/internal/cell/terminator,
-		BP_EYES = /obj/item/organ/internal/eyes/optical_sensor/terminator,
-		"data core" = /obj/item/organ/internal/data,
-		"surge" = /obj/item/organ/internal/surge/advanced
+		BP_BRAIN   = /obj/item/organ/internal/machine/posibrain,
+		BP_VOICE_SYNTHESIZER = /obj/item/organ/internal/machine/voice_synthesizer,
+		BP_DIAGNOSTICS_SUITE = /obj/item/organ/internal/machine/internal_diagnostics,
+		BP_HYDRAULICS = /obj/item/organ/internal/machine/hydraulics,
+		BP_ACTUATORS_LEFT = /obj/item/organ/internal/machine/actuators/left,
+		BP_ACTUATORS_RIGHT = /obj/item/organ/internal/machine/actuators/right,
+		BP_COOLING_UNIT = /obj/item/organ/internal/machine/cooling_unit,
+		BP_REACTOR = /obj/item/organ/internal/machine/reactor,
+		BP_ACCESS_PORT = /obj/item/organ/internal/machine/access_port,
+		BP_CELL    = /obj/item/organ/internal/machine/power_core,
+		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
+		BP_DATACORE = /obj/item/organ/internal/machine/data,
+		BP_SURGE_PROTECTOR = /obj/item/organ/internal/machine/surge/advanced
 	)
 
 	has_limbs = list(
@@ -290,6 +301,8 @@
 
 	sprint_temperature_factor = 0.6
 	move_charge_factor = 0.3
+
+	machine_ui_theme = "syndicate"
 
 /datum/species/machine/hunter_killer/get_light_color()
 	return
@@ -328,8 +341,9 @@
 	heat_discomfort_level = 900
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/self_diagnostics,
-		/mob/living/carbon/human/proc/check_tag
+		/mob/living/carbon/human/proc/check_tag,
+		/mob/living/carbon/human/proc/discard_limb,
+		/mob/living/carbon/human/proc/attach_hephaestus_limb
 	)
 
 	examine_color = "#688359"
@@ -350,8 +364,99 @@
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/ipc/industrial/hephaestus)
 	)
 
+
+	has_organ = list(
+		BP_BRAIN   = /obj/item/organ/internal/machine/posibrain,
+		BP_VOICE_SYNTHESIZER = /obj/item/organ/internal/machine/voice_synthesizer,
+		BP_DIAGNOSTICS_SUITE = /obj/item/organ/internal/machine/internal_diagnostics,
+		BP_HYDRAULICS = /obj/item/organ/internal/machine/hydraulics,
+		BP_ACTUATORS_LEFT = /obj/item/organ/internal/machine/actuators/left,
+		BP_ACTUATORS_RIGHT = /obj/item/organ/internal/machine/actuators/right,
+		BP_COOLING_UNIT = /obj/item/organ/internal/machine/cooling_unit,
+		BP_REACTOR = /obj/item/organ/internal/machine/reactor,
+		BP_ACCESS_PORT = /obj/item/organ/internal/machine/access_port,
+		BP_INTERNAL_STORAGE = /obj/item/organ/internal/machine/internal_storage,
+		BP_CELL    = /obj/item/organ/internal/machine/power_core,
+		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
+		BP_IPCTAG = /obj/item/organ/internal/machine/ipc_tag
+	)
+
 	flags = IS_IPC | ACCEPTS_COOLER | NO_EQUIP_SPEEDMODS
 
+	machine_ui_theme = "hephaestus"
+
+	natural_armor = list(
+		ballistic = ARMOR_BALLISTIC_SMALL,
+		melee = ARMOR_MELEE_KEVLAR
+	)
+
+/mob/living/carbon/human/proc/discard_limb()
+	set name = "Discard Limb"
+	set category = "Object"
+
+	if(incapacitated(INCAPACITATION_DEFAULT))
+		return
+
+	if(get_active_hand())
+		to_chat(src, SPAN_WARNING("You need your hand to be free!"))
+		return
+
+	var/limb_list = list()
+	for(var/obj/item/organ/external/limb in organs)
+		if(limb.limb_name in list(BP_CHEST, BP_GROIN, BP_HEAD))
+			continue
+
+		if(limb.robotize_type == PROSTHETIC_HI)
+			limb_list[capitalize_first_letters(limb.name)] = limb
+
+	var/chosen_limb = tgui_input_list(src, "Choose a limb to discard.", "Discard Limb", limb_list)
+	if(!chosen_limb)
+		return
+
+	var/obj/item/organ/external/oopsie = limb_list[chosen_limb]
+	visible_message(SPAN_DANGER("[src] ejects [get_pronoun("his")] [oopsie] with a hiss!"))
+	oopsie.droplimb(TRUE, DROPLIMB_EDGE)
+
+/mob/living/carbon/human/proc/attach_hephaestus_limb()
+	set name = "Attach Limb"
+	set category = "Object"
+
+	if(incapacitated(INCAPACITATION_DEFAULT))
+		return
+
+	var/obj/item/organ/external/limb = get_active_hand()
+	if(!istype(limb))
+		to_chat(src, SPAN_WARNING("You need to be holding a compatible Hephaestus Industries limb!"))
+		return
+
+	if(!limb.robotic)
+		to_chat(src, SPAN_WARNING("That is not a compatible Hephaestus Industries limb!"))
+		return
+
+	if(limb.robotize_type != PROSTHETIC_HI)
+		to_chat(src,SPAN_WARNING("That prosthetic does not have the right ports for your joint!"))
+		return
+
+	if(organs_by_name[limb.limb_name])
+		to_chat(src,SPAN_WARNING("You already have a limb of this type!"))
+		return
+
+	if(!organs_by_name[limb.parent_organ])
+		to_chat(src,SPAN_WARNING("You are missing the appropriate joint to attach that limb!"))
+		return
+
+	visible_message(SPAN_NOTICE("[src] begins attaching \the [limb] to the appropriate joint..."))
+	if(!do_after(src, 10 SECONDS))
+		return
+
+
+	drop_from_inventory(limb)
+	limb.replaced(src)
+
+	visible_message(SPAN_NOTICE("[src] attaches \the [limb] to their body!"))
+	update_body()
+	updatehealth()
+	UpdateDamageIcon()
 
 /datum/species/machine/industrial/hephaestus/get_light_color(mob/living/carbon/human/H)
 	if (istype(H))
@@ -390,7 +495,6 @@
 
 	eyes = "xion_eyes"
 	flags = IS_IPC
-	passive_temp_gain = 0
 
 	examine_color = "#bc4b00"
 
@@ -410,6 +514,23 @@
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/ipc/industrial/xion)
 	)
 
+	has_organ = list(
+		BP_BRAIN   = /obj/item/organ/internal/machine/posibrain,
+		BP_VOICE_SYNTHESIZER = /obj/item/organ/internal/machine/voice_synthesizer,
+		BP_DIAGNOSTICS_SUITE = /obj/item/organ/internal/machine/internal_diagnostics,
+		BP_HYDRAULICS = /obj/item/organ/internal/machine/hydraulics,
+		BP_ACTUATORS_LEFT = /obj/item/organ/internal/machine/actuators/left,
+		BP_ACTUATORS_RIGHT = /obj/item/organ/internal/machine/actuators/right,
+		BP_COOLING_UNIT = /obj/item/organ/internal/machine/cooling_unit/xion,
+		BP_REACTOR = /obj/item/organ/internal/machine/reactor,
+		BP_ACCESS_PORT = /obj/item/organ/internal/machine/access_port,
+		BP_CELL    = /obj/item/organ/internal/machine/power_core,
+		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
+		BP_IPCTAG = /obj/item/organ/internal/machine/ipc_tag
+	)
+
+	machine_ui_theme = "hephaestus"
+
 /datum/species/machine/industrial/xion/remote
 	name = SPECIES_IPC_XION_REMOTE
 	short_name = "rem_xmf"
@@ -417,10 +538,18 @@
 	spawn_flags = IS_RESTRICTED
 
 	has_organ = list(
-		BP_BRAIN   = /obj/item/organ/internal/mmi_holder/circuit,
-		BP_CELL    = /obj/item/organ/internal/cell,
+		BP_BRAIN   = /obj/item/organ/internal/machine/posibrain,
+		BP_VOICE_SYNTHESIZER = /obj/item/organ/internal/machine/voice_synthesizer,
+		BP_DIAGNOSTICS_SUITE = /obj/item/organ/internal/machine/internal_diagnostics,
+		BP_HYDRAULICS = /obj/item/organ/internal/machine/hydraulics,
+		BP_ACTUATORS_LEFT = /obj/item/organ/internal/machine/actuators/left,
+		BP_ACTUATORS_RIGHT = /obj/item/organ/internal/machine/actuators/right,
+		BP_COOLING_UNIT = /obj/item/organ/internal/machine/cooling_unit,
+		BP_REACTOR = /obj/item/organ/internal/machine/reactor,
+		BP_ACCESS_PORT = /obj/item/organ/internal/machine/access_port,
+		BP_CELL    = /obj/item/organ/internal/machine/power_core,
 		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
-		BP_IPCTAG = /obj/item/organ/internal/ipc_tag
+		BP_IPCTAG = /obj/item/organ/internal/machine/ipc_tag
 	)
 
 /datum/species/machine/industrial/xion/get_light_color(mob/living/carbon/human/H)
@@ -449,10 +578,26 @@
 	resist_mod = 4 // Not super strong, but still rather strong
 
 	appearance_flags = HAS_EYE_COLOR | HAS_UNDERWEAR | HAS_SOCKS
+	flags = IS_IPC | NO_SLIP
 
 	examine_color = "#ff00ff"
 
 	blurb = "Being a corporation focused primarily on medical sciences and treatments, Zeng-Hu Pharmaceuticals had little interest in the market of synthetics in the beginning (especially considering a good portion of Zeng-Hu employees are Skrellian). However, after seeing the advances in almost all fields of the galactic market after the advent of synthetics, Zeng-Hu set aside some funds for their own robotics department, focused mainly on medical service and even science related operations. Having taken some inspiration from biological life, the chassis has an interesting leg design: digitigrade legs provide the chassis with enhanced speed. A downside to this development was the reduction of metals on the chassis. Most plates covering the sensitive interior electronics are polymer casts to reduce the weight of the unit, resulting in a not-so-durable android."
+
+	has_organ = list(
+		BP_BRAIN   = /obj/item/organ/internal/machine/posibrain,
+		BP_VOICE_SYNTHESIZER = /obj/item/organ/internal/machine/voice_synthesizer,
+		BP_DIAGNOSTICS_SUITE = /obj/item/organ/internal/machine/internal_diagnostics,
+		BP_HYDRAULICS = /obj/item/organ/internal/machine/hydraulics,
+		BP_ACTUATORS_LEFT = /obj/item/organ/internal/machine/actuators/left,
+		BP_ACTUATORS_RIGHT = /obj/item/organ/internal/machine/actuators/right,
+		BP_COOLING_UNIT = /obj/item/organ/internal/machine/cooling_unit/zenghu,
+		BP_REACTOR = /obj/item/organ/internal/machine/reactor,
+		BP_ACCESS_PORT = /obj/item/organ/internal/machine/access_port,
+		BP_CELL    = /obj/item/organ/internal/machine/power_core,
+		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
+		BP_IPCTAG = /obj/item/organ/internal/machine/ipc_tag
+	)
 
 	has_limbs = list(
 		BP_CHEST  = list("path" = /obj/item/organ/external/chest/ipc/industrial/zenghu),
@@ -469,12 +614,13 @@
 	)
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/self_diagnostics,
 		/mob/living/carbon/human/proc/check_tag
 		)
 	maneuvers = list(
 		/singleton/maneuver/leap/zenghu
 	)
+
+	machine_ui_theme = "zenghu"
 
 
 /datum/species/machine/zenghu/get_light_color(mob/living/carbon/human/H)
@@ -505,6 +651,22 @@
 
 	blurb = "Bishop Cybernetics frames are among the sleeker, flashier frames widely produced for IPCs. This brand-new, high end design has a focus on pioneering energy efficiency without sacrifice, fitting to Bishop's company vision. Cutting-edge technology in power management means this frame can operate longer while running more demanding processing algorithms than most. This extreme push to minimize power draw means this frame can be equipped with all sorts of extra equipment: a hologram for a face, flashing status displays and embedded lights solely meant for show. The one thing holding this frame back from perfection is the same common criticism leveled against almost all Bishop products: the shiny chrome and glass meant to put all of this tech on display means it's exposed and fragile. It's because of Bishop's unrelenting pursuit of vanity in their designs that these frames often suffer from issues with reliability and struggle to safely perform the same work as cheaper, more rugged frames."
 
+	has_organ = list(
+		BP_BRAIN   = /obj/item/organ/internal/machine/posibrain,
+		BP_VOICE_SYNTHESIZER = /obj/item/organ/internal/machine/voice_synthesizer,
+		BP_DIAGNOSTICS_SUITE = /obj/item/organ/internal/machine/internal_diagnostics,
+		BP_HYDRAULICS = /obj/item/organ/internal/machine/hydraulics,
+		BP_ACTUATORS_LEFT = /obj/item/organ/internal/machine/actuators/left,
+		BP_ACTUATORS_RIGHT = /obj/item/organ/internal/machine/actuators/right,
+		BP_COOLING_UNIT = /obj/item/organ/internal/machine/cooling_unit,
+		BP_REACTOR = /obj/item/organ/internal/machine/reactor,
+		BP_ACCESS_PORT = /obj/item/organ/internal/machine/access_port,
+		BP_CELL    = /obj/item/organ/internal/machine/power_core,
+		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
+		BP_IPCTAG = /obj/item/organ/internal/machine/ipc_tag,
+		BP_WIRELESS_ACCESS = /obj/item/organ/internal/machine/wireless_access
+	)
+
 	has_limbs = list(
 		BP_CHEST  = list("path" = /obj/item/organ/external/chest/ipc/industrial/bishop),
 		BP_GROIN  = list("path" = /obj/item/organ/external/groin/ipc/industrial/bishop),
@@ -520,9 +682,10 @@
 	)
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/self_diagnostics,
 		/mob/living/carbon/human/proc/check_tag
 		)
+
+	machine_ui_theme = "zenghu"
 
 /datum/species/machine/bishop/get_light_color(mob/living/carbon/human/H)
 	if (istype(H))
@@ -560,7 +723,6 @@
 	)
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/self_diagnostics,
 		/mob/living/carbon/human/proc/check_tag
 		)
 
@@ -572,10 +734,17 @@
 	spawn_flags = IS_RESTRICTED
 
 	has_organ = list(
-		BP_BRAIN   = /obj/item/organ/internal/mmi_holder/circuit,
-		BP_CELL    = /obj/item/organ/internal/cell,
+		BP_BRAIN   = /obj/item/organ/internal/machine/posibrain,
+		BP_VOICE_SYNTHESIZER = /obj/item/organ/internal/machine/voice_synthesizer,
+		BP_DIAGNOSTICS_SUITE = /obj/item/organ/internal/machine/internal_diagnostics,
+		BP_HYDRAULICS = /obj/item/organ/internal/machine/hydraulics,
+		BP_ACTUATORS_LEFT = /obj/item/organ/internal/machine/actuators/left,
+		BP_ACTUATORS_RIGHT = /obj/item/organ/internal/machine/actuators/right,
+		BP_COOLING_UNIT = /obj/item/organ/internal/machine/cooling_unit,
+		BP_REACTOR = /obj/item/organ/internal/machine/reactor,
+		BP_CELL    = /obj/item/organ/internal/machine/power_core,
 		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
-		BP_IPCTAG = /obj/item/organ/internal/ipc_tag
+		BP_IPCTAG = /obj/item/organ/internal/machine/ipc_tag
 	)
 
 /datum/species/machine/unbranded/get_light_color(mob/living/carbon/human/H)

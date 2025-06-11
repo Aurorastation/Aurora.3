@@ -436,7 +436,7 @@
 		SPAN_NOTICE("You have installed \the [tool] into [target]'s [affected.name]."))
 
 	var/obj/item/device/mmi/M = tool
-	var/obj/item/organ/internal/mmi_holder/holder = new(target, 1)
+	var/obj/item/organ/internal/machine/posibrain/holder = new(target, 1)
 	target.internal_organs_by_name[BP_BRAIN] = holder
 	user.drop_from_inventory(tool,holder)
 	holder.stored_mmi = tool
@@ -448,3 +448,53 @@
 /singleton/surgery_step/robotics/install_mmi/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips."), \
 		SPAN_WARNING("Your hand slips."))
+
+/singleton/surgery_step/internal/fix_internal_wiring
+	name = "Repair Internal Wiring"
+	allowed_tools = list(
+		/obj/item/stack/cable_coil = 100,
+		/obj/item/stack/cable_coil/cyborg = 100
+	)
+
+	min_duration = 50
+	max_duration = 70
+
+/singleton/surgery_step/internal/fix_internal_wiring/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	var/obj/item/stack/cable_coil/C = tool
+	var/is_organ_damaged = FALSE
+	var/limb_can_operate = (affected && affected.open == ORGAN_ENCASED_RETRACTED && target_zone != BP_MOUTH)
+	if(limb_can_operate)
+		for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
+			if(I.wiring.get_status() < 100)
+				if(istype(C))
+					var/needed_wires = I.wiring.max_wires - I.wiring.wires
+					if(needed_wires)
+						if(!(C.get_amount() >= (needed_wires * 10)))
+							to_chat(user, SPAN_DANGER("You need [needed_wires * 10] or more cable pieces to repair this damage."))
+							return SURGERY_FAILURE
+						is_organ_damaged = TRUE
+						C.use(needed_wires * 10)
+	return is_organ_damaged
+
+/singleton/surgery_step/internal/fix_internal_wiring/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
+		if(I && (I.wiring.get_status() < 100))
+			user.visible_message(SPAN_NOTICE("[user] begins splitting and connecting new wiring in [target]'s [I]..."))
+	..()
+
+/singleton/surgery_step/internal/fix_internal_wiring/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	. = ..()
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
+		if(I && (I.wiring.get_status() < 100))
+			var/needed_wires = I.wiring.max_wires - I.wiring.wires
+			user.visible_message(SPAN_NOTICE("[user] fixes the wiring in [target]'s [affected]."))
+			I.wiring.heal_damage(needed_wires)

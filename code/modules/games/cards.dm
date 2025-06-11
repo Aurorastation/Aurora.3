@@ -238,6 +238,9 @@
 
 /obj/item/deck/AltClick(var/mob/user as mob)
 	. = ..()
+	if(use_check_and_message(user))
+		return
+
 	var/list/newcards = list()
 	while(length(cards))
 		var/datum/playingcard/P = pick(cards)

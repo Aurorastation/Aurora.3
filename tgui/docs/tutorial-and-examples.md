@@ -338,7 +338,7 @@ export const SampleInterface = (props, context) => {
   const { act, data } = useBackend<UIData>(context);
 
   return (
-    <Window resizable>
+    <Window resizable theme="">
       <Window.Content scrollable>
         <Section title="Title">
 
