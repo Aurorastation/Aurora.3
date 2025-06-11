@@ -479,7 +479,7 @@
 /obj/structure/ledge/quarter{
 	dir = 4
 	},
-/obj/structure/road_sign/yield{
+/obj/structure/street_sign/yield{
 	name = "NO TRESPASSING sign";
 	desc = "A sign which declares this area as SCC property and staunchly declines any thought of trespassing."
 	},
@@ -1327,7 +1327,7 @@
 /turf/simulated/floor/reinforced,
 /area/konyang_landing_zone/command_center/garage)
 "rz" = (
-/obj/structure/road_sign/yield{
+/obj/structure/street_sign/yield{
 	name = "NO TRESPASSING sign";
 	desc = "A sign which declares this area as SCC property and staunchly declines any thought of trespassing."
 	},
@@ -2479,7 +2479,7 @@
 	dir = 8
 	},
 /obj/structure/flora/bush/konyang_reeds,
-/obj/structure/road_sign/yield{
+/obj/structure/street_sign/yield{
 	name = "NO TRESPASSING sign";
 	desc = "A sign which declares this area as SCC property and staunchly declines any thought of trespassing."
 	},
@@ -2978,7 +2978,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/konyang_flowers,
-/obj/structure/road_sign/yield{
+/obj/structure/street_sign/yield{
 	name = "NO TRESPASSING sign";
 	desc = "A sign which declares this area as SCC property and staunchly declines any thought of trespassing."
 	},
@@ -3153,7 +3153,7 @@
 /obj/structure/ledge/quarter{
 	dir = 8
 	},
-/obj/structure/road_sign/yield{
+/obj/structure/street_sign/yield{
 	name = "NO TRESPASSING sign";
 	desc = "A sign which declares this area as SCC property and staunchly declines any thought of trespassing."
 	},
@@ -3299,7 +3299,7 @@
 /obj/structure/chainlink_fence{
 	dir = 4
 	},
-/obj/structure/road_sign/yield{
+/obj/structure/street_sign/yield{
 	name = "NO TRESPASSING sign";
 	desc = "A sign which declares this area as SCC property and staunchly declines any thought of trespassing."
 	},
