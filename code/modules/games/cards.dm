@@ -107,7 +107,7 @@
 	H.cards += P
 	cards -= P
 	H.update_icon()
-	balloon_alert_to_viewers("<b>\The [user]</b> draws a card.")
+	balloon_alert_to_viewers("draws a card")
 	if(!length(cards))
 		qdel(src)
 
@@ -151,7 +151,7 @@
 	H.cards += P
 	cards -= P
 	H.update_icon()
-	balloon_alert_to_viewers("<b>\The [user]</b> picks out a card.")
+	balloon_alert_to_viewers("picks out a card")
 	if(!length(cards))
 		qdel(src)
 
@@ -201,7 +201,7 @@
 	H.concealed = TRUE
 	H.update_icon()
 	user.do_attack_animation(src, null)
-	balloon_alert_to_viewers("<b>\The [user]</b> deals a card.")
+	balloon_alert_to_viewers("deals a card")
 	H.throw_at(get_step(target,target.dir), 10, 1, user, FALSE)
 	if(!length(cards))
 		qdel(src)
@@ -246,8 +246,8 @@
 		newcards += P
 		cards -= P
 	cards = newcards
-	playsound(src.loc, shuffle_sound, 100, 1, -4)
-	balloon_alert_to_viewers("<b>\The [user]</b> shuffles [src].")
+	playsound(src.loc, 'sound/items/cards/cardshuffle.ogg', 100, 1, -4)
+	balloon_alert_to_viewers("shuffling")
 
 /obj/item/pack
 	name = "card pack"
@@ -323,7 +323,7 @@
 	H.update_icon()
 	src.update_icon()
 	playsound(src, 'sound/items/cards/cardflip.ogg', 50, TRUE)
-	balloon_alert_to_viewers("<b>\The [user]</b> picks out a card.")
+	balloon_alert_to_viewers("picks out a card")
 	if(deploy_in_front)
 		H.forceMove(get_step(usr, usr.dir))
 	else
@@ -354,7 +354,7 @@
 	else
 		update_icon()
 	playsound(src, 'sound/items/cards/cardflip.ogg', 50, TRUE)
-	balloon_alert_to_viewers("\The [user] [concealed ? "conceals" : "reveals"] their hand.")
+	balloon_alert_to_viewers("[concealed ? "conceals" : "reveals"] their hand.")
 
 /obj/item/hand/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
@@ -454,7 +454,7 @@
 		return
 
 	D.cards = cards
-	balloon_alert_to_viewers("<b>\The [user]</b> turns his hand into a deck.")
+	user.visible_message(SPAN_NOTICE("<b>\The [user]</b> turns his hand into a deck."), SPAN_NOTICE("You turn your hand into a deck."))
 	qdel(src)
 	user.put_in_hands(D)
 

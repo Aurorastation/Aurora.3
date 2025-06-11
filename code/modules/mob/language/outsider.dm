@@ -194,3 +194,17 @@
 
 /datum/language/purpose/get_random_name()
 	return "[pick(list("HERA","ZEUS","ARTEMIS","ATHENA","ARES","HADES","POSEIDON","DEMETER","APOLLO","APHORDITE","HERMES","HESTIA","DIONYSUS","PERSEPHONE","KRONOS","ODYSSEUS","AJAX","AGAMENON","CHIRON","CHARON"))][rand(100, 999)]"
+
+/datum/language/hivebot
+	name = LANGUAGE_HIVEBOT
+	desc = "A heavily encrypted communication network, used by hivebots."
+	speech_verb = list("beeps")
+	ask_verb = list("beeps")
+	exclaim_verb = list("loudly beeps")
+	sing_verb = list("rhythmically beeps")
+	colour = "changeling"
+	written_style = "encodedaudiolanguage"
+	key = "hb"
+	flags = RESTRICTED | NO_STUTTER | HIVEMIND
+	syllables = list("beep","beep","beep","beep","beep","boop","boop","boop","bop","bop","dee","dee","doo","doo","hiss","hss","buzz","buzz","bzz","ksssh","keey","wurr","wahh","tzzz")
+	space_chance = 10
