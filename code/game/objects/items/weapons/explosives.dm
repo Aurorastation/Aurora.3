@@ -30,7 +30,7 @@
 		open_panel = !open_panel
 		to_chat(user, SPAN_NOTICE("You [open_panel ? "open" : "close"] the wire panel."))
 		return TRUE
-	else if(attacking_item.iswirecutter() || attacking_item.ismultitool() || istype(attacking_item, /obj/item/device/assembly/signaler ))
+	else if(open_panel)
 		wires.interact(user)
 		return TRUE
 	else

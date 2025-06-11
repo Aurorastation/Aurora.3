@@ -140,6 +140,13 @@
 	desc = "BLAM!-brand non-foaming space cleaner!"
 	volume = 50
 
+/obj/item/reagent_containers/spray/cleaner/deodorant
+	name = "deodorant"
+	desc = "A can of Gold Standard spray deodorant - for when you're too lazy to shower."
+	volume = 35
+	icon_state = "deodorant"
+	item_state = "deodorant"
+
 /obj/item/reagent_containers/spray/cleaner/Initialize()
 	. = ..()
 	reagents.add_reagent(/singleton/reagent/spacecleaner, volume)
