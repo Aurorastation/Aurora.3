@@ -30,7 +30,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 	hunger_enabled = 0//Until automated eating mechanics are enabled, disable hunger for hostile mobs
 	var/shuttletarget = null
 	var/enroute = 0
-	var/obj/effect/fauna_spawner/spawner_source = null // For the phoron deposit away site
+	var/obj/effect/landmark/mob_waypoint/target_waypoint = null // The waypoint mobs that are spawned by mapped in spawners move to
 
 	// Vars to help find targets
 	var/list/targets = list()

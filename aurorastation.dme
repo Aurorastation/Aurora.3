@@ -2176,6 +2176,7 @@
 #include "code\modules\effects\map_effects\effect_emitter.dm"
 #include "code\modules\effects\map_effects\map_effects.dm"
 #include "code\modules\effects\map_effects\map_helpers.dm"
+#include "code\modules\effects\map_effects\mob_spawner.dm"
 #include "code\modules\effects\map_effects\perma_light.dm"
 #include "code\modules\effects\map_effects\portal.dm"
 #include "code\modules\effects\map_effects\screen_shaker.dm"
