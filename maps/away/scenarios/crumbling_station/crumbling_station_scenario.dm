@@ -3,6 +3,8 @@
 	desc = "An old, crumbling station."
 	scenario_site_id = "crumbling_station"
 
+	possible_scenario_types = list(SCENARIO_TYPE_CANON)
+
 	scenario_announcements = /singleton/scenario_announcements/crumbling_station
 
 	min_player_amount = 0
@@ -19,6 +21,7 @@
 	)
 
 	default_outfit = /obj/outfit/admin/generic/crumbling_station_crew
+	actor_accesses = list(/datum/access/crumbling_station_command)
 
 	base_area = /area/crumbling_station
 
