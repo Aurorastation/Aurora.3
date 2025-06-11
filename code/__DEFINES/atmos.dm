@@ -4,17 +4,21 @@
 #define MOLES_CELLSTANDARD (ONE_ATMOSPHERE*CELL_VOLUME/(T20C*R_IDEAL_GAS_EQUATION))
 
 // Standard atmosphere gas percentages.
-#define O2STANDARD 0.21
-#define N2STANDARD 0.79
+#define O2STANDARD  0.21
+#define N2STANDARD  0.78
+#define H20STANDARD 0.01
 
 // Moles in a standard cell after which phoron is visible.
 #define MOLES_PHORON_VISIBLE 0.7
 // O2 standard value (21%)
 #define MOLES_O2STANDARD     (MOLES_CELLSTANDARD * O2STANDARD)
-// N2 standard value (79%)
+// N2 standard value (78%)
 #define MOLES_N2STANDARD     (MOLES_CELLSTANDARD * N2STANDARD)
-#define MOLES_O2ATMOS (MOLES_O2STANDARD*50)
-#define MOLES_N2ATMOS (MOLES_N2STANDARD*50)
+// H2O standard value (1%)
+#define MOLES_N2STANDARD     (MOLES_CELLSTANDARD * H2OSTANDARD)
+#define MOLES_O2ATMOS  (MOLES_O2STANDARD*50)
+#define MOLES_N2ATMOS  (MOLES_N2STANDARD*50)
+#define MOLES_H2OATMOS (MOLES_H2OSTANDARD*50)
 
 // These are for when a mob breathes poisonous air.
 #define MIN_TOXIN_DAMAGE 1
@@ -153,7 +157,7 @@
 #define GAS_PHORON				"phoron"
 #define GAS_HYDROGEN            "hydrogen"
 #define GAS_ALIEN				"aliether"
-#define GAS_STEAM				"water"
+#define GAS_WATERVAPOR			"water_vapor"
 #define GAS_SULFUR				"sulfur_dioxide"
 #define GAS_CHLORINE			"chlorine"
 #define GAS_HELIUM				"helium"

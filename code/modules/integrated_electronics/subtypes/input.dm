@@ -536,7 +536,7 @@
 		GAS_SULFUR         = IC_PINTYPE_NUMBER,
 		GAS_NO2 	       = IC_PINTYPE_NUMBER,
 		GAS_CHLORINE       = IC_PINTYPE_NUMBER,
-		GAS_STEAM          = IC_PINTYPE_NUMBER,
+		GAS_WATERVAPOR          = IC_PINTYPE_NUMBER,
 		"other"          = IC_PINTYPE_NUMBER
 	)
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
@@ -646,7 +646,9 @@
 		var/sulfurdioxide_level = environment.gas[GAS_SULFUR]/total_moles
 		var/nitrogendioxide_level = environment.gas[GAS_NO2]/total_moles
 		var/chlorine_level = environment.gas[GAS_CHLORINE]/total_moles
-		var/steam_level = environment.gas[GAS_STEAM]/total_moles
+		var/watervapor_level = environment.gas[GAS_WATERVAPOR]/total_moles
+		var/purble_level = environment.gas[GAS_PURBLE]/total_moles
+		var/teel_level = environment.gas[GAS_TEEL]/total_moles
 		var/unknown_level =  1-(o2_level+n2_level+co2_level+phoron_level)
 		set_pin_data(IC_OUTPUT, 1, pressure)
 		set_pin_data(IC_OUTPUT, 2, round(environment.temperature-T0C,0.1))
@@ -663,9 +665,10 @@
 		set_pin_data(IC_OUTPUT, 12, round(sulfurdioxide_level*100,0.01))
 		set_pin_data(IC_OUTPUT, 13, round(nitrogendioxide_level*100,0.01))
 		set_pin_data(IC_OUTPUT, 14, round(chlorine_level*100,0.01))
-		set_pin_data(IC_OUTPUT, 15, round(steam_level*100,0.01))
-		set_pin_data(IC_OUTPUT, 16, round(unknown_level, 0.01))
-		set_pin_data(IC_OUTPUT, 17, round(unknown_level, 0.01))
+		set_pin_data(IC_OUTPUT, 15, round(watervapor_level*100,0.01))
+		set_pin_data(IC_OUTPUT, 16, round(purble_level, 0.01))
+		set_pin_data(IC_OUTPUT, 17, round(teel_level, 0.01))
+		set_pin_data(IC_OUTPUT, 18, round(unknown_level, 0.01))
 	else
 		set_pin_data(IC_OUTPUT, 1, 0)
 		set_pin_data(IC_OUTPUT, 2, -273.15)
@@ -684,6 +687,7 @@
 		set_pin_data(IC_OUTPUT, 15, 0)
 		set_pin_data(IC_OUTPUT, 16, 0)
 		set_pin_data(IC_OUTPUT, 17, 0)
+		set_pin_data(IC_OUTPUT, 18, 0)
 	push_data()
 	activate_pin(2)
 
@@ -828,9 +832,17 @@
 	gas_name = GAS_CHLORINE
 	gas_display_name = GAS_CHLORINE
 
-/obj/item/integrated_circuit/input/gas_sensor/steam_level
-	gas_name = GAS_STEAM
-	gas_display_name = GAS_STEAM
+/obj/item/integrated_circuit/input/gas_sensor/watervapor_level
+	gas_name = GAS_WATERVAPOR
+	gas_display_name = GAS_WATERVAPOR
+
+/obj/item/integrated_circuit/input/gas_sensor/purble_level
+	gas_name = GAS_PURBLE
+	gas_display_name = GAS_PURBLE
+
+/obj/item/integrated_circuit/input/gas_sensor/teel_level
+	gas_name = GAS_TEEL
+	gas_display_name = GAS_TEEL
 
 /obj/item/integrated_circuit/input/turfpoint
 	name = "tile pointer"

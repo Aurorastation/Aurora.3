@@ -172,7 +172,7 @@
 		if(ATM_CL2)
 			return "Chlorine"
 		if(ATM_H2O)
-			return "Steam"
+			return "Water Vapor"
 		if(ATM_PUR)
 			return "Purble"
 		if(ATM_TEE)
@@ -202,7 +202,7 @@
 			if("switch_mode")
 				switch_mode(dir_flag(href_list["dir"]), mode_return_switch(href_list["mode"]))
 			if("switch_filter")
-				var/new_filter = input(usr,"Select filter mode:","Change filter",href_list["mode"]) in list("None", "Oxygen", "Nitrogen", "Carbon Dioxide", "Phoron", "Nitrous Oxide", "Hydrogen", "Deuterium", "Tritium", "Helium", "Boron", "Sulfur Dioxide", "Nitrogen Dioxide", "Chlorine", "Steam")
+				var/new_filter = input(usr,"Select filter mode:","Change filter",href_list["mode"]) in list("None", "Oxygen", "Nitrogen", "Carbon Dioxide", "Phoron", "Nitrous Oxide", "Hydrogen", "Deuterium", "Tritium", "Helium", "Boron", "Sulfur Dioxide", "Nitrogen Dioxide", "Chlorine", "Water Vapor", "Purble", "Teel")
 				switch_filter(dir_flag(href_list["dir"]), mode_return_switch(new_filter))
 
 	update_icon()
@@ -237,7 +237,7 @@
 			return ATM_NO2
 		if("Chlorine")
 			return ATM_CL2
-		if("Steam")
+		if("Water Vapor")
 			return ATM_H2O
 		if("Purble")
 			return ATM_PUR

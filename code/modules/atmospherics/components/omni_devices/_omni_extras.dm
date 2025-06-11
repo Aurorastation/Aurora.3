@@ -18,7 +18,7 @@
 #define ATM_SO2		13	//Sulfur Dioxide
 #define ATM_NO2		14	//Nitrogen Dioxide
 #define ATM_CL2		15	//Chlorine
-#define ATM_H2O 	16	//Steam
+#define ATM_H2O 	16	//Water Vapor
 #define ATM_PUR     17  //Purble
 #define ATM_TEE     18  //Teel
 
@@ -132,7 +132,7 @@
 		if(ATM_CL2)
 			return GAS_CHLORINE
 		if(ATM_H2O)
-			return GAS_STEAM
+			return GAS_WATERVAPOR
 		if(ATM_PUR)
 			return GAS_PURBLE
 		if(ATM_TEE)

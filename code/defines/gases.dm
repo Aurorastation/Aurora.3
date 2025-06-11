@@ -92,8 +92,8 @@
 		overlay_limit = 0.5
 
 /singleton/xgm_gas/vapor
-	id = GAS_STEAM
-	name = "Steam"
+	id = GAS_WATERVAPOR
+	name = "Water vapor"
 	tile_overlay = "generic"
 	overlay_limit = 0.5
 	specific_heat = 30	// J/(mol*K)

@@ -11,7 +11,7 @@
 #define SIGNAL_SULFUR_DIOXIDE 1024
 #define SIGNAL_NITROGEN_DIOXIDE 2048
 #define SIGNAL_CHLORINE 4096
-#define SIGNAL_STEAM 8192
+#define SIGNAL_WATERVAPOR 8192
 #define SIGNAL_PURBLE 16364
 #define SIGNAL_TEEL 32768
 
@@ -45,7 +45,7 @@
 	// 1024 for sulfur dioxide concentration
 	// 2048 for nitrogen dioxide concentration
 	// 4096 for chlorine concentration
-	// 8192 for steam concentration
+	// 8192 for water vapor concentration
 	// 16384 for purble concentration
 	// 32768 for teel concentration
 
@@ -97,10 +97,10 @@
 					signal.data[GAS_NO2] = round(100*air_sample.gas[GAS_NO2]/total_moles,0.1)
 				if(output&SIGNAL_CHLORINE)
 					signal.data[GAS_CHLORINE] = round(100*air_sample.gas[GAS_CHLORINE]/total_moles,0.1)
-				if(output&SIGNAL_STEAM)
-					signal.data[GAS_STEAM] = round(100*air_sample.gas[GAS_STEAM]/total_moles,0.1)
+				if(output&SIGNAL_WATERVAPOR)
+					signal.data[GAS_WATERVAPOR] = round(100*air_sample.gas[GAS_WATERVAPOR]/total_moles,0.1)
 				if(output&SIGNAL_PURBLE)
-					signal.data[GAS_PURBLE] = round(100*air_sample.gas[GAS_STEAM]/total_moles,0.1)
+					signal.data[GAS_PURBLE] = round(100*air_sample.gas[GAS_WATERVAPOR]/total_moles,0.1)
 				if(output&SIGNAL_TEEL)
 					signal.data[GAS_TEEL] = round(100*air_sample.gas[GAS_TEEL]/total_moles,0.1)
 			else
@@ -117,7 +117,7 @@
 				signal.data[GAS_SULFUR] = 0
 				signal.data[GAS_NO2] = 0
 				signal.data[GAS_CHLORINE] = 0
-				signal.data[GAS_STEAM]= 0
+				signal.data[GAS_WATERVAPOR]= 0
 				signal.data[GAS_PURBLE]= 0
 				signal.data[GAS_TEEL]= 0
 		signal.data["sigtype"]="status"
@@ -167,7 +167,7 @@
 		var/list/sdata = sensor_information[id_tag]
 		var/list/sensor_data = list("id_tag" = id_tag, "name" = long_name)
 		sensor_data["datapoints"] = list()
-		for(var/datapoint in list("pressure", "temperature", GAS_OXYGEN, GAS_NITROGEN, GAS_CO2, GAS_PHORON, GAS_HYDROGEN, GAS_N2O, GAS_HELIUM, GAS_DEUTERIUM, GAS_TRITIUM, GAS_BORON, GAS_SULFUR, GAS_NO2, GAS_CHLORINE, GAS_STEAM))
+		for(var/datapoint in list("pressure", "temperature", GAS_OXYGEN, GAS_NITROGEN, GAS_CO2, GAS_PHORON, GAS_HYDROGEN, GAS_N2O, GAS_HELIUM, GAS_DEUTERIUM, GAS_TRITIUM, GAS_BORON, GAS_SULFUR, GAS_NO2, GAS_CHLORINE, GAS_WATERVAPOR))
 			var/unit
 			if(datapoint == "pressure")
 				unit = "kPa"
@@ -565,6 +565,6 @@
 #undef SIGNAL_SULFUR_DIOXIDE
 #undef SIGNAL_NITROGEN_DIOXIDE
 #undef SIGNAL_CHLORINE
-#undef SIGNAL_STEAM
+#undef SIGNAL_WATERVAPOR
 #undef SIGNAL_PURBLE
 #undef SIGNAL_TEEL

@@ -159,14 +159,14 @@
 	. = ..()
 	air_contents.adjust_gas(GAS_NO2, MolesForPressure())
 
-/obj/machinery/portable_atmospherics/canister/steam
-	name = "\improper Steam \[H2O\]"
+/obj/machinery/portable_atmospherics/canister/watervapor
+	name = "\improper Water Vapor \[H2O\]"
 	icon_state = "whitebrs"
 	canister_color = "whitebrs"
 	can_label = 0
-/obj/machinery/portable_atmospherics/canister/steam/Initialize()
+/obj/machinery/portable_atmospherics/canister/watervapor/Initialize()
 	. = ..()
-	air_contents.adjust_gas(GAS_STEAM, MolesForPressure())
+	air_contents.adjust_gas(GAS_WATERVAPOR, MolesForPressure())
 
 /obj/machinery/portable_atmospherics/canister/air
 	name = "Canister \[Air\]"
@@ -254,7 +254,7 @@
 	name = "Canister \[Cl2\]"
 	icon_state = "darkyellow"
 	canister_color = "darkyellow"
-/obj/machinery/portable_atmospherics/canister/empty/steam
+/obj/machinery/portable_atmospherics/canister/empty/watervapor
 	name = "Canister \[H2O\]"
 	icon_state = "whitebrs"
 	canister_color = "whitebrs"
@@ -574,7 +574,7 @@ update_flag
 					"\[Sulfur Dioxide\]" = "lightgreen",
 					"\[Nitrogen Dioxide\]" = "brown",
 					"\[Chlorine\]" = "darkyellow",
-					"\[Steam\]" = "whitebrs",
+					"\[Water Vapor\]" = "whitebrs",
 					"\[CAUTION\]" = "yellow"
 				)
 				var/label = tgui_input_list(usr, "Choose canister label.", "Gas Canister", colors)
