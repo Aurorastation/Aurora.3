@@ -64,6 +64,10 @@
 	pain_messages = list("We're in pain", "We hurt so much", "We can't stand the pain")
 	pain_item_drop_cry = list("creaks loudly and ", "rustles erratically and ", "twitches for a moment and ")
 
+	natural_armor = list(
+		MELEE = ARMOR_MELEE_MEDIUM
+	)
+
 	pain_mod = 0.5
 	grab_mod = 0.6 // Viney Tentacles and shit to cling onto
 	resist_mod = 1.5 // Reasonably stronk, not moreso than an Unathi or robot.
