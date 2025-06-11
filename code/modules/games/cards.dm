@@ -246,7 +246,7 @@
 		newcards += P
 		cards -= P
 	cards = newcards
-	playsound(src.loc, 'sound/items/cards/cardshuffle.ogg', 100, 1, -4)
+	playsound(src.loc, shuffle_sound, 100, 1, -4)
 	balloon_alert_to_viewers("shuffling")
 
 /obj/item/pack
