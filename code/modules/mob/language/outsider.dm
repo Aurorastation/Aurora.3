@@ -194,3 +194,15 @@
 
 /datum/language/purpose/get_random_name()
 	return "[pick(list("HERA","ZEUS","ARTEMIS","ATHENA","ARES","HADES","POSEIDON","DEMETER","APOLLO","APHORDITE","HERMES","HESTIA","DIONYSUS","PERSEPHONE","KRONOS","ODYSSEUS","AJAX","AGAMENON","CHIRON","CHARON"))][rand(100, 999)]"
+
+/datum/language/worm
+	name = LANGUAGE_WORM
+	desc = "The method which black trident phoron worms use to communicate with one another."
+	speech_verb = list("chitters")
+	ask_verb = list("hisses")
+	exclaim_verb = list("shrieks")
+	sing_verb = list("trills")
+	colour = "alien"
+	key = "bt"
+	syllables = list("sksk", "chch", "ss", "kh", "shsh", "sh", "gh", "ch", "tt")
+	flags = RESTRICTED
