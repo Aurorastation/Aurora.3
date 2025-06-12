@@ -212,6 +212,15 @@
 /obj/item/ammo_magazine/mc9mm/empty
 	initial_ammo = 0
 
+/obj/item/ammo_magazine/mc9mm/polymer
+	name = "magazine (9mm polymer)"
+	icon_state = "9x19AP"
+	mag_type = MAGAZINE
+	caliber = "9mm"
+	ammo_type = /obj/item/ammo_casing/c9mm/polymer
+	max_ammo = 12
+	multiple_sprites = 1
+
 /obj/item/ammo_magazine/mc9mm/flash
 	name = "magazine (9mm flash)"
 	ammo_type = /obj/item/ammo_casing/c9mm/flash
