@@ -1,0 +1,7 @@
+author: Kano
+
+delete-after: True
+
+changes:
+  - rscadd: "Remapped the SCCV Intrepid."
+  - rscadd: "Ports CM's double vehicle seats."
