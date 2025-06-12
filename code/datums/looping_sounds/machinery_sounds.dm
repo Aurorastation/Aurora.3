@@ -43,7 +43,7 @@
 	mid_sounds = list('sound/machines/oven/oven_loop_mid.ogg' = 1)
 	mid_length = 13
 	end_sound = 'sound/machines/oven/oven_loop_end.ogg'
-	volume = 100
+	volume = 15
 	falloff_distance = 4
 	extra_range = SHORT_RANGE_SOUND_EXTRARANGE
 
