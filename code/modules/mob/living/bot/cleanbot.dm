@@ -56,6 +56,8 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 
 	///The turf we got the last movement failure on, since doors have to be bumped to be opened
 	var/turf/last_movement_failure_turf
+	// If it's Horizon janitorial supplies, track it for the app.
+	var/tracked_supply = 0
 
 /mob/living/bot/cleanbot/Cross(atom/movable/crossed)
 	if(crossed)
@@ -72,7 +74,9 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 	listener = new /obj/cleanbot_listener(src)
 	listener.cleanbot = src
 
-	GLOB.janitorial_supplies |= src
+	if(is_station_turf(get_turf(src)))
+		tracked_supply = 1
+		GLOB.janitorial_supplies |= src
 
 	SSradio.add_object(listener, beacon_freq, filter = RADIO_NAVBEACONS)
 
@@ -86,7 +90,8 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 	QDEL_NULL(listener)
 	SSradio.remove_object(listener, beacon_freq)
 
-	GLOB.janitorial_supplies -= src
+	if(tracked_supply)
+		GLOB.janitorial_supplies -= src
 	return ..()
 
 /mob/living/bot/cleanbot/proc/handle_target()
