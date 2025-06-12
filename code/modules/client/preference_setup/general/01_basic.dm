@@ -262,7 +262,7 @@
 			pref.floating_chat_color = new_fc_color
 			var/mob/living/carbon/human/H = preference_mob()
 			if(ishuman(H))
-				H.set_floating_chat_color(new_fc_color)
+				H.langchat_color = pref.floating_chat_color
 			return TOPIC_REFRESH
 
 	else if(href_list["speech_bubble_type"])

@@ -1,5 +1,3 @@
-// Thanks to Burger from Burgerstation for the foundation for this
-GLOBAL_LIST_INIT(floating_chat_colors, list())
 /atom/var/langchat_height = 32 // abovetile usually
 /atom/var/langchat_color = "#FFFFFF"
 /atom/var/langchat_styles = ""
@@ -46,8 +44,8 @@ GLOBAL_LIST_INIT(floating_chat_colors, list())
 /atom/movable/get_maxptext_x_offset(image/maptext_image)
 	return (bound_width / 2) - (maptext_image.maptext_width / 2)
 
-/*/mob/get_maxptext_x_offset(image/maptext_image)
-	return (icon_size / 2) - (maptext_image.maptext_width / 2)*/
+/mob/get_maxptext_x_offset(image/maptext_image)
+	return (icon_size / 2) - (maptext_image.maptext_width / 2)
 
 ///Creates the image if one does not exist, resets settings that are modified by speech procs.
 /atom/proc/langchat_make_image(override_color = null)
@@ -67,14 +65,14 @@ GLOBAL_LIST_INIT(floating_chat_colors, list())
 	if(appearance_flags & PIXEL_SCALE)
 		langchat_image.appearance_flags |= PIXEL_SCALE
 
-/*/mob/langchat_make_image(override_color = null)
+/mob/langchat_make_image(override_color = null)
 	var/new_image = FALSE
 	if(!langchat_image)
 		new_image = TRUE
 	. = ..()
 	// Recenter for icons more than 32 wide
 	if(new_image)
-		langchat_image.maptext_x += (icon_size - 32) / 2*/
+		langchat_image.maptext_x += (icon_size - 32) / 2
 
 /mob/abstract/ghost/langchat_make_image(override_color = null)
 	if(!override_color)
@@ -84,9 +82,7 @@ GLOBAL_LIST_INIT(floating_chat_colors, list())
 
 /atom/proc/langchat_speech(message, list/listeners, language, override_color, skip_language_check = FALSE, animation_style = LANGCHAT_DEFAULT_POP, list/additional_styles = list("langchat"))
 	langchat_drop_image()
-	if(!GLOB.floating_chat_colors[name])
-		GLOB.floating_chat_colors[name] = get_floating_chat_color()
-	langchat_make_image(GLOB.floating_chat_colors[name])
+	langchat_make_image(override_color)
 	var/image/r_icon
 	var/use_mob_style = TRUE
 	var/text_to_display = message
@@ -190,9 +186,3 @@ This does just that, doesn't check deafness or language! Do what you will in tha
 		return held_item
 	recursion_limit--
 	return recursive_holder_check(held_item.loc, recursion_limit)
-
-/atom/proc/get_floating_chat_color()
-	return get_random_colour(0, 160, 230)
-
-/atom/proc/set_floating_chat_color(color)
-	GLOB.floating_chat_colors[name] = color

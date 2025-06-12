@@ -156,8 +156,6 @@
 	if(!message)
 		return
 
-
-
 	if (message)
 		log_emote("[name]/[key] : [message]")
 
