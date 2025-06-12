@@ -864,3 +864,19 @@
 /datum/access/enviro_testing_facility_access_sec
 	id = 252
 	desc = "Env-Test Facility Zoya, Security Access"
+
+#define ACCESS_RINGSTATION 253
+/datum/access/ringstation
+	id = ACCESS_RINGSTATION
+	desc = "Ringstation - General Staff Access"
+
+#define ACCESS_RINGSTATION_MEDICAL 254
+/datum/access/ringstation_medical
+	id = ACCESS_RINGSTATION_MEDICAL
+	desc = "Ringstation - Secure Medical Access"
+
+#define ACCESS_RINGSTATION_ENGINEERING 255
+/datum/access/ringstation_engineering
+	id = ACCESS_RINGSTATION_ENGINEERING
+	desc = "Ringstation - Secure Engineering Access"
+
