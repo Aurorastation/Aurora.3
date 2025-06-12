@@ -8,10 +8,12 @@
 #define DAMAGE_PAIN      "pain"
 #define DAMAGE_RADIATION "radiation"
 
-#define CUT       "cut"
-#define BRUISE    "bruise"
-#define PIERCE    "pierce"
-//#define LASER     "laser"
+// Injury types for wounds
+#define INJURY_TYPE_CUT "cut"
+#define INJURY_TYPE_BRUISE "bruise"
+#define INJURY_TYPE_BURN "burn"
+#define INJURY_TYPE_PIERCE "pierce"
+#define INJURY_TYPE_LASER "laser"
 
 #define DAMAGE_FLAG_EDGE      1
 #define DAMAGE_FLAG_SHARP     2
