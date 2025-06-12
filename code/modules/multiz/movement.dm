@@ -112,7 +112,8 @@
 	else
 		to_chat(owner, SPAN_NOTICE("There is nothing of interest in this direction."))
 
-/mob/abstract/ghost/observer/zMove(direction)
+// Both observers and storytellers depend on this to be able to move through z-levels freely!
+/mob/abstract/ghost/zMove(direction)
 	var/turf/T = get_turf(src)
 	var/turf/destination = (direction == UP) ? GET_TURF_ABOVE(T) : GET_TURF_BELOW(T)
 	if(destination)
