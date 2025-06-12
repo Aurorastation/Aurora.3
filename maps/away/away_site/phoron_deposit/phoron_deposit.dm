@@ -5,8 +5,7 @@
 	prefix = "away_site/phoron_deposit/"
 	suffix = "phoron_deposit.dmm"
 
-	sectors = list(ALL_POSSIBLE_SECTORS)
-	sectors_blacklist = list(SECTOR_HANEUNIM, SECTOR_TAU_CETI)
+	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_VALLEY_HALE, SECTOR_TABITI)
 	spawn_weight = 1
 	spawn_cost = 2
 	id = "deposit"
