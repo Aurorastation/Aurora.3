@@ -59,7 +59,10 @@
 	if(!enabled)
 		return 0
 
-	if(length(GLOB.player_list) <= pop_requirement)
+	var/n = 0
+	for (var/mob/living in GLOB.player_list)
+		n++
+	if(n <= pop_requirement)
 		return 0
 
 	if(LAZYISIN(excluded_gamemodes, SSticker.mode.name))
