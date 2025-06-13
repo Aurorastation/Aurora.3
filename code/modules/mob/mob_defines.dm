@@ -252,6 +252,8 @@
 
 	var/list/active_genes=list()
 	var/mob_size = MOB_MEDIUM
+	/// The icon size width of the mob. Used for langchat resizing.
+	var/icon_size = 32
 
 	var/list/progressbars
 

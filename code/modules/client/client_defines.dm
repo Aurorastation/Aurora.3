@@ -100,3 +100,7 @@
 
 	/// The DPI scale of the client. 1 is equivalent to 100% window scaling, 2 will be 200% window scaling
 	var/window_scaling
+
+	//screen_text vars
+	///lazylist of screen_texts for this client, first in this list is the one playing
+	var/list/atom/movable/screen/text/screen_text/screen_texts
