@@ -35,9 +35,14 @@
 		return TRUE
 	if(default_part_replacement(user, attacking_item))
 		return TRUE
+
 	if(panel_open)
-		wires.interact(user)
-		return TRUE
+		if(attacking_item.ismultitool() || attacking_item.iswirecutter())
+			if(panel_open)
+				wires.interact(user)
+			else
+				to_chat(user, SPAN_WARNING("\The [src]'s wires aren't exposed."))
+			return TRUE
 	..()
 
 /obj/machinery/iff_beacon/proc/toggle()

@@ -8,7 +8,7 @@
 	cane["cane"] = /obj/item/cane
 	cane["telescopic cane"] = /obj/item/cane/telecane
 	cane["crutch"] = /obj/item/cane/crutch
-	cane["white cane"] = /obj/item/cane/telecane/white
+	cane["white cane"] = /obj/item/cane/white
 	gear_tweaks += new /datum/gear_tweak/path(cane)
 
 /datum/gear/flask

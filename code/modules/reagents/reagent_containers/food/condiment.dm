@@ -277,14 +277,11 @@
 	name = "vanilla extract"
 	reagents_to_add = list(/singleton/reagent/nutriment/vanilla = 50)
 
-/obj/item/reagent_containers/food/condiment/rice
-	name = "rice sack"
-	desc = "A big bag of rice. Good for cooking!"
+/obj/item/reagent_containers/food/condiment/rice //everyone's favorite condiment, rice. (there wasn't really a better place for this, code-wise)
 	icon_state = "rice"
-	center_of_mass = list("x"=16, "y"=8)
-	volume = 220
 	fixed_state = TRUE
-	reagents_to_add = list(/singleton/reagent/nutriment/rice = 200)
+	name = "rice"
+	reagents_to_add = list(/singleton/reagent/nutriment/rice = 50)
 
 /obj/item/reagent_containers/food/condiment/cocoa //not exactly a condiment, but not exactly NOT a condiment, right?
 	icon_state = "cocoapowder"

@@ -1478,7 +1478,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle/small/midynhr_water = 6
 	)
 
-/obj/item/storage/box/burukutu
+/obj/item/storage/box/midynhr_water
 	name = "pack of burukutu"
 	desc = "A box containing a six pack of burukutu."
 	illustration = "soda"

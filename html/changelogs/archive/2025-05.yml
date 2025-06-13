@@ -161,16 +161,3 @@
   - balance: Adds cream to the kitchen's fridge to supplement its removal from soda
       machines.
   - rscadd: Adds deodorant and a new sprite for mouthwash.
-2025-05-28:
-  ASmallCuteCat:
-  - bugfix: The kitchen's first aid closet should no longer have non-first aid items
-      in it. Soy sauce bottles were moved to the fridge, potted plant has been removed.
-  Batrachophreno:
-  - bugfix: Stickers now correctly display a warning message when trying to attach
-      them to Status Displays.
-  GeneralCamo:
-  - bugfix: Firesuits (including Atmos Firesuits) no longer lack on-mob icons for
-      tajara and unathi.
-  - rscadd: Atmospheric technician fire helmets now include an emissive layer.
-  - code_imp: Refactored the firesuit emissive code to be more generic (to potentially
-      allow custom variants later).

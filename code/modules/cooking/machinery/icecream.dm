@@ -11,11 +11,11 @@
 
 /obj/machinery/icecream_vat
 	name = "icecream vat"
-	desc = "Ding-aling ding dong. Get your corporate-approved ice cream!"
+	desc = "Ding-aling ding dong. Get your SCC-approved ice cream!"
 	icon = 'icons/obj/machinery/cooking_machines.dmi'
 	icon_state = "icecream_vat"
-	density = TRUE
-	anchored = FALSE
+	density = 1
+	anchored = 0
 	use_power = POWER_USE_OFF
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER | ATOM_FLAG_NO_REACT
 

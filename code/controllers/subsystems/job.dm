@@ -598,12 +598,12 @@ SUBSYSTEM_DEF(jobs)
 				. = spawnpos.msg
 				spawnpos.after_join(H)
 			else
-				to_chat(H, "Your chosen spawnpoint ([spawnpos.display_name]) is unavailable for your chosen job. Spawning you at the [SSatlas.current_map.default_spawn] instead.")
+				to_chat(H, "Your chosen spawnpoint ([spawnpos.display_name]) is unavailable for your chosen job. Spawning you at the Arrivals shuttle instead.")
 				H.forceMove(pick(GLOB.latejoin))
-				. = "is inbound from the [SSatlas.current_map.default_spawn]"
+				. = "is inbound from the [SSatlas.current_map.dock_name]"
 		else
 			H.forceMove(pick(GLOB.latejoin))
-			. = "is inbound from the [SSatlas.current_map.default_spawn]"
+			. = "is inbound from the [SSatlas.current_map.dock_name]"
 
 	H.mind.selected_faction = SSjobs.GetFaction(H)
 
