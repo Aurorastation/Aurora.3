@@ -1,8 +1,9 @@
 /client/proc/clear_toxins()
 	set category = "Special Verbs"
 	set name = "Clear Toxin/Fire in Zone"
+	set desc = "Remove fires from your current zone and reset the atmosphere to human-perfect gas mix, pressure, and temp."
 
-	if (!check_rights(R_ADMIN))
+	if (!check_rights(R_ADMIN) && !isstoryteller(usr))
 		return
 
 	if(!usr.loc) return

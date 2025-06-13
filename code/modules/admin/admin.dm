@@ -1320,26 +1320,28 @@ var/global/enabled_spooking = 0
 
 /datum/admins/proc/paralyze_mob(mob/living/H as mob)
 	set category = "Admin"
-	set name = "Toggle Wind"
+	set name = "Toggle Windedness/Paralysis"
 	set desc = "Paralyzes a player. Or unparalyses them."
 
 	toggle_wind_paralysis(H, usr)
 
 /proc/toggle_wind_paralysis(var/mob/living/target, var/mob/user)
 	var/msg
-	if(check_rights(R_ADMIN|R_MOD, user))
-		if (target.paralysis == 0)
-			msg = "has paralyzed [key_name_admin(target)]."
-			target.visible_message("<font color='#002eb8'><b>OOC Information:</b></font> <span class='warning'>[target] has been winded by a member of staff! Please freeze all roleplay involving their character until the matter is resolved! Adminhelp if you have further questions.</span>", SPAN_WARNING("<b>You have been winded by a member of staff! Please stand by until they contact you!</b>"))
-			target.paralysis = 8000
-		else
-			if (alert(user, "The player is currently winded. Do you want to unwind him?", "Unwind player?", "Yes", "No") == "No")
-				return
-			target.paralysis = 0
-			msg = "has unparalyzed [key_name_admin(target)]."
-			target.visible_message("<font color='#002eb8'><b>OOC Information:</b></font> <font color='green'>[target] has been unwinded by a member of staff!</font>", SPAN_WARNING("<b>You have been unwinded by a member of staff!</b>"))
-		log_and_message_admins(msg, user)
-		feedback_add_details("admin_verb", "WIND")
+	if(!check_rights(R_ADMIN|R_MOD, user))
+		return
+	
+	if (target.paralysis == 0)
+		msg = "has paralyzed [key_name_admin(target)]."
+		target.visible_message("<font color='#002eb8'><b>OOC Information:</b></font> <span class='warning'>[target] has been winded by a member of staff! Please freeze all roleplay involving their character until the matter is resolved! Adminhelp if you have further questions.</span>", SPAN_WARNING("<b>You have been winded by a member of staff! Please stand by until they contact you!</b>"))
+		target.paralysis = 8000
+	else
+		if (alert(user, "The player is currently winded. Do you want to unwind him?", "Unwind player?", "Yes", "No") == "No")
+			return
+		target.paralysis = 0
+		msg = "has unparalyzed [key_name_admin(target)]."
+		target.visible_message("<font color='#002eb8'><b>OOC Information:</b></font> <font color='green'>[target] has been unwinded by a member of staff!</font>", SPAN_WARNING("<b>You have been unwinded by a member of staff!</b>"))
+	log_and_message_admins(msg, user)
+	feedback_add_details("admin_verb", "WIND")
 
 /datum/admins/proc/toggle_round_spookyness()
 	set category = "Server"
