@@ -54,9 +54,14 @@ SUBSYSTEM_DEF(machinery)
 	var/list/rcon_smes_units_by_tag = list()
 	var/list/rcon_breaker_units = list()
 	var/list/rcon_breaker_units_by_tag = list()
+	// Not yet implemented, added for future.
+	var/list/rcon_apc_units = list()
+	// Not yet implemented, added for future.
+	var/list/rcon_apc_units_by_tag = list()
 
 	var/list/breaker_boxes = list()
 	var/list/smes_units = list()
+	var/list/apc_units = list()
 	var/list/all_sensors = list()
 
 	var/list/slept_in_process = list()
@@ -67,6 +72,7 @@ SUBSYSTEM_DEF(machinery)
 /datum/controller/subsystem/machinery/Recover()
 	all_cameras = SSmachinery.all_cameras
 	all_holopads = SSmachinery.all_holopads
+	all_apcs = SSmachinery.all_apcs
 	recipe_datums = SSmachinery.recipe_datums
 	breaker_boxes = SSmachinery.breaker_boxes
 	all_sensors = SSmachinery.all_sensors
