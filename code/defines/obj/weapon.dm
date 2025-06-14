@@ -475,13 +475,13 @@
 	throw_speed = 4
 	throw_range = 20
 
-/obj/item/camera_bug/attack_self(mob/usr as mob)
+/obj/item/camera_bug/attack_self(mob/user as mob)
 	var/list/cameras = new/list()
 	for (var/obj/machinery/camera/C in GLOB.cameranet.cameras)
 		if (C.bugged && C.status)
 			cameras.Add(C)
 	if (length(cameras) == 0)
-		to_chat(usr, SPAN_WARNING("No bugged functioning cameras found."))
+		to_chat(user, SPAN_WARNING("No bugged functioning cameras found."))
 		return
 
 	var/list/friendly_cameras = new/list()
@@ -489,16 +489,16 @@
 	for (var/obj/machinery/camera/C in cameras)
 		friendly_cameras.Add(C.c_tag)
 
-	var/target = tgui_input_list(usr, "Select the camera to observe", "Camera Bug", friendly_cameras)
+	var/target = tgui_input_list(user, "Select the camera to observe", "Camera Bug", friendly_cameras)
 	if (!target)
 		return
 	for (var/obj/machinery/camera/C in cameras)
 		if (C.c_tag == target)
 			target = C
 			break
-	if (usr.stat == 2) return
+	if (user.stat == 2) return
 
-	usr.client.eye = target
+	user.client.eye = target
 
 /obj/item/pai_cable
 	desc = "A flexible coated cable with a universal jack on one end."
