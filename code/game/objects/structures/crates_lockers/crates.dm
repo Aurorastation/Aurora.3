@@ -600,7 +600,7 @@
 	name = "herbalist crate"
 	desc = "Contains equipment and storage vessels involved in the processing and packaging of herbal medicine."
 
-/obj/structure/closet/crate/hydroponics/beekeeping/fill()
+/obj/structure/closet/crate/hydroponics/herbalism/fill()
 	new /obj/item/storage/box/spraybottles(src)
 	new /obj/item/storage/box/pillbottles(src)
 	new /obj/item/storage/box/inhalers_auto(src)
