@@ -99,3 +99,34 @@
 	ghost_role_id = "technogolem"
 	outfit_type = /obj/outfit/admin/techomancer/golem
 	preserve_appearance = TRUE
+
+/obj/item/antag_spawner/ody_actor
+	name = "actor spawner"
+	desc = "A fabulous device that opens up an Actor ghost role."
+	mob_type = /mob/living/carbon/human
+	ghost_role_id = "actor"
+	var/preserve_appearance = FALSE
+
+/obj/item/antag_spawner/ody_actor/Initialize()
+	. = ..()
+	request_player()
+
+/obj/item/antag_spawner/ody_actor/request_player()
+	SSghostroles.add_spawn_atom(ghost_role_id, src)
+
+/obj/item/antag_spawner/ody_actor/Destroy()
+	SSghostroles.remove_spawn_atom(ghost_role_id, src)
+	return ..()
+
+/obj/item/antag_spawner/ody_actor/assign_player(var/mob/user)
+	var/turf/src_turf = get_turf(src)
+	var/mob/living/carbon/human/new_actor = new mob_type(src_turf)
+	new_actor.ckey = user.ckey
+
+	GLOB.actors.add_antagonist(new_actor.mind, FALSE, FALSE, FALSE, TRUE, preserve_appearance)
+
+	new_actor.client.init_verbs()
+
+	qdel(src)
+
+	return new_actor
