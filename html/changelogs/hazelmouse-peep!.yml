@@ -55,4 +55,4 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Added a new audible emote available to Skrell, accessible via *peep! Ported from Baystation12."
+  - rscadd: "Added two new audible emotes available to Skrell, accessible via *peep and *puff, ported from Baystation12."
