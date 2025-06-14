@@ -6,6 +6,10 @@
 	no_light_control = FALSE
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
+/area/himeo_patrol_ship/aft
+	name = "Himean Patrol Vessel - Aft Hallway"
+	icon_state = "unknown"
+
 /area/himeo_patrol_ship/bridge
 	name = "Himean Patrol Vessel - Bridge"
 	icon_state = "unknown"
