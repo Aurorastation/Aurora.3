@@ -74,6 +74,9 @@
 /obj/effect/floor_decal/corner/dark_green/full{
 	dir = 1
 	},
+/obj/random/poster/pinup{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/dormitories)
 "dp" = (
@@ -89,6 +92,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/burzsia_mining/engineering)
 "dK" = (
@@ -114,6 +118,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/mess_hall)
+"eg" = (
+/obj/random/dirt_75,
+/turf/simulated/floor,
+/area/burzsia_mining/engineering)
 "ev" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
@@ -121,6 +129,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining)
 "eP" = (
@@ -129,6 +138,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/burzsia_mining/engineering)
 "eQ" = (
@@ -151,6 +161,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining)
+"fp" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 9
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/burzsia_mining/engineering)
 "fy" = (
 /obj/structure/closet/toolcloset/empty,
 /obj/item/pickaxe/drill,
@@ -186,6 +203,10 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
+/obj/random/dirt_75,
+/obj/random/poster/civilian{
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining)
 "gz" = (
@@ -216,6 +237,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining)
 "hj" = (
@@ -232,6 +254,18 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining)
+"hs" = (
+/obj/effect/map_effect/marker/airlock/burzsia_mining,
+/obj/effect/map_effect/marker/airlock/burzsia_mining,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/access_button{
+	pixel_x = -27;
+	pixel_y = -9
+	},
+/turf/simulated/floor/plating,
+/area/burzsia_mining/mining)
 "ht" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
@@ -248,12 +282,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/dormitories)
 "is" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 9
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/burzsia_mining/engineering)
 "iN" = (
@@ -269,7 +305,9 @@
 	name = "Foreman Office";
 	dir = 1
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(202)
+	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -277,6 +315,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/foreman)
 "jk" = (
@@ -284,6 +323,7 @@
 /obj/structure/bed/stool/chair/plastic{
 	dir = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/foreman)
 "jr" = (
@@ -297,8 +337,17 @@
 /turf/simulated/floor/plating,
 /area/burzsia_mining/mining)
 "ju" = (
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/burzsia_mining/engineering)
+"jA" = (
+/obj/effect/map_effect/marker/airlock/burzsia_mining,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/burzsia_mining/mining)
 "jP" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
@@ -306,6 +355,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining)
 "jV" = (
@@ -319,6 +369,7 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/burzsia_mining/engineering)
 "jX" = (
@@ -349,6 +400,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/mess_hall)
 "kJ" = (
@@ -357,6 +409,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/dormitories)
 "kS" = (
@@ -368,6 +421,7 @@
 	is_critical = 1;
 	req_access = list(202)
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/dormitories)
 "lm" = (
@@ -393,13 +447,18 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(202)
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/burzsia_mining/engineering)
 "lO" = (
-/obj/effect/map_effect/airlock/long/square/three,
-/turf/simulated/wall/r_wall,
-/area/burzsia_mining/mining)
+/obj/effect/landmark/clear,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#b7410e"
+	},
+/area/exoplanet/barren/burzsia)
 "lR" = (
 /obj/machinery/shower{
 	dir = 8
@@ -440,6 +499,7 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/burzsia_mining/engineering)
 "mk" = (
@@ -457,6 +517,7 @@
 	dir = 8;
 	name = "pump to waste"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/burzsia_mining/engineering)
 "mF" = (
@@ -506,6 +567,7 @@
 /obj/structure/sign/flag/heph/unmovable{
 	pixel_y = 32
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/burzsia_mining/mining)
 "ov" = (
@@ -530,9 +592,20 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/mining,
 /obj/item/clothing/head/helmet/space/void/mining,
+/obj/item/device/suit_cooling_unit,
 /obj/item/device/gps/mining,
 /turf/simulated/floor/tiled/steel,
 /area/burzsia_mining/mining)
+"oN" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/burzsia_mining)
 "po" = (
 /obj/structure/closet/toolcloset/empty,
 /obj/item/pickaxe/drill,
@@ -564,6 +637,16 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/mess_hall)
+"pK" = (
+/obj/effect/map_effect/marker/airlock/burzsia_mining,
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/burzsia_mining/mining)
 "pL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
@@ -591,13 +674,17 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(202);
+	dir = 4
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/burzsia_mining/engineering)
 "pY" = (
@@ -623,11 +710,23 @@
 "qm" = (
 /turf/simulated/floor/tiled/steel,
 /area/burzsia_mining/mining)
+"qn" = (
+/obj/machinery/mineral/equipment_vendor,
+/turf/simulated/floor/tiled/steel,
+/area/burzsia_mining/mining)
+"qr" = (
+/obj/effect/floor_decal/corner/orange/full{
+	dir = 1
+	},
+/obj/structure/sign/flag/burzsia,
+/turf/simulated/floor/tiled/dark,
+/area/burzsia_mining)
 "qY" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
 /obj/machinery/light,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining)
 "rf" = (
@@ -643,6 +742,13 @@
 	temperature = 278.15
 	},
 /area/burzsia_mining/engineering)
+"rH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/steel,
+/area/burzsia_mining/mining)
 "rX" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
@@ -693,6 +799,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/burzsia_mining/engineering)
 "tP" = (
@@ -723,6 +830,7 @@
 /obj/machinery/atmospherics/pipe/tank/air{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/burzsia_mining/engineering)
 "uT" = (
@@ -737,6 +845,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/steel,
 /area/burzsia_mining/mining)
 "uU" = (
@@ -745,7 +854,10 @@
 	name = "Mess Room";
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(202);
+	dir = 4
+	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -763,6 +875,7 @@
 /obj/machinery/atmospherics/binary/pump/on{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/burzsia_mining/engineering)
 "vp" = (
@@ -780,8 +893,19 @@
 /obj/structure/curtain/open/shower,
 /turf/simulated/floor/tiled/freezer,
 /area/burzsia_mining)
+"vt" = (
+/obj/effect/map_effect/marker/airlock/burzsia_mining,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
+/obj/machinery/airlock_sensor{
+	pixel_y = 22;
+	pixel_x = 28
+	},
+/turf/simulated/floor/airless,
+/area/burzsia_mining/mining)
 "vD" = (
 /obj/machinery/atmospherics/portables_connector,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/burzsia_mining/engineering)
 "vU" = (
@@ -821,6 +945,10 @@
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 4
 	},
+/obj/random/dirt_75,
+/obj/random/poster/civilian{
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining)
 "xY" = (
@@ -851,6 +979,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/burzsia_mining/engineering)
+"yP" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/red{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/burzsia_mining/engineering)
 "yV" = (
 /turf/simulated/wall/r_wall,
 /area/burzsia_mining/foreman)
@@ -859,7 +994,10 @@
 	name = "Restroom";
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(202);
+	dir = 4
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -885,6 +1023,7 @@
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
+/obj/structure/closet/crate,
 /turf/simulated/floor/tiled/steel,
 /area/burzsia_mining/mining)
 "zt" = (
@@ -921,6 +1060,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/steel,
 /area/burzsia_mining/mining)
 "zG" = (
@@ -946,6 +1086,24 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/dormitories)
+"zT" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/burzsia_mining)
 "Ac" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
@@ -970,12 +1128,21 @@
 	dir = 5
 	},
 /obj/machinery/meter,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/burzsia_mining/engineering)
 "Aq" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
+/obj/random/poster/civilian{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/burzsia_mining/mess_hall)
+"As" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/mess_hall)
 "Av" = (
@@ -1014,8 +1181,23 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/foreman)
+"Bn" = (
+/obj/effect/map_effect/marker/airlock/burzsia_mining,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/burzsia_mining/mining)
+"Bo" = (
+/obj/effect/map_effect/marker/airlock/burzsia_mining,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/plating,
+/area/burzsia_mining/mining)
 "Bp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1029,6 +1211,7 @@
 /obj/machinery/alarm/north{
 	req_one_access = list(202)
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/mess_hall)
 "Ch" = (
@@ -1055,6 +1238,7 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/burzsia_mining/engineering)
 "CW" = (
@@ -1064,6 +1248,7 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/dormitories)
 "De" = (
@@ -1080,6 +1265,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/mess_hall)
+"Du" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/steel,
+/area/burzsia_mining/mining)
 "Dy" = (
 /obj/effect/floor_decal/corner/dark_green/full{
 	dir = 8
@@ -1090,6 +1279,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/foreman)
+"DG" = (
+/obj/effect/map_effect/marker/airlock/burzsia_mining,
+/obj/effect/map_effect/marker/airlock/burzsia_mining,
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/simulated/floor/plating,
+/area/burzsia_mining/mining)
 "DP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 9
@@ -1099,6 +1299,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/burzsia_mining/engineering)
 "DS" = (
@@ -1112,6 +1313,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/light,
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/burzsia_mining/engineering)
 "Ef" = (
@@ -1127,6 +1329,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/steel,
 /area/burzsia_mining/mining)
 "EF" = (
@@ -1138,12 +1341,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/dormitories)
 "EL" = (
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/mess_hall)
 "EM" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/mess_hall)
 "FM" = (
@@ -1156,6 +1361,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining)
 "Gh" = (
@@ -1200,7 +1406,10 @@
 	name = "Mining Bay";
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(202);
+	dir = 4
+	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -1220,7 +1429,10 @@
 	name = "Dormitories";
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(202);
+	dir = 4
+	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -1263,6 +1475,7 @@
 	is_critical = 1;
 	req_access = list(202)
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/burzsia_mining/engineering)
 "IM" = (
@@ -1296,6 +1509,7 @@
 	dir = 6
 	},
 /obj/structure/extinguisher_cabinet/east,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/mess_hall)
 "JD" = (
@@ -1313,6 +1527,14 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining)
+"JL" = (
+/obj/effect/map_effect/marker/airlock/burzsia_mining,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
+	},
+/turf/simulated/floor/airless,
+/area/burzsia_mining/mining)
 "JM" = (
 /obj/structure/table/steel,
 /obj/item/storage/toolbox/mechanical,
@@ -1366,6 +1588,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/mess_hall)
+"LE" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/cargo_receptacle{
+	max_spawn = 2;
+	min_spawn = 1;
+	override_name = "Burzsia I - Hephaestus Mining Outpost";
+	payment_modifier = 1.2
+	},
+/turf/simulated/floor/airless,
+/area/burzsia_mining/mining)
 "LR" = (
 /obj/machinery/vending/cigarette,
 /obj/effect/floor_decal/corner/orange/full{
@@ -1409,14 +1641,40 @@
 /area/burzsia_mining/mess_hall)
 "Mq" = (
 /obj/machinery/light/small{
-	dir = 8
+	dir = 8;
+	must_start_working = 1
 	},
-/turf/simulated/floor/tiled/steel,
+/obj/effect/map_effect/marker/airlock/burzsia_mining,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = -22;
+	dir = 4;
+	pixel_y = 8
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 4;
+	pixel_x = -22;
+	pixel_y = -6
+	},
+/turf/simulated/floor/plating,
+/area/burzsia_mining/mining)
+"MA" = (
+/obj/effect/map_effect/marker/airlock/burzsia_mining,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
 /area/burzsia_mining/mining)
 "MG" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/cyan{
 	dir = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/burzsia_mining/engineering)
 "MS" = (
@@ -1508,8 +1766,18 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/burzsia_mining/engineering)
+"Or" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/burzsia_mining)
 "Os" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
+	spawn_grille = 1;
+	req_one_access = list(202)
+	},
 /turf/simulated/floor/plating,
 /area/burzsia_mining/foreman)
 "OA" = (
@@ -1518,12 +1786,14 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/burzsia_mining/engineering)
 "OV" = (
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/mess_hall)
 "OZ" = (
@@ -1560,12 +1830,22 @@
 /obj/item/reagent_containers/glass/bucket{
 	pixel_x = -13
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/burzsia_mining/engineering)
+"Qk" = (
+/obj/effect/map_effect/marker/airlock/burzsia_mining,
+/obj/effect/map_effect/marker_helper/airlock/out,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/burzsia_mining/mining)
 "Qs" = (
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining)
 "QG" = (
@@ -1595,6 +1875,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining)
 "Re" = (
@@ -1606,6 +1887,9 @@
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
+	},
+/obj/random/poster/civilian{
+	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/mess_hall)
@@ -1633,6 +1917,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/steel,
 /area/burzsia_mining/mining)
 "RJ" = (
@@ -1648,6 +1933,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/steel,
 /area/burzsia_mining/mining)
 "Sz" = (
@@ -1661,6 +1947,7 @@
 /area/burzsia_mining/dormitories)
 "TC" = (
 /obj/effect/floor_decal/corner/orange/full,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/mess_hall)
 "TD" = (
@@ -1688,7 +1975,23 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/burzsia_mining,
+/obj/machinery/airlock_sensor{
+	dir = 1;
+	pixel_y = -20;
+	pixel_x = 28
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/steel,
+/area/burzsia_mining/mining)
+"TM" = (
+/obj/effect/map_effect/marker/airlock/burzsia_mining,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
+/turf/simulated/floor/plating,
 /area/burzsia_mining/mining)
 "TS" = (
 /obj/structure/closet/toolcloset/empty,
@@ -1711,7 +2014,18 @@
 /area/burzsia_mining/mining)
 "TX" = (
 /obj/structure/cable/green,
-/obj/machinery/power/apc/hyper/east,
+/obj/machinery/power/apc/hyper/east{
+	req_access = list(202)
+	},
+/obj/structure/table/steel,
+/obj/machinery/recharger{
+	pixel_x = -6;
+	pixel_y = 4
+	},
+/obj/machinery/recharger{
+	pixel_x = 6;
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled/steel,
 /area/burzsia_mining/mining)
 "Ub" = (
@@ -1723,6 +2037,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/foreman)
+"Uc" = (
+/obj/machinery/mineral/rigpress,
+/turf/simulated/floor/tiled/steel,
+/area/burzsia_mining/mining)
 "Ud" = (
 /obj/machinery/conveyor{
 	dir = 8;
@@ -1741,6 +2059,7 @@
 	req_access = list(202)
 	},
 /obj/structure/cable/green,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/mess_hall)
 "UR" = (
@@ -1774,6 +2093,7 @@
 /obj/structure/sign/flag/heph/large/north{
 	pixel_y = 32
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/mess_hall)
 "Wd" = (
@@ -1803,12 +2123,25 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/structure/table/steel,
+/obj/machinery/cell_charger,
+/obj/item/cell/high{
+	pixel_y = 6
+	},
+/obj/item/cell/high{
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled/steel,
 /area/burzsia_mining/mining)
 "WE" = (
 /obj/structure/table/steel,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/hepht,
 /obj/effect/floor_decal/corner/orange/diagonal,
+/obj/machinery/photocopier/faxmachine{
+	department = "Hephaestus Mining Outpost";
+	req_one_access = list(202);
+	pixel_y = 3
+	},
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/foreman)
 "WI" = (
@@ -1838,6 +2171,7 @@
 /obj/machinery/mineral/stacking_unit_console{
 	pixel_y = 32
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/steel,
 /area/burzsia_mining/mining)
 "Xv" = (
@@ -1853,6 +2187,16 @@
 /obj/structure/plasticflaps/mining,
 /turf/simulated/floor/plating,
 /area/burzsia_mining/mining)
+"Ye" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/obj/random/dirt_75,
+/obj/random/poster/civilian{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/burzsia_mining/mess_hall)
 "Yn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -1887,6 +2231,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/dormitories)
 "YQ" = (
@@ -1905,6 +2250,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/burzsia_mining/engineering)
 "YY" = (
@@ -2223,7 +2569,7 @@ AI
 AI
 Nk
 Ol
-JQ
+yP
 is
 MG
 DP
@@ -2325,7 +2671,7 @@ AI
 AI
 Nk
 vD
-is
+fp
 pL
 Bp
 OA
@@ -2337,18 +2683,18 @@ kJ
 kS
 TB
 Zd
-qm
+Du
 oL
-qg
-qm
-qm
-qm
+rH
+Du
+Du
+Du
+mc
 mc
 mc
 mc
 mc
 lO
-AI
 "}
 (13,1,1) = {"
 AI
@@ -2358,7 +2704,7 @@ yV
 yV
 yV
 yV
-Re
+eg
 Re
 dp
 tF
@@ -2371,18 +2717,18 @@ zj
 bH
 TB
 HB
-qm
+Du
 oL
 qg
-qm
+Du
 qm
 Ac
 mc
-qm
+Bn
 Mq
-qm
+Bn
 mc
-AI
+jA
 "}
 (14,1,1) = {"
 AI
@@ -2405,18 +2751,18 @@ TB
 TB
 TB
 YQ
-qm
+Du
 oL
 qg
 qm
 qm
 TG
-qm
-qm
-qm
-qm
-qm
-AI
+Bo
+MA
+pK
+DG
+hs
+vt
 "}
 (15,1,1) = {"
 AI
@@ -2427,30 +2773,30 @@ VV
 YY
 yV
 Qs
-gs
-Gn
+Or
+zT
 ga
 gs
 ev
-ga
+oN
 Gn
 Jb
 IZ
 De
-qm
-qm
-qm
-qm
-qg
-qm
+Du
+Uc
+Du
+qn
+rH
+Du
 qm
 QG
 mc
-qm
-qm
-qm
+TM
+TM
+Qk
 mc
-AI
+JL
 "}
 (16,1,1) = {"
 AI
@@ -2476,15 +2822,15 @@ Yr
 Yr
 Yr
 RF
-qm
-qm
+Du
+Du
 NG
 mc
 mc
 mc
 mc
 mc
-AI
+lO
 "}
 (17,1,1) = {"
 AI
@@ -2506,7 +2852,7 @@ qY
 IZ
 eQ
 Ew
-qm
+Du
 qm
 qm
 ZC
@@ -2514,11 +2860,11 @@ qm
 qm
 Gh
 mc
-Xk
-AI
-AI
-AI
-AI
+LE
+lO
+lO
+lO
+lO
 "}
 (18,1,1) = {"
 AI
@@ -2534,7 +2880,7 @@ zh
 IZ
 IZ
 nP
-Jw
+qr
 gz
 xc
 IZ
@@ -2544,15 +2890,15 @@ Wt
 TX
 qm
 ZC
-qm
+Du
 qm
 Gh
 mc
-IM
-AI
-AI
-AI
-AI
+Xk
+lO
+lO
+lO
+lO
 "}
 (19,1,1) = {"
 AI
@@ -2578,15 +2924,15 @@ nP
 nP
 qm
 ZC
-qm
+Du
 qm
 Of
 mc
-AK
-AI
-AI
-AI
-AI
+IM
+lO
+lO
+lO
+lO
 "}
 (20,1,1) = {"
 AI
@@ -2616,11 +2962,11 @@ qm
 qm
 zJ
 mc
-AI
-AI
-AI
-AI
-AI
+AK
+lO
+lO
+lO
+lO
 "}
 (21,1,1) = {"
 AI
@@ -2650,11 +2996,11 @@ Xe
 qm
 Zy
 mc
-AI
-AI
-AI
-AI
-AI
+eQ
+lO
+lO
+lO
+lO
 "}
 (22,1,1) = {"
 AI
@@ -2681,14 +3027,14 @@ nP
 Ud
 qm
 qm
-qm
+Du
 OZ
 mc
 Yw
-AI
-AI
-AI
-AI
+lO
+lO
+lO
+lO
 "}
 (23,1,1) = {"
 AI
@@ -2719,10 +3065,10 @@ qm
 Zy
 mc
 Yw
-AI
-AI
-AI
-AI
+lO
+lO
+lO
+lO
 "}
 (24,1,1) = {"
 AI
@@ -2749,14 +3095,14 @@ nP
 Ud
 mc
 mS
-qm
+Du
 zG
 mc
 mc
 nR
-AI
-AI
-AI
+lO
+lO
+lO
 "}
 (25,1,1) = {"
 AI
@@ -2777,7 +3123,7 @@ EL
 AH
 AH
 AH
-EL
+As
 GR
 nP
 zA
@@ -2788,9 +3134,9 @@ jr
 jr
 Wd
 iN
-AI
-AI
-AI
+lO
+lO
+lO
 "}
 (26,1,1) = {"
 AI
@@ -2810,7 +3156,7 @@ LR
 EM
 JA
 kd
-EM
+Ye
 EM
 Dm
 nP
@@ -2821,10 +3167,10 @@ mc
 mc
 mc
 mc
-AI
-AI
-AI
-AI
+lO
+lO
+lO
+lO
 "}
 (27,1,1) = {"
 AI
