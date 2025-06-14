@@ -12,6 +12,9 @@
 			to_chat(usr, SPAN_WARNING("No valid fax machines located!"))
 			return
 
+		if (isstoryteller(usr))
+			to_chat(usr, SPAN_DANGER("CCIA NOTE: Remember that you should only interact via CentComm faxes as they relate to your current odyssey. For any questions, please consult CCIA via Discord."))
+
 		var/department = tgui_input_list(usr, "Pick a fax machine.", "Send Admin Fax", faxes)
 		var/obj/machinery/photocopier/faxmachine/fax = faxes[department]
 		if (!istype(fax))
