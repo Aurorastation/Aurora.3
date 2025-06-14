@@ -387,3 +387,11 @@
 	species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA)
 	suit = /obj/item/clothing/suit/space/void/coalition/himeo
 	helmet = /obj/item/clothing/head/helmet/space/void/coalition/himeo
+
+/obj/machinery/suit_cycler/offship/coalition/himeo/engineer
+	model_text = "Type-78 Fish Fur"
+	req_access = list(ACCESS_HIMEO_PATROL_SHIP)
+	departments = list("Himean Military")
+	species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA)
+	suit = /obj/item/clothing/suit/space/void/engineering/himeo
+	helmet = /obj/item/clothing/head/helmet/space/void/engineering/himeo

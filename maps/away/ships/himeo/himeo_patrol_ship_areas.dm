@@ -22,6 +22,10 @@
 	name = "Himean Patrol Vessel - Messhall"
 	icon_state = "unknown"
 
+/area/himeo_patrol_ship/hydroponics
+	name = "Himean Patrol Vessel - Hydroponics Bay"
+	icon_state = "unknown"
+
 /area/himeo_patrol_ship/infirmary
 	name = "Himean Patrol Vessel - Infirmary"
 	icon_state = "unknown"
@@ -68,6 +72,10 @@
 
 /area/himeo_patrol_ship/thruster_aft
 	name = "Himean Patrol Vessel - Aft Thruster Chamber"
+	icon_state = "unknown"
+//Deck 2
+/area/himeo_patrol_ship/deck_2_interstitial
+	name = "Himean Patrol Vessel - Deck Two, Dock Interstitial Area"
 	icon_state = "unknown"
 
 // Shuttle

@@ -9,14 +9,14 @@
 		list(ZTRAIT_AWAY = TRUE, ZTRAIT_UP = FALSE, ZTRAIT_DOWN = TRUE),
 	)
 
-	prefix = "ships/himeo/himeo_patrol_ship/"
+	prefix = "ships/himeo/"
 	suffix = "himeo_patrol_ship.dmm"
 
 	sectors = list(ALL_COALITION_SECTORS) // Change this.
 	spawn_weight = 1
 	ship_cost = 1
 	id = "Himean Naval Patrol Vessel"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/himeo_patrol_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/himeo_patrol_shuttle, /datum/shuttle/autodock/multi/lift/himeo_patrol_ship)
 	unit_test_groups = list(1)
 
 /singleton/submap_archetype/himeo_patrol_ship
@@ -145,3 +145,30 @@
 	name = "In transit"
 	landmark_tag = "nav_himeo_patrol_transit"
 	base_turf = /turf/space/transit/north
+
+
+// Lift
+/datum/shuttle/autodock/multi/lift/himeo_patrol_ship
+	name = "Himean Patrol Ship Lift"
+	current_location = "nav_himeo_patrol_ship_lift_first_deck"
+	shuttle_area = /area/turbolift/himeo_patrol/himeo_patrol_lift
+	destination_tags = list(
+		"nav_himeo_patrol_ship_lift_first_deck",
+		"nav_himeo_patrol_ship_lift_second_deck",
+		)
+
+/obj/effect/shuttle_landmark/lift/himeo_patrol_ship_first_deck
+	name = "Himean Patrol Ship Lift - First Deck"
+	landmark_tag = "nav_himeo_patrol_ship_lift_first_deck"
+	base_area = /area/himeo_patrol_ship
+	base_turf = /turf/simulated/open
+
+
+/obj/effect/shuttle_landmark/lift/himeo_patrol_ship_second_deck
+	name = "Himean Patrol Ship Lift - Second Deck"
+	landmark_tag = "nav_himeo_patrol_ship_lift_second_deck"
+	base_area = /area/himeo_patrol_ship/deck_2_interstitial
+	base_turf = /turf/simulated/floor/plating
+
+/obj/machinery/computer/shuttle_control/multi/lift/himeo_patrol_ship
+	shuttle_tag = "Himean Lift"
