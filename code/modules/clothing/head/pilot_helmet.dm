@@ -158,6 +158,12 @@
 	item_state = "legion_pilot"
 	camera = /obj/machinery/camera/network/tcfl
 
+/obj/item/clothing/head/helmet/pilot/himeo
+	name = "himean naval flight helmet"
+	desc = "A helmet with a pilots visor attached, painted in the drab tan colours of the Himean navy uniform. The visor feeds its wearer in-flight information via an integrated heads-up display."
+	icon_state = "pilot_helmet_himeo"
+	item_state = "pilot_helmet_himeo"
+
 /obj/pilot_overlay_holder
 	name = null
 	icon = null

@@ -133,6 +133,15 @@
 	helm_type = /obj/item/clothing/head/helmet/space/rig/industrial/himeo
 	chest_type = /obj/item/clothing/suit/space/rig/industrial/himeo
 
+/obj/item/rig/industrial/himeo/equipped
+	initial_modules = list(
+		/obj/item/rig_module/mounted/plasmacutter,
+		/obj/item/rig_module/device/drill,
+		/obj/item/rig_module/device/orescanner,
+		/obj/item/rig_module/device/rfd_c,
+		/obj/item/rig_module/actuators,
+		/obj/item/rig_module/maneuvering_jets
+	)
 /obj/item/rig/eva
 	name = "EVA suit control module"
 	suit_type = "EVA hardsuit"

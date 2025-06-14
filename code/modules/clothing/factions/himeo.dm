@@ -20,3 +20,12 @@
 	icon_state = "cap_himeo"
 	item_state = "cap_himeo"
 	contained_sprite = TRUE
+
+/obj/item/clothing/head/softcap/himeo_naval_cover
+	name = "himean naval utility cover"
+	desc = "A utility cover of Himean origin. This particular cap has the united syndicates of Himeo's typical symbol - a white hexagon by red triangles - on its face."
+	desc_extended = "The M293 utility cover is a standard-issue cap of Himeo's navy. It is part of the standard base dress for the Himean navy, and is thus a common sight throughout vessels across the Coalition."
+	icon = 'icons/clothing/under/uniforms/himeo_military.dmi'
+	icon_state = "himeo_navy_utility"
+	item_state = "himeo_navy_utility"
+	contained_sprite = TRUE

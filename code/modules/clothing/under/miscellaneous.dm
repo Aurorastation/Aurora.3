@@ -785,3 +785,24 @@
 	desc = "A shirt and tie underneath a shortcoat, used by high-ranking commissioned officers of the All-Xanu Armed Forces."
 	icon_state = "xanu_cap"
 	item_state = "xanu_cap"
+
+//Himeo
+/obj/item/clothing/under/himeo
+	name = "himean naval fatigues"
+	desc = "Reinforced synthetic fibres make up the bulk of this Himean naval uniform, with hard plastic pads around the joints."
+	icon = 'icons/clothing/under/uniforms/himeo_military.dmi'
+	icon_state = "himeo_fatigues"
+	item_state = "himeo_fatigues"
+	contained_sprite = TRUE
+	siemens_coefficient = 0.5
+	armor = list(
+		MELEE = ARMOR_MELEE_KNIVES,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_MINOR
+		)
+
+/obj/item/clothing/under/himeo/officer
+	name = "himean naval officers fatigues"
+	desc = "Reinforced synthetic fibres make up the bulk of this Himean naval uniform, with hard plastic pads around the joints. It is embellished with red detailing, signifying the wearer as an officer."
+	icon_state = "himeo_fatigues_officer"
+	item_state = "himeo_fatigues_officer"

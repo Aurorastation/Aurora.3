@@ -51,6 +51,9 @@
 /turf/simulated/wall/shuttle/dark/cardinal/red
 	color = "#c24f4f"
 
+/turf/simulated/wall/shuttle/dark/cardinal/black
+	color = "#222222"
+
 /turf/simulated/wall/shuttle/dark/cardinal/blue
 	color = "#6176a1"
 

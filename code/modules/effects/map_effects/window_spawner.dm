@@ -270,3 +270,47 @@
 	name = "coalition reinforced window spawner with grille and firedoor"
 	icon_state = "coalition_window-gf"
 	spawn_firedoor = TRUE
+
+//Black window frames
+/obj/effect/map_effect/window_spawner/full/shuttle/black
+	name = "black reinforced window spawner"
+	icon_state = "black_window"
+	frame_path = /obj/structure/window_frame/shuttle
+	frame_color = "#222222"
+
+/obj/effect/map_effect/window_spawner/full/shuttle/black/grille
+	name = "black reinforced window spawner with grille"
+	icon_state = "black_window-g"
+	spawn_grille = TRUE
+
+/obj/effect/map_effect/window_spawner/full/shuttle/black/firedoor
+	name = "black reinforced window spawner with firedoor"
+	icon_state = "black_window-f"
+	spawn_firedoor = TRUE
+
+/obj/effect/map_effect/window_spawner/full/shuttle/black/grille/firedoor
+	name = "black reinforced window spawner with grille and firedoor"
+	icon_state = "black_window-gf"
+	spawn_firedoor = TRUE
+
+//Red window frames
+/obj/effect/map_effect/window_spawner/full/shuttle/red
+	name = "red reinforced window spawner"
+	icon_state = "red_window"
+	frame_path = /obj/structure/window_frame/shuttle
+	frame_color = "#c24f4f"
+
+/obj/effect/map_effect/window_spawner/full/shuttle/red/grille
+	name = "red reinforced window spawner with grille"
+	icon_state = "red_window-g"
+	spawn_grille = TRUE
+
+/obj/effect/map_effect/window_spawner/full/shuttle/red/firedoor
+	name = "red reinforced window spawner with firedoor"
+	icon_state = "red_window-f"
+	spawn_firedoor = TRUE
+
+/obj/effect/map_effect/window_spawner/full/shuttle/red/grille/firedoor
+	name = "red reinforced window spawner with grille and firedoor"
+	icon_state = "red_window-gf"
+	spawn_firedoor = TRUE

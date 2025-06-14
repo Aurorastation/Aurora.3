@@ -234,3 +234,10 @@
 	new /obj/item/toy/plushie/bee(src)
 	new /obj/item/device/flashlight/pen(src)
 	new /obj/item/storage/box/stressball(src)
+
+// Empty
+/obj/structure/closet/secure_closet/medical/empty
+	name = "medicine closet"
+	desc = "A medical locker."
+	icon_state = "med"
+	req_access = list(ACCESS_MEDICAL_EQUIP)
