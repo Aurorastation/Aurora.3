@@ -536,6 +536,8 @@ GLOBAL_LIST_INIT(admin_verbs_storyteller, list(
 	/client/proc/clear_toxins,
 	/datum/admins/proc/call_supply_drop,
 	/datum/admins/proc/call_drop_pod,
+	/client/proc/event_manager_panel,
+	/client/proc/toggle_random_events
 ))
 
 
