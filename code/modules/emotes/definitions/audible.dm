@@ -289,3 +289,8 @@
 	key = "peep"
 	emote_message_3p = "USER vocalizes a sharp chirp!"
 	emote_sound = 'sound/voice/peep1.ogg'
+
+/singleton/emote/audible/puff
+	key = "puff"
+	emote_message_3p = "USER puffs up their cheeks with air!"
+	emote_sound = 'sound/voice/puff.ogg'

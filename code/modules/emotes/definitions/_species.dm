@@ -95,5 +95,6 @@
 		/singleton/emote/audible/croon,
 		/singleton/emote/audible/lowarble,
 		/singleton/emote/audible/croak,
-		/singleton/emote/audible/peep
+		/singleton/emote/audible/peep,
+		/singleton/emote/audible/puff
 	)
