@@ -5,6 +5,7 @@
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	area_flags = AREA_FLAG_RAD_SHIELDED
+	ambience = AMBIENCE_ENGINEERING
 
 /area/himeo_patrol_ship/aft
 	name = "Himean Patrol Vessel - Aft Hallway"
