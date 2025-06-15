@@ -555,6 +555,8 @@
 			force_update = 1
 			process()
 
+		update_icon()
+
 		return
 
 	else if(istype(attacking_item, /obj/item/reagent_containers/syringe))
@@ -753,7 +755,7 @@
 			stasis_string = "Stasis is enabled, freezing metabolic functions."
 		else
 			stasis_string = "Stasis is disabled."
-		. += stasis_string
+		. += SPAN_NOTICE(stasis_string)
 
 /obj/machinery/portable_atmospherics/hydroponics/verb/close_lid_verb()
 	set name = "Toggle Tray Lid"
