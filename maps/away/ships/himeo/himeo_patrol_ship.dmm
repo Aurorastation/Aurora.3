@@ -19,8 +19,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/himeo_patrol_ship/armoury)
 "ae" = (
-/obj/structure/bed/stool/chair/shuttle,
-/turf/simulated/floor/tiled/dark,
+/obj/structure/ship_weapon_dummy/barrel,
+/turf/template_noop,
 /area/space)
 "aj" = (
 /obj/structure/platform/dark,
@@ -88,15 +88,6 @@
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/engineering)
-"ay" = (
-/obj/effect/floor_decal/spline/plain/orange{
-	dir = 8
-	},
-/obj/structure/ship_weapon_dummy{
-	opacity = 1
-	},
-/turf/simulated/floor/reinforced,
-/area/space)
 "aD" = (
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/structure/cable/green{
@@ -117,9 +108,7 @@
 /turf/simulated/wall/shuttle/dark/cardinal/black,
 /area/himeo_patrol_ship/distribution)
 "aK" = (
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 8
-	},
+/obj/structure/bed/stool/chair/shuttle,
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
@@ -131,6 +120,7 @@
 	name = "\improper Himean NanoMed";
 	req_access = list(253)
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/himeo_patrol/central)
 "aM" = (
@@ -182,6 +172,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 10
 	},
+/obj/machinery/power/terminal{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/himeo_patrol/central)
 "bf" = (
@@ -213,7 +212,11 @@
 /obj/machinery/computer/ship/sensors/terminal{
 	dir = 8
 	},
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
 /obj/effect/floor_decal/industrial/outline/blue,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/ridged,
 /area/shuttle/himeo_patrol/central)
 "bv" = (
@@ -274,6 +277,13 @@
 "bK" = (
 /turf/simulated/wall/shuttle/dark/cardinal/black,
 /area/himeo_patrol_ship/thruster_starboard)
+"bO" = (
+/obj/machinery/ship_weapon/nephilim{
+	pixel_y = -64
+	},
+/obj/structure/ship_weapon_dummy,
+/turf/template_noop,
+/area/space)
 "bS" = (
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -288,6 +298,22 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/distribution)
+"bT" = (
+/obj/structure/window/reinforced,
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/structure/table/steel,
+/obj/item/clothing/head/helmet/pilot/himeo{
+	pixel_y = -5;
+	pixel_x = -6
+	},
+/obj/item/device/binoculars{
+	pixel_y = 8;
+	pixel_x = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/himeo_patrol/central)
 "bX" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal{
 	dir = 1
@@ -315,6 +341,7 @@
 	name = "Air Connector Port";
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/himeo_patrol/central)
 "ce" = (
@@ -500,12 +527,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/full,
 /area/himeo_patrol_ship/bridge)
-"dk" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/space)
 "dn" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(253);
@@ -620,6 +641,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 8
 	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/himeo_patrol/central)
 "dY" = (
@@ -636,7 +660,7 @@
 	dir = 1
 	},
 /obj/machinery/power/smes/buildable/main_engine{
-	charge = 10,000,000
+	charge = 5e+002
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
@@ -654,17 +678,11 @@
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/distribution)
 "ec" = (
-/obj/machinery/door/blast/regular/open{
-	dir = 4;
-	name = "Safety Shutters";
-	id = "xanufighter_blast"
+/obj/structure/cable/green{
+	icon_state = "1-4"
 	},
-/obj/effect/landmark/entry_point/fore{
-	name = "fore, cockpit"
-	},
-/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille,
 /turf/simulated/floor/plating,
-/area/space)
+/area/himeo_patrol_ship/deck_2_interstitial)
 "eg" = (
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
 /area/himeo_patrol_ship/washroom)
@@ -772,15 +790,6 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/himeo_patrol_ship)
-"eT" = (
-/obj/effect/map_effect/map_helper/ruler_tiles_3{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 6
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/space)
 "eX" = (
 /obj/machinery/power/portgen/basic{
 	anchored = 1
@@ -966,15 +975,12 @@
 /turf/simulated/open,
 /area/himeo_patrol_ship/deck_2_interstitial)
 "gn" = (
-/obj/machinery/computer/shuttle_control/explore/terminal/xanu_fighter{
-	dir = 8;
-	req_access = list(222)
+/obj/effect/floor_decal/corner/red{
+	dir = 9
 	},
-/obj/effect/floor_decal/corner/orange{
-	dir = 6
-	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/himeo_patrol/central)
 "gr" = (
 /obj/random/dirt_75,
 /obj/structure/cable/green{
@@ -1114,6 +1120,9 @@
 	dir = 4
 	},
 /obj/machinery/power/smes/buildable/third_party_shuttle,
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/himeo_patrol/central)
 "hu" = (
@@ -1247,12 +1256,6 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/himeo_patrol_ship/blaster)
-"if" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
 "ij" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -1378,15 +1381,6 @@
 /obj/machinery/meter,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/distribution)
-"iZ" = (
-/obj/effect/map_effect/map_helper/ruler_tiles_3{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning/cee{
-	dir = 4
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/space)
 "jb" = (
 /obj/structure/platform/dark{
 	dir = 8
@@ -1420,6 +1414,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
+/obj/machinery/portable_atmospherics/powered/pump,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/himeo_patrol/central)
 "jh" = (
@@ -1526,10 +1524,10 @@
 /turf/simulated/wall/shuttle/dark/cardinal/black,
 /area/shuttle/himeo_patrol/central)
 "kc" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
-	dir = 9
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
 	},
-/turf/simulated/wall/shuttle/dark/cardinal/coalition,
+/turf/simulated/floor/reinforced/airless,
 /area/space)
 "kj" = (
 /turf/simulated/wall/shuttle/dark/cardinal/black,
@@ -1624,12 +1622,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/autocannon)
-"kS" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 10
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/space)
 "kY" = (
 /turf/simulated/floor/carpet/red,
 /area/himeo_patrol_ship/barracks)
@@ -1642,15 +1634,6 @@
 	},
 /turf/simulated/floor/reinforced/large/airless,
 /area/shuttle/himeo_patrol)
-"ll" = (
-/obj/effect/map_effect/map_helper/ruler_tiles_3{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/space)
 "lq" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/corner/red{
@@ -1748,8 +1731,12 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/autocannon)
 "lN" = (
-/turf/space,
-/area/space)
+/obj/machinery/computer/shuttle_control/multi/lift/himeo_patrol_ship,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship/deck_2_interstitial)
 "lV" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/corner/red{
@@ -1793,12 +1780,6 @@
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/thruster_aft)
-"mi" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/space)
 "mk" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
@@ -2002,15 +1983,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/armoury)
-"no" = (
-/obj/effect/map_effect/map_helper/ruler_tiles_3{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/space)
 "np" = (
 /obj/machinery/floodlight/randomcharge,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -2064,18 +2036,10 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/thruster_aft)
 "nJ" = (
-/obj/structure/closet/crate/secure{
-	name = "damage control crate";
-	req_access = list(222)
-	},
-/obj/item/storage/bag/inflatable,
-/obj/item/device/oxycandle,
-/obj/item/device/oxycandle,
-/obj/item/stack/rods/full,
-/obj/item/stack/material/steel/full,
 /obj/structure/bed/handrail{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/himeo_patrol/central)
 "nK" = (
@@ -2125,6 +2089,8 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/himeo_patrol/central)
 "od" = (
@@ -2149,27 +2115,12 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/blaster)
 "og" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/random/dirt_75,
+/obj/machinery/ammunition_loader/nephilim{
 	dir = 1
 	},
-/obj/machinery/access_button{
-	pixel_x = -28;
-	pixel_y = -5;
-	req_access = list(222)
-	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	master_tag = "xanu_fighter";
-	name = "xanu_fighter";
-	shuttle_tag = "Xanu Fighter"
-	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/floor_decal/industrial/hatch_door/yellow,
-/obj/machinery/door/airlock/external,
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/himeo_patrol/central)
 "oi" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
@@ -2368,6 +2319,8 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 8
 	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/shuttle/himeo_patrol/central)
 "po" = (
@@ -2411,16 +2364,10 @@
 /area/himeo_patrol_ship/barracks)
 "px" = (
 /obj/machinery/door/window/southleft{
-	pixel_y = -2
+	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/shuttle/himeo_patrol/central)
-"pB" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/space)
 "pE" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
@@ -2440,22 +2387,6 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/himeo_patrol_ship/blaster)
-"pN" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/table/rack,
-/obj/machinery/light{
-	dir = 4
-	},
-/obj/item/rig/zero/xanu{
-	req_access = list(222)
-	},
-/obj/item/rig/zero/xanu{
-	req_access = list(222)
-	},
-/obj/item/clothing/under/xanu/pilot,
-/obj/item/clothing/under/xanu/pilot,
-/turf/simulated/floor/tiled/dark,
-/area/space)
 "pR" = (
 /obj/machinery/atmospherics/binary/circulator{
 	anchored = 1
@@ -2482,26 +2413,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/himeo_patrol_ship/autocannon)
-"qo" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/machinery/access_button{
-	dir = 1;
-	pixel_x = -28;
-	pixel_y = 12;
-	req_access = list(222)
-	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	master_tag = "xanu_fighter";
-	name = "xanu_fighter";
-	shuttle_tag = "Xanu Fighter"
-	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/floor_decal/industrial/hatch_door/yellow,
-/obj/machinery/door/airlock/external,
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
 "qp" = (
 /obj/effect/floor_decal/spline/plain/red{
 	dir = 4
@@ -2523,14 +2434,6 @@
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/reinforced/large/airless,
 /area/shuttle/himeo_patrol)
-"qx" = (
-/obj/machinery/atmospherics/portables_connector{
-	name = "Fuel Connector Port"
-	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/effect/floor_decal/industrial/outline/grey,
-/turf/simulated/floor/plating,
-/area/space)
 "qy" = (
 /obj/effect/map_effect/marker/large_tank{
 	name = "himeo_militaryco2";
@@ -2544,6 +2447,9 @@
 	dir = 4;
 	id = "himeo_military_decktwo_fore_blast";
 	name = "Fore Checkpoint Blast Door"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/deck_2_interstitial)
@@ -2653,12 +2559,6 @@
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/blaster)
-"rh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 5
-	},
-/turf/simulated/wall/shuttle/dark/cardinal/coalition,
-/area/space)
 "ro" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/structure/sink{
@@ -2672,10 +2572,13 @@
 /turf/simulated/floor/tiled/freezer,
 /area/himeo_patrol_ship/washroom)
 "rp" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/yellow,
-/obj/machinery/meter,
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/plating,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
 /area/space)
 "rs" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
@@ -2756,18 +2659,6 @@
 	},
 /turf/simulated/floor,
 /area/himeo_patrol_ship/generator)
-"rP" = (
-/obj/machinery/computer/ship/engines/terminal{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/orange{
-	dir = 6
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
 "rR" = (
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/structure/cable/green{
@@ -2928,12 +2819,6 @@
 /obj/effect/floor_decal/spline/plain/yellow,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/himeo_patrol_ship/hydroponics)
-"su" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/himeo_patrol_ship/deck_2_interstitial)
 "sC" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille/firedoor,
 /obj/structure/cable/green{
@@ -2950,14 +2835,9 @@
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/railing/mapped,
+/obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/himeo_patrol/central)
-"sH" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 9
-	},
-/turf/template_noop,
-/area/space)
 "sI" = (
 /obj/random/dirt_75,
 /obj/structure/cable/green{
@@ -2985,13 +2865,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/steel,
 /area/himeo_patrol_ship/messhall)
+"sN" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/gunmetal/full,
+/area/shuttle/himeo_patrol/central)
 "sX" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 4
-	},
+/obj/structure/bed/stool/chair/shuttle,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/himeo_patrol/central)
 "tc" = (
@@ -3077,20 +2959,23 @@
 /turf/simulated/wall/shuttle/dark/cardinal/black,
 /area/himeo_patrol_ship/thruster_starboard)
 "tR" = (
-/obj/machinery/computer/ship/helm/terminal{
-	dir = 1;
-	req_access = list(222)
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
 	},
-/obj/effect/floor_decal/corner/orange{
-	dir = 10
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/reinforced/airless,
 /area/space)
 "tT" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	name = "Canister to Thrusters";
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/hatch_tiny/grey,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/himeo_patrol/central)
 "tV" = (
@@ -3114,18 +2999,10 @@
 /turf/simulated/floor/carpet/red,
 /area/himeo_patrol_ship/barracks)
 "uk" = (
-/obj/effect/floor_decal/spline/plain/orange{
-	dir = 8
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
 	},
-/obj/structure/ship_weapon_dummy{
-	opacity = 1
-	},
-/obj/machinery/ship_weapon/francisca/compact{
-	pixel_x = -40;
-	pixel_y = -54;
-	weapon_id = "Xanu Fighter Francisca"
-	},
-/turf/simulated/floor/reinforced,
+/turf/template_noop,
 /area/space)
 "um" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -3156,6 +3033,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 6
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/himeo_patrol/central)
 "uy" = (
@@ -3214,21 +3092,23 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/blaster)
 "uW" = (
-/obj/machinery/atmospherics/unary/engine,
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
 /area/space)
 "vd" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/shuttle/himeo_patrol/central)
-"vg" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 4
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/space)
 "vi" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/corner/red{
@@ -3289,12 +3169,6 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/himeo_patrol_ship/deck_2_interstitial)
-"vz" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 5
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/space)
 "vA" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/cyan{
 	dir = 8
@@ -3302,12 +3176,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/distribution)
-"vD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
 "vE" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/machinery/door/window/southleft,
@@ -3326,6 +3194,8 @@
 	dir = 10
 	},
 /obj/effect/overmap/visitable/ship/landable/himeo_patrol_shuttle,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/himeo_patrol/central)
 "vK" = (
@@ -3354,17 +3224,14 @@
 /obj/machinery/door/window/desk/westleft,
 /turf/simulated/floor/tiled/dark,
 /area/himeo_patrol_ship/deck_2_interstitial)
-"vT" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 6
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/space)
 "vX" = (
-/obj/effect/floor_decal/spline/plain/orange{
-	dir = 10
+/obj/machinery/ship_weapon/francisca/compact{
+	pixel_x = -39;
+	pixel_y = -91;
+	weapon_id = "Himeo Patrol Fighter Francisca"
 	},
-/turf/simulated/floor/reinforced,
+/obj/structure/ship_weapon_dummy,
+/turf/template_noop,
 /area/space)
 "vY" = (
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
@@ -3390,11 +3257,13 @@
 /turf/simulated/floor/tiled/white,
 /area/himeo_patrol_ship/infirmary)
 "wc" = (
-/obj/machinery/shipsensors/weak,
-/obj/effect/floor_decal/spline/plain/orange{
-	dir = 8
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
 	},
-/turf/simulated/floor/reinforced,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/turf/simulated/floor/reinforced/airless,
 /area/space)
 "we" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/black/grille/firedoor{
@@ -3408,6 +3277,9 @@
 	id = "himeo_military_decktwo_ffore_blast";
 	name = "Fore Checkpoint Blast Door"
 	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/deck_2_interstitial)
 "wl" = (
@@ -3417,14 +3289,8 @@
 /area/shuttle/himeo_patrol/central)
 "wm" = (
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/structure/ship_weapon_dummy,
+/obj/structure/ship_weapon_dummy/barrel,
 /turf/simulated/floor/airless,
-/area/space)
-"ws" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 8
-	},
-/turf/simulated/floor/reinforced/airless,
 /area/space)
 "wu" = (
 /obj/structure/table/standard,
@@ -3453,6 +3319,7 @@
 	},
 /obj/machinery/hologram/holopad/long_range,
 /obj/effect/floor_decal/industrial/outline/operations,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/himeo_patrol/central)
 "wy" = (
@@ -3825,14 +3692,11 @@
 /turf/simulated/floor/tiled/full,
 /area/himeo_patrol_ship/aft)
 "yG" = (
-/obj/machinery/door/blast/regular/open{
-	dir = 4;
-	name = "Safety Shutters";
-	id = "xanufighter_blast"
+/obj/structure/cable/green{
+	icon_state = "2-8"
 	},
-/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille,
 /turf/simulated/floor/plating,
-/area/space)
+/area/himeo_patrol_ship/deck_2_interstitial)
 "yJ" = (
 /obj/structure/ladder/up,
 /turf/simulated/floor/plating,
@@ -3918,13 +3782,6 @@
 	},
 /turf/simulated/floor/reinforced/large/airless,
 /area/shuttle/himeo_patrol)
-"zi" = (
-/obj/structure/cable/green,
-/obj/machinery/power/apc/super/east,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/powered/scrubber,
-/turf/simulated/floor/tiled/dark,
-/area/space)
 "zk" = (
 /turf/simulated/wall/shuttle/dark/cardinal/black,
 /area/himeo_patrol_ship/generator)
@@ -3984,21 +3841,14 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/bridge)
 "zx" = (
-/obj/structure/bed/stool/chair/shuttle,
-/obj/machinery/button/remote/blast_door{
-	dir = 1;
-	pixel_y = 26;
-	pixel_x = -32;
-	id = "xanufighter_blast";
-	name = "Windshield Blast Doors"
+/obj/machinery/door/airlock/external{
+	dir = 4
 	},
-/obj/effect/overmap/visitable/ship/landable/xanu_fighter,
-/obj/machinery/door/window/brigdoor/northleft{
-	name = "Cockpit";
-	req_access = list(222)
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
+/turf/simulated/floor/plating,
+/area/himeo_patrol_ship/deck_2_interstitial)
 "zy" = (
 /turf/simulated/wall/shuttle/dark/cardinal/black,
 /area/himeo_patrol_ship/barracks)
@@ -4097,12 +3947,6 @@
 	},
 /turf/space/dynamic,
 /area/space)
-"Ap" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 5
-	},
-/turf/template_noop,
-/area/space)
 "Ar" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -4151,12 +3995,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/bridge)
-"AO" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 9
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/space)
 "AQ" = (
 /obj/effect/floor_decal/industrial/outline_door/engineering{
 	dir = 8
@@ -4205,15 +4043,14 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/blaster)
 "AZ" = (
-/obj/structure/table/steel,
-/obj/item/device/binoculars{
-	pixel_y = 8;
-	pixel_x = 4
+/obj/effect/floor_decal/corner/red{
+	dir = 6
 	},
-/obj/item/clothing/head/helmet/pilot/himeo{
-	pixel_y = -5;
-	pixel_x = -6
+/obj/machinery/computer/ship/targeting/terminal{
+	dir = 8;
+	req_access = list(253)
 	},
+/obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/ridged,
 /area/shuttle/himeo_patrol/central)
 "Be" = (
@@ -4302,6 +4139,8 @@
 /obj/structure/bed/handrail{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/hatch_tiny/operations,
+/obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/himeo_patrol/central)
 "Bx" = (
@@ -4340,9 +4179,7 @@
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship)
 "BA" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/black/grille/firedoor{
-	req_one_access = list(253)
-	},
+/obj/structure/viewport,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/autocannon)
 "BB" = (
@@ -4387,17 +4224,16 @@
 /obj/structure/bed/handrail{
 	dir = 8
 	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/himeo_patrol/central)
 "BO" = (
-/obj/structure/cable{
-	icon_state = "1-4"
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/orange/diagonal,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/reinforced/airless,
 /area/space)
 "BP" = (
 /obj/structure/railing/mapped{
@@ -4477,12 +4313,6 @@
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/himeo_patrol_ship/hydroponics)
-"Cg" = (
-/obj/effect/floor_decal/industrial/warning/cee{
-	dir = 8
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/space)
 "Ci" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -4615,6 +4445,8 @@
 /obj/effect/floor_decal/industrial/arrow/yellow{
 	dir = 8
 	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/himeo_patrol/central)
 "CZ" = (
@@ -4664,19 +4496,19 @@
 /turf/space/dynamic,
 /area/space)
 "Dq" = (
-/obj/machinery/door/blast/regular/open{
-	dir = 2;
-	name = "Safety Shutters";
-	id = "xanufighter_blast"
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
 	},
-/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
 /area/space)
 "Dr" = (
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, compartment"
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
 	},
-/turf/simulated/wall/shuttle/dark/cardinal/coalition,
+/turf/simulated/floor/reinforced/airless,
 /area/space)
 "Ds" = (
 /obj/random/dirt_75,
@@ -4823,7 +4655,10 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/generator)
 "Eo" = (
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
 /area/space)
 "Eq" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -4884,15 +4719,8 @@
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/himeo_patrol_ship/aft)
 "EN" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 8;
-	name = "Fuel Tank to Thrusters"
-	},
-/obj/structure/bed/handrail,
-/obj/structure/fuel_port/phoron/scc{
-	pixel_y = 24
-	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/ship_weapon_dummy,
+/turf/template_noop,
 /area/space)
 "EP" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/black/grille/firedoor{
@@ -4970,21 +4798,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/himeo_patrol_ship/deck_2_interstitial)
-"Fi" = (
-/obj/machinery/computer/ship/sensors/terminal{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/orange{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
 "Fj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
-	dir = 8
-	},
-/turf/simulated/wall/shuttle/dark/cardinal/coalition,
-/area/space)
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/gunmetal/full,
+/area/shuttle/himeo_patrol/central)
 "Fl" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal{
 	dir = 1
@@ -4999,6 +4817,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/himeo_patrol_ship/autocannon)
 "Fq" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/space)
 "Fs" = (
@@ -5137,14 +4958,11 @@
 /turf/simulated/floor/tiled/steel,
 /area/himeo_patrol_ship/messhall)
 "FZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
-/obj/machinery/atmospherics/portables_connector/aux{
-	name = "Air Connector Port"
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
-/obj/machinery/portable_atmospherics/canister/air,
-/obj/effect/floor_decal/industrial/outline,
 /turf/simulated/floor/plating,
-/area/space)
+/area/himeo_patrol_ship/deck_2_interstitial)
 "Gc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/machinery/atmospherics/pipe/simple/hidden/green,
@@ -5181,12 +4999,13 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/engineering)
 "Gt" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/effect/floor_decal/corner/orange/diagonal,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor/reinforced/airless,
 /area/space)
 "Gx" = (
 /obj/item/stack/material/aluminium/full,
@@ -5237,12 +5056,13 @@
 /turf/simulated/floor/reinforced,
 /area/himeo_patrol_ship/ammunition)
 "GJ" = (
-/turf/simulated/wall/shuttle/dark/cardinal/coalition,
-/area/space)
-"GP" = (
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/reinforced/airless,
-/area/space)
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc/super/north,
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
+/area/shuttle/himeo_patrol/central)
 "GS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/green{
 	dir = 8
@@ -5255,10 +5075,6 @@
 /obj/random/maintenance_junk_or_loot,
 /turf/simulated/floor,
 /area/himeo_patrol_ship/thruster_starboard)
-"GU" = (
-/obj/effect/floor_decal/industrial/warning/corner,
-/turf/simulated/floor/reinforced/airless,
-/area/space)
 "GY" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -5391,12 +5207,15 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/bridge)
 "HX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
-	dir = 5
+/obj/effect/floor_decal/corner/red{
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/turf/simulated/floor/tiled/dark,
-/area/space)
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/shuttle/himeo_patrol/central)
 "HY" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -5404,6 +5223,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/shuttle/himeo_patrol/central)
 "Ie" = (
@@ -5412,6 +5232,9 @@
 	},
 /obj/structure/bed/handrail{
 	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/himeo_patrol/central)
@@ -5449,14 +5272,15 @@
 /obj/effect/floor_decal/industrial/outline_corner/grey{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/ridged,
 /area/shuttle/himeo_patrol/central)
 "IB" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	dir = 1
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
+/turf/simulated/floor/plating,
+/area/himeo_patrol_ship/deck_2_interstitial)
 "ID" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal{
 	dir = 1
@@ -5506,9 +5330,6 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/thruster_aft)
 "IQ" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/black/grille/firedoor{
-	req_one_access = list(253)
-	},
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/blaster)
 "IY" = (
@@ -5561,6 +5382,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/himeo_patrol/central)
 "Ju" = (
@@ -5694,28 +5516,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "Kr" = (
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 8
-	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/himeo_patrol/central)
 "Ks" = (
-/obj/structure/bed/stool/chair/shuttle{
+/obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 5
-	},
-/obj/effect/floor_decal/corner/orange{
-	dir = 9
-	},
-/obj/machinery/vending/wallmed1{
-	pixel_x = -28;
-	name = "\improper Coalition NanoMed";
-	req_access = list(222)
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
+/turf/simulated/floor/reinforced/airless,
+/area/himeo_patrol_ship/deck_2_interstitial)
 "KA" = (
 /obj/effect/floor_decal/industrial/outline_door/engineering{
 	dir = 1
@@ -5739,6 +5547,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/shuttle/himeo_patrol/central)
 "KG" = (
@@ -5803,12 +5612,16 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/shuttle/himeo_patrol/central)
 "Ls" = (
 /obj/effect/floor_decal/corner/red/full{
 	dir = 1
 	},
+/obj/structure/bed/stool/chair/shuttle,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/himeo_patrol/central)
 "Lt" = (
@@ -5838,34 +5651,24 @@
 /turf/simulated/wall/shuttle/dark/cardinal/black,
 /area/himeo_patrol_ship/engineering)
 "LO" = (
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 4
+/obj/structure/railing/mapped{
+	dir = 1
 	},
-/obj/machinery/light{
-	dir = 8
+/obj/structure/cable/green{
+	icon_state = "2-8"
 	},
-/obj/effect/floor_decal/corner/orange{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship/deck_2_interstitial)
 "LZ" = (
-/obj/machinery/ship_weapon/francisca/compact{
-	pixel_x = -39;
-	pixel_y = -97
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
-/turf/template_noop,
-/area/space)
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship/deck_2_interstitial)
 "Mf" = (
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/blaster)
-"Mg" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 4
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/himeo_patrol_ship/deck_2_interstitial)
 "Mh" = (
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/shuttle/himeo_patrol/central)
@@ -5942,8 +5745,16 @@
 /turf/simulated/floor/reinforced,
 /area/himeo_patrol_ship/ammunition)
 "MF" = (
-/obj/structure/bed/handrail{
-	dir = 8
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/rods/full,
+/obj/item/device/oxycandle,
+/obj/item/device/oxycandle,
+/obj/item/storage/bag/inflatable,
+/obj/structure/closet/walllocker{
+	pixel_x = 32;
+	name = "Damage Control"
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/himeo_patrol/central)
@@ -6045,19 +5856,10 @@
 /turf/simulated/floor/carpet/rubber,
 /area/himeo_patrol_ship/distribution)
 "Nx" = (
-/obj/machinery/power/smes/buildable/third_party_shuttle,
-/obj/structure/cable/green{
-	icon_state = "0-8"
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
 	},
-/obj/effect/floor_decal/corner/orange{
-	dir = 6
-	},
-/obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
-	},
-/obj/machinery/alarm/east,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/reinforced/airless,
 /area/space)
 "NB" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
@@ -6202,6 +6004,9 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/deck_2_interstitial)
 "Oq" = (
@@ -6341,15 +6146,23 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 4
 	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/shuttle/himeo_patrol/central)
 "Pp" = (
-/obj/structure/ship_weapon_dummy/barrel,
-/obj/effect/floor_decal/spline/plain/orange{
-	dir = 10
+/obj/effect/floor_decal/corner/red{
+	dir = 6
 	},
-/turf/simulated/floor/reinforced,
-/area/space)
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/shuttle/himeo_patrol/central)
 "Pr" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/railing/mapped{
@@ -6361,11 +6174,11 @@
 /turf/template_noop,
 /area/space)
 "Pt" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
-	dir = 8
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
 	},
-/turf/simulated/wall/shuttle/dark/cardinal/coalition,
-/area/space)
+/turf/simulated/floor/reinforced/airless,
+/area/himeo_patrol_ship/deck_2_interstitial)
 "Pv" = (
 /obj/machinery/atmospherics/pipe/tank{
 	dir = 4
@@ -6395,6 +6208,9 @@
 /obj/effect/shuttle_landmark/himeo_patrol_shuttle/shuttle_start{
 	dir = 1
 	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/deck_2_interstitial)
 "PA" = (
@@ -6420,12 +6236,6 @@
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/generator)
-"PM" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 1
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/space)
 "PN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/green{
 	dir = 8
@@ -6485,24 +6295,10 @@
 /turf/simulated/floor/reinforced/airless,
 /area/himeo_patrol_ship/generator)
 "Qe" = (
-/obj/machinery/power/terminal,
-/obj/structure/cable{
-	icon_state = "0-8"
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
 	},
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/structure/bed/handrail{
-	dir = 8
-	},
-/obj/structure/closet/crate/secure{
-	name = "damage control crate";
-	req_access = list(222)
-	},
-/obj/item/stack/material/steel/full,
-/obj/item/stack/rods/full,
-/obj/item/device/oxycandle,
-/obj/item/device/oxycandle,
-/obj/item/storage/bag/inflatable,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/reinforced/airless,
 /area/space)
 "Qf" = (
 /obj/random/dirt_75,
@@ -6591,15 +6387,13 @@
 /area/himeo_patrol_ship/blaster)
 "Qt" = (
 /obj/machinery/door/window/southright{
-	pixel_y = -2
+	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/shuttle/himeo_patrol/central)
 "Qu" = (
-/obj/machinery/ammunition_loader/francisca{
-	weapon_id = "Xanu Fighter Francisca"
-	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/reinforced/airless,
 /area/space)
 "QB" = (
 /obj/random/dirt_75,
@@ -6696,14 +6490,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/himeo_patrol_ship/blaster)
-"Ra" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
-	dir = 8
-	},
-/obj/machinery/meter,
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/plating,
-/area/space)
 "Rf" = (
 /turf/simulated/floor/reinforced/airless,
 /area/space)
@@ -6800,15 +6586,10 @@
 /turf/simulated/floor,
 /area/himeo_patrol_ship/generator)
 "RJ" = (
-/obj/effect/floor_decal/spline/plain/orange{
-	dir = 6
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	use_power = 1;
-	icon_state = "map_vent_out";
-	dir = 8
-	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/space)
 "RL" = (
 /obj/structure/table/rack,
@@ -6881,15 +6662,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/himeo_patrol_ship/engineering)
-"Si" = (
-/obj/structure/cable/green{
-	icon_state = "2-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
 "Sj" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/storage/toolbox/mechanical{
@@ -6935,7 +6707,7 @@
 /obj/machinery/computer/ship/engines/terminal{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/orange{
+/obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/outline/engineering,
@@ -7003,13 +6775,10 @@
 /turf/simulated/floor,
 /area/himeo_patrol_ship/generator)
 "SC" = (
-/obj/machinery/hologram/holopad/long_range,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/bed/handrail{
-	dir = 4
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 8
 	},
-/obj/item/device/radio/intercom/hailing/west,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/reinforced/airless,
 /area/space)
 "SD" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -7042,32 +6811,16 @@
 /turf/simulated/floor,
 /area/himeo_patrol_ship/generator)
 "SO" = (
-/obj/machinery/iff_beacon/name_change,
-/obj/effect/floor_decal/spline/plain/orange{
-	dir = 4
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
 	},
-/obj/machinery/airlock_sensor/airlock_exterior{
-	dir = 4;
-	pixel_x = -21;
-	pixel_y = 4
-	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	master_tag = "xanu_fighter";
-	name = "xanu_fighter";
-	shuttle_tag = "Xanu Fighter"
-	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/space)
 "SR" = (
-/obj/machinery/computer/ship/targeting/terminal{
-	dir = 4;
-	req_access = list(222)
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
 	},
-/obj/effect/floor_decal/corner/orange{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/reinforced/airless,
 /area/space)
 "ST" = (
 /obj/effect/floor_decal/corner/red{
@@ -7239,7 +6992,7 @@
 /area/himeo_patrol_ship/thruster_aft)
 "TL" = (
 /obj/machinery/ammunition_loader/francisca{
-	weapon_id = "Xanu Fighter Francisca"
+	weapon_id = "Himeo Patrol Fighter Francisca"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/himeo_patrol/central)
@@ -7292,6 +7045,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 8
 	},
+/obj/structure/bed/stool/chair/shuttle,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/himeo_patrol/central)
 "Ub" = (
@@ -7361,6 +7115,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
+/obj/machinery/portable_atmospherics/powered/scrubber,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/himeo_patrol/central)
 "UC" = (
@@ -7484,6 +7240,7 @@
 /obj/machinery/computer/ship/engines/terminal{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/himeo_patrol/central)
 "Vp" = (
@@ -7548,25 +7305,23 @@
 /turf/simulated/floor/tiled/dark,
 /area/himeo_patrol_ship/autocannon)
 "Vy" = (
-/obj/structure/table/steel,
-/obj/effect/floor_decal/corner/orange{
+/obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
+/obj/machinery/computer/ship/targeting/terminal{
+	dir = 4;
+	req_access = list(253)
+	},
+/obj/effect/floor_decal/industrial/outline/red{
+	pixel_x = -1
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/ridged,
 /area/shuttle/himeo_patrol/central)
 "VA" = (
 /obj/machinery/computer/shuttle_control/multi/lift/himeo_patrol_ship,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/deck_2_interstitial)
-"VH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 10
-	},
-/obj/effect/landmark/entry_point/port{
-	name = "port, compartment"
-	},
-/turf/simulated/wall/shuttle/dark/cardinal/coalition,
-/area/space)
 "VK" = (
 /obj/machinery/ammunition_loader/autocannon{
 	dir = 1;
@@ -7594,12 +7349,6 @@
 /obj/structure/platform/dark,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/bridge)
-"VU" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/space)
 "Wc" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -7640,12 +7389,6 @@
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor,
 /area/himeo_patrol_ship/generator)
-"Wp" = (
-/obj/effect/landmark/entry_point/aft{
-	name = "aft, engines"
-	},
-/turf/simulated/wall/shuttle/dark/cardinal/coalition,
-/area/space)
 "Ws" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 10
@@ -7727,6 +7470,19 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
 /turf/simulated/wall/shuttle/dark/cardinal/black,
 /area/shuttle/himeo_patrol/central)
+"WX" = (
+/obj/structure/window/reinforced,
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/structure/table/steel,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/electrical{
+	pixel_y = 7
+	},
+/obj/item/clothing/glasses/welding,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/himeo_patrol/central)
 "WY" = (
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/structure/cable/green{
@@ -7737,27 +7493,8 @@
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship)
 "WZ" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
-	dir = 8
-	},
-/obj/machinery/airlock_sensor/airlock_interior{
-	pixel_y = 33;
-	pixel_x = -29
-	},
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	master_tag = "xanu_fighter";
-	name = "xanu_fighter";
-	shuttle_tag = "Xanu Fighter"
-	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
 /area/space)
 "Xc" = (
 /obj/structure/table/rack/folding_table,
@@ -7766,13 +7503,10 @@
 /turf/simulated/floor/tiled/light,
 /area/himeo_patrol_ship/messhall)
 "Xe" = (
-/obj/structure/table/rack,
-/obj/item/storage/toolbox/electrical{
-	pixel_y = 7
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
 	},
-/obj/item/storage/toolbox/mechanical,
-/obj/item/clothing/glasses/welding,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/reinforced/airless,
 /area/space)
 "Xh" = (
 /turf/template_noop,
@@ -7802,37 +7536,12 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/barracks)
 "Xl" = (
-/obj/structure/cable{
+/obj/machinery/door/airlock/external,
+/obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
-	dir = 8
-	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
-/obj/machinery/light{
-	dir = 4
-	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 4;
-	pixel_x = -22
-	},
-/obj/machinery/airlock_sensor{
-	frequency = 1380;
-	id_tag = "centcom_shuttle_dock_sensor";
-	pixel_x = -22;
-	pixel_y = 10;
-	dir = 4
-	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	master_tag = "xanu_fighter";
-	name = "xanu_fighter";
-	shuttle_tag = "Xanu Fighter"
-	},
-/obj/structure/bed/handrail{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
+/turf/template_noop,
+/area/shuttle/himeo_patrol/central)
 "Xn" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/corner/red{
@@ -7881,15 +7590,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/autocannon)
-"XK" = (
-/obj/effect/map_effect/map_helper/ruler_tiles_3{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 9
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/space)
 "XO" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
@@ -7934,13 +7634,10 @@
 /turf/simulated/floor/tiled/steel,
 /area/himeo_patrol_ship/messhall)
 "Ys" = (
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
-	dir = 8
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
 	},
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
+/turf/template_noop,
 /area/space)
 "Yt" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
@@ -8184,15 +7881,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship)
-"ZO" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/space)
 "ZS" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
@@ -102361,12 +102049,12 @@ Xh
 Xh
 KL
 Xh
-AO
-ll
-pB
-pB
-ll
-kS
+Dr
+uW
+BO
+BO
+uW
+SO
 Xh
 KL
 Xh
@@ -102618,12 +102306,12 @@ Xh
 Xh
 Xh
 Xh
-mi
+kc
 Rf
 Rf
 Rf
 Rf
-GP
+Qu
 Xh
 Xh
 Xh
@@ -102867,20 +102555,20 @@ Xh
 Xh
 Xh
 Xh
-AO
-pB
-pB
-pB
-pB
-pB
-pB
-pB
-PM
+Dr
+BO
+BO
+BO
+BO
+BO
+BO
+BO
+Nx
 Rf
 Rf
 Rf
 Rf
-GP
+Qu
 Xh
 Xh
 Xh
@@ -103124,7 +102812,7 @@ Xh
 Xh
 Xh
 Xh
-mi
+kc
 Rf
 Rf
 Rf
@@ -103137,7 +102825,7 @@ Rf
 Rf
 Rf
 Rf
-GP
+Qu
 Xh
 Xh
 Xh
@@ -103381,7 +103069,7 @@ Xh
 Xh
 Xh
 Xh
-mi
+kc
 Rf
 Rf
 Rf
@@ -103394,13 +103082,13 @@ Rf
 Rf
 Rf
 Rf
-ws
-pB
-pB
-pB
-pB
-pB
-kS
+Xe
+BO
+BO
+BO
+BO
+BO
+SO
 Xh
 Xh
 Xh
@@ -103424,7 +103112,7 @@ Xh
 Xh
 Xh
 Xh
-Cg
+SC
 Xh
 Xh
 Xh
@@ -103638,7 +103326,7 @@ Xh
 Xh
 Xh
 Xh
-mi
+kc
 Rf
 Rf
 Rf
@@ -103657,23 +103345,23 @@ Rf
 Rf
 Rf
 Rf
-ws
-kS
+Xe
+SO
 Xh
 Xh
 Zk
 Xh
 Xh
 Xh
-AO
-pB
-pB
-pB
-pB
-pB
+Dr
+BO
+BO
+BO
+BO
+BO
 qD
 Hs
-Hs
+tu
 qD
 NP
 NP
@@ -103895,8 +103583,8 @@ Xh
 Xh
 Xh
 Xh
-vz
-vg
+Qe
+RJ
 Rf
 Rf
 Rf
@@ -103915,14 +103603,14 @@ Rf
 Rf
 Rf
 Rf
-ws
-pB
-pB
-pB
-pB
-kS
+Xe
+BO
+BO
+BO
+BO
+SO
 Xh
-mi
+kc
 Rf
 Rf
 Rf
@@ -103930,7 +103618,7 @@ Rf
 Rf
 qD
 Hs
-Hs
+tu
 qD
 Rf
 Rf
@@ -104153,12 +103841,12 @@ Xh
 Xh
 Xh
 Xh
-vz
-dk
-dk
-dk
-dk
-vg
+Qe
+Eo
+Eo
+Eo
+Eo
+RJ
 Rf
 Rf
 Rf
@@ -104177,9 +103865,9 @@ Rf
 Rf
 Rf
 Rf
-GP
+Qu
 Xh
-mi
+kc
 Rf
 Rf
 Rf
@@ -104187,7 +103875,7 @@ Rf
 Rf
 VR
 Hs
-Hs
+tu
 qD
 Rf
 Rf
@@ -104199,9 +103887,9 @@ qD
 tu
 tu
 DG
-pB
-pB
-kS
+BO
+BO
+SO
 Xh
 Xh
 Xh
@@ -104415,7 +104103,7 @@ Xh
 Xh
 Xh
 Xh
-mi
+kc
 Rf
 Rf
 Rf
@@ -104434,9 +104122,9 @@ Rf
 Rf
 Vs
 Rf
-GP
+Qu
 Zn
-ZO
+rp
 jO
 jO
 jO
@@ -104444,7 +104132,7 @@ jO
 jO
 EP
 wY
-Hs
+ec
 qD
 Rf
 Rf
@@ -104458,10 +104146,10 @@ tu
 Ub
 Rf
 Rf
-ws
-pB
-pB
-kS
+Xe
+BO
+BO
+SO
 Xh
 Xh
 Xh
@@ -104662,17 +104350,17 @@ Xh
 Xh
 Xh
 Xh
-sH
-pB
-pB
-pB
-kS
+Ys
+BO
+BO
+BO
+SO
 Xh
 Xh
 Xh
 Xh
 Xh
-mi
+kc
 Rf
 Rf
 Rf
@@ -104701,7 +104389,7 @@ qD
 qD
 qD
 Hs
-Hs
+FZ
 qD
 qD
 ud
@@ -104718,9 +104406,9 @@ Rf
 Rf
 Rf
 Rf
-ws
-pB
-kS
+Xe
+BO
+SO
 Xh
 Xh
 Xh
@@ -104919,17 +104607,17 @@ Xh
 Xh
 Xh
 Xh
-Ap
+uk
 Rf
 Rf
 Rf
-ws
-pB
-pB
-pB
-pB
-pB
-PM
+Xe
+BO
+BO
+BO
+BO
+BO
+Nx
 Rf
 Rf
 Rf
@@ -104950,15 +104638,15 @@ WC
 tu
 tu
 DG
+tu
+tu
+tu
 Hs
 Hs
 Hs
 Hs
 Hs
-Hs
-Hs
-Hs
-Hs
+LZ
 Hs
 qD
 ud
@@ -104967,7 +104655,7 @@ Rf
 Rf
 Rf
 qD
-Hs
+tu
 Hs
 cF
 Rf
@@ -104977,8 +104665,8 @@ Rf
 Rf
 Rf
 Rf
-ws
-kS
+Xe
+SO
 Xh
 Xh
 Xh
@@ -105177,7 +104865,7 @@ Xh
 Xh
 Xh
 Xh
-mi
+kc
 Rf
 Rf
 Rf
@@ -105215,7 +104903,7 @@ Hs
 Hs
 Hs
 Hs
-Hs
+LZ
 Hs
 qD
 ud
@@ -105224,7 +104912,7 @@ Rf
 Rf
 Rf
 qD
-Hs
+tu
 Hs
 VR
 Rf
@@ -105235,8 +104923,8 @@ Rf
 Rf
 Rf
 Rf
-ws
-kS
+Xe
+SO
 Xh
 Xh
 Xh
@@ -105434,7 +105122,7 @@ Xh
 Xh
 Xh
 Xh
-mi
+kc
 Rf
 Rf
 Rf
@@ -105472,7 +105160,7 @@ Hs
 Hs
 zu
 zu
-VA
+lN
 Hs
 qD
 qD
@@ -105481,7 +105169,7 @@ qD
 qD
 qD
 qD
-Hs
+tu
 Hs
 VR
 Rf
@@ -105493,8 +105181,8 @@ Rf
 Rf
 Rf
 Rf
-ws
-kS
+Xe
+SO
 Xh
 Xh
 Xh
@@ -105691,7 +105379,7 @@ Xh
 Xh
 Xh
 Xh
-mi
+kc
 Rf
 Rf
 Rf
@@ -105738,7 +105426,7 @@ Hs
 Hs
 Hs
 jr
-Hs
+tu
 Hs
 JD
 Rf
@@ -105751,7 +105439,7 @@ Rf
 Rf
 Rf
 Rf
-GP
+Qu
 Xh
 Xh
 Xh
@@ -105948,7 +105636,7 @@ Xh
 Xh
 Xh
 Xh
-mi
+kc
 Rf
 Rf
 Rf
@@ -105986,16 +105674,16 @@ gm
 yg
 li
 li
-Oj
-Hs
+LO
+wY
 qB
-Hs
-Hs
-Hs
-Hs
-Hs
+IB
+IB
+IB
+IB
+IB
 wh
-Hs
+ec
 Hs
 VR
 Rf
@@ -106008,7 +105696,7 @@ Rf
 Rf
 Rf
 Rf
-GP
+Qu
 Xh
 Xh
 Xh
@@ -106205,7 +105893,7 @@ Xh
 Xh
 Xh
 Xh
-mi
+kc
 Rf
 Rf
 Rf
@@ -106252,7 +105940,7 @@ sg
 cq
 qD
 qD
-Hs
+FZ
 Hs
 VR
 Rf
@@ -106264,8 +105952,8 @@ Rf
 Rf
 Rf
 Rf
-GU
-vT
+WZ
+SR
 Xh
 Xh
 Xh
@@ -106462,7 +106150,7 @@ Xh
 Xh
 Xh
 Xh
-mi
+kc
 Rf
 Rf
 Rf
@@ -106496,7 +106184,7 @@ ud
 ud
 qD
 Hs
-Hs
+tu
 Hs
 Hs
 Hs
@@ -106509,7 +106197,7 @@ Fl
 Fl
 zo
 Oa
-Hs
+FZ
 Hs
 JD
 Rf
@@ -106520,8 +106208,8 @@ Rf
 Rf
 Rf
 Rf
-GU
-vT
+WZ
+SR
 Xh
 Xh
 Xh
@@ -106718,16 +106406,16 @@ Xh
 Xh
 Xh
 Xh
-sH
+Ys
 Rf
 Rf
 Rf
-GU
-dk
-dk
-dk
-dk
-vg
+WZ
+Eo
+Eo
+Eo
+Eo
+RJ
 Rf
 Rf
 Rf
@@ -106753,7 +106441,7 @@ ud
 ud
 qD
 Hs
-Hs
+tu
 Hs
 Hs
 Hs
@@ -106766,7 +106454,7 @@ ju
 ju
 Fl
 vu
-Hs
+FZ
 Hs
 qD
 Rf
@@ -106776,8 +106464,8 @@ Rf
 Rf
 Rf
 Rf
-GU
-vT
+WZ
+SR
 Xh
 Xh
 Xh
@@ -106975,17 +106663,17 @@ Xh
 Xh
 Xh
 Xh
-Ap
-dk
-dk
-dk
-vT
+uk
+Eo
+Eo
+Eo
+SR
 Xh
 Xh
 Xh
 Xh
-vz
-vg
+Qe
+RJ
 Rf
 Rf
 Rf
@@ -107004,9 +106692,9 @@ Rf
 Rf
 Rf
 Rf
-GU
-su
-Mg
+WZ
+Ks
+Pt
 ud
 qD
 zf
@@ -107023,7 +106711,7 @@ Kq
 hu
 kH
 Oa
-Hs
+FZ
 Hs
 qD
 Rf
@@ -107031,9 +106719,9 @@ fJ
 Rf
 Rf
 fJ
-GU
-dk
-eT
+WZ
+Eo
+wc
 Xh
 Xh
 KL
@@ -107242,7 +106930,7 @@ Xh
 Xh
 Xh
 Xh
-mi
+kc
 Rf
 Rf
 Rf
@@ -107261,9 +106949,9 @@ Rf
 Rf
 Vs
 Rf
-GP
+Qu
 Xh
-mi
+kc
 Rf
 VR
 tu
@@ -107280,15 +106968,15 @@ NP
 NP
 NP
 qD
-Hs
+FZ
 Hs
 qD
 Rf
 fJ
-GU
-dk
-no
-vT
+WZ
+Eo
+Dq
+SR
 Xh
 KL
 Xh
@@ -107494,11 +107182,11 @@ Xh
 Xh
 Xh
 Xh
-AO
-pB
-pB
-pB
-pB
+Dr
+BO
+BO
+BO
+BO
 Rf
 Rf
 Rf
@@ -107514,13 +107202,13 @@ Rf
 Rf
 Rf
 Rf
-GU
-dk
-dk
-dk
-GP
+WZ
+Eo
+Eo
+Eo
+Qu
 Xh
-mi
+kc
 Rf
 VR
 tu
@@ -107537,10 +107225,10 @@ Rf
 Rf
 Rf
 qD
-Hs
+FZ
 Hs
 qD
-dk
+Eo
 aM
 zh
 lk
@@ -107750,8 +107438,8 @@ Xh
 KL
 Xh
 Xh
-XK
-PM
+Gt
+Nx
 Rf
 fJ
 Rf
@@ -107770,14 +107458,14 @@ Rf
 Rf
 fJ
 Rf
-GU
-eT
+WZ
+wc
 KL
 Xh
 Xh
-iZ
+tR
 Xh
-mi
+kc
 fJ
 qD
 GA
@@ -107794,7 +107482,7 @@ Rf
 Rf
 Rf
 qD
-Hs
+FZ
 Hs
 JD
 Xh
@@ -108007,7 +107695,7 @@ Xh
 Xh
 Xh
 Xh
-mi
+kc
 Rf
 Rf
 Rf
@@ -108026,32 +107714,32 @@ Rf
 Rf
 Rf
 Rf
-GU
-vT
+WZ
+SR
 Xh
 Xh
 Xh
 Xh
 Xh
 Xh
-vz
-dk
-dk
-VU
-VU
-dk
-dk
-dk
-dk
-dk
-dk
-dk
-dk
-dk
-dk
-dk
+Qe
+Eo
+Eo
+Fq
+Fq
+Eo
+Eo
+Eo
+Eo
+Eo
+Eo
+Eo
+Eo
+Eo
+Eo
+Eo
 qD
-Hs
+FZ
 Hs
 VR
 Xh
@@ -108264,7 +107952,7 @@ Xh
 Xh
 Xh
 Xh
-mi
+kc
 Rf
 Rf
 Rf
@@ -108277,13 +107965,13 @@ Rf
 Rf
 Rf
 Rf
-GU
-dk
-dk
-dk
-dk
-dk
-vT
+WZ
+Eo
+Eo
+Eo
+Eo
+Eo
+SR
 Zk
 Xh
 Xh
@@ -108308,7 +107996,7 @@ Xh
 Zk
 Xh
 qD
-Hs
+FZ
 Hs
 VR
 Xh
@@ -108319,7 +108007,7 @@ sE
 sE
 Ac
 gJ
-LZ
+Xh
 Xh
 Xh
 Xh
@@ -108521,7 +108209,7 @@ Xh
 Xh
 Xh
 Xh
-mi
+kc
 Rf
 Rf
 Rf
@@ -108534,7 +108222,7 @@ Rf
 Rf
 Rf
 Rf
-GP
+Qu
 Xh
 Xh
 Xh
@@ -108565,7 +108253,7 @@ Xh
 Xh
 Xh
 qD
-Hs
+FZ
 Hs
 JD
 Xh
@@ -108778,20 +108466,20 @@ Xh
 Xh
 Xh
 Xh
-vz
-dk
-dk
-dk
-dk
-dk
-dk
-dk
-dk
-vg
+Qe
+Eo
+Eo
+Eo
+Eo
+Eo
+Eo
+Eo
+Eo
+RJ
 Rf
 Rf
 Rf
-GP
+Qu
 Xh
 Xh
 Xh
@@ -108822,7 +108510,7 @@ Xh
 Xh
 Xh
 qD
-Hs
+FZ
 Hs
 VR
 Xh
@@ -108833,9 +108521,9 @@ so
 so
 so
 so
-Xh
-Xh
-Xh
+vX
+EN
+ae
 Xh
 Xh
 Xh
@@ -109044,11 +108732,11 @@ Xh
 Xh
 Xh
 Xh
-mi
+kc
 Rf
 Rf
 Rf
-GP
+Qu
 Xh
 Xh
 Xh
@@ -109079,7 +108767,7 @@ Xh
 Zk
 Xh
 qD
-Hs
+FZ
 Hs
 VR
 Xh
@@ -109098,18 +108786,18 @@ kv
 Xh
 Xh
 Xh
-GJ
-Fq
-GJ
-GJ
-GJ
-wc
-vX
-Fq
-Fq
-Fq
-Fq
-Fq
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
 Xh
 Xh
 Xh
@@ -109301,11 +108989,11 @@ Xh
 Xh
 Xh
 Xh
-mi
+kc
 Rf
 Rf
 Rf
-GP
+Qu
 Xh
 Xh
 Xh
@@ -109336,14 +109024,14 @@ Xh
 Xh
 Xh
 qD
-Hs
+FZ
 Hs
 cF
 Xh
 Xh
 so
 UC
-hL
+GJ
 tT
 wl
 sX
@@ -109355,18 +109043,18 @@ wQ
 we
 Xh
 Xh
-GJ
-GJ
-GJ
-Xe
-GJ
-Dr
-GJ
-ay
-uk
-Pp
-Fq
-Fq
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
 Xh
 Xh
 Xh
@@ -109558,11 +109246,11 @@ Xh
 Xh
 Xh
 Xh
-vz
-dk
-dk
-dk
-vT
+Qe
+Eo
+Eo
+Eo
+SR
 Xh
 Xh
 Xh
@@ -109593,7 +109281,7 @@ Xh
 Xh
 Xh
 qD
-zf
+zx
 zf
 qD
 so
@@ -109606,24 +109294,24 @@ oA
 Ls
 oa
 CY
-so
+bT
 Vy
 So
 we
 we
 Xh
-uW
-Pt
-FZ
-HX
-Ks
-LO
-GJ
-GJ
-Dq
-Dq
-yG
-Fq
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
 Xh
 Xh
 Xh
@@ -109850,7 +109538,7 @@ Xh
 Zk
 Xh
 VR
-tu
+FZ
 tu
 DG
 Vr
@@ -109858,7 +109546,7 @@ UK
 Rw
 ZW
 Lq
-Lq
+HX
 pk
 KC
 Mh
@@ -109869,18 +109557,18 @@ vJ
 eA
 we
 Xh
-GJ
-Fj
-GJ
-Ra
-vD
-Eo
-Qu
-GJ
-SR
-Fi
-yG
-yG
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
 Xh
 Xh
 Xh
@@ -110107,37 +109795,37 @@ Xh
 Xh
 Xh
 VR
-tu
-tu
+yG
+IB
 Pz
-Vr
+Xl
 BN
 Ie
 dX
-vd
+Pp
 vd
 HY
 Pn
-Mh
-Mh
+sN
+Fj
 Qt
 wx
 uv
 Ix
 we
 Xh
-qo
-Xl
-og
-WZ
-BO
-Gt
-IB
-SC
-zx
-ae
-tR
-ec
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
 Xh
 Xh
 Xh
@@ -110376,25 +110064,25 @@ Jr
 ij
 Ua
 BQ
-BQ
-so
+gn
+WX
 AZ
 bp
 we
 we
 Xh
-Wp
-Fj
-GJ
-EN
-if
-Si
-zi
-pN
-rP
-gn
-yG
-yG
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
 Xh
 Xh
 Xh
@@ -110633,25 +110321,25 @@ hL
 ap
 aK
 Kr
-Kr
+og
 so
 wQ
 wQ
 we
 Xh
 Xh
-uW
-kc
-qx
-rp
-Qe
-Nx
-GJ
-GJ
-Dq
-Dq
-yG
-Fq
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
 Xh
 Xh
 Xh
@@ -110897,18 +110585,18 @@ kv
 Xh
 Xh
 Xh
-GJ
-GJ
-GJ
-Ys
-GJ
-VH
-rh
-Fq
-Fq
-Fq
-Fq
-Fq
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
 Xh
 Xh
 Xh
@@ -111146,6 +110834,8 @@ so
 so
 so
 gw
+bO
+ae
 Xh
 Xh
 Xh
@@ -111154,18 +110844,16 @@ Xh
 Xh
 Xh
 Xh
-GJ
-Fq
-GJ
-GJ
-GJ
-SO
-RJ
-Fq
-Fq
-Fq
-Fq
-Fq
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
 Xh
 Xh
 Xh
@@ -114229,18 +113917,18 @@ Xh
 Xh
 Xh
 Xh
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
 Xh
 Xh
 Xh
@@ -114486,18 +114174,18 @@ Xh
 Xh
 Xh
 Xh
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
 Xh
 Xh
 Xh
@@ -114743,18 +114431,18 @@ Xh
 Xh
 Xh
 Xh
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
 Xh
 Xh
 Xh
@@ -115000,18 +114688,18 @@ Xh
 Xh
 Xh
 Xh
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
 Xh
 Xh
 Xh
@@ -115257,18 +114945,18 @@ Xh
 Xh
 Xh
 Xh
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
 Xh
 Xh
 Xh
@@ -115514,18 +115202,18 @@ Xh
 Xh
 Xh
 Xh
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
 Xh
 Xh
 Xh
@@ -115771,18 +115459,18 @@ Xh
 Xh
 Xh
 Xh
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
 Xh
 Xh
 Xh
@@ -116028,18 +115716,18 @@ Xh
 Xh
 Xh
 Xh
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
 Xh
 Xh
 Xh
@@ -116285,18 +115973,18 @@ Xh
 Xh
 Xh
 Xh
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
-lN
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
 Xh
 Xh
 Xh
