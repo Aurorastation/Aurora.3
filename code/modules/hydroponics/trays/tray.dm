@@ -63,6 +63,8 @@
 	var/cycledelay = 150
 	/// If set, the tray will attempt to take atmos from a pipe.
 	var/closed_system
+	/// Whether this tray is under stasis, freezing all functions. It won't grow, but it won't die.
+	var/stasis = FALSE
 	/// Set this to bypass the cycle time check.
 	var/force_update
 	/// Something to hold reagents during process_reagents()
@@ -512,7 +514,20 @@
 	if (attacking_item.is_open_container())
 		return FALSE
 
-	if(attacking_item.iswirecutter() || istype(attacking_item, /obj/item/surgery/scalpel))
+	// If the lid is closed, the tray is attacked with a multitool, and stasis enabled, disable it. Otherwise, enable it.
+	if(closed_system && attacking_item.ismultitool())
+		if(stasis)
+			user.visible_message(SPAN_NOTICE("\The [user] disengages \the [src]'s stasis mode."), SPAN_NOTICE("You disengage stasis on \the [src]."))
+			stasis = FALSE
+		else
+			user.visible_message(SPAN_NOTICE("\The [user] engages \the [src]'s stasis mode."), SPAN_NOTICE("You engage stasis on \the [src]."))
+			stasis = TRUE
+
+		playsound(src, /singleton/sound_category/button_sound, 50, 1)
+		update_icon()
+		return TRUE
+
+	if((attacking_item.iswirecutter() || istype(attacking_item, /obj/item/surgery/scalpel)) && !closed_system)
 
 		if(!seed)
 			to_chat(user, "There is nothing to take a sample from in \the [src].")
@@ -543,7 +558,7 @@
 
 		return
 
-	else if(istype(attacking_item, /obj/item/reagent_containers/syringe))
+	else if(istype(attacking_item, /obj/item/reagent_containers/syringe) && !closed_system)
 
 		var/obj/item/reagent_containers/syringe/S = attacking_item
 
@@ -609,7 +624,7 @@
 			to_chat(user, SPAN_DANGER("This plot is completely devoid of weeds. It doesn't need uprooting."))
 
 	// Hatchets can uproot the contents of trays to kill the plant with one click.
-	else if (istype(attacking_item, /obj/item/material/hatchet))
+	else if (istype(attacking_item, /obj/item/material/hatchet) && !closed_system)
 		if(health > 0)
 			user.visible_message(SPAN_DANGER("[user] begins uprooting the contents of \the [src]."),
 				SPAN_DANGER("You begin to uproot the contents of \the [src]."))
@@ -655,7 +670,7 @@
 		anchored = !anchored
 		to_chat(user, "You [anchored ? "wrench" : "unwrench"] \the [src].")
 
-	else if(attacking_item.force && seed)
+	else if(attacking_item.force && seed && !closed_system)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		user.visible_message(SPAN_DANGER("\The [seed.display_name] has been attacked by [user] with \the [attacking_item]!"))
 		if(!dead)
@@ -734,6 +749,13 @@
 
 		. += "The tray's sensor suite is reporting [light_string] and a temperature of [environment.temperature]K."
 
+		var/stasis_string
+		if(stasis)
+			stasis_string = "Stasis is enabled, freezing metabolic functions."
+		else
+			stasis_string = "Stasis is disabled."
+		. += SPAN_NOTICE(stasis_string)
+
 /obj/machinery/portable_atmospherics/hydroponics/verb/close_lid_verb()
 	set name = "Toggle Tray Lid"
 	set category = "Object"
@@ -746,6 +768,8 @@
 	return
 
 /obj/machinery/portable_atmospherics/hydroponics/proc/close_lid(var/mob/living/user)
+	if(closed_system)
+		stasis = FALSE
 	closed_system = !closed_system
 	to_chat(user, "You [closed_system ? "close" : "open"] the tray's lid.")
 	update_icon()

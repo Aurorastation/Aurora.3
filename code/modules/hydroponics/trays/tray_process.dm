@@ -1,5 +1,9 @@
 /obj/machinery/portable_atmospherics/hydroponics/process()
 
+	// If the tray is under stasis, return now and process nothing.
+	if(stasis)
+		return
+
 	// Handle nearby smoke if any.
 	for(var/obj/effect/smoke/chem/smoke in view(1, src))
 		if(smoke.reagents.total_volume)
