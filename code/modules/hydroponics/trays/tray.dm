@@ -63,6 +63,8 @@
 	var/cycledelay = 150
 	/// If set, the tray will attempt to take atmos from a pipe.
 	var/closed_system
+	/// Whether this tray is under stasis, freezing all functions. It won't grow, but it won't die.
+	var/stasis = FALSE
 	/// Set this to bypass the cycle time check.
 	var/force_update
 	/// Something to hold reagents during process_reagents()
@@ -512,6 +514,18 @@
 	if (attacking_item.is_open_container())
 		return FALSE
 
+	// If the lid is closed, the tray is attacked with a multitool, and stasis is not already enabled, engage stasis. If it is already enabled, disable it.
+	if(closed_system)
+		if(attacking_item.ismultitool() && !stasis)
+			user.visible_message(SPAN_NOTICE("\The [user] engages \the [src]'s stasis mode."), SPAN_NOTICE("You engage stasis on \the [src]."))
+			playsound(src, /singleton/sound_category/button_sound, 50, 1)
+			stasis = TRUE
+
+		else if(stasis)
+			user.visible_message(SPAN_NOTICE("\The [user] disengages \the [src]'s stasis mode."), SPAN_NOTICE("You disengage stasis on \the [src]."))
+			playsound(src, /singleton/sound_category/button_sound, 50, 1)
+			stasis = FALSE
+
 	if(attacking_item.iswirecutter() || istype(attacking_item, /obj/item/surgery/scalpel))
 
 		if(!seed)
@@ -734,6 +748,13 @@
 
 		. += "The tray's sensor suite is reporting [light_string] and a temperature of [environment.temperature]K."
 
+		var/stasis_string
+		if(stasis)
+			stasis_string = "Stasis is enabled, freezing metabolic functions."
+		else
+			stasis_string = "Stasis is disabled."
+		. += stasis_string
+
 /obj/machinery/portable_atmospherics/hydroponics/verb/close_lid_verb()
 	set name = "Toggle Tray Lid"
 	set category = "Object"
@@ -746,6 +767,8 @@
 	return
 
 /obj/machinery/portable_atmospherics/hydroponics/proc/close_lid(var/mob/living/user)
+	if(closed_system)
+		stasis = FALSE
 	closed_system = !closed_system
 	to_chat(user, "You [closed_system ? "close" : "open"] the tray's lid.")
 	update_icon()
