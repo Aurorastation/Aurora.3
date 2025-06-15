@@ -1,0 +1,33 @@
+/obj/machinery/ship_weapon/nephilim
+	name = "nephilim blaster repeater"
+	desc = "The Nephilim is a reliable blaster repeater produced on-contract by several factories across the spur. Seeing widespread use on both sides of the piracy epidemic in the Coalition, it has been shown to be effective and easy to maintain; two details not shared by earlier ship-mounted blaster weapons. Utilising hydrogen blaster cells, it is quicker to charge, while necessitating frequent reloads."
+	icon = 'icons/obj/machinery/ship_guns/nephilim.dmi'
+	heavy_firing_sound = 'sound/weapons/gunshot/bolter.ogg'
+	icon_state = "weapon_base"
+	max_ammo = 3
+	projectile_type = /obj/projectile/ship_ammo/nephilim
+	caliber = SHIP_CALIBER_BLASTER
+	screenshake_type = SHIP_GUN_SCREENSHAKE_SCREEN
+
+/obj/machinery/ammunition_loader/nephilim
+	name = "nephilim ammunition loader"
+
+/obj/item/ship_ammunition/nephilim
+	name = "Ship-mounted blaster HE hydrogen cell"
+	name_override = "Blaster HE burst"
+	desc = "A high-explosive hydrogen cell for use in a Nephilim blaster repeater."
+	icon = 'icons/obj/guns/ship/ship_ammo_nephilim.dmi'
+	icon_state = "repeater_he"
+	overmap_icon_state = "light_laser_salvo"
+	impact_type = SHIP_AMMO_IMPACT_HE
+	ammunition_flags = SHIP_AMMO_FLAG_INFLAMMABLE|SHIP_AMMO_FLAG_VERY_HEAVY|SHIP_AMMO_FLAG_INFLAMMABLE
+	caliber = SHIP_CALIBER_BLASTER
+	burst = 15
+	cookoff_heavy = 0
+
+/obj/projectile/ship_ammo/nephilim
+	name = "hydrogen cell"
+	icon_state = "repeater_he"
+	damage = 100
+	armor_penetration = 10
+	penetrating = 1
