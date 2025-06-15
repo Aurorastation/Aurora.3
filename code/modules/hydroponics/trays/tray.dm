@@ -670,7 +670,7 @@
 		anchored = !anchored
 		to_chat(user, "You [anchored ? "wrench" : "unwrench"] \the [src].")
 
-	else if(attacking_item.force && seed)
+	else if(attacking_item.force && seed && !closed_system)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		user.visible_message(SPAN_DANGER("\The [seed.display_name] has been attacked by [user] with \the [attacking_item]!"))
 		if(!dead)
