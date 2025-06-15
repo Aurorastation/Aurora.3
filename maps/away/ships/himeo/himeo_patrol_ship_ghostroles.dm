@@ -9,7 +9,7 @@
 	max_count = 2
 	respawn_flag = null
 	outfit = /obj/outfit/admin/himeo_patrol_ship
-	mob_name_prefix = "Pfc. "
+	mob_name_prefix = "Mat. "
 
 	possible_species = list(SPECIES_HUMAN, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
@@ -26,7 +26,7 @@
 	welcome_message = "Placeholder"
 	max_count = 1
 	outfit = /obj/outfit/admin/himeo_patrol_ship/engineer
-	mob_name_prefix = "Spc. "
+	mob_name_prefix = "Alk. "
 
 /datum/ghostspawner/human/himeo_patrol_ship/medic
 	short_name = "himeo_patrol_ship_medic"
@@ -35,7 +35,7 @@
 	welcome_message = "Placeholder"
 	max_count = 1
 	outfit = /obj/outfit/admin/himeo_patrol_ship/medic
-	mob_name_prefix = "Spc. "
+	mob_name_prefix = "Alk. "
 
 /datum/ghostspawner/human/himeo_patrol_ship/pilot
 	short_name = "himeo_patrol_ship_pilot"
@@ -44,7 +44,7 @@
 	welcome_message = "Placeholder"
 	max_count = 1
 	outfit = /obj/outfit/admin/himeo_patrol_ship/pilot
-	mob_name_prefix = "Spc. "
+	mob_name_prefix = "Alk. "
 
 /datum/ghostspawner/human/himeo_patrol_ship/officer
 	short_name = "himeo_patrol_ship_officer"
@@ -54,7 +54,7 @@
 	max_count = 1
 	outfit = /obj/outfit/admin/himeo_patrol_ship/officer
 	spawnpoints = list("himeo_patrol_commander")
-	mob_name_prefix = "Cdr. "
+	mob_name_prefix = "Ylt. "
 
 /obj/outfit/admin/himeo_patrol_ship
 	name = "Himean Planetary Guardsman"

@@ -158,7 +158,7 @@
 	name = "Himean Patrol Ship Lift - First Deck"
 	landmark_tag = "nav_himeo_patrol_ship_lift_first_deck"
 	base_area = /area/himeo_patrol_ship
-	base_turf = /turf/simulated/floor/carpet/rubber
+	base_turf = /turf/simulated/floor/plating
 
 /obj/effect/shuttle_landmark/lift/nav_himeo_patrol_ship_lift_second_deck
 	name = "Himean Patrol Ship Lift - Second Deck"
@@ -167,4 +167,4 @@
 	base_turf = /turf/simulated/open
 
 /obj/machinery/computer/shuttle_control/multi/lift/himeo_patrol_ship
-	shuttle_tag = "Himean Lift"
+	shuttle_tag = "Himean Patrol Ship Lift"

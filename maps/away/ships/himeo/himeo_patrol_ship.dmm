@@ -2992,9 +2992,6 @@
 /turf/simulated/wall/shuttle/dark/cardinal/black,
 /area/himeo_patrol_ship/thruster_starboard)
 "tR" = (
-/obj/effect/map_effect/map_helper/ruler_tiles_3{
-	dir = 4
-	},
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 4
 	},
@@ -3658,6 +3655,15 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/deck_2_interstitial)
+"yh" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/shuttle_landmark/himeo_patrol/dock4{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "yj" = (
 /obj/random/dirt_75,
 /obj/structure/platform/dark,
@@ -3967,11 +3973,9 @@
 /area/himeo_patrol_ship/distribution)
 "zS" = (
 /obj/structure/table/standard,
-/obj/machinery/chemical_dispenser/bar_soft{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/brown/full,
 /obj/random/dirt_75,
+/obj/structure/reagent_dispensers/keg/kvass,
 /turf/simulated/floor/tiled/steel,
 /area/himeo_patrol_ship/messhall)
 "zV" = (
@@ -4017,6 +4021,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/himeo_patrol_ship/armoury)
+"Aw" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
+/turf/space,
+/area/space)
 "AH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/green{
 	dir = 8
@@ -4827,6 +4837,15 @@
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/bridge)
+"Fa" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/space)
 "Fb" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
@@ -4874,7 +4893,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/himeo_patrol_ship/autocannon)
 "Fq" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/machinery/door/airlock/external{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -5092,14 +5111,8 @@
 /turf/simulated/floor,
 /area/himeo_patrol_ship/generator)
 "GA" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/obj/effect/shuttle_landmark/himeo_patrol/dock4{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/himeo_patrol_ship/deck_2_interstitial)
+/turf/space,
+/area/space)
 "GB" = (
 /obj/machinery/biogenerator,
 /obj/effect/floor_decal/industrial/outline/service,
@@ -5120,6 +5133,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/himeo_patrol/central)
+"GM" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/black/grille/firedoor{
+	req_one_access = list(253)
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "GS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/green{
 	dir = 8
@@ -7008,6 +7027,9 @@
 	},
 /turf/space,
 /area/space)
+"Tz" = (
+/turf/simulated/floor/plating,
+/area/space)
 "TA" = (
 /obj/random/dirt_75,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
@@ -7554,7 +7576,6 @@
 "Xc" = (
 /obj/structure/table/rack/folding_table,
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/item/storage/box/fancy/yoke/himeokvass,
 /turf/simulated/floor/tiled/light,
 /area/himeo_patrol_ship/messhall)
 "Xe" = (
@@ -106756,8 +106777,8 @@ Ks
 Pt
 ud
 qD
-zf
-zf
+Hs
+Hs
 qD
 qD
 qD
@@ -107012,10 +107033,10 @@ Qu
 Xh
 kc
 Rf
-VR
-tu
-tu
-VR
+qD
+Hs
+Hs
+qD
 Rf
 Rf
 Rf
@@ -107269,10 +107290,10 @@ Qu
 Xh
 kc
 Rf
-VR
-tu
-tu
-VR
+qD
+Hs
+Hs
+qD
 Rf
 Rf
 Rf
@@ -107518,25 +107539,25 @@ Rf
 fJ
 Rf
 WZ
-wc
-KL
+Fa
+Xh
 Xh
 Xh
 tR
 Xh
 kc
-fJ
+Rf
 qD
-GA
-zf
+Hs
+Hs
 qD
-fJ
 Rf
 Rf
-fJ
 Rf
 Rf
-fJ
+Rf
+Rf
+Rf
 Rf
 Rf
 Rf
@@ -107783,10 +107804,10 @@ Xh
 Xh
 Qe
 Eo
-Eo
+NP
 Fq
 Fq
-Eo
+NP
 Eo
 Eo
 Eo
@@ -108031,28 +108052,28 @@ Eo
 Eo
 Eo
 SR
-Zk
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Zk
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GM
+Tz
+Tz
+GM
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
 Xh
 qD
 FZ
@@ -108288,28 +108309,28 @@ Xh
 Xh
 Xh
 Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GM
+Tz
+Tz
+GM
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
 Xh
 qD
 FZ
@@ -108545,28 +108566,28 @@ Xh
 Xh
 Xh
 Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
+GA
+GA
+Aw
+GA
+GA
+Aw
+GA
+GA
+Aw
+NP
+yh
+Fq
+NP
+Aw
+GA
+GA
+Aw
+GA
+GA
+Aw
+GA
+GA
 Xh
 qD
 FZ
@@ -108802,28 +108823,28 @@ Xh
 Xh
 Xh
 Xh
-Zk
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Zk
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
 Xh
 qD
 FZ
@@ -109059,6 +109080,7 @@ Xh
 Xh
 Xh
 Xh
+Zk
 Xh
 Xh
 Xh
@@ -109079,8 +109101,7 @@ Xh
 Xh
 Xh
 Xh
-Xh
-Xh
+Zk
 Xh
 qD
 FZ
@@ -109573,7 +109594,6 @@ Xh
 Xh
 Xh
 Xh
-Zk
 Xh
 Xh
 Xh
@@ -109594,7 +109614,8 @@ Xh
 Xh
 Xh
 Xh
-Zk
+Xh
+Xh
 Xh
 VR
 FZ
@@ -109830,6 +109851,7 @@ Xh
 Xh
 Xh
 Xh
+Zk
 Xh
 Xh
 Xh
@@ -109850,8 +109872,7 @@ Xh
 Xh
 Xh
 Xh
-Xh
-Xh
+Zk
 Xh
 VR
 yG
@@ -110344,7 +110365,6 @@ Xh
 Xh
 Xh
 Xh
-Zk
 Xh
 Xh
 Xh
@@ -110365,7 +110385,8 @@ Xh
 Xh
 Xh
 Xh
-Zk
+Xh
+Xh
 Xh
 Xh
 Xh
@@ -110601,6 +110622,7 @@ Xh
 Xh
 Xh
 Xh
+Zk
 Xh
 Xh
 Xh
@@ -110621,8 +110643,7 @@ Xh
 Xh
 Xh
 Xh
-Xh
-Xh
+Zk
 Xh
 Xh
 Xh
@@ -111115,7 +111136,6 @@ Xh
 Xh
 Xh
 Xh
-Zk
 Xh
 Xh
 Xh
@@ -111136,7 +111156,8 @@ Xh
 Xh
 Xh
 Xh
-Zk
+Xh
+Xh
 Xh
 Xh
 Xh
@@ -111372,6 +111393,7 @@ Xh
 Xh
 Xh
 Xh
+Zk
 Xh
 Xh
 Xh
@@ -111392,8 +111414,7 @@ Xh
 Xh
 Xh
 Xh
-Xh
-Xh
+Zk
 Xh
 Xh
 Xh
@@ -111886,7 +111907,6 @@ Xh
 Xh
 Xh
 Xh
-Zk
 Xh
 Xh
 Xh
@@ -111907,7 +111927,8 @@ Xh
 Xh
 Xh
 Xh
-Zk
+Xh
+Xh
 Xh
 Xh
 Xh
@@ -112143,6 +112164,7 @@ Xh
 Xh
 Xh
 Xh
+Zk
 Xh
 Xh
 Xh
@@ -112163,8 +112185,7 @@ Xh
 Xh
 Xh
 Xh
-Xh
-Xh
+Zk
 Xh
 Xh
 Xh
@@ -112657,7 +112678,6 @@ Xh
 Xh
 Xh
 Xh
-Zk
 Xh
 Xh
 Xh
@@ -112678,7 +112698,8 @@ Xh
 Xh
 Xh
 Xh
-Zk
+Xh
+Xh
 Xh
 Xh
 Xh
@@ -112914,6 +112935,7 @@ Xh
 Xh
 Xh
 Xh
+Zk
 Xh
 Xh
 Xh
@@ -112934,8 +112956,7 @@ Xh
 Xh
 Xh
 Xh
-Xh
-Xh
+Zk
 Xh
 Xh
 Xh
@@ -113428,7 +113449,6 @@ Xh
 Xh
 Xh
 Xh
-Zk
 Xh
 Xh
 Xh
@@ -113449,7 +113469,8 @@ Xh
 Xh
 Xh
 Xh
-Zk
+Xh
+Xh
 Xh
 Xh
 Xh
@@ -113685,6 +113706,7 @@ Xh
 Xh
 Xh
 Xh
+Zk
 Xh
 Xh
 Xh
@@ -113705,8 +113727,7 @@ Xh
 Xh
 Xh
 Xh
-Xh
-Xh
+Zk
 Xh
 Xh
 Xh
@@ -114199,7 +114220,6 @@ Xh
 Xh
 Xh
 Xh
-Zk
 Xh
 Xh
 Xh
@@ -114220,7 +114240,8 @@ Xh
 Xh
 Xh
 Xh
-Zk
+Xh
+Xh
 Xh
 Xh
 Xh
@@ -114456,6 +114477,7 @@ Xh
 Xh
 Xh
 Xh
+Zk
 Xh
 Xh
 Xh
@@ -114476,8 +114498,7 @@ Xh
 Xh
 Xh
 Xh
-Xh
-Xh
+Zk
 Xh
 Xh
 Xh
@@ -114970,7 +114991,6 @@ Xh
 Xh
 Xh
 Xh
-Zk
 Xh
 Xh
 Xh
@@ -114991,7 +115011,8 @@ Xh
 Xh
 Xh
 Xh
-Zk
+Xh
+Xh
 Xh
 Xh
 Xh
@@ -115227,6 +115248,7 @@ Xh
 Xh
 Xh
 Xh
+Zk
 Xh
 Xh
 Xh
@@ -115247,8 +115269,7 @@ Xh
 Xh
 Xh
 Xh
-Xh
-Xh
+Zk
 Xh
 Xh
 Xh
@@ -115998,6 +116019,7 @@ Xh
 Xh
 Xh
 Xh
+Zk
 Xh
 Xh
 Xh
@@ -116018,8 +116040,7 @@ Xh
 Xh
 Xh
 Xh
-Xh
-Xh
+Zk
 Xh
 Xh
 Xh
