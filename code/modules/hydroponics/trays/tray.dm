@@ -514,7 +514,7 @@
 	if (attacking_item.is_open_container())
 		return FALSE
 
-	// If the lid is closed, the tray is attacked with a multitool, and stasis is not already enabled, engage stasis. If it is already enabled, disable it.
+	// If the lid is closed, the tray is attacked with a multitool, and stasis enabled, disable it. Otherwise, enable it.
 	if(closed_system && attacking_item.ismultitool())
 		if(stasis)
 			user.visible_message(SPAN_NOTICE("\The [user] disengages \the [src]'s stasis mode."), SPAN_NOTICE("You disengage stasis on \the [src]."))
