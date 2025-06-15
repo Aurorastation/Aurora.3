@@ -33,6 +33,26 @@
 
 	var/list/connections = list("nw0", "ne0", "sw0", "se0")
 
+/obj/structure/table/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	. += deconstruction_hints(user)
+	if(health < maxhealth)
+		switch(health / maxhealth)
+			if(0.0 to 0.5)
+				. += SPAN_WARNING("It looks severely damaged!")
+			if(0.25 to 0.5)
+				. += SPAN_WARNING("It looks damaged!")
+			if(0.5 to 1.0)
+				. += SPAN_NOTICE("It has a few scrapes and dents.")
+
+/obj/structure/table/proc/deconstruction_hints(mob/user)
+	if(carpeted)
+		return SPAN_NOTICE("Its carpeted surface could be <b>pried<b/> loose.")
+	if(reinforced)
+		return SPAN_NOTICE("Its reinforcements have been securely <b>screwed<b/> into place.")
+	else
+		return SPAN_NOTICE("It's held together by a couple of <b>bolts</b>.")
+
 /obj/structure/table/proc/update_material()
 	var/old_maxhealth = maxhealth
 	if(!material)
@@ -118,17 +138,6 @@
 	for(var/obj/structure/table/T in oview(src, 1))
 		T.queue_icon_update()
 	return ..()
-
-/obj/structure/table/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(health < maxhealth)
-		switch(health / maxhealth)
-			if(0.0 to 0.5)
-				. += SPAN_WARNING("It looks severely damaged!")
-			if(0.25 to 0.5)
-				. += SPAN_WARNING("It looks damaged!")
-			if(0.5 to 1.0)
-				. += SPAN_NOTICE("It has a few scrapes and dents.")
 
 /obj/structure/table/proc/reinforce_table(obj/item/stack/material/S, mob/user)
 	if(reinforced)

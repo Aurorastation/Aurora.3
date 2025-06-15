@@ -303,6 +303,15 @@
 		else
 			occupant.visible_message(SPAN_DANGER("[occupant] crashed into \the [A]!"))
 
+/obj/structure/bed/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	. += deconstruction_hints(user)
+
+/obj/structure/bed/proc/deconstruction_hints(mob/user)
+	if (padding_material)
+		return SPAN_NOTICE("Its padding has visible seams that could be <b>cut</b>.")
+	return SPAN_NOTICE("It's held together by a couple of <b>bolts</b>.")
+
 /obj/structure/bed/psych
 	name = "psychiatrist's couch"
 	desc = "For prime comfort during psychiatric evaluations."
