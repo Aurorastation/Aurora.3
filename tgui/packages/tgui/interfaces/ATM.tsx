@@ -139,7 +139,7 @@ export const AuthenticatedWindow = (props, context) => {
       </Box>
       Your account balance is{' '}
       <Box as="span" bold>
-        {data.money}
+        {data.money.toFixed(2)}
       </Box>
       电.
       <LabeledList>
