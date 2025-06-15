@@ -788,8 +788,8 @@
 
 //Himeo
 /obj/item/clothing/under/himeo
-	name = "himean naval fatigues"
-	desc = "Reinforced synthetic fibres make up the bulk of this Himean naval uniform, with hard plastic pads around the joints."
+	name = "himean planetary guard fatigues"
+	desc = "Reinforced synthetic fibres make up the bulk of this Himean planetary guard uniform, with hard plastic pads around the joints."
 	icon = 'icons/clothing/under/uniforms/himeo_military.dmi'
 	icon_state = "himeo_fatigues"
 	item_state = "himeo_fatigues"
@@ -802,7 +802,25 @@
 		)
 
 /obj/item/clothing/under/himeo/officer
-	name = "himean naval officers fatigues"
-	desc = "Reinforced synthetic fibres make up the bulk of this Himean naval uniform, with hard plastic pads around the joints. It is embellished with red detailing, signifying the wearer as an officer."
+	name = "himean planetary guard officers fatigues"
+	desc = "Reinforced synthetic fibres make up the bulk of this Himean planetary guard uniform, with hard plastic pads around the joints. It is embellished with blue detailing, signalling the wearer as an officer."
 	icon_state = "himeo_fatigues_officer"
 	item_state = "himeo_fatigues_officer"
+
+/obj/item/clothing/under/himeo/engineer
+	name = "himean planetary guard sappers fatigues"
+	desc = "Reinforced synthetic fibres make up the bulk of this Himean planetary guard uniform, with hard plastic pads around the joints. It is embellished with orange detailing, signalling the wearer as a sapper."
+	icon_state = "himeo_fatigues_engi"
+	item_state = "himeo_fatigues_engi"
+
+/obj/item/clothing/under/himeo/medic
+	name = "himean planetary guard corpsmans fatigues"
+	desc = "Reinforced synthetic fibres make up the bulk of this Himean planetary guard uniform, with hard plastic pads around the joints. It is embellished with green detailing, signalling the wearer as a corpsman."
+	icon_state = "himeo_fatigues_medic"
+	item_state = "himeo_fatigues_medic"
+
+/obj/item/clothing/under/himeo/pilot
+	name = "himean planetary guard pilots fatigues"
+	desc = "Reinforced synthetic fibres make up the bulk of this Himean planetary guard uniform, with hard plastic pads around the joints. It is embellished with red detailing, signalling the wearer as a fighter pilot."
+	icon_state = "himeo_fatigues_pilot"
+	item_state = "himeo_fatigues_pilot"
