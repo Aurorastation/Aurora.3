@@ -9,6 +9,7 @@
 	max_count = 2
 	respawn_flag = null
 	outfit = /obj/outfit/admin/himeo_patrol_ship
+	mob_name_prefix = "Pfc. "
 
 	possible_species = list(SPECIES_HUMAN, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
@@ -16,7 +17,6 @@
 	assigned_role = "Himean Naval Crewman"
 	special_role = "Himean Naval Crewman"
 
-	culture_restriction = list(/singleton/origin_item/culture/coalition)
 	origin_restriction = list(/singleton/origin_item/origin/himeo, /singleton/origin_item/origin/free_council)
 
 /datum/ghostspawner/human/himeo_patrol_ship/engineer
@@ -26,7 +26,7 @@
 	welcome_message = "Placeholder"
 	max_count = 1
 	outfit = /obj/outfit/admin/himeo_patrol_ship/engineer
-	mob_name_prefix = "SPC. "
+	mob_name_prefix = "Spc. "
 
 /datum/ghostspawner/human/himeo_patrol_ship/medic
 	short_name = "himeo_patrol_ship_medic"
@@ -35,16 +35,26 @@
 	welcome_message = "Placeholder"
 	max_count = 1
 	outfit = /obj/outfit/admin/himeo_patrol_ship/medic
-	mob_name_prefix = "SPC. "
+	mob_name_prefix = "Spc. "
 
 /datum/ghostspawner/human/himeo_patrol_ship/pilot
 	short_name = "himeo_patrol_ship_pilot"
 	name = "Himean Planetary Guard Fighter Pilot"
-	desc = "You are a fighter pilot of the Himean Planetary Guard. Take care of your shuttle, "
+	desc = "You are a fighter pilot of the Himean Planetary Guard. Pilot and maintain your shuttle, guard it on expeditions, and act as a transport or fighter pilot depending on the needs of your commander. "
 	welcome_message = "Placeholder"
 	max_count = 1
-	outfit = /obj/outfit/admin/himeo_patrol_ship/medic
-	mob_name_prefix = "SPC. "
+	outfit = /obj/outfit/admin/himeo_patrol_ship/pilot
+	mob_name_prefix = "Spc. "
+
+/datum/ghostspawner/human/himeo_patrol_ship/officer
+	short_name = "himeo_patrol_ship_officer"
+	name = "Himean Planetary Guard Commander"
+	desc = "You are the commander of a Himean Planetary Guard patrol vessel. Give guidance and leadership to your fellow soldiers, lead expeditions to sites of interest, and act as a representative of the militant arm of revolution.  "
+	welcome_message = "Placeholder"
+	max_count = 1
+	outfit = /obj/outfit/admin/himeo_patrol_ship/officer
+	spawnpoints = list("himeo_patrol_commander")
+	mob_name_prefix = "Cdr. "
 
 /obj/outfit/admin/himeo_patrol_ship
 	name = "Himean Planetary Guardsman"
@@ -100,3 +110,6 @@
 		/obj/item/clothing/mask/gas/half = 1,
 		/obj/item/clothing/accessory/badge/passcard/coalition  = 1
 	)
+
+/obj/outfit/admin/himeo_patrol_ship/get_id_access()
+	return list(ACCESS_HIMEO_PATROL_SHIP, ACCESS_EXTERNAL_AIRLOCKS)

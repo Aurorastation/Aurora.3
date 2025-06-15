@@ -13,6 +13,7 @@
 	suffix = "himeo_patrol_ship.dmm"
 
 	sectors = list(ALL_COALITION_SECTORS) // Change this.
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 	spawn_weight = 1
 	ship_cost = 1
 	id = "Himean Planetary Guard Vessel"
@@ -153,18 +154,17 @@
 		"nav_himeo_patrol_ship_lift_second_deck",
 		)
 
-/obj/effect/shuttle_landmark/lift/himeo_patrol_ship_first_deck
+/obj/effect/shuttle_landmark/lift/nav_himeo_patrol_ship_lift_first_deck
 	name = "Himean Patrol Ship Lift - First Deck"
 	landmark_tag = "nav_himeo_patrol_ship_lift_first_deck"
 	base_area = /area/himeo_patrol_ship
-	base_turf = /turf/simulated/open
+	base_turf = /turf/simulated/floor/carpet/rubber
 
-
-/obj/effect/shuttle_landmark/lift/himeo_patrol_ship_second_deck
+/obj/effect/shuttle_landmark/lift/nav_himeo_patrol_ship_lift_second_deck
 	name = "Himean Patrol Ship Lift - Second Deck"
 	landmark_tag = "nav_himeo_patrol_ship_lift_second_deck"
 	base_area = /area/himeo_patrol_ship/deck_2_interstitial
-	base_turf = /turf/simulated/floor/plating
+	base_turf = /turf/simulated/open
 
 /obj/machinery/computer/shuttle_control/multi/lift/himeo_patrol_ship
 	shuttle_tag = "Himean Lift"

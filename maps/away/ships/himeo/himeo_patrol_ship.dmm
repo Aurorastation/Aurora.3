@@ -650,7 +650,7 @@
 	dir = 1
 	},
 /obj/machinery/power/smes/buildable/main_engine{
-	charge = 5e+002
+	charge = 3e+006
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
@@ -856,6 +856,10 @@
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "himeo_patrol";
+	name = "igs - himeo_patrol"
 	},
 /turf/simulated/floor/carpet/red,
 /area/himeo_patrol_ship/barracks)
@@ -1703,6 +1707,10 @@
 /obj/item/bedsheet/syndie{
 	pixel_y = 16
 	},
+/obj/effect/ghostspawpoint{
+	identifier = "himeo_patrol";
+	name = "igs - himeo_patrol"
+	},
 /turf/simulated/floor/carpet/red,
 /area/himeo_patrol_ship/barracks)
 "lD" = (
@@ -1822,7 +1830,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/obj/effect/shuttle_landmark/lift/himeo_patrol_ship_first_deck,
+/obj/effect/shuttle_landmark/lift/nav_himeo_patrol_ship_lift_first_deck,
 /turf/simulated/floor/carpet/rubber,
 /area/turbolift/himeo_patrol/himeo_patrol_lift)
 "mq" = (
@@ -3021,6 +3029,10 @@
 /obj/structure/curtain/open/bed,
 /obj/structure/bed/padded,
 /obj/item/bedsheet/red,
+/obj/effect/ghostspawpoint{
+	identifier = "himeo_patrol_commander";
+	name = "igs - himeo_patrol_commander"
+	},
 /turf/simulated/floor/carpet/red,
 /area/himeo_patrol_ship/barracks)
 "uk" = (
@@ -5644,6 +5656,17 @@
 /obj/effect/map_effect/window_spawner/full/shuttle/black/firedoor,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/thruster_starboard)
+"Ln" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/machinery/computer/shuttle_control/multi/lift/himeo_patrol_ship{
+	pixel_y = 23;
+	pixel_x = 3
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship)
 "Lq" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9
@@ -6587,6 +6610,10 @@
 	dir = 8
 	},
 /obj/machinery/light/colored/decayed/dimmed,
+/obj/effect/ghostspawpoint{
+	identifier = "himeo_patrol";
+	name = "igs - himeo_patrol"
+	},
 /turf/simulated/floor/carpet/red,
 /area/himeo_patrol_ship/barracks)
 "RF" = (
@@ -6904,6 +6931,10 @@
 /obj/machinery/light/colored/decayed/dimmed{
 	dir = 1
 	},
+/obj/effect/ghostspawpoint{
+	identifier = "himeo_patrol";
+	name = "igs - himeo_patrol"
+	},
 /turf/simulated/floor/carpet/red,
 /area/himeo_patrol_ship/barracks)
 "Ti" = (
@@ -7093,7 +7124,7 @@
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/deck_2_interstitial)
 "Uc" = (
-/obj/effect/shuttle_landmark/lift/himeo_patrol_ship_second_deck,
+/obj/effect/shuttle_landmark/lift/nav_himeo_patrol_ship_lift_second_deck,
 /turf/simulated/open,
 /area/himeo_patrol_ship/deck_2_interstitial)
 "Uf" = (
@@ -7556,6 +7587,10 @@
 /obj/random/dirt_75,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "himeo_patrol";
+	name = "igs - himeo_patrol"
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/barracks)
@@ -39649,7 +39684,7 @@ eg
 eg
 eg
 eg
-oP
+Ln
 fE
 BC
 BC
