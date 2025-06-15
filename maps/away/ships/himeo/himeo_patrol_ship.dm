@@ -1,6 +1,6 @@
 /datum/map_template/ruin/away_site/himeo_patrol_ship
-	name = "Himean Naval Patrol Vessel"
-	description = "A patrol vessel fielded by the Himean Navy"
+	name = "Himean Planetary Guard Vessel"
+	description = "A patrol vessel fielded by the Himean Planetary Guard"
 
 	traits = list(
 		//Z1
@@ -15,28 +15,28 @@
 	sectors = list(ALL_COALITION_SECTORS) // Change this.
 	spawn_weight = 1
 	ship_cost = 1
-	id = "Himean Naval Patrol Vessel"
+	id = "Himean Planetary Guard Vessel"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/himeo_patrol_shuttle, /datum/shuttle/autodock/multi/lift/himeo_patrol_ship)
 	unit_test_groups = list(1)
 
 /singleton/submap_archetype/himeo_patrol_ship
-	map = "Himean Naval Patrol Vessel"
-	descriptor = "A patrol vessel fielded by the Himean Navy"
+	map = "Himean Planetary Guard Vessel"
+	descriptor = "A patrol vessel fielded by the Himean Planetary Guard"
 
 /obj/effect/overmap/visitable/ship/himeo_patrol_ship
-	name = "Himean Naval Patrol Vessel"
-	class = "HNV" // Change this
-	desc = "Placeholder"
+	name = "Himean Planetary Guard Vessel"
+	class = "USPGV" // United Syndicates Planetary Guard Vessel
+	desc = "A typical Himean design, the Collier-class is designed to patrol major trade routes and discourage pirate attacks. It is not intended for fleet engagements, as it lacks heavier armament such as missiles."
 	icon_state = "xansan"
 	moving_state = "xansan_moving"
 	colors = list("#525151", "#800a0a")
-	designer = "Free Consortium of Defense and Auerospace Manufacturers"
-	weapons = "Dual extruding fore-mounted medium caliber ballistic armament, aftobscured flight craft docking port"
-	drive = "Low-Speed Warp Acceleration FTL Drive"
-	sizeclass = "Eumenides-class security transport"
+	designer = "Free Consortium of Defense and Aerospace Manufacturers"
+	weapons = "Rear-mounted low-calibre autocannon, rear-mounted blaster weapon"
+	drive = "Forsberg Mk. XII Warp Drive: A Himean design from the 2440s, the Forsberg is a decently cheap — and relatively fast — drive produced by FCDAM for the Himean Planetary Guard."
+	sizeclass = "Collier-class patrol corvette"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
-	vessel_mass = 5000
+	vessel_mass = 9000
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
 	initial_restricted_waypoints = list(
@@ -64,39 +64,39 @@
 
 //Deck 1 navpoints.
 /obj/effect/shuttle_landmark/himeo_patrol/nav1
-	name = "Himeo Naval Patrol Vessel - Deck One Fore"
+	name = "Himeo Planetary Guard Vessel - Deck One Fore"
 	landmark_tag = "himeo_nav1"
 
 /obj/effect/shuttle_landmark/himeo_patrol/nav2
-	name = "Himeo Naval Patrol Vessel - Deck One Aft "
+	name = "Himeo Planetary Guard Vessel - Deck One Aft "
 	landmark_tag = "himeo_nav2"
 
 /obj/effect/shuttle_landmark/himeo_patrol/nav3
-	name = "Himeo Naval Patrol Vessel - Deck One Port "
+	name = "Himeo Planetary Guard Vessel - Deck One Port "
 	landmark_tag = "himeo_nav3"
 
 /obj/effect/shuttle_landmark/himeo_patrol/nav4
-	name = "Himeo Naval Patrol Vessel - Deck One Starboard"
+	name = "Himeo Planetary Guard Vessel - Deck One Starboard"
 	landmark_tag = "himeo_nav4"
 
 //Deck 2 navpoints.
 /obj/effect/shuttle_landmark/himeo_patrol/dock1
-	name = "Himeo Naval Patrol Vessel - Deck Two Starboard"
+	name = "Himeo Planetary Guard Vessel - Deck Two Starboard"
 	landmark_tag = "himeo_dock1"
 	base_turf = /turf/simulated/floor/reinforced/airless
 
 /obj/effect/shuttle_landmark/himeo_patrol/dock2
-	name = "Himeo Naval Patrol Vessel - Deck Two Fore"
+	name = "Himeo Planetary Guard Vessel - Deck Two Fore"
 	landmark_tag = "himeo_dock2"
 	base_turf = /turf/simulated/floor/reinforced/airless
 
 /obj/effect/shuttle_landmark/himeo_patrol/dock3
-	name = "Himeo Naval Patrol Vessel - Deck Two Aft"
+	name = "Himeo Planetary Guard Vessel - Deck Two Aft"
 	landmark_tag = "himeo_dock3"
 	base_turf = /turf/simulated/floor/reinforced/airless
 
 /obj/effect/shuttle_landmark/himeo_patrol/dock4
-	name = "Himeo Naval Patrol Vessel - Deck Two Port"
+	name = "Himeo Planetary Guard Vessel - Deck Two Port"
 	landmark_tag = "himeo_dock4"
 	base_turf = /turf/simulated/floor/reinforced/airless
 
@@ -104,7 +104,7 @@
 /obj/effect/overmap/visitable/ship/landable/himeo_patrol_shuttle
 	name = "Himean Patrol Shuttle"
 	desc = "Placeholder."
-	class = "HNV"
+	class = "USPGV"
 	designation = "Kotka"
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
@@ -112,7 +112,7 @@
 	colors = list("#525151", "#800a0a")
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
-	vessel_mass = 3000 //very inefficient pod
+	vessel_mass = 2000
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 	designer = "Free Consortium of Defense and Auerospace Manufacturers"

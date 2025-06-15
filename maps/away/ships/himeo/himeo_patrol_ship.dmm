@@ -18,21 +18,20 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/himeo_patrol_ship/armoury)
-"ah" = (
-/obj/effect/floor_decal/industrial/outline_door/engineering{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
-/turf/simulated/floor/reinforced,
-/area/himeo_patrol_ship/autocannon)
 "aj" = (
 /obj/structure/platform/dark,
 /obj/random/dirt_75,
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/bridge)
+"ak" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
+/turf/simulated/wall/shuttle/dark/cardinal/black,
+/area/himeo_patrol_ship/thruster_port)
+"an" = (
+/obj/structure/lattice/catwalk/indoor,
+/turf/space,
+/area/space)
 "ao" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/random/dirt_75,
@@ -42,9 +41,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/himeo_patrol/central)
 "ar" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled/gunmetal,
-/area/himeo_patrol_ship/generator)
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor,
+/area/himeo_patrol_ship/engineering)
 "as" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
@@ -68,6 +69,32 @@
 "at" = (
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
 /area/himeo_patrol_ship/messhall)
+"au" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship/engineering)
+"aD" = (
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/himeo_patrol_ship/aft)
 "aI" = (
 /turf/simulated/wall/shuttle/dark/cardinal/black,
 /area/himeo_patrol_ship/distribution)
@@ -77,13 +104,49 @@
 	},
 /turf/simulated/floor/reinforced/large/airless,
 /area/shuttle/himeo_patrol)
+"aN" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 5
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/black,
+/area/himeo_patrol_ship/thruster_port)
+"aO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/green{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship/autocannon)
 "aT" = (
 /obj/machinery/power/generator{
 	anchored = 1;
 	dir = 4
 	},
+/obj/structure/cable,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/generator)
+"aX" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/reinforced,
+/area/himeo_patrol_ship/blaster)
+"aZ" = (
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 6
+	},
+/obj/structure/lattice,
+/turf/space,
+/area/space)
 "bf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
@@ -100,26 +163,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/blaster)
 "bi" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 9
-	},
 /obj/machinery/meter,
+/obj/machinery/atmospherics/pipe/manifold/hidden/black,
 /turf/simulated/floor,
 /area/himeo_patrol_ship/generator)
-"bj" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
-/turf/template_noop,
-/area/space)
-"bl" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/template_noop,
-/area/space)
 "bp" = (
 /obj/machinery/computer/ship/sensors/terminal{
 	dir = 8
@@ -127,21 +179,20 @@
 /obj/effect/floor_decal/industrial/outline/blue,
 /turf/simulated/floor/tiled/ridged,
 /area/shuttle/himeo_patrol/central)
+"bv" = (
+/obj/effect/floor_decal/industrial/outline_door/engineering{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/reinforced,
+/area/himeo_patrol_ship/autocannon)
 "bA" = (
 /turf/simulated/floor,
 /area/himeo_patrol_ship/generator)
-"bB" = (
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/plating,
-/area/himeo_patrol_ship)
 "bG" = (
 /obj/random/dirt_75,
 /obj/structure/cable/green{
@@ -162,7 +213,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
@@ -175,11 +225,12 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/turf/simulated/floor/plating,
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/turf/simulated/floor,
 /area/himeo_patrol_ship/generator)
 "bJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 10
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+	dir = 4
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/black,
 /area/himeo_patrol_ship/thruster_starboard)
@@ -197,13 +248,37 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/distribution)
+"cb" = (
+/obj/machinery/door/airlock/hatch{
+	req_access = list(253)
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/full,
+/area/himeo_patrol_ship/aft)
+"ce" = (
+/obj/effect/floor_decal/industrial/outline_door/engineering{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/reinforced,
+/area/himeo_patrol_ship/blaster)
 "co" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/thruster_aft)
 "ct" = (
@@ -215,6 +290,7 @@
 /obj/item/ship_ammunition/autocannon/he,
 /obj/item/ship_ammunition/autocannon/he,
 /obj/effect/floor_decal/industrial/outline/red,
+/obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
 /area/himeo_patrol_ship/ammunition)
 "cv" = (
@@ -222,6 +298,10 @@
 	req_access = null
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/engineering)
 "cz" = (
@@ -232,18 +312,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/messhall)
-"cD" = (
-/obj/effect/floor_decal/industrial/hatch_door/red,
-/obj/machinery/door/airlock/external{
-	dir = 4;
-	id_tag = "splf_chamber"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 4
-	},
-/obj/effect/map_effect/door_helper/lock,
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
 "cE" = (
 /obj/structure/table/rack,
 /obj/structure/closet/walllocker{
@@ -262,12 +330,24 @@
 /obj/item/towel/random,
 /obj/item/towel/random,
 /obj/effect/floor_decal/corner/blue/diagonal,
+/obj/machinery/light/colored/decayed/dimmed,
 /turf/simulated/floor/tiled/freezer,
 /area/himeo_patrol_ship/washroom)
 "cF" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /turf/simulated/wall/shuttle/dark/cardinal/black,
 /area/himeo_patrol_ship/deck_2_interstitial)
+"cH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/green{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/light/colored/decayed/dimmed,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship/generator)
 "cJ" = (
 /obj/machinery/computer/general_air_control/large_tank_control/terminal{
 	name = "Carbon Dioxide Supply Monitor";
@@ -280,12 +360,14 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/thruster_aft)
 "cS" = (
 /obj/effect/floor_decal/industrial/outline_door/engineering{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/reinforced,
 /area/himeo_patrol_ship/autocannon)
 "cV" = (
@@ -316,6 +398,11 @@
 /obj/item/device/flashlight/lamp/off,
 /turf/simulated/floor/carpet/red,
 /area/himeo_patrol_ship/barracks)
+"da" = (
+/obj/structure/ship_weapon_dummy,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/himeo_patrol_ship/blaster)
 "dd" = (
 /obj/machinery/door/airlock/hatch{
 	req_access = list(253)
@@ -365,8 +452,19 @@
 /obj/item/cell/hydrogen,
 /obj/item/cell/hydrogen,
 /obj/effect/floor_decal/industrial/outline/red,
+/obj/machinery/light/colored/decayed/dimmed,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/armoury)
+"dr" = (
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 5
+	},
+/turf/space,
+/area/space)
+"dw" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship/generator)
 "dx" = (
 /obj/machinery/door/window/southleft,
 /obj/random/dirt_75,
@@ -381,12 +479,6 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/light,
 /area/himeo_patrol_ship/messhall)
-"dD" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/himeo_patrol_ship)
 "dG" = (
 /obj/effect/floor_decal/spline/plain/red{
 	dir = 6
@@ -442,25 +534,26 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship)
 "dY" = (
 /turf/simulated/wall/shuttle/dark/cardinal/black,
 /area/himeo_patrol_ship/infirmary)
 "ea" = (
-/obj/machinery/power/smes/buildable/main_engine{
-	charge = 3e+007
-	},
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 1
+	},
+/obj/machinery/power/smes/buildable/main_engine{
+	charge = 10,000,000
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/generator)
 "eb" = (
@@ -469,6 +562,10 @@
 	},
 /obj/machinery/portable_atmospherics/canister/air,
 /obj/effect/floor_decal/industrial/outline/blue,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/spline/plain/white{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/distribution)
 "eg" = (
@@ -480,28 +577,41 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
-/area/himeo_patrol_ship)
+/area/himeo_patrol_ship/aft)
+"el" = (
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 8
+	},
+/turf/space,
+/area/space)
 "en" = (
 /obj/machinery/power/apc/east,
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/turf/simulated/floor/tiled/gunmetal/full,
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
 /area/himeo_patrol_ship/engineering)
 "ep" = (
 /obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/thruster_aft)
+"er" = (
+/obj/machinery/door/airlock/hatch{
+	req_access = list(253)
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/full,
+/area/himeo_patrol_ship/aft)
 "ew" = (
 /obj/machinery/autolathe,
+/obj/effect/floor_decal/corner/orange/full,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/engineering)
-"ez" = (
-/turf/simulated/wall/shuttle/raider,
-/area/space)
 "eA" = (
 /obj/effect/floor_decal/industrial/outline_corner/grey{
 	dir = 8
@@ -525,13 +635,37 @@
 /obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille/firedoor,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/infirmary)
+"eJ" = (
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 6
+	},
+/turf/space/dynamic,
+/area/space)
+"eK" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/light/colored/decayed/dimmed,
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship)
 "eP" = (
 /obj/effect/floor_decal/industrial/outline_door/engineering{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
+	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/reinforced,
 /area/himeo_patrol_ship/blaster)
 "eQ" = (
@@ -545,6 +679,10 @@
 	anchored = 1
 	},
 /obj/item/stack/material/graphite/full,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/orange/full{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/engineering)
 "eY" = (
@@ -554,17 +692,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/structure/cable/green{
 	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/generator)
 "eZ" = (
 /obj/machinery/atmospherics/unary/engine,
@@ -591,6 +727,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/himeo_patrol_ship/armoury)
+"fe" = (
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 10
+	},
+/obj/structure/lattice,
+/turf/space,
+/area/space)
 "fh" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -622,8 +765,25 @@
 "fw" = (
 /obj/machinery/floodlight,
 /obj/effect/floor_decal/industrial/warning/full,
-/turf/simulated/floor/tiled/gunmetal,
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
 /area/himeo_patrol_ship/engineering)
+"fy" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship)
 "fC" = (
 /obj/machinery/door/airlock/hatch{
 	req_access = list(253)
@@ -632,9 +792,19 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/full,
 /area/himeo_patrol_ship/infirmary)
-"fD" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+"fE" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship)
@@ -643,6 +813,12 @@
 	dir = 4
 	},
 /turf/simulated/floor/reinforced/airless,
+/area/space)
+"fK" = (
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 10
+	},
+/turf/space,
 /area/space)
 "fM" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/cyan,
@@ -672,7 +848,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/turf/simulated/floor/tiled/gunmetal,
+/obj/random/dirt_75,
+/turf/simulated/floor,
 /area/himeo_patrol_ship/thruster_starboard)
 "gf" = (
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
@@ -684,6 +861,16 @@
 	},
 /turf/simulated/open,
 /area/himeo_patrol_ship/deck_2_interstitial)
+"gr" = (
+/obj/random/dirt_75,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship/barracks)
 "gu" = (
 /turf/simulated/floor/airless,
 /area/space)
@@ -706,6 +893,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/himeo_patrol_ship/thruster_aft)
+"gF" = (
+/obj/structure/platform/dark,
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship/blaster)
 "gJ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -762,11 +954,9 @@
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/autocannon)
 "gW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 9
-	},
-/turf/simulated/wall/shuttle/dark/cardinal/black,
-/area/himeo_patrol_ship/thruster_port)
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging,
+/turf/space/dynamic,
+/area/space)
 "gX" = (
 /obj/random/junk,
 /obj/effect/floor_decal/corner/red/full,
@@ -775,6 +965,19 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/himeo_patrol_ship/armoury)
+"he" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/himeo_patrol_ship/eva)
 "hm" = (
 /obj/structure/platform_stairs,
 /obj/structure/platform/dark{
@@ -785,11 +988,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/bridge)
-"hp" = (
-/obj/structure/platform/dark,
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/tiled/gunmetal,
-/area/himeo_patrol_ship/blaster)
 "hy" = (
 /obj/structure/table/steel,
 /obj/structure/railing/mapped{
@@ -812,6 +1010,7 @@
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/thruster_aft)
 "hH" = (
@@ -837,11 +1036,22 @@
 	},
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/bridge)
+"hQ" = (
+/obj/effect/floor_decal/industrial/outline_door/engineering{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/reinforced,
+/area/himeo_patrol_ship/blaster)
 "hR" = (
 /obj/machinery/air_sensor{
-	frequency = 1441;
-	id_tag = "splf_sensor";
+	frequency = 2275;
+	id_tag = "himeo_patrol_sensor";
 	output = 31
+	},
+/obj/machinery/sparker{
+	id = "himeo_patrol_igniter_engine";
+	pixel_x = -10
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/himeo_patrol_ship/generator)
@@ -853,20 +1063,14 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/himeo_patrol_ship/messhall)
-"hW" = (
-/obj/structure/platform_stairs,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled/gunmetal,
-/area/himeo_patrol_ship/bridge)
 "hY" = (
 /obj/random/junk,
 /obj/random/junk,
 /obj/random/dirt_75,
 /obj/structure/platform_deco/dark{
+	dir = 4
+	},
+/obj/machinery/light/colored/decayed/dimmed{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -878,6 +1082,7 @@
 /obj/machinery/meter,
 /obj/machinery/power/apc/south,
 /obj/structure/cable/green,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/distribution)
 "ie" = (
@@ -906,7 +1111,10 @@
 /obj/machinery/power/terminal{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/generator)
 "io" = (
@@ -941,10 +1149,25 @@
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/bridge)
+"iy" = (
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 5
+	},
+/turf/space/dynamic,
+/area/space)
+"iz" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship)
 "iA" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/red{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/distribution)
 "iE" = (
@@ -952,6 +1175,14 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/carpet/rubber,
 /area/himeo_patrol_ship/hydroponics)
+"iL" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship/aft)
 "iP" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
@@ -962,7 +1193,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/turf/simulated/floor/plating,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
 /area/himeo_patrol_ship/distribution)
 "iR" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
@@ -972,14 +1205,17 @@
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/thruster_aft)
 "iT" = (
-/obj/machinery/atmospherics/unary/vent_pump/siphon/atmos,
+/obj/machinery/atmospherics/unary/outlet_injector{
+	id = "himeo_patrol_teg_in";
+	frequency = 2275
+	},
 /turf/simulated/floor/reinforced/airless,
 /area/himeo_patrol_ship/generator)
 "iU" = (
 /obj/machinery/floodlight,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/carpet/rubber,
 /area/himeo_patrol_ship/distribution)
 "iV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
@@ -1007,55 +1243,56 @@
 	},
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/thruster_aft)
+"jd" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/himeo_patrol_ship/eva)
 "jh" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/green{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/generator)
 "jk" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/reinforced,
 /area/himeo_patrol_ship/ammunition)
 "jn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/green,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/generator)
-"jv" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
+"ju" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 10
 	},
-/turf/template_noop,
+/turf/space,
 /area/space)
-"jx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/green{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 8
-	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/himeo_patrol_ship/generator)
 "jy" = (
 /obj/structure/railing/mapped{
 	dir = 4
 	},
 /obj/machinery/vending/tool,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/corner/orange/full{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/engineering)
 "jG" = (
@@ -1068,17 +1305,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/generator)
 "jJ" = (
 /obj/random/dirt_75,
@@ -1093,13 +1328,31 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/light,
 /area/himeo_patrol_ship/messhall)
+"jT" = (
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/himeo_patrol_ship)
+"kh" = (
+/obj/machinery/door/airlock/hatch{
+	req_access = list(253)
+	},
+/turf/simulated/floor/tiled/full,
+/area/himeo_patrol_ship/aft)
 "kj" = (
 /turf/simulated/wall/shuttle/dark/cardinal/black,
 /area/himeo_patrol_ship/thruster_port)
 "kn" = (
-/obj/machinery/power/apc/east,
 /obj/structure/cable/green{
-	icon_state = "0-8"
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship)
@@ -1108,11 +1361,15 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/plating,
-/area/himeo_patrol_ship)
+/area/himeo_patrol_ship/aft)
 "ks" = (
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/airless,
 /area/himeo_patrol_ship/blaster)
+"kt" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/reinforced,
+/area/himeo_patrol_ship/autocannon)
 "kA" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/random/dirt_75,
@@ -1140,6 +1397,10 @@
 /obj/machinery/atmospherics/binary/passive_gate/supply{
 	dir = 1
 	},
+/obj/random/dirt_75,
+/obj/effect/floor_decal/spline/plain/white{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/distribution)
 "kK" = (
@@ -1158,6 +1419,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/barracks)
+"kQ" = (
+/obj/structure/platform/dark,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship/autocannon)
 "kY" = (
 /turf/simulated/floor/carpet/red,
 /area/himeo_patrol_ship/barracks)
@@ -1171,16 +1438,25 @@
 /turf/simulated/floor/reinforced/large/airless,
 /area/shuttle/himeo_patrol)
 "lq" = (
-/obj/effect/floor_decal/industrial/outline_door/engineering{
-	dir = 1
+/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
+	dir = 8
 	},
-/turf/simulated/floor/reinforced,
-/area/himeo_patrol_ship/autocannon)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship/bridge)
 "lt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/thruster_aft)
 "lx" = (
@@ -1196,6 +1472,14 @@
 /area/himeo_patrol_ship/infirmary)
 "ly" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
+/obj/machinery/computer/general_air_control/large_tank_control/wall{
+	name = "Fuel Injection Control";
+	input_tag = "himeo_patrol_fuel_in";
+	sensors = list("himeo_patrol_sensor"="Combustion Chamber");
+	pixel_x = -32;
+	frequency = 2275
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/generator)
 "lC" = (
@@ -1214,7 +1498,10 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/turf/simulated/floor/tiled/gunmetal,
+/obj/random/dirt_75,
+/obj/structure/table,
+/obj/item/reagent_containers/food/drinks/bottle,
+/turf/simulated/floor,
 /area/himeo_patrol_ship/thruster_port)
 "lE" = (
 /obj/effect/floor_decal/industrial/outline_door/grey,
@@ -1222,6 +1509,12 @@
 /obj/effect/overmap/visitable/ship/himeo_patrol_ship,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/bridge)
+"lF" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/reinforced,
+/area/himeo_patrol_ship/ammunition)
 "lI" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
@@ -1234,8 +1527,16 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/thruster_aft)
 "lM" = (
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/autocannon)
+"lN" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 10
+	},
+/turf/space/dynamic,
+/area/space)
 "lV" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/corner/red{
@@ -1254,6 +1555,9 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship)
 "md" = (
@@ -1263,20 +1567,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 5
 	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/himeo_patrol_ship/generator)
-"mf" = (
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/plating,
-/area/himeo_patrol_ship)
 "mh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
@@ -1293,6 +1587,10 @@
 /obj/machinery/power/portgen/basic{
 	anchored = 1
 	},
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 4
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/thruster_aft)
 "mp" = (
@@ -1310,18 +1608,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 10
 	},
+/obj/effect/floor_decal/spline/plain/white{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/distribution)
-"mx" = (
-/obj/random/dirt_75,
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
-/obj/structure/cable/green{
-	icon_state = "1-8"
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/himeo_patrol_ship)
 "mz" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/structure/lattice/catwalk/indoor,
@@ -1344,6 +1635,14 @@
 "mF" = (
 /turf/simulated/wall/shuttle/dark/cardinal/black,
 /area/himeo_patrol_ship/thruster_aft)
+"mI" = (
+/obj/effect/floor_decal/corner/brown/diagonal,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/steel,
+/area/himeo_patrol_ship/messhall)
 "mM" = (
 /obj/structure/railing/mapped{
 	pixel_y = -6
@@ -1356,6 +1655,7 @@
 	pixel_y = 8
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/himeo_patrol_ship/blaster)
 "mN" = (
@@ -1368,11 +1668,12 @@
 /area/himeo_patrol_ship/bridge)
 "mO" = (
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
-/obj/structure/cable/green{
-	icon_state = "1-2"
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship)
 "mP" = (
@@ -1380,6 +1681,17 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/bridge)
+"mV" = (
+/obj/machinery/power/apc/east,
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship/aft)
 "mW" = (
 /obj/machinery/door/airlock/hatch{
 	req_access = list(253)
@@ -1429,10 +1741,16 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/thruster_aft)
 "nj" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/engineering)
 "nn" = (
@@ -1442,7 +1760,9 @@
 "np" = (
 /obj/machinery/floodlight/randomcharge,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/plating,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
 /area/himeo_patrol_ship/distribution)
 "nq" = (
 /obj/structure/ship_weapon_dummy,
@@ -1460,12 +1780,13 @@
 	pixel_y = -6
 	},
 /obj/structure/table/reinforced/steel,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/himeo_patrol_ship/blaster)
 "ny" = (
 /obj/machinery/pipedispenser,
 /obj/effect/floor_decal/industrial/outline/grey,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/carpet/rubber,
 /area/himeo_patrol_ship/distribution)
 "nz" = (
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
@@ -1478,8 +1799,16 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/thruster_aft)
+"nK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/plating,
+/area/himeo_patrol_ship/generator)
 "nP" = (
 /obj/machinery/door/airlock/hatch{
 	req_access = list(253)
@@ -1500,27 +1829,11 @@
 /area/himeo_patrol_ship/generator)
 "nS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/green,
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/plating,
-/area/himeo_patrol_ship/generator)
-"nU" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/himeo_patrol_ship)
-"nY" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 5
-	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/generator)
 "nZ" = (
@@ -1543,10 +1856,9 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/light/colored/decayed/dimmed{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/gunmetal,
@@ -1562,8 +1874,19 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 5
 	},
-/turf/simulated/floor/tiled/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/random/dirt_75,
+/turf/simulated/floor,
 /area/himeo_patrol_ship/generator)
+"oq" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/meter,
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/himeo_patrol_ship/thruster_aft)
 "or" = (
 /obj/machinery/door/airlock/hatch{
 	dir = 8;
@@ -1590,11 +1913,19 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/himeo_patrol_ship/generator)
 "ov" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
+	},
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/engineering)
@@ -1615,6 +1946,25 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/himeo_patrol_ship/messhall)
+"oL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/green{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/turf/simulated/floor,
+/area/himeo_patrol_ship/generator)
 "oN" = (
 /obj/structure/janitorialcart/full/water{
 	dir = 4
@@ -1625,8 +1975,9 @@
 /area/himeo_patrol_ship/washroom)
 "oO" = (
 /obj/structure/closet/secure_closet{
-	icon_state = "eng";
-	name = "engineer apparel and equipment"
+	icon_state = "eng_secure";
+	name = "engineer apparel and equipment";
+	icon_door = "eng_secure_door"
 	},
 /obj/item/clothing/accessory/storage/overalls/engineer,
 /obj/item/clothing/head/bandana/engineering,
@@ -1636,6 +1987,9 @@
 /obj/item/device/magnetic_lock/engineering,
 /obj/item/clothing/suit/storage/hooded/wintercoat/engineering,
 /obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/engineering)
 "oP" = (
@@ -1645,6 +1999,26 @@
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship)
+"oX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/green{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/turf/simulated/floor,
+/area/himeo_patrol_ship/generator)
 "pe" = (
 /turf/simulated/floor/tiled/dark/full,
 /area/himeo_patrol_ship/blaster)
@@ -1658,8 +2032,12 @@
 /turf/simulated/wall/shuttle/dark/cardinal/black,
 /area/himeo_patrol_ship/blaster)
 "pj" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "himeo_military_teg"
+	},
 /turf/simulated/floor,
 /area/himeo_patrol_ship/generator)
 "po" = (
@@ -1668,6 +2046,7 @@
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/thruster_aft)
 "ps" = (
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/thruster_aft)
 "pv" = (
@@ -1705,6 +2084,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/himeo_patrol/central)
 "pE" = (
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/himeo_patrol_ship/autocannon)
 "pF" = (
@@ -1722,6 +2102,9 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/himeo_patrol_ship/blaster)
+"pP" = (
+/turf/simulated/wall/shuttle/dark/cardinal/black,
+/area/space)
 "pR" = (
 /obj/machinery/atmospherics/binary/circulator{
 	anchored = 1
@@ -1734,25 +2117,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/turbolift/himeo_patrol/himeo_patrol_lift)
-"qd" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/corner/green{
-	dir = 10
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/structure/cable/green{
-	icon_state = "2-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/himeo_patrol_ship)
 "qg" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/corner/red{
@@ -1762,6 +2126,9 @@
 /area/himeo_patrol_ship/eva)
 "qm" = (
 /obj/structure/table/reinforced/steel,
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/himeo_patrol_ship/autocannon)
 "qp" = (
@@ -1772,6 +2139,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/himeo_patrol_ship/infirmary)
+"qu" = (
+/obj/structure/platform_stairs,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship/bridge)
 "qv" = (
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/reinforced/large/airless,
@@ -1859,30 +2235,14 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/freezer,
 /area/himeo_patrol_ship/washroom)
-"rr" = (
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/himeo_patrol_ship)
 "rs" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	name = "Fuel To Thrusters";
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/thruster_aft)
-"rt" = (
-/obj/machinery/door/blast/regular{
-	dir = 4;
-	id = "splf_chamber_vent"
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
 "rv" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -1894,6 +2254,17 @@
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/himeo_patrol_ship)
+"rx" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 5
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship/generator)
 "ry" = (
 /obj/machinery/appliance/cooker/oven,
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -1902,7 +2273,7 @@
 "rG" = (
 /obj/machinery/portable_atmospherics/powered/pump,
 /obj/effect/floor_decal/industrial/outline/blue,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/carpet/rubber,
 /area/himeo_patrol_ship/distribution)
 "rH" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
@@ -1926,6 +2297,9 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
@@ -1941,11 +2315,13 @@
 /turf/simulated/floor,
 /area/himeo_patrol_ship/generator)
 "rR" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
-/turf/template_noop,
-/area/space)
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/himeo_patrol_ship/engineering)
 "rS" = (
 /obj/effect/floor_decal/industrial/hatch_door/medical{
 	dir = 1
@@ -1998,10 +2374,21 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/blaster)
+"rZ" = (
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/machinery/light/small/emergency,
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/turf/simulated/floor,
+/area/himeo_patrol_ship/thruster_port)
 "sb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/effect/floor_decal/corner/yellow{
-	dir = 1
+	dir = 5
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/thruster_aft)
@@ -2009,6 +2396,9 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/structure/toilet{
 	pixel_y = 3
+	},
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/himeo_patrol_ship/washroom)
@@ -2039,20 +2429,22 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/himeo_patrol_ship/thruster_port)
-"sg" = (
 /obj/random/dirt_75,
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/himeo_patrol_ship)
+/turf/simulated/floor,
+/area/himeo_patrol_ship/thruster_port)
+"sh" = (
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging,
+/turf/space,
+/area/space)
 "so" = (
 /turf/simulated/wall/shuttle/dark/cardinal/black,
 /area/shuttle/himeo_patrol/central)
 "sp" = (
 /obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/reinforced,
 /area/himeo_patrol_ship/ammunition)
 "ss" = (
@@ -2062,6 +2454,13 @@
 /obj/effect/floor_decal/spline/plain/yellow,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/himeo_patrol_ship/hydroponics)
+"sC" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille/firedoor,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/himeo_patrol_ship/infirmary)
 "sE" = (
 /turf/simulated/floor/reinforced/large/airless,
 /area/shuttle/himeo_patrol)
@@ -2071,6 +2470,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/himeo_patrol/central)
+"sI" = (
+/obj/random/dirt_75,
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship)
 "sJ" = (
 /obj/machinery/door/airlock/hatch{
 	req_access = list(253)
@@ -2089,18 +2498,26 @@
 /turf/simulated/floor/tiled/steel,
 /area/himeo_patrol_ship/messhall)
 "tc" = (
-/turf/simulated/floor/tiled/gunmetal,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/distillery,
+/turf/simulated/floor,
 /area/himeo_patrol_ship/thruster_port)
-"tf" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
+"ti" = (
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
 	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/himeo_patrol_ship/thruster_starboard)
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/himeo_patrol_ship)
 "tn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/generator)
 "tq" = (
@@ -2117,16 +2534,11 @@
 "tu" = (
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/deck_2_interstitial)
-"tx" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled/gunmetal,
-/area/himeo_patrol_ship/engineering)
+"tF" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/simulated/floor,
+/area/himeo_patrol_ship/generator)
 "tJ" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(253)
@@ -2167,16 +2579,12 @@
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/black,
 /area/himeo_patrol_ship/thruster_starboard)
-"tT" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled/gunmetal/full,
-/area/himeo_patrol_ship)
 "tV" = (
 /obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/valve{
+	name = "Emergency Thermal Relief Valve";
+	dir = 8
+	},
 /turf/simulated/floor,
 /area/himeo_patrol_ship/generator)
 "tY" = (
@@ -2192,8 +2600,8 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
 /obj/machinery/meter,
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
 /turf/simulated/floor,
 /area/himeo_patrol_ship/generator)
 "ur" = (
@@ -2205,24 +2613,13 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/autocannon)
 "us" = (
 /obj/structure/platform/dark,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/blaster)
-"ut" = (
-/obj/machinery/atmospherics/unary/outlet_injector{
-	dir = 1;
-	frequency = 1441;
-	id = "splf_teg_fuel_in"
-	},
-/obj/machinery/sparker{
-	id = "splf_igniter_engine";
-	pixel_x = -10
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/space)
 "uv" = (
 /obj/structure/bed/stool/chair/cockpit,
 /obj/effect/floor_decal/spline/plain{
@@ -2231,12 +2628,13 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/himeo_patrol/central)
 "uy" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
-	dir = 4
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
-/turf/space/dynamic,
-/area/space)
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/turf/simulated/floor/tiled/gunmetal/full,
+/area/himeo_patrol_ship)
 "uB" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(253)
@@ -2284,18 +2682,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/blaster)
-"uS" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
-/turf/simulated/floor/reinforced,
-/area/himeo_patrol_ship/ammunition)
 "vd" = (
 /obj/structure/window/reinforced,
 /obj/structure/bed/stool/chair/shuttle{
@@ -2308,8 +2694,8 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/himeo_patrol_ship/eva)
@@ -2354,12 +2740,14 @@
 	name = "Connectors to Cold Loop";
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /turf/simulated/floor,
 /area/himeo_patrol_ship/generator)
 "vA" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/cyan{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/distribution)
 "vE" = (
@@ -2391,19 +2779,6 @@
 	},
 /turf/simulated/floor,
 /area/himeo_patrol_ship/generator)
-"vL" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/dark,
-/area/himeo_patrol_ship/eva)
 "vP" = (
 /turf/simulated/wall/shuttle/dark/cardinal/black,
 /area/himeo_patrol_ship/messhall)
@@ -2416,12 +2791,22 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/himeo_patrol/central)
-"vV" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
+"vY" = (
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
-/turf/template_noop,
-/area/space)
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/himeo_patrol_ship/aft)
 "wb" = (
 /obj/effect/floor_decal/spline/plain/red{
 	dir = 5
@@ -2480,35 +2865,23 @@
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 8
 	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/thruster_aft)
-"wC" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/corner/blue{
-	dir = 6
-	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/himeo_patrol_ship)
 "wE" = (
 /obj/effect/floor_decal/industrial/outline_door/engineering{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/loading/yellow{
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/arrow/yellow{
 	dir = 4
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/tiled/dark/full,
 /area/himeo_patrol_ship/autocannon)
 "wG" = (
 /obj/machinery/smartfridge/foodheater,
@@ -2547,6 +2920,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 6
 	},
+/obj/random/dirt_75,
+/obj/effect/floor_decal/spline/plain/white{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/distribution)
 "wW" = (
@@ -2572,16 +2949,11 @@
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/barracks)
-"wY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/obj/machinery/atmospherics/pipe/simple/hidden/green,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled/gunmetal,
-/area/himeo_patrol_ship/blaster)
+"xe" = (
+/obj/machinery/shipsensors,
+/obj/structure/lattice/catwalk/indoor,
+/turf/space/dynamic,
+/area/himeo_patrol_ship/bridge)
 "xj" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/corner/blue/diagonal,
@@ -2596,15 +2968,53 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/himeo_patrol_ship/washroom)
+"xu" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/dirt_75,
+/turf/simulated/floor,
+/area/himeo_patrol_ship/generator)
+"xv" = (
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship)
 "xw" = (
 /obj/effect/floor_decal/industrial/outline_door/engineering{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced,
 /area/himeo_patrol_ship/blaster)
+"xx" = (
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/himeo_patrol_ship/aft)
 "xy" = (
 /obj/random/dirt_75,
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship)
 "xD" = (
@@ -2651,17 +3061,30 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
-/area/himeo_patrol_ship)
+/area/himeo_patrol_ship/aft)
 "xO" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 5
+/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/yellow/full{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/thruster_aft)
+"xR" = (
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship/aft)
 "xT" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
+	},
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/bridge)
@@ -2670,6 +3093,15 @@
 /obj/structure/platform/dark,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/bridge)
+"yc" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship)
 "yd" = (
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 1
@@ -2705,6 +3137,17 @@
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/himeo_patrol_ship/thruster_aft)
+"yn" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship)
 "yq" = (
 /obj/effect/floor_decal/spline/plain/red{
 	dir = 8
@@ -2739,20 +3182,38 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/generator)
+"yC" = (
+/obj/machinery/atmospherics/pipe/tank/air{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/himeo_patrol_ship/distribution)
 "yJ" = (
 /obj/structure/ladder/up,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship)
+"yK" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
+/area/himeo_patrol_ship/distribution)
 "yL" = (
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/mech_recharger,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/himeo_patrol_ship/blaster)
 "yO" = (
 /obj/effect/floor_decal/industrial/outline_door/engineering{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
 	},
 /turf/simulated/floor/reinforced,
 /area/himeo_patrol_ship/autocannon)
@@ -2762,11 +3223,22 @@
 	dir = 6
 	},
 /obj/machinery/power/apc/east,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/thruster_aft)
+"yV" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/manifold/hidden/green{
+	dir = 4
+	},
+/turf/space/dynamic,
+/area/space)
 "yZ" = (
 /obj/random/dirt_75,
 /obj/random/junk,
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/bridge)
 "zc" = (
@@ -2813,10 +3285,10 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
-/area/himeo_patrol_ship)
+/area/himeo_patrol_ship/aft)
 "zq" = (
 /obj/machinery/power/breakerbox,
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/generator)
 "zu" = (
@@ -2874,6 +3346,14 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/himeo_patrol_ship/armoury)
+"zQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/himeo_patrol_ship/thruster_aft)
 "zR" = (
 /obj/machinery/atmospherics/pipe/tank/air{
 	dir = 8
@@ -2896,6 +3376,10 @@
 	},
 /turf/simulated/floor,
 /area/himeo_patrol_ship/generator)
+"zY" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship/generator)
 "Ac" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
@@ -2903,10 +3387,24 @@
 /turf/simulated/floor/reinforced/large/airless,
 /area/shuttle/himeo_patrol)
 "Ae" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/green,
-/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/random/dirt_75,
 /turf/simulated/floor,
+/area/himeo_patrol_ship/generator)
+"Ak" = (
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 9
+	},
+/turf/space/dynamic,
 /area/space)
+"Ar" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship/generator)
 "At" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -2915,6 +3413,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/himeo_patrol_ship/armoury)
+"AH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/green{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship/generator)
 "AI" = (
 /obj/machinery/door/blast/regular{
 	dir = 4;
@@ -2928,7 +3435,7 @@
 "AM" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/manifold/hidden/green{
-	dir = 1
+	dir = 8
 	},
 /turf/space/dynamic,
 /area/space)
@@ -2951,6 +3458,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/reinforced,
 /area/himeo_patrol_ship/autocannon)
 "AS" = (
@@ -2969,6 +3477,21 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/himeo_patrol_ship/barracks)
+"AY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/atmospherics/pipe/simple/hidden/green,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship/blaster)
 "AZ" = (
 /obj/structure/table/steel,
 /obj/item/device/binoculars{
@@ -2985,12 +3508,27 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
+/obj/machinery/light/colored/decayed/dimmed,
 /turf/simulated/floor/reinforced,
 /area/himeo_patrol_ship/ammunition)
 "Bf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 5
 	},
+/obj/machinery/button/ignition{
+	pixel_x = -21;
+	pixel_y = 11;
+	dir = 4;
+	name = "Ignition - WARNING";
+	id = "himeo_patrol_igniter_engine"
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 8;
+	pixel_x = -21;
+	name = "TEG Combustion Chamber Blastdoors";
+	id = "himeo_military_teg"
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/generator)
 "Bg" = (
@@ -3004,8 +3542,15 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/distribution)
+"Bl" = (
+/obj/random/dirt_75,
+/obj/random/junk,
+/obj/random/junk,
+/turf/simulated/floor,
+/area/himeo_patrol_ship/thruster_port)
 "Bo" = (
 /mob/living/heavy_vehicle/premade/ripley/loader,
 /obj/machinery/mech_recharger,
@@ -3013,15 +3558,64 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/reinforced,
 /area/himeo_patrol_ship/ammunition)
-"By" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction{
+"Bp" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/space/dynamic,
-/area/space)
+/obj/machinery/light/small/emergency,
+/obj/random/dirt_75,
+/turf/simulated/floor,
+/area/himeo_patrol_ship/thruster_starboard)
+"Bq" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship/aft)
+"Bx" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship)
+"By" = (
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/himeo_patrol_ship)
 "BA" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/black/grille/firedoor,
 /turf/simulated/floor/plating,
@@ -3040,6 +3634,29 @@
 "BC" = (
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
 /area/himeo_patrol_ship/infirmary)
+"BI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/green{
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/turf/simulated/floor,
+/area/himeo_patrol_ship/thruster_starboard)
+"BK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/atmospherics/pipe/simple/hidden/green,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/turf/simulated/floor,
+/area/himeo_patrol_ship/autocannon)
 "BP" = (
 /obj/structure/railing/mapped{
 	pixel_y = -6
@@ -3083,30 +3700,26 @@
 "BX" = (
 /obj/structure/closet/secure_closet/engineering_electrical,
 /obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/engineering)
-"BY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/himeo_patrol_ship/thruster_starboard)
 "Ca" = (
 /obj/structure/reagent_dispensers/fueltank,
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/engineering)
 "Cd" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/atmospherics/binary/pump{
-	name = "Cooling Array to Generator";
-	target_pressure = 15000;
-	dir = 1
+/obj/machinery/meter,
+/obj/machinery/atmospherics/pipe/manifold/hidden/green{
+	dir = 4
 	},
-/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/himeo_patrol_ship/generator)
 "Ce" = (
@@ -3139,6 +3752,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/reinforced,
 /area/himeo_patrol_ship/ammunition)
 "Cp" = (
@@ -3155,26 +3769,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/himeo_patrol_ship/infirmary)
-"Cq" = (
-/obj/effect/floor_decal/industrial/outline_door/engineering{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/reinforced,
-/area/himeo_patrol_ship/blaster)
-"Cr" = (
-/obj/machinery/door/airlock/hatch{
-	req_access = list(253)
-	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled/full,
-/area/himeo_patrol_ship)
 "Cx" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
@@ -3200,18 +3794,26 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/turf/simulated/floor/tiled/gunmetal/full,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/generator)
-"CF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/green{
+"CH" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/tiled/gunmetal,
-/area/himeo_patrol_ship/thruster_starboard)
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/turf/simulated/floor,
+/area/himeo_patrol_ship/thruster_port)
 "CI" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
-	dir = 4
+	dir = 4;
+	id = "himeo_patrol_fuel_in";
+	frequency = 2275
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/himeo_patrol_ship/generator)
@@ -3228,6 +3830,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/himeo_patrol_ship/hydroponics)
+"CR" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship/generator)
 "CX" = (
 /obj/effect/step_trigger/teleporter,
 /turf/space/transit/north,
@@ -3242,14 +3851,11 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/blaster)
 "Db" = (
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship)
 "Dh" = (
@@ -3274,6 +3880,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/generator)
 "Dn" = (
@@ -3306,14 +3913,6 @@
 /obj/machinery/atmospherics/portables_connector,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/generator)
-"DA" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/himeo_patrol_ship)
 "DB" = (
 /obj/machinery/computer/ship/engines/terminal{
 	dir = 8
@@ -3322,10 +3921,13 @@
 /obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/bridge)
-"DC" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled/gunmetal,
-/area/himeo_patrol_ship/generator)
+"DD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/gunmetal/full,
+/area/himeo_patrol_ship/engineering)
 "DG" = (
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/plating,
@@ -3340,25 +3942,11 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/engineering)
-"DL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/green{
-	dir = 9
-	},
-/obj/structure/cable/green{
-	icon_state = "2-8"
-	},
-/obj/structure/cable/green{
-	icon_state = "1-8"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/turf/simulated/floor/tiled/gunmetal,
-/area/himeo_patrol_ship/autocannon)
 "DP" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 5
@@ -3390,8 +3978,17 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
 /turf/simulated/wall/shuttle/dark/cardinal/black,
 /area/himeo_patrol_ship/thruster_aft)
+"Eb" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/reinforced,
+/area/himeo_patrol_ship/blaster)
 "Eh" = (
 /obj/machinery/suit_cycler/offship/coalition/himeo/engineer,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/engineering)
 "Ej" = (
@@ -3401,19 +3998,20 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/generator)
 "El" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/reinforced,
 /area/himeo_patrol_ship/ammunition)
 "Em" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/green{
 	dir = 5
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -3422,7 +4020,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/generator)
 "Eq" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging,
@@ -3456,15 +4054,15 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/tiled/gunmetal,
-/area/himeo_patrol_ship)
+/area/himeo_patrol_ship/aft)
 "EH" = (
-/obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/mech_recharger,
-/turf/simulated/floor/tiled/dark/full,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/engineering,
+/obj/effect/floor_decal/industrial/outline_door/engineering{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced,
 /area/himeo_patrol_ship/autocannon)
 "EI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
@@ -3474,17 +4072,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
-/area/himeo_patrol_ship)
+/area/himeo_patrol_ship/aft)
 "EN" = (
 /obj/structure/lattice,
-/turf/space/dynamic,
-/area/space)
-"ES" = (
-/obj/machinery/atmospherics/unary/vent_pump/siphon/atmos{
-	id_tag = "splf_teg_out";
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 5
 	},
-/turf/simulated/floor/reinforced/airless,
+/turf/space/dynamic,
 /area/space)
 "ET" = (
 /obj/machinery/door/airlock/vault{
@@ -3500,8 +4094,17 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/reinforced,
 /area/himeo_patrol_ship/ammunition)
+"EV" = (
+/obj/effect/floor_decal/industrial/outline_door/engineering{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/reinforced,
+/area/himeo_patrol_ship/autocannon)
 "EX" = (
 /obj/machinery/computer/ship/targeting/terminal{
 	dir = 1
@@ -3515,30 +4118,35 @@
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/bridge)
-"Fa" = (
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
-/obj/structure/cable/green{
-	icon_state = "1-2"
+"Fb" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
 	},
 /obj/structure/cable/green{
-	icon_state = "1-8"
+	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
-/area/himeo_patrol_ship)
+/turf/simulated/floor/tiled/steel,
+/area/himeo_patrol_ship/messhall)
 "Ff" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 10
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/black,
 /area/himeo_patrol_ship/thruster_port)
 "Fm" = (
 /obj/effect/floor_decal/corner/red/diagonal,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/himeo_patrol_ship/autocannon)
+"Fo" = (
+/turf/simulated/wall/shuttle/dark/cardinal/black,
+/area/himeo_patrol_ship/aft)
 "Fq" = (
 /turf/simulated/floor/plating,
 /area/space)
@@ -3552,7 +4160,7 @@
 "Fu" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
 /turf/simulated/floor/tiled/gunmetal,
-/area/himeo_patrol_ship)
+/area/himeo_patrol_ship/aft)
 "Fw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 6
@@ -3568,6 +4176,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 9
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/autocannon)
@@ -3585,15 +4196,31 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/gunmetal,
+/obj/random/dirt_75,
+/turf/simulated/floor,
 /area/himeo_patrol_ship/thruster_starboard)
+"FF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/himeo_patrol_ship/thruster_aft)
 "FL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/machinery/atmospherics/pipe/simple/hidden/green{
 	dir = 6
 	},
-/turf/simulated/floor/tiled/gunmetal,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/maintenance_junk_or_loot,
+/turf/simulated/floor,
 /area/himeo_patrol_ship/thruster_port)
+"FM" = (
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 4
+	},
+/turf/space,
+/area/space)
 "FN" = (
 /obj/machinery/door/blast/regular/open{
 	name = "Emergency Lockdown Shutter";
@@ -3613,9 +4240,25 @@
 	},
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/bridge)
+"FT" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship)
 "FU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /turf/simulated/floor/reinforced,
 /area/himeo_patrol_ship/thruster_aft)
 "FY" = (
@@ -3638,14 +4281,19 @@
 /turf/simulated/floor/tiled/steel,
 /area/himeo_patrol_ship/messhall)
 "Gc" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/machinery/atmospherics/pipe/simple/hidden/green,
-/obj/machinery/door/blast/regular/open{
-	id = "splf_burn";
-	dir = 4
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship/blaster)
 "Gk" = (
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3662,6 +4310,9 @@
 "Go" = (
 /obj/machinery/vending/tool,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/engineering)
 "Gx" = (
@@ -3676,11 +4327,18 @@
 /obj/item/stack/material/steel/full,
 /obj/item/stack/material/steel/full,
 /obj/structure/table/reinforced/steel,
-/turf/simulated/floor/tiled/gunmetal/full,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/engineering)
 "Gz" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor,
 /area/himeo_patrol_ship/generator)
@@ -3698,26 +4356,17 @@
 /obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/carpet/rubber,
 /area/himeo_patrol_ship/hydroponics)
-"GF" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/himeo_patrol_ship/distribution)
 "GH" = (
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
-/obj/random/dirt_75,
-/obj/structure/cable/green{
-	icon_state = "1-2"
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/plating,
-/area/himeo_patrol_ship)
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/reinforced,
+/area/himeo_patrol_ship/ammunition)
 "GJ" = (
 /obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 9
 	},
 /turf/space/dynamic,
 /area/space)
@@ -3729,19 +4378,10 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/turf/simulated/floor/tiled/gunmetal,
+/obj/random/dirt_75,
+/obj/random/maintenance_junk_or_loot,
+/turf/simulated/floor,
 /area/himeo_patrol_ship/thruster_starboard)
-"GW" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/himeo_patrol_ship)
 "GY" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -3761,8 +4401,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
+/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/gunmetal,
-/area/himeo_patrol_ship)
+/area/himeo_patrol_ship/aft)
 "Hp" = (
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 8
@@ -3781,13 +4425,11 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/deck_2_interstitial)
 "Hy" = (
-/obj/effect/floor_decal/corner/brown/diagonal,
-/obj/random/dirt_75,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 4
 	},
-/turf/simulated/floor/tiled/steel,
-/area/himeo_patrol_ship/messhall)
+/turf/space/dynamic,
+/area/space)
 "HE" = (
 /obj/machinery/bodyscanner{
 	dir = 8
@@ -3823,6 +4465,17 @@
 /obj/structure/closet/secure_closet/custodial/offship,
 /turf/simulated/floor/tiled/freezer,
 /area/himeo_patrol_ship/washroom)
+"HM" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/himeo_patrol_ship/generator)
 "HN" = (
 /obj/structure/closet/cabinet,
 /obj/item/flame/lighter/zippo/himeo,
@@ -3850,42 +4503,24 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/generator)
-"Im" = (
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/himeo_patrol_ship/thruster_port)
 "Io" = (
 /obj/structure/closet/secure_closet/engineering_welding,
 /obj/effect/floor_decal/industrial/outline/engineering,
-/turf/simulated/floor/tiled/gunmetal,
-/area/himeo_patrol_ship/engineering)
-"Is" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 9
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/machinery/light/colored/decayed/dimmed,
+/obj/effect/floor_decal/corner/orange/full{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/steel,
-/area/himeo_patrol_ship/messhall)
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship/engineering)
 "Iv" = (
 /turf/simulated/wall/shuttle/dark/cardinal/black,
 /area/himeo_patrol_ship/bridge)
 "Iw" = (
 /obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/himeo_patrol_ship/engineering)
 "Ix" = (
@@ -3902,20 +4537,11 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/turf/simulated/floor/tiled/gunmetal/full,
-/area/himeo_patrol_ship)
-"IG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/random/dirt_75,
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/himeo_patrol_ship/eva)
+/turf/simulated/floor/tiled/gunmetal/full,
+/area/himeo_patrol_ship/aft)
 "IH" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -3926,6 +4552,11 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/himeo_patrol_ship/infirmary)
+"IJ" = (
+/obj/effect/floor_decal/industrial/outline_door/engineering,
+/obj/random/dirt_75,
+/turf/simulated/floor/reinforced,
+/area/himeo_patrol_ship/autocannon)
 "IK" = (
 /obj/structure/closet/walllocker{
 	pixel_x = 32;
@@ -3938,6 +4569,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/thruster_aft)
 "IQ" = (
@@ -3950,9 +4582,45 @@
 	},
 /turf/simulated/floor/reinforced/large/airless,
 /area/shuttle/himeo_patrol)
+"Ja" = (
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/himeo_patrol_ship)
 "Jb" = (
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
 /area/himeo_patrol_ship)
+"Jj" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship)
+"Jk" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
+/area/himeo_patrol_ship/engineering)
+"Jq" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/himeo_patrol_ship/blaster)
 "Ju" = (
 /obj/effect/floor_decal/industrial/hatch_door/medical{
 	dir = 1
@@ -4020,8 +4688,21 @@
 /area/himeo_patrol_ship/thruster_aft)
 "Kd" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/spline/plain/white{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/distribution)
+"Kh" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship/generator)
 "Ki" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
@@ -4075,6 +4756,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/reinforced,
 /area/himeo_patrol_ship/blaster)
 "KG" = (
@@ -4106,7 +4788,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/green{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/gunmetal,
+/obj/random/dirt_75,
+/obj/structure/trash_pile,
+/turf/simulated/floor,
 /area/himeo_patrol_ship/thruster_port)
 "KW" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -4141,30 +4825,23 @@
 /turf/simulated/floor/tiled/freezer,
 /area/himeo_patrol_ship/washroom)
 "Lx" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/black{
+/obj/machinery/light/colored/decayed/dimmed{
 	dir = 1
 	},
+/obj/machinery/atmospherics/omni/mixer{
+	tag_west = 1;
+	tag_west_con = 0.4;
+	active_power_usage = 7500;
+	tag_south = null;
+	tag_north_con = 0.6;
+	tag_north = 1
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/himeo_patrol_ship/generator)
 "LA" = (
 /turf/simulated/wall/shuttle/dark/cardinal/black,
 /area/himeo_patrol_ship/engineering)
-"LV" = (
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/plating,
-/area/himeo_patrol_ship)
-"Me" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/corner/red{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/dark,
-/area/himeo_patrol_ship/eva)
 "Mf" = (
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/plating,
@@ -4189,6 +4866,18 @@
 /obj/structure/bed/stool/chair,
 /turf/simulated/floor/tiled/steel,
 /area/himeo_patrol_ship/messhall)
+"Mq" = (
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/plating,
+/area/himeo_patrol_ship)
 "Mt" = (
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 4
@@ -4204,23 +4893,19 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/tiled/gunmetal,
-/area/himeo_patrol_ship)
+/area/himeo_patrol_ship/aft)
 "Mx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/generator)
 "Mz" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -4230,23 +4915,16 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/reinforced,
 /area/himeo_patrol_ship/ammunition)
 "MI" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/reinforced,
 /area/himeo_patrol_ship/ammunition)
-"ML" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 6
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/himeo_patrol_ship)
 "MT" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
@@ -4262,21 +4940,48 @@
 /obj/item/pipewrench{
 	pixel_x = 2
 	},
-/turf/simulated/floor/plating,
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
 /area/himeo_patrol_ship/distribution)
 "Nh" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/himeo_patrol_ship/infirmary)
+"Nj" = (
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/himeo_patrol_ship/aft)
 "No" = (
 /turf/space/transit/north,
 /area/space)
+"Nq" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/suit_cycler/offship/coalition/himeo,
+/obj/random/dirt_75,
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/himeo_patrol_ship/eva)
 "Nt" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -4287,21 +4992,45 @@
 "Nu" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
 /obj/effect/floor_decal/corner/red/diagonal,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/himeo_patrol_ship/autocannon)
 "Nw" = (
-/turf/simulated/floor/plating,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
 /area/himeo_patrol_ship/distribution)
 "ND" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/rig/industrial/himeo/equipped{
-	pixel_y = 2;
+	pixel_y = 3;
 	pixel_x = 6
 	},
 /obj/item/rig/industrial/himeo/equipped{
 	pixel_x = -6;
-	pixel_y = 2
+	pixel_y = 3
+	},
+/obj/machinery/light/colored/decayed/dimmed,
+/obj/item/tank/emergency_oxygen/double{
+	pixel_y = -6
+	},
+/obj/item/tank/emergency_oxygen/double{
+	pixel_y = -6
+	},
+/obj/item/tank/emergency_oxygen/double{
+	pixel_y = -6
+	},
+/obj/item/tank/emergency_oxygen/double{
+	pixel_y = -6
+	},
+/obj/item/tank/emergency_oxygen/double{
+	pixel_y = -6
+	},
+/obj/item/tank/emergency_oxygen/double{
+	pixel_y = -6
 	},
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/eva)
@@ -4310,6 +5039,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline_door/engineering,
+/obj/random/dirt_75,
 /turf/simulated/floor/reinforced,
 /area/himeo_patrol_ship/blaster)
 "NI" = (
@@ -4334,6 +5064,11 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/himeo_patrol_ship/messhall)
+"NM" = (
+/obj/effect/floor_decal/industrial/outline_door/engineering,
+/obj/random/dirt_75,
+/turf/simulated/floor/reinforced,
+/area/himeo_patrol_ship/blaster)
 "NP" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 9
@@ -4347,12 +5082,13 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/himeo_patrol_ship/blaster)
-"NS" = (
-/obj/structure/cable/green{
-	icon_state = "2-4"
+"Oa" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 9
 	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/himeo_patrol_ship)
+/turf/space,
+/area/space)
 "Oe" = (
 /obj/structure/table/standard,
 /obj/item/storage/firstaid/surgery{
@@ -4367,6 +5103,9 @@
 	},
 /obj/effect/floor_decal/spline/plain/red{
 	dir = 9
+	},
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/himeo_patrol_ship/infirmary)
@@ -4386,12 +5125,18 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/himeo_patrol_ship/generator)
 "Oi" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 4
+	},
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
+/obj/machinery/door/blast/regular/open{
+	dir = null;
+	id = "himeo_military_teg"
 	},
 /turf/simulated/floor,
 /area/himeo_patrol_ship/generator)
@@ -4402,6 +5147,7 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/deck_2_interstitial)
 "Oq" = (
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/generator)
 "Or" = (
@@ -4445,6 +5191,17 @@
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/generator)
+"Oz" = (
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/himeo_patrol_ship/aft)
 "OF" = (
 /obj/structure/railing/mapped{
 	pixel_y = -6
@@ -4455,18 +5212,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/himeo_patrol_ship/autocannon)
-"OK" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/himeo_patrol_ship)
 "OO" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/black/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
@@ -4479,9 +5224,13 @@
 /obj/machinery/vending/coffee/free,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship)
 "OS" = (
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/thruster_aft)
 "OW" = (
@@ -4496,17 +5245,9 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/himeo_patrol_ship/blaster)
-"Pd" = (
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/gunmetal/full,
-/area/himeo_patrol_ship/engineering)
 "Pe" = (
 /turf/simulated/floor/reinforced,
 /area/himeo_patrol_ship/autocannon)
@@ -4515,25 +5256,17 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/himeo_patrol_ship)
-"Po" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille/firedoor,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating,
-/area/himeo_patrol_ship/infirmary)
+/area/himeo_patrol_ship/aft)
 "Pv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 10
+/obj/machinery/atmospherics/pipe/tank{
+	dir = 4
 	},
-/obj/machinery/atmospherics/unary/outlet_injector{
-	frequency = 1441;
-	id = "splf_teg_in";
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/effect/floor_decal/spline/plain/white{
 	dir = 1
 	},
-/turf/simulated/floor/reinforced/airless,
-/area/space)
+/turf/simulated/floor/plating,
+/area/himeo_patrol_ship/distribution)
 "Pw" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
@@ -4569,30 +5302,31 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/full,
 /area/himeo_patrol_ship/distribution)
 "PF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 4
+/obj/structure/cable{
+	icon_state = "1-8"
 	},
-/turf/simulated/wall/shuttle/dark/cardinal/black,
-/area/himeo_patrol_ship/thruster_starboard)
-"PL" = (
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship/generator)
+"PN" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/green{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
+/obj/structure/cable/green{
+	icon_state = "2-8"
 	},
-/turf/simulated/floor/plating,
-/area/himeo_patrol_ship)
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship/generator)
 "PO" = (
 /obj/structure/table/rack/folding_table,
 /obj/random/pottedplant_small{
@@ -4605,7 +5339,7 @@
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship)
 "PX" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /turf/simulated/floor/reinforced,
 /area/himeo_patrol_ship/thruster_aft)
 "PY" = (
@@ -4616,14 +5350,16 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/bridge)
 "PZ" = (
-/obj/structure/dispenser/oxygen,
-/obj/effect/floor_decal/industrial/outline/emergency_closet,
-/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/eva)
 "Qd" = (
-/obj/machinery/atmospherics/unary/outlet_injector,
+/obj/machinery/atmospherics/unary/vent_pump/siphon/atmos{
+	id_tag = "himeo_patrol_teg_out";
+	frequency = 2275
+	},
 /turf/simulated/floor/reinforced/airless,
 /area/himeo_patrol_ship/generator)
 "Qf" = (
@@ -4674,6 +5410,20 @@
 	},
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/hydroponics)
+"Qs" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/atmospherics/pipe/simple/hidden/green,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/turf/simulated/floor,
+/area/himeo_patrol_ship/blaster)
 "Qt" = (
 /obj/machinery/door/window/southright{
 	req_access = list(207)
@@ -4681,10 +5431,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/himeo_patrol/central)
 "Qu" = (
+/obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 4
 	},
-/obj/structure/lattice,
 /turf/space/dynamic,
 /area/space)
 "QB" = (
@@ -4736,12 +5486,15 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/generator)
 "QP" = (
 /obj/machinery/power/emitter,
 /obj/effect/floor_decal/industrial/warning/full,
-/turf/simulated/floor/tiled/gunmetal,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
 /area/himeo_patrol_ship/engineering)
 "QR" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/black/firedoor,
@@ -4765,13 +5518,19 @@
 /turf/simulated/floor/tiled/full,
 /area/himeo_patrol_ship/blaster)
 "QV" = (
-/obj/effect/floor_decal/industrial/loading/yellow{
-	dir = 8
-	},
 /obj/effect/floor_decal/industrial/outline_door/engineering{
 	dir = 1
 	},
-/turf/simulated/floor/reinforced,
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/arrow/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/himeo_patrol_ship/blaster)
 "Rf" = (
 /turf/simulated/floor/reinforced/airless,
@@ -4805,8 +5564,12 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/green,
-/obj/machinery/meter,
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
+/obj/machinery/atmospherics/binary/pump{
+	name = "Cooling Array to Generator";
+	target_pressure = 15000
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/himeo_patrol_ship/generator)
 "Rw" = (
@@ -4825,15 +5588,9 @@
 /obj/structure/bed/stool/chair/padded/black{
 	dir = 8
 	},
+/obj/machinery/light/colored/decayed/dimmed,
 /turf/simulated/floor/carpet/red,
 /area/himeo_patrol_ship/barracks)
-"RE" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/reinforced,
-/area/himeo_patrol_ship/ammunition)
 "RF" = (
 /obj/structure/closet/secure_closet/medical/empty,
 /obj/item/clothing/accessory/storage/white_vest,
@@ -4851,14 +5608,20 @@
 /obj/item/storage/box/fancy/cigarettes/oracle,
 /obj/effect/floor_decal/corner/green/full,
 /obj/effect/floor_decal/industrial/outline/medical/dark_green,
+/obj/machinery/light/colored/decayed/dimmed,
 /turf/simulated/floor/tiled/white,
 /area/himeo_patrol_ship/infirmary)
 "RI" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
-	name = "Fuel Injection Pump";
-	target_pressure = 15000;
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
 	},
+/obj/machinery/button/remote/blast_door{
+	name = "TEG Combustion Chamber Emergency Vent";
+	dir = 1;
+	pixel_y = 22;
+	id = "himeo_military_chamber_vent"
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/himeo_patrol_ship/generator)
 "RJ" = (
@@ -4879,7 +5642,11 @@
 /area/himeo_patrol_ship/ammunition)
 "RO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "himeo_military_teg"
+	},
 /turf/simulated/floor,
 /area/himeo_patrol_ship/generator)
 "RP" = (
@@ -4896,19 +5663,20 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship)
 "RT" = (
 /turf/simulated/wall/shuttle/dark/cardinal/black,
+/area/himeo_patrol_ship)
+"RU" = (
+/obj/random/dirt_75,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship)
 "RV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
@@ -4923,11 +5691,22 @@
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
 /area/himeo_patrol_ship/hydroponics)
 "Sc" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
+/obj/structure/cable/green{
+	icon_state = "1-4"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/himeo_patrol_ship/engineering)
+"Si" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 6
+	},
+/turf/space/dynamic,
+/area/space)
 "Sj" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/storage/toolbox/mechanical{
@@ -4935,6 +5714,9 @@
 	},
 /obj/structure/railing/mapped{
 	pixel_y = -6
+	},
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/himeo_patrol_ship/blaster)
@@ -4945,7 +5727,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -4955,7 +5736,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/turf/simulated/floor,
 /area/himeo_patrol_ship/generator)
 "Sm" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -4973,22 +5755,29 @@
 /obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled/ridged,
 /area/shuttle/himeo_patrol/central)
+"Sp" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship)
 "Sq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/machinery/atmospherics/pipe/simple/hidden/green{
 	dir = 10
 	},
-/turf/simulated/floor/tiled/gunmetal,
+/obj/random/dirt_75,
+/obj/random/maintenance_junk_or_loot,
+/turf/simulated/floor,
 /area/himeo_patrol_ship/thruster_starboard)
 "St" = (
 /obj/item/material/stool/chair/folding/camping,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/bridge)
-"Su" = (
-/obj/structure/platform/dark,
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/tiled/gunmetal,
-/area/himeo_patrol_ship/autocannon)
 "Sz" = (
 /obj/machinery/door/airlock/hatch{
 	dir = 8;
@@ -5015,41 +5804,46 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/turf/simulated/floor/plating,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/turf/simulated/floor,
 /area/himeo_patrol_ship/generator)
 "SD" = (
-/obj/effect/floor_decal/corner/brown/diagonal,
-/obj/random/dirt_75,
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/steel,
-/area/himeo_patrol_ship/messhall)
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/iff_beacon/name_change,
+/turf/space/dynamic,
+/area/himeo_patrol_ship/bridge)
 "SG" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/turbolift/himeo_patrol/himeo_patrol_lift)
-"SI" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
+"SL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/atmospherics/pipe/simple/hidden/green,
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
-/turf/template_noop,
-/area/space)
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/random/dirt_75,
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/turf/simulated/floor,
+/area/himeo_patrol_ship/autocannon)
 "SM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/green,
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/himeo_patrol_ship/generator)
 "SR" = (
@@ -5074,6 +5868,32 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/himeo_patrol_ship/eva)
+"SX" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship)
+"Th" = (
+/obj/structure/bed/padded,
+/obj/structure/bed/padded{
+	pixel_y = 16
+	},
+/obj/item/bedsheet/syndie,
+/obj/item/bedsheet/syndie{
+	pixel_y = 16
+	},
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/red,
+/area/himeo_patrol_ship/barracks)
 "Ti" = (
 /obj/structure/bed/roller,
 /obj/structure/curtain/open/medical,
@@ -5087,24 +5907,32 @@
 /turf/simulated/floor/tiled/white,
 /area/himeo_patrol_ship/infirmary)
 "Tl" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 5
 	},
-/turf/simulated/floor/tiled/gunmetal/full,
-/area/himeo_patrol_ship/engineering)
+/obj/structure/lattice,
+/turf/space,
+/area/space)
 "Tp" = (
 /obj/effect/floor_decal/corner/yellow/full,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/thruster_aft)
+"Ts" = (
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 9
+	},
+/turf/space,
+/area/space)
 "Tt" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
+/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor,
 /area/himeo_patrol_ship/generator)
 "Tv" = (
@@ -5112,8 +5940,10 @@
 	dir = 9
 	},
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/himeo_patrol_ship)
+/area/himeo_patrol_ship/aft)
 "Tw" = (
 /obj/structure/platform/dark,
 /obj/structure/platform/dark{
@@ -5123,16 +5953,32 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/autocannon)
 "Tx" = (
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/plating,
 /area/shuttle/himeo_patrol/central)
+"Ty" = (
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 6
+	},
+/turf/space,
+/area/space)
+"TA" = (
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship)
 "TB" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/thruster_aft)
 "TF" = (
@@ -5144,20 +5990,15 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/himeo_patrol_ship/generator)
 "TG" = (
 /obj/machinery/power/apc/super/west,
 /obj/structure/cable/green,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/autocannon)
-"TH" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
-	},
-/turf/simulated/floor/reinforced,
-/area/himeo_patrol_ship/ammunition)
 "TI" = (
 /obj/structure/table/steel,
 /obj/random/pottedplant_small{
@@ -5181,6 +6022,41 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship)
+"TN" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/turf/simulated/floor,
+/area/himeo_patrol_ship/thruster_starboard)
+"TQ" = (
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 8
+	},
+/obj/machinery/mech_recharger,
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship/autocannon)
+"TU" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship/engineering)
+"TZ" = (
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/plating,
 /area/himeo_patrol_ship)
 "Ub" = (
 /obj/machinery/door/airlock/external,
@@ -5211,22 +6087,22 @@
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/reinforced/large/airless,
 /area/shuttle/himeo_patrol)
-"Um" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 6
-	},
-/obj/random/dirt_75,
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/himeo_patrol_ship)
 "Uq" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
 /area/himeo_patrol_ship/hydroponics)
+"Ur" = (
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/himeo_patrol_ship/aft)
 "Uz" = (
 /obj/machinery/computer/ship/navigation/terminal{
 	dir = 1
@@ -5242,18 +6118,22 @@
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/bridge)
-"UD" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
-	},
-/turf/template_noop,
-/area/space)
 "UG" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
+/area/himeo_patrol_ship/aft)
+"UJ" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship)
 "UK" = (
 /obj/structure/window/reinforced,
@@ -5275,6 +6155,26 @@
 "UT" = (
 /turf/simulated/wall/shuttle/dark/cardinal/black,
 /area/shuttle/himeo_patrol)
+"UU" = (
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction{
+	dir = 1
+	},
+/turf/space,
+/area/space)
+"UX" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/himeo_patrol_ship/eva)
+"Va" = (
+/obj/structure/lattice,
+/turf/space/dynamic,
+/area/space)
 "Vb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/green{
 	dir = 10
@@ -5304,27 +6204,22 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship)
-"Vl" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/corner/green{
-	dir = 10
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/himeo_patrol_ship)
 "Vp" = (
+/obj/machinery/computer/general_air_control/large_tank_control/wall{
+	pixel_y = 32;
+	name = "Chamber Circulation Control";
+	input_tag = "himeo_patrol_teg_in";
+	output_tag = "himeo_patrol_teg_out";
+	sensors = list("himeo_patrol_sensor"="Combustion Chamber");
+	frequency = 2275
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor,
 /area/himeo_patrol_ship/generator)
 "Vq" = (
 /obj/structure/table/rack,
@@ -5353,11 +6248,11 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
-/obj/machinery/portable_atmospherics/canister/hydrogen,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor,
 /area/himeo_patrol_ship/generator)
 "Vu" = (
@@ -5377,21 +6272,12 @@
 /obj/machinery/computer/shuttle_control/multi/lift/himeo_patrol_ship,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/deck_2_interstitial)
-"VH" = (
-/obj/random/dirt_75,
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/himeo_patrol_ship/barracks)
 "VK" = (
 /obj/machinery/ammunition_loader/autocannon{
 	dir = 1;
 	weapon_id = "Himeo Patrol Autocannon"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/reinforced,
 /area/himeo_patrol_ship/autocannon)
 "VN" = (
@@ -5411,16 +6297,6 @@
 /obj/structure/platform/dark,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/bridge)
-"VV" = (
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/himeo_patrol_ship)
 "Wc" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -5438,27 +6314,44 @@
 /obj/item/ship_ammunition/autocannon/frag,
 /obj/item/ship_ammunition/autocannon/frag,
 /obj/effect/floor_decal/industrial/outline/red,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
 /area/himeo_patrol_ship/ammunition)
+"Wf" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship/aft)
 "Wg" = (
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/thruster_aft)
 "Wj" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/light/colored/decayed/dimmed,
+/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor,
 /area/himeo_patrol_ship/generator)
-"Wu" = (
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
-/obj/structure/cable/green{
-	icon_state = "1-2"
+"Ws" = (
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8
+/turf/space/dynamic,
+/area/space)
+"Wt" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/plating,
+/obj/random/dirt_75,
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship)
 "Ww" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -5476,6 +6369,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/autocannon)
 "WC" = (
@@ -5523,14 +6417,20 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled/gunmetal,
-/area/himeo_patrol_ship/autocannon)
-"WU" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
+/obj/effect/floor_decal/corner/red{
+	dir = 9
 	},
 /turf/simulated/floor/tiled/gunmetal,
-/area/himeo_patrol_ship/thruster_port)
+/area/himeo_patrol_ship/autocannon)
+"WY" = (
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/plating,
+/area/himeo_patrol_ship)
 "Xc" = (
 /obj/structure/table/rack/folding_table,
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -5551,6 +6451,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/full,
 /area/himeo_patrol_ship/autocannon)
 "Xk" = (
@@ -5571,6 +6472,9 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/himeo_patrol_ship/armoury)
 "Xo" = (
@@ -5581,17 +6485,14 @@
 /area/himeo_patrol_ship/thruster_aft)
 "Xp" = (
 /turf/simulated/floor/tiled/gunmetal,
-/area/himeo_patrol_ship)
-"Xx" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 9
-	},
+/area/himeo_patrol_ship/aft)
+"Xz" = (
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
+/obj/effect/floor_decal/corner/yellow{
+	dir = 1
 	},
-/turf/simulated/floor/tiled/white,
-/area/himeo_patrol_ship/infirmary)
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship/thruster_aft)
 "XH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
@@ -5608,6 +6509,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/autocannon)
 "XO" = (
@@ -5615,73 +6517,50 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/generator)
-"XQ" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/corner/green{
-	dir = 10
-	},
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/himeo_patrol_ship)
 "XU" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor,
-/area/himeo_patrol_ship/generator)
-"Ya" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/green{
-	dir = 8
-	},
-/obj/structure/cable/green{
-	icon_state = "2-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
-/turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/generator)
 "Yf" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/red,
+/obj/machinery/light/colored/decayed/dimmed,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/distribution)
 "Yh" = (
 /obj/machinery/hologram/holopad,
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/industrial/outline/security,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/himeo_patrol_ship/blaster)
 "Yl" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/reinforced,
 /area/himeo_patrol_ship/ammunition)
+"Yo" = (
+/obj/effect/floor_decal/corner/brown/diagonal,
+/obj/random/dirt_75,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel,
+/area/himeo_patrol_ship/messhall)
 "Yt" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/deck_2_interstitial)
-"Yu" = (
-/obj/machinery/air_sensor{
-	frequency = 1441;
-	id_tag = "splf_sensor";
-	output = 31
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/space)
 "Yx" = (
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/machinery/door/airlock/hatch{
@@ -5693,7 +6572,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/full,
-/area/himeo_patrol_ship)
+/area/himeo_patrol_ship/aft)
 "YC" = (
 /turf/simulated/wall/shuttle/dark/cardinal/black,
 /area/himeo_patrol_ship/autocannon)
@@ -5712,6 +6591,13 @@
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship)
+"YF" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship/thruster_aft)
 "YI" = (
 /obj/structure/closet/crate/bin{
 	pixel_y = 0;
@@ -5750,19 +6636,21 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/himeo_patrol_ship)
+/area/himeo_patrol_ship/aft)
 "YN" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	name = "Canister to Thrusters";
 	target_pressure = 15000
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/thruster_aft)
 "YT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/green{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/gunmetal,
+/obj/random/junk,
+/turf/simulated/floor,
 /area/himeo_patrol_ship/thruster_starboard)
 "YU" = (
 /obj/machinery/door/airlock/hatch{
@@ -5795,18 +6683,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
 /turf/simulated/floor,
 /area/himeo_patrol_ship/generator)
-"Za" = (
-/obj/machinery/atmospherics/pipe/simple/visible/universal,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating,
-/area/himeo_patrol_ship/distribution)
 "Zb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/generator)
 "Zc" = (
@@ -5829,6 +6711,7 @@
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/thruster_aft)
 "Zg" = (
@@ -5851,30 +6734,52 @@
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/thruster_aft)
-"ZF" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/template_noop,
-/area/space)
-"ZI" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
-/turf/simulated/wall/shuttle/dark/cardinal/black,
-/area/himeo_patrol_ship/thruster_starboard)
-"ZS" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/corner/red{
-	dir = 6
+"Zx" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 9
 	},
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/himeo_patrol_ship/infirmary)
+"ZF" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
+	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+	dir = 6
 	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/himeo_patrol_ship/bridge)
+/turf/simulated/floor/reinforced,
+/area/himeo_patrol_ship/ammunition)
+"ZI" = (
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/random/dirt_75,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/himeo_patrol_ship)
+"ZS" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor,
+/area/himeo_patrol_ship/engineering)
+"ZV" = (
+/obj/machinery/atmospherics/pipe/simple/visible/universal,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/himeo_patrol_ship/distribution)
 "ZW" = (
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/plating,
@@ -32437,11 +33342,11 @@ Xh
 Xh
 Xh
 Xh
-ez
-ez
-cD
-ez
-ez
+Xh
+Xh
+Xh
+Xh
+Xh
 Xh
 Xh
 Xh
@@ -32694,11 +33599,11 @@ Xh
 Xh
 Xh
 Xh
-Ae
-Gc
-Pv
-ut
-rt
+Xh
+Xh
+Xh
+Xh
+Xh
 Xh
 Xh
 Xh
@@ -32951,16 +33856,16 @@ Xh
 Xh
 Xh
 Xh
-Ae
-Gc
-ES
-Yu
-rt
 Xh
 Xh
 Xh
-bl
-rR
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
 Xh
 Xh
 Xh
@@ -33208,16 +34113,16 @@ Xh
 Xh
 Xh
 Xh
-ez
-ez
-ez
-ez
-ez
 Xh
 Xh
 Xh
-SI
-jv
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
 Xh
 Xh
 Xh
@@ -33473,8 +34378,8 @@ Xh
 Xh
 Xh
 Xh
-ZF
-bj
+Xh
+Xh
 Xh
 Xh
 Xh
@@ -33717,21 +34622,21 @@ Xh
 Xh
 Xh
 Xh
+CL
+CL
+CL
+CL
+CL
+CL
+CL
+CL
+CL
 Xh
 Xh
 Xh
 Xh
 Xh
 Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-UD
-vV
 Xh
 Xh
 Xh
@@ -33965,11 +34870,6 @@ Xh
 Xh
 Xh
 Xh
-Xh
-Xh
-Xh
-Xh
-Xh
 CL
 CL
 CL
@@ -33978,11 +34878,16 @@ CL
 CL
 CL
 CL
-Xh
-Xh
-Xh
-Xh
-Xh
+CL
+CL
+eJ
+gW
+gW
+gW
+gW
+gW
+iy
+CL
 Xh
 Xh
 Xh
@@ -34222,24 +35127,24 @@ Xh
 Xh
 Xh
 Xh
-Xh
-Xh
-Xh
-Xh
-Xh
 CL
+Ty
+sh
+Tl
+aZ
+Tl
 oi
 SR
 oi
 SR
-oi
-SR
+Qu
+Si
+gW
+gW
+gW
+gW
+Ak
 CL
-Xh
-Xh
-Xh
-Xh
-Xh
 Xh
 Xh
 Xh
@@ -34479,12 +35384,12 @@ Xh
 Xh
 Xh
 Xh
-Xh
-Xh
-Xh
-Xh
-Xh
 CL
+fK
+dr
+fe
+Oa
+fe
 GJ
 ns
 NP
@@ -34736,12 +35641,12 @@ Xh
 Xh
 Xh
 Xh
-Xh
-Xh
-Xh
-Xh
-Xh
 CL
+Ty
+Ts
+Ty
+sh
+UU
 AM
 Dn
 RJ
@@ -34750,7 +35655,7 @@ Eq
 NP
 pi
 pH
-Mf
+da
 rg
 Mf
 ks
@@ -34993,10 +35898,10 @@ Xh
 Xh
 Xh
 Xh
-Xh
-Xh
-Xh
-Xh
+CL
+fK
+dr
+FM
 bK
 bK
 gx
@@ -35007,8 +35912,8 @@ pi
 pi
 pi
 QV
-Mf
-Mf
+da
+da
 Mf
 ks
 nq
@@ -35250,22 +36155,22 @@ Xh
 Xh
 Xh
 Xh
-Xh
-Xh
-Xh
-Xh
-eZ
-tP
+CL
+Ty
+Ts
+FM
+bK
+bK
 YT
-tf
+TN
 pi
 Kl
 NR
 Sj
-hp
-eP
-Hc
-Hc
+gF
+ce
+Eb
+Eb
 tO
 IQ
 gu
@@ -35507,23 +36412,23 @@ Xh
 Xh
 Xh
 Xh
-Xh
-Xh
-Xh
-Xh
-eZ
-ZI
-CF
-BY
+CL
+fK
+sh
+Ts
+bK
+bK
+BI
+Bp
 pi
 Yh
 OX
 mM
 us
-Cq
+eP
 Hc
-Hc
-tO
+aX
+NM
 pi
 RW
 RW
@@ -35764,22 +36669,22 @@ Xh
 Xh
 Xh
 Xh
-Xh
-Xh
-Xh
-Xh
-bK
-PF
+an
+an
+an
+an
+eZ
+tP
 GS
 FD
 pi
-pe
+Jq
 pe
 nw
 uN
 KA
 xw
-xw
+hQ
 NG
 yL
 RW
@@ -36025,18 +36930,18 @@ Xh
 Xh
 Xh
 Xh
-bK
+eZ
 bJ
 Sq
 ge
 QT
-wY
-wY
-wY
+Gc
+Qs
+Gc
 CZ
-oe
+AY
 rX
-wY
+oe
 bf
 vQ
 RW
@@ -36046,22 +36951,22 @@ Bo
 Be
 RW
 RW
-RT
+Fo
 Pl
 Pl
 Pl
-RT
+Fo
 Xh
 RT
 eD
 PO
 RP
 OP
-LV
-rr
-LV
-LV
-LV
+TZ
+ti
+TZ
+Ja
+TZ
 Dk
 eF
 Oe
@@ -36300,26 +37205,26 @@ RW
 RL
 El
 Yl
-sp
+lF
 JK
 RW
-RT
+Fo
 YM
 YM
 YM
-RT
+Fo
 Xh
 RT
 rv
-NS
-Mw
-EC
-EC
-wC
-EC
-EC
+xv
+yc
+UJ
+UJ
+Bx
+UJ
+UJ
 Jv
-XQ
+FT
 eF
 wb
 qp
@@ -36551,24 +37456,24 @@ Qd
 pj
 ly
 Bf
-Sk
-Wj
+oX
+tF
 RW
 Wd
-RE
-uS
-TH
+GH
+ZF
+sp
 JK
 RW
-RT
+Fo
 ei
 UG
 UG
-RT
+Fo
 Xh
 RT
-VV
-sg
+mO
+RU
 eg
 nb
 eg
@@ -36576,7 +37481,7 @@ Er
 eg
 eg
 oP
-rM
+eK
 BC
 rS
 yA
@@ -36592,7 +37497,7 @@ jG
 FP
 FP
 Iv
-Xh
+xe
 Xh
 Xh
 Xh
@@ -36808,7 +37713,7 @@ iT
 RO
 oj
 pf
-Sk
+oX
 Wj
 RW
 ct
@@ -36817,15 +37722,15 @@ Cn
 MI
 nh
 RW
-RT
+Fo
 EI
 zl
 xN
+Fo
 RT
 RT
-RT
-VV
-sg
+jT
+RU
 eg
 vE
 ro
@@ -36836,8 +37741,8 @@ gK
 YD
 BC
 wu
-Xx
 Nh
+Zx
 RF
 dY
 dY
@@ -37064,7 +37969,7 @@ Oi
 nR
 zk
 Vp
-pf
+Kh
 Sk
 Tt
 RW
@@ -37078,11 +37983,11 @@ kq
 Fu
 Tv
 Xp
+Fo
 RT
 RT
-RT
-VV
-sg
+mO
+RU
 eg
 se
 Lt
@@ -37090,7 +37995,7 @@ qK
 oN
 eg
 oP
-Vl
+fy
 fC
 DP
 IH
@@ -37314,32 +38219,32 @@ ra
 FU
 po
 iR
-po
+oq
 Xo
 zk
 RI
-bA
+Ae
 Oq
 Of
 Mx
 Vb
 nS
 Em
-Cr
-mO
-Fa
-Wu
-mf
-mO
-PL
-mO
-tT
-mO
-Yx
-mO
-bB
+cb
+Ur
+aD
+Nj
+vY
+Oz
+xx
+Ur
 IF
-mx
+Oz
+Yx
+WY
+Mq
+uy
+sI
 eg
 sd
 JS
@@ -37347,8 +38252,8 @@ rH
 cE
 eg
 Ci
-qd
-Po
+rM
+sC
 Ti
 uJ
 Or
@@ -37576,27 +38481,27 @@ ps
 zk
 Lx
 RV
-Oq
+dw
 eY
 Sm
 YY
 md
-Ej
-eQ
-Xp
-fD
-dD
-kn
-Xp
+AH
+er
+iL
+Bq
+Wf
+mV
+Mw
 Hg
-Xp
-Xp
-Xp
-eQ
-Xp
-nU
-GW
-sg
+EC
+xR
+Mw
+kh
+Db
+kn
+yn
+RU
 eg
 eg
 eg
@@ -37604,7 +38509,7 @@ eg
 eg
 eg
 oP
-rM
+fE
 BC
 BC
 BC
@@ -37831,9 +38736,9 @@ nH
 mh
 Tp
 zk
+xu
 Vt
-Vt
-Oq
+zY
 jI
 um
 Ox
@@ -37852,8 +38757,8 @@ gf
 aI
 RT
 jJ
-Db
-DA
+TA
+iz
 dx
 yJ
 Jb
@@ -37863,18 +38768,18 @@ sJ
 zK
 io
 KM
-mO
-PL
-mO
-dS
+WY
+By
+WY
+ZI
 lW
-GH
+dS
 Mi
 cY
 rV
 NI
 dj
-hW
+qu
 Qf
 mN
 zN
@@ -38082,20 +38987,20 @@ Wg
 Ez
 TB
 Kb
-Kb
+zQ
 sb
-Kb
+FF
 ni
 lI
 dd
+nK
 Zb
-Zb
-Zb
+HM
 CC
 Gz
 aT
 tV
-Ej
+cH
 rL
 eX
 Gx
@@ -38103,14 +39008,14 @@ ew
 gf
 iU
 bS
-Uf
+Pv
 Uf
 mC
 aI
 RT
 xy
 tq
-OK
+SX
 JV
 yJ
 Jb
@@ -38119,16 +39024,16 @@ wy
 eQ
 dg
 Vf
+Wt
 TM
+Jj
 TM
+Sp
 RQ
-TM
-Um
-ML
 TM
 ne
 lV
-ZS
+lq
 Ds
 HJ
 mq
@@ -38339,15 +39244,15 @@ Wg
 Px
 rs
 xO
-OS
-OS
+YF
+Xz
 OS
 Zw
 ep
 zk
 zq
-DC
-DC
+CR
+Ar
 SA
 Rs
 pR
@@ -38355,7 +39260,7 @@ Cd
 Dl
 rL
 ov
-Sc
+DD
 DI
 gf
 np
@@ -38604,20 +39509,20 @@ Zf
 zk
 ea
 im
-ar
-jx
+PF
+oL
 ou
 zV
 XU
-Ya
+PN
 mW
-tx
-Pd
+TU
+Sc
 nj
 gf
 rG
 Gk
-Za
+Kd
 Bh
 id
 aI
@@ -38635,7 +39540,7 @@ gP
 vp
 Xc
 NK
-Is
+Fb
 YI
 MT
 zS
@@ -38861,7 +39766,7 @@ mF
 zk
 Dv
 QM
-nY
+rx
 bH
 jh
 jn
@@ -38869,19 +39774,19 @@ jn
 yB
 rL
 Ca
-nz
+rR
 Eh
 gf
 rG
 iQ
 kI
-Kd
+ZV
 iV
 aI
 zy
 xH
 KY
-VH
+gr
 Xk
 gT
 Uq
@@ -38893,14 +39798,14 @@ ao
 fb
 DS
 kA
-Hy
+mI
 yw
 FY
 vP
 Zg
-dL
-vL
-Me
+Nq
+he
+vi
 Dh
 Iv
 WJ
@@ -39126,11 +40031,11 @@ vK
 TF
 rL
 cv
-nz
+rR
 oO
 gf
 Nd
-Nw
+yK
 wU
 vA
 fM
@@ -39149,15 +40054,15 @@ dz
 jL
 gR
 Ki
-SD
+Yo
 qN
 OW
 vP
 vP
 Zg
 tN
-IG
-vi
+UX
+jd
 ND
 Iv
 DB
@@ -39387,14 +40292,14 @@ nz
 BX
 gf
 ny
-GF
+Nw
 eb
-zR
+yC
 zR
 aI
 Xh
 zy
-lC
+Th
 kY
 RB
 gT
@@ -39419,7 +40324,7 @@ Zg
 Iv
 FP
 Iv
-Xh
+SD
 Xh
 Xh
 Xh
@@ -39640,7 +40545,7 @@ YC
 rL
 rL
 jy
-Tl
+au
 Io
 aI
 aI
@@ -39880,24 +40785,24 @@ Xh
 Xh
 Xh
 Xh
-kj
-kj
+Fy
+aN
 tc
-tc
+Bl
 YC
 Fw
-WP
-WP
+SL
+BK
 WP
 ur
-DL
+aO
 TG
-lM
+TQ
 YC
-Iw
+ar
 Iw
 nZ
-Tl
+Jk
 QP
 LA
 aI
@@ -40133,14 +41038,14 @@ Xh
 Xh
 Xh
 Xh
-Xh
-Xh
-Xh
-Xh
-kj
-kj
+an
+an
+an
+an
+Fy
+ak
 lD
-Im
+rZ
 YC
 XH
 pE
@@ -40153,7 +41058,7 @@ EH
 YC
 Iw
 Iw
-nZ
+ZS
 en
 fw
 LA
@@ -40390,11 +41295,11 @@ Xh
 Xh
 Xh
 Xh
-Xh
-Xh
-Xh
-Xh
-Fy
+an
+Ty
+sh
+dr
+kj
 Ff
 FL
 sf
@@ -40404,9 +41309,9 @@ Fm
 Nu
 Vu
 Cj
-ah
+yO
 Pe
-WI
+IJ
 YC
 LA
 LA
@@ -40647,22 +41552,22 @@ Xh
 Xh
 Xh
 Xh
-Xh
-Xh
-Xh
-Xh
-Fy
-gW
+an
+fK
+dr
+el
+kj
+kj
 KR
-WU
+CH
 YC
 lM
 kD
 qm
 BP
-Su
-lq
-Pe
+kQ
+bv
+kt
 WI
 BA
 Xh
@@ -40904,10 +41809,10 @@ Xh
 Xh
 Xh
 Xh
-Xh
-Xh
-Xh
-Xh
+an
+Ty
+Ts
+el
 kj
 kj
 FN
@@ -40918,7 +41823,7 @@ YC
 YC
 YC
 YC
-yO
+EV
 UP
 UP
 UP
@@ -41161,13 +42066,13 @@ Xh
 Xh
 Xh
 Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-CL
-AM
+an
+fK
+dr
+fK
+sh
+UU
+yV
 Dn
 RJ
 Eq
@@ -41418,19 +42323,19 @@ Xh
 Xh
 Xh
 Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-CL
-By
+an
+Ty
+Ts
+Ty
+dr
+Ty
+RJ
 EN
 oi
 SR
 oi
 SR
-uy
+Qu
 YC
 VK
 UP
@@ -41675,19 +42580,19 @@ Xh
 Xh
 Xh
 Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-CL
-ns
-Eq
+an
+fK
+sh
+Ts
+fK
+Ts
+Va
+lN
 NP
 ns
 NP
-ns
-NP
+Qu
+Qu
 YC
 YC
 YC
@@ -41932,24 +42837,24 @@ Xh
 Xh
 Xh
 Xh
-Xh
-Xh
-Xh
-Xh
-Xh
+an
+an
+an
+an
+an
+an
 CL
 CL
 CL
 CL
 CL
+Hy
+Ws
+gW
+gW
+gW
+iy
 CL
-CL
-CL
-Xh
-Xh
-Xh
-Xh
-Xh
 Xh
 Xh
 Xh
@@ -42199,14 +43104,14 @@ Xh
 Xh
 Xh
 Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
+CL
+ju
+RJ
+gW
+gW
+gW
+Ak
+CL
 Xh
 Xh
 Xh
@@ -42456,14 +43361,14 @@ Xh
 Xh
 Xh
 Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
-Xh
+CL
+CL
+CL
+CL
+CL
+CL
+CL
+CL
 Xh
 Xh
 Xh
@@ -101341,13 +102246,13 @@ qD
 Hs
 Hs
 qD
-Rf
-Rf
-Rf
-Rf
-Rf
-Rf
-Rf
+pP
+pP
+pP
+pP
+pP
+pP
+pP
 Xh
 Xh
 Zk
@@ -101861,7 +102766,7 @@ Rf
 Rf
 Rf
 Rf
-VR
+qD
 tu
 tu
 DG
@@ -102118,7 +103023,7 @@ Rf
 Rf
 Rf
 Rf
-VR
+qD
 tu
 tu
 Ub
@@ -102628,7 +103533,7 @@ Hs
 Hs
 Hs
 Hs
-qD
+VR
 Rf
 Rf
 Rf
@@ -102885,7 +103790,7 @@ Hs
 Hs
 Hs
 Hs
-qD
+VR
 Rf
 Rf
 Rf
