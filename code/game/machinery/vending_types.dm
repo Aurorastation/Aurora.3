@@ -450,7 +450,7 @@
 		/obj/item/reagent_containers/food/drinks/cans/grape_juice = 1.75,
 		/obj/item/reagent_containers/food/drinks/cans/peach_soda = 1.75,
 		/obj/item/reagent_containers/food/drinks/cans/koispunch = 5.00,
-		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 0.50,
+		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 2.25,
 		/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda = 3.50,
 		/obj/item/reagent_containers/food/drinks/carton/small/milk = 1.80,
 		/obj/item/reagent_containers/food/drinks/carton/small/milk/choco = 1.80,
@@ -1655,10 +1655,11 @@
 		/obj/item/storage/overloader/screenshaker = 5
 	)
 	prices = list(
-		/obj/item/storage/overloader/classic = 150.00,
-		/obj/item/storage/overloader/tranquil = 150.00,
-		/obj/item/storage/overloader/rainbow = 150.00,
-		/obj/item/storage/overloader/screenshaker = 150.00,
+		/obj/item/storage/overloader/classic = 50.00,
+		/obj/item/storage/overloader/tranquil = 60.00,
+		/obj/item/storage/overloader/rainbow = 60.00,
+		/obj/item/storage/overloader/screenshaker = 60.00,
+		/obj/item/storage/overloader/jitterbug = 85.00,
 	)
 	contraband = list(
 		/obj/item/storage/overloader/rainbow = 2

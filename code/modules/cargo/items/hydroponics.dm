@@ -115,7 +115,7 @@
 	name = "cow"
 	supplier = "molinaris"
 	description = "Known for their milk, just don't tip them over."
-	price = 600
+	price = 1200
 	items = list(
 		/mob/living/simple_animal/cow
 	)
@@ -143,7 +143,7 @@
 	name = "fatshouter"
 	supplier = "zharkov"
 	description = "A crate containing a fatshouter, an Adhomian animal."
-	price = 600
+	price = 1500
 	items = list(
 		/obj/structure/largecrate/animal/adhomai/fatshouter
 	)
@@ -199,7 +199,7 @@
 	name = "honey extractor"
 	supplier = "vysoka"
 	description = "Needed equipment to extract sweet liquid gold."
-	price = 200
+	price = 80
 	items = list(
 		/obj/machinery/honey_extractor
 	)
@@ -325,7 +325,7 @@
 	name = "queen bee pack"
 	supplier = "vysoka"
 	description = "Contains one queen bee, bee kingdom not included."
-	price = 70
+	price = 40
 	items = list(
 		/obj/item/bee_pack
 	)

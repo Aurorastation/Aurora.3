@@ -521,7 +521,7 @@
 	name = "fatshouters milk carton"
 	supplier = "getmore"
 	description = "Fatty fatshouters milk in a carton."
-	price = 5
+	price = 8.50
 	items = list(
 		/obj/item/reagent_containers/food/drinks/carton/fatshouters
 	)
@@ -633,7 +633,7 @@
 	name = "chip multipack crate"
 	supplier = "getmore"
 	description = "A Getmore supply crate of multipack chip bags."
-	price = 60
+	price = 25
 	items = list(
 		/obj/item/storage/box/fancy/chips,
 		/obj/item/storage/box/fancy/chips/cucumber,
@@ -1305,7 +1305,7 @@
 	name = "Hrozamal Soda (x6)"
 	supplier = "getmore"
 	description = "A half-dozen pack of Hrozamal Soda, for cracking open a cold one."
-	price = 100
+	price = 12
 	items = list(
 		/obj/item/storage/box/hrozamal_soda
 	)
@@ -1318,7 +1318,7 @@
 	name = "Midynhr Water (x6)"
 	supplier = "getmore"
 	description = "A half-dozen pack of Midynhr Water, for cracking open a cold one."
-	price = 8
+	price = 18
 	items = list(
 		/obj/item/storage/box/midynhr_water
 	)
@@ -1480,7 +1480,7 @@
 	name = "Sugar Tree Liquor"
 	supplier = "getmore"
 	description = "Called Nm'shaan Liquor in native Siik'maas, this strong Adhomian liquor is reserved for special occasions. A label on the bottle recommends diluting it with icy water before drinking."
-	price = 25
+	price = 35
 	items = list(
 		/obj/item/reagent_containers/food/drinks/bottle/sugartree_liquor
 	)

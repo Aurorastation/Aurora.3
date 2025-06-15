@@ -3,7 +3,7 @@
 	name = "oxygen tank"
 	supplier = "hephaestus"
 	description = "A man-portable tank containing oxygen, the precious gas of life. Unless you're Vaurca, in which case it's pure poison."
-	price = 15
+	price = 80
 	items = list(
 		/obj/item/tank/oxygen
 	)
@@ -17,7 +17,7 @@
 	name = "phoron tank"
 	supplier = "nanotrasen"
 	description = "A man-portable tank containing phoron, pure poison. Unless you're Vaurca, in which case it's the precious gas of life."
-	price = 130
+	price = 650
 	items = list(
 		/obj/item/tank/phoron
 	)
@@ -31,7 +31,7 @@
 	name = "hydrogen tank"
 	supplier = "hephaestus"
 	description = "A man-portable tank containing hydrogen. Do not inhale. Warning: extremely flammable."
-	price = 30
+	price = 45
 	items = list(
 		/obj/item/tank/hydrogen
 	)
@@ -87,7 +87,7 @@
 	name = "Canister (Boron)"
 	supplier = "hephaestus"
 	description = "Holds boron gas. Has a built-in valve to allow for filling portable tanks."
-	price = 250
+	price = 380
 	items = list(
 		/obj/machinery/portable_atmospherics/canister/boron
 	)
@@ -101,7 +101,7 @@
 	name = "Canister (CO2)"
 	supplier = "hephaestus"
 	description = "Holds heavy CO2 gas. Has a built-in valve to allow for filling portable tanks."
-	price = 130
+	price = 300
 	items = list(
 		/obj/machinery/portable_atmospherics/canister/carbon_dioxide
 	)
@@ -115,7 +115,7 @@
 	name = "Canister (Hydrogen)"
 	supplier = "hephaestus"
 	description = "Holds flammable hydrogen. Has a built-in valve to allow for filling portable tanks."
-	price = 100
+	price = 350
 	items = list(
 		/obj/machinery/portable_atmospherics/canister/hydrogen
 	)
@@ -129,7 +129,7 @@
 	name = "Canister (Helium)"
 	supplier = "hephaestus"
 	description = "Holds voice-changing helium. Has a built-in valve to allow for filling portable tanks."
-	price = 130
+	price = 320
 	items = list(
 		/obj/machinery/portable_atmospherics/canister/helium
 	)
@@ -143,7 +143,7 @@
 	name = "Canister (Nitrogen)"
 	supplier = "hephaestus"
 	description = "Holds inert nitrogen. Has a built-in valve to allow for filling portable tanks."
-	price = 170
+	price = 320
 	items = list(
 		/obj/machinery/portable_atmospherics/canister/nitrogen
 	)
@@ -157,7 +157,7 @@
 	name = "Canister (Nitrous Oxide)"
 	supplier = "hephaestus"
 	description = "Holds sleepy nitrous oxide. Has a built-in valve to allow for filling portable tanks."
-	price = 250
+	price = 650
 	items = list(
 		/obj/machinery/portable_atmospherics/canister/sleeping_agent
 	)
@@ -171,7 +171,7 @@
 	name = "Canister (Oxygen)"
 	supplier = "hephaestus"
 	description = "Holds precious oxygen. Has a built-in valve to allow for filling portable tanks."
-	price = 275
+	price = 450
 	items = list(
 		/obj/machinery/portable_atmospherics/canister/oxygen
 	)
@@ -185,7 +185,7 @@
 	name = "Canister (Phoron)"
 	supplier = "nanotrasen"
 	description = "Holds valuable phoron gas. Has a built-in valve to allow for filling portable tanks."
-	price = 900
+	price = 2500
 	items = list(
 		/obj/machinery/portable_atmospherics/canister/phoron
 	)
@@ -241,7 +241,7 @@
 	name = "atmospherics voidsuit"
 	supplier = "hephaestus"
 	description = "A special suit that protects against hazardous, low pressure environments. Has unmatched thermal protection and minor radiation."
-	price = 220
+	price = 800
 	items = list(
 		/obj/item/clothing/suit/space/void/atmos
 	)
@@ -255,7 +255,7 @@
 	name = "atmospherics voidsuit helmet"
 	supplier = "hephaestus"
 	description = "A special helmet designed for work in a hazardous, low pressure environments. Has unmatched thermal and minor radiation protect."
-	price = 150
+	price = 500
 	items = list(
 		/obj/item/clothing/head/helmet/space/void/atmos
 	)
