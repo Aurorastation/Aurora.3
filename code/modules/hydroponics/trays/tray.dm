@@ -515,20 +515,17 @@
 		return FALSE
 
 	// If the lid is closed, the tray is attacked with a multitool, and stasis is not already enabled, engage stasis. If it is already enabled, disable it.
-	if(closed_system)
-		if(attacking_item.ismultitool() && !stasis)
-			user.visible_message(SPAN_NOTICE("\The [user] engages \the [src]'s stasis mode."), SPAN_NOTICE("You engage stasis on \the [src]."))
-			playsound(src, /singleton/sound_category/button_sound, 50, 1)
-			stasis = TRUE
-			update_icon()
-			return TRUE
-
-		else if(attacking_item.ismultitool() && stasis)
+	if(closed_system && attacking_item.ismultitool())
+		if(stasis)
 			user.visible_message(SPAN_NOTICE("\The [user] disengages \the [src]'s stasis mode."), SPAN_NOTICE("You disengage stasis on \the [src]."))
-			playsound(src, /singleton/sound_category/button_sound, 50, 1)
 			stasis = FALSE
-			update_icon()
-			return TRUE
+		else
+			user.visible_message(SPAN_NOTICE("\The [user] engages \the [src]'s stasis mode."), SPAN_NOTICE("You engage stasis on \the [src]."))
+			stasis = TRUE
+
+		playsound(src, /singleton/sound_category/button_sound, 50, 1)
+		update_icon()
+		return TRUE
 
 	if((attacking_item.iswirecutter() || istype(attacking_item, /obj/item/surgery/scalpel)) && !closed_system)
 
