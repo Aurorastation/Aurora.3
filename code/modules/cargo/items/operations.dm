@@ -3,7 +3,7 @@
 	name = "autakh limbs"
 	supplier = "hephaestus"
 	description = "A box with various autakh limbs."
-	price = 3000
+	price = 1000
 	items = list(
 		/obj/item/organ/external/hand/right/autakh/tool,
 		/obj/item/organ/external/hand/right/autakh/tool/mining,
@@ -19,37 +19,9 @@
 	name = "battlemonsters resupply canister"
 	supplier = "nanotrasen"
 	description = "A vending machine restock cart."
-	price = 500
+	price = 250
 	items = list(
 		/obj/item/device/vending_refill/battlemonsters
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/blackpaint
-	category = "operations"
-	name = "black paint"
-	supplier = "hephaestus"
-	description = "Black paint, the color of space."
-	price = 10
-	items = list(
-		/obj/item/reagent_containers/glass/paint/black
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/bluepaint
-	category = "operations"
-	name = "blue paint"
-	supplier = "hephaestus"
-	description = "Blue paint, for when you're on a mission from god."
-	price = 10
-	items = list(
-		/obj/item/reagent_containers/glass/paint/blue
 	)
 	access = 0
 	container_type = "crate"
@@ -75,7 +47,7 @@
 	name = "camera"
 	supplier = "nanotrasen"
 	description = "A polaroid camera. 10 photos left."
-	price = 80
+	price = 45
 	items = list(
 		/obj/item/device/camera
 	)
@@ -89,7 +61,7 @@
 	name = "cargo train trolley"
 	supplier = "orion"
 	description = "A cargo trolley for carrying cargo, NOT people."
-	price = 1500
+	price = 800
 	items = list(
 		/obj/vehicle/train/cargo/trolley
 	)
@@ -103,7 +75,7 @@
 	name = "cargo train tug"
 	supplier = "orion"
 	description = "A ridable electric car designed for pulling cargo trolleys."
-	price = 500
+	price = 350
 	items = list(
 		/obj/vehicle/train/cargo/engine
 	)
@@ -117,7 +89,7 @@
 	name = "Coat Hanger"
 	supplier = "nanotrasen"
 	description = "To hang your coat."
-	price = 150
+	price = 12
 	items = list(
 		/obj/structure/coatrack
 	)
@@ -131,7 +103,7 @@
 	name = "coffee resupply canister"
 	supplier = "getmore"
 	description = "A vending machine restock cart."
-	price = 500
+	price = 350
 	items = list(
 		/obj/item/device/vending_refill/coffee
 	)
@@ -145,7 +117,7 @@
 	name = "cola resupply canister"
 	supplier = "idris"
 	description = "A vending machine restock cart."
-	price = 500
+	price = 250
 	items = list(
 		/obj/item/device/vending_refill/cola
 	)
@@ -159,7 +131,7 @@
 	name = "cutlery resupply canister"
 	supplier = "nanotrasen"
 	description = "A vending machine restock cart."
-	price = 500
+	price = 350
 	items = list(
 		/obj/item/device/vending_refill/cutlery
 	)
@@ -173,7 +145,7 @@
 	name = "EFTPOS scanner"
 	supplier = "orion"
 	description = "Swipe your ID card to make purchases electronically."
-	price = 45
+	price = 35
 	items = list(
 		/obj/item/device/eftpos
 	)
@@ -187,7 +159,7 @@
 	name = "empty spray bottle"
 	supplier = "blam"
 	description = "A empty spray bottle."
-	price = 50
+	price = 5
 	items = list(
 		/obj/item/reagent_containers/spray
 	)
@@ -215,7 +187,7 @@
 	name = "film cartridge"
 	supplier = "nanotrasen"
 	description = "A camera film cartridge. Insert it into a camera to reload it."
-	price = 15
+	price = 8
 	items = list(
 		/obj/item/device/camera_film
 	)
@@ -229,7 +201,7 @@
 	name = "flare"
 	supplier = "hephaestus"
 	description = "Good for illuminating dark areas or burning someones face off."
-	price = 80
+	price = 8
 	items = list(
 		/obj/item/device/flashlight/flare
 	)
@@ -243,7 +215,7 @@
 	name = "formal wear crate"
 	supplier = "nanotrasen"
 	description = "Formalwear for the best occasions."
-	price = 800
+	price = 350
 	items = list(
 		/obj/item/clothing/head/bowler,
 		/obj/item/clothing/head/that,
@@ -273,34 +245,6 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/greenpaint
-	category = "operations"
-	name = "green paint"
-	supplier = "orion"
-	description = "Green paint, a aesthetic replacement for grass."
-	price = 10
-	items = list(
-		/obj/item/reagent_containers/glass/paint/green
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/hmatrrafillet
-	category = "operations"
-	name = "Hma'trra fillet"
-	supplier = "zharkov"
-	description = "A fillet of glacier worm meat."
-	price = 45
-	items = list(
-		/obj/item/reagent_containers/food/snacks/hmatrrameat
-	)
-	access = 0
-	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -428,34 +372,6 @@
 	groupable = FALSE
 	spawn_amount = 1
 
-/singleton/cargo_item/purplepaint
-	category = "operations"
-	name = "purple paint"
-	supplier = "orion"
-	description = "Purple paint, it makes you feel like royalty."
-	price = 10
-	items = list(
-		/obj/item/reagent_containers/glass/paint/purple
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/redpaint
-	category = "operations"
-	name = "red paint"
-	supplier = "orion"
-	description = "Red paint, its not blood we promise."
-	price = 10
-	items = list(
-		/obj/item/reagent_containers/glass/paint/red
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
 /singleton/cargo_item/robotoolsresupplycanister
 	category = "operations"
 	name = "robo-tools resupply canister"
@@ -475,7 +391,7 @@
 	name = "rolled-up poster - No. 19"
 	supplier = "orion"
 	description = "The poster comes with its own automatic adhesive mechanism, for easy pinning to any vertical surface."
-	price = 38
+	price = 3.50
 	items = list(
 		/obj/item/contraband/poster
 	)
@@ -503,7 +419,7 @@
 	name = "shoulder holster"
 	supplier = "zavodskoi"
 	description = "A handgun holster."
-	price = 23
+	price = 15
 	items = list(
 		/obj/item/clothing/accessory/holster
 	)
@@ -517,7 +433,7 @@
 	name = "smokes resupply canister"
 	supplier = "getmore"
 	description = "A vending machine restock cart."
-	price = 500
+	price = 250
 	items = list(
 		/obj/item/device/vending_refill/smokes
 	)
@@ -531,7 +447,7 @@
 	name = "snacks resupply canister"
 	supplier = "getmore"
 	description = "A vending machine restock cart."
-	price = 967
+	price = 255
 	items = list(
 		/obj/item/device/vending_refill/snack
 	)
@@ -545,7 +461,7 @@
 	name = "space-bike"
 	supplier = "zharkov"
 	description = "Space wheelies! Woo!"
-	price = 1200
+	price = 800
 	items = list(
 		/obj/vehicle/bike
 	)
@@ -559,7 +475,7 @@
 	name = "tools resupply canister"
 	supplier = "hephaestus"
 	description = "A vending machine restock cart."
-	price = 500
+	price = 450
 	items = list(
 		/obj/item/device/vending_refill/tools
 	)
@@ -573,9 +489,51 @@
 	name = "webbing"
 	supplier = "nanotrasen"
 	description = "Sturdy mess of synthcotton belts and buckles, ready to share your burden."
-	price = 83
+	price = 43
 	items = list(
 		/obj/item/clothing/accessory/storage/webbing
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/zorasodaresupplycanister
+	category = "operations"
+	name = "zora soda resupply canister"
+	supplier = "zora"
+	description = "A vending machine restock cart."
+	price = 255
+	items = list(
+		/obj/item/device/vending_refill/zora
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/blackpaint
+	category = "operations"
+	name = "black paint"
+	supplier = "hephaestus"
+	description = "Black paint, the color of space."
+	price = 10
+	items = list(
+		/obj/item/reagent_containers/glass/paint/black
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/bluepaint
+	category = "operations"
+	name = "blue paint"
+	supplier = "hephaestus"
+	description = "Blue paint, for when you're on a mission from god."
+	price = 10
+	items = list(
+		/obj/item/reagent_containers/glass/paint/blue
 	)
 	access = 0
 	container_type = "crate"
@@ -610,14 +568,42 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/zorasodaresupplycanister
+/singleton/cargo_item/purplepaint
 	category = "operations"
-	name = "zora soda resupply canister"
-	supplier = "zora"
-	description = "A vending machine restock cart."
-	price = 800
+	name = "purple paint"
+	supplier = "orion"
+	description = "Purple paint, it makes you feel like royalty."
+	price = 10
 	items = list(
-		/obj/item/device/vending_refill/zora
+		/obj/item/reagent_containers/glass/paint/purple
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/redpaint
+	category = "operations"
+	name = "red paint"
+	supplier = "orion"
+	description = "Red paint, its not blood we promise."
+	price = 10
+	items = list(
+		/obj/item/reagent_containers/glass/paint/red
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/greenpaint
+	category = "operations"
+	name = "green paint"
+	supplier = "orion"
+	description = "Green paint, a aesthetic replacement for grass."
+	price = 10
+	items = list(
+		/obj/item/reagent_containers/glass/paint/green
 	)
 	access = 0
 	container_type = "crate"

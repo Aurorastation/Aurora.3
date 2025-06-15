@@ -3,7 +3,7 @@
 	name = "auto-chisel"
 	supplier = "nanotrasen"
 	description = "With an integrated AI chip and hair-trigger precision, this baby makes sculpting almost automatic!"
-	price = 500
+	price = 125
 	items = list(
 		/obj/item/autochisel
 	)
@@ -31,7 +31,7 @@
 	name = "space air conditioner"
 	supplier = "nanotrasen"
 	description = "Made by Space Amish using traditional space techniques, this A/C unit can heat or cool a room to your liking."
-	price = 200
+	price = 90
 	items = list(
 		/obj/machinery/space_heater
 	)

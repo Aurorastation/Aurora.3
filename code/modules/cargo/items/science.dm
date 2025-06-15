@@ -72,7 +72,7 @@
 	name = "hazmat hood"
 	supplier = "nanotrasen"
 	description = "This hood protects against biological hazards."
-	price = 105
+	price = 65
 	items = list(
 		/obj/item/clothing/head/hazmat/general
 	)
@@ -86,7 +86,7 @@
 	name = "hazmat suit"
 	supplier = "nanotrasen"
 	description = "This suit protects against biological hazards."
-	price = 105
+	price = 100
 	items = list(
 		/obj/item/clothing/suit/hazmat/general
 	)
@@ -113,8 +113,8 @@
 	category = "science"
 	name = "mindshield firing pin"
 	supplier = "nanotrasen"
-	description = "This implant - locked firing pin authorizes the weapon for only loyalty - implanted users."
-	price = 2000
+	description = "This implant - locked firing pin authorizes the weapon for only mindshield-implanted users."
+	price = 800
 	items = list(
 		/obj/item/device/firing_pin/implant/loyalty
 	)
@@ -128,7 +128,7 @@
 	name = "Proto-Human"
 	supplier = "zeng_hu"
 	description = "A human body, vat-grown and artificially raised without a functional brain. The everyman's relatively-ethical solution to organ harvesting."
-	price = 2300
+	price = 1300
 	items = list(
 		/mob/living/carbon/human
 	)
@@ -142,7 +142,7 @@
 	name = "Proto-Skrell"
 	supplier = "zeng_hu"
 	description = "A Skrell body, vat-grown and artificially raised without a functional brain. The everyman's relatively-ethical solution to organ harvesting."
-	price = 4000
+	price = 2600
 	items = list(
 		/mob/living/carbon/human/skrell
 	)
@@ -156,7 +156,7 @@
 	name = "Proto-Tajara"
 	supplier = "zeng_hu"
 	description = "A Tajara body, vat-grown and artificially raised without a functional brain. The everyman's relatively-ethical solution to organ harvesting."
-	price = 1800
+	price = 1500
 	items = list(
 		/mob/living/carbon/human/tajaran
 	)
@@ -170,7 +170,7 @@
 	name = "Proto-Unathi"
 	supplier = "zeng_hu"
 	description = "An Unathi body, vat-grown and artificially raised without a functional brain. The everyman's relatively-ethical solution to organ harvesting."
-	price = 2000
+	price = 1300
 	items = list(
 		/mob/living/carbon/human/unathi
 	)
@@ -198,7 +198,7 @@
 	name = "proximity sensor"
 	supplier = "nanotrasen"
 	description = "Used for scanning and alerting when someone enters a certain proximity."
-	price = 75
+	price = 35
 	items = list(
 		/obj/item/device/assembly/prox_sensor
 	)
@@ -212,7 +212,7 @@
 	name = "test - range firing pin"
 	supplier = "nanotrasen"
 	description = "This safety firing pin allows weapons to be fired within proximity to a firing range."
-	price = 500
+	price = 200
 	items = list(
 		/obj/item/device/firing_pin/test_range
 	)
@@ -226,7 +226,7 @@
 	name = "timer"
 	supplier = "nanotrasen"
 	description = "Used to time things. Works well with contraptions which has to count down. Tick tock."
-	price = 75
+	price = 22
 	items = list(
 		/obj/item/device/assembly/timer
 	)

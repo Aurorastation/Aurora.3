@@ -120,7 +120,7 @@ export const ShowAllItems = (props, context) => {
                 <Flex.Item py={2} px={2}>
                   {product.price ? (
                     <Box as="span" fontSize="10px">
-                      {product.price}电
+                      {product.price.toFixed(2)}电
                     </Box>
                   ) : (
                     ''
@@ -152,7 +152,9 @@ export const ShowVendingItem = (props, context) => {
         <LabeledList.Item label="Selected Item">
           {capitalizeAll(data.sel_name)}
         </LabeledList.Item>
-        <LabeledList.Item label="Price">{data.sel_price}电</LabeledList.Item>
+        <LabeledList.Item label="Price">
+          {data.sel_price.toFixed(2)}电
+        </LabeledList.Item>
       </LabeledList>
       Please swipe your SCC ID to pay. &nbsp;
       {data.message_err ? (

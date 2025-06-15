@@ -15,7 +15,7 @@
 	var/shuttle_time = 100
 
 	/// The additional price an order incurs for ordering a shuttle from this supplier.
-	var/shuttle_price = 100
+	var/shuttle_price = 20
 
 	/// Whether or not this supplier is available or not.
 	var/available = TRUE
