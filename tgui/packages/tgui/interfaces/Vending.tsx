@@ -152,7 +152,9 @@ export const ShowVendingItem = (props, context) => {
         <LabeledList.Item label="Selected Item">
           {capitalizeAll(data.sel_name)}
         </LabeledList.Item>
-        <LabeledList.Item label="Price">{data.sel_price.toFixed(2)}电</LabeledList.Item>
+        <LabeledList.Item label="Price">
+          {data.sel_price.toFixed(2)}电
+        </LabeledList.Item>
       </LabeledList>
       Please swipe your SCC ID to pay. &nbsp;
       {data.message_err ? (
