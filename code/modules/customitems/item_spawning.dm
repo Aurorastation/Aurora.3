@@ -324,6 +324,10 @@ GLOBAL_LIST_EMPTY(character_id_to_custom_items_mapping)
 	else if(citem.item_path == /obj/item/modular_computer)
 		existing_item = locate(/obj/item/modular_computer) in target_mob.contents
 
+	// So prosthetics or augments don't spawn in both variations of this proc.
+	if(ispath(citem.item_path, /obj/item/organ/external) || ispath(citem.item_path, /obj/item/organ/internal/augment/fluff))
+		return FALSE
+
 	// Spawn and equip the item.
 	if(existing_item)
 		citem.apply_to_item(existing_item)
