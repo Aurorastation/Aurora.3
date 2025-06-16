@@ -41,7 +41,7 @@
 
 /area/himeo_patrol_ship/barracks
 	name = "Himean Patrol Vessel - Barracks"
-	icon_state = "crew"
+	icon_state = "crew_quarters"
 
 /area/himeo_patrol_ship/distribution
 	name = "Himean Patrol Vessel - Distribution"
