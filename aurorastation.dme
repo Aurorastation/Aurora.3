@@ -3985,6 +3985,7 @@
 #include "maps\away\scenarios\ruined_propellant_depot\ruined_propellant_depot_scenario.dm" */
 #include "maps\away\scenarios\swamptown\swamptown.dm"
 #include "maps\away\scenarios\swamptown\swamptown_areas.dm"
+#include "maps\away\scenarios\swamptown\swamptown_landmarks.dm"
 #include "maps\away\scenarios\swamptown\swamptown_scenario.dm"
 #include "maps\away\ships\biesel\tcaf_corvette\tcaf_corvette.dm"
 #include "maps\away\ships\biesel\tcaf_corvette\tcaf_corvette_areas.dm"

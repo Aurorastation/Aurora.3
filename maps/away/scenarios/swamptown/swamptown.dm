@@ -33,11 +33,5 @@
     color = "#f7e3e3"
     comms_support = TRUE
     initial_generic_waypoints = list(
-        "nav_swamptown_landing")
-
-//Landmark
-
-/obj/effect/shuttle_landmark/swamptown/surface/landhereplease
-    name = "Surface, Landing Area"
-    landmark_tag = "nav_swamptown_landing"
-    dir = NORTH
+        "nav_swamptown_landing",
+	)
