@@ -917,6 +917,17 @@
 /obj/structure/table/rack/folding_table,
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/random/dirt_75,
+/obj/item/reagent_containers/food/drinks/drinkingglass{
+	pixel_y = 6;
+	pixel_x = -9
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass{
+	pixel_y = 2
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass{
+	pixel_y = 12;
+	pixel_x = 9
+	},
 /turf/simulated/floor/tiled/light,
 /area/himeo_patrol_ship/messhall)
 "fc" = (
@@ -1326,6 +1337,7 @@
 	id = "himeo_patrol_igniter_engine";
 	pixel_x = -10
 	},
+/obj/effect/map_effect/perma_light,
 /turf/simulated/floor/reinforced/airless,
 /area/himeo_patrol_ship/generator)
 "hT" = (
@@ -2308,6 +2320,7 @@
 	master_tag = "himeo_military_co2"
 	},
 /obj/machinery/atmospherics/unary/outlet_injector,
+/obj/effect/map_effect/perma_light,
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/himeo_patrol_ship/thruster_aft)
 "oe" = (
@@ -3653,6 +3666,9 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/light,
 /area/himeo_patrol_ship/messhall)
+"wJ" = (
+/turf/simulated/floor/plating,
+/area/himeo_patrol_ship/messhall)
 "wK" = (
 /obj/random/dirt_75,
 /obj/structure/closet/crate/bin{
@@ -4015,7 +4031,6 @@
 /turf/simulated/floor/tiled/white,
 /area/himeo_patrol_ship/infirmary)
 "yw" = (
-/obj/effect/floor_decal/corner/brown,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/steel,
 /area/himeo_patrol_ship/messhall)
@@ -4299,11 +4314,8 @@
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/distribution)
 "zS" = (
-/obj/structure/table/standard,
-/obj/effect/floor_decal/corner/brown/full,
 /obj/random/dirt_75,
-/obj/structure/reagent_dispensers/keg/kvass,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/wall/shuttle/dark/cardinal/black,
 /area/himeo_patrol_ship/messhall)
 "zV" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -5226,6 +5238,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/deck_2_interstitial)
+"ES" = (
+/turf/simulated/floor/plating,
+/area/space)
 "ET" = (
 /obj/machinery/door/airlock/vault{
 	req_access = list(253);
@@ -5440,23 +5455,9 @@
 /turf/simulated/floor/reinforced,
 /area/himeo_patrol_ship/thruster_aft)
 "FY" = (
-/obj/structure/table/standard,
-/obj/item/reagent_containers/food/drinks/drinkingglass{
-	pixel_y = 6;
-	pixel_x = -9
-	},
-/obj/item/reagent_containers/food/drinks/drinkingglass{
-	pixel_y = 2
-	},
-/obj/item/reagent_containers/food/drinks/drinkingglass{
-	pixel_y = 12;
-	pixel_x = 9
-	},
-/obj/effect/floor_decal/corner/brown/full{
-	dir = 4
-	},
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/steel,
+/obj/machinery/door/airlock/external,
+/turf/simulated/floor/plating,
 /area/himeo_patrol_ship/messhall)
 "FZ" = (
 /obj/structure/cable/green{
@@ -6332,14 +6333,13 @@
 /turf/simulated/floor/reinforced,
 /area/himeo_patrol_ship/ammunition)
 "MT" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 9
-	},
 /obj/machinery/light/colored/decayed/dimmed{
 	dir = 8
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/steel,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/turf/simulated/floor/plating,
 /area/himeo_patrol_ship/messhall)
 "MX" = (
 /obj/structure/closet,
@@ -8183,6 +8183,7 @@
 "Xc" = (
 /obj/structure/table/rack/folding_table,
 /obj/effect/floor_decal/corner/red/diagonal,
+/obj/structure/reagent_dispensers/keg/kvass,
 /turf/simulated/floor/tiled/light,
 /area/himeo_patrol_ship/messhall)
 "Xe" = (
@@ -8388,12 +8389,12 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/thruster_aft)
 "YI" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
 /obj/structure/closet/crate/bin{
 	pixel_y = 0;
 	pixel_x = -7
-	},
-/obj/effect/floor_decal/corner/brown{
-	dir = 9
 	},
 /turf/simulated/floor/tiled/steel,
 /area/himeo_patrol_ship/messhall)
@@ -8595,6 +8596,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship)
+"ZP" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "ZQ" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -36719,7 +36726,7 @@ Xh
 Xh
 Xh
 Xh
-Xh
+dH
 wT
 rs
 rs
@@ -36976,7 +36983,7 @@ Xh
 Xh
 Xh
 Xh
-Xh
+dH
 ah
 Ty
 sh
@@ -37233,7 +37240,7 @@ Xh
 Xh
 Xh
 Xh
-Xh
+dH
 ah
 fK
 dr
@@ -38004,7 +38011,7 @@ Xh
 Xh
 Xh
 Xh
-Xh
+dH
 ah
 Ty
 Ts
@@ -38261,7 +38268,7 @@ Xh
 Xh
 Xh
 Xh
-Xh
+dH
 ah
 fK
 sh
@@ -38518,7 +38525,7 @@ Xh
 Xh
 Xh
 Xh
-Xh
+dH
 ud
 si
 si
@@ -41651,7 +41658,7 @@ kA
 mI
 yw
 FY
-vP
+wJ
 Zg
 Nq
 he
@@ -41908,7 +41915,7 @@ Yo
 qN
 OW
 vP
-vP
+wJ
 Zg
 tN
 UX
@@ -42165,7 +42172,7 @@ Cz
 sL
 Mk
 vP
-Xh
+ES
 Zg
 dL
 qg
@@ -42422,7 +42429,7 @@ hT
 YL
 Mk
 vP
-Xh
+ZP
 Zg
 xD
 xD
@@ -42887,7 +42894,7 @@ Xh
 Xh
 Xh
 Xh
-Xh
+dH
 eq
 bI
 an
@@ -43144,7 +43151,7 @@ Xh
 Xh
 Xh
 Xh
-Xh
+dH
 Az
 Ty
 sh
@@ -43401,7 +43408,7 @@ Xh
 Xh
 Xh
 Xh
-Xh
+dH
 Az
 fK
 dr
@@ -44172,7 +44179,7 @@ Xh
 Xh
 Xh
 Xh
-Xh
+dH
 Az
 Ty
 Ts
@@ -44429,7 +44436,7 @@ Xh
 Xh
 Xh
 Xh
-Xh
+dH
 Az
 fK
 sh
@@ -44686,7 +44693,7 @@ Xh
 Xh
 Xh
 Xh
-Xh
+dH
 ud
 si
 si
