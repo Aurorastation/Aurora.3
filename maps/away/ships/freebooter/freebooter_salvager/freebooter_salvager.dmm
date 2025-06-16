@@ -663,6 +663,7 @@
 	req_one_access = null
 	},
 /obj/structure/dispenser/oxygen,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/afthallway)
 "cJ" = (
@@ -6446,7 +6447,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/engineering)
 "DU" = (
