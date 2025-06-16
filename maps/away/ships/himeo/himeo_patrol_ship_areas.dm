@@ -83,6 +83,17 @@
 	name = "Himean Patrol Vessel - Deck Two, Dock Interstitial Area"
 	icon_state = "arrivals_dock"
 
+/area/himeo_patrol_ship/deck_2_office
+	name = "Himean Patrol Vessel - Deck Two, Office"
+	icon_state = "conference"
+
+/area/himeo_patrol_ship/deck_2_checkpoint
+	name = "Himean Patrol Vessel - Deck Two, Checkpoint"
+	icon_state = "checkpoint1"
+
+/area/himeo_patrol_ship/deck_2_fore
+	name = "Himean Patrol Vessel - Deck Two, Fore Docking Arm"
+	icon_state = "entry_1"
 // Shuttle
 /area/shuttle/himeo_patrol
 	name = "Himean Patrol Shuttle"
