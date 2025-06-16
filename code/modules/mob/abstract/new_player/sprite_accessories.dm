@@ -1370,10 +1370,20 @@ Follow by example and make good judgement based on length which list to include 
 	length = 2
 	chatname = "unshaved hair"
 
+/datum/sprite_accessory/hair/punk_sidecut_left_sh
+	name = "Punk Shave, Sidecut Short Left"
+	icon_state = "hair_punk_sideleft_sh"
+	chatname = "unshaved hair"
+
 /datum/sprite_accessory/hair/punk_sidecut_right
 	name = "Punk Shave, Sidecut Right"
 	icon_state = "hair_punk_sideright"
 	length = 2
+	chatname = "unshaved hair"
+
+/datum/sprite_accessory/hair/punk_sidecut_right_sh
+	name = "Punk Shave, Sidecut Short Right"
+	icon_state = "hair_punk_sideright_sh"
 	chatname = "unshaved hair"
 
 /datum/sprite_accessory/hair/quiff

@@ -123,6 +123,12 @@
 	molar_mass = 0.011
 	flags = XGM_GAS_FUSION_FUEL
 
+/singleton/xgm_gas/nitrogendioxide
+	id = GAS_NO2
+	name = "Nitrogen Dioxide"
+	specific_heat = 33	// J/(mol*K)
+	molar_mass = 0.046	// kg/mol
+
 /singleton/xgm_gas/purble
 	id = GAS_PURBLE
 	name = "Purble"
