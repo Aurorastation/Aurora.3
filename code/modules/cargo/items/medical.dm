@@ -21,7 +21,7 @@
 	name = "first-aid kit"
 	supplier = "nanotrasen"
 	description = "A basic medical kit for those boo-boos."
-	price = 100
+	price = 60
 	items = list(
 		/obj/item/storage/firstaid/regular
 	)
@@ -35,7 +35,7 @@
 	name = "advanced first-aid kit"
 	supplier = "nanotrasen"
 	description = "An emergency medical kit for general severe injuries."
-	price = 300
+	price = 200
 	items = list(
 		/obj/item/storage/firstaid/adv
 	)
@@ -49,7 +49,7 @@
 	name = "large advanced first-aid kit"
 	supplier = "nanotrasen"
 	description = "A large emergency medical kit for many general severe injuries."
-	price = 600
+	price = 400
 	items = list(
 		/obj/item/storage/firstaid/large/adv
 	)
@@ -63,7 +63,7 @@
 	name = "fire first-aid kit"
 	supplier = "nanotrasen"
 	description = "An emergency medical kit for serious burns, either chemical or temperature."
-	price = 250
+	price = 150
 	items = list(
 		/obj/item/storage/firstaid/fire
 	)
@@ -77,7 +77,7 @@
 	name = "oxygen deprivation first aid"
 	supplier = "nanotrasen"
 	description = "An emergency medical kit for oxygen deprivation, including cardiac arrest."
-	price = 250
+	price = 150
 	items = list(
 		/obj/item/storage/firstaid/o2
 	)
@@ -91,7 +91,7 @@
 	name = "toxin first aid"
 	supplier = "nanotrasen"
 	description = "An emergency medical kit for toxin exposure."
-	price = 250
+	price = 150
 	items = list(
 		/obj/item/storage/firstaid/toxin
 	)
@@ -105,7 +105,7 @@
 	name = "radiation first aid"
 	supplier = "nanotrasen"
 	description = "An emergency medical kit for severe radiation exposure."
-	price = 250
+	price = 150
 	items = list(
 		/obj/item/storage/firstaid/radiation
 	)
@@ -119,7 +119,7 @@
 	name = "O- blood pack (x1)"
 	supplier = "zeng_hu"
 	description = "A blood pack filled with universally-compatible O- Blood."
-	price = 60
+	price = 120
 	items = list(
 		/obj/item/reagent_containers/blood/OMinus
 	)
@@ -133,7 +133,7 @@
 	name = "SBS blood pack (x1)"
 	supplier = "zeng_hu"
 	description = "A blood pack filled with Synthetic Blood Substitute. WARNING: Not compatible with organic blood!"
-	price = 85
+	price = 105
 	items = list(
 		/obj/item/reagent_containers/blood/sbs
 	)

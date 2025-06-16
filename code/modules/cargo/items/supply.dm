@@ -3,7 +3,7 @@
 	name = "boxes (x5)"
 	supplier = "orion"
 	description = "Versatile cardboard boxes."
-	price = 25
+	price = 15
 	items = list(
 		/obj/item/storage/box
 	)
@@ -269,7 +269,7 @@
 	name = "large potted plant"
 	supplier = "nanotrasen"
 	description = "A random large potted plant, for when you want to add some greenery to your office space."
-	price = 100
+	price = 70
 	items = list(
 		/obj/random/pottedplant
 	)
