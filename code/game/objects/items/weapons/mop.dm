@@ -21,18 +21,15 @@
 	var/cleantime = 25
 	var/last_clean
 	var/clean_msg = FALSE
-	// If it's Horizon janitorial supplies, track it for the app.
-	var/tracked_supply = 0
 
 /obj/item/mop/Initialize()
 	. = ..()
 	create_reagents(30)
 	if(is_station_turf(get_turf(src)))
-		tracked_supply = 1
 		GLOB.janitorial_supplies |= src
 
 /obj/item/mop/Destroy()
-	if(tracked_supply)
+	if(src in GLOB.janitorial_supplies)
 		GLOB.janitorial_supplies -= src
 	return ..()
 

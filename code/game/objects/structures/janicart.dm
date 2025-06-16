@@ -24,8 +24,6 @@
 	var/has_items = FALSE //This is set true whenever the cart has anything loaded/mounted on it
 	var/driving
 	var/mob/living/pulling
-	// If it's Horizon janitorial supplies, track it for the app.
-	var/tracked_supply = 0
 
 // Regular Variant
 // No trashbag and no light replacer, this is inside the custodian's locker.
@@ -77,11 +75,10 @@
 /obj/structure/janitorialcart/New()
 	..()
 	if(is_station_turf(get_turf(src)))
-		tracked_supply = 1
 		GLOB.janitorial_supplies |= src
 
 /obj/structure/janitorialcart/Destroy()
-	if(tracked_supply)
+	if(src in GLOB.janitorial_supplies)
 		GLOB.janitorial_supplies -= src
 	QDEL_NULL(mybag)
 	QDEL_NULL(mymop)
