@@ -6,7 +6,6 @@
 	prefix = "ships/freebooter/freebooter_salvager/"
 	suffix = "freebooter_salvager.dmm"
 
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 	traits = list(
 		list(ZTRAIT_AWAY = TRUE, ZTRAIT_UP = TRUE, ZTRAIT_DOWN = FALSE),
 		list(ZTRAIT_AWAY = TRUE, ZTRAIT_UP = FALSE, ZTRAIT_DOWN = TRUE),
