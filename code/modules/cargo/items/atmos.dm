@@ -240,7 +240,7 @@
 	category = "atmos"
 	name = "atmospherics voidsuit"
 	supplier = "hephaestus"
-	description = "A special suit that protects against hazardous, low pressure environments. Has unmatched thermal protection and minor radiation."
+	description = "A special suit that protects against hazardous, low pressure environments. Has unmatched thermal protection and minor radiation protection."
 	price = 800
 	items = list(
 		/obj/item/clothing/suit/space/void/atmos
@@ -254,7 +254,7 @@
 	category = "atmos"
 	name = "atmospherics voidsuit helmet"
 	supplier = "hephaestus"
-	description = "A special helmet designed for work in a hazardous, low pressure environments. Has unmatched thermal and minor radiation protect."
+	description = "A special helmet designed for work in a hazardous, low pressure environments. Has unmatched thermal and minor radiation protection."
 	price = 500
 	items = list(
 		/obj/item/clothing/head/helmet/space/void/atmos
