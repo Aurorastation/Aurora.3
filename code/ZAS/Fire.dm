@@ -33,7 +33,7 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 	var/igniting = 0
 	var/obj/effect/decal/cleanable/liquid_fuel/liquid = locate() in src
 
-	if(air_contents.check_combustability(liquid))
+	if(air_contents.check_combustibility(liquid))
 		igniting = 1
 
 		create_fire(exposed_temperature)
@@ -180,7 +180,7 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 				//if(!enemy_tile.zone.fire_tiles.len) TODO - optimize
 				var/datum/gas_mixture/acs = enemy_tile.return_air()
 				var/obj/effect/decal/cleanable/liquid_fuel/liquid = locate() in enemy_tile
-				if(!acs || !acs.check_combustability(liquid))
+				if(!acs || !acs.check_combustibility(liquid))
 					continue
 
 				//If extinguisher mist passed over the turf it's trying to spread to, don't spread and
@@ -332,7 +332,7 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 		adjust_gas(GAS_CO2, used_oxidizers)
 
 		if(zone)
-			zone.remove_liquidfuel(used_liquid_fuel, !check_combustability())
+			zone.remove_liquidfuel(used_liquid_fuel, !check_combustibility())
 
 		//calculate the energy produced by the reaction and then set the new temperature of the mix
 		temperature = (starting_energy + GLOB.vsc.fire_fuel_energy_release * (used_gas_fuel + used_liquid_fuel)) / heat_capacity()
@@ -364,7 +364,7 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 			. = 1
 			break
 
-/datum/gas_mixture/proc/check_combustability(obj/effect/decal/cleanable/liquid_fuel/liquid=null)
+/datum/gas_mixture/proc/check_combustibility(obj/effect/decal/cleanable/liquid_fuel/liquid=null)
 	. = 0
 	for(var/g in gas)
 		if(gas_data.flags[g] & XGM_GAS_OXIDIZER && QUANTIZE(gas[g] * GLOB.vsc.fire_consuption_rate) >= 0.1)

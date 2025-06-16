@@ -54,6 +54,16 @@
 #define MINIMUM_TEMPERATURE_DELTA_TO_SUSPEND      4
 #define MINIMUM_TEMPERATURE_DELTA_TO_CONSIDER     0.5
 
+// Moles in a standard cell after which gases are visible
+#define MOLES_GAS_VISIBLE 0.25
+
+// moles_visible * FACTOR_GAS_VISIBLE_MAX = Moles after which gas is at maximum visibility
+#define FACTOR_GAS_VISIBLE_MAX 20
+// Mole step for alpha updates. This means alpha can update at 0.25, 0.5, 0.75 and so on
+#define MOLES_GAS_VISIBLE_STEP 0.25
+// The total visible states
+#define TOTAL_VISIBLE_STATES (FACTOR_GAS_VISIBLE_MAX * (1 / MOLES_GAS_VISIBLE_STEP))
+
 // Minimum temperature difference before the gas temperatures are just set to be equal.
 #define MINIMUM_TEMPERATURE_FOR_SUPERCONDUCTION   (T20C + 10)   // Currently NOT IN USE.
 #define MINIMUM_TEMPERATURE_START_SUPERCONDUCTION (T20C + 200)  // Currently NOT IN USE.
