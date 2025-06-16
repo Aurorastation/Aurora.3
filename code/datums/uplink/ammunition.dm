@@ -13,7 +13,7 @@
 /datum/uplink_item/item/ammo/mc9mm/polymer
 	name = "AP 9mm Magazine"
 	path = /obj/item/ammo_magazine/mc9mm/polymer
-	desc = "Contains twelve rounds of Armor-Piericing 9mm bullets."
+	desc = "Contains twelve rounds of armor-piercing 9mm bullets."
 
 /datum/uplink_item/item/ammo/darts
 	name = "Chemical Darts"
