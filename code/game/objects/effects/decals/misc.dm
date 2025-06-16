@@ -28,14 +28,6 @@
 	anchored = 1
 	layer = OBJ_LAYER
 
-// Fancy animated effect used for the holodecks.
-/obj/effect/decal/rolling_fog
-	name = "rolling fog"
-	icon = 'icons/effects/props/holodeck/biesel/32x32.dmi'
-	icon_state = "fog_roll"
-	anchored = 1
-	layer = ABOVE_PROJECTILE_LAYER
-
 /obj/effect/decal/fake_object/Initialize(mapload)
 	.=..()
 	appearance_flags &= ~TILE_BOUND

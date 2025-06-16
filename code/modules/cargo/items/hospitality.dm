@@ -1540,14 +1540,14 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/sugartree_liquor
+/singleton/cargo_item/nmshaan_liquor
 	category = "hospitality"
-	name = "Sugar Tree Liquor"
+	name = "Nm'shaan Liquor"
 	supplier = "getmore"
-	description = "Called Nm'shaan Liquor in native Siik'maas, this strong Adhomian liquor is reserved for special occasions. A label on the bottle recommends diluting it with icy water before drinking."
+	description = "A strong Adhomian liquor reserved for special occasions. A label on the bottle recommends diluting it with icy water before drinking."
 	price = 200
 	items = list(
-		/obj/item/reagent_containers/food/drinks/bottle/sugartree_liquor
+		/obj/item/reagent_containers/food/drinks/bottle/nmshaan_liquor
 	)
 	access = 0
 	container_type = "crate"

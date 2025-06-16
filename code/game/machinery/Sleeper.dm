@@ -85,10 +85,7 @@
 /obj/machinery/sleeper/update_icon()
 	flick("[initial(icon_state)]-anim", src)
 	if(occupant)
-		if(stat & NOPOWER || stat & BROKEN)
-			icon_state = "[initial(icon_state)]-closed"
-		else
-			icon_state = "[initial(icon_state)]-working"
+		icon_state = "[initial(icon_state)]-closed"
 		return
 	else
 		icon_state = initial(icon_state)
@@ -275,7 +272,7 @@
 		to_chat(user, "You [src.panel_open ? "open" : "close"] the maintenance panel.")
 		ClearOverlays()
 		if(src.panel_open)
-			AddOverlays("[initial(icon_state)]-panel")
+			AddOverlays("[initial(icon_state)]-o")
 		return TRUE
 	else if(default_part_replacement(user, attacking_item))
 		return TRUE

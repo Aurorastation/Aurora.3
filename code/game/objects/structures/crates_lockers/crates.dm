@@ -711,17 +711,3 @@
 	desc = "A secure security crate. Secure."
 	icon_state = "security_crate"
 	secure = TRUE
-
-/obj/structure/closet/crate/drinks
-	name = "exotic drinks crate"
-	desc = "A crate packed with boxes of various beverages. Handle with care!"
-
-/obj/structure/closet/crate/drinks/fill()
-	new /obj/item/storage/box/burukutu(src)
-	new /obj/item/storage/box/skrellbeerdyn(src)
-	new /obj/item/storage/box/khlibnyz(src)
-	new /obj/item/storage/box/hrozamal_soda(src)
-	new /obj/item/storage/box/xuizijuice(src)
-	new /obj/item/storage/box/midynhr_water(src)
-	new /obj/item/storage/box/fancy/yoke/grape_juice(src)
-	new /obj/item/storage/box/fancy/yoke/beetle_milk(src)

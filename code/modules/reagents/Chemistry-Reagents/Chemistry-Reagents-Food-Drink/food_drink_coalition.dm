@@ -32,8 +32,9 @@
 
 /singleton/reagent/drink/tea/hakhma_tea/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder) //milk effects
 	..()
-	M.heal_organ_damage(0.1 * removed, 0)
-	holder.remove_reagent(/singleton/reagent/capsaicin, 10 * removed)
+	if(alien != IS_DIONA)
+		M.heal_organ_damage(0.1 * removed, 0)
+		holder.remove_reagent(/singleton/reagent/capsaicin, 10 * removed)
 
 /singleton/reagent/drink/bochbrew
 	name = "Boch Brew"

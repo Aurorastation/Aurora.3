@@ -118,19 +118,10 @@
 	contents_path = "-food"
 	accepted_items = list(/obj/item/reagent_containers/food/snacks)
 
-/obj/machinery/smartfridge/foodheater/stand
-	desc = "A more commercialized version of your traditional SmartHeater. Nothing like stale, heat-lamp warmed food."
-	use_power = POWER_USE_OFF
-	idle_power_usage = 0
-	active_power_usage = 0
-
-/obj/machinery/smartfridge/foodheater/stand/powered()
-	return TRUE
-
 /obj/machinery/smartfridge/foodheater/abandoned
 	// badly stocked, with trash, junk, etc
 	desc = "Used to keep food nice and warm in the past, now it is all dirty, and doesn't look like it'll ever run again."
-	use_power = POWER_USE_OFF
+	use_power = 0
 
 /obj/machinery/smartfridge/seeds
 	name = "\improper MegaSeed Storage"
@@ -397,8 +388,7 @@
 /obj/machinery/smartfridge/attack_hand(mob/user)
 	if(stat & (NOPOWER|BROKEN))
 		return
-	if(panel_open)
-		wires.interact(user)
+	wires.interact(user)
 	ui_interact(user)
 
 /*******************

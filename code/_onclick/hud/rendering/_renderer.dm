@@ -286,13 +286,6 @@ INITIALIZE_IMMEDIATE(/atom/movable/renderer)
 	plane = HUD_PLANE
 	renderer_flags = RENDERER_FLAG_AUTO
 
-/// Draws balloon alert elements. NOT RUNECHAT
-/atom/movable/renderer/balloon_alert
-	name = "Balloon Chat"
-	group = RENDER_GROUP_SCREEN
-	plane = BALLOON_CHAT_PLANE
-	renderer_flags = RENDERER_FLAG_AUTO
-
 
 /* *
 * Group renderers
