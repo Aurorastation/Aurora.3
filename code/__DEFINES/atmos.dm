@@ -6,7 +6,7 @@
 // Standard atmosphere gas percentages.
 #define O2STANDARD  0.21
 #define N2STANDARD  0.78
-#define H20STANDARD 0.01
+#define H2OSTANDARD 0.01
 
 // Moles in a standard cell after which phoron is visible.
 #define MOLES_PHORON_VISIBLE 0.7
