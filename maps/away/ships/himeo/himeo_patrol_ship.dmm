@@ -1484,7 +1484,6 @@
 /area/himeo_patrol_ship/hydroponics)
 "iJ" = (
 /obj/structure/lattice/catwalk/indoor,
-/obj/structure/lattice/catwalk/indoor,
 /obj/structure/ladder/up,
 /obj/structure/railing/mapped,
 /turf/template_noop,
@@ -3136,7 +3135,6 @@
 /area/himeo_patrol_ship/thruster_port)
 "tg" = (
 /obj/structure/lattice/catwalk/indoor,
-/obj/structure/lattice/catwalk/indoor,
 /obj/structure/ladder/up,
 /obj/structure/railing/mapped{
 	dir = 4
@@ -3591,13 +3589,8 @@
 /turf/template_noop,
 /area/space)
 "wr" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/structure/lattice/catwalk/indoor,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/template_noop,
-/area/space)
+/turf/simulated/floor/plating,
+/area/himeo_patrol_ship/messhall)
 "wu" = (
 /obj/structure/table/standard,
 /obj/structure/closet/walllocker/medical/secure{
@@ -3665,9 +3658,6 @@
 /obj/machinery/smartfridge/foodheater,
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/light,
-/area/himeo_patrol_ship/messhall)
-"wJ" = (
-/turf/simulated/floor/plating,
 /area/himeo_patrol_ship/messhall)
 "wK" = (
 /obj/random/dirt_75,
@@ -3789,6 +3779,12 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/himeo_patrol_ship/washroom)
+"xn" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "xo" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /obj/structure/lattice,
@@ -4820,7 +4816,6 @@
 /area/himeo_patrol_ship/infirmary)
 "Ct" = (
 /obj/structure/lattice/catwalk/indoor,
-/obj/structure/lattice/catwalk/indoor,
 /obj/structure/ladder/up,
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
@@ -5238,9 +5233,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/deck_2_interstitial)
-"ES" = (
-/turf/simulated/floor/plating,
-/area/space)
 "ET" = (
 /obj/machinery/door/airlock/vault{
 	req_access = list(253);
@@ -7740,6 +7732,9 @@
 /obj/random/dirt_75,
 /turf/unsimulated/floor/wood,
 /area/himeo_patrol_ship/deck_2_office)
+"Uj" = (
+/turf/simulated/floor/plating,
+/area/space)
 "Ul" = (
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/reinforced/large/airless,
@@ -8596,12 +8591,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship)
-"ZP" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/space)
 "ZQ" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -41658,7 +41647,7 @@ kA
 mI
 yw
 FY
-wJ
+wr
 Zg
 Nq
 he
@@ -41915,7 +41904,7 @@ Yo
 qN
 OW
 vP
-wJ
+wr
 Zg
 tN
 UX
@@ -42172,7 +42161,7 @@ Cz
 sL
 Mk
 vP
-ES
+Uj
 Zg
 dL
 qg
@@ -42429,7 +42418,7 @@ hT
 YL
 Mk
 vP
-ZP
+xn
 Zg
 xD
 xD
@@ -43437,7 +43426,7 @@ tg
 NZ
 NZ
 NZ
-wr
+NZ
 NZ
 NZ
 NZ
