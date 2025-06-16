@@ -4,7 +4,7 @@
 	icon = 'icons/obj/machinery/ship_guns/nephilim.dmi'
 	heavy_firing_sound = 'sound/weapons/gunshot/bolter.ogg'
 	icon_state = "weapon_base"
-	max_ammo = 3
+	max_ammo = 1
 	projectile_type = /obj/projectile/ship_ammo/nephilim
 	caliber = SHIP_CALIBER_BLASTER
 	screenshake_type = SHIP_GUN_SCREENSHAKE_SCREEN
@@ -13,7 +13,7 @@
 	name = "nephilim ammunition loader"
 
 /obj/item/ship_ammunition/nephilim
-	name = "Ship-mounted blaster HE hydrogen cell"
+	name = "Blaster HE hydrogen cell"
 	name_override = "Blaster HE burst"
 	desc = "A high-explosive hydrogen cell for use in a Nephilim blaster repeater."
 	icon = 'icons/obj/guns/ship/ship_ammo_nephilim.dmi'
@@ -26,8 +26,15 @@
 	cookoff_heavy = 0
 
 /obj/projectile/ship_ammo/nephilim
-	name = "hydrogen cell"
+	name = "hydrogen cell he"
 	icon_state = "repeater_he"
-	damage = 100
-	armor_penetration = 10
-	penetrating = 1
+	damage = 20
+	armor_penetration = 20
+	penetrating = 0
+
+/obj/projectile/ship_ammo/nephilim/ap
+	name = "hydrogen cell ap"
+	icon_state = "repeater_ap"
+	damage = 10
+	armor_penetration = 25
+	penetrating = 4
