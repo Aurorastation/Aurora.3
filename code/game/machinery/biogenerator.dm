@@ -120,6 +120,10 @@ FOODSTUFFS
 	name = "Universal Enzyme (50u)"
 	object = /obj/item/reagent_containers/food/condiment/enzyme
 
+/singleton/biorecipe/food/blood
+	name = "Synthetic Blood (50u)"
+	object = /obj/item/reagent_containers/food/condiment/blood
+
 /singleton/biorecipe/food/pepper
 	name = "Pepper Grinder"
 	object = /obj/item/reagent_containers/food/condiment/shaker/peppermill
@@ -245,6 +249,28 @@ ITEMS
 	object = /obj/item/storage/bag/plants
 	cost = 250
 
+// Like soap, but better!
+/singleton/biorecipe/item/mop
+	name = "Mop"
+	object = /obj/item/mop
+	cost = 400
+
+/singleton/biorecipe/item/filterbox
+	name = "Cigarette Filters"
+	object = /obj/item/storage/cigfilters
+	cost = 200
+
+/singleton/biorecipe/item/cigarettepaper
+	name = "Cigarette Paper"
+	object = /obj/item/storage/box/fancy/cigpaper
+	cost = 200
+
+// Intended to accomodate hydroponicists preparing their own first-aid kits for themselves or the crew.
+/singleton/biorecipe/item/emptyfirstaid
+	name = "Empty First Aid Kit"
+	object = /obj/item/storage/firstaid/empty
+	cost = 200
+
 /*
 FLAGS
 */
@@ -354,6 +380,10 @@ CONSTRUCTION
 	name = "Plastic"
 	object = /obj/item/stack/material/plastic
 	cost = 75
+
+/singleton/biorecipe/construction/wood
+	name = "Wood"
+	object = /obj/item/stack/material/wood
 
 /*
 CLOTHING
