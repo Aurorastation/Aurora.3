@@ -73,7 +73,7 @@
 		src.name = "credit chips"
 
 	// build The Pile(TM)
-	for(var/denom in list(100000,50000,20000,10000,5000,2000,1000,500,200,100,50,25,10,5,1))
+	for(var/denom in list(100000,50000,20000,10000,5000,2000,1000,500,100,25,10,5,1))
 		while(cents >= denom && num < 50)
 			cents -= denom
 			num++
@@ -81,7 +81,7 @@
 			var/denom_value = denom / 100.0
 			if(denom >= 100)
 				// bills (>= $1.00)
-				banknote = image('icons/obj/cash.dmi', "spacecash[denom_value]")
+				banknote = image('icons/obj/cash.dmi', "spacecash[round(denom_value)]")
 			else
 				// coins (< $1.00)
 				// pad denom_value for icon_state, e.g. "spacecash0.05"
@@ -260,18 +260,38 @@
 	worth = 0.25
 
 /proc/spawn_money(var/sum, spawnloc, mob/living/carbon/human/human_user as mob)
-	if(sum in list(1000,500,200,100,50,20,10,5,1,0.25,0.10,0.05,0.01))
-		var/cash_type = text2path("/obj/item/spacecash/c[sum]")
-		var/obj/cash = new cash_type (spawnloc)
-		if(ishuman(human_user) && !human_user.get_active_hand())
-			human_user.put_in_hands(cash)
-	else
-		var/obj/item/spacecash/bundle/bundle = new (spawnloc)
-		bundle.worth = sum
-		bundle.update_icon()
-		if (ishuman(human_user) && !human_user.get_active_hand())
-			human_user.put_in_hands(bundle)
-	return
+    var/cents = round(sum * 100)
+    // list all bill and coin denominations (in cents)
+    var/list/denoms = list(
+        100000,50000,20000,10000,5000,2000,1000,500,100,    // Bills: $1000 ... $1
+        25,10,5,1                                               // Coins: $0.25, $0.10, $0.05, $0.01
+    )
+
+    // check for a single denomination match first (bill or coin)
+    if(cents in denoms)
+        var objpath
+        if(cents >= 100)
+            var/dollars = cents / 100
+            objpath = text2path("/obj/item/spacecash/c[dollars]")
+        else
+            var/coin_value = "[cents / 100.0]"
+            // pad to two decimals for path if needed
+            if(findtext(coin_value, ".") && length(copytext(coin_value, ".")+1) == 1)
+                coin_value += "0"
+            objpath = text2path("/obj/item/spacecash/coin/[coin_typepath_suffix(cents / 100.0)]")
+        if(!isnull(objpath))
+            var/obj/cash = new objpath(spawnloc)
+            if(ishuman(human_user) && !human_user.get_active_hand())
+                human_user.put_in_hands(cash)
+            return
+
+    // spawn a bundle for mixed/odd amounts
+    var/obj/item/spacecash/bundle/bundle = new(spawnloc)
+    bundle.worth = cents / 100.0
+    bundle.update_icon()
+    if(ishuman(human_user) && !human_user.get_active_hand())
+        human_user.put_in_hands(bundle)
+    return
 
 /obj/item/spacecash/ewallet
 	name = "charge card"

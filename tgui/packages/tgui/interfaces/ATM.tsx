@@ -146,7 +146,7 @@ export const AuthenticatedWindow = (props, context) => {
         <LabeledList.Item label="Withdraw">
           <NumberInput
             value={withdraw}
-            minValue={0}
+            minValue={1}
             width={3}
             maxValue={data.money}
             animated
