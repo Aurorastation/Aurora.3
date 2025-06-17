@@ -1285,7 +1285,7 @@
 /obj/item/toy/plushie/herring_gull
 	name = "herring gull plushie"
 	desc = "A herring gull plushie. Adorable!"
-	desc_extended = "The European herring gull, also known as </i>Larus argentatus<i>, is a common seabird originating from Earth. It can be found on and around \
+	desc_extended = "The European herring gull, also known as <i>Larus argentatus</i>, is a common seabird originating from Earth. It can be found on and around \
 	the coasts as well as cities on Earth and wherever it may have been transplanted to. Commonly seen as something that symbolizes the sea as well as freedom."
 	icon_state = "herring_gull"
 	item_state = "herring_gull"
