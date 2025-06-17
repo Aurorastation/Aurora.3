@@ -9,6 +9,7 @@
 	massvolume = "4.24/2.33"
 	surfacegravity = "4.14"
 	charted = "Charted 2199CE, Solarian Alliance"
+	alignment = "Hephaestus Industries - Coalition of Colonies"
 	geology = "Extreme volcanic activity with surface minerals in abundance"
 	weather = "Tidally locked day/night split, extreme weather conditions with a toxic atmosphere and lightning storms"
 	surfacewater = "No presence of water. Large bodies of liquid ammonia and molten metal"
@@ -63,6 +64,7 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/burzsia
 	name = "Burzsia II"
+	alignment = "Hephaestus Industries - Coalition of Colonies"
 	generated_name = FALSE
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/burzsia/generate_ground_survey_result()

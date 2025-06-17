@@ -26,6 +26,7 @@
 		new/datum/track("Beyond", 'sound/music/ambispace.ogg'),
 		new/datum/track("Clouds of Fire", 'sound/music/lobby/clouds.s3m'),
 		new/datum/track("D`Bert", 'sound/music/lobby/title2.ogg'),
+		new/datum/track("Uplift", 'sound/music/lobby/title3mk2.ogg'),
 		new/datum/track("D`Fort", 'sound/music/song_game.ogg'),
 		new/datum/track("Floating", 'sound/music/main.ogg'),
 		new/datum/track("Endless Space", 'sound/music/lobby/space.ogg'),
