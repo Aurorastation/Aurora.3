@@ -8,49 +8,74 @@
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	volume = 100
 
-	var/mechanical = 1         // Set to 0 to stop it from drawing the alert lights.
+	/// Set to 0 to stop it from drawing the alert lights.
+	var/mechanical = 1
 	var/base_name = "tray"
 
-	// Plant maintenance vars.
-	var/waterlevel = 100       // Water (max 100)
-	var/nutrilevel = 10        // Nutrient (max 10)
-	var/pestlevel = 0          // Pests (max 10)
-	var/weedlevel = 0          // Weeds (max 10)
+	// --- Plant maintenance vars. ---
+	/// Water (max 100)
+	var/waterlevel = 100
+	/// Nutrient (max 10)
+	var/nutrilevel = 10
+	/// Pests (max 10)
+	var/pestlevel = 0
+	// Weeds (max 10)
+	var/weedlevel = 0
 
 	var/maxWaterLevel = 100
 	var/maxNutriLevel = 10
 	var/maxPestLevel = 10
-	var/maxWeedLevel = 0 // Hydroponics systems don't grow weeds irl. Pests are still an issue.
+	/// Hydroponics systems don't grow weeds irl. Pests are still an issue.
+	var/maxWeedLevel = 0
 
-	// Tray state vars.
-	var/dead = 0               // Is it dead?
-	var/harvest = 0            // Is it ready to harvest?
-	var/age = 0                // Current plant age
-	var/sampled = 0            // Have we taken a sample?
-	var/last_biolum			   // What was the bioluminescence last tick?
+	// --- Tray state vars. ---
+	/// Is it dead?
+	var/dead = 0
+	/// Is it ready to harvest?
+	var/harvest = 0
+	/// Current plant age
+	var/age = 0
+	/// Have we taken a sample?
+	var/sampled = 0
+	/// What was the bioluminescence last tick?
+	var/last_biolum
 
-	// Harvest/mutation mods.
-	var/yield_mod = 0          // Modifier to yield
-	var/mutation_mod = 0       // Modifier to mutation chance
-	var/toxins = 0             // Toxicity in the tray?
-	var/mutation_level = 0     // When it hits 100, the plant mutates.
-	var/tray_light = 5         // Supplied lighting.
+	// --- Harvest/mutation mods. ---
+	/// Modifier to yield
+	var/yield_mod = 0
+	/// Modifier to mutation chance
+	var/mutation_mod = 0
+	/// Toxicity in the tray?
+	var/toxins = 0
+	/// When it hits 100, the plant mutates.
+	var/mutation_level = 0
+	/// Supplied lighting.
+	var/tray_light = 5
 
 	// Mechanical concerns.
-	var/health = 0             // Plant health.
-	var/lastproduce = 0        // Last time tray was harvested
-	var/lastcycle = 0          // Cycle timing/tracking var.
-	var/cycledelay = 150       // Delay per cycle.
-	var/closed_system          // If set, the tray will attempt to take atmos from a pipe.
-	var/force_update           // Set this to bypass the cycle time check.
-	var/obj/temp_chem_holder   // Something to hold reagents during process_reagents()
+	/// Plant health.
+	var/health = 0
+	/// Last time tray was harvested
+	var/lastproduce = 0
+	/// Cycle timing/tracking var.
+	var/lastcycle = 0
+	/// Delay per cycle.
+	var/cycledelay = 150
+	/// If set, the tray will attempt to take atmos from a pipe.
+	var/closed_system
+	/// Set this to bypass the cycle time check.
+	var/force_update
+	/// Something to hold reagents during process_reagents()
+	var/obj/temp_chem_holder
 	var/labelled
 
-	// Seed details/line data.
+	/// Seed details/line data.
 	var/datum/seed/seed = null // The currently planted seed
 
-	// Reagent information for process(), consider moving this to a controller along
-	// with cycle information under 'mechanical concerns' at some point.
+	/**
+	Reagent information for process(), consider moving this to a controller along
+	with cycle information under 'mechanical concerns' at some point.
+	*/
 	var/global/list/toxic_reagents = list(
 		/singleton/reagent/dylovene =			 -2,
 		/singleton/reagent/toxin =				  2,
@@ -106,7 +131,7 @@
 		/singleton/reagent/drink/sodawater =		  1
 		)
 
-	// Beneficial reagents also have values for modifying yield_mod and mut_mod (in that order).
+	/// Beneficial reagents also have values for modifying yield_mod and mut_mod (in that order).
 	var/global/list/beneficial_reagents = list(
 		/singleton/reagent/alcohol/beer=list( -0.05, 0,   0  ),
 		/singleton/reagent/hydrazine =			list( -2,    0,   0  ),
@@ -127,8 +152,10 @@
 		/singleton/reagent/toxin/fertilizer/left4zed =		list(  0,	0,   0.2)
 		)
 
-	// Mutagen list specifies minimum value for the mutation to take place, rather
-	// than a bound as the lists above specify.
+	/**
+	Mutagen list specifies minimum value for the mutation to take place, rather
+	than a bound as the lists above specify.
+	*/
 	var/global/list/mutagenic_reagents = list(
 		/singleton/reagent/radium =   8,
 		/singleton/reagent/mutagen = 15
@@ -258,7 +285,7 @@
 			seed.create_spores(get_turf(src))
 			visible_message(SPAN_DANGER("\The [src] releases its spores!"))
 
-//Process reagents being input into the tray.
+/// Process reagents being input into the tray.
 /obj/machinery/portable_atmospherics/hydroponics/proc/process_reagents()
 
 	if(!reagents) return
@@ -309,7 +336,7 @@
 	temp_chem_holder.reagents.clear_reagents()
 	check_health()
 
-//Harvests the product of a plant.
+/// Harvests the product of a plant.
 /obj/machinery/portable_atmospherics/hydroponics/proc/harvest(var/mob/user)
 
 	//Harvest the product of the plant,
@@ -342,7 +369,7 @@
 	check_health()
 	return
 
-//Clears out a dead plant.
+/// Clears out a dead plant.
 /obj/machinery/portable_atmospherics/hydroponics/proc/remove_dead(var/mob/user)
 	if(!user || !dead || !seed)
 		return
@@ -363,7 +390,7 @@
 	check_health()
 	return
 
-// If a weed growth is sufficient, this proc is called.
+/// If a weed growth is sufficient, this proc is called.
 /obj/machinery/portable_atmospherics/hydroponics/proc/weed_invasion()
 
 	//Remove the seed if something is already planted.
@@ -477,6 +504,7 @@
 					RC.reagents.remove_reagent(/singleton/reagent/water, amountToRemove, 1)
 					waterlevel += amountToRemove
 					user.visible_message("<b>[user]</b> transfers some water to the tray.", "You transfer about [amountToRemove] units of water to the tray.")
+					playsound(src, /singleton/sound_category/generic_pour_sound, 25, 1)
 				else
 					to_chat(user, SPAN_WARNING("This tray is full of water already."))
 				return TRUE
@@ -498,17 +526,20 @@
 			to_chat(user, "The plant is dead.")
 			return
 
-		// Create a sample.
-		seed.harvest(user,yield_mod,1)
-		health -= (rand(3,5)*10)
+		// Create a sample. Takes a moment.
+		user.visible_message(SPAN_WARNING("\The [user] begins to sample \the [src]."), SPAN_NOTICE("You begin sampling \the [src]."))
+		if(do_after(user, 1 SECOND))
+			playsound(src, 'sound/items/Wirecutter.ogg', 25, 1)
+			seed.harvest(user,yield_mod,1)
+			health -= (rand(3,5)*10)
 
-		if(prob(30))
-			sampled = 1
+			if(prob(30))
+				sampled = 1
 
-		// Bookkeeping.
-		check_health()
-		force_update = 1
-		process()
+			// Bookkeeping.
+			check_health()
+			force_update = 1
+			process()
 
 		return
 
@@ -565,13 +596,32 @@
 	else if (istype(attacking_item, /obj/item/material/minihoe))  // The minihoe
 
 		if(weedlevel > 0)
-			user.visible_message(SPAN_DANGER("[user] starts uprooting the weeds."),
-									SPAN_DANGER("You remove the weeds from the [src]."))
+			user.visible_message(SPAN_DANGER("[user] starts uprooting the weeds from \the [src]."),
+									SPAN_DANGER("You begin to remove the weeds from \the [src]."))
 
-			weedlevel = 0
-			update_icon()
+			if(do_after(user, 1 SECOND))
+				playsound(src, /singleton/sound_category/shovel_sound, 25, 1)
+				user.visible_message(SPAN_DANGER("[user] uproots the weeds from \the [src]."),
+					SPAN_DANGER("You successfully remove the weeds from \the [src]."))
+				weedlevel = 0
+				update_icon()
 		else
 			to_chat(user, SPAN_DANGER("This plot is completely devoid of weeds. It doesn't need uprooting."))
+
+	// Hatchets can uproot the contents of trays to kill the plant with one click.
+	else if (istype(attacking_item, /obj/item/material/hatchet))
+		if(health > 0)
+			user.visible_message(SPAN_DANGER("[user] begins uprooting the contents of \the [src]."),
+				SPAN_DANGER("You begin to uproot the contents of \the [src]."))
+
+			if(do_after(user, 2 SECOND))
+				playsound(src, /singleton/sound_category/shovel_sound, 25, 1)
+				user.visible_message(SPAN_DANGER("[user] uproots the contents of \the [src]!"),
+					SPAN_DANGER("You successfully uproot the contents of \the [src]."))
+				health = 0
+				check_health()
+		else
+			to_chat(user, SPAN_DANGER("There is nothing in this plot for you to uproot!"))
 
 	else if (istype(attacking_item, /obj/item/storage/bag/plants))
 

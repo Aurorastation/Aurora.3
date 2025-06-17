@@ -100,6 +100,7 @@
 	// if (hits >= total_pellets || pellets <= 0)
 	// 	return TRUE
 	if(hits)
+		damage *= hits
 		return BULLET_ACT_HIT //Technically not everything, but good enough
 	return BULLET_ACT_BLOCK //Nothing hit
 

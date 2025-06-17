@@ -354,3 +354,17 @@
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 2
+
+/singleton/cargo_item/lyodiicards
+	category = "recreation"
+	name = "lyodii fatesayer cards"
+	supplier = "orion"
+	description = "A lyodii Fatesayer card deck. Exported from Moroz, used to tell your fate."
+	price = 300 //It's a niche novelty thing made in relatively small export quantities
+	items = list(
+		/obj/item/storage/box/lyodii
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1

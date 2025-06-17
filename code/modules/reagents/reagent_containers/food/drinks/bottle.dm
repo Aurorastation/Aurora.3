@@ -379,7 +379,7 @@
 		return
 
 	if(is_open_container())
-		balloon_alert(user, "the bottle was already open, you spill some on the floor...")
+		balloon_alert(user, "already open! you spill some on the floor!")
 		if(reagents.total_volume)
 			src.reagents.remove_any(reagents.total_volume / 5)
 		return
@@ -839,14 +839,14 @@
 	Tajara consider the wine to be exotic or outright disgusting. The Shyyr Kirr'tyr is usually eaten after the beverage is imbibed."
 	reagents_to_add = list(/singleton/reagent/alcohol/shyyrkirrtyr_wine = 100)
 
-/obj/item/reagent_containers/food/drinks/bottle/nmshaan_liquor
-	name = "nm'shaan liquor"
-	desc = "A strong Adhomian liquor reserved for special occasions. A label on the bottle recommends diluting it with icy water before drinking."
-	icon_state = "nmshaanliquor"
+/obj/item/reagent_containers/food/drinks/bottle/sugartree_liquor
+	name = "sugar tree liquor"
+	desc = "Also called nm'shaan liquor in native Siik'maas: a strong Adhomian liquor reserved for special occasions. A label on the bottle recommends diluting it with icy water before drinking."
+	icon_state = "sugartreeliquor"
 	center_of_mass = list("x" = 16,"y" = 5)
 	desc_extended = "An alcoholic drink manufactured from the fruit of the Nm'shaan plant. It usually has a high level of alcohol by volume. Nm'shaan liquor was once reserved for the \
 	consumption of the nobility; even today it is considered a decadent drink reserved for fancy occasions."
-	reagents_to_add = list(/singleton/reagent/alcohol/nmshaan_liquor = 100)
+	reagents_to_add = list(/singleton/reagent/alcohol/sugartree_liquor = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/veterans_choice
 	name = "veteran's choice"
@@ -875,7 +875,7 @@
 	desc_extended = "A famous variation of the Nm'shaan Liquor; it is described as one of Adhomai's finest spirits. It is produced solely by a small family-owned brewery in Miran'mir. Its \
 	recipe is a secret passed down through the generations of the Darmadhir household since immemorial times. The only living member of the family, Hazyr Darmadhir, is a 68 years old \
 	Tajara. His sole heir and son died in the Second Revolution after being drafted to fight for the royal army. Alcohol collectors stipulate that the brew's price will skyrocket after Hazyr's death."
-	reagents_to_add = list(/singleton/reagent/alcohol/nmshaan_liquor/darmadhirbrew = 100)
+	reagents_to_add = list(/singleton/reagent/alcohol/sugartree_liquor/darmadhirbrew = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/pulque
 	name = "Don Augusto's pulque"

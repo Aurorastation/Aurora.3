@@ -449,6 +449,7 @@
 	taste_mult = 0.4
 	condiment_name = "rice sack"
 	condiment_icon_state = "rice"
+	condiment_desc = "A big bag of rice. Good for cooking!"
 	condiment_center_of_mass = list("x"=16, "y"=8)
 
 /singleton/reagent/nutriment/moss
