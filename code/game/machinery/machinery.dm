@@ -181,6 +181,8 @@ Class Procs:
 	. = ..()
 	if(signaler && is_adjacent)
 		. += SPAN_WARNING("\The [src] has a hidden signaler attached to it.")
+	if(anchored)
+		. += SPAN_NOTICE("\The [src] is anchored to the floor by a couple of <b>bolts</b>.")
 
 // /obj/machinery/proc/process_all()
 // 	/* Uncomment this if/when you need component processing

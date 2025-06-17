@@ -305,12 +305,12 @@
 
 /obj/structure/bed/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	. += deconstruction_hints(user)
+	. += construction_hints()
 
-/obj/structure/bed/proc/deconstruction_hints(mob/user)
+/obj/structure/bed/proc/construction_hints()
 	if (padding_material)
 		return SPAN_NOTICE("Its padding has visible seams that could be <b>cut</b>.")
-	return SPAN_NOTICE("It's held together by a couple of <b>bolts</b>.")
+	return SPAN_NOTICE("It is held together by a couple of <b>bolts</b>.")
 
 /obj/structure/bed/psych
 	name = "psychiatrist's couch"
@@ -687,9 +687,13 @@
 		beds++
 		AddOverlays(I)
 
-/obj/structure/roller_rack/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
+/obj/structure/roller_rack/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	desc = "[initial(desc)] \nIt is holding [LAZYLEN(held)] beds."
 	. = ..()
+	. += interaction_hints()
+
+/obj/structure/roller_rack/proc/interaction_hints()
+	return SPAN_NOTICE("It [anchored ? "is" : "could be"] anchored to the floor with a couple of <b>screws</b>.")
 
 /obj/structure/roller_rack/attack_hand(mob/user)
 	if(!LAZYLEN(held))

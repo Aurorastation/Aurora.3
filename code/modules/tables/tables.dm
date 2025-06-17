@@ -3,6 +3,7 @@
 	icon = 'icons/obj/structure/tables/table.dmi'
 	icon_state = "frame"
 	desc = "It's a table, for putting things on. Or standing on, if you really want to."
+	desc_info = "Straight tables, so long as they're not too heavy or reinforced, can be flipped over!"
 	density = TRUE
 	anchored = TRUE
 	pass_flags_self = PASSTABLE | LETPASSTHROW
@@ -20,7 +21,7 @@
 	var/maxhealth = 10
 	var/health = 10
 
-	// For racks.
+	// For racks (which cannot be either of these things)
 	var/can_reinforce = 1
 	var/can_plate = 1
 
@@ -35,23 +36,42 @@
 
 /obj/structure/table/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	. += deconstruction_hints(user)
-	if(health < maxhealth)
+	if (health < maxhealth)
 		switch(health / maxhealth)
-			if(0.0 to 0.5)
+			if (0.0 to 0.5)
 				. += SPAN_WARNING("It looks severely damaged!")
-			if(0.25 to 0.5)
+			if (0.25 to 0.5)
 				. += SPAN_WARNING("It looks damaged!")
-			if(0.5 to 1.0)
+			if (0.5 to 1.0)
 				. += SPAN_NOTICE("It has a few scrapes and dents.")
+	. += construction_hints()
 
-/obj/structure/table/proc/deconstruction_hints(mob/user)
-	if(carpeted)
-		return SPAN_NOTICE("Its carpeted surface could be <b>pried<b/> loose.")
-	if(reinforced)
-		return SPAN_NOTICE("Its reinforcements have been securely <b>screwed<b/> into place.")
-	else
-		return SPAN_NOTICE("It's held together by a couple of <b>bolts</b>.")
+/obj/structure/table/proc/construction_hints()
+	// Rule racks out entirely first. If we ever let them be customized/have health, update this.
+	if (!can_reinforce || !can_plate)
+		. += SPAN_NOTICE("It is held together by a couple of <b>bolts</b>.")
+		return .
+
+	if (health < maxhealth)
+		return SPAN_NOTICE("It could be repaired with a few choice <b>welds</b>... no matter what its made of!")
+	if (carpeted)
+		. += SPAN_NOTICE("Its carpeted surface could be <b>pried<b/> loose.")
+	// Needs to be plated before it can be carpeted
+	else if (material)
+		. += SPAN_NOTICE("Its could be surfaced with some <b>carpet</b>.")
+	if (reinforced)
+		. += SPAN_NOTICE("Its reinforcements have been securely <b>screwed<b/> into place.")
+	// Needs to be plated before it can be reinforced
+	else if (material)
+		. += SPAN_NOTICE("It could be reinforced with a <b>stack</b> of an appropriate material.")
+		// Needs to be uncarpeted before it can be de-plated
+		if (!carpeted)
+			. += SPAN_NOTICE("It is held together by a couple of <b>bolts</b>.")
+	// Needs to be plated before we can do much of anything
+	if (!material)
+		. += SPAN_NOTICE("It could be plated with a <b>stack</b> of an appropriate material.")
+		. += SPAN_NOTICE("It is held together by a couple of <b>bolts</b>.")
+	return .
 
 /obj/structure/table/proc/update_material()
 	var/old_maxhealth = maxhealth

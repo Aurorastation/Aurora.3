@@ -1,6 +1,7 @@
 /obj/structure/railing
 	name = "railing"
 	desc = "A simple bar railing designed to protect against careless trespass."
+	desc_info = "test"
 	icon = 'icons/obj/structure/blocker/railing_basic.dmi'
 	icon_state = "railing0-1"
 	density = TRUE
@@ -75,16 +76,30 @@
 
 /obj/structure/railing/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	if(health < maxhealth)
+	. += interaction_hints()
+	if (health < maxhealth)
 		switch(health / maxhealth)
-			if(0.0 to 0.5)
+			if (0.0 to 0.5)
 				. += SPAN_WARNING("It looks severely damaged!")
-			if(0.25 to 0.5)
+			if (0.25 to 0.5)
 				. += SPAN_WARNING("It looks damaged!")
-			if(0.5 to 1.0)
-				. += SPAN_NOTICE("It has a few scrapes and dents.")
-	. += FONT_SMALL(SPAN_NOTICE("\The [src] is <b>[density ? "closed" : "open"]</b> to passage."))
-	. += FONT_SMALL(SPAN_NOTICE("\The [src] is <b>[anchored ? "" : "not"] screwed</b> to the floor."))
+			if (0.5 to 1.0)
+				. += SPAN_NOTICE("It has a few scrapes and dents. ")
+	. += construction_hints()
+
+/obj/structure/railing/proc/interaction_hints()
+	if (anchored)
+		. += SPAN_NOTICE("It could be [density ? "opened" : "closed"] to passage with a wrench.")
+	return .
+
+/obj/structure/railing/proc/construction_hints()
+	if (health < maxhealth)
+		. = SPAN_NOTICE("It could be repaired with a few choice <b>welds</b>.")
+
+	. += SPAN_NOTICE("It [anchored ? "is" : "could be"] anchored to the floor with a row of <b>screws</b>.")
+	if (!anchored)
+		. += SPAN_NOTICE("<br>It is held together by a couple of <b>bolts</b>.")
+	return .
 
 /obj/structure/railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(mover?.movement_type & PHASING)

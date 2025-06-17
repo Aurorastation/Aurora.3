@@ -241,3 +241,8 @@
 
 /obj/structure/get_material()
 	return material
+
+/obj/structure/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(climbable)
+		. += SPAN_NOTICE("[src] looks climbable.")
