@@ -131,7 +131,7 @@
 	<br><br>
 	<h3>How does it work?</h3><hr>
 	<br><br>
-	This generator model has two circuits that receives the gas. As the gas flows, integrated turbine fans begin to spin and generate electricity. The principle behind this structure is
+	This generator model has two circuits that receives the gas. As the gas flows, integrated turbine fans begin to spin and generate electricity. The principle behind this is
 	that the greater the temperature difference between circuits, the faster the fans will spin and subsequently the more energy is produced. Each time the gas flows through circuits, temperature difference
 	(delta temperature) will decrease, this means in time the generator will produce less energy. The engine installed in your vessel has its hot loop in the port side, cold loop in
 	the starboard side. If confused, the loops can be identified by determining which one is the connected to the radiator array in vessel exterior.
