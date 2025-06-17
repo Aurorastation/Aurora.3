@@ -373,7 +373,7 @@
 
 /obj/structure/reagent_dispensers/keg/beerkeg/rice
 	name = "rice beer keg"
-	desc = "A keg full of Konyanger rice beer, a light lagered beer popular on Konyang."
+	desc = "A keg full of Ebisu rice beer, a light lagered beer popular on Konyang."
 	icon_state = "keg_rice"
 	reagents_to_add = list(/singleton/reagent/alcohol/rice_beer = 1000)
 
