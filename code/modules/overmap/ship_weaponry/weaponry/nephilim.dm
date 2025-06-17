@@ -15,7 +15,7 @@
 /obj/item/ship_ammunition/nephilim
 	name = "Blaster HE hydrogen cell"
 	name_override = "Blaster HE burst"
-	desc = "A high-explosive hydrogen cell for use in a Nephilim blaster repeater."
+	desc = "A hydrogen cell for use in a Nephilim blaster repeater, carefully tuned for higher damage and spread at the cost of armour penetration."
 	icon = 'icons/obj/guns/ship/ship_ammo_nephilim.dmi'
 	icon_state = "repeater_he"
 	overmap_icon_state = "light_laser_salvo"
@@ -25,16 +25,22 @@
 	burst = 15
 	cookoff_heavy = 0
 
+/obj/item/ship_ammunition/nephilim/ap
+	name = "Blaster AP hydrogen cell"
+	name_override = "Blaster AP burst"
+	desc = "A hydrogen cell for use in a Nephilim blaster repeater, carefully tuned for higher armour penetration at the cost of damage."
+	icon = 'icons/obj/guns/ship/ship_ammo_nephilim.dmi'
+	icon_state = "repeater_ap"
+	impact_type = SHIP_AMMO_IMPACT_AP
+
 /obj/projectile/ship_ammo/nephilim
 	name = "hydrogen cell he"
-	icon_state = "repeater_he"
 	damage = 20
 	armor_penetration = 20
 	penetrating = 0
 
 /obj/projectile/ship_ammo/nephilim/ap
 	name = "hydrogen cell ap"
-	icon_state = "repeater_ap"
 	damage = 10
 	armor_penetration = 25
 	penetrating = 4
