@@ -56,5 +56,5 @@ delete-after: True
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
   - rscadd: "Added a Quik-Pay device and some shelving to the pharmacy to encourage the pharmacist to sell things over the counter."
-  - bugfix: "Fixed the service quikpay paying into the operations account instead of the service account."
+  - bugfix: "Fixed the service Quik-Pay paying into the operations account instead of the service account."
   - balance: "Doubled the prices for almost everything in the OTC medical wall vendor in the lobby. Everything is still very much affordable, but this should encourage pharmacists to undercut the vending machine."
