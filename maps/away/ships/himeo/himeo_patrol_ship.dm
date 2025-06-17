@@ -52,50 +52,8 @@
 	invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/himeo_patrol_ship/New()
-	designation = "[pick("Placeholder", "Placeholder")]"
+	designation = "[pick("Ilmarinen", "Vetehinen", "Vesikko", "Saukko", "Jaakarhu", "Sampo", "Lieska", "Riilahti", "Griffwn", "Llew Du", "Rhyfelog", "Hydd Gwyn", "Roisin", "Niamh", "Aoibhinn", "Gobnait" )]"
 	..()
-
-/obj/effect/shuttle_landmark/himeo_patrol
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
-
-//Deck 1 navpoints.
-/obj/effect/shuttle_landmark/himeo_patrol/nav1
-	name = "Himeo Planetary Guard Vessel - Deck One Fore"
-	landmark_tag = "himeo_nav1"
-
-/obj/effect/shuttle_landmark/himeo_patrol/nav2
-	name = "Himeo Planetary Guard Vessel - Deck One Aft "
-	landmark_tag = "himeo_nav2"
-
-/obj/effect/shuttle_landmark/himeo_patrol/nav3
-	name = "Himeo Planetary Guard Vessel - Deck One Port "
-	landmark_tag = "himeo_nav3"
-
-/obj/effect/shuttle_landmark/himeo_patrol/nav4
-	name = "Himeo Planetary Guard Vessel - Deck One Starboard"
-	landmark_tag = "himeo_nav4"
-
-//Deck 2 navpoints.
-/obj/effect/shuttle_landmark/himeo_patrol/dock1
-	name = "Himeo Planetary Guard Vessel - Deck Two Starboard"
-	landmark_tag = "himeo_dock1"
-	base_turf = /turf/simulated/floor/reinforced/airless
-
-/obj/effect/shuttle_landmark/himeo_patrol/dock2
-	name = "Himeo Planetary Guard Vessel - Deck Two Fore"
-	landmark_tag = "himeo_dock2"
-	base_turf = /turf/simulated/floor/reinforced/airless
-
-/obj/effect/shuttle_landmark/himeo_patrol/dock3
-	name = "Himeo Planetary Guard Vessel - Deck Two Aft"
-	landmark_tag = "himeo_dock3"
-	base_turf = /turf/simulated/floor/reinforced/airless
-
-/obj/effect/shuttle_landmark/himeo_patrol/dock4
-	name = "Himeo Planetary Guard Vessel - Deck Two Port"
-	landmark_tag = "himeo_dock4"
-	base_turf = /turf/simulated/floor/reinforced/airless
 
 //Shuttle
 /obj/effect/overmap/visitable/ship/landable/himeo_patrol_shuttle
@@ -109,7 +67,7 @@
 	colors = list("#525151", "#800a0a")
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
-	vessel_mass = 2000
+	vessel_mass = 3000
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 	designer = "Free Consortium of Defense and Auerospace Manufacturers"
@@ -126,23 +84,37 @@
 	move_time = 20
 	shuttle_area = list(/area/shuttle/himeo_patrol, /area/shuttle/himeo_patrol/central)
 	dock_target = "airlock_himeo_patrol_shuttle"
-	current_location = "nav_himeo_patrol_start"
-	landmark_transition = "nav_himeo_patrol_transit"
+	current_location = "himeo_patrol_nav_dock"
+	landmark_transition = "himeo_patrol_nav_transit"
+	dock_target = "airlock_himeo_patrol_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_himeo_patrol_start"
+	logging_home_tag = "himeo_patrol_nav_dock"
 	defer_initialisation = TRUE
 
-/obj/effect/shuttle_landmark/himeo_patrol_shuttle/shuttle_start
-	name = "Himean Patrol Shuttle - Shuttle Dock"
-	landmark_tag = "nav_himeo_patrol_start"
-	docking_controller = "himeo_patrol_shuttle_dock"
+/obj/effect/map_effect/marker/airlock/shuttle/himeo_patrol_ship
+	name = "Himean Patrol Shuttle"
+	shuttle_tag = "Himean Patrol Shuttle"
+	master_tag = "airlock_himeo_patrol_shuttle"
+	cycle_to_external_air = TRUE
 
-/obj/effect/shuttle_landmark/himeo_patrol_shuttle/shuttle_transit
+/obj/effect/map_effect/marker/airlock/docking/himeo_patrol_ship/shuttle_dock
+	name = "Shuttle Dock"
+	landmark_tag = "himeo_patrol_nav_dock"
+	master_tag = "himean_patrol_dock"
+
+/obj/effect/shuttle_landmark/himeo_patrol_shuttle/dock
+	name = "Himean Patrol Ship - dock"
+	landmark_tag = "himeo_patrol_nav_dock"
+	docking_controller = "himean_patrol_dock"
+	base_turf = /turf/space
+	base_area = /area/space
+	movable_flags = MOVABLE_FLAG_EFFECTMOVE
+
+/obj/effect/shuttle_landmark/himeo_patrol_shuttle/transit
 	name = "In transit"
-	landmark_tag = "nav_himeo_patrol_transit"
+	landmark_tag = "himeo_patrol_nav_transit"
 	base_turf = /turf/space/transit/north
-
 
 // Lift
 /datum/shuttle/autodock/multi/lift/himeo_patrol_ship
