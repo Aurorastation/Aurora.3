@@ -158,7 +158,7 @@
 	<h3>Things to Note</h3><hr>
 	<br><br>
 	- If the combustion chamber cools below operational temperature, do <b>NOT</b> inject a new burn mixture until the chamber temperatures reaches below 400K. Otherwise the injected
-	burn mix will ignite immediately on contact, preventing safe injection of the remaining mix. If it has to be replaced hastily, press the 'Emergency Chanber Vent' button to release
+	burn mix will ignite immediately on contact, preventing safe injection of the remaining mix. If it has to be replaced hastily, press the 'Emergency Chamber Vent' button to release
 	combustion chamber contents. <br><br>
 	- Any modifications to the setup made by parties other than Einstein Engines Inc. and its affiliates will void the warranty.
 	<br><br>
