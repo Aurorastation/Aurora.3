@@ -138,22 +138,22 @@
 	<br><br>
 	<h3>Hot Loop</h3><hr>
 	<br><br>
-	Following is the steps of setting hot flow successfully:
+	Following is the steps of setting the hot flow successfully:
 	<br><br>
-	- Locate the gas mixer device in aft-port side. Make sure it outputs the mixed gas to the west. Make sure oxidizer (oxygen) and fuel (hydrogen) is connected in relevant ports.
+	- Locate the gas mixer device in the aft-port side. Make sure it outputs the mixed gas to the west. Make sure that oxidizer (oxygen) and fuel (hydrogen) is connected to the relevant ports.
 	The target ratio should be 60% oxidizer and 40% fuel. Turn on the mixer. <br><br>
-	- Turn on the injection on the console (read the tag written on consoles to identify it) in front of combustion chamber. Make sure the fuel canister is spent and there's no residual burn mixture in
-	combustion chamber feed pipe. The recommended amount of fuels to inject is two canisters. Bear in mind the mixer will stop working if both inputs aren't receiving gas simultaneously. <br><br>
-	- After the injection is complete, turn off the injection on console. <b>Never start ignition sequence while injecting fuel into the chamber</b>. Hit the ignition button
+	- Turn on the injection on the console (read the tag written on the console to identify it) in front of the combustion chamber. Make sure the fuel canister is spent and there's no residual burn mixture in
+	the combustion chamber feed pipe. The recommended amount of fuels to inject is 2 canisters. Bear in mind the mixer will stop working if both inputs aren't receiving gas simultaneously. <br><br>
+	- After the injection is complete, turn off the injection on the console. <b>Never start ignition sequence while injecting fuel into the chamber</b>. Hit the ignition button
 	to start the combustion. <br><br>
-	- After making sure the burn reaction is complete, turn on the input in the console tagged 'Combustion Chamber Control' to maximum value and adjust the output rate to a value
-	compensating power draw. The higher output rate the more power produced, in contrast of sustainability.
+	- After making sure that the combustion has finished, turn on the input in the console tagged 'Combustion Chamber Control' to maximum value and adjust the output rate to a value
+	compensating power draw. The higher output rate the more power produced, at the cost of sustainability.
 	<br><br>
 	<h3>Cold Loop</h3><hr>
 	<br><br>
-	- Locate the pump tagged as 'Cold Loop Supply Pump' in starboard side of the TEG. Turn it on at maximum transfer rate. <br><br>
-	- (Optional) Add more gas to the cold loop by securing more canisters at the aft-starboard connectors. Do not overdo this. One or two more canisters is the ideal amount. <br><br>
-	- Turn on the pump leading directly to cold circuit, tagged as 'Cold Loop Flow Pump' and set the transfer rate to maxiumm.
+	- Locate the pump tagged as 'Cold Loop Supply Pump' in the starboard side of the TEG. Turn it on at maximum transfer rate. <br><br>
+	- (Optional) Add more gas to the cold loop by securing more canisters at the aft-starboard connectors. Do not overdo this. 1 or 2 more canisters is the ideal amount. <br><br>
+	- Turn on the pump leading directly to the cold circuit, tagged as 'Cold Loop Flow Pump' and set the transfer rate to maximum.
 	<br><br>
 	<h3>Things to Note</h3><hr>
 	<br><br>
