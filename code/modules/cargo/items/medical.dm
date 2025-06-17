@@ -49,7 +49,7 @@
 	name = "large advanced first-aid kit"
 	supplier = "nanotrasen"
 	description = "A large emergency medical kit for many general severe injuries."
-	price = 400
+	price = 500
 	items = list(
 		/obj/item/storage/firstaid/large/adv
 	)
@@ -119,7 +119,7 @@
 	name = "O- blood pack (x1)"
 	supplier = "zeng_hu"
 	description = "A blood pack filled with universally-compatible O- Blood."
-	price = 120
+	price = 800
 	items = list(
 		/obj/item/reagent_containers/blood/OMinus
 	)
@@ -133,7 +133,7 @@
 	name = "SBS blood pack (x1)"
 	supplier = "zeng_hu"
 	description = "A blood pack filled with Synthetic Blood Substitute. WARNING: Not compatible with organic blood!"
-	price = 105
+	price = 675
 	items = list(
 		/obj/item/reagent_containers/blood/sbs
 	)
@@ -147,7 +147,7 @@
 	name = "empty IV bags"
 	supplier = "nanotrasen"
 	description = "This box contains empty IV bags."
-	price = 35
+	price = 85
 	items = list(
 		/obj/item/storage/box/bloodpacks
 	)
@@ -161,7 +161,7 @@
 	name = "dexalin plus autoinjector"
 	supplier = "nanotrasen"
 	description = "An autoinjector designed to treat oxygen deprivation."
-	price = 75
+	price = 550
 	items = list(
 		/obj/item/reagent_containers/hypospray/autoinjector/oxygen
 	)
@@ -175,7 +175,7 @@
 	name = "peridaxon autoinjector"
 	supplier = "nanotrasen"
 	description = "An autoinjector designed to treat broad-spectrum organ damage."
-	price = 125
+	price = 725
 	items = list(
 		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon
 	)
@@ -189,7 +189,7 @@
 	name = "pneumalin autoinhaler"
 	supplier = "nanotrasen"
 	description = "An autoinhaler used to treat lung damage."
-	price = 88
+	price = 450
 	items = list(
 		/obj/item/reagent_containers/inhaler/pneumalin
 	)
@@ -203,7 +203,7 @@
 	name = "body bags boxes (x3)"
 	supplier = "nanotrasen"
 	description = "This box contains body bags."
-	price = 80
+	price = 35
 	items = list(
 		/obj/item/storage/box/bodybags
 	)
@@ -217,7 +217,7 @@
 	name = "box of empty autoinjectors"
 	supplier = "nanotrasen"
 	description = "Contains empty autoinjectors."
-	price = 35
+	price = 85
 	items = list(
 		/obj/item/storage/box/autoinjectors
 	)
@@ -270,10 +270,10 @@
 
 /singleton/cargo_item/butazoline_bottle
 	category = "medical"
-	name = "butazoline autoinjector"
+	name = "butazoline bottle"
 	supplier = "nanotrasen"
 	description = "A bottle of butazoline, a medicine used to treat severe trauma."
-	price = 80
+	price = 250
 	items = list(
 		/obj/item/reagent_containers/glass/bottle/butazoline
 	)
@@ -284,10 +284,10 @@
 
 /singleton/cargo_item/dermaline_bottle
 	category = "medical"
-	name = "dermaline autoinjector"
+	name = "dermaline bottle"
 	supplier = "nanotrasen"
 	description = "A bottle of dermaline, a medicine used to treat severe burns."
-	price = 80
+	price = 250
 	items = list(
 		/obj/item/reagent_containers/glass/bottle/dermaline
 	)
@@ -301,7 +301,7 @@
 	name = "dylovene bottle"
 	supplier = "nanotrasen"
 	description = "A small bottle of dylovene, a broad-spectrum antitoxin and liver regenerative."
-	price = 40
+	price = 180
 	items = list(
 		/obj/item/reagent_containers/glass/bottle/antitoxin
 	)
@@ -315,7 +315,7 @@
 	name = "hyronalin bottle"
 	supplier = "nanotrasen"
 	description = "A bottle containing hyronalin, used to treat radiation poisoning."
-	price = 55
+	price = 375
 	items = list(
 		/obj/item/reagent_containers/glass/bottle/hyronalin
 	)
@@ -329,7 +329,7 @@
 	name = "inaprovaline bottle"
 	supplier = "nanotrasen"
 	description = "A bottle of inaprovaline, a broad-spectrum stimulant and cardiac stabilizer."
-	price = 35
+	price = 205
 	items = list(
 		/obj/item/reagent_containers/glass/bottle/inaprovaline
 	)
@@ -343,7 +343,7 @@
 	name = "soporific bottle"
 	supplier = "nanotrasen"
 	description = "A bottle of soporific. Just the fumes make you sleepy."
-	price = 45
+	price = 245
 	items = list(
 		/obj/item/reagent_containers/glass/bottle/stoxin
 	)
@@ -357,7 +357,7 @@
 	name = "mortaphenyl bottle"
 	supplier = "nanotrasen"
 	description = "A bottle of mortaphenyl, a strong non-opioid painkiller."
-	price = 85
+	price = 455
 	items = list(
 		/obj/item/reagent_containers/glass/bottle/mortaphenyl
 	)
@@ -441,7 +441,7 @@
 	name = "medical voidsuit"
 	supplier = "nanotrasen"
 	description = "A special suit that protects against hazardous, low pressure environments. Has minor radiation shielding."
-	price = 800
+	price = 780
 	items = list(
 		/obj/item/clothing/suit/space/void/medical
 	)
@@ -455,7 +455,7 @@
 	name = "medical voidsuit helmet"
 	supplier = "nanotrasen"
 	description = "A special helmet designed for work in a hazardous, low pressure environment. Has minor radiation shielding."
-	price = 500
+	price = 480
 	items = list(
 		/obj/item/clothing/head/helmet/space/void/medical
 	)
@@ -497,7 +497,7 @@
 	name = "stasis bag"
 	supplier = "zeng_hu"
 	description = "A folded, non-reusable bag designed to keep patients in stasis for transport."
-	price = 125
+	price = 2450
 	items = list(
 		/obj/item/bodybag/cryobag
 	)
@@ -511,7 +511,7 @@
 	name = "stabilizer harness"
 	supplier = "nanotrasen"
 	description = "A specialized medical harness that gives regular compressions to the patient's ribcage for cases of urgent heart issues, and functions as an emergency artificial respirator for cases of urgent lung issues."
-	price = 110
+	price = 2110
 	items = list(
 		/obj/item/auto_cpr
 	)
@@ -525,7 +525,7 @@
 	name = "hypospray"
 	supplier = "zeng_hu"
 	description = "A sterile, air-needle autoinjector for administration of drugs to patients."
-	price = 120
+	price = 800
 	items = list(
 		/obj/item/reagent_containers/hypospray
 	)
@@ -541,7 +541,7 @@
 	name = "surgery kit"
 	supplier = "zeng_hu"
 	description = "A kit containing surgical tools, either for resupply or for use on-the-go."
-	price = 800
+	price = 3200
 	items = list(
 		/obj/item/storage/firstaid/surgery
 	)
@@ -555,7 +555,7 @@
 	name = "anesthetic tank"
 	supplier = "nanotrasen"
 	description = "A tank with an N2O/O2 gas mix."
-	price = 120
+	price = 250
 	items = list(
 		/obj/item/tank/anesthetic
 	)
@@ -569,7 +569,7 @@
 	name = "scalpel"
 	supplier = "zeng_hu"
 	description = "Cut, cut, and once more cut."
-	price = 55
+	price = 255
 	items = list(
 		/obj/item/surgery/scalpel
 	)
@@ -583,7 +583,7 @@
 	name = "retractor"
 	supplier = "zeng_hu"
 	description = "Retracts stuff."
-	price = 75
+	price = 275
 	items = list(
 		/obj/item/surgery/retractor
 	)
@@ -597,7 +597,7 @@
 	name = "hemostat"
 	supplier = "zeng_hu"
 	description = "You think you have seen this before."
-	price = 75
+	price = 275
 	items = list(
 		/obj/item/surgery/hemostat
 	)
@@ -611,7 +611,7 @@
 	name = "circular saw"
 	supplier = "zeng_hu"
 	description = "For heavy duty cutting."
-	price = 100
+	price = 510
 	items = list(
 		/obj/item/surgery/circular_saw
 	)
@@ -625,7 +625,7 @@
 	name = "vascular recoupler"
 	supplier = "zeng_hu"
 	description = "An advanced automatic surgical instrument that operates with extreme finesse."
-	price = 170
+	price = 850
 	items = list(
 		/obj/item/surgery/fix_o_vein
 	)
@@ -639,7 +639,7 @@
 	name = "cautery"
 	supplier = "zeng_hu"
 	description = "This stops bleeding."
-	price = 110
+	price = 550
 	items = list(
 		/obj/item/surgery/cautery
 	)
@@ -653,7 +653,7 @@
 	name = "surgical drill"
 	supplier = "zeng_hu"
 	description = "You can drill using this item. You dig?"
-	price = 110
+	price = 470
 	items = list(
 		/obj/item/surgery/surgicaldrill
 	)
@@ -667,7 +667,7 @@
 	name = "bone gel"
 	supplier = "zeng_hu"
 	description = "A bottle-and-nozzle applicator containing a specialized gel. When applied to bone tissue, it can reinforce and repair breakages and act as a glue to keep bones in place while they heal."
-	price = 85
+	price = 485
 	items = list(
 		/obj/item/surgery/bone_gel
 	)
@@ -681,7 +681,7 @@
 	name = "bone setter"
 	supplier = "zeng_hu"
 	description = "Sets bones into place."
-	price = 55
+	price = 255
 	items = list(
 		/obj/item/surgery/bonesetter
 	)

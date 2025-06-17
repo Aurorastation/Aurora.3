@@ -411,7 +411,7 @@
 	name = "chemical cartridge - acetone"
 	supplier = "zeng_hu"
 	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 40
+	price = 48
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/acetone
 	)
@@ -425,7 +425,7 @@
 	name = "chemical cartridge - aluminum"
 	supplier = "zeng_hu"
 	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 40
+	price = 42
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/aluminum
 	)
@@ -439,7 +439,7 @@
 	name = "chemical cartridge - ammonia"
 	supplier = "zeng_hu"
 	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 40
+	price = 36
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/ammonia
 	)
@@ -453,7 +453,7 @@
 	name = "chemical cartridge - carbon"
 	supplier = "zeng_hu"
 	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 40
+	price = 35
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/carbon
 	)
@@ -481,7 +481,7 @@
 	name = "chemical cartridge - ethanol"
 	supplier = "zeng_hu"
 	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 40
+	price = 150
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/ethanol
 	)
@@ -495,7 +495,7 @@
 	name = "chemical cartridge - hydrazine"
 	supplier = "zeng_hu"
 	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 40
+	price = 1200
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/hydrazine
 	)
@@ -509,7 +509,7 @@
 	name = "chemical cartridge - hydrochloric acid"
 	supplier = "zeng_hu"
 	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 40
+	price = 55
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/hclacid
 	)
@@ -537,7 +537,7 @@
 	name = "chemical cartridge - lithium"
 	supplier = "zeng_hu"
 	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 40
+	price = 450
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/lithium
 	)
@@ -551,7 +551,7 @@
 	name = "chemical cartridge - mercury"
 	supplier = "zeng_hu"
 	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 40
+	price = 65
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/mercury
 	)
@@ -565,7 +565,7 @@
 	name = "chemical cartridge - phosphorus"
 	supplier = "zeng_hu"
 	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 40
+	price = 350
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/phosphorus
 	)
@@ -579,7 +579,7 @@
 	name = "chemical cartridge - potassium"
 	supplier = "zeng_hu"
 	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 40
+	price = 55
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/potassium
 	)
@@ -593,7 +593,7 @@
 	name = "chemical cartridge - radium"
 	supplier = "zeng_hu"
 	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 40
+	price = 3000
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/radium
 	)
@@ -621,7 +621,7 @@
 	name = "chemical cartridge - sodium"
 	supplier = "zeng_hu"
 	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 40
+	price = 70
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/sodium
 	)
@@ -635,7 +635,7 @@
 	name = "chemical cartridge - sugar"
 	supplier = "zeng_hu"
 	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 40
+	price = 3.50
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/sugar
 	)
@@ -649,7 +649,7 @@
 	name = "chemical cartridge - sulfur"
 	supplier = "zeng_hu"
 	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 40
+	price = 7.50
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/sulfur
 	)
@@ -677,7 +677,7 @@
 	name = "chemical cartridge - tungsten"
 	supplier = "zeng_hu"
 	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 40
+	price = 70
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/tungsten
 	)
@@ -691,7 +691,7 @@
 	name = "chemical cartridge - water"
 	supplier = "zeng_hu"
 	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 40
+	price = 1.50
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/water
 	)
@@ -707,7 +707,7 @@
 	name = "chemical cartridge - dylovene"
 	supplier = "iac"
 	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 150
+	price = 1400
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/dylovene
 	)
@@ -721,7 +721,7 @@
 	name = "chemical cartridge - inaprovaline"
 	supplier = "iac"
 	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 150
+	price = 1600
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/inaprov
 	)
@@ -735,7 +735,7 @@
 	name = "chemical cartridge - thetamycin"
 	supplier = "iac"
 	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 150
+	price = 2500
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/thetamycin
 	)
@@ -749,7 +749,7 @@
 	name = "chemical cartridge - perconol"
 	supplier = "iac"
 	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 150
+	price = 1800
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/perconol
 	)

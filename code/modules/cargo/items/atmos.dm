@@ -17,7 +17,7 @@
 	name = "phoron tank"
 	supplier = "nanotrasen"
 	description = "A man-portable tank containing phoron, pure poison. Unless you're Vaurca, in which case it's the precious gas of life."
-	price = 650
+	price = 1200
 	items = list(
 		/obj/item/tank/phoron
 	)
@@ -185,7 +185,7 @@
 	name = "Canister (Phoron)"
 	supplier = "nanotrasen"
 	description = "Holds valuable phoron gas. Has a built-in valve to allow for filling portable tanks."
-	price = 2500
+	price = 5500
 	items = list(
 		/obj/machinery/portable_atmospherics/canister/phoron
 	)

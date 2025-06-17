@@ -188,7 +188,7 @@
 	name = "water balloons (x10)"
 	supplier = "nanotrasen"
 	description = "Ten empty water balloons for water balloon fights."
-	price = 8.25
+	price = 3.25
 	items = list(
 		/obj/item/toy/waterballoon
 	)
@@ -202,7 +202,7 @@
 	name = "balloons (x10)"
 	supplier = "nanotrasen"
 	description = "Ten empty regular balloons. Can be filled using a tank of air or other gas. Warranty void if filled with hydrogen."
-	price = 5.50
+	price = 2.50
 	items = list(
 		/obj/item/toy/balloon
 	)

@@ -72,7 +72,7 @@
 	name = "phoron crystals"
 	supplier = "hephaestus"
 	description = "A bunch of 50 phoron crystals. Highly valuable."
-	price = 400
+	price = 2250
 	items = list(
 		/obj/item/stack/material/phoron/full
 	)
@@ -267,7 +267,7 @@
 	name = "EM Acceleration Chamber"
 	supplier = "hephaestus"
 	description = "Part of a Particle Accelerator."
-	price = 550
+	price = 1550
 	items = list(
 		/obj/structure/particle_accelerator/fuel_chamber
 	)
@@ -281,7 +281,7 @@
 	name = "EM Containment Grid Center"
 	supplier = "hephaestus"
 	description = "Part of a Particle Accelerator."
-	price = 550
+	price = 1550
 	items = list(
 		/obj/structure/particle_accelerator/particle_emitter/center
 	)
@@ -295,7 +295,7 @@
 	name = "EM Containment Grid Left"
 	supplier = "hephaestus"
 	description = "Part of a Particle Accelerator."
-	price = 550
+	price = 1550
 	items = list(
 		/obj/structure/particle_accelerator/particle_emitter/left
 	)
@@ -309,7 +309,7 @@
 	name = "EM Containment Grid Right"
 	supplier = "hephaestus"
 	description = "Part of a Particle Accelerator."
-	price = 550
+	price = 1550
 	items = list(
 		/obj/structure/particle_accelerator/particle_emitter/right
 	)
@@ -337,7 +337,7 @@
 	name = "emitter"
 	supplier = "hephaestus"
 	description = "It is a heavy duty industrial laser."
-	price = 250
+	price = 1850
 	items = list(
 		/obj/machinery/power/emitter
 	)
@@ -365,7 +365,7 @@
 	name = "engineering voidsuit"
 	supplier = "hephaestus"
 	description = "A special suit that protects against hazardous, low pressure environments. Has radiation shielding."
-	price = 220
+	price = 800
 	items = list(
 		/obj/item/clothing/suit/space/void/engineering
 	)
@@ -379,7 +379,7 @@
 	name = "engineering voidsuit helmet"
 	supplier = "hephaestus"
 	description = "A special helmet designed for work in a hazardous, low-pressure environment. Has radiation shielding."
-	price = 150
+	price = 500
 	items = list(
 		/obj/item/clothing/head/helmet/space/void/engineering
 	)
@@ -647,7 +647,7 @@
 	name = "Particle Accelerator Control Computer"
 	supplier = "hephaestus"
 	description = "This controls the density of the particles."
-	price = 250
+	price = 2250
 	items = list(
 		/obj/machinery/particle_accelerator/control_box
 	)
@@ -661,7 +661,7 @@
 	name = "Particle Focusing EM Lens"
 	supplier = "hephaestus"
 	description = "Part of a Particle Accelerator."
-	price = 550
+	price = 1250
 	items = list(
 		/obj/structure/particle_accelerator/power_box
 	)
@@ -731,7 +731,7 @@
 	name = "singularity generator"
 	supplier = "hephaestus"
 	description = "Used to generate a Singularity. It is not adviced to use this on the asteroid."
-	price = 3500
+	price = 17000
 	items = list(
 		/obj/machinery/the_singularitygen
 	)
@@ -745,7 +745,7 @@
 	name = "superconductive magnetic coil"
 	supplier = "hephaestus"
 	description = "Standard superconductive magnetic coil with average capacity and I/O rating."
-	price = 300
+	price = 800
 	items = list(
 		/obj/item/smes_coil
 	)
@@ -759,7 +759,7 @@
 	name = "supermatter crystal"
 	supplier = "hephaestus"
 	description = "An unstable, radioactive crystal that forms the power source of several experimental ships and stations. Extremely dangerous."
-	price = 5200
+	price = 18500
 	items = list(
 		/obj/machinery/power/supermatter
 	)
@@ -789,7 +789,7 @@
 	name = "solar panel assembly"
 	supplier = "hephaestus"
 	description = "A solar panel assembly kit, allows constructions of a solar panel, or with a tracking circuit board, a solar tracker."
-	price = 180
+	price = 350
 	items = list(
 		/obj/item/solar_assembly
 	)
@@ -803,7 +803,7 @@
 	name = "tracker electronics"
 	supplier = "hephaestus"
 	description = "Electronic guidance systems for a solar array."
-	price = 40
+	price = 100
 	items = list(
 		/obj/item/tracker_electronics
 	)
@@ -845,7 +845,7 @@
 	name = "antimatter containment jar"
 	supplier = "eckharts"
 	description = "Holds antimatter. Warranty void if exposed to matter."
-	price = 180
+	price = 280
 	items = list(
 		/obj/item/am_containment
 	)
@@ -859,7 +859,7 @@
 	name = "antimatter control unit"
 	supplier = "eckharts"
 	description = "The control unit for an antimatter reactor. Probably safe."
-	price = 950
+	price = 1950
 	items = list(
 		/obj/machinery/power/am_control_unit
 	)
@@ -873,7 +873,7 @@
 	name = "Alpha Particle Generation Array"
 	supplier = "hephaestus"
 	description = "Part of a Particle Accelerator."
-	price = 550
+	price = 1550
 	items = list(
 		/obj/structure/particle_accelerator/end_cap
 	)

@@ -31,7 +31,7 @@
 	name = "Class A Kinetic Accelerator"
 	supplier = "hephaestus"
 	description = "Contains a tactical KA frame, an experimental core KA power converter, a recoil reloading KA cell, and a upgrade chip - damage increase."
-	price = 1200
+	price = 3200
 	items = list(
 		/obj/item/gun/custom_ka/frame05/prebuilt
 	)
@@ -45,7 +45,7 @@
 	name = "Class B Kinetic Accelerator"
 	supplier = "hephaestus"
 	description = "Contains a heavy KA frame, a planet core KA power converter, a uranium recharging KA cell, and a upgrade chip - efficiency increase."
-	price = 850
+	price = 2850
 	items = list(
 		/obj/item/gun/custom_ka/frame04/prebuilt
 	)
@@ -59,7 +59,7 @@
 	name = "Class C Kinetic Accelerator"
 	supplier = "hephaestus"
 	description = "Contains a medium KA frame, a meteor core KA power converter, a kinetic KA cell, and a upgrade chip - focusing."
-	price = 650
+	price = 2200
 	items = list(
 		/obj/item/gun/custom_ka/frame03/prebuilt
 	)
@@ -73,7 +73,7 @@
 	name = "Class D Kinetic Accelerator"
 	supplier = "hephaestus"
 	description = "Contains a light KA frame, a professional core KA power converter, an advanced pump recharging KA cell, and a upgrade chip - firedelay increase."
-	price = 450
+	price = 1850
 	items = list(
 		/obj/item/gun/custom_ka/frame02/prebuilt
 	)
@@ -87,7 +87,7 @@
 	name = "Class E Kinetic Accelerator"
 	supplier = "hephaestus"
 	description = "Contains a compact KA frame, a standard core KA power converter, a pump recharging KA cell, and a upgrade chip - focusing."
-	price = 250
+	price = 1400
 	items = list(
 		/obj/item/gun/custom_ka/frame01/prebuilt
 	)
@@ -101,7 +101,7 @@
 	name = "mining drill"
 	supplier = "hephaestus"
 	description = "A large industrial drill. Its bore does not penetrate deep enough to access the sublevels."
-	price = 1000
+	price = 5000
 	items = list(
 		/obj/machinery/mining/drill,
 		/obj/machinery/mining/brace,

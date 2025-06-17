@@ -17,7 +17,7 @@
 	name = "vkrexi cube box"
 	supplier = "nanotrasen"
 	description = "Drymate brand vkrexi cubes. Just add water!"
-	price = 60
+	price = 1160
 	items = list(
 		/obj/item/storage/box/monkeycubes/vkrexicubes
 	)
@@ -31,7 +31,7 @@
 	name = "farwa cube box"
 	supplier = "nanotrasen"
 	description = "Drymate brand farwa cubes, shipped from Adhomai. Just add water!"
-	price = 55
+	price = 1455
 	items = list(
 		/obj/item/storage/box/monkeycubes/farwacubes
 	)
@@ -45,7 +45,7 @@
 	name = "monkey cube box"
 	supplier = "nanotrasen"
 	description = "Drymate brand monkey cubes. Just add water!"
-	price = 60
+	price = 1600
 	items = list(
 		/obj/item/storage/box/monkeycubes
 	)
@@ -59,7 +59,7 @@
 	name = "neaera cube box"
 	supplier = "nanotrasen"
 	description = "Drymate brand neaera cubes, shipped from Jargon 4. Just add water!"
-	price = 65
+	price = 1665
 	items = list(
 		/obj/item/storage/box/monkeycubes/neaeracubes
 	)
@@ -72,7 +72,7 @@
 	name = "hazmat hood"
 	supplier = "nanotrasen"
 	description = "This hood protects against biological hazards."
-	price = 65
+	price = 165
 	items = list(
 		/obj/item/clothing/head/hazmat/general
 	)
@@ -86,23 +86,9 @@
 	name = "hazmat suit"
 	supplier = "nanotrasen"
 	description = "This suit protects against biological hazards."
-	price = 100
+	price = 200
 	items = list(
 		/obj/item/clothing/suit/hazmat/general
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/igniter
-	category = "science"
-	name = "igniter"
-	supplier = "nanotrasen"
-	description = "A small electronic device able to ignite combustable substances."
-	price = 23
-	items = list(
-		/obj/item/device/assembly/igniter
 	)
 	access = 0
 	container_type = "crate"
@@ -128,7 +114,7 @@
 	name = "Proto-Human"
 	supplier = "zeng_hu"
 	description = "A human body, vat-grown and artificially raised without a functional brain. The everyman's relatively-ethical solution to organ harvesting."
-	price = 1300
+	price = 7200
 	items = list(
 		/mob/living/carbon/human
 	)
@@ -142,7 +128,7 @@
 	name = "Proto-Skrell"
 	supplier = "zeng_hu"
 	description = "A Skrell body, vat-grown and artificially raised without a functional brain. The everyman's relatively-ethical solution to organ harvesting."
-	price = 2600
+	price = 9100
 	items = list(
 		/mob/living/carbon/human/skrell
 	)
@@ -156,7 +142,7 @@
 	name = "Proto-Tajara"
 	supplier = "zeng_hu"
 	description = "A Tajara body, vat-grown and artificially raised without a functional brain. The everyman's relatively-ethical solution to organ harvesting."
-	price = 1500
+	price = 7450
 	items = list(
 		/mob/living/carbon/human/tajaran
 	)
@@ -170,7 +156,7 @@
 	name = "Proto-Unathi"
 	supplier = "zeng_hu"
 	description = "An Unathi body, vat-grown and artificially raised without a functional brain. The everyman's relatively-ethical solution to organ harvesting."
-	price = 1300
+	price = 7800
 	items = list(
 		/mob/living/carbon/human/unathi
 	)
@@ -181,10 +167,10 @@
 
 /singleton/cargo_item/blankvaurcadrone
 	category = "science"
-	name = "Blank Vaurca Drone"
+	name = "Surplus Vaurca Drone"
 	supplier = "zora"
-	description = "A surplus Vaurca drone body. Thousands of these are thrown at the wayside every day. The everyman's relatively-ethical solution to organ harvesting."
-	price = 300
+	description = "A surplus Vaurca drone body with functioning organs but a defective brain. Thousands of these are thrown at the wayside every day. The everyman's relatively-ethical solution to organ harvesting."
+	price = 500
 	items = list(
 		/mob/living/carbon/human/type_a/cargo
 	)
@@ -229,6 +215,20 @@
 	price = 22
 	items = list(
 		/obj/item/device/assembly/timer
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/igniter
+	category = "science"
+	name = "igniter"
+	supplier = "nanotrasen"
+	description = "A small electronic device able to ignite combustable substances."
+	price = 23
+	items = list(
+		/obj/item/device/assembly/igniter
 	)
 	access = 0
 	container_type = "crate"

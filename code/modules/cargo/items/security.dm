@@ -329,7 +329,7 @@
 	name = "security voidsuit"
 	supplier = "zavodskoi"
 	description = "A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor."
-	price = 1500
+	price = 900
 	items = list(
 		/obj/item/clothing/suit/space/void/security
 	)
@@ -343,7 +343,7 @@
 	name = "security voidsuit helmet"
 	supplier = "zavodskoi"
 	description = "A special helmet designed for work in a hazardous, low pressure environment. Has an additional layer of armor."
-	price = 900
+	price = 550
 	items = list(
 		/obj/item/clothing/head/helmet/space/void/security
 	)
