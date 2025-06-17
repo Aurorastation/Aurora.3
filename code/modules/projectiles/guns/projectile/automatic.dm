@@ -94,6 +94,21 @@
 	..()
 	icon_state = (ammo_magazine)? "vityaz" : "vityaz-empty"
 
+/obj/item/gun/projectile/automatic/c20r/sol/siib
+	name = "solarian SIIB submachine gun"
+	desc = "A very rare variation of the Solarian SMG, used by SIIB operatives during field missions. Suppressed and taking subsonic ammunition, you won't even hear a whisper."
+	icon = 'icons/obj/guns/sol_smg.dmi'
+	icon_state = "vityaz_siib"
+	item_state = "vityaz_siib"
+	can_suppress = FALSE
+	allowed_magazines = list(/obj/item/ammo_magazine/a10mm/subsonic)
+
+	fire_sound = 'sound/weapons/gunshot/gunshot_suppressed.ogg'
+
+/obj/item/gun/projectile/automatic/c20r/sol/siib/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "vityaz_siib" : "vityaz_siib-empty"
+
 /obj/item/gun/projectile/automatic/xanusmg
 	name = "\improper Xanan submachine gun"
 	desc = "A sleek metal-framed submachine gun, produced by d.N.A Defense for the All-Xanu Armed Forces."
