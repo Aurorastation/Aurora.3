@@ -56,10 +56,10 @@
 	if (health < maxhealth)
 		return FONT_SMALL(SPAN_NOTICE("It could be repaired with a few choice <b>welds</b>... no matter what its made of!"))
 	if (carpeted)
-		. += FONT_SMALL(SPAN_NOTICE("Its carpeted surface could be <b>pried<b/> loose."))
+		. += FONT_SMALL(SPAN_NOTICE("Its carpeted surface could be <b>pried</b> loose."))
 	// Needs to be plated before it can be carpeted
 	else if (material)
-		. += FONT_SMALL(SPAN_NOTICE("Its could be surfaced with some <b>carpet</b>."))
+		. += FONT_SMALL(SPAN_NOTICE("It could be surfaced with some <b>carpet</b>."))
 	if (reinforced)
 		. += FONT_SMALL(SPAN_NOTICE("Its reinforcements have been securely <b>screwed<b/> into place."))
 	// Needs to be plated before it can be reinforced
