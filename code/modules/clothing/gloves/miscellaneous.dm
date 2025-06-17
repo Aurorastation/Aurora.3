@@ -17,6 +17,7 @@
 	min_cold_protection_temperature = GLOVES_MIN_COLD_PROTECTION_TEMPERATURE
 	heat_protection = HANDS
 	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE
+	item_flags = ITEM_FLAG_THICK_MATERIAL
 
 /obj/item/clothing/gloves/swat/ert
 	species_restricted = null
@@ -38,6 +39,7 @@
 	min_cold_protection_temperature = GLOVES_MIN_COLD_PROTECTION_TEMPERATURE
 	heat_protection = HANDS
 	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE
+	item_flags = ITEM_FLAG_THICK_MATERIAL
 
 /obj/item/clothing/ring/ninja
 	desc = "A pair of plain black infiltration gloves. Too thin to protect anything, but can fit underneath a hardsuit gauntlet."

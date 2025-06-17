@@ -4,6 +4,7 @@
 	icon_state = "boxing"
 	item_state = "boxing"
 	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_VAURCA_BULWARK)
+	item_flags = ITEM_FLAG_THICK_MATERIAL
 
 /obj/item/clothing/gloves/boxing/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.iswirecutter() || istype(attacking_item, /obj/item/surgery/scalpel))
