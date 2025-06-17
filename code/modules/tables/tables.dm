@@ -47,30 +47,31 @@
 	. += construction_hints()
 
 /obj/structure/table/proc/construction_hints()
+	. = list()
 	// Rule racks out entirely first. If we ever let them be customized/have health, update this.
 	if (!can_reinforce || !can_plate)
-		. += SPAN_NOTICE("It is held together by a couple of <b>bolts</b>.")
+		. += FONT_SMALL(SPAN_NOTICE("It is held together by a couple of <b>bolts</b>."))
 		return .
 
 	if (health < maxhealth)
-		return SPAN_NOTICE("It could be repaired with a few choice <b>welds</b>... no matter what its made of!")
+		return FONT_SMALL(SPAN_NOTICE("It could be repaired with a few choice <b>welds</b>... no matter what its made of!"))
 	if (carpeted)
-		. += SPAN_NOTICE("Its carpeted surface could be <b>pried<b/> loose.")
+		. += FONT_SMALL(SPAN_NOTICE("Its carpeted surface could be <b>pried<b/> loose."))
 	// Needs to be plated before it can be carpeted
 	else if (material)
-		. += SPAN_NOTICE("Its could be surfaced with some <b>carpet</b>.")
+		. += FONT_SMALL(SPAN_NOTICE("Its could be surfaced with some <b>carpet</b>."))
 	if (reinforced)
-		. += SPAN_NOTICE("Its reinforcements have been securely <b>screwed<b/> into place.")
+		. += FONT_SMALL(SPAN_NOTICE("Its reinforcements have been securely <b>screwed<b/> into place."))
 	// Needs to be plated before it can be reinforced
 	else if (material)
-		. += SPAN_NOTICE("It could be reinforced with a <b>stack</b> of an appropriate material.")
+		. += FONT_SMALL(SPAN_NOTICE("It could be reinforced with a <b>stack</b> of an appropriate material."))
 		// Needs to be uncarpeted before it can be de-plated
 		if (!carpeted)
-			. += SPAN_NOTICE("It is held together by a couple of <b>bolts</b>.")
+			. += FONT_SMALL(SPAN_NOTICE("It is held together by a couple of <b>bolts</b>."))
 	// Needs to be plated before we can do much of anything
 	if (!material)
-		. += SPAN_NOTICE("It could be plated with a <b>stack</b> of an appropriate material.")
-		. += SPAN_NOTICE("It is held together by a couple of <b>bolts</b>.")
+		. += FONT_SMALL(SPAN_NOTICE("It could be plated with a <b>stack</b> of an appropriate material."))
+		. += FONT_SMALL(SPAN_NOTICE("It is held together by a couple of <b>bolts</b>."))
 	return .
 
 /obj/structure/table/proc/update_material()

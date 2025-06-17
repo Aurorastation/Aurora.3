@@ -309,8 +309,8 @@
 
 /obj/structure/bed/proc/construction_hints()
 	if (padding_material)
-		return SPAN_NOTICE("Its padding has visible seams that could be <b>cut</b>.")
-	return SPAN_NOTICE("It is held together by a couple of <b>bolts</b>.")
+		return FONT_SMALL(SPAN_NOTICE("Its padding has visible seams that could be <b>cut</b>."))
+	return FONT_SMALL(SPAN_NOTICE("It is held together by a couple of <b>bolts</b>."))
 
 /obj/structure/bed/psych
 	name = "psychiatrist's couch"
@@ -693,7 +693,7 @@
 	. += interaction_hints()
 
 /obj/structure/roller_rack/proc/interaction_hints()
-	return SPAN_NOTICE("It [anchored ? "is" : "could be"] anchored to the floor with a couple of <b>screws</b>.")
+	return FONT_SMALL(SPAN_NOTICE("It [anchored ? "is" : "could be"] anchored to the floor with a couple of <b>screws</b>."))
 
 /obj/structure/roller_rack/attack_hand(mob/user)
 	if(!LAZYLEN(held))

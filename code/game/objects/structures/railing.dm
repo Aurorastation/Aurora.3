@@ -88,17 +88,19 @@
 	. += construction_hints()
 
 /obj/structure/railing/proc/interaction_hints()
+	. = list()
 	if (anchored)
 		. += SPAN_NOTICE("It could be [density ? "opened" : "closed"] to passage with a wrench.")
 	return .
 
 /obj/structure/railing/proc/construction_hints()
+	. = list()
 	if (health < maxhealth)
-		. = SPAN_NOTICE("It could be repaired with a few choice <b>welds</b>.")
+		. += FONT_SMALL(SPAN_NOTICE("It could be repaired with a few choice <b>welds</b>."))
 
-	. += SPAN_NOTICE("It [anchored ? "is" : "could be"] anchored to the floor with a row of <b>screws</b>.")
+	. += FONT_SMALL(SPAN_NOTICE("It [anchored ? "is" : "could be"] anchored to the floor with a row of <b>screws</b>."))
 	if (!anchored)
-		. += SPAN_NOTICE("<br>It is held together by a couple of <b>bolts</b>.")
+		. += FONT_SMALL(SPAN_NOTICE("<br>It is held together by a couple of <b>bolts</b>."))
 	return .
 
 /obj/structure/railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
