@@ -55,6 +55,11 @@
 		var/obj/item/P = pulling
 		tally += P.slowdown
 
+	var/obj/item/grab/grab = get_type_in_hands(/obj/item/grab)
+	if(istype(grab) && ishuman(grab.affecting))
+		if(grab.affecting.mob_weight > get_mob_strength())
+			tally += grab.affecting.mob_weight - get_mob_strength()
+
 	var/turf/T = get_turf(src)
 	if(T) // changelings don't get movement costs
 		var/datum/changeling/changeling
@@ -188,4 +193,4 @@
 		var/mob/living/carbon/human/H = pulling
 		if(H.species.slowdown > species.slowdown)
 			. += H.species.slowdown - species.slowdown
-		// . += H.ClothesSlowdown()
+

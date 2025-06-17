@@ -12,6 +12,7 @@
 	economic_modifier = 3
 	default_genders = list(NEUTER)
 	selectable_pronouns = list(NEUTER, PLURAL)
+	mob_weight = MOB_WEIGHT_HEAVY
 
 	blurb = "IPCs are, quite simply, \"Integrated Positronic Chassis.\" In this scenario, 'positronic' implies that the chassis possesses a positronic processing core (or positronic brain), meaning that an IPC must be positronic to be considered an IPC. The Baseline model is more of a category - the long of the short is that they represent all unbound synthetic units. Baseline models cover anything that is not an Industrial chassis or a Shell chassis. They can be custom made or assembly made. The most common feature of the Baseline model is a simple design, skeletal or semi-humanoid, and ordinary atmospheric diffusion cooling systems."
 
@@ -70,10 +71,9 @@
 	heat_level_3 = 2400
 
 	body_temperature = null
-	passive_temp_gain = 10  // This should cause IPCs to stabilize at ~80 C in a 20 C environment.
+	passive_temp_gain = 2
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/self_diagnostics,
 		/mob/living/carbon/human/proc/change_monitor,
 		/mob/living/carbon/human/proc/check_tag
 	)
@@ -87,11 +87,21 @@
 	flesh_color = "#575757"
 	reagent_tag = IS_MACHINE
 
+	// If you add a new organ to IPCs, remember that a lot of the normal subspecies have overrides because of custom subtype organs.
+	// You'll need to add the new organ there too.
 	has_organ = list(
-		BP_BRAIN   = /obj/item/organ/internal/mmi_holder/posibrain,
-		BP_CELL    = /obj/item/organ/internal/cell,
+		BP_BRAIN   = /obj/item/organ/internal/machine/posibrain,
+		BP_VOICE_SYNTHESIZER = /obj/item/organ/internal/machine/voice_synthesizer,
+		BP_DIAGNOSTICS_SUITE = /obj/item/organ/internal/machine/internal_diagnostics,
+		BP_HYDRAULICS = /obj/item/organ/internal/machine/hydraulics,
+		BP_ACTUATORS_LEFT = /obj/item/organ/internal/machine/actuators/left,
+		BP_ACTUATORS_RIGHT = /obj/item/organ/internal/machine/actuators/right,
+		BP_COOLING_UNIT = /obj/item/organ/internal/machine/cooling_unit,
+		BP_REACTOR = /obj/item/organ/internal/machine/reactor,
+		BP_ACCESS_PORT = /obj/item/organ/internal/machine/access_port,
+		BP_CELL    = /obj/item/organ/internal/machine/power_core,
 		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
-		BP_IPCTAG = /obj/item/organ/internal/ipc_tag
+		BP_IPCTAG = /obj/item/organ/internal/machine/ipc_tag
 	)
 
 	vision_organ = BP_EYES
@@ -134,12 +144,14 @@
 		/singleton/origin_item/culture/scrapper
 	)
 
-	alterable_internal_organs = list()
+	alterable_internal_organs = list(BP_COOLING_UNIT, BP_REACTOR)
 	possible_speech_bubble_types = list("robot", "default")
 
 	// Special snowflake machine vars.
 	var/sprint_temperature_factor = 1.15
 	var/move_charge_factor = 1
+	/// The theme of the IPC's personal UIs, if not broken.
+	var/machine_ui_theme = "hackerman"
 
 	use_alt_hair_layer = TRUE
 	psi_deaf = TRUE
@@ -148,23 +160,55 @@
 	snore_key = "beep"
 	indefinite_sleep = TRUE
 
+	natural_armor_type = /datum/component/armor/synthetic
+	natural_armor = list(
+		ballistic = ARMOR_BALLISTIC_MINOR,
+		melee = ARMOR_MELEE_KNIVES
+	)
+
+/datum/species/machine/handle_temperature_regulation(mob/living/carbon/human/human)
+	. = ..()
+	var/obj/item/organ/internal/machine/cooling_unit/cooling = human.internal_organs_by_name[BP_COOLING_UNIT]
+	// No cooling unit = you're cooking. Broken cooling unit effects are handled by the organ itself.
+	// Here we just want to check if it's been removed.
+	// 500K is about 226 degrees. Spicy!
+	if(!istype(cooling) && human.bodytemperature < 500 && human.stat != DEAD)
+		human.bodytemperature = max(human.bodytemperature + 3)
+
 /datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	. = ..()
 	check_tag(H, H.client)
-	var/obj/item/organ/internal/cell/C = H.internal_organs_by_name[BP_CELL]
+	var/obj/item/organ/internal/machine/power_core/C = H.internal_organs_by_name[BP_CELL]
 	if(C)
 		C.move_charge_factor = move_charge_factor
 
 /datum/species/machine/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost, var/pre_move)
 	if(!pre_move && H.stat == CONSCIOUS)
 		H.bodytemperature += cost * sprint_temperature_factor
-	var/obj/item/organ/internal/cell/C = H.internal_organs_by_name[BP_CELL]
-	if(C)
+	var/obj/item/organ/internal/machine/hydraulics/hydraulics = H.internal_organs_by_name[BP_HYDRAULICS]
+	if(istype(hydraulics))
+		var/hydraulics_integrity = hydraulics.get_integrity()
+		if(hydraulics_integrity < 75)
+			var/damage_mod = 2
+			if(hydraulics.is_bruised())
+				damage_mod = 3
+			if(hydraulics.is_broken())
+				damage_mod = 5
+
+			// x = x * (2 + 100 - y ) / 100
+			// x = x * (2 + 100 - 75) / 100 -> x = x * (2 + (25 / 100)) --> x = x * 2.25
+			// increases depending on integrity
+
+			cost *= damage_mod + ((100 - hydraulics_integrity) / 100)
+
+	var/obj/item/organ/internal/machine/power_core/C = H.internal_organs_by_name[BP_CELL]
+	if(istype(C))
 		C.use(cost * sprint_cost_factor)
+		SEND_SIGNAL(H, COMSIG_IPC_HAS_SPRINTED)
 	return TRUE
 
 /datum/species/machine/handle_emp_act(mob/living/carbon/human/hit_mob, severity)
-	var/obj/item/organ/internal/surge/S = hit_mob.internal_organs_by_name["surge"]
+	var/obj/item/organ/internal/machine/surge/S = hit_mob.internal_organs_by_name[BP_SURGE_PROTECTOR]
 	if(!isnull(S))
 		if(S.surge_left >= 1)
 			playsound(hit_mob.loc, 'sound/magic/LightningShock.ogg', 25, 1)
@@ -188,16 +232,22 @@
 /datum/species/machine/sanitize_name(var/new_name)
 	return sanitizeName(new_name, allow_numbers = 1)
 
+/datum/species/machine/bypass_food_fullness(mob/living/carbon/human/H)
+	var/obj/item/organ/internal/machine/reactor/reactor = H.internal_organs_by_name[BP_REACTOR]
+	if(reactor && (reactor.power_supply_type & POWER_SUPPLY_BIOLOGICAL))
+		return TRUE
+	return FALSE
+
 /datum/species/machine/proc/check_tag(var/mob/living/carbon/human/new_machine, var/client/player)
 	if(!new_machine || !player)
-		var/obj/item/organ/internal/ipc_tag/tag = new_machine.internal_organs_by_name[BP_IPCTAG]
+		var/obj/item/organ/internal/machine/ipc_tag/tag = new_machine.internal_organs_by_name[BP_IPCTAG]
 		if(tag)
 			tag.serial_number = uppertext(dd_limittext(md5(new_machine.real_name), 12))
 			tag.ownership_info = IPC_OWNERSHIP_COMPANY
 			tag.citizenship_info = CITIZENSHIP_BIESEL
 		return
 
-	var/obj/item/organ/internal/ipc_tag/tag = new_machine.internal_organs_by_name[BP_IPCTAG]
+	var/obj/item/organ/internal/machine/ipc_tag/tag = new_machine.internal_organs_by_name[BP_IPCTAG]
 
 	if(player.prefs.machine_tag_status)
 		tag.serial_number = player.prefs.machine_serial_number
@@ -380,19 +430,14 @@
 	. = ..()
 	check_tag(H, H.client)
 
-/datum/species/machine/handle_death_check(var/mob/living/carbon/human/H)
-	if(H.get_total_health() <= GLOB.config.health_threshold_dead)
-		return TRUE
-	return FALSE
-
 /datum/species/machine/has_stamina_for_pushup(var/mob/living/carbon/human/human)
-	var/obj/item/organ/internal/cell/C = human.internal_organs_by_name[BP_CELL]
+	var/obj/item/organ/internal/machine/power_core/C = human.internal_organs_by_name[BP_CELL]
 	if(!C.cell)
 		return FALSE
 	return C.cell.charge > (C.cell.maxcharge / 10)
 
 /datum/species/machine/drain_stamina(var/mob/living/carbon/human/human, var/stamina_cost)
-	var/obj/item/organ/internal/cell/C = human.internal_organs_by_name[BP_CELL]
+	var/obj/item/organ/internal/machine/power_core/C = human.internal_organs_by_name[BP_CELL]
 	if(C)
 		C.use(stamina_cost * 8)
 
@@ -402,3 +447,19 @@
 
 /datum/species/machine/sleep_examine_msg(var/mob/M)
 	return SPAN_NOTICE("[M.get_pronoun("He")] appears to be in standby.\n")
+
+/datum/species/machine/can_speak(mob/living/carbon/human/speaker, datum/language/speaking, message)
+	var/obj/item/organ/internal/machine/voice_synthesizer/voice_synth = speaker.internal_organs_by_name[BP_VOICE_SYNTHESIZER]
+	if(istype(voice_synth))
+		return TRUE
+	else
+		to_chat(speaker, SPAN_WARNING("You cannot synthesize a voice without your [BP_VOICE_SYNTHESIZER]!"))
+		return FALSE
+
+/datum/species/machine/handle_speech_problems(mob/living/carbon/human/H, message, say_verb, message_mode, message_range)
+	var/obj/item/organ/internal/machine/voice_synthesizer/voice_synth = H.internal_organs_by_name[BP_VOICE_SYNTHESIZER]
+	if(istype(voice_synth))
+		if(voice_synth.is_bruised())
+			// at most, 30 * 2 + 10 = 70, which is the maximum value we can use for Gibberish
+			message = Gibberish(message, voice_synth.damage * 2 + (voice_synth.is_broken() ? 10 : 0))
+			return list(HSP_MSG = message, HSP_VERB = pick(list("crackles", "buzzes")))

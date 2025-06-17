@@ -320,3 +320,25 @@
 				clients_in_hearers += mob.client
 		if(length(clients_in_hearers))
 			INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, animate_chat), message, null, FALSE, clients_in_hearers, overhead_time)
+
+/**
+ * Called when an access cable - from an IPC or from a roboticist tool - is inserted into an object.
+ */
+/obj/proc/insert_cable(obj/item/access_cable/cable, mob/user)
+	user.drop_from_inventory(cable)
+	cable.forceMove(src)
+	cable.target = src
+
+/**
+ * Called when an access cable is removed from something, forcibly or not.
+ * Override as needed to clear variables up.
+ */
+/obj/proc/remove_cable(obj/item/access_cable/cable)
+	cable.clear_cable_full()
+
+/**
+ * Called when an access cable - from an IPC or from a roboticist tool - is used on an object to interact with it.
+ * For example, brings up diagnostics for an access port if it's hooked into one.
+ */
+/obj/proc/cable_interact(obj/item/access_cable/cable, mob/user)
+	cable.target = src

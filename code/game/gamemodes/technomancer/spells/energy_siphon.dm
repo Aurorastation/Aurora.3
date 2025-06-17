@@ -142,7 +142,7 @@
 			if(user.isSynthetic() && ishuman(user)) // Let's do something with it, if we're a robot.
 				var/mob/living/carbon/human/H = user
 				charge_to_give = charge_to_give - (core.max_energy - core.energy)
-				var/obj/item/organ/internal/cell/C = H.internal_organs_by_name[BP_CELL]
+				var/obj/item/organ/internal/machine/power_core/C = H.internal_organs_by_name[BP_CELL]
 				var/obj/item/cell/potato = C.get_cell()
 				potato.give(charge_to_give)
 				to_chat(user, SPAN_NOTICE("Redirected energy to internal microcell."))

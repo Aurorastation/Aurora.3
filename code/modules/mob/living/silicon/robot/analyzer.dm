@@ -73,7 +73,7 @@
 			var/mob/living/carbon/human/H = M
 			to_chat(user, SPAN_NOTICE("Analyzing Results for \the [H]:"))
 			to_chat(user, "Key: <font color='#FFA500'>Electronics</font>/<span class='warning'>Brute</span>")
-			var/obj/item/organ/internal/cell/IC = H.internal_organs_by_name[BP_CELL]
+			var/obj/item/organ/internal/machine/power_core/IC = H.internal_organs_by_name[BP_CELL]
 			if(IC)
 				to_chat(user, SPAN_NOTICE("Cell charge: [IC.percent()] %"))
 			else
@@ -99,7 +99,7 @@
 				for(var/obj/item/organ/O in H.internal_organs)
 					if(!(O.status & ORGAN_ROBOT))
 						continue
-					if(!show_tag && istype(O, /obj/item/organ/internal/ipc_tag))
+					if(!show_tag && istype(O, /obj/item/organ/internal/machine/ipc_tag))
 						continue
 					organ_found = TRUE
 					to_chat(user, "[O.name]: <span class='warning'>[O.damage]</span>")

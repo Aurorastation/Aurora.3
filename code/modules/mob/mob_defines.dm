@@ -250,8 +250,13 @@
 	var/list/item_verbs = list()
 	var/list/shouldnt_see = list()	//typecache of objects that this mob shouldn't see in the stat panel. this silliness is needed because of AI alt+click and cult blood runes
 
-	var/list/active_genes=list()
+	var/list/active_genes = list()
+
 	var/mob_size = MOB_MEDIUM
+	/// The weight of the mob. Affects if the mob can be easily lifted or not. Separate from size, as some mobs may be big but not particularly heavy.
+	var/mob_weight = MOB_WEIGHT_LIGHT
+	/// The strength of the mob. Affects what kind of mobs can be thrown or carried. By default, does not give any buff.
+	var/mob_strength = MOB_STRENGTH_NORMAL
 
 	var/list/progressbars
 
