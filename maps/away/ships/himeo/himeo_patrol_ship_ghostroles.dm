@@ -55,6 +55,7 @@
 	outfit = /obj/outfit/admin/himeo_patrol_ship/officer
 	spawnpoints = list("himeo_patrol_commander")
 	mob_name_prefix = "Ylt. "
+	possible_species = list(SPECIES_HUMAN)
 
 /obj/outfit/admin/himeo_patrol_ship
 	name = "Himean Planetary Guardsman"
@@ -70,7 +71,17 @@
 		/obj/item/clothing/mask/gas/tactical = 1,
 		/obj/item/material/kitchen/utensil/knife/boot = 1,
 		/obj/item/clothing/head/softcap/himeo_naval_cover = 1,
-)
+	)
+	species_gloves = list(
+		SPECIES_TAJARA = /obj/item/clothing/gloves/black_leather/tajara,
+		SPECIES_TAJARA_MSAI = /obj/item/clothing/gloves/black_leather/tajara,
+		SPECIES_TAJARA_ZHAN = /obj/item/clothing/gloves/black_leather/tajara,
+	)
+	species_shoes = list(
+		SPECIES_TAJARA = /obj/item/clothing/shoes/workboots/tajara,
+		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/workboots/tajara,
+		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/workboots/tajara,
+	)
 
 /obj/outfit/admin/himeo_patrol_ship/engineer
 	name = "Himean Planetary Guard Sapper"

@@ -3,9 +3,7 @@
 	description = "A patrol vessel fielded by the Himean Planetary Guard"
 
 	traits = list(
-		//Z1
 		list(ZTRAIT_AWAY = TRUE, ZTRAIT_UP = TRUE, ZTRAIT_DOWN = FALSE),
-		//Z2
 		list(ZTRAIT_AWAY = TRUE, ZTRAIT_UP = FALSE, ZTRAIT_DOWN = TRUE),
 	)
 
@@ -37,7 +35,7 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
 	initial_restricted_waypoints = list(
-		"Himean Patrol Shuttle" = list("nav_himeo_patrol_start")
+		"Himean Patrol Shuttle" = list("himeo_patrol_nav_dock")
 	)
 	initial_generic_waypoints = list(
 		"himeo_patrol_nav1",
