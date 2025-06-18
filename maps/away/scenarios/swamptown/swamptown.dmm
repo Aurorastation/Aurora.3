@@ -9,20 +9,18 @@
 "aw" = (/obj/structure/ladder/up{pixel_y = 13},/turf/simulated/floor/wood/walnut,/area/swamptown/inside)
 "aK" = (/obj/machinery/shower{dir = 4; pixel_x = -1; pixel_y = 1},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "aP" = (/obj/structure/closet/secure_closet/cabinet,/obj/effect/floor_decal/spline/fancy{dir = 1},/obj/item/clothing/under/rank/hydroponics,/obj/item/clothing/head/bandana/hydro/nt,/obj/item/storage/belt/hydro,/obj/item/clothing/gloves/botanic_leather,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
-"be" = (/obj/machinery/artifact_harvester{pixel_y = 1},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
-"bv" = (/obj/structure/table/standard,/obj/item/storage/firstaid/large/toxin,/obj/item/storage/firstaid/large/radiation,/obj/item/storage/firstaid/large/stab,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "bw" = (/obj/machinery/chemical_dispenser/full{dir = 1},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "bO" = (/obj/structure/table/rack,/obj/item/reagent_containers/glass/bucket,/obj/item/reagent_containers/glass/bucket,/obj/item/reagent_containers/glass/bucket,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
-"bP" = (/obj/machinery/atmospherics/pipe/manifold/hidden{dir = 4},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "bR" = (/obj/structure/lattice/catwalk/indoor/urban,/obj/structure/chainlink_fence{dir = 8},/turf/simulated/floor/concrete,/area/swamptown/inside)
+"bU" = (/obj/machinery/optable,/turf/simulated/floor/exoplanet/grass{temperature = 303; name = "lush grass"},/area/swamptown/outside)
 "bV" = (/obj/structure/flora/grass/junglegrass,/turf/simulated/floor/exoplanet/grass/marsh{temperature = 303},/area/swamptown/outside)
 "ce" = (/obj/machinery/door/airlock/maintenance_hatch{dir = 4; req_one_access = list(248,247)},/turf/space,/area/swamptown/inside)
-"cf" = (/obj/machinery/atmospherics/pipe/simple/hidden{dir = 8},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "cg" = (/obj/machinery/chem_master,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "cA" = (/turf/simulated/floor/exoplanet/grass/marsh{temperature = 303},/area/swamptown/outside)
 "cC" = (/obj/effect/map_effect/window_spawner/full/reinforced,/turf/simulated/wall,/area/swamptown/outside)
 "cD" = (/obj/structure/chainlink_fence,/turf/simulated/floor/exoplanet/grass{temperature = 303; name = "lush grass"},/area/swamptown/outside)
 "cF" = (/obj/structure/sink{pixel_y = 1; dir = 8; pixel_x = -15},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
+"cG" = (/obj/structure/closet/walllocker/medical/firstaid{pixel_y = 32},/obj/item/storage/firstaid/adv,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "cM" = (/obj/structure/sink{dir = 4; pixel_x = 11},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "cN" = (/obj/structure/sign/securearea{desc = "A caution sign that clearly states to keep out of the area."; name = "\improper DANGER: KEEP OUT sign"; pixel_y = 32},/turf/simulated/wall,/area/swamptown/inside)
 "cR" = (/obj/machinery/door/airlock/glass{dir = 1},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
@@ -49,16 +47,15 @@
 "eU" = (/obj/structure/lattice/catwalk/indoor/urban,/turf/simulated/floor/exoplanet/water/konyang{temperature = 306; name = "stagnant water"; desc = "Murky water with a greenish tint."},/area/swamptown/inside)
 "eZ" = (/obj/structure/sink{dir = 8; pixel_x = -12; pixel_y = 7},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "fi" = (/turf/simulated/floor/wood/walnut,/area/swamptown/outside)
-"fk" = (/obj/machinery/atmospherics/pipe/manifold/hidden{dir = 8},/obj/machinery/light{dir = 8},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "fl" = (/obj/structure/toilet{dir = 1},/obj/machinery/light/small,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
+"fn" = (/obj/machinery/atmospherics/pipe/manifold/hidden{dir = 4},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "fu" = (/obj/structure/bed/stool/chair/office/light{dir = 8},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "fE" = (/obj/structure/lattice/catwalk/indoor/urban,/obj/machinery/light/small{dir = 1},/turf/simulated/floor/exoplanet/water/shallow/sewage{name = "foul water"; desc = "Murky, greenish-brown water, thick with debris, dirt, and other things best not thought about."; temperature = 310},/area/swamptown/inside)
 "fO" = (/obj/structure/table/steel,/obj/structure/reagent_dispensers/acid{pixel_y = 32; pixel_x = -32},/obj/item/reagent_containers/glass/beaker{pixel_y = 8},/obj/item/stack/material/steel{amount = 50; pixel_x = 1; pixel_y = -2; randpixel = 0},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "fV" = (/obj/structure/bed/stool/chair/folding{dir = 4},/turf/simulated/floor/exoplanet/grass{temperature = 303; name = "lush grass"},/area/swamptown/outside)
 "fX" = (/obj/machinery/light{dir = 4},/turf/simulated/floor/wood/walnut,/area/swamptown/outside)
-"gb" = (/obj/structure/closet/hazmat/research,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
+"gl" = (/obj/structure/anomaly_container,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "gs" = (/obj/effect/floor_decal/spline/fancy/wood{dir = 8},/obj/machinery/light{dir = 8; pixel_x = -12},/turf/simulated/floor/carpet,/area/swamptown/outside)
-"gt" = (/obj/machinery/artifact_analyser,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "gw" = (/obj/structure/flora/ausbushes/fullgrass,/turf/simulated/floor/exoplanet/grass/marsh{temperature = 303},/area/swamptown/outside)
 "gy" = (/obj/structure/barricade/wooden,/obj/structure/lattice/catwalk/indoor/urban,/turf/simulated/floor/concrete,/area/swamptown/inside)
 "gB" = (/obj/structure/chainlink_fence{dir = 8},/obj/structure/lattice/catwalk/indoor/urban,/turf/simulated/floor/concrete,/area/swamptown/inside)
@@ -74,8 +71,8 @@
 "hO" = (/obj/structure/curtain/open,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "hT" = (/obj/structure/table/wood,/turf/simulated/floor/wood,/area/swamptown/outside)
 "hU" = (/turf/simulated/floor/concrete,/area/swamptown/inside)
+"hX" = (/obj/machinery/atmospherics/pipe/simple/hidden{dir = 9},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "hZ" = (/obj/structure/table/wood,/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot,/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot{pixel_x = -10; pixel_y = 15},/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot{pixel_y = 7; pixel_x = 5},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
-"id" = (/obj/structure/table/standard,/obj/item/storage/box/fancy/tray{name = "dissection tray"},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "if" = (/obj/machinery/computer/terminal/inactive,/turf/simulated/floor/concrete,/area/swamptown/inside)
 "ig" = (/obj/structure/closet/crate/bin{name = "trashbin"},/obj/random/contraband/pillbottle,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "im" = (/obj/structure/coatrack,/turf/simulated/floor/wood/walnut,/area/swamptown/outside)
@@ -83,7 +80,6 @@
 "ix" = (/obj/structure/closet/crate/bin/urban/dumpster,/turf/simulated/floor/exoplanet/grass{temperature = 303; name = "lush grass"},/area/swamptown/outside)
 "iA" = (/obj/structure/table/wood,/obj/item/flora/pottedplant_small/rose,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "iC" = (/obj/structure/bed/stool/chair/office/dark,/turf/simulated/floor/wood/walnut,/area/swamptown/outside)
-"iE" = (/obj/machinery/atmospherics/unary/freezer{dir = 4; icon_state = "freezer"},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "iJ" = (/obj/effect/floor_decal/spline/fancy,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "iK" = (/obj/machinery/portable_atmospherics/hydroponics/soil,/obj/item/material/minihoe,/turf/simulated/floor/exoplanet/dirt_konyang{name = "ground"; temperature = 303; desc = "A patch of barren ground."},/area/swamptown/outside)
 "iL" = (/obj/effect/floor_decal/spline/fancy/wood,/turf/simulated/floor/carpet,/area/swamptown/outside)
@@ -93,13 +89,10 @@
 "jj" = (/obj/structure/closet/secure_closet/cabinet,/obj/item/clothing/gloves/black/unathi,/obj/item/clothing/gloves/brown/unathi,/obj/item/clothing/under/unathi,/obj/item/clothing/shoes/workboots/toeless,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "jk" = (/obj/machinery/light{pixel_y = -2},/obj/structure/bed/stool/chair{dir = 8},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "jw" = (/turf/simulated/floor/exoplanet/grass{temperature = 303; name = "lush grass"},/area/swamptown/outside)
-"jy" = (/obj/structure/anomaly_container,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "jz" = (/obj/structure/bed/stool/bar/padded/red{dir = 8},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "jB" = (/obj/machinery/vending/hydronutrients/hydroponics,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "jE" = (/obj/structure/barricade/metal,/turf/simulated/floor/concrete,/area/swamptown/inside)
-"jF" = (/obj/machinery/computer/operating{name = "Xenobiology Operating Computer"; dir = 1},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "jG" = (/obj/effect/map_effect/window_spawner/full/reinforced/grille,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
-"jH" = (/obj/machinery/optable,/turf/simulated/floor/exoplanet/grass{temperature = 303; name = "lush grass"},/area/swamptown/outside)
 "jQ" = (/obj/effect/floor_decal/spline/fancy/wood{dir = 5},/turf/unsimulated/floor/carpet,/area/swamptown/outside)
 "jU" = (/obj/structure/railing/fence,/turf/simulated/floor/exoplanet/dirt_konyang{name = "ground"; temperature = 303; desc = "A patch of barren ground."},/area/swamptown/outside)
 "jV" = (/obj/random/dirt_75,/obj/random/dirt_75,/obj/machinery/light/small{dir = 4; must_start_working = 1},/turf/simulated/floor/wood/walnut,/area/swamptown/inside)
@@ -166,6 +159,7 @@
 "rj" = (/obj/machinery/shower{pixel_y = 20},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "rm" = (/obj/machinery/light{dir = 1},/turf/simulated/floor/concrete,/area/swamptown/inside)
 "rq" = (/turf/simulated/floor/carpet,/area/swamptown/outside)
+"rs" = (/obj/machinery/atmospherics/pipe/simple/hidden{dir = 9},/obj/machinery/light{dir = 4},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "rz" = (/obj/structure/table/standard,/obj/item/storage/box/masks{pixel_x = 4; pixel_y = 4},/obj/item/storage/box/gloves,/obj/machinery/light{dir = 8; pixel_x = -12},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "rJ" = (/obj/structure/cable{d2 = 2; icon_state = "0-2"},/obj/machinery/power/portgen/basic/fusion,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "rM" = (/obj/item/trash/admints,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
@@ -175,6 +169,7 @@
 "sd" = (/obj/structure/toilet,/obj/machinery/light/small{dir = 1; must_start_working = 1},/obj/random/dirt_75,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "sg" = (/obj/machinery/atmospherics/pipe/tank{dir = 8; name = "Tank"; desc = "A large metal tank."},/turf/simulated/floor/concrete,/area/swamptown/inside)
 "si" = (/obj/structure/reagent_dispensers/extinguisher,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
+"sl" = (/obj/machinery/computer/terminal/inactive{dir = 8},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "sB" = (/obj/machinery/light/floor,/turf/simulated/floor/wood,/area/swamptown/outside)
 "sC" = (/obj/structure/toilet{dir = 8},/obj/machinery/light/small{dir = 4; must_start_working = 1},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "sY" = (/obj/structure/bed/stool/chair/office/dark{dir = 4},/turf/simulated/floor/concrete,/area/swamptown/inside)
@@ -192,6 +187,8 @@
 "uh" = (/obj/structure/table/wood,/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/green,/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "ut" = (/obj/machinery/bodyscanner{dir = 4},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "uw" = (/obj/machinery/door/urban,/turf/simulated/floor/wood/walnut,/area/swamptown/outside)
+"uy" = (/obj/structure/table/standard,/obj/item/clothing/mask/gas/alt,/obj/item/clothing/mask/gas/alt,/obj/item/clothing/mask/gas/alt,/obj/item/clothing/mask/gas/alt,/obj/item/clothing/mask/gas/alt,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
+"uC" = (/obj/machinery/light{dir = 1},/obj/structure/anomaly_container,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "uK" = (/obj/structure/table/steel,/obj/structure/table/steel,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "uL" = (/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "uM" = (/obj/structure/bed/stool/chair/padded/brown{dir = 1},/turf/simulated/floor/wood,/area/swamptown/outside)
@@ -202,6 +199,7 @@
 "ve" = (/obj/structure/table/steel,/obj/item/material/hatchet/butch,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "vh" = (/obj/structure/railing/fence{dir = 4},/turf/simulated/floor/exoplanet/dirt_konyang{name = "ground"; temperature = 303; desc = "A patch of barren ground."},/area/swamptown/outside)
 "vj" = (/obj/structure/table/reinforced/steel,/obj/machinery/door/window/desk/northleft,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
+"vn" = (/obj/machinery/artifact_harvester{pixel_y = 1},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "vr" = (/obj/structure/flora/bush/jungle/large/random,/obj/structure/flora/grass/junglegrass/dense/random,/turf/simulated/floor/exoplanet/grass{temperature = 303; name = "lush grass"},/area/swamptown/outside)
 "vt" = (/obj/effect/floor_decal/spline/fancy/wood{dir = 9},/obj/structure/flora/pottedplant/rosebush,/turf/simulated/floor/carpet,/area/swamptown/outside)
 "vv" = (/obj/structure/cargo_receptacle,/turf/simulated/floor/exoplanet/grass{temperature = 303; name = "lush grass"},/area/swamptown/outside)
@@ -217,7 +215,7 @@
 "wq" = (/obj/structure/closet/secure_closet/guncabinet{name = "Lethal Firearms and Equipment"; req_access = list(204)},/obj/random/gun_with_ammo/automatic,/obj/random/gun_with_ammo/automatic,/obj/random/gun_with_ammo/automatic,/obj/machinery/light{dir = 1},/turf/simulated/floor/concrete,/area/swamptown/inside)
 "ww" = (/obj/structure/flora/rock/pile/random,/turf/simulated/floor/exoplanet/dirt_konyang/cave{name = "compacted dirt"; temperature = 306},/area/swamptown/inside)
 "wF" = (/obj/machinery/light{dir = 4},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
-"wG" = (/mob/living/simple_animal/carp/baby{name = "Cuddlebug the Test Carp"; desc = "Very cuddly."},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
+"wG" = (/obj/structure/table/standard,/obj/item/storage/box/gloves,/obj/item/storage/box/masks{pixel_x = 4; pixel_y = 4},/obj/item/storage/box/sharps{pixel_x = -5},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "wH" = (/obj/structure/flora/pottedplant/river_plum,/turf/simulated/floor/exoplanet/concrete,/area/swamptown/outside)
 "wJ" = (/obj/structure/light_pole/r,/turf/simulated/floor/exoplanet/concrete,/area/swamptown/outside)
 "wK" = (/obj/structure/table/standard,/obj/machinery/light{pixel_y = -2},/obj/item/material/knife{pixel_x = -9},/turf/simulated/floor/wood/walnut,/area/swamptown/outside)
@@ -227,6 +225,7 @@
 "xk" = (/obj/machinery/power/smes/buildable/third_party_shuttle,/obj/structure/cable/green{icon_state = "0-4"},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "xw" = (/obj/structure/flora/grass/jungle,/turf/simulated/floor/exoplanet/grass{temperature = 303; name = "lush grass"},/area/swamptown/outside)
 "xy" = (/obj/structure/cable/green{icon_state = "1-2"},/obj/random/dirt_75,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
+"xO" = (/obj/structure/closet/hazmat/research,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "xR" = (/obj/effect/floor_decal/spline/fancy/wood,/obj/effect/floor_decal/spline/fancy/wood,/turf/simulated/floor/carpet,/area/swamptown/outside)
 "xS" = (/obj/structure/bed/stool/chair{dir = 1},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "yb" = (/obj/structure/chainlink_fence{dir = 8},/obj/structure/chainlink_fence{dir = 1},/turf/simulated/floor/exoplanet/grass{temperature = 303; name = "lush grass"},/area/swamptown/outside)
@@ -240,15 +239,16 @@
 "zg" = (/obj/machinery/shower{dir = 8},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "zw" = (/obj/machinery/light{dir = 8; pixel_x = -12},/obj/machinery/recharge_station,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "zC" = (/obj/machinery/seed_storage/garden,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
+"zK" = (/obj/machinery/atmospherics/portables_connector{dir = 4},/obj/machinery/portable_atmospherics/canister/oxygen,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "zM" = (/obj/structure/flora/grass/junglegrass/random,/obj/structure/flora/grass/junglegrass/random,/turf/simulated/floor/exoplanet/grass{temperature = 303; name = "lush grass"},/area/swamptown/outside)
 "zS" = (/obj/structure/bonfire/fireplace,/turf/simulated/floor/wood/walnut,/area/swamptown/outside)
 "zU" = (/obj/machinery/light/small{dir = 8; must_start_working = 1},/turf/simulated/floor/concrete,/area/swamptown/inside)
 "zV" = (/obj/structure/table/standard,/obj/machinery/light{dir = 8; pixel_x = -12},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
-"zZ" = (/obj/machinery/atmospherics/portables_connector{dir = 4},/obj/machinery/portable_atmospherics/canister/oxygen,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "Ab" = (/obj/structure/closet/secure_closet/refrigerator,/obj/item/storage/box/produce,/obj/item/storage/box/produce,/obj/item/storage/box/produce,/obj/item/storage/box/produce,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "Am" = (/obj/structure/reagent_dispensers/fueltank,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "Aq" = (/obj/structure/lattice/catwalk/indoor/urban,/obj/structure/railing/mapped,/obj/machinery/light/small{dir = 1},/turf/simulated/floor/concrete,/area/swamptown/inside)
 "Ar" = (/obj/structure/table/wood,/obj/item/reagent_containers/glass/beaker/pitcher/coffee,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
+"Au" = (/obj/structure/table/standard,/obj/item/storage/box/fancy/tray{name = "dissection tray"},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "Aw" = (/obj/structure/railing/fence{dir = 4},/obj/structure/railing/fence,/turf/simulated/floor/exoplanet/dirt_konyang{name = "ground"; temperature = 303; desc = "A patch of barren ground."},/area/swamptown/outside)
 "AH" = (/obj/machinery/autolathe,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "AP" = (/obj/structure/flora/bush/jungle/random,/obj/structure/flora/ausbushes/sparsegrass,/turf/simulated/floor/exoplanet/grass{temperature = 303; name = "lush grass"},/area/swamptown/outside)
@@ -266,13 +266,11 @@
 "Cn" = (/obj/machinery/recharge_station,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "Cs" = (/obj/structure/cable/green{d1 = 1; d2 = 8; icon_state = "1-8"},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "Cu" = (/obj/structure/lattice/catwalk/indoor/urban,/obj/structure/railing/mapped,/turf/simulated/floor/exoplanet/water/konyang{temperature = 306; name = "stagnant water"; desc = "Murky water with a greenish tint."},/area/swamptown/inside)
-"Cx" = (/obj/machinery/atmospherics/pipe/simple/hidden{dir = 9},/obj/machinery/light{dir = 4},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "CF" = (/obj/effect/floor_decal/spline/fancy{dir = 6},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "CG" = (/obj/structure/lattice/catwalk/indoor/urban,/obj/structure/lattice/catwalk/indoor/urban,/turf/simulated/floor/concrete,/area/swamptown/inside)
 "CI" = (/obj/structure/flora/bush/jungle/large/random,/turf/simulated/floor/exoplanet/grass{temperature = 303; name = "lush grass"},/area/swamptown/outside)
 "CL" = (/obj/structure/flora/grass/junglegrass/random,/obj/structure/flora/grass/junglegrass/random,/turf/simulated/floor/exoplanet/grass/marsh{temperature = 303},/area/swamptown/outside)
 "CO" = (/turf/simulated/floor/exoplanet/water/shallow/sewage{name = "foul water"; desc = "Murky, greenish-brown water, thick with debris, dirt, and other things best not thought about."; temperature = 310},/area/swamptown/inside)
-"CQ" = (/obj/structure/closet/walllocker/medical/firstaid{pixel_y = 32},/obj/item/storage/firstaid/adv,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "CW" = (/obj/machinery/power/smes/buildable/third_party_shuttle,/obj/structure/cable/green{icon_state = "0-4"},/turf/simulated/floor/concrete,/area/swamptown/inside)
 "CX" = (/obj/structure/cable/green{icon_state = "1-2"},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "Dq" = (/obj/structure/flora/grass/jungle,/obj/structure/flora/grass/junglegrass/dense/random,/turf/simulated/floor/exoplanet/grass{temperature = 303; name = "lush grass"},/area/swamptown/outside)
@@ -281,6 +279,7 @@
 "Du" = (/obj/structure/closet/crate/bin{name = "trashbin"},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "Dy" = (/obj/machinery/light{dir = 4; pixel_x = 12},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "DC" = (/obj/machinery/vending/snack,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
+"DH" = (/obj/machinery/atmospherics/pipe/simple/hidden{dir = 8},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "DI" = (/obj/effect/floor_decal/spline/fancy/wood{dir = 5},/obj/machinery/light{dir = 4; pixel_x = 12},/turf/simulated/floor/carpet,/area/swamptown/outside)
 "DK" = (/obj/machinery/door/airlock/maintenance_hatch{dir = 4; req_one_access = list(12,63)},/obj/structure/sign/securearea{desc = "A caution sign that clearly states to keep out of the area."; name = "\improper DANGER: KEEP OUT sign"; pixel_y = 32},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "Ep" = (/obj/machinery/appliance/cooker/stove,/turf/simulated/floor/wood/walnut,/area/swamptown/outside)
@@ -296,6 +295,7 @@
 "FL" = (/obj/structure/stairs/west,/turf/simulated/floor/concrete,/area/swamptown/inside)
 "FM" = (/obj/structure/closet/hazmat/general,/turf/simulated/floor/concrete,/area/swamptown/inside)
 "FV" = (/obj/structure/railing/mapped{dir = 4},/turf/simulated/floor/exoplanet/dirt_konyang{name = "ground"; temperature = 303; desc = "A patch of barren ground."},/area/swamptown/outside)
+"FY" = (/obj/machinery/atmospherics/pipe/manifold/hidden{dir = 8},/obj/machinery/light{dir = 8},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "Gb" = (/obj/structure/closet/crate,/obj/random/toolbox,/obj/random/tool,/obj/random/tool,/obj/random/tool,/turf/simulated/floor/concrete,/area/swamptown/inside)
 "Gc" = (/turf/simulated/floor/wood/walnut,/area/swamptown/inside)
 "Gd" = (/obj/structure/flora/ausbushes/sparsegrass,/obj/structure/flora/grass/jungle,/turf/simulated/floor/exoplanet/grass{temperature = 303; name = "lush grass"},/area/swamptown/outside)
@@ -338,13 +338,12 @@
 "JN" = (/obj/structure/stairs_lower/stairs_upper,/turf/simulated/wall,/area/swamptown/inside)
 "JO" = (/obj/effect/floor_decal/spline/fancy/wood{dir = 6},/turf/simulated/floor/carpet,/area/swamptown/outside)
 "JU" = (/obj/machinery/appliance/cooker/stove,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
+"Kj" = (/obj/machinery/atmospherics/pipe/manifold/hidden,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "Km" = (/obj/structure/closet/crate,/turf/simulated/floor/wood/walnut,/area/swamptown/outside)
 "Ks" = (/obj/structure/table/steel,/obj/item/storage/toolbox/electrical,/obj/item/storage/toolbox/mechanical{pixel_y = 14},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "Ku" = (/obj/structure/bed/stool/chair/padded/brown,/turf/simulated/floor/wood,/area/swamptown/outside)
 "Kw" = (/obj/machinery/vending/cola,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
-"KG" = (/obj/machinery/computer/terminal/inactive{dir = 8},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "KH" = (/obj/machinery/light{dir = 8; pixel_x = -12},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
-"KI" = (/obj/structure/table/standard,/obj/item/clothing/mask/gas/alt,/obj/item/clothing/mask/gas/alt,/obj/item/clothing/mask/gas/alt,/obj/item/clothing/mask/gas/alt,/obj/item/clothing/mask/gas/alt,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "KR" = (/obj/structure/flora/bush/jungle/large/random,/obj/structure/flora/grass/junglegrass/random,/turf/simulated/floor/exoplanet/grass{temperature = 303; name = "lush grass"},/area/swamptown/outside)
 "KT" = (/obj/machinery/light/small{dir = 1},/turf/simulated/floor/concrete,/area/swamptown/inside)
 "La" = (/obj/structure/weapons_rack{req_one_access = list(3); name = "Laser Rifles Rack"},/obj/item/gun/energy/rifle/laser,/obj/item/gun/energy/rifle/laser,/obj/item/gun/energy/rifle/laser,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
@@ -353,6 +352,7 @@
 "Ly" = (/turf/simulated/wall,/area/swamptown/outside)
 "Lz" = (/obj/structure/bed/chair,/obj/item/bedsheet/random,/obj/effect/floor_decal/spline/fancy{dir = 9},/obj/item/toy/comic/magazine/horticulturetoday,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "Mc" = (/obj/machinery/chemical_dispenser/coffeemaster/full{pixel_y = 14},/obj/structure/table/steel,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
+"Mf" = (/obj/structure/table/standard,/obj/item/storage/box/bodybags{pixel_x = 4; pixel_y = 4},/obj/item/storage/box/bodybags{pixel_x = 8; pixel_y = 8},/obj/item/storage/box/bodybags{pixel_x = 7; pixel_y = 10},/obj/item/storage/box/bodybags{pixel_y = -1},/obj/item/storage/box/bodybags{pixel_x = -6},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "MK" = (/obj/machinery/door/airlock/glass{dir = 4; req_access = list(218); id_tag = "konyang_cell2"},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "MN" = (/obj/structure/closet/secure_closet/refrigerator,/obj/item/reagent_containers/food/snacks/tofu,/obj/item/reagent_containers/food/snacks/tofu,/obj/item/reagent_containers/food/snacks/tofu,/obj/item/reagent_containers/food/condiment/flour,/obj/item/reagent_containers/food/drinks/carton/soymilk,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "MQ" = (/obj/structure/closet/secure_closet/cabinet,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
@@ -360,7 +360,6 @@
 "MY" = (/turf/simulated/floor/wood,/area/swamptown/outside)
 "Nb" = (/obj/structure/toilet{dir = 8},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "Nn" = (/obj/structure/chainlink_fence,/obj/structure/chainlink_fence{dir = 8},/turf/simulated/floor/exoplanet/grass{temperature = 303; name = "lush grass"},/area/swamptown/outside)
-"Np" = (/obj/machinery/light{dir = 1},/obj/structure/anomaly_container,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "Nx" = (/obj/structure/table/wood,/obj/structure/table/wood,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "NI" = (/obj/structure/railing/fence{dir = 4},/obj/item/reagent_containers/glass/bucket,/turf/simulated/floor/exoplanet/dirt_konyang{name = "ground"; temperature = 303; desc = "A patch of barren ground."},/area/swamptown/outside)
 "NN" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/door/airlock/maintenance_hatch{dir = 1; req_access = list(12)},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
@@ -373,12 +372,12 @@
 "Ou" = (/obj/vehicle/bike/motor/moped/blue{dir = 8; registration_plate = "M56-4117"; spawns_with_key = 0},/turf/simulated/floor/exoplanet/dirt_konyang{name = "ground"; temperature = 303; desc = "A patch of barren ground."},/area/swamptown/outside)
 "Ow" = (/obj/structure/stairs_lower/stairs_upper{dir = 4},/turf/simulated/wall,/area/swamptown/inside)
 "Oz" = (/obj/structure/filingcabinet,/turf/simulated/floor/wood/walnut,/area/swamptown/outside)
-"OA" = (/obj/machinery/atmospherics/unary/cryo_cell,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "Pa" = (/turf/simulated/floor/exoplanet/water/konyang{temperature = 306; name = "stagnant water"; desc = "Murky water with a greenish tint."},/area/swamptown/inside)
 "Pc" = (/obj/machinery/papershredder,/turf/simulated/floor/wood/walnut,/area/swamptown/outside)
 "Pj" = (/obj/structure/sink{dir = 8; pixel_x = -12; pixel_y = 6},/turf/simulated/floor/wood/walnut,/area/swamptown/outside)
-"Pp" = (/obj/structure/table/standard,/obj/item/storage/box/gloves,/obj/item/storage/box/masks{pixel_x = 4; pixel_y = 4},/obj/item/storage/box/sharps{pixel_x = -5},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
+"Pr" = (/obj/machinery/atmospherics/unary/freezer{dir = 4; icon_state = "freezer"},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "Ps" = (/obj/structure/platform{dir = 1},/obj/structure/platform{dir = 4},/obj/machinery/light/floor,/turf/simulated/floor/wood,/area/swamptown/outside)
+"Pt" = (/obj/structure/table/standard,/obj/item/storage/firstaid/large/toxin,/obj/item/storage/firstaid/large/radiation,/obj/item/storage/firstaid/large/stab,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "PF" = (/obj/effect/floor_decal/spline/fancy/wood{dir = 5},/obj/structure/flora/pottedplant/rosebush,/turf/simulated/floor/carpet,/area/swamptown/outside)
 "PM" = (/obj/structure/bed/stool/chair{dir = 8},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "PU" = (/obj/machinery/door/urban{dir = 4},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
@@ -398,6 +397,7 @@
 "Rn" = (/obj/machinery/r_n_d/protolathe,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "Rs" = (/obj/structure/closet/crate,/obj/random/mre,/obj/random/mre,/obj/random/mre,/obj/random/mre,/obj/random/mre,/obj/random/mre,/obj/random/mre,/obj/random/mre,/turf/simulated/floor/concrete,/area/swamptown/inside)
 "Ry" = (/obj/machinery/door/airlock/maintenance_hatch{dir = 4; req_one_access = list(248,247)},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
+"Rz" = (/obj/machinery/computer/operating{name = "Xenobiology Operating Computer"; dir = 1},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "RB" = (/obj/vehicle/bike/motor/moped{dir = 8; registration_plate = "M72-2664"; spawns_with_key = 0},/turf/simulated/floor/exoplanet/dirt_konyang{name = "ground"; temperature = 303; desc = "A patch of barren ground."},/area/swamptown/outside)
 "RK" = (/obj/structure/flora/grass/junglegrass,/turf/simulated/floor/exoplanet/grass{temperature = 303; name = "lush grass"},/area/swamptown/outside)
 "RM" = (/obj/structure/platform,/obj/structure/platform_stairs/full/east_west_cap,/obj/structure/platform{dir = 1},/turf/simulated/floor/wood,/area/swamptown/outside)
@@ -410,6 +410,7 @@
 "Sv" = (/obj/structure/closet/secure_closet/refrigerator,/obj/item/storage/box/fancy/egg_box,/obj/item/storage/box/fancy/egg_box,/obj/item/storage/box/fancy/egg_box,/obj/item/reagent_containers/food/drinks/carton/milk,/obj/item/reagent_containers/food/drinks/carton/milk,/obj/item/reagent_containers/food/drinks/carton/milk,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "SE" = (/obj/machinery/light{dir = 1; pixel_y = 24},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "SJ" = (/obj/machinery/mech_recharger,/mob/living/heavy_vehicle/premade/ripley/loader,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
+"SK" = (/obj/machinery/artifact_analyser,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "SO" = (/obj/structure/platform{dir = 1},/turf/simulated/floor/wood,/area/swamptown/outside)
 "SY" = (/obj/structure/table/standard,/obj/item/clothing/accessory/apron/surgery,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "Tg" = (/obj/structure/flora/bush/jungle/c/random,/turf/simulated/floor/exoplanet/grass{temperature = 303; name = "lush grass"},/area/swamptown/outside)
@@ -426,7 +427,6 @@
 "TP" = (/obj/machinery/vending/dinnerware/plastic{pixel_y = 22},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "TQ" = (/obj/structure/sign/biohazard,/turf/simulated/wall,/area/swamptown/outside)
 "TZ" = (/obj/effect/map_effect/map_helper/ruler_tiles_3,/turf/simulated/floor/exoplanet/grass{temperature = 303; name = "lush grass"},/area/swamptown/outside)
-"Uc" = (/obj/structure/table/standard,/obj/item/storage/box/bodybags{pixel_x = 4; pixel_y = 4},/obj/item/storage/box/bodybags{pixel_x = 8; pixel_y = 8},/obj/item/storage/box/bodybags{pixel_x = 7; pixel_y = 10},/obj/item/storage/box/bodybags{pixel_y = -1},/obj/item/storage/box/bodybags{pixel_x = -6},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "Uf" = (/obj/structure/lattice/catwalk/indoor/urban,/obj/structure/railing/mapped{dir = 4},/turf/simulated/floor/exoplanet/water/shallow/sewage{name = "foul water"; desc = "Murky, greenish-brown water, thick with debris, dirt, and other things best not thought about."; temperature = 310},/area/swamptown/inside)
 "Ut" = (/obj/structure/lattice/catwalk/indoor/urban,/turf/simulated/floor/exoplanet/water/shallow,/area/swamptown/inside)
 "Uz" = (/obj/machinery/door/airlock/maintenance_hatch{dir = 4; req_one_access = list(12,19)},/turf/simulated/floor/exoplanet/dirt_konyang/cave{name = "compacted dirt"; temperature = 306},/area/swamptown/inside)
@@ -436,9 +436,7 @@
 "UN" = (/obj/structure/platform,/obj/structure/platform_stairs/full/east_west_cap{dir = 8},/obj/structure/platform{dir = 1},/turf/simulated/floor/wood,/area/swamptown/outside)
 "UU" = (/obj/structure/bed/stool/chair/sofa/left/brown,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "Vd" = (/obj/structure/closet/walllocker/medical/secure{name = "O- Blood Locker"; pixel_y = 32},/obj/item/reagent_containers/blood/OMinus,/obj/item/reagent_containers/blood/OMinus,/obj/machinery/light/floor{dir = 1},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
-"Vn" = (/obj/machinery/atmospherics/pipe/simple/hidden{dir = 9},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "Vp" = (/obj/machinery/door/airlock/maintenance_hatch{dir = 1},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
-"Vs" = (/obj/machinery/atmospherics/pipe/manifold/hidden,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "Vu" = (/obj/structure/table/rack,/obj/item/stack/material/glass{amount = 50},/obj/item/stack/material/glass{amount = 50},/obj/item/stack/material/glass{amount = 50},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "Vv" = (/obj/structure/bed/stool/chair/office/light{dir = 4},/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "Vx" = (/obj/machinery/door/urban,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
@@ -484,6 +482,7 @@
 "Zs" = (/obj/structure/stairs_lower{pixel_y = 9},/turf/simulated/wall,/area/swamptown/inside)
 "Zz" = (/obj/structure/bookcase/libraryspawn/religion,/turf/simulated/floor/wood,/area/swamptown/outside)
 "ZJ" = (/obj/machinery/light/small{dir = 8},/turf/simulated/floor/wood/walnut,/area/swamptown/outside)
+"ZL" = (/obj/machinery/atmospherics/unary/cryo_cell,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "ZN" = (/obj/machinery/floodlight,/turf/simulated/floor/concrete,/area/swamptown/inside)
 "ZP" = (/obj/structure/table/rack,/obj/item/storage/box/lights/bulbs,/obj/item/storage/box/lights/tubes,/obj/item/storage/box/lights/mixed,/turf/simulated/floor/tiled/steel,/area/swamptown/outside)
 "ZU" = (/obj/structure/bed/stool/chair/sofa/corner/concave/beige,/turf/simulated/floor/wood,/area/swamptown/outside)
@@ -847,7 +846,7 @@ qpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpjwjwjwjwjwRKlLFKtStS
 qpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpjwjwjwjwjwjwjwjwFKjwjwjwcAkGkGkGkGjwcAjwjwjwcAjwcAjwjwjwjwWUjwjwjwjwjwjwjwjwjwjwqnqnqnqnqnqnqnqnqnqnqnqnqnjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwtSjwjwLyuLSEuLLyPYyOLaLyjwjwjwjwjwjwjwjwjwjwjwjwjwcAcAjwjwjwjwjwjwjwGLjwGLjwjwjwjwjwjwGLjwjwjwjwjwjwjwjwjwjwjwjwGLjwHOHOjwjwjwHOHOjwjwjwjwjwjwjwjwdHjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwCIjwjwjwjwjwjwjwjwGLjwjwjwjwqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqp
 qpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpjwjwjwcAjwjwjwRKjwFKChjwjwjwkGjwcAjwcAcAjwjwcAjwjwjwjwjwjwWUjwjwjwjwjwLyLyLyLyLyLyLyLyqnqnLyLyLyLyLyLyLyLyjwjwjwLyLyLyLykDkDkDkDLyLyLyLyjwjwjwjwjwafjwjwjwLyuLuLuLdAuLuLuLLyjwjwjwjwjwjwjwjwdqjwjwjwjwjwcAcAjwjwjwjwjwjwdHjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwHOHOjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwGLjwjwGLjwjwGLjwjwCIjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwGLjwjwGLjwqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqp
 qpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqplmqpqpqpqpjwjwjwjwjwjwjwjwqBzMzMjwjwcAcATgFKFKcAjwjwjwFKjwjwjwjwjwjwWUjwjwjwjwjwLyGPzgLyLzaPZVLyqnqnLykltTklLyaKsCLyjwjwjwkDMYMYWxMYMYMYMYHJMYMYkDjwjwjwjwjwjwjwjwjwehuLuLuLLyLyLyLyLyjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwdqjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwHOHOjwjwjwjwjwjwjwjwjwjwjwjwjwjwGLjwjwGLjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqp
-qpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpjwjwjwjwjwjwRKjwcAjwjwjwjwjwjwjwjwjwjwjwjwjwFKFKjwjwcAjwWUjwjwjwjwjwLyLyWKLyyJiJCFLyqnqnLyuLuLuLLyWKLyLyjwjwjwkDMYMYRMMYMYMYMYUNMYMYkDjwjwjwjwjwjwjwjwjwLyuLuLuLuLSEwGArLyjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwHOjwjwjwjwjwjwjwjwjwjwjwjwjwjwGLjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqp
+qpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpjwjwjwjwjwjwRKjwcAjwjwjwjwjwjwjwjwjwjwjwjwjwFKFKjwjwcAjwWUjwjwjwjwjwLyLyWKLyyJiJCFLyqnqnLyuLuLuLLyWKLyLyjwjwjwkDMYMYRMMYMYMYMYUNMYMYkDjwjwjwjwjwjwjwjwjwLyuLuLuLuLSEuLArLyjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwHOjwjwjwjwjwjwjwjwjwjwjwjwjwjwGLjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqp
 qpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpjwjwjwjwjwjwjwRKRKjwcAjwjwjwjwcAjwcARKRKcAjwRKjwjwjwjwjwWUjwjwjwjwjwLyXLuLDuuLuLuLehqnqnehuLuLuLiguLXLLyjwjwLyLyMYMYtCTGRbRbFAmdMYMYLyLyjwjwjwjwjwjwjwjwLyuLuLuLuLmMmMuhLyjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwdqjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwdHjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwCIjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqp
 qpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpjwjwjwjwjwjwjwjwjwjwcAjwjwjwjwcAjwjwjwjwjwjwjwKRcAjwjwjwWUjwjwjwjwjwLyuLuLuLuLuLOdLywHqnLyuLOduLuLuLuLLyjwjwLywVJlJlPFPsSOSOZrvtJlJlDILyjwjwivjwjwjwjwjwLyLyLyLyLyvjvjLyLyjwjwjwVIjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwxwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwGLjwjwjwjwjwtSjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqp
 qpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpjwjwjwjwcAjwqBjwjwcAjwjwjwjwjwjwjwjwjwjwjwRKjwjwjwjwjwWUjwjwjwjwjwLyJUvRMNxjGjqDLyqnqnLyGjhZjklovRJULyjwjwkDmKrqrqrqJlJlJlJlrqrqrqDskDjwjwqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnTATATATATATATATATATATATATATATATATATATATATATATATATATATATATATATATAjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqp
@@ -895,19 +894,19 @@ qpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqp
 qpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpjwjwjwjwjwjwcAjwjwGLjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwcAcAjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwGLGLjwjwGLjwjwjwjwjwjwjwjwjwjwjwcAjwjwjwjwjwjwjwjwjwjwjwjwqpqpqpjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqp
 qpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpjwjwjwjwjwjwjwjwjwjwjwjwjwcAcAjwjwjwcAjwjwjwjwjwjwjwjwjwjwjwjwtSjwtSjwjwjwjwjwjwtSjwjwjwjwjwjwjwjwjwjwjwdHjwjwjwjwjwcAjwjwjwjwjwjwjwjwjwjwqpqpqpqpqpqpqpqpqpqpjwqpqpjwjwjwjwjwqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqp
 qpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpjwjwjwjwcAjwjwjwjwjwCIjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwdqjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqp
-qpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpjwjwjwjwjwjwjwjwjHjwjwjwjwjwjwjwjwjwjwjwjwdHjwjwjwjwjwjwjwjwjwjwdqjwjwjwjwjwGLjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqp
+qpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpjwjwjwjwjwjwjwjwbUjwjwjwjwjwjwjwjwjwjwjwjwdHjwjwjwjwjwjwjwjwjwjwdqjwjwjwjwjwGLjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqp
 qpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpjwqpjwjwjwjwjwjwjwjwGLjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwdqjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwdqjwjwjwjwjwjwjwjwjwjwjwqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqp
 qpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwdqjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqp
 qpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpjwLyLyLyLyLyLyLyLyQkcRLyLyLyLyLyjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwGLjwjwjwjwqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqp
 qpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpLyLyLyLyLyLyLyLyLyuLjGuLuLuLLyjwjwjwjwjwjwjwjwjwjwjwjwjwjwdHjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqp
-qpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpLyOAgtOAbeOAjyOALyuLOmfuuLwFLyjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqp
-qpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpLyLyfkcfVscfVscfCxLyuLjGuLuLuLLyjwjwjwjwjwjwjwjwqpqpqpqpqpjwjwjwjwjwjwjwjwqpjwqpqpqpjwqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqp
-qpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpLyzZbPuLuLuLuLuLUcLyVpLyLyVpLyLyjwjwqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqp
-qpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpLyiEVnjFetidPpuLKGLyuLDCKwuLCQLyqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqp
+qpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpLyZLSKZLvnZLglZLLyuLOmfuuLwFLyjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwjwqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqp
+qpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpLyLyFYDHKjDHKjDHrsLyuLjGuLuLuLLyjwjwjwjwjwjwjwjwqpqpqpqpqpjwjwjwjwjwjwjwjwqpjwqpqpqpjwqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqp
+qpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpLyzKfnuLuLuLuLuLMfLyVpLyLyVpLyLyjwjwqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqp
+qpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpLyPrhXRzetAuwGuLslLyuLDCKwuLcGLyqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqp
 qpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpLyLyLyLyLyLyLyVpLyLyuLuLuLuLuLLyqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqp
-qpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpLyjyNpgbLyaKuLmqLyuLuLuLuLwFLyqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqp
+qpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpLygluCxOLyaKuLmqLyuLuLuLuLwFLyqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqp
 qpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpLyuLuLuLDKuLuLuLdAuLGjdEPMuLLyqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqp
-qpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpLyKIuLbvLyaKxjmqLyuLGjdEPMNWLyqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqp
+qpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpLyuyuLPtLyaKxjmqLyuLGjdEPMNWLyqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqp
 qpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpLyTQVpTQoXLyLyLyLyLyLyLyLyLyLyqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqp
 qpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpLyTALyqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqp
 qpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpLyTALyqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqpqp
