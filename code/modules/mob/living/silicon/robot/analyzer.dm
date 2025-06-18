@@ -103,7 +103,7 @@
 						continue
 					organ_found = TRUE
 					to_chat(user, "[O.name]: <span class='warning'>[O.damage]</span>")
-					to_chat(user, "<i>[O.description]</i>")
+					to_chat(user, "<i>[O.desc]</i>")
 			if(!organ_found)
 				to_chat(user, SPAN_NOTICE("No prosthetics located."))
 
