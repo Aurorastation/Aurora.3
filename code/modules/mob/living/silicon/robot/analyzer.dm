@@ -82,7 +82,7 @@
 			var/organ_found
 			if(length(H.internal_organs))
 				for(var/obj/item/organ/external/E in H.organs)
-					if(!(E.status & (ORGAN_ROBOT | ORGAN_ASSISTED)))
+					if(!(E.status & (ORGAN_ROBOT || ORGAN_ASSISTED)))
 						continue
 					organ_found = TRUE
 					to_chat(user, "[E.name]: <span class='warning'>[E.brute_dam]</span> <font color='#FFA500'>[E.burn_dam]</font>")
@@ -97,7 +97,7 @@
 				if(head?.open == 3) // Hatch open
 					show_tag = TRUE
 				for(var/obj/item/organ/O in H.internal_organs)
-					if(!(O.status & (ORGAN_ROBOT | ORGAN_ASSISTED)))
+					if(!(O.status & (ORGAN_ROBOT || ORGAN_ASSISTED)))
 						continue
 					if(!show_tag && istype(O, /obj/item/organ/internal/ipc_tag))
 						continue
