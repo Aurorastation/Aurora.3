@@ -22,10 +22,17 @@
 	if(!is_freq_listening(signal))
 		return
 
+	// Processor set to COMPRESS
 	if(!process_mode)
-		signal.data["compression"] = 100 // even more compressed signal
+		// Data scrambling increased from 35-65 to MAXIMUM GIBBERISH
+		signal.data["compression"] = 100
+	// Processor set to UNCOMPRESS
 	else if (signal.data["compression"])
-		signal.data["compression"] = 0 // uncompress subspace signal
+		// Taken any damage? Start gently scrambling things.
+		if(integrity < 100)
+			signal.data["compression"] = rand(0, round((100-integrity)))
+		// Uncompress signal to complete clarity
+		else signal.data["compression"] = 0
 
 	if(istype(machine_from, /obj/machinery/telecomms/bus))
 		relay_direct_information(signal, machine_from) // send the signal back to the machine
