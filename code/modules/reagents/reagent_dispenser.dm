@@ -384,7 +384,7 @@
 	reagents_to_add = list(/singleton/reagent/alcohol/butanol/xuizijuice = 1000)
 
 /obj/structure/reagent_dispensers/keg/kvass
-	name = "dorshafen kvass keg"
+	name = "\improper Dorshafen kvass keg"
 	desc = "A keg full of Dorshafen Deluxe kvass, a fermented non-alcoholic mushroom drink. It is a common sight across workers homes in Himeo, and even abroad."
 	icon_state = "keg_kvass"
 	reagents_to_add = list(/singleton/reagent/drink/mushroom_kvass = 1000)
