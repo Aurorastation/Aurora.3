@@ -299,6 +299,20 @@
 	worn_state = "heph_captain"
 	contained_sprite = TRUE
 
+/obj/item/clothing/head/caphat/cap/hephaestus
+	name = "captain's cap"
+	desc = "You fear to wear it for the negligence it brings. This one is in the colors of Hephaestus Industries"
+	icon = 'icons/clothing/under/uniforms/cyclops_uniforms.dmi'
+	icon_state = "heph_captain_cap"
+	item_state = "heph_captain_cap"
+
+/obj/item/clothing/gloves/captain/hephaestus
+	name = "captain's gloves"
+	desc = "Green gloves, with a nice gold trim. Swanky."
+	icon = 'icons/clothing/under/uniforms/cyclops_uniforms.dmi'
+	icon_state = "heph_captain_gloves"
+	item_state = "heph_captain_gloves"
+
 /obj/item/clothing/under/rank/captain/einstein
 	name = "einstein captain's jumpsuit"
 	desc = "It's a grey-green jumpsuit with some gold markings denoting the rank of \"Captain\" used by Einstein Engines."
