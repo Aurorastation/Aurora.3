@@ -271,6 +271,11 @@ Class Procs:
 /obj/machinery/CouldNotUseTopic(var/mob/user)
 	user.unset_machine()
 
+/obj/machinery/CouldUseUI(mob/user)
+	..()
+	if(clicksound && iscarbon(user))
+		playsound(src, clicksound, clickvol)
+
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /obj/machinery/attack_ai(mob/user as mob)
