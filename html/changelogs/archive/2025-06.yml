@@ -49,3 +49,90 @@
   - balance: Added additional minimum active population requirement of 8 for Greimorian
       Infestation events.
   - qol: Events paused when no population is active.
+2025-06-12:
+  Batrachophreno:
+  - rscadd: Added short variants of Punk Shave, Sidecut Left/Right haircuts.
+  - bugfix: Adding missing XGM gas definition for Nitrogen Dioxide so it resolves
+      and behaves correctly in atmospheric scanner results.
+  Ben10083:
+  - balance: Adds missing Intrepid Hangar lockdown shutter.
+  FlamingLily:
+  - rscadd: Partially reverts the scarcity changes to the bar. Rare drinks are now
+      once again in the vendor or the yokes, but there's less of them overall (encouraging
+      use of resupply means).
+  Flpfs:
+  - rscadd: The white cane has been resprited, being able to be extended and retracted.
+  GeneralCamo:
+  - rscadd: Balloon alerts now change their duration on-screen depending on the length
+      of them.
+  - qol: Balloon alerts use a seperate plane that ignores lighting.
+  - qol: Balloon alerts now use the standard established by tgstation, reducing their
+      length and improving their readability.
+  - rscadd: Split body scanner and cryopod sprites; body scanners have new sprites.
+      New sprites by Remission on Baystation12, recolor and touchups by CormallenField/Steviii.
+  - rscadd: Working sleepers now use their working sprite states.
+  - bugfix: Sleepers now correctly show their panel sprites.
+  - rscdel: Arm guards (with the exception of riot variants and a few older variants)
+      no longer protect the hands.
+  - rscdel: Leg guards no longer protect the feet.
+  - bugfix: Buckshot and other pellet-based projectiles now correctly multiply damage
+      dealt when multiple pellets hit a target.
+  Greenjoe:
+  - rscadd: Tajara can now select plural pronouns (they/them)
+  KingOfThePing, The lancer:
+  - rscadd: Adds a dominian lyodii tarot card deck to the loadout and cargo database.
+  Kintsugi:
+  - rscadd: Added a three new playable hivebot mobs (destroyer, marksman, and overseer),
+      which storytellers and admins can spawn.
+  hazelmouse:
+  - bugfix: Spores, eggs, and other hydroponics seeds that should not appear in seed
+      packets no longer have a seed packet underneath their overlays.
+  - bugfix: The Foggy Mendell Skyline and Jupiter Upper Atmosphere holodeck settings
+      now render their rolling fog correctly.
+  - rscadd: Geras Dionae now possess innate melee armour, intended to give them more
+      leeway fighting simplemobs and other melee-based threats.
+  steviii:
+  - qol: Shifts a few objects around in the bar, putting the heater in the backroom,
+      a sink in the front, adding a first aid cabinet back to the bar backroom, and
+      moving a few wall objects so they stop overlapping.
+  - bugfix: Makes the anomalist outfit a path not a string.
+2025-06-17:
+  Batrachophreno:
+  - bugfix: APCs now correctly register themselves as appropriate targets for the
+      Electrical Storm event.
+  Ben10083:
+  - qol: Adds Coalition of Colonies alignment to Burzsia I sensor report.
+  GeneralCamo:
+  - balance: For the duration of the current arc, Burszia is now considered a dangerous
+      sector, and will not spawn civilian craft.
+  - rscadd: The Frontier Rangers can now spawn in Burszia.
+  - balance: Reduced the weight of the Xanan Frigate in Burszia from 1.0 to 0.5 (matching
+      that of Konyang's equivalent response).
+  Kano:
+  - rscadd: Added a few clipboards to several departments for the masses to enjoy.
+  KingOfThePing, PinkBlossom6:
+  - soundadd: Added the Mk II version of SS13's classic song 'Title3' to the lobby
+      and the jukebox.
+  hazelmouse:
+  - bugfix: Custom item prosthetics are no longer spawned twice at roundstart.
+  - rscadd: Added two new audible emotes available to Skrell, accessible via *peep
+      and *puff, ported from Baystation12.
+  - bugfix: Exoplanet water turfs no longer describe mobs as stepping out of them
+      when they shouldn't.
+  - bugfix: Sewage turfs no longer reset in colour when a mob moves over them.
+  steviii:
+  - bugfix: Adds an air alarm to exploratory chemistry.
+  - imageadd: Adds new preview mech sprites.
+  - imagedel: Deletes the deprecated mech sprites.
+  - rscadd: Changes the CCIA level of the Horizon to not have a deprecated mech.
+  - rscadd: Reorganized the kitchen in the Hephaestus Asset Protection ship, added
+      grime and a janitorial closet.
+2025-06-18:
+  CourierBravo:
+  - rscadd: Added a Quik-Pay device and some shelving to the pharmacy to encourage
+      the pharmacist to sell things over the counter.
+  - bugfix: Fixed the service Quik-Pay paying into the operations account instead
+      of the service account.
+  - balance: Doubled the prices for almost everything in the OTC medical wall vendor
+      in the lobby. Everything is still very much affordable, but this should encourage
+      pharmacists to undercut the vending machine.

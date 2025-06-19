@@ -162,6 +162,8 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 		stat |= MAINT
 		update_icon()
 
+	SSmachinery.apc_units += src
+
 	if(!mapload)
 		set_pixel_offsets()
 
@@ -181,6 +183,8 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 	// Malf AI, removes the APC from AI's hacked APCs list.
 	if(hacker?.hacked_apcs && (src in hacker.hacked_apcs))
 		hacker.hacked_apcs -= src
+
+	SSmachinery.apc_units -= src
 
 	return ..()
 
