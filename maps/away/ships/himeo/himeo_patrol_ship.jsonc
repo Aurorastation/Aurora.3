@@ -6,7 +6,7 @@
 		"submap_size_z": 1,
 		"submaps_dmm": "himeo_patrol_ship_submaps.dmm",
 		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/himeo_patrol_ship/storage_1",
-		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/inserthimeo_patrol_ship/storage_1",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/himeo_patrol_ship/storage_1",
 		"submaps_can_repeat": false
 	},
 	{
