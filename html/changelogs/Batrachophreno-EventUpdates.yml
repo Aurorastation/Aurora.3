@@ -61,5 +61,5 @@ changes:
   - balance: "Space Vines, Drone Revolution major events now require minimum population of 4."
   - qol: "Majorly updated Event Probabilities sheet (updated multiple changed events, removed retired events, added missing new events, etc.)"
   - bugfix: "Event selection now respects minimum pop requirement param."
-  - balance: "Refactored the Electrical Storm behavior to play more interestingly (less grinding busywork, more smoke and mirrors).
+  - balance: "Refactored the Electrical Storm behavior to play more interestingly (less grinding busywork, more smoke and mirrors)."
   - rscadd: "Added Mundane and Major variants of the Electrical Storm event."
