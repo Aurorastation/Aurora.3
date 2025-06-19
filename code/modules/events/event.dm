@@ -28,7 +28,7 @@
 	var/list/minimum_job_requirement = list()
 
 	///Minimum amount of player_list mobs for this to fire
-	var/pop_requirement = 0
+	var/pop_requirement = 1
 
 	/// A lazylist of gamemodes during which this event won't fire
 	var/list/excluded_gamemodes
