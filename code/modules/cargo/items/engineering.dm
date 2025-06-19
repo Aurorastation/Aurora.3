@@ -882,4 +882,16 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-
+/singleton/cargo_item/rad_collector
+	category = "engineering"
+	name = "radiation collector array"
+	supplier = "hephaestus"
+	description = "A radiation collector array. Used to augment the power generation of a generator that emits ionising radiation."
+	price = 2000
+	items = list(
+		/obj/machinery/power/rad_collector
+	)
+	access = ACCESS_ENGINE
+	container_type = "crate"
+	groupable = FALSE
+	spawn_amount = 1
