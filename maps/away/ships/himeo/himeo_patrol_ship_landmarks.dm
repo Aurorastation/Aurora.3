@@ -53,6 +53,12 @@
 	name = "Airlock, Starboard"
 	master_tag = "airlock_himeo_patrol_starboard"
 
+// Airlock markers, Deck 2
+
+/obj/effect/map_effect/marker/airlock/himeo_patrol/deck_2/starboard
+	name = "Airlock, Starboard"
+	master_tag = "airlock_himeo_patrol_deck_2_starboard"
+
 // Docking airlock markers, Deck 2
 /obj/effect/map_effect/marker/airlock/docking/himeo_patrol/aft_dock
 	name = "Aft"
@@ -74,5 +80,17 @@
 	master_tag = "airlock_himeo_patrol_starboard_dock"
 	landmark_tag = "himeo_patrol_starboard_dock"
 
-// Shuttle dock
+// Mapmanip
+// Northern storage compartment
+/obj/effect/map_effect/marker/mapmanip/submap/extract/himeo_patrol_ship/storage_1
+	name = "Himeo Patrol Ship - Cargo North"
 
+/obj/effect/map_effect/marker/mapmanip/submap/insert/himeo_patrol_ship/storage_1
+	name = "Himeo Patrol Ship - Cargo North"
+
+// Southern storage compartment
+/obj/effect/map_effect/marker/mapmanip/submap/extract/himeo_patrol_ship/storage_2
+	name = "Himeo Patrol Ship - Cargo South"
+
+/obj/effect/map_effect/marker/mapmanip/submap/insert/himeo_patrol_ship/storage_2
+	name = "Himeo Patrol Ship - Cargo South"
