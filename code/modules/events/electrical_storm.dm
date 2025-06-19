@@ -91,14 +91,14 @@
 				victim_apc.energy_fail(4 * severity * rand(severity * 2, severity * 4))
 
 			// Medium chance to overload lighting circuit.
-			if(prob(10 * severity))
-				victim_apc.overload_lighting((range(10 * severity, 100)))
+			if(prob(15 * severity))
+				victim_apc.overload_lighting((range(15 * severity, 100)))
 				// Tiny chance to corrupt the cell (could potentially cause minor explosions!)
-				if(!QDELETED(victim_apc.cell) && prob(5 * severity))
+				if(!QDELETED(victim_apc.cell) && prob(8 * severity))
 					victim_apc.cell.corrupt()
 
 			// Small chance to emag the apc as apc_damage event does.
-			if(prob(5 * severity))
+			if(prob(8 * severity))
 				victim_apc.emagged = 1
 				victim_apc.update_icon()
 
