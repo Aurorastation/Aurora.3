@@ -578,7 +578,7 @@ By design, d1 is the smallest direction and d2 is the highest
 								break
 							user.visible_message(SPAN_NOTICE("\The [user] barely manages to stitch \a [W.desc] on [target_mob]'s [affecting.name]."), \
 														SPAN_NOTICE("You barely manage to stitch \a [W.desc] on [target_mob]'s [affecting.name].") )
-							W.bandage("cable-stitched")
+							W.bandage()
 							use(10)
 							affecting.add_pain(25)
 							if(prob(min(30 + (germ_level/5), 65))) //Less chance of infection if you clean the coil. Coil's germ level is set to GERM_LEVEL_AMBIENT
