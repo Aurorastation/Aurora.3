@@ -20,13 +20,13 @@
 
 /obj/machinery/ship_weapon/nephilim/pre_fire(/atom/target, /obj/effect/landmark/landmark)
 	// var/power_draw = smes.drain_power_simple(active_power_usage)
-	// if(power_draw >= active_power_usage)
-		for(var/mob/M in GLOB.living_mob_list)
-			if(AreConnectedZLevels(GET_Z(M), z))
-				sound_to(M, sound('sound/weapons/gunshot/ship_weapons/gatling_laser.ogg'))
-		flick("weapon_charging", src)
-		sleep(1.1 SECONDS)
-		. = ..()
+	//if(power_draw >= active_power_usage)
+	for(var/mob/M in GLOB.living_mob_list)
+		if(AreConnectedZLevels(GET_Z(M), z))
+			sound_to(M, sound('sound/weapons/gunshot/ship_weapons/gatling_laser.ogg'))
+	flick("weapon_charging", src)
+	sleep(1.1 SECONDS)
+	. = ..()
 
 /obj/machinery/ammunition_loader/nephilim
 	name = "nephilim ammunition loader"

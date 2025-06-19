@@ -1,6 +1,6 @@
 /datum/map_template/ruin/away_site/himeo_patrol_ship
 	name = "Himean Planetary Guard Vessel"
-	description = "A patrol vessel fielded by the Himean Planetary Guard"
+	description = "A patrol vessel fielded by the Himean Planetary Guard."
 
 	traits = list(
 		list(ZTRAIT_AWAY = TRUE, ZTRAIT_UP = TRUE, ZTRAIT_DOWN = FALSE),
@@ -17,6 +17,10 @@
 	id = "Himean Planetary Guard Vessel"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/himeo_patrol_shuttle, /datum/shuttle/autodock/multi/lift/himeo_patrol_ship)
 	unit_test_groups = list(1)
+
+/singleton/submap_archetype/himeo_patrol_ship
+	map = "Himean Planetary Guard Vessel"
+	descriptor = "A patrol vessel fielded by the Himean Planetary Guard."
 
 /obj/effect/overmap/visitable/ship/himeo_patrol_ship
 	name = "Himean Planetary Guard Vessel"

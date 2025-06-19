@@ -94,6 +94,10 @@
 /area/himeo_patrol_ship/deck_2_fore
 	name = "Himean Patrol Vessel - Deck Two, Fore Docking Arm"
 	icon_state = "entry_1"
+
+/area/himeo_patrol_ship/deck_2_storage
+	name = "Himean Patrol Vessel - Deck Two, Storage"
+	icon_state = "unknown"
 // Shuttle
 /area/shuttle/himeo_patrol
 	name = "Himean Patrol Shuttle"
