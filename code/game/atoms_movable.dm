@@ -587,9 +587,6 @@
 				ASSOC_UNSETEMPTY(recursive_contents, channel)
 				UNSETEMPTY(location.important_recursive_contents)
 
-	if(LAZYLEN(gone.stored_chat_text))
-		return_floating_text(gone)
-
 	GLOB.dir_set_event.unregister(src, gone, TYPE_PROC_REF(/atom, recursive_dir_set))
 
 /atom/movable/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
@@ -607,9 +604,6 @@
 						if(!length(recursive_contents[channel]))
 							SSspatial_grid.add_grid_awareness(location, channel)
 				recursive_contents[channel] |= arrived.important_recursive_contents[channel]
-
-	if (LAZYLEN(arrived.stored_chat_text))
-		give_floating_text(arrived)
 
 	if(GLOB.dir_set_event.has_listeners(arrived))
 		GLOB.dir_set_event.register(src, arrived, TYPE_PROC_REF(/atom, recursive_dir_set))
