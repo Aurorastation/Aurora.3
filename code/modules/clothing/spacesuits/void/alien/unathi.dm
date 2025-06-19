@@ -263,7 +263,7 @@
 	desc = "An advanced helmet made to fit in a large assembly. Its multi-optic visor is reminiscent of some Vaurca designs."
 	icon_state = "rig-kazupirate-helmet"
 	item_state = "rig-kazupirate-helmet"
-	light_overlay = "helmet_light_jargon_rig"
+	light_overlay = "helmet_light_nralakk_rig"
 
 /obj/item/clothing/suit/space/void/unathi_pirate/kazu/captain
 	name = "techraider captain's voidsuit"
