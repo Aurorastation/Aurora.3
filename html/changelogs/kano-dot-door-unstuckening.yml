@@ -1,0 +1,6 @@
+author: Kano
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes the SM chamber airlocks not being linked to the button in CE office. Moves SM ejection button to somewhere more visible."
