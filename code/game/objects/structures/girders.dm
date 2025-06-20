@@ -23,6 +23,7 @@
 	. = ..()
 	var/state
 	var/current_damage = health / initial(health)
+	. += interaction_hints()
 	switch(current_damage)
 		if(0 to 0.2)
 			state = SPAN_DANGER("The support struts are collapsing!")
@@ -33,6 +34,37 @@
 		if(0.8 to 1)
 			state = SPAN_NOTICE("The support struts look completely intact.")
 	. += state
+	. += construction_hints()
+
+/obj/structure/girder/proc/interaction_hints()
+	. = list()
+	if (state == 0 && anchored)
+		. += SPAN_NOTICE("It could be <b>pried</b> to subtly displace it.")
+	return .
+
+/obj/structure/girder/proc/construction_hints()
+	. = list()
+	if (health < maxhealth)
+		return FONT_SMALL(SPAN_NOTICE("It could be repaired with a few choice <b>welds</b>."))
+	// Reinf wall deconstruction.
+	if (state == 2)
+		. += FONT_SMALL(SPAN_NOTICE("Its support struts have been securely <b>screwed<b/> into place."))
+	else if (state == 1)
+		. += FONT_SMALL(SPAN_NOTICE("Its unsecured support struts could be <b>cut</b> out."))
+
+	if (anchored)
+		if (!reinf_material && !reinforcing)
+			. += FONT_SMALL(SPAN_NOTICE("It could be prepared for reinforcement with some <b>screws</b>."))
+		if (reinforcing)
+			. += FONT_SMALL(SPAN_NOTICE("It could be reinforced with a <b>stack</b> of an appropriate material."))
+		if (!plating)
+			. += FONT_SMALL(SPAN_NOTICE("It could be plated with a <b>stack</b> of an appropriate material."))
+
+	// Anchor state
+	. += FONT_SMALL(SPAN_NOTICE("It [anchored ? "is" : "could be"] anchored to the floor with some <b>bolts</b>."))
+	if (!anchored)
+		. += FONT_SMALL(SPAN_NOTICE("It is held together by a couple of <b>bolts</b>; a heavy <b>cutting</b> tool might also take it apart."))
+	return .
 
 /obj/structure/girder/displaced
 	name = "displaced girder"
@@ -200,19 +232,19 @@
 
 	return ..()
 
-/obj/structure/girder/proc/construct_wall(obj/item/stack/material/S, mob/user)
-	if(S.get_amount() < 2)
+/obj/structure/girder/proc/construct_wall(obj/item/stack/material/mat_stack, mob/user)
+	if(mat_stack.get_amount() < 2)
 		to_chat(user, SPAN_NOTICE("There isn't enough material here to construct a wall."))
 		return 0
 
-	var/material/M = SSmaterials.get_material_by_name(S.default_type)
-	if(!istype(M))
+	var/material/material = SSmaterials.get_material_by_name(mat_stack.default_type)
+	if(!istype(material))
 		return 0
 
 	var/wall_fake
 	add_hiddenprint(usr)
 
-	if(M.integrity < 50)
+	if(material.integrity < 50)
 		to_chat(user, SPAN_NOTICE("This material is too soft for use in wall construction."))
 		return 0
 
@@ -222,7 +254,7 @@
 	else
 		return TRUE
 
-	if(!do_after(user,40) || !S.use(2))
+	if(!do_after(user,40) || !mat_stack.use(2))
 		plating = FALSE
 		return 1 //once we've gotten this far don't call parent attackby()
 
@@ -246,26 +278,26 @@
 	qdel(src)
 	return 1
 
-/obj/structure/girder/proc/reinforce_with_material(obj/item/stack/material/S, mob/user) //if the verb is removed this can be renamed.
+/obj/structure/girder/proc/reinforce_with_material(obj/item/stack/material/mat_stack, mob/user) //if the verb is removed this can be renamed.
 	if(reinf_material)
 		to_chat(user, SPAN_NOTICE("\The [src] is already reinforced."))
 		return 0
 
-	if(S.get_amount() < 2)
+	if(mat_stack.get_amount() < 2)
 		to_chat(user, SPAN_NOTICE("There isn't enough material here to reinforce the girder."))
 		return 0
 
-	var/material/M = SSmaterials.get_material_by_name(S.default_type)
-	if(!istype(M) || M.integrity < 50)
+	var/material/material = SSmaterials.get_material_by_name(mat_stack.default_type)
+	if(!istype(material) || material.integrity < 50)
 		to_chat(user, "You cannot reinforce \the [src] with that; it is too soft.")
 		return 0
 
 	to_chat(user, SPAN_NOTICE("Now reinforcing..."))
-	if (!do_after(user,40) || !S.use(2))
+	if (!do_after(user,40) || !mat_stack.use(2))
 		return 1 //don't call parent attackby() past this point
 	to_chat(user, SPAN_NOTICE("You added reinforcement!"))
 
-	reinf_material = M
+	reinf_material = material
 	reinforce_girder()
 	return 1
 

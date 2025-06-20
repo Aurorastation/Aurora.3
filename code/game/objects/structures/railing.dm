@@ -99,7 +99,7 @@
 
 	. += FONT_SMALL(SPAN_NOTICE("It [anchored ? "is" : "could be"] anchored to the floor with a row of <b>screws</b>."))
 	if (!anchored)
-		. += FONT_SMALL(SPAN_NOTICE("<br>It is held together by a couple of <b>bolts</b>."))
+		. += FONT_SMALL(SPAN_NOTICE("It is held together by a couple of <b>bolts</b>."))
 	return .
 
 /obj/structure/railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
