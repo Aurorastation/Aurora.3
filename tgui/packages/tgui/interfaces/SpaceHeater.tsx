@@ -44,7 +44,7 @@ export const SpaceHeater = (props, context) => {
                   {data.is_active ? (
                     <Box color="good">Active</Box>
                   ) : data.is_on ? (
-                    <Box color="Bad">Inactive</Box>
+                    <Box color="bad">Inactive</Box>
                   ) : (
                     <Box color="average">Standby</Box>
                   ) }
@@ -74,13 +74,13 @@ export const SpaceHeater = (props, context) => {
                       {data.current_temperature ?
                         data.current_temperature : (
                         20
-                      ) }  C
+                      ) }°  C
                     </LabeledList.Item>
                     <LabeledList.Item label="Set Temperature">
                       {data.set_temperature ?
                         data.set_temperature : (
                         20
-                      ) }  C
+                      ) }°  C
                     </LabeledList.Item>
                   </LabeledList>
                 </Section>
@@ -103,7 +103,7 @@ export const SpaceHeater = (props, context) => {
                     onDrag={(e, value) =>
                       act('tempSet', {
                         set_temperature: value,
-                      })
+                      } )
                     }/>
                 </Section>
               </Flex.Item>
