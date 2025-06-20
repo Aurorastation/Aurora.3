@@ -3,7 +3,7 @@
 	name = "stok cube box"
 	supplier = "nanotrasen"
 	description = "Drymate brand stok cubes, shipped from Moghes. Just add water!"
-	price = 60
+	price = 250
 	items = list(
 		/obj/item/storage/box/monkeycubes/stokcubes
 	)
@@ -17,7 +17,7 @@
 	name = "vkrexi cube box"
 	supplier = "nanotrasen"
 	description = "Drymate brand vkrexi cubes. Just add water!"
-	price = 1160
+	price = 250
 	items = list(
 		/obj/item/storage/box/monkeycubes/vkrexicubes
 	)
@@ -31,7 +31,7 @@
 	name = "farwa cube box"
 	supplier = "nanotrasen"
 	description = "Drymate brand farwa cubes, shipped from Adhomai. Just add water!"
-	price = 1455
+	price = 250
 	items = list(
 		/obj/item/storage/box/monkeycubes/farwacubes
 	)
@@ -45,7 +45,7 @@
 	name = "monkey cube box"
 	supplier = "nanotrasen"
 	description = "Drymate brand monkey cubes. Just add water!"
-	price = 1600
+	price = 250
 	items = list(
 		/obj/item/storage/box/monkeycubes
 	)
@@ -59,7 +59,7 @@
 	name = "neaera cube box"
 	supplier = "nanotrasen"
 	description = "Drymate brand neaera cubes, shipped from Jargon 4. Just add water!"
-	price = 1665
+	price = 250
 	items = list(
 		/obj/item/storage/box/monkeycubes/neaeracubes
 	)

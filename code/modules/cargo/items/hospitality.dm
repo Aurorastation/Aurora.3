@@ -1003,9 +1003,9 @@
 
 /singleton/cargo_item/dr_gibb
 	category = "hospitality"
-	name = "Dr. Gibb (x6)"
+	name = "Getmore Root-Cola (x6)"
 	supplier = "getmore"
-	description = "A 6-pack yoke of Dr. Gibb for cracking open a cold one."
+	description = "A 6-pack yoke of Getmore Root-Cola for cracking open a cold one."
 	price = 8
 	items = list(
 		/obj/item/storage/box/fancy/yoke/dr_gibb
