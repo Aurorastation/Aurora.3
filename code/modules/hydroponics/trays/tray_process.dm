@@ -1,5 +1,10 @@
 /obj/machinery/portable_atmospherics/hydroponics/process()
 
+	// If there is no power, and stasis is enabled, disable stasis.
+	if((stat & (NOPOWER|BROKEN)) && stasis)
+		stasis = FALSE
+		update_use_power(POWER_USE_IDLE)
+
 	// If the tray is under stasis, return now and process nothing.
 	if(stasis)
 		return

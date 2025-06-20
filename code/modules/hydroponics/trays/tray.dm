@@ -8,6 +8,11 @@
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	volume = 100
 
+	/// Idle by standard, active while stasis is enabled.
+	use_power = POWER_USE_IDLE
+	/// Active power is only consumed while stasis is enabled.
+	active_power_usage = 500
+
 	/// Set to 0 to stop it from drawing the alert lights.
 	var/mechanical = 1
 	var/base_name = "tray"
@@ -19,7 +24,7 @@
 	var/nutrilevel = 10
 	/// Pests (max 10)
 	var/pestlevel = 0
-	// Weeds (max 10)
+	/// Weeds (max 10)
 	var/weedlevel = 0
 
 	var/maxWaterLevel = 100
@@ -93,7 +98,7 @@
 		)
 	var/global/list/nutrient_reagents = list(
 		/singleton/reagent/drink/milk =				 0.1,
-		/singleton/reagent/alcohol/beer =	0.25,
+		/singleton/reagent/alcohol/beer =			0.25,
 		/singleton/reagent/phosphorus =				 0.1,
 		/singleton/reagent/sugar =					 0.1,
 		/singleton/reagent/drink/sodawater =		 0.1,
@@ -679,13 +684,17 @@
 	if(istype(usr,/mob/living/silicon))
 		return
 
-	// If the lid is closed and stasis enabled, disable it. Otherwise, enable it.
+	// If the lid is closed and stasis enabled, disable it. Otherwise, enable it. If there's no power, cut it early.
 	if(closed_system)
-		if(stasis)
+		if(stat & (NOPOWER|BROKEN))
+			to_chat(user, SPAN_NOTICE("You flick the stasis mode switch, but nothing happens."))
+		else if(stasis)
 			user.visible_message(SPAN_NOTICE("\The [user] disengages \the [src]'s stasis mode."), SPAN_NOTICE("You disengage stasis on \the [src]."))
+			update_use_power(POWER_USE_IDLE)
 			stasis = FALSE
 		else
 			user.visible_message(SPAN_NOTICE("\The [user] engages \the [src]'s stasis mode."), SPAN_NOTICE("You engage stasis on \the [src]."))
+			update_use_power(POWER_USE_ACTIVE)
 			stasis = TRUE
 
 		playsound(src, /singleton/sound_category/button_sound, 50, 1)
@@ -770,6 +779,7 @@
 /obj/machinery/portable_atmospherics/hydroponics/proc/close_lid(var/mob/living/user)
 	if(closed_system)
 		stasis = FALSE
+		update_use_power(POWER_USE_IDLE)
 	closed_system = !closed_system
 	to_chat(user, "You [closed_system ? "close" : "open"] the tray's lid.")
 	update_icon()
