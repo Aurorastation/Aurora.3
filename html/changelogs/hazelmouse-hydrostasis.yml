@@ -55,4 +55,4 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Hydroponics trays now have a stasis setting that can be enabled with a multitool, freezing the metabolic functions of the plant inside and preventing it from both growing or dying. The lid of the tray must be on for stasis to be enabled."
+  - rscadd: "Hydroponics trays now have a stasis setting that can be enabled by clicking on them with an empty hand, freezing the metabolic functions of the plant inside and preventing it from both growing or dying. The lid of the tray must be on for stasis to be enabled."
