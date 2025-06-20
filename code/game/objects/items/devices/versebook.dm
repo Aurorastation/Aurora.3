@@ -197,4 +197,16 @@
 /obj/item/device/versebook/nka/Initialize()
 	. = ..()
 	randomquip = file2list("texts/ingame_manuals/royalism.txt")
-///
+
+/// Tajaran Religious Texts
+
+/obj/item/device/versebook/twin_suns
+	name = "\improper The Holy Scrolls (Abridged)"
+	desc = "Oh yeah description."
+	desc_extended = "Cool extended description"
+	icon_state = "nkabook"
+	item_state = "nka"
+
+/obj/item/device/versebook/twin_suns/Initialize()
+	. = ..()
+	randomquip = file2list("texts/ingame_manuals/royalism.txt")
