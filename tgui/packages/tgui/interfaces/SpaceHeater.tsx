@@ -1,5 +1,5 @@
 import { BooleanLike } from '../../common/react';
-import { useBackend, } from '../backend';
+import { useBackend } from '../backend';
 import { Box, Button, Flex, LabeledList, Knob, ProgressBar, Section } from '../components';
 import { Window } from '../layouts';
 
@@ -23,15 +23,12 @@ export const SpaceHeater = (props, context) => {
     <Window width="700" height="300">
       <Window.Content>
         <Section title="Device Configuration"
-              buttons={
-                <>
-                  <Button
+              buttons={<Button
                     content={data.is_on ? 'On' : 'Off'}
                     icon={data.is_on ? 'power-off' : 'times'}
                     color={!data.is_on ? 'red': 'green'}
                     onClick={() => act('powerToggle')}
                   />
-                </>
               }>
           <Box>
             <Section fill title="Power Status">

@@ -1,4 +1,4 @@
-import { useBackend, } from '../backend';
+import { useBackend } from '../backend';
 import { Button, Flex, LabeledList, Section } from '../components';
 import { Window } from '../layouts';
 
