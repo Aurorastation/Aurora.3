@@ -8,6 +8,11 @@
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	volume = 100
 
+	/// Idle by standard, active while stasis is enabled.
+	use_power = POWER_USE_IDLE
+	/// Active power is only consumed while stasis is enabled.
+	active_power_usage = 500
+
 	/// Set to 0 to stop it from drawing the alert lights.
 	var/mechanical = 1
 	var/base_name = "tray"
@@ -19,7 +24,7 @@
 	var/nutrilevel = 10
 	/// Pests (max 10)
 	var/pestlevel = 0
-	// Weeds (max 10)
+	/// Weeds (max 10)
 	var/weedlevel = 0
 
 	var/maxWaterLevel = 100
@@ -63,6 +68,8 @@
 	var/cycledelay = 150
 	/// If set, the tray will attempt to take atmos from a pipe.
 	var/closed_system
+	/// Whether this tray is under stasis, freezing all functions. It won't grow, but it won't die.
+	var/stasis = FALSE
 	/// Set this to bypass the cycle time check.
 	var/force_update
 	/// Something to hold reagents during process_reagents()
@@ -91,7 +98,7 @@
 		)
 	var/global/list/nutrient_reagents = list(
 		/singleton/reagent/drink/milk =				 0.1,
-		/singleton/reagent/alcohol/beer =	0.25,
+		/singleton/reagent/alcohol/beer =			0.25,
 		/singleton/reagent/phosphorus =				 0.1,
 		/singleton/reagent/sugar =					 0.1,
 		/singleton/reagent/drink/sodawater =		 0.1,
@@ -512,7 +519,7 @@
 	if (attacking_item.is_open_container())
 		return FALSE
 
-	if(attacking_item.iswirecutter() || istype(attacking_item, /obj/item/surgery/scalpel))
+	if((attacking_item.iswirecutter() || istype(attacking_item, /obj/item/surgery/scalpel)) && !closed_system)
 
 		if(!seed)
 			to_chat(user, "There is nothing to take a sample from in \the [src].")
@@ -543,7 +550,7 @@
 
 		return
 
-	else if(istype(attacking_item, /obj/item/reagent_containers/syringe))
+	else if(istype(attacking_item, /obj/item/reagent_containers/syringe) && !closed_system)
 
 		var/obj/item/reagent_containers/syringe/S = attacking_item
 
@@ -609,7 +616,7 @@
 			to_chat(user, SPAN_DANGER("This plot is completely devoid of weeds. It doesn't need uprooting."))
 
 	// Hatchets can uproot the contents of trays to kill the plant with one click.
-	else if (istype(attacking_item, /obj/item/material/hatchet))
+	else if (istype(attacking_item, /obj/item/material/hatchet) && !closed_system)
 		if(health > 0)
 			user.visible_message(SPAN_DANGER("[user] begins uprooting the contents of \the [src]."),
 				SPAN_DANGER("You begin to uproot the contents of \the [src]."))
@@ -633,7 +640,7 @@
 				return
 			S.handle_item_insertion(G, 1)
 
-	else if ( istype(attacking_item, /obj/item/plantspray) )
+	else if (istype(attacking_item, /obj/item/plantspray))
 
 		var/obj/item/plantspray/spray = attacking_item
 		user.remove_from_mob(attacking_item)
@@ -655,7 +662,7 @@
 		anchored = !anchored
 		to_chat(user, "You [anchored ? "wrench" : "unwrench"] \the [src].")
 
-	else if(attacking_item.force && seed)
+	else if(attacking_item.force && seed && !closed_system)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		user.visible_message(SPAN_DANGER("\The [seed.display_name] has been attacked by [user] with \the [attacking_item]!"))
 		if(!dead)
@@ -675,6 +682,23 @@
 /obj/machinery/portable_atmospherics/hydroponics/attack_hand(mob/user as mob)
 
 	if(istype(usr,/mob/living/silicon))
+		return
+
+	// If the lid is closed and stasis enabled, disable it. Otherwise, enable it. If there's no power, cut it early.
+	if(closed_system)
+		if(stat & (NOPOWER|BROKEN))
+			to_chat(user, SPAN_NOTICE("You flick the stasis mode switch, but nothing happens."))
+		else if(stasis)
+			user.visible_message(SPAN_NOTICE("\The [user] disengages \the [src]'s stasis mode."), SPAN_NOTICE("You disengage stasis on \the [src]."))
+			update_use_power(POWER_USE_IDLE)
+			stasis = FALSE
+		else
+			user.visible_message(SPAN_NOTICE("\The [user] engages \the [src]'s stasis mode."), SPAN_NOTICE("You engage stasis on \the [src]."))
+			update_use_power(POWER_USE_ACTIVE)
+			stasis = TRUE
+
+		playsound(src, /singleton/sound_category/button_sound, 50, 1)
+		update_icon()
 		return
 
 	if(harvest)
@@ -734,6 +758,13 @@
 
 		. += "The tray's sensor suite is reporting [light_string] and a temperature of [environment.temperature]K."
 
+		var/stasis_string
+		if(stasis)
+			stasis_string = "Stasis is enabled, freezing metabolic functions."
+		else
+			stasis_string = "Stasis is disabled."
+		. += SPAN_NOTICE(stasis_string)
+
 /obj/machinery/portable_atmospherics/hydroponics/verb/close_lid_verb()
 	set name = "Toggle Tray Lid"
 	set category = "Object"
@@ -746,6 +777,9 @@
 	return
 
 /obj/machinery/portable_atmospherics/hydroponics/proc/close_lid(var/mob/living/user)
+	if(closed_system)
+		stasis = FALSE
+		update_use_power(POWER_USE_IDLE)
 	closed_system = !closed_system
 	to_chat(user, "You [closed_system ? "close" : "open"] the tray's lid.")
 	update_icon()
