@@ -22,8 +22,7 @@ export const SpaceHeater = (props, context) => {
   return (
     <Window width="700" height="300">
       <Window.Content>
-        <Section
-              title="Device Configuration"
+        <Section title="Device Configuration"
               buttons={
                 <>
                   <Button
@@ -42,7 +41,7 @@ export const SpaceHeater = (props, context) => {
                     <Box color="good">On</Box>
                   ) : (
                     <Box color="bad">Off</Box>
-                  )}
+                  ) }
                 </LabeledList.Item>
                 <LabeledList.Item label="Activity State">
                   {data.is_active ? (
@@ -51,7 +50,7 @@ export const SpaceHeater = (props, context) => {
                     <Box color="Bad">Inactive</Box>
                   ) : (
                     <Box color="average">Standby</Box>
-                  )}
+                  ) }
                 </LabeledList.Item>
                 <LabeledList.Item label="Power Cell">
                   {data.power_cell_inserted ? (
@@ -66,7 +65,7 @@ export const SpaceHeater = (props, context) => {
                       maxValue={100} />
                   ) : (
                     <Box color="bad">No power cell.</Box>
-                  )}
+                  ) }
                 </LabeledList.Item>
               </LabeledList>
             </Section>
@@ -78,13 +77,13 @@ export const SpaceHeater = (props, context) => {
                       {data.current_temperature ?
                         data.current_temperature : (
                         20
-                      )}  C
+                      ) }  C
                     </LabeledList.Item>
                     <LabeledList.Item label="Set Temperature">
                       {data.set_temperature ?
                         data.set_temperature : (
                         20
-                      )}  C
+                      ) }  C
                     </LabeledList.Item>
                   </LabeledList>
                 </Section>
