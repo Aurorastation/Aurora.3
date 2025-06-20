@@ -968,7 +968,7 @@
 /area/space)
 "em" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
-	dir = 4
+	dir = 8
 	},
 /turf/simulated/open/airless,
 /area/space)
@@ -2482,6 +2482,15 @@
 /obj/structure/railing/mapped,
 /turf/simulated/open/airless,
 /area/space)
+"lQ" = (
+/obj/machinery/atmospherics/pipe/zpipe/down/green{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 9
+	},
+/turf/simulated/open/airless,
+/area/space)
 "lR" = (
 /obj/effect/floor_decal/industrial/loading/grey{
 	dir = 4
@@ -3551,6 +3560,20 @@
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/blaster)
+"ri" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/open/airless,
+/area/space)
+"rk" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 10
+	},
+/turf/simulated/open/airless,
+/area/space)
 "ro" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/structure/sink{
@@ -7671,6 +7694,9 @@
 "Lg" = (
 /obj/machinery/atmospherics/pipe/zpipe/down/green{
 	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 10
 	},
 /turf/simulated/open/airless,
 /area/space)
@@ -104288,14 +104314,14 @@ YJ
 YJ
 YJ
 Xh
-YJ
-YJ
-YJ
-YJ
-YJ
-YJ
-YJ
-xG
+uk
+uk
+uk
+uk
+uk
+uk
+uk
+uk
 kl
 Jf
 Xh
@@ -104536,22 +104562,22 @@ Xh
 Xh
 Xh
 YJ
-YJ
-YJ
-YJ
-YJ
-YJ
-YJ
-YJ
-YJ
-YJ
-YJ
-YJ
-YJ
-YJ
-YJ
-YJ
-YJ
+ri
+uk
+uk
+uk
+uk
+uk
+uk
+uk
+uk
+uk
+yf
+yJ
+yJ
+yJ
+yJ
+vX
 OZ
 uk
 uk
@@ -104793,23 +104819,23 @@ Xh
 Xh
 Xh
 YJ
-YJ
-YJ
-YJ
+uk
+yf
+yJ
+vX
+yf
+vX
+yf
+vX
+yf
+vX
+em
 yf
 yJ
 yJ
 yJ
-yJ
-yJ
-yJ
-yJ
-vX
-YJ
-YJ
-YJ
-YJ
-YJ
+Is
+xG
 ot
 YJ
 Jf
@@ -105050,17 +105076,17 @@ Xh
 Xh
 Xh
 YJ
-YJ
-YJ
-YJ
-em
-YJ
-YJ
+uk
+eV
+vX
+eV
+Is
+eV
+lQ
 Lg
-Lg
-YJ
-YJ
-YJ
+Is
+eV
+Is
 em
 Dr
 BO
@@ -105307,10 +105333,10 @@ Xh
 Xh
 Xh
 Xh
-YJ
-YJ
-YJ
-eV
+uk
+yf
+Is
+yf
 yJ
 zn
 Vj
@@ -105564,10 +105590,10 @@ Xh
 Xh
 Xh
 Xh
-YJ
-YJ
-YJ
-YJ
+uk
+em
+yf
+Is
 Dr
 BO
 BO
@@ -105821,10 +105847,10 @@ Xh
 Xh
 KL
 YJ
-YJ
-nn
-YJ
-YJ
+uk
+rk
+yJ
+Is
 jl
 Rf
 Rf
@@ -106078,10 +106104,10 @@ Xh
 Xh
 Xh
 YJ
-YJ
-YJ
-YJ
-YJ
+uk
+uk
+uk
+uk
 kc
 Rf
 Rf
