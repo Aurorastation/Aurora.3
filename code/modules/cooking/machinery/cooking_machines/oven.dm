@@ -20,6 +20,12 @@
 	var/open = FALSE // Start closed so people don't heat up ovens with the door open
 	///Looping sound for the oven
 	var/datum/looping_sound/oven/oven_loop
+	///Open door icon_state
+	var/door_open = "ovenopen"
+	///Closed door icon_state
+	var/door_closed = "ovenclosed"
+	var/door_open_overlay = "ovenopen_on"
+	var/door_closed_overlay = "ovenclosed_on"
 
 	starts_with = list(
 		/obj/item/reagent_containers/cooking_container/oven,
@@ -54,15 +60,15 @@
 	ClearOverlays()
 	update_baking_audio()
 	if(!open)
-		icon_state = "ovenclosed"
+		icon_state = door_closed
 		if(!stat)
-			var/image/ovenclosed_on = image('icons/obj/machinery/cooking_machines.dmi', "ovenclosed_on")
+			var/image/ovenclosed_on = image('icons/obj/machinery/cooking_machines.dmi', door_closed_overlay)
 			ovenclosed_on.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 			AddOverlays(ovenclosed_on)
 	else
-		icon_state = "ovenopen"
+		icon_state = door_open
 		if(!stat)
-			var/image/ovenopen_on = image('icons/obj/machinery/cooking_machines.dmi', "ovenopen_on")
+			var/image/ovenopen_on = image('icons/obj/machinery/cooking_machines.dmi', door_open_overlay)
 			ovenopen_on.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 			AddOverlays(ovenopen_on)
 	..()
@@ -141,3 +147,15 @@
 			icon_state = "adhomai_ovenclosed_off"
 	else
 		icon_state = "adhomai_oven_open"
+
+/obj/machinery/appliance/cooker/oven/small
+	name = "compact oven"
+	desc = "A lightweight, small oven. Doesn't hold much, but it cooks just fine."
+	density = FALSE
+
+	max_contents = 2
+	icon_state = "small_ovenopen"
+	door_open = "small_ovenopen"
+	door_closed = "small_ovenclosed"
+	door_open_overlay = "small_ovenopen_on"
+	door_closed_overlay = "small_ovenclosed_on"
