@@ -56,6 +56,7 @@ var/datum/controller/subsystem/ticker/SSticker
 		'sound/music/lobby/space.ogg',
 		'sound/music/lobby/traitor.ogg',
 		'sound/music/lobby/title2.ogg',
+		'sound/music/lobby/title3mk2.ogg',
 		'sound/music/lobby/clouds.s3m'
 	)
 

@@ -117,9 +117,9 @@
 		I.AddOverlays(over)
 	return I
 
-/obj/item/storage/backpack/AltClick(mob/usr)
-	if(attached_bag && ishuman(usr))
-		var/mob/living/carbon/human/H = usr
+/obj/item/storage/backpack/AltClick(mob/user)
+	if(attached_bag && ishuman(user))
+		var/mob/living/carbon/human/H = user
 		H.put_in_hands(attached_bag)
 		attached_bag = null
 		update_icon()

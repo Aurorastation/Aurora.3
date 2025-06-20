@@ -96,3 +96,43 @@
       a sink in the front, adding a first aid cabinet back to the bar backroom, and
       moving a few wall objects so they stop overlapping.
   - bugfix: Makes the anomalist outfit a path not a string.
+2025-06-17:
+  Batrachophreno:
+  - bugfix: APCs now correctly register themselves as appropriate targets for the
+      Electrical Storm event.
+  Ben10083:
+  - qol: Adds Coalition of Colonies alignment to Burzsia I sensor report.
+  GeneralCamo:
+  - balance: For the duration of the current arc, Burszia is now considered a dangerous
+      sector, and will not spawn civilian craft.
+  - rscadd: The Frontier Rangers can now spawn in Burszia.
+  - balance: Reduced the weight of the Xanan Frigate in Burszia from 1.0 to 0.5 (matching
+      that of Konyang's equivalent response).
+  Kano:
+  - rscadd: Added a few clipboards to several departments for the masses to enjoy.
+  KingOfThePing, PinkBlossom6:
+  - soundadd: Added the Mk II version of SS13's classic song 'Title3' to the lobby
+      and the jukebox.
+  hazelmouse:
+  - bugfix: Custom item prosthetics are no longer spawned twice at roundstart.
+  - rscadd: Added two new audible emotes available to Skrell, accessible via *peep
+      and *puff, ported from Baystation12.
+  - bugfix: Exoplanet water turfs no longer describe mobs as stepping out of them
+      when they shouldn't.
+  - bugfix: Sewage turfs no longer reset in colour when a mob moves over them.
+  steviii:
+  - bugfix: Adds an air alarm to exploratory chemistry.
+  - imageadd: Adds new preview mech sprites.
+  - imagedel: Deletes the deprecated mech sprites.
+  - rscadd: Changes the CCIA level of the Horizon to not have a deprecated mech.
+  - rscadd: Reorganized the kitchen in the Hephaestus Asset Protection ship, added
+      grime and a janitorial closet.
+2025-06-18:
+  CourierBravo:
+  - rscadd: Added a Quik-Pay device and some shelving to the pharmacy to encourage
+      the pharmacist to sell things over the counter.
+  - bugfix: Fixed the service Quik-Pay paying into the operations account instead
+      of the service account.
+  - balance: Doubled the prices for almost everything in the OTC medical wall vendor
+      in the lobby. Everything is still very much affordable, but this should encourage
+      pharmacists to undercut the vending machine.

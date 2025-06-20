@@ -29,9 +29,9 @@
 
 /datum/event/electrical_storm/setup()
 	valid_apcs = list()
-	for(var/obj/machinery/power/apc/A in SSmachinery.machinery)
-		if((A.z in affecting_z) && !A.is_critical)
-			valid_apcs += A
+	for(var/obj/machinery/power/apc/valid_apc in SSmachinery.apc_units)
+		if((valid_apc.z in affecting_z) && !valid_apc.is_critical)
+			valid_apcs += valid_apc
 	endWhen = (severity * 60) + startWhen
 
 /datum/event/electrical_storm/end(faked)
