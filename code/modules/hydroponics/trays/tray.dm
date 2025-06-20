@@ -514,19 +514,6 @@
 	if (attacking_item.is_open_container())
 		return FALSE
 
-	// If the lid is closed, the tray is attacked with a multitool, and stasis enabled, disable it. Otherwise, enable it.
-	if(closed_system && attacking_item.ismultitool())
-		if(stasis)
-			user.visible_message(SPAN_NOTICE("\The [user] disengages \the [src]'s stasis mode."), SPAN_NOTICE("You disengage stasis on \the [src]."))
-			stasis = FALSE
-		else
-			user.visible_message(SPAN_NOTICE("\The [user] engages \the [src]'s stasis mode."), SPAN_NOTICE("You engage stasis on \the [src]."))
-			stasis = TRUE
-
-		playsound(src, /singleton/sound_category/button_sound, 50, 1)
-		update_icon()
-		return TRUE
-
 	if((attacking_item.iswirecutter() || istype(attacking_item, /obj/item/surgery/scalpel)) && !closed_system)
 
 		if(!seed)
@@ -648,7 +635,7 @@
 				return
 			S.handle_item_insertion(G, 1)
 
-	else if ( istype(attacking_item, /obj/item/plantspray) )
+	else if (istype(attacking_item, /obj/item/plantspray))
 
 		var/obj/item/plantspray/spray = attacking_item
 		user.remove_from_mob(attacking_item)
@@ -690,6 +677,19 @@
 /obj/machinery/portable_atmospherics/hydroponics/attack_hand(mob/user as mob)
 
 	if(istype(usr,/mob/living/silicon))
+		return
+
+	// If the lid is closed and stasis enabled, disable it. Otherwise, enable it.
+	if(closed_system)
+		if(stasis)
+			user.visible_message(SPAN_NOTICE("\The [user] disengages \the [src]'s stasis mode."), SPAN_NOTICE("You disengage stasis on \the [src]."))
+			stasis = FALSE
+		else
+			user.visible_message(SPAN_NOTICE("\The [user] engages \the [src]'s stasis mode."), SPAN_NOTICE("You engage stasis on \the [src]."))
+			stasis = TRUE
+
+		playsound(src, /singleton/sound_category/button_sound, 50, 1)
+		update_icon()
 		return
 
 	if(harvest)
