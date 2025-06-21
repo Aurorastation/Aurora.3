@@ -24,7 +24,8 @@ export const TankDispenser = (props, context) => {
                   <Button
                     content="Dispense"
                     disabled={data.tanks_oxygen === 0}
-                    onClick={() => act('dispense_oxygen')} />
+                    onClick={() => act('dispense_oxygen')}
+                  />
                 </LabeledList.Item>
               </LabeledList>
             </Section>
@@ -39,7 +40,8 @@ export const TankDispenser = (props, context) => {
                   <Button
                     content="Dispense"
                     disabled={data.tanks_phoron === 0}
-                    onClick={() => act('dispense_phoron')} />
+                    onClick={() => act('dispense_phoron')}
+                  />
                 </LabeledList.Item>
               </LabeledList>
             </Section>

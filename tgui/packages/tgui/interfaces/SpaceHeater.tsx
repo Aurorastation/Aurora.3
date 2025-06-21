@@ -22,14 +22,16 @@ export const SpaceHeater = (props, context) => {
   return (
     <Window width="700" height="300">
       <Window.Content>
-        <Section title="Device Configuration"
-              buttons={<Button
-                    content={data.is_on ? 'On' : 'Off'}
-                    icon={data.is_on ? 'power-off' : 'times'}
-                    color={!data.is_on ? 'red': 'green'}
-                    onClick={() => act('powerToggle')}
-                  />
-              }>
+        <Section
+          title="Device Configuration"
+          buttons={
+            <Button
+              content={data.is_on ? 'On' : 'Off'}
+              icon={data.is_on ? 'power-off' : 'times'}
+              color={!data.is_on ? 'red' : 'green'}
+              onClick={() => act('powerToggle')}
+            />
+          }>
           <Box>
             <Section fill title="Power Status">
               <LabeledList>
@@ -38,7 +40,7 @@ export const SpaceHeater = (props, context) => {
                     <Box color="good">On</Box>
                   ) : (
                     <Box color="bad">Off</Box>
-                  ) }
+                  )}
                 </LabeledList.Item>
                 <LabeledList.Item label="Activity State">
                   {data.is_active ? (
@@ -47,7 +49,7 @@ export const SpaceHeater = (props, context) => {
                     <Box color="bad">Inactive</Box>
                   ) : (
                     <Box color="average">Standby</Box>
-                  ) }
+                  )}
                 </LabeledList.Item>
                 <LabeledList.Item label="Power Cell">
                   {data.power_cell_inserted ? (
@@ -59,10 +61,11 @@ export const SpaceHeater = (props, context) => {
                       }}
                       value={data.power_cell_charge}
                       minValue={0}
-                      maxValue={100} />
+                      maxValue={100}
+                    />
                   ) : (
                     <Box color="bad">No power cell.</Box>
-                  ) }
+                  )}
                 </LabeledList.Item>
               </LabeledList>
             </Section>
@@ -71,16 +74,11 @@ export const SpaceHeater = (props, context) => {
                 <Section fill title="Environment Status">
                   <LabeledList>
                     <LabeledList.Item label="Current Temperature">
-                      {data.current_temperature ?
-                        data.current_temperature : (
-                        20
-                      ) }°  C
+                      {data.current_temperature ? data.current_temperature : 20}
+                      ° C
                     </LabeledList.Item>
                     <LabeledList.Item label="Set Temperature">
-                      {data.set_temperature ?
-                        data.set_temperature : (
-                        20
-                      ) }°  C
+                      {data.set_temperature ? data.set_temperature : 20}° C
                     </LabeledList.Item>
                   </LabeledList>
                 </Section>
@@ -88,11 +86,13 @@ export const SpaceHeater = (props, context) => {
               <Flex.Item grow={1}>
                 <Section fill title="Temperature Control">
                   <Knob
-                    size={1.50}
+                    size={1.5}
                     color={
-                      data.set_temperature > 20 ? 'yellow' :
-                      data.set_temperature < 20 ? 'lightblue' :
-                      'slategray'
+                      data.set_temperature > 20
+                        ? 'yellow'
+                        : data.set_temperature < 20
+                          ? 'lightblue'
+                          : 'slategray'
                     }
                     value={data.set_temperature}
                     unit="C"
@@ -103,8 +103,9 @@ export const SpaceHeater = (props, context) => {
                     onDrag={(e, value) =>
                       act('tempSet', {
                         set_temperature: value,
-                      } )
-                    }/>
+                      })
+                    }
+                  />
                 </Section>
               </Flex.Item>
             </Flex>
