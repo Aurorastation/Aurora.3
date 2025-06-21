@@ -70,8 +70,8 @@
 /datum/bounty/item/engineer/phoron_tank
 	name = "Full Tank of Phoron"
 	description = "Another station has requested supplies to test a new engine. In particular, they request a full tank of phoron. Please don't send a whole canister; they'll get... ideas."
-	reward_low = 220
-	reward_high = 320
+	reward_low = 2200
+	reward_high = 2800
 	wanted_types = list(/obj/item/tank)
 	var/moles_required = 20 // A full tank is 28 moles, but we give some leeway.
 
@@ -88,8 +88,8 @@
 /datum/bounty/item/engineer/vending
 	name = "Vending Machines"
 	description = "We're researching the cause of the widespread brand intelligence virus. Send us some vending machines of any kind from your station so we can examine them. Just get permission, first."
-	reward_low = 350
-	reward_high = 500
+	reward_low = 1350
+	reward_high = 1500
 	required_count = 4
 	random_count = 1
 	wanted_types = list(/obj/machinery/vending)

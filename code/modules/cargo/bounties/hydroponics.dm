@@ -29,8 +29,8 @@
 /datum/bounty/item/hydroponicist/gloves
 	name = "Botanical Gloves"
 	description = "%BOSSNAME is participating in a massive tree-planting initiative on Biesel. Help us help the company's image by sending our volunteers some gardening gloves!"
-	reward_low = 220
-	reward_high = 300
+	reward_low = 50
+	reward_high = 80
 	required_count = 4
 	random_count = 1
 	wanted_types = list(/obj/item/clothing/gloves/botanic_leather)
@@ -59,8 +59,8 @@
 /datum/bounty/item/hydroponicist/produce
 	name = "Produce - Any"
 	description = "%BOSSNAME is in need of a bundle of fresh produce. Send your best!"
-	reward_low = 300
-	reward_high = 350
+	reward_low = 250
+	reward_high = 500
 	required_count = 18
 	random_count = 5
 	wanted_types = list(/obj/item/reagent_containers/food/snacks/grown)
@@ -117,8 +117,8 @@
 /datum/bounty/item/hydroponicist/goldstars
 	name = "Stickers - Gold Stars"
 	description = "We're getting ready for the quarterly %COMPNAME employee evaluation. Send us some gold stars so we can really let our employees know how valuable they are."
-	reward_low = 260
-	reward_high = 340
+	reward_low = 55
+	reward_high = 75
 	required_count = 6
 	random_count = 2
 	wanted_types = list(/obj/item/storage/stickersheet/goldstar)
@@ -126,8 +126,8 @@
 /datum/bounty/item/hydroponicist/stuffedanimals
 	name = "Toys - Stuffed Animals"
 	description = "We had to recall some products recently for being highly carcinogenic. To help with optics, we're hosting a toy drive for the handful of children's cancer hospitals in Mendell. Get us some stuffed animals for it."
-	reward_low = 280
-	reward_high = 380
+	reward_low = 180
+	reward_high = 280
 	required_count = 8
 	random_count = 2
 	wanted_types = list(
