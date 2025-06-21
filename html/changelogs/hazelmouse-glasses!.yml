@@ -55,4 +55,4 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Doubled the number of glasses available in drinks vendors to fourty from twenty, and the number of pitches to eight from four, to balance a number of both being removed from the booze vendor in the bar."
+  - rscadd: "Doubled the number of glasses available in glasses vendors to 40 from 20, and the number of pitchers to 8 from 4 to balance a number of both being removed from the booze vendor in the bar."
