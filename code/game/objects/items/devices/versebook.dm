@@ -6,12 +6,14 @@
 	icon_state = "dominiabook"
 	item_state = "dominia"
 	w_class = WEIGHT_CLASS_SMALL
+	/// Boolean that prevents reading multiple times
 	var/reading = FALSE
 
 	drop_sound = 'sound/items/drop/book.ogg'
 
 	pickup_sound = 'sound/items/pickup/book.ogg'
 
+	/// takes `file2list(FILE.txt). Each line in the .txt file is a verse that is randomly selected
 	var/list/randomquip = list()
 
 /obj/item/device/versebook/attack_self(mob/user)
