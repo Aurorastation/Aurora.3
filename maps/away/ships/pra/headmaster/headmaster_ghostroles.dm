@@ -21,14 +21,17 @@
 	name = "Kosmostrelki"
 
 	id = /obj/item/card/id
-	shoes = /obj/item/clothing/shoes/jackboots/tajara
-
-	uniform = /obj/item/clothing/under/tajaran/cosmonaut
 	l_ear = /obj/item/device/radio/headset/ship
+	shoes = /obj/item/clothing/shoes/jackboots/tajara
+	uniform = /obj/item/clothing/under/tajaran/cosmonaut
+	accessory = /obj/item/clothing/accessory/badge/pra_passport
+	mask = /obj/item/clothing/accessory/dogtags/adhomai
+	gloves = /obj/item/clothing/gloves/black_leather/tajara
+	back = /obj/item/storage/backpack/satchel
+	backpack_contents = list(
+						/obj/item/clothing/accessory/badge/hadii_card = 1,
+						)
 
-	belt = /obj/item/storage/belt/military
-
-	accessory = /obj/item/clothing/accessory/badge/hadii_card
 	r_pocket = /obj/item/storage/wallet/random
 	l_hand = /obj/item/martial_manual/tajara
 
@@ -57,14 +60,9 @@
 
 	head = /obj/item/clothing/head/tajaran/orbital_captain
 	uniform = /obj/item/clothing/under/tajaran/cosmonaut/captain
-	belt = /obj/item/storage/belt/military
-	belt_contents = list(
-						/obj/item/ammo_magazine/mc9mm = 1,
-						/obj/item/gun/projectile/pistol/adhomai = 1
-						)
+	back = /obj/item/storage/backpack/satchel/leather
 
-	l_hand = /obj/item/martial_manual/tajara
-
+	l_pocket = /obj/item/clothing/wrists/watch/pocketwatch/adhomai
 
 /datum/ghostspawner/human/headmaster_kosmostrelki/commissar
 	short_name = "headmaster_commissar"
@@ -86,17 +84,13 @@
 	name = "Party Commissar"
 
 	uniform = /obj/item/clothing/under/tajaran/cosmonaut/commissar
-	head = /obj/item/clothing/head/tajaran/cosmonaut_commissar
 	accessory = /obj/item/clothing/accessory/hadii_pin
-	belt = /obj/item/gun/projectile/deagle/adhomai
-	belt_contents = null
+	head = /obj/item/clothing/head/tajaran/cosmonaut_commissar
 	back = /obj/item/storage/backpack/satchel/leather
 	backpack_contents = list(
-						/obj/item/ammo_magazine/a50 = 2,
-						/obj/item/material/knife/trench = 1,
-						/obj/item/clothing/accessory/badge/hadii_card/member = 1,
 						/obj/item/storage/box/hadii_manifesto = 1,
-						/obj/item/storage/box/hadii_card = 1
+						/obj/item/storage/box/hadii_card = 1,
+						/obj/item/clothing/accessory/badge/hadii_card/member = 1,
+						/obj/item/clothing/accessory/badge/pra_passport = 1,
 						)
-	l_hand = /obj/item/device/megaphone
-	r_hand = /obj/item/martial_manual/tajara
+	l_pocket = /obj/item/clothing/wrists/watch/pocketwatch/adhomai
