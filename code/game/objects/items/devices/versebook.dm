@@ -200,13 +200,24 @@
 
 /// Tajaran Religious Texts
 
-/obj/item/device/versebook/twin_suns
-	name = "\improper The Holy Scrolls (Abridged)"
+/obj/item/device/versebook/twinsuns
+	name = "\improper The Holy Scrolls (abdridged version)"
 	desc = "Oh yeah description."
 	desc_extended = "Cool extended description"
 	icon_state = "nkabook"
 	item_state = "nka"
 
-/obj/item/device/versebook/twin_suns/Initialize()
+/obj/item/device/versebook/twinsuns/Initialize()
+	. = ..()
+	randomquip = file2list("texts/ingame_manuals/royalism.txt")
+
+/obj/item/device/versebook/matake
+	name = "Ma'ta'ke Legends (abdridged version)"
+	desc = "Oh yeah description."
+	desc_extended = "Cool extended description"
+	icon_state = "nkabook"
+	item_state = "nka"
+
+/obj/item/device/versebook/matake/Initialize()
 	. = ..()
 	randomquip = file2list("texts/ingame_manuals/royalism.txt")

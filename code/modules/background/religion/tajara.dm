@@ -8,6 +8,7 @@
 	nulloptions = list(
 		"Tajaran charm" = /obj/item/nullrod/charm
 	)
+	unique_book_path = /obj/item/device/versebook/twinsuns
 
 /datum/religion/matake
 	name = RELIGION_MATAKE
@@ -25,6 +26,7 @@
 		"Zhukamir Ladle" = /obj/item/nullrod/zhukamir,
 		"Azubarre Torch" = /obj/item/nullrod/azubarre
 	)
+	unique_book_path = /obj/item/device/versebook/matake
 
 /datum/religion/raskara
 	name = RELIGION_RASKARA
