@@ -66,6 +66,8 @@
 			AddOverlays("over_alert3")
 		if(harvest)
 			AddOverlays("over_harvest3")
+		if(stasis)
+			AddOverlays("stasis")
 
 	if(seed && seed.get_trait(TRAIT_LARGE))
 		density = TRUE
