@@ -27,6 +27,7 @@
 	density = 0
 	anchored = 1
 	layer = OBJ_LAYER
+	mouse_opacity = MOUSE_OPACITY_ICON
 
 // Fancy animated effect used for the holodecks.
 /obj/effect/decal/rolling_fog
