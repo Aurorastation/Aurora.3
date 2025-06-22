@@ -28,7 +28,7 @@
 	desc = "A typical Himean design, the Collier-class is designed to patrol major trade routes and discourage pirate attacks. It is not intended for fleet engagements, as it lacks heavier armament such as missiles."
 	icon_state = "xansan"
 	moving_state = "xansan_moving"
-	colors = list("#525151", "#800a0a")
+	colors = list("#817f7f", "#be0f0f")
 	designer = "Free Consortium of Defense and Aerospace Manufacturers"
 	weapons = "Rear-mounted low-calibre autocannon, rear-mounted blaster weapon"
 	drive = "Forsberg Mk. XII Warp Drive: A Himean design from the 2440s, the Forsberg is a decently cheap — and relatively fast — drive produced by FCDAM for the Himean Planetary Guard."
@@ -106,7 +106,7 @@
 	master_tag = "himean_patrol_dock"
 
 /obj/effect/shuttle_landmark/himeo_patrol_shuttle/dock
-	name = "Himean Patrol Ship - dock"
+	name = "Himean Patrol Ship - Kotka Dock"
 	landmark_tag = "himeo_patrol_nav_dock"
 	docking_controller = "himean_patrol_dock"
 	base_turf = /turf/space

@@ -59,7 +59,7 @@
 
 /obj/outfit/admin/himeo_patrol_ship
 	name = "Himean Planetary Guardsman"
-	uniform = /obj/item/clothing/under/himeo
+	uniform = /obj/item/clothing/under/himeo/navy
 	gloves = /obj/item/clothing/gloves/fingerless
 	shoes = /obj/item/clothing/shoes/workboots
 	l_ear = /obj/item/device/radio/headset/ship/coalition_navy
@@ -70,7 +70,7 @@
 		/obj/item/storage/box/survival/engineer = 1,
 		/obj/item/clothing/mask/gas/tactical = 1,
 		/obj/item/material/kitchen/utensil/knife/boot = 1,
-		/obj/item/clothing/head/softcap/himeo_naval_cover = 1,
+		/obj/item/clothing/head/sidecap/himeo_navy_cap = 1
 	)
 	species_gloves = list(
 		SPECIES_TAJARA = /obj/item/clothing/gloves/black_leather/tajara,
@@ -85,41 +85,44 @@
 
 /obj/outfit/admin/himeo_patrol_ship/engineer
 	name = "Himean Planetary Guard Sapper"
-	uniform = /obj/item/clothing/under/himeo/engineer
+	uniform = /obj/item/clothing/under/himeo/navy/engineer
 	backpack_contents = list(
 		/obj/item/storage/box/survival/engineer = 1,
 		/obj/item/clothing/mask/gas/alt = 1,
-		/obj/item/clothing/head/softcap/himeo_naval_cover = 1
+		/obj/item/clothing/head/sidecap/himeo_navy_cap = 1
 	)
 
 /obj/outfit/admin/himeo_patrol_ship/medic
 	name = "Himean Planetary Guard Corpsman"
-	uniform = /obj/item/clothing/under/himeo/medic
+	uniform = /obj/item/clothing/under/himeo/navy/medic
 	backpack_contents = list(
 		/obj/item/storage/box/survival/engineer = 1,
-		/obj/item/clothing/mask/gas/half = 1
+		/obj/item/clothing/mask/gas/half = 1,
+		/obj/item/clothing/head/sidecap/himeo_navy_cap = 1
 	)
 
 /obj/outfit/admin/himeo_patrol_ship/pilot
 	name= "Himean Planetary Guard Fighter Pilot"
-	uniform = /obj/item/clothing/under/himeo/pilot
+	uniform = /obj/item/clothing/under/himeo/navy/pilot
 	shoes = /obj/item/clothing/shoes/jackboots
 	gloves = /obj/item/clothing/gloves/black_leather
 	back = /obj/item/storage/backpack/messenger
 	backpack_contents = list(
 		/obj/item/storage/box/survival/engineer = 1,
-		/obj/item/clothing/mask/gas/alt = 1
+		/obj/item/clothing/mask/gas/alt = 1,
+		/obj/item/clothing/head/sidecap/himeo_navy_cap = 1
 	)
 /obj/outfit/admin/himeo_patrol_ship/officer
 	name = "Himean Planetary Guard Commander"
-	uniform = /obj/item/clothing/under/himeo/officer
+	uniform = /obj/item/clothing/under/himeo/navy/officer
 	shoes = /obj/item/clothing/shoes/jackboots
 	gloves = /obj/item/clothing/gloves/black_leather
 	back = /obj/item/storage/backpack/satchel/leather
 	backpack_contents = list(
 		/obj/item/storage/box/survival/engineer = 1,
 		/obj/item/clothing/mask/gas/half = 1,
-		/obj/item/clothing/accessory/badge/passcard/coalition  = 1
+		/obj/item/clothing/accessory/badge/passcard/coalition  = 1,
+		/obj/item/clothing/head/sidecap/himeo_navy_cap = 1
 	)
 
 /obj/outfit/admin/himeo_patrol_ship/get_id_access()
