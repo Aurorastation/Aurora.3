@@ -1,0 +1,6 @@
+author: kermit
+
+delete-after: True
+
+changes:
+  - rscadd: "Added Radiation Collector Arrays to the Operations order list."
