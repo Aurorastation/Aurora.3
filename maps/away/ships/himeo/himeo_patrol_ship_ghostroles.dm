@@ -61,7 +61,7 @@
 	name = "Himean Planetary Guardsman"
 	uniform = /obj/item/clothing/under/himeo/navy
 	gloves = /obj/item/clothing/gloves/fingerless
-	shoes = /obj/item/clothing/shoes/workboots
+	shoes = /obj/item/clothing/shoes/workboots/dark
 	l_ear = /obj/item/device/radio/headset/ship/coalition_navy
 	back = /obj/item/storage/backpack/rucksack/green
 	id = /obj/item/card/id/coalition
@@ -78,9 +78,9 @@
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/gloves/black_leather/tajara,
 	)
 	species_shoes = list(
-		SPECIES_TAJARA = /obj/item/clothing/shoes/workboots/tajara,
-		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/workboots/tajara,
-		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/workboots/tajara,
+		SPECIES_TAJARA = /obj/item/clothing/shoes/workboots/dark/tajara,
+		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/workboots/dark/tajara,
+		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/workboots/dark/tajara,
 	)
 
 /obj/outfit/admin/himeo_patrol_ship/engineer
