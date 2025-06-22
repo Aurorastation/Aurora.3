@@ -1,0 +1,6 @@
+author: Kano
+
+delete-after: True
+
+changes:
+  - rscadd: "Tweaks Freebooter Salvager ship to have insulated gloves for all species and an empty suit cycler, alongside with a few small tweaks."
