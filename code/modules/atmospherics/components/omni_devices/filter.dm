@@ -20,6 +20,8 @@
 
 	var/list/filtering_outputs = list()	//maps gasids to gas_mixtures
 
+	var/isConfiguring
+
 /obj/machinery/atmospherics/omni/filter/Initialize()
 	. = ..()
 	rebuild_filtering_list()
@@ -87,38 +89,30 @@
 
 	return 1
 
-/obj/machinery/atmospherics/omni/filter/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-	user.set_machine(src)
-
-	var/list/data = new()
-
-	data = build_uidata()
-
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-
-	if (!ui)
-		ui = new(user, src, ui_key, "omni_filter.tmpl", "Omni Filter Control", 470, 330)
-		ui.set_initial_data(data)
-
+/obj/machinery/atmospherics/omni/filter/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "OmniFilter", src.name, 720, 600)
 		ui.open()
 
-/obj/machinery/atmospherics/omni/filter/proc/build_uidata()
+/obj/machinery/atmospherics/omni/filter/ui_data(mob/user)
 	var/list/data = new()
 
 	data["power"] = use_power
-	data["config"] = configuring
-	data["last_power_draw"] = last_power_draw
-	data["max_power_draw"] = power_rating
+	data["isConfiguring"] = isConfiguring
+	data["power_draw_last"] = last_power_draw
+	data["power_draw_max"] = power_rating
+	data["flow_rate_max"] = max_flow_rate
 
 	var/portData[0]
 	for(var/datum/omni_port/P in ports)
-		if(!configuring && P.mode == 0)
+		if(!isConfiguring && P.mode == 0)
 			continue
 
 		var/input = 0
 		var/output = 0
 		var/filter = 1
-		var/f_type = null
+		var/filter_type = null
 		switch(P.mode)
 			if(ATM_INPUT)
 				input = 1
@@ -127,21 +121,75 @@
 				output = 1
 				filter = 0
 			if(ATM_O2 to ATM_H2O)
-				f_type = mode_send_switch(P.mode)
+				filter_type = mode_send_switch(P.mode)
 
 		portData[++portData.len] = list("dir" = dir_name(P.dir, capitalize = 1), \
 										"input" = input, \
 										"output" = output, \
 										"filter" = filter, \
-										"f_type" = f_type)
+										"filter_type" = filter_type)
 
 	if(portData.len)
 		data["ports"] = portData
 	if(output)
-		data["set_flow_rate"] = round(set_flow_rate*10)		//because nanoui can't handle rounded decimals.
-		data["last_flow_rate"] = round(last_flow_rate*10)
+		data["flow_rate_set"] = round(set_flow_rate,1)
+		data["flow_rate_last"] = round(last_flow_rate,1)
 
 	return data
+
+/obj/machinery/atmospherics/omni/filter/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if (.)
+		return
+
+	switch(action)
+		if("powerToggle")
+			if(!isConfiguring)
+				update_use_power(!use_power)
+			else
+				update_use_power(POWER_USE_OFF)
+			. = TRUE
+		if("configToggle")
+			isConfiguring = !isConfiguring
+			if(isConfiguring)
+				update_use_power(POWER_USE_OFF)
+			. = TRUE
+		if ("flowRateSet")
+			// Sanity checking
+			set_flow_rate = between(0, text2num(params["flow_rate_set"]), max_flow_rate)
+			. = TRUE
+		if ("flowRateSet")
+			set_flow_rate = max_flow_rate
+			. = TRUE
+
+/obj/machinery/atmospherics/omni/filter/Topic(href, href_list)
+	if(..()) return 1
+	switch(href_list["command"])
+		if("power")
+			if(!isConfiguring)
+				update_use_power(!use_power)
+			else
+				update_use_power(POWER_USE_OFF)
+		if("configure")
+			isConfiguring = !isConfiguring
+			if(isConfiguring)
+				update_use_power(POWER_USE_OFF)
+
+	//only allows config changes when in configuring mode ~otherwise you'll get weird pressure stuff going on
+	if(isConfiguring && !use_power)
+		switch(href_list["command"])
+			if("set_flow_rate")
+				var/new_flow_rate = input(usr,"Enter new flow rate limit (0-[max_flow_rate]L/s)","Flow Rate Control",set_flow_rate) as num
+				set_flow_rate = between(0, new_flow_rate, max_flow_rate)
+			if("switch_mode")
+				switch_mode(dir_flag(href_list["dir"]), mode_return_switch(href_list["mode"]))
+			if("switch_filter")
+				var/new_filter = input(usr,"Select filter mode:","Change filter",href_list["mode"]) in list("None", "Oxygen", "Nitrogen", "Carbon Dioxide", "Phoron", "Nitrous Oxide", "Hydrogen", "Deuterium", "Tritium", "Helium", "Boron", "Sulfur Dioxide", "Nitrogen Dioxide", "Chlorine", "Steam")
+				switch_filter(dir_flag(href_list["dir"]), mode_return_switch(new_filter))
+
+	update_icon()
+	SSnanoui.update_uis(src)
+	return
 
 /obj/machinery/atmospherics/omni/filter/proc/mode_send_switch(var/mode = ATM_NONE)
 	switch(mode)
@@ -176,37 +224,47 @@
 		else
 			return null
 
-/obj/machinery/atmospherics/omni/filter/Topic(href, href_list)
-	if(..()) return 1
-	switch(href_list["command"])
-		if("power")
-			if(!configuring)
-				update_use_power(!use_power)
-			else
-				update_use_power(POWER_USE_OFF)
-		if("configure")
-			configuring = !configuring
-			if(configuring)
-				update_use_power(POWER_USE_OFF)
-
-	//only allows config changes when in configuring mode ~otherwise you'll get weird pressure stuff going on
-	if(configuring && !use_power)
-		switch(href_list["command"])
-			if("set_flow_rate")
-				var/new_flow_rate = input(usr,"Enter new flow rate limit (0-[max_flow_rate]L/s)","Flow Rate Control",set_flow_rate) as num
-				set_flow_rate = between(0, new_flow_rate, max_flow_rate)
-			if("switch_mode")
-				switch_mode(dir_flag(href_list["dir"]), mode_return_switch(href_list["mode"]))
-			if("switch_filter")
-				var/new_filter = input(usr,"Select filter mode:","Change filter",href_list["mode"]) in list("None", "Oxygen", "Nitrogen", "Carbon Dioxide", "Phoron", "Nitrous Oxide", "Hydrogen", "Deuterium", "Tritium", "Helium", "Boron", "Sulfur Dioxide", "Nitrogen Dioxide", "Chlorine", "Steam")
-				switch_filter(dir_flag(href_list["dir"]), mode_return_switch(new_filter))
-
-	update_icon()
-	SSnanoui.update_uis(src)
-	return
-
 /obj/machinery/atmospherics/omni/filter/proc/mode_return_switch(var/mode)
 	switch(mode)
+		if("Oxygen")
+			return ATM_O2
+		if("Nitrogen")
+			return ATM_N2
+		if("Carbon Dioxide")
+			return ATM_CO2
+		if("Phoron")
+			return ATM_P
+		if("Nitrous Oxide")
+			return ATM_N2O
+		if("Hydrogen")
+			return ATM_H
+		if("Deuterium")
+			return ATM_2H
+		if("Tritium")
+			return ATM_3H
+		if("Helium")
+			return ATM_HE
+		if("Boron")
+			return ATM_B
+		if("Sulfur Dioxide")
+			return ATM_SO2
+		if("Nitrogen Dioxide")
+			return ATM_NO2
+		if("Chlorine")
+			return ATM_CL2
+		if("Steam")
+			return ATM_H2O
+		if("in")
+			return ATM_INPUT
+		if("out")
+			return ATM_OUTPUT
+		if("None")
+			return ATM_NONE
+		else
+			return null
+
+/obj/machinery/atmospherics/omni/filter/proc/dir_return_number(var/dir)
+	switch(dir)
 		if("Oxygen")
 			return ATM_O2
 		if("Nitrogen")
