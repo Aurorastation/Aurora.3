@@ -12,10 +12,13 @@
 /obj/structure/mopbucket/Initialize()
 	. = ..()
 	create_reagents(bucketsize)
-	GLOB.janitorial_supplies |= src
+
+	if(is_station_turf(get_turf(src)))
+		GLOB.janitorial_supplies |= src
 
 /obj/structure/mopbucket/Destroy()
-	GLOB.janitorial_supplies -= src
+	if(src in GLOB.janitorial_supplies)
+		GLOB.janitorial_supplies -= src
 	return ..()
 
 /obj/structure/mopbucket/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)

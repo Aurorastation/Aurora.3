@@ -136,3 +136,98 @@
   - balance: Doubled the prices for almost everything in the OTC medical wall vendor
       in the lobby. Everything is still very much affordable, but this should encourage
       pharmacists to undercut the vending machine.
+2025-06-23:
+  AlaunusLux:
+  - rscadd: Adds option to use a custom background color for highlighted text.
+  - rscadd: Adds opacity slider for highlighted messages.
+  Baldos:
+  - rscadd: Added Armor-Piericing 9mm Pistol Magazines, currently only available on
+      Antagonist Uplinks.
+  - spellcheck: Fixed the Incorrect number of rounds in a magazine that the Uplink
+      displays for both .45 and 9mm.
+  Batrachophreno:
+  - bugfix: Fixed two missing pixels on the punk shave sidecut haircuts.
+  - rscadd: Added variant of the Communications Blackout event which has the potential
+      to damage telecomms machinery (weighted towards Engineering being on-manifest).
+  - rscadd: Telecomms Processors now factor damage into account when uncompressing
+      messages (gibberish factor increases with damage).
+  - balance: Prison Break event adjusted to be in line with Containment events (now
+      affects all of Security excepting certain highly secured areas).
+  - balance: Space Vines, Drone Revolution major events now require minimum population
+      of 4.
+  - qol: Majorly updated Event Probabilities sheet (updated multiple changed events,
+      removed retired events, added missing new events, etc.)
+  - bugfix: Event selection now respects minimum pop requirement param.
+  - balance: Refactored the Electrical Storm behavior to play more interestingly (less
+      grinding busywork, more smoke and mirrors).
+  - rscadd: Added Mundane and Major variants of the Electrical Storm event.
+  - qol: Custodial Supplies Locator app will now only track cleaning supplies on the
+      Horizon (ignoring all offship supplies).
+  - rscadd: Custodial Supplies Locator app now shows objects' z-level in addition
+      to x-y coords.
+  - rscdel: Custodial Supplies Locator app no longer displays user's x-y coords, requiring
+      use of actual GPS unit instead.
+  - balance: Increase drone fall impact damage resistance from 75% to 95%.
+  Ben10083:
+  - bugfix: AI controlled entities now respect antag restrictions.
+  - rscadd: The Burzsia I Hephaestus Mining Outpost has been overhauled and given
+      missing equipment.
+  - bugfix: Burzsia I Hephaestus Mining Outpost airlock now properly configured.
+  Evandorf:
+  - bugfix: Fixed cleanable remains not being able to be clicked, hindering the cleaning
+      process. Clicking on certain decomposed remains (rats, lizards, ect) will cause
+      them to crumble into a cleanable form.
+  - rscadd: Added unique scaleshield coverings for Dominian Unathi.
+  - rscadd: Adds the Unathi Morozi accent for lizards of the Empire.
+  GeneralCamo:
+  - rscadd: Added new Hephaestus ERT/military uniforms.
+  - rscadd: Added new Hephaestus captain's cap and gloves.
+  - rscadd: Added a new Hephaestus physician's uniform.
+  - rscadd: Added a new Hephaestus surgical gown and cap.
+  Greenjoe and Plyushsune:
+  - rscadd: Adds a variation of crutch, selectable in the loadout.
+  - rscadd: Adds the ability to select a pair of crutches in the loadout.
+  Jasorn:
+  - qol: Lowers oven looping sound volume from 100 to 15.
+  Kano:
+  - bugfix: Fixes the SM chamber airlocks not being linked to the button in CE office.
+      Moves SM ejection button to somewhere more visible.
+  - rscadd: Tweaks Freebooter Salvager ship to have insulated gloves for all species
+      and an empty suit cycler, alongside with a few small tweaks.
+  hazelmouse:
+  - bugfix: Fake objects are no longer mouse transparent.
+  - rscadd: Hydroponics trays now have a stasis setting that can be enabled by clicking
+      on them with an empty hand, freezing the metabolic functions of the plant inside
+      and preventing it from both growing or dying. The lid of the tray must be on
+      for stasis to be enabled.
+  - code_imp: Added and reformatted some machinery documentation.
+  - rscadd: Hydroponics has been partially remapped, implementing atmospheric equipment
+      for some trays allowing their temperature to be controlled.
+  - rscadd: Hydroponics now has access to cranberry seeds, glowshroom spores, nettle
+      seeds, k'ois spores, and liberty cap spores. Of these, only cranberry seeds
+      are accessible in the public garden.
+  - rscadd: Hydroponics now contains a secure and sealed chamber for growing hazardous
+      specimens. You probably shouldn't plant your k'ois anywhere but here, and be
+      sure to wear your hazmat suit and face mask! Lethal consequences may lay in
+      malpractice!
+  - rscadd: A few new items have been added to the biogenerator, including trash bags,
+      medical belts, and latex gloves.
+  - rscadd: Hydroponics now has access to autoinhalers and autoinjectors.
+  - refactor: Prefilled hydroponics-related crates now spawn with all the necessary
+      tools, and the beekeeping and herbalist crates on the Horizon are now filled
+      by code rather than by mapping.
+  - refactor: Refactored code of seed dispensers to avoid duplicated lists. This does
+      mean, entirely inadvertantly, that Xenobotany has clams now.
+  - rscadd: Slightly expanded hydroponics access to immediately adjacent maintenance.
+  - bugfix: Empty first-aid kits are no longer inferior in storage capacity to filled
+      first-aid kits.
+  - rscadd: Storytellers can now move freely between z-levels, similarly to an observer.
+  kermit:
+  - code_imp: Nukes a rogue 'Jargon IV' mention.
+  - code_imp: Even renames an icon that mentioned Jargon.
+  - rscadd: Added Radiation Collector Arrays to the Operations order list.
+  steviii:
+  - imageadd: Assault shotgun wielded sprites.
+  - imageadd: Adds new sprites for the distillery, and empty, beer, rice beer, kvass
+      and xuizi juice kegs. Art credit to spookywastaken
+  - rscadd: Adds a dorshafen deluxe kvass keg.
