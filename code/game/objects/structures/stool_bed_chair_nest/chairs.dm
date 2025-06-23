@@ -253,7 +253,6 @@
 		buckle_offset_y = pixel_y
 
 /// Buckling offset and density adjustment.
-
 /obj/structure/bed/stool/chair/shuttle/double/post_buckle(mob/M)
 	. = ..()
 	if(buckled)
