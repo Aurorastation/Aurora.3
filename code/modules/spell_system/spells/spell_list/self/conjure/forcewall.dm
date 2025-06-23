@@ -21,17 +21,20 @@
 	density = 1
 	unacidable = 1
 
-/obj/effect/forcefield/bullet_act(var/obj/item/projectile/Proj, var/def_zone)
+/obj/effect/forcefield/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
 	var/turf/T = get_turf(src.loc)
 	if(T)
 		for(var/mob/M in T)
-			Proj.on_hit(M,M.bullet_act(Proj, def_zone))
-	return
+			hitting_projectile.on_hit(M,M.bullet_act(hitting_projectile, def_zone))
 
 /obj/effect/forcefield/attackby(obj/item/attacking_item, mob/user)
 	..()
 	if(istype(attacking_item, /obj/item/nullrod))
-		to_chat(user, "<span class='notice'>\the [src] dissipates at the touch of the \the [attacking_item].</span>")
+		to_chat(user, SPAN_NOTICE("\the [src] dissipates at the touch of the \the [attacking_item]."))
 		qdel(src)
 
 /obj/effect/forcefield/cultify()

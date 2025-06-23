@@ -1,5 +1,6 @@
 /datum/gear/cane
-	display_name = "cane"
+	display_name = "cane and crutch selection"
+	description = "A selection of canes and crutches."
 	path = /obj/item/cane
 
 /datum/gear/cane/New()
@@ -8,7 +9,10 @@
 	cane["cane"] = /obj/item/cane
 	cane["telescopic cane"] = /obj/item/cane/telecane
 	cane["crutch"] = /obj/item/cane/crutch
-	cane["white cane"] = /obj/item/cane/white
+	cane["forearm crutch"] = /obj/item/cane/crutch/forearm
+	cane["white cane"] = /obj/item/cane/telecane/white
+	cane["pair of crutches"] = /obj/item/storage/box/crutch_pair
+	cane["pair of forearm crutches"] = /obj/item/storage/box/forearm_crutch_pair
 	gear_tweaks += new /datum/gear_tweak/path(cane)
 
 /datum/gear/flask
@@ -218,8 +222,8 @@
 	banners["banner, Free Tajaran Council"] = /obj/item/flag/ftc
 	banners["banner, Republic of Biesel"] = /obj/item/flag/biesel
 	banners["banner, Solarian Colonial Mandate of Tau Ceti"] = /obj/item/flag/biesel/antique
-	banners["banner, CT-EUM"] = /obj/item/flag/cteum
 	banners["banner, Trinary Perfection"] = /obj/item/flag/trinaryperfection
+	banners["banner, Golden Deep"] = /obj/item/flag/goldendeep
 	banners["banner, Hephaestus Industries"] = /obj/item/flag/heph
 	banners["banner, Idris Incorporated"] = /obj/item/flag/idris
 	banners["banner, Zenghu Pharmaceuticals"] = /obj/item/flag/zenghu
@@ -234,8 +238,6 @@
 	banners["banner, Private Military Contracting Group"] = /obj/item/flag/pmcg
 	banners["banner, United Syndicates of Himeo"] = /obj/item/flag/himeo
 	banners["banner, Republic of Assunzione"] = /obj/item/flag/assunzione
-	banners["banner, New Gibson"] = /obj/item/flag/newgibson
-	banners["banner, Visegrad"] = /obj/item/flag/visegrad
 	banners["banner, Union of Port Antillia"] = /obj/item/flag/portantillia
 	banners["banner, Sovereign Solarian Republic of San Colette"] = /obj/item/flag/sancolette
 	banners["banner, Old Sovereign Solarian Republic of San Colette"] = /obj/item/flag/sancolette/old
@@ -262,6 +264,20 @@
 	banners["banner, Traditinalist Coalition"] = /obj/item/flag/traditionalist
 	banners["banner, Callisto"] = /obj/item/flag/callisto
 	banners["banner, Venus"] = /obj/item/flag/venus
+	banners["banner, The Consortium of Hieroaetheria"] = /obj/item/flag/consortium
+	banners["banner, Eternal Republic of the Ekane"] = /obj/item/flag/ekane
+	banners["banner, Union of Gla'orr"] = /obj/item/flag/glaorr
+	banners["banner, New Gibson"] = /obj/item/flag/newgibson
+	banners["banner, Valkyrie"] = /obj/item/flag/valkyrie
+	banners["banner, Antique Xanu"] = /obj/item/flag/old_xanu
+	banners["banner, Southern Solarian Reconstruction Mandate"] = /obj/item/flag/ssrm
+	banners["banner, Northern Solarian Reconstruction Mandate"] = /obj/item/flag/nsrm
+	banners["banner, Provisional Government of Mars"] = /obj/item/flag/mars
+	banners["banner, Pluto"] = /obj/item/flag/pluto
+	banners["banner, Antique Visegrad"] = /obj/item/flag/old_visegrad
+	banners["banner, Visegrad"] = /obj/item/flag/visegrad
+	banners["banner, Burzsia"] = /obj/item/flag/burzsia
+	banners["banner, HPS Narrows"] = /obj/item/flag/narrows
 	gear_tweaks += new /datum/gear_tweak/path(banners)
 
 /datum/gear/standard
@@ -282,7 +298,7 @@
 
 /datum/gear/flag
 	display_name = "flag selection"
-	cost = 2
+	cost = 1
 	path = /obj/item/flag
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -308,6 +324,7 @@
 	flags["flag, Republic of Biesel"] = /obj/item/flag/biesel/l
 	flags["flag, Solarian Colonial Mandate of Tau Ceti"] = /obj/item/flag/biesel/antique/l
 	flags["flag, Trinary Perfection"] = /obj/item/flag/trinaryperfection/l
+	flags["flag, Golden Deep"] = /obj/item/flag/goldendeep/l
 	flags["flag, Hephaestus Industries"] = /obj/item/flag/heph/l
 	flags["flag, Idris Incorporated"] = /obj/item/flag/idris/l
 	flags["flag, Zeng-Hu Pharmaceuticals"] = /obj/item/flag/zenghu/l
@@ -348,6 +365,20 @@
 	flags["flag, Traditionalist Coalition"] = /obj/item/flag/traditionalist/l
 	flags["flag, Callisto"] = /obj/item/flag/callisto/l
 	flags["flag, Venus"] = /obj/item/flag/venus/l
+	flags["flag, The Consortium of Hieroaetheria"] = /obj/item/flag/consortium/l
+	flags["flag, Eternal Republic of the Ekane"] = /obj/item/flag/ekane/l
+	flags["flag, Union of Gla'orr"] = /obj/item/flag/glaorr/l
+	flags["flag, New Gibson"] = /obj/item/flag/newgibson/l
+	flags["flag, Valkyrie"] = /obj/item/flag/valkyrie/l
+	flags["flag, Antique Xanu"] = /obj/item/flag/old_xanu/l
+	flags["flag, Southern Solarian Reconstruction Mandate"] = /obj/item/flag/ssrm/l
+	flags["flag, Northern Solarian Reconstruction Mandate"] = /obj/item/flag/nsrm/l
+	flags["flag, Provisional Government of Mars"] = /obj/item/flag/mars/l
+	flags["flag, Pluto"] = /obj/item/flag/pluto/l
+	flags["flag, Antique Visegrad"] = /obj/item/flag/old_visegrad/l
+	flags["flag, Visegrad"] = /obj/item/flag/visegrad/l
+	flags["flag, Burzsia"] = /obj/item/flag/burzsia/l
+	flags["flag, HPS Narrows"] = /obj/item/flag/narrows/l
 	gear_tweaks += new /datum/gear_tweak/path(flags)
 
 /datum/gear/towel
@@ -384,15 +415,15 @@
 	gear_tweaks += new /datum/gear_tweak/path(comics)
 
 /datum/gear/toothpaste
-	display_name = "toothpaste and toothbrush"
+	display_name = "dental hygiene kit"
 	path = /obj/item/storage/box/toothpaste
 
 /datum/gear/toothpaste/New()
 	..()
 	var/list/toothpaste = list()
-	toothpaste["toothpaste and blue toothbrush"] = /obj/item/storage/box/toothpaste
-	toothpaste["toothpaste and green toothbrush"] = /obj/item/storage/box/toothpaste/green
-	toothpaste["toothpaste and red toothbrush"] = /obj/item/storage/box/toothpaste/red
+	toothpaste["dental hygiene kit, blue toothbrush"] = /obj/item/storage/box/toothpaste
+	toothpaste["dental hygiene kit, green toothbrush"] = /obj/item/storage/box/toothpaste/green
+	toothpaste["dental hygiene kit, red toothbrush"] = /obj/item/storage/box/toothpaste/red
 	gear_tweaks += new /datum/gear_tweak/path(toothpaste)
 
 /datum/gear/photo
@@ -426,6 +457,21 @@
 	display_name = "aurora miniature"
 	description = "A commemorative miniature of the NSS Aurora."
 	path = /obj/item/toy/aurora
+
+/datum/gear/instruments
+	display_name = "instrument selection"
+	description = "A selection of instruments for the musically inclined."
+	path = /obj/item/device/synthesized_instrument
+	allowed_roles = list("Off-Duty Crew Member", "Passenger")
+
+/datum/gear/instruments/New()
+	..()
+	var/list/instruments = list()
+	instruments["guitar"] = /obj/item/device/synthesized_instrument/guitar
+	instruments["polyguitar"] = /obj/item/device/synthesized_instrument/guitar/multi
+	instruments["violin"] = /obj/item/device/synthesized_instrument/violin
+	instruments["Omnitrumpet"] = /obj/item/device/synthesized_instrument/trumpet
+	gear_tweaks += new /datum/gear_tweak/path(instruments)
 
 /datum/gear/lore_radio
 	display_name = "analog radio"

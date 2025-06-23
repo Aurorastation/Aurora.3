@@ -10,7 +10,7 @@
 	max_count = 3
 
 	outfit = /obj/outfit/admin/orion_express_courier
-	possible_species = list(SPECIES_HUMAN,SPECIES_HUMAN_OFFWORLD,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN,SPECIES_UNATHI,SPECIES_VAURCA_WARRIOR,SPECIES_VAURCA_WORKER, SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_WORKER, SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Orion Express Courier"
@@ -36,7 +36,8 @@
 		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/workboots/toeless,
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/workboots/toeless,
 		SPECIES_VAURCA_WORKER = /obj/item/clothing/shoes/workboots/toeless,
-		SPECIES_VAURCA_WARRIOR =/obj/item/clothing/shoes/workboots/toeless
+		SPECIES_VAURCA_WARRIOR =/obj/item/clothing/shoes/workboots/toeless,
+		SPECIES_VAURCA_ATTENDANT =/obj/item/clothing/shoes/workboots/toeless
 	)
 
 /obj/outfit/admin/orion_express_courier/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -47,17 +48,6 @@
 		H.internal = preserve
 		H.internals.icon_state = "internal1"
 		H.equip_or_collect(new /obj/item/reagent_containers/food/snacks/koisbar, slot_in_backpack)
-		var/list/fullname = splittext(H.name, " ")
-		var/surname = fullname[fullname.len]
-		switch(surname)
-			if("K'lax")
-				var/obj/item/organ/A = new /obj/item/organ/internal/augment/language/klax(H)
-				var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
-				A.replaced(H, affected)
-			if("C'thur")
-				var/obj/item/organ/A = new /obj/item/organ/internal/augment/language/cthur(H)
-				var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
-				A.replaced(H, affected)
 		H.update_body()
 	if(isoffworlder(H))
 		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
@@ -83,6 +73,8 @@
 	assigned_role = "Orion Express Captain"
 	special_role = "Orion Express Captain"
 
+	idris_account_min = 1200
+	idris_account_max = 2500
 
 /obj/outfit/admin/orion_express_courier/captain
 	name = "Orion Express Captain"

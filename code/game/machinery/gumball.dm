@@ -3,7 +3,6 @@
 	desc = "A lithe device with a glass globe on top, which can be operated to dispense various candies."
 	icon = 'icons/obj/vending.dmi'
 	icon_state = "gumball_100"
-	layer = 2.9
 	anchored = 1
 	density = 1
 	idle_power_usage = 10

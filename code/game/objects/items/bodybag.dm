@@ -5,7 +5,7 @@
 	desc = "A folded bag designed for the storage and transportation of cadavers."
 	icon = 'icons/obj/bodybag.dmi'
 	icon_state = "bodybag_folded"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	drop_sound = 'sound/items/drop/cloth.ogg'
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
 	var/deploy_type = /obj/structure/closet/body_bag
@@ -53,6 +53,7 @@
 	icon_state = "bodybag"
 	open_sound = 'sound/items/zip.ogg'
 	close_sound = 'sound/items/zip.ogg'
+	layer = ABOVE_STRUCTURE_LAYER
 	density = FALSE
 	storage_capacity = 30
 	var/item_path = /obj/item/bodybag
@@ -120,10 +121,10 @@
 	..()
 	slowdown = initial(slowdown)
 
-/obj/structure/closet/body_bag/MouseDrop(over_object, src_location, over_location)
+/obj/structure/closet/body_bag/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	..()
-	if((over_object == usr && (in_range(src, usr) || usr.contents.Find(src))))
-		fold(usr)
+	if((over == user && (in_range(src, user) || user.contents.Find(src))))
+		fold(user)
 
 /obj/structure/closet/body_bag/proc/fold(var/user)
 	if(!(ishuman(user)))

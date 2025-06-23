@@ -8,7 +8,7 @@
 #define OXYGENATION_STATE_NONE 1
 #define OXYGENATION_STATE_UNDEFINED 0
 
-var/global/datum/repository/crew/crew_repository = new()
+GLOBAL_DATUM_INIT(crew_repository, /datum/repository/crew, new())
 
 /datum/repository/crew
 	var/list/cache_data
@@ -40,7 +40,7 @@ var/global/datum/repository/crew/crew_repository = new()
 				if(H.w_uniform != C)
 					continue
 
-				var/list/crewmemberData = list("area"=null, "x"=null, "y"=null, "z"=null, "level"=null, "ref" = "\ref[H]")
+				var/list/crewmemberData = list("area"=null, "x"=null, "y"=null, "z"=null, "level"=null, "ref" = "[REF(H)]")
 
 				crewmemberData["stype"] = C.sensor_mode
 				crewmemberData["name"] = H.get_authentification_name(if_no_id="Unknown")

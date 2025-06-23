@@ -1,4 +1,4 @@
-/obj/item/projectile/bullet/chemdart
+/obj/projectile/bullet/chemdart
 	name = "dart"
 	icon_state = "dart"
 	damage = 5
@@ -9,11 +9,12 @@
 
 	muzzle_type = null
 
-/obj/item/projectile/bullet/chemdart/New()
+/obj/projectile/bullet/chemdart/New()
 	reagents = new/datum/reagents(reagent_amount)
 	reagents.my_atom = src
 
-/obj/item/projectile/bullet/chemdart/on_hit(var/atom/target, var/blocked = 0, var/def_zone = null)
+/obj/projectile/bullet/chemdart/on_hit(atom/target, blocked, def_zone)
+	. = ..()
 	if(blocked < 100 && ishuman(target))
 		var/mob/living/carbon/human/H = target
 		if(H.can_inject(target_zone=def_zone))
@@ -24,7 +25,7 @@
 	desc = "A small hardened, hollow dart."
 	icon_state = "dart"
 	caliber = "dart"
-	projectile_type = /obj/item/projectile/bullet/chemdart
+	projectile_type = /obj/projectile/bullet/chemdart
 
 /obj/item/ammo_casing/chemdart/expend()
 	qdel(src)
@@ -45,7 +46,6 @@
 	name = "dart gun"
 	desc = "A small gas-powered dartgun, capable of delivering chemical cocktails swiftly across short distances."
 	icon = 'icons/obj/guns/dartgun.dmi'
-	icon_state = "dartgun-empty"
 	icon_state = "dartgun-empty"
 	caliber = "dart"
 	fire_sound = 'sound/weapons/click.ogg'
@@ -93,37 +93,37 @@
 
 /obj/item/gun/projectile/dartgun/consume_next_projectile()
 	. = ..()
-	var/obj/item/projectile/bullet/chemdart/dart = .
+	var/obj/projectile/bullet/chemdart/dart = .
 	if(istype(dart))
 		fill_dart(dart)
 
 /obj/item/gun/projectile/dartgun/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if (beakers.len)
-		. += "<span class='notice'>[src] contains:</span>"
+		. += SPAN_NOTICE("[src] contains:")
 		for(var/obj/item/reagent_containers/glass/beaker/B in beakers)
 			for(var/_R in B.reagents.reagent_volumes)
 				var/singleton/reagent/R = GET_SINGLETON(_R)
-				. += "<span class='notice'>[B.reagents.reagent_volumes[_R]] units of [R.name]</span>"
+				. += SPAN_NOTICE("[B.reagents.reagent_volumes[_R]] units of [R.name]")
 
 /obj/item/gun/projectile/dartgun/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/reagent_containers/glass))
 		if(!istype(attacking_item, container_type))
-			to_chat(user, "<span class='notice'>[attacking_item] doesn't seem to fit into [src].</span>")
+			to_chat(user, SPAN_NOTICE("[attacking_item] doesn't seem to fit into [src]."))
 			return
 		if(beakers.len >= max_beakers)
-			to_chat(user, "<span class='notice'>[src] already has [max_beakers] beakers in it - another one isn't going to fit!</span>")
+			to_chat(user, SPAN_NOTICE("[src] already has [max_beakers] beakers in it - another one isn't going to fit!"))
 			return
 		var/obj/item/reagent_containers/glass/beaker/B = attacking_item
 		user.drop_from_inventory(B,src)
 		beakers += B
-		to_chat(user, "<span class='notice'>You slot [B] into [src].</span>")
+		to_chat(user, SPAN_NOTICE("You slot [B] into [src]."))
 		src.updateUsrDialog()
 		return 1
 	..()
 
 //fills the given dart with reagents
-/obj/item/gun/projectile/dartgun/proc/fill_dart(var/obj/item/projectile/bullet/chemdart/dart)
+/obj/item/gun/projectile/dartgun/proc/fill_dart(var/obj/projectile/bullet/chemdart/dart)
 	if(mixing.len)
 		var/mix_amount = dart.reagent_amount/mixing.len
 		for(var/obj/item/reagent_containers/glass/beaker/B in mixing)
@@ -142,12 +142,12 @@
 					var/singleton/reagent/R = GET_SINGLETON(_R)
 					dat += "<br>    [B.reagents.reagent_volumes[_R]] units of [R.name], "
 				if (check_beaker_mixing(B))
-					dat += text("<A href='?src=\ref[src];stop_mix=[i]'><font color='green'>Mixing</font></A> ")
+					dat += "<A href='byond://?src=[REF(src)];stop_mix=[i]'><font color='green'>Mixing</font></A> "
 				else
-					dat += text("<A href='?src=\ref[src];mix=[i]'><span class='warning'>Not mixing</span></A> ")
+					dat += "<A href='byond://?src=[REF(src)];mix=[i]'><span class='warning'>Not mixing</span></A> "
 			else
 				dat += "nothing."
-			dat += " \[<A href='?src=\ref[src];eject=[i]'>Eject</A>\]<br>"
+			dat += " \[<A href='byond://?src=[REF(src)];eject=[i]'>Eject</A>\]<br>"
 			i++
 	else
 		dat += "There are no beakers inserted!<br><br>"
@@ -156,10 +156,10 @@
 		if(ammo_magazine.stored_ammo && ammo_magazine.stored_ammo.len)
 			dat += "The dart cartridge has [ammo_magazine.stored_ammo.len] shots remaining."
 		else
-			dat += "<span class='warning'>The dart cartridge is empty!</span>"
-		dat += " \[<A href='?src=\ref[src];eject_cart=1'>Eject</A>\]"
+			dat += SPAN_WARNING("The dart cartridge is empty!")
+		dat += " \[<A href='byond://?src=[REF(src)];eject_cart=1'>Eject</A>\]"
 
-	user << browse(dat, "window=dartgun")
+	user << browse(HTML_SKELETON(dat), "window=dartgun")
 	onclose(user, "dartgun", src)
 
 /obj/item/gun/projectile/dartgun/proc/check_beaker_mixing(var/obj/item/B)

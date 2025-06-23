@@ -54,7 +54,7 @@
 /obj/item/reagent_containers/food/drinks/carton/lemonjuice
 	name = "lemon juice"
 	desc = "This juice is VERY sour."
-	icon_state = "lemoncarton"
+	icon_state = "lemonjuice"
 	reagents_to_add = list(/singleton/reagent/drink/lemonjuice = 100)
 
 /obj/item/reagent_containers/food/drinks/carton/dynjuice
@@ -68,6 +68,18 @@
 	desc = "Juice from an apple. Yes."
 	icon_state = "applejuice"
 	reagents_to_add = list(/singleton/reagent/drink/applejuice = 100)
+
+/obj/item/reagent_containers/food/drinks/carton/watermelonjuice
+	name = "watermelon juice"
+	desc = "Juice from a watermelon. Not to be confused with water."
+	icon_state = "watermelonjuice"
+	reagents_to_add = list(/singleton/reagent/drink/watermelonjuice = 100)
+
+/obj/item/reagent_containers/food/drinks/carton/bananajuice
+	name = "banana juice"
+	desc = "Juice from a banana. However that works."
+	icon_state = "bananajuice"
+	reagents_to_add = list(/singleton/reagent/drink/banana = 100)
 
 /obj/item/reagent_containers/food/drinks/carton/fatshouters
 	name = "fatshouters milk carton"

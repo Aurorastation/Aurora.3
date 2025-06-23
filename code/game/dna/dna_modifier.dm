@@ -33,7 +33,7 @@
 /obj/machinery/dna_scannernew
 	name = "\improper DNA modifier"
 	desc = "It scans DNA structures."
-	icon = 'icons/obj/sleeper.dmi'
+	icon = 'icons/obj/machinery/sleeper.dmi'
 	icon_state = "scanner_0"
 	density = 1
 	anchored = 1.0
@@ -54,8 +54,10 @@
 		/obj/item/stack/cable_coil = 2
 	)
 
-/obj/machinery/dna_scannernew/relaymove(mob/user as mob)
-	if (user.stat)
+/obj/machinery/dna_scannernew/relaymove(mob/living/user, direction)
+	. = ..()
+
+	if(user.stat)
 		return
 	src.go_out()
 	return
@@ -90,13 +92,13 @@
 	if (usr.stat != 0)
 		return
 	if (!ishuman(usr) && !issmall(usr)) //Make sure they're a mob that has dna
-		to_chat(usr, "<span class='notice'>Try as you might, you can not climb up into the scanner.</span>")
+		to_chat(usr, SPAN_NOTICE("Try as you might, you can not climb up into the scanner."))
 		return
 	if (src.occupant)
-		to_chat(usr, "<span class='warning'>The scanner is already occupied!</span>")
+		to_chat(usr, SPAN_WARNING("The scanner is already occupied!"))
 		return
 	if (usr.abiotic())
-		to_chat(usr, "<span class='warning'>The subject cannot have abiotic items on.</span>")
+		to_chat(usr, SPAN_WARNING("The subject cannot have abiotic items on."))
 		return
 	usr.stop_pulling()
 	usr.client.perspective = EYE_PERSPECTIVE
@@ -110,28 +112,60 @@
 /obj/machinery/dna_scannernew/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/reagent_containers/glass))
 		if(beaker)
-			to_chat(user, "<span class='warning'>A beaker is already loaded into the machine.</span>")
+			to_chat(user, SPAN_WARNING("A beaker is already loaded into the machine."))
 			return TRUE
-
 		beaker = attacking_item
 		user.drop_from_inventory(attacking_item,src)
 		user.visible_message("\The [user] adds \a [attacking_item] to \the [src]!", "You add \a [attacking_item] to \the [src]!")
 		return TRUE
-	else if (!istype(attacking_item, /obj/item/grab))
-		return
+
 	var/obj/item/grab/G = attacking_item
-	if (!ismob(G.affecting))
+	if (!istype(G, /obj/item/grab) || !isliving(G.affecting) )
+		return
+	if (occupant)
+		to_chat(user, SPAN_WARNING("The scanner is already occupied!"))
 		return TRUE
-	if (src.occupant)
-		to_chat(user, "<span class='warning'>The scanner is already occupied!</span>")
+
+	var/mob/living/M = G.affecting
+	var/bucklestatus = M.bucklecheck(user)
+	if (!bucklestatus)
 		return TRUE
-	if (G.affecting.abiotic())
-		to_chat(user, "<span class='warning'>The subject cannot have abiotic items on.</span>")
-		return TRUE
-	put_in(G.affecting)
+
+	user.visible_message(SPAN_NOTICE("\The [user] starts putting \the [M] into \the [src]."), SPAN_NOTICE("You start putting \the [M] into \the [src]."), range = 3)
+	if (do_mob(user, G.affecting, 30, needhand = 0))
+		put_in(G.affecting)
 	src.add_fingerprint(user)
 	qdel(G)
 	return TRUE
+
+/obj/machinery/dna_scannernew/mouse_drop_receive(atom/dropped, mob/user, params)
+	if(!istype(user))
+		return
+
+	if(!ismob(dropped))
+		return
+
+	if (occupant)
+		to_chat(user, SPAN_NOTICE("<B>The scanner is already occupied!</B>"))
+		return
+
+	var/mob/living/L = dropped
+	var/bucklestatus = L.bucklecheck(user)
+	if (!bucklestatus)
+		return
+
+	if(L == user)
+		user.visible_message("\The <b>[user]</b> starts climbing into \the [src].", SPAN_NOTICE("You start climbing into \the [src]."), range = 3)
+	else
+		user.visible_message("\The <b>[user]</b> starts putting \the [L] into \the [src].", SPAN_NOTICE("You start putting \the [L] into \the [src]."), range = 3)
+
+	if (do_mob(user, L, 30, needhand = 0))
+		if (bucklestatus == 2)
+			var/obj/structure/LB = L.buckled_to
+			LB.user_unbuckle(user)
+		put_in(L)
+	add_fingerprint(user)
+	return
 
 /obj/machinery/dna_scannernew/proc/put_in(var/mob/M)
 	if(M.client)
@@ -140,6 +174,7 @@
 	M.forceMove(src)
 	src.occupant = M
 	src.icon_state = "scanner_1"
+	playsound(loc, 'sound/machines/cryopod/cryopod_enter.ogg', 25)
 
 	// search for ghosts, if the corpse is empty and the scanner is connected to a cloner
 	if(locate(/obj/machinery/computer/cloning, get_step(src, NORTH)) \
@@ -148,7 +183,7 @@
 		|| locate(/obj/machinery/computer/cloning, get_step(src, WEST)))
 
 		if(!M.client && M.mind)
-			for(var/mob/abstract/observer/ghost in GLOB.player_list)
+			for(var/mob/abstract/ghost/observer/ghost in GLOB.player_list)
 				if(ghost.mind == M.mind)
 					to_chat(ghost, "<b><font color = #330033><font size = 3>Your corpse has been placed into a cloning scanner. Return to your body if you want to be resurrected/cloned!</b> (Verbs -> Ghost -> Re-enter corpse)</font></font>")
 					break
@@ -163,6 +198,7 @@
 	src.occupant.forceMove(src.loc)
 	src.occupant = null
 	src.icon_state = "scanner_0"
+	playsound(loc, 'sound/machines/cryopod/cryopod_exit.ogg', 25)
 	return
 
 /obj/machinery/dna_scannernew/ex_act(severity)
@@ -200,6 +236,7 @@
 	desc = "Scan DNA."
 	icon_screen = "dna"
 	icon_keyboard = "teal_key"
+	icon_keyboard_emis = "teal_key_mask"
 	light_color = LIGHT_COLOR_BLUE
 	density = 1
 	circuit = /obj/item/circuitboard/scan_consolenew
@@ -230,10 +267,9 @@
 
 /obj/machinery/computer/scan_consolenew/LateInitialize()
 	. = ..()
-	for(dir in list(NORTH,EAST,SOUTH,WEST))
-		connected = locate(/obj/machinery/dna_scannernew, get_step(src, dir))
-		if(!isnull(connected))
-			break
+	for(var/obj/machinery/dna_scannernew/C in orange(1,src))
+		connected = C
+		break
 
 	src.injector_ready = 1
 

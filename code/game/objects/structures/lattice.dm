@@ -7,8 +7,8 @@
 	icon_state = "lattice"
 	density = FALSE
 	anchored = TRUE
-	w_class = ITEMSIZE_NORMAL
-	layer = UNDER_PIPE_LAYER //under pipes
+	w_class = WEIGHT_CLASS_NORMAL
+	layer = ABOVE_TILE_LAYER
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	smoothing_flags = SMOOTH_MORE
 	canSmoothWith = list(
@@ -57,13 +57,13 @@
 	if (attacking_item.iswelder())
 		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.use(1, user))
-			to_chat(user, "<span class='notice'>Slicing lattice joints ...</span>")
+			to_chat(user, SPAN_NOTICE("Slicing lattice joints ..."))
 		new /obj/item/stack/rods(src.loc)
 		qdel(src)
 	if (istype(attacking_item, /obj/item/stack/rods))
 		var/obj/item/stack/rods/R = attacking_item
 		if (R.use(2))
-			to_chat(user, "<span class='notice'>Constructing catwalk ...</span>")
+			to_chat(user, SPAN_NOTICE("Constructing catwalk ..."))
 			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
 			new /obj/structure/lattice/catwalk(src.loc)
 			qdel(src)
@@ -85,7 +85,7 @@
 /obj/structure/lattice/catwalk/indoor
 	desc = "A floor-mounted catwalk designed to protect pipes & station wiring from passing feet."
 	can_be_unanchored = TRUE
-	layer = 2.7	// Above wires.
+	layer = CATWALK_LAYER
 
 /obj/structure/lattice/catwalk/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.iswelder())
@@ -105,8 +105,8 @@
 		if(attacking_item.use_tool(src, user, 5, volume = 50))
 			anchored = !anchored
 			to_chat(user, SPAN_NOTICE("You [anchored ? "" : "un"]anchor [src]."))
-			SSicon_smooth.add_to_queue(src)
-			SSicon_smooth.add_to_queue_neighbors(src)
+			QUEUE_SMOOTH(src)
+			QUEUE_SMOOTH_NEIGHBORS(src)
 	else
 		..()
 
@@ -155,7 +155,7 @@
 
 /obj/structure/lattice/catwalk/indoor/grate/old/Initialize()
 	. = ..()
-	add_overlay("rust")
+	AddOverlays("rust")
 
 /obj/structure/lattice/catwalk/indoor/grate/damaged
 	icon_state = "grate_dark_dam0"
@@ -173,7 +173,7 @@
 
 /obj/structure/lattice/catwalk/indoor/grate/light/old/Initialize()
 	. = ..()
-	add_overlay("rust")
+	AddOverlays("rust")
 
 /obj/structure/lattice/catwalk/indoor/grate/light/damaged
 	icon_state = "grate_light_dam0"
@@ -185,6 +185,9 @@
 
 /obj/structure/lattice/catwalk/indoor/grate/dark
 	color = COLOR_DARK_GUNMETAL
+
+/obj/structure/lattice/catwalk/indoor/grate/gridded
+	color = COLOR_GRAY40
 
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal
 	color = COLOR_DARK_GUNMETAL

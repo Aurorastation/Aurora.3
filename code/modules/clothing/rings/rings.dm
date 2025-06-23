@@ -9,7 +9,7 @@
 	if(!proximity)
 		return
 	if(ishuman(A) && user != A)
-		user.visible_message("<span class='warning'>\The [user] gets down on one knee, presenting \the [src] to [A].</span>","<span class='warning'>You get down on one knee, presenting \the [src] to [A].</span>")
+		user.visible_message(SPAN_WARNING("\The [user] gets down on one knee, presenting \the [src] to [A]."), SPAN_WARNING("You get down on one knee, presenting \the [src] to [A]."))
 
 //Reagent Rings
 
@@ -27,7 +27,7 @@
 	if(istype(H) && H.gloves==src)
 
 		if(reagents.total_volume)
-			to_chat(H, "<span class='danger'>You feel a prick as you slip on \the [src].</span>")
+			to_chat(H, SPAN_DANGER("You feel a prick as you slip on \the [src]."))
 			if(H.reagents)
 				var/contained_reagents = reagents.get_reagents()
 				var/trans = reagents.trans_to_mob(H, 15, CHEM_BLOOD)
@@ -58,10 +58,10 @@
 
 /obj/item/clothing/ring/seal/signet/attack_self(mob/user)
 	if(nameset)
-		to_chat(user, "<span class='notice'>\The [src] has already been claimed!</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] has already been claimed!"))
 		return
 
-	to_chat(user, "<span class='notice'>You claim \the [src] as your own!</span>")
+	to_chat(user, SPAN_NOTICE("You claim \the [src] as your own!"))
 	change_name(user)
 	nameset = 1
 

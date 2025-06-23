@@ -22,8 +22,8 @@
 		return fizzle(user, A)
 
 	var/mob/living/carbon/C = user
-	var/mob/abstract/observer/ghost
-	for(var/mob/abstract/observer/O in get_turf(A))
+	var/mob/abstract/ghost/observer/ghost
+	for(var/mob/abstract/ghost/observer/O in get_turf(A))
 		if(!O.client)
 			continue
 		if(jobban_isbanned(O, "cultist"))
@@ -36,9 +36,9 @@
 
 	user.say("Gal'h'rfikk harfrandid mud[pick("'","`")]gib!")
 	apparition = new /mob/living/carbon/human/apparition(get_turf(A))
-	user.visible_message("<span class='warning'>A shape forms in the center of the rune. A shape of... a man.</span>", \
-	"<span class='warning'>A shape forms in the center of the rune. A shape of... a man.</span>", \
-	"<span class='warning'>You hear liquid flowing.</span>")
+	user.visible_message(SPAN_WARNING("A shape forms in the center of the rune. A shape of... a man."), \
+	SPAN_WARNING("A shape forms in the center of the rune. A shape of... a man."), \
+	SPAN_WARNING("You hear liquid flowing."))
 
 	var/chose_name = FALSE
 	for(var/obj/item/paper/P in get_turf(A))
@@ -49,7 +49,7 @@
 	apparition.universal_speak = TRUE
 	apparition.all_underwear.Cut()
 	apparition.key = ghost.key
-	cult.add_antagonist(apparition.mind)
+	GLOB.cult.add_antagonist(apparition.mind)
 	playsound(get_turf(A), 'sound/magic/exit_blood.ogg', 100, 1)
 
 	if(!chose_name)

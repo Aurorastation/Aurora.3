@@ -8,6 +8,7 @@
 	desc = "A monitor that contains and displays the logs of a selected telecommunications server to authorized personnel."
 	icon_screen = "comm_logs"
 	icon_keyboard = "green_key"
+	icon_keyboard_emis = "green_key_mask"
 	light_color = LIGHT_COLOR_GREEN
 
 	var/screen = 0				// the screen number:
@@ -27,7 +28,7 @@
 	if(stat & (BROKEN|NOPOWER))
 		return
 	user.set_machine(src)
-	var/dat = "<TITLE>Telecommunication Server Monitor</TITLE><center><b>Telecommunications Server Monitor</b></center>"
+	var/dat = "<center><b>Telecommunications Server Monitor</b></center>"
 
 	switch(screen)
 
@@ -36,23 +37,23 @@
 
 		if(0)
 			dat += "<br>[temp]<br>"
-			dat += "<br>Current Network: <a href='?src=\ref[src];network=1'>[network]</a><br>"
+			dat += "<br>Current Network: <a href='byond://?src=[REF(src)];network=1'>[network]</a><br>"
 			if(servers.len)
 				dat += "<br>Detected Telecommunication Servers:<ul>"
 				for(var/obj/machinery/telecomms/T in servers)
-					dat += "<li><a href='?src=\ref[src];viewserver=[T.id]'>\ref[T] [T.name]</a> ([T.id])</li>"
+					dat += "<li><a href='byond://?src=[REF(src)];viewserver=[T.id]'>[REF(T)] [T.name]</a> ([T.id])</li>"
 				dat += "</ul>"
-				dat += "<br><a href='?src=\ref[src];operation=release'>\[Flush Buffer\]</a>"
+				dat += "<br><a href='byond://?src=[REF(src)];operation=release'>\[Flush Buffer\]</a>"
 
 			else
-				dat += "<br>No servers detected. Scan for servers: <a href='?src=\ref[src];operation=scan'>\[Scan\]</a>"
+				dat += "<br>No servers detected. Scan for servers: <a href='byond://?src=[REF(src)];operation=scan'>\[Scan\]</a>"
 
 
 		// --- Viewing Server ---
 
 		if(1)
 			dat += "<br>[temp]<br>"
-			dat += "<center><a href='?src=\ref[src];operation=mainmenu'>\[Main Menu\]</a>     <a href='?src=\ref[src];operation=refresh'>\[Refresh\]</a> <a href='?src=\ref[src];operation=printlog'>\[Print Logs\]</a></center>"
+			dat += "<center><a href='byond://?src=[REF(src)];operation=mainmenu'>\[Main Menu\]</a>     <a href='byond://?src=[REF(src)];operation=refresh'>\[Refresh\]</a> <a href='byond://?src=[REF(src)];operation=printlog'>\[Print Logs\]</a></center>"
 			dat += "<br>Current Network: [network]"
 			dat += "<br>Selected Server: [SelectedServer.id]"
 
@@ -63,7 +64,7 @@
 
 			dat += log_entries_to_text(user, SelectedServer)
 
-	user << browse(dat, "window=comm_monitor;size=575x400")
+	user << browse(HTML_SKELETON_TITLE("Telecommunications Server Monitor", dat), "window=comm_monitor;size=575x400")
 	onclose(user, "server_control")
 
 	temp = ""
@@ -113,7 +114,7 @@
 	if(href_list["delete"])
 
 		if(!src.allowed(usr) && !emagged)
-			to_chat(usr, "<span class='warning'>ACCESS DENIED.</span>")
+			to_chat(usr, SPAN_WARNING("ACCESS DENIED."))
 			return
 
 		if(SelectedServer)
@@ -132,7 +133,7 @@
 
 		var/newnet = sanitize(input(usr, "Which network do you want to view?", "Comm Monitor", network) as null|text)
 
-		if(newnet && ((usr in range(1, src) || issilicon(usr))))
+		if(newnet && (((usr in range(1, src)) || issilicon(usr))))
 			if(length(newnet) > 15)
 				temp = "<font color = #D70B00>- FAILED: NETWORK TAG STRING TOO LENGHTLY -</font>"
 
@@ -150,7 +151,7 @@
 	if(attacking_item.isscrewdriver())
 		if(attacking_item.use_tool(src, user, 20, volume = 50))
 			if (src.stat & BROKEN)
-				to_chat(user, "<span class='notice'>The broken glass falls out.</span>")
+				to_chat(user, SPAN_NOTICE("The broken glass falls out."))
 				var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )
 				new /obj/item/material/shard( src.loc )
 				var/obj/item/circuitboard/comm_server/M = new /obj/item/circuitboard/comm_server( A )
@@ -162,7 +163,7 @@
 				A.anchored = 1
 				qdel(src)
 			else
-				to_chat(user, "<span class='notice'>You disconnect the monitor.</span>")
+				to_chat(user, SPAN_NOTICE("You disconnect the monitor."))
 				var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )
 				var/obj/item/circuitboard/comm_server/M = new /obj/item/circuitboard/comm_server( A )
 				for (var/obj/C in src)
@@ -179,7 +180,7 @@
 	if(!emagged)
 		playsound(src.loc, 'sound/effects/sparks4.ogg', 75, 1)
 		emagged = 1
-		to_chat(user, "<span class='notice'>You you disable the security protocols</span>")
+		to_chat(user, SPAN_NOTICE("You you disable the security protocols"))
 		src.updateUsrDialog()
 		return 1
 
@@ -199,7 +200,7 @@
 		// If the log is a speech file
 		if(C.input_type == "Speech File")
 
-			. += "<li><font color = #008F00>[C.name]</font>  <font color = #FF0000><a href='?src=\ref[src];delete=[i]'>\[X\]</a></font><br>"
+			. += "<li><font color = #008F00>[C.name]</font>  <font color = #FF0000><a href='byond://?src=[REF(src)];delete=[i]'>\[X\]</a></font><br>"
 
 			var/datum/language/language = C.parameters["language"]
 			var/message_out = ""
@@ -225,7 +226,7 @@
 
 		else if(C.input_type == "Execution Error")
 
-			. += "<li><font color = #990000>[C.name]</font>  <font color = #FF0000><a href='?src=\ref[src];delete=[i]'>\[X\]</a></font><br>"
+			. += "<li><font color = #990000>[C.name]</font>  <font color = #FF0000><a href='byond://?src=[REF(src)];delete=[i]'>\[X\]</a></font><br>"
 			. += "<u><font color = #787700>Output</font></u>: \"[C.parameters["message"]]\"<br>"
 			. += "</li><br>"
 	. += "</ol>"

@@ -29,7 +29,7 @@
 	slot_flags = SLOT_BELT
 	force = 18
 	throwforce = 7
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 150)
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
@@ -60,7 +60,7 @@
 	throwforce = 5
 	throw_speed = 3
 	throw_range = 5
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	matter = list(DEFAULT_WALL_MATERIAL = 75)
 	attack_verb = list("stabbed")
 	usesound = 'sound/items/Screwdriver.ogg'
@@ -75,20 +75,21 @@
 	. = ..()
 	if(build_from_parts) //random colors!
 		color = pick(COLOR_BLUE, COLOR_RED, COLOR_PURPLE, COLOR_BROWN, COLOR_GREEN, COLOR_CYAN, COLOR_YELLOW)
-		add_overlay(overlay_image(icon, "[initial(icon_state)]_[worn_overlay]", flags=RESET_COLOR))
+		AddOverlays(overlay_image(icon, "[initial(icon_state)]_[worn_overlay]", flags=RESET_COLOR))
 
 /obj/item/screwdriver/update_icon()
 	var/matrix/tf = matrix()
-	if(istype(loc, /obj/item/storage))
+	var/obj/item/storage/S = loc
+	if(istype(S, /obj/item/storage) && !S.storage_slots)
 		tf.Turn(-90) //Vertical for storing compactly
-		tf.Translate(-3,0) //Could do this with pixel_x but let's just update the appearance once.
+		tf.Translate(-1, 0) //Could do this with pixel_x but let's just update the appearance once.
 	transform = tf
 
 /obj/item/screwdriver/get_belt_overlay()
 	var/mutable_appearance/body = mutable_appearance('icons/obj/clothing/belt_overlays.dmi', "screwdriver")
 	var/mutable_appearance/head = mutable_appearance('icons/obj/clothing/belt_overlays.dmi', "screwdriver_head")
 	body.color = color
-	head.add_overlay(body)
+	head.AddOverlays(body)
 	return head
 
 /obj/item/screwdriver/pickup(mob/user)
@@ -103,7 +104,9 @@
 	..()
 	update_icon()
 
-/obj/item/screwdriver/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
+/obj/item/screwdriver/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/mob/living/carbon/M = target_mob
+
 	if(!istype(M) || user.a_intent == "help")
 		return ..()
 	if((target_zone != BP_EYES && target_zone != BP_HEAD) || M.eyes_protected(src, FALSE))
@@ -133,7 +136,7 @@
 	force = 14
 	throw_speed = 2
 	throw_range = 9
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 80)
 	attack_verb = list("pinched", "nipped")
@@ -153,20 +156,22 @@
 	. = ..()
 	if(build_from_parts)
 		color = pick(color_options)
-		add_overlay(overlay_image(icon, "[initial(icon_state)]_[worn_overlay]", flags=RESET_COLOR))
+		AddOverlays(overlay_image(icon, "[initial(icon_state)]_[worn_overlay]", flags=RESET_COLOR))
+	update_icon()
 
 /obj/item/wirecutters/update_icon()
 	var/matrix/tf = matrix()
-	if(istype(loc, /obj/item/storage))
+	var/obj/item/storage/S = loc
+	if(istype(S, /obj/item/storage) && !S.storage_slots)
 		tf.Turn(-90) //Vertical for storing compactly
-		tf.Translate(-1,0) //Could do this with pixel_x but let's just update the appearance once.
+		tf.Translate(-1, 0) //Could do this with pixel_x but let's just update the appearance once.
 	transform = tf
 
 /obj/item/wirecutters/get_belt_overlay()
 	var/mutable_appearance/body = mutable_appearance('icons/obj/clothing/belt_overlays.dmi', "wirecutters")
 	var/mutable_appearance/head = mutable_appearance('icons/obj/clothing/belt_overlays.dmi', "wirecutters_head")
 	body.color = color
-	head.add_overlay(body)
+	head.AddOverlays(body)
 	return head
 
 /obj/item/wirecutters/pickup(mob/user)
@@ -181,7 +186,11 @@
 	..()
 	update_icon()
 
-/obj/item/wirecutters/attack(mob/living/carbon/C, mob/user, var/target_zone)
+/obj/item/wirecutters/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/mob/living/carbon/C = target_mob
+	if(!istype(C))
+		return
+
 	if(user.a_intent == I_HELP && (C.handcuffed) && (istype(C.handcuffed, /obj/item/handcuffs/cable)))
 		user.visible_message(SPAN_NOTICE("\The [user] cuts \the [C]'s restraints with \the [src]!"),\
 		SPAN_NOTICE("You cut \the [C]'s restraints with \the [src]!"),\
@@ -213,7 +222,7 @@
 /obj/item/weldingtool
 	name = "welding tool"
 	desc = "A welding tool with a built-in fuel tank, designed for welding and cutting metal."
-	icon = 'icons/obj/item/tools/welding_tools.dmi'
+	icon = 'icons/obj/item/welding_tools.dmi'
 	icon_state = "welder"
 	item_state = "welder"
 	var/welding_state = "welding_sparks"
@@ -232,7 +241,7 @@
 	throwforce = 5
 	throw_speed = 1
 	throw_range = 5
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 	//Cost to make in the autolathe
 	matter = list(DEFAULT_WALL_MATERIAL = 70, MATERIAL_GLASS = 30)
@@ -304,14 +313,15 @@
 	update_icon()
 
 /obj/item/weldingtool/use_tool(atom/target, mob/living/user, delay, amount, volume, datum/callback/extra_checks)
-	var/image/welding_sparks = image('icons/effects/effects.dmi', welding_state, EFFECTS_ABOVE_LIGHTING_LAYER)
-	target.add_overlay(welding_sparks)
+	var/image/welding_sparks = image('icons/effects/effects.dmi', welding_state)
+	welding_sparks.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	target.AddOverlays(welding_sparks)
 	. = ..()
-	target.cut_overlay(welding_sparks)
+	target.CutOverlays(welding_sparks)
 
 /obj/item/weldingtool/proc/update_torch()
 	if(welding)
-		add_overlay("[initial(icon_state)]-on")
+		AddOverlays("[initial(icon_state)]-on")
 		item_state = "[initial(item_state)]1"
 	else
 		item_state = "[initial(item_state)]"
@@ -324,11 +334,11 @@
 		set_light(0)
 
 /obj/item/weldingtool/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(change_icons)
 		var/ratio = get_fuel() / max_fuel
 		ratio = CEILING(ratio*4, 1) * 25
-		add_overlay("[initial(icon_state)][ratio]")
+		AddOverlays("[initial(icon_state)][ratio]")
 	update_torch()
 	var/mob/M = loc
 	if(istype(M))
@@ -389,9 +399,9 @@
 	if (istype(location, /turf))
 		location.hotspot_expose(700, 5)
 
-/obj/item/weldingtool/attack(mob/living/M, mob/user, var/target_zone)
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+/obj/item/weldingtool/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(ishuman(target_mob))
+		var/mob/living/carbon/human/H = target_mob
 		var/obj/item/organ/external/S = H.organs_by_name[target_zone]
 
 		if(!S)
@@ -442,7 +452,7 @@
 		return
 	if(istype(O, /obj/structure/reagent_dispensers/fueltank) && O.Adjacent(user) && !welding)
 		O.reagents.trans_to_obj(src, max_fuel)
-		to_chat(user, "<span class='notice'>You refuel your welder.</span>")
+		to_chat(user, SPAN_NOTICE("You refuel your welder."))
 		playsound(src.loc, 'sound/effects/refill.ogg', 50, 1, -6)
 		return
 	else if(istype(O, /obj/structure/reagent_dispensers/fueltank) && O.Adjacent(user) && welding)
@@ -451,9 +461,9 @@
 			return
 		var/obj/structure/reagent_dispensers/fueltank/tank = O
 		if(tank.armed)
-			to_chat(user, "<span class='warning'>You are already heating \the [O]!</span>")
+			to_chat(user, SPAN_WARNING("You are already heating \the [O]!"))
 			return
-		user.visible_message("<span class='warning'>[user] begins heating \the [O]...</span>", "<span class='warning'>You start to heat \the [O]!</span>")
+		user.visible_message(SPAN_WARNING("[user] begins heating \the [O]..."), SPAN_WARNING("You start to heat \the [O]!"))
 		switch(alert("Are you sure you want to do this? It is quite dangerous and could get you in trouble.", "Heat up fuel tank", "No", "Yes"))
 			if("Yes")
 				log_and_message_admins("is attempting to welderbomb", user)
@@ -533,28 +543,28 @@
 	if(set_welding && !welding)
 		if (get_fuel() > 0)
 			if(M)
-				to_chat(M, "<span class='notice'>You switch the [src] on.</span>")
+				to_chat(M, SPAN_NOTICE("You switch the [src] on."))
 			else if(T)
-				T.visible_message("<span class='danger'>\The [src] turns on.</span>")
+				T.visible_message(SPAN_DANGER("\The [src] turns on."))
 			playsound(loc, 'sound/items/welder_activate.ogg', 50, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
 			force = 22
 			damtype = DAMAGE_BURN
-			w_class = ITEMSIZE_LARGE
+			w_class = WEIGHT_CLASS_BULKY
 			welding = TRUE
-			hitsound = SOUNDS_LASER_MEAT
+			hitsound = pick(SOUNDS_LASER_MEAT)
 			attack_verb = list("scorched", "burned", "blasted", "blazed")
 			update_icon()
 			set_processing(TRUE)
 		else
 			if(M)
-				to_chat(M, "<span class='notice'>You need more welding fuel to complete this task.</span>")
+				to_chat(M, SPAN_NOTICE("You need more welding fuel to complete this task."))
 			return
 	//Otherwise
 	else if(!set_welding && welding)
 		if(M)
-			to_chat(M, "<span class='notice'>You switch \the [src] off.</span>")
+			to_chat(M, SPAN_NOTICE("You switch \the [src] off."))
 		else if(T)
-			T.visible_message("<span class='warning'>\The [src] turns off.</span>")
+			T.visible_message(SPAN_WARNING("\The [src] turns off."))
 		playsound(loc, 'sound/items/welder_deactivate.ogg', 50, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
 		force = 3
 		damtype = DAMAGE_BRUTE
@@ -572,10 +582,6 @@
 	else
 		STOP_PROCESSING(SSprocessing, src)
 
-/obj/item/weldingtool/Destroy()
-	STOP_PROCESSING(SSprocessing, src)	//Stop processing when destroyed regardless of conditions
-	return ..()
-
 /obj/item/weldingtool/experimental/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/eyeshield))
 		if(eyeshield)
@@ -585,7 +591,7 @@
 		to_chat(user, SPAN_NOTICE("You install \the [attacking_item] into \the [src]."))
 		eyeshield = attacking_item
 		produces_flash = FALSE
-		add_overlay("eyeshield_attached", TRUE)
+		AddOverlays("eyeshield_attached", ATOM_ICON_CACHE_PROTECTED)
 		return TRUE
 	if(istype(attacking_item, /obj/item/overcapacitor))
 		if(overcap)
@@ -594,7 +600,7 @@
 		user.drop_from_inventory(attacking_item, src)
 		to_chat(user, SPAN_NOTICE("You install \the [attacking_item] into \the [src]."))
 		overcap = attacking_item
-		add_overlay("overcap_attached", TRUE)
+		AddOverlays("overcap_attached", ATOM_ICON_CACHE_PROTECTED)
 		toolspeed *= 2
 		return TRUE
 	if(attacking_item.isscrewdriver())
@@ -622,7 +628,7 @@
 			return TRUE
 		user.put_in_hands(remove_accessory)
 		to_chat(user, SPAN_NOTICE("You remove \the [remove_accessory] into \the [src]."))
-		cut_overlay("[remove_accessory.icon_state]_attached", TRUE)
+		CutOverlays("[remove_accessory.icon_state]_attached", ATOM_ICON_CACHE_PROTECTED)
 		return TRUE
 	return ..()
 
@@ -659,7 +665,7 @@
 	name = "experimental eyeshield"
 	desc = "An advanced eyeshield capable of dampening the welding glare produced when working on modern super-materials, removing the need for user-worn welding gear."
 	desc_info = "This can be attached to an experimental welder to give it welding protection, removing the need for welding goggles or masks."
-	icon = 'icons/obj/item/tools/welding_tools.dmi'
+	icon = 'icons/obj/item/welding_tools.dmi'
 	icon_state = "eyeshield"
 	item_state = "eyeshield"
 	contained_sprite = TRUE
@@ -668,7 +674,7 @@
 	name = "experimental overcapacitor"
 	desc = "An advanced capacitor that injects a current into the welding stream, doubling the speed of welding tasks without sacrificing quality. Excess current burns up welding fuel, reducing fuel efficiency, however."
 	desc_info = "This can be attached to an experimental welder to double the speed it works at, at the cost of tripling the fuel cost of using it."
-	icon = 'icons/obj/item/tools/welding_tools.dmi'
+	icon = 'icons/obj/item/welding_tools.dmi'
 	icon_state = "overcap"
 	item_state = "overcap"
 	contained_sprite = TRUE
@@ -692,7 +698,7 @@
 	slot_flags = SLOT_BELT
 	force = 18
 	throwforce = 7
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_NORMAL
 	drop_sound = 'sound/items/drop/crowbar.ogg'
 	pickup_sound = 'sound/items/pickup/crowbar.ogg'
 	usesound = /singleton/sound_category/crowbar_sound
@@ -714,7 +720,7 @@
 	desc = "A short lightweight emergency tool meant to chop, pry and pierce. Most of the handle is insulated excepting the wedge at the very bottom. The axe head atop the tool has a short pick opposite of the blade."
 	icon_state = "rescue_axe"
 	item_state = "rescue_axe"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	force = 18
 	throwforce = 12
 	obj_flags = null //Handle is insulated, so this means it won't conduct electricity and hurt you.
@@ -744,6 +750,23 @@
 	icon_state = "rescue_axe_red"
 	item_state = "rescue_axe_red"
 
+/obj/item/crowbar/hydraulic_rescue_tool
+	name = "Hydraulic rescue tool"
+	desc = "A hydraulic rescue tool that functions like a crowbar by applying strong amounts of hydraulic pressure to force open different things. Also known as jaws of life."
+	icon = 'icons/obj/item/hydraulic_rescue_tool.dmi'
+	icon_state = "jawspry"
+	force = 15
+	throwforce = 1
+	w_class = WEIGHT_CLASS_NORMAL
+	drop_sound = 'sound/items/drop/crowbar.ogg'
+	pickup_sound = 'sound/items/pickup/crowbar.ogg'
+	usesound = /singleton/sound_category/crowbar_sound
+	origin_tech = list(TECH_ENGINEERING = 1)
+	matter = list(DEFAULT_WALL_MATERIAL = 50)
+	attack_verb = list("attacked", "rammed", "battered", "bludgeoned")
+	sharp = FALSE
+	edge = FALSE
+
 // Pipe wrench
 /obj/item/pipewrench
 	name = "pipe wrench"
@@ -759,7 +782,7 @@
 	slot_flags = SLOT_BELT
 	force = 18
 	throwforce = 7
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 150)
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
@@ -779,7 +802,7 @@
 		slot_r_hand_str = 'icons/mob/items/righthand_tools.dmi',
 		)
 	force = 3
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	drop_sound = 'sound/items/drop/multitool.ogg'
 	pickup_sound = 'sound/items/pickup/multitool.ogg'
 
@@ -850,14 +873,14 @@
 /obj/item/powerdrill
 	name = "impact wrench"
 	desc = "The screwdriver's big brother."
-	icon = 'icons/obj/item/tools/impact_wrench.dmi'
+	icon = 'icons/obj/item/impact_wrench.dmi'
 	icon_state = "impact_wrench-screw"
 	item_state = "impact_wrench"
 	contained_sprite = TRUE
 	item_flags = ITEM_FLAG_HELD_MAP_TEXT
 	force = 18
 	attack_verb = list("gored", "drilled", "screwed", "punctured")
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	toolspeed = 3
 	usesound = 'sound/items/drill_use.ogg'
 	var/current_tool = 1
@@ -928,7 +951,7 @@
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "steel_wool"
 	item_flags = ITEM_FLAG_NO_BLUDGEON
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	var/lit
 	matter = list(MATERIAL_STEEL = 40)
 
@@ -947,7 +970,9 @@
 			to_chat(user, SPAN_WARNING("The cell isn't charged!"))
 		return TRUE
 
-/obj/item/steelwool/fire_act()
+/obj/item/steelwool/fire_act(exposed_temperature, exposed_volume)
+	. = ..()
+
 	ignite()
 
 /obj/item/steelwool/proc/ignite(var/L, mob/user)
@@ -997,7 +1022,7 @@
 	throwforce = 5
 	throw_speed = 3
 	throw_range = 3
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	matter = list(DEFAULT_WALL_MATERIAL = 75)
 	attack_verb = list("smashed", "hammered")
 	drop_sound = 'sound/items/drop/crowbar.ogg'
@@ -1008,7 +1033,7 @@
 	. = ..()
 	var/mutable_appearance/handle = mutable_appearance('icons/obj/tools.dmi', "hammer_handle")
 	handle.color = pick(COLOR_BLUE, COLOR_RED, COLOR_PURPLE, COLOR_BROWN, COLOR_GREEN, COLOR_CYAN, COLOR_YELLOW)
-	add_overlay(handle)
+	AddOverlays(handle)
 
 /obj/item/hammer/ishammer()
 	return TRUE

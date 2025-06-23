@@ -6,7 +6,7 @@
 	icon_state = "clipboard"
 	item_state = "clipboard"
 	throwforce = 0
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 3
 	throw_range = 10
 	var/obj/item/pen/haspen		//The stored pen.
@@ -19,14 +19,14 @@
 	. = ..()
 	update_icon()
 
-/obj/item/clipboard/MouseDrop(obj/over_object as obj) //Quick clipboard fix. -Agouri
-	if(ishuman(usr))
-		var/mob/M = usr
-		if(!(istype(over_object, /obj/screen) ))
+/obj/item/clipboard/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(ishuman(user))
+		var/mob/M = user
+		if(!(istype(over, /atom/movable/screen) ))
 			return ..()
 
 		if(!M.restrained() && !M.stat)
-			switch(over_object.name)
+			switch(over.name)
 				if("right hand")
 					M.u_equip(src)
 					M.equip_to_slot_if_possible(src, slot_r_hand)
@@ -34,11 +34,11 @@
 					M.u_equip(src)
 					M.equip_to_slot_if_possible(src, slot_l_hand)
 
-			add_fingerprint(usr)
+			add_fingerprint(M)
 			return
 
 /obj/item/clipboard/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	var/list/to_add = list()
 	if(toppaper)
 		to_add += toppaper.icon_state
@@ -48,7 +48,7 @@
 	if(haspen)
 		to_add += "clipboard_pen"
 	to_add += "clipboard_over"
-	add_overlay(to_add)
+	AddOverlays(to_add)
 
 /obj/item/clipboard/attackby(obj/item/attacking_item, mob/user)
 
@@ -57,7 +57,7 @@
 		if(istype(attacking_item, /obj/item/paper))
 			toppaper = attacking_item
 		r_contents = reverselist(contents)
-		to_chat(user, "<span class='notice'>You clip the [attacking_item] onto \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You clip the [attacking_item] onto \the [src]."))
 
 	else if(istype(toppaper) && attacking_item.ispen())
 		toppaper.attackby(attacking_item, user)
@@ -73,27 +73,27 @@
 	return
 
 /obj/item/clipboard/attack_self(mob/user as mob)
-	var/dat = "<title>Clipboard</title>"
+	var/dat = ""
 	if(haspen)
-		dat += "<A href='?src=\ref[src];pen=1'>Remove Pen</A><BR><HR>"
+		dat += "<A href='byond://?src=[REF(src)];pen=1'>Remove Pen</A><BR><HR>"
 	else
-		dat += "<A href='?src=\ref[src];addpen=1'>Add Pen</A><BR><HR>"
+		dat += "<A href='byond://?src=[REF(src)];addpen=1'>Add Pen</A><BR><HR>"
 
 	//The topmost paper. I don't think there's any way to organise contents in byond, so this is what we're stuck with.	-Pete
 	//i'm leaving this here because it's funny - wildkins
 
 	if(toppaper)
 		var/obj/item/paper/P = toppaper
-		dat += "<A href='?src=\ref[src];write=\ref[P]'>Write</A> <A href='?src=\ref[src];remove=\ref[P]'>Remove</A> <A href='?src=\ref[src];rename=\ref[P]'>Rename</A> - <A href='?src=\ref[src];read=\ref[P]'>[P.name]</A><BR><HR>"
+		dat += "<A href='byond://?src=[REF(src)];write=[REF(P)]'>Write</A> <A href='byond://?src=[REF(src)];remove=[REF(P)]'>Remove</A> <A href='byond://?src=[REF(src)];rename=[REF(P)]'>Rename</A> - <A href='byond://?src=[REF(src)];read=[REF(P)]'>[P.name]</A><BR><HR>"
 
 	for(var/obj/item/paper/P in r_contents) // now this is podracing
 		if(P==toppaper)
 			continue
-		dat += "<A href='?src=\ref[src];write=\ref[P]'>Write</A> <A href='?src=\ref[src];remove=\ref[P]'>Remove</A> <A href='?src=\ref[src];rename=\ref[P]'>Rename</A> - <A href='?src=\ref[src];read=\ref[P]'>[P.name]</A><BR>"
+		dat += "<A href='byond://?src=[REF(src)];write=[REF(P)]'>Write</A> <A href='byond://?src=[REF(src)];remove=[REF(P)]'>Remove</A> <A href='byond://?src=[REF(src)];rename=[REF(P)]'>Rename</A> - <A href='byond://?src=[REF(src)];read=[REF(P)]'>[P.name]</A><BR>"
 	for(var/obj/item/photo/Ph in r_contents)
-		dat += "<A href='?src=\ref[src];remove=\ref[Ph]'>Remove</A> <A href='?src=\ref[src];rename=\ref[Ph]'>Rename</A> - <A href='?src=\ref[src];look=\ref[Ph]'>[Ph.name]</A><BR>"
+		dat += "<A href='byond://?src=[REF(src)];remove=[REF(Ph)]'>Remove</A> <A href='byond://?src=[REF(src)];rename=[REF(Ph)]'>Rename</A> - <A href='byond://?src=[REF(src)];look=[REF(Ph)]'>[Ph.name]</A><BR>"
 
-	user << browse(dat, "window=clipboard")
+	user << browse(HTML_SKELETON_TITLE("Clipboard", dat), "window=clipboard")
 	if(!ui_open)
 		ui_open = TRUE
 	onclose(user, "clipboard")
@@ -106,7 +106,7 @@
 		if(W.ispen())
 			user.drop_from_inventory(W,src)
 			haspen = W
-			to_chat(user, "<span class='notice'>You slot the pen into \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You slot the pen into \the [src]."))
 	else
 		to_chat(user, SPAN_NOTICE("This clipboard already has a pen!"))
 
@@ -180,7 +180,7 @@
 			var/obj/item/P = locate(href_list["top"])
 			if(P && (P.loc == src) && istype(P, /obj/item/paper) )
 				toppaper = P
-				to_chat(usr, "<span class='notice'>You move [P.name] to the top.</span>")
+				to_chat(usr, SPAN_NOTICE("You move [P.name] to the top."))
 
 		//Update everything
 		attack_self(usr)

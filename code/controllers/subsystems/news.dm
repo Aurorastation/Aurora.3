@@ -10,7 +10,7 @@ SUBSYSTEM_DEF(news)
 	src.wanted_issue = SSnews.wanted_issue
 
 /datum/controller/subsystem/news/Initialize(timeofday)
-	CreateFeedChannel("Station Announcements", "Automatic Announcement System", 1, 1, "New Station Announcement Available")
+	CreateFeedChannel("Announcements", "Automatic Announcement System", 1, 1, "New Announcement Available")
 	CreateFeedChannel("Tau Ceti Daily", "CentComm Minister of Information", 1, 1)
 	CreateFeedChannel("The Gibson Gazette", "Editor Carl Ritz", 1, 1)
 
@@ -150,8 +150,8 @@ SUBSYSTEM_DEF(news)
 	alert_readers(FC.announcement)
 
 /datum/controller/subsystem/news/proc/alert_readers(var/annoncement)
-	set waitfor = FALSE
-	for(var/obj/machinery/newscaster/NEWSCASTER in allCasters)
+	SHOULD_NOT_SLEEP(TRUE)
+	for(var/obj/machinery/newscaster/NEWSCASTER in GLOB.allCasters)
 		NEWSCASTER.newsAlert(annoncement)
 		NEWSCASTER.update_icon()
 

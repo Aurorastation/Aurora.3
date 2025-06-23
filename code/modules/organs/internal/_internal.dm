@@ -76,7 +76,7 @@
 /obj/item/organ/internal/proc/special_condition() // For unique conditions
 	return
 
-/obj/item/organ/internal/robotize(var/company = "Unbranded")
+/obj/item/organ/internal/robotize(var/company = PROSTHETIC_UNBRANDED)
 	..()
 	min_bruised_damage += 5
 	min_broken_damage += 10
@@ -90,6 +90,10 @@
 				icon_state = "[initial(icon_state)]-[R.internal_organ_suffix]"
 
 			robotize_type = company
+
+/obj/item/organ/internal/mechassist()
+	..()
+	icon_state = "[initial(icon_state)]-assisted"
 
 /obj/item/organ/internal/proc/getToxLoss()
 	if(BP_IS_ROBOTIC(src))
@@ -134,10 +138,10 @@
 			. = "necrotic and dead [.]"
 	. = "[.][name]"
 
-/obj/item/organ/internal/process()
+/obj/item/organ/internal/process(seconds_per_tick)
 	..()
 	if(istype(owner) && (toxin_type in owner.chem_effects))
-		take_damage(owner.chem_effects[toxin_type] * 0.1 * PROCESS_ACCURACY, prob(1))
+		take_damage(owner.chem_effects[toxin_type] * 0.1 * PROCESS_ACCURACY, SPT_PROB(1, seconds_per_tick))
 	handle_regeneration()
 	tick_surge_damage() //Yes, this is intentional.
 

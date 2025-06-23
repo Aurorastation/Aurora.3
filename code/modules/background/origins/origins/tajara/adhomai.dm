@@ -165,6 +165,8 @@
 	possible_accents = list(ACCENT_CREVAN)
 	possible_citizenships = CITIZENSHIPS_ADHOMAI
 	possible_religions = RELIGIONS_ADHOMAI
+	origin_traits = list(TRAIT_ORIGIN_ALCOHOL_RESISTANCE, TRAIT_ORIGIN_DRUG_RESISTANCE)
+	origin_traits_descriptions = list("have a higher alcoholic tolerance", "have a higher tolerance to recreative drugs")
 
 /singleton/origin_item/origin/old_nobility
 	name = "Pre-Contact Nobility"

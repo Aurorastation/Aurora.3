@@ -31,6 +31,7 @@
 		compass_heading_marker.maptext = "<center><font color = '#00ffffff' size = 2><b>△</b></font></center>"
 		compass_heading_marker.filters = filter(type="drop_shadow", color = "#00ffffaa", size = 2, offset = 1,x = 0, y = 0)
 		compass_heading_marker.layer = UNDER_HUD_LAYER
+		compass_heading_marker.plane = HUD_PLANE
 
 	for(var/i in 0 to (360/(COMPASS_PERIOD))-1)
 		var/image/I = new /image/compass_marker
@@ -54,6 +55,7 @@
 		I.transform = M
 		I.filters = filter(type="drop_shadow", color = "#77777777", size = 2, offset = 1,x = 0, y = 0)
 		I.layer = UNDER_HUD_LAYER
+		I.plane = HUD_PLANE
 		LAZYADD(compass_static_labels, I)
 
 	rebuild_overlay_lists(TRUE)

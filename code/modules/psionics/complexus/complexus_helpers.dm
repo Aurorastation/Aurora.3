@@ -2,13 +2,13 @@
 	var/old_stun = stun
 	stun = max(stun, amount)
 	if(amount && !old_stun)
-		to_chat(owner, "<span class='danger'>Your concentration has been shattered! You cannot focus your psi power!</span>")
+		to_chat(owner, SPAN_DANGER("Your concentration has been shattered! You cannot focus your psi power!"))
 		ui.update_icon()
 
 /datum/psi_complexus/proc/get_armor(var/armortype)
 	if(can_use_passive())
 		last_armor_check = world.time
-		return round(Clamp(Clamp(4 * get_rank(), 0, 20) * get_rank() / 2, 0, 100) * (stamina/max_stamina))
+		return round(clamp(clamp(4 * get_rank(), 0, 20) * get_rank() / 2, 0, 100) * (stamina/max_stamina))
 	else
 		last_armor_check = 0
 		return 0
@@ -66,7 +66,7 @@
 		return FALSE
 
 	sound_to(owner, sound('sound/effects/psi/power_feedback.ogg'))
-	to_chat(owner, "<span class='danger'><font size=3>Wild energistic feedback blasts across your psyche!</font></span>")
+	to_chat(owner, SPAN_DANGER("<font size=3>Wild energistic feedback blasts across your psyche!</font>"))
 	stunned(value * 2)
 	set_cooldown(value * 100)
 

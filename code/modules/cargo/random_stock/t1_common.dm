@@ -213,13 +213,15 @@ STOCK_ITEM_COMMON(gloves, 3.3)
 		/obj/item/clothing/gloves/fluff,
 		/obj/item/clothing/gloves/swat/bst,
 		/obj/item/clothing/gloves/powerfist,
-		/obj/item/clothing/gloves/claws
+		/obj/item/clothing/gloves/claws,
+		/obj/item/clothing/gloves/chameleon/changeling
 	)
 	exclusion += typesof(/obj/item/clothing/gloves/rig)
 	exclusion += typesof(/obj/item/clothing/gloves/lightrig)
 	exclusion += typesof(/obj/item/clothing/wrists/watch)
 	exclusion += typesof(/obj/item/clothing/gloves/fluff)
 	exclusion += typesof(/obj/item/clothing/gloves/ballistic)
+	exclusion += typesof(/obj/item/clothing/gloves/unathi/ancient)
 	allgloves -= exclusion
 
 	for (var/i in 1 to rand(1, 3))

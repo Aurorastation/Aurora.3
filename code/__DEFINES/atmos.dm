@@ -49,6 +49,9 @@
 #define CARBON_LIFEFORM_FIRE_RESISTANCE (T0C + 200)
 #define CARBON_LIFEFORM_FIRE_DAMAGE     4
 
+#define FOGGING_TEMPERATURE (T0C + 5)
+#define MAX_FOG_TEMPERATURE (T0C - 50)
+
 // Phoron fire properties.
 #define PHORON_MINIMUM_BURN_TEMPERATURE    (T0C +  126) //400 K - autoignite temperature in tanks and canisters - enclosed environments I guess
 #define PHORON_FLASHPOINT                  (T0C +  246) //519 K - autoignite temperature in air if that ever gets implemented.
@@ -122,6 +125,8 @@
 #define GAS_DEUTERIUM			"deuterium"
 #define GAS_TRITIUM				"tritium"
 #define GAS_BORON				"boron"
+#define GAS_HEAT                "heat" //Not a real gas, used for visual effects
+#define GAS_COLD                "cold" //Not a real gas, used for visual effects
 
 #define	PIPE_COLOR_GREY		"#ffffff"	//yes white is grey
 #define	PIPE_COLOR_RED		"#ff0000"
@@ -139,4 +144,13 @@
 #define CONNECT_TYPE_FUEL		16
 #define CONNECT_TYPE_AUX		32
 
-var/global/list/pipe_colors = list("grey" = PIPE_COLOR_GREY, "red" = PIPE_COLOR_RED, "blue" = PIPE_COLOR_BLUE, "cyan" = PIPE_COLOR_CYAN, "green" = PIPE_COLOR_GREEN, "yellow" = PIPE_COLOR_YELLOW, "black" = PIPE_COLOR_BLACK, "purple" = PIPE_COLOR_PURPLE)
+GLOBAL_LIST_INIT(pipe_colors, list(
+	"grey" = PIPE_COLOR_GREY,
+	"red" = PIPE_COLOR_RED,
+	"blue" = PIPE_COLOR_BLUE,
+	"cyan" = PIPE_COLOR_CYAN,
+	"green" = PIPE_COLOR_GREEN,
+	"yellow" = PIPE_COLOR_YELLOW,
+	"black" = PIPE_COLOR_BLACK,
+	"purple" = PIPE_COLOR_PURPLE
+))

@@ -5,6 +5,10 @@
 
 	var/list/converting
 
+	/// if FALSE, the new converted cultist is equipped as normal
+	/// if TRUE, they still get the languages and antag status, but no cult book or any other gear
+	var/do_not_equip = FALSE
+
 /datum/rune/convert/do_rune_action(mob/living/user, atom/movable/A)
 	LAZYINITLIST(converting)
 	var/mob/living/carbon/target
@@ -70,7 +74,7 @@
 		if(!waiting_for_input[target]) //so we don't spam them with dialogs if they hesitate
 			waiting_for_input[target] = TRUE
 
-			if(!cult.can_become_antag(target.mind) || player_is_antag(target.mind))
+			if(!GLOB.cult.can_become_antag(target.mind) || player_is_antag(target.mind))
 				if(jobban_isbanned(target.mind, "cultist"))
 					shard_player(target, A)
 				else
@@ -83,7 +87,7 @@
 				waiting_for_input[target] = FALSE
 				switch(choice)
 					if("Submit")
-						cult.add_antagonist(target.mind)
+						GLOB.cult.add_antagonist(target.mind, do_not_equip)
 						converting -= target
 						target.hallucination = 0 //sudden clarity
 						target.setBrainLoss(0) // nar'sie heals you
@@ -104,3 +108,14 @@
 	announce_ghost_joinleave(shade)
 	shade.ghostize(FALSE)
 	target.dust()
+
+/datum/rune/convert/no_equip
+	name = "initiate conversion rune"
+	desc = "A rune used to convert the Unenlightened."
+	do_not_equip = TRUE
+
+/obj/effect/rune/convert/Initialize(mapload)
+	. = ..(mapload, SScult.runes_by_name[/datum/rune/convert::name])
+
+/obj/effect/rune/convert/no_equip/Initialize(mapload)
+	. = ..(mapload, SScult.runes_by_name[/datum/rune/convert/no_equip::name])

@@ -1,5 +1,9 @@
 /datum/event/communications_blackout
 	no_fake = 1
+	var/damage_machinery = 0
+
+/datum/event/communications_blackout/damage_machinery
+	damage_machinery = 1
 
 /datum/event/communications_blackout/announce()
 	var/alert = pick(	"Ionospheric anomalies detected. Temporary telecommunication failure imminent. Please contact you*%fj00)`5vc-BZZT", \
@@ -12,7 +16,7 @@
 	for(var/mob/living/silicon/ai/A in GLOB.player_list)	//AIs are always aware of communication blackouts.
 		if(A.z in affecting_z)
 			to_chat(A, "<br>")
-			to_chat(A, "<span class='warning'><b>[alert]</b></span>")
+			to_chat(A, SPAN_WARNING("<b>[alert]</b>"))
 			to_chat(A, "<br>")
 
 	if(prob(30))	//most of the time, we don't want an announcement, so as to allow AIs to fake blackouts.
@@ -27,3 +31,6 @@
 	for(var/obj/machinery/telecomms/T in SSmachinery.all_telecomms)
 		if(T.z in affecting_z)
 			T.emp_act(EMP_HEAVY)
+		// 10% chance for a given machine to take damage: slight delays in transmission time or slight message garbling until repaired.
+		if(damage_machinery && prob(10))
+			T.emp_damage()

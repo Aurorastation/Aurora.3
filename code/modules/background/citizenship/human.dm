@@ -5,13 +5,13 @@
 	its large xeno population which enjoys various privileges compared to other space powers. With a very lax migration policy, virtually everyone is welcome to live here. However, \
 	unrest and gridlock undermine the government, and the aggressive attitude of the Sol Alliance against its former system has made many worried for the future of the Republic."
 	consular_outfit = /obj/outfit/job/representative/consular/ceti
-	consular_outfit = /obj/outfit/job/representative/consular/ceti
-	assistant_outfit = /obj/outfit/job/consular_assistant/ceti
+	assistant_outfit = /obj/outfit/job/diplomatic_aide/ceti
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_ATTENDANT,
 			SPECIES_VAURCA_BULWARK
 		),
 		"Diplomatic Aide" = list(
@@ -64,7 +64,7 @@
 		/obj/item/stamp/biesel = 1,
 	)
 
-/obj/outfit/job/consular_assistant/ceti
+/obj/outfit/job/diplomatic_aide/ceti
 	name = "Tau Ceti Diplomatic Aide"
 	accessory = /obj/item/clothing/accessory/tc_pin
 
@@ -92,11 +92,9 @@
 	Presently ruled by a military junta that is gradually giving way to civilian control, the Alliance is also generally xenophobic, and most non-humans find themselves discriminated against in Solarian territory. \
 	Though much of its former possessions are now occupied by warlord statelets and other interstellar powers, the Alliance still maintains a revanchist outlook, refusing to relinquish its claims to its lost territories."
 	consular_outfit = /obj/outfit/job/representative/consular/sol
-	assistant_outfit = /obj/outfit/job/consular_assistant/sol
+	assistant_outfit = /obj/outfit/job/diplomatic_aide/sol
 	job_species_blacklist = list(
 		"Consular Officer" = list(
-			SPECIES_HUMAN,
-			SPECIES_HUMAN_OFFWORLD,
 			SPECIES_IPC,
 			SPECIES_IPC_BISHOP,
 			SPECIES_IPC_G1,
@@ -115,6 +113,7 @@
 			SPECIES_UNATHI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_ATTENDANT,
 			SPECIES_VAURCA_BULWARK,
 			SPECIES_VAURCA_BREEDER
 		),
@@ -137,6 +136,7 @@
 			SPECIES_UNATHI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_ATTENDANT,
 			SPECIES_VAURCA_BULWARK,
 			SPECIES_VAURCA_BREEDER
 		)
@@ -148,7 +148,7 @@
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
 			rep_objectives = pick("Collect evidence of the [SSatlas.current_map.boss_name] being unfair or oppressive against Solarian employees, to be used as leverage in future diplomatic talks.",
-							"Convince [rand(1,3)] solarian employees to apply for the Solarian armed forces.")
+							"Convince [rand(1,3)] Solarian employees to apply for the Solarian Armed Forces.")
 
 		if(REPRESENTATIVE_MISSION_MEDIUM)
 			rep_objectives = pick("Have [rand(2,5)] amount of Sol citizens write down their grievances with the company, and present the report to [SSatlas.current_map.station_short] command.",
@@ -170,7 +170,7 @@
 		/obj/item/gun/projectile/pistol/sol = 1
 	)
 
-/obj/outfit/job/consular_assistant/sol
+/obj/outfit/job/diplomatic_aide/sol
 	name = "Sol Consular Officer"
 
 	accessory = /obj/item/clothing/accessory/sol_pin
@@ -203,6 +203,7 @@
 			SPECIES_UNATHI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_ATTENDANT,
 			SPECIES_VAURCA_BULWARK,
 			SPECIES_VAURCA_BREEDER
 		),
@@ -213,6 +214,7 @@
 			SPECIES_UNATHI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_ATTENDANT,
 			SPECIES_VAURCA_BULWARK,
 			SPECIES_VAURCA_BREEDER
 		)
@@ -274,6 +276,7 @@
 			SPECIES_UNATHI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_ATTENDANT,
 			SPECIES_VAURCA_BULWARK,
 			SPECIES_VAURCA_BREEDER
 		)
@@ -304,6 +307,7 @@
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_ATTENDANT,
 			SPECIES_VAURCA_BULWARK,
 			SPECIES_VAURCA_BREEDER
 		),
@@ -323,6 +327,7 @@
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_ATTENDANT,
 			SPECIES_VAURCA_BULWARK,
 			SPECIES_VAURCA_BREEDER
 		)

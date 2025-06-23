@@ -3,7 +3,7 @@
 	desc = "A phoron-enhanced induction charger hooked up to its attached stationbound's internal cell."
 	desc_extended = "Harnessing the energy potential found in phoron structures, NanoTrasen engineers have created a portable device capable of highly efficient wireless charging. The expense and limit of energy output of using this method of charging prevents it from being used on a large scale, being far outclassed by Phoron-Supermatter charging systems."
 	desc_info = "Click on an adjacent object that contains or is a power cell to attempt to find and charge it. After a successful charge, the inductive charger recharge in a few minutes. The amount transfered can be adjusted by alt clicking it."
-	icon = 'icons/obj/item/tools/inductive_charger.dmi'
+	icon = 'icons/obj/item/inductive_charger.dmi'
 	icon_state = "inductive_charger"
 	item_state = "inductive_charger"
 	item_flags = ITEM_FLAG_HELD_MAP_TEXT
@@ -35,7 +35,7 @@
 		return R.get_cell()
 	return null
 
-/obj/item/inductive_charger/attack(mob/living/M, mob/living/user, target_zone)
+/obj/item/inductive_charger/attack(mob/living/target_mob, mob/living/user, target_zone)
 	return
 
 /obj/item/inductive_charger/afterattack(atom/target, mob/user, proximity_flag, click_parameters)

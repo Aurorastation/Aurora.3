@@ -15,7 +15,6 @@
 
 	assigned_role = "Patrol Crew"
 	faction = "United Planetary Defense Council of Gadpathur"
-	respawn_flag = null
 
 	culture_restriction = list(/singleton/origin_item/culture/coalition)
 	origin_restriction = list(/singleton/origin_item/origin/gadpathur)

@@ -5,6 +5,8 @@
 	icon_state = "plating"
 	is_outside = OUTSIDE_AREA
 
+	explosion_resistance = 1
+
 	// Damage to flooring.
 	var/broken
 	var/burnt
@@ -66,7 +68,7 @@
 //This proc auto corrects the grass tiles' siding.
 /turf/simulated/floor/proc/make_plating(var/place_product, var/defer_icon_update)
 
-	cut_overlays()
+	ClearOverlays()
 
 	if(islist(decals))
 		decals.Cut()
@@ -96,6 +98,10 @@
 /turf/simulated/floor/levelupdate()
 	for(var/obj/O in src)
 		O.hide(O.hides_under_flooring() && src.flooring)
+	if(flooring)
+		layer = TURF_LAYER
+	else
+		layer = PLATING_LAYER
 
 /turf/simulated/floor/is_floor()
 	return TRUE

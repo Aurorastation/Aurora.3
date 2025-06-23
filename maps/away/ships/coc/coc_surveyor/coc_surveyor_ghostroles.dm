@@ -16,7 +16,6 @@
 
 	assigned_role = "Coalition Surveyor"
 	special_role = "Coalition Surveyor"
-	respawn_flag = null
 
 /obj/outfit/admin/coc_surveyor_crew
 	name = "Coalition Surveyor"

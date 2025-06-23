@@ -1,11 +1,12 @@
-var/list/tape_roll_applications = list()
+GLOBAL_LIST_INIT(tape_roll_applications, list())
 
 //Define all tape types in policetape.dm
 /obj/item/taperoll
 	name = "tape roll"
 	icon = 'icons/obj/policetape.dmi'
 	icon_state = "tape"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
+	pass_flags_self = PASSTABLE
 	var/static/list/hazard_overlays
 	var/turf/start
 	var/turf/end
@@ -25,7 +26,7 @@ var/list/tape_roll_applications = list()
 	name = "tape"
 	icon = 'icons/obj/policetape.dmi'
 	anchored = 1
-	layer = 3.1 // Above closed airlocks.
+	layer = BASE_ABOVE_OBJ_LAYER
 	var/lifted = 0
 	var/list/crumplers
 	var/crumpled = 0
@@ -46,7 +47,7 @@ var/list/tape_roll_applications = list()
 /obj/item/tape/police
 	name = "police tape"
 	desc = "A length of police tape.  Do not cross."
-	req_access = list(ACCESS_SECURITY)
+	req_one_access = list(ACCESS_SECURITY, ACCESS_KONYANG_POLICE) // Any role that is considered 'police' and gets this item should also have it's access added to this variable. If this list gets too long we may need to make subtypes.
 	icon_base = "police"
 
 /obj/item/taperoll/medical
@@ -181,24 +182,24 @@ var/list/tape_roll_applications = list()
 		var/obj/item/tape/P = new tape_type(T.x,T.y,T.z)
 		P.forceMove(locate(T.x,T.y,T.z))
 		P.icon_state = "[src.icon_base]_door"
-		P.layer = 3.2
+		P.layer = ABOVE_DOOR_LAYER
 		to_chat(user, SPAN_NOTICE("You finish placing the [src]."))
 
 	if (istype(A, /turf/simulated/floor) ||istype(A, /turf/unsimulated/floor))
 		var/turf/F = A
 		var/direction = user.loc == F ? user.dir : turn(user.dir, 180)
 		var/icon/hazard_overlay = hazard_overlays["[direction]"]
-		if(tape_roll_applications[F] == null)
-			tape_roll_applications[F] = 0
+		if(GLOB.tape_roll_applications[F] == null)
+			GLOB.tape_roll_applications[F] = 0
 
-		if(tape_roll_applications[F] & direction) // hazard_overlay in F.overlays wouldn't work.
+		if(GLOB.tape_roll_applications[F] & direction) // hazard_overlay in F.overlays wouldn't work.
 			user.visible_message("[user] uses the adhesive of \the [src] to remove area markings from \the [F].", "You use the adhesive of \the [src] to remove area markings from \the [F].")
-			F.cut_overlay(hazard_overlay, TRUE)
-			tape_roll_applications[F] &= ~direction
+			F.CutOverlays(hazard_overlay, ATOM_ICON_CACHE_PROTECTED)
+			GLOB.tape_roll_applications[F] &= ~direction
 		else
 			user.visible_message("[user] applied \the [src] on \the [F] to create area markings.", "You apply \the [src] on \the [F] to create area markings.")
-			F.add_overlay(hazard_overlay, TRUE)
-			tape_roll_applications[F] |= direction
+			F.AddOverlays(hazard_overlay, ATOM_ICON_CACHE_PROTECTED)
+			GLOB.tape_roll_applications[F] |= direction
 		return
 
 /obj/item/tape/proc/crumple(var/mob/user)
@@ -235,8 +236,10 @@ var/list/tape_roll_applications = list()
 			crumple(user)
 		if(lifted)
 			animate(src, 1 SECOND, alpha = 150)
+			layer = ABOVE_HUMAN_LAYER
 		else
 			animate(src, 1 SECOND, alpha = initial(alpha))
+			reset_plane_and_layer()
 	else
 		breaktape(null, user)
 

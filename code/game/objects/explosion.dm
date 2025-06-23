@@ -17,7 +17,7 @@
 	SSexplosives.queue(data)
 
 	//Machines which report explosions.
-	for(var/thing in doppler_arrays)
+	for(var/thing in GLOB.doppler_arrays)
 		var/obj/machinery/doppler_array/Array = thing
 		Array.sense_explosion(epicenter.x,epicenter.y,epicenter.z,devastation_range,heavy_impact_range,light_impact_range)
 
@@ -31,21 +31,3 @@
 	d.epicenter = T
 	d.rec_pow = power
 	SSexplosives.queue(d)
-
-/atom
-	var/explosion_resistance
-
-/turf/space
-	explosion_resistance = 3
-
-/turf/simulated/open
-	explosion_resistance = 3
-
-/turf/simulated/floor
-	explosion_resistance = 1
-
-/turf/simulated/mineral
-	explosion_resistance = 2
-
-/turf/simulated/wall
-	explosion_resistance = 10

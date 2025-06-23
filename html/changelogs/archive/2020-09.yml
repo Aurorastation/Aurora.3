@@ -1,0 +1,667 @@
+2020-09-01:
+  Geeves:
+  - rscadd: Implements Crystal Agitators, machines that agitate asteroid turf to form
+      chemical crystals. Check the communal out.
+  - tweak: You can now dump the contents of a storage item into a disposal bin, by
+      clicking on it on any intent other than harm. Doing so on harm will place the
+      storage item in too.
+  - rscadd: Shaft miners now start with a mining coin that can be redeemed at a mining
+      vendor to get enhanced equipment, such as a starter hand-held mining drill or
+      an upgraded power converter, instead of spawning with a non-functional upgrade
+      in a toolbox.
+  - rscadd: Mech clamps can now be used to force open airlocks and firedoors. Welding
+      and bolting affects how long it will take and how loud the action will be.
+  Hocka:
+  - bugfix: Windoors can no longer be obnoxiously spammed to open them.
+  - bugfix: Fixed the compressed matter implanter trying to scan it's own implant
+      when trying to put it back in.
+  - tweak: Items that were canned by a compressed matter implanter can now be returned
+      by activating the implanter in hand and using a screwdriver on the implant.
+  - tweak: The compressed matter implant listing on the uplink now has a more accurate
+      description for retrieving scanned items.
+  MattAtlas:
+  - bugfix: Vending machine sounds now actually work.
+  Sparky_Hotdog:
+  - bugfix: All medical and security HUDs now display records on examining.
+  The Stryker:
+  - bugfix: Earther and Europan accents added to all IPC subspecies.
+  Wowzewow (Wezzy):
+  - bugfix: Hoodie/Wintercoat hoods should render properly above masks, glasses and
+      other accessories. Go wear a balaclava with a hoodie, why won't you?
+  kermit:
+  - rscadd: The majority of medicinal chemicals have added side-effects - nothing
+      too disruptive.
+  - rscadd: Added a variety of overdoses to chemicals that were lacking overdoses.
+  - rscadd: Some medications now contraindicate one another and should not be taken
+      together.
+  - rscadd: Certain chemicals have been totally overhauled to make them more unique
+      or enjoyable to use.
+  - tweak: Overdoses are now triggered by volume in the blood and by a small metabolised
+      dose of the drug (defaulting to 5 units).
+  - tweak: The default OD threshold is now 20u. Poor communication between doctors
+      is now more likely to result in ODs.
+  - tweak: Alkysine and Cataleptinol will now actually heal the brain at varying rates,
+      as opposed to both treating the same amount of low damage.
+  - tweak: The default chemical transfer rates of RIG injectors, Medibots and bottles
+      have been reduced to allow more precise dose measurements.
+  - tweak: More medical chemicals will appear on medical scans as opposed to being
+      registered as unknown substances.
+  - rscadd: Introducing Butazoline, the dermaline equivalent for treating brute injuries.
+      It cannot treat arterial bleeding like Bicaridine, however.
+  - tweak: Saline is now the chief blood restorative medication and only works intravenously
+      at a medium transfer rate.
+  - tweak: Iron/Copper/Sulphur pills now restore blood at half their previous rate.
+  - tweak: Any combination of mortaphenyl, oxycormorphine and alcholic beverages will
+      be dangerous. Don't mix them.
+  - tweak: Dexalin Plus overdoses are now extra toxic to vaurcae - too much oxygen
+      for their gas exchange system to handle at a time.
+  - tweak: Soy Sauce is now made with salt instead of sulphuric acid.
+  - tweak: Brute First-Aid Kits have had their contents shuffled about to include
+      a health analyser and 2 bicaridine pills.
+  - rscadd: Added Mercury, Neurapan and Spectrocybin to the random toxins list which
+      can spawn in maintenance or a traitor toxin kit.
+  - rscadd: You can now purchase Sideeffect-Be-Gone autoinjectors from the Traitor
+      Uplink. Combat Medical Kits also contain 1 of these autoinjectors.
+  - tweak: Pill bottles which spawn at round-start and in kits now have the dosage
+      of the pills on the label to prevent accidental overdoses.
+  - spellcheck: Some chemical typos have been fixed. Uncapitalised chemicals have
+      been capitalised.
+  - tweak: You can find all of the chemical changes on the feedback thread (https://forums.aurorastation.org/topic/14761-full-chem-rework-feedback-thread/)
+      while the chemistry wiki page is out of date.
+2020-09-02:
+  Aboshehab:
+  - bugfix: Eldritch voidsuit will now properly display the sprite when worn.
+  - bugfix: Updated Lucky Strike to Laissez-Faires for loadout selection.
+  Code by Geeves, Sprites by Kyres:
+  - tweak: Reduced the damage cult swords do, 25 down from 30.
+  - backend: Added some adminspawn cult things.
+  Ferner:
+  - bugfix: Fixed the burglar shuttle getting stuck when docking at blue dock.
+  - bugfix: Fixed an inconsistency with access requirements at the Beta solar array.
+  Geeves:
+  - bugfix: Cargo mechs can no longer spawn with cult mech pieces.
+  MattAtlas:
+  - bugfix: The incapacitation rune should now work properly.
+  MoondancerPony:
+  - experiment: Overhauls cooking!
+  - tweak: Recipes can now call for sliced, dried, or sliced and dried fruit.
+  - bugfix: Fixes the issue with plants showing up as labelled with a piece of paper.
+  - bugfix: Fixes a logic error with condiment bottles.
+  - imageadd: Adds new sprites for Adhomian plants.
+  - refactor: Recipes are now spread out across more files.
+  - refactor: Seed datums are now spread out across more files and categorised.
+  - rscadd: Adds a new appliance to the kitchen, the stove.
+  - rscadd: Adds bowls and plates, which can be used to create mixing-based recipes,
+      similar to the microwave. Drag it to yourself to finalise a recipe.
+  - rscadd: Adds new flavoring syrups, as well as simple syrup.
+  - rscadd: 'Adds several new Adhomian foods: Nomad skewers, fatshouter blood pudding,
+      and fermented hma''trra.'
+  - rscadd: 'Adds several new foods from the Jargon Federation: lortl, xuq''qil, zantiri,
+      and qilvo.'
+  - rscadd: Adds several new kinds of flavored latte.
+  - rscadd: 'Adds several new plants from the Jargon Federation: q''lort, guami, eki,
+      and ylpha.'
+  - rscadd: 'Adds three new cooking containers to the kitchen: skillets, saucepans,
+      and pots. All three can be put on the stove.'
+  - rscadd: Ports sushi from Baystation.
+  - rscadd: You can smack people with (empty) frying pans on harm intent.
+  - rscdel: Microwaves have been removed.
+  - rscdel: Oil no longer uses a data-based temperature system; instead it works like
+      any other reagent.
+  - rscdel: Sandwiches can no longer contain glass shards, in preparation for an upcoming
+      rework/expansion.
+  - tweak: A lot of recipes have changed.
+  - tweak: Appliances can now hold multiple types of cooking containers; this is currently
+      only used by the stove.
+  - tweak: Appliances now heat reagents in cooking containers.
+  - tweak: Changes the pumpkin spice latte recipes to use pumpkin spice flavoring
+      syrup.
+  - tweak: Preheating appliances takes much less time.
+  - tweak: Toggle the power of appliances and change their temperature with control-click.
+  - tweak: Tray sounds now get chosen randomly (except for gun jams).
+  - tweak: You can now set the temperature of appliances.
+  - bugfix: Readds the recipes for diona stew and diona soup.
+  Wowzewow (Wezzy):
+  - rscadd: Readds sounds for sealing and unsealing Rig modules.
+  - imageadd: Fixes shading and missing inhands for high skirt. Adds skater skirt
+      and tube skirt.
+  - rscdel: Some clothes have been replaced. Namely, the green dress, pink dress,
+      dark red dress, crop dress, crop top and blue dress.
+  - rscdel: Accessories replaced are the red ribbon, pink pins, and white ribbon.
+      Check your loadout to re-make them.
+  - imageadd: Beanies and some accessories have been resprited.
+  - rscadd: Adds cropped shirts and dress shirts, as well as a blouse.
+  - rscadd: Magnet pins are now colorable.
+2020-09-03:
+  Alberyk:
+  - rscadd: Added a generic photo item to the custom loadout.
+  Ferner:
+  - rscadd: Greatly expanded the raider starting clothing/gun variety. They'll now
+      have a chance of getting almost any gun in the game, but don't expect auto-revolvers
+      or nuke launchers every single time.
+  Geeves:
+  - bugfix: Simple mobs can now be pointblanked instead of whacking them.
+  Hocka:
+  - tweak: Bluespace turfs no longer emit light.
+  Wowzewow (Wezzy):
+  - rscadd: Fixes missing item sprites for blouses and cropped shirts.
+2020-09-04:
+  Ferner:
+  - bugfix: The medical examrooms are no longer the same area.
+  Geeves:
+  - bugfix: Fixed the Chemistry Codex' access problem. People with access to medical
+      OR research should now be able to download/access it.
+  TheDocOct, The Stryker:
+  - rscadd: Added a new variant of the Central Command airlock with glass windows,
+      for future use.
+  - tweak: Switched the 'loading area' floor decal to a colorable greyscale, allowing
+      various colors of the decal rather than just yellow.
+  - imageadd: New NT flagpost sprite, more in line with existing NT flags and banners,
+      by The Stryker
+  kyres1:
+  - tweak: Resprited all stationside departmental voidsuits.
+  - tweak: Resprited the ninja RIG.
+  - bugfix: Fixed syndicate suit in-hand sprites.
+2020-09-05:
+  Alberyk:
+  - rscadd: Added blizzard ears seeds to the seed storage and vending machines.
+  Ferner:
+  - bugfix: Fixed the large Coalition of Colonies flag not displaying its rightmost
+      part.
+  Snakebittenn:
+  - rscadd: Refluffed and renamed pioneer scarf to scarab scarf. It's not for you,
+      Generic McOffworlder.
+2020-09-06:
+  Ferner:
+  - bugfix: Raiders now can access the eva rig in their ship.
+  Wowzewow (Wezzy):
+  - rscadd: Makes w_class use the defines instead.
+2020-09-07:
+  Arrow768:
+  - rscadd: Updates the targeting algorithm of turrets so they are a bit more difficult.
+  Ferner:
+  - bugfix: Removed a remaining source of mesons on the construction level.
+  Geeves, Kyres:
+  - rscadd: Research has been given a new pet, Ives, the tame baby harvester hivebot.
+  Hocka:
+  - bugfix: The normal description of thermal aviators is now the same as standard
+      aviators so that they aren't given away so easily.
+  - rscadd: Thermal aviators now have an antag-specific description.
+  MattAtlas:
+  - bugfix: Drinking glasses, wine bottles and such now shatter when thrown.
+  - bugfix: Beakers now properly shatter when thrown as well.
+  - bugfix: Reagent containers should break properly when hit. Be careful when pouring
+      drinks, don't use harm intent.
+  - bugfix: Fixes no-client human pain emotes not working.
+  Skull132:
+  - bugfix: Reload Admins will now update the admins from the forumsuser API when
+      enabled.
+  - bugfix: admins.txt will now accommodate more complex rank names, specifically
+      ones with spaces and other special characters.
+  Snakebittenn:
+  - tweak: Rolls a lot of loadout items under selections.
+  - rscdel: Removes fake sunglasses from the loadout.
+  - rscdel: Removes red/purple berets from the loadout.
+  - rscdel: Removes kimono from the loadout.
+  - rscdel: Removes armor values from winter coats.
+  - rscdel: Removes mailman hat from the loadout.
+  - bugfix: Unathi forward demon horns now look right.
+  - bugfix: Fingerless gloves work right again.
+  - bugfix: Orange goggles and science goggles are pickable again.
+  Sparky_hotdog:
+  - bugfix: Fixed the replica katana not having back, belt or in-hand sprites.
+  Wowzewow (Wezzy):
+  - rscadd: Refactors how button toggling on coats work.
+  - bugfix: You can now unbutton/button your coats while buckled to a chair.
+  - tweak: Labcoat open/close item states have been aligned.
+  - rscdel: Detective technicolor trenchcoat has been removed for being criminally
+      unused and outclassed by other trenchcoats.
+  - rscdel: Detective technicolor hat has been removed as well for the same reasons.
+  - rscdel: Hastur hood has been removed.
+  - rscdel: Paint buckets have been removed for being practically unused.
+  - bugfix: Sechuds and medhuds should no longer be jumbled up now.
+  - bugfix: Wallets are actually re-colorable now.
+  - balance: Flash proof sunglasses have been job restricted again. This is mainly
+      to avoid powergaming issues.
+  - rscadd: Non-flash proof sunglasses have been readded.
+2020-09-08:
+  Alberyk:
+  - bugfix: Fixed balaclavas having no sprites when worn by tajara and unathi.
+  - tweak: Increased the material price for the combat and heavy exosuit parts.
+  - tweak: Heavy exosuit parts now require more research levels to unlock.
+  - bugfix: Fixed the quartermaster missing his own uniform.
+  - bugfix: Fixed the IAC vest having no worn sprite.
+  Alberyk, Thelancer:
+  - rscadd: Reworked NanoTrasen medals and awards.
+  Ferner:
+  - bugfix: Made sure carp and cavern dwellers no longer are robots in disguise.
+  FirinMaLazors:
+  - rscadd: Added ashtrays to the bar.
+  Hocka:
+  - tweak: RMT supplements are now 30 units by default (was 15).
+  - tweak: RMT now metabolises twice as slowly and overdoses at 40 units (was 20).
+  - bugfix: Offworlders no longer get two pill bottles if they spawn on the Odin.
+  MattAtlas:
+  - bugfix: Pain movement slowdown now properly takes species health into account.
+  Snakebittenn:
+  - bugfix: Scanning goggles are now pickable again.
+  - bugfix: Blouses are available again.
+  - bugfix: Starshades are too.
+  Wowzewow (Wezzy):
+  - bugfix: Command staff can now get sunglasses again as per last time.
+  - bugfix: Descriptions have been fixed for sunglasses and stylish sunglasses.
+2020-09-09:
+  Alberyk:
+  - bugfix: Fixed the autochisel having no sprite.
+  Arrow768:
+  - bugfix: Fixes users of the blind talisman getting deleted after using it.
+  Ferner:
+  - bugfix: Fixed standard airlocks becoming shuttle ones for a split-second on occasion,
+      and others disappearing.
+  - maptweak: Added a small disposal bin by the entrance of hydroponics as the other
+      one was far away from the main work area.
+  Geeves:
+  - rscadd: Added face paint for unathi, a singular stripe across the eyes.
+  Wowzewow (Wezzy):
+  - rscadd: Adds a recolorable submariner's coat to the loadout. Europan lore!
+  - rscadd: Adds a new subtype to toggleable storage suits - the overlay. Allows for
+      both a constant and a variable color in a colorable coat.
+2020-09-10:
+  Aboshehab:
+  - bugfix: Idris contractors working as Forensic Technicians can now select the idris
+      security sleeve patch from the loadout.
+  Alberyk:
+  - bugfix: Fixed voidsuits having no worn icons.
+  Ferner:
+  - bugfix: Ninjas can now access the rhino suit properly if they decide to purchase
+      it.
+  Hocka:
+  - bugfix: Offworlders and Vaurca no longer spawn without their essentials on the
+      Odin.
+  NewOriginalSchwann, TheBurninSherman, The Stryker:
+  - rscadd: Adds a Europan whale bone charm and induction lighter. Flavor texts provided
+      by the human lore team.
+  Sparky_Hotdog:
+  - bugfix: You no longer pick up or drop plates and bowls when you finish them with
+      cutlery.
+  - bugfix: Mass spectrometers now show the IC name for any reagents, not their object
+      path.
+  - bugfix: Diona nymphs now have the default diona accent.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes Europan coat collars.
+2020-09-11:
+  Aboshehab, Stryker, Wowzewow:
+  - rscadd: Added a black beret for the Head of Security, courtesy of Stryker. Now
+      found in the loadout and relevant lockers.
+  - rscadd: Added black hats for both the Warden and Head of Security, courtesy of
+      Wowzewow.
+  - rscadd: Added a crowbar and handcuffs to the Head of Security locker.
+  - tweak: Adjusted the loadout for headwear for both the Warden and Head of Security
+      to be selection based from a list to condense tab size.
+  - tweak: Hats for the Head of Security and Warden that once had armor values no
+      longer do, becoming regular headwear.
+  Alberyk:
+  - rscadd: Added a door hacker to the ninja tesla hardsuit.
+  - rscadd: Buying a tesla rig as a ninja will now spawn a tesla spine augment injector.
+  Crosarius, Arrow768:
+  - rscadd: Implements a multi-mode disruptor pistol to the security arsenal. This
+      weapon replaces the security taser and .45 pistol as the primary sidearm of
+      Security Officers and comes with a wireless-control firing pin.
+  - rscadd: Replaces the detective's current ballistic sidearm with a disruptor pistol,
+      and adds a disruptor pistol to the CSI/FT locker for their own protection as
+      well.
+  - rscadd: Replaces the outdated energy pistols belonging to Command staff who have
+      them, the Warden, NT-affiliated Liasions, and ERT Protection Detail with disruptor
+      pistols.
+  - rscadd: Implements a wireless-control restricted firing pin, which by default
+      will only allow weapons to be fired on stun until the alert level is sufficiently
+      elevated. These firing pins can be controlled remotely the firearms control
+      program located on security consoles, provided you have an armory-level access
+      ID.
+  - maptweak: Moves the .45 pistols and rubber .45 magazines from the Security Officer
+      secure lockers to the armoury.
+  Ferner:
+  - tweak: Antag shuttles now warn the pilot that they cannot return to Aurora if
+      they go back to base.
+  Geeves:
+  - bugfix: Borg drills no longer have an invisible sprite.
+  Sparky_hotdog:
+  - bugfix: Selecting Safety Goggles in loadout preferences now gives you safety goggles,
+      not prescription glasses.
+  The Stryker, TheNewOriginalSchwann:
+  - rscadd: Added sake, soju, Himean mushroom vodka, and makgeolli to the Booze-O-mat.
+  - rscadd: Added riceballs, ricetubs, and Konyang moss packets to the Getmore snacks
+      machine.
+  Wowzewow (Wezzy):
+  - bugfix: Levering off tiles should play the correct sound now.
+  - bugfix: Wired glass shows the correct sprite.
+  kyres1:
+  - rscadd: Resprited a bunch of uniforms.
+2020-09-12:
+  Alberyk:
+  - rscdel: Removed lichdom from the necromancer spellbook.
+  Arrow768:
+  - bugfix: Fixes the guntracker program missing the modular computer header.
+  Ferner:
+  - bugfix: The merchant station will now vent properly when exposed to space.
+  Geeves:
+  - bugfix: Fixed lings not absorbing people into their internal hivemind when absorbing
+      their DNA.
+  MoondancerPony:
+  - bugfix: Appliances now properly cool down.
+  - bugfix: Chicken nuggets now spawn with reagents.
+  - bugfix: Custom food size prefixes are now in the right place.
+  - bugfix: Custom foods no longer change size after being eaten.
+  - bugfix: Meat buns now use the right appliances.
+  - bugfix: Mixers now actually cook things.
+  - bugfix: Sugar no longer caramelises when you're baking.
+  - bugfix: You no longer get fortune cookies when trying to make pies.
+  - tweak: Virus food now needs sugar to avoid conflicts with some recipes.
+  - tweak: Certain containers have been made larger to fix some uncraftable recipes.
+  - backend: The check_* procs for recipes now use defines.
+  Snakebittenn:
+  - bugfix: Fixes missing accuracy on Security blasters.
+2020-09-13:
+  Ferner:
+  - tweak: The preview window now shows the character closer up, and the backgrounds
+      are now different types of flooring found on Aurora.
+  - bugfix: Fixes tcfl members being unable to access welding closets.
+  - balance: Bumped up the rarity of the pulse pistol and gyropistol in the random
+      gun pool.
+  - bugfix: Mechs will now handle their part layering a bit more sanely, fixed the
+      mounted rapidfire blaster being stuck on the wrong firing mode.
+  FirinMaLazors:
+  - rscadd: Changed all instances of R&D Root Beer to RnD Root Beer to avoid NanoUI
+      having a fit when you try to dispense it from the NanoUI.
+  Wowzewow (Wezzy):
+  - rscadd: Adds audiovisual feedback for pulling.
+  - soundadd: Adds new sounds for grabbing.
+  - rscadd: Adds Taoism religion.
+  - rscdel: 'Removes hoodies that are given to you when spawned on the ODIN. '
+  kyres1:
+  - rscadd: Alters every single mech piece sprite, and all equipment.
+  - rscadd: Added a superheavy mech type that is adminspawn only.
+  - rscadd: Added industrial quadlegs, heavy thrusters, and light thrusters to the
+      robotics fabricator.
+  - tweak: 'Changed the attributes of the combat pieces for mechs, rebalancing them
+      significantly. '
+  - tweak: Clarifies the purpose of a bunch of mech parts in descriptions.
+2020-09-14:
+  Ferner:
+  - bugfix: Apparitions can no longer summon apparitions.
+  - bugfix: Fixed burglars spawning with raider stuff.
+  FirinMaLazors:
+  - bugfix: Makes cutting up fish into sashimi delete the fish.
+  Geeves:
+  - rscadd: You can now open the integrated circuit menu by clicking on your assembly
+      with a multitool.
+  - rscadd: The multitool no longer needs to be in your active hand to work on integrated
+      circuits, but your active hand will take preference.
+  - rscadd: Various HTML UIs have been altered to take style into account, many of
+      them should look better across the board.
+  - rscadd: The station blueprints now has a disorganized colour-coded wiring diagram
+      for vending machines and airlocks.
+  - tweak: Tank dispensers now apply stylesheets to the UI, so it should look a bit
+      better now.
+  - rscadd: Tank dispensers output tanks into one of your open hands, if possible.
+2020-09-15:
+  Ferner:
+  - bugfix: Mechs constructed from the ground up now layer its parts correctly.
+  Geeves:
+  - tweak: Zo'ra Consulars now get filter ports instead of odd looking breath masks.
+  Hocka:
+  - bugfix: Admin logs now state accurate user information when Particle Accelerators
+      are activated via wire pulsing/mending.
+  The Stryker, Mwahahahaha:
+  - rscadd: Adds a colorable armband to the loadout by Mwahahahaha as well as an Idris
+      armband.
+  - rscadd: Adds a bucket hat, jumper dress and jumper skirt (skirt selection) with
+      flavor text provided by NiennaB to the loadout.
+  - rscadd: Adds a Fisanduh accent for humans only, description provided by NewOriginalSchwann.
+  - rscadd: Adds a grey Himean coat to the loadout.
+2020-09-16:
+  Stryker & Snakebittenn:
+  - rscadd: Adds a Europan whale bone smoking pipe.
+  The Stryker:
+  - bugfix: The Idris armband in the loadout actually spawns now.
+2020-09-17:
+  Aboshehab:
+  - tweak: Ablative armor Energy protection raised from 10 to 40.
+  Alberyk, Kyres1:
+  - rscadd: Head of personnel's miniature disruptor pistol has been replaced by a
+      regular disruptor pistol.
+  - rscadd: Detective's disruptor pistol has been replaced by a miniature disruptor
+      pistol.
+  - rscadd: Added new icons for the disruptor pistols.
+  Geeves:
+  - rscadd: Diona structures can now be attacked by regular weapons to damage and
+      destroy them.
+  - bugfix: Alien vines have been renamed to biomass vines, and can now be attacked
+      and welded to destroy them.
+  - tweak: Diona walls now spawn vines when ripped apart, instead of nymphs. It should
+      help with lag when many are erected.
+  - bugfix: Chainsaws now have the correct damage values when powered on.
+  - rscadd: Biomass floors can now be sprayed with plant-b-gone to remove them.
+2020-09-18:
+  Ferner:
+  - rscadd: Added buttons to hide your character's loadout and/or job clothing in
+      the character preview.
+2020-09-19:
+  DanseMacabre:
+  - imageadd: Changed the STS, WT-550, gauss gun, and blaster sprites.
+  - balance: Full auto nerf, rifle damage buff.
+  FirinMaLazors:
+  - rscadd: Fixes airlock deconstruction to only needs the bolts to be cut if the
+      bolts are down and the door is broken.
+  - rscadd: Re-adds the emag bolting doors open and breaking them, instead of just
+      opening them and breaking them.  Can't be stopping security because you have
+      a crowbar and they don't, now.
+  - bugfix: Fixes aciding an item so that the moltem item spawns on the turf instead
+      of the loc, and the 'The x melts.' message is broadcasted from the turf.  In
+      case we melt a bucket inside of a chemistry dispenser.
+  - bugfix: Adds a sanity check to the nanoui of the chemical dispenser to delete
+      the container var if it's... been deleted... so that we don't try read from
+      a null reagents datum and crash the chemical dispenser for a few minutes.
+  - bugfix: Fixes a typo in the mop bucket code - mobbuckets are, unfortunately, not
+      real.  Yet.
+  Geeves:
+  - tweak: Consular Officer and Corporate Liaison has been split into two separate
+      jobs with their own slots.
+  - rscadd: Lings can now use their armblades to break open welded scrubbers and air
+      vents.
+  Geeves, Kyres:
+  - rscadd: Added a new gamemode, Magistake, where a group of four rookie mages take
+      the skipjack on a joyride to the station.
+  - tweak: Magical staves now show their ammo on the HUD.
+  - tweak: Magic missile no longer targets fellow magic users.
+  The Stryker:
+  - imageadd: Adds a sprite for the buckethat that won't clip with tajara ears.
+2020-09-20:
+  Alberyk:
+  - bugfix: Fixed the .45 magazines having no proper sprite.
+  Geeves:
+  - rscadd: Cleaned up some Shield Generator code, and added some text to generated
+      shields being hit by projectiles, making it more clear that projectiles can
+      dissipate those shields.
+  - rscadd: Added a version of the unathi big horn that has no side horns.
+  The Stryker, NewOriginalSchwann:
+  - rscadd: Adds a Gadpathur accent with description by Schwann.
+2020-09-21:
+  Alberyk:
+  - tweak: Removed the reagent that turns people into slime people from xenobiology,
+      it was replaced by a slime reaction that teleports all non anchored objects
+      around.
+  - tweak: Removed the phoron spawner slime reaction, it was replaced by the one that
+      summons rare materials.
+  - tweak: Changed a couple of slime reactions to use water or blood instead of phoron,
+      phoron is now only used for more powerful reactions.
+  Ferner:
+  - tweak: Tweaked the behavior of carp/cavern dwellers to only destroy things like
+      windows when they see a target.
+  - tweak: Tweaked the chances a couple of major events.
+  - bugfix: Carp no longer attack invisible shields that are depleted of strength.
+  TheDocOct:
+  - balance: Removed the AI's remote mech unit at round start and tweaked its charger
+      positioning; the AI can still receive and operate remote mechs added to its
+      network by robotics.
+  mikomyazaki:
+  - tweak: Closets, chairs, etc. without a mob inside/buckled will not cause a slowdown
+      when being dragged.
+  mikomyazaki & MattAtlas:
+  - experiment: Players now have vision cones, preventing seeing mobs in a 90 degree
+      arc behind themselves, unless that mob is grabbing you.
+  - rscadd: You can adjust the darkness of your FOV cone in the global preferences
+      menu of character setup.
+  - tweak: Diona do not have vision cones.
+  - admin: Bluespace Technicians do not have vision cones, and have a verb to toggle
+      it.
+  - tweak: You now walk slower if you are moving in the direction opposite to your
+      facing direction.
+  - tweak: The Face Direction verb now only prevents you from changing direction with
+      the movement keys, clicking will allow you to change your facing direction in
+      this mode.
+  - rscadd: There are now 'Visible Emote' and 'Audible Emote' verbs in the IC tab.
+      Please note that visible emotes will not be visible if they originate from a
+      mob inside your blind-spot.
+2020-09-22:
+  Alberyk:
+  - tweak: Changed the antique sniper rifle and the vintage submachine gun names and
+      descriptions to something more lore friendly.
+  - bugfix: Fixed recoil messing with zooming.
+  The Stryker, NewOriginalSchwann:
+  - rscadd: Adds Moroz Holy Tribunal clothing (dominian robes, berets, amulets and
+      capes) to the loadout under the religious tab. Descriptions by Schwann.
+2020-09-23:
+  Geeves:
+  - bugfix: Fixed upgraded entangle not allowing you to select targets.
+  - rscadd: Added vine binding handcuffs that prevent the user from just unbuckling
+      out of the entangle spell.
+  Geeves, Sue:
+  - rscadd: Lings can now evolve the ability to release members of their internal
+      hivemind as morphs at the cost of their arm. The ability itself costs two genome
+      points.
+  - rscadd: Added morphs, creature capable of assuming the form of any object.
+  - tweak: Messages spoken in the internal hivemind will automatically be capitalized
+      and punctuated. Also improved the colour for readability.
+  - bugfix: Fixed the script error in the Changeling DNA buy menu, improved the look
+      of it.
+  Hocka:
+  - rscadd: The Particle Accelerator's controller now has some text when viewing the
+      wires to make tampering a bit more obvious.
+  - tweak: Removes the interface wire from the Particle Accelerator's controller as
+      it was functionally just a second blank wire.
+  - tweak: Cutting and mending the Particle Accelerator controller's strength wire
+      no longer decreases the strength and just prevents you from changing the strength
+      of the accelerator.
+2020-09-24:
+  Ferner:
+  - bugfix: Makes it so the knock spell can no longer be used to access admin areas
+      on the centcomm z-level.
+  Geeves:
+  - bugfix: Re-adds Diona and Vaurca food recipes.
+  MattAtlas:
+  - rscadd: Ported a new chat system, Goonchat, that allows for cool things like changing
+      font style, size, spacing, highlighting up to 5 strings in the chat, and DARK
+      MODE.
+  - rscadd: Repeated chat messages can now get compacted. You can disable this in
+      goonchat settings.
+  - rscadd: You can change icon style to any font on your system.
+  - tweak: The game window has been altered a bit to adjust for this.
+  - rscdel: Removed skin style prefs as they are no longer used.
+  The Stryker:
+  - rscadd: Adds a schlorrgo lunchbox (patriotic lunchbox) to the loadout. Description
+      by Alberyk.
+  Wowzewow (Wezzy):
+  - rscadd: Adds departmental bandanas.
+2020-09-25:
+  Geeves:
+  - bugfix: Changes the AOOC colour to be readable in both dark and light mode.
+  - bugfix: Morphs should now properly receive their guide to morph in the chat log
+      when they are released as one.
+  - tweak: Tweaks various UIs, especially suit sensor monitoring, crew record, and
+      gun tracker programs.
+  - tweak: Tweaked how buttons look, making them more rounded and without a hard border,
+      like TGUI.
+  - rscadd: Added an eject occupant button to the bodyscanner, as well as some sounds
+      to accompany it.
+  - tweak: Improved the code for making the RFD-Crossbow. You no longer have to keep
+      the RFD-C in your hand, and it can be done with a finished crossbow, as long
+      as it's unloaded.
+  - tweak: Being pinned to a wall no longer spams your chat when you try to move.
+  - bugfix: Crafted crossbows no longer have a safety, and the RFD-Crossbow now properly
+      shows its ammo when examined.
+  - rscadd: Added sounds to a lot of crossbow actions.
+  - rscadd: Thrown and launched objects can now hit mobs that are lying down, if you
+      clicked on them directly.
+2020-09-26:
+  MattAtlas:
+  - rscdel: The crush verb has been removed from G2 IPCs.
+2020-09-27:
+  Ferner, Happy_Fox:
+  - imageadd: Changed the holopad sprite, tweaked the sprites of vents and scrubbers
+      a little bit.
+  GMR25:
+  - balance: Reduced the price of gimmick crates in the uplink (Gear Loadout/Corporate
+      Equipment).
+  Geeves:
+  - bugfix: Fixed guns not having their fire delays properly applied.
+  - bugfix: Fixed HUD ammo displays being lopsided when ammo counts were between 20
+      and 9.
+  - bugfix: Fixed some armbands not flipping correctly on the mob sprite.
+  - rscadd: The NDV Icarus has recalibrated their cannons, bringing with it a new
+      exciting version of the meteor wave event.
+  - bugfix: Shotgun ammo HUDs now properly update when racking the gun.
+  - rscadd: Ported a modified human UI from Bay/Europa with minor edits.
+  - rscadd: Added sounds to becoming an antagonist, so people who are alt-tabbed are
+      aware of it.
+  - bugfix: Catching fragile containers no longer causes them to shatter.
+  - bugfix: Catching items no longer plays the hit by thrown item sound.
+  - rscadd: Added sounds and an animation to hitting space vines.
+  - tweak: Sharp or edged items now deal double damage against vines, which makes
+      high damage weapons better for vine clearing.
+  - tweak: Attacking plants no longer produces a visible message.
+  - rscadd: Pod Survivors now spawn with an active flare below them.
+  - bugfix: EPMC survivors now spawn with oxygen tanks.
+  - rscadd: Added tooltips to certain cooking equipment when you're within two tiles
+      of it.
+  - rscadd: Cleanable messes that appear on space tiles now fade away in five seconds.
+  - bugfix: Fixes ammo 'duplication' when stacking ammo from a storage container.
+  - bugfix: Fixes ammo piles not taking the correct ammo types.
+  - bugfix: Cooking appliance tooltips only appear when you shift hover over them,
+      instead of popping up wildly as you hover across the kitchen.
+  - bugfix: Vaurca and offworlders now spawn with their inhalers and pills even if
+      their backpacks are full of loadout gear.
+  Skull132:
+  - backend: Allow the game to load resources from external websites, which should
+      speed things up.
+  The Stryker, NewOriginalSchwann:
+  - rscadd: Adds Gadpathurian clothes (uniform, hats, cadre brassards, overcoat) under
+      their appropriate categories in the loadout. Descriptions done by Schwann.
+2020-09-28:
+  Alberyk:
+  - bugfix: Fixed robotic simple mobs exploding into organic gibs when being gibbed.
+  - tweak: Lanterns' lights are no longer directional.
+  Ferner:
+  - bugfix: Fixed the ship debris announcement playing during standard meteor showers.
+  FirinMaLazors:
+  - rscadd: Changes IV drips' density to 0 so you don't bump into the darn things..
+  Flpfs:
+  - bugfix: When Hakhma milk cans were crushed, they would go invisible due to no
+      sprite, this has been fixed.
+  Geeves:
+  - bugfix: Fixed there not being a delay when full auto firing a gun.
+  - bugfix: Fixed vaurca being unable to use their big martial art combo due to grab
+      requirements.
+  - tweak: Hacktools now hack in 10 seconds on average, rather than 30 seconds.
+  - bugfix: Hacktools can now be put into storage items while in hacking mode.
+  - tweak: Disruptors now have a firing delay of 0.8s.
+  Wowzewow (Wezzy):
+  - rscadd: Adds departmental caps.  Check your loadouts.
+2020-09-29:
+  Wowzewow (Wezzy):
+  - rscadd: Adds departmental caps.  Check your loadouts.
+  - bugfix: You should only be able to crumple trashable items on harm intent now.
+  - bugfix: Rainbow caps should display their sprites correctly now.
+  mikomyazaki:
+  - bugfix: Faction job-species blacklists will no longer be nulled under some circumstances,
+      allowing invalid job-species combinations.

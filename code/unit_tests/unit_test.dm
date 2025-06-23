@@ -25,24 +25,15 @@
  */
 
 
-var/all_unit_tests_passed = 1
-var/unit_tests_failures = 0
-var/total_unit_tests = 0
-
-// For console out put in Linux/Bash makes the output green or red.
-// Should probably only be used for unit tests/Travis since some special folks use winders to host servers.
-var/ascii_esc = ascii2text(27)
-var/ascii_red = "[ascii_esc]\[31m"
-var/ascii_green = "[ascii_esc]\[32m"
-var/ascii_yellow = "[ascii_esc]\[33m"
-var/ascii_reset = "[ascii_esc]\[0m"
+GLOBAL_VAR_INIT(all_unit_tests_passed, TRUE)
+GLOBAL_VAR_INIT(unit_tests_failures, 0)
+GLOBAL_VAR_INIT(total_unit_tests, 0)
 
 
 // We list these here so we can remove them from the for loop running this.
 // Templates aren't intended to be ran but just serve as a way to create child objects of it with inheritable tests for quick test creation.
 
-/datum/unit_test
-	abstract_type = /datum/unit_test
+ABSTRACT_TYPE(/datum/unit_test)
 	var/name = "template - should not be ran."
 	var/disabled = 0        // If we want to keep a unit test in the codebase but not run it for some reason.
 	var/async = 0           // If the check can be left to do it's own thing, you must define a check_result() proc if you use this.
@@ -76,11 +67,11 @@ var/ascii_reset = "[ascii_esc]\[0m"
 		if(LOG_UNIT_TEST_DEBUG)
 			severity = "\[\[ DEBUG \]\] "
 		if(LOG_UNIT_TEST_INFORMATION)
-			severity = "[ascii_green] *** NOTICE *** [ascii_reset] "
+			severity = TEST_OUTPUT_GREEN(" *** NOTICE *** ")
 		if(LOG_UNIT_TEST_WARNING)
-			severity = "[ascii_yellow] === WARNING === [ascii_reset] "
+			severity = TEST_OUTPUT_YELLOW(" === WARNING === ")
 		if(LOG_UNIT_TEST_ERROR)
-			severity = "[ascii_red] !!! FAILURE !!! [ascii_reset] "
+			severity = TEST_OUTPUT_RED(" !!! FAILURE !!! ")
 	#else
 
 	// We are running off Travis, which means github (or someone fucked up very badly)
@@ -123,8 +114,8 @@ var/ascii_reset = "[ascii_esc]\[0m"
 	SHOULD_CALL_PARENT(TRUE)
 	SHOULD_NOT_SLEEP(TRUE)
 
-	all_unit_tests_passed = FALSE
-	unit_tests_failures++
+	GLOB.all_unit_tests_passed = FALSE
+	GLOB.unit_tests_failures++
 	reported = TRUE
 
 	//If we're running in manual mode, raise an exception so we can see it in VSC directly
@@ -137,7 +128,7 @@ var/ascii_reset = "[ascii_esc]\[0m"
 
 /datum/unit_test/proc/pass(var/message, var/file, var/line)
 	reported = 1
-	log_unit_test(LOG_UNIT_TEST_INFORMATION, "[ascii_green][message][ascii_reset]", file, line, title = "SUCCESS: [name]")
+	log_unit_test(LOG_UNIT_TEST_INFORMATION, TEST_OUTPUT_GREEN("[message]"), file, line, title = "SUCCESS: [name]")
 	return UNIT_TEST_PASSED
 
 

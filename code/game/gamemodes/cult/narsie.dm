@@ -1,5 +1,5 @@
-var/global/narsie_behaviour = "CultStation13"
-var/global/narsie_cometh = 0
+GLOBAL_VAR_INIT(narsie_behaviour, "CultStation13")
+GLOBAL_VAR_INIT(narsie_cometh, 0)
 GLOBAL_LIST_EMPTY(narsie_list)
 
 /obj/singularity/narsie //Moving narsie to its own file for the sake of being clearer
@@ -51,15 +51,15 @@ GLOBAL_LIST_EMPTY(narsie_list)
 
 	log_and_message_admins("Narsie has been spawned.", location = get_turf(loc))
 
-	if(!narsie_cometh)//so we don't initiate Hell more than one time.
+	if(!GLOB.narsie_cometh)//so we don't initiate Hell more than one time.
 		if(cause_hell)
 			SetUniversalState(/datum/universal_state/hell)
-		narsie_cometh = 1
+		GLOB.narsie_cometh = 1
 
 		spawn(10 SECONDS)
-			if(evacuation_controller)
-				evacuation_controller.call_evacuation(null, TRANSFER_EMERGENCY, 1)
-				evacuation_controller.evac_no_return = 0 // Cannot recall
+			if(GLOB.evacuation_controller)
+				GLOB.evacuation_controller.call_evacuation(null, TRANSFER_EMERGENCY, 1)
+				GLOB.evacuation_controller.evac_no_return = 0 // Cannot recall
 
 /obj/singularity/narsie/process()
 	eat()
@@ -83,7 +83,7 @@ GLOBAL_LIST_EMPTY(narsie_list)
 			if(M.status_flags & GODMODE)
 				continue
 			if(!iscultist(M))
-				to_chat(M, "<span class='danger'>You feel your sanity crumble away in an instant as you gaze upon [src.name]...</span>")
+				to_chat(M, SPAN_DANGER("You feel your sanity crumble away in an instant as you gaze upon [src.name]..."))
 				M.apply_effect(3, STUN)
 
 
@@ -95,12 +95,15 @@ GLOBAL_LIST_EMPTY(narsie_list)
 	else if(istype(A, /obj/structure/cult))
 		qdel(A)
 
-/obj/singularity/narsie/large/CollidedWith(atom/A)
-	if(!cause_hell) return
-	if(isturf(A))
-		narsiewall(A)
-	else if(istype(A, /obj/structure/cult))
-		qdel(A)
+/obj/singularity/narsie/large/CollidedWith(atom/bumped_atom)
+	. = ..()
+
+	if(!cause_hell)
+		return
+	if(isturf(bumped_atom))
+		narsiewall(bumped_atom)
+	else if(istype(bumped_atom, /obj/structure/cult))
+		qdel(bumped_atom)
 
 /obj/singularity/narsie/move(var/force_move = 0)
 	if(!move_self)
@@ -114,13 +117,13 @@ GLOBAL_LIST_EMPTY(narsie_list)
 	if(target && prob(60))
 		movement_dir = get_dir(src,target) //moves to a singulo beacon, if there is one
 		if(target.z < z)
-			visible_message("<span class='danger'>\The [src] descends ominously.</span>")
+			visible_message(SPAN_DANGER("\The [src] descends ominously."))
 			zMove(DOWN)
-			visible_message("<span class='danger'>\The [src] appears from on high.</span>")
+			visible_message(SPAN_DANGER("\The [src] appears from on high."))
 		else if(target.z > z)
-			visible_message("<span class='danger'>\The [src] ascends ominously.</span>")
+			visible_message(SPAN_DANGER("\The [src] ascends ominously."))
 			zMove(UP)
-			visible_message("<span class='danger'>\The [src] claws its way up from below.</span>")
+			visible_message(SPAN_DANGER("\The [src] claws its way up from below."))
 
 	spawn(0)
 		step(src, movement_dir)
@@ -140,13 +143,13 @@ GLOBAL_LIST_EMPTY(narsie_list)
 	if(target && prob(60))
 		movement_dir = get_dir(src,target) //moves to a singulo beacon, if there is one
 		if(target.z < z)
-			visible_message("<span class='danger'>\The [src] descends ominously.</span>")
+			visible_message(SPAN_DANGER("\The [src] descends ominously."))
 			zMove(DOWN)
-			visible_message("<span class='danger'>\The [src] appears from on high.</span>")
+			visible_message(SPAN_DANGER("\The [src] appears from on high."))
 		else if(target.z > z)
-			visible_message("<span class='danger'>\The [src] ascends ominously.</span>")
+			visible_message(SPAN_DANGER("\The [src] ascends ominously."))
 			zMove(UP)
-			visible_message("<span class='danger'>\The [src] claws its way up from below.</span>")
+			visible_message(SPAN_DANGER("\The [src] claws its way up from below."))
 
 	spawn(0)
 		step(src, movement_dir)
@@ -182,12 +185,12 @@ GLOBAL_LIST_EMPTY(narsie_list)
 
 /obj/singularity/narsie/large/consume(const/atom/A) //Has its own consume proc because it doesn't need energy and I don't want BoHs to explode it. --NEO
 //NEW BEHAVIOUR
-	if(narsie_behaviour == "CultStation13")
+	if(GLOB.narsie_behaviour == "CultStation13")
 	//MOB PROCESSING
 		new_narsie(A)
 
 //OLD BEHAVIOUR
-	else if(narsie_behaviour == "Nar-Singulo")
+	else if(GLOB.narsie_behaviour == "Nar-Singulo")
 		old_narsie(A)
 
 /obj/singularity/narsie/proc/new_narsie(const/atom/A)
@@ -303,7 +306,7 @@ GLOBAL_LIST_EMPTY(narsie_list)
 
 /obj/singularity/narsie/proc/pickcultist() //Narsie rewards his cultists with being devoured first, then picks a ghost to follow. --NEO
 	var/list/cultists = list()
-	for(var/datum/mind/cult_nh_mind in cult.current_antagonists)
+	for(var/datum/mind/cult_nh_mind in GLOB.cult.current_antagonists)
 		if(!cult_nh_mind.current)
 			continue
 		if(cult_nh_mind.current.stat)
@@ -327,7 +330,7 @@ GLOBAL_LIST_EMPTY(narsie_list)
 		acquire(pick(cultists))
 		return
 		//no living cultists, pick a living human instead.
-	for(var/mob/abstract/observer/ghost in GLOB.player_list)
+	for(var/mob/abstract/ghost/observer/ghost in GLOB.player_list)
 		if(!ghost.client)
 			continue
 		var/turf/pos = get_turf(ghost)
@@ -342,13 +345,13 @@ GLOBAL_LIST_EMPTY(narsie_list)
 /obj/singularity/narsie/proc/acquire(const/mob/food)
 	var/capname = uppertext(name)
 
-	to_chat(target, "<span class='notice'><b>[capname] HAS LOST INTEREST IN YOU.</b></span>")
+	to_chat(target, SPAN_NOTICE("<b>[capname] HAS LOST INTEREST IN YOU.</b>"))
 	target = food
 
 	if (ishuman(target))
-		to_chat(target, "<span class='danger'>[capname] HUNGERS FOR YOUR SOUL.</span>")
+		to_chat(target, SPAN_DANGER("[capname] HUNGERS FOR YOUR SOUL."))
 	else
-		to_chat(target, "<span class='danger'>[capname] HAS CHOSEN YOU TO LEAD HIM TO HIS NEXT MEAL.</span>")
+		to_chat(target, SPAN_DANGER("[capname] HAS CHOSEN YOU TO LEAD HIM TO HIS NEXT MEAL."))
 
 /obj/singularity/narsie/on_capture()
 	chained = 1

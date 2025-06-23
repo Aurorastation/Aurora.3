@@ -1,0 +1,853 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_gawgaryn_bikers)
+"c" = (
+/obj/effect/ghostspawpoint{
+	name = "igs - moghes_gawgaryn_rider";
+	identifier = "moghes_gawgaryn_rider"
+	},
+/turf/simulated/floor/exoplanet/foundation{
+	temperature = 315.15
+	},
+/area/moghes_gawgaryn_bikers)
+"d" = (
+/obj/structure/simple_door/iron,
+/turf/simulated/floor/exoplanet/foundation{
+	temperature = 315.15
+	},
+/area/moghes_gawgaryn_bikers)
+"f" = (
+/obj/structure/flora/grass/desert,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_gawgaryn_bikers)
+"g" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_gawgaryn_bikers)
+"h" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/mob/living/simple_animal/hostile/retaliate/hegeranzi,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_gawgaryn_bikers)
+"n" = (
+/obj/effect/ghostspawpoint{
+	name = "igs - moghes_gawgaryn_rider_boss";
+	identifier = "moghes_gawgaryn_rider_boss"
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_gawgaryn_bikers)
+"r" = (
+/obj/structure/closet/crate/weapon,
+/obj/item/material/sword/longsword,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/snacks/liquidfood,
+/obj/item/reagent_containers/food/snacks/liquidfood,
+/obj/item/clothing/suit/armor/unathi,
+/obj/item/clothing/suit/armor/unathi,
+/obj/item/clothing/head/helmet/unathi,
+/obj/item/clothing/head/helmet/unathi,
+/obj/random/civgun/rifle,
+/obj/item/saddle,
+/obj/item/saddle,
+/obj/item/saddle,
+/obj/item/saddle,
+/obj/item/material/twohanded/pike,
+/obj/item/material/twohanded/spear/steel,
+/obj/item/gun/projectile/automatic/tempestsmg,
+/obj/item/ammo_magazine/tempestsmg,
+/obj/item/gun/projectile/shotgun/wallgun,
+/obj/item/storage/box/wallgunammo,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_gawgaryn_bikers)
+"u" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_gawgaryn_bikers)
+"A" = (
+/mob/living/simple_animal/hostile/retaliate/hegeranzi,
+/obj/structure/flora/grass/desert,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_gawgaryn_bikers)
+"B" = (
+/obj/structure/bonfire/light_up,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_gawgaryn_bikers)
+"C" = (
+/obj/structure/flora/rock/desert,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_gawgaryn_bikers)
+"D" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/obj/structure/flora/grass/desert,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_gawgaryn_bikers)
+"F" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/obj/structure/flora/grass/desert,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_gawgaryn_bikers)
+"H" = (
+/obj/effect/ghostspawpoint{
+	name = "igs - moghes_gawgaryn_rider";
+	identifier = "moghes_gawgaryn_rider"
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_gawgaryn_bikers)
+"K" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_gawgaryn_bikers)
+"L" = (
+/mob/living/simple_animal/hostile/retaliate/hegeranzi,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_gawgaryn_bikers)
+"N" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_gawgaryn_bikers)
+"O" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_gawgaryn_bikers)
+"P" = (
+/turf/simulated/floor/exoplanet/foundation{
+	temperature = 315.15
+	},
+/area/moghes_gawgaryn_bikers)
+"U" = (
+/turf/simulated/wall/rusty,
+/area/moghes_gawgaryn_bikers)
+
+(1,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(2,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+C
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(3,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(4,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+C
+a
+a
+a
+a
+a
+a
+C
+a
+a
+a
+a
+a
+a
+U
+a
+a
+"}
+(5,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+f
+a
+a
+f
+a
+a
+U
+U
+a
+U
+a
+a
+a
+a
+a
+"}
+(6,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+f
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+P
+P
+a
+a
+a
+a
+"}
+(7,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+U
+a
+a
+f
+f
+a
+a
+P
+P
+a
+a
+a
+"}
+(8,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+U
+U
+U
+U
+U
+a
+a
+a
+a
+U
+a
+a
+a
+a
+a
+a
+a
+"}
+(9,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+U
+a
+P
+P
+a
+U
+U
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(10,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+U
+a
+a
+f
+H
+P
+P
+a
+a
+a
+a
+C
+a
+a
+a
+P
+a
+a
+"}
+(11,1,1) = {"
+a
+a
+a
+N
+D
+K
+h
+U
+a
+f
+a
+a
+P
+a
+a
+a
+P
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(12,1,1) = {"
+a
+a
+a
+u
+A
+f
+a
+d
+a
+c
+a
+B
+n
+f
+a
+a
+a
+a
+a
+a
+P
+a
+P
+a
+a
+"}
+(13,1,1) = {"
+a
+a
+a
+u
+L
+L
+a
+U
+a
+P
+a
+a
+f
+a
+a
+a
+P
+a
+P
+a
+P
+a
+a
+a
+a
+"}
+(14,1,1) = {"
+a
+a
+a
+O
+g
+g
+F
+U
+a
+a
+f
+a
+a
+a
+a
+a
+P
+a
+a
+P
+a
+a
+a
+a
+a
+"}
+(15,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+U
+a
+P
+a
+c
+P
+a
+U
+a
+a
+P
+P
+a
+P
+a
+a
+a
+a
+"}
+(16,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+U
+P
+r
+P
+P
+P
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(17,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+U
+U
+U
+U
+U
+U
+U
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(18,1,1) = {"
+a
+a
+a
+a
+a
+a
+f
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(19,1,1) = {"
+a
+a
+a
+a
+a
+a
+f
+a
+a
+a
+a
+a
+f
+a
+a
+a
+f
+f
+a
+C
+a
+a
+a
+a
+a
+"}
+(20,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+U
+a
+a
+a
+a
+a
+a
+a
+"}
+(21,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+C
+f
+C
+a
+a
+a
+a
+a
+C
+a
+a
+U
+a
+U
+a
+a
+a
+a
+"}
+(22,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(23,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(24,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(25,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}

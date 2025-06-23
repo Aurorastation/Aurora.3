@@ -3,51 +3,79 @@
 	set name = "wiki"
 	set desc = "Visit the wiki."
 	set hidden = 1
+	var/wikiurl = GLOB.config.wikiurl
 
-	if(GLOB.config.wikiurl)
-		if(alert("This will open the wiki in your browser. Are you sure?",,"Yes","No")=="No")
+	if(wikiurl)
+		if(tgui_alert(usr, "This will open the wiki in your browser. Are you sure?", "Wiki", list("Yes", "No")) != "Yes")
 			return
 
-		var/to_open = GLOB.config.wikiurl
+		var/to_open = wikiurl
 		if (sub_page)
 			to_open += sub_page
 
 		send_link(src, to_open)
 	else
-		to_chat(src, "<span class='warning'>The wiki URL is not set in the server configuration.</span>")
+		to_chat(src, SPAN_WARNING("The wiki URL is not set in the server configuration."))
 
 /client/verb/forum()
 	set name = "forum"
 	set desc = "Visit the forum."
 	set hidden = 1
-	if( GLOB.config.forumurl )
-		if(alert("This will open the forum in your browser. Are you sure?",,"Yes","No")=="No")
+	var/forumurl = GLOB.config.forumurl
+
+	if(forumurl)
+		if(tgui_alert(usr, "This will open the forum in your browser. Are you sure?", "Forum", list("Yes", "No")) != "Yes")
 			return
-		send_link(src, GLOB.config.forumurl)
+		send_link(src, forumurl)
 	else
-		to_chat(src, "<span class='warning'>The forum URL is not set in the server configuration.</span>")
+		to_chat(src, SPAN_WARNING("The forum URL is not set in the server configuration."))
 	return
 
-/client/verb/reportbug()
-	set name = "reportbug"
-	set desc = "Report a bug."
-	set hidden = 1
-	if( GLOB.config.githuburl )
-		if(alert("This will open the issue tracker in your browser. Are you sure?",,"Yes","No")=="No")
+/client/verb/reportissue()
+	set name = "report-issue"
+	set desc = "Report an issue."
+	set hidden = TRUE
+	var/githuburl = GLOB.config.githuburl
+
+	var/message = "This will open the GitHub issue reporter in your browser. Are you sure?"
+
+	if(githuburl)
+		// We still use alert here because some people were concerned that if someone wanted to report that tgui wasn't working
+		// then the report issue button being tgui-based would be problematic.
+		if(alert(src, message, "Report Issue", "Yes", "No") != "Yes")
 			return
-		send_link(src, GLOB.config.githuburl + "/issues")
+		send_link(src, githuburl + "/issues")
 	else
 		to_chat(src, SPAN_WARNING("The issue tracker URL is not set in the server configuration."))
 	return
 
-#define RULES_FILE "config/rules.html"
 /client/verb/rules()
-	set name = "Rules"
+	set name = "rules"
 	set desc = "Show Server Rules."
 	set hidden = 1
+	var/rulesurl = GLOB.config.rulesurl
 
-	src << browse(file2text(RULES_FILE), "window=rules;size=640x500")
-#undef RULES_FILE
+	if(rulesurl)
+		if(tgui_alert(usr, "This will open the rules in your browser. Are you sure?", "Rules", list("Yes", "No")) != "Yes")
+			return
+		send_link(src, rulesurl)
+	else
+		to_chat(src, SPAN_WARNING("The rules URL is not set in the server configuration."))
+	return
+
+/client/verb/github()
+	set name = "github"
+	set desc = "Visit Github"
+	set hidden = TRUE
+	var/githuburl = GLOB.config.githuburl
+
+	if(githuburl)
+		if(tgui_alert(src, "This will open the GitHub repository in your browser. Are you sure?", "GitHub", list("Yes","No")) !="Yes")
+			return
+		send_link(src, githuburl)
+	else
+		to_chat(src, SPAN_WARNING("The GitHub URL is not set in the server configuration."))
+	return
 
 /client/verb/hotkeys_help()
 	set name = "hotkeys-help"
@@ -179,7 +207,7 @@ Any-Mode: (hotkey doesn't need to be on)
 	set hidden = 1
 
 	if (GLOB.config.webint_url)
-		if(alert("This will open the web interface in your browser. Are you sure?", ,"Yes","No") == "No")
+		if(tgui_alert(usr, "This will open the Web Interface in your browser. Are you sure?", "Web Interface", list("Yes", "No")) == "No")
 			return
 		send_link(src, GLOB.config.webint_url)
 	else
@@ -192,7 +220,7 @@ Any-Mode: (hotkey doesn't need to be on)
 	set hidden = 1
 
 	if (SSdiscord && SSdiscord.active)
-		if(alert("This will open Discord in your browser or directly. Are you sure?",, "Yes", "No") == "Yes")
+		if(tgui_alert(usr, "This will open Discord in your browser. Are you sure?", "Discord", list("Yes", "No")) == "No")
 			var/url_link = SSdiscord.retreive_invite()
 			if (url_link)
 				send_link(src, url_link)

@@ -28,8 +28,8 @@
 	var/DBQuery/insert_query = GLOB.dbcon.NewQuery("INSERT INTO ss13_notes (id, adddate, game_id, ckey, ip, computerid, a_ckey, content) VALUES (null, Now(), :game_id:, :ckey:, :address:, :computer_id:, :a_ckey:, :note:)")
 	insert_query.Execute(query_details)
 
-	message_admins("<span class='notice'>[key_name_admin(user)] has edited [player_ckey]'s notes.</span>")
-	log_admin("[key_name(user)] has edited [player_ckey]'s notes.",admin_key=key_name(user),ckey=player_ckey)
+	message_admins(SPAN_NOTICE("[key_name_admin(user)] has edited [player_ckey]'s notes."))
+	log_admin("[key_name(user)] has edited [player_ckey]'s notes.")
 
 /proc/notes_edit_sql(var/note_id, var/note_edit)
 	if (!note_id || !note_edit)
@@ -51,12 +51,12 @@
 		count++
 
 	if (count == 0)
-		to_chat(usr, "<span class='warning'>Database update failed due to a note id not being present in the database.</span>")
+		to_chat(usr, SPAN_WARNING("Database update failed due to a note id not being present in the database."))
 		log_world("ERROR: Database update failed due to a note id not being present in the database.")
 		return
 
 	if (count > 1)
-		to_chat(usr, "<span class='warning'>Database update failed due to multiple notes having the same ID. Contact the database admin.</span>")
+		to_chat(usr, SPAN_WARNING("Database update failed due to multiple notes having the same ID. Contact the database admin."))
 		log_world("ERROR: Database update failed due to multiple notes having the same ID. Contact the database admin.")
 		return
 
@@ -66,8 +66,8 @@
 				var/DBQuery/deletequery = GLOB.dbcon.NewQuery("UPDATE ss13_notes SET visible = 0 WHERE id = :note_id:")
 				deletequery.Execute(list("note_id" = note_id))
 
-				message_admins("<span class='notice'>[key_name_admin(usr)] deleted one of [ckey]'s notes.</span>")
-				log_admin("[key_name(usr)] deleted one of [ckey]'s notes.",admin_key=key_name(usr),ckey=ckey)
+				message_admins(SPAN_NOTICE("[key_name_admin(usr)] deleted one of [ckey]'s notes."))
+				log_admin("[key_name(usr)] deleted one of [ckey]'s notes.")
 			else
 				to_chat(usr, "Cancelled")
 				return
@@ -99,8 +99,8 @@
 
 	//Totally not stealing code from the DB_ban_panel
 
-	dat += "<form method='GET' action='?src=\ref[src]'><b>Search:</b> "
-	dat += "<input type='hidden' name='src' value='\ref[src]'>"
+	dat += "<form method='GET' action='?src=[REF(src)]'><b>Search:</b> "
+	dat += "<input type='hidden' name='src' value='[REF(src)]'>"
 	dat += "<b>Ckey:</b> <input type='text' name='notessearchckey' value='[player_ckey]'>"
 	dat += "<b>Admin ckey:</b> <input type='text' name='notessearchadmin' value='[admin_ckey]'>"
 	dat += "<input type='submit' value='search'>"
@@ -117,7 +117,7 @@
 	if (player_ckey)
 		var/list/query_details = list("player_ckey" = player_ckey)
 
-		dat += "<tr><td align='center' colspan='4' bgcolor='white'><b><a href='?src=\ref[src];add_player_info=[player_ckey]'>Add Note</a></b></td></tr>"
+		dat += "<tr><td align='center' colspan='4' bgcolor='white'><b><a href='byond://?src=[REF(src)];add_player_info=[player_ckey]'>Add Note</a></b></td></tr>"
 
 		var/DBQuery/init_query = GLOB.dbcon.NewQuery("SELECT ip, computerid FROM ss13_player WHERE ckey = :player_ckey:")
 		init_query.Execute(query_details)
@@ -152,7 +152,7 @@
 					var/lasteditor = query.item[7]
 					var/editdate = query.item[8]
 					dat += "<tr><td align='center' colspan='4'><b>Note last edited: [editdate], by: [lasteditor].</b></td></tr>"
-				dat += "<tr><td align='center' colspan='4'><b>(<a href=\"byond://?src=\ref[src];dbnoteedit=delete;dbnoteid=[id]\">Delete</a>) (<a href=\"byond://?src=\ref[src];dbnoteedit=content;dbnoteid=[id]\">Edit</a>)</b></td></tr>"
+				dat += "<tr><td align='center' colspan='4'><b>(<a href=\"byond://?src=[REF(src)];dbnoteedit=delete;dbnoteid=[id]\">Delete</a>) (<a href=\"byond://?src=[REF(src)];dbnoteedit=content;dbnoteid=[id]\">Edit</a>)</b></td></tr>"
 				dat += "<tr><td colspan='4' bgcolor='white'>&nbsp</td></tr>"
 
 	else if (admin_ckey && !player_ckey)
@@ -172,11 +172,11 @@
 				var/lasteditor = admin_query.item[6]
 				var/editdate = admin_query.item[7]
 				dat += "<tr><td align='center' colspan='4'><b>Note last edited: [editdate], by: [lasteditor].</b></td></tr>"
-			dat += "<tr><td align='center' colspan='4'><b>(<a href=\"byond://?src=\ref[src];dbnoteedit=delete;dbnoteid=[id]\">Delete</a>) (<a href=\"byond://?src=\ref[src];dbnoteedit=content;dbnoteid=[id]\">Edit</a>)</b></td></tr>"
+			dat += "<tr><td align='center' colspan='4'><b>(<a href=\"byond://?src=[REF(src)];dbnoteedit=delete;dbnoteid=[id]\">Delete</a>) (<a href=\"byond://?src=[REF(src)];dbnoteedit=content;dbnoteid=[id]\">Edit</a>)</b></td></tr>"
 			dat += "<tr><td colspan='4' bgcolor='white'>&nbsp</td></tr>"
 
 	dat += "</table>"
-	show_browser(usr, dat, "window=lookupnotes;size=900x500")
+	show_browser(usr, HTML_SKELETON(dat), "window=lookupnotes;size=900x500")
 
 /proc/show_player_info_discord(var/ckey)
 	if (!ckey)

@@ -1,27 +1,54 @@
 /datum/plantgene
-	var/genetype    // Label used when applying trait.
-	var/list/values // Values to copy into the target seed datum.
+	/// Label used when applying trait.
+	var/genetype
+	/// Values to copy into the target seed datum.
+	var/list/values
 
 /datum/seed
 	//Tracking.
-	var/uid                        // Unique identifier.
-	var/name                       // Index for global list.
-	var/seed_name                  // Plant name for seed packet.
-	var/seed_noun = SEED_NOUN_SEEDS        // Descriptor for packet.
-	var/display_name               // Prettier name.
-	var/roundstart                 // If set, seed will not display variety number.
-	var/mysterious                 // Only used for the random seed packets.
-	var/can_self_harvest = 0       // Mostly used for living mobs.
-	var/growth_stages = 0          // Number of stages the plant passes through before it is mature.
-	var/list/traits = list()       // Initialized in New()
-	var/list/mutants               // Possible predefined mutant varieties, if any.
-	var/list/chems                 // Chemicals that plant produces in products/injects into victim.
-	var/list/consume_gasses        // The plant will absorb these gasses during its life.
-	var/list/exude_gasses          // The plant will exude these gasses during its life.
-	var/kitchen_tag                // Used by the reagent grinder.
-	var/trash_type                 // Garbage item produced when eaten.
-	var/splat_type = /obj/effect/decal/cleanable/fruit_smudge // Graffiti decal.
+	/// Unique identifier
+	var/uid
+	/// Index for global list
+	var/name
+	/// Plant name for seed packet
+	var/seed_name
+	/// Descriptor for packet
+	var/seed_noun = SEED_NOUN_SEEDS
+	/// Prettier name
+	var/display_name
+
+	/// If set, seed will not display variety number
+	var/roundstart
+	/// Only used for the random seed packets.
+	var/mysterious
+	/// Mostly used for living mobs
+	var/can_self_harvest = 0
+	/// Number of stages the plant passes through before it is mature
+	var/growth_stages = 0
+
+	/// Initialized in New()
+	var/list/traits = list()
+	/// Possible predefined mutant varieties, if any
+	var/list/mutants
+	/// Chemicals that plant produces in products/injects into victim
+	var/list/chems
+	/// The plant will absorb these gasses during its life
+	var/list/consume_gasses
+	/// The plant will exude these gasses during its life
+	var/list/exude_gasses
+
+	/// Used by the reagent grinder
+	var/kitchen_tag
+	/// Garbage item produced when eaten
+	var/trash_type
+	/// Graffiti decal
+	var/splat_type = /obj/effect/decal/cleanable/fruit_smudge
 	var/product_type = /obj/item/reagent_containers/food/snacks/grown
+	/// If set, overrides the description of the product (What the produce looks like for example)
+	var/product_desc
+	/// If set, overrides the extended scription of the product (Useful to describe the 'lore')
+	var/product_desc_extended
+
 	var/force_layer
 	var/hydrotray_only
 
@@ -125,15 +152,15 @@
 	if(get_trait(TRAIT_CARNIVOROUS))
 		if(get_trait(TRAIT_CARNIVOROUS) == 2)
 			if(affecting)
-				to_chat(target, "<span class='danger'>\The [fruit]'s thorns pierce your [affecting.name] greedily!</span>")
+				to_chat(target, SPAN_DANGER("\The [fruit]'s thorns pierce your [affecting.name] greedily!"))
 			else
-				to_chat(target, "<span class='danger'>\The [fruit]'s thorns pierce your flesh greedily!</span>")
+				to_chat(target, SPAN_DANGER("\The [fruit]'s thorns pierce your flesh greedily!"))
 			damage = get_trait(TRAIT_POTENCY)/2
 		else
 			if(affecting)
-				to_chat(target, "<span class='danger'>\The [fruit]'s thorns dig deeply into your [affecting.name]!</span>")
+				to_chat(target, SPAN_DANGER("\The [fruit]'s thorns dig deeply into your [affecting.name]!"))
 			else
-				to_chat(target, "<span class='danger'>\The [fruit]'s thorns dig deeply into your flesh!</span>")
+				to_chat(target, SPAN_DANGER("\The [fruit]'s thorns dig deeply into your flesh!"))
 			damage = get_trait(TRAIT_POTENCY)/5
 	else
 		return
@@ -162,7 +189,7 @@
 		if(!body_coverage)
 			return
 
-		to_chat(target, "<span class='danger'>You are stung by \the [fruit]!</span>")
+		to_chat(target, SPAN_DANGER("You are stung by \the [fruit]!"))
 		for(var/rid in chems)
 			var/injecting = min(5,max(1,get_trait(TRAIT_POTENCY)/5))
 			target.reagents.add_reagent(rid,injecting)
@@ -246,7 +273,7 @@
 				apply_special_effect(M)
 			splatter(T,thrown)
 		if(origin_turf)
-			origin_turf.visible_message("<span class='danger'>The [thrown.name] explodes!</span>")
+			origin_turf.visible_message(SPAN_DANGER("The [thrown.name] explodes!"))
 		qdel(thrown)
 		return
 
@@ -260,7 +287,7 @@
 	if(get_trait(TRAIT_JUICY) && splatted)
 		splatter(origin_turf,thrown)
 		if(origin_turf)
-			origin_turf.visible_message("<span class='danger'>The [thrown.name] splatters against [target]!</span>")
+			origin_turf.visible_message(SPAN_DANGER("The [thrown.name] splatters against [target]!"))
 		qdel(thrown)
 
 	if(get_trait(TRAIT_TELEPORTING))
@@ -277,7 +304,7 @@
 		if(turfs.len)
 			var/turf/picked = get_turf(pick(turfs))
 			var/obj/effect/portal/P = new /obj/effect/portal(get_turf(target))
-			P.target = picked
+			P.set_target(picked)
 			P.creator = null
 
 /datum/seed/proc/handle_environment(var/turf/current_turf, var/datum/gas_mixture/environment, var/light_supplied, var/check_only)
@@ -539,7 +566,7 @@
 
 	if(!degree || get_trait(TRAIT_IMMUTABLE) > 0) return
 
-	source_turf.visible_message("<span class='notice'>\The [display_name] quivers!</span>")
+	source_turf.visible_message(SPAN_NOTICE("\The [display_name] quivers!"))
 
 	//This looks like shit, but it's a lot easier to read/change this way.
 	var/total_mutations = rand(1,1+degree)
@@ -547,7 +574,7 @@
 		switch(rand(0,11))
 			if(0) //Plant cancer!
 				set_trait(TRAIT_ENDURANCE,get_trait(TRAIT_ENDURANCE)-rand(10,20),null,0)
-				source_turf.visible_message("<span class='danger'>\The [display_name] withers rapidly!</span>")
+				source_turf.visible_message(SPAN_DANGER("\The [display_name] withers rapidly!"))
 			if(1)
 				set_trait(TRAIT_NUTRIENT_CONSUMPTION,get_trait(TRAIT_NUTRIENT_CONSUMPTION)+rand(-(degree*0.1),(degree*0.1)),5,0)
 				set_trait(TRAIT_WATER_CONSUMPTION,   get_trait(TRAIT_WATER_CONSUMPTION)   +rand(-degree,degree),50,0)
@@ -569,7 +596,7 @@
 				if(prob(degree*5))
 					set_trait(TRAIT_CARNIVOROUS,     get_trait(TRAIT_CARNIVOROUS)+rand(-degree,degree),2, 0)
 					if(get_trait(TRAIT_CARNIVOROUS))
-						source_turf.visible_message("<span class='notice'>\The [display_name] shudders hungrily.</span>")
+						source_turf.visible_message(SPAN_NOTICE("\The [display_name] shudders hungrily."))
 			if(6)
 				set_trait(TRAIT_WEED_TOLERANCE,      get_trait(TRAIT_WEED_TOLERANCE)+(rand(-2,2)*degree),10, 0)
 				if(prob(degree*5))
@@ -583,7 +610,7 @@
 				set_trait(TRAIT_POTENCY,             get_trait(TRAIT_POTENCY)+(rand(-20,20)*degree),200, 0)
 				if(prob(degree*5))
 					set_trait(TRAIT_SPREAD,          get_trait(TRAIT_SPREAD)+rand(-1,1),2, 0)
-					source_turf.visible_message("<span class='notice'>\The [display_name] spasms visibly, shifting in the tray.</span>")
+					source_turf.visible_message(SPAN_NOTICE("\The [display_name] spasms visibly, shifting in the tray."))
 				if(prob(degree*5))
 					set_trait(TRAIT_SPOROUS,         !get_trait(TRAIT_SPOROUS))
 			if(9)
@@ -594,12 +621,12 @@
 				if(prob(degree*2))
 					set_trait(TRAIT_BIOLUM,         !get_trait(TRAIT_BIOLUM))
 					if(get_trait(TRAIT_BIOLUM))
-						source_turf.visible_message("<span class='notice'>\The [display_name] begins to glow!</span>")
+						source_turf.visible_message(SPAN_NOTICE("\The [display_name] begins to glow!"))
 						if(prob(degree*2))
 							set_trait(TRAIT_BIOLUM_COLOUR,get_random_colour(0,75,190))
 							source_turf.visible_message("<span class='notice'>\The [display_name]'s glow </span><font color='[get_trait(TRAIT_BIOLUM_COLOUR)]'>changes colour</font>!")
 					else
-						source_turf.visible_message("<span class='notice'>\The [display_name]'s glow dims...</span>")
+						source_turf.visible_message(SPAN_NOTICE("\The [display_name]'s glow dims..."))
 			if(11)
 				set_trait(TRAIT_TELEPORTING,1)
 
@@ -711,7 +738,7 @@
 		return
 
 	if(!force_amount && get_trait(TRAIT_YIELD) == 0 && !harvest_sample)
-		if(istype(user)) to_chat(user, "<span class='danger'>You fail to harvest anything useful.</span>")
+		if(istype(user)) to_chat(user, SPAN_DANGER("You fail to harvest anything useful."))
 	else
 		if(istype(user)) to_chat(user, "You [harvest_sample ? "take a sample" : "harvest"] from the [display_name].")
 
@@ -744,6 +771,12 @@
 
 /datum/seed/proc/spawn_seed(var/turf/spawning_loc)
 	var/obj/item/product = new product_type(spawning_loc, name)
+	// Set descriptions
+	if(product_desc)
+		product.desc = product_desc
+	if(product_desc_extended)
+		product.desc_extended = product_desc_extended
+
 	if(get_trait(TRAIT_PRODUCT_COLOUR))
 		if(istype(product, /obj/item/reagent_containers/food))
 			var/obj/item/reagent_containers/food/food = product
@@ -768,7 +801,7 @@
 
 	//Handle spawning in living, mobile products (like dionaea).
 	if(istype(product,/mob/living))
-		product.visible_message("<span class='notice'>The pod disgorges [product]!</span>")
+		product.visible_message(SPAN_NOTICE("The pod disgorges [product]!"))
 		handle_living_product(product)
 		if(istype(product,/mob/living/simple_animal/mushroom)) // Gross.
 			var/mob/living/simple_animal/mushroom/mush = product
@@ -908,7 +941,7 @@ GLOBAL_LIST_INIT(seed_icon_cache, list())
 			leaves_image.color = leaves_color
 			leaves_image.appearance_flags = RESET_COLOR
 			//Add ourself as overlays to the generated image
-			generated_image.add_overlay(leaves_image)
+			generated_image.AddOverlays(leaves_image)
 
 		//Store the image in the cache, so we won't have to keep generating it
 		GLOB.seed_icon_cache[SEED_ICON_CACHE_KEY(icon_file_to_request, icon_state_to_request, color_to_request, leaves_overlay_to_request)] = generated_image

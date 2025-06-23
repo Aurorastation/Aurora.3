@@ -16,19 +16,8 @@
 	var/is_liquid = TRUE
 	var/empty_icon_state
 
-/obj/item/reagent_containers/food/update_icon()
-	..()
-	if(!reagents.total_volume)
-		if(("[initial(icon_state)]_empty") in icon_states(icon)) // if there's an empty icon state, use it
-			icon_state = "[initial(icon_state)]_empty"
-		else if (empty_icon_state)
-			icon_state = empty_icon_state
-	else
-		icon = initial(icon)	//Necessary for refilling empty drinks
-		icon_state = initial(icon_state)
-
 /obj/item/reagent_containers/food/self_feed_message(var/mob/user)
-	to_chat(user, "<span class='notice'>You [is_liquid ? "drink from" : "eat"] \the [src].</span>")
+	to_chat(user, SPAN_NOTICE("You [is_liquid ? "drink from" : "eat"] \the [src]."))
 
 /obj/item/reagent_containers/food/feed_sound(var/mob/user)
 	if(is_liquid)
@@ -44,13 +33,16 @@
 		else
 			target.visible_message("<b>[target]</b> finishes [is_liquid ? "drinking" : "eating"] \the [src].", SPAN_NOTICE("You finish [is_liquid ? "drinking" : "eating"] \the [src]."))
 		if(trash)
+			// get or create the trash item
+			var/obj/item/trash_item = trash
+			if(ispath(trash_item))
+				trash_item = new trash_item()
+			// and put it in active hand, or on the floor
 			if(slot)
-				user.drop_from_inventory(src)	//so trash actually stays in the active hand.
-				var/obj/item/TrashItem = new trash(user)
-				user.put_in_hands(TrashItem)
+				user.drop_from_inventory(src)
+				user.put_in_hands(trash_item)
 			else
-				var/obj/item/TrashItem = new trash(user)
-				TrashItem.forceMove(get_turf(src))
+				trash_item.forceMove(get_turf(src))
 		if(istype(loc, /obj/item/reagent_containers/bowl/plate))
 			var/obj/item/reagent_containers/bowl/plate/P = loc
 			if(P.holding == src)

@@ -1,0 +1,96 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/security,
+/obj/item/storage/backpack/dominia,
+/obj/item/storage/backpack/dominia,
+/obj/item/storage/backpack/dominia,
+/obj/item/storage/backpack/dominia,
+/obj/item/storage/backpack/dominia,
+/turf/unsimulated/floor,
+/area/centcom/distress_prep)
+"l" = (
+/turf/unsimulated/floor,
+/area/centcom/distress_prep)
+"E" = (
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/power/emitter{
+	req_access = list(111)
+	},
+/turf/unsimulated/floor,
+/area/centcom/distress_prep)
+"N" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/security,
+/obj/item/clothing/head/dominia/fleet/armsman,
+/obj/item/clothing/head/dominia/fleet/armsman,
+/obj/item/clothing/head/dominia/fleet/officer,
+/obj/item/clothing/head/dominia/fleet,
+/obj/item/clothing/head/dominia/fleet,
+/obj/item/clothing/suit/storage/dominia/fleet,
+/obj/item/clothing/accessory/poncho/dominia_cape/mantle,
+/obj/item/clothing/accessory/poncho/dominia_cape/mantle,
+/obj/item/clothing/accessory/poncho/dominia_cape/mantle,
+/obj/item/clothing/accessory/poncho/dominia_cape/mantle,
+/obj/item/clothing/accessory/poncho/dominia_cape/mantle,
+/obj/item/clothing/accessory/flagpatch/dominia,
+/obj/item/clothing/accessory/flagpatch/dominia,
+/obj/item/clothing/accessory/flagpatch/dominia,
+/obj/item/clothing/accessory/flagpatch/dominia,
+/obj/item/clothing/accessory/flagpatch/dominia,
+/obj/item/clothing/accessory/sash/white{
+	name = "House Zhao sash"
+	},
+/obj/item/clothing/accessory/sash/white{
+	name = "House Zhao sash"
+	},
+/obj/item/clothing/accessory/sash/white{
+	name = "House Zhao sash"
+	},
+/obj/item/clothing/accessory/sash/white{
+	name = "House Zhao sash"
+	},
+/obj/item/clothing/accessory/sash/white{
+	name = "House Zhao sash"
+	},
+/turf/unsimulated/floor,
+/area/centcom/distress_prep)
+"Y" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/security,
+/obj/item/gun/projectile/automatic/rifle/dominia_lmg,
+/obj/item/ammo_magazine/a556/dlmg,
+/turf/unsimulated/floor,
+/area/centcom/distress_prep)
+"Z" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/security,
+/obj/item/device/versebook/tribunal,
+/obj/item/device/versebook/tribunal,
+/obj/item/device/versebook/tribunal,
+/obj/item/device/versebook/tribunal,
+/obj/item/device/versebook/tribunal,
+/obj/item/sign/painting_frame/goddess/soldier,
+/turf/unsimulated/floor,
+/area/centcom/distress_prep)
+
+(1,1,1) = {"
+E
+l
+Z
+"}
+(2,1,1) = {"
+l
+l
+a
+"}
+(3,1,1) = {"
+l
+l
+N
+"}
+(4,1,1) = {"
+l
+l
+Y
+"}

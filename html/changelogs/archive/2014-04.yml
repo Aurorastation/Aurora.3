@@ -1,0 +1,40 @@
+2014-04-06:
+  RavingManiac:
+  - tweak: Tape recorders and station-bounced radios now work inside containers and
+      closets.
+2014-04-11:
+  Jarcolr:
+  - rscadd: You can now flip coins like a D2
+  - tweak: Miscellaneous cargo crates got a tiny buff, Standard Costume crate is now
+      Costume Crate
+  - tweak: Grammar patch,telekinesis/amputated arm exploit fixes,more in the future
+  - tweak: Grille kicking now does less damage
+  - tweak: TELESCOPIC baton no longer knocks anybody down,still got a lot of force
+      though
+  - tweak: Other small-ish changes and fixes that aren't worth mentioning
+2014-04-25:
+  Various:
+  - rscadd: Overhauled saycode, you can now use languages over the radio.
+  - rscadd: Chamelon items beyond just the suit.
+  - rscadd: NanoUI Virology
+  - rscadd: 3D Sounds
+  - rscadd: AI Channel color for when they want to be all sneaky
+  - rscadd: New inflatable walls and airlocks for your breach sealing pleasure.
+  - rscadd: Carbon Copy papers, so you can subject everyone to your authority and
+      paperwork, but mainly paperwork
+  - rscadd: Undershirts and rolling down jumpsuits
+  - rscadd: Insta-hit tasers, can be shot through glass as well.
+  - rscadd: Changeling balances, an emphasis put more on stealth.
+  - rscdel: Genetics disabled
+  - rscdel: Telescience removed, might be added again when we come up with a less
+      math headache enducing version of it.
+  - bugfix: Bugfixes galore!
+2014-04-29:
+  HarpyEagle:
+  - rscadd: Webbing vest storage can now be accessed by clicking on the item in inventory
+  - rscadd: Holsters can be accessed by clicking on them in inventory
+  - rscadd: Webbings and other suit attachments are now visible on the icon in inventory
+  - tweak: Removing jumpsuits now requires drag and drop to prevent accidental undressing
+  - rscadd: Added an action icon for magboots that can be used to toggle them similar
+      to flashlights
+  - rscadd: Fuel tanks now spill fuel when wrenched open

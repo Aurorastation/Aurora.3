@@ -8,7 +8,7 @@
 	name = "navigation beacon"
 	desc = "A radio beacon used for bot navigation."
 	level = 1		// underfloor
-	layer = 2.5
+	layer = ABOVE_WIRE_LAYER
 	anchored = 1
 
 	var/open = 0		// true if cover is open
@@ -100,7 +100,7 @@
 		return FALSE
 
 	//Wikipedia says this is the upper limit for a medium non directional beacon, deal with it
-	use_power_oneoff(2 KILOWATTS)
+	use_power_oneoff(2 KILO WATTS)
 
 	var/datum/radio_frequency/frequency = SSradio.return_frequency(freq)
 
@@ -155,7 +155,7 @@
 				src.locked = !src.locked
 				to_chat(user, "Controls are now [src.locked ? "locked." : "unlocked."]")
 			else
-				to_chat(user, "<span class='warning'>Access denied.</span>")
+				to_chat(user, SPAN_WARNING("Access denied."))
 			updateDialog()
 		else
 			to_chat(user, "You must open the cover first!")
@@ -200,23 +200,23 @@
 		t = {"<TT><B>Navigation Beacon</B><HR><BR>
 			<i>(swipe card to lock controls)</i><BR>
 			Frequency:
-			<A href='byond://?src=\ref[src];freq=-10'>-</A>
-			<A href='byond://?src=\ref[src];freq=-2'>-</A>
+			<A href='byond://?src=[REF(src)];freq=-10'>-</A>
+			<A href='byond://?src=[REF(src)];freq=-2'>-</A>
 			[format_frequency(freq)]
-			<A href='byond://?src=\ref[src];freq=2'>+</A>
-			<A href='byond://?src=\ref[src];freq=10'>+</A><BR>
+			<A href='byond://?src=[REF(src)];freq=2'>+</A>
+			<A href='byond://?src=[REF(src)];freq=10'>+</A><BR>
 			<HR>
-			Location: <A href='byond://?src=\ref[src];locedit=1'>[location ? location : "(none)"]</A><BR>
+			Location: <A href='byond://?src=[REF(src)];locedit=1'>[location ? location : "(none)"]</A><BR>
 			Transponder Codes:<UL>"}
 
 		for(var/key in codes)
 			t += "<LI>[key] ... [codes[key]]"
-			t += " <small><A href='byond://?src=\ref[src];edit=1;code=[key]'>(edit)</A>"
-			t += " <A href='byond://?src=\ref[src];delete=1;code=[key]'>(delete)</A></small><BR>"
-		t += "<small><A href='byond://?src=\ref[src];add=1;'>(add new)</A></small><BR>"
+			t += " <small><A href='byond://?src=[REF(src)];edit=1;code=[key]'>(edit)</A>"
+			t += " <A href='byond://?src=[REF(src)];delete=1;code=[key]'>(delete)</A></small><BR>"
+		t += "<small><A href='byond://?src=[REF(src)];add=1;'>(add new)</A></small><BR>"
 		t+= "<UL></TT>"
 
-	user << browse(t, "window=navbeacon")
+	user << browse(HTML_SKELETON(t), "window=navbeacon")
 	onclose(user, "navbeacon")
 	return
 

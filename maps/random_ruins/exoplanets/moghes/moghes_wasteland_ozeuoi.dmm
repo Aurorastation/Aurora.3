@@ -1,0 +1,1876 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"cb" = (
+/obj/vehicle/bike/motor/sand,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"cf" = (
+/obj/machinery/button/remote/blast_door{
+	id = "ozeuoi_gate";
+	pixel_y = 25;
+	req_access = list(227)
+	},
+/obj/structure/table/steel,
+/obj/item/device/radio,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"fF" = (
+/obj/structure/table/steel,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"gB" = (
+/obj/structure/table/rack,
+/obj/random/tool,
+/obj/random/tool,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"hq" = (
+/obj/machinery/door/blast/shutters{
+	id = "ozeuoi_bikes"
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"ie" = (
+/obj/structure/closet/crate/loot,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"iU" = (
+/obj/structure/bed/stool/bar,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"iY" = (
+/obj/structure/reagent_dispensers/fueltank,
+/obj/machinery/light,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"jW" = (
+/obj/structure/barricade/metal/wired{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"ki" = (
+/obj/machinery/porta_turret/ballistic{
+	cover_set = 1;
+	health = 120;
+	icon_state = "cover_1";
+	maxhealth = 120;
+	req_one_access = list(227)
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"kF" = (
+/obj/machinery/vending/dinnerware,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"kH" = (
+/obj/structure/closet/crate,
+/obj/item/clothing/accessory/holster/utility/machete,
+/obj/item/clothing/accessory/holster/utility/machete,
+/obj/item/clothing/accessory/holster/utility/machete,
+/obj/item/material/hatchet/machete/steel,
+/obj/item/material/hatchet/machete/steel,
+/obj/item/material/hatchet/machete/steel,
+/obj/random/melee,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"kK" = (
+/obj/machinery/button/remote/blast_door{
+	id = "ozeuoi_water";
+	pixel_y = 25;
+	req_access = list(227)
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"ly" = (
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"nK" = (
+/obj/machinery/door/blast/shutters{
+	id = "ozeuoi_water"
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"oJ" = (
+/obj/structure/closet/crate,
+/obj/item/clothing/accessory/poncho/unathimantle{
+	color = "#42330f"
+	},
+/obj/item/clothing/accessory/poncho/unathimantle{
+	color = "#42330f"
+	},
+/obj/item/clothing/suit/unathi/robe/kilt{
+	color = "#DBC684"
+	},
+/obj/item/clothing/suit/unathi/robe/kilt{
+	color = "#DBC684"
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"pm" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"pK" = (
+/obj/structure/closet/crate,
+/obj/item/clothing/accessory/holster/hip,
+/obj/item/clothing/accessory/holster/hip,
+/obj/item/clothing/accessory/holster/hip,
+/obj/item/gun/projectile/pistol/spitter,
+/obj/item/gun/projectile/pistol/spitter,
+/obj/item/gun/projectile/pistol/spitter,
+/obj/item/ammo_magazine/spitterpistol,
+/obj/item/ammo_magazine/spitterpistol,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"rf" = (
+/obj/vehicle/bike/motor/sand,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"ui" = (
+/obj/structure/closet/crate,
+/obj/item/clothing/accessory/poncho,
+/obj/item/clothing/accessory/poncho/green,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"uE" = (
+/obj/structure/bed/stool/bar,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"uM" = (
+/obj/structure/barricade/metal/wired{
+	dir = 4
+	},
+/obj/machinery/turretid{
+	pixel_y = 30;
+	req_access = list(227);
+	control_area = "Clan Ozeuoi Outpost";
+	check_arrest = 0;
+	check_records = 0
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"wI" = (
+/obj/machinery/appliance/cooker/fryer,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"xo" = (
+/turf/simulated/wall/rusty,
+/area/moghes_ozeuoi)
+"xr" = (
+/obj/structure/closet/crate,
+/obj/random/firstaid,
+/obj/random/firstaid,
+/obj/random/firstaid,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"yO" = (
+/obj/structure/reagent_dispensers/keg/xuizikeg,
+/obj/structure/table/steel,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"yZ" = (
+/obj/machinery/door/blast/shutters{
+	id = "ozeuoi_gate"
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"zb" = (
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"zx" = (
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"AL" = (
+/obj/structure/table/steel,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/electrical,
+/obj/item/storage/toolbox/electrical,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"AZ" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"BJ" = (
+/obj/structure/closet/toolcloset,
+/obj/item/clothing/glasses/welding,
+/obj/item/clothing/glasses/welding,
+/obj/item/clothing/glasses/welding,
+/obj/item/weldingtool/largetank,
+/obj/item/weldingtool/largetank,
+/obj/item/weldingtool/largetank,
+/obj/item/weldingtool/largetank,
+/obj/item/crowbar/red,
+/obj/item/crowbar/red,
+/obj/item/device/multitool,
+/obj/item/device/multitool,
+/obj/item/device/multitool,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"Eg" = (
+/obj/structure/table/rack,
+/obj/item/gun/energy/plasmacutter,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"ED" = (
+/obj/vehicle/bike/motor/sand,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"EG" = (
+/obj/machinery/appliance/cooker/oven,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"ER" = (
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"ES" = (
+/obj/structure/table/steel,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/device/geiger,
+/obj/item/device/geiger,
+/obj/item/device/geiger,
+/obj/item/device/geiger,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"FN" = (
+/obj/structure/barricade/metal/wired{
+	dir = 4
+	},
+/obj/machinery/porta_turret/ballistic{
+	cover_set = 1;
+	health = 120;
+	icon_state = "cover_1";
+	maxhealth = 120;
+	req_one_access = list(227)
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"Ga" = (
+/obj/machinery/autolathe,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"GP" = (
+/obj/structure/closet/crate,
+/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/crackrifle,
+/obj/item/gun/projectile/automatic/tempestsmg,
+/obj/item/gun/projectile/automatic/tempestsmg,
+/obj/item/ammo_magazine/tempestsmg,
+/obj/item/ammo_magazine/tempestsmg,
+/obj/item/ammo_magazine/crackrifle,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"GU" = (
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"HT" = (
+/obj/structure/closet/secure_closet/freezer/meat,
+/obj/item/reagent_containers/food/snacks/fish,
+/obj/item/reagent_containers/food/snacks/fish,
+/obj/item/reagent_containers/food/snacks/fish,
+/obj/item/reagent_containers/food/snacks/fish,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"HW" = (
+/obj/structure/closet,
+/obj/item/clothing/suit/unathi/robe/beige,
+/obj/item/clothing/suit/unathi/robe/beige,
+/obj/item/clothing/head/unathi,
+/obj/item/clothing/head/unathi,
+/obj/item/clothing/head/unathi,
+/obj/item/clothing/glasses/safety/goggles/wasteland,
+/obj/item/clothing/glasses/safety/goggles/wasteland,
+/obj/item/clothing/glasses/safety/goggles/wasteland,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"Il" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"Ku" = (
+/obj/structure/simple_door/iron,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"KU" = (
+/obj/machinery/button/remote/blast_door{
+	id = "ozeuoi_bikes";
+	pixel_y = 25;
+	req_access = list(227)
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"Mh" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "ozeuoi_gate";
+	pixel_y = 25;
+	req_access = list(227)
+	},
+/obj/machinery/porta_turret/ballistic{
+	cover_set = 1;
+	health = 120;
+	icon_state = "cover_1";
+	maxhealth = 120;
+	req_one_access = list(227)
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"Mr" = (
+/obj/structure/barricade/metal/wired{
+	dir = 8
+	},
+/obj/machinery/porta_turret/ballistic{
+	cover_set = 1;
+	health = 120;
+	icon_state = "cover_1";
+	maxhealth = 120;
+	req_one_access = list(227)
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"MK" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"MV" = (
+/obj/machinery/mech_recharger,
+/mob/living/heavy_vehicle/premade/salvage,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"Ol" = (
+/obj/structure/reagent_dispensers/watertank,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"Pp" = (
+/obj/structure/table/steel,
+/obj/machinery/recharger,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"PN" = (
+/obj/structure/barricade/metal/wired,
+/obj/machinery/porta_turret/ballistic{
+	cover_set = 1;
+	health = 120;
+	icon_state = "cover_1";
+	maxhealth = 120;
+	req_one_access = list(227)
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"QQ" = (
+/obj/structure/barricade/metal/wired{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"Rk" = (
+/obj/structure/bed,
+/obj/item/bedsheet/random,
+/obj/structure/curtain/open/bed,
+/obj/effect/ghostspawpoint{
+	name = "igs - moghes_ozeuoi";
+	identifier = "moghes_ozeuoi"
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"Rn" = (
+/obj/structure/table/rack,
+/obj/item/pickaxe/drill,
+/obj/item/storage/belt/utility/full,
+/obj/item/storage/belt/utility/full,
+/obj/item/storage/belt/utility/full,
+/obj/machinery/light,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"Ty" = (
+/obj/machinery/light,
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"TC" = (
+/obj/structure/barricade/metal/wired{
+	dir = 1
+	},
+/obj/machinery/porta_turret/ballistic{
+	cover_set = 1;
+	health = 120;
+	icon_state = "cover_1";
+	maxhealth = 120;
+	req_one_access = list(227)
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"WE" = (
+/obj/machinery/light,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"XU" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+
+(1,1,1) = {"
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+"}
+(2,1,1) = {"
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+"}
+(3,1,1) = {"
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+"}
+(4,1,1) = {"
+ly
+ly
+ly
+xo
+xo
+xo
+xo
+xo
+xo
+Mr
+xo
+xo
+xo
+xo
+xo
+xo
+xo
+Mr
+xo
+xo
+xo
+xo
+xo
+xo
+xo
+Mr
+xo
+xo
+xo
+xo
+xo
+xo
+ly
+ly
+ly
+"}
+(5,1,1) = {"
+ly
+ly
+ly
+xo
+ly
+ly
+ly
+ly
+xo
+xo
+xo
+ly
+ly
+ly
+ly
+ly
+xo
+xo
+xo
+ly
+ly
+ly
+ly
+ly
+xo
+xo
+xo
+ly
+ly
+ly
+ly
+xo
+ly
+ly
+ly
+"}
+(6,1,1) = {"
+ly
+ly
+ly
+xo
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+xo
+ly
+ly
+ly
+"}
+(7,1,1) = {"
+ly
+ly
+ly
+xo
+ly
+ly
+xo
+xo
+xo
+xo
+ly
+ly
+ly
+ly
+xo
+xo
+xo
+xo
+xo
+xo
+xo
+ly
+xo
+xo
+xo
+xo
+xo
+xo
+xo
+ly
+ly
+xo
+ly
+ly
+ly
+"}
+(8,1,1) = {"
+ly
+ly
+ly
+xo
+xo
+ly
+xo
+zb
+zx
+xo
+kK
+ly
+ly
+ly
+xo
+Pp
+zx
+zx
+zx
+Eg
+xo
+ly
+xo
+yO
+EG
+wI
+HT
+kF
+xo
+ly
+xo
+xo
+ly
+ly
+ly
+"}
+(9,1,1) = {"
+ly
+ly
+ly
+TC
+xo
+ly
+xo
+Ol
+zx
+nK
+GU
+GU
+GU
+ly
+xo
+AL
+zx
+zx
+zx
+Rn
+xo
+ly
+xo
+XU
+zx
+zx
+zx
+WE
+xo
+ly
+xo
+PN
+ly
+ly
+ly
+"}
+(10,1,1) = {"
+ly
+ly
+ly
+xo
+xo
+ly
+xo
+zb
+zx
+nK
+GU
+GU
+GU
+ly
+xo
+ES
+zx
+zx
+zx
+gB
+xo
+ly
+xo
+iU
+fF
+fF
+iU
+zx
+xo
+ly
+xo
+xo
+ly
+ly
+ly
+"}
+(11,1,1) = {"
+ly
+ly
+ly
+xo
+ly
+ly
+xo
+zb
+zx
+xo
+MK
+ly
+GU
+ly
+xo
+Ga
+zx
+zx
+zx
+iY
+xo
+ly
+xo
+iU
+fF
+fF
+iU
+zx
+xo
+ly
+ly
+xo
+ly
+ly
+ly
+"}
+(12,1,1) = {"
+ly
+ly
+ly
+xo
+ly
+ly
+xo
+xo
+xo
+xo
+ly
+ly
+GU
+ly
+xo
+BJ
+zx
+zx
+zx
+MV
+xo
+ly
+xo
+uE
+fF
+fF
+iU
+WE
+xo
+ly
+ly
+xo
+ly
+ly
+ly
+"}
+(13,1,1) = {"
+ly
+ly
+ly
+xo
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+GU
+ly
+xo
+xo
+xo
+Ku
+xo
+xo
+xo
+ly
+xo
+zx
+zx
+zx
+zx
+zx
+xo
+ly
+ly
+xo
+ly
+ly
+ly
+"}
+(14,1,1) = {"
+ly
+ly
+ly
+xo
+xo
+xo
+xo
+ly
+ly
+ly
+ly
+ly
+GU
+ly
+ly
+ly
+pm
+GU
+pm
+ly
+ly
+ly
+xo
+xo
+xo
+Ku
+xo
+xo
+xo
+ly
+ly
+xo
+ly
+ly
+ly
+"}
+(15,1,1) = {"
+ly
+ly
+ly
+xo
+cf
+zx
+Ku
+ly
+ly
+ly
+ly
+ly
+GU
+ly
+ly
+ly
+ly
+GU
+ly
+ly
+ly
+ly
+ly
+ly
+pm
+GU
+pm
+ly
+ly
+ly
+ly
+xo
+ly
+ly
+ly
+"}
+(16,1,1) = {"
+ly
+ly
+ly
+xo
+uM
+jW
+xo
+MK
+ly
+ly
+ly
+ly
+GU
+ly
+ly
+ly
+ly
+GU
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+GU
+ly
+ly
+ly
+ly
+ly
+xo
+ly
+ly
+ly
+"}
+(17,1,1) = {"
+ly
+ly
+ly
+yZ
+zx
+zx
+yZ
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+Ty
+xo
+xo
+ly
+ly
+ly
+"}
+(18,1,1) = {"
+ly
+ly
+ly
+yZ
+zx
+zx
+yZ
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+xo
+PN
+ly
+ly
+ly
+"}
+(19,1,1) = {"
+ly
+ly
+ly
+yZ
+zx
+zx
+yZ
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+GU
+Ty
+xo
+xo
+ly
+ly
+ly
+"}
+(20,1,1) = {"
+ly
+ly
+ly
+xo
+QQ
+QQ
+Ku
+ly
+ly
+ly
+ly
+ly
+GU
+ly
+ly
+ly
+ly
+GU
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+AZ
+GU
+AZ
+ly
+ly
+xo
+ly
+ly
+ly
+"}
+(21,1,1) = {"
+ly
+ly
+ly
+xo
+Mh
+ki
+xo
+MK
+ly
+ly
+ly
+ly
+GU
+ly
+ly
+ly
+ly
+GU
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+xo
+xo
+Ku
+xo
+xo
+ly
+xo
+ly
+ly
+ly
+"}
+(22,1,1) = {"
+ly
+ly
+ly
+xo
+xo
+xo
+xo
+ly
+ly
+ly
+ly
+ly
+GU
+ly
+ly
+ly
+ly
+GU
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+xo
+ie
+zx
+ER
+xo
+ly
+xo
+ly
+ly
+ly
+"}
+(23,1,1) = {"
+ly
+ly
+ly
+xo
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+GU
+ly
+ly
+ly
+AZ
+GU
+AZ
+ly
+ly
+ly
+ly
+ly
+ly
+xo
+ER
+zx
+ER
+xo
+ly
+xo
+ly
+ly
+ly
+"}
+(24,1,1) = {"
+ly
+ly
+ly
+xo
+ly
+ly
+xo
+xo
+xo
+xo
+xo
+ly
+GU
+ly
+xo
+xo
+xo
+Ku
+xo
+xo
+xo
+xo
+xo
+xo
+ly
+xo
+ER
+zx
+ER
+xo
+ly
+xo
+ly
+ly
+ly
+"}
+(25,1,1) = {"
+ly
+ly
+ly
+xo
+ly
+ly
+xo
+ED
+cb
+ED
+xo
+KU
+GU
+ly
+xo
+zx
+zx
+zx
+zx
+zx
+zx
+zx
+HW
+xo
+ly
+xo
+GP
+zx
+pK
+xo
+ly
+xo
+ly
+ly
+ly
+"}
+(26,1,1) = {"
+ly
+ly
+ly
+xo
+xo
+ly
+xo
+zx
+zx
+zx
+hq
+GU
+GU
+ly
+xo
+zx
+Il
+zx
+zx
+zx
+Il
+zx
+zx
+xo
+ly
+xo
+xr
+zx
+kH
+xo
+xo
+xo
+ly
+ly
+ly
+"}
+(27,1,1) = {"
+ly
+ly
+ly
+TC
+xo
+ly
+xo
+zx
+zx
+zx
+hq
+ly
+ly
+ly
+xo
+Rk
+xo
+Rk
+xo
+Rk
+xo
+Rk
+xo
+xo
+ly
+xo
+ui
+zx
+oJ
+xo
+xo
+PN
+ly
+ly
+ly
+"}
+(28,1,1) = {"
+ly
+ly
+ly
+xo
+xo
+ly
+xo
+ED
+rf
+ED
+xo
+MK
+ly
+ly
+xo
+xo
+xo
+xo
+xo
+xo
+xo
+xo
+xo
+xo
+ly
+xo
+zx
+zx
+zx
+xo
+xo
+xo
+ly
+ly
+ly
+"}
+(29,1,1) = {"
+ly
+ly
+ly
+xo
+ly
+ly
+xo
+xo
+xo
+xo
+xo
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+xo
+XU
+zx
+zx
+xo
+ly
+xo
+ly
+ly
+ly
+"}
+(30,1,1) = {"
+ly
+ly
+ly
+xo
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+xo
+xo
+xo
+xo
+xo
+ly
+xo
+ly
+ly
+ly
+"}
+(31,1,1) = {"
+ly
+ly
+ly
+xo
+ly
+ly
+ly
+ly
+xo
+xo
+xo
+ly
+ly
+ly
+ly
+ly
+xo
+xo
+xo
+ly
+ly
+ly
+ly
+ly
+xo
+xo
+xo
+ly
+ly
+ly
+ly
+xo
+ly
+ly
+ly
+"}
+(32,1,1) = {"
+ly
+ly
+ly
+xo
+xo
+xo
+xo
+xo
+xo
+FN
+xo
+xo
+xo
+xo
+xo
+xo
+xo
+FN
+xo
+xo
+xo
+xo
+xo
+xo
+xo
+FN
+xo
+xo
+xo
+xo
+xo
+xo
+ly
+ly
+ly
+"}
+(33,1,1) = {"
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+"}
+(34,1,1) = {"
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+"}
+(35,1,1) = {"
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+ly
+"}

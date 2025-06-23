@@ -1,4 +1,4 @@
-var/repository/sound_channels/sound_channels = new()
+GLOBAL_DATUM_INIT(sound_channels, /repository/sound_channels, new())
 // lobby_sound_channel = sound_channels.RequestChannel("LOBBY")
 // vote_sound_channel = sound_channels.RequestChannel("VOTE")
 // admin_sound_channel = sound_channels.RequestChannel("ADMIN_FUN")

@@ -26,14 +26,31 @@ PROCESSING_SUBSYSTEM_DEF(tgui)
 	/// The HTML base used for all UIs.
 	var/basehtml
 
-/datum/controller/subsystem/processing/tgui/New()
-	NEW_SS_GLOBAL(SStgui)
+/datum/controller/subsystem/processing/tgui/PreInit()
 	basehtml = file2text('tgui/public/tgui.html')
 	// Inject inline polyfills
 	var/polyfill = file2text('tgui/public/tgui-polyfill.min.js')
 	polyfill = "<script>\n[polyfill]\n</script>"
 	basehtml = replacetextEx(basehtml, "<!-- tgui:inline-polyfill -->", polyfill)
 	basehtml = replacetextEx(basehtml, "<!-- tgui:nt-copyright -->", "NanoTrasen © 2457-[text2num(time2text(world.realtime, "YYYY")) + 442]")
+
+/datum/controller/subsystem/processing/tgui/OnConfigLoad()
+	var/storage_iframe = GLOB.config.storage_cdn_iframe
+	if(storage_iframe && storage_iframe != /datum/configuration::storage_cdn_iframe)
+		basehtml = replacetextEx(basehtml, "tgui:storagecdn", storage_iframe)
+		return
+
+	if(GLOB.config.asset_transport == "webroot")
+		var/datum/asset_transport/webroot/webroot = SSassets.transport
+
+		var/datum/asset_cache_item/item = webroot.register_asset("iframe.html", file("tgui/public/iframe.html"))
+		basehtml = replacetext(basehtml, "tgui:storagecdn", webroot.get_asset_url("iframe.html", item))
+		return
+
+	if(!storage_iframe)
+		return
+
+	basehtml = replacetextEx(basehtml, "tgui:storagecdn", storage_iframe)
 
 /datum/controller/subsystem/processing/tgui/Shutdown()
 	close_all_uis()
@@ -43,6 +60,7 @@ PROCESSING_SUBSYSTEM_DEF(tgui)
 	return ..()
 
 /datum/controller/subsystem/processing/tgui/fire(resumed = FALSE)
+	CAN_BE_REDEFINED(TRUE)
 	if(!resumed)
 		src.current_run = open_uis.Copy()
 	// Cache for sanic speed (lists are references anyways)

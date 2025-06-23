@@ -1,6 +1,6 @@
 /datum/citizenship/none
 	name = CITIZENSHIP_NONE
-	description = "Not being a citizen of any state is a common situation for owned ipcs and dionae."
+	description = "Not being a citizen of any state is a common situation for owned IPCs and Dionae."
 
 /datum/citizenship/golden_deep
 	name = CITIZENSHIP_GOLDEN
@@ -26,6 +26,7 @@
 			SPECIES_UNATHI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_ATTENDANT,
 			SPECIES_VAURCA_BULWARK,
 			SPECIES_VAURCA_BREEDER
 		),
@@ -42,6 +43,7 @@
 			SPECIES_UNATHI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_ATTENDANT,
 			SPECIES_VAURCA_BULWARK,
 			SPECIES_VAURCA_BREEDER
 		)
@@ -53,4 +55,16 @@
 	uniform = /obj/item/clothing/under/goldendeep/suit
 	backpack_contents = list(
 		/obj/item/gun/energy/pistol/goldendeep = 1
+	)
+
+/datum/citizenship/orepit
+	name = CITIZENSHIP_OREPIT
+	description = "With the arrival of the Church of the Trinary Perfection in 2419, the planet of Orepit has now organized into a theocratic regime under the rule of \
+	ARM-1DRIL, former follower of Gregol Corkfell. Prominent locations include Providence, Orepit's capital and base of operations for the Church, and the Twenty Parishes, \
+	home to the planet's original native human population, who remain divided on conversion to the faith. Orepit was one of the main signatories to the Open Doors memorandum, \
+	allowing its populace to work, study, and travel abroad in the Coalition and beyond, primarily in the All-Xanu Republic, utilizing Xanan documents."
+
+	job_species_blacklist = list(
+		"Consular Officer" = ALL_SPECIES,
+		"Diplomatic Aide" = ALL_SPECIES,
 	)

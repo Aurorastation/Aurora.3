@@ -44,23 +44,7 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/city/mendell/interior)
-"af" = (
-/obj/machinery/door/airlock/centcom{
-	name = "Administrative Wing";
-	req_access = list(101);
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/city/mendell/interior)
 "ag" = (
-/obj/machinery/door/airlock/glass_centcom{
-	name = "Kitchen";
-	req_access = list(101);
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/city/mendell/interior)
-"ah" = (
 /obj/machinery/door/airlock/glass_centcom{
 	name = "Kitchen";
 	req_access = list(101);
@@ -113,7 +97,6 @@
 	desc = "The distant cityscape of Mendell City.";
 	icon = 'icons/effects/1152x544.dmi';
 	icon_state = "cityscape_bg";
-	layer = 2.01;
 	name = "Mendell City"
 	},
 /turf/simulated/abyss{
@@ -215,13 +198,6 @@
 	name = "hex flooring"
 	},
 /area/city/mendell/interior)
-"aN" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/machinery/door/airlock/glass_security{
-	dir = 1
-	},
-/turf/simulated/floor/reinforced,
-/area/city/mendell)
 "aP" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -253,11 +229,9 @@
 	pixel_y = 8
 	},
 /obj/item/storage/firstaid/regular{
-	layer = 3.01;
 	pixel_x = 6
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 3.01;
 	pixel_x = -13
 	},
 /obj/item/storage/firstaid/adv{
@@ -265,11 +239,9 @@
 	pixel_y = 8
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 3.01;
 	pixel_x = -13
 	},
 /obj/item/storage/firstaid/regular{
-	layer = 3.01;
 	pixel_x = 6
 	},
 /turf/unsimulated/floor{
@@ -369,7 +341,6 @@
 "bH" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4.1;
 	opacity = 0
 	},
 /turf/simulated/floor/gold,
@@ -398,7 +369,6 @@
 	desc = "A nondescript decorative shelf.";
 	icon = 'icons/effects/city.dmi';
 	icon_state = "shelf1";
-	layer = 2.7;
 	name = "shelf";
 	pixel_y = 35
 	},
@@ -501,17 +471,12 @@
 	name = "Door Bolt Control";
 	pixel_x = 5;
 	pixel_y = 25;
-	req_access = null;
 	specialfunctions = 4
 	},
 /obj/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer,
-/area/city/mendell/interior)
-"cF" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
-/turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
 "cG" = (
 /obj/machinery/chemical_dispenser/bar_soft/full{
@@ -605,11 +570,9 @@
 	pixel_y = 8
 	},
 /obj/item/storage/firstaid/regular{
-	layer = 3.01;
 	pixel_x = 6
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 3.01;
 	pixel_x = -13
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -618,11 +581,9 @@
 	pixel_y = 8
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 3.01;
 	pixel_x = -13
 	},
 /obj/item/storage/firstaid/regular{
-	layer = 3.01;
 	pixel_x = 6
 	},
 /turf/unsimulated/floor{
@@ -681,38 +642,14 @@
 /area/city/mendell/interior)
 "do" = (
 /obj/structure/table/wood,
-/obj/item/paper{
-	info = "Welcome to your very own VR preparation room! You can customize your virtual reality avatar here. Once ready, head out to the Game Selection Hall, where you can head out on your customized adventure! Have fun!";
-	name = "vr introduction slip"
-	},
-/obj/item/paper{
-	info = "Welcome to your very own VR preparation room! You can customize your virtual reality avatar here. Once ready, head out to the Game Selection Hall, where you can head out on your customized adventure! Have fun!";
-	name = "vr introduction slip"
-	},
-/obj/item/paper{
-	info = "Welcome to your very own VR preparation room! You can customize your virtual reality avatar here. Once ready, head out to the Game Selection Hall, where you can head out on your customized adventure! Have fun!";
-	name = "vr introduction slip"
-	},
-/obj/item/paper{
-	info = "Welcome to your very own VR preparation room! You can customize your virtual reality avatar here. Once ready, head out to the Game Selection Hall, where you can head out on your customized adventure! Have fun!";
-	name = "vr introduction slip"
-	},
-/obj/item/paper{
-	info = "Welcome to your very own VR preparation room! You can customize your virtual reality avatar here. Once ready, head out to the Game Selection Hall, where you can head out on your customized adventure! Have fun!";
-	name = "vr introduction slip"
-	},
-/obj/item/paper{
-	info = "Welcome to your very own VR preparation room! You can customize your virtual reality avatar here. Once ready, head out to the Game Selection Hall, where you can head out on your customized adventure! Have fun!";
-	name = "vr introduction slip"
-	},
-/obj/item/paper{
-	info = "Welcome to your very own VR preparation room! You can customize your virtual reality avatar here. Once ready, head out to the Game Selection Hall, where you can head out on your customized adventure! Have fun!";
-	name = "vr introduction slip"
-	},
-/obj/item/paper{
-	info = "Welcome to your very own VR preparation room! You can customize your virtual reality avatar here. Once ready, head out to the Game Selection Hall, where you can head out on your customized adventure! Have fun!";
-	name = "vr introduction slip"
-	},
+/obj/item/paper/fluff/rooftop/vr_prep,
+/obj/item/paper/fluff/rooftop/vr_prep,
+/obj/item/paper/fluff/rooftop/vr_prep,
+/obj/item/paper/fluff/rooftop/vr_prep,
+/obj/item/paper/fluff/rooftop/vr_prep,
+/obj/item/paper/fluff/rooftop/vr_prep,
+/obj/item/paper/fluff/rooftop/vr_prep,
+/obj/item/paper/fluff/rooftop/vr_prep,
 /turf/unsimulated/floor{
 	icon_state = "wood_preview"
 	},
@@ -748,7 +685,6 @@
 	name = "Door Bolt Control";
 	pixel_x = 5;
 	pixel_y = 25;
-	req_access = null;
 	specialfunctions = 4
 	},
 /obj/machinery/light/small{
@@ -802,7 +738,7 @@
 	},
 /area/city/mendell/interior)
 "dV" = (
-/obj/item/book/manual/dpra_manifesto,
+/obj/item/device/versebook/dpra,
 /turf/simulated/floor/carpet,
 /area/city/mendell/interior)
 "dZ" = (
@@ -840,7 +776,6 @@
 	desc = "It's used to monitor rooms.";
 	icon = 'icons/obj/monitors.dmi';
 	icon_state = "camera";
-	layer = 3.02;
 	name = "surveillance camera"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -867,9 +802,6 @@
 /turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "en" = (
-/obj/effect/landmark{
-	name = "JoinLateCryo"
-	},
 /turf/simulated/floor/lino,
 /area/city/mendell)
 "et" = (
@@ -892,9 +824,6 @@
 	icon_state = "wood_birch"
 	},
 /area/city/mendell/interior)
-"ey" = (
-/turf/simulated/floor/lino,
-/area/city/mendell)
 "ez" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -911,7 +840,6 @@
 	dir = 8;
 	icon = 'icons/obj/monitors.dmi';
 	icon_state = "camera";
-	layer = 3.02;
 	name = "surveillance camera"
 	},
 /turf/simulated/floor/wood,
@@ -994,14 +922,10 @@
 /turf/simulated/floor/reinforced,
 /area/city/mendell)
 "eU" = (
-/obj/effect/landmark{
-	name = "JoinLateCryo"
-	},
 /obj/effect/decal/fake_object{
 	desc = "It's used to monitor rooms.";
 	icon = 'icons/obj/monitors.dmi';
 	icon_state = "camera";
-	layer = 3.02;
 	name = "surveillance camera"
 	},
 /turf/simulated/floor/lino,
@@ -1171,7 +1095,6 @@
 	},
 /obj/machinery/door/window/eastleft{
 	name = "dispensary";
-	req_access = null;
 	req_one_access = list(33,104)
 	},
 /obj/structure/window/reinforced/crescent{
@@ -1357,11 +1280,9 @@
 "gE" = (
 /obj/structure/table/rack,
 /obj/item/storage/briefcase/aluminium{
-	layer = 2.99;
 	pixel_y = 6
 	},
 /obj/item/storage/briefcase/aluminium{
-	layer = 2.99;
 	pixel_y = 6
 	},
 /obj/item/storage/lockbox/cciaa/bssb{
@@ -1382,7 +1303,6 @@
 	desc = "A nondescript decorative shelf.";
 	icon = 'icons/effects/city.dmi';
 	icon_state = "shelf";
-	layer = 2.7;
 	name = "shelf";
 	pixel_y = 35
 	},
@@ -1409,7 +1329,6 @@
 "gO" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4.1;
 	opacity = 0
 	},
 /turf/unsimulated/floor{
@@ -1424,26 +1343,11 @@
 /area/city/mendell)
 "gZ" = (
 /obj/structure/table/stone/marble,
-/obj/item/paper{
-	info = "This stage is for the MEDAL OF VALOR 2 alpha gameplay demo! Please enter your respective team's chair for balance reasons. Do not use the enemy team's base ingame! Remember, sharing is caring!";
-	name = "medal of valor intro sheet"
-	},
-/obj/item/paper{
-	info = "This stage is for the MEDAL OF VALOR 2 alpha gameplay demo! Please enter your respective team's chair for balance reasons. Do not use the enemy team's base ingame! Remember, sharing is caring!";
-	name = "medal of valor intro sheet"
-	},
-/obj/item/paper{
-	info = "This stage is for the MEDAL OF VALOR 2 alpha gameplay demo! Please enter your respective team's chair for balance reasons. Do not use the enemy team's base ingame! Remember, sharing is caring!";
-	name = "medal of valor intro sheet"
-	},
-/obj/item/paper{
-	info = "This stage is for the MEDAL OF VALOR 2 alpha gameplay demo! Please enter your respective team's chair for balance reasons. Do not use the enemy team's base ingame! Remember, sharing is caring!";
-	name = "medal of valor intro sheet"
-	},
-/obj/item/paper{
-	info = "This stage is for the MEDAL OF VALOR 2 alpha gameplay demo! Please enter your respective team's chair for balance reasons. Do not use the enemy team's base ingame! Remember, sharing is caring!";
-	name = "medal of valor intro sheet"
-	},
+/obj/item/paper/fluff/rooftop/medal_of_valor,
+/obj/item/paper/fluff/rooftop/medal_of_valor,
+/obj/item/paper/fluff/rooftop/medal_of_valor,
+/obj/item/paper/fluff/rooftop/medal_of_valor,
+/obj/item/paper/fluff/rooftop/medal_of_valor,
 /turf/simulated/floor/tiled,
 /area/city/mendell/interior)
 "ha" = (
@@ -1529,7 +1433,6 @@
 	density = 1;
 	icon = 'icons/obj/doors/rapid_pdoor.dmi';
 	icon_state = "shutterhalf";
-	layer = 2.4;
 	name = "shutter"
 	},
 /obj/effect/decal/fake_object{
@@ -1547,7 +1450,6 @@
 	desc = "A huge lamp post.";
 	icon = 'icons/effects/32x96.dmi';
 	icon_state = "lamp_on";
-	layer = 9;
 	name = "tall lamp post";
 	opacity = 1
 	},
@@ -1644,7 +1546,6 @@
 	desc = "An expensive flatscreen holo-television. This one's connection to the extranet seems to be severed.";
 	icon = 'icons/effects/city.dmi';
 	icon_state = "flatscreen";
-	layer = 9;
 	name = "expensive flatscreen holovision";
 	pixel_y = 15
 	},
@@ -1694,16 +1595,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/city/mendell/interior)
-"il" = (
-/obj/structure/table/standard,
-/obj/item/storage/box/fancy/tray{
-	layer = 2.99
-	},
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
-/area/city/mendell)
 "is" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
 /obj/random/pottedplant,
@@ -1837,17 +1728,13 @@
 	pixel_x = 6;
 	pixel_y = 8
 	},
-/obj/item/storage/firstaid/fire{
-	layer = 3.01
-	},
+/obj/item/storage/firstaid/fire,
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/item/storage/firstaid/toxin{
 	pixel_x = 6;
 	pixel_y = 8
 	},
-/obj/item/storage/firstaid/fire{
-	layer = 3.01
-	},
+/obj/item/storage/firstaid/fire,
 /obj/structure/sign/nosmoking_1{
 	pixel_y = 30
 	},
@@ -1936,12 +1823,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell/interior)
-"jy" = (
-/obj/machinery/door/airlock/glass_centcom{
-	dir = 1
-	},
-/turf/simulated/floor/marble/dark,
-/area/city/mendell/interior)
 "jB" = (
 /obj/machinery/floor_light/dance,
 /turf/simulated/floor/marble/dark,
@@ -1976,9 +1857,7 @@
 /obj/structure/bed/stool/chair/padded/black{
 	dir = 4
 	},
-/obj/effect/landmark{
-	name = "JoinLate"
-	},
+/obj/effect/landmark/latejoin,
 /turf/simulated/floor/shuttle/black,
 /area/city/mendell)
 "jS" = (
@@ -2016,9 +1895,7 @@
 /obj/structure/bed/stool/chair/padded/black{
 	dir = 8
 	},
-/obj/effect/landmark{
-	name = "JoinLate"
-	},
+/obj/effect/landmark/latejoin,
 /turf/simulated/floor/shuttle/black,
 /area/city/mendell)
 "kj" = (
@@ -2039,9 +1916,7 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/city/mendell)
 "kt" = (
-/obj/effect/landmark{
-	name = "JoinLate"
-	},
+/obj/effect/landmark/latejoin,
 /obj/structure/bed/stool/chair/padded/black{
 	dir = 4
 	},
@@ -2052,7 +1927,6 @@
 	desc = "A nondescript vent.";
 	icon = 'icons/effects/city.dmi';
 	icon_state = "vent";
-	layer = 2.7;
 	name = "wall vent";
 	pixel_x = 6;
 	pixel_y = 25
@@ -2090,7 +1964,6 @@
 	desc = "An automated turret.";
 	icon = 'icons/obj/turrets.dmi';
 	icon_state = "cover_1";
-	layer = 3.02;
 	name = "turret"
 	},
 /obj/effect/decal/warning_stripes,
@@ -2117,17 +1990,9 @@
 "kS" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4.1;
 	opacity = 0
 	},
 /turf/simulated/floor/wood,
-/area/city/mendell/interior)
-"kV" = (
-/obj/structure/table/stone/marble,
-/obj/structure/table/stone/marble,
-/turf/unsimulated/floor{
-	icon_state = "wood_cherry"
-	},
 /area/city/mendell/interior)
 "kW" = (
 /obj/structure/railing/mapped{
@@ -2167,7 +2032,6 @@
 /obj/machinery/light/small,
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4.1;
 	opacity = 0
 	},
 /turf/unsimulated/floor{
@@ -2226,9 +2090,7 @@
 /obj/structure/bed/stool/chair/padded/black{
 	dir = 4
 	},
-/obj/effect/landmark{
-	name = "JoinLate"
-	},
+/obj/effect/landmark/latejoin,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/city/mendell)
 "lx" = (
@@ -2289,7 +2151,6 @@
 	desc = "A nondescript vent.";
 	icon = 'icons/effects/city.dmi';
 	icon_state = "vent";
-	layer = 2.7;
 	name = "wall vent";
 	pixel_x = 6;
 	pixel_y = 25
@@ -2331,12 +2192,10 @@
 	},
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/reagent_containers/glass/bottle/thetamycin{
-	layer = 2.99;
 	pixel_x = 9;
 	pixel_y = 7
 	},
 /obj/item/reagent_containers/glass/bottle/antitoxin{
-	layer = 2.99;
 	pixel_y = 7
 	},
 /obj/item/reagent_containers/glass/bottle/dexalin_plus{
@@ -2369,7 +2228,6 @@
 	desc = "A nondescript decorative shelf.";
 	icon = 'icons/effects/city.dmi';
 	icon_state = "shelf";
-	layer = 2.7;
 	name = "shelf";
 	pixel_y = 35
 	},
@@ -2386,7 +2244,6 @@
 	desc = "A nondescript vent.";
 	icon = 'icons/effects/city.dmi';
 	icon_state = "vent";
-	layer = 2.7;
 	name = "wall vent";
 	pixel_x = 6;
 	pixel_y = 25
@@ -2397,9 +2254,7 @@
 /obj/structure/bed/stool/chair/padded/black{
 	dir = 8
 	},
-/obj/effect/landmark{
-	name = "JoinLate"
-	},
+/obj/effect/landmark/latejoin,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/city/mendell)
 "mv" = (
@@ -2448,9 +2303,7 @@
 	},
 /area/city/mendell)
 "mK" = (
-/obj/effect/landmark{
-	name = "JoinLate"
-	},
+/obj/effect/landmark/latejoin,
 /obj/structure/bed/stool/chair/padded/black{
 	dir = 4
 	},
@@ -2837,7 +2690,6 @@
 "pt" = (
 /obj/machinery/door/window/northright{
 	name = "dispensary";
-	req_access = null;
 	req_one_access = list(33,104)
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
@@ -2933,7 +2785,6 @@
 	desc = "What jerk stacked these here?";
 	icon = 'icons/obj/crate.dmi';
 	icon_state = "tcfl_crate_preview";
-	layer = 3.02;
 	name = "inconveniently placed crate";
 	pixel_x = 1
 	},
@@ -2942,7 +2793,6 @@
 	desc = "What jerk stacked these here?";
 	icon = 'icons/obj/crate.dmi';
 	icon_state = "tcfl_crate_preview";
-	layer = 3.01;
 	name = "inconveniently placed crate";
 	pixel_x = 3;
 	pixel_y = 8
@@ -2951,7 +2801,6 @@
 	desc = "What jerk stacked these here?";
 	icon = 'icons/obj/crate.dmi';
 	icon_state = "tcfl_crate_preview";
-	layer = 3.02;
 	name = "inconveniently placed crate";
 	pixel_x = 2;
 	pixel_y = 19
@@ -3074,7 +2923,6 @@
 	},
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4.1;
 	opacity = 0
 	},
 /turf/unsimulated/floor{
@@ -3396,7 +3244,6 @@
 	dir = 8;
 	icon = 'icons/obj/monitors.dmi';
 	icon_state = "camera";
-	layer = 3.02;
 	name = "surveillance camera"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3511,7 +3358,6 @@
 	desc = "Power outlets, in space!";
 	icon = 'icons/effects/city.dmi';
 	icon_state = "outlet";
-	layer = 2.7;
 	name = "power outlets";
 	pixel_x = 21;
 	pixel_y = 9
@@ -3571,7 +3417,6 @@
 	desc = "A nondescript decorative shelf.";
 	icon = 'icons/effects/city.dmi';
 	icon_state = "shelf2";
-	layer = 2.7;
 	name = "shelf";
 	pixel_y = 35
 	},
@@ -3627,13 +3472,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/city/mendell/interior)
-"tY" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/machinery/door/airlock/external{
-	dir = 1
-	},
-/turf/simulated/floor/reinforced,
-/area/city/mendell)
 "uc" = (
 /obj/structure/sink/puddle{
 	desc = "A small pool of some water, very likely important to your mission.";
@@ -3664,7 +3502,6 @@
 	desc = "A big, scary derelict mech!";
 	icon = 'icons/effects/96x96.dmi';
 	icon_state = "derelict_mech";
-	layer = 9;
 	name = "derelict mech"
 	},
 /obj/structure/flora/grass/jungle{
@@ -3940,7 +3777,6 @@
 "vS" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4.1;
 	opacity = 0
 	},
 /turf/simulated/floor/lino,
@@ -4098,49 +3934,6 @@
 /obj/machinery/door/window/southright,
 /turf/simulated/floor/plating,
 /area/city/mendell)
-"wR" = (
-/obj/structure/table/wood,
-/obj/item/paper{
-	info = "Welcome to your very own VR preparation room! You can customize your virtual reality avatar here. Once ready, head out to the Game Selection Hall, where you can head out on your customized adventure! Have fun!";
-	name = "vr introduction slip"
-	},
-/obj/item/paper{
-	info = "Welcome to your very own VR preparation room! You can customize your virtual reality avatar here. Once ready, head out to the Game Selection Hall, where you can head out on your customized adventure! Have fun!";
-	name = "vr introduction slip"
-	},
-/obj/item/paper{
-	info = "Welcome to your very own VR preparation room! You can customize your virtual reality avatar here. Once ready, head out to the Game Selection Hall, where you can head out on your customized adventure! Have fun!";
-	name = "vr introduction slip"
-	},
-/obj/item/paper{
-	info = "Welcome to your very own VR preparation room! You can customize your virtual reality avatar here. Once ready, head out to the Game Selection Hall, where you can head out on your customized adventure! Have fun!";
-	name = "vr introduction slip"
-	},
-/obj/item/paper{
-	info = "Welcome to your very own VR preparation room! You can customize your virtual reality avatar here. Once ready, head out to the Game Selection Hall, where you can head out on your customized adventure! Have fun!";
-	name = "vr introduction slip"
-	},
-/obj/item/paper{
-	info = "Welcome to your very own VR preparation room! You can customize your virtual reality avatar here. Once ready, head out to the Game Selection Hall, where you can head out on your customized adventure! Have fun!";
-	name = "vr introduction slip"
-	},
-/obj/item/paper{
-	info = "Welcome to your very own VR preparation room! You can customize your virtual reality avatar here. Once ready, head out to the Game Selection Hall, where you can head out on your customized adventure! Have fun!";
-	name = "vr introduction slip"
-	},
-/obj/item/paper{
-	info = "Welcome to your very own VR preparation room! You can customize your virtual reality avatar here. Once ready, head out to the Game Selection Hall, where you can head out on your customized adventure! Have fun!";
-	name = "vr introduction slip"
-	},
-/obj/structure/sign/securearea{
-	desc = "A warning sign which declares the door to be one way! Don't get trapped.";
-	name = "\improper ONE WAY DOOR";
-	pixel_x = 28
-	},
-/turf/unsimulated/floor{
-	icon_state = "wood_preview"
-	},
-/area/city/mendell)
 "wS" = (
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled,
@@ -4225,12 +4018,10 @@
 	},
 /obj/structure/table/rack,
 /obj/item/storage/firstaid/o2{
-	layer = 2.99;
 	pixel_x = 2;
 	pixel_y = 5
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 2.99;
 	pixel_x = 2;
 	pixel_y = 5
 	},
@@ -4261,10 +4052,8 @@
 	},
 /area/city/mendell)
 "xL" = (
-/obj/structure/sign/poster{
-	icon_state = "tcflposter2";
-	pixel_x = 29;
-	poster_type = "/datum/poster/bay_68"
+/obj/structure/sign/poster/lore/tcaf2{
+	pixel_x = 29
 	},
 /turf/simulated/floor/lino,
 /area/city/mendell/interior)
@@ -4397,7 +4186,6 @@
 	},
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4.1;
 	opacity = 0
 	},
 /turf/unsimulated/floor{
@@ -4432,7 +4220,6 @@
 	desc = "A bland air conditioning unit.";
 	icon = 'icons/effects/city.dmi';
 	icon_state = "ac";
-	layer = 2.7;
 	name = "AC unit"
 	},
 /turf/simulated/floor/tiled,
@@ -4446,7 +4233,6 @@
 "yl" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4.1;
 	opacity = 0
 	},
 /turf/unsimulated/floor{
@@ -4477,7 +4263,6 @@
 	},
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4.1;
 	opacity = 0
 	},
 /turf/unsimulated/floor{
@@ -4577,7 +4362,6 @@
 	desc = "Power outlets, in space!";
 	icon = 'icons/effects/city.dmi';
 	icon_state = "outlet";
-	layer = 2.7;
 	name = "power outlets";
 	pixel_y = -12
 	},
@@ -4593,7 +4377,6 @@
 	desc = "Power outlets, in space!";
 	icon = 'icons/effects/city.dmi';
 	icon_state = "outlet";
-	layer = 2.7;
 	name = "power outlets";
 	pixel_y = -12
 	},
@@ -4722,9 +4505,7 @@
 	},
 /area/city/mendell)
 "Aa" = (
-/obj/effect/landmark{
-	name = "virtual_reality_spawn"
-	},
+/obj/effect/landmark/virtual_reality_spawn,
 /turf/unsimulated/floor{
 	icon_state = "wood_preview"
 	},
@@ -4762,7 +4543,6 @@
 	desc = "A nondescript decorative shelf.";
 	icon = 'icons/effects/city.dmi';
 	icon_state = "shelf1";
-	layer = 2.7;
 	name = "shelf";
 	pixel_y = 35
 	},
@@ -5019,15 +4799,12 @@
 	desc = "An automated turret.";
 	icon = 'icons/obj/turrets.dmi';
 	icon_state = "cover_1";
-	layer = 3.02;
 	name = "turret"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "Cc" = (
-/obj/effect/landmark{
-	name = "virtual_reality_spawn"
-	},
+/obj/effect/landmark/virtual_reality_spawn,
 /obj/structure/sign/securearea{
 	desc = "A warning sign which declares the door to be one way! Don't get trapped.";
 	name = "\improper ONE WAY DOOR";
@@ -5058,7 +4835,6 @@
 	},
 /area/city/mendell/interior)
 "Cr" = (
-/obj/structure/table/wood,
 /obj/structure/table/wood,
 /obj/item/flame/candle,
 /turf/unsimulated/floor{
@@ -5299,7 +5075,6 @@
 	desc = "A huge lamp post.";
 	icon = 'icons/effects/32x96.dmi';
 	icon_state = "lamp_on";
-	layer = 9;
 	name = "tall lamp post";
 	opacity = 1
 	},
@@ -5347,7 +5122,6 @@
 	desc = "A nondescript decorative shelf.";
 	icon = 'icons/effects/city.dmi';
 	icon_state = "shelf1";
-	layer = 2.7;
 	name = "shelf";
 	pixel_y = 35
 	},
@@ -5446,7 +5220,6 @@
 "DP" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4.1;
 	opacity = 0
 	},
 /turf/unsimulated/floor{
@@ -5523,7 +5296,6 @@
 	desc = "A Hephaestus Industries Z-Cube! This state-of-the-art gaming console is the premium of the premium. It's almost VR!";
 	icon = 'icons/effects/city.dmi';
 	icon_state = "gamer_console";
-	layer = 2.7;
 	name = "gaming console"
 	},
 /turf/simulated/floor/carpet,
@@ -5618,7 +5390,6 @@
 	desc = "A nondescript decorative shelf.";
 	icon = 'icons/effects/city.dmi';
 	icon_state = "shelf1";
-	layer = 2.7;
 	name = "shelf";
 	pixel_y = 35
 	},
@@ -5896,7 +5667,6 @@
 	desc = "A nondescript decorative shelf.";
 	icon = 'icons/effects/city.dmi';
 	icon_state = "shelf";
-	layer = 2.7;
 	name = "shelf";
 	pixel_y = 35
 	},
@@ -5904,11 +5674,9 @@
 /area/city/mendell/interior)
 "HE" = (
 /obj/structure/bed/stool/chair/wood,
-/obj/structure/sign/poster{
-	icon_state = "tcflposter";
+/obj/structure/sign/poster/lore/tcaf{
 	pixel_x = -6;
-	pixel_y = 31;
-	poster_type = "/datum/poster/bay_67"
+	pixel_y = 31
 	},
 /turf/simulated/floor/lino,
 /area/city/mendell/interior)
@@ -5931,7 +5699,6 @@
 	desc = "A nondescript decorative shelf.";
 	icon = 'icons/effects/city.dmi';
 	icon_state = "shelf";
-	layer = 2.7;
 	name = "shelf";
 	pixel_y = 35
 	},
@@ -6037,10 +5804,6 @@
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell/interior)
-"IA" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
-/turf/simulated/floor/marble/dark,
-/area/city/mendell/interior)
 "IC" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/hatch,
@@ -6093,7 +5856,6 @@
 	desc = "Power outlets, in space!";
 	icon = 'icons/effects/city.dmi';
 	icon_state = "outlet";
-	layer = 2.7;
 	name = "power outlets";
 	pixel_x = -3;
 	pixel_y = 35
@@ -6205,7 +5967,6 @@
 	desc = "The distant cityscape of Mendell City.";
 	icon = 'icons/effects/256x672.dmi';
 	icon_state = "cityscape";
-	layer = 2.01;
 	name = "Mendell City"
 	},
 /turf/simulated/abyss{
@@ -6310,7 +6071,6 @@
 /area/city/mendell/interior)
 "JX" = (
 /obj/machinery/door/airlock/command{
-	id_tag = null;
 	name = "Conference Room";
 	req_access = list(19);
 	dir = 1
@@ -6743,12 +6503,12 @@
 /area/city/mendell/interior)
 "Mj" = (
 /obj/structure/table/rack,
-/obj/item/reagent_containers/food/snacks/berrymuffin,
-/obj/item/reagent_containers/food/snacks/berrymuffin,
-/obj/item/reagent_containers/food/snacks/berrymuffin,
-/obj/item/reagent_containers/food/snacks/berrymuffin,
-/obj/item/reagent_containers/food/snacks/berrymuffin,
-/obj/item/reagent_containers/food/snacks/berrymuffin,
+/obj/item/reagent_containers/food/snacks/muffin/berry,
+/obj/item/reagent_containers/food/snacks/muffin/berry,
+/obj/item/reagent_containers/food/snacks/muffin/berry,
+/obj/item/reagent_containers/food/snacks/muffin/berry,
+/obj/item/reagent_containers/food/snacks/muffin/berry,
+/obj/item/reagent_containers/food/snacks/muffin/berry,
 /turf/simulated/floor/tiled/white,
 /area/city/mendell/interior)
 "Mm" = (
@@ -6785,7 +6545,6 @@
 	desc = "A big, sad derelict hovercar!";
 	icon = 'icons/effects/64x64.dmi';
 	icon_state = "derelict_hovercar";
-	layer = 9;
 	name = "derelict hovercar"
 	},
 /obj/structure/flora/grass/jungle{
@@ -6891,7 +6650,6 @@
 	desc = "A nondescript vent.";
 	icon = 'icons/effects/city.dmi';
 	icon_state = "vent";
-	layer = 2.7;
 	name = "wall vent";
 	pixel_x = 6;
 	pixel_y = 25
@@ -6940,7 +6698,6 @@
 	desc = "Power outlets, in space!";
 	icon = 'icons/effects/city.dmi';
 	icon_state = "outlet";
-	layer = 2.7;
 	name = "power outlets";
 	pixel_y = -12
 	},
@@ -7031,7 +6788,6 @@
 	desc = "A nondescript decorative shelf.";
 	icon = 'icons/effects/city.dmi';
 	icon_state = "shelf";
-	layer = 2.7;
 	name = "shelf";
 	pixel_y = 35
 	},
@@ -7189,12 +6945,10 @@
 	},
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/reagent_containers/glass/bottle/thetamycin{
-	layer = 2.99;
 	pixel_x = 9;
 	pixel_y = 7
 	},
 /obj/item/reagent_containers/glass/bottle/antitoxin{
-	layer = 2.99;
 	pixel_y = 7
 	},
 /obj/item/reagent_containers/glass/bottle/dexalin_plus{
@@ -7418,16 +7172,12 @@
 	pixel_x = 6;
 	pixel_y = 8
 	},
-/obj/item/storage/firstaid/fire{
-	layer = 3.01
-	},
+/obj/item/storage/firstaid/fire,
 /obj/item/storage/firstaid/toxin{
 	pixel_x = 6;
 	pixel_y = 8
 	},
-/obj/item/storage/firstaid/fire{
-	layer = 3.01
-	},
+/obj/item/storage/firstaid/fire,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -7537,7 +7287,6 @@
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/machinery/door/window/eastleft{
 	name = "dispensary";
-	req_access = null;
 	req_one_access = list(33,104)
 	},
 /obj/item/reagent_containers/glass/beaker/large,
@@ -7814,7 +7563,6 @@
 	name = "Door Bolt Control";
 	pixel_x = 5;
 	pixel_y = 25;
-	req_access = null;
 	specialfunctions = 4
 	},
 /obj/machinery/light/small{
@@ -7969,7 +7717,6 @@
 "SG" = (
 /obj/structure/toilet{
 	dir = 4;
-	layer = 2.6;
 	pixel_y = 1
 	},
 /obj/machinery/light/small{
@@ -7983,7 +7730,6 @@
 	dir = 8;
 	icon = 'icons/obj/monitors.dmi';
 	icon_state = "camera";
-	layer = 3.02;
 	name = "surveillance camera"
 	},
 /turf/simulated/floor/wood,
@@ -8023,7 +7769,6 @@
 	desc = "A crate of military supplies.";
 	icon = 'icons/obj/crate.dmi';
 	icon_state = "dropcrate";
-	layer = 3.02;
 	name = "metal crate";
 	pixel_x = 1;
 	pixel_y = 4
@@ -8082,7 +7827,6 @@
 	density = 1;
 	icon = 'icons/obj/doors/rapid_pdoor.dmi';
 	icon_state = "shutterhalf";
-	layer = 2.4;
 	name = "shutter"
 	},
 /turf/simulated/floor/plating,
@@ -8142,17 +7886,14 @@
 	},
 /obj/structure/table/rack,
 /obj/item/clothing/suit/storage/toggle/bssb{
-	layer = 2.99;
 	pixel_x = 6;
 	pixel_y = 2
 	},
 /obj/item/clothing/suit/storage/toggle/bssb{
-	layer = 2.99;
 	pixel_x = 6;
 	pixel_y = 2
 	},
 /obj/item/clothing/suit/storage/toggle/bssb{
-	layer = 2.99;
 	pixel_x = 6;
 	pixel_y = 2
 	},
@@ -8321,7 +8062,6 @@
 	desc = "An automated turret.";
 	icon = 'icons/obj/turrets.dmi';
 	icon_state = "cover_1";
-	layer = 3.02;
 	name = "turret"
 	},
 /obj/effect/decal/warning_stripes,
@@ -8390,7 +8130,6 @@
 	desc = "A nondescript decorative shelf.";
 	icon = 'icons/effects/city.dmi';
 	icon_state = "shelf";
-	layer = 2.7;
 	name = "shelf";
 	pixel_y = 35
 	},
@@ -8416,7 +8155,6 @@
 	desc = "A bland air conditioning unit.";
 	icon = 'icons/effects/city.dmi';
 	icon_state = "ac";
-	layer = 2.7;
 	name = "AC unit"
 	},
 /turf/simulated/floor/tiled,
@@ -8549,7 +8287,6 @@
 	desc = "Power outlets, in space!";
 	icon = 'icons/effects/city.dmi';
 	icon_state = "outlet";
-	layer = 2.7;
 	name = "power outlets";
 	pixel_y = -12
 	},
@@ -8568,66 +8305,21 @@
 /area/city/mendell/interior)
 "Wk" = (
 /obj/structure/table/reinforced,
-/obj/item/paper{
-	info = "Welcome to MEDAL OF VALOR 2 gameplay demo. You've entered your teams respective base. Proceed to the fighting! Do not push into the enemy's base under any circumstances! Remember, have fun!";
-	name = "Medal of Valor 2 Introduction Slip"
-	},
-/obj/item/paper{
-	info = "Welcome to MEDAL OF VALOR 2 gameplay demo. You've entered your teams respective base. Proceed to the fighting! Do not push into the enemy's base under any circumstances! Remember, have fun!";
-	name = "Medal of Valor 2 Introduction Slip"
-	},
-/obj/item/paper{
-	info = "Welcome to MEDAL OF VALOR 2 gameplay demo. You've entered your teams respective base. Proceed to the fighting! Do not push into the enemy's base under any circumstances! Remember, have fun!";
-	name = "Medal of Valor 2 Introduction Slip"
-	},
-/obj/item/paper{
-	info = "Welcome to MEDAL OF VALOR 2 gameplay demo. You've entered your teams respective base. Proceed to the fighting! Do not push into the enemy's base under any circumstances! Remember, have fun!";
-	name = "Medal of Valor 2 Introduction Slip"
-	},
-/obj/item/paper{
-	info = "Welcome to MEDAL OF VALOR 2 gameplay demo. You've entered your teams respective base. Proceed to the fighting! Do not push into the enemy's base under any circumstances! Remember, have fun!";
-	name = "Medal of Valor 2 Introduction Slip"
-	},
-/obj/item/paper{
-	info = "Welcome to MEDAL OF VALOR 2 gameplay demo. You've entered your teams respective base. Proceed to the fighting! Do not push into the enemy's base under any circumstances! Remember, have fun!";
-	name = "Medal of Valor 2 Introduction Slip"
-	},
-/obj/item/paper{
-	info = "Welcome to MEDAL OF VALOR 2 gameplay demo. You've entered your teams respective base. Proceed to the fighting! Do not push into the enemy's base under any circumstances! Remember, have fun!";
-	name = "Medal of Valor 2 Introduction Slip"
-	},
-/obj/item/paper{
-	info = "Welcome to MEDAL OF VALOR 2 gameplay demo. You've entered your teams respective base. Proceed to the fighting! Do not push into the enemy's base under any circumstances! Remember, have fun!";
-	name = "Medal of Valor 2 Introduction Slip"
-	},
-/obj/item/paper{
-	info = "Welcome to MEDAL OF VALOR 2 gameplay demo. You've entered your teams respective base. Proceed to the fighting! Do not push into the enemy's base under any circumstances! Remember, have fun!";
-	name = "Medal of Valor 2 Introduction Slip"
-	},
-/obj/item/paper{
-	info = "Welcome to MEDAL OF VALOR 2 gameplay demo. You've entered your teams respective base. Proceed to the fighting! Do not push into the enemy's base under any circumstances! Remember, have fun!";
-	name = "Medal of Valor 2 Introduction Slip"
-	},
-/obj/item/paper{
-	info = "Welcome to MEDAL OF VALOR 2 gameplay demo. You've entered your teams respective base. Proceed to the fighting! Do not push into the enemy's base under any circumstances! Remember, have fun!";
-	name = "Medal of Valor 2 Introduction Slip"
-	},
-/obj/item/paper{
-	info = "Welcome to MEDAL OF VALOR 2 gameplay demo. You've entered your teams respective base. Proceed to the fighting! Do not push into the enemy's base under any circumstances! Remember, have fun!";
-	name = "Medal of Valor 2 Introduction Slip"
-	},
-/obj/item/paper{
-	info = "Welcome to MEDAL OF VALOR 2 gameplay demo. You've entered your teams respective base. Proceed to the fighting! Do not push into the enemy's base under any circumstances! Remember, have fun!";
-	name = "Medal of Valor 2 Introduction Slip"
-	},
-/obj/item/paper{
-	info = "Welcome to MEDAL OF VALOR 2 gameplay demo. You've entered your teams respective base. Proceed to the fighting! Do not push into the enemy's base under any circumstances! Remember, have fun!";
-	name = "Medal of Valor 2 Introduction Slip"
-	},
-/obj/item/paper{
-	info = "Welcome to MEDAL OF VALOR 2 gameplay demo. You've entered your teams respective base. Proceed to the fighting! Do not push into the enemy's base under any circumstances! Remember, have fun!";
-	name = "Medal of Valor 2 Introduction Slip"
-	},
+/obj/item/paper/fluff/rooftop/medal_of_valor_nopush,
+/obj/item/paper/fluff/rooftop/medal_of_valor_nopush,
+/obj/item/paper/fluff/rooftop/medal_of_valor_nopush,
+/obj/item/paper/fluff/rooftop/medal_of_valor_nopush,
+/obj/item/paper/fluff/rooftop/medal_of_valor_nopush,
+/obj/item/paper/fluff/rooftop/medal_of_valor_nopush,
+/obj/item/paper/fluff/rooftop/medal_of_valor_nopush,
+/obj/item/paper/fluff/rooftop/medal_of_valor_nopush,
+/obj/item/paper/fluff/rooftop/medal_of_valor_nopush,
+/obj/item/paper/fluff/rooftop/medal_of_valor_nopush,
+/obj/item/paper/fluff/rooftop/medal_of_valor_nopush,
+/obj/item/paper/fluff/rooftop/medal_of_valor_nopush,
+/obj/item/paper/fluff/rooftop/medal_of_valor_nopush,
+/obj/item/paper/fluff/rooftop/medal_of_valor_nopush,
+/obj/item/paper/fluff/rooftop/medal_of_valor_nopush,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -8746,7 +8438,6 @@
 	desc = "The distant cityscape of Mendell City.";
 	icon = 'icons/effects/1152x544.dmi';
 	icon_state = "cityscale_scrolling";
-	layer = 2.01;
 	name = "Mendell City"
 	},
 /turf/simulated/abyss{
@@ -8899,7 +8590,6 @@
 	desc = "A huge pillar! It's holding up a roof.";
 	icon = 'icons/effects/32x96.dmi';
 	icon_state = "pillar";
-	layer = 9;
 	name = "tall white pillar";
 	opacity = 1
 	},
@@ -8911,7 +8601,6 @@
 "Yd" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4.1;
 	opacity = 0
 	},
 /turf/unsimulated/floor{
@@ -8973,7 +8662,6 @@
 	desc = "A nondescript vent.";
 	icon = 'icons/effects/city.dmi';
 	icon_state = "vent";
-	layer = 2.7;
 	name = "wall vent";
 	pixel_x = 6;
 	pixel_y = 25
@@ -9034,11 +8722,9 @@
 	pixel_y = 8
 	},
 /obj/item/storage/firstaid/regular{
-	layer = 3.01;
 	pixel_x = 6
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 3.01;
 	pixel_x = -13
 	},
 /obj/item/storage/firstaid/adv{
@@ -9046,11 +8732,9 @@
 	pixel_y = 8
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 3.01;
 	pixel_x = -13
 	},
 /obj/item/storage/firstaid/regular{
-	layer = 3.01;
 	pixel_x = 6
 	},
 /obj/item/storage/firstaid/adv{
@@ -9130,7 +8814,6 @@
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/machinery/door/window/eastright{
 	name = "dispensary";
-	req_access = null;
 	req_one_access = list(33,104)
 	},
 /obj/item/reagent_containers/dropper,
@@ -9244,7 +8927,6 @@
 	desc = "A nondescript vent.";
 	icon = 'icons/effects/city.dmi';
 	icon_state = "vent";
-	layer = 2.7;
 	name = "wall vent";
 	pixel_x = 6;
 	pixel_y = 25
@@ -11416,7 +11098,7 @@ Yw
 fe
 Or
 Or
-il
+hJ
 OE
 HG
 ma
@@ -12764,8 +12446,8 @@ Or
 ej
 ej
 ej
-ey
-ey
+en
+en
 fK
 rO
 ar
@@ -12851,8 +12533,8 @@ Or
 en
 en
 en
-ey
-ey
+en
+en
 fK
 is
 ar
@@ -12935,12 +12617,12 @@ ZL
 ZL
 ZL
 Or
-ey
-ey
-ey
-ey
-ey
-ey
+en
+en
+en
+en
+en
+en
 rY
 ar
 ar
@@ -13022,12 +12704,12 @@ ZL
 ZL
 ZL
 Or
-ey
+en
 iJ
-ey
-ey
-ey
-ey
+en
+en
+en
+en
 rY
 ar
 ar
@@ -13109,12 +12791,12 @@ ZL
 ZL
 ZL
 Or
-ey
-ey
-ey
-ey
-ey
-ey
+en
+en
+en
+en
+en
+en
 rY
 ar
 ar
@@ -13199,8 +12881,8 @@ Or
 eU
 en
 en
-ey
-ey
+en
+en
 fK
 is
 ar
@@ -13286,8 +12968,8 @@ Or
 eZ
 eZ
 eZ
-ey
-ey
+en
+en
 fK
 rZ
 Pk
@@ -18814,7 +18496,7 @@ uz
 Ti
 Us
 CP
-kV
+zH
 vL
 CO
 CP
@@ -19166,7 +18848,7 @@ hx
 rz
 CP
 CP
-IA
+cL
 CP
 js
 nn
@@ -19374,7 +19056,7 @@ ZL
 ZL
 bo
 ZG
-jy
+ac
 ZG
 ZG
 ZG
@@ -19548,7 +19230,7 @@ ZL
 ZL
 bk
 ZG
-jy
+ac
 ZG
 ZG
 ZG
@@ -19750,8 +19432,8 @@ zU
 Eq
 AN
 CP
-IA
-IA
+cL
+cL
 CP
 fa
 Hn
@@ -19918,7 +19600,7 @@ CP
 CP
 CP
 ae
-af
+ae
 CP
 Eq
 Eq
@@ -20203,7 +19885,7 @@ Rb
 Iw
 jq
 tj
-IA
+cL
 ZL
 ZL
 ZL
@@ -20266,7 +19948,7 @@ UZ
 ob
 CP
 ag
-ah
+ag
 CP
 Eq
 Eq
@@ -20377,7 +20059,7 @@ fg
 WA
 EA
 Lz
-IA
+cL
 ZL
 ZL
 ZL
@@ -20616,7 +20298,7 @@ GI
 Dt
 Dt
 Xs
-IA
+cL
 Eq
 Eq
 Eq
@@ -20703,7 +20385,7 @@ CP
 CP
 Dt
 Dt
-IA
+cL
 Eq
 Eq
 Eq
@@ -20794,7 +20476,7 @@ CP
 ug
 ug
 CP
-IA
+cL
 CP
 CP
 yA
@@ -20969,7 +20651,7 @@ ZG
 ZG
 ZG
 ZG
-IA
+cL
 CY
 yU
 yU
@@ -21030,7 +20712,7 @@ ZG
 ZG
 ZG
 lc
-IA
+cL
 JQ
 Dt
 Dt
@@ -21056,7 +20738,7 @@ Dt
 Dt
 ZG
 ZG
-IA
+cL
 Dt
 Dt
 Dt
@@ -21117,7 +20799,7 @@ ZG
 ZG
 ZG
 ZG
-IA
+cL
 JQ
 sm
 Ph
@@ -21143,7 +20825,7 @@ KX
 Dt
 ZG
 ZG
-IA
+cL
 Dt
 Dt
 Dt
@@ -21204,23 +20886,23 @@ ZG
 ZG
 ZG
 tQ
-IA
-IA
-IA
+cL
+cL
+cL
 CP
-IA
-IA
-IA
+cL
+cL
+cL
 CP
 CP
 CP
-IA
-IA
-IA
+cL
+cL
+cL
 CP
-IA
-IA
-IA
+cL
+cL
+cL
 CP
 CP
 CP
@@ -21231,14 +20913,14 @@ Dt
 ZG
 tQ
 CP
-IA
+cL
 yY
 yY
-IA
+cL
 CP
 GX
 jH
-IA
+cL
 Vi
 yj
 CP
@@ -21246,8 +20928,8 @@ YX
 qT
 xY
 kZ
-IA
-IA
+cL
+cL
 ZL
 ZL
 ZL
@@ -21325,7 +21007,7 @@ kY
 jH
 GX
 GX
-IA
+cL
 GX
 GX
 CP
@@ -21334,7 +21016,7 @@ ny
 ny
 QI
 JF
-IA
+cL
 ZL
 ZL
 ZL
@@ -21412,7 +21094,7 @@ GX
 GX
 GX
 GX
-IA
+cL
 GX
 GX
 CP
@@ -21421,7 +21103,7 @@ Lw
 ny
 ny
 oE
-IA
+cL
 ZL
 ZL
 ZL
@@ -21508,7 +21190,7 @@ CP
 zk
 zk
 zk
-IA
+cL
 ZL
 ZL
 ZL
@@ -21595,7 +21277,7 @@ CP
 jX
 zk
 zk
-IA
+cL
 ZL
 ZL
 ZL
@@ -21682,7 +21364,7 @@ CP
 zk
 zO
 zO
-IA
+cL
 ZL
 ZL
 ZL
@@ -21818,7 +21500,7 @@ jB
 jB
 hd
 oT
-IA
+cL
 Bl
 Df
 Df
@@ -21905,7 +21587,7 @@ jB
 jB
 hd
 UZ
-IA
+cL
 Bn
 Eq
 Go
@@ -21927,7 +21609,7 @@ kd
 GX
 kd
 GX
-cF
+cL
 kd
 GX
 GX
@@ -21992,7 +21674,7 @@ jB
 jB
 hd
 oT
-IA
+cL
 Bx
 Eq
 Go
@@ -22014,7 +21696,7 @@ kd
 GX
 kd
 GX
-IA
+cL
 kd
 GX
 gZ
@@ -22079,7 +21761,7 @@ jB
 jB
 hd
 UZ
-IA
+cL
 Bn
 Eq
 Go
@@ -22105,8 +21787,8 @@ OQ
 kd
 GX
 gZ
-IA
-IA
+cL
+cL
 CP
 CU
 CU
@@ -22166,7 +21848,7 @@ jB
 jB
 hd
 oT
-IA
+cL
 BD
 yY
 yY
@@ -22188,16 +21870,16 @@ Qs
 GX
 Qs
 GX
-cF
+cL
 kd
 GX
 GX
-IA
+cL
 fh
 gG
 ny
 ny
-IA
+cL
 GX
 wS
 ZG
@@ -22271,20 +21953,20 @@ CP
 Dt
 Dt
 Ix
-IA
+cL
 Ee
-IA
+cL
 BL
 WG
 GX
 GX
 GX
-IA
+cL
 kd
 ny
 ny
 ny
-IA
+cL
 GX
 wS
 ZG
@@ -22366,12 +22048,12 @@ Vh
 vJ
 GX
 GX
-IA
+cL
 fh
 Gf
 ny
 ny
-IA
+cL
 GX
 wS
 ZG
@@ -22453,8 +22135,8 @@ cL
 vJ
 GX
 gZ
-IA
-IA
+cL
+cL
 CP
 CU
 CU
@@ -22536,7 +22218,7 @@ vJ
 GX
 vJ
 GX
-IA
+cL
 vJ
 GX
 gZ
@@ -22961,11 +22643,11 @@ ZG
 ZG
 ZG
 tQ
-IA
+cL
 sj
 Df
 Qx
-IA
+cL
 Rs
 ZG
 ZG
@@ -23126,9 +22808,9 @@ nH
 VY
 VY
 yz
-IA
+cL
 Tp
-IA
+cL
 CP
 Uc
 eX
@@ -23146,9 +22828,9 @@ CX
 eX
 jp
 CP
-IA
+cL
 Tp
-IA
+cL
 nH
 VY
 VY
@@ -23213,7 +22895,7 @@ VY
 VY
 VY
 VY
-IA
+cL
 ZL
 ZL
 ZL
@@ -23235,7 +22917,7 @@ ZL
 ZL
 ZL
 Ju
-IA
+cL
 VY
 VY
 VY
@@ -23300,7 +22982,7 @@ VY
 VY
 VY
 VY
-IA
+cL
 ZL
 ZL
 ZL
@@ -23322,7 +23004,7 @@ ZL
 ZL
 ZL
 ZL
-IA
+cL
 VY
 VY
 VY
@@ -23409,7 +23091,7 @@ ZL
 ZL
 ZL
 ZL
-IA
+cL
 Df
 Df
 Df
@@ -23418,7 +23100,7 @@ CP
 Hp
 EO
 Yu
-IA
+cL
 vk
 EO
 yL
@@ -23465,7 +23147,7 @@ bL
 Ga
 EO
 Yu
-IA
+cL
 vk
 EO
 EO
@@ -23474,7 +23156,7 @@ Df
 Df
 Df
 Df
-IA
+cL
 ZL
 ZL
 ZL
@@ -23561,7 +23243,7 @@ sj
 Df
 Df
 Qx
-IA
+cL
 ZL
 ZL
 ZL
@@ -23583,7 +23265,7 @@ ZL
 ZL
 ZL
 ZL
-IA
+cL
 sj
 Df
 Df
@@ -24006,7 +23688,7 @@ FM
 Lo
 Rj
 uO
-IA
+cL
 FM
 yQ
 yQ
@@ -24091,9 +23773,9 @@ FM
 FM
 FM
 Yu
-IA
+cL
 vk
-IA
+cL
 FM
 yQ
 GJ
@@ -24180,7 +23862,7 @@ Po
 ZS
 po
 vr
-IA
+cL
 FM
 yQ
 cW
@@ -24335,7 +24017,7 @@ cK
 ho
 ho
 ls
-IA
+cL
 rk
 ho
 oZ
@@ -24354,7 +24036,7 @@ EO
 sF
 EO
 EO
-IA
+cL
 FM
 yQ
 GJ
@@ -24425,7 +24107,7 @@ ho
 oD
 ho
 ls
-IA
+cL
 vk
 Px
 UZ
@@ -24441,7 +24123,7 @@ yL
 CP
 EO
 EO
-IA
+cL
 FM
 yQ
 yQ
@@ -24528,7 +24210,7 @@ EO
 EO
 EO
 EO
-IA
+cL
 Hk
 yQ
 yQ
@@ -24789,11 +24471,11 @@ wp
 CG
 CA
 ho
-IA
+cL
 ho
-IA
+cL
 ho
-IA
+cL
 FM
 yQ
 CP
@@ -24947,7 +24629,7 @@ ho
 oZ
 ho
 ls
-IA
+cL
 vk
 wo
 UZ
@@ -25031,7 +24713,7 @@ cK
 ho
 ho
 ls
-IA
+cL
 rk
 ho
 oD
@@ -25050,7 +24732,7 @@ EO
 EO
 EO
 EO
-IA
+cL
 FM
 yQ
 EO
@@ -25075,7 +24757,7 @@ GJ
 rl
 CG
 CG
-IA
+cL
 ZL
 ZL
 ZL
@@ -25137,7 +24819,7 @@ EO
 EO
 EO
 EO
-IA
+cL
 FM
 yQ
 EO
@@ -25224,7 +24906,7 @@ EO
 cW
 EO
 EO
-IA
+cL
 FM
 yQ
 EO
@@ -25249,7 +24931,7 @@ EO
 rl
 CG
 Sp
-IA
+cL
 ZL
 ZL
 ZL
@@ -25336,7 +25018,7 @@ EO
 rl
 CG
 rc
-IA
+cL
 ZL
 ZL
 ZL
@@ -25400,9 +25082,9 @@ PF
 PF
 CP
 CP
-IA
+cL
 Tp
-IA
+cL
 CP
 CP
 CP
@@ -25421,8 +25103,8 @@ nr
 yZ
 CP
 Tp
-IA
-IA
+cL
+cL
 CP
 ZL
 ZL
@@ -29060,7 +28742,7 @@ fK
 MJ
 MJ
 fK
-il
+hJ
 OE
 HG
 ma
@@ -29226,7 +28908,7 @@ Kg
 xD
 xD
 xD
-tY
+aj
 xD
 xD
 hM
@@ -29256,19 +28938,19 @@ pn
 hP
 xW
 hC
-wR
+do
 hP
 xW
 hC
-wR
+do
 hP
 xW
 hC
-wR
+do
 hP
 xW
 hC
-wR
+do
 hP
 "}
 (231,1,1) = {"
@@ -29400,7 +29082,7 @@ Kg
 xD
 xD
 xD
-tY
+aj
 xD
 xD
 hM
@@ -30300,19 +29982,19 @@ QX
 hP
 xW
 hC
-wR
+do
 hP
 xW
 hC
-wR
+do
 hP
 xW
 hC
-wR
+do
 hP
 xW
 hC
-wR
+do
 hP
 "}
 (243,1,1) = {"
@@ -30618,7 +30300,7 @@ Kg
 xD
 xD
 xD
-aN
+ao
 xD
 xD
 hM
@@ -30792,7 +30474,7 @@ Kg
 xD
 xD
 xD
-aN
+ao
 xD
 xD
 hM
@@ -31235,7 +30917,7 @@ Or
 Jy
 Jy
 Or
-il
+hJ
 OE
 HG
 ma

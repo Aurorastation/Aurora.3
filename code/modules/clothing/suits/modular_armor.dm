@@ -6,7 +6,7 @@
 	icon_state = "plate_carrier"
 	item_state = "plate_carrier"
 	blood_overlay_type = "armor"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	restricted_accessory_slots = list(ACCESSORY_SLOT_ARMOR_PLATE, ACCESSORY_SLOT_ARM_GUARDS, ACCESSORY_SLOT_LEG_GUARDS, ACCESSORY_SLOT_ARMOR_POCKETS)
 	valid_accessory_slots = list(ACCESSORY_SLOT_ARMOR_PLATE, ACCESSORY_SLOT_ARM_GUARDS, ACCESSORY_SLOT_LEG_GUARDS, ACCESSORY_SLOT_ARMOR_POCKETS, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_CAPE, ACCESSORY_SLOT_UTILITY_MINOR)
 	pockets = null
@@ -18,12 +18,12 @@
 	and weak lasers. It is significantly more comfortable to wear than a full steel plate, and many soldiers on Sun Reach only wear their flak vests — \
 	much to the dismay of officers."
 	icon_state = "dom_carrier"
-	icon_state = "dom_carrier"
 	armor = list(
-		melee = ARMOR_MELEE_KNIVES,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_MINOR,
-		energy = ARMOR_ENERGY_SMALL
+		MELEE = ARMOR_MELEE_KEVLAR,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_KEVLAR,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED
 	)
 
 /obj/item/clothing/suit/armor/carrier/officer
@@ -123,6 +123,14 @@
 		/obj/item/clothing/accessory/storage/chest_gear
 	)
 
+/obj/item/clothing/suit/armor/carrier/hoplan
+	starting_accessories = list(
+		/obj/item/clothing/accessory/armor_plate/heavy/hoplan,
+		/obj/item/clothing/accessory/leg_guard/hoplan,
+		/obj/item/clothing/accessory/arm_guard/hoplan,
+		/obj/item/clothing/accessory/storage/modular_pouch/large
+	)
+
 /obj/item/clothing/accessory/armor_plate
 	name = "corporate armor plate"
 	desc = "A particularly light-weight armor plate in stylish corporate black. Unfortunately, not very good if you hold it with your hands."
@@ -132,15 +140,24 @@
 	item_state = "plate_sec"
 	contained_sprite = TRUE
 	slot = ACCESSORY_SLOT_ARMOR_PLATE
+	accessory_layer = ACCESSORY_LAYER_LOWER
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	armor = list(
-		melee = ARMOR_MELEE_KEVLAR,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_KEVLAR,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED
+		MELEE = ARMOR_MELEE_KEVLAR,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_KEVLAR,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED
 	)
+
+/obj/item/clothing/accessory/armor_plate/before_attached(var/obj/item/clothing/clothing, var/mob/user)
+	if(!clothing.valid_accessory_slots || !(slot in clothing.valid_accessory_slots))
+		return
+	var/obj/item/clothing/accessory/armor_plate/existing_plate = locate() in clothing.accessories
+	if(!existing_plate)
+		return
+	clothing.remove_accessory(user, existing_plate)
 
 /obj/item/clothing/accessory/armor_plate/generic
 	name = "standard armor plate"
@@ -166,13 +183,13 @@
 	icon_state = "plate_ballistic"
 	item_state = "plate_ballistic"
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_RIFLE,
-		laser = ARMOR_LASER_MINOR,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_RIFLE,
+		LASER = ARMOR_LASER_MINOR,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED
 	)
-	slowdown = 1
+	slowdown = 0.4
 
 /obj/item/clothing/accessory/armor_plate/riot
 	name = "riot armor plate"
@@ -180,13 +197,13 @@
 	icon_state = "plate_riot"
 	item_state = "plate_riot"
 	armor = list(
-		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_MINOR,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED
+		MELEE = ARMOR_MELEE_VERY_HIGH,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_MINOR,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED
 	)
-	slowdown = 1
+	slowdown = 0.4
 
 /obj/item/clothing/accessory/armor_plate/ablative
 	name = "ablative armor plate"
@@ -194,12 +211,12 @@
 	icon_state = "plate_ablative"
 	item_state = "plate_ablative"
 	armor = list(
-		melee = ARMOR_MELEE_MINOR,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_MAJOR,
-		energy = ARMOR_ENERGY_RESISTANT
+		MELEE = ARMOR_MELEE_MINOR,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_MAJOR,
+		ENERGY = ARMOR_ENERGY_RESISTANT
 	)
-	slowdown = 1
+	slowdown = 0.4
 	siemens_coefficient = 0
 
 /obj/item/clothing/accessory/armor_plate/military
@@ -208,13 +225,13 @@
 	icon_state = "plate_military"
 	item_state = "plate_military"
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_MAJOR,
-		laser = ARMOR_LASER_RIFLE,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_MAJOR,
+		LASER = ARMOR_LASER_RIFLE,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED,
 	)
-	slowdown = 1
+	slowdown = 0.4
 
 /obj/item/clothing/accessory/armor_plate/heavy
 	name = "heavy armor plate"
@@ -222,20 +239,20 @@
 	icon_state = "plate_heavy"
 	item_state = "plate_heavy"
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_MAJOR,
-		laser = ARMOR_LASER_RIFLE,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_MAJOR,
+		LASER = ARMOR_LASER_RIFLE,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED,
 	)
-	slowdown = 1
+	slowdown = 0.4
 
 /obj/item/clothing/accessory/armor_plate/heavy/scc
 	name = "heavy SCC armor plate"
 	desc = "A heavy and nondescript armor plate. You really get the idea they wanted these mooks to be unfeeling."
 	icon_state = "plate_blue"
 	item_state = "plate_blue"
-	slowdown = 0 // the SCC is hacking
+	slowdown = 0.4
 
 /obj/item/clothing/accessory/armor_plate/heavy/dominia
 	name = "imperial army steel body armor"
@@ -245,6 +262,14 @@
 	icon_state = "dom_plate"
 	item_state = "dom_plate"
 
+/obj/item/clothing/accessory/armor_plate/heavy/hoplan
+	name = "hoplan breastplate"
+	desc = "What looks to you like a medieval relic, is actually ablative plating backed by ballistic padding! Have at thee!"
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon_state = "hoplan_breastplate"
+	item_state = "hoplan_breastplate"
+	contained_sprite = TRUE
+
 /obj/item/clothing/accessory/armor_plate/tcaf
 	name = "\improper TCAF legionnaire carapace"
 	desc = "The blue carapace of the Tau Ceti Armed Forces. Polished and proud for Miranda Trasen's favorite soldiers."
@@ -253,20 +278,45 @@
 	item_state = "tcaf_plate"
 	contained_sprite = TRUE
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_MAJOR,
-		laser = ARMOR_LASER_RIFLE,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_MAJOR,
+		LASER = ARMOR_LASER_RIFLE,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED,
 	)
-	slowdown = 0 // inherited the hacking from the scc
+	slowdown = 0.4
 
 /obj/item/clothing/accessory/armor_plate/tcaf/tcaf_light
 	name = "\improper TCAF legionnaire light carapace"
 	desc = "A lighter version of the blue carapace of the Tau Ceti Armed Forces. Reserved for recruits, recon, and prissy officers in the field."
 	icon_state = "tcaf_plate_light"
 	item_state = "tcaf_plate_light"
+	armor = list(
+		MELEE = ARMOR_MELEE_KEVLAR,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_KEVLAR,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED
+	)
 	slowdown = 0
+
+/obj/item/clothing/accessory/armor_plate/military/navy
+	name = "konyang navy armor plate"
+	desc = "A military-grade armor plate frequently seen in use by naval landing parties and sailors of the Konyang Navy."
+	icon_state = "plate_navy"
+	item_state = "plate_navy"
+
+/obj/item/clothing/accessory/armor_plate/press
+	name = "press armor plate"
+	desc = "A light-weight kevlar armor plate in blue colors and a \"PRESS\" sticker included. Used by wartime correspondents."
+	icon_state = "plate_press"
+	item_state = "plate_press"
+
+/obj/item/clothing/accessory/armor_plate/military/navy
+	name = "konyang navy armor plate"
+	desc = "A military-grade armor plate frequently seen in use by naval landing parties and sailors of the Konyang Navy."
+	icon_state = "plate_navy"
+	item_state = "plate_navy"
 
 /obj/item/clothing/accessory/storage/chestpouch
 	name = "chestpouch rig"
@@ -280,7 +330,7 @@
 
 /obj/item/clothing/accessory/storage/chest_gear
 	name = "standard vest equipment"
-	desc = "the standard pouch and commlink each Minuteman gets issued out of basic. This one has a bullet wedged in the radio, don't expect it to work anytime soon."
+	desc = "The standard pouch and commlink each Minuteman gets issued out of basic. This one has a bullet wedged in the radio, don't expect it to work anytime soon."
 	icon = 'icons/clothing/kit/modular_armor.dmi'
 	icon_state = "tcaf_chest_gear"
 	item_state = "tcaf_chest_gear"
@@ -311,12 +361,13 @@
 	icon_state = "plate_sec_heavy"
 	item_state = "plate_sec_heavy"
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_MAJOR,
-		laser = ARMOR_LASER_MEDIUM,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_MAJOR,
+		LASER = ARMOR_LASER_MEDIUM,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED
 	)
+	slowdown = 0.4
 
 /obj/item/clothing/head/helmet/security
 	name = "corporate helmet"
@@ -338,6 +389,12 @@
 	icon_state = "helm_generic"
 	item_state = "helm_generic"
 
+/obj/item/clothing/head/helmet/security/press
+	name = "press helmet"
+	desc = "A helmet in blue colors with a prominent \"PRESS\" emblazoned in front. A common sight on journalists in the Wildlands."
+	icon_state = "helm_press"
+	item_state = "helm_press"
+
 /obj/item/clothing/head/helmet/security/skrell
 	name = "skrellmet"
 	desc = "A helmet built for use by a Skrell. This one appears to be fairly standard and reliable."
@@ -351,11 +408,11 @@
 	icon_state = "helm_sec_heavy"
 	item_state = "helm_sec_heavy"
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_MAJOR,
-		laser = ARMOR_LASER_MEDIUM,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_MAJOR,
+		LASER = ARMOR_LASER_MEDIUM,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED,
 	)
 
 /obj/item/clothing/head/helmet/military
@@ -366,11 +423,11 @@
 	icon_state = "helm_military"
 	item_state = "helm_military"
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_MAJOR,
-		laser = ARMOR_LASER_MEDIUM,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_MAJOR,
+		LASER = ARMOR_LASER_MEDIUM,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED,
 	)
 
 /obj/item/clothing/head/helmet/dominia
@@ -383,11 +440,11 @@
 	icon_state = "dom_helmet"
 	item_state = "dom_helmet"
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_MAJOR,
-		laser = ARMOR_LASER_MEDIUM,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_MAJOR,
+		LASER = ARMOR_LASER_MEDIUM,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED,
 	)
 
 /obj/item/clothing/head/helmet/dominia/nco
@@ -404,11 +461,11 @@
 	icon_state = "tcaf_helm_face"
 	item_state = "tcaf_helm_face"
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_MAJOR,
-		laser = ARMOR_LASER_MEDIUM,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_MAJOR,
+		LASER = ARMOR_LASER_MEDIUM,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED,
 	)
 
 /obj/item/clothing/head/helmet/tcaf/tcaf_novisor
@@ -422,6 +479,21 @@
 	desc = "A carapace helmet in the traditional colors of the Tau Ceti Armed Forces. This one is equipped with a stylish visor."
 	icon_state = "tcaf_helm_visor"
 	item_state = "tcaf_helm_visor"
+
+/obj/item/clothing/head/helmet/hoplan
+	name = "hoplan helm"
+	desc = "A modern combat helmet with a stylish outer shell to make it appear from another era entirely. What these robots do for fashion..."
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	contained_sprite = TRUE
+	icon_state = "hoplan_helm"
+	item_state = "hoplan_helm"
+	armor = list(
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_MAJOR,
+		LASER = ARMOR_LASER_MEDIUM,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED,
+	)
 
 //Cosmetic Accessories
 
@@ -457,7 +529,7 @@
 	if(shading_state)
 		shading_icon = new(icon, shading_state)
 		flagpatch_icon.Blend(shading_icon, ICON_MULTIPLY)
-		add_overlay(flagpatch_icon)
+		AddOverlays(flagpatch_icon)
 
 /obj/item/clothing/accessory/flagpatch/rectangular
 	shading_state = null
@@ -590,6 +662,12 @@
 	icon_state = "flagpatch_coalition"
 	item_state = "flagpatch_coalition"
 
+/obj/item/clothing/accessory/flagpatch/all_xanu
+	name = "all-xanu republic flagpatch"
+	desc = "A flagpatch representing the All-Xanu Republic. Despite it being a flag patch, this is not the flag of the republic, but rather than the banner."
+	icon_state = "flagpatch_allxanu"
+	item_state = "flagpatch_allxanu"
+
 /obj/item/clothing/accessory/flagpatch/elyra
 	name = "elyran flagpatch"
 	desc = "A flagpatch representing the Serene Republic of Elyra. Although uncommon out of their space, some Elyrans have adopted \
@@ -695,6 +773,42 @@
 	Antillian Provincial Naval Fleets, these patches are a mark of resilience through hard times on the planet."
 	icon_state = "flagpatch_portantillia"
 	item_state = "flagpatch_portantillia"
+
+/obj/item/clothing/accessory/flagpatch/zora
+	name = "zo'ra hive flagpatch"
+	desc = "A flagpatch representing the Zo'ra Hive. This flag depicts the Zo'rane capital world of Caprice, \
+	bearing a torch representing their position within the Republic of Biesel."
+	icon_state = "flagpatch_zora"
+	item_state = "flagpatch_zora"
+
+/obj/item/clothing/accessory/flagpatch/klax
+	name = "k'lax hive flagpatch"
+	desc = "A flagpatch representing the K'lax Hive. This flag depicts the K'laxian capital world of Tret, \
+	bearing the quartered colours of the Izweski Hegemony to represent the Hive's vassalage."
+	icon_state = "flagpatch_klax"
+	item_state = "flagpatch_klax"
+
+/obj/item/clothing/accessory/flagpatch/cthur
+	name = "c'thur hive flagpatch"
+	desc = "A flagpatch representing the C'thur Hive. This flag depicts the star borne by the Nralakk Federation's \
+	own flag, representing the Hive's independence and gracious allegiance toward the Federation."
+	icon_state = "flagpatch_cthur"
+	item_state = "flagpatch_cthur"
+
+/obj/item/clothing/accessory/flagpatch/sedantis
+	name = "sedantis flagpatch"
+	desc = "A flagpatch representing the gas giant Sedantis and it's orbiting bodies. Sedantis I, also known as \
+	Vaur'avek'uyit, was the homeworld of the Vaurca. Symbolism involving it is often employed to represent greater \
+	pan-Vaurcaesian interests over the interests of the individual Hives."
+	icon_state = "flagpatch_sedantis"
+	item_state = "flagpatch_sedantis"
+
+/obj/item/clothing/accessory/flagpatch/burzsia
+	name = "burzsia flagpatch"
+	desc = "A patch bearing the sigil of Burzsia. While mainly worn by workers and natives loyal to Hephaestus alike, \
+	there are still those who don this item in a more patriotic sense."
+	icon_state = "flagpatch_burzsia"
+	item_state = "flagpatch_burzsia"
 
 // Wildlands
 
@@ -807,23 +921,3 @@
 	Szalai and MacPherson sought to undo."
 	icon_state = "flagpatch_ssmd"
 	item_state = "flagpatch_ssmd"
-
-/obj/item/clothing/accessory/tcaf_prefect_pauldron
-	name = "\improper TCAF prefect pauldron"
-	desc = "A bright red hard pauldron to indicate the wearer has the rank of Prefect in the Tau Ceti Armed Forces."
-	icon = 'icons/clothing/kit/modular_armor.dmi'
-	icon_state = "tcaf_prefect_pauldron"
-	item_state = "tcaf_prefect_pauldron"
-	contained_sprite = TRUE
-	slot = ACCESSORY_SLOT_GENERIC
-	flippable = FALSE
-
-/obj/item/clothing/accessory/tcaf_senior_legion_pauldron
-	name = "\improper TCAF senior legionnaire pauldron"
-	desc = "A blue hard pauldron to indicate the wearer has the rank of Senior Legionnaire in the Tau Ceti Armed Forces."
-	icon = 'icons/clothing/kit/modular_armor.dmi'
-	icon_state = "tcaf_senior_legion_pauldron"
-	item_state = "tcaf_senior_legion_pauldron"
-	contained_sprite = TRUE
-	slot = ACCESSORY_SLOT_GENERIC
-	flippable = FALSE

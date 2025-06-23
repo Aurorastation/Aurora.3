@@ -26,15 +26,15 @@
 		. += FONT_SMALL(SPAN_WARNING("It is currently processing <b>[length(extract_slimes)] slime\s</b>."))
 
 /obj/machinery/slime_extractor/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(panel_open)
 		var/mutable_appearance/panel_overlay = mutable_appearance(icon, "[icon_state]-panel")
-		add_overlay(panel_overlay)
+		AddOverlays(panel_overlay)
 	if(length(extract_slimes))
-		var/mutable_appearance/interior_overlay = mutable_appearance(icon, "[icon_state]-interior", EFFECTS_ABOVE_LIGHTING_LAYER)
-		add_overlay(interior_overlay)
-		var/mutable_appearance/spinning_overlay = mutable_appearance(icon, "[icon_state]-running", EFFECTS_ABOVE_LIGHTING_LAYER)
-		add_overlay(spinning_overlay)
+		var/mutable_appearance/interior_overlay = mutable_appearance(icon, "[icon_state]-interior", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
+		AddOverlays(interior_overlay)
+		var/mutable_appearance/spinning_overlay = mutable_appearance(icon, "[icon_state]-running", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
+		AddOverlays(spinning_overlay)
 		set_light(2.5, 1, COLOR_VIOLET)
 	else
 		set_light(FALSE)
@@ -62,12 +62,12 @@
 	if(default_part_replacement(user, attacking_item))
 		return
 
-/obj/machinery/slime_extractor/MouseDrop_T(atom/dropping, mob/user)
+/obj/machinery/slime_extractor/mouse_drop_receive(atom/dropped, mob/user, params)
 	if(!Adjacent(user))
 		to_chat(user, SPAN_WARNING("You can't reach \the [src]!"))
 		return
-	if(isslime(dropping))
-		var/mob/living/carbon/slime/slimey = dropping
+	if(isslime(dropped))
+		var/mob/living/carbon/slime/slimey = dropped
 		if(length(extract_slimes) >= slime_limit)
 			to_chat(user, SPAN_WARNING("\The [src] is fully loaded!"))
 			return
@@ -106,7 +106,7 @@
 /obj/item/circuitboard/slime_extractor
 	name = T_BOARD("slime extractor")
 	build_path = "/obj/machinery/slime_extractor"
-	board_type = "machine"
+	board_type = BOARD_MACHINE
 	origin_tech = list(TECH_BIO = 2, TECH_ENGINEERING = 1, TECH_BLUESPACE = 1)
 	req_components = list(
 		"/obj/item/stock_parts/matter_bin" = 1,

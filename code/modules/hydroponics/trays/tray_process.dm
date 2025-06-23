@@ -1,7 +1,16 @@
 /obj/machinery/portable_atmospherics/hydroponics/process()
 
+	// If there is no power, and stasis is enabled, disable stasis.
+	if((stat & (NOPOWER|BROKEN)) && stasis)
+		stasis = FALSE
+		update_use_power(POWER_USE_IDLE)
+
+	// If the tray is under stasis, return now and process nothing.
+	if(stasis)
+		return
+
 	// Handle nearby smoke if any.
-	for(var/obj/effect/effect/smoke/chem/smoke in view(1, src))
+	for(var/obj/effect/smoke/chem/smoke in view(1, src))
 		if(smoke.reagents.total_volume)
 			smoke.reagents.trans_to_obj(src, 5, copy = 1)
 
@@ -120,7 +129,7 @@
 		lastproduce = age
 		if(seed.get_trait(TRAIT_SPOROUS) && !closed_system)
 			seed.create_spores(get_turf(src))
-			visible_message("<span class='danger'>\The [src] releases its spores!</span>")
+			visible_message(SPAN_DANGER("\The [src] releases its spores!"))
 
 	// If we're a vine which is not in a closed tray and is at least half mature, and there's no vine currently on our turf: make one (maybe)
 	if(!closed_system && seed.get_trait(TRAIT_SPREAD) == 2 && 2 * age >= seed.get_trait(TRAIT_MATURATION) && !(locate(/obj/effect/plant) in get_turf(src)) && \

@@ -1,4 +1,5 @@
 /obj
+	layer = OBJ_LAYER
 	animate_movement = 2
 
 	var/list/matter //Used to store information about the contents of the object.
@@ -41,8 +42,33 @@
 
 	var/surgerysound
 
+	/* START BUCKLING VARS */
+	var/list/can_buckle
+	var/buckle_movable = 0
+	var/buckle_dir = 0
+	var/buckle_lying = -1 //bed-like behavior, forces mob.lying = buckle_lying if != -1
+	var/buckle_require_restraints = 0 //require people to be handcuffed before being able to buckle. eg: pipes
+	var/atom/movable/buckled = null
+	/**
+	* Stores the original layer of a buckled atom.
+	*
+	* Set in `/obj/proc/buckle` when the atom's layer is adjusted.
+	*
+	* Used in `/unbuckle()` to restore the original layer.
+	*/
+	var/buckled_original_layer = null
+	var/buckle_delay = 0 //How much extra time to buckle someone to this object.
+	/* END BUCKLING VARS */
+
+	/* START ACCESS VARS */
+	var/list/req_access
+	var/list/req_one_access
+	/* END ACCESS VARS */
+
 /obj/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
+	unbuckle()
+	QDEL_NULL(talking_atom)
 	return ..()
 
 /obj/Topic(href, href_list, var/datum/ui_state/state = GLOB.default_state)
@@ -61,7 +87,7 @@
 /obj/CanUseTopic(var/mob/user, var/datum/ui_state/state)
 	if(user.CanUseObjTopic(src))
 		return ..()
-	to_chat(user, "<span class='danger'>[icon2html(src, user)]Access Denied!</span>")
+	to_chat(user, SPAN_DANGER("[icon2html(src, user)]Access Denied!"))
 	return STATUS_CLOSE
 
 /mob/living/silicon/CanUseObjTopic(var/obj/O)
@@ -256,10 +282,10 @@
 		return
 	..()
 
-/obj/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+/obj/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended = FALSE)
 	. = ..()
 	if((obj_flags & OBJ_FLAG_ROTATABLE) || (obj_flags & OBJ_FLAG_ROTATABLE_ANCHORED))
-		. +=  SPAN_SUBTLE("Can be rotated with alt-click.")
+		. += SPAN_SUBTLE("Can be rotated with alt-click.")
 	if(contaminated)
 		. += SPAN_ALIEN("\The [src] has been contaminated!")
 
@@ -283,3 +309,14 @@
 /obj/proc/clean()
 	clean_blood()
 	color = initial(color)
+
+/obj/proc/output_spoken_message(var/message, var/message_verb = "transmits", var/display_overhead = TRUE, var/overhead_time = 2 SECONDS)
+	audible_message("\The <b>[src.name]</b> [message_verb], \"[message]\"")
+	if(display_overhead)
+		var/list/hearers = get_hearers_in_view(7, src)
+		var/list/clients_in_hearers = list()
+		for(var/mob/mob in hearers)
+			if(mob.client)
+				clients_in_hearers += mob.client
+		if(length(clients_in_hearers))
+			INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, animate_chat), message, null, FALSE, clients_in_hearers, overhead_time)

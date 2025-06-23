@@ -92,10 +92,10 @@
 	update_icon()
 
 /obj/item/pen/crayon/augment/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	var/image/crayon_tip = image('icons/obj/crayons.dmi', "crayonaugment_tip")
 	crayon_tip.color = colour
-	add_overlay(crayon_tip)
+	AddOverlays(crayon_tip)
 
 /obj/item/pen/crayon/augment/throw_at(atom/target, range, speed, mob/user)
 	user.drop_from_inventory(src)
@@ -111,7 +111,7 @@
 		var/originaloc = user.loc
 		var/drawtype = input("Choose what you'd like to draw.", "Crayon scribbles") in list("graffiti","rune","letter","arrow")
 		if (user.loc != originaloc)
-			to_chat(user, "<span class='notice'>You moved!</span>")
+			to_chat(user, SPAN_NOTICE("You moved!"))
 			return
 
 		switch(drawtype)
@@ -133,23 +133,25 @@
 				for(var/singleton/reagent/R in reagents_to_add)
 					reagents.remove_reagent(R,0.5/LAZYLEN(reagents_to_add)) //using crayons reduces crayon dust in it.
 				if(!reagents.has_all_reagents(reagents_to_add))
-					to_chat(user, "<span class='warning'>You used up your crayon!</span>")
+					to_chat(user, SPAN_WARNING("You used up your crayon!"))
 					qdel(src)
 	return
 
-/obj/item/pen/crayon/attack(mob/user, var/target_zone)
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+/obj/item/pen/crayon/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(ishuman(target_mob))
+		var/mob/living/carbon/human/H = target_mob
 		if(H.check_has_mouth())
-			user.visible_message("<span class='notice'>[user] takes a bite of their crayon and swallows it.</span>", "<span class='notice'>You take a bite of your crayon and swallow it.</span>")
-			user.adjustNutritionLoss(-1)
-			reagents.trans_to_mob(user, 2, CHEM_INGEST)
+			target_mob.visible_message(SPAN_NOTICE("[target_mob] takes a bite of their crayon and swallows it."),
+									SPAN_NOTICE("You take a bite of your crayon and swallow it."))
+
+			target_mob.adjustNutritionLoss(-1)
+			reagents.trans_to_mob(target_mob, 2, CHEM_INGEST)
 			if(reagents.total_volume <= 0)
-				user.visible_message("<span class='notice'>[user] finished their crayon!</span>", "<span class='warning'>You ate your crayon!</span>")
+				target_mob.visible_message(SPAN_NOTICE("[target_mob] finished their crayon!"), SPAN_WARNING("You ate your crayon!"))
 				qdel(src)
 				return TRUE
 	else
-		..(user, target_zone)
+		return ..()
 
 /obj/item/pen/crayon/attack_self(var/mob/user)
 	return

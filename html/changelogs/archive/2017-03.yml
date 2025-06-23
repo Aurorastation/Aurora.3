@@ -1,0 +1,259 @@
+2017-03-05:
+  Skull132:
+  - bugfix: Internal organ repair surgery for mechanical organs now works properly
+      again.
+2017-03-14:
+  LordFowl:
+  - bugfix: Fixed chest-buzzers in Vaurca.
+2017-03-19:
+  AgentWhatever:
+  - rscadd: Two seperate sleek cyborg icons for chemistry and medical.
+  - rscadd: A variation on the heavyMed icon for science. No more mishaps between
+      heavy science and medical borgs
+  - bugfix: Chemistry and medical drone, sleek and advanced droid cyborg icons now
+      selectable by medical module. Rescue cyborgs are set to one variant of sleek,
+      drone or advanced droid.
+  - bugfix: Deleted random pixel in opened cyborg hatch overlay when viewing from
+      the front and battery removed.
+  Alberyk:
+  - rscadd: Ported the baystation version of the wizard gamemode, with modifications
+      and additions.
+  - soundadd: Added new sounds when casting most spells.
+  - rscadd: Ported the newest custom loadout from baystation12.
+  - rscadd: Loadout flask and vacuum-flask can now be prefilled.
+  - rscadd: Added lunchboxes.
+  - rscadd: Added more options to the custom loadout, like winter coats.
+  - rscadd: Added nooses.
+  - rscadd: Tajara and unathi botanists should start with leather gloves now.
+  - tweak: Alcohol should be more poisonous to unathi now.
+  - tweak: Claws should be a bit more deadly in combat.
+  - rscadd: Added new custom loadout options.
+  - rscadd: Added ablative and ballistics helmets to the armory.
+  - rscadd: Added arm blades and arm shields abilities to changelings.
+  - rscadd: Added visible messages to certain lings stings.
+  - tweak: Changelings can now select when getting up after using their regeneration
+      skill.
+  - tweak: Changeling transform will now change to the species of the selected dna,
+      replacing change species.
+  - tweak: Changelings can't absorb monkeys anymore.
+  - bugfix: Fixed organ rejection caused by ling transformation.
+  - bugfix: Fixed changeling stings affecting ipcs.
+  - imageadd: Added new sprites for regular, rubber and rifle casings.
+  - imageadd: Changed some gun sprites.
+  - imageadd: Changed the tactical mask sprite.
+  Arrow768:
+  - rscadd: Added a Client Enrollment App that allows to Enroll a device as either
+      private or as (locked down) work device
+  - tweak: Various Map Changes
+  - rscadd: Added Wall Mounted Consoles
+  - rscadd: Ported Holo-Warrants from bay. Can be found in the security officers lockers
+  - rscadd: Added a holowarrant to sec borgs. Borgs can now display warrants to the
+      suspects.
+  Fire and Glory:
+  - rscadd: Added Hijab's, obtainable in the heads section of custom loadout.
+  - rscadd: Added a variant of the Unathi robe, obtainable in the xeno section of
+      custom loadout (for Unathi).
+  - imageadd: Added different sprites for Ninja Tajara, Unathi, and Skrell.
+  Lohikar:
+  - rscadd: A new engine type is now orderable from cargo.
+  - tweak: Smoothed out the animation for area lights such as fire alarms.
+  - rscadd: A progress bar is now shown when you start an action which takes time.
+  - rscadd: IPCs (not including shells) now emit a small amount of light, colored
+      according to their type and screen color.
+  - rscadd: Ported over and improved /vg/'s smooth lighting system.
+  - rscadd: Tweaked the emission color of station lighting.
+  - rscadd: Glowing slime cores now emit colored light instead of white light.
+  - rscadd: Space tiles are now darker.
+  - rscadd: Space tiles now have a parallax effect.
+  - rscadd: Added color to the light of many consoles that did not have one set.
+  - rscdel: You can no longer rotate your view with Rotate-View verbs, as it was breaking
+      lighting.
+  - rscdel: Hallucinations no longer rotate your view for the same reason as above.
+  - tweak: Colored lighting should mix better now.
+  - tweak: Rebalanced light emission of most light sources to better fit new lighting
+      system.
+  - experiment: Lighting now updates immediately when you open an airlock.
+  - experiment: Completely rewrote lighting system.
+  - experiment: The game's mob processor should be more robust.
+  - experiment: Tweaked several of the game's core processes in an effort to reduce
+      lag.
+  - bugfix: Fire alarms should no longer cause lag.
+  - bugfix: Hydroponics trays should no longer cause lag.
+  - bugfix: Fixed an issue where some objects could not be deconstructed with RnD.
+  - bugfix: Helmet lights now actually display the powered-on sprite.
+  - bugfix: Cats on heads no longer magically turn invisible.
+  - bugfix: Cyborgs' portable destructive analyzer can no longer steal intercoms or
+      the captain's safe.
+  - imageadd: Duffle (duffel?) bags now have in-hand sprites.
+  - experiment: Tweaked how footstep sound effects are played in an effort to improve
+      performance.
+  - bugfix: Re-securing displaced girders now has a delay like was originally intended.
+  - tweak: Solar panel arrays now use dynamic lighting.
+  - experiment: Tweaked how movement is handled in an effort to improve responsiveness.
+  - bugfix: Nightmode probably works again. Probably.
+  - rscadd: You can now fold pieces of paper into paper airplanes, which can be thrown
+      farther than unfolded sheets of paper.
+  - tweak: Flashlights, Floodlights, and Synthetic Integrated lights are now directional.
+  - bugfix: Fixed AIs being unable to set status displays by clicking on them.
+  - rscdel: Tesla links can no longer be installed in laptops and tablets.
+  - tweak: Most voidsuits should have in-hand sprites once more.
+  - bugfix: Tesla links are now constructable at protolathes as was originally intended.
+  - tweak: Modular computers now emit different colors of light depending on what
+      program is currently running.
+  - tweak: Computers' sprites now show if the computer is functional or not.
+  - bugfix: Severed organs inside containers will no longer leave blood drips.
+  - bugfix: M'sai and Zhan-Khazan Tajara can now use prosthetics.
+  - bugfix: Fixed a bug that prevented Coal and Iron ore from spawning on the asteroid.
+  - bugfix: Fixed Engineering's alert consoles displaying as blank.
+  - bugfix: Vampires should now be able to properly embrace thralls.
+  - rscdel: Held mobs such as maintenance drones no longer act as ID cards.
+  - bugfix: NanoTrasen has issued a software update to standard Janitor PDAs; changelogs
+      note custodial supply locator now actually works.
+  - bugfix: Standard-issue automatic flasher units have been exorcised and should
+      no longer be triggered by the dead.
+  - bugfix: After complaints about chickens showing cannibalistic tendencies, Centcomm
+      has changed chicken suppliers.
+  - bugfix: Station-issued chemical dispensers are no longer produced in a haunted
+      factory and should not be affected by the dead.
+  - bugfix: Vending machines have been given a talking to after several synthetics
+      reported tools being forcibly removed for stocking.
+  - bugfix: It is no longer possible to add more languages than your species is physically
+      capable of learning.
+  - rscadd: You can now detach paper shredders from the floor with a wrench.
+  - rscadd: The supermatter's light now changes based on how energetic the crystal
+      is.
+  - rscadd: You can now change your socks at the underwear wardrobe.
+  - tweak: Refactored sparks & BS Bears to be much less laggy.
+  - bugfix: Fixed bolt lights on doors not emitting light like they were intended
+      to.
+  - soundadd: Maintenance has 100% more ambience.
+  - soundadd: Atmos now has its own ambience sound, distinct from the rest of Engineering.
+  LordFowl:
+  - rscadd: Energy swords and shields can now reflect energy weapon projectiles. The
+      ninja sword additionally can deflect bullets.
+  - rscadd: Added 'Tip of the round' to the lobby. Based off of /tg/'s, it comes with
+      its own Aurora tips too.
+  Nanako:
+  - bugfix: Fixed diona gestalts not having a mouth.
+  - bugfix: Nymphs which evolve into gestalts no longer get Tau Ceti Basic for free.
+      They will only have it if they knew it as a nymph.
+  - tweak: Diona gestalts now have a second ear slot.
+  - tweak: Gestalts now remove air from the atmosphere when converting it to nutrition.
+  - tweak: Rebalanced plant-b-gone versus diona. Also diona can now eat fertilizer.
+  - bugfix: Fixed being unable to build multiple windoors on different sides of the
+      same tile. Also prevented stacking windoors.
+  - tweak: Reduced the hallucination chance of paroxetine.
+  - tweak: Added some exosuit charging pads to the mining outpost.
+  - bugfix: Fixed sliced fruit being inedible and the slices just vanishing.
+  - bugfix: Fixed the engiborg inflatables dispenser permanantly breaking if it ran
+      out once.
+  - tweak: Increased the health of cult juggernauts significantly, and reduced the
+      damage they take from reflected lasers.
+  - tweak: Reduced the damage of common laser weapons by ~25%. pistols a little more
+  - rscadd: Cooking appliances overhauled majorly. The general flow of cooking has
+      been changed to be less about frantic clicking, and more about time management.
+      All cooking operations now take much longer, but each appliance is capable of
+      doing multiple things synchronously.
+  - rscadd: The fryer and oven now have several removable containers, multiple items
+      can be loaded into each to cook them all at once, combine them into a desired
+      output, or make certain new recipes with them. Multiple containers plus multiple
+      items in each container allows large scale bulk cooking.
+  - tweak: Oven and fryer both now require pre-heating at the start of a round. this
+      takes 10-15 mins and consumes a lot of power. Don't forget to turn them on!
+  - rscadd: Fryer now has a fairly indepth oil mechanic. Oil levels in the fryer should
+      be kept topped up via a replacement tank, and oil is gradually transferred into
+      food, increasing its nutritional value. Hot oil can also be scooped out and
+      splashed on someone as a decent weapon. A replacement oiltank can sometimes
+      be found in maintenance, otherwise it can be ordered at cargo
+  - tweak: Oven now has a door that opens and closes. Heat is lost rapidly while its
+      open.
+  - rscadd: The cereal and candy makers now have a single large container, to combine
+      multiple ingredients into cereal or candy.
+  - rscadd: The microwave can now cook multiple copies of the same recipe if all the
+      ingredients are added. And the microwave will no longer produce a burned mess
+      with extra ingredients, as long as there's enough to make a recipe.
+  - tweak: Many recipes are moved out of the microwave and into the oven or fryer.
+  - tweak: 'Moved to fryer: All donuts, cuban carp'
+  - tweak: 'Moved to Oven: All breads, flatbread, diona roast, all pies, cookie, fortune
+      cookie, all pizzas, enchiladas, monkey delight, pretzel'
+  - tweak: Combination cooking will now change the size of the resulting food item
+      based on the quantity of stuff used to make it. You can make an epic-sized cake
+      if you find enough ingredients. This doesnt affect normal cooking recipes
+  - rscadd: Added a battering mechanic. Batter and beer-batter mixes can be created,
+      and food dipped into them before cooking. This adds lots of calories and changes
+      the appearance of food.
+  - rscadd: Added several new recipes, mainly to the fryer. Many of them require batter.
+  - bugfix: Fixed a ton of bugs related to cooking stuff.
+  - imageadd: Adjusted microwave sprites to pulsate while turned on.
+  - bugfix: Fixed several issues with construct wallsmashing, and made it less spammy.
+  - rscadd: Cult Pylons can now be upgraded into arcane defensive turrets, by sacrificing
+      a small creature. They are weak, but accurate, rapid, and absorb lasers.
+  - imageadd: Improved pylon graphics.
+  - bugfix: Fixed mice never waking up when they went to sleep, and being able to
+      move towards food while sleeping. Also sleeping animals now wake up when interacted
+      with.
+  - rscadd: Cats will now take naps.
+  - tweak: Mice now alter their pixel offset as they move around.
+  - bugfix: Fixed being unable to repair mechanical organs with nanopaste or screwdriver,
+      these both work now.
+  - tweak: Screwdriver can no longer be used as a ghetto alternative to bone gel.
+      Use duct tape instead.
+  - tweak: Energy swords and chainswords can be used to cut open ribs in surgery.
+  - bugfix: Fixed attacking your patient with tools on help intent when there wasnt
+      a valid surgery step.
+  - bugfix: Fixed pillbottle interactions with chemmaster machines.
+  - bugfix: Fixed being asked to pick a cyborg sprite multiple times. Also fixed a
+      missing sprite.
+  - rscadd: Small creatures and projectiles can now move over girders and machinery
+      frames. 50% chance to stop projectiles.
+  - bugfix: Fixed an incorrect message with small creatures climbing onto people.
+  - rscadd: Potted plants can now be killed by fire, explosions, sharp weapons and
+      gunfire
+  - imageadd: Added a large bundle of new potted plant sprites
+  Printer16:
+  - rscadd: Arming a nuclear device to explode (Saftey off and timer counting down)
+      now raises the code to delta.
+  - rscadd: Traitors can now buy an advanced pinpointer.
+  - rscadd: Added the medal box back.
+  - tweak: Loyalty implants now have a chance to melt when exposed to EMP's.
+  - bugfix: Microwaves now display a proper message when crowbared.
+  Skull132:
+  - tweak: Modified the voting limitation system to only prohibit voting for lobby
+      sitters and ghosts who went straight from the lobby to observing.
+  - rscadd: Replaced staff memos with directly pulling the Discord memos.
+  - rscadd: Added the 'Discord' button to the top right. It will take you to the Discord
+      server if the bot is properly set up!
+  VikingPingvin:
+  - rscadd: Added a filter function for departments in the PDA messenger screen.
+2017-03-22:
+  Lohikar:
+  - bugfix: An update has been issued for all standard-issue PDAs; users note crew
+      manifest no longer causes crashes.
+  Nanako:
+  - tweak: Slightly reduced the power of cult pylon turrets. This is an iterative
+      process, they will be rebalanced gradually.
+  - bugfix: Fixed an exploit that allowed duplicating items in vendors and buying
+      more than the vendor has.
+  Skull132:
+  - tweak: Administrators can now invoke rename-synths verb by normally renaming a
+      character from the VV panel.
+2017-03-25:
+  inselc:
+  - bugfix: Fixed reagents disappearing from beakers when used to construct circuit
+      imprinters and protolathes.
+  - bugfix: Fixed fax machines getting stuck on '0 seconds remaining'.
+  - bugfix: Suspension field generator can now be unwrenched again.
+  - bugfix: Medical and security record notes formatting fixed to show line breaks
+      for pAI on PDA, and on records in the filing cabinets.
+  - bugfix: Wallet now showing correct sprite after inserting a guest pass.
+2017-03-26:
+  Lohikar:
+  - bugfix: Smoke no longer causes unexplainable patches of darkness. Thanks oldcode.
+2017-03-29:
+  Skull132:
+  - bugfix: Robotic internal organ removal surgery now works as intended again.
+2017-03-30:
+  Lohikar:
+  - bugfix: The mining ore smelter has received some percussive maintenance from the
+      bluespace technicians and now should process iron and carbon correctly.
+  - bugfix: Apparently the smelter conveyor belt isn't supposed to lead into a wall.

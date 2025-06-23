@@ -128,6 +128,12 @@
 	icon_state = "surgcap_idris"
 	item_state = "surgcap_idris"
 
+// Hephaestus doesn't have medical jobs, but off-ships use them.
+
+/obj/item/clothing/head/surgery/heph
+	icon_state = "surgcap_heph"
+	item_state = "surgcap_heph"
+
 /obj/item/clothing/head/warden
 	name = "warden hat"
 	desc = "A warden hat. For showing who is in charge of the brig."

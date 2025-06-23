@@ -29,7 +29,7 @@
 
 /obj/machinery/fusion_fuel_injector/process()
 	if(injecting)
-		if(inoperable())
+		if(!operable())
 			StopInjecting()
 		else
 			Inject()

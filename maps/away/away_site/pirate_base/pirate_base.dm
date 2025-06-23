@@ -1,8 +1,11 @@
 /datum/map_template/ruin/away_site/pirate_base
 	name = "pirate base"
 	description = "An asteroid with a occupied hangar carved into it."
-	suffixes = list("away_site/pirate_base/pirate_base.dmm")
-	sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS)
+
+	prefix = "away_site/pirate_base/"
+	suffix = "pirate_base.dmm"
+
+	sectors = list(ALL_POSSIBLE_SECTORS)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "pirate"
@@ -15,12 +18,7 @@
 
 /obj/effect/overmap/visitable/sector/pirate
 	name = "asteroid lair"
-	desc = "\
-		Scans reveal that there is a unregistered structure within this asteroid, \
-		as well as an unpowered vessel docked in a makeshift hangar on the south outer layer. \
-		Further examination reveals it is wanted in the Coalition of Colonies and that its crew have a bounty on them for piracy and kidnapping. \
-		Extreme caution is advised.\
-		"
+	desc = "Scans reveal that there is a unregistered structure within this asteroid, as well as an unpowered vessel docked in a makeshift hangar on the south outer layer. Scans of the vessel indicate that it was reported as stolen several months ago."
 	icon_state = "object"
 	initial_generic_waypoints = list(
 		"nav_pirate_1",
@@ -71,7 +69,6 @@
 	move_time = 20
 	shuttle_area = list(/area/shuttle/pirate_shuttle/bridge, /area/shuttle/pirate_shuttle/storage, /area/shuttle/pirate_shuttle/med,
 						/area/shuttle/pirate_shuttle/starboard, /area/shuttle/pirate_shuttle/port, /area/shuttle/pirate_shuttle/living)
-	dock_target = "pirate_ship"
 	current_location = "nav_hangar_pirate_ship"
 	landmark_transition = "nav_transit_pirate_ship"
 	range = 1
@@ -84,7 +81,7 @@
 	landmark_tag = "nav_hangar_pirate_ship"
 	docking_controller = "pirate_ship_shuttle_dock"
 	base_area = /area/mine
-	base_turf = /turf/unsimulated/floor/asteroid/ash/rocky
+	base_turf = /turf/simulated/floor/exoplanet/asteroid/ash/rocky
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/pirate_ship/transit

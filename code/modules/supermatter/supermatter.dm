@@ -3,6 +3,7 @@
 #define THERMAL_RELEASE_MODIFIER 10000		//Higher == more heat released during reaction
 #define PHORON_RELEASE_MODIFIER 1500		//Higher == less phoron released by reaction
 #define OXYGEN_RELEASE_MODIFIER 15000		//Higher == less oxygen released at high temperature/power
+#define RADIATION_RELEASE_MODIFIER 2		//Higher == more radiation released with more power
 #define REACTION_POWER_MODIFIER 1.1			//Higher == more overall power
 
 /*
@@ -56,7 +57,7 @@
 	anchored = FALSE
 	light_range = 4
 	light_power = 1
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 
 	var/gasefficency = 0.25
 
@@ -78,6 +79,7 @@
 	uv_intensity = 255
 	var/warning_color = "#B8B800"
 	var/emergency_color = "#D9D900"
+	var/rotation_angle = 0
 
 	var/filter_offset = 0
 
@@ -127,7 +129,7 @@
 	. = ..()
 
 /obj/machinery/power/supermatter/proc/explode()
-	message_admins("Supermatter exploded at ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
+	message_admins("Supermatter exploded at ([x],[y],[z] - <A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
 	log_game("Supermatter exploded at ([x],[y],[z])")
 	anchored = TRUE
 	grav_pulling = TRUE
@@ -195,7 +197,7 @@
 	//don't send it back to the station -- most of the time
 	if(prob(99))
 		var/list/candidates = SSatlas.current_map.accessible_z_levels.Copy()
-		for(var/zlevel in SSatlas.current_map.station_levels)
+		for(var/zlevel in SSmapping.levels_by_trait(ZTRAIT_STATION))
 			candidates.Remove("[zlevel]")
 		candidates.Remove("[src.z]")
 
@@ -230,7 +232,7 @@
 		supermatter_pull()
 
 	if(power)
-		soundloop.volume = Clamp((50 + (power / 50)), 50, 100)
+		soundloop.volume = clamp((50 + (power / 50)), 50, 100)
 	if(damage >= 300)
 		soundloop.mid_sounds = list('sound/machines/sm/loops/delamming.ogg' = 1)
 	else
@@ -311,36 +313,46 @@
 		if(!istype(l.glasses, /obj/item/clothing/glasses/safety) && !l.is_diona() && !l.isSynthetic())
 			l.hallucination = max(0, min(200, l.hallucination + power * config_hallucination_power * sqrt( 1 / max(1,get_dist(l, src)) ) ) )
 
-	//adjusted range so that a power of 170 (pretty high) results in 9 tiles, roughly the distance from the core to the engine monitoring room.
-	//note that the rads given at the maximum range is a constant 0.2 - as power increases the maximum range merely increases.
-	//adjusted to pseudo take into account obstacles in the way (1/3rd of the range is dropped if no direct visibility between core and target is)
-	var/rad_range = round(sqrt(power / 2))
-	for(var/mob/living/l in range(src, rad_range))
-		var/radius = max(get_dist(l, src), 1)
-		var/rads = (power / 10) * ( 1 / (radius**2) )
-		if (!(l in oview(rad_range, src)) && !(l in range(src, round(rad_range * 2/3))))
-			continue
-		l.apply_damage(rads, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
-		if(l.is_diona())
-			l.adjustToxLoss(-rads)
-			if(last_message_time + 800 < world.time) // Not to spam message
-				to_chat(l, "<span class='notice'>You can feel an extreme level of energy which flows through your body and makes you regenerate very fast.</span>")
-	last_message_time = world.time
+	var/level = Interpolate(0, 50, clamp( (damage - emergency_point) / (explosion_point - emergency_point),0,1))
+	var/list/new_color = color_contrast(level)
+	//Apply visual effects based on damage
+	if(rotation_angle != 0)
+		if(level != 0)
+			new_color = multiply_matrices(new_color, color_rotation(rotation_angle), 4, 3,3)
+		else
+			new_color = color_rotation(rotation_angle)
 
+	color = new_color
+
+	if (damage >= emergency_point && !length(filters))
+		filters = filter(type="rays", size = 64, color = "#ffd04f", factor = 0.6, density = 12)
+		animate(filters[1], time = 10 SECONDS, offset = 10, loop=-1)
+		animate(time = 10 SECONDS, offset = 0, loop=-1)
+
+		animate(filters[1], time = 2 SECONDS, size = 80, loop=-1, flags = ANIMATION_PARALLEL)
+		animate(time = 2 SECONDS, size = 10, loop=-1, flags = ANIMATION_PARALLEL)
+	else if (damage < emergency_point)
+		filters = null
+
+	SSradiation.radiate(src, power * RADIATION_RELEASE_MODIFIER) //Better close those shutters!
 	power -= (power/DECAY_FACTOR)**3		//energy losses due to radiation
 
 	return 1
 
 
-/obj/machinery/power/supermatter/bullet_act(var/obj/item/projectile/Proj)
+/obj/machinery/power/supermatter/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
 	var/turf/L = loc
 	if(!istype(L))		// We don't run process() when we are in space
 		return 0	// This stops people from being able to really power up the supermatter
 				// Then bring it inside to explode instantly upon landing on a valid turf.
 
 
-	var/proj_damage = Proj.get_structure_damage()
-	if(istype(Proj, /obj/item/projectile/beam))
+	var/proj_damage = hitting_projectile.get_structure_damage()
+	if(istype(hitting_projectile, /obj/projectile/beam))
 		power += proj_damage * config_bullet_energy	* CHARGING_FACTOR / POWER_FACTOR
 	else
 		damage += proj_damage * config_bullet_energy
@@ -359,10 +371,11 @@
 	ui_interact(user)
 
 /obj/machinery/power/supermatter/attack_hand(mob/user as mob)
-	user.visible_message("<span class=\"warning\">\The [user] reaches out and touches \the [src], inducing a resonance... [user.get_pronoun("he")] body starts to glow and bursts into flames before flashing into ash.</span>",\
-		"<span class=\"danger\">You reach out and touch \the [src]. Everything starts burning and all you can hear is ringing. Your last thought is \"That was not a wise decision.\"</span>",\
-		"<span class=\"warning\">You hear an uneartly ringing, then what sounds like a shrilling kettle as you are washed with a wave of heat.</span>")
-
+	user.visible_message(
+		SPAN_WARNING("\The [user] reaches out and touches \the [src], inducing a resonance. For a brief instant, [user.get_pronoun("his")] body glows brilliantly, then flashes into ash."),
+		SPAN_DANGER(FONT_LARGE("You reach out and touch \the [src]. Instantly, you feel a curious sensation as your body turns into new and exciting forms of plasma. That was not a wise decision.")),
+		SPAN_WARNING("You hear an unearthly ringing, then what sounds like a shrilling kettle as you are washed with a wave of heat.")
+	)
 	Consume(user)
 
 // Only accessed by AIs or robots.
@@ -388,31 +401,39 @@
 	if(!istype(living_user))
 		return
 
-	living_user.visible_message("<span class=\"warning\">\The [living_user] touches \a [attacking_item] to \the [src] as a silence fills the room...</span>",\
-		"<span class=\"danger\">You touch \the [attacking_item] to \the [src] when everything suddenly goes silent.\"</span>\n<span class=\"notice\">\The [attacking_item] flashes into dust as you flinch away from \the [src].</span>",\
-		"<span class=\"warning\">Everything suddenly goes silent.</span>")
+	living_user.visible_message(
+		SPAN_WARNING("\The [living_user] touches \a [attacking_item] to \the [src], then flinches away as it flashes instantly into dust. Silence blankets the air."),
+		SPAN_DANGER("You touch \the [attacking_item] to \the [src]. Everything suddenly goes silent as it flashes into dust, and you flinch away."),
+		SPAN_WARNING("For a brief moment, you hear an oppressive, unnatural silence.")
+	)
 
 	living_user.drop_from_inventory(attacking_item)
 	Consume(attacking_item)
 
 	living_user.apply_damage(150, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 
-/obj/machinery/power/supermatter/CollidedWith(atom/AM as mob|obj)
-	if(!AM.simulated)
-		return
-	if(istype(AM, /obj/effect))
-		return
-	if(isprojectile(AM))
-		return
-	if(istype(AM, /mob/living))
-		AM.visible_message("<span class=\"warning\">\The [AM] slams into \the [src] inducing a resonance... [AM.get_pronoun("his")] body starts to glow and catch flame before flashing into ash.</span>",\
-		"<span class=\"danger\">You slam into \the [src] as your ears are filled with unearthly ringing. Your last thought is \"Oh, fuck.\"</span>",\
-		"<span class=\"warning\">You hear an uneartly ringing, then what sounds like a shrilling kettle as you are washed with a wave of heat.</span>")
-	else if(!grav_pulling) //To prevent spam, detonating supermatter does not indicate non-mobs being destroyed
-		AM.visible_message("<span class=\"warning\">\The [AM] smacks into \the [src] and rapidly flashes to ash.</span>",\
-		"<span class=\"warning\">You hear a loud crack as you are washed with a wave of heat.</span>")
+/obj/machinery/power/supermatter/CollidedWith(atom/bumped_atom)
+	. = ..()
 
-	Consume(AM)
+	if(!bumped_atom.simulated)
+		return
+	if(istype(bumped_atom, /obj/effect))
+		return
+	if(isprojectile(bumped_atom))
+		return
+	if(istype(bumped_atom, /mob/living))
+		bumped_atom.visible_message(
+			SPAN_WARNING("\The [bumped_atom] slams \the [src], inducing a resonance. For a brief instant, [bumped_atom.get_pronoun("his")] body glows brilliantly, then flashes into ash."),
+			SPAN_DANGER(FONT_LARGE("You slam into \the [src], and your mind fills with unearthly shrieking. Your vision floods with light as your body instantly dissolves into dust.")),
+			SPAN_WARNING("You hear an unearthly ringing, then what sounds like a shrilling kettle as you are washed with a wave of heat.")
+		)
+	else if(!grav_pulling) //To prevent spam, detonating supermatter does not indicate non-mobs being destroyed
+		bumped_atom.visible_message(
+			SPAN_WARNING("\The [bumped_atom] smacks into \the [src] and rapidly flashes to ash."),
+			SPAN_WARNING("You hear a loud crack as you are washed with a wave of heat.")
+		)
+
+	Consume(bumped_atom)
 
 /obj/machinery/power/supermatter/proc/Consume(var/mob/living/user)
 	if(istype(user))

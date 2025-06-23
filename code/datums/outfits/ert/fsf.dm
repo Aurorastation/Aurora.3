@@ -36,7 +36,7 @@
 /obj/outfit/admin/ert/fsf/medic
 	name = "Free Solarian Fleets Medic"
 
-	belt = /obj/item/storage/belt/medical/first_responder/combat
+	belt = /obj/item/storage/belt/medical/paramedic/combat
 	back = /obj/item/storage/backpack/satchel/med
 	glasses = /obj/item/clothing/glasses/hud/health
 	suit_store = /obj/item/gun/projectile/shotgun/pump/combat/sol
@@ -68,10 +68,9 @@
 /obj/outfit/admin/ert/fsf/sapper
 	name = "Free Solarian Fleets Sapper"
 
-	back = /obj/item/storage/backpack/industrial
+	back = /obj/item/storage/backpack/duffel/eng
 	belt = /obj/item/storage/belt/utility/very_full
 	gloves = /obj/item/clothing/gloves/yellow
-	back = /obj/item/storage/backpack/duffel/eng
 	suit_store = /obj/item/gun/projectile/shotgun/pump/combat/sol
 	accessory = /obj/item/clothing/accessory/storage/brown_vest
 	accessory_contents = list(

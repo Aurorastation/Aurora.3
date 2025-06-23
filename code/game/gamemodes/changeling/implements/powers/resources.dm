@@ -16,7 +16,7 @@
 	return TRUE
 
 /mob/proc/changeling_armor()
-	AddComponent(/datum/component/armor, list(melee = ARMOR_MELEE_RESISTANT, bullet = ARMOR_BALLISTIC_CARBINE, laser = ARMOR_LASER_MEDIUM))
+	AddComponent(/datum/component/armor, list(MELEE = ARMOR_MELEE_RESISTANT, BULLET = ARMOR_BALLISTIC_CARBINE, LASER = ARMOR_LASER_MEDIUM))
 	return TRUE
 
 //removes the need to breathe
@@ -26,7 +26,7 @@
 
 // HIVE MIND UPLOAD/DOWNLOAD DNA
 
-var/list/datum/absorbed_dna/hivemind_bank = list()
+GLOBAL_LIST_INIT_TYPED(hivemind_bank, /datum/absorbed_dna, list())
 
 /mob/proc/changeling_hiveupload()
 	set category = "Changeling"
@@ -40,7 +40,7 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	var/list/names = list()
 	for(var/datum/absorbed_dna/DNA in changeling.absorbed_dna)
 		var/valid = TRUE
-		for(var/datum/absorbed_dna/DNB in hivemind_bank)
+		for(var/datum/absorbed_dna/DNB in GLOB.hivemind_bank)
 			if(DNA.name == DNB.name)
 				valid = FALSE
 				break
@@ -48,7 +48,7 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 			names += DNA.name
 
 	if(names.len <= 0)
-		to_chat(src, "<span class='notice'>The airwaves already has all of our DNA.</span>")
+		to_chat(src, SPAN_NOTICE("The airwaves already has all of our DNA."))
 		return
 
 	var/S = tgui_input_list(usr, "Select a DNA to channel.", "Channel DNA", names)
@@ -60,8 +60,8 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 		return
 
 	changeling.use_charges(10)
-	hivemind_bank += chosen_dna
-	to_chat(src, "<span class='notice'>We channel the DNA of [S] to the air.</span>")
+	GLOB.hivemind_bank += chosen_dna
+	to_chat(src, SPAN_NOTICE("We channel the DNA of [S] to the air."))
 	feedback_add_details("changeling_powers", "HU")
 	return TRUE
 
@@ -75,12 +75,12 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 		return
 
 	var/list/names = list()
-	for(var/datum/absorbed_dna/DNA in hivemind_bank)
+	for(var/datum/absorbed_dna/DNA in GLOB.hivemind_bank)
 		if(!(changeling.GetDNA(DNA.name)))
 			names[DNA.name] = DNA
 
 	if(names.len <= 0)
-		to_chat(src, "<span class='notice'>There's no new DNA to absorb from the air.</span>")
+		to_chat(src, SPAN_NOTICE("There's no new DNA to absorb from the air."))
 		return
 
 	var/S = tgui_input_list(src, "Select a DNA string to absorb.", "Absorb DNA", names)
@@ -93,6 +93,6 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 
 	changeling.use_charges(20)
 	absorbDNA(chosen_dna)
-	to_chat(src, "<span class='notice'>We absorb the DNA of [S] from the air.</span>")
+	to_chat(src, SPAN_NOTICE("We absorb the DNA of [S] from the air."))
 	feedback_add_details("changeling_powers", "HD")
 	return TRUE

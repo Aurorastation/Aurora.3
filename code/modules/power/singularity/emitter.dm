@@ -49,9 +49,9 @@
 
 /obj/machinery/power/emitter/Destroy()
 	if(special_emitter)
-		message_admins("Emitter deleted at ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
+		message_admins("Emitter deleted at ([x],[y],[z] - <A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
 		log_game("Emitter deleted at ([x],[y],[z])")
-		investigate_log("<span class='warning'>deleted</span> at ([x],[y],[z])","singulo")
+
 	QDEL_NULL(wifi_receiver)
 	QDEL_NULL(spark_system)
 	QDEL_NULL(signaler)
@@ -66,10 +66,10 @@
 			wifi_receiver = new(_wifi_id, src)
 
 /obj/machinery/power/emitter/update_icon()
+	ClearOverlays()
 	if(active && powernet && avail(active_power_usage))
-		icon_state = "emitter_+a"
-	else
-		icon_state = "emitter"
+		AddOverlays(emissive_appearance(icon, "[icon_state]_lights"))
+		AddOverlays("[icon_state]_lights")
 
 /obj/machinery/power/emitter/attack_hand(mob/user)
 	add_fingerprint(user)
@@ -87,8 +87,8 @@
 				if(user)
 					to_chat(user, SPAN_NOTICE("You deactivate \the [src]."))
 					if(special_emitter)
-						message_admins("Emitter turned off by [key_name_admin(user, user.client)](<A HREF='?_src_=holder;adminmoreinfo=\ref[user]'>?</A>) in ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
-						log_game("Emitter turned off by [user.ckey]([user]) in ([x],[y],[z])",ckey=key_name(user))
+						message_admins("Emitter turned off by [key_name_admin(user, user.client)](<A href='byond://?_src_=holder;adminmoreinfo=[REF(user)]'>?</A>) in ([x],[y],[z] - <A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
+						log_game("Emitter turned off by [user.ckey]([user]) in ([x],[y],[z])")
 						investigate_log("turned <span class='warning'>off</span> by [user.key]","singulo")
 			else
 				active = TRUE
@@ -98,8 +98,8 @@
 				if(user)
 					to_chat(user, SPAN_NOTICE("You activate \the [src]."))
 					if(special_emitter)
-						message_admins("Emitter turned on by [key_name_admin(user, user.client)](<A HREF='?_src_=holder;adminmoreinfo=\ref[user]'>?</A>) in ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
-						log_game("Emitter turned on by [user.ckey]([user]) in ([x],[y],[z])",ckey=key_name(user))
+						message_admins("Emitter turned on by [key_name_admin(user, user.client)](<A href='byond://?_src_=holder;adminmoreinfo=[REF(user)]'>?</A>) in ([x],[y],[z] - <A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
+						log_game("Emitter turned on by [user.ckey]([user]) in ([x],[y],[z])")
 						investigate_log("turned <font color='green'>on</font> by [user.key]","singulo")
 			update_icon()
 		else
@@ -117,7 +117,7 @@
 	activate(null)
 	return TRUE
 
-/obj/machinery/power/emitter/process()
+/obj/machinery/power/emitter/process(seconds_per_tick)
 	if(stat & (BROKEN))
 		return
 	if(state != EMITTER_WELDED || (!powernet && active_power_usage))
@@ -152,13 +152,16 @@
 		var/burst_time = (min_burst_delay + max_burst_delay) / 2 + 2 * (burst_shots - 1)
 		var/power_per_shot = active_power_usage * (burst_time / 10) / burst_shots
 
-		playsound(get_turf(src), 'sound/weapons/emitter.ogg', 15, TRUE, 2, 0.5, TRUE)
+		playsound(get_turf(src), 'sound/weapons/emitter.ogg', 15, TRUE, extrarange = (MEDIUM_RANGE_SOUND_EXTRARANGE-1))
 		if(prob(35))
 			spark_system.queue()
 
-		var/obj/item/projectile/beam/emitter/A = get_emitter_beam()
+		var/obj/projectile/beam/emitter/A = get_emitter_beam()
 		A.damage = round(power_per_shot / EMITTER_DAMAGE_POWER_TRANSFER)
-		A.launch_projectile(get_step(src, dir))
+
+		A.preparePixelProjectile(get_step(src, dir), get_turf(src))
+		A.fired_from = src
+		A.fire()
 		shot_counter++
 
 /obj/machinery/power/emitter/attackby(obj/item/attacking_item, mob/user)
@@ -270,7 +273,7 @@
 	return 0.2 SECONDS // This value doesn't really affect normal emitters, but *does* affect subtypes like the gyrotron that can have very long delays
 
 /obj/machinery/power/emitter/proc/get_emitter_beam()
-	return new /obj/item/projectile/beam/emitter(get_turf(src))
+	return new /obj/projectile/beam/emitter(get_turf(src))
 
 #undef EMITTER_LOOSE
 #undef EMITTER_BOLTED

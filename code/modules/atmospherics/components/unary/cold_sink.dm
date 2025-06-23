@@ -7,7 +7,7 @@
 	desc_info = "Cools down the gas of the pipe it is connected to.  It uses massive amounts of electricity while on. \
 	It can be upgraded by replacing the capacitors, manipulators, and matter bins.  It can be deconstructed by screwing the maintenance panel open with a \
 	screwdriver, and then using a crowbar."
-	icon = 'icons/obj/sleeper.dmi'
+	icon = 'icons/obj/machinery/sleeper.dmi'
 	icon_state = "freezer_0"
 	density = 1
 	anchored = 1
@@ -118,7 +118,7 @@
 
 	add_fingerprint(usr)
 
-/obj/machinery/atmospherics/unary/freezer/process()
+/obj/machinery/atmospherics/unary/freezer/process(seconds_per_tick)
 	..()
 
 	if(stat & (NOPOWER|BROKEN) || !use_power)
@@ -136,11 +136,11 @@
 		var/cop = FREEZER_PERF_MULT * air_contents.temperature/heatsink_temperature	//heatpump coefficient of performance from thermodynamics -> power used = heat_transfer/cop
 		heat_transfer = min(heat_transfer, cop * power_rating)	//limit heat transfer by available power
 
-		var/removed = -air_contents.add_thermal_energy(-heat_transfer)		//remove the heat
+		var/removed = -air_contents.add_thermal_energy(-heat_transfer*seconds_per_tick)		//remove the heat
 		if(debug)
 			visible_message("[src]: Removing [removed] W.")
 
-		use_power_oneoff(power_rating)
+		use_power_oneoff(power_rating*seconds_per_tick)
 
 		network.update = 1
 	else

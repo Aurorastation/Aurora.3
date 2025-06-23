@@ -11,7 +11,7 @@
 
 
 	if(!(prefs.toggles & CHAT_DEAD))
-		to_chat(src, "<span class='warning'>You have deadchat muted.</span>")
+		to_chat(src, SPAN_WARNING("You have deadchat muted."))
 		return
 
 	if (src.handle_spam_prevention(msg,MUTE_DEADCHAT))
@@ -20,7 +20,7 @@
 	var/stafftype = uppertext(holder.rank)
 
 	msg = sanitize(msg)
-	log_admin("DSAY: [key_name(src)] : [msg]",admin_key=key_name(src))
+	log_admin("DSAY: [key_name(src)] : [msg]")
 
 	msg = process_chat_markup(msg)
 

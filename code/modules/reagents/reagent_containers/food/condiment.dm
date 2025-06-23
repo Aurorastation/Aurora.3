@@ -47,6 +47,7 @@
 	var/singleton/reagent/master = reagents.get_primary_reagent_decl()
 	name = master.condiment_name || (reagents.reagent_volumes.len == 1 ? "[lowertext(master.name)] bottle" : "condiment bottle")
 	desc = master.condiment_desc || (reagents.reagent_volumes.len == 1 ? master.description : "A mixture of various condiments. [master.name] is one of them.")
+	icon = master.condiment_icon || 'icons/obj/item/reagent_containers/food/condiment.dmi'
 	icon_state = master.condiment_icon_state || "mixedcondiments"
 	center_of_mass = master.condiment_center_of_mass || list("x"=16, "y"=6)
 
@@ -276,11 +277,14 @@
 	name = "vanilla extract"
 	reagents_to_add = list(/singleton/reagent/nutriment/vanilla = 50)
 
-/obj/item/reagent_containers/food/condiment/rice //everyone's favorite condiment, rice. (there wasn't really a better place for this, code-wise)
+/obj/item/reagent_containers/food/condiment/rice
+	name = "rice sack"
+	desc = "A big bag of rice. Good for cooking!"
 	icon_state = "rice"
+	center_of_mass = list("x"=16, "y"=8)
+	volume = 220
 	fixed_state = TRUE
-	name = "rice"
-	reagents_to_add = list(/singleton/reagent/nutriment/rice = 50)
+	reagents_to_add = list(/singleton/reagent/nutriment/rice = 200)
 
 /obj/item/reagent_containers/food/condiment/cocoa //not exactly a condiment, but not exactly NOT a condiment, right?
 	icon_state = "cocoapowder"
@@ -288,12 +292,17 @@
 	name = "cocoa powder"
 	reagents_to_add = list(/singleton/reagent/nutriment/coco = 50)
 
+/obj/item/reagent_containers/food/condiment/blood
+	fixed_state = TRUE
+	name = "synthetic blood"
+	reagents_to_add = list(/singleton/reagent/blood = 50)
+
 //MRE condiments and drinks.
 
 /obj/item/reagent_containers/food/condiment/small/packet
 	icon_state = "packet_small"
 	fixed_state = TRUE
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	possible_transfer_amounts = list(1,5,10)
 	amount_per_transfer_from_this = 1
 	volume = 10
@@ -436,3 +445,17 @@
 	desc = "Contains 5u of phoron."
 	icon_state = "packet_small_yellow"
 	reagents_to_add = list(/singleton/reagent/toxin/phoron = 5)
+
+/obj/item/reagent_containers/food/condiment/sweet_chili
+	icon_state = "sweet_chili"
+	name = "sweet chili"
+	empty_icon_state = "sweet_chili_empty"
+	reagents_to_add = list(/singleton/reagent/nutriment/sweet_chili = 50)
+	amount_per_transfer_from_this = 1
+
+/obj/item/reagent_containers/food/condiment/wulumunusha
+	name = "wulumunusha extract bottle"
+	desc = "A small dropper bottle full of a stoner's paradise. A warning label warns of muteness as a side effect."
+	icon_state = "wuluextract"
+	fixed_state = TRUE
+	reagents_to_add = list(/singleton/reagent/wulumunusha = 30)

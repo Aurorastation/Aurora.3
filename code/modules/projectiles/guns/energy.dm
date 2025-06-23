@@ -20,7 +20,7 @@
 	var/charge_cost = 200 //How much energy is needed to fire.
 	var/max_shots = 10 //Determines the capacity of the weapon's power cell. Specifying a cell_type overrides this value.
 	var/cell_type = null
-	var/projectile_type = /obj/item/projectile/beam/practice //also passed to turrets
+	var/projectile_type = /obj/projectile/beam/practice //also passed to turrets
 	var/modifystate
 	var/charge_meter = 1	//if set, the icon state will be chosen based on the current charge
 	var/list/required_firemode_auth //This list matches with firemode index, used to determine which firemodes get unlocked with what level of authorization.
@@ -140,22 +140,31 @@
 	return null
 
 /**
-* Connects the energy gun to an external power supply
-*
-* * powersource - the power supply in question. Can either be /obj/item/rig_module/recharger or /obj/item/recharger_backpack.
-*/
+ * Connects the energy gun to an external power supply
+ *
+ * * powersource - the power supply in question. Can either be `/obj/item/rig_module/recharger` or `/obj/item/recharger_backpack`.
+ *
+ * Returns `TRUE` if the connection was successful, `FALSE` otherwise
+ */
 /obj/item/gun/energy/proc/connect(obj/item/powersource)
 	SHOULD_NOT_SLEEP(TRUE)
+
+	//Validate that the type is allowed first of all
+	if(!is_type_in_list(powersource, list(/obj/item/rig_module/recharger, /obj/item/recharger_backpack)))
+		stack_trace("Wrong type to connect the energy gun to!")
+		return FALSE
+
+	//If we're already connected with something, we can't connect with something else
 	if(recharger)
 		to_chat(usr, SPAN_WARNING("\The [src] is already connected to \the [recharger]!"))
-		return
+		return FALSE
 
 	if(istype(powersource, /obj/item/rig_module/recharger))
 		var/obj/item/rig_module/recharger/rigcharge = powersource
 
 		if(!rigcharge.holder || !rigcharge.holder.wearer)
 			to_chat(usr, SPAN_WARNING("\The [rigcharge] must be installed in a rig and active!"))
-			return
+			return FALSE
 
 		to_chat(usr, SPAN_NOTICE("You neatly plug \the [src] into \the [powersource]."))
 		playsound(get_turf(src), 'sound/machines/click.ogg', 30, 0)
@@ -164,12 +173,12 @@
 		self_recharge = TRUE
 		use_external_power = TRUE
 
-	if(istype(powersource, /obj/item/recharger_backpack))
+	else if(istype(powersource, /obj/item/recharger_backpack))
 		var/obj/item/recharger_backpack/back_charge = powersource
 
 		if(!ismob(loc))
 			to_chat(usr, SPAN_WARNING("\The [back_charge] must be worn on the back before a weapon can be connected!"))
-			return
+			return FALSE
 
 		to_chat(usr, SPAN_NOTICE("You neatly plug \the [src] into \the [powersource]."))
 		playsound(get_turf(src), 'sound/machines/click.ogg', 30, 0)
@@ -177,6 +186,8 @@
 		recharger = back_charge
 		self_recharge = TRUE
 		use_external_power = TRUE
+
+	return TRUE
 
 
 ///Disconnects the energy gun from its external power source if one exists.
@@ -200,13 +211,13 @@
 		var/obj/item/recharger_backpack/backcharger = recharger
 		to_chat(usr, SPAN_NOTICE("With a snap, \the [src] is disconnected from \the [recharger]."))
 		playsound(get_turf(src), 'sound/machines/click.ogg', 30, 0)
-		backcharger.connected = null
+		backcharger.disconnect(src)
 
 	recharger = null
 	self_recharge = initial(self_recharge)
 	use_external_power = initial(use_external_power)
 
-/obj/item/gun/energy/MouseDrop(atom/over)
+/obj/item/gun/energy/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	. = ..()
 
 
@@ -276,12 +287,12 @@
 	if(initial(self_recharge))
 		. += "Recharge Time: [initial(recharge_time)]<br>"
 	. += "<br><b>Primary Projectile</b><br>"
-	var/obj/item/projectile/P = new projectile_type
+	var/obj/projectile/P = new projectile_type
 	. += P.get_print_info()
 
 	if(secondary_projectile_type)
 		. += "<br><b>Secondary Projectile</b><br>"
-		var/obj/item/projectile/P_second = new secondary_projectile_type
+		var/obj/projectile/P_second = new secondary_projectile_type
 		. += P_second.get_print_info()
 	. += "<br>"
 

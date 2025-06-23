@@ -1,12 +1,26 @@
 /obj/item/cargo_package
 	name = "cargo package"
-	desc = "An Orion Express cargo package, these packages generally find their way to researchers bunkered up on exoplanets. Always pays an extra 2% tip to the courier."
-	desc_info = "You can deliver this package to a delivery site on an exoplanet to get additional funds for the cargo department's account. An additional 2% is added to your account on delivery. Can be loaded into a cargo pack."
+	desc = "\
+		An Orion Express cargo package. \
+		Always pays an extra 2% tip to the courier.\
+	"
+	desc_extended = "\
+		This package makes use of the small-scale shipping network of Orion Express. \
+		It is a common sight all over the Spur, where Orion Express services depend on ordinary people and ships picking up and delivering packages for each other, \
+		with Orion Express only delivering to automated stations and other distribution points.\
+	"
+	desc_info = "\
+		You can deliver this package to a cargo delivery point. \
+		An additional 2% is added to your account on delivery, or paid to you directly. Can be loaded into a cargo pack.\
+	"
 	icon = 'icons/obj/orion_delivery.dmi'
 	icon_state = "express_package"
 	item_state = "express_package"
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_HUGE
+	update_icon_on_init = TRUE
+	has_accents = TRUE
+
+	w_class = WEIGHT_CLASS_HUGE
 	force = 15
 
 	slowdown = 1
@@ -30,7 +44,7 @@
 		pay_amount = rand(12, 17) * 1000
 	if(delivery_point)
 		setup_delivery_point(delivery_point)
-	color = pick("#FFFFFF", "#EEEEEE", "#DDDDDD", "#CCCCCC", "#BBBBBB", "#FFDDDD", "#DDDDFF", "#FFFFDD", "#886600")
+	accent_color = pick(COLOR_RED, COLOR_AMBER, COLOR_PINK, COLOR_YELLOW, COLOR_LIME)
 
 /obj/item/cargo_package/proc/setup_delivery_point(var/obj/structure/cargo_receptacle/delivery_point)
 	associated_delivery_point = WEAKREF(delivery_point)
@@ -72,6 +86,9 @@
 			slowdown = 2
 		else
 			slowdown = 0
+
+		user.update_equipment_speed_mods()
+
 		return TRUE
 	return FALSE
 
@@ -117,27 +134,10 @@
 		addtimer(CALLBACK(src, PROC_REF(get_delivery_point)), 3 MINUTES)
 
 /obj/item/cargo_package/offship/proc/get_delivery_point()
-	var/obj/effect/overmap/visitable/ship/horizon = SSshuttle.ship_by_type(/obj/effect/overmap/visitable/ship/sccv_horizon)
-
-	var/turf/current_turf = get_turf(src)
-
-	var/list/eligible_delivery_points = list()
-	for(var/obj/structure/cargo_receptacle/delivery_point in all_cargo_receptacles)
-		var/obj/effect/overmap/visitable/my_sector = GLOB.map_sectors["[current_turf.z]"]
-		var/obj/effect/overmap/visitable/delivery_point_sector = GLOB.map_sectors["[delivery_point.z]"]
-		// no delivering to ourselves
-		if(my_sector == delivery_point_sector)
-			continue
-		// guaranteed horizon, has to go to horizon
-		if(horizon_delivery && delivery_point_sector.name != horizon.name)
-			continue
-		eligible_delivery_points += delivery_point
-
-	if(!length(eligible_delivery_points))
+	var/obj/structure/cargo_receptacle/selected_delivery_point = get_cargo_package_delivery_point(src, horizon_delivery)
+	if(!selected_delivery_point)
 		qdel(src)
 		return
-
-	var/obj/structure/cargo_receptacle/selected_delivery_point = pick(eligible_delivery_points)
 	setup_delivery_point(selected_delivery_point)
 
 /obj/item/cargo_package/offship/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)

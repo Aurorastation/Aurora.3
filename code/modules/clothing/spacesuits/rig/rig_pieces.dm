@@ -34,6 +34,9 @@
 	icon_base = null
 	footstep_sound_override = 'sound/machines/rig/rigstep.ogg'
 
+/obj/item/clothing/shoes/magboots/rig/advanced
+	slowdown_active = 0
+
 /obj/item/clothing/suit/space/rig
 	name = "chestpiece"
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit)
@@ -84,6 +87,7 @@
 	heat_protection =    HEAD|FACE|EYES
 	cold_protection =    HEAD|FACE|EYES
 	item_flags =         ITEM_FLAG_THICK_MATERIAL|ITEM_FLAG_AIRTIGHT|ITEM_FLAG_INJECTION_PORT
+	allow_hair_covering = FALSE
 
 /obj/item/clothing/suit/lightrig
 	name = "suit"

@@ -58,7 +58,7 @@
 		return
 
 	if(prob(33) && H.canmove && isturf(H.loc) && !H.pulledby) //won't move if being pulled
-		step(H, pick(GLOB.cardinal))
+		step(H, pick(GLOB.cardinals))
 
 	if(prob(1))
 		H.emote(pick("scratch","jump","roll","tail"))
@@ -142,6 +142,7 @@
 	name = SPECIES_MONKEY_UNATHI
 	short_name = "sto"
 	name_plural = LANGUAGE_STOK
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/moghes
 
 	icobase = 'icons/mob/human_races/monkeys/r_stok.dmi'
 	deform = 'icons/mob/human_races/monkeys/r_stok.dmi'

@@ -36,7 +36,7 @@
 
 /area/shuttle/escape_pod
 	name = "Escape pod"
-	base_turf = /turf/unsimulated/floor/asteroid/ash
+	base_turf = /turf/simulated/floor/exoplanet/asteroid/ash
 
 /area/shuttle/escape_pod/pod1
 	name = "Escape pod - 1"
@@ -78,14 +78,14 @@
 	name = "Naval Transport Shuttle"
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_SPAWN_ROOF | AREA_FLAG_NO_CREW_EXPECTED
 
-/area/shuttle/administration
+/area/shuttle/hapt
 	name = "Unidentified Corvette"
 	base_turf = /turf/unsimulated/floor/plating
 	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 
 /area/shuttle/research
 	name = "Research Shuttle"
-	base_turf = /turf/unsimulated/floor/asteroid/ash
+	base_turf = /turf/simulated/floor/exoplanet/asteroid/ash
 
 /area/shuttle/legion
 	name = "Foreign Legion Shuttle"

@@ -250,7 +250,9 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	var/wikiurl
 	var/forumurl
 	var/forum_passphrase
+	var/rulesurl
 	var/githuburl
+	var/mainsiteurl
 
 	//Alert level description
 	var/alert_desc_green = "All threats to the ship have passed. Security may not have weapons visible, privacy laws are once again fully enforced."
@@ -276,9 +278,6 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	//Paincrit knocks someone down once they hit 60 shock_stage, so by default make it so that close to 100 additional damage needs to be dealt,
 	//so that it's similar to DAMAGE_PAIN. Lowered it a bit since hitting paincrit takes much longer to wear off than a halloss stun.
 	var/organ_damage_spillover_multiplier = 0.5
-
-	var/bones_can_break = 0
-	var/limbs_can_break = 0
 
 	var/revival_pod_plants = 1
 	var/revival_cloning = 1
@@ -397,10 +396,6 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	// Master Controller settings.
 	var/fastboot = FALSE	// If true, take some shortcuts during boot to speed it up for testing. Probably should not be used on production servers.
 
-	//UDP GELF Logging
-	var/log_gelf_enabled = 0
-	var/log_gelf_addr = ""
-
 	//IP Intel vars
 	var/ipintel_email
 	var/ipintel_rating_bad = 1
@@ -481,6 +476,8 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	var/asset_simple_preload
 	var/asset_cdn_webroot = ""
 	var/asset_cdn_url = null
+
+	var/storage_cdn_iframe = "https://aurorastation.github.io/Aurora.3/iframe.html"
 
 GENERAL_PROTECT_DATUM(/datum/configuration)
 
@@ -646,11 +643,17 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 				if ("forumurl")
 					GLOB.config.forumurl = value
 
+				if ("rulesurl")
+					GLOB.config.rulesurl = value
+
 				if ("forum_passphrase")
 					GLOB.config.forum_passphrase = value
 
 				if ("githuburl")
 					GLOB.config.githuburl = value
+
+				if ("mainsiteurl")
+					GLOB.config.mainsiteurl = value
 
 				if ("ghosts_can_possess_animals")
 					GLOB.config.ghosts_can_possess_animals = value
@@ -1086,6 +1089,9 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 				if("asset_cdn_url")
 					asset_cdn_url = (value[length(value)] != "/" ? (value + "/") : value)
 
+				if("storage_cdn_iframe")
+					storage_cdn_iframe = value
+
 				else
 					log_config("Unknown setting in configuration: '[name]'")
 
@@ -1117,10 +1123,6 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 					GLOB.config.default_brain_health = text2num(value)
 					if(!GLOB.config.default_brain_health || GLOB.config.default_brain_health < 1)
 						GLOB.config.default_brain_health = initial(GLOB.config.default_brain_health)
-				if("bones_can_break")
-					GLOB.config.bones_can_break = value
-				if("limbs_can_break")
-					GLOB.config.limbs_can_break = value
 
 				if("walk_speed")
 					GLOB.config.walk_speed = value
@@ -1183,6 +1185,8 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 	load_logging_config()
 	load_away_sites_config()
 	load_exoplanets_config()
+
+	Master.OnConfigLoad()
 
 /datum/configuration/proc/save_logging_config()
 	rustg_file_write(json_encode(GLOB.config.logsettings), "config/logging.json")

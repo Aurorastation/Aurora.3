@@ -7,7 +7,11 @@
 	spawn_cost = 2
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_SRANDMARR)
-	suffixes = list("adhomai/adhomai_amohdan.dmm")
+
+	prefix = "adhomai/"
+	suffix = "adhomai_amohdan.dmm"
+
+	unit_test_groups = list(3)
 
 //ghost roles
 
@@ -32,7 +36,7 @@
 /obj/outfit/admin/adhomai_amohdan
 	name = "Amohdan Swordsman"
 
-	uniform = /obj/item/clothing/under/pants/tajaran
+	pants = /obj/item/clothing/pants/tajaran
 	head = /obj/item/clothing/head/helmet/amohda
 	suit = /obj/item/clothing/suit/armor/amohda
 	shoes = /obj/item/clothing/shoes/combat

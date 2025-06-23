@@ -8,7 +8,7 @@
 	build_from_parts = TRUE
 
 	armor = list(
-		melee = ARMOR_MELEE_MINOR
+		MELEE = ARMOR_MELEE_MINOR
 		)
 
 	sprite_sheets = list(
@@ -19,6 +19,12 @@
 	body_parts_covered = FEET
 	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_BULWARK)
 	contained_sprite = TRUE
+
+/obj/item/clothing/shoes/vaurca/brown
+	color = "#784020"
+
+/obj/item/clothing/shoes/vaurca/red
+	color = "#d62b2b"
 
 /obj/item/clothing/shoes/vaurca/breeder
 	name = "zo'ra representative shoes"
@@ -44,8 +50,8 @@
 	item_state = "hive_rep_shoes_cthur"
 	icon_state = "hive_rep_shoes_cthur"
 
-/obj/item/clothing/shoes/vaurca/breeder/nralakk
-	name = "nralakk representative shoes"
-	desc = "Large shoes used by Nralakk representatives."
-	item_state = "hive_rep_shoes_nralakk"
-	icon_state = "hive_rep_shoes_nralakk"
+/obj/item/clothing/shoes/vaurca/breeder/colorable
+	name = "representative shoes"
+	desc = "Large shoes used by Vaurca Gynes."
+	item_state = "hive_rep_shoes_colorable"
+	icon_state = "hive_rep_shoes_colorable"

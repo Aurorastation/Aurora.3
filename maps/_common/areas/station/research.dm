@@ -1,5 +1,5 @@
 /area/assembly
-	station_area = 1
+	station_area = TRUE
 
 /area/assembly/chargebay
 	name = "Mech Bay"
@@ -27,11 +27,16 @@
 
 //rnd (Research and Development
 /area/rnd
-	station_area = 1
+	station_area = TRUE
 	holomap_color = HOLOMAP_AREACOLOR_SCIENCE
 
 /area/rnd/hallway
 	name = "Research - Hallway"
+	icon_state = "research"
+	lightswitch = TRUE
+
+/area/rnd/hallway/secondary
+	name = "Research - Secondary Hallway"
 	icon_state = "research"
 	lightswitch = TRUE
 
@@ -66,6 +71,30 @@
 /area/rnd/xenobiology
 	name = "Research - Xenobiology Lab"
 	icon_state = "xeno_lab"
+
+/area/rnd/xenobiology/xenological
+	name = "Research - Xenological Studies"
+	icon_state = "xeno_log"
+
+/area/rnd/xenobiology/hazardous
+	name = "Research - Xenobiology Hazardous Containment"
+	icon_state = "xeno_lab"
+
+/area/rnd/xenobiology/dissection
+	name = "Research - Xenobiology Dissection"
+	icon_state = "xeno_lab"
+
+/area/rnd/xenobiology/foyer
+	name = "Research - Xenobiology Foyer"
+	icon_state = "xeno_lab"
+
+/area/rnd/xenobiology/specimendisposal
+	name = "Research - Xenobiology Specimen Disposal"
+	icon_state = "xeno_lab"
+
+/area/rnd/xenobiology/xenological
+	name = "Research - Xenological Studies"
+	icon_state = "xeno_log"
 
 /area/rnd/xenobiology/xenoflora_storage
 	name = "Research - Xenoflora Storage"
@@ -168,9 +197,9 @@
 	area_flags = AREA_FLAG_FIRING_RANGE
 
 /area/toxins
-	station_area = 1
+	station_area = TRUE
 
 /area/toxins/server
 	name = "Research - Server Room"
 	icon_state = "server"
-	station_area = 1
+	station_area = TRUE

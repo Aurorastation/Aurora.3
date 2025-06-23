@@ -32,16 +32,16 @@
 	organic = TRUE
 	on = TRUE
 	var/list/armor_values = list( //some default values that seem about right for an average animal
-		melee = ARMOR_MELEE_MEDIUM,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		bomb = ARMOR_BOMB_MINOR
+		MELEE = ARMOR_MELEE_MEDIUM,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		BOMB = ARMOR_BOMB_MINOR
 	)
 
 /obj/vehicle/animal/setup_vehicle()
 	..()
 	on = TRUE
 	set_light(0)
-	add_overlay(image(icon, "[icon_state]_overlay", MOB_LAYER + 1))
+	AddOverlays(image(icon, "[icon_state]_overlay", MOB_LAYER + 1))
 	if(storage_type)
 		storage_compartment = new storage_type(src)
 	if(LAZYLEN(armor_values))
@@ -54,20 +54,20 @@
 		return FALSE
 	return ..(M)
 
-/obj/vehicle/animal/MouseDrop(atom/over)
-	if(use_check_and_message(usr))
-		return
-
-	if(usr == over && ishuman(over))
-		var/mob/living/carbon/human/H = over
-		storage_compartment.open(H)
-
-/obj/vehicle/animal/MouseDrop_T(atom/dropping, mob/user)
+/obj/vehicle/animal/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	if(use_check_and_message(user))
 		return
 
-	if(!load(dropping))
-		to_chat(user, SPAN_WARNING("You were unable to load \the [dropping] onto \the [src]."))
+	if(user == over && ishuman(over))
+		var/mob/living/carbon/human/H = over
+		storage_compartment.open(H)
+
+/obj/vehicle/animal/mouse_drop_receive(atom/dropped, mob/user, params)
+	if(use_check_and_message(user))
+		return
+
+	if(!load(dropped))
+		to_chat(user, SPAN_WARNING("You were unable to load \the [dropped] onto \the [src]."))
 		return
 
 /obj/vehicle/animal/attack_hand(var/mob/user as mob)
@@ -83,14 +83,15 @@
 			to_chat(user, "You unbuckle [load] from \the [src]")
 			to_chat(load, "You were unbuckled from \the [src] by [user]")
 
-/obj/vehicle/animal/bullet_act(var/obj/item/projectile/Proj)
+/obj/vehicle/animal/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	var/datum/component/armor/armor_component = GetComponent(/datum/component/armor)
-	if(buckled && prob((1 - armor_component.get_blocked(Proj.damage_type, Proj.damage_flags, Proj.armor_penetration))*100))
-		buckled.bullet_act(Proj)
-		return
+	if(buckled && prob((1 - armor_component.get_blocked(hitting_projectile.damage_type, hitting_projectile.damage_flags, hitting_projectile.armor_penetration))*100))
+		return buckled.bullet_act(arglist(args))
 	..()
 
-/obj/vehicle/animal/relaymove(mob/user, direction)
+/obj/vehicle/animal/relaymove(mob/living/user, direction)
+	. = ..()
+
 	if(user != load || user.incapacitated())
 		return
 	return Move(get_step(src, direction))
@@ -155,8 +156,8 @@
 			if(ishuman(AM))
 				var/mob/living/carbon/human/H = AM
 				M.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed by [src]</font>"
-				M.attack_log += text("\[[time_stamp()]\] <span class='warning'>rammed[M.name] ([M.ckey]) rammed [H.name] ([H.ckey]) with the [src].</span>")
-				msg_admin_attack("[src] crashed into [key_name(H)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
+				M.attack_log += "\[[time_stamp()]\] <span class='warning'>rammed[M.name] ([M.ckey]) rammed [H.name] ([H.ckey]) with the [src].</span>"
+				msg_admin_attack("[src] crashed into [key_name(H)] at (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
 				src.visible_message(SPAN_DANGER("\The [src] smashes into \the [H]!"))
 				playsound(src, /singleton/sound_category/swing_hit_sound, 50, 1)
 				H.apply_damage(20, DAMAGE_BRUTE)
@@ -200,7 +201,7 @@
 	desc = "A structure used to ride animals."
 	icon = 'icons/obj/saddle.dmi'
 	icon_state = "saddle"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/vehicle/animal/threshbeast
 	name = "threshbeast"
@@ -242,10 +243,10 @@
 	storage_type = /obj/item/storage/toolbox/bike_storage/saddle
 	corpse = /mob/living/simple_animal/hostile/retaliate/hegeranzi/saddle
 	armor_values = list( //big tough war beast, has some more armor particularly against bullets and melee
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_MINOR,
-		bomb = ARMOR_BOMB_MINOR
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_MINOR,
+		BOMB = ARMOR_BOMB_MINOR
 	)
 
 /obj/vehicle/animal/warmount/RunOver(mob/living/carbon/human/H)
@@ -256,8 +257,8 @@
 		M = buckled
 	if(M.m_intent == M_RUN)
 		M.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed by [src]</font>"
-		M.attack_log += text("\[[time_stamp()]\] <span class='warning'>rammed[M.name] ([M.ckey]) rammed [H.name] ([H.ckey]) with the [src].</span>")
-		msg_admin_attack("[src] crashed into [key_name(H)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
+		M.attack_log += "\[[time_stamp()]\] <span class='warning'>rammed[M.name] ([M.ckey]) rammed [H.name] ([H.ckey]) with the [src].</span>"
+		msg_admin_attack("[src] crashed into [key_name(H)] at (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
 		src.visible_message(SPAN_DANGER("\The [src] charges into \the [H]!"))
 		playsound(src, 'sound/weapons/pierce.ogg', 50, 1)
 		H.apply_damage(40, DAMAGE_BRUTE)
@@ -297,8 +298,8 @@
 			if(ishuman(AM))
 				var/mob/living/carbon/human/H = AM
 				M.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed by [src]</font>"
-				M.attack_log += text("\[[time_stamp()]\] <span class='warning'>rammed[M.name] ([M.ckey]) rammed [H.name] ([H.ckey]) with the [src].</span>")
-				msg_admin_attack("[src] crashed into [key_name(H)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
+				M.attack_log += "\[[time_stamp()]\] <span class='warning'>rammed[M.name] ([M.ckey]) rammed [H.name] ([H.ckey]) with the [src].</span>"
+				msg_admin_attack("[src] crashed into [key_name(H)] at (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
 				src.visible_message(SPAN_DANGER("\The [src] charges into \the [H]!"))
 				playsound(src, 'sound/weapons/pierce.ogg', 50, 1)
 				H.apply_damage(40, DAMAGE_BRUTE)

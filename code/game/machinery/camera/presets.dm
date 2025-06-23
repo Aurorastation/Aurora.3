@@ -1,12 +1,12 @@
 // PRESETS
-var/global/list/engineering_networks = list(
+GLOBAL_LIST_INIT(engineering_networks, list(
 	NETWORK_REACTOR,
 	NETWORK_ENGINEERING,
 	NETWORK_ENGINEERING_OUTPOST,
 	"Atmosphere Alarms",
 	"Fire Alarms",
 	"Power Alarms"
-)
+))
 
 /obj/machinery/camera/network/crescent
 	network = list(NETWORK_CRESCENT)
@@ -144,6 +144,9 @@ var/global/list/engineering_networks = list(
 
 /obj/machinery/camera/network/canary
 	network = list(NETWORK_CANARY)
+
+/obj/machinery/camera/network/quark
+	network = list(NETWORK_QUARK)
 
 // AUTONAME
 /obj/machinery/camera/autoname

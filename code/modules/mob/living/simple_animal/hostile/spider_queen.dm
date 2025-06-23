@@ -33,12 +33,6 @@
 	faction = "spiders"
 	fed = 3
 
-	minbodytemp = 0
-	maxbodytemp = 350
-	min_oxy = 0
-	max_co2 = 0
-	max_tox = 0
-
 	mob_swap_flags = HUMAN|SIMPLE_ANIMAL|SLIME|MONKEY
 	mob_push_flags = ALLMOBS
 
@@ -46,8 +40,7 @@
 	attack_sound = 'sound/weapons/bite.ogg'
 
 	pass_flags = PASSTABLE|PASSRAILING
-	move_to_delay = 6
-	speed = -1
+	speed = 6
 	mob_size = 15
 	environment_smash = 2
 
@@ -68,11 +61,15 @@
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen/update_icon()
 	..()
-
-	if(hovering)
+	if(stat == DEAD)
+		icon_state = icon_dead
+	else if(hovering)
 		icon_state = "spider_queen_shadow"
+	else if (stat == UNCONSCIOUS || resting)
+		icon_state = icon_rest
 	else
-		icon_state = initial(icon_state)
+		icon_state = icon_living
+
 /mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen/UnarmedAttack(var/atom/A, var/proximity)
 	if(hovering)
 		return
@@ -103,7 +100,7 @@
 		M.speed = -1
 		M.update_icon()
 		M.pass_flags = PASSTABLE | PASSMOB
-		M.layer = BELOW_MOB_LAYER
+		M.layer = LYING_MOB_LAYER
 		addtimer(CALLBACK(src, PROC_REF(do_landing), M), 1 MINUTE)
 		return TRUE
 	else
@@ -118,13 +115,15 @@
 	S.layer = initial(S.layer)
 	var/turf/target_turf = get_turf(S)
 	if(target_turf)
-		S.visible_message("<span class='danger'>\The [S] lands on the [target_turf]!</span>")
+		S.visible_message(SPAN_DANGER("\The [S] lands on the [target_turf]!"))
 		for(var/mob/living/M in target_turf)
 			if(M != src)
 				M.apply_damage(50, DAMAGE_BRUTE)
 				M.apply_effect(6, STUN)
 	return TRUE
 
-/mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen/Life()
+/mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen/Life(seconds_per_tick, times_fired)
 	..()
+	if (stat == DEAD)
+		return 0
 	adjustBruteLoss(-3)

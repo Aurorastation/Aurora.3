@@ -1,3 +1,14 @@
+GLOBAL_LIST_INIT(cable_coil_colours, list(
+	"Yellow" = COLOR_YELLOW,
+	"Green" = COLOR_LIME,
+	"Pink" = COLOR_PINK,
+	"Blue" = COLOR_BLUE,
+	"Orange" = COLOR_ORANGE,
+	"Cyan" = COLOR_CYAN,
+	"Red" = COLOR_RED,
+	"White" = COLOR_WHITE
+))
+
 ///////////////////////////////
 //CABLE STRUCTURE
 ///////////////////////////////
@@ -32,9 +43,19 @@ By design, d1 is the smallest direction and d2 is the highest
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/d1 = 0
 	var/d2 = 1
-	layer = CABLE_LAYER //Just below unary stuff, which is at 2.45 and above pipes, which are at 2.4
+	layer = EXPOSED_WIRE_LAYER
 	color = COLOR_RED
 	var/obj/machinery/power/breakerbox/breaker_box
+
+/obj/structure/cable/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	var/found_color_name = "Unknown"
+	for(var/color_name in GLOB.cable_coil_colours)
+		var/color_value = GLOB.cable_coil_colours[color_name]
+		if(color == color_value)
+			found_color_name = color_name
+			break
+	. += "This cable is: <span style='color:[color]'>[found_color_name]</span>"
 
 /obj/structure/cable/drain_power(var/drain_check, var/surge, var/amount = 0)
 
@@ -85,8 +106,8 @@ By design, d1 is the smallest direction and d2 is the highest
 	GLOB.cable_list += src
 
 	if(mapload)
-		var/image/I = image(icon, T, icon_state, EFFECTS_ABOVE_LIGHTING_LAYER, dir, pixel_x, pixel_y)
-		I.plane = 0
+		var/image/I = image(icon, T, icon_state, dir, pixel_x, pixel_y)
+		I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 		I.alpha = 125
 		I.color = color
 		LAZYADD(T.blueprints, I)
@@ -159,7 +180,7 @@ By design, d1 is the smallest direction and d2 is the highest
 			playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 
 		if(d1 == 11 || d2 == 11)
-			var/turf/turf = GetBelow(src)
+			var/turf/turf = GET_TURF_BELOW(T)
 			if(turf)
 				for(var/obj/structure/cable/c in turf)
 					if(c.d1 == 12 || c.d2 == 12)
@@ -361,12 +382,14 @@ By design, d1 is the smallest direction and d2 is the highest
 
 	// Handle up/down cables
 	if(d1 == 11 || d2 == 11)
-		T = GetBelow(src)
+		var/turf/current_turf = get_turf(src)
+		T = GET_TURF_BELOW(current_turf)
 		if(T)
 			. += power_list(T, src, 12, powernetless_only)
 
 	if(d1 == 12 || d2 == 12)
-		T = GetAbove(src)
+		var/turf/current_turf = get_turf(src)
+		T = GET_TURF_ABOVE(current_turf)
 		if(T)
 			. += power_list(T, src, 11, powernetless_only)
 
@@ -374,7 +397,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	for(var/cable_dir in list(d1, d2))
 		if(cable_dir == 11 || cable_dir == 12 || cable_dir == 0)
 			continue
-		var/reverse = GLOB.reverse_dir[cable_dir]
+		var/reverse = REVERSE_DIR(cable_dir)
 		T = get_step(src, cable_dir)
 		if(T)
 			for(var/obj/structure/cable/C in T)
@@ -477,7 +500,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	max_amount = MAXCOIL
 	color = COLOR_RED
 	throwforce = 10
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 2
 	throw_range = 5
 	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 20)
@@ -490,16 +513,6 @@ By design, d1 is the smallest direction and d2 is the highest
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 	surgerysound = 'sound/items/surgery/fixovein.ogg'
-	var/static/list/possible_cable_coil_colours = list(
-		"Yellow" = COLOR_YELLOW,
-		"Green" = COLOR_LIME,
-		"Pink" = COLOR_PINK,
-		"Blue" = COLOR_BLUE,
-		"Orange" = COLOR_ORANGE,
-		"Cyan" = COLOR_CYAN,
-		"Red" = COLOR_RED,
-		"White" = COLOR_WHITE
-	)
 	build_from_parts = TRUE
 	worn_overlay = "end"
 
@@ -517,9 +530,25 @@ By design, d1 is the smallest direction and d2 is the highest
 	update_icon()
 	update_wclass()
 
-/obj/item/stack/cable_coil/attack(mob/living/carbon/M, mob/user)
-	if(ishuman(M) && user.a_intent == I_HELP)
-		var/mob/living/carbon/human/H = M
+/obj/item/stack/cable_coil/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+
+	var/found_color_name = "Unknown"
+	for(var/color_name in GLOB.cable_coil_colours)
+		var/color_value = GLOB.cable_coil_colours[color_name]
+		if(color == color_value)
+			found_color_name = color_name
+			break
+	. += "This cable is: <span style='color:[color]'>[found_color_name]</span>"
+
+	if(!uses_charge)
+		. += "There [src.amount == 1 ? "is" : "are"] <b>[src.amount]</b> [src.singular_name]\s of cable in the coil."
+	else
+		. += "You have enough charge to produce <b>[get_amount()]</b>."
+
+/obj/item/stack/cable_coil/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(ishuman(target_mob) && user.a_intent == I_HELP)
+		var/mob/living/carbon/human/H = target_mob
 		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
 
 		if(affecting.open != 0)
@@ -529,7 +558,7 @@ By design, d1 is the smallest direction and d2 is the highest
 		else
 			if(!BP_IS_ROBOTIC(affecting))
 				if(affecting.is_bandaged())
-					to_chat(user, SPAN_WARNING("The wounds on [M]'s [affecting.name] have already been closed."))
+					to_chat(user, SPAN_WARNING("The wounds on [H]'s [affecting.name] have already been closed."))
 					return
 				else
 					if(!can_use(10, user))
@@ -540,15 +569,15 @@ By design, d1 is the smallest direction and d2 is the highest
 						if(W.bandaged)
 							continue
 						if(W.current_stage <= W.max_bleeding_stage)
-							user.visible_message(SPAN_NOTICE("\The [user] starts carefully suturing the open wound on [M]'s [affecting.name]..."), \
-												SPAN_NOTICE("You start carefully suturing the open wound on [M]'s [affecting.name]... This will take a while."))
-							if(!do_mob(user, M, 200))
-								user.visible_message(SPAN_DANGER("[user]'s hand slips and tears open the wound on [M]'s [affecting.name]!"), \
+							user.visible_message(SPAN_NOTICE("\The [user] starts carefully suturing the open wound on [target_mob]'s [affecting.name]..."), \
+												SPAN_NOTICE("You start carefully suturing the open wound on [target_mob]'s [affecting.name]... This will take a while."))
+							if(!do_mob(user, target_mob, 200))
+								user.visible_message(SPAN_DANGER("[user]'s hand slips and tears open the wound on [target_mob]'s [affecting.name]!"), \
 														SPAN_DANGER("<font size=2>The wound on your [affecting.name] is torn open!</font>"))
-								M.apply_damage(rand(1,10), DAMAGE_BRUTE)
+								target_mob.apply_damage(rand(1,10), DAMAGE_BRUTE)
 								break
-							user.visible_message(SPAN_NOTICE("\The [user] barely manages to stitch \a [W.desc] on [M]'s [affecting.name]."), \
-														SPAN_NOTICE("You barely manage to stitch \a [W.desc] on [M]'s [affecting.name].") )
+							user.visible_message(SPAN_NOTICE("\The [user] barely manages to stitch \a [W.desc] on [target_mob]'s [affecting.name]."), \
+														SPAN_NOTICE("You barely manage to stitch \a [W.desc] on [target_mob]'s [affecting.name].") )
 							W.bandage("cable-stitched")
 							use(10)
 							affecting.add_pain(25)
@@ -610,7 +639,7 @@ By design, d1 is the smallest direction and d2 is the highest
 
 /obj/item/stack/cable_coil/update_icon()
 	if(!color)
-		color = pick(possible_cable_coil_colours)
+		color = pick(GLOB.cable_coil_colours)
 	name = "[initial(name)]"
 	if(amount == 1)
 		icon_state = "[initial(icon_state)]1"
@@ -625,8 +654,8 @@ By design, d1 is the smallest direction and d2 is the highest
 		item_state = "[initial(icon_state)]"
 		name += " coil"
 	update_held_icon()
-	cut_overlays()
-	add_overlay(overlay_image(icon, "[icon_state]_end", flags=RESET_COLOR))
+	ClearOverlays()
+	AddOverlays(overlay_image(icon, "[icon_state]_end", flags=RESET_COLOR))
 	check_maptext(SMALL_FONTS(7, get_amount()))
 
 /obj/item/stack/cable_coil/attackby(obj/item/attacking_item, mob/user)
@@ -635,34 +664,27 @@ By design, d1 is the smallest direction and d2 is the highest
 	return ..()
 
 /obj/item/stack/cable_coil/proc/choose_cable_color(var/user)
-	var/selected_type = tgui_input_list(user, "Pick a new colour.", "Cable Colour", possible_cable_coil_colours)
+	var/selected_type = tgui_input_list(user, "Pick a new colour.", "Cable Colour", GLOB.cable_coil_colours)
 	set_cable_color(selected_type, user)
 
 /obj/item/stack/cable_coil/proc/set_cable_color(selected_color, var/user)
 	if(!selected_color)
 		return
 
-	var/final_color = possible_cable_coil_colours[selected_color]
+	var/final_color = GLOB.cable_coil_colours[selected_color]
 	if(!final_color)
-		final_color = possible_cable_coil_colours["Red"]
+		final_color = GLOB.cable_coil_colours["Red"]
 		selected_color = "Red"
 	color = final_color
 	to_chat(user, SPAN_NOTICE("You change \the [src]'s color to [lowertext(selected_color)]."))
 
 /obj/item/stack/cable_coil/proc/update_wclass()
 	if(amount == 1)
-		w_class = ITEMSIZE_TINY
+		w_class = WEIGHT_CLASS_TINY
 		slot_flags = SLOT_BELT | SLOT_EARS //one cable piece can fit in your ear.
 	else
-		w_class = ITEMSIZE_SMALL
+		w_class = WEIGHT_CLASS_SMALL
 		slot_flags = SLOT_BELT
-
-/obj/item/stack/cable_coil/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(!uses_charge)
-		. += "There [src.amount == 1 ? "is" : "are"] <b>[src.amount]</b> [src.singular_name]\s of cable in the coil."
-	else
-		. += "You have enough charge to produce <b>[get_amount()]</b>."
 
 /obj/item/stack/cable_coil/verb/make_restraint()
 	set name = "Make Cable Restraints"
@@ -772,7 +794,7 @@ By design, d1 is the smallest direction and d2 is the highest
 					return
 
 			var/obj/structure/cable/C = new(F)
-			var/obj/structure/cable/D = new(GetBelow(F))
+			var/obj/structure/cable/D = new(GET_TURF_BELOW(F))
 
 			C.cableColor(color)
 
@@ -985,8 +1007,9 @@ By design, d1 is the smallest direction and d2 is the highest
 	color = COLOR_WHITE
 
 /obj/item/stack/cable_coil/random/Initialize()
-	color = pick(possible_cable_coil_colours)
-	. = ..()
+	var/color_name = pick(GLOB.cable_coil_colours)
+	color = GLOB.cable_coil_colours[color_name]
+	return ..()
 
 //////////////////////////////
 // Nooses.
@@ -1058,13 +1081,13 @@ By design, d1 is the smallest direction and d2 is the highest
 /obj/structure/noose/post_buckle(mob/living/M)
 	if(M == buckled)
 		layer = MOB_LAYER
-		add_overlay(over)
+		AddOverlays(over)
 		START_PROCESSING(SSprocessing, src)
 		M.pixel_y = initial(M.pixel_y) + 8 //rise them up a bit
 		M.dir = SOUTH
 	else
-		layer = initial(layer)
-		cut_overlay(over)
+		reset_plane_and_layer()
+		CutOverlays(over)
 		STOP_PROCESSING(SSprocessing, src)
 		pixel_x = initial(pixel_x)
 		M.pixel_x = initial(M.pixel_x)

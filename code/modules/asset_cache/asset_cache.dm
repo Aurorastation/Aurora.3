@@ -2,15 +2,15 @@
 //Place any asset datums you create in asset_list_items.dm
 
 //all of our asset datums, used for referring to these later
-var/list/asset_datums = list()
+GLOBAL_LIST_EMPTY(asset_datums)
 
 //get an assetdatum or make a new one
 //does NOT ensure it's filled, if you want that use get_asset_datum()
 /proc/load_asset_datum(type)
-	return asset_datums[type] || new type()
+	return GLOB.asset_datums[type] || new type()
 
 /proc/get_asset_datum(type)
-	var/datum/asset/loaded_asset = asset_datums[type] || new type()
+	var/datum/asset/loaded_asset = GLOB.asset_datums[type] || new type()
 	return loaded_asset.ensure_ready()
 
 /proc/simple_asset_ensure_is_sent(client, type)
@@ -32,7 +32,7 @@ var/list/asset_datums = list()
 	var/cross_round_cachable = FALSE
 
 /datum/asset/New()
-	asset_datums[type] = src
+	GLOB.asset_datums[type] = src
 	register()
 
 /// Stub that allows us to react to something trying to get us
@@ -575,6 +575,9 @@ var/list/asset_datums = list()
 		"asteroid.png" = 'html/images/scans/exoplanets/asteroid.png',
 		"konyang.png" = 'html/images/scans/exoplanets/konyang.png',
 		"konyang_point_verdant.png" = 'html/images/scans/exoplanets/konyang_point_verdant.png',
+		"biesel.png" = 'html/images/scans/exoplanets/biesel.png',
+		"moghes.png" = 'html/images/scans/exoplanets/moghes.png',
+		"chanterel.png" = 'html/images/scans/exoplanets/chanterel.png',
 		//end scan images
 		"bluebird.woff" = 'html/fonts/OFL/Bluebird.woff',
 		"grandhotel.woff" = 'html/fonts/OFL/GrandHotel.woff',
@@ -631,11 +634,11 @@ var/list/asset_datums = list()
 			var/icon_states_string
 			for(var/s in icon_states_list)
 				if(!icon_states_string)
-					icon_states_string = "[json_encode(s)](\ref[s])"
+					icon_states_string = "[json_encode(s)]([REF(s)])"
 				else
-					icon_states_string += ", [json_encode(s)](\ref[s])"
+					icon_states_string += ", [json_encode(s)]([REF(s)])"
 
-			stack_trace("[item] has an invalid icon state, icon=[icon_file], icon_state=[json_encode(icon_state)](\ref[icon_state]), icon_states=[icon_states_string]")
+			stack_trace("[item] has an invalid icon state, icon=[icon_file], icon_state=[json_encode(icon_state)]([REF(icon_state)]), icon_states=[icon_states_string]")
 			continue
 		#endif
 
@@ -656,8 +659,8 @@ var/list/asset_datums = list()
 			Insert(imgid, I, forced=I)
 		else
 			item.update_icon()
-			if(item.overlay_queued)
-				item.compile_overlays()
+			if(item.atom_flags & ATOM_AWAITING_OVERLAY_UPDATE)
+				item.UpdateOverlays()
 			if(item.overlays.len)
 				I = getFlatIcon(item) // forgive me for my performance sins
 				Insert(imgid, I, forced=I)
@@ -738,3 +741,22 @@ var/list/asset_datums = list()
 /// (Generated names do not include file extention.)
 /proc/generate_asset_name(file)
 	return "asset.[md5(fcopy_rsc(file))]"
+
+
+/datum/asset/changelog_item
+	_abstract = /datum/asset/changelog_item
+	var/item_filename
+
+/datum/asset/changelog_item/New(date)
+	item_filename = SANITIZE_FILENAME("[date].yml")
+	SSassets.transport.register_asset(item_filename, file("html/changelogs/archive/" + item_filename))
+
+/datum/asset/changelog_item/send(client)
+	if (!item_filename)
+		return
+	. = SSassets.transport.send_assets(client, item_filename)
+
+/datum/asset/changelog_item/get_url_mappings()
+	if (!item_filename)
+		return
+	. = list("[item_filename]" = SSassets.transport.get_asset_url(item_filename))

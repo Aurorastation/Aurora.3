@@ -1,0 +1,447 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/turf/template_noop,
+/area/template_noop)
+"b" = (
+/obj/structure/shipping_container{
+	icon_state = "green1"
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
+"c" = (
+/obj/effect/decal/curb/corner,
+/turf/template_noop,
+/area/template_noop)
+"d" = (
+/obj/effect/decal/cleanable/blood/drip/oil,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
+"e" = (
+/obj/effect/decal/curb/corner{
+	dir = 4
+	},
+/turf/template_noop,
+/area/template_noop)
+"f" = (
+/obj/structure/shipping_container{
+	icon_state = "blue3"
+	},
+/obj/effect/overlay/container_logo{
+	icon_state = "heph2"
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
+"g" = (
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
+"h" = (
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
+"k" = (
+/obj/structure/closet/crate/secure/phoron{
+	req_access = list(112);
+	name = "secure crate"
+	},
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/glass/full,
+/obj/item/stack/material/glass/full,
+/obj/item/stack/material/diamond{
+	amount = 6
+	},
+/obj/item/stack/material/gold{
+	amount = 6
+	},
+/obj/item/stack/material/silver/full{
+	amount = 6
+	},
+/obj/item/stack/material/uranium{
+	amount = 6
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
+"l" = (
+/obj/structure/shipping_container{
+	icon_state = "grey1"
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
+"n" = (
+/obj/structure/shipping_container{
+	icon_state = "red2"
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
+"o" = (
+/obj/effect/decal/curb/corner{
+	dir = 8
+	},
+/turf/template_noop,
+/area/template_noop)
+"r" = (
+/obj/structure/shipping_container{
+	icon_state = "green2"
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
+"s" = (
+/obj/structure/shipping_container{
+	icon_state = "red3"
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
+"t" = (
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
+"v" = (
+/obj/structure/shipping_container{
+	icon_state = "green3"
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
+"y" = (
+/obj/structure/shipping_container{
+	icon_state = "red1"
+	},
+/obj/effect/overlay/container_logo{
+	icon_state = "heph3"
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
+"z" = (
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/turf/template_noop,
+/area/template_noop)
+"A" = (
+/obj/structure/crane,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
+"C" = (
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/turf/template_noop,
+/area/template_noop)
+"D" = (
+/obj/structure/shipping_container{
+	icon_state = "grey3"
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
+"E" = (
+/obj/structure/shipping_container{
+	icon_state = "blue2"
+	},
+/obj/effect/overlay/container_logo{
+	icon_state = "heph3"
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
+"F" = (
+/obj/structure/shipping_container{
+	icon_state = "blue2"
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
+"G" = (
+/obj/structure/shipping_container{
+	icon_state = "blue2"
+	},
+/obj/effect/overlay/container_logo,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
+"I" = (
+/obj/structure/shipping_container{
+	icon_state = "grey2"
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
+"N" = (
+/obj/effect/decal/curb/corner{
+	dir = 1
+	},
+/turf/template_noop,
+/area/template_noop)
+"P" = (
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
+"R" = (
+/obj/structure/shipping_container,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
+"W" = (
+/obj/structure/closet/crate/critter,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
+"Y" = (
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
+"Z" = (
+/obj/effect/decal/curb,
+/turf/template_noop,
+/area/template_noop)
+
+(1,1,1) = {"
+o
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+c
+"}
+(2,1,1) = {"
+a
+h
+h
+h
+h
+h
+h
+h
+h
+h
+h
+h
+h
+h
+Z
+"}
+(3,1,1) = {"
+a
+h
+A
+h
+h
+h
+h
+h
+h
+h
+h
+h
+y
+h
+Z
+"}
+(4,1,1) = {"
+a
+h
+d
+h
+h
+Y
+h
+g
+h
+h
+l
+h
+n
+h
+Z
+"}
+(5,1,1) = {"
+a
+h
+d
+h
+h
+h
+h
+h
+h
+h
+I
+h
+s
+h
+Z
+"}
+(6,1,1) = {"
+a
+h
+h
+P
+h
+h
+h
+h
+h
+h
+I
+k
+h
+b
+Z
+"}
+(7,1,1) = {"
+a
+g
+h
+h
+h
+h
+h
+h
+h
+h
+D
+W
+h
+r
+Z
+"}
+(8,1,1) = {"
+a
+h
+h
+h
+R
+h
+h
+h
+h
+h
+h
+h
+h
+v
+Z
+"}
+(9,1,1) = {"
+a
+h
+h
+h
+F
+h
+h
+h
+h
+h
+h
+Y
+h
+h
+Z
+"}
+(10,1,1) = {"
+a
+h
+h
+h
+F
+t
+h
+h
+h
+h
+h
+P
+h
+h
+Z
+"}
+(11,1,1) = {"
+a
+h
+h
+h
+E
+P
+h
+h
+h
+h
+h
+h
+h
+h
+Z
+"}
+(12,1,1) = {"
+a
+h
+h
+h
+G
+h
+h
+h
+h
+h
+h
+h
+g
+h
+Z
+"}
+(13,1,1) = {"
+a
+h
+h
+h
+f
+h
+h
+g
+h
+h
+h
+h
+h
+h
+Z
+"}
+(14,1,1) = {"
+a
+h
+h
+h
+h
+h
+h
+h
+h
+Y
+h
+h
+h
+h
+Z
+"}
+(15,1,1) = {"
+e
+z
+z
+z
+z
+z
+z
+z
+z
+z
+z
+z
+z
+z
+N
+"}

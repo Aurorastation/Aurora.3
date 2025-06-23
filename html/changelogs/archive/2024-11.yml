@@ -1,0 +1,230 @@
+2024-11-01:
+  FluffyGhost:
+  - qol: Set the map format to sidemap, to better represent that we're in 3/4th perspective
+      now.
+  - code_imp: Some code cleanup around the definition of /world.
+  hazelmouse:
+  - bugfix: Available ghostroles now appear correctly at roundstart.
+2024-11-03:
+  Ben10083:
+  - rscadd: New loadout options in Tajara loadout for getting sets of Religious banners
+      (S'rand'marr and Ma'ta'ke).
+  - spellcheck: Fixed incorrect extended description for Raskariim mask.
+  FluffyGhost:
+  - bugfix: Fixed some situations where a null was being set as target.
+  - refactor: Repathed the dreaded target_mob variable to last_found_target, and from
+      mob to atom, as it was not being used only for mobs.
+  - refactor: Added procs to set and unset the last_found_target and setup the signals
+      relative to clear it, and validations.
+  - refactor: Thanks to the above, removed a viewscan that was needed to delete references
+      when mobs die from their attacker.
+  - code_imp: General QoL of code, DMDocs.
+  - server: Updates the CI to use byond 515.1644.
+  - bugfix: Fix mechs taking damage from sandstorms.
+  SimpleMaroon:
+  - qol: Vaurca Prosthetic Limbs now color themselves after the Vaurca's body color,
+      similar to Aut'akh limbs.
+  - imageadd: Vaurca Prosthetic Limb sprites have been grayscaled and darkened to
+      facilitate this.
+  - bugfix: Pixel-shifted the Vaurca Attendant west-facing head sprites to align properly.
+  WickedCybs:
+  - rscadd: Added Kira's custom item.
+2024-11-05:
+  CourierBravo:
+  - rscadd: Added all of the other cars.dmi sprites as automobile objects.
+  - rscadd: Moved around and changed some of the names of sprites in the cars.dmi
+      file.
+  - rscadd: Reworked how the random car spawning works. Now instead of initializing
+      a structure with a random name/sprite, its a random subtype selecting to spawn
+      structure with a preset name and sprite.
+  - rscdel: Replaced the previous random car initialize with the random subtype.
+  - imageadd: Added a random car sprite to the car.dmi file, since the random.dmi
+      file doesnt support 96x64 pixel sprites
+  FluffyGhost:
+  - refactor: Refactored deletion observables to use the COMSIG_QDELETING signal instead,
+      removed the observable.
+  hazelmouse:
+  - rscadd: Adds the submariner's beanie to the loadout, a tight piece of headwear
+      common among the dock workers of Europa.
+  - rscadd: Adds the Golden Deep Hoplan and Porter uniforms to the loadout.
+  - rscadd: Adds the Golden Deep Hoplan voidsuit to the appropriate uplink kit.
+  - rscadd: Adds some missing stuff to the Golden Deep ghostrole, and further randomises
+      cargo holds contents.
+2024-11-06:
+  Ben10083:
+  - rscadd: Custom stickersheets added to loadout. Select 4 stickers which is put
+      into the sheet (each selection provides 3).
+  - qol: Random and None options now appear first in content lists (like lunchboxes)
+  FluffyGhost:
+  - server: Added force name change dropdown menu option to rename living mobs.
+2024-11-07:
+  FluffyGhost:
+  - rscadd: Added the bluespace drive.
+  - bugfix: Fixed overmap projectiles not transferring correctly.
+  - code_imp: Code improvements. A lot of.
+  - rscadd: Edited and partially remapped the deck one starboard engineering maints
+      and the deck two aft auxiliary atmospherics. The auxiliary has been replaced
+      with drone manufacturing.
+  - rscadd: Modified the supermatter cooling loop, giving it a slight increase in
+      cooling potential. Please be mindful when doing more experimental setups.
+  hazelmouse:
+  - bugfix: Greimorians should no longer be able to spin multiple webs on one tile.
+2024-11-08:
+  FabianK3:
+  - rscadd: Updated engineering lobby layout and adjacent areas.
+  - rscadd: Added a notice board to the engineering lobby.
+  - qol: Moved engineering first aid locker into the lobby. Remember that.
+2024-11-09:
+  DreamySkrell:
+  - rscadd: Adds SCCV Quark, new shuttle for xenoarch/science, on Horizon.
+  - rscadd: Small remap of the aux hangar on Horizon, adding some expedition supplies
+      there.
+  FabianK3:
+  - bugfix: Fixes ill-placed piping near the engineering lobby due to previous merge-conflicts.
+  FluffyGhost:
+  - balance: Frag grenades projectiles now apply some agony and eyeblur.
+  - balance: Frag grenades projectiles have damage augmented by 3 points (~10%).
+  - balance: Frag grenades projectiles have an augmented chance of leaving a shrapnel
+      (+30%).
+  - balance: Frag grenades projectiles have a chance to ricochet up to 2 times.
+  - code_imp: Some code cleanup and removed some procs that were no longer used (nothing
+      called them anymore) from the projectile refactor.
+  Geeves:
+  - rscadd: You can now instantly replace the armor accessories on plate carriers
+      by clicking on it with the new plate or guard you want to replace them with.
+  MattAtlas:
+  - rscadd: Added Corporate Aides - essentially diplomatic aides but for corporate
+      representatives.
+  - refactor: Refactored aide code to make it more modular and easier to work with.
+  hazelmouse:
+  - rscadd: Skrellian Nralakk Federation Consular Officers now spawn with a box of
+      psionic receivers.
+2024-11-11:
+  Acetrea:
+  - bugfix: Ryetalyn now shows up on health scanners instead of as a 'non-medical
+      reagent'.
+  FabianK3:
+  - rscadd: Added a hydraulic rescue tool (also known as jaws of life) to the atmos
+      locker room. They are now able to perform their emergency/fire fighter duties
+      more easily by being able to enter locked areas.
+  - rscadd: Jaws of life now work on regular, non-locked, powered doors as well. Using
+      the tool on a powered airlock will force it open and damage it in the act. Previously
+      it only worked bolted/unpowered doors.
+  - qol: The jaws of life are a bit more nosy in the chat. It's a powered metal tool,
+      you can't miss its use.
+2024-11-12:
+  MattAtlas:
+  - bugfix: Fixed the Corporate Aide slot not being opened.
+  - bugfix: Fixed the Open Aide Slot verb not being removed upon use.
+  OolongCow:
+  - bugfix: Fixes the SSMD ship's shuttle having a backwards fuel pump.
+  - balance: Un-nerfed Columbo's damage and increased his health. Good boy.
+  Yonnimer:
+  - rscadd: Adds back customization for head & beard options in the character setup
+      for Dionae.
+  notagonk:
+  - rscadd: Remaps the Head of Security office.
+2024-11-15:
+  FabianK3:
+  - bugfix: Fixed not being able to climb ladders if you are standing on the same
+      tile.
+  FluffyGhost:
+  - code_imp: Added some modular computer program preset tests.
+  - code_imp: Fixed some modular computer program preset that had duplicate programs.
+  - refactor: Refactored how the computer program presets generate the list of programs
+      to install.
+  - code_imp: Turned some comments into DMDocs, some cleanup around.
+  - code_imp: Tests disabled reasons are now enclosed in the group correctly.
+  Snowy1237:
+  - bugfix: Fixed the exosuit autolathe being unable to pick up lead, aluminium or
+      plastic.
+  Stev-the-third:
+  - imageadd: Added sprites for bulwark expression masks.
+  - rscadd: Added expression masks to Vaurca bulwarks and the loadout.
+  - bugfix: Re-aligned the face for human expression masks.
+  notagonk:
+  - bugfix: Fixes the disposal pipes outside of the Armoury.
+2024-11-16:
+  Acetrea:
+  - rscadd: Added red heart, small red heart, pink heart, small pink heart, black
+      heart, and small black heart stickers for custom sticker sheets.
+  - rscadd: Added a heart sticker sheet option that contains 2 of each 6 heart sticker.
+  FabianK3:
+  - bugfix: Fixed bug allowing the hydraulic rescue tool to open doors instantly.
+  - refactor: Refactored the robotic jawsoflife to an actual tool, now called Hydraulic
+      rescue tool.
+  hazelmouse:
+  - bugfix: Fixed an incorrectly defined paramedic spawnpoint.
+2024-11-17:
+  MattAtlas:
+  - bugfix: Projectiles now gib limbs instead of slicing them off.
+2024-11-18:
+  MattAtlas:
+  - bugfix: Fixed a medbot hard deletion.
+2024-11-21:
+  hazelmouse:
+  - rscadd: Implemented various QoL mapping improvements to the Shady Asteroid, Sol
+      Bunker, and Crashed Elyran Tanker offsites.
+  - bugfix: All shuttles should now be able to dock with the Shady Asteroid offsite's
+      primary docking landmarks.
+2024-11-22:
+  CometBlaze:
+  - rscadd: 'Added 6 new hairstyles to the game: Gentle 3, Gentle 3(Alt), Long Hair(Wavy),
+      Surfer, Wolfcut and Wolfcut(Alt)'
+2024-11-25:
+  AlaunusLux:
+  - bugfix: Body/Cryo bags will now be above roller beds when deployed.
+  - bugfix: Body/Cryo bags will no longer be above player mobs after being buckled
+      and dragged.
+  - bugfix: Bullets will no longer be on top of roller beds and body/cryo bags.
+  - bugfix: A buckled atom's layer will now be reset upon being unbuckled.
+  Ben10083:
+  - bugfix: Adds Machinist access to Research borgs.
+  - qol: Research borgs can now hold slime scanners.
+2024-11-27:
+  Ben10083:
+  - qol: Holopads added to Xenobiology, Xenobotany, and Research Director's Office.
+  GeneralCamo:
+  - balance: Removed the Chief Medical Officer, Chief Engineer, and Research Director
+      from the list of armory roles.
+  MattAtlas, DreamySkrell:
+  - experiment: Added the Odyssey gamemode. This gamemode essentially revolves around
+      the Horizon visiting an away site, a planet, or an otherwise fulfilling important
+      mission.
+  - experiment: Added Storytellers to go along with the Odyssey gamemode. They are
+      essentially the gamemasters for the gamemode - they have quite a few admin tools
+      and can run the round as they wish. The only thing they cannot modify is the
+      canonicity of the round. To join as one during an Odyssey round, simply spawn
+      in from the Ghost Spawner menu. You must have a head of staff whitelist.
+  - experiment: Added Cryo Outpost Odyssey scenario.
+  - experiment: Added Ruined Propellant Depot Odyssey scenario.
+  - bugfix: Fixed planetary blueprints.
+  - refactor: Storytellers and Observers are now subtypes of the same mob type - the
+      ghost.
+  - admin: Changed how the Set Outfit verb works completely.
+  - rscadd: Added the Portable Map Reader item. Shows a map of the zlevel, with 'points
+      of interest' if any are mapped in.
+  OolongCow:
+  - rscadd: First aid wall lockers now consistently contain a basic first aid kit.
+  - rscadd: Several out-of-the-way or dangerous locations have received basic (white)
+      first aid kits.
+  hazelmouse:
+  - rscadd: Touches up a few exoplanet ruins to bring them up to standard, and entirely
+      remaps the Abandoned Listening Post ruin.
+2024-11-28:
+  CometBlaze:
+  - rscadd: Added a new sprite for sharps disposal boxes.
+  FluffyGhost:
+  - refactor: Refactored sorting.
+  - server: Added test to verify all horizon areas (outside exceptions) are marked
+      as station areas.
+  - server: Added test to verify shuttle areas are not marked as station areas.
+  - refactor: Refactored how the area sorting var is made and used.
+  - refactor: Added a global list of all areas.
+2024-11-29:
+  DreamySkrell:
+  - bugfix: Ruined Propellant Depot Scenario - away site fix.
+2024-11-30:
+  FluffyGhost:
+  - bugfix: Fixed Odyssey subsystem processing even when there's no Odyssey scenario
+      running.

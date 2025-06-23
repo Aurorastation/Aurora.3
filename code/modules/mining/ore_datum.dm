@@ -64,7 +64,7 @@ GLOBAL_LIST_EMPTY(ore_data)
 
 /ore/glass
 	name = ORE_SAND
-	display_name = MATERIAL_GLASS
+	display_name = "sand"
 	smelts_to = MATERIAL_GLASS
 	compresses_to = MATERIAL_SANDSTONE
 	worth = 1
@@ -97,9 +97,9 @@ GLOBAL_LIST_EMPTY(ore_data)
 	worth = 20
 
 /ore/gold
-	name = "gold"
-	smelts_to = MATERIAL_GOLD
+	name = ORE_GOLD
 	display_name = "native gold"
+	smelts_to = MATERIAL_GOLD
 	result_amount = 5
 	spread_chance = 10
 	ore = /obj/item/ore/gold
@@ -113,7 +113,7 @@ GLOBAL_LIST_EMPTY(ore_data)
 	worth = 30
 
 /ore/diamond
-	name = "diamond"
+	name = ORE_DIAMOND
 	display_name = "diamond"
 	compresses_to = MATERIAL_DIAMOND
 	result_amount = 5
@@ -149,6 +149,8 @@ GLOBAL_LIST_EMPTY(ore_data)
 	smelts_to = MATERIAL_ALUMINIUM
 	ore = /obj/item/ore/aluminium
 	scan_icon = "mineral_common"
+	result_amount = 5
+	spread_chance = 25
 	worth = 5
 
 /ore/lead
@@ -157,4 +159,6 @@ GLOBAL_LIST_EMPTY(ore_data)
 	smelts_to = MATERIAL_LEAD
 	ore = /obj/item/ore/lead
 	scan_icon = "mineral_uncommon"
+	result_amount = 5
+	spread_chance = 15
 	worth = 10

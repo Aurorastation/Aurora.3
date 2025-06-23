@@ -55,7 +55,7 @@
 			valid_extension = TRUE
 
 	if( !fexists(path) || !valid_extension )
-		to_chat(src, "<span class='warning'>Error: browse_files(): File not found/Invalid file([path]).</span>")
+		to_chat(src, SPAN_WARNING("Error: browse_files(): File not found/Invalid file([path])."))
 		return
 
 	return path
@@ -69,7 +69,7 @@
 /client/proc/file_spam_check()
 	var/time_to_wait = GLOB.fileaccess_timer - world.time
 	if(time_to_wait > 0)
-		to_chat(src, "<span class='warning'>Error: file_spam_check(): Spam. Please wait [round(time_to_wait/10)] seconds.</span>")
+		to_chat(src, SPAN_WARNING("Error: file_spam_check(): Spam. Please wait [round(time_to_wait/10)] seconds."))
 		return 1
 	GLOB.fileaccess_timer = world.time + FTPDELAY
 	return 0
@@ -85,7 +85,7 @@
 	var/static/notch = 0
 	// its importaint this code can handle md5filepath sleeping instead of hard blocking, if it's converted to use rust_g.
 	var/filename = "tmp/md5asfile.[world.realtime].[world.timeofday].[world.time].[world.tick_usage].[notch]"
-	notch = Wrap(notch+1, 0, 2**15)
+	notch = WRAP(notch+1, 0, 2**15)
 	fcopy(file, filename)
 	. = md5filepath(filename)
 	fdel(filename)

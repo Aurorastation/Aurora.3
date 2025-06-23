@@ -7,7 +7,7 @@
 	icon_state = "recharger_off"
 	anchored = 1
 	idle_power_usage = 6
-	active_power_usage = 45 KILOWATTS
+	active_power_usage = 45 KILO WATTS
 	pass_flags = PASSTABLE
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/charging_efficiency = 1.3
@@ -176,7 +176,7 @@
 	desc = "A heavy duty wall recharger specialized for energy weaponry."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "wrecharger_off"
-	active_power_usage = 75 KILOWATTS
+	active_power_usage = 75 KILO WATTS
 	allowed_devices = list(
 		/obj/item/gun/energy,
 		/obj/item/melee/baton,

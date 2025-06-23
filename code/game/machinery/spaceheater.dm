@@ -9,7 +9,7 @@
 	clicksound = /singleton/sound_category/switch_sound
 	var/on = FALSE
 	var/active = 0
-	var/heating_power = 40 KILOWATTS
+	var/heating_power = 40 KILO WATTS
 	var/set_temperature = T0C + 20
 
 	var/obj/item/cell/apc/cell
@@ -20,7 +20,7 @@
 	update_icon()
 
 /obj/machinery/space_heater/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(!on)
 		icon_state = "sheater-off"
 		set_light(0)
@@ -34,7 +34,7 @@
 		icon_state = "sheater-standby"
 		set_light(0)
 	if(panel_open)
-		add_overlay("sheater-open")
+		AddOverlays("sheater-open")
 
 /obj/machinery/space_heater/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
@@ -113,16 +113,16 @@
 		dat += "Not Detected<br>"
 	dat += "Power: "
 	if(on)
-		dat += "<A href='?src=\ref[src];op=off'>On</A><br>"
+		dat += "<A href='byond://?src=[REF(src)];op=off'>On</A><br>"
 	else
-		dat += "<A href='?src=\ref[src];op=on'>Off</A><br>"
+		dat += "<A href='byond://?src=[REF(src)];op=on'>Off</A><br>"
 
 	dat += "Power Level: [cell ? round(cell.percent(),1) : 0]%<br><br>"
 
 	dat += "Set Temperature: "
-	dat += "<A href='?src=\ref[src];op=temp;val=-5'>-</A>"
+	dat += "<A href='byond://?src=[REF(src)];op=temp;val=-5'>-</A>"
 	dat += " [set_temperature]K ([set_temperature-T0C]&deg;C) "
-	dat += "<A href='?src=\ref[src];op=temp;val=5'>+</A><br>"
+	dat += "<A href='byond://?src=[REF(src)];op=temp;val=5'>+</A><br>"
 
 	user.set_machine(src)
 	var/datum/browser/heater_win = new(user, "spaceheater", "Space Heater Control Panel")

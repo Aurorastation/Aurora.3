@@ -34,8 +34,8 @@ var/list/forum_groupids_to_ranks = list()
 				. |= R_POSSESS
 			if ("r_stealth")
 				. |= R_STEALTH
-			if ("r_rejuv","r_rejuvinate")
-				. |= R_REJUVINATE
+			if ("r_rejuv","r_rejuvenate")
+				. |= R_REJUVENATE
 			if ("r_varedit")
 				. |= R_VAREDIT
 			if ("r_sound","r_sounds")
@@ -49,7 +49,7 @@ var/list/forum_groupids_to_ranks = list()
 			if ("r_cciaa")
 				. |= R_CCIAA
 			if ("r_everything","r_host","r_all")
-				. |= (R_BUILDMODE | R_ADMIN | R_BAN | R_FUN | R_SERVER | R_DEBUG | R_PERMISSIONS | R_POSSESS | R_STEALTH | R_REJUVINATE | R_VAREDIT | R_SOUNDS | R_SPAWN | R_MOD | R_CCIAA | R_DEV)
+				. |= (R_BUILDMODE | R_ADMIN | R_BAN | R_FUN | R_SERVER | R_DEBUG | R_PERMISSIONS | R_POSSESS | R_STEALTH | R_REJUVENATE | R_VAREDIT | R_SOUNDS | R_SPAWN | R_MOD | R_CCIAA | R_DEV)
 			else
 				crash_with("Unknown rank in file: [auth]")
 
@@ -168,8 +168,6 @@ var/list/forum_groupids_to_ranks = list()
 		world.SetConfig("APP/admin", A, null)
 
 /proc/update_admins_from_api(reload_once_done=FALSE)
-	set background = TRUE
-
 	if (!establish_db_connection(GLOB.dbcon))
 		log_and_message_admins("AdminRanks: Failed to connect to database in update_admins_from_api(). Carrying on with old staff lists.")
 		return FALSE

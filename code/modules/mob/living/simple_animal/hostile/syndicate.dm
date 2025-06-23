@@ -69,22 +69,25 @@
 			if (attacking_item.damtype == DAMAGE_PAIN)
 				damage = 0
 			health -= damage
-			visible_message("<span class='danger'>[src] has been attacked with the [attacking_item] by [user].</span>")
+			visible_message(SPAN_DANGER("[src] has been attacked with the [attacking_item] by [user]."))
 		else
-			visible_message("<span class='danger'>[src] blocks the [attacking_item] with its shield!</span>")
+			visible_message(SPAN_DANGER("[src] blocks the [attacking_item] with its shield!"))
 		//user.do_attack_animation(src)
 	else
-		to_chat(usr, "<span class='warning'>This weapon is ineffective, it does no damage.</span>")
-		visible_message("<span class='warning'>[user] gently taps [src] with the [attacking_item].</span>")
+		to_chat(usr, SPAN_WARNING("This weapon is ineffective, it does no damage."))
+		visible_message(SPAN_WARNING("[user] gently taps [src] with the [attacking_item]."))
 
 
-/mob/living/simple_animal/hostile/syndicate/melee/bullet_act(var/obj/item/projectile/Proj)
-	if(!Proj)	return
-	if(prob(65))
-		src.health -= Proj.damage
-	else
-		visible_message("<span class='danger'>[src] blocks [Proj] with its shield!</span>")
-	return 0
+/mob/living/simple_animal/hostile/syndicate/melee/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	if(prob(35))
+		visible_message(SPAN_DANGER("[src] blocks [hitting_projectile] with its shield!"))
+		return BULLET_ACT_BLOCK
+
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	src.health -= hitting_projectile.damage
 
 
 /mob/living/simple_animal/hostile/syndicate/melee/space
@@ -114,7 +117,7 @@
 	icon_living = "syndicateranged"
 	casingtype = /obj/item/ammo_casing/c10mm
 	projectilesound = 'sound/weapons/gunshot/gunshot_light.ogg'
-	projectiletype = /obj/item/projectile/bullet/pistol/medium
+	projectiletype = /obj/projectile/bullet/pistol/medium
 
 	weapon1 = /obj/item/gun/projectile/automatic/c20r
 

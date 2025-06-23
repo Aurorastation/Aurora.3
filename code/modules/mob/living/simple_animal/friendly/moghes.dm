@@ -16,6 +16,7 @@
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
 	attacktext = "kicked"
+	faction = "Moghes"
 
 	maxHealth = 100
 	health = 100
@@ -26,14 +27,16 @@
 	brush = /obj/item/reagent_containers/glass/rag
 
 	butchering_products = list(/obj/item/stack/material/animalhide/lizard = 6)
-	meat_type = /obj/item/reagent_containers/food/snacks/meat
-	meat_amount = 4
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/moghes
+	meat_amount = 20
 	vehicle_version = /obj/vehicle/animal/threshbeast
 	natural_armor = list(
-		melee = ARMOR_MELEE_MEDIUM,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		bomb = ARMOR_BOMB_MINOR
+		MELEE = ARMOR_MELEE_MEDIUM,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		BOMB = ARMOR_BOMB_MINOR
 	)
+	resists_weather = TRUE
+	sample_data = list("Cellular biochemistry shows high metabolic capacity", "Tissue sample contains high muscle content", "Genetic biomarkers identified linked with passiveness and domestication")
 
 /mob/living/simple_animal/threshbeast/saddle
 	desc = "Large herbivorous reptiles native to Moghes, the azkrazal or 'threshbeast' is commonly used as a mount, beast of burden, or convenient food source by Unathi. They are highly valued for their speed and strength, capable of running at 30-42 miles per hour at top speed. This one has been fitted with a saddle."
@@ -58,7 +61,8 @@
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
-	attacktext = "kicked"
+	attacktext = "gored"
+	faction = "Moghes"
 
 	maxHealth = 200
 	health = 200
@@ -68,21 +72,22 @@
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 	armor_penetration = 20
-	attacktext = "gored"
 	attack_sound = 'sound/weapons/pierce.ogg'
 	canbrush = TRUE
 	brush = /obj/item/reagent_containers/glass/rag
 
 	butchering_products = list(/obj/item/stack/material/animalhide/lizard = 10)
-	meat_type = /obj/item/reagent_containers/food/snacks/meat
-	meat_amount = 6
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/moghes
+	meat_amount = 30
 	vehicle_version = /obj/vehicle/animal/hegeranzi
 	natural_armor = list( //big tough war beast, has some more armor particularly against bullets and melee
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_MINOR,
-		bomb = ARMOR_BOMB_MINOR
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_MINOR,
+		BOMB = ARMOR_BOMB_MINOR
 	)
+	resists_weather = TRUE
+	sample_data = list("Cellular biochemistry shows high metabolic capacity", "Tissue sample contains high muscle content", "Genetic biomarkers identified linked with domestication", "Intracellular keratin synthesis present")
 
 /mob/living/simple_animal/hostile/retaliate/hegeranzi/saddle
 	name = "warmount"
@@ -94,6 +99,8 @@
 /mob/living/simple_animal/aquatic/fish/moghes
 	name = "orszi fish"
 	desc = "A small fish native to the rivers and seas of the planet Moghes, the orzsi or 'swarm fish' is a common food source for noble and common Unathi alike."
+	faction = "Moghes"
+	resists_weather = TRUE
 
 /mob/living/simple_animal/otzek
 	name = "otzek"
@@ -110,6 +117,7 @@
 	emote_see = list("flicks its tongue", "shakes its head")
 	speak_chance = 1
 	turns_per_move = 5
+	faction = "Moghes"
 
 	organ_names = list("head", "chest", "right fore leg", "left fore leg", "right rear leg", "left rear leg", "tail")
 	response_help  = "pets"
@@ -120,8 +128,10 @@
 	brush = /obj/item/reagent_containers/glass/rag
 	speed = -1
 	butchering_products = list(/obj/item/stack/material/animalhide/lizard = 4)
-	meat_type = /obj/item/reagent_containers/food/snacks/meat
-	meat_amount = 3
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/moghes
+	meat_amount = 16
+	resists_weather = TRUE
+	sample_data = list("Cellular biochemistry geared towards the use of plant-based nutrition", "Genetic biomarkers identified linked with high reproductive rates", "Intracellular keratin synthesis present")
 
 /mob/living/simple_animal/miervesh
 	name = "miervesh"
@@ -138,6 +148,7 @@
 	emote_see = list("pecks at the ground","flaps its wings","flicks out its tongue")
 	speak_chance = 1
 	turns_per_move = 5
+	faction = "Moghes"
 
 	organ_names = list("head", "chest", "left leg", "right leg", "left wing", "right wing")
 	response_help  = "pets"
@@ -146,8 +157,10 @@
 	attacktext = "swatted"
 	flying = TRUE
 	butchering_products = list(/obj/item/stack/material/animalhide = 1)
-	meat_type = /obj/item/reagent_containers/food/snacks/meat
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/moghes
 	meat_amount = 1
+	resists_weather = TRUE
+	sample_data = list("Cellular biochemistry shows signs of rapid respiration", "Genetic biomarkers identified linked with passiveness and domestication", "Extracellular gas detection present")
 	var/chosen_icon
 
 /mob/living/simple_animal/miervesh/Initialize()

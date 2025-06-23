@@ -11,7 +11,7 @@
 	<br>\
 	Right-click the cell and click 'Eject Occupant' to remove them.  You can enter the cell yourself by right clicking and selecting 'Enter Sleeper'. \
 	Note that you cannot control the sleeper while inside of it."
-	icon = 'icons/obj/sleeper.dmi'
+	icon = 'icons/obj/machinery/sleeper.dmi'
 	icon_state = "sleeper"
 	density = TRUE
 	anchored = TRUE
@@ -85,7 +85,10 @@
 /obj/machinery/sleeper/update_icon()
 	flick("[initial(icon_state)]-anim", src)
 	if(occupant)
-		icon_state = "[initial(icon_state)]-closed"
+		if(stat & NOPOWER || stat & BROKEN)
+			icon_state = "[initial(icon_state)]-closed"
+		else
+			icon_state = "[initial(icon_state)]-working"
 		return
 	else
 		icon_state = initial(icon_state)
@@ -231,9 +234,11 @@
 		if(!beaker)
 			beaker = attacking_item
 			user.drop_from_inventory(attacking_item, src)
-			user.visible_message("<span class='notice'>\The [user] adds \a [attacking_item] to \the [src].</span>", "<span class='notice'>You add \a [attacking_item] to \the [src].</span>")
+			user.visible_message(SPAN_NOTICE("\The [user] adds \a [attacking_item] to \the [src]."),
+									SPAN_NOTICE("You add \a [attacking_item] to \the [src]."))
+
 		else
-			to_chat(user, "<span class='warning'>\The [src] has a beaker already.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] has a beaker already."))
 		return TRUE
 	else if(istype(attacking_item, /obj/item/grab))
 
@@ -244,15 +249,16 @@
 			return TRUE
 
 		if(!istype(L))
-			to_chat(user, "<span class='warning'>The machine won't accept that.</span>")
+			to_chat(user, SPAN_WARNING("The machine won't accept that."))
 			return TRUE
 
 		if(display_loading_message)
-			user.visible_message("<span class='notice'>[user] starts putting [G.affecting] into [src].</span>", "<span class='notice'>You start putting [G.affecting] into [src].</span>", range = 3)
+			user.visible_message(SPAN_NOTICE("[user] starts putting [G.affecting] into [src]."),
+									SPAN_NOTICE("You start putting [G.affecting] into [src]."), range = 3)
 
 		if (do_mob(user, G.affecting, 20, needhand = 0))
 			if(occupant)
-				to_chat(user, "<span class='warning'>\The [src] is already occupied.</span>")
+				to_chat(user, SPAN_WARNING("\The [src] is already occupied."))
 				return TRUE
 			if(L != G.affecting)//incase it isn't the same mob we started with
 				return TRUE
@@ -267,15 +273,15 @@
 	else if(attacking_item.isscrewdriver())
 		src.panel_open = !src.panel_open
 		to_chat(user, "You [src.panel_open ? "open" : "close"] the maintenance panel.")
-		cut_overlays()
+		ClearOverlays()
 		if(src.panel_open)
-			add_overlay("[initial(icon_state)]-o")
+			AddOverlays("[initial(icon_state)]-panel")
 		return TRUE
 	else if(default_part_replacement(user, attacking_item))
 		return TRUE
 
-/obj/machinery/sleeper/MouseDrop_T(atom/dropping, mob/user)
-	var/mob/target = dropping
+/obj/machinery/sleeper/mouse_drop_receive(atom/dropped, mob/user, params)
+	var/mob/target = dropped
 	if(!istype(target))
 		return
 
@@ -291,7 +297,9 @@
 		LB.user_unbuckle(user)
 	go_in(target, user)
 
-/obj/machinery/sleeper/relaymove(var/mob/user)
+/obj/machinery/sleeper/relaymove(mob/living/user, direction)
+	. = ..()
+
 	if(user == occupant)
 		go_out()
 
@@ -330,7 +338,7 @@
 	if(stat & (BROKEN|NOPOWER))
 		return
 	if(occupant)
-		to_chat(user, "<span class='warning'>\The [src] is already occupied.</span>")
+		to_chat(user, SPAN_WARNING("\The [src] is already occupied."))
 		return
 
 	if(display_loading_message)
@@ -341,7 +349,7 @@
 
 	if(do_after(user, 2 SECONDS, src, DO_UNIQUE))
 		if(occupant)
-			to_chat(user, "<span class='warning'>\The [src] is already occupied.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] is already occupied."))
 			return
 		M.stop_pulling()
 		if(M.client)

@@ -19,7 +19,7 @@
 
 /obj/vehicle/unicycle/Initialize()
 	. = ..()
-	add_overlay(image('icons/obj/vehicles.dmi', "unicycle_overlay", MOB_LAYER + 1))
+	AddOverlays(image('icons/obj/vehicles.dmi', "unicycle_overlay", MOB_LAYER + 1))
 	cell = new /obj/item/cell/high(src)
 
 /obj/vehicle/unicycle/load(var/atom/movable/C)
@@ -29,9 +29,9 @@
 		return 0
 	return ..(M)
 
-/obj/vehicle/unicycle/MouseDrop_T(atom/dropping, mob/user)
-	if(!load(dropping))
-		to_chat(user, SPAN_WARNING("You were unable to load \the [dropping] onto \the [src]."))
+/obj/vehicle/unicycle/mouse_drop_receive(atom/dropped, mob/user, params)
+	if(!load(dropped))
+		to_chat(user, SPAN_WARNING("You were unable to load \the [dropped] onto \the [src]."))
 		return
 
 /obj/vehicle/unicycle/attack_hand(var/mob/user as mob)
@@ -45,7 +45,9 @@
 			to_chat(user, "You remove [load] from \the [src]")
 			to_chat(load, "You were removed from \the [src] by [user]")
 
-/obj/vehicle/unicycle/relaymove(mob/user, direction)
+/obj/vehicle/unicycle/relaymove(mob/living/user, direction)
+	. = ..()
+
 	if(user != load || !on || user.incapacitated())
 		return
 	return Move(get_step(src, direction))

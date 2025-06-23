@@ -10,7 +10,7 @@
 	available_on_ntnet = TRUE
 	required_access_download = ACCESS_HOS
 	required_access_run = ACCESS_ARMORY
-	usage_flags = PROGRAM_CONSOLE
+	usage_flags = PROGRAM_CONSOLE | PROGRAM_SILICON_AI
 	tgui_id = "GunTracker"
 	var/list/wireless_firing_pins_data
 
@@ -29,7 +29,7 @@
 	LAZYINITLIST(wireless_firing_pins_data)
 	LAZYCLEARLIST(wireless_firing_pins_data)
 
-	for(var/i in wireless_firing_pins)
+	for(var/i in GLOB.wireless_firing_pins)
 		var/obj/item/device/firing_pin/wireless/P = i
 		if(!istype(P) || !P.gun)
 			continue
@@ -38,7 +38,7 @@
 			var/list/guntracker_info = list(
 				"gun_name" = capitalize_first_letters(P.gun.name),
 				"registered_info" = P.registered_user ? P.registered_user : "Unregistered",
-				"ref" = "\ref[P]",
+				"ref" = "[REF(P)]",
 				"lock_status" = P.lock_status
 				)
 			wireless_firing_pins_data += list(guntracker_info)
@@ -55,7 +55,7 @@
 	//Try and get the pin if a pin is passed
 	var/obj/item/device/firing_pin/wireless/P
 	if(params["pin"])
-		P = locate(params["pin"]) in wireless_firing_pins
+		P = locate(params["pin"]) in GLOB.wireless_firing_pins
 
 	if(!istype(P))
 		return

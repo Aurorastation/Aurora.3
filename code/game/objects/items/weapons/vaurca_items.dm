@@ -7,7 +7,7 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "m_garment"
 	item_state = "m_garment"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	flags_inv = null
 	body_parts_covered = null
 	filtered_gases = list(GAS_NITROGEN, GAS_N2O, GAS_CHLORINE, GAS_ALIEN)
@@ -21,7 +21,7 @@
 	desc = "A basic screw on filter attached beneath the mouthparts of the common Vaurca."
 	name = "filter port"
 	icon_state = "filterport"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	flags_inv = null
 	body_parts_covered = null
 	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_WARFORM, BODYTYPE_VAURCA_BREEDER, BODYTYPE_VAURCA_BULWARK)
@@ -38,7 +38,7 @@
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/head.dmi'
 	)
 	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_BULWARK)
-	body_parts_covered = HEAD|FACE|EYES
+	body_parts_covered = HEAD|EYES
 
 /obj/item/clothing/head/expression
 	name = "human expression mask"
@@ -49,18 +49,30 @@
 	build_from_parts = TRUE
 	worn_overlay = "face"
 	contained_sprite = TRUE
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/head.dmi'
+	)
+	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_BULWARK)
 
 /obj/item/clothing/head/expression/skrell
 	name = "skrell expression mask"
 	desc = "A mask that allows emotively challenged aliens to convey facial expressions. This one depicts a Skrell."
 	icon_state = "skrell_helmet"
 	item_state = "skrell_helmet"
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/head.dmi'
+	)
+	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_BULWARK)
 
 /obj/item/clothing/head/expression/unathi
 	name = "unathi expression mask"
 	desc = "A mask that allows emotively challenged aliens to convey facial expressions. This one depicts a Unathi."
 	icon_state = "unathi_helmet"
 	item_state = "unathi_helmet"
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/head.dmi'
+	)
+	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_BULWARK)
 
 /obj/item/clothing/head/shroud
 	name = "vaurcan shroud"
@@ -104,14 +116,14 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "eknife0"
 	item_state = "eknife0"
-	active_force = 20
+	active_force = 25
 	active_throwforce = 20
-	active_w_class = ITEMSIZE_HUGE
+	active_w_class = WEIGHT_CLASS_HUGE
 	force = 11
 	throwforce = 5
 	throw_speed = 5
 	throw_range = 10
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	atom_flags = ATOM_FLAG_NO_BLOOD
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	attack_verb = list("stabbed", "chopped", "sliced", "cleaved", "slashed", "cut")
@@ -129,7 +141,7 @@
 		var/mob/living/carbon/human/H = user
 		H.update_inv_l_hand()
 		H.update_inv_r_hand()
-	to_chat(user, "<span class='notice'>\The [src] is now energised.</span>")
+	to_chat(user, SPAN_NOTICE("\The [src] is now energised."))
 
 /obj/item/melee/energy/vaurca/deactivate(mob/living/user)
 	..()
@@ -140,7 +152,7 @@
 		var/mob/living/carbon/human/H = user
 		H.update_inv_l_hand()
 		H.update_inv_r_hand()
-	to_chat(user, "<span class='notice'>\The [src] is de-energised.</span>")
+	to_chat(user, SPAN_NOTICE("\The [src] is de-energised."))
 
 /obj/item/vaurca/box
 	name = "puzzle box"
@@ -152,25 +164,25 @@
 /obj/item/vaurca/box/attack_self(mob/user as mob)
 
 	if(isvaurca(user))
-		to_chat(user, "<span class='notice'>You are familiar with the box's solution, and open it to reveal an ancient thing. How tedious.</span>")
+		to_chat(user, SPAN_NOTICE("You are familiar with the box's solution, and open it to reveal an ancient thing. How tedious."))
 		var/obj/item/archaeological_find/X = new /obj/item/archaeological_find
 		user.remove_from_mob(src)
 		user.put_in_hands(X)
 		qdel(src)
 
 	else if(isipc(user))
-		to_chat(user, "<span class='notice'>You analyze the box's markings, and begin to calculate with robotic efficiency every possible combination. (You must stand still to complete the puzzle box.)</span>")
+		to_chat(user, SPAN_NOTICE("You analyze the box's markings, and begin to calculate with robotic efficiency every possible combination. (You must stand still to complete the puzzle box.)"))
 		if(do_after(user, 100))
-			to_chat(user, "<span class='notice'>Calculations complete. You begin to brute-force the box with a mechanical determination.</span>")
+			to_chat(user, SPAN_NOTICE("Calculations complete. You begin to brute-force the box with a mechanical determination."))
 			if(do_after(user, 600))
-				to_chat(user, "<span class='notice'>After a minute of brute-force puzzle solving, the box finally opens to reveal an ancient thing.</span>")
+				to_chat(user, SPAN_NOTICE("After a minute of brute-force puzzle solving, the box finally opens to reveal an ancient thing."))
 				var/obj/item/archaeological_find/X = new /obj/item/archaeological_find
 				user.remove_from_mob(src)
 				user.put_in_hands(X)
 				qdel(src)
 
 	else
-		to_chat(user, "<span class='notice'>You stare at the box for a few seconds, trying to even comprehend what you're looking at... (You must stand still to complete the puzzle box.)</span>")
+		to_chat(user, SPAN_NOTICE("You stare at the box for a few seconds, trying to even comprehend what you're looking at... (You must stand still to complete the puzzle box.)"))
 		if(do_after(user, 60))
 			to_chat(user, "<span class = 'notice'>After a few more seconds, you hesitantly turn the first piece of the puzzle box.</span>")
 			if(do_after(user,30))
@@ -178,11 +190,11 @@
 				if(do_after(user,200))
 					to_chat(user, "<span class = 'notice'>Twenty seconds pass, and suddenly you're feeling a lot less confident. You struggle on...</span>")
 					if(do_after(user,100))
-						to_chat(user, "<span class='notice'>You blink, and suddenly you've lost your place, your thoughts, your mind...</span>")
+						to_chat(user, SPAN_NOTICE("You blink, and suddenly you've lost your place, your thoughts, your mind..."))
 						if(do_after(user,20))
-							to_chat(user, "<span class='notice'>You find yourself again, and get back to turning pieces. At this point it is just randomly.</span>")
+							to_chat(user, SPAN_NOTICE("You find yourself again, and get back to turning pieces. At this point it is just randomly."))
 							if(do_after(user,600))
-								to_chat(user, "<span class='notice'>A minute goes by, and with one final turn the box looks just like it did when you started. Fucking bugs.</span>")
+								to_chat(user, SPAN_NOTICE("A minute goes by, and with one final turn the box looks just like it did when you started. Fucking bugs."))
 
 /obj/item/melee/vaurca/navcomp
 	name = "navcomp coordinate archive"
@@ -191,7 +203,7 @@
 	icon_state = "harddisk"
 	force = 15
 	throwforce = 5
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	contained_sprite = 1
 
 /obj/item/melee/vaurca/rock
@@ -201,7 +213,7 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	force = 22
 	throwforce = 30
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	contained_sprite = 1
 
 /obj/item/grenade/spawnergrenade/vaurca
@@ -214,7 +226,7 @@
 	icon_state = "beacon"
 	force = 22
 	throwforce = 30
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	var/seed = /datum/seed/koisspore
 
 /obj/item/grenade/spawnergrenade/vaurca/prime()
@@ -280,25 +292,6 @@
 
 	action_button_name = "Toggle the magclaws"
 
-/obj/item/clothing/shoes/magboots/vaurca/aug
-	name = "integrated mag-claws"
-	desc = "A magnetic-grip system similar to a set of magboots integrated into a Vaurca's leg chitin."
-	magpulse = 1
-	slowdown = 3
-	action_button_name = null
-	item_flags = ITEM_FLAG_THICK_MATERIAL|ITEM_FLAG_AIRTIGHT|ITEM_FLAG_INJECTION_PORT|ITEM_FLAG_NO_SLIP
-	canremove = FALSE
-
-/obj/item/clothing/shoes/magboots/vaurca/aug/throw_at()
-	usr.drop_from_inventory(src)
-
-/obj/item/clothing/shoes/magboots/vaurca/aug/dropped()
-	. = ..()
-	qdel(src)
-
-/obj/item/clothing/shoes/magboots/vaurca/aug/negates_gravity()
-	return TRUE
-
 /obj/item/clothing/suit/space/void/scout
 	name = "scout armor"
 	contained_sprite = 1
@@ -310,11 +303,11 @@
 
 	species_restricted = list(BODYTYPE_VAURCA)
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_SMALL,
+		LASER = ARMOR_LASER_SMALL,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED
 	)
 /obj/item/clothing/head/helmet/space/void/scout
 	name = "scout helmet"
@@ -326,11 +319,11 @@
 
 	species_restricted = list(BODYTYPE_VAURCA)
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_SMALL,
+		LASER = ARMOR_LASER_SMALL,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED
 	)
 	light_overlay = "helmet_light_dual_green"
 	light_color = "#3e7c3e"
@@ -345,12 +338,12 @@
 
 	species_restricted = list(BODYTYPE_VAURCA)
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_MAJOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_MINOR
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_MAJOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_MINOR
 	)
 /obj/item/clothing/head/helmet/space/void/commando
 	name = "commando helmet"
@@ -362,12 +355,12 @@
 
 	species_restricted = list(BODYTYPE_VAURCA)
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_MAJOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_MINOR
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_MAJOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_MINOR
 	)
 
 	light_overlay = "helmet_light_dual_green"
@@ -380,14 +373,14 @@
 	flags_inv = HIDEEARS|HIDEEYES|HIDEFACE
 	body_parts_covered = FACE|EYES
 	gas_filter_strength = 3
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	filtered_gases = list(GAS_NITROGEN, GAS_N2O)
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_SMALL,
-		bio = ARMOR_BIO_STRONG,
-		rad = ARMOR_RAD_MINOR
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_SMALL,
+		BIO = ARMOR_BIO_STRONG,
+		RAD = ARMOR_RAD_MINOR
 	)
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "m_metalg"
@@ -400,15 +393,15 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "greatblade0"
 	item_state = "greatblade0"
-	active_force = 30
+	active_force = 33
 	armor_penetration = 30
 	active_throwforce = 20
-	active_w_class = ITEMSIZE_HUGE
+	active_w_class = WEIGHT_CLASS_HUGE
 	force = 15
 	throwforce = 10
 	throw_speed = 5
 	throw_range = 10
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	atom_flags = ATOM_FLAG_NO_BLOOD
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	attack_verb = list("stabbed", "chopped", "sliced", "cleaved", "slashed", "cut")
@@ -419,7 +412,7 @@
 	base_block_chance = 60
 	shield_power = 150
 
-/obj/item/melee/energy/vaurca_zweihander/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user as mob)
+/obj/item/melee/energy/vaurca_zweihander/attack(mob/living/target_mob, mob/living/user, target_zone)
 	user.setClickCooldown(16)
 	..()
 
@@ -437,7 +430,7 @@
 		var/mob/living/carbon/human/H = user
 		H.update_inv_l_hand()
 		H.update_inv_r_hand()
-	to_chat(user, "<span class='notice'>\The [src] is now energised.</span>")
+	to_chat(user, SPAN_NOTICE("\The [src] is now energised."))
 
 /obj/item/melee/energy/vaurca_zweihander/deactivate(mob/living/user)
 	..()
@@ -448,7 +441,7 @@
 		var/mob/living/carbon/human/H = user
 		H.update_inv_l_hand()
 		H.update_inv_r_hand()
-	to_chat(user, "<span class='notice'>\The [src] is de-energised.</span>")
+	to_chat(user, SPAN_NOTICE("\The [src] is de-energised."))
 
 /obj/item/gun/launcher/crossbow/vaurca
 	name = "gauss rifle"
@@ -490,10 +483,10 @@
 	if(bolt)
 		if(tension < max_tension)
 			if(do_after(M, 5 * tension))
-				to_chat(M, "<span class='warning'>You pump [src], charging the magnetic coils.</span>")
+				to_chat(M, SPAN_WARNING("You pump [src], charging the magnetic coils."))
 				tension++
 		else
-			to_chat(M, "<span class='notice'>\The [src]'s magnetic coils are at maximum charge.</span>")
+			to_chat(M, SPAN_NOTICE("\The [src]'s magnetic coils are at maximum charge."))
 		return
 	var/obj/item/next
 	if(belt.len)
@@ -502,27 +495,27 @@
 		if(next)
 			belt -= next //Remove grenade from loaded list.
 			bolt = next
-			to_chat(M, "<span class='warning'>You pump [src], loading \a [next] into the chamber.</span>")
+			to_chat(M, SPAN_WARNING("You pump [src], loading \a [next] into the chamber."))
 		else
-			to_chat(M, "<span class='warning'>You pump [src], but the magazine is empty.</span>")
+			to_chat(M, SPAN_WARNING("You pump [src], but the magazine is empty."))
 
 /obj/item/gun/launcher/crossbow/vaurca/proc/load(obj/item/W, mob/user)
 	if(belt.len >= belt_size)
-		to_chat(user, "<span class='warning'>[src] is full.</span>")
+		to_chat(user, SPAN_WARNING("[src] is full."))
 		return
 	user.remove_from_mob(W)
 	W.forceMove(src)
 	belt.Insert(1, W) //add to the head of the list, so that it is loaded on the next pump
-	user.visible_message("[user] inserts \a [W] into [src].", "<span class='notice'>You insert \a [W] into [src].</span>")
+	user.visible_message("[user] inserts \a [W] into [src].", SPAN_NOTICE("You insert \a [W] into [src]."))
 
 /obj/item/gun/launcher/crossbow/vaurca/proc/unload(mob/user)
 	if(belt.len)
 		var/obj/item/arrow/rod/R = belt[belt.len]
 		belt.len--
 		user.put_in_hands(R)
-		user.visible_message("[user] removes \a [R] from [src].", "<span class='notice'>You remove \a [R] from [src].</span>")
+		user.visible_message("[user] removes \a [R] from [src].", SPAN_NOTICE("You remove \a [R] from [src]."))
 	else
-		to_chat(user, "<span class='warning'>[src] is empty.</span>")
+		to_chat(user, SPAN_WARNING("[src] is empty."))
 
 /obj/item/gun/launcher/crossbow/vaurca/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/arrow))

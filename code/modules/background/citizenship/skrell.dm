@@ -7,7 +7,7 @@
 	A rogue artificial intelligence, Glorsh-Omega, has traumatized this nation for centuries to come. The Federation is very wary of humanity, who has acquired AI technology \
 	after a Federation tech leak provided them with the research required to create their own AI, as well as allowing them to create IPCs."
 	consular_outfit = /obj/outfit/job/representative/consular/nralakk
-	assistant_outfit = /obj/outfit/job/consular_assistant/nralakk
+	assistant_outfit = /obj/outfit/job/diplomatic_aide/nralakk
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -28,6 +28,7 @@
 			SPECIES_UNATHI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_ATTENDANT,
 			SPECIES_VAURCA_BULWARK
 		),
 		"Diplomatic Aide" = list(
@@ -66,13 +67,13 @@
 		if(REPRESENTATIVE_MISSION_MEDIUM)
 			if(isvaurca(H))
 				rep_objectives = pick("Legally curtail the advancements and liberal thinking towards synthetics.",
-								"Remind C'thur Vaurcae aboard the [SSatlas.current_map.station_name] that they are representative of their hive-cell, and encourage them to increase their social credit",
+								"Remind C'thur Vaurcae aboard the [SSatlas.current_map.station_name] that they are representative of their hive-cell, and encourage them to increase their index rating",
 								"Ensure the interests of Federation citizens are upheld by the vessel - whether Skrell, C'thur or Diona.")
 			else
 				rep_objectives = pick("Ensure the interests of Federation citizens are upheld by the vessel. This includes C'thur and Diona of Federation origin",
 								"Legally curtail the advancements and liberal thinking towards synthetics.",
 								"The [SSatlas.current_map.station_name] hosts some of the brightest minds in the galaxy; winning them over towards the Federation is a major victory",
-								"Encourage Federation citizens with low social credit to work to increase their score.")
+								"Encourage Federation citizens with low index rating to work to increase their rating.")
 		else
 			if(isvaurca(H))
 				rep_objectives = pick("Consider assisting crew within the capacity of your role, an altruistic image is good PR towards both the Federation and the C'thur Hive.",
@@ -90,7 +91,8 @@
 
 	uniform = /obj/item/clothing/under/skrell
 	backpack_contents = list(
-		/obj/item/device/camera = 1
+		/obj/item/device/camera = 1,
+		/obj/item/storage/box/psireceiver = 1
 	)
 
 /obj/outfit/job/representative/consular/nralakk/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -100,16 +102,16 @@
 		if(isvaurca(H)) // there should be a system for this but for now this will have to do i guess
 			H.equip_to_slot_or_del(new /obj/item/clothing/under/gearharness(H), slot_w_uniform)
 			H.equip_to_slot_or_del(new /obj/item/clothing/head/vaurca_breeder/nralakk(H), slot_head)
-			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/vaurca/breeder/nralakk(H), slot_shoes)
+			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/vaurca/breeder/cthur(H), slot_shoes)
 			H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(H), slot_wear_mask)
-			H.equip_to_slot_or_del(new /obj/item/clothing/suit/vaurca/breeder/nralakk(H), slot_wear_suit)
+			H.equip_to_slot_or_del(new /obj/item/clothing/suit/vaurca/breeder/cthur(H), slot_wear_suit)
 			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/cthur(H), slot_back)
-			H.equip_to_slot_or_del(new /obj/item/gun/energy/fedpistol/nopsi(H), slot_belt)
+			H.equip_to_slot_or_del(new /obj/item/gun/energy/vaurca/blaster(H), slot_belt) // Federation Ta Consulars get a Thermic Blaster.
 		else
 			H.equip_to_slot_or_del(new /obj/item/gun/energy/fedpistol/nopsi(H), slot_belt)
 		if(!visualsOnly)
 			addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
 	return TRUE
 
-/obj/outfit/job/consular_assistant/nralakk
+/obj/outfit/job/diplomatic_aide/nralakk
 	uniform = /obj/item/clothing/under/skrell

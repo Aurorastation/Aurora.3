@@ -5,14 +5,21 @@
 	icon_state = "paper"
 	item_state = "paper"
 	throwforce = 0
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throw_range = 2
 	throw_speed = 1
-	layer = 4
+	layer = ABOVE_OBJ_LAYER
 	attack_verb = list("bapped")
-	var/page = 1    // current page
-	var/list/pages = list()  // Ordered list of pages as they are to be displayed. Can be different order than src.contents.
-	var/amount = 0 // How many sheet
+
+	/// current page
+	var/page = 1
+
+	/// Ordered list of pages as they are to be displayed. Can be different order than src.contents.
+	var/list/pages = list()
+
+	/// How many sheet
+	var/amount = 0
+
 	drop_sound = 'sound/items/drop/paper.ogg'
 	pickup_sound = 'sound/items/pickup/paper.ogg'
 
@@ -22,7 +29,7 @@
 	if (istype(attacking_item, /obj/item/paper/carbon))
 		var/obj/item/paper/carbon/C = attacking_item
 		if (!C.iscopy && !C.copied)
-			to_chat(user, "<span class='notice'>Take off the carbon copy first.</span>")
+			to_chat(user, SPAN_NOTICE("Take off the carbon copy first."))
 			add_fingerprint(user)
 			return
 	// adding sheets
@@ -43,7 +50,7 @@
 			pages.Add(O)
 			amount++
 
-		to_chat(user, "<span class='notice'>You add \the [attacking_item.name] to [(src.name == "paper bundle") ? "the paper bundle" : src.name].</span>")
+		to_chat(user, SPAN_NOTICE("You add \the [attacking_item.name] to [(src.name == "paper bundle") ? "the paper bundle" : src.name]."))
 		attack_self(usr) //Update the browsed page.
 		qdel(attacking_item)
 	else
@@ -60,9 +67,9 @@
 
 /obj/item/paper_bundle/proc/insert_sheet_at(mob/user, var/index, obj/item/sheet)
 	if(istype(sheet, /obj/item/paper))
-		to_chat(user, "<span class='notice'>You add [(sheet.name == "paper") ? "the paper" : sheet.name] to [(src.name == "paper bundle") ? "the paper bundle" : src.name].</span>")
+		to_chat(user, SPAN_NOTICE("You add [(sheet.name == "paper") ? "the paper" : sheet.name] to [(src.name == "paper bundle") ? "the paper bundle" : src.name]."))
 	else if(istype(sheet, /obj/item/photo))
-		to_chat(user, "<span class='notice'>You add [(sheet.name == "photo") ? "the photo" : sheet.name] to [(src.name == "paper bundle") ? "the paper bundle" : src.name].</span>")
+		to_chat(user, SPAN_NOTICE("You add [(sheet.name == "photo") ? "the photo" : sheet.name] to [(src.name == "paper bundle") ? "the paper bundle" : src.name]."))
 
 	user.drop_from_inventory(sheet,src)
 
@@ -89,14 +96,14 @@
 				qdel(src)
 
 			else
-				to_chat(user, "<span class='warning'>You must hold \the [P] steady to burn \the [src].</span>")
+				to_chat(user, SPAN_WARNING("You must hold \the [P] steady to burn \the [src]."))
 
 /obj/item/paper_bundle/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(is_adjacent)
 		src.show_content(user)
 	else
-		. += "<span class='notice'>It is too far away.</span>"
+		. += SPAN_NOTICE("It is too far away.")
 
 /obj/item/paper_bundle/proc/show_content(mob/user as mob)
 	var/dat
@@ -105,18 +112,18 @@
 	// first
 	if(page == 1)
 		dat+= "<DIV STYLE='float:left; text-align:left; width:33.33333%'>Front</DIV>"
-		dat+= "<DIV STYLE='float:left; text-align:center; width:33.33333%'><A href='?src=\ref[src];remove=1'>Remove [(istype(W, /obj/item/paper)) ? "paper" : "photo"]</A></DIV>"
-		dat+= "<DIV STYLE='float:left; text-align:right; width:33.33333%'><A href='?src=\ref[src];next_page=1'>Next Page</A></DIV><BR><HR>"
+		dat+= "<DIV STYLE='float:left; text-align:center; width:33.33333%'><A href='byond://?src=[REF(src)];remove=1'>Remove [(istype(W, /obj/item/paper)) ? "paper" : "photo"]</A></DIV>"
+		dat+= "<DIV STYLE='float:left; text-align:right; width:33.33333%'><A href='byond://?src=[REF(src)];next_page=1'>Next Page</A></DIV><BR><HR>"
 	// last
 	else if(page == pages.len)
-		dat+= "<DIV STYLE='float:left; text-align:left; width:33.33333%'><A href='?src=\ref[src];prev_page=1'>Previous Page</A></DIV>"
-		dat+= "<DIV STYLE='float:left; text-align:center; width:33.33333%'><A href='?src=\ref[src];remove=1'>Remove [(istype(W, /obj/item/paper)) ? "paper" : "photo"]</A></DIV>"
+		dat+= "<DIV STYLE='float:left; text-align:left; width:33.33333%'><A href='byond://?src=[REF(src)];prev_page=1'>Previous Page</A></DIV>"
+		dat+= "<DIV STYLE='float:left; text-align:center; width:33.33333%'><A href='byond://?src=[REF(src)];remove=1'>Remove [(istype(W, /obj/item/paper)) ? "paper" : "photo"]</A></DIV>"
 		dat+= "<DIV STYLE='float:left; text-align:right; width:33.33333%'>Back</DIV><BR><HR>"
 	// middle pages
 	else
-		dat+= "<DIV STYLE='float:left; text-align:left; width:33.33333%'><A href='?src=\ref[src];prev_page=1'>Previous Page</A></DIV>"
-		dat+= "<DIV STYLE='float:left; text-align:center; width:33.33333%'><A href='?src=\ref[src];remove=1'>Remove [(istype(W, /obj/item/paper)) ? "paper" : "photo"]</A></DIV>"
-		dat+= "<DIV STYLE='float:left; text-align:right; width:33.33333%'><A href='?src=\ref[src];next_page=1'>Next Page</A></DIV><BR><HR>"
+		dat+= "<DIV STYLE='float:left; text-align:left; width:33.33333%'><A href='byond://?src=[REF(src)];prev_page=1'>Previous Page</A></DIV>"
+		dat+= "<DIV STYLE='float:left; text-align:center; width:33.33333%'><A href='byond://?src=[REF(src)];remove=1'>Remove [(istype(W, /obj/item/paper)) ? "paper" : "photo"]</A></DIV>"
+		dat+= "<DIV STYLE='float:left; text-align:right; width:33.33333%'><A href='byond://?src=[REF(src)];next_page=1'>Next Page</A></DIV><BR><HR>"
 
 	if(istype(pages[page], /obj/item/paper))
 		var/obj/item/paper/P = W
@@ -141,7 +148,7 @@
 		+ "[P.scribble ? "<div> Written on the back:<br><i>[P.scribble]</i>" : null]" \
 		+ "</body></html>"
 
-		show_browser(user, dat, "window=[name]")
+		show_browser(user, HTML_SKELETON(dat), "window=[name]")
 
 /obj/item/paper_bundle/attack_self(mob/user as mob)
 	src.show_content(user)
@@ -203,7 +210,7 @@
 
 
 		if(pages.len <= 1)
-			var/obj/item/paper/P = src[1]
+			var/obj/item/paper/P = src.pages[1]
 			if(istype(loc, /obj/item/gripper)) //Hacky but without it there's a ghost icon with grippers and it all spills on the floor.
 				var/obj/item/gripper/G = loc
 				G.drop(get_turf(src), usr, FALSE)
@@ -251,10 +258,10 @@
 	set category = "Object"
 	set src in usr
 
-	to_chat(usr, "<span class='notice'>You loosen the bundle.</span>")
+	to_chat(usr, SPAN_NOTICE("You loosen the bundle."))
 	for(var/obj/O in src)
 		O.forceMove(usr.loc)
-		O.layer = initial(O.layer)
+		O.reset_plane_and_layer()
 		O.add_fingerprint(usr)
 	qdel(src)
 	return
@@ -263,7 +270,7 @@
 /obj/item/paper_bundle/update_icon()
 	var/obj/item/paper/P = pages[1]
 	icon_state = P.icon_state
-	copy_overlays(P, TRUE)
+	CopyOverlays(P, TRUE)
 	underlays = 0
 	var/i = 0
 	var/photo
@@ -279,11 +286,11 @@
 		else if(istype(O, /obj/item/photo))
 			var/obj/item/photo/Ph = O
 			photo = 1
-			add_overlay(Ph.tiny)
+			AddOverlays(Ph.tiny)
 	if(i>1)
 		desc = "[i] papers clipped to each other."
 	else
 		desc = "A single sheet of paper."
 	if(photo)
 		desc += "\nThere is a photo attached to it."
-	add_overlay("clip")
+	AddOverlays("clip")

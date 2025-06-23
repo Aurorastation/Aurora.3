@@ -214,3 +214,21 @@
 #define AMBIENCE_KONYANG_WATER list(\
 	'sound/ambience/konyang/konyang-water.ogg'\
 	)
+
+#define AMBIENCE_DESERT list(\
+	'sound/effects/wind/desert0.ogg',\
+	'sound/effects/wind/desert1.ogg',\
+	'sound/effects/wind/desert2.ogg',\
+	'sound/effects/wind/desert3.ogg',\
+	'sound/effects/wind/desert4.ogg',\
+	'sound/effects/wind/desert5.ogg'\
+	)
+
+#define AMBIENCE_JUNGLE list(\
+	'sound/effects/wind/wind_2_1.ogg',\
+	'sound/effects/wind/wind_2_2.ogg',\
+	'sound/effects/wind/wind_3_1.ogg',\
+	'sound/effects/wind/wind_4_1.ogg',\
+	'sound/ambience/eeriejungle2.ogg',\
+	'sound/ambience/eeriejungle1.ogg'\
+)

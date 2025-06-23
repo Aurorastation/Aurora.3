@@ -36,7 +36,7 @@
 
 /obj/machinery/appliance/cooker/grill/Initialize()
 	. = ..()
-	grill_loop = new(src, FALSE)
+	grill_loop = new(src)
 
 /obj/machinery/appliance/cooker/grill/Destroy()
 	QDEL_NULL(grill_loop)
@@ -64,20 +64,30 @@
 				return CI
 	return FALSE
 
+/// Grills do not require power to work.
+/obj/machinery/appliance/cooker/grill/powered()
+	return TRUE
+
+/obj/machinery/appliance/cooker/grill/proc/update_grilling_audio()
+	if(!grill_loop)
+		return
+	if(use_power)
+		grill_loop.start()
+	else
+		grill_loop.stop()
+
 /obj/machinery/appliance/cooker/grill/update_icon()
-	. = ..()
-	cut_overlays()
+	ClearOverlays()
+	update_grilling_audio()
 	if(!stat)
 		icon_state = on_icon
 	else
 		icon_state = off_icon
-		grill_loop?.stop()
 	if(length(cooking_objs))
-		grill_loop.start()
 		var/datum/cooking_item/CI = cooking_objs[1]
 		var/obj/item/reagent_containers/cooking_container/grill_grate/G = CI.container
 		if(G)
-			add_overlay(image('icons/obj/machinery/cooking_machines.dmi', "grill"))
+			AddOverlays(image('icons/obj/machinery/cooking_machines.dmi', "grill"))
 			var/counter = 1
 			for(var/thing in G.contents)
 				if(istype(thing, /obj/item/reagent_containers/food/snacks/meat))
@@ -90,7 +100,7 @@
 					var/matrix/M = matrix()
 					M.Scale(0.5)
 					food.transform = M
-					add_overlay(food)
+					AddOverlays(food)
 				else if(istype(thing, /obj/item/reagent_containers/food/snacks/xenomeat))
 					var/image/food = overlay_image('icons/obj/machinery/cooking_machines.dmi', "xenomeat")
 					switch(counter)
@@ -101,5 +111,18 @@
 					var/matrix/M = matrix()
 					M.Scale(0.5)
 					food.transform = M
-					add_overlay(food)
+					AddOverlays(food)
 				counter++
+	..()
+
+/obj/machinery/appliance/cooker/grill/stand
+	name = "grill stand"
+	icon_state = "grill_cart_off"
+	on_icon = "grill_cart_on"
+	off_icon = "grill_cart_off"
+	desc = "A more commercialized version of your traditional grill. What happened to the good old days where people grilled with passion?"
+	use_power = POWER_USE_OFF
+
+/obj/machinery/appliance/cooker/grill/stand/update_icon()
+	..()
+	AddOverlays(image('icons/obj/machinery/cooking_machines.dmi', "front_bar"))

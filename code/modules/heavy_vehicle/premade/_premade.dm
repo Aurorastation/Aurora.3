@@ -1,8 +1,9 @@
 /mob/living/heavy_vehicle/premade
 	name = "impossible mech"
 	desc = "It seems to be saying 'please let me die'."
-	icon = 'icons/mecha/mecha.dmi'
+	icon = 'icons/mecha/mech_preview.dmi'
 	icon_state = "ripley"
+	pixel_x = -8
 
 	//equipment path vars, which get added to the mech in the add_parts() proc
 	//e_ means equipment - geeves
@@ -41,6 +42,8 @@
 			head.color = e_color
 	if(!body && e_body)
 		body = new e_body(src)
+		if(body.cell)
+			RegisterSignal(body.cell, COMSIG_CELL_CHARGE, PROC_REF(handle_cell_charge))
 		if(e_color)
 			body.color = e_color
 	if(!arms && e_arms)

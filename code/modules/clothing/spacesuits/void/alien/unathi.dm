@@ -6,13 +6,13 @@
 	item_state = "kataphract_helm"
 	contained_sprite = TRUE
 	armor = list(
-		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_RESISTANT
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_UNATHI)
@@ -26,15 +26,15 @@
 	item_state = "kataphract"
 	contained_sprite = TRUE
 	slowdown = 1
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	armor = list(
-		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_RESISTANT
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
 	)
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
@@ -73,12 +73,13 @@
 	item_state = "rig0-unathipirate"
 	contained_sprite = TRUE
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_RESISTANT
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
 	)
 	light_overlay = "helmet_light_dual_low"
 	brightness_on = 6
@@ -93,12 +94,13 @@
 	item_state = "rig-unathipirate"
 	contained_sprite = TRUE
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_RESISTANT
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
 	)
 	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/material/sword,/obj/item/melee/hammer,/obj/item/melee/energy)
 	species_restricted = list(BODYTYPE_UNATHI)
@@ -109,28 +111,12 @@
 	desc = "A decent helmet made to fit with a larger combat assembly."
 	icon_state = "rig0-unathipiratecaptain"
 	item_state = "rig0-unathipiratecaptain"
-	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_CARBINE,
-		laser = ARMOR_LASER_PISTOL,
-		bomb = ARMOR_BOMB_RESISTANT,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_RESISTANT
-	)
 
 /obj/item/clothing/suit/space/void/unathi_pirate/captain
 	name = "unathi raider captain voidsuit"
 	desc = "A well-balanced combat voidsuit made by and for Unathi. This one features several improvements and extra adornments, making it fit for a Captain, or some kind of high-ranking crew member."
 	icon_state = "rig-unathipiratecaptain"
 	item_state = "rig-unathipiratecaptain"
-	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_CARBINE,
-		laser = ARMOR_LASER_PISTOL,
-		bomb = ARMOR_BOMB_RESISTANT,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_RESISTANT
-	)
 
 /obj/item/clothing/suit/space/void/hegemony
 	name = "hegemony military voidsuit"
@@ -138,16 +124,16 @@
 	icon = 'icons/obj/clothing/voidsuit/hegemony.dmi'
 	icon_state = "hegemony-voidsuit"
 	item_state = "hegemony-voidsuit"
-
-	w_class = ITEMSIZE_NORMAL
+	contained_sprite = TRUE
+	w_class = WEIGHT_CLASS_NORMAL
 	armor = list(
-		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_RESISTANT
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
 	)
 	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/material/sword,/obj/item/melee/hammer,/obj/item/melee/energy)
 	species_restricted = list(BODYTYPE_UNATHI)
@@ -161,13 +147,13 @@
 	item_state = "hegemony-voidhelm"
 	contained_sprite = TRUE
 	armor = list(
-		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_RESISTANT
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SHIELDED
 	)
 	light_overlay = "helmet_light_dual_low"
 	brightness_on = 6
@@ -218,12 +204,13 @@
 	icon_state = "rig-tarwapirate"
 	item_state = "rig-tarwapirate"
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SHIELDED //it has diona growing on and in it to absorb rads. if i could make it regenerate breaches that would be neat
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SHIELDED
 	)
 
 /obj/item/clothing/suit/space/void/unathi_pirate/tarwa/captain
@@ -232,14 +219,7 @@
 	It only seems to fit Unathi, it's relatively light, and yet appears to protect against a variety of hazards. This one features various reinforcements, making it probably fit for more important crew."
 	icon_state = "rig-tarwacaptain"
 	item_state = "rig-tarwacaptain"
-	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_CARBINE,
-		laser = ARMOR_LASER_PISTOL,
-		bomb = ARMOR_BOMB_RESISTANT,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SHIELDED //it has diona growing on and in it to absorb rads
-	)
+
 
 /obj/item/clothing/head/helmet/space/void/unathi_pirate/tarwa
 	name = "tarwa conglomerate helmet"
@@ -247,12 +227,13 @@
 	icon_state = "rig-tarwapirate-helmet"
 	item_state = "rig-tarwapirate-helmet"
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_CARBINE,
-		laser = ARMOR_LASER_PISTOL,
-		bomb = ARMOR_BOMB_RESISTANT,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SHIELDED //it has diona growing on and in it to absorb rads
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SHIELDED
 	)
 	light_overlay = "helmet_light_green"
 
@@ -262,6 +243,14 @@
 	This one appears to have been reinforced."
 	icon_state = "rig-tarwacaptain-helmet"
 	item_state = "rig-tarwacaptain-helmet"
+	armor = list(
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_CARBINE,
+		LASER = ARMOR_LASER_PISTOL,
+		BOMB = ARMOR_BOMB_RESISTANT,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SHIELDED
+	)
 
 /obj/item/clothing/suit/space/void/unathi_pirate/kazu
 	name = "techraider voidsuit"
@@ -274,7 +263,7 @@
 	desc = "An advanced helmet made to fit in a large assembly. Its multi-optic visor is reminiscent of some Vaurca designs."
 	icon_state = "rig-kazupirate-helmet"
 	item_state = "rig-kazupirate-helmet"
-	light_overlay = "helmet_light_jargon_rig"
+	light_overlay = "helmet_light_nralakk_rig"
 
 /obj/item/clothing/suit/space/void/unathi_pirate/kazu/captain
 	name = "techraider captain's voidsuit"
@@ -314,3 +303,24 @@
 	desc =  "A reinforced mix of older Dominian and homemade Unathi pirate hardware in a single helmet; made to fit in a larger assembly."
 	icon_state = "rig-hiskyncaptain-helmet"
 	item_state = "rig-hiskyncaptain-helmet"
+
+//Pre-contact spacesuits for Uueoa-Esa ruins.
+/obj/item/clothing/suit/space/unathi_ruin
+	name = "unathi spacesuit"
+	desc = "A large and bulky spacesuit, seemingly of an early space age design. The distinctive shape of the suit indicates that it was made for an Unathi wearer."
+	desc_extended = "These spacesuits were among some of the earliest designs of Unathi space programs, though they rapidly became obsolete following first contact and the massive expansion of space exploration efforts. Seeing a suit like this outside of a museum is extremely rare in the modern day. The markings on this one do not identify it as Izweski, but it is impossible to tell to whom it might have belonged."
+	icon = 'icons/obj/unathi_ruins.dmi'
+	icon_state = "unathispacesuit"
+	item_state = "unathispacesuit"
+	species_restricted = list(SPECIES_UNATHI)
+	refittable = FALSE
+
+/obj/item/clothing/head/helmet/space/unathi_ruin
+	name = "unathi space helmet"
+	desc = "A large and bulky space helmet, with a primitive 'fishbowl' design common in the early days of space exploration. The shape of the helmet indicates that it was designed for an Unathi wearer."
+	desc_extended = "These helmets are an early design from the Unathi space age, used primarily by the first Izweski astronauts in the 22nd century. They rapidly became obsolete after first contact and the massive expansion of space exploration efforts, making them a rare site outside of museums and private collections in the modern day. The markings on this one do not identify it as Izweski, but it is impossible to tell to whom it might have belonged."
+	icon = 'icons/obj/unathi_ruins.dmi'
+	icon_state = "unathispacehelm"
+	item_state = "unathispacehelm"
+	species_restricted = list(SPECIES_UNATHI)
+	refittable = FALSE

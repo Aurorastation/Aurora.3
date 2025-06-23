@@ -1,4 +1,4 @@
-var/global/vs_control/vsc = new
+GLOBAL_DATUM_INIT(vsc, /vs_control, new())
 
 /vs_control
 	var/fire_consuption_rate = 0.25
@@ -111,9 +111,9 @@ var/global/vs_control/vsc = new
 			vw = vars[ch]
 			if("[ch]_DESC" in vars) vw_desc = vars["[ch]_DESC"]
 			if("[ch]_NAME" in vars) vw_name = vars["[ch]_NAME"]
-		dat += "<b>[vw_name] = [vw]</b> <A href='?src=\ref[src];changevar=[ch]'>\[Change\]</A><br>"
+		dat += "<b>[vw_name] = [vw]</b> <A href='byond://?src=[REF(src)];changevar=[ch]'>\[Change\]</A><br>"
 		dat += "<i>[vw_desc]</i><br><br>"
-	user << browse(dat,"window=settings")
+	user << browse(HTML_SKELETON(dat), "window=settings")
 
 /vs_control/Topic(href,href_list)
 	if("changevar" in href_list)
@@ -169,7 +169,7 @@ var/global/vs_control/vsc = new
 		vars[ch] = vw
 	if(how == "Toggle")
 		newvar = (newvar?"ON":"OFF")
-	to_world("<span class='notice'><b>[key_name(user)] changed the setting [display_description] to [newvar].</b></span>")
+	to_world(SPAN_NOTICE("<b>[key_name(user)] changed the setting [display_description] to [newvar].</b>"))
 	if(ch in plc.settings)
 		ChangeSettingsDialog(user,plc.settings)
 	else
@@ -322,7 +322,7 @@ var/global/vs_control/vsc = new
 			plc.N2O_HALLUCINATION 			= initial(plc.N2O_HALLUCINATION)
 
 
-	to_world("<span class='notice'><b>[key_name(user)] changed the global phoron/ZAS settings to \"[def]\"</b></span>")
+	to_world(SPAN_NOTICE("<b>[key_name(user)] changed the global phoron/ZAS settings to \"[def]\"</b>"))
 
 /pl_control/var/list/settings = list()
 

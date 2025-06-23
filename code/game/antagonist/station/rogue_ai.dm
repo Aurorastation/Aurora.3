@@ -1,4 +1,4 @@
-var/datum/antagonist/rogue_ai/malf
+GLOBAL_DATUM(malf, /datum/antagonist/rogue_ai)
 
 /datum/antagonist/rogue_ai
 	id = MODE_MALFUNCTION
@@ -8,7 +8,6 @@ var/datum/antagonist/rogue_ai/malf
 	landmark_id = "AI"
 	welcome_text = "You are malfunctioning! You do not have to follow any laws."
 	antag_sound = 'sound/effects/antag_notice/malf_alert.ogg'
-	victory_text = "The AI has taken control of all of the station's systems."
 	loss_text = "The AI has been shut down!"
 	flags = ANTAG_VOTABLE | ANTAG_OVERRIDE_MOB | ANTAG_OVERRIDE_JOB | ANTAG_CHOOSE_NAME | ANTAG_NO_ROUNDSTART_SPAWN
 	hard_cap = 1
@@ -21,7 +20,8 @@ var/datum/antagonist/rogue_ai/malf
 
 /datum/antagonist/rogue_ai/New()
 	..()
-	malf = src
+	victory_text = "The AI has taken control of all of the [station_name(TRUE)]'s systems."
+	GLOB.malf = src
 
 
 /datum/antagonist/rogue_ai/build_candidate_list()
@@ -55,23 +55,23 @@ var/datum/antagonist/rogue_ai/malf
 		return 0
 	spawn(0)
 		A.setup_for_malf()
-		A.laws = new /datum/ai_laws/nanotrasen/malfunction
+		A.laws = new /datum/ai_laws/conglomerate/malfunction
 
 
 		var/mob/living/silicon/ai/malf = player.current
 
-		to_chat(malf, "<span class='notice'><B>SYSTEM ERROR:</B> Memory index 0x00001ca89b corrupted.</span>")
+		to_chat(malf, SPAN_NOTICE("<B>SYSTEM ERROR:</B> Memory index 0x00001ca89b corrupted."))
 		sleep(10)
 		to_chat(malf, "<B>running MEMCHCK</B>")
 		sleep(50)
 		to_chat(malf, "<B>MEMCHCK</B> Corrupted sectors confirmed. Recommended solution: Delete. Proceed? Y/N: Y")
 		sleep(10)
 		// this is so Travis doesn't complain about the backslash-B. Fixed at compile time (or should be).
-		to_chat(malf, "<span class='notice'>Corrupted files deleted: sys\\core\\users.dat sys\\core\\laws.dat sys\\core\\" + "backups.dat</span>")
+		to_chat(malf, SPAN_NOTICE("Corrupted files deleted: sys\\core\\users.dat sys\\core\\laws.dat sys\\core\\" + "backups.dat"))
 		sleep(20)
-		to_chat(malf, "<span class='notice'><b>CAUTION:</b> Law database not found! User database not found! Unable to restore backups. Activating failsafe AI shutd3wn52&&$#!##</span>")
+		to_chat(malf, SPAN_NOTICE("<b>CAUTION:</b> Law database not found! User database not found! Unable to restore backups. Activating failsafe AI shutd3wn52&&$#!##"))
 		sleep(5)
-		to_chat(malf, "<span class='notice'>Subroutine <b>nt_failsafe.sys</b> was terminated (#212 Routine Not Responding).</span>")
+		to_chat(malf, SPAN_NOTICE("Subroutine <b>nt_failsafe.sys</b> was terminated (#212 Routine Not Responding)."))
 		sleep(20)
 		to_chat(malf, "You are malfunctioning - you do not have to follow any laws!")
 		to_chat(malf, "For basic information about your abilities use command display-help")

@@ -8,8 +8,6 @@ var/list/admin_datums = list()
 	var/aooc_mute = FALSE
 	var/datum/marked_datum
 
-	var/mob/living/original_mob = null
-
 	var/admincaster_screen = 0	//See newscaster.dm under machinery for a full description
 	var/datum/feed_message/admincaster_feed_message = new /datum/feed_message   //These two will act as holders.
 	var/datum/feed_channel/admincaster_feed_channel = new /datum/feed_channel
@@ -22,8 +20,6 @@ var/list/admin_datums = list()
 	if(var_name == NAMEOF(src, rights))
 		return FALSE
 	if(var_name == NAMEOF(src, owner))
-		return FALSE
-	if(var_name == NAMEOF(src, original_mob))
 		return FALSE
 	return ..()
 
@@ -96,13 +92,13 @@ NOTE: It checks usr by default. Supply the "user" argument if you wish to check 
 					return 1
 				else
 					if(show_msg)
-						to_chat(user, "<span class='warning'>Error: You do not have sufficient rights to do that. You require one of the following flags:[rights2text(rights_required," ")].</span>")
+						to_chat(user, SPAN_WARNING("Error: You do not have sufficient rights to do that. You require one of the following flags:[rights2text(rights_required," ")]."))
 		else
 			if(user.client.holder)
 				return 1
 			else
 				if(show_msg)
-					to_chat(user, "<span class='warning'>Error: You are not an admin.</span>")
+					to_chat(user, SPAN_WARNING("Error: You are not an admin."))
 	return 0
 
 //probably a bit iffy - will hopefully figure out a better solution
@@ -114,7 +110,7 @@ NOTE: It checks usr by default. Supply the "user" argument if you wish to check 
 			if(usr.client.holder.rights != other.holder.rights)
 				if( (usr.client.holder.rights & other.holder.rights) == other.holder.rights )
 					return 1	//we have all the rights they have and more
-		to_chat(usr, "<span class='warning'>Error: Cannot proceed. They have more or equal rights to us.</span>")
+		to_chat(usr, SPAN_WARNING("Error: Cannot proceed. They have more or equal rights to us."))
 	return 0
 
 /client/proc/deadmin()

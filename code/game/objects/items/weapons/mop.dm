@@ -12,7 +12,7 @@
 	throwforce = 10.0
 	throw_speed = 3
 	throw_range = 7
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	attack_verb = list("mopped", "bashed", "bludgeoned", "whacked")
 	drop_sound = 'sound/items/drop/woodweapon.ogg'
 	pickup_sound = 'sound/items/pickup/woodweapon.ogg'
@@ -25,10 +25,12 @@
 /obj/item/mop/Initialize()
 	. = ..()
 	create_reagents(30)
-	GLOB.janitorial_supplies |= src
+	if(is_station_turf(get_turf(src)))
+		GLOB.janitorial_supplies |= src
 
 /obj/item/mop/Destroy()
-	GLOB.janitorial_supplies -= src
+	if(src in GLOB.janitorial_supplies)
+		GLOB.janitorial_supplies -= src
 	return ..()
 
 /obj/item/mop/afterattack(atom/A, mob/user, proximity)

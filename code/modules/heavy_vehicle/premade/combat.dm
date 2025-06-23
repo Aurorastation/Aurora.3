@@ -4,7 +4,7 @@
 	icon_state = "durand"
 
 	e_head = /obj/item/mech_component/sensors/combat
-	e_body = /obj/item/mech_component/chassis/combat
+	e_body = /obj/item/mech_component/chassis/combat/cell
 	e_arms = /obj/item/mech_component/manipulators/combat
 	e_legs = /obj/item/mech_component/propulsion/combat
 	e_color = COLOR_DARK_GUNMETAL
@@ -77,11 +77,17 @@
 
 	. = ..()
 
+/obj/item/mech_component/chassis/combat/cell
+	cell_type = /obj/item/cell/mecha
+
+/obj/item/mech_component/chassis/combat/nuclear
+	cell_type = /obj/item/cell/mecha/nuclear
+
 /mob/living/heavy_vehicle/premade/combat/tcaf
 	name = "\improper Vigilance combat exosuit"
 	desc = "A heavy-duty combat exosuit manufactured by Zavodskoi Interstellar, and issued to the Tau Ceti Armed Forces."
 	e_head = /obj/item/mech_component/sensors/combat
-	e_body = /obj/item/mech_component/chassis/combat
+	e_body = /obj/item/mech_component/chassis/combat/nuclear
 	e_arms = /obj/item/mech_component/manipulators/heavy
 	e_legs = /obj/item/mech_component/propulsion/combat
 	e_color = COLOR_TCFL
@@ -89,4 +95,19 @@
 	h_r_shoulder = /obj/item/mecha_equipment/mounted_system/flarelauncher
 	h_l_hand = /obj/item/mecha_equipment/mounted_system/combat/blaster
 	h_r_hand = /obj/item/mecha_equipment/mounted_system/combat/gauss
+	h_head = /obj/item/mecha_equipment/light
+
+/mob/living/heavy_vehicle/premade/combat/coalition
+	name = "\improper Vigilance-C combat exosuit"
+	desc = "A heavy combat exosuit manufactured by Zavodskoi Interstellar, licensed to and slightly modified by the All-Xanu Armed Forces. Used by proponents of the combined Coalition of Colonies military."
+	e_head = /obj/item/mech_component/sensors/combat
+	e_body = /obj/item/mech_component/chassis/combat/nuclear
+	e_arms = /obj/item/mech_component/manipulators/heavy
+	e_legs = /obj/item/mech_component/propulsion/combat
+	e_color = COLOR_COALITION
+	h_l_shoulder = /obj/item/mecha_equipment/mounted_system/combat/grenadestinger
+	h_r_shoulder = /obj/item/mecha_equipment/mounted_system/flarelauncher
+	h_l_hand = /obj/item/mecha_equipment/mounted_system/combat/blaster
+	h_r_hand = /obj/item/mecha_equipment/mounted_system/combat/gauss
+	h_back = /obj/item/mecha_equipment/quick_enter
 	h_head = /obj/item/mecha_equipment/light

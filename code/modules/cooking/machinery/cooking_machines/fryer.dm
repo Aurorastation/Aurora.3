@@ -8,10 +8,10 @@
 	off_icon = "fryer_off"
 	food_color = "#ffad33"
 	appliancetype = FRYER
-	active_power_usage = 12 KILOWATTS
+	active_power_usage = 12 KILO WATTS
 	heating_power = 12000
 	optimal_power = 1.35
-	idle_power_usage = 3.6 KILOWATTS
+	idle_power_usage = 3.6 KILO WATTS
 	//Power used to maintain temperature once it's heated.
 	//Going with 25% of the active power. This is a somewhat arbitrary value
 	resistance = 10000	// Approx. 4 minutes.
@@ -78,17 +78,17 @@
 		icon_state = on_icon
 	else
 		icon_state = off_icon
-	cut_overlays()
+	ClearOverlays()
 	var/list/pans = list()
 	for(var/obj/item/reagent_containers/cooking_container/CC in contents)
 		var/image/pan_overlay
 		if(CC.appliancetype == FRYER)
-			pan_overlay = image('icons/obj/machinery/cooking_machines.dmi', "basket[Clamp(length(pans)+1, 1, 2)]")
+			pan_overlay = image('icons/obj/machinery/cooking_machines.dmi', "basket[clamp(length(pans)+1, 1, 2)]")
 		pan_overlay.color = CC.color
 		pans += pan_overlay
 	if(isemptylist(pans))
 		return
-	add_overlay(pans)
+	AddOverlays(pans)
 	..()
 
 //Fryer gradually infuses any cooked food with oil. Moar calories

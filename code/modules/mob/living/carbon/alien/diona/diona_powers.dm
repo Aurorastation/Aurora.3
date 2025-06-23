@@ -3,7 +3,7 @@
 //The nymph player moves inside the gestalt and no longer has control of movement or actions
 /mob/living/carbon/alien/diona/proc/merge()
 	set category = "Abilities"
-	set name = "Merge with gestalt"
+	set name = "Merge With Gestalt"
 	set desc = "Merge yourself into a larger gestalt, you will no longer retain control."
 
 	if(use_check_and_message(usr, USE_ALLOW_NON_ADV_TOOL_USR))
@@ -86,7 +86,7 @@
 	if(!M)
 		to_chat(src, SPAN_WARNING("There are no nymphs in your vicinity."))
 	else if(!do_absorb(M))
-		to_chat(src, SPAN_WARNING("You fail to merge with \the [M]..."))
+		to_chat(src, SPAN_WARNING("You fail to merge with \the [M]."))
 
 
 
@@ -139,7 +139,7 @@
 //Split allows a nymph to peel away from a gestalt and be a lone agent
 /mob/living/carbon/alien/diona/proc/split()
 	set category = "Abilities"
-	set name = "Break from gestalt"
+	set name = "Break From Gestalt"
 	set desc = "Split away from your gestalt as a lone nymph."
 
 	if(use_check_and_message(usr))
@@ -362,6 +362,6 @@
 	if(hat)
 		src.drop_from_inventory(hat)
 		hat = null
-		visible_message("<span class='warning'>[src] removes their hat!</span>")
+		visible_message(SPAN_WARNING("[src] removes their hat!"))
 	else
 		to_chat(src, SPAN_WARNING("You have no hat!"))

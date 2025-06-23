@@ -23,7 +23,7 @@
 	if(!message)	return
 	var/F = investigate_subject2file(subject)
 	if(!F)	return
-	to_chat(F, "<small>[time2text(world.timeofday,"hh:mm")] \ref[src] ([x],[y],[z])</small> || [src] [message]<br>")
+	to_chat(F, "<small>[time2text(world.timeofday,"hh:mm")] [REF(src)] ([x],[y],[z])</small> || [src] [message]<br>")
 
 //ADMINVERBS
 /client/proc/investigate_show( subject in list("hrefs","notes","singulo","telesci") )
@@ -34,7 +34,7 @@
 		if("singulo", "telesci")			//general one-round-only stuff
 			var/F = investigate_subject2file(subject)
 			if(!F)
-				to_chat(src, "<span class='warning'>Error: admin_investigate: [INVESTIGATE_DIR][subject] is an invalid path or cannot be accessed.</span>")
+				to_chat(src, SPAN_WARNING("Error: admin_investigate: [INVESTIGATE_DIR][subject] is an invalid path or cannot be accessed."))
 				return
 			src << browse(F,"window=investigate[subject];size=800x300")
 
@@ -43,8 +43,8 @@
 				if(GLOB.config.logfiles["world_href_log"])
 					src << browse(GLOB.config.logfiles["world_href_log"], "window=investigate[subject];size=800x300")
 				else
-					to_chat(src, "<span class='warning'>Error: admin_investigate: No href logfile found.</span>")
+					to_chat(src, SPAN_WARNING("Error: admin_investigate: No href logfile found."))
 					return
 			else
-				to_chat(src, "<span class='warning'>Error: admin_investigate: Href Logging is not on.</span>")
+				to_chat(src, SPAN_WARNING("Error: admin_investigate: Href Logging is not on."))
 				return

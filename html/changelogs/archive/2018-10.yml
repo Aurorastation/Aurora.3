@@ -1,0 +1,174 @@
+2018-10-01:
+  PoZe:
+  - bugfix: HOP office disposal system is properly connected, so it can receive delivery
+      and send trash properly.
+  - bugfix: Bishop IPC frame can now wear voidsuits.
+  - bugfix: Bishop and Zeng-Hu frames can now wear wizards and mercs voidsuits, making
+      all IPC frame able to wear these antag voidsuits.
+2018-10-06:
+  Alberyk:
+  - rscadd: Added several material based golems, they can be created via xenobiology
+      or by magic using ten units of any material stack.
+  - rscadd: Added some species related blood tracks.
+  - rscadd: Added zombies.
+  - rscadd: Added new options to the custom loadout; dresses and fannypacks.
+  - rscadd: Added medical gowns to medbay.
+  - rscadd: Ported the holodeck locking feature from baystation, heads of staff and
+      the chaplain can lock and unlock the holodeck.
+  - rscadd: Added new vaurca custom loadout options.
+  - rscadd: Added a new hairstyle; the long braid 2.
+  - rscadd: Added magic eight ball and spirit boards.
+  - tweak: Cult teleporting runes do not work on the central command z-level anymore.
+  - tweak: You can not write runes on space or open spaces anymore.
+  - tweak: Accepting a wizard apprentice contract will now create a set of wizard
+      clothing.
+  Alberyk, AndurilFlame, Bauser, DronzTheWolf:
+  - rscadd: Added tajaran clothing options to the loadout.
+  - rscadd: Added a new tajaran hairstyle option.
+  Arrow768:
+  - rscadd: Nanotrasen scientists have discovered possible applications for cortical
+      stacks in science..
+  - bugfix: The staff of change takes longer to recharge and has a reduced amount
+      of charges.
+  - tweak: Airlocks now take a bit to weld and unweld..
+  - rscadd: Nanotrasen has decided to hire "Medical Interns" again.
+  - tweak: The Leyon Gunsmithing LLC has reworked the "Everyman" to be targeted more
+      towards civilians and was able to reduce the market-price of it.
+  - rscadd: NT has negotaited a contract for V'krexi cubes with a supplier.
+  - rscadd: The syndicate has managed to acquire some "state of the art" rifles from
+      Adohmai and made them available to their operatives.
+  BurgerBB:
+  - rscadd: Event infestations can now target anywhere on the station, as long there
+      are no occupents.
+  - tweak: Removed yithians and diyaabs from infestation events and replaced them
+      with slimes and hivebots.
+  - rscadd: Adds several new chocolate bars to the getmore chocolate vendor.
+  - rscadd: Added various menu settings for the general interface to allow more space.
+  - rscadd: Chefs now spawn with a box of 12 randomly spawned fruit/vegetables.
+  - rscadd: Added several new random dungeon spawns.
+  - maptweak: Removed the ODIN departures vending machines.
+  - maptweak: Remapped the cargo lobby. Remapped disposals/the crusher. Added a mail
+      disposals room. Relocated main level cryo to the main level dorms.
+  - rscadd: Added hydration mechanics. Hydrate yourself by drinking beverages and
+      water. IPCs do not have hydration mechanics, as they are machines.
+  - rscadd: Adds salt to various junkfood items. Salt reduces hydration.
+  - maptweak: Added various sources of lube and water for off-station antags. Increased
+      the amount of watertanks in maintenance.
+  - rscadd: Added a new chemical, Potassium Hydrophoride, which hydrates the person
+      directly through the bloodstream. These exist in most antag rig chem dispensers
+      an can be made in chemistry.
+  - rscadd: Injecting yourself with beverages such as coffee or alcohol have their
+      effects increased by 4, with the exception of nutrition and hydration gains.
+      Enjoy IV drips filled with vodka.
+  - balance: Removed healing mechanics from tea, milk, and soy.
+  - balance: When thirsty, hungry, overweight, or overhydrated, you have a lower pain
+      tolerance, and move slower. Maximum slow is 33%, and maximum pain increase is
+      100% at 0 nutrition and 0 hydration.
+  - balance: Hunger factor from moving reduced by half. Removed nutrition loss from
+      sprinting, however not stamina regeneration.
+  Drago:
+  - rscadd: Ported Polaris Station evening gown, converted to greyscale.
+  - rscdel: Adds gown to loadout, color customization added.
+  Furrycactus:
+  - maptweak: Drastically increased the size of each Solar Array on the station so
+      that they're actually useful. Enough to serve as backup power on high intensity
+      rounds, or primary power on low intensity. A useful entry point for anyone that
+      wants to learn Engineering.
+  - maptweak: Following through with the second stage of the Aurora Redesign Project,
+      NanoTrasen has this time put its structural engineers hard at work to redesign
+      the Medical Bay. Again. The architects have this time combined the positive
+      design elements of the previous two layouts, combining them into an efficient
+      and easier to navigate design. Hopefully this assists our doctors in doing their
+      jobs better.
+  Lord Fowl:
+  - tweak: Baton strikes directed to the head now disorientate instead of just causing
+      1.5x agony.
+  - tweak: Most hats now cover the head and provide appropriate protections.
+  PoZe:
+  - rscadd: Shaking table now knocks things off
+  - rscadd: Big mobs now knock things off table if they walk or climb on it, this
+      includes industrail IPC frames, Dionea, cows, etc. Other species will knock
+      things off if they are not in help intent or if they are running.
+  - maptweak: As per privacy update all bathrooms on the station no longer have cameras
+      installed in them, with the exception of the brig bathroom for prisoners.
+  - rscadd: Carps and giant spiders will now attack shields. If there are no other
+      targets present they will target shields. If there are any mobs present they
+      will try to reach them, and if there is a shield in the way they will destroy
+      it.
+  - tweak: Hostile mobs now have better search systems. They will prioritize any living
+      mobs over other targets.
+  PoZe, ben10083:
+  - maptweak: Nanotrasen has hired a designer to remake the interview room on the
+      Odin.
+  - maptweak: ERT Cmdr's Spec Ops ready room button now does not include the Admin
+      shuttle, the button for the Admin shuttle is now beside it's door. The Spec
+      Ops button is also renamed.
+  dapocalypse:
+  - rscadd: Added a password protection system for files on modular computers.
+2018-10-07:
+  BurgerBB:
+  - bugfix: Fixes shutters making everything look ugly.
+  - bugfix: Fixes disposals and cargo access.
+  - tweak: Increase the metabolism rate of drinks and alcohol so they metabolize faster.
+      Fixed incorrect metabolism rates for ethanol and butanol.
+  - tweak: Reverted the default settings to the UI to reflect old settings.
+  - balance: Alcohol now properly gets people drunk. Adjusted the metabolism rate
+      of ethanol/butanol.
+  - balance: Damage to slimes is now based on a percentage of the volume of that reagent
+      on the slime, meaning more water kills slimes faster.
+  - bugfix: Hunger/thirst icons now scale to their hunger/thirst levels appropriately.
+  - bugfix: Fixed hunger/thirst penalty scaling.
+2018-10-08:
+  PoZe:
+  - bugfix: Deleted wrong pipe below medical break room, it shouldn't shoot trash
+      anymore.
+  - maptweak: Added one cryostatis bag into medica storage. And added a sink to the
+      chemistry. Added disposal unit to EMT room.
+  - bugfix: Chemistry windoors access is fixed.
+  - bugfix: Regular ERT members no longer has access to Admin Shuttle(HAP) blast door
+      remote button. ERT commander and CCIA are the only people whose ID has access
+      to it.
+2018-10-09:
+  BurgerBB:
+  - bugfix: Fixed forcefeeding logic in feeding people food.
+  - tweak: Reverted nutrition loss from bloodloss changes to what it was before.
+2018-10-10:
+  Arrow768:
+  - bugfix: NanoTrasen Engineers have fixed issues such as missing holopads, newscasters,
+      vents and access errors throughout the station
+  - maptweak: The skylight has been readded to the psych wing.
+  BurgerBB:
+  - bugfix: Fixed a typo that caused hunger related hell to be unleashed upon players
+      when sprinting a lot.
+  - bugfix: Diona are no longer affected by thirst.
+  - tweak: Adjusted starting hunger values so that people don't come to the station
+      starving.
+  - tweak: Increased the metabolism rate of Neurotoxin so it doesn't stun for 30 seconds
+      when injected. Adjusted the injection strength of Doctor's Delight when injected.
+  - tweak: Adjusted ramen and ice nutrition and hydration stats.
+2018-10-20:
+  BurgerBB:
+  - bugfix: Fixed a bug that made everyone spawn chubby and with full nutrition. Thanks
+      BYOND.
+  LordFowl:
+  - bugfix: Removes the toolbelt in robotics that could fit anything.
+  PoZe:
+  - bugfix: Ninja suit now uses Vaurca sprite
+2018-10-21:
+  Drago:
+  - rscadd: Fixed Hand Teleporter Price being 5 credits, it is now 1800.
+  - rscdel: Made the grinder be able to eject its contents and beaker without power.
+  - rscdel: Slimes that drink water now get major toxin damage, far more then a shower.
+  - rscdel: IPCs No longer vomit with seismic charges
+  - rscdel: Fixed Briefcase missing hand sprites
+  - rscdel: Hydrogen KA now loads properly
+  - rscdel: NTOS cannot be pirated anymore
+  - rscdel: Advanced batteries fit into laptops now
+2018-10-23:
+  PoZe:
+  - tweak: Whitelist check is again enabled for nympth when they evolve into Gestalts.
+      For some reason it was diabled experimentally bizzillion seconds ago.
+2018-10-26:
+  Kaedwuff:
+  - tweak: Dionas now properly come from diona pods, instead of the legacy tag of
+      'replicant pods'.

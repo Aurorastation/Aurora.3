@@ -28,7 +28,7 @@
 	if(icon_state == initial(icon_state))
 		icon_state = pick(icon_states(icon) - icon_state)
 
-/obj/structure/trash_pile/MouseDrop_T(atom/dropping, mob/user)
+/obj/structure/trash_pile/mouse_drop_receive(atom/dropped, mob/user, params)
 	if(!Adjacent(user) || use_check_and_message(user))
 		return
 	user.visible_message("<b>[user]</b> starts climbing into \the [src]...", SPAN_NOTICE("You start climbing into \the [src]..."))
@@ -41,7 +41,9 @@
 			H.take_overall_damage(5, 0, DAMAGE_FLAG_SHARP, src)
 			to_chat(user, SPAN_WARNING("You cut yourself while climbing into \the [src]!"))
 
-/obj/structure/trash_pile/relaymove(mob/user)
+/obj/structure/trash_pile/relaymove(mob/living/user, direction)
+	. = ..()
+
 	if(user.stat || user.resting) // don't care too much about use_check here, checking these will suffice
 		return
 	user.forceMove(get_turf(src))
@@ -157,7 +159,7 @@
 		/obj/item/clothing/mask/gas/alt = 2,
 		/obj/item/clothing/mask/gas/half = 2,
 		/obj/item/clothing/shoes/galoshes = 2,
-		/obj/item/clothing/under/pants/camo = 2,
+		/obj/item/clothing/pants/camo = 2,
 		/obj/item/clothing/under/syndicate/tacticool = 2,
 		/obj/item/device/camera = 2,
 		/obj/item/device/flashlight/flare = 2,

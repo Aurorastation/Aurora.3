@@ -52,7 +52,7 @@
 #define GET_ZONE_NEIGHBOURS(T, ret) \
 	ret = 0; \
 	if (T.zone) { \
-		for (var/_gzn_dir in gzn_check) { \
+		for (var/_gzn_dir in GLOB.gzn_check) { \
 			var/turf/simulated/other = get_step(T, _gzn_dir); \
 			if (istype(other) && other.zone == T.zone) { \
 				var/block; \
@@ -82,7 +82,7 @@
 	if (!(. & (. - 1)))
 		return TRUE
 
-	for(var/dir in csrfz_check)
+	for(var/dir in GLOB.csrfz_check)
 		//for each pair of "adjacent" cardinals (e.g. NORTH and WEST, but not NORTH and SOUTH)
 		if((dir & check_dirs) == dir)
 			//check that they are connected by the corner turf
@@ -93,7 +93,7 @@
 
 			var/connected_dirs
 			GET_ZONE_NEIGHBOURS(T, connected_dirs)
-			if(connected_dirs && (dir & GLOB.reverse_dir[connected_dirs]) == dir)
+			if(connected_dirs && (dir & REVERSE_DIR(connected_dirs)) == dir)
 				. &= ~dir //they are, so unflag the cardinals in question
 
 	//it is safe to remove src from the zone if all cardinals are connected by corner turfs
@@ -179,7 +179,7 @@
 		if(istype(unsim, /turf/simulated))
 
 			var/turf/simulated/sim = unsim
-			sim.open_directions |= GLOB.reverse_dir[d]
+			sim.open_directions |= REVERSE_DIR(d)
 
 			if(TURF_HAS_VALID_ZONE(sim))
 				//Might have assigned a zone, since this happens for each direction.
@@ -201,7 +201,7 @@
 						sim.zone.add(src)
 
 						#ifdef ZASDBG
-						dbg(assigned)
+						dbg(GLOB.assigned)
 						log_subsystem_zas_debug("Added to [zone]")
 						#endif
 
@@ -229,7 +229,7 @@
 		newzone.add(src)
 
 	#ifdef ZASDBG
-		dbg(created)
+		dbg(GLOB.created)
 
 	ASSERT(zone)
 	#endif

@@ -66,7 +66,7 @@
 
 	doors_closing = 0 // The doors weren't open, so they are done closing
 
-	var/area/turbolift/origin = locate(current_floor.area_ref) in GLOB.all_areas
+	var/area/turbolift/origin = locate(current_floor.area_ref) in get_sorted_areas()
 
 	if(target_floor == current_floor)
 		playsound(control_panel_interior.loc, origin.arrival_sound, 50, 1)
@@ -86,7 +86,7 @@
 	else
 		next_floor = floors[current_floor_index - 1]
 
-	var/area/turbolift/destination = locate(next_floor.area_ref) in GLOB.all_areas
+	var/area/turbolift/destination = locate(next_floor.area_ref) in get_sorted_areas()
 
 	if(!istype(origin) || !istype(destination) || (origin == destination))
 		return 0
@@ -98,7 +98,7 @@
 				AM.crush_act()
 	else
 		for(var/turf/simulated/wall/W in origin)
-			var/turf/T = GET_ABOVE(W)
+			var/turf/T = GET_TURF_ABOVE(W)
 			for(var/atom/movable/AM in T)
 				if(next_floor == floors[floors.len])
 					AM.crush_act()
@@ -108,7 +108,9 @@
 	origin.move_contents_to(destination)
 	for(var/thing in move_candidates)
 		var/atom/movable/AM = thing
-		AM.forceMove(GET_ABOVE(AM))
+		var/turf/T = get_turf(AM)
+		if(istype(T))
+			AM.forceMove(GET_TURF_ABOVE(T))
 
 	current_floor = next_floor
 	control_panel_interior.visible_message("The elevator [moving_upwards ? "rises" : "descends"] smoothly.")

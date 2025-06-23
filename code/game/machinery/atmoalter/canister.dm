@@ -11,7 +11,7 @@
 	density = 1
 	var/health = 100.0
 	obj_flags = OBJ_FLAG_SIGNALER | OBJ_FLAG_CONDUCTABLE
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 
 	var/valve_open = 0
 	var/release_pressure = ONE_ATMOSPHERE
@@ -55,8 +55,10 @@
 /obj/machinery/portable_atmospherics/canister/oxygen/Initialize()
 	. = ..()
 	src.air_contents.adjust_gas(GAS_OXYGEN, MolesForPressure())
+
 /obj/machinery/portable_atmospherics/canister/oxygen/prechilled
 	name = "Canister: \[O2 (Cryo)\]"
+
 /obj/machinery/portable_atmospherics/canister/oxygen/prechilled/Initialize()
 	. = ..()
 	src.air_contents.temperature = 80
@@ -69,6 +71,7 @@
 /obj/machinery/portable_atmospherics/canister/phoron/Initialize()
 	. = ..()
 	src.air_contents.adjust_gas(GAS_PHORON, MolesForPressure())
+
 /obj/machinery/portable_atmospherics/canister/phoron_scarce // replacing on-station canisters with this for scarcity - full-capacity canisters are staying to avoid mapping errors in future
 	name = "Canister \[Phoron\]"
 	icon_state = "orange"
@@ -92,6 +95,7 @@
 /obj/machinery/portable_atmospherics/canister/hydrogen/Initialize()
 	. = ..()
 	air_contents.adjust_gas(GAS_HYDROGEN, MolesForPressure())
+
 /obj/machinery/portable_atmospherics/canister/hydrogen/deuterium
 	name = "Canister \[2H\]"
 	icon_state = "teal"
@@ -100,6 +104,7 @@
 /obj/machinery/portable_atmospherics/canister/hydrogen/deuterium/Initialize()
 	. = ..()
 	air_contents.adjust_gas(GAS_DEUTERIUM, MolesForPressure())
+
 /obj/machinery/portable_atmospherics/canister/hydrogen/tritium
 	name = "Canister \[3H\]"
 	icon_state = "pink"
@@ -126,6 +131,7 @@
 /obj/machinery/portable_atmospherics/canister/boron/Initialize()
 	. = ..()
 	air_contents.adjust_gas(GAS_BORON, MolesForPressure())
+
 /obj/machinery/portable_atmospherics/canister/chlorine
 	name = "\improper Chlorine \[Cl2\]"
 	icon_state = "darkyellow"
@@ -167,8 +173,9 @@
 	icon_state = "grey"
 	canister_color = "grey"
 	can_label = 0
+
 /obj/machinery/portable_atmospherics/canister/air/airlock
-	start_pressure = 3 * ONE_ATMOSPHERE
+	start_pressure = 6 * ONE_ATMOSPHERE
 
 /obj/machinery/portable_atmospherics/canister/empty
 	start_pressure = 0
@@ -275,9 +282,9 @@ update_flag
 */
 
 	if (src.destroyed)
-		cut_overlays()
+		ClearOverlays()
 		set_light(FALSE)
-		src.icon_state = text("[]-1", src.canister_color)
+		src.icon_state = "[src.canister_color]-1"
 		return
 
 	if(icon_state != "[canister_color]")
@@ -286,34 +293,36 @@ update_flag
 	if(check_change()) //Returns 1 if no change needed to icons.
 		return
 
-	cut_overlays()
+	ClearOverlays()
 	set_light(FALSE)
 
 	if(signaler)
-		add_overlay("signaler")
+		AddOverlays("signaler")
 
 	if(update_flag & 1)
-		add_overlay("can-open")
+		AddOverlays("can-open")
 	if(update_flag & 2)
-		add_overlay("can-connector")
+		AddOverlays("can-connector")
 	if(update_flag & 4)
-		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o0", EFFECTS_ABOVE_LIGHTING_LAYER)
-		add_overlay(indicator_overlay)
+		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o0", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
+		AddOverlays(indicator_overlay)
 		set_light(1.4, 1, COLOR_RED_LIGHT)
 	if(update_flag & 8)
-		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o1", EFFECTS_ABOVE_LIGHTING_LAYER)
-		add_overlay(indicator_overlay)
+		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o1", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
+		AddOverlays(indicator_overlay)
 		set_light(1.4, 1, COLOR_RED_LIGHT)
 	else if(update_flag & 16)
-		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o2", EFFECTS_ABOVE_LIGHTING_LAYER)
-		add_overlay(indicator_overlay)
+		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o2", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
+		AddOverlays(indicator_overlay)
 		set_light(1.4, 1, COLOR_YELLOW)
 	else if(update_flag & 32)
-		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o3", EFFECTS_ABOVE_LIGHTING_LAYER)
-		add_overlay(indicator_overlay)
+		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o3", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
+		AddOverlays(indicator_overlay)
 		set_light(1.4, 1, COLOR_BRIGHT_GREEN)
 
-/obj/machinery/portable_atmospherics/canister/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/obj/machinery/portable_atmospherics/canister/fire_act(exposed_temperature, exposed_volume)
+	. = ..()
+
 	if(exposed_temperature > temperature_resistance)
 		health -= 5
 		healthcheck()
@@ -390,16 +399,19 @@ update_flag
 		return GM.return_pressure()
 	return 0
 
-/obj/machinery/portable_atmospherics/canister/bullet_act(var/obj/item/projectile/Proj)
-	if(!(Proj.damage_type == DAMAGE_BRUTE || Proj.damage_type == DAMAGE_BURN))
-		return
+/obj/machinery/portable_atmospherics/canister/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
 
-	if(Proj.damage)
-		src.health -= round(Proj.damage / 2)
+	if(!(hitting_projectile.damage_type == DAMAGE_BRUTE || hitting_projectile.damage_type == DAMAGE_BURN))
+		return BULLET_ACT_BLOCK
+
+	if(hitting_projectile.damage)
+		src.health -= round(hitting_projectile.damage / 2)
 		healthcheck()
-	..()
 
-/obj/machinery/portable_atmospherics/canister/AltClick(var/mob/abstract/observer/admin)
+/obj/machinery/portable_atmospherics/canister/AltClick(var/mob/abstract/ghost/observer/admin)
 	if (istype(admin))
 		if (admin.client && admin.client.holder && ((R_MOD|R_ADMIN) & admin.client.holder.rights))
 			if (valve_open)
@@ -558,13 +570,15 @@ update_flag
 /obj/machinery/portable_atmospherics/canister/sleeping_agent/roomfiller/Initialize()
 	. = ..()
 	air_contents.gas[GAS_N2O] = 9*4000
-	spawn(10)
-		var/turf/simulated/location = src.loc
-		if (istype(src.loc))
-			while (!location.air)
-				sleep(10)
-			location.assume_air(air_contents)
-			air_contents = new
+	addtimer(CALLBACK(src, PROC_REF(fill_room)), 1 SECONDS)
+
+/obj/machinery/portable_atmospherics/canister/sleeping_agent/roomfiller/proc/fill_room()
+	var/turf/simulated/location = src.loc
+	if (istype(src.loc))
+		while (!location.air)
+			sleep(10)
+		location.assume_air(air_contents)
+		air_contents = new
 
 /obj/machinery/portable_atmospherics/canister/nitrogen/Initialize()
 	. = ..()
@@ -587,13 +601,13 @@ update_flag
 	. = ..()
 	src.air_contents.temperature = 283
 
+/obj/machinery/portable_atmospherics/canister/air/warm/Initialize()
+	. = ..()
+	src.air_contents.temperature = 303.15
+
 /obj/machinery/portable_atmospherics/canister/chlorine/antag // Keeping the chlorine canister with the skull on it seems fun for antags.
 	name = "Canister: \[Cl2\]"
 	icon_state = "poisonous"
 	canister_color = "poisonous"
 	desc = "A canister of Chlorine, with a warning label for poisonous gasses."
 	can_label = 0
-/obj/machinery/portable_atmospherics/canister/chlorine/Initialize()
-	. = ..()
-
-	src.air_contents.adjust_gas(GAS_CHLORINE, MolesForPressure())

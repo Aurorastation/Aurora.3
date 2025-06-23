@@ -24,7 +24,7 @@ SUBSYSTEM_DEF(effects)
 		var/datum/effect_system/E = current_effects[current_effects.len]
 		current_effects.len--
 
-		if (QDELETED(E) || !E.isprocessing)
+		if (QDELETED(E) || !(E.datum_flags & DF_ISPROCESSING))
 			if (MC_TICK_CHECK)
 				return
 			continue
@@ -47,7 +47,7 @@ SUBSYSTEM_DEF(effects)
 		var/obj/effect/visual/V = current_visuals[current_visuals.len]
 		current_visuals.len--
 
-		if (QDELETED(V) || !V.isprocessing)
+		if (QDELETED(V) || !(V.datum_flags & DF_ISPROCESSING))
 			visuals -= V
 			if (MC_TICK_CHECK)
 				return

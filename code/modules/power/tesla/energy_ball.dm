@@ -17,7 +17,7 @@
 	dissipate = 1
 	dissipate_delay = 10
 	dissipate_strength = 1
-	layer = EFFECTS_ABOVE_LIGHTING_LAYER
+	plane = EFFECTS_ABOVE_LIGHTING_PLANE
 	blend_mode = BLEND_ADD
 	var/failed_direction = 0
 	var/list/orbiting_balls = list()
@@ -31,9 +31,6 @@
 
 /obj/singularity/energy_ball/Destroy()
 	walk(src, 0) // Stop walking
-	if(orbiting && istype(orbiting.orbiting, /obj/singularity/energy_ball))
-		var/obj/singularity/energy_ball/EB = orbiting.orbiting
-		EB.orbiting_balls -= src
 
 	for(var/ball in orbiting_balls)
 		var/obj/singularity/energy_ball/EB = ball
@@ -106,10 +103,12 @@
 	var/turf/T
 	switch(move_dir)
 		if(UP)
-			T = GetAbove(src)
+			var/turf/current_turf = get_turf(src)
+			T = GET_TURF_ABOVE(current_turf)
 			z_move = 1
 		if(DOWN)
-			T = GetBelow(src)
+			var/turf/current_turf = get_turf(src)
+			T = GET_TURF_BELOW(current_turf)
 			z_move = -1
 		else
 			T = get_step(src, move_dir)
@@ -196,7 +195,7 @@
 	var/orbitsize = (I.Width() + I.Height()) * pick(0.4, 0.5, 0.6, 0.7, 0.8)
 	orbitsize -= (orbitsize / world.icon_size) * (world.icon_size * 0.25)
 
-	EB.orbit(src, orbitsize, pick(FALSE, TRUE), rand(10, 25), pick(3, 4, 5, 6, 36))
+	EB.orbit(src, orbitsize, rand(10, 25))
 
 
 /obj/singularity/energy_ball/Collide(atom/A)
@@ -211,16 +210,20 @@
 		var/obj/O = A
 		O.tesla_act(0, TRUE)
 
-/obj/singularity/energy_ball/CollidedWith(atom/A)
-	if(check_for_immune(A))
+/obj/singularity/energy_ball/CollidedWith(atom/bumped_atom)
+	//Fucking snowflake code
+	SHOULD_CALL_PARENT(FALSE)
+	SEND_SIGNAL(src, COMSIG_ATOM_BUMPED, bumped_atom)
+
+	if(check_for_immune(bumped_atom))
 		return
-	if(isliving(A))
-		dust_mobs(A)
-	else if(isobj(A))
-		if(istype(A, /obj/effect/accelerated_particle))
-			consume(A)
+	if(isliving(bumped_atom))
+		dust_mobs(bumped_atom)
+	else if(isobj(bumped_atom))
+		if(istype(bumped_atom, /obj/effect/accelerated_particle))
+			consume(bumped_atom)
 			return
-		var/obj/O = A
+		var/obj/O = bumped_atom
 		O.tesla_act(0, TRUE)
 
 /obj/singularity/energy_ball/proc/check_for_immune(var/O)
@@ -251,10 +254,6 @@
 	. = ..()
 
 /obj/singularity/energy_ball/stop_orbit()
-	if (orbiting && istype(orbiting.orbiting, /obj/singularity/energy_ball))
-		var/obj/singularity/energy_ball/orbitingball = orbiting.orbiting
-		orbitingball.orbiting_balls -= src
-		orbitingball.dissipate_strength = orbitingball.orbiting_balls.len
 	. = ..()
 	if (!loc && !QDELETED(src))
 		qdel(src)
@@ -425,7 +424,7 @@
 		closest_emitter.tesla_act(power, melt)
 
 	else if(closest_mob)
-		var/shock_damage = Clamp(round(power/400), 10, 90) + rand(-5, 5)
+		var/shock_damage = clamp(round(power/400), 10, 90) + rand(-5, 5)
 		closest_mob.electrocute_act(shock_damage, source, 1, tesla_shock = 1)
 		if(issilicon(closest_mob))
 			var/mob/living/silicon/S = closest_mob

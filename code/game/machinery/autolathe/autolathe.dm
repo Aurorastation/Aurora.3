@@ -47,6 +47,7 @@
 	..()
 	wires = new(src)
 	print_loc = src
+	update_icon()
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/autolathe/LateInitialize()
@@ -78,6 +79,18 @@
 	SSmaterials.autolathe_categories |= "All"
 	SSmaterials.autolathe_categories = sort_list(SSmaterials.autolathe_categories, GLOBAL_PROC_REF(cmp_text_asc))
 
+/obj/machinery/autolathe/proc/can_print_item(var/singleton/autolathe_recipe/recipe)
+	var/ship_security_level = seclevel2num(get_security_level())
+	var/is_on_ship = is_station_level(z) // since ship security levels are global FOR NOW, we'll ignore the alert check for offship autolathes
+
+	if(!hacked)
+		if(recipe.hack_only)
+			return FALSE
+		else if(is_on_ship && ship_security_level < recipe.security_level)
+			return FALSE
+
+	return TRUE
+
 /obj/machinery/autolathe/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
@@ -86,6 +99,7 @@
 
 /obj/machinery/autolathe/ui_data(mob/user)
 	. = ..()
+
 	var/list/data = list()
 	data["disabled"] = disabled
 	data["material_efficiency"] = mat_efficiency
@@ -95,14 +109,21 @@
 	for(var/material in stored_material)
 		data["materials"] += list(list("material" = material, "stored" = stored_material[material], "max_capacity" = storage_capacity[material]))
 	data["recipes"] = list()
+
 	for(var/recipe in GET_SINGLETON_SUBTYPE_LIST(/singleton/autolathe_recipe))
 		var/singleton/autolathe_recipe/R = recipe
-		if(R.hidden && !hacked)
+		if(is_abstract(R))
 			continue
+		if(R.hack_only && !hacked)
+			continue
+
 		var/list/recipe_data = list()
 		recipe_data["name"] = R.name
 		recipe_data["recipe"] = R.type
-		recipe_data["hidden"] = R.hidden
+		recipe_data["security_level"] = R.security_level ? capitalize(num2seclevel(R.security_level)) : "None"
+		recipe_data["hack_only"] = R.hack_only
+		recipe_data["enabled"] = can_print_item(R)
+
 		var/list/resources = list()
 		for(var/resource in R.resources)
 			resources += "[R.resources[resource] * mat_efficiency] [resource]"
@@ -118,12 +139,12 @@
 
 	data["currently_printing"] = null
 	if(currently_printing)
-		data["currently_printing"] = "\ref[currently_printing]"
+		data["currently_printing"] = "[REF(currently_printing)]"
 	data["queue"] = list()
 	for(var/datum/autolathe_queue_item/AR in print_queue)
 		data["queue"] += list(
 			list(
-				"ref" = "\ref[AR]",
+				"ref" = "[REF(AR)]",
 				"order" = AR.recipe.name,
 				"path" = AR.recipe.type,
 				"multiplier" = AR.multiplier,
@@ -149,15 +170,6 @@
 	if(stat)
 		return TRUE
 
-	if(panel_open)
-		//Don't eat multitools or wirecutters used on an open lathe.
-		if(attacking_item.ismultitool() || attacking_item.iswirecutter())
-			if(panel_open)
-				wires.interact(user)
-			else
-				to_chat(user, SPAN_WARNING("\The [src]'s wires aren't exposed."))
-			return TRUE
-
 	if(attacking_item.loc != user && !istype(attacking_item, /obj/item/stack))
 		return FALSE
 
@@ -168,6 +180,8 @@
 	return TRUE
 
 /obj/machinery/autolathe/attack_hand(mob/user)
+	if(panel_open)
+		wires.interact(user)
 	user.set_machine(src)
 	ui_interact(user)
 
@@ -179,13 +193,16 @@
 	usr.set_machine(src)
 	add_fingerprint(usr)
 
-	playsound(src, /singleton/sound_category/keyboard_sound)
+	playsound(src, /singleton/sound_category/keyboard_sound, 50)
 
 	if(action == "make")
 		var/multiplier = text2num(params["multiplier"])
 		var/singleton/autolathe_recipe/R = GET_SINGLETON(text2path(params["recipe"]))
 		if(!istype(R))
-			CRASH("Unknown recipe given! [R], param is [params["recipe"]].")
+			CRASH("([usr.ckey]) tried to print an unknown recipe! [R], param is [params["recipe"]].")
+
+		if(!can_print_item(R))
+			CRASH("([usr.ckey]) tried to print an un-enabled recipe! [R], param is [params["recipe"]].")
 
 		intent_message(MACHINE_SOUND)
 
@@ -242,11 +259,12 @@
 		else if((autolathe_flags & AUTOLATHE_BUSY))
 			process_queue_item()
 
-/// Used so that we don't try to add_overlay every tick the autolathe processes.
+/// Used so that we don't try to AddOverlays every tick the autolathe processes.
 /obj/machinery/autolathe/proc/start_processing_queue_item()
 	if(does_flick)
 		//Fancy autolathe animation.
-		add_overlay("process")
+		AddOverlays(emissive_appearance(icon, "[icon_state]_lights_working"))
+		AddOverlays("[icon_state]_lights_working")
 	autolathe_flags |= AUTOLATHE_STARTED|AUTOLATHE_BUSY
 
 /obj/machinery/autolathe/proc/process_queue_item()
@@ -269,14 +287,23 @@
 
 	print_queue -= currently_printing
 	QDEL_NULL(currently_printing)
-	cut_overlay("process")
+	CutOverlays(emissive_appearance(icon, "[icon_state]_lights_working"))
+	CutOverlays("[icon_state]_lights_working")
 	I.update_icon()
+	flick_overlay_view(mutable_appearance(icon, "[icon_state]_print"), 1 SECONDS)
 	update_use_power(POWER_USE_IDLE)
 
 	return TRUE
 
 /obj/machinery/autolathe/update_icon()
-	icon_state = (panel_open ? "autolathe_panel" : "autolathe")
+	CutOverlays("[icon_state]_panel")
+	CutOverlays(emissive_appearance(icon, "[icon_state]_lights"))
+	CutOverlays("[icon_state]_lights")
+	if(panel_open)
+		AddOverlays("[icon_state]_panel")
+	if(!(stat & (NOPOWER|BROKEN)))
+		AddOverlays(emissive_appearance(icon, "[icon_state]_lights"))
+		AddOverlays("[icon_state]_lights")
 
 //Updates overall lathe storage size.
 /obj/machinery/autolathe/RefreshParts()
@@ -361,15 +388,20 @@
 
 	// Plays metal insertion animation.
 	if(istype(eating, /obj/item/stack/material))
-		var/obj/item/stack/material/sheet = eating
-		var/icon/load = icon(icon, "load")
-		load.Blend(sheet.material.icon_colour,ICON_MULTIPLY)
-		add_overlay(load)
-		CUT_OVERLAY_IN(load, 6)
+		var/obj/item/stack/material/stack = eating
+		var/mutable_appearance/M = mutable_appearance(icon, "material_insertion")
+		M.color = stack.material.icon_colour
+		//first play the insertion animation
+		flick_overlay_view(M, 1 SECONDS)
+
+		//now play the progress bar animation
+		flick_overlay_view(mutable_appearance(icon, "autolathe_progress"), 1 SECONDS)
 
 	if(istype(eating, /obj/item/stack))
 		var/obj/item/stack/stack = eating
-		var/amount_needed = total_used / mass_per_sheet
+		var/amount_needed
+		if(total_used && mass_per_sheet)
+			amount_needed = total_used / mass_per_sheet
 		stack.use(min(stack.get_amount(), (round(amount_needed) == amount_needed)? amount_needed : round(amount_needed) + 1)) // Prevent maths imprecision from leading to infinite resources
 	else
 		user.remove_from_mob(O)

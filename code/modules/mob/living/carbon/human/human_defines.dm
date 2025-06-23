@@ -1,4 +1,7 @@
 /mob/living/carbon/human
+
+	blocks_emissive = EMISSIVE_BLOCK_NONE
+
 	// Tail Style
 	var/tail_style = null
 
@@ -73,6 +76,7 @@
 	var/obj/item/l_store = null
 	var/obj/item/s_store = null
 	var/obj/item/wrists = null
+	var/obj/item/pants = null
 
 	var/icon/stand_icon = null
 	var/icon/lying_icon = null

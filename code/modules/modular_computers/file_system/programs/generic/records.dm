@@ -28,7 +28,7 @@
 		"physical_status" = list("Active", "*Deceased*", "*SSD*", "*Missing*", "Physically Unfit", "Disabled"),
 		"criminal_status" = list("None", "*Arrest*", "Search", "Incarcerated", "Parolled", "Released"),
 		"mental_status" = list("Stable", "*Insane*", "*Unstable*", "*Watch*"),
-		"medical" = list("A-", "B-", "AB-", "O-", "A+", "B+", "AB+", "O+")
+		"medical" = list("A-", "B-", "AB-", "O-", "A+", "B+", "AB+", "O+", "SBS")
 	)
 
 /datum/computer_file/program/records/New()
@@ -92,10 +92,6 @@
 	program_key_icon_state = "lightblue_key"
 	color = LIGHT_COLOR_BLUE
 
-/datum/computer_file/program/records/employment/Destroy()
-	. = ..()
-
-
 /datum/computer_file/program/records/pai
 	available_on_ntnet = 1
 	extended_desc = "This program is used to view crew records."
@@ -137,14 +133,14 @@
 				"sex" = R.sex,
 				"age" = R.age,
 				"fingerprint" = R.fingerprint,
-				"has_notes" = R.notes,
+				"has_notes" = html_decode(R.notes),
 				"physical_status" = R.physical_status,
 				"mental_status" = R.mental_status,
 				"species" = R.species,
 				"citizenship" = R.citizenship,
 				"religion" = R.religion,
 				"employer" = R.employer,
-				"notes" = R.notes,
+				"notes" = html_decode(R.notes),
 				"blood" = R.medical ? R.medical.blood_type : null,
 				"dna" = R.medical ? R.medical.blood_dna : null,
 				"ccia_notes" = R.ccia_record,
@@ -171,7 +167,7 @@
 				excluded += "security"
 			if(!(records_type & RECORD_MEDICAL))
 				excluded += "medical"
-			var/returned = active.Listify(1, excluded, data["active"])
+			var/returned = active.Listify(1, excluded, data["active"], decode_html = TRUE)
 			if(returned)
 				data["active"] = returned
 	else
@@ -182,7 +178,6 @@
 	. = ..()
 	if(.)
 		return
-
 	if(action == "login")
 		if(can_run(usr, TRUE))
 			authenticated = TRUE

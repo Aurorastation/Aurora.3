@@ -2,7 +2,7 @@
 
 /obj/effect/plant/proc/get_cardinal_neighbors()
 	var/list/cardinal_neighbors = list()
-	for(var/check_dir in GLOB.cardinal)
+	for(var/check_dir in GLOB.cardinals)
 		var/turf/simulated/T = get_step(get_turf(src), check_dir)
 		if(istype(T))
 			cardinal_neighbors |= T
@@ -38,7 +38,7 @@
 		die_off()
 		return 0
 
-	for(var/obj/effect/effect/smoke/chem/smoke in view(1, src))
+	for(var/obj/effect/smoke/chem/smoke in view(1, src))
 		if(smoke.reagents.has_reagent(/singleton/reagent/toxin/plantbgone))
 			die_off()
 			return

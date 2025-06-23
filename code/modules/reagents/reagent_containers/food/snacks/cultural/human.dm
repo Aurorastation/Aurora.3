@@ -244,6 +244,58 @@
 	bitesize = 2
 	filling_color = "#bb8432"
 
+/obj/item/reagent_containers/food/snacks/biscuits_and_gravy
+	name = "biscuits and gravy"
+	gender = PLURAL
+	desc = "Plump biscuits in a thick, rich sausage gravy. A meal traditionally popular in the southern United States, and it's not hard to see why."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "gravybiscuits"
+	trash = /obj/item/trash/plate
+
+	reagents_to_add = list(/singleton/reagent/nutriment = 6, /singleton/reagent/nutriment/protein = 3, /singleton/reagent/condiment/gravy =3)
+	reagent_data = list(/singleton/reagent/nutriment = list("flaky biscuits" = 10), /singleton/reagent/nutriment/protein = list("sausage gravy" = 5))
+	bitesize = 3
+	filling_color = "#bb8432"
+
+/obj/item/reagent_containers/food/snacks/biscuits_and_gravy/update_icon()
+	var/expected_initial_reagent_volume
+	for(var/k in src.reagents_to_add)
+		expected_initial_reagent_volume += reagents_to_add[k]
+	var/percent_biscuits_and_gravy = round((reagents.total_volume / expected_initial_reagent_volume) * 100)
+	switch(percent_biscuits_and_gravy)
+		if(0 to 49)
+			icon_state = "gravybiscuits_half"
+		if(50 to INFINITY)
+			icon_state = "gravybiscuits"
+
+/obj/item/reagent_containers/food/snacks/bowl/mozzarella_sticks
+	name = "mozzarella sticks"
+	gender = PLURAL
+	desc = "Fried sticks of molten mozzarrella cheese hidden in a deep fried breaded coating. "
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "mozzarella_sticks"
+	unitname = "mozzarella stick"
+	filling_color = "#fabe17"
+	trash = /obj/item/trash/plate
+	vendingobject = /obj/item/reagent_containers/food/snacks/mozzarella_stick
+	bitesize = 1
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/cheese = 4, /singleton/reagent/nutriment = 4)
+	reagent_data = list(/singleton/reagent/nutriment/protein/cheese = list("molten cheese" = 5), /singleton/reagent/nutriment = list("crunchy coating" = 5))
+
+/obj/item/reagent_containers/food/snacks/bowl/mozzarella_sticks/update_icon()
+	switch(reagents.total_volume)
+		if(1 to 3)
+			icon_state = "mozzarella_sticks_half"
+		if(4 to INFINITY)
+			icon_state = "mozzarella_sticks"
+
+/obj/item/reagent_containers/food/snacks/mozzarella_stick
+	name = "mozzarella stick"
+	desc = "A cheese stick by any other name would taste as savory."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "mozzarella_stick"
+	filling_color = "#fabe17"
+
 // Konyang
 
 /obj/item/reagent_containers/food/snacks/mossbowl
@@ -372,6 +424,73 @@
 		if(91 to INFINITY)
 			icon_state = "riceball"
 
+/obj/item/reagent_containers/food/snacks/sweet_chili_chicken
+	name = "sweet chili chicken"
+	desc = "Konyanger style chicken bursting with flavor served over a bed of rice, covered in sesame and green onions with a healthy helping of sweet chili sauce. A little bit spicy, a little bit sweet, a little bit connected to it's roots in Asia, and a little bit modern. In other words - Very Konyang."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "sweetchilichicken"
+	filling_color = "#C97F02"
+	trash = /obj/item/trash/bowl_small
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 4, /singleton/reagent/nutriment = 1, /singleton/reagent/nutriment/rice = 3, /singleton/reagent/capsaicin = 1)
+	reagent_data = list(/singleton/reagent/nutriment = list("rice" = 4), /singleton/reagent/nutriment/protein = list("sweet and spicy chicken" = 5))
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/bowl/eggrolls_vegetable
+	name = "vegetable eggrolls"
+	gender = PLURAL
+	desc = "Fried, crispy eggrolls full of carrots, cabbage and ginger. Contrary to popular belief, eggrolls are frequently made without any eggs, using rice paper or wheat based wraps instead."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "eggrolls_veg_full"
+	unitname = "eggroll"
+	filling_color = "#b19445"
+	trash = /obj/item/trash/plate
+	vendingobject = /obj/item/reagent_containers/food/snacks/eggroll_vegetable
+	bitesize = 2
+	reagents_to_add = list(/singleton/reagent/nutriment = 6)
+	reagent_data = list(/singleton/reagent/nutriment = list("vegetables" = 5, "crunchy coating" = 5, "ginger" = 3))
+
+/obj/item/reagent_containers/food/snacks/bowl/eggrolls_vegetable/update_icon()
+	switch(reagents.total_volume)
+		if(1 to 2)
+			icon_state = "eggrolls_veg_one"
+		if(3 to INFINITY)
+			icon_state = "eggrolls_veg_full"
+
+/obj/item/reagent_containers/food/snacks/eggroll_vegetable
+	name = "vegetable eggroll"
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	desc = "A crunchy eggroll full of crispy veggies."
+	icon_state = "eggroll_veg"
+	filling_color = "#b19445"
+
+/obj/item/reagent_containers/food/snacks/bowl/eggrolls_meat
+	name = "meat eggrolls"
+	gender = PLURAL
+	desc = "Fried, crispy eggrolls full of meat, traditionally either pork or chicken, although other kinds exist around the spur. Contrary to popular belief, eggrolls are frequently made without any eggs, using rice paper or wheat based wraps instead."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "eggrolls_meat_full"
+	unitname = "eggroll"
+	filling_color = "#613e16"
+	trash = /obj/item/trash/plate
+	vendingobject = /obj/item/reagent_containers/food/snacks/eggroll_meat
+	bitesize = 2
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 3, /singleton/reagent/nutriment = 3)
+	reagent_data = list(/singleton/reagent/nutriment/protein = list("meat" = 5), /singleton/reagent/nutriment = list("crunchy coating" = 5, "ginger" = 3))
+
+/obj/item/reagent_containers/food/snacks/bowl/eggrolls_meat/update_icon()
+	switch(reagents.total_volume)
+		if(1 to 2)
+			icon_state = "eggrolls_meat_one"
+		if(3 to INFINITY)
+			icon_state = "eggrolls_meat_full"
+
+/obj/item/reagent_containers/food/snacks/eggroll_meat
+	name = "meat eggroll"
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	desc = "A crunchy eggroll full of meat and ginger."
+	icon_state = "eggroll_meat"
+	filling_color = "#613e16"
+
 // Mictlani
 
 /obj/item/reagent_containers/food/snacks/soup/pozole
@@ -381,6 +500,18 @@
 	icon_state = "dynpozole"
 	reagent_data = list(/singleton/reagent/nutriment = list("peppermint" = 2, "salad" = 4, "hot stew" = 2))
 	reagents_to_add = list(/singleton/reagent/nutriment = 8, /singleton/reagent/water = 5, /singleton/reagent/drink/dynjuice =2)
+
+/obj/item/reagent_containers/food/snacks/elotes
+	name = "elotes"
+	gender = PLURAL
+	desc = "Grilled mexican sweet corn with chili powder, mayonnaise, cheese, sour cream, and seasonings."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "elotes"
+	trash = /obj/item/trash/plate
+	reagents_to_add = list(/singleton/reagent/nutriment = 6, /singleton/reagent/nutriment/protein = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("corn" = 5, "zesty seasoning" = 3, "lime" = 3), /singleton/reagent/nutriment/protein = list("cheese" = 5))
+	bitesize = 2
+	filling_color = "#d8ab18"
 
 // Dominia
 /obj/item/reagent_containers/food/snacks/moroz_flatbread
@@ -501,8 +632,7 @@
 
 // Eridani
 
-/obj/item/reagent_containers/food/snacks/bowl
-	abstract_type = /obj/item/reagent_containers/food/snacks/bowl
+ABSTRACT_TYPE(/obj/item/reagent_containers/food/snacks/bowl)
 	name = "a bowl of item"
 	desc = "If you're seeing this, something has gone wrong D:"
 	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
@@ -538,11 +668,13 @@
 			user.put_in_hands(waste)
 		qdel(src)
 
-/obj/item/reagent_containers/food/snacks/bowl/MouseDrop(mob/user) //Dropping the bowl of food onto the user
-	if(istype(user) && !use_check_and_message(user))
-		user.put_in_active_hand(src)
-		src.pickup(user)
+/obj/item/reagent_containers/food/snacks/bowl/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params) //Dropping the bowl of food onto the user
+	var/mob/mob_dropped_over = over
+	if(istype(mob_dropped_over) && !use_check_and_message(mob_dropped_over))
+		mob_dropped_over.put_in_active_hand(src)
+		src.pickup(mob_dropped_over)
 		return
+
 	. = ..()
 
 /obj/item/reagent_containers/food/snacks/bowl/puffpuffs/update_icon()
@@ -565,6 +697,7 @@
 	desc = "These Eridanian dumplings are made from plantains, and while dense, they are not typically supposed to be served on their own, but rather as a side dish for various Eridanian soups."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
 	icon_state = "fufubowl"
+	unitname = "fufu dumpling"
 	filling_color = "#eee0b1"
 	vendingobject = /obj/item/reagent_containers/food/snacks/fufu
 	bitesize = 3
@@ -585,6 +718,64 @@
 	icon_state = "fufuone"
 	bitesize = 2
 	filling_color = "#eee0b1"
+
+/obj/item/reagent_containers/food/snacks/dodo_ikire
+	name = "dodo ikire"
+	desc = "Originally a Nigerian dish, dodo ikire is traditionally made of over-ripe plantains fried in palm oil with crushed chili, sometimes with onion or ginger for additional flavoring. an Eridanian favorite!"
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "dodo"
+	filling_color = "#331d13"
+	reagents_to_add = list(/singleton/reagent/nutriment/ = 5, /singleton/reagent/capsaicin = 2)
+	bitesize = 2
+	trash = /obj/item/trash/plate
+	reagent_data = list(/singleton/reagent/nutriment = list("plantains" = 5, "chili" = 3, "zest" = 2))
+
+/obj/item/reagent_containers/food/snacks/dodo_ikire/update_icon()
+	var/percent_dodo = round((reagents.total_volume / 7) * 100)
+	switch(percent_dodo)
+		if(0 to 49)
+			icon_state = "dodo_half"
+		if(50 to INFINITY)
+			icon_state = "dodo"
+
+/obj/item/reagent_containers/food/snacks/crimson_lime
+	name = "crimson lime"
+	desc = "Possibly named after the presidential crimson house of Suwong, the Konyanger city this dessert originates from, or possibly named after the hint of chili that's mixed into this dessert. Crimson fruit are typically various jungle or citrus fruits coated in dark chili chocolate. It typically favors fruit that is less aggressively sweet so the opposite flavors can play off of each other without overpowering one another."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "crimson_lime"
+	filling_color = "#2d460d"
+	trash = /obj/item/trash/plate
+	reagents_to_add = list(/singleton/reagent/nutriment/ = 4)
+	reagent_data = list(/singleton/reagent/nutriment = list("lime" = 5, "chocolate" = 5, "chili" = 2))
+
+/obj/item/reagent_containers/food/snacks/bowl/alfajores
+	name = "alfajores"
+	desc = "A plate of delicious vanilla sandwich cookies filled with dulche de leche and covered in coconut shavings. A sweet South American treat!"
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "alfajores_full"
+	filling_color = "#c48c4c"
+	unitname = "alfajor"
+	vendingobject = /obj/item/reagent_containers/food/snacks/alfajor
+	trash = /obj/item/trash/plate
+	reagents_to_add = list(/singleton/reagent/nutriment = 12)
+	bitesize = 2
+	reagent_data = list(/singleton/reagent/nutriment = list("dulce de leche" = 5, "vanilla cookie" = 5, "coconut" = 2))
+
+/obj/item/reagent_containers/food/snacks/bowl/alfajores/update_icon()
+	switch(reagents.total_volume)
+		if(1 to 3)
+			icon_state = "alfajores_one"
+		if(4 to 6)
+			icon_state = "alfajores_half"
+		if(7 to INFINITY)
+			icon_state = "alfajores_full"
+
+/obj/item/reagent_containers/food/snacks/alfajor
+	name = "alfajor"
+	desc = "A plump south american sandwich cookie made out of two crumbly vanilla cookies, dulche de leche filling, and a coating of coconut shavings."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "alfajor"
+	filling_color = "#dab166"
 
 //Silversun
 
@@ -752,3 +943,58 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 6, /singleton/reagent/nutriment/protein = 4)
 	bitesize = 3
 	reagent_data = list(/singleton/reagent/nutriment = list("mustard" = 2, "french fries" = 2, "coleslaw" = 2))
+
+//Gadpathur
+
+/obj/item/reagent_containers/food/snacks/paneer_gadpathur //Made to commemorate the most amazing dish from a place that closed down, RIP Captain Curry!
+	name = "paneer gadpathur"
+	desc = "A moderately spicy Gadpathurian curry made with large cubes of Paneer cheese, rice, sour cream, lentil daal and spicy sauces. Unlike Indian Paneer cheese, Gadpathurian Paneer is chewy, having an almost chicken-like texture. Traditionally the dish was made with a local plant called agnadi gola, but as it was rendered nearly extinct in the devestation from the interstellar war, the dish is now more commonly made with a mixture of hot peppers, tomato sauce and turmeric."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "paneer"
+	trash = /obj/item/trash/snack_bowl
+	filling_color = "#d47d2b"
+	reagents_to_add = list(/singleton/reagent/nutriment = 10)
+	bitesize = 2
+	reagent_data = list(/singleton/reagent/nutriment = list("paneer cheese" = 5, "rice" = 5, "spices" = 5, "sour cream" = 3))
+
+/obj/item/reagent_containers/food/snacks/paneer_gadpathur/update_icon()
+	var/percent_lasagna_meat_slice = round((reagents.total_volume / 10) * 100)
+	switch(percent_lasagna_meat_slice)
+		if(0 to 69)
+			icon_state = "paneer_half"
+		if(70 to INFINITY)
+			icon_state = "paneer"
+
+//Galatea
+
+/obj/item/reagent_containers/food/snacks/baked_golden_apple
+	name = "baked golden apple"
+	desc = "Shiny and glamorous, this genetically modified golden apple is stuffed with raisins, nuts, brown sugar, cinnamon, and topped with whipped cream. It is a shining star of Galatean cuisine and of hoity toity rich people around the spur. Contains real gold! Don't eat the cinnamon sticks they're there as a garnish."
+	icon = 'icons/obj/item/reagent_containers/food/baked.dmi'
+	icon_state = "baked_gold_apple"
+	trash = /obj/item/trash/plate
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/gold = 5, /singleton/reagent/nutriment/glucose = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("fancyness" = 5, "apple" = 5, "raisins" = 3, "nuts" = 3))
+	filling_color = "#ffba25"
+
+/obj/item/reagent_containers/food/snacks/fire_loaf
+	name = "fire loaf"
+	desc = "A very spicy Galatean dish, traditionally made with synthmeat marinated in a special kelotane-infused mixture to give the dish it's strong color and help balance out the spicyness of the dish, as well as the chili peppers it is served with. Most cultures would just use dairy products to balance out a dish's spicyness. But most cultures aren't Galatea." //Does Kelotane even affect spicyness? Probably not. But it's good marketing.
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "fireloaf"
+	trash = /obj/item/trash/plate
+	bitesize = 2
+	filling_color = "#8f2106"
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 5, /singleton/reagent/kelotane = 3, /singleton/reagent/capsaicin = 5)
+	reagent_data = list(/singleton/reagent/nutriment/protein = list("spicy meat" = 5, "chili" = 4, "onion" = 3, "unusual flavoring" = 3))
+
+/obj/item/reagent_containers/food/snacks/fire_loaf/update_icon()
+	var/expected_initial_reagent_volume
+	for(var/k in src.reagents_to_add)
+		expected_initial_reagent_volume += reagents_to_add[k]
+	var/percent_fire_loaf = round((reagents.total_volume / expected_initial_reagent_volume) * 100)
+	switch(percent_fire_loaf)
+		if(0 to 49)
+			icon_state = "fireloaf_half"
+		if(50 to INFINITY)
+			icon_state = "fireloaf"

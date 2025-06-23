@@ -15,7 +15,6 @@
 
 	assigned_role = "Scarab Salvager"
 	special_role = "Scarab Salvager"
-	respawn_flag = null
 
 	culture_restriction = list(/singleton/origin_item/culture/coalition)
 

@@ -1,5 +1,5 @@
 //TODO: Convert this over for languages.
-/mob/living/carbon/brain/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
+/mob/living/carbon/brain/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE, var/skip_edit = FALSE)
 	if (silent)
 		return
 
@@ -32,5 +32,5 @@
 		if(istype(container, /obj/item/device/mmi/radio_enabled))
 			var/obj/item/device/mmi/radio_enabled/R = container
 			if(R.radio)
-				spawn(0) R.radio.hear_talk(src, sanitize(message), verb, speaking)
+				R.radio.hear_talk(src, sanitize(message), verb, speaking)
 		..(trim(message), speaking, verb)

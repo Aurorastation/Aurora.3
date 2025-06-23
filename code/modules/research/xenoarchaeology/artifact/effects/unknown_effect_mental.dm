@@ -33,7 +33,7 @@
 			if(prob(75))
 				to_chat(user, "<b><font color='red' size='[num2text(rand(1,5))]'>[pick(drastic_messages)]</b></font>")
 			else
-				to_chat(user, "<span class='warning'>[pick(messages)]</span>")
+				to_chat(user, SPAN_WARNING("[pick(messages)]"))
 
 		if(prob(50))
 			user.dizziness = max(user.dizziness, rand(105, 200))
@@ -46,7 +46,7 @@
 				continue
 			if(prob(5))
 				if(prob(75))
-					to_chat(H, "<span class='warning'>[pick(messages)]</span>")
+					to_chat(H, SPAN_WARNING("[pick(messages)]"))
 				else
 					to_chat(H, "<font color='red' size='[num2text(rand(1,5))]'><b>[pick(drastic_messages)]</b></font>")
 
@@ -64,7 +64,7 @@
 				if(prob(95))
 					to_chat(H, "<font color='red' size='[num2text(rand(1,5))]'><b>[pick(drastic_messages)]</b></font>")
 				else
-					to_chat(H, "<span class='warning'>[pick(messages)]</span>")
+					to_chat(H, SPAN_WARNING("[pick(messages)]"))
 			if(prob(50))
 				H.dizziness += rand(3,5)
 			else if(prob(25))
@@ -104,7 +104,7 @@
 			if(prob(75))
 				to_chat(H, "<b><font color='blue' size='[num2text(rand(1,5))]'>[pick(drastic_messages)]</b></font>")
 			else
-				to_chat(H, "<span class='notice'>[pick(messages)]</span>")
+				to_chat(H, SPAN_NOTICE("[pick(messages)]"))
 
 		if(prob(50))
 			H.dizziness += rand(3,5)
@@ -117,7 +117,7 @@
 				continue
 			if(prob(5))
 				if(prob(75))
-					to_chat(H, "<span class='notice'>[pick(messages)]</span>")
+					to_chat(H, SPAN_NOTICE("[pick(messages)]"))
 				else
 					to_chat(H, "<font color='blue' size='[num2text(rand(1,5))]'><b>[pick(drastic_messages)]</b></font>")
 
@@ -135,7 +135,7 @@
 				if(prob(95))
 					to_chat(H, "<font color='blue' size='[num2text(rand(1,5))]'><b>[pick(drastic_messages)]</b></font>")
 				else
-					to_chat(H, "<span class='notice'>[pick(messages)]</span>")
+					to_chat(H, SPAN_NOTICE("[pick(messages)]"))
 
 			if(prob(50))
 				H.dizziness += rand(3,5)

@@ -10,7 +10,7 @@
 	var/is_sacrifice_target
 	for(var/mob/living/carbon/human/M in get_turf(A))
 		if(M.stat == DEAD)
-			if(M.mind == cult?.sacrifice_target)
+			if(M.mind == GLOB.cult?.sacrifice_target)
 				is_sacrifice_target = TRUE
 			else
 				corpse_to_raise = M
@@ -26,7 +26,7 @@
 	for(var/datum/rune/R in SScult.rune_list)
 		var/found_sacrifice = FALSE
 		for(var/mob/living/carbon/human/N in get_turf(R.parent))
-			if(N?.mind == cult?.sacrifice_target)
+			if(N?.mind == GLOB.cult?.sacrifice_target)
 				is_sacrifice_target = TRUE
 			else
 				if(N.stat != DEAD)
@@ -43,8 +43,8 @@
 			to_chat(user, SPAN_WARNING("The sacrifical corpse is not dead. You must free it from this world of illusions before it may be used."))
 		return fizzle(user)
 
-	var/mob/abstract/observer/ghost
-	for(var/mob/abstract/observer/O in get_turf(A))
+	var/mob/abstract/ghost/observer/ghost
+	for(var/mob/abstract/ghost/observer/O in get_turf(A))
 		if(!O.client)
 			continue
 		if(O.mind?.current?.stat != DEAD)
@@ -66,12 +66,12 @@
 	corpse_to_raise.key = ghost.key	//the corpse will keep its old mind! but a new player takes ownership of it (they are essentially possessed)
 									//This means, should that player leave the body, the original may re-enter
 	user.say("Pasnar val'keriam usinar. Savrae ines amutan. Yam'toth remium il'tarat!")
-	corpse_to_raise.visible_message("<span class='warning'>[corpse_to_raise]'s eyes glow with a faint red as [corpse_to_raise.get_pronoun("he")] stands up, slowly starting to breathe again.</span>", \
-	"<span class='warning'>Life... I'm alive again...</span>", \
-	"<span class='warning'>You hear a faint, slightly familiar whisper.</span>")
-	body_to_maim.visible_message("<span class='danger'>[body_to_maim] is torn apart, a black smoke swiftly dissipating from [body_to_maim.get_pronoun("his")] wounds!</span>", \
-	"<span class='danger'>You feel as your blood boils, tearing you apart.</span>", \
-	"<span class='danger'>You hear a thousand voices, all crying in pain.</span>")
+	corpse_to_raise.visible_message(SPAN_WARNING("[corpse_to_raise]'s eyes glow with a faint red as [corpse_to_raise.get_pronoun("he")] stands up, slowly starting to breathe again."), \
+	SPAN_WARNING("Life... I'm alive again..."), \
+	SPAN_WARNING("You hear a faint, slightly familiar whisper."))
+	body_to_maim.visible_message(SPAN_DANGER("[body_to_maim] is torn apart, a black smoke swiftly dissipating from [body_to_maim.get_pronoun("his")] wounds!"), \
+	SPAN_DANGER("You feel as your blood boils, tearing you apart."), \
+	SPAN_DANGER("You hear a thousand voices, all crying in pain."))
 
 	var/list/obj/item/organ/external/possible_limbs = list()
 	var/limbs_to_drop = round(rand(1, 3))

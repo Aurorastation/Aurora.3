@@ -335,6 +335,24 @@
 			return copytext_char(text, 1, i + 1)
 	return ""
 
+//Returns a string with reserved characters and spaces after the first and last letters removed
+//Like trim(), but very slightly faster. worth it for niche usecases
+/proc/trim_reduced(text)
+	var/starting_coord = 1
+	var/text_len = length(text)
+	for (var/i in 1 to text_len)
+		if (text2ascii(text, i) > 32)
+			starting_coord = i
+			break
+
+	for (var/i = text_len, i >= starting_coord, i--)
+		if (text2ascii(text, i) > 32)
+			return copytext(text, starting_coord, i + 1)
+
+	if(starting_coord > 1)
+		return copytext(text, starting_coord)
+	return ""
+
 //Returns a string with reserved characters and spaces before the first word and after the last word removed.
 /proc/trim(text)
 	return trim_left(trim_right(text))
@@ -392,22 +410,21 @@
 //is in the other string at the same spot (assuming it is not a replace char).
 //This is used for fingerprints
 /proc/stringmerge(text,compare,replace = "*")
-	var/newtext = text
 	if(length(text) != length(compare))
-		return 0
-	for(var/i = 1, i < length(text), i++)
-		var/a = copytext(text,i,i+1)
-		var/b = copytext(compare,i,i+1)
-		//if it isn't both the same letter, or if they are both the replacement character
-		//(no way to know what it was supposed to be)
-		if(a != b)
-			if(a == replace) //if A is the replacement char
-				newtext = copytext(newtext,1,i) + b + copytext(newtext, i+1)
-			else if(b == replace) //if B is the replacement char
-				newtext = copytext(newtext,1,i) + a + copytext(newtext, i+1)
-			else //The lists disagree, Uh-oh!
-				return 0
-	return newtext
+		CRASH("Stringmerge received strings of differing lengths")
+
+	var/list/text_chars = splittext_char(text, "")
+	var/list/compare_chars = splittext_char(compare, "")
+	var/text_char
+	var/compare_char
+	for(var/i in 1 to length(text_chars))
+		text_char = text_chars[i]
+		compare_char = compare_chars[i]
+		if(text_char == compare_char)
+			continue
+		if(text_char == replace)
+			text_chars[i] = compare_char
+	return jointext(text_chars, "")
 
 
 /**
@@ -439,16 +456,7 @@
  * * character - The character you want to know how many are in the string
  */
 /proc/charcount(text, character = "*")
-	if(!text || !character)
-		return 0
-	var/count = 0
-	var/lentext = length(text)
-	var/a = ""
-	for(var/i = 1, i <= lentext, i += length(a))
-		a = text[i]
-		if(a == character)
-			count++
-	return count
+	return length(splittext_char(text, character)) - 1
 
 
 /proc/reverse_text(text = "")
@@ -509,8 +517,8 @@
 	// ---Begin URL caching.
 	var/list/urls = list()
 	var/i = 1
-	while (url_find_lazy.Find_char(message))
-		urls["\ref[urls]-[i]"] = url_find_lazy.match
+	while (GLOB.url_find_lazy.Find_char(message))
+		urls["[REF(urls)]-[i]"] = GLOB.url_find_lazy.match
 		i++
 
 	for (var/ref in urls)
@@ -518,9 +526,9 @@
 	// ---End URL caching
 
 	var/regex/tag_markup
-	for (var/tag in (markup_tags - ignore_tags))
+	for (var/tag in (GLOB.markup_tags - ignore_tags))
 		tag_markup = GLOB.markup_regex[tag]
-		message = tag_markup.Replace_char(message, "$2[markup_tags[tag][1]]$3[markup_tags[tag][2]]$5")
+		message = tag_markup.Replace_char(message, "$2[GLOB.markup_tags[tag][1]]$3[GLOB.markup_tags[tag][2]]$5")
 
 	// ---Unload URL cache
 	for (var/ref in urls)
@@ -735,53 +743,64 @@
 
 	var/leng = length(string)
 
-	var/next_space = findtext_char(string, " ", next_backslash + 1)
+	var/next_space = findtext(string, " ", next_backslash + length(string[next_backslash]))
 	if(!next_space)
 		next_space = leng - next_backslash
 
-	if(!next_space)	//trailing bs
+	if(!next_space) //trailing bs
 		return string
 
 	var/base = next_backslash == 1 ? "" : copytext(string, 1, next_backslash)
-	var/macro = lowertext(copytext(string, next_backslash + 1, next_space))
-	var/rest = next_backslash > leng ? "" : copytext(string, next_space + 1)
+	var/macro = LOWER_TEXT(copytext(string, next_backslash + length(string[next_backslash]), next_space))
+	var/rest = next_backslash > leng ? "" : copytext(string, next_space + length(string[next_space]))
 
-	//See http://www.byond.com/docs/ref/info.html#/DM/text/macros
+	//See https://secure.byond.com/docs/ref/info.html#/DM/text/macros
 	switch(macro)
 		//prefixes/agnostic
 		if("the")
-			rest = text("\the []", rest)
+			rest = "\the [rest]"
 		if("a")
-			rest = text("\a []", rest)
+			rest = "\a [rest]"
 		if("an")
-			rest = text("\an []", rest)
+			rest = "\an [rest]"
 		if("proper")
-			rest = text("\proper []", rest)
+			rest = "\proper [rest]"
 		if("improper")
-			rest = text("\improper []", rest)
+			rest = "\improper [rest]"
 		if("roman")
-			rest = text("\roman []", rest)
+			rest = "\roman [rest]"
 		//postfixes
 		if("th")
-			base = text("[]\th", rest)
+			base = "[rest]\th"
 		if("s")
-			base = text("[]\s", rest)
+			base = "[rest]\s"
 		if("he")
-			base = text("[]\he", rest)
+			base = "[rest]\he"
 		if("she")
-			base = text("[]\she", rest)
+			base = "[rest]\she"
 		if("his")
-			base = text("[]\his", rest)
+			base = "[rest]\his"
 		if("himself")
-			base = text("[]\himself", rest)
+			base = "[rest]\himself"
 		if("herself")
-			base = text("[]\herself", rest)
+			base = "[rest]\herself"
 		if("hers")
-			base = text("[]\hers", rest)
+			base = "[rest]\hers"
+		else // Someone fucked up, if you're not a macro just go home yeah?
+			// This does technically break parsing, but at least it's better then what it used to do
+			return base
 
 	. = base
 	if(rest)
 		. += .(rest)
+
+/proc/deep_string_equals(A, B)
+	if (length(A) != length(B))
+		return FALSE
+	for (var/i = 1 to length(A))
+		if (text2ascii(A, i) != text2ascii(B, i))
+			return FALSE
+	return TRUE
 
 /proc/replacemany(text, list/replacements)
 	if (!LAZYLEN(replacements))

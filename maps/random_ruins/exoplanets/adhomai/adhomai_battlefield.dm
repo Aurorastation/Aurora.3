@@ -5,7 +5,11 @@
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_SRANDMARR)
-	suffixes = list("adhomai/adhomai_battlefield.dmm")
+
+	prefix = "adhomai/"
+	suffix = "adhomai_battlefield.dmm"
+
+	unit_test_groups = list(3)
 
 /obj/effect/landmark/corpse/pra_soldier
 	name = "PRA Soldier"
@@ -34,7 +38,7 @@
 			M.change_skin_color(192, 192, 192)
 
 	M.adjustBruteLoss(rand(200,400))
-	M.dir = pick(GLOB.cardinal)
+	M.dir = pick(GLOB.cardinals)
 
 /obj/item/photo/soldier
 	name = "family photo"

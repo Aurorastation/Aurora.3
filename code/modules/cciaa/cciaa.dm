@@ -4,11 +4,11 @@
 	set category = "Special Verbs"
 
 	if (!check_rights(R_ADMIN|R_CCIAA|R_FUN))
-		to_chat(usr, "<span class='warning'>You do not have enough powers to do this.</span>")
+		to_chat(usr, SPAN_WARNING("You do not have enough powers to do this."))
 		return
 
 	var/list/faxes = list()
-	for(var/obj/machinery/photocopier/faxmachine/F in allfaxes)
+	for(var/obj/machinery/photocopier/faxmachine/F in GLOB.allfaxes)
 		faxes[F.department] = F
 
 	if(!length(faxes))
@@ -18,19 +18,19 @@
 	var/department = tgui_input_list(usr, "Pick a fax machine.", "Send Admin Fax", faxes)
 	var/obj/machinery/photocopier/faxmachine/fax = faxes[department]
 	if (!istype(fax))
-		to_chat(usr, "<span class='warning'>Couldn't find a fax machine to send this to!</span>")
+		to_chat(usr, SPAN_WARNING("Couldn't find a fax machine to send this to!"))
 		return
 
 	//todo: sanitize
 	var/input = tgui_input_text(usr, "Please enter a message to reply to via secure connection. BBCode and HTML allowed.", \
 				"Outgoing message from Centcomm", "", MAX_BOOK_MESSAGE_LEN, TRUE)
 	if (!input)
-		to_chat(usr, "<span class='warning'>Cancelled.</span>")
+		to_chat(usr, SPAN_WARNING("Cancelled."))
 		return
 
 	var/customname = tgui_input_text(usr, "Pick a title for the report.", "Title")
 	if (!customname)
-		to_chat(usr, "<span class='warning'>Cancelled.</span>")
+		to_chat(usr, SPAN_WARNING("Cancelled."))
 		return
 
 	var/announce = alert(usr, "Do you wish to announce the fax being sent?", "Announce Fax", "Yes", "No")
@@ -47,18 +47,18 @@
 	if(!P.stamped)
 		P.stamped = new
 	P.stamped += /obj/item/stamp
-	P.add_overlay(stampoverlay)
+	P.AddOverlays(stampoverlay)
 	P.stamps += "<HR><i>This paper has been stamped by the Central Command Quantum Relay.</i>"
 
 	if(fax.receivefax(P))
 		if(announce == 1)
 			command_announcement.Announce("A fax has been sent to the [department] fax machine.", "Fax Sent")
-		to_chat(usr, "<span class='notice'>Message transmitted successfully.</span>")
-		log_and_message_admins("sent a fax message to the [department] fax machine. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[fax.x];Y=[fax.y];Z=[fax.z]'>JMP</a>)")
+		to_chat(usr, SPAN_NOTICE("Message transmitted successfully."))
+		log_and_message_admins("sent a fax message to the [department] fax machine. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[fax.x];Y=[fax.y];Z=[fax.z]'>JMP</a>)")
 
-		sent_faxes += P
+		GLOB.sent_faxes += P
 	else
-		to_chat(usr, "<span class='warning'>Message reply failed.</span>")
+		to_chat(usr, SPAN_WARNING("Message reply failed."))
 		qdel(P)
 	return
 
@@ -68,24 +68,24 @@
 	set category = "Special Verbs"
 
 	if (!check_rights(R_ADMIN|R_CCIAA|R_FUN))
-		to_chat(usr, "<span class='warning'>You do not have enough powers to do this.</span>")
+		to_chat(usr, SPAN_WARNING("You do not have enough powers to do this."))
 		return
 
-	var/data = "<center><a href='?_src_=holder;CentcommFaxReply=1'>Send New Fax</a></center>"
+	var/data = "<center><a href='byond://?_src_=holder;CentcommFaxReply=1'>Send New Fax</a></center>"
 	data += "<hr>"
 	data += "<center><b>Received Faxes:</b></center><br>"
 
-	if (arrived_faxes && arrived_faxes.len)
-		for (var/obj/item/item in arrived_faxes)
-			data += "[item.name] - <a href='?_src_=holder;AdminFaxView=\ref[item]'>view message</a><br>"
+	if (GLOB.arrived_faxes && GLOB.arrived_faxes.len)
+		for (var/obj/item/item in GLOB.arrived_faxes)
+			data += "[item.name] - <a href='byond://?_src_=holder;AdminFaxView=[REF(item)]'>view message</a><br>"
 	else
 		data += "<center>No faxes have been received.</center>"
 
 	data += "<hr><center><b>Sent Faxes:</b></center><br>"
 
-	if (sent_faxes && sent_faxes.len)
-		for (var/obj/item/item in sent_faxes)
-			data += "[item.name] - <a href='?_src_=holder;AdminFaxView=\ref[item]'>view message</a><br>"
+	if (GLOB.sent_faxes && GLOB.sent_faxes.len)
+		for (var/obj/item/item in GLOB.sent_faxes)
+			data += "[item.name] - <a href='byond://?_src_=holder;AdminFaxView=[REF(item)]'>view message</a><br>"
 	else
 		data += "<center>No faxes have been sent out.</center>"
 

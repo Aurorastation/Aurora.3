@@ -25,8 +25,7 @@
 	host = newloc
 	origin = user
 	if(light_color)
-		spawn(1)
-			set_light(inserter.spell_light_range, inserter.spell_light_intensity, inserter.spell_color)
+		set_light(inserter.spell_light_range, inserter.spell_light_intensity, inserter.spell_color)
 	on_insert()
 
 /obj/item/inserted_spell/proc/on_insert()
@@ -41,7 +40,7 @@
 		if(!allow_stacking)
 			for(var/obj/item/inserted_spell/IS in L.contents)
 				if(IS.type == inserting)
-					to_chat(user, "<span class='warning'>\The [L] is already affected by \the [src].</span>")
+					to_chat(user, SPAN_WARNING("\The [L] is already affected by \the [src]."))
 					return
 		var/obj/item/inserted_spell/inserted = new inserting(L,user,src)
 		inserted.spell_power_at_creation = calculate_spell_power(1.0)

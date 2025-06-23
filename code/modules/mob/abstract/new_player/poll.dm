@@ -23,11 +23,11 @@
 		while(select_query.NextRow())
 			pollid = select_query.item[1]
 			pollquestion = select_query.item[2]
-			output += "<tr><td><a href=\"byond://?src=\ref[src];pollid=[pollid]\"><b>[pollquestion]</b></a></td></tr>"
+			output += "<tr><td><a href=\"byond://?src=[REF(src)];pollid=[pollid]\"><b>[pollquestion]</b></a></td></tr>"
 
 		output += "</table>"
 
-		src << browse(output,"window=playerpolllist;size=500x300")
+		src << browse(HTML_SKELETON(output),"window=playerpolllist;size=500x300")
 
 /mob/abstract/new_player/proc/show_poll_link(var/pollid = -1)
 	if(pollid == -1) return
@@ -70,7 +70,7 @@
 			break
 
 		if(!found)
-			to_chat(usr, "<span class='warning'>Poll question details not found.</span>")
+			to_chat(usr, SPAN_WARNING("Poll question details not found."))
 			return
 
 		switch(polltype)
@@ -101,12 +101,12 @@
 				output += "<b>Question: [pollquestion]</b><br>"
 				output += "<font size='2'>Poll runs from <b>[pollstarttime]</b> until <b>[pollendtime]</b></font>"
 				if(haslink)
-					output += "<br><font size='2'>Additional information <a href='?src=\ref[src];showpolllink=[pollid]'>is available here</a></font>"
+					output += "<br><font size='2'>Additional information <a href='byond://?src=[REF(src)];showpolllink=[pollid]'>is available here</a></font>"
 				output += "<p>"
 
 				if(!voted)	//Only make this a form if we have not voted yet
-					output += "<form name='cardcomp' action='?src=\ref[src]' method='get'>"
-					output += "<input type='hidden' name='src' value='\ref[src]'>"
+					output += "<form name='cardcomp' action='?src=[REF(src)]' method='get'>"
+					output += "<input type='hidden' name='src' value='[REF(src)]'>"
 					output += "<input type='hidden' name='votepollid' value='[pollid]'>"
 					output += "<input type='hidden' name='votetype' value='OPTION'>"
 
@@ -129,7 +129,7 @@
 				output += "</div>"
 
 
-				src << browse(output,"window=playerpoll;size=500x250")
+				src << browse(HTML_SKELETON(output),"window=playerpoll;size=500x250")
 
 			//Polls with a text input
 			if("TEXT")
@@ -149,12 +149,12 @@
 				output += "<b>Question: [pollquestion]</b><br>"
 				output += "<font size='2'>Feedback gathering runs from <b>[pollstarttime]</b> until <b>[pollendtime]</b></font>"
 				if(haslink)
-					output += "<br><font size='2'>Additional information <a href='?src=\ref[src];showpolllink=[pollid]'>is available here</a></font>"
+					output += "<br><font size='2'>Additional information <a href='byond://?src=[REF(src)];showpolllink=[pollid]'>is available here</a></font>"
 				output += "<p>"
 
 				if(!voted)	//Only make this a form if we have not voted yet
-					output += "<form name='cardcomp' action='?src=\ref[src]' method='get'>"
-					output += "<input type='hidden' name='src' value='\ref[src]'>"
+					output += "<form name='cardcomp' action='?src=[REF(src)]' method='get'>"
+					output += "<input type='hidden' name='src' value='[REF(src)]'>"
 					output += "<input type='hidden' name='votepollid' value='[pollid]'>"
 					output += "<input type='hidden' name='votetype' value='TEXT'>"
 
@@ -164,8 +164,8 @@
 					output += "<p><input type='submit' value='Submit'>"
 					output += "</form>"
 
-					output += "<form name='cardcomp' action='?src=\ref[src]' method='get'>"
-					output += "<input type='hidden' name='src' value='\ref[src]'>"
+					output += "<form name='cardcomp' action='?src=[REF(src)]' method='get'>"
+					output += "<input type='hidden' name='src' value='[REF(src)]'>"
 					output += "<input type='hidden' name='votepollid' value='[pollid]'>"
 					output += "<input type='hidden' name='votetype' value='TEXT'>"
 					output += "<input type='hidden' name='replytext' value='ABSTAIN'>"
@@ -175,7 +175,7 @@
 					output += "[vote_text]"
 
 
-				src << browse(output,"window=playerpoll;size=500x500")
+				src << browse(HTML_SKELETON(output),"window=playerpoll;size=500x500")
 
 			//Polls with a text input
 			if("NUMVAL")
@@ -187,7 +187,7 @@
 				output += "<b>Question: [pollquestion]</b><br>"
 				output += "<font size='2'>Poll runs from <b>[pollstarttime]</b> until <b>[pollendtime]</b></font>"
 				if(haslink)
-					output += "<br><font size='2'>Additional information <a href='?src=\ref[src];showpolllink=[pollid]'>is available here</a></font>"
+					output += "<br><font size='2'>Additional information <a href='byond://?src=[REF(src)];showpolllink=[pollid]'>is available here</a></font>"
 				output += "<p>"
 
 				var/voted = 0
@@ -200,8 +200,8 @@
 					output += "<br><b>[optiontext] - [rating]</b>"
 
 				if(!voted)	//Only make this a form if we have not voted yet
-					output += "<form name='cardcomp' action='?src=\ref[src]' method='get'>"
-					output += "<input type='hidden' name='src' value='\ref[src]'>"
+					output += "<form name='cardcomp' action='?src=[REF(src)]' method='get'>"
+					output += "<input type='hidden' name='src' value='[REF(src)]'>"
 					output += "<input type='hidden' name='votepollid' value='[pollid]'>"
 					output += "<input type='hidden' name='votetype' value='NUMVAL'>"
 
@@ -250,7 +250,7 @@
 					output += "</form>"
 
 
-				src << browse(output,"window=playerpoll;size=500x500")
+				src << browse(HTML_SKELETON(output),"window=playerpoll;size=500x500")
 
 			if("MULTICHOICE")
 				var/DBQuery/voted_query = GLOB.dbcon.NewQuery("SELECT optionid FROM ss13_poll_vote WHERE pollid = [pollid] AND ckey = '[usr.ckey]'")
@@ -287,12 +287,12 @@
 				output += "<b>Question: [pollquestion]</b><br>You can select up to [multiplechoiceoptions] options. If you select more, the first [multiplechoiceoptions] will be saved.<br>"
 				output += "<font size='2'>Poll runs from <b>[pollstarttime]</b> until <b>[pollendtime]</b></font>"
 				if(haslink)
-					output += "<br><font size='2'>Additional information <a href='?src=\ref[src];showpolllink=[pollid]'>is available here</a></font>"
+					output += "<br><font size='2'>Additional information <a href='byond://?src=[REF(src)];showpolllink=[pollid]'>is available here</a></font>"
 				output += "<p>"
 
 				if(!voted)	//Only make this a form if we have not voted yet
-					output += "<form name='cardcomp' action='?src=\ref[src]' method='get'>"
-					output += "<input type='hidden' name='src' value='\ref[src]'>"
+					output += "<form name='cardcomp' action='?src=[REF(src)]' method='get'>"
+					output += "<input type='hidden' name='src' value='[REF(src)]'>"
 					output += "<input type='hidden' name='votepollid' value='[pollid]'>"
 					output += "<input type='hidden' name='votetype' value='MULTICHOICE'>"
 					output += "<input type='hidden' name='maxoptionid' value='[maxoptionid]'>"
@@ -317,7 +317,7 @@
 				output += "</div>"
 
 
-				src << browse(output,"window=playerpoll;size=500x250")
+				src << browse(HTML_SKELETON(output),"window=playerpoll;size=500x250")
 		return
 
 /mob/abstract/new_player/proc/vote_on_poll(var/pollid = -1, var/optionid = -1, var/multichoice = 0)
@@ -343,7 +343,7 @@
 			break
 
 		if(!validpoll)
-			to_chat(usr, "<span class='warning'>Poll is not valid.</span>")
+			to_chat(usr, SPAN_WARNING("Poll is not valid."))
 			return
 
 		var/DBQuery/select_query2 = GLOB.dbcon.NewQuery("SELECT id FROM ss13_poll_option WHERE id = [optionid] AND pollid = [pollid]")
@@ -356,7 +356,7 @@
 			break
 
 		if(!validoption)
-			to_chat(usr, "<span class='warning'>Poll option is not valid.</span>")
+			to_chat(usr, SPAN_WARNING("Poll option is not valid."))
 			return
 
 		var/alreadyvoted = 0
@@ -370,11 +370,11 @@
 				break
 
 		if(!multichoice && alreadyvoted)
-			to_chat(usr, "<span class='warning'>You already voted in this poll.</span>")
+			to_chat(usr, SPAN_WARNING("You already voted in this poll."))
 			return
 
 		if(multichoice && (alreadyvoted >= multiplechoiceoptions))
-			to_chat(usr, "<span class='warning'>You already have more than [multiplechoiceoptions] logged votes on this poll. Enough is enough. Contact the database admin if this is an error.</span>")
+			to_chat(usr, SPAN_WARNING("You already have more than [multiplechoiceoptions] logged votes on this poll. Enough is enough. Contact the database admin if this is an error."))
 			return
 
 		var/adminrank = "Player"
@@ -385,7 +385,7 @@
 		var/DBQuery/insert_query = GLOB.dbcon.NewQuery("INSERT INTO ss13_poll_vote (id ,datetime ,pollid ,optionid ,ckey ,ip ,adminrank) VALUES (null, Now(), [pollid], [optionid], '[usr.ckey]', '[usr.client.address]', '[adminrank]')")
 		insert_query.Execute()
 
-		to_chat(usr, "<span class='notice'>Vote successful.</span>")
+		to_chat(usr, SPAN_NOTICE("Vote successful."))
 		usr << browse(null,"window=playerpoll")
 
 
@@ -409,7 +409,7 @@
 			break
 
 		if(!validpoll)
-			to_chat(usr, "<span class='warning'>Poll is not valid.</span>")
+			to_chat(usr, SPAN_WARNING("Poll is not valid."))
 			return
 
 		var/alreadyvoted = 0
@@ -422,7 +422,7 @@
 			break
 
 		if(alreadyvoted)
-			to_chat(usr, "<span class='warning'>You already sent your feedback for this poll.</span>")
+			to_chat(usr, SPAN_WARNING("You already sent your feedback for this poll."))
 			return
 
 		var/adminrank = "Player"
@@ -442,7 +442,7 @@
 		var/DBQuery/insert_query = GLOB.dbcon.NewQuery("INSERT INTO ss13_poll_textreply (id ,datetime ,pollid ,ckey ,ip ,replytext ,adminrank) VALUES (null, Now(), [pollid], '[usr.ckey]', '[usr.client.address]', '[replytext]', '[adminrank]')")
 		insert_query.Execute()
 
-		to_chat(usr, "<span class='notice'>Feedback logging successful.</span>")
+		to_chat(usr, SPAN_NOTICE("Feedback logging successful."))
 		usr << browse(null,"window=playerpoll")
 
 
@@ -466,7 +466,7 @@
 			break
 
 		if(!validpoll)
-			to_chat(usr, "<span class='warning'>Poll is not valid.</span>")
+			to_chat(usr, SPAN_WARNING("Poll is not valid."))
 			return
 
 		var/DBQuery/select_query2 = GLOB.dbcon.NewQuery("SELECT id FROM ss13_poll_option WHERE id = [optionid] AND pollid = [pollid]")
@@ -479,7 +479,7 @@
 			break
 
 		if(!validoption)
-			to_chat(usr, "<span class='warning'>Poll option is not valid.</span>")
+			to_chat(usr, SPAN_WARNING("Poll option is not valid."))
 			return
 
 		var/alreadyvoted = 0
@@ -492,7 +492,7 @@
 			break
 
 		if(alreadyvoted)
-			to_chat(usr, "<span class='warning'>You already voted in this poll.</span>")
+			to_chat(usr, SPAN_WARNING("You already voted in this poll."))
 			return
 
 		var/adminrank = "Player"
@@ -503,5 +503,5 @@
 		var/DBQuery/insert_query = GLOB.dbcon.NewQuery("INSERT INTO ss13_poll_vote (id ,datetime ,pollid ,optionid ,ckey ,ip ,adminrank, rating) VALUES (null, Now(), [pollid], [optionid], '[usr.ckey]', '[usr.client.address]', '[adminrank]', [(isnull(rating)) ? "null" : rating])")
 		insert_query.Execute()
 
-		to_chat(usr, "<span class='notice'>Vote successful.</span>")
+		to_chat(usr, SPAN_NOTICE("Vote successful."))
 		usr << browse(null,"window=playerpoll")

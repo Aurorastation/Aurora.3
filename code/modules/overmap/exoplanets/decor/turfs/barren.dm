@@ -1,5 +1,7 @@
 /turf/simulated/floor/exoplanet/barren
 	name = "ground"
+	gender = PLURAL
+	desc = "A patch of dirt."
 	icon = 'icons/turf/flooring/asteroid.dmi'
 	icon_state = "asteroid"
 
@@ -22,6 +24,8 @@
 	update_icon(1)
 
 /turf/simulated/floor/exoplanet/barren/raskara
+	desc = "Dark, dark regolith."
+	does_footprint = TRUE
 	color = "#373737"
 
 /turf/simulated/floor/exoplanet/barren/raskara/update_icon()

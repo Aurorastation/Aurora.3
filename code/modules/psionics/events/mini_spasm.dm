@@ -39,7 +39,7 @@
 	playsound(source, 'sound/effects/narsie.ogg', 75) //LOUD AS FUCK BOY
 
 	if(!ishuman(victim))
-		to_chat(victim, "<span class='notice'>An annoying buzz passes through your head.</span>")
+		to_chat(victim, SPAN_NOTICE("An annoying buzz passes through your head."))
 		return
 
 	if(victim.psi)

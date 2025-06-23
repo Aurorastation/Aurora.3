@@ -1,0 +1,54 @@
+2014-10-01:
+  RavingManiac:
+  - rscadd: Zooming with the sniper rifle now adds a view offset in the direction
+      you are facing.
+  - rscadd: Added binoculars - functionally similar to sniper scope. Adminspawn-only
+      for now.
+  - rscadd: Bottles from chemistry now, like beakers, use chemical overlays instead
+      of fixed sprites.
+  - rscadd: Being in space while not magbooted to something will cause your sprite
+      to bob up and down.
+  Zuhayr:
+  - rscadd: Added species organ checks to several areas (phoron burn, welder burn,
+      appendicitis, vox cortical stacks, flashes).
+  - rscadd: Added VV option to add or remove organs.
+  - rscadd: Added simple bioprinter (adminspawn).
+  - rscadd: Added smashing/slashing behavior from xenos to some unarmed attacks.
+  - rscadd: Added some new state icons for diona nymphs.
+  - rscadd: Added borer husk functionality (cortical borers can turn dead humans into
+      zombies).
+  - rscadd: Added tackle verb.
+  - rscadd: Added NO_SLIP.
+  - rscadd: Added species-specific orans to Dionaea, new Xenomorphs and vox.
+  - rscadd: Added colour and species to blood data.
+  - rscadd: Added lethal consequences to missing your heart.
+  - rscdel: Removed robot_talk_understand and alien_talk_understand.
+  - rscdel: Removed attack_alien() and several flavours of is_alien() procs.
+  - rscdel: Removed /mob/living/carbon/alien/humanoid.
+  - rscdel: Removed alien_hud().
+  - rscdel: Removed IS_SLOW, NEEDS_LIGHT and RAD_ABSORB.
+  - rscdel: Renamed is_larva() to is_alien().
+  - tweak: Refactored a ton of files, either condensing or expanding them, or moving
+      them to new directories.
+  - tweak: Refactored some attack vars from simple_animal to mob/living level.
+  - tweak: Refactored internal organs to /mob/living/carbon level.
+  - tweak: Refactored rad and light absorbtion to organ level.
+  - tweak: Refactored brains to /obj/item/organ/internal/brain.
+  - tweak: Refactored a lot of blood splattering to use blood_splatter() proc.
+  - tweak: Refactored broadcast languages (changeling and alien hiveminds, drone and
+      binary chat) to actual languages.
+  - tweak: Refactored xenomorph abilities to work for humans.
+  - tweak: Refactored xenomorphs into human species.
+  - tweak: Rewrote larva_hud() and human_hud(). The latter now takes data from the
+      species datum.
+  - tweak: Rewrote diona nymphs as descendents of /mob/living/carbon/alien.
+  - tweak: Rewrote xenolarva as descendents of /mob/living/carbon/alien.
+  - tweak: Rewrote /mob/living/carbon/alien.
+  - tweak: Moved alcohol and toxin processing to the liver.
+  - tweak: Moved drone light proc to robot level, added integrated_light_power and
+      local_transmit vars to robots.
+  - tweak: Moved human brainloss onto the brain organ.
+  - tweak: Shuffled around and collapsed several redundant procs down to carbon level
+      (hide, ventcrawl, Bump).
+  - tweak: Fixed species swaps from NO_BLOOD to those with blood killing the subject
+      instantly.

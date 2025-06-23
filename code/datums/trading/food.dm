@@ -84,7 +84,7 @@
 	)
 
 	speech = list(
-		"hail_generic"       = "There are two things constant in life, death and Konyanger food. How may I help you?",
+		"hail_generic"       = "There are two things constant in life, death, and Konyanger food. How may I help you?",
 		"hail_deny"          = "We do not take orders from rude customers.",
 		"trade_complete"     = "Thank you, sir, for your patronage.",
 		"trade_blacklist"    = "No, that is very odd. Why would you trade that away?",
@@ -251,7 +251,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle/treebark_firewater   = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/food/drinks/bottle/veterans_choice      = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/food/drinks/bottle/small/midynhr_water  = TRADER_THIS_TYPE,
-		/obj/item/reagent_containers/food/drinks/bottle/nmshaan_liquor       = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/drinks/bottle/sugartree_liquor       = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/food/drinks/bottle/shyyrkirrtyr_wine    = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/food/drinks/bottle/small/khlibnyz       = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/food/drinks/bottle/hrozamal_soda        = TRADER_THIS_TYPE
@@ -273,6 +273,9 @@
 		"insult_bad"         = "Come down herrre and say that to theirrr faces.",
 		"bribe_refusal"      = "They do not need charrrity.",
 		"bribe_accept"       = "They can stay open for a little longerrr."
+	)
+	species_bias = list(
+		ALL_TAJARA_SPECIES = TRADER_BIAS_DISCOUNT
 	)
 
 /datum/trader/unathi_food
@@ -320,4 +323,7 @@
 		"insult_bad"         = "You think we're just random tradersss?! You have no ideas who you're messsing with!",
 		"bribe_refusal"      = "Thisss iss too little,",
 		"bribe_accept"       = "Thank you for your donation!"
+	)
+	species_bias = list(
+		SPECIES_UNATHI = TRADER_BIAS_DISCOUNT
 	)

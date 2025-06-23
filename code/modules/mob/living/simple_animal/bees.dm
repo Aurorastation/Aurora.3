@@ -47,19 +47,19 @@
 		strength -= 1
 		if (strength <= 0)
 			if (prob(25))//probability to reduce spam
-				src.visible_message("<span class='warning'>The bee swarm completely dissipates.</span>")
+				src.visible_message(SPAN_WARNING("The bee swarm completely dissipates."))
 			qdel(src)
 			return
 		else
 			health = maxHealth
 			if (prob(25))//probability to reduce spam
-				src.visible_message("<span class='warning'>The bee swarm starts to thin out a little.</span>")
+				src.visible_message(SPAN_WARNING("The bee swarm starts to thin out a little."))
 
 		update_icon()
 	else
 		..()
 
-/mob/living/simple_animal/bee/Life()
+/mob/living/simple_animal/bee/Life(seconds_per_tick, times_fired)
 	if(!loner && strength && !parent && prob(7-strength))
 		strength -= 1
 
@@ -90,12 +90,12 @@
 			if ((worn_suit.item_flags & ITEM_FLAG_THICK_MATERIAL))
 				prob_mult -= 0.7
 			else
-				prob_mult -= 0.01 * (min(LAZYACCESS(worn_suit.armor, "bio"), 70)) // Is it sealed? I can't get to 70% of your body.
+				prob_mult -= 0.01 * (min(LAZYACCESS(worn_suit.armor, BIO), 70)) // Is it sealed? I can't get to 70% of your body.
 		if(worn_helmet)
 			if ((worn_helmet.item_flags & ITEM_FLAG_THICK_MATERIAL))
 				prob_mult -= 0.3
 			else
-				prob_mult -= 0.01 *(min(LAZYACCESS(worn_helmet.armor, "bio"), 30))// Is your helmet sealed? I can't get to 30% of your body.
+				prob_mult -= 0.01 *(min(LAZYACCESS(worn_helmet.armor, BIO), 30))// Is your helmet sealed? I can't get to 30% of your body.
 		if( prob(sting_prob*prob_mult) && (M.stat == CONSCIOUS || (M.stat == UNCONSCIOUS && prob(25*prob_mult))) ) // Try to sting! If you're not moving, think about stinging.
 			M.apply_damage(min(strength*0.85,2)+mut, DAMAGE_BURN, damage_flags = DAMAGE_FLAG_SHARP) // Stinging. The more mutated I am, the harder I sting.
 			var/venom_strength = max(strength*0.2, (round(feral/10,1) * (max(round(strength/20,1), 1)))) + toxic // Bee venom based on how angry I am and how many there are of me!
@@ -103,7 +103,7 @@
 			if(prob(max(80, strength * 10))) //If there's enough of a swarm, it can also cause breathing trouble. Yes, even without being allergic.
 				M.apply_damage(venom_strength, DAMAGE_OXY)
 			update_icon()
-			to_chat(M, "<span class='warning'>You have been stung!</span>")
+			to_chat(M, SPAN_WARNING("You have been stung!"))
 			M.flash_pain(5)
 	else
 		step_to(src, target_mob)
@@ -147,7 +147,7 @@
 	if (feral && isturf(loc))
 		//smoke, water and steam calms us down
 		var/static/list/calmers = typecacheof(list(
-			/obj/effect/effect/smoke,
+			/obj/effect/smoke,
 			/obj/effect/effect/water,
 			/obj/effect/effect/foam,
 			/obj/effect/effect/steam,
@@ -156,7 +156,7 @@
 
 		if(range_in_typecache(src, 2, calmers))
 			if(feral > 0)
-				src.visible_message("<span class='notice'>The bees calm down!</span>")
+				src.visible_message(SPAN_NOTICE("The bees calm down!"))
 			feral = -15
 			target_mob = null
 			target_turf = null
@@ -187,7 +187,7 @@
 				if(strength <= 0)
 					qdel(src)
 					return
-				var/turf/simulated/floor/T = get_step(src, pick(GLOB.cardinal))
+				var/turf/simulated/floor/T = get_step(src, pick(GLOB.cardinals))
 				if(istype(T))
 					Move(T)
 			break
@@ -216,7 +216,7 @@
 		if (!(DirBlocked(get_step(src, get_dir(src,target_turf)),get_dir(src,target_turf)))) // Check for windows and doors!
 			Move(get_step(src, get_dir(src,target_turf)))
 			if(prob(10))
-				visible_message("<span class='notice'>The bees swarm after [target_mob]!</span>")
+				visible_message(SPAN_NOTICE("The bees swarm after [target_mob]!"))
 		if(get_turf(src) == target_turf)
 			target_turf = null
 			wander = TRUE

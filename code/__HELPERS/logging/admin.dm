@@ -1,7 +1,7 @@
 /* Items with ADMINPRIVATE prefixed are stripped from public logs. */
 
 /// General logging for admin actions
-/proc/_log_admin(text)
+/proc/log_admin(text)
 	GLOB.admin_log.Add(text)
 	if (GLOB.config.logsettings["log_admin"])
 		WRITE_LOG(GLOB.config.logfiles["world_game_log"], "ADMIN: [text]")
@@ -19,7 +19,7 @@
 		WRITE_LOG(GLOB.config.logfiles["world_game_log"], "ADMINPRIVATE: [text]")
 
 /// Logging for AdminSay (ASAY) messages
-/proc/_log_adminsay(text)
+/proc/log_adminsay(text)
 	GLOB.admin_log.Add(text)
 	if (GLOB.config.logsettings["log_adminchat"])
 		WRITE_LOG(GLOB.config.logfiles["world_game_log"], "ADMINPRIVATE: ASAY: [text]")

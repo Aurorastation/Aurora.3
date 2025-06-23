@@ -6,21 +6,17 @@
 	adjacency code.
 */
 
-/mob/living/silicon/robot/ClickOn(var/atom/A, var/params)
+/mob/living/silicon/robot/ClickOn(atom/A, params)
 	if(world.time <= next_click)
 		return
 	next_click = world.time + 1
-
-	if(client.buildmode) // comes after object.Click to allow buildmode gui objects to be clicked
-		build_click(src, client.buildmode, params, A)
-		return
 
 	var/list/modifiers = params2list(params)
 	if(modifiers["shift"] && modifiers["ctrl"])
 		CtrlShiftClickOn(A)
 		return
 	if(modifiers["middle"])
-		MiddleClickOn(A)
+		MiddleClickOn(A, params)
 		return
 	if(modifiers["shift"])
 		ShiftClickOn(A)

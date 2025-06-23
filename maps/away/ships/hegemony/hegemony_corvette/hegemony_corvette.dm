@@ -1,8 +1,12 @@
 /datum/map_template/ruin/away_site/hegemony_corvette
 	name = "Hegemony Corvette"
 	description = "Ship with lizards."
-	suffixes = list("ships/hegemony/hegemony_corvette/hegemony_corvette.dmm")
+
+	prefix = "ships/hegemony/hegemony_corvette/"
+	suffix = "hegemony_corvette.dmm"
+
 	sectors = list(SECTOR_BADLANDS, SECTOR_UUEOAESA)
+	spawn_weight_sector_dependent = list(SECTOR_UUEOAESA = 1.5)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "hegemony_corvette"
@@ -33,6 +37,7 @@
 	vessel_mass = 5000
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
+	invisible_until_ghostrole_spawn = TRUE
 	initial_restricted_waypoints = list(
 		"Hegemony Shuttle" = list("nav_hegemony_corvette_shuttle")
 	)

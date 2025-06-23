@@ -123,7 +123,7 @@
 					break
 
 		if(prob(10) && (owner.can_feel_pain()))
-			to_chat(owner, "<span class='warning'>You feel a burning sensation on your skin!</span>")
+			to_chat(owner, SPAN_WARNING("You feel a burning sensation on your skin!"))
 			owner.make_jittery(10)
 
 /obj/item/organ/internal/parasite/zombie/process_stage()
@@ -174,7 +174,7 @@
 						'sound/effects/zombies/zombie_3.ogg',
 						'sound/effects/zombies/zombie_4.ogg'
 						)
-	playsound(owner, pick(wakeup_sounds))
+	playsound(owner, pick(wakeup_sounds), 70)
 	owner.change_skin_color(r, g, b)
 	owner.update_dna()
 

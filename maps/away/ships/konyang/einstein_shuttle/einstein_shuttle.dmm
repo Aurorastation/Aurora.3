@@ -100,7 +100,7 @@
 /turf/simulated/floor/carpet/brown,
 /area/shuttle/einstein_shuttle/main)
 "cW" = (
-/turf/space,
+/turf/space/transit/north,
 /area/space)
 "do" = (
 /obj/structure/sink{
@@ -211,7 +211,7 @@
 /turf/simulated/floor/carpet/brown,
 /area/shuttle/einstein_shuttle/main)
 "fW" = (
-/obj/effect/shuttle_landmark/einstein_shuttle/start{
+/obj/effect/shuttle_landmark/ship/einstein_shuttle{
 	dir = 1
 	},
 /turf/template_noop,
@@ -323,6 +323,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/room/four)
+"jt" = (
+/obj/item/pen/drafting/blue{
+	pixel_y = 5
+	},
+/obj/item/blueprints/shuttle,
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/plating,
+/area/shuttle/einstein_shuttle/porteng)
 "jC" = (
 /obj/machinery/power/terminal,
 /obj/structure/cable{
@@ -677,8 +685,7 @@
 /area/shuttle/einstein_shuttle/room/four)
 "se" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /turf/simulated/floor/carpet/brown,
 /area/shuttle/einstein_shuttle/main)
@@ -803,7 +810,7 @@
 /obj/structure/closet/crate/rad{
 	name = "fuel storage"
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/item/stack/material/uranium/full,
 /obj/item/stack/material/uranium/full,
 /obj/item/stack/material/uranium/full,
@@ -875,8 +882,7 @@
 "xe" = (
 /obj/structure/closet/cabinet,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /obj/item/clothing/under/suit_jacket/navy,
 /obj/item/clothing/under/suit_jacket/checkered,
@@ -1322,10 +1328,6 @@
 /obj/machinery/computer/ship/sensors,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/helm)
-"FL" = (
-/obj/effect/overmap/visitable/sector/einstein_shuttle,
-/turf/template_noop,
-/area/space)
 "FT" = (
 /obj/structure/table/standard,
 /obj/item/paper_bin,
@@ -1417,8 +1419,7 @@
 /area/shuttle/einstein_shuttle/porteng)
 "IF" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 1;
-	layer = 2.8
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
@@ -1487,8 +1488,7 @@
 /area/shuttle/einstein_shuttle/porteng)
 "Lh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9;
-	icon_state = "intact"
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/dock)
@@ -1598,7 +1598,7 @@
 /area/shuttle/einstein_shuttle/conference)
 "Pp" = (
 /obj/effect/step_trigger/teleporter,
-/turf/space,
+/turf/space/transit/north,
 /area/space)
 "Pq" = (
 /obj/structure/bed,
@@ -1636,10 +1636,10 @@
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/starbeng)
 "Qi" = (
-/obj/effect/shuttle_landmark/einstein_shuttle/transit{
+/obj/effect/shuttle_landmark/einstein_shuttle_transit{
 	dir = 1
 	},
-/turf/space,
+/turf/space/transit/north,
 /area/space)
 "QI" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -1765,7 +1765,9 @@
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/porteng)
 "TM" = (
-/obj/machinery/computer/ship/helm,
+/obj/machinery/computer/ship/helm{
+	req_access = list(205)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/helm)
 "Uv" = (
@@ -1790,8 +1792,7 @@
 /area/shuttle/einstein_shuttle/porteng)
 "Ux" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/helm)
@@ -2003,8 +2004,7 @@
 /area/shuttle/einstein_shuttle/porteng)
 "YJ" = (
 /obj/machinery/atmospherics/portables_connector{
-	dir = 8;
-	layer = 2.8
+	dir = 8
 	},
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/plating,
@@ -2036,8 +2036,7 @@
 "ZL" = (
 /obj/structure/bed/stool/chair/office/dark,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /obj/machinery/light{
 	dir = 8;
@@ -6984,7 +6983,7 @@ NW
 NW
 NW
 NW
-FL
+NW
 NW
 fW
 Kx
@@ -7806,7 +7805,7 @@ NW
 NW
 Hp
 lH
-iD
+jt
 YJ
 LU
 Wh

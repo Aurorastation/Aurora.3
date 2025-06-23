@@ -19,27 +19,23 @@
 	var/burn_damage = 0                     // Specifically burn damage.
 	var/base_name                           // Used to keep the original name safe while we apply modifiers.
 
-/obj/item/clothing/suit/space/Initialize()
-	. = ..()
-	base_name = name
-
 //Some simple descriptors for breaches. Global because lazy, TODO: work out a better way to do this.
 
-var/global/list/breach_brute_descriptors = list(
+GLOBAL_LIST_INIT(breach_brute_descriptors, list(
 	"tiny puncture",
 	"ragged tear",
 	"large split",
 	"huge tear",
 	"gaping wound"
-	)
+	))
 
-var/global/list/breach_burn_descriptors = list(
+GLOBAL_LIST_INIT(breach_burn_descriptors, list(
 	"small burn",
 	"melted patch",
 	"sizable burn",
 	"large scorched area",
 	"huge scorched area"
-	)
+	))
 
 /datum/breach/proc/update_descriptor()
 
@@ -47,9 +43,9 @@ var/global/list/breach_burn_descriptors = list(
 	class = between(1, round(class), 5)
 	//Apply the correct descriptor.
 	if(damtype == DAMAGE_BURN)
-		descriptor = breach_burn_descriptors[class]
+		descriptor = GLOB.breach_burn_descriptors[class]
 	else if(damtype == DAMAGE_BRUTE)
-		descriptor = breach_brute_descriptors[class]
+		descriptor = GLOB.breach_brute_descriptors[class]
 
 //Repair a certain amount of brute or burn damage to the suit.
 /obj/item/clothing/suit/space/proc/repair_breaches(var/damtype, var/amount, var/mob/user)
@@ -190,7 +186,7 @@ var/global/list/breach_burn_descriptors = list(
 			return
 
 		if(istype(src.loc,/mob/living))
-			to_chat(user, "<span class='warning'>How do you intend to patch a voidsuit while someone is wearing it?</span>")
+			to_chat(user, SPAN_WARNING("How do you intend to patch a voidsuit while someone is wearing it?"))
 			return
 
 		if(!damage || !burn_damage)
@@ -206,7 +202,7 @@ var/global/list/breach_burn_descriptors = list(
 	else if(attacking_item.iswelder())
 
 		if(istype(src.loc,/mob/living))
-			to_chat(user, "<span class='warning'>How do you intend to patch a voidsuit while someone is wearing it?</span>")
+			to_chat(user, SPAN_WARNING("How do you intend to patch a voidsuit while someone is wearing it?"))
 			return
 
 		if (!damage || ! brute_damage)
@@ -215,7 +211,7 @@ var/global/list/breach_burn_descriptors = list(
 
 		var/obj/item/weldingtool/WT = attacking_item
 		if(!WT.use(5))
-			to_chat(user, "<span class='warning'>You need more welding fuel to repair this suit.</span>")
+			to_chat(user, SPAN_WARNING("You need more welding fuel to repair this suit."))
 			return
 
 		repair_breaches(DAMAGE_BRUTE, 3, user)
@@ -227,7 +223,7 @@ var/global/list/breach_burn_descriptors = list(
 	. = ..()
 	if(can_breach && breaches && breaches.len)
 		for(var/datum/breach/B in breaches)
-			. += "<span class='danger'>It has \a [B.descriptor].</span>"
+			. += SPAN_DANGER("It has \a [B.descriptor].")
 
 /obj/item/clothing/suit/space/get_pressure_weakness(pressure)
 	. = ..()

@@ -7,8 +7,11 @@
 	spawn_cost = 2
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_SRANDMARR)
-	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
-	suffixes = list("adhomai/adhomai_sole_rock_nomad.dmm")
+
+	prefix = "adhomai/"
+	suffix = "adhomai_sole_rock_nomad.dmm"
+
+	unit_test_groups = list(3)
 
 //ghost roles
 
@@ -36,7 +39,7 @@
 /obj/outfit/admin/adhomai_sole_rock_nomad
 	name = "Rock Nomad"
 
-	uniform = /obj/item/clothing/under/pants/tajaran
+	pants = /obj/item/clothing/pants/tajaran
 	head = /obj/item/clothing/head/tajaran/fur
 	suit = /obj/item/clothing/suit/storage/toggle/tajaran/wool
 	shoes = /obj/item/clothing/shoes/tajara/footwraps

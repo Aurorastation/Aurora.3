@@ -1,0 +1,231 @@
+2024-08-02:
+  Ben10083:
+  - bugfix: Idris Cruiser now has firedoors with proper access, alongside firealarms.
+  - rscadd: Mining Module now provides access to hailing channel.
+  - balance: Change cyborg jetpack module material requirements to use silver instead
+      of phoron.
+  DreamySkrell:
+  - rscadd: Expands Intrepid passenger seating.
+  - rscadd: Expands expedition supplies in the Intrepid hangar.
+  FluffyGhost:
+  - bugfix: Crusher will not stop and stare at effects anymore.
+  Geeves:
+  - bugfix: Fixed AIs not being able to see visible emotes through holopads.
+  Pirouette:
+  - balance: Skrell are now able to leap three tiles instead of two.
+  SimpleMaroon:
+  - qol: Allowed the Cyborg scientific gripper to hold integrated circuit printers,
+      in order to facilitate R&D.
+  - rscadd: Added a jungle hide mantle to the peasant hide mantle selection for Unathi.
+2024-08-03:
+  Geeves:
+  - bugfix: Fixed AI hologram loadout characters being nude.
+  MattAtlas:
+  - rscadd: Melee weapons now give audiovisual feedback when they miss a target.
+  SimpleMaroon:
+  - rscadd: Added a 'knockout blow' technique to the Kis-Khan martial art that renders
+      a simple animal temporarily paralyzed. It can be performed with disarm intent.
+  - code_imp: Adjusted disarm intent on simple mobs to be compatible with martial
+      arts.
+2024-08-12:
+  AlaunusLux:
+  - bugfix: Explosive Implants targeting the Localized Limb no longer fail to remove
+      the limb.
+  - bugfix: Exploded limbs will now bleed and cause pain.
+  Ben10083:
+  - rscadd: Various improvements to the Orion Express mobile station, including new
+      docking arms for docking in all directions.
+  CourierBravo:
+  - rscadd: Added an encryption key vendor for the Executive Officer. Additionally,
+      added an encryption restock canister, and made it available for janitors through
+      their Omni-Vendor.
+  - imageadd: Added a modified sprite for the encryption key vendor.
+  - rscdel: Removed the Boba from the dinnerware premium list.
+  - spellcheck: Scrubs Hephaestus Industries as the manufacturer of some laser weapons,
+      replacing them with NanoTrasen. Fixes some grammar goofs in some laser weapon
+      discs. Hephaestus remains the manufacturer of the thermal drill, however.
+  DreamySkrell:
+  - rscadd: Removes the Crew Armory.
+  - rscadd: Removes the Leviathan.
+  - rscadd: Updates mapmerge2 tool with most current tg version.
+  - rscadd: Freebooter Ship - turns pods into submaps.
+  SimpleMaroon:
+  - bugfix: Added some Diona body markings that were not previously moved over when
+      Diona hair and facial hair styles were removed.
+  budg:
+  - imageadd: Added several pairs of colourable boots to the loadout, also added colourable
+      thigh-high sneakers and flats.
+2024-08-14:
+  ChangeMe:
+  - bugfix: Borers will no longer get stuck in progress bar purgatory upon bestowing
+      psionic powers to their host.
+  - bugfix: The Mirror Shade psi power will no longer target the host's internal borer.
+  hazelmouse:
+  - qol: Cigarettes, candles, and matches now burn for substantially longer before
+      going out.
+2024-08-17:
+  Ben10083:
+  - bugfix: Fixed layering issue regarding closed blast doors.
+  - bugfix: Adds missing disposal piping for Bridge Conference Room, as well as having
+      bar delivery go to backroom.
+  ChangeMe:
+  - bugfix: Fixes layering issue in Public Garden soil plots.
+  CourierBravo:
+  - imageadd: Modified the binocular sprite to make a blue version, allowing for easier
+      differentiation between regular and high power binoculars.
+  - rscadd: Added several pre made shuttles to the helpers. The SCCV Artemis, SCCV
+      Apollo & its two variants, and the SCCV Packrat. These are intended to be used
+      for events.
+  - rscadd: 'Added a long list of color variants of various floor decals '
+  - rscadd: Added a new atmos helper, atmos_pipes.
+  - refactor: Split the outline/engineering decal, which is brown, into two new decals.
+      outline/engineering and outline/operations. outline/engineering is now engineering
+      yellow, outline/operations is brown. All maps with outline/engineering have
+      been changed to reflect this.
+  - bugfix: Changed the icon state of the SCC repeater pistol to fix a display issue.
+  DreamySkrell:
+  - rscadd: Pirate Base, shuttle landmarks moved closer.
+  HanSolo1519:
+  - spellcheck: Fixes a spelling mistake in the Nated portrait.
+  President Njadrasanukii Hadii:
+  - bugfix: Replaces depreciated Airlock markers in Hadiist Satellite with Hadiist
+      modern equivalent.
+  shimmeristaken:
+  - rscadd: Adds a cool Callistean lighter to the game and as an option in the loadout
+      menu.
+2024-08-19:
+  4000daniel1:
+  - rscadd: Added laser tag lockers to Holodeck Alpha, along with a new laser tag
+      arena module.
+  CourierBravo:
+  - spellcheck: Fixed the name of the Operations Manager radio key.
+  - spellcheck: Fixed a couple typos in the bluespace encryption key
+2024-08-21:
+  Ben10083:
+  - rscadd: Updated Alignment information for lore planets such as Moghes and Biesel.
+      Exoplanets now show governing body of planet (shown for lore planets that are
+      colonized).
+  - bugfix: Fixes some mapping errors in regards to Xenobiology.
+  CourierBravo:
+  - bugfix: Fixed brown industrial outlines being replaced with yellow outlines. Issued
+      caused by me being a goober.
+  - bugfix: Made the consular office ringers work correctly.
+  - bugfix: Removed random decal in intrepid hanger.
+  - bugfix: Removed a light tube that was overlapping a lightbulb in the warehouse.
+  - rscadd: Moved the security firing range recharger to outside of the firing range.
+  - rscadd: Added red and blue arm bands for red team blue team training to security.
+      They can be found in the firing range.
+  - rscadd: Added two more lights to medical, making the room brighter.
+  - rscadd: Added a coat rack to the captains office.
+  - rscadd: Added a bottle of spray cleaner to the xenobiology lab.
+  FluffyGhost:
+  - rscadd: Tranq rifle projectiles now weakens animals for a bit, the larger the
+      animal, the longer it takes for this to happen.
+  - refactor: Refactored the tranq rifle projectile code.
+  - code_imp: Enabled UnimplementedAccess lint for OD.
+  - rscadd: Flags are now opaque when deployed, blocking the view.
+  - bugfix: Fixed a spelling error.
+  - code_imp: Minimal code cleanup.
+  - bugfix: Fixed all datum[index] accesses, they are considered undocumented behavior
+      and fail from 515.1641.
+  - rscadd: Flipped the OpenDream pragma for the above to emit an error instead of
+      a warning.
+  Furrycactus:
+  - bugfix: Fixes the broken cable that left the Intrepid disconnected from the Horizon's
+      main power grid.
+  Geeves:
+  - bugfix: Fixed purses not appearing in the preview when selected in the loadout.
+  HanSolo1519:
+  - rscadd: Added the NanoPharm, a vending machine for over-the-counter medical items.
+  - rscadd: Added NanoPharm to Infirmary Lobby (Thanks CourierBravo!)
+  President Njadrasanukii Hadii:
+  - rscadd: Database Freighter given fax machine.
+  - qol: Database Freighter Hadiism levels increased by 38% with distribution of PRA
+      flagpatches to crews.
+  - bugfix: Database Freighter firedoors now have correct access requirements.
+  SimpleMaroon:
+  - bugfix: Fixed characters with mononyms being unable to broadcast Hivenet using
+      the Phalanx Receiver properly.
+  shimmeristaken:
+  - bugfix: Fixed cryo healing the brain only if it is above 50% brain activity, which
+      made it functionally useless.
+2024-08-23:
+  CourierBravo:
+  - rscdel: Fixed a ringer being where it shouldn't be.
+  - rscadd: Added an All Xanu Republic Flagpatch, using the banner over the normal
+      flag for the patch.
+  - imageadd: Added sprites for the All Xanu Republic flagpatch
+  FluffyGhost:
+  - rscadd: Ported the TG's error handler system, which allows runtime errors to be
+      collected in a datum, browsed, and all the good stuffs.
+  N8_Toe:
+  - rscadd: Added a marketable Domadice Plushie to the game and loadout. sprite by
+      NobleRow.
+2024-08-24:
+  Ben10083:
+  - qol: Small tweaks to IHSS Reclamation to improve experience.
+  CourierBravo:
+  - balance: Removed the tranquilizer rifle from the HoS's office, placing it in the
+      RD's office instead. Removed the tranquilizer ammo box from the HoS locker,
+      and into the RD's locker.
+  - rscadd: Reflavored the tranquilizer rifle's description away from being a modified
+      anti material rifle. Also, reflavored its ammo to be Plastic-Gas Shells instead
+      of .50 cal shells.
+  - rscadd: Expanded the RD's office slightly and shuffled a few things around to
+      allow for the space for the tranquilizer cabinet.
+  - rscadd: Added the memory wiper to the Operations Manager's locker.
+  - rscdel: Removed the memory wiper from the Research Director's locker.
+  - bugfix: Fixes the pharmacists age being set to 26, when it should be 25 according
+      to the wiki.
+  FluffyGhost:
+  - refactor: Refactored the abstract meta propriety into defines.
+  - refactor: It's now more easy to spot/see abstract types thanks to the macro that
+      defines them.
+  - rscadd: Added a check on initialization of atoms to avoid spawning abstract types.
+  - rscadd: Made the spawn_atom proc check for abstractness.
+  - rscadd: Made the spawn_atom proc use tgui_list for types list shorter than 1000
+      elements, which enables to search in them. It's too laggy on larger lists so
+      above 1000 it uses the builtin input.
+  - refactor: Made the spawn_atom use a list subtraction instead of a double list,
+      it's lighter on memory and processing.
+  MattAtlas:
+  - bugfix: Gender will not explode the server on the newest BYOND version.
+  not-a-gonk:
+  - rscadd: Adds the Tirakqi Smuggler ship to Uueoa-esa.
+2024-08-25:
+  CourierBravo:
+  - bugfix: Fixed the broken icon states for the biogenerator and minibiogenerator.
+      Now they look right in a map editor.
+  - balance: Doubled the refill canisters in the janitorial omni-vender
+  - qol: Renamed the omni-vender to omni-restocker, which should make it more clear
+      as to what its for.
+  FurryCactus:
+  - rscadd: Added singular turbine to Atmos maintenance. Try your hand at combustion,
+      but make sure not to blow anything up!
+  HanSolo1519:
+  - spellcheck: Correctly lables the 5u Nicotine pill bottle
+  - rscadd: Codes in new IPC heads, the Selen, Sienna and Siseyo series heads. (Thanks
+      NobleRow for making them!)
+2024-08-26:
+  Ben10083:
+  - rscadd: 'Adds new Tajaran Charm: Twin Suns, used for s''rend''marr worshippers.'
+  - spellcheck: Fixed incorrect mentions of 'Okon 011' instead of 'Okon 001'.
+  - rscadd: Adds delivery point and holopad to Okon 001.
+  - bugfix: Adds missing airlock for Okon 001.
+  Furrycactus:
+  - qol: Depreciated the Port and Starboard Wing Substations, as they were a redundant
+      load on the powergrid that each only powered one APC.
+  Geeves:
+  - rscadd: Certain autolathe items can now be printed at Code Red without needing
+      to be hacked. (though hacking allows you to access them without the level)
+  - balance: Certain autolathe items have had their hacking restrictions removed,
+      such as the industrial welder. They are now printable by default.
+  - qol: Reorganized the autolathe, drastically reduced the size of the General tab,
+      and introduced new tabs, such as Dinnerware and Armaments.
+  - qol: Shotgun shells now print in piles, instead of one shell at a time. The resource
+      cost has been increased to compensate.
+2024-08-27:
+  hazelmouse:
+  - rscadd: Added a third smelting line to mining, and shortened the conveyor belts.
+      All three miners can now empty their boxes at once!
+  - qol: Spark airlock will no longer jam after forcing the airlock outwards once.

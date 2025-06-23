@@ -5,7 +5,7 @@
 	category_name = "Integrated Positronic Chassis"
 	bodytype = BODYTYPE_IPC
 	species_height = HEIGHT_CLASS_SHORT
-	height_min = 100
+	height_min = 120
 	height_max = 250
 	age_min = 1
 	age_max = 60
@@ -144,6 +144,10 @@
 	use_alt_hair_layer = TRUE
 	psi_deaf = TRUE
 
+	sleeps_upright = TRUE
+	snore_key = "beep"
+	indefinite_sleep = TRUE
+
 /datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	. = ..()
 	check_tag(H, H.client)
@@ -159,22 +163,22 @@
 		C.use(cost * sprint_cost_factor)
 	return TRUE
 
-/datum/species/machine/handle_emp_act(mob/living/carbon/human/H, var/severity)
-	var/obj/item/organ/internal/surge/S = H.internal_organs_by_name["surge"]
+/datum/species/machine/handle_emp_act(mob/living/carbon/human/hit_mob, severity)
+	var/obj/item/organ/internal/surge/S = hit_mob.internal_organs_by_name["surge"]
 	if(!isnull(S))
 		if(S.surge_left >= 1)
-			playsound(H.loc, 'sound/magic/LightningShock.ogg', 25, 1)
+			playsound(hit_mob.loc, 'sound/magic/LightningShock.ogg', 25, 1)
 			S.surge_left -= 1
 			if(S.surge_left)
-				to_chat(H, SPAN_WARNING("Warning: EMP detected, integrated surge prevention module activated. There are [S.surge_left] preventions left."))
+				to_chat(hit_mob, SPAN_WARNING("Warning: EMP detected, integrated surge prevention module activated. There are [S.surge_left] preventions left."))
 			else
 				S.broken = TRUE
 				S.icon_state = "surge_ipc_broken"
-				to_chat(H, SPAN_DANGER("Warning: EMP detected, integrated surge prevention module activated. The surge prevention module is fried, replacement recommended."))
-			return TRUE
+				to_chat(hit_mob, SPAN_DANGER("Warning: EMP detected, integrated surge prevention module activated. The surge prevention module is fried, replacement recommended."))
+			return EMP_PROTECT_ALL
 		else
 			to_chat(src, SPAN_DANGER("Warning: EMP detected, integrated surge prevention module is fried and unable to protect from EMP. Replacement recommended."))
-	return FALSE
+	return NONE
 
 /datum/species/machine/handle_death(var/mob/living/carbon/human/H)
 	..()
@@ -391,3 +395,10 @@
 	var/obj/item/organ/internal/cell/C = human.internal_organs_by_name[BP_CELL]
 	if(C)
 		C.use(stamina_cost * 8)
+
+/datum/species/machine/sleep_msg(var/mob/M)
+	M.visible_message(SPAN_NOTICE("\The [M] locks [M.get_pronoun("his")] chassis into place, entering standby."))
+	to_chat(M, SPAN_NOTICE("You lock your chassis into place, entering standby."))
+
+/datum/species/machine/sleep_examine_msg(var/mob/M)
+	return SPAN_NOTICE("[M.get_pronoun("He")] appears to be in standby.\n")

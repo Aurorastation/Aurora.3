@@ -9,7 +9,7 @@
 	The 'fire' activator will cause the mechanism to attempt to fire the weapon at the coordinates, if possible.  Note that the \
 	normal limitations to firearms, such as ammunition requirements and firing delays, still hold true if fired by the mechanism."
 	complexity = 20
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	size = 3
 	inputs = list(
 		"target X rel" = IC_PINTYPE_NUMBER,
@@ -32,12 +32,12 @@
 	if(istype(attacking_item, /obj/item/gun))
 		var/obj/item/gun/gun = attacking_item
 		if(installed_gun)
-			to_chat(user, "<span class='warning'>There's already a weapon installed.</span>")
+			to_chat(user, SPAN_WARNING("There's already a weapon installed."))
 			return
 		user.drop_from_inventory(gun,src)
 		installed_gun = gun
 		size += gun.w_class
-		to_chat(user, "<span class='notice'>You slide \the [gun] into the firing mechanism.</span>")
+		to_chat(user, SPAN_NOTICE("You slide \the [gun] into the firing mechanism."))
 		playsound(src.loc, /singleton/sound_category/crowbar_sound, 50, 1)
 	else
 		..()
@@ -45,12 +45,12 @@
 /obj/item/integrated_circuit/manipulation/weapon_firing/attack_self(var/mob/user)
 	if(installed_gun)
 		installed_gun.forceMove(get_turf(src))
-		to_chat(user, "<span class='notice'>You slide \the [installed_gun] out of the firing mechanism.</span>")
+		to_chat(user, SPAN_NOTICE("You slide \the [installed_gun] out of the firing mechanism."))
 		size = initial(size)
 		playsound(loc, /singleton/sound_category/crowbar_sound, 50, 1)
 		installed_gun = null
 	else
-		to_chat(user, "<span class='notice'>There's no weapon to remove from the mechanism.</span>")
+		to_chat(user, SPAN_NOTICE("There's no weapon to remove from the mechanism."))
 
 /obj/item/integrated_circuit/manipulation/weapon_firing/do_work()
 	if(!installed_gun)
@@ -88,7 +88,7 @@
 	extended_desc = "The circuit accepts a 'dir' number as a direction to move towards.<br>\
 	Pulsing the 'step towards dir' activator pin will cause the machine to move a meter in that direction, assuming it is not \
 	being held, or anchored in some way.  It should be noted that the ability to move is dependant on the type of assembly that this circuit inhabits."
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	complexity = 20
 //	size = 5
 	inputs = list("direction" = IC_PINTYPE_DIR)
@@ -142,9 +142,9 @@
 	var/obj/item/grenade/G = attacking_item
 	if(istype(G))
 		if(attached_grenade)
-			to_chat(user, "<span class='warning'>There is already a grenade attached!</span>")
+			to_chat(user, SPAN_WARNING("There is already a grenade attached!"))
 		else if(user.unEquip(G, force=1))
-			user.visible_message("<span class='warning'>\The [user] attaches \a [G] to \the [src]!</span>", "<span class='notice'>You attach \the [G] to \the [src].</span>")
+			user.visible_message(SPAN_WARNING("\The [user] attaches \a [G] to \the [src]!"), SPAN_NOTICE("You attach \the [G] to \the [src]."))
 			attach_grenade(G)
 			G.forceMove(src)
 	else
@@ -152,7 +152,7 @@
 
 /obj/item/integrated_circuit/manipulation/grenade/attack_self(var/mob/user)
 	if(attached_grenade)
-		user.visible_message("<span class='warning'>\The [user] removes \an [attached_grenade] from \the [src]!</span>", "<span class='notice'>You remove \the [attached_grenade] from \the [src].</span>")
+		user.visible_message(SPAN_WARNING("\The [user] removes \an [attached_grenade] from \the [src]!"), SPAN_NOTICE("You remove \the [attached_grenade] from \the [src]."))
 		user.put_in_any_hand_if_possible(attached_grenade) || attached_grenade.dropInto(loc)
 		detach_grenade()
 	else
@@ -170,14 +170,14 @@
 // These procs do not relocate the grenade, that's the callers responsibility
 /obj/item/integrated_circuit/manipulation/grenade/proc/attach_grenade(var/obj/item/grenade/G)
 	attached_grenade = G
-	GLOB.destroyed_event.register(attached_grenade, src, PROC_REF(detach_grenade))
+	RegisterSignal(attached_grenade, COMSIG_QDELETING, PROC_REF(detach_grenade))
 	size += G.w_class
 	desc += " \An [attached_grenade] is attached to it!"
 
 /obj/item/integrated_circuit/manipulation/grenade/proc/detach_grenade()
 	if(!attached_grenade)
 		return
-	GLOB.destroyed_event.unregister(attached_grenade, src)
+	UnregisterSignal(attached_grenade, COMSIG_QDELETING)
 	attached_grenade = null
 	size = initial(size)
 	desc = initial(desc)
@@ -192,7 +192,7 @@
 	desc = "A circuit with its own inventory for small/medium items, used to grab and store things."
 	icon_state = "grabber"
 	extended_desc = "The circuit accepts a reference to thing to be grabbed. It can store up to 10 things. Modes: 1 for grab. 0 for eject the first thing. -1 for eject all."
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	size = 3
 
 	complexity = 10
@@ -211,7 +211,7 @@
 			if(contents.len < 10)
 				if(istype(AM,/obj/item))
 					var/obj/item/A = AM
-					if(A.w_class < ITEMSIZE_NORMAL)
+					if(A.w_class < WEIGHT_CLASS_NORMAL)
 						AM.forceMove(src)
 	if(mode == 0)
 		if(contents.len)
@@ -237,7 +237,7 @@
 	The 'fire' activator will cause the mechanism to attempt to throw thing at the coordinates, if possible.  Note that the \
 	projectile need to be inside the machine, or to be on an adjacent tile, and to be up to medium size."
 	complexity = 15
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	size = 2
 	inputs = list(
 		"target X rel" = IC_PINTYPE_NUMBER,
@@ -262,7 +262,7 @@
 	var/obj/item/A = projectile.data.resolve()
 	if(A.anchored)
 		return
-	if(A.w_class>ITEMSIZE_NORMAL)
+	if(A.w_class>WEIGHT_CLASS_NORMAL)
 		return
 	var/turf/T = get_turf(src.assembly)
 	var/turf/TP = get_turf(A)
@@ -306,7 +306,7 @@
 			return
 
 		A.forceMove(get_turf(src))
-		A.throw_at(T, round(Clamp(sqrt(target_x.data*target_x.data+target_y.data*target_y.data),0,8),1), 3, assembly)
+		A.throw_at(T, round(clamp(sqrt(target_x.data*target_x.data+target_y.data*target_y.data),0,8),1), 3, assembly)
 
 /obj/item/integrated_circuit/manipulation/shocker
 	name = "shocker circuit"
@@ -314,7 +314,7 @@
 	icon_state = "shocker"
 	extended_desc = "The circuit accepts a reference to creature to shock. It can shock a target on adjacent tiles. \
 	Severity determines the power draw and usage of each shock. It accepts values between 0 and 20."
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	complexity = 24
 	inputs = list("target" = IC_PINTYPE_REF,"severity" = IC_PINTYPE_NUMBER)
 	outputs = list()
@@ -325,7 +325,7 @@
 
 /obj/item/integrated_circuit/manipulation/shocker/on_data_written()
 	var/s = get_pin_data(IC_INPUT, 2)
-	power_draw_per_use = Clamp(s,0,20)*8
+	power_draw_per_use = clamp(s,0,20)*8
 
 /obj/item/integrated_circuit/manipulation/shocker/do_work()
 	..()
@@ -336,11 +336,11 @@
 	if(!T.Adjacent(M))
 		return //Can't reach
 	if(shocktime + (5 SECONDS) > world.time)
-		to_chat(M, "<span class='danger'>You feel a light tingle from [src]. Luckily it was charging!</span>")
+		to_chat(M, SPAN_DANGER("You feel a light tingle from [src]. Luckily it was charging!"))
 		return
 	else
-		to_chat(M, "<span class='danger'>You feel a sharp shock from the [src]!</span>")
+		to_chat(M, SPAN_DANGER("You feel a sharp shock from the [src]!"))
 		spark(get_turf(M), 3, 1)
-		M.stun_effect_act(0, Clamp(get_pin_data(IC_INPUT, 2),0,20), null)
+		M.stun_effect_act(0, clamp(get_pin_data(IC_INPUT, 2),0,20), null)
 		shocktime = world.time
 		return

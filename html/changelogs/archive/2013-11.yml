@@ -1,0 +1,45 @@
+2013-11-01:
+  Various:
+  - rscadd: Autovoting, Get off the station when your 15 hour workweek is done, thanks
+      unions!
+  - rscadd: Some beach props that Chinsky finds useless.
+  - wip: Updated NanoUI
+  - rscadd: Dialysis while in sleepers - removes reagents from mobs, like the chemist,
+      toss him in there!
+  - tweak: Pipe Dispensers can now be ordered by Cargo
+  - rscadd: Fancy G-G-G-G-Ghosts!
+2013-11-23:
+  Ccomp5950:
+  - bugfix: Players are now no longer able to commit suicide with a lasertag gun,
+      and will feel silly for doing so.
+  - bugfix: Ghosts hit with the cult book shall now actually become visible.
+  - bugfix: The powercells spawned with Exosuits will now properly be named to not
+      confuse bearded roboticists.
+  - bugfix: Blindfolded players will now no longer require eye surgery to repair their
+      sight, removing the blindfold will be sufficient.
+  - rscadd: Atmospheric Technicians will now have access to Exterior airlocks.
+2013-11-24:
+  Yinadele:
+  - experiment: Supermatter engine added! Please treat your new engine gently, and
+      report any strangeness!
+  - tweak: Rebalanced events so people don't explode into appendicitis or have their
+      organs constantly explode.
+  - rscadd: Vending machines have had bottled water, iced tea, and grape soda added.
+  - rscadd: Head reattachment surgery added! Sew heads back on proper rather than
+      monkey madness.
+  - rscadd: Pain crit rebalanced - Added aim variance depending on pain levels, nerfed
+      blackscreen severely.
+  - rscadd: 'Cyborg alt titles: Robot, and Android added! These will make you spawn
+      as a posibrained robot. Please enjoy!'
+  - bugfix: Fixed the sprite on the modified welding goggles, added a pair to the
+      CE's office where they'll be used.
+  - bugfix: Fixed atmos computers- They are once again responsive!
+  - tweak: Added in functionality proper for explosive implants- You can now set their
+      level of detonation, and their effects are more responsively concrete depending
+      on setting.
+  - rscadd: Hemostats re-added to autolathe!
+  - rscadd: Added two manuals on atmosia and EVA, by MagmaRam! Found in engineering
+      and the engineering bookcase.
+  - bugfix: Fixed areas in medbay to have fully functional APC sectors.
+  - rscadd: Girders are now lasable.
+  - experiment: Please wait warmly, new features planned for next merge!

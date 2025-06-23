@@ -1,12 +1,11 @@
 /obj/item/device/suit_cooling_unit
 	name = "portable suit cooling unit"
 	desc = "A portable heat sink and liquid cooled radiator that can be hooked up to a space suit's existing temperature controls to provide industrial levels of cooling."
-	w_class = ITEMSIZE_LARGE
-	icon = 'icons/obj/item/tools/suitcooler.dmi'
+	w_class = WEIGHT_CLASS_BULKY
+	icon = 'icons/obj/item/device/suitcooler.dmi'
 	icon_state = "suitcooler0"
 	item_state = "coolingpack"
 	action_button_name = "Toggle Cooling Unit"
-	contained_sprite = TRUE
 	slot_flags = SLOT_BACK	//you can carry it on your back if you want, but it won't do anything unless attached to suit storage
 
 	//copied from tank.dm
@@ -166,6 +165,9 @@
 			if(cell)
 				to_chat(user, SPAN_WARNING("There is \a [cell] already installed here."))
 			else
+				if(attacking_item.w_class != WEIGHT_CLASS_NORMAL)
+					to_chat(user, SPAN_WARNING("\The [attacking_item] is too [attacking_item.w_class < WEIGHT_CLASS_NORMAL ? "small" : "large"] to fit here."))
+					return
 				user.drop_from_inventory(attacking_item,src)
 				cell = attacking_item
 				to_chat(user, SPAN_NOTICE("You insert \the [cell]."))
@@ -175,7 +177,7 @@
 	return ..()
 
 /obj/item/device/suit_cooling_unit/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(cover_open)
 		if(cell)
 			icon_state = "suitcooler1"
@@ -202,7 +204,7 @@
 			if(-INFINITY to 17)
 				battery_level = 5
 
-		add_overlay("battery-[battery_level]")
+		AddOverlays("battery-[battery_level]")
 		item_state = "coolingpack[battery_level]"
 
 	if(ismob(loc))

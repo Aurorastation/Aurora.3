@@ -18,15 +18,15 @@
 /obj/item/forensics/swab/proc/is_used()
 	return used
 
-/obj/item/forensics/swab/attack(var/mob/living/M, var/mob/user, var/target_zone)
+/obj/item/forensics/swab/attack(mob/living/target_mob, mob/living/user, target_zone)
 
-	if(!ishuman(M))
+	var/mob/living/carbon/human/H = target_mob
+	if(!istype(H))
 		return ..()
 
 	if(is_used())
 		return
 
-	var/mob/living/carbon/human/H = M
 	var/sample_type
 
 	if(!H.dna || !H.dna.unique_enzymes)

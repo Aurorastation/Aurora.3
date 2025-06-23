@@ -30,7 +30,7 @@
 		. += SPAN_WARNING("\The [src] has no cell installed!")
 
 /obj/machinery/floodlight/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	icon_state = "flood[open ? "o" : ""][open && cell ? "b" : ""]0[on]"
 
 /obj/machinery/floodlight/process()

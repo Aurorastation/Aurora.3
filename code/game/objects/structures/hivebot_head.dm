@@ -3,7 +3,7 @@
 	desc = "The central core of the Hivebot Secondary Transmitter Drone - all that remains after the machine's destruction. Perhaps some data as to the threat can be gleaned from this?"
 	icon = 'icons/obj/structure/hivebot_head.dmi'
 	icon_state = "hivebot_head"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	breakable = FALSE
 	climbable = FALSE
 	density = FALSE
@@ -17,7 +17,7 @@
 	if(prob(10))
 		var/T = get_turf(src)
 		icon_state = "hivebot_head_active"
-		playsound(src.loc, 'sound/effects/creatures/hivebot/hivebot-bark-005.ogg')
+		playsound(src.loc, 'sound/effects/creatures/hivebot/hivebot-bark-005.ogg', 60)
 		to_chat(user, SPAN_WARNING("\The [src] suddenly sparks and lights up, emitting some unintelligible noise!"))
 		spark(T, 3, GLOB.alldirs)
 		addtimer(CALLBACK(src, PROC_REF(deactivate)), 3 SECONDS)

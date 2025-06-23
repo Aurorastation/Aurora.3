@@ -21,15 +21,24 @@ other types of metals and chemistry for reagents).
 // #TODO-MERGE: Go over this file and make sure everything's fine. We might have missing vars.
 
 /datum/design						//Datum for object designs, used in construction
-	var/name						//Name of the created object. If null it will be 'guessed' from build_path if possible.
-	var/desc						//Description of the created object. If null it will use group_desc and name where applicable.
-	var/item_name					//An item name before it is modified by various name-modifying procs
-	var/list/req_tech = list()		//IDs of that techs the object originated from and the minimum level requirements.
-	var/build_type					//Flag as to what kind machine the design is built in. See defines.
-	var/list/materials = list()		//List of materials. Format: "id" = amount.
-	var/list/chemicals = list()		//List of chemicals.
-	var/build_path					//The path of the object that gets created.
-	var/time = 10					//How many ticks it requires to build
+	///Name of the created object, if null it will be 'guessed' from build_path if possible
+	var/name
+	///Description of the created object. If null it will use group_desc and name where applicable
+	var/desc
+	///An item name before it is modified by various name-modifying procs
+	var/item_name
+	///IDs of that techs the object originated from and the minimum level requirements
+	var/list/req_tech = list()
+	///Flag as to what kind machine the design is built in, see defines in `code\__DEFINES\research.dm`
+	var/build_type
+	///List of materials, format: `"id" = amount`
+	var/list/materials = list()
+	///List of chemicals
+	var/list/chemicals = list()
+	//The path of the object that gets created
+	var/build_path
+	///How many deciseconds it requires to build
+	var/time = 10 SECONDS
 	var/p_category = "Misc"
 	var/category					//Primarily used for Mech Fabricators, but can be used for anything.
 

@@ -30,6 +30,7 @@
 			SPECIES_UNATHI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_ATTENDANT,
 			SPECIES_VAURCA_BULWARK
 		),
 		"Diplomatic Aide" = ALL_SPECIES
@@ -59,17 +60,21 @@
 	uniform = /obj/item/clothing/under/gearharness
 
 	glasses = null
+	accessory = null
+	suit_accessory = null
 	head = /obj/item/clothing/head/vaurca_breeder
 	shoes = /obj/item/clothing/shoes/vaurca/breeder
 	mask = /obj/item/clothing/mask/gas/vaurca/filter
 	suit = /obj/item/clothing/suit/vaurca/breeder
+
+	backpack_contents = list(/obj/item/device/camera = 1) // Redefined so they do not inherit the extra energy pistol from the parent representative outfit.
 
 /obj/outfit/job/representative/consular/zora/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H)
 		if(isvaurca(H))
 			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec(H), slot_back)
 			H.equip_to_slot_or_del(new /obj/item/storage/box/tcaf_pamphlet(H), slot_in_backpack)
-			H.equip_to_slot_or_del(new /obj/item/gun/energy/vaurca/blaster(H), slot_in_backpack)
+			H.equip_to_slot_or_del(new /obj/item/gun/energy/vaurca/blaster(H), slot_belt)
 		if(!visualsOnly)
 			addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
 	return TRUE
@@ -105,6 +110,7 @@
 			SPECIES_UNATHI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_ATTENDANT,
 			SPECIES_VAURCA_BULWARK
 		),
 		"Diplomatic Aide" = ALL_SPECIES
@@ -132,16 +138,20 @@
 	uniform = /obj/item/clothing/under/gearharness
 
 	glasses = null
+	accessory = null
+	suit_accessory = null
 	head = /obj/item/clothing/head/vaurca_breeder/klax
 	shoes = /obj/item/clothing/shoes/vaurca/breeder/klax
 	mask = /obj/item/clothing/mask/gas/vaurca/filter
 	suit = /obj/item/clothing/suit/vaurca/breeder/klax
 
+	backpack_contents = list(/obj/item/device/camera = 1) // Redefined so they do not inherit the extra energy pistol from the parent representative outfit.
+
 /obj/outfit/job/representative/consular/klax/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H)
 		if(isvaurca(H))
 			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/klax(H), slot_back)
-			H.equip_to_slot_or_del(new /obj/item/gun/energy/pistol/hegemony(H), slot_in_backpack)
+			H.equip_to_slot_or_del(new /obj/item/gun/energy/vaurca/blaster(H), slot_belt)
 		if(!visualsOnly)
 			addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
 	return TRUE
@@ -177,6 +187,7 @@
 			SPECIES_UNATHI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_ATTENDANT,
 			SPECIES_VAURCA_BULWARK
 		),
 		"Diplomatic Aide" = ALL_SPECIES
@@ -205,16 +216,33 @@
 	uniform = /obj/item/clothing/under/gearharness
 
 	glasses = null
+	accessory = null
+	suit_accessory = null
 	head = /obj/item/clothing/head/vaurca_breeder/cthur
 	shoes = /obj/item/clothing/shoes/vaurca/breeder/cthur
 	mask = /obj/item/clothing/mask/gas/vaurca/filter
 	suit = /obj/item/clothing/suit/vaurca/breeder/cthur
 
+	backpack_contents = list(/obj/item/device/camera = 1) // Redefined so they do not inherit the extra energy pistol from the parent representative outfit.
+
 /obj/outfit/job/representative/consular/cthur/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H)
 		if(isvaurca(H))
 			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/cthur(H), slot_back)
-			H.equip_to_slot_or_del(new /obj/item/gun/energy/fedpistol/nopsi(H), slot_in_backpack)
+			H.equip_to_slot_or_del(new /obj/item/gun/energy/vaurca/blaster(H), slot_belt)
 		if(!visualsOnly)
 			addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
 	return TRUE
+
+/datum/citizenship/liikenka
+	name = CITIZENSHIP_LIIKENKA
+	description = "A group of Punished C'thur residing in Phoenixport and on Mictlan, the majority of Lii'kenka opt to remain undercover as \
+	members of the C'thur brood in disguise, falsifying their Vaurca Office of Administrative Services documents in order to have fake Nralakk Federation citizenship."
+
+	job_species_blacklist = list(
+		"Consular Officer" = ALL_SPECIES,
+		"Diplomatic Aide" = ALL_SPECIES
+	)
+
+/datum/citizenship/liikenka/get_records_name()
+	return CITIZENSHIP_NRALAKK

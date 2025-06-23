@@ -83,10 +83,8 @@
 /area/adhomai_village)
 "fD" = (
 /obj/structure/closet/outhouse,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
-/area/adhomai_village)
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/exoplanet/adhomai)
 "fZ" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 4
@@ -98,7 +96,7 @@
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 268.15
 	},
-/area/adhomai_village)
+/area/exoplanet/adhomai)
 "gw" = (
 /obj/structure/table/wood,
 /obj/item/material/twohanded/pike/pitchfork,
@@ -111,6 +109,12 @@
 /obj/structure/railing/fence,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
+"hR" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/freezer{
+	temperature = 268.15
+	},
+/area/adhomai_village)
 "if" = (
 /obj/machinery/appliance/cooker/stove/adhomai,
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -120,6 +124,11 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
+/area/adhomai_village)
+"iu" = (
+/obj/structure/railing/fence,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "iK" = (
 /obj/structure/table/rack,
@@ -148,7 +157,7 @@
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 268.15
 	},
-/area/adhomai_village)
+/area/exoplanet/adhomai)
 "ko" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/snacks/hardbread,
@@ -180,11 +189,6 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/wood,
-/area/adhomai_village)
-"kO" = (
-/obj/structure/window/basic,
-/obj/structure/curtain/black,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "mf" = (
@@ -230,10 +234,8 @@
 /area/adhomai_village)
 "oi" = (
 /obj/structure/flora/grass/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
-/area/adhomai_village)
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/exoplanet/adhomai)
 "ol" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/bottle/messa_mead{
@@ -254,8 +256,8 @@
 /obj/item/seeds/earthenroot,
 /obj/item/seeds/blizzard,
 /obj/item/seeds/blizzard,
-/obj/item/seeds/nifberries,
-/obj/item/seeds/nifberries,
+/obj/item/seeds/dirtberries,
+/obj/item/seeds/dirtberries,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "qk" = (
@@ -263,7 +265,7 @@
 /obj/item/clothing/shoes/workboots/tajara,
 /obj/item/clothing/shoes/workboots/tajara/adhomian_boots,
 /obj/item/clothing/suit/storage/toggle/tajaran/wool,
-/obj/item/clothing/under/pants/tajaran,
+/obj/item/clothing/pants/tajaran,
 /obj/item/gun/projectile/shotgun/pump/rifle/obrez,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
@@ -283,7 +285,12 @@
 	},
 /area/adhomai_village)
 "rf" = (
-/obj/structure/simple_door/wood,
+/obj/machinery/door/urban,
+/turf/simulated/floor/exoplanet/wood,
+/area/adhomai_village)
+"rk" = (
+/obj/machinery/light/small,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "rM" = (
@@ -291,7 +298,7 @@
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 268.15
 	},
-/area/adhomai_village)
+/area/exoplanet/adhomai)
 "sF" = (
 /obj/structure/table/rack,
 /obj/item/material/hatchet,
@@ -357,7 +364,7 @@
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 268.15
 	},
-/area/adhomai_village)
+/area/exoplanet/adhomai)
 "wx" = (
 /obj/structure/table/wood,
 /obj/item/flame/lighter/adhomai,
@@ -377,10 +384,8 @@
 	},
 /area/adhomai_village)
 "xc" = (
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
-/area/adhomai_village)
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/exoplanet/adhomai)
 "xn" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 1
@@ -416,10 +421,8 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "zh" = (
-/obj/structure/window/basic{
-	dir = 1
-	},
 /obj/structure/curtain/black,
+/obj/effect/map_effect/window_spawner/full/wood,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "zA" = (
@@ -429,7 +432,7 @@
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 268.15
 	},
-/area/adhomai_village)
+/area/exoplanet/adhomai)
 "Aq" = (
 /turf/simulated/floor/tiled/freezer{
 	temperature = 268.15
@@ -451,6 +454,13 @@
 /obj/item/soap/uranium_soap,
 /turf/simulated/floor/tiled/freezer{
 	temperature = 268.15
+	},
+/area/adhomai_village)
+"BR" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
 	},
 /area/adhomai_village)
 "BZ" = (
@@ -476,12 +486,36 @@
 	temperature = 278.15
 	},
 /area/adhomai_village)
+"Cz" = (
+/obj/machinery/door/urban{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/wood,
+/area/adhomai_village)
 "CX" = (
 /obj/machinery/appliance/cooker/oven/adhomai,
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
+/area/adhomai_village)
+"DJ" = (
+/obj/structure/table/wood,
+/obj/random/medical{
+	pixel_x = -3;
+	pixel_y = 2
+	},
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_x = -7;
+	pixel_y = 12
+	},
+/obj/item/storage/firstaid/regular{
+	pixel_y = 7;
+	pixel_x = 5
+	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "DP" = (
 /obj/machinery/light/small,
@@ -489,14 +523,13 @@
 /area/adhomai_village)
 "Em" = (
 /obj/machinery/appliance/cooker/stove/adhomai,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "Fz" = (
 /obj/structure/sink/puddle,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
-/area/adhomai_village)
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/exoplanet/adhomai)
 "FM" = (
 /obj/structure/bed/stool/wood,
 /obj/effect/ghostspawpoint{
@@ -573,8 +606,8 @@
 /obj/item/seeds/blizzard,
 /obj/item/seeds/sugartree,
 /obj/item/seeds/sugartree,
-/obj/item/seeds/nifberries,
-/obj/item/seeds/nifberries,
+/obj/item/seeds/dirtberries,
+/obj/item/seeds/dirtberries,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "Iy" = (
@@ -616,15 +649,13 @@
 /obj/structure/railing/fence{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
-/area/adhomai_village)
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/exoplanet/adhomai)
 "Jb" = (
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 268.15
 	},
-/area/adhomai_village)
+/area/exoplanet/adhomai)
 "Jr" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -645,7 +676,7 @@
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 268.15
 	},
-/area/adhomai_village)
+/area/exoplanet/adhomai)
 "KV" = (
 /obj/item/paper_bundle,
 /obj/structure/table/wood,
@@ -661,7 +692,7 @@
 /area/adhomai_village)
 "LL" = (
 /obj/structure/table/wood,
-/obj/item/pocketwatch/adhomai,
+/obj/item/clothing/wrists/watch/pocketwatch/adhomai,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "Mv" = (
@@ -707,6 +738,11 @@
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 268.15
 	},
+/area/exoplanet/adhomai)
+"OV" = (
+/obj/item/reagent_containers/glass/bucket/wood,
+/obj/item/mop,
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "Pa" = (
 /obj/structure/table/wood,
@@ -714,11 +750,8 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "Pc" = (
-/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
-	req_access = null
-	},
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard,
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -750,7 +783,7 @@
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 268.15
 	},
-/area/adhomai_village)
+/area/exoplanet/adhomai)
 "Rq" = (
 /obj/structure/bed/padded,
 /obj/structure/curtain/open/bed,
@@ -771,7 +804,9 @@
 /obj/structure/table/standard,
 /obj/item/reagent_containers/toothbrush/green,
 /obj/item/reagent_containers/toothbrush/red,
-/obj/item/reagent_containers/toothpaste,
+/obj/item/reagent_containers/toothpaste{
+	pixel_y = 10
+	},
 /turf/simulated/floor/tiled/freezer{
 	temperature = 268.15
 	},
@@ -827,8 +862,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "TD" = (
-/obj/structure/curtain/black,
-/obj/structure/window/basic{
+/obj/machinery/door/urban{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/wood,
@@ -898,13 +932,11 @@
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 268.15
 	},
-/area/adhomai_village)
+/area/exoplanet/adhomai)
 "YV" = (
 /obj/structure/flora/bush/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
-/area/adhomai_village)
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/exoplanet/adhomai)
 "Zi" = (
 /obj/structure/railing/fence{
 	dir = 1
@@ -913,7 +945,7 @@
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 268.15
 	},
-/area/adhomai_village)
+/area/exoplanet/adhomai)
 "Zo" = (
 /mob/living/simple_animal/fatshouter,
 /turf/simulated/floor/exoplanet/wood,
@@ -994,9 +1026,9 @@ HX
 TQ
 TQ
 Ic
-kO
+zh
 IM
-ew
+iu
 xc
 Jb
 xc
@@ -1004,7 +1036,7 @@ xc
 Gu
 Ic
 Jr
-fq
+Qe
 Gu
 xc
 xc
@@ -1025,7 +1057,7 @@ Gu
 xc
 Gu
 ev
-TQ
+Wa
 Mv
 Kq
 Gu
@@ -1039,7 +1071,7 @@ Gu
 GN
 TQ
 Cc
-kO
+zh
 xc
 xc
 xc
@@ -1070,9 +1102,9 @@ Jb
 xc
 Gu
 Oa
+Wa
 TQ
-TQ
-Qe
+fq
 Gu
 xc
 xc
@@ -1129,7 +1161,7 @@ Gu
 Oc
 TQ
 TQ
-TQ
+Wa
 Gu
 eU
 gz
@@ -1175,7 +1207,7 @@ wx
 TQ
 DP
 Gu
-TQ
+Wa
 ef
 Gu
 xc
@@ -1265,7 +1297,7 @@ Gu
 Gu
 Gu
 Gu
-rf
+TD
 Gu
 YV
 xc
@@ -1275,7 +1307,7 @@ xc
 Gu
 Oc
 RA
-TQ
+Wa
 Gu
 Ht
 TQ
@@ -1312,7 +1344,7 @@ Gu
 Gu
 Gu
 Gu
-TD
+zh
 Gu
 Jb
 xc
@@ -1330,11 +1362,11 @@ xc
 (13,1,1) = {"
 xc
 Gu
+Wa
 TQ
 TQ
 TQ
-TQ
-kO
+zh
 xc
 xc
 xc
@@ -1611,11 +1643,11 @@ Gu
 Gu
 Gu
 Gu
-rf
+Cz
 Gu
 Gu
 wj
-Aq
+hR
 Aq
 Gu
 xc
@@ -1643,9 +1675,9 @@ Gu
 Gu
 Ic
 Jr
-TQ
+DJ
 WK
-DP
+rk
 Gu
 wY
 Aq
@@ -1681,7 +1713,7 @@ TQ
 TQ
 TQ
 rf
-Aq
+hR
 Aq
 Aq
 uc
@@ -1697,7 +1729,7 @@ Gu
 Gu
 Gu
 Gu
-rf
+TD
 Gu
 Gu
 "}
@@ -1712,7 +1744,7 @@ xn
 TQ
 TQ
 TQ
-Gk
+AZ
 Gu
 Gu
 Gu
@@ -1780,11 +1812,11 @@ TQ
 TQ
 TQ
 TQ
-AZ
+Gk
 Gu
 GR
 TQ
-TQ
+Wa
 Gu
 xc
 xc
@@ -1810,7 +1842,7 @@ sS
 TQ
 TQ
 TQ
-TQ
+Wa
 TQ
 TQ
 Gu
@@ -1851,9 +1883,9 @@ Gu
 Pa
 TQ
 TQ
+Wa
 TQ
-TQ
-kO
+zh
 xc
 xc
 xc
@@ -1876,13 +1908,13 @@ xc
 Gu
 Cw
 Cw
-Cw
+BR
 Cw
 Cw
 Cw
 TQ
 rf
-TQ
+Wa
 TQ
 cw
 cw
@@ -1916,7 +1948,7 @@ Sg
 Yn
 TQ
 Gu
-TQ
+OV
 aF
 qm
 qm
@@ -1948,7 +1980,7 @@ Gu
 Gu
 Gu
 Gu
-TD
+zh
 Gu
 Gu
 Gu

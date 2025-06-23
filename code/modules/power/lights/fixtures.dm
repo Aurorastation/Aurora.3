@@ -12,11 +12,11 @@
 	desc = "A lighting fixture."
 	desc_info = "Use grab intent when interacting with a working light to take it out of its fixture."
 	anchored = TRUE
-	layer = 5  					// They were appearing under mobs which is a little weird - Ostaf
+	layer = ABOVE_HUMAN_LAYER
 	use_power = POWER_USE_ACTIVE
 	idle_power_usage = 2
 	active_power_usage = 20
-	power_channel = LIGHT //Lights are calc'd via area so they dont need to be in the machine list
+	power_channel = AREA_USAGE_LIGHT //Lights are calc'd via area so they dont need to be in the machine list
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/brightness_range = 8	// luminosity when on, also used in power calculation
@@ -76,7 +76,7 @@
 	icon_state = "floortube_example"
 	base_state = "floortube"
 	desc = "A lighting fixture. This one is set into the floor."
-	layer = 2.5
+	layer = ABOVE_TILE_LAYER
 	fitting_has_empty_icon = TRUE
 	fitting_is_on_floor = TRUE
 
@@ -100,8 +100,8 @@
 	icon_state = "floor_example"
 	base_state = "floor"
 	desc = "A small lighting fixture. This one is set into the floor."
-	layer = 2.5
 	fitting_is_on_floor = TRUE
+	layer = ABOVE_TILE_LAYER
 
 /obj/machinery/light/small/emergency
 	icon_state = "bulb_emergency_preview"
@@ -109,6 +109,10 @@
 	brightness_power = 0.45
 	brightness_color = LIGHT_COLOR_EMERGENCY_SOFT
 	randomize_color = FALSE
+
+/obj/machinery/light/small/broken
+	status = LIGHT_BROKEN
+	icon_state = "bulb_broken_preview"
 
 /obj/machinery/light/small/red
 	brightness_range = 2.5
@@ -124,6 +128,11 @@
 	brightness_color = LIGHT_COLOR_RED
 	randomize_color = FALSE
 	icon_state = "tube_red_preview"
+
+/obj/machinery/light/colored/violet
+	brightness_color = LIGHT_COLOR_VIOLET
+	randomize_color = FALSE
+	icon_state = "tube_violet_preview"
 
 /obj/machinery/light/colored/decayed
 	brightness_color = LIGHT_COLOR_DECAYED
@@ -226,7 +235,7 @@
 	pixel_y = pixel_y
 
 /obj/machinery/light/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if ((status == LIGHT_EMPTY) || !fitting_has_empty_icon)
 		icon_state = "[base_state]_empty"
 	else
@@ -244,21 +253,19 @@
 
 			if (on)
 				var/image/I = LIGHT_FIXTURE_CACHE(icon, "[base_state]_on", target_color)
-				if (!fitting_is_on_floor)
-					I.layer = EFFECTS_ABOVE_LIGHTING_LAYER
-				else
-					I.layer = layer
-				add_overlay(I)
+				var/image/E = emissive_appearance(icon, "[base_state]_on")
+				AddOverlays(I)
+				AddOverlays(E)
 			else
-				add_overlay(LIGHT_FIXTURE_CACHE(icon, "[base_state]_off", target_color))
+				AddOverlays(LIGHT_FIXTURE_CACHE(icon, "[base_state]_off", target_color))
 
 		if(LIGHT_BURNED)
-			add_overlay(LIGHT_FIXTURE_CACHE(icon, "[base_state]_burned", brightness_color))
+			AddOverlays(LIGHT_FIXTURE_CACHE(icon, "[base_state]_burned", brightness_color))
 			stat |= BROKEN
 			stat &= ~MAINT
 
 		if(LIGHT_BROKEN)
-			add_overlay(LIGHT_FIXTURE_CACHE(icon, "[base_state]_broken", brightness_color))
+			AddOverlays(LIGHT_FIXTURE_CACHE(icon, "[base_state]_broken", brightness_color))
 			stat |= BROKEN
 			stat &= ~MAINT
 
@@ -505,8 +512,12 @@
 	else
 		user.visible_message(SPAN_WARNING("\The [user] hits \the [src], but it doesn't break."), SPAN_WARNING("You hit \the [src], but it doesn't break."), SPAN_WARNING("You hear something hitting against glass."))
 
-/obj/machinery/light/bullet_act(obj/item/projectile/P, def_zone)
-	bullet_ping(P)
+/obj/machinery/light/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	bullet_ping(hitting_projectile)
 	shatter()
 
 // returns whether this light has power
@@ -693,7 +704,9 @@
 
 // called when on fire
 
-/obj/machinery/light/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/obj/machinery/light/fire_act(exposed_temperature, exposed_volume)
+	. = ..()
+
 	if(prob(max(0, exposed_temperature - 673)))   //0% at <400C, 100% at >500C
 		broken()
 

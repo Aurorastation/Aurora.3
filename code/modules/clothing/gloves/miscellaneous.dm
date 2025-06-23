@@ -73,10 +73,10 @@
 		if(C.use(1))
 			var/obj/item/L = new src.balloon
 			user.drop_from_inventory(L,get_turf(src))
-			to_chat(user, "<span class='notice'>You make a balloon.</span>")
+			to_chat(user, SPAN_NOTICE("You make a balloon."))
 			qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need one length of cable to finish the balloon!</span>")
+			to_chat(user, SPAN_WARNING("You need one length of cable to finish the balloon!"))
 	. = ..()
 
 /obj/item/clothing/gloves/latex/nitrile
@@ -86,6 +86,13 @@
 	item_state = "nitrile"
 	balloon = /obj/item/toy/balloon/latex/nitrile
 	anomaly_protection = 0.1
+
+/obj/item/clothing/gloves/latex/nitrile/zeng
+	name = "zeng-hu vinyl gloves"
+	desc = "A key design element in the labwear was utility and compatibility with the Zeng-Hu positronic chassis workers that are ubiquitous throughout the corporation. \
+	As a result they are breathable yet non-porous, allowing for ample airflow while retaining the cleanroom standards expected of a medical and scientific uniform."
+	icon_state = "zeng_gloves"
+	item_state = "zeng_gloves"
 
 /obj/item/clothing/gloves/latex/nitrile/unathi
 	name = "unathi nitrile gloves"
@@ -245,7 +252,7 @@
 
 	if(prob(50) && (user.a_intent == I_HURT))
 		playsound(user, 'sound/weapons/beartrap_shut.ogg', 50, 1, -1)
-		user.visible_message("<span class='danger'>\The [user] slams \the [L] away with \the [src]!</span>")
+		user.visible_message(SPAN_DANGER("\The [user] slams \the [L] away with \the [src]!"))
 		var/T = get_turf(user)
 		spark(T, 3, GLOB.alldirs)
 		L.throw_at(get_edge_target_turf(loc, loc.dir), 5, 1)
@@ -260,11 +267,11 @@
 	item_state = "warping_claws"
 	attack_verb = list("ripped", "torn", "cut")
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_MINOR,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_MINOR
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_MINOR,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_MINOR
 	)
 	siemens_coefficient = 1
 	force = 11
@@ -282,16 +289,6 @@
 	contained_sprite = TRUE
 	icon_state = "starmittens"
 	item_state = "starmittens"
-	build_from_parts = TRUE
-	worn_overlay = "over"
-
-/obj/item/clothing/gloves/tcaf
-	name = "\improper TCAF armsman gloves"
-	desc = "A pair of khaki tactical gloves with reinforcement at the knuckles and an adjustable strap at the wrist."
-	icon = 'icons/clothing/under/uniforms/tcaf_uniform.dmi'
-	contained_sprite = TRUE
-	icon_state = "tcaf_armsman_gloves"
-	item_state = "tcaf_armsman_gloves"
 	build_from_parts = TRUE
 	worn_overlay = "over"
 
@@ -404,8 +401,14 @@
 		else
 			var/turf/T = get_turf(user)
 			user.visible_message(SPAN_DANGER("\The [user] crackles with energy!"))
-			var/obj/item/projectile/beam/tesla/LE = new (T)
-			LE.launch_projectile(A, user.zone_sel? user.zone_sel.selecting : null, user)
+			var/obj/projectile/beam/tesla/LE = new (T)
+
+			LE.preparePixelProjectile(A, user)
+			LE.firer = user
+			LE.fired_from = src
+			LE.def_zone = user.zone_sel? user.zone_sel.selecting : null
+			LE.fire()
+
 			spark(src, 3, GLOB.alldirs)
 			playsound(user.loc, 'sound/magic/LightningShock.ogg', 75, 1)
 			charged = FALSE
@@ -435,3 +438,25 @@
 	icon_state = "forensic"
 	item_state = "forensicgloves"
 	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_VAURCA_BULWARK)
+
+/obj/item/clothing/gloves/single
+	name = "single glove"
+	desc = "A single glove. This one is for the right hand."
+	icon = 'icons/clothing/gloves/single.dmi'
+	contained_sprite = TRUE
+	icon_state = "single"
+	item_state = "single"
+
+/obj/item/clothing/gloves/single/left
+	desc = "A single glove. This one is for the left hand."
+	icon_state = "single_left"
+	item_state = "single_left"
+
+/obj/item/clothing/gloves/multi_color
+	name = "multi-color gloves"
+	desc = "A pair of gloves, each is a different color."
+	icon = 'icons/clothing/gloves/multi_color.dmi'
+	contained_sprite = TRUE
+	icon_state = "multi_color"
+	item_state = "multi_color"
+	has_accents = TRUE

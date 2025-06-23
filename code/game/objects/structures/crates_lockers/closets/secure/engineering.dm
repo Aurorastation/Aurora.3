@@ -29,6 +29,8 @@
 	new /obj/item/crowbar/rescue_axe/red(src)
 	new /obj/item/device/radio/eng/off(src)
 	new /obj/item/grenade/chem_grenade/antifuel(src)
+	new /obj/item/storage/lockbox/shuttle_blueprints(src)
+	new /obj/item/blueprints/outpost(src)
 
 // Chief Engineer - Clothing Satchel
 // This satchel is used nowhere except in conjunction with the locker above,
@@ -43,7 +45,7 @@
 		/obj/item/clothing/gloves/yellow = 1,
 		/obj/item/clothing/gloves/yellow/specialu = 1,
 		/obj/item/clothing/gloves/yellow/specialt = 1,
-		/obj/item/clothing/shoes/sneakers/brown = 1,
+		/obj/item/clothing/shoes/workboots/brown = 1,
 		/obj/item/device/radio/headset/heads/ce = 1,
 		/obj/item/device/radio/headset/heads/ce/alt = 1,
 		/obj/item/clothing/suit/storage/hazardvest/ce = 1,

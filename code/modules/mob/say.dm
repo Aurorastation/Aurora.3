@@ -1,6 +1,7 @@
 /mob/proc/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
 	return
 
+///what clients use to speak. when you type a message into the chat bar in say mode, this is the first thing that goes off serverside.
 /mob/verb/say_verb(message as text)
 	set name = "Say"
 	set category = "IC"
@@ -14,14 +15,17 @@
 	if (src.client.handle_spam_prevention(message, MUTE_IC))
 		return
 
-	usr.say(message)
+	//queue this message because verbs are scheduled to process after SendMaps in the tick and speech is pretty expensive when it happens.
+	//by queuing this for next tick the mc can compensate for its cost instead of having speech delay the start of the next tick
+	if(message)
+		QUEUE_OR_CALL_VERB_FOR(VERB_CALLBACK(src, PROC_REF(say), message), SSspeech_controller)
 
 /mob/verb/me_verb(message as text)
 	set name = "Me"
 	set category = "IC"
 
 	if(say_disabled)	//This is here to try to identify lag problems
-		to_chat(usr, "<span class='warning'>Speech is currently admin-disabled.</span>")
+		to_chat(usr, SPAN_WARNING("Speech is currently admin-disabled."))
 		return
 
 	message = sanitize(message)
@@ -30,38 +34,37 @@
 		return
 
 	if(use_me)
-		usr.client_emote("me",usr.emote_type,message)
+		QUEUE_OR_CALL_VERB_FOR(VERB_CALLBACK(src, PROC_REF(client_emote), "me", usr.emote_type, message), SSspeech_controller)
 	else
-		usr.emote(message)
+		QUEUE_OR_CALL_VERB_FOR(VERB_CALLBACK(src, PROC_REF(emote), message), SSspeech_controller)
 
 /mob/proc/say_dead(var/message)
 	if(say_disabled)	//This is here to try to identify lag problems
-		to_chat(usr, "<span class='danger'>Speech is currently admin-disabled.</span>")
+		to_chat(usr, SPAN_DANGER("Speech is currently admin-disabled."))
 		return
 
 	if(!src.client.holder)
 		if(!GLOB.config.dsay_allowed)
-			to_chat(src, "<span class='danger'>Deadchat is globally muted.</span>")
+			to_chat(src, SPAN_DANGER("Deadchat is globally muted."))
 			return
 
 	if(client && !(client.prefs.toggles & CHAT_DEAD))
-		to_chat(usr, "<span class='danger'>You have deadchat muted.</span>")
+		to_chat(usr, SPAN_DANGER("You have deadchat muted."))
 		return
 
 	message = process_chat_markup(message, list("~", "_"))
 
 	say_dead_direct("[pick("complains","moans","whines","laments","blubbers")], <span class='message linkify'>\"[message]\"</span>", src)
 
-/mob/proc/say_understands(var/mob/other,var/datum/language/speaking = null)
-
-	if (src.stat == 2)		//Dead
+/mob/proc/say_understands(var/mob/other, var/datum/language/speaking = null)
+	if(src.stat == DEAD)
 		return TRUE
 
-	//Universal speak makes everything understandable, for obvious reasons.
-	else if(src.universal_speak || src.universal_understand)
+	// Universal speak makes everything understandable, for obvious reasons.
+	if(src.universal_speak || src.universal_understand)
 		return TRUE
 
-	//Languages are handled after.
+	// Languages are handled after.
 	if (!speaking)
 		if(!other)
 			return TRUE
@@ -76,7 +79,7 @@
 	if(speaking.flags & INNATE)
 		return TRUE
 
-	//Language check.
+	// Language check.
 	for(var/datum/language/L in src.languages)
 		if(speaking.name == L.name)
 			return TRUE

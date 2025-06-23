@@ -1,76 +1,95 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "abx" = (
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/table/steel,
 /obj/machinery/button/remote/blast_door{
 	id = "coc_fore";
 	name = "fore blast door-control";
 	pixel_x = -6;
-	pixel_y = 6
+	pixel_y = 6;
+	req_one_access = list(221,222)
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "coc_midship";
 	name = "midship blast door-control";
 	pixel_x = -6;
-	pixel_y = -3
+	pixel_y = -3;
+	req_one_access = list(221,222)
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "coc_aft";
 	name = "aft blast door-control";
 	pixel_x = 4;
-	pixel_y = -3
+	pixel_y = -3;
+	req_one_access = list(221,222)
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "coc_bridge";
 	name = "bridge blast door-control";
 	pixel_x = 4;
-	pixel_y = 6
+	pixel_y = 6;
+	req_one_access = list(221,222)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/bridge)
 "aei" = (
-/obj/machinery/atmospherics/binary/pump/high_power,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/effect/floor_decal/corner_wide/blue/diagonal,
 /turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "agA" = (
-/obj/machinery/atmospherics/unary/vent_pump{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "ranger_shuttle_dock";
-	master_tag = "ranger_shuttle_dock";
-	landmark_tag = "nav_hangar_ranger";
-	req_one_access = null;
-	frequency = 1394
-	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/airlock_sensor{
 	dir = 1;
 	pixel_y = -20
 	},
-/turf/simulated/floor,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "ranger_shuttle_dock";
+	master_tag = "ranger_shuttle_dock";
+	landmark_tag = "nav_hangar_ranger";
+	req_one_access = null
+	},
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/foyer)
 "aho" = (
-/obj/effect/shuttle_landmark/ranger_corvette/transit,
-/turf/space/transit/north,
-/area/space)
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	pixel_y = 21;
+	pixel_x = -4;
+	id_tag = "ranger_shuttle_dock";
+	name = "Ranger Shuttle docking port controller";
+	req_one_access = list(221,222)
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/ranger_corvette/foyer)
 "aiD" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/machinery/door/airlock/glass{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor{
+	dir = 4;
+	req_one_access = list(221,222)
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
 "ajL" = (
-/obj/machinery/atmospherics/unary/engine,
-/turf/simulated/floor,
+/obj/machinery/atmospherics/unary/outlet_injector{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/large_tank{
+	master_tag = "coc_ship_co2_star";
+	name = "coc_ship_co2_star"
+	},
+/turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/ranger_corvette/engine1)
 "aoI" = (
 /obj/structure/table/steel,
@@ -86,22 +105,23 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/apc/west{
-	req_access = null
+	req_access = null;
+	req_one_access = list(221,222)
 	},
 /turf/simulated/floor/carpet/red,
 /area/ship/ranger_corvette/crew)
 "aqk" = (
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/table/steel,
 /obj/item/clothing/head/helmet/pilot,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/bridge)
 "asD" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/effect/landmark/entry_point/aft{
-	name = "aft engines, starboard"
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/engine1)
 "avV" = (
 /obj/structure/table/steel,
@@ -122,31 +142,20 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engineering)
 "ayf" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/visible/fuel{
+	dir = 9
 	},
-/obj/effect/landmark/entry_point/east{
-	name = "port, crew compartment"
-	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	name = "ranger_shuttle_dock2";
-	master_tag = "ranger_shuttle_dock2";
-	shuttle_tag = "Ranger Shuttle";
-	req_one_access = null;
-	frequency = 1395
-	},
-/turf/simulated/floor{
-	temperature = 278.15
-	},
-/area/shuttle/ranger_shuttle)
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/ranger_corvette/engine1)
+"ayi" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/gunnery)
 "ayD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/engine1)
 "aDL" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
@@ -159,21 +168,24 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
 "aEq" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/obj/machinery/atmospherics/portables_connector/fuel{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/engine1)
 "aFp" = (
-/obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
-	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/obj/machinery/computer/ship/sensors,
+/turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
 "aHv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/atmospherics/binary/passive_gate/supply{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner_wide/blue/diagonal,
 /turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "aKd" = (
@@ -183,8 +195,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "coc_midship";
-	name = "blast door"
+	id = "coc_midship"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
@@ -212,22 +223,26 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_ranger_docking";
-	master_tag = "airlock_ranger_docking";
-	frequency = 1394
-	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "ranger_shuttle_dock";
+	master_tag = "ranger_shuttle_dock";
+	landmark_tag = "nav_hangar_ranger";
+	req_one_access = null
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
 "aWb" = (
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/foyer)
 "aXC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
@@ -236,18 +251,16 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
-/turf/simulated/floor,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/atmospherics)
 "aYD" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 4
+/obj/machinery/air_sensor,
+/obj/effect/map_effect/marker/large_tank{
+	master_tag = "coc_ship_co2_star";
+	name = "coc_ship_co2_star"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/computer/ship/engines{
-	dir = 8
-	},
-/obj/effect/decal/cleanable/cobweb2,
-/turf/simulated/floor,
+/turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/ranger_corvette/engine1)
 "aYE" = (
 /obj/effect/floor_decal/spline/plain/black{
@@ -265,40 +278,35 @@
 /obj/structure/railing/mapped,
 /obj/machinery/computer/ship/helm{
 	dir = 1;
-	req_access = null
+	req_one_access = list(221,222)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/bridge)
 "bbM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/obj/machinery/computer/shuttle_control/explore/ranger_shuttle{
+/obj/machinery/atmospherics/pipe/manifold/visible/fuel,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/ranger_corvette/engine1)
+"bex" = (
+/obj/machinery/atmospherics/binary/pump/fuel{
 	dir = 4
 	},
-/obj/structure/sign/flag/coalition{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled,
-/area/shuttle/ranger_shuttle)
-"bex" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/engine2)
 "bgA" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/effect/map_effect/marker_helper/airlock/out,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "ranger_shuttle_dock2";
 	master_tag = "ranger_shuttle_dock2";
 	shuttle_tag = "Ranger Shuttle";
 	req_one_access = null;
-	frequency = 1395
+	cycle_to_external_air = 1
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/shuttle/ranger_shuttle)
 "bhp" = (
 /turf/simulated/floor/carpet,
@@ -318,13 +326,30 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
 "bld" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/turf/simulated/floor,
+/obj/machinery/computer/general_air_control/large_tank_control/wall{
+	pixel_x = 32
+	},
+/obj/effect/map_effect/marker/large_tank{
+	master_tag = "coc_ship_co2_port";
+	name = "coc_ship_co2_port"
+	},
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/engine2)
+"bnu" = (
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/foyer)
 "bnz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -336,19 +361,21 @@
 	name = "Custodial Closet";
 	dir = 4
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor{
+	dir = 4;
+	req_one_access = list(221,222)
+	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/janitor)
 "bom" = (
-/obj/machinery/atmospherics/unary/vent_pump{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 2;
 	pixel_y = 28;
 	frequency = 1394
 	},
@@ -356,14 +383,9 @@
 	name = "ranger_shuttle_dock";
 	master_tag = "ranger_shuttle_dock";
 	landmark_tag = "nav_hangar_ranger";
-	req_one_access = null;
-	frequency = 1394
+	req_one_access = null
 	},
-/obj/machinery/light/small/emergency{
-	dir = 1;
-	pixel_y = 8
-	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/foyer)
 "boM" = (
 /obj/machinery/ammunition_loader/francisca{
@@ -371,6 +393,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine1)
+"bph" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ship/ranger_corvette/engine2)
 "brx" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, brig"
@@ -378,27 +407,34 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/brig)
 "bsL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner_wide/blue/diagonal,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "bsV" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "coc_bridge";
-	name = "blast door"
+	id = "coc_bridge"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "coc_bridge";
-	name = "blast door"
+	id = "coc_bridge"
 	},
 /obj/machinery/door/airlock/glass_command{
-	id_tag = null;
 	name = "Bridge";
-	dir = 1
+	dir = 1;
+	req_one_access = list(221,222)
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor{
+	req_one_access = list(221,222)
+	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -429,20 +465,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
 "byX" = (
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 8
-	},
-/obj/machinery/light{
-	dir = 4
-	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	name = "ranger_shuttle_dock2";
-	master_tag = "ranger_shuttle_dock2";
-	shuttle_tag = "Ranger Shuttle";
-	req_one_access = null
-	},
-/turf/simulated/floor/tiled,
-/area/shuttle/ranger_shuttle)
+/obj/machinery/atmospherics/pipe/manifold/visible/fuel,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/ranger_corvette/engine2)
 "bzo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/light{
@@ -459,18 +484,19 @@
 /turf/simulated/floor/carpet,
 /area/ship/ranger_corvette/foyer)
 "bEt" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 5
 	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/turf/simulated/floor,
+/obj/machinery/computer/general_air_control/large_tank_control/wall{
+	pixel_x = -32
+	},
+/obj/effect/map_effect/marker/large_tank{
+	master_tag = "coc_ship_co2_star";
+	name = "coc_ship_co2_star"
+	},
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/engine1)
 "bGA" = (
-/obj/structure/sign/directions/engineering{
-	dir = 1;
-	pixel_x = -32;
-	pixel_y = -14
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
@@ -482,15 +508,29 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/voidsuits)
 "bIQ" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 4;
-	layer = 2.8
+/obj/machinery/atmospherics/binary/pump/fuel{
+	dir = 8
 	},
-/turf/simulated/floor,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/engine1)
+"bLh" = (
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#5b5b5b";
+	frame_color = "#5b5b5b";
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	req_one_access = list(221,222)
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/ranger_shuttle)
 "bMK" = (
 /obj/structure/bed/stool/chair/shuttle{
-	dir = 8
+	dir = 1
+	},
+/obj/effect/floor_decal/corner_wide/blue/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
@@ -500,6 +540,13 @@
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/crew)
+"bOF" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft engines, starboard"
+	},
+/turf/simulated/floor/plating,
+/area/ship/ranger_corvette/engine1)
 "bSt" = (
 /obj/structure/table/wood,
 /obj/structure/sign/flag/kazhkz{
@@ -515,6 +562,12 @@
 /turf/simulated/floor/wood,
 /area/ship/ranger_corvette/leader)
 "bVs" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/wood,
 /area/ship/ranger_corvette/foyer)
 "bXG" = (
@@ -539,9 +592,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
 "cfi" = (
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71
-	},
+/obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -572,6 +623,12 @@
 /obj/effect/ghostspawpoint{
 	identifier = "ranger";
 	name = "igs - ranger"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
 	},
 /turf/simulated/floor/carpet,
 /area/ship/ranger_corvette/foyer)
@@ -604,32 +661,37 @@
 /turf/simulated/floor/reinforced,
 /area/ship/ranger_corvette/gunnery)
 "cnJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/engine1)
 "cos" = (
 /obj/structure/sign/securearea,
 /turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/ranger_corvette/foyer)
+/area/ship/ranger_corvette/gunnery)
 "coK" = (
-/obj/machinery/meter,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9
+/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
+	dir = 8;
+	id_tag = "headmaster_co2_out_starboard"
 	},
-/turf/simulated/floor,
+/obj/effect/map_effect/marker/large_tank{
+	master_tag = "coc_ship_co2_star";
+	name = "coc_ship_co2_star"
+	},
+/turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/ranger_corvette/engine1)
 "cpO" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "coc_fore";
 	name = "fore blast door-control";
-	pixel_x = -22;
-	dir = 8
+	pixel_x = -24;
+	dir = 8;
+	req_one_access = list(221,222)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
@@ -645,28 +707,25 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "cHm" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 6
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
 	},
-/obj/structure/fuel_port/hydrogen{
-	pixel_x = -32
-	},
+/obj/effect/floor_decal/corner_wide/blue/diagonal,
 /turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "cIm" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/brown/diagonal,
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor{
+	req_one_access = list(221,222)
+	},
 /obj/item/reagent_containers/food/condiment/shaker/salt{
 	pixel_x = -9;
 	pixel_y = 7
@@ -678,20 +737,25 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
 "cJN" = (
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_ranger_external";
-	name = "airlock_ranger_external"
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/effect/map_effect/marker/airlock/docking/ranger_corvette/aft,
+/turf/simulated/floor/plating,
+/area/ship/ranger_corvette/atmospherics)
+"cZR" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = 12;
+	dir = 1;
+	frequency = 2137
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/small/emergency{
-	dir = 8;
-	pixel_x = -13
-	},
-/turf/simulated/floor,
-/area/ship/ranger_corvette)
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking/ranger_corvette/aft,
+/obj/effect/shuttle_landmark/ranger_corvette/dock_aft,
+/turf/simulated/floor/plating,
+/area/ship/ranger_corvette/atmospherics)
 "cZV" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
@@ -746,18 +810,24 @@
 "dhX" = (
 /obj/machinery/vending/dinnerware,
 /obj/effect/floor_decal/corner/brown/diagonal,
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor{
+	req_one_access = list(221,222)
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
 "diy" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden,
-/turf/simulated/floor,
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/engine2)
 "dmm" = (
-/obj/machinery/atmospherics/binary/pump/on{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 5
 	},
-/turf/simulated/floor,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/atmospherics)
 "doJ" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -771,11 +841,6 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/button/remote/blast_door{
-	id = "coc_midship";
-	name = "midship blast door-control";
-	pixel_x = -32
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
@@ -786,12 +851,11 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
 "dul" = (
-/obj/machinery/meter,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5
+/obj/machinery/atmospherics/pipe/manifold/visible/fuel{
+	dir = 8
 	},
-/turf/simulated/floor,
-/area/ship/ranger_corvette/engine2)
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/ranger_corvette/engine1)
 "dun" = (
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
@@ -805,15 +869,20 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/brig)
 "duC" = (
-/obj/machinery/computer/ship/helm,
-/turf/simulated/floor/tiled,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#5b5b5b";
+	frame_color = "#5b5b5b";
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	req_one_access = list(221,222)
+	},
+/obj/effect/landmark/entry_point/south{
+	name = "fore, bridge"
+	},
+/turf/simulated/floor/plating,
 /area/shuttle/ranger_shuttle)
 "dwE" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 8;
-	layer = 2.8
-	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/engine2)
 "dBx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -829,34 +898,24 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/cryo)
 "dCS" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 10
+/obj/machinery/power/terminal{
+	dir = 4
 	},
-/obj/machinery/meter,
-/turf/simulated/floor/tiled,
+/obj/structure/cable,
+/turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
 "dFf" = (
-/obj/machinery/airlock_sensor{
-	pixel_x = -20;
-	dir = 4;
-	frequency = 2137
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
 	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_ranger_external";
-	name = "airlock_ranger_external"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 8
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
-/area/ship/ranger_corvette)
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/map_effect/marker/airlock/docking/ranger_corvette/aft,
+/turf/simulated/floor/plating,
+/area/ship/ranger_corvette/atmospherics)
 "dGE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -864,16 +923,14 @@
 	name = "\improper DANGER: FLAMMABLE GAS";
 	pixel_x = -32
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/foyer)
 "dHA" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8;
-	layer = 2.8
+/obj/machinery/computer/ship/engines{
+	dir = 8
 	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/engine2)
 "dHT" = (
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -883,26 +940,16 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/medbay)
 "dIx" = (
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	dir = 8;
-	pixel_y = 0;
-	pixel_x = 20;
-	frequency = 2137
-	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_ranger_external";
-	name = "airlock_ranger_external"
-	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
-/area/ship/ranger_corvette)
+/turf/simulated/floor/plating,
+/area/ship/ranger_corvette/atmospherics)
+"dLB" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/rack,
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/engine1)
 "dMX" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -913,7 +960,8 @@
 "dUu" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/power/apc/east{
-	req_access = null
+	req_access = null;
+	req_one_access = list(221,222)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -933,15 +981,19 @@
 	pixel_x = 5;
 	pixel_y = -2
 	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/wood,
 /area/ship/ranger_corvette/foyer)
 "eiR" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Propulsion";
-	dir = 1
+	name = "Starboard Propulsion";
+	dir = 1;
+	req_one_access = list(221,222)
 	},
-/obj/machinery/door/firedoor/noid,
-/turf/simulated/floor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(221,222)
+	},
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/engine1)
 "enD" = (
 /obj/machinery/ammunition_loader/grauwolf{
@@ -961,7 +1013,6 @@
 "epG" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -981,17 +1032,16 @@
 /turf/space/transit/north,
 /area/space)
 "etR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 9
-	},
+/obj/structure/extinguisher_cabinet/west,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/effect/floor_decal/corner_wide/blue/diagonal,
 /turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "eue" = (
 /obj/machinery/door/airlock/security{
-	dir = 4
+	dir = 4;
+	req_one_access = list(221,222);
+	name = "Brig"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -999,7 +1049,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor{
+	dir = 4;
+	req_one_access = list(221,222)
+	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -1012,27 +1065,29 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/medbay)
 "exg" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/turf/simulated/floor,
+/obj/machinery/portable_atmospherics/canister/empty{
+	name = "waste canister"
+	},
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/atmospherics)
 "ezi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/foyer)
 "ezP" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -1042,20 +1097,22 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/foyer)
 "eBG" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
-/obj/machinery/alarm/east,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
 "eCy" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9
+/obj/machinery/atmospherics/binary/pump/on{
+	dir = 8
 	},
-/turf/simulated/floor,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 5
+	},
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/atmospherics)
 "eCV" = (
 /obj/machinery/vending/cigarette/hacked,
@@ -1100,18 +1157,20 @@
 /obj/item/tank/emergency_oxygen/double,
 /obj/item/tank/emergency_oxygen/double,
 /obj/item/tank/emergency_oxygen/double,
-/obj/item/tank/emergency_oxygen/double,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
+/obj/item/device/suit_cooling_unit,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/voidsuits)
 "eFH" = (
 /obj/machinery/door/airlock/command{
-	dir = 4
+	dir = 4;
+	name = "Ranger Leader Quarters";
+	req_one_access = list(221,222)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1119,7 +1178,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor{
+	dir = 4;
+	req_one_access = list(221,222)
+	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -1147,6 +1209,10 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube_empty"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
 "eQz" = (
@@ -1156,10 +1222,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engineering)
 "eQS" = (
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
+/obj/machinery/alarm/north{
+	req_one_access = list(221,222)
 	},
-/obj/machinery/alarm/north,
 /turf/simulated/floor/wood,
 /area/ship/ranger_corvette/foyer)
 "eRR" = (
@@ -1179,7 +1244,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
@@ -1211,12 +1275,18 @@
 /area/ship/ranger_corvette/engineering)
 "fbf" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Propulsion";
+	name = "Port Propulsion";
 	dir = 1
 	},
-/obj/machinery/door/firedoor/noid,
-/turf/simulated/floor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(221,222)
+	},
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/engine2)
+"feu" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/turf/template_noop,
+/area/space)
 "feE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1226,9 +1296,12 @@
 	},
 /obj/machinery/door/airlock/highsecurity{
 	name = "Ship Munitions Storage";
-	dir = 4
+	dir = 4;
+	req_one_access = list(221,222)
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor{
+	req_one_access = list(221,222)
+	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -1241,11 +1314,11 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/foyer)
 "fkX" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -1280,7 +1353,8 @@
 "fmY" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Gunnery Comparment";
-	dir = 4
+	dir = 4;
+	req_one_access = list(221,222)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1288,7 +1362,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor{
+	dir = 4;
+	req_one_access = list(221,222)
+	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -1306,17 +1383,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/brig)
 "fqt" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
-	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
+/obj/machinery/atmospherics/binary/pump/scrubber/on,
+/obj/effect/floor_decal/corner_wide/blue/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "fqT" = (
 /obj/structure/sign/radiation{
@@ -1341,6 +1411,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine1)
+"fvO" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/ranger_corvette/canteen)
 "fwA" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/canteen)
@@ -1363,6 +1439,15 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/medbay)
+"fAg" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/obj/effect/landmark/entry_point/north{
+	name = "aft, engines"
+	},
+/turf/simulated/floor/airless,
+/area/shuttle/ranger_shuttle)
 "fDx" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -1401,13 +1486,15 @@
 	},
 /obj/machinery/power/apc/north{
 	req_access = null;
-	cell_type = /obj/item/cell/hyper
+	req_one_access = list(221,222)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine1)
 "fJE" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/machinery/media/jukebox,
+/obj/machinery/media/jukebox{
+	anchored = 1
+	},
 /obj/item/disk/tech_disk{
 	desc = "A disk for storing data. This one is labeled, Greatest Hits of 2450.";
 	name = "\improper Greatest Hits of The 2450's disk"
@@ -1416,7 +1503,9 @@
 	dir = 8;
 	icon_state = "tube_empty"
 	},
-/obj/machinery/alarm/west,
+/obj/machinery/alarm/west{
+	req_one_access = list(221,222)
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
 "fPZ" = (
@@ -1426,17 +1515,17 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
+/obj/machinery/recharge_station,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
 "fVq" = (
-/obj/machinery/computer/ship/sensors{
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/sign/flag/coalition{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled,
-/area/shuttle/ranger_shuttle)
+/turf/simulated/floor/plating,
+/area/ship/ranger_corvette/engine1)
 "gec" = (
 /obj/machinery/shower,
 /obj/structure/window/basic{
@@ -1473,12 +1562,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
 "gin" = (
-/obj/effect/map_effect/window_spawner/full/reinforced,
-/obj/machinery/door/firedoor/noid,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#5b5b5b";
+	frame_color = "#5b5b5b";
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	req_one_access = list(221,222)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/brig)
 "gjg" = (
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/closet/cabinet,
 /obj/item/clothing/accessory/badge/passcard/coalition,
 /obj/item/gun/projectile/revolver/derringer,
@@ -1505,12 +1599,11 @@
 /obj/item/clothing/under/konyang/male/shortsleeve,
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/alt,
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/leader)
 "gkq" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -1532,7 +1625,7 @@
 /turf/simulated/floor/wood,
 /area/ship/ranger_corvette/leader)
 "gor" = (
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/bed,
 /obj/item/bedsheet/dorms,
 /obj/machinery/light{
@@ -1543,7 +1636,7 @@
 	identifier = "ranger_leader";
 	name = "igs - ranger_leader"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/leader)
 "goI" = (
 /obj/machinery/shower{
@@ -1567,32 +1660,34 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/foyer)
 "grA" = (
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/light/small/emergency{
+	pixel_y = -22
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "ranger_shuttle_dock";
 	master_tag = "ranger_shuttle_dock";
 	landmark_tag = "nav_hangar_ranger";
-	req_one_access = null;
-	frequency = 1394
+	req_one_access = null
 	},
-/obj/machinery/light/small/emergency{
-	pixel_y = -22
-	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/foyer)
 "gtw" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/foyer)
 "gwg" = (
 /obj/structure/bed,
@@ -1639,11 +1734,23 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/bridge)
 "gLv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 10
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/airlock_sensor{
+	pixel_x = 24;
+	pixel_y = 6;
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "ranger_shuttle_dock2";
+	master_tag = "ranger_shuttle_dock2";
+	shuttle_tag = "Ranger Shuttle";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/turf/simulated/floor/airless,
 /area/shuttle/ranger_shuttle)
 "gMK" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1661,12 +1768,12 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/voidsuits)
 "gNW" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/ranger_corvette)
+/obj/effect/shuttle_landmark/ranger_corvette/nav3,
+/turf/template_noop,
+/area/space)
 "gOp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -1674,15 +1781,21 @@
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/foyer)
 "gUj" = (
+/obj/machinery/door/firedoor{
+	req_one_access = list(221,222)
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "coc_midship"
+	},
 /obj/machinery/door/airlock/service{
 	name = "Dormitory";
 	dir = 1
 	},
-/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/crew)
 "gUN" = (
@@ -1692,6 +1805,11 @@
 	name = "television remote";
 	pixel_x = 6;
 	pixel_y = 4
+	},
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
+	name = "\improper WARNING: BLAST DOOR sign";
+	pixel_y = -32
 	},
 /turf/simulated/floor/carpet,
 /area/ship/ranger_corvette/foyer)
@@ -1714,8 +1832,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/janitor)
 "gXD" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/foyer)
 "han" = (
 /obj/machinery/ship_weapon/grauwolf{
@@ -1739,8 +1857,13 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/brig)
 "hdZ" = (
-/obj/machinery/door/airlock/engineering,
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/airlock/engineering{
+	req_one_access = list(221,222);
+	name = "Engineering"
+	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(221,222)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
 "hjK" = (
@@ -1753,7 +1876,9 @@
 	pixel_x = -5;
 	pixel_y = 5
 	},
-/obj/machinery/alarm/east,
+/obj/machinery/alarm/east{
+	req_one_access = list(221,222)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/crew)
 "hmD" = (
@@ -1769,9 +1894,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor{
+	req_one_access = list(221,222)
+	},
 /obj/machinery/door/airlock/engineering{
-	dir = 4
+	dir = 4;
+	req_one_access = list(221,222)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -1781,13 +1909,19 @@
 "hnE" = (
 /obj/machinery/hologram/holopad/long_range,
 /obj/effect/overmap/visitable/ship/landable/ranger_shuttle,
+/obj/effect/floor_decal/corner_wide/blue/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "hqB" = (
 /obj/machinery/door/airlock/engineering{
-	dir = 4
+	dir = 4;
+	req_one_access = list(221,222);
+	name = "Rotary Cannon Chamber/Starboard Propulsion"
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor{
+	req_one_access = list(221,222)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -1800,15 +1934,15 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/engine1)
 "htX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor{
+	req_one_access = list(221,222)
+	},
 /obj/machinery/door/airlock/atmos{
-	dir = 4
+	dir = 4;
+	req_one_access = list(221,222)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1816,7 +1950,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/atmospherics)
 "hvo" = (
 /obj/machinery/light{
@@ -1873,8 +2007,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "coc_fore";
-	name = "blast door"
+	id = "coc_fore"
 	},
 /obj/machinery/light{
 	dir = 8;
@@ -1909,7 +2042,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor{
+	dir = 4;
+	req_one_access = list(221,222)
+	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -1917,27 +2053,24 @@
 /area/ship/ranger_corvette/crew)
 "ian" = (
 /obj/structure/table/wood,
-/obj/effect/decal/cleanable/generic{
-	layer = 2.81
-	},
+/obj/effect/decal/cleanable/generic,
 /obj/item/trash/dipbowl,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	level = 2
+	},
 /turf/simulated/floor/carpet,
 /area/ship/ranger_corvette/foyer)
 "ibp" = (
-/obj/structure/fuel_port/phoron{
-	pixel_x = 10;
-	pixel_y = 32
-	},
 /obj/structure/sign/nosmoking_1{
-	pixel_x = -10;
 	pixel_y = 32
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide,
-/turf/simulated/floor,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/engine2)
 "iee" = (
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -1946,7 +2079,7 @@
 	},
 /obj/machinery/alarm/east{
 	pixel_x = 6;
-	req_one_access = null
+	req_one_access = list(221,222)
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/medbay)
@@ -1972,11 +2105,6 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_ranger_docking";
-	master_tag = "airlock_ranger_docking";
-	frequency = 1394
-	},
 /obj/machinery/access_button{
 	pixel_x = 12;
 	pixel_y = 28;
@@ -1989,7 +2117,13 @@
 	base_turf = null
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "ranger_shuttle_dock";
+	master_tag = "ranger_shuttle_dock";
+	landmark_tag = "nav_hangar_ranger";
+	req_one_access = null
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
 "ioq" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -2009,9 +2143,15 @@
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/gunnery)
+"itg" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/carpet,
 /area/ship/ranger_corvette/foyer)
 "itk" = (
-/obj/machinery/alarm/west,
+/obj/machinery/alarm/west{
+	req_one_access = list(221,222)
+	},
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
@@ -2043,13 +2183,15 @@
 	},
 /obj/machinery/power/apc/north{
 	req_access = null;
-	cell_type = /obj/item/cell/hyper
+	req_one_access = list(221,222)
 	},
+/obj/machinery/autolathe,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine2)
 "iDh" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/manifold4w/visible,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/effect/floor_decal/corner_wide/blue/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "iFw" = (
@@ -2078,8 +2220,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "coc_fore";
-	name = "blast door"
+	id = "coc_fore"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2119,16 +2260,18 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine1)
 "iWc" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 10
+	},
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/foyer)
 "iXs" = (
 /obj/machinery/light{
@@ -2138,11 +2281,21 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/ranger_corvette/foyer)
-"jgn" = (
-/obj/machinery/door/firedoor/noid{
+/area/ship/ranger_corvette/gunnery)
+"jcc" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
 	dir = 4
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/ranger_corvette/bathroom)
+"jgn" = (
+/obj/machinery/door/firedoor{
+	dir = 4;
+	req_one_access = list(221,222)
 	},
 /turf/simulated/floor/wood,
 /area/ship/ranger_corvette/foyer)
@@ -2242,7 +2395,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/atmospherics)
 "jwy" = (
 /obj/machinery/light{
@@ -2260,7 +2413,8 @@
 	dir = 9
 	},
 /obj/effect/decal/cleanable/spiderling_remains,
-/turf/simulated/floor,
+/obj/machinery/meter,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/atmospherics)
 "jyf" = (
 /obj/effect/floor_decal/corner/black/full{
@@ -2301,9 +2455,21 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/east,
+/obj/machinery/power/apc/east{
+	req_access = null;
+	req_one_access = list(221,222)
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/voidsuits)
+"jzV" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/shuttle/ranger_shuttle)
 "jBp" = (
 /obj/machinery/appliance/cooker/fryer,
 /obj/effect/floor_decal/corner/brown/diagonal,
@@ -2323,6 +2489,12 @@
 "jCF" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/leader)
+"jHg" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ship/ranger_corvette/engine1)
 "jJP" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2334,11 +2506,11 @@
 /area/ship/ranger_corvette/foyer)
 "jMZ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/binary/pump/high_power,
-/turf/simulated/floor,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/engine2)
 "jPm" = (
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/table/steel,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/coc{
 	pixel_x = 8;
@@ -2354,12 +2526,16 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/bridge)
 "jRF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/firedoor/noid{
-	dir = 4
+/obj/machinery/door/firedoor{
+	dir = 4;
+	req_one_access = list(221,222)
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
@@ -2377,36 +2553,33 @@
 /turf/simulated/floor/carpet/lightblue,
 /area/ship/ranger_corvette/crew)
 "jXb" = (
-/obj/machinery/light/small/emergency{
-	dir = 8;
-	pixel_x = -11
-	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector{
+/obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline/blue,
-/turf/simulated/floor/tiled,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "ranger_shuttle_dock2";
+	master_tag = "ranger_shuttle_dock2";
+	shuttle_tag = "Ranger Shuttle";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
 "jXh" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port, airlock"
 	},
-/obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
-	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/canteen)
 "jYe" = (
-/obj/machinery/atmospherics/unary/engine{
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/visible/fuel{
+	dir = 10
 	},
-/obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
-	},
-/turf/unsimulated/floor/plating,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/ranger_shuttle)
 "jYf" = (
 /obj/structure/ship_weapon_dummy{
@@ -2433,10 +2606,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine2)
 "kfF" = (
-/obj/machinery/power/smes,
-/obj/structure/cable/green,
-/turf/simulated/floor/tiled,
-/area/shuttle/ranger_shuttle)
+/obj/machinery/atmospherics/unary/engine,
+/turf/simulated/floor/plating,
+/area/ship/ranger_corvette/engine1)
 "kiF" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/sleeper,
@@ -2449,8 +2621,7 @@
 "kji" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -2467,34 +2638,25 @@
 /area/ship/ranger_corvette/voidsuits)
 "kkN" = (
 /obj/structure/sign/directions/com{
-	pixel_x = -32;
-	pixel_y = -12
-	},
-/obj/structure/sign/directions/tcom{
-	dir = 1;
-	pixel_x = -32;
-	pixel_y = -6
-	},
-/obj/structure/sign/directions/security{
-	dir = 1;
 	pixel_x = -32
-	},
-/obj/structure/sign/directions/medical{
-	dir = 1;
-	pixel_x = -32;
-	pixel_y = 6
-	},
-/obj/structure/sign/directions/dock{
-	dir = 1;
-	pixel_x = -32;
-	pixel_y = 12
 	},
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
+/obj/structure/sign/directions/all{
+	pixel_x = -32;
+	pixel_y = 6;
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
+"kpi" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking/ranger_corvette/aft,
+/turf/simulated/floor/plating,
+/area/ship/ranger_corvette/atmospherics)
 "kxo" = (
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /obj/structure/cable/green{
@@ -2505,11 +2667,16 @@
 "kyh" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "coc_bridge";
-	name = "blast door"
+	id = "coc_bridge"
 	},
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/turf/simulated/floor,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#5b5b5b";
+	frame_color = "#5b5b5b";
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	req_one_access = list(221,222)
+	},
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/bridge)
 "kFU" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -2528,7 +2695,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/engine1)
 "kLL" = (
@@ -2554,7 +2721,9 @@
 /area/ship/ranger_corvette/bridge)
 "kYl" = (
 /obj/effect/floor_decal/industrial/loading/yellow,
-/obj/machinery/alarm/east,
+/obj/machinery/alarm/east{
+	req_one_access = list(221,222)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -2581,10 +2750,24 @@
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/reinforced,
 /area/ship/ranger_corvette/gunnery)
+"lgJ" = (
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#5b5b5b";
+	frame_color = "#5b5b5b";
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	req_one_access = list(221,222)
+	},
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ship/ranger_corvette/canteen)
 "lgK" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/firedoor/noid{
-	dir = 4
+/obj/machinery/door/firedoor{
+	dir = 4;
+	req_one_access = list(221,222)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
@@ -2593,20 +2776,18 @@
 /turf/template_noop,
 /area/space)
 "lkY" = (
-/obj/machinery/door/airlock/external,
-/obj/machinery/access_button{
-	pixel_x = -28;
-	pixel_y = 12;
-	dir = 1;
+/obj/machinery/airlock_sensor{
+	pixel_x = -20;
+	dir = 4;
 	frequency = 2137
 	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_ranger_external";
-	name = "airlock_ranger_external"
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 8
 	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor,
-/area/ship/ranger_corvette)
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/map_effect/marker/airlock/docking/ranger_corvette/aft,
+/turf/simulated/floor/plating,
+/area/ship/ranger_corvette/atmospherics)
 "lpY" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -2615,7 +2796,6 @@
 /area/ship/ranger_corvette/bathroom)
 "lsl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -2632,16 +2812,15 @@
 /obj/item/modular_computer/console/preset/civilian{
 	dir = 1
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/bridge)
 "lvN" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 1
+/obj/machinery/computer/shuttle_control/explore/ranger_shuttle{
+	req_one_access = list(221,222)
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor,
-/area/ship/ranger_corvette/engine2)
+/turf/simulated/floor/tiled/full,
+/area/shuttle/ranger_shuttle)
 "lxT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
@@ -2670,22 +2849,13 @@
 	dir = 4
 	},
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = list(221,222)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/bridge)
 "lGa" = (
-/obj/machinery/atmospherics/unary/engine{
-	dir = 1
-	},
-/obj/effect/landmark/entry_point/north{
-	name = "aft, engines"
-	},
-/obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
-	},
-/turf/unsimulated/floor/plating,
+/obj/machinery/atmospherics/pipe/manifold4w/visible/fuel,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/ranger_shuttle)
 "lGr" = (
 /obj/effect/floor_decal/corner/black{
@@ -2709,14 +2879,14 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/foyer)
 "lIp" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -2745,7 +2915,10 @@
 "lNa" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green,
-/obj/machinery/power/apc/west,
+/obj/machinery/power/apc/west{
+	req_access = null;
+	req_one_access = list(221,222)
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/bathroom)
 "lNh" = (
@@ -2754,7 +2927,7 @@
 	},
 /obj/machinery/computer/ship/helm{
 	dir = 4;
-	req_access = null
+	req_access = list(221,222)
 	},
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /turf/simulated/floor/tiled/dark,
@@ -2764,7 +2937,9 @@
 	dir = 4;
 	icon_state = "tube_empty"
 	},
-/obj/machinery/alarm/east,
+/obj/machinery/alarm/east{
+	req_one_access = list(221,222)
+	},
 /obj/machinery/portable_atmospherics/powered/scrubber,
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -2797,17 +2972,14 @@
 /obj/structure/sign/directions/all{
 	pixel_x = 32
 	},
-/obj/structure/sign/directions/engineering{
-	dir = 4;
-	pixel_x = 32;
-	pixel_y = 6
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
 "maw" = (
 /obj/machinery/smartfridge/foodheater,
 /obj/effect/floor_decal/corner/brown/diagonal,
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor{
+	req_one_access = list(221,222)
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
 "maA" = (
@@ -2817,21 +2989,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine1)
 "mbp" = (
-/obj/machinery/door/blast/regular/open{
-	dir = 4;
-	id = "coc_bridge";
-	name = "blast door"
-	},
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
-	id = "coc_midship";
-	name = "blast door"
+	id = "coc_midship"
 	},
 /obj/machinery/door/airlock/silver{
 	name = "Kitchen";
-	req_access = null;
-	dir = 4
+	dir = 4;
+	req_one_access = list(221,222)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2839,7 +3005,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor{
+	dir = 4;
+	req_one_access = list(221,222)
+	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -2859,7 +3028,14 @@
 /area/ship/ranger_corvette/engine1)
 "mcN" = (
 /obj/item/trash/broken_electronics,
-/turf/simulated/floor,
+/obj/machinery/meter,
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/atmospherics)
 "mdX" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -2897,7 +3073,7 @@
 	dir = 8;
 	icon_state = "tube_empty"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/engineering)
 "mmT" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -2909,19 +3085,23 @@
 /area/ship/ranger_corvette/canteen)
 "mnX" = (
 /obj/machinery/door/airlock/highsecurity{
-	name = "Armory";
-	dir = 1
+	name = "Flak Battery Chamber";
+	dir = 1;
+	req_one_access = list(221,222)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor{
+	req_one_access = list(221,222)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "moB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green,
 /obj/machinery/power/apc/west{
-	req_access = null
+	req_access = null;
+	req_one_access = list(221,222)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/leader)
@@ -2940,25 +3120,28 @@
 /area/ship/ranger_corvette/telecomms)
 "muQ" = (
 /obj/machinery/door/blast/regular/open{
-	id = "coc_bridge";
-	name = "blast door"
+	id = "coc_bridge"
 	},
 /obj/effect/landmark/entry_point/port{
 	name = "port, bridge"
 	},
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/turf/simulated/floor,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#5b5b5b";
+	frame_color = "#5b5b5b";
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	req_one_access = list(221,222)
+	},
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/bridge)
 "mvd" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/button/remote/blast_door{
 	id = "coc_midship";
 	name = "midship blast door-control";
-	pixel_x = -32
-	},
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube_empty"
+	pixel_x = -24;
+	req_one_access = list(221,222);
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
@@ -3008,10 +3191,10 @@
 /area/ship/ranger_corvette/cryo)
 "mFt" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/machinery/door/airlock/glass{
-	dir = 4
+/obj/machinery/door/firedoor{
+	dir = 4;
+	req_one_access = list(221,222)
 	},
-/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
 "mHw" = (
@@ -3026,8 +3209,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/bridge)
 "mLK" = (
-/obj/machinery/atmospherics/pipe/tank/air,
-/turf/simulated/floor,
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/atmospherics)
 "mMP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3050,11 +3236,21 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine2)
+"mQz" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/turf/simulated/floor/plating,
+/area/ship/ranger_corvette/engine1)
 "mQF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/computer/ship/engines{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/obj/machinery/alarm/east{
+	req_one_access = list(221,222)
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
 "mVV" = (
 /obj/effect/floor_decal/corner/dark_blue{
@@ -3101,6 +3297,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/janitor)
+"niC" = (
+/obj/machinery/atmospherics/pipe/simple/visible/fuel{
+	dir = 5
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/ranger_corvette/engine2)
 "niD" = (
 /obj/effect/decal/cleanable/tomato_smudge,
 /turf/simulated/floor/wood,
@@ -3127,9 +3329,21 @@
 	name = "Surgical Suite";
 	dir = 1
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor{
+	req_one_access = list(221,222)
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/medbay)
+"nou" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 32;
+	pixel_y = 2
+	},
+/turf/simulated/floor/tiled/full,
+/area/shuttle/ranger_shuttle)
 "ntn" = (
 /obj/machinery/shower,
 /obj/structure/curtain/open/shower,
@@ -3161,8 +3375,7 @@
 /area/ship/ranger_corvette/bridge)
 "nCd" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
@@ -3220,27 +3433,30 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 9
-	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/access_button{
+	pixel_x = 12;
+	pixel_y = -28;
+	dir = 4
+	},
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "ranger_shuttle_dock2";
 	master_tag = "ranger_shuttle_dock2";
 	shuttle_tag = "Ranger Shuttle";
 	req_one_access = null;
-	frequency = 1395
+	cycle_to_external_air = 1
 	},
-/obj/machinery/access_button{
-	pixel_x = 12;
-	pixel_y = -28;
-	dir = 4;
-	frequency = 1395
-	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
+/turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
+"nQz" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/fuel{
+	dir = 4
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/ranger_corvette/engine2)
 "nRI" = (
 /obj/structure/bed/padded,
 /obj/item/towel_flat{
@@ -3249,18 +3465,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/brig)
 "nTL" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/machinery/portable_atmospherics/canister/empty,
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/machinery/atmospherics/portables_connector/scrubber{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/machinery/light/small/emergency{
 	dir = 8;
 	pixel_x = -11
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
+/turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
 "nTM" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -3274,25 +3488,21 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/engine1)
 "nVM" = (
-/obj/structure/table/steel,
-/obj/structure/cable/green{
-	icon_state = "1-2"
+/obj/structure/sign/flag/coalition{
+	pixel_y = 32
 	},
-/obj/structure/closet/walllocker/emerglocker/east,
-/obj/item/storage/bag/inflatable{
-	pixel_y = 4
-	},
-/obj/item/storage/toolbox/mechanical,
-/obj/machinery/light{
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/atmospherics/portables_connector/fuel{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
 "nZU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
+/obj/effect/floor_decal/corner_wide/blue/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "oey" = (
@@ -3313,7 +3523,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/smes/buildable/horizon_shuttle,
+/obj/machinery/power/smes/buildable/third_party_shuttle,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engineering)
 "okk" = (
@@ -3335,6 +3545,18 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
+"oyB" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/light/small/emergency{
+	dir = 4;
+	pixel_x = 14
+	},
+/obj/effect/map_effect/marker/airlock/docking/ranger_corvette/aft,
+/turf/simulated/floor/plating,
+/area/ship/ranger_corvette/atmospherics)
 "oAK" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/freezer/rations,
@@ -3360,11 +3582,14 @@
 "oEN" = (
 /obj/machinery/door/airlock{
 	name = "EVA Storage";
-	dir = 1
+	dir = 1;
+	req_one_access = list(221,222)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor{
+	req_one_access = list(221,222)
+	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -3374,14 +3599,12 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/engineering)
 "oJk" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/corner_wide/blue/diagonal,
 /obj/machinery/vending/wallmed1{
 	name = "Medical Supplies";
 	req_access = null;
 	pixel_x = -32
-	},
-/obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
@@ -3407,6 +3630,19 @@
 	pixel_x = -32;
 	pixel_y = -6
 	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 4
+	},
+/obj/machinery/door/window/eastleft{
+	dir = 2
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
 "oNK" = (
@@ -3416,9 +3652,7 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/engineering)
 "oOX" = (
-/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
-	req_access = null
-	},
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
@@ -3428,7 +3662,6 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -3529,7 +3762,7 @@
 "oTH" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -3539,22 +3772,22 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/foyer)
 "oUC" = (
-/obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/visible/fuel{
+	dir = 6
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/ranger_corvette/canteen)
+/area/shuttle/ranger_shuttle)
 "oUG" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/brig)
 "oXh" = (
 /obj/machinery/power/apc/north{
-	req_access = null
+	req_access = null;
+	req_one_access = list(221,222)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -3562,8 +3795,20 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engineering)
 "oXn" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
-/turf/simulated/floor,
+/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
+	frequency = 1984;
+	id_tag = "co2_out";
+	dir = 4
+	},
+/obj/machinery/air_sensor{
+	pixel_y = 18
+	},
+/obj/effect/map_effect/marker/large_tank{
+	master_tag = "coc_ship_co2_port";
+	name = "coc_ship_co2_port"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/ranger_corvette/engine2)
 "oZS" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
@@ -3580,8 +3825,8 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/foyer)
 "paq" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -3607,16 +3852,18 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "ranger_shuttle_dock";
 	master_tag = "ranger_shuttle_dock";
 	landmark_tag = "nav_hangar_ranger";
-	req_one_access = null;
-	frequency = 1394
+	req_one_access = null
 	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
 "ppM" = (
 /obj/structure/sign/directions/medical{
@@ -3626,11 +3873,11 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/foyer)
 "ptP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3695,7 +3942,7 @@
 /obj/machinery/atmospherics/pipe/tank/air{
 	dir = 4
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/atmospherics)
 "pFK" = (
 /obj/effect/landmark/entry_point/starboard{
@@ -3705,17 +3952,13 @@
 /area/ship/ranger_corvette/gunnery)
 "pFY" = (
 /obj/structure/table/steel,
-/obj/item/book/manual/wiki/engineering_construction{
-	desc = "Blueprints for a Xansan-class vessel.";
-	icon = 'icons/obj/items.dmi';
-	icon_state = "blueprints";
-	item_icons = null;
-	item_state = null;
-	name = "ship blueprints"
-	},
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
+/obj/item/pen/drafting/blue{
+	pixel_y = 5
+	},
+/obj/item/blueprints,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine2)
 "pHP" = (
@@ -3728,23 +3971,26 @@
 	},
 /obj/machinery/door/airlock/medical{
 	name = "Medbay";
-	dir = 4
+	dir = 4;
+	req_one_access = list(221,222)
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor{
+	dir = 4;
+	req_one_access = list(221,222)
+	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/medbay)
 "pHQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/foyer)
 "pPX" = (
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -3753,9 +3999,10 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/medbay)
 "pRf" = (
-/obj/effect/step_trigger/teleporter,
-/turf/template_noop,
-/area/space)
+/obj/machinery/atmospherics/binary/pump/fuel,
+/obj/effect/floor_decal/corner_wide/blue/diagonal,
+/turf/simulated/floor/tiled,
+/area/shuttle/ranger_shuttle)
 "pSI" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/mech_recharger,
@@ -3764,7 +4011,7 @@
 	dir = 8;
 	icon_state = "tube_empty"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/gunnery)
 "pVf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3777,8 +4024,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/telecomms)
 "pVw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/blue/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -3798,6 +4052,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
+"qcF" = (
+/obj/machinery/power/smes/buildable/third_party_shuttle,
+/obj/structure/cable/green,
+/turf/simulated/floor/tiled,
+/area/shuttle/ranger_shuttle)
 "qcP" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
@@ -3809,7 +4068,8 @@
 /area/ship/ranger_corvette/bridge)
 "qhi" = (
 /obj/machinery/computer/ship/targeting{
-	dir = 8
+	dir = 8;
+	req_access = list(221,222)
 	},
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /turf/simulated/floor/tiled/dark,
@@ -3826,7 +4086,9 @@
 /obj/item/towel/random,
 /obj/item/towel/random,
 /obj/item/towel/random,
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = list(221,222)
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/bathroom)
 "qkP" = (
@@ -3863,42 +4125,22 @@
 	},
 /obj/machinery/door/airlock/highsecurity{
 	name = "Auxiliary CIC";
-	dir = 4
+	dir = 4;
+	req_one_access = list(221,222)
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor{
+	req_one_access = list(221,222)
+	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/telecomms)
 "qsf" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4
-	},
-/obj/machinery/light/small/emergency{
+/obj/machinery/atmospherics/unary/engine{
 	dir = 1
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	name = "ranger_shuttle_dock2";
-	master_tag = "ranger_shuttle_dock2";
-	shuttle_tag = "Ranger Shuttle";
-	req_one_access = null;
-	frequency = 1395
-	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 2;
-	pixel_y = 28;
-	frequency = 1395
-	},
-/obj/machinery/airlock_sensor{
-	dir = 2;
-	pixel_y = 20;
-	frequency = 1395
-	},
-/turf/simulated/floor{
-	temperature = 278.15
-	},
+/turf/simulated/floor/airless,
 /area/shuttle/ranger_shuttle)
 "qtL" = (
 /obj/structure/closet/walllocker/firecloset{
@@ -3914,7 +4156,8 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/power/apc/south{
-	req_access = null
+	req_access = null;
+	req_one_access = list(221,222)
 	},
 /obj/structure/cable/green,
 /turf/simulated/floor/tiled/white,
@@ -3924,7 +4167,6 @@
 /turf/space/transit/north,
 /area/space)
 "quw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/structure/cable/green{
@@ -3955,8 +4197,7 @@
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
 	pixel_x = 13;
@@ -4007,13 +4248,12 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/bridge)
 "qGl" = (
-/obj/machinery/alarm/south,
-/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
-	dir = 8
+/obj/machinery/alarm/south{
+	req_one_access = list(221,222)
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/cyan,
 /obj/item/pipewrench,
-/obj/machinery/meter,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/atmospherics)
 "qHn" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
@@ -4024,20 +4264,17 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/ship/ranger_corvette/foyer)
+/area/ship/ranger_corvette/gunnery)
 "qMt" = (
-/obj/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_ranger_external";
-	name = "airlock_ranger_external"
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
 	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor,
-/area/ship/ranger_corvette/atmospherics)
+/turf/template_noop,
+/area/space)
 "qQd" = (
 /obj/structure/cryofeed/pipes{
 	dir = 2;
@@ -4057,7 +4294,7 @@
 /area/ship/ranger_corvette/cryo)
 "qRJ" = (
 /obj/machinery/door/airlock/silver{
-	name = "Toilet";
+	name = "Washroom";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4066,7 +4303,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor{
+	req_one_access = list(221,222)
+	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -4075,12 +4314,10 @@
 "qSw" = (
 /obj/structure/filingcabinet/chestdrawer,
 /obj/item/reagent_containers/food/drinks/bottle/whiskey{
-	layer = 3.1;
 	pixel_x = 2;
 	pixel_y = 17
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot{
-	layer = 3.2;
 	pixel_x = -5;
 	pixel_y = 11
 	},
@@ -4120,7 +4357,7 @@
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = list(221,222)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/brig)
@@ -4130,12 +4367,17 @@
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/structure/extinguisher_cabinet/east,
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/medbay)
+"rbD" = (
+/obj/effect/shuttle_landmark/ranger_shuttle/transit{
+	dir = 8
+	},
+/turf/space/transit/north,
+/area/space)
 "rfo" = (
 /obj/effect/floor_decal/corner/white{
 	dir = 10
@@ -4154,14 +4396,31 @@
 /area/ship/ranger_corvette/gunnery)
 "riA" = (
 /obj/machinery/power/apc/north{
-	req_access = null
+	req_access = null;
+	req_one_access = list(221,222)
 	},
-/obj/machinery/pipedispenser,
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/turf/simulated/floor,
+/obj/machinery/pipedispenser,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/atmospherics)
+"riF" = (
+/obj/machinery/door/firedoor{
+	dir = 4;
+	req_one_access = list(221,222)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/ship/ranger_corvette/foyer)
 "rki" = (
 /obj/item/reagent_containers/glass/bucket{
 	desc = "A blue plastic bucket, best not to ask what it's for."
@@ -4186,9 +4445,14 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
 "rpr" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
+/obj/structure/closet/walllocker/emerglocker/east,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/blue/diagonal,
 /turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "rpP" = (
@@ -4227,10 +4491,9 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/bathroom)
 "rwS" = (
-/mob/living/simple_animal/rat,
+/mob/living/simple_animal/rat/white,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /obj/structure/janitorialcart/full,
 /turf/simulated/floor/tiled/dark,
@@ -4253,11 +4516,14 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
-/obj/machinery/power/apc/east,
+/obj/machinery/power/apc/east{
+	req_access = null;
+	req_one_access = list(221,222)
+	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
 "rKi" = (
 /obj/structure/viewport,
@@ -4267,19 +4533,18 @@
 /turf/template_noop,
 /area/ship/ranger_corvette/gunnery)
 "rMA" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
@@ -4288,24 +4553,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/telecomms)
 "rRu" = (
-/obj/machinery/door/airlock/external{
+/obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/black{
-	dir = 1
+/obj/effect/map_effect/marker/large_tank{
+	master_tag = "coc_ship_co2_port";
+	name = "coc_ship_co2_port"
 	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	name = "ranger_shuttle_dock2";
-	master_tag = "ranger_shuttle_dock2";
-	shuttle_tag = "Ranger Shuttle";
-	req_one_access = null;
-	frequency = 1395
-	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
-/area/shuttle/ranger_shuttle)
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/reinforced/carbon_dioxide,
+/area/ship/ranger_corvette/engine2)
 "rVd" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -4347,11 +4604,11 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/medbay)
 "scs" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/effect/landmark/entry_point/aft{
-	name = "aft engines, port"
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/engine2)
 "sfw" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -4377,12 +4634,13 @@
 "slH" = (
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /obj/machinery/telecomms/allinone/ship/coalition_navy,
-/obj/machinery/alarm/south,
+/obj/machinery/alarm/south{
+	req_one_access = list(221,222)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/telecomms)
 "slN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -4417,11 +4675,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
+	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -4432,7 +4686,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
 "sqh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/light{
@@ -4455,9 +4708,6 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ranger_corvette/crew)
 "stX" = (
-/obj/machinery/portable_atmospherics/canister/empty{
-	name = "waste canister"
-	},
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
@@ -4465,7 +4715,8 @@
 	dir = 8;
 	icon_state = "tube_empty"
 	},
-/turf/simulated/floor,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/atmospherics)
 "swi" = (
 /obj/structure/table/rack,
@@ -4479,20 +4730,18 @@
 /turf/simulated/floor/reinforced,
 /area/ship/ranger_corvette/munitions)
 "sCd" = (
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/airlock_sensor{
+	pixel_y = 20;
+	frequency = 1394
+	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "ranger_shuttle_dock";
 	master_tag = "ranger_shuttle_dock";
 	landmark_tag = "nav_hangar_ranger";
-	req_one_access = null;
-	frequency = 1394
+	req_one_access = null
 	},
-/obj/machinery/airlock_sensor{
-	dir = 2;
-	pixel_y = 20;
-	frequency = 1394
-	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/foyer)
 "sCu" = (
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
@@ -4500,14 +4749,14 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/north{
-	req_access = null
+	req_access = null;
+	req_one_access = list(221,222)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/telecomms)
 "sEf" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4532,18 +4781,26 @@
 "sJP" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "coc_bridge";
-	name = "blast door"
+	id = "coc_bridge"
 	},
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, bridge"
 	},
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/turf/simulated/floor,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#5b5b5b";
+	frame_color = "#5b5b5b";
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	req_one_access = list(221,222)
+	},
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/bridge)
 "sLq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
@@ -4593,11 +4850,8 @@
 /area/space)
 "sSQ" = (
 /obj/structure/coatrack,
-/obj/item/clothing/suit/storage/toggle/himeo{
-	layer = 4.2
-	},
+/obj/item/clothing/suit/storage/toggle/himeo,
 /obj/item/clothing/head/softcap/himeo{
-	layer = 4.21;
 	pixel_y = 12
 	},
 /obj/item/clothing/accessory/flagpatch/himeo,
@@ -4630,11 +4884,10 @@
 /obj/machinery/button/remote/blast_door{
 	id = "coc_aft";
 	name = "aft blast door-control";
-	pixel_x = -32
-	},
-/obj/machinery/light{
+	pixel_x = -24;
+	req_one_access = list(221,222);
 	dir = 8;
-	icon_state = "tube_empty"
+	pixel_y = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
@@ -4642,22 +4895,22 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/bridge)
 "tbY" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
+/obj/machinery/light/small/emergency{
+	dir = 8;
+	pixel_x = -11
 	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 4
 	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
 "tcC" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/extinguisher_cabinet/west,
-/obj/machinery/atmospherics/pipe/simple/hidden/black,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner_wide/blue/diagonal,
 /turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "teP" = (
@@ -4675,34 +4928,21 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
 "thB" = (
-/obj/machinery/door/airlock/external,
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/access_button{
-	pixel_x = -28;
-	pixel_y = -8;
-	dir = 2;
-	frequency = 2137
-	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_ranger_external";
-	name = "airlock_ranger_external"
-	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/atmospherics)
 "thI" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/alarm/west{
 	pixel_x = -5;
-	req_one_access = null
+	req_one_access = list(221,222)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/foyer)
 "tlv" = (
 /obj/structure/extinguisher_cabinet/east,
@@ -4736,19 +4976,27 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
 "tnO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/sign/directions/tcom{
 	dir = 8;
 	pixel_x = -32;
-	pixel_y = -9
+	pixel_y = -6
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor,
+/obj/structure/sign/directions/com{
+	pixel_x = -32;
+	dir = 8
+	},
+/obj/structure/sign/directions/engineering{
+	dir = 1;
+	pixel_x = -32;
+	pixel_y = 6
+	},
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/foyer)
 "tqM" = (
 /obj/structure/closet{
@@ -4772,7 +5020,7 @@
 /obj/item/storage/belt/utility/full,
 /obj/item/storage/belt/utility/very_full,
 /obj/item/storage/belt/medical,
-/obj/item/storage/belt/medical/first_responder/combat/full,
+/obj/item/storage/belt/medical/paramedic/combat/full,
 /obj/item/clothing/accessory/flagpatch/coalition,
 /obj/item/clothing/accessory/flagpatch/coalition,
 /obj/item/clothing/accessory/flagpatch/coalition,
@@ -4810,10 +5058,10 @@
 /obj/item/clothing/accessory/storage/black_vest,
 /obj/item/clothing/accessory/storage/pouches/brown,
 /obj/item/clothing/accessory/storage/pouches/colour,
-/obj/item/clothing/under/pants/camo,
-/obj/item/clothing/under/pants/camo,
-/obj/item/clothing/under/pants/camo,
-/obj/item/clothing/under/pants/camo,
+/obj/item/clothing/pants/camo,
+/obj/item/clothing/pants/camo,
+/obj/item/clothing/pants/camo,
+/obj/item/clothing/pants/camo,
 /obj/item/clothing/under/syndicate/tracksuit,
 /obj/item/clothing/under/syndicate/tracksuit,
 /obj/item/clothing/gloves/black_leather/unathi,
@@ -4882,8 +5130,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -4909,10 +5156,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/crew)
 "twl" = (
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 1
+/obj/machinery/computer/ship/helm{
+	req_one_access = list(221,222)
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
 "tAd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -4929,13 +5176,17 @@
 /obj/machinery/firealarm/south,
 /obj/structure/undies_wardrobe,
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/machinery/alarm/east,
+/obj/machinery/alarm/east{
+	req_one_access = list(221,222)
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/cryo)
 "tEs" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/brown/diagonal,
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor{
+	req_one_access = list(221,222)
+	},
 /obj/item/toy/desk/fan,
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
@@ -4958,8 +5209,7 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ranger_corvette/crew)
@@ -4975,6 +5225,10 @@
 /obj/item/storage/box/masks,
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/medbay)
+"tJG" = (
+/obj/effect/shuttle_landmark/ranger_corvette/nav4,
+/turf/template_noop,
+/area/space)
 "tLA" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/gunnery)
@@ -5019,8 +5273,8 @@
 	dir = 1
 	},
 /obj/effect/ghostspawpoint{
-	identifier = "ranger";
-	name = "igs - ranger"
+	identifier = "ranger_synthetic";
+	name = "igs - ranger_synthetic"
 	},
 /turf/simulated/floor/carpet,
 /area/ship/ranger_corvette/foyer)
@@ -5032,7 +5286,12 @@
 	},
 /obj/effect/floor_decal/corner_wide/green/full,
 /obj/machinery/vending/wallmed1{
-	pixel_y = 27
+	pixel_y = 27;
+	req_access = null
+	},
+/obj/item/stack/nanopaste{
+	pixel_x = 16;
+	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/medbay)
@@ -5061,7 +5320,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/ranger_corvette/foyer)
+/area/ship/ranger_corvette/gunnery)
 "tVB" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -5071,31 +5330,35 @@
 	name = "\improper WARNING: BLAST DOOR sign";
 	pixel_x = 32
 	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube_empty"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
 "tWh" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/engine1)
 "tXd" = (
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/button/remote/blast_door{
 	id = "coc_fore";
 	name = "fore blast door-control";
-	pixel_x = 32
+	pixel_x = 24;
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/foyer)
 "tXz" = (
 /obj/structure/bed/stool/chair,
-/obj/machinery/alarm/east,
+/obj/machinery/alarm/east{
+	req_one_access = list(221,222)
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/leader)
 "tYR" = (
@@ -5146,11 +5409,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "ueq" = (
-/obj/machinery/recharger/wallcharger{
-	pixel_y = 24
-	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/shuttle/ranger_shuttle)
+/obj/machinery/atmospherics/unary/engine,
+/turf/simulated/floor/plating,
+/area/ship/ranger_corvette/engine2)
 "ufB" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -5159,7 +5420,9 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
 "uhA" = (
-/obj/machinery/alarm/east,
+/obj/machinery/alarm/east{
+	req_one_access = list(221,222)
+	},
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
@@ -5174,13 +5437,16 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/bathroom)
 "ulR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
 	},
 /obj/structure/sign/vacuum{
 	pixel_y = -32
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
 "umS" = (
 /obj/structure/bed,
@@ -5192,7 +5458,6 @@
 	},
 /obj/item/bedsheet/black,
 /obj/item/clothing/head/bearpelt{
-	layer = 4;
 	name = "bear pelt blanket"
 	},
 /obj/machinery/light{
@@ -5203,14 +5468,19 @@
 /area/ship/ranger_corvette/crew)
 "unz" = (
 /obj/machinery/door/blast/regular/open{
-	id = "coc_bridge";
-	name = "blast door"
+	id = "coc_bridge"
 	},
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, bridge"
 	},
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/turf/simulated/floor,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#5b5b5b";
+	frame_color = "#5b5b5b";
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	req_one_access = list(221,222)
+	},
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/bridge)
 "uoa" = (
 /obj/effect/floor_decal/corner/black{
@@ -5225,8 +5495,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/bridge)
 "uon" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
@@ -5235,7 +5504,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/foyer)
 "ust" = (
 /obj/structure/closet/secure_closet/guncabinet{
@@ -5267,24 +5536,22 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "ranger_shuttle_dock";
 	master_tag = "ranger_shuttle_dock";
 	landmark_tag = "nav_hangar_ranger";
-	req_one_access = null;
-	frequency = 1394
+	req_one_access = null
 	},
 /obj/machinery/access_button{
 	pixel_x = -23;
 	pixel_y = 22;
-	dir = 2;
 	frequency = 1394
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
 "uty" = (
 /obj/structure/table/steel,
@@ -5372,24 +5639,30 @@
 /area/ship/ranger_corvette/engineering)
 "uAk" = (
 /obj/machinery/door/blast/regular/open{
-	id = "coc_bridge";
-	name = "blast door"
+	id = "coc_bridge"
 	},
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/turf/simulated/floor,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#5b5b5b";
+	frame_color = "#5b5b5b";
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	req_one_access = list(221,222)
+	},
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/bridge)
 "uCz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/alarm/east,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/alarm/east{
+	req_one_access = list(221,222)
+	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/foyer)
 "uFD" = (
 /obj/structure/ship_weapon_dummy,
@@ -5400,24 +5673,28 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = -12;
+	pixel_y = -28;
+	dir = 8
+	},
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "ranger_shuttle_dock2";
 	master_tag = "ranger_shuttle_dock2";
 	shuttle_tag = "Ranger Shuttle";
 	req_one_access = null;
-	frequency = 1395
+	cycle_to_external_air = 1
 	},
-/obj/machinery/access_button{
-	pixel_x = -12;
-	pixel_y = -28;
-	dir = 8;
-	frequency = 1395
-	},
-/turf/simulated/floor{
-	temperature = 278.15
-	},
+/turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
 "uHL" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/obj/effect/floor_decal/corner_wide/blue/diagonal,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -5426,7 +5703,10 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/voidsuits)
 "uVR" = (
-/obj/machinery/power/apc/west,
+/obj/machinery/power/apc/west{
+	req_access = null;
+	req_one_access = list(221,222)
+	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
@@ -5462,6 +5742,9 @@
 /turf/simulated/floor/reinforced,
 /area/ship/ranger_corvette/munitions)
 "vfX" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/crew)
 "viF" = (
@@ -5479,26 +5762,35 @@
 /area/ship/ranger_corvette/brig)
 "vpY" = (
 /obj/structure/cable{
-	icon_state = "1-2";
-	dir = 1
+	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/corner_wide/blue/diagonal,
 /turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "vtO" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Ship Munitions Storage";
-	dir = 4
+	dir = 4;
+	req_one_access = list(221,222)
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor{
+	req_one_access = list(221,222)
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/munitions)
-"vuD" = (
-/obj/machinery/power/terminal{
-	dir = 4
+"vtU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
 	},
-/obj/structure/cable,
+/obj/effect/floor_decal/corner_wide/blue/diagonal,
 /turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
+"vuD" = (
+/obj/effect/landmark{
+	name = "carpspawn"
+	},
+/turf/template_noop,
+/area/space)
 "vwc" = (
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/gunnery)
@@ -5506,16 +5798,21 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/gunnery)
 "vyy" = (
 /obj/structure/table/steel,
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted reinforced window"
 	},
 /obj/machinery/door/window/northleft{
 	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/gunnery)
@@ -5523,8 +5820,8 @@
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -5535,7 +5832,7 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/ranger_corvette/foyer)
+/area/ship/ranger_corvette/gunnery)
 "vzk" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -5543,6 +5840,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "vzU" = (
@@ -5562,18 +5860,20 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/firedoor/noid{
-	dir = 4
+/obj/machinery/door/firedoor{
+	dir = 4;
+	req_one_access = list(221,222)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/highsecurity{
 	name = "Armory";
-	dir = 4
+	dir = 4;
+	req_one_access = list(221,222)
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/ship/ranger_corvette/foyer)
+/area/ship/ranger_corvette/gunnery)
 "vLy" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
@@ -5605,13 +5905,11 @@
 /area/ship/ranger_corvette/foyer)
 "vPn" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -5626,7 +5924,9 @@
 /obj/machinery/button/remote/blast_door{
 	id = "coc_aft";
 	name = "aft blast door-control";
-	pixel_x = 32
+	req_one_access = list(221,222);
+	dir = 4;
+	pixel_x = 24
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
@@ -5642,22 +5942,21 @@
 	dir = 4;
 	icon_state = "tube_empty"
 	},
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
+	name = "\improper WARNING: BLAST DOOR sign";
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/crew)
 "vVQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 10
 	},
-/obj/machinery/meter,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/atmospherics)
 "vXi" = (
 /obj/effect/floor_decal/industrial/warning/corner,
-/obj/machinery/button/remote/blast_door{
-	id = "coc_midship";
-	name = "midship blast door-control";
-	pixel_x = 32
-	},
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
@@ -5675,7 +5974,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor{
+	req_one_access = list(221,222)
+	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -5705,13 +6006,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
-"wdq" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/molten_item{
-	desc = "It looks like a puddle of... something."
-	},
-/turf/simulated/floor/wood,
-/area/ship/ranger_corvette/foyer)
 "wjI" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -5738,16 +6032,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/crew)
 "wlw" = (
-/obj/machinery/atmospherics/pipe/tank/air{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline/blue,
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/ranger_shuttle)
 "wlA" = (
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -5757,7 +6046,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/foyer)
 "wlN" = (
 /obj/effect/landmark/entry_point/starboard{
@@ -5774,9 +6063,10 @@
 /turf/simulated/floor/airless,
 /area/ship/ranger_corvette)
 "wmN" = (
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/computer/ship/targeting{
-	dir = 1
+	dir = 1;
+	req_one_access = list(221,222)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/bridge)
@@ -5793,8 +6083,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "coc_midship";
-	name = "blast door"
+	id = "coc_midship"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -5810,7 +6099,9 @@
 /obj/machinery/button/remote/blast_door{
 	id = "coc_midship";
 	name = "midship blast door-control";
-	pixel_x = -32
+	pixel_x = -24;
+	req_one_access = list(221,222);
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
@@ -5828,9 +6119,25 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/medbay)
 "wrJ" = (
-/obj/effect/shuttle_landmark/ranger_shuttle/transit,
-/turf/space/transit/north,
-/area/space)
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/landmark/entry_point/east{
+	name = "port, crew compartment"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "ranger_shuttle_dock2";
+	master_tag = "ranger_shuttle_dock2";
+	shuttle_tag = "Ranger Shuttle";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/turf/simulated/floor/tiled/full,
+/area/shuttle/ranger_shuttle)
 "wsA" = (
 /obj/structure/bed/stool/chair/sofa/right/brown,
 /turf/simulated/floor/carpet,
@@ -5864,9 +6171,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1
-	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -5893,17 +6198,21 @@
 	dir = 4;
 	target_pressure = 250
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/atmospherics)
 "wHL" = (
-/obj/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_ranger_external";
-	name = "airlock_ranger_external"
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 8;
+	pixel_x = 20;
+	frequency = 2137
 	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor,
-/area/ship/ranger_corvette)
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/map_effect/marker/airlock/docking/ranger_corvette/aft,
+/turf/simulated/floor/plating,
+/area/ship/ranger_corvette/atmospherics)
 "wMK" = (
 /obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/tiled/dark,
@@ -5918,20 +6227,17 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/ranger_shuttle)
 "wNT" = (
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_ranger_external";
-	name = "airlock_ranger_external"
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/access_button{
+	pixel_x = 24;
+	pixel_y = -32;
+	dir = 8;
+	frequency = 2137
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/small/emergency{
-	dir = 4;
-	pixel_x = 14
-	},
-/turf/simulated/floor,
-/area/ship/ranger_corvette)
+/obj/effect/map_effect/marker/airlock/docking/ranger_corvette/aft,
+/turf/simulated/floor/plating,
+/area/ship/ranger_corvette/atmospherics)
 "wPe" = (
 /obj/structure/bed/stool/bar/padded/brown,
 /obj/structure/noticeboard{
@@ -5944,19 +6250,23 @@
 /turf/simulated/floor/wood,
 /area/ship/ranger_corvette/foyer)
 "wPn" = (
-/obj/machinery/door/airlock/engineering,
+/obj/machinery/door/airlock/engineering{
+	req_one_access = list(221,222);
+	name = "Engineering"
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor{
+	req_one_access = list(221,222)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
 "wSM" = (
 /obj/machinery/appliance/cooker/stove,
 /obj/effect/decal/cleanable/ash{
-	layer = 3;
 	pixel_y = 10
 	},
 /obj/effect/floor_decal/corner/brown/diagonal,
@@ -5992,7 +6302,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/alarm/south,
+/obj/machinery/alarm/south{
+	req_one_access = list(221,222)
+	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -6011,12 +6323,14 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/leader)
 "xfP" = (
-/obj/machinery/computer/ship/engines,
-/turf/simulated/floor/tiled,
-/area/shuttle/ranger_shuttle)
+/obj/machinery/atmospherics/unary/engine,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft engines, port"
+	},
+/turf/simulated/floor/plating,
+/area/ship/ranger_corvette/engine2)
 "xnk" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	id = "coc_aft"
@@ -6029,8 +6343,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
 "xnY" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/turf/simulated/floor,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#5b5b5b";
+	frame_color = "#5b5b5b";
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	req_one_access = list(221,222)
+	},
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/canteen)
 "xrl" = (
 /obj/effect/landmark/entry_point/port{
@@ -6039,10 +6359,6 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/canteen)
 "xsE" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5;
-	icon_state = "intact"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -6052,7 +6368,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/atmospherics)
 "xtN" = (
 /obj/structure/table/rack,
@@ -6094,8 +6410,11 @@
 /turf/simulated/floor/reinforced,
 /area/ship/ranger_corvette/munitions)
 "xuX" = (
-/obj/machinery/atmospherics/unary/engine,
-/turf/simulated/floor,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/engine2)
 "xzg" = (
 /turf/simulated/floor/tiled/dark/full,
@@ -6132,13 +6451,33 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/medbay)
 "xCw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
+/obj/effect/floor_decal/corner_wide/blue/diagonal,
 /turf/simulated/floor/tiled,
+/area/shuttle/ranger_shuttle)
+"xFa" = (
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_y = 28;
+	frequency = 1395
+	},
+/obj/machinery/airlock_sensor{
+	pixel_y = 20;
+	frequency = 1395
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "ranger_shuttle_dock2";
+	master_tag = "ranger_shuttle_dock2";
+	shuttle_tag = "Ranger Shuttle";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/turf/simulated/floor/plating,
 /area/shuttle/ranger_shuttle)
 "xFA" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -6147,26 +6486,47 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engineering)
+"xHi" = (
+/obj/structure/sign/flag/coalition{
+	pixel_y = 32
+	},
+/obj/structure/table/steel,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/storage/bag/inflatable{
+	pixel_y = 4
+	},
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	pixel_x = 24;
+	id_tag = "ranger_shuttle_dock";
+	name = "Ranger Shuttle docking port controller";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/full,
+/area/shuttle/ranger_shuttle)
 "xJk" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/medbay)
 "xKE" = (
 /obj/machinery/door/airlock/glass_security{
-	name = "Cell";
-	dir = 1
+	name = "Holding Cell";
+	dir = 1;
+	req_one_access = list(221,222)
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor{
+	req_one_access = list(221,222)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/brig)
 "xPl" = (
-/obj/machinery/portable_atmospherics/canister/empty,
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/fuel_port/hydrogen{
+	pixel_x = -32
+	},
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/machinery/atmospherics/portables_connector/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline/red,
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
+/obj/machinery/portable_atmospherics/canister/air,
+/turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
 "xRX" = (
 /turf/template_noop,
@@ -6178,8 +6538,8 @@
 /turf/simulated/floor/reinforced,
 /area/ship/ranger_corvette/munitions)
 "xWp" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -6187,7 +6547,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor,
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating,
 /area/ship/ranger_corvette/foyer)
 "xZA" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -6210,13 +6573,9 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/ranger_shuttle)
 "yep" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/obj/effect/landmark/entry_point/south{
-	name = "fore, bridge"
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
+/obj/effect/floor_decal/corner_wide/blue/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "yfz" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
@@ -6422,90 +6781,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+sOb
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+sOb
 "}
 (2,1,1) = {"
 xRX
@@ -6679,83 +7038,52 @@ xRX
 xRX
 xRX
 xRX
-pRf
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-sOb
 etL
 etL
 etL
@@ -6763,6 +7091,37 @@ etL
 etL
 etL
 etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+que
 "}
 (3,1,1) = {"
 xRX
@@ -6936,45 +7295,52 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+que
 etL
 etL
 etL
@@ -7013,13 +7379,6 @@ etL
 etL
 etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 "}
 (4,1,1) = {"
 xRX
@@ -7193,45 +7552,52 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+que
 etL
 etL
 etL
@@ -7270,13 +7636,6 @@ etL
 etL
 etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 "}
 (5,1,1) = {"
 xRX
@@ -7450,45 +7809,52 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+que
 etL
 etL
 etL
@@ -7527,13 +7893,6 @@ etL
 etL
 etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 "}
 (6,1,1) = {"
 xRX
@@ -7707,45 +8066,52 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+que
 etL
 etL
 etL
@@ -7784,13 +8150,6 @@ etL
 etL
 etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 "}
 (7,1,1) = {"
 xRX
@@ -7964,45 +8323,52 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+que
 etL
 etL
 etL
@@ -8041,13 +8407,6 @@ etL
 etL
 etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 "}
 (8,1,1) = {"
 xRX
@@ -8221,45 +8580,52 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+que
 etL
 etL
 etL
@@ -8298,13 +8664,6 @@ etL
 etL
 etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 "}
 (9,1,1) = {"
 xRX
@@ -8478,45 +8837,52 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+que
 etL
 etL
 etL
@@ -8555,13 +8921,6 @@ etL
 etL
 etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 "}
 (10,1,1) = {"
 xRX
@@ -8735,45 +9094,52 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+que
 etL
 etL
 etL
@@ -8812,13 +9178,6 @@ etL
 etL
 etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 "}
 (11,1,1) = {"
 xRX
@@ -8992,45 +9351,52 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+que
 etL
 etL
 etL
@@ -9069,13 +9435,6 @@ etL
 etL
 etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 "}
 (12,1,1) = {"
 xRX
@@ -9249,45 +9608,52 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+que
 etL
 etL
 etL
@@ -9326,13 +9692,6 @@ etL
 etL
 etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 "}
 (13,1,1) = {"
 xRX
@@ -9506,45 +9865,52 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+que
 etL
 etL
 etL
@@ -9583,13 +9949,6 @@ etL
 etL
 etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 "}
 (14,1,1) = {"
 xRX
@@ -9763,7 +10122,52 @@ xRX
 xRX
 xRX
 xRX
-pRf
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+que
 etL
 etL
 etL
@@ -9782,45 +10186,7 @@ etL
 etL
 etL
 etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+rbD
 etL
 etL
 etL
@@ -9840,13 +10206,6 @@ etL
 etL
 etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 "}
 (15,1,1) = {"
 xRX
@@ -10020,45 +10379,52 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+que
 etL
 etL
 etL
@@ -10097,13 +10463,6 @@ etL
 etL
 etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 "}
 (16,1,1) = {"
 xRX
@@ -10277,45 +10636,52 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+que
 etL
 etL
 etL
@@ -10354,13 +10720,6 @@ etL
 etL
 etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 "}
 (17,1,1) = {"
 xRX
@@ -10534,45 +10893,52 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+que
 etL
 etL
 etL
@@ -10611,13 +10977,6 @@ etL
 etL
 etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 "}
 (18,1,1) = {"
 xRX
@@ -10791,45 +11150,52 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+que
 etL
 etL
 etL
@@ -10868,13 +11234,6 @@ etL
 etL
 etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 "}
 (19,1,1) = {"
 xRX
@@ -11048,45 +11407,52 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+que
 etL
 etL
 etL
@@ -11125,13 +11491,6 @@ etL
 etL
 etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 "}
 (20,1,1) = {"
 xRX
@@ -11305,45 +11664,52 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+que
 etL
 etL
 etL
@@ -11382,13 +11748,6 @@ etL
 etL
 etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 "}
 (21,1,1) = {"
 xRX
@@ -11562,45 +11921,52 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+que
 etL
 etL
 etL
@@ -11639,13 +12005,6 @@ etL
 etL
 etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 "}
 (22,1,1) = {"
 xRX
@@ -11819,45 +12178,52 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+que
 etL
 etL
 etL
@@ -11896,13 +12262,6 @@ etL
 etL
 etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 "}
 (23,1,1) = {"
 xRX
@@ -12076,45 +12435,52 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+que
 etL
 etL
 etL
@@ -12153,13 +12519,6 @@ etL
 etL
 etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 "}
 (24,1,1) = {"
 xRX
@@ -12333,45 +12692,52 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+que
 etL
 etL
 etL
@@ -12410,13 +12776,6 @@ etL
 etL
 etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 "}
 (25,1,1) = {"
 xRX
@@ -12590,45 +12949,52 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+que
 etL
 etL
 etL
@@ -12667,13 +13033,6 @@ etL
 etL
 etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 "}
 (26,1,1) = {"
 xRX
@@ -12847,45 +13206,52 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+que
 etL
 etL
 etL
@@ -12924,13 +13290,6 @@ etL
 etL
 etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 "}
 (27,1,1) = {"
 xRX
@@ -13104,45 +13463,52 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+que
 etL
 etL
 etL
@@ -13181,13 +13547,6 @@ etL
 etL
 etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 "}
 (28,1,1) = {"
 xRX
@@ -13361,45 +13720,52 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+que
 etL
 etL
 etL
@@ -13438,13 +13804,6 @@ etL
 etL
 etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 "}
 (29,1,1) = {"
 xRX
@@ -13618,45 +13977,52 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+que
 etL
 etL
 etL
@@ -13695,13 +14061,6 @@ etL
 etL
 etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 "}
 (30,1,1) = {"
 xRX
@@ -13875,45 +14234,52 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+que
 etL
 etL
 etL
@@ -13952,13 +14318,6 @@ etL
 etL
 etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 "}
 (31,1,1) = {"
 xRX
@@ -14132,45 +14491,52 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+que
 etL
 etL
 etL
@@ -14209,13 +14575,6 @@ etL
 etL
 etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 "}
 (32,1,1) = {"
 xRX
@@ -14389,45 +14748,52 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+que
 etL
 etL
 etL
@@ -14466,13 +14832,6 @@ etL
 etL
 etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 "}
 (33,1,1) = {"
 xRX
@@ -14646,45 +15005,52 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+que
 etL
 etL
 etL
@@ -14723,13 +15089,6 @@ etL
 etL
 etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 "}
 (34,1,1) = {"
 xRX
@@ -14903,45 +15262,52 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+que
 etL
 etL
 etL
@@ -14980,13 +15346,6 @@ etL
 etL
 etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 "}
 (35,1,1) = {"
 xRX
@@ -15160,49 +15519,56 @@ xRX
 xRX
 xRX
 xRX
-pRf
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+que
 etL
 etL
 etL
 etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-aho
 etL
 etL
 etL
@@ -15237,13 +15603,6 @@ etL
 etL
 etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 "}
 (36,1,1) = {"
 xRX
@@ -15417,45 +15776,52 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+que
 etL
 etL
 etL
@@ -15494,13 +15860,6 @@ etL
 etL
 etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 "}
 (37,1,1) = {"
 xRX
@@ -15674,45 +16033,52 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+que
 etL
 etL
 etL
@@ -15751,13 +16117,6 @@ etL
 etL
 etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 "}
 (38,1,1) = {"
 xRX
@@ -15931,45 +16290,52 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+que
 etL
 etL
 etL
@@ -16008,13 +16374,6 @@ etL
 etL
 etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 "}
 (39,1,1) = {"
 xRX
@@ -16188,45 +16547,52 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+que
 etL
 etL
 etL
@@ -16265,13 +16631,6 @@ etL
 etL
 etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 "}
 (40,1,1) = {"
 xRX
@@ -16445,90 +16804,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+sOb
 "}
 (41,1,1) = {"
 xRX
@@ -16702,90 +17061,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (42,1,1) = {"
 xRX
@@ -16959,90 +17318,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (43,1,1) = {"
 xRX
@@ -17216,90 +17575,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (44,1,1) = {"
 xRX
@@ -17473,90 +17832,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (45,1,1) = {"
 xRX
@@ -17730,90 +18089,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (46,1,1) = {"
 xRX
@@ -17987,90 +18346,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (47,1,1) = {"
 xRX
@@ -18244,90 +18603,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (48,1,1) = {"
 xRX
@@ -18501,90 +18860,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (49,1,1) = {"
 xRX
@@ -18758,90 +19117,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (50,1,1) = {"
 xRX
@@ -19015,90 +19374,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (51,1,1) = {"
 xRX
@@ -19272,90 +19631,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (52,1,1) = {"
 xRX
@@ -19529,90 +19888,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (53,1,1) = {"
 xRX
@@ -19786,90 +20145,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (54,1,1) = {"
 xRX
@@ -20043,90 +20402,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (55,1,1) = {"
 xRX
@@ -20300,90 +20659,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (56,1,1) = {"
 xRX
@@ -20557,90 +20916,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (57,1,1) = {"
 xRX
@@ -20814,90 +21173,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (58,1,1) = {"
 xRX
@@ -21071,90 +21430,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (59,1,1) = {"
 xRX
@@ -21328,90 +21687,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (60,1,1) = {"
 xRX
@@ -21585,90 +21944,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (61,1,1) = {"
 xRX
@@ -21842,90 +22201,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (62,1,1) = {"
 xRX
@@ -22099,90 +22458,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (63,1,1) = {"
 xRX
@@ -22356,90 +22715,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (64,1,1) = {"
 xRX
@@ -22613,90 +22972,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (65,1,1) = {"
 xRX
@@ -22870,90 +23229,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (66,1,1) = {"
 xRX
@@ -23127,90 +23486,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (67,1,1) = {"
 xRX
@@ -23384,90 +23743,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (68,1,1) = {"
 xRX
@@ -23560,6 +23919,7 @@ xRX
 xRX
 xRX
 xRX
+vuD
 xRX
 xRX
 xRX
@@ -23641,90 +24001,89 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (69,1,1) = {"
 xRX
@@ -23898,90 +24257,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-sOb
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (70,1,1) = {"
 xRX
@@ -24155,90 +24514,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (71,1,1) = {"
 xRX
@@ -24374,6 +24733,7 @@ xRX
 xRX
 xRX
 xRX
+vuD
 xRX
 xRX
 xRX
@@ -24412,90 +24772,89 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (72,1,1) = {"
 xRX
@@ -24669,90 +25028,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (73,1,1) = {"
 xRX
@@ -24926,90 +25285,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (74,1,1) = {"
 xRX
@@ -25183,90 +25542,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-sOb
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (75,1,1) = {"
 xRX
@@ -25440,90 +25799,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (76,1,1) = {"
 xRX
@@ -25697,90 +26056,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (77,1,1) = {"
 xRX
@@ -25954,90 +26313,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (78,1,1) = {"
 xRX
@@ -26211,90 +26570,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (79,1,1) = {"
 xRX
@@ -26468,90 +26827,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-wrJ
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (80,1,1) = {"
 xRX
@@ -26725,90 +27084,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (81,1,1) = {"
 xRX
@@ -26982,90 +27341,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (82,1,1) = {"
 xRX
@@ -27124,6 +27483,7 @@ xRX
 xRX
 xRX
 xRX
+vuD
 xRX
 xRX
 xRX
@@ -27239,90 +27599,89 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (83,1,1) = {"
 xRX
@@ -27496,90 +27855,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (84,1,1) = {"
 xRX
@@ -27753,90 +28112,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-sOb
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (85,1,1) = {"
 xRX
@@ -28010,90 +28369,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (86,1,1) = {"
 xRX
@@ -28267,90 +28626,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (87,1,1) = {"
 xRX
@@ -28524,90 +28883,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (88,1,1) = {"
 xRX
@@ -28781,90 +29140,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (89,1,1) = {"
 xRX
@@ -28958,6 +29317,7 @@ xRX
 xRX
 xRX
 xRX
+gNW
 xRX
 xRX
 xRX
@@ -29038,90 +29398,89 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (90,1,1) = {"
 xRX
@@ -29295,90 +29654,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (91,1,1) = {"
 xRX
@@ -29552,90 +29911,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (92,1,1) = {"
 xRX
@@ -29809,90 +30168,90 @@ xRX
 xRX
 xRX
 xRX
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
-pRf
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 "}
 (93,1,1) = {"
 xRX
@@ -32246,7 +32605,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+vuD
 xRX
 xRX
 xRX
@@ -34325,19 +34684,19 @@ xRX
 xRX
 xRX
 xRX
+qMt
 xRX
 xRX
+qMt
 xRX
 xRX
+qMt
 xRX
 xRX
+qMt
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+qMt
 xRX
 xRX
 xRX
@@ -34853,7 +35212,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+feu
 xRX
 xRX
 xRX
@@ -35111,8 +35470,8 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
+tWh
+tWh
 tWh
 tWh
 tWh
@@ -35368,14 +35727,14 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-ajL
+kfF
+dul
+fVq
 ayD
 bEt
 tWh
 fkX
-iPn
+dLB
 kFU
 iOe
 nGj
@@ -35624,10 +35983,10 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-ajL
+feu
+kfF
+bbM
+jHg
 aEq
 bIQ
 eiR
@@ -35882,10 +36241,10 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
+bOF
+bbM
 asD
-aEq
+mQz
 cnJ
 tWh
 fJC
@@ -36139,8 +36498,8 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
+kfF
+ayf
 ajL
 aYD
 coK
@@ -36395,9 +36754,9 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
+feu
+tWh
+tWh
 tWh
 tWh
 tWh
@@ -36652,11 +37011,11 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-gNW
-gNW
-gNW
+vFS
+vFS
+vFS
+vFS
+vFS
 vFS
 exg
 stX
@@ -36664,7 +37023,7 @@ pDY
 vFS
 gOp
 jmN
-yfz
+rBK
 jwy
 lNh
 rzM
@@ -36885,6 +37244,7 @@ xRX
 xRX
 xRX
 xRX
+tJG
 xRX
 xRX
 xRX
@@ -36908,12 +37268,11 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
+cZR
+dFf
 lkY
 cJN
-dFf
+thB
 thB
 eCy
 vVQ
@@ -36921,7 +37280,7 @@ qGl
 vFS
 gXD
 jsa
-yfz
+rBK
 wYR
 pVf
 rQB
@@ -37166,33 +37525,33 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
+kpi
+oyB
 wHL
 wNT
 dIx
-qMt
+dIx
 mcN
 dmm
 jsq
 vFS
 mzO
 jsa
-yfz
+rBK
 sCu
 uwG
 rQB
-rBK
-tEO
+tLA
+ayi
 qHO
 tUC
-yfz
+tLA
 sMg
 ebD
 ckj
 ian
 bhp
-bhp
+itg
 gUj
 vfX
 cij
@@ -37423,11 +37782,11 @@ xRX
 xRX
 xRX
 xRX
-xRX
-gNW
-gNW
-gNW
-gNW
+vFS
+vFS
+vFS
+vFS
+vFS
 vFS
 riA
 aXC
@@ -37435,17 +37794,17 @@ wDN
 vFS
 gXD
 vZZ
-yfz
+rBK
 pXU
 mun
 sfw
-rBK
+tLA
 ioB
 vyC
 iXs
-yfz
+tLA
 eQS
-wdq
+cZV
 bVs
 niD
 cZV
@@ -37680,7 +38039,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+feu
 oIF
 eZx
 mlG
@@ -37692,18 +38051,18 @@ jwX
 vFS
 gXD
 jsa
-yfz
+rBK
 qhi
 qkP
 slH
-rBK
+tLA
 cos
 vKn
-yfz
-yfz
+tLA
+tLA
 gqU
 jgn
-jgn
+riF
 jgn
 jgn
 yfz
@@ -37768,7 +38127,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+vuD
 xRX
 xRX
 xRX
@@ -37949,7 +38308,7 @@ vFS
 vFS
 aKd
 jsa
-yfz
+rBK
 rBK
 qrd
 rBK
@@ -37960,7 +38319,7 @@ qbp
 sYH
 oKe
 aYE
-aYE
+bnu
 aYE
 aYE
 eLC
@@ -38451,7 +38810,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+feu
 oNK
 hmD
 dfi
@@ -38474,7 +38833,7 @@ qbp
 tVB
 mdX
 sLq
-oUC
+fwA
 fwA
 aiD
 mFt
@@ -38731,7 +39090,7 @@ wUT
 wUT
 lgK
 jRF
-oUC
+fwA
 tmL
 iwS
 lym
@@ -38986,9 +39345,9 @@ tsn
 wkO
 xzl
 wUT
-aKd
+aho
 ulR
-oUC
+fwA
 paq
 qza
 lIp
@@ -39222,7 +39581,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+feu
 oIF
 oIF
 oIF
@@ -39245,7 +39604,7 @@ sJD
 wUT
 usz
 pmD
-oUC
+fwA
 crw
 ilB
 mmT
@@ -39502,7 +39861,7 @@ uwT
 wUT
 bom
 agA
-oUC
+fwA
 ioq
 waI
 mmT
@@ -39722,19 +40081,19 @@ xRX
 xRX
 xRX
 xRX
+qMt
 xRX
 xRX
+qMt
 xRX
 xRX
+qMt
 xRX
 xRX
+qMt
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+qMt
 xRX
 xRX
 xRX
@@ -39759,7 +40118,7 @@ wve
 wUT
 sCd
 grA
-oUC
+fwA
 fmB
 lXU
 nmy
@@ -39994,8 +40353,8 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
+gJZ
+gJZ
 gJZ
 gJZ
 uOy
@@ -40009,18 +40368,18 @@ wUT
 wUT
 uiz
 wUT
-wUT
+jcc
 wUT
 uiz
-wUT
+jcc
 wUT
 imn
 aRl
 jXh
-fwA
+fvO
 xnY
 xnY
-xnY
+lgJ
 fwA
 xrl
 fwA
@@ -40251,9 +40610,9 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xuX
+ueq
+niC
+rRu
 oXn
 gJZ
 gJZ
@@ -40271,9 +40630,9 @@ xRX
 xRX
 xRX
 yau
-ayf
+wrJ
 uGk
-aFp
+yau
 xRX
 xRX
 xRX
@@ -40508,35 +40867,35 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
+xfP
+byX
 scs
 diy
-dul
+gJZ
 gJZ
 ibp
 jMZ
-lvN
+jMZ
 mNJ
 ptP
 gJZ
 xRX
+feu
 xRX
-xRX
-xRX
+kYm
 yau
 yau
 yau
 yau
-qsf
+xFa
 bgA
-aFp
-yau
-yau
-yau
+wlw
+wlw
+wlw
+wlw
+gLv
 xRX
-xRX
-xRX
+feu
 xRX
 xRX
 xRX
@@ -40765,8 +41124,8 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
+ueq
+byX
 xuX
 bex
 dwE
@@ -40780,14 +41139,14 @@ gJZ
 xRX
 xRX
 xRX
-kYm
 yau
-wlw
+yau
+nVM
+tbY
+yau
 jXb
-yau
-rRu
 nPq
-aFp
+yau
 nTL
 xPl
 yau
@@ -41022,9 +41381,9 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xuX
+ueq
+nQz
+bph
 bld
 dHA
 gJZ
@@ -41037,18 +41396,18 @@ gJZ
 xRX
 xRX
 xRX
-yau
-yau
-bbM
-gLv
+bLh
+lvN
+nZU
 tcC
 etR
+vtU
 bsL
 oJk
-mQF
 aHv
 cHm
-jYe
+oUC
+qsf
 xRX
 xRX
 xRX
@@ -41279,8 +41638,8 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
+gJZ
+gJZ
 gJZ
 gJZ
 gJZ
@@ -41292,22 +41651,22 @@ gJZ
 gJZ
 gJZ
 xRX
+feu
 xRX
-xRX
-yep
 duC
 twl
+bMK
 hnE
-bsL
-xCw
+yep
+iDh
 pVw
 fqt
-nZU
 aei
-iDh
+pRf
 lGa
+fAg
 xRX
-xRX
+feu
 xRX
 xRX
 xRX
@@ -41551,18 +41910,18 @@ xRX
 xRX
 xRX
 xRX
-yau
-yau
-fVq
-bsL
-bsL
-rpr
+bLh
+aFp
+xCw
+xCw
+xCw
+xCw
 uHL
-tbY
 vpY
-vuD
+vpY
 dCS
 jYe
+qsf
 xRX
 xRX
 xRX
@@ -41808,16 +42167,16 @@ xRX
 xRX
 xRX
 xRX
-oBx
 yau
-xfP
-byX
-bMK
-bMK
+yau
+xHi
+jzV
+nou
 eBG
 rEq
-nVM
-kfF
+mQF
+rpr
+qcF
 yau
 yau
 xRX
@@ -42063,22 +42422,22 @@ xRX
 xRX
 xRX
 xRX
+feu
 xRX
-xRX
-xRX
+oBx
 yau
 yau
 yau
 yau
 wNO
-ueq
+yau
 yau
 yau
 yau
 yau
 xRX
 xRX
-xRX
+feu
 xRX
 xRX
 xRX
@@ -42834,6 +43193,7 @@ xRX
 xRX
 xRX
 xRX
+feu
 xRX
 xRX
 xRX
@@ -42848,8 +43208,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
+feu
 xRX
 xRX
 xRX
@@ -43042,7 +43401,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+vuD
 xRX
 xRX
 xRX
@@ -43605,6 +43964,7 @@ xRX
 xRX
 xRX
 xRX
+feu
 xRX
 xRX
 xRX
@@ -43619,8 +43979,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
+feu
 xRX
 xRX
 xRX
@@ -48963,7 +49322,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+vuD
 xRX
 xRX
 xRX
@@ -51892,7 +52251,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+vuD
 xRX
 xRX
 xRX
@@ -55174,7 +55533,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+vuD
 xRX
 xRX
 xRX

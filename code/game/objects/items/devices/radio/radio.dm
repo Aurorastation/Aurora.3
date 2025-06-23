@@ -46,7 +46,7 @@ var/global/list/default_interrogation_channels = list(
 	slot_flags = SLOT_BELT
 	throw_speed = 2
 	throw_range = 9
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	matter = list(MATERIAL_ALUMINIUM = 75, MATERIAL_GLASS = 25)
 	suffix = "\[3\]"
 	var/radio_desc = ""
@@ -295,7 +295,7 @@ var/global/list/default_interrogation_channels = list(
 	var/obj/item/card/id/I = GetIdCard()
 	return has_access(list(), req_one_accesses, I ? I.GetAccess() : list())
 
-/mob/abstract/observer/has_internal_radio_channel_access(var/list/req_one_accesses)
+/mob/abstract/ghost/observer/has_internal_radio_channel_access(var/list/req_one_accesses)
 	return can_admin_interact()
 
 /obj/item/device/radio/proc/text_wires()
@@ -308,7 +308,7 @@ var/global/list/default_interrogation_channels = list(
 	var/list = !!(chan_stat&FREQ_LISTENING)!=0
 	return {"
 			<B>[chan_name]</B><br>
-			Speaker: <A href='byond://?src=\ref[src];ch_name=[chan_name];listen=[!list]'>[list ? "Engaged" : "Disengaged"]</A><BR>
+			Speaker: <A href='byond://?src=[REF(src)];ch_name=[chan_name];listen=[!list]'>[list ? "Engaged" : "Disengaged"]</A><BR>
 			"}
 
 /obj/item/device/radio/CanUseTopic()
@@ -545,9 +545,9 @@ var/global/list/default_interrogation_channels = list(
 	b_stat = !( b_stat )
 	if(!istype(src, /obj/item/device/radio/beacon))
 		if (b_stat)
-			user.show_message("<span class='notice'>\The [src] can now be attached and modified!</span>")
+			user.show_message(SPAN_NOTICE("\The [src] can now be attached and modified!"))
 		else
-			user.show_message("<span class='notice'>\The [src] can no longer be modified or attached!</span>")
+			user.show_message(SPAN_NOTICE("\The [src] can no longer be modified or attached!"))
 		updateDialog()
 			//Foreach goto(83)
 		add_fingerprint(user)
@@ -636,12 +636,13 @@ var/global/list/default_interrogation_channels = list(
 	channels = list(CHANNEL_COMMON = TRUE, CHANNEL_ENTERTAINMENT = TRUE)
 	syndie = FALSE
 
-	var/mob/living/silicon/robot/D = loc
-	if(D.module)
-		for(var/ch_name in D.module.channels)
-			if(ch_name in channels)
-				continue
-			channels[ch_name] += D.module.channels[ch_name]
+	if(isrobot(loc))
+		var/mob/living/silicon/robot/D = loc
+		if(D.module)
+			for(var/ch_name in D.module.channels)
+				if(ch_name in channels)
+					continue
+				channels[ch_name] += D.module.channels[ch_name]
 	if(keyslot)
 		for(var/ch_name in keyslot.channels)
 			if(ch_name in channels)
@@ -674,9 +675,9 @@ var/global/list/default_interrogation_channels = list(
 		if(enable_subspace_transmission != subspace_transmission)
 			subspace_transmission = !subspace_transmission
 			if(subspace_transmission)
-				to_chat(usr, "<span class='notice'>Subspace Transmission is enabled</span>")
+				to_chat(usr, SPAN_NOTICE("Subspace Transmission is enabled"))
 			else
-				to_chat(usr, "<span class='notice'>Subspace Transmission is disabled</span>")
+				to_chat(usr, SPAN_NOTICE("Subspace Transmission is disabled"))
 
 			if(subspace_transmission == 0)//Simple as fuck, clears the channel list to prevent talking/listening over them if subspace transmission is disabled
 				channels = list()
@@ -689,10 +690,10 @@ var/global/list/default_interrogation_channels = list(
 			shut_up = !shut_up
 			if(shut_up)
 				canhear_range = 0
-				to_chat(usr, "<span class='notice'>Loadspeaker disabled.</span>")
+				to_chat(usr, SPAN_NOTICE("Loadspeaker disabled."))
 			else
 				canhear_range = 3
-				to_chat(usr, "<span class='notice'>Loadspeaker enabled.</span>")
+				to_chat(usr, SPAN_NOTICE("Loadspeaker enabled."))
 		. = 1
 
 	if(.)

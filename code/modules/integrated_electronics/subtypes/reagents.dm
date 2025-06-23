@@ -45,7 +45,7 @@
 	else
 		direc = 1
 	if(isnum(new_amount))
-		new_amount = Clamp(new_amount, 0, volume)
+		new_amount = clamp(new_amount, 0, volume)
 		transfer_amount = new_amount
 
 /obj/item/integrated_circuit/reagent/injector/do_work()
@@ -68,7 +68,7 @@
 			if(isliving(AM))
 				var/mob/living/L = AM
 				var/turf/T = get_turf(AM)
-				T.visible_message("<span class='warning'>[assembly] is trying to inject [L]!</span>")
+				T.visible_message(SPAN_WARNING("[assembly] is trying to inject [L]!"))
 				sleep(3 SECONDS)
 				if(!L.can_be_injected_by(src))
 					activate_pin(3)
@@ -76,8 +76,8 @@
 				var/contained = reagents.get_reagents()
 				var/trans = reagents.trans_to_mob(L, transfer_amount, CHEM_BLOOD)
 				message_admins("[assembly] injected \the [L] with [trans]u of [contained].")
-				to_chat(AM, "<span class='notice'>You feel a tiny prick!</span>")
-				visible_message("<span class='warning'>[assembly] injects [L]!</span>")
+				to_chat(AM, SPAN_NOTICE("You feel a tiny prick!"))
+				visible_message(SPAN_WARNING("[assembly] injects [L]!"))
 			else
 				reagents.trans_to(AM, transfer_amount)
 	else
@@ -94,7 +94,7 @@
 		if(!TS.Adjacent(TT))
 			activate_pin(3)
 			return
-		var/tramount = Clamp(min(transfer_amount, REAGENTS_FREE_SPACE(reagents)), 0, reagents.maximum_volume)
+		var/tramount = clamp(min(transfer_amount, REAGENTS_FREE_SPACE(reagents)), 0, reagents.maximum_volume)
 		if(ismob(target))//Blood!
 			if(istype(target, /mob/living/carbon))
 				var/mob/living/carbon/T = target
@@ -111,14 +111,14 @@
 						activate_pin(3)
 					return
 				T.take_blood(src,tramount)
-				visible_message( "<span class='notice'>[assembly] takes a blood sample from [target].</span>")
+				visible_message( SPAN_NOTICE("[assembly] takes a blood sample from [target]."))
 			else
 				activate_pin(3)
 				return
 
 		else //if not mob
 			if(!target.reagents.total_volume)
-				visible_message( "<span class='notice'>[target] is empty.</span>")
+				visible_message( SPAN_NOTICE("[target] is empty."))
 				activate_pin(3)
 				return
 			target.reagents.trans_to_obj(src, tramount)
@@ -158,7 +158,7 @@
 	else
 		direc = 1
 	if(isnum(new_amount))
-		new_amount = Clamp(new_amount, 0, 50)
+		new_amount = clamp(new_amount, 0, 50)
 		transfer_amount = new_amount
 
 /obj/item/integrated_circuit/reagent/pump/do_work()
@@ -283,7 +283,7 @@
 	else
 		direc = 1
 	if(isnum(new_amount))
-		new_amount = Clamp(new_amount, 0, 50)
+		new_amount = clamp(new_amount, 0, 50)
 		transfer_amount = new_amount
 
 /obj/item/integrated_circuit/reagent/filter/do_work()

@@ -46,7 +46,7 @@
 	name = "Elyran Navy"
 	chance = 15
 	spawner = /datum/ghostspawner/human/ert/elyra
-	possible_space_sector = list(SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_VALLEY_HALE, SECTOR_AEMAQ)
+	possible_space_sector = list(SECTOR_BADLANDS, SECTOR_TABITI, SECTOR_VALLEY_HALE, SECTOR_AEMAQ)
 
 /datum/responseteam/coalition
 	name = "Coalition Rangers"
@@ -59,3 +59,34 @@
 	chance = 15
 	spawner = /datum/ghostspawner/human/ert/konyang
 	possible_space_sector = list(SECTOR_HANEUNIM)
+
+/datum/responseteam/izweski
+	name = "Izweski Hegemony Navy"
+	chance = 15
+	spawner = /datum/ghostspawner/human/ert/izweski
+	possible_space_sector = list(SECTOR_BADLANDS, SECTOR_UUEOAESA)
+
+/datum/responseteam/qukala
+	name = "Nralakk Federation Qukala"
+	chance = 15
+	spawner = /datum/ghostspawner/human/ert/qukala
+	possible_space_sector = list(SECTOR_BADLANDS) //Not super lore-friendly but our only sector that could possibly have a Fed presence
+
+/datum/responseteam/dominia
+	name = "Dominian Imperial Fleet"
+	chance = 15
+	spawner = /datum/ghostspawner/human/ert/dominia
+	possible_space_sector = list(SECTOR_BADLANDS)
+	equipment_map = /datum/map_template/distress_dominia
+
+/datum/responseteam/zora
+	name = "Zo'ra Hive Warriors"
+	chance = 10
+	spawner = /datum/ghostspawner/human/ert/zora
+	possible_space_sector = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH)
+
+/datum/responseteam/klax
+	name = "K'lax Hive Warriors"
+	chance = 10
+	spawner = /datum/ghostspawner/human/ert/klax
+	possible_space_sector = list(SECTOR_UUEOAESA)

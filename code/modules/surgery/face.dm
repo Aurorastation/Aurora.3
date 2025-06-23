@@ -3,19 +3,6 @@
 //						FACE SURGERY							//
 //////////////////////////////////////////////////////////////////
 
-/singleton/surgery_step/face
-	name = "Make Facial Incisions"
-	priority = 2
-	can_infect = FALSE
-
-/singleton/surgery_step/face/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!..())
-		return FALSE
-	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	if(!affected || BP_IS_ROBOTIC(affected))
-		return FALSE
-	return target_zone == BP_MOUTH
-
 /singleton/surgery_step/generic/cut_face
 	allowed_tools = list(
 	/obj/item/surgery/scalpel = 100,
@@ -45,15 +32,6 @@
 	target.apply_damage(40, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 	target.apply_damage(20, DAMAGE_OXY)
 	target.losebreath += 10
-
-
-/singleton/surgery_step/robotics/face
-	name = "Make Facial Incisions"
-	priority = 2
-	can_infect = FALSE
-
-/singleton/surgery_step/robotics/face/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	return ..() && target_zone == BP_MOUTH
 
 /singleton/surgery_step/robotics/face/synthskin
 	allowed_tools = list(

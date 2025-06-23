@@ -6,13 +6,13 @@
 	icon_supported_species_tags = list("skr")
 	suit_type = "combat hardsuit"
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_MAJOR,
-		laser = ARMOR_LASER_MEDIUM,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SMALL
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_MAJOR,
+		LASER = ARMOR_LASER_MEDIUM,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.1
 	offline_slowdown = 3
@@ -48,13 +48,13 @@
 	icon_state = "military_rig"
 	suit_type = "military hardsuit"
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_MAJOR,
-		laser = ARMOR_LASER_MEDIUM,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SMALL
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_MAJOR,
+		LASER = ARMOR_LASER_MEDIUM,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.1
 	offline_slowdown = 3
@@ -64,7 +64,6 @@
 	species_restricted = list(BODYTYPE_HUMAN)
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/military
-
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY
 
@@ -114,21 +113,55 @@
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_MEDICAL | MODULE_UTILITY
 
+/obj/item/rig/military/commando
+	name = "nosferatu hardsuit control module"
+	desc = "A Zavodskoi-manufactured hardsuit specially designed for the elite units of the Solarian SOCOM. A feared sight to behold, the most well-known usage of the Type-9A \"Nosferatu\" suits is by the forces of the Alliance's MARSOC operatives."
+	icon = 'icons/clothing/rig/sol_marsoc.dmi'
+	armor = list(
+		MELEE = ARMOR_MELEE_SHIELDED,
+		BULLET = ARMOR_BALLISTIC_RIFLE,
+		LASER = ARMOR_LASER_RIFLE,
+		ENERGY = ARMOR_ENERGY_STRONG,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SHIELDED
+	)
+	emp_protection = 30
+	slowdown = 0
+	offline_slowdown = 3
+
+	initial_modules = list(
+		/obj/item/rig_module/ai_container,
+		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/grenade_launcher,
+		/obj/item/rig_module/vision/multi,
+		/obj/item/rig_module/mounted/pulse,
+		/obj/item/rig_module/chem_dispenser/combat,
+		/obj/item/rig_module/chem_dispenser/injector,
+		/obj/item/rig_module/device/drill,
+		/obj/item/rig_module/device/rfd_c,
+		/obj/item/rig_module/datajack,
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/recharger
+		)
+
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA // all modules
+
 /obj/item/rig/retro
 	name = "retrofitted military hardsuit control module"
-	desc = "An old repurposed construction exoskeleton redesigned for combat. Its colors and insignias match those of the Tau Ceti Foreign Legion."
+	desc = "An old repurposed construction exoskeleton redesigned for combat. Its colors and insignias match those of the Tau Ceti Armed Forces."
 	icon = 'icons/clothing/rig/legion.dmi'
 	icon_state = "legion_rig"
 	icon_supported_species_tags = list("ipc", "skr", "taj", "una", "vau", "vaw")
 	suit_type = "retrofitted military hardsuit"
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_RESISTANT,
-		bomb = ARMOR_BOMB_RESISTANT,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_RESISTANT
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_PISTOL,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_RESISTANT,
+		BOMB = ARMOR_BOMB_RESISTANT,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_RESISTANT
 	)
 	siemens_coefficient = 0.35
 	slowdown = 2
@@ -157,7 +190,7 @@
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY
 
 /obj/item/rig/retro/equipped
-	req_access = list(ACCESS_LEGION)
+	req_one_access = list(ACCESS_TCAF_SHIPS, ACCESS_LEGION)
 	initial_modules = list(
 		/obj/item/rig_module/actuators,
 		/obj/item/rig_module/device/drill,
@@ -177,13 +210,13 @@
 	suit_type = "gunslinger hardsuit"
 	icon_supported_species_tags = list("ipc", "skr", "taj")
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_MAJOR,
-		laser = ARMOR_LASER_MEDIUM,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SMALL
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_MAJOR,
+		LASER = ARMOR_LASER_MEDIUM,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.1
 	offline_slowdown = 2
@@ -229,13 +262,13 @@
 	icon_state = "strikesuit"
 	suit_type = "strike hardsuit"
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_MAJOR,
-		laser = ARMOR_LASER_MEDIUM,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SMALL
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_MAJOR,
+		LASER = ARMOR_LASER_MEDIUM,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.1
 	offline_slowdown = 2
@@ -297,13 +330,13 @@
 	icon_state = "elyran_rig"
 	suit_type = "elyran battlesuit"
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_MAJOR,
-		laser = ARMOR_LASER_MEDIUM,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SMALL
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_MAJOR,
+		LASER = ARMOR_LASER_MEDIUM,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.1
 	offline_slowdown = 2
@@ -348,13 +381,13 @@
 	icon_state = "bunker"
 	suit_type = "bunker suit"
 	armor = list(
-		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_RIFLE,
-		laser = ARMOR_LASER_RIFLE,
-		energy = ARMOR_ENERGY_SHIELDED,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SMALL
+		MELEE = ARMOR_MELEE_VERY_HIGH,
+		BULLET = ARMOR_BALLISTIC_RIFLE,
+		LASER = ARMOR_LASER_RIFLE,
+		ENERGY = ARMOR_ENERGY_SHIELDED,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
 	)
 	offline_vision_restriction = TINT_HEAVY
 	emp_protection = -30
@@ -387,13 +420,13 @@
 	icon_supported_species_tags = list("una")
 	suit_type = "jinxiang combat suit"
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_MAJOR,
-		laser = ARMOR_LASER_MEDIUM,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SMALL
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_MAJOR,
+		LASER = ARMOR_LASER_MEDIUM,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
 	)
 	offline_vision_restriction = TINT_HEAVY
 	offline_slowdown = 10
@@ -435,13 +468,13 @@
 	icon_supported_species_tags = list("skr")
 	species_restricted = list(BODYTYPE_SKRELL, BODYTYPE_HUMAN)
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_MAJOR,
-		laser = ARMOR_LASER_MEDIUM,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_RESISTANT,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_RESISTANT
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_MAJOR,
+		LASER = ARMOR_LASER_MEDIUM,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_RESISTANT,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_RESISTANT
 	)
 	siemens_coefficient = 0.1
 
@@ -479,3 +512,65 @@
 
 /obj/item/clothing/head/helmet/space/rig/nanotrasen/corporate_auxiliary
 	light_overlay = "helmet_light_dual"
+
+/obj/item/rig/combat/legionnaire
+	name = "\improper Legionnaire Hardsuit"
+	desc = "An armored combat hardsuit in the blue colors of the Tau Ceti Armed Forces. The red shoulder pad dignifying the individual as a member of rank. \
+	Its golden visor reflecting the shining liberty the TCAF stands for."
+	desc_extended = "This hardsuit is brimming with modules and material. Manufactured initially by NanoTrasen, and later modified by Zavodskoi, \
+	the Legionnaire hardsuit comes in many shapes and sizes to accommodate its missions. Seeing both action in orbit and on the ground. \
+	The blue armored plates are layered with brown ballistic padding, and finally a tightly woven black armored liner to keep out any hazardous environment, from air to space."
+	icon = 'icons/clothing/rig/tcaf_legionnaire.dmi'
+	icon_state = "legionnaire_rig"
+	icon_supported_species_tags = null
+	suit_type = "\improper Legionnaire Hardsuit"
+	armor = list(
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_MAJOR,
+		LASER = ARMOR_LASER_MEDIUM,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
+	)
+	siemens_coefficient = 0.1
+	offline_slowdown = 3
+	offline_vision_restriction = TINT_HEAVY
+
+	helm_type = /obj/item/clothing/head/helmet/space/rig/legionnaire
+
+	allowed = list(
+		/obj/item/device/flashlight,
+		/obj/item/tank,
+		/obj/item/device/suit_cooling_unit,
+		/obj/item/gun,
+		/obj/item/ammo_magazine,
+		/obj/item/ammo_casing,
+		/obj/item/melee/baton,
+		/obj/item/melee/energy/sword,
+		/obj/item/handcuffs,
+		/obj/item/material/twohanded/fireaxe,
+		/obj/item/rfd/construction,
+		/obj/item/material/twohanded/pike/flag
+	)
+
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY
+
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
+
+/obj/item/clothing/head/helmet/space/rig/legionnaire
+	light_overlay = "helmet_light_tcaf_legionnaire"
+	camera = /obj/machinery/camera/network/tcfl
+
+/obj/item/rig/combat/legionnaire/equipped
+
+	initial_modules = list(
+		/obj/item/rig_module/actuators,
+		/obj/item/rig_module/mounted/egun,
+		/obj/item/rig_module/fabricator/energy_net,
+		/obj/item/rig_module/device/drill,
+		/obj/item/rig_module/vision/nvg,
+		/obj/item/rig_module/storage,
+		/obj/item/rig_module/cooling_unit,
+		/obj/item/rig_module/recharger
+		)

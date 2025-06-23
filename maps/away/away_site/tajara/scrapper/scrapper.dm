@@ -1,8 +1,12 @@
 /datum/map_template/ruin/away_site/tajara_scrapper
 	name = "adhomian scrapper outpost"
 	description = "An outpost used by Tajaran scrappers. It offers repair and scrapping services."
-	suffixes = list("away_site/tajara/scrapper/scrapper.dmm")
+
+	prefix = "away_site/tajara/scrapper/"
+	suffix = "scrapper.dmm"
+
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL)
+	spawn_weight_sector_dependent = list(SECTOR_BADLANDS = 0.5)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "tajara_scrapper"
@@ -61,7 +65,7 @@
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
-	fore_dir = NORTH
+	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
 /obj/effect/overmap/visitable/ship/landable/tajara_scrapper/New()
@@ -85,15 +89,6 @@
 	logging_home_tag = "nav_hangar_tajara_scrapper"
 	defer_initialisation = TRUE
 
-/obj/effect/shuttle_landmark/tajara_scrapper/hangar
-	name = "Scrapper Ship Hangar"
-	landmark_tag = "nav_hangar_tajara_scrapper"
-	docking_controller = "tajaran_scrapper_shuttle_dock"
-	base_area = /area/space
-	base_turf = /turf/space
-	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
-/obj/effect/shuttle_landmark/tajara_scrapper/transit
-	name = "In transit"
-	landmark_tag = "nav_transit_tajara_scrapper"
-	base_turf = /turf/space/transit/north
+
+

@@ -11,10 +11,6 @@
 	if(!skip_sort)
 		usable_emotes = sortAssoc(usable_emotes)
 
-/mob/Initialize()
-	. = ..()
-	update_emotes()
-
 // Specific defines follow.
 /mob/living/carbon/alien
 	default_emotes = list(
@@ -89,6 +85,7 @@
 		/singleton/emote/audible/synth/buzz,
 		/singleton/emote/audible/synth/confirm,
 		/singleton/emote/audible/synth/deny,
+		/singleton/emote/audible/synth/alarm,
 		/singleton/emote/visible/nod,
 		/singleton/emote/visible/shake,
 		/singleton/emote/visible/shiver,

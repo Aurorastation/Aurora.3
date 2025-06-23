@@ -10,6 +10,20 @@
 		/singleton/origin_item/origin/mikuetz,
 		/singleton/origin_item/origin/queenless_klax
 	)
+	origin_traits_descriptions = list("can speak Sinta'Unathi")
+
+/singleton/origin_item/culture/klax/on_apply(mob/living/carbon/human/H)
+	. = ..()
+	var/obj/item/organ/A = new /obj/item/organ/internal/augment/language/klax(H)
+	var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
+	A.replaced(H, affected)
+
+/singleton/origin_item/culture/klax/on_remove(mob/living/carbon/human/H)
+	. = ..()
+	var/obj/item/organ/internal/augment/language/klax/A = locate() in H.internal_organs
+	if(istype(A))
+		A.removed(H)
+		qdel(A)
 
 /singleton/origin_item/origin/zkaii
 	name = "Zkaii Brood"

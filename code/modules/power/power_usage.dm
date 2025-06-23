@@ -28,10 +28,13 @@ This is /obj/machinery level code to properly manage power usage from the area.
 		chan = power_channel
 	return check_area.powered(chan)			// return power status of the area
 
-// called whenever the power settings of the containing area change
-// by default, check equipment channel & set flag can override if needed
-// This is NOT for when the machine's own status changes; update_use_power for that.
+/// called whenever the power settings of the containing area change
+/// by default, check equipment channel & set flag can override if needed
+/// This is NOT for when the machine's own status changes; update_use_power for that.
 /obj/machinery/proc/power_change()
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_CALL_PARENT(TRUE)
+
 	var/oldstat = stat
 
 	if(powered(power_channel))
@@ -75,18 +78,18 @@ This is /obj/machinery level code to properly manage power usage from the area.
 /obj/machinery/Initialize(mapload, d = 0, populate_components = TRUE, is_internal = FALSE)
 	internal = is_internal
 	REPORT_POWER_CONSUMPTION_CHANGE(0, get_power_usage())
-	GLOB.moved_event.register(src, src, PROC_REF(update_power_on_move))
+	RegisterSignal(src, COMSIG_MOVABLE_MOVED, PROC_REF(update_power_on_move))
 	power_init_complete = TRUE
 	. = ..()
 
 // Or in Destroy at all, but especially after the ..().
 /obj/machinery/Destroy()
-	GLOB.moved_event.unregister(src, src, PROC_REF(update_power_on_move))
+	UnregisterSignal(src, COMSIG_MOVABLE_MOVED)
 	REPORT_POWER_CONSUMPTION_CHANGE(get_power_usage(), 0)
 	. = ..()
 
-/obj/machinery/proc/update_power_on_move(atom/movable/mover, atom/old_loc, atom/new_loc)
-	area_changed(get_area(old_loc), get_area(new_loc))
+/obj/machinery/proc/update_power_on_move(atom/movable/mover, atom/old_loc, dir, forced, list/old_locs)
+	area_changed(get_area(old_loc), get_area(src))
 
 /obj/machinery/proc/area_changed(area/old_area, area/new_area)
 	if(old_area == new_area)
@@ -101,6 +104,7 @@ This is /obj/machinery level code to properly manage power usage from the area.
 	power_change()
 
 // The three procs below are the only allowed ways of modifying the corresponding variables.
+/// Use this to modify the use_power variable of machines, do not modify them directly!
 /obj/machinery/proc/update_use_power(new_use_power)
 	if(!power_init_complete)
 		use_power = new_use_power
@@ -112,6 +116,7 @@ This is /obj/machinery level code to properly manage power usage from the area.
 	var/new_power = get_power_usage()
 	REPORT_POWER_CONSUMPTION_CHANGE(old_power, new_power)
 
+/// Use this to modify the power channel variable of machines, do not modify them directly!
 /obj/machinery/proc/update_power_channel(new_channel)
 	if(power_channel == new_channel)
 		return
@@ -123,6 +128,7 @@ This is /obj/machinery level code to properly manage power usage from the area.
 	power_channel = new_channel
 	REPORT_POWER_CONSUMPTION_CHANGE(0, power)
 
+/// Use this to modify either of the power usage variables of machines, do not modify them directly!
 /obj/machinery/proc/change_power_consumption(new_power_consumption, use_power_mode = POWER_USE_IDLE)
 	var/old_power
 	switch(use_power_mode)

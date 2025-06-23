@@ -1,7 +1,10 @@
 /datum/map_template/ruin/away_site/yacht_civ
 	name = "Civilian Yacht"
 	description = "Civilian Yacht"
-	suffixes = list("ships/yacht_civ/yacht_civ.dmm")
+
+	prefix = "ships/yacht_civ/"
+	suffix = "yacht_civ.dmm"
+
 	sectors = list(ALL_POSSIBLE_SECTORS)
 	sectors_blacklist = list(ALL_DANGEROUS_SECTORS)
 	spawn_weight = 1
@@ -20,7 +23,7 @@
 	name = "Civilian Yacht"
 	class = "ICV"
 	desc = "\
-		Diamond-class Yacht, commonly seen in Sol and usually used for short-range flights between Solarian planets, moons, and other nearby sectors, \
+		Diamond-class Yacht, commonly seen in more affluent systems and usually used for short-range flights between civilised planets, moons, and other nearby sectors, \
 		shuttling the rich between work, home, and recreation. Certainly not a cheap platform, sparing no expenses in its internal systems, \
 		it is a quick and capable ship, being designed by Einstein Engines and produced by Hephaestus Industries.\
 		"
@@ -57,16 +60,12 @@
 	)
 
 /obj/effect/overmap/visitable/ship/yacht_civ/New()
-	var/planetary_body = pick(
-		"Jupiter", "Saturn", "Uranus", "Neptune", "Venus", "Mars", "Ganymede", "Titan",
-		"Mercury", "Callisto", "Io", "Europa", "Triton", "Pluto", "Eris", "Haumea",
-		"Titania", "Rhea", "Oberon", "Iapetus", "Makemake", "Charon", "Umbriel", "Ariel",
-		"Dione", "Quaoar", "Tethys", "Sedna", "Ceres", "Orcus", "Salacia", "Vesta",
-		"Pallas", "Enceladus", "Mimas", "Nereid", "Europa", "Hyperion", "Juno", "Mnemosyne",
-	)
-	var/prefix  = pick("", "", "", pick("Wondrous ", "Little ", "Tiny ", "Dreamy ", "Fine ", "Orbiter of ", "Greetings from "))
-	var/postfix = pick("", "", "", pick(", the Adventurer", " among Stars", ", Explorer", " of Sol", " from Sol", " and Moons"))
-	designation = "[prefix][planetary_body][postfix]"
+	var/pretentious_reference = pick(
+		"Ulysses", "Priam", "Helen", "Aeneas", "Virgil", "Dante", "Palamon", "Arcita", "Nimue", "Morgana", "Gawain", //IRL
+		"Xavier", "Madhar", "Orillian", "Saeli", "Roxanne") //Aurora-specific
+	var/prefix  = pick("", "", "", pick("Wondrous ", "Little ", "Tiny ", "Dreamy ", "Fine ", "Greetings from "))
+	var/suffix = pick("", "", "", pick(", the Adventurer", " among Stars", ", Explorer"))
+	designation = "[prefix][pretentious_reference][suffix]"
 	..()
 
 // shuttle
@@ -125,3 +124,5 @@
 	name = "Civilian Yacht Shuttle"
 	shuttle_tag = "Civilian Yacht Shuttle"
 	master_tag = "airlock_yacht_civ_shuttle"
+	req_one_access = null
+	req_access = null

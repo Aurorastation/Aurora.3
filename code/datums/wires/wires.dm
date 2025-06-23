@@ -1,7 +1,7 @@
 #define MAXIMUM_EMP_WIRES 3
 
-var/global/list/wire_color_directory = list()
-var/global/list/wire_name_directory = list()
+GLOBAL_LIST_INIT(wire_color_directory, list())
+GLOBAL_LIST_INIT(wire_name_directory, list())
 
 /datum/wires
 	/// The holder (atom that contains these wires).
@@ -45,12 +45,12 @@ var/global/list/wire_name_directory = list()
 	if(random)
 		randomize()
 	else
-		if(!wire_color_directory[key])
+		if(!GLOB.wire_color_directory[key])
 			randomize()
-			wire_color_directory[key] = colors
-			wire_name_directory[key] = proper_name
+			GLOB.wire_color_directory[key] = colors
+			GLOB.wire_name_directory[key] = proper_name
 		else
-			colors = wire_color_directory[key]
+			colors = GLOB.wire_color_directory[key]
 
 /datum/wires/Destroy()
 	holder = null
@@ -248,7 +248,7 @@ var/global/list/wire_name_directory = list()
  */
 /datum/wires/proc/can_reveal_wires(mob/user)
 	// Admin ghost can see a purpose of each wire.
-	if(isobserver(user) && check_rights(R_MOD, FALSE, user))
+	if(isghost(user) && check_rights(R_MOD, FALSE, user))
 		return TRUE
 
 	// Station blueprints do that too, but only if the wires are not randomized.

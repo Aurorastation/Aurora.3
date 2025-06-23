@@ -63,8 +63,13 @@
 	connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_FUEL
 
 	use_power = POWER_USE_OFF
-	power_channel = EQUIP
+	power_channel = AREA_USAGE_EQUIP
 	idle_power_usage = 21600 //6 Wh per tick for default 2 capacitor. Gives them a reason to turn it off, really to nerf backup battery
+
+	component_types = list(
+		/obj/item/circuitboard/unary_atmos/engine,
+		/obj/item/stack/cable_coil = 30,
+		/obj/item/pipe = 2)
 
 	var/datum/ship_engine/gas_thruster/controller
 	var/thrust_limit = 1	//Value between 1 and 0 to limit the resulting thrust
@@ -78,6 +83,10 @@
 
 /obj/machinery/atmospherics/unary/engine/scc_shuttle
 	icon = 'icons/obj/spaceship/scc/ship_engine.dmi'
+	component_types = list(
+		/obj/item/circuitboard/unary_atmos/engine/scc_shuttle,
+		/obj/item/stack/cable_coil = 30,
+		/obj/item/pipe = 2)
 
 /obj/machinery/atmospherics/unary/engine/scc_ship_engine
 	name = "ship thruster"
@@ -86,12 +95,27 @@
 	opacity = FALSE
 	pixel_x = -64
 	exhaust_offset = 3
+	component_types = list(
+		/obj/item/circuitboard/unary_atmos/engine/scc_ship,
+		/obj/item/stack/cable_coil = 30,
+		/obj/item/pipe = 2)
+
+/obj/machinery/atmospherics/unary/engine/attackby(obj/item/attacking_item, mob/user)
+	. = ..()
+	if(default_deconstruction_screwdriver(user, attacking_item))
+		return TRUE
+	if(default_deconstruction_crowbar(user, attacking_item))
+		return TRUE
+	if(default_part_replacement(user, attacking_item))
+		return TRUE
 
 /obj/machinery/atmospherics/unary/engine/scc_ship_engine/check_blockage()
 	return 0
 
 /obj/machinery/atmospherics/unary/engine/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	return 0
+	if(mover?.movement_type & PHASING)
+		return TRUE
+	return FALSE
 
 /obj/machinery/atmospherics/unary/engine/atmos_init()
 	..()
@@ -173,7 +197,7 @@
 
 /obj/machinery/atmospherics/unary/engine/proc/check_blockage()
 	blockage = FALSE
-	var/exhaust_dir = reverse_direction(dir)
+	var/exhaust_dir = REVERSE_DIR(dir)
 	var/turf/A = get_turf(src)
 	for(var/i in 1 to exhaust_offset)
 		A = get_step(A, exhaust_dir)
@@ -190,7 +214,7 @@
 	if(!is_on())
 		return 0
 	if(!check_fuel() || (0 < use_power_oneoff(charge_per_burn)) || check_blockage())
-		audible_message(src,"<span class='warning'>[src] coughs once and goes silent!</span>")
+		audible_message(src,SPAN_WARNING("[src] coughs once and goes silent!"))
 		update_use_power(POWER_USE_OFF)
 		return 0
 
@@ -198,11 +222,20 @@
 	if(!removed)
 		return 0
 	. = calculate_thrust(removed)
-	playsound(loc, 'sound/machines/thruster.ogg', 70 * thrust_limit * power_modifier, 0, world.view * 4, 0.1)
+
+	var/volume_adjustment = 1
+
+	var/obj/effect/overmap/visitable/ship/my_ship = GLOB.map_sectors["[z]"]
+	if(!my_ship)
+		stack_trace("No ship found for gas thruster at z-level [z].")
+	else
+		volume_adjustment = length(my_ship.engines)
+
+	playsound(loc, 'sound/machines/thruster.ogg', ((50 * thrust_limit * power_modifier) / volume_adjustment ), FALSE, world.view * 4, 0.1)
 	if(network)
 		network.update = 1
 
-	var/exhaust_dir = reverse_direction(dir)
+	var/exhaust_dir = REVERSE_DIR(dir)
 	var/turf/T = get_turf(src)
 	for(var/i in 1 to exhaust_offset)
 		T = get_step(T, exhaust_dir)
@@ -231,11 +264,3 @@
 	spawn(20)
 		qdel(src)
 
-/obj/item/circuitboard/unary_atmos/engine//why don't we move this elsewhere?
-	name = T_BOARD("gas thruster")
-	icon_state = "mcontroller"
-	build_path = /obj/machinery/atmospherics/unary/engine
-	origin_tech = list(TECH_POWER = 1, TECH_ENGINEERING = 2)
-	req_components = list(
-		/obj/item/stack/cable_coil = 30,
-		/obj/item/pipe = 2)

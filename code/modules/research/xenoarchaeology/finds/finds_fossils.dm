@@ -9,21 +9,24 @@
 	desc = "It's a fossil."
 	var/animal = 1
 
-/obj/item/fossil/base/New()
+/obj/item/fossil/base/Initialize(mapload, ...)
+	. = ..()
 	var/list/l = list("/obj/item/fossil/bone"=9,"/obj/item/fossil/skull"=3,
 	"/obj/item/fossil/skull/horned"=2)
 	var/t = pickweight(l)
 	var/obj/item/W = new t(src.loc)
 	var/turf/T = get_turf(src)
 	if(istype(T, /turf/simulated/mineral))
-		T:last_find = W
-	qdel(src)
+		var/turf/simulated/mineral/the_mineral_turf = T
+		the_mineral_turf.last_find = W
+	return INITIALIZE_HINT_QDEL
 
 /obj/item/fossil/bone
 	name = "fossilised bone"
 	desc = "It's a fossilised bone."
 
-/obj/item/fossil/bone/New()
+/obj/item/fossil/bone/Initialize(mapload, ...)
+	. = ..()
 	icon_state = "bone[rand(1, 3)]"
 
 /obj/item/fossil/skull
@@ -31,14 +34,16 @@
 	icon_state = "skull"
 	desc = "It's a foss1ilised skull."
 
-/obj/item/fossil/skull/New()
+/obj/item/fossil/skull/Initialize(mapload, ...)
+	. = ..()
 	icon_state = "skull[rand(1, 3)]"
 
 /obj/item/fossil/skull/horned
 	icon_state = "horned_skull1"
 	desc = "It's a fossilised, horned skull."
 
-/obj/item/fossil/skull/horned/New()
+/obj/item/fossil/skull/horned/Initialize(mapload, ...)
+	. = ..()
 	icon_state = "horned_skull[rand(1, 2)]"
 
 /obj/item/fossil/skull/attackby(obj/item/attacking_item, mob/user)
@@ -61,7 +66,9 @@
 	var/bstate = 0
 	var/plaque_contents = "Unnamed alien creature"
 
-/obj/skeleton/New()
+/obj/skeleton/Initialize(mapload, ...)
+	. = ..()
+
 	src.breq = rand(3)+3
 	src.desc = "An incomplete skeleton, looks like it could use [src.breq-src.bnum] more bones."
 
@@ -102,7 +109,8 @@
 	icon_state = "shell"
 	desc = "It's a fossilised shell."
 
-/obj/item/fossil/shell/New()
+/obj/item/fossil/shell/Initialize(mapload, ...)
+	. = ..()
 	icon_state = "shell[rand(1, 2)]"
 
 /obj/item/fossil/plant
@@ -111,5 +119,6 @@
 	desc = "It's fossilised plant remains."
 	animal = 0
 
-/obj/item/fossil/plant/New()
+/obj/item/fossil/plant/Initialize(mapload, ...)
+	. = ..()
 	icon_state = "plant[rand(1,4)]"

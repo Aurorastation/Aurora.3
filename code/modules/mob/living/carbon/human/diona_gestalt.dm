@@ -113,7 +113,7 @@
 
 /mob/living/carbon/human/proc/check_light()
 	set category = "Abilities"
-	set name = "Check light level"
+	set name = "Check Light Level"
 
 	var/light = get_lightlevel_diona(DS)
 	if (light <= -0.75)
@@ -188,7 +188,7 @@
 
 
 /mob/living/carbon/human/proc/pause_regen_process()
-	set name = "Halt metabolism"
+	set name = "Halt Metabolism"
 	set desc = "Allows you to pause any regeneration process."
 	set category = "Abilities"
 
@@ -197,7 +197,7 @@
 		to_chat(usr, SPAN_NOTICE("You have [!DS.pause_regen ? "started" : "paused"] regeneration process."))
 
 /mob/living/carbon/human/proc/diona_detach_nymph()
-	set name = "Detach nymph"
+	set name = "Detach Nymph"
 	set desc = "Allows you to detach specific nymph, and control it."
 	set category = "Abilities"
 
@@ -212,35 +212,38 @@
 		return
 	// Choose our limb to detach
 	var/list/exclude = organs_by_name - list(BP_GROIN, BP_CHEST, BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG)
-	var/choice =  input(src, "Choose a limb to detach?", "Limb detach") as null|anything in exclude
+	var/list/organ_list = list()
+	for(var/organ in exclude)
+		organ_list += parse_zone(organ)
+	var/choice =  tgui_input_list(src, "Choose a limb to detach.", "Limb Detach", organ_list)
 	if(!choice)
 		return
-	var/obj/item/organ/external/O = organs_by_name[choice]
+	var/obj/item/organ/external/O = organs_by_name[reverse_parse_zone(choice)]
 	if(!O || O.is_stump())
-		to_chat(src, SPAN_WARNING("Cannot detach that!"))
+		to_chat(src, SPAN_WARNING("You cannot detach that!"))
 		return
 
-	// Get rid of our limb and replace with stump
-	var/obj/item/organ/external/stump/stump = new (src, 0, O)
+	// Get rid of our limb and replace it with a stump.
+	var/obj/item/organ/external/stump/stump = new(src, 0, O)
 	O.removed(null, TRUE)
-	organs |= stump
-	stump.update_damages()
 	O.post_droplimb(src)
-	// If we got parent organ - drop it too
+	stump.replaced(src)
+
+	// If we have parent organ, drop it too.
 	if(O.parent_organ && O.parent_organ != BP_CHEST)
 		var/obj/item/organ/external/parent = organs_by_name[O.parent_organ]
+		parent.removed(src, TRUE)
 		var/obj/item/organ/external/stump/parent_stump = new (src, 0, parent)
-		parent.removed(null, TRUE)
-		organs |= parent_stump
-		parent_stump.update_damages()
-		parent.post_droplimb(src)
+		parent_stump.replaced(src)
+		parent_stump.post_droplimb(src)
 		qdel(parent)
-	to_chat(src, SPAN_NOTICE("You detach [O.name] nymph from your body."))
+	to_chat(src, SPAN_NOTICE("You detach \the [O.name] nymph from your body."))
 	qdel(O)
 
 	var/mob/living/carbon/alien/diona/M = locate(/mob/living/carbon/alien/diona) in contents
 	if(!M)
 		return
+
 	M.forceMove(get_turf(src))
 
 	// Switch control to nymph
@@ -257,6 +260,7 @@
 	M.update_verbs(TRUE)
 	M.languages = languages.Copy()
 	M.accent = accent
+	M.client.init_verbs()
 
 	nutrition -= REGROW_FOOD_REQ
 	DS.stored_energy -= REGROW_ENERGY_REQ
@@ -280,6 +284,7 @@
 		nymph.key = key
 		remove_verb(nymph, /mob/living/carbon/human/proc/switch_to_nymph)
 		add_verb(nymph, /mob/living/carbon/alien/diona/proc/switch_to_gestalt)
+		nymph.client.init_verbs()
 
 /mob/living/carbon/human/proc/diona_split_into_nymphs()
 	var/turf/T = get_turf(src)
@@ -345,13 +350,13 @@
 			mind.transfer_to(bestNymph)
 			bestNymph.stunned = 0//Switching mind seems to temporarily stun mobs
 			message_admins("\The [src] has split into nymphs; player now controls [key_name_admin(bestNymph)]")
-			log_admin("\The [src] has split into nymphs; player now controls [key_name(bestNymph)]", ckey=key_name(bestNymph))
+			log_admin("\The [src] has split into nymphs; player now controls [key_name(bestNymph)]")
 
 	//If bestNymph is still null at this point, it could only mean every nymph in the gestalt was a player
 	//In this unfathomably rare case, the gestalt player simply dies as its mob is qdel'd.
 	//We will generally prevent this from happening by ensuring any nymph-joining functions leave one free for the host
 
-	visible_message("<span class='warning'>\The [src] quivers slightly, then splits apart with a wet slithering noise.</span>")
+	visible_message(SPAN_WARNING("\The [src] quivers slightly, then splits apart with a wet slithering noise."))
 	qdel(src)
 
 #undef COLD_DAMAGE_LEVEL_1

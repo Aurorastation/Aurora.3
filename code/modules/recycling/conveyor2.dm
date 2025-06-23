@@ -7,7 +7,7 @@
 	icon_state = "conveyor0"
 	name = "conveyor belt"
 	desc = "A conveyor belt."
-	layer = 2.4			// so they appear above pipes but under doors, objects etc
+	layer = BELOW_OBJ_LAYER
 	anchored = 1
 	var/operating = 0	// 1 if running forward, -1 if backwards, 0 if off
 	var/operable = 1	// true if can operate (no broken segments in this belt run)
@@ -128,7 +128,7 @@
 			var/obj/item/conveyor_construct/C = new/obj/item/conveyor_construct(src.loc)
 			C.id = id
 			transfer_fingerprints_to(C)
-		to_chat(user, "<span class='notice'>You remove the conveyor belt.</span>")
+		to_chat(user, SPAN_NOTICE("You remove the conveyor belt."))
 		qdel(src)
 		return
 	if(isrobot(user))
@@ -232,7 +232,7 @@
 // attack with hand, switch position
 /obj/machinery/conveyor_switch/attack_hand(mob/user)
 	if(!allowed(user))
-		to_chat(user, "<span class='warning'>Access denied.</span>")
+		to_chat(user, SPAN_WARNING("Access denied."))
 		return
 
 	if(position == 0)
@@ -266,7 +266,7 @@
 		var/obj/item/conveyor_switch_construct/C = new/obj/item/conveyor_switch_construct(src.loc)
 		C.id = id
 		transfer_fingerprints_to(C)
-		to_chat(user, "<span class='notice'>You deattach the conveyor switch.</span>")
+		to_chat(user, SPAN_NOTICE("You deattach the conveyor switch."))
 		qdel(src)
 
 /obj/machinery/conveyor_switch/oneway
@@ -304,13 +304,13 @@
 	icon_state = "conveyor0"
 	name = "conveyor belt assembly"
 	desc = "A conveyor belt assembly."
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	var/id = "" //inherited by the belt
 
 /obj/item/conveyor_construct/attackby(obj/item/attacking_item, mob/user, params)
 	. = ..()
 	if(istype(attacking_item, /obj/item/conveyor_switch_construct))
-		to_chat(user, "<span class='notice'>You link the switch to the conveyor belt assembly.</span>")
+		to_chat(user, SPAN_NOTICE("You link the switch to the conveyor belt assembly."))
 		var/obj/item/conveyor_switch_construct/C = attacking_item
 		id = C.id
 		return TRUE
@@ -319,7 +319,7 @@
 	if(!proximity || !istype(A, /turf/simulated/floor) || istype(A, /area/shuttle) || user.incapacitated())
 		return
 	var/cdir = get_dir(A, user)
-	if(!(cdir in GLOB.cardinal) || A == user.loc)
+	if(!(cdir in GLOB.cardinals) || A == user.loc)
 		return
 	for(var/obj/machinery/conveyor/CB in A)
 		if(CB.dir == cdir || CB.dir == turn(cdir,180))
@@ -336,7 +336,7 @@
 	desc = "A conveyor control switch assembly."
 	icon = 'icons/obj/recycling.dmi'
 	icon_state = "switch-off"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	var/id = "" //inherited by the switch
 
 /obj/item/conveyor_switch_construct/New()

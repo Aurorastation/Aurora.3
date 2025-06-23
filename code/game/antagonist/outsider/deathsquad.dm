@@ -1,4 +1,4 @@
-var/datum/antagonist/deathsquad/deathsquad
+GLOBAL_DATUM(deathsquad, /datum/antagonist/deathsquad)
 
 /datum/antagonist/deathsquad
 	id = MODE_DEATHSQUAD
@@ -17,14 +17,14 @@ var/datum/antagonist/deathsquad/deathsquad
 
 	bantype = "deathsquad"
 
-/datum/antagonist/ert/create_default(var/mob/source)
+/datum/antagonist/deathsquad/create_default(var/mob/source)
 	var/mob/living/carbon/human/M = ..()
 	if(istype(M)) M.age = rand(25,45)
 
 /datum/antagonist/deathsquad/New(var/no_reference)
 	..()
 	if(!no_reference)
-		deathsquad = src
+		GLOB.deathsquad = src
 
 /datum/antagonist/deathsquad/attempt_spawn()
 	if(..())

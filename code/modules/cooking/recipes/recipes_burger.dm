@@ -130,3 +130,51 @@
 	reagents = list(/singleton/reagent/nutriment/protein = 6 , /singleton/reagent/nutriment/barbecue = 5)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/sloppyjoe
+
+/singleton/recipe/nakarka_hamburger
+	appliance = SKILLET
+	items = list(
+		/obj/item/reagent_containers/food/snacks/bun,
+		/obj/item/reagent_containers/food/snacks/cutlet,
+		/obj/item/reagent_containers/food/snacks/nakarka_wedge
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/burger/nakarka_hamburger
+
+/singleton/recipe/nakarka_hamburger_alt
+	appliance = SKILLET
+	items = list(
+		/obj/item/reagent_containers/food/snacks/burger,
+		/obj/item/reagent_containers/food/snacks/nakarka_wedge
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/burger/nakarka_hamburger
+
+/singleton/recipe/mossburger
+	appliance = SKILLET
+	fruit = list("moss" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/bun,
+		/obj/item/reagent_containers/food/snacks/cutlet,
+	)
+	result = /obj/item/reagent_containers/food/snacks/burger/moss
+
+/singleton/recipe/mossburger_sad
+	fruit = list("moss" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/burger
+	)
+	result = /obj/item/reagent_containers/food/snacks/burger/moss/sad
+
+/singleton/recipe/bigbite_mossburger
+	appliance = SKILLET
+	fruit = list("moss" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/burger/moss,
+		/obj/item/reagent_containers/food/snacks/cutlet,
+		/obj/item/reagent_containers/food/snacks/cutlet,
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+	)
+	reagents = list(/singleton/reagent/nutriment/protein/egg = 3)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/burger/bigbite/moss

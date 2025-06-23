@@ -1,10 +1,14 @@
 /datum/map_template/ruin/away_site/miners_guild_station
 	name = "Miners' Guild Outpost"
 	description = "A station constructed by the Unathi Miners' Guild"
-	suffixes = list("ships/hegemony/miners_guild/miners_guild_station.dmm")
+
+	prefix = "ships/hegemony/miners_guild/"
+	suffix = "miners_guild_station.dmm"
+
 	spawn_weight = 1
 	ship_cost = 1
 	sectors = list(SECTOR_BADLANDS, SECTOR_UUEOAESA)
+	spawn_weight_sector_dependent = list(SECTOR_UUEOAESA = 1.5)
 	id = "miners_guild_station"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/miners_guild)
 
@@ -28,9 +32,14 @@
 		"miners_guild_nav1",
 		"miners_guild_nav2",
 		"miners_guild_nav3",
-		"miners_guild_nav4"
+		"miners_guild_nav4",
+		"miners_guild_dock1",
+		"miners_guild_dock2",
+		"miners_guild_dock3"
 	)
-	initial_restricted_waypoints = list()
+	initial_restricted_waypoints = list(
+		"Miners' Guild Shuttle" = list("miners_guild_navhangar")
+	)
 
 /obj/effect/shuttle_landmark/miners_guild
 	base_turf = /turf/space
@@ -97,9 +106,10 @@
 	designation = "[pick("Stonebreaker", "Son of Kutah", "Asteroid's Bane", "Sinta Pride", "Ancestors' Glory", "Azhal's Blessing", "Fires of Sk'akh", "Pickaxe", "Where's The Phoron", "How Do I Reset The IFF")]"
 	..()
 
-/obj/machinery/computer/shuttle_control/explore/miners_guild
+/obj/machinery/computer/shuttle_control/explore/terminal/miners_guild
 	name = "shuttle control console"
 	shuttle_tag = "Miners' Guild Shuttle"
+
 
 /datum/shuttle/autodock/overmap/miners_guild
 	name = "Miners' Guild Shuttle"

@@ -15,7 +15,7 @@
 	throw_speed = 1
 	throw_range = 4
 	throwforce = 10
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	var/can_change_form = TRUE // For holodeck check.
 	var/cooldown = 0 // Floor tap cooldown.
 	var/list/null_choices = list( //Generic nullrods only here, religion-specific ones should be on the religion datum
@@ -51,7 +51,7 @@
 	icon_state = "nullstaff"
 	item_state = "nullstaff"
 	slot_flags = SLOT_BELT | SLOT_BACK
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/nullrod/orb
 	name = "null sphere"
@@ -78,7 +78,7 @@
 	throw_range = 7
 	throwforce = 2
 	slot_flags = SLOT_MASK | SLOT_WRISTS | SLOT_EARS | SLOT_TIE
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/nullrod/charm/get_mask_examine_text(mob/user)
 	return "around [user.get_pronoun("his")] neck"
@@ -91,7 +91,7 @@
 	item_state = "matake_spear"
 	contained_sprite = TRUE
 	slot_flags = SLOT_BELT | SLOT_BACK
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/nullrod/rredouane
 	name = "\improper Rredouane sword"
@@ -139,12 +139,11 @@
 /obj/item/nullrod/azubarre/update_icon()
 	if(lit)
 		icon_state = "azubarre_torch-on"
-		item_state = "azubarre_torch-on"
 		set_light(3, 1, LIGHT_COLOR_FIRE)
 	else
 		icon_state = "azubarre_torch-empty"
-		icon_state = "azubarre_torch-empty"
 		set_light(0)
+	item_state = icon_state
 
 /obj/item/nullrod/azubarre/isFlameSource()
 	return lit
@@ -156,7 +155,7 @@
 	icon_state = "shaman_staff"
 	item_state = "shaman_staff"
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = null
 
 /obj/item/nullrod/skakh_warrior
@@ -167,7 +166,7 @@
 	item_state = "skakh_sword"
 	slot_flags = SLOT_BACK|SLOT_BELT
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/nullrod/skakh_healer
 	name = "\improper Sk'akh staff"
@@ -176,7 +175,7 @@
 	icon_state = "skakh_staff"
 	item_state = "skakh_staff"
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = null
 
 /obj/item/nullrod/skakh_fisher
@@ -202,6 +201,22 @@
 	. = ..()
 	loc = null
 	qdel(src)
+
+/obj/item/nullrod/luceiansceptre
+	name = "\improper Luminous Sceptre"
+	desc = "The Luminous Sceptre is a ceremonial staff optionally carried by the ministerial clergy of Luceism. It is fashioned from cedar and 18-karat gold, wrapped in sacred luce vine, \
+	and topped with a miniature, specialized warding sphere. Such sceptres are traditionally employed in Luceian exorcisms or rituals to rid a corrupted soul of the darkness in their body - often, curiously, to great effect."
+	icon = 'icons/obj/luceian_sceptre.dmi'
+	icon_state = "luceian_sceptre"
+	item_state = "luceian_sceptre"
+	contained_sprite = TRUE
+
+	force = 25
+	w_class = WEIGHT_CLASS_BULKY
+	slot_flags = SLOT_BACK
+	light_range = 4
+	light_power = 2
+	light_color = LIGHT_COLOR_BLUE
 
 /obj/item/nullrod/verb/change(mob/living/user)
 	set name = "Reassemble Null Item"
@@ -238,10 +253,10 @@
 	qdel(src)
 	user.put_in_hands(chosenitem)
 
-/obj/item/nullrod/attack(mob/M as mob, mob/living/user as mob)
+/obj/item/nullrod/attack(mob/living/target_mob, mob/living/user, target_zone)
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	user.do_attack_animation(M)
+	user.do_attack_animation(target_mob)
 
 	if(LAZYLEN(user.spell_list))
 		user.silence_spells(300) //30 seconds
@@ -259,8 +274,8 @@
 		user.Paralyse(20)
 		return
 
-	if(M.stat != DEAD && ishuman(M) && user.a_intent != I_HURT)
-		var/mob/living/K = M
+	if(target_mob.stat != DEAD && ishuman(target_mob) && user.a_intent != I_HURT)
+		var/mob/living/K = target_mob
 		var/datum/vampire/vampire = K.mind.antag_datums[MODE_VAMPIRE]
 		if(vampire)
 			if(vampire.status & VAMP_ISTHRALL)
@@ -272,17 +287,17 @@
 						K.visible_message(SPAN_WARNING("The gaze in [K]'s eyes remains determined."), SPAN_NOTICE("You turn away from the light, remaining true to your vampiric master!"))
 						K.say("*scream")
 						K.take_overall_damage(5, 15)
-						admin_attack_log(user, M, "attempted to deconvert", "was unsuccessfully deconverted by", "attempted to deconvert")
+						admin_attack_log(user, target_mob, "attempted to deconvert", "was unsuccessfully deconverted by", "attempted to deconvert")
 					if("Give in")
 						K.visible_message(SPAN_NOTICE("[K]'s eyes become clearer, the evil gone, but not without leaving scars."))
 						K.take_overall_damage(10, 20)
-						thralls.remove_antagonist(K.mind)
-						admin_attack_log(user, M, "successfully deconverted", "was successfully deconverted by", "successfully deconverted")
+						GLOB.thralls.remove_antagonist(K.mind)
+						admin_attack_log(user, target_mob, "successfully deconverted", "was successfully deconverted by", "successfully deconverted")
 			else if (vampire.status & VAMP_FRENZIED)
 				K.visible_message(SPAN_DANGER("[user] thrusts \the [src] towards [K], who recoils in horror as they erupt into flames!"), SPAN_DANGER("[user] thrusts \the [src] towards you, its holy light scorching your corrupted flesh!"))
 				K.adjust_fire_stacks(10)
 				K.IgniteMob()
-		else if(cult && (K.mind in cult.current_antagonists) && prob(75))
+		else if(GLOB.cult && (K.mind in GLOB.cult.current_antagonists) && prob(75))
 			if(do_after(user, 1.5 SECONDS))
 				K.visible_message(SPAN_DANGER("[user] waves \the [src] over \the [K]'s head, [K] looks captivated by it."), SPAN_WARNING("[user] waves the [src] over your head. <b>You see a foreign light, asking you to follow it. Its presence burns and blinds.</b>"))
 				var/choice = alert(K,"Do you want to give up your goal?","Become cleansed","Resist","Give in")
@@ -291,19 +306,19 @@
 						K.visible_message(SPAN_WARNING("The gaze in [K]'s eyes remains determined."), SPAN_NOTICE("You turn away from the light, remaining true to the Geometer!"))
 						K.say("*scream")
 						K.take_overall_damage(5, 15)
-						admin_attack_log(user, M, "attempted to deconvert", "was unsuccessfully deconverted by", "attempted to deconvert")
+						admin_attack_log(user, target_mob, "attempted to deconvert", "was unsuccessfully deconverted by", "attempted to deconvert")
 					if("Give in")
 						K.visible_message(SPAN_NOTICE("[K]'s eyes become clearer, the evil gone, but not without leaving scars."))
 						K.take_overall_damage(10, 20)
-						cult.remove_antagonist(K.mind)
-						admin_attack_log(user, M, "successfully deconverted", "was successfully deconverted by", "successfully deconverted")
+						GLOB.cult.remove_antagonist(K.mind)
+						admin_attack_log(user, target_mob, "successfully deconverted", "was successfully deconverted by", "successfully deconverted")
 			else
 				user.visible_message(SPAN_WARNING("[user]'s concentration is broken!"), SPAN_WARNING("Your concentration is broken! You and your target need to stay uninterrupted for longer!"))
 				return
 
 		else
 			to_chat(user, SPAN_DANGER("The [src] appears to do nothing."))
-			M.visible_message(SPAN_DANGER("\The [user] waves \the [src] over \the [M]'s head."))
+			target_mob.visible_message(SPAN_DANGER("\The [user] waves \the [src] over \the [target_mob]'s head."))
 			return
 	else if(user.a_intent != I_HURT) // to prevent the chaplain from hurting peoples accidentally
 		to_chat(user, SPAN_NOTICE("The [src] appears to do nothing."))
@@ -327,6 +342,15 @@
 		if(rune_found)
 			visible_message(SPAN_NOTICE("A holy glow permeates the air!"))
 		return
+	if(user.mind && (user.mind.assigned_role == "Chaplain"))
+		if(A.reagents && A.reagents.has_reagent(/singleton/reagent/water)) //blesses all the water in the holder
+			if(REAGENT_VOLUME(A.reagents, /singleton/reagent/water) > 60)
+				to_chat(user, SPAN_NOTICE("There's too much water for you to bless at once!"))
+			else
+				to_chat(user, SPAN_NOTICE("You bless the water in [A], turning it into holy water."))
+				var/water2holy = REAGENT_VOLUME(A.reagents, /singleton/reagent/water)
+				A.reagents.del_reagent(/singleton/reagent/water)
+				A.reagents.add_reagent(/singleton/reagent/water/holywater, water2holy)
 
 /obj/item/reagent_containers/spray/aspergillum
 	name = "aspergillum"
@@ -347,7 +371,7 @@
 	icon = 'icons/obj/urn.dmi'
 	icon_state = "urn"
 	applies_material_colour = TRUE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	item_flags = ITEM_FLAG_NO_BLUDGEON
 
 /obj/item/material/urn/afterattack(var/obj/A, var/mob/user, var/proximity)
@@ -377,7 +401,7 @@
 	name = "warding sphere"
 	desc = "A religious artefact commonly associated with Luceism, this transparent globe gives off a faint ghostly white light at all times."
 	desc_extended = "Luceian warding spheres are made on the planet of Assunzione in the great domed city of Guelma, and are carried by followers of the faith heading abroad. \
-	Constructed out of glass and a luce vine bulb these spheres can burn for years upon years, and it is said that the lights in the truly faithful's warding sphere will always \
+	Constructed out of glass and a luce vine bulb, these spheres can burn for years upon years, and it is said that the lights in the truly faithful's warding sphere will always \
 	point towards Assunzione. It is considered extremely bad luck to have one's warding sphere break, to extinguish its flame, or to relinquish it (permanently) to an unbeliever."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "assunzioneorb"
@@ -387,7 +411,7 @@
 	light_range = 1.4
 	light_power = 1.4
 	light_color = LIGHT_COLOR_BLUE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
 
@@ -425,6 +449,15 @@
 	else
 		icon_state = "assunzionesheath_empty"
 
+/obj/item/storage/assunzionesheath/filled
+	starts_with = list(
+		/obj/item/assunzioneorb = 1
+	)
+
+/obj/item/storage/assunzionesheath/Initialize()
+	. = ..()
+	update_icon()
+
 /obj/item/storage/altar
 	name = "altar"
 	desc = "A small portable altar."
@@ -443,12 +476,12 @@
 	else
 		open(user)
 
-/obj/item/storage/altar/MouseDrop(mob/user as mob)
-	if(use_check_and_message(user))
+/obj/item/storage/altar/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(use_check_and_message(over))
 		return
-	if(ishuman(user))
-		forceMove(get_turf(usr))
-		usr.put_in_hands(src)
+	if(ishuman(over))
+		forceMove(get_turf(user))
+		user.put_in_hands(src)
 
 /obj/item/storage/altar/kraszar
 	name = "\improper Kraszar altar"

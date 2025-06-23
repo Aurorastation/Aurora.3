@@ -7,7 +7,11 @@
 	spawn_cost = 2
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_SRANDMARR)
-	suffixes = list("adhomai/pra_mining_camp.dmm")
+
+	prefix = "adhomai/"
+	suffix = "pra_mining_camp.dmm"
+
+	unit_test_groups = list(2)
 
 /area/pra_mining_camp
 	name = "People's Republic Mining Camp"
@@ -17,6 +21,7 @@
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 	area_flags = AREA_FLAG_RAD_SHIELDED
+	area_blurb = "The sound of heavy machinery is heard around this camp."
 
 //ghostroles
 
@@ -47,6 +52,7 @@
 	shoes = /obj/item/clothing/shoes/workboots/tajara
 	belt = /obj/item/storage/belt/mining
 	back = /obj/item/storage/backpack/industrial
+	l_pocket = /obj/item/device/radio/hailing
 
 	l_ear = null
 

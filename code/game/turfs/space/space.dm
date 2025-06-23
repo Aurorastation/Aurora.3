@@ -7,7 +7,7 @@
 	footstep_sound = null //Override to make sure because yeah
 	tracks_footprint = FALSE
 
-	plane = PLANE_SPACE_BACKGROUND
+	plane = SPACE_PLANE
 
 	temperature = T20C
 	thermal_conductivity = OPEN_HEAT_TRANSFER_COEFFICIENT
@@ -17,6 +17,8 @@
 	permit_ao = FALSE
 	z_eventually_space = TRUE
 	turf_flags = TURF_FLAG_BACKGROUND
+	explosion_resistance = 3
+
 	var/use_space_appearance = TRUE
 	var/use_starlight = TRUE
 
@@ -33,14 +35,14 @@
 
 	if(use_space_appearance)
 		appearance = SSskybox.space_appearance_cache[(((x + y) ^ ~(x * y) + z) % 25) + 1]
-	if(GLOB.config.starlight && use_starlight && lighting_overlays_initialized)
+	if(GLOB.config.starlight && use_starlight && GLOB.lighting_overlays_initialized)
 		update_starlight()
 
 	for(var/atom/movable/AM as mob|obj in src)
 		src.Entered(AM, AM.loc)
 
-	if (isStationLevel(z))
-		GLOB.station_turfs += src
+	// if (is_station_level(z))
+	// 	GLOB.station_turfs += src
 
 	if(dynamic_lighting)
 		luminosity = 0
@@ -53,7 +55,7 @@
 	// Cleanup cached z_eventually_space values above us.
 	if (above)
 		var/turf/T = src
-		while ((T = GetAbove(T)))
+		while ((T = GET_TURF_ABOVE(T)))
 			T.z_eventually_space = FALSE
 	return ..()
 
@@ -87,7 +89,7 @@
 			return
 		var/obj/item/stack/rods/R = attacking_item
 		if (R.use(1))
-			to_chat(user, "<span class='notice'>Constructing support lattice ...</span>")
+			to_chat(user, SPAN_NOTICE("Constructing support lattice ..."))
 			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
 			ReplaceWithLattice()
 		return
@@ -101,10 +103,10 @@
 			qdel(L)
 			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
 			S.use(1)
-			ChangeTurf(/turf/simulated/floor/airless, keep_air = TRUE)
+			ChangeTurf(/turf/simulated/floor/airless)
 			return
 		else
-			to_chat(user, "<span class='warning'>The plating is going to need some support.</span>")
+			to_chat(user, SPAN_WARNING("The plating is going to need some support."))
 
 	..()
 
@@ -112,7 +114,7 @@
 
 /turf/space/Entered(atom/movable/A as mob|obj)
 	if(movement_disabled)
-		to_chat(usr, "<span class='warning'>Movement is admin-disabled.</span>") //This is to identify lag problems)
+		to_chat(usr, SPAN_WARNING("Movement is admin-disabled.")) //This is to identify lag problems)
 		return
 	..(A, A.loc)
 	if ((!(A) || src != A.loc))	return
@@ -210,9 +212,6 @@
 				if ((A && A.loc))
 					A.loc.Entered(A)
 	return
-
-/turf/space/ChangeTurf(turf/N, tell_universe=TRUE, force_lighting_update = FALSE, ignore_override = FALSE, mapload = FALSE, keep_air = FALSE)
-	return ..()
 
 /turf/space/is_open()
 	return TRUE

@@ -7,11 +7,11 @@
 	appliancetype = OVEN
 	food_color = "#a34719"
 	can_burn_food = TRUE
-	active_power_usage = 6 KILOWATTS
+	active_power_usage = 6 KILO WATTS
 	heating_power = 6000
 	//Based on a double deck electric convection oven
 	resistance = 10000 // Approx. 4 minutes.
-	idle_power_usage = 2 KILOWATTS
+	idle_power_usage = 2 KILO WATTS
 	//uses ~30% power to stay warm
 	optimal_power = 1.2
 	light_x = 2
@@ -38,7 +38,8 @@
 		"Kebab" = /obj/item/reagent_containers/food/snacks/variable/kebab,
 		"Waffles" = /obj/item/reagent_containers/food/snacks/variable/waffles,
 		"Cookie" = /obj/item/reagent_containers/food/snacks/variable/cookie,
-		"Donut" = /obj/item/reagent_containers/food/snacks/variable/donut
+		"Donut" = /obj/item/reagent_containers/food/snacks/variable/donut,
+		"Macaron" = /obj/item/reagent_containers/food/snacks/variable/macaron,
 	)
 
 /obj/machinery/appliance/cooker/oven/Initialize()
@@ -50,14 +51,20 @@
 	. = ..()
 
 /obj/machinery/appliance/cooker/oven/update_icon()
-	if (!open)
+	ClearOverlays()
+	update_baking_audio()
+	if(!open)
 		icon_state = "ovenclosed"
+		if(!stat)
+			var/image/ovenclosed_on = image('icons/obj/machinery/cooking_machines.dmi', "ovenclosed_on")
+			ovenclosed_on.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+			AddOverlays(ovenclosed_on)
 	else
 		icon_state = "ovenopen"
-	cut_overlays()
-	if (!stat)
-		var/glow = image('icons/obj/machinery/cooking_machines.dmi', "oven_on", EFFECTS_ABOVE_LIGHTING_LAYER)
-		add_overlay(glow)
+		if(!stat)
+			var/image/ovenopen_on = image('icons/obj/machinery/cooking_machines.dmi', "ovenopen_on")
+			ovenopen_on.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+			AddOverlays(ovenopen_on)
 	..()
 
 /obj/machinery/appliance/cooker/oven/AltClick(var/mob/user)
@@ -82,13 +89,12 @@
 	else
 		playsound(src, 'sound/machines/oven/oven_open.ogg', 75, TRUE)
 	update_icon()
-	update_baking_audio()
+
 
 /obj/machinery/appliance/cooker/oven/proc/update_baking_audio()
 	if(!oven_loop)
 		return
-	var/obj/item/reagent_containers/cooking_container/C
-	if(!open && C?.contents.len)
+	if(use_power)
 		oven_loop.start()
 	else
 		oven_loop.stop()
@@ -124,7 +130,7 @@
 
 /obj/machinery/appliance/cooker/oven/adhomai
 	name = "adhomian oven"
-	desc = "A heavy and rustic adhomian oven. Perfect for a Tajaran grandma"
+	desc = "A heavy and rustic adhomian oven. Perfect for a Tajaran grandma."
 	icon_state = "adhomai_oven_open"
 
 /obj/machinery/appliance/cooker/oven/adhomai/update_icon()

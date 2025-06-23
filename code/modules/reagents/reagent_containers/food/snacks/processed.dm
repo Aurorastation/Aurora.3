@@ -17,6 +17,8 @@
 	bitesize = 12
 	filling_color = "#ADAC7F"
 	center_of_mass = list("x"=16, "y"=14)
+	desc_extended = "The manufacture of a cubed animal produces subjects that are similar but have marked differences compared to their ordinary cousins. Higher brain functions are all but destroyed \
+	and the life expectancy of the cubed animal is greatly reduced, with most expiring only a few days after introduction with water."
 
 	var/wrapped = 0
 	var/monkey_type = SPECIES_MONKEY
@@ -42,7 +44,7 @@
 	if(istype(loc, /obj/item/gripper)) // fixes ghost cube when using syringe
 		var/obj/item/gripper/G = loc
 		G.drop_item()
-	var/mob/living/carbon/human/H = new(src.loc)
+	var/mob/living/carbon/human/H = new(get_turf(src))
 	H.set_species(monkey_type)
 	H.real_name = H.species.get_random_name()
 	H.name = H.real_name
@@ -62,6 +64,8 @@
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
 	icon_state = "monkeycubewrap"
 	wrapped = 1
+	desc_extended = "The manufacture of a cubed animal produces subjects that are similar but have marked differences compared to their ordinary cousins. Higher brain functions are all but destroyed \
+	and the life expectancy of the cubed animal is greatly reduced, with most expiring only a few days after introduction with water."
 
 /obj/item/reagent_containers/food/snacks/monkeycube/farwacube
 	name = "farwa cube"
@@ -379,7 +383,7 @@
 	storage_type = "packaging"
 	starts_with = list(/obj/item/reagent_containers/food/snacks/cookiesnack = 6)
 	can_hold = list(/obj/item/reagent_containers/food/snacks/cookiesnack)
-	max_storage_space = 6
+	make_exact_fit = TRUE
 
 	use_sound = 'sound/items/storage/wrapper.ogg'
 	drop_sound = 'sound/items/drop/wrapper.ogg'
@@ -410,10 +414,10 @@
 	icon_type = "gum stick"
 	storage_type = "packaging"
 	slot_flags = SLOT_EARS
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	starts_with = list(/obj/item/clothing/mask/chewable/candy/gum = 5)
 	can_hold = list(/obj/item/clothing/mask/chewable/candy/gum, /obj/item/trash/spitgum)
-	max_storage_space = 5
+	make_exact_fit = TRUE
 
 	use_sound = 'sound/items/storage/wrapper.ogg'
 	drop_sound = 'sound/items/drop/wrapper.ogg'
@@ -449,10 +453,10 @@
 	icon_type = "mint"
 	storage_type = "packaging"
 	slot_flags = SLOT_EARS
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	starts_with = list(/obj/item/reagent_containers/food/snacks/mint/admints = 6)
 	can_hold = list(/obj/item/reagent_containers/food/snacks/mint/admints)
-	max_storage_space = 6
+	make_exact_fit = TRUE
 
 	use_sound = 'sound/items/storage/wrapper.ogg'
 	drop_sound = 'sound/items/drop/wrapper.ogg'
@@ -494,7 +498,7 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/sugar = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 2, "nougat" = 1, "caramel" = 1))
 	bitesize = 2
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/reagent_containers/food/snacks/cb02
 	name = "hundred thousand credit bar"
@@ -506,7 +510,7 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/sugar = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 2, "caramel" = 1, "puffed rice" = 1))
 	bitesize = 2
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/reagent_containers/food/snacks/cb03
 	name = "spacewind bar"
@@ -517,7 +521,7 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/sugar = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 4))
 	bitesize = 2
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/reagent_containers/food/snacks/cb04
 	name = "crunchy crisp"
@@ -528,7 +532,7 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/sugar = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 3, "almonds" = 1))
 	bitesize = 2
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/reagent_containers/food/snacks/cb05
 	name = "hearsay bar"
@@ -540,7 +544,7 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/sugar = 3)
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 2, "vomit" = 1))
 	bitesize = 3
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/reagent_containers/food/snacks/cb06
 	name = "latte crunch"
@@ -551,7 +555,7 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/sugar = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 2, "coffee" = 1, "vanilla wafer" = 1))
 	bitesize = 3
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/reagent_containers/food/snacks/cb07
 	name = "martian bar"
@@ -562,7 +566,7 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/sugar = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 2, "caramel" = 1, "nougat" = 1))
 	bitesize = 3
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/reagent_containers/food/snacks/cb08
 	name = "crisp bar"
@@ -573,7 +577,7 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/sugar = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 2, "puffed rice" = 1))
 	bitesize = 3
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/reagent_containers/food/snacks/cb09
 	name = "oh daddy bar"
@@ -585,7 +589,7 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 6, /singleton/reagent/sugar = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 3, "caramel" = 1, "peanuts" = 2))
 	bitesize = 3
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/reagent_containers/food/snacks/cb10
 	name = "laughter bar"
@@ -597,7 +601,7 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 5, /singleton/reagent/sugar = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 2, "caramel" = 1, "peanuts" = 1, "nougat" = 1))
 	bitesize = 3
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/reagent_containers/food/snacks/meatcube
 	name = "cubed meat"
@@ -805,7 +809,7 @@
 	storage_type = "packaging"
 	starts_with = list(/obj/item/reagent_containers/food/snacks/foy = 6)
 	can_hold = list(/obj/item/reagent_containers/food/snacks/foy)
-	max_storage_space = 6
+	make_exact_fit = TRUE
 
 	use_sound = 'sound/items/storage/wrapper.ogg'
 	drop_sound = 'sound/items/drop/wrapper.ogg'

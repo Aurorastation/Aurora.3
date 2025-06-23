@@ -1,7 +1,10 @@
 /datum/map_template/ruin/away_site/gadpathur_patrol
 	name = "Gadpathurian Patrol Corvette"
 	description = "Gadpathur navy patrol ship."
-	suffixes = list("ships/coc/gadpathur_patrol/gadpathur_patrol.dmm")
+
+	prefix = "ships/coc/gadpathur_patrol/"
+	suffix = "gadpathur_patrol.dmm"
+
 	sectors = list(ALL_COALITION_SECTORS) //NOTE: Gadpathur patrols all of the Coalition, however, they are intentionally -not- present in Haneunim. Konyang and Gadpathur are not friendly as of the Amor Patriae arc.
 	sectors_blacklist = list(SECTOR_HANEUNIM, SECTOR_BURZSIA)
 	spawn_weight = 1
@@ -140,3 +143,15 @@
 
 /obj/structure/closet/secure_closet/guncabinet/gadpathur/shotgun
 	name = "shotgun cabinet"
+
+//docks
+/obj/effect/map_effect/marker/airlock/docking/gadpathur_patrol/dock/fore
+	name = "Dock, Fore"
+	landmark_tag = "nav_gadpathur_dock"
+	master_tag = "nav_gadpathur_dock"
+
+/obj/effect/map_effect/marker/airlock/shuttle/gadpathur_patrol/shuttle
+	name = "Gadpathurian Corvette Shuttle"
+	shuttle_tag = "Gadpathurian Corvette Shuttle"
+	master_tag = "airlock_gadpathurian_corvette_shuttle"
+	cycle_to_external_air = TRUE

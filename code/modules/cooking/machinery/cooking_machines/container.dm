@@ -20,7 +20,7 @@
 	drop_sound = 'sound/items/drop/metal_pot.ogg'
 	pickup_sound = 'sound/items/pickup/metal_pot.ogg'
 	var/appliancetype // Bitfield, uses the same as appliances
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/reagent_containers/cooking_container/on_reagent_change()
 	. = ..()
@@ -172,11 +172,11 @@
 				holder.trans_to(I, weights[I] / total)
 
 /obj/item/reagent_containers/cooking_container/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(reagents?.total_volume)
 		var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]_filling_overlay")
 		filling.color = reagents.get_color()
-		add_overlay(filling)
+		AddOverlays(filling)
 
 /obj/item/reagent_containers/cooking_container/oven
 	name = "oven dish"
@@ -188,13 +188,13 @@
 	appliancetype = OVEN
 
 /obj/item/reagent_containers/cooking_container/oven/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	for(var/obj/item/I in contents)
 		var/image/food = overlay_image(I.icon, I.icon_state, I.color)
 		var/matrix/M = matrix()
 		M.Scale(0.5)
 		food.transform = M
-		add_overlay(food)
+		AddOverlays(food)
 
 /obj/item/reagent_containers/cooking_container/skillet
 	name = "skillet"
@@ -248,7 +248,7 @@
 	hitsound = 'sound/weapons/smash.ogg'
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER // Will still react
 	appliancetype = POT
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/reagent_containers/cooking_container/pot/Initialize(mapload, mat_key)
 	. = ..(mapload)
@@ -301,8 +301,8 @@
 	if(length(contents) || reagents?.total_volume)
 		. += SPAN_NOTICE("To attempt cooking: click and hold, then drag this onto your character.")
 
-/obj/item/reagent_containers/cooking_container/board/MouseDrop(var/obj/over_obj)
-	if(over_obj != usr || use_check(usr))
+/obj/item/reagent_containers/cooking_container/board/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(over != user || use_check(user))
 		return ..()
 	if(!(length(contents) || reagents?.total_volume))
 		return ..()
@@ -329,24 +329,24 @@
 		R.forceMove(src) //Move everything from the buffer back to the container
 
 	var/l = length(results)
-	if (l && usr)
+	if (l && user)
 		var/name = results[1].name
 		if (l > 1)
-			to_chat(usr, SPAN_NOTICE("You made some [pluralize_word(name, TRUE)]!"))
+			to_chat(user, SPAN_NOTICE("You made some [pluralize_word(name, TRUE)]!"))
 		else
-			to_chat(usr, SPAN_NOTICE("You made [name]!"))
+			to_chat(user, SPAN_NOTICE("You made [name]!"))
 
 	QDEL_NULL(temp) //delete buffer object
 	return ..()
 
 /obj/item/reagent_containers/cooking_container/board/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	for(var/obj/item/I in contents)
 		var/image/food = overlay_image(I.icon, I.icon_state, I.color)
 		var/matrix/M = matrix()
 		M.Scale(0.5)
 		food.transform = M
-		add_overlay(food)
+		AddOverlays(food)
 
 /obj/item/reagent_containers/cooking_container/board/bowl
 	name = "mixing bowl"
@@ -362,8 +362,8 @@
 	possible_transfer_amounts = list(5,10,15,25,30,60,180)
 
 /obj/item/reagent_containers/cooking_container/board/bowl/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(reagents?.total_volume)
 		var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state][get_filling_state()]")
 		filling.color = reagents.get_color()
-		add_overlay(filling)
+		AddOverlays(filling)

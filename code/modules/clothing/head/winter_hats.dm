@@ -27,6 +27,7 @@
 	else
 		src.icon_state = initial(icon_state)
 		to_chat(user, "You lower the ear flaps on the ushanka.")
+	item_state = icon_state
 	update_icon()
 	update_clothing_icon()
 
@@ -55,3 +56,9 @@
 	icon_state = "winterbeanie"
 	item_state = "winterbeanie"
 	has_accents = TRUE
+
+/obj/item/clothing/head/beanie/submariner
+	name = "submariner's beanie"
+	desc = "A design of tightly fitting beanie particularly popular among the dock workers of Europa. Favored among anyone who prides a warm head."
+	icon_state = "dock_beanie"
+	item_state = "dock_beanie"

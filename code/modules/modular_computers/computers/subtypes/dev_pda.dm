@@ -3,12 +3,9 @@
 	lexical_name = "tablet"
 	desc = "A personal data assistant. The latest in portable microcomputer solutions from Thinktronic Systems LTD."
 	icon = 'icons/obj/pda.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/device/lefthand_device.dmi',
-		slot_r_hand_str = 'icons/mob/items/device/righthand_device.dmi',
-	)
 	icon_state = "pda"
 	item_state = "electronic"
+	contained_sprite = TRUE
 	icon_state_screensaver = "off"
 	icon_state_unpowered = "pda"
 	var/icon_add // this is the "bar" part in "pda-bar"

@@ -8,7 +8,7 @@
 	ammunition_behaviour = SHIP_AMMO_BEHAVIOUR_DUMBFIRE
 	impact_type = SHIP_AMMO_IMPACT_PROBE
 	overmap_behaviour = null	// This ammo cannot hit anything
-	projectile_type_override = /obj/item/projectile/ship_ammo/grauwolf_probe
+	projectile_type_override = /obj/projectile/ship_ammo/grauwolf_probe
 	overmap_projectile_type_override = /obj/effect/overmap/projectile/probe
 	burst = 1
 
@@ -82,7 +82,7 @@
 				sensor_console.datalink_remove_contact(contact, ship)
 	. = ..()
 
-/obj/item/projectile/ship_ammo/grauwolf_probe
+/obj/projectile/ship_ammo/grauwolf_probe
 	name = "sensor probe projectile"
 	icon_state = "small_burst"
 	damage = 0

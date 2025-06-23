@@ -14,7 +14,8 @@
 	var/base_icon = 'icons/effects/blood.dmi'
 	var/list/viruses = list()
 	blood_DNA = list()
-	var/basecolor="#A10808" // Color when wet.
+	color = COLOR_HUMAN_BLOOD
+	var/basecolor = COLOR_HUMAN_BLOOD // Color when wet.
 	var/list/datum/disease2/disease/virus2 = list()
 	var/amount = 5
 	var/drytime
@@ -58,6 +59,12 @@
 	if (dries)
 		animate(src, color = "#000000", time = drytime, loop = 0, flags = ANIMATION_RELATIVE)
 
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
 /obj/effect/decal/cleanable/blood/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	if(dries && world.time > (bleed_time + drytime))
 		name = dryname
@@ -74,9 +81,14 @@
 		basecolor = get_random_colour(1)
 	color = basecolor
 
-/obj/effect/decal/cleanable/blood/Crossed(mob/living/carbon/human/perp)
-	if (!istype(perp))
+/obj/effect/decal/cleanable/blood/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	if (!istype(arrived, /mob/living/carbon/human))
 		return
+
+	var/mob/living/carbon/human/perp = arrived
+
 	if(dries && world.time > (bleed_time + drytime))
 		amount = 0
 	if(amount < 1)
@@ -105,11 +117,11 @@
 				if(!S.blood_DNA)
 					S.blood_DNA = list()
 					S.blood_overlay.color = basecolor
-					S.add_overlay(S.blood_overlay)
+					S.AddOverlays(S.blood_overlay)
 				if(S.blood_overlay && S.blood_overlay.color != basecolor)
-					S.cut_overlay(S.blood_overlay, TRUE)
+					S.CutOverlays(S.blood_overlay, ATOM_ICON_CACHE_PROTECTED)
 					S.blood_overlay.color = basecolor
-					S.add_overlay(S.blood_overlay, TRUE)
+					S.AddOverlays(S.blood_overlay, ATOM_ICON_CACHE_PROTECTED)
 				if(blood_DNA)
 					S.blood_DNA |= blood_DNA.Copy()
 
@@ -143,7 +155,7 @@
 			return
 		var/taken = rand(1,amount)
 		amount -= taken
-		to_chat(user, "<span class='notice'>You get some of \the [src] on your hands.</span>")
+		to_chat(user, SPAN_NOTICE("You get some of \the [src] on your hands."))
 		LAZYINITLIST(user.blood_DNA)
 
 		if (blood_DNA)
@@ -168,9 +180,13 @@
 	amount = 0
 	var/list/drips
 
-/obj/effect/decal/cleanable/blood/drip/Initialize()
-	. = ..()
+/obj/effect/decal/cleanable/blood/drip/New()
+	..()
 	drips = list(icon_state)
+
+/obj/effect/decal/cleanable/blood/drip/Destroy()
+	drips = null
+	. = ..()
 
 /obj/effect/decal/cleanable/blood/writing
 	icon_state = "tracks"
@@ -199,7 +215,6 @@
 	gender = PLURAL
 	density = 0
 	anchored = 1
-	layer = 2
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "gib1"
 	random_icon_states = list("gib1", "gib2", "gib3", "gib4", "gib5")
@@ -217,8 +232,8 @@
 	blood.Blend(basecolor,ICON_MULTIPLY)
 
 	icon = blood
-	cut_overlays()
-	add_overlay(giblets)
+	ClearOverlays()
+	AddOverlays(giblets)
 
 /obj/effect/decal/cleanable/blood/gibs/up
 	random_icon_states = list("gib1", "gib2", "gib3", "gib4", "gib5", "gibup1","gibup1","gibup1")
@@ -262,7 +277,6 @@
 	gender = PLURAL
 	density = 0
 	anchored = 1
-	layer = 2
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "mucus"
 	random_icon_states = null

@@ -2,6 +2,7 @@
 	key = "beep"
 	emote_message_3p = "USER beeps."
 	emote_sound = 'sound/machines/twobeep.ogg'
+	conscious = 0
 
 /singleton/emote/audible/synth/check_user(var/mob/living/user)
 	if(istype(user) && user.isSynthetic())
@@ -27,3 +28,8 @@
 	key = "deny"
 	emote_message_3p = "USER emits a negative blip."
 	emote_sound = 'sound/machines/synth_no.ogg'
+
+/singleton/emote/audible/synth/alarm
+	key = "alarm"
+	emote_message_3p = "USER sounds an alarm!"
+	emote_sound = 'sound/machines/warning-buzzer.ogg'

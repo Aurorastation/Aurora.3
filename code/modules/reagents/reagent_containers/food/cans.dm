@@ -24,15 +24,15 @@
 					If it's empty, you can crush it on your forehead by selecting your head and clicking on yourself with harm intent. \
 					You can also crush cans on other people's foreheads as well."
 
-/obj/item/reagent_containers/food/drinks/cans/attack(mob/living/M, mob/user, var/target_zone)
-	if(iscarbon(M) && !reagents.total_volume && user.a_intent == I_HURT && target_zone == BP_HEAD)
-		if(M == user)
+/obj/item/reagent_containers/food/drinks/cans/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(iscarbon(target_mob) && !reagents.total_volume && user.a_intent == I_HURT && target_zone == BP_HEAD)
+		if(target_mob == user)
 			user.visible_message(SPAN_WARNING("[user] crushes the can of [src.name] on [user.get_pronoun("his")] forehead!"), SPAN_NOTICE("You crush the can of [src.name] on your forehead."))
 		else
-			user.visible_message(SPAN_WARNING("[user] crushes the can of [src.name] on [M]'s forehead!"), SPAN_NOTICE("You crush the can of [src.name] on [M]'s forehead."))
-		M.apply_damage(2,DAMAGE_BRUTE,BP_HEAD) // ouch.
-		playsound(M,'sound/items/soda_crush.ogg', rand(10,50), TRUE)
-		var/obj/item/trash/can/crushed_can = new /obj/item/trash/can(M.loc)
+			user.visible_message(SPAN_WARNING("[user] crushes the can of [src.name] on [target_mob]'s forehead!"), SPAN_NOTICE("You crush the can of [src.name] on [target_mob]'s forehead."))
+		target_mob.apply_damage(2,DAMAGE_BRUTE,BP_HEAD) // ouch.
+		playsound(target_mob,'sound/items/soda_crush.ogg', rand(10,50), TRUE)
+		var/obj/item/trash/can/crushed_can = new /obj/item/trash/can(target_mob.loc)
 		crushed_can.icon_state = icon_state
 		qdel(src)
 		user.put_in_hands(crushed_can)
@@ -40,7 +40,7 @@
 	. = ..()
 
 /obj/item/reagent_containers/food/drinks/cans/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(fuselength)
 		var/image/fuseoverlay = image('icons/obj/fuses.dmi', icon_state = "fuse_short")
 		switch(fuselength)
@@ -50,10 +50,10 @@
 			fuseoverlay.icon_state = "lit_fuse"
 		fuseoverlay.pixel_x = can_size_overrides["x"]
 		fuseoverlay.pixel_y = can_size_overrides["y"]
-		add_overlay(fuseoverlay)
+		AddOverlays(fuseoverlay)
 	if(bombcasing > BOMBCASING_EMPTY)
 		var/image/casingoverlay = image('icons/obj/fuses.dmi', icon_state = "pipe_bomb")
-		add_overlay(casingoverlay)
+		AddOverlays(casingoverlay)
 
 /obj/item/reagent_containers/food/drinks/cans/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/grenade/chem_grenade/large))
@@ -149,7 +149,7 @@
 		update_icon()
 		set_light(2, 2, LIGHT_COLOR_LAVA)
 		if(REAGENT_VOLUME(reagents, /singleton/reagent/fuel) >= LETHAL_FUEL_CAPACITY && user)
-			msg_admin_attack("[user] ([user.ckey]) lit the fuse on an improvised [name] grenade. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user))
+			msg_admin_attack("[user] ([user.ckey]) lit the fuse on an improvised [name] grenade. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user))
 			if(fuselength >= FUSELENGTH_MIN && fuselength <= FUSELENGTH_SHORT)
 				user.visible_message(SPAN_DANGER("<b>[user]</b> accidentally takes \the [W] too close to \the [name]'s opening!"))
 				detonate(TRUE) // it'd be a bit dull if the toy-levels of fuel had a chance to insta-pop, it's mostly just a way to keep the grenade balance in check
@@ -208,22 +208,25 @@
 		else
 			desc = initial(desc)
 
-/obj/item/reagent_containers/food/drinks/cans/bullet_act(obj/item/projectile/P)
-	if(P.firer && REAGENT_VOLUME(reagents, /singleton/reagent/fuel) >= LETHAL_FUEL_CAPACITY)
-		visible_message(SPAN_DANGER("\The [name] is hit by the [P]!"))
-		log_and_message_admins("shot an improvised [name] explosive", P.firer)
-		log_game("[key_name(P.firer)] shot improvised grenade at [loc.loc.name] ([loc.x],[loc.y],[loc.z]).",ckey=key_name(P.firer))
-	detonate(TRUE)
+/obj/item/reagent_containers/food/drinks/cans/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	if(hitting_projectile.firer && REAGENT_VOLUME(reagents, /singleton/reagent/fuel) >= LETHAL_FUEL_CAPACITY)
+		visible_message(SPAN_DANGER("\The [name] is hit by the [hitting_projectile]!"))
+		log_and_message_admins("shot an improvised [name] explosive", hitting_projectile.firer)
+		log_game("[key_name(hitting_projectile.firer)] shot improvised grenade at [loc.loc.name] ([loc.x],[loc.y],[loc.z]).")
+	detonate(TRUE)
 
 /obj/item/reagent_containers/food/drinks/cans/ex_act(severity)
 	detonate(TRUE)
 	. = ..()
 
-/obj/item/reagent_containers/food/drinks/cans/fire_act()
+/obj/item/reagent_containers/food/drinks/cans/fire_act(exposed_temperature, exposed_volume)
 	if(can_light())
 		fuselit = TRUE
-		detonate(FALSE)
+		INVOKE_ASYNC(src, PROC_REF(detonate), FALSE)
 		visible_message(SPAN_WARNING("<b>\The [name]'s fuse catches on fire!</b>"))
 	. = ..()
 
@@ -258,7 +261,6 @@
 /obj/item/reagent_containers/food/drinks/cans/thirteenloko
 	name = "getmore energy can"
 	desc = "An extremely ill-advised combination of excessive caffeine and alcohol. Getmore's most controversial product to date!"
-	icon_state = "thirteen_loko"
 	icon_state = "thirteen_loko"
 	center_of_mass = list("x"=16, "y"=10)
 
@@ -376,11 +378,18 @@
 	reagents_to_add = list(/singleton/reagent/drink/zorasoda/phoron = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/klax
-	name = "\improper K'laxan Energy Crush"
+	name = "\improper K'lax Energy Crush"
 	desc = "A can of nitrogen-infused creamy orange zest flavoured Zo'ra Soda energy drink, with V'krexi additives. The smooth taste is engineered to near perfection."
-	icon_state = "klaxancrush"
-	item_state = "klaxancrush"
+	icon_state = "klaxcrush"
+	item_state = "klaxcrush"
 	reagents_to_add = list(/singleton/reagent/drink/zorasoda/klax = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/zorasoda/xuizi
+	name = "\improper K'lax Xuizi Xplosion"
+	desc = "A can of xuizi flavoured Zo'ra Soda energy drink, with V'krexi additives. A refreshing taste for more than just unathi."
+	icon_state = "klaxxuizi"
+	item_state = "klaxxuizi"
+	reagents_to_add = list(/singleton/reagent/drink/zorasoda/xuizi = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/cthur
 	name = "\improper C'thur Rockin' Raspberry"
@@ -388,6 +397,13 @@
 	icon_state = "cthurberry"
 	item_state = "cthurberry"
 	reagents_to_add = list(/singleton/reagent/drink/zorasoda/cthur = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/zorasoda/dyn
+	name = "\improper C'thur Dyn-A-Mite"
+	desc = "A can of dyn flavoured Zo'ra Soda energy drink, with V'krexi additives. A blast of flavour, straight from Qerrbalak!"
+	icon_state = "cthurdyn"
+	item_state = "cthurdyn"
+	reagents_to_add = list(/singleton/reagent/drink/zorasoda/dyn = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/venomgrass
 	name = "\improper Zo'ra Sour Venom Grass"
@@ -409,6 +425,27 @@
 	icon_state = "koistwist"
 	item_state = "koistwist"
 	reagents_to_add = list(/singleton/reagent/drink/zorasoda/kois = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/zorasoda/mixedberry
+	name = "\improper Zo'ra Soda Caprician Craze"
+	desc = "A can of \"mixed berry\" flavoured Zo'ra Soda energy drink, with V'krexi additives. The number one drink in New Sedantis!"
+	icon_state = "capriciancraze"
+	item_state = "capriciancraze"
+	reagents_to_add = list(/singleton/reagent/drink/zorasoda/mixedberry = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/zorasoda/lemonlime
+	name = "\improper Zo'ra Soda Seismic Slammer"
+	desc = "A can of \"lemon-lime\" flavoured Zo'ra Soda energy drink, with V'krexi additives. It'll knock you off your feet!"
+	icon_state = "seismicslammer"
+	item_state = "seismicslammer"
+	reagents_to_add = list(/singleton/reagent/drink/zorasoda/lemonlime = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/zorasoda/buzz
+	name = "\improper Buzzin' Cola"
+	desc = "A can of cola flavoured energy drink, with V'krexi additives. Guaranteed to overwhelm your taste buds."
+	icon_state = "buzzinsoda"
+	item_state = "buzzinsoda"
+	reagents_to_add = list(/singleton/reagent/drink/zorasoda/buzz = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/drone
 	name = "\improper Vaurca Drone Fuel"
@@ -559,13 +596,13 @@
 	pickup_sound = 'sound/items/pickup/shoes.ogg'
 	reagents_to_add = list(/singleton/reagent/drink/bochbrew = 30)
 
-/obj/item/reagent_containers/food/drinks/cans/boch/attack(mob/living/M, mob/user, var/target_zone) // modified can reaction; have you ever seen someone crush a plastic bottle on their head?
-	if(iscarbon(M) && !reagents.total_volume && user.a_intent == I_HURT && target_zone == BP_HEAD)
-		if(M == user)
+/obj/item/reagent_containers/food/drinks/cans/boch/attack(mob/living/target_mob, mob/living/user, target_zone) // modified can reaction; have you ever seen someone crush a plastic bottle on their head?
+	if(iscarbon(target_mob) && !reagents.total_volume && user.a_intent == I_HURT && target_zone == BP_HEAD)
+		if(target_mob == user)
 			user.visible_message(SPAN_WARNING("[user] smacks the bottle of [src.name] against [user.get_pronoun("his")] forehead!"), SPAN_NOTICE("You smack the bottle of [src.name] on your forehead."))
 		else
-			user.visible_message(SPAN_WARNING("[user] smacks the bottle of [src.name] against [M]'s forehead!"), SPAN_NOTICE("You whack the bottle of [src.name] on [M]'s forehead."))
-		M.apply_damage(2,DAMAGE_BRUTE,BP_HEAD) // quoth the copy-paste code, 'ouch.'
+			user.visible_message(SPAN_WARNING("[user] smacks the bottle of [src.name] against [target_mob]'s forehead!"), SPAN_NOTICE("You whack the bottle of [src.name] on [target_mob]'s forehead."))
+		target_mob.apply_damage(2,DAMAGE_BRUTE,BP_HEAD) // quoth the copy-paste code, 'ouch.'
 		return TRUE
 	. = ..()
 

@@ -60,6 +60,7 @@
 	character_color_presets = list("Dark" = "#000000", "Warm" = "#250302", "Cold" = "#1e1e29")
 
 	onfire_overlay = 'icons/mob/burning/burning_human.dmi'
+	valid_prosthetics = list(PROSTHETIC_SYNTHSKIN)
 
 /datum/species/human/handle_npc(var/mob/living/carbon/human/H)
 	if(H.stat != CONSCIOUS)

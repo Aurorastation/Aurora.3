@@ -5,6 +5,7 @@
 	icon = 'icons/obj/storage/bags.dmi'
 	icon_state = "satchel"
 	slot_flags = SLOT_BELT | SLOT_POCKET
+	storage_slots = 50
 	max_storage_space = 100
 	can_hold = list(/obj/item/ore)
 	var/obj/structure/ore_box/linked_box
@@ -21,6 +22,7 @@
 	listeningTo = null
 
 	linked_box = null
+	linked_beacon = FALSE
 	. = ..()
 
 /obj/item/storage/bag/ore/equipped(mob/user, slot)
@@ -44,7 +46,7 @@
 	var/turf/location = get_turf(user)
 
 	if(location)
-		pickup_items_from_loc_and_feedback(user, location)
+		pickup_items_from_loc_and_feedback(user, location, explicit_request = FALSE)
 
 /obj/item/storage/bag/ore/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
@@ -58,11 +60,6 @@
 // An ore satchel that starts with an attached warp pack
 /obj/item/storage/bag/ore/bluespace
 	linked_beacon = TRUE
-
-/obj/item/storage/bag/ore/Destroy()
-	linked_box = null
-	linked_beacon = FALSE
-	return ..()
 
 /obj/item/storage/bag/ore/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/extraction_pack))

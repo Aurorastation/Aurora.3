@@ -57,8 +57,8 @@
 	starting_accessories = (/obj/item/clothing/accessory/storage/bayonet)
 	siemens_coefficient = 0.5 // Every Kosmostrelki is expected to assist in repairs when push comes to shove, so their uniform is slightly better at absorbing shocks compared to other combat uniforms
 	armor = list(
-		melee = ARMOR_MELEE_SMALL,
-		bullet = ARMOR_BALLISTIC_MINOR)
+		MELEE = ARMOR_MELEE_SMALL,
+		BULLET = ARMOR_BALLISTIC_MINOR)
 
 /obj/item/clothing/under/tajaran/cosmonaut/commissar
 	name = "kosmostrelki commissar uniform"
@@ -166,17 +166,17 @@
 	item_state = "longdress"
 
 /obj/item/clothing/under/dress/tajaran/long/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	var/image/buttons = image(icon, null, "longdress_buttons")
 	buttons.appearance_flags = RESET_COLOR
-	add_overlay(buttons)
+	AddOverlays(buttons)
 
 /obj/item/clothing/under/dress/tajaran/long/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
 	var/image/I = ..()
 	if(slot == slot_w_uniform_str)
 		var/image/buttons = image(mob_icon, null, "longdress_un_buttons")
 		buttons.appearance_flags = RESET_COLOR
-		I.add_overlay(buttons)
+		I.AddOverlays(buttons)
 	return I
 
 /obj/item/clothing/under/dress/tajaran/formal
@@ -201,7 +201,7 @@
 	body_parts_covered = LOWER_TORSO
 	starting_accessories = list(/obj/item/clothing/accessory/tajaran/summershirt)
 
-/obj/item/clothing/under/pants/tajaran
+/obj/item/clothing/pants/tajaran
 	name = "adhomian summer pants"
 	desc = "A pair of adhomian pants usually worn during the summer."
 	icon = 'icons/obj/tajara_items.dmi'
@@ -221,8 +221,8 @@
 	starting_accessories = list(/obj/item/clothing/accessory/storage/bayonet)
 	siemens_coefficient = 0.7
 	armor = list(
-		melee = ARMOR_MELEE_SMALL,
-		bullet = ARMOR_BALLISTIC_MINOR)
+		MELEE = ARMOR_MELEE_SMALL,
+		BULLET = ARMOR_BALLISTIC_MINOR)
 
 /obj/item/clothing/under/tajaran/nka_uniform
 	name = "imperial adhomian army uniform"
@@ -230,7 +230,7 @@
 	icon_state = "nka_uniform"
 	item_state = "nka_uniform"
 	starting_accessories = list(/obj/item/clothing/accessory/storage/bayonet)
-	armor = list(melee = ARMOR_MELEE_SMALL)
+	armor = list(MELEE = ARMOR_MELEE_SMALL)
 
 /obj/item/clothing/under/tajaran/nka_uniform/commander
 	name = "imperial adhomian army officer uniform"
@@ -288,17 +288,17 @@
 	item_state = "nka_noble_uniform"
 
 /obj/item/clothing/under/tajaran/nka_noble/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	var/image/lining = image(icon, null, "nka_noble_uniform_lining")
 	lining.appearance_flags = RESET_COLOR
-	add_overlay(lining)
+	AddOverlays(lining)
 
 /obj/item/clothing/under/tajaran/nka_noble/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
 	var/image/I = ..()
 	if(slot == slot_w_uniform_str)
 		var/image/lining = image(mob_icon, null, "nka_noble_uniform_un_lining")
 		lining.appearance_flags = RESET_COLOR
-		I.add_overlay(lining)
+		I.AddOverlays(lining)
 	return I
 
 /obj/item/clothing/under/tajaran/nka_merchant_navy
@@ -322,14 +322,14 @@
 	desc = "A military uniform used by the forces of the People's Volunteer Spacer Militia."
 	icon_state = "pvsm_crewman"
 	item_state = "pvsm_crewman"
-	desc_extended = "Having only recently claimed a space-positioned base alongside Gaka'zaal, the DPRA lacks any sort of trained force when it comes to orbital defense. Not wanting to \
+	desc_extended = "Having only recently claimed a space-positioned base alongside Gakal'zaal, the DPRA lacks any sort of trained force when it comes to orbital defense. Not wanting to \
 	rely purely on mercenaries due to the expenses and their scant loyalty, a militia was organized. Members of the Spacer Militia come from a variety of backgrounds: some coming back \
-	after being employed by mega-corporations; others from asteroid belts; some soldiers from Adhomai; and more from the Free Gakal'Zaal Station itself, having worked on it as maintenance."
+	after being employed by mega-corporations; others from asteroid belts; some soldiers from Adhomai; and more from the Free Gakal'zaal Station itself, having worked on it as maintenance."
 	starting_accessories = (/obj/item/clothing/accessory/storage/bayonet)
 	siemens_coefficient = 0.5
 	armor = list(
-		melee = ARMOR_MELEE_SMALL,
-		bullet = ARMOR_BALLISTIC_MINOR)
+		MELEE = ARMOR_MELEE_SMALL,
+		BULLET = ARMOR_BALLISTIC_MINOR)
 
 /obj/item/clothing/under/tajaran/pvsm/captain
 	name = "people's volunteer spacer militia captain uniform"
@@ -345,8 +345,8 @@
 	starting_accessories = list(/obj/item/clothing/accessory/storage/bayonet)
 	siemens_coefficient = 0.7
 	armor = list(
-		melee = ARMOR_MELEE_SMALL,
-		bullet = ARMOR_BALLISTIC_MINOR)
+		MELEE = ARMOR_MELEE_SMALL,
+		BULLET = ARMOR_BALLISTIC_MINOR)
 
 /obj/item/clothing/under/tajaran/ala/wraps
 	icon_state = "ala-grunt-wraps"
@@ -376,8 +376,8 @@
 	sprite_sheets = list(BODYTYPE_TESLA_BODY = 'icons/mob/species/tajaran/tesla_body/uniform.dmi')
 
 /obj/item/clothing/under/tajaran/archeologist
-	name = "archaeologist uniform"
-	desc = "A rugged uniform used by Adhomian archaeologists. It is already covered in dirt and ancient dust."
+	name = "archeologist uniform"
+	desc = "A rugged uniform used by Adhomian archeologists. It is already covered in dirt and ancient dust."
 	icon_state = "explorer_uniform"
 	item_state = "explorer_uniform"
 

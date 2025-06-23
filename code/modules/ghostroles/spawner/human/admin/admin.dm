@@ -149,7 +149,7 @@
 	max_count = 4
 
 	outfit = /obj/outfit/admin/ert/legion/sentinel
-	possible_species = list(SPECIES_HUMAN, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_IPC, SPECIES_DIONA)
+	possible_species = list(SPECIES_HUMAN, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_WORKER, SPECIES_IPC, SPECIES_DIONA)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "TCFL Sentinel"
@@ -177,7 +177,7 @@
 	if(start_location.landmark_tag != "nav_emergency_start")
 		return TRUE
 
-	if(evacuation_controller.evacuation_type == TRANSFER_EMERGENCY)
+	if(GLOB.evacuation_controller.evacuation_type == TRANSFER_EMERGENCY)
 		if(get_security_level() != "green" )
 			var/datum/wifi/sender/door/wifi_sender = new("odin_arrivals_lockdown", SSghostroles)
 			wifi_sender.activate("close")

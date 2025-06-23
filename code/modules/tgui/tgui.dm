@@ -252,6 +252,7 @@
 			"size" = window_size,
 			"fancy" = user.client.prefs.tgui_fancy,
 			"locked" = user.client.prefs.tgui_lock,
+			"scale" = user.client.prefs.ui_scale,
 		),
 		"client" = list(
 			"ckey" = user.client.ckey,
@@ -329,8 +330,7 @@
 			window = window,
 			src_object = src_object)
 		process_status()
-		on_act_message(act_type, payload, state)
-		//DEFAULT_QUEUE_OR_CALL_VERB(VERB_CALLBACK(src, PROC_REF(on_act_message), act_type, payload, state))
+		DEFAULT_QUEUE_OR_CALL_VERB(VERB_CALLBACK(src, PROC_REF(on_act_message), act_type, payload, state))
 		return FALSE
 	switch(type)
 		if("ready")

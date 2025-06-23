@@ -24,6 +24,8 @@
 			return ACCESS_HEADS
 		if(NETWORK_CRESCENT,NETWORK_ERT)
 			return ACCESS_CENT_SPECOPS
+		if(NETWORK_CRYO_OUTPOST)
+			return ACCESS_CRYO_OUTPOST
 
 	return ACCESS_SECURITY // Default for all other networks
 
@@ -63,7 +65,7 @@
 	data["networks"] = all_networks
 
 	if(current_network)
-		data["cameras"] = camera_repository.cameras_in_network(current_network)
+		data["cameras"] = GLOB.camera_repository.cameras_in_network(current_network)
 
 	return data
 

@@ -13,11 +13,11 @@ Pipelines + Other Objects -> Pipe network
 	anchored = 1
 	idle_power_usage = 0
 	active_power_usage = 0
-	power_channel = ENVIRON
+	power_channel = AREA_USAGE_ENVIRON
 	var/nodealert = 0
 	var/power_rating //the maximum amount of power the machine can use to do work, affects how powerful the machine is, in Watts
 
-	layer = 2.4 //under wires with their 2.44
+	layer = EXPOSED_PIPE_LAYER
 
 	var/connect_types = CONNECT_TYPE_REGULAR
 	var/icon_connect_type = "" //"-supply" or "-scrubbers"

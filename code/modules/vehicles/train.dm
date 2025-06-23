@@ -37,7 +37,8 @@
 
 /obj/vehicle/train/Move()
 	var/old_loc = get_turf(src)
-	if(..())
+	. = ..()
+	if(.)
 		if(tow)
 			tow.Move(old_loc)
 		return 1
@@ -67,7 +68,7 @@
 			if(isliving(load))
 				var/mob/living/D = load
 				to_chat(D, SPAN_WARNING("You hit [M]!"))
-				msg_admin_attack("[D.name] ([D.ckey]) hit [M.name] ([M.ckey]) with [src]. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(D),ckey_target=key_name(M))
+				msg_admin_attack("[D.name] ([D.ckey]) hit [M.name] ([M.ckey]) with [src]. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(D),ckey_target=key_name(M))
 
 
 //-------------------------------------------
@@ -84,14 +85,14 @@
 // Interaction procs
 //-------------------------------------------
 
-/obj/vehicle/train/MouseDrop_T(atom/dropping, mob/user)
+/obj/vehicle/train/mouse_drop_receive(atom/dropped, mob/user, params)
 	if(use_check_and_message(user))
 		return
-	if(istype(dropping, /obj/vehicle/train))
-		latch(dropping, user)
+	if(istype(dropped, /obj/vehicle/train))
+		latch(dropped, user)
 	else
-		if(!load(dropping))
-			to_chat(user, SPAN_WARNING("You were unable to load \the [dropping] on \the [src]."))
+		if(!load(dropped))
+			to_chat(user, SPAN_WARNING("You were unable to load \the [dropped] on \the [src]."))
 
 /obj/vehicle/train/attack_hand(mob/user as mob)
 	if(use_check_and_message(user))
@@ -177,7 +178,7 @@
 
 		if(dir == T_dir) 	//if car is ahead
 			src.attach_to(T, user)
-		else if(reverse_direction(dir) == T_dir)	//else if car is behind
+		else if(REVERSE_DIR(dir) == T_dir)	//else if car is behind
 			T.attach_to(src, user)
 
 //returns 1 if this is the lead car of the train

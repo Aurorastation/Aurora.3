@@ -1,0 +1,2469 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"am" = (
+/obj/structure/bed/stool/chair/sofa/green{
+	dir = 1
+	},
+/obj/machinery/light,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"an" = (
+/obj/structure/blocker/steel/fence,
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"aD" = (
+/obj/structure/table/wood,
+/obj/item/modular_computer/laptop/preset/civilian{
+	pixel_y = 10
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"ba" = (
+/obj/structure/bed/stool/bar/padded/green,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"bo" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "non-lethal equipment cabinet";
+	req_access = null
+	},
+/obj/item/melee/baton/loaded,
+/obj/item/melee/baton/loaded,
+/obj/item/melee/baton/loaded,
+/obj/item/melee/baton/loaded,
+/obj/item/reagent_containers/spray/pepper,
+/obj/item/reagent_containers/spray/pepper,
+/obj/item/reagent_containers/spray/pepper,
+/obj/item/reagent_containers/spray/pepper,
+/obj/structure/reagent_dispensers/peppertank{
+	pixel_y = 25
+	},
+/obj/item/device/flash,
+/obj/item/device/flash,
+/obj/item/device/flash,
+/obj/item/device/flash,
+/obj/item/device/flashlight/maglight,
+/obj/item/device/flashlight/maglight,
+/obj/item/device/flashlight/maglight,
+/obj/item/device/flashlight/maglight,
+/obj/item/storage/box/flashbangs,
+/obj/item/storage/box/teargas,
+/obj/item/storage/box/handcuffs,
+/obj/item/storage/box/handcuffs,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"cy" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"cF" = (
+/obj/machinery/door/urban{
+	pixel_y = -5
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"cS" = (
+/obj/structure/sink/puddle,
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"dl" = (
+/obj/machinery/vending/tool,
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"dm" = (
+/obj/structure/table/wood,
+/obj/item/material/ashtray/bronze,
+/obj/item/clothing/mask/smokable/cigarette/wulu{
+	pixel_y = 5;
+	pixel_x = 5
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"ds" = (
+/obj/structure/table/rack,
+/obj/item/clothing/glasses/welding,
+/obj/item/clothing/glasses/welding,
+/obj/item/weldingtool/largetank,
+/obj/item/weldingtool/largetank,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"dt" = (
+/obj/structure/table/rack,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/electrical{
+	pixel_y = -4
+	},
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"ek" = (
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"ew" = (
+/mob/living/simple_animal/threshbeast,
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"fd" = (
+/obj/structure/flora/grass/junglegrass/random,
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"ft" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"fH" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"fL" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/rack,
+/obj/item/stack/material/plastic/full,
+/obj/item/stack/material/aluminium/full{
+	pixel_y = 6
+	},
+/obj/item/stack/material/lead/full{
+	pixel_y = 10
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/stack/material/wood/full{
+	pixel_y = 6
+	},
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"gC" = (
+/obj/machinery/door/blast/shutters{
+	dir = 4;
+	id = "freewater_garage"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"iJ" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/obj/structure/railing/fence,
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"jC" = (
+/obj/structure/blocker/steel/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"kb" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice{
+	pixel_y = 5
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"kp" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/carpet/red,
+/area/ouerea_freewater)
+"lw" = (
+/obj/machinery/door/blast/shutters{
+	id = "dagamuir_base_entry"
+	},
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"lE" = (
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/mech_recharger,
+/obj/structure/mech_wreckage,
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"mh" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"mK" = (
+/obj/structure/table/wood,
+/obj/machinery/photocopier/faxmachine{
+	department = "Dagamuir Freewater Base"
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"nb" = (
+/obj/machinery/appliance/cooker/oven,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"nA" = (
+/obj/structure/sign/poster{
+	pixel_x = 32
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"nV" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/carpet/red,
+/area/ouerea_freewater)
+"oP" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "energy pistol cabinet";
+	req_access = null
+	},
+/obj/item/gun/energy/pistol/hegemony,
+/obj/item/gun/energy/pistol/hegemony,
+/obj/item/gun/energy/pistol/hegemony,
+/obj/item/gun/energy/pistol/hegemony,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"pa" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/obj/structure/filingcabinet/chestdrawer,
+/obj/item/toy/desk/fan{
+	pixel_y = 13
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"po" = (
+/obj/structure/table/wood,
+/obj/machinery/door/window/brigdoor{
+	req_access = null;
+	dir = 8
+	},
+/obj/item/paper_bin,
+/obj/item/pen/black,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"pR" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = null;
+	name = "sword cabinet"
+	},
+/obj/item/melee/energy/sword/hegemony,
+/obj/item/melee/energy/sword/hegemony,
+/obj/item/melee/energy/sword/hegemony,
+/obj/item/melee/energy/sword/hegemony,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"pV" = (
+/obj/machinery/light,
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"pZ" = (
+/obj/machinery/appliance/cooker/fryer,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"qb" = (
+/obj/item/reagent_containers/food/snacks/koissteak,
+/obj/item/reagent_containers/food/snacks/koissteak,
+/obj/item/reagent_containers/food/snacks/soup/kois,
+/obj/item/reagent_containers/food/snacks/soup/kois,
+/obj/item/reagent_containers/food/snacks/koiskebab3,
+/obj/item/reagent_containers/food/snacks/koiskebab3,
+/obj/item/reagent_containers/food/snacks/koismuffin,
+/obj/structure/closet/secure_closet/freezer/kois,
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"qq" = (
+/obj/structure/closet/walllocker{
+	name = "Personnel Locker";
+	pixel_x = 32
+	},
+/obj/item/clothing/under/rank/security/pmc/dagamuir_freewater,
+/obj/item/clothing/shoes/sandals/caligae,
+/obj/item/clothing/gloves/black/unathi,
+/obj/item/storage/belt/security/tactical,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"rj" = (
+/obj/structure/table/wood,
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"rI" = (
+/obj/machinery/vending/engivend{
+	req_access = null
+	},
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"rV" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/carpet/red,
+/area/ouerea_freewater)
+"sm" = (
+/obj/structure/filingcabinet{
+	pixel_x = 5;
+	pixel_y = 14;
+	density = 0
+	},
+/obj/structure/filingcabinet{
+	pixel_x = -9;
+	pixel_y = 14;
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"sv" = (
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"sR" = (
+/obj/effect/decal/cleanable/flour,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"tN" = (
+/obj/structure/table/rack,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/glass/full{
+	pixel_y = 7
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"tQ" = (
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"vc" = (
+/obj/structure/bed/stool/bar/padded/green,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"vj" = (
+/obj/structure/table/wood,
+/obj/item/device/radio/phone,
+/obj/item/toy/desk/newtoncradle{
+	pixel_y = 10
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"vN" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"wo" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/carpet/red,
+/area/ouerea_freewater)
+"wC" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"wJ" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"xk" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/carpet/red,
+/area/ouerea_freewater)
+"xo" = (
+/obj/structure/bed/stool/chair/padded/black{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"xx" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/obj/structure/railing/fence,
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"xN" = (
+/obj/structure/bed/stool/chair/sofa/right/green{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"xO" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/exoplanet/carpet/red,
+/area/ouerea_freewater)
+"xR" = (
+/obj/structure/table/wood,
+/obj/item/newspaper,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"yj" = (
+/obj/structure/bed/stool/chair/office/dark,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/ghostspawpoint{
+	name = "igs - ouerea_freewater_boss";
+	identifier = "ouerea_freewater_boss"
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"yn" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"yF" = (
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"yS" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/food/drinks/drinkingglass{
+	pixel_x = 5;
+	pixel_y = 10
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"zt" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"zG" = (
+/obj/structure/table/stone/marble,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"zK" = (
+/obj/structure/table/rack,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialu,
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"AZ" = (
+/obj/structure/bed/stool/chair/sofa/left/green{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"Bn" = (
+/obj/structure/reagent_dispensers/water_cooler,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"Bq" = (
+/obj/item/saddle,
+/obj/item/saddle,
+/obj/structure/table/rack,
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"Br" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/carpet/red,
+/area/ouerea_freewater)
+"BX" = (
+/obj/machinery/button/remote/blast_door{
+	dir = 4;
+	pixel_x = 20;
+	id = "freewater_garage"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"CA" = (
+/obj/machinery/media/jukebox,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"CP" = (
+/obj/structure/closet/walllocker{
+	name = "Personnel Locker";
+	pixel_x = -32
+	},
+/obj/item/clothing/under/rank/security/pmc/dagamuir_freewater,
+/obj/item/clothing/shoes/sandals/caligae,
+/obj/item/clothing/gloves/black/unathi,
+/obj/item/storage/belt/security/tactical,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"Dh" = (
+/obj/machinery/light,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"Ex" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"EE" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"EX" = (
+/obj/structure/closet/walllocker{
+	name = "Personnel Locker";
+	pixel_x = -32
+	},
+/obj/item/storage/backpack/cloak/klax,
+/obj/item/clothing/mask/gas/vaurca,
+/obj/item/clothing/mask/gas/vaurca/tactical,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/shoes/sandals/caligae,
+/obj/item/clothing/under/rank/security/pmc/dagamuir_freewater,
+/obj/item/clothing/shoes/vaurca,
+/obj/item/storage/belt/security/tactical,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"Fu" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"Fy" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/carpet/red,
+/area/ouerea_freewater)
+"FE" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = null;
+	name = "holster cabinet"
+	},
+/obj/item/clothing/accessory/holster/armpit,
+/obj/item/clothing/accessory/holster/armpit,
+/obj/item/clothing/accessory/holster/thigh,
+/obj/item/clothing/accessory/holster/thigh,
+/obj/item/clothing/accessory/holster/waist,
+/obj/item/clothing/accessory/holster/waist,
+/obj/item/clothing/accessory/holster/hip,
+/obj/item/clothing/accessory/holster/hip,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"FS" = (
+/obj/structure/table/stone/marble,
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"FX" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "energy pistol cabinet";
+	req_access = null
+	},
+/obj/item/gun/energy/rifle/hegemony,
+/obj/item/gun/energy/rifle/hegemony,
+/obj/item/gun/energy/rifle/hegemony,
+/obj/item/gun/energy/rifle/hegemony,
+/obj/machinery/light,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"Ic" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = null;
+	name = "shield cabinet"
+	},
+/obj/item/shield/riot/tact,
+/obj/item/shield/riot/tact,
+/obj/item/shield/riot/tact,
+/obj/item/shield/riot/tact,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"Ij" = (
+/obj/structure/bed,
+/obj/item/bedsheet/random,
+/obj/structure/curtain/open/bed,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"IA" = (
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"Kg" = (
+/obj/structure/sink{
+	pixel_y = 22
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"LD" = (
+/obj/structure/table/steel,
+/obj/machinery/recharger{
+	pixel_x = 5
+	},
+/obj/machinery/recharger{
+	pixel_x = -6
+	},
+/obj/item/device/gps{
+	pixel_y = 14;
+	pixel_x = -6
+	},
+/obj/item/device/gps{
+	pixel_y = 14;
+	pixel_x = -6
+	},
+/obj/item/device/gps{
+	pixel_y = 14;
+	pixel_x = -6
+	},
+/obj/item/device/gps{
+	pixel_y = 14;
+	pixel_x = -6
+	},
+/obj/item/device/gps{
+	pixel_y = 14;
+	pixel_x = -6
+	},
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"LG" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"LQ" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"MD" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = null;
+	name = "body armor cabinet"
+	},
+/obj/item/clothing/suit/armor/carrier/generic,
+/obj/item/clothing/suit/armor/carrier/generic,
+/obj/item/clothing/suit/armor/carrier/generic,
+/obj/item/clothing/suit/armor/carrier/generic,
+/obj/item/clothing/accessory/arm_guard/generic,
+/obj/item/clothing/accessory/arm_guard/generic,
+/obj/item/clothing/accessory/arm_guard/generic,
+/obj/item/clothing/accessory/arm_guard/generic,
+/obj/item/clothing/accessory/leg_guard/generic,
+/obj/item/clothing/accessory/leg_guard/generic,
+/obj/item/clothing/accessory/leg_guard/generic,
+/obj/item/clothing/accessory/leg_guard/generic,
+/obj/item/clothing/head/helmet/security/generic,
+/obj/item/clothing/head/helmet/security/generic,
+/obj/item/clothing/head/helmet/security/generic,
+/obj/item/clothing/head/helmet/security/generic,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"MN" = (
+/obj/structure/table/wood,
+/obj/machinery/door/window/brigdoor{
+	req_access = null;
+	dir = 8
+	},
+/obj/item/folder/red,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"Nh" = (
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/mech_recharger,
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"Nt" = (
+/obj/structure/bed/stool/chair/padded/black{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"NX" = (
+/obj/structure/table/wood,
+/obj/item/deck/cards,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"Oc" = (
+/obj/structure/table/wood,
+/obj/item/material/ashtray/bronze,
+/obj/item/trash/cigbutt,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"Oo" = (
+/obj/machinery/button/remote/blast_door{
+	dir = 8;
+	pixel_x = -20;
+	id = "freewater_garage"
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"Oz" = (
+/obj/structure/table/wood,
+/obj/item/paper_bin,
+/obj/item/pen/black,
+/obj/item/stamp/warden{
+	name = "freewater rubber stamp"
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"OH" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"PD" = (
+/obj/machinery/button/remote/blast_door{
+	name = "Compound Gates";
+	pixel_y = 25;
+	id = "dagamuir_base_entry"
+	},
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"Qh" = (
+/obj/structure/bed,
+/obj/item/bedsheet/random,
+/obj/structure/curtain/open/bed,
+/obj/effect/ghostspawpoint{
+	name = "igs - ouerea_freewater";
+	identifier = "ouerea_freewater"
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"Rt" = (
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/mech_recharger,
+/mob/living/heavy_vehicle/premade/ripley/loader,
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"Ru" = (
+/obj/machinery/light,
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"RA" = (
+/obj/structure/flora/grass/junglegrass/random,
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"RM" = (
+/obj/structure/table/stone/marble,
+/obj/machinery/light,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"ST" = (
+/obj/structure/closet/secure_closet/freezer/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"SZ" = (
+/obj/structure/table/wood,
+/obj/structure/reagent_dispensers/keg/xuizikeg{
+	pixel_x = -6
+	},
+/obj/structure/reagent_dispensers/keg/beerkeg{
+	pixel_x = 6
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"TF" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"TZ" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 32;
+	pixel_y = -8
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 32;
+	pixel_y = 4
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"Uc" = (
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"Us" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/vending/dinnerware,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"UE" = (
+/turf/simulated/floor/exoplanet/water/shallow{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"Vy" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = null;
+	name = "heavy armor cabinet"
+	},
+/obj/item/clothing/suit/armor/carrier/ballistic,
+/obj/item/clothing/suit/armor/carrier/ablative,
+/obj/item/clothing/suit/armor/carrier/riot,
+/obj/item/clothing/suit/armor/carrier/riot,
+/obj/machinery/light,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"VH" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"WI" = (
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/exoplanet/carpet/red,
+/area/ouerea_freewater)
+"Xf" = (
+/obj/structure/railing/fence,
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"XH" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/vehicle/bike/speeder{
+	dir = 8
+	},
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"Yi" = (
+/obj/structure/simple_door/wood,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"Yx" = (
+/turf/simulated/wall/concrete,
+/area/ouerea_freewater)
+"Zc" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"Zx" = (
+/obj/machinery/autolathe,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"ZA" = (
+/turf/simulated/wall/wood,
+/area/ouerea_freewater)
+"ZS" = (
+/obj/machinery/appliance/cooker/stove,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+
+(1,1,1) = {"
+sv
+sv
+sv
+sv
+sv
+RA
+sv
+RA
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+RA
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+"}
+(2,1,1) = {"
+sv
+Yx
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+Yx
+sv
+"}
+(3,1,1) = {"
+sv
+jC
+RA
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+RA
+sv
+sv
+sv
+sv
+RA
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+jC
+sv
+"}
+(4,1,1) = {"
+sv
+jC
+sv
+ZA
+ZA
+ZA
+ZA
+ZA
+ZA
+ZA
+ZA
+ZA
+sv
+sv
+sv
+sv
+RA
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+RA
+sv
+sv
+sv
+sv
+sv
+jC
+sv
+"}
+(5,1,1) = {"
+sv
+jC
+sv
+ZA
+Rt
+Nh
+lE
+LD
+dt
+Zx
+zK
+ZA
+sv
+sv
+RA
+sv
+sv
+ZA
+ZA
+ZA
+ZA
+ZA
+ZA
+ZA
+ZA
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+jC
+sv
+"}
+(6,1,1) = {"
+sv
+jC
+sv
+ZA
+LQ
+ek
+yF
+yF
+yF
+yF
+pV
+ZA
+sv
+sv
+sv
+sv
+sv
+ZA
+sm
+tQ
+yn
+tQ
+tQ
+Bn
+ZA
+sv
+sv
+sv
+RA
+sv
+RA
+sv
+sv
+sv
+sv
+jC
+sv
+"}
+(7,1,1) = {"
+sv
+jC
+sv
+ZA
+IA
+yF
+yF
+tN
+yF
+yF
+dl
+ZA
+RA
+sv
+sv
+sv
+RA
+ZA
+tQ
+vj
+Fy
+xk
+Br
+AZ
+ZA
+sv
+RA
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+jC
+sv
+"}
+(8,1,1) = {"
+sv
+jC
+sv
+ZA
+ds
+yF
+yF
+fL
+yF
+yF
+rI
+ZA
+sv
+sv
+sv
+sv
+sv
+ZA
+yj
+aD
+wo
+WI
+xO
+am
+ZA
+sv
+ZA
+ZA
+ZA
+ZA
+ZA
+ZA
+ZA
+ZA
+sv
+jC
+sv
+"}
+(9,1,1) = {"
+sv
+jC
+sv
+ZA
+LQ
+yF
+yF
+yF
+Zc
+yF
+pV
+ZA
+sv
+sv
+sv
+RA
+sv
+ZA
+tQ
+Oz
+kp
+rV
+nV
+xN
+ZA
+sv
+ZA
+ZS
+nb
+pZ
+ST
+qb
+SZ
+ZA
+sv
+jC
+sv
+"}
+(10,1,1) = {"
+sv
+jC
+sv
+ZA
+XH
+XH
+yF
+yF
+BX
+yF
+yF
+ZA
+sv
+RA
+sv
+sv
+sv
+ZA
+mK
+tQ
+mh
+tQ
+tQ
+xR
+ZA
+sv
+ZA
+Kg
+ft
+ft
+sR
+tQ
+tQ
+ZA
+sv
+jC
+sv
+"}
+(11,1,1) = {"
+sv
+jC
+sv
+ZA
+ZA
+ZA
+ZA
+ZA
+ZA
+gC
+gC
+ZA
+sv
+sv
+UE
+UE
+sv
+ZA
+ZA
+ZA
+ZA
+ZA
+Yi
+ZA
+ZA
+sv
+ZA
+cy
+zG
+FS
+zG
+zG
+RM
+ZA
+sv
+jC
+sv
+"}
+(12,1,1) = {"
+sv
+jC
+sv
+sv
+sv
+sv
+sv
+zt
+Oo
+Uc
+Uc
+TF
+sv
+UE
+UE
+sv
+sv
+sv
+sv
+sv
+sv
+TF
+Uc
+TF
+sv
+sv
+ZA
+tQ
+tQ
+tQ
+tQ
+tQ
+tQ
+ZA
+sv
+jC
+sv
+"}
+(13,1,1) = {"
+sv
+jC
+RA
+sv
+sv
+sv
+sv
+sv
+sv
+Uc
+Uc
+Uc
+sv
+sv
+UE
+UE
+UE
+UE
+sv
+sv
+sv
+Uc
+Uc
+Uc
+sv
+sv
+ZA
+tQ
+tQ
+vc
+ba
+tQ
+tQ
+ZA
+sv
+jC
+sv
+"}
+(14,1,1) = {"
+sv
+jC
+sv
+sv
+sv
+sv
+RA
+sv
+sv
+Uc
+Uc
+Uc
+sv
+UE
+UE
+UE
+UE
+UE
+UE
+sv
+sv
+Uc
+Uc
+sv
+sv
+sv
+ZA
+tQ
+vc
+vN
+vN
+ba
+tQ
+ZA
+sv
+jC
+sv
+"}
+(15,1,1) = {"
+sv
+jC
+sv
+sv
+RA
+sv
+sv
+sv
+sv
+Uc
+Uc
+Uc
+sv
+sv
+UE
+UE
+UE
+UE
+UE
+UE
+sv
+Uc
+Uc
+Uc
+sv
+sv
+ZA
+cy
+vc
+vN
+Oc
+vc
+Dh
+ZA
+sv
+jC
+sv
+"}
+(16,1,1) = {"
+sv
+Yx
+Yx
+Yx
+Yx
+wC
+sv
+sv
+sv
+Uc
+Uc
+Uc
+RA
+sv
+UE
+UE
+sv
+sv
+sv
+UE
+sv
+sv
+Uc
+Uc
+sv
+sv
+ZA
+tQ
+vc
+vN
+vN
+vc
+tQ
+ZA
+sv
+jC
+sv
+"}
+(17,1,1) = {"
+sv
+lw
+TF
+Uc
+lw
+Uc
+sv
+Uc
+Uc
+Uc
+Uc
+Uc
+Uc
+sv
+sv
+Uc
+sv
+Uc
+Uc
+Uc
+Uc
+Uc
+Uc
+Uc
+sv
+Ru
+ZA
+tQ
+vc
+rj
+vN
+vc
+tQ
+ZA
+sv
+jC
+sv
+"}
+(18,1,1) = {"
+sv
+lw
+Uc
+Uc
+lw
+Uc
+Uc
+Uc
+Uc
+Uc
+Uc
+Uc
+Uc
+Uc
+Uc
+Uc
+Uc
+Uc
+Uc
+Uc
+Uc
+Uc
+Uc
+Uc
+Uc
+Uc
+Yi
+tQ
+tQ
+vc
+vc
+tQ
+tQ
+ZA
+sv
+jC
+sv
+"}
+(19,1,1) = {"
+sv
+lw
+Uc
+Uc
+lw
+Uc
+Uc
+Uc
+Uc
+Uc
+Uc
+Uc
+Uc
+Uc
+Uc
+Uc
+Uc
+Uc
+Uc
+sv
+sv
+Uc
+Uc
+Uc
+Uc
+Ru
+ZA
+Us
+tQ
+tQ
+ft
+tQ
+Dh
+ZA
+sv
+jC
+sv
+"}
+(20,1,1) = {"
+sv
+Yx
+po
+MN
+Yx
+wC
+sv
+sv
+sv
+Uc
+Uc
+RA
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+Uc
+Uc
+sv
+sv
+sv
+ZA
+ZA
+ZA
+ZA
+ZA
+ZA
+ZA
+ZA
+sv
+jC
+sv
+"}
+(21,1,1) = {"
+sv
+Yx
+PD
+tQ
+Yi
+Uc
+fd
+Uc
+Uc
+Uc
+Uc
+Uc
+sv
+RA
+sv
+sv
+RA
+sv
+sv
+sv
+sv
+sv
+Uc
+Uc
+sv
+RA
+sv
+sv
+sv
+zt
+sv
+sv
+sv
+sv
+sv
+jC
+sv
+"}
+(22,1,1) = {"
+sv
+Yx
+pa
+tQ
+Yx
+sv
+sv
+sv
+sv
+Uc
+Uc
+Uc
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+Uc
+Uc
+sv
+sv
+sv
+sv
+VH
+Bq
+wJ
+wJ
+wJ
+xx
+sv
+jC
+sv
+"}
+(23,1,1) = {"
+sv
+Yx
+Yx
+Yx
+Yx
+sv
+sv
+sv
+sv
+Uc
+fd
+Uc
+sv
+sv
+sv
+sv
+RA
+sv
+sv
+sv
+sv
+Uc
+Uc
+Uc
+Uc
+Uc
+Uc
+Uc
+cF
+EE
+EE
+EE
+ew
+Xf
+sv
+jC
+sv
+"}
+(24,1,1) = {"
+sv
+jC
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+Ex
+Uc
+Ex
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+Ex
+Uc
+Ex
+sv
+sv
+sv
+sv
+OH
+EE
+sv
+EE
+sv
+Xf
+sv
+jC
+sv
+"}
+(25,1,1) = {"
+sv
+jC
+sv
+sv
+sv
+RA
+sv
+sv
+ZA
+ZA
+Yi
+ZA
+ZA
+sv
+sv
+ZA
+ZA
+ZA
+ZA
+ZA
+ZA
+ZA
+Yi
+ZA
+ZA
+ZA
+ZA
+sv
+OH
+sv
+sv
+EE
+sv
+Xf
+sv
+jC
+sv
+"}
+(26,1,1) = {"
+sv
+jC
+sv
+sv
+sv
+sv
+sv
+sv
+ZA
+bo
+ft
+Vy
+ZA
+sv
+sv
+ZA
+Qh
+ZA
+Qh
+ZA
+Ij
+ZA
+tQ
+tQ
+tQ
+tQ
+ZA
+sv
+OH
+cS
+ew
+EE
+EE
+Xf
+sv
+jC
+sv
+"}
+(27,1,1) = {"
+sv
+jC
+sv
+sv
+sv
+sv
+sv
+sv
+ZA
+MD
+ft
+pR
+ZA
+sv
+sv
+ZA
+cy
+CP
+tQ
+EX
+tQ
+CP
+ft
+Nt
+Nt
+Dh
+ZA
+sv
+OH
+sv
+sv
+sv
+EE
+Xf
+sv
+jC
+sv
+"}
+(28,1,1) = {"
+sv
+jC
+sv
+sv
+sv
+sv
+RA
+sv
+ZA
+FE
+tQ
+Ic
+ZA
+sv
+sv
+ZA
+tQ
+tQ
+tQ
+tQ
+tQ
+tQ
+ft
+NX
+dm
+tQ
+ZA
+sv
+OH
+sv
+EE
+sv
+sv
+Xf
+sv
+jC
+sv
+"}
+(29,1,1) = {"
+sv
+jC
+sv
+sv
+sv
+sv
+sv
+sv
+ZA
+oP
+TZ
+FX
+ZA
+sv
+sv
+ZA
+tQ
+tQ
+tQ
+tQ
+ft
+ft
+tQ
+yS
+kb
+tQ
+ZA
+sv
+OH
+EE
+sv
+sv
+cS
+Xf
+sv
+jC
+sv
+"}
+(30,1,1) = {"
+sv
+jC
+sv
+sv
+RA
+sv
+sv
+sv
+ZA
+ZA
+ZA
+ZA
+ZA
+sv
+sv
+ZA
+cy
+qq
+tQ
+qq
+tQ
+qq
+tQ
+xo
+xo
+Dh
+ZA
+sv
+fH
+Fu
+Fu
+Fu
+Fu
+iJ
+sv
+jC
+sv
+"}
+(31,1,1) = {"
+sv
+jC
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+ZA
+Qh
+ZA
+Qh
+ZA
+Ij
+ZA
+LG
+nA
+tQ
+CA
+ZA
+sv
+RA
+sv
+sv
+sv
+RA
+sv
+sv
+jC
+sv
+"}
+(32,1,1) = {"
+sv
+jC
+sv
+sv
+sv
+sv
+sv
+RA
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+ZA
+ZA
+ZA
+ZA
+ZA
+ZA
+ZA
+ZA
+ZA
+ZA
+ZA
+ZA
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+jC
+sv
+"}
+(33,1,1) = {"
+sv
+jC
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+RA
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+jC
+sv
+"}
+(34,1,1) = {"
+sv
+Yx
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+Yx
+sv
+"}
+(35,1,1) = {"
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+"}

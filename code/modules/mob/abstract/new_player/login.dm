@@ -1,6 +1,3 @@
-/mob/abstract/new_player
-	var/client/my_client // Need to keep track of this ourselves, since by the time Logout() is called the client has already been nulled
-
 /mob/abstract/new_player/LateLogin()
 	..()
 
@@ -11,7 +8,6 @@
 		mind.active = 1
 		mind.current = src
 
-	my_client = client
 	set_sight(BLIND)
 	GLOB.player_list |= src
 

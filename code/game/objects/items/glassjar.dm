@@ -17,7 +17,7 @@
 	desc_info = "Can be used to hold money, small animals, and gumballs. You can remove the lid and use it as a reagent container."
 	icon = 'icons/obj/item/reagent_containers/glass.dmi'
 	icon_state = "jar_lid"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	matter = list(MATERIAL_GLASS = 200)
 	recyclable = TRUE
 	item_flags = ITEM_FLAG_NO_BLUDGEON
@@ -86,7 +86,8 @@
 				release(contained[1], user)
 		if(JAR_HOLDER)
 			for(var/obj/item/holder/H in src)
-				H.release_to_floor() // Snowflake code because holders are ass. Q.E.D.
+				var/turf/T = get_turf(src)
+				H.release_to_floor(T) // Snowflake code because holders are ass. Q.E.D.
 				release(H, user)
 
 /obj/item/glass_jar/proc/release(var/atom/movable/A, var/mob/user)
@@ -100,14 +101,14 @@
 	update_icon()
 	return
 
-/obj/item/glass_jar/MouseDrop(atom/over)
-	if(usr != over || use_check_and_message(usr))
+/obj/item/glass_jar/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(user != over || use_check_and_message(user))
 		return
 	if(length(contained))
 		switch(contains)
 			if(JAR_GUMBALL)
-				release(contained[1], usr)
-				usr.put_in_hands(contained[1])
+				release(contained[1], user)
+				user.put_in_hands(contained[1])
 				contained -= contained[1]
 
 /obj/item/glass_jar/attackby(obj/item/attacking_item, mob/user)
@@ -135,7 +136,7 @@
 		return TRUE
 	if(istype(attacking_item, /obj/item/holder))
 		var/obj/item/holder/H = attacking_item
-		if(H.w_class <= ITEMSIZE_SMALL)
+		if(H.w_class <= WEIGHT_CLASS_SMALL)
 			contains = JAR_HOLDER
 			user.drop_from_inventory(H)
 			scoop(H, user)
@@ -145,7 +146,7 @@
 
 /obj/item/glass_jar/update_icon() // Also updates name and desc
 	underlays.Cut()
-	cut_overlays()
+	ClearOverlays()
 	switch(contains)
 		if(JAR_NOTHING)
 			name = initial(name)

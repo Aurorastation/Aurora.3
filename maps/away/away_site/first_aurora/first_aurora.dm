@@ -1,7 +1,10 @@
 /datum/map_template/ruin/away_site/first_aurora
 	name = "space station derelict"
 	description = "An abandoned space station."
-	suffixes = list("away_site/first_aurora/first_aurora.dmm")
+
+	prefix = "away_site/first_aurora/"
+	suffix = "first_aurora.dmm"
+
 	sectors = list(SECTOR_ROMANOVICH)
 	spawn_weight = 1
 	spawn_cost = 2
@@ -15,5 +18,5 @@
 
 /obj/effect/overmap/visitable/sector/first_aurora
 	name = "space station derelict"
-	desc = "An abandoned space structure."
+	desc = "A massive abandoned space structure. Debris are strewn about the area, making approach difficult and outright dangerous for anything larger than a shuttle. Some elements of its architecture match archived NanoTrasen blueprints."
 

@@ -13,6 +13,13 @@
 /obj/structure/light_pole/r
 	icon_state = "rustlamp_r"
 
+/obj/structure/light_pole/decayed
+	desc = "A tall light source. The bulb appears to be decayed."
+	light_color = LIGHT_COLOR_DECAYED
+
+/obj/structure/light_pole/decayed/r
+	icon_state = "rustlamp_r"
+
 /obj/structure/light_pole/konyang
 	name = "dangling lamp"
 	desc = "A flame-lit lamp dangling precariously from a tall pole."
@@ -51,7 +58,7 @@
 /obj/effect/overlay/street_light
 	icon = 'icons/obj/structure/urban/poles.dmi'
 	icon_state = "street_light"
-	layer = EFFECTS_ABOVE_LIGHTING_LAYER
+	plane = EFFECTS_ABOVE_LIGHTING_PLANE
 
 /obj/effect/overlay/street_light/classic
 	icon_state = "classic_lamp_light"
@@ -66,8 +73,8 @@
 
 /obj/structure/utility_pole/street/on/Initialize(mapload)
 	. = ..()
-	cut_overlays()
-	overlays += /obj/effect/overlay/street_light
+	ClearOverlays()
+	AddOverlays(/obj/effect/overlay/street_light)
 	return
 
 /obj/structure/utility_pole/street/classic
@@ -82,8 +89,8 @@
 
 /obj/structure/utility_pole/street/classic/on/Initialize(mapload)
 	. = ..()
-	cut_overlays()
-	overlays += /obj/effect/overlay/street_light/classic
+	ClearOverlays()
+	AddOverlays(/obj/effect/overlay/street_light/classic)
 	return
 
 /obj/effect/overlay/street_light/crosswalk
@@ -99,8 +106,8 @@
 
 /obj/structure/utility_pole/street/crosswalk/Initialize(mapload)
 	. = ..()
-	cut_overlays()
-	overlays += /obj/effect/overlay/street_light/crosswalk
+	ClearOverlays()
+	AddOverlays(/obj/effect/overlay/street_light/crosswalk)
 	return
 
 /obj/effect/overlay/street_light/traffic
@@ -119,14 +126,14 @@
 
 /obj/structure/utility_pole/street/traffic/base/Initialize(mapload)
 	. = ..()
-	cut_overlays()
-	overlays += /obj/effect/overlay/street_light/traffic
+	ClearOverlays()
+	AddOverlays(/obj/effect/overlay/street_light/traffic)
 	return
 
 /obj/structure/utility_pole/street/traffic/inverted/Initialize(mapload)
 	. = ..()
-	cut_overlays()
-	overlays += /obj/effect/overlay/street_light/traffic/inverted
+	ClearOverlays()
+	AddOverlays(/obj/effect/overlay/street_light/traffic/inverted)
 	return
 
 /obj/structure/utility_pole/power

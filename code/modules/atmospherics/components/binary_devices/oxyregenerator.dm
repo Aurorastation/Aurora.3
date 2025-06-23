@@ -96,7 +96,7 @@
 
 /obj/machinery/atmospherics/binary/oxyregenerator/process()
 	. = ..()
-	if((inoperable()) || !use_power)
+	if((!operable()) || !use_power)
 		return
 
 	var/power_draw = -1

@@ -1,0 +1,284 @@
+2023-11-01:
+  DreamySkrell:
+  - refactor: All of Horizon&#x27;s generic shuttle landmarks are in one file.
+  - refactor: Antag shuttles use Horizon&#x27;s generic shuttle landmarks instead
+      of their special ones.
+  - refactor: Horizon&#x27;s generic shuttle landmark types and tags consistency.
+  - refactor: Third deck docks made to be all generic.
+  - bugfix: Fixes merc shuttle not being able to leave their base.
+  - rscdel: Removes the space bar away site.
+  - rscdel: Removes the civilian station away site.
+  - maptweak: Remaps all of Horizon&#x27;s external access airlocks to airlock markers,
+      from airlock spawners.
+  FluffyGhost:
+  - refactor: Refactored the old set tick lag verb to the modern set fps one.
+  - backend: Added two functions to set the fps/ticklag, and reset the SStimer bucket
+      to account for the rate change.
+  - backend: The world now starts at 20fps, should slightly speed up the lobby init
+      until the configuration is loaded.
+  - backend: At lobby runlevel, the FPS from the config are loaded resetting the bucket,
+      in theory this should make them consistent with the configured tickrate/time
+      ratio.
+  - rscadd: Clients are now defaulted at 100fps refresh rate, disconnected from the
+      server (world) refresh rate.
+  - rscadd: Some additional insight in the comment above the ticklag configuration.
+  - bugfix: Bags with auto-pickup now respect the tick time limit across all the loop
+      paths.
+  - refactor: Minor refactor to dmdoc /obj/item/storage variables from comments.
+  Geeves:
+  - rscadd: Added an Aut&#x27;akh Ethanol Burner cell that lets Aut&#x27;akh Unathi
+      drink alcohol without taking tox damage.
+  GeneralCamo, NobleRow:
+  - rscadd: Added the Xanan service pistol, and its associated ammo and magazine.
+  - tweak: Replaced the San Colette pistol given to the Coalition Consular with a
+      Xanan service pistol.
+  - maptweak: Replaced the San Colette pistol given to the Frontier Rangers with a
+      Xanan service pistol.
+  Lavillastrangiato:
+  - refactor: Added atmospheric systems to the SSMD shuttle, the Hailstorm shuttle,
+      and the Freebooter shuttle.
+  - refactor: Added an APC, SMES, and wiring to the SSMD shuttle.
+  - bugfix: Fixes windows on the yacht and the Hailstorm ship/shuttle.
+  - bugfix: Fixes wonky air alarm offsets on the SSMD shuttle and the yacht.
+  - rscdel: Removes tripping in high heels.
+  RustingWithYou:
+  - bugfix: Skrell Nralakk Federation Consular officers will now spawn correctly with
+      the psi pistol.
+  SleepyGemmy:
+  - bugfix: Fixed the pretzel recipe result containing morphine.
+  - bugfix: Fixes some shuttles having old windows.
+  - bugfix: Fixed one of the holodeck templates having a real nullrod.
+  - bugfix: Fixed the chapel office&#x27;s disposal being unpiped.
+  - tweak: Tweaked some skirts&#x27; extended descriptions.
+2023-11-02:
+  MattAtlas:
+  - bugfix: Fixes a light switch being inside the window in the Security lobby.
+  Pirouette:
+  - imageadd: Added two new Dionae accents, for the Pests of Titan Prime and the Primitive
+      Sirens of Mictlan.
+  - tweak: Added the Iron Eternal and Ichor Eternal as religion options for Dionae.
+  - tweak: Updated Xrim origin to modern standards, with the Enlightened and Scorned.
+  - tweak: Restricted some Dionae accents and religions for certain origins.
+2023-11-06:
+  FluffyGhost:
+  - rscadd: Added external access to bridge crewmen.
+  - refactor: Brought garbage-debug.dm back into garbage.
+  - refactor: Ported some parts of TG&#x27;s reference tracking that were missing.
+  - bugfix: Fixed an issue that allowed the show harddels verb to be defined but the
+      backend it relies upon not to.
+  - backend: DMdoced a variable.
+  GeneralCamo:
+  - bugfix: Fixed the Xanan service pistol sprite being invisible.
+  MattAtlas:
+  - rscadd: Made the Shield Capacitor UI into a TGUI.
+  Nalarac:
+  - tweak: Removed mining access requirement to claim points and print yield declarations
+      from ore redemption console.
+  SleepyGemmy:
+  - rscadd: Added a pair of colourable shorts and short shorts.
+  - rscdel: Removed the young folks jeans and jeans shorts, as they had the same sprite
+      as the classic jeans and jeans shorts.
+  nauticall:
+  - rscadd: Adds several new drinks and cocktail recipes to the bar&#x27;s arsenal.
+2023-11-07:
+  DreamySkrell:
+  - rscadd: 'Airlock markers: Adds support for docking and shuttle airlocks.'
+  - rscadd: 'Airlock markers: Adds support for out pumps.'
+  - maptweak: Adds examples for docking and shuttle airlocks to the airlock guidelines
+      helper map.
+  - maptweak: Remaps third deck docks to use docking airlock markers.
+  - maptweak: Remaps Intrepid and Spark to use docking airlock markers.
+  - maptweak: Changes frequencies of airlocks of antag shuttles to work with new docks.
+  - bugfix: Fixes bad canary and ert shuttle docking controller tags.
+  - rscadd: Adds merge conflict marker for use with mapmerge2.
+2023-11-13:
+  CampinKiller24:
+  - tweak: Buffs stinger grenades by increasing their area of effectiveness.
+  DreamySkrell:
+  - rscadd: Away site/ruin guaranteed spawn flag respects current sector.
+  - rscadd: Guaranteed spawn flag added to Point Verdant.
+  - rscadd: Sectors blacklist mechanism.
+  - rscadd: 'Point Verdant: spaceport and waterdocks.'
+  FluffyGhost:
+  - backend: The CI now uses multiple pods to load-balance the tests in parallel.
+  - backend: Pods configuration is loaded from config/unit_test/ut_pods_configuration.json
+      with a personalized ID (set by the CI) that instructs SSunit_test on what to
+      do.
+  - backend: Labeler now downloads the PR, which I hope would help with the changelog
+      required label.
+  - backend: Away sites now have a tag that indicates in what CI pod they should be
+      tested, for load balancing. The tag is mandatory.
+  - backend: Unit tests now have tags, which are used to select which pods run which
+      unit tests, using the &#x27;has any tag in&#x27; logic.
+  - backend: The CI now supports fail fast when running inside a merge queue.
+  - backend: The CI now supports retrying a pod run up to N times, when running inside
+      a merge queue.
+  - backend: After the fixing of all the bad formatting of the code in a previous
+      PR, megalinter is reintroduced, now it&#x27;s only your code that&#x27;s wrongly
+      formatted.
+  - backend: The CI now only uploads artifacts with the logs on test failure, saving
+      space.
+  - backend: The CI now sets the environment variables before any other step is done,
+      so they are set correctly across the steps.
+  - backend: The linters now run in parallel.
+  - backend: Added the ability (off by default) to SSH into the unit test pods to
+      diagnose issues.
+  - backend: Introduced SSunit_tests_config, to store and manage the unit tests config.
+  Geeves:
+  - bugfix: Multi-tile airlocks and firedoors now properly block vision when closed.
+  - bugfix: Fixed glass items, such as shards and ashtrays, not having the right color.
+  SimpleMaroon:
+  - bugfix: Fixed Orion Express and Idris Incorporated corporate reporters having
+      no unique uniform and defaulting to NanoTrasen bags.
+  SleepyGemmy:
+  - bugfix: Fixed colourable shorts being invisible.
+  Sniblet:
+  - bugfix: Using psi-mend now gives intended feedback.
+  - spellcheck: Attacks with psi-rend now make grammatical sense.
+  TomixComics, Pirouette:
+  - rscadd: Added a selection of new food including white chocolate, shakshouka, v&#x27;krexi
+      wraps, a Europan deep dive dish, and a Biesellite blue moon dish. Sprited by
+      TomixComics.
+2023-11-20:
+  Acetrea:
+  - bugfix: Fixed the sleeper not showing stomach contents.
+  - bugfix: Fixed kois mycosis and black kois not having a sprite when removed from
+      a body.
+  - tweak: Changed Ion Law to remove I and E instead of replace with an apostrophe.
+  DreamySkrell:
+  - maptweak: Xenobotany maint door.
+  - bugfix: Shuttle landmark docking controller fix.
+  - rscadd: Adds PDA map program.
+  - rscdel: Removes holomaps.
+  - maptweak: Removes bottom deck AI core area, replacing it with general maintenance
+      rooms.
+  FluffyGhost:
+  - rscadd: Added text manipulation macros from TG, and a new one to have newlines
+      working.
+  - refactor: Moved around some macros in the appropriate files.
+  - bugfix: Antag uplink announcements now shows apostrophes correctly, and can have
+      newlines in them.
+  - refactor: Antag uplink announcements now uses tgui inputs.
+  - bugfix: PDA STT now respects the apostrophes and other characters too.
+  - backend: Fixed all the editorconfig mismatches one last time.
+  - bugfix: Fixed air controller temperature input.
+  - backend: DMdoc for the temperature defines that are used to convert to/from Kelvin
+      to/from Celsius.
+  - bugfix: Fixed AI not being able to interact with APC power channels, the borgs
+      still remain locked out of it.
+  - bugfix: Resolved a runtime on AI spawn when trying to pick a custom sprite from
+      an empty list of custom sprites.
+  - bugfix: Fixed gremorian eggs not being extractable by surgery.
+  - bugfix: Fixed manifest imploding when someone tries to change the physical status
+      via HUD and closes the window without hitting cancel.
+  - backend: Added a check to ensure that a warning is raised if the manual unit tests
+      are left enable, this should fail the CI and prevent a merge with it being left
+      over.
+  - spellcheck: Renamed a bogus UNIT_TESTS to UNIT_TEST.
+  - backend: Updated CI to use byond 515.1620.
+  Geeves:
+  - rscadd: Lings gain a new free ability called Emergency Transform, where their
+      heads detach from their bodies. They can grow back to normal after 10 minutes
+      has passed.
+  - tweak: Lings can no longer use regenerative stasis while dead. If they die while
+      regenerating, it will fail.
+  - tweak: Regenerative stasis can now only be used once.
+  GeneralCamo, NobleRow:
+  - rscadd: Added the dNAC-12 combat shotgun.
+  Lavillastrangiato:
+  - spellcheck: Specifies characters from Mictlan must originate from Mexico as well
+      as Central- or South America.
+  Pirouette, StevIII:
+  - imageadd: Added a Lunan banner, flag, and flagpatch to loadout.
+  RustingWithYou:
+  - rscadd: Adds a House Kazhkz privateer ship, complete with ghostroles.
+  - rscadd: Adds Hegemony passports and passcards.
+  SleepyGemmy:
+  - bugfix: Fixed some security badges not being named after the actual roles.
+  - maptweak: Polished and tweaked xenobiology.
+  - bugfix: Fixed the rear xenobotany door not closing and some visuals.
+  - bugfix: Fixed the fox sprite having a stray pixel.
+  - bugfix: Fixed a TGUI lint issue.
+2023-11-21:
+  DreamySkrell:
+  - tweak: 'Point Verdant: shops and sewers.'
+2023-11-22:
+  GeneralCamo:
+  - refactor: Split and rename flag variables to be easier to work with in the future.
+  - bugfix: Fixed monocles and standard HUDs being considered airtight and chemical
+      blocking.
+  GeneralCamo, NobleRow:
+  - rscadd: Added the Xanan submachine gun.
+  - tweak: The Xanan service pistol can now be suppressed.
+  Lavillastrangiato:
+  - maptweak: Makes the Ranger Corvette shuttle no longer a box shuttle.
+  - maptweak: Adds a nuclear reactor to the Ranger Corvette.
+  - maptweak: Adds Assunzionii miscellany to the spawn area.
+  - maptweak: Shuffles some flags in the dining hall around.
+  - bugfix: Finally fixes the weird sliding door in the Ranger Corvette bathroom.
+2023-11-23:
+  RustingWithYou:
+  - tweak: Eel eyes now glow in the dark.
+2023-11-24:
+  greenjoe12345:
+  - rscadd: Adds a system for adding blurbs to areas, little bits of flavor text that
+      that play as you enter for the first time.
+2023-11-26:
+  Geeves:
+  - rscadd: Added a very small offset to footprints to break up the grid-like look.
+2023-11-27:
+  Acetrea:
+  - bugfix: Fixes the crayons sprites not showing.
+  - bugfix: Fixed crablegs sprite not showing.
+  - bugfix: Added missing seeds to the Xenobotany Seed Storage.
+  - bugfix: Fixed the NT Muffin sprite issue.
+  DreamySkrell:
+  - tweak: Reduces potential space lotto win prizes.
+  - backend: Labeler github action wrong globs fix.
+  FluffyGhost:
+  - rscadd: Added a triglyceride bottle.
+  Furrycactus:
+  - rscadd: Added some boxes of coloured lights to the Bar backroom so that Bartenders
+      have a little more choice for their ambience.
+  Geeves:
+  - rscadd: Added LED collars. It produces faint light but will be very bright on
+      your character sprite. Can be worn on uniforms, voidsuits, and armor. Can change
+      color by using in-hand. Mapped a box into EVA and the warden&#x27;s office.
+  - rscadd: Mapped a box of electro-tether devices into EVA.
+  - tweak: Tweaked electro-tethers to have less bright beams the farther away the
+      users are from eachother.
+  - rscadd: Added tooltips to overmap objects, hold shift while hovering over them
+      to see more info.
+  - rscadd: Added an athletics wear locker to the bathroom nearest the deck three
+      holodecks.
+  - tweak: Moved damage and bandage layers to above the uniform layer to make it easier
+      to see injuries.
+  GeneralCamo:
+  - rscadd: Added internal support for larger on-mob and item sprites.
+  RustingWithYOu:
+  - rscadd: Adds ghostroles to Point Verdant.
+  RustingWithYou:
+  - maptweak: Remaps the tramp freighter to be more in-line with current ship standards.
+  nauticall:
+  - rscadd: Added the Haneunim (Konyang) stargazer sprite to the stargazer&#x27;s
+      selection of starmaps. No code functionality yet.
+2023-11-28:
+  CampinKiller24:
+  - rscadd: Added a warning system to the INDRA Reactor.
+  FluffyGhost:
+  - backend: Reworked SSunit_test to use SSunit_test_config UT for logging.
+  - rscadd: Added an exception catcher, defined only during unit tests, that fails
+      the CI in case an exception is rised.
+  Geeves:
+  - rscadd: Add a cosmetic auto-surgery kit to the uplink for 1TC or 1BC.
+  - tweak: Tweaked dual-wielding penalties to not be as harsh and to fire faster.
+      It still works best with smaller weapons such as pistols.
+  - tweak: Tweaked dual-wielding to only apply if its smaller or the same size as
+      your main firearm, this makes it easier to pull out a pistol and use only that.
+  - tweak: Buckshot accuracy is now calculated once per shot, rather than individually
+      for each pellet.
+  - tweak: Shotguns are generally more accurate at range (to account for accuracy
+      only being calculated once)
+  - rscadd: Converted the Suit Cycler UI to TGUI.
+  - rscadd: Added a hivenet manifest, which lets Vaurca see other Vaurca that&#x27;re
+      awake.

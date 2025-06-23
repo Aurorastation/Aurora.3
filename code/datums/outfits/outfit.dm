@@ -24,6 +24,7 @@
 	var/belt = null
 	var/gloves = null
 	var/wrist = null
+	var/pants = null
 	var/shoes = null
 
 	var/head = null
@@ -80,6 +81,7 @@
 	var/bowman = /obj/item/device/radio/headset/alt
 	var/double_headset = /obj/item/device/radio/headset/alt/double
 	var/wrist_radio = /obj/item/device/radio/headset/wrist
+	var/clipon_radio = /obj/item/device/radio/headset/wrist/clip
 
 	var/id_iff = IFF_DEFAULT // when spawning in, the ID will be set to this iff, preventing friendly fire
 
@@ -107,6 +109,7 @@
 		belt,
 		gloves,
 		wrist,
+		pants,
 		shoes,
 
 		head,
@@ -285,6 +288,9 @@
 				wrist = wrist_radio
 				if(H.headset_choice == OUTFIT_THIN_WRISTRAD)
 					radio_callback = CALLBACK(src, PROC_REF(turn_into_thinset))
+			if(OUTFIT_CLIPON)
+				l_ear = null
+				wrist = clipon_radio
 			else
 				l_ear = headset //Department headset
 	if(l_ear)
@@ -308,8 +314,8 @@
 	if(islist(path))	//If its a list, select a random item
 		var/itempath = pick(path)
 		I = new itempath(H)
-	else if(gear_datums[path]) //If its something else, we´ll check if its a gearpath and try to spawn it
-		var/datum/gear/G = gear_datums[path]
+	else if(GLOB.gear_datums[path]) //If its something else, we´ll check if its a gearpath and try to spawn it
+		var/datum/gear/G = GLOB.gear_datums[path]
 		I = G.spawn_random()
 	else
 		I = new path(H) //As fallback treat it as a path
@@ -325,6 +331,9 @@
 /obj/outfit/proc/equip_uniform_accessory(mob/living/carbon/human/H)
 	if(!H)
 		return
+
+	if(islist(accessory))
+		accessory = pick(accessory)
 
 	var/obj/item/clothing/under/U = H.get_equipped_item(slot_w_uniform)
 	if(U)
@@ -399,6 +408,8 @@
 	if(wrist)
 		equip_item(H, wrist, slot_wrists)
 	var/got_shoes = FALSE
+	if(pants)
+		equip_item(H, pants, slot_pants)
 	if(length(species_shoes))
 		var/path = species_shoes[H.species.name]
 		if(path)

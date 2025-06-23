@@ -10,11 +10,11 @@
 #define STORAGE_SPACE_CAP 200
 
 /obj/storage_bullshit
-	layer = SCREEN_LAYER
+	layer = HUD_BASE_LAYER
 
 /obj/item/storage
 	name = "storage"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 	///List of objects which this item can store (if set, it can't store anything else)
 	var/list/can_hold
@@ -29,7 +29,7 @@
 	var/list/is_seeing
 
 	///Max size of objects that this object can store (in effect only if can_hold isn't set)
-	var/max_w_class = ITEMSIZE_NORMAL
+	var/max_w_class = WEIGHT_CLASS_NORMAL
 
 	///The sum of the storage costs of all the items in this storage item
 	var/max_storage_space = 8
@@ -40,15 +40,15 @@
 	///The number of columns the storage item will appear to have
 	var/force_column_number
 
-	var/obj/screen/storage/boxes
+	var/atom/movable/screen/storage/boxes
 
 	///storage UI
-	var/obj/screen/storage/storage_start
+	var/atom/movable/screen/storage/storage_start
 
-	var/obj/screen/storage/storage_continue
-	var/obj/screen/storage/storage_end
+	var/atom/movable/screen/storage/storage_continue
+	var/atom/movable/screen/storage/storage_end
 	var/list/storage_screens = list()
-	var/obj/screen/close/closer
+	var/atom/movable/screen/close/closer
 	var/care_about_storage_depth = TRUE
 
 	///Set this to make it possible to use this item in an inverse way, so you can have the item in your hand and click items on the floor to pick them up.
@@ -84,6 +84,8 @@
 	///Boolean, whether or not we should have the squish animation when inserting and removing objects
 	var/animated = TRUE
 
+	var/make_exact_fit = FALSE
+
 /obj/item/storage/Destroy()
 	close_all()
 	QDEL_NULL(boxes)
@@ -113,7 +115,7 @@
 
 		//If we found a turf, pick up things from there
 		if(location_to_pickup)
-			pickup_items_from_loc_and_feedback(user, location_to_pickup)
+			pickup_items_from_loc_and_feedback(user, location_to_pickup, explicit_request = TRUE)
 
 	//Pick up one thing at a time
 	else
@@ -127,13 +129,15 @@
  *
  * * user - The user trying to pick up things
  * * location - A `/turf` to pick up things from
+ * * explicit_request - Boolean, if the request to pick up was explicit (eg. user clicking on something) or not (eg. auto-grabbing),
+ * suppresses the failure if nothing was picked up
  */
-/obj/item/storage/proc/pickup_items_from_loc_and_feedback(mob/user, turf/location)
+/obj/item/storage/proc/pickup_items_from_loc_and_feedback(mob/user, turf/location, explicit_request = FALSE)
 	set waitfor = FALSE
 
 	//pickup_result[1] is if there's any success, pickup_result[2] is if there's any failure
 	//both are booleans
-	var/list/pickup_result = pickup_items_from_loc(user, location)
+	var/list/pickup_result = pickup_items_from_loc(user, location, detail_insertions = explicit_request)
 
 	//Choose the feedback message depending on what happened and send it to the user
 	var/pickup_feedback_message
@@ -143,7 +147,7 @@
 	else if(pickup_result[1] && pickup_result[2])
 		pickup_feedback_message = SPAN_NOTICE("You put some things in \the [src].")
 
-	else if(!pickup_result[1] && pickup_result[2])
+	else if(explicit_request && (!pickup_result[1] && pickup_result[2]))
 		pickup_feedback_message = SPAN_NOTICE("You fail to pick anything up with \the [src].")
 
 	//Check if we got a feedback message and, if so, send it to the user
@@ -158,8 +162,9 @@
  *
  * * user - The user trying to pick up things
  * * location - A `/turf` to pick up things from
+ * * detail_insertions - A boolean, if `TRUE`, `can_be_inserted()` will be told to give feedbacks
  */
-/obj/item/storage/proc/pickup_items_from_loc(mob/user, turf/location)
+/obj/item/storage/proc/pickup_items_from_loc(mob/user, turf/location, detail_insertions = TRUE)
 
 	//In the format of list(SUCCESS, FAILURE)
 	var/list/return_status = list(FALSE, FALSE)
@@ -177,7 +182,7 @@
 		if (user && get_turf(user) != original_location)
 			break
 
-		if(!can_be_inserted(item))	// Note can_be_inserted still makes noise when the answer is no
+		if(!can_be_inserted(item, !detail_insertions))	// Note can_be_inserted still makes noise when the answer is no
 			rejections[item.type] = TRUE	// therefore full bags are still a little spammy
 			return_status[2] = TRUE
 			CHECK_TICK
@@ -196,49 +201,50 @@
 
 /obj/item/storage/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	if(isobserver(user))
+	if(isghost(user))
 		. += "It contains: [counting_english_list(contents)]"
 
-/obj/item/storage/MouseDrop(obj/over_object)
+/obj/item/storage/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	. = ..()
 	if(!canremove)
 		return
-	if(!over_object || over_object == src)
+	if(!over || over == src)
 		return
-	if(istype(over_object, /obj/screen/inventory))
-		var/obj/screen/inventory/S = over_object
+	if(istype(over, /atom/movable/screen/inventory))
+		var/atom/movable/screen/inventory/S = over
 		if(S.slot_id == src.equip_slot)
 			return
-	if(ishuman(usr) || issmall(usr)) //so monkeys can take off their backpacks -- Urist
-		if(over_object == usr && Adjacent(usr)) // this must come before the screen objects only block
-			src.open(usr)
+	if(ishuman(user) || issmall(user)) //so monkeys can take off their backpacks -- Urist
+		if(over == user && Adjacent(user)) // this must come before the screen objects only block
+			src.open(user)
 			return
-		if(!(istype(over_object, /obj/screen)))
+		if(!(istype(over, /atom/movable/screen)))
 			return ..()
 
 		//makes sure that the storage is equipped, so that we can't drag it into our hand from miles away.
 		//there's got to be a better way of doing this.
-		if(!(src.loc == usr) || (src.loc && src.loc.loc == usr))
+		if(!(src.loc == user) || (src.loc && src.loc.loc == user))
 			return
-		if(use_check_and_message(usr))
+		if(use_check_and_message(user))
 			return
-		if((src.loc == usr) && !usr.unEquip(src))
+		if((src.loc == user) && !user.unEquip(src))
 			return
 
-		switch(over_object.name)
+		switch(over.name)
 			if("right hand")
-				usr.u_equip(src)
-				usr.equip_to_slot_if_possible(src, slot_r_hand)
+				user.u_equip(src)
+				user.equip_to_slot_if_possible(src, slot_r_hand)
 			if("left hand")
-				usr.u_equip(src)
-				usr.equip_to_slot_if_possible(src, slot_l_hand)
-		src.add_fingerprint(usr)
+				user.u_equip(src)
+				user.equip_to_slot_if_possible(src, slot_l_hand)
+		src.add_fingerprint(user)
 
-/obj/item/storage/AltClick(var/mob/usr)
+/obj/item/storage/AltClick(var/mob/user)
 	if(!canremove)
 		return ..()
-	if (!use_check_and_message(usr))
-		add_fingerprint(usr)
-		open(usr)
+	if (!use_check_and_message(user))
+		add_fingerprint(user)
+		open(user)
 		return TRUE
 	. = ..()
 
@@ -250,7 +256,8 @@
 	for(var/obj/item/gift/G in src)
 		. += G.gift
 		if (istype(G.gift, /obj/item/storage))
-			. += G.gift:return_inv()
+			var/obj/item/storage/gift_storage = G.gift
+			. += gift_storage.return_inv()
 
 /obj/item/storage/proc/show_to(mob/user as mob)
 	if(user.s_active != src)
@@ -340,7 +347,7 @@
 	src.boxes.screen_loc = "[tx]:,[ty] to [mx],[my]"
 	for(var/obj/O in src.contents)
 		O.screen_loc = "[cx],[cy]"
-		O.layer = SCREEN_LAYER+0.01
+		O.hud_layerise()
 		cx++
 		if (cx > mx)
 			cx = tx
@@ -352,34 +359,34 @@
 /obj/item/storage/proc/slot_orient_objs(var/rows, var/cols, var/list/obj/item/display_contents)
 	var/cx = 4
 	var/cy = 2+rows
-	src.boxes.screen_loc = "4:16,2:16 to [4+cols]:16,[2+rows]:16"
+	src.boxes.screen_loc = "4:12,2:16 to [4+cols]:16,[2+rows]:16"
 
 	if(display_contents_with_number)
 		for(var/datum/numbered_display/ND in display_contents)
-			ND.sample_object.screen_loc = "[cx]:16,[cy]:16"
+			ND.sample_object.screen_loc = "[cx]:12,[cy]:16"
 			ND.sample_object.maptext = SMALL_FONTS(7, "[(ND.number > 1)? "[ND.number]" : ""]")
-			ND.sample_object.layer = SCREEN_LAYER+0.01
+			ND.sample_object.hud_layerise()
 			if(display_contents_initials)
-				ND.sample_object.cut_overlays() // a limitation of this code is that overlays get blasted off the item, since we need to add one to add the second maptext. woe is me
+				ND.sample_object.ClearOverlays() // a limitation of this code is that overlays get blasted off the item, since we need to add one to add the second maptext. woe is me
 				var/object_initials = handle_name_initials(ND.sample_object.name)
 				var/image/name_overlay = image(null)
 				name_overlay.maptext = SMALL_FONTS(7, object_initials)
 				name_overlay.maptext_x = 22 - ((length(object_initials) - 1) * 6)
-				ND.sample_object.add_overlay(name_overlay)
+				ND.sample_object.AddOverlays(name_overlay)
 			cx++
 			if (cx > (4+cols))
 				cx = 4
 				cy--
 	else
 		for(var/obj/O in contents)
-			O.screen_loc = "[cx]:16,[cy]:16"
+			O.screen_loc = "[cx]:12,[cy]:16"
 			O.maptext = ""
-			O.layer = SCREEN_LAYER+0.01
+			O.hud_layerise()
 			cx++
 			if (cx > (4+cols))
 				cx = 4
 				cy--
-	closer.screen_loc = "[4+cols+1]:16,2:16"
+	closer.screen_loc = "[4+cols+1]:12,2:16"
 
 /obj/item/storage/proc/handle_name_initials(var/sample_name)
 	var/name_initials = ""
@@ -390,58 +397,61 @@
 
 /obj/item/storage/proc/space_orient_objs(list/obj/item/display_contents, defer_overlays = FALSE)
 
-	var/baseline_max_storage_space = 16 //should be equal to default backpack capacity
+	// Don't touch these numbers. This works on literal pixel measurements. Unless you want to fix this shit or change the sprites.
 	var/storage_cap_width = 2 //length of sprite for start and end of the box representing total storage space
 	var/stored_cap_width = 4 //length of sprite for start and end of the box representing the stored item
-	var/storage_width = min( round( 224 * max_storage_space/baseline_max_storage_space ,1) ,284) //length of sprite for the box representing total storage space
+	var/storage_width = min(((1+stored_cap_width*2)*max_storage_space - 1),((1+stored_cap_width*2)*DEFAULT_DUFFELBAG_STORAGE - 1)) //length of sprite for the box representing total storage space, -1px. because no spacing on left for first item.
 
-	storage_start.cut_overlays()
+	storage_start.ClearOverlays()
 
 	var/matrix/M = matrix()
-	M.Scale((storage_width-storage_cap_width*2+3)/32,1)
+	M.Scale(storage_width / 32,1)
 	storage_continue.transform = M
 
-	storage_start.screen_loc = "4:16,2:16"
-	storage_continue.screen_loc = "4:[storage_cap_width+(storage_width-storage_cap_width*2)/2+2],2:16"
-	storage_end.screen_loc = "4:[19+storage_width-storage_cap_width],2:16"
+	storage_start.screen_loc = "4:12,2:16"
+	storage_continue.screen_loc = "4:[12 - 16 + round((storage_width + storage_cap_width*2) / 2, 1)],2:16" // -16 to center the sprite, since we're 32x32
+	storage_end.screen_loc = "4:[12 + storage_cap_width + storage_width],2:16"
 
 	var/startpoint = 0
-	var/endpoint = 1
+	var/stored_width = 0
+	var/endpoint = 0 - storage_cap_width - 1
 
 	storage_start.vis_contents = list()
 	QDEL_LIST(storage_screens)
 	storage_screens = list()
 
 	for(var/obj/item/O in contents)
-		startpoint = endpoint + 1
-		endpoint += storage_width * O.get_storage_cost()/max_storage_space
+		startpoint = endpoint + stored_cap_width + 1
+		stored_width = (9*O.get_storage_cost()-9)
+		endpoint = startpoint + stored_width + stored_cap_width
 
-		var/obj/screen/storage/background/stored_start = new /obj/screen/storage/background(null, O, "stored_start")
-		var/obj/screen/storage/background/stored_continue = new /obj/screen/storage/background(null, O, "stored_continue")
-		var/obj/screen/storage/background/stored_end = new /obj/screen/storage/background(null, O, "stored_end")
-
+		var/atom/movable/screen/storage/background/stored_start = new /atom/movable/screen/storage/background(null, O, "stored_start")
 		var/matrix/M_start = matrix()
-		var/matrix/M_continue = matrix()
-		var/matrix/M_end = matrix()
-		M_start.Translate(startpoint,0)
-		M_continue.Scale((endpoint-startpoint-stored_cap_width*2)/32,1)
-		M_continue.Translate(startpoint+stored_cap_width+(endpoint-startpoint-stored_cap_width*2)/2 - 16,0)
-		M_end.Translate(endpoint-stored_cap_width,0)
+		M_start.Translate(startpoint, 0)
 		stored_start.transform = M_start
+
+		var/atom/movable/screen/storage/background/stored_continue = new /atom/movable/screen/storage/background(null, O, "stored_continue")
+		var/matrix/M_continue = matrix()
+		M_continue.Scale(stored_width / 32, 1)
+		M_continue.Translate(startpoint - 16 + ((stored_width + stored_cap_width*2) / 2), 0) // -16 to center the sprite, since we're 32x32
 		stored_continue.transform = M_continue
+
+		var/atom/movable/screen/storage/background/stored_end = new /atom/movable/screen/storage/background(null, O, "stored_end")
+		var/matrix/M_end = matrix()
+		M_end.Translate(endpoint, 0)
 		stored_end.transform = M_end
 
 		storage_screens += list(stored_start, stored_continue, stored_end)
 		storage_start.add_vis_contents(list(stored_start, stored_continue, stored_end))
 
-		O.screen_loc = "4:[round((startpoint+endpoint)/2)+2],2:16"
+		O.screen_loc = "4:[round(startpoint + round(stored_width/2))],2:16"
 		O.maptext = ""
-		O.layer = SCREEN_LAYER+0.02
+		O.hud_layerise()
 
 	if (!defer_overlays)
-		storage_start.compile_overlays()
+		storage_start.UpdateOverlays()
 
-	closer.screen_loc = "4:[storage_width+19],2:16"
+	closer.screen_loc = "4:[12+storage_width+storage_cap_width*2],2:16"
 	return
 
 /datum/numbered_display
@@ -465,11 +475,16 @@
 		numbered_contents = list()
 		adjusted_contents = 0
 		for(var/obj/item/I in contents)
-			var/found = 0
+			var/found = FALSE
 			for(var/datum/numbered_display/ND in numbered_contents)
-				if(ND.sample_object.type == I.type)
+				if(ND.sample_object.storage_slot_sort_by_name)
+					if(ND.sample_object.name == I.name)
+						ND.number++
+						found = TRUE
+						break
+				else if(ND.sample_object.type == I.type)
 					ND.number++
-					found = 1
+					found = TRUE
 					break
 			if(!found)
 				adjusted_contents++
@@ -580,13 +595,11 @@
 			add_fingerprint(user)
 
 		if(!prevent_warning)
-			for(var/mob/M in viewers(user, null))
-				if(M == usr)
-					continue
-				else if (M in range(1)) //If someone is standing close enough, they can tell what it is...
-					M.show_message(SPAN_NOTICE("\The [user] puts [W] into [src]."))
-				else if (W && W.w_class >= ITEMSIZE_NORMAL) //Otherwise they can only see large or normal items from a distance...
-					M.show_message(SPAN_NOTICE("\The [user] puts [W] into [src]."))
+			if(W?.w_class >= WEIGHT_CLASS_NORMAL)
+				user.visible_message(SPAN_NOTICE("\The [user] puts [W] into [src]."), SPAN_NOTICE("You put [W] into [src]."))
+			else
+				user.visible_message(SPAN_NOTICE("\The [user] puts [W] into [src]."), SPAN_NOTICE("You slip [W] into [src]."), null, 2)
+
 		orient2hud(user)
 		if(user.s_active)
 			user.s_active.show_to(user)
@@ -640,9 +653,9 @@
 		if(ismob(loc))
 			W.dropped(usr)
 		if(ismob(new_location))
-			W.layer = SCREEN_LAYER + 0.01
+			W.hud_layerise()
 		else
-			W.layer = initial(W.layer)
+			W.reset_plane_and_layer()
 		W.forceMove(new_location)
 	else
 		W.forceMove(get_turf(src))
@@ -654,7 +667,7 @@
 	if(W.maptext)
 		W.maptext = ""
 	if(display_contents_initials)
-		W.cut_overlays()
+		W.ClearOverlays()
 	W.on_exit_storage(src)
 	update_icon()
 	return TRUE
@@ -673,9 +686,9 @@
 		if(ismob(loc))
 			W.dropped(user)
 		if(ismob(new_location))
-			W.layer = SCREEN_LAYER + 0.01
+			W.hud_layerise()
 		else
-			W.layer = initial(W.layer)
+			W.reset_plane_and_layer()
 		W.forceMove(new_location)
 	else
 		W.forceMove(get_turf(src))
@@ -692,7 +705,6 @@
 	if (user.s_active)
 		user.s_active.show_to(user)
 
-	// who knows what the fuck this does
 	if (istype(src, /obj/item/storage/box/fancy))
 		update_icon(1)
 	else
@@ -710,22 +722,7 @@
 	..()
 
 	if(!attacking_item.dropsafety())
-		return.
-
-	if(istype(attacking_item, /obj/item/device/lightreplacer))
-		var/obj/item/device/lightreplacer/LP = attacking_item
-		var/amt_inserted = 0
-		var/turf/T = get_turf(user)
-		for(var/obj/item/light/L in src.contents)
-			if(L.status == 0)
-				if(LP.uses < LP.max_uses)
-					LP.AddUses(1)
-					amt_inserted++
-					remove_from_storage(L, T)
-					qdel(L)
-		if(amt_inserted)
-			to_chat(user, "You inserted [amt_inserted] light\s into \the [LP.name]. You have [LP.uses] light\s remaining.")
-			return
+		return
 
 	if(!can_be_inserted(attacking_item))
 		return
@@ -734,7 +731,7 @@
 		var/obj/item/tray/T = attacking_item
 		if(T.current_weight > 0)
 			T.spill(user)
-			to_chat(user, "<span class='warning'>Trying to place a loaded tray into [src] was a bad idea.</span>")
+			to_chat(user, SPAN_WARNING("Trying to place a loaded tray into [src] was a bad idea."))
 			return
 
 	if(istype(attacking_item, /obj/item/device/hand_labeler))
@@ -761,7 +758,11 @@
 			return
 
 	if (src.loc == user)
-		src.open(user)
+		//If the storage is already open, close it, otherwise open it
+		if(user.s_active == src)
+			src.close(user)
+		else
+			src.open(user)
 	else
 		..()
 		for(var/mob/M in range(1, get_turf(src)) - user)
@@ -833,29 +834,38 @@
 
 	fill()
 
+	if(make_exact_fit)
+		make_exact_fit()
+
+	for(var/obj/item/I in contents)
+		I.in_storage = TRUE
+
 	if(!allow_quick_empty)
 		verbs -= /obj/item/storage/verb/quick_empty
 
 	if(!allow_quick_gather)
 		verbs -= /obj/item/storage/verb/toggle_gathering_mode
 
-	boxes = new /obj/screen/storage{icon_state = "block"}
+	boxes = new /atom/movable/screen/storage{icon_state = "block"}
 	boxes.master = src
 
-	storage_start = new /obj/screen/storage{icon_state = "storage_start"}
+	storage_start = new /atom/movable/screen/storage{icon_state = "storage_start"}
 	storage_start.master = src
+	storage_start.layer = HUD_BASE_LAYER
 
-	storage_continue = new /obj/screen/storage{icon_state = "storage_continue"}
+	storage_continue = new /atom/movable/screen/storage{icon_state = "storage_continue"}
 	storage_continue.master = src
+	storage_continue.layer = HUD_BASE_LAYER
 
-	storage_end = new /obj/screen/storage{icon_state = "storage_end"}
+	storage_end = new /atom/movable/screen/storage{icon_state = "storage_end"}
 	storage_end.master = src
+	storage_end.layer = HUD_BASE_LAYER
 
-	closer = new /obj/screen/close{
+	closer = new /atom/movable/screen/close{
 		icon_state = "x";
-		layer = SCREEN_LAYER
 	}
 	closer.master = src
+	closer.layer = HUD_BASE_LAYER
 	orient2hud(null, mapload)
 
 	if (defer_shrinkwrap)	// Caller wants to defer shrinkwrapping until after the current callstack; probably putting something in.
@@ -967,22 +977,7 @@
 	return depth
 
 /obj/item/proc/get_storage_cost()
-	if (storage_cost)
-		return storage_cost
-	else
-		if(w_class == ITEMSIZE_TINY)
-			return 1
-		if(w_class == ITEMSIZE_SMALL)
-			return 2
-		if(w_class == ITEMSIZE_NORMAL)
-			return 4
-		if(w_class == ITEMSIZE_LARGE)
-			return 8
-		if(w_class == ITEMSIZE_HUGE)
-			return 16
-		else
-			return 1000
-
-		//return 2**(w_class-1) //1,2,4,8,16,...
+	//If you want to prevent stuff above a certain w_class from being stored, use max_w_class
+	return BASE_STORAGE_COST(w_class)
 
 #undef STORAGE_SPACE_CAP

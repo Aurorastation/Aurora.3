@@ -8,7 +8,6 @@
 // Admin
 	var/datum/admins/holder = null
 	var/datum/admins/deadmin_holder = null
-	var/buildmode = 0
 
 // Spam Protection
 	var/last_message = "" // Contains the last message sent by this client - used to protect against copy-paste spamming.
@@ -77,8 +76,16 @@
 	var/last_asset_job = 0
 	var/last_completed_asset_job = 0
 
+	///Hide top bars
+	var/fullscreen = FALSE
+	///Hide status bar (bottom left)
+	var/show_status_bar = TRUE
+
 	/// our current tab
 	var/stat_tab
+
+	/// If this client has been fully initialized or not
+	var/fully_created = FALSE
 
 	/// list of all tabs
 	var/list/panel_tabs = list()
@@ -86,3 +93,10 @@
 	var/list/spell_tabs = list()
 	///Our object window datum. It stores info about and handles behavior for the object tab
 	var/datum/object_window_info/obj_window
+	///When we started the currently active drag
+	var/drag_start = 0
+	///The params we were passed at the start of the drag, in list form
+	var/list/drag_details
+
+	/// The DPI scale of the client. 1 is equivalent to 100% window scaling, 2 will be 200% window scaling
+	var/window_scaling

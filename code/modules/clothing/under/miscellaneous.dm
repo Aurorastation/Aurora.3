@@ -14,7 +14,7 @@
 	body_parts_covered = 0
 	species_restricted = null
 	sprite_sheets = list(
-		BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/suit.dmi',
+		BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/uniform.dmi',
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/uniform.dmi'
 		)
 
@@ -121,7 +121,7 @@
 	icon_state = "black"
 	item_state = "bl_suit"
 	worn_state = "black"
-	w_class = ITEMSIZE_LARGE//bulky item
+	w_class = WEIGHT_CLASS_BULKY//bulky item
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.02
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
@@ -138,13 +138,13 @@
 	permeability_coefficient = 0.01
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	armor = list(
-			melee = ARMOR_MELEE_VERY_HIGH,
-			bullet = ARMOR_BALLISTIC_AP,
-			laser = ARMOR_LASER_HEAVY,
-			energy = ARMOR_ENERGY_SHIELDED,
-			bomb = ARMOR_BOMB_SHIELDED,
-			bio = ARMOR_BIO_SHIELDED,
-			rad = ARMOR_RAD_SHIELDED
+			MELEE = ARMOR_MELEE_VERY_HIGH,
+			BULLET = ARMOR_BALLISTIC_AP,
+			LASER = ARMOR_LASER_HEAVY,
+			ENERGY = ARMOR_ENERGY_SHIELDED,
+			BOMB = ARMOR_BOMB_SHIELDED,
+			BIO = ARMOR_BIO_SHIELDED,
+			RAD = ARMOR_RAD_SHIELDED
 			)
 	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
@@ -341,6 +341,14 @@
 	item_state = "crdress"
 	worn_state = "crdress"
 
+/obj/item/clothing/under/dress/offworlder/skirt
+	name = "\improper CR dress skirt"
+	desc = "A very tight form-fitting padded suit that looks extremely comfortable to wear. This variant seems to have a poofy skirt and longer sleeves than normal."
+	icon_state = "crskirt"
+	item_state = "crskirt"
+	worn_state = "crskirt"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+
 /obj/item/clothing/under/hosformalmale
 	name = "head of security's formal uniform"
 	desc = "A male head of security's formal-wear, for special occasions."
@@ -517,7 +525,7 @@
 	contained_sprite = TRUE
 	siemens_coefficient = 0.7
 	armor = list(
-		melee = ARMOR_MELEE_MINOR)
+		MELEE = ARMOR_MELEE_MINOR)
 
 /obj/item/clothing/under/legion/sentinel
 	name = "Tau Ceti Foreign Legion sentinel uniform"
@@ -540,15 +548,6 @@
 	item_state = "tauceti_pilot"
 	worn_state = "tauceti_pilot"
 
-/obj/item/clothing/under/legion/tcaf
-	name = "\improper TCAF armsman uniform"
-	desc = "A black longsleeved top over rough khaki tactical pants. Designed for the use of on-ship legionnaires serving the Republic."
-	icon = 'icons/clothing/under/uniforms/tcaf_uniform.dmi'
-	contained_sprite = TRUE
-	icon_state = "tcaf_armsman_uniform"
-	item_state = "tcaf_armsman_uniform"
-	worn_state = "tcaf_armsman_uniform"
-
 /obj/item/clothing/under/offworlder
 	name = "\improper CR suit"
 	desc = "A very tight form-fitting padded suit that looks extremely comfortable to wear."
@@ -565,7 +564,7 @@
 	//item_state = "swatunder"
 	worn_state = "swatunder"
 	armor = list(
-		melee = ARMOR_MELEE_MINOR
+		MELEE = ARMOR_MELEE_MINOR
 		)
 	siemens_coefficient = 0.7
 
@@ -577,7 +576,7 @@
 	worn_state = "lance_fatigues"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	armor = list(
-		melee = ARMOR_MELEE_MINOR
+		MELEE = ARMOR_MELEE_MINOR
 		)
 	siemens_coefficient = 0.7
 
@@ -613,12 +612,13 @@
 /obj/item/clothing/under/rank/elyran_fatigues
 	name = "elyran navy uniform"
 	desc = "An utility uniform worn by Elyran navy staff serving aboard ships and in the field."
+	icon = ""
 	icon_state = "elyran_fatigues"
 	item_state = "elyran_fatigues"
 	armor = list(
-		melee = ARMOR_MELEE_SMALL,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_MINOR
+		MELEE = ARMOR_MELEE_SMALL,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_MINOR
 		)
 
 /obj/item/clothing/under/rank/elyran_fatigues/commander
@@ -635,9 +635,9 @@
 	item_state = "konyang_army"
 	contained_sprite = TRUE
 	armor = list(
-		melee = ARMOR_MELEE_SMALL,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_MINOR
+		MELEE = ARMOR_MELEE_SMALL,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_MINOR
 		)
 
 /obj/item/clothing/under/rank/konyang/officer
@@ -733,3 +733,95 @@
 	icon_state = "underglove"
 	item_state = "underglove"
 	contained_sprite = TRUE
+
+//Xanu
+
+/obj/item/clothing/under/xanu
+	name = "xanu armed forces fatigues"
+	desc = "Fireproof, kevlar-reinforced combat fatigues used by enlisted personnel of the All-Xanu Armed Forces."
+	icon = 'icons/clothing/under/uniforms/xanu.dmi'
+	icon_state = "xanu"
+	item_state = "xanu"
+	contained_sprite = TRUE
+	siemens_coefficient = 0.5
+	armor = list(
+		MELEE = ARMOR_MELEE_KNIVES,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_MINOR
+		)
+
+/obj/item/clothing/under/xanu/med
+	name = "xanu armed forces medic fatigues"
+	desc = "Fireproof, kevlar-reinforced combat fatigues used by medics of the All-Xanu Armed Forces."
+	icon_state = "xanu_med"
+	item_state = "xanu_med"
+
+/obj/item/clothing/under/xanu/engi
+	name = "xanu armed forces engineer fatigues"
+	desc = "Fireproof, kevlar-reinforced combat fatigues used by engineers of the All-Xanu Armed Forces."
+	icon_state = "xanu_engi"
+	item_state = "xanu_engi"
+
+/obj/item/clothing/under/xanu/maa
+	name = "xanu armed forces master-at-arms fatigues"
+	desc = "Fireproof, kevlar-reinforced combat fatigues used by masters-at-arms of the All-Xanu Armed Forces."
+	icon_state = "xanu_maa"
+	item_state = "xanu_maa"
+
+/obj/item/clothing/under/xanu/pilot
+	name = "xanu armed forces pilot fatigues"
+	desc = "Fireproof, kevlar-reinforced combat fatigues used by pilots of the All-Xanu Armed Forces."
+	icon_state = "xanu_pilot"
+	item_state = "xanu_pilot"
+
+/obj/item/clothing/under/xanu/officer
+	name = "xanu armed forces officer coat"
+	desc = "A shirt and tie underneath a shortcoat, used by commissioned officers of the All-Xanu Armed Forces."
+	icon_state = "xanu_comm"
+	item_state = "xanu_comm"
+
+/obj/item/clothing/under/xanu/officer/senior
+	name = "xanu armed forces senior officer coat"
+	desc = "A shirt and tie underneath a shortcoat, used by high-ranking commissioned officers of the All-Xanu Armed Forces."
+	icon_state = "xanu_cap"
+	item_state = "xanu_cap"
+
+//Hephaestus ERT
+
+/obj/item/clothing/under/ert/hephaestus
+	name = "\improper Hephaestus military tactical uniform"
+	desc = "A green colored uniform worn by Hephaestus Industries's private military forces and hostile terraforming corps."
+	icon = 'icons/clothing/under/uniforms/cyclops_uniforms.dmi'
+	icon_state = "heph_military"
+	item_state = "heph_military"
+	contained_sprite = TRUE
+	rolled_sleeves = 0
+
+/obj/item/clothing/under/ert/hephaestus/medic
+	name = "\improper Hephaestus military medic tactical uniform"
+	desc = "A green colored uniform worn by Hephaestus Industries's private military forces and hostile terraforming corps. This one has blue highlights denoting a squad medic."
+	has_accents = TRUE
+	accent_color = COLOR_CYAN_BLUE
+
+/obj/item/clothing/under/ert/hephaestus/engineer
+	name = "\improper Hephaestus military engineer tactical uniform"
+	desc = "A green colored uniform worn by Hephaestus Industries's private military forces and hostile terraforming corps. This one has orange highlights denoting a squad engineer."
+	has_accents = TRUE
+	accent_color = COLOR_ORANGE
+
+/obj/item/clothing/under/ert/hephaestus/leader
+	name = "\improper Hephaestus military leader tactical uniform"
+	desc = "A green colored uniform worn by Hephaestus Industries's private military forces and hostile terraforming corps. This one has red highlights denoting a squad leader."
+	has_accents = TRUE
+	accent_color = COLOR_RED
+
+/obj/item/clothing/head/hephaestus_military
+	name = "\improper Hephaestus military utility cover"
+	desc = "A military cover issued to Hephaestus Industries's private military personnel as part of their uniform."
+	icon = 'icons/clothing/under/uniforms/cyclops_uniforms.dmi'
+	icon_state = "heph_military_utility"
+	item_state = "heph_military_utility"
+	contained_sprite = TRUE
+	armor = list(
+		MELEE = ARMOR_MELEE_MINOR
+		)

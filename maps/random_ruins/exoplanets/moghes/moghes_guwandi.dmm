@@ -1,0 +1,64 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/template_noop)
+"u" = (
+/obj/structure/flora/rock/desert,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/template_noop)
+"M" = (
+/obj/structure/bed/stool/wood,
+/obj/effect/ghostspawpoint{
+	name = "igs - moghes_guwandi";
+	identifier = "moghes_guwandi"
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/template_noop)
+"X" = (
+/obj/structure/bonfire,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/template_noop)
+
+(1,1,1) = {"
+a
+a
+a
+a
+a
+"}
+(2,1,1) = {"
+a
+u
+a
+a
+a
+"}
+(3,1,1) = {"
+a
+M
+X
+a
+a
+"}
+(4,1,1) = {"
+a
+a
+a
+a
+a
+"}
+(5,1,1) = {"
+a
+a
+a
+a
+a
+"}

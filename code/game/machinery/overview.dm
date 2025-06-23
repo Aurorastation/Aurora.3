@@ -7,7 +7,7 @@
 	usr.set_machine(src)
 	if(!mapping)	return
 
-	log_game("[usr]([usr.key]) used station map L[z] in [src.loc.loc]",ckey=key_name(usr))
+	log_game("[usr]([usr.key]) used station map L[z] in [src.loc.loc]")
 
 	src.drawmap(usr)
 
@@ -98,7 +98,8 @@
 								colour2 = rgb(255,128,0)
 
 						if(istype(AM, /mob))
-							if(AM:client)
+							var/mob/a_mob = AM
+							if(a_mob.client)
 								colour = rgb(255,0,0)
 							else
 								colour = rgb(255,128,128)
@@ -157,7 +158,7 @@
 
 
 	for(var/i=0; i<icount;i++)
-		var/obj/screen/H = new /obj/screen()
+		var/atom/movable/screen/H = new /atom/movable/screen()
 
 		H.screen_loc = "[5 + i%icx],[6+ round(i/icx)]"
 
@@ -282,7 +283,7 @@
 
 
 	for(var/i=0; i<icount;i++)
-		var/obj/screen/H = new /obj/screen()
+		var/atom/movable/screen/H = new /atom/movable/screen()
 
 		H.screen_loc = "[5 + i%icx],[6+ round(i/icx)]"
 
@@ -310,20 +311,16 @@
 
 
 /obj/machinery/computer/security/proc/close(mob/user)
-	spawn(20)
-		var/using = null
-		if(user.mapobjs)
-			for(var/obj/machinery/computer/security/seccomp in oview(1,user))
-				if(seccomp == src)
-					using = 1
-					break
-			if(using)
-				close(user)
-			else
-				user.clearmap()
-
-
-		return
+	var/using = null
+	if(user.mapobjs)
+		for(var/obj/machinery/computer/security/seccomp in oview(1,user))
+			if(seccomp == src)
+				using = 1
+				break
+		if(using)
+			close(user)
+		else
+			user.clearmap()
 
 /proc/getr(col)
 	return hex2num( copytext(col, 2,4))
@@ -337,7 +334,7 @@
 
 /mob/proc/clearmap()
 	src.client.screen -= src.mapobjs
-	for(var/obj/screen/O in mapobjs)
+	for(var/atom/movable/screen/O in mapobjs)
 		qdel(O)
 
 	mapobjs = null

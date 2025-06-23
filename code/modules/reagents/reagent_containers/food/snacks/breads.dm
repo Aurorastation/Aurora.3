@@ -289,7 +289,6 @@
 	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/singleton/reagent/nutriment = 5)
 	reagent_data = list(/singleton/reagent/nutriment = list("poppy seeds" = 2, "pretzel" = 3))
-	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/bagel
 	name = "bagel"
@@ -511,6 +510,39 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("toasted bread" = 3, "cheese" = 3))
 	bitesize = 2
 
+/obj/item/reagent_containers/food/snacks/grilled_mac_and_cheese
+	name = "grilled mac and cheese sandwich"
+	desc = "You know what would make these carbs better? MORE CARBS! Gooey macaroni and cheese between two careful slices of crunchy, toasted bread. This was either invented by a hipster, a broke college student, or both."
+	icon = 'icons/obj/item/reagent_containers/food/bread.dmi'
+	icon_state = "maccheesesandwich"
+	trash = /obj/item/trash/plate
+	filling_color = "#D9BE29"
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 1)
+	reagent_data = list(/singleton/reagent/nutriment/protein = list("cheese" = 5))
+	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/grilled_triple_cheese_crunch_sandwich
+	name = "grilled triple cheese crunch sandwich"
+	desc = "Who needs a four cheese medley when you have the classy and playful variety of cheddar, nakarka, and uh... whatever that glowy orange crud they put in cheesie honkers is, all in one sandwich?"
+	icon = 'icons/obj/item/reagent_containers/food/bread.dmi'
+	icon_state = "triplecheesecrunch"
+	trash = /obj/item/trash/plate
+	filling_color = "#b9d929"
+	reagents_to_add = list(/singleton/reagent/nutriment = 5, /singleton/reagent/nutriment/protein = 5)
+	reagent_data = list(/singleton/reagent/nutriment = list("toasted bread" = 2, "tangy cheese" = 3), /singleton/reagent/nutriment/protein = list("sharp cheese" = 3, "crunchy cheese" = 3))
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/crab_leg_grilled_cheese_sandwich
+	name = "crab leg grilled cheese sandwich"
+	desc = "The fancier cousin of your boring, run-of-the-mill grilled cheese sandwich, adding a buttery crab leg to the mix for a unique upgrade."
+	icon = 'icons/obj/item/reagent_containers/food/bread.dmi'
+	icon_state = "crableggrilledcheese"
+	trash = /obj/item/trash/plate
+	filling_color = "#d99b29"
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 2)
+	reagent_data = list(/singleton/reagent/nutriment/protein = list("crab meat" = 5, "cheese" = 5))
+	bitesize = 2
+
 /obj/item/reagent_containers/food/snacks/reubensandwich
 	name = "reuben sandwich"
 	desc = "A toasted sandwich packed with savory, meat and sour goodness!"
@@ -612,4 +644,29 @@
 	filling_color = "#311909"
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/choconutspread = 4)
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 8, "pita bread" = 5, "childhood" = 3))
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/pita/peanut_butter
+	name = "peanut butter pita"
+	desc = "It's basically a simple peanut butter sandwich, but in the form of a fluffy dough pocket."
+	icon_state = "pbpita"
+	filling_color = "#a06935"
+	reagents_to_add = list(/singleton/reagent/nutriment = 8)
+	reagent_data = list(/singleton/reagent/nutriment = list("peanut butter" = 5, "pita bread" = 4))
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/pita/omelette
+	name = "omelette pita"
+	desc = "An omelette sitting comfortably in a fluffy pocket of pita bread."
+	icon_state = "omelettepita"
+	filling_color = "#dbb302"
+	reagents_to_add = list(/singleton/reagent/nutriment = 5, /singleton/reagent/nutriment/protein = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("pita bread" = 5), /singleton/reagent/nutriment/protein = list("omelette" = 5))
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/pita/schnitzel
+	name = "schnitzel pita"
+	desc = "Elyran style schnitzels in a pita bread pocket, served with some Hummus or Tahini. Optionally with some fries, salad, or sauces."
+	icon_state = "schnitzelpita"
+	filling_color = "#cf7105"
 	bitesize = 2

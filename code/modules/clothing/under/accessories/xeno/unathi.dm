@@ -10,6 +10,7 @@
 	contained_sprite = TRUE
 	action_button_name = "Adjust Hood"
 	var/up = TRUE
+	protects_against_weather = TRUE
 
 /obj/item/clothing/accessory/sinta_hood/get_ear_examine_text(var/mob/user, var/ear_text = "left")
 	return "on [user.get_pronoun("his")] head"
@@ -64,6 +65,7 @@
 	item_state = "maxtlatl"
 	icon_override = null
 	contained_sprite = TRUE
+	protects_against_weather = FALSE
 
 /obj/item/clothing/accessory/poncho/unathimantle
 	name = "desert hide mantle"
@@ -97,6 +99,19 @@
 	promoted to Saa rarely understand the gravity of these trials. Serpents large enough to swallow Unathi whole, \
 	they can live up to half a millenia- should enough foolish adventurers try to slay it, that is."
 	worn_overlay = "mountain"
+
+/obj/item/clothing/accessory/poncho/unathimantle/jungle
+	name = "jungle hide mantle"
+	desc = "A mantle made to mimic the original Moghesian ones with the resources found on Ouerea, which can be seen \
+	on the backs of both the destitute and the more powerful Sinta. Made from awth'una hide, its bright colors made it quite \
+	fashionable, and some have even been exported to Unathi abroad."
+	desc_extended = "The jungle mantle was originally made to replace the traditional mantles of Moghes a few years after the first Unathi \
+	colonists landed on Ouerea, a way for them to preserve their tradition and fashion, and to stand out from those on the home world. These \
+	mantles are made from awth'una hide, the largest one requiring the hide of multiple ones to be made, proving to be surprisingly light yet tough. \
+	The jungle mantle is more of a fashion statement than a sign of status, and thus, Unathi from various backgrounds can be seen wearing it. \
+	The bright green colors of the awth'una have made these mantles quite popular among Sinta abroad, and though they are still a very rare sight \
+	on Moghes, Sinta from across the Spur have imported some of these mantles, namely on Mictlan."
+	worn_overlay = "jungle"
 
 /obj/item/clothing/accessory/poncho/unathimantle/hephaestus
 	name = "hephaestus guild mantle"
@@ -191,6 +206,20 @@
 	megacorporation's aquacultural expansions on Ouerea - bringing an end to the famine, though some say at the price of the guild's soul."
 	worn_overlay = "fishingleague"
 
+/obj/item/clothing/accessory/poncho/unathimantle/tretian
+	name = "tretian guild mantle"
+	desc = "The cured hide and skin of a large beast, dyed in the acidic yellow of the Tretian Guild. These mantles are reserved for full-fledged guildsmen, as a sign of \
+	their position in the guild."
+	desc_extended = "The Tretian Guild is the only Unathi guild with a K'lax majority. \
+	Established in Tret, the guild specializes in operating and maintaining the large-scale manufacturing operations of the factory-planet. \
+	In a controversial move, the Tretian Guild expanded its operations beyond Tret in mid-2466, acting as strikebreakers and supplemental workers \
+	for operations where workers of other guilds may be unwilling or unable to fulfill their duties."
+	worn_overlay = "tretianguild"
+	sprite_sheets = list(
+		BODYTYPE_VAURCA = 'icons/mob/species/vaurca/suit.dmi',
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/suit.dmi'
+	)
+
 /obj/item/clothing/accessory/poncho/rockstone
 	name = "rockstone cape"
 	desc = "A cape seen exclusively on nobility. The chain is adorned with precious, multi-color stones, hence its name."
@@ -205,3 +234,41 @@
 	build_from_parts = TRUE
 	worn_overlay =  "chain"
 	has_accents = TRUE
+	protects_against_weather = FALSE
+
+/obj/item/clothing/accessory/poncho/scaleshield
+	name = "scaleshield"
+	desc = "A reinforced canvas and fabric made by Dominian Unathi, for Dominian Unathi, to face the cold weather of Moroz and look good doing it."
+	desc_extended = "A thick, warm piece of reinforced canvas and fabric made by Dominian Unathi to keep themselves warm in Moroz's \
+	frigid climate. Nowadays, its also become a fashion statement for those that wear it."
+	icon = 'icons/obj/unathi_items.dmi'
+	icon_state = "scaleshield"
+	item_state = "scaleshield"
+	icon_override = null
+	contained_sprite = TRUE
+	build_from_parts = TRUE
+	worn_overlay = "scaleshield"
+
+/obj/item/clothing/accessory/poncho/scaleshield/LSscaleshield
+	name = "Landsite Scaleshield"
+	desc = "A reinforced canvas and fabric made by Dominian Unathi, for Dominian Unathi, to face the cold weather of Moroz and look good doing it."
+	desc_extended = "A thick, warm piece of reinforced canvas and fabric made by Dominian Unathi to keep themselves warm in Moroz's \
+	frigid climate. This one bears a pattern commonly seen in the New Hope Unathi District, also known as Landsite."
+	icon = 'icons/obj/unathi_items.dmi'
+	worn_overlay = "LSscaleshield"
+
+/obj/item/clothing/accessory/poncho/scaleshield/ATscaleshield
+	name = "Anvil Towers Scaleshield"
+	desc = "A reinforced canvas and fabric made by Dominian Unathi, for Dominian Unathi, to face the cold weather of Moroz and look good doing it."
+	desc_extended = "A thick, warm piece of reinforced canvas and fabric made by Dominian Unathi to keep themselves warm in Moroz's \
+	frigid climate. This one bears a pattern commonly seen in the Anvil Unathi District, also known as Anvil Towers."
+	icon = 'icons/obj/unathi_items.dmi'
+	worn_overlay = "ATscaleshield"
+
+/obj/item/clothing/accessory/poncho/scaleshield/WTscaleshield
+	name = "Widowtown Scaleshield"
+	desc = "A reinforced canvas and fabric made by Dominian Unathi, for Dominian Unathi, to face the cold weather of Moroz and look good doing it."
+	desc_extended = "A thick, warm piece of reinforced canvas and fabric made by Dominian Unathi to keep themselves warm in Moroz's \
+	frigid climate. This one bears a pattern commonly seen in Hunter’s District, also known as Widowtown."
+	icon = 'icons/obj/unathi_items.dmi'
+	worn_overlay = "WTscaleshield"

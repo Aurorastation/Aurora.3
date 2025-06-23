@@ -5,8 +5,13 @@
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_HANEUNIM)
-	suffixes = list("konyang/abandoned_village.dmm")
+
+	prefix = "konyang/abandoned/"
+	suffix = "abandoned_village.dmm"
+
 	ban_ruins = list(/datum/map_template/ruin/exoplanet/konyang_village)
+
+	unit_test_groups = list(2)
 
 /obj/effect/landmark/corpse/konyang_villager
 	name = "Konyang Villager"
@@ -20,4 +25,4 @@
 		M.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/hooded/wintercoat/konyang(M), slot_wear_suit)
 	M.adjustBruteLoss(rand(200, 400))
 	M.change_skin_tone(rand(0, 100))
-	M.dir = pick(GLOB.cardinal)
+	M.dir = pick(GLOB.cardinals)

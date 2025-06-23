@@ -9,9 +9,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/exoplanet/adhomai)
 "cw" = (
-/turf/simulated/floor/carpet/art{
-	temperature = 278.15
-	},
+/turf/simulated/floor/exoplanet/carpet/art,
 /area/exoplanet/adhomai)
 "ef" = (
 /obj/structure/bed/padded,
@@ -89,25 +87,20 @@
 /area/exoplanet/adhomai)
 "ko" = (
 /obj/item/trash/grease,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/exoplanet/adhomai)
+"kw" = (
+/obj/machinery/door/urban,
+/turf/simulated/floor/exoplanet/wood,
 /area/exoplanet/adhomai)
 "kB" = (
 /obj/item/trash/can/adhomian_can,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "kJ" = (
 /obj/structure/closet/crate/freezer,
 /obj/item/reagent_containers/bowl/plate,
 /obj/item/reagent_containers/bowl/plate,
-/turf/simulated/floor/exoplanet/wood,
-/area/exoplanet/adhomai)
-"kO" = (
-/obj/structure/window/basic,
-/obj/structure/curtain/black,
 /turf/simulated/floor/exoplanet/wood,
 /area/exoplanet/adhomai)
 "mf" = (
@@ -116,21 +109,15 @@
 /area/exoplanet/adhomai)
 "mF" = (
 /obj/structure/bed/padded,
-/turf/simulated/floor/carpet/art{
-	temperature = 278.15
-	},
+/turf/simulated/floor/exoplanet/carpet/art,
 /area/exoplanet/adhomai)
 "nR" = (
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "qm" = (
 /obj/structure/bed/padded,
 /obj/structure/curtain/open/bed,
-/turf/simulated/floor/carpet/art{
-	temperature = 278.15
-	},
+/turf/simulated/floor/exoplanet/carpet/art,
 /area/exoplanet/adhomai)
 "rf" = (
 /obj/structure/simple_door/wood,
@@ -142,9 +129,7 @@
 /area/exoplanet/adhomai)
 "sS" = (
 /obj/item/trash/broken_electronics,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "uc" = (
 /obj/structure/railing/fence,
@@ -157,9 +142,7 @@
 /obj/structure/mirror{
 	pixel_y = 32
 	},
-/turf/simulated/floor/tiled/freezer{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/tiled/freezer,
 /area/exoplanet/adhomai)
 "wx" = (
 /obj/item/material/shard/wood,
@@ -167,9 +150,7 @@
 /area/exoplanet/adhomai)
 "xc" = (
 /obj/structure/closet/crate/trashcart,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "xn" = (
 /obj/structure/bed/stool/chair/wood{
@@ -185,13 +166,6 @@
 /obj/item/bedsheet/black,
 /turf/simulated/floor/exoplanet/wood,
 /area/exoplanet/adhomai)
-"zh" = (
-/obj/structure/window/basic{
-	dir = 1
-	},
-/obj/structure/curtain/black,
-/turf/simulated/floor/exoplanet/wood,
-/area/exoplanet/adhomai)
 "zA" = (
 /obj/structure/railing/fence{
 	dir = 8
@@ -201,9 +175,7 @@
 	},
 /area/exoplanet/adhomai)
 "Aq" = (
-/turf/simulated/floor/tiled/freezer{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/tiled/freezer,
 /area/exoplanet/adhomai)
 "BZ" = (
 /obj/structure/railing/fence,
@@ -220,27 +192,19 @@
 /area/exoplanet/adhomai)
 "Cw" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/turf/simulated/floor/tiled/white{
-	temperature = 278.15
-	},
+/turf/simulated/floor/exoplanet/tiled/white,
 /area/exoplanet/adhomai)
 "DP" = (
 /obj/machinery/light/small,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "Fz" = (
 /obj/structure/sink/puddle,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "FM" = (
 /obj/structure/flora/grass/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "Gu" = (
 /turf/simulated/wall/wood,
@@ -253,9 +217,7 @@
 /area/exoplanet/adhomai)
 "Ht" = (
 /obj/item/material/shard,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "HX" = (
 /obj/structure/bed/stool/chair/sofa/right/brown,
@@ -274,9 +236,7 @@
 /obj/structure/railing/fence{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "Jb" = (
 /obj/item/material/shard/wood,
@@ -286,9 +246,13 @@
 /area/exoplanet/adhomai)
 "KV" = (
 /obj/item/material/shard/wood,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/exoplanet/adhomai)
+"Mb" = (
+/obj/machinery/door/urban{
+	dir = 8
 	},
+/turf/simulated/floor/exoplanet/wood,
 /area/exoplanet/adhomai)
 "Oa" = (
 /obj/structure/reagent_dispensers/keg/mead,
@@ -329,15 +293,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
-/turf/simulated/floor/tiled/white{
-	temperature = 278.15
-	},
+/turf/simulated/floor/exoplanet/tiled/white,
 /area/exoplanet/adhomai)
 "TD" = (
 /obj/structure/curtain/black,
-/obj/structure/window/basic{
-	dir = 4
-	},
+/obj/effect/map_effect/window_spawner/full/wood,
 /turf/simulated/floor/exoplanet/wood,
 /area/exoplanet/adhomai)
 "TQ" = (
@@ -375,9 +335,7 @@
 	pixel_x = 7;
 	pixel_y = 8
 	},
-/turf/simulated/floor/tiled/white{
-	temperature = 278.15
-	},
+/turf/simulated/floor/exoplanet/tiled/white,
 /area/exoplanet/adhomai)
 "YQ" = (
 /obj/structure/railing/fence{
@@ -393,9 +351,7 @@
 /area/exoplanet/adhomai)
 "YV" = (
 /obj/structure/flora/bush/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "Zi" = (
 /obj/structure/railing/fence{
@@ -492,7 +448,7 @@ nR
 Gu
 Ic
 WK
-fq
+Qe
 Gu
 nR
 nR
@@ -527,7 +483,7 @@ Gu
 WK
 WK
 Cc
-kO
+TD
 nR
 nR
 nR
@@ -545,7 +501,7 @@ nR
 "}
 (5,1,1) = {"
 nR
-zh
+TD
 Rw
 WK
 WK
@@ -560,7 +516,7 @@ Gu
 Oa
 WK
 wx
-Qe
+fq
 Gu
 nR
 nR
@@ -590,7 +546,7 @@ WK
 Rh
 Rh
 Rh
-rf
+kw
 WK
 WK
 WK
@@ -1074,10 +1030,10 @@ nR
 nR
 nR
 Rh
-rf
+kw
 WK
 WK
-rf
+kw
 WK
 Wa
 Wa
@@ -1099,7 +1055,7 @@ Gu
 Gu
 Gu
 Gu
-rf
+Mb
 Gu
 Gu
 wj
@@ -1168,7 +1124,7 @@ WK
 WK
 WK
 WK
-rf
+kw
 Aq
 Aq
 Aq
@@ -1191,7 +1147,7 @@ nR
 "}
 (24,1,1) = {"
 nR
-zh
+TD
 WK
 WK
 WK
@@ -1225,7 +1181,7 @@ nR
 "}
 (25,1,1) = {"
 nR
-zh
+TD
 WK
 WK
 WK

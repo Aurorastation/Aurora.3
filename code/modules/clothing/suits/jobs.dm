@@ -150,7 +150,7 @@
 	icon_state = "idris_warden_coat"
 	item_state = "idris_warden_coat"
 
-/obj/item/clothing/suit/storage/toggle/det_trench // Not security anymore, but used in the loadout.
+/obj/item/clothing/suit/storage/toggle/trench/det_trench // Not security anymore, but used in the loadout.
 	name = "brown trenchcoat"
 	desc = "A rugged canvas trenchcoat, designed and created by TX Fabrication Corp. Perfect for your next act of autodefenestration!"
 	icon_state = "detective"
@@ -159,9 +159,10 @@
 	body_parts_covered = UPPER_TORSO|ARMS
 	allowed = list(/obj/item/tank/emergency_oxygen,/obj/item/device/flashlight,/obj/item/gun/energy,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/storage/box/fancy/cigarettes,/obj/item/flame/lighter,/obj/item/device/taperecorder,/obj/item/clothing/accessory/badge/investigator)
 
-/obj/item/clothing/suit/storage/toggle/det_trench/black
+/obj/item/clothing/suit/storage/toggle/trench/det_trench/black
 	name = "black trenchcoat"
 	icon_state = "detective2"
+	item_state = "detective2"
 
 //Lawyer
 
@@ -238,42 +239,90 @@
 	item_state = "longblazer"
 
 //Medical
-/obj/item/clothing/suit/storage/toggle/fr_jacket
-	name = "first responder jacket"
-	desc = "A high-visibility jacket worn by medical first responders."
+/obj/item/clothing/suit/storage/toggle/para_jacket
+	name = "paramedic jacket"
+	desc = "A high-visibility jacket worn by medical paramedics."
 	icon = 'icons/obj/item/clothing/department_uniforms/medical.dmi'
 	contained_sprite = TRUE
 	icon_state = "nt_emt_jacket"
 	item_state = "nt_emt_jacket"
 	blood_overlay_type = "armor"
 	allowed = list(/obj/item/stack/medical, /obj/item/reagent_containers/dropper, /obj/item/reagent_containers/hypospray, /obj/item/reagent_containers/syringe, \
-	/obj/item/device/healthanalyzer, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/tank/emergency_oxygen, /obj/item/device/breath_analyzer, /obj/item/reagent_containers/blood, /obj/item/clothing/head/hardhat/first_responder)
+	/obj/item/device/healthanalyzer, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/tank/emergency_oxygen, /obj/item/device/breath_analyzer, /obj/item/reagent_containers/blood, /obj/item/clothing/head/hardhat/paramedic)
 	body_parts_covered = UPPER_TORSO|ARMS
 
-/obj/item/clothing/suit/storage/toggle/fr_jacket/zeng
-	desc = "A first responder jacket in the classic white and purple of Zeng-Hu Pharmaceuticals."
+/obj/item/clothing/suit/storage/toggle/para_jacket/zeng
+	desc = "A paramedic jacket in the classic white and purple of Zeng-Hu Pharmaceuticals."
 	icon_state = "zeng_emt_jacket"
 	item_state = "zeng_emt_jacket"
 
-/obj/item/clothing/suit/storage/toggle/fr_jacket/pmc
-	desc = "A first responder jacket in the classic black and blue of the PMCG."
+/obj/item/clothing/suit/storage/toggle/para_jacket/pmc
+	desc = "A paramedic jacket in the classic black and blue of the PMCG."
 	icon_state = "pmc_emt_jacket"
 	item_state = "pmc_emt_jacket"
 
-/obj/item/clothing/suit/storage/toggle/fr_jacket/pmc/alt
+/obj/item/clothing/suit/storage/toggle/para_jacket/pmc/alt
 	icon_state = "pmc_alt_emt_jacket"
 	item_state = "pmc_alt_emt_jacket"
 
-
 /obj/item/clothing/suit/storage/medical_chest_rig
 	name = "medic chest-rig"
-	desc = "A white chest-rig with pouches worn by medical first responders, meant to carry their equipment."
+	desc = "A white chest-rig with pouches worn by paramedics, meant to carry their equipment."
 	icon_state = "paramed_armor"
 	item_state = "paramed_armor"
 	blood_overlay_type = "armor"
 	allowed = list(/obj/item/stack/medical, /obj/item/reagent_containers/dropper, /obj/item/reagent_containers/hypospray, /obj/item/reagent_containers/syringe, \
-	/obj/item/device/healthanalyzer, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/tank/emergency_oxygen, /obj/item/device/breath_analyzer, /obj/item/reagent_containers/blood, /obj/item/clothing/head/hardhat/first_responder)
+	/obj/item/device/healthanalyzer, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/tank/emergency_oxygen, /obj/item/device/breath_analyzer, /obj/item/reagent_containers/blood, /obj/item/clothing/head/hardhat/paramedic)
 	body_parts_covered = UPPER_TORSO
+
+/obj/item/clothing/suit/storage/surgical_gown
+	name = "surgical gown"
+	desc = "A sterile overgarment used for surgical settings, like operating theaters, where cleanliness is crucial. Expect these to be routinely splashed by blood."
+	icon = 'icons/obj/item/clothing/department_uniforms/medical.dmi'
+	contained_sprite = TRUE
+	icon_state = "generic_surgown"
+	item_state = "generic_surgown"
+	blood_overlay_type = "suit"
+	allowed = list(
+		/obj/item/device/analyzer,/obj/item/stack/medical,/obj/item/dnainjector,/obj/item/reagent_containers/dropper,/obj/item/reagent_containers/syringe,
+		/obj/item/reagent_containers/hypospray,/obj/item/device/healthanalyzer,/obj/item/device/flashlight/pen,/obj/item/reagent_containers/glass/bottle,/obj/item/reagent_containers/glass/beaker,
+		/obj/item/reagent_containers/pill,/obj/item/storage/pill_bottle,/obj/item/paper, /obj/item/device/breath_analyzer
+	)
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	armor = list(
+			bio = ARMOR_BIO_STRONG,
+		)
+
+/obj/item/clothing/suit/storage/surgical_gown/accent
+	has_accents = TRUE
+
+/obj/item/clothing/suit/storage/surgical_gown/nt
+	icon_state = "nt_surgown"
+	item_state = "nt_surgown"
+
+/obj/item/clothing/suit/storage/surgical_gown/zeng
+	icon_state = "zeng_surgown"
+	item_state = "zeng_surgown"
+
+/obj/item/clothing/suit/storage/surgical_gown/pmc
+	icon_state = "pmc_surgown"
+	item_state = "pmc_surgown"
+
+/obj/item/clothing/suit/storage/surgical_gown/pmc/alt
+	icon_state = "pmc_surgown_alt"
+	item_state = "pmc_surgown_alt"
+
+/obj/item/clothing/suit/storage/surgical_gown/zavod
+	icon_state = "zavod_surgown"
+	item_state = "zavod_surgown"
+
+/obj/item/clothing/suit/storage/surgical_gown/idris
+	icon_state = "idris_surgown"
+	item_state = "idris_surgown"
+
+/obj/item/clothing/suit/storage/surgical_gown/heph
+	icon_state = "heph_surgown"
+	item_state = "heph_surgown"
 
 //Mime
 /obj/item/clothing/suit/suspenders

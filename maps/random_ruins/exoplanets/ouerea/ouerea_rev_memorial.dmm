@@ -1,0 +1,183 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/structure/flora/ausbushes/brflowers,
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"c" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/item/flame/candle,
+/turf/simulated/floor/exoplanet/marble{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"d" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/marble{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"k" = (
+/turf/simulated/floor/exoplanet/marble{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"r" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/exoplanet/marble{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"v" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/sign/flag/ouerea{
+	pixel_y = 25;
+	stand_icon = "banner"
+	},
+/turf/simulated/floor/exoplanet/marble{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"y" = (
+/turf/simulated/wall/marble,
+/area/exoplanet/ouerea)
+"C" = (
+/turf/simulated/floor/tiled/ramp{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"D" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/marble{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"F" = (
+/obj/structure/sign/ouerea_memorial,
+/turf/simulated/floor/exoplanet/marble{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"I" = (
+/obj/structure/flora/ausbushes/brflowers,
+/obj/structure/flora/ausbushes/brflowers,
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"O" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/exoplanet/marble{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"Q" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/sign/flag/ouerea{
+	pixel_y = 25;
+	stand_icon = "banner"
+	},
+/turf/simulated/floor/exoplanet/marble{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"U" = (
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"V" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/marble{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"X" = (
+/obj/item/flame/candle,
+/turf/simulated/floor/exoplanet/marble{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+
+(1,1,1) = {"
+U
+U
+a
+a
+U
+a
+U
+"}
+(2,1,1) = {"
+U
+y
+Q
+D
+O
+U
+U
+"}
+(3,1,1) = {"
+a
+c
+X
+k
+k
+C
+U
+"}
+(4,1,1) = {"
+U
+d
+F
+k
+k
+C
+U
+"}
+(5,1,1) = {"
+a
+c
+X
+k
+k
+C
+a
+"}
+(6,1,1) = {"
+a
+y
+v
+V
+r
+U
+U
+"}
+(7,1,1) = {"
+U
+U
+a
+I
+U
+U
+U
+"}

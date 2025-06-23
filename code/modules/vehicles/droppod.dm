@@ -8,7 +8,6 @@
 	icon = 'icons/obj/vehicles.dmi'
 	icon_state = "droppod"
 	dir = SOUTH
-	layer = MOB_LAYER - 0.1
 	light_range = 0
 
 	load_item_visible = 0
@@ -33,10 +32,10 @@
 	desc = "A high-tech titanium pod, capable of transporting its passenger right into the action at considerable ranges. The metal foam dispensers lining the top prevent most hull breaches on station ingress."
 	icon_state = "syndie_pod"
 
-/obj/vehicle/droppod/MouseDrop()
+/obj/vehicle/droppod/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	return
 
-/obj/vehicle/droppod/MouseDrop_T()
+/obj/vehicle/droppod/mouse_drop_receive(atom/dropped, mob/user, params)
 	return
 
 /obj/vehicle/droppod/emag_act()
@@ -269,7 +268,7 @@
 			blastdoor_interact(TRUE)
 		return
 
-	var/turf/aboveturf = GetAbove(A)
+	var/turf/aboveturf = GET_TURF_ABOVE(A)
 	if(aboveturf)
 		applyfalldamage(aboveturf)
 		aboveturf.ChangeTurf(/turf/simulated/floor/foamedmetal)
@@ -288,7 +287,7 @@
 	set_light(5,1,LIGHT_COLOR_EMERGENCY_SOFT)
 	A.visible_message(SPAN_DANGER("\The [src] crashes through the roof!"))
 
-	var/turf/belowturf = GetBelow(A)
+	var/turf/belowturf = GET_TURF_BELOW(A)
 	if(belowturf)
 		belowturf.visible_message(SPAN_DANGER("You hear something crash into the ceiling above!"))
 	status = USED

@@ -3,7 +3,7 @@
 	desc = "A shell of some sort."
 	icon = 'icons/obj/projectiles.dmi'
 	icon_state = "nuke"
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	slowdown = 2
 	drop_sound = 'sound/items/drop/shell_drop.ogg'
 	var/projectile_type_override //Override projectile type fired by the gun. This is because certain guns don't use ammo (the Leviathan) but with some we want the ammo to matter.
@@ -22,7 +22,7 @@
 	var/obj/effect/overmap/origin
 	var/atom/overmap_target
 	var/obj/entry_point
-	var/obj/item/projectile/original_projectile
+	var/obj/projectile/original_projectile
 	var/heading = SOUTH
 	var/range = OVERMAP_PROJECTILE_RANGE_MEDIUM
 	var/mob_carry_size = 12 //How large a mob has to be to carry the shell
@@ -43,7 +43,11 @@
 	return ..()
 
 /obj/item/ship_ammunition/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ispen())
+	if(attacking_item.force > 10 && (ammunition_flags & SHIP_AMMO_FLAG_VERY_FRAGILE))
+		log_and_message_admins("[user] has caused the cookoff of [src] by attacking it with [attacking_item]!", user)
+		cookoff(FALSE)
+
+	else if(attacking_item.ispen())
 		var/obj/item/pen/P = attacking_item
 		if(!use_check_and_message(user))
 			var/friendly_message = sanitizeSafe( tgui_input_text(user, "What do you want to write on \the [src]?", "Personal Message", "", 32), 32 )
@@ -97,17 +101,13 @@
 	if(prob(50) && ((ammunition_flags & SHIP_AMMO_FLAG_VERY_FRAGILE) || (ammunition_flags & SHIP_AMMO_FLAG_VULNERABLE)))
 		cookoff(FALSE)
 
-/obj/item/ship_ammunition/attackby(obj/item/attacking_item, mob/user)
-	. = ..()
-	if(attacking_item.force > 10 && (ammunition_flags & SHIP_AMMO_FLAG_VERY_FRAGILE))
-		log_and_message_admins("[user] has caused the cookoff of [src] by attacking it with [attacking_item]!", user)
-		cookoff(FALSE)
-
 /obj/item/ship_ammunition/ex_act(severity)
 	if(ammunition_flags & SHIP_AMMO_FLAG_INFLAMMABLE)
 		cookoff(TRUE)
 
-/obj/item/ship_ammunition/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/obj/item/ship_ammunition/fire_act(exposed_temperature, exposed_volume)
+	. = ..()
+
 	if(ammunition_flags & SHIP_AMMO_FLAG_INFLAMMABLE)
 		if(exposed_temperature >= T0C+200)
 			cookoff(TRUE)
@@ -155,7 +155,7 @@
 	return TRUE
 
 /obj/item/ship_ammunition/proc/get_additional_info()
-	. += "<span class='danger'>[name_override ? name_override : name]</span><br>"
+	. += SPAN_DANGER("[name_override ? name_override : name]<br>")
 	. += "[desc]<br>"
 	. += "Caliber: [caliber]<br>"
 	. += "Ammunition Type: [capitalize_first_letters(impact_type)]<br>"
@@ -196,13 +196,13 @@
 	P.speed = get_speed()
 	P.entry_target = entry_point
 	forceMove(P)
-	log_and_message_admins("A projectile ([name]) has entered the Overmap! (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[P.x];Y=[P.y];Z=[P.z]'>JMP</a>)")
+	log_and_message_admins("A projectile ([name]) has entered the Overmap! (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[P.x];Y=[P.y];Z=[P.z]'>JMP</a>)")
 	return TRUE
 
 //SNOWFLAKE CODE: ACTIVATE
 //The problem is getting the projectile from the gun to the map edge. We want to do this naturally, but using process() and BYOND's walk procs makes it look very... unnatural. And also slow!
 //The solution? Let's co-opt projectile code!
-/obj/item/projectile/ship_ammo
+/obj/projectile/ship_ammo
 	name = "ship ammunition"
 	icon = 'icons/obj/guns/ship/physical_projectiles.dmi'
 	icon_state = "small"
@@ -214,12 +214,12 @@
 	var/primed = FALSE
 	var/hit_target = FALSE //First target we hit. Used to report if a hit was successful.
 
-/obj/item/projectile/ship_ammo/Destroy()
+/obj/projectile/ship_ammo/Destroy()
 	ammo = null
 	hit_target = null
 	return ..()
 
-/obj/item/projectile/ship_ammo/touch_map_edge()
+/obj/projectile/ship_ammo/touch_map_edge()
 	if(primed)
 		for(var/mob/living/carbon/human/H in GLOB.human_mob_list)
 			if(AreConnectedZLevels(H.z, z))
@@ -231,7 +231,7 @@
 		ammo.original_projectile = src
 		forceMove(ammo)
 
-/obj/item/projectile/ship_ammo/on_hit(atom/target, blocked, def_zone, var/is_landmark_hit = FALSE) //is_landmark_hit is TRUE when we hit a landmark on a visitable non-ship overmap object.
+/obj/projectile/ship_ammo/on_hit(atom/target, blocked, def_zone, var/is_landmark_hit = FALSE) //is_landmark_hit is TRUE when we hit a landmark on a visitable non-ship overmap object.
 	if(target && !hit_target)
 		hit_target = TRUE
 		var/target_name = target.name
@@ -244,15 +244,16 @@
 			ammo.origin.signal_hit(hit_data)
 	return ..()
 
-/obj/item/projectile/ship_ammo/proc/on_translate(var/turf/entry_turf, var/target_turf) //This proc is called when the projectile enters a new ship's overmap zlevel.
+/obj/projectile/ship_ammo/proc/on_translate(var/turf/entry_turf, var/target_turf) //This proc is called when the projectile enters a new ship's overmap zlevel.
 	if(ammo.burst)
 		for(var/i = 1 to ammo.burst)
 			var/turf/new_turf = get_random_turf_in_range(entry_turf, ammo.burst + rand(0, ammo.burst),  0, TRUE, FALSE)
-			var/obj/item/projectile/ship_ammo/pellet = new type
+			var/obj/projectile/ship_ammo/pellet = new type
 			pellet.forceMove(new_turf)
 			pellet.ammo = new ammo.type
 			pellet.ammo.origin = ammo.origin
 			pellet.ammo.impact_type = ammo.impact_type
 			pellet.dir = dir
 			var/turf/front_turf = get_step(pellet, pellet.dir)
-			pellet.launch_projectile(front_turf)
+			pellet.preparePixelProjectile(target_turf, front_turf)
+			pellet.fire()

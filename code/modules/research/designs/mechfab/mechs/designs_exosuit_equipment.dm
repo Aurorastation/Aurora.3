@@ -1,7 +1,7 @@
 /datum/design/item/mechfab/exosuit_equipment
 	name = "Hydraulic Clamp"
 	materials = list(DEFAULT_WALL_MATERIAL = 10000)
-	time = 50
+	time = 50 SECONDS
 	build_path = /obj/item/mecha_equipment/clamp
 	category = "Exosuit (Equipment)"
 
@@ -45,7 +45,7 @@
 
 /datum/design/item/mechfab/exosuit_equipment/rcd
 	name = "Mounted RFD-C"
-	time = 90
+	time = 90 SECONDS
 	materials = list(DEFAULT_WALL_MATERIAL = 30000, MATERIAL_PHORON = 8000, DEFAULT_WALL_MATERIAL = 15000, MATERIAL_GOLD = 10000)
 	req_tech = list(TECH_MATERIAL = 4, TECH_BLUESPACE = 3, TECH_MAGNET = 4, TECH_POWER = 4, TECH_ENGINEERING = 4)
 	build_path = /obj/item/mecha_equipment/mounted_system/rfd
@@ -114,7 +114,7 @@
 
 /datum/design/item/mechfab/exosuit_equipment/mechshields
 	name = "Energy Shield Drone"
-	time = 90
+	time = 90 SECONDS
 	materials = list(MATERIAL_STEEL = 20000, MATERIAL_SILVER = 12000, MATERIAL_GOLD = 12000)
 	req_tech = list(TECH_MATERIAL = 4, TECH_MAGNET = 4, TECH_POWER = 4, TECH_COMBAT = 2)
 	build_path = /obj/item/mecha_equipment/shield
@@ -149,3 +149,14 @@
 	. = ..()
 	desc += " It needs an anomaly core to function, however."
 
+/datum/design/item/mechfab/exosuit_equipment/kinetic_accelerator
+	name = "Mounted Heavy Kinetic Accelerator"
+	materials = list(MATERIAL_STEEL = 25000, MATERIAL_GLASS = 5000)
+	req_tech = list(TECH_MATERIAL = 3, TECH_ENGINEERING = 3, TECH_POWER = 3)
+	build_path = /obj/item/mecha_equipment/mounted_system/mining/kinetic_accelerator
+
+/datum/design/item/mechfab/exosuit_equipment/ore_summoner
+	name = "Mounted Ore Summoner"
+	materials = list(MATERIAL_STEEL = 10000, MATERIAL_GLASS = 5000)
+	req_tech = list(TECH_MATERIAL = 3, TECH_BLUESPACE = 3)
+	build_path = /obj/item/mecha_equipment/ore_summoner

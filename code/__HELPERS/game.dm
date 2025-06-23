@@ -1,15 +1,8 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
 
-/proc/is_on_same_plane_or_station(var/z1, var/z2)
-	if(z1 == z2)
-		return 1
-	if(isStationLevel(z1) && isStationLevel(z2))
-		return 1
-	return 0
-
 /proc/max_default_z_level()
 	var/max_z = 0
-	for(var/z in SSatlas.current_map.station_levels)
+	for(var/z in SSmapping.levels_by_trait(ZTRAIT_STATION))
 		max_z = max(z, max_z)
 	for(var/z in SSatlas.current_map.admin_levels)
 		max_z = max(z, max_z)
@@ -18,7 +11,7 @@
 	return max_z
 
 /proc/get_area_name(N) //get area by its name
-	for(var/area/A in GLOB.all_areas)
+	for(var/area/A in get_sorted_areas())
 		if(A.name == N)
 			return A
 	return 0
@@ -102,7 +95,7 @@
 	var/list/candidates = list() //List of candidate KEYS to assume control of the new larva ~Carn
 	var/i = 0
 	while(candidates.len <= 0 && i < 5)
-		for(var/mob/abstract/observer/G in GLOB.player_list)
+		for(var/mob/abstract/ghost/observer/G in GLOB.player_list)
 			if(((G.client.inactivity/10)/60) <= buffer + i) // the most active players are more likely to become an alien
 				if(!(G.mind && G.mind.current && G.mind.current.stat != DEAD))
 					candidates += G.key
@@ -112,22 +105,12 @@
 // Same as above but for alien candidates.
 
 /proc/ScreenText(obj/O, maptext="", screen_loc="CENTER-7,CENTER-7", maptext_height=480, maptext_width=480)
-	if(!isobj(O))	O = new /obj/screen/text()
+	if(!isobj(O))	O = new /atom/movable/screen/text()
 	O.maptext = maptext
 	O.maptext_height = maptext_height
 	O.maptext_width = maptext_width
 	O.screen_loc = screen_loc
 	return O
-
-/proc/Show2Group4Delay(obj/O, list/group, delay=0)
-	if(!isobj(O))	return
-	if(!group)	group = GLOB.clients
-	for(var/client/C in group)
-		C.screen += O
-	if(delay)
-		spawn(delay)
-			for(var/client/C in group)
-				C.screen -= O
 
 /datum/projectile_data
 	var/src_x
@@ -226,13 +209,13 @@
 	return mixedcolor
 
 /**
-* Gets the highest and lowest pressures from the tiles in GLOB.cardinal directions
+* Gets the highest and lowest pressures from the tiles in GLOB.cardinals directions
 * around us, then checks the difference.
 */
 /proc/getOPressureDifferential(var/turf/loc)
 	var/minp=16777216;
 	var/maxp=0;
-	for(var/dir in GLOB.cardinal)
+	for(var/dir in GLOB.cardinals)
 		var/turf/simulated/T=get_turf(get_step(loc,dir))
 		var/cp=0
 		if(T && istype(T) && T.zone)
@@ -253,7 +236,7 @@
 
 /proc/getCardinalAirInfo(var/turf/loc, var/list/stats=list("temperature"))
 	var/list/temps = new/list(4)
-	for(var/dir in GLOB.cardinal)
+	for(var/dir in GLOB.cardinals)
 		var/direction
 		switch(dir)
 			if(NORTH)
@@ -296,7 +279,7 @@
 	if(enabled_spooking)
 		return 1
 	else
-		return (cult.current_antagonists.len > spookiness_threshold)
+		return (GLOB.cult.current_antagonists.len > spookiness_threshold)
 
 /// Adds an image to a client's `.images`. Useful as a callback.
 /proc/add_image_to_client(image/image_to_remove, client/add_to)

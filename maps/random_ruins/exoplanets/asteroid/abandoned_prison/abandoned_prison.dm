@@ -5,10 +5,14 @@
 
 	sectors = list(ALL_COALITION_SECTORS)
 	sectors_blacklist = list(SECTOR_HANEUNIM)
-	suffixes = list("asteroid/abandoned_prison/abandoned_prison.dmm")
+
+	prefix = "asteroid/abandoned_prison/"
+	suffix = "abandoned_prison.dmm"
 
 	planet_types = PLANET_ASTEROID|PLANET_BARREN
 	ruin_tags = RUIN_AIRLESS|RUIN_LOWPOP
+
+	unit_test_groups = list(1)
 
 /area/abandoned_prison
 	name = "abandoned prison"
@@ -16,6 +20,7 @@
 	requires_power = TRUE
 	dynamic_lighting = TRUE
 	no_light_control = TRUE
+	is_outside = OUTSIDE_NO
 
 /area/abandoned_prison/eva_prep
 	name = "EVA Preparation Room"
@@ -56,3 +61,4 @@
 /area/abandoned_prison/exterior
 	name = "Exterior"
 	icon_state = "space"
+	is_outside = OUTSIDE_YES

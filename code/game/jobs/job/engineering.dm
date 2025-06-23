@@ -30,7 +30,7 @@
 	minimal_player_age = 7
 	outfit = /obj/outfit/job/chief_engineer
 
-	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
 /obj/outfit/job/chief_engineer
 	name = "Chief Engineer"
@@ -40,7 +40,7 @@
 	uniform = /obj/item/clothing/under/rank/chief_engineer
 	head = /obj/item/clothing/head/hardhat/white
 	belt = /obj/item/storage/belt/utility/ce
-	id = /obj/item/card/id/navy
+	id = /obj/item/card/id/silver
 	shoes = null
 	r_pocket = /obj/item/device/t_scanner
 
@@ -48,6 +48,7 @@
 	bowman = /obj/item/device/radio/headset/heads/ce/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/ce
 	wrist_radio = /obj/item/device/radio/headset/wrist/ce
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/ce
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/engineering/ce
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/engineering/ce
@@ -110,6 +111,7 @@
 	bowman = /obj/item/device/radio/headset/headset_eng/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/eng
 	wrist_radio = /obj/item/device/radio/headset/wrist/eng
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/eng
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/engineering
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/engineering
@@ -121,11 +123,12 @@
 	messengerbag = /obj/item/storage/backpack/messenger/engi
 
 	belt_contents = list(
+		/obj/item/screwdriver = 1,
+		/obj/item/wrench = 1,
 		/obj/item/weldingtool = 1,
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters = 1,
-		/obj/item/stack/cable_coil/random = 1,
-		/obj/item/powerdrill = 1
+		/obj/item/stack/cable_coil/random = 1
 	)
 
 /obj/outfit/job/engineer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -144,7 +147,7 @@
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 3
-	spawn_positions = 2
+	spawn_positions = 3
 	intro_prefix = "an"
 	supervisors = "the chief engineer"
 	selection_color = "#c67519"
@@ -175,6 +178,7 @@
 	bowman = /obj/item/device/radio/headset/headset_eng/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/eng
 	wrist_radio = /obj/item/device/radio/headset/wrist/eng
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/eng
 
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel/eng
@@ -186,13 +190,14 @@
 	tablet = /obj/item/modular_computer/handheld/preset/engineering/atmos
 
 	belt_contents = list(
+		/obj/item/screwdriver = 1,
+		/obj/item/wrench = 1,
 		/obj/item/weldingtool = 1,
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters = 1,
 		/obj/item/device/t_scanner = 1,
 		/obj/item/device/analyzer = 1,
-		/obj/item/pipewrench = 1,
-		/obj/item/powerdrill = 1
+		/obj/item/pipewrench = 1
 	)
 
 /obj/outfit/job/atmos/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -239,17 +244,19 @@
 	belt = /obj/item/storage/belt/utility
 
 	belt_contents = list(
+		/obj/item/screwdriver = 1,
+		/obj/item/wrench = 1,
 		/obj/item/weldingtool = 1,
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters = 1,
-		/obj/item/stack/cable_coil/random = 1,
-		/obj/item/powerdrill = 1
+		/obj/item/stack/cable_coil/random = 1
 	)
 
 	headset = /obj/item/device/radio/headset/headset_eng
 	bowman = /obj/item/device/radio/headset/headset_eng/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/eng
 	wrist_radio = /obj/item/device/radio/headset/wrist/eng
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/eng
 
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel/eng
@@ -271,19 +278,21 @@
 	belt = /obj/item/storage/belt/utility
 
 	belt_contents = list(
+		/obj/item/screwdriver = 1,
+		/obj/item/wrench = 1,
 		/obj/item/weldingtool = 1,
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters = 1,
 		/obj/item/device/t_scanner = 1,
 		/obj/item/device/analyzer = 1,
-		/obj/item/pipewrench = 1,
-		/obj/item/powerdrill = 1
+		/obj/item/pipewrench = 1
 	)
 
 	headset = /obj/item/device/radio/headset/headset_eng
 	bowman = /obj/item/device/radio/headset/headset_eng/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/eng
 	wrist_radio = /obj/item/device/radio/headset/wrist/eng
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/eng
 
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel/eng

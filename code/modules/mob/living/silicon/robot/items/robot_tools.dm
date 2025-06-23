@@ -47,7 +47,7 @@
 		var/mob/living/silicon/robot/R = loc
 		return R.get_cell()
 
-/obj/item/robot_teleporter/examine(mob/user, distance)
+/obj/item/robot_teleporter/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	. = ..()
 	if(!ready_to_use && isrobot(user))
 		to_chat(user, SPAN_NOTICE("Charging: [num2loadingbar(world.time / when_recharge)]"))

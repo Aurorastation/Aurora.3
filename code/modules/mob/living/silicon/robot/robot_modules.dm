@@ -1,20 +1,20 @@
-var/global/list/robot_modules = list(
-	"Service" 		= /obj/item/robot_module/service/butler,
-	"Clerical" 		= /obj/item/robot_module/service/clerical,
-	"Research" 		= /obj/item/robot_module/research,
-	"Mining" 		= /obj/item/robot_module/miner,
-	"Rescue" 		= /obj/item/robot_module/medical/rescue,
-	"Medical" 		= /obj/item/robot_module/medical/general,
-	"Engineering"	= /obj/item/robot_module/engineering/general,
-	"Construction"	= /obj/item/robot_module/engineering/construction,
-	"Custodial" 	= /obj/item/robot_module/janitor
-)
+GLOBAL_LIST_INIT(robot_modules, list(
+	"Service" = /obj/item/robot_module/service/butler,
+	"Clerical" = /obj/item/robot_module/service/clerical,
+	"Research" = /obj/item/robot_module/research,
+	"Mining" = /obj/item/robot_module/miner,
+	"Rescue" = /obj/item/robot_module/medical/rescue,
+	"Medical" = /obj/item/robot_module/medical/general,
+	"Engineering" = /obj/item/robot_module/engineering/general,
+	"Construction" = /obj/item/robot_module/engineering/construction,
+	"Custodial" = /obj/item/robot_module/janitor
+))
 
 /obj/item/robot_module
 	name = "robot module"
 	icon = 'icons/obj/module.dmi'
 	icon_state = "std_mod"
-	w_class = ITEMSIZE_IMMENSE
+	w_class = WEIGHT_CLASS_GIGANTIC
 	item_state = "electronic"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	var/channels = list()
@@ -230,7 +230,7 @@ var/global/list/robot_modules = list(
 	modules += new /obj/item/gripper/chemistry(src)
 	modules += new /obj/item/reagent_containers/dropper/cyborg_pipette(src)
 	modules += new /obj/item/roller_holder(src)
-	modules += new /obj/item/reagent_containers/syringe(src)
+	modules += new /obj/item/reagent_containers/syringe/robotic(src)
 	modules += new /obj/item/device/reagent_scanner/adv(src)
 	modules += new /obj/item/device/mass_spectrometer(src)
 	modules += new /obj/item/autopsy_scanner(src)
@@ -704,7 +704,7 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/miner
 	name = "miner robot module"
-	channels = list(CHANNEL_SUPPLY = TRUE)
+	channels = list(CHANNEL_SUPPLY = TRUE, CHANNEL_HAILING = TRUE)
 	networks = list(NETWORK_MINE)
 	sprites = list(
 		"Basic" =          list(ROBOT_CHASSIS = "robot_mine", ROBOT_PANEL = "robot", ROBOT_EYES = "robot"),
@@ -794,7 +794,7 @@ var/global/list/robot_modules = list(
 		"Cooler Master" =  list(ROBOT_CHASSIS = "coolermaster_sci", ROBOT_PANEL = "coolermaster", ROBOT_EYES = "coolermaster"),
 		"Phage" =          list(ROBOT_CHASSIS = "phage_sci", ROBOT_PANEL = "phage", ROBOT_EYES = "phage")
 	)
-	specialized_access_types = list(/datum/job/scientist, /datum/job/xenobiologist, /datum/job/xenobotanist)
+	specialized_access_types = list(/datum/job/scientist, /datum/job/xenobiologist, /datum/job/xenobotanist, /datum/job/machinist)
 
 /obj/item/robot_module/research/Initialize()
 	. = ..()

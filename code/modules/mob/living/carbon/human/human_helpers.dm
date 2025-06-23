@@ -15,7 +15,7 @@
 		if(status[1] == HUMAN_EATING_NO_MOUTH)
 			to_chat(src, "Where do you intend to put \the [food]? You don't have a mouth!")
 		else if(status[1] == HUMAN_EATING_BLOCKED_MOUTH)
-			to_chat(src, "<span class='warning'>\The [status[2]] is in the way!</span>")
+			to_chat(src, SPAN_WARNING("\The [status[2]] is in the way!"))
 	return 0
 
 /mob/living/carbon/human/can_force_feed(var/feeder, var/food, var/feedback = 1)
@@ -26,7 +26,7 @@
 		if(status[1] == HUMAN_EATING_NO_MOUTH)
 			to_chat(feeder, "Where do you intend to put \the [food]? \The [src] doesn't have a mouth!")
 		else if(status[1] == HUMAN_EATING_BLOCKED_MOUTH)
-			to_chat(feeder, "<span class='warning'>\The [status[2]] is in the way!</span>")
+			to_chat(feeder, SPAN_WARNING("\The [status[2]] is in the way!"))
 	return 0
 
 /mob/living/carbon/human/proc/can_eat_status()
@@ -104,7 +104,7 @@
 				O.status = 0
 				switch(status)
 
-					if ("amputated")
+					if (ORGAN_PREF_AMPUTATED)
 						organs_by_name[O.limb_name] = null
 						organs -= O
 						if(O.children) // This might need to become recursive.
@@ -112,14 +112,14 @@
 								organs_by_name[child.limb_name] = null
 								organs -= child
 
-					if ("nymph")
+					if (ORGAN_PREF_NYMPH)
 						if (organ_data[name])
 							O.AddComponent(/datum/component/nymph_limb)
 							var/datum/component/nymph_limb/D = O.GetComponent(/datum/component/nymph_limb)
 							if(D)
 								D.nymphize(src, O.limb_name, TRUE)
 
-					if ("cyborg")
+					if (ORGAN_PREF_CYBORG)
 						if (rlimb_data[name])
 							O.force_skintone = FALSE
 							for(var/thing in O.children)
@@ -132,14 +132,14 @@
 				var/obj/item/organ/I = internal_organs_by_name[name]
 				if(I)
 					switch (status)
-						if ("assisted")
+						if (ORGAN_PREF_ASSISTED)
 							I.mechassist()
-						if ("mechanical")
+						if (ORGAN_PREF_MECHANICAL)
 							if (rlimb_data[name])
 								I.robotize(rlimb_data[name])
 							else
 								I.robotize()
-						if ("removed")
+						if (ORGAN_PREF_REMOVED)
 							qdel(I)
 
 	if (apply_markings)
@@ -162,7 +162,7 @@
 			for(var/BP in mark_datum.body_parts)
 				var/obj/item/organ/external/O = organs_by_name[BP]
 				if(O)
-					if(mark_datum.robotize_type_required && O.robotize_type != mark_datum.robotize_type_required)
+					if(length(mark_datum.robotize_type_required) && !(O.robotize_type in mark_datum.robotize_type_required))
 						continue
 					var/list/attr = list("color" = mark_color, "datum" = mark_datum)
 					if (mark_datum.is_genetic)
@@ -254,13 +254,13 @@
 		return 0
 	else if(bodytemperature > species.cold_level_2)
 		. = 5 * (1 - (bodytemperature - species.cold_level_2) / (species.cold_level_1 - species.cold_level_2))
-		. = max(2, .)
+		. = max(2, .) //stasis factor range: 2 to 5 after rounding
 	else if(bodytemperature > species.cold_level_3)
-		. = 20 * (1 - (bodytemperature - species.cold_level_3) / (species.cold_level_2 - species.cold_level_3))
-		. = max(5, .)
+		. = 11 * (1 - (bodytemperature - species.cold_level_3) / (species.cold_level_2 - species.cold_level_3))
+		. = max(5, .) //stasis factor range: 5 to 10 after rounding. we still want chemicals to metabolise at a bearable speed for those sick pharmacy beaker mixes.
 	else
 		. = 80 * (1 - bodytemperature / species.cold_level_3)
-		. = max(20, .)
+		. = max(20, .) //stasis factor range: 20 to 80 after rounding. irl cryonics ''achieves full stasis'' in bodies at 80K.
 	if(istype(loc, /obj/machinery/atmospherics/unary/cryo_cell))
 		var/obj/machinery/atmospherics/unary/cryo_cell/cryo = loc
 		if(cryo.current_stasis_mult)
@@ -400,11 +400,6 @@
 	else
 		return FALSE
 
-/mob/living/carbon/human/get_talk_bubble()
-	if(!species || !species.talk_bubble_icon)
-		return ..()
-	return species.talk_bubble_icon
-
 /mob/living/carbon/human/get_floating_chat_x_offset()
 	if(!species)
 		return ..()
@@ -489,6 +484,9 @@
 	else if(w_uniform)
 		if(w_uniform.clean_blood())
 			update_inv_w_uniform(0)
+	if(pants)
+		if(pants.clean_blood())
+			update_inv_pants(0)
 	if(gloves && washgloves)
 		if(gloves.clean_blood())
 			update_inv_gloves(0)
@@ -514,3 +512,71 @@
 		if(wrists.clean_blood())
 			update_inv_wrists(0)
 	clean_blood(washshoes)
+
+/// Handles removing bandages from specific limbs or all of them at once, added conditionally based on whether the limb has any bandages on in the first place
+/mob/living/carbon/human/proc/remove_bandages()
+	set name = "Remove Bandages"
+	set category = "IC"
+	set src in view(1)
+
+	// to make this all easier, i'm restricting the verb actioner to humans only
+	var/mob/living/carbon/human/remover = usr
+	if(!istype(remover))
+		to_chat(SPAN_WARNING("You cannot remove bandages!"))
+		return
+
+	// get all the body parts covered by thick clothing, so you cant strip bandages from underneath someone's armour / voidsuit
+	var/covered_body_parts = get_covered_body_parts(TRUE)
+
+	var/list/possible_limbs = list()
+	for(var/obj/item/organ/external/limb in organs)
+		if(covered_body_parts & limb.body_part)
+			continue
+
+		if(limb.is_stump())
+			continue
+
+		// check if it even has bandages
+		var/bandage_level = limb.bandage_level
+		if(!bandage_level)
+			continue
+
+		// if it has bandages, check whether it's possible to remove some
+		var/possible_bandage_level = limb.possible_bandage_level()
+		if(possible_bandage_level >= bandage_level)
+			continue
+
+		possible_limbs[capitalize_first_letters(limb.name)] = limb
+
+	if(!length(possible_limbs))
+		to_chat(remover, SPAN_WARNING("\The [src] has no bandages you can remove!"))
+		return
+
+	possible_limbs["All"] = TRUE
+
+	var/selected_limb = tgui_input_list(remover, "Which limb would you like to remove the bandages from?", "Bandage Removal", possible_limbs, "All")
+	if(!selected_limb)
+		return
+
+	if(!remover.Adjacent(src))
+		to_chat(remover, SPAN_WARNING("You need to stay next to \the [src]!"))
+		return
+
+	if(selected_limb == "All")
+		remover.visible_message(SPAN_NOTICE("\The [remover] begins removing bandages from all of \the [src]'s damaged limbs..."), SPAN_NOTICE("You begin removing bandages from all of \the [src]'s damaged limbs..."))
+		if(!do_after(remover, 3 SECONDS, src))
+			return
+		possible_limbs -= "All"
+		for(var/limb_name in possible_limbs)
+			var/obj/item/organ/external/limb = possible_limbs[limb_name]
+			limb.bandage_level = limb.possible_bandage_level()
+		update_bandages()
+		remover.visible_message(SPAN_NOTICE("\The [remover] removed the bandages from all of \the [src]'s damaged limbs!"), SPAN_NOTICE("You removed the bandages from all of \the [src]'s damaged limbs!"))
+	else
+		var/obj/item/organ/external/limb = possible_limbs[selected_limb]
+		remover.visible_message(SPAN_NOTICE("\The [remover] begins removing bandages from \the [src]'s [limb.name]..."), SPAN_NOTICE("You begin removing bandages \the [src]'s [limb.name]..."))
+		if(!do_after(remover, 1 SECOND, src))
+			return
+		limb.bandage_level = limb.possible_bandage_level()
+		update_bandages()
+		remover.visible_message(SPAN_NOTICE("\The [remover] removed the bandages from \the [src]'s [limb.name]!"), SPAN_NOTICE("You removed the bandages \the [src]'s [limb.name]!"))

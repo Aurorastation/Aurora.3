@@ -19,7 +19,7 @@
 				visible_message(SPAN_NOTICE("You connect \the [P] to the casing!"), SPAN_NOTICE("[H] connects \the [P] to the casing!"))
 				H.drop_from_inventory(P)
 				add_primer(P)
-				playsound(src, 'sound/machines/rig/rig_deploy.ogg')
+				playsound(src, 'sound/machines/rig/rig_deploy.ogg', 40)
 		if(istype(attacking_item, /obj/item/warhead) && !warhead)
 			var/obj/item/warhead/W = attacking_item
 			user.visible_message( SPAN_NOTICE("[H] starts connecting \the [W] to the casing..."), SPAN_NOTICE("You start connecting \the [W] to the casing..."))
@@ -27,7 +27,7 @@
 				visible_message(SPAN_NOTICE("You connect \the [W] to the casing!"), SPAN_NOTICE("[H] connects \the [W] to the casing!"))
 				H.drop_from_inventory(W)
 				add_warhead(W)
-				playsound(src, 'sound/machines/rig/rig_deploy.ogg')
+				playsound(src, 'sound/machines/rig/rig_deploy.ogg', 40)
 	update_status()
 
 /obj/item/ship_ammunition/longbow/can_be_loaded()
@@ -40,14 +40,14 @@
 		primer = P
 		P.forceMove(src)
 		var/image/OL = image(P.icon, P.primer_state, layer = layer - 0.01)
-		add_overlay(OL)
+		AddOverlays(OL)
 	update_status()
 
 /obj/item/ship_ammunition/longbow/proc/add_warhead(var/obj/item/warhead/W)
 	if(W && !QDELETED(W))
 		warhead = W
 		W.forceMove(src)
-		add_overlay(W.warhead_state)
+		AddOverlays(W.warhead_state)
 		impact_type = W.warhead_type
 		ammunition_flags = initial(ammunition_flags)
 		ammunition_flags |= SHIP_AMMO_FLAG_VERY_FRAGILE
@@ -91,7 +91,7 @@
 	desc = "This is a medium power primer for Longbow warheads."
 	icon = 'icons/obj/guns/ship/ship_ammo_longarm.dmi'
 	icon_state = "primer_med_obj"
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	var/primer_state = "primer_med" //This is the overlay state when it gets applied to the projectile.
 	var/speed = 30 //Somewhat of a misleading name. This is the lag in world ticks between each walk() called by the overmap projectile. Lower is better.
 
@@ -114,7 +114,7 @@
 	desc = "This is a generic warhead. Not for use."
 	icon = 'icons/obj/guns/ship/ship_ammo_longarm.dmi'
 	icon_state = "generic_warhead_obj"
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	var/warhead_state = "generic_warhead" //This is the overlay state when it gets applied to the projectile.
 	var/caliber
 	var/warhead_type
@@ -140,20 +140,27 @@
 	if(prob(10))
 		cookoff(FALSE)
 
-/obj/item/warhead/longbow/bullet_act(obj/item/projectile/P, def_zone)
+/obj/item/warhead/longbow/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	. = ..()
-	if(P.damage > 5)
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	if(hitting_projectile.damage > 5)
 		cookoff(TRUE)
 
 /obj/item/warhead/longbow/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
-	if(attacking_item.force > 10)
+	if(istype(attacking_item, /obj/item/mecha_equipment/clamp)) //loading a warhead into a mech shouldn't explode it
+		return
+	if(attacking_item.force > 10 && user.a_intent == I_HURT) //presumably you need to hit it pretty hard to actually set the thing off
 		cookoff(FALSE)
 
 /obj/item/warhead/longbow/ex_act(severity)
 	cookoff(TRUE)
 
-/obj/item/warhead/longbow/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/obj/item/warhead/longbow/fire_act(exposed_temperature, exposed_volume)
+	. = ..()
+
 	if(exposed_temperature >= T0C+200)
 		cookoff(TRUE)
 

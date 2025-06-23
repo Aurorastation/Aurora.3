@@ -10,7 +10,7 @@
  * Special inhibitor handling. Different from the one used by teleport datums.
  */
 /proc/check_inhibitors(var/turf/T)
-	for(var/found_inhibitor in bluespace_inhibitors)
+	for(var/found_inhibitor in GLOB.bluespace_inhibitors)
 		var/obj/machinery/anti_bluespace/AB = found_inhibitor
 		if(T.z != AB.z || get_dist(T, AB) > 8 || (AB.stat & (NOPOWER | BROKEN)))
 			continue
@@ -26,14 +26,14 @@
 /obj/item/locator
 	name = "locator"
 	desc = "A device that can be used to track those with locator implants."
-	icon = 'icons/obj/device.dmi'
-	icon_state = "locator"
+	icon = 'icons/obj/item/pinpointer.dmi'
+	icon_state = "pinoff"
 	var/temp = null
 	var/frequency = 1451
 	var/broadcasting = null
 	var/listening = TRUE
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	item_state = "electronic"
 	throw_speed = 4
 	throw_range = 20
@@ -44,18 +44,18 @@
 	user.set_machine(src)
 	var/dat
 	if (src.temp)
-		dat = "[src.temp]<BR><BR><A href='byond://?src=\ref[src];temp=1'>Clear</A>"
+		dat = "[src.temp]<BR><BR><A href='byond://?src=[REF(src)];temp=1'>Clear</A>"
 	else
 		dat = {"
 <B>Persistent Signal Locator</B><HR>
 Frequency:
-<A href='byond://?src=\ref[src];freq=-10'>-</A>
-<A href='byond://?src=\ref[src];freq=-2'>-</A> [format_frequency(src.frequency)]
-<A href='byond://?src=\ref[src];freq=2'>+</A>
-<A href='byond://?src=\ref[src];freq=10'>+</A><BR>
+<A href='byond://?src=[REF(src)];freq=-10'>-</A>
+<A href='byond://?src=[REF(src)];freq=-2'>-</A> [format_frequency(src.frequency)]
+<A href='byond://?src=[REF(src)];freq=2'>+</A>
+<A href='byond://?src=[REF(src)];freq=10'>+</A><BR>
 
-<A href='?src=\ref[src];refresh=1'>Refresh</A>"}
-	user << browse(dat, "window=radio")
+<A href='byond://?src=[REF(src)];refresh=1'>Refresh</A>"}
+	user << browse(HTML_SKELETON(dat), "window=radio")
 	onclose(user, "radio")
 	return
 
@@ -116,7 +116,7 @@ Frequency:
 									direct = "weak"
 							src.temp += "[W.id]-[dir2text(get_dir(sr, tr))]-[direct]<BR>"
 
-				src.temp += "<B>You are at \[[sr.x],[sr.y],[sr.z]\]</B> in orbital coordinates.<BR><BR><A href='byond://?src=\ref[src];refresh=1'>Refresh</A><BR>"
+				src.temp += "<B>You are at \[[sr.x],[sr.y],[sr.z]\]</B> in orbital coordinates.<BR><BR><A href='byond://?src=[REF(src)];refresh=1'>Refresh</A><BR>"
 			else
 				src.temp += "<B><span class='warning'>Processing Error:</span></B> Unable to locate orbital position.<BR>"
 		else
@@ -142,12 +142,12 @@ Frequency:
 	name = "hand tele"
 	desc = "A hand-held bluespace teleporter that can rip open portals to a random nearby location, or lock onto a teleporter with a selected teleportation beacon."
 	desc_info = "Ctrl-click to choose which teleportation pad to link to. Use in-hand or alt-click to deploy a portal. When not linked to a pad, or the pad isn't pointing at a beacon, it will choose a completely random teleportation destination."
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/item/hand_tele.dmi'
 	icon_state = "hand_tele"
 	item_state = "electronic"
 	throwforce = 5
 	item_flags = ITEM_FLAG_HELD_MAP_TEXT
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 3
 	throw_range = 5
 	origin_tech = list(TECH_MAGNET = 1, TECH_BLUESPACE = 3)
@@ -245,9 +245,9 @@ Frequency:
 		var/old_pad = linked_pad
 		linked_pad = teleport_options[teleport_choice]
 		if(linked_pad)
-			GLOB.destroyed_event.register(linked_pad, src, PROC_REF(pad_destroyed))
+			RegisterSignal(linked_pad, COMSIG_QDELETING, PROC_REF(pad_destroyed))
 		if(old_pad && linked_pad != old_pad)
-			GLOB.destroyed_event.unregister(old_pad, src)
+			UnregisterSignal(old_pad, COMSIG_QDELETING)
 		return
 	return ..()
 
@@ -259,6 +259,9 @@ Frequency:
 	LAZYREMOVE(active_teleporters, P)
 	if(LAZYLEN(active_teleporters) < max_portals)
 		check_maptext(SMALL_FONTS(7, "Ready"))
+		icon_state = "hand_tele"
+	else
+		icon_state = "hand_tele_recharging"
 
 /obj/item/closet_teleporter
 	name = "closet teleporter"
@@ -267,7 +270,7 @@ Frequency:
 	icon = 'icons/obj/modular_components.dmi'
 	icon_state = "cpu_normal_photonic"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	origin_tech = list(TECH_MAGNET = 2, TECH_BLUESPACE = 3)
 	matter = list(DEFAULT_WALL_MATERIAL = 400)
 	var/obj/structure/closet/attached_closet

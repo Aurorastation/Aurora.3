@@ -62,7 +62,7 @@ SUBSYSTEM_DEF(xenoarch)
 				var/datum/find/F = archeo_turf.finds[1]
 				if(F.excavation_required <= F.view_range)
 					archeo_turf.archaeo_overlay = "overlay_archaeo[rand(1,3)]"
-					archeo_turf.add_overlay(archeo_turf.archaeo_overlay)
+					archeo_turf.AddOverlays(archeo_turf.archaeo_overlay)
 
 			//have a chance for an artifact to spawn here, but not in animal or plant digsites
 			if(isnull(M.artifact_find) && digsite != 1 && digsite != 2)

@@ -40,12 +40,6 @@
 
 // Common materials.
 // For base materials, see materials.dm
-
-/datum/export/stack/plasteel
-	cost = 155 // 2000u of plasma + 2000u of metal.
-	message = "of plasteel"
-	export_types = list(/obj/item/stack/material/plasteel)
-
 // 1 glass + 0.5 metal, cost is rounded up.
 /datum/export/stack/rglass
 	cost = 8

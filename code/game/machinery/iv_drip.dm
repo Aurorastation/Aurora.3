@@ -8,6 +8,7 @@
 	icon_state = "iv_stand"
 	anchored = 0
 	density = FALSE
+	pass_flags_self = PASSTABLE
 	var/tipped = FALSE
 	var/last_full // Spam check
 	var/last_warning
@@ -59,6 +60,15 @@
 		/obj/item/stock_parts/manipulator,
 		/obj/item/stock_parts/scanning_module)
 
+/obj/machinery/iv_drip/Initialize(mapload)
+	. = ..()
+
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
 /obj/machinery/iv_drip/Destroy()
 	if(attached)
 		attached = null
@@ -73,13 +83,13 @@
 /obj/machinery/iv_drip/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(istype(mover, /obj/machinery/iv_drip))
 		return FALSE
-	if(height && istype(mover) && mover.checkpass(PASSTABLE)) //allow bullets, beams, thrown objects, rats, drones, and the like through.
-		return TRUE
 	return ..()
 
-/obj/machinery/iv_drip/Crossed(var/mob/H)
-	if(ishuman(H))
-		var/mob/living/carbon/human/M = H
+/obj/machinery/iv_drip/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	if(ishuman(arrived))
+		var/mob/living/carbon/human/M = arrived
 		if(M.shoes?.item_flags & ITEM_FLAG_LIGHT_STEP)
 			return
 		if(M.incapacitated())
@@ -89,12 +99,11 @@
 		if(M.m_intent == M_RUN && M.a_intent == I_HURT)
 			src.visible_message(SPAN_WARNING("[M] bumps into \the [src], knocking it over!"), SPAN_WARNING("You bump into \the [src], knocking it over!"))
 			do_crash()
-	return ..()
 
 /obj/machinery/iv_drip/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(beaker)
-		add_overlay("beaker")
+		AddOverlays("beaker")
 		var/datum/reagents/reagents = beaker.reagents
 		if(reagents?.total_volume)
 			var/image/filling = image('icons/obj/iv_drip.dmi', src, "reagent")
@@ -111,17 +120,17 @@
 			filling.icon_state = "reagent[fill_level]"
 			var/reagent_color = reagents.get_color()
 			filling.icon += reagent_color
-			add_overlay(filling)
+			AddOverlays(filling)
 		if(attached)
-			add_overlay("iv_in")
+			AddOverlays("iv_in")
 			if(mode)
-				add_overlay("light_green")
+				AddOverlays("light_green")
 			else
-				add_overlay("light_red")
+				AddOverlays("light_red")
 			if(blood_message_sent)
-				add_overlay("light_yellow")
+				AddOverlays("light_yellow")
 		else
-			add_overlay("iv_out")
+			AddOverlays("iv_out")
 	if(tank)
 		if(istype(tank, /obj/item/tank/oxygen))
 			tank_type = "oxy"
@@ -131,7 +140,7 @@
 			tank_type = "phoron"
 		else
 			tank_type = "other"
-		add_overlay("tank_[tank_type]")
+		AddOverlays("tank_[tank_type]")
 
 		var/tank_level = 2
 		switch(tank.percent())
@@ -142,16 +151,16 @@
 			if(60 to 79)		tank_level = 4
 			if(80 to 90)		tank_level = 5
 			if(91 to INFINITY)	tank_level = 6
-		add_overlay("[tank.gauge_icon][tank_level]")
+		AddOverlays("[tank.gauge_icon][tank_level]")
 	if(breath_mask)
 		if(breather)
-			add_overlay("mask_on")
+			AddOverlays("mask_on")
 		else
-			add_overlay("mask_off")
+			AddOverlays("mask_off")
 		if(epp_active)
-			add_overlay("light_blue")
+			AddOverlays("light_blue")
 	if(panel_open)
-		add_overlay("panel_open")
+		AddOverlays("panel_open")
 
 /obj/machinery/iv_drip/process()
 	breather_process()
@@ -267,31 +276,31 @@
 			if(attached.take_blood(beaker, amount))
 				update_icon()
 
-/obj/machinery/iv_drip/MouseDrop(over_object, src_location, over_location)
+/obj/machinery/iv_drip/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	..()
-	if(use_check_and_message(usr))
+	if(use_check_and_message(user))
 		return
-	if(isDrone(usr))
+	if(isDrone(user))
 		return
-	if(in_range(src, usr) && ishuman(over_object) && in_range(over_object, src))
+	if(in_range(src, user) && ishuman(over) && in_range(over, src))
 		var/list/options = list(
 			"IV drip" = image('icons/mob/screen/radial.dmi', "iv_drip"),
 			"Breath mask" = image('icons/mob/screen/radial.dmi', "iv_mask"))
-		var/chosen_action = show_radial_menu(usr, src, options, require_near = TRUE, radius = 42, tooltips = TRUE)
+		var/chosen_action = show_radial_menu(user, src, options, require_near = TRUE, radius = 42, tooltips = TRUE)
 		if(!chosen_action)
 			return
 		switch(chosen_action)
 			if("IV drip")
 				if(attached)
-					visible_message("[usr] detaches \the [src] from [attached]'s [vein.name].")
+					visible_message("[user] detaches \the [src] from [attached]'s [vein.name].")
 					vein = null
 					attached = null
 					blood_message_sent = FALSE
 					update_icon()
 					return
-				attached = over_object
-				vein = attached.get_organ(usr.zone_sel.selecting)
-				var/checking = attached.can_inject(usr, TRUE, usr.zone_sel.selecting, armor_check)
+				attached = over
+				vein = attached.get_organ(user.zone_sel.selecting)
+				var/checking = attached.can_inject(user, TRUE, user.zone_sel.selecting, armor_check)
 				if(!checking)
 					attached = null
 					vein = null
@@ -299,42 +308,42 @@
 				if(armor_check)
 					var/attach_time = attach_delay
 					attach_time *= checking
-					if(!do_mob(usr, attached, attach_time))
-						to_chat(usr, SPAN_DANGER("Failed to insert \the [src]. You and [attached] must stay still!"))
+					if(!do_mob(user, attached, attach_time))
+						to_chat(user, SPAN_DANGER("Failed to insert \the [src]. You and [attached] must stay still!"))
 						attached = null
 						vein = null
 						return
-				visible_message("[usr][armor_check ? "" : " swiftly"] inserts \the [src] in \the [attached]'s [vein.name].")
+				visible_message("[user][armor_check ? "" : " swiftly"] inserts \the [src] in \the [attached]'s [vein.name].")
 				update_icon()
 				return
 			if("Breath mask")
 				if(!breath_mask)
-					to_chat(usr, SPAN_NOTICE("There is no breath mask installed into \the [src]!"))
+					to_chat(user, SPAN_NOTICE("There is no breath mask installed into \the [src]!"))
 					return
 				if(breather)
 					visible_message("[usr] removes [breather]'s mask.[valve_open ? " \The [tank]'s valve automatically closes." : ""]")
 					breath_mask_rip()
 					return
-				breather = over_object
+				breather = over
 				if(!breather.organs_by_name[BP_HEAD])
-					to_chat(usr, SPAN_WARNING("\The [breather] doesn't have a head!"))
+					to_chat(user, SPAN_WARNING("\The [breather] doesn't have a head!"))
 					breather = null
 					return
 				if(!breather.check_has_mouth())
-					to_chat(usr, SPAN_WARNING("\The [breather] doesn't have a mouth!"))
+					to_chat(user, SPAN_WARNING("\The [breather] doesn't have a mouth!"))
 					breather = null
 					return
 				if(breather.head && (breather.head.body_parts_covered & FACE))
-					to_chat(usr, SPAN_WARNING("You must remove \the [breather]'s [breather.head] first!"))
+					to_chat(user, SPAN_WARNING("You must remove \the [breather]'s [breather.head] first!"))
 					breather = null
 					return
 				if(breather.wear_mask)
-					to_chat(usr, SPAN_WARNING("You must remove \the [breather]'s [breather.wear_mask] first!"))
+					to_chat(user, SPAN_WARNING("You must remove \the [breather]'s [breather.wear_mask] first!"))
 					breather = null
 					return
 				if(tank)
 					tank_on()
-				visible_message("<b>[usr]</b> secures the mask over \the <b>[breather]'s</b> face.")
+				visible_message("<b>[user]</b> secures the mask over \the <b>[breather]'s</b> face.")
 				playsound(breather, 'sound/effects/buckle.ogg', 50, extrarange = SILENCED_SOUND_EXTRARANGE)
 				breath_mask.forceMove(breather.loc)
 				breather.equip_to_slot(breath_mask, slot_wear_mask)
@@ -500,7 +509,7 @@
 			toggle_epp()
 
 /obj/machinery/iv_drip/proc/do_crash()
-	cut_overlays()
+	ClearOverlays()
 	visible_message(SPAN_WARNING("\The [src] falls over with a buzz, spilling out it's contents!"))
 	flick("iv_crash[is_loose ? "" : "_tank_[tank_type]"]", src)
 	playsound(src, 'sound/effects/table_slam.ogg', 50, extrarange = MEDIUM_RANGE_SOUND_EXTRARANGE)

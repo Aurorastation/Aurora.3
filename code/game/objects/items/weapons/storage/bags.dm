@@ -18,10 +18,11 @@
 
 //  Generic non-item
 /obj/item/storage/bag
-	allow_quick_gather = 1
-	allow_quick_empty = 1
-	display_contents_with_number = 0 // UNStABLE AS FuCK, turn on when it stops crashing clients
-	use_to_pickup = 1
+	allow_quick_gather = TRUE
+	allow_quick_empty = TRUE
+	display_contents_with_number = TRUE
+	use_to_pickup = TRUE
+	storage_slots = 7
 	slot_flags = SLOT_BELT
 	var/use_deferred = TRUE
 	icon = 'icons/obj/storage/bags.dmi'
@@ -38,9 +39,10 @@
 	icon_state = "trashbag0"
 	item_state = "trashbag"
 
-	w_class = ITEMSIZE_LARGE
-	max_w_class = ITEMSIZE_SMALL
-	max_storage_space = 56
+	w_class = WEIGHT_CLASS_BULKY
+	max_w_class = WEIGHT_CLASS_SMALL
+	storage_slots = 50
+	max_storage_space = DEFAULT_HOLDING_STORAGE
 	can_hold = null // any
 	cant_hold = list(/obj/item/disk/nuclear)
 	drop_sound = 'sound/items/drop/wrapper.ogg'
@@ -106,8 +108,9 @@
 	desc = "It's a very flimsy, very noisy alternative to a bag."
 	icon_state = "plasticbag"
 	item_state = "plasticbag"
-	w_class = ITEMSIZE_LARGE
-	max_w_class = ITEMSIZE_SMALL
+	storage_slots = null
+	w_class = WEIGHT_CLASS_BULKY
+	max_w_class = WEIGHT_CLASS_SMALL
 	can_hold = null // any
 	cant_hold = list(/obj/item/disk/nuclear)
 	drop_sound = 'sound/items/drop/wrapper.ogg'
@@ -122,10 +125,14 @@
 	desc = "For storing your stems, seeds, buds, and any other illicit substances."
 	icon_state = "plantbag"
 	item_state = "plantbag"
+	storage_slots = 50
 	max_storage_space = 100
-	max_w_class = ITEMSIZE_NORMAL
-	w_class = ITEMSIZE_SMALL
+	max_w_class = WEIGHT_CLASS_NORMAL
+	w_class = WEIGHT_CLASS_SMALL
 	can_hold = list(/obj/item/reagent_containers/food/snacks/grown,/obj/item/seeds,/obj/item/grown)
+
+/obj/item/storage/bag/plants/full
+	starts_with = list(/obj/random_produce/box = 50)
 
 // -----------------------------
 //        Sheet Snatcher
@@ -139,10 +146,10 @@
 	desc = "A patented storage system designed for any kind of mineral sheet."
 
 	var/capacity = 300; //the number of sheets it can carry.
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	storage_slots = 7
 
-	allow_quick_empty = 1 // this function is superceded
+	allow_quick_empty = TRUE // this function is superceded
 	use_deferred = FALSE
 
 /obj/item/storage/bag/sheetsnatcher/can_be_inserted(obj/item/W as obj, stop_messages = 0)
@@ -277,7 +284,7 @@
 	item_state = "moneybag"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	max_storage_space = 100
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	can_hold = list(/obj/item/coin,/obj/item/spacecash)
 
 /obj/item/storage/bag/money/Initialize(mapload)
@@ -303,10 +310,9 @@
 	name = "book bag"
 	desc = "A bag for books."
 	icon_state = "bookbag"
-	storage_slots = 7
 	max_storage_space = 200
-	max_w_class = ITEMSIZE_NORMAL
-	w_class = ITEMSIZE_NORMAL
+	max_w_class = WEIGHT_CLASS_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	can_hold = list(/obj/item/book)
 
 	// -----------------------------
@@ -317,7 +323,12 @@
 	icon_state = "chembag"
 	item_state = "chembag"
 	desc = "A bag for storing pills and bottles of medicine."
+	storage_slots = 100
 	max_storage_space = 200
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	slowdown = 1
-	can_hold = list(/obj/item/reagent_containers/pill,/obj/item/reagent_containers/glass/beaker,/obj/item/reagent_containers/glass/bottle)
+	can_hold = list(
+		/obj/item/reagent_containers/pill,
+		/obj/item/reagent_containers/glass/beaker,
+		/obj/item/reagent_containers/glass/bottle,
+		/obj/item/reagent_containers/personal_inhaler_cartridge)

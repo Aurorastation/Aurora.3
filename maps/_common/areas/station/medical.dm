@@ -2,7 +2,7 @@
 //MedBay
 
 /area/medical
-	station_area = 1
+	station_area = TRUE
 	holomap_color = HOLOMAP_AREACOLOR_MEDICAL
 	area_blurb = "Various smells waft through the air: disinfectants, various medicines, sterile gloves, and gauze. It's not a pleasant smell, but one you could grow to ignore."
 	area_blurb_category = "mecical"
@@ -33,8 +33,8 @@
 	icon_state = "medbay4"
 	ambience = list('sound/ambience/signal.ogg')
 
-/area/medical/first_responder
-	name = "Medical - First Responder Equipment Storage"
+/area/medical/paramedic
+	name = "Medical - Paramedic Equipment Storage"
 	icon_state = "medbay"
 
 /area/medical/temp_morgue

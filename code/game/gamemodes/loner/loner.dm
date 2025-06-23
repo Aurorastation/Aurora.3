@@ -1,7 +1,7 @@
 /datum/game_mode/loner
 	name = "loner"
 	config_tag = "loner"
-	max_players = 8
+	max_players = 15
 	required_enemies = 1
 	required_players = 5
 	round_description = "Does anyone else hear a whistling noise...?"

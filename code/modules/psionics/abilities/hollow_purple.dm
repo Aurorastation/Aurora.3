@@ -15,7 +15,7 @@
 	icon_state = "destablize"
 	cast_methods = CAST_RANGED
 	aspect = ASPECT_PSIONIC
-	spell_projectile = /obj/item/projectile/hollow_purple
+	spell_projectile = /obj/projectile/hollow_purple
 	fire_sound = 'sound/magic/WandODeath.ogg'
 	cooldown = 10
 	psi_cost = 50
@@ -53,7 +53,7 @@
 		for(var/mob/living/L in get_hearers_in_view(7, src))
 			shake_camera(L, 5, 5)
 
-/obj/item/projectile/hollow_purple
+/obj/projectile/hollow_purple
 	name = "hollow purple"
 	icon_state = "hollow_purple"
 	color = COLOR_PURPLE
@@ -65,42 +65,30 @@
 	anti_materiel_potential = 100
 	damage_type = DAMAGE_BRUTE
 
-/obj/item/projectile/hollow_purple/Initialize()
+/obj/projectile/hollow_purple/Initialize()
 	. = ..()
 	set_light(10, 10, COLOR_PURPLE)
 
-/obj/item/projectile/hollow_purple/Destroy()
+/obj/projectile/hollow_purple/Destroy()
 	return ..()
 
-/obj/item/projectile/hollow_purple/on_impact(var/atom/A)
-	if(ismob(A))
-		if(A != firer)
-			var/mob/M = A
-			M.gib()
-	explosion(A, 5, 5, 5)
-	..()
-
-/obj/item/projectile/hollow_purple/on_hit(atom/target, blocked, def_zone)
+/obj/projectile/hollow_purple/on_hit(atom/target, blocked, def_zone)
 	if(ismob(target))
 		if(target != firer)
 			var/mob/M = target
 			M.gib()
 	explosion(target, 5, 5, 5)
-	..()
+	. = ..()
 
-/obj/item/projectile/hollow_purple/check_penetrate(atom/A)
-	on_hit(A)
-	return TRUE
-
-/obj/item/projectile/hollow_purple/after_move()
-	for(var/a in range(3, src))
-		if(isliving(a) && a != firer)
-			var/mob/living/M = a
-			M.gib()
-			playsound(src, 'sound/magic/LightningShock.ogg', 75, 1)
-		else if(isturf(a) || isobj(a))
-			var/atom/A = a
-			if(!A.density)
-				continue
-			A.ex_act(3)
-			playsound(src, 'sound/magic/LightningShock.ogg', 75, 1)
+// /obj/projectile/hollow_purple/after_move()
+// 	for(var/a in range(3, src))
+// 		if(isliving(a) && a != firer)
+// 			var/mob/living/M = a
+// 			M.gib()
+// 			playsound(src, 'sound/magic/LightningShock.ogg', 75, 1)
+// 		else if(isturf(a) || isobj(a))
+// 			var/atom/A = a
+// 			if(!A.density)
+// 				continue
+// 			A.ex_act(3)
+// 			playsound(src, 'sound/magic/LightningShock.ogg', 75, 1)

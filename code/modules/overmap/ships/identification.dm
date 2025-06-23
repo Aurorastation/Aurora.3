@@ -5,6 +5,12 @@
 	icon_state = "iff"
 	anchored = TRUE
 	idle_power_usage = 500
+	component_types = list(
+		/obj/item/circuitboard/iff_beacon,
+		/obj/item/stack/cable_coil = 2,
+		/obj/item/stock_parts/subspace/transmitter,
+		/obj/item/stock_parts/capacitor
+	)
 	var/datum/wires/iff/wires
 	var/disabled = FALSE
 	var/obfuscating = FALSE
@@ -25,14 +31,13 @@
 /obj/machinery/iff_beacon/attackby(obj/item/attacking_item, mob/user)
 	if(default_deconstruction_screwdriver(user, attacking_item))
 		return TRUE
-
+	if(default_deconstruction_crowbar(user, attacking_item))
+		return TRUE
+	if(default_part_replacement(user, attacking_item))
+		return TRUE
 	if(panel_open)
-		if(attacking_item.ismultitool() || attacking_item.iswirecutter())
-			if(panel_open)
-				wires.interact(user)
-			else
-				to_chat(user, SPAN_WARNING("\The [src]'s wires aren't exposed."))
-			return TRUE
+		wires.interact(user)
+		return TRUE
 	..()
 
 /obj/machinery/iff_beacon/proc/toggle()
@@ -60,7 +65,7 @@
 
 /obj/machinery/iff_beacon/update_icon()
 	icon_state = initial(icon_state)
-	cut_overlays()
+	ClearOverlays()
 	if(panel_open)
 		icon_state += "_o"
 	if(!operable() || !use_power)
