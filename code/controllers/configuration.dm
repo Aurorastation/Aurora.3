@@ -440,8 +440,11 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	var/ntsl_port = "1945"
 	var/ntsl_disabled = TRUE
 
-	// Is external Auth enabled
-	var/external_auth = FALSE
+	/// Is external Auth enabled
+	// 0 - disabled.
+	// 1 - only users with linked ckeys can authenticate.
+	// 2 - users with a forum account and no linked ckeys can also authenticate.
+	var/external_auth = 0
 
 	// fail2topic settings
 	var/fail2topic_rate_limit = 5 SECONDS
@@ -1038,7 +1041,9 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 					ntsl_disabled = text2num(value)
 
 				if ("external_auth")
-					external_auth = TRUE
+					external_auth = text2num(value)
+					if (external_auth > 2 || external_auth < 0)
+						external_auth = 0
 
 				if ("fail2topic_rate_limit")
 					fail2topic_rate_limit = text2num(value) SECONDS
