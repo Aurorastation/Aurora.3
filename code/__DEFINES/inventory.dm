@@ -22,8 +22,14 @@
 //in exchange for being limited in the w_class of items that will fit
 #define BASE_STORAGE_CAPACITY(w_class) (7*(w_class-1))
 
+// "max_storage_space" Defines
+/// max_storage_space = 56
 #define DEFAULT_HOLDING_STORAGE   BASE_STORAGE_CAPACITY(9)
+/// max_storage_space = 35
 #define DEFAULT_DUFFELBAG_STORAGE BASE_STORAGE_CAPACITY(6)
+/// max_storage_space = 28
 #define DEFAULT_BACKPACK_STORAGE  BASE_STORAGE_CAPACITY(5)
+/// max_storage_space = 21
 #define DEFAULT_LARGEBOX_STORAGE  BASE_STORAGE_CAPACITY(4)
+/// max_storage_space = 14
 #define DEFAULT_BOX_STORAGE       BASE_STORAGE_CAPACITY(3)
