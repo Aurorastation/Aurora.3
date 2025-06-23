@@ -12,4 +12,4 @@ changes:
   - rscadd: "Added an account console to the captain office."
   - rscadd: "Added an ATM to the bridge hallway."
   - rscadd: "Fixed a turf in the engineering hard storage not being the correct type."
-  - rsacadd: "Fixed the crusher disposal placing items on top of the crusher pistons."
+  - rscadd: "Fixed the crusher disposal placing items on top of the crusher pistons."
