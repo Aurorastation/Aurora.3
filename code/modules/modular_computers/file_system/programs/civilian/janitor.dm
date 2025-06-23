@@ -68,6 +68,7 @@
 			"key" = length(supplies),
 			"x" = AT.x,
 			"y" = AT.y,
+			"z" = AT.z,
 			"dir" = dir,
 			"status" = status,
 			"supply_type" = supply_type

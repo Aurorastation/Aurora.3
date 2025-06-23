@@ -1,5 +1,6 @@
 /datum/gear/cane
-	display_name = "cane"
+	display_name = "cane and crutch selection"
+	description = "A selection of canes and crutches."
 	path = /obj/item/cane
 
 /datum/gear/cane/New()
@@ -8,7 +9,10 @@
 	cane["cane"] = /obj/item/cane
 	cane["telescopic cane"] = /obj/item/cane/telecane
 	cane["crutch"] = /obj/item/cane/crutch
-	cane["white cane"] = /obj/item/cane/white
+	cane["forearm crutch"] = /obj/item/cane/crutch/forearm
+	cane["white cane"] = /obj/item/cane/telecane/white
+	cane["pair of crutches"] = /obj/item/storage/box/crutch_pair
+	cane["pair of forearm crutches"] = /obj/item/storage/box/forearm_crutch_pair
 	gear_tweaks += new /datum/gear_tweak/path(cane)
 
 /datum/gear/flask
