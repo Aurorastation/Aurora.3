@@ -887,7 +887,7 @@
 	name = "radiation collector array"
 	supplier = "hephaestus"
 	description = "A radiation collector array. Used to augment the power generation of a generator that emits ionising radiation."
-	price = 2000
+	price = 650
 	items = list(
 		/obj/machinery/power/rad_collector
 	)
