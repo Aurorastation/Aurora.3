@@ -16,6 +16,8 @@
 
 	var/list/linked_processors
 
+	var/local_processing_stage = 0
+
 	component_types = list(
 		/obj/item/circuitboard/rdserver,
 		/obj/item/stock_parts/scanning_module,
@@ -93,6 +95,16 @@
 				if(T.level)
 					files.UpdateTech(T.id, round(TP.tech_rate))
 			TP.processing_stage = 0
+
+	// Server automatically generates its own research, slowly.
+	local_processing_stage++
+	if(local_processing_stage == 5)
+		for(var/tech_id in files.known_tech)
+			var/datum/tech/T = files.known_tech[tech_id]
+			// Tech processing speed cannot be upgraded.
+			if(T.level)
+				files.UpdateTech(T.id, 5)
+		local_processing_stage = 0
 
 /obj/machinery/r_n_d/server/emp_act(severity)
 	. = ..()
