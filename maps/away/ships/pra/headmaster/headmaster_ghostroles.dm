@@ -1,3 +1,4 @@
+// Orbital Fleet Kosmostrelki - Elite crew of the PRA's Orbital Fleet spaceships.
 /datum/ghostspawner/human/headmaster_kosmostrelki
 	short_name = "headmaster_kosmostrelki"
 	name = "Headmaster Ship Kosmostrelki"
@@ -27,10 +28,8 @@
 	accessory = /obj/item/clothing/accessory/badge/pra_passport
 	mask = /obj/item/clothing/accessory/dogtags/adhomai
 	gloves = /obj/item/clothing/gloves/black_leather/tajara
-	back = /obj/item/storage/backpack/satchel
-	backpack_contents = list(
-						/obj/item/clothing/accessory/badge/hadii_card = 1,
-						)
+	back = /obj/item/storage/backpack/satchel/industrial
+	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/clothing/accessory/badge/hadii_card = 1)
 
 	r_pocket = /obj/item/storage/wallet/random
 	l_hand = /obj/item/martial_manual/tajara
@@ -38,6 +37,7 @@
 /obj/outfit/admin/headmaster_kosmostrelki/get_id_access()
 	return list(ACCESS_PRA, ACCESS_EXTERNAL_AIRLOCKS)
 
+// Kosmostrelki Captain - Orbital Fleet Captain in official and operational command of the Headmaster
 /datum/ghostspawner/human/headmaster_kosmostrelki/captain
 	short_name = "headmaster_captain"
 	name = "Headmaster Ship Captain"
@@ -64,6 +64,7 @@
 
 	l_pocket = /obj/item/clothing/wrists/watch/pocketwatch/adhomai
 
+// Party Commissar - High-ranking party commissar attached to the Kosmostrelki unit and ship to ensure the loyalty of the crew.
 /datum/ghostspawner/human/headmaster_kosmostrelki/commissar
 	short_name = "headmaster_commissar"
 	name = "Headmaster Party Commissar"
@@ -87,8 +88,7 @@
 	accessory = /obj/item/clothing/accessory/hadii_pin
 	head = /obj/item/clothing/head/tajaran/cosmonaut_commissar
 	back = /obj/item/storage/backpack/satchel/leather
-	backpack_contents = list(
-						/obj/item/storage/box/hadii_manifesto = 1,
+	backpack_contents = list(/obj/item/storage/box/hadii_manifesto = 1,
 						/obj/item/storage/box/hadii_card = 1,
 						/obj/item/clothing/accessory/badge/hadii_card/member = 1,
 						/obj/item/clothing/accessory/badge/pra_passport = 1,
