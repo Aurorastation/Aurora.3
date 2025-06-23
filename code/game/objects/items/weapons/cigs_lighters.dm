@@ -374,9 +374,6 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 	return ..()
 
 
-/obj/item/clothing/mask/smokable/cigarette/vanilla
-	reagents_to_add = list(/singleton/reagent/toxin/tobacco = 15)
-
 /obj/item/clothing/mask/smokable/cigarette/acmeco
 	reagents_to_add = list(
 		/singleton/reagent/toxin/tobacco = 5,
@@ -411,7 +408,7 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 	name = "adhomian cigarette"
 	desc = "An adhomian cigarette made from processed S'rendarr's Hand."
 	reagents_to_add = list(
-		/singleton/reagent/toxin/tobacco/srendarrs_hand = 5,
+		/singleton/reagent/toxin/tobacco/srendarrs_hand = 10,
 		/singleton/reagent/mental/nicotine = 5
 	)
 
@@ -431,7 +428,7 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 	)
 
 /obj/item/clothing/mask/smokable/cigarette/dyn
-	name =  "dyn cigarette"
+	name = "dyn cigarette"
 	desc = "A mentholated cigarette from Nralakk made with processed dyn."
 	reagents_to_add = list(
 		/singleton/reagent/toxin/tobacco/sweet = 5,
