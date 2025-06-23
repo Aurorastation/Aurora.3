@@ -88,14 +88,24 @@ Class Procs:
 	init_flags = INIT_MACHINERY_PROCESS_SELF
 	pass_flags_self = PASSMACHINE | LETPASSCLICKS
 
+	/// Controlled by a bitflag, differentiates between a few different possible states including the machine being broken or unpowered.
+	/// See code/__defines/machinery.dm for the possible states.
 	var/stat = 0
+	/// Is this machine emagged?
 	var/emagged = 0
-	var/use_power = POWER_USE_IDLE // See code/__defines/machinery.dm
+
+	/// In what power state is this machine? Possible states include being off, idle, or active - see code/__defines/machinery.dm.
+	/// You should not be modifying this directly! Use the procs in power_usage.dm.
+	var/use_power = POWER_USE_IDLE
 	var/internal = FALSE
+	/// How much power should this be drawing in the idle power state?
 	var/idle_power_usage = 0
+	/// How much power should this be drawing in the active power state?
 	var/active_power_usage = 0
 	var/power_init_complete = FALSE
-	var/power_channel = AREA_USAGE_EQUIP //AREA_USAGE_EQUIP, AREA_USAGE_ENVIRON or AREA_USAGE_LIGHT
+	/// What power channel does this fall under in APCs? Possible channels include: AREA_USAGE_EQUIP, AREA_USAGE_ENVIRON or AREA_USAGE_LIGHT
+	var/power_channel = AREA_USAGE_EQUIP
+
 	/* List of types that should be spawned as component_parts for this machine.
 		Structure:
 			type -> num_objects
@@ -109,7 +119,8 @@ Class Procs:
 		)
 	*/
 	var/list/component_types
-	var/list/component_parts = null //list of all the parts used to build it, if made from certain kinds of frames.
+	/// List of all the parts used to build it, if made from certain kinds of frames.
+	var/list/component_parts = null
 	var/uid
 	var/panel_open = 0
 	var/global/gl_uid = 1

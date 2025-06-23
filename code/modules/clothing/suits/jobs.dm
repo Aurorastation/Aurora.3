@@ -320,6 +320,10 @@
 	icon_state = "idris_surgown"
 	item_state = "idris_surgown"
 
+/obj/item/clothing/suit/storage/surgical_gown/heph
+	icon_state = "heph_surgown"
+	item_state = "heph_surgown"
+
 //Mime
 /obj/item/clothing/suit/suspenders
 	name = "suspenders"

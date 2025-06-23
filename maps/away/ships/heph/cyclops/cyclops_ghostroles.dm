@@ -101,6 +101,8 @@
 	name = "Cyclops Crew Captain"
 
 	uniform = /obj/item/clothing/under/rank/captain/hephaestus
+	head = /obj/item/clothing/head/caphat/cap/hephaestus
+	gloves = /obj/item/clothing/gloves/captain/hephaestus
 	back = /obj/item/storage/backpack/satchel/leather
 
 /datum/ghostspawner/human/cyclops_crew/engineer

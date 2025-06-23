@@ -128,6 +128,7 @@ GLOBAL_LIST_INIT(severity_to_string, list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 //WHAT THE FUCK IS THIS, WHY
 /// Returns how many characters are currently active (not logged out, not AFK for more than 10 minutes) with a specific role.
 /// Note that this isn't sorted by department, because e.g. having a roboticist shouldn't make meteors spawn.
+/// The higher this value is, the greater likelihood that the event will occur with each active dept member.
 /proc/number_active_with_role()
 	var/list/active_with_role = list()
 	active_with_role[ASSIGNMENT_ANY] = 0
@@ -223,6 +224,9 @@ GLOBAL_LIST_INIT(severity_to_string, list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Economic News", /datum/event/economic_event,
 			300),
 
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Electrical Storm", /datum/event/electrical_storm,
+			50, list(ASSIGNMENT_ENGINEER = 20, ASSIGNMENT_JANITOR = 25)),
+
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Cozmozoan Migration", /datum/event/carp_migration/cozmo,
 			60),
 
@@ -282,11 +286,15 @@ GLOBAL_LIST_INIT(severity_to_string, list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Appendicitis", /datum/event/spontaneous_appendicitis,
 			0, list(ASSIGNMENT_SURGEON = 25)),
 
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Communication Blackout", /datum/event/communications_blackout,
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Comms Blackout", /datum/event/communications_blackout,
 			100),
 
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Comms Blackout - Damage", /datum/event/communications_blackout/damage_machinery,
+			100, list(ASSIGNMENT_ENGINEER = 25),
+			pop_needed = 6),
+
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Electrical Storm", /datum/event/electrical_storm,
-			50, list(ASSIGNMENT_ENGINEER = 15, ASSIGNMENT_JANITOR = 20)),
+			40, list(ASSIGNMENT_AI = 10, ASSIGNMENT_ENGINEER = 15, ASSIGNMENT_JANITOR = 20)),
 
 		// see comment at code/modules/events/gravity.dm
 		// tl;dr gravity is handled globally, meaning if the horizon loses gravity, everyone does
@@ -296,11 +304,11 @@ GLOBAL_LIST_INIT(severity_to_string, list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Ion Storm", /datum/event/ionstorm,
 			0, list(ASSIGNMENT_AI = 45, ASSIGNMENT_CYBORG = 25, ASSIGNMENT_ENGINEER = 6, ASSIGNMENT_SCIENTIST = 6)),
 
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Prison Break", /datum/event/prison_break,
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Containment Error - Security", /datum/event/prison_break,
 			0, list(ASSIGNMENT_SECURITY = 15, ASSIGNMENT_CYBORG = 20), TRUE),
 
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Containment Error - Xenobiology", /datum/event/prison_break/xenobiology,
-			0, list(ASSIGNMENT_SCIENTIST = 15, ASSIGNMENT_CYBORG = 20), TRUE),
+			0, list(ASSIGNMENT_SCIENTIST = 25, ASSIGNMENT_CYBORG = 20), TRUE),
 
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Containment Error - Bridge", /datum/event/prison_break/bridge,
 			0, list(ASSIGNMENT_ENGINEER = 15, ASSIGNMENT_CYBORG = 20), TRUE),
@@ -316,8 +324,7 @@ GLOBAL_LIST_INIT(severity_to_string, list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 			15, list(ASSIGNMENT_SECURITY = 15)),
 
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Moderate Spider Infestation", /datum/event/spider_infestation/moderate,
-			50, list(ASSIGNMENT_SECURITY = 10),
-			pop_needed = 8),
+			50, list(ASSIGNMENT_SECURITY = 10)),
 
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Moderate Vermin Infestation", /datum/event/infestation/moderate,
 			30, list(ASSIGNMENT_JANITOR = 15, ASSIGNMENT_SECURITY = 15, ASSIGNMENT_MEDICAL = 10)),
@@ -353,18 +360,22 @@ GLOBAL_LIST_INIT(severity_to_string, list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 			0, list(ASSIGNMENT_ENGINEER = 10), TRUE, minimum_job_requirement_list = list(ASSIGNMENT_ENGINEER = 2),
 			pop_needed = 10),
 
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Electrical Storm", /datum/event/electrical_storm,
+			30, list(ASSIGNMENT_AI = 20, ASSIGNMENT_ENGINEER = 15, ASSIGNMENT_JANITOR = 20)),
+
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Space Vines", /datum/event/spacevine,
-			0, list(ASSIGNMENT_ANY = 1, ASSIGNMENT_ENGINEER = 10, ASSIGNMENT_GARDENER = 20), TRUE),
+			0, list(ASSIGNMENT_ANY = 1, ASSIGNMENT_ENGINEER = 10, ASSIGNMENT_GARDENER = 20), TRUE,
+			pop_needed = 4),
 
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Spider Infestation", /datum/event/spider_infestation,
-			25, list(ASSIGNMENT_SECURITY = 10, ASSIGNMENT_MEDICAL = 5), TRUE,
-			pop_needed = 8),
+			25, list(ASSIGNMENT_SECURITY = 10, ASSIGNMENT_MEDICAL = 5), TRUE),
 
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Major Vermin Infestation", /datum/event/infestation/major,
 			15, list(ASSIGNMENT_SECURITY = 15, ASSIGNMENT_MEDICAL = 5)),
 
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Drone Revolution", /datum/event/rogue_maint_drones,
-			0, list(ASSIGNMENT_ENGINEER = 10, ASSIGNMENT_MEDICAL = 5, ASSIGNMENT_SECURITY = 5)),
+			0, list(ASSIGNMENT_ENGINEER = 10, ASSIGNMENT_MEDICAL = 5, ASSIGNMENT_SECURITY = 5),
+			pop_needed = 4),
 
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Comet Expulsion", /datum/event/comet_expulsion,
 			1, list(ASSIGNMENT_BRIDGE_CREW = 5, ASSIGNMENT_ENGINEER = 2), is_one_shot = TRUE,

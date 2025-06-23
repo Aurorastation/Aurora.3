@@ -276,6 +276,12 @@
 	icon_state = "crutch"
 	item_state = "crutch"
 
+/obj/item/cane/crutch/forearm
+	name = "forearm crutch"
+	desc = "A different style of crutch with a handle and a cuff that goes around the forearm for additional support."
+	icon_state = "forearm_crutch"
+	item_state = "forearm_crutch"
+
 /obj/item/cane/shillelagh
 	name = "adhomian shillelagh"
 	desc = "A sturdy walking stick made from adhomian wood."

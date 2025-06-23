@@ -28,7 +28,7 @@
 	var/list/minimum_job_requirement = list()
 
 	///Minimum amount of player_list mobs for this to fire
-	var/pop_requirement = 0
+	var/pop_requirement = 1
 
 	/// A lazylist of gamemodes during which this event won't fire
 	var/list/excluded_gamemodes
@@ -59,7 +59,10 @@
 	if(!enabled)
 		return 0
 
-	if(length(GLOB.player_list) <= pop_requirement)
+	var/n = 0
+	for (var/mob/living in GLOB.player_list)
+		n++
+	if(n <= pop_requirement)
 		return 0
 
 	if(LAZYISIN(excluded_gamemodes, SSticker.mode.name))
