@@ -368,7 +368,7 @@
 	set_trait(TRAIT_PRODUCT_COLOUR,"#FFEC1F")
 	set_trait(TRAIT_PLANT_COLOUR,"#69AD50")
 	set_trait(TRAIT_PLANT_ICON,"tree4")
-	set_trait(TRAIT_IDEAL_HEAT, 298)
+	set_trait(TRAIT_IDEAL_HEAT, 304)
 	set_trait(TRAIT_IDEAL_LIGHT, 7)
 	set_trait(TRAIT_WATER_CONSUMPTION, 6)
 
@@ -419,7 +419,7 @@
 	set_trait(TRAIT_PLANT_COLOUR,"#49be45")
 	set_trait(TRAIT_PLANT_ICON,"vine2")
 	set_trait(TRAIT_FLESH_COLOUR,"#ff5858")
-	set_trait(TRAIT_IDEAL_HEAT, 298)
+	set_trait(TRAIT_IDEAL_HEAT, 304)
 	set_trait(TRAIT_IDEAL_LIGHT, 6)
 	set_trait(TRAIT_WATER_CONSUMPTION, 6)
 

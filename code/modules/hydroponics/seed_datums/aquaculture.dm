@@ -15,7 +15,7 @@
 	set_trait(TRAIT_PRODUCT_ICON,      "mollusc")
 	set_trait(TRAIT_PLANT_ICON,        "mollusc")
 	set_trait(TRAIT_WATER_CONSUMPTION, 6)
-	set_trait(TRAIT_IDEAL_HEAT,        288)
+	set_trait(TRAIT_IDEAL_HEAT,        284)
 	set_trait(TRAIT_LIGHT_TOLERANCE,   6)
 	set_trait(TRAIT_PRODUCT_COLOUR,    "#aaabba")
 	set_trait(TRAIT_PLANT_COLOUR,      "#aaabba")

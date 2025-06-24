@@ -1,4 +1,4 @@
-//Refreshes the icon and sets the luminosity
+/// Refreshes the icon and sets the luminosity.
 /obj/machinery/portable_atmospherics/hydroponics/update_icon()
 	// Update name.
 	if(seed)
