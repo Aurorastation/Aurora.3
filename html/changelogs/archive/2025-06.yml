@@ -231,3 +231,14 @@
   - imageadd: Adds new sprites for the distillery, and empty, beer, rice beer, kvass
       and xuizi juice kegs. Art credit to spookywastaken
   - rscadd: Adds a dorshafen deluxe kvass keg.
+2025-06-24:
+  FlamingLily:
+  - balance: Nerfs stinger grenades. Reduces projectile count and pain per projectile
+      by half (now 50 and 25 respectively)
+  SleepyGemmy:
+  - bugfix: Made first-aid kits use a define for its max storage space.
+  - rscadd: Updated the title of i105 and the descriptions of i105 and i109.
+  hazelmouse:
+  - rscadd: Doubled the number of glasses available in glasses vendors to 40 from
+      20, and the number of pitchers to 8 from 4 to balance a number of both being
+      removed from the booze vendor in the bar.
