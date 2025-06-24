@@ -268,15 +268,16 @@
 
 /obj/machinery/telecomms/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	var/state
-	var/current_damage = integrity / initial(integrity)
-	switch(current_damage)
-		if(0 to 0.2)
-			state = SPAN_DANGER("The machine is on its last legs!")
-		if(0.2 to 0.4)
-			state = SPAN_WARNING("The machine looks seriously damaged.")
-		if(0.4 to 0.8)
-			state = SPAN_WARNING("The machine's condition appears somewhat degraded.")
-		if(0.8 to 1)
-			state = SPAN_NOTICE("The machine shows some indications of minor damage.")
-	. += state
+	if (integrity < initial(integrity))
+		var/state
+		var/current_damage = integrity / initial(integrity)
+		switch(current_damage)
+			if(0 to 0.2)
+				state = SPAN_DANGER("The machine is on its last legs!")
+			if(0.2 to 0.4)
+				state = SPAN_WARNING("The machine looks seriously damaged.")
+			if(0.4 to 0.8)
+				state = SPAN_WARNING("The machine's condition appears somewhat degraded.")
+			if(0.8 to 1)
+				state = SPAN_NOTICE("The machine shows some indications of minor damage.")
+		. += state

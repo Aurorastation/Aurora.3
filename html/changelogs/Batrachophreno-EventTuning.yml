@@ -56,9 +56,15 @@ delete-after: True
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
   - qol: "Added additional description information for Telecomms machines to communicate that they can be repaired using Nanopaste."
+  - qol: "Damaged Telecomms machines now show their condition when examined."
   - balance: "Added small Nanopaste supply to the Telecomms vestibule for repair."
-  - balance: "Made the damaging variant of Communications Blackout do less damage to soften garbling effect."
-  - rscadd: "Beating up a Telecomms Processor will now cause integrity damage to it, if you wanted to garble, say, Security's comms..."
-  - qol: "Added antag desc text for Telecomms Processor describing this new feature."
-  - balance: "Halved base weights of both Comms Blackout events given the new variant effectively doubled their likelihood."
-  - balance: "Adjusted weights of Electrical Storm events downwards slightly."
+  - balance: "Repairing Telecomms machines now just repairs flat 25 damage (out of max 100) instead of repairing by halves (was behaving oddly in-game).
+  - balance: "Made the damaging variant of Communications Blackout do less damage to soften the garbling effect."
+  - rscadd: "Beating up a Telecomms Processor will now cause integrity damage to it. So, if you wanted to garble, say, Security's comms..."
+  - qol: "Added antag desc text for Telecomms Processor describing this feature."
+  - balance: "Comms Blackout events (base and damaging version) have had their weights halved, given the addition of the new variant greatly increased their overall likelihood."
+  - balance: "APC Damage event now much more frequently causes lights to blow out."
+  - balance: "Electrical Storm events have had their weights adjusted downwards slightly."
+  - balance: "Electrical Storm events have had their durations reduced slightly."
+  - balance: "Electrical Storm events now target fewer APCs at a time (2,4,6 -> 2,3,4)."
+  - balance: "Cosmic Expulsion event now weigh Bridge Crew/Engineer presence slightly more heavily."
