@@ -58,7 +58,7 @@ changes:
   - qol: "Added additional description information for Telecomms machines to communicate that they can be repaired using Nanopaste."
   - qol: "Damaged Telecomms machines now show their condition when examined."
   - balance: "Added small Nanopaste supply to the Telecomms vestibule for repair."
-  - balance: "Repairing Telecomms machines now just repairs flat 25 damage (out of max 100) instead of repairing by halves (was behaving oddly in-game).
+  - balance: "Repairing Telecomms machines now just repairs flat 25 damage (out of max 100) instead of repairing by halves (was behaving oddly in-game)."
   - balance: "Made the damaging variant of Communications Blackout do less damage to soften the garbling effect."
   - rscadd: "Beating up a Telecomms Processor will now cause integrity damage to it. So, if you wanted to garble, say, Security's comms..."
   - qol: "Added antag desc text for Telecomms Processor describing this feature."
