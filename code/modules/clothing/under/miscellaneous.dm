@@ -785,3 +785,43 @@
 	desc = "A shirt and tie underneath a shortcoat, used by high-ranking commissioned officers of the All-Xanu Armed Forces."
 	icon_state = "xanu_cap"
 	item_state = "xanu_cap"
+
+//Hephaestus ERT
+
+/obj/item/clothing/under/ert/hephaestus
+	name = "\improper Hephaestus military tactical uniform"
+	desc = "A green colored uniform worn by Hephaestus Industries's private military forces and hostile terraforming corps."
+	icon = 'icons/clothing/under/uniforms/cyclops_uniforms.dmi'
+	icon_state = "heph_military"
+	item_state = "heph_military"
+	contained_sprite = TRUE
+	rolled_sleeves = 0
+
+/obj/item/clothing/under/ert/hephaestus/medic
+	name = "\improper Hephaestus military medic tactical uniform"
+	desc = "A green colored uniform worn by Hephaestus Industries's private military forces and hostile terraforming corps. This one has blue highlights denoting a squad medic."
+	has_accents = TRUE
+	accent_color = COLOR_CYAN_BLUE
+
+/obj/item/clothing/under/ert/hephaestus/engineer
+	name = "\improper Hephaestus military engineer tactical uniform"
+	desc = "A green colored uniform worn by Hephaestus Industries's private military forces and hostile terraforming corps. This one has orange highlights denoting a squad engineer."
+	has_accents = TRUE
+	accent_color = COLOR_ORANGE
+
+/obj/item/clothing/under/ert/hephaestus/leader
+	name = "\improper Hephaestus military leader tactical uniform"
+	desc = "A green colored uniform worn by Hephaestus Industries's private military forces and hostile terraforming corps. This one has red highlights denoting a squad leader."
+	has_accents = TRUE
+	accent_color = COLOR_RED
+
+/obj/item/clothing/head/hephaestus_military
+	name = "\improper Hephaestus military utility cover"
+	desc = "A military cover issued to Hephaestus Industries's private military personnel as part of their uniform."
+	icon = 'icons/clothing/under/uniforms/cyclops_uniforms.dmi'
+	icon_state = "heph_military_utility"
+	item_state = "heph_military_utility"
+	contained_sprite = TRUE
+	armor = list(
+		MELEE = ARMOR_MELEE_MINOR
+		)

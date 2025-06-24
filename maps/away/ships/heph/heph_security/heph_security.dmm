@@ -441,8 +441,8 @@
 /area/heph_security_ship/medbay)
 "du" = (
 /obj/item/clothing/head/beret/corporate/heph,
-/obj/item/clothing/under/rank/security/heph,
-/obj/item/clothing/under/rank/security/heph,
+/obj/item/clothing/under/ert/hephaestus,
+/obj/item/clothing/under/ert/hephaestus,
 /obj/item/clothing/head/beret/corporate/heph,
 /obj/item/clothing/accessory/storage/black_vest,
 /obj/item/clothing/accessory/storage/black_vest,
@@ -457,6 +457,10 @@
 /obj/structure/sign/poster{
 	pixel_y = 32
 	},
+/obj/item/clothing/head/hephaestus_military,
+/obj/item/clothing/head/hephaestus_military,
+/obj/item/clothing/under/ert/hephaestus/medic,
+/obj/item/clothing/under/ert/hephaestus/engineer,
 /turf/simulated/floor/carpet,
 /area/heph_security_ship/crew)
 "dv" = (
@@ -2097,9 +2101,9 @@
 /turf/simulated/floor,
 /area/heph_security_ship/engineering)
 "ow" = (
-/obj/item/clothing/under/rank/security/heph,
+/obj/item/clothing/under/ert/hephaestus,
 /obj/item/clothing/head/beret/corporate/heph,
-/obj/item/clothing/under/rank/security/heph,
+/obj/item/clothing/under/ert/hephaestus,
 /obj/item/clothing/accessory/storage/black_vest,
 /obj/item/clothing/accessory/storage/black_vest,
 /obj/item/clothing/accessory/storage/pouches/black,
@@ -2125,6 +2129,10 @@
 /obj/structure/sign/poster{
 	pixel_y = 32
 	},
+/obj/item/clothing/head/hephaestus_military,
+/obj/item/clothing/head/hephaestus_military,
+/obj/item/clothing/under/ert/hephaestus/medic,
+/obj/item/clothing/under/ert/hephaestus/engineer,
 /turf/simulated/floor/carpet,
 /area/heph_security_ship/crew)
 "oy" = (
@@ -2865,12 +2873,13 @@
 	dir = 1
 	},
 /obj/item/clothing/accessory/holster/hip/brown,
-/obj/item/clothing/under/rank/captain/hephaestus,
+/obj/item/clothing/under/ert/hephaestus/leader,
 /obj/structure/closet/cabinet,
 /obj/machinery/alarm/south{
 	req_one_access = null;
 	req_access = list(216)
 	},
+/obj/item/clothing/head/caphat/cap/hephaestus,
 /turf/simulated/floor/carpet,
 /area/heph_security_ship/captain)
 "sw" = (
@@ -7205,7 +7214,9 @@
 /obj/structure/closet/secure_closet/medical3{
 	req_access = null
 	},
-/obj/item/clothing/under/rank/medical/surgeon,
+/obj/item/clothing/under/rank/medical/heph,
+/obj/item/clothing/suit/storage/surgical_gown/heph,
+/obj/item/clothing/head/surgery/heph,
 /obj/item/clothing/accessory/storage/white_vest,
 /obj/item/clothing/accessory/storage/pouches/white,
 /obj/effect/floor_decal/industrial/outline/medical,
