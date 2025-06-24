@@ -25,6 +25,12 @@
 			to_chat(user, "This machine is already in perfect condition.")
 		return TRUE
 
+	// Beat it with a stick!
+	if(!istype(user, /mob/living/silicon))
+		if(user.a_intent == I_HURT)
+			user.visible_message(SPAN_DANGER("\The [user] strikes [src]!"))
+			integrity = between(0, integrity - round(attacking_item.force / 3), initial(integrity))
+			return TRUE
 
 	switch(construct_op)
 		if(0)

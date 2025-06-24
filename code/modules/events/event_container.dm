@@ -225,7 +225,7 @@ GLOBAL_LIST_INIT(severity_to_string, list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 			300),
 
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Electrical Storm", /datum/event/electrical_storm,
-			10, list(ASSIGNMENT_ENGINEER = 20, ASSIGNMENT_JANITOR = 25)),
+			30, list(ASSIGNMENT_ENGINEER = 20, ASSIGNMENT_JANITOR = 25)),
 
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Cozmozoan Migration", /datum/event/carp_migration/cozmo,
 			60),
@@ -287,14 +287,14 @@ GLOBAL_LIST_INIT(severity_to_string, list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 			0, list(ASSIGNMENT_SURGEON = 25)),
 
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Comms Blackout", /datum/event/communications_blackout,
-			100),
+			50),
 
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Comms Blackout - Damage", /datum/event/communications_blackout/damage_machinery,
-			100, list(ASSIGNMENT_ENGINEER = 25),
+			50, list(ASSIGNMENT_ENGINEER = 25),
 			pop_needed = 6),
 
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Electrical Storm", /datum/event/electrical_storm,
-			15, list(ASSIGNMENT_AI = 10, ASSIGNMENT_ENGINEER = 15, ASSIGNMENT_JANITOR = 20)),
+			30, list(ASSIGNMENT_AI = 10, ASSIGNMENT_ENGINEER = 15, ASSIGNMENT_JANITOR = 20)),
 
 		// see comment at code/modules/events/gravity.dm
 		// tl;dr gravity is handled globally, meaning if the horizon loses gravity, everyone does
@@ -361,7 +361,7 @@ GLOBAL_LIST_INIT(severity_to_string, list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 			pop_needed = 10),
 
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Electrical Storm", /datum/event/electrical_storm,
-			20, list(ASSIGNMENT_AI = 20, ASSIGNMENT_ENGINEER = 15, ASSIGNMENT_JANITOR = 20)),
+			30, list(ASSIGNMENT_AI = 20, ASSIGNMENT_ENGINEER = 15, ASSIGNMENT_JANITOR = 20)),
 
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Space Vines", /datum/event/spacevine,
 			0, list(ASSIGNMENT_ANY = 1, ASSIGNMENT_ENGINEER = 10, ASSIGNMENT_GARDENER = 20), TRUE,

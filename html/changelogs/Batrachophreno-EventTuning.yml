@@ -55,11 +55,10 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Added variant of the Communications Blackout event which has the potential to damage telecomms machinery (weighted towards Engineering being on-manifest)."
-  - rscadd: "Telecomms Processors now factor damage into account when uncompressing messages (gibberish factor increases with damage)."
-  - balance: "Prison Break event adjusted to be in line with Containment events (now affects all of Security excepting certain highly secured areas)."
-  - balance: "Space Vines, Drone Revolution major events now require minimum population of 4."
-  - qol: "Majorly updated Event Probabilities sheet (updated multiple changed events, removed retired events, added missing new events, etc.)"
-  - bugfix: "Event selection now respects minimum pop requirement param."
-  - balance: "Refactored the Electrical Storm behavior to play more interestingly (less grinding busywork, more smoke and mirrors)."
-  - rscadd: "Added Mundane and Major variants of the Electrical Storm event."
+  - qol: "Added additional description information for Telecomms machines to communicate that they can be repaired using Nanopaste."
+  - balance: "Added small Nanopaste supply to the Telecomms vestibule for repair."
+  - balance: "Made the damaging variant of Communications Blackout do less damage to soften garbling effect."
+  - rscadd: "Beating up a Telecomms Processor will now cause integrity damage to it, if you wanted to garble, say, Security's comms..."
+  - qol: "Added antag desc text for Telecomms Processor describing this new feature."
+  - balance: "Halved base weights of both Comms Blackout events given the new variant effectively doubled their likelihood."
+  - balance: "Adjusted weights of Electrical Storm events downwards slightly."
