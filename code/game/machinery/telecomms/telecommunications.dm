@@ -46,6 +46,8 @@
 	var/circuitboard = null 		// string pointing to a circuitboard type
 	var/hide = FALSE				// Is it a hidden machine?
 
+	var/hitsound = 'sound/weapons/smash.ogg'
+
 	// Overmap ranges in terms of map tile distance, used by receivers, relays, and broadcasters (and AIOs)
 	var/overmap_range = 0
 
