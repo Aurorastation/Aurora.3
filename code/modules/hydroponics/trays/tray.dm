@@ -652,7 +652,7 @@
 	else if(attacking_item.force && seed && !closed_system)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		user.do_attack_animation(src)
-		playsound(loc, /singleton/sound_category/swing_hit_sound, 25, 1)
+		playsound(loc, /singleton/sound_category/swing_hit_sound, 25, TRUE)
 		user.visible_message(SPAN_DANGER("\The [seed.display_name] has been attacked by [user] with \the [attacking_item]!"))
 		if(!dead)
 			var/total_damage = attacking_item.force
