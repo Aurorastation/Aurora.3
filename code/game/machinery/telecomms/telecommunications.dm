@@ -19,7 +19,7 @@
 
 /obj/machinery/telecomms
 	icon = 'icons/obj/machinery/telecomms.dmi'
-	desc_info = "All Telecomms machinery can repaired through the application of Nanopaste."
+	desc_info = "All telecomms machinery can repaired through the application of Nanopaste."
 	density = TRUE
 	anchored = TRUE
 	idle_power_usage = 600 // WATTS
