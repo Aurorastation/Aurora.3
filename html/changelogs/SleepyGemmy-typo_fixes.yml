@@ -1,0 +1,10 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - spellcheck: "Fixed the hydraulic rescue tool name being capitalized."
+  - spellcheck: "Fixed grammar on the long distance wireless bolt control message."
+  - spellcheck: "Fixed extra punctuation on the potted cherry blossom tree."
+  - bugfix: "Raised the S'rendarr's Hand (tobacco) content from 5 to 10 units in the adhomian cigarettes to match the total amount found in other cigarettes."
+  - spellcheck: "Changed the extended description prompt \"Show In Chat\" to \"Show in Chat\"."
