@@ -72,6 +72,10 @@
 		// Once storm damage exceeds a threshold, there is a random chance of certain secondary effects.
 		storm_damage = rand(0,100)
 
+		// We don't want to obliterate small offships (lucky 7 APCs or fewer).
+		if (LAZYLEN(valid_apcs) < 8)
+			LAZYREMOVE(victim_apc, valid_apcs)
+
 		// Main breaker is turned off, or we rolled lucky. Consider this APC protected.
 		if(!victim_apc.operating || storm_damage <= (80 - (severity * 25)))
 			continue
