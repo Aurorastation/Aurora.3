@@ -764,6 +764,6 @@
 	else
 		density = TRUE
 	closed_system = !closed_system
-	playsound(src, 'sound/items/pickup/device.ogg', 25, 1)
+	playsound(src, 'sound/items/pickup/device.ogg', 25, TRUE)
 	to_chat(user, "You [closed_system ? "close" : "open"] the tray's lid.")
 	update_icon()
