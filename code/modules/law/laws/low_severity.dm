@@ -46,8 +46,8 @@
 	max_fine = 400
 
 /datum/law/low_severity/hooliganism
-	name = "i105 - Hooliganism"
-	desc = "To present an unnecessary nuisance to members of the crew including excessive departmental radio usage for private affairs, being intentionally unclothed, or otherwise disturbing the crew."
+	name = "i105 - Indecent Exposure or Hooliganism"
+	desc = "To be intentionally and publicly unclothed, to disrupt the peace and crew."
 	id = "i105"
 
 	min_brig_time = 5
@@ -80,7 +80,7 @@
 
 /datum/law/low_severity/slander_hos
 	name = "i109 - Slandering a Head of Staff"
-	desc = "To directly insult a Head of Staff with no valid complaints."
+	desc = "To make a claim about a Head of Staff that is slanderous and untrue."
 	id = "i109"
 
 	min_brig_time = 5
