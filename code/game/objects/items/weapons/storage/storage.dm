@@ -239,12 +239,12 @@
 				user.equip_to_slot_if_possible(src, slot_l_hand)
 		src.add_fingerprint(user)
 
-/obj/item/storage/AltClick(var/mob/usr)
+/obj/item/storage/AltClick(var/mob/user)
 	if(!canremove)
 		return ..()
-	if (!use_check_and_message(usr))
-		add_fingerprint(usr)
-		open(usr)
+	if (!use_check_and_message(user))
+		add_fingerprint(user)
+		open(user)
 		return TRUE
 	. = ..()
 
