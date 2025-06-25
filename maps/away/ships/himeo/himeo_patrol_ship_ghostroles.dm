@@ -78,9 +78,9 @@
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/gloves/black_leather/tajara,
 	)
 	species_shoes = list(
-		SPECIES_TAJARA = /obj/item/clothing/shoes/workboots/dark/tajara,
-		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/workboots/dark/tajara,
-		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/workboots/dark/tajara,
+		SPECIES_TAJARA = /obj/item/clothing/shoes/workboots/tajara/dark,
+		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/workboots/tajara/dark,
+		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/workboots/tajara/dark,
 	)
 
 /obj/outfit/admin/himeo_patrol_ship/engineer

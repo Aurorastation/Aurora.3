@@ -1923,6 +1923,9 @@
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
 	},
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/aft)
 "iP" = (
@@ -2235,13 +2238,11 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship)
 "kq" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/effect/floor_decal/industrial/outline/emergency_closet,
-/obj/machinery/atmospherics/portables_connector/aux{
-	name = "Air Connector Port"
+/obj/structure/bed/handrail{
+	dir = 8
 	},
-/turf/simulated/floor/plating,
-/area/himeo_patrol_ship/aft)
+/turf/simulated/floor/reinforced/large/airless,
+/area/shuttle/himeo_patrol)
 "ks" = (
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/airless,
@@ -4541,12 +4542,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/random/dirt_75,
-/obj/machinery/light/colored/decayed/dimmed{
-	dir = 8
-	},
 /obj/effect/floor_decal/industrial/outline_door/red,
 /obj/effect/floor_decal/industrial/outline_segment/red{
 	dir = 10
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 8;
+	id = "himeo_military_aft_blast";
+	name = "Aft Hallway Blast Doors";
+	pixel_x = -21
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/aft)
@@ -4915,6 +4919,12 @@
 	},
 /obj/effect/floor_decal/industrial/outline_segment/red{
 	dir = 8
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 8;
+	id = "himeo_military_aft_blast";
+	name = "Aft Hallway Blast Doors";
+	pixel_x = -21
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/aft)
@@ -5587,6 +5597,11 @@
 	req_access = list(253)
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "himeo_military_aft_blast";
+	name = "Aft Blast Door"
+	},
 /turf/simulated/floor/tiled/full,
 /area/himeo_patrol_ship/aft)
 "Am" = (
@@ -6792,8 +6807,15 @@
 /turf/simulated/floor/tiled/steel,
 /area/himeo_patrol_ship/messhall)
 "Fu" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/turf/simulated/floor/tiled/gunmetal,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/machinery/atmospherics/portables_connector/aux{
+	name = "Air Connector Port"
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
 /area/himeo_patrol_ship/aft)
 "Fw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -7968,6 +7990,11 @@
 /area/himeo_patrol_ship/deck_2_interstitial)
 "LY" = (
 /obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "himeo_military_aft_blast";
+	name = "Aft Blast Door"
+	},
 /turf/simulated/floor/tiled/full,
 /area/himeo_patrol_ship/aft)
 "LZ" = (
@@ -10699,6 +10726,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/red,
 /area/himeo_patrol_ship/deck_2_office)
+"Xx" = (
+/obj/structure/bed/handrail{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/large/airless,
+/area/shuttle/himeo_patrol)
 "Xy" = (
 /obj/random/dirt_75,
 /obj/structure/cable/green{
@@ -42412,7 +42445,7 @@ ET
 RW
 RW
 RW
-kq
+Tl
 Fu
 Tv
 Xp
@@ -111834,8 +111867,8 @@ Xh
 Xh
 UC
 so
-sE
-sE
+kq
+kq
 Ac
 gJ
 Xh
@@ -114661,8 +114694,8 @@ Xh
 Xh
 UC
 so
-sE
-sE
+Xx
+Xx
 CN
 Bg
 Xh

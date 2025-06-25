@@ -26,8 +26,8 @@
 	name = "Himean Planetary Guard Vessel"
 	class = "USPGV" // United Syndicates Planetary Guard Vessel
 	desc = "A typical Himean design, the Collier-class is designed to patrol major trade routes and discourage pirate attacks. It is not intended for fleet engagements, as it lacks heavier armament such as missiles."
-	icon_state = "xansan"
-	moving_state = "xansan_moving"
+	icon_state = "himeo_patrol"
+	moving_state = "himeo_patrol_moving"
 	colors = list("#817f7f", "#be0f0f")
 	designer = "Free Consortium of Defense and Aerospace Manufacturers"
 	weapons = "Rear-mounted low-calibre autocannon, rear-mounted blaster weapon"
