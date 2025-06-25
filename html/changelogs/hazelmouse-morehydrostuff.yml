@@ -55,9 +55,9 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Plants now grow faster if within their ideal heat and light preferences! If you notice plants growing unusually slowly, try checking their requirements with a plant analyzer - you might be able to speed it up drastically by giving them the right conditions."
+  - rscadd: "Plants now grow faster if within their ideal heat and light preferences! If you notice plants growing unusually slowly, try checking their requirements with a plant analyzer - you might be able to speed it up drastically by giving them the right conditions. Currently, preferential temperatures are within 5 kelvin of their ideal, and preferential lighting is within 2 lumens of their ideal."
   - rscadd: "The internal lighting setting of hydroponics trays can now be edited with a ctrl + click."
   - rscdel: "All verbs have been removed from hydroponics trays - namely for closing the lid and for changing the lighting - now that both are accessible via an alt + click and a ctrl + click respectively."
   - balance: "Several plants in hydroponics now have more dramatic temperature requirements - mushrooms and Adhomian plants require cooler temperatures, and several others require warmer temperatures."
-  - rscadd: "More feedback has been added to attacking the contents of hydroponics trays."
+  - rscadd: "More feedback has been added to attacking the contents of hydroponics trays, opening and closing their lids, and changing their light levels."
   - code_imp: "Introduced and shuffled a lot of documentation in hydroponics code."
