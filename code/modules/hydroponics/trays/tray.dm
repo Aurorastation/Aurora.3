@@ -448,7 +448,7 @@
 		tray_light = new_light
 		user.visible_message(SPAN_NOTICE("\The [user] sets \the [src] to a light level of [tray_light] lumens."),
 		SPAN_NOTICE("You set the \the [src] to a light level of [tray_light] lumens."))
-		playsound(src, /singleton/sound_category/button_sound, 25, 1)
+		playsound(src, /singleton/sound_category/button_sound, 25, TRUE)
 
 /obj/machinery/portable_atmospherics/hydroponics/CtrlClick(var/mob/user)
 	if(usr.incapacitated())
