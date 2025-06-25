@@ -142,3 +142,20 @@
 
 /obj/machinery/computer/shuttle_control/multi/lift/himeo_patrol_ship
 	shuttle_tag = "Himean Patrol Ship Lift"
+
+// TEG manual. Largely just repurposed and reflavoured from the TCAF corvette, thank you Ben.
+/obj/item/paper/fluff/himeo_patrol_engine_guide
+	name = "Collier-class engine manual"
+	desc = "This is a printed list of steps to operating the Thermoelectric Generator of a Collier-class patrol corvette."
+	info = "<font face=\"Verdana\"><b>Failure to adhere to these instructions may lead to catastrophic destruction of the ship. Don't let that happen.</b><BR>\
+	<BR>STEP 1: Enable the 'connectors to cold loop' pump and the 'cooling arrays to generator' pump. This will cool the cold-loop.<BR>\
+	<BR>STEP 2: Configure the gas mixer to output west, and inject the contents of as many hydrogen and oxygen tanks into the combustion chamber as you wish, \
+	at the pre-set ratio of 60% oxygen to 40% hydrogen. If you include more than one tank of each, the tank walls may require repairs.<BR>\
+	<BR>STEP 3: Disable injection. Do not leave injection on.<BR>\
+	<BR>STEP 4: Press the ignition button, and wait for it to fully burn out. Strain on the glas is expected, do not be concerned.<BR>\
+	<BR>STEP 5: Once the fire has stopped and the contents of the tank are 100% CO2, \
+	enable circulation: The recommended base rate is 700L/s input and 1000kpa output. The higher the output, the quicker it loses temperature. \
+	You may need to bump it up to 2000kpa to fully recharge the SMES.<BR>\
+	<BR>WARNING: If catastrophic containment failure is imminent, lower the blast doors and vent the chamber immediately! \
+	There is a portable generator in the aft thruster-pod, and another in tool storage. Use one of them if the reactor melts down.</b></font>"
+	language = LANGUAGE_GUTTER
