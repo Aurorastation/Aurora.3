@@ -60,4 +60,5 @@ changes:
   - rscdel: "All verbs have been removed from hydroponics trays - namely for closing the lid and for changing the lighting - now that both are accessible via an alt + click and a ctrl + click respectively."
   - balance: "Several plants in hydroponics now have more dramatic temperature requirements - mushrooms and Adhomian plants require cooler temperatures, and several others require warmer temperatures."
   - rscadd: "More feedback has been added to attacking the contents of hydroponics trays, opening and closing their lids, and changing their light levels."
+  - rscadd: "Fertiliser jugs now have descriptions defining their niche."
   - code_imp: "Introduced and shuffled a lot of documentation in hydroponics code."
