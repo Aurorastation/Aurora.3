@@ -55,10 +55,10 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - qol: "Added additional description information for Telecomms machines to communicate that they can be repaired using Nanopaste."
-  - qol: "Damaged Telecomms machines now show their condition when examined."
-  - balance: "Added small Nanopaste supply to the Telecomms vestibule for repair."
-  - balance: "Repairing Telecomms machines now just repairs flat 25 damage (out of max 100) instead of repairing by halves (was behaving oddly in-game)."
+  - qol: "Added additional description information for telecomms machines to communicate that they can be repaired using Nanopaste."
+  - qol: "Damaged telecomms machines now show their condition when examined."
+  - balance: "Added small Nanopaste supply to the telecomms vestibule for repair."
+  - balance: "Repairing telecomms machines now just repairs flat 25 damage (out of max 100) instead of repairing by halves (was behaving oddly in-game)."
   - balance: "Made the damaging variant of Communications Blackout do less damage to soften the garbling effect."
   - rscadd: "Beating up a telecomms processor will now cause integrity damage to it, which will result in garbled communications"
   - qol: "Added antag desc text for the telecomms processor describing damage to it garbling communications."
