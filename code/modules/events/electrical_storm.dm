@@ -73,7 +73,7 @@
 		storm_damage = rand(0,100)
 
 		// We don't want to obliterate small offships (lucky 7 APCs or fewer).
-		if (LAZYLEN(valid_apcs) < 8)
+		if(LAZYLEN(valid_apcs) < 8)
 			LAZYREMOVE(victim_apc, valid_apcs)
 
 		// Main breaker is turned off, or we rolled lucky. Consider this APC protected.
