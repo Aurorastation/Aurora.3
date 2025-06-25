@@ -562,7 +562,7 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 	if(!establish_db_connection(GLOB.dbcon))
 		return
 
-	var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT datediff(Now(),firstseen) as age, whitelist_status, account_join_date, DATEDIFF(NOW(), account_join_date) FROM ss13_player WHERE ckey = :ckey:")
+	var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT datediff(Now(),firstseen) as age, whitelist_status, account_join_date, DATEDIFF(NOW(), account_join_date, ckey_is_external) FROM ss13_player WHERE ckey = :ckey:")
 
 	if(!query.Execute(list("ckey"=ckey(key))))
 		return
@@ -576,6 +576,7 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 		whitelist_status = text2num(query.item[2])
 		account_join_date = query.item[3]
 		account_age = text2num(query.item[4])
+		ckey_is_external = !!text2num(query.item[5])
 		if (!account_age)
 			account_join_date = sanitizeSQL(findJoinDate())
 			if (!account_join_date)

@@ -199,9 +199,9 @@
 		del(una)
 		return TRUE
 
-	var/ckey_is_linked = queryparams["use-external-key"]
+	var/ckey_is_external = queryparams["use-external-key"]
 
-	if(!ckey_is_linked && GLOB.config.external_auth != 2)
+	if(ckey_is_external && GLOB.config.external_auth != 2)
 		statuscode = 403
 		response = "External auth is disabled for users without linked ckeys."
 		del(una.client)
@@ -209,7 +209,7 @@
 		return TRUE
 
 	var/ckey_to_apply = queryparams["key"]
-	if (!ckey_is_linked)
+	if (ckey_is_external && ckey_to_apply == null)
 		ckey_to_apply = "GuestF-[ckey(queryparams["forumuser"])]"
 
 	var/client/cl = GLOB.directory[ckey(ckey_to_apply)]
@@ -219,7 +219,7 @@
 
 	statuscode = 200
 	response = "Client has been authenticated sucessfully."
-	una.ClientLogin(ckey_to_apply, ckey_is_linked)
+	una.ClientLogin(ckey_to_apply, ckey_is_external)
 
 // Authenticates client from external system
 /datum/topic_command/get_auth_client_ip
