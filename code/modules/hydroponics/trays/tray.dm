@@ -441,20 +441,22 @@
 
 	return
 
-/// This is in its own proc so we can also call it via a ctrl + click.
-/obj/machinery/portable_atmospherics/hydroponics/proc/change_lighting()
+/// This is in its own proc so we can call it via a ctrl + click.
+/obj/machinery/portable_atmospherics/hydroponics/proc/change_lighting(var/mob/user)
 	var/new_light = tgui_input_list(usr, "Specify a light level.", "Set Light", list(0,1,2,3,4,5,6,7,8,9,10))
 	if(new_light)
 		tray_light = new_light
-		to_chat(usr, "You set the tray to a light level of [tray_light] lumens.")
+		user.visible_message(SPAN_NOTICE("\The [user] sets \the [src] to a light level of [tray_light] lumens."),
+		SPAN_NOTICE("You set the \the [src] to a light level of [tray_light] lumens."))
+		playsound(src, /singleton/sound_category/button_sound, 25, 1)
 
 /obj/machinery/portable_atmospherics/hydroponics/CtrlClick(var/mob/user)
 	if(usr.incapacitated())
 		return
 	if(ishuman(usr) || istype(usr, /mob/living/silicon/robot))
-		change_lighting()
+		change_lighting(user)
 
-/// Verifies that all values are where they should be.
+/// Verifies that all values are what they should be.
 /obj/machinery/portable_atmospherics/hydroponics/proc/check_level_sanity()
 	if(seed)
 		health =     max(0,min(seed.get_trait(TRAIT_ENDURANCE),health))
@@ -543,7 +545,6 @@
 		return
 
 	else if(istype(attacking_item, /obj/item/reagent_containers/syringe) && !closed_system)
-
 		var/obj/item/reagent_containers/syringe/S = attacking_item
 
 		if (S.mode == 1)
@@ -672,6 +673,7 @@
 		return
 
 	// If the lid is closed and stasis enabled, disable it. Otherwise, enable it. If there's no power, cut it early.
+	// TODO: Split this to its own proc?
 	if(closed_system)
 		if(stat & (NOPOWER|BROKEN))
 			to_chat(user, SPAN_NOTICE("You flick the stasis mode switch, but nothing happens."))
@@ -684,7 +686,7 @@
 			update_use_power(POWER_USE_ACTIVE)
 			stasis = TRUE
 
-		playsound(src, /singleton/sound_category/button_sound, 50, 1)
+		playsound(src, /singleton/sound_category/button_sound, 25, 1)
 		update_icon()
 		return
 
@@ -762,6 +764,6 @@
 	else
 		density = TRUE
 	closed_system = !closed_system
-	playsound(src, /singleton/sound_category/generic_pickup_sound, 25, 1)
+	playsound(src, 'sound/items/pickup/device.ogg', 25, 1)
 	to_chat(user, "You [closed_system ? "close" : "open"] the tray's lid.")
 	update_icon()
