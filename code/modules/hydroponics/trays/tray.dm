@@ -686,7 +686,7 @@
 			update_use_power(POWER_USE_ACTIVE)
 			stasis = TRUE
 
-		playsound(src, /singleton/sound_category/button_sound, 25, 1)
+		playsound(src, /singleton/sound_category/button_sound, 25, TRUE)
 		update_icon()
 		return
 
