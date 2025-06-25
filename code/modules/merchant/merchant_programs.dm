@@ -141,7 +141,7 @@
 				var/obj/item/spacecash/cash = target
 				bank += cash.worth
 				qdel(target)
-		last_comms = "ALL MONEY DETECTED ON PAD TRANSFERED"
+		last_comms = "ALL MONEY DETECTED ON PAD transferred"
 		return
 	last_comms = "PAD NOT CONNECTED"
 

@@ -354,8 +354,8 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 	if(!proximity || lit)
 		return
 	if(istype(glass)) //you can dip cigarettes into beakers
-		var/transfered = glass.reagents.trans_to_obj(src, chem_volume)
-		if(transfered)	//if reagents were transfered, show the message
+		var/transferred = glass.reagents.trans_to_obj(src, chem_volume)
+		if(transferred)	//if reagents were transferred, show the message
 			to_chat(user, SPAN_WARNING("You dip \the [src] into \the [glass]."))
 			playsound(src.loc, 'sound/effects/footstep/water1.ogg', 50, 1)
 		else			//if not, either the beaker was empty, or the cigarette was full
