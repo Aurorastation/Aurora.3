@@ -39,7 +39,7 @@
 	else
 		..()
 
-/** Holder for vine plants.
+/* Holder for vine plants.
 Icons for plants are generated as overlays, so setting it to invisible wouldn't work.
 Hence using a blank icon. */
 /obj/machinery/portable_atmospherics/hydroponics/soil/invisible
