@@ -66,6 +66,21 @@
 #define TRAIT_PARASITE             16
 /// Can cause damage/inject reagents when thrown or handled.
 #define TRAIT_STINGS               17
+/// The temperature from which the heat tolerance is calculated.
+/// At this temperature, plus or minus the heat tolerance, is where the plant can grow without dying.
+#define TRAIT_IDEAL_HEAT           18
+/// The departure from ideal light that is survivable. If the departure goes above this value, damage will be dealt.
+/// Has nothing to do with growth speed, only when the plant will begin taking damage!
+#define TRAIT_HEAT_TOLERANCE       19
+/// The temperature from which the light tolerance is calculated.
+#define TRAIT_IDEAL_LIGHT          20
+/// The departure from ideal light that is survivable. If the departure goes above this value, damage will be dealt.
+/// Has nothing to do with growth speed, only when the plant will begin taking damage!
+#define TRAIT_LIGHT_TOLERANCE      21
+/// Low pressure capacity. Below this value in kPa, the plant begins taking damage.
+#define TRAIT_LOWKPA_TOLERANCE     22
+/// High pressure capacity. Above this value in kPa, the plant begins taking damage.
+#define TRAIT_HIGHKPA_TOLERANCE    23
 /// When thrown, acts as a grenade.
 #define TRAIT_EXPLOSIVE            24
 /// Resistance to poison.
@@ -104,28 +119,10 @@
 /// 0 = normal plant, 1 = big tree
 #define TRAIT_LARGE                42
 /// The color of the leaves, if the plant has any.
-#define TRAIT_LEAVES_COLOUR		   43
-
-/* --- ### TOLERANCE-RELATED TRAITS ### --- */
-
-/// The temperature from which the heat tolerance is calculated.
-/// At this temperature, plus or minus the heat tolerance, is where the plant can grow without dying.
-#define TRAIT_IDEAL_HEAT           18
-/// The departure from ideal light that is survivable. If the departure goes above this value, damage will be dealt.
-/// Has nothing to do with growth speed, only when the plant will begin taking damage!
-#define TRAIT_HEAT_TOLERANCE       19
-/// The temperature from which the light tolerance is calculated.
-#define TRAIT_IDEAL_LIGHT          20
-/// The departure from ideal light that is survivable. If the departure goes above this value, damage will be dealt.
-/// Has nothing to do with growth speed, only when the plant will begin taking damage!
-#define TRAIT_LIGHT_TOLERANCE      21
-/// Low pressure capacity. Below this value in kPa, the plant begins taking damage.
-#define TRAIT_LOWKPA_TOLERANCE     22
-/// High pressure capacity. Above this value in kPa, the plant begins taking damage.
-#define TRAIT_HIGHKPA_TOLERANCE    23
+#define TRAIT_LEAVES_COLOUR        43
 /// The range of temperature from the ideal in which the plant will grow faster than otherwise.
 /// This does not kill the plant if they go outside it, it only determines growth speed!
-#define TRAIT_HEAT_PREFERENCE      24
+#define TRAIT_HEAT_PREFERENCE      44
 /// The range of lumens from the ideal in which the plant will grow faster than otherwise.
 /// This does not kill the plant if they go outside it, it only determines growth speed!
-#define TRAIT_LIGHT_PREFERENCE     25
+#define TRAIT_LIGHT_PREFERENCE     45
