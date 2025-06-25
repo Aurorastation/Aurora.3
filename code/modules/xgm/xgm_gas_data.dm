@@ -1,34 +1,39 @@
 var/global/datum/xgm_gas_data/gas_data
 
 /datum/xgm_gas_data
-	//Simple list of all the gas IDs.
+	// Simple list of all the gas IDs.
 	var/list/gases = list()
-	//The friendly, human-readable name for the gas.
+	// The friendly, human-readable name for the gas.
 	var/list/name = list()
-	//Specific heat of the gas.  Used for calculating heat capacity.
+	// Specific heat of the gas.  Used for calculating heat capacity.
 	var/list/specific_heat = list()
-	//Molar mass of the gas.  Used for calculating specific entropy.
+	// Molar mass of the gas.  Used for calculating specific entropy.
 	var/list/molar_mass = list()
-	//Tile overlays.  /obj/gas_overlay, created from references to 'icons/effects/tile_effects.dmi'
+	// Tile overlays.  /obj/gas_overlay, created from references to 'icons/effects/tile_effects.dmi'
 	var/list/tile_overlay = list()
-	//Optional color for tile overlay
+	// Optional color for tile overlay
 	var/list/tile_overlay_color = list()
-	//Overlay limits.  There must be at least this many moles for the overlay to appear.
+	// Overlay limits.  There must be at least this many moles for the overlay to appear.
 	var/list/overlay_limit = list()
-	//Flags.
+	// Flags.
 	var/list/flags = list()
 
 /singleton/xgm_gas
 	var/id = ""
 	var/name = "Unnamed Gas"
+	var/desc
 	var/specific_heat = 20	// J/(mol*K)
 	var/molar_mass = 0.032	// kg/mol
-
 	var/tile_overlay = "generic"
 	var/tile_color = null
 	var/overlay_limit = null
-
+	// Relative rarity compared to other gases, used when setting up the reactions list.
+	var/rarity = 0
+	///How does a single mole of this gas sell for? Formula to calculate maximum value is in code\modules\cargo\exports\large_objects.dm. Doesn't matter for roundstart gasses.
+	var/base_value = 0
 	var/flags = 0
+	// How much this gas accelerates a fusion reaction (future)
+	// var/fusion_power = 0
 
 /hook/startup/proc/generateGasData()
 	gas_data = new

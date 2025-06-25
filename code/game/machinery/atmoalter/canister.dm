@@ -159,20 +159,38 @@
 	. = ..()
 	air_contents.adjust_gas(GAS_NO2, MolesForPressure())
 
-/obj/machinery/portable_atmospherics/canister/steam
-	name = "\improper Steam \[H2O\]"
+/obj/machinery/portable_atmospherics/canister/watervapor
+	name = "\improper Water Vapor \[H2O\]"
 	icon_state = "whitebrs"
 	canister_color = "whitebrs"
 	can_label = 0
-/obj/machinery/portable_atmospherics/canister/steam/Initialize()
+/obj/machinery/portable_atmospherics/canister/watervapor/Initialize()
 	. = ..()
-	air_contents.adjust_gas(GAS_STEAM, MolesForPressure())
+	air_contents.adjust_gas(GAS_WATERVAPOR, MolesForPressure())
 
 /obj/machinery/portable_atmospherics/canister/air
 	name = "Canister \[Air\]"
 	icon_state = "grey"
 	canister_color = "grey"
 	can_label = 0
+
+/obj/machinery/portable_atmospherics/canister/purble
+	name = "\improper Purble \[PURB\]"
+	icon_state = "purple"
+	canister_color = "purple"
+	can_label = 0
+/obj/machinery/portable_atmospherics/canister/purble/Initialize()
+	. = ..()
+	air_contents.adjust_gas(GAS_PURBLE, MolesForPressure())
+
+/obj/machinery/portable_atmospherics/canister/teel
+	name = "\improper Teel \[TEE\]"
+	icon_state = "teal"
+	canister_color = "teal"
+	can_label = 0
+/obj/machinery/portable_atmospherics/canister/purble/Initialize()
+	. = ..()
+	air_contents.adjust_gas(GAS_TEEL, MolesForPressure())
 
 /obj/machinery/portable_atmospherics/canister/air/airlock
 	start_pressure = 6 * ONE_ATMOSPHERE
@@ -236,10 +254,18 @@
 	name = "Canister \[Cl2\]"
 	icon_state = "darkyellow"
 	canister_color = "darkyellow"
-/obj/machinery/portable_atmospherics/canister/empty/steam
+/obj/machinery/portable_atmospherics/canister/empty/watervapor
 	name = "Canister \[H2O\]"
 	icon_state = "whitebrs"
 	canister_color = "whitebrs"
+/obj/machinery/portable_atmospherics/canister/empty/purble
+	name = "Canister \[PURB\]"
+	icon_state = "purple"
+	canister_color = "purple"
+/obj/machinery/portable_atmospherics/canister/empty/teel
+	name = "Canister \[TEE\]"
+	icon_state = "teal"
+	canister_color = "teal"
 
 
 
@@ -548,7 +574,7 @@ update_flag
 					"\[Sulfur Dioxide\]" = "lightgreen",
 					"\[Nitrogen Dioxide\]" = "brown",
 					"\[Chlorine\]" = "darkyellow",
-					"\[Steam\]" = "whitebrs",
+					"\[Water Vapor\]" = "whitebrs",
 					"\[CAUTION\]" = "yellow"
 				)
 				var/label = tgui_input_list(usr, "Choose canister label.", "Gas Canister", colors)
