@@ -53,6 +53,9 @@
 	var/place_verb = "into"
 	var/combine_first = FALSE//If 1, this appliance will do combination cooking before checking recipes
 
+	component_hint_cap = "Upgraded <b>capacitors</b> will increase heating power."
+	component_hint_scan = "Upgraded <b>scanning modules</b> will increase heating power and improve power efficiency."
+
 /obj/machinery/appliance/Initialize()
 	. = ..()
 	if(length(output_options))
@@ -664,7 +667,6 @@
 	cooking_power = cooking_coeff
 
 /obj/machinery/appliance/RefreshParts()
-	..()
 	var/scan_rating = 0
 	var/cap_rating = 0
 

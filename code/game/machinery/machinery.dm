@@ -68,7 +68,7 @@ Class Procs:
 		contained in the component_parts list. (example: glass and material amounts for
 		the autolathe)
 
-		Default definition does nothing.
+		Default definition handles power usage only (all parts contribute based on energy_rating).
 
 	assign_uid()               'game/machinery/machine.dm'
 		Called by machine to assign a value to the uid variable.
@@ -121,6 +121,15 @@ Class Procs:
 	var/list/component_types
 	/// List of all the parts used to build it, if made from certain kinds of frames.
 	var/list/component_parts = null
+	/// The total power rating of all parts serves as a power usage multiplier.
+	var/parts_power_usage = 0
+	/// Blurbs for what each component type does.
+	var/component_hint_cap
+	var/component_hint_scan
+	var/component_hint_servo
+	var/component_hint_laser
+	var/component_hint_bin
+
 	var/uid
 	var/panel_open = 0
 	var/global/gl_uid = 1
@@ -361,6 +370,21 @@ Class Procs:
 	return S
 
 /obj/machinery/proc/RefreshParts()
+	var/new_idle_power
+	var/new_active_power
+
+	if(!component_parts || !component_parts.len)
+		return
+	var/parts_energy_rating = 0
+
+	for(var/obj/item/stock_parts/part in component_parts)
+		parts_energy_rating += part.energy_rating()
+
+	new_idle_power = initial(idle_power_usage) * (1 + parts_energy_rating)
+	new_active_power = initial(active_power_usage) * (1 + parts_energy_rating)
+
+	change_power_consumption(new_idle_power)
+	change_power_consumption(new_active_power, POWER_USE_ACTIVE)
 
 /obj/machinery/proc/assign_uid()
 	uid = gl_uid
@@ -425,56 +449,87 @@ Class Procs:
 	return TRUE
 
 /obj/machinery/proc/default_part_replacement(var/mob/user, var/obj/item/storage/part_replacer/R)
-	if(!istype(R))
-		return FALSE
 	if(!LAZYLEN(component_parts))
+		LOG_DEBUG("no component parts")
 		return FALSE
-	var/parts_replaced = FALSE
-	if(panel_open)
-		var/obj/item/circuitboard/CB = locate(/obj/item/circuitboard) in component_parts
-		var/P
-		for(var/obj/item/reagent_containers/glass/G in component_parts)
-			for(var/D in CB.req_components)
-				var/T = text2path(D)
-				if(ispath(G.type, T))
-					P = T
-					break
-			for(var/obj/item/reagent_containers/glass/B in R.contents)
-				if(B.reagents && B.reagents.total_volume > 0) continue
-				if(istype(B, P) && istype(G, P))
-					if(B.volume > G.volume)
-						R.remove_from_storage(B, src)
-						R.handle_item_insertion(G, 1)
-						component_parts -= G
-						component_parts += B
-						B.forceMove(src)
-						to_chat(user, SPAN_NOTICE("[G.name] replaced with [B.name]."))
-						break
-		for(var/obj/item/stock_parts/A in component_parts)
-			for(var/D in CB.req_components)
-				var/T = text2path(D)
-				if(ispath(A.type, T))
-					P = T
-					break
-			for(var/obj/item/stock_parts/B in R.contents)
-				if(istype(B, P) && istype(A, P))
-					if(B.rating > A.rating)
-						R.remove_from_storage(B, src)
-						R.handle_item_insertion(A, 1)
-						component_parts -= A
-						component_parts += B
-						B.forceMove(src)
-						to_chat(user, SPAN_NOTICE("[A.name] replaced with [B.name]."))
-						parts_replaced = TRUE
-						break
-		RefreshParts()
-		update_icon()
-	else
+	if(istype(R, /obj/item/device/debugger))
+		LOG_DEBUG("im a debugger!")
+		LOG_DEBUG("debugger go go go")
 		to_chat(user, SPAN_NOTICE("The following parts have been detected in \the [src]:"))
 		to_chat(user, counting_english_list(component_parts))
-	if(parts_replaced) //only play sound when RPED actually replaces parts
-		playsound(src, 'sound/items/rped.ogg', 40, TRUE)
-	return 1
+		to_chat(part_overview())
+		return TRUE
+	else if(istype(R))
+		var/parts_replaced = FALSE
+		if(panel_open)
+			LOG_DEBUG("panel open and replacer")
+			var/obj/item/circuitboard/CB = locate(/obj/item/circuitboard) in component_parts
+			var/P
+			for(var/obj/item/reagent_containers/glass/G in component_parts)
+				for(var/D in CB.req_components)
+					var/T = text2path(D)
+					if(ispath(G.type, T))
+						P = T
+						break
+				for(var/obj/item/reagent_containers/glass/B in R.contents)
+					if(B.reagents && B.reagents.total_volume > 0) continue
+					if(istype(B, P) && istype(G, P))
+						if(B.volume > G.volume)
+							R.remove_from_storage(B, src)
+							R.handle_item_insertion(G, 1)
+							component_parts -= G
+							component_parts += B
+							B.forceMove(src)
+							to_chat(user, SPAN_NOTICE("[G.name] replaced with [B.name]."))
+							break
+			for(var/obj/item/stock_parts/A in component_parts)
+				LOG_DEBUG("part loop 1b")
+				for(var/D in CB.req_components)
+					LOG_DEBUG("part loop 2b")
+					var/T = text2path(D)
+					if(ispath(A.type, T))
+						P = T
+						break
+				for(var/obj/item/stock_parts/B in R.contents)
+					LOG_DEBUG("part loop 1b")
+					if(istype(B, P) && istype(A, P))
+						if(B.rating > A.rating)
+							R.remove_from_storage(B, src)
+							R.handle_item_insertion(A, 1)
+							component_parts -= A
+							component_parts += B
+							B.forceMove(src)
+							to_chat(user, SPAN_NOTICE("[A.name] replaced with [B.name]."))
+							parts_replaced = TRUE
+							break
+			LOG_DEBUG("refreshing parts")
+			RefreshParts()
+			update_icon()
+			if(parts_replaced) //only play sound when RPED actually replaces parts
+				playsound(src, 'sound/items/rped.ogg', 40, TRUE)
+				LOG_DEBUG("returning true")
+			return TRUE
+	LOG_DEBUG("poop")
+	else return FALSE
+
+/obj/machinery/proc/part_overview()
+	var/list/part_hints
+	if(component_hint_cap)
+		LOG_DEBUG("component_hint_cap")
+		part_hints += SPAN_NOTICE(component_hint_cap)
+	if(component_hint_scan)
+		LOG_DEBUG("component_hint_scan")
+		part_hints += SPAN_NOTICE(component_hint_scan)
+	if(component_hint_servo)
+		LOG_DEBUG("component_hint_servo")
+		part_hints += SPAN_NOTICE(component_hint_servo)
+	if(component_hint_laser)
+		LOG_DEBUG("component_hint_laser")
+		part_hints += SPAN_NOTICE(component_hint_laser)
+	if(component_hint_bin)
+		LOG_DEBUG("component_hint_bin")
+		part_hints += SPAN_NOTICE(component_hint_bin)
+	return part_hints
 
 /obj/machinery/proc/dismantle()
 	playsound(loc, /singleton/sound_category/crowbar_sound, 50, 1)

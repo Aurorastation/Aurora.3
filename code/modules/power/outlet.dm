@@ -17,6 +17,8 @@
 		/obj/item/circuitboard/outlet
 	)
 
+	component_hint_cap = "Upgraded <b>capacitors</b> will increase the rate at which connected devices charge."
+
 /obj/machinery/power/outlet/Initialize()
 	. = ..()
 	connect_to_network()

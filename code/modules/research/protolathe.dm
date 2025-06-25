@@ -35,6 +35,9 @@
 		/obj/item/reagent_containers/glass/beaker = 2
 	)
 
+	component_hint_bin = "Upgraded <b>matter bins</b> will increase material storage capacity."
+	component_hint_servo = "Upgraded <b>manipulators</b> will improve material use efficiency and increase fabrication speed."
+
 ///Returns the total of all the stored materials
 /obj/machinery/r_n_d/protolathe/proc/TotalMaterials()
 	var/t = 0
@@ -43,6 +46,7 @@
 	return t
 
 /obj/machinery/r_n_d/protolathe/RefreshParts()
+	..()
 	// Adjust reagent container volume to match combined volume of the inserted beakers
 	var/T = 0
 	for(var/obj/item/reagent_containers/glass/G in component_parts)

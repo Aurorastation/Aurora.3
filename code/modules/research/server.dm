@@ -22,6 +22,8 @@
 		/obj/item/stack/cable_coil = 2
 	)
 
+	component_hint_scan = "Upgraded <b>scanning modules</b> will reduce active power usage."
+
 /obj/machinery/r_n_d/server/Destroy()
 	for(var/obj/machinery/r_n_d/tech_processor/TP as anything in linked_processors)
 		TP.set_server(null)

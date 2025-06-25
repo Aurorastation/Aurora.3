@@ -31,6 +31,10 @@
 		/obj/item/stack/cable_coil{amount = 2}
 	)
 
+	component_hint_bin = "Upgraded <b>matter bins</b> will improve cooling efficiency and increase the volume of air it can cool at once."
+	component_hint_cap = "Upgraded <b>capacitors</b> will increase maximum power setting."
+	component_hint_servo = "Upgraded <b>manipulators</b> will improve cooling efficiency."
+
 /obj/machinery/atmospherics/unary/freezer/Initialize()
 	initialize_directions = dir
 	. = ..()
@@ -150,7 +154,6 @@
 
 //upgrading parts
 /obj/machinery/atmospherics/unary/freezer/RefreshParts()
-	..()
 	var/cap_rating = 0
 	var/manip_rating = 0
 	var/bin_rating = 0

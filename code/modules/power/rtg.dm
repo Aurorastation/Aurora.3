@@ -26,6 +26,8 @@
 		/obj/item/circuitboard/rtg
 	)
 
+	component_hint_cap = "Upgraded <b>capacitors</b> will increase maximum power output."
+
 /obj/machinery/power/rtg/Initialize()
 	. = ..()
 	connect_to_network()

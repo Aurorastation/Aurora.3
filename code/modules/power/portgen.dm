@@ -15,6 +15,8 @@
 	var/portgen_lightcolour = "#000000"
 	var/datum/looping_sound/generator/soundloop
 
+	component_hint_cap = "Upgraded <b>capacitors</b> will increase maximum power output."
+
 /obj/machinery/power/portgen/Initialize()
 	. = ..()
 	soundloop = new(src, active)

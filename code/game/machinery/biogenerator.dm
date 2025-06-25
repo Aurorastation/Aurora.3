@@ -14,6 +14,10 @@
 	var/eat_eff = 1
 	var/capacity = 100
 
+	component_hint_servo = "Upgraded <b>manipulators</b> will increase the nutrients provided by new inputs."
+	component_hint_bin = "Upgraded <b>matter bins</b> will decrease the conversion cost of bio-goods."
+
+
 	component_types = list(
 		/obj/item/circuitboard/biogenerator,
 		/obj/item/stock_parts/matter_bin,

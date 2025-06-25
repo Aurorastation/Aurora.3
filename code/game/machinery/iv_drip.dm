@@ -60,6 +60,9 @@
 		/obj/item/stock_parts/manipulator,
 		/obj/item/stock_parts/scanning_module)
 
+	component_hint_scan = "Upgraded <b>scanning modules</b> will provide the exact volume and composition of attached beakers."
+	component_hint_servo = "Upgraded <b>manipulators</b> will allow IVs to be injectedly more rapidly and increase the maximum reagent transfer rate."
+
 /obj/machinery/iv_drip/Initialize(mapload)
 	. = ..()
 

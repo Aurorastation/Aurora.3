@@ -36,6 +36,8 @@
 	 */
 	var/obj/item/cell/cell = null
 
+	component_hint_cap = "Upgraded <b>capacitors</b> will reduce power usage."
+
 
 /obj/machinery/stasis_cage/Initialize()
 	. = ..()
@@ -199,7 +201,6 @@
 
 
 /obj/machinery/stasis_cage/RefreshParts()
-	..()
 	var/charge_multiplier
 	for(var/obj/item/stock_parts/capacitor/C in component_parts)
 		charge_multiplier += C.rating / 2

@@ -82,6 +82,17 @@
 	. = ..()
 	randpixel_xy()
 
+/obj/item/stock_parts/proc/energy_rating()
+	switch (rating)
+		if (STOCK_PART_BASIC)
+			return 1
+		if (STOCK_PART_ADVANCED)
+			return 3
+		if (STOCK_PART_SUPER)
+			return 5
+		else
+			return 0
+
 //Rank 1
 
 /obj/item/stock_parts/console_screen
@@ -112,7 +123,7 @@
 /obj/item/stock_parts/manipulator
 	name = "micro-manipulator"
 	parent_stock_name = "micro-manipulator"
-	desc = "A tiny little manipulator used in the construction of certain devices."
+	desc = "A tiny micrometer-scale manipulator used in the construction of certain devices."
 	icon_state = "micro_mani"
 	origin_tech = list(TECH_MATERIAL = 1, TECH_DATA = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 30)
@@ -141,7 +152,7 @@
 
 /obj/item/stock_parts/capacitor/adv
 	name = "advanced capacitor"
-	desc = "An advanced capacitor used in the construction of a variety of devices."
+	desc = "A compact, ultra-high resolution scanning module used in the construction of certain devices."
 	icon_state = "adv_capacitor"
 	origin_tech = list(TECH_POWER = 3)
 	rating = STOCK_PART_ADVANCED
@@ -157,6 +168,7 @@
 
 /obj/item/stock_parts/manipulator/nano
 	name = "nano-manipulator"
+	desc = "A tiny nanometer-scale manipulator used in the construction of certain devices."
 	icon_state = "nano_mani"
 	origin_tech = list(TECH_MATERIAL = 3, TECH_DATA = 2)
 	rating = STOCK_PART_ADVANCED
@@ -164,6 +176,7 @@
 
 /obj/item/stock_parts/micro_laser/high
 	name = "high-power micro-laser"
+	desc = "A tiny, high-powered laser used in certain devices."
 	icon_state = "high_micro_laser"
 	origin_tech = list(TECH_MAGNET = 3)
 	rating = STOCK_PART_ADVANCED
@@ -188,7 +201,7 @@
 
 /obj/item/stock_parts/scanning_module/phasic
 	name = "phasic scanning module"
-	desc = "A compact, high resolution phasic scanning module used in the construction of certain devices."
+	desc = "A compact, ultra-high resolution phasic scanning module used in the construction of certain devices."
 	icon_state = "super_scan_module"
 	origin_tech = list(TECH_MAGNET = 5)
 	rating = STOCK_PART_SUPER
@@ -196,6 +209,7 @@
 
 /obj/item/stock_parts/manipulator/pico
 	name = "pico-manipulator"
+	desc = "A tiny picometer-scale manipulator used in the construction of certain devices."
 	icon_state = "pico_mani"
 	origin_tech = list(TECH_MATERIAL = 5, TECH_DATA = 2)
 	rating = STOCK_PART_SUPER
@@ -203,6 +217,7 @@
 
 /obj/item/stock_parts/micro_laser/ultra
 	name = "ultra-high-power micro-laser"
+	desc = "A tiny, alarmingly high-powered laser used in certain devices."
 	icon_state = "ultra_high_micro_laser"
 	origin_tech = list(TECH_MAGNET = 5)
 	rating = STOCK_PART_SUPER
@@ -210,6 +225,7 @@
 
 /obj/item/stock_parts/matter_bin/super
 	name = "super matter bin"
+	desc = "A container for holding compressed matter awaiting re-construction. Fortunately, this is a super 'matter bin,' not a 'super matter' bin."
 	icon_state = "super_matter_bin"
 	origin_tech = list(TECH_MATERIAL = 5)
 	rating = STOCK_PART_SUPER

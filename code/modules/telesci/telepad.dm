@@ -18,6 +18,8 @@
 		/obj/item/stack/cable_coil{amount = 1}
 	)
 
+	component_hint_cap = "Upgraded <b>capacitors</b> will improve the power efficiency of the telepad."
+
 /obj/machinery/telepad/RefreshParts()
 	var/E
 	for(var/obj/item/stock_parts/capacitor/C in component_parts)

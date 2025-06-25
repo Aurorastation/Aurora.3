@@ -58,6 +58,10 @@
 		/obj/item/cell/high
 	)
 
+	component_hint_bin = "Upgraded <b>matter bins</b> will increase ore capacity."
+	component_hint_cap = "Upgraded <b>capacitors</b> will improve power efficiency."
+	component_hint_laser = "Upgraded <b>micro-lasers</b> will increase the amount of ore harvested."
+
 	/// The list of ores currently held within the mining drill
 	var/list/stored_ores = list()
 
@@ -435,7 +439,6 @@
 	return
 
 /obj/machinery/mining/drill/RefreshParts()
-	..()
 	harvest_speed = 0
 	capacity = 0
 	charge_use = 25

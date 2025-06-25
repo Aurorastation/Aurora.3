@@ -45,6 +45,9 @@
 		/obj/item/stack/cable_coil{amount = 5}
 	)
 
+	component_hint_cap = "Upgraded <b>capacitors</b> will increase charging rate."
+	component_hint_servo = "Upgraded <b>manipulators</b> will make the recharging station also start to repair brute damage, then also burn damage, at increasing speed."
+
 /obj/machinery/recharge_station/Initialize()
 	. = ..()
 	update_icon()
@@ -182,6 +185,7 @@
 
 /obj/machinery/recharge_station/RefreshParts()
 	..()
+
 	var/man_rating = 0
 	var/cap_rating = 0
 
