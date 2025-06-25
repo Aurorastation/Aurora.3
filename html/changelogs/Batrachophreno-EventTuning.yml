@@ -67,4 +67,5 @@ changes:
   - balance: "Electrical Storm events have had their weights adjusted downwards slightly."
   - balance: "Electrical Storm events have had their durations reduced slightly."
   - balance: "Electrical Storm events now target fewer APCs at a time (2,4,6 -> 2,3,4)."
+  - balance: "Electrical Storm events no longer affect smaller offships."
   - balance: "Cosmic Expulsion event now weigh Bridge Crew/Engineer presence slightly more heavily."
