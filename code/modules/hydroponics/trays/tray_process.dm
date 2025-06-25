@@ -116,6 +116,7 @@
 		probability_of_growth += 5
 
 	// Roll the dice on advancing plant age, per a probability defined by the previous two checks. At minimum, 15% - at maximum, 35%.
+	// TODO: Move to seed datum?
 	if(prob(probability_of_growth)) age += 1 * HYDRO_SPEED_MULTIPLIER
 
 	// Toxin levels beyond the plant's tolerance cause damage, but
