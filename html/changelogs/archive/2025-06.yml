@@ -242,3 +242,17 @@
   - rscadd: Doubled the number of glasses available in glasses vendors to 40 from
       20, and the number of pitchers to 8 from 4 to balance a number of both being
       removed from the booze vendor in the bar.
+2025-06-26:
+  SleepyGemmy:
+  - spellcheck: Fixed all instances of transferred being spelled as "transfered".
+  - spellcheck: Fixed the hydraulic rescue tool name being capitalized.
+  - spellcheck: Fixed grammar on the long distance wireless bolt control message.
+  - spellcheck: Fixed extra punctuation on the potted cherry blossom tree.
+  - bugfix: Raised the S'rendarr's Hand (tobacco) content from 5 to 10 units in the
+      adhomian cigarettes to match the total amount found in other cigarettes.
+  - spellcheck: Changed the extended description prompt "Show In Chat" to "Show in
+      Chat".
+  - rscadd: Updated the descriptions on regulations i213 and i310.
+  steviii:
+  - imageadd: Adds new wetsuits and swimsuits for Skrell.
+  - rscadd: Adds swimstars swimsuits and adds them to the maint loot pool.
