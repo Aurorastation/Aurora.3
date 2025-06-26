@@ -35,7 +35,7 @@
 	antag_roles = list(MODE_MERCENARY)
 	telecrystal_cost = 4
 
-/datum/uplink_item/abstract/announcements/fake_crew_arrival/get_goods(var/obj/item/device/uplink/U, var/loc, var/mob/user, var/list/args)
+/datum/uplink_item/abstract/announcements/fake_crew_arrival/get_goods(var/obj/item/device/uplink/U, var/loc, var/mob/user, var/list/arguments)
 	if(!user)
 		return 0
 

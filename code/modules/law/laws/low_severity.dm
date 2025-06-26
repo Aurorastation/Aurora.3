@@ -111,17 +111,6 @@
 	min_fine = 500
 	max_fine = 750
 
-/datum/law/low_severity/sexual_harassment
-	name = "i112 - Sexual Harassment"
-	desc = "To make unwanted sexual advances or obscene remarks towards another employee."
-	id = "i112"
-
-	min_brig_time = 5
-	max_brig_time = 15
-
-	min_fine = 0
-	max_fine = 0
-
 /datum/law/low_severity/animal_cruelty
 	name = "i113 - Animal Cruelty"
 	desc = "To inflict unnecessary suffering or harm upon animals with malicious intent."
