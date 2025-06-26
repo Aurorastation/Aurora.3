@@ -216,6 +216,7 @@
 	blacklisted_citizenship = list(CITIZENSHIP_ERIDANI, CITIZENSHIP_ELYRA_NCP, CITIZENSHIP_NONE, CITIZENSHIP_FREE_COUNCIL)
 
 	aide_job = "Diplomatic Aide"
+	bodyguard_job = "Diplomatic Bodyguard"
 
 /datum/job/consular/get_outfit(mob/living/carbon/human/H, alt_title = null)
 	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]
@@ -251,6 +252,7 @@
 	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]
 	LAZYDISTINCTADD(blacklisted_citizenship, citizenship.name)
 	add_verb(H, /mob/living/carbon/human/proc/summon_aide)
+	add_verb(H, /mob/living/carbon/human/proc/summon_bodyguard)
 
 /datum/job/consular/on_despawn(mob/living/carbon/human/H)
 	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]
@@ -288,7 +290,6 @@
 	supervisors = "the Consular Officer"
 	selection_color = "#6186cf"
 	economic_modifier = 5
-	alt_titles = list("Diplomatic Bodyguard")
 
 	minimum_character_age = list(
 		SPECIES_HUMAN = 18,
@@ -324,6 +325,29 @@
 /datum/job/diplomatic_aide/after_spawn(mob/living/carbon/human/H)
 	LAZYDISTINCTADD(blacklisted_citizenship, H.citizenship)
 
+/datum/job/diplomatic_aide
+	title = "Diplomatic BODYGUARD"
+	flag = CONSULAR_ASST
+	departments = SIMPLEDEPT(DEPARTMENT_COMMAND_SUPPORT)
+	department_flag = ENGSEC
+	faction = "Station"
+	total_positions = 0 //manually opened by consular
+	spawn_positions = 0
+	supervisors = "the Consular Officer"
+	selection_color = "#6186cf"
+	economic_modifier = 5
+
+	minimum_character_age = list(
+		SPECIES_HUMAN = 18,
+		SPECIES_SKRELL = 50,
+		SPECIES_SKRELL_AXIORI = 50
+	)
+
+	access = list(ACCESS_CONSULAR, ACCESS_MAINT_TUNNELS)
+	minimal_access = list(ACCESS_CONSULAR)
+	outfit = /obj/outfit/job/diplomatic_aide
+	blacklisted_citizenship = ALL_CITIZENSHIPS //removed based on consular citizensihp
+
 /datum/job/corporate_aide
 	title = "Corporate Aide"
 	flag = DIPLOMAT_AIDE
@@ -335,7 +359,6 @@
 	supervisors = "the Corporate Representative"
 	selection_color = "#6186cf"
 	economic_modifier = 5
-	alt_titles = list("Corporate Bodyguard")
 
 	minimum_character_age = list(
 		SPECIES_HUMAN = 18,
