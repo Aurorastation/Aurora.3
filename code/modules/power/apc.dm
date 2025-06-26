@@ -341,7 +341,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 				else
 					icon_state = basestate
 			else if(update_state & UPDATE_OPENED2)
-				icon_state = "[basestate]-nocover"
+				icon_state = "apcmaint" //needs missing "[basestate]-nocover" icon restored
 		else if(update_state & UPDATE_BROKE)
 			icon_state = "apc-b"
 		else if(update_state & UPDATE_BLUESCREEN)
@@ -941,6 +941,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 		area.power_equip = (equipment > 1)
 		area.power_environ = (environ > 1)
 	else
+		GLOB.power_alarm.triggerAlarm(loc, src)
 		area.power_light = FALSE
 		area.power_equip = FALSE
 		area.power_environ = FALSE
