@@ -4,23 +4,15 @@
 	icon = 'icons/obj/machinery/ship_guns/nephilim.dmi'
 	// heavy_firing_sound = 'sound/weapons/gunshot/ship_weapons/gatling_laser.ogg'
 	icon_state = "weapon_base"
+	idle_power_usage = 1500
+	active_power_usage = 100000
 	max_ammo = 1
 	projectile_type = /obj/projectile/ship_ammo/nephilim
 	caliber = SHIP_CALIBER_BLASTER
 	screenshake_type = SHIP_GUN_SCREENSHAKE_SCREEN
 
-	// use_power = POWER_USE_OFF //Start off.
-	// idle_power_usage = 10 KILO WATTS
-	// active_power_usage = 2 MEGA WATTS
-	// var/obj/machinery/power/smes/buildable/smes
-
-// /obj/machinery/ship_weapon/nephilim/LateInitialize()
-// 	. = ..()
-// 	couple_to_smes()
 
 /obj/machinery/ship_weapon/nephilim/pre_fire(/atom/target, /obj/effect/landmark/landmark)
-	// var/power_draw = smes.drain_power_simple(active_power_usage)
-	//if(power_draw >= active_power_usage)
 	for(var/mob/M in GLOB.living_mob_list)
 		if(AreConnectedZLevels(GET_Z(M), z))
 			sound_to(M, sound('sound/weapons/gunshot/ship_weapons/gatling_laser.ogg'))
@@ -66,3 +58,7 @@
 	damage = 20
 	armor_penetration = 100
 	penetrating = 4
+
+/obj/projectile/ship_ammo/nephilim/he/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
+	. = ..()
+	explosion(target, 0, 2, 3)
