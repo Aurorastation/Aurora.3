@@ -29,6 +29,8 @@
 	component_hint_cap = "Upgraded <b>capacitors</b> will reduce active power usage."
 	component_hint_servo = "Upgraded <b>manipulators</b> will increase agitation speed."
 
+	parts_power_mgmt = FALSE
+
 /obj/machinery/power/crystal_agitator/Initialize()
 	. = ..()
 	connect_to_network()
@@ -90,6 +92,7 @@
 	last_agitation = world.time
 
 /obj/machinery/power/crystal_agitator/RefreshParts()
+	..()
 	for(var/obj/item/stock_parts/SP in component_parts)
 		if(ismanipulator(SP))
 			agitation_rate = initial(agitation_rate) - (SP.rating * 5)

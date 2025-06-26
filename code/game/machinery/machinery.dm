@@ -121,6 +121,8 @@ Class Procs:
 	var/list/component_types
 	/// List of all the parts used to build it, if made from certain kinds of frames.
 	var/list/component_parts = null
+	/// Use the generic power rating mechanics for parts, or bespoke.
+	var/parts_power_mgmt = TRUE
 	/// The total power rating of all parts serves as a power usage multiplier.
 	var/parts_power_usage = 0
 	/// Blurbs for what each component type does. Appended to machine's /desc_info.
@@ -131,8 +133,6 @@ Class Procs:
 	var/component_hint_scan   // "Upgraded <b>scanning modules</b> will XYZ"
 	var/component_hint_servo  // "Upgraded <b>manipulators</b> will XYZ"
 
-	component_hint_bin = "Upgraded <b>matter bins</b> will increase material storage capacity."
-	component_hint_servo = "Upgraded <b>manipulators</b> will improve material use efficiency and increase fabrication speed."
 	var/uid
 	var/panel_open = 0
 	var/global/gl_uid = 1
@@ -181,7 +181,6 @@ Class Procs:
 
 		if(component_parts.len)
 			RefreshParts()
-			UpdatePartsDesc()
 
 /obj/machinery/Destroy()
 	//Stupid macro used in power usage
@@ -374,21 +373,23 @@ Class Procs:
 	return S
 
 /obj/machinery/proc/RefreshParts()
-	var/new_idle_power
-	var/new_active_power
+	if(parts_power_mgmt)
+		var/new_idle_power
+		var/new_active_power
 
-	if(!component_parts || !component_parts.len)
-		return
-	var/parts_energy_rating = 0
+		if(!component_parts || !component_parts.len)
+			return
+		var/parts_energy_rating = 0
 
-	for(var/obj/item/stock_parts/part in component_parts)
-		parts_energy_rating += part.energy_rating()
+		for(var/obj/item/stock_parts/part in component_parts)
+			parts_energy_rating += part.energy_rating()
 
-	new_idle_power = initial(idle_power_usage) * (1 + parts_energy_rating)
-	new_active_power = initial(active_power_usage) * (1 + parts_energy_rating)
+		new_idle_power = initial(idle_power_usage) * (1 + parts_energy_rating)
+		new_active_power = initial(active_power_usage) * (1 + parts_energy_rating)
 
-	change_power_consumption(new_idle_power)
-	change_power_consumption(new_active_power, POWER_USE_ACTIVE)
+		change_power_consumption(new_idle_power)
+		change_power_consumption(new_active_power, POWER_USE_ACTIVE)
+	GetPartUpgradeDesc()
 
 /obj/machinery/proc/assign_uid()
 	uid = gl_uid
@@ -454,12 +455,10 @@ Class Procs:
 
 /obj/machinery/proc/default_part_replacement(var/mob/user, var/obj/item/storage/part_replacer/R)
 	if(!LAZYLEN(component_parts))
-		LOG_DEBUG("no component parts")
 		return FALSE
 	else if(istype(R))
 		var/parts_replaced = FALSE
 		if(panel_open)
-			LOG_DEBUG("panel open and replacer")
 			var/obj/item/circuitboard/CB = locate(/obj/item/circuitboard) in component_parts
 			var/P
 			for(var/obj/item/reagent_containers/glass/G in component_parts)
@@ -480,15 +479,12 @@ Class Procs:
 							to_chat(user, SPAN_NOTICE("[G.name] replaced with [B.name]."))
 							break
 			for(var/obj/item/stock_parts/A in component_parts)
-				LOG_DEBUG("part loop 1b")
 				for(var/D in CB.req_components)
-					LOG_DEBUG("part loop 2b")
 					var/T = text2path(D)
 					if(ispath(A.type, T))
 						P = T
 						break
 				for(var/obj/item/stock_parts/B in R.contents)
-					LOG_DEBUG("part loop 1b")
 					if(istype(B, P) && istype(A, P))
 						if(B.rating > A.rating)
 							R.remove_from_storage(B, src)
@@ -499,30 +495,41 @@ Class Procs:
 							to_chat(user, SPAN_NOTICE("[A.name] replaced with [B.name]."))
 							parts_replaced = TRUE
 							break
-			LOG_DEBUG("refreshing parts")
 			RefreshParts()
 			update_icon()
 			if(parts_replaced) //only play sound when RPED actually replaces parts
 				playsound(src, 'sound/items/rped.ogg', 40, TRUE)
-				LOG_DEBUG("returning true")
 			return TRUE
-	LOG_DEBUG("poop")
 	else return FALSE
 
-/obj/machinery/proc/UpdatePartsDesc()
-	. = list()
-	. += desc_info
+/obj/machinery/proc/GetPartUpgradeDesc()
+	var/temp_desc_upgrade = initial(desc_upgrade)
+	// This is ugly code but it does get rid of even uglier double-line breaks in game.
+	var/first_line = TRUE
 	if(component_hint_cap)
-		. += SPAN_NOTICE(component_hint_cap)
+		temp_desc_upgrade += "- [component_hint_cap]"
+		first_line = FALSE
 	if(component_hint_scan)
-		. += SPAN_NOTICE(component_hint_scan)
+		if(!first_line)
+			temp_desc_upgrade += "<br>"
+		temp_desc_upgrade += "- [component_hint_scan]"
+		first_line = FALSE
 	if(component_hint_servo)
-		. += SPAN_NOTICE(component_hint_servo)
+		if(!first_line)
+			temp_desc_upgrade += "<br>"
+		temp_desc_upgrade += "- [component_hint_servo]"
+		first_line = FALSE
 	if(component_hint_laser)
-		. += SPAN_NOTICE(component_hint_laser)
+		if(!first_line)
+			temp_desc_upgrade += "<br>"
+		temp_desc_upgrade += "- [component_hint_laser]"
+		first_line = FALSE
 	if(component_hint_bin)
-		. += SPAN_NOTICE(component_hint_bin)
-	desc_info = .
+		if(!first_line)
+			temp_desc_upgrade += "<br>"
+		temp_desc_upgrade += "- [component_hint_bin]"
+		first_line = FALSE
+	desc_upgrade = temp_desc_upgrade
 
 /obj/machinery/proc/dismantle()
 	playsound(loc, /singleton/sound_category/crowbar_sound, 50, 1)

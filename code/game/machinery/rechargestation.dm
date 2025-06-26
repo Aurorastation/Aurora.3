@@ -136,8 +136,14 @@
 			D.master_matrix.apply_upgrades(D)
 
 /obj/machinery/recharge_station/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	desc = initial(desc)
+	desc += "<br>Uses a dedicated internal power cell to deliver <b>[charging_power]W</b> when in use."
+	desc += "<br>The charge meter reads: <b>[round(chargepercentage())]%</b>."
+	if(weld_rate)
+		desc += "<br>It is capable of repairing stationbounds' structural damage."
+	if(wire_rate)
+		desc += "<br>It is capable of repairing stationbounds' burn damage."
 	. = ..()
-	. += "The charge meter reads: [round(chargepercentage())]%."
 
 /obj/machinery/recharge_station/proc/chargepercentage()
 	if(!cell)
@@ -202,13 +208,6 @@
 	restore_power_passive = 5000 + 1000 * cap_rating
 	weld_rate = max(0, man_rating - 3)
 	wire_rate = max(0, man_rating - 5)
-
-	desc = initial(desc)
-	desc += " Uses a dedicated internal power cell to deliver [charging_power]W when in use."
-	if(weld_rate)
-		desc += "<br>It is capable of repairing stationbounds' structural damage."
-	if(wire_rate)
-		desc += "<br>It is capable of repairing stationbounds' burn damage."
 
 /obj/machinery/recharge_station/proc/build_overlays()
 	ClearOverlays()

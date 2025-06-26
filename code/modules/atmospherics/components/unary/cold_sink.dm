@@ -35,6 +35,8 @@
 	component_hint_cap = "Upgraded <b>capacitors</b> will increase maximum power setting."
 	component_hint_servo = "Upgraded <b>manipulators</b> will improve cooling efficiency."
 
+	parts_power_mgmt = FALSE
+
 /obj/machinery/atmospherics/unary/freezer/Initialize()
 	initialize_directions = dir
 	. = ..()
@@ -154,6 +156,7 @@
 
 //upgrading parts
 /obj/machinery/atmospherics/unary/freezer/RefreshParts()
+	..()
 	var/cap_rating = 0
 	var/manip_rating = 0
 	var/bin_rating = 0

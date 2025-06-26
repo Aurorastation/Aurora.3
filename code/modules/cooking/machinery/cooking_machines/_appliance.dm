@@ -27,6 +27,8 @@
 							/obj/item/stock_parts/scanning_module = 1,
 							/obj/item/stock_parts/matter_bin = 2)
 
+	parts_power_mgmt = FALSE
+
 	var/cooking_power = 0			// Effectiveness/speed at cooking
 	var/cooking_coeff = 0			// Part-based cooking power multiplier
 	var/heating_power = 1000		// Effectiveness at heating up; not used for mixers, should be equal to active_power_usage
@@ -667,6 +669,7 @@
 	cooking_power = cooking_coeff
 
 /obj/machinery/appliance/RefreshParts()
+	..()
 	var/scan_rating = 0
 	var/cap_rating = 0
 

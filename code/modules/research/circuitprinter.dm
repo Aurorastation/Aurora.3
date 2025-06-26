@@ -45,9 +45,6 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 	var/build_callback_timer
 
 	component_hint_bin = "Upgraded <b>matter bins</b> will increase material storage capacity."
-	component_hint_cap = "Upgraded <b>capacitors</b> will reduce active power usage."
-	component_hint_laser = "Upgraded <b>micro-lasers</b> will increase data gathered from destructive analysis."
-	component_hint_scan = "Upgraded <b>scanning modules</b> will increase data gathered from destructive analysis."
 	component_hint_servo = "Upgraded <b>manipulators</b> will improve material use efficiency and increase fabrication speed."
 
 /obj/machinery/r_n_d/circuit_imprinter/RefreshParts()

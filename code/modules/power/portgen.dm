@@ -139,6 +139,8 @@
 		/obj/item/stock_parts/capacitor
 	)
 
+	parts_power_mgmt = FALSE
+
 /obj/machinery/power/portgen/basic/Initialize()
 	component_types += board_path
 	. = ..()
@@ -151,6 +153,7 @@
 	return ..()
 
 /obj/machinery/power/portgen/basic/RefreshParts()
+	..()
 	var/temp_rating = 0
 
 	for(var/obj/item/stock_parts/SP in component_parts)

@@ -43,6 +43,7 @@
 	. = ..()
 
 /obj/machinery/appliance/cooker/grill/RefreshParts()
+	..()
 	cooking_coeff = 0.3 // we will always cook nice and slow
 
 /obj/machinery/appliance/cooker/grill/get_efficiency()

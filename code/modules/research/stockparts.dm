@@ -2,6 +2,27 @@
 #define STOCK_PART_ADVANCED 2
 #define STOCK_PART_SUPER 3
 
+/***
+ * Stock parts (as of 2025/06) are only able to be installed in machinery objects.
+ * 
+ * They improve the functionality of the machine in various ways, scaling with their rating. The
+ * impact any given part type has on a machine should be described in a var/hint_[parttype].
+ * 
+ * By default, higher-rated parts will also increase machine power usage- refer to energy_rating()
+ * to see the multiplier the total energy rating will apply to power usage.
+ * 
+ * By assigning a machinery the variable "parts_power_mgmt = FALSE", bespoke power usage code can 
+ * be applied (i.e. upgrades that reduce power usage). This should be modified in the future to
+ * accommodate more flexible and intuitive power draw changes due to stock parts, but was implemented
+ * this way by Bat just to accommodate existing machine upgrades. Future changes will entail a more
+ * in-depth balance pass.
+ * 
+ * Tcomms stock parts are somewhat weirder, not following the same 'rank' behavior as the standard
+ * cluster of ranked five. They are also no longer used exclusively in Tcomms machinery- for example,
+ * the Hull Shield Generator requires both standard and Tcomms stock parts. This should also be
+ * addressed in future.
+ */ 
+
 /obj/item/storage/bag/stockparts_box
 	name = "stock parts box"
 	desc = "A low-tech method of storing stock parts used in machinery."
