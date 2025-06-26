@@ -11,7 +11,7 @@
 	By default, higher-rated parts will also increase machine power usage- refer to energy_rating()
 	to see the multiplier the total energy rating will apply to power usage.
 
-	By assigning a machinery the variable "parts_power_mgmt = FALSE", bespoke power usage code can 
+	By assigning a machinery the variable "parts_power_mgmt = FALSE", bespoke power usage code can
 	be applied (i.e. upgrades that reduce power usage). This should be modified in the future to
 	accommodate more flexible and intuitive power draw changes due to stock parts, but was implemented
 	this way by Bat just to accommodate existing machine upgrades. Future changes will entail a more
