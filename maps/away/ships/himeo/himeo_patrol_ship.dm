@@ -158,4 +158,4 @@
 	You may need to bump it up to 2000kpa to fully recharge the SMES.<BR>\
 	<BR>WARNING: If catastrophic containment failure is imminent, lower the blast doors and vent the chamber immediately! \
 	There is a portable generator in the aft thruster-pod, and another in tool storage. Use one of them if the reactor melts down.</b></font>"
-	language = LANGUAGE_GUTTER
+	language = LANGUAGE_SOL_COMMON

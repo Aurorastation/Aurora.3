@@ -212,6 +212,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/reinforced,
 /area/himeo_patrol_ship/blaster)
+"aY" = (
+/obj/machinery/door/blast/regular{
+	id = "himeo_patrol_driver_out"
+	},
+/turf/simulated/floor/reinforced,
+/area/himeo_patrol_ship)
 "aZ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -1040,6 +1046,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship)
 "eF" = (
@@ -1456,14 +1465,19 @@
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
 /area/shuttle/himeo_patrol/central)
 "gx" = (
-/obj/machinery/door/blast/shutters{
-	id = "himeo_military_decktwo_storage_1"
+/obj/machinery/door/blast/regular/open{
+	name = "Emergency Lockdown Shutter";
+	id = "himeo_military_lockdown"
 	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
+/obj/machinery/atmospherics/pipe/simple/hidden/green{
+	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
-/area/himeo_patrol_ship/deck_2_interstitial)
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#6C7364";
+	frame_color = "#6C7364"
+	},
+/turf/simulated/floor,
+/area/himeo_patrol_ship/thruster_starboard)
 "gB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -4344,13 +4358,14 @@
 /turf/simulated/open/airless,
 /area/space)
 "uy" = (
+/obj/machinery/door/blast/shutters{
+	id = "himeo_military_decktwo_storage_1"
+	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/turf/simulated/floor/tiled/gunmetal,
-/area/himeo_patrol_ship)
+/turf/simulated/floor/tiled/dark,
+/area/himeo_patrol_ship/deck_2_interstitial)
 "uA" = (
 /obj/machinery/light/colored/decayed/dimmed{
 	dir = 8
@@ -5028,6 +5043,14 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship)
+"xC" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/blast/regular{
+	id = "himeo_patrol_driver_in";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
 /area/himeo_patrol_ship)
 "xD" = (
 /obj/machinery/door/blast/regular/open{
@@ -7029,14 +7052,32 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/light/colored/decayed/dimmed{
-	dir = 1
-	},
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline_segment/red{
 	dir = 1
+	},
+/obj/machinery/button/mass_driver{
+	id = "himeo_patrol_driver";
+	name = "Mass Driver";
+	_wifi_id = "himeo_patrol_driver";
+	pixel_y = 35;
+	pixel_x = -8
+	},
+/obj/machinery/button/remote/blast_door{
+	name = "External Blast Door";
+	dir = 1;
+	pixel_y = 25;
+	id = "himeo_patrol_driver_out";
+	pixel_x = 8
+	},
+/obj/machinery/button/remote/blast_door{
+	name = "Internal Blast Door";
+	dir = 1;
+	pixel_y = 25;
+	id = "himeo_patrol_driver_in";
+	pixel_x = -8
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship)
@@ -7589,9 +7630,6 @@
 /area/himeo_patrol_ship/thruster_aft)
 "IN" = (
 /obj/structure/lattice/catwalk/indoor,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
 /obj/structure/cable/green{
 	icon_state = "12-0"
 	},
@@ -7988,19 +8026,20 @@
 /turf/simulated/floor/reinforced,
 /area/himeo_patrol_ship/barracks)
 "Lc" = (
-/obj/machinery/door/blast/regular/open{
-	name = "Emergency Lockdown Shutter";
-	id = "himeo_military_lockdown"
+/obj/machinery/mass_driver{
+	dir = 8;
+	id = "himeo_patrol_driver";
+	_wifi_id = "himeo_patrol_driver"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/green{
+/obj/machinery/door/window/southleft{
+	name = "Mass Driver Exterior Windoor";
 	dir = 8
 	},
-/obj/effect/map_effect/window_spawner/full/shuttle{
-	color = "#6C7364";
-	frame_color = "#6C7364"
+/obj/machinery/door/window/southleft{
+	name = "Mass Driver Interior Windoor"
 	},
-/turf/simulated/floor,
-/area/himeo_patrol_ship/thruster_starboard)
+/turf/simulated/floor/reinforced,
+/area/himeo_patrol_ship)
 "Lg" = (
 /obj/machinery/atmospherics/pipe/zpipe/down/green{
 	dir = 4
@@ -40514,8 +40553,8 @@ dr
 FM
 bK
 bK
-Lc
-Lc
+gx
+gx
 pi
 pi
 VJ
@@ -41566,7 +41605,7 @@ sa
 Pl
 UZ
 Tl
-Xh
+aY
 RT
 eD
 PO
@@ -41823,8 +41862,8 @@ YM
 re
 mE
 Tl
-Xh
-RT
+Lc
+xC
 yn
 xv
 yc
@@ -42080,7 +42119,7 @@ ei
 Qi
 UG
 Tl
-Xh
+RT
 RT
 FO
 Jz
@@ -42853,7 +42892,7 @@ Oz
 Yx
 WY
 Mq
-uy
+RU
 sI
 eg
 sd
@@ -108132,7 +108171,7 @@ yg
 Qz
 Qz
 yg
-gx
+uy
 qI
 xS
 Hs
