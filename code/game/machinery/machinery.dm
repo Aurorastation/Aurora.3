@@ -123,13 +123,16 @@ Class Procs:
 	var/list/component_parts = null
 	/// The total power rating of all parts serves as a power usage multiplier.
 	var/parts_power_usage = 0
-	/// Blurbs for what each component type does.
-	var/component_hint_cap
-	var/component_hint_scan
-	var/component_hint_servo
-	var/component_hint_laser
-	var/component_hint_bin
+	/// Blurbs for what each component type does. Appended to machine's /desc_info.
+	/// Kindly use the format in appended comments for consistency
+	var/component_hint_bin    // "Upgraded <b>matter bins</b> will XYZ."
+	var/component_hint_cap    // "Upgraded <b>capacitors</b> will XYZ."
+	var/component_hint_laser  // "Upgraded <b>micro-lasers</b> will XYZ"
+	var/component_hint_scan   // "Upgraded <b>scanning modules</b> will XYZ"
+	var/component_hint_servo  // "Upgraded <b>manipulators</b> will XYZ"
 
+	component_hint_bin = "Upgraded <b>matter bins</b> will increase material storage capacity."
+	component_hint_servo = "Upgraded <b>manipulators</b> will improve material use efficiency and increase fabrication speed."
 	var/uid
 	var/panel_open = 0
 	var/global/gl_uid = 1
@@ -178,6 +181,7 @@ Class Procs:
 
 		if(component_parts.len)
 			RefreshParts()
+			UpdatePartsDesc()
 
 /obj/machinery/Destroy()
 	//Stupid macro used in power usage
@@ -452,13 +456,6 @@ Class Procs:
 	if(!LAZYLEN(component_parts))
 		LOG_DEBUG("no component parts")
 		return FALSE
-	if(istype(R, /obj/item/device/debugger))
-		LOG_DEBUG("im a debugger!")
-		LOG_DEBUG("debugger go go go")
-		to_chat(user, SPAN_NOTICE("The following parts have been detected in \the [src]:"))
-		to_chat(user, counting_english_list(component_parts))
-		to_chat(part_overview())
-		return TRUE
 	else if(istype(R))
 		var/parts_replaced = FALSE
 		if(panel_open)
@@ -512,24 +509,20 @@ Class Procs:
 	LOG_DEBUG("poop")
 	else return FALSE
 
-/obj/machinery/proc/part_overview()
-	var/list/part_hints
+/obj/machinery/proc/UpdatePartsDesc()
+	. = list()
+	. += desc_info
 	if(component_hint_cap)
-		LOG_DEBUG("component_hint_cap")
-		part_hints += SPAN_NOTICE(component_hint_cap)
+		. += SPAN_NOTICE(component_hint_cap)
 	if(component_hint_scan)
-		LOG_DEBUG("component_hint_scan")
-		part_hints += SPAN_NOTICE(component_hint_scan)
+		. += SPAN_NOTICE(component_hint_scan)
 	if(component_hint_servo)
-		LOG_DEBUG("component_hint_servo")
-		part_hints += SPAN_NOTICE(component_hint_servo)
+		. += SPAN_NOTICE(component_hint_servo)
 	if(component_hint_laser)
-		LOG_DEBUG("component_hint_laser")
-		part_hints += SPAN_NOTICE(component_hint_laser)
+		. += SPAN_NOTICE(component_hint_laser)
 	if(component_hint_bin)
-		LOG_DEBUG("component_hint_bin")
-		part_hints += SPAN_NOTICE(component_hint_bin)
-	return part_hints
+		. += SPAN_NOTICE(component_hint_bin)
+	desc_info = .
 
 /obj/machinery/proc/dismantle()
 	playsound(loc, /singleton/sound_category/crowbar_sound, 50, 1)
