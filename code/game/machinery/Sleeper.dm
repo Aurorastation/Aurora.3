@@ -48,6 +48,11 @@
 			/obj/item/reagent_containers/glass/beaker/large
 		)
 
+	component_hint_cap = "Upgraded <b>capacitors</b> will reduce power usage."
+	component_hint_scan = "Upgraded <b>scanning modules</b> will reduce power usage."
+
+	parts_power_mgmt = FALSE
+
 /obj/machinery/sleeper/Initialize()
 	. = ..()
 	update_icon()
@@ -91,6 +96,22 @@
 		return
 	else
 		icon_state = initial(icon_state)
+
+/obj/machinery/sleeper/RefreshParts()
+	..()
+	var/scan_rating = 0
+	var/cap_rating = 0
+
+	for(var/obj/item/stock_parts/P in component_parts)
+		if(isscanner(P))
+			scan_rating += P.rating
+		else if(iscapacitor(P))
+			cap_rating += P.rating
+
+	beaker = locate(/obj/item/reagent_containers/glass/beaker) in component_parts
+
+	change_power_consumption((initial(active_power_usage) - (cap_rating + scan_rating)*2), POWER_USE_ACTIVE)
+	parts_power_usage = active_power_usage
 
 /obj/machinery/sleeper/attack_hand(var/mob/user)
 	if(..())
