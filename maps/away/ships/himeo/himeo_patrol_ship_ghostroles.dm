@@ -4,7 +4,11 @@
 	desc = "You are a guard of the Himean Planetary Guard. Crew your patrol craft, track down pirates and other infiltrators to Coalition space, and help represent the Syndicates abroad."
 	tags = list("External")
 	spawnpoints = list("himeo_patrol")
-	welcome_message = "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOORAH FOR THE REVOLUTION"
+	welcome_message = "You are a member of the Himean Planetary Guard, Naval Branch. \
+	One amongst you has been promoted to the rank of Commander, and you are to follow their orders in any circumstance that does not contravene your service to the Planetary Guard. \
+	You are to patrol the sector, ensuring that enemies of the Syndicates do not gain a foothold in the Coalition. \
+	Do not simply attack ships of Hephaestus Industries blindly, however... unless they provoke you first. All peoples are welcome in the service of the Syndicates, \
+	however if your origin includes the option to use either the Himean or Free Tajara Council accent, using that is suggested. "
 
 	max_count = 2
 	respawn_flag = null
@@ -23,7 +27,12 @@
 	short_name = "himeo_patrol_ship_engineer"
 	name = "Himean Planetary Guard Sapper"
 	desc = "You are a sapper of the Himean Planetary Guard. Operate the thrusters and thermoelectric generator of your patrol craft, repair damage to your vessel, and breach your way into sites or vessels of interest to the Syndicates."
-	welcome_message = "Placeholder"
+	welcome_message = "You are a member of the Himean Planetary Guard, Naval Branch. \
+	One amongst you has been promoted to the rank of Commander, and you are to follow their orders in any circumstance that does not contravene your service to the Planetary Guard. \
+	You have been appointed based upon your merits to serve as a sapper. \
+	You have been trusted to prevent the vessel from perishing in the service of the aims of the Syndicates, and failure is not permitted. \
+	All peoples are welcome in the service of the Syndicates, \
+	however if your origin includes the option to use either the Himean or Free Tajara Council accent, using that is suggested. "
 	max_count = 1
 	outfit = /obj/outfit/admin/himeo_patrol_ship/engineer
 	mob_name_prefix = "Alk. "

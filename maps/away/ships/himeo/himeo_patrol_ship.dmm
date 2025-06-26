@@ -517,6 +517,10 @@
 	name = "Emergency Lockdown Shutter";
 	id = "himeo_military_lockdown"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#6C7364";
+	frame_color = "#6C7364"
+	},
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/messhall)
 "cE" = (
@@ -982,7 +986,7 @@
 	pixel_y = 5
 	},
 /obj/item/reagent_containers/food/drinks/flask/vacuumflask{
-	reagents_to_add = reagents_to_add=list(/singleton/reagent/drink/coffee = 60);
+	reagents_to_add = "reagents_to_add=list(/singleton/reagent/drink/coffee = 60)";
 	name = "coffee-filled vacuum flask";
 	pixel_y = 8;
 	pixel_x = -10
@@ -1452,15 +1456,14 @@
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
 /area/shuttle/himeo_patrol/central)
 "gx" = (
-/obj/machinery/door/blast/regular/open{
-	name = "Emergency Lockdown Shutter";
-	id = "himeo_military_lockdown"
+/obj/machinery/door/blast/shutters{
+	id = "himeo_military_decktwo_storage_1"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/green{
-	dir = 8
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
-/turf/simulated/floor,
-/area/himeo_patrol_ship/thruster_starboard)
+/turf/simulated/floor/tiled/dark,
+/area/himeo_patrol_ship/deck_2_interstitial)
 "gB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -2352,6 +2355,10 @@
 	name = "Emergency Lockdown Shutter";
 	id = "himeo_military_lockdown"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#6C7364";
+	frame_color = "#6C7364"
+	},
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/barracks)
 "kQ" = (
@@ -2364,6 +2371,7 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, docking arm"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/deck_2_fore)
 "kY" = (
@@ -3555,6 +3563,10 @@
 /obj/effect/landmark/entry_point/port{
 	name = "port, eva"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#6C7364";
+	frame_color = "#6C7364"
+	},
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/eva)
 "qI" = (
@@ -3563,6 +3575,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/himeo_patrol_ship/deck_2_interstitial)
@@ -5019,6 +5034,10 @@
 	name = "Bridge Window Door";
 	id = "himeo_military_bridge_glass"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#6C7364";
+	frame_color = "#6C7364"
+	},
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/eva)
 "xG" = (
@@ -5333,6 +5352,10 @@
 	name = "Emergency Lockdown Shutter";
 	id = "himeo_military_lockdown"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#6C7364";
+	frame_color = "#6C7364"
+	},
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/engineering)
 "yN" = (
@@ -5375,6 +5398,7 @@
 	dir = 6
 	},
 /obj/structure/railing/mapped,
+/obj/machinery/alarm/east,
 /turf/simulated/floor/tiled/dark,
 /area/himeo_patrol_ship/deck_2_interstitial)
 "yV" = (
@@ -5853,6 +5877,7 @@
 	id = "himeo_military_decktwo_ffore_blast";
 	name = "Fore Checkpoint Blast Door"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /turf/simulated/floor/tiled/dark,
 /area/himeo_patrol_ship/deck_2_checkpoint)
 "Ba" = (
@@ -6250,6 +6275,10 @@
 	},
 /obj/effect/landmark/entry_point/port{
 	name = "port, distribution"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#6C7364";
+	frame_color = "#6C7364"
 	},
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/distribution)
@@ -6699,6 +6728,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/himeo_patrol_ship/thruster_aft)
 "EB" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/deck_2_fore)
 "EC" = (
@@ -6985,6 +7015,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/green{
 	dir = 8
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#6C7364";
+	frame_color = "#6C7364"
 	},
 /turf/simulated/floor,
 /area/himeo_patrol_ship/thruster_port)
@@ -7404,6 +7438,10 @@
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, medbay"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#6C7364";
+	frame_color = "#6C7364"
+	},
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/infirmary)
 "Ie" = (
@@ -7695,6 +7733,7 @@
 /area/himeo_patrol_ship/hydroponics)
 "JD" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/deck_2_fore)
 "JJ" = (
@@ -7740,6 +7779,10 @@
 /obj/machinery/door/blast/regular/open{
 	name = "Emergency Lockdown Shutter";
 	id = "himeo_military_lockdown"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#6C7364";
+	frame_color = "#6C7364"
 	},
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/distribution)
@@ -7944,6 +7987,20 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/reinforced,
 /area/himeo_patrol_ship/barracks)
+"Lc" = (
+/obj/machinery/door/blast/regular/open{
+	name = "Emergency Lockdown Shutter";
+	id = "himeo_military_lockdown"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/green{
+	dir = 8
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#6C7364";
+	frame_color = "#6C7364"
+	},
+/turf/simulated/floor,
+/area/himeo_patrol_ship/thruster_starboard)
 "Lg" = (
 /obj/machinery/atmospherics/pipe/zpipe/down/green{
 	dir = 4
@@ -8342,6 +8399,10 @@
 /obj/effect/landmark/entry_point/port{
 	name = "port, crew quarters"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#6C7364";
+	frame_color = "#6C7364"
+	},
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/barracks)
 "Nt" = (
@@ -8486,6 +8547,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/himeo_patrol_ship/blaster)
 "Oa" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /turf/simulated/floor/tiled/dark,
 /area/himeo_patrol_ship/deck_2_checkpoint)
 "Oe" = (
@@ -8660,6 +8722,10 @@
 /obj/machinery/door/blast/regular/open{
 	name = "Emergency Lockdown Shutter";
 	id = "himeo_military_lockdown"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#6C7364";
+	frame_color = "#6C7364"
 	},
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/infirmary)
@@ -9045,6 +9111,10 @@
 	name = "Emergency Lockdown Shutter";
 	id = "himeo_military_lockdown"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#6C7364";
+	frame_color = "#6C7364"
+	},
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/hydroponics)
 "Qq" = (
@@ -9164,6 +9234,10 @@
 /obj/machinery/door/blast/regular/open{
 	name = "Emergency Lockdown Shutter";
 	id = "himeo_military_lockdown"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#6C7364";
+	frame_color = "#6C7364"
 	},
 /turf/simulated/floor,
 /area/himeo_patrol_ship/thruster_port)
@@ -9626,7 +9700,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
-/area/himeo_patrol_ship/deck_2_storage)
+/area/himeo_patrol_ship/deck_2_interstitial)
 "SD" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/iff_beacon/name_change,
@@ -9981,6 +10055,7 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/engineering)
 "TX" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /turf/simulated/floor/plating,
 /area/space)
 "TZ" = (
@@ -10077,6 +10152,7 @@
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/aft)
 "Ut" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/deck_2_storage)
 "Ux" = (
@@ -10441,6 +10517,10 @@
 /obj/effect/landmark/entry_point/port{
 	name = "port, hydroponics"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#6C7364";
+	frame_color = "#6C7364"
+	},
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/hydroponics)
 "VG" = (
@@ -10472,6 +10552,7 @@
 /turf/simulated/floor/carpet/red,
 /area/himeo_patrol_ship/barracks)
 "VR" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/deck_2_interstitial)
 "VS" = (
@@ -10742,6 +10823,10 @@
 	},
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, hall"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#6C7364";
+	frame_color = "#6C7364"
 	},
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship)
@@ -11078,6 +11163,10 @@
 /obj/machinery/door/blast/regular/open{
 	name = "Emergency Lockdown Shutter";
 	id = "himeo_military_lockdown"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#6C7364";
+	frame_color = "#6C7364"
 	},
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship)
@@ -40425,8 +40514,8 @@ dr
 FM
 bK
 bK
-gx
-gx
+Lc
+Lc
 pi
 pi
 VJ
@@ -107792,9 +107881,9 @@ qD
 yo
 EM
 qD
-ck
+qD
 SC
-ck
+qD
 Pt
 gg
 HG
@@ -108043,7 +108132,7 @@ yg
 Qz
 Qz
 yg
-cr
+gx
 qI
 xS
 Hs

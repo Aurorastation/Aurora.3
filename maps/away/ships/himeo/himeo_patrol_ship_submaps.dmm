@@ -2,6 +2,34 @@
 "ab" = (
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
+"ag" = (
+/obj/random/dirt_75,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"am" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/dirt_75,
+/obj/machinery/alarm/south,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"ay" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/trash_pile,
+/obj/random/dirt_75,
+/obj/machinery/alarm/south,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"aA" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
 "aE" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/pottedplant,
@@ -102,6 +130,17 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
+"hp" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/pottedplant,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/north,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
 "hQ" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/junk,
@@ -114,6 +153,11 @@
 /obj/machinery/light/colored/decayed/dimmed{
 	dir = 1
 	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"iO" = (
+/obj/random/dirt_75,
+/obj/machinery/alarm/east,
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "jn" = (
@@ -157,6 +201,7 @@
 "la" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/machinery/alarm/east,
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "lJ" = (
@@ -169,6 +214,19 @@
 /area/template_noop)
 "mg" = (
 /turf/template_noop,
+/area/template_noop)
+"mx" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/table/rack/no_cargo,
+/obj/machinery/alarm/south,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"my" = (
+/obj/structure/closet/crate/loot,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "mI" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/himeo_patrol_ship/storage_1,
@@ -195,6 +253,13 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/table/rack/no_cargo,
 /turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"nU" = (
+/obj/random/dirt_75,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "og" = (
 /turf/simulated/floor/tiled/dark/full,
@@ -225,6 +290,7 @@
 "qm" = (
 /obj/structure/closet/crate/loot,
 /obj/random/dirt_75,
+/obj/machinery/alarm/south,
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "rf" = (
@@ -253,6 +319,10 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/largecrate/animal/adhomai/schlorrgo,
 /obj/random/dirt_75,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/north,
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "tI" = (
@@ -263,6 +333,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
+"uM" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/alarm/south,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
 "vb" = (
 /obj/structure/bed/stool/chair/folding{
 	dir = 8
@@ -270,7 +345,14 @@
 /obj/effect/floor_decal/spline/plain/red{
 	dir = 6
 	},
+/obj/machinery/alarm/east,
 /turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"vu" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "vA" = (
 /obj/structure/table/rack/folding_table,
@@ -283,6 +365,9 @@
 	pixel_y = 3;
 	pixel_x = 6
 	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "wg" = (
@@ -291,6 +376,13 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"wS" = (
+/obj/random/junk,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "xB" = (
 /obj/structure/bed/stool/chair/folding{
@@ -417,6 +509,10 @@
 	},
 /obj/random/dirt_75,
 /obj/item/flame/candle,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/north,
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "DX" = (
@@ -432,6 +528,13 @@
 "DZ" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"Es" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "EF" = (
@@ -451,6 +554,16 @@
 /obj/machinery/light/colored/decayed/dimmed{
 	dir = 1
 	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"FX" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/loot,
+/obj/random/dirt_75,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/north,
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "Gs" = (
@@ -535,6 +648,14 @@
 /area/template_noop)
 "Kk" = (
 /obj/structure/closet/crate/loot,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"Ln" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "Mi" = (
@@ -632,6 +753,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
+"Tc" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/loot,
+/obj/random/dirt_75,
+/obj/machinery/alarm/south,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
 "Te" = (
 /obj/structure/table/rack/folding_table,
 /obj/item/reagent_containers/spray/cleaner{
@@ -653,6 +781,12 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"Ua" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "Un" = (
@@ -685,6 +819,10 @@
 /obj/random/dirt_75,
 /obj/random/junk,
 /turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"Ya" = (
+/obj/machinery/alarm/east,
+/turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "Yf" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -893,29 +1031,29 @@ mg
 mg
 mg
 DL
-HD
-Uw
+nU
+Ln
 vA
 mg
-SN
-og
-og
-zx
+FX
+vu
+vu
+ag
 mg
-AZ
-HD
-yp
-zx
+hp
+nU
+wS
+ag
 mg
-SN
-Kk
-og
-ab
+FX
+my
+vu
+Ua
 mg
 sB
-HD
-HD
-la
+nU
+nU
+aA
 mg
 "}
 (8,1,1) = {"
@@ -931,12 +1069,12 @@ mg
 EF
 Gv
 ho
-ab
+Ya
 mg
 EF
 og
 ho
-zx
+iO
 mg
 rf
 Uw
@@ -946,7 +1084,7 @@ mg
 Jl
 og
 Jp
-ab
+Ya
 mg
 "}
 (9,1,1) = {"
@@ -1050,27 +1188,27 @@ qm
 mg
 Un
 oK
-As
+ay
 mg
 nN
 Ae
-SN
+Tc
 mg
 PI
 oK
-As
+ay
 mg
 PI
 oK
-YL
+am
 mg
 zU
 gR
-SN
+Tc
 mg
 PI
 gR
-Jl
+mx
 mg
 "}
 (13,1,1) = {"
@@ -1256,7 +1394,7 @@ ab
 mg
 CT
 oK
-rf
+uM
 mg
 "}
 (19,1,1) = {"
@@ -1342,10 +1480,10 @@ mg
 mg
 mg
 mg
-rf
-og
-og
-ab
+Es
+vu
+vu
+Ua
 mg
 mg
 mg
@@ -1376,7 +1514,7 @@ mg
 rf
 og
 Jp
-ab
+Ya
 mg
 mg
 mg
