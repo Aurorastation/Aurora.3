@@ -17,8 +17,8 @@
 	if(istype(attacking_item, /obj/item/stack/nanopaste))
 		var/obj/item/stack/nanopaste/T = attacking_item
 		// Damaged, let's repair!
-		if (integrity < 100)
-			if (T.use(1))
+		if(integrity < 100)
+			if(T.use(1))
 				integrity = between(0, integrity + 25, initial(integrity))
 				to_chat(user, "You apply the Nanopaste to [src], repairing some of the damage.")
 		else
