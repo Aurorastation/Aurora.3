@@ -50,7 +50,6 @@
 
 /obj/machinery/mech_recharger/RefreshParts()
 	..()
-	
 	charge = 0
 	repair = -5
 
