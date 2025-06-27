@@ -45,8 +45,8 @@
 		/obj/item/stack/cable_coil{amount = 5}
 	)
 
-	component_hint_cap = "Upgraded <b>capacitors</b> will increase charging rate."
-	component_hint_servo = "Upgraded <b>manipulators</b> will make the recharging station also start to repair (for shipbound cyborgs only, not IPCs) brute damage, then also burn damage, at increasing speed."
+	component_hint_cap = "Upgraded <b>capacitors</b> will increase charging rate (for shipbounds only, not IPCs)."
+	component_hint_servo = "Upgraded <b>manipulators</b> will make the recharging station also start to repair brute damage, then also burn damage, at increasing speed (for shipbounds only, not IPCs)."
 
 /obj/machinery/recharge_station/Initialize()
 	. = ..()
@@ -140,9 +140,9 @@
 	desc += "<br>Uses a dedicated internal power cell to deliver <b>[charging_power]W</b> when in use."
 	desc += "<br>The charge meter reads: <b>[round(chargepercentage())]%</b>."
 	if(weld_rate)
-		desc += "<br>It is capable of repairing stationbounds' structural damage."
+		desc += "<br>It is capable of repairing shipbounds' structural damage."
 	if(wire_rate)
-		desc += "<br>It is capable of repairing stationbounds' burn damage."
+		desc += "<br>It is capable of repairing shipbounds' burn damage."
 	. = ..()
 
 /obj/machinery/recharge_station/proc/chargepercentage()
