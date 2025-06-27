@@ -780,7 +780,7 @@
 /singleton/reagent/drugs/dionae_stimulant/diet/initial_effect(mob/living/carbon/M, alien, datum/reagents/holder)
 	return
 
-/singleton/reagent/drugs/dionae_stimulant/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+/singleton/reagent/drugs/dionae_stimulant/diet/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	M.apply_damage(5, DAMAGE_TOXIN, damage_flags = DAMAGE_FLAG_DISPERSED) //Less toxic than regular Diesel due to the lack of radioactivity, but still toxic
 	if(alien == IS_DIONA)
 		if(prob(5))
