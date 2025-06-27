@@ -28,7 +28,7 @@
 	accessory = /obj/item/clothing/accessory/badge/pra_passport
 	mask = /obj/item/clothing/accessory/dogtags/adhomai
 	gloves = /obj/item/clothing/gloves/black_leather/tajara
-	back = /obj/item/storage/backpack/satchel/industrial
+	back = /obj/item/storage/backpack/satchel/eng
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/clothing/accessory/badge/hadii_card = 1)
 
 	r_pocket = /obj/item/storage/wallet/random
