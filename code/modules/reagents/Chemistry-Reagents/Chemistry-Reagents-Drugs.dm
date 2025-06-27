@@ -779,6 +779,12 @@
 /singleton/reagent/drugs/dionae_stimulant/diet/initial_effect(mob/living/carbon/M, alien, datum/reagents/holder)
 	return
 
+/singleton/reagent/drugs/dionae_stimulant/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	if(alien == IS_DIONA)
+		if(prob(5))
+			to_chat(M, SPAN_GOOD(pick("A bubbling sensation is felt by your nymphs.", "A nymph comments that this is the most energetic it has ever been!", "A warm energy builds within your central structure.", "Your nymphs can't stay still!")))
+			M.emote(pick("chirp", "twitch", "shiver"))
+
 /singleton/reagent/drugs/dionae_stimulant/diet/final_effect(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	return
 
