@@ -31,6 +31,7 @@
 	One amongst you has been promoted to the rank of Commander, and you are to follow their orders in any circumstance that does not contravene your service to the Planetary Guard. \
 	You have been appointed based upon your merits to serve as a sapper. \
 	You have been trusted to prevent the vessel from perishing in the service of the aims of the Syndicates, and failure is not permitted. \
+	Your duties include repairing your vessel, removing barricades and otherwise ensuring it does not fall in service to the Syndicates. \
 	All peoples are welcome in the service of the Syndicates, \
 	however if your origin includes the option to use either the Himean or Free Tajara Council accent, using that is suggested. "
 	max_count = 1
@@ -41,7 +42,12 @@
 	short_name = "himeo_patrol_ship_medic"
 	name = "Himean Planetary Guard Corpsman"
 	desc = "You are a corpsman of the Himean Planetary Guard. Keep your people alive to the very best of your abilities, make do with the rudimentary supplies your vessel affords you, and try not to get shot whilst representing the wishes of the Syndicates."
-	welcome_message = "Placeholder"
+	welcome_message = "You are a member of the Himean Planetary Guard, Naval Branch. \
+	One amongst you has been promoted to the rank of Commander, and you are to follow their orders in any circumstance that does not contravene your service to the Planetary Guard. \
+	You have been appointed based upon your merits to serve as a corpsman. \
+	You have been trusted to ensure the safety and survival of your fellow worker, regardless of what the corporate forces of the spur throw at you. \
+	All peoples are welcome in the service of the Syndicates, \
+	however if your origin includes the option to use either the Himean or Free Tajara Council accent, using that is suggested."
 	max_count = 1
 	outfit = /obj/outfit/admin/himeo_patrol_ship/medic
 	mob_name_prefix = "Alk. "
@@ -50,7 +56,12 @@
 	short_name = "himeo_patrol_ship_pilot"
 	name = "Himean Planetary Guard Fighter Pilot"
 	desc = "You are a fighter pilot of the Himean Planetary Guard. Pilot and maintain your shuttle, guard it on expeditions, and act as a transport or fighter pilot depending on the needs of your commander. "
-	welcome_message = "Placeholder"
+	welcome_message = "You are a member of the Himean Planetary Guard, Naval Branch. \
+	One amongst you has been promoted to the rank of Commander, and you are to follow their orders in any circumstance that does not contravene your service to the Planetary Guard. \
+	You have been appointed based upon your merits to serve as a pilot. \
+	You have been granted command of the USPGV Kotka, a Hiirihaukka-class Fighter Shuttle. You are to use it to fend off enemies of the Syndicates, \
+	and transport your fellow workers to wherever they must go. All peoples are welcome in the service of the Syndicates, \
+	however if your origin includes the option to use either the Himean or Free Tajara Council accent, using that is suggested."
 	max_count = 1
 	outfit = /obj/outfit/admin/himeo_patrol_ship/pilot
 	mob_name_prefix = "Alk. "
@@ -59,7 +70,12 @@
 	short_name = "himeo_patrol_ship_officer"
 	name = "Himean Planetary Guard Commander"
 	desc = "You are the commander of a Himean Planetary Guard patrol vessel. Give guidance and leadership to your fellow soldiers, lead expeditions to sites of interest, and act as a representative of the militant arm of revolution.  "
-	welcome_message = "Placeholder"
+	welcome_message = "You are a member of the Himean Planetary Guard, Naval Branch. \
+	You have been elected by your fellow workers to serve as the Commander of a Collier-class patrol corvette. The Syndicates will not sanction failure. \
+	If your service is deemed inadequate, your workers may exercise their right to remove you from your position. You do not reign with terror or an iron fist, you reign with reason. \
+	Do not disappoint the Syndicates, for you are the shield of the people, the sword of the Revolution. \
+	All peoples are welcome in the service of the Syndicates, \
+	however if your origin includes the option to use either the Himean or Free Tajara Council accent, using that is suggested."
 	max_count = 1
 	outfit = /obj/outfit/admin/himeo_patrol_ship/officer
 	spawnpoints = list("himeo_patrol_commander")
