@@ -10222,9 +10222,7 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk,
-/turf/simulated/floor{
-	temperature = 278.15
-	},
+/turf/simulated/floor/airless,
 /area/headmaster_ship/exterior)
 "QF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
