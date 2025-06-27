@@ -772,14 +772,14 @@
 		M.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/dionae_stimulant)
 	. = ..()
 
-/singleton/reagent/drugs/dionae_stimulant/decaf
-	name = "decaf Diesel"
-	description = "Diesel produced straight from the Narrows that has been \"decaffeinated\" or decontaminated of radiation, making it safe for distribution around the Orion Spur."
+/singleton/reagent/drugs/dionae_stimulant/diet
+	name = "diet Diesel"
+	description = "Diesel produced straight from the Narrows that has been made \"diet\" or decontaminated of radiation, making it safe for distribution around the Orion Spur."
 
-/singleton/reagent/drugs/dionae_stimulant/decaf/initial_effect(mob/living/carbon/M, alien, datum/reagents/holder)
+/singleton/reagent/drugs/dionae_stimulant/diet/initial_effect(mob/living/carbon/M, alien, datum/reagents/holder)
 	return
 
-/singleton/reagent/drugs/dionae_stimulant/decaf/final_effect(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+/singleton/reagent/drugs/dionae_stimulant/diet/final_effect(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	return
 
 #undef DRUG_MESSAGE_DELAY

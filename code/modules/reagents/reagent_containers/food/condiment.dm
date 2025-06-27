@@ -460,9 +460,9 @@
 	fixed_state = TRUE
 	reagents_to_add = list(/singleton/reagent/wulumunusha = 30)
 
-/obj/item/reagent_containers/food/condiment/decaf_diesel
-	name = "decaf diesel bottle"
+/obj/item/reagent_containers/food/condiment/diet_diesel
+	name = "diet diesel bottle"
 	desc = "A Hephaestus-trademarked jar, containing some kind of unpleasant-smelling gray sludge. The label says it's for Diona-based consumption only."
-	icon_state = "decafdiesel"
+	icon_state = "dietdiesel"
 	fixed_state = TRUE
-	reagents_to_add = list(/singleton/reagent/drugs/dionae_stimulant/decaf = 30)
+	reagents_to_add = list(/singleton/reagent/drugs/dionae_stimulant/diet = 30)
