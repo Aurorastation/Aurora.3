@@ -69,9 +69,9 @@
 				valid_screenstyles.Add(screen_string)
 		selected_string = tgui_input_list(usr, "Select a new screen", "Your monitor display", valid_screenstyles, screen_style)
 		if(selected_string && f_style != selected_string)
-			f_style = selected_string
-			regenerate_icons()
-			visible_message(SPAN_NOTICE("[src]'s screen switches to a different display."))
+				f_style = selected_string
+				regenerate_icons()
+				visible_message(SPAN_NOTICE("[src]'s screen switches to a different display."))
 		else
 			to_chat(src, "<span class ='notice'>You're already using that screen.</span>")
 
