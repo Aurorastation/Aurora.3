@@ -46,7 +46,7 @@
 	)
 
 	component_hint_cap = "Upgraded <b>capacitors</b> will increase charging rate."
-	component_hint_servo = "Upgraded <b>manipulators</b> will make the recharging station also start to repair brute damage, then also burn damage, at increasing speed."
+	component_hint_servo = "Upgraded <b>manipulators</b> will make the recharging station also start to repair (for shipbound cyborgs only, not IPCs) brute damage, then also burn damage, at increasing speed."
 
 /obj/machinery/recharge_station/Initialize()
 	. = ..()
