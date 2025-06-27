@@ -4057,6 +4057,7 @@
 #include "maps\away\ships\heph\heph_security\heph_security_ghostroles.dm"
 #include "maps\away\ships\himeo\himeo_patrol_ship.dm"
 #include "maps\away\ships\himeo\himeo_patrol_ship_areas.dm"
+#include "maps\away\ships\himeo\himeo_patrol_ship_doors.dm"
 #include "maps\away\ships\himeo\himeo_patrol_ship_ghostroles.dm"
 #include "maps\away\ships\himeo\himeo_patrol_ship_landmarks.dm"
 #include "maps\away\ships\iac\iac_rescue_ship.dm"

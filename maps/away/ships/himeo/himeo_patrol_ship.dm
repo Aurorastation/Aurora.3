@@ -147,7 +147,8 @@
 /obj/item/paper/fluff/himeo_patrol_engine_guide
 	name = "Collier-class engine manual"
 	desc = "This is a printed list of steps to operating the Thermoelectric Generator of a Collier-class patrol corvette."
-	info = "<font face=\"Verdana\"><b>Failure to adhere to these instructions may lead to catastrophic destruction of the ship. Don't let that happen.</b><BR>\
+	info = "<font face=\"Verdana\"><flag_coc>\
+	<br><b>Failure to adhere to these instructions may lead to catastrophic destruction of the ship. Don't let that happen.</b><BR>\
 	<BR>STEP 1: Enable the 'connectors to cold loop' pump and the 'cooling arrays to generator' pump. This will cool the cold-loop.<BR>\
 	<BR>STEP 2: Configure the gas mixer to output west, and inject the contents of as many hydrogen and oxygen tanks into the combustion chamber as you wish, \
 	at the pre-set ratio of 60% oxygen to 40% hydrogen. If you include more than one tank of each, the tank walls may require repairs.<BR>\

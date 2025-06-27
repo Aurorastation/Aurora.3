@@ -6,6 +6,10 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /obj/machinery/alarm/south,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	level = 2
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "ay" = (
@@ -13,11 +17,17 @@
 /obj/structure/trash_pile,
 /obj/random/dirt_75,
 /obj/machinery/alarm/south,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	level = 2
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "aA" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "aE" = (
@@ -31,6 +41,7 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/optable,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "aZ" = (
@@ -75,6 +86,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
+"ea" = (
+/obj/random/junk,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
 "eg" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/largecrate/animal/adhomai/schlorrgo,
@@ -85,6 +102,12 @@
 	icon_state = "4-8"
 	},
 /obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "fU" = (
@@ -111,6 +134,12 @@
 	icon_state = "1-4"
 	},
 /obj/random/junk,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "ho" = (
@@ -147,6 +176,12 @@
 "jr" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
@@ -198,6 +233,10 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/table/rack/no_cargo,
 /obj/machinery/alarm/south,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	level = 2
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "mI" = (
@@ -224,6 +263,7 @@
 /obj/machinery/power/apc/north,
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/table/rack/no_cargo,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "og" = (
@@ -232,6 +272,12 @@
 "oK" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
@@ -256,7 +302,19 @@
 /obj/structure/closet/crate/loot,
 /obj/random/dirt_75,
 /obj/machinery/alarm/south,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	level = 2
+	},
 /turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"qx" = (
+/obj/random/junk,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "rf" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -292,11 +350,18 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "uM" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/alarm/south,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	level = 2
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "vb" = (
@@ -309,9 +374,26 @@
 /obj/machinery/alarm/east,
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
+"vm" = (
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"vn" = (
+/obj/structure/closet/crate/loot,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
 "vu" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
@@ -326,6 +408,8 @@
 	pixel_y = 3;
 	pixel_x = 6
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "wg" = (
@@ -352,6 +436,13 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"xN" = (
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "xO" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -405,6 +496,7 @@
 /obj/machinery/power/apc/north,
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "Ab" = (
@@ -417,6 +509,12 @@
 	icon_state = "1-4"
 	},
 /obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "As" = (
@@ -445,12 +543,33 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
+"BR" = (
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"CR" = (
+/obj/structure/closet/crate/loot,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
 "CT" = (
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/north,
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "DL" = (
@@ -478,11 +597,9 @@
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "Es" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/cable/green{
-	icon_state = "0-2"
-	},
-/turf/simulated/floor/carpet/rubber,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "EF" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -515,6 +632,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
+"GI" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
 "GX" = (
 /obj/effect/floor_decal/spline/plain/red{
 	dir = 4
@@ -527,6 +650,12 @@
 	icon_state = "4-8"
 	},
 /obj/random/junk,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "Ht" = (
@@ -535,6 +664,12 @@
 	},
 /obj/random/junk,
 /obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "HD" = (
@@ -553,6 +688,12 @@
 /obj/random/dirt_75,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/himeo_patrol_ship/storage_1,
 /turf/simulated/floor/lino,
+/area/template_noop)
+"IU" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "Ja" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/himeo_patrol_ship/storage_1,
@@ -651,6 +792,13 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
+"PG" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
 "PI" = (
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -659,6 +807,7 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/loot,
 /obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "Rl" = (
@@ -669,6 +818,14 @@
 /obj/random/junk,
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"RW" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "SB" = (
 /obj/random/junk,
@@ -687,6 +844,10 @@
 /obj/structure/closet/crate/loot,
 /obj/random/dirt_75,
 /obj/machinery/alarm/south,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	level = 2
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "Te" = (
@@ -712,10 +873,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
+"TV" = (
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
 "Ua" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "Un" = (
@@ -728,6 +894,7 @@
 /obj/random/junk,
 /obj/random/junk,
 /obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "Uw" = (
@@ -929,27 +1096,27 @@ mg
 mg
 mg
 xB
-HD
+xN
 Wv
 kE
 mg
 EF
-HD
+xN
 Gv
 ab
 mg
 EF
-HD
+xN
 HD
 ab
 mg
 dn
-HD
+xN
 HD
 ab
 mg
 As
-dD
+qx
 Uw
 zx
 mg
@@ -960,28 +1127,28 @@ mg
 mg
 mg
 DL
-HD
-Uw
+BR
+PG
 vA
 mg
 SN
-og
-og
-zx
+vu
+Es
+TV
 mg
 AZ
-HD
-yp
-zx
+BR
+ea
+TV
 mg
 SN
-Kk
-og
-ab
+CR
+Es
+Ua
 mg
 sB
-HD
-HD
+BR
+vm
 aA
 mg
 "}
@@ -996,22 +1163,22 @@ GX
 vb
 mg
 EF
-Gv
+vn
 ho
 Ya
 mg
 EF
-og
+IU
 ho
 iO
 mg
 rf
-Uw
+RW
 ho
 la
 mg
 Jl
-og
+IU
 Jp
 Ya
 mg
@@ -1379,7 +1546,7 @@ mg
 mg
 mg
 rf
-og
+GI
 og
 ab
 mg
@@ -1409,9 +1576,9 @@ mg
 mg
 mg
 mg
+rf
+vu
 Es
-vu
-vu
 Ua
 mg
 mg
@@ -1441,7 +1608,7 @@ mg
 mg
 mg
 rf
-og
+IU
 Jp
 Ya
 mg

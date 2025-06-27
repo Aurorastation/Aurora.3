@@ -48,12 +48,6 @@
 /turf/simulated/wall/shuttle/dark/cardinal/purple
 	color = "#7846b1"
 
-/turf/simulated/wall/shuttle/dark/cardinal/red
-	color = "#c24f4f"
-
-/turf/simulated/wall/shuttle/dark/cardinal/black
-	color = "#222222"
-
 /turf/simulated/wall/shuttle/dark/cardinal/blue
 	color = "#6176a1"
 
@@ -124,7 +118,7 @@
 	outside_part = FALSE
 
 /turf/simulated/wall/shuttle/raider
-	color = "#6C7364"
+	color = COLOR_RAIDER
 
 /turf/simulated/wall/shuttle/hapt
 	color = "#2E2B2B"
