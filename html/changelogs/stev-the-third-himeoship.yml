@@ -59,7 +59,9 @@ changes:
   - rscadd: "Adds Hydrogen cells to the military belts."
   - rscadd: "Adds the Nephilim blaster repeater cannon."
   - rscadd: "Adds an empty variant for the medical closet."
-  - rscadd: "Adds black shuttle walls and window spawners."
-  - rscadd: "Adds Himean uniforms and a pilot helmet."
+  - rscadd: "Redefines raider walls to use COLOR_RAIDER instead of a hexcode."
+  - rscadd: "Adds Himean naval and army uniforms and a pilot helmet."
   - soundadd: "Adds a gatling laser sound for the Nephilim."
+  - rscadd: "Adds an equipped variant of the Himean industrial rig."
+
 
