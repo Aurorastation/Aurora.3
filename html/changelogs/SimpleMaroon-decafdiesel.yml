@@ -57,3 +57,4 @@ delete-after: True
 changes:
   - rscadd: "Added 'diet Diesel' to the Diona - Xenowear loadout. It's like the Diesel you know and love without all that dangerous radiation!"
   - qol: "Regular and diet Diesel now both inflict toxin damage, with diet Diesel inflicting less."
+  - spellcheck: "Correct a typo in the description for standard Diesel."
