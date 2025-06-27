@@ -1589,7 +1589,7 @@
 /area/headmaster_ship/atmospherics)
 "fk" = (
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
 "fq" = (
 /obj/effect/floor_decal/corner/green/diagonal,
