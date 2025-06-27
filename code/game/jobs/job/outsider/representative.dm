@@ -258,9 +258,11 @@
 	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]
 	LAZYREMOVE(blacklisted_citizenship, citizenship.name)
 
-	// Handle the removal of aide blacklists and the slot.
+	// Handle the removal of aide/bodyguard blacklists and the slot.
 	var/datum/job/J = SSjobs.GetJob(aide_job)
+	var/datum/job/J = SSjobs.GetJob(bodyguard_job)
 	close_aide_slot(H, J)
+	close_bodyguard_slot(H, J)
 
 /datum/job/consular/post_open_aide_slot(mob/living/carbon/human/representative, datum/job/aide)
 	var/datum/citizenship/citizenship = SSrecords.citizenships[representative.citizenship]
@@ -269,6 +271,13 @@
 	else
 		LAZYREMOVE(aide.blacklisted_citizenship, representative.citizenship)
 
+/datum/job/consular/post_open_bodyguard_slot(mob/living/carbon/human/representative, datum/job/bodyguard)
+	var/datum/citizenship/citizenship = SSrecords.citizenships[representative.citizenship]
+	if(citizenship.linked_citizenship) //if there's a secondary citizenship that this one should allow - e.g zo'ra and biesel
+		LAZYREMOVE(bodyguard.blacklisted_citizenship, citizenship.linked_citizenship)
+	else
+		LAZYREMOVE(bodyguard.blacklisted_citizenship, representative.citizenship)
+
 /datum/job/consular/close_aide_slot(mob/living/carbon/human/representative, datum/job/aide)
 	var/datum/citizenship/citizenship = SSrecords.citizenships[representative.citizenship]
 	if(citizenship.linked_citizenship)
@@ -276,8 +285,17 @@
 	else
 		LAZYDISTINCTADD(aide.blacklisted_citizenship, representative.citizenship)
 
+/datum/job/consular/close_bodyguard_slot(mob/living/carbon/human/representative, datum/job/bodyguard)
+	var/datum/citizenship/citizenship = SSrecords.citizenships[representative.citizenship]
+	if(citizenship.linked_citizenship)
+		LAZYDISTINCTADD(bodyguard.blacklisted_citizenship, citizenship.linked_citizenship)
+	else
+		LAZYDISTINCTADD(bodyguard.blacklisted_citizenship, representative.citizenship)
+
 	if(aide.total_positions > 0)
 		aide.total_positions--
+	if(bodyguard.total_positions > 0)
+		bodyguard.total_positions--
 
 /datum/job/diplomatic_aide
 	title = "Diplomatic Aide"
@@ -327,7 +345,7 @@
 
 /datum/job/diplomatic_bodyguard
 	title = "Diplomatic Bodyguard"
-	flag = CONSULAR_ASST
+	flag = DIPLOMAT_GUARD
 	departments = SIMPLEDEPT(DEPARTMENT_COMMAND_SUPPORT)
 	department_flag = ENGSEC
 	faction = "Station"
@@ -347,6 +365,11 @@
 	minimal_access = list(ACCESS_CONSULAR)
 	outfit = /obj/outfit/job/diplomatic_aide
 	blacklisted_citizenship = ALL_CITIZENSHIPS //removed based on consular citizensihp
+
+/datum/job/diplomatic_bodyguard/get_outfit(mob/living/carbon/human/H, alt_title = null)
+	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]
+	if(citizenship)
+		return citizenship.bodyguard_outfit
 
 /datum/job/diplomatic_bodyguard/after_spawn(mob/living/carbon/human/H)
 	LAZYDISTINCTADD(blacklisted_citizenship, H.citizenship)

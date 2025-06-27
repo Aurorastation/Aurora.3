@@ -319,14 +319,14 @@ DDDD
 	return TRUE
 
 /**
- * This proc is called when a job opens an bodyguard slot. It MUST be called manually.
+ * This proc is called when a job opens a bodyguard slot. It MUST be called manually.
  * It is responsible for adding any relevant blacklists to the bodyguard job datum.
  */
 /datum/job/proc/post_open_bodyguard_slot(mob/living/carbon/human/representative, datum/job/bodyguard)
 	return
 
 /**
- * This proc is called when an bodyguard slot is closed (cryoing or leaving the game).
+ * This proc is called when a bodyguard slot is closed (cryoing or leaving the game).
  * It is responsible for cleaning up existing slots and wiping any applied blacklists to the bodyguard's job datum.
  */
 /datum/job/proc/close_bodyguard_slot(mob/living/carbon/human/representative, datum/job/bodyguard)
@@ -337,7 +337,7 @@ DDDD
  */
 /mob/living/carbon/human/proc/summon_bodyguard()
 	set name = "Open Bodyguard Slot"
-	set desc = "Allows an bodyguard to join you to help protect you."
+	set desc = "Allows a bodyguard to join you to help protect you."
 	set category = "IC"
 
 	var/datum/job/J = SSjobs.GetJob(job)
