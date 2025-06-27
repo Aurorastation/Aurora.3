@@ -297,8 +297,8 @@ DDDD
  * The `bodyguard_job` on the job datum must be a valid, existing job. Blame the fact that we don't have job defines. Or singletons.
  */
 /datum/job/proc/open_bodyguard_slot(mob/living/carbon/human/representative)
-	if(!aide_job)
-		log_debug("Generic Open Bodyguard Slot called without an aide job.")
+	if(!bodyguard_job)
+		log_debug("Generic Open Bodyguard Slot called without an bodyguard job.")
 		return FALSE
 
 	if(!representative)
@@ -311,7 +311,7 @@ DDDD
 	var/datum/job/J = SSjobs.GetJob(bodyguard_job)
 
 	// At this point, we add the relevant blacklists in the proc below.
-	post_open_aide_slot(representative, J)
+	post_open_bodyguard_slot(representative, J)
 
 	// Now that the blacklists are applied, open the job.
 	J.total_positions++

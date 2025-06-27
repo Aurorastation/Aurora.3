@@ -325,8 +325,8 @@
 /datum/job/diplomatic_aide/after_spawn(mob/living/carbon/human/H)
 	LAZYDISTINCTADD(blacklisted_citizenship, H.citizenship)
 
-/datum/job/diplomatic_aide
-	title = "Diplomatic BODYGUARD"
+/datum/job/diplomatic_bodyguard
+	title = "Diplomatic Bodyguard"
 	flag = CONSULAR_ASST
 	departments = SIMPLEDEPT(DEPARTMENT_COMMAND_SUPPORT)
 	department_flag = ENGSEC
@@ -347,6 +347,9 @@
 	minimal_access = list(ACCESS_CONSULAR)
 	outfit = /obj/outfit/job/diplomatic_aide
 	blacklisted_citizenship = ALL_CITIZENSHIPS //removed based on consular citizensihp
+
+/datum/job/diplomatic_bodyguard/after_spawn(mob/living/carbon/human/H)
+	LAZYDISTINCTADD(blacklisted_citizenship, H.citizenship)
 
 /datum/job/corporate_aide
 	title = "Corporate Aide"
