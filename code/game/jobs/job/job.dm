@@ -290,8 +290,6 @@
 	if(J.open_aide_slot(src))
 		remove_verb(src, /mob/living/carbon/human/proc/summon_aide)
 
-DDDD
-
 /**
  * This is the proc responsible for actually opening the bodyguard slot.
  * The `bodyguard_job` on the job datum must be a valid, existing job. Blame the fact that we don't have job defines. Or singletons.

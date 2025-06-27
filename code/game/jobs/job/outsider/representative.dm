@@ -260,9 +260,9 @@
 
 	// Handle the removal of aide/bodyguard blacklists and the slot.
 	var/datum/job/J = SSjobs.GetJob(aide_job)
-	var/datum/job/J = SSjobs.GetJob(bodyguard_job)
+	var/datum/job/J2 = SSjobs.GetJob(bodyguard_job)
 	close_aide_slot(H, J)
-	close_bodyguard_slot(H, J)
+	close_bodyguard_slot(H, J2)
 
 /datum/job/consular/post_open_aide_slot(mob/living/carbon/human/representative, datum/job/aide)
 	var/datum/citizenship/citizenship = SSrecords.citizenships[representative.citizenship]
@@ -285,6 +285,9 @@
 	else
 		LAZYDISTINCTADD(aide.blacklisted_citizenship, representative.citizenship)
 
+	if(aide.total_positions > 0)
+		aide.total_positions--
+
 /datum/job/consular/close_bodyguard_slot(mob/living/carbon/human/representative, datum/job/bodyguard)
 	var/datum/citizenship/citizenship = SSrecords.citizenships[representative.citizenship]
 	if(citizenship.linked_citizenship)
@@ -292,8 +295,6 @@
 	else
 		LAZYDISTINCTADD(bodyguard.blacklisted_citizenship, representative.citizenship)
 
-	if(aide.total_positions > 0)
-		aide.total_positions--
 	if(bodyguard.total_positions > 0)
 		bodyguard.total_positions--
 
@@ -370,6 +371,21 @@
 	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]
 	if(citizenship)
 		return citizenship.bodyguard_outfit
+
+/obj/outfit/job/diplomatic_bodyguard
+	name = "Diplomatic Bodyguard"
+	jobtype = /datum/job/diplomatic_bodyguard
+
+	uniform = /obj/item/clothing/under/suit_jacket/navy
+	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/lawyer
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/lawyer
+	tablet = /obj/item/modular_computer/handheld/preset/civilian/lawyer
+	shoes = /obj/item/clothing/shoes/laceup
+	glasses = /obj/item/clothing/glasses/sunglasses/big
+	headset = /obj/item/device/radio/headset/representative
+	bowman = /obj/item/device/radio/headset/representative/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/command/representative
+	wrist_radio = /obj/item/device/radio/headset/wrist/command/representative
 
 /datum/job/diplomatic_bodyguard/after_spawn(mob/living/carbon/human/H)
 	LAZYDISTINCTADD(blacklisted_citizenship, H.citizenship)
