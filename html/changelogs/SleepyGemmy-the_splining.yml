@@ -1,0 +1,7 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - rscadd: "Replaced most splines on the Horizon with black ones."
+  - bugfix: "Removed misplaced corner splines on the Horizon."
