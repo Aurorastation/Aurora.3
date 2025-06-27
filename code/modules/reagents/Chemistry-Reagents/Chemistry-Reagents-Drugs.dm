@@ -727,7 +727,7 @@
 
 /singleton/reagent/drugs/dionae_stimulant
 	name = "Diesel"
-	description = "Fondly dubbed Diesel by the dionae of the Narrows where it is served in the ship's cafeteria, this viscous sludge is the byproduct of refining radioactive materialls and provides an invigorating kick to a dionae's workday."
+	description = "Fondly dubbed Diesel by the dionae of the Narrows where it is served in the ship's cafeteria, this viscous sludge is the byproduct of refining radioactive materials and provides an invigorating kick to a dionae's workday."
 	color = "#465044"
 	taste_description = "gritty corium"
 	reagent_state = SOLID
@@ -771,6 +771,16 @@
 	if(alien == IS_DIONA)
 		M.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/dionae_stimulant)
 	. = ..()
+
+/singleton/reagent/drugs/dionae_stimulant/decaf
+	name = "decaf Diesel"
+	description = "Diesel produced straight from the Narrows that has been \"decaffeinated\" or decontaminated of radiation, making it safe for distribution around the Orion Spur."
+
+/singleton/reagent/drugs/dionae_stimulant/decaf/initial_effect(mob/living/carbon/M, alien, datum/reagents/holder)
+	return
+
+/singleton/reagent/drugs/dionae_stimulant/decaf/final_effect(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	return
 
 #undef DRUG_MESSAGE_DELAY
 
