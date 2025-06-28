@@ -19,8 +19,7 @@ var/const/BRIDGE_CREW		=(1<<12)
 var/const/OPERATIONS_MANAGER =(1<<13)
 var/const/HRA              =(1<<14)
 var/const/CONSULAR_ASST	   =(1<<15)
-var/const/DIPLOMAT_AIDE	   =(1<<16)
-var/const/DIPLOMAT_GUARD   =(1<<17)
+var/const/DIPLOMAT_GUARD   =(1<<16)
 
 // MEDSCI
 var/const/MEDSCI			=(1<<1)
@@ -60,6 +59,7 @@ var/const/CONSULAR			=(1<<12)
 var/const/MERCHANT			=(1<<13)
 var/const/JOURNALIST		=(1<<14)
 var/const/ASSISTANT			=(1<<15)
+var/const/DIPLOMAT_AIDE	   =(1<<16)
 
 //EVENTDEPT
 //This is needed because there are just not enough bitflags available across the other departments
