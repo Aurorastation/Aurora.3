@@ -656,7 +656,7 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 	if(mob)
 		return mob.MayRespawn()
 
-	// Something went wrong, client is usually kicked or transfered to a new mob at this point
+	// Something went wrong, client is usually kicked or transferred to a new mob at this point
 	return 0
 
 /client/verb/character_setup()

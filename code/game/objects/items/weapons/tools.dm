@@ -715,7 +715,7 @@
 	icon_state = "crowbar_red"
 	item_state = "crowbar_red"
 
-/obj/item/crowbar/rescue_axe //Imagine something like a crash axe found on airplanes or forcing tools used by emergency services. This is a tool first and foremost.
+/obj/item/crowbar/rescue_axe // Imagine something like a crash axe found on airplanes or forcing tools used by emergency services. This is a tool first and foremost.
 	name = "rescue axe"
 	desc = "A short lightweight emergency tool meant to chop, pry and pierce. Most of the handle is insulated excepting the wedge at the very bottom. The axe head atop the tool has a short pick opposite of the blade."
 	icon_state = "rescue_axe"
@@ -723,19 +723,19 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	force = 18
 	throwforce = 12
-	obj_flags = null //Handle is insulated, so this means it won't conduct electricity and hurt you.
+	obj_flags = null // Handle is insulated, so this means it won't conduct electricity and hurt you.
 	sharp = TRUE
 	edge = TRUE
 	origin_tech = list(TECH_ENGINEERING = 2)
 
-/obj/item/crowbar/rescue_axe/resolve_attackby(atom/A)//In practice this means it just does full damage to reinforced windows, which halve the force of attacks done against it already. That's just fine.
+/obj/item/crowbar/rescue_axe/resolve_attackby(atom/A) // In practice this means it just does full damage to reinforced windows, which halve the force of attacks done against it already. That's just fine.
 	if(istype(A, /obj/structure/window))
 		force = initial(force) * 2
 	else
 		force = initial(force)
 	. = ..()
 
-/obj/item/crowbar/rescue_axe/iscrowbar()//go ham
+/obj/item/crowbar/rescue_axe/iscrowbar()
 	if(ismob(loc))
 		var/mob/M = loc
 		if(M.a_intent && M.a_intent == I_HURT)
@@ -751,7 +751,7 @@
 	item_state = "rescue_axe_red"
 
 /obj/item/crowbar/hydraulic_rescue_tool
-	name = "Hydraulic rescue tool"
+	name = "hydraulic rescue tool"
 	desc = "A hydraulic rescue tool that functions like a crowbar by applying strong amounts of hydraulic pressure to force open different things. Also known as jaws of life."
 	icon = 'icons/obj/item/hydraulic_rescue_tool.dmi'
 	icon_state = "jawspry"
@@ -764,8 +764,6 @@
 	origin_tech = list(TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
 	attack_verb = list("attacked", "rammed", "battered", "bludgeoned")
-	sharp = FALSE
-	edge = FALSE
 
 // Pipe wrench
 /obj/item/pipewrench

@@ -151,7 +151,7 @@
 
 /obj/structure/flora/pottedplant/cherrytree
 	name = "potted cherry blossom tree"
-	desc = "A beautiful kwanzan cherry blossom tree. A notably ornamental tree, appreciated for its lack of fruit.."
+	desc = "A beautiful kwanzan cherry blossom tree. A notably ornamental tree, appreciated for its lack of fruit."
 	icon_state = "plant-10"
 
 /obj/structure/flora/pottedplant/smallcactus

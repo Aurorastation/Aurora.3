@@ -30,7 +30,7 @@ If you wish to develop for or using this codebase, please read the "Development"
 ### DEVELOPMENT
 Note: If you wish to develop for our codebase, please take a look at the guides under .github/guides and the github wiki, as they outlines the guidelines for contributing to our codebase, which outline both the process for, and the guidelines you must follow to, have your PRs merged.
 
-To develop for or using this codebase, the following tools are part of our toolchail:
+To develop for or using this codebase, the following tools are part of our toolchain:
 
 - An updated and supported Windows Operating System version. (It might be possible to successfully follow the same general steps in other OSes, but they are untested)
 - [BYOND](https://www.byond.com/download/), with an active account ([Register](https://secure.byond.com/Join) if you do not have one already)
