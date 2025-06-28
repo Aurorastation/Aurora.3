@@ -2,7 +2,7 @@
 	name = "\improper IV drip"
 	desc = "A professional standard intravenous stand with supplemental gas support for medical use."
 	desc_info = "IV drips can be supplied beakers/bloodpacks for reagent transfusions, as well as one breath mask and gas tank for supplemental gas therapy. \
-	<br>- Click and Drag to attach/detach the IV or secure/remove the breath mask on your target. <br>- Click the stand with an empty hand to \
+	<br>- Click and Drag to attach/detach the IV or secure/remove the breath mask on your target.<br>- Click the stand with an empty hand to \
 	toggle between various modes. Using a wrench when it has a tank installed will secure it.<br>- Alt Click the stand to remove items contained in the stand."
 	icon = 'icons/obj/iv_drip.dmi'
 	icon_state = "iv_stand"
