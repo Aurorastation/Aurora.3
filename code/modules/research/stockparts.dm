@@ -246,7 +246,7 @@
 
 /obj/item/stock_parts/matter_bin/super
 	name = "super matter bin"
-	desc = "A container for holding compressed matter awaiting re-construction. Fortunately, this is a super 'matter bin,' not a 'super matter' bin."
+	desc = "A container for holding compressed matter awaiting reconstruction. Fortunately, this is a super 'matter bin', not a 'super matter' bin."
 	icon_state = "super_matter_bin"
 	origin_tech = list(TECH_MATERIAL = 5)
 	rating = STOCK_PART_SUPER
