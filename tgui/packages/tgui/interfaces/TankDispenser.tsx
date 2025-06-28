@@ -11,7 +11,7 @@ export const TankDispenser = (props, context) => {
   const { act, data } = useBackend<TankDispenserData>(context);
 
   return (
-    <Window width="400" height="150">
+    <Window width="300" height="400">
       <Window.Content>
         <Flex direction="row" align="stretch">
           <Flex.Item grow={1}>
