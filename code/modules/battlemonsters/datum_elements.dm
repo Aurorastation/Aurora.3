@@ -113,7 +113,7 @@
 	icon_state = "thunder"
 	power_add = BATTLE_MONSTERS_POWER_UPGRADE * 2
 	attack_add = 1000
-	description = "A symbol on their forehead indicates that they are a %SPECIES thunderchild, born of the incredibly horny god Bleus after coitus with a %SPECIES. Children born of Bleus tend to show a god-like control over energy elements, such as lightning."
+	description = "A symbol on their forehead indicates that they are a %SPECIES thunderchild. Children born of Bleus tend to show a god-like control over energy elements, such as lightning."
 	special_effects = "Charge: %NAME can attack as soon as it's revealed, regardless of other penalties. If Charge is used, %NAME is sent to the graveyard."
 	tip = "Remember that 'played' is not the same as 'revealed', a card is considered 'played' when it's put into the field from the owner's hand."
 	defense_type = BATTLE_MONSTERS_DEFENSETYPE_GOD
@@ -336,7 +336,7 @@
 	name = "Stone"
 	id = "stone"
 	icon_state = "stone"
-	description = "They're rock hard. Made out of rock, that is."
+	description = "They're made out of rock."
 	power_add = BATTLE_MONSTERS_POWER_UPGRADE
 	elements = BATTLE_MONSTERS_ELEMENT_STONE
 	rarity = BATTLE_MONSTERS_RARITY_COMMON
