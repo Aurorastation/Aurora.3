@@ -104,12 +104,12 @@
 	randpixel_xy()
 
 /obj/item/stock_parts/proc/energy_rating()
-	switch (rating)
-		if (STOCK_PART_BASIC)
+	switch(rating)
+		if(STOCK_PART_BASIC)
 			return 1
-		if (STOCK_PART_ADVANCED)
+		if(STOCK_PART_ADVANCED)
 			return 3
-		if (STOCK_PART_SUPER)
+		if(STOCK_PART_SUPER)
 			return 5
 		else
 			return 0
