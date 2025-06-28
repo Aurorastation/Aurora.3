@@ -184,8 +184,8 @@
 
 //For mounting on walls in planetary buildings and stuff.
 /obj/machinery/space_heater/stationary
-	name = "stationary air conditioning unit"
-	desc = "A stationary air conditioning unit. It can heat or cool a room to your liking."
+	name = "stationary temperature control unit"
+	desc = "A stationary temperature control unit. It can heat or cool a room to your liking."
 	anchored = TRUE
 	can_be_unanchored = FALSE
 	density = FALSE
