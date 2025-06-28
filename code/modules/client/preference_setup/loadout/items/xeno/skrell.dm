@@ -410,11 +410,34 @@ ABSTRACT_TYPE(/datum/gear/accessory/skrell)
 	gear_tweaks += new /datum/gear_tweak/path(dress)
 
 /datum/gear/uniform/skrell/wetsuit
-	display_name = "casual wetsuit"
+	display_name = "casual wetsuits and swimsuits"
 	path = /obj/item/clothing/under/skrell/wetsuit
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Skrell"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+
+/datum/gear/uniform/skrell/wetsuit/New()
+	..()
+	var/list/wetsuit = list()
+	wetsuit["casual wetsuit"] = /obj/item/clothing/under/skrell/wetsuit
+	wetsuit["casual dark wetsuit"] = /obj/item/clothing/under/skrell/wetsuit/dark
+	wetsuit["casual swimsuit"] = /obj/item/clothing/under/skrell/wetsuit/swimsuit
+	wetsuit["casual swimsuit, alt"] = /obj/item/clothing/under/skrell/wetsuit/swimsuit/alt
+	gear_tweaks += new /datum/gear_tweak/path(wetsuit)
+
+/datum/gear/uniform/skrell/swimstars
+	display_name = "swimstars swimsuits"
+	path = /obj/item/clothing/under/skrell/wetsuit/swimstars
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	sort_category = "Xenowear - Skrell"
+	flags = GEAR_NO_SELECTION
+
+/datum/gear/uniform/skrell/swimstars/New()
+	..()
+	var/list/swimstars = list()
+	swimstars["swimstars wetsuit"] = /obj/item/clothing/under/skrell/wetsuit/swimstars
+	swimstars["swimstars wetsuit, alt"] = /obj/item/clothing/under/skrell/wetsuit/swimstars/alt
+	gear_tweaks += new /datum/gear_tweak/path(swimstars)
 
 /datum/gear/ears/skrell/tailband
 	display_name = "SCI tailband"

@@ -1,8 +1,10 @@
 /datum/seed_pile
 	var/name
 	var/amount
-	var/datum/seed/seed_type // Keeps track of what our seed is
-	var/list/obj/item/seeds/seeds = list() // Tracks actual objects contained in the pile
+	/// Keeps track of what our seed is
+	var/datum/seed/seed_type
+	/// Tracks actual objects contained in the pile
+	var/list/obj/item/seeds/seeds = list()
 	var/ID
 
 /datum/seed_pile/New(obj/item/seeds/O, ID)
@@ -35,8 +37,10 @@
 	var/screen_y = 700
 
 	var/list/datum/seed_pile/piles = list()
+	/// The seeds the machine begins with.
 	var/list/starting_seeds = list()
-	var/list/scanner = list() // What properties we can view
+	/// What properties we can view.
+	var/list/scanner = list()
 
 /obj/machinery/seed_storage/Initialize()
 	. = ..()
@@ -292,7 +296,7 @@
 		/obj/item/seeds/cocoapodseed = 3,
 		/obj/item/seeds/coffeeseed = 3,
 		/obj/item/seeds/cornseed = 3,
-		/obj/item/seeds/nifberries = 2,
+		/obj/item/seeds/dirtberries = 2,
 		/obj/item/seeds/dynseed = 3,
 		/obj/item/seeds/earthenroot = 2,
 		/obj/item/seeds/eggplantseed = 3,
@@ -350,92 +354,38 @@
 		/obj/item/seeds/whitebeetseed = 3,
 		/obj/item/seeds/wulumunushaseed = 2,
 		/obj/item/seeds/xuiziseed = 3,
-		/obj/item/seeds/ylpha = 2
+		/obj/item/seeds/ylpha = 2,
+		/obj/item/seeds/cranberryseed = 2,
 	)
 
-/obj/machinery/seed_storage/xenobotany
-	name = "Xenobotany seed storage"
+/obj/machinery/seed_storage/garden/hydroponics
+	name = "Hydroponics seed storage"
 	scanner = list("stats", "produce", "soil", "temperature", "light")
-	starting_seeds = list(
-		/obj/item/seeds/aghrasshseed = 3,
-		/obj/item/seeds/ambrosiavulgarisseed = 3,
-		/obj/item/seeds/appleseed = 3,
-		/obj/item/seeds/amanitamycelium = 2,
-		/obj/item/seeds/bananaseed = 3,
-		/obj/item/seeds/bellpepperseed = 3,
-		/obj/item/seeds/berryseed = 3,
-		/obj/item/seeds/blackraspberryseed = 3,
-		/obj/item/seeds/blizzard = 3,
-		/obj/item/seeds/blueberryseed = 3,
-		/obj/item/seeds/blueraspberryseed = 3,
-		/obj/item/seeds/cabbageseed = 3,
-		/obj/item/seeds/carrotseed = 3,
-		/obj/item/seeds/chantermycelium = 3,
-		/obj/item/seeds/cherryseed = 3,
-		/obj/item/seeds/chiliseed = 3,
-		/obj/item/seeds/chickpeas = 3,
-		/obj/item/seeds/cocaseed = 3,
-		/obj/item/seeds/cocoapodseed = 3,
-		/obj/item/seeds/coffeeseed = 3,
-		/obj/item/seeds/cornseed = 3,
-		/obj/item/seeds/nifberries = 2,
-		/obj/item/seeds/dynseed = 3,
-		/obj/item/seeds/replicapod = 3,
-		/obj/item/seeds/earthenroot = 2,
-		/obj/item/seeds/eggplantseed = 3,
-		/obj/item/seeds/eki = 3,
-		/obj/item/seeds/fjylozyn = 3,
-		/obj/item/seeds/garlicseed = 3,
-		/obj/item/seeds/glowshroom = 2,
-		/obj/item/seeds/grapeseed = 3,
-		/obj/item/seeds/grassseed = 3,
-		/obj/item/seeds/guamiseed = 2,
-		/obj/item/seeds/gukheseed = 3,
-		/obj/item/seeds/koisspore = 3,
-		/obj/item/seeds/lemonseed = 3,
-		/obj/item/seeds/libertymycelium = 2,
-		/obj/item/seeds/limeseed = 3,
-		/obj/item/seeds/mossseed = 2,
-		/obj/item/seeds/mtearseed = 2,
-		/obj/item/seeds/mintseed = 3,
-		/obj/item/seeds/nettleseed = 2,
-		/obj/item/seeds/onionseed = 3,
-		/obj/item/seeds/oracleseed = 3,
-		/obj/item/seeds/orangeseed = 3,
-		/obj/item/seeds/peaseed = 3,
-		/obj/item/seeds/peanutseed = 3,
-		/obj/item/seeds/peppercornseed = 3,
-		/obj/item/seeds/plastiseed = 3,
-		/obj/item/seeds/plumpmycelium = 3,
-		/obj/item/seeds/poppyseed = 3,
-		/obj/item/seeds/potatoseed = 3,
-		/obj/item/seeds/pumpkinseed = 3,
-		/obj/item/seeds/qlortseed = 2,
-		/obj/item/seeds/raspberryseed = 3,
-		/obj/item/seeds/reishimycelium = 2,
-		/obj/item/seeds/riceseed = 3,
-		/obj/item/seeds/richcoffeeseed = 3,
-		/obj/item/seeds/sarezhiseed = 3,
-		/obj/item/seeds/seaweed = 3,
-		/obj/item/seeds/serkiflowerseed,
-		/obj/item/seeds/soyaseed = 3,
-		/obj/item/seeds/sthberryseed = 3,
-		/obj/item/seeds/strawberryseed = 3,
-		/obj/item/seeds/sugarcaneseed = 3,
-		/obj/item/seeds/sunflowerseed = 3,
-		/obj/item/seeds/sugartree = 2,
-		/obj/item/seeds/shandseed = 2,
-		/obj/item/seeds/teaseed = 3,
-		/obj/item/seeds/tobaccoseed = 3,
-		/obj/item/seeds/tomatoseed = 3,
-		/obj/item/seeds/towermycelium = 3,
-		/obj/item/seeds/vanilla = 3,
-		/obj/item/seeds/watermelonseed = 3,
-		/obj/item/seeds/wheatseed = 3,
-		/obj/item/seeds/whitebeetseed = 3,
-		/obj/item/seeds/wulumunushaseed = 3,
-		/obj/item/seeds/xuiziseed = 3,
-		/obj/item/seeds/ylpha = 2
-	)
 	screen_x = 1000
 	screen_y = 700
+
+/obj/machinery/seed_storage/garden/hydroponics/Initialize()
+	starting_seeds = src.starting_seeds.Copy() + list(
+		/obj/item/seeds/libertymycelium = 2,
+		/obj/item/seeds/koisspore = 3,
+		/obj/item/seeds/glowshroom = 2,
+		/obj/item/seeds/nettleseed = 2
+	)
+	return ..()
+
+/obj/machinery/seed_storage/garden/xenobotany
+	name = "Xenobotany seed storage"
+	scanner = list("stats", "produce", "soil", "temperature", "light")
+	screen_x = 1000
+	screen_y = 700
+
+/obj/machinery/seed_storage/garden/xenobotany/Initialize()
+	starting_seeds = src.starting_seeds.Copy() + list(
+		/obj/item/seeds/libertymycelium = 2,
+		/obj/item/seeds/cocaseed = 3,
+		/obj/item/seeds/koisspore = 3,
+		/obj/item/seeds/amanitamycelium = 2,
+		/obj/item/seeds/glowshroom = 2,
+		/obj/item/seeds/nettleseed = 2
+	)
+	return ..()

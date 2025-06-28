@@ -157,7 +157,7 @@
 	name = "produce box"
 	supplier = "nanotrasen"
 	description = "A large box of random, leftover produce."
-	price = 50
+	price = 100
 	items = list(
 		/obj/item/storage/box/produce
 	)
@@ -488,6 +488,132 @@
 	groupable = TRUE
 	spawn_amount = 1
 
+/singleton/cargo_item/cream
+	category = "hospitality"
+	name = "milk cream carton"
+	supplier = "getmore"
+	description = "It's cream. Made from milk. What else did you think you'd find in there?"
+	price = 15
+	items = list(
+		/obj/item/reagent_containers/food/drinks/carton/cream
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/fatshouters
+	category = "hospitality"
+	name = "fatshouters milk carton"
+	supplier = "getmore"
+	description = "Fatty fatshouters milk in a carton."
+	price = 20
+	items = list(
+		/obj/item/reagent_containers/food/drinks/carton/fatshouters
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/orangejuice
+	category = "hospitality"
+	name = "orange juice carton"
+	supplier = "getmore"
+	description = "Full of vitamins and deliciousness!"
+	price = 15
+	items = list(
+		/obj/item/reagent_containers/food/drinks/carton/orangejuice
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/tomatojuice
+	category = "hospitality"
+	name = "tomato juice carton"
+	supplier = "getmore"
+	description = "Well, at least it LOOKS like tomato juice. You can't tell with all that redness."
+	price = 15
+	items = list(
+		/obj/item/reagent_containers/food/drinks/carton/tomatojuice
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/limejuice
+	category = "hospitality"
+	name = "lime juice carton"
+	supplier = "getmore"
+	description = "Sweet-sour goodness."
+	price = 15
+	items = list(
+		/obj/item/reagent_containers/food/drinks/carton/limejuice
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/cranberryjuice
+	category = "hospitality"
+	name = "cranberry juice carton"
+	supplier = "getmore"
+	description = "Tart and sweet. A unique flavor for a unique berry."
+	price = 15
+	items = list(
+		/obj/item/reagent_containers/food/drinks/carton/cranberryjuice
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/lemonjuice
+	category = "hospitality"
+	name = "lemon juice carton"
+	supplier = "getmore"
+	description = "This juice is VERY sour."
+	price = 15
+	items = list(
+		/obj/item/reagent_containers/food/drinks/carton/lemonjuice
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/dynjuice
+	category = "hospitality"
+	name = "dyn juice carton"
+	supplier = "getmore"
+	description = "Juice from a Skrell medicinal herb. It's supposed to be diluted."
+	price = 20
+	items = list(
+		/obj/item/reagent_containers/food/drinks/carton/dynjuice
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/applejuice
+	category = "hospitality"
+	name = "apple juice carton"
+	supplier = "getmore"
+	description = "Juice from an apple. Yes."
+	price = 15
+	items = list(
+		/obj/item/reagent_containers/food/drinks/carton/applejuice
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = TRUE
+	spawn_amount = 1
+
 /singleton/cargo_item/chipmultipackcrate
 	category = "hospitality"
 	name = "chip multipack crate"
@@ -548,34 +674,6 @@
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
-
-/singleton/cargo_item/burszi_ale
-	category = "hospitality"
-	name = "Burszi-ale"
-	supplier = "getmore"
-	description = "A half-dozen crate of Burszi-ale bottles, for cracking open a cold one."
-	price = 220
-	items = list(
-		/obj/item/reagent_containers/food/drinks/bottle/small/ale
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 6
-
-/singleton/cargo_item/beer
-	category = "hospitality"
-	name = "Virklunder beer (x6)"
-	supplier = "getmore"
-	description = "A half-dozen crate of Virklunder beers, for cracking open a cold one."
-	price = 220
-	items = list(
-		/obj/item/reagent_containers/food/drinks/bottle/small/beer
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 6
 
 /singleton/cargo_item/champagne
 	category = "hospitality"
@@ -766,6 +864,802 @@
 	price = 650
 	items = list(
 		/obj/structure/reagent_dispensers/keg/mead
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/beer
+	category = "hospitality"
+	name = "Virklunder beer (x6)"
+	supplier = "getmore"
+	description = "A 6-pack yoke of Virklunder beers, for cracking open a cold one."
+	price = 220
+	items = list(
+		/obj/item/storage/box/fancy/yoke/beer
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/ebisu
+	category = "hospitality"
+	name = "Ebisu Super Dry rice beer (x6)"
+	supplier = "getmore"
+	description = "A 6-pack yoke of Ebisu Super Dry rice beer, for cracking open a cold one."
+	price = 220
+	items = list(
+		/obj/item/storage/box/fancy/yoke/ebisu
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/shimauma
+	category = "hospitality"
+	name = "Shimauma Ichiban rice beer (x6)"
+	supplier = "getmore"
+	description = "A 6-pack yoke of Shimauma Ichiban rice beer, for cracking open a cold one."
+	price = 220
+	items = list(
+		/obj/item/storage/box/fancy/yoke/shimauma
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/moonlabor
+	category = "hospitality"
+	name = "Moonlabor Malt's rice beer (x6)"
+	supplier = "getmore"
+	description = "A 6-pack yoke of Moonlabor Malt's rice beer, for cracking open a cold one."
+	price = 220
+	items = list(
+		/obj/item/storage/box/fancy/yoke/moonlabor
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/moonlabor
+	category = "hospitality"
+	name = "Moonlabor Malt's rice beer (x6)"
+	supplier = "getmore"
+	description = "A 6-pack yoke of Moonlabor Malt's rice beer, for cracking open a cold one."
+	price = 220
+	items = list(
+		/obj/item/storage/box/fancy/yoke/moonlabor
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/earthmover
+	category = "hospitality"
+	name = "Inverkeithing Imports Earthmover ale (x6)"
+	supplier = "getmore"
+	description = "A 6-pack yoke of Inverkeithing Imports Earthmover ale, for cracking open a cold one."
+	price = 250
+	items = list(
+		/obj/item/storage/box/fancy/yoke/earthmover
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/whistlingforest
+	category = "hospitality"
+	name = "Whistling Forest Pale Ale (x6)"
+	supplier = "getmore"
+	description = "A 6-pack yoke of Whistling Forest Pale Ale, for cracking open a cold one."
+	price = 250
+	items = list(
+		/obj/item/storage/box/fancy/yoke/whistlingforest
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/cola
+	category = "hospitality"
+	name = "Comet Cola (x6)"
+	supplier = "getmore"
+	description = "A 6-pack yoke of Comet Cola for cracking open a cold one."
+	price = 80
+	items = list(
+		/obj/item/storage/box/fancy/yoke/cola
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/space_mountain_wind
+	category = "hospitality"
+	name = "Stellar Jolt (x6)"
+	supplier = "getmore"
+	description = "A 6-pack yoke of Stellar Jolt for cracking open a cold one."
+	price = 80
+	items = list(
+		/obj/item/storage/box/fancy/yoke/space_mountain_wind
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/thirteenloko
+	category = "hospitality"
+	name = "Stellar Jolt (x6)"
+	supplier = "getmore"
+	description = "A 6-pack yoke of Stellar Jolt for cracking open a cold one."
+	price = 80
+	items = list(
+		/obj/item/storage/box/fancy/yoke/thirteenloko
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/thirteenloko
+	category = "hospitality"
+	name = "Getmore Energy (x6)"
+	supplier = "getmore"
+	description = "A 6-pack yoke of Getmore Energy for cracking open a cold one."
+	price = 80
+	items = list(
+		/obj/item/storage/box/fancy/yoke/thirteenloko
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/thirteenloko
+	category = "hospitality"
+	name = "Getmore Energy (x6)"
+	supplier = "getmore"
+	description = "A 6-pack yoke of Getmore Energy for cracking open a cold one."
+	price = 80
+	items = list(
+		/obj/item/storage/box/fancy/yoke/thirteenloko
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/dr_gibb
+	category = "hospitality"
+	name = "Getmore Root-Cola (x6)"
+	supplier = "getmore"
+	description = "A 6-pack yoke of Getmore Energy for cracking open a cold one."
+	price = 80
+	items = list(
+		/obj/item/storage/box/fancy/yoke/dr_gibb
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/dr_gibb
+	category = "hospitality"
+	name = "Getmore Root-Cola (x6)"
+	supplier = "getmore"
+	description = "A 6-pack yoke of Getmore Energy for cracking open a cold one."
+	price = 80
+	items = list(
+		/obj/item/storage/box/fancy/yoke/dr_gibb
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/starkist
+	category = "hospitality"
+	name = "Orange Starshine (x6)"
+	supplier = "getmore"
+	description = "A 6-pack yoke of Orange Starshine for cracking open a cold one."
+	price = 80
+	items = list(
+		/obj/item/storage/box/fancy/yoke/starkist
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/space_up
+	category = "hospitality"
+	name = "Vacuum Fizz (x6)"
+	supplier = "getmore"
+	description = "A 6-pack yoke of Vacuum Fizz for cracking open a cold one."
+	price = 80
+	items = list(
+		/obj/item/storage/box/fancy/yoke/space_up
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/space_up
+	category = "hospitality"
+	name = "Lemon-Lime (x6)"
+	supplier = "getmore"
+	description = "A 6-pack yoke of Lemon-Lime for cracking open a cold one."
+	price = 80
+	items = list(
+		/obj/item/storage/box/fancy/yoke/space_up
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/iced_tea
+	category = "hospitality"
+	name = "Silversun Wave Iced Tea (x6)"
+	supplier = "getmore"
+	description = "A 6-pack yoke of Silversun Wave Iced Tea for cracking open a cold one."
+	price = 80
+	items = list(
+		/obj/item/storage/box/fancy/yoke/iced_tea
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/grape_juice
+	category = "hospitality"
+	name = "Grapel Juice (x6)"
+	supplier = "getmore"
+	description = "A 6-pack yoke of Grapel Juice for cracking open a cold one."
+	price = 80
+	items = list(
+		/obj/item/storage/box/fancy/yoke/grape_juice
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/tonic
+	category = "hospitality"
+	name = "T-Borg's Tonic Water (x6)"
+	supplier = "getmore"
+	description = "A 6-pack yoke of T-Borg's Tonic Water for cracking open a cold one."
+	price = 80
+	items = list(
+		/obj/item/storage/box/fancy/yoke/tonic
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/sodawater
+	category = "hospitality"
+	name = "Soda Water (x6)"
+	supplier = "getmore"
+	description = "A 6-pack yoke of Soda Water for cracking open a cold one."
+	price = 80
+	items = list(
+		/obj/item/storage/box/fancy/yoke/sodawater
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/root_beer
+	category = "hospitality"
+	name = "Getmore Root Beer (x6)"
+	supplier = "getmore"
+	description = "A 6-pack yoke of Getmore Root Beer for cracking open a cold one."
+	price = 80
+	items = list(
+		/obj/item/storage/box/fancy/yoke/root_beer
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/diet_cola
+	category = "hospitality"
+	name = "Diet Comet Cola (x6)"
+	supplier = "getmore"
+	description = "A 6-pack yoke of Diet Comet Cola for cracking open a cold one."
+	price = 80
+	items = list(
+		/obj/item/storage/box/fancy/yoke/diet_cola
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/peach_soda
+	category = "hospitality"
+	name = "Xanu Rush! Peach Soda (x6)"
+	supplier = "getmore"
+	description = "A 6-pack yoke of Xanu Rush! Peach Soda for cracking open a cold one."
+	price = 80
+	items = list(
+		/obj/item/storage/box/fancy/yoke/peach_soda
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/melon_soda
+	category = "hospitality"
+	name = "Kansumi Melon Soda (x6)"
+	supplier = "getmore"
+	description = "A 6-pack yoke of Kansumi Melon Soda for cracking open a cold one."
+	price = 80
+	items = list(
+		/obj/item/storage/box/fancy/yoke/melon_soda
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/himeokvass
+	category = "hospitality"
+	name = "Dorshafen Deluxe Kvass (x6)"
+	supplier = "getmore"
+	description = "A 6-pack yoke of Dorshafen Deluxe Kvass for cracking open a cold one."
+	price = 220
+	items = list(
+		/obj/item/storage/box/fancy/yoke/himeokvass
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/xanuchai
+	category = "hospitality"
+	name = "Brown Palace Champion Chai (x6)"
+	supplier = "getmore"
+	description = "A 6-pack yoke of Brown Palace Champion Chai for cracking open a cold one."
+	price = 100
+	items = list(
+		/obj/item/storage/box/fancy/yoke/xanuchai
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/beetle_milk
+	category = "hospitality"
+	name = "Hakhma Beetle Milk (x6)"
+	supplier = "getmore"
+	description = "A 6-pack yoke of Hakhma Beetle Milk for cracking open a cold one."
+	price = 80
+	items = list(
+		/obj/item/storage/box/fancy/yoke/beetle_milk
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/burszi_ale
+	category = "hospitality"
+	name = "Burszi-ale (x6)"
+	supplier = "getmore"
+	description = "A half-dozen pack of Burszi-ale bottles, for cracking open a cold one."
+	price = 220
+	items = list(
+		/obj/item/storage/box/ale
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/beer
+	category = "hospitality"
+	name = "Virklunder Beer (x6)"
+	supplier = "getmore"
+	description = "A half-dozen pack of Virklunder beers, for cracking open a cold one."
+	price = 220
+	items = list(
+		/obj/item/storage/box/beer
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/skrellbeerdyn
+	category = "hospitality"
+	name = "Qel'Zvol Hospitality's Prestige Dyn Beer (x6)"
+	supplier = "getmore"
+	description = "A half-dozen pack of Qel'Zvol Hospitality's Prestige dyn beers, for cracking open a cold one."
+	price = 220
+	items = list(
+		/obj/item/storage/box/skrellbeerdyn
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/xuizijuice
+	category = "hospitality"
+	name = "Xuizi Juice (x6)"
+	supplier = "getmore"
+	description = "A half-dozen pack of Xuiji Juice, for cracking open a cold one."
+	price = 220
+	items = list(
+		/obj/item/storage/box/xuizijuice
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/khlibnyz
+	category = "hospitality"
+	name = "Khlibnyz (x6)"
+	supplier = "getmore"
+	description = "A half-dozen pack of Khlibnyz, for cracking open a cold one."
+	price = 120
+	items = list(
+		/obj/item/storage/box/khlibnyz
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/cola_bottle
+	category = "hospitality"
+	name = "Comet Cola Bottles (x6)"
+	supplier = "getmore"
+	description = "A half-dozen pack of Comet Cola, for cracking open a cold one."
+	price = 100
+	items = list(
+		/obj/item/storage/box/cola
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/space_mountain_wind_bottle
+	category = "hospitality"
+	name = "Stellar Jolt Bottles (x6)"
+	supplier = "getmore"
+	description = "A half-dozen pack of Stellar Jolt, for cracking open a cold one."
+	price = 100
+	items = list(
+		/obj/item/storage/box/space_mountain_wind
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/space_up_bottle
+	category = "hospitality"
+	name = "Space Up Bottles (x6)"
+	supplier = "getmore"
+	description = "A half-dozen pack of Space Up, for cracking open a cold one."
+	price = 100
+	items = list(
+		/obj/item/storage/box/space_up
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/hrozamal_soda
+	category = "hospitality"
+	name = "Hrozamal Soda (x6)"
+	supplier = "getmore"
+	description = "A half-dozen pack of Hrozamal Soda, for cracking open a cold one."
+	price = 100
+	items = list(
+		/obj/item/storage/box/hrozamal_soda
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/midynhr_water
+	category = "hospitality"
+	name = "Midynhr Water (x6)"
+	supplier = "getmore"
+	description = "A half-dozen pack of Midynhr Water, for cracking open a cold one."
+	price = 100
+	items = list(
+		/obj/item/storage/box/midynhr_water
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/dental_hygiene
+	category = "hospitality"
+	name = "Dental Hygiene Kit"
+	supplier = "getmore"
+	description = "A box containing a toothbrush, a tube of toothpaste, and a bottle of mouthwash."
+	price = 150
+	items = list(
+		/obj/item/storage/box/toothpaste
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/sencha
+	category = "hospitality"
+	name = "Sencha Tins (x7)"
+	supplier = "getmore"
+	description = "A box containing some tins of green tea leaves."
+	price = 100
+	items = list(
+		/obj/item/storage/box/tea
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/sencha
+	category = "hospitality"
+	name = "Sencha-cha Tins (x7)"
+	supplier = "getmore"
+	description = "A box containing some tins of green tea leaves."
+	price = 100
+	items = list(
+		/obj/item/storage/box/tea
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/tieguanyin
+	category = "hospitality"
+	name = "Tieguanyin-cha Tins (x7)"
+	supplier = "getmore"
+	description = "A box containing some tins of oolong tea leaves."
+	price = 100
+	items = list(
+		/obj/item/storage/box/tea/tieguanyin
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/jaekseol
+	category = "hospitality"
+	name = "Jaeksol-cha Tins (x7)"
+	supplier = "getmore"
+	description = "A box containing some tins of black tea leaves."
+	price = 100
+	items = list(
+		/obj/item/storage/box/tea/jaekseol
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/jaekseol
+	category = "hospitality"
+	name = "V'krexi Swollen Organ"
+	supplier = "getmore"
+	description = "A traditional Sedantian alcoholic drink, packaged in the stomach it's fermented in."
+	price = 150
+	items = list(
+		/obj/item/storage/box/fancy/vkrexi_swollen_organ
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/dominian_wine
+	category = "hospitality"
+	name = "Jadrani Consecrated Geneboosted Wine"
+	supplier = "getmore"
+	description = "A bottle of artisanally-crafted, highly sought-after Dominian red wine. Sanctified and exported via House Caladius."
+	price = 500
+	items = list(
+		/obj/item/reagent_containers/food/drinks/bottle/dominian_wine
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/algae_wine
+	category = "hospitality"
+	name = "Reacher's Triumph 2423 Algae Wine"
+	supplier = "getmore"
+	description = "A bottle of wine, brewed from algae, made in the traditional style of the Imperial Viceroyalty of Sun Reach, a Dominian frontier-world."
+	price = 500
+	items = list(
+		/obj/item/reagent_containers/food/drinks/bottle/algae_wine
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/assunzione_wine
+	category = "hospitality"
+	name = "\improper Assunzioni Sera Stellata di Dalyan Wine"
+	supplier = "getmore"
+	description = "A bottle of velvety smooth red wine from the underground vineyards of Dalyan, Assunzione."
+	price = 500
+	items = list(
+		/obj/item/reagent_containers/food/drinks/bottle/assunzione_wine
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/assunzione_wine
+	category = "hospitality"
+	name = "\improper Assunzioni Sera Stellata di Dalyan Wine"
+	supplier = "getmore"
+	description = "A bottle of velvety smooth red wine from the underground vineyards of Dalyan, Assunzione."
+	price = 500
+	items = list(
+		/obj/item/reagent_containers/food/drinks/bottle/assunzione_wine
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/skrellwineylpha
+	category = "hospitality"
+	name = "Federation's Finest Ylpha Wine"
+	supplier = "getmore"
+	description = "A popular type of Skrell wine made from fermented ylpha berries."
+	price = 300
+	items = list(
+		/obj/item/reagent_containers/food/drinks/bottle/skrellwineylpha
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/mushroomvodka
+	category = "hospitality"
+	name = "Inverkeithing Import Mushroom Vodka"
+	supplier = "getmore"
+	description = "A mushroom-based vodka imported from the breweries of Inverkeithing on Himeo."
+	price = 300
+	items = list(
+		/obj/item/reagent_containers/food/drinks/bottle/vodka/mushroom
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/victorygin
+	category = "hospitality"
+	name = "Victory Gin"
+	supplier = "getmore"
+	description = "A Tajaran gin considered to be the official drink of the People's Republic of Adhomai."
+	price = 200
+	items = list(
+		/obj/item/reagent_containers/food/drinks/bottle/victorygin
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/sugartree_liquor
+	category = "hospitality"
+	name = "Sugar Tree Liquor"
+	supplier = "getmore"
+	description = "Called Nm'shaan Liquor in native Siik'maas, this strong Adhomian liquor is reserved for special occasions. A label on the bottle recommends diluting it with icy water before drinking."
+	price = 200
+	items = list(
+		/obj/item/reagent_containers/food/drinks/bottle/sugartree_liquor
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/messa_mead
+	category = "hospitality"
+	name = "messa's mead"
+	supplier = "getmore"
+	description = "A bottle of Messa's mead. Bottled somewhere in the icy world of Adhomai."
+	price = 200
+	items = list(
+		/obj/item/reagent_containers/food/drinks/bottle/messa_mead
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/kvass
+	category = "hospitality"
+	name = "Neubach Original Kvass"
+	supplier = "getmore"
+	description = "A bottle of authentic Fisanduhian kvass, a cereal alcohol."
+	price = 200
+	items = list(
+		/obj/item/reagent_containers/food/drinks/bottle/kvass
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/tarasun
+	category = "hospitality"
+	name = "Frostdancer Distillery Tarasun"
+	supplier = "getmore"
+	description = "A bottle of Lyodii tarasun, an alcoholic beverage made from tenelote milk."
+	price = 200
+	items = list(
+		/obj/item/reagent_containers/food/drinks/bottle/tarasun
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/valokki_wine
+	category = "hospitality"
+	name = "Frostdancer Distillery Valokki Wine"
+	supplier = "getmore"
+	description = "A bottle of wine distilled from the Morozi cloudberry."
+	price = 400
+	items = list(
+		/obj/item/reagent_containers/food/drinks/bottle/valokki_wine
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/twentytwoseventyfive
+	category = "hospitality"
+	name = "2275 Classic Brandy"
+	supplier = "getmore"
+	description = "A bottle of Xanan mid-range brandy."
+	price = 350
+	items = list(
+		/obj/item/reagent_containers/food/drinks/bottle/twentytwoseventyfive
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/saintjacques
+	category = "hospitality"
+	name = "Saint-Jacques Black Label Cognac"
+	supplier = "getmore"
+	description = "An expensive bottle of Saint-Jacques Black Label, a Xanan luxury cognac."
+	price = 400
+	items = list(
+		/obj/item/reagent_containers/food/drinks/bottle/saintjacques
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/nemiik
+	category = "hospitality"
+	name = "Vrozka Farms Ne'miik"
+	supplier = "getmore"
+	description = "A bottle of Ne'miik under the label 'Vrozka Farms' from Caprice. The Vaurcan analogue for milk."
+	price = 100
+	items = list(
+		/obj/item/reagent_containers/food/drinks/bottle/nemiik
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/ogogoro
+	category = "hospitality"
+	name = "Ogogoro Jar"
+	supplier = "getmore"
+	description = "A traditional Eridani palm wine drink, stored in a mason jar."
+	price = 150
+	items = list(
+		/obj/item/reagent_containers/food/drinks/bottle/ogogoro
 	)
 	access = 0
 	container_type = "crate"

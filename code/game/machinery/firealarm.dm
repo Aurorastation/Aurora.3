@@ -206,10 +206,10 @@
 	if (buildstage != 2 || stat & (NOPOWER|BROKEN))
 		return
 
-	if(user.a_intent == I_HURT)
-		alarm()
-	else
+	if(user.a_intent != I_HURT)
 		ui_interact(user)
+	else
+		alarm()
 
 /obj/machinery/firealarm/ui_data(mob/user)
 	var/list/data = list()

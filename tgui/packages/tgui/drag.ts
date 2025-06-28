@@ -42,14 +42,14 @@ export const getWindowSize = (): [number, number] => [
 const setWindowPosition = (vec: [number, number]) => {
   const byondPos = vecAdd(vec, screenOffset);
   return Byond.winset(Byond.windowId, {
-    pos: byondPos[0] + ',' + byondPos[1],
+    pos: `${byondPos[0]},${byondPos[1]}`,
   });
 };
 
 // Set window size
 const setWindowSize = (vec: [number, number]) => {
   return Byond.winset(Byond.windowId, {
-    size: vec[0] + 'x' + vec[1],
+    size: `${vec[0]}x${vec[1]}`,
   });
 };
 
@@ -120,6 +120,7 @@ export const recallWindowGeometry = async (
     pos?: [number, number];
     size?: [number, number];
     locked?: boolean;
+    scale?: boolean;
   } = {}
 ) => {
   const geometry = options.fancy && (await storage.get(windowKey));
@@ -130,8 +131,21 @@ export const recallWindowGeometry = async (
   let pos = geometry?.pos || options.pos;
   let size = options.size;
   // Convert size from css-pixels to display-pixels
-  if (size) {
+  if (options.scale && size) {
     size = [size[0] * pixelRatio, size[1] * pixelRatio];
+  }
+  if (!options.scale) {
+    document.body.style.setProperty(
+      'zoom',
+      `${100 / window.devicePixelRatio}%`
+    );
+    document.documentElement.style.setProperty(
+      '--scaling-amount',
+      window.devicePixelRatio.toString()
+    );
+  } else {
+    document.body.style.setProperty('zoom', '');
+    document.documentElement.style.setProperty('--scaling-amount', null);
   }
   // Wait until screen offset gets resolved
   await screenOffsetPromise;
@@ -166,7 +180,7 @@ export const recallWindowGeometry = async (
 // Setup draggable window
 export const setupDrag = async () => {
   // Calculate screen offset caused by the windows taskbar
-  let windowPosition = getWindowPosition();
+  const windowPosition = getWindowPosition();
 
   screenOffsetPromise = Byond.winget(Byond.windowId, 'pos').then((pos) => [
     pos.x - windowPosition[0],
@@ -207,7 +221,7 @@ export const dragStartHandler = (event: MouseEvent) => {
   logger.log('drag start');
   dragging = true;
   dragPointOffset = vecSubtract(
-    [event.screenX, event.screenY],
+    [event.screenX * pixelRatio, event.screenY * pixelRatio],
     getWindowPosition()
   );
   // Focus click target
@@ -234,7 +248,10 @@ const dragMoveHandler = (event: MouseEvent) => {
   }
   event.preventDefault();
   setWindowPosition(
-    vecSubtract([event.screenX, event.screenY], dragPointOffset)
+    vecSubtract(
+      [event.screenX * pixelRatio, event.screenY * pixelRatio],
+      dragPointOffset
+    ) as [number, number]
   );
 };
 
@@ -245,7 +262,7 @@ export const resizeStartHandler =
     logger.log('resize start', resizeMatrix);
     resizing = true;
     dragPointOffset = vecSubtract(
-      [event.screenX, event.screenY],
+      [event.screenX * pixelRatio, event.screenY * pixelRatio],
       getWindowPosition()
     );
     initialSize = getWindowSize();
@@ -273,7 +290,7 @@ const resizeMoveHandler = (event: MouseEvent) => {
   }
   event.preventDefault();
   const currentOffset = vecSubtract(
-    [event.screenX, event.screenY],
+    [event.screenX * pixelRatio, event.screenY * pixelRatio],
     getWindowPosition()
   );
   const delta = vecSubtract(currentOffset, dragPointOffset);

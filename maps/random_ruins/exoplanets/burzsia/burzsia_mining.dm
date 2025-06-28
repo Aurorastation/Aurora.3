@@ -21,6 +21,7 @@
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/barren
 	area_flags = AREA_FLAG_RAD_SHIELDED
+	is_outside = OUTSIDE_NO
 
 /area/burzsia_mining/mess_hall
 	name = "Hephaestus Burzsia Mining Outpost Mess Hall"
@@ -41,6 +42,13 @@
 /area/burzsia_mining/foreman
 	name = "Hephaestus Burzsia Mining Outpost Foreman Office"
 	icon_state = "anolab"
+
+// Airlock Marker
+/obj/effect/map_effect/marker/airlock/burzsia_mining
+	name = "Primary Airlock"
+	master_tag = "airlock_burzsia_mining_primary"
+	cycle_to_external_air = TRUE
+	req_one_access = list(ACCESS_GENERIC_AWAY_SITE, ACCESS_EXTERNAL_AIRLOCKS)
 
 //ghost roles
 

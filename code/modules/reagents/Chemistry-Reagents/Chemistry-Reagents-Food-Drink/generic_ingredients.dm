@@ -449,6 +449,7 @@
 	taste_mult = 0.4
 	condiment_name = "rice sack"
 	condiment_icon_state = "rice"
+	condiment_desc = "A big bag of rice. Good for cooking!"
 	condiment_center_of_mass = list("x"=16, "y"=8)
 
 /singleton/reagent/nutriment/moss
@@ -845,6 +846,11 @@
 	glass_name = "glass of milk"
 	glass_desc = "White and nutritious goodness!"
 
+	condiment_name = "space milk"
+	condiment_desc = "It's milk. White and nutritious goodness!"
+	condiment_icon = 'icons/obj/item/reagent_containers/food/drinks/carton.dmi'
+	condiment_icon_state = "milk"
+
 	default_temperature = T0C + 5
 
 /singleton/reagent/drink/milk/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -876,6 +882,11 @@
 	glass_name = "glass of cream"
 	glass_desc = "Ewwww..."
 
+	condiment_name = "milk cream"
+	condiment_desc = "It's cream. Made from milk. What else did you think you'd find in there?"
+	condiment_icon = 'icons/obj/item/reagent_containers/food/drinks/carton.dmi'
+	condiment_icon_state = "cream"
+
 /singleton/reagent/drink/milk/soymilk
 	name = "Soy Milk"
 	description = "An opaque white liquid made from soybeans."
@@ -885,6 +896,11 @@
 	glass_icon_state = "glass_white"
 	glass_name = "glass of soy milk"
 	glass_desc = "White and nutritious soy goodness!"
+
+	condiment_name = "soy milk"
+	condiment_desc = "It's soy milk. White and nutritious goodness!"
+	condiment_icon = 'icons/obj/item/reagent_containers/food/drinks/carton.dmi'
+	condiment_icon_state = "soymilk"
 
 /singleton/reagent/drink/milk/chocolate
 	name = "Chocolate Milk"

@@ -173,7 +173,7 @@ GLOBAL_LIST_INIT(lunchables_alcohol_reagents_, list(
 	/singleton/reagent/alcohol/pwine,
 	/singleton/reagent/alcohol/threemileisland,
 	/singleton/reagent/alcohol/toxins_special,
-	/singleton/reagent/alcohol/nmshaan_liquor/darmadhirbrew
+	/singleton/reagent/alcohol/sugartree_liquor/darmadhirbrew
 ))
 
 /proc/lunchables_lunches()

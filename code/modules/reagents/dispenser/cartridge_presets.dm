@@ -123,6 +123,9 @@
 /obj/item/reagent_containers/chem_disp_cartridge/wine
 	spawn_reagent = /singleton/reagent/alcohol/wine
 
+/obj/item/reagent_containers/chem_disp_cartridge/rice_beer
+	spawn_reagent = /singleton/reagent/alcohol/rice_beer
+
 
 	// Bar, soft
 /obj/item/reagent_containers/chem_disp_cartridge/apple

@@ -147,6 +147,9 @@
 	stat |= EMPED
 	addtimer(CALLBACK(src, PROC_REF(post_emp_act)), (300 SECONDS) / severity)
 
+/obj/machinery/telecomms/proc/emp_damage()
+	integrity = between(0, integrity - (rand(5,30)), 100)
+
 /obj/machinery/telecomms/proc/post_emp_act()
 	stat &= ~EMPED
 	toggle_power(POWER_USE_IDLE)
