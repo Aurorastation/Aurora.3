@@ -330,8 +330,6 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-
-
 /singleton/cargo_item/blackpaint
 	category = "operations"
 	name = "black paint"
@@ -429,7 +427,6 @@
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
-
 
 /singleton/cargo_item/battlemonstersresupplycanister
 	category = "operations"

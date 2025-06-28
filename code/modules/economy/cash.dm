@@ -171,7 +171,7 @@
 /obj/item/spacecash/c5
 	name = "5 credit chip"
 	icon_state = "spacecash5"
-	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 1 credits."
+	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 5 credits."
 	worth = 5
 
 /obj/item/spacecash/c10
