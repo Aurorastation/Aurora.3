@@ -136,8 +136,8 @@
 			on = !on
 			active = FALSE
 			power_change()
-			usr.visible_message(SPAN_NOTICE("[usr] toggles the power on the [src]."),
-			SPAN_NOTICE("You toggle the power on the [src]."))
+			usr.visible_message(SPAN_NOTICE("[usr] toggles the power on \the [src]."),
+			SPAN_NOTICE("You toggle the power on \the [src]."))
 			update_icon()
 			. = TRUE
 		if ("tempSet")
