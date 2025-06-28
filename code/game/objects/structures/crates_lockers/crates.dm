@@ -208,7 +208,6 @@
 /obj/structure/closet/crate/secure
 	name = "secure crate"
 	desc = "A secure crate."
-	icon_state = "crate"
 	locked = TRUE
 	secure = TRUE
 	secure_lights = TRUE
