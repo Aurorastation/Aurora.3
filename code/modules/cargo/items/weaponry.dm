@@ -385,7 +385,7 @@
 	description = "A 5.56 AP ammo magazine for military assault rifles. Incompatible with weapons that take C-type magazines."
 	price = 70
 	items = list(
-		/obj/item/ammo_magazine/a556
+		/obj/item/ammo_magazine/a556/ap
 	)
 	access = ACCESS_SECURITY
 	container_type = "crate"
