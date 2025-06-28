@@ -127,11 +127,11 @@ Class Procs:
 	var/parts_power_usage = 0
 	/// Blurbs for what each component type does. Appended to machine's /desc_info.
 	/// Kindly use the format in appended comments for consistency
-	var/component_hint_bin    // "Upgraded <b>matter bins</b> will XYZ."
-	var/component_hint_cap    // "Upgraded <b>capacitors</b> will XYZ."
-	var/component_hint_laser  // "Upgraded <b>micro-lasers</b> will XYZ"
-	var/component_hint_scan   // "Upgraded <b>scanning modules</b> will XYZ"
-	var/component_hint_servo  // "Upgraded <b>manipulators</b> will XYZ"
+	var/component_hint_bin // "Upgraded <b>matter bins</b> will XYZ."
+	var/component_hint_cap // "Upgraded <b>capacitors</b> will XYZ."
+	var/component_hint_laser // "Upgraded <b>micro-lasers</b> will XYZ"
+	var/component_hint_scan // "Upgraded <b>scanning modules</b> will XYZ"
+	var/component_hint_servo // "Upgraded <b>manipulators</b> will XYZ"
 
 	var/uid
 	var/panel_open = 0
