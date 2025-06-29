@@ -8778,6 +8778,9 @@
 /obj/item/ship_ammunition/nephilim/ap,
 /obj/random/dirt_75,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 1
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/himeo_patrol_ship/deck_2_checkpoint)
 "Nh" = (
