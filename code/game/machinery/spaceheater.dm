@@ -1,6 +1,6 @@
 /obj/machinery/space_heater
-	name = "portable air conditioning unit"
-	desc = "A portable air conditioning unit. It can heat or cool a room to your liking."
+	name = "portable temperature control unit"
+	desc = "A portable temperature control unit. It can heat or cool a room to your liking."
 	icon = 'icons/obj/atmos.dmi'
 	icon_state = "sheater-off"
 	anchored = FALSE
@@ -10,8 +10,11 @@
 	var/on = FALSE
 	var/active = 0
 	var/heating_power = 40 KILO WATTS
+	var/current_temperature
 	var/set_temperature = T0C + 20
-
+	var/set_temperature_max = T0C + 40
+	var/set_temperature_min = T0C
+	var/datum/gas_mixture/env
 	var/obj/item/cell/apc/cell
 
 /obj/machinery/space_heater/Initialize()
@@ -38,7 +41,7 @@
 
 /obj/machinery/space_heater/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	. += "The heater is [on ? "on" : "off"] and the hatch is [panel_open ? "open" : "closed"]."
+	. += "The unit is [on ? "on" : "off"] and the hatch is [panel_open ? "open" : "closed"]."
 	if(panel_open)
 		. += "The power cell is [cell ? "installed" : "missing"]."
 	else
@@ -81,11 +84,6 @@
 		user.visible_message(SPAN_NOTICE("[user] [panel_open ? "opens" : "closes"] the hatch on the [src]."),
 				SPAN_NOTICE("You [panel_open ? "open" : "close"] the hatch on the [src]."))
 		update_icon()
-
-		if(!panel_open && user.machine == src)
-			user << browse(null, "window=spaceheater")
-			user.unset_machine()
-
 		return TRUE
 	return ..()
 
@@ -103,73 +101,54 @@
 		else
 			to_chat(user,"There's no cell to remove!")
 	else
-		interact(user)
+		ui_interact(user)
 
-/obj/machinery/space_heater/interact(mob/user)
-	var/dat = "Power cell: "
-	if(cell)
-		dat += "Detected<br>"
-	else
-		dat += "Not Detected<br>"
-	dat += "Power: "
-	if(on)
-		dat += "<A href='byond://?src=[REF(src)];op=off'>On</A><br>"
-	else
-		dat += "<A href='byond://?src=[REF(src)];op=on'>Off</A><br>"
+// TGUI functions begin
+/obj/machinery/space_heater/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "SpaceHeater", src.name, 700, 300)
+		ui.open()
 
-	dat += "Power Level: [cell ? round(cell.percent(),1) : 0]%<br><br>"
+/obj/machinery/space_heater/ui_data(mob/user)
+	var/list/data = list()
 
-	dat += "Set Temperature: "
-	dat += "<A href='byond://?src=[REF(src)];op=temp;val=-5'>-</A>"
-	dat += " [set_temperature]K ([set_temperature-T0C]&deg;C) "
-	dat += "<A href='byond://?src=[REF(src)];op=temp;val=5'>+</A><br>"
+	data["power_cell_inserted"] = cell
+	data["power_cell_charge"] = cell?.percent()
+	data["is_on"] = on
+	data["is_active"] = active
+	data["panel_open"] = panel_open
+	data["heating_power"] = heating_power
+	data["current_temperature"] = round(env.temperature - T0C, 0.1)
+	data["set_temperature"] = set_temperature - T0C
+	data["set_temperature_max"] = set_temperature_max - T0C
+	data["set_temperature_min"] = set_temperature_min - T0C
 
-	user.set_machine(src)
-	var/datum/browser/heater_win = new(user, "spaceheater", "Space Heater Control Panel")
-	heater_win.set_content(dat)
-	heater_win.open()
+	return data
 
-/obj/machinery/space_heater/Topic(href, href_list)
-	if (usr.stat)
+/obj/machinery/space_heater/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if (.)
 		return
-	if ((in_range(src, usr) && istype(src.loc, /turf)) || (istype(usr, /mob/living/silicon)))
-		usr.set_machine(src)
 
-		switch(href_list["op"])
-
-			if("temp")
-				var/value = text2num(href_list["val"])
-
-				// limit to 0-90 degC
-				set_temperature = dd_range(T0C, T0C + 90, set_temperature + value)
-
-			if("off")
-				on = !on
-				usr.visible_message(SPAN_NOTICE("[usr] switches off the [src]."),
-					SPAN_NOTICE("You switch off the [src]."))
-				update_icon()
-
-			if("on")
-				if(cell)
-					on = !on
-					usr.visible_message(SPAN_NOTICE("\The [usr] switches on \the [src]."),
-						SPAN_NOTICE("You switch on \the [src]."))
-					update_icon()
-				else
-					to_chat(usr, SPAN_NOTICE("You can't turn it on without a cell installed!"))
-					return
-		updateDialog()
-	else
-		usr << browse(null, "window=spaceheater")
-		usr.unset_machine()
-	return
-
-
+	switch(action)
+		if("powerToggle")
+			on = !on
+			active = FALSE
+			power_change()
+			usr.visible_message(SPAN_NOTICE("[usr] toggles the power on \the [src]."),
+			SPAN_NOTICE("You toggle the power on \the [src]."))
+			update_icon()
+			. = TRUE
+		if ("tempSet")
+			set_temperature = between(set_temperature_min, text2num(params["set_temperature"]) + T0C, set_temperature_max)
+			. = TRUE
+// TGUI functions end
 
 /obj/machinery/space_heater/process()
 	if(on && loc)
 		if(cell && cell.charge)
-			var/datum/gas_mixture/env = loc.return_air()
+			env = loc.return_air()
 			if(env && abs(env.temperature - set_temperature) <= 0.1)
 				active = FALSE
 			else
@@ -203,9 +182,10 @@
 			power_change()
 		update_icon()
 
-/obj/machinery/space_heater/stationary//For mounting on walls in planetary buildings and stuff.
-	name = "stationary air conditioning unit"
-	desc = "A stationary air conditioning unit. It can heat or cool a room to your liking."
+//For mounting on walls in planetary buildings and stuff.
+/obj/machinery/space_heater/stationary
+	name = "stationary temperature control unit"
+	desc = "A stationary temperature control unit. It can heat or cool a room to your liking."
 	anchored = TRUE
 	can_be_unanchored = FALSE
 	density = FALSE
