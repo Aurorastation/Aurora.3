@@ -45,7 +45,7 @@
 	welcome_message = "You are a member of the Himean Planetary Guard, Naval Branch. \
 	One amongst you has been promoted to the rank of Commander, and you are to follow their orders in any circumstance that does not contravene your service to the Planetary Guard. \
 	You have been appointed based upon your merits to serve as a corpsman. \
-	You have been trusted to ensure the safety and survival of your fellow worker, regardless of what the corporate forces of the spur throw at you. \
+	You have been trusted to ensure the safety and survival of your fellow worker, regardless of what the corporate forces of the Spur throw at you. \
 	All peoples are welcome in the service of the Syndicates, \
 	however if your origin includes the option to use either the Himean or Free Tajara Council accent, using that is suggested."
 	max_count = 1
