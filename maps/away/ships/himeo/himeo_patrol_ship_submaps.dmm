@@ -355,15 +355,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
-"uM" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/alarm/south,
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1;
-	level = 2
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/template_noop)
 "vb" = (
 /obj/structure/bed/stool/chair/folding{
 	dir = 8
@@ -563,15 +554,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
-"CT" = (
-/obj/structure/cable/green{
-	icon_state = "0-2"
-	},
-/obj/machinery/power/apc/north,
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/carpet/rubber,
-/area/template_noop)
 "DL" = (
 /obj/structure/table/rack/folding_table,
 /obj/effect/floor_decal/spline/plain/red{
@@ -630,12 +612,6 @@
 "Gv" = (
 /obj/structure/closet/crate/loot,
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark/full,
-/area/template_noop)
-"GI" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "GX" = (
@@ -784,13 +760,6 @@
 /area/template_noop)
 "OZ" = (
 /turf/simulated/floor/lino,
-/area/template_noop)
-"Pb" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/light/colored/decayed/dimmed{
-	dir = 1
-	},
-/turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "PG" = (
 /obj/random/dirt_75,
@@ -1370,254 +1339,6 @@ qb
 mg
 "}
 (15,1,1) = {"
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-"}
-(16,1,1) = {"
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-rf
-og
-og
-rf
-mg
-rf
-og
-rf
-mg
-"}
-(17,1,1) = {"
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-Pb
-og
-og
-rf
-mg
-Pb
-og
-rf
-mg
-"}
-(18,1,1) = {"
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-rf
-og
-og
-ab
-mg
-CT
-oK
-uM
-mg
-"}
-(19,1,1) = {"
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-rf
-og
-og
-ab
-mg
-rf
-jr
-rf
-mg
-"}
-(20,1,1) = {"
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-rf
-GI
-og
-ab
-mg
-rf
-jr
-rf
-mg
-"}
-(21,1,1) = {"
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-rf
-vu
-Es
-Ua
-mg
-mg
-mg
-mg
-mg
-"}
-(22,1,1) = {"
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-mg
-rf
-IU
-Jp
-Ya
-mg
-mg
-mg
-mg
-mg
-"}
-(23,1,1) = {"
 mg
 mg
 mg
