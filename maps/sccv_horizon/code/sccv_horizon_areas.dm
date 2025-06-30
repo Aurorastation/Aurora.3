@@ -322,8 +322,17 @@
 /area/shuttle/intrepid/main_compartment
 	name = "Intrepid Main Compartment"
 
-/area/shuttle/intrepid/cargo_bay
-	name = "Intrepid Cargo Bay"
+/area/shuttle/intrepid/port_compartment
+	name = "Intrepid Port Compartment"
+
+/area/shuttle/intrepid/starboard_compartment
+	name = "Intrepid Starboard Compartment"
+
+/area/shuttle/intrepid/junction_compartment
+	name = "Intrepid Junction Compartment"
+
+/area/shuttle/intrepid/buffet
+	name = "Intrepid Buffet"
 
 /area/shuttle/intrepid/medical
 	name = "Intrepid Medical Compartment"
@@ -334,8 +343,8 @@
 /area/shuttle/intrepid/port_storage
 	name = "Intrepid Port Nacelle"
 
-/area/shuttle/intrepid/cockpit
-	name = "Intrepid Cockpit"
+/area/shuttle/intrepid/flight_deck
+	name = "Intrepid Flight Deck"
 
 /area/shuttle/canary
 	name = "Canary"
