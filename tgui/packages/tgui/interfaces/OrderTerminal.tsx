@@ -55,7 +55,7 @@ export const ItemWindow = (props, context) => {
       <LabeledList>
         {data.items.map((item) => (
           <LabeledList.Item key={item.name} label={item.name}>
-            {item.price}电 &nbsp;
+            {item.price.toFixed(2)}电 &nbsp;
             <Button
               content="Buy"
               icon="calendar"

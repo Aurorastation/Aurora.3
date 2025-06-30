@@ -12,7 +12,7 @@
 	age_max = 1000
 	default_genders = list(PLURAL)
 	selectable_pronouns = list(NEUTER, PLURAL)
-	economic_modifier = 3
+	economic_modifier = 7
 	icobase = 'icons/mob/human_races/diona/r_diona.dmi'
 	deform = 'icons/mob/human_races/diona/r_def_plant.dmi'
 	preview_icon = 'icons/mob/human_races/diona/diona_preview.dmi'

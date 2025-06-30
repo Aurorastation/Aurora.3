@@ -3,7 +3,7 @@
 	name = "ammonia bottle"
 	supplier = "getmore"
 	description = "A small bottle."
-	price = 90
+	price = 15
 	items = list(
 		/obj/item/reagent_containers/glass/bottle/ammonia
 	)
@@ -17,7 +17,7 @@
 	name = "apron"
 	supplier = "getmore"
 	description = "A basic blue apron."
-	price = 25
+	price = 20
 	items = list(
 		/obj/item/clothing/accessory/apron/blue
 	)
@@ -31,7 +31,7 @@
 	name = "bee net"
 	supplier = "vysoka"
 	description = "A needed tool to maintain bee imprisonment."
-	price = 55
+	price = 24
 	items = list(
 		/obj/item/bee_net
 	)
@@ -45,7 +45,7 @@
 	name = "bee smoker"
 	supplier = "vysoka"
 	description = "For when you need to show those bees whos boss."
-	price = 120
+	price = 60
 	items = list(
 		/obj/item/bee_smoker
 	)
@@ -59,7 +59,7 @@
 	name = "beehive assembly"
 	supplier = "vysoka"
 	description = "Beehive frame, some assembly required."
-	price = 75
+	price = 40
 	items = list(
 		/obj/item/beehive_assembly
 	)
@@ -73,7 +73,7 @@
 	name = "cat"
 	supplier = "molinaris"
 	description = "A domesticated, feline pet. Has a tendency to adopt crewmembers."
-	price = 300
+	price = 150
 	items = list(
 		/mob/living/simple_animal/cat
 	)
@@ -87,7 +87,7 @@
 	name = "chicken"
 	supplier = "molinaris"
 	description = "Adorable! They make such a racket though."
-	price = 150
+	price = 30
 	items = list(
 		/mob/living/simple_animal/chick
 	)
@@ -101,7 +101,7 @@
 	name = "corgi"
 	supplier = "molinaris"
 	description = "Studies have shown corgis are the most well adapted canines in space, for some reason."
-	price = 400
+	price = 600
 	items = list(
 		/obj/structure/largecrate/animal/corgi
 	)
@@ -115,7 +115,7 @@
 	name = "cow"
 	supplier = "molinaris"
 	description = "Known for their milk, just don't tip them over."
-	price = 500
+	price = 1200
 	items = list(
 		/mob/living/simple_animal/cow
 	)
@@ -129,7 +129,7 @@
 	name = "schlorrgo egg"
 	supplier = "zharkov"
 	description = "A large egg that will eventually grow into a Schlorrgo."
-	price = 700
+	price = 300
 	items = list(
 		/obj/item/reagent_containers/food/snacks/egg/schlorrgo
 	)
@@ -143,7 +143,7 @@
 	name = "fatshouter"
 	supplier = "zharkov"
 	description = "A crate containing a fatshouter, an Adhomian animal."
-	price = 500
+	price = 1500
 	items = list(
 		/obj/structure/largecrate/animal/adhomai/fatshouter
 	)
@@ -157,7 +157,7 @@
 	name = "flora disk box"
 	supplier = "nanotrasen"
 	description = "A box of flora data disks, apparently."
-	price = 660
+	price = 120
 	items = list(
 		/obj/item/storage/box/botanydisk
 	)
@@ -171,7 +171,7 @@
 	name = "goat"
 	supplier = "molinaris"
 	description = "Not known for their pleasant disposition."
-	price = 400
+	price = 250
 	items = list(
 		/mob/living/simple_animal/hostile/retaliate/goat
 	)
@@ -185,7 +185,7 @@
 	name = "hakhma"
 	supplier = "molinaris"
 	description = "An oversized insect breed by Scarab colony ships, known for their milk."
-	price = 600
+	price = 300
 	items = list(
 		/mob/living/simple_animal/hakhma
 	)
@@ -199,7 +199,7 @@
 	name = "honey extractor"
 	supplier = "vysoka"
 	description = "Needed equipment to extract sweet liquid gold."
-	price = 300
+	price = 80
 	items = list(
 		/obj/machinery/honey_extractor
 	)
@@ -213,7 +213,7 @@
 	name = "hydroponics tray"
 	supplier = "nanotrasen"
 	description = "A safe space to raise your plants."
-	price = 45
+	price = 50
 	items = list(
 		/obj/machinery/portable_atmospherics/hydroponics
 	)
@@ -241,7 +241,7 @@
 	name = "leather gloves"
 	supplier = "getmore"
 	description = "These leather work gloves protect against thorns, barbs, prickles, spikes and other harmful objects of floral origin."
-	price = 9
+	price = 12
 	items = list(
 		/obj/item/clothing/gloves/botanic_leather
 	)
@@ -255,7 +255,7 @@
 	name = "packet of diona nodes"
 	supplier = "nanotrasen"
 	description = "It has a picture of diona pods on the front."
-	price = 15
+	price = 25
 	items = list(
 		/obj/item/seeds/replicapod
 	)
@@ -269,7 +269,7 @@
 	name = "packet of kudzu seeds"
 	supplier = "vysoka"
 	description = "It has a picture of kudzu vines on the front."
-	price = 15
+	price = 12
 	items = list(
 		/obj/item/seeds/kudzuseed
 	)
@@ -283,7 +283,7 @@
 	name = "packet of strange plant nodes"
 	supplier = "zeng_hu"
 	description = "It has a picture of strange plants on the front."
-	price = 15
+	price = 12
 	items = list(
 		/obj/item/seeds/random
 	)
@@ -297,7 +297,7 @@
 	name = "plant analyzer"
 	supplier = "getmore"
 	description = "A hand-held environmental scanner which reports current gas levels."
-	price = 135
+	price = 70
 	items = list(
 		/obj/item/device/analyzer/plant_analyzer
 	)
@@ -311,7 +311,7 @@
 	name = "Plant-B-Gone"
 	supplier = "blam"
 	description = "Kills those pesky weeds!"
-	price = 200
+	price = 35
 	items = list(
 		/obj/item/reagent_containers/spray/plantbgone
 	)
@@ -325,7 +325,7 @@
 	name = "queen bee pack"
 	supplier = "vysoka"
 	description = "Contains one queen bee, bee kingdom not included."
-	price = 150
+	price = 40
 	items = list(
 		/obj/item/bee_pack
 	)
@@ -339,7 +339,7 @@
 	name = "sample of liberty cap spores"
 	supplier = "vysoka"
 	description = "It's labelled as coming from liberty cap mushrooms."
-	price = 15
+	price = 25
 	items = list(
 		/obj/item/seeds/libertymycelium
 	)
@@ -353,7 +353,7 @@
 	name = "sample of reishi spores"
 	supplier = "vysoka"
 	description = "It's labelled as coming from reishi."
-	price = 15
+	price = 35
 	items = list(
 		/obj/item/seeds/reishimycelium
 	)
@@ -367,7 +367,7 @@
 	name = "wulumunusha seed"
 	supplier = "zeng_hu"
 	description = "A Skrellian plant used in religious ceremonies and drinks."
-	price = 100
+	price = 45
 	items = list(
 		/obj/item/seeds/wulumunushaseed
 	)
@@ -381,7 +381,7 @@
 	name = "chainsaw"
 	supplier = "nanotrasen"
 	description = "A portable mechanical saw commonly used to fell trees."
-	price = 600
+	price = 400
 	items = list(
 		/obj/item/material/twohanded/chainsaw
 	)
@@ -395,7 +395,7 @@
 	name = "steel hatchet"
 	supplier = "nanotrasen"
 	description = "A very sharp axe blade upon a short fibremetal handle. It has a long history of chopping things, but now it is used for chopping wood."
-	price = 36
+	price = 25
 	items = list(
 		/obj/item/material/hatchet
 	)
@@ -409,7 +409,7 @@
 	name = "steel mini hoe"
 	supplier = "nanotrasen"
 	description = "It's used for removing weeds or scratching your back."
-	price = 15
+	price = 12
 	items = list(
 		/obj/item/material/minihoe
 	)
@@ -423,7 +423,7 @@
 	name = "weedkiller grenade"
 	supplier = "blam"
 	description = "Used for purging large areas of invasive plant species. Contents under pressure. Do not directly inhale contents."
-	price = 225
+	price = 100
 	items = list(
 		/obj/item/grenade/chem_grenade/antiweed
 	)

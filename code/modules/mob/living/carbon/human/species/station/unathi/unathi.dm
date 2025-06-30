@@ -36,7 +36,7 @@
 
 	ethanol_resistance = 0.8
 	taste_sensitivity = TASTE_SENSITIVE
-	economic_modifier = 7
+	economic_modifier = 9
 
 	num_alternate_languages = 2
 	secondary_langs = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)

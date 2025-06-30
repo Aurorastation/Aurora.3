@@ -9,7 +9,7 @@
 	height_max = 250
 	age_min = 1
 	age_max = 60
-	economic_modifier = 3
+	economic_modifier = 6
 	default_genders = list(NEUTER)
 	selectable_pronouns = list(NEUTER, PLURAL)
 
