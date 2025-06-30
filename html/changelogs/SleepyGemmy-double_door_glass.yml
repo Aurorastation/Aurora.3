@@ -1,6 +1,0 @@
-author: SleepyGemmy
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed double doors with glass having the glass overlay misaligning when access is denied."
