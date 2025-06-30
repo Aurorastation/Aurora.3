@@ -67,6 +67,11 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 		// to maybe maintain compatibility with other codebases
 		var/tfilepath = "[tfile]"
 		tfile = null
+		// make sure we dont load a dir up
+		var/lastchar = copytext(tfilepath, -1)
+		if(lastchar == "/" || lastchar == "\\")
+			log_debug("Attempted to load map template without filename (Attempted [dmm_file])")
+			return
 		// use bapi to read, parse, process, mapmanip etc
 		// this will "crash"/stacktrace on fail
 		// Except when measuring; i don't give a shit about bapi when measuring the map size,
