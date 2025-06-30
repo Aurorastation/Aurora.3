@@ -15,19 +15,19 @@
 	//Area types to include.
 	var/list/areaType = list(/area/security)
 	//Area types to specifically exclude.
-	var/list/areaNotType = list(/area/security/armory, /area/security/nuke_storage, /area/security/checkpoint, /area/security/checkpoint2, /area/security/bridge_surface_checkpoint, /area/security/penal_colony)
+	var/list/areaNotType = list(/area/security/checkpoint, /area/security/checkpoint2)
 
 /datum/event/prison_break/xenobiology
 	eventDept = "Science"
 	areaName = list("Xenobiology")
 	areaType = list(/area/rnd/xenobiology)
-	areaNotType = list(/area/rnd/xenobiology/xenoflora, /area/rnd/xenobiology/xenoflora_storage)
+	areaNotType = list(/area/rnd/xenobiology/xenoflora)
 
 /datum/event/prison_break/bridge
 	eventDept = "Bridge"
 	areaName = list("Bridge")
-	areaType = list(/area/bridge, /area/teleporter, /area/crew_quarters/heads/cryo, /area/maintenance/maintcentral)
-	areaNotType = list(/area/bridge/aibunker, /area/bridge/levela, /area/bridge/selfdestruct)
+	areaType = list(/area/bridge, /area/teleporter, /area/horizon/maintenance/maintcentral)
+	areaNotType = list(/area/bridge/aibunker, /area/bridge/selfdestruct)
 
 /datum/event/prison_break/setup()
 	announceWhen = rand(75, 105)

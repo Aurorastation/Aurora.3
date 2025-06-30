@@ -7,7 +7,6 @@
 		/area/supply/station,
 		/area/tdome,
 		/area/centcom,
-		/area/prison,
 		/area/supply/dock,
 		/area/turbolift,
 		/area/mine,
@@ -18,31 +17,27 @@
 	ut_apc_exempt_areas = list()
 
 	ut_atmos_exempt_areas = list(
-		/area/maintenance,
 		/area/horizon/maintenance,
-		/area/engineering/atmos/storage,
+		/area/horizon/engineering/atmos/storage,
 		/area/server,
-		/area/tcommsat/chamber,
+		/area/horizon/tcommsat/chamber,
 		/area/bridge/aibunker,
 		/area/outpost/research/emergency_storage,
 		/area/medical/cryo,
 		/area/medical/surgery,
 		/area/turret_protected/ai,
-		/area/engineering/smes/rust,
-		/area/tcommsat/mainlvl_tcomms__relay,
-		/area/tcommsat/mainlvl_tcomms__relay/second,
+		/area/horizon/engineering/reactor/indra/smes,
 		/area/rnd/isolation_a,
 		/area/rnd/isolation_b,
 		/area/rnd/isolation_c
 	)
 
 	ut_fire_exempt_areas = list(
-		/area/maintenance,
 		/area/horizon/maintenance,
 		/area/construction,
 		/area/bridge/aibunker,
 		/area/medical/cryo,
-		/area/horizon/crew_quarters/cryo/washroom,
+		/area/horizon/crew/cryo/washroom,
 		/area/rnd/isolation_a,
 		/area/rnd/isolation_b,
 		/area/rnd/isolation_c
@@ -53,4 +48,4 @@
 
 /datum/unit_test/zas_area_test/sccv_horizon/storage
 	name = "ZAS: Operations Bay"
-	area_path = /area/operations/storage
+	area_path = /area/horizon/operations/storage

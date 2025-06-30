@@ -256,7 +256,7 @@
 		return
 
 	// Apply frenzy while in the chapel.
-	if (istype(get_area(loc), /area/chapel))
+	if (istype(get_area(loc), /area/horizon/chapel))
 		vampire.frenzy += 3
 
 	if (vampire.blood_usable < 10)

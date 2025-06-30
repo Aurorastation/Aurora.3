@@ -9,22 +9,6 @@
 	name = "Robotics Lab"
 	icon_state = "robotics"
 
-/area/assembly/robotics/workshop
-	name = "Robotics Workshop"
-	icon_state = "robotics"
-
-/area/assembly/robotics_cyborgification
-	name = "Cyborgification Bay"
-	icon_state = "robotics"
-
-/area/assembly/assembly_line //Derelict Assembly Line
-	name = "Assembly Line"
-	icon_state = "robotics"
-	power_equip = 0
-	power_light = 0
-	power_environ = 0
-
-
 //rnd (Research and Development
 /area/rnd
 	station_area = TRUE
@@ -40,10 +24,6 @@
 	icon_state = "research"
 	lightswitch = TRUE
 
-/area/rnd/research
-	name = "Research and Development"
-	icon_state = "research"
-
 /area/rnd/telesci
 	name = "Research - Telescience Laboratory"
 	icon_state = "research"
@@ -52,20 +32,8 @@
 	name = "Research - Exploratory Chemistry"
 	icon_state = "chem"
 
-/area/rnd/docking
-	name = "Research Dock"
-	icon_state = "research_dock"
-
 /area/rnd/lab
 	name = "Research - R&D Laboratory"
-	icon_state = "toxlab"
-
-/area/rnd/rdoffice
-	name = "Research Director's Office"
-	icon_state = "head_quarters"
-
-/area/rnd/supermatter
-	name = "Research - Supermatter Lab"
 	icon_state = "toxlab"
 
 /area/rnd/xenobiology
@@ -88,85 +56,14 @@
 	name = "Research - Xenobiology Foyer"
 	icon_state = "xeno_lab"
 
-/area/rnd/xenobiology/specimendisposal
-	name = "Research - Xenobiology Specimen Disposal"
-	icon_state = "xeno_lab"
-
 /area/rnd/xenobiology/xenological
 	name = "Research - Xenological Studies"
 	icon_state = "xeno_log"
-
-/area/rnd/xenobiology/xenoflora_storage
-	name = "Research - Xenoflora Storage"
-	icon_state = "xeno_f_store"
-	no_light_control = TRUE
 
 /area/rnd/xenobiology/xenoflora
 	name = "Research - Xenoflora Lab"
 	icon_state = "xeno_f_lab"
 	no_light_control = TRUE
-
-/area/rnd/xenobiology/xenoflora_hazard
-	name = "Research - Xenoflora Hazardous Specimens"
-	icon_state = "red"
-	no_light_control = TRUE
-
-/area/rnd/xenobiology/cells
-	name = "Research - Xenobiology Cell"
-	no_light_control = TRUE
-	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_SPAWN_ROOF
-
-/area/rnd/xenobiology/cells/alpha
-	name = "Research - Xenobiology Alpha"
-	icon_state = "red"
-
-/area/rnd/xenobiology/cells/bravo
-	name = "Research - Xenobiology Bravo"
-	icon_state = "green"
-
-/area/rnd/xenobiology/cells/charlie
-	name = "Research - Xenobiology Charlie"
-	icon_state = "red"
-
-/area/rnd/xenobiology/cells/delta
-	name = "Research - Xenobiology Delta"
-	icon_state = "green"
-
-/area/rnd/xenobiology/cells/echo
-	name = "Research - Xenobiology Echo"
-	icon_state = "red"
-
-/area/rnd/xenobiology/cells/foxtrot
-	name = "Research - Xenobiology Foxtrot"
-	icon_state = "green"
-
-/area/rnd/xenobiology/cells/golf
-	name = "Research - Xenobiology Golf"
-	icon_state = "red"
-
-/area/rnd/xenobiology/cells/hotel
-	name = "Research - Xenobiology Hotel"
-	icon_state = "green"
-
-/area/rnd/storage
-	name = "Research - Toxins Storage"
-	icon_state = "toxstorage"
-
-/area/rnd/strongroom
-	name = "Research - Research Storage"
-	icon_state = "toxlab"
-
-/area/rnd/test_area
-	name = "Research - Toxins Test Area"
-	icon_state = "toxtest"
-
-/area/rnd/mixing
-	name = "Research - Toxins Mixing Room"
-	icon_state = "toxmix"
-
-/area/rnd/misc_lab
-	name = "Research - Circuitry Lab"
-	icon_state = "toxmisc"
 
 /area/rnd/eva
 	name = "Research - EVA Preparation"
@@ -195,11 +92,3 @@
 /area/rnd/test_range
 	name = "Research - Weapons Testing Range"
 	area_flags = AREA_FLAG_FIRING_RANGE
-
-/area/toxins
-	station_area = TRUE
-
-/area/toxins/server
-	name = "Research - Server Room"
-	icon_state = "server"
-	station_area = TRUE

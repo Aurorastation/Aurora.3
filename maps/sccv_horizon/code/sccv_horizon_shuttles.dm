@@ -118,7 +118,7 @@
 	name = "First Deck Intrepid Hangar Bay"
 	landmark_tag = "nav_hangar_intrepid"
 	docking_controller = "intrepid_dock"
-	base_area = /area/hangar/intrepid
+	base_area = /area/horizon/hangar/intrepid
 	base_turf = /turf/simulated/floor/plating
 
 /obj/effect/shuttle_landmark/intrepid/transit
@@ -142,7 +142,7 @@
 	name = "First Deck Canary Hangar Bay"
 	landmark_tag = "nav_hangar_canary"
 	docking_controller = "canary_dock"
-	base_area = /area/hangar/auxiliary
+	base_area = /area/horizon/hangar/auxiliary
 	base_turf = /turf/simulated/floor/plating
 
 /obj/effect/shuttle_landmark/canary/transit
@@ -166,7 +166,7 @@
 	name = "First Deck Quark Hangar Bay"
 	landmark_tag = "nav_hangar_quark"
 	docking_controller = "quark_dock"
-	base_area = /area/hangar/auxiliary
+	base_area = /area/horizon/hangar/auxiliary
 	base_turf = /turf/simulated/floor/plating
 
 /obj/effect/shuttle_landmark/quark/transit
@@ -191,7 +191,7 @@
 	landmark_tag = "nav_hangar_mining"
 	docking_controller = "mining_shuttle_dock"
 	base_turf = /turf/simulated/floor/airless
-	base_area = /area/hangar/operations
+	base_area = /area/horizon/hangar/operations
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/mining/transit
@@ -218,7 +218,7 @@
 	landmark_tag = "nav_cargo_shuttle_dock"
 	docking_controller = "cargo_shuttle_dock"
 	base_turf = /turf/simulated/floor/plating
-	base_area = /area/hangar/operations
+	base_area = /area/horizon/hangar/operations
 
 //-// Admin Corvette //-//
 /datum/shuttle/autodock/multi/crescent

@@ -1,44 +1,105 @@
-//Engineering
+/**
+ *	Definitions for every area used on the SCCV Horizon map.
+ *
+ *	Each department (or other appropriate grouping) will have its own section that you can jump to with ctrl-f.
+ *	For convenience, these groupings are:
+ *	CREW_AREAS			Catch-all areas, I.E. hallways, staff head offices, etc.
+ *	COMMAND_AREAS		Command areas
+ *	ENGINEERING_AREAS	Engineering dept areas
+ *	MAINTENANCE_AREAS	Maintenance tunnels
+ *	MEDICAL_AREAS		Medical dept areas
+ *	OPERATIONS_AREAS	Operations & Logistics dept areas
+ *	SCIENCE_AREAS		Science dept areas
+ *	SECURITY_AREAS		Security dept areas
+ *	SERVICE_AREAS		Service dept areas
+ *	TCOMMS_AREAS		Telecomms areas
+ *
+ *	GUIDELINES:
+ *	- The Horizon should not have any areas mapped to it which are defined outside this file.
+ *	- Any PR that removes all areas of a given definition should also remove that definition from this file.
+ *	- No area should exist across multiple decks. Ex., an elevator vestibule on all three decks should have three
+ *	child definitions, one for each deck. This is both for organization and for managing area objects like APCs etc.
+ *	- Update the groupings list if anything is added/removed.
+ */
 
-/area/engineering/lobby
+//
+// SCCV Horizon Areas
+//
+/area/horizon
+	name = "Horizon (PARENT AREA - DON'T USE)"
+	icon_state = "unknown"
+	station_area = TRUE
+	ambience = AMBIENCE_GENERIC
+
+// Exterior
+/area/horizon/exterior
+	name = "Horizon - Exterior"
+	icon_state = "exterior"
+	base_turf = /turf/space
+	dynamic_lighting = TRUE
+	requires_power = FALSE
+	has_gravity = FALSE
+	no_light_control = TRUE
+	allow_nightmode = FALSE
+	ambience = AMBIENCE_SPACE
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
+
+/// CREW_AREAS
+/// COMMAND_AREAS
+/// ENGINEERING_AREAS
+/area/horizon/engineering
+	name = "Engineering"
+	icon_state = "engineering"
+	ambience = AMBIENCE_ENGINEERING
+	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
+	department = "Engineering"
+
+/area/horizon/engineering/drone_fabrication
+	name = "Engineering - Drone Fabrication"
+	icon_state = "drone_fab"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+
+/area/horizon/engineering/storage_hard
+	name = "Engineering - Hard Storage"
+	icon_state = "engineering_storage"
+
+/area/horizon/engineering/storage_eva
+	name = "Engineering - EVA Storage"
+	icon_state = "engineering_storage"
+
+/area/horizon/engineering/break_room
+	name = "Engineering - Break Room"
+	icon_state = "engineering_break"
+	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
+	area_blurb = "The smell of coffee intermixed with oil linger in the air."
+	area_blurb_category = "engi_breakroom"
+
+/area/horizon/engineering/locker_room
+	name = "Engineering - Locker Room"
+	icon_state = "engineering_locker"
+
+/area/horizon/engineering/gravity_gen
+	name = "Engineering - Gravity Generator"
+	icon_state = "engine"
+
+/area/horizon/engineering/lobby
 	name = "Engineering - Lobby"
 
-/area/engineering/storage/tech
+/area/horizon/engineering/storage/tech
 	name = "Engineering - Technical Storage"
 	icon_state = "auxstorage"
 
-/area/engineering/storage/lower
+/area/horizon/engineering/storage/lower
 	name = "Engineering - Lower Deck Storage"
 
-/area/engineering/aft_airlock
+/area/horizon/engineering/aft_airlock
 	name = "Engineering - Aft Service Airlock"
 
-/area/engineering/rust_office
-	name = "Engineering - INDRA Office"
-
-/area/engineering/engine_room/rust
-	name = "Engineering - INDRA Engine"
-
-/area/engineering/engine_room/turbine
-	name = "Engineering - Combustion Turbine"
-
-/area/engineering/smes
+/area/horizon/engineering/smes
 	name = "Engineering - SM SMES"
 	icon_state = "engine_smes"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	ambience = AMBIENCE_SINGULARITY
-
-/area/engineering/smes/rust
-	name = "Engineering - INDRA SMES"
-
-/area/engineering/engine_monitoring/rust
-	name = "Engineering - INDRA Engine Monitoring"
-
-/area/engineering/atmos/air
-	name = "Engineering - Air Mixing"
-
-/area/maintenance/substation/engineering/lower
-	name = "Engineering Substation - Lower Deck"
 
 /area/hallway/engineering
 	name = "Engineering - Main Hallway"
@@ -46,19 +107,101 @@
 	ambience = AMBIENCE_ENGINEERING
 	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
 
-/area/hallway/engineering/rust
-	name = "Engineering - INDRA Hallway"
-
-/area/engineering/bluespace_drive
+/area/horizon/engineering/bluespace_drive
 	name = "Engineering - Bluespace Drive"
 	icon_state = "engine"
+	horizon_deck = 1
 
-/area/engineering/bluespace_drive/monitoring
+/area/horizon/engineering/bluespace_drive/monitoring
 	name = "Engineering - Bluespace Drive"
 	icon_state = "engineering"
 
-//Medical
+/// ENGINEERING_AREAS - ATMOSIA_AREAS
+/area/horizon/engineering/atmos
+	name = "Engineering - Atmospherics"
+	icon_state = "atmos"
+	sound_environment = SOUND_AREA_LARGE_ENCLOSED
+	no_light_control = 1
+	ambience = list(AMBIENCE_ENGINEERING, AMBIENCE_ATMOS)
+	area_blurb = "Many volume tanks filled with gas reside here, some providing vital gases for the vessel's life support systems."
+	area_blurb_category = "atmos"
+	horizon_deck = 1
+	subdepartment = "Atmospherics"
 
+/area/horizon/engineering/atmos/storage
+	name = "Engineering - Atmospherics Storage"
+	icon_state = "atmos_storage"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	horizon_deck = 2
+
+/area/horizon/engineering/atmos/air
+	name = "Engineering - Air Mixing"
+
+/area/horizon/engineering/atmos/propulsion
+	name = "Port Propulsion"
+	icon_state = "blue2"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+
+/area/horizon/engineering/atmos/propulsion/starboard
+	name = "Starboard Propulsion"
+	icon_state = "blue-red2"
+
+/area/horizon/engineering/atmos/turbine
+	name = "Engineering - Combustion Turbine"
+
+/// ENGINEERING_AREAS - REACTOR_AREAS
+/area/horizon/engineering/reactor
+	icon_state = "engine"
+	sound_environment = SOUND_AREA_LARGE_ENCLOSED
+	no_light_control = 1
+	ambience = AMBIENCE_SINGULARITY
+	horizon_deck = 2
+
+// We'll give this a cool custom icon one day.
+/area/horizon/engineering/reactor/supermatter
+
+/area/horizon/engineering/reactor/supermatter/airlock
+	name = "Engineering - Engine Room Airlock"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+
+/area/horizon/engineering/reactor/supermatter/mainchamber
+	name = "Engineering - Supermatter Reactor"
+
+/area/horizon/engineering/reactor/supermatter/monitoring
+	name = "Engineering - Monitoring Room"
+	icon_state = "engine_monitoring"
+
+/area/horizon/engineering/reactor/supermatter/waste
+	name = "Engineering - Engine Waste Handling"
+	icon_state = "engine_waste"
+	no_light_control = 1
+
+// We'll give this a cool custom icon one day.
+/area/horizon/engineering/reactor/indra
+
+/area/horizon/engineering/reactor/indra/hallway
+	name = "Engineering - INDRA Hallway"
+	icon_state = "engine"
+	sound_environment = SOUND_AREA_LARGE_ENCLOSED
+	no_light_control = 1
+	ambience = AMBIENCE_SINGULARITY
+
+/area/horizon/engineering/reactor/indra/smes
+	name = "Engineering - INDRA SMES"
+
+/area/horizon/engineering/reactor/indra/monitoring
+	name = "Engineering - INDRA Engine Monitoring"
+	icon_state = "engine_monitoring"
+
+/area/horizon/engineering/reactor/indra/office
+	name = "Engineering - INDRA Office"
+
+/area/horizon/engineering/reactor/indra/mainchamber
+	name = "Engineering - INDRA Engine"
+
+
+/// MAINTENANCE_AREAS
+/// MEDICAL_AREAS
 /area/medical/ors
 	name = "Medical - Combined Operating Rooms"
 	icon_state = "surgery"
@@ -108,167 +251,130 @@
 	name = "Crew Quarters Hallway"
 	icon_state = "crew_area"
 
-//Research
-
-/area/rnd/conference
-	name = "Research - Conference Room"
-
-/area/maintenance/substation/xenoarchaeology
-	name = "Xenoarchaeology Substation"
-
-//Hangar
-
-/area/hangar
-	name = "Hangar"
-	icon_state = "bluenew"
-	ambience = AMBIENCE_HANGAR
-	sound_environment = SOUND_ENVIRONMENT_HANGAR
-	station_area = TRUE
-	holomap_color = HOLOMAP_AREACOLOR_HANGAR
-
-/area/hangar/briefing
-	name = "Expedition Briefing Room"
-	sound_environment = SOUND_AREA_LARGE_ENCLOSED
-
-/area/hangar/control
-	name = "Hangar Control Room"
-	sound_environment = SOUND_AREA_SMALL_ENCLOSED
-
-/area/hangar/intrepid
-	name = "Intrepid Hangar"
-	area_blurb = "A big, open room, home to the SCCV Horizon's largest shuttle, the Intrepid."
-	area_blurb_category = "intrepid_hanger"
-
-/area/hangar/intrepid/interstitial
-	name = "Intrepid Hangar Access"
-
-/area/hangar/operations
-	name = "Operations Hangar"
-
-/area/hangar/auxiliary
-	name = "Auxiliary Hangar"
-
-/area/maintenance/substation/hangar
-	name = "Hangar Substation"
-
-//Operations
-
-/area/operations
+/// OPERATIONS_AREAS
+/area/horizon/operations
 	name = "Operations"
 	icon_state = "dark"
 	ambience = AMBIENCE_ENGINEERING
 	station_area = TRUE
 	holomap_color = HOLOMAP_AREACOLOR_OPERATIONS
 
-/area/operations/lower
+/area/horizon/operations/lower
 	name = "Lower Operations"
 	icon_state = "dark160"
 
-/area/operations/upper
+/area/horizon/operations/upper
 	name = "Upper Operations"
 	icon_state = "dark128"
 
-/area/operations/storage
+/area/horizon/operations/storage
 	name = "Operations Equipment Storage"
 	icon_state = "dark160"
 	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 	area_blurb = "Scuff marks scar the floor from the movement of many crates and stored goods."
 	area_blurb_category = "ops_warehouse"
 
-/area/operations/lower/machinist
+/area/horizon/operations/lobby
+	name = "Operations Lobby"
+
+/area/horizon/operations/loading
+	name = "Operations Bay"
+	icon_state = "quartloading"
+
+/area/horizon/operations/break_room
+	name = "Operations Break Room"
+	icon_state = "blue"
+
+/area/horizon/operations/office
+	name = "Operations Office"
+	icon_state = "quartoffice"
+	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
+
+/area/horizon/operations/office_aux
+	name = "Operations Office (Aux)"
+	icon_state = "quartoffice"
+	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
+
+/area/horizon/operations/mail_room
+	name = "Operations Mail Room"
+	icon_state = "red"
+
+/area/horizon/operations/qm
+	name = "Operations Manager's Office"
+	icon_state = "quart"
+	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
+
+/// OPERATIONS_AREAS - HANGAR_AREAS
+/area/horizon/hangar
+	name = "Hangar"
+	icon_state = "bluenew"
+	ambience = AMBIENCE_HANGAR
+	sound_environment = SOUND_ENVIRONMENT_HANGAR
+	holomap_color = HOLOMAP_AREACOLOR_HANGAR
+
+/area/horizon/hangar/briefing
+	name = "Expedition Briefing Room"
+	sound_environment = SOUND_AREA_LARGE_ENCLOSED
+
+/area/horizon/hangar/control
+	name = "Hangar Control Room"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+
+/area/horizon/hangar/intrepid
+	name = "Intrepid Hangar"
+	area_blurb = "A big, open room, home to the SCCV Horizon's largest shuttle, the Intrepid."
+	area_blurb_category = "intrepid_hanger"
+
+/area/horizon/hangar/intrepid/interstitial
+	name = "Intrepid Hangar Access"
+
+/area/horizon/hangar/operations
+	name = "Operations Hangar"
+
+/area/horizon/hangar/auxiliary
+	name = "Auxiliary Hangar"
+
+/// OPERATIONS_AREAS - MACHINIST_AREAS
+/area/horizon/operations/lower/machinist
 	name = "Machinist Workshop"
 	icon_state = "machinist_workshop"
 	area_blurb = "The scents of oil and mechanical lubricants fill the air in this workshop."
 	area_blurb_category = "robotics"
 
-/area/operations/lower/machinist/surgicalbay
+/area/horizon/operations/lower/machinist/surgicalbay
 	name = "Machinist Surgical Bay"
 	icon_state = "machinist_workshop"
 	area_blurb = "The scent of sterilized equipment fill the air in this surgical bay."
 	area_blurb_category = "robotics"
 
-/area/operations/lobby
-	name = "Operations Lobby"
+/// OPERATIONS_AREAS - MINING_AREAS
 
-/area/operations/loading
-	name = "Operations Bay"
-	icon_state = "quartloading"
+/// SCIENCE_AREAS
+/// SECURITY_AREAS
+/// SERVICE_AREAS
+/// TCOMMS_AREAS
 
-/area/operations/break_room
-	name = "Operations Break Room"
-	icon_state = "blue"
 
-/area/operations/office
-	name = "Operations Office"
-	icon_state = "quartoffice"
-	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
+//Medical
 
-/area/operations/office_aux
-	name = "Operations Office (Aux)"
-	icon_state = "quartoffice"
-	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
 
-/area/operations/mail_room
-	name = "Operations Mail Room"
-	icon_state = "red"
+//Research
 
-/area/operations/qm
-	name = "Operations Manager's Office"
-	icon_state = "quart"
-	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
+/area/rnd/conference
+	name = "Research - Conference Room"
 
-//Wings
+//Hangar
 
-/area/maintenance/substation/wing_starboard
-	name = "Starboard Wing Substation"
 
-/area/maintenance/substation/wing_port
-	name = "Port Wing Substation"
 
-/area/maintenance/hangar
-	name = "Hangar Maintenance"
+//Operations
 
-/area/maintenance/hangar/port
-	name = "Port Hangar Maintenance"
 
-/area/maintenance/hangar/starboard
-	name = "Starboard Hangar Maintenance"
-
-/area/maintenance/wing
-	name = "Wing Frame Maintenance"
-	icon_state = "fpmaint"
-
-/area/maintenance/wing/starboard
-	name = "Central Wing Frame Interior - Starboard"
-
-/area/maintenance/wing/starboard/far
-	name = "Central Wing Frame Interior - Far Starboard"
-
-/area/maintenance/wing/starboard/deck1
-	name = "Lower Wing Frame Interior - Starboard"
-
-/area/maintenance/wing/port
-	name = "Central Wing Frame Interior - Port"
-
-/area/maintenance/wing/port/far
-	name = "Central Wing Frame Interior - Far Port"
-
-/area/maintenance/wing/port/deck1
-	name = "Lower Wing Frame Interior - Port"
 
 //Propulsion
 
-/area/engineering/atmos/propulsion
-	name = "Port Propulsion"
-	icon_state = "blue2"
-	sound_environment = SOUND_AREA_SMALL_ENCLOSED
-
-/area/engineering/atmos/propulsion/starboard
-	name = "Starboard Propulsion"
-	icon_state = "blue-red2"
-
 //Bridge
-/area/crew_quarters/heads/hop/xo
+/area/horizon/crew/command/heads/xo
 	name = "Command - Executive Officer's Office"
 
 /area/bridge/bridge_crew
@@ -292,19 +398,6 @@
 /area/crew_quarters/lounge/secondary
 	name = "Secondary Crew Lounge"
 	icon_state = "lounge2"
-
-// Maintenance
-
-/area/maintenance/operations
-	name = "Operations Maintenance"
-	icon_state = "maint_cargo"
-
-/area/maintenance/aux_atmospherics/deck_2/starboard
-	name = "Starboard Auxiliary Atmospherics"
-/area/maintenance/aux_atmospherics/deck_2/starboard/wing
-	name = "Starboard Wing Auxiliary Atmospherics"
-/area/maintenance/aux_atmospherics/deck_3
-	name = "Central Auxiliary Atmospherics"
 
 // Infrastructure
 
@@ -348,49 +441,6 @@
 /area/shuttle/quark/cargo_hold
 	name = "Quark Cargo Hold"
 	requires_power = TRUE
-
-//
-// SCCV Horizon Areas
-//
-/area/horizon
-	name = "Horizon (PARENT AREA - DON'T USE)"
-	icon_state = "unknown"
-	station_area = TRUE
-	ambience = AMBIENCE_GENERIC
-
-// Exterior
-/area/horizon/exterior
-	name = "Horizon - Exterior"
-	icon_state = "exterior"
-	base_turf = /turf/space
-	dynamic_lighting = TRUE
-	requires_power = FALSE
-	has_gravity = FALSE
-	no_light_control = TRUE
-	allow_nightmode = FALSE
-	ambience = AMBIENCE_SPACE
-	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
-
-/********** Maintenance Start **********/
-// Maintenance
-/area/horizon/maintenance
-	name = "Horizon - Maintenance (PARENT AREA - DON'T USE)"
-	icon_state = "maintenance"
-	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_HIDE_FROM_HOLOMAP
-	sound_environment = SOUND_AREA_TUNNEL_ENCLOSED
-	turf_initializer = new /datum/turf_initializer/maintenance()
-	ambience = AMBIENCE_MAINTENANCE
-
-/area/horizon/maintenance/deck_two/fore/starboard
-	name = "Horizon - Maintenance - Deck Two - Fore Starboard"
-
-/area/horizon/maintenance/deck_two/fore/port
-	name = "Horizon - Maintenance - Deck Two - Fore Port"
-
-/area/horizon/maintenance/deck_three/aft/starboard
-	name = "Horizon - Maintenance - Deck Three - Aft Starboard"
-
-/********** Maintenance End **********/
 
 /********** Hallways Start **********/
 // Hallways
@@ -448,77 +498,77 @@
 
 /********** Crew Quarters Start **********/
 // Crew Quarters
-/area/horizon/crew_quarters
+/area/horizon/crew
 	name = "Horizon - Crew Quarters (PARENT AREA - DON'T USE)"
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 
 // Cryogenics
-/area/horizon/crew_quarters/cryo
+/area/horizon/crew/cryo
 	name = "Horizon - Cryogenic Storage"
 	icon_state = "Sleep"
 
-/area/horizon/crew_quarters/cryo/living_quarters_lift
+/area/horizon/crew/cryo/living_quarters_lift
 	name = "Horizon - Living Quarters Lift"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
-/area/horizon/crew_quarters/cryo/dormitories
+/area/horizon/crew/cryo/dormitories
 	name = "Horizon - Cryogenic Storage - Dormitories"
 
-/area/horizon/crew_quarters/cryo/washroom
+/area/horizon/crew/cryo/washroom
 	name = "Horizon - Cryogenic Storage - Washroom"
 	icon_state = "washroom"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
-/area/horizon/crew_quarters/cryo/showers
+/area/horizon/crew/cryo/showers
 	name = "Horizon - Cryogenic Storage - Showers"
 	icon_state = "showers"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 // Fitness Center
-/area/horizon/crew_quarters/fitness
+/area/horizon/crew/fitness
 	name = "Horizon - Fitness Center (PARENT AREA - DON'T USE)"
 	icon_state = "fitness"
 
-/area/horizon/crew_quarters/fitness/hallway
+/area/horizon/crew/fitness/hallway
 	name = "Horizon - Fitness Center Hallway"
 	icon_state = "fitness_hallway"
 
-/area/horizon/crew_quarters/fitness/pool
+/area/horizon/crew/fitness/pool
 	name = "Horizon - Fitness Center - Pool"
 	icon_state = "fitness_pool"
 
-/area/horizon/crew_quarters/fitness/gym
+/area/horizon/crew/fitness/gym
 	name = "Horizon - Fitness Center - Gym"
 	icon_state = "fitness_gym"
 
-/area/horizon/crew_quarters/fitness/changing
+/area/horizon/crew/fitness/changing
 	name = "Horizon - Fitness Center - Changing Room"
 	icon_state = "fitness_changingroom"
 
-/area/horizon/crew_quarters/fitness/washroom
+/area/horizon/crew/fitness/washroom
 	name = "Horizon - Fitness Center - Washroom"
 	icon_state = "washroom"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
-/area/horizon/crew_quarters/fitness/showers
+/area/horizon/crew/fitness/showers
 	name = "Horizon - Fitness Center - Showers"
 	icon_state = "showers"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
-/area/horizon/crew_quarters/fitness/lounge
+/area/horizon/crew/fitness/lounge
 	name = "Horizon - Fitness Center - Lounge"
 	icon_state = "fitness_lounge"
 	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
 
 // Lounges
-/area/horizon/crew_quarters/lounge/bar
+/area/horizon/crew/lounge/bar
 	name = "Horizon - Bar Lounge"
 	icon_state = "lounge"
 	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
 
 // Miscellanous
-/area/horizon/crew_quarters/washroom/central
+/area/horizon/crew/washroom/central
 	name = "Horizon - Central Washroom"
 	icon_state = "washroom"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
@@ -748,21 +798,6 @@
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 
-// Crew Armoury
-/area/horizon/crew_armoury
-	name = "Horizon - Crew Armoury"
-	icon_state = "crew_armoury"
-	sound_environment = SOUND_AREA_LARGE_ENCLOSED
-	ambience = AMBIENCE_HIGHSEC
-	allow_nightmode = FALSE
-	holomap_color = HOLOMAP_AREACOLOR_COMMAND
-
-/area/horizon/crew_armoury/foyer
-	name = "Horizon - Crew Armoury - Foyer"
-	icon_state = "crew_armoury_foyer"
-	sound_environment = SOUND_AREA_SMALL_ENCLOSED
-	ambience = AMBIENCE_FOREBODING
-	holomap_color = HOLOMAP_AREACOLOR_HALLWAYS
 
 // Security (Deck 2)
 /area/horizon/security
@@ -908,3 +943,195 @@
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 
 /********** Weapon Systems End **********/
+
+/// STORAGE_AREAS
+/area/horizon/storage
+	station_area = TRUE
+
+/area/horizon/storage/eva
+	name = "EVA Storage"
+	icon_state = "eva"
+
+/area/horizon/storage/primary
+	name = "Primary Tool Storage"
+	icon_state = "primarystorage"
+	allow_nightmode = 1
+
+/area/horizon/storage/secure
+	name = "Secure Storage"
+	icon_state = "storage"
+
+/area/horizon/storage/shields
+	name = "Station Shield Control"
+	icon_state = "eva"
+
+/// TCOMMS_AREAS
+/area/horizon/tcommsat
+	ambience = AMBIENCE_ENGINEERING
+	no_light_control = 1
+	station_area = TRUE
+	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
+
+/area/horizon/tcommsat/entrance
+	name = "Telecomms Entrance"
+	icon_state = "tcomsatentrance"
+	lightswitch = TRUE
+
+/area/horizon/tcommsat/chamber
+	name = "Telecomms Central Compartment"
+	icon_state = "tcomsatcham"
+	area_blurb = "Countless machines sit here, an unfathomably complicated network that runs every radio and computer connection. The air lacks any notable scent, having been filtered of dust and pollutants before being allowed into the room and all the sensitive machinery."
+
+/// MAINTENANCE_AREAS
+//Maintenance
+/********** Maintenance Start **********/
+// Maintenance
+/area/horizon/maintenance
+	name = "Horizon - Maintenance (PARENT AREA - DON'T USE)"
+	icon_state = "maintenance"
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_HIDE_FROM_HOLOMAP
+	sound_environment = SOUND_AREA_TUNNEL_ENCLOSED
+	turf_initializer = new /datum/turf_initializer/maintenance()
+	area_blurb = "Scarcely lit, cramped, and filled with stale, dusty air. Around you hisses compressed air through the pipes, a buzz of electrical charge through the wires, and muffled rumbles of the hull settling. This place may feel alien compared to the interior of the ship and is a place where one could get lost or badly hurt, but some may find the isolation comforting."
+	area_blurb_category = "maint"
+	ambience = AMBIENCE_MAINTENANCE
+
+/area/horizon/maintenance/deck_two/fore/starboard
+	name = "Horizon - Maintenance - Deck Two - Fore Starboard"
+
+/area/horizon/maintenance/deck_two/fore/port
+	name = "Horizon - Maintenance - Deck Two - Fore Port"
+
+/area/horizon/maintenance/deck_three/aft/starboard
+	name = "Horizon - Maintenance - Deck Three - Aft Starboard"
+
+/area/horizon/maintenance/aft
+	name = "Aft Maintenance"
+	icon_state = "amaint"
+
+/area/horizon/maintenance/maintcentral
+	name = "Bridge Maintenance"
+	icon_state = "maintcentral"
+
+/area/horizon/maintenance/engineering
+	name = "Engineering Maintenance"
+	icon_state = "maint_engineering"
+
+/area/horizon/maintenance/engineering/auxillary
+	name = "Auxillary Engineering Maintenance"
+	icon_state = "maint_engineering"
+
+/area/horizon/maintenance/research_port
+	name = "Research Maintenance - Port"
+	icon_state = "maint_research_port"
+
+/area/horizon/maintenance/engineering_ladder
+	name = "Engineering Ladder Shaft"
+	icon_state = "maint_engineering"
+
+/area/horizon/maintenance/security_port
+	name = "Security Maintenance - Port"
+	icon_state = "maint_security_port"
+
+/area/horizon/maintenance/bridge
+	name = "Bridge Maintenance"
+	icon_state = "maintcentral"
+
+/area/horizon/maintenance/operations
+	name = "Operations Maintenance"
+	icon_state = "maint_cargo"
+
+/area/horizon/maintenance/aux_atmospherics/deck_2/starboard
+	name = "Starboard Auxiliary Atmospherics"
+/area/horizon/maintenance/aux_atmospherics/deck_2/starboard/wing
+	name = "Starboard Wing Auxiliary Atmospherics"
+/area/horizon/maintenance/aux_atmospherics/deck_3
+	name = "Central Auxiliary Atmospherics"
+
+//Wings
+
+/area/horizon/maintenance/substation/wing_starboard
+	name = "Starboard Wing Substation"
+
+/area/horizon/maintenance/substation/wing_port
+	name = "Port Wing Substation"
+
+/area/horizon/maintenance/hangar
+	name = "Hangar Maintenance"
+
+/area/horizon/maintenance/hangar/port
+	name = "Port Hangar Maintenance"
+
+/area/horizon/maintenance/hangar/starboard
+	name = "Starboard Hangar Maintenance"
+
+/area/horizon/maintenance/wing
+	name = "Wing Frame Maintenance"
+	icon_state = "fpmaint"
+
+/area/horizon/maintenance/wing/starboard
+	name = "Central Wing Frame Interior - Starboard"
+
+/area/horizon/maintenance/wing/starboard/far
+	name = "Central Wing Frame Interior - Far Starboard"
+
+/area/horizon/maintenance/wing/starboard/deck1
+	name = "Lower Wing Frame Interior - Starboard"
+
+/area/horizon/maintenance/wing/port
+	name = "Central Wing Frame Interior - Port"
+
+/area/horizon/maintenance/wing/port/far
+	name = "Central Wing Frame Interior - Far Port"
+
+/area/horizon/maintenance/wing/port/deck1
+	name = "Lower Wing Frame Interior - Port"
+
+// SUBSTATIONS (Subtype of maint, that should let them serve as shielded area during radstorm)
+
+/area/horizon/maintenance/substation
+	name = "Substation"
+	icon_state = "substation"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	ambience = AMBIENCE_SUBSTATION
+	area_blurb = "The hum of the substation's machinery fills the room, holding equipment made to transform voltage and manage power supply to various rooms, and to act as an emergency battery. In comparison to the maintenance tunnels, these stations are far less dusty."
+	area_blurb_category = "substation"
+
+/area/horizon/maintenance/substation/engineering // Engineering
+	name = "Engineering Substation"
+
+/area/horizon/maintenance/substation/engineering/lower
+	name = "Engineering Substation - Lower Deck"
+
+/area/horizon/maintenance/substation/medical // Medbay
+	name = "Main Lvl. Medical Substation"
+
+/area/horizon/maintenance/substation/research // Research
+	name = "Main Lvl. Research Substation"
+
+/area/horizon/maintenance/substation/research_sublevel
+	name = "Research Sublevel - Substation"
+
+/area/horizon/maintenance/substation/civilian_east // Bar, kitchen, dorms, ...
+	name = "Surface Lvl. Civilian Substation"
+
+/area/horizon/maintenance/substation/civilian_west // PTS, locker room, probably arrivals, ...)
+	name = "Main Lvl. Civilian Substation"
+
+/area/horizon/maintenance/substation/command // AI and central cluster. This one will be between HoP office and meeting room (probably).
+	name = "Command Substation"
+
+/area/horizon/maintenance/substation/security // Security, Brig, Permabrig, etc.
+	name = "Security Substation"
+
+/area/horizon/maintenance/substation/interstitial // Construction Level.
+	name = "Construction Level Substation"
+
+/area/horizon/maintenance/substation/supply // Cargo and Mining.
+	name = "Main Lvl. Supply Substation"
+
+/area/horizon/maintenance/substation/xenoarchaeology
+	name = "Xenoarchaeology Substation"
+
+/area/horizon/maintenance/substation/hangar
+	name = "Hangar Substation"
