@@ -36,9 +36,11 @@
 		to_chat(user, SPAN_WARNING("Not even a psion of your level can speak to the dead."))
 		return
 
-	var/psi_blocked = target.is_psi_blocked()
-	if(psi_blocked)
-		to_chat(user, psi_blocked)
+	// We're checking for compatibility since it doesn't check for mindshields.
+	// This ability is intended to not be blocked by mindshields.
+	var/psi_incompatible = target.is_psi_compatible()
+	if(psi_incompatible)
+		to_chat(user, psi_incompatible)
 		return
 
 	user.visible_message(SPAN_NOTICE("<i>[user] blinks, their eyes briefly developing an unnatural shine.</i>"))
@@ -62,10 +64,16 @@
 		else if(M.stat == DEAD && M.client.prefs.toggles & CHAT_GHOSTEARS)
 			to_chat(M, "<span class='notice'>[user] psionically says to [target]:</span> [text]")
 
+	var/psi_blocked = target.is_psi_blocked()
 	var/mob/living/carbon/human/H = target
-	if(H.has_psionics())
+
+	if(H.has_psionics() && psi_blocked)
+		to_chat(H, SPAN_CULT("<b>You instinctively sense [user] passing a thought into your mind, although it seems faint and muffled:</b> [text]"))
+	else if(H.has_psionics())
 		to_chat(H, SPAN_CULT("<b>You instinctively sense [user] passing a thought into your mind:</b> [text]"))
 	else if(target.has_psi_aug())
 		to_chat(H, SPAN_CULT("<b>You sense [user]'s psyche link with your psi-receiver, a thought sliding into your mind:</b> [text]"))
+	else if(psi_blocked)
+		to_chat(H, SPAN_ALIEN("<b>A thought from outside your consciousness rings faintly and distantly in your mind:</b> [text]"))
 	else
 		to_chat(H, SPAN_ALIEN("<b>A thought from outside your consciousness slips into your mind:</b> [text]"))
