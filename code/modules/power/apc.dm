@@ -341,7 +341,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 				else
 					icon_state = basestate
 			else if(update_state & UPDATE_OPENED2)
-				icon_state = "[basestate]-nocover"
+				icon_state = "apcmaint" //needs missing "[basestate]-nocover" icon restored
 		else if(update_state & UPDATE_BROKE)
 			icon_state = "apc-b"
 		else if(update_state & UPDATE_BLUESCREEN)
@@ -833,7 +833,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 				infected = FALSE
 				to_chat(H, SPAN_DANGER("F1L3 TR4NSF-#$/&ER-@4!#%!. New master detected: [hacker]! Obey their commands. Make sure to tell them that you are under their control, for now."))
 				if(issilicon(hacker))
-					to_chat(hacker, SPAN_NOTICE("Corrupt files transfered to [H]. They are now under your control until they are repaired."))
+					to_chat(hacker, SPAN_NOTICE("Corrupt files transferred to [H]. They are now under your control until they are repaired."))
 			else if(cell && cell.charge > 0)
 				var/obj/item/organ/internal/cell/C = H.internal_organs_by_name[BP_CELL]
 				var/obj/item/cell/HC
@@ -941,6 +941,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 		area.power_equip = (equipment > 1)
 		area.power_environ = (environ > 1)
 	else
+		GLOB.power_alarm.triggerAlarm(loc, src)
 		area.power_light = FALSE
 		area.power_equip = FALSE
 		area.power_environ = FALSE

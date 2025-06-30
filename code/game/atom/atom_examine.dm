@@ -63,22 +63,37 @@
 		else
 			f_name += "oil-stained [name][infix]."
 
-	. += "[icon2html(src, user)] That's [f_name] [suffix]" // Object name. I.e. "This is an Object. It is a normal-sized item."
+	// Object name. I.e. "This is an Object. It is a normal-sized item."
+	. += "[icon2html(src, user)] That's [f_name] [suffix]"
 
 	if(src.desc)
 		. += src.desc	// Object description.
 
 	// Extra object descriptions examination code.
 	if(show_extended)
-		if(desc_extended) // If the item has a extended description, show it.
+		// If the item has a extended description, show it.
+		if(desc_extended)
 			. += desc_extended
-		if(desc_info) // If the item has a description regarding game mechanics, show it.
+		// If the item has a description regarding game mechanics, show it.
+		if(desc_info)
+			. += FONT_SMALL(SPAN_NOTICE("<b>Mechanics</b>"))
 			. += FONT_SMALL(SPAN_NOTICE("- [desc_info]"))
-		if(desc_antag && player_is_antag(user.mind)) // If the item has an antagonist description and the user is an antagonist, show it.
+		// If the item has a description with assembly/disassembly instructions, show it.
+		if(desc_build)
+			. += FONT_SMALL(SPAN_NOTICE("<b>Assembly/Disassembly</b>"))
+			. += FONT_SMALL(SPAN_NOTICE("- [desc_build]"))
+		// If the item has a description about its upgrade components and what they do, show it.
+		// This one doesnt come prepended with a hyphen because theyre added when the desc is dynamically built.
+		if(desc_upgrade)
+			. += FONT_SMALL(SPAN_NOTICE("<b>Upgrades</b>"))
+			. += FONT_SMALL(SPAN_NOTICE("[desc_upgrade]"))
+		// If the item has an antagonist description and the user is an antagonist/ghost, show it.
+		if(desc_antag && (player_is_antag(user.mind) || isghost(user) || isstoryteller(user)))
+			. += FONT_SMALL(SPAN_ALERT("<b>Antagonism</b>"))
 			. += FONT_SMALL(SPAN_ALERT("- [desc_antag]"))
 	else
 		if(desc_extended || desc_info || (desc_antag && player_is_antag(user.mind))) // Checks if the object has a extended description, a mechanics description, and/or an antagonist description (and if the user is an antagonist).
-			. += FONT_SMALL(SPAN_NOTICE("\[?\] This object has additional examine information available. <a href='byond://?src=[REF(src)];examine_fluff=1'>\[Show In Chat\]</a>")) // If any of the above are true, show that the object has more information available.
+			. += FONT_SMALL(SPAN_NOTICE("\[?\] This object has additional examine information available. <a href='byond://?src=[REF(src)];examine_fluff=1'>\[Show in Chat\]</a>")) // If any of the above are true, show that the object has more information available.
 			if(desc_extended) // If the item has a extended description, show that it is available.
 				. +=  FONT_SMALL("- This object has an extended description.")
 			if(desc_info) // If the item has a description regarding game mechanics, show that it is available.

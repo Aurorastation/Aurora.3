@@ -2,8 +2,8 @@
 	name = "\improper IV drip"
 	desc = "A professional standard intravenous stand with supplemental gas support for medical use."
 	desc_info = "IV drips can be supplied beakers/bloodpacks for reagent transfusions, as well as one breath mask and gas tank for supplemental gas therapy. \
-	It can be upgraded. <br>Click and Drag to attach/detach the IV or secure/remove the breath mask on your target. <br>Click the stand with an empty hand to \
-	toggle between various modes. Using a wrench when it has a tank installed will secure it.<br>Alt Click the stand to remove items contained in the stand."
+	<br>- Click and Drag to attach/detach the IV or secure/remove the breath mask on your target.<br>- Click the stand with an empty hand to \
+	toggle between various modes. Using a wrench when it has a tank installed will secure it.<br>- Alt Click the stand to remove items contained in the stand."
 	icon = 'icons/obj/iv_drip.dmi'
 	icon_state = "iv_stand"
 	anchored = 0
@@ -59,6 +59,9 @@
 		/obj/item/stock_parts/matter_bin,
 		/obj/item/stock_parts/manipulator,
 		/obj/item/stock_parts/scanning_module)
+
+	component_hint_scan = "Upgraded <b>scanning modules</b> will provide the exact volume and composition of attached beakers."
+	component_hint_servo = "Upgraded <b>manipulators</b> will allow patients to be hooked to IV through armor and increase the maximum reagent transfer rate."
 
 /obj/machinery/iv_drip/Initialize(mapload)
 	. = ..()
@@ -696,7 +699,7 @@
 	. = ..()
 	if(distance > 2)
 		return
-	. += SPAN_NOTICE("[src] is [mode ? "injecting" : "taking blood"] at a rate of [src.transfer_amount] u/sec, the automatic injection stop mode is [toggle_stop ? "on" : "off"]. The Emergency Positive Pressure \
+	. += SPAN_NOTICE("<br>[src] is [mode ? "injecting" : "taking blood"] at a rate of [src.transfer_amount] u/sec, the automatic injection stop mode is [toggle_stop ? "on" : "off"]. The Emergency Positive Pressure \
 	system is [epp ? "on" : "off"].")
 	if(attached)
 		. += SPAN_NOTICE("\The [src] is attached to [attached]'s [vein.name].")

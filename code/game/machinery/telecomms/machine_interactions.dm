@@ -12,17 +12,28 @@
 		interact(user, attacking_item)
 		return TRUE
 
-	// REPAIRING: Use Nanopaste to repair half of the system's integrity. At 24 machines, it will take 48 uses of nanopaste to repair the entire array.
+	// REPAIRING: Use Nanopaste to repair 25pts of system integrity.
+	// This used to be half integrity, but changed by Bat to be simpler after comms blackouts started causing emp damage.
 	if(istype(attacking_item, /obj/item/stack/nanopaste))
 		var/obj/item/stack/nanopaste/T = attacking_item
-		if (integrity < 100)               								//Damaged, let's repair!
-			if (T.use(1))
-				integrity = between(0, initial(integrity) / 2, initial(integrity))
+		// Damaged, let's repair!
+		if(integrity < 100)
+			if(T.use(1))
+				integrity = between(0, integrity + 25, initial(integrity))
 				to_chat(user, "You apply the Nanopaste to [src], repairing some of the damage.")
 		else
 			to_chat(user, "This machine is already in perfect condition.")
 		return TRUE
 
+	// Beat it with a stick!
+	if(!istype(user, /mob/living/silicon))
+		if(user.a_intent == I_HURT)
+			user.visible_message(SPAN_DANGER("\The [user] strikes [src]!"))
+			user.do_attack_animation(user, attacking_item)
+			playsound(loc, hitsound, 60, TRUE)
+			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+			integrity = between(0, integrity - round(attacking_item.force / 3), initial(integrity))
+			return TRUE
 
 	switch(construct_op)
 		if(0)
