@@ -13,6 +13,7 @@
 	name = "processor unit"
 	icon_state = "processor"
 	desc = "This machine is used to process large quantities of information."
+	desc_antag = "Attacking this machine will cause communications over its linked frequency(s) to become increasingly garbled."
 	telecomms_type = /obj/machinery/telecomms/processor
 	delay = 5
 	circuitboard = "/obj/item/circuitboard/telecomms/processor"

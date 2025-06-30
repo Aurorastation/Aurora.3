@@ -34,7 +34,7 @@
 	for(var/obj/machinery/power/apc/valid_apc in SSmachinery.apc_units)
 		if((valid_apc.z in affecting_z) && !valid_apc.is_critical)
 			valid_apcs += valid_apc
-	endWhen = (severity * 60) + startWhen
+	endWhen = (severity * 45) + startWhen
 
 /datum/event/electrical_storm/end(faked)
 	..()
@@ -60,16 +60,21 @@
 
 	var/list/picked_apcs = list()
 	// Up to 2/4/6 APCs per tick depending on severity
+	for(var/i = 0, i < ((severity + 1)), i++)
 	for(var/i = 0, i < (severity * 2), i++)
 		picked_apcs |= pick(valid_apcs)
 
 	for(var/obj/machinery/power/apc/victim_apc in picked_apcs)
 		// Determine what each APC does. Depending on how bad they roll, might be nothing or might blow out the entire thing.
 		// Mundane storm:  0-55 nothing, 56+ lights flicker, 86+ damage (2 APC at a time)
-		// Moderate storm: 0-30 nothing, 31+ lights flicker, 81+ damage (4 APCs at a time)
-		// Severe storm:   0-5 nothing,  6+ lights flicker, 76+ damage (6 APCs at a time)
+		// Moderate storm: 0-30 nothing, 31+ lights flicker, 81+ damage (3 APCs at a time)
+		// Severe storm:   0-5 nothing,  6+ lights flicker, 76+ damage (4 APCs at a time)
 		// Once storm damage exceeds a threshold, there is a random chance of certain secondary effects.
 		storm_damage = rand(0,100)
+
+		// We don't want to obliterate small offships (lucky 7 APCs or fewer).
+		if(LAZYLEN(valid_apcs) < 8)
+			LAZYREMOVE(victim_apc, valid_apcs)
 
 		// Main breaker is turned off, or we rolled lucky. Consider this APC protected.
 		if(!victim_apc.operating || storm_damage <= (80 - (severity * 25)))
