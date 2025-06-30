@@ -10,7 +10,7 @@
 	user.visible_message(SPAN_NOTICE("[user] starts inspecting [affecting]'s [E.name] carefully."))
 	if(!do_mob(user,H, 10))
 		to_chat(user, SPAN_NOTICE("You must stand still to inspect [E] for wounds."))
-	else if(E.wounds.len)
+	else if(LAZYLEN(E.wounds))
 		to_chat(user, SPAN_WARNING("You find [E.get_wounds_desc()]"))
 	else
 		to_chat(user, SPAN_NOTICE("You find no visible wounds."))
