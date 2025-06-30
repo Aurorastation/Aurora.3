@@ -4,6 +4,7 @@
 #define INFESTATION_SPIDERLINGS "greimorian larva"
 #define INFESTATION_HIVEBOTS "hivebots"
 #define INFESTATION_SLIMES "slimes"
+#define INFESTATION_NYMPHS "diona nymphs"
 
 /datum/event/infestation
 	startWhen = 1
@@ -18,7 +19,8 @@
 	var/chosen_scan_type = "Bioscans"
 	var/list/possible_mobs = list(
 		INFESTATION_RATS = 1,
-		INFESTATION_LIZARDS = 1
+		INFESTATION_LIZARDS = 1,
+		INFESTATION_NYMPHS = 1
 	)
 
 /datum/event/infestation/moderate
@@ -130,6 +132,12 @@
 				chosen_mob_types += /obj/effect/spider/spiderling
 			chosen_mob_types += /obj/effect/spider/eggcluster
 
+		if(INFESTATION_NYMPHS)
+			event_name = "Nymph Infestation"
+			chosen_verb = "have crawled into"
+			for(var/i = 1, i < rand(3,6),i++)
+				chosen_mob_types += /mob/living/carbon/alien/diona
+
 /datum/event/infestation/proc/spawn_mobs()
 	for(var/spawned_mob in chosen_mob_types)
 		new spawned_mob(chosen_area.random_space())
@@ -150,3 +158,4 @@
 #undef INFESTATION_SPIDERLINGS
 #undef INFESTATION_HIVEBOTS
 #undef INFESTATION_SLIMES
+#undef INFESTATION_NYMPHS
