@@ -602,7 +602,6 @@ GLOBAL_LIST_INIT(robot_modules, list(
 	R.add_fingerprint(user)
 	QDEL_NULL(held)
 
-
 /obj/item/robot_module/janitor/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
 	..()
 	var/obj/item/device/lightreplacer/LR = locate() in modules
