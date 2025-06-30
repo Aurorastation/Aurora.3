@@ -140,7 +140,7 @@
 // Proc to shove them up your nose
 
 /obj/item/reagent_containers/powder/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/paper/cig) || istype(attacking_item, /obj/item/spacecash))
+	if(istype(attacking_item, /obj/item/paper/cig) || attacking_item.type == /obj/item/spacecash)
 		var/mob/living/carbon/human/H = user
 		var/obj/item/blocked = H.check_mouth_coverage()
 		if(blocked)
