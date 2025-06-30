@@ -23,4 +23,4 @@
 
 /singleton/role/swamptown_crew/villager
 	name = "Villager"
-	desc = "WHAT ARE YOU DOING IN MY SWAMP"
+	desc = "A villager in a marshland."
