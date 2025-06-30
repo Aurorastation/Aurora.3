@@ -1,3 +1,7 @@
+/*
+These are Coeus Dionae! They are younger than the standard variant of the species, and are substantially quicker.
+In return, they are generally substantially more fragile, being especially susceptible to pain.
+*/
 /datum/species/diona/coeu
 	name = SPECIES_DIONA_COEUS
 	name_plural = "Coeus Dionaea"

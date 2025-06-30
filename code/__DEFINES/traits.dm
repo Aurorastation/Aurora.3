@@ -182,6 +182,9 @@
 /// This trait makes Check_Shoegrip return TRUE. Used for magboot-like behaviour.
 #define TRAIT_SHOE_GRIP "shoe_grip"
 
+/// Trait is added from a species verb.
+#define TRAIT_SOURCE_SPECIES_VERB "species_verb"
+
 // DISABILITY TRAITS
 
 /// Causes the mob to take twice as long to clot their wounds
