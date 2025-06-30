@@ -864,3 +864,7 @@
 /datum/access/enviro_testing_facility_access_sec
 	id = 252
 	desc = "Env-Test Facility Zoya, Security Access"
+
+#define ACCESS_HIMEO_PATROL_SHIP 253
+	id = ACCESS_HIMEO_PATROL_SHIP
+	desc = "Himean Military Patrol Vessel"

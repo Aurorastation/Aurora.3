@@ -401,6 +401,12 @@
 	icon_state = "woodkeg"
 	reagents_to_add = list(/singleton/reagent/alcohol/sake = 1000)
 
+/obj/structure/reagent_dispensers/keg/kvass
+	name = "kvass keg"
+	desc = "A keg full of Dorshafen kvass - non-alcoholic, and a common sight in any workers home across Himeo."
+	icon_state = "keg_kvass"
+	reagents_to_add = list(/singleton/reagent/drink/mushroom_kvass = 1000)
+
 //Cooking oil tank
 /obj/structure/reagent_dispensers/cookingoil
 	name = "cooking oil tank"

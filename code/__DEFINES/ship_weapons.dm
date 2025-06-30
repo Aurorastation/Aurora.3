@@ -4,6 +4,7 @@
 #define SHIP_CALIBER_60MM "60mm"
 #define SHIP_CALIBER_90MM "90mm"
 #define SHIP_CALIBER_ZAT "zero-point warp beam"
+#define SHIP_CALIBER_BLASTERREPEATER "blaster burst"
 #define SHIP_CALIBER_178MM "178mm"
 #define SHIP_CALIBER_COILGUN "tungsten rod"
 #define SHIP_CALIBER_200MM "200mm"
