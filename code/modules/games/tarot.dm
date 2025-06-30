@@ -26,7 +26,7 @@
 			P.back_icon = "card_back_tarot"
 			cards += P
 
-/obj/item/deck/tarot/AltClick(var/mob/user as mob)
+/obj/item/deck/tarot/AltClick(mob/user)
 	var/list/newcards = list()
 	while(cards.len)
 		var/datum/playingcard/P = pick(cards)
@@ -37,9 +37,9 @@
 		cards -= P
 	cards = newcards
 	playsound(src.loc, 'sound/items/cards/cardshuffle.ogg', 100, 1, -4)
-	user.visible_message("\The [user] shuffles \the [src].")
+	balloon_alert_to_viewers("shuffling")
 
-
+/// Tajaran tarot deck.
 /obj/item/deck/tarot/adhomai
 	name = "adhomian divination cards deck"
 	desc = "An adhomian deck of divination cards, used to read the one's fortune or play games."
@@ -68,6 +68,7 @@
 			P.back_icon = "card_back_adhomai"
 			cards += P
 
+/// Skrellian tarot decks.
 /obj/item/deck/tarot/nralakk
 	name = "qwei'paqui homeworld deck"
 	desc = "A Skrellian deck of tarot cards depicting the main constellations of Nralakk."
@@ -167,4 +168,3 @@
 		P.card_icon = "[suit]_[lowertext(name)]"
 		P.back_icon = "card_off_[suit]"
 		cards += P
-

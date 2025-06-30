@@ -106,7 +106,7 @@
 /datum/shuttle/autodock/overmap/intrepid
 	name = "Intrepid"
 	move_time = 20
-	shuttle_area = list(/area/shuttle/intrepid/main_compartment, /area/shuttle/intrepid/cargo_bay, /area/shuttle/intrepid/medical, /area/shuttle/intrepid/engineering, /area/shuttle/intrepid/port_storage, /area/shuttle/intrepid/cockpit)
+	shuttle_area = list(/area/shuttle/intrepid/main_compartment, /area/shuttle/intrepid/port_compartment, /area/shuttle/intrepid/starboard_compartment, /area/shuttle/intrepid/junction_compartment, /area/shuttle/intrepid/buffet, /area/shuttle/intrepid/medical, /area/shuttle/intrepid/engineering, /area/shuttle/intrepid/port_storage, /area/shuttle/intrepid/flight_deck)
 	dock_target = "airlock_shuttle_intrepid"
 	current_location = "nav_hangar_intrepid"
 	landmark_transition = "nav_transit_intrepid"

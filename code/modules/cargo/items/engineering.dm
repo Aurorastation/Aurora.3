@@ -602,7 +602,7 @@
 
 /singleton/cargo_item/debugger
 	category = "engineering"
-	name = "Debugger"
+	name = "debugger"
 	supplier = "hephaestus"
 	description = "Used to debug electronic equipment."
 	price = 50
@@ -613,6 +613,20 @@
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 2
+
+/singleton/cargo_item/powerdrill
+	category = "engineering"
+	name = "impact wrench"
+	supplier = "hephaestus"
+	description = "Wrenches and screws things. Faster."
+	price = 50
+	items = list(
+		/obj/item/powerdrill
+	)
+	access = ACCESS_ENGINE
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
 
 /singleton/cargo_item/paintgun
 	category = "engineering"
@@ -866,4 +880,18 @@
 	access = ACCESS_CE
 	container_type = "crate"
 	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/rad_collector
+	category = "engineering"
+	name = "radiation collector array"
+	supplier = "hephaestus"
+	description = "A radiation collector array. Used to augment the power generation of a generator that emits ionising radiation."
+	price = 2000
+	items = list(
+		/obj/machinery/power/rad_collector
+	)
+	access = ACCESS_ENGINE
+	container_type = "crate"
+	groupable = FALSE
 	spawn_amount = 1

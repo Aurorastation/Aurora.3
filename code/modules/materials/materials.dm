@@ -733,6 +733,7 @@
 	golem = SPECIES_GOLEM_IRON
 	hitsound = 'sound/weapons/smash.ogg'
 	weapon_hitsound = 'sound/weapons/metalhit.ogg'
+	is_fusion_fuel = TRUE
 
 /material/aluminium
 	name = MATERIAL_ALUMINIUM

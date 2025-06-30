@@ -383,6 +383,9 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 	tgui_panel = new(src, "browseroutput")
 	tgui_say = new(src, "tgui_say")
 
+	// Forcibly enable hardware-accelerated graphics, as we need them for the lighting overlays.
+	winset(src, null, "command=\".configure graphics-hwmode on\"")
+
 	if(IsGuestKey(key) && GLOB.config.external_auth)
 		src.authed = FALSE
 		var/mob/abstract/unauthed/m = new()
@@ -395,25 +398,8 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 		. = ..()
 		src.InitClient()
 		src.InitPrefs()
+		src.InitUI()
 		mob.LateLogin()
-
-	// Initialize stat panel
-	stat_panel.initialize(
-		inline_html = file("html/statbrowser.html"),
-		inline_js = file("html/statbrowser.js"),
-		inline_css = file("html/statbrowser.css"),
-	)
-	addtimer(CALLBACK(src, PROC_REF(check_panel_loaded)), 30 SECONDS)
-
-	INVOKE_ASYNC(src, PROC_REF(acquire_dpi))
-
-	// Initialize tgui panel
-	tgui_panel.initialize()
-
-	tgui_say.initialize()
-
-	// Forcibly enable hardware-accelerated graphics, as we need them for the lighting overlays.
-	winset(src, null, "command=\".configure graphics-hwmode on\"")
 
 	send_resources()
 
@@ -444,6 +430,21 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 
 	if(prefs.toggles_secondary & CLIENT_PREFERENCE_HIDE_MENU)
 		addtimer(CALLBACK(src, VERB_REF(toggle_menu), 1 SECONDS))
+
+/client/proc/InitUI()
+	INVOKE_ASYNC(src, PROC_REF(acquire_dpi))
+
+	// Initialize tgui panel
+	tgui_panel.initialize()
+	tgui_say.initialize()
+
+	// Initialize stat panel
+	stat_panel.initialize(
+		inline_html = file("html/statbrowser.html"),
+		inline_js = file("html/statbrowser.js"),
+		inline_css = file("html/statbrowser.css"),
+	)
+	addtimer(CALLBACK(src, PROC_REF(check_panel_loaded)), 30 SECONDS)
 
 /client/proc/InitClient()
 	SHOULD_NOT_SLEEP(TRUE)
@@ -655,7 +656,7 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 	if(mob)
 		return mob.MayRespawn()
 
-	// Something went wrong, client is usually kicked or transfered to a new mob at this point
+	// Something went wrong, client is usually kicked or transferred to a new mob at this point
 	return 0
 
 /client/verb/character_setup()

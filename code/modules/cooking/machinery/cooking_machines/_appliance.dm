@@ -27,6 +27,8 @@
 							/obj/item/stock_parts/scanning_module = 1,
 							/obj/item/stock_parts/matter_bin = 2)
 
+	parts_power_mgmt = FALSE
+
 	var/cooking_power = 0			// Effectiveness/speed at cooking
 	var/cooking_coeff = 0			// Part-based cooking power multiplier
 	var/heating_power = 1000		// Effectiveness at heating up; not used for mixers, should be equal to active_power_usage
@@ -52,6 +54,9 @@
 	var/finish_verb = "pings!"
 	var/place_verb = "into"
 	var/combine_first = FALSE//If 1, this appliance will do combination cooking before checking recipes
+
+	component_hint_cap = "Upgraded <b>capacitors</b> will increase heating power."
+	component_hint_scan = "Upgraded <b>scanning modules</b> will increase heating power and improve power efficiency."
 
 /obj/machinery/appliance/Initialize()
 	. = ..()

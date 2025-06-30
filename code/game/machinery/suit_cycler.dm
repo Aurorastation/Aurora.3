@@ -201,12 +201,6 @@
 			to_chat(user, SPAN_WARNING("Access denied."))
 		return
 
-	//Hacking init.
-	if(attacking_item.ismultitool() || attacking_item.iswirecutter())
-		if(panel_open)
-			wires.interact(user)
-		return
-
 	//Other interface stuff.
 	if(istype(attacking_item, /obj/item/grab))
 		var/obj/item/grab/G = attacking_item

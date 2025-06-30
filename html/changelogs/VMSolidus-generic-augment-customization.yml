@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: GeneralCamo
+author: VMSolidus
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,5 +55,5 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Added a setting to set TGUI Say to light mode."
-  - bugfix: "Several radio channels that did not define a color in TGUI Say, now do so."
+  - rscadd: "Added the option to give custom names and descriptions to most generic(non-corporate) augments in loadouts."
+  - rscadd: "Descriptions for augments will now appear in cyborg analyzer scans. Assisted organs will also show up there as well."

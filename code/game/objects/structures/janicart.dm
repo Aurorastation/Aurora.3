@@ -74,10 +74,12 @@
 
 /obj/structure/janitorialcart/New()
 	..()
-	GLOB.janitorial_supplies |= src
+	if(is_station_turf(get_turf(src)))
+		GLOB.janitorial_supplies |= src
 
 /obj/structure/janitorialcart/Destroy()
-	GLOB.janitorial_supplies -= src
+	if(src in GLOB.janitorial_supplies)
+		GLOB.janitorial_supplies -= src
 	QDEL_NULL(mybag)
 	QDEL_NULL(mymop)
 	QDEL_NULL(myspray)

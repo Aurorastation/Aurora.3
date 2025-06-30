@@ -557,6 +557,15 @@
 	..()
 	mind.assigned_role = "AI"
 
+//AI Shell / AI Spiderbot
+/mob/living/silicon/robot/shell/mind_initialize()
+	..()
+	mind.assigned_role = "AI"
+
+/mob/living/simple_animal/spiderbot/ai/mind_initialize()
+	..()
+	mind.assigned_role = "AI"
+
 //BORG
 /mob/living/silicon/robot/mind_initialize()
 	..()

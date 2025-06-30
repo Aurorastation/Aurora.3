@@ -13,6 +13,9 @@
 	towards more experienced gestalts as a hand to help guide them. As a result of being more formative and idealistic, Coeus tend to be more pacifistic and less prone towards any kind of \
 	violence, including against more simple-minded creatures such as monkeys."
 
+	// An empty list, so they do not inherit the melee armour of their parent.
+	natural_armor = list()
+
 	slowdown = 0
 	siemens_coefficient = 0.7
 	pain_mod = 2

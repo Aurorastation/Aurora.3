@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: GeneralCamo, harry
+author: Batrachophreno
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,7 +55,9 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - qol: "Under the chat settings, you can now press \"Adjust UI Sizes\" to drag around some of the panel sizes."
-  - bugfix: "The input at the bottom right is no longer so teeny tiny on 516 if you use a window scaling that is greater than 100%."
-  - qol: "There's a new UI preference called UI scale which allows people that use windows scaling to have their UIs original size with the contents zoomed out, instead of the default, which is the UIs being larger with the contents 'normal' size."
-  - bugfix: "Various UIs did not respect windows scaling, they now do."
+  - qol: "Upgradeable objects now, on extended Examine (show more info), state what parts can be upgraded and what they do."
+  - qol: "Extended Examine text now formatted more cleanly and broken up by section (mechanics, upgrades, antag hooks, etc.)"
+  - refactor: "Minor refactor to get_examine_text() to accommodate the above and make room for future development."
+  - balance: "Machine stock parts now more consistently affect power draw (usually increases it, unless specified otherwise)."
+  - balance: "Antagonism extended descriptions now viewable by ghosts and Storytellers, not just active antags."
+  - rscadd: "Added missing descriptions or updated existing ones on several stock parts."

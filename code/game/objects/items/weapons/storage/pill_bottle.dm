@@ -196,3 +196,17 @@
 	desc = "Contains pills used to treat vitamin deficiency."
 	starts_with = list(/obj/item/reagent_containers/pill/bio_vitamin/cheap = 7)
 
+/obj/item/storage/pill_bottle/colorspace
+	name = "bottle of Colorspace pills"
+	desc = "Contains Colorspace pills, a legal recreational drug."
+	starts_with = list(/obj/item/reagent_containers/pill/colorspace = 4)
+
+/obj/item/storage/pill_bottle/snowflake
+	name = "bottle of Snowflake pills"
+	desc = "Contains Snowflake pills, made from frost oil. The label warns about the danger of overdosing."
+	starts_with = list(/obj/item/reagent_containers/pill/snowflake = 4)
+
+/obj/item/storage/pill_bottle/psilocybin
+	name = "bottle of Psilocybin pills"
+	desc = "Contains psychotropic pills derived from certain species of mushroom."
+	starts_with = list(/obj/item/reagent_containers/pill/psilocybin = 4)
