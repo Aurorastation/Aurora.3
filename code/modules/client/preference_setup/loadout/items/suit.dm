@@ -45,6 +45,7 @@
 	jackets["high visibility jacket"] = /obj/item/clothing/suit/storage/toggle/highvis
 	jackets["high visibility jacket, alt"] = /obj/item/clothing/suit/storage/toggle/highvis_alt
 	jackets["high visibility jacket, red"] = /obj/item/clothing/suit/storage/toggle/highvis_red
+	jackets["high visibility jacket, orange"] = /obj/item/clothing/suit/storage/toggle/highvis_orange
 	jackets["black vest"] = /obj/item/clothing/suit/storage/toggle/leather_vest
 	jackets["brown vest"] = /obj/item/clothing/suit/storage/toggle/brown_jacket/sleeveless
 	jackets["leather coat"] = /obj/item/clothing/suit/storage/leathercoat
