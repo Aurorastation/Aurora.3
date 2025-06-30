@@ -18,11 +18,16 @@
 
 	var/heat_delay = 10
 
+	component_hint_scan = "Upgraded <b>scanning modules</b> will increase speed at which research calculations are made and reduce active power usage."
+
+	parts_power_mgmt = FALSE
+
 /obj/machinery/r_n_d/tech_processor/Destroy()
 	set_server(null)
 	return ..()
 
 /obj/machinery/r_n_d/tech_processor/RefreshParts()
+	..()
 	tech_rate = 0
 	for(var/obj/item/stock_parts/scanning_module/SM in component_parts)
 		tech_rate += SM.rating / 2

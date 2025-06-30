@@ -43,6 +43,9 @@
 		/obj/item/stock_parts/console_screen
 	)
 
+	component_hint_bin = "Upgraded <b>matter bins</b> will increase material storage capacity."
+	component_hint_servo = "Upgraded <b>manipulators</b> will improve material use efficiency and increase fabrication speed."
+
 /obj/machinery/autolathe/Initialize()
 	..()
 	wires = new(src)
