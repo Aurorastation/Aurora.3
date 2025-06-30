@@ -2,7 +2,6 @@
 	name = "nephilim blaster repeater"
 	desc = "The Nephilim is a reliable blaster repeater produced on-contract by several factories across the spur. Seeing widespread use on both sides of the piracy epidemic in the Coalition, it has been shown to be effective and easy to maintain; two details not shared by earlier ship-mounted blaster weapons. Utilising hydrogen blaster cells, it is quicker to charge, while necessitating frequent reloads."
 	icon = 'icons/obj/machinery/ship_guns/nephilim.dmi'
-	// heavy_firing_sound = 'sound/weapons/gunshot/ship_weapons/gatling_laser.ogg'
 	icon_state = "weapon_base"
 	idle_power_usage = 1500
 	active_power_usage = 100000
