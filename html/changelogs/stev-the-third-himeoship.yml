@@ -63,5 +63,6 @@ changes:
   - rscadd: "Adds Himean naval and army uniforms and a pilot helmet."
   - soundadd: "Adds a gatling laser sound for the Nephilim."
   - rscadd: "Adds an equipped variant of the Himean industrial rig."
+  - rscadd: "Genericizes the description of the energy knife."
 
 

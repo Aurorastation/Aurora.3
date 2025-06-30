@@ -79,6 +79,8 @@
 /obj/machinery/door/airlock/himeo_patrol/docks
 	name = "Docking arm"
 	stripe_color = COLOR_DARK_BLUE_GRAY
+/obj/machinery/door/airlock/himeo_patrol/docks/storage
+	name = "Storage Room"
 
 /obj/machinery/door/airlock/highsecurity/himeo_patrol/docks
 	name = "Checkpoint"
