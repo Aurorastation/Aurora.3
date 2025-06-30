@@ -1,6 +1,6 @@
 /obj/item/organ/internal/augment/sightlights
 	name = "Zeng-Hu ocular sightlights"
-	desc = "Designed to assist Zeng-Hu medical personnel in darker areas or places experiencing periodic power issues, Sightlights will allow one to be able to use their eyes as a flashlight. These are the original high-spec models available exclusively through Zeng-Hu."
+	desc = "Designed to assist Zeng-Hu medical personnel in darker areas or places experiencing periodic power issues, sightlights will allow one to be able to use their eyes as a flashlight. These are the original high-spec models available exclusively through Zeng-Hu."
 	icon_state = "sightlights"
 	organ_tag = BP_AUG_SIGHTLIGHTS
 	parent_organ = BP_HEAD
