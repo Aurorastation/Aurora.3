@@ -1,7 +1,8 @@
 /obj/structure/cult/tome
 	name = "arcanaeum desk"
 	desc = "A desk covered in arcane manuscripts and tomes in unknown languages. Looking at the text makes your skin crawl."
-	desc_antag = "A desk covered with the scriptures of Nar-Sie, The One Who Sees, The Geometer of Blood. Most of them are beyond your current comprehension. If you are a cultist, you could click on this desk with any non-unique book to turn it into a tome."
+	desc_antag = "- A desk covered with the scriptures of Nar-Sie, The One Who Sees, The Geometer of Blood. Most of them are beyond your current comprehension.<br>\
+	- If you are a cultist, you could click on this desk with any non-unique book to turn it into a tome."
 	icon_state = "tomealtar"
 
 /obj/structure/cult/tome/attackby(obj/item/attacking_item, mob/user)

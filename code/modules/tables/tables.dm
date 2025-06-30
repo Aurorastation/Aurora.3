@@ -3,7 +3,7 @@
 	icon = 'icons/obj/structure/tables/table.dmi'
 	icon_state = "frame"
 	desc = "It's a table, for putting things on. Or standing on, if you really want to."
-	desc_info = "Straight tables, so long as they're not too heavy or reinforced, can be flipped over!"
+	desc_info = "- Straight tables, so long as they're not too heavy or reinforced, can be flipped over with a verb when adjacent to them!"
 	density = TRUE
 	anchored = TRUE
 	pass_flags_self = PASSTABLE | LETPASSTHROW
@@ -44,34 +44,33 @@
 				. += SPAN_WARNING("It looks damaged!")
 			if (0.5 to 1.0)
 				. += SPAN_NOTICE("It has a few scrapes and dents.")
-	. += construction_hints()
 
-/obj/structure/table/proc/construction_hints()
-	. = list()
+/obj/structure/table/construction_hints()
+	. = ""
 	// Rule racks out entirely first. If we ever let them be customized/have health, update this.
 	if (!can_reinforce || !can_plate)
-		. += FONT_SMALL(SPAN_NOTICE("It is held together by a couple of <b>bolts</b>."))
+		. += "- It is held together by a couple of <b>bolts</b>."
 		return .
 
 	if (health < maxhealth)
-		return FONT_SMALL(SPAN_NOTICE("It could be repaired with a few choice <b>welds</b>... no matter what its made of!"))
+		. += "- It could be repaired with a few choice <b>welds</b>... no matter what its made of!<br>"
 	if (carpeted)
-		. += FONT_SMALL(SPAN_NOTICE("Its carpeted surface could be <b>pried</b> loose."))
+		. += "- Its carpeted surface could be <b>pried</b> loose.<br>"
 	// Needs to be plated before it can be carpeted
 	else if (material)
-		. += FONT_SMALL(SPAN_NOTICE("It could be surfaced with some <b>carpet</b>."))
+		. += "- It could be surfaced with some <b>carpet</b>.<br>"
 	if (reinforced)
-		. += FONT_SMALL(SPAN_NOTICE("Its reinforcements have been securely <b>screwed<b/> into place."))
+		. += "- Its reinforcements have been securely <b>screwed<b/> into place.<br>"
 	// Needs to be plated before it can be reinforced
 	else if (material)
-		. += FONT_SMALL(SPAN_NOTICE("It could be reinforced with a <b>stack</b> of an appropriate material."))
+		. += "- It could be reinforced with a <b>stack</b> of an appropriate material.<br>"
 		// Needs to be uncarpeted before it can be de-plated
 		if (!carpeted)
-			. += FONT_SMALL(SPAN_NOTICE("It is held together by a couple of <b>bolts</b>."))
+			. += "- It is held together by a couple of <b>bolts</b>.<br>"
 	// Needs to be plated before we can do much of anything
 	if (!material)
-		. += FONT_SMALL(SPAN_NOTICE("It could be plated with a <b>stack</b> of an appropriate material."))
-		. += FONT_SMALL(SPAN_NOTICE("It is held together by a couple of <b>bolts</b>."))
+		. += "- It could be plated with a <b>stack</b> of an appropriate material.<br>"
+		. += "- It is held together by a couple of <b>bolts</b>.<br>"
 	return .
 
 /obj/structure/table/proc/update_material()
@@ -117,7 +116,6 @@
 			take_damage(rand(100,400), FALSE)
 		if(3.0)
 			take_damage(rand(50,150), FALSE)
-
 
 /obj/structure/table/Initialize()
 	if(table_mat)

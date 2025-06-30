@@ -8,12 +8,8 @@
 	var/refund_amt = 2
 	var/refund_type = /obj/item/stack/material/steel
 
-/obj/item/frame(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += construction_hints()
-
-/obj/item/frame/proc/construction_hints()
-	return FONT_SMALL(SPAN_NOTICE("It could be installed by using it on a <b>wall</b>."))
+/obj/item/frame/construction_hints()
+	return "- It could be installed by using it on an adjacent <b>wall</b>."
 
 /obj/item/frame/attackby(obj/item/attacking_item, mob/user)
 	if (attacking_item.iswrench())

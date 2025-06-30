@@ -34,7 +34,6 @@
 		if(0.8 to 1)
 			state = SPAN_NOTICE("The support struts look completely intact.")
 	. += state
-	. += construction_hints()
 
 /obj/structure/girder/proc/interaction_hints()
 	. = list()
@@ -42,28 +41,28 @@
 		. += SPAN_NOTICE("It could be <b>pried</b> to subtly displace it.")
 	return .
 
-/obj/structure/girder/proc/construction_hints()
-	. = list()
-	if (health < maxhealth)
-		return FONT_SMALL(SPAN_NOTICE("It could be repaired with a few choice <b>welds</b>."))
+/obj/structure/girder/construction_hints()
+	. = ""
+	if (health < initial(health))
+		. += "</br>- It could be repaired with a few choice <b>welds</b>."
 	// Reinf wall deconstruction.
 	if (state == 2)
-		. += FONT_SMALL(SPAN_NOTICE("Its support struts have been securely <b>screwed<b/> into place."))
+		. += "</br>- Its support struts have been securely <b>screwed<b/> into place."
 	else if (state == 1)
-		. += FONT_SMALL(SPAN_NOTICE("Its unsecured support struts could be <b>cut</b> out."))
+		. += "</br>- Its unsecured support struts could be <b>cut</b> out."
 
 	if (anchored)
 		if (!reinf_material && !reinforcing)
-			. += FONT_SMALL(SPAN_NOTICE("It could be prepared for reinforcement with some <b>screws</b>."))
+			. += "</br>- It could be prepared for reinforcement with some <b>screws</b>."
 		if (reinforcing)
-			. += FONT_SMALL(SPAN_NOTICE("It could be reinforced with a <b>stack</b> of an appropriate material."))
+			. += "</br>- It could be given reinforced plating with some <b>plasteel sheets</b>."
 		if (!plating)
-			. += FONT_SMALL(SPAN_NOTICE("It could be plated with a <b>stack</b> of an appropriate material."))
+			. += "</br>- It could be given basic plating with some <b>steel sheets</b>."
 
 	// Anchor state
-	. += FONT_SMALL(SPAN_NOTICE("It [anchored ? "is" : "could be"] anchored to the floor with some <b>bolts</b>."))
+	. += "</br>- It [anchored ? "is" : "could be"] anchored to the floor with some <b>bolts</b>."
 	if (!anchored)
-		. += FONT_SMALL(SPAN_NOTICE("It is held together by a couple of <b>bolts</b>; a heavy <b>cutting</b> tool might also take it apart."))
+		. += "</br>- It is held together by a couple of <b>bolts</b>; a heavy <b>cutting</b> tool might also take it apart."
 	return .
 
 /obj/structure/girder/displaced
@@ -271,7 +270,7 @@
 	Tsrc.ChangeTurf(/turf/simulated/wall)
 	var/turf/simulated/wall/T = Tsrc
 	T.under_turf = original_type
-	T.set_material(M, reinf_material)
+	T.set_material(material, reinf_material)
 	if(wall_fake)
 		T.can_open = 1
 	T.add_hiddenprint(usr)

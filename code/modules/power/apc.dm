@@ -71,13 +71,14 @@
 ABSTRACT_TYPE(/obj/machinery/power/apc)
 	name = "area power controller"
 	desc = "A control terminal for the area electrical systems."
-	desc_info = "An APC (Area Power Controller) regulates and supplies backup power for the area they are in. Their power channels are divided \
-	out into 'environmental' (Items that manipulate airflow and temperature), 'lighting' (the lights), and 'equipment' (Everything else that consumes power).  \
-	Power consumption and backup power cell charge can be seen from the interface, further controls (turning a specific channel on, off or automatic, \
+	desc_info = "- An APC (Area Power Controller) regulates and supplies backup power for the area they are in.<br>\
+	- Their power channels are divided into 'environmental' (items that manipulate airflow and temperature), 'lighting' (lights), and 'equipment' (everything else that consumes power).<br>\
+	- Power consumption and backup power cell charge can be seen from the interface, further controls (turning a specific channel on, off or automatic, \
 	toggling the APC's ability to charge the backup cell, or toggling power for the entire area via master breaker) first requires the interface to be unlocked \
 	with an ID with Engineering access or by one of the station's robots or the artificial intelligence."
-	desc_antag = "This can be emagged to unlock it.  It will cause the APC to have a blue error screen. \
-	Wires can be pulsed remotely with a signaler attached to it.  A powersink will also drain any APCs connected to the same wire the powersink is on."
+	desc_antag = "- This can be emagged to unlock it; it will cause the APC to have a blue error screen.<br>\
+	- Wires can be pulsed remotely with a signaler attached to it.<br>\
+	- A powersink will also drain any APCs connected to the same wire the powersink is on."
 
 	icon = 'icons/obj/machinery/power/apc.dmi'
 	icon_state = "apc0"

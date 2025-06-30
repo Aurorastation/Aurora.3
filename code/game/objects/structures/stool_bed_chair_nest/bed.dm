@@ -18,9 +18,11 @@
 /obj/structure/bed
 	name = "bed"
 	desc = "This is used to lie in, sleep in or strap on."
-	desc_info = "Click and drag yourself (or anyone) to this to buckle in. Click on this with an empty hand to undo the buckles.<br>\
-	Anyone with restraints, such as handcuffs, will not be able to unbuckle themselves. They must use the Resist button, or verb, to break free of \
-	the buckles, instead. \ To unbuckle people as a stationbound, click the bed with an empty gripper."
+	desc_info = "- Click and drag yourself (or anyone) to this to buckle in.\
+	</br>- Click on this with an empty hand to undo the buckles.\
+	</br>- Anyone with restraints, such as handcuffs, will not be able to unbuckle themselves. They must use the Resist button, or verb, to break free of \
+	the buckles instead.\
+	</br>- To unbuckle people as a stationbound, click the bed with an empty gripper."
 	icon = 'icons/obj/structure/beds.dmi'
 	icon_state = "bed"
 	anchored = TRUE
@@ -53,12 +55,8 @@
 
 /obj/structure/bed/New(newloc, new_material = MATERIAL_STEEL, new_padding_material, new_painted_colour)
 	..(newloc)
-	if(can_buckle)
-		desc_info = "Click and drag yourself (or anyone) to this to buckle in. Click on this with an empty hand to undo the buckles.<br>\
-	Anyone with restraints, such as handcuffs, will not be able to unbuckle themselves. They must use the Resist button, or verb, to break free of \
-	the buckles instead. "
 	if(held_item)
-		desc_info += "Click and drag this onto yourself to pick it up. "
+		desc_info += "<br>- Click and drag this onto yourself to pick it up. "
 	material = SSmaterials.get_material_by_name(new_material)
 	if(!istype(material))
 		qdel(src)
@@ -303,14 +301,12 @@
 		else
 			occupant.visible_message(SPAN_DANGER("[occupant] crashed into \the [A]!"))
 
-/obj/structure/bed/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += construction_hints()
-
-/obj/structure/bed/proc/construction_hints()
+/obj/structure/bed/construction_hints()
+	. = ""
 	if (padding_material)
-		return FONT_SMALL(SPAN_NOTICE("Its padding has visible seams that could be <b>cut</b>."))
-	return FONT_SMALL(SPAN_NOTICE("It is held together by a couple of <b>bolts</b>."))
+		. += "- Its padding has visible seams that could be <b>cut</b>.<br>"
+	. += "- It is held together by a couple of <b>bolts</b>."
+	return .
 
 /obj/structure/bed/psych
 	name = "psychiatrist's couch"
@@ -693,7 +689,7 @@
 	. += interaction_hints()
 
 /obj/structure/roller_rack/proc/interaction_hints()
-	return FONT_SMALL(SPAN_NOTICE("It [anchored ? "is" : "could be"] anchored to the floor with a couple of <b>screws</b>."))
+	return SPAN_NOTICE("It [anchored ? "is" : "could be"] anchored to the floor with a couple of <b>screws</b>.")
 
 /obj/structure/roller_rack/attack_hand(mob/user)
 	if(!LAZYLEN(held))

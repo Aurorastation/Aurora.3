@@ -283,6 +283,8 @@
 	..()
 
 /obj/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended = FALSE)
+	UpdateDesc_Build()
+
 	. = ..()
 	if((obj_flags & OBJ_FLAG_ROTATABLE) || (obj_flags & OBJ_FLAG_ROTATABLE_ANCHORED))
 		. += SPAN_SUBTLE("Can be rotated with alt-click.")
@@ -320,3 +322,47 @@
 				clients_in_hearers += mob.client
 		if(length(clients_in_hearers))
 			INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, animate_chat), message, null, FALSE, clients_in_hearers, overhead_time)
+
+/**
+ *	Update the object's desc_build variable with the current build action hints available for it.
+ *	See "code\game\atom\atom_examine.dm" for details.
+ */
+/obj/proc/UpdateDesc_Build()
+	var/construction_hints = construction_hints()
+
+	if(construction_hints)
+		desc_build = ""
+		desc_build += construction_hints
+
+		/*
+		// This is ugly code but it does get rid of even uglier double-line breaks in game.
+		var/first_line = TRUE
+		if(component_hint_cap)
+			temp_desc_upgrade += "- [component_hint_cap]"
+			first_line = FALSE
+		if(component_hint_scan)
+			if(!first_line)
+				temp_desc_upgrade += "<br>"
+			temp_desc_upgrade += "- [component_hint_scan]"
+			first_line = FALSE
+		if(component_hint_servo)
+			if(!first_line)
+				temp_desc_upgrade += "<br>"
+			temp_desc_upgrade += "- [component_hint_servo]"
+			first_line = FALSE
+		if(component_hint_laser)
+			if(!first_line)
+				temp_desc_upgrade += "<br>"
+			temp_desc_upgrade += "- [component_hint_laser]"
+			first_line = FALSE
+		if(component_hint_bin)
+			if(!first_line)
+				temp_desc_upgrade += "<br>"
+			temp_desc_upgrade += "- [component_hint_bin]"
+			first_line = FALSE
+		desc_upgrade = temp_desc_upgrade
+		*/
+
+/// Empty function, we only care if its children have anything in it.
+/obj/proc/construction_hints()
+	return FALSE

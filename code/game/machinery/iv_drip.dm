@@ -1,7 +1,7 @@
 /obj/machinery/iv_drip
 	name = "\improper IV drip"
 	desc = "A professional standard intravenous stand with supplemental gas support for medical use."
-	desc_info = "IV drips can be supplied beakers/bloodpacks for reagent transfusions, as well as one breath mask and gas tank for supplemental gas therapy. \
+	desc_info = "- IV drips can be supplied beakers/bloodpacks for reagent transfusions, as well as one breath mask and gas tank for supplemental gas therapy. \
 	<br>- Click and Drag to attach/detach the IV or secure/remove the breath mask on your target.<br>- Click the stand with an empty hand to \
 	toggle between various modes. Using a wrench when it has a tank installed will secure it.<br>- Alt Click the stand to remove items contained in the stand."
 	icon = 'icons/obj/iv_drip.dmi'
@@ -699,8 +699,9 @@
 	. = ..()
 	if(distance > 2)
 		return
-	. += SPAN_NOTICE("<br>[src] is [mode ? "injecting" : "taking blood"] at a rate of [src.transfer_amount] u/sec, the automatic injection stop mode is [toggle_stop ? "on" : "off"]. The Emergency Positive Pressure \
-	system is [epp ? "on" : "off"].")
+	. += SPAN_NOTICE("</br>[src] is [mode ? "injecting" : "taking blood"] at a rate of [src.transfer_amount] u/sec, the automatic injection stop mode is [toggle_stop ? "on" : "off"].")
+	. += SPAN_NOTICE("The Emergency Positive Pressure system is [epp ? "on" : "off"].")
+
 	if(attached)
 		. += SPAN_NOTICE("\The [src] is attached to [attached]'s [vein.name].")
 	if(beaker)

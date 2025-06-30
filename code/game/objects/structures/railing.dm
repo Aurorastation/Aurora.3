@@ -84,7 +84,6 @@
 				. += SPAN_WARNING("It looks damaged!")
 			if (0.5 to 1.0)
 				. += SPAN_NOTICE("It has a few scrapes and dents. ")
-	. += construction_hints()
 
 /obj/structure/railing/proc/interaction_hints()
 	. = list()
@@ -92,14 +91,14 @@
 		. += SPAN_NOTICE("It could be [density ? "opened" : "closed"] to passage with a wrench.")
 	return .
 
-/obj/structure/railing/proc/construction_hints()
-	. = list()
+/obj/structure/railing/construction_hints()
+	. = ""
 	if (health < maxhealth)
-		. += FONT_SMALL(SPAN_NOTICE("It could be repaired with a few choice <b>welds</b>."))
+		. += "- It could be repaired with a few choice <b>welds</b>.<br>"
 
-	. += FONT_SMALL(SPAN_NOTICE("It [anchored ? "is" : "could be"] anchored to the floor with a row of <b>screws</b>."))
+	. += "- It [anchored ? "is" : "could be"] anchored to the floor with a row of <b>screws</b>.<br>"
 	if (!anchored)
-		. += FONT_SMALL(SPAN_NOTICE("It is held together by a couple of <b>bolts</b>."))
+		. += "- It is held together by a couple of <b>bolts</b>.<br>"
 	return .
 
 /obj/structure/railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)

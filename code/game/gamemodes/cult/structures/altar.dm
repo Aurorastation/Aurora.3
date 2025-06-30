@@ -1,7 +1,7 @@
 /obj/structure/cult/talisman
 	name = "daemon altar"
 	desc = "A bloodstained altar. Looking at it makes you feel slightly terrified."
-	desc_antag = "If you are a cultist, you could click on this altar to pray to Nar'Sie, who will in turn heal some of your ailments."
+	desc_antag = "- If you are a Cultist, you could click on this altar to pray to Nar'Sie, who will in turn heal some of your ailments."
 	icon_state = "talismanaltar"
 	var/last_use = 0
 
