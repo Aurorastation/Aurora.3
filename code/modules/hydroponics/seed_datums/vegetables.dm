@@ -19,7 +19,7 @@
 	set_trait(TRAIT_PRODUCT_ICON,"chili")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#ED3300")
 	set_trait(TRAIT_PLANT_ICON,"bush2")
-	set_trait(TRAIT_IDEAL_HEAT, 298)
+	set_trait(TRAIT_IDEAL_HEAT, 304)
 	set_trait(TRAIT_IDEAL_LIGHT, 7)
 
 /obj/item/seeds/chiliseed
@@ -61,7 +61,7 @@
 	set_trait(TRAIT_PRODUCT_COLOUR,"#ff922d")
 	set_trait(TRAIT_PLANT_COLOUR,"#35d65d")
 	set_trait(TRAIT_PLANT_ICON,"bush2")
-	set_trait(TRAIT_IDEAL_HEAT, 298)
+	set_trait(TRAIT_IDEAL_HEAT, 293)
 	set_trait(TRAIT_IDEAL_LIGHT, 6)
 	set_trait(TRAIT_WATER_CONSUMPTION, 5)
 
