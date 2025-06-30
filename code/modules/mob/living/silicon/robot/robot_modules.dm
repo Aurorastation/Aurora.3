@@ -586,8 +586,8 @@ GLOBAL_LIST_INIT(robot_modules, list(
 	var/obj/item/clothing/suit/caution/held
 
 /obj/item/wetfloor_holder/Destroy()
-    QDEL_NULL(held)
-    return ..()
+	QDEL_NULL(held)
+	return ..()
 
 /obj/item/wetfloor_holder/Initialize()
 	. = ..()
