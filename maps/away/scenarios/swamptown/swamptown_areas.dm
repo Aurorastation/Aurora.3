@@ -1,7 +1,5 @@
-// Base area, all of the other files do this so I'm going to do it too
-
+// Base Area
 /area/swamptown
-
 	name = "Base/Parent Area"
 	requires_power = TRUE
 	dynamic_lighting = TRUE
