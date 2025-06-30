@@ -18,6 +18,7 @@
 	var/min_temperature = 100
 	var/max_temperature = 600
 	var/slow_mode = FALSE
+	component_hint_servo = "Upgraded <b>servos</b> increase the speed at which vessel contents are heated."
 
 	component_types = list(
 		/obj/item/circuitboard/chem_heater,

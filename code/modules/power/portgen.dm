@@ -15,6 +15,8 @@
 	var/portgen_lightcolour = "#000000"
 	var/datum/looping_sound/generator/soundloop
 
+	component_hint_cap = "Upgraded <b>capacitors</b> will increase maximum power output."
+
 /obj/machinery/power/portgen/Initialize()
 	. = ..()
 	soundloop = new(src, active)
@@ -137,6 +139,8 @@
 		/obj/item/stock_parts/capacitor
 	)
 
+	parts_power_mgmt = FALSE
+
 /obj/machinery/power/portgen/basic/Initialize()
 	component_types += board_path
 	. = ..()
@@ -149,6 +153,7 @@
 	return ..()
 
 /obj/machinery/power/portgen/basic/RefreshParts()
+	..()
 	var/temp_rating = 0
 
 	for(var/obj/item/stock_parts/SP in component_parts)

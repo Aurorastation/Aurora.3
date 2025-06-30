@@ -53,10 +53,19 @@
 
 	var/gfi_layer_rotation = GFI_ROTATION_DEFAULT
 
-	// Extra descriptions.
-	var/desc_extended = null // Regular text about the atom's extended description, if any exists.
-	var/desc_info = null // Blue text (SPAN_NOTICE()), informing the user about how to use the item or about game controls.
-	var/desc_antag = null // Red text (SPAN_ALERT()), informing the user about how they can use an object to antagonize.
+	/// Extra Descriptions
+	/// Regular text about the atom's extended description, if any exists.
+	var/desc_extended = null
+	/// Blue text (SPAN_NOTICE()), informing the user about how to use the item or about game controls.
+	var/desc_info = null
+	/// Blue text (SPAN_NOTICE()), informing the user about how to assemble or disassemble the item.
+	var/desc_build = null
+	/// Blue text (SPAN_NOTICE()), informing the user about what upgrades the item has and what they do.
+	/// Format desc_upgrade = "This object/item/machine/structure/etc has the following upgrades available:"
+	/// Currently only supports machines, see "code\game\machinery\machinery.dm" for example.
+	var/desc_upgrade = null
+	/// Red text (SPAN_ALERT()), informing the user about how they can use an object to antagonize.
+	var/desc_antag = null
 
 	/* SSicon_update VARS */
 

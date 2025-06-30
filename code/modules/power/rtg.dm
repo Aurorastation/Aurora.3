@@ -26,6 +26,10 @@
 		/obj/item/circuitboard/rtg
 	)
 
+	component_hint_cap = "Upgraded <b>capacitors</b> will increase maximum power output."
+
+	parts_power_mgmt = FALSE
+
 /obj/machinery/power/rtg/Initialize()
 	. = ..()
 	connect_to_network()
@@ -41,6 +45,7 @@
 	icon_state = panel_open ? "[initial(icon_state)]-open" : initial(icon_state)
 
 /obj/machinery/power/rtg/RefreshParts()
+	..()
 	var/part_level = 0
 	for(var/obj/item/stock_parts/SP in component_parts)
 		part_level += SP.rating

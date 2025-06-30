@@ -38,7 +38,6 @@
 
 	idle_power_usage = 15
 	active_power_usage = 250 //builtin health analyzer, dialysis machine, injectors.
-	var/parts_power_usage
 	var/stasis_power = 500
 
 	component_types = list(
@@ -48,6 +47,11 @@
 			/obj/item/stock_parts/console_screen,
 			/obj/item/reagent_containers/glass/beaker/large
 		)
+
+	component_hint_cap = "Upgraded <b>capacitors</b> will reduce power usage."
+	component_hint_scan = "Upgraded <b>scanning modules</b> will reduce power usage."
+
+	parts_power_mgmt = FALSE
 
 /obj/machinery/sleeper/Initialize()
 	. = ..()

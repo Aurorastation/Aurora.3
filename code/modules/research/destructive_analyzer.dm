@@ -23,7 +23,12 @@ Note: Must be placed within 3 tiles of the R&D Console
 		/obj/item/stock_parts/micro_laser
 	)
 
+	component_hint_laser = "Upgraded <b>micro-lasers</b> will increase data gathered from destructive analysis."
+	component_hint_scan = "Upgraded <b>scanning modules</b> will increase data gathered from destructive analysis."
+	component_hint_servo = "Upgraded <b>manipulators</b> will increase data gathered from destructive analysis."
+
 /obj/machinery/r_n_d/destructive_analyzer/RefreshParts()
+	..()
 	var/T = 0
 
 	for(var/obj/item/stock_parts/S in component_parts)

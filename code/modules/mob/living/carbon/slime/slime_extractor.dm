@@ -19,6 +19,9 @@
 		/obj/item/stack/cable_coil{amount = 5}
 	)
 
+	component_hint_bin = "Upgraded <b>matter bins</b> will increase slime capacity."
+	component_hint_laser = "Upgraded <b>micro-lasers</b> will increase extraction speed."
+
 /obj/machinery/slime_extractor/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	. += FONT_SMALL(SPAN_NOTICE("It can hold <b>[slime_limit] slime\s</b> at a time."))

@@ -54,6 +54,8 @@
 	var/slow_stasis_mult = 1.7
 	var/current_stasis_mult = 1
 
+	component_hint_servo = "Upgraded <b>manipulators</b> will increase effectiveness of both hyper-metabolism and cryostasis functions."
+
 /obj/machinery/atmospherics/unary/cryo_cell/Initialize()
 	. = ..()
 	update_icon()
