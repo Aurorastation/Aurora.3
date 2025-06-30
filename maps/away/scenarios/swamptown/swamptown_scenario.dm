@@ -1,6 +1,6 @@
 /singleton/scenario/swamptown
 	name = "Marshland Village"
-	desc = "shrek"
+	desc = "A marshland village."
 	scenario_site_id = "swamptown"
 
 	min_player_amount = 0
