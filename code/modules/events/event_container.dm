@@ -213,7 +213,7 @@ GLOBAL_LIST_INIT(severity_to_string, list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 			120),
 
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "APC Damage", /datum/event/apc_damage,
-			10, list(ASSIGNMENT_ENGINEER = 15)),
+			10, list(ASSIGNMENT_ENGINEER = 15, ASSIGNMENT_JANITOR = 20)),
 
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Brand Intelligence", /datum/event/brand_intelligence,
 			0, list(ASSIGNMENT_ENGINEER = 5), TRUE),
@@ -225,7 +225,7 @@ GLOBAL_LIST_INIT(severity_to_string, list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 			300),
 
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Electrical Storm", /datum/event/electrical_storm,
-			50, list(ASSIGNMENT_ENGINEER = 20, ASSIGNMENT_JANITOR = 25)),
+			30, list(ASSIGNMENT_ENGINEER = 20, ASSIGNMENT_JANITOR = 25)),
 
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Cozmozoan Migration", /datum/event/carp_migration/cozmo,
 			60),
@@ -287,14 +287,18 @@ GLOBAL_LIST_INIT(severity_to_string, list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 			0, list(ASSIGNMENT_SURGEON = 25)),
 
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Comms Blackout", /datum/event/communications_blackout,
-			100),
+			50),
+
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Comms Blackout - Damage", /datum/event/communications_blackout/damage_machinery,
+			50, list(ASSIGNMENT_ENGINEER = 25),
+			pop_needed = 6),
 
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Comms Blackout - Damage", /datum/event/communications_blackout/damage_machinery,
 			100, list(ASSIGNMENT_ENGINEER = 25),
 			pop_needed = 6),
 
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Electrical Storm", /datum/event/electrical_storm,
-			40, list(ASSIGNMENT_AI = 10, ASSIGNMENT_ENGINEER = 15, ASSIGNMENT_JANITOR = 20)),
+			30, list(ASSIGNMENT_AI = 10, ASSIGNMENT_ENGINEER = 15, ASSIGNMENT_JANITOR = 20)),
 
 		// see comment at code/modules/events/gravity.dm
 		// tl;dr gravity is handled globally, meaning if the horizon loses gravity, everyone does
@@ -333,7 +337,7 @@ GLOBAL_LIST_INIT(severity_to_string, list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 			25, list(ASSIGNMENT_ENGINEER = 30)),
 
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "APC Damage", /datum/event/apc_damage,
-			20, list(ASSIGNMENT_ENGINEER = 15)),
+			20, list(ASSIGNMENT_ENGINEER = 15, ASSIGNMENT_JANITOR = 20)),
 
 	)
 
@@ -378,11 +382,11 @@ GLOBAL_LIST_INIT(severity_to_string, list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 			pop_needed = 4),
 
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Comet Expulsion", /datum/event/comet_expulsion,
-			1, list(ASSIGNMENT_BRIDGE_CREW = 5, ASSIGNMENT_ENGINEER = 2), is_one_shot = TRUE,
+			1, list(ASSIGNMENT_BRIDGE_CREW = 15, ASSIGNMENT_ENGINEER = 12), is_one_shot = TRUE,
 			pop_needed = 8),
 
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "APC Damage", /datum/event/apc_damage,
-			20, list(ASSIGNMENT_ENGINEER = 15)),
+			20, list(ASSIGNMENT_ENGINEER = 15, ASSIGNMENT_JANITOR = 20)),
 
 	)
 
