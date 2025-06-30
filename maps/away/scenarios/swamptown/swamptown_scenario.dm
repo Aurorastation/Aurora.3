@@ -17,9 +17,9 @@
 
 /singleton/scenario_announcements/swamptown
 	horizon_announcement_title = "SCC Vessel Sensor Relay Network"
-	horizon_unrestrict_landing_message = "Somebody once told me the world is gonna roll me"
+	horizon_unrestrict_landing_message = "Greetings, SCCV Horizon. A small village in a marshy valley on a nearby humid exoplanet has been detected in your sector. Attempts to contact them have failed and you are encouraged to try and make contact and see if they require any humanitarian help."
 
-	offship_announcement_message = "I ain't the sharpest tool in the shed"
+	offship_announcement_message = "A small village in a marshy valley on a nearby humid exoplanet has been detected in your sector. The coordinates have been registered on the flight deck."
 
 /singleton/role/swamptown_crew/villager
 	name = "Villager"
