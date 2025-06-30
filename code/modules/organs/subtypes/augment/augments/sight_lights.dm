@@ -15,7 +15,7 @@
 
 /obj/item/organ/internal/augment/sightlights/generic
 	name = "offbrand ocular sightlights"
-	desc = "Designed to assist personnel in darker areas or places experiencing periodic power issues, Zeng-Hu Sightlights will allow one to be able to use their eyes as a flashlight. Later SCC-mediated negotiation loosened the augment's patent restrictions, allowing offbrand manufacture and use of lesser models by other members of the Chainlink."
+	desc = "Designed to assist personnel in darker areas or places experiencing periodic power issues, Zeng-Hu sightlights will allow one to be able to use their eyes as a flashlight. Later SCC-mediated negotiation loosened the augment's patent restrictions, allowing offbrand manufacture and use of lesser models by other members of the Chainlink."
 	icon_state = "m2eyes"
 	lights_color = LIGHT_COLOR_TUNGSTEN
 	lights_range = 4
