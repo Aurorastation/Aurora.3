@@ -47,6 +47,8 @@ GLOBAL_LIST_INIT(admin_verbs_admin, list(
 	/client/proc/admin_cancel_shuttle,	//allows us to cancel the emergency shuttle, sending it back to centcomm,
 	/client/proc/cmd_admin_direct_narrate,	//send text directly to a player with no padding. Useful for narratives and fluff-text,
 	/client/proc/cmd_admin_local_narrate,	//sends text to all mobs within 7 tiles of src.mob
+	/client/proc/cmd_admin_local_screen_text,
+	/client/proc/cmd_admin_global_screen_text,
 	/client/proc/cmd_admin_world_narrate,	//sends text to all players with no padding,
 	/client/proc/cmd_admin_create_centcom_report,
 	/client/proc/check_ai_laws,			//shows AI and borg laws,
@@ -305,6 +307,8 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/client/proc/manage_silicon_laws,
 	/client/proc/cmd_admin_direct_narrate,
 	/client/proc/cmd_admin_local_narrate,
+	/client/proc/cmd_admin_local_screen_text,
+	/client/proc/cmd_admin_global_screen_text,
 	/client/proc/cmd_admin_world_narrate,
 	/client/proc/cmd_admin_grab_observers,
 	/client/proc/cmd_admin_create_centcom_report,
