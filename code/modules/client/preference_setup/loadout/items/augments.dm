@@ -189,7 +189,7 @@
 
 /datum/gear/augment/sightlights/generic
 	display_name = "offbrand ocular sightlights"
-	description = "Designed to assist personnel in darker areas or places experiencing periodic power issues, Sightlights allow one to use their eyes as a flashlight. Later SCC-mediated negotiation loosened the augment's patent restrictions, allowing offbrand manufacture and use of lesser models by other members of the Chainlink."
+	description = "Designed to assist personnel in darker areas or places experiencing periodic power issues, sightlights allow one to use their eyes as a flashlight. Later SCC-mediated negotiation loosened the augment's patent restrictions, allowing offbrand manufacture and use of lesser models by other members of the Chainlink."
 	path = /obj/item/organ/internal/augment/sightlights/generic
 	cost = 3
 
