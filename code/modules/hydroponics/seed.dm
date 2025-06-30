@@ -94,7 +94,7 @@
 	set_trait(TRAIT_PLANT_COLOUR,         "#46B543")
 	set_trait(TRAIT_LARGE,                0)
 	set_trait(TRAIT_HEAT_PREFERENCE,      5) // By default, plants grow faster in a temperature within five degrees of their ideal.
-	set_trait(TRAIT_LIGHT_PREFERENCE,     2) // Similarly, they grow faster under lumens within two of their ideal.
+	set_trait(TRAIT_LIGHT_PREFERENCE,     4) // Similarly, they grow faster under lumens within two of their ideal.
 
 	setup_traits()
 

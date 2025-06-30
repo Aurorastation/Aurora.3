@@ -1,4 +1,6 @@
-/* For unit tests relating to hydroponics mechanics, with no direct relation to cooking. */
+/*
+For unit tests relating to hydroponics mechanics, with no direct relation to cooking.
+*/
 
 /**
 Checks if the preference values of a seed are lesser than their tolerance values.
@@ -18,5 +20,8 @@ while simultaneously growing faster from being within its preferences.
 
 		if(S.get_trait(TRAIT_HEAT_TOLERANCE) < S.get_trait(TRAIT_HEAT_PREFERENCE))
 			TEST_FAIL("Seed [S] has a heat preference value set higher than its heat tolerance.")
+
+	if(!reported)
+		TEST_PASS("All seeds have preference values that are lower than their tolerance values.")
 
 	return 1
