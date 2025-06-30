@@ -2,8 +2,6 @@
 	name = "Nuclear Silo"
 	icon_state = "exterior"
 	requires_power = TRUE
-	dynamic_lighting = TRUE
-	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/snow
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_INDESTRUCTIBLE_TURFS | AREA_FLAG_IS_BACKGROUND
 	holomap_color = "#f0e0e0"
