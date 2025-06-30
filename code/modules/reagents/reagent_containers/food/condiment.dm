@@ -459,3 +459,10 @@
 	icon_state = "wuluextract"
 	fixed_state = TRUE
 	reagents_to_add = list(/singleton/reagent/wulumunusha = 30)
+
+/obj/item/reagent_containers/food/condiment/diet_diesel
+	name = "diet diesel bottle"
+	desc = "A Hephaestus-trademarked jar, containing some kind of unpleasant-smelling gray sludge. The label says it's for Diona-based consumption only."
+	icon_state = "dietdiesel"
+	fixed_state = TRUE
+	reagents_to_add = list(/singleton/reagent/drugs/dionae_stimulant/diet = 30)

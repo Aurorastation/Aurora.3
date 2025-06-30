@@ -547,3 +547,9 @@ ABSTRACT_TYPE(/datum/gear/accessory/diona)
 	diona_passport["union of gla'orr passport"] = /obj/item/clothing/accessory/badge/passport/dionaunion
 	diona_passport["eternal republic of the ekane passport"] = /obj/item/clothing/accessory/badge/passport/eternalrepublic
 	gear_tweaks += new /datum/gear_tweak/path(diona_passport)
+
+/datum/gear/diet_diesel
+	display_name = "diet diesel jar"
+	path = /obj/item/reagent_containers/food/condiment/diet_diesel
+	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	sort_category = "Xenowear - Diona"
