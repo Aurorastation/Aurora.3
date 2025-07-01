@@ -137,10 +137,14 @@
 			chosen_mob_types += /obj/effect/spider/eggcluster
 
 		if(INFESTATION_NYMPHS)
-			event_name = "Nymph Infestation"
+			event_name = "Stowaway Nymphs"
 			chosen_verb = "have crawled into"
-			for(var/i = 1, i < rand(3,6),i++)
-				chosen_mob_types += /mob/living/carbon/alien/diona
+			var/nymph_types = list(
+				/mob/living/carbon/alien/diona/ghost_playable,
+				/mob/living/carbon/alien/diona/ghost_playable/flowery
+			)
+			for(var/i = 1, i < rand(2,4),i++)
+				chosen_mob_types += pickweight(nymph_types)
 
 /datum/event/infestation/proc/spawn_mobs()
 	for(var/spawned_mob in chosen_mob_types)
