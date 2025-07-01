@@ -781,11 +781,12 @@
 	return
 
 /singleton/reagent/drugs/dionae_stimulant/diet/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
-	M.apply_damage(5, DAMAGE_TOXIN, damage_flags = DAMAGE_FLAG_DISPERSED) //Less toxic than regular Diesel due to the lack of radioactivity, but still toxic
 	if(alien == IS_DIONA)
 		if(prob(5))
 			to_chat(M, SPAN_GOOD(pick("A bubbling sensation is felt by your nymphs.", "A nymph comments that this is the most energetic it has ever been!", "A warm energy builds within your central structure.", "Your nymphs can't stay still!")))
 			M.emote(pick("chirp", "twitch", "shiver"))
+	else
+		M.apply_damage(5, DAMAGE_TOXIN, damage_flags = DAMAGE_FLAG_DISPERSED) //Less toxic than regular Diesel due to the lack of radioactivity, but still toxic
 
 /singleton/reagent/drugs/dionae_stimulant/diet/final_effect(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	return
