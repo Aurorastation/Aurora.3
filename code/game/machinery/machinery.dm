@@ -373,6 +373,7 @@ Class Procs:
 	return S
 
 /obj/machinery/proc/RefreshParts()
+	/*
 	if(parts_power_mgmt)
 		var/new_idle_power
 		var/new_active_power
@@ -389,6 +390,7 @@ Class Procs:
 
 		change_power_consumption(new_idle_power)
 		change_power_consumption(new_active_power, POWER_USE_ACTIVE)
+	*/
 	GetPartUpgradeDesc()
 
 /obj/machinery/proc/assign_uid()
