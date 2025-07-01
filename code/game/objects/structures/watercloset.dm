@@ -395,9 +395,9 @@
 				user.visible_message(SPAN_NOTICE("[user] starts washing \a [RG] in \the [src]."))
 				if(!do_after(user, 25, src))
 					playsound(loc, 'sound/effects/sink.ogg', 75, TRUE)
-					busy = 0
+					busy = FALSE
 					return TRUE
-				busy = 0
+				busy = FALSE
 				user.visible_message(SPAN_NOTICE("[user] finishes washing \a [RG] in \the [src]."))
 			else
 				to_chat(user, SPAN_WARNING("\The [RG] still has something in it."))
