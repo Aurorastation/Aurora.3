@@ -92,7 +92,7 @@
 			. += FONT_SMALL(SPAN_ALERT("<b>Antagonism</b>"))
 			. += FONT_SMALL(SPAN_ALERT("- [desc_antag]"))
 	else
-		if(desc_extended || desc_info || desc_build || desc_upgrade || (desc_antag && (user.mind) || isghost(user) || isstoryteller(user))) // Checks if the object has a extended description, a mechanics description, and/or an antagonist description (and if the user is an antagonist).
+		if(desc_extended || desc_info || desc_build || desc_upgrade || (desc_antag && player_is_antag(user.mind) || isghost(user) || isstoryteller(user))) // Checks if the object has a extended description, a mechanics description, and/or an antagonist description (and if the user is an antagonist).
 			. += FONT_SMALL(SPAN_NOTICE("\[?\] This object has additional examine information available.")) // If any of the above are true, show that the object has more information available.
 			if(desc_extended) // If the item has a extended description, show that it is available.
 				. +=  FONT_SMALL("- <b>Extended Description</b>")
