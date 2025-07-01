@@ -102,7 +102,7 @@
 				. += FONT_SMALL(SPAN_NOTICE("- <b>Assembly/Disassembly</b>"))
 			if(desc_upgrade) // If the item has a description regarding game mechanics, show that it is available.
 				. += FONT_SMALL(SPAN_NOTICE("- <b>Upgrades</b>"))
-			if(desc_antag && player_is_antag(user.mind)) // If the item has an antagonist description and the user is an antagonist, show that it is available.
+			if(desc_antag && (player_is_antag(user.mind) || isghost(user) || isstoryteller(user))) // If the item has an antagonist description and the user is an antagonist, show that it is available.
 				. += FONT_SMALL(SPAN_ALERT("- <b>Antagonist Info</b>"))
 			. += FONT_SMALL(SPAN_NOTICE("<a href='byond://?src=[REF(src)];examine_fluff=1'>\[Show in Chat\]</a>"))
 
