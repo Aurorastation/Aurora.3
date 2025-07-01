@@ -500,6 +500,9 @@ Class Procs:
 			if(parts_replaced) //only play sound when RPED actually replaces parts
 				playsound(src, 'sound/items/rped.ogg', 40, TRUE)
 			return TRUE
+		else
+			to_chat(user, SPAN_NOTICE("The following parts have been detected in \the [src]:"))
+			to_chat(user, counting_english_list(component_parts))
 	else return FALSE
 
 /obj/machinery/proc/GetPartUpgradeDesc()
