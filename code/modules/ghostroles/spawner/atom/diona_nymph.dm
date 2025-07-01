@@ -11,7 +11,7 @@
 	spawn_mob = /mob/living/carbon/alien/diona
 
 //version for the infestation event.
-/datum/ghostspawner/diona_nymph_stowaway
+/datum/ghostspawner/diona_nymph_stowaway/New()
 	short_name = "stowaway_nymph"
 	name = "Stowaway Diona Nymph"
 	desc = "Join as a Diona Nymph that has stowed away on the [station_name(TRUE)]."
