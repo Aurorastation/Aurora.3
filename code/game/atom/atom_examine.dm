@@ -92,7 +92,7 @@
 			. += FONT_SMALL(SPAN_ALERT("<b>Antagonism</b>"))
 			. += FONT_SMALL(SPAN_ALERT("- [desc_antag]"))
 	else
-		if(desc_extended || desc_info || desc_build || desc_upgrade || (desc_antag && (user.mind) || isghost(user) || isstoryteller(user))) // Checks if the object has a extended description, a mechanics description, and/or an antagonist description (and if the user is an antagonist).
+		if(desc_extended || desc_info || desc_build || desc_upgrade || (desc_antag && (player_is_antag(user.mind) || isghost(user) || isstoryteller(user)))) // Checks if the object has a extended description, a mechanics description, and/or an antagonist description (and if the user is an antagonist).
 			. += FONT_SMALL(SPAN_NOTICE("\[?\] This object has additional examine information available.")) // If any of the above are true, show that the object has more information available.
 			if(desc_extended) // If the item has a extended description, show that it is available.
 				. +=  FONT_SMALL("- <b>Extended Description</b>")
@@ -102,7 +102,7 @@
 				. += FONT_SMALL(SPAN_NOTICE("- <b>Assembly/Disassembly</b>"))
 			if(desc_upgrade) // If the item has a description regarding game mechanics, show that it is available.
 				. += FONT_SMALL(SPAN_NOTICE("- <b>Upgrades</b>"))
-			if(desc_antag && player_is_antag(user.mind)) // If the item has an antagonist description and the user is an antagonist, show that it is available.
+			if(desc_antag && (player_is_antag(user.mind) || isghost(user) || isstoryteller(user))) // If the item has an antagonist description and the user is an antagonist, show that it is available.
 				. += FONT_SMALL(SPAN_ALERT("- <b>Antagonist Info</b>"))
 			. += FONT_SMALL(SPAN_NOTICE("<a href='byond://?src=[REF(src)];examine_fluff=1'>\[Show in Chat\]</a>"))
 
