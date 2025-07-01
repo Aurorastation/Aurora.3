@@ -942,7 +942,6 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 		area.power_equip = (equipment > 1)
 		area.power_environ = (environ > 1)
 	else
-		GLOB.power_alarm.triggerAlarm(loc, src)
 		area.power_light = FALSE
 		area.power_equip = FALSE
 		area.power_environ = FALSE
