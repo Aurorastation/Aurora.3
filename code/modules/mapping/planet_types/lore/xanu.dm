@@ -3,7 +3,7 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/xanu
 	name = "Xanu Prime"
-	desc = "The capital of the Coalition of Colonies. Xanu Prime is a geographically diverse, Earth-like world with varied biomes, ranging from equatorial rainforests, tropical deserts, and open grassy plains. Sieged during the Interstellar War, the planet is scarred by battles and orbital bombardments of the past. "
+	desc = "The capital of the Coalition of Colonies. Xanu Prime is a geographically diverse, Earth-like world with varied biomes, ranging from equatorial rainforests and tropical deserts to boreal forests and polar continents. Sieged during the Interstellar War, the planet is scarred by battles and orbital bombardments of the past."
 	icon_state = "globe2"
 	scanimage = "xanu_prime.png"
 	color = "#7c945c"
