@@ -280,7 +280,7 @@ GLOBAL_LIST_INIT(valid_bloodtypes, list(
 				if(BP_EYES)
 					out += "<li>- Retinal Overlayed [capitalize_first_letters(parse_zone(organ_name))]</li>"
 				if(BP_BRAIN)
-					out += "<li>- Positronic-Implanted [capitalize_first_letters(parse_zone(organ_name))]</li>"
+					out += "<li>- Pseudoneuron-Assisted [capitalize_first_letters(parse_zone(organ_name))]</li>"
 				else
 					out += "<li>- Mechanically Assisted [capitalize_first_letters(parse_zone(organ_name))]</li>"
 		else if(status == ORGAN_PREF_REMOVED)
