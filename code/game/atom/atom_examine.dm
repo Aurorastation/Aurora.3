@@ -48,20 +48,20 @@
  * Returns a `/list` of strings
  */
 
- /**
-  *	The structure of an object's examine box is as follows:
-  *	[ Name ] [ Size ]
-  *	[ Damage/Condition ]
-  *	[ Description ]
-  *	[ Extended Description*** ]
-  *	[ Mechanics*** ]
-  *	[ Assembly/Disassembly*** ]
-  *	[ Upgrades*** ]
-  *	[ Antagonist Interactions*** ]
-  *	[ Status Feedback ]
-  *
-  *	Blocks marked with *** are collapsed by default.
-  */
+/**
+ *	The structure of an object's examine box is as follows:
+ *	[ Name ] [ Size ]
+ *	[ Damage/Condition ]
+ *	[ Description ]
+ *	[ Extended Description*** ]
+ *	[ Mechanics*** ]
+ *	[ Assembly/Disassembly*** ]
+ *	[ Upgrades*** ]
+ *	[ Antagonist Interactions*** ]
+ *	[ Status Feedback ]
+ *
+*	Blocks marked with *** are collapsed by default.
+ */
 /atom/proc/get_examine_text(mob/user, distance, is_adjacent, infix = "", suffix = "", show_extended)
 	SHOULD_CALL_PARENT(TRUE)
 	SHOULD_NOT_SLEEP(TRUE)
@@ -173,6 +173,9 @@
 	var/mechanics_hints = mechanics_hints()
 	var/assembly_hints = assembly_hints()
 	var/disassembly_hints = disassembly_hints()
+	// desc_upgrade is currently handled in "code/game/machinery/machinery.dm" in /obj/machinery/proc/GetPartUpgradeDesc()
+	var/antagonist_hints = antagonist_hints()
+	var/feedback_hints = feedback_hints()
 
 	if(mechanics_hints)
 		desc_mechanics = list()
@@ -185,6 +188,12 @@
 	if(disassembly_hints)
 		for(var/disassembly_hint in assembly_hints)
 			desc_build += SPAN_WARNING("- [disassembly_hint]")
+	if(antagonist_hints)
+		for(var/antagonist_hint in antagonist_hints)
+			desc_antag += SPAN_WARNING("- [antagonist_hint]")
+	if(feedback_hints)
+		for(var/feedback_hint in feedback_hints)
+			desc_feedback += SPAN_NOTICE("- [feedback_hint]")
 
 /atom/proc/mechanics_hints()
 	return FALSE
@@ -205,4 +214,10 @@
 	return FALSE
 
 /atom/proc/disassembly_hints()
+	return FALSE
+
+/atom/proc/antagonist_hints()
+	return FALSE
+
+/atom/proc/feedback_hints()
 	return FALSE

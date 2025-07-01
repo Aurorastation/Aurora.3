@@ -58,8 +58,10 @@
 	 *	Adds additional information of different types about a given object.
 	 *	get_examine_text() in "obj\game\code\atom\atom_examine.dm" handles structure, formatting, etc.
 	 *
-	 *	Most of these variables only concern objs, but they are initialized here in case any functionality
+	 *	Most of these vars only concern objs, but they are initialized here in case any functionality
 	 *	is migrated elsewhere.
+	 *
+	 *	These vars should not be set in the object definition, but in defined funcs just beneath definition.
 	 */
 
 	/// Regular text about the atom's damage/condition.
