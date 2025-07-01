@@ -391,7 +391,7 @@
 			return
 		if(user.a_intent == I_DISARM)
 			if(!RG.reagents.total_volume)
-				busy = 1
+				busy = TRUE
 				user.visible_message(SPAN_NOTICE("[user] starts washing \a [RG] in \the [src]."))
 				if(!do_after(user, 25, src))
 					playsound(loc, 'sound/effects/sink.ogg', 75, TRUE)
