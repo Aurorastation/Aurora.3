@@ -39,7 +39,7 @@
 
 /obj/item/gun/projectile/Initialize()
 	. = ..()
-	desc_info = "This is a ballistic weapon. It fires [caliber] ammunition. To fire the weapon, toggle the safety with ctrl-click (or enable HARM intent), \
+	desc_mechanics = "This is a ballistic weapon. It fires [caliber] ammunition. To fire the weapon, toggle the safety with ctrl-click (or enable HARM intent), \
 	then click where you want to fire.  To reload, click the gun with an empty hand to remove any spent casings or magazines, and then insert new ones."
 	if(ispath(ammo_type) && (load_method & (SINGLE_CASING|SPEEDLOADER)))
 		for(var/i in 1 to max_shells)

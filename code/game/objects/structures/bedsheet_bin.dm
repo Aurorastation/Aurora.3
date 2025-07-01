@@ -7,7 +7,7 @@ LINEN BINS
 /obj/item/bedsheet
 	name = "bedsheet"
 	desc = "A surprisingly soft linen bedsheet."
-	desc_info = "Click to roll and unroll. Alt-click to fold and unfold. Drag and drop to pick up. You can equip it in your backpack slot."
+	desc_mechanics = "Click to roll and unroll. Alt-click to fold and unfold. Drag and drop to pick up. You can equip it in your backpack slot."
 	icon = 'icons/obj/bedsheets.dmi'
 	icon_state = "sheetwhite"
 	item_state = "sheetwhite"

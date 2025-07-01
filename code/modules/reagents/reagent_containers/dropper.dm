@@ -1,7 +1,7 @@
 /obj/item/reagent_containers/dropper
 	name = "dropper"
 	desc = "A dropper. It has a volume of 5 units."
-	desc_info = "Alt Click or Activate this item to change transfer rate."
+	desc_mechanics = "Alt Click or Activate this item to change transfer rate."
 	icon = 'icons/obj/item/reagent_containers/dropper.dmi'
 	contained_sprite = TRUE
 	icon_state = "dropper"

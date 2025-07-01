@@ -1,7 +1,7 @@
 /obj/machinery/floorlayer
 	name = "automatic floor layer"
 	desc = "A large piece of machinery used that can place, dismantle, and collect floor tiles."
-	desc_info = "Use a screwdriver to set which tile to lay, a wrench to configure the various modes, and a crowbar to take out tiles. Clicking on it with an empty hand will turn it on and off."
+	desc_mechanics = "Use a screwdriver to set which tile to lay, a wrench to configure the various modes, and a crowbar to take out tiles. Clicking on it with an empty hand will turn it on and off."
 	icon = 'icons/obj/floor_layer.dmi'
 	icon_state = "floor_layer"
 	density = TRUE

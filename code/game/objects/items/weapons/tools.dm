@@ -664,7 +664,7 @@
 /obj/item/eyeshield
 	name = "experimental eyeshield"
 	desc = "An advanced eyeshield capable of dampening the welding glare produced when working on modern super-materials, removing the need for user-worn welding gear."
-	desc_info = "This can be attached to an experimental welder to give it welding protection, removing the need for welding goggles or masks."
+	desc_mechanics = "This can be attached to an experimental welder to give it welding protection, removing the need for welding goggles or masks."
 	icon = 'icons/obj/item/welding_tools.dmi'
 	icon_state = "eyeshield"
 	item_state = "eyeshield"
@@ -673,7 +673,7 @@
 /obj/item/overcapacitor
 	name = "experimental overcapacitor"
 	desc = "An advanced capacitor that injects a current into the welding stream, doubling the speed of welding tasks without sacrificing quality. Excess current burns up welding fuel, reducing fuel efficiency, however."
-	desc_info = "This can be attached to an experimental welder to double the speed it works at, at the cost of tripling the fuel cost of using it."
+	desc_mechanics = "This can be attached to an experimental welder to double the speed it works at, at the cost of tripling the fuel cost of using it."
 	icon = 'icons/obj/item/welding_tools.dmi'
 	icon_state = "overcap"
 	item_state = "overcap"

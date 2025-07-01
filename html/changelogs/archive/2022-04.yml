@@ -479,7 +479,7 @@
   - tweak: The cyborg drink synthesizer now tells you what reagent you have just transferred
       to stuff.
   - bugfix: Fixed being able to pour stuff into a capped vacuum flask.
-  - bugfix: Fixed cyborg synthesizer&#x27;s inaccurate desc_info, and cleared the
+  - bugfix: Fixed cyborg synthesizer&#x27;s inaccurate desc_mechanics, and cleared the
       desc_fluff from them as well.
   mikomyazaki:
   - bugfix: You can place tape on doors again.

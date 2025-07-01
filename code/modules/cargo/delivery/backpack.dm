@@ -1,7 +1,7 @@
 /obj/item/cargo_backpack
 	name = "cargo pack"
 	desc = "A robust set of rigs and buckles that allows the wearer to carry two additional Orion Express delivery packages on their back."
-	desc_info = "To load packages onto your back, equip this item on the back slot, then click on it with a package in-hand. To unload a package, click on this item with an empty hand."
+	desc_mechanics = "To load packages onto your back, equip this item on the back slot, then click on it with a package in-hand. To unload a package, click on this item with an empty hand."
 	icon = 'icons/obj/orion_delivery.dmi'
 	icon_state = "package_pack"
 	item_state = "package_pack"

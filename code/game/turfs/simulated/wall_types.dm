@@ -1,5 +1,5 @@
 /turf/simulated/wall/r_wall
-	desc_info = "You can deconstruct this by with the following steps:<br>\
+	desc_mechanics = "You can deconstruct this by with the following steps:<br>\
 	Cut the outer grill with wirecutters, then unscrew them.<br>\
 	Slice the cover with a welder, then pry it off with a crowbar.<br>\
 	Use a wrench to loosen the anchor bolts, then cut the supports with a welder.<br>\

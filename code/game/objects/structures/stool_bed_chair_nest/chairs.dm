@@ -343,7 +343,7 @@
 /obj/item/material/stool/chair
 	name = "chair"
 	desc = "Bar brawl essential. Now all that's missing is a ragtime piano."
-	desc_info = "Click it while in-hand to right it."
+	desc_mechanics = "Click it while in-hand to right it."
 	icon = 'icons/obj/structure/chairs.dmi'
 	icon_state = "chair_item"
 	item_state = "chair"

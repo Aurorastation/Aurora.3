@@ -5,7 +5,7 @@
 /obj/structure/closet/crate
 	name = "crate"
 	desc = "A rectangular steel crate."
-	desc_info = "Crates can be placed on top of tables by clicking and dragging the crate onto the target table."
+	desc_mechanics = "Crates can be placed on top of tables by clicking and dragging the crate onto the target table."
 	icon = 'icons/obj/crate.dmi'
 	icon_state = "crate"
 	climbable = TRUE

@@ -950,7 +950,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 /obj/item/newspaper
 	name = "newspaper"
 	desc = "An issue of The Griffon, the newspaper circulating aboard most stations."
-	desc_info = "You can alt-click this to roll it up."
+	desc_mechanics = "You can alt-click this to roll it up."
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "newspaper"
 	item_state = "newspaper"

@@ -1,7 +1,7 @@
 /obj/item/clothing/mask/smokable/ecig
 	name = "electronic cigarette"
 	desc = "A battery powered cigarette."
-	desc_info = "Alt-Click to remove the cartridge. The cigarette must be in one of your hands to do this."
+	desc_mechanics = "Alt-Click to remove the cartridge. The cigarette must be in one of your hands to do this."
 	icon = 'icons/obj/ecig.dmi'
 	contained_sprite = TRUE
 	item_icons = null // Needs to nuke this because Contained Sprites and all

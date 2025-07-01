@@ -118,7 +118,7 @@
 /obj/structure/fuel_port //empty
 	name = "fuel port"
 	desc = "The fuel input port of the shuttle. Holds one fuel tank. Use a crowbar to open and close it."
-	desc_info = "The fuel port must be wrenched and welded in place before it can be loaded and used by the shuttle."
+	desc_mechanics = "The fuel port must be wrenched and welded in place before it can be loaded and used by the shuttle."
 	icon = 'icons/turf/shuttle.dmi'
 	icon_state = "fuel_port"
 	density = 0

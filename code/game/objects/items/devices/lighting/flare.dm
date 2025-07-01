@@ -1,7 +1,7 @@
 /obj/item/device/flashlight/flare
 	name = "flare"
 	desc = "A red standard-issue flare. There are instructions on the side reading 'twist cap off, make light'."
-	desc_info = "Use this item in your hand, to turn on the light."
+	desc_mechanics = "Use this item in your hand, to turn on the light."
 	w_class = WEIGHT_CLASS_TINY
 	brightness_on = 5 // Pretty bright.
 	light_power = 6
@@ -86,7 +86,7 @@
 /obj/item/device/flashlight/flare/torch
 	name = "torch"
 	desc = "A rustic source of light."
-	desc_info = "Click on a source of flame, to light the torch."
+	desc_mechanics = "Click on a source of flame, to light the torch."
 	w_class = WEIGHT_CLASS_BULKY
 	brightness_on = 2
 	light_power = 3

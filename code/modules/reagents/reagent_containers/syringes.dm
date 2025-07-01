@@ -9,7 +9,7 @@
 /obj/item/reagent_containers/syringe
 	name = "syringe"
 	desc = "A syringe."
-	desc_info = "This tool can be used to reinflate a collapsed lung. To do this, activate grab intent, select the patient's chest, then click on them. It will hurt a lot, but it will buy time until surgery can be performed."
+	desc_mechanics = "This tool can be used to reinflate a collapsed lung. To do this, activate grab intent, select the patient's chest, then click on them. It will hurt a lot, but it will buy time until surgery can be performed."
 	icon = 'icons/obj/item/reagent_containers/syringe.dmi'
 	contained_sprite = TRUE
 	icon_state = "0"

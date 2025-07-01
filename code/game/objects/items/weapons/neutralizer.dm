@@ -1,7 +1,7 @@
 /obj/item/bluespace_neutralizer
 	name = "bluespace neutralizer"
 	desc = "A strange device, supposedly capable of pre-emptively shutting down bluespace portals."
-	desc_info = "Click on it, or use it in-hand to activate it. Click on any portal-like structure to instantly close it. Stand near a bluespace rift while it's active to start the closing process."
+	desc_mechanics = "Click on it, or use it in-hand to activate it. Click on any portal-like structure to instantly close it. Stand near a bluespace rift while it's active to start the closing process."
 	icon = 'icons/obj/item/neutralizer.dmi'
 	icon_state = "neutralizer"
 	contained_sprite = TRUE

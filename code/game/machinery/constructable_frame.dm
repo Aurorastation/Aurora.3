@@ -7,7 +7,7 @@
 /obj/machinery/constructable_frame //Made into a seperate type to make future revisions easier.
 	name = "machine blueprint"
 	desc = "A holo-blueprint for a machine."
-	desc_info = "A blueprint that allows the user to rotate the direction the final result will be built in. Putting better components in now, will cause the machine made to have better components and functionality."
+	desc_mechanics = "A blueprint that allows the user to rotate the direction the final result will be built in. Putting better components in now, will cause the machine made to have better components and functionality."
 	var/machine_description
 	var/components_description
 	icon = 'icons/obj/stock_parts.dmi'

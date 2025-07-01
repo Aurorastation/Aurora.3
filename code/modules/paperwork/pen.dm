@@ -15,7 +15,7 @@
 /obj/item/pen
 	name = "pen"
 	desc = "An instrument for writing or drawing. This one is in black."
-	desc_info = {"This is an item for writing down your thoughts, on paper or elsewhere. The following special commands are available:
+	desc_mechanics = {"This is an item for writing down your thoughts, on paper or elsewhere. The following special commands are available:
 		<br>
 		Pen and crayon commands
 		\[br\] : Creates a linebreak.

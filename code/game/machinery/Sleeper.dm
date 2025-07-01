@@ -1,7 +1,7 @@
 /obj/machinery/sleeper
 	name = "sleeper"
 	desc = "A fancy bed with built-in injectors, a dialysis machine, and a limited health scanner."
-	desc_info = "The sleeper allows you to clean the blood by means of dialysis, and to administer medication in a controlled environment.<br>\
+	desc_mechanics = "The sleeper allows you to clean the blood by means of dialysis, and to administer medication in a controlled environment.<br>\
 	<br>\
 	Click your target with Grab intent, then click on the sleeper to place them in it. Click the green console, with an empty hand, to open the menu. \
 	Click 'Start Dialysis' to begin filtering unwanted chemicals from the occupant's blood. The beaker contained will begin to fill with their \

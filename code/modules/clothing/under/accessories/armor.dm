@@ -2,7 +2,7 @@
 /obj/item/clothing/accessory/leg_guard
 	name = "corporate leg guards"
 	desc = "These will protect your legs."
-	desc_info = "These items must be hooked onto plate carriers for them to work!"
+	desc_mechanics = "These items must be hooked onto plate carriers for them to work!"
 	icon = 'icons/clothing/kit/modular_armor.dmi'
 	icon_state = "legguards_sec"
 	item_state = "legguards_sec"

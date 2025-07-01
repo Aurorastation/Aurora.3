@@ -84,7 +84,7 @@ No Implant Specifics"}
 /obj/item/implant/telefreedom
 	name = "telefreedom implant"
 	desc = "Use this to teleport to a linked teleporter in desperate times. Melts after being used."
-	desc_info = "Click a telepad to link your telefreedom implant to it before implanting."
+	desc_mechanics = "Click a telepad to link your telefreedom implant to it before implanting."
 
 	//////Edit these when you can give it an unique sprite//////
 	icon_state = "implant_freedom"

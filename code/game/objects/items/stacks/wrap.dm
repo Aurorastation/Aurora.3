@@ -1,7 +1,7 @@
 /obj/item/stack/wrapping_paper
 	name = "wrapping paper"
 	desc = "You can use this to wrap items in."
-	desc_info = "To wrap something into a gift, click on the wrapping paper that's not in your hands with the object you wish to wrap."
+	desc_mechanics = "To wrap something into a gift, click on the wrapping paper that's not in your hands with the object you wish to wrap."
 	icon = 'icons/obj/item/stacks/wrap.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_wrap.dmi',
@@ -100,7 +100,7 @@
 		)
 	icon_state = "deliveryPaper"
 	desc = "A roll of paper used to enclose an object for delivery."
-	desc_info = "To package wrap the object for delivery, use the package wrapper on the object."
+	desc_mechanics = "To package wrap the object for delivery, use the package wrapper on the object."
 	singular_name = "length"
 	w_class = WEIGHT_CLASS_NORMAL
 	amount = 30

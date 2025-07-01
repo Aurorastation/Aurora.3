@@ -11,7 +11,7 @@
 		It has different devices and samplers, as well as internal processing computers, \
 		to inspect the atmosphere and other properties and qualities of planetary bodies. \
 		Commonly used by surveyors, explorers, pioneers, all over the Spur, looking to determine the suitability of planets for settlement. "
-	desc_info = "\
+	desc_mechanics = "\
 		The probe has to be deployed first before it is used. Wrench it to deploy, then click with empty hand to activate.\
 		"
 	icon = 'icons/obj/xenoarchaeology.dmi'
@@ -224,7 +224,7 @@
 		It has different devices and drill bits, as well as internal processing computers, \
 		to inspect the ground, soil and crust of planetary bodies. \
 		Commonly used by surveyors, explorers, pioneers, all over the Spur, looking to determine the mineral value of planets for settlement. "
-	desc_info = "\
+	desc_mechanics = "\
 		The probe has to be deployed first before it is used. Wrench it to deploy, then click with empty hand to activate."
 
 	icon_state = "ground_probe"
@@ -268,7 +268,7 @@
 		It has different devices and instruments bits, as well as internal processing computers, \
 		to inspect the magnetic field and magnetosphere of planetary bodies. \
 		Commonly used by surveyors, explorers, pioneers, all over the Spur, looking to determine the sefety and comfort of planets for settlement. "
-	desc_info = "\
+	desc_mechanics = "\
 		The probe has to be deployed first before it is used. Wrench it to deploy, then click with empty hand to activate."
 
 	icon_state = "magnet_probe"

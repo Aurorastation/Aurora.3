@@ -1,7 +1,7 @@
 /obj/machinery/orderterminal
 	name = "Idris Ordering Terminal"
 	desc = "An ordering terminal designed by Idris for quicker expedition."
-	desc_info = "To edit the menu, select 'Toggle Lock' while wearing an ID with kitchen access. \nAll credits from the machine will automatically go to the civilian account."
+	desc_mechanics = "To edit the menu, select 'Toggle Lock' while wearing an ID with kitchen access. \nAll credits from the machine will automatically go to the civilian account."
 	icon = 'icons/obj/machinery/wall/terminals.dmi'
 	icon_state = "kitchenterminal"
 	anchored = 1

@@ -354,7 +354,7 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 /obj/item/reagent_containers/food/drinks/shaker
 	name = "shaker"
 	desc = "A metal shaker to mix drinks in."
-	desc_info = "Alt Click the shaker to twist the cap closed/loose. If the cap is loose, use the shaker to remove it. Without a cap, use the shaker again to remove the top. \
+	desc_mechanics = "Alt Click the shaker to twist the cap closed/loose. If the cap is loose, use the shaker to remove it. Without a cap, use the shaker again to remove the top. \
 	If the shaker has a top fitted, you can Alt Click the shaker to change the transfer amount. Without a top, the transfer amount changes to max automatically."
 	icon = 'icons/obj/shaker.dmi'
 	icon_state = "shaker"
@@ -498,7 +498,7 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 /obj/item/shaker_top
 	name = "shaker top"
 	desc = "A metal shaker top with an in-built filter on the bottom."
-	desc_info = "When fitted on a shaker, you can Alt Click the shaker to change transfer amount of the shaker."
+	desc_mechanics = "When fitted on a shaker, you can Alt Click the shaker to change transfer amount of the shaker."
 	icon = 'icons/obj/shaker.dmi'
 	icon_state = "shaker_top"
 	item_state = "shaker_top"
@@ -510,7 +510,7 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 /obj/item/reagent_containers/food/drinks/shaker_cup
 	name = "shaker cap"
 	desc = "A metal shaker cap that also doubles as a metal cup to measure liquids, or to drink from."
-	desc_info = "Alt Click the cap to change the transfer amount."
+	desc_mechanics = "Alt Click the cap to change the transfer amount."
 	icon = 'icons/obj/shaker.dmi'
 	icon_state = "shaker_cup"
 	item_state = "shaker_cup"

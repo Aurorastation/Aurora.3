@@ -201,7 +201,7 @@
 /obj/item/device/radio/headset/alt/double
 	name = "soundproof headset"
 	desc = "A sound isolating version of the common radio headset."
-	desc_info = "This radio doubles as a pair of earmuffs by providing sound protection."
+	desc_mechanics = "This radio doubles as a pair of earmuffs by providing sound protection."
 	icon = 'icons/obj/item/device/radio/headset_alt_double.dmi'
 	icon_state = "earset"
 	item_state = "earset"
@@ -211,7 +211,7 @@
 /obj/item/device/radio/headset/wrist
 	name = "wristbound radio"
 	desc = "A radio designed to fit on the wrist. Often known for broadcasting loudly enough that those closeby might overhear it."
-	desc_info = "This radio can be heard by people standing next to the one wearing it."
+	desc_mechanics = "This radio can be heard by people standing next to the one wearing it."
 	icon = 'icons/obj/item/device/radio/headset_wrist.dmi'
 	icon_state = "wristset"
 	item_state = "wristset"
@@ -243,7 +243,7 @@
 /obj/item/device/radio/headset/wrist/clip
 	name = "clip-on radio"
 	desc = "A radio designed to clip onto your clothes. Often known for broadcasting loudly enough that those closeby might overhear it."
-	desc_info = "This radio can be heard by people standing next to the one wearing it."
+	desc_mechanics = "This radio can be heard by people standing next to the one wearing it."
 	icon = 'icons/obj/item/device/radio/headset_clip.dmi'
 	icon_state = "clip"
 	item_state = "clip"

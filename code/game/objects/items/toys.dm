@@ -107,7 +107,7 @@
 
 /obj/item/toy/balloon
 	name = "balloon"
-	desc_info = "You can fill it up with gas using a tank."
+	desc_mechanics = "You can fill it up with gas using a tank."
 	desc_extended = "Thanks to the joint effort of the Research and Atmospherics teams, station enviroments have been set to allow balloons to float without helium. Look, it was the end of the month and we went under budget."
 	drop_sound = 'sound/items/drop/rubber.ogg'
 	pickup_sound = 'sound/items/pickup/rubber.ogg'
@@ -1374,7 +1374,7 @@
 /obj/item/toy/aurora
 	name = "aurora miniature"
 	desc = "A miniature of a space station, built into an asteroid. A tiny suspension field keeps it afloat. A small plaque on the front reads: NSS Aurora, Tau Ceti, Romanovich Cloud, 2464. Onward to new horizons."
-	desc_info = "This miniature was given out on the 9th of April 2464 to all former crew members of the Aurora as a memento, before setting off to their new mission on the SCCV Horizon."
+	desc_mechanics = "This miniature was given out on the 9th of April 2464 to all former crew members of the Aurora as a memento, before setting off to their new mission on the SCCV Horizon."
 	icon_state = "aurora"
 
 /obj/item/toy/adhomian_map
@@ -1385,7 +1385,7 @@
 /obj/item/toy/ringbell
 	name = "ringside bell"
 	desc = "A bell used to signal the beginning and end of various ring sports."
-	desc_info = "Use help intent on the bell to signal the start of a contest\ndisarm intent to signal the end of a contest and\nharm intent to signal a disqualification."
+	desc_mechanics = "Use help intent on the bell to signal the start of a contest\ndisarm intent to signal the end of a contest and\nharm intent to signal a disqualification."
 	icon_state = "ringbell"
 	anchored = TRUE
 

@@ -1,7 +1,7 @@
 /obj/vehicle/bike
 	name = "space-bike"
 	desc = "Space wheelies! Woo!"
-	desc_info = "\
+	desc_mechanics = "\
 		- Click-drag yourself onto the bike to climb onto it.<br>\
 		- Click-drag it onto yourself to access its mounted storage.<br>\
 		- CTRL-click the bike to toggle the engine.<br>\
@@ -349,7 +349,7 @@
 /obj/vehicle/bike/monowheel
 	name = "adhomian monowheel"
 	desc = "A one-wheeled vehicle, fairly popular with Little Adhomai's greasers."
-	desc_info = "Drag yourself onto the monowheel to mount it, toggle the engine to be able to drive around. Deploy the kickstand to prevent movement by driving and dragging. Drag it onto yourself to access its mounted storage. Resist to get off."
+	desc_mechanics = "Drag yourself onto the monowheel to mount it, toggle the engine to be able to drive around. Deploy the kickstand to prevent movement by driving and dragging. Drag it onto yourself to access its mounted storage. Resist to get off."
 	icon_state = "monowheel_off"
 
 	health = 250

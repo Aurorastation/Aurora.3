@@ -106,7 +106,7 @@
 	return TRUE
 
 /obj/item/blueprints/shuttle
-	desc_info = "These blueprints can be used to modify a shuttle. In order to be used, the shuttle must be located on its \"Open Space\" z-level. Newly-created areas will be automatically added to the shuttle. If all shuttle areas are removed, the shuttle will be destroyed!"
+	desc_mechanics = "These blueprints can be used to modify a shuttle. In order to be used, the shuttle must be located on its \"Open Space\" z-level. Newly-created areas will be automatically added to the shuttle. If all shuttle areas are removed, the shuttle will be destroyed!"
 	///Name of the blueprints' linked shuttle. Mapped-in versions should have this preset, or be mapped into the shuttle area itself.
 	var/shuttle_name
 	///The actual overmap shuttle type, for setting on preset blueprints.

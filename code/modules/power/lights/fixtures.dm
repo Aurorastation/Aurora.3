@@ -10,7 +10,7 @@
 	var/base_state = "tube"		// base description and icon_state
 	icon_state = "tube_preview"
 	desc = "A lighting fixture."
-	desc_info = "Use grab intent when interacting with a working light to take it out of its fixture."
+	desc_mechanics = "Use grab intent when interacting with a working light to take it out of its fixture."
 	anchored = TRUE
 	layer = ABOVE_HUMAN_LAYER
 	use_power = POWER_USE_ACTIVE

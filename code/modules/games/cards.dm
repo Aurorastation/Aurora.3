@@ -31,7 +31,7 @@
 /obj/item/deck/cards
 	name = "deck of cards"
 	desc = "A simple deck of playing cards."
-	desc_info = "Ctrl-click to draw/deal. Alt-click to shuffle."
+	desc_mechanics = "Ctrl-click to draw/deal. Alt-click to shuffle."
 	icon_state = "deck"
 	drop_sound = 'sound/items/drop/paper.ogg'
 	pickup_sound = 'sound/items/pickup/paper.ogg'

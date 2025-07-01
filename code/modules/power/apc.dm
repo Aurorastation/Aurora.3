@@ -71,7 +71,7 @@
 ABSTRACT_TYPE(/obj/machinery/power/apc)
 	name = "area power controller"
 	desc = "A control terminal for the area electrical systems."
-	desc_info = "- An APC (Area Power Controller) regulates and supplies backup power for the area they are in.<br>\
+	desc_mechanics = "- An APC (Area Power Controller) regulates and supplies backup power for the area they are in.<br>\
 	- Their power channels are divided into 'environmental' (items that manipulate airflow and temperature), 'lighting' (lights), and 'equipment' (everything else that consumes power).<br>\
 	- Power consumption and backup power cell charge can be seen from the interface, further controls (turning a specific channel on, off or automatic, \
 	toggling the APC's ability to charge the backup cell, or toggling power for the entire area via master breaker) first requires the interface to be unlocked \

@@ -4,7 +4,7 @@
 	icon = 'icons/obj/wasp_torpedo.dmi'
 	icon_state = "torpedo_off"
 
-	desc_info = "Click-drag yourself onto the torpedo to climb onto it.<br>\
+	desc_mechanics = "Click-drag yourself onto the torpedo to climb onto it.<br>\
 		- CTRL-click the torpedo to toggle the engine.<br>\
 		- ALT-click to toggle the kickstand which prevents movement by driving and dragging.<br>\
 		- Click the resist button or type \"resist\" in the command bar at the bottom of your screen to get off the torpedo.<br>\

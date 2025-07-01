@@ -18,7 +18,7 @@
 /obj/structure/bed
 	name = "bed"
 	desc = "This is used to lie in, sleep in or strap on."
-	desc_info = "- Click and drag yourself (or anyone) to this to buckle in.\
+	desc_mechanics = "- Click and drag yourself (or anyone) to this to buckle in.\
 	</br>- Click on this with an empty hand to undo the buckles.\
 	</br>- Anyone with restraints, such as handcuffs, will not be able to unbuckle themselves. They must use the Resist button, or verb, to break free of \
 	the buckles instead.\
@@ -56,7 +56,7 @@
 /obj/structure/bed/New(newloc, new_material = MATERIAL_STEEL, new_padding_material, new_painted_colour)
 	..(newloc)
 	if(held_item)
-		desc_info += "<br>- Click and drag this onto yourself to pick it up. "
+		desc_mechanics += "<br>- Click and drag this onto yourself to pick it up. "
 	material = SSmaterials.get_material_by_name(new_material)
 	if(!istype(material))
 		qdel(src)
@@ -303,13 +303,13 @@
 
 /obj/structure/bed/assembly_hints()
 	if (!padding_material)
-		. += "- It could be padded with <b>cloth or leather</b>."
+		. += "It could be padded with <b>cloth or leather</b>."
 	return .
 
 /obj/structure/bed/disassembly_hints()
 	if (padding_material)
-		. += "- Its padding has visible seams that could be <b>cut</b>.<br>"
-	. += "- It is held together by a couple of <b>bolts</b>."
+		. += "Its padding has visible seams that could be <b>cut</b>.<br>"
+	. += "It is held together by a couple of <b>bolts</b>."
 	return .
 
 /obj/structure/bed/psych

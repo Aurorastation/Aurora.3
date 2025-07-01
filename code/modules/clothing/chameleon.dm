@@ -382,7 +382,7 @@
 /obj/item/gun/energy/chameleon
 	name = "desert eagle"
 	desc = null
-	desc_info = null //The chameleon gun adopts the desc_info of the weapon it is impersonating as, to make meta-ing harder.
+	desc_mechanics = null //The chameleon gun adopts the desc_mechanics of the weapon it is impersonating as, to make meta-ing harder.
 	desc_antag = "This gun is actually a hologram projector that can alter its appearance to mimick other weapons.  To change the appearance, use \
 	the appropriate verb in the chameleon items tab. Any beams or projectiles fired from this gun are actually holograms and useless for actual combat. \
 	Projecting these holograms over distance uses a little bit of charge."
@@ -447,7 +447,7 @@
 	if(istype(E))
 		copy_projectile = E.projectile_type
 		desc = E.desc
-		desc_info = E.desc_info
+		desc_mechanics = E.desc_mechanics
 	else
 		copy_projectile = null
 

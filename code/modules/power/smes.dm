@@ -21,7 +21,7 @@
 /obj/machinery/power/smes
 	name = "power storage unit"
 	desc = "A high-capacity superconducting magnetic energy storage (SMES) unit."
-	desc_info = "It can be repaired with a welding tool."
+	desc_mechanics = "It can be repaired with a welding tool."
 	icon_state = "smes"
 	density = 1
 	anchored = 1

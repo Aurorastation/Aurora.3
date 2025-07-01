@@ -86,7 +86,7 @@ GLOBAL_LIST_INIT(tape_roll_applications, list())
 /obj/item/tape/engineering
 	name = "engineering tape"
 	desc = "A length of engineering tape. Better not cross it."
-	desc_info = "You can use a multitool on this tape to allow emergency shield generators to deploy shields on this tile."
+	desc_mechanics = "You can use a multitool on this tape to allow emergency shield generators to deploy shields on this tile."
 	req_one_access = list(ACCESS_ENGINE, ACCESS_ATMOSPHERICS)
 	icon_base = "engineering"
 	var/shield_marker = FALSE

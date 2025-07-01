@@ -10,7 +10,7 @@
 /obj/machinery/atmospherics/unary/vent_pump
 	name = "air vent"
 	desc = "Has a valve and pump attached to it."
-	desc_info = "This pumps the contents of the attached pipe out into the atmosphere, if needed.  It can be controlled from an Air Alarm."
+	desc_mechanics = "This pumps the contents of the attached pipe out into the atmosphere, if needed.  It can be controlled from an Air Alarm."
 	icon = 'icons/atmos/vent_pump.dmi'
 	icon_state = "map_vent"
 

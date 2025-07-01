@@ -3,7 +3,7 @@
 /obj/machinery/atmospherics/unary/cryo_cell
 	name = "cryo cell"
 	desc = "A cryogenic chamber that can freeze occupants while keeping them alive, preventing them from taking any further damage. It can be loaded with a chemical cocktail for various medical benefits."
-	desc_info = "The cryogenic chamber, or 'cryo', treats most damage types, most notably genetic damage. It also stabilizes patients \
+	desc_mechanics = "The cryogenic chamber, or 'cryo', treats most damage types, most notably genetic damage. It also stabilizes patients \
 	in critical condition by placing them in stasis, so they can be treated at a later time.<br>\
 	<br>\
 	In order for it to work, it must be loaded with chemicals, and the temperature of the solution must reach a certain point. Additionally, it \

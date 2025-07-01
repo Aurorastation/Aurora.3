@@ -128,7 +128,7 @@
 /obj/item/tent
 	name = "expedition tent"
 	desc = "A rolled up tent, ready to be assembled to make a base camp, shelter, or just a cozy place to chat."
-	desc_info = "Drag this to yourself to begin assembly. This will take some time, in 4 stages. Others can start working on the other stages by dragging it to themselves as well."
+	desc_mechanics = "Drag this to yourself to begin assembly. This will take some time, in 4 stages. Others can start working on the other stages by dragging it to themselves as well."
 	icon = 'icons/obj/item/camping.dmi'
 	icon_state = "tent"
 	item_state = "tent"
@@ -229,7 +229,7 @@
 /obj/structure/component/tent_canvas
 	name = "tent canvas"
 	desc = "The fabric and poles which make up the wall of a tent. Not air-tight, but able to keep out the weather, and very cozy."
-	desc_info = "Drag this to yourself to begin disassembly. This will take some time, in 4 stages. Others can start working on the other stages by dragging it, or other sections, to themselves as well."
+	desc_mechanics = "Drag this to yourself to begin disassembly. This will take some time, in 4 stages. Others can start working on the other stages by dragging it, or other sections, to themselves as well."
 	icon = 'icons/obj/item/camping.dmi'
 	icon_state = "canvas"
 	item_state = "canvas"

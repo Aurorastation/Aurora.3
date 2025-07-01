@@ -2,7 +2,7 @@
 /obj/machinery/microscope
 	name = "high powered electron microscope"
 	desc = "A highly advanced microscope capable of zooming up to 3000x."
-	desc_info = "Use a microscope slide or a fingerprint card on this machine to insert it.\
+	desc_mechanics = "Use a microscope slide or a fingerprint card on this machine to insert it.\
 	\nAlt click to remove any object within it."
 	icon = 'icons/obj/forensics.dmi'
 	icon_state = "microscope"

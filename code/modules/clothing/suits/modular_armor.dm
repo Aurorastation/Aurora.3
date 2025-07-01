@@ -134,7 +134,7 @@
 /obj/item/clothing/accessory/armor_plate
 	name = "corporate armor plate"
 	desc = "A particularly light-weight armor plate in stylish corporate black. Unfortunately, not very good if you hold it with your hands."
-	desc_info = "These items must be hooked onto plate carriers for them to work!"
+	desc_mechanics = "These items must be hooked onto plate carriers for them to work!"
 	icon = 'icons/clothing/kit/modular_armor.dmi'
 	icon_state = "plate_sec"
 	item_state = "plate_sec"

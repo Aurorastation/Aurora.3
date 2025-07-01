@@ -1,7 +1,7 @@
 /obj/machinery/slime_extractor
 	name = "slime core extractor"
 	desc = "A bulky machine that, when fed a slime corpse, rapidly extracts the held cores."
-	desc_info = "This machine can be upgraded with a micro laser to increase its extraction speed, or a matter bin to increase its slime capacity. It will place slime extracts into a slime extract bag if it's adjacent to the machine."
+	desc_mechanics = "This machine can be upgraded with a micro laser to increase its extraction speed, or a matter bin to increase its slime capacity. It will place slime extracts into a slime extract bag if it's adjacent to the machine."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "slime_extractor"
 	density = TRUE

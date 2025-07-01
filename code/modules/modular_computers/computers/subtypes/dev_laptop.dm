@@ -3,7 +3,7 @@
 	name = "laptop computer"
 	lexical_name = "laptop"
 	desc = "A portable computer."
-	desc_info = "You can alt-click the laptop while it's set down on surface to open it up and work with it. Left clicking while it is open will allow you to operate it."
+	desc_mechanics = "You can alt-click the laptop while it's set down on surface to open it up and work with it. Left clicking while it is open will allow you to operate it."
 	hardware_flag = PROGRAM_LAPTOP
 	can_reset = TRUE
 	icon_state_unpowered = "laptop-open"

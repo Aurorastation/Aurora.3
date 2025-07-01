@@ -60,7 +60,7 @@
 /obj/item/gun/projectile/revolver/mateba/captain
 	name = "\improper SCC command autorevolver"
 	desc = "A ludicrously powerful .454 autorevolver with equally ludicrous recoil which is issued by the SCC to the administrators of critical facilities and vessels. While revolvers may be a thing of the past, the stopping power displayed by this weapon is second to none."
-	desc_info = "In order to accurately fire this revolver, it must be wielded. Additionally, if you fire this revolver unwielded and you are not a G2 or Unathi, you will drop it."
+	desc_mechanics = "In order to accurately fire this revolver, it must be wielded. Additionally, if you fire this revolver unwielded and you are not a G2 or Unathi, you will drop it."
 	desc_extended = "A Zavodskoi Interstellar design from the mid 2450s intended for export to the Eridani Corporate Federation and the Republic of Biesel, the Protektor \
 	revolver was never designed with practicality in mind. The .454 rounds fired from this weapon are liable to snap the wrist of an unprepared shooter and \
 	any following shots will be difficult to place onto a human-sized target due to the recoil, let alone a skrell. But nobody buys a Protektor for the purpose of \
@@ -188,7 +188,7 @@
 
 /obj/item/gun/projectile/revolver/lemat/Initialize()
 	. = ..()
-	desc_info = "This is a unique ballistic weapon. It fires .38 ammunition, but may also load shotgun shells into a secondary barrel. To fire the weapon, toggle the safety \
+	desc_mechanics = "This is a unique ballistic weapon. It fires .38 ammunition, but may also load shotgun shells into a secondary barrel. To fire the weapon, toggle the safety \
 	with ctrl-click (or enable HARM intent), then click where you want to fire. By using the Unique-Action macro, you can switch from one barrel to the other. To reload, click the gun \
 	with an empty hand to remove any spent casings or shells, then insert new ones."
 	for(var/i in 1 to secondary_max_shells)

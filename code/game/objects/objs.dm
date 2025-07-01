@@ -283,7 +283,7 @@
 	..()
 
 /obj/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended = FALSE)
-	updatedesc_build()
+	update_desc_blocks()
 
 	. = ..()
 	if((obj_flags & OBJ_FLAG_ROTATABLE) || (obj_flags & OBJ_FLAG_ROTATABLE_ANCHORED))
@@ -322,35 +322,3 @@
 				clients_in_hearers += mob.client
 		if(length(clients_in_hearers))
 			INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, animate_chat), message, null, FALSE, clients_in_hearers, overhead_time)
-
-/**
- *	Update the object's desc_build variable with the current build action hints available for it.
- *	Check out "code\game\atom\atom_examine.dm" for how these variables are used.
- */
-/obj/proc/updatedesc_build()
-	var/assembly_hints = assembly_hints()
-	var/disassembly_hints = disassembly_hints()
-
-	if(assembly_hints)
-		desc_build = list()
-		desc_build += SPAN_NOTICE("[assembly_hints]")
-	if(disassembly_hints)
-		desc_build += SPAN_WARNING("[disassembly_hints]")
-
-/*
- *	Children of assembly_hints() and disassembly_hints() should check the current state of the object,
- *	whether it has any eligible steps in its assembly or disassembly respectively, and if so, return
- *	instructions on how to accomplish those steps.
- *
- *	It should describe steps toward or away from a completed 'form' of the object.
- *	For example, a table whose surface can be carpeted would have carpeting instructions in assembly_hints().
- *	However, an IV drip which can have a gas tank attached to it would not have that  described in assembly_hints(),
- *	as the IV drip is already 'completed,' and a gas tank is effectively just a swappable slot item for it.
- *
- *	Use your best judgement, and check out"/obj/modules/tables/table.dm" for a simple implementation example.
- */
-/obj/proc/assembly_hints()
-	return FALSE
-
-/obj/proc/disassembly_hints()
-	return FALSE

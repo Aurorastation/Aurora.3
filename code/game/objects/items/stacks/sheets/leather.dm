@@ -52,7 +52,7 @@
 /obj/item/stack/material/animalhide/barehide
 	name = "bare hide"
 	desc = "A hide without fur or scales. Can be tanned into leather."
-	desc_info = "You can put this into a washing machine to make wet leather, which is the first step in making it into leather sheets."
+	desc_mechanics = "You can put this into a washing machine to make wet leather, which is the first step in making it into leather sheets."
 	singular_name = "bare hide piece"
 	icon_state = "sheet-hairlesshide"
 	default_type = "bare hide"
@@ -61,7 +61,7 @@
 /obj/item/stack/material/animalhide/wetleather
 	name = "wet leather"
 	desc = "This leather has been cleaned but still needs to be dried."
-	desc_info = "This can be dried into high-quality fine leather by exposing it to a fire of a sufficient temperature, or manually with a welding tool. You don't need eye protection for the welding tool."
+	desc_mechanics = "This can be dried into high-quality fine leather by exposing it to a fire of a sufficient temperature, or manually with a welding tool. You don't need eye protection for the welding tool."
 	singular_name = "wet leather piece"
 	icon_state = "sheet-wetleather"
 	default_type = "wet leather"

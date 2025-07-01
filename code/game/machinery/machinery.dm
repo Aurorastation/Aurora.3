@@ -125,7 +125,7 @@ Class Procs:
 	var/parts_power_mgmt = TRUE
 	/// The total power rating of all parts serves as a power usage multiplier.
 	var/parts_power_usage = 0
-	/// Blurbs for what each component type does. Appended to machine's /desc_info.
+	/// Blurbs for what each component type does. Appended to machine's /desc_mechanics.
 	/// Kindly use the format in appended comments for consistency
 	var/component_hint_bin // "Upgraded <b>matter bins</b> will XYZ."
 	var/component_hint_cap // "Upgraded <b>capacitors</b> will XYZ."

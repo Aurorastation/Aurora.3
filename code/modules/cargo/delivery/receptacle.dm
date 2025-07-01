@@ -11,7 +11,7 @@ GLOBAL_LIST_INIT_TYPED(all_cargo_receptacles, /obj/structure/cargo_receptacle, l
 		It is a common sight all over the Spur, however, where Orion Express services depend on ordinary people and ships picking up and delivering packages for each other, \
 		with Orion Express only delivering to automated stations and other distribution points.\
 	"
-	desc_info = "\
+	desc_mechanics = "\
 		This is a delivery point for Orion Express cargo packages. \
 		To finish the delivery, have a cargo package in your hand and click on the delivery point.\
 	"

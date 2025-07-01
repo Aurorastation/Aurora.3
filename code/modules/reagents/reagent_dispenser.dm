@@ -1,7 +1,7 @@
 /obj/structure/reagent_dispensers
 	name = "strange dispenser"
 	desc = "What the fuck is this?"
-	desc_info = "Use HELP intent to fill a container in your hand from this, and use any other intent to empty the container into this. \
+	desc_mechanics = "Use HELP intent to fill a container in your hand from this, and use any other intent to empty the container into this. \
 	You can right-click this and change the amount transferred per use."
 	icon = 'icons/obj/reagent_dispensers.dmi'
 	icon_state = "watertank"
@@ -20,7 +20,7 @@
 	create_reagents(capacity)
 	if (!possible_transfer_amounts)
 		src.verbs -= /obj/structure/reagent_dispensers/verb/set_APTFT
-		desc_info = ""
+		desc_mechanics = ""
 
 /obj/structure/reagent_dispensers/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()

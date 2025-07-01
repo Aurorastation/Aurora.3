@@ -3,7 +3,7 @@ GLOBAL_LIST_INIT_TYPED(all_tethers, /obj/item/tethering_device, list())
 /obj/item/tethering_device
 	name = "tethering device"
 	desc = "A device used by explorers to keep track of partners by way of electro-tether."
-	desc_info = "Use in-hand to activate, must be on the same level and within fifteen tiles of another device to latch. Tethers are colour coded by distance."
+	desc_mechanics = "Use in-hand to activate, must be on the same level and within fifteen tiles of another device to latch. Tethers are colour coded by distance."
 	icon = 'icons/obj/item/device/gps.dmi'
 	icon_state = "gps"
 	item_state = "radio"

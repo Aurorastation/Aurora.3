@@ -6,7 +6,7 @@
 /obj/item/device/paint_sprayer
 	name = "paint gun"
 	desc = "A Hephaestus-made paint gun that uses microbes to replenish its paint storage. Very high-tech and fancy too!"
-	desc_info = "Use control-click on a coloured decal on a turf to copy its colour. You can also use shift-click on a turf with the paint gun in hand to clear all decals on it."
+	desc_mechanics = "Use control-click on a coloured decal on a turf to copy its colour. You can also use shift-click on a turf with the paint gun in hand to clear all decals on it."
 	icon = 'icons/obj/item/device/paint_sprayer.dmi'
 	icon_state = "paint_sprayer"
 	item_state = "mister"

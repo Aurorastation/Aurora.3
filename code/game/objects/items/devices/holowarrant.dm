@@ -1,7 +1,7 @@
 /obj/item/device/holowarrant
 	name = "warrant projector"
 	desc = "The practical paperwork replacement for the officer on the go."
-	desc_info = "Use this item in-hand to select the active warrant. Click on the person you want to show it to to display the warrant."
+	desc_mechanics = "Use this item in-hand to select the active warrant. Click on the person you want to show it to to display the warrant."
 	icon = 'icons/obj/holowarrant.dmi'
 	icon_state = "holowarrant"
 	item_state = "holowarrant"

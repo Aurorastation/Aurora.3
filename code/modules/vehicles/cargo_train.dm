@@ -1,7 +1,7 @@
 /obj/vehicle/train/cargo/engine
 	name = "cargo train tug"
 	desc = "A ridable electric car designed for pulling cargo trolleys."
-	desc_info = "Click-drag yourself onto the truck to climb onto it.<br>\
+	desc_mechanics = "Click-drag yourself onto the truck to climb onto it.<br>\
 		- CTRL-click the truck to open the ignition and controls menu.<br>\
 		- ALT-click the truck to remove the key from the ignition.<br>\
 		- Click the truck to open a UI menu.<br>\
@@ -34,7 +34,7 @@
 
 /obj/vehicle/train/cargo/trolley
 	name = "cargo train trolley"
-	desc_info = "You can use a wrench to unlatch this, click-drag to link it to another trolley to tow."
+	desc_mechanics = "You can use a wrench to unlatch this, click-drag to link it to another trolley to tow."
 	icon = 'icons/obj/vehicles.dmi'
 	icon_state = "cargo_trailer"
 	anchored = 0

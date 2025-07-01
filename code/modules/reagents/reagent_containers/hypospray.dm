@@ -6,7 +6,7 @@
 	name = "hypospray"
 	desc = "A sterile, air-needle autoinjector for administration of drugs to patients."
 	desc_extended = "The Zeng-Hu Pharmaceuticals' Hypospray - 9 out of 10 doctors recommend it!"
-	desc_info = "Unlike a syringe, reagents have to be poured into the hypospray before it can be used."
+	desc_mechanics = "Unlike a syringe, reagents have to be poured into the hypospray before it can be used."
 	icon = 'icons/obj/item/reagent_containers/syringe.dmi'
 	contained_sprite = TRUE
 	item_state = "hypo"
@@ -39,7 +39,7 @@
 	name = "premium hypospray"
 	desc = "A high-end version of the regular hypospray, it allows for a substantially higher rate of drug administration to patients."
 	desc_extended = "The Zeng-Hu Pharmaceuticals' Hypospray Mk-II is a cutting-edge version of the regular hypospray, with a much more expensive and streamlined injection process."
-	desc_info = "This version of the hypospray has no delay before injecting a patient with reagent."
+	desc_mechanics = "This version of the hypospray has no delay before injecting a patient with reagent."
 	icon_state = "cmo_hypo"
 	item_state = "cmo_hypo"
 	volume = 30
@@ -111,7 +111,7 @@
 	name = "autoinjector"
 	desc = "A rapid and safe way to administer small amounts of drugs by untrained or trained personnel."
 	desc_extended = "Funded by the Stellar Corporate Conglomerate, produced by Zeng-Hu Pharmaceuticals, this autoinjector system was rebuilt from the ground up from the old variant to provide maximum user feedback."
-	desc_info = "Autoinjectors are spent after using them. To re-use, use a screwdriver to open the back panel, then simply pour any desired reagent inside. Alt-click while it's on your person to prepare it for reuse."
+	desc_mechanics = "Autoinjectors are spent after using them. To re-use, use a screwdriver to open the back panel, then simply pour any desired reagent inside. Alt-click while it's on your person to prepare it for reuse."
 	icon_state = "autoinjector"
 	item_state = "autoinjector"
 	slot_flags = SLOT_EARS

@@ -9,7 +9,7 @@
 		It is a common sight all over the Spur, where Orion Express services depend on ordinary people and ships picking up and delivering packages for each other, \
 		with Orion Express only delivering to automated stations and other distribution points.\
 	"
-	desc_info = "\
+	desc_mechanics = "\
 		You can deliver this package to a cargo delivery point. \
 		An additional 2% is added to your account on delivery, or paid to you directly. Can be loaded into a cargo pack.\
 	"

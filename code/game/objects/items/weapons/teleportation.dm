@@ -141,7 +141,7 @@ Frequency:
 /obj/item/hand_tele
 	name = "hand tele"
 	desc = "A hand-held bluespace teleporter that can rip open portals to a random nearby location, or lock onto a teleporter with a selected teleportation beacon."
-	desc_info = "Ctrl-click to choose which teleportation pad to link to. Use in-hand or alt-click to deploy a portal. When not linked to a pad, or the pad isn't pointing at a beacon, it will choose a completely random teleportation destination."
+	desc_mechanics = "Ctrl-click to choose which teleportation pad to link to. Use in-hand or alt-click to deploy a portal. When not linked to a pad, or the pad isn't pointing at a beacon, it will choose a completely random teleportation destination."
 	icon = 'icons/obj/item/hand_tele.dmi'
 	icon_state = "hand_tele"
 	item_state = "electronic"

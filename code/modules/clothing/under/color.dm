@@ -1,7 +1,7 @@
 /obj/item/clothing/under/color
 	name = "grey jumpsuit"
 	desc = "A basic jumpsuit."
-	desc_info = "Jumpsuits can have their sleeves rolled up/down via the Roll Up/Down Sleeves verb, and also have their upper body part be up/down via the \
+	desc_mechanics = "Jumpsuits can have their sleeves rolled up/down via the Roll Up/Down Sleeves verb, and also have their upper body part be up/down via the \
 	the Rolled Up/Down verb."
 	icon = 'icons/clothing/under/uniforms/jumpsuits.dmi'
 	icon_state = "grey"

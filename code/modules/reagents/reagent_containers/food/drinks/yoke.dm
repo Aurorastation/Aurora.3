@@ -1,7 +1,7 @@
 /obj/item/storage/box/fancy/yoke
 	name = "yoke"
 	desc = "A sturdy device made out of bio-friendly materials. This will hold your canned drinks together easy peasy."
-	desc_info = "Click drag it to pick it up, click on it to take out a can."
+	desc_mechanics = "Click drag it to pick it up, click on it to take out a can."
 	icon = 'icons/obj/item/reagent_containers/food/drinks/soda.dmi'
 	icon_state = "yoke"
 	center_of_mass = list("x" = 16,"y" = 9)

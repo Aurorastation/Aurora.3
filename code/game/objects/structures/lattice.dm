@@ -1,7 +1,7 @@
 /obj/structure/lattice
 	name = "lattice"
 	desc = "A lightweight support lattice."
-	desc_info = "Add a metal floor tile to build a floor on top of the lattice.<br>\
+	desc_mechanics = "Add a metal floor tile to build a floor on top of the lattice.<br>\
 	Lattices can be made by applying metal rods to a space tile."
 	icon = 'icons/obj/smooth/lattice.dmi'
 	icon_state = "lattice"

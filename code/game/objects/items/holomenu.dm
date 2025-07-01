@@ -1,7 +1,7 @@
 /obj/item/holomenu
 	name = "holo-menu"
 	desc = "A hologram projector, this one has been set up to display text above itself."
-	desc_info = "If you have bar or kitchen access, you can swipe your ID on this to root it in place, then you can click on it with an empty hand to adjust its text. Alt-clicking it will toggle its border."
+	desc_mechanics = "If you have bar or kitchen access, you can swipe your ID on this to root it in place, then you can click on it with an empty hand to adjust its text. Alt-clicking it will toggle its border."
 	icon = 'icons/obj/holomenu.dmi'
 	icon_state = "holomenu"
 
@@ -128,7 +128,7 @@
 /obj/item/holomenu/holodeck
 	name = "holodeck status projector"
 	desc = "A hologram projector, this one has been set up to display text."
-	desc_info = "You can click on this with paper in hand to display text, or you can click on it with an empty hand to adjust its text. Alt-clicking it will toggle its border."
+	desc_mechanics = "You can click on this with paper in hand to display text, or you can click on it with an empty hand to adjust its text. Alt-clicking it will toggle its border."
 	icon = 'icons/obj/holomenu_holodeck.dmi'
 	anchored = 1
 	layer = 4

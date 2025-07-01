@@ -1,7 +1,7 @@
 /obj/machinery/optable
 	name = "operating table"
 	desc = "Used for advanced medical procedures."
-	desc_info = "Click your target with Grab intent, then click on the table with an empty hand, to place them on it."
+	desc_mechanics = "Click your target with Grab intent, then click on the table with an empty hand, to place them on it."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "table2-idle"
 	pass_flags_self = PASSTABLE

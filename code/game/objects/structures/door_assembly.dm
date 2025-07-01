@@ -5,7 +5,7 @@
 /obj/structure/door_assembly
 	name = "airlock assembly"
 	desc = "An airlock assembly."
-	desc_info = "To create a glass airlock, add two reinforced glass sheets."
+	desc_mechanics = "To create a glass airlock, add two reinforced glass sheets."
 	icon = 'icons/obj/doors/basic/single/generic/door.dmi'
 	icon_state = "construction"
 	anchored = FALSE

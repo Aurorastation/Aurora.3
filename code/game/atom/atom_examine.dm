@@ -90,9 +90,9 @@
 		if(desc_extended)
 			. += desc_extended
 		// If the item has a description regarding game mechanics, show it.
-		if(desc_info)
+		if(desc_mechanics)
 			. += FONT_SMALL(SPAN_NOTICE("<b>Mechanics</b>"))
-			. += FONT_SMALL(SPAN_NOTICE("[desc_info]"))
+			. += FONT_SMALL(SPAN_NOTICE("[desc_mechanics]"))
 		// If the item has a description with assembly/disassembly instructions, show it.
 		if(desc_build)
 			. += FONT_SMALL(SPAN_NOTICE("<b>Assembly/Disassembly</b>"))
@@ -108,14 +108,14 @@
 			. += FONT_SMALL(SPAN_ALERT("[desc_antag]"))
 	else
 		 // Checks if the object has a extended description, a mechanics description, and/or an antagonist description (and if the user is an antagonist).
-		if(desc_extended || desc_info || desc_build || desc_upgrade || (desc_antag && player_is_antag(user.mind)))
+		if(desc_extended || desc_mechanics || desc_build || desc_upgrade || (desc_antag && player_is_antag(user.mind)))
 			// If any of the above are true, show that the object has more information available.
 			. += FONT_SMALL(SPAN_NOTICE("\[?\] This object has additional examine information available:"))
 			// If the item has a extended description, show that it is available.
 			if(desc_extended)
 				. +=  FONT_SMALL("- <b>Extended Description</b>")
 			// If the item has a description regarding game mechanics, show that it is available.
-			if(desc_info)
+			if(desc_mechanics)
 				. += FONT_SMALL(SPAN_NOTICE("- <b>Mechanics</b>"))
 			// If the item has a description regarding game mechanics, show that it is available.
 			if(desc_build)
@@ -167,3 +167,42 @@
 		var/mouseparams = list2params(paramslist)
 		usr_client.Click(src, loc, null, mouseparams)
 		return TRUE
+
+/// Builds the text block variables for get_examine_text
+/atom/proc/update_desc_blocks()
+	var/mechanics_hints = mechanics_hints()
+	var/assembly_hints = assembly_hints()
+	var/disassembly_hints = disassembly_hints()
+
+	if(mechanics_hints)
+		desc_mechanics = list()
+		for(var/mechanics_hint in mechanics_hints)
+			desc_mechanics += SPAN_NOTICE("- [mechanics_hint]")
+	if(assembly_hints)
+		desc_build = list()
+		for(var/assembly_hint in assembly_hints)
+			desc_build += SPAN_NOTICE("- [assembly_hint]")
+	if(disassembly_hints)
+		for(var/disassembly_hint in assembly_hints)
+			desc_build += SPAN_WARNING("- [disassembly_hint]")
+
+/atom/proc/mechanics_hints()
+	return FALSE
+
+/*
+ *	Children of assembly_hints() and disassembly_hints() should check the current state of the object,
+ *	whether it has any eligible steps in its assembly or disassembly respectively, and if so, return
+ *	instructions on how to accomplish those steps.
+ *
+ *	It should describe steps toward or away from a completed 'form' of the object.
+ *	For example, a table whose surface can be carpeted would have carpeting instructions in assembly_hints().
+ *	However, an IV drip which can have a gas tank attached to it would not have that  described in assembly_hints(),
+ *	as the IV drip is already 'completed,' and a gas tank is effectively just a swappable slot item for it.
+ *
+ *	Use your best judgement, and check out"/obj/modules/tables/table.dm" for a simple implementation example.
+ */
+/atom/proc/assembly_hints()
+	return FALSE
+
+/atom/proc/disassembly_hints()
+	return FALSE

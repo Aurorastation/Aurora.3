@@ -174,7 +174,7 @@
 	icon_state = "stool_item_preview"
 	item_state = "stool"
 	base_icon = "stool"
-	desc_info = "Use in-hand or alt-click to right this."
+	desc_mechanics = "Use in-hand or alt-click to right this."
 	randpixel = 0
 	center_of_mass = null
 	force = 15	// Doesn't really matter. Will get overriden by set_material.

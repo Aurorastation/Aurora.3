@@ -5,7 +5,7 @@
 	name = "omni gas filter"
 	icon_state = "map_filter"
 	base_icon = "filter"
-	desc_info = "Filters gas from a custom input direction, with up to two filtered outputs and a 'everything else' \
+	desc_mechanics = "Filters gas from a custom input direction, with up to two filtered outputs and a 'everything else' \
 	output.  The filtered output's arrows glow orange."
 
 	var/list/active_filters = new()

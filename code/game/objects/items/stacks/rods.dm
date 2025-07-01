@@ -18,7 +18,7 @@ GLOBAL_LIST_INIT_TYPED(rod_recipes, /datum/stack_recipe, list(
 /obj/item/stack/rods
 	name = "metal rod"
 	desc = "Some rods. Can be used for building, or something."
-	desc_info = "Made from metal sheets.  You can build a grille by using it in your hand. \
+	desc_mechanics = "Made from metal sheets.  You can build a grille by using it in your hand. \
 	Clicking on a floor without any tiles will reinforce the floor.  You can make reinforced glass by combining rods and normal glass sheets."
 	singular_name = "metal rod"
 	icon_state = "rods"

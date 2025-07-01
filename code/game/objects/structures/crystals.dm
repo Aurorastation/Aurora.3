@@ -162,7 +162,7 @@
 	var/singleton/reagent/R = GET_SINGLETON(reagent_i)
 	name = "[lowertext(R.name)] crystal"
 	desc = "A [lowertext(R.name)] crystal. It looks rough, unprocessed."
-	desc_info = "This crystal can be ground to obtain the chemical material locked within."
+	desc_mechanics = "This crystal can be ground to obtain the chemical material locked within."
 	color = reagents.get_color()
 
 /obj/item/storage/bag/crystal

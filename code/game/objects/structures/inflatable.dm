@@ -3,7 +3,7 @@
 
 /obj/item/inflatable
 	name = "inflatable"
-	desc_info = "Inflate by using it in your hand. The inflatable barrier will inflate on the turf you are standing on. To deflate it, use the 'deflate' verb."
+	desc_mechanics = "Inflate by using it in your hand. The inflatable barrier will inflate on the turf you are standing on. To deflate it, use the 'deflate' verb."
 	w_class = WEIGHT_CLASS_SMALL
 	icon = 'icons/obj/item/inflatables.dmi'
 	var/deploy_path = null
@@ -33,7 +33,7 @@
 /obj/structure/inflatable
 	name = "inflatable"
 	desc = "An inflated membrane. Do not puncture."
-	desc_info = "To remove these safely, use the 'deflate' verb.  Hitting these with any objects will probably puncture and break it forever."
+	desc_mechanics = "To remove these safely, use the 'deflate' verb.  Hitting these with any objects will probably puncture and break it forever."
 	icon = 'icons/obj/item/inflatables.dmi'
 	icon_state = "wall"
 
@@ -185,7 +185,7 @@
 
 /obj/structure/inflatable/door //Based on mineral door code
 	name = "inflatable door"
-	desc_info = "Click the door to open or close it.  It only stops air while closed.<br>\
+	desc_mechanics = "Click the door to open or close it.  It only stops air while closed.<br>\
 	To remove these safely, use the 'deflate' verb.  Hitting these with any objects will probably puncture and break it forever."
 	density = TRUE
 	anchored = TRUE

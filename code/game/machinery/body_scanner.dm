@@ -1,7 +1,7 @@
 /obj/machinery/bodyscanner
 	name = "body scanner"
 	desc = "A state-of-the-art medical diagnostics machine. Guaranteed detection of all your bodily ailments or your money back!"
-	desc_info = "The advanced scanner detects and reports internal injuries such as bone fractures, internal bleeding, and organ damage. \
+	desc_mechanics = "The advanced scanner detects and reports internal injuries such as bone fractures, internal bleeding, and organ damage. \
 	This is useful if you are about to perform surgery.<br>\
 	<br>\
 	Click your target with Grab intent, then click on the scanner to place them in it. Click the connected terminal to operate. \

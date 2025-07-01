@@ -3,7 +3,7 @@
 /obj/item/gun/energy/wand
 	name = "wand of nothing"
 	desc = "A magic stick, this one don't do much however."
-	desc_info = null
+	desc_mechanics = null
 	icon = 'icons/obj/wands.dmi'
 	icon_state = "nothingwand"
 	item_state = "wand"

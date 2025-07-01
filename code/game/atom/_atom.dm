@@ -58,9 +58,10 @@
 	 *	Adds additional information of different types about a given object.
 	 *	get_examine_text() in "obj\game\code\atom\atom_examine.dm" handles structure, formatting, etc.
 	 *
-	 *	Most of these variables only concern objs, but they are initialized here in case this functionality
-	 *	is migrated elsewhere (most likely to items).
+	 *	Most of these variables only concern objs, but they are initialized here in case any functionality
+	 *	is migrated elsewhere.
 	 */
+
 	/// Regular text about the atom's damage/condition.
 	/// Should be a SPAN_NOTICE(), SPAN_ALERT(), or SPAN_DANGER().
 	var/desc_damagecondition = null
@@ -68,20 +69,20 @@
 	/// Should be a string.
 	var/desc_extended = null
 	/// Informs the user about how to use the item or about game controls.
-	/// Should be a string, is converted to SPAN_NOTICE()
-	var/desc_info = null
+	/// Should be list() of strings, are formatted (each string a new line) and converted to SPAN_NOTICE()
+	var/desc_mechanics = null
 	/// Informs the user about how to assemble or disassemble the item.
-	/// Should be a string, is converted to SPAN_NOTICE()
+	/// Should be a list() of strings, are formatted (each string a new line) and converted to SPAN_NOTICE()
 	var/desc_build = null
 	/// Blue text (SPAN_NOTICE()), informing the user about what upgrades the item has and what they do.
 	/// Format desc_upgrade = "This object/item/machine/structure/etc has the following upgrades available:"
 	/// Currently only supports machines, see "code\game\machinery\machinery.dm" for how to implement this.
 	var/desc_upgrade = null
 	/// Informs the user about how they can use an object to antagonize.
-	/// Should be a string, is converted to SPAN_ALERT().
+	/// Should be a list() of strings, are formatted (each string a new line) and converted to SPAN_ALERT().
 	var/desc_antag = null
 	/// Feedback text.
-	/// Should be a string, remains normal text.
+	/// Should be a list() of strings, are formatted with each string on a new line.
 	var/desc_feedback = null
 
 	/* SSicon_update VARS */

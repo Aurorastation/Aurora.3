@@ -142,7 +142,7 @@
 /obj/item/cell/slime
 	name = "charged slime core"
 	desc = "A yellow slime core infused with phoron, it crackles with power."
-	desc_info = "This slime core is energized with powerful bluespace energies, allowing it to regenerate ten percent of its charge every minute."
+	desc_mechanics = "This slime core is energized with powerful bluespace energies, allowing it to regenerate ten percent of its charge every minute."
 	origin_tech = list(TECH_POWER = 2, TECH_BIO = 4)
 	icon = 'icons/mob/npc/slimes.dmi'
 	icon_state = "yellow slime extract"

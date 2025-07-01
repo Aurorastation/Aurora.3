@@ -2,7 +2,7 @@
 /obj/item/device/memorywiper
 	name = "portable memory wiper"
 	desc = "Inset into a sturdy pelican case, this computer holds the software and wiring necessary to wipe and factory reset any IPC."
-	desc_info = "You can alt-click the laptop while it's set down on surface to open it up and work with it. Left clicking while it is open will allow you to operate it."
+	desc_mechanics = "You can alt-click the laptop while it's set down on surface to open it up and work with it. Left clicking while it is open will allow you to operate it."
 	icon = 'icons/obj/memorywiper.dmi'
 	icon_state = "portable_memorywiper"
 	item_state = "portable_memorywiper"

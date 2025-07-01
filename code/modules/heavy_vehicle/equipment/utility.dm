@@ -726,7 +726,7 @@
 /obj/item/mecha_equipment/phazon
 	name = "phazon bluespace transmission system"
 	desc = "A large back-mounted device that grants the exosuit it's mounted to the ability to semi-shift into bluespace, allowing it to pass through dense objects."
-	desc_info = "It needs an anomaly core to function. You can install some simply by using a core on it."
+	desc_mechanics = "It needs an anomaly core to function. You can install some simply by using a core on it."
 	icon_state = "mecha_phazon"
 	restricted_hardpoints = list(HARDPOINT_BACK)
 	w_class = WEIGHT_CLASS_HUGE
@@ -744,7 +744,7 @@
 		user.drop_from_inventory(attacking_item, src)
 		AC = attacking_item
 		to_chat(user, SPAN_NOTICE("You insert \the [AC] into \the [src]."))
-		desc_info = "\The [src] has an anomaly core installed! You can use a wrench to remove it."
+		desc_mechanics = "\The [src] has an anomaly core installed! You can use a wrench to remove it."
 		anomaly_overlay = image(AC.icon, null, AC.icon_state)
 		anomaly_overlay.pixel_y = 3
 		AddOverlays(anomaly_overlay)

@@ -79,7 +79,7 @@
 /obj/machinery/telecomms/allinone/ship/station_relay
 	name = "external signal receiver"
 	desc = "This device allows nearby third-party ships to maintain radio contact with their crew that are aboard the %STATIONNAME."
-	desc_info = "This device does not need to be linked to other telecommunications equipment; it will receive and broadcast on its own. It only needs to be powered."
+	desc_mechanics = "This device does not need to be linked to other telecommunications equipment; it will receive and broadcast on its own. It only needs to be powered."
 	idle_power_usage = 25
 	active_power_usage = 200
 	freq_listening = list(HAIL_FREQ)

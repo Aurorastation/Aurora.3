@@ -12,7 +12,7 @@
 /obj/machinery/mineral/processing_unit_console
 	name = "ore redemption console"
 	desc = "A handy console which can be use to retrieve mining points for use in the mining vendor, or to set processing values for various ore types."
-	desc_info = "Up to date settings for the refinery can be found in the Aurorastation Guide to Mining wikipage."
+	desc_mechanics = "Up to date settings for the refinery can be found in the Aurorastation Guide to Mining wikipage."
 	icon = 'icons/obj/machinery/wall/terminals.dmi'
 	icon_state = "production_console"
 	density = FALSE

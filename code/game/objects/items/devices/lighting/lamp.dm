@@ -1,7 +1,7 @@
 /obj/item/device/flashlight/lamp
 	name = "desk lamp"
 	desc = "A desk lamp with an adjustable mount."
-	desc_info = "Use this item in your hand to toggle the light, or right click this object and use the 'Toggle Light' verb."
+	desc_mechanics = "Use this item in your hand to toggle the light, or right click this object and use the 'Toggle Light' verb."
 	desc_antag = "As a Cultist, this item can be reforged to become a pylon."
 	icon_state = "lamp"
 	item_state = "lamp"
@@ -90,7 +90,7 @@
 /obj/item/device/flashlight/lamp/holodeck
 	name = "holographic lighting orb"
 	desc = "A floating orb that comes in a variety of colors. Optional holodeck lighting."
-	desc_info = "This is a holodeck item used for optional lighting. You can click on this to toggle it on and off."
+	desc_mechanics = "This is a holodeck item used for optional lighting. You can click on this to toggle it on and off."
 	anchored = 1
 	brightness_on = 12
 	light_color = "#ffcb9b"

@@ -770,7 +770,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 /obj/structure/cash_register
 	name = "cash register machine"
 	desc = "A retail nightmare object."
-	desc_info = "Drag this onto yourself to open the cash compartment."
+	desc_mechanics = "Drag this onto yourself to open the cash compartment."
 	icon = 'icons/obj/structure/urban/infrastructure.dmi'
 	icon_state = "cashier"
 	layer = 2.99

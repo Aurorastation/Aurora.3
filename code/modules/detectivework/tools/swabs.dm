@@ -1,7 +1,7 @@
 /obj/item/forensics/swab
 	name = "swab kit"
 	desc = "A sterilized cotton swab and vial used to take forensic samples."
-	desc_info = "Swab kits can be used to gather blood with DNA attached to it by clicking the blood. \
+	desc_mechanics = "Swab kits can be used to gather blood with DNA attached to it by clicking the blood. \
 	If it fails to collect a sample, it means that particular bit of blood has no associated DNA. \
 	\nThey can also collect DNA samples directly from people by targetting their mouth to take a saliva sample. \
 	\nGunshot Residue (GSR) can be collected from someones hands by targetting them. If they are wearing gloves, \

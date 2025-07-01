@@ -1,7 +1,7 @@
 /obj/item/reagent_containers/hypospray/borghypo
 	name = "cyborg hypospray"
 	desc = "An advanced chemical synthesizer and injection system, designed for heavy-duty medical equipment."
-	desc_info = "Stationbound synthesizers produce specific reagents dependent on the selected module, which you can select by using it. \
+	desc_mechanics = "Stationbound synthesizers produce specific reagents dependent on the selected module, which you can select by using it. \
 	The reagents recharge automatically at the cost of energy.<br> Alt Click the synthesizer to change the transfer amount."
 	desc_extended = null
 	icon = 'icons/obj/item/reagent_containers/syringe.dmi'

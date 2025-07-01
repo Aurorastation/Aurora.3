@@ -112,7 +112,7 @@
 	item_state = "restock_unit"
 	contained_sprite = TRUE
 	desc = "A simple cardboard box containing the requisition forms, permits, and decal kits for a Himean voidsuit."
-	desc_info = "In order to convert a voidsuit simply click on voidsuit or helmet with this item\
+	desc_mechanics = "In order to convert a voidsuit simply click on voidsuit or helmet with this item\
 	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit\
 	or else it will be deleted."
 	w_class = WEIGHT_CLASS_SMALL
@@ -185,7 +185,7 @@
 	desc_extended = "Despite the vast amounts of supplementary paperwork involved, the Stellar Corporate Conglomerate continues to import specialty industrialwear through an Orion Express subsidiary to \
 	boost morale among Himean staff. With success in the previous Type-76 'Fish Fur' program, the Chainlink has also authorized a number of Type-86 'Cicada' industrial hardsuits for use \
 	on a number of installations, such as the Horizon."
-	desc_info = "In order to convert a voidsuit, simply click on voidsuit or helmet with this item. The same process can be used to convert the voidsuit back into a regular voidsuit, or \
+	desc_mechanics = "In order to convert a voidsuit, simply click on voidsuit or helmet with this item. The same process can be used to convert the voidsuit back into a regular voidsuit, or \
 	to turn an industrial hardsuit assembly into a Himeo variant. Make sure not to have a helmet or tank in the suit, or else it will be deleted."
 
 
@@ -208,7 +208,7 @@
 /obj/item/voidsuit_modkit/dominianvoid
 	name = "dominian voidsman's voidsuit kit"
 	desc = "A highly complicated device that allows you to convert a Dominian prejoroub combat suit into its voidsman counterpart. Practical!"
-	desc_info = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on voidsuit or helmet with this item \
+	desc_mechanics = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on voidsuit or helmet with this item \
 	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit \
 	or else it will be deleted."
 	w_class = WEIGHT_CLASS_SMALL
@@ -244,7 +244,7 @@
 	item_state = "restock_unit"
 	contained_sprite = TRUE
 	desc = "A simple cardboard box designed to modify a voidsuit to a selection of alternate options."
-	desc_info = "In order to convert a voidsuit simply click on voidsuit or helmet with this item\
+	desc_mechanics = "In order to convert a voidsuit simply click on voidsuit or helmet with this item\
 	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit\
 	or else it will be deleted."
 	w_class = WEIGHT_CLASS_SMALL
@@ -300,7 +300,7 @@
 /obj/item/voidsuit_modkit_multi/sol_warlord
 	name = "solarian warlord modkit"
 	desc = "A highly complicated device that allows you to convert a Solarian voidsuit into a warlord variant. Wow!"
-	desc_info = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on voidsuit or helmet with this item \
+	desc_mechanics = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on voidsuit or helmet with this item \
 	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit \
 	or else it will be deleted."
 	suit_options = list(
@@ -329,7 +329,7 @@
 /obj/item/voidsuit_modkit_multi/unathi_pirate
 	name = "unathi pirate modkit"
 	desc = "A highly complicated device that allows you to convert an Unathi pirate suit into another fleet's counterpart. Practical!"
-	desc_info = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on voidsuit or helmet with this item \
+	desc_mechanics = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on voidsuit or helmet with this item \
 	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit \
 	or else it will be deleted."
 	w_class = WEIGHT_CLASS_SMALL
@@ -364,7 +364,7 @@
 /obj/item/voidsuit_modkit_multi/nanotrasen
 	name = "\improper NanoTrasen hardsuit modkit"
 	desc = "A highly complicated device that allows you to convert a NanoTrasen hardsuit into its corporate auxiliary or Nexus Security variant. Wow!"
-	desc_info = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on a hardsuit with this item \
+	desc_mechanics = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on a hardsuit with this item \
 	The same process can be used to convert the hardsuit back into a regular hardsuit. Make sure not to have any modules in the suit \
 	or else it will be deleted."
 	w_class = WEIGHT_CLASS_SMALL

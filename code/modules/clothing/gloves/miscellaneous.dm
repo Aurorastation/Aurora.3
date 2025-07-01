@@ -56,7 +56,7 @@
 /obj/item/clothing/gloves/latex
 	name = "latex gloves"
 	desc = "Sterile latex gloves."
-	desc_info = "You can make balloons with these using some cable coil."
+	desc_mechanics = "You can make balloons with these using some cable coil."
 	icon_state = "latex"
 	item_state = "latex"
 	siemens_coefficient = 1.0 //thin latex gloves, much more conductive than fabric gloves (basically a capacitor for AC)

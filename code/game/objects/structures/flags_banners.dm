@@ -133,7 +133,7 @@
 	F2.linked_flag = src
 	F2.name = name
 	F2.desc = desc
-	F2.desc_info = desc_info
+	F2.desc_mechanics = desc_mechanics
 	F2.desc_extended = desc_extended
 	F2.flag_item = flag_item
 

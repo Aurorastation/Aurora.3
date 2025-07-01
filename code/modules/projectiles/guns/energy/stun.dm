@@ -35,7 +35,7 @@
 /obj/item/gun/energy/crossbow
 	name = "mini energy-crossbow"
 	desc = "A weapon favored by many mercenary stealth specialists."
-	desc_info = "This is an energy weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
+	desc_mechanics = "This is an energy weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
 	then click where you want to fire."
 	desc_antag = "This is a stealthy weapon which fires paralyzing bolts at your target.  When it hits someone, they will suffer a stun effect. \
 	The energy crossbow recharges itself slowly, and can be concealed in your pocket or bag."

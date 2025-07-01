@@ -5,7 +5,7 @@ Single Use Emergency Pouches
 /obj/item/storage/box/fancy/med_pouch
 	name = "emergency medical pouch"
 	desc = "For use in emergency situations only."
-	desc_info = "\
+	desc_mechanics = "\
 	1) Tear open the emergency medical pack using the easy open tab at the top.<br>\
 	2) Carefully remove all items from the pouch and discard the pouch.<br>\
 	3) Apply all autoinjectors to the injured party.<br>\
@@ -38,7 +38,7 @@ Single Use Emergency Pouches
 
 /obj/item/storage/box/fancy/med_pouch/trauma
 	name = "trauma pouch"
-	desc_info = "\
+	desc_mechanics = "\
 	1) Tear open the emergency medical pack using the easy open tab at the top.<br>\
 	2) Carefully remove all items from the pouch and discard the pouch.<br>\
 	3) Apply all autoinjectors to the injured party.<br>\
@@ -68,7 +68,7 @@ Single Use Emergency Pouches
 		/obj/item/reagent_containers/pill/pouch_pill/perconol = 1,
 		/obj/item/stack/medical/ointment = 2
 	)
-	desc_info = "\
+	desc_mechanics = "\
 	1) Tear open the emergency medical pack using the easy open tab at the top.<br>\
 	2) Carefully remove all items from the pouch and discard the pouch.<br>\
 	3) Apply the emergency mortaphenyl autoinjector to the injured party.<br>\
@@ -90,7 +90,7 @@ Single Use Emergency Pouches
 		/obj/item/reagent_containers/pill/pouch_pill/inaprovaline = 1,
 		/obj/item/reagent_containers/pill/pouch_pill/dexalin = 1
 	)
-	desc_info = "\
+	desc_mechanics = "\
 	1) Tear open the emergency medical pack using the easy open tab at the top.<br>\
 	2) Carefully remove all items from the pouch and discard the pouch.<br>\
 	3) Apply all autoinjectors to the injured party.<br>\
@@ -109,7 +109,7 @@ Single Use Emergency Pouches
 		/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/dylovene = 1,
 		/obj/item/reagent_containers/pill/pouch_pill/dylovene = 1
 	)
-	desc_info = "\
+	desc_mechanics = "\
 	1) Tear open the emergency medical pack using the easy open tab at the top.<br>\
 	2) Carefully remove all items from the pouch and discard the pouch.<br>\
 	3) Apply all autoinjectors to the injured party.<br>\
@@ -126,7 +126,7 @@ Single Use Emergency Pouches
 		/obj/item/reagent_containers/hypospray/autoinjector/hyronalin = 1,
 		/obj/item/reagent_containers/pill/pouch_pill/dylovene = 1
 	)
-	desc_info = "\
+	desc_mechanics = "\
 	1) Tear open the emergency medical pack using the easy open tab at the top.<br>\
 	2) Carefully remove all items from the pouch and discard the pouch.<br>\
 	3) Apply all autoinjectors to the injured party.<br>\

@@ -5,7 +5,7 @@
 /obj/machinery/atmospherics/unary/outlet_injector
 	name = "air injector"
 	desc = "Passively injects air into its surroundings. Has a valve attached to it that can control flow rate."
-	desc_info = "Outputs the pipe's gas into the atmosphere, similar to an airvent.  It can be controlled by a nearby atmospherics computer. \
+	desc_mechanics = "Outputs the pipe's gas into the atmosphere, similar to an airvent.  It can be controlled by a nearby atmospherics computer. \
 	A green light on it means it is on."
 	icon = 'icons/atmos/injector.dmi'
 	icon_state = "map_injector"

@@ -1,7 +1,7 @@
 /obj/item/storage/slide_projector
 	name = "slide projector"
 	desc = "A handy device capable of showing an enlarged projection of whatever you can fit inside."
-	desc_info = "You can use this in hand to open the interface, click-dragging it to you also works. Click anywhere with it in your hand to project at that location. Click dragging it to that location also works."
+	desc_mechanics = "You can use this in hand to open the interface, click-dragging it to you also works. Click anywhere with it in your hand to project at that location. Click dragging it to that location also works."
 	icon = 'icons/obj/projector.dmi'
 	icon_state = "projector0"
 	max_w_class = WEIGHT_CLASS_SMALL

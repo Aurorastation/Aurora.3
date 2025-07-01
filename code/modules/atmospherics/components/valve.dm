@@ -1,7 +1,7 @@
 /obj/machinery/atmospherics/valve
 	name = "manual valve"
 	desc = "A pipe valve."
-	desc_info = "Click this to turn the valve.  If red, the pipes on each end are seperated.  Otherwise, they are connected."
+	desc_mechanics = "Click this to turn the valve.  If red, the pipes on each end are seperated.  Otherwise, they are connected."
 	icon = 'icons/atmos/valve.dmi'
 	icon_state = "map_valve0"
 
