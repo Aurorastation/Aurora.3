@@ -579,6 +579,9 @@
 	if(use_power && health == 0)
 		toggle()
 
+/obj/machinery/shipsensors/RefreshParts()
+	GetPartUpgradeDesc()
+
 // For small shuttles
 /obj/machinery/shipsensors/weak
 	heat_reduction = 1.7 // Can sustain range 4

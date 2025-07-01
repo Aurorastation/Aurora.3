@@ -57,4 +57,4 @@ delete-after: True
 changes:
   - bugfix: "Object examine text for upgrade components now correctly displays as available."
   - bugfix: "Missing RPED component detection text restored."
-
+  - balance: "Ship sensors no longer factor their component counts into power draw."
