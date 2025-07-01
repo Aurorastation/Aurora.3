@@ -30,3 +30,9 @@
 	var/mob/our_new_mob = . //This cast is needed, sorry
 	if(istype(our_new_mob) && !QDELETED(our_new_mob))
 		MOB_STOP_THINKING(our_new_mob)
+
+/obj/effect/ghostspawpoint/stowaway_nymph
+	identifier = "stowaway_nymph"
+
+/obj/effect/ghostspawpoint/stowaway_nymph/Initialize(mapload)
+	SSghostroles.add_spawn_atom("stowaway_nymph", src)

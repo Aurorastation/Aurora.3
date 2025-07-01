@@ -17,6 +17,7 @@
 	var/chosen_verb = "have leaked into"
 	var/list/chosen_mob_types = list()
 	var/chosen_scan_type = "Bioscans"
+	var/show_area = TRUE
 	var/list/possible_mobs = list(
 		INFESTATION_RATS = 1,
 		INFESTATION_LIZARDS = 1,
@@ -139,12 +140,9 @@
 		if(INFESTATION_NYMPHS)
 			event_name = "Stowaway Nymphs"
 			chosen_verb = "have crawled into"
-			var/nymph_types = list(
-				/mob/living/carbon/alien/diona/ghost_playable,
-				/mob/living/carbon/alien/diona/ghost_playable/flowery
-			)
+			show_area = FALSE
 			for(var/i = 1, i < rand(2,4),i++)
-				chosen_mob_types += pickweight(nymph_types)
+				chosen_mob_types += /obj/effect/ghostspawpoint/stowaway_nymph
 
 /datum/event/infestation/proc/spawn_mobs()
 	for(var/spawned_mob in chosen_mob_types)
@@ -157,7 +155,10 @@
 			to_chat(H, SPAN_CULT("Suddenly, an anomalous pinging makes itself known in your internals. It rises to a shrill high, setting your mind on edge, and it then disappears just as abruptly..."))
 
 /datum/event/infestation/announce()
-	command_announcement.Announce("[chosen_scan_type] indicate that [chosen_mob] [chosen_verb] [chosen_area]. Clear them out before this starts to affect productivity.", event_name, new_sound = 'sound/AI/vermin.ogg', zlevels = affecting_z)
+	if(show_area)
+		command_announcement.Announce("[chosen_scan_type] indicate that [chosen_mob] [chosen_verb] [chosen_area]. Clear them out before this starts to affect productivity.", event_name, new_sound = 'sound/AI/vermin.ogg', zlevels = affecting_z)
+	else
+		command_announcement.Announce("[chosen_scan_type] indicate that [chosen_mob] [chosen_verb] the ship. Clear them out before this starts to affect productivity.", event_name, new_sound = 'sound/AI/vermin.ogg', zlevels = affecting_z)
 
 
 #undef INFESTATION_RATS
