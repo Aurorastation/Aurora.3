@@ -41,7 +41,7 @@
 		. += SPAN_NOTICE("It could be <b>pried</b> to subtly displace it.")
 	return .
 
-/obj/structure/girder/construction_hints()
+/obj/structure/girder/assembly_hints()
 	. = ""
 	if (health < initial(health))
 		. += "</br>- It could be repaired with a few choice <b>welds</b>."

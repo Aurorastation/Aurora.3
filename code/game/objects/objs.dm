@@ -283,7 +283,7 @@
 	..()
 
 /obj/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended = FALSE)
-	UpdateDesc_Build()
+	updatedesc_build()
 
 	. = ..()
 	if((obj_flags & OBJ_FLAG_ROTATABLE) || (obj_flags & OBJ_FLAG_ROTATABLE_ANCHORED))
@@ -325,44 +325,32 @@
 
 /**
  *	Update the object's desc_build variable with the current build action hints available for it.
- *	See "code\game\atom\atom_examine.dm" for details.
+ *	Check out "code\game\atom\atom_examine.dm" for how these variables are used.
  */
-/obj/proc/UpdateDesc_Build()
-	var/construction_hints = construction_hints()
+/obj/proc/updatedesc_build()
+	var/assembly_hints = assembly_hints()
+	var/disassembly_hints = disassembly_hints()
 
-	if(construction_hints)
-		desc_build = ""
-		desc_build += construction_hints
+	if(assembly_hints)
+		desc_build = list()
+		desc_build += SPAN_NOTICE("[assembly_hints]")
+	if(disassembly_hints)
+		desc_build += SPAN_WARNING("[disassembly_hints]")
 
-		/*
-		// This is ugly code but it does get rid of even uglier double-line breaks in game.
-		var/first_line = TRUE
-		if(component_hint_cap)
-			temp_desc_upgrade += "- [component_hint_cap]"
-			first_line = FALSE
-		if(component_hint_scan)
-			if(!first_line)
-				temp_desc_upgrade += "<br>"
-			temp_desc_upgrade += "- [component_hint_scan]"
-			first_line = FALSE
-		if(component_hint_servo)
-			if(!first_line)
-				temp_desc_upgrade += "<br>"
-			temp_desc_upgrade += "- [component_hint_servo]"
-			first_line = FALSE
-		if(component_hint_laser)
-			if(!first_line)
-				temp_desc_upgrade += "<br>"
-			temp_desc_upgrade += "- [component_hint_laser]"
-			first_line = FALSE
-		if(component_hint_bin)
-			if(!first_line)
-				temp_desc_upgrade += "<br>"
-			temp_desc_upgrade += "- [component_hint_bin]"
-			first_line = FALSE
-		desc_upgrade = temp_desc_upgrade
-		*/
+/*
+ *	Children of assembly_hints() and disassembly_hints() should check the current state of the object,
+ *	whether it has any eligible steps in its assembly or disassembly respectively, and if so, return
+ *	instructions on how to accomplish those steps.
+ *
+ *	It should describe steps toward or away from a completed 'form' of the object.
+ *	For example, a table whose surface can be carpeted would have carpeting instructions in assembly_hints().
+ *	However, an IV drip which can have a gas tank attached to it would not have that  described in assembly_hints(),
+ *	as the IV drip is already 'completed,' and a gas tank is effectively just a swappable slot item for it.
+ *
+ *	Use your best judgement, and check out"/obj/modules/tables/table.dm" for a simple implementation example.
+ */
+/obj/proc/assembly_hints()
+	return FALSE
 
-/// Empty function, we only care if its children have anything in it.
-/obj/proc/construction_hints()
+/obj/proc/disassembly_hints()
 	return FALSE

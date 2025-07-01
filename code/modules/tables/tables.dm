@@ -36,42 +36,52 @@
 
 /obj/structure/table/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	if (health < maxhealth)
+	if(health < maxhealth)
 		switch(health / maxhealth)
-			if (0.0 to 0.5)
+			if(0.0 to 0.5)
 				. += SPAN_WARNING("It looks severely damaged!")
-			if (0.25 to 0.5)
+			if(0.25 to 0.5)
 				. += SPAN_WARNING("It looks damaged!")
-			if (0.5 to 1.0)
+			if(0.5 to 1.0)
 				. += SPAN_NOTICE("It has a few scrapes and dents.")
 
-/obj/structure/table/construction_hints()
-	. = ""
+/obj/structure/table/assembly_hints()
+	// Rule racks out entirely first.
+	if(!can_reinforce || !can_plate)
+		return FALSE
+
+	if(health < maxhealth)
+		. += "- It could be repaired with a few choice <b>welds</b>... no matter what its made of!<br>"
+
+	// Needs to be plated before it can be carpeted
+	if(material && !carpeted)
+		. += "- It could be surfaced with some <b>carpet</b>.<br>"
+	// Needs to be plated before it can be reinforced
+	if(material)
+		. += "- It could be reinforced with a <b>stack</b> of an appropriate material.<br>"
+	// Needs to be plated before we can do much of anything
+	else
+		. += "- It could be plated with a <b>stack</b> of an appropriate material.<br>"
+	return .
+
+/obj/structure/table/disassembly_hints()
 	// Rule racks out entirely first. If we ever let them be customized/have health, update this.
-	if (!can_reinforce || !can_plate)
+	if(!can_reinforce || !can_plate)
 		. += "- It is held together by a couple of <b>bolts</b>."
 		return .
 
-	if (health < maxhealth)
-		. += "- It could be repaired with a few choice <b>welds</b>... no matter what its made of!<br>"
-	if (carpeted)
+	// Has a carpet
+	if(carpeted)
 		. += "- Its carpeted surface could be <b>pried</b> loose.<br>"
-	// Needs to be plated before it can be carpeted
-	else if (material)
-		. += "- It could be surfaced with some <b>carpet</b>.<br>"
-	if (reinforced)
+	// Has reinforcements
+	if(reinforced)
 		. += "- Its reinforcements have been securely <b>screwed<b/> into place.<br>"
-	// Needs to be plated before it can be reinforced
-	else if (material)
-		. += "- It could be reinforced with a <b>stack</b> of an appropriate material.<br>"
-		// Needs to be uncarpeted before it can be de-plated
-		if (!carpeted)
-			. += "- It is held together by a couple of <b>bolts</b>.<br>"
-	// Needs to be plated before we can do much of anything
-	if (!material)
-		. += "- It could be plated with a <b>stack</b> of an appropriate material.<br>"
+	// Is not reinforced or carpeted, but is plated
+	else if(material && !carpeted)
+		. += "- Its plating is secured by a couple of <b>bolts</b>.<br>"
+	// Table naked!!!
+	else if(!material)
 		. += "- It is held together by a couple of <b>bolts</b>.<br>"
-	return .
 
 /obj/structure/table/proc/update_material()
 	var/old_maxhealth = maxhealth
@@ -333,15 +343,15 @@
 		var/tabledirs = 0
 		for(var/direction in list(turn(dir,90), turn(dir,-90)) )
 			var/obj/structure/table/T = locate(/obj/structure/table ,get_step(src,direction))
-			if (T && T.flipped == 1 && T.dir == src.dir && material && T.material && T.material.name == material.name)
+			if(T && T.flipped == 1 && T.dir == src.dir && material && T.material && T.material.name == material.name)
 				type++
 				tabledirs |= direction
 
 		type = "[type]"
-		if (type=="1")
-			if (tabledirs & turn(dir,90))
+		if(type=="1")
+			if(tabledirs & turn(dir,90))
 				type += "-"
-			if (tabledirs & turn(dir,-90))
+			if(tabledirs & turn(dir,-90))
 				type += "+"
 
 		if(material)

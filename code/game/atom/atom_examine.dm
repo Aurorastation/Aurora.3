@@ -47,6 +47,21 @@
  *
  * Returns a `/list` of strings
  */
+
+ /**
+  *	The structure of an object's examine box is as follows:
+  *	[ Name ] [ Size ]
+  *	[ Damage/Condition ]
+  *	[ Description ]
+  *	[ Extended Description*** ]
+  *	[ Mechanics*** ]
+  *	[ Assembly/Disassembly*** ]
+  *	[ Upgrades*** ]
+  *	[ Antagonist Interactions*** ]
+  *	[ Status Feedback ]
+  *
+  *	Blocks marked with *** are collapsed by default.
+  */
 /atom/proc/get_examine_text(mob/user, distance, is_adjacent, infix = "", suffix = "", show_extended)
 	SHOULD_CALL_PARENT(TRUE)
 	SHOULD_NOT_SLEEP(TRUE)
@@ -112,6 +127,8 @@
 			if(desc_antag && (player_is_antag(user.mind) || isghost(user) || isstoryteller(user)))
 				. += FONT_SMALL(SPAN_ALERT("- <b>Antagonist Interactions</b>"))
 			. += FONT_SMALL(SPAN_NOTICE("<a href='byond://?src=[REF(src)];examine_fluff=1'>\[Show in Chat\]</a><br>"))
+	// If the item has any feedback text, show it.
+	. += SPAN_NOTICE("[desc_feedback]")
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user

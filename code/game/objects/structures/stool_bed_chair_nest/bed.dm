@@ -301,8 +301,12 @@
 		else
 			occupant.visible_message(SPAN_DANGER("[occupant] crashed into \the [A]!"))
 
-/obj/structure/bed/construction_hints()
-	. = ""
+/obj/structure/bed/assembly_hints()
+	if (!padding_material)
+		. += "- It could be padded with <b>cloth or leather</b>."
+	return .
+
+/obj/structure/bed/disassembly_hints()
 	if (padding_material)
 		. += "- Its padding has visible seams that could be <b>cut</b>.<br>"
 	. += "- It is held together by a couple of <b>bolts</b>."

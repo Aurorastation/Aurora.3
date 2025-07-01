@@ -9,7 +9,7 @@
 	var/refund_type = /obj/item/stack/material/steel
 	var/reverse = 0 //if resulting object faces opposite its dir (like light fixtures)
 
-/obj/item/floor_frame/construction_hints()
+/obj/item/floor_frame/assembly_hints()
 	return "- It could be installed by using it on an adjacent <b>floor</b>.<br>"
 
 /obj/item/floor_frame/attackby(obj/item/attacking_item, mob/user)

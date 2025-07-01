@@ -91,7 +91,7 @@
 		. += SPAN_NOTICE("It could be [density ? "opened" : "closed"] to passage with a wrench.")
 	return .
 
-/obj/structure/railing/construction_hints()
+/obj/structure/railing/assembly_hints()
 	. = ""
 	if (health < maxhealth)
 		. += "- It could be repaired with a few choice <b>welds</b>.<br>"
