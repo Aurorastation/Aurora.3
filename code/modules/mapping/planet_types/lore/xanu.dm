@@ -3,7 +3,7 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/xanu
 	name = "Xanu Prime"
-	desc = ""
+	desc = "The capital of the Coalition of Colonies. Xanu Prime is a geographically diverse, Earth-like world with varied biomes, ranging from equatorial rainforests, tropical deserts, and open grassy plains. Sieged during the Interstellar War, the planet is scarred by battles and orbital bombardments of the past. "
 	icon_state = "globe2"
 	color = "#7c945c"
 	planetary_area = /area/exoplanet/grass/xanu
@@ -13,7 +13,7 @@
 	surfacegravity = "1.07"
 	charted = "Charted 2156, Sol Alliance Department of Colonization."
 	alignment = "Coalition of Colonies"
-	geology = "4 major continents exhibiting typical tectonic activty. Abundance of cratering detected on surface"
+	geology = "4 major continents exhibiting typical seismic activty. Abundance of cratering detected on surface; flooded to form lakes."
 	weather = "Global full-atmosphere hydrological weather system."
 	surfacewater = "67% surface salt water"
 	surface_color = null//pre colored
@@ -24,9 +24,13 @@
 	flora_diversity = 0
 	has_trees = FALSE
 	ruin_planet_type = PLANET_LORE
-	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/delivery_site, /datum/map_template/ruin/exoplanet/crashed_coc_skipjack)
 	place_near_main = list(1,0)
-	var/landing_region
+
+	// Defaults, later set under pre_ruin_preparation
+	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/delivery_site, /datum/map_template/ruin/exoplanet/crashed_coc_skipjack)
+	possible_themes = list(/datum/exoplanet_theme/grass/xanu_nayakhyber)
+	surface_color = "#7c945c"
+	var/landing_region = "grasslands and mountains of Naya Khyber"
 
 /obj/effect/overmap/visitable/sector/exoplanet/xanu/generate_habitability()
 	return HABITABILITY_IDEAL
@@ -47,10 +51,10 @@
 
 		if(landing_region)
 			switch(landing_region)
-				if("Naya Khyber Wilderness")
-					atmosphere.temperature = T0C + 28
-				if("Himavatia Wounds")
-					atmosphere.temperature = T0C - 4
+				if("grasslands and mountains of Naya Khyber")
+					atmosphere.temperature = T0C + rand(25,30)
+				if("valleys and cliffs of Himavatia")
+					atmosphere.temperature = T0C - rand(1,5)
 
 		atmosphere.update_values()
 
@@ -58,29 +62,29 @@
 	ground_survey_result = "" // so it does not get randomly generated survey results
 
 /obj/effect/overmap/visitable/sector/exoplanet/xanu/pre_ruin_preparation()
-	if(prob(1))
-		landing_region = "Naya Khyber Wilderness"
+	if(prob(66))
+		landing_region = "grasslands and mountains of Naya Khyber"
 	else
-		landing_region = "Himavatia Wounds"
+		landing_region = "valleys and cliffs of Himavatia"
 
 	desc += " The landing sites are located in the [landing_region]."
 
 	switch(landing_region)
-		if("Naya Khyber Wilderness")
-			possible_themes = list(/datum/exoplanet_theme/grass)
+		if("grasslands and mountains of Naya Khyber")
+			possible_themes = list(/datum/exoplanet_theme/grass/xanu_nayakhyber)
 			surface_color = "#7c945c"
 
 			ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/delivery_site, /datum/map_template/ruin/exoplanet/crashed_coc_skipjack)
 
-			desc += "The local government only permits Scientific Sampling operations in this area. Other operations are not permitted."
+			desc += " The local government only permits Scientific Sampling operations in this area; other operations are not permitted."
 
-		if("Himavatia Wounds")
-			possible_themes = list(/datum/exoplanet_theme/snow/tundra)
+		if("valleys and cliffs of Himavatia")
+			possible_themes = list(/datum/exoplanet_theme/snow/tundra/xanu_himavatia)
 			surface_color = "#d0fac5"
 			set_weather(/singleton/state/weather/calm/arctic_planet)
 
 			ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/delivery_site, /datum/map_template/ruin/exoplanet/crashed_coc_skipjack)
 
-			desc += "The local government only permits Scientific Sampling operations in this area. Other operations are not permitted."
+			desc += " The local government only permits Scientific Sampling operations in this area; other operations are not permitted."
 
 
