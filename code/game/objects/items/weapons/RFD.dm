@@ -691,7 +691,7 @@ ABSTRACT_TYPE(/obj/item/rfd)
 	desc = "A heavily modified RFD, modified to construct pipes and piping accessories."
 	icon_state = "rfd-p"
 	item_state = "rfd-p"
-	modes = list(STANDARD_PIPE, SUPPLY_PIPE, SCRUBBER_PIPE, DEVICES)
+	modes = list(STANDARD_PIPE, SUPPLY_PIPE, SCRUBBER_PIPE, FUEL_PIPE, AUX_PIPE, DEVICES)
 	var/selected_mode = STANDARD_PIPE
 	var/pipe_examine = "Pipe" // used in the examine proc to see what you're putting down at a glance
 	var/selected_pipe = 0 // default is standard pipe, used for the new pipe creation

@@ -256,3 +256,24 @@
   steviii:
   - imageadd: Adds new wetsuits and swimsuits for Skrell.
   - rscadd: Adds swimstars swimsuits and adds them to the maint loot pool.
+2025-06-27:
+  CourierBravo:
+  - bugfix: Changes the door names for the drone fabrication room to drone fabrication
+      instead of auxiliary atmospherics.
+  Wowzewow (Wezzy):
+  - rscadd: Reverts the body scanner console sprite.
+  hazelmouse:
+  - rscadd: Yokes now have their contents appended to their name, allowing them to
+      be more easily sorted in stacks. If a yoke contains more than one kind of drink,
+      only the first two are appended.
+2025-06-30:
+  Batrachophreno:
+  - bugfix: Removes a floating black pixel on the icon of the Labourer's Choice cigarette
+      packet when opened with two cigs left inside.
+  - bugfix: Finished partially-implemented Fuel and Aux pipe modes for RFD-P.
+  - refactor: Renamed the air conditioning unit to temperature control unit.
+  - refactor: Migrated the temperature control unit menu to TGUI, made it prettier.
+  - refactor: Migrated the gas tank dispenser menu to TGUI, made it prettier.
+  SleepyGemmy:
+  - bugfix: Fixed double doors with glass having the glass overlay misaligning when
+      access is denied.
