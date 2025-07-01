@@ -24,7 +24,7 @@
 	flora_diversity = 0
 	has_trees = FALSE
 	ruin_planet_type = PLANET_LORE
-	ruin_type_whitelist = null
+	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/delivery_site, /datum/map_template/ruin/exoplanet/crashed_coc_skipjack)
 	place_near_main = list(1,0)
 	var/landing_region
 
@@ -32,7 +32,7 @@
 	return HABITABILITY_IDEAL
 
 /obj/effect/overmap/visitable/sector/exoplanet/xanu/generate_map()
-	lightlevel = 50
+	lightlevel = rand(1,10)
 	..()
 
 /obj/effect/overmap/visitable/sector/exoplanet/xanu/update_icon()
@@ -62,18 +62,25 @@
 		landing_region = "Naya Khyber Wilderness"
 	else
 		landing_region = "Himavatia Wounds"
+
+	desc += " The landing sites are located in the [landing_region]."
+
 	switch(landing_region)
 		if("Naya Khyber Wilderness")
 			possible_themes = list(/datum/exoplanet_theme/grass)
 			surface_color = "#7c945c"
 
-			ruin_type_whitelist = null
+			ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/delivery_site, /datum/map_template/ruin/exoplanet/crashed_coc_skipjack)
+
+			desc += "The local government only permits Scientific Sampling operations in this area. Other operations are not permitted."
 
 		if("Himavatia Wounds")
 			possible_themes = list(/datum/exoplanet_theme/snow/tundra)
 			surface_color = "#d0fac5"
 			set_weather(/singleton/state/weather/calm/arctic_planet)
 
-			ruin_type_whitelist = null
+			ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/delivery_site, /datum/map_template/ruin/exoplanet/crashed_coc_skipjack)
 
-	desc += " The landing sites are located in the [landing_region]."
+			desc += "The local government only permits Scientific Sampling operations in this area. Other operations are not permitted."
+
+
