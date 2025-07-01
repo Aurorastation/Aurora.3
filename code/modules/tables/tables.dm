@@ -3,7 +3,6 @@
 	icon = 'icons/obj/structure/tables/table.dmi'
 	icon_state = "frame"
 	desc = "It's a table, for putting things on. Or standing on, if you really want to."
-	desc_mechanics = "Straight tables, so long as they're not too heavy or reinforced, can be flipped over with a verb when adjacent to them!"
 	density = TRUE
 	anchored = TRUE
 	pass_flags_self = PASSTABLE | LETPASSTHROW
@@ -34,8 +33,8 @@
 
 	var/list/connections = list("nw0", "ne0", "sw0", "se0")
 
-/obj/structure/table/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/structure/table/condition_hints()
+	. = list()
 	if(health < maxhealth)
 		switch(health / maxhealth)
 			if(0.0 to 0.5)
@@ -45,43 +44,47 @@
 			if(0.5 to 1.0)
 				. += SPAN_NOTICE("It has a few scrapes and dents.")
 
+/obj/structure/table/mechanics_hints()
+	. = list()
+	. += "Straight tables, so long as they're not too heavy or reinforced, can be flipped over with a verb when adjacent to them!"
+
 /obj/structure/table/assembly_hints()
+	. = list()
 	// Rule racks out entirely first.
 	if(!can_reinforce || !can_plate)
 		return FALSE
 
 	if(health < maxhealth)
-		. += "It could be repaired with a few choice <b>welds</b>... no matter what its made of!<br>"
+		. += "It could be repaired with a few choice <b>welds</b>... no matter what its made of!"
 
 	// Needs to be plated before it can be carpeted
 	if(material && !carpeted)
-		. += "It could be surfaced with some <b>carpet</b>.<br>"
+		. += "It could be surfaced with some <b>carpet</b>."
 	// Needs to be plated before it can be reinforced
 	if(material)
-		. += "It could be reinforced with a <b>stack</b> of an appropriate material.<br>"
+		. += "It could be reinforced with a <b>stack</b> of an appropriate material."
 	// Needs to be plated before we can do much of anything
 	else
-		. += "It could be plated with a <b>stack</b> of an appropriate material.<br>"
-	return .
+		. += "It could be plated with a <b>stack</b> of an appropriate material."
 
 /obj/structure/table/disassembly_hints()
+	. = list()
 	// Rule racks out entirely first. If we ever let them be customized/have health, update this.
 	if(!can_reinforce || !can_plate)
 		. += "It is held together by a couple of <b>bolts</b>."
-		return .
 
 	// Has a carpet
 	if(carpeted)
-		. += "Its carpeted surface could be <b>pried</b> loose.<br>"
+		. += "Its carpeted surface could be <b>pried</b> loose."
 	// Has reinforcements
 	if(reinforced)
-		. += "Its reinforcements have been securely <b>screwed<b/> into place.<br>"
+		. += "Its reinforcements have been securely <b>screwed<b/> into place."
 	// Is not reinforced or carpeted, but is plated
 	else if(material && !carpeted)
-		. += "Its plating is secured by a couple of <b>bolts</b>.<br>"
+		. += "Its plating is secured by a couple of <b>bolts</b>."
 	// Table naked!!!
 	else if(!material)
-		. += "It is held together by a couple of <b>bolts</b>.<br>"
+		. += "It is held together by a couple of <b>bolts</b>."
 
 /obj/structure/table/proc/update_material()
 	var/old_maxhealth = maxhealth

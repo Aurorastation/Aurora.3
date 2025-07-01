@@ -125,13 +125,6 @@ Class Procs:
 	var/parts_power_mgmt = TRUE
 	/// The total power rating of all parts serves as a power usage multiplier.
 	var/parts_power_usage = 0
-	/// Blurbs for what each component type does. Appended to machine's /desc_mechanics.
-	/// Kindly use the format in appended comments for consistency
-	var/component_hint_bin // "Upgraded <b>matter bins</b> will XYZ."
-	var/component_hint_cap // "Upgraded <b>capacitors</b> will XYZ."
-	var/component_hint_laser // "Upgraded <b>micro-lasers</b> will XYZ"
-	var/component_hint_scan // "Upgraded <b>scanning modules</b> will XYZ"
-	var/component_hint_servo // "Upgraded <b>manipulators</b> will XYZ"
 
 	var/uid
 	var/panel_open = 0
@@ -391,7 +384,7 @@ Class Procs:
 
 		change_power_consumption(new_idle_power)
 		change_power_consumption(new_active_power, POWER_USE_ACTIVE)
-	GetPartUpgradeDesc()
+	upgrade_hints()
 
 /obj/machinery/proc/assign_uid()
 	uid = gl_uid
@@ -504,34 +497,7 @@ Class Procs:
 			return TRUE
 	else return FALSE
 
-/obj/machinery/proc/GetPartUpgradeDesc()
-	var/temp_desc_upgrade = initial(desc_upgrade)
-	// This is ugly code but it does get rid of even uglier double-line breaks in game.
-	var/first_line = TRUE
-	if(component_hint_cap)
-		temp_desc_upgrade += "- [component_hint_cap]"
-		first_line = FALSE
-	if(component_hint_scan)
-		if(!first_line)
-			temp_desc_upgrade += "<br>"
-		temp_desc_upgrade += "- [component_hint_scan]"
-		first_line = FALSE
-	if(component_hint_servo)
-		if(!first_line)
-			temp_desc_upgrade += "<br>"
-		temp_desc_upgrade += "- [component_hint_servo]"
-		first_line = FALSE
-	if(component_hint_laser)
-		if(!first_line)
-			temp_desc_upgrade += "<br>"
-		temp_desc_upgrade += "- [component_hint_laser]"
-		first_line = FALSE
-	if(component_hint_bin)
-		if(!first_line)
-			temp_desc_upgrade += "<br>"
-		temp_desc_upgrade += "- [component_hint_bin]"
-		first_line = FALSE
-	desc_upgrade = temp_desc_upgrade
+
 
 /obj/machinery/proc/dismantle()
 	playsound(loc, /singleton/sound_category/crowbar_sound, 50, 1)

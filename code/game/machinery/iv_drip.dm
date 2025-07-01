@@ -1,9 +1,6 @@
 /obj/machinery/iv_drip
 	name = "\improper IV drip"
 	desc = "A professional standard intravenous stand with supplemental gas support for medical use."
-	desc_mechanics = "- IV drips can be supplied beakers/bloodpacks for reagent transfusions, as well as one breath mask and gas tank for supplemental gas therapy. \
-	<br>- Click and Drag to attach/detach the IV or secure/remove the breath mask on your target.<br>- Click the stand with an empty hand to \
-	toggle between various modes. Using a wrench when it has a tank installed will secure it.<br>- Alt Click the stand to remove items contained in the stand."
 	icon = 'icons/obj/iv_drip.dmi'
 	icon_state = "iv_stand"
 	anchored = 0
@@ -60,8 +57,57 @@
 		/obj/item/stock_parts/manipulator,
 		/obj/item/stock_parts/scanning_module)
 
-	component_hint_scan = "Upgraded <b>scanning modules</b> will provide the exact volume and composition of attached beakers."
-	component_hint_servo = "Upgraded <b>manipulators</b> will allow patients to be hooked to IV through armor and increase the maximum reagent transfer rate."
+/obj/machinery/iv_drip/mechanics_hints()
+	. = list()
+	. += "IV drips can be supplied beakers/bloodpacks for reagent transfusions, as well as one breath mask and gas tank for supplemental gas therapy."
+	. += "Using a wrench when it has a tank installed will secure it. Use it again to unsecure it before removal."
+	. += "Click and Drag to attach/detach the IV or secure/remove the breath mask on your target."
+	. += "Click the stand with an empty hand to toggle between various modes."
+	. += "Alt Click the stand to remove items contained in the stand."
+
+/obj/machinery/iv_drip/assembly_hints()
+	. = list()
+	. += "This is a placeholder value for assembly hints."
+
+/obj/machinery/iv_drip/disassembly_hints()
+	. = list()
+	if(1 == 1)
+		. += "This is a placeholder value for disassembly hints."
+	else
+		. += "This is a placeholder value for disassembly hints in a broken universe."
+
+/obj/machinery/iv_drip/upgrade_hints()
+	. = list()
+	. += "Upgraded <b>scanning modules</b> will provide the exact volume and composition of attached beakers."
+	. += "Upgraded <b>manipulators</b> will allow patients to be hooked to IV through armor and increase the maximum reagent transfer rate."
+
+/obj/machinery/iv_drip/antagonist_hints()
+	. = list()
+	. += "If you fill the IV with poison, it'll poison people who get connected to the IV. You genius."
+
+/obj/machinery/iv_drip/feedback_hints()
+	. = list()
+	. += "[src] is [mode ? "injecting" : "taking blood"] at a rate of [src.transfer_amount] u/sec, the automatic injection stop mode is [toggle_stop ? "on" : "off"]."
+	. += "The Emergency Positive Pressure system is [epp ? "on" : "off"]."
+	if(attached)
+		. += "\The [src] is attached to [attached]'s [vein.name]."
+	if(beaker)
+		if(LAZYLEN(beaker.reagents.reagent_volumes))
+			. += "Attached is \a [beaker] with [adv_scan ? "[beaker.reagents.total_volume] units of primarily [beaker.reagents.get_primary_reagent_name()]" : "some liquid"]."
+		else
+			. += "Attached is \a [beaker]. It is empty."
+	else
+		. += SPAN_ALERT("No chemicals are attached.")
+	if(tank)
+		. += "Installed is [is_loose ? "\a [tank] sitting loose" : "\a [tank] secured"] on the stand. The meter shows [round(tank.air_contents.return_pressure())]kPa, \
+		with the pressure set to [round(tank.distribute_pressure)]kPa. The valve is [valve_open ? "open" : "closed"]."
+	else
+		. += SPAN_ALERT("No gas tank installed.")
+	if(breath_mask)
+		. += "\The [src] has \a [breath_mask] installed. [breather ? breather : "No one"] is wearing it."
+	else
+		. += SPAN_ALERT("No breath mask installed.")
+	. += "This is an extra placeholder value for feedback hints."
 
 /obj/machinery/iv_drip/Initialize(mapload)
 	. = ..()
@@ -694,32 +740,6 @@
 			return
 		transfer_amount = amount
 		to_chat(usr, SPAN_NOTICE("Transfer rate set to [src.transfer_amount] u/sec."))
-
-/obj/machinery/iv_drip/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance > 2)
-		return
-	. += SPAN_NOTICE("</br>[src] is [mode ? "injecting" : "taking blood"] at a rate of [src.transfer_amount] u/sec, the automatic injection stop mode is [toggle_stop ? "on" : "off"].")
-	. += SPAN_NOTICE("The Emergency Positive Pressure system is [epp ? "on" : "off"].")
-
-	if(attached)
-		. += SPAN_NOTICE("\The [src] is attached to [attached]'s [vein.name].")
-	if(beaker)
-		if(LAZYLEN(beaker.reagents.reagent_volumes))
-			. += SPAN_NOTICE("Attached is [icon2html(beaker, user)] \a [beaker] with [adv_scan ? "[beaker.reagents.total_volume] units of primarily [beaker.reagents.get_primary_reagent_name()]" : "some liquid"].")
-		else
-			. += SPAN_NOTICE("Attached is [icon2html(beaker, user)] \a [beaker]. It is empty.")
-	else
-		. += SPAN_NOTICE("No chemicals are attached.")
-	if(tank)
-		. += SPAN_NOTICE("Installed is [icon2html(tank, user)] [is_loose ? "\a [tank] sitting loose" : "\a [tank] secured"] on the stand. The meter shows [round(tank.air_contents.return_pressure())]kPa, \
-		with the pressure set to [round(tank.distribute_pressure)]kPa. The valve is [valve_open ? "open" : "closed"].")
-	else
-		. += SPAN_NOTICE("No gas tank installed.")
-	if(breath_mask)
-		. += SPAN_NOTICE("\The [src] has [icon2html(breath_mask, user)] \a [breath_mask] installed. [breather ? breather : "No one"] is wearing it.")
-	else
-		. += SPAN_NOTICE("No breath mask installed.")
 
 /obj/machinery/iv_drip/RefreshParts()
 	..()

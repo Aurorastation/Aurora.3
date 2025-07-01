@@ -18,11 +18,6 @@
 /obj/structure/bed
 	name = "bed"
 	desc = "This is used to lie in, sleep in or strap on."
-	desc_mechanics = "- Click and drag yourself (or anyone) to this to buckle in.\
-	</br>- Click on this with an empty hand to undo the buckles.\
-	</br>- Anyone with restraints, such as handcuffs, will not be able to unbuckle themselves. They must use the Resist button, or verb, to break free of \
-	the buckles instead.\
-	</br>- To unbuckle people as a stationbound, click the bed with an empty gripper."
 	icon = 'icons/obj/structure/beds.dmi'
 	icon_state = "bed"
 	anchored = TRUE
@@ -48,6 +43,27 @@
 	var/driving = FALSE // Shit for wheelchairs. Doesn't really get used here, but it's for code cleanliness.
 	var/mob/living/pulling = null
 	var/propelled = 0 // Check for fire-extinguisher-driven chairs
+
+/obj/structure/bed/mechanics_hints()
+	. = list()
+	. += "Click and drag yourself (or anyone) to this to buckle in."
+	. += "Click on this with an empty hand to undo the buckles."
+	. += "Anyone with restraints, such as handcuffs, will not be able to unbuckle themselves. They must use the Resist button, or verb, to break free of \
+	the buckles instead."
+	. += "To unbuckle people as a stationbound, click the bed with an empty gripper."
+	if(held_item)
+		. += "Click and drag this onto yourself to pick it up."
+
+/obj/structure/bed/assembly_hints()
+	. = list()
+	if(!padding_material)
+		. += "It could be padded with <b>cloth or leather</b>."
+
+/obj/structure/bed/disassembly_hints()
+	. = list()
+	if(padding_material)
+		. += "Its padding has visible seams that could be <b>cut</b>."
+	. += "It is held together by a couple of <b>bolts</b>."
 
 /obj/structure/bed/Initialize()
 	. = ..()
@@ -300,17 +316,6 @@
 			msg_admin_attack("[pulling.name] ([pulling.ckey]) has thrusted [occupant.name]'s ([occupant.ckey]) [name] into \a [A] (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[pulling.x];Y=[pulling.y];Z=[pulling.z]'>JMP</a>)",ckey=key_name(pulling),ckey_target=key_name(occupant))
 		else
 			occupant.visible_message(SPAN_DANGER("[occupant] crashed into \the [A]!"))
-
-/obj/structure/bed/assembly_hints()
-	if (!padding_material)
-		. += "It could be padded with <b>cloth or leather</b>."
-	return .
-
-/obj/structure/bed/disassembly_hints()
-	if (padding_material)
-		. += "Its padding has visible seams that could be <b>cut</b>.<br>"
-	. += "It is held together by a couple of <b>bolts</b>."
-	return .
 
 /obj/structure/bed/psych
 	name = "psychiatrist's couch"
@@ -690,7 +695,6 @@
 /obj/structure/roller_rack/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	desc = "[initial(desc)] \nIt is holding [LAZYLEN(held)] beds."
 	. = ..()
-	. += interaction_hints()
 
 /obj/structure/roller_rack/proc/interaction_hints()
 	return SPAN_NOTICE("It [anchored ? "is" : "could be"] anchored to the floor with a couple of <b>screws</b>.")

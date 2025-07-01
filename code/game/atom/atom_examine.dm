@@ -84,6 +84,12 @@
 	if(src.desc)
 		. += src.desc	// Object description.
 
+	// Returns a SPAN_* based on health, if configured.
+	var/condition_hints = src.condition_hints()
+	if(condition_hints)
+		LOG_DEBUG("[condition_hints]")
+		. += condition_hints
+
 	// Extra object descriptions examination code.
 	if(show_extended)
 		// If the item has a extended description, show it.
@@ -96,7 +102,8 @@
 		// If the item has a description with assembly/disassembly instructions, show it.
 		if(desc_build)
 			. += FONT_SMALL(SPAN_NOTICE("<b>Assembly/Disassembly</b>"))
-			. += FONT_SMALL(SPAN_NOTICE("[desc_build]"))
+			// Not a span because desc_build can use both NOTICE and ALERT.
+			. += FONT_SMALL("[desc_build]")
 		// If the item has a description about its upgrade components and what they do, show it.
 		// This one doesnt come prepended with a hyphen because theyre added when the desc is dynamically built.
 		if(desc_upgrade)
@@ -126,9 +133,9 @@
 			// If the item has an antagonist description and the user is an antagonist/ghost, show that it is available.
 			if(desc_antag && (player_is_antag(user.mind) || isghost(user) || isstoryteller(user)))
 				. += FONT_SMALL(SPAN_ALERT("- <b>Antagonist Interactions</b>"))
-			. += FONT_SMALL(SPAN_NOTICE("<a href='byond://?src=[REF(src)];examine_fluff=1'>\[Show in Chat\]</a><br>"))
+			. += FONT_SMALL(SPAN_NOTICE("<a href='byond://?src=[REF(src)];examine_fluff=1'>\[Show in Chat\]</a>"))
 	// If the item has any feedback text, show it.
-	. += SPAN_NOTICE("[desc_feedback]")
+	. += "</br>[desc_feedback]"
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
@@ -169,55 +176,119 @@
 		return TRUE
 
 /// Builds the text block variables for get_examine_text
+/// In the future, we may want to give this a user param to customize what information is returned.
 /atom/proc/update_desc_blocks()
 	var/mechanics_hints = mechanics_hints()
 	var/assembly_hints = assembly_hints()
 	var/disassembly_hints = disassembly_hints()
-	// desc_upgrade is currently handled in "code/game/machinery/machinery.dm" in /obj/machinery/proc/GetPartUpgradeDesc()
+	var/upgrade_hints = upgrade_hints()
 	var/antagonist_hints = antagonist_hints()
 	var/feedback_hints = feedback_hints()
 
-	if(mechanics_hints)
-		desc_mechanics = list()
-		for(var/mechanics_hint in mechanics_hints)
-			desc_mechanics += SPAN_NOTICE("- [mechanics_hint]")
-	if(assembly_hints)
-		desc_build = list()
-		for(var/assembly_hint in assembly_hints)
-			desc_build += SPAN_NOTICE("- [assembly_hint]")
-	if(disassembly_hints)
-		for(var/disassembly_hint in assembly_hints)
-			desc_build += SPAN_WARNING("- [disassembly_hint]")
-	if(antagonist_hints)
-		for(var/antagonist_hint in antagonist_hints)
-			desc_antag += SPAN_WARNING("- [antagonist_hint]")
-	if(feedback_hints)
-		for(var/feedback_hint in feedback_hints)
-			desc_feedback += SPAN_NOTICE("- [feedback_hint]")
+	// A little ugly but it works.
+	var/first_line
 
+	if(mechanics_hints)
+		first_line = TRUE
+		desc_mechanics = ""
+		for(var/mechanics_hint in mechanics_hints)
+			LOG_DEBUG("[mechanics_hint]")
+			if(!first_line)
+				desc_mechanics += "</br>"
+			first_line = FALSE
+			desc_mechanics += SPAN_NOTICE("- [mechanics_hint]")
+
+	if(assembly_hints || disassembly_hints)
+		first_line = TRUE
+		LOG_DEBUG("found assembly hints")
+		desc_build = ""
+		for(var/assembly_hint in assembly_hints)
+			LOG_DEBUG("[assembly_hint]")
+			if(!first_line)
+				desc_build += "</br>"
+			first_line = FALSE
+			desc_build += SPAN_NOTICE("- [assembly_hint]")
+		// Make sure line breaks work reliably whether or not there's only assembly, only disassembly, or both types available.
+		if (assembly_hints().len > 0 && disassembly_hints)
+			desc_build += "</br>"
+		first_line = TRUE
+		for(var/disassembly_hint in disassembly_hints)
+			LOG_DEBUG("[disassembly_hint]")
+			if(!first_line)
+				desc_build += "</br>"
+			first_line = FALSE
+			desc_build += SPAN_ALERT("- [disassembly_hint]")
+
+	if(upgrade_hints)
+		first_line = TRUE
+		LOG_DEBUG("found upgrade hints")
+		desc_upgrade = ""
+		for(var/upgrade_hint in upgrade_hints)
+			if(!first_line)
+				desc_upgrade += "<br>"
+			desc_upgrade += "- [upgrade_hint]"
+			first_line = FALSE
+
+	if(antagonist_hints)
+		first_line = TRUE
+		LOG_DEBUG("found antag hints")
+		desc_antag = ""
+		for(var/antagonist_hint in antagonist_hints)
+			LOG_DEBUG("[antagonist_hint]")
+			if(!first_line)
+				desc_antag += "</br>"
+			first_line = FALSE
+			desc_antag += SPAN_WARNING("- [antagonist_hint]")
+
+	if(feedback_hints)
+		first_line = TRUE
+		LOG_DEBUG("found feedback hints")
+		desc_feedback = ""
+		for(var/feedback_hint in feedback_hints)
+			LOG_DEBUG("[feedback_hint]")
+			if(!first_line)
+				desc_feedback += "</br>"
+			first_line = FALSE
+			desc_feedback += "[feedback_hint]"
+
+/// Should return a list() of SPAN_* strings in whatever format you like.
+/// Existing style is SPAN_NOTICE for minor damage and SPAN_ALERT for anything worse. If the object's destruction
+/// could have major adverse consequences, you might use SPAN_DANGER for critical damage.
+/atom/proc/condition_hints()
+	return FALSE
+
+/// Should return a list() of regular strings.
 /atom/proc/mechanics_hints()
 	return FALSE
 
 /*
- *	Children of assembly_hints() and disassembly_hints() should check the current state of the object,
- *	whether it has any eligible steps in its assembly or disassembly respectively, and if so, return
- *	instructions on how to accomplish those steps.
+ *	Children of assembly_hints() and disassembly_hints() should check the current state of the object, whether it
+ *	has any eligible steps in its assembly or disassembly respectively, and if so, return hints to that end.
  *
- *	It should describe steps toward or away from a completed 'form' of the object.
+ *	It should be used to suggest steps toward or away from a completed 'form' of the object.
  *	For example, a table whose surface can be carpeted would have carpeting instructions in assembly_hints().
  *	However, an IV drip which can have a gas tank attached to it would not have that  described in assembly_hints(),
- *	as the IV drip is already 'completed,' and a gas tank is effectively just a swappable slot item for it.
+ *	as the IV drip itself is already 'completed,' and a gas tank is effectively just a swappable slot item for it.
  *
  *	Use your best judgement, and check out"/obj/modules/tables/table.dm" for a simple implementation example.
  */
+
+/// Should return a list() of regular strings.
 /atom/proc/assembly_hints()
 	return FALSE
 
+/// Should return a list() of regular strings.
 /atom/proc/disassembly_hints()
 	return FALSE
 
+/atom/proc/upgrade_hints()
+	return FALSE
+
+/// Should return a list() of regular strings.
 /atom/proc/antagonist_hints()
 	return FALSE
 
+/// Should return a list() of regular strings. It will accept SPAN_* strings, though for consistency's sake please
+/// use SPAN_ALERT or SPAN_DANGER for negative/bad feedback.
 /atom/proc/feedback_hints()
 	return FALSE

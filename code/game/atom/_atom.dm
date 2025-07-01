@@ -64,27 +64,39 @@
 	 *	These vars should not be set in the object definition, but in defined funcs just beneath definition.
 	 */
 
-	/// Regular text about the atom's damage/condition.
-	/// Should be a SPAN_NOTICE(), SPAN_ALERT(), or SPAN_DANGER().
+	/// Text about the atom's damage/condition.
+	/// Gets built by children of /atom/proc/condition_hints()
 	var/desc_damagecondition = null
-	/// Regular text about the atom's extended description, if any exists.
-	/// Should be a string.
+
+	/// Text about the atom's extended description, if any exists.
+	/// Should be a regular string.
 	var/desc_extended = null
+
 	/// Informs the user about how to use the item or about game controls.
-	/// Should be list() of strings, are formatted (each string a new line) and converted to SPAN_NOTICE()
+	/// Gets built by children of /atom/proc/mechanics_hints()
 	var/desc_mechanics = null
+
 	/// Informs the user about how to assemble or disassemble the item.
-	/// Should be a list() of strings, are formatted (each string a new line) and converted to SPAN_NOTICE()
+	/// Gets built by children of /atom/proc/build_hints()
 	var/desc_build = null
+
 	/// Blue text (SPAN_NOTICE()), informing the user about what upgrades the item has and what they do.
-	/// Format desc_upgrade = "This object/item/machine/structure/etc has the following upgrades available:"
-	/// Currently only supports machines, see "code\game\machinery\machinery.dm" for how to implement this.
+	/// Gets built by children of /atom/proc/upgrade_hints()
 	var/desc_upgrade = null
+	/// Blurbs for what each component type does. Used to build desc_upgrade.
+	/// Kindly use the format in appended comments for consistency
+	var/component_hint_bin // "Upgraded <b>matter bins</b> will XYZ."
+	var/component_hint_cap // "Upgraded <b>capacitors</b> will XYZ."
+	var/component_hint_laser // "Upgraded <b>micro-lasers</b> will XYZ"
+	var/component_hint_scan // "Upgraded <b>scanning modules</b> will XYZ"
+	var/component_hint_servo // "Upgraded <b>manipulators</b> will XYZ"
+
 	/// Informs the user about how they can use an object to antagonize.
-	/// Should be a list() of strings, are formatted (each string a new line) and converted to SPAN_ALERT().
+	/// Gets built by children of /atom/proc/antag_hints()
 	var/desc_antag = null
+
 	/// Feedback text.
-	/// Should be a list() of strings, are formatted with each string on a new line.
+	/// Gets built by children of /atom/proc/feedback_hints()
 	var/desc_feedback = null
 
 	/* SSicon_update VARS */
