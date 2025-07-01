@@ -388,12 +388,20 @@
 			RG.reagents.add_reagent(/singleton/reagent/water, min(RG.volume - RG.reagents.total_volume, amount_per_transfer_from_this))
 			user.visible_message("<b>[user]</b> fills \a [RG] using \the [src].", SPAN_NOTICE("You fill \a [RG] using \the [src]."))
 			playsound(loc, 'sound/effects/sink.ogg', 75, 1)
+			return
 		if(user.a_intent == I_DISARM)
 			if(!RG.reagents.total_volume)
-				user.visible_message(SPAN_NOTICE("[user] washes \a [RG] in \the [src]."))
-				playsound(loc, 'sound/effects/sink.ogg', 75, TRUE)
+				busy = 1
+				user.visible_message(SPAN_NOTICE("[user] starts washing \a [RG] in \the [src]."))
+				if(!do_after(user, 25, src))
+					playsound(loc, 'sound/effects/sink.ogg', 75, TRUE)
+					busy = 0
+					return TRUE
+				busy = 0
+				user.visible_message(SPAN_NOTICE("[user] finishes washing \a [RG] in \the [src]."))
 			else
 				to_chat(user, SPAN_WARNING("\The [RG] still has something in it."))
+				return
 		else
 			if(!RG.reagents.total_volume)
 				to_chat(usr, SPAN_WARNING("\The [RG] is already empty."))
