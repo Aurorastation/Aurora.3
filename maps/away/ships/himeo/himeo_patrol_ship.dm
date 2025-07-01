@@ -11,7 +11,6 @@
 	suffix = "himeo_patrol_ship.dmm"
 
 	sectors = list(SECTOR_COALITION, SECTOR_WEEPING_STARS, SECTOR_ARUSHA, SECTOR_LIBERTYS_CRADLE, SECTOR_HANEUNIM)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 	spawn_weight = 1
 	ship_cost = 1
 	id = "Himean Planetary Guard Vessel"
