@@ -1,0 +1,7 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - imageadd: "Added a small medical sign."
+  - rscadd: "Replaced the medical signs with small medical signs."
