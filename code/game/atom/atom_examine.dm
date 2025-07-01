@@ -274,21 +274,85 @@
  */
 
 /// Should return a list() of regular strings.
-/atom/proc/assembly_hints()
+/atom/proc/assembly_hints(mob/user, distance, is_adjacent)
 	return FALSE
 
 /// Should return a list() of regular strings.
-/atom/proc/disassembly_hints()
+/atom/proc/disassembly_hints(mob/user, distance, is_adjacent)
 	return FALSE
 
-/atom/proc/upgrade_hints()
+/atom/proc/upgrade_hints(mob/user, distance, is_adjacent)
 	return FALSE
 
 /// Should return a list() of regular strings.
-/atom/proc/antagonist_hints()
+/atom/proc/antagonist_hints(mob/user, distance, is_adjacent)
 	return FALSE
 
 /// Should return a list() of regular strings. It will accept SPAN_* strings, though for consistency's sake please
 /// use SPAN_ALERT or SPAN_DANGER for negative/bad feedback.
-/atom/proc/feedback_hints()
+/atom/proc/feedback_hints(mob/user, distance, is_adjacent)
 	return FALSE
+
+/*
+	Until we finish migrating the 589217 objects needing to be moved to the new system, here's a code block to
+	copy underneath an unmigrated object's definition that can then be (relatively) quickly edited to work.
+
+/obj/THINGYDOO/condition_hints(mob/user, distance, is_adjacent)
+	. = list()
+	if (health < maxhealth)
+		switch(health / maxhealth)
+			if (0.0 to 0.5)
+				. += SPAN_WARNING("It looks severely damaged!")
+			if (0.25 to 0.5)
+				. += SPAN_WARNING("It looks damaged!")
+			if (0.5 to 1.0)
+				. += SPAN_NOTICE("It has a few scrapes and dents.")
+
+/obj/THINGYDOO/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	if (anchored)
+		. += "It could be [density ? "opened" : "closed"] to passage with a wrench."
+
+/obj/THINGYDOO/assembly_hints(mob/user, distance, is_adjacent)
+	. = list()
+	if (health < maxhealth)
+		. += "It could be repaired with a few choice <b>welds</b>."
+	. += "It [anchored ? "is" : "could be"] anchored to the floor with a row of <b>screws</b>."
+	if (!anchored)
+		. += "It is held together by a couple of <b>bolts</b>."
+
+/obj/THINGYDOO/upgrade_hints()
+	. = list()
+	. += "Upgraded <b>scanning modules</b> will provide the exact volume and composition of attached beakers."
+	. += "Upgraded <b>manipulators</b> will allow patients to be hooked to IV through armor and increase the maximum reagent transfer rate."
+
+/obj/THINGYDOO/feedback_hints()
+	. = list()
+	. += "[src] is [mode ? "injecting" : "taking blood"] at a rate of [src.transfer_amount] u/sec, the automatic injection stop mode is [toggle_stop ? "on" : "off"]."
+	. += "The Emergency Positive Pressure system is [epp ? "on" : "off"]."
+	if(attached)
+		. += "\The [src] is attached to [attached]'s [vein.name]."
+	if(beaker)
+		if(LAZYLEN(beaker.reagents.reagent_volumes))
+			. += "Attached is \a [beaker] with [adv_scan ? "[beaker.reagents.total_volume] units of primarily [beaker.reagents.get_primary_reagent_name()]" : "some liquid"]."
+		else
+			. += "Attached is \a [beaker]. It is empty."
+	else
+		. += SPAN_ALERT("No chemicals are attached.")
+	if(tank)
+		. += "Installed is [is_loose ? "\a [tank] sitting loose" : "\a [tank] secured"] on the stand. The meter shows [round(tank.air_contents.return_pressure())]kPa, \
+		with the pressure set to [round(tank.distribute_pressure)]kPa. The valve is [valve_open ? "open" : "closed"]."
+	else
+		. += SPAN_ALERT("No gas tank installed.")
+	if(breath_mask)
+		. += "\The [src] has \a [breath_mask] installed. [breather ? breather : "No one"] is wearing it."
+	else
+		. += SPAN_ALERT("No breath mask installed.")
+	. += "This is an extra placeholder value for feedback hints."
+
+/obj/machinery/power/apc/antagonist_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += "This can be emagged to unlock it; it will cause the APC to have a blue error screen."
+	. += "Wires can be pulsed remotely with a signaler attached to them."
+	. += "A powersink will drain any APCs connected to the same powernet (wires) the powersink is on"
+*/

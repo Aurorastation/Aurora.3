@@ -65,28 +65,14 @@
 	. += "Click the stand with an empty hand to toggle between various modes."
 	. += "Alt Click the stand to remove items contained in the stand."
 
-/obj/machinery/iv_drip/assembly_hints()
-	. = list()
-	. += "This is a placeholder value for assembly hints."
-
-/obj/machinery/iv_drip/disassembly_hints()
-	. = list()
-	if(1 == 1)
-		. += "This is a placeholder value for disassembly hints."
-	else
-		. += "This is a placeholder value for disassembly hints in a broken universe."
-
 /obj/machinery/iv_drip/upgrade_hints()
 	. = list()
 	. += "Upgraded <b>scanning modules</b> will provide the exact volume and composition of attached beakers."
 	. += "Upgraded <b>manipulators</b> will allow patients to be hooked to IV through armor and increase the maximum reagent transfer rate."
 
-/obj/machinery/iv_drip/antagonist_hints()
-	. = list()
-	. += "If you fill the IV with poison, it'll poison people who get connected to the IV. You genius."
-
 /obj/machinery/iv_drip/feedback_hints()
-	. = list()
+	. = ..()
+
 	. += "[src] is [mode ? "injecting" : "taking blood"] at a rate of [src.transfer_amount] u/sec, the automatic injection stop mode is [toggle_stop ? "on" : "off"]."
 	. += "The Emergency Positive Pressure system is [epp ? "on" : "off"]."
 	if(attached)
@@ -107,7 +93,6 @@
 		. += "\The [src] has \a [breath_mask] installed. [breather ? breather : "No one"] is wearing it."
 	else
 		. += SPAN_ALERT("No breath mask installed.")
-	. += "This is an extra placeholder value for feedback hints."
 
 /obj/machinery/iv_drip/Initialize(mapload)
 	. = ..()

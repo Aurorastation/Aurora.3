@@ -145,6 +145,13 @@ Class Procs:
 	/// Pass the manufacturer in ui_data and then use it in the UI.
 	var/manufacturer = null
 
+/obj/machinery/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	if(signaler && is_adjacent)
+		. += SPAN_WARNING("\The [src] has a hidden signaler attached to it.")
+	if(anchored)
+		. += SPAN_NOTICE("\The [src] is anchored to the floor by a couple of <b>bolts</b>.")
+
 /obj/machinery/Initialize(mapload, d = 0, populate_components = TRUE, is_internal = FALSE)
 	//Stupid macro used in power usage
 	CAN_BE_REDEFINED(TRUE)
@@ -192,13 +199,6 @@ Class Procs:
 	component_parts = null
 
 	return ..()
-
-/obj/machinery/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(signaler && is_adjacent)
-		. += SPAN_WARNING("\The [src] has a hidden signaler attached to it.")
-	if(anchored)
-		. += SPAN_NOTICE("\The [src] is anchored to the floor by a couple of <b>bolts</b>.")
 
 // /obj/machinery/proc/process_all()
 // 	/* Uncomment this if/when you need component processing

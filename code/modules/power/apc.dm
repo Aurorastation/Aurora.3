@@ -137,7 +137,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 	var/charge_mode = CHARGE_MODE_CHARGE // if we're actually able to charge
 	var/last_time = 1
 
-/obj/machinery/power/apc/mechanics_hints()
+/obj/machinery/power/apc/mechanics_hints(mob/user, distance, is_adjacent)
 	. = list()
 	. += "An APC (Area Power Controller) regulates and supplies backup power for the area they are in."
 	. += "Their power channels are divided into 'environmental' (items that manipulate airflow and temperature), 'lighting' (lights), and 'equipment' (everything else that consumes power)."
@@ -145,7 +145,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 	toggling the APC's ability to charge the backup cell, or toggling power for the entire area via master breaker) first requires the interface to be unlocked \
 	with an ID with Engineering access or by one of the ship's robots or AI."
 
-/obj/machinery/power/apc/antagonist_hints()
+/obj/machinery/power/apc/antagonist_hints(mob/user, distance, is_adjacent)
 	. = list()
 	. += "This can be emagged to unlock it; it will cause the APC to have a blue error screen."
 	. += "Wires can be pulsed remotely with a signaler attached to them."

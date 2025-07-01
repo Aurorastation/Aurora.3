@@ -71,8 +71,6 @@
 
 /obj/structure/bed/New(newloc, new_material = MATERIAL_STEEL, new_padding_material, new_painted_colour)
 	..(newloc)
-	if(held_item)
-		desc_mechanics += "<br>- Click and drag this onto yourself to pick it up. "
 	material = SSmaterials.get_material_by_name(new_material)
 	if(!istype(material))
 		qdel(src)
@@ -671,6 +669,14 @@
 	 */
 	var/initial_beds = 4
 
+/obj/structure/roller_rack/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += "[initial(desc)] \nIt is holding [LAZYLEN(held)] beds."
+
+/obj/structure/roller_rack/assembly_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += "It [anchored ? "is" : "could be"] anchored to the floor with a couple of <b>screws</b>."
+
 /obj/structure/roller_rack/Initialize()
 	. = ..()
 	for(var/_ in 1 to initial_beds)
@@ -691,13 +697,6 @@
 		I.pixel_x = (5 * beds)
 		beds++
 		AddOverlays(I)
-
-/obj/structure/roller_rack/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, show_extended)
-	desc = "[initial(desc)] \nIt is holding [LAZYLEN(held)] beds."
-	. = ..()
-
-/obj/structure/roller_rack/proc/interaction_hints()
-	return SPAN_NOTICE("It [anchored ? "is" : "could be"] anchored to the floor with a couple of <b>screws</b>.")
 
 /obj/structure/roller_rack/attack_hand(mob/user)
 	if(!LAZYLEN(held))
