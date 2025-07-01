@@ -311,7 +311,7 @@
 	icon = 'icons/obj/watercloset.dmi'
 	icon_state = "sink"
 	desc = "A sink used for washing one's hands and face."
-	desc_info = "Use HELP intent to fill a container in your hand from this, and use any other intent to empty the container into this. \
+	desc_info = "Use HELP intent to fill a container in your hand from this. Use DISARM intent to rinse an empty container. Use any other intent to empty the container into this. \
 	You can right-click this and change the amount transferred per use."
 	anchored = 1
 	var/busy = 0 	//Something's being washed at the moment
