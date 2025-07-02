@@ -1,3 +1,7 @@
+/*
+This represents Geras Dionae, the older variant of the species. Coeus can be accessed via the subspecies file, and are the younger variant.
+They are very slow, reasonably strong, and quite durable. They also require light to survive, and build nutrition from being exposed to it.
+*/
 /datum/species/diona
 	name = SPECIES_DIONA
 	short_name = "dio"
@@ -27,7 +31,8 @@
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/consume_nutrition_from_air,
 		/mob/living/carbon/human/proc/create_structure,
-		/mob/living/carbon/proc/sample
+		/mob/living/carbon/human/proc/root_to_ground,
+		/mob/living/carbon/proc/sample,
 	)
 	//primitive_form = "Nymph"
 	slowdown = 4
