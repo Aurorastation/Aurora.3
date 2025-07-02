@@ -1,11 +1,6 @@
 /obj/machinery/portable_atmospherics/canister
 	name = "canister"
 	desc = "Holds gas. Has a built-in valve to allow for filling portable tanks."
-	desc_mechanics = "The canister can be connected to a connector port with a wrench.  Tanks of gas (the kind you can hold in your hand) \
-	can be filled by the canister, by using the tank on the canister, increasing the release pressure, then opening the valve until it is full, and then close it.  \
-	*DO NOT* remove the tank until the valve is closed.  A gas analyzer can be used to check the contents of the canister."
-
-	desc_antag = "Canisters can be damaged, spilling their contents into the air, or you can just leave the release valve open."
 	icon = 'icons/obj/atmos.dmi'
 	icon_state = "yellow"
 	density = 1
@@ -26,6 +21,19 @@
 	interact_offline = 1 // Allows this to be used when not in powered area.
 	var/release_log = ""
 	var/update_flag = 0
+
+/obj/machinery/portable_atmospherics/canister/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "The canister can be connected to a connector port with a wrench."
+	. += "Tanks of gas (the kind you can hold in your hand) can be filled by the canister by using the tank on the canister, increasing \
+	the release pressure, then opening the valve until it is full, and then closing it again. <b>DO NOT</b> remove the tank until the valve is closed."
+	. += "A gas analyzer can be used to check the contents of the canister."
+
+/obj/machinery/portable_atmospherics/canister/antagonist_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "Canisters can be damaged, spilling their contents into the air, or you can just leave the release valve open."
 
 /obj/machinery/portable_atmospherics/canister/drain_power()
 	return -1

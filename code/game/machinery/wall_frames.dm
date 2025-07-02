@@ -9,7 +9,9 @@
 	var/refund_type = /obj/item/stack/material/steel
 
 /obj/item/frame/assembly_hints()
-	return "- It could be installed by using it on an adjacent <b>wall</b>."
+	. = list()
+	. += ..()
+	. += "It could be installed by using it on an adjacent <b>wall</b>."
 
 /obj/item/frame/attackby(obj/item/attacking_item, mob/user)
 	if (attacking_item.iswrench())

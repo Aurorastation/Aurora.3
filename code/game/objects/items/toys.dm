@@ -107,13 +107,17 @@
 
 /obj/item/toy/balloon
 	name = "balloon"
-	desc_mechanics = "You can fill it up with gas using a tank."
 	desc_extended = "Thanks to the joint effort of the Research and Atmospherics teams, station enviroments have been set to allow balloons to float without helium. Look, it was the end of the month and we went under budget."
 	drop_sound = 'sound/items/drop/rubber.ogg'
 	pickup_sound = 'sound/items/pickup/rubber.ogg'
 	w_class = WEIGHT_CLASS_HUGE
 	var/datum/gas_mixture/air_contents = null
 	var/status = 0 // 0 = normal, 1 = blow, 2 = burst
+
+/obj/item/toy/balloon/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "You can fill it up with different gases using a tank."
 
 /obj/item/toy/balloon/attack_self(mob/user as mob)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -456,10 +460,11 @@
 	attack_verb = list("attacked", "struck", "hit")
 	var/dart_count = 5
 
-/obj/item/toy/crossbow/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/toy/crossbow/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
 	if(distance <= 2 && dart_count)
-		. += SPAN_NOTICE("\The [src] is loaded with [dart_count] foam dart\s.")
+		. += "\The [src] is loaded with [dart_count] foam dart\s."
 
 /obj/item/toy/crossbow/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/toy/ammo/crossbow))
@@ -470,7 +475,6 @@
 			to_chat(user, SPAN_NOTICE("You load the foam dart into \the [src]."))
 		else
 			to_chat(usr, SPAN_WARNING("\The [src] is already fully loaded."))
-
 
 /obj/item/toy/crossbow/afterattack(atom/target, mob/user, flag)
 	if(!isturf(target.loc) || target == user)
@@ -1374,7 +1378,7 @@
 /obj/item/toy/aurora
 	name = "aurora miniature"
 	desc = "A miniature of a space station, built into an asteroid. A tiny suspension field keeps it afloat. A small plaque on the front reads: NSS Aurora, Tau Ceti, Romanovich Cloud, 2464. Onward to new horizons."
-	desc_mechanics = "This miniature was given out on the 9th of April 2464 to all former crew members of the Aurora as a memento, before setting off to their new mission on the SCCV Horizon."
+	desc_extended = "This miniature was given out on the 9th of April 2464 to all former crew members of the Aurora as a memento, before setting off to their new mission on the SCCV Horizon."
 	icon_state = "aurora"
 
 /obj/item/toy/adhomian_map
@@ -1385,9 +1389,15 @@
 /obj/item/toy/ringbell
 	name = "ringside bell"
 	desc = "A bell used to signal the beginning and end of various ring sports."
-	desc_mechanics = "Use help intent on the bell to signal the start of a contest\ndisarm intent to signal the end of a contest and\nharm intent to signal a disqualification."
 	icon_state = "ringbell"
 	anchored = TRUE
+
+/obj/item/toy/ringbell/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "Use Help intent on the bell to signal the start of a contest."
+	. += "Use the Disarm intent to signal the end of a contest."
+	. += "Use the Harm intent to signal a disqualification."
 
 /obj/item/toy/ringbell/attack_hand(mob/user)
 	switch(user.a_intent)

@@ -33,8 +33,9 @@
 
 	var/list/connections = list("nw0", "ne0", "sw0", "se0")
 
-/obj/structure/table/condition_hints()
+/obj/structure/table/condition_hints(mob/user, distance, is_adjacent)
 	. = list()
+	. += ..()
 	if(health < maxhealth)
 		switch(health / maxhealth)
 			if(0.0 to 0.5)
@@ -46,10 +47,12 @@
 
 /obj/structure/table/mechanics_hints()
 	. = list()
+	. += ..()
 	. += "Straight tables, so long as they're not too heavy or reinforced, can be flipped over with a verb when adjacent to them!"
 
 /obj/structure/table/assembly_hints()
 	. = list()
+	. += ..()
 	// Rule racks out entirely first.
 	if(!can_reinforce || !can_plate)
 		return FALSE
@@ -69,6 +72,7 @@
 
 /obj/structure/table/disassembly_hints()
 	. = list()
+	. += ..()
 	// Rule racks out entirely first. If we ever let them be customized/have health, update this.
 	if(!can_reinforce || !can_plate)
 		. += "It is held together by a couple of <b>bolts</b>."

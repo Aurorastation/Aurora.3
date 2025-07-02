@@ -57,22 +57,24 @@
 		/obj/item/stock_parts/manipulator,
 		/obj/item/stock_parts/scanning_module)
 
-/obj/machinery/iv_drip/mechanics_hints()
+/obj/machinery/iv_drip/mechanics_hints(mob/user, distance, is_adjacent)
 	. = list()
+	. += ..()
 	. += "IV drips can be supplied beakers/bloodpacks for reagent transfusions, as well as one breath mask and gas tank for supplemental gas therapy."
 	. += "Using a wrench when it has a tank installed will secure it. Use it again to unsecure it before removal."
 	. += "Click and Drag to attach/detach the IV or secure/remove the breath mask on your target."
 	. += "Click the stand with an empty hand to toggle between various modes."
 	. += "Alt Click the stand to remove items contained in the stand."
 
-/obj/machinery/iv_drip/upgrade_hints()
+/obj/machinery/iv_drip/upgrade_hints(mob/user, distance, is_adjacent)
 	. = list()
+	. += ..()
 	. += "Upgraded <b>scanning modules</b> will provide the exact volume and composition of attached beakers."
 	. += "Upgraded <b>manipulators</b> will allow patients to be hooked to IV through armor and increase the maximum reagent transfer rate."
 
-/obj/machinery/iv_drip/feedback_hints()
-	. = ..()
-
+/obj/machinery/iv_drip/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
 	. += "[src] is [mode ? "injecting" : "taking blood"] at a rate of [src.transfer_amount] u/sec, the automatic injection stop mode is [toggle_stop ? "on" : "off"]."
 	. += "The Emergency Positive Pressure system is [epp ? "on" : "off"]."
 	if(attached)
@@ -93,6 +95,8 @@
 		. += "\The [src] has \a [breath_mask] installed. [breather ? breather : "No one"] is wearing it."
 	else
 		. += SPAN_ALERT("No breath mask installed.")
+
+	. += ..()
 
 /obj/machinery/iv_drip/Initialize(mapload)
 	. = ..()

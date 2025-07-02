@@ -19,7 +19,6 @@ GLOBAL_LIST_INIT_TYPED(active_radio_jammers, /obj/item/device/radiojammer, list(
 /obj/item/device/radiojammer
 	name = "radio jammer"
 	desc = "A small, inconspicious looking item with an 'ON/OFF' toggle."
-	desc_mechanics = "Use in-hand to activate or deactivate, alt-click while adjacent or in-hand to toggle whether it blocks all wireless signals, or just stationbound wireless interfacing."
 	icon = 'icons/obj/item/device/chameleon.dmi'
 	icon_state = "shield0"
 	item_state = "electronic"
@@ -28,6 +27,12 @@ GLOBAL_LIST_INIT_TYPED(active_radio_jammers, /obj/item/device/radiojammer, list(
 	var/radius = 7
 	var/icon_state_active = "shield1"
 	var/icon_state_inactive = "shield0"
+
+/obj/item/device/radiojammer/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "Use in-hand to activate or deactivate."
+	. += "Alt-click while adjacent or in-hand to toggle whether it blocks all signals or just stationbound wireless interfacing."
 
 /obj/item/device/radiojammer/active
 	active = JAMMER_ALL
@@ -93,7 +98,6 @@ GLOBAL_LIST_INIT_TYPED(active_radio_jammers, /obj/item/device/radiojammer, list(
 /obj/item/device/radiojammer/improvised
 	name = "improvised radio jammer"
 	desc = "An awkward bundle of wires, batteries, and radio transmitters."
-	desc_mechanics = "Use in-hand to activate or deactivate."
 	var/obj/item/cell/cell
 	var/obj/item/device/assembly_holder/assembly_holder
 	// 10 seconds of operation on a standard cell. 200 (roughly 3 minutes) on a super cap.
@@ -104,6 +108,9 @@ GLOBAL_LIST_INIT_TYPED(active_radio_jammers, /obj/item/device/radiojammer, list(
 	icon_state = "improvised_jammer_inactive"
 	icon_state_active = "improvised_jammer_active"
 
+/obj/item/device/radiojammer/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += "Use in-hand to activate or deactivate."
 
 /obj/item/device/radiojammer/improvised/New(var/obj/item/device/assembly_holder/incoming_holder, var/obj/item/cell/incoming_cell, var/mob/user)
 	..()

@@ -85,9 +85,8 @@
 		. += src.desc	// Object description.
 
 	// Returns a SPAN_* based on health, if configured.
-	var/condition_hints = src.condition_hints()
-	if(condition_hints)
-		LOG_DEBUG("[condition_hints]")
+	var/list/condition_hints = src.condition_hints()
+	if(condition_hints.len > 0)
 		. += condition_hints
 
 	// Extra object descriptions examination code.
@@ -135,7 +134,8 @@
 				. += FONT_SMALL(SPAN_ALERT("- <b>Antagonist Interactions</b>"))
 			. += FONT_SMALL(SPAN_NOTICE("<a href='byond://?src=[REF(src)];examine_fluff=1'>\[Show in Chat\]</a>"))
 	// If the item has any feedback text, show it.
-	. += "</br>[desc_feedback]"
+	if(desc_feedback)
+		. += "</br>[desc_feedback]"
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
@@ -176,52 +176,46 @@
 		return TRUE
 
 /// Builds the text block variables for get_examine_text
-/// In the future, we may want to give this a user param to customize what information is returned.
 /atom/proc/update_desc_blocks()
-	var/mechanics_hints = mechanics_hints()
-	var/assembly_hints = assembly_hints()
-	var/disassembly_hints = disassembly_hints()
-	var/upgrade_hints = upgrade_hints()
-	var/antagonist_hints = antagonist_hints()
-	var/feedback_hints = feedback_hints()
+	var/list/mechanics_hints = mechanics_hints()
+	var/list/assembly_hints = assembly_hints()
+	var/list/disassembly_hints = disassembly_hints()
+	var/list/upgrade_hints = upgrade_hints()
+	var/list/antagonist_hints = antagonist_hints()
+	var/list/feedback_hints = feedback_hints()
 
 	// A little ugly but it works.
 	var/first_line
 
-	if(mechanics_hints)
+	if(mechanics_hints.len > 0)
 		first_line = TRUE
 		desc_mechanics = ""
 		for(var/mechanics_hint in mechanics_hints)
-			LOG_DEBUG("[mechanics_hint]")
 			if(!first_line)
 				desc_mechanics += "</br>"
 			first_line = FALSE
 			desc_mechanics += SPAN_NOTICE("- [mechanics_hint]")
 
-	if(assembly_hints || disassembly_hints)
+	if(assembly_hints.len > 0 || disassembly_hints.len > 0)
 		first_line = TRUE
-		LOG_DEBUG("found assembly hints")
 		desc_build = ""
 		for(var/assembly_hint in assembly_hints)
-			LOG_DEBUG("[assembly_hint]")
 			if(!first_line)
 				desc_build += "</br>"
 			first_line = FALSE
 			desc_build += SPAN_NOTICE("- [assembly_hint]")
 		// Make sure line breaks work reliably whether or not there's only assembly, only disassembly, or both types available.
-		if (assembly_hints().len > 0 && disassembly_hints)
+		if (assembly_hints.len > 0 && disassembly_hints.len > 0)
 			desc_build += "</br>"
 		first_line = TRUE
 		for(var/disassembly_hint in disassembly_hints)
-			LOG_DEBUG("[disassembly_hint]")
 			if(!first_line)
 				desc_build += "</br>"
 			first_line = FALSE
 			desc_build += SPAN_ALERT("- [disassembly_hint]")
 
-	if(upgrade_hints)
+	if(upgrade_hints.len > 0)
 		first_line = TRUE
-		LOG_DEBUG("found upgrade hints")
 		desc_upgrade = ""
 		for(var/upgrade_hint in upgrade_hints)
 			if(!first_line)
@@ -229,23 +223,19 @@
 			desc_upgrade += "- [upgrade_hint]"
 			first_line = FALSE
 
-	if(antagonist_hints)
+	if(antagonist_hints.len > 0)
 		first_line = TRUE
-		LOG_DEBUG("found antag hints")
 		desc_antag = ""
 		for(var/antagonist_hint in antagonist_hints)
-			LOG_DEBUG("[antagonist_hint]")
 			if(!first_line)
 				desc_antag += "</br>"
 			first_line = FALSE
 			desc_antag += SPAN_WARNING("- [antagonist_hint]")
 
-	if(feedback_hints)
+	if(feedback_hints.len > 0)
 		first_line = TRUE
-		LOG_DEBUG("found feedback hints")
 		desc_feedback = ""
 		for(var/feedback_hint in feedback_hints)
-			LOG_DEBUG("[feedback_hint]")
 			if(!first_line)
 				desc_feedback += "</br>"
 			first_line = FALSE
@@ -255,11 +245,11 @@
 /// Existing style is SPAN_NOTICE for minor damage and SPAN_ALERT for anything worse. If the object's destruction
 /// could have major adverse consequences, you might use SPAN_DANGER for critical damage.
 /atom/proc/condition_hints()
-	return FALSE
+	. = list()
 
 /// Should return a list() of regular strings.
 /atom/proc/mechanics_hints()
-	return FALSE
+	. = list()
 
 /*
  *	Children of assembly_hints() and disassembly_hints() should check the current state of the object, whether it
@@ -270,89 +260,25 @@
  *	However, an IV drip which can have a gas tank attached to it would not have that  described in assembly_hints(),
  *	as the IV drip itself is already 'completed,' and a gas tank is effectively just a swappable slot item for it.
  *
- *	Use your best judgement, and check out"/obj/modules/tables/table.dm" for a simple implementation example.
+ *	Look at existing objects' implementations and use your best judgement, or ask in Discord if need be!
  */
 
 /// Should return a list() of regular strings.
 /atom/proc/assembly_hints(mob/user, distance, is_adjacent)
-	return FALSE
+	. = list()
 
 /// Should return a list() of regular strings.
 /atom/proc/disassembly_hints(mob/user, distance, is_adjacent)
-	return FALSE
+	. = list()
 
 /atom/proc/upgrade_hints(mob/user, distance, is_adjacent)
-	return FALSE
+	. = list()
 
 /// Should return a list() of regular strings.
 /atom/proc/antagonist_hints(mob/user, distance, is_adjacent)
-	return FALSE
+	. = list()
 
 /// Should return a list() of regular strings. It will accept SPAN_* strings, though for consistency's sake please
 /// use SPAN_ALERT or SPAN_DANGER for negative/bad feedback.
 /atom/proc/feedback_hints(mob/user, distance, is_adjacent)
-	return FALSE
-
-/*
-	Until we finish migrating the 589217 objects needing to be moved to the new system, here's a code block to
-	copy underneath an unmigrated object's definition that can then be (relatively) quickly edited to work.
-
-/obj/THINGYDOO/condition_hints(mob/user, distance, is_adjacent)
 	. = list()
-	if (health < maxhealth)
-		switch(health / maxhealth)
-			if (0.0 to 0.5)
-				. += SPAN_WARNING("It looks severely damaged!")
-			if (0.25 to 0.5)
-				. += SPAN_WARNING("It looks damaged!")
-			if (0.5 to 1.0)
-				. += SPAN_NOTICE("It has a few scrapes and dents.")
-
-/obj/THINGYDOO/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
-	if (anchored)
-		. += "It could be [density ? "opened" : "closed"] to passage with a wrench."
-
-/obj/THINGYDOO/assembly_hints(mob/user, distance, is_adjacent)
-	. = list()
-	if (health < maxhealth)
-		. += "It could be repaired with a few choice <b>welds</b>."
-	. += "It [anchored ? "is" : "could be"] anchored to the floor with a row of <b>screws</b>."
-	if (!anchored)
-		. += "It is held together by a couple of <b>bolts</b>."
-
-/obj/THINGYDOO/upgrade_hints()
-	. = list()
-	. += "Upgraded <b>scanning modules</b> will provide the exact volume and composition of attached beakers."
-	. += "Upgraded <b>manipulators</b> will allow patients to be hooked to IV through armor and increase the maximum reagent transfer rate."
-
-/obj/THINGYDOO/feedback_hints()
-	. = list()
-	. += "[src] is [mode ? "injecting" : "taking blood"] at a rate of [src.transfer_amount] u/sec, the automatic injection stop mode is [toggle_stop ? "on" : "off"]."
-	. += "The Emergency Positive Pressure system is [epp ? "on" : "off"]."
-	if(attached)
-		. += "\The [src] is attached to [attached]'s [vein.name]."
-	if(beaker)
-		if(LAZYLEN(beaker.reagents.reagent_volumes))
-			. += "Attached is \a [beaker] with [adv_scan ? "[beaker.reagents.total_volume] units of primarily [beaker.reagents.get_primary_reagent_name()]" : "some liquid"]."
-		else
-			. += "Attached is \a [beaker]. It is empty."
-	else
-		. += SPAN_ALERT("No chemicals are attached.")
-	if(tank)
-		. += "Installed is [is_loose ? "\a [tank] sitting loose" : "\a [tank] secured"] on the stand. The meter shows [round(tank.air_contents.return_pressure())]kPa, \
-		with the pressure set to [round(tank.distribute_pressure)]kPa. The valve is [valve_open ? "open" : "closed"]."
-	else
-		. += SPAN_ALERT("No gas tank installed.")
-	if(breath_mask)
-		. += "\The [src] has \a [breath_mask] installed. [breather ? breather : "No one"] is wearing it."
-	else
-		. += SPAN_ALERT("No breath mask installed.")
-	. += "This is an extra placeholder value for feedback hints."
-
-/obj/machinery/power/apc/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
-	. += "This can be emagged to unlock it; it will cause the APC to have a blue error screen."
-	. += "Wires can be pulsed remotely with a signaler attached to them."
-	. += "A powersink will drain any APCs connected to the same powernet (wires) the powersink is on"
-*/

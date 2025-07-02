@@ -128,7 +128,6 @@
 /obj/item/tent
 	name = "expedition tent"
 	desc = "A rolled up tent, ready to be assembled to make a base camp, shelter, or just a cozy place to chat."
-	desc_mechanics = "Drag this to yourself to begin assembly. This will take some time, in 4 stages. Others can start working on the other stages by dragging it to themselves as well."
 	icon = 'icons/obj/item/camping.dmi'
 	icon_state = "tent"
 	item_state = "tent"
@@ -140,6 +139,11 @@
 	var/decal
 
 	var/datum/large_structure/tent/my_tent
+
+/obj/item/tent/assembly_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "Drag this to yourself to begin assembly. This will take some time, in 4 stages. Others can start working on the other stages by dragging it to themselves as well."
 
 /obj/item/tent/Initialize()
 	. = ..()
@@ -229,7 +233,6 @@
 /obj/structure/component/tent_canvas
 	name = "tent canvas"
 	desc = "The fabric and poles which make up the wall of a tent. Not air-tight, but able to keep out the weather, and very cozy."
-	desc_mechanics = "Drag this to yourself to begin disassembly. This will take some time, in 4 stages. Others can start working on the other stages by dragging it, or other sections, to themselves as well."
 	icon = 'icons/obj/item/camping.dmi'
 	icon_state = "canvas"
 	item_state = "canvas"
@@ -238,6 +241,11 @@
 	atom_flags = ATOM_FLAG_CHECKS_BORDER
 	atmos_canpass = CANPASS_ALWAYS //Tents are not air tight
 	layer = ABOVE_HUMAN_LAYER
+
+/obj/structure/component/tent_canvas/disassembly_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "Drag this to yourself to begin disassembly. This will take some time, in 4 stages. Others can start working on the other stages by dragging it, or other sections, to themselves as well."
 
 /obj/structure/component/tent_canvas/CanPass(atom/movable/mover, turf/target, height, air_group)
 	. = ..()

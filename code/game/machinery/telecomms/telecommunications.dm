@@ -19,7 +19,6 @@
 
 /obj/machinery/telecomms
 	icon = 'icons/obj/machinery/telecomms.dmi'
-	desc_mechanics = "All telecomms machinery can repaired through the application of Nanopaste."
 	density = TRUE
 	anchored = TRUE
 	idle_power_usage = 600 // WATTS
@@ -54,6 +53,26 @@
 	///Looping sounds for any servers
 //	var/datum/looping_sound/server/soundloop
 
+/obj/machinery/telecomms/condition_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	if(integrity < initial(integrity))
+		var/state
+		var/current_damage = integrity / initial(integrity)
+		switch(current_damage)
+			if(0 to 0.2)
+				state = SPAN_DANGER("The machine is on its last legs!")
+			if(0.2 to 0.4)
+				state = SPAN_WARNING("The machine looks seriously damaged.")
+			if(0.4 to 0.8)
+				state = SPAN_WARNING("The machine's condition appears somewhat degraded.")
+			if(0.8 to 1)
+				state = SPAN_NOTICE("The machine shows some indications of minor damage.")
+		. += state
+
+/obj/machinery/telecomms/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += "All telecomms machinery can repaired through the application of Nanopaste."
 
 /obj/machinery/telecomms/Initialize(mapload)
 	. = ..()
@@ -268,18 +287,3 @@
 		return -1
 	return overmap_dist
 
-/obj/machinery/telecomms/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(integrity < initial(integrity))
-		var/state
-		var/current_damage = integrity / initial(integrity)
-		switch(current_damage)
-			if(0 to 0.2)
-				state = SPAN_DANGER("The machine is on its last legs!")
-			if(0.2 to 0.4)
-				state = SPAN_WARNING("The machine looks seriously damaged.")
-			if(0.4 to 0.8)
-				state = SPAN_WARNING("The machine's condition appears somewhat degraded.")
-			if(0.8 to 1)
-				state = SPAN_NOTICE("The machine shows some indications of minor damage.")
-		. += state

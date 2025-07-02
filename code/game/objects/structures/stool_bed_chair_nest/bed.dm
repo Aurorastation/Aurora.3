@@ -46,6 +46,7 @@
 
 /obj/structure/bed/mechanics_hints()
 	. = list()
+	. += ..()
 	. += "Click and drag yourself (or anyone) to this to buckle in."
 	. += "Click on this with an empty hand to undo the buckles."
 	. += "Anyone with restraints, such as handcuffs, will not be able to unbuckle themselves. They must use the Resist button, or verb, to break free of \
@@ -56,11 +57,13 @@
 
 /obj/structure/bed/assembly_hints()
 	. = list()
+	. += ..()
 	if(!padding_material)
 		. += "It could be padded with <b>cloth or leather</b>."
 
 /obj/structure/bed/disassembly_hints()
 	. = list()
+	. += ..()
 	if(padding_material)
 		. += "Its padding has visible seams that could be <b>cut</b>."
 	. += "It is held together by a couple of <b>bolts</b>."

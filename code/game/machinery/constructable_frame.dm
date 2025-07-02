@@ -24,11 +24,13 @@
 
 /obj/machinery/constructable_frame/mechanics_hints(mob/user, distance, is_adjacent)
 	. = list()
+	. += ..()
 	. += "A blueprint that allows the user to rotate the direction the final result will be built in."
 	. += "Higher-quality components can improve the functionality of the machine in different ways."
 
 /obj/machinery/constructable_frame/assembly_hints(mob/user, distance, is_adjacent)
 	. = list()
+	. += ..()
 	switch(state)
 		if(BLUEPRINT_STATE)
 			. += "Click on \the [src] to finalize its direction."
@@ -41,6 +43,7 @@
 
 /obj/machinery/constructable_frame/disassembly_hints(mob/user, distance, is_adjacent)
 	. = list()
+	. += ..()
 	switch(state)
 		if(BLUEPRINT_STATE)
 			. += "Use a wirecutter or a plasma cutter to disassemble \the [src]."
@@ -53,6 +56,7 @@
 
 /obj/machinery/constructable_frame/feedback_hints(mob/user, distance, is_adjacent)
 	. = list()
+	. += ..()
 	if(machine_description)
 		. += "[machine_description]"
 	if(components_description)

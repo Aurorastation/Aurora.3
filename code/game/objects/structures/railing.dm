@@ -22,6 +22,7 @@
 
 /obj/structure/railing/condition_hints(mob/user, distance, is_adjacent)
 	. = list()
+	. += ..()
 	if (health < maxhealth)
 		switch(health / maxhealth)
 			if (0.0 to 0.5)
@@ -33,11 +34,13 @@
 
 /obj/structure/railing/mechanics_hints(mob/user, distance, is_adjacent)
 	. = list()
+	. += ..()
 	if (anchored)
 		. += "It could be [density ? "opened" : "closed"] to passage with a wrench."
 
 /obj/structure/railing/assembly_hints(mob/user, distance, is_adjacent)
 	. = list()
+	. += ..()
 	if (health < maxhealth)
 		. += "It could be repaired with a few choice <b>welds</b>."
 	. += "It [anchored ? "is" : "could be"] anchored to the floor with a row of <b>screws</b>."

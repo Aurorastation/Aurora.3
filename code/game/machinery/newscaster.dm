@@ -950,7 +950,6 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 /obj/item/newspaper
 	name = "newspaper"
 	desc = "An issue of The Griffon, the newspaper circulating aboard most stations."
-	desc_mechanics = "You can alt-click this to roll it up."
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "newspaper"
 	item_state = "newspaper"
@@ -966,6 +965,11 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 	var/scribble=""
 	var/scribble_page = null
 	var/rolled = FALSE // Whether the newspaper is rolled or not, making it a deadly weapon.
+
+/obj/item/newspaper/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "You can use this on yourself with the Grab intent to roll it up or to unroll it."
 
 /obj/item/newspaper/attack_self(mob/user as mob)
 	if(user.a_intent == I_GRAB)
