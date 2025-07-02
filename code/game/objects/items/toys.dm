@@ -674,8 +674,10 @@
 	playsound(get_turf(src), 'sound/effects/snap.ogg', 50, TRUE)
 	qdel(src)
 
-/obj/item/toy/snappop/syndi
-	desc_antag = "These snap pops have an extra compound added that will deploy a tiny smokescreen when snapped."
+/obj/item/toy/snappop/syndi/antagonist_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "These snap pops have an extra compound added that will deploy a tiny smokescreen when snapped."
 
 /obj/item/toy/snappop/syndi/do_pop()
 	var/datum/effect/effect/system/smoke_spread/smoke = new /datum/effect/effect/system/smoke_spread

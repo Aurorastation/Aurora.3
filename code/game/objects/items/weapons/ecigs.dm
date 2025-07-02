@@ -1,7 +1,6 @@
 /obj/item/clothing/mask/smokable/ecig
 	name = "electronic cigarette"
 	desc = "A battery powered cigarette."
-	desc_mechanics = "Alt-Click to remove the cartridge. The cigarette must be in one of your hands to do this."
 	icon = 'icons/obj/ecig.dmi'
 	contained_sprite = TRUE
 	item_icons = null // Needs to nuke this because Contained Sprites and all
@@ -35,6 +34,11 @@
 	var/idle = 0
 	/// The threshold to equal before the cigarette shuts down automatically.
 	var/idle_threshold = 30
+
+/obj/item/clothing/mask/smokable/ecig/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "While holding \the [src], alt-click it to remove the cartridge."
 
 /obj/item/clothing/mask/smokable/ecig/Initialize()
 	. = ..()
@@ -78,7 +82,7 @@
 
 		if (src == C.wear_mask && C.check_has_mouth()) //transfer, but only when not disabled
 			idle = 0
-			//here we'll reduce battery by usage, and check powerlevel - you only use batery while smoking
+			//here we'll reduce battery by usage, and check powerlevel - you only use battery while smoking
 			if(!cig_cell.checked_use(power_usage * CELLRATE)) //if this passes, there's not enough power in the battery
 				deactivate()
 				to_chat(C,SPAN_NOTICE("\The [src]'s power meter flashes a low battery warning and shuts down."))

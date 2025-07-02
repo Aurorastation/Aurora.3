@@ -20,7 +20,7 @@
 	. += ..()
 	. += "Use it on yourself to broadcast something. LOUDLY."
 
-REPLACEME/antagonist_hints(mob/user, distance, is_adjacent)
+/obj/item/device/multitool/antagonist_hints(mob/user, distance, is_adjacent)
 	. = list()
 	. += ..()
 	. += "This can be emagged to make it broadcast random insults or self-incriminations when used."

@@ -34,7 +34,7 @@
 	var/datum/integrated_io/selected_io = null
 	var/mode = 0
 
-REPLACEME/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/item/device/multitool/mechanics_hints(mob/user, distance, is_adjacent)
 	. = list()
 	. += ..()
 	. += "You can use this on a variety of objects (including APCs, airlocks and more) to try to hack them without cutting wires."

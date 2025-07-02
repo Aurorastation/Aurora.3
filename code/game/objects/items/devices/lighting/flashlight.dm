@@ -1,7 +1,6 @@
 /obj/item/device/flashlight
 	name = "flashlight"
 	desc = "A hand-held emergency light."
-	desc_mechanics = "Use this item in your hand, to turn on the light. Click this light with the opposite hand, to remove the cell contained inside."
 	icon = 'icons/obj/lighting.dmi'
 	icon_state = "flashlight"
 	item_state = "flashlight"
@@ -42,6 +41,23 @@
 	var/efficiency_modifier = 1.0
 	/// A way for mappers to force which way a flashlight faces upon spawning
 	var/spawn_dir
+
+/obj/item/device/flashlight/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	if(!always_on)
+		. += "Left-click \the [src] in-hand to toggle the light."
+		. += "While held, left-click \the [src] with your free hand to remove the power cell."
+
+/obj/item/device/flashlight/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. = ..()
+	if(power_use && brightness_level)
+		. += "\The [src] is set to [brightness_level]."
+		if(cell)
+			. += "\The [src] has \a [cell] attached. It has [round(cell.percent())]% charge remaining."
+	if(light_wedge && isturf(loc))
+		. += SPAN_NOTICE("\The [src] is facing [dir2text(dir)].")
 
 /obj/item/device/flashlight/Initialize()
 
@@ -119,15 +135,6 @@
 		M.update_inv_l_ear()
 		M.update_inv_r_ear()
 		M.update_inv_head()
-
-/obj/item/device/flashlight/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(power_use && brightness_level)
-		. += SPAN_NOTICE("\The [src] is set to [brightness_level].")
-		if(cell)
-			. += SPAN_NOTICE("\The [src] has \a [cell] attached. It has [round(cell.percent())]% charge remaining.")
-	if(light_wedge && isturf(loc))
-		. += FONT_SMALL(SPAN_NOTICE("\The [src] is facing [dir2text(dir)]."))
 
 /obj/item/device/flashlight/attack_self(mob/user)
 	if(always_on)
@@ -363,7 +370,6 @@
 	gender = PLURAL
 	name = "glowing slime extract"
 	desc = "A glowing ball of what appears to be amber."
-	desc_mechanics = null
 	icon = 'icons/mob/npc/slimes.dmi'
 	icon_state = "yellow slime extract"
 	item_state = "flashlight"

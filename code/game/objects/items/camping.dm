@@ -311,12 +311,17 @@
 /obj/item/sleeping_bag
 	name = "sleeping bag"
 	desc = "A rolled up sleeping bag, ready to be taken on a camping trip."
-	desc_extended = "This item can be attached to a backpack."
 	icon = 'icons/obj/item/camping.dmi'
 	icon_state = "sleepingbag"
 	item_state = "sleepingbag"
 	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_BULKY
+
+/obj/item/sleeping_bag/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "Left-click with this item in-hand on a turf or on yourself to unroll it."
+	. += "This item can be attached to a backpack."
 
 /obj/item/sleeping_bag/Initialize(mapload, ...)
 	. = ..()
@@ -336,14 +341,6 @@
 	var/turf/T = get_turf(user)
 	if(istype(T))
 		unroll(T, user)
-
-/obj/item/sleeping_bag/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
-	. = ..()
-	if(use_check(usr) || !Adjacent(usr))
-		return
-	var/turf/T = get_turf(src)
-	if(istype(T))
-		unroll(T, usr)
 
 /**
  * Creates sleeping bag structure on the target turf, deleting this item in the process
@@ -369,6 +366,12 @@
 	held_item = /obj/item/sleeping_bag
 	can_dismantle = FALSE
 	can_pad = FALSE
+
+/obj/structure/bed/sleeping_bag/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "This object can be buckled into like any standard bed."
+	. += "Clicking and dragging this object onto yourself will roll it back up (so long as no one is sleeping inside)."
 
 /obj/structure/bed/sleeping_bag/update_icon()
 	return
@@ -409,6 +412,11 @@
 	contained_sprite = TRUE
 	default_material = MATERIAL_ALUMINIUM
 
+/obj/item/material/folding_table/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "Left-click on yourself with this item in-hand to deploy it."
+
 /obj/item/material/folding_table/attack_self(mob/user)
 	if(use_check(user) || !Adjacent(user))
 		return
@@ -431,6 +439,11 @@
 	desc = "A temporary surface, for when you need a table, but only for a little while."
 	icon_state = "camping_table"
 	table_mat = MATERIAL_ALUMINIUM
+
+/obj/structure/table/rack/folding_table/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "Clicking and dragging this object onto yourself will collapse it again."
 
 /obj/structure/table/rack/folding_table/dismantle(obj/item/wrench/W, mob/user)
 	return FALSE

@@ -85,7 +85,7 @@
 	. += "Control-click a turf with the paint sprayer to copy the color(s) used on it."
 	. += "Shift-click a turf with the paint sprayer to clear all decals from it."
 
-/obj/item/device/paint_sprayer/feedback_text(mob/user, distance, is_adjacent)
+/obj/item/device/paint_sprayer/feedback_hints(mob/user, distance, is_adjacent)
 	. = list()
 	. += ..()
 	. += "It is configured to produce the '[SPAN_NOTICE(decal)]' decal with a direction of '[SPAN_NOTICE(paint_dir)]' using [SPAN_NOTICE(paint_colour)] paint."
