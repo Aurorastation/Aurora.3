@@ -42,7 +42,6 @@ GLOBAL_LIST_INIT_TYPED(rod_recipes, /datum/stack_recipe, list(
 	. += "Left-click this item in-hand to view its crafting menu."
 	. += "Left-clicking with this item on a floor without any tiles will reinforce the floor."
 	. += "Combining this item with glass sheets will create reinforced glass."
-	. += "Using a welder"
 
 /obj/item/stack/rods/assembly_hints(mob/user, distance, is_adjacent)
 	. = list()
