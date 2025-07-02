@@ -139,7 +139,7 @@
 
 		if(INFESTATION_NYMPHS)
 			event_name = "Stowaway Nymphs"
-			chosen_verb = "have crawled into"
+			chosen_verb = "have stowed away on"
 			show_area = FALSE
 			for(var/i = 1, i < rand(2,4),i++)
 				chosen_mob_types += /obj/effect/ghostspawpoint/stowaway_nymph
