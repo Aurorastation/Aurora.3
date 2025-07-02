@@ -158,7 +158,7 @@
 	for(var/obj/A in get_step(user.loc, user.dir))
 		if(!iswall(A) && !istype(A, /obj/structure/table) && !istype(A, /obj/structure/window_frame) && !istype(A, /obj/structure/window))
 			if(A.density || istype(A, /obj/structure/bed))
-				to_chat(user, SPAN_WARNING("You can't place this here, [A.name] blocking the way!"))
+				to_chat(user, SPAN_WARNING("You can't place this here, [A.name] is blocking the way!"))
 				return
 		continue
 
