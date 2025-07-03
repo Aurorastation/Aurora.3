@@ -373,6 +373,7 @@ Class Procs:
 	return S
 
 /obj/machinery/proc/RefreshParts()
+	/*
 	if(parts_power_mgmt)
 		var/new_idle_power
 		var/new_active_power
@@ -389,6 +390,7 @@ Class Procs:
 
 		change_power_consumption(new_idle_power)
 		change_power_consumption(new_active_power, POWER_USE_ACTIVE)
+	*/
 	GetPartUpgradeDesc()
 
 /obj/machinery/proc/assign_uid()
@@ -500,6 +502,9 @@ Class Procs:
 			if(parts_replaced) //only play sound when RPED actually replaces parts
 				playsound(src, 'sound/items/rped.ogg', 40, TRUE)
 			return TRUE
+		else
+			to_chat(user, SPAN_NOTICE("The following parts have been detected in \the [src]:"))
+			to_chat(user, counting_english_list(component_parts))
 	else return FALSE
 
 /obj/machinery/proc/GetPartUpgradeDesc()
