@@ -84,7 +84,6 @@ No Implant Specifics"}
 /obj/item/implant/telefreedom
 	name = "telefreedom implant"
 	desc = "Use this to teleport to a linked teleporter in desperate times. Melts after being used."
-	desc_mechanics = "Click a telepad to link your telefreedom implant to it before implanting."
 
 	//////Edit these when you can give it an unique sprite//////
 	icon_state = "implant_freedom"
@@ -99,6 +98,11 @@ No Implant Specifics"}
 	 * The linked telepad to teleport to, a weakref to an `/obj/machinery/telepad` object
 	 */
 	var/datum/weakref/linked_telepad = null
+
+/obj/item/implant/telefreedom/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "Left-click a telepad to link your telefreedom implant to it before implanting."
 
 /obj/item/implant/telefreedom/activate()
 	if(!imp_in)
