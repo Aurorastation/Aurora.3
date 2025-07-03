@@ -73,3 +73,31 @@
   hazelmouse:
   - rscadd: The Cryo Outpost and Nuclear Silo scenario maps have been edited to minimise
       the travel time between the shuttle landmarks and the centerpieces of each map.
+2025-07-02:
+  CometBlaze:
+  - rscadd: Renamed the positronic-implanted brain to pseudoneuron-assisted brain.
+  ElorgRHG:
+  - imageadd: Resprited colorable suit jackets, blazers, and dress pants.
+  Jasorn:
+  - rscdel: Removed the adult descriptions/references in the battlemonsters cards.
+  SleepyGemmy:
+  - imageadd: Added a small medical sign.
+  - rscadd: Replaced the medical signs with small medical signs.
+  hazelmouse:
+  - rscadd: K'ois spores no longer invariably begin to die after being planted. This
+      was happening because their light tolerance was lower than the light generated
+      by their own bioluminescence, causing them to die from the light they produce.
+  steviii:
+  - rscadd: Added a Himean ship and all the associated peripheries.
+  - rscadd: Adds Hydrogen cells to the military belts.
+  - rscadd: Adds the Nephilim blaster repeater cannon.
+  - rscadd: Adds an empty variant for the medical closet.
+  - rscadd: Redefines raider walls to use COLOR_RAIDER instead of a hexcode.
+  - rscadd: Adds Himean naval and army uniforms and a pilot helmet.
+  - soundadd: Adds a gatling laser sound for the Nephilim.
+  - rscadd: Adds an equipped variant of the Himean industrial rig.
+  - rscadd: Genericizes the description of the energy knife.
+2025-07-03:
+  hazelmouse, MattAtlas:
+  - rscadd: Dionae now have access to an ability granting them magboot-like functionality.
+  - code_imp: Implemented some miscellaneous documentation changes to Diona code.

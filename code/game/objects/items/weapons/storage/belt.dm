@@ -456,7 +456,8 @@
 		/obj/item/stack/telecrystal,
 		/obj/item/device/radio,
 		/obj/item/shield/riot/tact,
-		/obj/item/material/knife/tacknife
+		/obj/item/material/knife/tacknife,
+		/obj/item/cell/hydrogen
 		)
 
 /obj/item/storage/belt/military/syndicate
