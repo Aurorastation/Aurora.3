@@ -50,7 +50,7 @@
 /obj/item/clothing/head/helmet/space/syndicate/covert/antagonist_hints(mob/user, distance, is_adjacent)
 	. = list()
 	. += ..()
-		. += "This helmet has extra armor compared to a standard softsuit helmet."
+	. += "This helmet has extra armor compared to a standard softsuit helmet."
 
 /obj/item/clothing/head/helmet/space/syndicate/covert/feedback_hints(mob/user, distance, is_adjacent)
 	. = list()

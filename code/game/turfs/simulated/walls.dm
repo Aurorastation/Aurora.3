@@ -80,7 +80,7 @@
 	. += ..()
 	. += "Plating can be removed from a wall by use of a <b>welder</b>."
 
-/turf/simulated/wall/feedback_hints
+/turf/simulated/wall/feedback_hints(mob/user, distance, is_adjacent)
 	. = list()
 	. += ..()
 	if(locate(/obj/effect/overlay/wallrot) in src)
