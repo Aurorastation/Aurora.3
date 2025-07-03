@@ -628,7 +628,6 @@
 /obj/item/material/twohanded/pike/flag/hegemony
 	name = "izweski hegemony flag"
 	desc = "For the Hegemon!"
-	desc_mechanics = "This is a flagpole with an energy axe attached to it. Sheer strength and stubborness overcomes the unwieldiness."
 	desc_extended = "\"Honor, Fire, Burn thy Fear\" - the famous motto of the Izweski, the clan that leads the largest nation of Unathi."
 	icon = 'icons/obj/unathi_items.dmi'
 	icon_state = "flag_hegemony0"

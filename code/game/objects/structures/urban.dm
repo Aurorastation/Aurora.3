@@ -770,7 +770,6 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 /obj/structure/cash_register
 	name = "cash register machine"
 	desc = "A retail nightmare object."
-	desc_mechanics = "Drag this onto yourself to open the cash compartment."
 	icon = 'icons/obj/structure/urban/infrastructure.dmi'
 	icon_state = "cashier"
 	layer = 2.99
@@ -778,6 +777,11 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	anchored = 0
 	var/storage_type = /obj/item/storage/toolbox/cash_register_storage
 	var/obj/item/storage/storage_compartment
+
+/obj/structure/cash_register/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "Drag this onto yourself to open the cash compartment."
 
 /obj/structure/cash_register/Initialize(mapload)
 	. = ..()

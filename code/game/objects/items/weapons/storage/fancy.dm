@@ -25,6 +25,12 @@
 	foldable = null // most of this stuff isn't foldable by default, e.g. cig packets and vial boxes
 	contained_sprite = TRUE
 
+/obj/item/storage/box/fancy/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	if(closable)
+		. += "Alt-click to open and close the box." //aka force override icon state. for you know, style.
+
 /obj/item/storage/box/fancy/open(mob/user)
 	. = ..()
 	if(!opened)
@@ -39,8 +45,6 @@
 /obj/item/storage/box/fancy/Initialize()
 	. = ..()
 	update_icon()
-	if(closable)
-		desc_mechanics += "Alt-click to open and close the box. " //aka force override icon state. for you know, style.
 
 /obj/item/storage/box/fancy/AltClick(mob/user)
 	if(opened && !closable) // opened, non-closable items do nothing
@@ -285,7 +289,6 @@
 /obj/item/storage/box/fancy/cigarettes
 	name = "Trans-Stellar Duty Frees cigarette packet"
 	desc = "A ubiquitous brand of cigarettes, found in the facilities of every major spacefaring corporation in the universe. As mild and flavorless as it gets."
-	desc_mechanics = "You can put a cigarette directly in your mouth by selecting the mouth region and clicking on yourself with a cigarette packet in hand. "
 	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "cigpacket"
 	item_state = "cigpacket"
@@ -306,6 +309,11 @@
 	can_hold = list(/obj/item/clothing/mask/smokable/cigarette, /obj/item/flame/lighter, /obj/item/trash/cigbutt)
 	cant_hold = list(/obj/item/clothing/mask/smokable/cigarette/cigar) // prevents cigars from being put in regular cigarettes packs, because thats kind of silly
 	var/cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette
+
+/obj/item/storage/box/fancy/cigarettes/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "You can put a cigarette directly in your mouth by selecting the mouth region and clicking on yourself with a cigarette packet in hand."
 
 /obj/item/storage/box/fancy/cigarettes/Initialize()
 	atom_flags |= ATOM_FLAG_NO_REACT

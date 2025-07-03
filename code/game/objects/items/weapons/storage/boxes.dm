@@ -42,13 +42,26 @@
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	var/chewable = TRUE
 
+/obj/item/storage/box/condition_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	if (health < maxHealth)
+		if (health >= (maxHealth * 0.5))
+			. += SPAN_WARNING("It is slightly torn.")
+		else
+			. += SPAN_DANGER("It is full of tears and holes.")
+
+/obj/item/storage/box/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	if(foldable)
+		. += "Left-click on this when empty to fold it into a sheet."
+	if(ispath(src.trash))
+		. += "This can be crumpled up into a trash item when empty, or forcibly crumpled on harm intent. "
+
 /obj/item/storage/box/Initialize()
 	. = ..()
 	health = maxHealth
-	if(foldable)
-		desc_mechanics += "You can fold this into a sheet. "
-	if(ispath(src.trash))
-		desc_mechanics += "This can be crumpled up into a trash item when empty, or forcibly crumpled on harm intent. "
 	if(illustration)
 		AddOverlays(illustration)
 
@@ -91,14 +104,6 @@
 				playsound(loc, toplay, 30, 1)
 			damage(damage)
 	..()
-
-/obj/item/storage/box/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if (health < maxHealth)
-		if (health >= (maxHealth * 0.5))
-			. += SPAN_WARNING("It is slightly torn.")
-		else
-			. += SPAN_DANGER("It is full of tears and holes.")
 
 // BubbleWrap - A box can be folded up to make card
 /obj/item/storage/box/attack_self(mob/user as mob)
@@ -1308,7 +1313,7 @@
 /obj/item/storage/box/tea
 	name = "sencha cha-tin"
 	desc = "A tin bearing the logo of the Konyang-cha tea company. This one contains a bag of sencha, a type of green tea."
-	desc_mechanics = "A subsidiary of Gwok Group, the Konyang-cha tea company is the spur's foremost vendor of artisanal loose leaf tea, \
+	desc_extended = "A subsidiary of Gwok Group, the Konyang-cha tea company is the spur's foremost vendor of artisanal loose leaf tea, \
 				selling blends sourced from independent Konyanger farmers. Popular both on Konyang and off-world, it is considered a symbol of Konyang's culture."
 	icon = 'icons/obj/item/reagent_containers/teaware.dmi'
 	icon_state = "can"

@@ -3,10 +3,16 @@
 
 /obj/item/inflatable
 	name = "inflatable"
-	desc_mechanics = "Inflate by using it in your hand. The inflatable barrier will inflate on the turf you are standing on. To deflate it, use the 'deflate' verb."
 	w_class = WEIGHT_CLASS_SMALL
 	icon = 'icons/obj/item/inflatables.dmi'
 	var/deploy_path = null
+
+/obj/item/inflatable/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "Inflate by using it in your hand. The inflatable barrier will inflate on the turf you are standing on."
+	. += "To deflate it, use the 'deflate' verb or ctrl-click on it."
+	. += "<b>When passing through an airlock made of inflatables, GO SLOWLY!</b>"
 
 /obj/item/inflatable/attack_self(mob/user)
 	if(!deploy_path)
@@ -33,7 +39,6 @@
 /obj/structure/inflatable
 	name = "inflatable"
 	desc = "An inflated membrane. Do not puncture."
-	desc_mechanics = "To remove these safely, use the 'deflate' verb.  Hitting these with any objects will probably puncture and break it forever."
 	icon = 'icons/obj/item/inflatables.dmi'
 	icon_state = "wall"
 
@@ -45,6 +50,12 @@
 	var/undeploy_path = null
 	var/torn_path = null
 	var/health = 15
+
+/obj/item/inflatable/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "To deflate it safely, use the 'deflate' verb or ctrl-click on it."
+	. += "Hitting these with any objects will probably puncture and break it forever."
 
 /obj/structure/inflatable/wall
 	name = "inflatable wall"
@@ -185,8 +196,6 @@
 
 /obj/structure/inflatable/door //Based on mineral door code
 	name = "inflatable door"
-	desc_mechanics = "Click the door to open or close it.  It only stops air while closed.<br>\
-	To remove these safely, use the 'deflate' verb.  Hitting these with any objects will probably puncture and break it forever."
 	density = TRUE
 	anchored = TRUE
 	opacity = FALSE
@@ -197,6 +206,15 @@
 
 	var/state = STATE_CLOSED
 	var/isSwitchingStates = FALSE
+
+/obj/item/inflatable/door/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "Click the door to open or close it. It only stops air while closed."
+	. += "<b>When passing through an airlock made of inflatables, GO SLOWLY!</b>"
+	. += "To deflate it safely, use the 'deflate' verb or ctrl-click on it."
+	. += "Hitting these with any objects will probably puncture and break it forever."
+	. += "<b>FOR THE SECOND TIME: GO SLOWLY TO MAKE SURE THE DOORS ARE FULLY CLOSED!</b>"
 
 /obj/structure/inflatable/door/attack_ai(mob/user)
 	if(isAI(user)) //so the AI can't open it

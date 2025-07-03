@@ -1,15 +1,6 @@
 /obj/vehicle/bike
 	name = "space-bike"
 	desc = "Space wheelies! Woo!"
-	desc_mechanics = "\
-		- Click-drag yourself onto the bike to climb onto it.<br>\
-		- Click-drag it onto yourself to access its mounted storage.<br>\
-		- CTRL-click the bike to toggle the engine.<br>\
-		- Click the bike with a key to put it in, and click the bike with empty hand to take it out. The bike won't run without a key.<br>\
-		- ALT-click to toggle the kickstand which prevents movement by driving and dragging.<br>\
-		- Click the resist button or type \"resist\" in the command bar at the bottom of your screen to get off the bike.<br>\
-		- Use walk intent to move around carefully, or run intent to go fast, and risk crashing into other people or bikes.<br>\
-	"
 	icon = 'icons/obj/vehicle/bike.dmi'
 	icon_state = "bike_off"
 	dir = SOUTH
@@ -58,6 +49,27 @@
 	/// otherwise it will be an unusable prop.
 	var/spawns_with_key = TRUE
 
+/obj/vehicle/bike/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "Click-drag yourself onto the bike to climb onto it."
+	. += "Click-drag it onto yourself to access its mounted storage."
+	. += "Click the bike with a key to put it in, and click the bike with empty hand to take it out. The bike won't run without a key."
+	. += "Ctrl-click the bike to toggle the engine."
+	. += "Alt-click to toggle the kickstand which prevents movement by driving and dragging."
+	. += "Click the resist button or type \"resist\" in the command bar at the bottom of your screen to get off the bike."
+	. += "Use walk intent to move around carefully, or run intent to go fast, and risk crashing into other people or bikes."
+
+/obj/vehicle/bike/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	if(distance <= 4)
+		. += "\The [src] has a small registration plate on the back, '[registration_plate]'."
+		if(key)
+			. += "\The [src] has \a [key] in."
+		else
+			. += "\The [src] does not have a key in."
+
 /obj/vehicle/bike/Destroy()
 	QDEL_NULL(key)
 	QDEL_NULL(ion)
@@ -76,15 +88,6 @@
 	if(spawns_with_key)
 		key = new key_type(src)
 		key.key_data = registration_plate
-
-/obj/vehicle/bike/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance <= 4)
-		. += "\The [src] has a small registration plate on the back, '[registration_plate]'."
-		if(key)
-			. += "\The [src] has \a [key] in."
-		else
-			. += "\The [src] does not have a key in."
 
 /obj/vehicle/bike/proc/generate_registration_plate()
 	registration_plate = "[rand(100,999)]-[rand(1000,9999)]"

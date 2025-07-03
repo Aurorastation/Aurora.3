@@ -1,9 +1,6 @@
 /obj/structure/grille
 	name = "grille"
-	desc = "A flimsy lattice of metal rods, with screws to secure it to the floor."
-	desc_mechanics = "A powered and knotted wire underneath this will cause the grille to shock anyone not wearing insulated gloves.<br>\
-	Wirecutters will turn the grille into metal rods instantly.  Grilles are made with metal rods.<br>\
-	Can be fixed with a single metal rod if damaged."
+	desc = "A flimsy lattice of metal rods."
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "grille"
 	density = TRUE
@@ -14,6 +11,40 @@
 	layer = BELOW_WINDOW_LAYER
 	var/health = 10
 	var/destroyed = 0
+
+/obj/structure/grille/condition_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	if(health < initial(health))
+		var/state
+		var/current_damage = health / initial(health)
+		switch(current_damage)
+			if(0 to 0.3)
+				state = SPAN_DANGER("The grille is barely in one piece!")
+			if(0.3 to 0.8)
+				state = SPAN_ALERT("The grille has taken some serious damage.")
+			if(0.8 to 1)
+				state = SPAN_NOTICE("The grille is in less than perfect condition.")
+		. += state
+
+/obj/structure/grille/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "A powered and knotted wire underneath this will cause the grille to shock anyone not wearing insulated gloves."
+
+/obj/structure/grille/assembly_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+
+/obj/structure/grille/disassembly_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "These could be easily <b>cut</b> through."
+
+/obj/structure/grille/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "\the [src] [anchored ? "is" : "could be"] anchored to the floor with some <b>screws<b/>."
 
 /obj/structure/grille/over
 	name = "over-frame grille"

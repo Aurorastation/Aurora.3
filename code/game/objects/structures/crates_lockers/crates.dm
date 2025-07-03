@@ -5,7 +5,6 @@
 /obj/structure/closet/crate
 	name = "crate"
 	desc = "A rectangular steel crate."
-	desc_mechanics = "Crates can be placed on top of tables by clicking and dragging the crate onto the target table."
 	icon = 'icons/obj/crate.dmi'
 	icon_state = "crate"
 	climbable = TRUE
@@ -28,6 +27,11 @@
 	var/azimuth_angle_2 = 180 //in this context the azimuth angle for over 90 degree
 	var/radius_2 = 1.35
 	var/static/list/animation_math //assoc list with pre calculated values
+
+/obj/structure/closet/crate/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "Crates can be placed on top of tables by clicking and dragging the crate onto the target table."
 
 /obj/structure/closet/crate/can_open()
 	if(tablestatus == UNDER_TABLE)//Can't be opened while under a table

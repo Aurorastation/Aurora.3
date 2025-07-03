@@ -1,10 +1,6 @@
 /obj/structure/janitorialcart
 	name = "custodial cart"
 	desc = "The ultimate in custodial carts. Has space for water, mops, signs, trash bags, and more."
-	desc_mechanics  = "Click and drag a mop bucket onto the cart to mount it\
-	</br>Alt+Click with a mop to put it away, a normal click will wet it in the bucket.\
-	</br>Alt+Click with a container, such as a bucket, to pour its contents into the mounted bucket. A normal click will toss it into the trash\
-	</br>You can also use a lightreplacer, spraybottle (of spacecleaner) and four wet-floor signs on the cart to store them"
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "cart"
 	anchored = FALSE
@@ -24,6 +20,19 @@
 	var/has_items = FALSE //This is set true whenever the cart has anything loaded/mounted on it
 	var/driving
 	var/mob/living/pulling
+
+/obj/structure/janitorialcart/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "Click and drag a mop bucket onto the cart to mount it."
+	. += "Alt+Click with a mop to put it away; a normal click will wet it in the bucket."
+	. += "Alt+Click with a container, such as a bucket, to pour its contents into the mounted bucket. A normal click will toss it into the trash."
+	. += "You can use a light replacer, spraybottle (of space cleaner) and four wet-floor signs on the cart to store them."
+
+/obj/structure/janitorialcart/disassembly_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "An empty custodial cart can be taken apart with a <b>wrench</b> or a <b>welder</b>. Or a <b>plasma cutter</b>, if you're a lunatic."
 
 // Regular Variant
 // No trashbag and no light replacer, this is inside the custodian's locker.
@@ -134,7 +143,6 @@
 		var/obj/item/device/lightreplacer/LR = I
 		if (LR.store_broken)
 			return mybag.attackby(I, usr)
-
 
 /obj/structure/janitorialcart/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/mop) || istype(attacking_item, /obj/item/reagent_containers/glass/rag) || istype(attacking_item, /obj/item/soap))
@@ -261,8 +269,6 @@
 		mybag = null
 
 	update_icon()
-
-
 
 /obj/structure/janitorialcart/attack_hand(mob/user)
 	ui_interact(user)
