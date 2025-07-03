@@ -37,10 +37,26 @@
 	//var/list/icon_keys = list()		//keys
 	//var/list/ammo_states = list()	//values
 
+/obj/item/gun/projectile/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "This is a ballistic weapon. It fires [caliber] ammunition. To reload most guns, click the gun with an empty hand to remove any spent casings or magazines, and then insert new ones."
+
+/obj/item/gun/projectile/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	if(distance > 1)
+		return
+	if(jam_num)
+		. += SPAN_WARNING("It looks jammed.")
+	if(ammo_magazine)
+		. += "It has \a [ammo_magazine] loaded."
+	if(suppressed)
+		. += "It has a suppressor attached."
+	. += "Has [get_ammo()] round\s remaining."
+
 /obj/item/gun/projectile/Initialize()
 	. = ..()
-	desc_mechanics = "This is a ballistic weapon. It fires [caliber] ammunition. To fire the weapon, toggle the safety with ctrl-click (or enable HARM intent), \
-	then click where you want to fire.  To reload, click the gun with an empty hand to remove any spent casings or magazines, and then insert new ones."
 	if(ispath(ammo_type) && (load_method & (SINGLE_CASING|SPEEDLOADER)))
 		for(var/i in 1 to max_shells)
 			loaded += new ammo_type(src)
@@ -287,19 +303,6 @@
 		ammo_magazine.update_icon()
 		ammo_magazine = null
 		update_icon() //make sure to do this after unsetting ammo_magazine
-
-/obj/item/gun/projectile/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance > 1)
-		return
-	if(jam_num)
-		. += SPAN_WARNING("It looks jammed.")
-	if(ammo_magazine)
-		. += "It has \a [ammo_magazine] loaded."
-	if(suppressed)
-		. += "It has a suppressor attached."
-	. += "Has [get_ammo()] round\s remaining."
-	return
 
 /obj/item/gun/projectile/get_ammo()
 	var/bullets = 0

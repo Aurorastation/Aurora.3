@@ -55,8 +55,8 @@
 	. += "Click-drag yourself onto the bike to climb onto it."
 	. += "Click-drag it onto yourself to access its mounted storage."
 	. += "Click the bike with a key to put it in, and click the bike with empty hand to take it out. The bike won't run without a key."
-	. += "Ctrl-click the bike to toggle the engine."
-	. += "Alt-click to toggle the kickstand which prevents movement by driving and dragging."
+	. += "CTRL-click the bike to toggle the engine."
+	. += "ALT-click to toggle the kickstand which prevents movement by driving and dragging."
 	. += "Click the resist button or type \"resist\" in the command bar at the bottom of your screen to get off the bike."
 	. += "Use walk intent to move around carefully, or run intent to go fast, and risk crashing into other people or bikes."
 
@@ -352,7 +352,6 @@
 /obj/vehicle/bike/monowheel
 	name = "adhomian monowheel"
 	desc = "A one-wheeled vehicle, fairly popular with Little Adhomai's greasers."
-	desc_mechanics = "Drag yourself onto the monowheel to mount it, toggle the engine to be able to drive around. Deploy the kickstand to prevent movement by driving and dragging. Drag it onto yourself to access its mounted storage. Resist to get off."
 	icon_state = "monowheel_off"
 
 	health = 250

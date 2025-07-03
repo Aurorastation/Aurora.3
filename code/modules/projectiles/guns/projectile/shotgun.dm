@@ -46,9 +46,6 @@
 /obj/item/gun/projectile/shotgun/pump
 	name = "pump shotgun"
 	desc = "An ubiquitous unbranded shotgun. Useful for sweeping alleys."
-	desc_mechanics = "This is a ballistic weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
-	then click where you want to fire.  After firing, you will need to pump the gun, by using the unique-action verb.  To reload, load more shotgun \
-	shells into the gun."
 	icon = 'icons/obj/guns/shotgun.dmi'
 	icon_state = "shotgun"
 	item_state = "shotgun"
@@ -68,6 +65,10 @@
 	var/rack_verb = "pump"
 	///Whether the item icon has a cycling animation
 	var/cycle_anim = TRUE
+
+	desc_mechanics = "This is a ballistic weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
+	then click where you want to fire.  After firing, you will need to pump the gun, by using the unique-action verb.  To reload, load more shotgun \
+	shells into the gun."
 
 /obj/item/gun/projectile/shotgun/pump/handle_maptext()
 	var/ammo = length(loaded)

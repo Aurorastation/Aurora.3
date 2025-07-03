@@ -24,6 +24,22 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	var/drink_flags
 	possible_transfer_amounts = list(1, 2, 3, 4, 5, 10, 15, 25, 30)
 
+/obj/item/reagent_containers/food/drinks/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	if (distance > 1)
+		return
+	if(!reagents || reagents.total_volume == 0)
+		. += SPAN_NOTICE("\The [src] is empty!")
+	else if (reagents.total_volume <= volume * 0.25)
+		. += SPAN_NOTICE("\The [src] is almost empty!")
+	else if (reagents.total_volume <= volume * 0.66)
+		. += SPAN_NOTICE("\The [src] is half full!")
+	else if (reagents.total_volume <= volume * 0.90)
+		. += SPAN_NOTICE("\The [src] is almost full!")
+	else
+		. += SPAN_NOTICE("\The [src] is full!")
+
 /obj/item/reagent_containers/food/drinks/Initialize()
 	. = ..()
 	if(drink_flags & IS_GLASS)
@@ -98,21 +114,6 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 		to_chat(user, SPAN_NOTICE("You need to open \the [src]!"))
 		return 1
 	return ..()
-
-/obj/item/reagent_containers/food/drinks/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended = FALSE)
-	. = ..()
-	if (distance > 1)
-		return
-	if(!reagents || reagents.total_volume == 0)
-		. += SPAN_NOTICE("\The [src] is empty!")
-	else if (reagents.total_volume <= volume * 0.25)
-		. += SPAN_NOTICE("\The [src] is almost empty!")
-	else if (reagents.total_volume <= volume * 0.66)
-		. += SPAN_NOTICE("\The [src] is half full!")
-	else if (reagents.total_volume <= volume * 0.90)
-		. += SPAN_NOTICE("\The [src] is almost full!")
-	else
-		. += SPAN_NOTICE("\The [src] is full!")
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -330,6 +331,12 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	 */
 	var/list/details = list("Customer" = null, "Order" = null)
 
+/obj/item/reagent_containers/food/drinks/takeaway_cup_idris/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "Order: [details["Order"]]"
+	. += "For: [details["Customer"]]"
+
 /obj/item/reagent_containers/food/drinks/takeaway_cup_idris/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.ispen() && !use_check_and_message(user))
 		var/choice = tgui_input_list(user, "Which detail do you want to edit?", "Detail Editor", list("Customer", "Order"))
@@ -341,11 +348,6 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 		return
 	return ..()
 
-/obj/item/reagent_containers/food/drinks/takeaway_cup_idris/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended)
-	. = ..()
-	. += "Order: [details["Order"]]"
-	. += "For: [details["Customer"]]"
-
 //////////////////////////drinkingglass and shaker//
 //Note by Darem: This code handles the mixing of drinks. New drinks go in three places: In Chemistry-Reagents.dm (for the drink
 //	itself), in Chemistry-Recipes.dm (for the reaction that changes the components into the drink), and here (for the drinking glass
@@ -354,8 +356,6 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 /obj/item/reagent_containers/food/drinks/shaker
 	name = "shaker"
 	desc = "A metal shaker to mix drinks in."
-	desc_mechanics = "Alt Click the shaker to twist the cap closed/loose. If the cap is loose, use the shaker to remove it. Without a cap, use the shaker again to remove the top. \
-	If the shaker has a top fitted, you can Alt Click the shaker to change the transfer amount. Without a top, the transfer amount changes to max automatically."
 	icon = 'icons/obj/shaker.dmi'
 	icon_state = "shaker"
 	item_state = "shaker"
@@ -370,6 +370,14 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	var/twisted = FALSE
 	var/obj/item/shaker_top/top
 	var/obj/item/reagent_containers/food/drinks/shaker_cup/cap
+
+/obj/item/reagent_containers/food/drinks/shaker/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "ALT-Click the shaker to twist the cap closed/loose. If the cap is loose, use the shaker to remove it."
+	. += "Without a cap, use the shaker again to remove the top."
+	. += "If the shaker has a top fitted, you can ALT-Click the shaker to change the transfer amount."
+	. += "Without a top, the transfer amount changes to max automatically."
 
 /obj/item/reagent_containers/food/drinks/shaker/Initialize()
 	. = ..()
@@ -498,7 +506,6 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 /obj/item/shaker_top
 	name = "shaker top"
 	desc = "A metal shaker top with an in-built filter on the bottom."
-	desc_mechanics = "When fitted on a shaker, you can Alt Click the shaker to change transfer amount of the shaker."
 	icon = 'icons/obj/shaker.dmi'
 	icon_state = "shaker_top"
 	item_state = "shaker_top"
@@ -507,10 +514,14 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	pickup_sound = null
 	center_of_mass = list("x" = 16, "y" = 16)
 
+/obj/item/shaker_top/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "When fitted on a shaker, you can ALT-Click the shaker to change its transfer amount."
+
 /obj/item/reagent_containers/food/drinks/shaker_cup
 	name = "shaker cap"
 	desc = "A metal shaker cap that also doubles as a metal cup to measure liquids, or to drink from."
-	desc_mechanics = "Alt Click the cap to change the transfer amount."
 	icon = 'icons/obj/shaker.dmi'
 	icon_state = "shaker_cup"
 	item_state = "shaker_cup"
@@ -520,6 +531,11 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	volume = 10
 	possible_transfer_amounts = list(1,2,3,4,5,10)
 	center_of_mass = list("x" = 16, "y" = 16)
+
+/obj/item/reagent_containers/food/drinks/shaker_cup/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "ALT-Click the cap to change the transfer amount."
 
 /obj/item/reagent_containers/food/drinks/shaker_cup/update_icon()
 	ClearOverlays()

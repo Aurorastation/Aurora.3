@@ -39,18 +39,6 @@
 /obj/machinery/power/supermatter
 	name = "supermatter crystal"
 	desc = "A strangely translucent and iridescent crystal. <span class='warning'>You get headaches just from looking at it.</span>"
-	desc_mechanics = "When energized by a laser (or something hitting it), it emits radiation and heat.  If the heat reaches above 7000 kelvin, it will send an alert and start taking damage. \
-	After integrity falls to zero percent, it will delaminate, causing a massive explosion, station-wide radiation spikes, and hallucinations. \
-	Supermatter reacts badly to oxygen in the atmosphere.  It'll also heat up really quick if it is in vacuum.<br>\
-	<br>\
-	Supermatter cores are extremely dangerous to be close to, and requires protection to handle properly.  The protection you will need is:<br>\
-	Optical meson scanners on your eyes, to prevent hallucinations when looking at the supermatter.<br>\
-	Radiation helmet and suit, as the supermatter is radioactive.<br>\
-	<br>\
-	Touching the supermatter will result in *instant death*, with no corpse left behind!  You can drag the supermatter, but anything else will kill you."
-	desc_antag = "Always ahelp before sabotaging the supermatter, as it can potentially ruin the round. Exposing the supermatter to oxygen or vaccuum will cause it to start rapidly heating up.  \
-	Sabotaging the supermatter and making it explode will cause a period of lag as the explosion is processed by the server, as well as irradiating the entire station and causing hallucinations to happen.  \
-	Wearing radiation equipment will protect you from most of the delamination effects sans explosion."
 	icon = 'icons/obj/supermatter.dmi'
 	icon_state = "supermatter"
 	density = TRUE
@@ -117,6 +105,20 @@
 
 	/// cooldown tracker for accent sounds,
 	var/last_accent_sound = 0
+
+/obj/machinery/power/supermatter/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "When energized by a laser (or something hitting it), it emits radiation and heat. If the heat reaches above 7000 kelvin, it will send an alert and start taking damage."
+	. += "After integrity falls to zero percent, it will delaminate, causing a massive explosion, station-wide radiation spikes, and hallucinations."
+	. += "Supermatter reacts badly to oxygen in the atmosphere. It'll also heat up really quick if it is in vacuum."
+	. += "Supermatter cores are extremely dangerous to be close to, and requires protection to handle properly. Safety goggles and full rad suits are needed to protect against both hallucinations and radiation."
+	. += "Touching the supermatter will result in *instant death*, with no corpse left behind! You can drag the supermatter, but anything else will kill you."
+
+/obj/machinery/power/supermatter/antagonist_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "Always ahelp before sabotaging the supermatter, as it can potentially ruin the round."
 
 /obj/machinery/power/supermatter/Initialize()
 	. = ..()

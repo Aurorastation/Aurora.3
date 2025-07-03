@@ -1,7 +1,6 @@
 /obj/item/storage/box/fancy/yoke
 	name = "yoke"
 	desc = "A sturdy device made out of bio-friendly materials. This will hold your canned drinks together easy peasy."
-	desc_mechanics = "Click drag it to pick it up, click on it to take out a can."
 	icon = 'icons/obj/item/reagent_containers/food/drinks/soda.dmi'
 	icon_state = "yoke"
 	center_of_mass = list("x" = 16,"y" = 9)
@@ -19,6 +18,11 @@
 		list(-10, -6),
 		list(-10, 2)
 	)
+
+/obj/item/storage/box/fancy/yoke/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "Click drag it to pick it up, click on it to take out a can."
 
 /obj/item/storage/box/fancy/yoke/fill()
 	. = ..()
