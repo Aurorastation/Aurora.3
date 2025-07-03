@@ -1,0 +1,7 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed wallets having a mob overlay."
+  - bugfix: "Fixed lanyards having a duplicate overlay."
