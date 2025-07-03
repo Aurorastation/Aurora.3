@@ -62,3 +62,6 @@
 	T.color = src.color
 	user.put_in_hands(T)
 	qdel(src)
+
+/obj/item/towel_flat/orange
+	color = COLOR_HEPH_ORANGE

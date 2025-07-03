@@ -337,6 +337,10 @@
 	else
 		..()
 
+/obj/structure/reagent_dispensers/water_cooler/empty
+	reagents_to_add = null
+	icon_state = "water_cooler_empty"
+
 //Beer Kegs
 
 /obj/structure/reagent_dispensers/keg

@@ -11,14 +11,14 @@
 	destroyed_stack_amount = 4
 	barricade_hitsound = 'sound/effects/metalhit.ogg'
 	barricade_type = "plasteel"
-	density = 0
+	density = FALSE
 	closed = TRUE
 	can_wire = TRUE
 
 	var/build_state = BARRICADE_BSTATE_SECURED //Look at __game.dm for barricade defines
 	var/tool_cooldown = 0 //Delay to apply tools to prevent spamming
-	var/busy = 0 //Standard busy check
-	var/linked = 0
+	var/busy = FALSE //Standard busy check
+	var/linked = FALSE
 	var/recentlyflipped = FALSE
 	var/hasconnectionoverlay = TRUE
 	var/linkable = TRUE
@@ -40,7 +40,7 @@
 	if(!closed) // Closed = gate down for plasteel for some reason
 		return ..()
 	else
-		return 0
+		return FALSE
 
 /obj/structure/barricade/plasteel/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
@@ -153,15 +153,15 @@
 				user.visible_message(SPAN_NOTICE("[user] starts unseating [src]'s panels."),
 				SPAN_NOTICE("You start unseating [src]'s panels."))
 				playsound(src.loc, 'sound/items/crowbar_pry.ogg', 25, 1)
-				busy = 1
+				busy = TRUE
 				if(attacking_item.use_tool(src, user, 8 SECONDS, volume = 50))
-					busy = 0
+					busy = FALSE
 					user.visible_message(SPAN_NOTICE("[user] takes [src]'s panels apart."),
 					SPAN_NOTICE("You take [src]'s panels apart."))
 					playsound(loc, 'sound/items/Deconstruct.ogg', 25, 1)
 					barricade_deconstruct(TRUE) //Note : Handles deconstruction too !
 				else
-					busy = 0
+					busy = FALSE
 				return
 
 	. = ..()
@@ -194,8 +194,8 @@
 	if(!closed)
 		return
 	playsound(src.loc, 'sound/items/wrench.ogg', 25, 1)
-	closed = 0
-	density = 1
+	closed = FALSE
+	density = TRUE
 	if(linked)
 		for(var/direction in GLOB.cardinals)
 			for(var/obj/structure/barricade/plasteel/cade in get_step(src, direction))
@@ -207,8 +207,8 @@
 	if(closed)
 		return
 	playsound(src.loc, 'sound/items/wrench.ogg', 25, 1)
-	closed = 1
-	density = 0
+	closed = TRUE
+	density = FALSE
 	if(linked)
 		for(var/direction in GLOB.cardinals)
 			for(var/obj/structure/barricade/plasteel/cade in get_step(src, direction))
@@ -216,6 +216,9 @@
 					cade.close(src)
 	update_icon()
 
+/obj/structure/barricade/plasteel/pre_lifted
+	closed = FALSE
+	density = TRUE
 
 /obj/structure/barricade/plasteel/wired/New()
 	can_wire = FALSE
@@ -223,3 +226,7 @@
 	climbable = FALSE
 	update_icon()
 	. = ..()
+
+/obj/structure/barricade/plasteel/wired/pre_lifted
+	closed = FALSE
+	density = TRUE
