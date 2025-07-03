@@ -908,6 +908,8 @@
 		. += "It has the following fittings:"
 		for(var/tool in tools)
 			. += "- [tool][tools[current_tool] == tool ? " (selected)" : ]"
+	else
+		. += ""
 
 /obj/item/powerdrill/Initialize()
 	. = ..()
