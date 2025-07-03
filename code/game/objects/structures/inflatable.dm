@@ -51,7 +51,7 @@
 	var/torn_path = null
 	var/health = 15
 
-/obj/item/inflatable/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/inflatable/mechanics_hints(mob/user, distance, is_adjacent)
 	. = list()
 	. += ..()
 	. += "To deflate it safely, use the 'deflate' verb or ctrl-click on it."
@@ -207,7 +207,7 @@
 	var/state = STATE_CLOSED
 	var/isSwitchingStates = FALSE
 
-/obj/item/inflatable/door/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/inflatable/door/mechanics_hints(mob/user, distance, is_adjacent)
 	. = list()
 	. += ..()
 	. += "Click the door to open or close it. It only stops air while closed."

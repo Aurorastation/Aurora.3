@@ -108,7 +108,7 @@ GLOBAL_LIST_INIT_TYPED(active_radio_jammers, /obj/item/device/radiojammer, list(
 	icon_state = "improvised_jammer_inactive"
 	icon_state_active = "improvised_jammer_active"
 
-/obj/item/device/radiojammer/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/item/device/radiojammer/improvised/mechanics_hints(mob/user, distance, is_adjacent)
 	. = list()
 	. += "Use in-hand to activate or deactivate."
 

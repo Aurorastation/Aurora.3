@@ -9,7 +9,7 @@
 	var/obj/item/voice_changer/changer
 	origin_tech = list(TECH_ILLEGAL = 4)
 
-REPLACEME/antagonist_hints(mob/user, distance, is_adjacent)
+/obj/item/clothing/mask/gas/voice/antagonist_hints(mob/user, distance, is_adjacent)
 	. = list()
 	. += ..()
 	. += "This mask can be used to change the owner's voice."
