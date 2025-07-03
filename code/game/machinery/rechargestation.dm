@@ -45,8 +45,25 @@
 		/obj/item/stack/cable_coil{amount = 5}
 	)
 
-	component_hint_cap = "Upgraded <b>capacitors</b> will increase charging rate (for shipbounds only, not IPCs)."
-	component_hint_servo = "Upgraded <b>manipulators</b> will make the recharging station also start to repair brute damage, then also burn damage, at increasing speed (for shipbounds only, not IPCs)."
+/obj/machinery/recharge_station/upgrade_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "Upgraded <b>capacitors</b> will increase charging rate (for shipbounds only, not IPCs)."
+	. += "Upgraded <b>manipulators</b> will make the recharging station also start to repair brute damage, then also burn damage, at increasing speed (for shipbounds only, not IPCs)."
+
+/obj/machinery/recharge_station/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	desc += "Uses a dedicated internal power cell to deliver <b>[charging_power] W</b> when in use."
+	desc += "The charge meter reads: <b>[round(chargepercentage())]%</b>."
+	if(weld_rate)
+		desc += "It is capable of repairing shipbounds' structural damage."
+	else
+		desc += SPAN_ALERT("It has not been upgraded to repair shipbounds' structural damage.")
+	if(wire_rate)
+		desc += "It is capable of repairing shipbounds' burn damage."
+	else
+		desc += SPAN_ALERT("It has not been upgraded to repair shipbounds' burn damage.")
 
 /obj/machinery/recharge_station/Initialize()
 	. = ..()
@@ -134,16 +151,6 @@
 		if(D.master_matrix && D.upgrade_cooldown < world.time && D.cell.fully_charged())
 			D.upgrade_cooldown = world.time + 1 MINUTE
 			D.master_matrix.apply_upgrades(D)
-
-/obj/machinery/recharge_station/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	desc = initial(desc)
-	desc += "<br>Uses a dedicated internal power cell to deliver <b>[charging_power]W</b> when in use."
-	desc += "<br>The charge meter reads: <b>[round(chargepercentage())]%</b>."
-	if(weld_rate)
-		desc += "<br>It is capable of repairing shipbounds' structural damage."
-	if(wire_rate)
-		desc += "<br>It is capable of repairing shipbounds' burn damage."
-	. = ..()
 
 /obj/machinery/recharge_station/proc/chargepercentage()
 	if(!cell)

@@ -497,8 +497,6 @@ Class Procs:
 			return TRUE
 	else return FALSE
 
-
-
 /obj/machinery/proc/dismantle()
 	playsound(loc, /singleton/sound_category/crowbar_sound, 50, 1)
 	var/obj/machinery/constructable_frame/machine_frame/M = new /obj/machinery/constructable_frame/machine_frame(loc)

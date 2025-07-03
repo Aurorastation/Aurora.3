@@ -26,10 +26,13 @@
 		/obj/item/circuitboard/crystal_agitator
 	)
 
-	component_hint_cap = "Upgraded <b>capacitors</b> will reduce active power usage."
-	component_hint_servo = "Upgraded <b>manipulators</b> will increase agitation speed."
-
 	parts_power_mgmt = FALSE
+
+/obj/machinery/power/crystal_agitator/upgrade_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "Upgraded <b>capacitors</b> will reduce active power usage."
+	. += "Upgraded <b>manipulators</b> will increase agitation speed."
 
 /obj/machinery/power/crystal_agitator/Initialize()
 	. = ..()

@@ -83,13 +83,6 @@
 	/// Blue text (SPAN_NOTICE()), informing the user about what upgrades the item has and what they do.
 	/// Gets built by children of /atom/proc/upgrade_hints()
 	var/desc_upgrade = null
-	/// Blurbs for what each component type does. Used to build desc_upgrade.
-	/// Kindly use the format in appended comments for consistency
-	var/component_hint_bin // "Upgraded <b>matter bins</b> will XYZ."
-	var/component_hint_cap // "Upgraded <b>capacitors</b> will XYZ."
-	var/component_hint_laser // "Upgraded <b>micro-lasers</b> will XYZ"
-	var/component_hint_scan // "Upgraded <b>scanning modules</b> will XYZ"
-	var/component_hint_servo // "Upgraded <b>manipulators</b> will XYZ"
 
 	/// Informs the user about how they can use an object to antagonize.
 	/// Gets built by children of /atom/proc/antag_hints()

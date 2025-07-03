@@ -1,7 +1,6 @@
 /obj/machinery/slime_extractor
 	name = "slime core extractor"
 	desc = "A bulky machine that, when fed a slime corpse, rapidly extracts the held cores."
-	desc_mechanics = "This machine can be upgraded with a micro laser to increase its extraction speed, or a matter bin to increase its slime capacity. It will place slime extracts into a slime extract bag if it's adjacent to the machine."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "slime_extractor"
 	density = TRUE
@@ -19,14 +18,23 @@
 		/obj/item/stack/cable_coil{amount = 5}
 	)
 
-	component_hint_bin = "Upgraded <b>matter bins</b> will increase slime capacity."
-	component_hint_laser = "Upgraded <b>micro-lasers</b> will increase extraction speed."
+/obj/machinery/slime_extractor/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "It will place slime extracts into a slime extract bag automatically if it's adjacent to the machine."
 
-/obj/machinery/slime_extractor/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += FONT_SMALL(SPAN_NOTICE("It can hold <b>[slime_limit] slime\s</b> at a time."))
+/obj/machinery/slime_extractor/upgrade_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "Upgraded <b>matter bins</b> will increase slime capacity."
+	. += "Upgraded <b>micro-lasers</b> will increase extraction speed."
+
+/obj/machinery/slime_extractor/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "It can hold <b>[slime_limit] slime\s</b> at a time."
 	if(length(extract_slimes))
-		. += FONT_SMALL(SPAN_WARNING("It is currently processing <b>[length(extract_slimes)] slime\s</b>."))
+		. += "It is currently processing <b>[length(extract_slimes)] slime\s</b>."
 
 /obj/machinery/slime_extractor/update_icon()
 	ClearOverlays()
@@ -100,7 +108,6 @@
 	extract_slimes -= extracted_slime
 	qdel(extracted_slime)
 	update_icon()
-
 
 #ifndef T_BOARD
 #error T_BOARD macro is not defined but we need it!
