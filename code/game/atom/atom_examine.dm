@@ -113,7 +113,7 @@
 			. += FONT_SMALL(SPAN_ALERT("<b>Antagonism</b>"))
 			. += FONT_SMALL(SPAN_ALERT("[desc_antag]"))
 	else
-		 // Checks if the object has a extended description, a mechanics description, and/or an antagonist description (and if the user is an antagonist).
+		// Checks if the object has a extended description, a mechanics description, and/or an antagonist description (and if the user is an antagonist).
 		if(desc_extended || desc_mechanics || desc_build || desc_upgrade || (desc_antag && player_is_antag(user.mind)))
 			// If any of the above are true, show that the object has more information available.
 			. += FONT_SMALL(SPAN_NOTICE("\[?\] This object has additional examine information available:"))
