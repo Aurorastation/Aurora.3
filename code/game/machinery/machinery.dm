@@ -368,7 +368,6 @@ Class Procs:
 	return S
 
 /obj/machinery/proc/RefreshParts()
-	/*
 	if(parts_power_mgmt)
 		var/new_idle_power
 		var/new_active_power
