@@ -9,7 +9,7 @@ GLOBAL_LIST_INIT_TYPED(all_cargo_receptacles, /obj/structure/cargo_receptacle, l
 	desc_extended = "\
 		These are set up by Orion to expand its small-scale shipping network, especially in more remote areas, like outer edges of the Frontier or Coalition. \
 		It is a common sight all over the Spur, however, where Orion Express services depend on ordinary people and ships picking up and delivering packages for each other, \
-		with Orion Express only delivering to automated stations and other distribution points.\
+		with Orion Express only delivering to automated stations and other distribution points."
 	icon = 'icons/obj/orion_delivery.dmi'
 	icon_state = "delivery_point"
 

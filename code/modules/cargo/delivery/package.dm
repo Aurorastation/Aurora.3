@@ -7,7 +7,7 @@
 	desc_extended = "\
 		This package makes use of the small-scale shipping network of Orion Express. \
 		It is a common sight all over the Spur, where Orion Express services depend on ordinary people and ships picking up and delivering packages for each other, \
-		with Orion Express only delivering to automated stations and other distribution points.\
+		with Orion Express only delivering to automated stations and other distribution points."
 	icon = 'icons/obj/orion_delivery.dmi'
 	icon_state = "express_package"
 	item_state = "express_package"

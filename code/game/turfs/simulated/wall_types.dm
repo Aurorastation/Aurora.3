@@ -11,8 +11,6 @@
 	Use a wrench to loosen the anchor bolts, then cut the supports with a welder.<br>\
 	Pry off the sheath with a crowbar to expose the girder."
 
-	desc_mechanics =  Examine it to see how to deconstruct it."
-
 /turf/simulated/wall/r_wall/Initialize(mapload)
 	. = ..(mapload, "plasteel","plasteel") //3strong
 
