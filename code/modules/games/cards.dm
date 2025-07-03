@@ -31,11 +31,17 @@
 /obj/item/deck/cards
 	name = "deck of cards"
 	desc = "A simple deck of playing cards."
-	desc_mechanics = "Ctrl-click to draw/deal. Alt-click to shuffle."
 	icon_state = "deck"
 	drop_sound = 'sound/items/drop/paper.ogg'
 	pickup_sound = 'sound/items/pickup/paper.ogg'
 	hand_type = /obj/item/hand/cards
+
+/obj/item/deck/cards/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "CTRL-click to draw/deal."
+	. += "ALT-click to shuffle."
+
 /obj/item/deck/Initialize()
 	. = ..()
 	generate_deck()
@@ -283,6 +289,15 @@
 	var/concealed = TRUE
 	var/list/cards = list()
 
+/obj/item/hand/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	if((!concealed || src.loc == user) && length(cards))
+		if(length(cards) > 1)
+			. += "It contains: "
+		for(var/datum/playingcard/P in cards)
+			. += "The [P.name]. [P.desc ? "<i>[P.desc]</i>" : ""]"
+
 /obj/item/hand/cards
 	deck_type = /obj/item/deck/cards
 
@@ -355,14 +370,6 @@
 		update_icon()
 	playsound(src, 'sound/items/cards/cardflip.ogg', 50, TRUE)
 	balloon_alert_to_viewers("[concealed ? "conceals" : "reveals"] their hand.")
-
-/obj/item/hand/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if((!concealed || src.loc == user) && length(cards))
-		if(length(cards) > 1)
-			. += "It contains: "
-		for(var/datum/playingcard/P in cards)
-			. += "The [P.name]. [P.desc ? "<i>[P.desc]</i>" : ""]"
 
 /obj/item/hand/update_icon(var/direction = 0)
 	if(randpixel)

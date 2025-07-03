@@ -15,7 +15,7 @@
 /obj/item/device/memorywiper/mechanics_hints(mob/user, distance, is_adjacent)
 	. = list()
 	. += ..()
-	. += "Alt-click the device while it's set down on a surface to open or close it."
+	. += "ALT-click the device while it's set down on a surface to open or close it."
 	. += "Left-click on it while it is open to operate it."
 
 /obj/item/device/memorywiper/Destroy()
