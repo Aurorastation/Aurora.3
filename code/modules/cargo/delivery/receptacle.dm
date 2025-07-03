@@ -10,11 +10,6 @@ GLOBAL_LIST_INIT_TYPED(all_cargo_receptacles, /obj/structure/cargo_receptacle, l
 		These are set up by Orion to expand its small-scale shipping network, especially in more remote areas, like outer edges of the Frontier or Coalition. \
 		It is a common sight all over the Spur, however, where Orion Express services depend on ordinary people and ships picking up and delivering packages for each other, \
 		with Orion Express only delivering to automated stations and other distribution points.\
-	"
-	desc_mechanics = "\
-		This is a delivery point for Orion Express cargo packages. \
-		To finish the delivery, have a cargo package in your hand and click on the delivery point.\
-	"
 	icon = 'icons/obj/orion_delivery.dmi'
 	icon_state = "delivery_point"
 
@@ -30,6 +25,12 @@ GLOBAL_LIST_INIT_TYPED(all_cargo_receptacles, /obj/structure/cargo_receptacle, l
 	var/min_spawn = 2
 	/// Maximum amount of packages that can spawn for this receptacle. INTEGER
 	var/max_spawn = 4
+
+/obj/structure/cargo_receptacle/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "This is a delivery point for Orion Express cargo packages."
+	. += "To finish the delivery, have a cargo package in your hand and click on the delivery point."
 
 /obj/structure/cargo_receptacle/Initialize(mapload)
 	..()

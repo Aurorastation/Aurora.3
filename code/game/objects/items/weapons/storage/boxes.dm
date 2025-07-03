@@ -595,7 +595,12 @@
 	item_state = "redbox"
 	illustration = null
 	starts_with = list(/obj/item/reagent_containers/food/snacks/donkpocket/sinpocket = 6)
-	desc_antag = "Crush bottom of package to initiate chemical heating. Wait for 20 seconds before consumption. Product will cool if not eaten within seven minutes."
+
+/obj/item/storage/box/sinpockets/antagonist_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "Crush bottom of each package to initiate chemical heating. Wait for 20 seconds before consumption."
+	. += "Product will cool if not eaten within seven minutes."
 
 /obj/item/storage/box/donkpockets/gwok
 	name = "box of teriyaki Gwok-pockets"
@@ -699,8 +704,12 @@
 	starts_with = list(/obj/item/toy/snappop = 8)
 
 /obj/item/storage/box/snappops/syndi
-	desc_antag = "These snap pops have an extra compound added that will deploy a tiny smokescreen when snapped."
 	starts_with = list(/obj/item/toy/snappop/syndi = 8)
+
+/obj/item/storage/box/snappops/syndi/antagonist_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "These snap pops have an extra compound added that will deploy a tiny smokescreen when snapped."
 
 /obj/item/storage/box/partypopper
 	name = "party popper box"
@@ -1077,16 +1086,24 @@
 	starts_with = list(/obj/item/pen/fountain = 7)
 
 /obj/item/storage/box/aggression
-	desc_antag = "This box contains various implants that will make their owners increasingly aggressive."
 	illustration = "implant"
 	max_storage_space = DEFAULT_BOX_STORAGE
 	starts_with = list(/obj/item/implantcase/aggression = 6, /obj/item/implanter = 1, /obj/item/implantpad = 1)
 
+/obj/item/storage/box/aggression/antagonist_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "This box contains various implants that will make their owners increasingly aggressive."
+
 /obj/item/storage/box/encryption_key
 	name = "box"
 	illustration = "circuit"
-	desc_antag = "This box contains encryption keys that gives the user a safe channel to chatter in. Access the safe comms with :x."
 	starts_with = list(/obj/item/device/encryptionkey/rev = 8)
+
+/obj/item/storage/box/encryption_key/antagonist_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "This box contains encryption keys that gives the user a safe channel to chatter in. Access the safe comms with :x."
 
 /obj/item/storage/box/dynamite
 	name = "wooden crate"

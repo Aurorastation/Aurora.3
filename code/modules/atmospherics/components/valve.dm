@@ -1,7 +1,6 @@
 /obj/machinery/atmospherics/valve
 	name = "manual valve"
 	desc = "A pipe valve."
-	desc_mechanics = "Click this to turn the valve.  If red, the pipes on each end are seperated.  Otherwise, they are connected."
 	icon = 'icons/atmos/valve.dmi'
 	icon_state = "map_valve0"
 
@@ -14,6 +13,12 @@
 
 	var/datum/pipe_network/network_node1
 	var/datum/pipe_network/network_node2
+
+/obj/machinery/atmospherics/valve/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "Click this to turn the valve."
+	. += "If red, the pipes on each end are seperated. Otherwise, they are connected."
 
 /obj/machinery/atmospherics/valve/open
 	open = 1

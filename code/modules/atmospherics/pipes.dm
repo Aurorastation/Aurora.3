@@ -1463,7 +1463,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/universal
 	name = "universal pipe adapter"
 	desc = "An adapter for regular, supply, scrubbers, fuel, and auxiliary pipes."
-	desc_mechanics = "This allows you to connect 'normal' pipes, blue 'supply' pipes, red 'scrubber' pipes, yellow 'fuel' pipes, and cyan 'aux' pipes together."
 	connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_SUPPLY|CONNECT_TYPE_SCRUBBER|CONNECT_TYPE_FUEL|CONNECT_TYPE_AUX
 	icon_state = "map_universal"
 	gfi_layer_rotation = GFI_ROTATION_OVERDIR

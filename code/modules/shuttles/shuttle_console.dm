@@ -1,7 +1,5 @@
 /obj/machinery/computer/shuttle_control
 	name = "shuttle control console"
-	desc_antag = "Consoles like these are typically access-locked.\
-	You can remove this lock with <b>wirecutters</b>, but it would take awhile! Alternatively, you can also use a cryptographic sequencer (emag) for instant removal."
 	icon_screen = "shuttle"
 	icon_keyboard = "cyan_key"
 	icon_keyboard_emis = "cyan_key_mask"

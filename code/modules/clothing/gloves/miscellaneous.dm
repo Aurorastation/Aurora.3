@@ -56,7 +56,6 @@
 /obj/item/clothing/gloves/latex
 	name = "latex gloves"
 	desc = "Sterile latex gloves."
-	desc_mechanics = "You can make balloons with these using some cable coil."
 	icon_state = "latex"
 	item_state = "latex"
 	siemens_coefficient = 1.0 //thin latex gloves, much more conductive than fabric gloves (basically a capacitor for AC)
@@ -66,6 +65,11 @@
 	drop_sound = 'sound/items/drop/rubber.ogg'
 	pickup_sound = 'sound/items/pickup/rubber.ogg'
 	var/balloon = /obj/item/toy/balloon/latex
+
+/obj/item/clothing/gloves/latex/assembly_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "You can make balloons with these using some cable coil."
 
 /obj/item/clothing/gloves/latex/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/stack/cable_coil))

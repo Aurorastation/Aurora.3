@@ -8,11 +8,6 @@
 		This package makes use of the small-scale shipping network of Orion Express. \
 		It is a common sight all over the Spur, where Orion Express services depend on ordinary people and ships picking up and delivering packages for each other, \
 		with Orion Express only delivering to automated stations and other distribution points.\
-	"
-	desc_mechanics = "\
-		You can deliver this package to a cargo delivery point. \
-		An additional 2% is added to your account on delivery, or paid to you directly. Can be loaded into a cargo pack.\
-	"
 	icon = 'icons/obj/orion_delivery.dmi'
 	icon_state = "express_package"
 	item_state = "express_package"
@@ -36,6 +31,12 @@
 
 	/// If true, pay_amount goes into Operations Account
 	var/pays_horizon_account = TRUE
+
+/obj/item/cargo_package/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "You can deliver this package to a cargo delivery point."
+	. += "An additional 2% is added to your account on delivery, or paid to you directly. Can be loaded into a cargo pack."
 
 /obj/item/cargo_package/Initialize(mapload, obj/structure/cargo_receptacle/delivery_point)
 	. = ..()

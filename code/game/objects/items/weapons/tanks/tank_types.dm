@@ -133,7 +133,6 @@
 /obj/item/tank/emergency_oxygen
 	name = "emergency oxygen tank"
 	desc = "Used for emergencies. Contains very little oxygen, so try to conserve it until you actually need it."
-	desc_antag = "As a Cultist, this item can be reforged to become a large brown oxygen tank."
 	icon_state = "emergency"
 	item_state = "emergency"
 	gauge_icon = "indicator_emergency"
@@ -144,6 +143,11 @@
 	force = 4
 	distribute_pressure = ONE_ATMOSPHERE*O2STANDARD
 	volume = 2 //Tiny. Real life equivalents only have 21 breaths of oxygen in them. They're EMERGENCY tanks anyway -errorage (dangercon 2011)
+
+/obj/item/tank/emergency_oxygen/antagonist_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "As a Cultist, this item can be reforged to become a large brown oxygen tank."
 
 /obj/item/tank/emergency_oxygen/adjust_initial_gas()
 	air_contents.adjust_gas(GAS_OXYGEN, (3*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))

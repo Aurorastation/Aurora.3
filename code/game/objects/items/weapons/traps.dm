@@ -168,8 +168,12 @@
  */
 /obj/item/trap/sharpened
 	name = "sharpened mechanical trap"
-	desc_antag = "This device has an even higher chance of penetrating armor and locking foes in place."
 	activated_armor_penetration = 100
+
+/obj/item/trap/sharpened/antagonist_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "This device has an even higher chance of penetrating armor and locking foes in place."
 
 /**
  * # Tripwire trap

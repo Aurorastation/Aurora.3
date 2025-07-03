@@ -6,7 +6,6 @@
 /obj/item/storage/backpack
 	name = "backpack"
 	desc = "You wear this on your back and put items into it."
-	desc_antag = "As a Cultist, this item can be reforged to become a cult backpack. Any stored items will be transferred."
 	icon = 'icons/obj/storage/backpack.dmi'
 	icon_state = "backpack"
 	item_state = "backpack"
@@ -32,6 +31,11 @@
 	 * Suffix used for overlays with an attached sleeping bag, because satchels are at people's sides while other bags are on people's backs.
 	 */
 	var/attached_icon = "backpack"
+
+/obj/item/storage/backpack/antagonist_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "As a Cultist, this item can be reforged to become a cult backpack. Any stored items will be transferred."
 
 /obj/item/storage/backpack/Initialize()
 	. = ..()
@@ -160,7 +164,6 @@
 /obj/item/storage/backpack/cultpack
 	name = "trophy rack"
 	desc = "It's useful for both carrying extra gear and proudly declaring your insanity."
-	desc_antag = null // It's already been forged once.
 	icon_state = "cultpack"
 	item_state = "cultpack"
 

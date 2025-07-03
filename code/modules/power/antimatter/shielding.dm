@@ -11,7 +11,6 @@
 /obj/machinery/am_shielding
 	name = "antimatter reactor section"
 	desc = "A shielding component for an antimatter reactor. Looks delicate."
-	desc_antag = "Antimatter shielding sections are delicate. Attacking the shielding unit with a damaging object will reduce its stability, as will explosions. If the stability hits zero, the reactor may explode."
 	icon = 'icons/obj/machinery/new_ame.dmi'
 	icon_state = "shield"
 	anchored = TRUE
@@ -33,6 +32,11 @@
 	. = list()
 	. += ..()
 	. += "Antimatter shielding sections must be beside an anchored control unit or another shielding section. If either are destroyed, the section will disappear."
+
+/obj/machinery/am_shielding/antagonist_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "Antimatter shielding sections are delicate. Attacking the shielding unit with a damaging object will reduce its stability, as will explosions. If the stability hits zero, the reactor may explode."
 
 // Stupidly easy way to use it in maps
 /obj/machinery/am_shielding/map
