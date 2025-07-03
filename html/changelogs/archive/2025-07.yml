@@ -97,3 +97,7 @@
   - soundadd: Adds a gatling laser sound for the Nephilim.
   - rscadd: Adds an equipped variant of the Himean industrial rig.
   - rscadd: Genericizes the description of the energy knife.
+2025-07-03:
+  hazelmouse, MattAtlas:
+  - rscadd: Dionae now have access to an ability granting them magboot-like functionality.
+  - code_imp: Implemented some miscellaneous documentation changes to Diona code.
