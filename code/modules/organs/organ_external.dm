@@ -186,6 +186,13 @@
 
 	var/nymph_child
 
+	///Whether the limb has an emissive icon state associated with it
+	var/is_emissive = FALSE
+	///Whether the limb has an active overlay icon state associated with it
+	var/is_overlay = FALSE
+	///Whether the limb is a tesla limb (required for special handling)
+	var/is_tesla = FALSE
+
 /obj/item/organ/external/proc/invalidate_marking_cache()
 	cached_markings = null
 
@@ -320,6 +327,9 @@
 		robotize(robotize_type)
 		drop_sound = 'sound/items/drop/prosthetic.ogg'
 		pickup_sound = 'sound/items/pickup/prosthetic.ogg'
+	else
+		//HACK: Make sure non-emissive organs, if swapped to, are not treated as emissive. Robotized organs have their own handling, but we still need to cover the case where it is somehow swapped to an organic limb
+		is_emissive = initial(is_emissive)
 
 	. = ..(mapload, FALSE)
 	if(isnull(pain_disability_threshold))
@@ -702,6 +712,8 @@ This function completely restores a damaged organ to perfect condition.
 /obj/item/organ/external/proc/need_process()
 	if((status & ORGAN_ASSISTED) && surge_damage)
 		return TRUE
+	if(is_tesla && owner)
+		return TRUE
 	if(BP_IS_ROBOTIC(src))
 		return FALSE
 	if(get_pain())
@@ -721,6 +733,17 @@ This function completely restores a damaged organ to perfect condition.
 
 /obj/item/organ/external/process()
 	if(owner)
+		//Specialized handling for tesla limbs. Checks if the limb currently has an associated tesla spine. Else, will disable the emissive and active overlays
+		if(is_tesla)
+			var/obj/item/organ/internal/augment/tesla/T = owner.internal_organs_by_name[BP_AUG_TESLA]
+			if(T && !T.is_broken())
+				is_emissive = initial(is_emissive)
+				is_overlay = initial(is_overlay)
+			else
+				is_emissive = FALSE
+				is_overlay = FALSE
+			return
+
 		// Process wounds, doing healing etc. Only do this every few ticks to save processing power
 		if(owner.life_tick % wound_update_accuracy == 0)
 			update_wounds()
@@ -1260,6 +1283,18 @@ Note that amputating the affected organ does in fact remove the infection from t
 				desc = "[R.desc]"
 			if(R.paintable || !isnull(override_robotize_painted))
 				painted = !isnull(override_robotize_painted) ? override_robotize_painted : TRUE
+			if(R.emissive)
+				is_emissive = TRUE
+			else
+				is_emissive = FALSE
+			if(R.overlay)
+				is_overlay = TRUE
+			else
+				is_overlay = FALSE
+			if(R.is_tesla)
+				is_tesla = TRUE
+			else
+				is_tesla = FALSE
 			brute_mod = R.brute_mod
 			burn_mod = R.burn_mod
 			robotize_type = company
