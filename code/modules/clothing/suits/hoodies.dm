@@ -30,6 +30,9 @@
 	SEND_SIGNAL(src, COMSIG_ITEM_UPDATE_STATE)
 	update_icon()
 
+/obj/item/clothing/suit/storage/hooded/AltClick(mob/user)
+	ToggleHood(user)
+
 //hoodies and the like
 
 /obj/item/clothing/suit/storage/hooded/wintercoat
@@ -219,18 +222,10 @@
 	icon_state = "coatheph"
 	item_state = "coatheph"
 
-/obj/item/clothing/suit/storage/hooded/wintercoat/heph/alt
-	icon_state = "coatheph_alt"
-	item_state = "coatheph_alt"
-
 /obj/item/clothing/suit/storage/hooded/wintercoat/nt
 	name = "nanotrasen winter coat"
 	icon_state = "coatnt"
 	item_state = "coatnt"
-
-/obj/item/clothing/suit/storage/hooded/wintercoat/nt/alt
-	icon_state = "coatnt_alt"
-	item_state = "coatnt_alt"
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/zeng
 	name = "zeng-hu winter coat"

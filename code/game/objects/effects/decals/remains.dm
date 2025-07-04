@@ -4,6 +4,7 @@
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "remains"
 	anchored = FALSE
+	mouse_opacity = MOUSE_OPACITY_ICON
 
 /obj/effect/decal/remains/human
 	desc = "They look like human remains. They have a strange aura about them."

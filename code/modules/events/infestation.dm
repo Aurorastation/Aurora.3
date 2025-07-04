@@ -40,6 +40,11 @@
 			INFESTATION_HIVEBOTS = 1,
 			INFESTATION_SLIMES = 1
 		)
+	else if(player_count >= 8)
+		possible_mobs = list(
+			INFESTATION_SPIDERLINGS = 1,
+			INFESTATION_SLIMES = 1
+		)
 	else
 		possible_mobs = list(
 			INFESTATION_SLIMES = 1
@@ -122,7 +127,6 @@
 			var/chosen_slime_type = pick(slime_types)
 			for(var/i = 1, i < rand(5,8),i++)
 				chosen_mob_types += chosen_slime_type
-
 		if(INFESTATION_SPIDERLINGS)
 			event_name = "Greimorian Infestation"
 			chosen_verb = "have burrowed into"

@@ -140,7 +140,7 @@
 	var/artery_name = "artery"
 
 	///Multiplier for bleeding in a limb
-	var/arterial_bleed_severity = 1
+	var/arterial_bleed_severity = 0.75
 
 	///Descriptive string used in amputation
 	var/amputation_point
@@ -1078,6 +1078,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			stump.update_damages()
 
 	post_droplimb(victim)
+	SEND_SIGNAL(victim, COMSIG_LIMB_LOSS)
 
 	switch(disintegrate)
 		if(DROPLIMB_EDGE)

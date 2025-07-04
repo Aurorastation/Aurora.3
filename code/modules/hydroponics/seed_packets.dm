@@ -4,7 +4,7 @@ GLOBAL_LIST_EMPTY(plant_seed_sprites)
 /obj/item/seeds
 	name = "packet of seeds"
 	icon = 'icons/obj/seeds.dmi'
-	icon_state = "random"
+	icon_state = "blank"
 	w_class = WEIGHT_CLASS_SMALL
 
 	storage_slot_sort_by_name = TRUE

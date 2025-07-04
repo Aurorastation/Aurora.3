@@ -145,7 +145,7 @@
 	icon = 'icons/obj/guns/himeo_blaster.dmi'
 	icon_state = "himeoblaster"
 	item_state = "himeoblaster"
-	projectile_type = /obj/projectile/energy/blaster
+	projectile_type = /obj/projectile/energy/blaster/heavy
 	usesound = 'sound/weapons/plasma_cutter.ogg'
 	fire_sound = 'sound/weapons/gunshot/slammer.ogg'
 	cell_type = /obj/item/cell/hydrogen

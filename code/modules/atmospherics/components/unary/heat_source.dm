@@ -30,6 +30,9 @@
 		/obj/item/stack/cable_coil{amount = 5}
 	)
 
+	component_hint_bin = "Upgraded <b>matter bins</b> will increase maximum temperature setting and the volume of air it can heat at once."
+	component_hint_cap = "Upgraded <b>capacitors</b> will increase maximum power setting and maximum temperature setting."
+
 /obj/machinery/atmospherics/unary/heater/Initialize()
 	initialize_directions = dir
 	. = ..()

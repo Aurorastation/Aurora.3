@@ -1251,7 +1251,7 @@ About the new airlock wires panel:
 
 /obj/machinery/door/airlock/proc/bolts_interact(var/mob/user, var/activate, var/isAdmin, var/antag)
 	if(isrobot(user) && !Adjacent(user))
-		to_chat(user, SPAN_WARNING("Your frame does not allow long distance wireless bolt control, you will need be adjacent the door."))
+		to_chat(user, SPAN_WARNING("Your frame does not allow long distance wireless bolt control, you will need to be adjacent to the door."))
 		return
 	if(isWireCut(WIRE_BOLTLIGHT)) // cut wire is noop
 		to_chat(user, SPAN_WARNING("The door bolt control wire is cut - Door bolts permanently dropped."))
@@ -1557,7 +1557,7 @@ About the new airlock wires panel:
 				src.loseBackupPower()
 		if("bolts")
 			if(isrobot(usr) && !Adjacent(usr))
-				to_chat(usr, SPAN_WARNING("Your frame does not allow long distance wireless bolt control, you will need be adjacent the door."))
+				to_chat(usr, SPAN_WARNING("Your frame does not allow long distance wireless bolt control, you will need to be adjacent to the door."))
 				return
 			if(src.isWireCut(WIRE_BOLTLIGHT)) // cut wire is noop
 				to_chat(usr, SPAN_WARNING("The door bolt control wire is cut - Door bolts permanently dropped."))

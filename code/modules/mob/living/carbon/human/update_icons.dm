@@ -680,9 +680,9 @@ There are several things that need to be remembered:
 
 		//Layering under/over suit
 		var/id_layer = ID_LAYER
-		if(istype(wear_id, /obj/item/storage/wallet))
-			var/obj/item/storage/wallet/wallet = wear_id
-			if(wallet.wear_over_suit)
+		if(istype(wear_id, /obj/item/storage/wallet/lanyard))
+			var/obj/item/storage/wallet/lanyard/lanyard = wear_id
+			if(lanyard.wear_over_suit)
 				id_layer = ID_LAYER_ALT
 		else if(istype(wear_id, /obj/item/card/id))
 			var/obj/item/card/id/id_card = wear_id

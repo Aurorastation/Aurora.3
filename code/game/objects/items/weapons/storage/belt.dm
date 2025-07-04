@@ -150,11 +150,12 @@
 
 /obj/item/storage/belt/utility/very_full
 	starts_with = list(
+		/obj/item/screwdriver = 1,
+		/obj/item/wrench = 1,
 		/obj/item/weldingtool/largetank = 1,
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters/toolbelt = 1,
 		/obj/item/stack/cable_coil/random = 1,
-		/obj/item/powerdrill = 1,
 		/obj/item/device/multitool = 1,
 		/obj/item/device/radio = 1
 	)
@@ -455,7 +456,8 @@
 		/obj/item/stack/telecrystal,
 		/obj/item/device/radio,
 		/obj/item/shield/riot/tact,
-		/obj/item/material/knife/tacknife
+		/obj/item/material/knife/tacknife,
+		/obj/item/cell/hydrogen
 		)
 
 /obj/item/storage/belt/military/syndicate

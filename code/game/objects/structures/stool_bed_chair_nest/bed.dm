@@ -447,6 +447,9 @@
 		update_icon()
 
 /obj/structure/bed/roller/proc/collapse()
+	if(buckled)
+		to_chat(usr, SPAN_WARNING("\The [buckled] is on \the [src]. Remove them first."))
+		return
 	usr.visible_message(SPAN_NOTICE("<b>[usr]</b> collapses \the [src]."), SPAN_NOTICE("You collapse \the [src]"))
 	new held_item(get_turf(src))
 	qdel(src)
@@ -515,6 +518,7 @@
 		remove_vitals(user)
 		return
 	if(buckled)
+		to_chat(user, SPAN_WARNING("\The [buckled] is on \the [src]. Remove them first."))
 		return
 	collapse()
 

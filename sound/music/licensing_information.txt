@@ -68,6 +68,12 @@ Author: Eric Schumaker AKA CBoyardee
 License: N/A
 Link: N/A
 ----------
+File Name: title3mk2.ogg
+Original Title: Tintin On The Moon
+Author: Jeroen Tel (original), PinkBlossom6 (Mk. II)
+License: Creative Commons Attribution License (reuse allowed)
+Link: Mk I: https://www.youtube.com/watch?v=YKVmXn-Gv0M, Mk II: https://www.youtube.com/watch?v=d7hc_GrZP4Y
+----------
 File Name: traitor.ogg
 Original Title: Absconditus
 Author: Joseph Toscano AKA Zhaytee

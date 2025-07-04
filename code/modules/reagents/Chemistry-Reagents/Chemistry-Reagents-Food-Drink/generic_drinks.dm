@@ -205,6 +205,11 @@
 	glass_name = "glass of lemon juice"
 	glass_desc = "Sour..."
 
+	condiment_name = "lemon juice"
+	condiment_desc = "This juice is VERY sour."
+	condiment_icon = 'icons/obj/item/reagent_containers/food/drinks/carton.dmi'
+	condiment_icon_state = "lemonjuice"
+
 /singleton/reagent/drink/limejuice
 	name = "Lime Juice"
 	description = "The sweet-sour juice of limes."
@@ -216,6 +221,11 @@
 	glass_name = "glass of lime juice"
 	glass_desc = "A glass of sweet-sour lime juice"
 
+	condiment_name = "lime juice"
+	condiment_desc = "Sweet-sour goodness."
+	condiment_icon = 'icons/obj/item/reagent_containers/food/drinks/carton.dmi'
+	condiment_icon_state = "limejuice"
+
 /singleton/reagent/drink/orangejuice
 	name = "Orange Juice"
 	description = "Both delicious AND rich in Vitamin C, what more do you need?"
@@ -225,6 +235,11 @@
 	glass_icon_state = "glass_orange"
 	glass_name = "glass of orange juice"
 	glass_desc = "Vitamins! Yay!"
+
+	condiment_name = "orange juice"
+	condiment_desc = "Full of vitamins and deliciousness!"
+	condiment_icon = 'icons/obj/item/reagent_containers/food/drinks/carton.dmi'
+	condiment_icon_state = "orangejuice"
 
 /singleton/reagent/drink/orangejuice/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
@@ -241,6 +256,11 @@
 	glass_icon_state = "berryjuice"
 	glass_name = "glass of cranberry juice"
 	glass_desc = "Fresh, tart, and sweet cranberry juice."
+
+	condiment_name = "cranberry juice"
+	condiment_desc = "Tart and sweet. A unique flavor for a unique berry."
+	condiment_icon = 'icons/obj/item/reagent_containers/food/drinks/carton.dmi'
+	condiment_icon_state = "cranberryjuice"
 
 /singleton/reagent/drink/potatojuice
 	name = "Potato Juice"
@@ -262,6 +282,11 @@
 	glass_icon_state = "glass_red"
 	glass_name = "glass of tomato juice"
 	glass_desc = "Are you sure this is tomato juice?"
+
+	condiment_name = "tomato juice"
+	condiment_desc = "Well, at least it LOOKS like tomato juice. You can't tell with all that redness."
+	condiment_icon = 'icons/obj/item/reagent_containers/food/drinks/carton.dmi'
+	condiment_icon_state = "tomatojuice"
 
 /singleton/reagent/drink/tomatojuice/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
@@ -323,6 +348,11 @@
 	glass_icon_state = "glass_apple"
 	glass_name = "glass of apple juice"
 	glass_desc = "Juice from an apple. The most basic beverage you can imagine."
+
+	condiment_name = "apple juice"
+	condiment_desc = "Juice from an apple. Yes."
+	condiment_icon = 'icons/obj/item/reagent_containers/food/drinks/carton.dmi'
+	condiment_icon_state = "applejuice"
 
 /singleton/reagent/drink/pearjuice
 	name = "Pear Juice"
@@ -606,14 +636,6 @@
 	glass_desc = "Tasty black tea, it has antioxidants, it's good for you!"
 
 	var/last_taste_time = -100
-
-/singleton/reagent/drink/tea/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	if(alien == IS_DIONA)
-		if(last_taste_time + 800 < world.time) // Not to spam message
-			to_chat(M, SPAN_DANGER("Your body withers as you feel slight pain throughout."))
-			last_taste_time = world.time
-		metabolism = REM * 0.33
-		M.adjustToxLoss(1.5 * removed)
 
 /singleton/reagent/drink/tea/sencha
 	name = "Sencha"

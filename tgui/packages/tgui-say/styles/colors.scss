@@ -13,6 +13,7 @@ $say: #a4bad6;
 $radio: #1ecc43;
 $me: #5975da;
 $ooc: #cca300;
+$looc: #e362b4;
 
 ////////////////////////////////////////////////
 // Subchannel chat colors
@@ -31,12 +32,15 @@ $service: #7fc732;
 $supply: #c09141;
 $hail: #8b4cd8;
 $ent: #cfcfcf;
+$cling: #376340;
 
 $_channel_map: (
   'Say': $say,
   'Comm': $radio,
+  'Radio': $radio,
   'Me': $me,
   'OOC': $ooc,
+  'LOOC': $looc,
   'AI': $ai,
   'io': $binary,
   'Cmd': $command,
@@ -44,11 +48,14 @@ $_channel_map: (
   'Med': $medical,
   'Sci': $science,
   'Sec': $security,
+  'Merc': $syndicate,
   'Synd': $syndicate,
+  'Pen': $syndicate,
   'Svc': $service,
   'Supp': $supply,
   'Hail': $hail,
   'Ent': $ent,
+  'Cling': $cling,
 );
 
 $channel_keys: map.keys($_channel_map) !default;

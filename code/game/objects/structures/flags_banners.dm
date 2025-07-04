@@ -3382,22 +3382,45 @@
 /obj/structure/sign/flag/glaorr/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
 
-//Burzsia (banner only)
+//Burzsia
 /obj/item/flag/burzsia
 	name = "\improper Burzsia flag"
-	desc = "The sigil of Burzsia."
+	desc = "The sigil of Burzsia, placed on a background of Hephaestus green."
 	flag_path = "burzsia"
 	flag_structure = /obj/structure/sign/flag/burzsia
 
 /obj/structure/sign/flag/burzsia
 	name = "\improper Burzsia flag"
-	desc = "The sigil of Burzsia."
+	desc = "The sigil of Burzsia, placed on a background of Hephaestus green."
 	flag_path = "burzsia"
 	icon_state = "burzsia"
 	flag_item = /obj/item/flag/burzsia
 
 /obj/structure/sign/flag/burzsia/unmovable
 	unmovable = TRUE
+
+/obj/item/flag/burzsia/l
+	name = "\improper large Burzsia Flag"
+	flag_path = "burzsia"
+	flag_structure = /obj/structure/sign/flag/burzsia/large
+
+/obj/structure/sign/flag/burzsia/large
+	icon_state = "burzsia_l"
+	flag_path = "burzsia"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/burzsia/l
+
+/obj/structure/sign/flag/burzsia/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flagburzsia/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/burzsia/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/burzsia/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 //Unathi Ruin Flags/Tapestries
 /obj/item/flag/unathi_tapestry
