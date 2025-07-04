@@ -10,7 +10,7 @@
 	var/obj/machinery/ship_weapon/weapon
 	var/weapon_id //Used to connect weapon systems to the relevant ammunition loader.
 
-/obj/machinery/ship_weapon/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/machinery/ammunition_loader/mechanics_hints(mob/user, distance, is_adjacent)
 	. = list()
 	. += ..()
 	. += "Use a Multitool to update the weapon loader's internal network ID for linking purposes. You probably don't need to do this."

@@ -465,7 +465,7 @@
 	var/passcode = "open"
 	var/configurable = TRUE
 
-/obj/item/device/magnetic_lock/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/item/device/magnetic_lock/keypad/mechanics_hints(mob/user, distance, is_adjacent)
 	. = list()
 	. += ..()
 	. += "Keypad-enabled magnetic locks require a custom passcode to unlock them, configured on initial use."
