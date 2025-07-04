@@ -2500,6 +2500,7 @@
 #include "code\modules\mapping\planet_types\lore\srandmarr.dm"
 #include "code\modules\mapping\planet_types\lore\tauceti.dm"
 #include "code\modules\mapping\planet_types\lore\uueoaesa.dm"
+#include "code\modules\mapping\planet_types\lore\xanu.dm"
 #include "code\modules\mapping\space_management\space_level.dm"
 #include "code\modules\mapping\space_management\space_reservation.dm"
 #include "code\modules\mapping\space_management\space_transition.dm"

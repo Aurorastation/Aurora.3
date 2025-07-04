@@ -89,3 +89,17 @@
 			BIOME_SEMIARID = /singleton/biome/snow/adhomai/polar/eclipse
 		)
 	)
+
+/datum/exoplanet_theme/snow/tundra/xanu_himavatia
+	name = "Himavatian Tundra"
+
+	possible_biomes = list(
+		BIOME_POLAR = list(
+			BIOME_ARID = /singleton/biome/water/ice,
+			BIOME_SEMIARID = /singleton/biome/snow/xanu
+			),
+		BIOME_COOL = list(
+			BIOME_ARID = /singleton/biome/snow/xanu,
+			BIOME_SEMIARID = /singleton/biome/snow/forest/xanu
+			)
+	)

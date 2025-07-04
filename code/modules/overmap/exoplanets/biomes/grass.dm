@@ -455,3 +455,91 @@
 			/mob/living/simple_animal/miervesh = 1
 		)
 	)
+
+//Xanu Biomes
+//TODO: Xanu flora and fauna
+/singleton/biome/grass/xanu
+	turf_type = /turf/simulated/floor/exoplanet/grass/stalk
+	spawn_types = list(
+		GRASS_1 = list(
+			/obj/structure/flora/ausbushes/ywflowers = 1
+		),
+		GRASS_2 = list(
+			/obj/structure/flora/ausbushes/brflowers = 1
+		),
+		GRASS_3 = list(
+			/obj/structure/flora/ausbushes/ppflowers = 1
+		),
+		SMALL_FLORA = list(
+			/obj/structure/flora/ausbushes/ywflowers = 1,
+			/obj/structure/flora/ausbushes/brflowers = 1,
+			/obj/structure/flora/ausbushes/ppflowers = 1,
+			/obj/structure/flora/ausbushes/grassybush = 1,
+			/obj/structure/flora/ausbushes/palebush = 1,
+			/obj/structure/flora/ausbushes = 1,
+			/obj/structure/flora/ausbushes/fernybush = 1,
+			/obj/effect/landmark/exoplanet_spawn/plant = 1
+		),
+		WILDLIFE = list() // No wildlife assets for xanu
+	)
+
+/singleton/biome/grass/forest/xanu
+	turf_type = /turf/simulated/floor/exoplanet/grass/stalk
+
+	spawn_types = list(
+		LARGE_FLORA = list(
+			/obj/structure/flora/tree/grove = 1
+		),
+		SMALL_FLORA = list(
+			/obj/structure/flora/ausbushes/ywflowers = 1,
+			/obj/structure/flora/ausbushes/brflowers = 1,
+			/obj/structure/flora/ausbushes/ppflowers = 1,
+			/obj/structure/flora/ausbushes/grassybush = 1,
+			/obj/structure/flora/ausbushes/palebush = 1,
+			/obj/structure/flora/ausbushes = 1,
+			/obj/structure/flora/ausbushes/fernybush = 1,
+			/obj/effect/landmark/exoplanet_spawn/plant = 1
+		),
+		WILDLIFE = list()
+	)
+
+/singleton/biome/grass/riverside/xanu
+	turf_type = /turf/simulated/floor/exoplanet/grass/stalk
+
+	spawn_types = list(
+		PLANET_TURF = list(
+			/turf/simulated/floor/exoplanet/water/shallow = 1
+		),
+		SMALL_FLORA = list(
+			/obj/structure/flora/ausbushes/reedbush = 1,
+			/obj/structure/flora/ausbushes/stalkybush = 1,
+			/obj/effect/landmark/exoplanet_spawn/plant = 1
+		),
+		WILDLIFE = list(
+			/mob/living/simple_animal/aquatic/fish/cod = 1,
+			/mob/living/simple_animal/aquatic/fish/gupper = 1
+		)
+	)
+
+/singleton/biome/grass/chaparral/xanu
+	turf_type = /turf/simulated/floor/exoplanet/dirt_konyang
+
+	spawn_types = list(
+		GRASS_1 = list(
+			/obj/structure/flora/ausbushes/ywflowers = 1
+		),
+		GRASS_2 = list(
+			/obj/structure/flora/ausbushes/brflowers = 1
+		),
+		GRASS_3 = list(
+			/obj/structure/flora/ausbushes/ppflowers = 1
+		),
+		SMALL_FLORA = list(
+			/obj/structure/flora/ausbushes/grassybush = 1,
+			/obj/structure/flora/ausbushes/palebush = 1,
+			/obj/structure/flora/ausbushes = 1,
+			/obj/structure/flora/ausbushes/fernybush = 1,
+			/obj/effect/landmark/exoplanet_spawn/plant = 1
+		),
+		WILDLIFE = list()
+	)

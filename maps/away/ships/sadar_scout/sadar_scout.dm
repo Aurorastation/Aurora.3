@@ -6,7 +6,7 @@
 	suffix = "sadar_scout.dmm"
 
 	sectors = list(ALL_COALITION_SECTORS)
-	sectors_blacklist = list(SECTOR_HANEUNIM, SECTOR_BURZSIA)
+	sectors_blacklist = list(SECTOR_HANEUNIM, SECTOR_BURZSIA, SECTOR_XANU)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "sadar_scout"
