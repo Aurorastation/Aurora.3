@@ -257,8 +257,9 @@
 		if(rand(1,max_shells) > loaded.len)
 			chamber_offset = rand(0,max_shells - loaded.len)
 
-/obj/item/gun/projectile/revolver/lemat/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/gun/projectile/revolver/lemat/feedback_hints(mob/user, distance, is_adjacent, infix, suffix)
+	. = list()
+	. += ..()
 	if(secondary_loaded)
 		var/to_print
 		for(var/round in secondary_loaded)

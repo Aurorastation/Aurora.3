@@ -15,6 +15,15 @@
 	/// For hotwiring, how many cycles are needed. This decreases by 1 each cycle and triggers at 0
 	var/hotwire_progress = 8
 
+/obj/machinery/computer/shuttle_control/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	if(initial(hotwire_progress) != hotwire_progress)
+		if(hotwire_progress != 0)
+			. += SPAN_NOTICE("The bottom panel appears open with wires hanging out. It can be repaired with additional cabling. <i>Current progress: [(hotwire_progress / initial(hotwire_progress)) * 100]%</i>")
+		else
+			. += SPAN_NOTICE("The bottom panel appears open with wires hanging out. It can be repaired with additional cabling.")
+
 /obj/machinery/computer/shuttle_control/Initialize()
 	. = ..()
 	if(SSshuttle.shuttles[shuttle_tag])
@@ -201,14 +210,6 @@
 	var/shuttle_status = get_shuttle_status(shuttle)
 	for(var/obj/item/clothing/head/helmet/pilot/PH as anything in linked_helmets)
 		PH.set_hud_maptext("Shuttle Status: [shuttle_status]")
-
-/obj/machinery/computer/shuttle_control/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(initial(hotwire_progress) != hotwire_progress)
-		if(hotwire_progress != 0)
-			. += SPAN_ITALIC("The bottom panel appears open with wires hanging out. It can be repaired with additional cabling. <i>Current progress: [(hotwire_progress / initial(hotwire_progress)) * 100]%</i>")
-		else
-			. += SPAN_ITALIC("The bottom panel appears open with wires hanging out. It can be repaired with additional cabling.")
 
 /obj/machinery/computer/shuttle_control/emag_act(var/remaining_charges, var/mob/user, var/emag_source, var/hotwired = FALSE)
 	if(emagged)

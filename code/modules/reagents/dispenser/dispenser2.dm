@@ -33,15 +33,16 @@
 	/// Allow these cans/glasses/condiment bottles but forbid ACTUAL food.
 	var/list/drink_accepted = list(/obj/item/reagent_containers/food/drinks, /obj/item/reagent_containers/food/condiment)
 
+/obj/machinery/chemical_dispenser/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "It has [cartridges.len] cartridges installed, and has space for [DISPENSER_MAX_CARTRIDGES - cartridges.len] more."
+
 /obj/machinery/chemical_dispenser/Initialize()
 	. = ..()
 	if(spawn_cartridges)
 		for(var/type in spawn_cartridges)
 			add_cartridge(new type(src))
-
-/obj/machinery/chemical_dispenser/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += "It has [cartridges.len] cartridges installed, and has space for [DISPENSER_MAX_CARTRIDGES - cartridges.len] more."
 
 /obj/machinery/chemical_dispenser/proc/add_cartridge(obj/item/reagent_containers/chem_disp_cartridge/C, mob/user)
 	if(!istype(C))

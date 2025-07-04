@@ -38,6 +38,19 @@
 	. += "You can deliver this package to a cargo delivery point."
 	. += "An additional 2% is added to your account on delivery, or paid to you directly. Can be loaded into a cargo pack."
 
+/obj/item/cargo_package/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	if(delivery_point_id)
+		// if name not already set by cargo receptacle, acquire the sector name instead
+		if(delivery_site == "Unknown")
+			if(delivery_point_sector)
+				var/obj/effect/overmap/visitable/delivery_sector = delivery_point_sector.resolve()
+				if(delivery_sector)
+					delivery_site = delivery_sector.name
+		. += SPAN_NOTICE("The label on the package reads: SITE: <b>[delivery_site]</b> | COORD: <b>[delivery_point_coordinates]</b> | ID: <b>[delivery_point_id]</b>")
+		. += SPAN_NOTICE("The price tag on the package reads: <b>[pay_amount]电</b>.")
+
 /obj/item/cargo_package/Initialize(mapload, obj/structure/cargo_receptacle/delivery_point)
 	. = ..()
 	pay_amount = rand(4, 7) * 1000
@@ -55,18 +68,6 @@
 		delivery_site = delivery_point.override_name
 	delivery_point_coordinates = "[delivery_point.x]-[delivery_point.y]"
 	pay_amount = pay_amount * delivery_point.payment_modifier
-
-/obj/item/cargo_package/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(delivery_point_id)
-		// if name not already set by cargo receptacle, acquire the sector name instead
-		if(delivery_site == "Unknown")
-			if(delivery_point_sector)
-				var/obj/effect/overmap/visitable/delivery_sector = delivery_point_sector.resolve()
-				if(delivery_sector)
-					delivery_site = delivery_sector.name
-		. += SPAN_NOTICE("The label on the package reads: SITE: <b>[delivery_site]</b> | COORD: <b>[delivery_point_coordinates]</b> | ID: <b>[delivery_point_id]</b>")
-		. += SPAN_NOTICE("The price tag on the package reads: <b>[pay_amount]电</b>.")
 
 /obj/item/cargo_package/do_additional_pickup_checks(var/mob/living/carbon/human/user)
 	if(!ishuman(user))
