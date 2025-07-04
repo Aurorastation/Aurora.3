@@ -499,6 +499,7 @@ GLOBAL_LIST_INIT(admin_verbs_dev, list( //will need to be altered - Ryan784
 	/client/proc/cmd_generate_lag,
 	/client/proc/create_poll, //Allows to create polls
 	/client/proc/profiler_start,
+	/client/proc/allow_browser_inspect,
 ))
 
 GLOBAL_LIST_INIT(admin_verbs_cciaa, list(

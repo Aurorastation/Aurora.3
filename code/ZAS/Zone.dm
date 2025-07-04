@@ -53,6 +53,9 @@ Class Procs:
 
 	var/datum/gas_mixture/air = new
 
+	var/list/graphic_add = list()
+	var/list/graphic_remove = list()
+
 /zone/New()
 	SSair.add_zone(src)
 	air.temperature = TCMB
@@ -148,21 +151,20 @@ Class Procs:
 	air.group_multiplier = contents.len+1
 
 /zone/proc/tick()
+	// Update fires.
 	if(air.temperature >= PHORON_FLASHPOINT && !(src in SSair.active_fire_zones) && air.check_combustability() && contents.len)
 		var/turf/T = pick(contents)
 		if(istype(T))
 			T.create_fire(GLOB.vsc.fire_firelevel_multiplier)
 
-	var/world_time_counter = world.time
-	var/list/graphic_add = list()
-	var/list/graphic_remove = list()
+	// Update gas overlays.
 	if(air.check_tile_graphic(graphic_add, graphic_remove))
 		for(var/turf/simulated/T in contents)
 			T.update_graphic(graphic_add, graphic_remove)
-	var/delta_time = world.time - world_time_counter
-	if(delta_time > 5 SECONDS)
-		log_admin("AN AREA IS TAKING EXTREMELY LONG TO UPDATE: [name] WITH CONTENTS LENGTH [length(contents)] TELL MATT WITH THE ROUND ID!")
+		graphic_add.Cut()
+		graphic_remove.Cut()
 
+	// Update connected edges.
 	for(var/connection_edge/E in edges)
 		if(E.sleeping)
 			E.recheck()

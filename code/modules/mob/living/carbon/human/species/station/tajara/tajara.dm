@@ -44,7 +44,6 @@
 	ethanol_resistance = 0.9//Gets drunk a little faster
 	rarity_value = 2
 	economic_modifier = 7
-	selectable_pronouns = list(MALE, FEMALE)
 
 	stamina = 90	// Tajara evolved to maintain a steady pace in the snow, sprinting wastes energy
 	stamina_recovery = 4

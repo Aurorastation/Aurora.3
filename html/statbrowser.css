@@ -1,3 +1,12 @@
+.light:root {
+	--scrollbar-base: #f2f2f2;
+	--scrollbar-thumb: #a7a7a7;
+}
+
+html, body {
+	scrollbar-color: var(--scrollbar-base) var(--scrollbar-thumb);
+}
+
 body {
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 	font-size: 12px !important;
@@ -17,6 +26,11 @@ body.dark {
 	scrollbar-track-color: #1c1c1c;
 	scrollbar-arrow-color: #929292;
 	scrollbar-shadow-color: #3b3b3b;
+}
+
+.dark:root {
+	--scrollbar-base: #181818;
+	--scrollbar-thumb: #363636;
 }
 
 #menu {

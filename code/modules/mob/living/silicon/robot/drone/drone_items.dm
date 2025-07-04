@@ -180,8 +180,7 @@
 	if(!module)
 		module = new /obj/item/robot_module/drone(src)
 
-	var/dat = "<HEAD><TITLE>Drone modules</TITLE></HEAD><BODY>\n"
-	dat += {"
+	var/dat = {"
 	<B>Activated Modules</B>
 	<BR>
 	Module 1: [module_state_1 ? "<A href='byond://?src=[REF(src)];mod=[REF(module_state_1)]>[module_state_1]<A>" : "No Module"]<BR>
@@ -221,4 +220,4 @@
 
 	dat += resources
 
-	src << browse(dat, "window=robotmod")
+	src << browse(HTML_SKELETON_TITLE("Drone modules", dat), "window=robotmod")

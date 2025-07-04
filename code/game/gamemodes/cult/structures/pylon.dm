@@ -94,7 +94,7 @@
 
 
 /obj/structure/cult/pylon/Move()
-	..()
+	. = ..()
 	last_target_loc = null
 
 /obj/structure/cult/pylon/proc/start_process()

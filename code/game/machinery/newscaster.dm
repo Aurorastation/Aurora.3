@@ -1052,7 +1052,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 
 		dat+="<BR><HR><div align='center'>[src.curr_page+1]</div>"
 
-		show_browser(human_user, dat, "window=newspaper_main;size=300x400")
+		show_browser(human_user, HTML_SKELETON(dat), "window=newspaper_main;size=300x400")
 		onclose(human_user, "newspaper_main")
 	else
 		to_chat(user, "The paper is full of intelligible symbols!")

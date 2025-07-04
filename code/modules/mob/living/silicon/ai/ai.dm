@@ -383,7 +383,7 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 			Recall the channel list at any time by calling <code>Radio-Settings</code> under <em>AI Commands</em>.\
 		</p>\
 		"
-	usr << browse(dat, "window=aihelp,size=520x700")
+	usr << browse(HTML_SKELETON(dat), "window=aihelp,size=520x700")
 
 /mob/living/silicon/ai/proc/pick_icon()
 	set category = "AI Commands"

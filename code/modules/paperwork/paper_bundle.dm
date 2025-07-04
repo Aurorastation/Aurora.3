@@ -148,7 +148,7 @@
 		+ "[P.scribble ? "<div> Written on the back:<br><i>[P.scribble]</i>" : null]" \
 		+ "</body></html>"
 
-		show_browser(user, dat, "window=[name]")
+		show_browser(user, HTML_SKELETON(dat), "window=[name]")
 
 /obj/item/paper_bundle/attack_self(mob/user as mob)
 	src.show_content(user)

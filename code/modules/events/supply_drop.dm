@@ -10,15 +10,20 @@
 /datum/event/supply_drop/start()
 	..()
 
-	var/rarity = 4
-	var/quantity = rand(10,25)
-
 	var/area/a = random_station_area()
 	spawn_loc = a.random_space()
 	location_name = a.name
 
-	new /obj/structure/closet/crate/loot(spawn_loc, rarity, quantity)
-	log_and_message_admins("Unusual container spawned at (<a href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[spawn_loc.x];Y=[spawn_loc.y];Z=[spawn_loc.z]'>JMP</a>)")
+	if(prob(90))
+		var/rarity = 4
+		var/quantity = rand(10,25)
+
+		new /obj/structure/closet/crate/loot(spawn_loc, rarity, quantity)
+		log_and_message_admins("Unusual container spawned at (<a href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[spawn_loc.x];Y=[spawn_loc.y];Z=[spawn_loc.z]'>JMP</a>)")
+	else
+		var/quantity = rand(3, 10)
+		new /obj/structure/closet/crate/loot/contraband(spawn_loc, quantity)
+		log_and_message_admins("Contraband container spawned at (<a href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[spawn_loc.x];Y=[spawn_loc.y];Z=[spawn_loc.z]'>JMP</a>)")
 
 	spark(spawn_loc, 10, GLOB.alldirs)
 

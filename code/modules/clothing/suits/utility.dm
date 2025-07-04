@@ -35,10 +35,20 @@
 	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS
 
+	///Initial name of the firesuit's emissive overlay. Will be changed based on [icon_supported_species_tags], above
+	var/initial_emissive_state = "firesuit_emissive"
+	///Special variable to handle the firesuit's emissive overlay
+	var/emissive_state
+
 /obj/item/clothing/suit/fire/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
+	emissive_state = initial_emissive_state
+	if(icon_auto_adapt)
+		if(H && length(icon_supported_species_tags))
+			if(H.species.short_name in icon_supported_species_tags)
+				emissive_state = "[H.species.short_name]_[initial_emissive_state]"
 	if(slot == slot_wear_suit_str)
-		var/image/emissive_overlay = emissive_appearance(mob_icon, "firesuit-emissive", alpha = src.alpha)
+		var/image/emissive_overlay = emissive_appearance(mob_icon, emissive_state, alpha = src.alpha)
 		I.AddOverlays(emissive_overlay)
 	return I
 
@@ -52,13 +62,7 @@
 	sprite_sheets = list(
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/fire.dmi'
 	)
-
-/obj/item/clothing/suit/fire/atmos/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
-	var/image/I = ..()
-	if(slot == slot_wear_suit_str)
-		var/image/emissive_overlay = emissive_appearance(mob_icon, "atmos_firesuit-emissive", alpha = src.alpha)
-		I.AddOverlays(emissive_overlay)
-	return I
+	initial_emissive_state = "atmos_firesuit_emissive"
 
 /*
  * Bomb protection

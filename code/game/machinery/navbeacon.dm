@@ -216,7 +216,7 @@
 		t += "<small><A href='byond://?src=[REF(src)];add=1;'>(add new)</A></small><BR>"
 		t+= "<UL></TT>"
 
-	user << browse(t, "window=navbeacon")
+	user << browse(HTML_SKELETON(t), "window=navbeacon")
 	onclose(user, "navbeacon")
 	return
 

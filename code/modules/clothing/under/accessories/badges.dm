@@ -607,6 +607,30 @@
 	icon_state = "passport_hegemony"
 	item_state = "passport_hegemony"
 
+/obj/item/clothing/accessory/badge/passport/goldendeep
+	name = "golden deep passport"
+	desc = "An electronic passport issued to a member of the Golden Deep Collective. This device lists and updates the owner's net worth in real time."
+	icon_state = "passport_goldendeep"
+	item_state = "passport_goldendeep"
+
+/obj/item/clothing/accessory/badge/passport/consortium
+	name = "consortium of hieroaetheria passport"
+	desc = "A passport issued to a citizen of the Consortium of Hieroaetheria. A testament to inclusiveness anywhere its owner takes with it."
+	icon_state = "passport_consortium"
+	item_state = "passport_consortium"
+
+/obj/item/clothing/accessory/badge/passport/dionaunion
+	name = "union of gla'orr passport"
+	desc = "A passport issued to a citizen of the Union of Gla'orr. Considered somewhat of an opposite of the Consortium passport in terms of what travel it enables."
+	icon_state = "passport_dionaunion"
+	item_state = "passport_dionaunion"
+
+/obj/item/clothing/accessory/badge/passport/eternalrepublic
+	name = "eternal republic of the ekane passport"
+	desc = "A passport issued to a citizen of the Eternal Republic of the Ekane, a mark of having committed oneself to the Eternal wholly."
+	icon_state = "passport_eternalrepublic"
+	item_state = "passport_eternalrepublic"
+
 #undef CANT_OPEN
 #undef CLOSED
 #undef OPEN

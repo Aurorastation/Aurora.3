@@ -38,6 +38,14 @@
 /proc/shadow(atom/movable/target)
 	new /atom/movable/afterimage(get_turf(target), target)
 
+/obj/effect/temp_visual/cart_space
+	icon_state = "launchpad_launch"
+	duration = 2 SECONDS
+
+/obj/effect/temp_visual/cart_space/bad
+	icon_state = "launchpad_pull"
+	duration = 2 SECONDS
+
 /obj/effect/constructing_effect
 	icon = 'icons/effects/effects_rfd.dmi'
 	icon_state = ""
@@ -86,3 +94,7 @@
 	icon_state = "singularity_s11"
 	pixel_x = -176
 	pixel_y = -176
+
+/obj/effect/obfuscation
+	icon_state = "1"
+	layer = OBFUSCATION_LAYER

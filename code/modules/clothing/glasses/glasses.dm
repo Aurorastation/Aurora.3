@@ -1195,7 +1195,7 @@ BLIND     // can't see anything
 		eye.color = eye_color
 		AddOverlays(eye)
 
-/obj/item/clothing/glasses/eyepatch/hud/forceMove(atom/newloc)
+/obj/item/clothing/glasses/eyepatch/hud/forceMove(atom/destination)
 	if (!ishuman(loc))
 		return ..()
 

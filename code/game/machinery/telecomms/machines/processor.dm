@@ -13,6 +13,7 @@
 	name = "processor unit"
 	icon_state = "processor"
 	desc = "This machine is used to process large quantities of information."
+	desc_antag = "Attacking this machine will cause communications over its linked frequency(s) to become increasingly garbled."
 	telecomms_type = /obj/machinery/telecomms/processor
 	delay = 5
 	circuitboard = "/obj/item/circuitboard/telecomms/processor"
@@ -22,10 +23,17 @@
 	if(!is_freq_listening(signal))
 		return
 
+	// Processor set to COMPRESS
 	if(!process_mode)
-		signal.data["compression"] = 100 // even more compressed signal
+		// Data scrambling increased from 35-65 to MAXIMUM GIBBERISH
+		signal.data["compression"] = 100
+	// Processor set to UNCOMPRESS
 	else if (signal.data["compression"])
-		signal.data["compression"] = 0 // uncompress subspace signal
+		// Taken any damage? Start gently scrambling things.
+		if(integrity < 100)
+			signal.data["compression"] = rand(0, round((100-integrity)))
+		// Uncompress signal to complete clarity
+		else signal.data["compression"] = 0
 
 	if(istype(machine_from, /obj/machinery/telecomms/bus))
 		relay_direct_information(signal, machine_from) // send the signal back to the machine

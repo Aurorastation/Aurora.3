@@ -1,7 +1,7 @@
 /mob/living/heavy_vehicle/premade/pra_egg
 	name = "\improper P'kus-3 exosuit"
 	desc = "An exosuit developed by the People's Republic of Adhomai for the Division Experimental Exosuit."
-	icon_state = "durand"
+	icon_state = "egg"
 
 	e_head = /obj/item/mech_component/sensors/pra_egg
 	e_body = /obj/item/mech_component/chassis/pra_egg/nuclear
@@ -68,7 +68,7 @@
 
 /mob/living/heavy_vehicle/premade/pra_egg/armored
 	desc = "An exosuit developed by the People's Republic of Adhomai for the Division Experimental Exosuit. This one is a heavily armored version."
-	icon_state = "durand"
+	icon_state = "egg_heavy"
 
 	e_head = /obj/item/mech_component/sensors/pra_egg/armored
 	e_body = /obj/item/mech_component/chassis/pra_egg/armored/nuclear

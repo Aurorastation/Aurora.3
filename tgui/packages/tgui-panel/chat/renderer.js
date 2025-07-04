@@ -110,6 +110,7 @@ class ChatRenderer {
     /** @type {HTMLElement} */
     this.rootNode = null;
     this.queue = [];
+    this.storeQueue = [];
     this.messages = [];
     this.visibleMessages = [];
     this.page = null;
@@ -188,6 +189,8 @@ class ChatRenderer {
       const text = setting.highlightText;
       const highlightColor = setting.highlightColor;
       const highlightWholeMessage = setting.highlightWholeMessage;
+      const backgroundHighlightColor = setting.backgroundHighlightColor;
+      const backgroundHighlightOpacity = setting.backgroundHighlightOpacity;
       const matchWord = setting.matchWord;
       const matchCase = setting.matchCase;
       const allowedRegex = /^[a-z0-9_\-$/^[\s\]\\]+$/gi;
@@ -249,6 +252,8 @@ class ChatRenderer {
         highlightRegex,
         highlightColor,
         highlightWholeMessage,
+        backgroundHighlightColor,
+        backgroundHighlightOpacity,
       });
     });
   }
@@ -326,6 +331,8 @@ class ChatRenderer {
     let node;
     for (let payload of batch) {
       const message = createMessage(payload);
+      let historical = message.stored;
+
       // Combine messages
       const combinable = this.getCombinableMessage(message);
       if (combinable) {
@@ -408,6 +415,14 @@ class ChatRenderer {
               (text) => createHighlightNode(text, parser.highlightColor)
             );
             if (highlighted && parser.highlightWholeMessage) {
+              node.style.setProperty(
+                '--highlight-color',
+                parser.backgroundHighlightColor || 'rgba(255, 221, 68)'
+              );
+              node.style.setProperty(
+                '--highlight-color-opacity',
+                (parser.backgroundHighlightOpacity ?? 10) / 100
+              );
               node.className += ' ChatMessage--highlighted';
             }
           });
@@ -425,6 +440,10 @@ class ChatRenderer {
             imgNode.addEventListener('error', handleImageError);
           }
         }
+      }
+
+      if (!historical) {
+        this.storeQueue.push({ ...message, stored: true });
       }
       // Store the node in the message
       message.node = node;
@@ -572,13 +591,13 @@ class ChatRenderer {
       + '</body>\n'
       + '</html>\n';
     // Create and send a nice blob
-    const blob = new Blob([pageHtml]);
+    const blob = new Blob([pageHtml], { type: 'text/plain' });
     const timestamp = new Date()
       .toISOString()
       .substring(0, 19)
       .replace(/[-:]/g, '')
       .replace('T', '-');
-    window.navigator.msSaveBlob(blob, `ss13-chatlog-${timestamp}.html`);
+    Byond.saveBlob(blob, `ss13-chatlog-${timestamp}.html`, '.html');
   }
 
   clear() {

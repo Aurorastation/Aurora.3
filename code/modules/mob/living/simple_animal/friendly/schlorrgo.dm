@@ -254,7 +254,8 @@
 /mob/living/simple_animal/schlorrgo/Move()
 	if(current_size >= COLOSSAL_SCHLORRGO)
 		return
-	..()
+
+	. = ..()
 
 /mob/living/simple_animal/schlorrgo/attempt_grab(var/mob/living/grabber)
 	if(current_size >= WIDE_SCHLORRGO)

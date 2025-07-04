@@ -159,7 +159,7 @@
 			dat += SPAN_WARNING("The dart cartridge is empty!")
 		dat += " \[<A href='byond://?src=[REF(src)];eject_cart=1'>Eject</A>\]"
 
-	user << browse(dat, "window=dartgun")
+	user << browse(HTML_SKELETON(dat), "window=dartgun")
 	onclose(user, "dartgun", src)
 
 /obj/item/gun/projectile/dartgun/proc/check_beaker_mixing(var/obj/item/B)

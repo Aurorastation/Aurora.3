@@ -7,21 +7,22 @@
 	anchored = TRUE
 	w_class = WEIGHT_CLASS_HUGE
 	var/max_tanks = 20
-	var/oxygen_tanks = 10
-	var/phoron_tanks = 10
-	var/list/held_oxygen_tanks = list()
-	var/list/held_phoron_tanks = list()
+	var/tanks_oxygen = 10
+	var/tanks_phoron = 10
+	var/list/held_tanks_oxygen = list()
+	var/list/held_tanks_phoron = list()
 
 // Oxygen
 /obj/structure/dispenser/oxygen
 	desc = "A simple yet bulky storage device for gas tanks. Has room for up to 10 oxygen tanks."
 	max_tanks = 10
-	phoron_tanks = 0
+	tanks_phoron = 0
 
 // Phoron
 /obj/structure/dispenser/phoron
 	desc = "A simple yet bulky storage device for gas tanks. Has room for up to 10 phoron tanks."
-	oxygen_tanks = 0
+	max_tanks = 10
+	tanks_oxygen = 0
 
 /obj/structure/dispenser/Initialize()
 	. = ..()
@@ -29,14 +30,14 @@
 
 /obj/structure/dispenser/update_icon()
 	ClearOverlays()
-	switch(oxygen_tanks)
+	switch(tanks_oxygen)
 		if(1 to 4)
-			AddOverlays("oxygen-[oxygen_tanks]")
+			AddOverlays("oxygen-[tanks_oxygen]")
 		if(5 to INFINITY)
 			AddOverlays("oxygen-5")
-	switch(phoron_tanks)
+	switch(tanks_phoron)
 		if(1 to 4)
-			AddOverlays("phoron-[phoron_tanks]")
+			AddOverlays("phoron-[tanks_phoron]")
 		if(5 to INFINITY)
 			AddOverlays("phoron-5")
 
@@ -46,35 +47,76 @@
 	..()
 
 /obj/structure/dispenser/attack_hand(mob/user)
-	user.set_machine(src)
-	var/dat = "<br>"
-	dat += "Oxygen Tanks: [oxygen_tanks] - [oxygen_tanks ? "<a href='byond://?src=[REF(src)];oxygen=1'>Dispense</a>" : "empty"]<br>"
-	dat += "Phoron Tanks: [phoron_tanks] - [phoron_tanks ? "<a href='byond://?src=[REF(src)];phoron=1'>Dispense</a>" : "empty"]"
+	add_fingerprint(user)
+	ui_interact(user)
 
-	var/datum/browser/dispenser_win = new(user, "dispenser", capitalize_first_letters(name), 300, 250)
-	dispenser_win.set_content(dat)
-	dispenser_win.open()
+// TGUI functions begin
+/obj/structure/dispenser/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "TankDispenser", src.name, 400, 150)
+		ui.open()
+
+/obj/structure/dispenser/ui_data(mob/user)
+	var/list/data = list()
+
+	data["tanks_oxygen"] = tanks_oxygen
+	data["tanks_phoron"] = tanks_phoron
+
+	return data
+
+/obj/structure/dispenser/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if (.)
+		return
+
+	switch(action)
+		if("dispense_oxygen")
+			if(tanks_oxygen > 0)
+				var/obj/item/tank/oxygen/O
+				if(held_tanks_oxygen.len == tanks_oxygen)
+					O = held_tanks_oxygen[1]
+					held_tanks_oxygen.Remove(O)
+				else
+					O = new /obj/item/tank/oxygen(loc)
+				usr.put_in_hands(O)
+				to_chat(usr, SPAN_NOTICE("You take \the [O] out of \the [src]."))
+				tanks_oxygen--
+				update_icon()
+		if ("dispense_phoron")
+			if(tanks_phoron > 0)
+				var/obj/item/tank/phoron/P
+				if(held_tanks_phoron.len == tanks_phoron)
+					P = held_tanks_phoron[1]
+					held_tanks_phoron.Remove(P)
+				else
+					P = new /obj/item/tank/phoron(loc)
+				usr.put_in_hands(P)
+				to_chat(usr, SPAN_NOTICE("You take \the [P] out of \the [src]."))
+				tanks_phoron--
+				update_icon()
+// TGUI functions end
 
 /obj/structure/dispenser/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/tank/oxygen) || istype(attacking_item, /obj/item/tank/air) || istype(attacking_item, /obj/item/tank/anesthetic))
-		if(oxygen_tanks < max_tanks)
+		if(tanks_oxygen < max_tanks)
 			user.drop_from_inventory(attacking_item, src)
-			held_oxygen_tanks.Add(attacking_item)
-			oxygen_tanks++
+			held_tanks_oxygen.Add(attacking_item)
+			tanks_oxygen++
 			to_chat(user, SPAN_NOTICE("You put \the [attacking_item] into \the [src]."))
-			if(oxygen_tanks < 5)
+			if(tanks_oxygen < 5)
 				update_icon()
 		else
 			to_chat(user, SPAN_WARNING("\The [src] is full."))
 		updateUsrDialog()
 		return
 	if(istype(attacking_item, /obj/item/tank/phoron))
-		if(phoron_tanks < max_tanks)
+		if(tanks_phoron < max_tanks)
 			user.drop_from_inventory(attacking_item, src)
-			held_oxygen_tanks.Add(attacking_item)
-			phoron_tanks++
+			held_tanks_oxygen.Add(attacking_item)
+			tanks_phoron++
 			to_chat(user, SPAN_NOTICE("You put \the [attacking_item] into \the [src]."))
-			if(oxygen_tanks < 6)
+			if(tanks_oxygen < 6)
 				update_icon()
 		else
 			to_chat(user, SPAN_WARNING("\The [src] is full."))
@@ -88,37 +130,3 @@
 			to_chat(user, SPAN_NOTICE("You wrench \the [src] into place."))
 			anchored = TRUE
 		return
-
-/obj/structure/dispenser/Topic(href, href_list)
-	if(usr.stat || usr.restrained())
-		return
-	if(Adjacent(usr))
-		usr.set_machine(src)
-		if(href_list[GAS_OXYGEN])
-			if(oxygen_tanks > 0)
-				var/obj/item/tank/oxygen/O
-				if(held_oxygen_tanks.len == oxygen_tanks)
-					O = held_oxygen_tanks[1]
-					held_oxygen_tanks.Remove(O)
-				else
-					O = new /obj/item/tank/oxygen(loc)
-				usr.put_in_hands(O)
-				to_chat(usr, SPAN_NOTICE("You take \the [O] out of \the [src]."))
-				oxygen_tanks--
-				update_icon()
-		if(href_list[GAS_PHORON])
-			if(phoron_tanks > 0)
-				var/obj/item/tank/phoron/P
-				if(held_phoron_tanks.len == phoron_tanks)
-					P = held_phoron_tanks[1]
-					held_phoron_tanks.Remove(P)
-				else
-					P = new /obj/item/tank/phoron(loc)
-				usr.put_in_hands(P)
-				to_chat(usr, SPAN_NOTICE("You take \the [P] out of \the [src]."))
-				phoron_tanks--
-				update_icon()
-		add_fingerprint(usr)
-		updateUsrDialog()
-	else
-		usr << browse(null, "window=dispenser")

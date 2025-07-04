@@ -226,6 +226,6 @@
 	if(dat)
 		last_data = dat
 		dat += "<br><br>\[<a href='byond://?src=[REF(src)];print=1'>print report</a>\]"
-		user << browse(dat,"window=plant_analyzer")
+		user << browse(HTML_SKELETON(dat),"window=plant_analyzer")
 
 	return

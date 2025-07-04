@@ -8,7 +8,12 @@
 /datum/uplink_item/item/ammo/mc9mm
 	name = "9mm Magazine"
 	path = /obj/item/ammo_magazine/mc9mm
-	desc = "Contains ten rounds of 9mm bullets."
+	desc = "Contains twelve rounds of 9mm bullets."
+
+/datum/uplink_item/item/ammo/mc9mm/polymer
+	name = "AP 9mm Magazine"
+	path = /obj/item/ammo_magazine/mc9mm/polymer
+	desc = "Contains twelve rounds of armor-piercing 9mm bullets."
 
 /datum/uplink_item/item/ammo/darts
 	name = "Chemical Darts"
@@ -18,7 +23,7 @@
 /datum/uplink_item/item/ammo/fourty_five
 	name = ".45 Pistol Magazine"
 	path = /obj/item/ammo_magazine/c45m
-	desc = "Contains seven rounds of .45 bullets."
+	desc = "Contains nine rounds of .45 bullets."
 
 /datum/uplink_item/item/ammo/submachinegundrum
 	name = "Submachine Gun Drum Magazine (.45)"

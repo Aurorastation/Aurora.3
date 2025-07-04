@@ -184,6 +184,11 @@
 	icon_state = "pmc_alt_phys"
 	item_state = "pmc_alt_phys"
 
+// Hephaestus doesn't have medical jobs, but off-ships use them
+/obj/item/clothing/under/rank/medical/heph
+	icon_state = "heph_phys"
+	item_state = "heph_phys"
+
 // Intern
 
 /obj/item/clothing/under/rank/medical/intern

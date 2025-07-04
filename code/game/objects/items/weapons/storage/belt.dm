@@ -118,7 +118,10 @@
 		/obj/item/device/debugger,
 		/obj/item/device/eftpos,
 		/obj/item/tape_roll,
-		/obj/item/device/geiger
+		/obj/item/device/geiger,
+		/obj/item/clothing/gloves/yellow,
+		/obj/item/clothing/gloves/yellow/specialu,
+		/obj/item/clothing/gloves/yellow/specialt
 	)
 	content_overlays = TRUE
 
@@ -147,11 +150,12 @@
 
 /obj/item/storage/belt/utility/very_full
 	starts_with = list(
+		/obj/item/screwdriver = 1,
+		/obj/item/wrench = 1,
 		/obj/item/weldingtool/largetank = 1,
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters/toolbelt = 1,
 		/obj/item/stack/cable_coil/random = 1,
-		/obj/item/powerdrill = 1,
 		/obj/item/device/multitool = 1,
 		/obj/item/device/radio = 1
 	)
@@ -332,6 +336,7 @@
 		/obj/item/melee,
 		/obj/item/crowbar,
 		/obj/item/gun/projectile/sec,
+		/obj/item/gun/energy/repeater/pistol,
 		/obj/item/gun/energy/disruptorpistol,
 		/obj/item/taperoll/police,
 		/obj/item/material/knife/trench,
@@ -451,7 +456,8 @@
 		/obj/item/stack/telecrystal,
 		/obj/item/device/radio,
 		/obj/item/shield/riot/tact,
-		/obj/item/material/knife/tacknife
+		/obj/item/material/knife/tacknife,
+		/obj/item/cell/hydrogen
 		)
 
 /obj/item/storage/belt/military/syndicate

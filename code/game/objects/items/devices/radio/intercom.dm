@@ -415,9 +415,9 @@ pixel_x = 8;
 	set_on(has_power) // has_power is given by our listener machinery
 	update_icon()
 
-/obj/item/device/radio/intercom/forceMove(atom/dest)
-	power_interface.forceMove(dest)
-	..(dest)
+/obj/item/device/radio/intercom/forceMove(atom/destination)
+	power_interface.forceMove(destination)
+	. = ..()
 
 /obj/item/device/radio/intercom/update_icon()
 	ClearOverlays()
