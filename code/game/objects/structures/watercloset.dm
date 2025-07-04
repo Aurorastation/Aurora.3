@@ -311,7 +311,7 @@
 	icon = 'icons/obj/watercloset.dmi'
 	icon_state = "sink"
 	desc = "A sink used for washing one's hands and face."
-	desc_info = "Use HELP intent to fill a container in your hand from this, and use any other intent to empty the container into this. \
+	desc_info = "Use HELP intent to fill a container in your hand from this. Use DISARM intent to rinse an empty container. Use any other intent to empty the container into this. \
 	You can right-click this and change the amount transferred per use."
 	anchored = 1
 	var/busy = 0 	//Something's being washed at the moment
@@ -388,6 +388,20 @@
 			RG.reagents.add_reagent(/singleton/reagent/water, min(RG.volume - RG.reagents.total_volume, amount_per_transfer_from_this))
 			user.visible_message("<b>[user]</b> fills \a [RG] using \the [src].", SPAN_NOTICE("You fill \a [RG] using \the [src]."))
 			playsound(loc, 'sound/effects/sink.ogg', 75, 1)
+			return
+		if(user.a_intent == I_DISARM)
+			if(!RG.reagents.total_volume)
+				busy = TRUE
+				user.visible_message(SPAN_NOTICE("[user] starts washing \a [RG] in \the [src]."))
+				if(!do_after(user, 25, src))
+					playsound(loc, 'sound/effects/sink.ogg', 75, TRUE)
+					busy = FALSE
+					return TRUE
+				busy = FALSE
+				user.visible_message(SPAN_NOTICE("[user] finishes washing \a [RG] in \the [src]."))
+			else
+				to_chat(user, SPAN_WARNING("\The [RG] still has something in it."))
+				return
 		else
 			if(!RG.reagents.total_volume)
 				to_chat(usr, SPAN_WARNING("\The [RG] is already empty."))
