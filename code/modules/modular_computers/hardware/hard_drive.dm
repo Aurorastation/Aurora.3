@@ -159,17 +159,6 @@
 	QDEL_LIST(stored_files)
 	return ..()
 
-/obj/item/computer_hardware/hard_drive/Initialize(mapload)
-	. = ..()
-	install_default_programs()
-	if(mapload && prob(5))
-		var/datum/docs_document/file = SSdocs.pick_document_by_tag(SSDOCS_MEDIUM_FILE)
-		if(!istype(file))
-			log_subsystem_documents("pick_document_by_tag returned null file!")
-		else
-			var/datum/computer_file/data/F = SSdocs.create_file(file)
-			store_file(F)
-
 /obj/item/computer_hardware/hard_drive/proc/reset_drive()
 	for(var/datum/computer_file/F in stored_files)
 		remove_file(F)
