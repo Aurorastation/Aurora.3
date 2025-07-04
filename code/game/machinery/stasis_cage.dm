@@ -36,6 +36,10 @@
 	 */
 	var/obj/item/cell/cell = null
 
+	component_hint_cap = "Upgraded <b>capacitors</b> will reduce power usage."
+
+	parts_power_mgmt = FALSE
+
 
 /obj/machinery/stasis_cage/Initialize()
 	. = ..()

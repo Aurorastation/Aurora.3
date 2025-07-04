@@ -341,7 +341,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 				else
 					icon_state = basestate
 			else if(update_state & UPDATE_OPENED2)
-				icon_state = "[basestate]-nocover"
+				icon_state = "apcmaint" //needs missing "[basestate]-nocover" icon restored
 		else if(update_state & UPDATE_BROKE)
 			icon_state = "apc-b"
 		else if(update_state & UPDATE_BLUESCREEN)
