@@ -2809,7 +2809,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/closet,
-/obj/item/clothing/head/padded{
+/obj/item/clothing/head/tanker{
 	color = "#BCA77E"
 	},
 /obj/item/clothing/head/beanie{
@@ -2933,7 +2933,7 @@
 	req_one_access = null
 	},
 /obj/structure/closet,
-/obj/item/clothing/head/padded{
+/obj/item/clothing/head/tanker{
 	color = "#BCA77E"
 	},
 /obj/item/clothing/head/beanie{
@@ -3133,7 +3133,7 @@
 	},
 /obj/structure/closet/cabinet,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/clothing/head/padded{
+/obj/item/clothing/head/tanker{
 	color = "#BCA77E"
 	},
 /obj/item/clothing/head/beanie{

@@ -382,21 +382,6 @@
 	coat["dominian great coat, black"] = /obj/item/clothing/suit/storage/dominia/black
 	gear_tweaks += new /datum/gear_tweak/path(coat)
 
-/datum/gear/suit/dominia_consular
-	display_name = "dominian consular officer coat selection"
-	description = "A selection of coats belonging to the Diplomatic Service."
-	path = /obj/item/clothing/suit/storage/dominia/consular
-	allowed_roles = list("Consular Officer")
-	flags = GEAR_HAS_DESC_SELECTION
-	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
-
-/datum/gear/suit/dominia_consular/New()
-	..()
-	var/list/coat = list()
-	coat["dominian consular's greatcoat"] = /obj/item/clothing/suit/storage/dominia/consular
-	coat["dominian consular's coat"] = /obj/item/clothing/suit/storage/dominia/consular/coat
-	gear_tweaks += new /datum/gear_tweak/path(coat)
-
 /datum/gear/suit/fisanduhian_bomber
 	display_name = "fisanduhian bomber jacket selection"
 	description = "A selection of Fisanduhian jackets."
