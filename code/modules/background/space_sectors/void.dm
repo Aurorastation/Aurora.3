@@ -15,3 +15,7 @@
 	starlight_color = "#000000"
 	starlight_power = 0
 	starlight_range = 0
+
+/datum/space_sector/lemurian_sea/far
+	name = SECTOR_LEMURIAN_SEA_FAR
+	ccia_link = FALSE

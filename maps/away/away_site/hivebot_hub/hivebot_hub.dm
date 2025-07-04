@@ -8,6 +8,7 @@
 	suffix = "hivebot_hub.dmm"
 
 	sectors = ALL_POSSIBLE_SECTORS
+	sectors_blacklist = list(ALL_UNCHARTED_SECTORS)
 	spawn_weight = 1
 	spawn_cost = 1
 

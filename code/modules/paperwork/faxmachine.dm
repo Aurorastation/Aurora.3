@@ -274,6 +274,11 @@ GLOBAL_LIST_EMPTY(admin_departments)
 
 	use_power_oneoff(200)
 
+	if(SSatlas.current_sector.ccia_link == FALSE)
+		if(destination in GLOB.admin_departments)
+			visible_message("[src] beeps, \"Unable to connect to route to [SSatlas.current_map.boss_name].\"")
+			return
+
 	var/obj/item/rcvdcopy
 	if (istype(copy_item, /obj/item/paper))
 		rcvdcopy = copy(src, copy_item, FALSE, toner = toner)

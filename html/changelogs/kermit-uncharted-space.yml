@@ -1,0 +1,11 @@
+author: kermit
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds the Crescent Expanse region. It's a big region, with an east (Sol/Nralakk presence), west (Sol/CoC presence) and far sector (uncharted!)."
+  - rscadd: "Also adds an uncharted Lemurian Sea variant."
+  - rscadd: "Adds the ccia_link variable which can be used to stop outbound faxes to the CCIA. For uncharted sectors, such as the Crescent Expanse's far sector."
+  - rscadd: "Adds low supply variant of most vending machines and dispensers for later use. Ominous."
+  - rscdel: "Removes the guaranteed spawn flag from the sensors relay, deferring to the usual whitelist/blacklist system."
+  - rscdel: "Burzsia is no longer a 'dangerous' system following completion of relief efforts."

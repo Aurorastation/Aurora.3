@@ -67,6 +67,10 @@
 	for(var/i = 0, i < 8, i++)
 		new /obj/item/reagent_containers/food/snacks/meat(src)
 
+/obj/structure/closet/secure_closet/freezer/meat/low_supply/fill()
+	for(var/i = 0, i < 4, i++)
+		new /obj/item/reagent_containers/food/snacks/meat(src)
+
 // Grilling Meat Freezer
 // Enough meat to do 10 grill batches.
 /obj/structure/closet/secure_closet/freezer/meat/grill/fill()
@@ -92,11 +96,14 @@
 	desc = "A white freezer labelled \"Chicken and Fish\"."
 
 /obj/structure/closet/secure_closet/freezer/chicken_and_fish/fill()
-	// 6 Chicken Fillets
+	// 6 Chicken and Fish Fillets
 	for(var/i = 0, i < 6, i++)
 		new /obj/item/reagent_containers/food/snacks/meat/chicken(src)
-	// 6 Fish Fillets
-	for(var/i = 0, i < 6, i++)
+		new /obj/item/reagent_containers/food/snacks/fish/fishfillet(src)
+
+/obj/structure/closet/secure_closet/freezer/chicken_and_fish/low_supply/fill()
+	for(var/i = 0, i < 3, i++)
+		new /obj/item/reagent_containers/food/snacks/meat/chicken(src)
 		new /obj/item/reagent_containers/food/snacks/fish/fishfillet(src)
 
 // Empty Biohazard Freezer

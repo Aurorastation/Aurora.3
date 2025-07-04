@@ -65,6 +65,9 @@
 	/// This variable holds the string of time until port visit. Will be "in 1 day", "in 2 days", "today", etc. Do not edit manually.
 	var/next_port_visit_string
 
+	/// Does this sector permit communication with Central Command? Reserved for remote/uncharted sectors. The EBS system is unaffected as it is necessary for certain CCIA functions (eg. scuttling).
+	var/ccia_link = TRUE
+
 	//vars used by the meteor random event
 
 	var/list/meteors_minor = list(
