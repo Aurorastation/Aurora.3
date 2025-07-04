@@ -18,6 +18,16 @@
 	. += ..()
 	. += "It [anchored ? "is" : "could be"] anchored in place with a couple of <b>bolts</b>."
 
+/obj/machinery/cell_charger/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	if(distance > 5)
+		return
+
+	if(charging)
+		. += "There's \a [charging.name] in the charger. Current charge: [charging.percent()]%."
+	else
+		. += SPAN_WARNING("The charger is empty.")
 /obj/machinery/cell_charger/proc/update_charge_level()
 	if(!charging)
 		charge_level = -1
@@ -42,16 +52,6 @@
 	update_charge_level()
 	AddOverlays("cell-o2")
 	AddOverlays("[icon_state]-o[charge_level]")
-
-/obj/machinery/cell_charger/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance > 5)
-		return
-
-	if(charging)
-		. += "There's \a [charging.name] in the charger. Current charge: [charging.percent()]%."
-	else
-		. += SPAN_WARNING("The charger is empty.")
 
 /obj/machinery/cell_charger/attackby(obj/item/attacking_item, mob/user)
 	if(stat & BROKEN)
