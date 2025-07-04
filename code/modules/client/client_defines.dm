@@ -29,6 +29,8 @@
 	var/discord_admin //IRC- no more IRC, K? Discord admin that spoke with them last.
 	var/mute_discord = 0
 
+	var/ckey_is_external = FALSE // Will be set to TRUE if the user is using a "fake" ckey from an external source, like the forums.
+
 // Database
 	var/player_age = "Requires database" // So admins know why it isn't working - Used to determine how old the account is - in days.
 	var/related_accounts_ip = "Requires database" //So admins know why it isn't working - Used to determine what other accounts previously logged in from this ip
