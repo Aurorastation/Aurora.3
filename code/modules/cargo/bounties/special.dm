@@ -24,8 +24,8 @@
 /datum/bounty/item/phoron_sheet
 	name = "Phoron Sheets"
 	description = "Shipment of Phoron is considered to be a key part of the SCCV Horizon's operations. This bounty should always be prioritized."
-	reward_low = 2600
-	reward_high = 3750
+	reward_low = 2000
+	reward_high = 4000
 	required_count = 40
 	random_count = 10
 	wanted_types = list(/obj/item/stack/material/phoron)
@@ -45,8 +45,8 @@
 /datum/bounty/item/solar_array
 	name = "Assembled Solar Panels"
 	description = "Owing to the phoron shortage continuing for over a year, longer than projected, we have decided to use solar arrays to power various facilities across our region of influence."
-	reward_low = 8000
-	reward_high = 10000
+	reward_low = 280
+	reward_high = 400
 	required_count = 6
 	random_count = 2 // 4 to 8
 	wanted_types = list(/obj/machinery/power/solar)
