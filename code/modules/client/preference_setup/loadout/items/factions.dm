@@ -144,8 +144,8 @@
 	zavodskoi_headwear["zavodskoi cap, alt"] = /obj/item/clothing/head/softcap/zavod/alt
 	zavodskoi_headwear["zavodskoi woolen hat"] = /obj/item/clothing/head/wool/zavod
 	zavodskoi_headwear["zavodskoi woolen hat, alt"] = /obj/item/clothing/head/wool/zavod/alt
-	zavodskoi_headwear["zavodskoi sidecap"] = /obj/item/clothing/head/sidecap/zavod
-	zavodskoi_headwear["zavodskoi sidecap, alt"] = /obj/item/clothing/head/sidecap/zavod/alt
+	zavodskoi_headwear["zavodskoi side cap"] = /obj/item/clothing/head/sidecap/zavod
+	zavodskoi_headwear["zavodskoi side cap, alt"] = /obj/item/clothing/head/sidecap/zavod/alt
 	gear_tweaks += new /datum/gear_tweak/path(zavodskoi_headwear)
 
 /datum/gear/faction/zavod_sec_uniforms
@@ -846,11 +846,11 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 /datum/gear/faction/scc_beret/New()
 	..()
 	var/list/scc_headwear = list()
-	scc_headwear["SCC beret"] = /obj/item/clothing/head/beret/scc
-	scc_headwear["SCC woolen hat"] = /obj/item/clothing/head/wool/scc
-	scc_headwear["SCC woolen hat, alt"] = /obj/item/clothing/head/wool/scc/alt
-	scc_headwear["SCC bridge crew hat"] = /obj/item/clothing/head/caphat/bridge_crew
-	scc_headwear["SCC bridge crew hat, alt"] = /obj/item/clothing/head/caphat/bridge_crew/alt
+	scc_headwear["beret, SCC"] = /obj/item/clothing/head/beret/scc
+	scc_headwear["woolen hat, SCC"] = /obj/item/clothing/head/wool/scc
+	scc_headwear["woolen hat, SCC, alt"] = /obj/item/clothing/head/wool/scc/alt
+	scc_headwear["bridge crew hat, SCC"] = /obj/item/clothing/head/caphat/bridge_crew
+	scc_headwear["bridge crew hat, SCC, alt"] = /obj/item/clothing/head/caphat/bridge_crew/alt
 	gear_tweaks += new /datum/gear_tweak/path(scc_headwear)
 
 /datum/gear/faction/scc_notepad

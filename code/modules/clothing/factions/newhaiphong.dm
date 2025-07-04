@@ -17,7 +17,7 @@
 	item_state = "aodaicrop"
 
 /obj/item/clothing/head/nonla
-	name = "conical hat"
+	name = "asian conical hat"
 	desc = "A conical straw hat, also known as a non la, enjoyed particularly by residents of New Hai Phong, to protect the head from sweltering suns and heavy rains."
 	icon = 'icons/clothing/under/uniforms/newhaiphong.dmi'
 	icon_state = "nonla"

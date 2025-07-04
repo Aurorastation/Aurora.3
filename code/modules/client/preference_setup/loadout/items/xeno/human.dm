@@ -100,18 +100,30 @@
 	flags = GEAR_HAS_DESC_SELECTION
 	origin_restriction = list(/singleton/origin_item/origin/coa_spacer)
 
-/datum/gear/head/human
-	display_name = "human hat selection"
+/datum/gear/head/human/konyanger
+	display_name = "konyanger hat selection"
 	sort_category = "Xenowear - Human"
+	path = /obj/item/clothing/head/nonla
+	origin_restriction = list(/singleton/origin_item/origin/konyang, /singleton/origin_item/origin/ipc_konyang)
 
-/datum/gear/head/human/New()
+/datum/gear/head/human/konyanger/New()
 	..()
 	var/list/hats = list()
-	hats["hat, conical"] = /obj/item/clothing/head/nonla
+	hats["hat, asian conical"] = /obj/item/clothing/head/nonla
 	hats["hat, gat"] = /obj/item/clothing/head/konyang
-	hats["hat, himean cap"] = /obj/item/clothing/head/softcap/himeo
 	hats["hat, hachimaki"] = /obj/item/clothing/head/hachimaki
-	hats["hat, fisanduhian ushanka"] = /obj/item/clothing/head/ushanka/dominia
+
+/datum/gear/head/human/himeo
+	display_name = "himean cap"
+	sort_category = "Xenowear - Human"
+	path = /obj/item/clothing/head/softcap/himeo
+	origin_restriction = list(/singleton/origin_item/origin/himeo, /singleton/origin_item/origin/ipc_himeo, /singleton/origin_item/origin/free_council)
+
+/datum/gear/head/human/fisanduhian_ushanka
+	display_name = "fisanduhian ushanka"
+	sort_category = "Xenowear - Human"
+	path = /obj/item/clothing/head/ushanka/dominia
+	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/head/vysoka
 	display_name = "vysokan hat selection"
@@ -132,7 +144,7 @@
 	vysoka["joku cap, purple"] = /obj/item/clothing/head/vysoka/joku/purple
 	vysoka["joku cap, blue"] = /obj/item/clothing/head/vysoka/joku/blue
 	vysoka["joku cap, red"] = /obj/item/clothing/head/vysoka/joku/red
-	vysoka["pin, dainshu feather"] = /obj/item/clothing/head/pin/dainshu
+	vysoka["hair pin, dainshu feather"] = /obj/item/clothing/head/pin/dainshu
 	gear_tweaks += new /datum/gear_tweak/path(vysoka)
 
 /datum/gear/head/gadpathur
@@ -146,10 +158,17 @@
 /datum/gear/head/gadpathur/New()
 	..()
 	var/list/gadpathur = list()
-	gadpathur["gadpathurian sidecap"] = /obj/item/clothing/head/gadpathur
+	gadpathur["gadpathurian side cap"] = /obj/item/clothing/head/gadpathur
 	gadpathur["gadpathurian beret"] = /obj/item/clothing/head/beret/gadpathur
 	gadpathur["gadpathurian engineer beret"] = /obj/item/clothing/head/beret/gadpathur/engineer
 	gadpathur["gadpathurian medical beret"] = /obj/item/clothing/head/beret/gadpathur/medical
 	gadpathur["gadpathurian turban"] = /obj/item/clothing/head/turban/gadpathur
 	gadpathur["gadpathurian patrol cap"] = /obj/item/clothing/head/ushanka/gadpathur
 	gear_tweaks += new /datum/gear_tweak/path(gadpathur)
+
+/datum/gear/uniform/dominia_consular
+	display_name = "dominian consular dress"
+	description = "A Dominian dress belonging to the Diplomatic Service."
+	path = /obj/item/clothing/under/dominia/consular/dress
+	allowed_roles = list("Consular Officer")
+

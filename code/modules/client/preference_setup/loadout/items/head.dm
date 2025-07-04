@@ -236,10 +236,10 @@ ABSTRACT_TYPE(/datum/gear/head)
 /datum/gear/head/warden/New()
 	..()
 	var/list/wardenhead = list()
-	wardenhead["warden hat, zavod"] = /obj/item/clothing/head/warden/zavod
-	wardenhead["warden hat, zavod alt"] = /obj/item/clothing/head/warden/zavod/alt
-	wardenhead["warden hat, idris"] = /obj/item/clothing/head/warden/idris
-	wardenhead["warden hat, pmc"] = /obj/item/clothing/head/warden/pmc
+	wardenhead["warden hat, Zavodskoi Interstellar"] = /obj/item/clothing/head/warden/zavod
+	wardenhead["warden hat, Zavodskoi Interstellar, alt"] = /obj/item/clothing/head/warden/zavod/alt
+	wardenhead["warden hat, Idris Incorporated"] = /obj/item/clothing/head/warden/idris
+	wardenhead["warden hat, Private Military Contracting Group"] = /obj/item/clothing/head/warden/pmc
 	wardenhead["warden beret"] = /obj/item/clothing/head/beret/security/warden
 	gear_tweaks += new /datum/gear_tweak/path(wardenhead)
 
@@ -285,7 +285,7 @@ ABSTRACT_TYPE(/datum/gear/head)
 	hats_colourable["hat, softcap"] = /obj/item/clothing/head/softcap/colorable
 	hats_colourable["hat, softcap with accent"] = /obj/item/clothing/head/softcap/colorable/accent
 	hats_colourable["hat, newsboy"] = /obj/item/clothing/head/softcap/newsboy
-	hats_colourable["hat, ear-flap cap"] = /obj/item/clothing/head/ushanka/cap
+	hats_colourable["hat, visegradi ear-flap cap"] = /obj/item/clothing/head/ushanka/cap
 	hats_colourable["hat, beret"] = /obj/item/clothing/head/beret/colorable
 	hats_colourable["hat, peaked beret"] = /obj/item/clothing/head/beret/peaked/colorable
 	hats_colourable["hat, side cap"] = /obj/item/clothing/head/sidecap

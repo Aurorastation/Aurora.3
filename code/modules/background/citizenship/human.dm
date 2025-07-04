@@ -355,19 +355,10 @@
 
 	head = /obj/item/clothing/head/dominia
 	suit = /obj/item/clothing/suit/storage/dominia/consular/coat
+	uniform = /obj/item/clothing/under/dominia/consular
 
 	backpack_contents = list(
 		/obj/item/storage/box/dominia_honor = 1,
 		/obj/item/gun/projectile/pistol/dominia = 1,
 		/obj/item/clothing/suit/storage/dominia/consular/coat = 1
 	)
-
-/obj/outfit/job/representative/consular/dominia/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	if(H)
-		if(H.gender in list(FEMALE))
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/dominia/consular/dress(H), slot_w_uniform)
-		else
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/dominia/consular(H), slot_w_uniform)
-		if(!visualsOnly)
-			addtimer(CALLBACK(src, .proc/send_representative_mission, H), 5 MINUTES)
-	return TRUE
