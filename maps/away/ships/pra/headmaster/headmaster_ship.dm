@@ -12,8 +12,6 @@
 		list(ZTRAIT_AWAY = TRUE, ZTRAIT_UP = FALSE, ZTRAIT_DOWN = TRUE),
 	)
 
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
-
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL)
 	spawn_weight_sector_dependent = list(SECTOR_SRANDMARR = 2, SECTOR_NRRAHRAHUL = 2, SECTOR_BADLANDS = 0.5)
 	spawn_weight = 1
