@@ -369,7 +369,6 @@
 	uniform = /obj/item/clothing/under/rank/operations_manager
 	shoes = /obj/item/clothing/shoes/sneakers/brown
 	id = /obj/item/card/id/silver
-	l_hand = /obj/item/clipboard
 	glasses = /obj/item/clothing/glasses/sunglasses
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/supply/om
