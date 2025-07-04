@@ -21,6 +21,7 @@
 	spawn_cost = 1
 	spawn_weight = 0 // so it does not spawn as ordinary away site
 	sectors = list(ALL_POSSIBLE_SECTORS)
+	sectors_blacklist = list(ALL_UNCHARTED_SECTORS) // has a chance to spawn canon, so removing
 	unit_test_groups = list(1)
 
 /singleton/submap_archetype/enviro_testing_facility
