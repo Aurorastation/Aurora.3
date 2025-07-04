@@ -170,13 +170,12 @@
 
 	//Set species_restricted list
 	switch(target_species)
-		if(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)	//humanoid bodytypes
-			species_restricted = list(
-				BODYTYPE_HUMAN,
-				BODYTYPE_SKRELL,
-				BODYTYPE_IPC_ZENGHU,
-				BODYTYPE_IPC_BISHOP
-			) //skrell/humans like to share with IPCs
+		if(BODYTYPE_HUMAN, BODYTYPE_SKRELL) // Humans and Skrell can share!
+			species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL)
+
+		if(BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_INDUSTRIAL) // All non-shell IPCs use Machine refittings.
+			species_restricted = list(BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_INDUSTRIAL)
+
 		else
 			species_restricted = list(target_species)
 
@@ -197,8 +196,8 @@
 
 	//Set species_restricted list
 	switch(target_species)
-		if(BODYTYPE_SKRELL, BODYTYPE_HUMAN)
-			species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_IPC) // skrell helmets like to share
+		if(BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_INDUSTRIAL) // All non-shell IPCs use Machine refittings.
+			species_restricted = list(BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_INDUSTRIAL)
 
 		else
 			species_restricted = list(target_species)
@@ -221,19 +220,24 @@
 	var/species_short = GLOB.all_species_bodytypes[target_species]
 	if(!(species_short in icon_supported_species_tags) && target_species != BODYTYPE_HUMAN) //if it's empty it's for human, but otherwise it needs to be in there
 		return
+
 	switch(target_species)
-		if(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL) //humanoid bodies
-			species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU)
-		if(BODYTYPE_IPC) //ipc suits can fit on all ipcs
+		if(BODYTYPE_HUMAN, BODYTYPE_SKRELL) //humanoid bodies
+			species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL)
+
+		if(BODYTYPE_IPC, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL) // All non-shell IPCs use Machine refittings.
 			species_restricted = list(BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU)
+
 		else
 			species_restricted = list(target_species)
+
 	var/list/all_icon_states = icon_states(icon)
 	if(!("[UNDERSCORE_OR_NULL(species_short)][icon_state][WORN_LHAND]" in all_icon_states)) //if no left hand, probably no right hand
 		item_state_slots = list( //done in order to prevent inhands from being overridden here
 			slot_r_hand_str = item_state,
 			slot_l_hand_str = item_state
 		)
+
 	if("[UNDERSCORE_OR_NULL(species_short)][icon_state]" in all_icon_states)
 		icon_state = "[UNDERSCORE_OR_NULL(species_short)][icon_state]"
 		item_state = icon_state
@@ -241,20 +245,24 @@
 /obj/item/clothing/head/helmet/refit_contained(var/target_species)
 	if(!species_restricted || !contained_sprite)
 		return
+
 	var/species_short = GLOB.all_species_bodytypes[target_species]
-	if(species_short && !(species_short in icon_supported_species_tags)) //if it's empty it's for human, but otherwise it needs to be in there
+	if(species_short && !(species_short in icon_supported_species_tags) && target_species != BODYTYPE_HUMAN) //if it's empty it's for human, but otherwise it needs to be in there
 		return
+
 	switch(target_species)
-		if(BODYTYPE_HUMAN, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL)
-			species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU)
+		if(BODYTYPE_IPC, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL) // All non-shell IPCs use Machine refittings.
+			species_restricted = list(BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU)
 		else
 			species_restricted = list(target_species)
+
 	var/list/all_icon_states = icon_states(icon)
 	if(!("[UNDERSCORE_OR_NULL(species_short)][icon_state][WORN_LHAND]" in all_icon_states)) //if no left hand, probably no right hand
 		item_state_slots = list( //done in order to prevent inhands from being overridden here
 			slot_r_hand_str = item_state,
 			slot_l_hand_str = item_state
 		)
+
 	if("[UNDERSCORE_OR_NULL(species_short)][icon_state]" in all_icon_states)
 		icon_state = "[UNDERSCORE_OR_NULL(species_short)][icon_state]"
 		item_state = icon_state
