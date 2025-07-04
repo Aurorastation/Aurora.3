@@ -101,3 +101,11 @@
   hazelmouse, MattAtlas:
   - rscadd: Dionae now have access to an ability granting them magboot-like functionality.
   - code_imp: Implemented some miscellaneous documentation changes to Diona code.
+2025-07-04:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Object examine text for upgrade components now correctly displays as available.
+  - bugfix: Missing RPED component detection text restored.
+  - rscdel: Remove component power draw multiplier factor.
+  SleepyGemmy:
+  - bugfix: Fixed wallets having a mob overlay.
+  - bugfix: Fixed lanyards having a duplicate overlay.
