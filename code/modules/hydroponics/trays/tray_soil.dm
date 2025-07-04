@@ -6,9 +6,12 @@
 	use_power = POWER_USE_OFF
 	mechanical = 0
 	tray_light = 0
+	/// Water level begins at zero.
 	waterlevel = 0
-	nutrilevel = 0 // So they don't spawn with water or nutrient when built. Soil's hard mode, baby.
-	maxWeedLevel = 10 // Retains the ability for soil to grow weeds, as it should.
+	/// Nutrient level begins at zero. Soil's hard mode, baby.
+	nutrilevel = 0
+	/// Retains the ability for soil to grow weeds, as it should.
+	maxWeedLevel = 10
 
 /obj/machinery/portable_atmospherics/hydroponics/soil/attackby(obj/item/attacking_item, mob/user)
 	//A special case for if the container has only water, for manual watering with buckets
@@ -36,14 +39,9 @@
 	else
 		..()
 
-/obj/machinery/portable_atmospherics/hydroponics/soil/New()
-	..()
-	verbs -= /obj/machinery/portable_atmospherics/hydroponics/verb/close_lid_verb
-	verbs -= /obj/machinery/portable_atmospherics/hydroponics/verb/setlight
-
-// Holder for vine plants.
-// Icons for plants are generated as overlays, so setting it to invisible wouldn't work.
-// Hence using a blank icon.
+/* Holder for vine plants.
+Icons for plants are generated as overlays, so setting it to invisible wouldn't work.
+Hence using a blank icon. */
 /obj/machinery/portable_atmospherics/hydroponics/soil/invisible
 	name = "plant"
 	desc = null
