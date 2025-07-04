@@ -54,16 +54,17 @@
 /obj/machinery/recharge_station/feedback_hints(mob/user, distance, is_adjacent)
 	. = list()
 	. += ..()
-	desc += "Uses a dedicated internal power cell to deliver <b>[charging_power] W</b> when in use."
-	desc += "The charge meter reads: <b>[round(chargepercentage())]%</b>."
+	var/charging_power_kw = round(charging_power / 1000, 0.1)
+	. += "Uses a dedicated power supply to deliver <b>[charging_power_kw] kW</b> when in use."
+	. += "The charge meter reads: <b>[round(chargepercentage())]%</b>."
 	if(weld_rate)
-		desc += "It is capable of repairing shipbounds' structural damage."
+		. += "It is capable of repairing shipbounds' structural damage."
 	else
-		desc += SPAN_ALERT("It has not been upgraded to repair shipbounds' structural damage.")
+		. += SPAN_ALERT("It has not been upgraded to repair shipbounds' structural damage.")
 	if(wire_rate)
-		desc += "It is capable of repairing shipbounds' burn damage."
+		. += "It is capable of repairing shipbounds' burn damage."
 	else
-		desc += SPAN_ALERT("It has not been upgraded to repair shipbounds' burn damage.")
+		. += SPAN_ALERT("It has not been upgraded to repair shipbounds' burn damage.")
 
 /obj/machinery/recharge_station/Initialize()
 	. = ..()

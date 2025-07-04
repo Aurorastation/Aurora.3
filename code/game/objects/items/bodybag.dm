@@ -167,6 +167,15 @@
 	var/stasis_power = 20
 	var/degradation_time = 60 // 2 minutes: 60 ticks * 2 seconds per tick
 
+/obj/structure/closet/body_bag/cryobag/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "The stasis meter shows <b>'[stasis_power]x'</b>."
+	if(is_adjacent && length(contents)) //The bag's rather thick and opaque from a distance.
+		. += "<span class='info'>You peer into \the [src].</span>"
+		for(var/mob/living/L in contents)
+			L.examine(arglist(args))
+
 /obj/structure/closet/body_bag/cryobag/Initialize()
 	. = ..()
 	airtank = new()
@@ -234,14 +243,6 @@
 	if(airtank)
 		return airtank
 	..()
-
-/obj/structure/closet/body_bag/cryobag/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += "The stasis meter shows '[stasis_power]x'."
-	if(is_adjacent && length(contents)) //The bag's rather thick and opaque from a distance.
-		. += "<span class='info'>You peer into \the [src].</span>"
-		for(var/mob/living/L in contents)
-			L.examine(arglist(args))
 
 /obj/item/usedcryobag
 	name = "used stasis bag"

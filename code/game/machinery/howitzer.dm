@@ -93,7 +93,6 @@ ABSTRACT_TYPE(/obj/machinery/howitzer)
 				loaded_shot = null
 			return
 
-
 /obj/machinery/howitzer/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
@@ -368,12 +367,12 @@ ABSTRACT_TYPE(/obj/item/ammo_casing/howitzer)
 
 	projectile_type = /obj/projectile/howitzer
 
-/obj/item/ammo_casing/howitzer/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/ammo_casing/howitzer/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
 	. += "\A [name], to be used in a howitzer."
 	if(!BB && distance < 4)
 		. += "This one is spent."
-
 
 /**
  * # Howitzer Ammo

@@ -28,6 +28,7 @@
 		. += "There's \a [charging.name] in the charger. Current charge: [charging.percent()]%."
 	else
 		. += SPAN_WARNING("The charger is empty.")
+
 /obj/machinery/cell_charger/proc/update_charge_level()
 	if(!charging)
 		charge_level = -1

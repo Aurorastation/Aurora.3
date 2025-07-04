@@ -10,6 +10,15 @@
 	var/obj/machinery/ship_weapon/weapon
 	var/weapon_id //Used to connect weapon systems to the relevant ammunition loader.
 
+/obj/machinery/ship_weapon/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "Use a Multitool to update the weapon loader's internal network ID for linking purposes. You probably don't need to do this."
+
+/obj/machinery/ammunition_loader/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+
 /obj/machinery/ammunition_loader/Initialize(mapload)
 	..()
 	return INITIALIZE_HINT_LATELOAD
@@ -57,6 +66,8 @@
 			if(istype(CL.carrying[1], /obj/item/ship_ammunition))
 				var/obj/item/ship_ammunition/SA = CL.carrying[1]
 				return load_ammo(SA, HV)
+			else
+				to_chat(user, SPAN_WARNING("\The [CL] does not appear to be holding any compatible ammunition."))
 		if(istype(attacking_item, /obj/item/device/multitool))
 			to_chat(user, SPAN_NOTICE("You hook up the tester's wires to \the [src]: its identification tag is <b>[weapon_id]</b>."))
 			var/new_id = input(user, "Change the identification tag?", "Identification Tag", weapon_id)

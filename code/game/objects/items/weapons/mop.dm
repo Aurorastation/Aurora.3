@@ -90,6 +90,11 @@
 	var/refill_rate = 0.5 //Rate per process() tick mop refills itself
 	var/refill_reagent = /singleton/reagent/water //Determins what reagent to use for refilling, just in case someone wanted to make a HOLY MOP OF PURGING
 
+/obj/item/mop/advanced/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += SPAN_NOTICE("\The condenser switch is set to <b>[refill_enabled ? "ON" : "OFF"]</b>.")
+
 /obj/item/mop/advanced/Initialize()
 	. = ..()
 
@@ -112,7 +117,3 @@
 /obj/item/mop/advanced/process()
 	if(reagents.total_volume < 30)
 		reagents.add_reagent(refill_reagent, refill_rate)
-
-/obj/item/mop/advanced/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += SPAN_NOTICE("\The condenser switch is set to <b>[refill_enabled ? "ON" : "OFF"]</b>.")

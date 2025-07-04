@@ -64,6 +64,15 @@ Possible to do for anyone motivated enough:
 
 	var/can_hear_flags = NONE
 
+/obj/machinery/hologram/holopad/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	if(connected_pad)
+		if(established_connection)
+			. += "\The [src] is currently in a call with a holopad with ID: <b>[connected_pad.holopad_id]</b>"
+		else
+			. += SPAN_NOTICE("\The [src] is currently pending connection with a holopad with ID: <b>[connected_pad.holopad_id]</b>")
+
 /obj/machinery/hologram/holopad/Initialize()
 	. = ..()
 
@@ -82,14 +91,6 @@ Possible to do for anyone motivated enough:
 /obj/machinery/hologram/holopad/proc/get_holopad_id()
 	var/area/A = get_area(src)
 	holopad_id = "[A.name] ([src.x]-[src.y]-[src.z])"
-
-/obj/machinery/hologram/holopad/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(connected_pad)
-		if(established_connection)
-			. += SPAN_NOTICE("\The [src] is currently in a call with a holopad with ID: [connected_pad.holopad_id]")
-		else
-			. += SPAN_NOTICE("\The [src] is currently pending connection with a holopad with ID: [connected_pad.holopad_id]")
 
 /obj/machinery/hologram/holopad/update_icon(var/recurse = TRUE)
 	if(LAZYLEN(active_holograms) || has_established_connection())

@@ -25,14 +25,25 @@
 	. = list()
 	. += ..()
 	. += "Click and drag a mop bucket onto the cart to mount it."
-	. += "Alt+Click with a mop to put it away; a normal click will wet it in the bucket."
-	. += "Alt+Click with a container, such as a bucket, to pour its contents into the mounted bucket. A normal click will toss it into the trash."
+	. += "ALT-Click with a mop to put it away; a normal click will wet it in the bucket."
+	. += "ALT-Click with a container, such as a bucket, to pour its contents into the mounted bucket. A normal click will toss it into the trash."
 	. += "You can use a light replacer, spraybottle (of space cleaner) and four wet-floor signs on the cart to store them."
 
 /obj/structure/janitorialcart/disassembly_hints(mob/user, distance, is_adjacent)
 	. = list()
 	. += ..()
-	. += "An empty custodial cart can be taken apart with a <b>wrench</b> or a <b>welder</b>. Or a <b>plasma cutter</b>, if you're a lunatic."
+	. += "An empty custodial cart can be taken apart with a <b>wrench</b> or a <b>welder</b>. Or a <b>plasma cutter</b>, if you're that hardcore."
+
+/obj/structure/janitorialcart/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	if(distance <= 1)
+		if (mybucket)
+			var/contains = mybucket.reagents.total_volume
+			. += "[icon2html(src, user)] The bucket contains <b>[contains] unit\s</b> of liquid!"
+		else
+			. += "[icon2html(src, user)] There is no bucket mounted on it!"
+	//everything else is visible, so doesn't need to be mentioned
 
 // Regular Variant
 // No trashbag and no light replacer, this is inside the custodian's locker.
@@ -98,17 +109,6 @@
 
 /obj/structure/janitorialcart/proc/get_short_status()
 	return "Contents: [english_list(contents)]"
-
-/obj/structure/janitorialcart/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance <= 1)
-		if (mybucket)
-			var/contains = mybucket.reagents.total_volume
-			. += "[icon2html(src, user)] The bucket contains [contains] unit\s of liquid!"
-		else
-			. += "[icon2html(src, user)] There is no bucket mounted on it!"
-	//everything else is visible, so doesn't need to be mentioned
-
 
 /obj/structure/janitorialcart/mouse_drop_receive(atom/dropped, mob/user, params)
 	var/atom/movable/O = dropped

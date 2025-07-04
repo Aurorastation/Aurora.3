@@ -15,6 +15,12 @@
 	z_flags = ZMM_MANGLE_PLANES
 	//	luminosity = 1
 
+/obj/machinery/light_switch/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	if(distance <= 1)
+		. += "It is [on ? "on" : "off"]."
+
 /obj/machinery/light_switch/Initialize()
 	. = ..()
 	src.area = get_area(src)
@@ -40,11 +46,6 @@
 			set_light(2, 0.3, on ? "#82ff4c" : "#f86060")
 	else if (light_range)
 		set_light(FALSE)
-
-/obj/machinery/light_switch/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance <= 1)
-		. += "It is [on ? "on" : "off"]."
 
 /obj/machinery/light_switch/attack_hand(mob/user)
 	playsound(src, /singleton/sound_category/switch_sound, 30)
