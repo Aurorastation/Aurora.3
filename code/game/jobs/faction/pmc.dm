@@ -50,6 +50,8 @@
 		"Medical Intern" = /obj/outfit/job/intern_med/pmc,
 		"Corporate Reporter" = /obj/outfit/job/journalist/pmc,
 		"Corporate Liaison" = /obj/outfit/job/representative/pmc,
+		"Assistant" = /obj/outfit/job/assistant/pmc,
+		"Medical Orderly" = /obj/outfit/job/assistant/med_assistant/pmc,
 		"Off-Duty Crew Member" = /obj/outfit/job/visitor/pmc,
 		"Security Personnel" = /obj/outfit/job/officer/event/pmc,
 		"Medical Personnel" = /obj/outfit/job/med_tech/event/pmc
@@ -131,7 +133,7 @@
 	name = "Surgeon - PMC"
 
 	uniform = /obj/item/clothing/under/rank/medical/surgeon/pmc
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/pmc
+	suit = /obj/item/clothing/suit/storage/surgical_gown/pmc/alt
 	id = /obj/item/card/id/pmc
 	shoes = /obj/item/clothing/shoes/sneakers/medsci/pmc
 
@@ -213,6 +215,26 @@
 	name = "Corporate Reporter - PMC"
 
 	uniform = /obj/item/clothing/under/librarian/pmc
+	id = /obj/item/card/id/pmc
+
+	backpack_faction = /obj/item/storage/backpack/pmcg
+	satchel_faction = /obj/item/storage/backpack/satchel/pmcg
+	dufflebag_faction = /obj/item/storage/backpack/duffel/pmcg
+	messengerbag_faction = /obj/item/storage/backpack/messenger/pmcg
+
+/obj/outfit/job/assistant/pmc
+	name = "Assistant - PMC"
+
+	id = /obj/item/card/id/pmc
+
+	backpack_faction = /obj/item/storage/backpack/pmcg
+	satchel_faction = /obj/item/storage/backpack/satchel/pmcg
+	dufflebag_faction = /obj/item/storage/backpack/duffel/pmcg
+	messengerbag_faction = /obj/item/storage/backpack/messenger/pmcg
+
+/obj/outfit/job/assistant/med_assistant/pmc
+	name = "Medical Orderly - PMC"
+
 	id = /obj/item/card/id/pmc
 
 	backpack_faction = /obj/item/storage/backpack/pmcg

@@ -7,7 +7,7 @@
 	item_state = "chief_engineer"
 	contained_sprite = TRUE
 	armor = list(
-		rad = ARMOR_RAD_MINOR
+		RAD = ARMOR_RAD_MINOR
 	)
 	siemens_coefficient = 0.75
 
@@ -36,7 +36,7 @@
 	item_state = "nt_engineer"
 	contained_sprite = TRUE
 	armor = list(
-		rad = ARMOR_RAD_MINOR
+		RAD = ARMOR_RAD_MINOR
 	)
 	siemens_coefficient = 0.75
 

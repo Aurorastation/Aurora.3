@@ -161,7 +161,7 @@ Possible to do for anyone motivated enough:
 					continue
 				if(!AreConnectedZLevels(AI.z, z))
 					continue
-				to_chat(AI, SPAN_INFO("Your presence is requested at <a href='?src=[REF(AI)];jumptoholopad=[REF(src)]'>\the [area]</a>."))
+				to_chat(AI, SPAN_INFO("Your presence is requested at <a href='byond://?src=[REF(AI)];jumptoholopad=[REF(src)]'>\the [area]</a>."))
 				. = TRUE
 
 		if("call_holopad")
@@ -230,10 +230,10 @@ Possible to do for anyone motivated enough:
 		connected_pad.notify_pdas(connected_pad.connected_pad.holopad_id) //what in the everloving fuck is connected_pad.connected_pad?
 		to_chat(user, SPAN_NOTICE("Trying to establish a connection to the holopad in [connected_pad.holopad_id]... Please await confirmation from recipient."))
 
-/obj/machinery/hologram/holopad/proc/notify_pdas(var/caller)
+/obj/machinery/hologram/holopad/proc/notify_pdas(var/requester)
 	for(var/obj/item/modular_computer/MC in linked_pdas)
 		if(!QDELETED(MC))
-			MC.audible_message("<b>\The [MC]</b> beeps, <i><span class='notice'>\"Incoming communications request from <b>[caller]</b> at <b>[holopad_id]</b>!\"</span></i>")
+			MC.audible_message("<b>\The [MC]</b> beeps, <i><span class='notice'>\"Incoming communications request from <b>[requester]</b> at <b>[holopad_id]</b>!\"</span></i>")
 			playsound(MC, 'sound/machines/chime.ogg', 25)
 		else
 			linked_pdas -= MC

@@ -15,6 +15,8 @@
 	desc = "A striking, modern dress typically worn by Moghean women of high birth."
 	icon_state = "jizixi"
 	item_state = "jizixi"
+	build_from_parts = FALSE
+	has_accents = FALSE
 
 /obj/item/clothing/under/unathi/jizixi/green
 	icon_state = "jizixi2"
@@ -39,6 +41,8 @@
 	to wear outside of that."
 	icon_state = "gyzao"
 	item_state = "gyzao"
+	build_from_parts = FALSE
+	has_accents = FALSE
 
 /obj/item/clothing/under/unathi/mogazali
 	name = "mogazali attire"
@@ -70,9 +74,11 @@
 
 /obj/item/clothing/under/unathi/huytai
 	name = "huytai outfit"
-	desc = "Typically worn by Unathi women who engage in a trade. Popular with fisherwomen especially!"
+	desc = "Typically worn by Unathi who engage in a trade. Popular with fishers especially!"
 	icon_state = "huytai"
 	item_state = "huytai"
+	build_from_parts = TRUE
+	has_accents = TRUE
 
 /obj/item/clothing/under/unathi/zozo
 	name = "zo'zo top"
@@ -103,9 +109,9 @@
 	icon_state = "izweski"
 	item_state = "izweski"
 	armor = list(
-		melee = ARMOR_MELEE_SMALL,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_MINOR
+		MELEE = ARMOR_MELEE_SMALL,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_MINOR
 		)
 
 /obj/item/clothing/under/unathi/izweski/officer

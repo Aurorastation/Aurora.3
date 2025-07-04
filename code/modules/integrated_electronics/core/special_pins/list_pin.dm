@@ -14,19 +14,19 @@
 	var/list/my_list = data
 	var/t = "<h2>[src]</h2><br>"
 	t += "List length: [my_list.len]<br>"
-	t += "<a href='?src=[REF(src)]'>Refresh</a>  |  "
-	t += "<a href='?src=[REF(src)];add=1'>Add</a>  |  "
-	t += "<a href='?src=[REF(src)];remove=1'>Remove</a>  |  "
-	t += "<a href='?src=[REF(src)];edit=1'>Edit</a>  |  "
-	t += "<a href='?src=[REF(src)];swap=1'>Swap</a>  |  "
-	t += "<a href='?src=[REF(src)];clear=1'>Clear</a><br>"
+	t += "<a href='byond://?src=[REF(src)]'>Refresh</a>  |  "
+	t += "<a href='byond://?src=[REF(src)];add=1'>Add</a>  |  "
+	t += "<a href='byond://?src=[REF(src)];remove=1'>Remove</a>  |  "
+	t += "<a href='byond://?src=[REF(src)];edit=1'>Edit</a>  |  "
+	t += "<a href='byond://?src=[REF(src)];swap=1'>Swap</a>  |  "
+	t += "<a href='byond://?src=[REF(src)];clear=1'>Clear</a><br>"
 	t += "<hr>"
 	// Iterating by index simplifies editing/deletion in game,
 	// since the href_list["pos"] var is consistent
 	for(var/i = 1, i <= my_list.len; i++)
 		t += "#[i] | [display_data(my_list[i])]  |  "
-		t += "<a href='?src=[REF(src)];edit=1;pos=[i]'>Edit</a>  |  "
-		t += "<a href='?src=[REF(src)];remove=1;pos=[i]'>Remove</a><br>"
+		t += "<a href='byond://?src=[REF(src)];edit=1;pos=[i]'>Edit</a>  |  "
+		t += "<a href='byond://?src=[REF(src)];remove=1;pos=[i]'>Remove</a><br>"
 	var/datum/browser/B = new(user, "list_pin_[REF(src)]", null, 500, 400)
 	B.set_content(t)
 	B.open(FALSE)

@@ -3,8 +3,9 @@
 /obj/item/device/quikpay
 	name = "\improper Idris Quik-Pay"
 	desc = "Swipe your ID to make direct company purchases."
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/item/device/eftpos.dmi'
 	icon_state = "quikpay"
+	item_state = "electronic"
 	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_BELT
 	var/machine_id = ""

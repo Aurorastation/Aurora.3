@@ -50,7 +50,7 @@
 						M.attack_log += "\[[time_stamp()]\] <span class='warning'>Stungloved [src.name] ([src.ckey])</span>"
 						src.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been stungloved by [M.name] ([M.ckey])</font>"
 
-						msg_admin_attack("[key_name_admin(M)] stungloved [src.name] ([src.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>)",ckey=key_name(M),ckey_target=key_name(src))
+						msg_admin_attack("[key_name_admin(M)] stungloved [src.name] ([src.ckey]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>)",ckey=key_name(M),ckey_target=key_name(src))
 
 						apply_effects(5,5,0,0,5,0,0,0,0)
 						apply_damage(rand(5,25), DAMAGE_BURN, M.zone_sel.selecting)
@@ -250,7 +250,7 @@
 			playsound(loc, ((miss_type) ? (miss_type == 1 ? attack.miss_sound : 'sound/weapons/thudswoosh.ogg') : attack.attack_sound), 25, 1, -1)
 			H.attack_log += "\[[time_stamp()]\] <span class='warning'>[miss_type ? (miss_type == 1 ? "Missed" : "Blocked") : "[pick(attack.attack_verb)]"] [src.name] ([src.ckey])</span>"
 			src.attack_log += "\[[time_stamp()]\] <font color='orange'>[miss_type ? (miss_type == 1 ? "Was missed by" : "Has blocked") : "Has Been [pick(attack.attack_verb)]"] by [H.name] ([H.ckey])</font>"
-			msg_admin_attack("[key_name(H)] [miss_type ? (miss_type == 1 ? "has missed" : "was blocked by") : "has [pick(attack.attack_verb)]"] [key_name(src)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)",ckey=key_name(H),ckey_target=key_name(src))
+			msg_admin_attack("[key_name(H)] [miss_type ? (miss_type == 1 ? "has missed" : "was blocked by") : "has [pick(attack.attack_verb)]"] [key_name(src)] (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)",ckey=key_name(H),ckey_target=key_name(src))
 
 			if(miss_type)
 				return 0
@@ -338,7 +338,7 @@
 			M.attack_log += "\[[time_stamp()]\] <span class='warning'>Disarmed [src.name] ([src.ckey])</span>"
 			src.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been disarmed by [M.name] ([M.ckey])</font>"
 
-			msg_admin_attack("[key_name(M)] disarmed [src.name] ([src.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>)",ckey=key_name(M),ckey_target=key_name(src))
+			msg_admin_attack("[key_name(M)] disarmed [src.name] ([src.ckey]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>)",ckey=key_name(M),ckey_target=key_name(src))
 			M.do_attack_animation(src)
 
 			if(w_uniform)
@@ -371,7 +371,7 @@
 								return M.attackby(W,src)
 
 			var/randn = rand(1, 100)
-			if(z_eye && z_eye.tile_shifted) //They're looking down in front of them.
+			if(z_eye) //They're looking down in front of them.
 				var/turf/T = loc
 				var/obj/structure/railing/problem_railing
 				var/same_loc = FALSE
@@ -542,7 +542,7 @@
 /mob/living/carbon/human/proc/afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, inrange, params)
 	return
 
-/mob/living/carbon/human/attack_generic(var/mob/user, var/damage, var/attack_message, var/armor_penetration, var/attack_flags)
+/mob/living/carbon/human/attack_generic(var/mob/user, var/damage, var/attack_message, var/armor_penetration, var/attack_flags, var/damage_type)
 	if(!damage)
 		return
 
@@ -557,7 +557,7 @@
 	var/dam_zone = user.zone_sel?.selecting
 	var/obj/item/organ/external/affecting = dam_zone ? get_organ(dam_zone) : pick(organs)
 	if(affecting)
-		apply_damage(damage, DAMAGE_BRUTE, affecting, armor_pen = armor_penetration, damage_flags = attack_flags)
+		apply_damage(damage, damage_type ? damage_type : DAMAGE_BRUTE, affecting, armor_pen = armor_penetration, damage_flags = attack_flags)
 		updatehealth()
 	return affecting
 

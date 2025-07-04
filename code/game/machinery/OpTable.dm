@@ -260,11 +260,15 @@
 
 	return TRUE
 
-/obj/machinery/optable/MouseDrop_T(atom/dropping, mob/user)
-	if(istype(dropping, /obj/item))
-		user.drop_from_inventory(dropping, get_turf(src))
+/obj/machinery/optable/mouse_drop_receive(atom/dropped, mob/user, params)
+	//If the user is a ghost, stop.
+	if(isghost(user))
+		return
 
-	var/mob/living/carbon/patient = dropping
+	if(istype(dropped, /obj/item))
+		user.drop_from_inventory(dropped, get_turf(src))
+
+	var/mob/living/carbon/patient = dropped
 	//No point if it's not a possible patient
 	if(!istype(patient))
 		return

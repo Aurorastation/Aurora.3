@@ -65,7 +65,7 @@
 	data["networks"] = all_networks
 
 	if(current_network)
-		data["cameras"] = camera_repository.cameras_in_network(current_network)
+		data["cameras"] = GLOB.camera_repository.cameras_in_network(current_network)
 
 	return data
 

@@ -102,11 +102,11 @@
 		return TRUE
 	return FALSE
 
-/obj/structure/MouseDrop_T(mob/target, mob/user)
+/obj/structure/mouse_drop_receive(atom/dropped, mob/user, params)
 
 	var/mob/living/H = user
-	if(istype(H) && can_climb(H) && target == user)
-		do_climb(target)
+	if(istype(H) && can_climb(H) && dropped == user)
+		do_climb(dropped)
 	else
 		return ..()
 

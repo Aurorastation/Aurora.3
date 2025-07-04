@@ -5,8 +5,10 @@
 /obj/item/autopsy_scanner
 	name = "autopsy scanner"
 	desc = "Extracts information on wounds."
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/item/autopsy_scanner.dmi'
 	icon_state = "autopsy"
+	item_state = "autopsy"
+	contained_sprite = TRUE
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	w_class = WEIGHT_CLASS_SMALL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
@@ -178,6 +180,7 @@
 	for(var/mob/O in viewers(M))
 		O.show_message(SPAN_NOTICE("\The [user] scans the wounds on [M.name]'s [S.name] with \the [src]"), 1)
 
+	flick("autopsy-scan", src)
 	src.add_data(S)
 
 	return 1

@@ -5,8 +5,10 @@
 	var/desc = "A generic scenario that should not be in the rotation."
 	/// What sectors this scenario can spawn in. An empty list is all sectors.
 	var/list/sector_whitelist = list()
-	/// The type of scenario this is. NOT a boolean or a bitfield.
-	var/scenario_type = SCENARIO_TYPE_NONCANON
+	/// The type of scenario this is. NOT a boolean or a bitfield. This is automatically set on /datum/controller/subsystem/odyssey/proc/setup_scenario_variables().
+	var/scenario_type
+	/// A list containing the options for type of scenario. An empty list will default to SCENARIO_TYPE_NONCANON.
+	var/list/possible_scenario_types = list()
 	/// Whether or not landing on the Odyssey away site is restricted by default. Has to be either unrestricted by Storytellers manually, or happens forcefully at 40 minutes in.
 	var/site_landing_restricted = TRUE
 
@@ -44,11 +46,18 @@
 	/// The name of the frequency that will be used by the radios on the away site.
 	var/radio_frequency_name = "Sector"
 
+	/// A list of access datums that are available for actors to pick.
+	var/list/datum/access/actor_accesses = list()
+
 /singleton/scenario/Initialize()
 	. = ..()
+
 	if(!ispath(scenario_announcements))
 		crash_with("Scenario [type] tried initializing without appropriate announcements!")
 	scenario_announcements = GET_SINGLETON(scenario_announcements)
+
+	if(actor_accesses && !islist(actor_accesses))
+		actor_accesses = list(actor_accesses)
 
 /**
  * This proc handles the creation and spawning of everything that the odyssey needs.
@@ -136,7 +145,7 @@
 	/// The title for the messages sent to the Horizon to notify them of the scenarios, both in notify_scenario_early and notify_scenario_late.
 	var/horizon_announcement_title = "Central Command Situation Report"
 	/// The announcement message sent to the Horizon immediately after roundstart (5 minutes or so), telling them to prepare for a yet unknown expedition.
-	var/horizon_early_announcement_message = "SCCV Horizon, your sensors suite has located a site of interest and the coordinates have been marked on your sensors. Please prepare an expedition while we investigate landing conditions."
+	var/horizon_early_announcement_message = "SCCV Horizon, your sensors suite has located a site of interest and the coordinates have been marked on your sensors. Please prepare an expedition while we investigate landing conditions.\n\nAll crew are encouraged to volunteer and should notify their relevant department heads as soon as possible. Volunteers should only be rejected in the most dire circumstances."
 	/// The announcement message sent to the Horizon around 20 minutes in, typically telling them to go investigate the scenario and the reason why.
 	var/horizon_unrestrict_landing_message = "The landing sites have been registered and cleared. An expedition is now authorized to depart."
 

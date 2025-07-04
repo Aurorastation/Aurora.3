@@ -61,7 +61,7 @@
 	data["networks"] = all_networks
 
 	if(current_network)
-		data["cameras"] = camera_repository.cameras_in_network(current_network)
+		data["cameras"] = GLOB.camera_repository.cameras_in_network(current_network)
 		data["current_camera"] = current_camera ? current_camera.nano_structure() : null
 		data["current_network"] = current_network
 
@@ -172,9 +172,11 @@
 		jump_to = A
 	else if(ismob(A))
 		if(ishuman(A))
-			jump_to = locate() in A:head
+			var/mob/living/carbon/human/H = A
+			jump_to = locate() in H.head
 		else if(isrobot(A))
-			jump_to = A:camera
+			var/mob/living/silicon/robot/R = A
+			jump_to = R.camera
 	else if(isobj(A))
 		jump_to = locate() in A
 	else if(isturf(A))
@@ -204,8 +206,8 @@
 		switch_to_camera(user,jump_to)
 
 /obj/machinery/computer/security/process()
-	if(cache_id != camera_repository.camera_cache_id)
-		cache_id = camera_repository.camera_cache_id
+	if(cache_id != GLOB.camera_repository.camera_cache_id)
+		cache_id = GLOB.camera_repository.camera_cache_id
 		SSnanoui.update_uis(src)
 
 /obj/machinery/computer/security/proc/can_access_camera(var/obj/machinery/camera/C)
@@ -298,7 +300,7 @@
 
 /obj/machinery/computer/security/engineering/Initialize()
 	if(!network)
-		network = engineering_networks.Copy()
+		network = GLOB.engineering_networks.Copy()
 	. = ..()
 
 /obj/machinery/computer/security/nuclear

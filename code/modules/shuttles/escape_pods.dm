@@ -1,5 +1,5 @@
-var/list/escape_pods = list()
-var/list/escape_pods_by_name = list()
+GLOBAL_LIST_EMPTY_TYPED(escape_pods, /datum/shuttle/autodock/ferry/escape_pod)
+GLOBAL_LIST_EMPTY(escape_pods_by_name)
 
 /datum/shuttle/autodock/ferry/escape_pod
 	var/datum/computer/file/embedded_program/docking/simple/escape_pod/arming_controller
@@ -13,15 +13,20 @@ var/list/escape_pods_by_name = list()
 	if(!istype(arming_controller))
 		CRASH("Could not find arming controller for escape pod \"[name]\", tag was '[arming_controller_tag]'.")
 
-	escape_pods += src
-	escape_pods_by_name[name] = src
-	move_time = evacuation_controller.evac_transit_delay + rand(-30, 60)
+	GLOB.escape_pods += src
+	GLOB.escape_pods_by_name[name] = src
+	move_time = GLOB.evacuation_controller.evac_transit_delay + rand(-30, 60)
 	if(dock_target)
 		var/datum/computer/file/embedded_program/docking/simple/own_target = SSshuttle.docking_registry[dock_target]
 		if(own_target)
 			var/obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod/own_target_master = own_target.master
 			if(own_target_master)
 				own_target_master.pod = src
+
+/datum/shuttle/autodock/ferry/escape_pod/Destroy()
+	GLOB.escape_pods -= src
+	GLOB.escape_pods_by_name -= name
+	. = ..()
 
 /datum/shuttle/autodock/ferry/escape_pod/can_launch()
 	if(arming_controller && !arming_controller.armed)	//must be armed
@@ -57,7 +62,7 @@ var/list/escape_pods_by_name = list()
 		"override_enabled" = docking_program.override_enabled,
 		"door_state" = 	docking_program.memory["door_status"]["state"],
 		"door_lock" = 	docking_program.memory["door_status"]["lock"],
-		"can_force" = pod.can_force() || (evacuation_controller.has_evacuated() && pod.can_launch()),	//allow players to manually launch ahead of time if the shuttle leaves
+		"can_force" = pod.can_force() || (GLOB.evacuation_controller.has_evacuated() && pod.can_launch()),	//allow players to manually launch ahead of time if the shuttle leaves
 		"is_armed" = pod.arming_controller.armed
 	)
 
@@ -73,7 +78,7 @@ var/list/escape_pods_by_name = list()
 		if(params["command"] == "force_launch")
 			if (pod.can_force())
 				pod.force_launch(src)
-			else if (evacuation_controller.has_evacuated() && pod.can_launch())	//allow players to manually launch ahead of time if the shuttle leaves
+			else if (GLOB.evacuation_controller.has_evacuated() && pod.can_launch())	//allow players to manually launch ahead of time if the shuttle leaves
 				pod.launch(src)
 			return TRUE
 

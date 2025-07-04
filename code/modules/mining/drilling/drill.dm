@@ -58,6 +58,18 @@
 		/obj/item/cell/high
 	)
 
+	component_hint_bin = "Upgraded <b>matter bins</b> will increase ore capacity."
+	component_hint_cap = "Upgraded <b>capacitors</b> will improve power efficiency."
+	component_hint_laser = "Upgraded <b>micro-lasers</b> will increase the amount of ore harvested."
+
+	parts_power_mgmt = FALSE
+
+	/// The list of ores currently held within the mining drill
+	var/list/stored_ores = list()
+
+	/// The last time the stored ores were updated, used as a cooldown to not nuke the server
+	var/last_stored_ore_update = 0
+
 /obj/machinery/mining/drill/Initialize()
 	. = ..()
 	spark_system = bind_spark(src, 3)
@@ -66,6 +78,50 @@
 	QDEL_NULL(attached_satchel)
 	QDEL_NULL(spark_system)
 	return ..()
+
+/obj/machinery/mining/drill/proc/update_ore_count()
+	stored_ores = list()
+	for(var/obj/item/ore/O in contents)
+		if(stored_ores[O.name])
+			stored_ores[O.name]++
+		else
+			stored_ores[O.name] = 1
+
+/obj/machinery/mining/drill/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+
+	if(need_player_check)
+		. += SPAN_WARNING("The drill error light is flashing. The cell panel is [panel_open ? "open" : "closed"].")
+	else
+		. += "The drill is [active ? "active" : "inactive"] and the cell panel is [panel_open ? "open" : "closed"]."
+
+	if(panel_open)
+		. += "The power cell is [cell ? "installed" : "missing"]."
+
+	. += "The cell charge meter reads [cell ? round(cell.percent(),1) : 0]%."
+
+	if(is_adjacent)
+		if(attached_satchel)
+			. += FONT_SMALL(SPAN_NOTICE("It has a [attached_satchel] attached to it."))
+		if(current_error)
+			. += FONT_SMALL(SPAN_WARNING("The error display reads \"[current_error]\"."))
+
+	if(!is_adjacent) //Can only check the contents of drills if you can physically reach them.
+		return
+
+	add_fingerprint(user)
+
+	if(world.time > last_stored_ore_update + 1 SECOND)
+		update_ore_count()
+		last_stored_ore_update = world.time
+
+	if(!length(stored_ores))
+		. += SPAN_NOTICE("It is empty.")
+		return
+
+	. += SPAN_NOTICE("It holds:")
+	for(var/ore in stored_ores)
+		. += SPAN_NOTICE("- [stored_ores[ore]] [ore]")
 
 /obj/machinery/mining/drill/process()
 	if(need_player_check)
@@ -177,22 +233,6 @@
 		need_player_check = TRUE
 		system_error("Resource field depleted.")
 		update_icon()
-
-/obj/machinery/mining/drill/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(need_player_check)
-		. += SPAN_WARNING("The drill error light is flashing. The cell panel is [panel_open ? "open" : "closed"].")
-	else
-		. += "The drill is [active ? "active" : "inactive"] and the cell panel is [panel_open ? "open" : "closed"]."
-	if(panel_open)
-		. += "The power cell is [cell ? "installed" : "missing"]."
-	. += "The cell charge meter reads [cell ? round(cell.percent(),1) : 0]%."
-	if(is_adjacent)
-		if(attached_satchel)
-			. += FONT_SMALL(SPAN_NOTICE("It has a [attached_satchel] attached to it."))
-		if(current_error)
-			. += FONT_SMALL(SPAN_WARNING("The error display reads \"[current_error]\"."))
-	return
 
 /obj/machinery/mining/drill/proc/activate_light(var/lights = DRILL_LIGHT_IDLE)
 	switch(lights)

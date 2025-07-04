@@ -35,7 +35,7 @@
 
 	var/hatch_open = 0
 
-	power_channel = ENVIRON
+	power_channel = AREA_USAGE_ENVIRON
 	idle_power_usage = 5
 	dir = SOUTH
 

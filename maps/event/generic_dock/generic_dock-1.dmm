@@ -5502,7 +5502,7 @@
 /turf/unsimulated/floor,
 /area/centcom/control)
 "fFd" = (
-/obj/item/aiModule/nanotrasen,
+/obj/item/aiModule/conglomerate,
 /obj/item/aiModule/reset,
 /obj/item/aiModule/freeformcore,
 /obj/item/aiModule/protectStation,
@@ -13788,11 +13788,9 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
-/obj/structure/sign/poster{
-	icon_state = "tcflposter";
+/obj/structure/sign/poster/lore/tcaf{
 	pixel_x = -6;
-	pixel_y = 31;
-	poster_type = "/datum/poster/bay_67"
+	pixel_y = 31
 	},
 /turf/unsimulated/floor,
 /area/centcom/holding)

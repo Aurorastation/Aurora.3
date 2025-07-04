@@ -54,7 +54,7 @@
 	invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/splf_raider/New()
-	designation = "[pick("Not A Fan Of The Government", "National Liberation", "Free Spirit", "Not Wanted Here", "Tight-knit", "Silat", "Sejarah Melayu", "As They Were Before", "Hand of Cabanas", "Justice for Mictlan", "Not One Step More", "Fraternity", "Culpability", "Magistrate", "Equity", " Sic Semper Tyrannis")]"
+	designation = "[pick("Not A Fan Of The Government", "National Liberation", "Free Spirit", "Not Wanted Here", "Tight-knit", "Silat", "Sejarah Melayu", "As They Were Before", "Hand of Cabanas", "Justice for Mictlan", "Not One Step More", "Fraternity", "Culpability", "Magistrate", "Equity", "Sic Semper Tyrannis")]"
 	..()
 
 // Using the freighter sprite.

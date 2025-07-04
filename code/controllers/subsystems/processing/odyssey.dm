@@ -92,6 +92,13 @@ SUBSYSTEM_DEF(odyssey)
 	if(scenario)
 		ody_gamemode.required_players = scenario.min_player_amount
 		ody_gamemode.required_enemies = scenario.min_actor_amount
+
+		//Setting the scenario_type variable for use here in UI info and chat notices.
+		if(!length(scenario.possible_scenario_types))
+			scenario.scenario_type = SCENARIO_TYPE_NONCANON
+		else
+			scenario.scenario_type = pick(scenario.possible_scenario_types)
+
 	site_landing_restricted = scenario.site_landing_restricted
 
 /**

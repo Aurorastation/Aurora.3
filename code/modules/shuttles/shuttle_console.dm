@@ -1,16 +1,21 @@
 /obj/machinery/computer/shuttle_control
 	name = "shuttle control console"
+	desc_antag = "Consoles like these are typically access-locked.\
+	You can remove this lock with <b>wirecutters</b>, but it would take awhile! Alternatively, you can also use a cryptographic sequencer (emag) for instant removal."
 	icon_screen = "shuttle"
 	icon_keyboard = "cyan_key"
 	icon_keyboard_emis = "cyan_key_mask"
 	light_color = LIGHT_COLOR_CYAN
 
-	var/shuttle_tag      // Used to coordinate data in shuttle controller.
-	var/hacked = FALSE   // Has been emagged, no access restrictions.
+	/// Used to coordinate data in shuttle controller.
+	var/shuttle_tag
 
 	var/ui_template = "ShuttleControlConsole"
 	var/list/linked_helmets = list()
 	var/can_rename_ship = FALSE
+
+	/// For hotwiring, how many cycles are needed. This decreases by 1 each cycle and triggers at 0
+	var/hotwire_progress = 8
 
 /obj/machinery/computer/shuttle_control/Initialize()
 	. = ..()
@@ -34,16 +39,56 @@
 	if(istype(attacking_item, /obj/item/clothing/head/helmet/pilot))
 		var/obj/item/clothing/head/helmet/pilot/PH = attacking_item
 		if(attacking_item in linked_helmets)
-			to_chat(user, SPAN_NOTICE("You unlink \the [attacking_item] from \the [src]."))
+			to_chat(user, SPAN_BOLD("You unlink \the [attacking_item] from \the [src]."))
 			PH.set_console(null)
 		else
-			to_chat(user, SPAN_NOTICE("You link \the [attacking_item] to \the [src]."))
+			to_chat(user, SPAN_BOLD("You link \the [attacking_item] to \the [src]."))
 			PH.set_console(src)
 			PH.set_hud_maptext("Shuttle Status: [get_shuttle_status(SSshuttle.shuttles[shuttle_tag])]")
 		return
+	if(attacking_item.iscoil()) // Repair from hotwire
+		var/obj/item/stack/cable_coil/C = attacking_item
+		if(hotwire_progress >= initial(hotwire_progress))
+			to_chat(usr, SPAN_BOLD("\The [src] does not require repairs."))
+		else
+			to_chat(usr, SPAN_BOLD("You attempt to replace some cabling for \the [src]..."))
+			while(C.can_use(2, user))
+				if(do_after(user, 15 SECONDS, src, DO_UNIQUE))
+					if(hotwire_progress < initial(hotwire_progress))
+						C.use(2)
+						hotwire_progress++
+						if(hotwire_progress >= initial(hotwire_progress))
+							restore_access(user)
+							return
+						to_chat(usr, SPAN_BOLD("You replace some broken cabling of \the [src] <b>([(hotwire_progress / initial(hotwire_progress)) * 100]%)</b>."))
+						playsound(src.loc, 'sound/items/Deconstruct.ogg', 30, TRUE)
+			return
+
+	if(attacking_item.iswirecutter()) // Hotwiring
+		if(!req_access && !req_one_access && !emagged) // Already hacked/no need to hack
+			to_chat(user, SPAN_BOLD("[src] is not access-locked."))
+			return
+		// Begin hotwire
+		user.visible_message("<b>[user]</b> opens a panel underneath \the [src] and starts snipping wires...", SPAN_BOLD("You open the maintenance panel and attempt to hotwire \the [src]..."))
+		while(hotwire_progress > 0)
+			if(do_after(user, 15 SECONDS, src, DO_UNIQUE))
+				hotwire_progress--
+				if(hotwire_progress <= 0)
+					emag_act(user=user, hotwired=TRUE)
+					return
+				to_chat(user, SPAN_BOLD("You snip some cabling from \the [src] <b>([((initial(hotwire_progress)-hotwire_progress) / initial(hotwire_progress)) * 100]%)</b>."))
+				playsound(src.loc, 'sound/items/Wirecutter.ogg', 30, TRUE)
+			else
+				return
 	return ..()
 
 /obj/machinery/computer/shuttle_control/attack_hand(mob/user)
+	if(use_check_and_message(user))
+		return
+	if(!emagged && !allowed(user))
+		to_chat(user, SPAN_WARNING("Access denied."))
+		return FALSE
+	user.set_machine(src)
 	ui_interact(user)
 
 /obj/machinery/computer/shuttle_control/attack_ai(mob/user)
@@ -159,12 +204,37 @@
 	for(var/obj/item/clothing/head/helmet/pilot/PH as anything in linked_helmets)
 		PH.set_hud_maptext("Shuttle Status: [shuttle_status]")
 
-/obj/machinery/computer/shuttle_control/emag_act(var/remaining_charges, var/mob/user)
-	if(!hacked)
-		req_access = list()
-		hacked = TRUE
-		to_chat(user, "You short out the console's ID checking system. It's now available to everyone!")
-		return TRUE
+/obj/machinery/computer/shuttle_control/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(initial(hotwire_progress) != hotwire_progress)
+		if(hotwire_progress != 0)
+			. += SPAN_ITALIC("The bottom panel appears open with wires hanging out. It can be repaired with additional cabling. <i>Current progress: [(hotwire_progress / initial(hotwire_progress)) * 100]%</i>")
+		else
+			. += SPAN_ITALIC("The bottom panel appears open with wires hanging out. It can be repaired with additional cabling.")
+
+/obj/machinery/computer/shuttle_control/emag_act(var/remaining_charges, var/mob/user, var/emag_source, var/hotwired = FALSE)
+	if(emagged)
+		to_chat(user, SPAN_WARNING("\The [src] has already been subverted."))
+		return FALSE
+	emagged = TRUE
+	if(hotwired)
+		user.visible_message(SPAN_WARNING("\The [src] sparks as a panel suddenly opens and burnt cabling spills out!"),SPAN_BOLD("You short out the console's ID checking system. It's now available to everyone!"))
+	else
+		user.visible_message(SPAN_WARNING("\The [src] sparks!"),SPAN_BOLD("You short out the console's ID checking system. It's now available to everyone!"))
+	spark(src, 2, 0)
+	hotwire_progress = 0
+	return TRUE
+
+/// Used to restore access removed from emag_act() by setting access from req_access_old and req_one_access_old
+/obj/machinery/computer/shuttle_control/proc/restore_access(var/mob/user)
+	if(!emagged)
+		to_chat(user, SPAN_WARNING("There is no access to restore for \the [src]!"))
+		return FALSE
+	emagged = FALSE
+	to_chat(user, "You repair out the console's ID checking system. It's access restrictions have been restored.")
+	playsound(loc, 'sound/machines/ping.ogg', 50, FALSE)
+	hotwire_progress = initial(hotwire_progress)
+	return TRUE
 
 /obj/machinery/computer/shuttle_control/ex_act()
 	return

@@ -44,7 +44,7 @@ research holder datum.
 ***************************************************************/
 
 // Global design lists
-var/global/list/designs = null
+GLOBAL_LIST_INIT(designs, null)
 GLOBAL_LIST_EMPTY(designs_protolathe_categories)
 GLOBAL_LIST_EMPTY(designs_imprinter_categories)
 
@@ -68,7 +68,7 @@ GLOBAL_LIST_EMPTY(designs_imprinter_categories)
 			else
 				if(antag_start_level)
 					T.level = antag_start_level
-	if(load_designs && isnull(designs))
+	if(load_designs && isnull(GLOB.designs))
 		InitializeDesigns()
 	RefreshResearch()
 
@@ -79,10 +79,10 @@ GLOBAL_LIST_EMPTY(designs_imprinter_categories)
 	standard_start_level = 3
 
 /datum/research/proc/InitializeDesigns()
-	designs = list()
+	GLOB.designs = list()
 	for(var/T in subtypesof(/datum/design))
 		var/datum/design/D = new T
-		designs[D.type] = D
+		GLOB.designs[D.type] = D
 		if(D.build_type & PROTOLATHE)
 			GLOB.designs_protolathe_categories |= D.p_category
 		if(D.build_type & IMPRINTER)
@@ -129,8 +129,8 @@ GLOBAL_LIST_EMPTY(designs_imprinter_categories)
 /datum/research/proc/RefreshResearch()
 	known_designs.Cut() // this is to refresh the ordering of the designs, the alternative is an expensive insertion or sorting proc
 	if(load_designs)
-		for(var/path in designs)
-			var/datum/design/PD = designs[path]
+		for(var/path in GLOB.designs)
+			var/datum/design/PD = GLOB.designs[path]
 			if(DesignHasReqs(PD))
 				AddDesign2Known(PD)
 	for(var/id in known_tech)

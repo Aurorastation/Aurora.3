@@ -1837,7 +1837,7 @@
 	},
 /obj/effect/decal/fake_object{
 	name = "Impact Wrench";
-	icon = 'icons/obj/item/tools/impact_wrench.dmi';
+	icon = 'icons/obj/item/impact_wrench.dmi';
 	icon_state = "impact_wrench_lh";
 	dir = 8;
 	pixel_y = 20;
@@ -2830,10 +2830,10 @@
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/alt,
 /obj/item/clothing/suit/storage/toggle/bomber,
 /obj/item/clothing/suit/storage/toggle/highvis,
-/obj/item/clothing/under/pants/track,
-/obj/item/clothing/under/pants/tacticool,
-/obj/item/clothing/under/pants/jeansblack,
-/obj/item/clothing/under/pants/classic,
+/obj/item/clothing/pants/track,
+/obj/item/clothing/pants/tacticool,
+/obj/item/clothing/pants/jeansblack,
+/obj/item/clothing/pants/classic,
 /obj/item/clothing/accessory/silversun,
 /obj/item/clothing/under/syndicate/tracksuit,
 /obj/item/clothing/under/syndicate,
@@ -2954,10 +2954,10 @@
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/alt,
 /obj/item/clothing/suit/storage/toggle/bomber,
 /obj/item/clothing/suit/storage/toggle/highvis,
-/obj/item/clothing/under/pants/track,
-/obj/item/clothing/under/pants/tacticool,
-/obj/item/clothing/under/pants/jeansblack,
-/obj/item/clothing/under/pants/classic,
+/obj/item/clothing/pants/track,
+/obj/item/clothing/pants/tacticool,
+/obj/item/clothing/pants/jeansblack,
+/obj/item/clothing/pants/classic,
 /obj/item/clothing/accessory/silversun,
 /obj/item/clothing/under/syndicate/tracksuit,
 /obj/item/clothing/under/syndicate,
@@ -3152,10 +3152,10 @@
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military/tan,
 /obj/item/clothing/suit/storage/toggle/trench,
 /obj/item/clothing/suit/storage/toggle/flannel,
-/obj/item/clothing/under/pants/classic,
-/obj/item/clothing/under/pants/jeansblack,
-/obj/item/clothing/under/pants/tacticool,
-/obj/item/clothing/under/pants/track,
+/obj/item/clothing/pants/classic,
+/obj/item/clothing/pants/jeansblack,
+/obj/item/clothing/pants/tacticool,
+/obj/item/clothing/pants/track,
 /obj/item/clothing/under/syndicate/tracksuit,
 /obj/item/clothing/under/syndicate/tracksuit,
 /obj/item/clothing/under/syndicate,

@@ -27,4 +27,4 @@
 		to_chat(H, SPAN_WARNING("You are already enveloped by psionic armour!"))
 		return
 	to_chat(H, SPAN_NOTICE("You are enveloped by a protective warmth."))
-	H.psi.AddComponent(/datum/component/armor/psionic, list(laser = ARMOR_LASER_MEDIUM, bullet = ARMOR_BALLISTIC_CARBINE, energy = ARMOR_ENERGY_RESISTANT, melee = ARMOR_MELEE_RESISTANT))
+	H.psi.AddComponent(/datum/component/armor/psionic, list(LASER = ARMOR_LASER_MEDIUM, BULLET = ARMOR_BALLISTIC_CARBINE, ENERGY = ARMOR_ENERGY_RESISTANT, MELEE = ARMOR_MELEE_RESISTANT))

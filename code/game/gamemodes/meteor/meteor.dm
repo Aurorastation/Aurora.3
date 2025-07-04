@@ -50,7 +50,7 @@
 	alert_sent = 2
 	command_announcement.Announce(start_text, alert_title)
 	if(SSatlas.current_map.use_overmap)
-		var/area/map = global.map_overmap
+		var/area/map = GLOB.map_overmap
 		for(var/turf/T in map)
 			new/obj/effect/overmap/event/meteor(T)
 	next_wave = round_duration_in_ticks + meteor_wave_delay

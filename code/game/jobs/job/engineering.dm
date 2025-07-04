@@ -40,7 +40,7 @@
 	uniform = /obj/item/clothing/under/rank/chief_engineer
 	head = /obj/item/clothing/head/hardhat/white
 	belt = /obj/item/storage/belt/utility/ce
-	id = /obj/item/card/id/scc/silver
+	id = /obj/item/card/id/silver
 	shoes = null
 	r_pocket = /obj/item/device/t_scanner
 
@@ -123,11 +123,12 @@
 	messengerbag = /obj/item/storage/backpack/messenger/engi
 
 	belt_contents = list(
+		/obj/item/screwdriver = 1,
+		/obj/item/wrench = 1,
 		/obj/item/weldingtool = 1,
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters = 1,
-		/obj/item/stack/cable_coil/random = 1,
-		/obj/item/powerdrill = 1
+		/obj/item/stack/cable_coil/random = 1
 	)
 
 /obj/outfit/job/engineer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -189,13 +190,14 @@
 	tablet = /obj/item/modular_computer/handheld/preset/engineering/atmos
 
 	belt_contents = list(
+		/obj/item/screwdriver = 1,
+		/obj/item/wrench = 1,
 		/obj/item/weldingtool = 1,
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters = 1,
 		/obj/item/device/t_scanner = 1,
 		/obj/item/device/analyzer = 1,
-		/obj/item/pipewrench = 1,
-		/obj/item/powerdrill = 1
+		/obj/item/pipewrench = 1
 	)
 
 /obj/outfit/job/atmos/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -242,11 +244,12 @@
 	belt = /obj/item/storage/belt/utility
 
 	belt_contents = list(
+		/obj/item/screwdriver = 1,
+		/obj/item/wrench = 1,
 		/obj/item/weldingtool = 1,
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters = 1,
-		/obj/item/stack/cable_coil/random = 1,
-		/obj/item/powerdrill = 1
+		/obj/item/stack/cable_coil/random = 1
 	)
 
 	headset = /obj/item/device/radio/headset/headset_eng
@@ -275,13 +278,14 @@
 	belt = /obj/item/storage/belt/utility
 
 	belt_contents = list(
+		/obj/item/screwdriver = 1,
+		/obj/item/wrench = 1,
 		/obj/item/weldingtool = 1,
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters = 1,
 		/obj/item/device/t_scanner = 1,
 		/obj/item/device/analyzer = 1,
-		/obj/item/pipewrench = 1,
-		/obj/item/powerdrill = 1
+		/obj/item/pipewrench = 1
 	)
 
 	headset = /obj/item/device/radio/headset/headset_eng

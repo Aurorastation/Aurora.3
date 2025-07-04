@@ -37,7 +37,7 @@
 	if (G.client)
 		P = G.client.prefs
 	else if (G.ckey)
-		P = preferences_datums[G.ckey]
+		P = GLOB.preferences_datums[G.ckey]
 	else
 		statuscode = 500
 		response = "Something went wrong, couldn't find the target's preferences datum"
@@ -98,8 +98,8 @@
 	if(!rank)
 		rank = "Admin"
 
-	var/message =	SPAN_WARNING("[rank] PM from <b><a href='?discord_msg=[queryparams["senderkey"]]'>[queryparams["senderkey"]]</a></b>: [queryparams["msg"]]")
-	var/amessage =	SPAN_NOTICE("[rank] PM from <a href='?discord_msg=[queryparams["senderkey"]]'>[queryparams["senderkey"]]</a> to <b>[key_name(C, highlight_special = 1)]</b> : [queryparams["msg"]]")
+	var/message =	SPAN_WARNING("[rank] PM from <b><a href='byond://?discord_msg=[queryparams["senderkey"]]'>[queryparams["senderkey"]]</a></b>: [queryparams["msg"]]")
+	var/amessage =	SPAN_NOTICE("[rank] PM from <a href='byond://?discord_msg=[queryparams["senderkey"]]'>[queryparams["senderkey"]]</a> to <b>[key_name(C, highlight_special = 1)]</b> : [queryparams["msg"]]")
 
 	C.received_discord_pm = world.time
 	C.discord_admin = queryparams["senderkey"]

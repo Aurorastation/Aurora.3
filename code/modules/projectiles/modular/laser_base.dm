@@ -219,7 +219,7 @@
 
 /obj/item/device/laser_assembly/proc/finish()
 
-	var/obj/machinery/weapons_analyzer/an = analyzer.resolve()
+	var/obj/machinery/r_n_d/weapons_analyzer/an = analyzer.resolve()
 	if(!an)
 		return FALSE
 

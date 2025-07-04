@@ -11,7 +11,7 @@
 	<br>\
 	Right-click the cell and click 'Eject Occupant' to remove them.  You can enter the cell yourself by right clicking and selecting 'Enter Sleeper'. \
 	Note that you cannot control the sleeper while inside of it."
-	icon = 'icons/obj/sleeper.dmi'
+	icon = 'icons/obj/machinery/sleeper.dmi'
 	icon_state = "sleeper"
 	density = TRUE
 	anchored = TRUE
@@ -38,7 +38,6 @@
 
 	idle_power_usage = 15
 	active_power_usage = 250 //builtin health analyzer, dialysis machine, injectors.
-	var/parts_power_usage
 	var/stasis_power = 500
 
 	component_types = list(
@@ -48,6 +47,11 @@
 			/obj/item/stock_parts/console_screen,
 			/obj/item/reagent_containers/glass/beaker/large
 		)
+
+	component_hint_cap = "Upgraded <b>capacitors</b> will reduce power usage."
+	component_hint_scan = "Upgraded <b>scanning modules</b> will reduce power usage."
+
+	parts_power_mgmt = FALSE
 
 /obj/machinery/sleeper/Initialize()
 	. = ..()
@@ -85,7 +89,10 @@
 /obj/machinery/sleeper/update_icon()
 	flick("[initial(icon_state)]-anim", src)
 	if(occupant)
-		icon_state = "[initial(icon_state)]-closed"
+		if(stat & NOPOWER || stat & BROKEN)
+			icon_state = "[initial(icon_state)]-closed"
+		else
+			icon_state = "[initial(icon_state)]-working"
 		return
 	else
 		icon_state = initial(icon_state)
@@ -272,13 +279,13 @@
 		to_chat(user, "You [src.panel_open ? "open" : "close"] the maintenance panel.")
 		ClearOverlays()
 		if(src.panel_open)
-			AddOverlays("[initial(icon_state)]-o")
+			AddOverlays("[initial(icon_state)]-panel")
 		return TRUE
 	else if(default_part_replacement(user, attacking_item))
 		return TRUE
 
-/obj/machinery/sleeper/MouseDrop_T(atom/dropping, mob/user)
-	var/mob/target = dropping
+/obj/machinery/sleeper/mouse_drop_receive(atom/dropped, mob/user, params)
+	var/mob/target = dropped
 	if(!istype(target))
 		return
 

@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Bandages now do not disappear as damage heals, instead, a special Remove Bandages verb must be used to remove bandages. This cannot be used to re-open wounds for now, and can only be used if the bandage would've downgraded / disappeared at that point."
-  - balance: "Taking damage on a bandaged limb now removes the bandages."

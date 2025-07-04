@@ -121,10 +121,10 @@
 	..()
 	slowdown = initial(slowdown)
 
-/obj/structure/closet/body_bag/MouseDrop(over_object, src_location, over_location)
+/obj/structure/closet/body_bag/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	..()
-	if((over_object == usr && (in_range(src, usr) || usr.contents.Find(src))))
-		fold(usr)
+	if((over == user && (in_range(src, user) || user.contents.Find(src))))
+		fold(user)
 
 /obj/structure/closet/body_bag/proc/fold(var/user)
 	if(!(ishuman(user)))

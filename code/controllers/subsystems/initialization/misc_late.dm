@@ -17,8 +17,8 @@ SUBSYSTEM_DEF(misc_late)
 		if (area_turfs.len) // Check the area is mapped
 			GLOB.ghostteleportlocs += AR.name
 			GLOB.ghostteleportlocs[AR.name] = AR
-	if(SSatlas.current_map.use_overmap && map_overmap)
-		GLOB.ghostteleportlocs[map_overmap.name] = map_overmap
+	if(SSatlas.current_map.use_overmap && GLOB.map_overmap)
+		GLOB.ghostteleportlocs[GLOB.map_overmap.name] = GLOB.map_overmap
 
 	sortTim(GLOB.ghostteleportlocs, GLOBAL_PROC_REF(cmp_text_asc))
 

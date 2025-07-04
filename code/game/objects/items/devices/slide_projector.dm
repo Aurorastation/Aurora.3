@@ -41,17 +41,17 @@
 		return
 	project_at(get_turf(target))
 
-/obj/item/storage/slide_projector/MouseDrop(atom/over)
-	if(use_check_and_message(usr))
+/obj/item/storage/slide_projector/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(use_check_and_message(user))
 		return
 
-	if(over == usr)
-		interact(usr)
+	if(over == user)
+		interact(user)
 		return
 
 	var/turf/T = get_turf(over)
 	if(istype(T))
-		afterattack(over, usr)
+		afterattack(over, user)
 
 /obj/item/storage/slide_projector/proc/set_slide(obj/item/new_slide)
 	current_slide = new_slide
@@ -93,7 +93,7 @@
 /obj/item/storage/slide_projector/interact(mob/user)
 	var/data = list()
 	if(projection)
-		data += "<a href='?src=[REF(src)];stop_projector=1'>Disable Projector</a>"
+		data += "<a href='byond://?src=[REF(src)];stop_projector=1'>Disable Projector</a>"
 	else
 		data += "Projector Inactive"
 
@@ -104,7 +104,7 @@
 		if(I == current_slide)
 			table += "<td><b>[I.name]</b></td><td>SHOWING</td>"
 		else
-			table += "<td>[I.name]</td><td><a href='?src=[REF(src)];set_active=[i]'>SHOW</a></td>"
+			table += "<td>[I.name]</td><td><a href='byond://?src=[REF(src)];set_active=[i]'>SHOW</a></td>"
 		table += "</tr>"
 		i++
 	table += "</table>"

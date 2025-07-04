@@ -191,7 +191,7 @@
 	overlay_state = "badge_round_bssb"
 	slot_flags = SLOT_TIE
 	contained_sprite = TRUE
-	icon = 'icons/clothing/accessories/bssb_badge.dmi'
+	icon = 'icons/obj/item/clothing/accessory/bssb_badge.dmi'
 
 /obj/item/clothing/accessory/badge/bssb/senior
 	name = "\improper BSSB senior agent's badge"
@@ -296,7 +296,7 @@
 	desc_extended = "A passcard is a modern evolution of the state-issued identification card, with all the functionality of a driver's license, birth certificate, passport, or other document, \
 	updated as necessary or able by a central government. The concept was pioneered in the early days of the Sol Alliance, and continues in most human stellar nations to this day, owing to the availability \
 	and price of consumer plastics and self-powered microholograms."
-	icon = 'icons/clothing/accessories/passcards.dmi'
+	icon = 'icons/obj/item/clothing/accessory/passcards.dmi'
 	icon_state = "passcard_ceti"
 	item_state = "passcard_ceti"
 	contained_sprite = TRUE
@@ -528,7 +528,7 @@
 /obj/item/clothing/accessory/badge/passport
 	name = "biesellite passport"
 	desc = "A passport issued to a citizen of the Republic of Biesel."
-	icon = 'icons/clothing/accessories/passcards.dmi'
+	icon = 'icons/obj/item/clothing/accessory/passcards.dmi'
 	icon_state = "passport_ceti"
 	item_state = "passport_ceti"
 	contained_sprite = TRUE
@@ -591,12 +591,12 @@
 	icon_state = "passport_nralakk"
 	item_state = "passport_nralakk"
 	open = CLOSED
-	var/credit_score = 5
+	var/compat_index = 5
 	var/species_tag = ""
 
 /obj/item/clothing/accessory/badge/passport/nralakk/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	. +=  SPAN_NOTICE("The passport displays the owner's social credit score as: [credit_score].")
+	. +=  SPAN_NOTICE("The passport displays the owner's social compatibility index as: [compat_index].")
 
 /obj/item/clothing/accessory/badge/passport/nralakk/update_icon()
 	icon_state = "[initial(icon_state)][open ? "_o[species_tag]" : ""]"
@@ -606,6 +606,30 @@
 	desc = "A passport issued to a citizen of the Izweski Hegemony."
 	icon_state = "passport_hegemony"
 	item_state = "passport_hegemony"
+
+/obj/item/clothing/accessory/badge/passport/goldendeep
+	name = "golden deep passport"
+	desc = "An electronic passport issued to a member of the Golden Deep Collective. This device lists and updates the owner's net worth in real time."
+	icon_state = "passport_goldendeep"
+	item_state = "passport_goldendeep"
+
+/obj/item/clothing/accessory/badge/passport/consortium
+	name = "consortium of hieroaetheria passport"
+	desc = "A passport issued to a citizen of the Consortium of Hieroaetheria. A testament to inclusiveness anywhere its owner takes with it."
+	icon_state = "passport_consortium"
+	item_state = "passport_consortium"
+
+/obj/item/clothing/accessory/badge/passport/dionaunion
+	name = "union of gla'orr passport"
+	desc = "A passport issued to a citizen of the Union of Gla'orr. Considered somewhat of an opposite of the Consortium passport in terms of what travel it enables."
+	icon_state = "passport_dionaunion"
+	item_state = "passport_dionaunion"
+
+/obj/item/clothing/accessory/badge/passport/eternalrepublic
+	name = "eternal republic of the ekane passport"
+	desc = "A passport issued to a citizen of the Eternal Republic of the Ekane, a mark of having committed oneself to the Eternal wholly."
+	icon_state = "passport_eternalrepublic"
+	item_state = "passport_eternalrepublic"
 
 #undef CANT_OPEN
 #undef CLOSED

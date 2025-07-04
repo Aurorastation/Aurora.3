@@ -1,9 +1,9 @@
-var/global/datum/repository/cameras/camera_repository = new()
+GLOBAL_DATUM_INIT(camera_repository, /datum/repository/cameras, new())
 
 /proc/invalidateCameraCache()
-	camera_repository.networks.Cut()
-	camera_repository.invalidated = 1
-	camera_repository.camera_cache_id = (++camera_repository.camera_cache_id % 999999)
+	GLOB.camera_repository.networks.Cut()
+	GLOB.camera_repository.invalidated = 1
+	GLOB.camera_repository.camera_cache_id = (++GLOB.camera_repository.camera_cache_id % 999999)
 
 /datum/repository/cameras
 	var/list/networks

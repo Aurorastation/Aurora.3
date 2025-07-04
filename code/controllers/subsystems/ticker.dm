@@ -56,6 +56,7 @@ var/datum/controller/subsystem/ticker/SSticker
 		'sound/music/lobby/space.ogg',
 		'sound/music/lobby/traitor.ogg',
 		'sound/music/lobby/title2.ogg',
+		'sound/music/lobby/title3mk2.ogg',
 		'sound/music/lobby/clouds.s3m'
 	)
 
@@ -185,7 +186,7 @@ var/datum/controller/subsystem/ticker/SSticker
 		game_finished = TRUE
 		mode_finished = TRUE
 	else
-		game_finished = (evacuation_controller.round_over() || mode.station_was_nuked)
+		game_finished = (GLOB.evacuation_controller.round_over() || mode.station_was_nuked)
 		mode_finished = (!post_game && mode.check_finished())
 
 	if(!mode.explosion_in_progress && game_finished && (mode_finished || post_game))
@@ -197,7 +198,7 @@ var/datum/controller/subsystem/ticker/SSticker
 		spawn(50)
 			callHook("roundend")
 
-			if (universe_has_ended)
+			if (GLOB.universe_has_ended)
 				if(mode.station_was_nuked)
 					feedback_set_details("end_proper","nuke")
 				else
@@ -253,7 +254,7 @@ var/datum/controller/subsystem/ticker/SSticker
 			if(Player.stat != DEAD)
 				var/turf/playerTurf = get_turf(Player)
 				var/area/playerArea = get_area(playerTurf)
-				if(evacuation_controller.round_over() && evacuation_controller.evacuation_type == TRANSFER_EMERGENCY)
+				if(GLOB.evacuation_controller.round_over() && GLOB.evacuation_controller.evacuation_type == TRANSFER_EMERGENCY)
 					if(is_station_level(playerTurf.z) && is_station_area(playerArea))
 						to_chat(Player, SPAN_GOOD(SPAN_BOLD("You managed to survive the events on [station_name()] as [Player.real_name].")))
 					else
@@ -425,7 +426,7 @@ var/datum/controller/subsystem/ticker/SSticker
 		to_world(SPAN_VOTE(SPAN_BOLD("Tip of the round:") + " [html_encode(message)]"))
 
 /datum/controller/subsystem/ticker/proc/print_testmerges()
-	var/data = revdata.testmerge_overview()
+	var/data = GLOB.revdata.testmerge_overview()
 
 	if (data)
 		to_world(data)
@@ -491,7 +492,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	var/datum/space_sector/current_sector = SSatlas.current_sector
 	var/html = SPAN_NOTICE("Current sector: [current_sector].") + {"\
 		<span> \
-			<a href='?src=[REF(src)];current_sector_show_sites_id=1'>Click here</a> \
+			<a href='byond://?src=[REF(src)];current_sector_show_sites_id=1'>Click here</a> \
 			to see every possible site/ship that can potentially spawn here.\
 		</span>\
 	"}
@@ -771,9 +772,10 @@ var/datum/controller/subsystem/ticker/SSticker
 	for(var/mob/living/carbon/human/player in GLOB.player_list)
 		if(player && player.mind && player.mind.assigned_role)
 			if(!player_is_antag(player.mind, only_offstation_roles = 1))
+				equip_custom_items(player, body_only = TRUE) // Equips body-related custom items, like augments and prosthetics.
 				SSjobs.EquipAugments(player, player.client.prefs)
 				SSjobs.EquipRank(player, player.mind.assigned_role, 0)
-				equip_custom_items(player)
+				equip_custom_items(player, body_only = FALSE) // Equips all other custom items.
 
 		CHECK_TICK
 

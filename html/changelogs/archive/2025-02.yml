@@ -1,0 +1,187 @@
+2025-02-16:
+  ASmallCuteCat:
+  - bugfix: Removed a duplicate word from some text you see when you're close to dying.
+  Acetrea:
+  - rscadd: Allows anyone to leave the Operating Theatres regardless of access.
+  Ben10083:
+  - code_imp: Adds ID check functionality to ship/shuttle consoles.
+  - rscadd: ID Checks added to SCCV Horizon ship/shuttle consoles. Bridge Crew given
+      access to all shuttles.
+  - balance: Emagging or using wirecutters on a ship console will allow it to be usable
+      by anyone.
+  - rscadd: Many offships and their shuttles given access checks.
+  - refactor: Refactored poster code to use singletons instead of a global list.
+  - refactor: Mappers can now use defined poster subtypes to place posters instead
+      of editing variables.
+  - code_imp: Mappers can now specify poster design in rolled up posters as well.
+  - bugfix: Fixed weirdness relating to mapped in posters changing their design when
+      removed from wall.
+  - rscadd: TCAF Corvette now has recruitment posters in their recruitment supplies
+      crate.
+  FabianK3:
+  - rscadd: Added a red version of the high visibility jacket and pants. They are
+      available in the loadout.
+  FlamingLily:
+  - rscadd: Fixes the Assistant Alt title custom outfits
+  - rscadd: 'Added four new assistant alt titles: Wait Staff, Technical Assistant,
+      Lab Assistant, and Medical Orderly. (These are still ASSISTANTS, and cannot
+      perform the relevant departmental skills. These are also different from learner
+      roles, such as the Interns.)'
+  - rscadd: Renamed the existing Lab Assistant (The learner role) to Research Intern
+      to better represent the intent for the role and to make space for the alt title.
+  FluffyGhost:
+  - server: Removed away_mission deprecated system, made initialization a little faster.
+  - server: Made global uplink datum a GLOB.
+  Furrycactus:
+  - rscadd: Replaces the generic grey shortwaves in the Paramedic's quarters with
+      ones in Medical colours.
+  - rscadd: Updates some grates on the IAC Rescue Ship to match the nearby tiles.
+  Geeves:
+  - rscadd: Added a combat training simulator to the holodeck, which spawns holocarp
+      that deal pain damage.
+  Kintsugi:
+  - rscadd: Added a number of Sol pins as accessories, indicating either patriotic
+      sentiment to Sol or political party allegiances.
+  SimpleMaroon:
+  - bugfix: Fixed Golden Deep shirts not showing up in character preview and Golden
+      Deep outerwear being invisible.
+  - bugfix: Firefighter helmets now have proper defense against high heat, meaning
+      that wearing a whole firesuit works again.
+  Wowzewow (Wezzy):
+  - imageadd: Resprites lathes and research machines.
+  - imageadd: Adds new emmisives and animations for lathes, research machines and
+      telecomms.
+  - bugfix: Fixes RFDs not initalizing with ammo overlay.
+  - bugfix: Fixes variable foodstuffs not spawning with filling overlay.
+  - bugfix: Fixes black pants color.
+  - bugfix: Fixes softsuit helmet inhands.
+  - bugfix: Fixes turquoise game helm.
+  - bugfix: Fixes flight helmets for Tajarans and Unathi.
+  - bugfix: Fixes large syringe fill states.
+  - bugfix: Fixes Azubarre torch not extinguishing inhand.
+  - bugfix: Fixes Visegradi Nyakas ear flaps not flapping while on-mob.
+  - bugfix: Fixes Unathi Lore accessories.
+  - bugfix: Fixes invisible glowing slime extracts.
+  - imageadd: Improved the sprites for the stasis bed and cryopods.
+  hazelmouse:
+  - bugfix: CCIA tape recorders no longer disappear when set to begin recording.
+  - bugfix: Removes an erroneously placed console in R&D, mapped underneath the destructive
+      analyzer.
+  - qol: Resolved a number of broken and otherwise improper bits of mapping in several
+      offsites, including broken icons.
+  - rscdel: 'Deleted an empty .dm file for a previously removed offsite. '
+2025-02-17:
+  ASmallCuteCat:
+  - rscadd: Added Quick-E-Burger themed gear and an Orion softcap to the loadout.
+  - imageadd: Added goblin.stev's sprites for an Orion Express softcap and Quick-E-Burger
+      visor, jumpsuit, and apron.
+  SimpleMaroon:
+  - bugfix: Vaurca Bulwarks (and other species with large sprites) no longer get an
+      offset sprite when unloading from a cargo tug.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes Dominian flagpatches.
+  - bugfix: Fixes shirts for Bulwarks.
+  - bugfix: Fixes Skrellian wetshirt sprites.
+  - bugfix: Fixes Ramenvend sprites.
+  - bugfix: Fixes recolorable poncho accents.
+  - bugfix: Fixes mesmetron sprite.
+  - bugfix: Fixes not being able to pick up energy swords and their subtypes.
+  - bugfix: Fixes IPC Implanter sprite.
+  - bugfix: Sweaters can be worn in the shirt slot now. Fixes sweaters not layering
+      when worn as an accessory.
+  hazelmouse:
+  - balance: Greimorian queens and servants now die in vacuum.
+2025-02-18:
+  Ben10083:
+  - bugfix: Ammunition Storage turrets now properly linked to control panel, allowing
+      for settings to be changed.
+  FluffyGhost:
+  - refactor: Turned a ton of unmanaged globals into managed globals.
+  - refactor: Refactored some UT output.
+  - rscdel: Removed some unused things, including vars.
+  - server: Added a test to ensure people don't keep adding new unmanaged vars.
+  - server: Removed away_mission deprecated system, made initialization a little faster.
+  - server: Made global uplink datum a GLOB.
+2025-02-21:
+  Ben10083:
+  - rscadd: 'New voice command for exosuits: toggle power.'
+  - qol: Exosuits with no pilot and no link can be given a command to toggle maintenance
+      protocols, allowing the exosuit to be linked without needing to enter the exosuit.
+  CourierBravo:
+  - rscadd: Changed and added floor decals to the area in front of Consular Office
+      B. Moved a couple decals in front of Consular Office A as well.
+  - rscadd: 'Added an engineering floor decal to the warehouse. Also, moved around
+      the floor outline decals in the warehouse. Now it goes top to bottom: Medical,
+      Engineering, Science, Security, Service, and Operations.'
+  - rscadd: Removed girder and angled section layered on a hull wall next to R&D office.
+      Just makes it look a little nicer.
+  - rscadd: Altered the outline decals in xenobiology. Made some full decals half
+      decals, and changed the decals around water dispensing objects to be blue instead
+      of yellow.
+  - bugfix: Fixed out of place air alarm in the Intrepid. Also moved around some objects
+      to prevent odd overlapping.
+  - bugfix: Fixed a corner wall in Bluespace Drive being a reinforced wall instead
+      of a spaceship hull wall.
+  - bugfix: Fixed an overlapping wall light and medical cabinet in the gym.
+  - bugfix: Removed outlining decals on grass in the animal pen.
+  - bugfix: Added missing floor spline in Research Director's office.
+  - bugfix: Fixed an odd flood decal in the shields room.
+  FluffyGhost:
+  - bugfix: Fixed comet expulsion event not triggering (hopefully).
+  - refactor: Slight refactor of the event container events list.
+  SimpleMaroon:
+  - qol: Wheelchairs in the loadout can now be customized by name, description, and
+      colorability.
+  hazelmouse:
+  - rscadd: Synthetics on the SCCV Horizon now receive a visceral forewarning to hivebot
+      invasions before they are announced to the wider crew. You perceive something
+      is terribly wrong...
+  - bugfix: Rough desert turfs no longer appear with an invalid sprite.
+2025-02-22:
+  CourierBravo:
+  - bugfix: 'Replaced empty kois freezers with full ones on the following maps: Kataphract
+      ship, Hephaestus Security ship, Idris Cruise ship.'
+  Flpfs:
+  - balance: Orderly, Technical and Wait Staff now have respective radios for their
+      departments. Orderly now has mourge access.
+  SimpleMaroon:
+  - qol: Made the wheelchair in the loadout cost 2 points, down from 4 points.
+  - code_imp: Changed the loadout wheelchair's datum path name to make more sense.
+2025-02-26:
+  CourierBravo:
+  - rscadd: Added power outlets to some tables in the deck 3 cafe area, deck 3 observation
+      lounge, and operations.
+  FlamingLily:
+  - rscadd: Added more patient lockers to the medbay, and more medical gowns to the
+      patient lockers.
+  SimpleMaroon:
+  - rscadd: Dogtags accessory items can now be tucked or untucked on help intent,
+      meaning the sprite will not show up when worn as an accessory when tucked.
+  - rscadd: All three existing variants of dogtags (regular, Gadpathurian, Adhomian)
+      can now be separated, instead of just the Gadpathurian and Adhomian tags.
+  - rscadd: The description assigned to your dogtags will now be assigned to both
+      individual tags on separation.
+  Wowzewow (Wezzy):
+  - bugfix: Sweaters can be worn in the shirt slot now. Fixes sweaters not layering
+      when worn as an accessory.
+  Wowzewow (Wezzy), Fluffyghost:
+  - imageadd: Updated the lobby art to use .pngs. Resprites lobby UI.
+2025-02-28:
+  Wowzewow (Wezzy):
+  - bugfix: Fixes inventory sprite z-fighting.
+  - refactor: Adds some storage defines.
+  goblin.stev & hazelmouse:
+  - bugfix: All Quick-E-Burger loadout options should now correctly display in the
+      loadout.
+  - bugfix: The Quick-E-Burger apron should now appear ingame when worn as a suit,
+      and both the apron and jumpsuit shouldn't spawn inside the players' bag at roundstart.
+  hazelmouse:
+  - qol: Custom item prosthetics will no longer cause objects to be unequipped when
+      joining.
+  - bugfix: The solar arrays of the Sadar Scout Ship should now work as intended.
+  - rscadd: You can now jab other people with overloaders, after a short delay.
+  - rscadd: Overloaders now provide more messages to the user than before.
+  - code_imp: Expanded documentation in overloader code.
+  - bugfix: Overloaders should no longer play multiple messages while ending.
+  - rscadd: Added an accent tag for Reade, accessible via the Reade origin and to
+      IPCs with access to all human accents.

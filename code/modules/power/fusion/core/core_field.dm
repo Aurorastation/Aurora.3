@@ -588,6 +588,9 @@
 	AddEnergy(hitting_projectile.damage)
 	update_icon()
 
+/obj/effect/fusion_em_field/add_point_filter()
+	return
+
 /particles/fusion
 	width = 500
 	height = 500

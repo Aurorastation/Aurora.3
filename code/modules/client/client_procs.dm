@@ -1,7 +1,7 @@
-var/list/localhost_addresses = list(
+GLOBAL_LIST_INIT(localhost_addresses, list(
 	"127.0.0.1" = TRUE,
 	"::1" = TRUE
-)
+))
 
 	////////////
 	//SECURITY//
@@ -25,7 +25,8 @@ var/list/localhost_addresses = list(
 	If you have any  questions about this stuff feel free to ask. ~Carn
 	*/
 
-/client/Topic(href, href_list, hsrc)
+//the undocumented 4th argument is for ?[0x\ref] style topic links. hsrc is set to the reference and anything after the ] gets put into hsrc_command
+/client/Topic(href, href_list, hsrc, hsrc_command)
 	if(!usr || usr != mob)	//stops us calling Topic for somebody else's client. Also helps prevent usr=null
 		return
 
@@ -257,7 +258,16 @@ var/list/localhost_addresses = list(
 		if(QDELETED(real_src))
 			return
 
+	//fun fact: Topic() acts like a verb and is executed at the end of the tick like other verbs. So we have to queue it if the server is
+	//overloaded
+	if(hsrc && hsrc != holder && DEFAULT_TRY_QUEUE_VERB(VERB_CALLBACK(src, PROC_REF(_Topic), hsrc, href, href_list)))
+		return
 	..()	//redirect to hsrc.Topic()
+
+///dumb workaround because byond doesnt seem to recognize the Topic() typepath for /datum/proc/Topic() from the client Topic,
+///so we cant queue it without this
+/client/proc/_Topic(datum/hsrc, href, list/href_list)
+	return hsrc.Topic(href, href_list)
 
 /proc/client_by_ckey(ckey)
 	return GLOB.directory[ckey]
@@ -373,6 +383,9 @@ var/list/localhost_addresses = list(
 	tgui_panel = new(src, "browseroutput")
 	tgui_say = new(src, "tgui_say")
 
+	// Forcibly enable hardware-accelerated graphics, as we need them for the lighting overlays.
+	winset(src, null, "command=\".configure graphics-hwmode on\"")
+
 	if(IsGuestKey(key) && GLOB.config.external_auth)
 		src.authed = FALSE
 		var/mob/abstract/unauthed/m = new()
@@ -385,23 +398,8 @@ var/list/localhost_addresses = list(
 		. = ..()
 		src.InitClient()
 		src.InitPrefs()
+		src.InitUI()
 		mob.LateLogin()
-
-	// Initialize stat panel
-	stat_panel.initialize(
-		inline_html = file("html/statbrowser.html"),
-		inline_js = file("html/statbrowser.js"),
-		inline_css = file("html/statbrowser.css"),
-	)
-	addtimer(CALLBACK(src, PROC_REF(check_panel_loaded)), 30 SECONDS)
-
-	// Initialize tgui panel
-	tgui_panel.initialize()
-
-	tgui_say.initialize()
-
-	// Forcibly enable hardware-accelerated graphics, as we need them for the lighting overlays.
-	winset(src, null, "command=\".configure graphics-hwmode on\"")
 
 	send_resources()
 
@@ -409,15 +407,16 @@ var/list/localhost_addresses = list(
 		to_chat(src, SPAN_WARNING("Unable to access asset cache browser, if you are using a custom skin file, please allow DS to download the updated version, if you are not, then make a bug report. This is not a critical issue but can cause issues with resource downloading, as it is impossible to know when extra resources arrived to you."))
 
 	Master.UpdateTickRate()
+	fully_created = TRUE
 
 /client/proc/InitPrefs()
 	SHOULD_NOT_SLEEP(TRUE)
 
 	//preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum)
-	prefs = preferences_datums[ckey]
+	prefs = GLOB.preferences_datums[ckey]
 	if(!prefs)
 		prefs = new /datum/preferences(src)
-		preferences_datums[ckey] = prefs
+		GLOB.preferences_datums[ckey] = prefs
 
 		prefs.gather_notifications(src)
 	prefs.client = src					// Safety reasons here.
@@ -427,14 +426,32 @@ var/list/localhost_addresses = list(
 		fps = prefs.clientfps
 
 	if(prefs.toggles_secondary & FULLSCREEN_MODE)
-		toggle_fullscreen(TRUE)
+		addtimer(CALLBACK(src, VERB_REF(toggle_fullscreen), 1 SECONDS))
+
+	if(prefs.toggles_secondary & CLIENT_PREFERENCE_HIDE_MENU)
+		addtimer(CALLBACK(src, VERB_REF(toggle_menu), 1 SECONDS))
+
+/client/proc/InitUI()
+	INVOKE_ASYNC(src, PROC_REF(acquire_dpi))
+
+	// Initialize tgui panel
+	tgui_panel.initialize()
+	tgui_say.initialize()
+
+	// Initialize stat panel
+	stat_panel.initialize(
+		inline_html = file("html/statbrowser.html"),
+		inline_js = file("html/statbrowser.js"),
+		inline_css = file("html/statbrowser.css"),
+	)
+	addtimer(CALLBACK(src, PROC_REF(check_panel_loaded)), 30 SECONDS)
 
 /client/proc/InitClient()
 	SHOULD_NOT_SLEEP(TRUE)
 
 	to_chat_immediate(src, SPAN_ALERT("If the title screen is black, resources are still downloading. Please be patient until the title screen appears."))
 
-	var/local_connection = (GLOB.config.auto_local_admin && !GLOB.config.use_forumuser_api && (isnull(address) || localhost_addresses[address]))
+	var/local_connection = (GLOB.config.auto_local_admin && !GLOB.config.use_forumuser_api && (isnull(address) || GLOB.localhost_addresses[address]))
 	// Automatic admin rights for people connecting locally.
 	// Concept stolen from /tg/ with deepest gratitude.
 	// And ported from Nebula with love.
@@ -639,27 +656,38 @@ var/list/localhost_addresses = list(
 	if(mob)
 		return mob.MayRespawn()
 
-	// Something went wrong, client is usually kicked or transfered to a new mob at this point
+	// Something went wrong, client is usually kicked or transferred to a new mob at this point
 	return 0
 
 /client/verb/character_setup()
 	set name = "Character Setup"
-	set category = "Preferences"
+	set category = "Preferences.Character"
 	if(prefs)
 		prefs.ShowChoices(usr)
 
 /client/verb/toggle_fullscreen_preference()
 	set name = "Toggle Fullscreen Preference"
-	set category = "Preferences"
+	set category = "Preferences.Menu"
 	set desc = "Toggles whether the game window will be true fullscreen or normal."
 
 	prefs.toggles_secondary ^= FULLSCREEN_MODE
 	prefs.save_preferences()
-	toggle_fullscreen(prefs.toggles_secondary & FULLSCREEN_MODE)
+	if(prefs.toggles_secondary & FULLSCREEN_MODE)
+		toggle_fullscreen()
+
+/client/verb/toggle_hide_menu_preference()
+	set name = "Toggle Hide Menu Preference"
+	set category = "Preferences.Menu"
+	set desc = "Toggles whether the game window will have the top menu bar hidden or not."
+
+	prefs.toggles_secondary ^= CLIENT_PREFERENCE_HIDE_MENU
+	prefs.save_preferences()
+	if(prefs.toggles_secondary & CLIENT_PREFERENCE_HIDE_MENU)
+		toggle_menu()
 
 /client/verb/toggle_accent_tag_text()
 	set name = "Toggle Accent Tag Text"
-	set category = "Preferences"
+	set category = "Preferences.Game"
 	set desc = "Toggles whether accents will be shown as text or images.."
 
 	to_chat(usr, SPAN_NOTICE("You toggle the accent tag text [(prefs?.toggles_secondary & ACCENT_TAG_TEXT) ? "off" : "on"]."))
@@ -667,14 +695,34 @@ var/list/localhost_addresses = list(
 	prefs.toggles_secondary ^= ACCENT_TAG_TEXT
 	prefs.save_preferences()
 
-/client/proc/toggle_fullscreen(new_value)
-	if(new_value)
-		winset(src, "mainwindow", "is-maximized=false;can-resize=false;titlebar=false;menu=menu")
-		winset(src, "mainwindow.mainvsplit", "pos=0x0")
+/client/verb/toggle_fullscreen()
+	set name = "Toggle Fullscreen"
+	set category = "Preferences.Menu"
+
+	fullscreen = !fullscreen
+
+	winset(src, "mainwindow", "menu=[fullscreen ? "" : "menu"];is-fullscreen=[fullscreen ? "true" : "false"];titlebar=[fullscreen ? "false" : "true"]")
+	attempt_auto_fit_viewport()
+
+/client/verb/toggle_status_bar()
+	set name = "Toggle Status Bar"
+	set category = "Preferences.Menu"
+
+	show_status_bar = !show_status_bar
+
+	if (show_status_bar)
+		winset(src, "mapwindow.status_bar", "is-visible=true")
 	else
-		winset(src, "mainwindow", "is-maximized=false;can-resize=true;titlebar=true;menu=menu")
-		winset(src, "mainwindow.mainvsplit", "pos=3x0")
-	winset(src, "mainwindow", "is-maximized=true")
+		winset(src, "mapwindow.status_bar", "is-visible=false")
+
+/client/verb/toggle_menu()
+	set name = "Toggle Menu"
+	set category = "Preferences.Menu"
+
+	var/has_menu = winget(src, "mainwindow", "menu")
+
+	winset(src, "mainwindow", "menu=[has_menu ? "" : "menu"]")
+	attempt_auto_fit_viewport()
 
 /client/proc/apply_fps(var/client_fps)
 	if(world.byond_version >= 511 && byond_version >= 511 && client_fps >= 0 && client_fps <= 1000)
@@ -722,7 +770,7 @@ var/list/localhost_addresses = list(
 		dat += "The request is [request["request_age"]] days old.<br>"
 		dat += "OPTIONS: <a href='byond://?src=[REF(src)];linkingrequest=[request["id"]];linkingaction=accept'>Accept Request</a> | <a href='byond://?src=[REF(src)];linkingrequest=[request["id"]];linkingaction=deny'>Deny Request</a>"
 
-	src << browse(dat, "window=LinkingRequests")
+	src << browse(HTML_SKELETON(dat), "window=LinkingRequests")
 	return
 
 /client/proc/gather_linking_requests()
@@ -737,7 +785,7 @@ var/list/localhost_addresses = list(
 
 	if (select_query.NextRow())
 		if (text2num(select_query.item[1]) > 0)
-			return "You have [select_query.item[1]] account linking requests pending review. Click <a href='?JSlink=linking;notification=:src_ref'>here</a> to see them!"
+			return "You have [select_query.item[1]] account linking requests pending review. Click <a href='byond://?JSlink=linking;notification=:src_ref'>here</a> to see them!"
 
 	return null
 
@@ -813,7 +861,17 @@ var/list/localhost_addresses = list(
 		else
 			CRASH("Age check regex failed for [src.ckey]")
 
+/client/Click(atom/object, atom/location, control, params)
+	SEND_SIGNAL(src, COMSIG_CLIENT_CLICK, object, location, control, params, usr)
+	..()
+
 /client/MouseDrag(src_object, over_object, src_location, over_location, src_control, over_control, params)
+	var/list/modifiers = params2list(params)
+
+	if(!drag_start) // If we're just starting to drag
+		drag_start = world.time
+		drag_details = modifiers.Copy()
+
 	. = ..()
 
 	if(over_object)
@@ -831,7 +889,18 @@ var/list/localhost_addresses = list(
 
 	CHECK_TICK
 
-/client/MouseDown(object, location, control, params)
+/client/MouseDrop(atom/src_object, atom/over_object, atom/src_location, atom/over_location, src_control, over_control, params)
+	SHOULD_NOT_OVERRIDE(TRUE)
+
+	..()
+	drag_start = 0
+	drag_details = null
+
+/client/MouseDown(datum/object, location, control, params)
+	if(QDELETED(object)) //Yep, you can click on qdeleted things before they have time to nullspace. Fun.
+		return
+	SEND_SIGNAL(src, COMSIG_CLIENT_MOUSEDOWN, object, location, control, params)
+
 	var/obj/item/I = mob.get_active_hand()
 	var/obj/O = object
 	if(istype(I, /obj/item/gun) && !mob.in_throw_mode)
@@ -893,6 +962,8 @@ var/list/localhost_addresses = list(
 			sleep(G.fire_delay)
 
 /client/MouseUp(object, location, control, params)
+	if(SEND_SIGNAL(src, COMSIG_CLIENT_MOUSEUP, object, location, control, params) & COMPONENT_CLIENT_MOUSEUP_INTERCEPT)
+		src = src //This doesn't do shit, when you implement click interception change this
 	autofire_aiming_at[1] = null
 
 /atom/proc/is_auto_clickable()
@@ -944,4 +1015,8 @@ var/list/localhost_addresses = list(
 /client/proc/check_panel_loaded()
 	if(stat_panel.is_ready())
 		return
-	to_chat(src, SPAN_DANGER("Statpanel failed to load, click <a href='?src=[REF(src)];reload_statbrowser=1'>here</a> to reload the panel "))
+	to_chat(src, SPAN_DANGER("Statpanel failed to load, click <a href='byond://?src=[REF(src)];reload_statbrowser=1'>here</a> to reload the panel "))
+
+/// This grabs the DPI of the user per their skin
+/client/proc/acquire_dpi()
+	window_scaling = text2num(winget(src, null, "dpi"))

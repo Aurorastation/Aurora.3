@@ -2,7 +2,7 @@
 /obj/item/clothing/accessory/rosary
 	name = "rosary"
 	desc = "A form of prayer psalter used in the Catholic Church, with a string of beads attached to it."
-	icon = 'icons/obj/clothing/accessory/religious.dmi'
+	icon = 'icons/obj/item/clothing/accessory/religious.dmi'
 	icon_state = "rosary"
 	overlay_state = "rosary"
 	flippable = 1
@@ -15,7 +15,7 @@
 /obj/item/clothing/accessory/crucifix
 	name = "crucifix"
 	desc = "A small cross on a piece of string. Commonly associated with the Christian faith, it is a main symbol of this religion."
-	icon = 'icons/obj/clothing/accessory/religious.dmi'
+	icon = 'icons/obj/item/clothing/accessory/religious.dmi'
 	contained_sprite = TRUE
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
@@ -50,7 +50,7 @@
 	name = "scapular"
 	desc = "A Christian garment suspended from the shoulders. As an object of popular piety, \
 	it serves to remind the wearers of their commitment to live a Christian life."
-	icon = 'icons/obj/clothing/accessory/religious.dmi'
+	icon = 'icons/obj/item/clothing/accessory/religious.dmi'
 	icon_state = "scapular"
 	item_state = "scapular"
 
@@ -58,7 +58,7 @@
 	name = "tallit"
 	desc = "A tallit is a fringed garment worn as a prayer shawl by religious Jews. \
 	The tallit has special twined and knotted fringes known as tzitzit attached to its four corners."
-	icon = 'icons/obj/clothing/accessory/religious.dmi'
+	icon = 'icons/obj/item/clothing/accessory/religious.dmi'
 	item_state = "tallit"
 	icon_state = "tallit"
 	contained_sprite = TRUE
@@ -71,7 +71,7 @@
 	desc_extended = "Plated in 18-karat gold and decorated with rubies, this amulet, as jewelry, is both ornate and extremely well-made. In addition to being a passive display of one's faith - not quite holding much religious value - \
 	its wear is often promoted by Assunzione's government as a testament of the planet's superlative craftsmanship talent and material wealth. While it fetches for an extremely high price in the market, voluntarily selling this amulet is considered \
 	sacrilegious, and a display of weak resolve."
-	icon = 'icons/obj/clothing/accessory/religious.dmi'
+	icon = 'icons/obj/item/clothing/accessory/religious.dmi'
 	item_state = "assunzione_amulet"
 	icon_state = "assunzione_amulet"
 	contained_sprite = TRUE

@@ -2872,7 +2872,7 @@
 	},
 /obj/structure/closet,
 /obj/random/colored_jumpsuit,
-/obj/item/clothing/accessory/silversun/random,
+/obj/item/clothing/under/dressshirt/silversun/random,
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/cryo)
 "Cz" = (

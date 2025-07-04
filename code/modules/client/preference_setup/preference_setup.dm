@@ -102,7 +102,7 @@
 		if(PS == selected_category)
 			dat += "[PS.name] "	// TODO: Check how to properly mark a href/button selected in a classic browser window
 		else
-			dat += "<a href='?src=[REF(src)];category=[REF(PS)]'>[PS.name]</a> "
+			dat += "<a href='byond://?src=[REF(src)];category=[REF(PS)]'>[PS.name]</a> "
 	return dat
 
 /datum/category_collection/player_setup_collection/proc/content(var/mob/user)

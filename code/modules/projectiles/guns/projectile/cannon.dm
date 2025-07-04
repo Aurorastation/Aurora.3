@@ -148,3 +148,6 @@
 		to_chat(user, SPAN_WARNING("You can't fire without stabilizing \the [src]!"))
 		return 0
 	return ..()
+
+/obj/item/gun/projectile/peac/unloaded
+	ammo_type = null

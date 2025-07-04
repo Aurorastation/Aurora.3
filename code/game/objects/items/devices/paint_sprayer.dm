@@ -7,10 +7,9 @@
 	name = "paint gun"
 	desc = "A Hephaestus-made paint gun that uses microbes to replenish its paint storage. Very high-tech and fancy too!"
 	desc_info = "Use control-click on a coloured decal on a turf to copy its colour. You can also use shift-click on a turf with the paint gun in hand to clear all decals on it."
-	icon = 'icons/obj/item/tools/paint_sprayer.dmi'
-	icon_state = "floor_painter"
-	item_state = "floor_painter"
-	contained_sprite = TRUE
+	icon = 'icons/obj/item/device/paint_sprayer.dmi'
+	icon_state = "paint_sprayer"
+	item_state = "mister"
 	var/decal =        "remove all decals"
 	var/paint_dir =    "precise"
 	var/paint_colour = COLOR_WHITE
@@ -80,6 +79,10 @@
 		"hull blue" =      COLOR_HULL,
 		"bulkhead black" = COLOR_WALL_GUNMETAL
 		)
+
+/obj/item/device/paint_sprayer/update_icon()
+	ClearOverlays()
+	AddOverlays(overlay_image(icon, "paint_sprayer_color", paint_colour))
 
 /obj/item/device/paint_sprayer/afterattack(var/atom/A, var/mob/user, proximity, params)
 	if(!proximity)
@@ -324,6 +327,7 @@
 	var/new_colour = input(usr, "Choose a colour.", "paintgun", paint_colour) as null|anything in preset_colors
 	if(new_colour && new_colour != paint_colour)
 		paint_colour = preset_colors[new_colour]
+		update_icon()
 		to_chat(usr, SPAN_NOTICE("You set \the [src] to paint with <font color='[paint_colour]'>a new colour</font>."))
 
 /obj/item/device/paint_sprayer/verb/choose_decal()

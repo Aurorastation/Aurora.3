@@ -6,7 +6,7 @@
 	icon_state = "meter_base"
 	var/obj/machinery/atmospherics/pipe/target = null
 	anchored = 1.0
-	power_channel = ENVIRON
+	power_channel = AREA_USAGE_ENVIRON
 	var/frequency = 0
 	var/id
 	idle_power_usage = 15

@@ -4,7 +4,7 @@
 	damage = 0
 	damage_type = DAMAGE_BURN
 	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_ION_ANY, BULLET_IMPACT_METAL = SOUNDS_ION_ANY)
-	check_armor = "energy"
+	check_armor = ENERGY
 	var/pulse_range = 1
 
 /obj/projectile/ion/on_hit(atom/target, blocked, def_zone)
@@ -71,7 +71,7 @@
 	name ="explosive bolt"
 	icon_state= "bolter"
 	damage = 50
-	check_armor = "bullet"
+	check_armor = BULLET
 	sharp = 1
 	edge = TRUE
 
@@ -98,7 +98,7 @@
 	icon_state = "ice_2"
 	damage = 0
 	damage_type = DAMAGE_BURN
-	check_armor = "energy"
+	check_armor = ENERGY
 	//var/temperature = 300
 
 
@@ -115,7 +115,7 @@
 	icon_state = "small1"
 	damage = 0
 	damage_type = DAMAGE_BRUTE
-	check_armor = "bullet"
+	check_armor = BULLET
 
 /obj/projectile/meteor/Collide(atom/A)
 	if(A == firer)
@@ -141,7 +141,7 @@
 	icon_state = "energy"
 	damage = 0
 	damage_type = DAMAGE_TOXIN
-	check_armor = "energy"
+	check_armor = ENERGY
 
 /obj/projectile/energy/floramut/gene
 	name = "gamma somatoray"
@@ -181,7 +181,7 @@
 	icon_state = "energy2"
 	damage = 0
 	damage_type = DAMAGE_TOXIN
-	check_armor = "energy"
+	check_armor = ENERGY
 
 /obj/projectile/energy/florayield/on_hit(atom/target, blocked, def_zone)
 	. = ..()
@@ -210,7 +210,7 @@
 	name ="tungsten rod"
 	icon_state= "gauss"
 	damage = 75
-	check_armor = "bomb"
+	check_armor = BOMB
 	sharp = 1
 	edge = TRUE
 
@@ -245,7 +245,7 @@
 	icon = 'icons/obj/projectiles.dmi'
 	icon_state = "spell"
 	damage = 0
-	check_armor = "energy"
+	check_armor = ENERGY
 	embed = 0
 	damage_type = DAMAGE_PAIN
 
@@ -282,7 +282,7 @@
 	damage = 20
 	damage_type = DAMAGE_BRUTE
 	damage_flags = DAMAGE_FLAG_LASER
-	check_armor = "energy"
+	check_armor = ENERGY
 	incinerate = 10
 	armor_penetration = 60
 	penetrating = 1
@@ -312,7 +312,7 @@
 	icon_state= "icer_bolt"
 	damage = 15
 	damage_type = DAMAGE_BRUTE
-	check_armor = "energy"
+	check_armor = ENERGY
 
 /obj/projectile/bonedart
 	name = "bone dart"
@@ -320,7 +320,7 @@
 	damage = 35
 	damage_type = DAMAGE_BRUTE
 	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_BULLET_MEAT, BULLET_IMPACT_METAL = SOUNDS_BULLET_METAL)
-	check_armor = "melee"
+	check_armor = MELEE
 	embed = TRUE
 	sharp = TRUE
 	shrapnel_type = /obj/item/bone_dart/vannatusk
@@ -329,4 +329,4 @@
 	name = "bone dart"
 	damage = 10
 	armor_penetration = 10
-	check_armor = "bullet"
+	check_armor = BULLET

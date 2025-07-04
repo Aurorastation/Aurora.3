@@ -1,5 +1,3 @@
-var/global/list/bitflags = list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768)
-
 #define TURF_IS_MIMICING(T) (isturf(T) && (T:z_flags & ZM_MIMIC_BELOW))
 #define CHECK_OO_EXISTENCE(OO) if (OO && !TURF_IS_MIMICING(OO.loc)) { qdel(OO); }
 #define UPDATE_OO_IF_PRESENT CHECK_OO_EXISTENCE(bound_overlay); if (bound_overlay) { update_above(); }
@@ -20,20 +18,23 @@ var/global/list/bitflags = list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 #define ZM_MIMIC_DEFAULTS (ZM_MIMIC_BELOW)
 
 // For debug purposes, should contain the above defines in ascending order.
-var/list/mimic_defines = list(
-	"ZM_MIMIC_BELOW",
+GLOBAL_LIST_INIT(mimic_defines, list("ZM_MIMIC_BELOW",
 	"ZM_MIMIC_OVERWRITE",
 //	"ZM_ALLOW_LIGHTING", //Exists on Nebula, but not Aurora?
 	"ZM_ALLOW_ATMOS",
 	"ZM_MIMIC_NO_AO",
 	"ZM_NO_OCCLUDE",
-	"ZM_MIMIC_BASETURF"
-)
+	"ZM_MIMIC_BASETURF"))
 
-//EMP protection
+///EMP will protect itself.
 #define EMP_PROTECT_SELF (1<<0)
+///EMP will protect the contents from also being EMPed.
 #define EMP_PROTECT_CONTENTS (1<<1)
+///EMP will protect the wires.
 #define EMP_PROTECT_WIRES (1<<2)
+
+///Protects against all EMP types.
+#define EMP_PROTECT_ALL (EMP_PROTECT_SELF | EMP_PROTECT_CONTENTS | EMP_PROTECT_WIRES)
 
 // Flags bitmask
 

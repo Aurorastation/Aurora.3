@@ -1,7 +1,7 @@
 /obj/item/device/cosmetic_surgery_kit
 	name = "cosmetic surgery auto-kit"
-	icon = 'icons/obj/device.dmi'
-	icon_state = "depthscanner"
+	icon = 'icons/obj/item/autoimplanter.dmi'
+	icon_state = "autoimplanter"
 	item_state = "electronic"
 	slot_flags = SLOT_BELT
 	throwforce = 5

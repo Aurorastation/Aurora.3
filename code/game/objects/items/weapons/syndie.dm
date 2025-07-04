@@ -122,7 +122,7 @@
 
 /obj/item/syndie/teleporter/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	if(!ready_to_use && burglars.is_antagonist(user.mind))
+	if(!ready_to_use && GLOB.burglars.is_antagonist(user.mind))
 		. += SPAN_NOTICE("Charging: [num2loadingbar(world.time / when_recharge)]")
 
 /obj/item/syndie/teleporter/set_initial_maptext()

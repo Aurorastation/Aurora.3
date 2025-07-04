@@ -65,7 +65,7 @@
 					</td>
 					<td width='50%'>
 						<div align='center'>
-							<a id='refresh' data-initial-href='?_src_=vars;datumrefresh=[REF(thing)];search=' href='?_src_=vars;datumrefresh=[REF(thing)];search=[search]'>Refresh</a>
+							<a id='refresh' data-initial-href='byond://?_src_=vars;datumrefresh=[REF(thing)];search=' href='byond://?_src_=vars;datumrefresh=[REF(thing)];search=[search]'>Refresh</a>
 							<form>
 								<select name='file'
 										size='1'
@@ -148,12 +148,12 @@
 	else if(istype(value, /datum))
 		var/datum/DA = value
 		if("[DA]" == "[DA.type]" || !"[DA]")
-			vtext = "<a href='?_src_=vars;Vars=[REF(DA)]'>[REF(DA)]</a> - [DA.type]"
+			vtext = "<a href='byond://?_src_=vars;Vars=[REF(DA)]'>[REF(DA)]</a> - [DA.type]"
 		else
-			vtext = "<a href='?_src_=vars;Vars=[REF(DA)]'>[REF(DA)]</a> - [DA] ([DA.type])"
+			vtext = "<a href='byond://?_src_=vars;Vars=[REF(DA)]'>[REF(DA)]</a> - [DA] ([DA.type])"
 	else if(istype(value, /client))
 		var/client/C = value
-		vtext = "<a href='?_src_=vars;Vars=[REF(C)]'>[REF(C)]</a> - [C] ([C.type])"
+		vtext = "<a href='byond://?_src_=vars;Vars=[REF(C)]'>[REF(C)]</a> - [C] ([C.type])"
 	else if(islist(value))
 		var/list/L = value
 		vtext = "/list ([length(L)])"
@@ -185,7 +185,7 @@
 			extra += "</ul>"
 
 		else if(length(L) >= 100)
-			vtext = "([length(L)]): <ul><li><a href='?_src_=vars;datumview=[REF(L)];varnameview=[varname];original_datum=[REF(D)]'>List too large to display, click to view.</a></ul>"
+			vtext = "([length(L)]): <ul><li><a href='byond://?_src_=vars;datumview=[REF(L)];varnameview=[varname];original_datum=[REF(D)]'>List too large to display, click to view.</a></ul>"
 
 	else
 		vtext = "[value]"
@@ -198,9 +198,9 @@
 	if(D)
 		//These are the VV_HK_BASIC_* defines
 		ecm = {"
-			(<a href='?_src_=vars;datumedit=[REF(D)];varnameedit=[varname]'>E</a>)
-			(<a href='?_src_=vars;datumchange=[REF(D)];varnamechange=[varname]'>C</a>)
-			(<a href='?_src_=vars;datummass=[REF(D)];varnamemass=[varname]'>M</a>)
+			(<a href='byond://?_src_=vars;datumedit=[REF(D)];varnameedit=[varname]'>E</a>)
+			(<a href='byond://?_src_=vars;datumchange=[REF(D)];varnamechange=[varname]'>C</a>)
+			(<a href='byond://?_src_=vars;datummass=[REF(D)];varnamemass=[varname]'>M</a>)
 			"}
 
 	var/valuestr = make_view_variables_value(D, value, varname)

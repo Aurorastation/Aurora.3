@@ -4,7 +4,7 @@
  * It will yield until a path is returned, using magic
  *
  * Arguments:
- * * caller: The movable atom that's trying to find the path
+ * * requester: The movable atom that's trying to find the path
  * * end: What we're trying to path to. It doesn't matter if this is a turf or some other atom, we're gonna just path to the turf it's on anyway
  * * max_distance: The maximum number of steps we can take in a given path to search (default: 30, 0 = infinite)
  * * mintargetdistance: Minimum distance to the target before path returns, could be used to get near a target, but not right to it - for an AI mob with a gun, for example.
@@ -14,16 +14,16 @@
  * * skip_first: Whether or not to delete the first item in the path. This would be done because the first item is the starting tile, which can break movement for some creatures.
  * * diagonal_handling: defines how we handle diagonal moves. see __DEFINES/path.dm
  */
-/proc/get_path_to(atom/movable/caller, atom/end, max_distance = 30, mintargetdist, access=list(), simulated_only = TRUE, turf/exclude, skip_first=TRUE, diagonal_handling=DIAGONAL_REMOVE_CLUNKY)
+/proc/get_path_to(atom/movable/requester, atom/end, max_distance = 30, mintargetdist, access=list(), simulated_only = TRUE, turf/exclude, skip_first=TRUE, diagonal_handling=DIAGONAL_REMOVE_CLUNKY)
 	var/list/hand_around = list()
 	// We're guarenteed that list will be the first list in pathfinding_finished's argset because of how callback handles the arguments list
 	var/datum/callback/await = list(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(pathfinding_finished), hand_around))
-	if(!SSpathfinder.pathfind(caller, end, max_distance, mintargetdist, access, simulated_only, exclude, skip_first, diagonal_handling, await))
+	if(!SSpathfinder.pathfind(requester, end, max_distance, mintargetdist, access, simulated_only, exclude, skip_first, diagonal_handling, await))
 		return list()
 
 	UNTIL(length(hand_around))
 	var/list/return_val = hand_around[1]
-	if(!islist(return_val) || (QDELETED(caller) || QDELETED(end))) // It's trash, just hand back empty to make it easy
+	if(!islist(return_val) || (QDELETED(requester) || QDELETED(end))) // It's trash, just hand back empty to make it easy
 		return list()
 	return return_val
 
@@ -37,7 +37,7 @@
  * It will yield until a path is returned, using magic
  *
  * Arguments:
- * * caller: The movable atom that's trying to find the path
+ * * requester: The movable atom that's trying to find the path
  * * end: What we're trying to path to. It doesn't matter if this is a turf or some other atom, we're gonna just path to the turf it's on anyway
  * * max_distance: The maximum number of steps we can take in a given path to search (default: 30, 0 = infinite)
  * * mintargetdistance: Minimum distance to the target before path returns, could be used to get near a target, but not right to it - for an AI mob with a gun, for example.
@@ -47,29 +47,29 @@
  * * exclude: If we want to avoid a specific turf, like if we're a mulebot who already got blocked by some turf
  * * skip_first: Whether or not to delete the first item in the path. This would be done because the first item is the starting tile, which can break movement for some creatures.
  */
-/proc/get_swarm_path_to(atom/movable/caller, atom/end, max_distance = 30, mintargetdist, age = MAP_REUSE_INSTANT, access = list(), simulated_only = TRUE, turf/exclude, skip_first=TRUE)
+/proc/get_swarm_path_to(atom/movable/requester, atom/end, max_distance = 30, mintargetdist, age = MAP_REUSE_INSTANT, access = list(), simulated_only = TRUE, turf/exclude, skip_first=TRUE)
 	var/list/hand_around = list()
 	// We're guarenteed that list will be the first list in pathfinding_finished's argset because of how callback handles the arguments list
 	var/datum/callback/await = list(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(pathfinding_finished), hand_around))
-	if(!SSpathfinder.swarmed_pathfind(caller, end, max_distance, mintargetdist, age, access, simulated_only, exclude, skip_first, await))
+	if(!SSpathfinder.swarmed_pathfind(requester, end, max_distance, mintargetdist, age, access, simulated_only, exclude, skip_first, await))
 		return list()
 
 	UNTIL(length(hand_around))
 	var/list/return_val = hand_around[1]
-	if(!islist(return_val) || (QDELETED(caller) || QDELETED(end))) // It's trash, just hand back empty to make it easy
+	if(!islist(return_val) || (QDELETED(requester) || QDELETED(end))) // It's trash, just hand back empty to make it easy
 		return list()
 	return return_val
 
-/proc/get_sssp(atom/movable/caller, max_distance = 30, access = list(), simulated_only = TRUE, turf/exclude)
+/proc/get_sssp(atom/movable/requester, max_distance = 30, access = list(), simulated_only = TRUE, turf/exclude)
 	var/list/hand_around = list()
 	// We're guarenteed that list will be the first list in pathfinding_finished's argset because of how callback handles the arguments list
 	var/datum/callback/await = list(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(pathfinding_finished), hand_around))
-	if(!SSpathfinder.build_map(caller, get_turf(caller), max_distance, access, simulated_only, exclude, await))
+	if(!SSpathfinder.build_map(requester, get_turf(requester), max_distance, access, simulated_only, exclude, await))
 		return null
 
 	UNTIL(length(hand_around))
 	var/datum/path_map/return_val = hand_around[1]
-	if(!istype(return_val, /datum/path_map) || (QDELETED(caller))) // It's trash, just hand back null to make it easy
+	if(!istype(return_val, /datum/path_map) || (QDELETED(requester))) // It's trash, just hand back null to make it easy
 		return null
 	return return_val
 
@@ -314,7 +314,7 @@
 	/// Weakref to the caller used to generate this info
 	/// Should not use this almost ever, it's for context and to allow for proc chains that
 	/// Require a movable
-	var/datum/weakref/caller_ref = null
+	var/datum/weakref/requester_ref = null
 
 /datum/can_pass_info/New(atom/movable/construct_from, list/access, no_id = FALSE, call_depth = 0)
 	// No infiniloops
@@ -327,7 +327,7 @@
 	if(isnull(construct_from))
 		return
 
-	src.caller_ref = WEAKREF(construct_from)
+	src.requester_ref = WEAKREF(construct_from)
 	src.pass_flags = construct_from.pass_flags
 	// src.movement_type = construct_from.movement_type
 
@@ -365,8 +365,8 @@ GLOBAL_LIST_INIT(can_pass_info_vars, GLOBAL_PROC_REF(can_pass_check_vars))
 	var/datum/isaac = new()
 	var/list/altar = assoc_to_keys(lamb.vars - isaac.vars)
 	// Don't compare against calling atom, it's not relevant here
-	altar -= "caller_ref"
-	ASSERT("caller_ref" in lamb.vars, "caller_ref var was not found in /datum/can_pass_info, why are we filtering for it?")
+	altar -= "requester_ref"
+	ASSERT("requester_ref" in lamb.vars, "requester_ref var was not found in /datum/can_pass_info, why are we filtering for it?")
 	// We will bespoke handle pulling_info
 	altar -= "pulling_info"
 	ASSERT("pulling_info" in lamb.vars, "pulling_info var was not found in /datum/can_pass_info, why are we filtering for it?")

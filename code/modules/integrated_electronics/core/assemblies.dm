@@ -85,12 +85,12 @@
 		total_complexity = total_complexity + part.complexity
 	var/list/HTML = list()
 
-	HTML += "<br><a href='?src=[REF(src)]'>Refresh</a>  |  "
-	HTML += "<a href='?src=[REF(src)];rename=1'>Rename</a><br>"
+	HTML += "<br><a href='byond://?src=[REF(src)]'>Refresh</a>  |  "
+	HTML += "<a href='byond://?src=[REF(src)];rename=1'>Rename</a><br>"
 	HTML += "[total_parts]/[max_components] ([round((total_parts / max_components) * 100, 0.1)]%) space taken up in the assembly.<br>"
 	HTML += "[total_complexity]/[max_complexity] ([round((total_complexity / max_complexity) * 100, 0.1)]%) maximum complexity.<br>"
 	if(battery)
-		HTML += "[round(battery.charge, 0.1)]/[battery.maxcharge] ([round(battery.percent(), 0.1)]%) cell charge. <a href='?src=[REF(src)];remove_cell=1'>Remove</a>"
+		HTML += "[round(battery.charge, 0.1)]/[battery.maxcharge] ([round(battery.percent(), 0.1)]%) cell charge. <a href='byond://?src=[REF(src)];remove_cell=1'>Remove</a>"
 	else
 		HTML += SPAN_DANGER("No powercell detected!")
 	HTML += "<br><br>"
@@ -101,10 +101,10 @@
 //Put removable circuits in separate categories from non-removable
 	for(var/obj/item/integrated_circuit/circuit in contents)
 		if(!circuit.removable)
-			HTML += "<a href=?src=[REF(circuit)];examine=1;from_assembly=1>[circuit.displayed_name]</a> | "
-			HTML += "<a href=?src=[REF(circuit)];rename=1;from_assembly=1>Rename</a> | "
-			HTML += "<a href=?src=[REF(circuit)];scan=1;from_assembly=1>Scan with Debugger</a> | "
-			HTML += "<a href=?src=[REF(circuit)];bottom=[REF(circuit)];from_assembly=1>Move to Bottom</a>"
+			HTML += "<a href='byond://?src=[REF(circuit)];examine=1;from_assembly=1>[circuit.displayed_name]</a> | "
+			HTML += "<a href='byond://?src=[REF(circuit)];rename=1;from_assembly=1>Rename</a> | "
+			HTML += "<a href='byond://?src=[REF(circuit)];scan=1;from_assembly=1>Scan with Debugger</a> | "
+			HTML += "<a href='byond://?src=[REF(circuit)];bottom=[REF(circuit)];from_assembly=1>Move to Bottom</a>"
 			HTML += "<br>"
 
 	HTML += "<hr>"
@@ -112,11 +112,11 @@
 
 	for(var/obj/item/integrated_circuit/circuit in contents)
 		if(circuit.removable)
-			HTML += "<a href=?src=[REF(circuit)];examine=1;from_assembly=1>[circuit.displayed_name]</a> | "
-			HTML += "<a href=?src=[REF(circuit)];rename=1;from_assembly=1>Rename</a> | "
-			HTML += "<a href=?src=[REF(circuit)];scan=1;from_assembly=1>Scan with Debugger</a> | "
-			HTML += "<a href=?src=[REF(circuit)];remove=1;from_assembly=1>Remove</a> | "
-			HTML += "<a href=?src=[REF(circuit)];bottom=[REF(circuit)];from_assembly=1>Move to Bottom</a>"
+			HTML += "<a href='byond://?src=[REF(circuit)];examine=1;from_assembly=1>[circuit.displayed_name]</a> | "
+			HTML += "<a href='byond://?src=[REF(circuit)];rename=1;from_assembly=1>Rename</a> | "
+			HTML += "<a href='byond://?src=[REF(circuit)];scan=1;from_assembly=1>Scan with Debugger</a> | "
+			HTML += "<a href='byond://?src=[REF(circuit)];remove=1;from_assembly=1>Remove</a> | "
+			HTML += "<a href='byond://?src=[REF(circuit)];bottom=[REF(circuit)];from_assembly=1>Move to Bottom</a>"
 			HTML += "<br>"
 
 	var/datum/browser/B = new(user, "assembly-[REF(src)]", name, 600, 400)

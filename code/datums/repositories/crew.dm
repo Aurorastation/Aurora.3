@@ -8,7 +8,7 @@
 #define OXYGENATION_STATE_NONE 1
 #define OXYGENATION_STATE_UNDEFINED 0
 
-var/global/datum/repository/crew/crew_repository = new()
+GLOBAL_DATUM_INIT(crew_repository, /datum/repository/crew, new())
 
 /datum/repository/crew
 	var/list/cache_data

@@ -27,6 +27,10 @@
 	hud = null
 	. = ..()
 
+///Screen elements are always on top of the players screen and don't move so yes they are adjacent
+/atom/movable/screen/Adjacent(atom/neighbor, atom/target, atom/movable/mover)
+	return TRUE
+
 /**
  * Handles the deletion of the HUD this screen is associated to
  */
@@ -330,7 +334,7 @@
 			usr.stop_pulling()
 		if("throw")
 			if(!usr.stat && isturf(usr.loc) && !usr.restrained())
-				usr:toggle_throw_mode()
+				usr.toggle_throw_mode()
 		if("drop")
 			if(usr.client)
 				usr.client.drop_item()
@@ -355,14 +359,18 @@
 					usr << up_image
 					QDEL_IN(up_image, 12)
 				return
-			var/turf/T1 = get_turf(usr)
+
+			if(!isliving(usr))
+				return
+			var/mob/living/user = usr
+			var/turf/T1 = get_turf(user)
 			var/turf/T = GET_TURF_ABOVE(T1)
 			if (!T)
-				to_chat(usr, SPAN_NOTICE("There is nothing above you!"))
+				to_chat(user, SPAN_NOTICE("There is nothing above you!"))
 			else if (T.is_hole)
-				to_chat(usr, SPAN_NOTICE("There's no roof above your head! You can see up!"))
+				user.look_up_open_space(T1)
 			else
-				to_chat(usr, SPAN_NOTICE("You see a ceiling staring back at you."))
+				to_chat(user, SPAN_NOTICE("You see a ceiling staring back at you."))
 
 		if("module")
 			if(isrobot(usr))
@@ -396,19 +404,21 @@
 					to_chat(R, "You haven't selected a module yet.")
 
 		if("radio")
-			if(issilicon(usr))
-				if(isrobot(usr))
-					if(modifiers["shift"])
-						var/mob/living/silicon/robot/R = usr
-						if(!R.radio.radio_desc)
-							R.radio.setupRadioDescription()
-						to_chat(R, SPAN_NOTICE("You analyze your integrated radio:"))
-						to_chat(R, R.radio.radio_desc)
-						return
-				usr:radio_menu()
+			if(isrobot(usr))
+				var/mob/living/silicon/robot/R = usr
+				if(modifiers["shift"])
+					if(!R.radio.radio_desc)
+						R.radio.setupRadioDescription()
+					to_chat(R, SPAN_NOTICE("You analyze your integrated radio:"))
+					to_chat(R, R.radio.radio_desc)
+					return
+
+				R.radio_menu()
+
 		if("panel")
-			if(issilicon(usr))
-				usr:installed_modules()
+			if(isrobot(usr))
+				var/mob/living/silicon/robot/R = usr
+				R.installed_modules()
 
 		if("store")
 			if(isrobot(usr))
@@ -442,9 +452,9 @@
 				var/mob/living/carbon/C = usr
 				C.activate_hand("l")
 		if("swap")
-			usr:swap_hand()
+			usr.swap_hand()
 		if("hand")
-			usr:swap_hand()
+			usr.swap_hand()
 		else
 			if(usr.attack_ui(slot_id))
 				usr.update_inv_l_hand(0)

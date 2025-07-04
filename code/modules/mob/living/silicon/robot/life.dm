@@ -210,7 +210,7 @@
 			healths.icon_state = "health7"
 
 	if(syndicate && client)
-		for(var/datum/mind/tra in traitors.current_antagonists)
+		for(var/datum/mind/tra in GLOB.traitors.current_antagonists)
 			if(tra.current)
 				// TODO: Update to new antagonist system.
 				var/I = image('icons/mob/mob.dmi', loc = tra.current, icon_state = "traitor")
@@ -220,7 +220,7 @@
 			// TODO: Update to new antagonist system.
 			if(!mind.special_role)
 				mind.special_role = "traitor"
-				traitors.current_antagonists |= mind
+				GLOB.traitors.current_antagonists |= mind
 
 	if(cells)
 		if(cell)
@@ -276,11 +276,11 @@
 			if(I && !(istype(I, /obj/item/cell) || istype(I, /obj/item/device/radio) || istype(I, /obj/machinery/camera) || istype(I, /obj/item/device/mmi)))
 				client.screen += I
 	if(module_state_1)
-		module_state_1:screen_loc = ui_inv1
+		module_state_1.screen_loc = ui_inv1
 	if(module_state_2)
-		module_state_2:screen_loc = ui_inv2
+		module_state_2.screen_loc = ui_inv2
 	if(module_state_3)
-		module_state_3:screen_loc = ui_inv3
+		module_state_3.screen_loc = ui_inv3
 	update_icon()
 
 /mob/living/silicon/robot/proc/process_killswitch()

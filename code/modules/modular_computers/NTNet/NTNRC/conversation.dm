@@ -1,4 +1,5 @@
-var/global/ntnrc_uid = 0
+GLOBAL_VAR_INIT(ntnrc_uid, 0)
+
 /datum/ntnet_conversation
 	var/id
 	var/title = "Untitled Conversation"
@@ -9,8 +10,8 @@ var/global/ntnrc_uid = 0
 	var/password
 
 /datum/ntnet_conversation/New(var/name, var/no_operator)
-	id = ntnrc_uid
-	ntnrc_uid++
+	id = GLOB.ntnrc_uid
+	GLOB.ntnrc_uid++
 	if(name)
 		title = name
 	if(GLOB.ntnet_global)

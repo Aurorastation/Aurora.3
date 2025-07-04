@@ -114,13 +114,14 @@
 /datum/gear/utility/assunzione_kit
 	display_name = "assunzionii voidsuit kit"
 	path = /obj/item/voidsuit_modkit/assunzione
-	allowed_roles = list("Research Director", "Scientist", "Xenoarchaeologist", "Xenobiologist", "Xenobotanist", "Lab Assistant", "Science Personnel")
+	allowed_roles = list("Research Director", "Scientist", "Xenoarchaeologist", "Xenobiologist", "Xenobotanist", "Research Intern", "Science Personnel")
 	origin_restriction = list(/singleton/origin_item/origin/assunzione, /singleton/origin_item/origin/ipc_assunzione)
 
-/datum/gear/utility/wheelchair/color
+/datum/gear/utility/wheelchair
 	display_name = "wheelchair"
 	path = /obj/item/material/stool/chair/wheelchair
-	cost = 4
+	cost = 2
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/utility/business_card_holder
 	display_name = "business card holder"
@@ -157,21 +158,14 @@
 	gear_tweaks += new /datum/gear_tweak/path(cards)
 	gear_tweaks += new /datum/gear_tweak/paper_data()
 
-/datum/gear/utility/pills
-	display_name = "pill bottle selection"
-	description = "A selection of prescription pills. NOTICE: most of these are considered contraband if possessed without the relevant prescription noted in the medical records."
-	path = /obj/item/reagent_containers/pill
+/datum/gear/utility/paper
+	display_name = "colorable paper"
+	path = /obj/item/paper
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/utility/pills/New()
+/datum/gear/utility/paper/New()
 	..()
-	var/list/pills = list()
-	pills["Emoxanyl"] = /obj/item/storage/pill_bottle/emoxanyl
-	pills["Minaphobin"] = /obj/item/storage/pill_bottle/minaphobin/small
-	pills["Neurostabin "] = /obj/item/storage/pill_bottle/neurostabin
-	pills["Orastabin"] = /obj/item/storage/pill_bottle/orastabin
-	pills["Parvosil"] = /obj/item/storage/pill_bottle/parvosil
-	pills["Corophenidate"] = /obj/item/storage/pill_bottle/corophenidate
-	gear_tweaks += new /datum/gear_tweak/path(pills)
+	gear_tweaks += new /datum/gear_tweak/paper_data()
 
 /datum/gear/utility/buddy_tag
 	display_name = "buddy tag"

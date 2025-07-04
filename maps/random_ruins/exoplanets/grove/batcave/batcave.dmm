@@ -1,0 +1,853 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/simulated/mineral/random/exoplanet,
+/area/template_noop)
+"b" = (
+/obj/item/storage/bag/ore{
+	pixel_y = -18
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/template_noop)
+"c" = (
+/obj/structure/flora/rock/random,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren,
+/area/template_noop)
+"d" = (
+/obj/structure/ore_box,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"e" = (
+/obj/structure/flora/bush/grove,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"f" = (
+/obj/structure/barricade/wooden{
+	dir = 1
+	},
+/obj/structure/track,
+/turf/simulated/floor/exoplanet/barren,
+/area/template_noop)
+"g" = (
+/obj/structure/flora/rock/random,
+/turf/simulated/floor/exoplanet/barren,
+/area/template_noop)
+"h" = (
+/obj/structure/track,
+/obj/structure/closet/crate/miningcart/ore,
+/turf/simulated/floor/exoplanet/barren,
+/area/template_noop)
+"k" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren,
+/area/template_noop)
+"l" = (
+/turf/simulated/floor/exoplanet/barren,
+/area/template_noop)
+"m" = (
+/obj/item/pickaxe{
+	pixel_y = 9
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/template_noop)
+"o" = (
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"p" = (
+/obj/item/gun/projectile/pistol/detective,
+/turf/simulated/floor/exoplanet/barren,
+/area/template_noop)
+"q" = (
+/obj/item/storage/bag/ore,
+/turf/simulated/floor/exoplanet/barren,
+/area/template_noop)
+"r" = (
+/obj/structure/flora/rock/pile/random,
+/turf/simulated/floor/exoplanet/barren,
+/area/template_noop)
+"s" = (
+/obj/structure/ore_box,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren,
+/area/template_noop)
+"t" = (
+/obj/structure/flora/rock,
+/turf/simulated/floor/exoplanet/barren,
+/area/template_noop)
+"v" = (
+/obj/structure/track,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren,
+/area/template_noop)
+"y" = (
+/mob/living/simple_animal/hostile/scarybat,
+/turf/simulated/floor/exoplanet/barren,
+/area/template_noop)
+"A" = (
+/obj/structure/flora/rock/pile/random,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren,
+/area/template_noop)
+"B" = (
+/obj/item/shovel{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/template_noop)
+"D" = (
+/mob/living/simple_animal/hostile/scarybat,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren,
+/area/template_noop)
+"E" = (
+/obj/effect/decal/cleanable/blood/splatter{
+	basecolor = "#400000";
+	dries = 0;
+	name = "dried blood"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren,
+/area/template_noop)
+"G" = (
+/obj/structure/flora/tree/jungle/small,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"I" = (
+/obj/structure/flora/ausbushes/leafybush,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"J" = (
+/obj/item/pickaxe{
+	pixel_x = 13
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/template_noop)
+"K" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/barren,
+/area/template_noop)
+"L" = (
+/obj/structure/track,
+/turf/simulated/floor/exoplanet/barren,
+/area/template_noop)
+"M" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"N" = (
+/obj/item/device/flashlight/lantern/on,
+/turf/simulated/floor/exoplanet/barren,
+/area/template_noop)
+"P" = (
+/obj/effect/decal/cleanable/blood/splatter{
+	basecolor = "#400000";
+	dries = 0;
+	name = "dried blood"
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/template_noop)
+"Q" = (
+/mob/living/simple_animal/hostile/scarybat,
+/obj/structure/track,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren,
+/area/template_noop)
+"R" = (
+/obj/item/pickaxe{
+	pixel_x = 6
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren,
+/area/template_noop)
+"S" = (
+/obj/item/device/flashlight/flare{
+	pixel_y = 7;
+	pixel_x = -6
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/template_noop)
+"T" = (
+/obj/structure/flora/ausbushes/brflowers,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"U" = (
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/barren,
+/area/template_noop)
+"V" = (
+/obj/structure/flora/tree/grove,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"W" = (
+/obj/structure/barricade/wooden{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren,
+/area/template_noop)
+"X" = (
+/obj/item/device/flashlight/flare,
+/turf/simulated/floor/exoplanet/barren,
+/area/template_noop)
+
+(1,1,1) = {"
+I
+o
+o
+o
+o
+M
+o
+o
+o
+o
+M
+o
+o
+o
+V
+o
+o
+o
+M
+M
+"}
+(2,1,1) = {"
+o
+o
+T
+o
+M
+o
+o
+M
+o
+o
+o
+o
+o
+o
+o
+o
+a
+a
+I
+M
+"}
+(3,1,1) = {"
+o
+o
+o
+o
+a
+a
+a
+a
+a
+a
+a
+a
+o
+o
+o
+T
+o
+a
+a
+o
+"}
+(4,1,1) = {"
+o
+G
+o
+a
+a
+q
+l
+a
+a
+a
+a
+a
+a
+o
+o
+o
+o
+o
+a
+o
+"}
+(5,1,1) = {"
+o
+o
+o
+a
+r
+E
+X
+k
+a
+a
+a
+a
+a
+a
+o
+e
+o
+o
+o
+o
+"}
+(6,1,1) = {"
+o
+M
+a
+a
+K
+B
+D
+g
+a
+c
+l
+a
+a
+a
+a
+o
+o
+o
+o
+G
+"}
+(7,1,1) = {"
+M
+M
+a
+a
+a
+l
+k
+a
+a
+a
+U
+m
+r
+k
+a
+a
+a
+o
+M
+o
+"}
+(8,1,1) = {"
+M
+o
+a
+a
+a
+l
+k
+a
+a
+K
+l
+k
+l
+U
+s
+a
+a
+o
+o
+M
+"}
+(9,1,1) = {"
+M
+o
+a
+a
+a
+N
+l
+l
+a
+l
+P
+D
+E
+k
+k
+a
+a
+o
+o
+M
+"}
+(10,1,1) = {"
+o
+a
+a
+a
+k
+D
+a
+l
+l
+l
+a
+l
+p
+y
+A
+a
+a
+o
+o
+M
+"}
+(11,1,1) = {"
+o
+a
+a
+a
+t
+k
+a
+l
+k
+a
+a
+a
+a
+g
+a
+a
+a
+o
+o
+o
+"}
+(12,1,1) = {"
+o
+a
+a
+a
+a
+l
+S
+k
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+o
+o
+"}
+(13,1,1) = {"
+o
+a
+a
+a
+a
+K
+b
+l
+l
+g
+a
+a
+a
+a
+a
+a
+a
+a
+o
+e
+"}
+(14,1,1) = {"
+o
+a
+a
+a
+a
+l
+a
+a
+K
+l
+a
+a
+a
+a
+a
+a
+a
+a
+T
+o
+"}
+(15,1,1) = {"
+o
+a
+a
+a
+a
+l
+J
+a
+h
+L
+Q
+a
+a
+a
+a
+a
+a
+a
+l
+o
+"}
+(16,1,1) = {"
+o
+a
+a
+a
+a
+y
+l
+a
+a
+a
+v
+v
+a
+a
+a
+a
+k
+W
+o
+o
+"}
+(17,1,1) = {"
+e
+a
+a
+a
+k
+k
+l
+a
+a
+a
+a
+v
+L
+f
+L
+L
+v
+f
+L
+o
+"}
+(18,1,1) = {"
+o
+a
+a
+D
+U
+k
+k
+a
+a
+a
+a
+K
+y
+a
+N
+k
+A
+a
+l
+o
+"}
+(19,1,1) = {"
+M
+a
+a
+s
+P
+D
+g
+a
+a
+a
+a
+a
+k
+a
+a
+a
+a
+a
+d
+o
+"}
+(20,1,1) = {"
+o
+a
+a
+a
+r
+k
+a
+a
+a
+a
+a
+K
+k
+a
+a
+a
+a
+a
+d
+o
+"}
+(21,1,1) = {"
+o
+o
+a
+a
+a
+a
+a
+a
+a
+a
+a
+l
+a
+a
+a
+a
+a
+a
+o
+o
+"}
+(22,1,1) = {"
+G
+o
+a
+a
+a
+a
+a
+a
+a
+a
+l
+K
+g
+a
+a
+a
+a
+a
+V
+o
+"}
+(23,1,1) = {"
+o
+o
+a
+a
+a
+a
+a
+a
+y
+l
+l
+P
+l
+K
+a
+a
+a
+a
+o
+o
+"}
+(24,1,1) = {"
+o
+o
+o
+a
+a
+a
+a
+a
+g
+k
+R
+D
+U
+K
+a
+a
+a
+o
+o
+o
+"}
+(25,1,1) = {"
+M
+M
+o
+o
+a
+a
+a
+a
+a
+A
+X
+l
+q
+a
+a
+a
+o
+o
+o
+o
+"}
+(26,1,1) = {"
+o
+M
+o
+T
+I
+a
+a
+a
+a
+k
+l
+a
+a
+a
+a
+a
+o
+o
+M
+a
+"}
+(27,1,1) = {"
+o
+o
+M
+o
+o
+o
+o
+o
+a
+a
+a
+a
+a
+a
+a
+o
+M
+M
+M
+a
+"}
+(28,1,1) = {"
+o
+o
+V
+o
+o
+o
+M
+o
+o
+T
+o
+e
+M
+o
+o
+o
+M
+o
+a
+a
+"}
+(29,1,1) = {"
+o
+o
+o
+o
+o
+M
+M
+o
+o
+o
+o
+o
+o
+M
+o
+M
+o
+o
+a
+a
+"}
+(30,1,1) = {"
+o
+o
+o
+e
+o
+M
+o
+o
+o
+G
+o
+M
+o
+o
+o
+I
+o
+a
+a
+a
+"}

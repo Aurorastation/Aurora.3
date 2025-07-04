@@ -1,5 +1,5 @@
-/var/lighting_profiling = FALSE
-/var/lighting_overlays_initialized = FALSE
+GLOBAL_VAR_INIT(lighting_profiling, FALSE)
+GLOBAL_VAR_INIT(lighting_overlays_initialized, FALSE)
 
 SUBSYSTEM_DEF(lighting)
 	name = "Lighting"
@@ -89,7 +89,7 @@ SUBSYSTEM_DEF(lighting)
 
 			CHECK_TICK
 
-	lighting_overlays_initialized = TRUE
+	GLOB.lighting_overlays_initialized = TRUE
 
 	admin_notice(SPAN_DANGER("Created [overlaycount] lighting overlays in [(REALTIMEOFDAY - starttime)/10] seconds."), R_DEBUG)
 

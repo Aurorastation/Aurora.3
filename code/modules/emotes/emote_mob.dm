@@ -157,6 +157,8 @@
 	if(!message)
 		return
 
+	var/animated_chat_message = message
+
 	message = format_emote(src, message)
 
 	if (message)
@@ -167,6 +169,15 @@
 		visible_message(message, show_observers = do_show_observers)
 	else
 		audible_message(message, ghost_hearing = do_show_observers)
+
+	var/list/hearers = get_hearers_in_view(7, src)
+	var/list/hear_clients = list()
+	for(var/mob/M in hearers)
+		if(M.client)
+			hear_clients |= M.client
+
+	animated_chat_message = SPAN_COLOR("#f3ef09", "*") + animated_chat_message
+	animate_chat(animated_chat_message, null, TRUE, hear_clients, 30)
 
 // Specific mob type exceptions below.
 /mob/living/silicon/ai/emote(var/act, var/type, var/message)

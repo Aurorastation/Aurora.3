@@ -256,3 +256,15 @@
 	desc_extended = "While a common sight in the Alliance's more rebellious or devastated worlds such as Mars, the Army beret became a potent symbol of Sol's triumph in the civil war. Nowhere else in the Spur are the blue berets more omnipresent than with peacekeepers on the former capital of the Restoration Front - Lycoris."
 	icon_state = "sapk"
 	item_state = "sapk"
+
+/obj/item/clothing/head/beret/sol
+	name = "sol marine beret"
+	desc = "A green beret with an attached cap badge bearing the insignia of a Solarian Marine Corps regiment."
+	icon_state = "sol"
+	item_state = "sol"
+
+/obj/item/clothing/head/beret/sol/grey
+	name = "sol marine beret"
+	desc = "A grey beret with an attached cap badge bearing the insignia of a Solarian Marine Corps regiment."
+	icon_state = "solgrey"
+	item_state = "solgrey"

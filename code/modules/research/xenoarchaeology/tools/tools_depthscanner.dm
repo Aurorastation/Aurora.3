@@ -9,7 +9,6 @@
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "depth_scanner"
 	item_state = "depth_scanner"
-	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_BELT
 	var/list/positive_locations = list()
@@ -75,19 +74,19 @@
 
 /obj/item/device/depth_scanner/interact(var/mob/user as mob)
 	var/dat = "<b>Co-ordinates with positive matches</b><br>"
-	dat += "<A href='?src=[REF(src)];clear=0'>== Clear all ==</a><br>"
+	dat += "<A href='byond://?src=[REF(src)];clear=0'>== Clear all ==</a><br>"
 	if(current)
 		dat += "Time: [current.time]<br>"
 		dat += "Coords: [current.coords]<br>"
 		dat += "Anomaly depth: [current.depth] cm<br>"
 		dat += "Clearance above anomaly depth: [current.clearance] cm<br>"
 		dat += "Dissonance spread: [current.dissonance_spread]<br>"
-		var/index = responsive_carriers.Find(current.material)
-		if(index > 0 && index <= finds_as_strings.len)
-			dat += "Anomaly material: [finds_as_strings[index]]<br>"
+		var/index = GLOB.responsive_carriers.Find(current.material)
+		if(index > 0 && index <= GLOB.finds_as_strings.len)
+			dat += "Anomaly material: [GLOB.finds_as_strings[index]]<br>"
 		else
 			dat += "Anomaly material: Unknown<br>"
-		dat += "<A href='?src=[REF(src)];clear=[current.record_index]'>clear entry</a><br>"
+		dat += "<A href='byond://?src=[REF(src)];clear=[current.record_index]'>clear entry</a><br>"
 	else
 		dat += "Select an entry from the list<br>"
 		dat += "<br>"
@@ -98,12 +97,12 @@
 	if(positive_locations.len)
 		for(var/index=1, index<=positive_locations.len, index++)
 			var/datum/depth_scan/D = positive_locations[index]
-			dat += "<A href='?src=[REF(src)];select=[index]'>[D.time], coords: [D.coords]</a><br>"
+			dat += "<A href='byond://?src=[REF(src)];select=[index]'>[D.time], coords: [D.coords]</a><br>"
 	else
 		dat += "No entries recorded."
 	dat += "<hr>"
-	dat += "<A href='?src=[REF(src)];refresh=1'>Refresh</a><br>"
-	dat += "<A href='?src=[REF(src)];close=1'>Close</a><br>"
+	dat += "<A href='byond://?src=[REF(src)];refresh=1'>Refresh</a><br>"
+	dat += "<A href='byond://?src=[REF(src)];close=1'>Close</a><br>"
 
 	var/datum/browser/scanner_win = new(user, "depth_scanner", capitalize_first_letters(name), 300, 500)
 	scanner_win.set_content(dat)

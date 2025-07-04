@@ -361,3 +361,17 @@
 	volume = 10
 	amount_per_transfer_from_this = 10
 	reagents_to_add = list(/singleton/reagent/drugs/night_juice = 10)
+
+/obj/item/reagent_containers/hypospray/autoinjector/krokjuice
+	name = "krok juice autoinjector"
+	desc = "An autoinjector loaded with krok juice, an Eridanian narcotic known for causing intense, and pleasurable, prosthetic malfunctions."
+	volume = 10
+	amount_per_transfer_from_this = 10
+	reagents_to_add = list(/singleton/reagent/toxin/krok = 10)
+
+/obj/item/reagent_containers/hypospray/autoinjector/snowflake
+	name = "snowflake autoinjector"
+	desc = "An autoinjector loaded with snowflake, a recreational stimulant known for causing euphoria while dramatically lowering a user's body temperature."
+	volume = 10
+	amount_per_transfer_from_this = 10
+	reagents_to_add = list(/singleton/reagent/drugs/snowflake = 10)

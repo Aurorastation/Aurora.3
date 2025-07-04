@@ -47,7 +47,7 @@
 	if(!ishuman(user) || !user.mind)
 		return
 	// since this gives us a catalogue with more points than it costs, prevent the antag from farming points by using this
-	if(technomancers.is_technomancer(user.mind))
+	if(GLOB.technomancers.is_technomancer(user.mind))
 		to_chat(user, SPAN_WARNING("You're already in the fold, you can't use this!"))
 		return
 	var/turf/user_turf = get_turf(user)
@@ -57,7 +57,7 @@
 	var/initiate_welcome_text = "You will need to purchase <b>functions</b> and perhaps some <b>equipment</b> from your initiate's catalogue. \
 	Choose your technological arsenal carefully.  Remember that without the <b>core</b> on your wrist, your functions are \
 	powerless, and therefore you will be as well."
-	technomancers.add_antagonist_mind(user.mind, 1, "Technomancer Initiate", initiate_welcome_text)
+	GLOB.technomancers.add_antagonist_mind(user.mind, 1, "Technomancer Initiate", initiate_welcome_text)
 	if(user.wrists)
 		user.drop_from_inventory(user.wrists, get_turf(user_turf))
 	var/obj/item/technomancer_core/bracelet/bracelet = new(user_turf)

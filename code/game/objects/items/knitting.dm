@@ -1,7 +1,7 @@
 /obj/item/knittingneedles
 	name = "knitting needles"
 	desc = "Silver knitting needles used for stitching yarn."
-	icon = 'icons/obj/item/tools/knitting.dmi'
+	icon = 'icons/obj/item/knitting.dmi'
 	icon_state = "knittingneedles"
 	item_state = "knittingneedles"
 	w_class = WEIGHT_CLASS_SMALL
@@ -119,7 +119,7 @@
 /obj/item/yarn
 	name = "ball of yarn"
 	desc = "A ball of yarn, this one is white."
-	icon = 'icons/obj/item/tools/knitting.dmi'
+	icon = 'icons/obj/item/knitting.dmi'
 	icon_state = "white_ball"
 	w_class = WEIGHT_CLASS_TINY
 

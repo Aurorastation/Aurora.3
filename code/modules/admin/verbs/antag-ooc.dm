@@ -22,7 +22,7 @@
 
 	for(var/mob/M in GLOB.mob_list)
 		if (check_rights(R_ADMIN|R_MOD|R_CCIAA, 0, M) && M.client.aooc_mute_holder_check() == FALSE)
-			to_chat(M, "<span class='aooc'>" + create_text_tag("A-OOC", M.client) + " <EM>[get_options_bar(src, 0, 1, 1)](<A HREF='?_src_=holder;adminplayerobservejump=[REF(src.mob)]'>JMP</A>):</EM> <span class='message linkify'>[msg]</span></span>")
+			to_chat(M, "<span class='aooc'>" + create_text_tag("A-OOC", M.client) + " <EM>[get_options_bar(src, 0, 1, 1)](<A href='byond://?_src_=holder;adminplayerobservejump=[REF(src.mob)]'>JMP</A>):</EM> <span class='message linkify'>[msg]</span></span>")
 		else if (M.mind && M.mind.special_role && M.client && player_is_antag(M.mind))
 			to_chat(M, "<span class='aooc'>" + create_text_tag("A-OOC", M.client) + " <EM>[display_name]:</EM> <span class='message linkify'>[msg]</span></span>")
 

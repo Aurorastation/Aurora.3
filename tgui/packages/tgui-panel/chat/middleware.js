@@ -20,22 +20,36 @@ const FORBID_TAGS = ['a', 'iframe', 'link', 'video'];
 const saveChatToStorage = async (store) => {
   const settings = selectSettings(store.getState());
   const state = selectChat(store.getState());
-  const fromIndex = Math.max(
-    0,
-    chatRenderer.messages.length - settings.maxMessages
-  );
-  const messages = chatRenderer.messages
-    .slice(fromIndex)
-    .map((message) => serializeMessage(message));
+
+  if (!window.hubStorage && !Byond.TRIDENT) {
+    const indexedDbBackend = await storage.backendPromise;
+    indexedDbBackend.processChatMessages(chatRenderer.storeQueue);
+  } else {
+    const fromIndex = Math.max(
+      0,
+      chatRenderer.messages.length - settings.maxMessages
+    );
+    const messages = chatRenderer.messages
+      .slice(fromIndex)
+      .map((message) => serializeMessage(message));
+
+    storage.set('chat-messages', messages);
+  }
+
+  chatRenderer.storeQueue = [];
   storage.set('chat-state', state);
-  storage.set('chat-messages', messages);
 };
 
 const loadChatFromStorage = async (store) => {
-  const [state, messages] = await Promise.all([
-    storage.get('chat-state'),
-    storage.get('chat-messages'),
-  ]);
+  const state = await storage.get('chat-state');
+
+  let messages;
+  if (!window.hubStorage && !Byond.TRIDENT) {
+    messages = await (await storage.backendPromise).getChatMessages();
+  } else {
+    messages = await storage.get('chat-messages');
+  }
+
   // Discard incompatible versions
   if (state && state.version <= 4) {
     store.dispatch(loadChat());
@@ -43,7 +57,7 @@ const loadChatFromStorage = async (store) => {
   }
   if (messages) {
     for (let message of messages) {
-      if (message.html) {
+      if (message?.html) {
         message.html = DOMPurify.sanitize(message.html, {
           FORBID_TAGS,
         });

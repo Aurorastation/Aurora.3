@@ -8,7 +8,9 @@
 "aaJ" = (
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	frame_color = "#ffffff";
+	color = "#ffffff"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/dominian_science_shuttle)
@@ -178,7 +180,9 @@
 	},
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	frame_color = "#ffffff";
+	color = "#ffffff"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/dominian_science_shuttle)
@@ -597,7 +601,9 @@
 "brM" = (
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	frame_color = "#ffffff";
+	color = "#ffffff"
 	},
 /obj/effect/landmark/entry_point/port{
 	name = "port, bridge"
@@ -631,7 +637,9 @@
 "bxu" = (
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	frame_color = "#ffffff";
+	color = "#ffffff"
 	},
 /obj/effect/landmark/entry_point/port{
 	dir = 4;
@@ -730,7 +738,9 @@
 "bTa" = (
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	frame_color = "#ffffff";
+	color = "#ffffff"
 	},
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, bridge"
@@ -857,7 +867,9 @@
 "cuJ" = (
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	frame_color = "#ffffff";
+	color = "#ffffff"
 	},
 /obj/machinery/door/blast/regular/open{
 	name = "Bridge Lockdown";
@@ -2163,7 +2175,9 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
-/obj/machinery/computer/ship/targeting,
+/obj/machinery/computer/ship/targeting{
+	req_access = list(226)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/bridge)
 "fUz" = (
@@ -3903,7 +3917,9 @@
 "lqn" = (
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	frame_color = "#ffffff";
+	color = "#ffffff"
 	},
 /turf/simulated/floor/plating,
 /area/ship/dominian_science_vessel/officer)
@@ -4158,7 +4174,9 @@
 "mqx" = (
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	frame_color = "#ffffff";
+	color = "#ffffff"
 	},
 /obj/machinery/door/blast/regular/open{
 	name = "Bridge Lockdown";
@@ -4502,7 +4520,8 @@
 "nke" = (
 /obj/machinery/computer/ship/helm{
 	dir = 8;
-	accellimit = 0.005
+	accellimit = 0.005;
+	req_access = list(226)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_science_shuttle)
@@ -6081,7 +6100,9 @@
 /turf/simulated/floor/plating,
 /area/ship/dominian_science_vessel/port_hall)
 "sBA" = (
-/obj/machinery/computer/ship/targeting,
+/obj/machinery/computer/ship/targeting{
+	req_access = list(226)
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/dominian_science_vessel/bridge)
 "sBG" = (
@@ -6195,7 +6216,9 @@
 "sOb" = (
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	frame_color = "#ffffff";
+	color = "#ffffff"
 	},
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, bridge"
@@ -6471,7 +6494,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/engineering)
 "tCH" = (
-/obj/machinery/computer/ship/helm,
+/obj/machinery/computer/ship/helm{
+	req_access = list(226)
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/dominian_science_vessel/bridge)
 "tEo" = (

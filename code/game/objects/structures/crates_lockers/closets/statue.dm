@@ -105,7 +105,7 @@
 		M.forceMove(loc)
 		M.sdisabilities &= ~MUTE
 		M.frozen = FALSE
-		M.take_overall_damage((M.health - health - 100),0) //any new damage the statue incurred is transfered to the mob
+		M.take_overall_damage((M.health - health - 100),0) //any new damage the statue incurred is transferred to the mob
 		if(M.client)
 			M.client.eye = M.client.mob
 			M.client.perspective = MOB_PERSPECTIVE
@@ -151,7 +151,7 @@
 	visible_message(SPAN_DANGER("[user] strikes [src] with [attacking_item]."))
 	check_health()
 
-/obj/structure/closet/statue/MouseDrop_T()
+/obj/structure/closet/statue/mouse_drop_receive(atom/dropped, mob/user, params)
 	return
 
 /obj/structure/closet/statue/relaymove(mob/living/user, direction)

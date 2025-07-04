@@ -36,6 +36,11 @@
 
 #define OVER_OPENSPACE_PLANE -4
 
+#define HEAT_EFFECT_PLANE -4
+#define HEAT_EFFECT_TARGET    "*heat"
+#define COLD_EFFECT_TARGET    "*cold"
+#define COLD_EFFECT_BACK_TARGET "*coldb"
+#define HEAT_COMPOSITE_TARGET "*heatc"
 #define WARP_EFFECT_PLANE -3
 
 #define BLACKNESS_PLANE 0 //Blackness plane as per DM documentation.
@@ -171,6 +176,8 @@
 	#define RADIAL_BACKGROUND_LAYER 5
 	#define RADIAL_BASE_LAYER 6
 	#define RADIAL_CONTENT_LAYER 7
+
+#define BALLOON_CHAT_PLANE 9
 
 /// This plane masks out lighting, to create an "emissive" effect for e.g glowing screens in otherwise dark areas.
 #define EMISSIVE_PLANE 10

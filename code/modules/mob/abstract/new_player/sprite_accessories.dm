@@ -1370,10 +1370,20 @@ Follow by example and make good judgement based on length which list to include 
 	length = 2
 	chatname = "unshaved hair"
 
+/datum/sprite_accessory/hair/punk_sidecut_left_sh
+	name = "Punk Shave, Sidecut Short Left"
+	icon_state = "hair_punk_sideleft_sh"
+	chatname = "unshaved hair"
+
 /datum/sprite_accessory/hair/punk_sidecut_right
 	name = "Punk Shave, Sidecut Right"
 	icon_state = "hair_punk_sideright"
 	length = 2
+	chatname = "unshaved hair"
+
+/datum/sprite_accessory/hair/punk_sidecut_right_sh
+	name = "Punk Shave, Sidecut Short Right"
+	icon_state = "hair_punk_sideright_sh"
 	chatname = "unshaved hair"
 
 /datum/sprite_accessory/hair/quiff
@@ -4380,7 +4390,8 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/facial_hair/ipc_screen_blank/none
 	name = "no IPC screen"
 	icon_state = "none"
-	robotize_type_required = list(PROSTHETIC_HOPLAN, PROSTHETIC_RAXUS, PROSTHETIC_INDRICUS)
+	species_allowed = list(/datum/species/machine, /datum/species/machine/bishop)
+	robotize_type_required = list(PROSTHETIC_HOPLAN, PROSTHETIC_RAXUS, PROSTHETIC_INDRICUS, PROSTHETIC_SELEN)
 
 /datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_blue
 	name = "blue IPC screen"
@@ -4570,9 +4581,148 @@ Follow by example and make good judgement based on length which list to include 
 	name = "confirm IPC screen"
 	icon_state = "ipc_confirm"
 
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_orion
+	name = "orion express IPC screen"
+	icon_state = "ipc_orion"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_konyang
+	name = "konyang IPC screen"
+	icon_state = "ipc_konyang"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_mictlan
+	name = "mictlan IPC screen"
+	icon_state = "ipc_mictlan"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_himeo
+	name = "himean globe IPC screen"
+	icon_state = "ipc_himeo"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_himeo2
+	name = "himeo IPC screen"
+	icon_state = "ipc_himeo2"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_xanu
+	name = "xanu IPC screen"
+	icon_state = "ipc_xanu"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_xanu2
+	name = "xanan banner IPC screen"
+	icon_state = "ipc_xanu2"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_assunzione
+	name = "assunzione IPC screen"
+	icon_state = "ipc_assunzione"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_luceism
+	name = "luceist eye IPC screen"
+	icon_state = "ipc_luceism"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_caution
+	name = "caution sign IPC screen"
+	icon_state = "ipc_caution"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_caution2
+	name = "black caution sign IPC screen"
+	icon_state = "ipc_caution2"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_face
+	name = "face IPC screen"
+	icon_state = "ipc_face"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_phalanx
+	name = "Ve'katak Phalanx IPC screen"
+	icon_state = "ipc_phalanx"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_facecig
+	name = "cigarette IPC screen"
+	icon_state = "ipc_facecig"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_star
+	name = "star IPC screen"
+	icon_state = "ipc_star"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_starinverse
+	name = "inversed star IPC screen"
+	icon_state = "ipc_starinverse"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_tcaf
+	name = "tcaf IPC screen"
+	icon_state = "ipc_tcaf"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_crosshair
+	name = "crosshair IPC screen"
+	icon_state = "ipc_crosshair"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_coin
+	name = "coin IPC screen"
+	icon_state = "ipc_coin"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_vysoka
+	name = "vysoka IPC screen"
+	icon_state = "ipc_vysoka"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_ouroboros
+	name = "ouroboros IPC screen"
+	icon_state = "ipc_ouroboros"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_valkyrie
+	name = "valkyrie IPC screen"
+	icon_state = "ipc_valkyrie"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_gibson
+	name = "New Gibson IPC screen"
+	icon_state = "ipc_gibson"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_temple
+	name = "Templeism IPC screen"
+	icon_state = "ipc_temple"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_orbit
+	name = "orbit IPC screen"
+	icon_state = "ipc_orbit"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_orbit2
+	name = "orbit2 IPC screen"
+	icon_state = "ipc_orbit2"
+
 /datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_question_mark
 	name = "question mark IPC screen"
 	icon_state = "ipc_question"
+
+//bishop screens
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/bishop
+	icon = 'icons/mob/human_face/ipc_screens.dmi'
+	name = "Bishop Face"
+	icon_state = "bishop_face"
+	species_allowed = list(/datum/species/machine/bishop)
+	robotize_type_required = list()
+	required_organ = BP_HEAD
+	gender = NEUTER
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/bishop/bishop_cross
+	name = "Bishop Cross"
+	icon_state = "bishop_cross"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/bishop/bishop_surprise
+	name = "Bishop Exclamation Mark"
+	icon_state = "bishop_surprise"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/bishop/siseyo_lights
+	name = "Siseyo Lights"
+	icon_state = "siseyo_lights"
+	robotize_type_required = list(PROSTHETIC_SISEYO)
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/bishop/sienna_lights
+	name = "Sienna Lights"
+	icon_state = "sienna_lights"
+	robotize_type_required = list(PROSTHETIC_SIENNA)
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/bishop/selen_lights
+	name = "Selen Lights"
+	icon_state = "selen_lights"
+	robotize_type_required = list(PROSTHETIC_SELEN)
+
+//diona stuff
 
 /datum/sprite_accessory/facial_hair/diona_eye
 	icon = 'icons/mob/human_face/dionae_hair.dmi'
@@ -6566,33 +6716,17 @@ Follow by example and make good judgement based on length which list to include 
 	body_parts = list(BP_HEAD)
 	robotize_type_required = list(PROSTHETIC_SELEN)
 
-/datum/sprite_accessory/marking/bishop_lights/bishop_mask/selen/lights
-	name = "Bishop - Selen Lights"
-	icon_state = "selen_lights"
-	body_parts = list(BP_HEAD)
-
 /datum/sprite_accessory/marking/bishop_lights/bishop_mask/sienna
 	name = "Bishop - Sienna Primary Colors"
 	icon_state = "sienna_primary"
 	body_parts = list(BP_HEAD)
 	robotize_type_required = list(PROSTHETIC_SIENNA)
 
-/datum/sprite_accessory/marking/bishop_lights/sienna/lights
-	name = "Bishop - Sienna Lights"
-	icon_state = "sienna_lights"
-	body_parts = list(BP_HEAD)
-
 /datum/sprite_accessory/marking/bishop_lights/siseyo
 	name = "Bishop - Siseyo Primary Colors"
 	icon_state = "siseyo_primary"
 	body_parts = list(BP_HEAD)
 	robotize_type_required = list(PROSTHETIC_SISEYO)
-
-/datum/sprite_accessory/marking/bishop_lights/sienna/lights
-	name = "Bishop - Siseyo Lights"
-	icon_state = "siseyo_lights"
-	body_parts = list(BP_HEAD)
-
 
 /datum/sprite_accessory/marking/bishop_lights/bishop_panels
 	name = "Bishop - Full Body Panel Colors"

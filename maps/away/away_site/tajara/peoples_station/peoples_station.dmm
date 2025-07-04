@@ -966,7 +966,8 @@
 /area/peoples_station/hangar)
 "dG" = (
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(209)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -4375,7 +4376,8 @@
 	dir = 10
 	},
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -7428,7 +7430,8 @@
 /area/peoples_station)
 "BN" = (
 /obj/machinery/computer/shuttle_control/explore/terminal/peoples_station_fang{
-	dir = 8
+	dir = 8;
+	req_access = list(209)
 	},
 /obj/machinery/light/small{
 	dir = 4
@@ -8665,7 +8668,8 @@
 /area/peoples_station/hangar)
 "Go" = (
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(209)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/peoples_station_transport)
@@ -12915,7 +12919,8 @@
 /area/peoples_station/fang)
 "Xy" = (
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 4
+	dir = 4;
+	req_access = list(209)
 	},
 /obj/machinery/light/small{
 	dir = 8

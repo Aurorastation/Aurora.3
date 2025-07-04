@@ -22,6 +22,7 @@
 	anchored = 1
 	density = 1
 	var/datum/wires/disposal/wires
+	var/wires_exposed = FALSE
 	var/datum/gas_mixture/air_contents	// internal reservoir
 	var/mode = MODE_CHARGING
 	var/can_flush = TRUE
@@ -132,11 +133,11 @@
 			switch(mode)
 				if(MODE_OFF)
 					mode = MODE_UNSCREWED
-					to_chat(user, SPAN_NOTICE("You remove the screws around the power connection."))
+					to_chat(user, SPAN_NOTICE("You remove the panel covering the wiring and power connection."))
 					return TRUE
 				if(MODE_UNSCREWED)
 					mode = MODE_OFF
-					to_chat(user, SPAN_NOTICE("You attach the screws around the power connection."))
+					to_chat(user, SPAN_NOTICE("You reattach the panel covering the wiring and power connection."))
 			return TRUE
 		else if(attacking_item.iswelder() && mode == MODE_UNSCREWED)
 			if(contents_count())
@@ -167,9 +168,6 @@
 			else
 				to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
 				return TRUE
-		else if(attacking_item.ismultitool() || attacking_item.iswirecutter() || issignaler(attacking_item))
-			wires.interact(user)
-			return TRUE
 
 	if(istype(attacking_item, /obj/item/melee/energy/blade))
 		to_chat(user, SPAN_WARNING("You can't place that item inside the disposal unit."))
@@ -231,7 +229,7 @@
 				qdel(G)
 				usr.attack_log += "\[[time_stamp()]\] <span class='warning'>Has placed [GM.name] ([GM.ckey]) in disposals.</span>"
 				GM.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been placed in disposals by [usr.name] ([usr.ckey])</font>"
-				msg_admin_attack("[key_name_admin(usr)] placed [key_name_admin(GM)] in a disposals unit. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[usr.x];Y=[usr.y];Z=[usr.z]'>JMP</a>)",ckey=key_name(usr),ckey_target=key_name(GM))
+				msg_admin_attack("[key_name_admin(usr)] placed [key_name_admin(GM)] in a disposals unit. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[usr.x];Y=[usr.y];Z=[usr.z]'>JMP</a>)",ckey=key_name(usr),ckey_target=key_name(GM))
 		return TRUE
 	if(!attacking_item.dropsafety())
 		return TRUE
@@ -246,8 +244,11 @@
 
 // mouse drop another mob or self
 //
-/obj/machinery/disposal/MouseDrop_T(atom/dropping, mob/user)
-	var/mob/target = dropping
+/obj/machinery/disposal/mouse_drop_receive(atom/dropped, mob/user, params)
+	var/mob/target = dropped
+	if(!istype(target))
+		return
+
 	if(user.stat || !user.canmove || !istype(target))
 		return
 	if(target.buckled_to || get_dist(user, src) > 1 || get_dist(user, target) > 1)
@@ -289,7 +290,7 @@
 
 		user.attack_log += "\[[time_stamp()]\] <span class='warning'>Has placed [target.name] ([target.ckey]) in disposals.</span>"
 		target.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been placed in disposals by [user.name] ([user.ckey])</font>"
-		msg_admin_attack("[user] ([user.ckey]) placed [target] ([target.ckey]) in a disposals unit. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
+		msg_admin_attack("[user] ([user.ckey]) placed [target] ([target.ckey]) in a disposals unit. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
 	else
 		return
 	if (target.client)
@@ -304,7 +305,6 @@
 		C.show_message(msg, 3)
 
 	update()
-	return
 
 /obj/machinery/disposal/proc/check_mob_size(mob/target)
 	return 1
@@ -346,6 +346,10 @@
 		to_chat(usr, SPAN_WARNING("You cannot reach the controls from inside."))
 		return
 
+	else if(MODE_UNSCREWED)
+		wires.interact(user)
+		return TRUE
+
 	// Clumsy folks can only flush it.
 	if(user.IsAdvancedToolUser(1))
 		interact(user, 0)
@@ -366,21 +370,21 @@
 
 	if(!ai)  // AI can't pull flush handle
 		if(flush)
-			dat += "Disposal handle: <A href='?src=[REF(src)];handle=0'>Disengage</A> <B>Engaged</B>"
+			dat += "Disposal handle: <A href='byond://?src=[REF(src)];handle=0'>Disengage</A> <B>Engaged</B>"
 		else
-			dat += "Disposal handle: <B>Disengaged</B> <A href='?src=[REF(src)];handle=1'>Engage</A>"
+			dat += "Disposal handle: <B>Disengaged</B> <A href='byond://?src=[REF(src)];handle=1'>Engage</A>"
 
-		dat += "<BR><HR><A href='?src=[REF(src)];eject=1'>Eject contents</A><HR>"
+		dat += "<BR><HR><A href='byond://?src=[REF(src)];eject=1'>Eject contents</A><HR>"
 
 	if(uses_air)
 		if(mode <= 0)
-			dat += "Pump: <B>Off</B> <A href='?src=[REF(src)];pump=1'>On</A><BR>"
+			dat += "Pump: <B>Off</B> <A href='byond://?src=[REF(src)];pump=1'>On</A><BR>"
 		else if(mode == 1)
-			dat += "Pump: <A href='?src=[REF(src)];pump=0'>Off</A> <B>On</B> (pressurizing)<BR>"
+			dat += "Pump: <A href='byond://?src=[REF(src)];pump=0'>Off</A> <B>On</B> (pressurizing)<BR>"
 		else
-			dat += "Pump: <A href='?src=[REF(src)];pump=0'>Off</A> <B>On</B> (idle)<BR>"
+			dat += "Pump: <A href='byond://?src=[REF(src)];pump=0'>Off</A> <B>On</B> (idle)<BR>"
 	else
-		dat += "Pump: <A href='?src=[REF(src)];pump=0'>Off</A> <B>On</B> (idle)<BR>"
+		dat += "Pump: <A href='byond://?src=[REF(src)];pump=0'>Off</A> <B>On</B> (idle)<BR>"
 
 	var/per = 100* air_contents.return_pressure() / (SEND_PRESSURE)
 	if(!uses_air)

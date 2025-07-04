@@ -14,7 +14,7 @@
 		if (I.implanted)
 			to_chat(src, SPAN_WARNING("[M] is too loyal to be subverted!"))
 			return
-	convert_to_faction(src, M.mind, revs)
+	convert_to_faction(src, M.mind, GLOB.revs)
 
 /proc/convert_to_faction(var/client/antag, var/datum/mind/player, var/datum/antagonist/faction)
 
@@ -65,5 +65,5 @@
 		return
 	if(!M.mind)
 		return
-	convert_to_faction(src, M.mind, loyalists)
+	convert_to_faction(src, M.mind, GLOB.loyalists)
 

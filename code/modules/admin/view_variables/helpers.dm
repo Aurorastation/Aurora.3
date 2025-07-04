@@ -1,11 +1,11 @@
 /atom/vv_get_header()
 	. = ..()
 	. += {"
-		<a href='?_src_=vars;datumedit=[REF(src)];varnameedit=name'><b>[src]</b></a>
+		<a href='byond://?_src_=vars;datumedit=[REF(src)];varnameedit=name'><b>[src]</b></a>
 		<br><font size='1'>
-		<a href='?_src_=vars;rotatedatum=[REF(src)];rotatedir=left'><<</a>
-		<a href='?_src_=vars;datumedit=[REF(src)];varnameedit=dir'>[dir2text(dir)]</a>
-		<a href='?_src_=vars;rotatedatum=[REF(src)];rotatedir=right'>>></a>
+		<a href='byond://?_src_=vars;rotatedatum=[REF(src)];rotatedir=left'><<</a>
+		<a href='byond://?_src_=vars;datumedit=[REF(src)];varnameedit=dir'>[dir2text(dir)]</a>
+		<a href='byond://?_src_=vars;rotatedatum=[REF(src)];rotatedir=right'>>></a>
 		</font>
 		"}
 
@@ -13,14 +13,14 @@
 	. = ..()
 	. += {"
 		<br><font size='1'>
-		<br><a href='?_src_=vars;datumedit=[REF(src)];varnameedit=ckey'>[ckey ? ckey : "No ckey"]</a> / <a href='?_src_=vars;datumedit=[REF(src)];varnameedit=real_name'>[real_name ? real_name : "No real name"]</a>
+		<br><a href='byond://?_src_=vars;datumedit=[REF(src)];varnameedit=ckey'>[ckey ? ckey : "No ckey"]</a> / <a href='byond://?_src_=vars;datumedit=[REF(src)];varnameedit=real_name'>[real_name ? real_name : "No real name"]</a>
 		<br>
-		BRUTE:<a href='?_src_=vars;mobToDamage=[REF(src)];adjustDamage=brute'>[getBruteLoss()]</a>
-		FIRE:<a href='?_src_=vars;mobToDamage=[REF(src)];adjustDamage=fire'>[getFireLoss()]</a>
-		TOXIN:<a href='?_src_=vars;mobToDamage=[REF(src)];adjustDamage=toxin'>[getToxLoss()]</a>
-		OXY:<a href='?_src_=vars;mobToDamage=[REF(src)];adjustDamage=oxygen'>[getOxyLoss()]</a>
-		CLONE:<a href='?_src_=vars;mobToDamage=[REF(src)];adjustDamage=clone'>[getCloneLoss()]</a>
-		BRAIN:<a href='?_src_=vars;mobToDamage=[REF(src)];adjustDamage=brain'>[getBrainLoss()]</a>
+		BRUTE:<a href='byond://?_src_=vars;mobToDamage=[REF(src)];adjustDamage=brute'>[getBruteLoss()]</a>
+		FIRE:<a href='byond://?_src_=vars;mobToDamage=[REF(src)];adjustDamage=fire'>[getFireLoss()]</a>
+		TOXIN:<a href='byond://?_src_=vars;mobToDamage=[REF(src)];adjustDamage=toxin'>[getToxLoss()]</a>
+		OXY:<a href='byond://?_src_=vars;mobToDamage=[REF(src)];adjustDamage=oxygen'>[getOxyLoss()]</a>
+		CLONE:<a href='byond://?_src_=vars;mobToDamage=[REF(src)];adjustDamage=clone'>[getCloneLoss()]</a>
+		BRAIN:<a href='byond://?_src_=vars;mobToDamage=[REF(src)];adjustDamage=brain'>[getBrainLoss()]</a>
 		</font>
 		"}
 

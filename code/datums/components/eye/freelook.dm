@@ -1,12 +1,14 @@
-//For mobs connecting to the station's cameranet without needing AI procs
+/**
+ * Freelook eye component
+ *
+ * For mobs connecting to the station's cameranet without needing AI procs
+ *
+ * For mobs connecting to other visualnets, call set_visualnet() with the visualnet to use
+ */
 /datum/component/eye/freelook
 	eye_type = /mob/abstract/eye/freelook
 
-//For mobs connecting to other visualnets. Pass visualnet as eye_args in look()
-/datum/component/eye/freelook
-	eye_type = /mob/abstract/eye
-
-/datum/component/eye/freelook/proc/set_visualnet(var/datum/visualnet/net)
+/datum/component/eye/freelook/proc/set_visualnet(datum/visualnet/net = GLOB.cameranet)
 	if(component_eye)
 		var/mob/abstract/eye/eye = component_eye
 		if(istype(eye))

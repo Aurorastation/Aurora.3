@@ -26,7 +26,7 @@
 /********
 * photo *
 ********/
-var/global/photo_count = 0
+GLOBAL_VAR_INIT(photo_count, 0)
 
 /obj/item/photo
 	name = "photo"
@@ -46,7 +46,8 @@ var/global/photo_count = 0
 	pickup_sound = 'sound/items/pickup/paper.ogg'
 
 /obj/item/photo/New()
-	id = photo_count++
+	. = ..()
+	id = GLOB.photo_count++
 
 /obj/item/photo/attack_self(mob/user as mob)
 	examinate(user, src)
@@ -73,7 +74,7 @@ var/global/photo_count = 0
 		+ "<img src='tmp_photo_[id].png' width='[64*photo_size]' style='-ms-interpolation-mode:nearest-neighbor' />" \
 		+ "[scribble ? "<br>Written on the back:<br><i>[scribble]</i>" : ""]" \
 		+ "</body></html>"
-	show_browser(user, dat, "window=book;size=[64*photo_size]x[scribble ? 400 : 64*photo_size]")
+	show_browser(user, HTML_SKELETON(dat), "window=book;size=[64*photo_size]x[scribble ? 400 : 64*photo_size]")
 	onclose(user, "[name]")
 	return
 
@@ -109,27 +110,27 @@ var/global/photo_count = 0
 	item_state = "briefcase"
 	can_hold = list(/obj/item/photo)
 
-/obj/item/storage/photo_album/MouseDrop(obj/over_object as obj)
+/obj/item/storage/photo_album/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 
-	if((istype(usr, /mob/living/carbon/human)))
-		var/mob/M = usr
-		if(!( istype(over_object, /atom/movable/screen) ))
+	if((istype(user, /mob/living/carbon/human)))
+		var/mob/M = user
+		if(!( istype(over, /atom/movable/screen) ))
 			return ..()
 		playsound(loc, /singleton/sound_category/rustle_sound, 50, 1, -5)
 		if((!( M.restrained() ) && !( M.stat ) && M.back == src))
-			switch(over_object.name)
+			switch(over.name)
 				if("right hand")
 					M.u_equip(src)
 					M.equip_to_slot_if_possible(src, slot_r_hand)
 				if("left hand")
 					M.u_equip(src)
 					M.equip_to_slot_if_possible(src, slot_l_hand)
-			add_fingerprint(usr)
+			add_fingerprint(user)
 			return
-		if(over_object == usr && in_range(src, usr) || usr.contents.Find(src))
-			if(usr.s_active)
-				usr.s_active.close(usr)
-			show_to(usr)
+		if(over == user && in_range(src, user) || user.contents.Find(src))
+			if(user.s_active)
+				user.s_active.close(user)
+			show_to(user)
 			return
 	return
 
@@ -210,9 +211,9 @@ var/global/photo_count = 0
 					holding = "They are holding \a [A.r_hand]"
 
 		if(!mob_detail)
-			mob_detail = "You can see [A] in the photo[A:health < 75 ? " - [A] looks hurt":""].[holding ? " [holding]":"."]. "
+			mob_detail = "You can see [A] in the photo[A.health < 75 ? " - [A] looks hurt":""].[holding ? " [holding]":"."]. "
 		else
-			mob_detail += "You can also see [A] in the photo[A:health < 75 ? " - [A] looks hurt":""].[holding ? " [holding]":"."]."
+			mob_detail += "You can also see [A] in the photo[A.health < 75 ? " - [A] looks hurt":""].[holding ? " [holding]":"."]."
 	return mob_detail
 
 /obj/item/device/camera/afterattack(atom/target as mob|obj|turf|area, mob/user as mob, flag)
@@ -319,7 +320,6 @@ var/global/photo_count = 0
 	desc = "A slightly antiquated camera with a large flash bulb. Still popular with Tajara all over Adhomai."
 	icon_state = "taj_camera_on"
 	item_state = "taj_camera"
-	contained_sprite = TRUE
 	slot_flags = SLOT_MASK
 	black_white = TRUE
 	icon_on = "taj_camera_on"

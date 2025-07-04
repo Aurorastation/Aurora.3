@@ -2,7 +2,7 @@
 	name = "welding kit"
 	desc = "A heavy-duty, portable welding fluid carrier."
 	slot_flags = SLOT_BACK
-	icon = 'icons/obj/item/tools/welderpack.dmi'
+	icon = 'icons/obj/item/reagent_containers/weldpack.dmi'
 	icon_state = "welderpack"
 	item_state = "welderpack"
 	contained_sprite = TRUE

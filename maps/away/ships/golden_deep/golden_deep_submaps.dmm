@@ -156,10 +156,10 @@
 /area/template_noop)
 "ji" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/accessory/tshirt/skrell/nebula/black,
-/obj/item/clothing/accessory/tshirt/skrell/nebula/nralakk,
-/obj/item/clothing/accessory/tshirt/skrell/nebula/teal,
-/obj/item/clothing/accessory/tshirt/skrell/reef,
+/obj/item/clothing/under/dressshirt/tshirt/skrell/nebula/black,
+/obj/item/clothing/under/dressshirt/tshirt/skrell/nebula/nralakk,
+/obj/item/clothing/under/dressshirt/tshirt/skrell/nebula/teal,
+/obj/item/clothing/under/dressshirt/tshirt/skrell/reef,
 /obj/item/clothing/ears/skrell/band,
 /obj/item/clothing/ears/skrell/chain/black,
 /obj/item/clothing/ears/skrell/chain/ebony,

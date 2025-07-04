@@ -66,9 +66,6 @@ GLOBAL_LIST_INIT(whitelisted_species, list(SPECIES_HUMAN))
 /// A list of ALL playable species, whitelisted, latejoin or otherwise.
 GLOBAL_LIST_EMPTY(playable_species)
 
-/// Poster designs (/datum/poster).
-GLOBAL_LIST_EMPTY(poster_designs)
-
 /// All uplinks.
 GLOBAL_LIST_EMPTY_TYPED(world_uplinks, /obj/item/device/uplink)
 
@@ -135,6 +132,8 @@ GLOBAL_LIST_EMPTY(contained_clothing_species_adaption_cache)
 
 /// Cache for outfit selection.
 GLOBAL_LIST_EMPTY(outfit_cache)
+
+GLOBAL_LIST_EMPTY(all_particles)
 
 //////////////////////////
 /////Initial Building/////
@@ -245,13 +244,12 @@ GLOBAL_LIST_EMPTY(outfit_cache)
 		if(S.spawn_flags & IS_WHITELISTED)
 			GLOB.whitelisted_species += S.name
 
-	//Posters
-	paths = subtypesof(/datum/poster)
-	for(var/T in paths)
-		var/datum/poster/P = new T
-		GLOB.poster_designs += P
+	paths = typesof(/particles)
+	for (var/path in paths)
+		var/particles/P = new path()
+		GLOB.all_particles[P.name] = P
 
-	return 1
+	return TRUE
 
 GLOBAL_LIST_INIT(correct_punctuation, list("!" = TRUE, "." = TRUE, "?" = TRUE, "-" = TRUE, "~" = TRUE, \
 										"*" = TRUE, "/" = TRUE, ">" = TRUE, "\"" = TRUE, "'" = TRUE, \

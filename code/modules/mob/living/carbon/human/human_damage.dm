@@ -449,10 +449,10 @@ This function restores all organs.
 				var/old_damage = damage
 				var/tally
 				silent = TRUE // Will damage a lot of organs, probably, so avoid spam.
-				for(var/zone in organ_rel_size)
-					tally += organ_rel_size[zone]
-				for(var/zone in organ_rel_size)
-					damage = old_damage * organ_rel_size[zone]/tally
+				for(var/zone in GLOB.organ_rel_size)
+					tally += GLOB.organ_rel_size[zone]
+				for(var/zone in GLOB.organ_rel_size)
+					damage = old_damage * GLOB.organ_rel_size[zone]/tally
 					def_zone = zone
 					. = .() || .
 				return

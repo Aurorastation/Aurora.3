@@ -1,0 +1,2198 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aE" = (
+/obj/machinery/power/smes/buildable,
+/turf/simulated/floor/tiled,
+/area/grove_sdf_outpost)
+"bn" = (
+/obj/machinery/porta_turret/ballistic{
+	light_range = 1
+	},
+/obj/effect/decal/warning_stripes,
+/obj/machinery/light/small/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/full,
+/area/grove_sdf_outpost)
+"bq" = (
+/turf/simulated/mineral/random/exoplanet,
+/area/grove_sdf_outpost)
+"bx" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/grove_sdf_outpost)
+"da" = (
+/obj/structure/blocker/steel/fence,
+/turf/simulated/floor/exoplanet/barren,
+/area/grove_sdf_outpost)
+"dr" = (
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/grove_sdf_outpost)
+"dJ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/tiled/full,
+/area/grove_sdf_outpost)
+"dR" = (
+/obj/effect/floor_decal/corner_wide/dark_green/full{
+	dir = 1
+	},
+/obj/structure/table/reinforced/steel,
+/obj/effect/decal/cleanable/cobweb2,
+/obj/random/junk,
+/turf/simulated/floor/tiled,
+/area/grove_sdf_outpost)
+"dY" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/reinforced/steel,
+/obj/item/deck/cards,
+/obj/random/junk,
+/turf/simulated/floor/tiled/full,
+/area/grove_sdf_outpost)
+"fa" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/full,
+/area/grove_sdf_outpost)
+"fu" = (
+/turf/simulated/floor/tiled,
+/area/grove_sdf_outpost)
+"gb" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/grove_sdf_outpost)
+"gA" = (
+/obj/machinery/light/small/red{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/grove_sdf_outpost)
+"gG" = (
+/obj/structure/blocker/steel/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/grove_sdf_outpost)
+"hc" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-4"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/grove_sdf_outpost)
+"hD" = (
+/obj/effect/map_effect/marker/airlock,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/full,
+/area/grove_sdf_outpost)
+"hK" = (
+/turf/simulated/floor/tiled/full,
+/area/grove_sdf_outpost)
+"hM" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/grove_sdf_outpost)
+"if" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/structure/sign/flag/sol/old{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled,
+/area/grove_sdf_outpost)
+"iZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/full,
+/area/grove_sdf_outpost)
+"jF" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/blue,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/grove_sdf_outpost)
+"kj" = (
+/obj/effect/floor_decal/corner_wide/dark_green{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 4
+	},
+/obj/random/junk,
+/turf/simulated/floor/tiled,
+/area/grove_sdf_outpost)
+"kU" = (
+/obj/effect/floor_decal/corner_wide/dark_green,
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/grove_sdf_outpost)
+"ls" = (
+/obj/item/device/flashlight/maglight/on,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/grove_sdf_outpost)
+"lG" = (
+/obj/effect/floor_decal/corner_wide/dark_green{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/secure_closet/guncabinet{
+	locked = 0;
+	opened = 1;
+	req_access = null
+	},
+/obj/item/device/flashlight/maglight,
+/obj/item/storage/belt/military,
+/obj/item/storage/belt/military,
+/turf/simulated/floor/tiled,
+/area/grove_sdf_outpost)
+"lJ" = (
+/obj/structure/bed/padded,
+/obj/structure/bed/padded,
+/obj/item/bedsheet/blue,
+/obj/structure/sign/poster{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled,
+/area/grove_sdf_outpost)
+"mo" = (
+/obj/effect/floor_decal/corner_wide/dark_green{
+	dir = 6
+	},
+/obj/structure/table/reinforced/steel,
+/obj/machinery/light/small/red{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/grove_sdf_outpost)
+"mE" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/grove_sdf_outpost)
+"nD" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/curtain/open/shower,
+/obj/machinery/shower,
+/obj/item/soap/blue_soap,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/grove_sdf_outpost)
+"nL" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-8"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/grove_sdf_outpost)
+"oB" = (
+/obj/effect/floor_decal/corner_wide/dark_green/full{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/stool{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/grove_sdf_outpost)
+"pK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/grove_sdf_outpost)
+"pM" = (
+/obj/effect/floor_decal/corner_wide/dark_green{
+	dir = 10
+	},
+/obj/machinery/photocopier,
+/turf/simulated/floor/tiled,
+/area/grove_sdf_outpost)
+"pT" = (
+/obj/machinery/door/airlock/generic{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/grove_sdf_outpost)
+"qh" = (
+/obj/effect/floor_decal/corner_wide/dark_green{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/computer/terminal{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/grove_sdf_outpost)
+"qU" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/grove_sdf_outpost)
+"qW" = (
+/obj/structure/blocker/steel/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/grove_sdf_outpost)
+"ri" = (
+/obj/effect/floor_decal/corner_wide/dark_green{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/filingcabinet{
+	pixel_x = 7
+	},
+/obj/structure/filingcabinet{
+	pixel_x = -7
+	},
+/turf/simulated/floor/tiled,
+/area/grove_sdf_outpost)
+"ru" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small{
+	brightness_color = "#FA8282"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/white,
+/area/grove_sdf_outpost)
+"ry" = (
+/obj/effect/floor_decal/corner_wide/dark_green{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/tank/air{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/door/window/eastleft,
+/obj/structure/window/reinforced,
+/turf/simulated/floor/tiled,
+/area/grove_sdf_outpost)
+"rW" = (
+/obj/machinery/door/airlock/generic{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/grove_sdf_outpost)
+"sX" = (
+/obj/structure/sign/electricshock{
+	pixel_x = 32
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/grove_sdf_outpost)
+"tl" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/toilet,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/grove_sdf_outpost)
+"tu" = (
+/obj/machinery/door/airlock/service,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled,
+/area/grove_sdf_outpost)
+"tZ" = (
+/obj/item/stack/rods,
+/turf/simulated/floor/exoplanet/barren,
+/area/grove_sdf_outpost)
+"uk" = (
+/obj/structure/bed/stool/chair/office/light{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/full,
+/area/grove_sdf_outpost)
+"ux" = (
+/obj/effect/floor_decal/corner_wide/dark_green{
+	dir = 10
+	},
+/obj/machinery/light/small,
+/obj/effect/decal/cleanable/dirt,
+/obj/random/junk,
+/obj/structure/closet/crate/bin,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/turf/simulated/floor/tiled,
+/area/grove_sdf_outpost)
+"uL" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/full,
+/area/grove_sdf_outpost)
+"uR" = (
+/obj/effect/floor_decal/corner_wide/dark_green/full{
+	dir = 4
+	},
+/obj/structure/table/reinforced/steel,
+/obj/item/paper_bin,
+/obj/item/pen,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/grove_sdf_outpost)
+"vj" = (
+/obj/item/stack/rods,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/grove_sdf_outpost)
+"vC" = (
+/obj/effect/floor_decal/corner_wide/dark_green{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/tiled,
+/area/grove_sdf_outpost)
+"vO" = (
+/obj/structure/sign/securearea,
+/turf/simulated/wall/r_wall,
+/area/grove_sdf_outpost)
+"vR" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/grove_sdf_outpost)
+"wl" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/full,
+/area/grove_sdf_outpost)
+"wr" = (
+/obj/effect/floor_decal/corner_wide/dark_green{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/secure_closet/guncabinet{
+	locked = 0;
+	opened = 1;
+	req_access = null
+	},
+/obj/item/clothing/suit/armor/carrier/military{
+	starting_accessories = list(/obj/item/clothing/accessory/armor_plate/military,/obj/item/clothing/accessory/storage/modular_pouch)
+	},
+/turf/simulated/floor/tiled,
+/area/grove_sdf_outpost)
+"wO" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/generic,
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/grove_sdf_outpost)
+"yR" = (
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	pixel_y = 27
+	},
+/obj/machinery/airlock_sensor{
+	pixel_y = 38
+	},
+/obj/effect/map_effect/marker/airlock,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/full,
+/area/grove_sdf_outpost)
+"zt" = (
+/obj/machinery/light/small/red,
+/turf/simulated/floor/exoplanet/barren,
+/area/grove_sdf_outpost)
+"zT" = (
+/obj/effect/floor_decal/corner_wide/dark_green{
+	dir = 6
+	},
+/obj/machinery/access_button{
+	pixel_x = 33;
+	pixel_y = -6
+	},
+/turf/simulated/floor/tiled,
+/area/grove_sdf_outpost)
+"At" = (
+/obj/effect/floor_decal/corner_wide/dark_green{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/stool{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/grove_sdf_outpost)
+"Bm" = (
+/obj/structure/bed/stool/chair/office/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/grove_sdf_outpost)
+"CT" = (
+/obj/machinery/light/small/red{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/grove_sdf_outpost)
+"Dr" = (
+/obj/effect/floor_decal/corner_wide/dark_green{
+	dir = 5
+	},
+/obj/machinery/light/small/broken{
+	dir = 1
+	},
+/obj/structure/flora/pottedplant/dead,
+/turf/simulated/floor/tiled,
+/area/grove_sdf_outpost)
+"DM" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = -12;
+	pixel_y = 6
+	},
+/obj/structure/mirror{
+	pixel_x = -32
+	},
+/obj/effect/decal/cleanable/generic,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/grove_sdf_outpost)
+"DW" = (
+/obj/effect/floor_decal/corner_wide/dark_green{
+	dir = 9
+	},
+/obj/structure/table/rack,
+/obj/item/clothing/suit/space/void/engineering,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/clothing/suit/space/void/engineering,
+/turf/simulated/floor/tiled,
+/area/grove_sdf_outpost)
+"Eh" = (
+/obj/structure/flora/ausbushes/brflowers,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/grove_sdf_outpost)
+"Gp" = (
+/obj/effect/floor_decal/corner_wide/dark_green{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/full,
+/area/grove_sdf_outpost)
+"Gw" = (
+/obj/structure/flora/tree/grove,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/grove_sdf_outpost)
+"Gx" = (
+/obj/effect/floor_decal/corner_wide/dark_green{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/generic,
+/obj/machinery/computer/terminal{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/grove_sdf_outpost)
+"GQ" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/turf/simulated/floor/tiled/full,
+/area/grove_sdf_outpost)
+"HT" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/grove_sdf_outpost)
+"Ih" = (
+/obj/effect/floor_decal/corner_wide/dark_green/full{
+	dir = 4
+	},
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/grove_sdf_outpost)
+"Iu" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/full,
+/area/grove_sdf_outpost)
+"Jh" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/grove_sdf_outpost)
+"Ju" = (
+/obj/structure/sign/flag/sol/old{
+	pixel_x = -32;
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/grove_sdf_outpost)
+"JO" = (
+/obj/structure/blocker/steel/fence,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/grove_sdf_outpost)
+"Kh" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner_wide/dark_green/full,
+/obj/structure/dispenser/oxygen,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/grove_sdf_outpost)
+"Ki" = (
+/obj/effect/floor_decal/corner_wide/dark_green{
+	dir = 5
+	},
+/obj/structure/filingcabinet{
+	pixel_x = 7
+	},
+/obj/structure/filingcabinet{
+	pixel_x = -7
+	},
+/turf/simulated/floor/tiled,
+/area/grove_sdf_outpost)
+"KL" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/exoplanet/barren,
+/area/grove_sdf_outpost)
+"LG" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner_wide/dark_green/full,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/grove_sdf_outpost)
+"LV" = (
+/obj/machinery/door/airlock/external{
+	dir = 8
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/grove_sdf_outpost)
+"Mk" = (
+/obj/structure/cable/yellow{
+	icon_state = "0-4"
+	},
+/obj/machinery/power/rtg,
+/turf/simulated/floor/exoplanet/plating,
+/area/grove_sdf_outpost)
+"Ml" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/full,
+/area/grove_sdf_outpost)
+"MF" = (
+/obj/effect/floor_decal/corner_wide/dark_green{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/item/storage/toolbox/mechanical,
+/obj/structure/closet/crate/tool,
+/obj/item/clothing/head/welding,
+/obj/item/clothing/gloves/yellow,
+/obj/item/device/multitool,
+/turf/simulated/floor/tiled,
+/area/grove_sdf_outpost)
+"MM" = (
+/obj/effect/floor_decal/corner_wide/dark_green{
+	dir = 9
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/tiled,
+/area/grove_sdf_outpost)
+"Om" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/structure/closet/cabinet,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/reagent_containers/toothbrush,
+/obj/item/reagent_containers/toothbrush/green,
+/obj/item/reagent_containers/toothpaste,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/military,
+/obj/item/towel/random,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/random/junk,
+/turf/simulated/floor/tiled,
+/area/grove_sdf_outpost)
+"OS" = (
+/obj/effect/floor_decal/corner_wide/dark_green{
+	dir = 5
+	},
+/obj/structure/table/reinforced/steel,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/vending/wallmed2{
+	pixel_x = -7;
+	pixel_y = 30;
+	req_access = null
+	},
+/obj/item/device/gps,
+/turf/simulated/floor/tiled,
+/area/grove_sdf_outpost)
+"OW" = (
+/obj/machinery/light/small/red{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/grove_sdf_outpost)
+"Pn" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner_wide/dark_green/full{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/cobweb,
+/obj/structure/closet/crate/drop,
+/obj/item/storage/field_ration,
+/obj/item/storage/field_ration,
+/obj/item/storage/field_ration,
+/obj/item/storage/field_ration,
+/obj/item/storage/field_ration,
+/obj/item/storage/field_ration,
+/obj/item/storage/field_ration,
+/turf/simulated/floor/tiled,
+/area/grove_sdf_outpost)
+"Py" = (
+/obj/effect/floor_decal/corner_wide/dark_green{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled,
+/area/grove_sdf_outpost)
+"Qk" = (
+/obj/item/landmine/frag{
+	deployed = 1
+	},
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/grove_sdf_outpost)
+"QH" = (
+/obj/effect/floor_decal/corner_wide/dark_green{
+	dir = 10
+	},
+/obj/structure/table/reinforced/steel,
+/obj/random/junk,
+/turf/simulated/floor/tiled,
+/area/grove_sdf_outpost)
+"QK" = (
+/obj/effect/floor_decal/corner_wide/dark_green{
+	dir = 5
+	},
+/obj/structure/sign/flag/sol/old/large/north{
+	pixel_y = 32
+	},
+/obj/structure/table/reinforced/steel,
+/obj/machinery/chemical_dispenser/coffeemaster/full{
+	pixel_y = 18;
+	pixel_x = 1
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/sol{
+	pixel_x = -4
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/sol{
+	pixel_x = 5
+	},
+/turf/simulated/floor/tiled,
+/area/grove_sdf_outpost)
+"QO" = (
+/obj/effect/floor_decal/corner_wide/dark_green{
+	dir = 10
+	},
+/obj/structure/sign/flag/sol/old{
+	pixel_y = -32
+	},
+/obj/machinery/light/small,
+/obj/structure/closet/secure_closet/guncabinet{
+	locked = 0;
+	opened = 1;
+	req_access = null
+	},
+/obj/item/gun/projectile/pistol/sol,
+/obj/item/gun/projectile/pistol/sol,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/turf/simulated/floor/tiled,
+/area/grove_sdf_outpost)
+"QS" = (
+/obj/effect/floor_decal/corner_wide/dark_green{
+	dir = 5
+	},
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/grove_sdf_outpost)
+"Rv" = (
+/turf/simulated/wall/r_wall,
+/area/grove_sdf_outpost)
+"RN" = (
+/obj/item/landmine/frag{
+	deployed = 1
+	},
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/grove_sdf_outpost)
+"RT" = (
+/obj/machinery/door/airlock/engineering{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/grove_sdf_outpost)
+"SE" = (
+/obj/effect/map_effect/marker/airlock,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/full,
+/area/grove_sdf_outpost)
+"SR" = (
+/obj/machinery/door/airlock/external{
+	dir = 8
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock,
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled/full,
+/area/grove_sdf_outpost)
+"TC" = (
+/obj/structure/cable/yellow{
+	icon_state = "0-8"
+	},
+/obj/machinery/power/rtg,
+/turf/simulated/floor/exoplanet/plating,
+/area/grove_sdf_outpost)
+"TN" = (
+/obj/machinery/light/small/red{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/grove_sdf_outpost)
+"UW" = (
+/obj/machinery/access_button{
+	pixel_x = -33;
+	pixel_y = -6
+	},
+/obj/machinery/light/small/red{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/grove_sdf_outpost)
+"Wx" = (
+/turf/simulated/floor/exoplanet/barren,
+/area/grove_sdf_outpost)
+"WE" = (
+/obj/structure/flora/tree/jungle,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/grove_sdf_outpost)
+"WL" = (
+/obj/structure/bed/stool{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/full,
+/area/grove_sdf_outpost)
+"WN" = (
+/obj/machinery/power/apc/high/north,
+/obj/machinery/power/terminal{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/tiled,
+/area/grove_sdf_outpost)
+"Yu" = (
+/obj/structure/flora/bush/grove,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/grove_sdf_outpost)
+"YN" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/full,
+/area/grove_sdf_outpost)
+"Zn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 4
+	},
+/turf/simulated/wall/r_wall,
+/area/grove_sdf_outpost)
+
+(1,1,1) = {"
+mE
+mE
+mE
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+mE
+mE
+mE
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+"}
+(2,1,1) = {"
+dr
+dr
+dr
+dr
+dr
+Eh
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+mE
+dr
+dr
+dr
+Eh
+dr
+dr
+dr
+Gw
+dr
+dr
+mE
+mE
+dr
+dr
+"}
+(3,1,1) = {"
+dr
+dr
+dr
+Yu
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+mE
+dr
+"}
+(4,1,1) = {"
+dr
+vO
+dr
+dr
+dr
+dr
+mE
+dr
+dr
+dr
+dr
+dr
+WE
+dr
+dr
+dr
+dr
+mE
+mE
+dr
+dr
+dr
+dr
+dr
+dr
+mE
+dr
+dr
+mE
+dr
+"}
+(5,1,1) = {"
+dr
+dr
+dr
+dr
+dr
+dr
+mE
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+mE
+mE
+dr
+Eh
+dr
+dr
+dr
+mE
+dr
+vO
+dr
+dr
+"}
+(6,1,1) = {"
+dr
+dr
+dr
+bq
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+mE
+dr
+Yu
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+"}
+(7,1,1) = {"
+dr
+dr
+bq
+bq
+mE
+mE
+dr
+dr
+Qk
+dr
+dr
+dr
+dr
+dr
+dr
+mE
+dr
+dr
+dr
+dr
+mE
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+Eh
+dr
+"}
+(8,1,1) = {"
+dr
+dr
+bq
+bq
+bq
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+mE
+Eh
+RN
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+bq
+dr
+mE
+mE
+dr
+dr
+"}
+(9,1,1) = {"
+mE
+dr
+dr
+bq
+bq
+mE
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+bq
+dr
+dr
+dr
+dr
+dr
+"}
+(10,1,1) = {"
+dr
+dr
+dr
+bq
+bq
+da
+tZ
+vj
+JO
+da
+da
+da
+da
+da
+JO
+JO
+JO
+da
+da
+da
+da
+da
+JO
+bq
+bq
+bq
+dr
+dr
+dr
+dr
+"}
+(11,1,1) = {"
+dr
+dr
+mE
+dr
+gG
+dr
+dr
+vj
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+Eh
+bq
+bq
+bq
+dr
+dr
+dr
+dr
+"}
+(12,1,1) = {"
+dr
+dr
+dr
+dr
+gG
+dr
+dr
+dr
+dr
+dr
+dr
+OW
+dr
+dr
+Wx
+bx
+Wx
+Wx
+Wx
+OW
+dr
+dr
+dr
+bq
+bq
+bq
+bq
+dr
+dr
+mE
+"}
+(13,1,1) = {"
+Eh
+dr
+dr
+dr
+gG
+dr
+Yu
+dr
+dr
+Wx
+dr
+Rv
+Rv
+Rv
+Rv
+Zn
+Rv
+Rv
+Rv
+Rv
+dr
+dr
+dr
+bq
+bq
+bq
+bq
+dr
+dr
+mE
+"}
+(14,1,1) = {"
+dr
+dr
+dr
+dr
+qW
+dr
+dr
+dr
+CT
+Wx
+Rv
+Rv
+Pn
+MM
+ry
+kj
+MF
+DW
+Kh
+Rv
+Rv
+TN
+dr
+gG
+dr
+bq
+dr
+dr
+dr
+mE
+"}
+(15,1,1) = {"
+dr
+dr
+dr
+WE
+qW
+dr
+dr
+Rv
+Rv
+Rv
+Rv
+oB
+At
+qU
+wO
+Jh
+hK
+hK
+Gp
+LG
+Rv
+Wx
+dr
+qW
+dr
+dr
+dr
+mE
+mE
+dr
+"}
+(16,1,1) = {"
+dr
+dr
+dr
+dr
+qW
+dr
+Eh
+Rv
+nD
+DM
+Rv
+QK
+dY
+HT
+pK
+kU
+vC
+zT
+fa
+Ih
+Rv
+dr
+Wx
+gG
+dr
+dr
+mE
+dr
+dr
+dr
+"}
+(17,1,1) = {"
+dr
+RN
+dr
+dr
+qW
+dr
+dr
+Rv
+tl
+ru
+Rv
+Dr
+WL
+wl
+iZ
+ux
+Rv
+Rv
+LV
+Rv
+Rv
+dr
+dr
+vj
+dr
+dr
+dr
+dr
+dr
+dr
+"}
+(18,1,1) = {"
+dr
+mE
+dr
+Yu
+qW
+dr
+zt
+Rv
+Rv
+pT
+Rv
+Rv
+Rv
+rW
+Rv
+Rv
+Rv
+yR
+hD
+SE
+Rv
+dr
+dr
+dr
+vj
+dr
+dr
+Eh
+Yu
+dr
+"}
+(19,1,1) = {"
+dr
+mE
+dr
+dr
+qW
+dr
+Wx
+Rv
+Om
+gb
+Rv
+Ki
+uL
+hM
+uL
+wr
+Rv
+Rv
+SR
+Rv
+Rv
+Eh
+dr
+gG
+dr
+dr
+dr
+Eh
+dr
+dr
+"}
+(20,1,1) = {"
+mE
+mE
+dr
+dr
+qW
+dr
+dr
+Rv
+if
+vR
+tu
+Py
+YN
+GQ
+Iu
+lG
+Rv
+Ju
+Wx
+UW
+dr
+dr
+dr
+qW
+mE
+dr
+dr
+dr
+mE
+dr
+"}
+(21,1,1) = {"
+dr
+dr
+dr
+mE
+qW
+dr
+dr
+Rv
+lJ
+jF
+Rv
+QS
+dJ
+Ml
+uL
+QO
+Rv
+Wx
+Wx
+Wx
+Wx
+dr
+qW
+qW
+mE
+dr
+dr
+dr
+dr
+Eh
+"}
+(22,1,1) = {"
+dr
+dr
+dr
+mE
+gG
+dr
+Wx
+Rv
+Rv
+Rv
+Rv
+ri
+hK
+hK
+uL
+pM
+Rv
+Wx
+Wx
+Wx
+Wx
+Wx
+Wx
+KL
+dr
+dr
+dr
+WE
+dr
+dr
+"}
+(23,1,1) = {"
+dr
+Eh
+dr
+dr
+gG
+dr
+dr
+Wx
+Wx
+Wx
+Rv
+OS
+Bm
+uL
+uk
+QH
+Rv
+bn
+Wx
+Wx
+Wx
+Wx
+Wx
+KL
+dr
+dr
+dr
+dr
+dr
+dr
+"}
+(24,1,1) = {"
+dr
+dr
+RN
+dr
+qW
+dr
+dr
+dr
+Wx
+Wx
+Rv
+dR
+qh
+mo
+Gx
+uR
+Rv
+Wx
+Wx
+Wx
+Wx
+dr
+qW
+qW
+dr
+dr
+dr
+Yu
+dr
+dr
+"}
+(25,1,1) = {"
+dr
+dr
+Gw
+dr
+qW
+dr
+dr
+dr
+dr
+Wx
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Wx
+Wx
+Wx
+dr
+dr
+dr
+qW
+dr
+dr
+dr
+dr
+dr
+mE
+"}
+(26,1,1) = {"
+dr
+dr
+dr
+dr
+qW
+dr
+mE
+dr
+dr
+dr
+gA
+Wx
+Eh
+dr
+Wx
+Wx
+Wx
+Wx
+Wx
+dr
+Wx
+dr
+dr
+qW
+dr
+mE
+dr
+dr
+dr
+dr
+"}
+(27,1,1) = {"
+dr
+dr
+dr
+dr
+qW
+dr
+dr
+mE
+mE
+dr
+dr
+Wx
+dr
+dr
+dr
+Wx
+Wx
+Wx
+ls
+Wx
+dr
+dr
+bq
+bq
+dr
+RN
+dr
+dr
+dr
+mE
+"}
+(28,1,1) = {"
+dr
+dr
+dr
+dr
+gG
+dr
+dr
+dr
+dr
+Wx
+dr
+dr
+dr
+dr
+dr
+dr
+Yu
+dr
+dr
+dr
+bq
+bq
+bq
+dr
+dr
+dr
+mE
+dr
+dr
+mE
+"}
+(29,1,1) = {"
+dr
+dr
+mE
+dr
+qW
+Eh
+dr
+dr
+dr
+dr
+dr
+dr
+mE
+dr
+dr
+dr
+dr
+dr
+dr
+bq
+bq
+bq
+bq
+dr
+dr
+dr
+dr
+mE
+dr
+dr
+"}
+(30,1,1) = {"
+dr
+dr
+dr
+dr
+qW
+bq
+bq
+dr
+sX
+Wx
+dr
+mE
+dr
+dr
+dr
+mE
+dr
+dr
+dr
+bq
+bq
+bq
+bq
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+"}
+(31,1,1) = {"
+dr
+dr
+WE
+dr
+bq
+bq
+bq
+bq
+Rv
+RT
+Rv
+Rv
+Rv
+Rv
+vj
+dr
+dr
+dr
+dr
+bq
+bq
+bq
+dr
+mE
+dr
+dr
+dr
+dr
+dr
+dr
+"}
+(32,1,1) = {"
+dr
+dr
+dr
+dr
+bq
+bq
+bq
+bq
+Rv
+fu
+Mk
+Mk
+Mk
+Rv
+JO
+dr
+dr
+Wx
+da
+bq
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+mE
+dr
+"}
+(33,1,1) = {"
+dr
+dr
+dr
+dr
+Eh
+bq
+bq
+bq
+Rv
+WN
+hc
+hc
+nL
+Rv
+dr
+vj
+dr
+vj
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+Gw
+dr
+dr
+dr
+"}
+(34,1,1) = {"
+dr
+dr
+Yu
+mE
+dr
+bq
+bq
+bq
+Rv
+aE
+TC
+TC
+TC
+Rv
+bq
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+Yu
+dr
+"}
+(35,1,1) = {"
+dr
+dr
+dr
+mE
+dr
+Eh
+bq
+bq
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+bq
+RN
+dr
+dr
+dr
+dr
+dr
+mE
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+"}
+(36,1,1) = {"
+dr
+dr
+mE
+mE
+dr
+dr
+Yu
+bq
+bq
+bq
+bq
+dr
+bq
+bq
+dr
+dr
+dr
+dr
+dr
+mE
+mE
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+"}
+(37,1,1) = {"
+dr
+vO
+dr
+dr
+dr
+mE
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+mE
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+Yu
+dr
+dr
+dr
+dr
+vO
+dr
+dr
+"}
+(38,1,1) = {"
+dr
+dr
+dr
+mE
+dr
+dr
+mE
+dr
+mE
+dr
+dr
+dr
+dr
+dr
+dr
+Eh
+dr
+dr
+dr
+Gw
+dr
+dr
+dr
+dr
+Eh
+dr
+dr
+dr
+WE
+dr
+"}
+(39,1,1) = {"
+dr
+dr
+Gw
+dr
+dr
+dr
+mE
+dr
+WE
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+"}
+(40,1,1) = {"
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+dr
+"}

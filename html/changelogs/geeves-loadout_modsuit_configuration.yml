@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "The PMCG modsuit can now be configured inside the loadout."

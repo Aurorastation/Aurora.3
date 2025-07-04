@@ -73,7 +73,7 @@
 	stop_automated_movement = 1
 	if(istype(last_found_target, /obj/effect/energy_field) && !QDELETED(last_found_target) && (last_found_target in targets))
 		change_stance(HOSTILE_STANCE_ATTACKING)
-		GLOB.move_manager.move_to(src, last_found_target, 1, move_to_delay)
+		GLOB.move_manager.move_to(src, last_found_target, 1, speed)
 		return 1
 	..()
 
@@ -151,6 +151,8 @@
 
 	maxHealth = 100
 	health = 100
+
+	speed = 10
 
 	mob_size = 15
 

@@ -89,7 +89,7 @@
 			prefix = "(R)"
 			admin_stuff += "/([key])"
 			if(target != client)
-				admin_stuff += "(<A HREF='?src=[REF(target.holder)];adminplayerobservejump=[REF(src)]'>JMP</A>)"
+				admin_stuff += "(<A href='byond://?src=[REF(target.holder)];adminplayerobservejump=[REF(src)]'>JMP</A>)"
 		if(target.mob in messagemobs)
 			prefix = ""
 		if((target.mob in messagemobs) || display_remote)

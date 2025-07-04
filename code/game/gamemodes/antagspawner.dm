@@ -7,6 +7,8 @@
 	return 1
 
 /obj/item/antag_spawner
+	icon = 'icons/obj/item/hand_tele.dmi'
+	icon_state = "hand_tele"
 	throw_speed = 1
 	throw_range = 5
 	w_class = WEIGHT_CLASS_TINY
@@ -25,6 +27,8 @@
 
 /obj/item/antag_spawner/proc/request_player(var/mob/user)
 	uses--
+	if(uses <= 0)
+		icon_state = "hand_tele_recharging"
 
 	var/mob/M = new mob_type(get_turf(user))
 	M.faction = user.faction
@@ -36,8 +40,6 @@
 /obj/item/antag_spawner/combat_robot
 	name = "combat robot teleporter"
 	desc = "A single-use teleporter used to deploy a Combat Robot on the field. Due to budget restrictions, it is only possible to deploy a single robot."
-	icon = 'icons/obj/device.dmi'
-	icon_state = "locator"
 	mob_type = /mob/living/silicon/robot/combat
 	ghost_role_id = "combatrobot"
 
@@ -53,8 +55,6 @@
 /obj/item/antag_spawner/technomancer_apprentice
 	name = "apprentice teleporter"
 	desc = "A teleportation device, which will bring a less potent manipulator of space to you."
-	icon = 'icons/obj/device.dmi'
-	icon_state = "locator"
 	mob_type = /mob/living/carbon/human
 	ghost_role_id = "technoapprentice"
 	var/outfit_type = /obj/outfit/admin/techomancer/apprentice
@@ -84,7 +84,7 @@
 
 	G.preEquipOutfit(outfit_type, FALSE)
 	G.equipOutfit(outfit_type, FALSE)
-	technomancers.add_antagonist(G.mind, FALSE, TRUE, FALSE, FALSE, preserve_appearance)
+	GLOB.technomancers.add_antagonist(G.mind, FALSE, TRUE, FALSE, FALSE, preserve_appearance)
 
 	G.client.init_verbs()
 

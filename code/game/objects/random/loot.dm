@@ -54,6 +54,8 @@
 		/obj/item/clothing/under/overalls = 1,
 		/obj/item/clothing/under/syndicate/tacticool = 0.4,
 		/obj/item/clothing/under/syndicate/tracksuit = 0.2,
+		/obj/item/clothing/under/skrell/wetsuit/swimstars = 0.1, // WE LOVE SWIMSTARS!
+		/obj/item/clothing/under/skrell/wetsuit/swimstars/alt = 0.1,
 		/obj/item/device/firing_pin = 0.3,
 		/obj/item/device/firing_pin/clown = 0.01,
 		/obj/item/device/flashlight = 1,
@@ -312,7 +314,7 @@
 /obj/random/telecrystals
 	name = "random telecrystals"
 	desc = "Contains a random amount of telecrystals."
-	icon_state = "crystal"
+	icon_state = "coin"
 	spawnlist = list(
 		/obj/item/stack/telecrystal{amount = 10} = 0.5,
 		/obj/item/stack/telecrystal{amount = 15} = 0.4,
@@ -323,18 +325,23 @@
 /obj/random/contraband
 	name = "random contraband"
 	desc = "This is some random contraband."
-	icon_state = "knife"
+	icon_state = "coin"
 	problist = list(
 		/obj/item/storage/pill_bottle/mortaphenyl = 3,
 		/obj/item/storage/pill_bottle/happy = 2,
 		/obj/item/storage/pill_bottle/zoom = 2,
-		/obj/item/reagent_containers/pill/cocaine = 3,
-		/obj/item/reagent_containers/pill/heroin = 2,
+		/obj/item/storage/pill_bottle/smart = 2,
+		/obj/random/contraband/pill = 3,
 		/obj/item/reagent_containers/hypospray/autoinjector/stimpack = 2,
+		/obj/item/reagent_containers/hypospray/autoinjector/krokjuice = 2,
 		/obj/item/reagent_containers/hypospray/autoinjector/impedrezene = 0.4,
-		/obj/item/reagent_containers/hypospray/autoinjector/night_juice = 0.3,
+		/obj/item/reagent_containers/hypospray/autoinjector/night_juice = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/snowflake = 1,
 		/obj/item/storage/box/syndie_kit/syringe_gun = 0.5,
 		/obj/item/reagent_containers/syringe/drugs = 1,
+		/obj/item/reagent_containers/syringe/raskara_dust = 1,
+		/obj/item/reagent_containers/syringe/heroin = 1,
+		/obj/item/reagent_containers/inhaler/raskara_dust = 2,
 		/obj/item/reagent_containers/inhaler/space_drugs = 2,
 		/obj/item/storage/box/smokes = 0.7,
 		/obj/item/grenade/napalm = 0.4,
@@ -351,7 +358,7 @@
 		/obj/item/gun/projectile/pistol = 0.2,
 		/obj/item/gun/projectile/revolver/derringer = 0.4,
 		/obj/item/gun/projectile/shotgun/improvised/sawn = 0.3,
-		/obj/item/storage/pill_bottle/spotlight = 1,
+		/obj/random/contraband/pillbottle = 1,
 		/obj/item/material/knife/butterfly/switchblade = 1,
 		/obj/item/clothing/mask/gas/voice = 1,
 		/obj/item/clothing/gloves/brassknuckles = 2,
@@ -359,6 +366,29 @@
 		/obj/item/toy/balloon/syndicate = 4
 	)
 
+/obj/random/contraband/pill
+	name = "random contraband pill"
+	desc = "This is a random pill of illegal drugs."
+	problist = list(
+		/obj/item/reagent_containers/pill/cocaine = 3,
+		/obj/item/reagent_containers/pill/contemplus = 3,
+		/obj/item/reagent_containers/pill/sparkle = 3,
+		/obj/item/reagent_containers/pill/spotlight = 3,
+		/obj/item/reagent_containers/pill/heroin = 2,
+		/obj/item/reagent_containers/pill/joy = 2
+	)
+
+/obj/random/contraband/pillbottle
+	name = "random contraband pill bottle"
+	desc = "This is a random bottle of illegal pills."
+	problist = list(
+		/obj/item/storage/pill_bottle/cocaine = 1,
+		/obj/item/storage/pill_bottle/contemplus = 1,
+		/obj/item/storage/pill_bottle/sparkle = 1,
+		/obj/item/storage/pill_bottle/spotlight = 1,
+		/obj/item/storage/pill_bottle/heroin = 1,
+		/obj/item/storage/pill_bottle/joy = 1
+	)
 /obj/random/coin
 	name = "random coin"
 	desc = "This is a random coin."
@@ -376,7 +406,6 @@
 /obj/random/spacecash
 	name = "random credit chips"
 	desc = "This is a random credit chip."
-	icon_state = "cash"
 	problist = list(
 		/obj/item/spacecash/c1 = 6,
 		/obj/item/spacecash/c10 = 3,

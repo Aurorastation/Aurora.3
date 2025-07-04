@@ -267,23 +267,24 @@
 	if(ishuman(user))
 		src.open(user)
 
-/obj/item/storage/box/fancy/tray/MouseDrop(mob/user as mob)
-	if((user && (!use_check(user))) && (user.contents.Find(src) || in_range(src, user)))
-		if(ishuman(user) && !user.get_active_hand())
+/obj/item/storage/box/fancy/tray/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if((over && (!use_check(over))) && (over.contents.Find(src) || in_range(src, over)))
+		var/mob/dropped_onto_mob = over
+		if(ishuman(dropped_onto_mob) && !dropped_onto_mob.get_active_hand())
 			var/mob/living/carbon/human/H = user
 			var/obj/item/organ/external/temp = H.organs_by_name[BP_R_HAND]
 
 			if (H.hand)
 				temp = H.organs_by_name[BP_L_HAND]
 			if(temp && !temp.is_usable())
-				to_chat(user, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
+				to_chat(H, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
 				return
 
-			to_chat(user, SPAN_NOTICE("You pick up the [src]."))
+			to_chat(H, SPAN_NOTICE("You pick up the [src]."))
 			pixel_x = 0
 			pixel_y = 0
-			forceMove(get_turf(user))
-			user.put_in_hands(src)
+			forceMove(get_turf(H))
+			H.put_in_hands(src)
 
 	return
 

@@ -717,18 +717,18 @@ GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/sdql2_vv_all, new(null
 
 /datum/sdql2_query/proc/SDQL_print(object, list/text_list, print_nulls = TRUE)
 	if(isdatum(object))
-		text_list += "<A HREF='?_src_=vars;Vars=[REF(object)]'>[REF(object)]</A> : [object]"
+		text_list += "<A href='byond://?_src_=vars;Vars=[REF(object)]'>[REF(object)]</A> : [object]"
 		if(istype(object, /atom))
 			var/atom/A = object
 			var/turf/T = A.loc
 			var/area/a
 			if(istype(T))
-				text_list += " <font color='gray'>at</font> [T] <a href='?_src_=holder;adminplayerobservecoodjump=1;X=[T.x];Y=[T.y];Z=[T.z]'>(JMP)</a>"
+				text_list += " <font color='gray'>at</font> [T] <a href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[T.x];Y=[T.y];Z=[T.z]'>(JMP)</a>"
 				a = T.loc
 			else
 				var/turf/final = get_turf(T) //Recursive, hopefully?
 				if(istype(final))
-					text_list += " <font color='gray'>at</font> [final] <a href='?_src_=holder;adminplayerobservecoodjump=1;X=[final.x];Y=[final.y];Z=[final.z]'>(JMP)</a>"
+					text_list += " <font color='gray'>at</font> [final] <a href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[final.x];Y=[final.y];Z=[final.z]'>(JMP)</a>"
 					a = final.loc
 				else
 					text_list += " <font color='gray'>at</font> nonexistent location"

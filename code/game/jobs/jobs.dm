@@ -117,7 +117,7 @@ var/list/science_positions = list(
 	"Xenoarchaeologist",
 	"Xenobiologist",
 	"Xenobotanist",
-	"Lab Assistant",
+	"Research Intern",
 	"Science Personnel"
 )
 

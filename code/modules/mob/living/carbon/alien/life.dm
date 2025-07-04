@@ -122,7 +122,7 @@
 		else
 			healths.icon_state = "health7"
 
-	client.screen.Remove(global_hud.blurry,global_hud.druggy,global_hud.vimpaired)
+	client.screen.Remove(GLOB.global_hud.blurry, GLOB.global_hud.druggy, GLOB.global_hud.vimpaired)
 
 	if(stat != DEAD)
 		if(blinded)

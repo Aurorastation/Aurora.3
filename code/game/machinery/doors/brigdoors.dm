@@ -244,13 +244,13 @@
 		// Time Left display (uses releasetime)
 		var/obj/item/card/id/card = incident.card.resolve()
 		. += "<b>Detainee</b>: [card]\t"
-		. += "<b>Charges:</b> <a href='?src=[REF(src)];button=menu_mode;menu_choice=menu_charges'>CHARGES</a><br>"
+		. += "<b>Charges:</b> <a href='byond://?src=[REF(src)];button=menu_mode;menu_choice=menu_charges'>CHARGES</a><br>"
 		. += "<b>Sentence Length</b>: [add_zero("[minute]", 2)]:[add_zero("[second]", 2)]\t"
 		// Start/Stop timer
 		if(!src.timing)
-			. += "<a href='?src=[REF(src)];button=activate'>ACTIVATE</a><br>"
+			. += "<a href='byond://?src=[REF(src)];button=activate'>ACTIVATE</a><br>"
 		else
-			. += "<a href='?src=[REF(src)];button=early_release'>(!) EARLY RELEASE</a><br>"
+			. += "<a href='byond://?src=[REF(src)];button=early_release'>(!) EARLY RELEASE</a><br>"
 
 
 	// Mounted Flash Controls
@@ -259,10 +259,10 @@
 		if(F.last_flash && (F.last_flash + 150) > world.time)
 			. += "Charging..."
 		else
-			. += "<A href='?src=[REF(src)];button=flash'>(!) ACTIVATE</A>"
+			. += "<A href='byond://?src=[REF(src)];button=flash'>(!) ACTIVATE</A>"
 
 	. += "<br><hr>"
-	. += "<center><a href='?src=[REF(user)];mach_close=brig_timer'>CLOSE</a></center>"
+	. += "<center><a href='byond://?src=[REF(user)];mach_close=brig_timer'>CLOSE</a></center>"
 
 	return .
 
@@ -286,7 +286,7 @@
 		. += "</table>"
 
 	. += "<br><hr>"
-	. += "<center><A href='?src=[REF(src)];button=menu_mode;menu_choice=menu_timer'>RETURN</a></center>"
+	. += "<center><A href='byond://?src=[REF(src)];button=menu_mode;menu_choice=menu_timer'>RETURN</a></center>"
 
 	return .
 

@@ -400,11 +400,6 @@
 	else
 		return FALSE
 
-/mob/living/carbon/human/get_talk_bubble()
-	if(!species || !species.talk_bubble_icon)
-		return ..()
-	return species.talk_bubble_icon
-
 /mob/living/carbon/human/get_floating_chat_x_offset()
 	if(!species)
 		return ..()
@@ -489,6 +484,9 @@
 	else if(w_uniform)
 		if(w_uniform.clean_blood())
 			update_inv_w_uniform(0)
+	if(pants)
+		if(pants.clean_blood())
+			update_inv_pants(0)
 	if(gloves && washgloves)
 		if(gloves.clean_blood())
 			update_inv_gloves(0)

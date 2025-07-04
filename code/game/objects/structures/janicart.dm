@@ -74,10 +74,12 @@
 
 /obj/structure/janitorialcart/New()
 	..()
-	GLOB.janitorial_supplies |= src
+	if(is_station_turf(get_turf(src)))
+		GLOB.janitorial_supplies |= src
 
 /obj/structure/janitorialcart/Destroy()
-	GLOB.janitorial_supplies -= src
+	if(src in GLOB.janitorial_supplies)
+		GLOB.janitorial_supplies -= src
 	QDEL_NULL(mybag)
 	QDEL_NULL(mymop)
 	QDEL_NULL(myspray)
@@ -99,8 +101,8 @@
 	//everything else is visible, so doesn't need to be mentioned
 
 
-/obj/structure/janitorialcart/MouseDrop_T(atom/dropping, mob/user)
-	var/atom/movable/O = dropping
+/obj/structure/janitorialcart/mouse_drop_receive(atom/dropped, mob/user, params)
+	var/atom/movable/O = dropped
 	if (istype(O, /obj/structure/mopbucket) && !mybucket)
 		O.forceMove(src)
 		mybucket = O

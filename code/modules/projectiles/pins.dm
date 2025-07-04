@@ -29,10 +29,30 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 	.=..()
 	if(istype(loc, /obj/item/gun))
 		gun = loc
+	update_icon()
+
+/obj/item/device/firing_pin/pickup(mob/user)
+	..()
+	update_icon()
+
+/obj/item/device/firing_pin/dropped(mob/user)
+	..()
+	update_icon()
+
+/obj/item/device/firing_pin/attack_hand()
+	..()
+	update_icon()
+
+/obj/item/firing_pin/update_icon()
+	var/matrix/tf = matrix()
+	var/obj/item/storage/S = loc
+	if(istype(S, /obj/item/storage) && !S.storage_slots)
+		tf.Turn(-90) //Vertical for storing compactly
+		tf.Translate(-1, 0) //Could do this with pixel_x but let's just update the appearance once.
+	transform = tf
 
 /obj/item/device/firing_pin/proc/examine_info() // Part of what allows people to see what firing mode  their wireless control pin is in. Returns nothing here if there's no wireless-control firing pin.
 		return
-
 
 /obj/item/device/firing_pin/afterattack(atom/target, mob/user, proximity_flag)
 	if(proximity_flag)
@@ -236,7 +256,8 @@ Pins Below.
 	var/turf/T = get_turf(src)
 	return !is_station_level(T.z)
 
-var/list/wireless_firing_pins = list() //A list of all initialized wireless firing pins. Used in the firearm tracking program in guntracker.dm
+///A list of all initialized wireless firing pins. Used in the firearm tracking program in guntracker.dm
+GLOBAL_LIST_EMPTY_TYPED(wireless_firing_pins, /obj/item/device/firing_pin/wireless)
 
 /obj/item/device/firing_pin/wireless
 	name = "wireless-control firing pin"
@@ -259,11 +280,12 @@ var/list/wireless_firing_pins = list() //A list of all initialized wireless firi
 	to_chat(user, SPAN_NOTICE("The wireless-control firing pin <b>[wireless_description]</b>."))
 
 /obj/item/device/firing_pin/wireless/Initialize() //Adds wireless pins to the list of initialized wireless firing pins.
-	wireless_firing_pins += src
-	return ..()
+	. = ..()
+
+	GLOB.wireless_firing_pins += src
 
 /obj/item/device/firing_pin/wireless/Destroy() //Removes the wireless pins from the list of initialized wireless firing pins.
-	wireless_firing_pins -= src
+	GLOB.wireless_firing_pins -= src
 	return ..()
 
 /*

@@ -148,11 +148,11 @@
 		<B>Credit Remaining:</B> [balance]<BR>
 		[plays] players have tried their luck today, and [jackpots] have won a jackpot!<BR>
 		<HR><BR>
-		<A href='?src=[REF(src)];spin=1'>Play!</A><BR>
+		<A href='byond://?src=[REF(src)];spin=1'>Play!</A><BR>
 		<BR>
 		[reeltext]
 		<BR>
-		<font size='1'><A href='?src=[REF(src)];refund=1'>Refund balance</font></A><BR>"}
+		<font size='1'><A href='byond://?src=[REF(src)];refund=1'>Refund balance</font></A><BR>"}
 
 	var/datum/browser/popup = new(user, "slotmachine", "Slot Machine")
 	popup.set_content(dat)
@@ -324,14 +324,14 @@
 	money = max(0, money - amount)
 	balance += surplus
 
-/obj/machinery/computer/slot_machine/proc/give_payout(amount, usr)
+/obj/machinery/computer/slot_machine/proc/give_payout(amount, user)
 	if(paymode == CREDITCHIP)
 		cointype = /obj/item/spacecash
 	else
 		cointype = emagged ? /obj/item/coin/iron : /obj/item/coin/silver
 
 	if(!(emagged))
-		amount = dispense(amount, cointype, usr, 0)
+		amount = dispense(amount, cointype, user, 0)
 
 	else
 		var/mob/living/target = locate() in range(2, src)

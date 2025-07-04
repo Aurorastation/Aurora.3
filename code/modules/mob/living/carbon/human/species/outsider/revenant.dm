@@ -101,7 +101,7 @@
 	if(player_is_antag(H.mind))
 		var/datum/ghostspawner/revenant/R = SSghostroles.get_spawner(MODE_REVENANT)
 		R.count = max(R.count - 1, 0)
-	revenants.kill_count++
+	GLOB.revenants.kill_count++
 	INVOKE_ASYNC(src, PROC_REF(spawn_gore), get_turf(H))
 	H.set_death_time(ANIMAL, world.time)
 	for(var/obj/item/I in H)

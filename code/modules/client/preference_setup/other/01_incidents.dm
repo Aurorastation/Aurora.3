@@ -84,7 +84,7 @@
 			dat += nl2br(I.notes)
 		else
 			dat += "- No Summary Entered -"
-		dat += "<br><a href='?src=[REF(src)];details_sec_incident=[I.db_id]'>Show Details</a><br><a href='?src=[REF(src)];del_sec_incident=[I.db_id]'>Delete Incident</a>"
+		dat += "<br><a href='byond://?src=[REF(src)];details_sec_incident=[I.db_id]'>Show Details</a><br><a href='byond://?src=[REF(src)];del_sec_incident=[I.db_id]'>Delete Incident</a>"
 
 	. = dat.Join()
 

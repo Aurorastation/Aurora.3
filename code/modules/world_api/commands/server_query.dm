@@ -16,7 +16,7 @@
 	s["roundduration"] = get_round_duration_formatted()
 	s["gameid"] = GLOB.round_id
 	s["game_state"] = SSticker ? SSticker.current_state : 0
-	s["transferring"] = evacuation_controller?.is_evacuating()
+	s["transferring"] = GLOB.evacuation_controller?.is_evacuating()
 
 	s["players"] = GLOB.clients.len
 	s["staff"] = GLOB.staff.len

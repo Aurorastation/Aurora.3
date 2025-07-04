@@ -176,7 +176,7 @@
 /obj/item/circuitboard/weapons_analyzer
 	name = T_BOARD("Weapons Analyzer")
 	desc = "The circuitboard for a weapons analyzer."
-	build_path = /obj/machinery/weapons_analyzer
+	build_path = /obj/machinery/r_n_d/weapons_analyzer
 	origin_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 4, TECH_COMBAT = 3)
 	board_type = BOARD_MACHINE
 	req_components = list(

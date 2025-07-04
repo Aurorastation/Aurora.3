@@ -9,8 +9,8 @@
 	..()
 
 //#TODO-MERGE: Test nymph hats
-/mob/living/carbon/alien/diona/MouseDrop(atom/over_object)
-	var/mob/living/carbon/H = over_object
+/mob/living/carbon/alien/diona/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	var/mob/living/carbon/H = over
 	if(!istype(H) || !Adjacent(H))
 		return ..()
 	if(H.a_intent == I_HELP)

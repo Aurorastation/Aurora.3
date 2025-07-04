@@ -156,9 +156,9 @@
 	SHOULD_CALL_PARENT(FALSE)
 	. = associated_atom.examine(arglist(args))	// just pass all the args to the copied atom
 
-/atom/movable/openspace/mimic/forceMove(turf/dest)
+/atom/movable/openspace/mimic/forceMove(atom/destination)
 	. = ..()
-	if (TURF_IS_MIMICING(dest))
+	if (TURF_IS_MIMICING(destination))
 		if (destruction_timer)
 			deltimer(destruction_timer)
 			destruction_timer = null
@@ -203,7 +203,8 @@
 /atom/movable/openspace/turf_mimic/Initialize(mapload, ...)
 	. = ..()
 	ASSERT(isturf(loc))
-	delegate = loc:below
+	var/turf/T = loc
+	delegate = T.below
 
 /atom/movable/openspace/turf_mimic/attackby(obj/item/attacking_item, mob/user)
 	loc.attackby(attacking_item, user)

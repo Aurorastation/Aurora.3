@@ -26,7 +26,11 @@ ABSTRACT_TYPE(/datum/computer_file/program)
 	/// PROGRAM_STATE_KILLED or PROGRAM_STATE_BACKGROUND or PROGRAM_STATE_ACTIVE - specifies whether this program is running.
 	var/program_state = PROGRAM_STATE_KILLED
 
-	/// Device that runs this program.
+	/**
+	 * The device that runs this program
+	 *
+	 * **Only supported way to set this is by calling set_computer()**
+	 */
 	var/obj/item/modular_computer/computer
 
 	/// Short description of this program's function.
@@ -86,13 +90,13 @@ ABSTRACT_TYPE(/datum/computer_file/program)
 	var/datum/nano_module/NM								// If the program uses NanoModule, put it here and it will be automagically opened. Otherwise implement ui_interact.
 	var/nanomodule_path										// Path to nanomodule, make sure to set this if implementing new program.
 
-/datum/computer_file/program/New(var/obj/item/modular_computer/comp)
+/datum/computer_file/program/New(obj/item/modular_computer/comp)
 	..()
 	if(comp)
 		if(comp == "Compless") // we're software in the air, don't need a computer
 			return
 		else if(istype(comp))
-			computer = comp
+			set_computer(comp)
 		else
 			crash_with("Comp was of the wrong type for [src.filename]")
 	else
@@ -102,7 +106,7 @@ ABSTRACT_TYPE(/datum/computer_file/program)
 	if(!QDELETED(computer))
 		computer.idle_threads -= src
 		computer.enabled_services -= src
-		computer = null
+		set_computer(null)
 	. = ..()
 	GC_TEMPORARY_HARDDEL
 
@@ -138,6 +142,39 @@ ABSTRACT_TYPE(/datum/computer_file/program)
 	temp.requires_ntnet_feature = requires_ntnet_feature
 	temp.usage_flags = usage_flags
 	return temp
+
+/**
+ * Sets the computer this program is running on
+ *
+ * * computer - The computer to set this program to, or `null` to remove it
+ */
+/datum/computer_file/program/proc/set_computer(obj/item/modular_computer/computer)
+	SHOULD_NOT_SLEEP(TRUE)
+
+	//Not setting something already being deleted
+	if(istype(computer) && QDELETED(computer))
+		return
+
+	//It's already the same
+	if(src.computer == computer)
+		return
+
+	//Stop listening for the old computer
+	if(istype(src.computer))
+		UnregisterSignal(src.computer, COMSIG_QDELETING)
+
+	src.computer = computer
+
+	//Start listening for the new computer, if it's one
+	if(istype(computer))
+		RegisterSignal(computer, COMSIG_QDELETING, PROC_REF(on_computer_deleted))
+
+/**
+ * Handles signal when the computer we are referencing is deleted
+ */
+/datum/computer_file/program/proc/on_computer_deleted()
+	SIGNAL_HANDLER
+	qdel(src)
 
 // Relays icon update to the computer.
 /datum/computer_file/program/proc/update_computer_icon()

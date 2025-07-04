@@ -697,7 +697,8 @@
 /area/ship/sfa_patrol_ship)
 "bFk" = (
 /obj/machinery/computer/ship/targeting{
-	dir = 1
+	dir = 1;
+	req_access = list(203)
 	},
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/corner/dark_blue{
@@ -4389,15 +4390,15 @@
 /obj/item/clothing/accessory/storage/webbing,
 /obj/item/clothing/accessory/storage/webbing,
 /obj/item/clothing/accessory/storage/webbing,
-/obj/item/clothing/under/pants/camo,
-/obj/item/clothing/under/pants/camo,
+/obj/item/clothing/pants/camo,
+/obj/item/clothing/pants/camo,
 /obj/item/clothing/head/bandana/colorable/random,
 /obj/item/clothing/accessory/bandanna/black,
 /obj/item/clothing/accessory/bandanna/black,
 /obj/item/clothing/head/bandana,
 /obj/item/clothing/under/tactical,
-/obj/item/clothing/under/pants/mustang,
-/obj/item/clothing/under/pants/track,
+/obj/item/clothing/pants/mustang,
+/obj/item/clothing/pants/track,
 /obj/item/clothing/under/syndicate/tracksuit,
 /obj/item/clothing/under/syndicate,
 /obj/item/clothing/under/syndicate/combat,
@@ -4409,8 +4410,8 @@
 /obj/item/clothing/suit/storage/toggle/leather_jacket/flight,
 /obj/item/clothing/head/beanie/random,
 /obj/item/clothing/head/bucket/boonie/blue,
-/obj/item/clothing/accessory/silversun/random,
-/obj/item/clothing/accessory/silversun/random,
+/obj/item/clothing/under/dressshirt/silversun/random,
+/obj/item/clothing/under/dressshirt/silversun/random,
 /turf/simulated/floor/wood,
 /area/ship/sfa_patrol_ship/Quarters)
 "mUT" = (
@@ -5863,7 +5864,9 @@
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
-/obj/machinery/computer/ship/targeting,
+/obj/machinery/computer/ship/targeting{
+	req_access = list(203)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/SFA_Armory)
 "rDx" = (

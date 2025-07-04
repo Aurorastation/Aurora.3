@@ -524,7 +524,9 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/kataphract_chapter/cic)
 "cb" = (
-/obj/machinery/computer/ship/helm/terminal,
+/obj/machinery/computer/ship/helm/terminal{
+	req_access = list(113)
+	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "cc" = (
@@ -1670,7 +1672,8 @@
 /area/kataphract_chapter/main_ring)
 "gj" = (
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 4
+	dir = 4;
+	req_access = list(113)
 	},
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 9
@@ -4807,8 +4810,8 @@
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/office)
 "yu" = (
-/obj/structure/closet/secure_closet/freezer/kois,
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
+/obj/structure/closet/secure_closet/freezer/kois/spores,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/mess)
 "yC" = (
@@ -7225,7 +7228,8 @@
 /area/kataphract_chapter/starentry)
 "XQ" = (
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(113)
 	},
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 10

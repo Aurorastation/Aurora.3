@@ -172,7 +172,7 @@
 	if(prob(25))
 		faxtext += "<li>[get_objectives(H, REPRESENTATIVE_MISSION_HIGH)].</li>"
 
-	for (var/obj/machinery/photocopier/faxmachine/F in allfaxes)
+	for (var/obj/machinery/photocopier/faxmachine/F in GLOB.allfaxes)
 		if (F.department == fax_department)
 			var/obj/item/paper/P = new /obj/item/paper(get_turf(F))
 			P.name = "[name] - Directives"
@@ -213,7 +213,7 @@
 	minimal_access = list(ACCESS_CONSULAR)
 	outfit = /obj/outfit/job/representative/consular
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK)
-	blacklisted_citizenship = list(CITIZENSHIP_SOL, CITIZENSHIP_ERIDANI, CITIZENSHIP_ELYRA_NCP, CITIZENSHIP_NONE, CITIZENSHIP_FREE_COUNCIL)
+	blacklisted_citizenship = list(CITIZENSHIP_ERIDANI, CITIZENSHIP_ELYRA_NCP, CITIZENSHIP_NONE, CITIZENSHIP_FREE_COUNCIL)
 
 	aide_job = "Diplomatic Aide"
 

@@ -19,6 +19,9 @@
 		/obj/item/stack/cable_coil{amount = 5}
 	)
 
+	component_hint_bin = "Upgraded <b>matter bins</b> will increase slime capacity."
+	component_hint_laser = "Upgraded <b>micro-lasers</b> will increase extraction speed."
+
 /obj/machinery/slime_extractor/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	. += FONT_SMALL(SPAN_NOTICE("It can hold <b>[slime_limit] slime\s</b> at a time."))
@@ -62,12 +65,12 @@
 	if(default_part_replacement(user, attacking_item))
 		return
 
-/obj/machinery/slime_extractor/MouseDrop_T(atom/dropping, mob/user)
+/obj/machinery/slime_extractor/mouse_drop_receive(atom/dropped, mob/user, params)
 	if(!Adjacent(user))
 		to_chat(user, SPAN_WARNING("You can't reach \the [src]!"))
 		return
-	if(isslime(dropping))
-		var/mob/living/carbon/slime/slimey = dropping
+	if(isslime(dropped))
+		var/mob/living/carbon/slime/slimey = dropped
 		if(length(extract_slimes) >= slime_limit)
 			to_chat(user, SPAN_WARNING("\The [src] is fully loaded!"))
 			return

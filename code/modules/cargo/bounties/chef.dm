@@ -70,6 +70,7 @@
 			/obj/item/reagent_containers/food/snacks/plump_pie,
 			/obj/item/reagent_containers/food/snacks/xemeatpie,
 			/obj/item/reagent_containers/food/snacks/cherrypie,
+			/obj/item/reagent_containers/food/snacks/applepie,
 			/obj/item/reagent_containers/food/snacks/chocolate_rikazu,
 			/obj/item/reagent_containers/food/snacks/fruit_rikazu,
 			/obj/item/reagent_containers/food/snacks/meat_rikazu,

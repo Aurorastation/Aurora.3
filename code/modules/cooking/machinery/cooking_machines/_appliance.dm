@@ -27,6 +27,8 @@
 							/obj/item/stock_parts/scanning_module = 1,
 							/obj/item/stock_parts/matter_bin = 2)
 
+	parts_power_mgmt = FALSE
+
 	var/cooking_power = 0			// Effectiveness/speed at cooking
 	var/cooking_coeff = 0			// Part-based cooking power multiplier
 	var/heating_power = 1000		// Effectiveness at heating up; not used for mixers, should be equal to active_power_usage
@@ -52,6 +54,9 @@
 	var/finish_verb = "pings!"
 	var/place_verb = "into"
 	var/combine_first = FALSE//If 1, this appliance will do combination cooking before checking recipes
+
+	component_hint_cap = "Upgraded <b>capacitors</b> will increase heating power."
+	component_hint_scan = "Upgraded <b>scanning modules</b> will increase heating power and improve power efficiency."
 
 /obj/machinery/appliance/Initialize()
 	. = ..()
@@ -91,21 +96,21 @@
 		return null
 
 	if (!CI.cookwork)
-		return "It is cold."
+		return "it is cold."
 	var/progress = CI.cookwork / CI.max_cookwork
 	var/half_overcook = (CI.overcook_mult - 1)*0.5
 	switch(progress)
 		if (0 to 0.25)
-			return "It's barely started cooking."
+			return "it's barely started cooking."
 		if (0.25 to 0.75)
-			return SPAN_NOTICE("It's cooking away nicely.")
+			return SPAN_NOTICE("it's cooking away nicely.")
 		if (0.75 to 1)
-			return SPAN_NOTICE("<b>It's almost ready!</b>")
+			return SPAN_NOTICE("<b>it's almost ready!</b>")
 	if (progress < 1+half_overcook)
-		return SPAN_SOGHUN("<b>It is done!</b>")
+		return SPAN_SOGHUN("<b>it is done!</b>")
 	if (progress < CI.overcook_mult)
-		return SPAN_WARNING("It looks overcooked, get it out!")
-	return SPAN_DANGER("It is burning!")
+		return SPAN_WARNING("it looks overcooked, get it out!")
+	return SPAN_DANGER("it is burning!")
 
 /obj/machinery/appliance/proc/get_cooking_item_from_container(var/obj/item/reagent_containers/cooking_container/CC)
 	for(var/C in cooking_objs)
@@ -465,7 +470,7 @@
 	//Filling overlay
 	var/image/I = image(result.icon, "[result.icon_state]_filling")
 	I.color = totalcolour
-	result.overlays += I
+	result.AddOverlays(I)
 	result.filling_color = totalcolour
 
 	//Set the name.

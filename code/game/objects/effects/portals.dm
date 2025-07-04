@@ -289,14 +289,14 @@
 
 /obj/effect/portal/revenant/Initialize(mapload)
 	. = ..()
-	if(revenants.revenant_rift)
+	if(GLOB.revenants.revenant_rift)
 		return INITIALIZE_HINT_QDEL
 	var/turf/T = get_turf(src)
 	log_and_message_admins("Revenant Bluespace Rift spawned at \the [get_area(T)]", null, T)
-	revenants.revenant_rift = src
+	GLOB.revenants.revenant_rift = src
 
 /obj/effect/portal/revenant/Destroy()
-	revenants.destroyed_rift()
+	GLOB.revenants.destroyed_rift()
 	visible_message(FONT_LARGE(SPAN_DANGER("\The [src] collapses!")))
 	new /obj/random/highvalue/no_crystal(src)
 	new /obj/random/highvalue/no_crystal(src)

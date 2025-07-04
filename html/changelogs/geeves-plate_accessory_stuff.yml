@@ -1,8 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "You can now ctrl+click on any worn clothing item that has accessories attached to quickly open the accessory removal radial menu."
-  - rscadd: "Removing accessories with the radial accessory removal menu will now reopen that menu until either all the accessories are removed, or you click the close button."
-  - rscadd: "Plate Carrier armor accessories will now always render below other accessories, so you don't need to shuffle everything to layer them correctly."

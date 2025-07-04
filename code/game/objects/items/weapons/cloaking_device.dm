@@ -5,9 +5,10 @@
 	</br>This will not make you inaudible, your footsteps can still be heard, and it will make a very distinctive sound when uncloaking.\
 	</br>Any items you're holding in your hands can still be seen."
 	desc_antag  = "Being cloaked makes you impossible to click on, which offers a major advantage in combat. People can only hit you by blind-firing in your direction."
-
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/item/device/chameleon.dmi'
 	icon_state = "shield0"
+	item_state = "electronic"
+	contained_sprite = TRUE
 	var/active = 0.0
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	item_state = "electronic"

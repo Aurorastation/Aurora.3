@@ -46,39 +46,39 @@
 		return
 	return ..()
 
-/obj/item/clothing/MouseDrop(var/obj/over_object)
-	if(ishuman(usr) || issmall(usr))
+/obj/item/clothing/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(ishuman(user) || issmall(user))
 		//makes sure that the clothing is equipped so that we can't drag it into our hand from miles away.
-		if(!(src.loc == usr))
+		if(!(src.loc == user))
 			return
 
-		if(!over_object || over_object == src)
+		if(!over || over == src)
 			return
 
-		if(istype(over_object, /atom/movable/screen/inventory))
-			var/atom/movable/screen/inventory/S = over_object
+		if(istype(over, /atom/movable/screen/inventory))
+			var/atom/movable/screen/inventory/S = over
 			if(S.slot_id == src.equip_slot)
 				return
 
-		if(use_check_and_message(usr))
+		if(use_check_and_message(user))
 			return
 
-		if(!usr.canUnEquip(src))
+		if(!user.canUnEquip(src))
 			return
 
 		var/obj/item/clothing/C = src
-		usr.unEquip(C)
+		user.unEquip(C)
 
-		switch(over_object.name)
+		switch(over.name)
 			if("right hand")
 				if(istype(src, /obj/item/clothing/ears))
-					C = check_two_ears(usr)
-				usr.equip_to_slot_if_possible(C, slot_r_hand)
+					C = check_two_ears(user)
+				user.equip_to_slot_if_possible(C, slot_r_hand)
 			if("left hand")
 				if(istype(src, /obj/item/clothing/ears))
-					C = check_two_ears(usr)
-				usr.equip_to_slot_if_possible(C, slot_l_hand)
-		src.add_fingerprint(usr)
+					C = check_two_ears(user)
+				user.equip_to_slot_if_possible(C, slot_l_hand)
+		src.add_fingerprint(user)
 
 /obj/item/clothing/proc/check_two_ears(var/mob/user)
 	// if you have to ask, it's earcode
@@ -102,7 +102,7 @@
 	. = ..()
 	if(LAZYLEN(accessories))
 		for(var/obj/item/clothing/accessory/A in accessories)
-			. += SPAN_NOTICE("<a HREF=?src=[REF(user)];lookitem=[REF(A)]>\A [A]</a> [A.gender == PLURAL ? "are" : "is"] attached to it.")
+			. += SPAN_NOTICE("<a href='byond://?src=[REF(user)];lookitem=[REF(A)]>\A [A]</a> [A.gender == PLURAL ? "are" : "is"] attached to it.")
 
 /obj/item/clothing/proc/update_accessory_slowdown(mob/user)
 	slowdown_accessory = 0

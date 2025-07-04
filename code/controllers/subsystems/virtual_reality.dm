@@ -143,7 +143,7 @@ SUBSYSTEM_DEF(virtualreality)
 	M.swap_languages(target)
 
 	if(target.client)
-		target.client.screen |= global_hud.vr_control
+		target.client.screen |= GLOB.global_hud.vr_control
 
 	if(istype(target, /mob/living/simple_animal/spiderbot) && !istype(target, /mob/living/simple_animal/spiderbot/ai))
 		var/mob/living/simple_animal/spiderbot/spider = target

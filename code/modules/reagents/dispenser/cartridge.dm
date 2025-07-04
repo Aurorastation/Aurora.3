@@ -101,9 +101,10 @@
 		return
 
 	else if(istype(target, /obj/structure/reagent_dispensers)) //A dispenser. Transfer FROM it TO us.
-		target.add_fingerprint(user)
+		var/obj/structure/reagent_dispensers/reagent_dispensers = target
+		reagent_dispensers.add_fingerprint(user)
 
-		if(!target.reagents.total_volume && target.reagents)
+		if(!reagent_dispensers.reagents.total_volume && reagent_dispensers.reagents)
 			to_chat(user, SPAN_WARNING("\The [target] is empty."))
 			return
 
@@ -111,7 +112,7 @@
 			to_chat(user, SPAN_WARNING("\The [src] is full."))
 			return
 
-		var/trans = target.reagents.trans_to(src, target:amount_per_transfer_from_this)
+		var/trans = reagent_dispensers.reagents.trans_to(src, reagent_dispensers.amount_per_transfer_from_this)
 		to_chat(user, SPAN_NOTICE("You fill \the [src] with [trans] units of the contents of \the [target]."))
 
 	else if(target.is_open_container() && target.reagents) //Something like a glass. Player probably wants to transfer TO it.

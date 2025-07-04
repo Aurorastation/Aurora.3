@@ -17,7 +17,7 @@
 /obj/item/spell/proc/is_ally(var/mob/living/L)
 	if(L == owner) // The best ally is ourselves.
 		return 1
-	if(L.mind && technomancers.is_technomancer(L.mind)) // This should be done better since we might want opposing technomancers later.
+	if(L.mind && GLOB.technomancers.is_technomancer(L.mind)) // This should be done better since we might want opposing technomancers later.
 		return 1
 	if(istype(L, /mob/living/simple_animal/hostile)) // Mind controlled simple mobs count as allies too.
 		var/mob/living/simple_animal/hostile/SM = L

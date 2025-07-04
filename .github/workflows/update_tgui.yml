@@ -5,26 +5,19 @@ on:
 jobs:
   update-tgui:
     concurrency: tgui
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
     - name: Install Node
       uses: actions/setup-node@v3
       with:
         node-version: 14
+        cache: 'yarn'
+        cache-dependency-path: tgui/yarn.lock
 
     - name: Checkout Repository
       uses: actions/checkout@v4
       with:
         token: ${{ secrets.BOT_TOKEN_AURORA }}
-
-    - name: Restore Yarn cache
-      uses: actions/cache@v4
-      with:
-        path: tgui/.yarn/cache
-        key: ${{ runner.os }}-yarn-${{ hashFiles('tgui/yarn.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-build-
-          ${{ runner.os }}-
 
     - name: Update TGUI
       run: |

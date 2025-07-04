@@ -7,7 +7,7 @@
 	desc_info = "Cools down the gas of the pipe it is connected to.  It uses massive amounts of electricity while on. \
 	It can be upgraded by replacing the capacitors, manipulators, and matter bins.  It can be deconstructed by screwing the maintenance panel open with a \
 	screwdriver, and then using a crowbar."
-	icon = 'icons/obj/sleeper.dmi'
+	icon = 'icons/obj/machinery/sleeper.dmi'
 	icon_state = "freezer_0"
 	density = 1
 	anchored = 1
@@ -30,6 +30,12 @@
 		/obj/item/stock_parts/manipulator,
 		/obj/item/stack/cable_coil{amount = 2}
 	)
+
+	component_hint_bin = "Upgraded <b>matter bins</b> will improve cooling efficiency and increase the volume of air it can cool at once."
+	component_hint_cap = "Upgraded <b>capacitors</b> will increase maximum power setting."
+	component_hint_servo = "Upgraded <b>manipulators</b> will improve cooling efficiency."
+
+	parts_power_mgmt = FALSE
 
 /obj/machinery/atmospherics/unary/freezer/Initialize()
 	initialize_directions = dir

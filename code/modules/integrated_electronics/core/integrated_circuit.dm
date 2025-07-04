@@ -93,13 +93,13 @@ a creative player the means to solve many problems.  Circuits are held inside an
 	var/list/HTML = list(
 		"<div align='center'>",
 		"<table border='1' style='undefined;table-layout: fixed; width: 80%'>",
-		"<br><a href='?src=[REF(src)];return=1'>Return to Assembly</a>",
-		"<br><a href='?src=[REF(src)];'>Refresh</a>  |  ",
-		"<a href='?src=[REF(src)];rename=1'>Rename</a>  |  ",
-		"<a href='?src=[REF(src)];scan=1'>Scan with Device</a>  |  "
+		"<br><a href='byond://?src=[REF(src)];return=1'>Return to Assembly</a>",
+		"<br><a href='byond://?src=[REF(src)];'>Refresh</a>  |  ",
+		"<a href='byond://?src=[REF(src)];rename=1'>Rename</a>  |  ",
+		"<a href='byond://?src=[REF(src)];scan=1'>Scan with Device</a>  |  "
 	)
 	if(src.removable)
-		HTML += "<a href='?src=[REF(src)];remove=1'>Remove</a><br>"
+		HTML += "<a href='byond://?src=[REF(src)];remove=1'>Remove</a><br>"
 
 	HTML += "<colgroup>"
 	HTML += "<col style='width: [table_edge_width]'>"
@@ -120,11 +120,11 @@ a creative player the means to solve many problems.  Circuits are held inside an
 				if(1)
 					io = get_pin_ref(IC_INPUT, i)
 					if(io)
-						words += "<b><a href=?src=[REF(src)];pin_name=1;pin=[REF(io)]>[io.display_pin_type()] [io.name]</a> <a href=?src=[REF(src)];pin_data=1;pin=[REF(io)]>[io.display_data(io.data)]</a></b><br>"
+						words += "<b><a href='byond://?src=[REF(src)];pin_name=1;pin=[REF(io)]>[io.display_pin_type()] [io.name]</a> <a href='byond://?src=[REF(src)];pin_data=1;pin=[REF(io)]>[io.display_data(io.data)]</a></b><br>"
 						if(io.linked.len)
 							for(var/datum/integrated_io/linked in io.linked)
-								words += "<a href=?src=[REF(src)];pin_unwire=1;pin=[REF(io)];link=[REF(linked)]>[linked.name]</a> \
-								@ <a href=?src=[REF(linked.holder)];examine=1;>[linked.holder.displayed_name]</a><br>"
+								words += "<a href='byond://?src=[REF(src)];pin_unwire=1;pin=[REF(io)];link=[REF(linked)]>[linked.name]</a> \
+								@ <a href='byond://?src=[REF(linked.holder)];examine=1;>[linked.holder.displayed_name]</a><br>"
 
 						if(outputs.len > inputs.len)
 							height = 1
@@ -137,11 +137,11 @@ a creative player the means to solve many problems.  Circuits are held inside an
 				if(3)
 					io = get_pin_ref(IC_OUTPUT, i)
 					if(io)
-						words += "<b><a href=?src=[REF(src)];pin_name=1;pin=[REF(io)]>[io.display_pin_type()] [io.name]</a> <a href=?src=[REF(src)];pin_data=1;pin=[REF(io)]>[io.display_data(io.data)]</a></b><br>"
+						words += "<b><a href='byond://?src=[REF(src)];pin_name=1;pin=[REF(io)]>[io.display_pin_type()] [io.name]</a> <a href='byond://?src=[REF(src)];pin_data=1;pin=[REF(io)]>[io.display_data(io.data)]</a></b><br>"
 						if(io.linked.len)
 							for(var/datum/integrated_io/linked in io.linked)
-								words += "<a href=?src=[REF(src)];pin_unwire=1;pin=[REF(io)];link=[REF(linked)]>[linked.name]</a> \
-								@ <a href=?src=[REF(linked.holder)];examine=1;>[linked.holder.displayed_name]</a><br>"
+								words += "<a href='byond://?src=[REF(src)];pin_unwire=1;pin=[REF(io)];link=[REF(linked)]>[linked.name]</a> \
+								@ <a href='byond://?src=[REF(linked.holder)];examine=1;>[linked.holder.displayed_name]</a><br>"
 
 						if(inputs.len > outputs.len)
 							height = 1
@@ -151,13 +151,13 @@ a creative player the means to solve many problems.  Circuits are held inside an
 	for(var/activator in activators)
 		var/datum/integrated_io/io = activator
 		var/words = list(
-			"<b><a href=?src=[REF(src)];pin_name=1;pin=[REF(io)]><span class='bad'>[io.name]</span></a> <a href=?src=[REF(src)];pin_data=1;pin=[REF(io)]><span class='bad'>[io.data?"\<PULSE OUT\>":"\<PULSE IN\>"]</span></a></b><br>"
+			"<b><a href='byond://?src=[REF(src)];pin_name=1;pin=[REF(io)]><span class='bad'>[io.name]</span></a> <a href='byond://?src=[REF(src)];pin_data=1;pin=[REF(io)]><span class='bad'>[io.data?"\<PULSE OUT\>":"\<PULSE IN\>"]</span></a></b><br>"
 		)
 
 		if(io.linked.len)
 			for(var/datum/integrated_io/linked in io.linked)
-				words += "<a href=?src=[REF(src)];pin_unwire=1;pin=[REF(io)];link=[REF(linked)]><span class='bad'>[linked.name]</span></a> \
-				@ <a href=?src=[REF(linked.holder)];examine=1;><span class='bad'>[linked.holder.displayed_name]</span></a><br>"
+				words += "<a href='byond://?src=[REF(src)];pin_unwire=1;pin=[REF(io)];link=[REF(linked)]><span class='bad'>[linked.name]</span></a> \
+				@ <a href='byond://?src=[REF(linked.holder)];examine=1;><span class='bad'>[linked.holder.displayed_name]</span></a><br>"
 
 		HTML += "<tr>"
 		HTML += "<td colspan='3' align='center'>[jointext(words, null)]</td>"

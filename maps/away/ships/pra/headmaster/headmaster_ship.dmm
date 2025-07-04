@@ -579,7 +579,8 @@
 	dir = 10
 	},
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1559,7 +1560,9 @@
 /turf/simulated/floor/reinforced/cooled,
 /area/headmaster_ship/gun_deck)
 "ek" = (
-/obj/machinery/computer/ship/helm/terminal,
+/obj/machinery/computer/ship/helm/terminal{
+	req_access = list(209)
+	},
 /obj/structure/sign/flag/pra{
 	pixel_y = 32
 	},
@@ -2387,7 +2390,8 @@
 /area/headmaster_ship/bridge)
 "gV" = (
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(209)
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10
@@ -4589,7 +4593,8 @@
 /area/headmaster_ship)
 "qg" = (
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(209)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/headmaster_shuttle)
@@ -4664,7 +4669,9 @@
 /turf/simulated/floor/reinforced/cooled,
 /area/headmaster_ship/gun_deck)
 "qY" = (
-/obj/machinery/computer/ship/targeting/terminal,
+/obj/machinery/computer/ship/targeting/terminal{
+	req_access = list(209)
+	},
 /obj/machinery/light{
 	dir = 1
 	},
@@ -4904,7 +4911,8 @@
 	dir = 8
 	},
 /obj/machinery/computer/shuttle_control/explore/terminal/headmaster_shuttle{
-	dir = 4
+	dir = 4;
+	req_access = list(209)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/headmaster_shuttle)

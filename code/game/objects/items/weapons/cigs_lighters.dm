@@ -354,8 +354,8 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 	if(!proximity || lit)
 		return
 	if(istype(glass)) //you can dip cigarettes into beakers
-		var/transfered = glass.reagents.trans_to_obj(src, chem_volume)
-		if(transfered)	//if reagents were transfered, show the message
+		var/transferred = glass.reagents.trans_to_obj(src, chem_volume)
+		if(transferred)	//if reagents were transferred, show the message
 			to_chat(user, SPAN_WARNING("You dip \the [src] into \the [glass]."))
 			playsound(src.loc, 'sound/effects/footstep/water1.ogg', 50, 1)
 		else			//if not, either the beaker was empty, or the cigarette was full
@@ -373,9 +373,6 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 		user.visible_message(SPAN_NOTICE("<b>[user]</b> taps \the [src] against their palm."), SPAN_NOTICE("You tap \the [src] against your palm."))
 	return ..()
 
-
-/obj/item/clothing/mask/smokable/cigarette/vanilla
-	reagents_to_add = list(/singleton/reagent/toxin/tobacco = 15)
 
 /obj/item/clothing/mask/smokable/cigarette/acmeco
 	reagents_to_add = list(
@@ -411,7 +408,7 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 	name = "adhomian cigarette"
 	desc = "An adhomian cigarette made from processed S'rendarr's Hand."
 	reagents_to_add = list(
-		/singleton/reagent/toxin/tobacco/srendarrs_hand = 5,
+		/singleton/reagent/toxin/tobacco/srendarrs_hand = 10,
 		/singleton/reagent/mental/nicotine = 5
 	)
 
@@ -431,7 +428,7 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 	)
 
 /obj/item/clothing/mask/smokable/cigarette/dyn
-	name =  "dyn cigarette"
+	name = "dyn cigarette"
 	desc = "A mentholated cigarette from Nralakk made with processed dyn."
 	reagents_to_add = list(
 		/singleton/reagent/toxin/tobacco/sweet = 5,

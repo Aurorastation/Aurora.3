@@ -36,7 +36,7 @@
 	for(var/s in GLOB.staff)
 		var/client/C = s
 		if ((R_ADMIN|R_MOD) & C.holder.rights)
-			to_chat(C, "<span class='mod_channel'>" + create_text_tag("MOD", C) + " <span class='name'>[sender_name]</span>(<A HREF='?src=[REF(C.holder)];adminplayerobservejump=[REF(mob)]'>JMP</A>): <span class='message linkify'>[msg]</span></span>")
+			to_chat(C, "<span class='mod_channel'>" + create_text_tag("MOD", C) + " <span class='name'>[sender_name]</span>(<A href='byond://?src=[REF(C.holder)];adminplayerobservejump=[REF(mob)]'>JMP</A>): <span class='message linkify'>[msg]</span></span>")
 
 	feedback_add_details("admin_verb","MS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 

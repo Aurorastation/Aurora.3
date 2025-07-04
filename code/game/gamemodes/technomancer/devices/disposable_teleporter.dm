@@ -8,8 +8,10 @@
 /obj/item/disposable_teleporter
 	name = "disposable teleporter"
 	desc = "A very compact personal teleportation device.  It's very precise and safe, however it can only be used a few times."
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/item/hand_tele.dmi'
 	icon_state = "hand_tele"
+	item_state = "electronic"
+	contained_sprite = TRUE
 	var/uses = 3.0
 	w_class = WEIGHT_CLASS_TINY
 	item_state = "paper"

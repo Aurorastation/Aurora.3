@@ -11,7 +11,7 @@
 	throw_range = 2
 	w_class = WEIGHT_CLASS_SMALL
 	max_w_class = WEIGHT_CLASS_TINY
-	max_storage_space = 12
+	max_storage_space = DEFAULT_BOX_STORAGE
 	can_hold = list(
 		/obj/item/sticker
 	)

@@ -30,6 +30,9 @@
 	SEND_SIGNAL(src, COMSIG_ITEM_UPDATE_STATE)
 	update_icon()
 
+/obj/item/clothing/suit/storage/hooded/AltClick(mob/user)
+	ToggleHood(user)
+
 //hoodies and the like
 
 /obj/item/clothing/suit/storage/hooded/wintercoat
@@ -43,7 +46,7 @@
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
 	armor = list(
-		bio = ARMOR_BIO_MINOR
+		BIO = ARMOR_BIO_MINOR
 	)
 	siemens_coefficient = 0.75
 	protects_against_weather = TRUE
@@ -219,18 +222,10 @@
 	icon_state = "coatheph"
 	item_state = "coatheph"
 
-/obj/item/clothing/suit/storage/hooded/wintercoat/heph/alt
-	icon_state = "coatheph_alt"
-	item_state = "coatheph_alt"
-
 /obj/item/clothing/suit/storage/hooded/wintercoat/nt
 	name = "nanotrasen winter coat"
 	icon_state = "coatnt"
 	item_state = "coatnt"
-
-/obj/item/clothing/suit/storage/hooded/wintercoat/nt/alt
-	icon_state = "coatnt_alt"
-	item_state = "coatnt_alt"
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/zeng
 	name = "zeng-hu winter coat"

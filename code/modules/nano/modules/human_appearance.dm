@@ -76,9 +76,9 @@
 				. = TRUE
 		if("skin_tone")
 			if(can_change_skin_tone())
-				var/new_s_tone = input(usr, "Choose your character's skin-tone:\n(Light 30 - 220 Dark)", "Skin Tone", -owner.s_tone + 35) as num|null
+				var/new_s_tone = input(usr, "Choose your character's skin-tone:\n(Light [owner.species.lower_skin_tone_bound] - [owner.species.upper_skin_tone_bound] Dark)", "Skin Tone", -owner.s_tone + 35) as num|null
 				if(isnum(new_s_tone))
-					new_s_tone = 35 - max(min( round(new_s_tone), 220),30)
+					new_s_tone = 35 - clamp(round(new_s_tone), owner.species.lower_skin_tone_bound, owner.species.upper_skin_tone_bound)
 					. = owner.change_skin_tone(new_s_tone)
 		if("skin_color")
 			if(can_change_skin_color())

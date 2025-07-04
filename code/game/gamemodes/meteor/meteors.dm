@@ -93,7 +93,7 @@
 		A.ex_act(hitpwr)
 		visible_message(SPAN_DANGER("\The [src] breaks into dust!"))
 		make_debris()
-		msg_admin_attack("Meteor collided with shields at (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
+		msg_admin_attack("Meteor collided with shields at (<a href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
 		qdel(src)
 
 	if(A && !QDELETED(src))	// Prevents explosions and other effects when we were deleted by whatever we Bumped() - currently used by shields.
@@ -166,7 +166,7 @@
 /obj/effect/meteor/medium/meteor_effect()
 	..()
 	explosion(src.loc, 0, 1, 2, 3, 0)
-	msg_admin_attack("Meteor exploded at coords (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
+	msg_admin_attack("Meteor exploded at coords (<a href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
 
 /obj/effect/meteor/big
 	name = "large meteor"
@@ -178,7 +178,7 @@
 /obj/effect/meteor/big/meteor_effect()
 	..()
 	explosion(src.loc, 1, 2, 3, 4, 0)
-	msg_admin_attack("Meteor exploded at coords (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
+	msg_admin_attack("Meteor exploded at coords (<a href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
 
 /obj/effect/meteor/dust
 	name = "space dust"
@@ -199,7 +199,7 @@
 /obj/effect/meteor/flaming/meteor_effect()
 	..()
 	explosion(src.loc, 1, 2, 3, 4, 0, 0, 5)
-	msg_admin_attack("Meteor exploded at coords (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
+	msg_admin_attack("Meteor exploded at coords (<a href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
 
 /obj/effect/meteor/irradiated
 	name = "glowing meteor"
@@ -255,7 +255,7 @@
 	explosion(src.loc, 1, 2, 3, 4, 0)
 	for(var/obj/machinery/power/apc/A in range(rand(12, 20), src))
 		A.energy_fail(round(10 * rand(8, 12)))
-	msg_admin_attack("Meteor exploded at coords (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
+	msg_admin_attack("Meteor exploded at coords (<a href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
 
 /obj/effect/meteor/meaty
 	name = "meaty ore"

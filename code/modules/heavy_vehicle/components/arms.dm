@@ -19,7 +19,7 @@
 /obj/item/mech_component/manipulators/get_missing_parts_text()
 	. = ..()
 	if(!motivator)
-		. += SPAN_WARNING("It is missing an <a href='?src=[REF(src)];info=actuator'>actuator</a>.")
+		. += SPAN_WARNING("It is missing an <a href='byond://?src=[REF(src)];info=actuator'>actuator</a>.")
 
 /obj/item/mech_component/manipulators/Topic(href, href_list)
 	. = ..()

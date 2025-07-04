@@ -3,7 +3,7 @@
 /obj/item/device/laser_pointer
 	name = "laser pointer"
 	desc = "Don't shine it in your eyes!"
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/item/device/laser_pointer.dmi'
 	icon_state = "pointer"
 	item_state = "pen"
 	var/pointer_icon_state
@@ -11,9 +11,6 @@
 	w_class = WEIGHT_CLASS_TINY
 	var/turf/pointer_loc
 	var/obj/item/stock_parts/micro_laser/diode //cant use the laser without it
-
-
-
 
 /obj/item/device/laser_pointer/red
 	pointer_icon_state = "red_laser"

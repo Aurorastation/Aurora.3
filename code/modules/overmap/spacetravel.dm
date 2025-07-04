@@ -1,5 +1,5 @@
-//list used to cache empty zlevels to avoid nedless map bloat
-var/list/cached_space = list()
+///list used to cache empty zlevels to avoid nedless map bloat
+GLOBAL_LIST_INIT_TYPED(cached_space, /obj/effect/overmap/visitable/sector/temporary, list())
 
 //Space stragglers go here
 
@@ -33,9 +33,9 @@ var/list/cached_space = list()
 	var/obj/effect/overmap/visitable/sector/temporary/res = locate(x, y, SSatlas.current_map.overmap_z)
 	if(istype(res))
 		return res
-	else if(cached_space.len)
-		res = cached_space[cached_space.len]
-		cached_space -= res
+	else if(GLOB.cached_space.len)
+		res = GLOB.cached_space[GLOB.cached_space.len]
+		GLOB.cached_space -= res
 		res.x = x
 		res.y = y
 		return res
@@ -112,4 +112,4 @@ var/list/cached_space = list()
 		if (source.can_die())
 			testing("Caching [M] for future use")
 			source.forceMove(null)
-			cached_space += source
+			GLOB.cached_space += source

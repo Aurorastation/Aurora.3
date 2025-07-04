@@ -1,32 +1,3 @@
-var/church_name = null
-/proc/church_name()
-	if (church_name)
-		return church_name
-
-	var/name = ""
-
-	name += pick("Holy", "United", "First", "Second", "Last")
-
-	if (prob(20))
-		name += " Space"
-
-	name += " " + pick("Church", "Cathedral", "Body", "Worshippers", "Movement", "Witnesses")
-	name += " of [religion_name()]"
-
-	return name
-
-var/religion_name = null
-/proc/religion_name()
-	if (religion_name)
-		return religion_name
-
-	var/name = ""
-
-	name += pick("bee", "science", "edu", "captain", "assistant", "monkey", "alien", "space", "unit", "sprocket", "gadget", "bomb", "revolution", "beyond", "station", "goon", "robot", "ivor", "hobnob")
-	name += pick("ism", "ia", "ology", "istism", "ites", "ick", "ian", "ity")
-
-	return capitalize(name)
-
 /proc/world_name(var/name)
 	SSatlas.current_map.station_name = name
 
@@ -37,10 +8,10 @@ var/religion_name = null
 
 	return name
 
-var/syndicate_name = null
+GLOBAL_VAR(syndicate_name)
 /proc/syndicate_name()
-	if (syndicate_name)
-		return syndicate_name
+	if (GLOB.syndicate_name)
+		return GLOB.syndicate_name
 
 	var/name = ""
 
@@ -64,13 +35,16 @@ var/syndicate_name = null
 		name += pick("-", "*", "")
 		name += pick("Tech", "Sun", "Co", "Tek", "X", "Inc", "Gen", "Star", "Dyne", "Code", "Hive")
 
-	syndicate_name = name
+	GLOB.syndicate_name = name
 	return name
 
 
 //Traitors and traitor silicons will get these. Revs will not.
-var/syndicate_code_phrase //Code phrase for traitors.
-var/syndicate_code_response //Code response for traitors.
+
+///Code phrase for traitors.
+GLOBAL_VAR(syndicate_code_phrase)
+///Code response for traitors.
+GLOBAL_VAR(syndicate_code_response)
 
 	/*
 	Should be expanded.
@@ -88,10 +62,10 @@ var/syndicate_code_response //Code response for traitors.
 
 // Helper. Called in misc_late.dm for late misc init.
 /proc/populate_code_phrases(override = FALSE)
-	if (override || !syndicate_code_phrase)
-		syndicate_code_phrase = generate_code_phrase()
-	if (override || !syndicate_code_response)
-		syndicate_code_response = generate_code_phrase()
+	if (override || !GLOB.syndicate_code_phrase)
+		GLOB.syndicate_code_phrase = generate_code_phrase()
+	if (override || !GLOB.syndicate_code_response)
+		GLOB.syndicate_code_response = generate_code_phrase()
 
 /proc/generate_code_phrase() //Proc is used for phrase and response in master_controller.dm
 
@@ -120,9 +94,9 @@ var/syndicate_code_response //Code response for traitors.
 			if (1) //1 and 2 can only be selected once each to prevent more than two specific names/places/etc.
 				switch (rand(1,2)) //Mainly to add more options later.
 					if (1)
-						code_phrase += pick(pick(first_names_male,first_names_female))
+						code_phrase += pick(pick(GLOB.first_names_male, GLOB.first_names_female))
 						code_phrase += " "
-						code_phrase += pick(last_names)
+						code_phrase += pick(GLOB.last_names)
 					if (2)
 						code_phrase += pick(GLOB.joblist) //Returns a job.
 				safety -= 1
@@ -142,9 +116,9 @@ var/syndicate_code_response //Code response for traitors.
 					if (1)
 						code_phrase += pick(nouns)
 					if (2)
-						code_phrase += pick(adjectives)
+						code_phrase += pick(GLOB.adjectives)
 					if (3)
-						code_phrase += pick(verbs)
+						code_phrase += pick(GLOB.verbs)
 		if (words == 1)
 			code_phrase += "."
 		else

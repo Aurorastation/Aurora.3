@@ -279,7 +279,7 @@
 	if(enabled_spooking)
 		return 1
 	else
-		return (cult.current_antagonists.len > spookiness_threshold)
+		return (GLOB.cult.current_antagonists.len > spookiness_threshold)
 
 /// Adds an image to a client's `.images`. Useful as a callback.
 /proc/add_image_to_client(image/image_to_remove, client/add_to)

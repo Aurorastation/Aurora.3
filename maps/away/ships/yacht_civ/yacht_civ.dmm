@@ -1133,7 +1133,7 @@
 /obj/item/coin/gold{
 	pixel_x = 7
 	},
-/obj/item/pocketwatch{
+/obj/item/clothing/wrists/watch/pocketwatch{
 	pixel_x = -4;
 	pixel_y = 6
 	},
@@ -1214,24 +1214,24 @@
 /area/shuttle/yacht_civ_shuttle)
 "lP" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/accessory/dressshirt/alt/vneck,
+/obj/item/clothing/under/dressshirt/alt/vneck,
 /obj/item/clothing/accessory/sweater/argyle/crewneck{
 	color = "#44AA44"
 	},
 /obj/item/clothing/accessory/sweater/v_neck{
 	color = "#BB3333"
 	},
-/obj/item/clothing/accessory/dressshirt,
-/obj/item/clothing/accessory/dressshirt/alt{
+/obj/item/clothing/under/dressshirt,
+/obj/item/clothing/under/dressshirt/alt{
 	color = "#DEDEDE"
 	},
-/obj/item/clothing/accessory/dressshirt/asymmetric{
+/obj/item/clothing/under/dressshirt/asymmetric{
 	color = "#DEDEDE"
 	},
-/obj/item/clothing/accessory/dressshirt/alt/rolled{
+/obj/item/clothing/under/dressshirt/alt/rolled{
 	color = "#3131B1"
 	},
-/obj/item/clothing/accessory/dressshirt/alt/rolled{
+/obj/item/clothing/under/dressshirt/alt/rolled{
 	color = "#DEDEDE"
 	},
 /obj/item/clothing/accessory/sweater/argyle{
@@ -1250,7 +1250,7 @@
 	color = "#4B381D";
 	pixel_y = -9
 	},
-/obj/item/clothing/accessory/silversun/random,
+/obj/item/clothing/under/dressshirt/silversun/random,
 /obj/item/clothing/suit/storage/toggle/cardigan{
 	color = "#DDDDDD";
 	pixel_y = -6
@@ -1264,7 +1264,7 @@
 /obj/item/clothing/suit/storage/toggle/konyang/akira{
 	pixel_y = -4
 	},
-/obj/item/clothing/accessory/silversun/random,
+/obj/item/clothing/under/dressshirt/silversun/random,
 /obj/item/clothing/suit/storage/toggle/leather_jacket/designer{
 	pixel_y = -2
 	},
@@ -4852,54 +4852,54 @@
 "RA" = (
 /obj/effect/floor_decal/corner/blue/full,
 /obj/structure/closet/cabinet,
-/obj/item/clothing/under/skirt/long{
+/obj/item/clothing/pants/skirt/long{
 	color = "#c1a61d"
 	},
-/obj/item/clothing/under/skirt/jumper{
+/obj/item/clothing/pants/skirt/jumper{
 	color = "#BB3333"
 	},
-/obj/item/clothing/under/pants/designer{
+/obj/item/clothing/pants/designer{
 	pixel_y = 4
 	},
-/obj/item/clothing/under/pants/black,
-/obj/item/clothing/under/pants/jeans{
+/obj/item/clothing/pants/black,
+/obj/item/clothing/pants/jeans{
 	pixel_y = 4
 	},
-/obj/item/clothing/under/pants/white,
-/obj/item/clothing/under/skirt/high{
+/obj/item/clothing/pants/white,
+/obj/item/clothing/pants/skirt/high{
 	color = "#4B381D"
 	},
-/obj/item/clothing/under/skirt{
+/obj/item/clothing/pants/skirt{
 	color = "#3131B1"
 	},
-/obj/item/clothing/under/skirt/tube{
+/obj/item/clothing/pants/skirt/tube{
 	color = "#333333"
 	},
-/obj/item/clothing/under/skirt/plaid{
+/obj/item/clothing/pants/skirt/plaid{
 	color = "#44AA44"
 	},
-/obj/item/clothing/under/pants/ripped{
+/obj/item/clothing/pants/ripped{
 	pixel_x = -2;
 	pixel_y = 4
 	},
-/obj/item/clothing/under/skirt/straightlong{
+/obj/item/clothing/pants/skirt/straightlong{
 	color = "#DDDDDD"
 	},
-/obj/item/clothing/under/skirt/skater{
+/obj/item/clothing/pants/skirt/skater{
 	color = "#2C3A7F"
 	},
-/obj/item/clothing/under/skirt/pencil{
+/obj/item/clothing/pants/skirt/pencil{
 	color = "#333333"
 	},
-/obj/item/clothing/under/pants/striped,
-/obj/item/clothing/under/pants/tailoredjeans{
+/obj/item/clothing/pants/striped,
+/obj/item/clothing/pants/tailoredjeans{
 	color = "#4B381D"
 	},
 /obj/machinery/alarm/west{
 	req_one_access = null
 	},
-/obj/item/clothing/under/pants/tan,
-/obj/item/clothing/under/pants/tailoredjeans{
+/obj/item/clothing/pants/tan,
+/obj/item/clothing/pants/tailoredjeans{
 	color = "#2C3A7F";
 	pixel_y = 3
 	},
@@ -5139,7 +5139,7 @@
 /area/ship/yacht_civ/lounge)
 "Tl" = (
 /obj/structure/flora/ausbushes/ppflowers,
-/obj/structure/flora/pottedplant/orientaltree,
+/obj/structure/flora/pottedplant/cherrytree,
 /turf/simulated/floor/exoplanet/grass,
 /area/ship/yacht_civ/hallway_mid)
 "Tw" = (

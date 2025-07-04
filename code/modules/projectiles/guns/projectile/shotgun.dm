@@ -111,6 +111,9 @@
 		loaded -= AC //Remove casing from loaded list.
 		chambered = AC
 
+/obj/item/gun/projectile/shotgun/pump/unloaded
+	ammo_type = null
+
 /obj/item/gun/projectile/shotgun/pump/combat
 	name = "combat shotgun"
 	desc = "Built for close quarters combat, the Hephaestus Industries KS-40 is widely regarded as a weapon of choice for repelling boarders."

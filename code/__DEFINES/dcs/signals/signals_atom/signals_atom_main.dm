@@ -36,3 +36,6 @@
 
 /// Called on [/atom/SpinAnimation()] : (speed, loops, segments, angle)
 #define COMSIG_ATOM_SPIN_ANIMATION "atom_spin_animation"
+
+/// Called when certain atoms are deconstructed, currently implemented on walls and floors
+#define COMSIG_ATOM_DECONSTRUCTED "atom_deconstructed"

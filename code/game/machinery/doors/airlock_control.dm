@@ -131,7 +131,7 @@
 	icon_state = "airlock_sensor_off"
 
 	anchored = 1
-	power_channel = ENVIRON
+	power_channel = AREA_USAGE_ENVIRON
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 
 	var/id_tag
@@ -212,7 +212,7 @@
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 
 	anchored = 1
-	power_channel = ENVIRON
+	power_channel = AREA_USAGE_ENVIRON
 
 	var/master_tag
 	var/frequency = 1449

@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Dropping a drill directly onto a turf with underground resources will no longer delete the resources."

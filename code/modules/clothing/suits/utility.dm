@@ -35,10 +35,20 @@
 	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS
 
+	///Initial name of the firesuit's emissive overlay. Will be changed based on [icon_supported_species_tags], above
+	var/initial_emissive_state = "firesuit_emissive"
+	///Special variable to handle the firesuit's emissive overlay
+	var/emissive_state
+
 /obj/item/clothing/suit/fire/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
+	emissive_state = initial_emissive_state
+	if(icon_auto_adapt)
+		if(H && length(icon_supported_species_tags))
+			if(H.species.short_name in icon_supported_species_tags)
+				emissive_state = "[H.species.short_name]_[initial_emissive_state]"
 	if(slot == slot_wear_suit_str)
-		var/image/emissive_overlay = emissive_appearance(mob_icon, "firesuit-emissive", alpha = src.alpha)
+		var/image/emissive_overlay = emissive_appearance(mob_icon, emissive_state, alpha = src.alpha)
 		I.AddOverlays(emissive_overlay)
 	return I
 
@@ -52,13 +62,7 @@
 	sprite_sheets = list(
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/fire.dmi'
 	)
-
-/obj/item/clothing/suit/fire/atmos/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
-	var/image/I = ..()
-	if(slot == slot_wear_suit_str)
-		var/image/emissive_overlay = emissive_appearance(mob_icon, "atmos_firesuit-emissive", alpha = src.alpha)
-		I.AddOverlays(emissive_overlay)
-	return I
+	initial_emissive_state = "atmos_firesuit_emissive"
 
 /*
  * Bomb protection
@@ -70,11 +74,11 @@
 	w_class = WEIGHT_CLASS_HUGE//Too large to fit in a backpack
 	item_flags = ITEM_FLAG_THICK_MATERIAL|ITEM_FLAG_BLOCK_GAS_SMOKE_EFFECT
 	armor = list(
-		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_RESISTANT,
-		bomb = ARMOR_BOMB_SHIELDED
+		MELEE = ARMOR_MELEE_VERY_HIGH,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_RESISTANT,
+		BOMB = ARMOR_BOMB_SHIELDED
 	)
 	max_pressure_protection = FIRESUIT_MAX_PRESSURE
 	siemens_coefficient = 0
@@ -98,11 +102,11 @@
 	permeability_coefficient = 0.01
 	slowdown = 8
 	armor = list(
-		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_RESISTANT,
-		bomb = ARMOR_BOMB_SHIELDED
+		MELEE = ARMOR_MELEE_VERY_HIGH,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_RESISTANT,
+		BOMB = ARMOR_BOMB_SHIELDED
 	)
 	siemens_coefficient = 0
 	item_flags = ITEM_FLAG_THICK_MATERIAL
@@ -208,8 +212,8 @@
 	flags_inv = BLOCKHAIR
 	body_parts_covered = HEAD|FACE|EYES
 	armor = list(
-		bio = ARMOR_BIO_RESISTANT,
-		rad = ARMOR_RAD_SHIELDED
+		BIO = ARMOR_BIO_RESISTANT,
+		RAD = ARMOR_RAD_SHIELDED
 	)
 	siemens_coefficient = 0.35
 
@@ -231,8 +235,8 @@
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/bag/inflatable,/obj/item/device/t_scanner,/obj/item/rfd/construction,/obj/item/material/twohanded/fireaxe,/obj/item/storage/backpack/cell,/obj/item/clothing/head/radiation,/obj/item/clothing/mask/gas,/obj/item/reagent_containers/hypospray/autoinjector)
 	slowdown = 1.5
 	armor = list(
-		bio = ARMOR_BIO_RESISTANT,
-		rad = ARMOR_RAD_SHIELDED
+		BIO = ARMOR_BIO_RESISTANT,
+		RAD = ARMOR_RAD_SHIELDED
 	)
 	siemens_coefficient = 0.35
 	flags_inv = HIDEJUMPSUIT|HIDETAIL

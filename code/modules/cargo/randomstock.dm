@@ -62,13 +62,13 @@ STOCK_ITEM_COMMON(bees, 2)
 		return 0
 	switch(src.category)
 		if("common")
-			return global.random_stock_common[src.spawner_proc] = P
+			return GLOB.random_stock_common[src.spawner_proc] = P
 		if("uncommon")
-			return global.random_stock_uncommon[src.spawner_proc] = P
+			return GLOB.random_stock_uncommon[src.spawner_proc] = P
 		if("rare")
-			return global.random_stock_rare[src.spawner_proc] = P
+			return GLOB.random_stock_rare[src.spawner_proc] = P
 		if("large")
-			return global.random_stock_large[src.spawner_proc] = P
+			return GLOB.random_stock_large[src.spawner_proc] = P
 	throw EXCEPTION("Cargo spawner definition '[src.type]' has invalid category '[src.category]'. Please fix your definition.")
 
 /proc/setup_cargo_spawn_lists()
@@ -80,10 +80,10 @@ STOCK_ITEM_COMMON(bees, 2)
 	LOG_DEBUG("Registered [i] cargo spawners.")
 
 // These lists are populated by the files in `./random_stock` using the above procs.
-var/list/global/random_stock_common = list()
-var/list/global/random_stock_uncommon = list()
-var/list/global/random_stock_rare = list()
-var/list/global/random_stock_large = list()
+GLOBAL_LIST_EMPTY(random_stock_common)
+GLOBAL_LIST_EMPTY(random_stock_uncommon)
+GLOBAL_LIST_EMPTY(random_stock_rare)
+GLOBAL_LIST_EMPTY(random_stock_large)
 
 /proc/spawn_cargo_stock()
 	var/start_time = world.timeofday
@@ -132,7 +132,7 @@ var/list/global/random_stock_large = list()
 	//These locations are designated by large stock marker objects, which are manually mapped in
 	for (var/obj/effect/large_stock_marker/LSM in GLOB.large_stock_markers)
 		if (prob(STOCK_LARGE_PROB))
-			var/type = pickweight(random_stock_large)
+			var/type = pickweight(GLOB.random_stock_large)
 			if (type)
 				call(type)(get_turf(LSM))
 		qdel(LSM)
@@ -188,11 +188,11 @@ var/list/global/random_stock_large = list()
 	var/stocktype = pickweight(spawntypes)
 	switch (stocktype)
 		if ("1")
-			return pickweight(random_stock_rare)
+			return pickweight(GLOB.random_stock_rare)
 		if ("2")
-			return pickweight(random_stock_uncommon)
+			return pickweight(GLOB.random_stock_uncommon)
 		if ("3")
-			return pickweight(random_stock_common)
+			return pickweight(GLOB.random_stock_common)
 
 // Moderate mobs are checked per crate
 #define INFEST_PROB_MODERATE	3
@@ -204,7 +204,7 @@ var/list/global/random_stock_large = list()
 		if(prob(INFEST_PROB_MODERATE))
 			var/ctype = pickweight(infest_mobs_moderate)
 			new ctype(C)
-			msg_admin_attack("Common cargo warehouse critter [ctype] spawned inside [C.name] coords (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[C.x];Y=[C.y];Z=[C.z]'>JMP</a>)")
+			msg_admin_attack("Common cargo warehouse critter [ctype] spawned inside [C.name] coords (<a href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[C.x];Y=[C.y];Z=[C.z]'>JMP</a>)")
 
 	//This is checked only once per round. ~3% chance to spawn a scary monster infesting the warehouse
 	if (prob(INFEST_PROB_SEVERE))
@@ -222,7 +222,7 @@ var/list/global/random_stock_large = list()
 			var/ctype = pickweight(infest_mobs_severe)
 
 			new ctype(T)
-			msg_admin_attack("Rare cargo warehouse critter [ctype] spawned coords (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[T.x];Y=[T.y];Z=[T.z]'>JMP</a>)")
+			msg_admin_attack("Rare cargo warehouse critter [ctype] spawned coords (<a href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[T.x];Y=[T.y];Z=[T.z]'>JMP</a>)")
 			return
 
 /datum/cargospawner/proc/shuffle_items()

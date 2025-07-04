@@ -76,7 +76,7 @@
 
 	if(!length(mname))
 		if(mob_name_prefix || mob_name_suffix)
-			mname = capitalize(pick(last_names))
+			mname = capitalize(pick(GLOB.last_names))
 		else
 			mname = random_name(gender,species)
 

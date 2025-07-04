@@ -152,6 +152,87 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("waffle" = 8))
 	bitesize = 2
 
+///makes waffles change their look based on which syrup they have applied to them
+/obj/item/reagent_containers/food/snacks/waffles/on_reagent_change()
+	if(reagents.has_any_reagent(list(/singleton/reagent/nutriment/flour, /singleton/reagent/spacecleaner, /singleton/reagent/antidexafen, /singleton/reagent/carbon))) //For when the scrubbers inevitably attack the kitchen.
+		name = "ruined waffles"
+		desc = "Oh boy! Look at all that powdered suga- wait, wait, no, that's... no, that's not sugar. Oh, these poor waffles."
+		icon_state = "waffles_ruined"
+
+	else if(reagents.has_reagent(/singleton/reagent/nutriment/ketchup))
+		name = "waffles with ketchup"
+		desc = "Why? Just why?"
+		icon_state = "waffles_redsauce"
+
+	else if(reagents.has_reagent(/singleton/reagent/nutriment/mayonnaise))
+		name = "waffles with mayonnaise"
+		desc = "All of the cholesterol with none of the joy."
+		icon_state = "waffles_vanilla"
+
+	else if(reagents.has_reagent(/singleton/reagent/condiment/syrup_chocolate))
+		name = "waffles with chocolate sauce"
+		desc = "Mmm, waffles with chocolate sauce."
+		icon_state = "waffles_chocolate"
+
+		if(reagents.has_reagent(/singleton/reagent/condiment/syrup_vanilla))
+			name = "checkerboard waffles"
+			desc = "Waffles with chocolate and vanilla sauces carefully applied in a checkerboard pattern. Extremely fancy, in a 12 year old birthday party kind of way."
+			icon_state = "waffles_checkers"
+
+	else if(reagents.has_reagent(/singleton/reagent/condiment/syrup_vanilla))
+		name = "Mmm, waffles with vanilla sauce."
+		icon_state = "waffles_vanilla"
+
+		if(reagents.has_reagent(/singleton/reagent/condiment/syrup_chocolate))
+			name = "checkerboard waffles"
+			desc = "Waffles with chocolate and vanilla sauces carefully applied in a checkerboard pattern. Extremely fancy, in a 12 year old birthday party kind of way."
+			icon_state = "waffles_checkers"
+
+	else if(reagents.has_reagent(/singleton/reagent/condiment/syrup_strawberry))
+		name = "waffles with strawberry sauce"
+		desc = "Don't worry! They're so neon red, there's no CHANCE anything nutritious got through to them!"
+		icon_state = "waffles_redsauce"
+
+	else if(reagents.has_reagent(/singleton/reagent/condiment/syrup_berry))
+		name = "waffles with berry sauce"
+		desc = "Waffles with neon red berry sauce. Stretching the term 'berries' to the absolute furthest limits allowed by food health and safety regulations."
+		icon_state = "waffles_redsauce"
+
+	else if(reagents.has_reagent(/singleton/reagent/condiment/syrup_caramel))
+		name = "waffles with caramel sauce"
+		desc = "Because some people just want to chug a whole keg of sugar and get away with calling it breakfast."
+		icon_state = "waffles_lightbrownsauce"
+
+	else if(reagents.has_reagent(/singleton/reagent/condiment/syrup_pumpkin))
+		name = "waffles with pumpkin spice sauce"
+		desc = "For that perfect social media breakfast photo on an autumn morning."
+		icon_state = "waffles_lightbrownsauce"
+
+	else if(reagents.has_reagent(/singleton/reagent/condiment/syrup_dirtberry))
+		name = "waffles with dirtberry sauce"
+		desc = "Parrrt of this complete brrreakfast!"
+		icon_state = "waffles_lightbrownsauce"
+
+	else if(reagents.has_reagent(/singleton/reagent/condiment/syrup_blueberry))
+		name = "waffles with blueberry sauce"
+		desc = "You could have had waffles with actual blueberries to maybe get just a little bit of nutrition in there along with the flavor, but no. You chose this."
+		icon_state = "waffles_bluesauce"
+
+	else if(reagents.has_reagent(/singleton/reagent/condiment/syrup_blueraspberry))
+		name = "waffles with blue raspberry sauce"
+		desc = "Introducing breakfast to colors it was never meant to be! Wow!"
+		icon_state = "waffles_bluesauce"
+
+	else if(reagents.has_reagent(/singleton/reagent/condiment/syrup_raspberry))
+		name = "waffles with raspberry sauce"
+		desc = "Glamour waffles."
+		icon_state = "waffles_pinksauce"
+
+	else if(reagents.has_reagent(/singleton/reagent/condiment/syrup_ylphaberry))
+		name = "waffles with ylpha sauce"
+		desc = "How delicious is this? Ylpha-nd out soon enough!" //Hurr hurr
+		icon_state = "waffles_pinksauce"
+
 /obj/item/reagent_containers/food/snacks/soywafers
 	name = "Soy Wafers"
 	desc = "Simple pressed soy wafers."

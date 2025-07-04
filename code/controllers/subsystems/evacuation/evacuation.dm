@@ -1,4 +1,4 @@
-var/datum/evacuation_controller/evacuation_controller
+GLOBAL_DATUM(evacuation_controller, /datum/evacuation_controller)
 
 /datum/evacuation_controller
 

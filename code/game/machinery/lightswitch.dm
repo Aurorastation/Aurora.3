@@ -11,7 +11,7 @@
 	var/on = 1
 	var/area/area = null
 	var/otherarea = null
-	power_channel = LIGHT
+	power_channel = AREA_USAGE_LIGHT
 	z_flags = ZMM_MANGLE_PLANES
 	//	luminosity = 1
 

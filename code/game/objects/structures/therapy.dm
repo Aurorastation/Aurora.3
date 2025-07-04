@@ -1,57 +1,9 @@
-/obj/item/pocketwatch
-	name = "pocketwatch"
-	desc = "A watch that goes in your pocket."
-	desc_extended = "Because your wrists have better things to do."
-	icon = 'icons/obj/items.dmi'
-	icon_state = "pocketwatch"
-	drop_sound = 'sound/items/drop/accessory.ogg'
-	pickup_sound = 'sound/items/pickup/accessory.ogg'
-	matter = list(MATERIAL_GLASS = 150, MATERIAL_GOLD = 50)
-	recyclable = TRUE
-	w_class = WEIGHT_CLASS_TINY
-	var/closed = FALSE
-
-/obj/item/pocketwatch/AltClick(mob/user)
-	if(!closed)
-		icon_state = "[initial(icon_state)]_closed"
-		to_chat(user, "You clasp the [name] shut.")
-		playsound(src.loc, 'sound/weapons/blade_close.ogg', 50, 1)
-	else
-		icon_state = "[initial(icon_state)]"
-		to_chat(user, "You flip the [name] open.")
-		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
-	closed = !closed
-
-/obj/item/pocketwatch/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
-	. = ..()
-	if (distance <= 1)
-		checktime()
-
-/obj/item/pocketwatch/verb/checktime(mob/user)
-	set category = "Object"
-	set name = "Check Time"
-	set src in usr
-
-	if(closed)
-		to_chat(usr, "You check your watch, realising it's closed.")
-	else
-		to_chat(usr, "You check your watch, glancing over at the watch face, reading the time to be '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [GLOB.game_year]'.")
-
-/obj/item/pocketwatch/verb/pointatwatch()
-	set category = "Object"
-	set name = "Point at watch"
-	set src in usr
-
-	if(closed)
-		usr.visible_message (SPAN_NOTICE("[usr] taps their foot on the floor, arrogantly pointing at the [src] in their hand with a look of derision in their eyes, not noticing it's closed."), SPAN_NOTICE("You point down at the [src], an arrogant look about your eyes."))
-	else
-		usr.visible_message (SPAN_NOTICE("[usr] taps their foot on the floor, arrogantly pointing at the [src] in their hand with a look of derision in their eyes."), SPAN_NOTICE("You point down at the [src], an arrogant look about your eyes."))
-
 /obj/item/mesmetron
 	name = "mesmetron pocketwatch"
 	desc = "An elaborate pocketwatch, with a captivating gold etching and an enchanting face. . ."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/item/clothing/wrists/wrist.dmi'
 	icon_state = "pocketwatch"
+	item_state = "pocketwatch"
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 	matter = list(MATERIAL_GLASS = 150, MATERIAL_GOLD = 50)
