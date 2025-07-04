@@ -1,0 +1,7 @@
+author: kermit
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds a football to the game. Available in off-duty/passenger loadouts only rn."
+  - imageadd: "Football sprite from dcxgame @ Yogstation."
