@@ -48,7 +48,7 @@
 //For sectors where corporate entities can or should appear. Corporate ships having this tag can be seen more reliably
 #define ALL_CORPORATE_SECTORS	list(ALL_TAU_CETI_SECTORS, SECTOR_SRANDMARR, SECTOR_UUEOAESA, ALL_COALITION_SECTORS, ALL_GENERIC_SECTORS, SECTOR_NRRAHRAHUL, SECTOR_BADLANDS)//Currently excludes Elyran sectors and Light's Edge
 
-/// For remote/uncharted regions distant from the civilised Spur. Nothing should spawn here unless its noncanon or event related.
+/// For remote/uncharted regions distant from the civilised Spur. Some surveyors/independents only.
 #define ALL_UNCHARTED_SECTORS list(SECTOR_CRESCENT_EXPANSE_FAR, SECTOR_LEMURIAN_SEA_FAR)
 
 //For highly dangerous sectors with high piracy. Civilian and leisure ships should be less common or not found here.
@@ -60,4 +60,5 @@
 /// Everything!
 #define ALL_POSSIBLE_SECTORS list(ALL_TAU_CETI_SECTORS, ALL_BADLAND_SECTORS, ALL_COALITION_SECTORS, ALL_VOID_SECTORS, ALL_GENERIC_SECTORS, ALL_CORPORATE_SECTORS, ALL_CRESCENT_EXPANSE_SECTORS)
 
-
+/// Sectors that block canon odysseys for reasons. Usually an ongoing remote/exclusive event arc area that shouldn't have canon odysseys muddling up (EG. the Horizon finds itself isolated and on its own). Very narrow use case. Not to be applied liberally.
+#define ALL_EVENT_ONLY_SECTORS list(SECTOR_CRESCENT_EXPANSE_FAR) //SECTOR_CRESCENT_EXPANSE_FAR for duration of horizon's first visit there. feel free to remove if still here after that
