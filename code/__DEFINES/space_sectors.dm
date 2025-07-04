@@ -52,7 +52,7 @@
 #define ALL_UNCHARTED_SECTORS list(SECTOR_CRESCENT_EXPANSE_FAR, SECTOR_LEMURIAN_SEA_FAR)
 
 //For highly dangerous sectors with high piracy. Civilian and leisure ships should be less common or not found here.
-#define ALL_DANGEROUS_SECTORS	list(SECTOR_BADLANDS, ALL_VOID_SECTORS, ALL_CRESCENT_EXPANSE_SECTORS, ALL_UNCHARTED_SECTORS) //Burszia is considered dangerous for the duration of the Trouble in Paradise arc
+#define ALL_DANGEROUS_SECTORS	list(SECTOR_BADLANDS, ALL_VOID_SECTORS, ALL_CRESCENT_EXPANSE_SECTORS, ALL_UNCHARTED_SECTORS)
 
 /// all non-generic, named and specific sectors, where generic planets or the like should not spawn
 #define ALL_SPECIFIC_SECTORS	list(SECTOR_TAU_CETI, SECTOR_SRANDMARR, SECTOR_HANEUNIM, SECTOR_BURZSIA, SECTOR_UUEOAESA, SECTOR_TABITI, SECTOR_AEMAQ, SECTOR_NRRAHRAHUL, SECTOR_GAKAL)
