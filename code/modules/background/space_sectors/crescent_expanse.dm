@@ -1,8 +1,9 @@
 /datum/space_sector/crescent_expanse
 	name = SECTOR_CRESCENT_EXPANSE_EAST
-	description = "The Badlands are home to some of the Orion Spur's most savage flora and fauna, a phenomenon that attracts only the wildest and wisest of the system's inhabitants - xenobiologists, \
-	weapon scientists, there's even a market for mercenaries, in the hunting of the particularly large and lethal creatures. Of course, there are also those looking to make a life for themselves, \
-	but natives aren't known to treat settlements kindly."
+	description = "A large, mostly uncontrolled area, the Crescent Expanse represents the furthest stretches of human colonization and stretches to the border of the Nralakk \
+	Federation. This area was in the process of development by the Solarian Alliance prior to the Interstellar War and half-complete relics of the Alliance's hegemonic era can \
+	be found scattered across its planets and floating in long-abandoned systems. The Coalition of Colonies, Nralakk Federation, and Solarian Alliance are currently attempting \
+	to expand their influence into this region with varying degrees of success."
 	skybox_icon = "the_clash" //placeholder, but its nearby
 	possible_exoplanets = list(
 		/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid,
@@ -45,9 +46,6 @@
 
 /datum/space_sector/crescent_expanse/far
 	name = SECTOR_CRESCENT_EXPANSE_FAR
-	description = "Nestled in the narrow Frontier space between the Republic of Elyra and the former borders of the Solarian Alliance is Valley Hale, a large region filled with a large \
-	amount of old, dying stars and impassable nebulae. Due to close proximity to patrols on either end of this space, it isn't frequented much by criminal elements and is one of the \
-	safer parts of the known Frontier. After 2462, the Republic of Elyra has occupied the majority of Valley Hale, now bordering the Republic of Biesel."
 
 	cargo_price_coef = list( //even higher, we are very far away!
 		"nanotrasen" = 200.0,

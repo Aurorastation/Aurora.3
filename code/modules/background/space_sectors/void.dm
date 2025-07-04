@@ -18,5 +18,4 @@
 
 /datum/space_sector/lemurian_sea/far
 	name = SECTOR_LEMURIAN_SEA_FAR
-	description = "The Lemurian Sea is an astrological curiosity which is entirely free of stars. This region is a relatively new discovery and classification, having only been officially broken off of Light’s Edge by most astrographical institutions following the rediscovery of Assunzione and limited exploration beyond its position on the border of what would become the Lemurian Sea. Most astrological charts advise avoiding the region as travelers are known to report a feeling of general uneasiness while passing through it and many vessels are known to have disappeared within the Sea. "
 	ccia_link = FALSE
