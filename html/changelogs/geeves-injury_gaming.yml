@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "You can now spawn with injuries, such as bruising, burns, and broken limbs. Select these via the disabilities menu."
