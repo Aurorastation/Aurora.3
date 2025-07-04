@@ -117,19 +117,19 @@
 /obj/effect/shuttle_landmark/lift/operations_first_deck
 	name = "Operations Lift - First Deck"
 	landmark_tag = "nav_operations_lift_first_deck"
-	base_area = /area/operations/storage
+	base_area = /area/horizon/operations/storage
 	base_turf = /turf/simulated/floor/plating
 
 /obj/effect/shuttle_landmark/lift/operations_second_deck
 	name = "Operations Lift - Second Deck"
 	landmark_tag = "nav_operations_lift_second_deck"
-	base_area = /area/operations/office
+	base_area = /area/horizon/operations/office
 	base_turf = /turf/simulated/open
 
 /obj/effect/shuttle_landmark/lift/operations_third_deck
 	name = "Operations Lift - Third Deck"
 	landmark_tag = "nav_operations_lift_third_deck"
-	base_area = /area/operations/office_aux
+	base_area = /area/horizon/operations/office_aux
 	base_turf = /turf/simulated/open
 
 /obj/machinery/computer/shuttle_control/multi/lift/operations

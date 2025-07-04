@@ -9,30 +9,6 @@
 
 //Medbay is a large area, these additional areas help level out APC load.
 
-/area/medical/medbay
-	name = "Medbay Hallway - Port"
-	lightswitch = TRUE
-	icon_state = "medbay"
-	ambience = list('sound/ambience/signal.ogg')
-
-/area/medical/medbay2
-	name = "Medbay Hallway - Starboard"
-	lightswitch = TRUE
-	icon_state = "medbay2"
-	ambience = list('sound/ambience/signal.ogg')
-
-/area/medical/medbay3
-	name = "Medbay Hallway - Fore"
-	lightswitch = TRUE
-	icon_state = "medbay3"
-	ambience = list('sound/ambience/signal.ogg')
-
-/area/medical/medbay4
-	name = "Medbay Hallway - Staff Wing"
-	lightswitch = TRUE
-	icon_state = "medbay4"
-	ambience = list('sound/ambience/signal.ogg')
-
 /area/medical/paramedic
 	name = "Medical - Paramedic Equipment Storage"
 	icon_state = "medbay"
@@ -57,73 +33,6 @@
 	area_blurb = "Featuring wood floors and soft carpets, this room has a warmer feeling compared to the sterility of the rest of the medical department."
 	area_blurb_category = "psych"
 
-/area/medical/upperlevel
-	name = "Medical - Upper-Level Hallway"
-	lightswitch = TRUE
-	icon_state = "medbay2"
-
-/area/crew_quarters/medbreak
-	name = "Medical - Break Room"
-	icon_state = "medbay3"
-
-/area/medical/patients_rooms
-	name = "Medical - Patient's Rooms"
-	icon_state = "patients"
-
-/area/medical/patient_a
-	name = "Medical - Isolation A"
-	icon_state = "patients"
-
-/area/medical/patient_b
-	name = "Medical - Isolation B"
-	icon_state = "patients"
-
-/area/medical/patient_c
-	name = "Medical - Isolation C"
-	icon_state = "patients"
-
-/area/medical/patient_d
-	name = "Medical - Isolation D"
-	icon_state = "patients"
-
-/area/medical/patient_wing
-	name = "Medical - Patient Wing"
-	icon_state = "patients"
-
-/area/medical/patient_wing_hallway
-	name = "Medical - Patient Wing Hallway"
-	lightswitch = TRUE
-	icon_state = "patients"
-
-/area/medical/patient_wing_gym
-	name = "Medical - Patient Wing Gym"
-	icon_state = "patients"
-
-/area/medical/patient_wing_post1
-	name = "Medical - Patient Wing Observation Post One"
-	icon_state = "patients"
-
-/area/medical/patient_wing_post2
-	name = "Medical - Patient Wing Observation Post Two"
-	icon_state = "patients"
-
-/area/medical/patient_wing_library
-	name = "Medical - Patient Wing Library"
-	icon_state = "patients"
-
-/area/medical/patient_wing_picnic
-	name = "Medical - Patient Wing Picnic Area"
-	icon_state = "patients"
-
-/area/medical/cmostore
-	name = "Secure Storage"
-	icon_state = "CMO"
-
-/area/medical/robotics
-	name = "Robotics"
-	icon_state = "medresearch"
-	ambience = AMBIENCE_ENGINEERING
-
 /area/medical/morgue
 	name = "Medical - Long-term Morgue"
 	icon_state = "morgue"
@@ -140,18 +49,6 @@
 	icon_state = "surgery"
 	no_light_control = 1
 
-/area/medical/surgeryobs
-	name = "Medical - Operation Observation Room"
-	icon_state = "surgery"
-
-/area/medical/surgeryprep
-	name = "Medical - Pre-Op Prep Room"
-	icon_state = "surgery"
-
-/area/medical/surgerywing
-	name = "Medical - Surgery Wing"
-	icon_state = "surgery"
-
 /area/medical/cryo
 	name = "Cryogenics"
 	icon_state = "cryo"
@@ -160,45 +57,11 @@
 	name = "Medical - General Treatment"
 	icon_state = "cryo"
 
-/area/medical/exam_room
-	name = "Medical - Exam Room 1"
-	icon_state = "exam_room"
-
-/area/medical/exam_room2
-	name = "Medical - Exam Room 2"
-	icon_state = "exam_room"
-
-/area/medical/genetics
-	name = "Genetics Lab"
-	icon_state = "genetics"
-	holomap_color = HOLOMAP_AREACOLOR_SCIENCE
-
-/area/medical/custodial_closet
-	name = "Medical - Custodial Closet"
-	icon_state = "medcustodial"
-
-/area/medical/sleeper
-	name = "Medical - Emergency Treatment Centre"
-	icon_state = "exam_room"
-	no_light_control = 1
-
 /area/medical/icu
 	name = "Medical - Intensive Care Unit"
 	icon_state = "cryo"
 	area_blurb = "The sounds of pumps and cooling equipment can be heard within the room."
 	area_blurb_category = "icu"
-
-/area/medical/triage
-	name = "Medical - Triage Room"
-	icon_state = "medbay4"
-
-/area/medical/em_preop
-	name = "Medical - Emergency Pre-Op"
-	icon_state = "medbay4"
-
-/area/medical/med_office
-	name = "Medical - Medical Office"
-	icon_state = "exam_room"
 
 /area/medical/main_storage
 	name = "Medical - Main Storage"

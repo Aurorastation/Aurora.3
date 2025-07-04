@@ -61,6 +61,148 @@
 	map_shuttles = list(/datum/shuttle/autodock/overmap/runtime)
 	warehouse_basearea = /area/storage/primary
 
+/**
+ *	This file is the only location in which runtime map areas should be defined.
+ *	Each department (or other appropriate grouping) will have its own section that you can jump to with ctrl-f.
+ *	For convenience, these groupings are:
+ *	CREW_AREAS
+ *	COMMAND_AREAS
+ *	ENGINEERING_AREAS
+ *	MAINTENANCE_AREAS
+ *	MEDICAL_AREAS
+ *	OPERATIONS_AREAS
+ *	SCIENCE_AREAS
+ *	SECURITY_AREAS
+ *	SERVICE_AREAS
+ *	TCOMMS_AREAS
+ *
+ *	GUIDELINES:
+ *	- The Horizon should not have any areas mapped to it which are defined outside this file.
+ *	- Any PR that removes all areas of a given definition should also remove that definition from this file.
+ *	- No area should exist across multiple decks. Ex., an elevator vestibule on all three decks should have three
+ *	child definitions, one for each deck. This is both for organization and for managing area objects like APCs etc.
+ *	- Update the groupings list if anything is added/removed.
+ */
+
+/// CIVILIAN_AREAS
+/// COMMAND_AREAS
+/// ENGINEERING_AREAS
+/area/engineering
+	name = "Engineering"
+	icon_state = "engineering"
+	ambience = AMBIENCE_ENGINEERING
+	station_area = TRUE
+	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
+
+/area/engineering/atmos
+	name = "Engineering - Atmospherics"
+	icon_state = "atmos"
+	sound_environment = SOUND_AREA_LARGE_ENCLOSED
+	no_light_control = 1
+	ambience = list(AMBIENCE_ENGINEERING, AMBIENCE_ATMOS)
+	area_blurb = "Many volume tanks filled with gas reside here, some providing vital gases for the vessel's life support systems."
+	area_blurb_category = "atmos"
+
+/area/engineering/atmos/storage
+	name = "Engineering - Atmospherics Storage"
+	icon_state = "atmos_storage"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+
+/area/engineering/drone_fabrication
+	name = "Engineering - Drone Fabrication"
+	icon_state = "drone_fab"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+
+/area/engineering/engine_room
+	name = "Engineering - Engine Room"
+	icon_state = "engine"
+	sound_environment = SOUND_AREA_LARGE_ENCLOSED
+	no_light_control = 1
+	ambience = AMBIENCE_SINGULARITY
+
+/area/engineering/engine_airlock
+	name = "Engineering - Engine Room Airlock"
+	icon_state = "engine"
+
+/area/engineering/engine_monitoring
+	name = "Engineering - Monitoring Room"
+	icon_state = "engine_monitoring"
+
+/area/engineering/engine_waste
+	name = "Engineering - Engine Waste Handling"
+	icon_state = "engine_waste"
+	no_light_control = 1
+
+/area/engineering/storage_hard
+	name = "Engineering - Hard Storage"
+	icon_state = "engineering_storage"
+
+/area/engineering/storage_eva
+	name = "Engineering - EVA Storage"
+	icon_state = "engineering_storage"
+
+/area/engineering/break_room
+	name = "Engineering - Break Room"
+	icon_state = "engineering_break"
+	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
+	area_blurb = "The smell of coffee intermixed with oil linger in the air."
+	area_blurb_category = "engi_breakroom"
+
+/area/engineering/locker_room
+	name = "Engineering - Locker Room"
+	icon_state = "engineering_locker"
+
+/area/engineering/gravity_gen
+	name = "Engineering - Gravity Generator"
+	icon_state = "engine"
+
+/// MAINTENANCE_AREAS
+/area/maintenance
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_HIDE_FROM_HOLOMAP
+	sound_environment = SOUND_AREA_TUNNEL_ENCLOSED
+	turf_initializer = new /datum/turf_initializer/maintenance()
+	ambience = AMBIENCE_MAINTENANCE
+	area_blurb = "Scarcely lit, cramped, and filled with stale, dusty air. Around you hisses compressed air through the pipes, a buzz of electrical charge through the wires, and muffled rumbles of the hull settling. This place may feel alien compared to the interior of the ship and is a place where one could get lost or badly hurt, but some may find the isolation comforting."
+	area_blurb_category = "maint"
+
+/area/maintenance/maintcentral
+	name = "Bridge Maintenance"
+	icon_state = "maintcentral"
+
+/// MEDICAL_AREAS
+/// OPERATIONS_AREAS
+/// SCIENCE_AREAS
+/// SECURITY_AREAS
+/// SERVICE_AREAS
+/// STORAGE_AREAS
+//Storage
+/area/storage
+	station_area = TRUE
+
+/area/storage/primary
+	name = "Primary Tool Storage"
+	icon_state = "primarystorage"
+	allow_nightmode = 1
+
+/area/storage/shields
+	name = "Station Shield Control"
+	icon_state = "eva"
+
+/// TCOMMS_AREAS
+/area/tcommsat
+	ambience = AMBIENCE_ENGINEERING
+	no_light_control = 1
+	station_area = TRUE
+	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
+
+/area/tcommsat/chamber
+	name = "Telecoms Central Compartment"
+	icon_state = "tcomsatcham"
+	area_blurb = "Countless machines sit here, an unfathomably complicated network that runs every radio and computer connection. The air lacks any notable scent, having been filtered of dust and pollutants before being allowed into the room and all the sensitive machinery."
+
+/area/tcommsat/computer
+	name = "Telecoms Control Room"
+	icon_state = "tcomsatcomp"
 
 /area/turbolift/main_station
 	name = "Civilian Lift - Main"
