@@ -66,6 +66,5 @@
 	important_information = "Skrell living in the Republic of Biesel are protected from deportation to the Nralakk Federation if they renounce their Nralakk citizenship and join the Tau Ceti Foreign Legion."
 	possible_accents = list(ACCENT_SKRELLCETI, ACCENT_SKRELLMICTLAN)
 	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_ERIDANI, CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION, CITIZENSHIP_CONSORTIUM)
-	possible_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_SUURKA, RELIGION_KIRGUL, RELIGION_OTHER, RELIGION_NONE)
 	origin_traits = list(TRAIT_ORIGIN_IGNORE_CAPSAICIN)
 	origin_traits_descriptions = list("are not affected by spicy foods")
