@@ -5,7 +5,7 @@
 	These communities and enclaves have since grown and developed throughout the tumultuous breakaways of their new homes, \
 	and the distance from the Federation has allowed for unique cultures to develop away from their original nation."
 	possible_origins = list(
-  		/singleton/origin_item/origin/skrell_alliance,
+		/singleton/origin_item/origin/skrell_alliance,
 		/singleton/origin_item/origin/skrell_europa,
 		/singleton/origin_item/origin/skrell_mictlan,
 		/singleton/origin_item/origin/skrell_silversun,
