@@ -73,9 +73,6 @@
 		STOP_PROCESSING(SSprocessing, src)
 		qdel(src)
 
-/obj/structure/closet/statue/content_info()
-	return
-
 /obj/structure/closet/statue/proc/create_icon(var/mob/living/L)
 	appearance = L
 	appearance_flags |= KEEP_TOGETHER

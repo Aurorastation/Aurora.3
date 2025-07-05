@@ -9,17 +9,18 @@
 	var/obj/item/organ/augment_type
 	var/new_augment
 
+/obj/item/device/augment_implanter/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	if(augment_type)
+		. += SPAN_NOTICE("\The [augment_type] can be seen floating inside \the [src]'s biogel.")
+	else
+		. += SPAN_WARNING("It is spent.")
+
 /obj/item/device/augment_implanter/Initialize()
 	. = ..()
 	if(!augment_type)
 		augment_type = new new_augment(src)
-
-/obj/item/device/augment_implanter/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(augment_type)
-		. += FONT_SMALL(SPAN_NOTICE("\The [augment_type] can be seen floating inside \the [src]'s biogel."))
-	else
-		. += FONT_SMALL(SPAN_WARNING("It is spent."))
 
 /obj/item/device/augment_implanter/afterattack(mob/living/L, mob/user, proximity)
 	if(!proximity)

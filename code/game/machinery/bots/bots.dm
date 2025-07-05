@@ -15,6 +15,15 @@
 	var/locked = 1
 	//var/emagged = 0 //Urist: Moving that var to the general /bot tree as it's used by most bots
 
+/obj/machinery/bot/condition_hints(mob/user, distance, is_adjacent)
+	. += list()
+	. = ..()
+	if (src.health < maxhealth)
+		if (src.health > maxhealth/3)
+			. += SPAN_WARNING("[src]'s parts look loose.")
+		else
+			. += SPAN_DANGER("[src]'s parts look very loose!")
+
 /obj/machinery/bot/Initialize(mapload, d, populate_components, is_internal)
 	. = ..()
 	add_to_target_grid()
@@ -52,14 +61,6 @@
 		emagged = 2
 		log_and_message_admins("emagged [src]'s inner circuits")
 		return 1
-
-/obj/machinery/bot/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if (src.health < maxhealth)
-		if (src.health > maxhealth/3)
-			. += SPAN_WARNING("[src]'s parts look loose.")
-		else
-			. += SPAN_DANGER("[src]'s parts look very loose!")
 
 /obj/machinery/bot/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.isscrewdriver())

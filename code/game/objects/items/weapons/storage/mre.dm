@@ -28,16 +28,17 @@ MRE Stuff
 	)
 	make_exact_fit = TRUE
 
+/obj/item/storage/box/fancy/mre/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += meal_desc
+
 /obj/item/storage/box/fancy/mre/fill()
 	new main_meal(src)
 	. = ..()
 
 /obj/item/storage/mre/attack_self(mob/user)
 	open(user)
-
-/obj/item/storage/box/fancy/mre/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += meal_desc
 
 /obj/item/storage/box/fancy/mre/menu2
 	name = "\improper MRE, menu 2"

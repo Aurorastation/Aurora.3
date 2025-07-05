@@ -44,9 +44,12 @@
 	///The timer id for the build callback, if we're building something
 	var/build_callback_timer
 
-	component_hint_bin = "Upgraded <b>matter bins</b> will increase material storage capacity."
-	component_hint_laser = "Upgraded <b>micro-lasers</b> will increase fabrication speed."
-	component_hint_servo = "Upgraded <b>manipulators</b> will improve material use efficiency."
+/obj/machinery/mecha_part_fabricator/upgrade_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "Upgraded <b>matter bins</b> will increase material storage capacity."
+	. += "Upgraded <b>micro-lasers</b> will increase fabrication speed."
+	. += "Upgraded <b>manipulators</b> will improve material use efficiency."
 
 /obj/machinery/mecha_part_fabricator/Initialize()
 	. = ..()

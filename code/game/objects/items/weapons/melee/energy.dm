@@ -221,9 +221,6 @@
 /obj/item/melee/energy/sword
 	name = "energy sword"
 	desc = "An energy sword. Quite rare, very dangerous."
-	desc_antag = "The energy sword is a very strong melee weapon, capable of severing limbs easily, if they are targeted.  It can also has a chance \
-	to block projectiles and melee attacks while it is on and being held.  The sword can be toggled on or off by using it in your hand.  While it is off, \
-	it can be concealed in your pocket or bag."
 	icon_state = "sword0"
 	active_force = 33
 	armor_penetration = 25
@@ -243,6 +240,14 @@
 	base_reflectchance = 30
 	base_block_chance = 30
 	var/blade_color
+
+/obj/item/melee/energy/sword/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "The energy sword is a very strong melee weapon, capable of severing limbs easily, if they are targeted."
+	. += "It also has a chance to block projectiles and melee attacks while it is on and being held."
+	. += "The sword can be toggled on or off by using it in your hand."
+	. += "While it is off, it can be concealed in your pocket or bag."
 
 /obj/item/melee/energy/sword/Initialize(mapload, ...)
 	. = ..()

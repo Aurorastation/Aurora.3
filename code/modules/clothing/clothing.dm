@@ -1140,6 +1140,20 @@
 	valid_accessory_slots = list(ACCESSORY_SLOT_UTILITY, ACCESSORY_SLOT_UTILITY_MINOR, ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_CAPE)
 	restricted_accessory_slots = list(ACCESSORY_SLOT_UTILITY)
 
+/obj/item/clothing/under/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	if(has_sensor)
+		switch(src.sensor_mode)
+			if(SUIT_SENSOR_OFF)
+				. += "Its sensors appear to be disabled."
+			if(SUIT_SENSOR_BINARY)
+				. += "Its binary life sensors appear to be enabled."
+			if(SUIT_SENSOR_VITAL)
+				. += "Its vitals tracker appears to be enabled."
+			if(SUIT_SENSOR_TRACKING)
+				. += "Its vitals tracker and tracking beacon appear to be enabled."
+
 /obj/item/clothing/under/attack_hand(var/mob/user)
 	if(LAZYLEN(accessories))
 		..()
@@ -1262,19 +1276,6 @@
 		var/mob/M = src.loc
 		M.update_inv_w_uniform()
 		playsound(M, /singleton/sound_category/rustle_sound, 15, TRUE, SILENCED_SOUND_EXTRARANGE, ignore_walls = FALSE)
-
-/obj/item/clothing/under/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(has_sensor)
-		switch(src.sensor_mode)
-			if(SUIT_SENSOR_OFF)
-				. += "Its sensors appear to be disabled."
-			if(SUIT_SENSOR_BINARY)
-				. += "Its binary life sensors appear to be enabled."
-			if(SUIT_SENSOR_VITAL)
-				. += "Its vitals tracker appears to be enabled."
-			if(SUIT_SENSOR_TRACKING)
-				. += "Its vitals tracker and tracking beacon appear to be enabled."
 
 /obj/item/clothing/under/proc/set_sensors(mob/user as mob)
 	var/mob/M = user
