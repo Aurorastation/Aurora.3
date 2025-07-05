@@ -57,13 +57,6 @@
 	tag_icon = "skrell_biesel"
 	text_tag = "BSS"
 
-/datum/accent/skrell/sol
-	name = ACCENT_SKRELLSOL
-	description = "Solarian Skrell Standard can be seen as the Skrellian equivalent of the Solarian accent, having hundreds of variants that can be found on planets across \
-	the Sol Alliance. The accent has kept the notable tones from accents found in the Federation, while still heavily influenced by the pacing and pronunciation common in the \
-	average Solarian accent."
-	tag_icon = "skrell_sol"
-	text_tag = "SSS"
 
 /datum/accent/skrell/coc
 	name = ACCENT_SKRELLCOC
@@ -92,3 +85,56 @@
 	melodic highs and lows. The accent has been compared to the Aweijiin accent, but it does not have the same reputation as it is not used by idols."
 	tag_icon = "skrell_consortium"
 	text_tag = "SCS"
+
+// Solarian Skrell Accents
+/datum/accent/skrell/sol
+	name = ACCENT_SKRELLSOL
+	description = "Solarian Skrell Standard can be seen as the Skrellian equivalent of the Solarian accent, having hundreds of variants that can be found on planets across \
+	the Sol Alliance. The accent has kept the notable tones from accents found in the Federation, while still heavily influenced by the pacing and pronunciation common in the \
+	average Solarian accent."
+	tag_icon = "skrell_sol"
+	text_tag = "SSS"
+
+/datum/accent/skrell/venus
+	name = ACCENT_SKRELLVENUS
+	description = "Technically categorized as a subvariant referred to as Skrell Venusian Common (or Skrell Solarian-Cytherean-Aweijin Common by Federation linguists \
+and simply Skrell Cytherean Common on Venus itself), the accent is one of multiple layers of cultural adaptation. \
+Taking roots from the local Skrell Idols (or Skrellian Stars) mimicking an Aweiji accent for its harmonic, balanced range, then added atop Cytherean Common's roots in the \
+entertainment industry resulted in a truly chimeric accent of a balanced, consistently energetic lilt that defines the newly-growing Cytherean Skrell population. Some note that the \
+lack of extreme highs and lows results in a notably clipped tone when speaking in Nral'malic, requiring the ability to \"switch\" to a more natural sounding Aweiji accent on the fly when switching between."
+	tag_icon = "skrell_venus"
+	text_tag = "SVN"
+
+/datum/accent/skrell/venusjin
+	name = ACCENT_SKRELLVENUSJIN
+	description = "Much like Cytherean Common dominating the image of Venus itself, the working-class Skrell aboard the aerostats are not \
+defined by the high life and high tones of Skrell Cytherian Common, instead remaining closer to the original Skrell Solarian Common developed during the first wave of integration \
+of the species. Cytherean Skrell look down at this accent as being flat and unappealing in its comparatively plain tones, while Jintarian Skrell look down at their \
+Cytherean kin as ridiculous and performative."
+	tag_icon = "skrell_venusjin"
+	text_tag = "SJN"
+
+/datum/accent/skrell/silversun
+	name = ACCENT_SKRELLSILVERSUN
+	description = "The Silversun accent is unique in having a linear drift, originally having stronger roots in the Originals' trademark sing-song \
+tone that remains present in the newer generation of Skrell born on the planet, while later arrivals absorbed most of the newer Expatriate tone. \
+Both groups share a similar, playful sounding tempo that sounds as though the speaker is attempting to sing their sentences, though some tend to reduce it to a subtler lilt."
+	tag_icon = "skrell_silversun"
+	text_tag = "SSN"
+
+/datum/accent/skrell/europa
+	name = ACCENT_SKRELLEUROPA
+	description = "Europan Skrell are notably quieter and speak in slower, gentle tones without the typical warbling and emotional vocalizations, \
+emulating their human submarine crew members' own belief of hushed tones warding against what might be beyond the hull from hearing them. Even those working outside of \
+the submarines will emulate the tone due to the Nlom carrying the fear and paranoia outside of their work, perpetuating the accent further. \
+Skrell who suffer from \"Europan Sea-Blindness\" will take this to the extreme, barely above a murmur as stress and paranoia around what might hear them dominates their thoughts."
+	tag_icon = "skrell_europa"
+	text_tag = "SER"
+
+/datum/accent/skrell/mictlan
+	name = ACCENT_SKRELLMICTLAN
+	description = "Drawing from the Tradeband-based Mictlanian tones, Skrell from the lush planet mimic the gentle, lyrical tuning from their human cohabitants. Other Skrell consider \
+Mictlanian Skrell Tradeband to be sluggish and primarily lower in their vocal range, \
+though many will find it one of the most pleasant Skrell accents to their ears."
+	tag_icon = "skrell_mictlan"
+	text_tag = "SMC"

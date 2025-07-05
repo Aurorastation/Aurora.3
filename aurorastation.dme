@@ -1752,6 +1752,7 @@
 #include "code\modules\background\origins\origins\ipc\sol.dm"
 #include "code\modules\background\origins\origins\ipc\tau_ceti.dm"
 #include "code\modules\background\origins\origins\skrell\non_federation.dm"
+#include "code\modules\background\origins\origins\skrell\non_federation_sol.dm"
 #include "code\modules\background\origins\origins\skrell\nralakk.dm"
 #include "code\modules\background\origins\origins\tajara\adhomai.dm"
 #include "code\modules\background\origins\origins\tajara\offworld.dm"

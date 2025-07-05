@@ -97,7 +97,8 @@
 
 	possible_cultures = list(
 		/singleton/origin_item/culture/federation,
-		/singleton/origin_item/culture/non_federation
+		/singleton/origin_item/culture/non_federation,
+		/singleton/origin_item/culture/non_federation_sol
 	)
 
 	inherent_verbs = list(

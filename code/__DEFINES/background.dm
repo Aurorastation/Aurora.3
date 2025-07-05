@@ -182,6 +182,11 @@
 #define ACCENT_SKRELLCONSORTIUM "Skrell Consortium Standard"
 #define ACCENT_SROM "Inner Voice"
 #define ACCENT_TATTUQIG "Tattuqig"
+#define ACCENT_SKRELLVENUS "Cytherean Skrell Standard"
+#define ACCENT_SKRELLVENUSJIN "Jintarian Skrell Standard"
+#define ACCENT_SKRELLSILVERSUN "Silversunner Skrell Standard"
+#define ACCENT_SKRELLEUROPA "Europan Skrell Standard"
+#define ACCENT_SKRELLMICTLAN "Mictlanian Skrell Standard"
 
 #define ACCENT_ROOTSONG "Rootsong"
 #define ACCENT_VOIDSONG "Voidsong"
