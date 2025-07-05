@@ -204,7 +204,7 @@ pixel_x = 8;
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
-	flick(src, "ringer_on")
+	flick("ringer_on", src)
 
 	if(use_power)
 		use_power_oneoff(active_power_usage)
