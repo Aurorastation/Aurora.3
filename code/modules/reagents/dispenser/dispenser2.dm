@@ -8,8 +8,6 @@
 	anchored = TRUE
 	manufacturer = "zenghu"
 
-	obj_flags = OBJ_FLAG_ROTATABLE
-
 	/// Icon state when used.
 	var/icon_state_active = "dispenser_active"
 	/// Set to a list of types to spawn one of each on New().

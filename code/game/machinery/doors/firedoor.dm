@@ -64,8 +64,10 @@
 /obj/machinery/door/firedoor/mechanics_hints(mob/user, distance, is_adjacent)
 	. = list()
 	. += ..()
+	. += "Firedoors automatically close if the pressure differential on either side of them meets or exceeds 25 kPa, or temperature rises above 50° C or falls below 0° C on either side."
+	. += "Firedoors require electricity to operate."
 	. += "Firedoors on active lockdown can be examined, when adjacent, to view pressure and temperature data from each side of the door."
-	. += "Only Engineering, Atmospherics, or Paramedical crew can freely open firedoors on active lockdown."
+	. += "Engineering, Atmospherics, or Paramedical access rights are required for crew to freely open firedoors on active lockdown."
 
 /obj/machinery/door/firedoor/feedback_hints(mob/user, distance, is_adjacent)
 	. = list()
@@ -75,8 +77,10 @@
 
 	if(pdiff >= FIREDOOR_MAX_PRESSURE_DIFF)
 		. += SPAN_DANGER("Current pressure differential is [pdiff] kPa. Opening door will likely result in injury.")
-	if(pdiff <= 5)
-		. += SPAN_NOTICE("Current pressure differential is [pdiff] kPa. Opening door is less likely to have adverse effects.")
+	if(pdiff <= 15)
+		. += SPAN_NOTICE("Current pressure differential is less than 15 kPa.")
+	else if(pdiff <= 1)
+		. += SPAN_GOOD("Current pressure differential is less than 1 kPa.")
 
 	. += "<b>Sensor readings:</b>"
 	for(var/index = 1; index <= tile_info.len; index++)

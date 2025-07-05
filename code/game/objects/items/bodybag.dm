@@ -13,21 +13,19 @@
 /obj/structure/closet/body_bag/feedback_hints(mob/user, distance, is_adjacent)
 	. = list()
 	// Doesn't inherit standard closet hints.
-	if(distance <= 2)
-		. += "It [contains_body ? "contains" : "does not contain"] a body."
+	. += "It [contains_body ? "contains" : "does not contain"] a body."
 
-/obj/structure/closet/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/closet/body_bag/mechanics_hints(mob/user, distance, is_adjacent)
 	. = list()
 	// Doesn't inherit standard closet hints.
 
-/obj/structure/closet/disassembly_hints(mob/user, distance, is_adjacent)
+/obj/structure/closet/body_bag/disassembly_hints(mob/user, distance, is_adjacent)
 	. = list()
 	// Doesn't inherit standard closet hints.
 
-/obj/structure/closet/antagonist_hints(mob/user, distance, is_adjacent)
+/obj/structure/closet/body_bag/antagonist_hints(mob/user, distance, is_adjacent)
 	. = list()
 	// Doesn't inherit standard closet hints.
-	. += "You have to be two tiles away or closer to see if there's anything inside a body bag. You could hide in here."
 
 /obj/item/bodybag/attack_self(mob/user)
 	deploy_bag(user, user.loc)

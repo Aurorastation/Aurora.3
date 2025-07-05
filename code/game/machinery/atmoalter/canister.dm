@@ -34,6 +34,7 @@
 	. = list()
 	. += ..()
 	. += "Canisters can be damaged, spilling their contents into the air, or you can just leave the release valve open."
+	. += "You can attach a signaler to \the [src] to remotely toggle its valve opened or closed!"
 
 /obj/machinery/portable_atmospherics/canister/drain_power()
 	return -1
@@ -248,9 +249,6 @@
 	name = "Canister \[H2O\]"
 	icon_state = "whitebrs"
 	canister_color = "whitebrs"
-
-
-
 
 /obj/machinery/portable_atmospherics/canister/proc/check_change()
 	var/old_flag = update_flag

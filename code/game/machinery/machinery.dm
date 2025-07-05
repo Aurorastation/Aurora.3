@@ -149,8 +149,12 @@ Class Procs:
 	. = list()
 	if(signaler && is_adjacent)
 		. += SPAN_WARNING("\The [src] has a hidden signaler attached to it.")
+	// Still needs some work- must be able to be distinguish between thinobjectsgs that are anchored that can be casually
+	// unanchored (i.e. vending machines) vs. objects that are anchored but require other steps to unanchor (i.e. airlocks).
+	/*
 	if(anchored)
 		. += SPAN_NOTICE("\The [src] is anchored to the floor by a couple of <b>bolts</b>.")
+	*/
 
 /obj/machinery/Initialize(mapload, d = 0, populate_components = TRUE, is_internal = FALSE)
 	//Stupid macro used in power usage
@@ -573,10 +577,6 @@ Class Procs:
 		if(H.can_feel_pain())
 			H.emote("scream")
 			H.apply_damage(45, DAMAGE_PAIN)
-
-/obj/machinery/proc/do_signaler() // override this to customize effects
-	return
-
 
 // A late init operation called in SSshuttle for ship computers and holopads, used to attach the thing to the right ship.
 /obj/machinery/proc/attempt_hook_up(var/obj/effect/overmap/visitable/sector)

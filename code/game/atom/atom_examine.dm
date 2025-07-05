@@ -176,29 +176,29 @@
 		return TRUE
 
 /// Builds the text block variables for get_examine_text
-/atom/proc/update_desc_blocks()
-	var/list/mechanics_hints = mechanics_hints()
-	var/list/assembly_hints = assembly_hints()
-	var/list/disassembly_hints = disassembly_hints()
-	var/list/upgrade_hints = upgrade_hints()
-	var/list/antagonist_hints = antagonist_hints()
-	var/list/feedback_hints = feedback_hints()
+/atom/proc/update_desc_blocks(mob/user, distance, is_adjacent)
+	var/list/mechanics_hints = mechanics_hints(user, distance, is_adjacent)
+	var/list/assembly_hints = assembly_hints(user, distance, is_adjacent)
+	var/list/disassembly_hints = disassembly_hints(user, distance, is_adjacent)
+	var/list/upgrade_hints = upgrade_hints(user, distance, is_adjacent)
+	var/list/antagonist_hints = antagonist_hints(user, distance, is_adjacent)
+	var/list/feedback_hints = feedback_hints(user, distance, is_adjacent)
 
 	// A little ugly but it works.
 	var/first_line
 
+	desc_mechanics = ""
 	if(mechanics_hints.len > 0)
 		first_line = TRUE
-		desc_mechanics = ""
 		for(var/mechanics_hint in mechanics_hints)
 			if(!first_line)
 				desc_mechanics += "</br>"
 			first_line = FALSE
 			desc_mechanics += SPAN_NOTICE("- [mechanics_hint]")
 
+	desc_build = ""
 	if(assembly_hints.len > 0 || disassembly_hints.len > 0)
 		first_line = TRUE
-		desc_build = ""
 		for(var/assembly_hint in assembly_hints)
 			if(!first_line)
 				desc_build += "</br>"
@@ -214,27 +214,27 @@
 			first_line = FALSE
 			desc_build += SPAN_ALERT("- [disassembly_hint]")
 
+	desc_upgrade = ""
 	if(upgrade_hints.len > 0)
 		first_line = TRUE
-		desc_upgrade = ""
 		for(var/upgrade_hint in upgrade_hints)
 			if(!first_line)
 				desc_upgrade += "<br>"
 			desc_upgrade += "- [upgrade_hint]"
 			first_line = FALSE
 
+	desc_antag = ""
 	if(antagonist_hints.len > 0)
 		first_line = TRUE
-		desc_antag = ""
 		for(var/antagonist_hint in antagonist_hints)
 			if(!first_line)
 				desc_antag += "</br>"
 			first_line = FALSE
 			desc_antag += SPAN_WARNING("- [antagonist_hint]")
 
+	desc_feedback = ""
 	if(feedback_hints.len > 0)
 		first_line = TRUE
-		desc_feedback = ""
 		for(var/feedback_hint in feedback_hints)
 			if(!first_line)
 				desc_feedback += "</br>"

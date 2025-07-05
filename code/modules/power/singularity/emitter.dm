@@ -35,17 +35,44 @@
 
 	var/datum/effect_system/sparks/spark_system
 
-/obj/machinery/power/emitter/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/machinery/power/emitter/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "Standing next to \the [src] and examining it will let you see how many shots it has fired since last being turned on."
+	. += "Using an Engineering ID on \the [src] will toggle its control locks."
+	. += "You can attach a signaler to \the [src] to remotely toggle it on and off (so long as its controls are not locked)."
+
+/obj/machinery/power/emitter/assembly_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
 	switch(state)
 		if(EMITTER_LOOSE)
-			. += SPAN_NOTICE("\The [src] isn't attached to anything and is not ready to fire.")
+			. += "\The [src] must first have its <b>anchoring bolts</b> secured."
 		if(EMITTER_BOLTED)
-			. += SPAN_NOTICE("\The [src] is bolted to the floor, but not yet ready to fire.")
+			. += "\The [src] must be <b>welded</b> securely to the floor before it can be fired."
+
+/obj/machinery/power/emitter/disassembly_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	switch(state)
+		if(EMITTER_BOLTED)
+			. += "\The [src] must have its <b>anchoring bolts</b> unsecured from the floor before it can be moved again."
 		if(EMITTER_WELDED)
-			. += SPAN_WARNING("\The [src] is bolted and welded to the floor, and ready to fire.")
+			. += "\The [src] must first be <b>unwelded</b> before its anchoring bolts can be unsecured."
+
+/obj/machinery/power/emitter/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	if(EMITTER_WELDED)
+		. += SPAN_WARNING("\The [src] is bolted and welded to the floor, and ready to fire.")
 	if(is_adjacent)
 		. += SPAN_NOTICE("The shot counter display reads: [shot_counter] shots.")
+	. += "Its controls are currently [locked ? "locked" : "unlocked"]."
+
+/obj/machinery/power/emitter/antagonist_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "Emagging this will both disable the locking mechanism and put its capacitor and firing mechanisms into overdrive!"
 
 /obj/machinery/power/emitter/Destroy()
 	if(special_emitter)
@@ -109,7 +136,6 @@
 		if(user)
 			to_chat(user, SPAN_WARNING("\The [src] needs to be firmly secured to the floor first."))
 		return TRUE
-
 
 /obj/machinery/power/emitter/emp_act(severity)
 	. = ..()

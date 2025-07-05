@@ -283,7 +283,7 @@
 	..()
 
 /obj/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended = FALSE)
-	update_desc_blocks()
+	update_desc_blocks(user, distance, is_adjacent)
 	. = ..()
 	if((obj_flags & OBJ_FLAG_ROTATABLE) || (obj_flags & OBJ_FLAG_ROTATABLE_ANCHORED))
 		. += SPAN_SUBTLE("Can be rotated with alt-click.")
@@ -321,3 +321,7 @@
 				clients_in_hearers += mob.client
 		if(length(clients_in_hearers))
 			INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, animate_chat), message, null, FALSE, clients_in_hearers, overhead_time)
+
+/// Override this to customize the effects an activated signaler has.
+/obj/proc/do_signaler()
+	return
