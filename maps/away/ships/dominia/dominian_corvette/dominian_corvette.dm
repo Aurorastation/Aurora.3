@@ -12,6 +12,8 @@
 		list(ZTRAIT_AWAY = TRUE, ZTRAIT_UP = FALSE, ZTRAIT_DOWN = TRUE),
 	)
 
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
+
 	sectors = list(SECTOR_BADLANDS)
 	spawn_weight = 1
 	ship_cost = 1
