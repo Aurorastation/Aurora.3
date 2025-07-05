@@ -55,6 +55,8 @@
 	important_information = "The Nralakk Federation is known to use its relationship with the Sol Alliance to step in when skrell citizens are deemed dangerous to its national security."
 	possible_accents = list(ACCENT_SKRELLSOL, ACCENT_SKRELLSILVERSUN)
 	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_ERIDANI, CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION, CITIZENSHIP_CONSORTIUM)
+	origin_traits = list(TRAIT_ORIGIN_HOT_RESISTANCE)
+	origin_traits_descriptions = list("are more acclimatised to the heat")
 
 /singleton/origin_item/origin/skrell_mictlan
 	name = "Mictlan"
@@ -65,3 +67,5 @@
 	possible_accents = list(ACCENT_SKRELLCETI, ACCENT_SKRELLMICTLAN)
 	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_ERIDANI, CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION, CITIZENSHIP_CONSORTIUM)
 	possible_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_SUURKA, RELIGION_KIRGUL, RELIGION_OTHER, RELIGION_NONE)
+	origin_traits = list(TRAIT_ORIGIN_IGNORE_CAPSAICIN)
+	origin_traits_descriptions = list("are not affected by spicy foods")
