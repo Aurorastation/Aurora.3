@@ -12,9 +12,6 @@
 
 	var/obj/machinery/power/crystal_agitator/creator // used to re-add dense turfs to agitation list when destroyed
 
-/obj/structure/reagent_crystal/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-
 /obj/structure/reagent_crystal/condition_hints(mob/user, distance, is_adjacent)
 	. = list()
 	. += ..()

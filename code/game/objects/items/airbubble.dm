@@ -63,7 +63,6 @@
 	var/zipped = FALSE
 	density = 0
 	storage_capacity = 20
-	var/contains_body = FALSE
 	var/used = TRUE // If we have deployed it once
 	var/ripped = FALSE // If it has a hole it in, vent all the air outside
 	var/breakout_time = 1 // How many minutes it takes to break out of it.

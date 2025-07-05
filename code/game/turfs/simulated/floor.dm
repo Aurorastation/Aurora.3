@@ -26,8 +26,9 @@
 	/// If the turf should generate details. Default: TRUE
 	var/has_edge_icon = TRUE
 
-/turf/simulated/floor/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/turf/simulated/floor/disassembly_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
 	if(flooring)
 		var/list/can_remove_with = list()
 		if(flooring.flags & TURF_REMOVE_CROWBAR)

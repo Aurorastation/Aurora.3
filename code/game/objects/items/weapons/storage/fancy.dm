@@ -29,7 +29,17 @@
 	. = list()
 	. += ..()
 	if(closable)
-		. += "Alt-click to open and close the box." //aka force override icon state. for you know, style.
+		. += "ALT-click to open and close the box." //aka force override icon state. for you know, style.
+
+/obj/item/storage/box/fancy/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	if(!icon_type || !storage_type)
+		return
+	if(contents.len <= 0)
+		. += "There are no [src.icon_type]s left in the [src.storage_type]."
+	else
+		. += "There [src.contents.len == 1 ? "is" : "are"] <b>[src.contents.len]</b> [src.icon_type]\s left in \the [src.storage_type]."
 
 /obj/item/storage/box/fancy/open(mob/user)
 	. = ..()
@@ -76,15 +86,6 @@
 		opened = TRUE
 		update_icon()
 	. = ..()
-
-/obj/item/storage/box/fancy/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(!icon_type || !storage_type)
-		return
-	if(contents.len <= 0)
-		. += "There are no [src.icon_type]s left in the [src.storage_type]."
-	else
-		. += "There [src.contents.len == 1 ? "is" : "are"] <b>[src.contents.len]</b> [src.icon_type]\s left in \the [src.storage_type]."
 
 /*
  * Donut Box

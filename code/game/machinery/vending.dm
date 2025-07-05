@@ -171,6 +171,11 @@
 	light_range = 2
 	light_power = 0.9
 
+/obj/machinery/vending/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "A vending machine infected with a launcher virus can be fixed by using a debugger on it. This takes longer than using a wiring panel."
+
 /obj/machinery/vending/Initialize(mapload)
 	. = ..()
 	wires = new(src)

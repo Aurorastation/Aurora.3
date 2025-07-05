@@ -17,6 +17,18 @@
 
 	VAR_PRIVATE/obj/effect/visual_holder
 
+/obj/structure/weapons_rack/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+
+	if(locate(/obj/item/gun) in src)
+		. += "<br/>It contains:<br/>"
+	for(var/obj/item/gun/G in src.contents)
+		. += "\A [G.name]"
+
+	if(locked)
+		. += SPAN_WARNING("It is locked.")
+
 /obj/structure/weapons_rack/Initialize(mapload)
 	..()
 	visual_holder = new()
@@ -158,17 +170,6 @@
 
 #undef BASE_OFFSET_RIFLE_SLOT
 #undef INTER_OFFSET_RIFLE_SLOT
-
-/obj/structure/weapons_rack/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended)
-	. = ..()
-
-	if(locate(/obj/item/gun) in src)
-		. += "<br/>It contains:<br/>"
-	for(var/obj/item/gun/G in src.contents)
-		. += "\A [G.name]"
-
-	if(locked)
-		. += SPAN_WARNING("It is locked.")
 
 /obj/structure/weapons_rack/emag_act(remaining_charges, mob/user, emag_source)
 	. = ..()

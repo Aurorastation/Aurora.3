@@ -10,6 +10,25 @@
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
 	var/deploy_type = /obj/structure/closet/body_bag
 
+/obj/structure/closet/body_bag/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	// Doesn't inherit standard closet hints.
+	if(distance <= 2)
+		. += "It [contains_body ? "contains" : "does not contain"] a body."
+
+/obj/structure/closet/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	// Doesn't inherit standard closet hints.
+
+/obj/structure/closet/disassembly_hints(mob/user, distance, is_adjacent)
+	. = list()
+	// Doesn't inherit standard closet hints.
+
+/obj/structure/closet/antagonist_hints(mob/user, distance, is_adjacent)
+	. = list()
+	// Doesn't inherit standard closet hints.
+	. += "You have to be two tiles away or closer to see if there's anything inside a body bag. You could hide in here."
+
 /obj/item/bodybag/attack_self(mob/user)
 	deploy_bag(user, user.loc)
 
@@ -57,21 +76,7 @@
 	density = FALSE
 	storage_capacity = 30
 	var/item_path = /obj/item/bodybag
-	var/contains_body = FALSE
 	can_be_buckled = TRUE
-
-/obj/structure/closet/body_bag/content_info(mob/user, content_size)
-	if(!content_size && !contains_body)
-		to_chat(user, "\The [src] is empty.")
-	else if(storage_capacity > content_size*4)
-		to_chat(user, "\The [src] is barely filled.")
-	else if(storage_capacity > content_size*2)
-		to_chat(user, "\The [src] is less than half full.")
-	else if(storage_capacity > content_size)
-		to_chat(user, "\The [src] still has some free space.")
-	else
-		to_chat(user, "\The [src] is full.")
-	to_chat(user, "It [contains_body ? "contains" : "does not contain"] a body.")
 
 /obj/structure/closet/body_bag/attackby(obj/item/attacking_item, mob/user)
 	if (attacking_item.ispen())

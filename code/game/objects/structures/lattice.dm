@@ -24,8 +24,9 @@
 /obj/structure/lattice/assembly_hints(mob/user, distance, is_adjacent)
 	. = list()
 	. += ..()
-	. += "Add a <b>metal floor tile</b> to build a floor on top of the lattice."
-	. += "Lattices can be made by applying <b>metal rods</b> to a space tile."
+	if(name == "lattice")
+		. += "Add a <b>metal floor tile</b> to build a floor on top of the lattice."
+		. += "Lattices can be made by applying <b>metal rods</b> to a space tile."
 
 /obj/structure/lattice/Initialize()
 	. = ..()

@@ -13,7 +13,7 @@
 /obj/machinery/ammunition_loader/mechanics_hints(mob/user, distance, is_adjacent)
 	. = list()
 	. += ..()
-	. += "Use a Multitool to update the weapon loader's internal network ID for linking purposes. You probably don't need to do this."
+	. += "Use a multitool to check or update the weapon loader's internal network ID for linking purposes. You probably don't need to do this."
 
 /obj/machinery/ammunition_loader/feedback_hints(mob/user, distance, is_adjacent)
 	. = list()

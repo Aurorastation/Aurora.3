@@ -58,6 +58,12 @@ ABSTRACT_TYPE(/obj/item/rfd)
 	var/build_delay
 	var/last_fail = 0
 
+/obj/item/rfd/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	if(loc == user)
+		. += "It currently holds <b>[stored_matter]/30</b> matter units."
+
 /obj/item/rfd/Initialize()
 	. = ..()
 	return INITIALIZE_HINT_LATELOAD
@@ -71,11 +77,6 @@ ABSTRACT_TYPE(/obj/item/rfd)
 
 /obj/item/rfd/proc/can_use(var/mob/user,var/turf/T)
 	return (user.Adjacent(T) && user.get_active_hand() == src && !user.stat && !user.restrained())
-
-/obj/item/rfd/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(loc == user)
-		. += "It currently holds [stored_matter]/30 matter units."
 
 /obj/item/rfd/attack_self(mob/user)
 	//Change the mode
@@ -508,6 +509,11 @@ ABSTRACT_TYPE(/obj/item/rfd)
 	icon_state = "rfd-m"
 	item_state = "rfd-m"
 
+/obj/item/rfd/mining/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += SPAN_WARNING("The printed mining units have to either be placed down in order, or linked manually after deployment.")
+
 /obj/item/rfd/mining/Initialize()
 	. = ..()
 
@@ -596,7 +602,6 @@ ABSTRACT_TYPE(/obj/item/rfd)
 	to_chat(user, SPAN_NOTICE("You deploy \a [mode] on \the [target]."))
 	update_icon()
 
-
 	//In case of success, consume the resources
 	if(isrobot(user))
 		var/mob/living/silicon/robot/R = user
@@ -607,10 +612,6 @@ ABSTRACT_TYPE(/obj/item/rfd)
 		to_chat(user, SPAN_NOTICE("The RFD now holds <b>[stored_matter]/[initial(stored_matter)]</b> fabrication-units.")) //As they start full, initial(stored_matter) also gives the maximum
 
 	return TRUE
-
-/obj/item/rfd/mining/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += FONT_SMALL(SPAN_WARNING("The printed mining units have to either be placed down in order, or linked manually after deployment."))
 
 #undef RFD_MINING_MODE_MINE_TRACK
 #undef RFD_MINING_MODE_MINE_CART
@@ -625,16 +626,17 @@ ABSTRACT_TYPE(/obj/item/rfd)
 	stored_matter = 30
 	var/malftransformermade = 0
 
-/obj/item/rfd/transformer/attack_self(mob/user)
-	return
-
-/obj/item/rfd/transformer/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/rfd/transformer/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
 	if(loc == user)
 		if(malftransformermade)
 			. += "There is already a transformer machine made!"
 		else
 			. += "It is ready to deploy a transformer machine."
+
+/obj/item/rfd/transformer/attack_self(mob/user)
+	return
 
 /obj/item/rfd/transformer/afterattack(atom/A, mob/user as mob, proximity)
 
@@ -761,11 +763,17 @@ ABSTRACT_TYPE(/obj/item/rfd)
 		"Omni Gas Filter" = PIPE_OMNI_FILTER
 	)
 
-/obj/item/rfd/piping/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += FONT_SMALL(SPAN_NOTICE("Change pipe category by ALT-clicking, change pipe selection by using in-hand."))
-	. += SPAN_NOTICE("Selected pipe category: <b>[selected_mode]</b>.")
-	. += SPAN_NOTICE("Selected pipe: <b>[pipe_examine]</b>.")
+/obj/item/rfd/piping/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "Use in-hand to change pipe selection."
+	. += "ALT-click to change pipe category."
+
+/obj/item/rfd/piping/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "Selected pipe category: <b>[selected_mode]</b>."
+	. += "Selected pipe: <b>[pipe_examine]</b>."
 
 /obj/item/rfd/piping/afterattack(atom/A, mob/user, proximity)
 	if(!proximity || !isturf(A))

@@ -29,11 +29,9 @@
 	update_icon()
 	starting_maxhealth = maxhealth
 
-/obj/structure/barricade/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += SPAN_INFO("It is recommended to stand flush to a barricade or one tile away for maximum efficiency.")
-	if(is_wired)
-		. += SPAN_INFO("There is a length of wire strewn across the top of this barricade.")
+/obj/structure/barricade/condition_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
 	switch(damage_state)
 		if(BARRICADE_DMG_NONE)
 			. += SPAN_INFO("It appears to be in good shape.")
@@ -43,6 +41,19 @@
 			. += SPAN_WARNING("It's quite beat up, but it's holding together.")
 		if(BARRICADE_DMG_HEAVY)
 			. += SPAN_WARNING("It's crumbling apart, just a few more blows will tear it apart!")
+
+/obj/structure/barricade/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	if(!is_wired)
+		. += "Use a length of barbed wire on this barricade to restrict enemies from climbing it and damage them on attacking it at close range."
+
+/obj/structure/barricade/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += SPAN_INFO("It is recommended to stand flush to a barricade or one tile away for maximum efficiency.")
+	if(is_wired)
+		. += SPAN_INFO("There is a length of barbed wire strewn across the top of this barricade, preventing it from being climbed and making it hazardous to attack at close range.")
 
 /obj/structure/barricade/update_icon()
 	CutOverlays()

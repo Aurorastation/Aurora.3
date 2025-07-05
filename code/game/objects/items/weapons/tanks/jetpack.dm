@@ -47,9 +47,10 @@
 	var/volume_rate = 500              //Needed for borg jetpack transfer
 	action_button_name = "Toggle Jetpack"
 
-/obj/item/tank/jetpack/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(air_contents.total_moles < 5)
+/obj/item/tank/jetpack/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	if(air_contents.total_moles < 25)
 		. += SPAN_NOTICE("The meter on \the [src] indicates you are almost out of gas!")
 
 /obj/item/tank/jetpack/verb/toggle_rockets()

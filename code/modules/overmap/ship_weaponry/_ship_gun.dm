@@ -54,7 +54,7 @@
 /obj/machinery/ship_weapon/mechanics_hints(mob/user, distance, is_adjacent)
 	. = list()
 	. += ..()
-	. += "Use a Multitool to update the weapon's internal network ID for linking purposes. You probably don't need to do this."
+	. += "Use a multitool to check or update the weapon's internal network ID for linking purposes. You probably don't need to do this."
 	. += "To load a ship weapon, you must use a nearby Ammunition Loader linked to it."
 	. += "This weapon is LOUD when it fires; you probably want to wear ear protection when nearby."
 
