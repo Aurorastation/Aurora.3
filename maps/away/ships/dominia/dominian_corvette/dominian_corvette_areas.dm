@@ -10,6 +10,7 @@
 
 /area/dominian_corvette/exterior
 	name = "Dominian Corvette - Exterior"
+	requires_power = FALSE
 
 /area/dominian_corvette/docking_arm
 	name = "Dominian Corvette - Docking Arm"

@@ -76,7 +76,7 @@
 // Lift
 /datum/shuttle/autodock/multi/lift/dominia
 	name = "Dominian Corvette Lift"
-	current_location = "nav_dominia_lift_first_deck"
+	current_location = "nav_dominia_lift_second_deck"
 	shuttle_area = /area/turbolift/dominian_corvette/dominian_lift
 	destination_tags = list(
 		"nav_dominia_lift_first_deck",
