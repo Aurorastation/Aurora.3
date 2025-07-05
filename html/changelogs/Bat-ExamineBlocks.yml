@@ -57,3 +57,4 @@ delete-after: True
 changes:
   - qol: "Examine text rewritten/broken into sections to make mechanics clearer and easier to access in-game."
   - refactor: "Examine info now exists at atom-level, is handled by categorical functions after object definitions."
+  - bugfix: "Spotlights construction can now be completed rather than getting stuck at final construction stage."

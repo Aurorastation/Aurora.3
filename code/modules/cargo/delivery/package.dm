@@ -128,6 +128,12 @@
 	/// Whether this package is guaranteed to deliver to the horizon or not
 	var/horizon_delivery = FALSE
 
+/obj/item/cargo_package/offship/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	if(!delivery_point_id)
+		. += SPAN_NOTICE("Delivery site still being calculated, please check back later!")
+
 /obj/item/cargo_package/offship/Initialize(mapload, obj/structure/cargo_receptacle/delivery_point)
 	. = ..()
 
@@ -141,11 +147,6 @@
 		qdel(src)
 		return
 	setup_delivery_point(selected_delivery_point)
-
-/obj/item/cargo_package/offship/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(!delivery_point_id)
-		. += SPAN_NOTICE("Delivery site still being calculated, please check back later!")
 
 /obj/item/cargo_package/offship/to_horizon
 	horizon_delivery = TRUE

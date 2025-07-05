@@ -61,10 +61,10 @@
 	. = list()
 	. += ..()
 	. += "IV drips can be supplied beakers/bloodpacks for reagent transfusions, as well as one breath mask and gas tank for supplemental gas therapy."
-	. += "Using a wrench when it has a tank installed will secure it. Use it again to unsecure it before removal."
-	. += "Click and Drag to attach/detach the IV or secure/remove the breath mask on your target."
+	. += "Use a wrench when it has a tank installed to secure it. Use it again to unsecure it before removal."
+	. += "Click-drag to attach/detach the IV or secure/remove the breath mask on your target."
 	. += "Click the stand with an empty hand to toggle between various modes."
-	. += "Alt Click the stand to remove items contained in the stand."
+	. += "ALT-Click the stand to remove items contained in the stand."
 
 /obj/machinery/iv_drip/upgrade_hints(mob/user, distance, is_adjacent)
 	. = list()
@@ -75,26 +75,26 @@
 /obj/machinery/iv_drip/feedback_hints(mob/user, distance, is_adjacent)
 	. = list()
 	. += ..()
-	. += "[src] is [mode ? "injecting" : "taking blood"] at a rate of [src.transfer_amount] u/sec, the automatic injection stop mode is [toggle_stop ? "on" : "off"]."
+	. += "[src] is [mode ? "injecting" : "taking blood"] at a rate of <b/>[src.transfer_amount] u/sec<b>, the automatic injection stop mode is <b>[toggle_stop ? "on" : "off"]</b>."
 	. += "The Emergency Positive Pressure system is [epp ? "on" : "off"]."
 	if(attached)
 		. += "\The [src] is attached to [attached]'s [vein.name]."
 	if(beaker)
 		if(LAZYLEN(beaker.reagents.reagent_volumes))
-			. += "Attached is \a [beaker] with [adv_scan ? "[beaker.reagents.total_volume] units of primarily [beaker.reagents.get_primary_reagent_name()]" : "some liquid"]."
+			. += "Attached is \a [beaker] with <b>[adv_scan ? "[beaker.reagents.total_volume] units</b> of primarily <b>[beaker.reagents.get_primary_reagent_name()]</b>" : "some liquid"]."
 		else
 			. += "Attached is \a [beaker]. It is empty."
 	else
-		. += SPAN_ALERT("No chemicals are attached.")
+		. += "No chemicals attached."
 	if(tank)
-		. += "Installed is [is_loose ? "\a [tank] sitting loose" : "\a [tank] secured"] on the stand. The meter shows [round(tank.air_contents.return_pressure())]kPa, \
-		with the pressure set to [round(tank.distribute_pressure)]kPa. The valve is [valve_open ? "open" : "closed"]."
+		. += "Installed is [is_loose ? "\a [tank] sitting loose" : "\a [tank] secured"] on the stand. The meter shows <b>[round(tank.air_contents.return_pressure())] kPa</b>, \
+		with the pressure set to <b>[round(tank.distribute_pressure)] kPa</b>. The valve is <b>[valve_open ? "open" : "closed"]</b>."
 	else
-		. += SPAN_ALERT("No gas tank installed.")
+		. += "No gas tank installed."
 	if(breath_mask)
 		. += "\The [src] has \a [breath_mask] installed. [breather ? breather : "No one"] is wearing it."
 	else
-		. += SPAN_ALERT("No breath mask installed.")
+		. += "No breath mask installed."
 
 	. += ..()
 

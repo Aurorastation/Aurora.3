@@ -63,7 +63,7 @@
 /obj/machinery/power/emitter/feedback_hints(mob/user, distance, is_adjacent)
 	. = list()
 	. += ..()
-	if(EMITTER_WELDED)
+	if(state == EMITTER_WELDED)
 		. += SPAN_WARNING("\The [src] is bolted and welded to the floor, and ready to fire.")
 	if(is_adjacent)
 		. += SPAN_NOTICE("The shot counter display reads: [shot_counter] shots.")

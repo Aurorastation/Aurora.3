@@ -28,6 +28,25 @@
 
 	var/list/owned_bee_swarms = list()
 
+/obj/machinery/beehive/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += SPAN_NOTICE("\The [src] is holding <b>[frames]/[maxFrames]</b> frames.")
+	if(is_adjacent)
+		if(bee_count)
+			if(closed)
+				. += FONT_SMALL(SPAN_NOTICE("You can hear buzzing from within \the [src]."))
+			else
+				. += FONT_SMALL(SPAN_WARNING("The lid is <b>open</b>. The bees can't grow and produce honey until it's <b>closed!</b>"))
+				. += FONT_SMALL(SPAN_NOTICE("You can see bees buzzing around within \the [src]."))
+		else
+			if(closed)
+				. += FONT_SMALL(SPAN_NOTICE("\The [src] lies silent."))
+			else
+				. += FONT_SMALL(SPAN_NOTICE("You can see bees buzzing around within \the [src]."))
+		if(honeycombs / 100 > 1)
+			. += SPAN_NOTICE("\The [src] has a frame full of honeycombs which you can harvest.")
+
 /obj/machinery/beehive/update_icon()
 	ClearOverlays()
 	icon_state = "beehive"
@@ -45,24 +64,6 @@
 				AddOverlays("bees2")
 			if(81 to 100)
 				AddOverlays("bees3")
-
-/obj/machinery/beehive/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += SPAN_NOTICE("\The [src] is holding <b>[frames]/[maxFrames]</b> frames.")
-	if(is_adjacent)
-		if(bee_count)
-			if(closed)
-				. += FONT_SMALL(SPAN_NOTICE("You can hear buzzing from within \the [src]."))
-			else
-				. += FONT_SMALL(SPAN_WARNING("The lid is <b>open</b>. The bees can't grow and produce honey until it's <b>closed!</b>"))
-				. += FONT_SMALL(SPAN_NOTICE("You can see bees buzzing around within \the [src]."))
-		else
-			if(closed)
-				. += FONT_SMALL(SPAN_NOTICE("\The [src] lies silent."))
-			else
-				. += FONT_SMALL(SPAN_NOTICE("You can see bees buzzing around within \the [src]."))
-		if(honeycombs / 100 > 1)
-			. += SPAN_NOTICE("\The [src] has a frame full of honeycombs which you can harvest.")
 
 /obj/machinery/beehive/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.iscrowbar())

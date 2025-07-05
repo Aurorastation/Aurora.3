@@ -14,6 +14,11 @@
 	var/datum/pipe_network/network_node1
 	var/datum/pipe_network/network_node2
 
+/obj/machinery/atmospherics/valve/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "It is [open ? "open" : "closed"]."
+
 /obj/machinery/atmospherics/valve/mechanics_hints(mob/user, distance, is_adjacent)
 	. = list()
 	. += ..()
@@ -328,7 +333,3 @@
 		new /obj/item/pipe(loc, make_from=src)
 		qdel(src)
 		return TRUE
-
-/obj/machinery/atmospherics/valve/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += "It is [open ? "open" : "closed"]."
