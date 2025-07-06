@@ -207,6 +207,15 @@
 				update_icon()
 		return TRUE
 	else
+		if(istype(attacking_item, /obj/item/access_cable))
+			var/obj/item/access_cable/access_cable = attacking_item
+			if(inserted_cable)
+				to_chat(user, SPAN_WARNING("There's already a cable in the universal port!"))
+				return
+
+			if(do_after(user, 1 SECONDS))
+				visible_message(SPAN_NOTICE("[user] slots \the [access_cable] into \the [src]."))
+				insert_cable(access_cable, user)
 		return ..()
 
 /obj/machinery/computer/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
@@ -241,7 +250,6 @@
 	attack_hand(user)
 
 /obj/machinery/computer/remove_cable(obj/item/access_cable/cable)
-	. = ..()
 	inserted_cable = null
 
 /obj/machinery/computer/terminal

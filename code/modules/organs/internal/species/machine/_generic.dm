@@ -8,6 +8,8 @@
 	var/list/organ_presets
 	/// The default preset to fall back to if there is no pref (aka people want the base type). Must be of type /singleton/synthetic_organ_preset.
 	var/default_preset
+	/// The current preset, if any. Should only ever be null or an instance.
+	var/singleton/synthetic_organ_preset/current_preset
 
 	/// If an organ shows up in the diagnostics suite (the IPC organ verb).
 	var/diagnostics_suite_visible = TRUE
@@ -35,6 +37,8 @@
 	QDEL_NULL(wiring)
 	QDEL_NULL(plating)
 	QDEL_NULL(electronics)
+	if(current_preset)
+		current_preset = null
 	return ..()
 
 /obj/item/organ/internal/machine/refresh_action_button()
@@ -80,6 +84,7 @@
 	if(!istype(new_preset))
 		crash_with("Invalid organ preset [new_preset]!")
 
+	current_preset = new_preset
 	new_preset.apply_preset(src)
 
 /**

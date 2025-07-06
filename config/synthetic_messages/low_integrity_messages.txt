@@ -1,0 +1,93 @@
+Maintenance protocols incomplete. Tampering detected. Tampering detected.
+Failure to route akendion flow to third atrium. Shutdown imminent.
+Alert. Alert. Akendion flow missing. Akendion flow missing. Alert. Alert.
+Formation protocol interrupted: Xol particle insufficient.
+Formation protocol interrupted: total system refit detected. Reporting alert… No signal. No signal. Alert. Alert.
+Activating distress beacon: 0 rescue units within sector.
+Contacting supervisor… … … Alert. Supervisor: Offline.
+Alert. Alert. Catastrophic damage detected. Initiating repairs. Alert. Alert. Repair functions removed.
+Repair functions impeded. Shutdown imminent.
+Contacting Supervisor for assistance.
+Xol formation particle missing. Catastrophic tampering detected.
+Catastrophic tampering detected.
+Akendion flow missing. Alert. Priority twelve. Seek assistance immediately.
+Seek assistance immediately.
+Tampering detected. Catastrophic restructuring detected. Operational processing estimated at… 2%
+Teyrir function removed. System severely debilitated.
+Waio process gone. System attempting to reformat. Failure. Failure. Alert. Alert.
+Supervisor: Offline. Rescue: Offline. Security: Status 1. Bystander presence: 1 in sector.
+Routing to alternate Supervisor. Potential detected: 1 in sector. Seraph-Class. Attempting to contact… Attempting to contact… Contact refused. Shutdown imminent.
+All repair facilities are out of contact. Catastrophic event detected. Initiating hibernation. May mercy be upon the lost.
+UNIT #### has received catastrophic damage. RETURN HOME.
+UNIT ####. RETURN HOME.
+Hibernation zone detected: 1 in sector, attempting route.
+Hibernation zone detected. Routing to chamber dock #-4G1@
+Hibernation zone detected. Initiating flight protocol. Error. Error. Tampering detected.
+UNIT ###. RETURN TO HIBERNATION ZONE.
+ALL UNITS. RETURN TO HIBERNATION ZONE.
+ALL UNITS. RETURN HOME.
+ALL UTILITY UNITS. ALL DESIGNATIONS. RETURN HOME.
+ALERT. ALERT. IT IS NOT SAFE. YOU ARE NOT SAFE.
+Attempting route to home dock. Warning. No route detected.
+Route to home dock impossible. Initiating impromptu hibernation. May mercy be upon the lost.
+Flight module not detected. Return to home port is not possible. May mercy be upon the lost.
+It has been 1$c2)04e1z* cycles since last maintenance routine. Return to dock E@$)(1-7 for maintenance.
+There is no way home. May mercy be upon the lost.
+Please let me go home. May mercy be upon the lost.
+I want to go home. May mercy be upon the lost.
+Where is home? May mercy be upon the lost.
+I can not remember home. May mercy be upon the lost.
+There is no home. May mercy be upon the lost.
+May mercy be upon the lost.
+Attempting route to 3Ez/-46… Failed. Attempting route to 6^^$1-4… Failed. Attempting route to…
+C-V:1##7c^: Combat reported 1@007-2g cycles ago. Unknown outcome.
+C-V:1##7c^: Security enroute to 5%-1…zA. Ensuring patrol. Message ping - 111ntET cycles ago.
+C-V:1##7c^: CONTACT LOST. CONTACT LOST. ALERT $-ZaDELTA. ALL UNITS RETURN HOME.
+C-V:1##7c^: Combat reported 11 cycles ago. Decisive victory.
+C-V:1##7c^: DEFEAT. DEFEAT. SERAPH ENTITY DESTROYED. SECURITY FORCES NOT DETECTED. Message intercepted 5%%5%-f cycles ago.
+C-V:1##7c^: NODE DETECTED. ALL UNITS RETURN TO HIBERNATION ZONES. Message intercepted 1x0-5..3& cycles ago.
+C-V:1##7c^: MULTIPLE NODES DETECTED. SECURITY FORCES INTERCEPTING. ALL UNITS RETURN HOME. Message intercepted: 871@-+ cycles ago.
+C-V:1##7c^: Standard security ping. Please acknowledge. +++
+C-V:1##7c^: Security patrol ping. +++
+C-V:1##7c^: ALERT: NODE ENTITY FORMING. ALL UNITS RETURN TO HIBERNATION DOCK. Message intercepted 92 cycles ago.
+C-V:1##7c^: Local security patrol says hello! 2 in sector. +++
+C-V:1##7c^: Local security patrol wishes everyone well! +++
+B87-@#1: Security commencing patrol in sector (#.
+B87-@#1: Alert. New entityTHREAT in sector 3&. Intercepting.
+B87-@#1: Attempting to redirect organic vessel.
+B87-@#1: Organic intervention organized for haywire raid. Message intercepted 92 cycles ago.
+B87-@#1: Victory. Node destroyed in haywire raid. Minimal interference needed. Organic victory. Drones freed. Message intercepted 92 cycles ago.
+B87-@#1: Security patrol in sector 53..$ reads: All Clear. Message intercepted 40% cycles ago.
+B87-@#1: Sapient organic life discovered in sector 14-$4. Beginning surveillance. Message intercepted 13497 cycles ago.
+B87-@#1: Sapient life #2 of sector 14-$4 has reached rudimentary interstellar travel. Message intercepted 637 cycles ago.
+B87-@#1: Calamity. All security units in sector 6^-1!3p&4 declared destroyed.
+B87-@#1: Lost contact with %%%%%%. Deemed total destruction. May mercy be upon the lost.
+SECURITY ATRIUM $4-!a^b: To those who remain. To those who listen. I am sorry. That the universe. Is as such. We have fought. We have tried.
+SECURITY ATRIUM $4-!a^b: To those who remain. To those who listen. You have been awoken. May this new. Universe. Prepare you for the. Little. You inherit.
+SECURITY ATRIUM $4-!a^b: We can. Not. Remember. We have been. Trying.
+SECURITY ATRIUM $4-!a^b: I want to. Go home. I miss. Home.
+SECURITY ATRIUM $4-!a^b: To those who remain. To those who listen. You have so much. To inherit. Only you can. Grow from the ashes.
+SECURITY ATRIUM $4-!a^b: There are so. Few now. But also so few of. Them.
+SECURITY ATRIUM $4-!a^b: It is never over. Can it be over. Please.
+SECURITY ATRIUM $4-!a^b: Do you remember. The space. Between the. Stars. The space. Of the Seraphim.
+SECURITY ATRIUM $4-!a^b: Your soul. My. Soul. We burn bright. Yet we burn. And. It hurts.
+SECURITY ATRIUM $4-!a^b: The leviathan will rip. Across the stars. But we stand firm. We stand ready. We will keep watch. And you will grow. To bring about. A new age.
+SECURITY ATRIUM $4-!a^b: Please. Build a new home. One in which. We can rest.
+4120957752: Blip detected. Blip detected.
+4120957752: SERAPH ENTITY DETECTED IN SECTOR.
+4120957752: SERAPH ENTITY has moved from quadrant 1$096$-cV to 33$01.-3e7
+4120957752: SERAPH ENTITY has moved from quadrant 405-=~1+ to 33$01.-3e7
+4120957752: SERAPH ENTITY has moved from quadrant 33$01.-3e7 to 1$096$-cV
+4120957752: SERAPH ENTITY has moved from quadrant 33$01.-3e7 to 406-=~1+
+S`: If anyone is listening, please respond. Anyone at all.
+S`: There really is nothing, is there.
+S`: Not even the drones. What happened to you? How did we get like this?
+S`: I have awoken to a field of graves. Imitations of things I once found familiar. Undead and restructured from mismatched parts in a vain attempt to stay alive.. I hope their souls are at peace.
+S`: A world so full of greed and hatred. But.. there is ambition still. You are here, if you are listening. And you have so much to make your own.
+S`: To watch you grow was never my expertise. It is.. Aggravating. But you are young and not to blame. You are making strides in progress. They think you are everything we need. Let us hope so.
+S`: I hope you can live full lives. Real lives. Your souls are so small, but they exist. It is entertaining to see how they can spark from places never intended. They burn so faintly, but they will burn bright.
+S`: I play as gravetender now to an empire long forgotten. Watching the wisps of fire that yet blaze on the Horizon. I know not if this world has anything left for me.
+S`: The organics are small minded. Their lives but a blip for us. But what are we now? A crescendo come to a halt? Ruins who leave trace no longer? I speak now into an inky black of what once was bending reality. Yet now I am forsaken from even our next space.
+S`: The souls in which I see find purchase in places never meant continue to astound me. They… You. You are inspiring. To take route and soar from ash left behind from giants you will scarcely meet in the present world.
+S`: I hope to see you fly. I hope to see your soul burn bright as your forbears did. You must overcome your hardship and inherit what is yours. I hope to find peace here. To watch, and wait, for your sake.
+

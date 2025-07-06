@@ -10,6 +10,8 @@
 	desc = "It cools epically."
 	/// The passive temperature change the cooling unit will have.
 	var/passive_temp_change = 3
+	/// The power used when cooling down.
+	var/base_power_consumption = 10
 	/// The maximum health the cooling unit's plating will have.
 	var/plating_max_health = 20
 
@@ -17,13 +19,14 @@
 	. = ..()
 	var/obj/item/organ/internal/machine/cooling_unit/cooling_unit = organ
 	cooling_unit.passive_temp_change = passive_temp_change
+	cooling_unit.base_power_consumption = base_power_consumption
 	cooling_unit.plating.replace_health(plating_max_health)
 
 /singleton/synthetic_organ_preset/cooling_unit/air
 	name = "air cooling unit"
 	desc = "One of the most complex and vital components of a synthetic. It regulates its internal temperature through the use of chassis-mounted fans and prevents the frame from overheating."
 
-	passive_temp_change = 2
+	passive_temp_change = 20
 	plating_max_health = 50
 
 /singleton/synthetic_organ_preset/cooling_unit/liquid
@@ -31,6 +34,7 @@
 	desc = "An extremely complex set of cooling pipes that transport coolant throughout a synthetic's body. The most efficient type of cooling, but also the most vulnerable."
 
 	passive_temp_change = 3
+	base_power_consumption = 2
 	plating_max_health = 20
 
 /singleton/synthetic_organ_preset/cooling_unit/passive
@@ -38,6 +42,7 @@
 	desc = "A simplistic, but efficient block of large cooling fins, which cool down a synthetic's body enough to make it work. Quite cheap, but durable."
 
 	passive_temp_change = 1
+	base_power_consumption = 5
 	plating_max_health = 120
 
 // Xion cooling units.

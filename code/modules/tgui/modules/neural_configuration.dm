@@ -23,6 +23,8 @@
 	var/obj/item/organ/internal/machine/posibrain/posibrain = owner.internal_organs_by_name[BP_BRAIN]
 	if(istype(posibrain))
 		data["neural_coherence"] = posibrain.damage
+		data["max_neural_coherence"] = posibrain.max_damage
+		data["owner_real_name"] = posibrain.owner.real_name
 		data["firewall"] = posibrain.firewall
 	return data
 

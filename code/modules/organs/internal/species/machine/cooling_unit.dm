@@ -17,6 +17,8 @@
 	default_preset = /singleton/synthetic_organ_preset/cooling_unit/air
 	action_button_name = "Regulate Thermostat"
 
+	/// The power consumed when we are cooling down.
+	var/base_power_consumption = 10
 	/// The passive temperature change. Basically, cooling units counteract an IPC's passive temperature gain. But the IPC's temperature goes to get itself fucked if the cooling unit dies.
 	/// Remember, can be negative or positive. Depends on what we're trying to stabilize towards.
 	var/passive_temp_change = 2
@@ -34,6 +36,8 @@
 	var/temperature_safety = TRUE
 	/// If the safety has been burnt and thus will not engage.
 	var/safety_burnt = FALSE
+	/// If the thermostat is locked and thus cannot be changed. Used for spooky effects, like the high integrity damage in the positronic brain.
+	var/locked_thermostat = FALSE
 
 /obj/item/organ/internal/machine/cooling_unit/Initialize()
 	. = ..()
@@ -78,6 +82,10 @@
 /obj/item/organ/internal/machine/cooling_unit/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(action == "change_thermostat")
+		if(locked_thermostat)
+			to_chat(owner, SPAN_MACHINE_WARNING("You can't change the thermostat manually! It just returns an error!"))
+			return FALSE
+
 		var/new_thermostat = params["change_thermostat"]
 		// remember we are getting passed celsius here
 		new_thermostat += 273.15
@@ -118,11 +126,23 @@
 			if(prob(owner.bodytemperature / 100))
 				take_internal_damage(owner.bodytemperature / 200)
 
+		// Now let's start cooling down!
+		// No power, no party.
+		var/obj/item/organ/internal/machine/power_core/cell = owner.organs_by_name[BP_CELL]
+		if(!istype(cell))
+			return
+
+		// The lower our thermostat setting, the more power we consume.
+		var/extra_power_consumption = 0
+		if(thermostat < initial(thermostat))
+			extra_power_consumption = ((initial(thermostat) - thermostat) - T0C)
+
 		var/temperature_change = passive_temp_change
 		if(thermostat < owner.bodytemperature)
 			if((owner.bodytemperature - temperature_change) < thermostat)
 				temperature_change = owner.bodytemperature - thermostat
 			owner.bodytemperature = max(owner.bodytemperature - temperature_change, thermostat)
+			cell.use(base_power_consumption + extra_power_consumption)
 		else
 			if((owner.bodytemperature + temperature_change) > thermostat)
 				temperature_change = thermostat - owner.bodytemperature

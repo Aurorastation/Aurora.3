@@ -121,6 +121,8 @@
 		if(posibrain.firewall)
 			to_chat(user, SPAN_MACHINE_WARNING("Firewall block detected. Aborting."))
 			to_chat(diagnostics_unit.owner, SPAN_MACHINE_WARNING("Your firewall has blocked an unrecognized access attempt."))
+			return
+
 	diagnostics_unit.open_diagnostics(user)
 
 /obj/item/access_cable
