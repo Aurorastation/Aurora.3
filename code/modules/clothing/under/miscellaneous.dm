@@ -785,3 +785,121 @@
 	desc = "A shirt and tie underneath a shortcoat, used by high-ranking commissioned officers of the All-Xanu Armed Forces."
 	icon_state = "xanu_cap"
 	item_state = "xanu_cap"
+
+//Hephaestus ERT
+
+/obj/item/clothing/under/ert/hephaestus
+	name = "\improper Hephaestus military tactical uniform"
+	desc = "A green colored uniform worn by Hephaestus Industries's private military forces and hostile terraforming corps."
+	icon = 'icons/clothing/under/uniforms/cyclops_uniforms.dmi'
+	icon_state = "heph_military"
+	item_state = "heph_military"
+	contained_sprite = TRUE
+	rolled_sleeves = 0
+
+/obj/item/clothing/under/ert/hephaestus/medic
+	name = "\improper Hephaestus military medic tactical uniform"
+	desc = "A green colored uniform worn by Hephaestus Industries's private military forces and hostile terraforming corps. This one has blue highlights denoting a squad medic."
+	has_accents = TRUE
+	accent_color = COLOR_CYAN_BLUE
+
+/obj/item/clothing/under/ert/hephaestus/engineer
+	name = "\improper Hephaestus military engineer tactical uniform"
+	desc = "A green colored uniform worn by Hephaestus Industries's private military forces and hostile terraforming corps. This one has orange highlights denoting a squad engineer."
+	has_accents = TRUE
+	accent_color = COLOR_ORANGE
+
+/obj/item/clothing/under/ert/hephaestus/leader
+	name = "\improper Hephaestus military leader tactical uniform"
+	desc = "A green colored uniform worn by Hephaestus Industries's private military forces and hostile terraforming corps. This one has red highlights denoting a squad leader."
+	has_accents = TRUE
+	accent_color = COLOR_RED
+
+/obj/item/clothing/head/hephaestus_military
+	name = "\improper Hephaestus military utility cover"
+	desc = "A military cover issued to Hephaestus Industries's private military personnel as part of their uniform."
+	icon = 'icons/clothing/under/uniforms/cyclops_uniforms.dmi'
+	icon_state = "heph_military_utility"
+	item_state = "heph_military_utility"
+	contained_sprite = TRUE
+	armor = list(
+		MELEE = ARMOR_MELEE_MINOR
+		)
+
+//Himean Army
+/obj/item/clothing/under/himeo
+	name = "himean planetary guard fatigues"
+	desc = "Reinforced synthetic fibres make up the bulk of this Himean planetary guard uniform, with hard plastic pads around the joints."
+	icon = 'icons/clothing/under/uniforms/himeo_military.dmi'
+	icon_state = "himeo_fatigues"
+	item_state = "himeo_fatigues"
+	contained_sprite = TRUE
+	siemens_coefficient = 0.5
+	armor = list(
+		MELEE = ARMOR_MELEE_KNIVES,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_MINOR
+		)
+
+/obj/item/clothing/under/himeo/officer
+	name = "himean planetary guard officers fatigues"
+	desc = "Reinforced synthetic fibres make up the bulk of this Himean planetary guard uniform, with hard plastic pads around the joints. It is embellished with blue detailing, signalling the wearer as an officer."
+	icon_state = "himeo_fatigues_officer"
+	item_state = "himeo_fatigues_officer"
+
+/obj/item/clothing/under/himeo/engineer
+	name = "himean planetary guard sappers fatigues"
+	desc = "Reinforced synthetic fibres make up the bulk of this Himean planetary guard uniform, with hard plastic pads around the joints. It is embellished with orange detailing, signalling the wearer as a sapper."
+	icon_state = "himeo_fatigues_engi"
+	item_state = "himeo_fatigues_engi"
+
+/obj/item/clothing/under/himeo/medic
+	name = "himean planetary guard corpsmans fatigues"
+	desc = "Reinforced synthetic fibres make up the bulk of this Himean planetary guard uniform, with hard plastic pads around the joints. It is embellished with green detailing, signalling the wearer as a corpsman."
+	icon_state = "himeo_fatigues_medic"
+	item_state = "himeo_fatigues_medic"
+
+/obj/item/clothing/under/himeo/pilot
+	name = "himean planetary guard pilots fatigues"
+	desc = "Reinforced synthetic fibres make up the bulk of this Himean planetary guard uniform, with hard plastic pads around the joints. It is embellished with red detailing, signalling the wearer as a fighter pilot."
+	icon_state = "himeo_fatigues_pilot"
+	item_state = "himeo_fatigues_pilot"
+
+//Himean Navy
+/obj/item/clothing/under/himeo/navy
+	name = "himean naval fatigues"
+	desc = "Tough synthetic fibres make up the bulk of this Himean planetary guard naval uniform, dyed a deep navy blue."
+	icon = 'icons/clothing/under/uniforms/himeo_military.dmi'
+	icon_state = "himeo_coveralls"
+	item_state = "himeo_coveralls"
+	contained_sprite = TRUE
+	siemens_coefficient = 0.5
+	armor = list(
+		MELEE = ARMOR_MELEE_KNIVES,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_MINOR
+		)
+
+/obj/item/clothing/under/himeo/navy/officer
+	name = "himean naval commanders fatigues"
+	desc = "Tough synthetic fibres make up the bulk of this Himean planetary guard naval uniform, dyed a deep navy blue. It is embellished with blue detailing, signalling the wearer as an officer."
+	icon_state = "himeo_coveralls_officer"
+	item_state = "himeo_coveralls_officer"
+
+/obj/item/clothing/under/himeo/navy/engineer
+	name = "himean naval sappers fatigues"
+	desc = "Tough synthetic fibres make up the bulk of this Himean planetary guard naval uniform, dyed a deep navy blue=. It is embellished with orange detailing, signalling the wearer as a sapper."
+	icon_state = "himeo_coveralls_engi"
+	item_state = "himeo_coveralls_engi"
+
+/obj/item/clothing/under/himeo/navy/medic
+	name = "himean naval corpsmans fatigues"
+	desc = "Tough synthetic fibres make up the bulk of this Himean planetary guard naval uniform, dyed a deep navy blue. It is embellished with green detailing, signalling the wearer as a corpsman."
+	icon_state = "himeo_coveralls_medic"
+	item_state = "himeo_coveralls_medic"
+
+/obj/item/clothing/under/himeo/navy/pilot
+	name = "himean naval pilots fatigues"
+	desc = "Tough synthetic fibres make up the bulk of this Himean planetary guard naval uniform, dyed a deep navy blue. It is embellished with red detailing, signalling the wearer as a fighter pilot."
+	icon_state = "himeo_coveralls_pilot"
+	item_state = "himeo_coveralls_pilot"

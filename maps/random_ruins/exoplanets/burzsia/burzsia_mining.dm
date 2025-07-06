@@ -43,6 +43,13 @@
 	name = "Hephaestus Burzsia Mining Outpost Foreman Office"
 	icon_state = "anolab"
 
+// Airlock Marker
+/obj/effect/map_effect/marker/airlock/burzsia_mining
+	name = "Primary Airlock"
+	master_tag = "airlock_burzsia_mining_primary"
+	cycle_to_external_air = TRUE
+	req_one_access = list(ACCESS_GENERIC_AWAY_SITE, ACCESS_EXTERNAL_AIRLOCKS)
+
 //ghost roles
 
 /datum/ghostspawner/human/burzsia_miner

@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: hazelmouse
+author: ASmallCuteCat
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,10 +55,4 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Added a few new items to the biogenerator, including synthetic blood, wooden planks, a mop, an empty first-aid kit, cigarette filters, and cigarette papers."
-  - rscadd: "Hydroponics trays now produce sounds when watered, sampled, and weeded. Sampling and weeding both now have a one second timer for completion."
-  - rscadd: "Hatchets can now uproot plants growing in soil or in hydroponics trays with a single click."
-  - bugfix: "Dyn cartons are no longer invisible after being produced from a Condimaster."
-  - bugfix: "Horticultural magazines no longer have broken sprites."
-  - imageadd: "Introduced in-hand sprites for horticultural magazines."
-  - code_imp: "Transitioned some documentation in hydroponics tray code to DMDocs."
+  - rscadd: "You can now wash dishes, cooking pots, and glassware! With the empty item in hand, left-click a sink with DISARM intent."

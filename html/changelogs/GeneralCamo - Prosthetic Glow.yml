@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: Evandorf
+author: GeneralCamo
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,4 +55,4 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Adds the Unathi Morozi accent for lizards of the Empire."
+  - rscadd: "Prosthetics with lights now have emissives."

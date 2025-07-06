@@ -573,14 +573,44 @@
 
 //This exists so the prespawned hydro crates spawn with their contents.
 /obj/structure/closet/crate/hydroponics/prespawned/fill()
-	new /obj/item/reagent_containers/spray/plantbgone(src)
-	new /obj/item/reagent_containers/spray/plantbgone(src)
 	new /obj/item/material/minihoe(src)
-//	new /obj/item/weedspray(src)
-//	new /obj/item/weedspray(src)
-//	new /obj/item/pestspray(src)
-//	new /obj/item/pestspray(src)
-//	new /obj/item/pestspray(src)
+	new /obj/item/material/hatchet(src)
+	new /obj/item/wirecutters/clippers(src)
+	new /obj/item/reagent_containers/glass/bucket(src)
+	new /obj/item/reagent_containers/spray/plantbgone(src)
+	new /obj/item/reagent_containers/spray/plantbgone(src)
+	new /obj/item/reagent_containers/glass/fertilizer/ez(src)
+	new /obj/item/reagent_containers/glass/fertilizer/ez(src)
+
+// Everything you need for beekeeping, including the bees. Those with allergies need not apply.
+/obj/structure/closet/crate/hydroponics/beekeeping
+	name = "beekeeping crate"
+	desc = "Live bees included! Several small labels warn of the hazards involved therein."
+
+/obj/structure/closet/crate/hydroponics/beekeeping/fill()
+	new /obj/item/bee_pack(src)
+	new /obj/item/honey_frame(src)
+	new /obj/item/honey_frame(src)
+	new /obj/item/beehive_assembly(src)
+	new /obj/item/bee_net(src)
+	new /obj/item/bee_smoker(src)
+
+// Includes everything you need to run your own horticultural medicinal operation. Or something more nefarious, if you prefer.
+/obj/structure/closet/crate/hydroponics/herbalism
+	name = "herbalist crate"
+	desc = "Contains equipment and storage vessels involved in the processing and packaging of herbal medicine."
+
+/obj/structure/closet/crate/hydroponics/herbalism/fill()
+	new /obj/item/storage/box/spraybottles(src)
+	new /obj/item/storage/box/pillbottles(src)
+	new /obj/item/storage/box/inhalers_auto(src)
+	new /obj/item/storage/box/autoinjectors(src)
+	new /obj/item/reagent_containers/chem_disp_cartridge(src)
+	new /obj/item/reagent_containers/chem_disp_cartridge(src)
+	new /obj/item/reagent_containers/chem_disp_cartridge(src)
+	new /obj/item/reagent_containers/chem_disp_cartridge(src)
+	new /obj/item/reagent_containers/chem_disp_cartridge(src)
+	new /obj/item/reagent_containers/chem_disp_cartridge(src)
 
 // Spawns with everything you need to make your very own field kitchen! (assuming you have power)
 // Contains enough to create a stove and oven. Using loops for anything above one for readability. Best paired with a freezer with ingredients.
@@ -711,3 +741,17 @@
 	desc = "A secure security crate. Secure."
 	icon_state = "security_crate"
 	secure = TRUE
+
+/obj/structure/closet/crate/drinks
+	name = "exotic drinks crate"
+	desc = "A crate packed with boxes of various beverages. Handle with care!"
+
+/obj/structure/closet/crate/drinks/fill()
+	new /obj/item/storage/box/burukutu(src)
+	new /obj/item/storage/box/skrellbeerdyn(src)
+	new /obj/item/storage/box/khlibnyz(src)
+	new /obj/item/storage/box/hrozamal_soda(src)
+	new /obj/item/storage/box/xuizijuice(src)
+	new /obj/item/storage/box/midynhr_water(src)
+	new /obj/item/storage/box/fancy/yoke/grape_juice(src)
+	new /obj/item/storage/box/fancy/yoke/beetle_milk(src)

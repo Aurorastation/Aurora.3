@@ -47,6 +47,12 @@
 	caliber = "trod"
 	projectile_type = /obj/projectile/bullet/trod
 
+/obj/item/ammo_casing/c9mm/polymer
+	desc = "A 9mm polymer bullet casing."
+	caliber = "9mm"
+	projectile_type = /obj/projectile/bullet/pistol/polymer
+	max_stack = 15
+
 /obj/item/ammo_casing/c9mm
 	desc = "A 9mm bullet casing."
 	caliber = "9mm"

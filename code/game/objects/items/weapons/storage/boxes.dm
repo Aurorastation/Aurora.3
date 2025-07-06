@@ -1478,10 +1478,20 @@
 		/obj/item/reagent_containers/food/drinks/bottle/small/midynhr_water = 6
 	)
 
-/obj/item/storage/box/midynhr_water
+/obj/item/storage/box/burukutu
 	name = "pack of burukutu"
 	desc = "A box containing a six pack of burukutu."
 	illustration = "soda"
 	starts_with = list(
 		/obj/item/reagent_containers/food/drinks/bottle/small/burukutu = 6
+	)
+
+/obj/item/storage/box/crutch_pair
+	starts_with = list(
+		/obj/item/cane/crutch = 2
+	)
+
+/obj/item/storage/box/forearm_crutch_pair
+	starts_with = list(
+		/obj/item/cane/crutch/forearm = 2
 	)

@@ -379,7 +379,7 @@
 		return
 
 	if(is_open_container())
-		balloon_alert(user, "the bottle was already open, you spill some on the floor...")
+		balloon_alert(user, "already open! you spill some on the floor!")
 		if(reagents.total_volume)
 			src.reagents.remove_any(reagents.total_volume / 5)
 		return

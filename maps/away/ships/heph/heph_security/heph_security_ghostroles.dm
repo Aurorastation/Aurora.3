@@ -20,7 +20,8 @@
 
 /obj/outfit/admin/heph_security
 	name = "Hephaestus Asset Protection"
-	uniform = /obj/item/clothing/under/rank/security/heph
+	uniform = /obj/item/clothing/under/ert/hephaestus
+	head = /obj/item/clothing/head/hephaestus_military
 	shoes = /obj/item/clothing/shoes/jackboots
 	gloves = /obj/item/clothing/gloves/combat
 	l_ear = /obj/item/device/radio/headset/ship
@@ -72,4 +73,5 @@
 
 /obj/outfit/admin/heph_security/captain
 	name = "Hephaestus Asset Protection Squad Leader"
-	uniform = /obj/item/clothing/under/rank/captain/hephaestus
+	uniform = /obj/item/clothing/under/ert/hephaestus/leader
+	head = /obj/item/clothing/head/caphat/cap/hephaestus

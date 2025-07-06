@@ -58,6 +58,25 @@
 	guildmantles["fishing league mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/fisher
 	gear_tweaks += new /datum/gear_tweak/path(guildmantles)
 
+/datum/gear/suit/unathi_scaleshields
+	display_name = "scaleshield selection"
+	description = "A collection of reinforced canvas and fabric covers worn by Dominian Unathi."
+	path = /obj/item/clothing/accessory/poncho/scaleshield
+	cost = 1
+	whitelisted = list(SPECIES_UNATHI)
+	origin_restriction = list(/singleton/origin_item/origin/dominian_unathi)
+	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/suit/unathi_scaleshields/New()
+	..()
+	var/list/scaleshields = list()
+	scaleshields["Colorable Scaleshield"] = /obj/item/clothing/accessory/poncho/scaleshield
+	scaleshields["Landsite Scaleshield"] = /obj/item/clothing/accessory/poncho/scaleshield/LSscaleshield
+	scaleshields["Anvil Towers Scaleshield"] = /obj/item/clothing/accessory/poncho/scaleshield/ATscaleshield
+	scaleshields["Widowtown Scaleshield"] = /obj/item/clothing/accessory/poncho/scaleshield/WTscaleshield
+	gear_tweaks += new /datum/gear_tweak/path(scaleshields)
+
 /datum/gear/suit/unathi_robe
 	display_name = "roughspun robe"
 	path = /obj/item/clothing/suit/unathi/robe

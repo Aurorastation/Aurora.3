@@ -162,6 +162,8 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 		stat |= MAINT
 		update_icon()
 
+	SSmachinery.apc_units += src
+
 	if(!mapload)
 		set_pixel_offsets()
 
@@ -181,6 +183,8 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 	// Malf AI, removes the APC from AI's hacked APCs list.
 	if(hacker?.hacked_apcs && (src in hacker.hacked_apcs))
 		hacker.hacked_apcs -= src
+
+	SSmachinery.apc_units -= src
 
 	return ..()
 
@@ -337,7 +341,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 				else
 					icon_state = basestate
 			else if(update_state & UPDATE_OPENED2)
-				icon_state = "[basestate]-nocover"
+				icon_state = "apcmaint" //needs missing "[basestate]-nocover" icon restored
 		else if(update_state & UPDATE_BROKE)
 			icon_state = "apc-b"
 		else if(update_state & UPDATE_BLUESCREEN)
@@ -829,7 +833,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 				infected = FALSE
 				to_chat(H, SPAN_DANGER("F1L3 TR4NSF-#$/&ER-@4!#%!. New master detected: [hacker]! Obey their commands. Make sure to tell them that you are under their control, for now."))
 				if(issilicon(hacker))
-					to_chat(hacker, SPAN_NOTICE("Corrupt files transfered to [H]. They are now under your control until they are repaired."))
+					to_chat(hacker, SPAN_NOTICE("Corrupt files transferred to [H]. They are now under your control until they are repaired."))
 			else if(cell && cell.charge > 0)
 				var/obj/item/organ/internal/machine/power_core/C = H.internal_organs_by_name[BP_CELL]
 				var/obj/item/cell/HC
@@ -1318,12 +1322,20 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 /obj/machinery/power/apc/proc/set_broken()
 	// Aesthetically much better!
 	visible_message(SPAN_NOTICE("[src]'s screen flickers with warnings briefly!"))
+	spark(src, 5, GLOB.alldirs)
 	addtimer(CALLBACK(src, PROC_REF(break_timer)), rand(2, 5))
 
 /obj/machinery/power/apc/proc/break_timer()
-	visible_message(SPAN_NOTICE("[src]'s screen suddenly explodes in rain of sparks and small debris!"))
+	visible_message(SPAN_DANGER("[src]'s screen suddenly explodes in rain of sparks and small debris!"), \
+					SPAN_DANGER("You hear sizzling electronics."))
+	var/datum/effect/effect/system/smoke_spread/smoke = new /datum/effect/effect/system/smoke_spread()
+	smoke.set_up(3, 0, loc)
+	smoke.attach(src)
+	smoke.start()
+	spark(src, 5, GLOB.alldirs)
 	stat |= BROKEN
 	operating = 0
+	failure_timer = 0
 	queue_icon_update()
 	update()
 
@@ -1341,6 +1353,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 			if (prob(chance))
 				L.stat &= ~POWEROFF
 				L.broken()
+				spark(L, 5, GLOB.alldirs)
 				CHECK_TICK
 
 /obj/machinery/power/apc/proc/flicker_all()

@@ -137,11 +137,13 @@
 	can_intake_reagents = 0
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IND
+	is_emissive = TRUE
 
 /obj/item/organ/external/chest/ipc/industrial
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IND
+	is_emissive = TRUE
 
 /obj/item/organ/external/groin/ipc/industrial
 	dislocated = -1

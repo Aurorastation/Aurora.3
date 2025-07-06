@@ -69,6 +69,18 @@
 	icon_state = "applejuice"
 	reagents_to_add = list(/singleton/reagent/drink/applejuice = 100)
 
+/obj/item/reagent_containers/food/drinks/carton/watermelonjuice
+	name = "watermelon juice"
+	desc = "Juice from a watermelon. Not to be confused with water."
+	icon_state = "watermelonjuice"
+	reagents_to_add = list(/singleton/reagent/drink/watermelonjuice = 100)
+
+/obj/item/reagent_containers/food/drinks/carton/bananajuice
+	name = "banana juice"
+	desc = "Juice from a banana. However that works."
+	icon_state = "bananajuice"
+	reagents_to_add = list(/singleton/reagent/drink/banana = 100)
+
 /obj/item/reagent_containers/food/drinks/carton/fatshouters
 	name = "fatshouters milk carton"
 	desc = "Fatty fatshouters milk in a carton."

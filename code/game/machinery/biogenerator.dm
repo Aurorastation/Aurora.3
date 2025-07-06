@@ -14,6 +14,10 @@
 	var/eat_eff = 1
 	var/capacity = 100
 
+	component_hint_servo = "Upgraded <b>manipulators</b> will increase the nutrients provided by new inputs."
+	component_hint_bin = "Upgraded <b>matter bins</b> will decrease the conversion cost of bio-goods."
+
+
 	component_types = list(
 		/obj/item/circuitboard/biogenerator,
 		/obj/item/stock_parts/matter_bin,
@@ -239,11 +243,6 @@ ITEMS
 	object = /obj/item/storage/stickersheet/goldstar
 	cost = 600
 
-/singleton/biorecipe/item/cash
-	name = "Money Bag"
-	object = /obj/item/storage/bag/money
-	cost = 200
-
 /singleton/biorecipe/item/plantbag
 	name = "Plant Bag"
 	object = /obj/item/storage/bag/plants
@@ -270,6 +269,152 @@ ITEMS
 	name = "Empty First Aid Kit"
 	object = /obj/item/storage/firstaid/empty
 	cost = 200
+
+/singleton/biorecipe/item/trash
+	name = "Trash Bag"
+	object = /obj/item/storage/bag/trash
+	cost = 200
+
+/*
+CLOTHING
+*/
+
+/singleton/biorecipe/clothes
+	name = "Hazard Vest"
+	class = BIOGEN_CLOTHES
+	object = /obj/item/clothing/suit/storage/hazardvest
+	cost = 200
+
+/singleton/biorecipe/clothes/satchel
+	name = "Leather Satchel"
+	object = /obj/item/storage/backpack/satchel/leather
+	cost = 300
+
+/singleton/biorecipe/clothes/duffel
+	name = "Duffel Bag"
+	object = /obj/item/storage/backpack/duffel
+	cost = 200
+
+/singleton/biorecipe/clothes/backpack
+	name = "Generic Backpack"
+	object = /obj/random/biogenerator/backpack
+	cost = 200
+
+/singleton/biorecipe/clothes/botanic_leather
+	name = "Botanical Gloves"
+	object = /obj/item/clothing/gloves/botanic_leather
+	cost = 150
+
+/singleton/biorecipe/clothes/gloves
+	name = "Random Black Gloves"
+	object = /obj/random/biogenerator/gloves
+	cost = 125
+
+/singleton/biorecipe/clothes/latexgloves
+	name = "Latex Gloves"
+	object = /obj/item/clothing/gloves/latex
+	cost = 200
+
+/singleton/biorecipe/clothes/randomgloves
+	name = "Random Gloves"
+	object = /obj/random/biogenerator/gloves/random
+	cost = 125
+
+/singleton/biorecipe/clothes/medicalbelt
+	name = "Medical Belt"
+	object = /obj/item/storage/belt/medical
+	cost = 200
+
+/singleton/biorecipe/clothes/utility
+	name = "Utility Belt"
+	object = /obj/item/storage/belt/utility
+	cost = 200
+
+/singleton/biorecipe/clothes/hydrobelt
+	name = "Hydroponic Belt"
+	object = /obj/item/storage/belt/hydro
+	cost = 200
+
+/*
+MEDICAL
+*/
+
+/singleton/biorecipe/cube
+	name = "Monkey Cube"
+	class = BIOGEN_SPECIAL
+	object = /obj/item/reagent_containers/food/snacks/monkeycube/wrapped
+
+/singleton/biorecipe/cube/stok
+	name = "Stok Cube"
+	object = /obj/item/reagent_containers/food/snacks/monkeycube/wrapped/stokcube
+
+/singleton/biorecipe/cube/farwa
+	name = "Farwa Cube"
+	object = /obj/item/reagent_containers/food/snacks/monkeycube/wrapped/farwacube
+
+/singleton/biorecipe/cube/neaera
+	name = "Neaera Cube"
+	object = /obj/item/reagent_containers/food/snacks/monkeycube/wrapped/neaeracube
+
+/singleton/biorecipe/cube/cazador
+	name = "V'krexi Cube"
+	object = /obj/item/reagent_containers/food/snacks/monkeycube/wrapped/vkrexicube
+	cost = 500
+
+/singleton/biorecipe/medical
+	name = "Bruise Pack"
+	class = BIOGEN_MEDICAL
+	object = /obj/item/stack/medical/bruise_pack
+	cost = 400
+
+/singleton/biorecipe/medical/ointment
+	name = "Burn Ointment"
+	object = /obj/item/stack/medical/ointment
+
+/singleton/biorecipe/medical/perconol_pill
+	name = "Perconol Pill"
+	object = /obj/item/reagent_containers/pill/perconol
+	cost = 250
+	amount = list(1,2,3,5,7)
+
+/*
+CONSTRUCTION
+*/
+
+/singleton/biorecipe/construction
+	name = "Animal Hide"
+	class = BIOGEN_CONSTRUCTION
+	object = /obj/item/stack/material/animalhide
+	cost = 100
+	amount = list(1,5,10,25,50)
+
+/singleton/biorecipe/construction/leather
+	name = "Leather"
+	object = /obj/item/stack/material/leather
+
+/singleton/biorecipe/construction/cloth
+	name = "Cloth"
+	object = /obj/item/stack/material/cloth
+	cost = 50
+
+/singleton/biorecipe/construction/cardboard
+	name = "Cardboard"
+	object = /obj/item/stack/material/cardboard
+	cost = 50
+
+/singleton/biorecipe/construction/wax
+	name = "Wax"
+	object = /obj/item/stack/wax
+	cost = 10
+
+/singleton/biorecipe/construction/plastic
+	name = "Plastic"
+	object = /obj/item/stack/material/plastic
+	cost = 75
+
+/singleton/biorecipe/construction/wood
+	name = "Wood"
+	object = /obj/item/stack/material/wood
 
 /*
 FLAGS
@@ -345,138 +490,6 @@ FLAGS
 	name = "Orion Express Flag, Large"
 	object = /obj/item/flag/orion_express/l
 	cost = 500
-
-/*
-CONSTRUCTION
-*/
-
-/singleton/biorecipe/construction
-	name = "Animal Hide"
-	class = BIOGEN_CONSTRUCTION
-	object = /obj/item/stack/material/animalhide
-	cost = 100
-	amount = list(1,5,10,25,50)
-
-/singleton/biorecipe/construction/leather
-	name = "Leather"
-	object = /obj/item/stack/material/leather
-
-/singleton/biorecipe/construction/cloth
-	name = "Cloth"
-	object = /obj/item/stack/material/cloth
-	cost = 50
-
-/singleton/biorecipe/construction/cardboard
-	name = "Cardboard"
-	object = /obj/item/stack/material/cardboard
-	cost = 50
-
-/singleton/biorecipe/construction/wax
-	name = "Wax"
-	object = /obj/item/stack/wax
-	cost = 10
-
-/singleton/biorecipe/construction/plastic
-	name = "Plastic"
-	object = /obj/item/stack/material/plastic
-	cost = 75
-
-/singleton/biorecipe/construction/wood
-	name = "Wood"
-	object = /obj/item/stack/material/wood
-
-/*
-CLOTHING
-*/
-
-/singleton/biorecipe/clothes
-	name = "Suit"
-	class = BIOGEN_CLOTHES
-	object = /obj/random/suit
-	cost = 200
-
-/singleton/biorecipe/clothes/satchel
-	name = "Leather Satchel"
-	object = /obj/item/storage/backpack/satchel/leather
-	cost = 300
-
-/singleton/biorecipe/clothes/backpack
-	name = "Generic Backpack"
-	object = /obj/random/biogenerator/backpack
-	cost = 200
-
-/singleton/biorecipe/clothes/backpack
-	name = "Corporate Backpack"
-	object = /obj/random/biogenerator/backpack/corporate
-	cost = 200
-
-/singleton/biorecipe/clothes/botanic_leather
-	name = "Botanical Gloves"
-	object = /obj/item/clothing/gloves/botanic_leather
-	cost = 150
-
-/singleton/biorecipe/clothes/gloves
-	name = "Black Gloves"
-	object = /obj/random/biogenerator/gloves
-	cost = 125
-
-/singleton/biorecipe/clothes/randomgloves
-	name = "Random Gloves"
-	object = /obj/random/biogenerator/gloves/random
-	cost = 125
-
-/singleton/biorecipe/clothes/utility
-	name = "Utility Belt"
-	object = /obj/item/storage/belt/utility
-	cost = 200
-
-/singleton/biorecipe/clothes/hydrobelt
-	name = "Hydroponic Belt"
-	object = /obj/item/storage/belt/hydro
-	cost = 200
-
-
-/*
-MEDICAL
-*/
-
-/singleton/biorecipe/cube
-	name = "Monkey Cube"
-	class = BIOGEN_SPECIAL
-	object = /obj/item/reagent_containers/food/snacks/monkeycube/wrapped
-
-/singleton/biorecipe/cube/stok
-	name = "Stok Cube"
-	object = /obj/item/reagent_containers/food/snacks/monkeycube/wrapped/stokcube
-
-/singleton/biorecipe/cube/farwa
-	name = "Farwa Cube"
-	object = /obj/item/reagent_containers/food/snacks/monkeycube/wrapped/farwacube
-
-/singleton/biorecipe/cube/neaera
-	name = "Neaera Cube"
-	object = /obj/item/reagent_containers/food/snacks/monkeycube/wrapped/neaeracube
-
-/singleton/biorecipe/cube/cazador
-	name = "V'krexi Cube"
-	object = /obj/item/reagent_containers/food/snacks/monkeycube/wrapped/vkrexicube
-	cost = 500
-
-/singleton/biorecipe/medical
-	name = "Bruise Pack"
-	class = BIOGEN_MEDICAL
-	object = /obj/item/stack/medical/bruise_pack
-	cost = 400
-
-/singleton/biorecipe/medical/ointment
-	name = "Burn Ointment"
-	object = /obj/item/stack/medical/ointment
-
-/singleton/biorecipe/medical/perconol_pill
-	name = "Perconol Pill"
-	object = /obj/item/reagent_containers/pill/perconol
-	cost = 250
-	amount = list(1,2,3,5,7)
 
 /*
 EMAG/ILLEGAL

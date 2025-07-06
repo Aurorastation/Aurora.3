@@ -1,4 +1,3 @@
-
 /*
  * Vending machine types
  */
@@ -67,6 +66,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle/wine = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/rose_wine = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/whitewine = 5,
+		/obj/item/reagent_containers/food/drinks/bottle/skrellwineylpha = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/drambuie = 4,
 		/obj/item/reagent_containers/food/drinks/bottle/melonliquor = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/gin = 5,
@@ -77,28 +77,48 @@
 		/obj/item/reagent_containers/food/drinks/bottle/bluecuracao = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/kahlua = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/triplesec = 5,
+		/obj/item/reagent_containers/food/drinks/bottle/sarezhiwine = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/champagne = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/vodka = 5,
+		/obj/item/reagent_containers/food/drinks/bottle/vodka/mushroom = 1,
 		/obj/item/reagent_containers/food/drinks/bottle/pulque = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/fireball = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/whiskey = 5,
+		/obj/item/reagent_containers/food/drinks/bottle/victorygin = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/makgeolli = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/soju = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/sake = 1,
 		/obj/item/reagent_containers/food/drinks/bottle/cremewhite = 4,
 		/obj/item/reagent_containers/food/drinks/bottle/mintsyrup = 5,
+		/obj/item/reagent_containers/food/drinks/bottle/sugartree_liquor = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/chartreuseyellow = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/messa_mead = 2,
+		/obj/item/reagent_containers/food/drinks/bottle/dominian_wine = 1,
+		/obj/item/reagent_containers/food/drinks/bottle/assunzione_wine = 1,
+		/obj/item/reagent_containers/food/drinks/bottle/algae_wine = 1,
+		/obj/item/reagent_containers/food/drinks/bottle/kvass = 1,
+		/obj/item/reagent_containers/food/drinks/bottle/tarasun = 1,
+		/obj/item/reagent_containers/food/drinks/bottle/valokki_wine = 1,
+		/obj/item/reagent_containers/food/drinks/bottle/twentytwoseventyfive = 1,
+		/obj/item/reagent_containers/food/drinks/bottle/saintjacques = 1,
 		/obj/item/reagent_containers/food/drinks/bottle/hooch = 1,
-		/obj/item/reagent_containers/food/drinks/bottle/skrellwineylpha = 2,
+		/obj/item/reagent_containers/food/drinks/bottle/nemiik = 1,
+		/obj/item/reagent_containers/food/drinks/bottle/ogogoro = 2,
+		/obj/item/reagent_containers/food/drinks/carton/applejuice = 2,
 		/obj/item/reagent_containers/food/drinks/carton/cream = 4,
+		/obj/item/reagent_containers/food/drinks/carton/dynjuice = 2,
 		/obj/item/reagent_containers/food/drinks/carton/limejuice = 4,
 		/obj/item/reagent_containers/food/drinks/carton/lemonjuice = 4,
 		/obj/item/reagent_containers/food/drinks/carton/orangejuice = 4,
-		/obj/item/reagent_containers/food/drinks/bottle/small/skrellbeerdyn = 8,
-		/obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice = 8,
+		/obj/item/reagent_containers/food/drinks/carton/tomatojuice = 2,
+		/obj/item/reagent_containers/food/drinks/carton/cranberryjuice = 2,
+		/obj/item/reagent_containers/food/drinks/carton/watermelonjuice = 2,
+		/obj/item/reagent_containers/food/drinks/carton/bananajuice = 2,
+		/obj/item/reagent_containers/food/drinks/carton/fatshouters = 1,
+		/obj/item/reagent_containers/food/drinks/carton/mutthir = 1,
 		/obj/item/reagent_containers/food/drinks/boba = 2,
 		/obj/item/reagent_containers/food/drinks/ice = 9,
+		/obj/item/storage/box/fancy/vkrexi_swollen_organ = 1
 	)
 	contraband = list(
 		/obj/item/reagent_containers/food/drinks/tea = 10
@@ -739,13 +759,13 @@
 		/obj/item/storage/pill_bottle/rmt = 2
 	)
 	prices = list(
-		/obj/item/storage/pill_bottle/antidexafen = 70,
-		/obj/item/storage/pill_bottle/dexalin = 60,
-		/obj/item/storage/pill_bottle/dylovene = 75,
-		/obj/item/storage/pill_bottle/vitamin = 55,
-		/obj/item/storage/pill_bottle/cetahydramine  = 60,
-		/obj/item/storage/pill_bottle/caffeine = 90,
-		/obj/item/storage/pill_bottle/nicotine  = 85,
+		/obj/item/storage/pill_bottle/antidexafen = 140,
+		/obj/item/storage/pill_bottle/dexalin = 120,
+		/obj/item/storage/pill_bottle/dylovene = 150,
+		/obj/item/storage/pill_bottle/vitamin = 110,
+		/obj/item/storage/pill_bottle/cetahydramine  = 120,
+		/obj/item/storage/pill_bottle/caffeine = 180,
+		/obj/item/storage/pill_bottle/nicotine  = 170,
 		/obj/item/storage/pill_bottle/rmt = 550
 	)
 	contraband = list(
@@ -1184,8 +1204,8 @@
 	name = "glasses vendor"
 	desc = "A bar vendor for dispensing various glasses and cups."
 	products = list(
-		/obj/item/reagent_containers/glass/beaker/pitcher = 4,
-		/obj/item/reagent_containers/food/drinks/drinkingglass = 20,
+		/obj/item/reagent_containers/glass/beaker/pitcher = 8,
+		/obj/item/reagent_containers/food/drinks/drinkingglass = 40,
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/carafe = 3,
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup = 6,
 		/obj/item/reagent_containers/food/drinks/takeaway_cup_idris = 12,

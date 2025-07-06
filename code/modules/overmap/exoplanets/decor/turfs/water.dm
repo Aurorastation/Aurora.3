@@ -91,12 +91,12 @@
 		if(numobjects)
 			numobjects -= 1
 		var/mob/living/L = AM
-		if(!istype(newloc, /turf/simulated/floor/exoplanet/water))
+		var/new_turf = get_step(src, newloc)
+		if(!istype(new_turf, src))
 			to_chat(L, SPAN_WARNING("You climb out of \the [src]."))
 	..()
 
 /turf/simulated/floor/exoplanet/water/process()
-	clean(src)
 	for(var/mob/living/L in src)
 		var/obj/structure/lattice/lattice = locate(/obj/structure/lattice, src)
 		if(!lattice)
