@@ -142,7 +142,9 @@ ATTRIBUTIONS SECTOR START
 sound/music/lobby/crescent_expanse/crescent_expanse_1.ogg - "Lüüü - Weedance" by Lüüü, licensed under CC BY-NC-SA 3.0. Obtained from https://myprivateunderground.bandcamp.com/track/lu-u-u-weedance
 sound/music/lobby/crescent_expanse/crescent_expanse_2.ogg - "Lüüü - No Big Bang" by Lüüü, licensed under CC BY-NC-SA 3.0. Obtained from https://myprivateunderground.bandcamp.com/track/lu-u-u-no-big-bang
 sound/music/lobby/crescent_expanse/crescent_expanse_3.ogg - "Little Bradley - Sunset Drive" by Little Bradley, licensed under CC BY-NC 3.0. Obtained from https://myprivateunderground.bandcamp.com/track/little-bradley-sunset-drive
-sound/music/lobby/crescent_expanse/crescent_expanse_uncharted.ogg - "Prison Planet" by Karl Casey, licensed under CC BY 3.0. Obtained from https://karlcasey.bandcamp.com/track/prison-planet
 sound/music/lobby/lights_edge/lights_edge_1.ogg - "Is Anyone Left?" by Karl Casey, licensed under CC BY 3.0. Obtained from https://karlcasey.bandcamp.com/track/is-anyone-left
-sound/music/lobby/lights_edge/lights_edge_2.ogg - "Running From The Wendigo" by Karl Casey, licensed under CC BY 3.0. Obtained from https://karlcasey.bandcamp.com/track/running-from-the-wendigo
+sound/music/lobby/dangerous_space/dangerous_space_1.ogg - "You Can't Kill The Boogeyman" by Karl Casey, licensed under CC BY 3.0. Obtained From https://karlcasey.bandcamp.com/track/you-can-t-kill-the-boogeyman
+sound/music/lobby/dangerous_space/dangerous_space_2.ogg - "Running From The Wendigo" by Karl Casey, licensed under CC BY 3.0. Obtained from https://karlcasey.bandcamp.com/track/running-from-the-wendigo
+sound/music/lobby/dangerous_space/dangerous_space_3.ogg - "Prison Planet" by Karl Casey, licensed under CC BY 3.0. Obtained from https://karlcasey.bandcamp.com/track/prison-planet
+
 ATTRIBUTIONS SECTION END

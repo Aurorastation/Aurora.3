@@ -83,7 +83,9 @@
 		"95.8 Radio Masyara'Triq (Unlicensed)" = 'texts/lore_radio/crescent_expanse/95.8_CE-Unlicensed_Music_Station.txt'
 	)
 	lobby_tracks = list(
-		'sound/music/lobby/crescent_expanse/crescent_expanse_uncharted.ogg',
-		'sound/music/lobby/lights_edge/lights_edge_2.ogg'
+		'sound/music/lobby/crescent_expanse/crescent_expanse_1.ogg',
+		'sound/music/lobby/dangerous_space/dangerous_space_1.ogg',
+		'sound/music/lobby/dangerous_space/dangerous_space_2.ogg',
+		'sound/music/lobby/dangerous_space/dangerous_space_3.ogg'
 	)
 
