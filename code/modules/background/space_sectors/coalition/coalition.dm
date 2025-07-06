@@ -146,3 +146,8 @@
 	starlight_color = "#962d96"
 	starlight_power = 2
 	starlight_range = 4
+
+	lobby_tracks = list(
+		'sound/music/lobby/xanu/xanu_rock_1.ogg',
+		'sound/music/lobby/xanu/xanu_rock_2.ogg'
+	)
