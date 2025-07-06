@@ -498,3 +498,44 @@
 			var/needed_wires = I.wiring.max_wires - I.wiring.wires
 			user.visible_message(SPAN_NOTICE("[user] fixes the wiring in [target]'s [affected]."))
 			I.wiring.heal_damage(needed_wires)
+
+//TODOMATT: PLACEHOLDER
+/singleton/surgery_step/internal/fix_internal_electronics
+	name = "Repair Internal Electronics"
+	allowed_tools = list(
+		/obj/item/device/multitool = 100,
+	)
+
+	min_duration = 100
+	max_duration = 200
+
+/singleton/surgery_step/internal/fix_internal_electronics/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	var/is_organ_damaged = FALSE
+	var/limb_can_operate = (affected && affected.open == ORGAN_ENCASED_RETRACTED && target_zone != BP_MOUTH)
+	if(limb_can_operate)
+		for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
+			if(I.electronics.get_status() < 100)
+				is_organ_damaged = TRUE
+	return is_organ_damaged
+
+/singleton/surgery_step/internal/fix_internal_electronics/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
+		if(I && (I.electronics.get_status() < 100))
+			user.visible_message(SPAN_NOTICE("[user] begins replacing the electronics in [target]'s [I] and reconfiguring them..."))
+	..()
+
+/singleton/surgery_step/internal/fix_internal_electronics/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	. = ..()
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
+		if(I && (I.electronics.get_status() < 100))
+			user.visible_message(SPAN_NOTICE("[user] repairs the electronics in [target]'s [affected]."))
+			I.electronics.heal_damage(I.electronics.max_integrity)
