@@ -106,7 +106,7 @@
 /datum/shuttle/autodock/overmap/intrepid
 	name = "Intrepid"
 	move_time = 20
-	shuttle_area = list(/area/shuttle/intrepid/main_compartment, /area/shuttle/intrepid/port_compartment, /area/shuttle/intrepid/starboard_compartment, /area/shuttle/intrepid/junction_compartment, /area/shuttle/intrepid/buffet, /area/shuttle/intrepid/medical, /area/shuttle/intrepid/engineering, /area/shuttle/intrepid/port_storage, /area/shuttle/intrepid/flight_deck)
+	shuttle_area = list(/area/horizon/shuttle/intrepid/main_compartment, /area/horizon/shuttle/intrepid/port_compartment, /area/horizon/shuttle/intrepid/starboard_compartment, /area/horizon/shuttle/intrepid/junction_compartment, /area/horizon/shuttle/intrepid/buffet, /area/horizon/shuttle/intrepid/medical, /area/horizon/shuttle/intrepid/engineering, /area/horizon/shuttle/intrepid/port_storage, /area/horizon/shuttle/intrepid/flight_deck)
 	dock_target = "airlock_shuttle_intrepid"
 	current_location = "nav_hangar_intrepid"
 	landmark_transition = "nav_transit_intrepid"
@@ -130,7 +130,7 @@
 /datum/shuttle/autodock/overmap/canary
 	name = "Canary"
 	move_time = 20
-	shuttle_area = list(/area/shuttle/canary)
+	shuttle_area = list(/area/horizon/shuttle/canary)
 	dock_target = "canary_shuttle"
 	current_location = "nav_hangar_canary"
 	landmark_transition = "nav_transit_canary"
@@ -154,7 +154,7 @@
 /datum/shuttle/autodock/overmap/quark
 	name = "Quark"
 	move_time = 20
-	shuttle_area = list(/area/shuttle/quark/cockpit, /area/shuttle/quark/cargo_hold)
+	shuttle_area = list(/area/horizon/shuttle/quark/cockpit, /area/horizon/shuttle/quark/cargo_hold)
 	dock_target = "airlock_shuttle_quark"
 	current_location = "nav_hangar_quark"
 	landmark_transition = "nav_transit_quark"

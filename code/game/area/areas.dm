@@ -480,7 +480,7 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 			continue
 		if (istype(A, /area/constructionsite))
 			continue
-		if (istype(A, /area/rnd/xenobiology))
+		if (istype(A, /area/horizon/rnd/xenobiology))
 			continue
 		if (istype(A, /area/horizon/maintenance/substation))
 			continue

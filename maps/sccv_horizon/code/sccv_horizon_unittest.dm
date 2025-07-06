@@ -19,28 +19,28 @@
 	ut_atmos_exempt_areas = list(
 		/area/horizon/maintenance,
 		/area/horizon/engineering/atmos/storage,
-		/area/server,
+		/area/horizon/rnd/server,
 		/area/horizon/tcommsat/chamber,
-		/area/bridge/aibunker,
+		/area/horizon/bridge/aibunker,
 		/area/outpost/research/emergency_storage,
-		/area/medical/cryo,
-		/area/medical/surgery,
+		/area/horizon/medical/cryo,
+		/area/horizon/medical/surgery,
 		/area/turret_protected/ai,
 		/area/horizon/engineering/reactor/indra/smes,
-		/area/rnd/isolation_a,
-		/area/rnd/isolation_b,
-		/area/rnd/isolation_c
+		/area/horizon/rnd/isolation_a,
+		/area/horizon/rnd/isolation_b,
+		/area/horizon/rnd/isolation_c
 	)
 
 	ut_fire_exempt_areas = list(
 		/area/horizon/maintenance,
 		/area/construction,
-		/area/bridge/aibunker,
-		/area/medical/cryo,
+		/area/horizon/bridge/aibunker,
+		/area/horizon/medical/cryo,
 		/area/horizon/crew/cryo/washroom,
-		/area/rnd/isolation_a,
-		/area/rnd/isolation_b,
-		/area/rnd/isolation_c
+		/area/horizon/rnd/isolation_a,
+		/area/horizon/rnd/isolation_b,
+		/area/horizon/rnd/isolation_c
 	)
 
 /datum/unit_test/zas_area_test/sccv_horizon

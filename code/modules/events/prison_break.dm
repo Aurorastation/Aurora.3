@@ -13,21 +13,21 @@
 	//Names of areas mentioned in AI and Engineering announcements
 	var/list/areaName = list("Security")
 	//Area types to include.
-	var/list/areaType = list(/area/security)
+	var/list/areaType = list(/area/horizon/security)
 	//Area types to specifically exclude.
-	var/list/areaNotType = list(/area/security/checkpoint, /area/security/checkpoint2)
+	var/list/areaNotType = list(/area/horizon/security/checkpoint, /area/horizon/security/checkpoint2)
 
 /datum/event/prison_break/xenobiology
 	eventDept = "Science"
 	areaName = list("Xenobiology")
-	areaType = list(/area/rnd/xenobiology)
-	areaNotType = list(/area/rnd/xenobiology/xenoflora)
+	areaType = list(/area/horizon/rnd/xenobiology)
+	areaNotType = list(/area/horizon/rnd/xenobiology/xenoflora)
 
 /datum/event/prison_break/bridge
 	eventDept = "Bridge"
 	areaName = list("Bridge")
-	areaType = list(/area/bridge, /area/teleporter, /area/horizon/maintenance/maintcentral)
-	areaNotType = list(/area/bridge/aibunker, /area/bridge/selfdestruct)
+	areaType = list(/area/horizon/bridge, /area/teleporter, /area/horizon/maintenance/maintcentral)
+	areaNotType = list(/area/horizon/bridge/aibunker, /area/horizon/bridge/selfdestruct)
 
 /datum/event/prison_break/setup()
 	announceWhen = rand(75, 105)
