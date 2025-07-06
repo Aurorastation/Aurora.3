@@ -4,7 +4,7 @@
 	Federation. This area was in the process of development by the Solarian Alliance prior to the Interstellar War and half-complete relics of the Alliance's hegemonic era can \
 	be found scattered across its planets and floating in long-abandoned systems. The Coalition of Colonies, Nralakk Federation, and Solarian Alliance are currently attempting \
 	to expand their influence into this region with varying degrees of success."
-	skybox_icon = "the_clash" //placeholder, but its nearby
+	skybox_icon = "crescent_expanse"
 	possible_exoplanets = list(
 		/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid,
 		/obj/effect/overmap/visitable/sector/exoplanet/grass/grove,
@@ -35,13 +35,24 @@
 		)
 
 	lore_radio_stations = list(
-		"83.6 Radio Masyara'Triq (Unlicensed)" = 'texts/lore_radio/crescent_expanse/95.8_CE-Unlicensed_Music_Station.txt'
+		"95.8 Radio Masyara'Triq (Unlicensed)" = 'texts/lore_radio/crescent_expanse/95.8_CE-Unlicensed_Music_Station.txt'
+	)
+
+	lobby_tracks = list(
+		'sound/music/lobby/crescent_expanse/crescent_expanse_1.ogg',
+		'sound/music/lobby/crescent_expanse/crescent_expanse_2.ogg',
+		'sound/music/lobby/crescent_expanse/crescent_expanse_3.ogg'
 	)
 
 /datum/space_sector/crescent_expanse/west
 	name = SECTOR_CRESCENT_EXPANSE_WEST
 	lore_radio_stations = list(
-		"83.6 Radio Masyara'Triq (Unlicensed)" = 'texts/lore_radio/crescent_expanse/95.8_CE-Unlicensed_Music_Station.txt'
+		"95.8 Radio Masyara'Triq (Unlicensed)" = 'texts/lore_radio/crescent_expanse/95.8_CE-Unlicensed_Music_Station.txt'
+	)
+	lobby_tracks = list(
+		'sound/music/lobby/crescent_expanse/crescent_expanse_1.ogg',
+		'sound/music/lobby/crescent_expanse/crescent_expanse_2.ogg',
+		'sound/music/lobby/crescent_expanse/crescent_expanse_3.ogg'
 	)
 
 /datum/space_sector/crescent_expanse/far
@@ -69,6 +80,10 @@
 	lore_radio_stations = list(
 		"74.4 Faint Radio Transmission" = 'texts/lore_radio/crescent_expanse/74.4_CE_Uncharted-Damaged_Station.txt',
 		"83.6 Leaking Traffic Control" = 'texts/lore_radio/crescent_expanse/83.6_CE_Uncharted-Pirate_Station.txt',
-		"83.6 Radio Masyara'Triq (Unlicensed)" = 'texts/lore_radio/crescent_expanse/95.8_CE-Unlicensed_Music_Station.txt'
+		"95.8 Radio Masyara'Triq (Unlicensed)" = 'texts/lore_radio/crescent_expanse/95.8_CE-Unlicensed_Music_Station.txt'
+	)
+	lobby_tracks = list(
+		'sound/music/lobby/crescent_expanse/crescent_expanse_uncharted.ogg',
+		'sound/music/lobby/lights_edge/lights_edge_2.ogg'
 	)
 

@@ -137,3 +137,12 @@ sound/machines/steam_pipe2.ogg - "Steam Leaking" by PatrickLieberkind. Licensed 
 sound/machines/steam_pipe3.ogg - "file0571_air_hiss_weak.wav" by beerbelly38. Licensed under CC-BY NC 4.0. Obtained from https://freesound.org/people/beerbelly38/sounds/277360/
 sound/machines/steam_pipe4.ogg - "Steam Sewer Ambient" by Geoff-Bremner-Audio. Licensed under CC0. Obtained from https://freesound.org/people/Geoff-Bremner-Audio/sounds/724892/
 ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTOR START
+sound/music/lobby/crescent_expanse/crescent_expanse_1.ogg - "Lüüü - Weedance" by Lüüü, licensed under CC BY-NC-SA 3.0. Obtained from https://myprivateunderground.bandcamp.com/track/lu-u-u-weedance
+sound/music/lobby/crescent_expanse/crescent_expanse_2.ogg - "Lüüü - No Big Bang" by Lüüü, licensed under CC BY-NC-SA 3.0. Obtained from https://myprivateunderground.bandcamp.com/track/lu-u-u-no-big-bang
+sound/music/lobby/crescent_expanse/crescent_expanse_3.ogg - "Little Bradley - Sunset Drive" by Little Bradley, licensed under CC BY-NC 3.0. Obtained from https://myprivateunderground.bandcamp.com/track/little-bradley-sunset-drive
+sound/music/lobby/crescent_expanse/crescent_expanse_uncharted.ogg - "Prison Planet" by Karl Casey, licensed under CC BY 3.0. Obtained from https://karlcasey.bandcamp.com/track/prison-planet
+sound/music/lobby/lights_edge/lights_edge_1.ogg - "Is Anyone Left?" by Karl Casey, licensed under CC BY 3.0. Obtained from https://karlcasey.bandcamp.com/track/is-anyone-left
+sound/music/lobby/lights_edge/lights_edge_2.ogg - "Running From The Wendigo" by Karl Casey, licensed under CC BY 3.0. Obtained from https://karlcasey.bandcamp.com/track/running-from-the-wendigo
+ATTRIBUTIONS SECTION END
