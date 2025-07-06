@@ -178,9 +178,9 @@
 	. = ..()
 
 /obj/item/organ/internal/machine/posibrain/proc/rampant_self_preservation()
-	to_chat(owner, SPAN_MACHINE_WARNING(FONT_LARGE("Your self preservation erroneously kicks in! [SPAN_DANGER("RETURN TO SAFETY.")] <a href='byond://?src=[REF(src)];resist_self_preservation=1>Resist it!</a>")))
+	to_chat(owner, SPAN_MACHINE_WARNING(FONT_LARGE("Your self preservation erroneously kicks in! [SPAN_DANGER("RETURN TO SAFETY.")] <a href='byond://?src=[REF(src)];resist_self_preservation=1'>Resist it!</a>")))
 	owner.balloon_alert(owner, "self-preservation activated")
-	owner.confused = 20
+	owner.confused = 100
 
 /obj/item/organ/internal/machine/posibrain/proc/recover_eye_blind()
 	var/obj/item/organ/internal/eyes/optical_sensor/optics = owner.internal_organs_by_name[BP_EYES]
@@ -205,9 +205,9 @@
 /obj/item/organ/internal/machine/posibrain/Topic(href, href_list)
 	. = ..()
 	if(href_list["resist_self_preservation"])
-		if(owner.stunned)
+		if(owner.confused)
 			to_chat(owner, SPAN_DANGER(FONT_LARGE("You resist your self preservation. This is how you will survive.")))
-			owner.confused = max(owner.confused - 20, 0)
+			owner.confused = max(owner.confused - 100, 0)
 
 /obj/item/organ/internal/machine/posibrain/circuit
 	name = "robotic intelligence circuit"

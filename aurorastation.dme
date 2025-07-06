@@ -3059,6 +3059,7 @@
 #include "code\modules\organs\internal\species\machine\reactor.dm"
 #include "code\modules\organs\internal\species\machine\reactor_presets.dm"
 #include "code\modules\organs\internal\species\machine\surge_protector.dm"
+#include "code\modules\organs\internal\species\machine\targeting_core.dm"
 #include "code\modules\organs\internal\species\machine\voice_synthesizer.dm"
 #include "code\modules\organs\internal\species\machine\wireless_access.dm"
 #include "code\modules\organs\subtypes\autakh.dm"
