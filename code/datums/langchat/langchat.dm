@@ -58,6 +58,7 @@
 		langchat_image.maptext_height = 64
 		langchat_image.maptext_y -= LANGCHAT_MESSAGE_POP_Y_SINK
 		langchat_image.maptext_x = get_maxptext_x_offset(langchat_image)
+		langchat_image.filters = filter(type="drop_shadow", size = 1, color = COLOR_BLACK)
 
 	langchat_image.pixel_y = 0
 	langchat_image.alpha = 0
