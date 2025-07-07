@@ -584,6 +584,5 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
 		if(I && (I.plating.get_status() < 100))
-			var/needed_plates = I.plating.max_health / 10
 			user.visible_message(SPAN_NOTICE("[user] fully replaces the plating in [target]'s [affected]."))
 			I.plating.heal_damage(I.plating.max_health)
