@@ -155,7 +155,7 @@
 	if(use_check_and_message(user))
 		return
 
-	for(var/obj/A in get_step(user.loc, user.dir))
+	for(var/obj/A in get_step(get_turf(user),, user.dir))
 		if(!iswall(A) && !istype(A, /obj/structure/table) && !istype(A, /obj/structure/window_frame) && !istype(A, /obj/structure/window))
 			if(A.density || istype(A, /obj/structure/bed))
 				to_chat(user, SPAN_WARNING("You can't place this here, [A.name] is blocking the way!"))
