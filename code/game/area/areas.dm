@@ -81,10 +81,12 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 	 * This includes any non-space area, including maintenance; it doesn't include space or shuttles (as they could be outside the station)
 	 */
 	var/station_area = FALSE
-	/// Only used for the Horizon, and mostly for mapping checks.
+	/// Only used for the Horizon, and mostly for mapping checks. All except horizon_deck (integer) use '_DEFINES\ship_locations.dm' constants
 	var/horizon_deck = null
 	var/department = null
 	var/subdepartment = null
+	// Central, fore, aft, port, far starboard, etc.
+	// var/location = null
 
 	var/centcomm_area = FALSE
 

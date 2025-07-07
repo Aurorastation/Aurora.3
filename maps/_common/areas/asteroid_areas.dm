@@ -97,9 +97,6 @@
 /area/outpost/research/lab
 	name = "Research - Sublevel Laboratory"
 
-/area/outpost/research/emergency_storage
-	name = "Research - Sublevel Emergency Storage"
-
 /area/outpost/research/anomaly_harvest
 	name = "Research - Exotic Energy Harvesting"
 

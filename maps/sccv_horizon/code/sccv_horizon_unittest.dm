@@ -10,7 +10,6 @@
 		/area/supply/dock,
 		/area/turbolift,
 		/area/mine,
-		/area/construction,
 		/area/horizon/exterior
 	)
 
@@ -21,11 +20,10 @@
 		/area/horizon/engineering/atmos/storage,
 		/area/horizon/rnd/server,
 		/area/horizon/tcommsat/chamber,
-		/area/horizon/bridge/aibunker,
-		/area/outpost/research/emergency_storage,
+		/area/horizon/command/bridge/aibunker,
 		/area/horizon/medical/cryo,
 		/area/horizon/medical/surgery,
-		/area/turret_protected/ai,
+		/area/horizon/ai,
 		/area/horizon/engineering/reactor/indra/smes,
 		/area/horizon/rnd/isolation_a,
 		/area/horizon/rnd/isolation_b,
@@ -34,10 +32,9 @@
 
 	ut_fire_exempt_areas = list(
 		/area/horizon/maintenance,
-		/area/construction,
-		/area/horizon/bridge/aibunker,
+		/area/horizon/command/bridge/aibunker,
 		/area/horizon/medical/cryo,
-		/area/horizon/crew/cryo/washroom,
+		/area/horizon/crew/washroom/deck_three,
 		/area/horizon/rnd/isolation_a,
 		/area/horizon/rnd/isolation_b,
 		/area/horizon/rnd/isolation_c

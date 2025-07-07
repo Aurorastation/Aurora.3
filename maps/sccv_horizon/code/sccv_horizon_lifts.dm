@@ -88,7 +88,7 @@
 /obj/effect/shuttle_landmark/lift/morgue_top
 	name = "Morgue Top"
 	landmark_tag = "nav_morgue_lift_top"
-	base_area = /area/horizon/hallway/medical
+	base_area = /area/horizon/medical/hallway
 	base_turf = /turf/simulated/open
 
 /obj/effect/shuttle_landmark/lift/morgue_bottom
@@ -166,14 +166,14 @@
 	name = "Robotics Lift - Second Deck"
 	landmark_tag = "nav_robotics_lift_second_deck"
 	// landmark_flags = SLANDMARK_FLAG_AUTOSET
-	base_area = /area/horizon/hallway/medical
+	base_area = /area/horizon/medical/hallway
 	base_turf = /turf/simulated/open
 
 /obj/effect/shuttle_landmark/lift/robotics_third_deck
 	name = "Robotics Lift - Third Deck"
 	landmark_tag = "nav_robotics_lift_third_deck"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
-	base_area = /area/horizon/hallway/medical
+	base_area = /area/horizon/medical/hallway
 	base_turf = /turf/simulated/open
 
 /obj/machinery/computer/shuttle_control/multi/lift/robotics

@@ -26,8 +26,8 @@
 /datum/event/prison_break/bridge
 	eventDept = "Bridge"
 	areaName = list("Bridge")
-	areaType = list(/area/horizon/bridge, /area/teleporter, /area/horizon/maintenance/maintcentral)
-	areaNotType = list(/area/horizon/bridge/aibunker, /area/horizon/bridge/selfdestruct)
+	areaType = list(/area/horizon/command/bridge, /area/teleporter, /area/horizon/maintenance/maintcentral)
+	areaNotType = list(/area/horizon/command/bridge/aibunker, /area/horizon/command/bridge/selfdestruct)
 
 /datum/event/prison_break/setup()
 	announceWhen = rand(75, 105)
