@@ -18,7 +18,6 @@
 			SPECIES_VAURCA_BREEDER
 		),
 		"Diplomatic Bodyguard" = list(
-			SPECIES_VAURCA_BULWARK,
 			SPECIES_VAURCA_WORKER
 		)
 	)

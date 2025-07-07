@@ -59,7 +59,7 @@ var/const/CONSULAR			=(1<<12)
 var/const/MERCHANT			=(1<<13)
 var/const/JOURNALIST		=(1<<14)
 var/const/ASSISTANT			=(1<<15)
-var/const/DIPLOMAT_AIDE	   =(1<<16)
+GLOBAL_VAR_CONST(DIPLOMAT_AIDE, 1<<16)
 
 //EVENTDEPT
 //This is needed because there are just not enough bitflags available across the other departments

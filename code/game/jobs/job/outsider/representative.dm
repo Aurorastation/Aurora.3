@@ -392,7 +392,7 @@
 
 /datum/job/corporate_aide
 	title = "Corporate Aide"
-	flag = DIPLOMAT_AIDE
+	flag = GLOB.DIPLOMAT_AIDE
 	departments = SIMPLEDEPT(DEPARTMENT_COMMAND_SUPPORT)
 	department_flag = ENGSEC
 	faction = "Station"
