@@ -539,3 +539,51 @@
 		if(I && (I.electronics.get_status() < 100))
 			user.visible_message(SPAN_NOTICE("[user] repairs the electronics in [target]'s [affected]."))
 			I.electronics.heal_damage(I.electronics.max_integrity)
+
+/singleton/surgery_step/internal/fix_internal_plating
+	name = "Repair Internal Plating"
+	allowed_tools = list(
+		/obj/item/stack/material/steel = 100,
+	)
+
+	min_duration = 75
+	max_duration = 120
+
+/singleton/surgery_step/internal/fix_internal_plating/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	var/obj/item/stack/material/steel/steel = tool
+	var/is_organ_damaged = FALSE
+	var/limb_can_operate = (affected && affected.open == ORGAN_ENCASED_RETRACTED && target_zone != BP_MOUTH)
+	if(limb_can_operate)
+		for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
+			if(I.plating.get_status() < 100)
+				var/needed_plates = I.plating.max_health / 10
+				if(istype(steel))
+					if(!(steel.get_amount() >= (needed_plates)))
+						to_chat(user, SPAN_DANGER("You need [needed_plates] or more steel plates to repair this damage."))
+						return SURGERY_FAILURE
+					is_organ_damaged = TRUE
+					steel.use(needed_plates)
+	return is_organ_damaged
+
+/singleton/surgery_step/internal/fix_internal_plating/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
+		if(I && (I.plating.get_status() < 100))
+			user.visible_message(SPAN_NOTICE("[user] begins replacing the plating in [target]'s [I]..."))
+	..()
+
+/singleton/surgery_step/internal/fix_internal_plating/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	. = ..()
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
+		if(I && (I.plating.get_status() < 100))
+			var/needed_plates = I.plating.max_health / 10
+			user.visible_message(SPAN_NOTICE("[user] fully replaces the plating in [target]'s [affected]."))
+			I.plating.heal_damage(I.plating.max_health)
