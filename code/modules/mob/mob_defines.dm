@@ -253,6 +253,9 @@
 	var/list/active_genes = list()
 
 	var/mob_size = MOB_MEDIUM
+	/// The icon size width of the mob. Used for langchat resizing.
+	var/icon_size = 32
+
 	/// The weight of the mob. Affects if the mob can be easily lifted or not. Separate from size, as some mobs may be big but not particularly heavy.
 	var/mob_weight = MOB_WEIGHT_LIGHT
 	/// The strength of the mob. Affects what kind of mobs can be thrown or carried. By default, does not give any buff.

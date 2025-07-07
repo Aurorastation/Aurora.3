@@ -386,6 +386,8 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 	// Forcibly enable hardware-accelerated graphics, as we need them for the lighting overlays.
 	winset(src, null, "command=\".configure graphics-hwmode on\"")
 
+	winset(src, "map", "style=\"[MAP_STYLESHEET]\"")
+
 	if(IsGuestKey(key) && GLOB.config.external_auth)
 		src.authed = FALSE
 		var/mob/abstract/unauthed/m = new()
