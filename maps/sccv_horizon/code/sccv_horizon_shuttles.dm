@@ -200,7 +200,7 @@
 
 // Cargo Elevator
 /datum/shuttle/autodock/ferry/supply/horizon
-	name = "OX Cargo Elevator"
+	name = "Cargo Elevator"
 	location = 1
 	shuttle_area = /area/supply/dock
 	dock_target = "cargo_shuttle"
@@ -210,13 +210,13 @@
 	cargo_elevator = TRUE
 
 /obj/effect/shuttle_landmark/supply/horizon/start
-	name = "OX Cargo Elevator - Bottom Warehouse Dock"
+	name = "Cargo Elevator - Bottom Automated Cargo Hold Dock"
 	landmark_tag = "nav_cargo_shuttle_start"
 	base_turf = /turf/unsimulated/floor/plating
 	base_area = /area/centcom
 
 /obj/effect/shuttle_landmark/supply/horizon/dock
-	name = "OX Cargo Elevator - Top Dock"
+	name = "Cargo Elevator - Top Operations Dock"
 	landmark_tag = "nav_cargo_shuttle_dock"
 	docking_controller = "cargo_shuttle_dock"
 	base_turf = /turf/simulated/floor/plating/cargo_elevator
