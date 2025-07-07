@@ -22,7 +22,7 @@
 		/area/horizon/tcommsat/chamber,
 		/area/horizon/command/bridge/aibunker,
 		/area/horizon/medical/cryo,
-		/area/horizon/medical/surgery,
+		/area/horizon/medical/surgery/storage,
 		/area/horizon/ai,
 		/area/horizon/engineering/reactor/indra/smes,
 		/area/horizon/rnd/isolation_a,

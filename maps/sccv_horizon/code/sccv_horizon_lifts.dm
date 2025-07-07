@@ -95,7 +95,7 @@
 	name = "Morgue Bottom"
 	landmark_tag = "nav_morgue_lift_bottom"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
-	base_area = /area/horizon/medical/morgue/lower
+	base_area = /area/horizon/medical/morgue
 	base_turf = /turf/simulated/floor/plating
 
 /area/turbolift/scc_ship/morgue_lift

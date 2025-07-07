@@ -52,7 +52,6 @@
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	allow_nightmode = TRUE
 	lightswitch = TRUE
-	holomap_color = HOLOMAP_AREACOLOR_HALLWAYS
 	emergency_lights = TRUE
 	subdepartment = SUBLOC_STAIRS
 
@@ -102,6 +101,7 @@
 /area/horizon/stairwell/engineering
 	name = "Horizon - Engineering Stairwell (PARENT AREA - DON'T USE)"
 	ambience = AMBIENCE_HIGHSEC
+	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
 
 /area/horizon/stairwell/engineering/deck_one
 	name = "Horizon - Engineering Stairwell - Deck 1"
@@ -123,8 +123,8 @@
 /area/horizon/crew/resdeck/living_quarters_lift
 	name = "Horizon - Living Quarters Lift"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
-	subdepartment = SUBLOC_RESDECK
 	horizon_deck = 1
+	subdepartment = SUBLOC_RESDECK
 
 /// Fitness Center (legacy)
 /area/horizon/crew/fitness
@@ -153,26 +153,27 @@
 	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 	horizon_deck = 3
+	department = LOC_COMMAND
 
 /area/horizon/repoffice/consular_one
 	name = "Consular Office A"
 	icon_state = "law_con"
-	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
+	department = LOC_COMMAND
 
 /area/horizon/repoffice/consular_two
 	name = "Consular Office B"
 	icon_state = "law_con_b"
-	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
+	department = LOC_COMMAND
 
 /area/horizon/repoffice/representative_one
 	name = "Representative Office A"
 	icon_state = "law_rep"
-	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
+	department = LOC_COMMAND
 
 /area/horizon/repoffice/representative_two
 	name = "Representative Office B"
 	icon_state = "law_rep_b"
-	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
+	department = LOC_COMMAND
 
 /// Uncategorized/general
 /area/horizon/crew/journalistoffice

@@ -1,62 +1,62 @@
 /// SERVICE_AREAS
 /area/horizon/service
-	name = "Horizon - Service (PARENT AREA - DON'T USE)"
+	name = "Service (PARENT AREA - DON'T USE)"
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 	department = LOC_SERVICE
 
 /// Hydroponics areas
 /area/horizon/service/hydroponics
-	name = "Horizon - Hydroponics"
+	name = "Hydroponics"
 	icon_state = "hydro"
 	horizon_deck = 2
 
 /area/horizon/service/hydroponics/lower
-	name = "Horizon - Hydroponics - Lower"
+	name = "Hydroponics"
 	horizon_deck = 1
 
 /area/horizon/service/hydroponics/garden
-	name = "Horizon - Public Garden"
+	name = "Public Garden"
 	icon_state = "garden"
 	horizon_deck = 2
 
 /// Library areas
 /area/horizon/service/library
-	name = "Horizon - Library"
+	name = "Library"
 	icon_state = "library"
 	sound_environment = SOUND_AREA_LARGE_SOFTFLOOR
 	horizon_deck = 2
 
 /// Kitchen areas
 /area/horizon/service/kitchen
-	name = "Horizon - Kitchen"
+	name = "Kitchen"
 	icon_state = "kitchen"
 	allow_nightmode = FALSE
 	horizon_deck = 2
 
 /area/horizon/service/kitchen/freezer
-	name = "Horizon - Kitchen - Freezer"
+	name = "Kitchen - Freezer"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /// Bar areas
 /area/horizon/service/bar
-	name = "Horizon - Bar"
+	name = "Bar"
 	icon_state = "bar"
 	horizon_deck = 2
 
 /area/horizon/service/bar/backroom
-	name = "Horizon - Bar - Backroom"
+	name = "Bar - Backroom"
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
 // Dining Hall
 /area/horizon/service/dining_hall
-	name = "Horizon - Dining Hall"
+	name = "Dining Hall"
 	icon_state = "lounge"
 	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
 	horizon_deck = 2
 
 // Cafeteria
 /area/horizon/service/cafeteria
-	name = "Horizon - Deck 3 Cafeteria"
+	name = "Cafeteria"
 	icon_state = "cafeteria"
 	area_blurb = "The smell of coffee wafts over from the cafe. Patience, the tree, stands proudly in the centre of the atrium."
 	area_blurb_category = "d3_cafe"
