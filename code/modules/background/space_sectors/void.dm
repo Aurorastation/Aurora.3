@@ -9,7 +9,7 @@
 
 	lobby_tracks = list(
 		'sound/music/lobby/lights_edge/lights_edge_1.ogg',
-		'sound/music/lobby/dangerous_space/dangerous_space_1.ogg'
+		'sound/music/lobby/lights_edge/lights_edge_2.ogg'
 	)
 
 /datum/space_sector/lemurian_sea//The actual proposed area of void as written. Should be as dark as possible, due to no starlight
@@ -23,8 +23,8 @@
 
 	lobby_tracks = list(
 		'sound/music/lobby/lights_edge/lights_edge_1.ogg',
-		'sound/music/lobby/dangerous_space/dangerous_space_1.ogg',
-		'sound/music/lobby/dangerous_space/dangerous_space_2.ogg'
+		'sound/music/lobby/lights_edge/lights_edge_2.ogg',
+		'sound/music/lobby/dangerous_space/dangerous_space_1.ogg'
 	)
 
 /datum/space_sector/lemurian_sea/far

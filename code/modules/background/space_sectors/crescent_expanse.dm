@@ -40,8 +40,7 @@
 
 	lobby_tracks = list(
 		'sound/music/lobby/crescent_expanse/crescent_expanse_1.ogg',
-		'sound/music/lobby/crescent_expanse/crescent_expanse_2.ogg',
-		'sound/music/lobby/crescent_expanse/crescent_expanse_3.ogg'
+		'sound/music/lobby/crescent_expanse/crescent_expanse_2.ogg'
 	)
 
 /datum/space_sector/crescent_expanse/west
@@ -51,8 +50,7 @@
 	)
 	lobby_tracks = list(
 		'sound/music/lobby/crescent_expanse/crescent_expanse_1.ogg',
-		'sound/music/lobby/crescent_expanse/crescent_expanse_2.ogg',
-		'sound/music/lobby/crescent_expanse/crescent_expanse_3.ogg'
+		'sound/music/lobby/crescent_expanse/crescent_expanse_2.ogg'
 	)
 
 /datum/space_sector/crescent_expanse/far
@@ -85,7 +83,6 @@
 	lobby_tracks = list(
 		'sound/music/lobby/crescent_expanse/crescent_expanse_1.ogg',
 		'sound/music/lobby/dangerous_space/dangerous_space_1.ogg',
-		'sound/music/lobby/dangerous_space/dangerous_space_2.ogg',
-		'sound/music/lobby/dangerous_space/dangerous_space_3.ogg'
+		'sound/music/lobby/dangerous_space/dangerous_space_2.ogg'
 	)
 
