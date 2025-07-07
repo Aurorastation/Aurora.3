@@ -198,26 +198,28 @@
 	name = "In transit"
 	landmark_tag = "nav_transit_mining"
 
-// Cargo Shuttle
+// Cargo Elevator
 /datum/shuttle/autodock/ferry/supply/horizon
-	name = "OX Supply Shuttle"
+	name = "OX Cargo Elevator"
 	location = 1
 	shuttle_area = /area/supply/dock
 	dock_target = "cargo_shuttle"
 	waypoint_station = "nav_cargo_shuttle_dock"
 	waypoint_offsite = "nav_cargo_shuttle_start"
+	squishes = FALSE
+	cargo_elevator = TRUE
 
 /obj/effect/shuttle_landmark/supply/horizon/start
-	name = "Horizon Cargo Shuttle Central Command Dock"
+	name = "OX Cargo Elevator - Bottom Warehouse Dock"
 	landmark_tag = "nav_cargo_shuttle_start"
 	base_turf = /turf/unsimulated/floor/plating
 	base_area = /area/centcom
 
 /obj/effect/shuttle_landmark/supply/horizon/dock
-	name = "First Deck Supply Shuttle Hangar Bay"
+	name = "OX Cargo Elevator - Top Dock"
 	landmark_tag = "nav_cargo_shuttle_dock"
 	docking_controller = "cargo_shuttle_dock"
-	base_turf = /turf/simulated/floor/plating
+	base_turf = /turf/simulated/floor/plating/cargo_elevator
 	base_area = /area/hangar/operations
 
 //-// Admin Corvette //-//

@@ -291,7 +291,7 @@ export const MainWindow = (props, context) => {
         </LabeledList.Item>
       </LabeledList>
       {data.shuttle_has_arrive_time ? (
-        <Section title="Shuttle Information">
+        <Section title="Elevator Information">
           <LabeledList>
             <LabeledList.Item label="ETA">
               {data.shuttle_eta_minutes} minutes
@@ -299,7 +299,7 @@ export const MainWindow = (props, context) => {
           </LabeledList>
         </Section>
       ) : (
-        'Shuttle awaiting orders.'
+        'Elevator awaiting orders.'
       )}
     </Section>
   );
@@ -316,10 +316,10 @@ export const OverviewSubmitted = (props, context) => {
         <LabeledList.Item label="Submitted Orders Value">
           {data.order_submitted_value}
         </LabeledList.Item>
-        <LabeledList.Item label="Estimated Shuttle Time">
+        <LabeledList.Item label="Estimated Elevator Time">
           {data.order_approved_shuttle_time / 10} seconds
         </LabeledList.Item>
-        <LabeledList.Item label="Estimated Shuttle Cost">
+        <LabeledList.Item label="Estimated Elevator Fee">
           {data.order_approved_shuttle_price} 电
         </LabeledList.Item>
       </LabeledList>
@@ -389,10 +389,10 @@ export const OverviewApproved = (props, context) => {
         <LabeledList.Item label="Approved Orders Value">
           {data.order_approved_shuttle_time}
         </LabeledList.Item>
-        <LabeledList.Item label="Estimated Shuttle Time">
+        <LabeledList.Item label="Estimated Elevator Time">
           {data.order_approved_shuttle_time / 10} seconds
         </LabeledList.Item>
-        <LabeledList.Item label="Estimated Shuttle Cost">
+        <LabeledList.Item label="Estimated Elevator Fee">
           {data.order_approved_shuttle_price} 电
         </LabeledList.Item>
       </LabeledList>
