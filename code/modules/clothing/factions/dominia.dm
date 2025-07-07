@@ -1,7 +1,7 @@
 /obj/item/clothing/mask/breath/lyodsuit
 	name = "lyodsuit mask"
 	desc = "A simple mask that forms a part of the Dominian lyodsuit. Rather cozy, if you're warm-blooded. It has a port to connect air tanks to."
-	icon = 'icons/clothing/masks/lyodsuit.dmi'
+	icon = 'icons/obj/item/clothing/mask/lyodsuit.dmi'
 	icon_state = "dom_thermal_mask"
 	item_state = "dom_thermal_mask"
 	gas_transfer_coefficient = 0.90 // it's made primarily for heat, not gas and chemical protection
@@ -27,7 +27,7 @@
 /obj/item/clothing/gloves/lyodsuit
 	name = "lyodsuit gloves"
 	desc = "A pair of thermal gloves, guaranteed to keep hands toasty."
-	icon = 'icons/clothing/gloves/lyodsuit.dmi'
+	icon = 'icons/obj/item/clothing/gloves/lyodsuit.dmi'
 	icon_state = "dom_thermal_gloves"
 	item_state = "dom_thermal_gloves"
 	contained_sprite = TRUE
@@ -899,14 +899,13 @@
 /obj/item/storage/backpack/dominia
 	name = "imperial army rucksack"
 	desc = "A rugged Imperial Army backpack intended for use during the Empire's frontier wars."
-	icon = 'icons/clothing/backpacks/dominia_backpack.dmi'
+	icon = 'icons/obj/item/clothing/backpacks/dominia_backpack.dmi'
 	icon_state = "dom_backpack"
 	item_state = "dom_backpack"
 
 /obj/item/storage/backpack/dominia/nco
 	name = "imperial army NCO rucksack"
 	desc = "A non-commissioned officer's backpack. The radio set built into it allows for individual squads to stay in cohesion."
-	icon = 'icons/clothing/backpacks/dominia_backpack.dmi'
 	icon_state = "dom_backpack_nco"
 	item_state = "dom_backpack_nco"
 
