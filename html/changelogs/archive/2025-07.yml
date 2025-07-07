@@ -109,3 +109,27 @@
   SleepyGemmy:
   - bugfix: Fixed wallets having a mob overlay.
   - bugfix: Fixed lanyards having a duplicate overlay.
+2025-07-07:
+  ASmallCuteCat:
+  - rscadd: You can now wash dishes, cooking pots, and glassware! With the empty item
+      in hand, left-click a sink with DISARM intent.
+  Batrachophreno:
+  - rscadd: Offbrand variant of sightlights available to non-Zeng-Hu crew; 50% weaker
+      than Zeng-Hu variant.
+  - balance: Tiny increase to brightness of original Zeng-Hu sightlights and the light
+      is now tinged a stylish pale violet.
+  ElorgRHG:
+  - imageadd: 'Did a consistency pass, and some resprites, on most boot sprites, notable
+      changes include: all colorable boots, all workboots, all jackboots/ridingboots/ridingboots.'
+  GeneralCamo:
+  - rscadd: Prosthetics with lights now have emissives.
+  SimpleMaroon:
+  - bugfix: Diet Diesel no longer gives toxin damage to Dionae.
+  - qol: Queenless K'lax Vaurcae can now select Si'akh as their religion. This is
+      only meant for those of the Ssup'vihtal group!
+  SleepyGemmy:
+  - rscadd: Added a windoor to the SmartFridge in the kitchen on the kitchen side.
+  - bugfix: Fixed ringer terminals ringing across decks.
+  steviii:
+  - rscadd: Swaps some pipes and machinery around in the atmos locker room so it doesn't
+      overlap.
