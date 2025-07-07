@@ -53,11 +53,10 @@ var/datum/controller/subsystem/ticker/SSticker
 	var/atom/movable/screen/cinematic = null
 
 	var/list/default_lobby_tracks = list(
-		'sound/music/lobby/space.ogg',
-		'sound/music/lobby/traitor.ogg',
-		'sound/music/lobby/title2.ogg',
-		'sound/music/lobby/title3mk2.ogg',
-		'sound/music/lobby/clouds.s3m'
+		'sound/music/lobby/konyang/konyang-1.ogg',
+		'sound/music/lobby/konyang/konyang-2.ogg',
+		'sound/music/lobby/konyang/konyang-3.ogg',
+		'sound/music/lobby/konyang/konyang-4.ogg'
 	)
 
 	var/lobby_ready = FALSE
