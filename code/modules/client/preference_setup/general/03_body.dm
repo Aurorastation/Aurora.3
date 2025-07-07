@@ -906,8 +906,6 @@ GLOBAL_LIST_INIT(valid_bloodtypes, list(
 			// IPC reactor options.
 			if("Electric")
 				pref.organ_data[organ_name] = null
-			if("Kinetic")
-				pref.organ_data[organ_name] = ORGAN_PREF_KINETICPOWER
 			if("Biological")
 				pref.organ_data[organ_name] = ORGAN_PREF_BIOPOWER
 			if("Solar")

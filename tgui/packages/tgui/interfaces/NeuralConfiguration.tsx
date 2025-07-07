@@ -1,6 +1,6 @@
 import { BooleanLike } from 'common/react';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledList, Section, Tooltip } from '../components';
+import { Box, Button, LabeledControls, Section, Tooltip } from '../components';
 import { Window } from '../layouts';
 
 export type NeuralData = {
@@ -17,9 +17,9 @@ export const NeuralConfiguration = (props, context) => {
     <Window
       resizable
       theme={
-        data.neural_coherence < data.max_neural_coherence * 0.25
+        data.neural_coherence > data.max_neural_coherence * 0.75
           ? 'spookyconsole'
-          : 'ntos_lightmode'
+          : 'scc'
       }>
       <Window.Content scrollable>
         <Section textAlign="center" title="Neural Configuration">
@@ -32,9 +32,9 @@ export const NeuralConfiguration = (props, context) => {
           <Box textAlign="center" fontSize={1.5}>
             Your{' '}
             <Tooltip content="Neural coherence represents the stability of your positronic's inner workings and thoughts.">
-              <Box as="span">neural coherence</Box>
+              <Box as="span">neural coherence </Box>
             </Tooltip>
-            is
+            is{' '}
             <Box
               as="span"
               bold
@@ -46,10 +46,11 @@ export const NeuralConfiguration = (props, context) => {
                 data.neural_coherence,
                 data.max_neural_coherence
               )}
+              .
             </Box>
           </Box>
-          <LabeledList>
-            <LabeledList.Item label="Firewall">
+          <LabeledControls>
+            <LabeledControls.Item label="Firewall">
               <Button
                 content={data.firewall ? 'Enabled' : 'Disabled'}
                 color={data.firewall ? 'good' : 'bad'}
@@ -57,8 +58,8 @@ export const NeuralConfiguration = (props, context) => {
                 icon={data.firewall ? 'shield-virus' : 'warning'}
                 onClick={() => act('toggle_firewall')}
               />
-            </LabeledList.Item>
-          </LabeledList>
+            </LabeledControls.Item>
+          </LabeledControls>
         </Section>
       </Window.Content>
     </Window>
@@ -69,20 +70,18 @@ export const describeNeuralCoherence = (
   neuralCoherence,
   maxNeuralCoherence = 200
 ) => {
-  if (neuralCoherence >= maxNeuralCoherence) {
-    return 'synchronized';
+  if (neuralCoherence > maxNeuralCoherence * 0.8) {
+    return 'F̷͈͈̥͉̀͌̓̓̀̈́̆̓͒̓̊A̷͖͔̮̯͕̖̼̜͛̄̈́̐͘̕L̶̛͎̞̪̋̎̀̎͐̐̉͆͂́̇̅͘͠L̸̢̹̘̟̈́͘͝I̵̢̢̛̪͍̭͖̝͔͉̙̱͎̼̭̝͒̅͆̾̍͛̎̀̅̐N̶̨̘̭͒͑͛͛̈̚̚͜G̶͙͖̊̍̋̔͝͝͝͠ ̷̢̖̞̣̲̠͊̊ͅȂ̸̛̹̟̻̘̭͓̣̺̱͙͎͉͖͇̲͗͐̓P̴̧̲̬̗̥͖̤̫͓̲̝͉̓͋͜Ȁ̸̹̈́̊͗̌̾́̽͑̓̕R̸̢̡͇͋̔̔̓̒͂̉̎̍̎͜T̸̡͕̥̖̳͚͓̜͇̱͚̤̮̰̔̉̒͛͌͛̀̈́̓͝ͅ';
   } else if (neuralCoherence > maxNeuralCoherence * 0.75) {
-    return 'slightly fragmented';
+    return 'heavily fragmented';
   } else if (neuralCoherence > maxNeuralCoherence * 0.5) {
     return 'fragmented';
   } else if (neuralCoherence > maxNeuralCoherence * 0.25) {
-    return 'heavily fragmented';
-  } else if (neuralCoherence > 0) {
-    return 'F̷͈͈̥͉̀͌̓̓̀̈́̆̓͒̓̊A̷͖͔̮̯͕̖̼̜͛̄̈́̐͘̕L̶̛͎̞̪̋̎̀̎͐̐̉͆͂́̇̅͘͠L̸̢̹̘̟̈́͘͝I̵̢̢̛̪͍̭͖̝͔͉̙̱͎̼̭̝͒̅͆̾̍͛̎̀̅̐N̶̨̘̭͒͑͛͛̈̚̚͜G̶͙͖̊̍̋̔͝͝͝͠ ̷̢̖̞̣̲̠͊̊ͅȂ̸̛̹̟̻̘̭͓̣̺̱͙͎͉͖͇̲͗͐̓P̴̧̲̬̗̥͖̤̫͓̲̝͉̓͋͜Ȁ̸̹̈́̊͗̌̾́̽͑̓̕R̸̢̡͇͋̔̔̓̒͂̉̎̍̎͜T̸̡͕̥̖̳͚͓̜͇̱͚̤̮̰̔̉̒͛͌͛̀̈́̓͝ͅ';
-  } else if (neuralCoherence <= 0) {
-    return '';
+    return 'slightly fragmented';
+  } else if (neuralCoherence > maxNeuralCoherence * 0.1) {
+    return 'slightly desynchronized';
   } else {
-    return 'ERROR';
+    return 'synchronized';
   }
 };
 
@@ -90,19 +89,15 @@ export const neuralCoherenceLabel = (
   neuralCoherence,
   maxNeuralCoherence = 200
 ) => {
-  if (neuralCoherence >= maxNeuralCoherence) {
-    return 'good';
-  } else if (neuralCoherence > maxNeuralCoherence * 0.75) {
-    return 'yellow';
+  if (neuralCoherence > maxNeuralCoherence * 0.75) {
+    return 'bad';
   } else if (neuralCoherence > maxNeuralCoherence * 0.5) {
     return 'orange';
   } else if (neuralCoherence > maxNeuralCoherence * 0.25) {
-    return 'average';
-  } else if (neuralCoherence > 0) {
-    return 'bad';
-  } else if (neuralCoherence <= 0) {
-    return 'bad';
+    return 'yellow';
+  } else if (neuralCoherence > maxNeuralCoherence * 0.1) {
+    return 'good';
   } else {
-    return 'bad';
+    return 'good';
   }
 };
