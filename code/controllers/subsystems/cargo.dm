@@ -1,8 +1,8 @@
 //Config stuff
 #define SUPPLY_DOCKZ 1		  //Z-level of the Dock.
 #define SUPPLY_STATIONZ 6	   //Z-level of the Station.
-#define SUPPLY_STATION_AREATYPE /area/supply/station //Type of the supply shuttle area for station
-#define SUPPLY_DOCK_AREATYPE /area/supply/dock	//Type of the supply shuttle area for dock
+#define SUPPLY_STATION_AREATYPE /area/supply/station //Type of the cargo elevator area for station
+#define SUPPLY_DOCK_AREATYPE /area/supply/dock	//Type of the cargo elevator area for dock
 
 SUBSYSTEM_DEF(cargo)
 	name = "Cargo"
@@ -413,17 +413,17 @@ SUBSYSTEM_DEF(cargo)
 /datum/controller/subsystem/cargo/proc/shuttle_call(var/requester_name)
 	if(shuttle.at_station())
 		if (shuttle.forbidden_atoms_check())
-			. = "For safety reasons the automated supply shuttle cannot transport live organisms, classified nuclear weaponry or homing beacons."
+			. = "For safety reasons the cargo elevator cannot transport live organisms, classified nuclear weaponry, nor homing beacons."
 		else
 			movetime = min_movetime //It always takes two minutes to get to centcom
 			shuttle.launch(src)
-			. = "Initiating launch sequence"
+			. = "Initiating cargo elevator."
 			current_shipment.shuttle_recalled_by = requester_name
 	else
 		//Check if there is enough money in the cargo account for the current shipment
 		var/shipment_cost = get_pending_shipment_cost()
 		if( shipment_cost > get_cargo_money())
-			. = "The supply shuttle could not be called. Insufficient Funds. [shipment_cost] Credits required"
+			. = "The cargo elevator could not be called due to insufficient funds. [shipment_cost] credits required."
 		else
 			//Create a new shipment if one does not exist already
 			if(!current_shipment)
@@ -434,17 +434,17 @@ SUBSYSTEM_DEF(cargo)
 			current_shipment.shuttle_fee = shipment_cost
 
 			if(current_shipment.shuttle_time < min_movetime)
-				log_subsystem_cargo("Shuttle Time less than [min_movetime]: [current_shipment.shuttle_time] - Setting to [min_movetime]")
+				log_subsystem_cargo("Cargo elevator time less than [min_movetime]: [current_shipment.shuttle_time]. Setting to [min_movetime].")
 				current_shipment.shuttle_time = min_movetime
 
 			if(current_shipment.shuttle_time > max_movetime)
-				log_subsystem_cargo("Shuttle Time larger than [max_movetime]: [current_shipment.shuttle_time] - Setting to [max_movetime]")
+				log_subsystem_cargo("Cargo elevator time larger than [max_movetime]: [current_shipment.shuttle_time]. Setting to [max_movetime].")
 				current_shipment.shuttle_time = max_movetime
 
 			movetime = current_shipment.shuttle_time
 			//Launch it
 			shuttle.launch(src)
-			. = "The supply shuttle has been called and will arrive in approximately [round(SScargo.movetime/600,2)] minutes."
+			. = "The cargo elevator has been called and will arrive in approximately [round(SScargo.movetime/600, 2)] minutes."
 			current_shipment.shuttle_called_by = requester_name
 
 //Cancels the shuttle. Can return a status message
@@ -568,13 +568,13 @@ SUBSYSTEM_DEF(cargo)
 
 		//Check if theres space to place the order
 		if(!clear_turfs.len)
-			log_subsystem_cargo("Order [co.order_id] could not be placed on the shuttle because the shuttle is full")
+			log_subsystem_cargo("Order [co.order_id] could not be placed on the cargo elevator because it is full.")
 			break
 
 		//Check if the supplier is still available
 		for(var/datum/cargo_order_item/coi in co.items)
 			if(!coi.ci.supplier_data.available)
-				log_subsystem_cargo("Order [co.order_id] could not be placed on the shuttle because supplier [coi.ci.supplier_data.name] for item [coi.ci.name] is unavailable")
+				log_subsystem_cargo("Order [co.order_id] could not be placed on the cargo elevator because supplier [coi.ci.supplier_data.name] for item [coi.ci.name] is unavailable.")
 				continue
 
 		//Check if there is enough money to ship the order
