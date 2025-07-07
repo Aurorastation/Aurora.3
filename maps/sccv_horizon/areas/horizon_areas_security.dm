@@ -64,12 +64,12 @@
 	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 	horizon_deck = 2
 
-// Security (Deck 3)
 /area/horizon/security/investigations_hallway
 	name = "Investigations Hallway"
 	icon_state = "security"
 	horizon_deck = 3
 
+// Security (Deck 3)
 /area/horizon/security/meeting_room
 	name = "Meeting Room"
 	icon_state = "security"

@@ -199,7 +199,7 @@
 					/area/horizon/maintenance/wing/starboard = 20,
 					/area/horizon/maintenance/wing/starboard/deck1 = 20,
 					/area/horizon/operations/office = 10,
-					/area/horizon/operations/storage = 15,
+					/area/horizon/operations/warehouse = 15,
 					/area/horizon/operations/mining_main/refinery = 20
 					)
 				A = pickweight(ops_list)

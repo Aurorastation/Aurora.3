@@ -117,7 +117,7 @@
 /obj/effect/shuttle_landmark/lift/operations_first_deck
 	name = "Operations Lift - First Deck"
 	landmark_tag = "nav_operations_lift_first_deck"
-	base_area = /area/horizon/operations/storage
+	base_area = /area/horizon/operations/warehouse
 	base_turf = /turf/simulated/floor/plating
 
 /obj/effect/shuttle_landmark/lift/operations_second_deck

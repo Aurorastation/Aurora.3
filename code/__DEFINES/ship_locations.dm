@@ -48,6 +48,12 @@
 /// Operations Subdepartments
 #define SUBLOC_MINING		"Mining"
 #define SUBLOC_HANGAR		"Hangar"
+#define SUBLOC_MACHINING	"Machining"
+
+/// Science Subdepartments
+#define SUBLOC_XENOBIO		"Xenobiology"
+#define SUBLOC_XENOBOT		"Xenobotany"
+#define SUBLOC_XENOARCH		"Xenoarchaeology"
 
 /// Service Subdepartments
 #define SUBLOC_BAR			"Bar"

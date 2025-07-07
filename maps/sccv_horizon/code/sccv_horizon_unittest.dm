@@ -45,4 +45,4 @@
 
 /datum/unit_test/zas_area_test/sccv_horizon/storage
 	name = "ZAS: Operations Bay"
-	area_path = /area/horizon/operations/storage
+	area_path = /area/horizon/operations/warehouse

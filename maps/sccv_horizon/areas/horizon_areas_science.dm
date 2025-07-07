@@ -1,92 +1,117 @@
 /// SCIENCE_AREAS
 /area/horizon/rnd
-	station_area = TRUE
 	holomap_color = HOLOMAP_AREACOLOR_SCIENCE
+	department = LOC_SCIENCE
 
 /area/horizon/rnd/conference
-	name = "Research - Conference Room"
+	name = "Conference Room"
+	horizon_deck = 2
 
 /area/horizon/rnd/hallway
-	name = "Research - Hallway"
+	name = "Central Hallway"
 	icon_state = "research"
 	lightswitch = TRUE
+	horizon_deck = 2
 
 /area/horizon/rnd/hallway/secondary
-	name = "Research - Secondary Hallway"
+	name = "Aft Hallway"
 	icon_state = "research"
 	lightswitch = TRUE
+	horizon_deck = 2
 
 /area/horizon/rnd/telesci
-	name = "Research - Telescience Laboratory"
+	name = "Telescience Laboratory"
 	icon_state = "research"
+	horizon_deck = 2
 
 /area/horizon/rnd/chemistry
-	name = "Research - Exploratory Chemistry"
+	name = "Exploratory Chemistry"
 	icon_state = "chem"
+	horizon_deck = 2
 
 /area/horizon/rnd/lab
-	name = "Research - R&D Laboratory"
+	name = "R&D Laboratory"
 	icon_state = "toxlab"
+	horizon_deck = 2
 
 /area/horizon/rnd/xenobiology
-	name = "Research - Xenobiology Lab"
+	name = "Xenobiology Lab"
 	icon_state = "xeno_lab"
+	horizon_deck = 2
+	subdepartment = SUBLOC_XENOBIO
 
 /area/horizon/rnd/xenobiology/xenological
-	name = "Research - Xenological Studies"
+	name = "Xenological Studies"
 	icon_state = "xeno_log"
+	horizon_deck = 2
+	subdepartment = SUBLOC_XENOBIO
 
 /area/horizon/rnd/xenobiology/hazardous
-	name = "Research - Xenobiology Hazardous Containment"
+	name = "Xenobiology Hazardous Containment"
 	icon_state = "xeno_lab"
+	horizon_deck = 2
+	subdepartment = SUBLOC_XENOBIO
 
 /area/horizon/rnd/xenobiology/dissection
-	name = "Research - Xenobiology Dissection"
+	name = "Xenobiology Dissection"
 	icon_state = "xeno_lab"
+	horizon_deck = 2
+	subdepartment = SUBLOC_XENOBIO
 
 /area/horizon/rnd/xenobiology/foyer
-	name = "Research - Xenobiology Foyer"
+	name = "Xenobiology Foyer"
 	icon_state = "xeno_lab"
-
-/area/horizon/rnd/xenobiology/xenological
-	name = "Research - Xenological Studies"
-	icon_state = "xeno_log"
+	horizon_deck = 2
+	subdepartment = SUBLOC_XENOBIO
 
 /area/horizon/rnd/xenobiology/xenoflora
-	name = "Research - Xenoflora Lab"
+	name = "Xenoflora Lab"
 	icon_state = "xeno_f_lab"
 	no_light_control = TRUE
+	horizon_deck = 2
+	subdepartment = SUBLOC_XENOBOT
 
 /area/horizon/rnd/eva
-	name = "Research - EVA Preparation"
+	name = "EVA Preparation"
 	icon_state = "blue"
+	horizon_deck = 1
 
 /area/horizon/rnd/xenoarch_atrium
-	name = "Research - Xenoarchaeology Atrium"
+	name = "Xenoarchaeology Atrium"
 	icon_state = "research"
+	horizon_deck = 1
+	subdepartment = SUBLOC_XENOARCH
 
 /area/horizon/rnd/xenoarch_storage
-	name = "Research - Xenoarchaeology Storage"
+	name = "Xenoarchaeology Storage"
 	icon_state = "purple"
+	horizon_deck = 1
+	subdepartment = SUBLOC_XENOARCH
 
 /area/horizon/rnd/isolation_a
-	name = "Research - Anomaly Isolation A"
+	name = "Anomaly Isolation A"
 	icon_state = "blue"
+	horizon_deck = 1
+	subdepartment = SUBLOC_XENOARCH
 
 /area/horizon/rnd/isolation_b
-	name = "Research - Anomaly Isolation B"
+	name = "Anomaly Isolation B"
 	icon_state = "red"
+	horizon_deck = 1
+	subdepartment = SUBLOC_XENOARCH
 
 /area/horizon/rnd/isolation_c
-	name = "Research - Anomaly Isolation C"
+	name = "Anomaly Isolation C"
 	icon_state = "green"
+	horizon_deck = 1
+	subdepartment = SUBLOC_XENOARCH
 
 /area/horizon/rnd/test_range
-	name = "Research - Weapons Testing Range"
+	name = "Weapons Testing Range"
 	area_flags = AREA_FLAG_FIRING_RANGE
+	horizon_deck = 1
 
 /area/horizon/rnd/server
 	name = "Research Server Room"
 	icon_state = "server"
-	station_area = TRUE
-	holomap_color = HOLOMAP_AREACOLOR_SCIENCE
+	horizon_deck = 2
