@@ -189,9 +189,7 @@
 		switch(target)
 			if("recreational_areas")
 				var/list/recreational_areas_list = list(
-					/area/horizon/crew/fitness/hallway = 25,
 					/area/horizon/crew/fitness/changing = 25,
-					/area/horizon/crew/fitness/pool = 25,
 					/area/horizon/crew/fitness/gym = 25
 					)
 				A = pickweight(recreational_areas_list)
@@ -202,7 +200,7 @@
 					/area/horizon/maintenance/wing/starboard/deck1 = 20,
 					/area/horizon/operations/office = 10,
 					/area/horizon/operations/storage = 15,
-					/area/outpost/mining_main/refinery = 20
+					/area/horizon/operations/mining_main/refinery = 20
 					)
 				A = pickweight(ops_list)
 			if("starboard_wing")

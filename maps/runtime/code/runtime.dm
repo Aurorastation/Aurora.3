@@ -85,7 +85,37 @@
  */
 
 /// CIVILIAN_AREAS
+// Hallways
+/area/hallway
+	sound_environment = SOUND_AREA_LARGE_ENCLOSED
+	allow_nightmode = TRUE
+	station_area = TRUE
+	lightswitch = TRUE
+	holomap_color = HOLOMAP_AREACOLOR_HALLWAYS
+	emergency_lights = TRUE
+
+/area/hallway/primary/aft
+	name = "Aft Primary Hallway"
+	icon_state = "hallA"
+
+/area/hallway/primary/central_one
+	name = "Central Primary Hallway"
+	icon_state = "hallC1"
+
+/area/hallway/primary/central_two
+	name = "Central Primary Hallway"
+	icon_state = "hallC2"
+
 /// COMMAND_AREAS
+/area/bridge
+	name = "Bridge"
+	icon_state = "bridge"
+	no_light_control = 1
+	station_area = TRUE
+	holomap_color = HOLOMAP_AREACOLOR_COMMAND
+	area_blurb = "The sound here seems to carry more than others, every click of a shoe or clearing of a throat amplified. The smell of ink, written and printed, wafts notably through the air."
+	area_blurb_category = "command"
+
 /// ENGINEERING_AREAS
 /area/engineering
 	name = "Engineering"
@@ -102,55 +132,6 @@
 	ambience = list(AMBIENCE_ENGINEERING, AMBIENCE_ATMOS)
 	area_blurb = "Many volume tanks filled with gas reside here, some providing vital gases for the vessel's life support systems."
 	area_blurb_category = "atmos"
-
-/area/engineering/atmos/storage
-	name = "Engineering - Atmospherics Storage"
-	icon_state = "atmos_storage"
-	sound_environment = SOUND_AREA_SMALL_ENCLOSED
-
-/area/engineering/drone_fabrication
-	name = "Engineering - Drone Fabrication"
-	icon_state = "drone_fab"
-	sound_environment = SOUND_AREA_SMALL_ENCLOSED
-
-/area/engineering/engine_room
-	name = "Engineering - Engine Room"
-	icon_state = "engine"
-	sound_environment = SOUND_AREA_LARGE_ENCLOSED
-	no_light_control = 1
-	ambience = AMBIENCE_SINGULARITY
-
-/area/engineering/engine_airlock
-	name = "Engineering - Engine Room Airlock"
-	icon_state = "engine"
-
-/area/engineering/engine_monitoring
-	name = "Engineering - Monitoring Room"
-	icon_state = "engine_monitoring"
-
-/area/engineering/engine_waste
-	name = "Engineering - Engine Waste Handling"
-	icon_state = "engine_waste"
-	no_light_control = 1
-
-/area/engineering/storage_hard
-	name = "Engineering - Hard Storage"
-	icon_state = "engineering_storage"
-
-/area/engineering/storage_eva
-	name = "Engineering - EVA Storage"
-	icon_state = "engineering_storage"
-
-/area/engineering/break_room
-	name = "Engineering - Break Room"
-	icon_state = "engineering_break"
-	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
-	area_blurb = "The smell of coffee intermixed with oil linger in the air."
-	area_blurb_category = "engi_breakroom"
-
-/area/engineering/locker_room
-	name = "Engineering - Locker Room"
-	icon_state = "engineering_locker"
 
 /area/engineering/gravity_gen
 	name = "Engineering - Gravity Generator"
@@ -171,8 +152,27 @@
 
 /// MEDICAL_AREAS
 /// OPERATIONS_AREAS
+
+// Smalls
+/area/outpost
+	ambience = AMBIENCE_EXPOUTPOST
+
+// Main mining
+/area/outpost/mining_main
+	icon_state = "outpost_mine_main"
+	station_area = TRUE
+	holomap_color = HOLOMAP_AREACOLOR_OPERATIONS
+
+/area/outpost/mining_main/eva
+	name = "Mining EVA storage"
+
 /// SCIENCE_AREAS
 /// SECURITY_AREAS
+area/security
+	no_light_control = 1
+	station_area = FALSE
+	holomap_color = HOLOMAP_AREACOLOR_SECURITY
+
 /// SERVICE_AREAS
 /// STORAGE_AREAS
 //Storage
@@ -183,10 +183,6 @@
 	name = "Primary Tool Storage"
 	icon_state = "primarystorage"
 	allow_nightmode = 1
-
-/area/storage/shields
-	name = "Station Shield Control"
-	icon_state = "eva"
 
 /// TCOMMS_AREAS
 /area/tcommsat

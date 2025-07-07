@@ -3,9 +3,10 @@
  *
  *	Each department (or other appropriate grouping) will have its own section that you can jump to with ctrl-f.
  *	For convenience, these groupings are:
- *	CREW_AREAS			Catch-all areas, I.E. hallways, staff head offices, etc.
+ *	CREW_AREAS			Catch-all/public areas, I.E. hallways, staff head offices, etc.
  *	COMMAND_AREAS		Command areas
  *	ENGINEERING_AREAS	Engineering dept areas
+ *	HOLODECK_AREAS		Fifty million holodeck areas
  *	MAINTENANCE_AREAS	Maintenance tunnels
  *	MEDICAL_AREAS		Medical dept areas
  *	OPERATIONS_AREAS	Operations & Logistics dept areas
@@ -50,7 +51,6 @@
 /area/horizon/crew
 	name = "Crew Compartment"
 	icon_state = "Sleep"
-	area_flags = AREA_FLAG_RAD_SHIELDED
 	station_area = TRUE
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 
@@ -73,9 +73,119 @@
 	station_area = TRUE
 	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
 
-/// COMMAND_AREAS
-//Command
+// Hallways
+/area/horizon/hallway
+	name = "Horizon - Hallway (PARENT AREA - DON'T USE)"
+	sound_environment = SOUND_AREA_LARGE_ENCLOSED
+	allow_nightmode = TRUE
+	lightswitch = TRUE
+	holomap_color = HOLOMAP_AREACOLOR_HALLWAYS
+	emergency_lights = TRUE
 
+/area/horizon/hallway/primary/deck_three/central
+	name = "Horizon - Deck 3 - Central Primary Hallway"
+	icon_state = "hallC"
+
+/area/horizon/hallway/primary/deck_three/starboard
+	name = "Horizon - Deck 3 - Starboard Primary Hallway"
+	icon_state = "hallS"
+
+/area/horizon/hallway/primary/deck_three/starboard/docks
+	name = "Horizon - Deck 3 - Starboard Primary Hallway - Docks"
+	holomap_color = HOLOMAP_AREACOLOR_DOCK
+
+/area/horizon/hallway/primary/deck_three/port
+	name = "Horizon - Deck 3 - Port Primary Hallway"
+	icon_state = "hallP"
+
+/area/horizon/hallway/primary/deck_three/port/docks
+	name = "Horizon - Deck 3 - Port Primary Hallway - Docks"
+	holomap_color = HOLOMAP_AREACOLOR_DOCK
+
+/area/horizon/hallway/primary/deck_two/central
+	name = "Horizon - Deck 2 - Central Primary Hallway"
+	icon_state = "hallF"
+
+/area/horizon/hallway/primary/deck_two/fore
+	name = "Horizon - Deck 2 - Fore Primary Hallway"
+	icon_state = "hallF"
+
+// Stairwells
+/area/horizon/stairwell
+	name = "Horizon - Stairwell (PARENT AREA - DON'T USE)"
+	area_flags = AREA_FLAG_RAD_SHIELDED
+	holomap_color = HOLOMAP_AREACOLOR_HALLWAYS
+
+/area/horizon/stairwell/central
+	name = "Horizon - Central Stairwell"
+	icon_state = "stairwell"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+
+/area/horizon/stairwell/bridge
+	name = "Horizon - Bridge Stairwell"
+	icon_state = "bridge_stairs"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	ambience = AMBIENCE_HIGHSEC
+
+// Crew Quarters
+/area/horizon/crew
+	name = "Horizon - Crew Quarters (PARENT AREA - DON'T USE)"
+	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
+
+// Cryogenics
+/area/horizon/crew/cryo
+	name = "Horizon - Cryogenic Storage"
+	area_flags = AREA_FLAG_RAD_SHIELDED
+	icon_state = "Sleep"
+
+/area/horizon/crew/cryo/living_quarters_lift
+	name = "Horizon - Living Quarters Lift"
+	area_flags = AREA_FLAG_RAD_SHIELDED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+
+/area/horizon/crew/cryo/washroom
+	name = "Horizon - Cryogenic Storage - Washroom"
+	icon_state = "washroom"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+
+// Fitness Center
+/area/horizon/crew/fitness
+	name = "Horizon - Fitness Center (PARENT AREA - DON'T USE)"
+	icon_state = "fitness"
+
+/area/horizon/crew/fitness/gym
+	name = "Horizon - Fitness Center - Gym"
+	icon_state = "fitness_gym"
+
+/area/horizon/crew/fitness/changing
+	name = "Horizon - Fitness Center - Changing Room"
+	icon_state = "fitness_changingroom"
+
+/area/horizon/crew/fitness/showers
+	name = "Horizon - Fitness Center - Showers"
+	icon_state = "showers"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+
+/area/horizon/crew/lounge
+	name = "Crew Lounge"
+	icon_state = "lounge"
+
+/area/horizon/crew/lounge/secondary
+	name = "Secondary Crew Lounge"
+	icon_state = "lounge2"
+
+// Miscellanous
+/area/horizon/crew/washroom/central
+	name = "Horizon - Central Washroom"
+	icon_state = "washroom"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+
+/area/horizon/crew/vacantoffice
+	name = "Vacant Office"
+	no_light_control = 0
+
+
+/// COMMAND_AREAS
 /area/horizon/bridge
 	name = "Bridge"
 	icon_state = "bridge"
@@ -154,24 +264,33 @@
 	icon_state = "captain"
 	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
 	holomap_color = HOLOMAP_AREACOLOR_COMMAND
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/horizon/crew/command/heads
 	holomap_color = HOLOMAP_AREACOLOR_COMMAND
+	area_flags = AREA_FLAG_RAD_SHIELDED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/horizon/crew/command/heads/hor
 	name = "Research - RD's Office"
 	icon_state = "head_quarters"
 
 /area/horizon/crew/command/heads/chief
-	name = "Engineering - CE's Office"
+	name = "Engineering - Chief Engineer's Office"
 	icon_state = "head_quarters"
 
 /area/horizon/crew/command/heads/hos
-	name = "Security - HoS' Office"
+	name = "Security - Head of Security's Office"
 	icon_state = "head_quarters"
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
+	ambience = AMBIENCE_HIGHSEC
 
 /area/horizon/crew/command/heads/cmo
 	name = "Medbay - CMO's Office"
+	icon_state = "head_quarters"
+
+/area/horizon/crew/command/heads/opsmgr
+	name = "Operations - OM's Office"
 	icon_state = "head_quarters"
 
 /area/horizon/repoffice
@@ -276,6 +395,10 @@
 /area/horizon/engineering/bluespace_drive/monitoring
 	name = "Engineering - Bluespace Drive"
 	icon_state = "engineering"
+
+/area/horizon/engineering/shields
+	name = "Ship Shield Control"
+	icon_state = "eva"
 
 /// ENGINEERING_AREAS - ATMOSIA_AREAS
 /area/horizon/engineering/atmos
@@ -675,10 +798,14 @@
 	name = "Operations Mail Room"
 	icon_state = "red"
 
-/area/horizon/operations/qm
-	name = "Operations Manager's Office"
-	icon_state = "quart"
-	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
+/area/horizon/operations/commissary
+	name = "Horizon - Commissary"
+
+/area/horizon/operations/secure_ammunition_storage
+	name = "Horizon - Secure Ammunitions Storage"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	ambience = AMBIENCE_FOREBODING
+	holomap_color = HOLOMAP_AREACOLOR_OPERATIONS
 
 /// OPERATIONS_AREAS - HANGAR_AREAS
 /area/horizon/hangar
@@ -724,6 +851,20 @@
 	area_blurb_category = "robotics"
 
 /// OPERATIONS_AREAS - MINING_AREAS
+/area/horizon/operations/mining_main
+	ambience = AMBIENCE_EXPOUTPOST
+
+/area/horizon/operations/mining_main
+	icon_state = "outpost_mine_main"
+	station_area = TRUE
+	holomap_color = HOLOMAP_AREACOLOR_OPERATIONS
+
+/area/horizon/operations/mining_main/eva
+	name = "Mining EVA storage"
+
+/area/horizon/operations/mining_main/refinery
+	name = "Mining Refinery"
+
 
 /// SCIENCE_AREAS
 /area/horizon/assembly
@@ -825,6 +966,7 @@
 	icon_state = "server"
 	station_area = TRUE
 	holomap_color = HOLOMAP_AREACOLOR_SCIENCE
+
 
 /// SECURITY_AREAS
 /area/horizon/security
@@ -931,60 +1073,101 @@
 	ambience = AMBIENCE_FOREBODING
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
-area/horizon/security/checkpoint
+/area/horizon/security/checkpoint
 	name = "Security Checkpoint"
 	icon_state = "checkpoint1"
 	no_light_control = 0
 
-area/horizon/security/checkpoint2
+/area/horizon/security/checkpoint2
 	name = "Security - Arrivals Checkpoint"
 	icon_state = "security"
 	ambience = AMBIENCE_ARRIVALS
 
-area/horizon/security/vacantoffice
-	name = "Vacant Office"
-	icon_state = "security"
-	no_light_control = 0
+
 
 /// SERVICE_AREAS
-/// TCOMMS_AREAS
+/area/horizon/service
+	name = "Horizon - Service (PARENT AREA - DON'T USE)"
+	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 
+/// Hydroponics areas
+/area/horizon/service/hydroponics
+	name = "Horizon - Hydroponics"
+	icon_state = "hydro"
 
-//Medical
+/area/horizon/service/hydroponics/lower
+	name = "Horizon - Hydroponics - Lower"
 
+/area/horizon/service/hydroponics/garden
+	name = "Horizon - Public Garden"
+	icon_state = "garden"
 
-//Research
+/// Library areas
+/area/horizon/service/library
+	name = "Horizon - Library"
+	icon_state = "library"
+	sound_environment = SOUND_AREA_LARGE_SOFTFLOOR
 
-//Hangar
+/// Kitchen areas
+/area/horizon/service/kitchen
+	name = "Horizon - Kitchen"
+	icon_state = "kitchen"
+	allow_nightmode = FALSE
 
+/area/horizon/service/kitchen/freezer
+	name = "Horizon - Kitchen - Freezer"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
+/// Bar areas
+/area/horizon/service/bar
+	name = "Horizon - Bar"
+	icon_state = "bar"
 
-//Operations
+/area/horizon/service/bar/backroom
+	name = "Horizon - Bar - Backroom"
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
-
-
-//Propulsion
-
-//Bridge
-
-
-//Crew quarters
-
-/area/horizon/crew_quarters/lounge
-	name = "Crew Lounge"
+// Dining Hall
+/area/horizon/service/dining_hall
+	name = "Horizon - Dining Hall"
 	icon_state = "lounge"
+	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
 
-/area/horizon/crew_quarters/lounge/secondary
-	name = "Secondary Crew Lounge"
-	icon_state = "lounge2"
+// Cafeteria
+/area/horizon/service/cafeteria
+	name = "Horizon - Deck 3 Cafeteria"
+	icon_state = "cafeteria"
+	area_blurb = "The smell of coffee wafts over from the cafe. Patience, the tree, stands proudly in the centre of the atrium."
+	area_blurb_category = "d3_cafe"
 
-// Infrastructure
+// Custodial areas
+/area/horizon/service/custodial
+	name = "Horizon - Custodial Closet"
+	icon_state = "janitor"
+	allow_nightmode = FALSE
+	sound_environment = SOUND_AREA_LARGE_ENCLOSED
+	ambience = list(AMBIENCE_FOREBODING, AMBIENCE_ENGINEERING)
+	area_blurb = "A strong, concentrated smell of many cleaning supplies linger within this room."
+	area_blurb_category = "janitor"
 
-/area/horizon/engineering/shields
-	name = "Ship Shield Control"
-	icon_state = "eva"
+/area/horizon/service/custodial/disposals
+	name = "Horizon - Disposals and Recycling"
+	icon_state = "disposal"
+	ambience = list(AMBIENCE_ENGINEERING, AMBIENCE_ATMOS) // Industrial sounds.
+	area_blurb = "A large trash compactor takes up much of the room, ready to crush the ship's rubbish."
+	area_blurb_category = "trash_compactor"
 
-//shuttles
+/area/horizon/service/custodial/auxiliary
+	name = "Horizon - Auxiliary Custodial Closet"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+
+/// SHUTTLE_AREAS
+/area/horizon/shuttle
+	name = "Shuttle"
+	icon_state = "shuttle"
+	requires_power = 0
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/horizon/shuttle/intrepid
 	name = "Intrepid"
@@ -1018,6 +1201,25 @@ area/horizon/security/vacantoffice
 /area/horizon/shuttle/intrepid/flight_deck
 	name = "Intrepid Flight Deck"
 
+/area/horizon/shuttle/escape_pod
+	name = "Escape Pod"
+
+/area/horizon/shuttle/escape_pod/pod1
+	name = "Escape Pod - 1"
+
+/area/horizon/shuttle/escape_pod/pod2
+	name = "Escape Pod - 2"
+
+/area/horizon/shuttle/escape_pod/pod3
+	name = "Escape Pod - 3"
+
+/area/horizon/shuttle/escape_pod/pod4
+	name = "Escape Pod - 4"
+
+/area/horizon/shuttle/mining
+	name = "Spark"
+	requires_power = TRUE
+
 /area/horizon/shuttle/canary
 	name = "Canary"
 	requires_power = TRUE
@@ -1030,141 +1232,26 @@ area/horizon/security/vacantoffice
 	name = "Quark Cargo Hold"
 	requires_power = TRUE
 
-/********** Hallways Start **********/
-// Hallways
-/area/horizon/hallway
-	name = "Horizon - Hallway (PARENT AREA - DON'T USE)"
-	sound_environment = SOUND_AREA_LARGE_ENCLOSED
-	allow_nightmode = TRUE
+
+/// TCOMMS_AREAS
+/area/horizon/tcommsat
+	ambience = AMBIENCE_ENGINEERING
+	no_light_control = 1
+	station_area = TRUE
+	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
+
+/area/horizon/tcommsat/entrance
+	name = "Telecomms Entrance"
+	icon_state = "tcomsatentrance"
 	lightswitch = TRUE
-	holomap_color = HOLOMAP_AREACOLOR_HALLWAYS
-	emergency_lights = TRUE
 
-/area/horizon/hallway/deck_three/primary/central
-	name = "Horizon - Deck 3 - Central Primary Hallway"
-	icon_state = "hallC"
+/area/horizon/tcommsat/chamber
+	name = "Telecomms Central Compartment"
+	icon_state = "tcomsatcham"
+	area_blurb = "Countless machines sit here, an unfathomably complicated network that runs every radio and computer connection. The air lacks any notable scent, having been filtered of dust and pollutants before being allowed into the room and all the sensitive machinery."
 
-/area/horizon/hallway/deck_three/primary/starboard
-	name = "Horizon - Deck 3 - Starboard Primary Hallway"
-	icon_state = "hallS"
 
-/area/horizon/hallway/deck_three/primary/starboard/docks
-	name = "Horizon - Deck 3 - Starboard Primary Hallway - Docks"
-	holomap_color = HOLOMAP_AREACOLOR_DOCK
-
-/area/horizon/hallway/deck_three/primary/port
-	name = "Horizon - Deck 3 - Port Primary Hallway"
-	icon_state = "hallP"
-
-/area/horizon/hallway/deck_three/primary/port/docks
-	name = "Horizon - Deck 3 - Port Primary Hallway - Docks"
-	holomap_color = HOLOMAP_AREACOLOR_DOCK
-
-/area/horizon/hallway/deck_two/fore
-	name = "Horizon - Deck 2 - Fore Hallway"
-	icon_state = "hallF"
-/********** Hallways End **********/
-
-/********** Stairwells Start **********/
-// Stairwells
-/area/horizon/stairwell
-	name = "Horizon - Stairwell (PARENT AREA - DON'T USE)"
-	area_flags = AREA_FLAG_RAD_SHIELDED
-	holomap_color = HOLOMAP_AREACOLOR_HALLWAYS
-
-/area/horizon/stairwell/central
-	name = "Horizon - Central Stairwell"
-	icon_state = "stairwell"
-	sound_environment = SOUND_AREA_SMALL_ENCLOSED
-
-/area/horizon/stairwell/bridge
-	name = "Horizon - Bridge Stairwell"
-	icon_state = "bridge_stairs"
-	sound_environment = SOUND_AREA_SMALL_ENCLOSED
-	ambience = AMBIENCE_HIGHSEC
-/********** Stairwells End **********/
-
-/********** Crew Quarters Start **********/
-// Crew Quarters
-/area/horizon/crew
-	name = "Horizon - Crew Quarters (PARENT AREA - DON'T USE)"
-	area_flags = AREA_FLAG_RAD_SHIELDED
-	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
-
-// Cryogenics
-/area/horizon/crew/cryo
-	name = "Horizon - Cryogenic Storage"
-	icon_state = "Sleep"
-
-/area/horizon/crew/cryo/living_quarters_lift
-	name = "Horizon - Living Quarters Lift"
-	sound_environment = SOUND_AREA_SMALL_ENCLOSED
-
-/area/horizon/crew/cryo/dormitories
-	name = "Horizon - Cryogenic Storage - Dormitories"
-
-/area/horizon/crew/cryo/washroom
-	name = "Horizon - Cryogenic Storage - Washroom"
-	icon_state = "washroom"
-	sound_environment = SOUND_AREA_SMALL_ENCLOSED
-
-/area/horizon/crew/cryo/showers
-	name = "Horizon - Cryogenic Storage - Showers"
-	icon_state = "showers"
-	sound_environment = SOUND_AREA_SMALL_ENCLOSED
-
-// Fitness Center
-/area/horizon/crew/fitness
-	name = "Horizon - Fitness Center (PARENT AREA - DON'T USE)"
-	icon_state = "fitness"
-
-/area/horizon/crew/fitness/hallway
-	name = "Horizon - Fitness Center Hallway"
-	icon_state = "fitness_hallway"
-
-/area/horizon/crew/fitness/pool
-	name = "Horizon - Fitness Center - Pool"
-	icon_state = "fitness_pool"
-
-/area/horizon/crew/fitness/gym
-	name = "Horizon - Fitness Center - Gym"
-	icon_state = "fitness_gym"
-
-/area/horizon/crew/fitness/changing
-	name = "Horizon - Fitness Center - Changing Room"
-	icon_state = "fitness_changingroom"
-
-/area/horizon/crew/fitness/washroom
-	name = "Horizon - Fitness Center - Washroom"
-	icon_state = "washroom"
-	sound_environment = SOUND_AREA_SMALL_ENCLOSED
-
-/area/horizon/crew/fitness/showers
-	name = "Horizon - Fitness Center - Showers"
-	icon_state = "showers"
-	sound_environment = SOUND_AREA_SMALL_ENCLOSED
-
-/area/horizon/crew/fitness/lounge
-	name = "Horizon - Fitness Center - Lounge"
-	icon_state = "fitness_lounge"
-	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
-
-// Lounges
-/area/horizon/crew/lounge/bar
-	name = "Horizon - Bar Lounge"
-	icon_state = "lounge"
-	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
-
-// Miscellanous
-/area/horizon/crew/washroom/central
-	name = "Horizon - Central Washroom"
-	icon_state = "washroom"
-	sound_environment = SOUND_AREA_SMALL_ENCLOSED
-
-/********** Crew Quarters End **********/
-
-/********** Holodeck Start **********/
-// Holodeck
+/// HOLODECK_AREAS
 /area/horizon/holodeck_control
 	name = "Horizon - Holodeck Alpha"
 	area_flags = AREA_FLAG_RAD_SHIELDED
@@ -1306,120 +1393,16 @@ area/horizon/security/vacantoffice
 /area/horizon/holodeck/source_combat_training
 	name = "Horizon - Holodeck - Combat Training Arena"
 
-/********** Holodeck End **********/
 
-/********** Unique Start **********/
-// Hydroponics
-/area/horizon/hydroponics
-	name = "Horizon - Hydroponics"
-	icon_state = "hydro"
-	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
-
-/area/horizon/hydroponics/lower
-	name = "Horizon - Hydroponics - Lower"
-
-/area/horizon/hydroponics/garden
-	name = "Horizon - Public Garden"
-	icon_state = "garden"
-
-// Library
-/area/horizon/library
-	name = "Horizon - Library"
-	icon_state = "library"
-	sound_environment = SOUND_AREA_LARGE_SOFTFLOOR
-	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
-
-// Kitchen
-/area/horizon/kitchen
-	name = "Horizon - Kitchen"
-	icon_state = "kitchen"
-	allow_nightmode = FALSE
-	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
-
-/area/horizon/kitchen/hallway
-	name = "Horizon - Kitchen - Hallway"
-
-/area/horizon/kitchen/freezer
-	name = "Horizon - Kitchen - Freezer"
-	sound_environment = SOUND_AREA_SMALL_ENCLOSED
-
-// Bar
-/area/horizon/bar
-	name = "Horizon - Bar"
-	icon_state = "bar"
-	allow_nightmode = FALSE
-	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
-
-/area/horizon/bar/backroom
-	name = "Horizon - Bar - Backroom"
-	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
-	area_flags = AREA_FLAG_RAD_SHIELDED
-
-// Cafeteria
-/area/horizon/cafeteria
-	name = "Horizon - Deck 3 Cafeteria"
-	icon_state = "cafeteria"
-	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
-	area_blurb = "The smell of coffee wafts over from the cafe. Patience, the tree, stands proudly in the centre of the atrium."
-	area_blurb_category = "d3_cafe"
-
-// Custodial
-/area/horizon/custodial
-	name = "Horizon - Custodial Closet"
-	icon_state = "janitor"
-	allow_nightmode = FALSE
-	sound_environment = SOUND_AREA_LARGE_ENCLOSED
-	ambience = list(AMBIENCE_FOREBODING, AMBIENCE_ENGINEERING)
-	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
-	area_blurb = "A strong, concentrated smell of many cleaning supplies linger within this room."
-	area_blurb_category = "janitor"
-
-/area/horizon/custodial/disposals
-	name = "Horizon - Disposals and Recycling"
-	icon_state = "disposal"
-	ambience = list(AMBIENCE_ENGINEERING, AMBIENCE_ATMOS) // Industrial sounds.
-	area_blurb = "A large trash compactor takes up much of the room, ready to crush the ship's rubbish."
-	area_blurb_category = "trash_compactor"
-
-/area/horizon/custodial/auxiliary
-	name = "Horizon - Auxiliary Custodial Closet"
-	sound_environment = SOUND_AREA_SMALL_ENCLOSED
-	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
-
-// Commissary
-/area/horizon/commissary
-	name = "Horizon - Commissary"
-/********** Unique End **********/
-
-/********** Weapon Systems Start **********/
-// Secure Ammunition Storage
-/area/horizon/secure_ammunition_storage
-	name = "Horizon - Secure Ammunitions Storage"
-	sound_environment = SOUND_AREA_SMALL_ENCLOSED
-	ambience = AMBIENCE_FOREBODING
-	holomap_color = HOLOMAP_AREACOLOR_OPERATIONS
-
-/*
-// ZAT
-/area/horizon/zat
-	name = "Horizon - ZAT Weapon System"
-	icon_state = "zat"
-	sound_environment = SOUND_AREA_LARGE_ENCLOSED
-	ambience = AMBIENCE_SINGULARITY
-	area_blurb = "A gargantuan machine dominates the room, covered in components and moving parts. Its name is befitting of its size."
-	area_blurb_category = "leviathan"
-	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
-*/
-
-// Longbow
-/area/horizon/longbow
+/// WEAPONS_AREAS
+/area/horizon/weapons/longbow
 	name = "Horizon - Longbow Weapon System"
 	icon_state = "bridge_weapon"
 	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 	ambience = AMBIENCE_HIGHSEC
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 
-/area/horizon/grauwolf
+/area/horizon/weapons/grauwolf
 	name = "Horizon - Grauwolf Weapon System"
 	icon_state = "bridge_weapon"
 	sound_environment = SOUND_AREA_LARGE_ENCLOSED
@@ -1432,6 +1415,11 @@ area/horizon/security/vacantoffice
 /area/horizon/storage
 	station_area = TRUE
 
+/// STORAGE_AREAS
+/area/horizon/storage/primary
+	name = "Primary Tool Storage"
+	icon_state = "primarystorage"
+
 /area/horizon/storage/eva
 	name = "EVA Storage"
 	icon_state = "eva"
@@ -1440,19 +1428,3 @@ area/horizon/security/vacantoffice
 	name = "Secure Storage"
 	icon_state = "storage"
 
-/// TCOMMS_AREAS
-/area/horizon/tcommsat
-	ambience = AMBIENCE_ENGINEERING
-	no_light_control = 1
-	station_area = TRUE
-	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
-
-/area/horizon/tcommsat/entrance
-	name = "Telecomms Entrance"
-	icon_state = "tcomsatentrance"
-	lightswitch = TRUE
-
-/area/horizon/tcommsat/chamber
-	name = "Telecomms Central Compartment"
-	icon_state = "tcomsatcham"
-	area_blurb = "Countless machines sit here, an unfathomably complicated network that runs every radio and computer connection. The air lacks any notable scent, having been filtered of dust and pollutants before being allowed into the room and all the sensitive machinery."

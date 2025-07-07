@@ -178,7 +178,7 @@
 /datum/shuttle/autodock/overmap/mining
 	name = "Spark"
 	move_time = 20
-	shuttle_area = /area/shuttle/mining
+	shuttle_area = /area/horizon/shuttle/mining
 	dock_target = "airlock_shuttle_spark"
 	current_location = "nav_hangar_mining"
 	landmark_transition = "nav_transit_mining"
