@@ -69,7 +69,6 @@
 /datum/category_item/player_setup_item/player_global/settings/content(mob/user)
 	var/list/dat = list(
 		"<b>Play admin midis:</b> <a href='byond://?src=[REF(src)];toggle=[SOUND_MIDI]'><b>[(pref.toggles & SOUND_MIDI) ? "Yes" : "No"]</b></a><br>",
-		"<b>Play lobby music:</b> <a href='byond://?src=[REF(src)];toggle=[SOUND_LOBBY]'><b>[(pref.toggles & SOUND_LOBBY) ? "Yes" : "No"]</b></a><br>",
 		"<b>Ghost ears:</b> <a href='byond://?src=[REF(src)];toggle=[CHAT_GHOSTEARS]'><b>[(pref.toggles & CHAT_GHOSTEARS) ? "All Speech" : "Nearest Creatures"]</b></a><br>",
 		"<b>Ghost sight:</b> <a href='byond://?src=[REF(src)];toggle=[CHAT_GHOSTSIGHT]'><b>[(pref.toggles & CHAT_GHOSTSIGHT) ? "All Emotes" : "Nearest Creatures"]</b></a><br>",
 		"<b>Ghost radio:</b> <a href='byond://?src=[REF(src)];toggle=[CHAT_GHOSTRADIO]'><b>[(pref.toggles & CHAT_GHOSTRADIO) ? "All Chatter" : "Nearest Speakers"]</b></a><br>",
@@ -87,11 +86,6 @@
 	if(href_list["toggle"])
 		var/toggle_flag = text2num(href_list["toggle"])
 		pref.toggles ^= toggle_flag
-		if(toggle_flag == SOUND_LOBBY && isnewplayer(user))
-			if(pref.toggles & SOUND_LOBBY)
-				user << sound(SSticker.login_music, repeat = 0, wait = 0, volume = 85, channel = 1)
-			else
-				user << sound(null, repeat = 0, wait = 0, volume = 85, channel = 1)
 		return TOPIC_REFRESH
 
 	if(href_list["paratoggle"])

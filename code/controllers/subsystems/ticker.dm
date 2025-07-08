@@ -53,11 +53,14 @@ var/datum/controller/subsystem/ticker/SSticker
 	var/atom/movable/screen/cinematic = null
 
 	var/list/default_lobby_tracks = list(
-		'sound/music/lobby/space.ogg',
-		'sound/music/lobby/traitor.ogg',
-		'sound/music/lobby/title2.ogg',
-		'sound/music/lobby/title3mk2.ogg',
-		'sound/music/lobby/clouds.s3m'
+		'sound/music/lobby/anotherstory.ogg',
+		'sound/music/lobby/kaaistoep.ogg',
+		'sound/music/lobby/saturn.ogg',
+		'sound/music/lobby/snow.ogg',
+		'sound/music/lobby/yuki_satellites.ogg',
+		'sound/music/lobby/yuki_satellites.ogg',
+		'sound/music/lobby/yuki_satellites.ogg',
+		'sound/music/lobby/yuki_satellites.ogg'
 	)
 
 	var/lobby_ready = FALSE
