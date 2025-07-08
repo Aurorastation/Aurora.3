@@ -141,6 +141,9 @@
 	if(!(A in accessories))
 		return
 
+	if(use_check_and_message(user))
+		return
+
 	A.on_removed(user)
 	LAZYREMOVE(accessories, A)
 	update_clothing_icon()
@@ -152,7 +155,7 @@
 	set category = "Object"
 	set src in usr
 
-	remove_accessory_handler(usr)
+	remove_accessory_handler(usr, FALSE)
 
 /obj/item/clothing/proc/remove_accessory_handler(var/mob/living/user, var/force_radial = FALSE)
 	if(!isliving(user))
