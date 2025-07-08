@@ -61,4 +61,6 @@ changes:
   - bugfix: "Fixed unclosed hrefs; additional clothing accessory Examine detail links work again."
   - bugfix: "Fixed unclosed hrefs; AI/Borg ship alarm camera links work again."
   - bugfix: "Fixed unclosed hrefs; borg/drone installed modules detail links works again."
-  - bugfix: "Fixed unclosed hrefs; newscaster story comments finally work again!!!"
+  - bugfix: "Fixed unclosed hrefs; various library computer links work again."
+  - bugfix: "Fixed unclosed hrefs; various pAI window links work again."
+  - bugfix: "Fixed unclosed hrefs; newscaster story comments work again."
