@@ -779,7 +779,6 @@ CREATE TABLE IF NOT EXISTS `ss13_player_preferences` (
   `lastmemo` mediumtext DEFAULT NULL,
   `language_prefixes` mediumtext DEFAULT NULL,
   `toggles_secondary` int(11) DEFAULT NULL,
-  `lobby_music_vol` int(11) DEFAULT 85,
   `parallax_speed` int(11) DEFAULT NULL,
   `tgui_fancy` int(1) NOT NULL DEFAULT 1,
   `tgui_lock` int(1) NOT NULL DEFAULT 0,
