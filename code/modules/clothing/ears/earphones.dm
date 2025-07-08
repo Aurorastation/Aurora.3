@@ -4,8 +4,9 @@
 	Current Features:
 	- All earphones have a cartridge slot. Cartridges can be inserted by clicking an earphone, and removed via an eject_music_cartridge() verb.
 	- Inserting a cartridge will load a playlist containing /datum/tracks, where track names and sound files are loaded.
-	- Shift+Clicking or Attack_Self will Start/Stop a playlist, creating or deleting an active sound_player token. Ejecting a music cartridge also terminates the sound_player token.
+	- Shift+Clicking will Start/Stop a playlist, creating or deleting an active sound_player token.
 	- Alt+Clicking with Pause/Unpause the current track, preserving an active sound_player token.
+	- attack_self will eject the music cartridge. Ejecting a music cartridge also terminates the sound_player token.
 	- Volume controllable via verb.
 
 	Missing features i am too weak to figure out:
@@ -18,9 +19,12 @@
 /obj/item/clothing/ears/earphones
 	name = "earphones"
 	desc = "A pair of wireless earphones. Includes a little slot for a music cartridge."
+	desc_info = "Shift+Click to Start/Stop a playlist. Alt+Click to Pause/Resume the current track. Click character to eject cartridge. Alternatively, use verbs."
 	icon = 'icons/obj/clothing/ears/earmuffs.dmi'
 	icon_state = "earphones"
 	item_state = "earphones"
+	slot_flags = SLOT_EARS | SLOT_TWOEARS
+	contained_sprite = TRUE
 	build_from_parts = TRUE
 
 	/// The music cartridge loaded into the earphones. The source of which sound files to play.
@@ -39,7 +43,7 @@
 	var/volume = 25
 
 	/// Range. No use for this yet, but maybe someone will want to make a boombox or something that has a larger range.
-	var/range = 1
+	var/range = 0
 
 	/// Is a track playing? For icon updates.
 	var/playing = FALSE
@@ -100,7 +104,7 @@
 */
 
 /obj/item/clothing/ears/earphones/attack_self(mob/user)
-	play_stop()
+	eject_music_cartridge(user)
 	..()
 
 /obj/item/clothing/ears/earphones/proc/StopPlaying()
