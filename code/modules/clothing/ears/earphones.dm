@@ -247,7 +247,7 @@
 		usr.visible_message(SPAN_NOTICE("[usr] clicks a button on [usr.get_pronoun("his")] [src]."))
 		playsound(usr, /singleton/sound_category/button_sound, 10)
 		if(soundplayer_token)
-			if(soundplayer_token.status == ~SOUND_PAUSED)
+			if(soundplayer_token.status != SOUND_PAUSED)
 				soundplayer_token.Pause()
 				to_chat(usr, SPAN_NOTICE("Music paused."))
 			else if (soundplayer_token.status == SOUND_PAUSED)
@@ -360,7 +360,7 @@ Earphone Variants
 		new/datum/track("Childhood", 'sound/music/audioconsole/Childhood.ogg'),
 		new/datum/track("Don't Rush", 'sound/music/audioconsole/DontRush.ogg'),
 		new/datum/track("Lips", 'sound/music/audioconsole/Lips.ogg'),
-		new/datum/track("Number 0", 'sound/music/audioconsole/Number0,.ogg'),
+		new/datum/track("Number 0", 'sound/music/audioconsole/Number0.ogg'),
 		new/datum/track("Phoron Will Make Us Rich", 'sound/music/audioconsole/PhoronWillMakeUsRich.ogg'),
 		new/datum/track("That Ain't Chopin", 'sound/music/audioconsole/ThatAintChopin.ogg'),
 		new/datum/track("The Pianist", 'sound/music/audioconsole/ThePianist.ogg'),
@@ -388,7 +388,7 @@ Earphone Variants
 		new/datum/track("dance させる", 'sound/music/regional/venus/dance.ogg'),
 		new/datum/track("love sensation", 'sound/music/regional/venus/love_sensation.ogg'),
 		new/datum/track("All Night", 'sound/music/regional/venus/all_night.ogg'),
-		new/datum/track("Ted Didlio", 'sound/music/regional/venus/ted_didlio.ogg'),
+		new/datum/track("#billyocean", 'sound/music/regional/venus/billy_ocean.ogg'),
 		new/datum/track("Artificially Sweetened", 'sound/music/regional/venus/artificially_sweetened.ogg'),
 		new/datum/track("Real Love", 'sound/music/regional/venus/real_love.ogg')
 	)

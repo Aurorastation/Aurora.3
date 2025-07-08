@@ -179,3 +179,32 @@
 /datum/gear/utility/buddy_tag/New()
 	..()
 	gear_tweaks += new /datum/gear_tweak/buddy_tag_config()
+
+/datum/gear/utility/earphones
+	display_name = "earphones selection"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+	path = /obj/item/clothing/ears/earphones
+	cost = 1
+
+/datum/gear/utility/earphones/New()
+	..()
+	var/list/earphones = list()
+	earphones["headphones"] = /obj/item/clothing/ears/earphones/headphones
+	earphones["earphones"] = /obj/item/clothing/ears/earphones
+	earphones["earbuds"] = /obj/item/clothing/ears/earphones/earbuds
+	gear_tweaks += new /datum/gear_tweak/path(earphones)
+
+/datum/gear/utility/earphones_music_cartridge
+	display_name = "earphones music cartridge selection"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	path = /obj/item/device/music_cartridge/audioconsole
+	cost = 1
+
+/datum/gear/utility/earphones_music_cartridge/New()
+	..()
+	var/list/music_cartridges = list()
+	music_cartridges["Konyang Vibes 2463"] = /obj/item/device/music_cartridge/konyang_retrowave
+	music_cartridges["Top of the Charts 66 (Venusian Hits)"] = /obj/item/device/music_cartridge/venus_funkydisco
+	music_cartridges["SCCV Horizon Welcome Package"] = /obj/item/device/music_cartridge/audioconsole
+	music_cartridges["Spacer Classics Vol. 1"] = /obj/item/device/music_cartridge/ss13
+	gear_tweaks += new /datum/gear_tweak/path(music_cartridges)
