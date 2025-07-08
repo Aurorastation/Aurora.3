@@ -1,0 +1,145 @@
+2025-07-01:
+  Batrachophreno:
+  - bugfix: Removes false APC alarms.
+  - qol: Upgradeable objects now, on extended Examine (show more info), state what
+      parts can be upgraded and what they do.
+  - qol: Extended Examine text now formatted more cleanly and broken up by section
+      (mechanics, upgrades, antag hooks, etc.)
+  - refactor: Minor refactor to get_examine_text() to accommodate the above and make
+      room for future development.
+  - balance: Machine stock parts now more consistently affect power draw (usually
+      increases it, unless specified otherwise).
+  - balance: Antagonism extended descriptions now viewable by ghosts and Storytellers,
+      not just active antags.
+  - rscadd: Added missing descriptions or updated existing ones on several stock parts.
+  - bugfix: Restores correct resolutions to new TGUI windows.
+  - qol: Added additional description information for telecomms machines to communicate
+      that they can be repaired using Nanopaste.
+  - qol: Damaged telecomms machines now show their condition when examined.
+  - balance: Added small Nanopaste supply to the telecomms vestibule for repair.
+  - balance: Repairing telecomms machines now just repairs flat 25 damage (out of
+      max 100) instead of repairing by halves (was behaving oddly in-game).
+  - balance: Made the damaging variant of Communications Blackout do less damage to
+      soften the garbling effect.
+  - rscadd: Beating up a telecomms processor will now cause integrity damage to it,
+      which will result in garbled communications
+  - qol: Added antag desc text for the telecomms processor describing damage to it
+      garbling communications.
+  - balance: Comms Blackout events (base and damaging version) have had their weights
+      halved, given the addition of the new variant greatly increased their overall
+      likelihood.
+  - balance: APC Damage event now much more frequently causes lights to blow out.
+  - balance: Electrical Storm events have had their weights adjusted downwards slightly.
+  - balance: Electrical Storm events have had their durations reduced slightly.
+  - balance: Electrical Storm events now target fewer APCs at a time (2,4,6 -> 2,3,4).
+  - balance: Electrical Storm events no longer affect smaller offships.
+  - balance: Cosmic Expulsion event now weigh Bridge Crew/Engineer presence slightly
+      more heavily.
+  CometBlaze:
+  - rscadd: Added different Bishop screens! You can even change them during the round.
+  - bugfix: The default bishop face will no longer be layered over the alternate heads.
+  - rscdel: Removed the alternate head light markings as the new implementation made
+      them obsolete.
+  FabianK3:
+  - rscadd: Added an orange version of the high visibility jacket and pants. They
+      are available in the loadout.
+  Kano:
+  - rscadd: Remapped the SCCV Intrepid.
+  - rscadd: Ports CM's double vehicle seats.
+  SimpleMaroon:
+  - rscadd: Added 'diet Diesel' to the Diona - Xenowear loadout. It's like the Diesel
+      you know and love without all that dangerous radiation!
+  - qol: Regular and diet Diesel now both inflict toxin damage, with diet Diesel inflicting
+      less.
+  - spellcheck: Correct a typo in the description for standard Diesel.
+  SleepyGemmy:
+  - rscdel: Removed a duplicate candle in the chapel.
+  - bugfix: Fixed a lightswitch that had the wrong direction set in the auxiliary
+      custodial closet.
+  - bugfix: Fixed some doors having the wrong access set in research.
+  - bugfix: Added a missing emergency closet decal in research.
+  - rscadd: Added a charger and some minor furnishing to the RD office's empty corner.
+  - rscadd: Added a camera to the security equipment room.
+  - rscadd: Added an account console to the captain office.
+  - rscadd: Added an ATM to the bridge hallway.
+  - rscadd: Fixed a turf in the engineering hard storage not being the correct type.
+  - rscadd: Fixed the crusher disposal placing items on top of the crusher pistons.
+  - bugfix: Fixed grass flowing over onto tiles on the Horizon.
+  VMSolidus:
+  - rscadd: Added the option to give custom names and descriptions to most generic(non-corporate)
+      augments in loadouts.
+  - rscadd: Descriptions for augments will now appear in cyborg analyzer scans. Assisted
+      organs will also show up there as well.
+  hazelmouse:
+  - rscadd: The Cryo Outpost and Nuclear Silo scenario maps have been edited to minimise
+      the travel time between the shuttle landmarks and the centerpieces of each map.
+2025-07-02:
+  CometBlaze:
+  - rscadd: Renamed the positronic-implanted brain to pseudoneuron-assisted brain.
+  ElorgRHG:
+  - imageadd: Resprited colorable suit jackets, blazers, and dress pants.
+  Jasorn:
+  - rscdel: Removed the adult descriptions/references in the battlemonsters cards.
+  SleepyGemmy:
+  - imageadd: Added a small medical sign.
+  - rscadd: Replaced the medical signs with small medical signs.
+  hazelmouse:
+  - rscadd: K'ois spores no longer invariably begin to die after being planted. This
+      was happening because their light tolerance was lower than the light generated
+      by their own bioluminescence, causing them to die from the light they produce.
+  steviii:
+  - rscadd: Added a Himean ship and all the associated peripheries.
+  - rscadd: Adds Hydrogen cells to the military belts.
+  - rscadd: Adds the Nephilim blaster repeater cannon.
+  - rscadd: Adds an empty variant for the medical closet.
+  - rscadd: Redefines raider walls to use COLOR_RAIDER instead of a hexcode.
+  - rscadd: Adds Himean naval and army uniforms and a pilot helmet.
+  - soundadd: Adds a gatling laser sound for the Nephilim.
+  - rscadd: Adds an equipped variant of the Himean industrial rig.
+  - rscadd: Genericizes the description of the energy knife.
+2025-07-03:
+  hazelmouse, MattAtlas:
+  - rscadd: Dionae now have access to an ability granting them magboot-like functionality.
+  - code_imp: Implemented some miscellaneous documentation changes to Diona code.
+2025-07-04:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Object examine text for upgrade components now correctly displays as available.
+  - bugfix: Missing RPED component detection text restored.
+  - rscdel: Remove component power draw multiplier factor.
+  SleepyGemmy:
+  - bugfix: Fixed wallets having a mob overlay.
+  - bugfix: Fixed lanyards having a duplicate overlay.
+2025-07-07:
+  ASmallCuteCat:
+  - rscadd: You can now wash dishes, cooking pots, and glassware! With the empty item
+      in hand, left-click a sink with DISARM intent.
+  Batrachophreno:
+  - rscadd: Offbrand variant of sightlights available to non-Zeng-Hu crew; 50% weaker
+      than Zeng-Hu variant.
+  - balance: Tiny increase to brightness of original Zeng-Hu sightlights and the light
+      is now tinged a stylish pale violet.
+  ElorgRHG:
+  - imageadd: 'Did a consistency pass, and some resprites, on most boot sprites, notable
+      changes include: all colorable boots, all workboots, all jackboots/ridingboots/ridingboots.'
+  GeneralCamo:
+  - rscadd: Prosthetics with lights now have emissives.
+  SimpleMaroon:
+  - bugfix: Diet Diesel no longer gives toxin damage to Dionae.
+  - qol: Queenless K'lax Vaurcae can now select Si'akh as their religion. This is
+      only meant for those of the Ssup'vihtal group!
+  SleepyGemmy:
+  - rscadd: Added a windoor to the SmartFridge in the kitchen on the kitchen side.
+  - bugfix: Fixed ringer terminals ringing across decks.
+  steviii:
+  - rscadd: Swaps some pipes and machinery around in the atmos locker room so it doesn't
+      overlap.
+2025-07-08:
+  Batrachophreno:
+  - bugfix: Replaced 691 standard grates in Horizon maintenance areas with dark grates.
+  MattAtlas (Porting), CM Developers (original code):
+  - rscadd: Replaced Runechat with Langchat from CM for better functionality and clearer
+      text.
+  - rscadd: Ported screen text from CM.
+  SleepyGemmy:
+  - bugfix: Fixed ringer buttons not animating when pressed.
+  - bugfix: Fixed the hydroponics ringers being named wrong.

@@ -121,7 +121,7 @@
 	outside_part = FALSE
 
 /turf/simulated/wall/shuttle/raider
-	color = "#6C7364"
+	color = COLOR_RAIDER
 
 /turf/simulated/wall/shuttle/hapt
 	color = "#2E2B2B"
