@@ -160,3 +160,20 @@
 	icon_state = "City Alive"
 	desc = "City Alive is another popular restaurant chain, originating from Eridani I. It is famous for its light shows."
 	desc_extended = "City Alive is a high class restaurant chain, dotted all over Eridani I and III. Especially on Eridani I they are also famous for their light shows in the evenings. These lights look like pulsating veins, making the city seem alive, especially when observed from orbit."
+
+// Here come signs that are in any way special or are not supposed to be in the kitchen- or barsign selection.
+
+/singleton/sign/double/barsign/maintenance
+	icon = 'icons/obj/maintsigns.dmi'
+	icon_state = 'blank'
+	anchored = FALSE
+	req_access = list(ACCESS_NONE)
+	desc = "Badly sawn out as well as badly nailed together wooden boards, ready to receive today's christening of engineering's hangout hidey-hole."
+	var/choice_types = /singleton/double/barsign/maintenance
+
+/singleton/sign/double/barsign/maintenance/delta_bac
+	name = "Delta-BAC"
+	icon_state = "Delta-BAC"
+	desc = "Delta-BAC is the first official-unofficial name given to the engineering department's designated hangout spot."
+	desc_extended = "After arguing, that the 'hidden' maintenance bar behind engineering, a designated hangout spot for said engineers, finally needs a name an equally drunk and democratic vote was put up to name it the Delta-BAC. Because \
+	the blood alcohol content after drinking is just the blood alcohol content before drinking? About as logical as it can get with wasted engineers."
