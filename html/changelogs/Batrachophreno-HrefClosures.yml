@@ -55,7 +55,7 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - bugfix: "Fixed unclosed hrefs; Integrated Circuits and Electronic Assembly UIs works again."
+  - bugfix: "Fixed unclosed hrefs; Integrated Circuits and Electronic Assembly UIs work again."
   - bugfix: "Fixed unclosed hrefs; Exosuits 'being piloted by' text with link to pilot works again."
   - bugfix: "Fixed unclosed hrefs; Show Held Item 'Take a closer look' text link works again."
   - bugfix: "Fixed unclosed hrefs; additional clothing accessory Examine detail links work again."
