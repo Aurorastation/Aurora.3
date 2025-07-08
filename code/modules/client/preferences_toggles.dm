@@ -75,13 +75,12 @@
 	set category = "Preferences.Sound"
 	set desc = "Adjusts the Game Lobby music volume"
 
-	var/lobby_music_vol_new = input(src, "Choose lobby music volume, 0 to mute", "Global Preference", prefs.lobby_music_vol) as num
+	var/lobby_music_vol_new = input(src, "Choose lobby music volume, 0 to mute", "Global Preference", prefs.lobby_music_vol) as num|null
 	if(isnull(lobby_music_vol_new))
 		lobby_music_vol_new = 0
 	if(!prefs.lobby_music_vol && lobby_music_vol_new)
 		to_chat(src, "You will now hear music in the game lobby.")
-	clamp(lobby_music_vol_new, 0, 100)
-	prefs.lobby_music_vol = lobby_music_vol_new
+	prefs.lobby_music_vol = clamp(lobby_music_vol_new, 0, 100)
 	if(!prefs.lobby_music_vol)
 		to_chat(src, "You will no longer hear music in the game lobby.")
 	prefs.save_preferences()

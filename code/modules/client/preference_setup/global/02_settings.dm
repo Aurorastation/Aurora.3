@@ -8,6 +8,7 @@
 	S["toggles"]          >> pref.toggles
 	S["sfx_toggles"]        >> pref.sfx_toggles
 	S["toggles_secondary"] >> pref.toggles_secondary
+	S["lobby_music_vol"] >> pref.lobby_music_vol
 
 /datum/category_item/player_setup_item/player_global/settings/save_preferences(var/savefile/S)
 	S["lastchangelog"]    << pref.lastchangelog
@@ -15,6 +16,7 @@
 	S["toggles"]          << pref.toggles
 	S["sfx_toggles"]        << pref.sfx_toggles
 	S["toggles_secondary"] << pref.toggles_secondary
+	S["lobby_music_vol"] << pref.lobby_music_vol
 
 /datum/category_item/player_setup_item/player_global/settings/gather_load_query()
 	return list(
@@ -24,7 +26,8 @@
 				"current_character",
 				"toggles",
 				"sfx_toggles",
-				"toggles_secondary"
+				"toggles_secondary",
+				"lobby_music_vol"
 			),
 			"args" = list("ckey")
 		)
@@ -42,6 +45,7 @@
 			"sfx_toggles",
 			"ckey" = 1,
 			"toggles_secondary",
+			"lobby_music_vol",
 		)
 	)
 
@@ -52,7 +56,8 @@
 		"current_character" = pref.current_character,
 		"toggles" = pref.toggles,
 		"sfx_toggles" = pref.sfx_toggles,
-		"toggles_secondary" = pref.toggles_secondary
+		"toggles_secondary" = pref.toggles_secondary,
+		"lobby_music_vol" = pref.lobby_music_vol
 	)
 
 /datum/category_item/player_setup_item/player_global/settings/sanitize_preferences(var/sql_load = 0)
@@ -65,10 +70,12 @@
 	pref.toggles        = sanitize_integer(text2num(pref.toggles), 0, BITFIELDMAX, initial(pref.toggles))
 	pref.sfx_toggles      = sanitize_integer(text2num(pref.sfx_toggles), 0, BITFIELDMAX, initial(pref.toggles))
 	pref.toggles_secondary  = sanitize_integer(text2num(pref.toggles_secondary), 0, BITFIELDMAX, initial(pref.toggles_secondary))
+	pref.lobby_music_vol = sanitize_integer(text2num(pref.lobby_music_vol), 0, BITFIELDMAX, initial(pref.lobby_music_vol))
 
 /datum/category_item/player_setup_item/player_global/settings/content(mob/user)
 	var/list/dat = list(
 		"<b>Play admin midis:</b> <a href='byond://?src=[REF(src)];toggle=[SOUND_MIDI]'><b>[(pref.toggles & SOUND_MIDI) ? "Yes" : "No"]</b></a><br>",
+		"<b>Lobby music volume:</b> <a href='byond://?src=[REF(src)];select_volume=1'><b>[(pref.lobby_music_vol)]</b></a><br>",
 		"<b>Ghost ears:</b> <a href='byond://?src=[REF(src)];toggle=[CHAT_GHOSTEARS]'><b>[(pref.toggles & CHAT_GHOSTEARS) ? "All Speech" : "Nearest Creatures"]</b></a><br>",
 		"<b>Ghost sight:</b> <a href='byond://?src=[REF(src)];toggle=[CHAT_GHOSTSIGHT]'><b>[(pref.toggles & CHAT_GHOSTSIGHT) ? "All Emotes" : "Nearest Creatures"]</b></a><br>",
 		"<b>Ghost radio:</b> <a href='byond://?src=[REF(src)];toggle=[CHAT_GHOSTRADIO]'><b>[(pref.toggles & CHAT_GHOSTRADIO) ? "All Chatter" : "Nearest Speakers"]</b></a><br>",
@@ -86,6 +93,13 @@
 	if(href_list["toggle"])
 		var/toggle_flag = text2num(href_list["toggle"])
 		pref.toggles ^= toggle_flag
+		return TOPIC_REFRESH
+
+	if(href_list["select_volume"])
+		var/lobby_music_vol_new = input(src, "Choose lobby music volume, 0 to mute", "Global Preference", pref.lobby_music_vol) as num|null
+		if(isnull(lobby_music_vol_new))
+			lobby_music_vol_new = 0
+		pref.lobby_music_vol = clamp(lobby_music_vol_new, 0, 100)
 		return TOPIC_REFRESH
 
 	if(href_list["paratoggle"])
