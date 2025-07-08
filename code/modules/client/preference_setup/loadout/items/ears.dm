@@ -17,15 +17,15 @@
 /datum/gear/ears/double/headphones
 	display_name = "headphone selection"
 	description = "A selection of headphones."
-	path = /obj/item/clothing/ears/earmuffs/earphones/headphones
+	path = /obj/item/clothing/ears/earphones
 	flags = GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/ears/double/headphones/New()
 	..()
 	var/list/headphones = list()
-	headphones["headphones"] = /obj/item/clothing/ears/earmuffs/earphones/headphones
-	headphones["earphones"] = /obj/item/clothing/ears/earmuffs/earphones
-	headphones["earbuds"] = /obj/item/clothing/ears/earmuffs/earphones/earbuds
+	headphones["headphones"] = /obj/item/clothing/ears/earphones/headphones
+	headphones["earphones"] = /obj/item/clothing/ears/earphones
+	headphones["earbuds"] = /obj/item/clothing/ears/earphones/earbuds
 	gear_tweaks += new /datum/gear_tweak/path(headphones)
 
 /datum/gear/ears/earrings
