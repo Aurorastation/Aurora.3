@@ -148,6 +148,6 @@
 	starlight_range = 4
 
 	lobby_tracks = list(
-		'sound/music/lobby/xanu/xanu_rock_1.ogg',
-		'sound/music/lobby/xanu/xanu_rock_2.ogg'
+		'sound/music/regional/xanu/xanu_rock_1.ogg',
+		'sound/music/regional/xanu/xanu_rock_2.ogg'
 	)
