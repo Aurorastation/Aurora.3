@@ -333,7 +333,7 @@
 /mob/living/silicon/ai/raised_alarm(var/datum/alarm/A)
 	var/cameratext = ""
 	for(var/obj/machinery/camera/C in A.cameras())
-		cameratext += "[(cameratext == "")? "" : "|"]<A href='byond://?src=[REF(src)];switchcamera=[REF(C)]>[C.c_tag]</A>"
+		cameratext += "[(cameratext == "")? "" : "|"]<A href='byond://?src=[REF(src)];switchcamera=[REF(C)]'>[C.c_tag]</A>"
 	to_chat(src, "[A.alarm_name()]! ([(cameratext)? cameratext : "No Camera"])")
 
 

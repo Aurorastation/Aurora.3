@@ -149,7 +149,7 @@
 			for(var/pilot in pilots)
 				if(ismob(pilot))
 					var/mob/M = pilot
-					. += "It is being <b>piloted</b> by <a href='byond://?src=[REF(src)];examine=[REF(M)]>[M.name]</a>."
+					. += "It is being <b>piloted</b> by <a href='byond://?src=[REF(src)];examine=[REF(M)]'>[M.name]</a>."
 				else
 					. += "It is being <b>piloted</b> by <b>[pilot]</b>."
 	if(hardpoints.len)
