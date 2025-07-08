@@ -59,3 +59,5 @@ changes:
   - bugfix: "IPCs no longer have a minimum age for working assistant jobs."
   - bugfix: "Fixes Sinta Hoods not showing up on suits."
   - bugfix: "Fixes accessories being removed from range."
+  - bugfix: "Fixes invisible glass tables."
+  - bugfix: "Fixes invisible mag-claws, teriyaki donk pocket box, and warden's mine detector."
