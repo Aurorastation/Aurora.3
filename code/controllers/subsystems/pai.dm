@@ -278,7 +278,7 @@ SUBSYSTEM_DEF(pai)
 					</tr>
 				</table>
 				<table class="download">
-					<td class="download"><a href='byond://?src=[REF(src)];download=1;candidate=[REF(c)];device=[REF(p)]' class="button"><b>Download [c.name]</b></a>
+					<td class="download"><a href='byond://?src=[REF(src)];download=1;candidate=[REF(c)];device=[REF(p)]' class="button"'><b>Download [c.name]</b></a>
 					</td>
 				</table>
 				<br>
