@@ -133,3 +133,13 @@
   steviii:
   - rscadd: Swaps some pipes and machinery around in the atmos locker room so it doesn't
       overlap.
+2025-07-08:
+  Batrachophreno:
+  - bugfix: Replaced 691 standard grates in Horizon maintenance areas with dark grates.
+  MattAtlas (Porting), CM Developers (original code):
+  - rscadd: Replaced Runechat with Langchat from CM for better functionality and clearer
+      text.
+  - rscadd: Ported screen text from CM.
+  SleepyGemmy:
+  - bugfix: Fixed ringer buttons not animating when pressed.
+  - bugfix: Fixed the hydroponics ringers being named wrong.
