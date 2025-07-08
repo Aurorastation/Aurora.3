@@ -91,7 +91,7 @@
 	StopPlaying() // Stop & Clean Up
 	current_playlist.Cut()
 	user.put_in_hands(music_cartridge)
-	music_cartridge =
+	music_cartridge = null
 
 	to_chat(user,SPAN_NOTICE("You eject the music cartridge from \the [src]."))
 
@@ -345,14 +345,62 @@ Earphone Variants
 		new/datum/track("Spacer Classic 1", 'sound/music/lobby/space.ogg'),
 		new/datum/track("Spacer Classic 2", 'sound/music/lobby/title2.ogg'),
 		new/datum/track("Spacer Classic 3", 'sound/music/lobby/title3mk2.ogg'),
-		new/datum/track("Spacer Classic 4", 'sound/music/lobby/traitor.ogg')
+		new/datum/track("Spacer Classic 4", 'sound/music/lobby/traitor.ogg'),
+		new/datum/track("Spacer Classic 5", 'sound/music/title1.ogg'),
+		new/datum/track("Spacer Classic 6", 'sound/music/velvet_rose.ogg')
 	)
 
-/obj/item/device/music_cartridge/konyang_retrowave
-	name = "Konyang Vibes 2463 Vol. 1"
+/obj/item/device/music_cartridge/audioconsole
+	name = "SCCV Horizon Welcome Package"
+	desc = "A music cartridge"
 
 	tracks = list(
-		new/datum/track("Konyang 1", 'sound/music/lobby/konyang/konyang-1.ogg'),
-		new/datum/track("Konyang 2", 'sound/music/lobby/konyang/konyang-2.ogg'),
-		new/datum/track("Konyang 3", 'sound/music/lobby/konyang/konyang-3.ogg')
+		new/datum/track("Amsterdam", 'sound/music/audioconsole/Amsterdam.ogg'),
+		new/datum/track("Butterflies", 'sound/music/audioconsole/Butterflies.ogg'),
+		new/datum/track("Childhood", 'sound/music/audioconsole/Childhood.ogg'),
+		new/datum/track("Don't Rush", 'sound/music/audioconsole/DontRush.ogg'),
+		new/datum/track("Lips", 'sound/music/audioconsole/Lips.ogg'),
+		new/datum/track("Number 0", 'sound/music/audioconsole/Number0,.ogg'),
+		new/datum/track("Phoron Will Make Us Rich", 'sound/music/audioconsole/PhoronWillMakeUsRich.ogg'),
+		new/datum/track("That Ain't Chopin", 'sound/music/audioconsole/ThatAintChopin.ogg'),
+		new/datum/track("The Pianist", 'sound/music/audioconsole/ThePianist.ogg'),
+		new/datum/track("When", 'sound/music/audioconsole/When.ogg')
 	)
+
+/*
+	Regional Music Cartridges
+*/
+
+/obj/item/device/music_cartridge/konyang_retrowave
+	name = "Konyang Vibes 2463"
+
+	tracks = list(
+		new/datum/track("Konyang Vibes #1", 'sound/music/lobby/konyang/konyang-1.ogg'),
+		new/datum/track("Konyang Vibes #2", 'sound/music/lobby/konyang/konyang-2.ogg'),
+		new/datum/track("Konyang Vibes #3", 'sound/music/lobby/konyang/konyang-3.ogg')
+	)
+
+/obj/item/device/music_cartridge/venus_funkydisco
+	name = "Top of the Charts 66 (Venusian Hits)"
+	desc = "A music cartridge"
+
+	tracks = list(
+		new/datum/track("dance させる", 'sound/music/regional/venus/dance.ogg'),
+		new/datum/track("love sensation", 'sound/music/regional/venus/love_sensation.ogg'),
+		new/datum/track("All Night", 'sound/music/regional/venus/all_night.ogg'),
+		new/datum/track("Ted Didlio", 'sound/music/regional/venus/ted_didlio.ogg'),
+		new/datum/track("Artificially Sweetened", 'sound/music/regional/venus/artificially_sweetened.ogg'),
+		new/datum/track("Real Love", 'sound/music/regional/venus/real_love.ogg')
+	)
+
+
+// Waiting on another PR to go through first
+
+// /obj/item/device/music_cartridge/xanu_rock
+//	name = "X-Rock Shreds"
+
+//	tracks = list(
+//		new/datum/track("Rise", 'sound/music/regional/xanu/xanu_rock_1.ogg'),
+//		new/datum/track("Indulgence", 'sound/music/regional/xanu/xanu_rock_2.ogg')
+//	)
+

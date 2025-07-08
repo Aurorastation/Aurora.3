@@ -137,3 +137,12 @@ sound/machines/steam_pipe2.ogg - "Steam Leaking" by PatrickLieberkind. Licensed 
 sound/machines/steam_pipe3.ogg - "file0571_air_hiss_weak.wav" by beerbelly38. Licensed under CC-BY NC 4.0. Obtained from https://freesound.org/people/beerbelly38/sounds/277360/
 sound/machines/steam_pipe4.ogg - "Steam Sewer Ambient" by Geoff-Bremner-Audio. Licensed under CC0. Obtained from https://freesound.org/people/Geoff-Bremner-Audio/sounds/724892/
 ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTOR START
+sound/music/regional/venus/all_night.ogg - "All Night" by Rollergirl, licensed under CC BY-NC-SA 3.0. Obtained from https://rollergirl.bandcamp.com/album/rollergirl
+sound/music/regional/venus/billy_ocean.ogg - "#billyocean" by Rollergirl, licensed under CC BY-NC-SA 3.0. Obtained from https://rollergirl.bandcamp.com/album/rollergirl
+sound/music/regional/venus/artificially_sweetened.ogg - "Artificially Sweetened" by Cybervoid, licensed under CC BY 3.0. https://steviasphere.bandcamp.com/album/artificially-sweetened-single
+sound/music/regional/venus/real_love.ogg - "Real Love" by Cybervoid, licensed under CC BY 3.0. Obtained from https://steviasphere.bandcamp.com/album/artificially-sweetened-single
+sound/music/regional/venus/dance.ogg - "Danceさせる" by ウナチャンUNACHAN, licensed under CC BY 3.0. Obtained from https://unachan.bandcamp.com/track/dance
+sound/music/regional/venus/love_sensation.ogg - "love sensation" by ウナチャンUNACHAN and bedroomtheft, licensed under CC BY 3.0. Obtained from https://unachan.bandcamp.com/track/love-sensation
+ATTRIBUTIONS SECTION END
