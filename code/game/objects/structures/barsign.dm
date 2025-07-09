@@ -149,7 +149,7 @@
 	name = "We Are Open!"
 	icon_state = "We Are Open!"
 	desc = "The bar's sign flashing 'We Are Open!' indicating that it is indeed open for business."
-	desc_extended = "Sometimes it doesn't need a fancy sign, slogan or flashly colours to draw in people to the bar. The service and booze usually does. This sign here simply let's crew know that they are getting both here, right now."
+	desc_extended = "Sometimes it doesn't need a fancy sign, slogan, or flashy colours to draw in people to the bar. The service and booze usually does. This sign here simply lets crew know that they are getting both here, right now."
 /singleton/sign/double/bar/closed
 	name = "Closed"
 	icon_state = "Closed"
