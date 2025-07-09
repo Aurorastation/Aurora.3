@@ -157,7 +157,7 @@
 /singleton/sign/double/bar/free_drinks
 	name = "Free Drinks!"
 	icon_state = "Free Drinks!"
-	desc = "Either the XO or the Captain were in a really good mood, someone's pranking the crew or it is your lucky day. Cheers!"
+	desc = "Either the XO or the Captain were in a really good mood, someone's pranking the crew, or it is your lucky day. Cheers!"
 
 /singleton/sign/double/kitchen/event_horizon // Start of the kitchen signs. Don't mix it up.
 	name = "Event Horizon"
