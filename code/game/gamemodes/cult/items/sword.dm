@@ -24,7 +24,6 @@
 	can_embed = FALSE //can't get stuck anymore, because blood magic
 
 /obj/item/melee/cultblade/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This sword is a powerful weapon, capable of severing limbs easily if they are targeted."
 	. += "Non-believers are unable to use this weapon."

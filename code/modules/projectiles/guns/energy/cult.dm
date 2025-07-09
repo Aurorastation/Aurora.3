@@ -36,10 +36,6 @@
 
 	is_wieldable = TRUE // see if i can get a sprite for this
 
-/obj/item/gun/energy/rifle/cult/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
-	. += ""
-
 /obj/item/gun/energy/rifle/cult/antagonist_hints(mob/user, distance, is_adjacent)
 	. = list()
 	. += ..()

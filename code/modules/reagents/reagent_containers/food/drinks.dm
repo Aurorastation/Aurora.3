@@ -372,7 +372,6 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	var/obj/item/reagent_containers/food/drinks/shaker_cup/cap
 
 /obj/item/reagent_containers/food/drinks/shaker/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "ALT-Click the shaker to twist the cap closed/loose. If the cap is loose, use the shaker to remove it."
 	. += "Without a cap, use the shaker again to remove the top."
@@ -515,7 +514,6 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	center_of_mass = list("x" = 16, "y" = 16)
 
 /obj/item/shaker_top/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "When fitted on a shaker, you can ALT-Click the shaker to change its transfer amount."
 
@@ -533,7 +531,6 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	center_of_mass = list("x" = 16, "y" = 16)
 
 /obj/item/reagent_containers/food/drinks/shaker_cup/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "ALT-Click the cap to change the transfer amount."
 

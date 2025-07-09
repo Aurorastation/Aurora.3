@@ -16,7 +16,6 @@
 	siemens_coefficient = 0
 
 /obj/item/clothing/head/culthood/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "As a Cultist, this can be reforged to become an eldritch voidsuit helmet."
 
@@ -46,7 +45,6 @@
 	siemens_coefficient = 0
 
 /obj/item/clothing/suit/cultrobes/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "As a Cultist, this item can be reforged to become an eldritch voidsuit."
 
