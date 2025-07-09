@@ -76,6 +76,7 @@
 /area/horizon/engineering/hallway
 	name = "Hallway (PARENT AREA - DON'T USE)"
 	sound_environment = SOUND_AREA_LARGE_ENCLOSED
+	horizon_deck = 2
 
 /area/horizon/engineering/hallway/fore
 	name = "Fore Hallway"

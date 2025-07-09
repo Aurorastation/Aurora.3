@@ -8,13 +8,15 @@
 	var/subdepartment = null
 */
 
+/area/horizon/command
+	department = LOC_COMMAND
+	holomap_color = HOLOMAP_AREACOLOR_COMMAND
+
 /// Head of Staff offices
 /area/horizon/command/heads
 	name = "Head of Staff's Office (PARENT AREA - DON'T USE)"
-	holomap_color = HOLOMAP_AREACOLOR_COMMAND
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
-	department = LOC_COMMAND
 
 /area/horizon/command/heads/captain
 	name = "Command - Captain's Office"
@@ -58,8 +60,6 @@
 	name = "Bridge"
 	icon_state = "bridge"
 	no_light_control = 1
-	station_area = TRUE
-	holomap_color = HOLOMAP_AREACOLOR_COMMAND
 	area_blurb = "The sound here seems to carry more than others, every click of a shoe or clearing of a throat amplified. \
 	The smell of ink, written and printed, wafts notably through the air."
 	area_blurb_category = "command"
@@ -127,7 +127,7 @@
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
 //Teleporter
-/area/teleporter
+/area/horizon/command/teleporter
 	name = "Command - Teleporter"
 	icon_state = "teleporter"
-	station_area = TRUE
+	horizon_deck = 1
