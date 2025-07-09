@@ -2325,6 +2325,17 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
 /area/himeo_patrol_ship/deck_2_checkpoint)
+"jW" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/machinery/button/distress{
+	pixel_y = 24;
+	req_access = list(253)
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/himeo_patrol_ship/bridge)
 "jX" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/yellow,
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
@@ -43528,7 +43539,7 @@ fc
 At
 tJ
 jG
-xT
+jW
 WG
 Uz
 aj
