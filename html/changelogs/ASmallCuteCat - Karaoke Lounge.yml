@@ -56,5 +56,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
   - rscadd: "Adds some karaoke decoration to the Private Lounge in the Horizon's bar."
-  - rscadd: "Moves the slot machine and the arcade machine into the Bar Lounge. Now you can gamble in peace."
-  - rscadd: "Moves the GwokBuzz! Vending Machine into the bar's main room."
+  - rscadd: "Moves the the arcade machine and the GwokBuzz! vendor into the Bar Lounge."
