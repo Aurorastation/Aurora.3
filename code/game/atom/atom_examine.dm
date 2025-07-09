@@ -86,7 +86,7 @@
 
 	// Returns a SPAN_* based on health, if configured.
 	var/list/condition_hints = src.condition_hints()
-	if(condition_hints.len > 0)
+	if(length(condition_hints))
 		. += condition_hints
 
 	// Extra object descriptions examination code.
@@ -188,7 +188,7 @@
 	var/first_line
 
 	desc_mechanics = ""
-	if(mechanics_hints.len > 0)
+	if(length(mechanics_hints))
 		first_line = TRUE
 		for(var/mechanics_hint in mechanics_hints)
 			if(!first_line)
@@ -197,7 +197,7 @@
 			desc_mechanics += SPAN_NOTICE("- [mechanics_hint]")
 
 	desc_build = ""
-	if(assembly_hints.len > 0 || disassembly_hints.len > 0)
+	if(length(assembly_hints) || length(disassembly_hints))
 		first_line = TRUE
 		for(var/assembly_hint in assembly_hints)
 			if(!first_line)
@@ -205,7 +205,7 @@
 			first_line = FALSE
 			desc_build += SPAN_NOTICE("- [assembly_hint]")
 		// Make sure line breaks work reliably whether or not there's only assembly, only disassembly, or both types available.
-		if (assembly_hints.len > 0 && disassembly_hints.len > 0)
+		if (length(assembly_hints) && length(disassembly_hints))
 			desc_build += "</br>"
 		first_line = TRUE
 		for(var/disassembly_hint in disassembly_hints)
@@ -215,7 +215,7 @@
 			desc_build += SPAN_ALERT("- [disassembly_hint]")
 
 	desc_upgrade = ""
-	if(upgrade_hints.len > 0)
+	if(length(upgrade_hints))
 		first_line = TRUE
 		for(var/upgrade_hint in upgrade_hints)
 			if(!first_line)
@@ -224,7 +224,7 @@
 			first_line = FALSE
 
 	desc_antag = ""
-	if(antagonist_hints.len > 0)
+	if(length(antagonist_hints))
 		first_line = TRUE
 		for(var/antagonist_hint in antagonist_hints)
 			if(!first_line)
@@ -233,7 +233,7 @@
 			desc_antag += SPAN_WARNING("- [antagonist_hint]")
 
 	desc_feedback = ""
-	if(feedback_hints.len > 0)
+	if(length(feedback_hints))
 		first_line = TRUE
 		for(var/feedback_hint in feedback_hints)
 			if(!first_line)
