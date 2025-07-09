@@ -412,7 +412,7 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	character.set_species(species)
 	if(character.dna)
 		character.dna.real_name = character.real_name
-	character.set_floating_chat_color(floating_chat_color)
+	character.langchat_color = floating_chat_color
 
 	character.flavor_texts["general"] = flavor_texts["general"]
 	character.flavor_texts[BP_HEAD] = flavor_texts[BP_HEAD]

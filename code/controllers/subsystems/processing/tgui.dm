@@ -34,6 +34,8 @@ PROCESSING_SUBSYSTEM_DEF(tgui)
 	basehtml = replacetextEx(basehtml, "<!-- tgui:inline-polyfill -->", polyfill)
 	basehtml = replacetextEx(basehtml, "<!-- tgui:nt-copyright -->", "NanoTrasen © 2457-[text2num(time2text(world.realtime, "YYYY")) + 442]")
 
+	basehtml = replacetext(basehtml, "tgui:stylesheet", MAP_STYLESHEET)
+
 /datum/controller/subsystem/processing/tgui/OnConfigLoad()
 	var/storage_iframe = GLOB.config.storage_cdn_iframe
 	if(storage_iframe && storage_iframe != /datum/configuration::storage_cdn_iframe)
