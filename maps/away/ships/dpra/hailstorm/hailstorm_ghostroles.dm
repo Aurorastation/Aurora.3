@@ -29,7 +29,7 @@
 	uniform = /obj/item/clothing/under/tajaran/pvsm
 	head = /obj/item/clothing/head/beret/tajaran/pvsm
 	back = /obj/item/storage/backpack/rucksack
-	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/clothing/accessory/badge/dpra_passport = 1)
+	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/field_ration/dpra = 1, /obj/item/clothing/accessory/badge/dpra_passport = 1)
 
 	r_pocket = /obj/item/storage/wallet/random
 
@@ -83,3 +83,5 @@
 	accessory = /obj/item/clothing/accessory/dpra_badge
 	head = /obj/item/clothing/head/tajaran/ala_officer
 	back = /obj/item/storage/backpack/satchel/leather
+
+	l_pocket = /obj/item/clothing/wrists/watch/pocketwatch/adhomai
