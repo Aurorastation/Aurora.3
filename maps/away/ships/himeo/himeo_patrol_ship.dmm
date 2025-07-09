@@ -406,6 +406,10 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
+/obj/machinery/alarm/east{
+	req_one_access = null;
+	req_access = list(253)
+	},
 /turf/simulated/floor/reinforced/airless,
 /area/himeo_patrol_ship/deck_2_checkpoint)
 "bX" = (
@@ -417,6 +421,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/himeo_patrol_ship/deck_2_checkpoint)
+"ca" = (
+/obj/machinery/alarm/south,
+/turf/simulated/floor/tiled/dark,
+/area/himeo_patrol_ship/deck_2_interstitial)
 "cb" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -895,6 +903,18 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/himeo_patrol_ship)
+"dT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/random/dirt_75,
+/obj/structure/extinguisher_cabinet/south,
+/turf/simulated/floor/plating,
+/area/himeo_patrol_ship/deck_2_fore)
 "dU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 9
@@ -2166,6 +2186,7 @@
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/machinery/alarm/north,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/himeo_patrol/central)
 "jh" = (
@@ -2475,6 +2496,10 @@
 	},
 /obj/machinery/papershredder,
 /obj/random/dirt_75,
+/obj/machinery/alarm/east{
+	req_one_access = null;
+	req_access = list(253)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/himeo_patrol_ship/deck_2_checkpoint)
 "kI" = (
@@ -4127,6 +4152,10 @@
 /obj/machinery/light/colored/decayed/dimmed{
 	dir = 1
 	},
+/obj/machinery/alarm/east{
+	req_one_access = null;
+	req_access = list(253)
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/himeo_patrol_ship/washroom)
 "se" = (
@@ -4936,6 +4965,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/messhall)
+"wg" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/random/dirt_75,
+/obj/machinery/alarm/south,
+/turf/simulated/floor/wood,
+/area/himeo_patrol_ship/deck_2_office)
 "wh" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
@@ -7586,7 +7621,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/random/dirt_75,
-/obj/structure/extinguisher_cabinet/south,
+/obj/machinery/alarm/south,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/deck_2_fore)
 "Gx" = (
@@ -108810,7 +108845,7 @@ YB
 Na
 VX
 WC
-VG
+wg
 Pt
 eH
 Hf
@@ -109054,7 +109089,7 @@ Qz
 Qz
 yg
 cr
-MQ
+ca
 qD
 bP
 eh
@@ -112668,7 +112703,7 @@ YJ
 YJ
 GM
 XQ
-ZK
+dT
 JD
 Xh
 Xh
