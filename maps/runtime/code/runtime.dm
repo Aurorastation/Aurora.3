@@ -139,6 +139,7 @@
 
 /// MAINTENANCE_AREAS
 /area/maintenance
+	station_area = TRUE
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_HIDE_FROM_HOLOMAP
 	sound_environment = SOUND_AREA_TUNNEL_ENCLOSED
 	turf_initializer = new /datum/turf_initializer/maintenance()
