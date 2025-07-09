@@ -55,7 +55,7 @@
 	desc = "A small wall-mounted holographic projector. This one reads OPEN."
 
 /obj/machinery/holosign/service/update_icon()
-	if (!lit)
+	if(!lit)
 		icon_state = "serviceclosed"
 	else
 		icon_state = on_icon
