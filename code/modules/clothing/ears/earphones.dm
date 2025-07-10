@@ -99,13 +99,13 @@
 
 	to_chat(user,SPAN_NOTICE("You eject the music cartridge from \the [src]."))
 
-/*
-	Starting and Stopping Procs
-*/
-
 /obj/item/clothing/ears/earphones/attack_self(mob/user)
 	eject_music_cartridge(user)
 	..()
+
+/*
+	Starting and Stopping Procs
+*/
 
 /obj/item/clothing/ears/earphones/proc/StopPlaying()
 	if(!soundplayer_token)
@@ -129,9 +129,11 @@
 	if(!soundplayer_token)
 		if(current_playlist && (current_playlist.len > 0))
 			var/sound/sound_to_play = current_playlist[playlist_index].sound
-			//soundplayer_token = GLOB.sound_player.PlaySoundDatum(src, src, sound_to_play, range, prefer_mute = FALSE, sound_type = ASFX_MUSIC) //This proc could potentially be used for non—auto-looping tracks, but I couldn't figure that out.
-			//soundplayer_token.SetVolume(volume) // this isn't needed for PlayLoopingSound, but PlaySoundDatum would need it as it has no volume call in the proc
 			soundplayer_token = GLOB.sound_player.PlayLoopingSound(src, src, sound_to_play, volume, range, 20, prefer_mute = FALSE, sound_type = ASFX_MUSIC)
+
+			//addtimer(CALLBACK(src, PROC_REF(next_song), user), (sound_to_play.len SECOND)) // Queue the next_song() proc when the current song ends. Clean up handled under next_song() which also calls stopplaying() to end this token
+			// If someone gets ^this^ to work, you can switch out PlayLoopingSound for PlayNonloopingSound
+			// the sound's len variable doesn't seem to actually store a length :/
 
 			// Chat Display
 			var/current_track_name = current_playlist[playlist_index].title
@@ -257,6 +259,8 @@
 			else if (soundplayer_token.status == SOUND_PAUSED)
 				soundplayer_token.Unpause()
 				to_chat(usr, SPAN_NOTICE("Music unpaused."))
+		else
+			play_stop() //No soundtoken? They probably meant to use the other verb instead.
 
 /obj/item/clothing/ears/earphones/verb/next_song_verb()
 	set name = "Earphones - Next Song"
