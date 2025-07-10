@@ -148,6 +148,7 @@ sound/music/regional/venus/love_sensation.ogg - "love sensation" by ウナチャ
 ATTRIBUTIONS SECTION END
 
 ATTRIBUTIONS SECTOR START
-sound/music/lobby/xanu/xanu_rock_1.ogg - "Rise" by Swara Sutra, licensed under CC BY-NC-SA 3.0. Obtained from https://swarasutra.bandcamp.com/track/rise
-sound/music/lobby/xanu/xanu_rock_2.ogg - "Induldge" by Swara Sutra, licensed under CC BY-NC-SA 3.0. Obtained from https://swarasutra.bandcamp.com/track/indulgence
+sound/music/regional/xanu/xanu_rock_1.ogg - "Rise" by Swara Sutra, licensed under CC BY-NC-SA 3.0. Obtained from https://swarasutra.bandcamp.com/track/rise
+sound/music/regional/xanu/xanu_rock_2.ogg - "Induldge" by Swara Sutra, licensed under CC BY-NC-SA 3.0. Obtained from https://swarasutra.bandcamp.com/track/indulgence
+sound/music/regional/xanu/xanu_rock_3.ogg - "Shimmer" by Swara Sutra, licensed under CC BY-NC-SA 3.0. Obtained from https://swarasutra.bandcamp.com/track/indulgence
 ATTRIBUTIONS SECTION END

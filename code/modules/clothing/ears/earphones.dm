@@ -406,11 +406,12 @@ Earphone Variants
 
 
 /obj/item/music_cartridge/xanu_rock
-	name = "X-Rock Shreds"
-	desc = "A music cartridge with a Xanan flag on the hololabel."
+	name = "Indulgence EP (X-Rock)" //feel free to reflavour as a more varied x-rock mixtape, instead of a single EP, if other x-rock tracks are added
+	desc = "A music cartridge with a Xanan flag on the hololabel. Some fancy, rainbow text over it reads, 'INDULGENCE'."
 	icon_state = "xanu"
 
 	tracks = list(
 		new/datum/track("Rise", 'sound/music/regional/xanu/xanu_rock_1.ogg'),
-		new/datum/track("Indulgence", 'sound/music/regional/xanu/xanu_rock_2.ogg')
+		new/datum/track("Indulgence", 'sound/music/regional/xanu/xanu_rock_2.ogg'),
+		new/datum/track("Shimmer", 'sound/music/regional/xanu/xanu_rock_3.ogg')
 	)
