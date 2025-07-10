@@ -1640,7 +1640,7 @@
 				to_chat(user, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
 				return
 
-			to_chat(user, SPAN_NOTICE("You pick up the [src]."))
+			to_chat(user, SPAN_NOTICE("You pick up \the [src]."))
 			pixel_x = 0
 			pixel_y = 0
 			forceMove(get_turf(user))
