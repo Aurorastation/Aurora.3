@@ -207,5 +207,5 @@
 	music_cartridges["Top of the Charts 66 (Venusian Hits)"] = /obj/item/music_cartridge/venus_funkydisco
 	music_cartridges["SCC Welcome Package"] = /obj/item/music_cartridge/audioconsole
 	music_cartridges["Spacer Classics Vol. 1"] = /obj/item/music_cartridge/
-	music_cartridges["X-Rock Shreds"] = /obj/item/music_cartridge/xanu_rock
+	music_cartridges["Indulgence EP (X-Rock)"] = /obj/item/music_cartridge/xanu_rock
 	gear_tweaks += new /datum/gear_tweak/path(music_cartridges)
