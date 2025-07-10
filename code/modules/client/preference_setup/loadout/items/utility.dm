@@ -197,14 +197,15 @@
 /datum/gear/utility/earphones_music_cartridge
 	display_name = "earphones music cartridge selection"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
-	path = /obj/item/device/music_cartridge/audioconsole
+	path = /obj/item/music_cartridge/audioconsole
 	cost = 1
 
 /datum/gear/utility/earphones_music_cartridge/New()
 	..()
 	var/list/music_cartridges = list()
-	music_cartridges["Konyang Vibes 2463"] = /obj/item/device/music_cartridge/konyang_retrowave
-	music_cartridges["Top of the Charts 66 (Venusian Hits)"] = /obj/item/device/music_cartridge/venus_funkydisco
-	music_cartridges["SCCV Horizon Welcome Package"] = /obj/item/device/music_cartridge/audioconsole
-	music_cartridges["Spacer Classics Vol. 1"] = /obj/item/device/music_cartridge/ss13
+	music_cartridges["Konyang Vibes 2463"] = /obj/item/music_cartridge/konyang_retrowave
+	music_cartridges["Top of the Charts 66 (Venusian Hits)"] = /obj/item/music_cartridge/venus_funkydisco
+	music_cartridges["SCC Welcome Package"] = /obj/item/music_cartridge/audioconsole
+	music_cartridges["Spacer Classics Vol. 1"] = /obj/item/music_cartridge/
+	music_cartridges["X-Rock Shreds"] = /obj/item/music_cartridge/xanu
 	gear_tweaks += new /datum/gear_tweak/path(music_cartridges)

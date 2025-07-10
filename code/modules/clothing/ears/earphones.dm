@@ -28,7 +28,7 @@
 	build_from_parts = TRUE
 
 	/// The music cartridge loaded into the earphones. The source of which sound files to play.
-	var/obj/item/device/music_cartridge/music_cartridge
+	var/obj/item/music_cartridge/music_cartridge
 
 	/// The active sound_token for the sound_player. Created per track and deleted when a song is stopped.
 	var/datum/sound_token/soundplayer_token = null
@@ -66,7 +66,7 @@
 
 // Cartridge Insertion
 /obj/item/clothing/ears/earphones/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/device/music_cartridge))
+	if(istype(attacking_item, /obj/item/music_cartridge))
 		if(attacking_item == user.get_active_hand())
 			if(!music_cartridge) // Making sure there is no track in there already
 				user.drop_from_inventory(attacking_item, src)
@@ -77,7 +77,7 @@
 				to_chat(user, SPAN_WARNING("There's already a music cartridge in there."))
 				..()
 
-/obj/item/clothing/ears/earphones/proc/read_music_cartridge(obj/item/device/music_cartridge/cartridge, mob/user)
+/obj/item/clothing/ears/earphones/proc/read_music_cartridge(obj/item/music_cartridge/cartridge, mob/user)
 	StopPlaying() // New cartridge in, so clean up our sound token if it hasn't already been for some reason
 
 	playlist_index = 1 // Back to the beginning
@@ -336,18 +336,18 @@ Earphone Variants
 	Music Cartridges
 */
 
-/obj/item/device/music_cartridge
+/obj/item/music_cartridge
 	name = "music cartridge"
 	desc = "A music cartridge."
-	icon = 'icons/obj/cloning.dmi'
-	icon_state = "datadisk2"
-	item_state = "card-id"
+	icon = 'icons/obj/item/music_cartridges.dmi'
+	icon_state = "generic"
 	w_class = WEIGHT_CLASS_SMALL
 
 	var/list/datum/track/tracks = list()
 
-/obj/item/device/music_cartridge/ss13
+/obj/item/music_cartridge/ss13
 	name = "Spacer Classics Vol. 1"
+	desc = "An old music cartridge with a cheap-looking label."
 
 	tracks = list(
 		new/datum/track("Spacer Classic 1", 'sound/music/lobby/space.ogg'),
@@ -358,9 +358,9 @@ Earphone Variants
 		new/datum/track("Spacer Classic 6", 'sound/music/velvet_rose.ogg')
 	)
 
-/obj/item/device/music_cartridge/audioconsole
-	name = "SCCV Horizon Welcome Package"
-	desc = "A music cartridge"
+/obj/item/music_cartridge/audioconsole
+	name = "SCC Welcome Package"
+	desc = "A music cartridge with some company-selected songs. Nothing special, everyone got one of these in their welcome boxes..."
 
 	tracks = list(
 		new/datum/track("Amsterdam", 'sound/music/audioconsole/Amsterdam.ogg'),
@@ -379,8 +379,10 @@ Earphone Variants
 	Regional Music Cartridges
 */
 
-/obj/item/device/music_cartridge/konyang_retrowave
+/obj/item/music_cartridge/konyang_retrowave
 	name = "Konyang Vibes 2463"
+	desc = "A music cartridge with a Konyang flag on the hololabel."
+	icon_state = "konyang"
 
 	tracks = list(
 		new/datum/track("Konyang Vibes #1", 'sound/music/lobby/konyang/konyang-1.ogg'),
@@ -388,9 +390,10 @@ Earphone Variants
 		new/datum/track("Konyang Vibes #3", 'sound/music/lobby/konyang/konyang-3.ogg')
 	)
 
-/obj/item/device/music_cartridge/venus_funkydisco
+/obj/item/music_cartridge/venus_funkydisco
 	name = "Top of the Charts 66 (Venusian Hits)"
-	desc = "A music cartridge"
+	desc = "A glitzy, pink music cartridge with more Venusian hits."
+	icon_state = "venus"
 
 	tracks = list(
 		new/datum/track("dance させる", 'sound/music/regional/venus/dance.ogg'),
@@ -402,8 +405,10 @@ Earphone Variants
 	)
 
 
-/obj/item/device/music_cartridge/xanu_rock
+/obj/item/music_cartridge/xanu_rock
 	name = "X-Rock Shreds"
+	desc = "A music cartridge with a Xanan flag on the hololabel."
+	icon_state = "xanu"
 
 	tracks = list(
 		new/datum/track("Rise", 'sound/music/regional/xanu/xanu_rock_1.ogg'),
