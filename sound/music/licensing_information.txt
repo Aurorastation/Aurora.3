@@ -86,7 +86,7 @@ Author: Joseph Toscano AKA Zhaytee
 License: CC BY-NC-SA 3.0
 Link: https://bandcamp.zhaytee.net/track/absconditus
 ----------
-File Name: yuki_satellites.ogg
+File Name: yuki_satellites.xm
 Original Title: Yuki Satellites
 Author: Rymdlego (Radix)
 License: CC0 1.0
