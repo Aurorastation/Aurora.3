@@ -187,5 +187,5 @@
 	display_name = "football"
 	description = "A classic, black and white football for kicking. Also known as a soccerball on Biesel and some parts of Earth for some reason."
 	cost = 1
-	allowed_roles = list("Passenger", "Off-Duty Crew Member")
+	allowed_roles = list("Off-Duty Crew Member", "Passenger")
 	path = /obj/item/toy/football
