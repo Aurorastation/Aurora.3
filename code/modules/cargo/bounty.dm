@@ -44,11 +44,11 @@
 		return TRUE
 	return FALSE
 
-// If an item sent in the cargo shuttle can satisfy the bounty.
+// If an item sent in the cargo elevator can satisfy the bounty.
 /datum/bounty/proc/applies_to(obj/O)
 	return FALSE
 
-// Called when an object is shipped on the cargo shuttle.
+// Called when an object is shipped on the cargo elevator.
 /datum/bounty/proc/ship(obj/O)
 	return
 
