@@ -18,8 +18,8 @@
 	possible_species = list(SPECIES_HUMAN, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
-	assigned_role = "Himean Naval Crewman"
-	special_role = "Himean Naval Crewman"
+	assigned_role = "Himean Naval Matruusi"
+	special_role = "Himean Naval Matruusi"
 
 	origin_restriction = list(/singleton/origin_item/origin/himeo, /singleton/origin_item/origin/free_council)
 
@@ -37,6 +37,8 @@
 	max_count = 1
 	outfit = /obj/outfit/admin/himeo_patrol_ship/engineer
 	mob_name_prefix = "Alk. "
+	assigned_role = "Himean Naval Alikersantti"
+	special_role = "Himean Naval Alikersantti"
 
 /datum/ghostspawner/human/himeo_patrol_ship/medic
 	short_name = "himeo_patrol_ship_medic"
@@ -51,6 +53,8 @@
 	max_count = 1
 	outfit = /obj/outfit/admin/himeo_patrol_ship/medic
 	mob_name_prefix = "Alk. "
+	assigned_role = "Himean Naval Alikersantti"
+	special_role = "Himean Naval Alikersantti"
 
 /datum/ghostspawner/human/himeo_patrol_ship/pilot
 	short_name = "himeo_patrol_ship_pilot"
@@ -65,6 +69,8 @@
 	max_count = 1
 	outfit = /obj/outfit/admin/himeo_patrol_ship/pilot
 	mob_name_prefix = "Alk. "
+	assigned_role = "Himean Naval Alikersantti"
+	special_role = "Himean Naval Alikersantti"
 
 /datum/ghostspawner/human/himeo_patrol_ship/officer
 	short_name = "himeo_patrol_ship_officer"
@@ -81,13 +87,15 @@
 	spawnpoints = list("himeo_patrol_commander")
 	mob_name_prefix = "Ylt. "
 	possible_species = list(SPECIES_HUMAN)
+	assigned_role = "Himean Naval Yliluutnantti"
+	special_role = "Himean Naval Yliluutnantti"
 
 /obj/outfit/admin/himeo_patrol_ship
 	name = "Himean Planetary Guardsman"
 	uniform = /obj/item/clothing/under/himeo/navy
 	gloves = /obj/item/clothing/gloves/fingerless
 	shoes = /obj/item/clothing/shoes/workboots/dark
-	l_ear = /obj/item/device/radio/headset/ship/coalition_navy
+	l_ear = /obj/item/device/radio/headset/ship
 	back = /obj/item/storage/backpack/rucksack/green
 	id = /obj/item/card/id/coalition
 	l_pocket = /obj/item/device/radio/off
