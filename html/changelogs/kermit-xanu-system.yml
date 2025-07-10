@@ -1,0 +1,7 @@
+author: kermit
+
+delete-after: True
+
+changes:
+  - rscadd: "Implements the bare essentials of the Xanu system and the planet of Xanu Prime."
+  - soundadd: "Xanu lobby music from 'Indulgence' album by Swara Sutra @ Bandcamp."

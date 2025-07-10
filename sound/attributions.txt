@@ -146,3 +146,8 @@ sound/music/regional/venus/real_love.ogg - "Real Love" by Stevia Sphere, license
 sound/music/regional/venus/dance.ogg - "Danceさせる" by ウナチャンUNACHAN, licensed under CC BY 3.0. Obtained from https://unachan.bandcamp.com/track/dance
 sound/music/regional/venus/love_sensation.ogg - "love sensation" by ウナチャンUNACHAN and bedroomtheft, licensed under CC BY 3.0. Obtained from https://unachan.bandcamp.com/track/love-sensation
 ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTOR START
+sound/music/lobby/xanu/xanu_rock_1.ogg - "Rise" by Swara Sutra, licensed under CC BY-NC-SA 3.0. Obtained from https://swarasutra.bandcamp.com/track/rise
+sound/music/lobby/xanu/xanu_rock_2.ogg - "Induldge" by Swara Sutra, licensed under CC BY-NC-SA 3.0. Obtained from https://swarasutra.bandcamp.com/track/indulgence
+ATTRIBUTIONS SECTION END
