@@ -208,4 +208,5 @@
 	music_cartridges["SCC Welcome Package"] = /obj/item/music_cartridge/audioconsole
 	music_cartridges["Spacer Classics Vol. 1"] = /obj/item/music_cartridge/
 	music_cartridges["Indulgence EP (X-Rock)"] = /obj/item/music_cartridge/xanu_rock
+	music_cartridges["Electro-Swing of Adhomai"] = /obj/item/music_cartridge/adhomai_swing
 	gear_tweaks += new /datum/gear_tweak/path(music_cartridges)
