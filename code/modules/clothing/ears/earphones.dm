@@ -411,7 +411,7 @@ Earphone Variants
 	icon_state = "xanu"
 
 	tracks = list(
+		new/datum/track("Shimmer", 'sound/music/regional/xanu/xanu_rock_3.ogg'),
 		new/datum/track("Rise", 'sound/music/regional/xanu/xanu_rock_1.ogg'),
-		new/datum/track("Indulgence", 'sound/music/regional/xanu/xanu_rock_2.ogg'),
-		new/datum/track("Shimmer", 'sound/music/regional/xanu/xanu_rock_3.ogg')
+		new/datum/track("Indulgence", 'sound/music/regional/xanu/xanu_rock_2.ogg')
 	)
