@@ -1220,7 +1220,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 		W.clamped = 1
 	return rval
 
-/obj/item/organ/external/proc/fracture()
+/// Fractures the bone, so long as it isn't robotic or already broken. When the silent flag is set, no message or sound will be played, and there will be no pain effects
+/obj/item/organ/external/proc/fracture(var/silent = FALSE)
 	if(status & ORGAN_ROBOT)
 		return	//ORGAN_BROKEN doesn't have the same meaning for robot limbs
 	if((status & ORGAN_BROKEN) || !(limb_flags & ORGAN_CAN_BREAK))
@@ -1228,16 +1229,17 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if(QDELETED(owner))
 		return
 
-	var/message = pick("broke in half", "shattered")
-	owner.visible_message(\
-		SPAN_WARNING("<font size=2>You hear a loud cracking sound coming from \the [owner]!</font>"),\
-		SPAN_DANGER("<font size=3>Something feels like it [message] in your [name]!</font>"),\
-		"You hear a sickening crack!")
-	if(owner.species && owner.can_feel_pain())
-		owner.emote("scream")
-		owner.flash_strong_pain()
+	if(!silent)
+		var/message = pick("broke in half", "shattered")
+		owner.visible_message(\
+			SPAN_WARNING("<font size=2>You hear a loud cracking sound coming from \the [owner]!</font>"),\
+			SPAN_DANGER("<font size=3>Something feels like it [message] in your [name]!</font>"),\
+			"You hear a sickening crack!")
+		if(owner.species && owner.can_feel_pain())
+			owner.emote("scream")
+			owner.flash_strong_pain()
+		playsound(src.loc, /singleton/sound_category/fracture_sound, 100, 1, -2)
 
-	playsound(src.loc, /singleton/sound_category/fracture_sound, 100, 1, -2)
 	status |= ORGAN_BROKEN
 	broken_description = pick("broken", "fracture", "hairline fracture")
 	perma_injury = brute_dam
