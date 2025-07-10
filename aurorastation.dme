@@ -4103,6 +4103,7 @@
 #include "maps\away\ships\pra\database_freighter\database_landmarks.dm"
 #include "maps\away\ships\pra\headmaster\headmaster_areas.dm"
 #include "maps\away\ships\pra\headmaster\headmaster_ghostroles.dm"
+#include "maps\away\ships\pra\headmaster\headmaster_landmarks.dm"
 #include "maps\away\ships\pra\headmaster\headmaster_ship.dm"
 #include "maps\away\ships\sadar_scout\sadar_scout.dm"
 #include "maps\away\ships\sadar_scout\sadar_scout_areas.dm"
