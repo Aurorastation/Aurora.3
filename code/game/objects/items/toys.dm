@@ -1578,7 +1578,7 @@
 /obj/item/toy/football
 	name = "football"
 	desc = "A classic, white-black football for kicking. Also known as a soccerball on Biesel and some parts of Earth."
-	desc_info = "Click to kick the ball. Shift+Click or use a non-Help intent to deliver a powerful kick. Drag the ball onto your character sprite to pick it up."
+	desc_info = "Click to kick the ball. Alt+Click or use a non-Help intent to deliver a powerful kick. Drag the ball onto your character sprite to pick it up."
 	w_class = WEIGHT_CLASS_NORMAL
 	icon_state = "football"
 	item_state = "football"
@@ -1588,22 +1588,35 @@
 	/// The base distance in tiles the football is kicked.
 	var/base_kick_distance = 1
 
-/obj/item/toy/football/attack_hand(var/mob/user)
-	if(use_check(user))
+/obj/item/toy/football/Initialize()
+	. = ..()
+
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_walk_into),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
+/obj/item/toy/football/proc/on_walk_into(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	if(!isliving(arrived))
 		return
+
+	var/mob/living/user = arrived
 
 	if(!isturf(loc))
 		to_chat(user, SPAN_NOTICE("\The [src] has to be on the floor to kick it!"))
 		return
 
 	if(!(user?.a_intent == I_HELP))
-		ShiftClick(user)
+		AltClick(user)
 		return
 
 	user.visible_message(SPAN_NOTICE("[user] kicks \the [src]."))
-	throw_at(get_edge_target_turf(user, get_dir(user, src)), base_kick_distance+(rand(1,2)), 1)
+	throw_at(get_edge_target_turf(user, get_dir(old_loc, src)), base_kick_distance+(rand(1,2)), 1)
 
-/obj/item/toy/football/ShiftClick(var/mob/user)
+/obj/item/toy/football/AltClick(var/mob/user)
 	if(use_check(user))
 		return
 
