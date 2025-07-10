@@ -1,0 +1,7 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - rscadd: "Added Sezrak's new custom item."
+  - rscdel: "Removed their other retconned item."

@@ -1301,15 +1301,15 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "sezcoat"
 	contained_sprite = TRUE
 
-/obj/item/clothing/accessory/poncho/fluff/sezrak_cape //Red Han'san Cape - Sezrak Han'san - captaingecko
-	name = "red Han'san cape"
-	desc = "This is a cape loosely based on the style of Dominian nobility, the latest fashion across Dominian space, although it doesn't feature any of the colors belonging to the Great Houses, \
-	and doesn't bear the symbolism of the ones worn by Tribunalist priests. The left shoulder-side bears the standards of the Han'san clan-house with a small, discreet symbol of gilded colors, \
-	instead of the usual Green used for this house."
-	icon = 'icons/obj/custom_items/sezrak_coat.dmi'
-	icon_override = 'icons/obj/custom_items/sezrak_coat.dmi'
-	icon_state = "sez_cape"
-	item_state = "sez_cape"
+/obj/item/clothing/accessory/poncho/fluff/sezrak_scaleshield //Red Han'san Scaleshield - Sezrak Han'san - captaingecko
+	name = "red Han'san scaleshield"
+	desc = "A thick, warm piece of reinforced canvas and fabric made by Dominian Unathi to keep themselves warm in Moroz's frigid climate. This one bears a pattern commonly \
+	seen in Hunter’s District, also known as Widowtown, although not with the typical colors. It bears pieces reinforced canvas here and there, more to protect against the elements than actual bumps, \
+	and embroided on a white stripe is the standard of the Han'san clan."
+	icon = 'icons/obj/custom_items/sezrak_scaleshield.dmi'
+	icon_override = 'icons/obj/custom_items/sezrak_scaleshield.dmi'
+	icon_state = "sez_scaleshield"
+	item_state = "sez_scaleshield"
 	contained_sprite = TRUE
 
 /obj/item/journal/fluff/mrakiizar_book //Worn Journal - Azradov Mrakiizar - kingoftheping
