@@ -41,7 +41,7 @@ GLOBAL_LIST_EMPTY(unauthed)
 	qdel(client)
 	qdel(src)
 
-/mob/abstract/unauthed/proc/ClientLogin(var/newkey)
+/mob/abstract/unauthed/proc/ClientLogin(var/newkey, var/ckey_is_external)
 	if(!client)
 		qdel(src)
 	deltimer(timeout_timer)
@@ -64,7 +64,8 @@ GLOBAL_LIST_EMPTY(unauthed)
 
 	GLOB.directory -= c.ckey
 	if(newkey)
-		c.key = newkey // Try seeting ckey
+		c.ckey_is_external = ckey_is_external
+		c.key = newkey // Try setting ckey
 		// ^^^^ THIS INVOKES mob/Login()!
 		// and also modifies the c.mob to the actual mob they disconnected out of.
 

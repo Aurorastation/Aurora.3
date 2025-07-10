@@ -564,7 +564,7 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 	if(!establish_db_connection(GLOB.dbcon))
 		return
 
-	var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT datediff(Now(),firstseen) as age, whitelist_status, account_join_date, DATEDIFF(NOW(), account_join_date) FROM ss13_player WHERE ckey = :ckey:")
+	var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT datediff(Now(),firstseen) as age, whitelist_status, account_join_date, DATEDIFF(NOW(), account_join_date, ckey_is_external) FROM ss13_player WHERE ckey = :ckey:")
 
 	if(!query.Execute(list("ckey"=ckey(key))))
 		return
@@ -578,6 +578,7 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 		whitelist_status = text2num(query.item[2])
 		account_join_date = query.item[3]
 		account_age = text2num(query.item[4])
+		ckey_is_external = !!text2num(query.item[5])
 		if (!account_age)
 			account_join_date = sanitizeSQL(findJoinDate())
 			if (!account_join_date)
@@ -613,8 +614,8 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 		query_update.Execute(list("ckey"=ckey(key),"ip"=src.address,"computerid"=src.computer_id,"lastadminrank"=admin_rank,"account_join_date"=account_join_date,"byond_version"=byond_version,"byond_build"=byond_build))
 	else if (!GLOB.config.access_deny_new_players)
 		//New player!! Need to insert all the stuff
-		var/DBQuery/query_insert = GLOB.dbcon.NewQuery("INSERT INTO ss13_player (ckey, firstseen, lastseen, ip, computerid, lastadminrank, account_join_date, byond_version, byond_build) VALUES (:ckey:, Now(), Now(), :ip:, :computerid:, :lastadminrank:, :account_join_date:, :byond_version:, :byond_build:)")
-		query_insert.Execute(list("ckey"=ckey(key),"ip"=src.address,"computerid"=src.computer_id,"lastadminrank"=admin_rank,"account_join_date"=account_join_date,"byond_version"=byond_version,"byond_build"=byond_build))
+		var/DBQuery/query_insert = GLOB.dbcon.NewQuery("INSERT INTO ss13_player (ckey, ckey_is_external, firstseen, lastseen, ip, computerid, lastadminrank, account_join_date, byond_version, byond_build) VALUES (:ckey:, :ckey_is_external:, Now(), Now(), :ip:, :computerid:, :lastadminrank:, :account_join_date:, :byond_version:, :byond_build:)")
+		query_insert.Execute(list("ckey"=ckey(key), "ckey_is_external"=src.ckey_is_external,"ip"=src.address,"computerid"=src.computer_id,"lastadminrank"=admin_rank,"account_join_date"=account_join_date,"byond_version"=byond_version,"byond_build"=byond_build))
 	else
 		// Flag as -1 to know we have to kiiick them.
 		player_age = -1
