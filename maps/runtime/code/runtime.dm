@@ -32,10 +32,10 @@
 	station_type  = "dumpster"
 
 	//If you're testing overmap stuff, remove the conditional definition
-	//#if defined(UNIT_TEST)
+	#if defined(UNIT_TEST)
 	use_overmap = TRUE
 	overmap_size = 35
-	//#endif
+	#endif
 
 	shuttle_docked_message = "Attention all hands: Jump preparation complete. The bluespace drive is now spooling up, secure all stations for departure. Time to jump: approximately %ETA%."
 	shuttle_leaving_dock = "Attention all hands: Jump initiated, exiting bluespace in %ETA%."
