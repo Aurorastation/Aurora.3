@@ -1305,7 +1305,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "red Han'san scaleshield"
 	desc = "A thick, warm piece of reinforced canvas and fabric made by Dominian Unathi to keep themselves warm in Moroz's frigid climate. This one bears a pattern commonly \
 	seen in Hunter’s District, also known as Widowtown, although not with the typical colors. It bears pieces reinforced canvas here and there, more to protect against the elements than actual bumps, \
-	and embroided on a white stripe is the standard of the Han'san clan"
+	and embroided on a white stripe is the standard of the Han'san clan."
 	icon = 'icons/obj/custom_items/sezrak_scaleshield.dmi'
 	icon_override = 'icons/obj/custom_items/sezrak_scaleshield.dmi'
 	icon_state = "sez_scaleshield"
