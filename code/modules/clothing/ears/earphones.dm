@@ -402,13 +402,10 @@ Earphone Variants
 	)
 
 
-// Waiting on another PR to go through first
+/obj/item/device/music_cartridge/xanu_rock
+	name = "X-Rock Shreds"
 
-// /obj/item/device/music_cartridge/xanu_rock
-//	name = "X-Rock Shreds"
-
-//	tracks = list(
-//		new/datum/track("Rise", 'sound/music/regional/xanu/xanu_rock_1.ogg'),
-//		new/datum/track("Indulgence", 'sound/music/regional/xanu/xanu_rock_2.ogg')
-//	)
-
+	tracks = list(
+		new/datum/track("Rise", 'sound/music/regional/xanu/xanu_rock_1.ogg'),
+		new/datum/track("Indulgence", 'sound/music/regional/xanu/xanu_rock_2.ogg')
+	)
