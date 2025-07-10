@@ -149,7 +149,7 @@
 	name = "We Are Open!"
 	icon_state = "We Are Open!"
 	desc = "The bar's sign flashing 'We Are Open!' indicating that it is indeed open for business."
-	desc_extended = "Sometimes it doesn't need a fancy sign, slogan or flashly colours to draw in people to the bar. The service and booze usually does. This sign here simply let's crew know that they are getting both here, right now."
+	desc_extended = "Sometimes it doesn't need a fancy sign, slogan, or flashy colours to draw in people to the bar. The service and booze usually does. This sign here simply lets crew know that they are getting both here, right now."
 /singleton/sign/double/bar/closed
 	name = "Closed"
 	icon_state = "Closed"
@@ -157,7 +157,7 @@
 /singleton/sign/double/bar/free_drinks
 	name = "Free Drinks!"
 	icon_state = "Free Drinks!"
-	desc = "Either the XO or the Captain were in a really good mood, someone's pranking the crew or it is your lucky day. Cheers!"
+	desc = "Either the XO or the Captain were in a really good mood, someone's pranking the crew, or it is your lucky day. Cheers!"
 
 /singleton/sign/double/kitchen/event_horizon // Start of the kitchen signs. Don't mix it up.
 	name = "Event Horizon"
