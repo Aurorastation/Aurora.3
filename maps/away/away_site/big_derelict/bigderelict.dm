@@ -6,7 +6,7 @@
 	suffix = "bigderelict.dmm"
 
 	sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_TABITI, SECTOR_BADLANDS, SECTOR_AEMAQ, ALL_COALITION_SECTORS)
-	sectors_blacklist = list(SECTOR_HANEUNIM)
+	sectors_blacklist = list(ALL_SPECIFIC_SECTORS)
 	spawn_weight = 1
 	spawn_cost = 2
 	id = "big_derelict"
