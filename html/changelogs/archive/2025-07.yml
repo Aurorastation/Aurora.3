@@ -166,3 +166,6 @@
   - bugfix: 'Fixed the following issues: banners appearing with their stand when put
       on walls in mapping, being unable to place it when standing on furniture or
       dense objects, banner duplication.'
+2025-07-10:
+  notagonk:
+  - bugfix: Fixes various mapping and code issues with the Dominian Corvette.
