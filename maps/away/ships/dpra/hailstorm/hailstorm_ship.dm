@@ -13,8 +13,6 @@
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_GAKAL)
 	unit_test_groups = list(1)
 
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
-
 /singleton/submap_archetype/hailstorm_ship
 	map = "Hailstorm Ship"
 	descriptor = "A skipjack armed with multiple weapons designed for patrolling and brief engagements. When used for patrols, the Hailstorm is loaded with supplies to last weeks on its own; its crew is specifically trained to be as frugal as possible while aboard."
