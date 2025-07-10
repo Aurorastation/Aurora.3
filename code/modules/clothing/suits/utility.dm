@@ -12,7 +12,7 @@
 /obj/item/clothing/suit/fire
 	name = "firesuit"
 	desc = "A suit that protects against fire and heat."
-	icon = 'icons/clothing/kit/firefighter.dmi'
+	icon = 'icons/obj/item/clothing/suit/firefighter.dmi'
 	icon_state = "firesuit"
 	item_state = "firesuit"
 	sprite_sheets = list(
