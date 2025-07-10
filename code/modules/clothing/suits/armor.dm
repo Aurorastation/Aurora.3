@@ -569,7 +569,7 @@
 /obj/item/clothing/suit/storage/vest/kala
 	name = "kala armor vest"
 	desc = "A simple armor vest issued to all of the Kala. It's made of an advanced lightweight alloy."
-	icon = 'icons/clothing/kit/skrell_armor.dmi'
+	icon = 'icons/obj/item/clothing/suit/armor/skrell_armor.dmi'
 	icon_state = "kala_armor"
 	item_state = "kala_armor"
 	armor = list(

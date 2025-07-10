@@ -61,7 +61,7 @@
 /obj/item/clothing/accessory/tcaf_prefect_pauldron
 	name = "\improper TCAF prefect pauldron"
 	desc = "A bright red hard pauldron to indicate the wearer has the rank of Prefect in the Tau Ceti Armed Forces."
-	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon = 'icons/obj/item/clothing/suit/armor/modular_armor/modular_armor_attachments.dmi'
 	icon_state = "tcaf_prefect_pauldron"
 	item_state = "tcaf_prefect_pauldron"
 	contained_sprite = TRUE
@@ -72,7 +72,7 @@
 /obj/item/clothing/accessory/tcaf_senior_legion_pauldron
 	name = "\improper TCAF senior legionnaire pauldron"
 	desc = "A blue hard pauldron to indicate the wearer has the rank of Senior Legionnaire in the Tau Ceti Armed Forces."
-	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon = 'icons/obj/item/clothing/suit/armor/modular_armor/modular_armor_attachments.dmi'
 	icon_state = "tcaf_senior_legion_pauldron"
 	item_state = "tcaf_senior_legion_pauldron"
 	contained_sprite = TRUE
