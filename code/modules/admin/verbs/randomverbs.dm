@@ -119,6 +119,65 @@
 	message_admins(SPAN_NOTICE("\bold LocalNarrate: [key_name_admin(usr)] : [msg]<BR>"), 1)
 	feedback_add_details("admin_verb", "LCLN") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
+
+/client/proc/cmd_admin_local_screen_text()
+	set category = "Special Verbs"
+	set name = "Local Screen Text"
+
+	if(!check_rights(R_ADMIN, TRUE))
+		return
+
+	var/list/mob/message_mobs = list()
+	var/choice = tgui_alert(usr, "Local Screen Text will send a screen text message to mobs. Do you want the mobs messaged to be only ones that you can see, or ignore blocked vision and message everyone within seven tiles of you?", "Narrate Selection", list("View", "Range", "Cancel"))
+	if(choice != "Cancel")
+		if(choice == "View")
+			message_mobs = mobs_in_view(view, src.mob)
+		else
+			for(var/mob/M in range(view, src.mob))
+				message_mobs += M
+	else
+		return
+
+	var/msg = tgui_input_text(usr, "Insert the screen message you want to send.", "Local Screen Text")
+	if(!msg)
+		return
+
+	var/big_text = tgui_alert(src, "Do you want big or normal text?", "Local Screen Text", list("Big", "Normal"))
+	var/text_type = /atom/movable/screen/text/screen_text
+	if(big_text == "Big")
+		text_type = /atom/movable/screen/text/screen_text/command_order
+
+	for(var/mob/M in message_mobs)
+		if(M.client)
+			M.play_screen_text(msg,text_type, COLOR_RED)
+	log_admin("LocalScreenText: [key_name(usr)] : [msg]")
+	message_admins(SPAN_NOTICE("Local Screen Text: [key_name_admin(usr)] : [msg]"), 1)
+	feedback_add_details("admin_verb", "LSTX") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+/client/proc/cmd_admin_global_screen_text()
+	set category = "Special Verbs"
+	set name = "Global Screen Text"
+
+	if(!check_rights(R_ADMIN, TRUE))
+		return
+
+	var/msg = tgui_input_text(usr, "Insert the screen message you want to send.", "Global Screen Text")
+	if(!msg)
+		return
+
+	var/big_text = tgui_alert(src, "Do you want big or normal text?", "Global Screen Text", list("Big", "Normal"))
+	var/text_type = /atom/movable/screen/text/screen_text
+	if(big_text == "Big")
+		text_type = /atom/movable/screen/text/screen_text/command_order
+
+	for(var/mob/M in GLOB.mob_list)
+		if(M.client)
+			M.play_screen_text(msg, text_type, COLOR_RED)
+
+	log_admin("GlobalScreenText: [key_name(usr)] : [msg]")
+	message_admins(SPAN_NOTICE("Global Screen Text: [key_name_admin(usr)] : [msg]"), 1)
+	feedback_add_details("admin_verb", "GSTX") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
 /client/proc/cmd_admin_direct_narrate(var/mob/M)	// Targetted narrate -- TLE
 	set category = "Special Verbs"
 	set name = "Direct Narrate"
