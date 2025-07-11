@@ -14,8 +14,8 @@
 /obj/item/seeds/earthenroot,
 /obj/item/seeds/blizzard,
 /obj/item/seeds/blizzard,
-/obj/item/seeds/nifberries,
-/obj/item/seeds/nifberries,
+/obj/item/seeds/dirtberries,
+/obj/item/seeds/dirtberries,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_bar)
 "bf" = (
@@ -282,10 +282,10 @@
 /obj/item/reagent_containers/food/drinks/bottle/shyyrkirrtyr_wine,
 /obj/item/reagent_containers/food/drinks/bottle/shyyrkirrtyr_wine,
 /obj/item/reagent_containers/food/drinks/bottle/shyyrkirrtyr_wine,
-/obj/item/reagent_containers/food/drinks/bottle/nmshaan_liquor,
-/obj/item/reagent_containers/food/drinks/bottle/nmshaan_liquor,
-/obj/item/reagent_containers/food/drinks/bottle/nmshaan_liquor,
-/obj/item/reagent_containers/food/drinks/bottle/nmshaan_liquor,
+/obj/item/reagent_containers/food/drinks/bottle/sugartree_liquor,
+/obj/item/reagent_containers/food/drinks/bottle/sugartree_liquor,
+/obj/item/reagent_containers/food/drinks/bottle/sugartree_liquor,
+/obj/item/reagent_containers/food/drinks/bottle/sugartree_liquor,
 /obj/item/reagent_containers/food/drinks/bottle/small/midynhr_water,
 /obj/item/reagent_containers/food/drinks/bottle/small/midynhr_water,
 /obj/item/reagent_containers/food/drinks/bottle/small/midynhr_water,
@@ -865,8 +865,8 @@
 /obj/item/seeds/blizzard,
 /obj/item/seeds/sugartree,
 /obj/item/seeds/sugartree,
-/obj/item/seeds/nifberries,
-/obj/item/seeds/nifberries,
+/obj/item/seeds/dirtberries,
+/obj/item/seeds/dirtberries,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_bar)
 "Wa" = (

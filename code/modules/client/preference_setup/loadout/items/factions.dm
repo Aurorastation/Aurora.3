@@ -40,6 +40,13 @@
 	idris_sec_uniforms["idris detective uniform"] = /obj/item/clothing/under/det/idris/alt
 	gear_tweaks += new /datum/gear_tweak/path(idris_sec_uniforms)
 
+/datum/gear/faction/idris_dress
+	display_name = "idris hospitality dress"
+	description = "A snazzy teal dress typically worn by Idris service staff."
+	path = /obj/item/clothing/under/dress/idris
+	slot = slot_w_uniform
+	faction = "Idris Incorporated"
+
 /datum/gear/faction/idris_armband
 	display_name = "idris armband"
 	path = /obj/item/clothing/accessory/armband/idris
@@ -621,7 +628,7 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 
 /datum/gear/faction/zenghu_gloves
 	display_name = "zeng-hu vinyl gloves"
-	path = /obj/item/clothing/gloves/zeng
+	path = /obj/item/clothing/gloves/latex/nitrile/zeng
 	slot = slot_gloves
 	faction = "Zeng-Hu Pharmaceuticals"
 
@@ -662,7 +669,6 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	heph_labcoats["hephaestus labcoat, long"] = /obj/item/clothing/suit/storage/toggle/longcoat/heph
 	heph_labcoats["hephaestus corporate jacket"] = /obj/item/clothing/suit/storage/toggle/corp/heph
 	heph_labcoats["hephaestus winter coat"] = /obj/item/clothing/suit/storage/hooded/wintercoat/heph
-	heph_labcoats["hephaestus winter coat, alt"] = /obj/item/clothing/suit/storage/hooded/wintercoat/heph/alt
 	gear_tweaks += new /datum/gear_tweak/path(heph_labcoats)
 
 /datum/gear/faction/heph_beret
@@ -702,7 +708,6 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	nt_labcoats["nanotrasen labcoat, long"] = /obj/item/clothing/suit/storage/toggle/longcoat/nt
 	nt_labcoats["nanotrasen corporate jacket"] = /obj/item/clothing/suit/storage/toggle/corp/nt
 	nt_labcoats["nanotrasen winter coat"] = /obj/item/clothing/suit/storage/hooded/wintercoat/nt
-	nt_labcoats["nanotrasen winter coat, alt"] = /obj/item/clothing/suit/storage/hooded/wintercoat/nt/alt
 	gear_tweaks += new /datum/gear_tweak/path(nt_labcoats)
 
 /datum/gear/faction/nt_custodialjumpsuit

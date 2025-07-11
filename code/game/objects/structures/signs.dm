@@ -109,8 +109,12 @@
 
 /obj/structure/sign/greencross
 	name = "\improper MEDICAL sign"
-	desc = "The Intergalactic symbol of Medical institutions. You'll probably get help here."
+	desc = "The intergalactic symbol of medical institutions. You'll probably get help here."
 	icon_state = "greencross"
+
+/obj/structure/sign/greencross/small
+	name = "small MEDICAL sign"
+	icon_state = "greencross_small"
 
 /obj/structure/sign/goldenplaque
 	name = "\improper The Most Robust Men Award for Robustness sign"

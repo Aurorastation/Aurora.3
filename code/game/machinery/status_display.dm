@@ -59,6 +59,11 @@
 	SSradio.remove_object(src,frequency)
 	return ..()
 
+// screens have a layer above, so we can't attach here
+/obj/machinery/status_display/can_attach_sticker(var/mob/user, var/obj/item/sticker/S)
+	to_chat(user, SPAN_WARNING("\The [src]'s non-stick surface prevents you from attaching a sticker to it!"))
+	return FALSE
+
 // register for radio system
 /obj/machinery/status_display/Initialize()
 	. = ..()

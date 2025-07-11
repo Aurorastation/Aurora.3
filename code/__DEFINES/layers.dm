@@ -177,11 +177,15 @@
 	#define RADIAL_BASE_LAYER 6
 	#define RADIAL_CONTENT_LAYER 7
 
+#define BALLOON_CHAT_PLANE 9
+
 /// This plane masks out lighting, to create an "emissive" effect for e.g glowing screens in otherwise dark areas.
 #define EMISSIVE_PLANE 10
 #define EMISSIVE_TARGET "*emissive"
 	/// The layer you should use when you -really- don't want an emissive overlay to be blocked.
 	#define EMISSIVE_LAYER_UNBLOCKABLE 9999
+
+#define RUNECHAT_PLANE 500
 
 //-------------------- Rendering ---------------------
 

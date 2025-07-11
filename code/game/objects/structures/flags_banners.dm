@@ -31,6 +31,10 @@
 	///Boolean, if we've been torn down
 	var/ripped = FALSE
 
+	///Default offset value. Used in accurately locating the turf we're standing on.
+	var/offset_constant = 32
+	///Boolean, set to TRUE if someone is folding the banner.
+	var/currently_folding = FALSE
 	var/ripped_outline_state = "flag_ripped"
 	var/flag_path
 	var/flag_size
@@ -79,7 +83,7 @@
 		flag_icon = new(icon, icon_state)
 		shading_icon = new('icons/obj/structure/flags.dmi', "flag")
 		flag_icon.Blend(shading_icon, ICON_MULTIPLY)
-		var/turf/T = get_step(loc, dir)
+		var/turf/T = locate(x + src.pixel_x / offset_constant, y + src.pixel_y / offset_constant, z)
 		if(iswall(T))
 			icon = flag_icon
 			return
@@ -151,14 +155,12 @@
 	if(use_check_and_message(user))
 		return
 
-
-	for(var/obj/A in get_turf(user.loc))
-		if(istype(A, /obj/structure/bed))
-			to_chat(user, SPAN_DANGER("There is already a [A.name] here."))
-			return
-		if(A.density)
-			to_chat(user, SPAN_DANGER("There is already something here."))
-			return
+	for(var/obj/A in get_step(get_turf(user), user.dir))
+		if(!iswall(A) && !istype(A, /obj/structure/table) && !istype(A, /obj/structure/window_frame) && !istype(A, /obj/structure/window))
+			if(A.density || istype(A, /obj/structure/bed))
+				to_chat(user, SPAN_WARNING("You can't place this here, [A.name] is blocking the way!"))
+				return
+		continue
 
 	if(isfloor(user.loc))
 		user.visible_message(SPAN_NOTICE("\The [user] deploys \the [src] on \the [get_turf(loc)]."), SPAN_NOTICE("You deploy \the [src] on \the [get_turf(loc)]."))
@@ -226,9 +228,15 @@
 		if(I_HELP)
 			examinate(user, src)
 		if(I_DISARM)
+			if(currently_folding)
+				to_chat(user, SPAN_WARNING("You are already folding up \the [src]."))
+				return
+			currently_folding = TRUE
 			user.visible_message(SPAN_NOTICE("\The [user] begins to carefully fold up \the [src]."), SPAN_NOTICE("You begin to carefully fold up \the [src]."))
 			if(do_after(user, 50))
 				unfasten(user)
+			else
+				currently_folding = FALSE
 		if(I_GRAB)
 			user.visible_message(SPAN_NOTICE("\The [user] salutes \the [src]."), SPAN_NOTICE("You salute \the [src]."))
 		if(I_HURT)
@@ -3382,22 +3390,45 @@
 /obj/structure/sign/flag/glaorr/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
 
-//Burzsia (banner only)
+//Burzsia
 /obj/item/flag/burzsia
 	name = "\improper Burzsia flag"
-	desc = "The sigil of Burzsia."
+	desc = "The sigil of Burzsia, placed on a background of Hephaestus green."
 	flag_path = "burzsia"
 	flag_structure = /obj/structure/sign/flag/burzsia
 
 /obj/structure/sign/flag/burzsia
 	name = "\improper Burzsia flag"
-	desc = "The sigil of Burzsia."
+	desc = "The sigil of Burzsia, placed on a background of Hephaestus green."
 	flag_path = "burzsia"
 	icon_state = "burzsia"
 	flag_item = /obj/item/flag/burzsia
 
 /obj/structure/sign/flag/burzsia/unmovable
 	unmovable = TRUE
+
+/obj/item/flag/burzsia/l
+	name = "\improper large Burzsia Flag"
+	flag_path = "burzsia"
+	flag_structure = /obj/structure/sign/flag/burzsia/large
+
+/obj/structure/sign/flag/burzsia/large
+	icon_state = "burzsia_l"
+	flag_path = "burzsia"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/burzsia/l
+
+/obj/structure/sign/flag/burzsia/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flagburzsia/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/burzsia/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/burzsia/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 //Unathi Ruin Flags/Tapestries
 /obj/item/flag/unathi_tapestry

@@ -24,9 +24,10 @@
 #define SECTOR_WEEPING_STARS		"Weeping Stars"		//Generic sector
 #define SECTOR_ARUSHA				"Arusha"			//Generic sector
 #define SECTOR_LIBERTYS_CRADLE		"Liberty's Cradle"	//Generic sector
+#define SECTOR_XANU					"Xanu"				// Xanu Prime is here
 #define SECTOR_BURZSIA				"Burzsia" 			//Burzsia I and II are here
 #define SECTOR_HANEUNIM				"Haneunim"			//Haneunim and its gravity well, Konyang is found here
-#define ALL_COALITION_SECTORS	list(SECTOR_COALITION, SECTOR_WEEPING_STARS, SECTOR_ARUSHA, SECTOR_LIBERTYS_CRADLE, SECTOR_BURZSIA, SECTOR_HANEUNIM)
+#define ALL_COALITION_SECTORS	list(SECTOR_COALITION, SECTOR_XANU, SECTOR_WEEPING_STARS, SECTOR_ARUSHA, SECTOR_LIBERTYS_CRADLE, SECTOR_BURZSIA, SECTOR_HANEUNIM)
 
 //Light's edge, which should have unique properties all around
 #define SECTOR_LIGHTS_EDGE			"Light's Edge"	//For the area of Light's Edge that is somewhat inhabited
@@ -42,7 +43,7 @@
 #define ALL_CORPORATE_SECTORS	list(ALL_TAU_CETI_SECTORS, SECTOR_SRANDMARR, SECTOR_UUEOAESA, ALL_COALITION_SECTORS, ALL_GENERIC_SECTORS, SECTOR_NRRAHRAHUL, SECTOR_BADLANDS)//Currently excludes Elyran sectors and Light's Edge
 
 //For highly dangerous sectors with high piracy. Civilian and leisure ships should be less common or not found here.
-#define ALL_DANGEROUS_SECTORS	list(SECTOR_BADLANDS, ALL_VOID_SECTORS)
+#define ALL_DANGEROUS_SECTORS	list(SECTOR_BADLANDS, ALL_VOID_SECTORS, SECTOR_BURZSIA) //Burszia is considered dangerous for the duration of the Trouble in Paradise arc
 
 /// all non-generic, named and specific sectors, where generic planets or the like should not spawn
 #define ALL_SPECIFIC_SECTORS	list(SECTOR_TAU_CETI, SECTOR_SRANDMARR, SECTOR_HANEUNIM, SECTOR_BURZSIA, SECTOR_UUEOAESA, SECTOR_TABITI, SECTOR_AEMAQ, SECTOR_NRRAHRAHUL, SECTOR_GAKAL)

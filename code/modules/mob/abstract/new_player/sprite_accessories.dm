@@ -1370,10 +1370,20 @@ Follow by example and make good judgement based on length which list to include 
 	length = 2
 	chatname = "unshaved hair"
 
+/datum/sprite_accessory/hair/punk_sidecut_left_sh
+	name = "Punk Shave, Sidecut Short Left"
+	icon_state = "hair_punk_sideleft_sh"
+	chatname = "unshaved hair"
+
 /datum/sprite_accessory/hair/punk_sidecut_right
 	name = "Punk Shave, Sidecut Right"
 	icon_state = "hair_punk_sideright"
 	length = 2
+	chatname = "unshaved hair"
+
+/datum/sprite_accessory/hair/punk_sidecut_right_sh
+	name = "Punk Shave, Sidecut Short Right"
+	icon_state = "hair_punk_sideright_sh"
 	chatname = "unshaved hair"
 
 /datum/sprite_accessory/hair/quiff
@@ -4380,7 +4390,8 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/facial_hair/ipc_screen_blank/none
 	name = "no IPC screen"
 	icon_state = "none"
-	robotize_type_required = list(PROSTHETIC_HOPLAN, PROSTHETIC_RAXUS, PROSTHETIC_INDRICUS)
+	species_allowed = list(/datum/species/machine, /datum/species/machine/bishop)
+	robotize_type_required = list(PROSTHETIC_HOPLAN, PROSTHETIC_RAXUS, PROSTHETIC_INDRICUS, PROSTHETIC_SELEN)
 
 /datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_blue
 	name = "blue IPC screen"
@@ -4677,6 +4688,41 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_question_mark
 	name = "question mark IPC screen"
 	icon_state = "ipc_question"
+
+//bishop screens
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/bishop
+	icon = 'icons/mob/human_face/ipc_screens.dmi'
+	name = "Bishop Face"
+	icon_state = "bishop_face"
+	species_allowed = list(/datum/species/machine/bishop)
+	robotize_type_required = list()
+	required_organ = BP_HEAD
+	gender = NEUTER
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/bishop/bishop_cross
+	name = "Bishop Cross"
+	icon_state = "bishop_cross"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/bishop/bishop_surprise
+	name = "Bishop Exclamation Mark"
+	icon_state = "bishop_surprise"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/bishop/siseyo_lights
+	name = "Siseyo Lights"
+	icon_state = "siseyo_lights"
+	robotize_type_required = list(PROSTHETIC_SISEYO)
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/bishop/sienna_lights
+	name = "Sienna Lights"
+	icon_state = "sienna_lights"
+	robotize_type_required = list(PROSTHETIC_SIENNA)
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/bishop/selen_lights
+	name = "Selen Lights"
+	icon_state = "selen_lights"
+	robotize_type_required = list(PROSTHETIC_SELEN)
+
+//diona stuff
 
 /datum/sprite_accessory/facial_hair/diona_eye
 	icon = 'icons/mob/human_face/dionae_hair.dmi'
@@ -6670,33 +6716,17 @@ Follow by example and make good judgement based on length which list to include 
 	body_parts = list(BP_HEAD)
 	robotize_type_required = list(PROSTHETIC_SELEN)
 
-/datum/sprite_accessory/marking/bishop_lights/bishop_mask/selen/lights
-	name = "Bishop - Selen Lights"
-	icon_state = "selen_lights"
-	body_parts = list(BP_HEAD)
-
 /datum/sprite_accessory/marking/bishop_lights/bishop_mask/sienna
 	name = "Bishop - Sienna Primary Colors"
 	icon_state = "sienna_primary"
 	body_parts = list(BP_HEAD)
 	robotize_type_required = list(PROSTHETIC_SIENNA)
 
-/datum/sprite_accessory/marking/bishop_lights/sienna/lights
-	name = "Bishop - Sienna Lights"
-	icon_state = "sienna_lights"
-	body_parts = list(BP_HEAD)
-
 /datum/sprite_accessory/marking/bishop_lights/siseyo
 	name = "Bishop - Siseyo Primary Colors"
 	icon_state = "siseyo_primary"
 	body_parts = list(BP_HEAD)
 	robotize_type_required = list(PROSTHETIC_SISEYO)
-
-/datum/sprite_accessory/marking/bishop_lights/sienna/lights
-	name = "Bishop - Siseyo Lights"
-	icon_state = "siseyo_lights"
-	body_parts = list(BP_HEAD)
-
 
 /datum/sprite_accessory/marking/bishop_lights/bishop_panels
 	name = "Bishop - Full Body Panel Colors"

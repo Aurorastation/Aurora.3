@@ -36,6 +36,10 @@
 		/obj/item/stock_parts/console_screen
 	)
 
+	component_hint_cap = "Upgraded <b>capacitors</b> will increase the amount of ore smelted per second."
+	component_hint_laser = "Upgraded <b>micro-lasers</b> will increase the amount of ore smelted per second."
+	component_hint_scan = "Upgraded <b>scanning modules</b> will increase the amount of ore smelted per second."
+
 /obj/machinery/mineral/processing_unit_console/Initialize(mapload, d, populate_components)
 	. = ..()
 	var/mutable_appearance/screen_overlay = mutable_appearance(icon, "production_console-screen", plane = EFFECTS_ABOVE_LIGHTING_PLANE)

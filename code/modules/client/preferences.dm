@@ -31,6 +31,8 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	var/tgui_inputs = TRUE
 	var/tgui_buttons_large = FALSE
 	var/tgui_inputs_swapped = FALSE
+	var/tgui_say_light_mode = FALSE
+	var/ui_scale = TRUE
 	//Style for popup tooltips
 	var/tooltip_style = "Midnight"
 
@@ -92,6 +94,7 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	var/machine_tag_status = TRUE
 	var/machine_serial_number
 	var/machine_ownership_status = IPC_OWNERSHIP_COMPANY
+	var/hidden_shell_status = FALSE
 
 		//Some faction information.
 	var/home_system = "Unset"           //System of birth.
@@ -409,7 +412,7 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	character.set_species(species)
 	if(character.dna)
 		character.dna.real_name = character.real_name
-	character.set_floating_chat_color(floating_chat_color)
+	character.langchat_color = floating_chat_color
 
 	character.flavor_texts["general"] = flavor_texts["general"]
 	character.flavor_texts[BP_HEAD] = flavor_texts[BP_HEAD]

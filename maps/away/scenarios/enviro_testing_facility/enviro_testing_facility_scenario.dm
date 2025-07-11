@@ -4,6 +4,8 @@
 			SCCV Horizon, the closest ship in this sector, was dispatched to investigate."
 	scenario_site_id = "enviro_testing_facility"
 
+	possible_scenario_types = list(SCENARIO_TYPE_NONCANON, SCENARIO_TYPE_CANON)
+
 	min_player_amount = 0
 	min_actor_amount = 0
 

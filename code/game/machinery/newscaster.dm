@@ -553,7 +553,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 					dat+="No comments on this story yet!</BR>"
 				else
 					for(var/datum/feed_comment/COMMENT in src.viewing_message.comments)
-						dat+="<BLOCKQUOTE style=\"padding:2px 4px;border-left:4px #797979 solid;\"><B>\[[world.time]\] [COMMENT.author]:</B>[COMMENT.message]<BR><A href='byond://?src=[REF(src)];censor_comment=1;comment=[REF(COMMENT)]>Censor Comment</A></BLOCKQUOTE>"
+						dat+="<BLOCKQUOTE style=\"padding:2px 4px;border-left:4px #797979 solid;\"><B>\[[world.time]\] [COMMENT.author]:</B>[COMMENT.message]<BR><A href='byond://?src=[REF(src)];censor_comment=1;comment=[REF(COMMENT)]'>Censor Comment</A></BLOCKQUOTE>"
 				dat+="<A href='byond://?src=[REF(src)];setScreen=[9]'>Return</A>"
 			if(24) //newscaster is not connected to the station-z-level
 				dat += "<B>ERROR: Newscaster unit cannot access main news server!</B></BR>"

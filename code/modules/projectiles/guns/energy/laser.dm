@@ -9,7 +9,7 @@
 	slot_flags = SLOT_BELT|SLOT_BACK
 	accuracy = 1
 	w_class = WEIGHT_CLASS_NORMAL
-	force = 15
+	force = 20
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	projectile_type = /obj/projectile/beam/midlaser
@@ -193,7 +193,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	origin_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 2)
 	projectile_type = /obj/projectile/beam/shotgun
-	max_shots = 20
+	max_shots = 28
 	sel_mode = 1
 	is_wieldable = TRUE
 	burst = 4

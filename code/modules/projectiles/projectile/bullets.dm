@@ -100,6 +100,7 @@
 	// if (hits >= total_pellets || pellets <= 0)
 	// 	return TRUE
 	if(hits)
+		damage *= hits
 		return BULLET_ACT_HIT //Technically not everything, but good enough
 	return BULLET_ACT_BLOCK //Nothing hit
 
@@ -180,6 +181,10 @@
 /obj/projectile/bullet/pistol
 	damage = 20
 	armor_penetration = 15
+
+/obj/projectile/bullet/pistol/polymer
+	damage = 12
+	armor_penetration = 30
 
 /obj/projectile/bullet/pistol/medium
 	damage = 30

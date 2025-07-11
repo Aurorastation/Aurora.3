@@ -104,6 +104,7 @@ This is /obj/machinery level code to properly manage power usage from the area.
 	power_change()
 
 // The three procs below are the only allowed ways of modifying the corresponding variables.
+/// Use this to modify the use_power variable of machines, do not modify them directly!
 /obj/machinery/proc/update_use_power(new_use_power)
 	if(!power_init_complete)
 		use_power = new_use_power
@@ -115,6 +116,7 @@ This is /obj/machinery level code to properly manage power usage from the area.
 	var/new_power = get_power_usage()
 	REPORT_POWER_CONSUMPTION_CHANGE(old_power, new_power)
 
+/// Use this to modify the power channel variable of machines, do not modify them directly!
 /obj/machinery/proc/update_power_channel(new_channel)
 	if(power_channel == new_channel)
 		return
@@ -126,6 +128,7 @@ This is /obj/machinery level code to properly manage power usage from the area.
 	power_channel = new_channel
 	REPORT_POWER_CONSUMPTION_CHANGE(0, power)
 
+/// Use this to modify either of the power usage variables of machines, do not modify them directly!
 /obj/machinery/proc/change_power_consumption(new_power_consumption, use_power_mode = POWER_USE_IDLE)
 	var/old_power
 	switch(use_power_mode)

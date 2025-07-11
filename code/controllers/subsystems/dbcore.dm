@@ -370,8 +370,8 @@ SUBSYSTEM_DEF(dbcore)
  *
  */
 /datum/db_query_template/proc/Execute(arguments, allow_during_shutdown=FALSE)
-	return SSdbcore.NewQuery(sql, arguments, allow_during_shutdown)
-
+	var/datum/db_query/query =  SSdbcore.NewQuery(sql, arguments, allow_during_shutdown)
+	return query.Execute()
 
 /datum/db_query
 	// Inputs
@@ -379,7 +379,9 @@ SUBSYSTEM_DEF(dbcore)
 	var/sql
 	var/arguments
 
+	/// The callback to invoke when the query is executed successfully
 	var/datum/callback/success_callback
+	/// The callback to invoke when the query was not executed successfully
 	var/datum/callback/fail_callback
 
 	// Status information
@@ -416,16 +418,73 @@ SUBSYSTEM_DEF(dbcore)
 	SSdbcore.queries_active -= src
 	return ..()
 
+/**
+ * SetSuccessCallback
+ *
+ * Sets a callback to be executed if the query completes successfully.
+ * The parameter for the callback is this query
+ *
+ * * success_callback - The callback to be executed
+ *
+ * Returns `TRUE` if the callback was set successfully
+ * Returns `FALSE` if the callback could not be set, because another callback was already set
+ */
+/datum/db_query/proc/SetSuccessCallback(datum/callback/success_callback)
+	if (src.success_callback != null)
+		return FALSE
+
+	src.success_callback = success_callback
+	return TRUE
+
+/**
+ * SetSuccessCallback
+ *
+ * Sets a callback to be executed if the query fails.
+ * The parameter for the callback is this query
+ *
+ * * fail_callback - The callback to be executed
+ *
+ * Returns `TRUE` if the callback was set successfully
+ * Returns `FALSE` if the callback could not be set, because another callback was already set
+ */
+/datum/db_query/proc/SetFailCallback(datum/callback/fail_callback)
+	if (src.fail_callback != null)
+		return FALSE
+	src.fail_callback = fail_callback
+
+/// Stores the last activity and the time it happened on the query
 /datum/db_query/proc/Activity(activity)
 	last_activity = activity
 	last_activity_time = world.time
 
+/**
+ * warn_execute
+ *
+ * Execute()'s the query and prints a warning to the chat of the `usr` if it fails
+ *
+ * * async - Default `TRUE` - See Execute() for a description
+ *
+ * Returns `TRUE` if the query was successfully executed
+ */
 /datum/db_query/proc/warn_execute(async = TRUE)
 	. = Execute(async)
 	if(!.)
 		to_chat(usr, SPAN_DANGER("A SQL error occurred during this operation, check the server logs."))
 
-/datum/db_query/proc/Execute(async = TRUE, log_error = TRUE)
+/**
+ * Execute
+ *
+ * Executes the query and waits until the query is successfully executed before return'ing
+ * The query can be executed "sync" or "async".
+ * If the query is executed async, the query is scheduled by the DBCore and not blocking other operations
+ * If the query is executed sync, the query is executed immediately in a blocking manner
+ * In case Success/Fail Callbacks are set, they are executed.
+ *
+ * * async - Default `TRUE`
+ *
+ * Returns `TRUE` if the query was successfully executed
+ */
+/datum/db_query/proc/Execute(async = TRUE)
 	Activity("Execute")
 	if(status == DB_QUERY_STARTED)
 		CRASH("Attempted to start a new query while waiting on the old one")
@@ -449,30 +508,57 @@ SUBSYSTEM_DEF(dbcore)
 		var/job_result_str = rustg_sql_query_blocking(connection, sql, json_encode(arguments))
 		store_data(json_decode(job_result_str))
 
-	. = (status != DB_QUERY_BROKEN)
+	. = (status == DB_QUERY_FINISHED)
 	var/timed_out = !. && findtext(last_error, "Operation timed out")
-	if(!. && log_error)
-		log_subsystem_dbcore("SQL Query Failed. Query: [sql], Arguments: [json_encode(arguments)], error: [last_error]")
-		//logger.Log(LOG_CATEGORY_DEBUG_SQL, "sql query failed", list(
-		//	"query" = sql,
-		//	"arguments" = json_encode(arguments),
-		//	"error" = last_error,
-		//))
-
 	if(!async && timed_out)
 		log_subsystem_dbcore("SLOW QUERY TIMEOUT. Query: [sql], start_time: [start_time], end_time: [REALTIMEOFDAY]")
-		//logger.Log(LOG_CATEGORY_DEBUG_SQL, "slow query timeout", list(
-		//	"query" = sql,
-		//	"start_time" = start_time,
-		//	"end_time" = REALTIMEOFDAY,
-		//))
 		slow_query_check()
+
+/**
+ * ExecuteNoSleep
+ *
+ * This executes a query without waiting for the results of the query.
+ * This means, that you should not rely on being able to access the results of the query directly after the function call.
+ * Instead you need to use the Callbacks, where you can then process the query result.
+ *
+ * - permit_before_dbcore_running `FALSE` - If set to TRUE allows the query to be queued before the DBCore Subsystem is running (will still only be executed after it is running)
+ */
+/datum/db_query/proc/ExecuteNoSleep(permit_before_dbcore_running=FALSE)
+	Activity("Execute")
+	if(status == DB_QUERY_STARTED)
+		CRASH("Attempted to start a new query while waiting on the old one")
+
+	if(!SSdbcore.IsConnected())
+		last_error = "No connection!"
+		return FALSE
+
+	Close()
+	status = DB_QUERY_STARTED
+	if(!MC_RUNNING(SSdbcore.init_stage) && !permit_before_dbcore_running)
+		status = DB_QUERY_BROKEN
+		last_error = "MC not running, Cant Execute NoSleep Query"
+		log_subsystem_dbcore("Attemted to Execute NoSleep Query while MC was not running: [sql], Arguments: [json_encode(arguments)], error: [last_error]")
+		return FALSE
+	else
+		SSdbcore.queue_query(src)
+		return TRUE
 
 /// Sleeps until execution of the query has finished.
 /datum/db_query/proc/sync()
 	while(status < DB_QUERY_FINISHED)
 		stoplag()
 
+/**
+ * process
+ *
+ * Invoked by the DBcore Subsystem
+ * Checks if the query has been completed.
+ * Stores the results of the query in the /datum/db_query
+ * Calls invoke_callback()
+ * And logs failed queries
+ *
+ * Returns `TRUE` if the query finished (successful or not)
+ */
 /datum/db_query/process(seconds_per_tick)
 	if(status >= DB_QUERY_FINISHED)
 		return TRUE // we are done processing after all
@@ -483,8 +569,12 @@ SUBSYSTEM_DEF(dbcore)
 		return FALSE //no results yet
 
 	store_data(json_decode(job_result))
+	invoke_callback()
+	if (status != DB_QUERY_FINISHED)
+		log_subsystem_dbcore("SQL Query Failed. Query: [sql], Arguments: [json_encode(arguments)], error: [last_error]")
 	return TRUE
 
+/// Stores the returned query data and updates the `status` of the /datum/db_query
 /datum/db_query/proc/store_data(result)
 	switch(result["status"])
 		if("ok")
@@ -502,10 +592,20 @@ SUBSYSTEM_DEF(dbcore)
 			status = DB_QUERY_BROKEN
 			return
 
+/// Invokes the appropriate query callback if set
+/datum/db_query/proc/invoke_callback()
+	if (status == DB_QUERY_FINISHED)
+		if (success_callback)
+			success_callback.InvokeAsync(src)
+	else
+		if (fail_callback)
+			fail_callback.InvokeAsync(src)
 
+/// Messages the admin on sync queries to ask if the server just hung
 /datum/db_query/proc/slow_query_check()
 	message_admins("HEY! A database query timed out. Did the server just hang? <a href='?_src_=holder;slowquery=yes'>\[YES\]</a>|<a href='?_src_=holder;slowquery=no'>\[NO\]</a>")
 
+/// Load the NextRow from the query data into the item variable of the /datum/db_query
 /datum/db_query/proc/NextRow(async = TRUE)
 	Activity("NextRow")
 
@@ -519,6 +619,7 @@ SUBSYSTEM_DEF(dbcore)
 /datum/db_query/proc/ErrorMsg()
 	return last_error
 
+/// Deletes the Rows and Items from the Query
 /datum/db_query/proc/Close()
 	rows = null
 	item = null

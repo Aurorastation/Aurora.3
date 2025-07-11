@@ -216,6 +216,12 @@ ABSTRACT_TYPE(/datum/gear/religion/dominia)
 	dominiaicon["icon of the martyr, valeria"] = /obj/item/sign/painting_frame/martyr/valeria
 	gear_tweaks += new /datum/gear_tweak/path(dominiaicon)
 
+/datum/gear/religion/dominia/lyodii_deck
+	display_name = "lyodii fatesayer cards"
+	description = "A leather box holding a complete deck of Fatesayer cards, used by the people of the Lyod to tell one's fate."
+	path = /obj/item/storage/box/lyodii
+	culture_restriction = list(/singleton/origin_item/culture/dominia)
+
 ABSTRACT_TYPE(/datum/gear/religion/assunzione)
 	religion = RELIGION_LUCEISM
 

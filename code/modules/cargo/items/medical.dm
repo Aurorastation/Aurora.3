@@ -354,7 +354,7 @@
 
 /singleton/cargo_item/mortaphenyl_bottle
 	category = "medical"
-	name = "inaprovaline bottle"
+	name = "mortaphenyl bottle"
 	supplier = "nanotrasen"
 	description = "A bottle of mortaphenyl, a strong non-opioid painkiller."
 	price = 85

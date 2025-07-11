@@ -594,7 +594,7 @@
 
 /obj/item/storage/box/donkpockets/gwok
 	name = "box of teriyaki Gwok-pockets"
-	icon_state = "gwokpocketbox"
+	icon_state = "donkpocketboxteriyaki"
 	item_state = "redbox"
 	illustration = null
 	starts_with = list(/obj/item/reagent_containers/food/snacks/donkpocket/teriyaki = 6)
@@ -1359,7 +1359,7 @@
 	new /obj/item/stack/material/steel(src, 2)
 
 /obj/item/storage/box/sawn_doublebarrel_shotgun
-	name = "sawn-off Dduble-barrel shotgun kit"
+	name = "sawn-off Double-barrel shotgun kit"
 	desc = "A box containing a sawn-off double-barrel shotgun, an holster and some ammo."
 	starts_with = list(/obj/item/gun/projectile/shotgun/doublebarrel/sawn = 1,
 						/obj/item/ammo_casing/shotgun/pellet = 6,
@@ -1370,4 +1370,128 @@
 	desc = "A box containing a number of randomly-coloured stress balls."
 	starts_with = list(
 		/obj/item/toy/stressball = 6
+	)
+
+/obj/item/storage/box/mms_inhaler
+	name = "mms inhaler kit"
+	desc = "A box filled with an inhaler and cartridges containing Mercury Monolithium Sucrose."
+	illustration = "inhalers"
+	starts_with = list(
+		/obj/item/personal_inhaler = 1, /obj/item/reagent_containers/personal_inhaler_cartridge/mms = 3
+	)
+
+/obj/item/storage/box/ambrosia
+	name = "ambrosia box"
+	starts_with = list(
+		/obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris/dried = 4
+	)
+
+/obj/item/storage/box/reishi
+	name = "reishi box"
+	starts_with = list(
+		/obj/item/reagent_containers/food/snacks/grown/mushroom/reishi/dried = 4
+	)
+
+/obj/item/storage/box/wulumunusha
+	name = "wulumunusha box"
+	starts_with = list(
+		/obj/item/reagent_containers/food/snacks/grown/wulumunusha/dried = 4
+	)
+
+/obj/item/storage/box/ale
+	name = "pack of ale"
+	desc = "A box containing a six pack of ale."
+	illustration = "soda"
+	starts_with = list(
+		/obj/item/reagent_containers/food/drinks/bottle/small/ale = 6
+	)
+
+/obj/item/storage/box/beer
+	name = "pack of beer"
+	desc = "A box containing a six pack of beer."
+	illustration = "soda"
+	starts_with = list(
+		/obj/item/reagent_containers/food/drinks/bottle/small/beer = 6
+	)
+
+/obj/item/storage/box/skrellbeerdyn
+	name = "pack of dyn beer"
+	desc = "A box containing a six pack of dyn beer."
+	illustration = "soda"
+	starts_with = list(
+		/obj/item/reagent_containers/food/drinks/bottle/small/skrellbeerdyn = 6
+	)
+
+/obj/item/storage/box/xuizijuice
+	name = "pack of xuizi juice"
+	desc = "A box containing a six pack of xuizi juice."
+	illustration = "soda"
+	starts_with = list(
+		/obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice = 6
+	)
+
+/obj/item/storage/box/khlibnyz
+	name = "pack of khlibnyz"
+	desc = "A box containing a six pack of khlibnyz."
+	illustration = "soda"
+	starts_with = list(
+		/obj/item/reagent_containers/food/drinks/bottle/small/khlibnyz = 6
+	)
+
+/obj/item/storage/box/cola
+	name = "pack of cola"
+	desc = "A box containing a six pack of cola."
+	illustration = "soda"
+	starts_with = list(
+		/obj/item/reagent_containers/food/drinks/bottle/cola = 6
+	)
+
+/obj/item/storage/box/space_mountain_wind
+	name = "pack of space mountain wind"
+	desc = "A box containing a six pack of space mountain wind."
+	illustration = "soda"
+	starts_with = list(
+		/obj/item/reagent_containers/food/drinks/bottle/space_mountain_wind = 6
+	)
+
+/obj/item/storage/box/space_up
+	name = "pack of space-up"
+	desc = "A box containing a six pack of space-up."
+	illustration = "soda"
+	starts_with = list(
+		/obj/item/reagent_containers/food/drinks/bottle/space_up = 6
+	)
+
+/obj/item/storage/box/hrozamal_soda
+	name = "pack of hrozamal soda"
+	desc = "A box containing a six pack of hrozamal soda."
+	illustration = "soda"
+	starts_with = list(
+		/obj/item/reagent_containers/food/drinks/bottle/hrozamal_soda = 6
+	)
+
+/obj/item/storage/box/midynhr_water
+	name = "pack of midynhr water"
+	desc = "A box containing a six pack of midynhr water."
+	illustration = "soda"
+	starts_with = list(
+		/obj/item/reagent_containers/food/drinks/bottle/small/midynhr_water = 6
+	)
+
+/obj/item/storage/box/burukutu
+	name = "pack of burukutu"
+	desc = "A box containing a six pack of burukutu."
+	illustration = "soda"
+	starts_with = list(
+		/obj/item/reagent_containers/food/drinks/bottle/small/burukutu = 6
+	)
+
+/obj/item/storage/box/crutch_pair
+	starts_with = list(
+		/obj/item/cane/crutch = 2
+	)
+
+/obj/item/storage/box/forearm_crutch_pair
+	starts_with = list(
+		/obj/item/cane/crutch/forearm = 2
 	)
