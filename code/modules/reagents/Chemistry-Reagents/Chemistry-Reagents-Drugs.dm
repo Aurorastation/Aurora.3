@@ -487,6 +487,7 @@
 	taste_mult = 0.4
 	fallback_specific_heat = 1.6
 	value = 2.8
+	effect_messages = FALSE
 	condiment_name = "Ambrosia Extract Bottle"
 	condiment_desc = "A small dropper bottle full of a stoner's paradise."
 	condiment_icon_state = "ambrosiaextract"
