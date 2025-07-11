@@ -148,7 +148,7 @@ Class Procs:
 /obj/machinery/feedback_hints(mob/user, distance, is_adjacent)
 	. = list()
 	if(signaler && is_adjacent)
-		. += SPAN_WARNING("\The [src] has a hidden signaler attached to it.")
+		. += SPAN_WARNING("\The [src] has a hidden signaler attached to it. You might or might not notice this.")
 	// Still needs some work- must be able to be distinguish between thinobjectsgs that are anchored that can be casually
 	// unanchored (i.e. vending machines) vs. objects that are anchored but require other steps to unanchor (i.e. airlocks).
 	/*

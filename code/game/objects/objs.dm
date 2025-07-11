@@ -283,7 +283,6 @@
 	..()
 
 /obj/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended = FALSE)
-	update_desc_blocks(user, distance, is_adjacent)
 	. = ..()
 	if((obj_flags & OBJ_FLAG_ROTATABLE) || (obj_flags & OBJ_FLAG_ROTATABLE_ANCHORED))
 		. += SPAN_SUBTLE("Can be rotated with alt-click.")

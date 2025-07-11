@@ -108,7 +108,6 @@ var/global/list/default_interrogation_channels = list(
 	var/list/datum/radio_frequency/secure_radio_connections = list()
 
 /obj/item/device/radio/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(show_modify_on_examine && (distance <= 1))
 		if (b_stat)
@@ -118,6 +117,10 @@ var/global/list/default_interrogation_channels = list(
 
 	if(radio_desc)
 		. += radio_desc
+
+/obj/item/device/radio/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "The radio key .i will allow you to speak into a nearby intercom, .r will speak into a radio in your right hand, and .l will speak into your left. The microphone does not need to be enabled for this to work."
 
 /obj/item/device/radio/proc/set_frequency(new_frequency)
 	SSradio.remove_object(src, frequency)

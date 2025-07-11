@@ -27,7 +27,6 @@
 	var/has_edge_icon = TRUE
 
 /turf/simulated/floor/disassembly_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(flooring)
 		var/list/can_remove_with = list()
@@ -43,8 +42,11 @@
 			can_remove_with += "wrenches"
 		if(flooring.flags & TURF_REMOVE_WELDER)
 			can_remove_with += "welding tools"
-		if(length(can_remove_with))
-			. += SPAN_NOTICE("\The [src] can be removed with: [english_list(can_remove_with)].")
+
+		if(!length(can_remove_with))
+			can_remove_with = "nothing!"
+
+		. += SPAN_NOTICE("\The [src] can be removed with: [english_list(can_remove_with)].")
 
 /turf/simulated/floor/is_plating()
 	return !flooring

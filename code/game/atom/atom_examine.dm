@@ -66,6 +66,8 @@
 	SHOULD_CALL_PARENT(TRUE)
 	SHOULD_NOT_SLEEP(TRUE)
 
+	update_desc_blocks(user, distance, is_adjacent)
+
 	. = list()
 	var/f_name = "\a [src]. [infix]"
 	if(src.blood_DNA && !istype(src, /obj/effect/decal))
