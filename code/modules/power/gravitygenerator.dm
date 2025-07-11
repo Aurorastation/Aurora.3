@@ -17,7 +17,7 @@
 
 /obj/machinery/gravity_generator
 	name = "gravitational generator"
-	desc = "A device which produces a gravaton field when set up."
+	desc = "A device which produces a graviton field when set up."
 	icon = 'icons/obj/machinery/gravity_generator.dmi'
 	anchored = 1
 	density = 1
@@ -29,11 +29,49 @@
 	light_range = 8
 	var/datum/looping_sound/gravgen/soundloop
 
+// Parent obj. Kind of sprawling but the big variant with all the parts just makes this implementation easier
+/obj/machinery/gravity_generator/core
+	power_channel = AREA_USAGE_ENVIRON
+	interact_offline = 1
+	var/on = 1
+	var/breaker = 1
+	var/obj/middle = null
+	var/charging_state = POWER_IDLE
+	var/charge_count = 100
+	var/current_overlay = null
+	var/broken_state = 0
+	var/list/localareas = list()
+	var/round_start = 2 //To help stop a bug with round start
+	var/backpanelopen = 0
+	var/eventon = 0
+
+// Mini-version on offships
+/obj/machinery/gravity_generator/core/small
+	icon_state = "gravsmall_on"
+	idle_power_usage = 100
+	active_power_usage = 3000
+
+// Big version on the Horizon/Runtime
+/obj/machinery/gravity_generator/core/large
+	icon_state = "on_8"
+	idle_power_usage = 1000
+	active_power_usage = 15000
+	sprite_number = 8
+	var/list/parts = list()
+
 /obj/machinery/gravity_generator/ex_act(severity)
 	if(severity == 1) // Very sturdy.
 		set_broken()
 
-/obj/machinery/gravity_generator/update_icon()
+/obj/machinery/gravity_generator/core/small/update_icon()
+	..()
+	icon_state = "[get_status()]_[sprite_number]"
+
+/obj/machinery/gravity_generator/core/large/update_icon()
+	..()
+	icon_state = "[get_status()]_[sprite_number]"
+
+/obj/machinery/gravity_generator/part/update_icon()
 	..()
 	icon_state = "[get_status()]_[sprite_number]"
 
@@ -58,11 +96,11 @@
 	return ..()
 
 //
-// Part generator which is mostly there for looks
+// Part generator which is mostly there for looks. Only used for 'large' variant
 //
 
 /obj/machinery/gravity_generator/part
-	var/obj/machinery/gravity_generator/main/main_part = null
+	var/obj/machinery/gravity_generator/core/large/main_part = null
 
 /obj/machinery/gravity_generator/part/attackby(obj/item/attacking_item, mob/user)
 	return main_part.attackby(attacking_item, user)
@@ -78,18 +116,19 @@
 	if(main_part && !(main_part.stat & BROKEN))
 		main_part.set_broken()
 
-//
-// Generator which spawns with the station.
-//
-
-/obj/machinery/gravity_generator/main/station/Initialize()
+// General core
+/obj/machinery/gravity_generator/core/Initialize()
 	. = ..()
-	setup_parts()
 	middle.AddOverlays("activated")
 	update_list(TRUE)
 	addtimer(CALLBACK(src, PROC_REF(round_startset)), 100)
 
-/obj/machinery/gravity_generator/main/station/proc/round_startset()
+// Large generator
+/obj/machinery/gravity_generator/core/large/Initialize()
+	. = ..()
+	setup_parts()
+
+/obj/machinery/gravity_generator/core/proc/round_startset()
 	if(round_start >= 1)
 		round_start--
 		set_light(8,1,LIGHT_COLOR_CYAN)
@@ -97,36 +136,22 @@
 //
 // Generator an admin can spawn
 //
-
-/obj/machinery/gravity_generator/main/station/admin/Initialize()
+/obj/machinery/gravity_generator/core/large/station/admin/Initialize()
 	. = ..()
 	round_start = 1
 
-//
-// Main Generator with the main code
-//
+// Duplicated to handle the return ..() being run at the end, not the beginning.
+/obj/machinery/gravity_generator/core/small/Destroy()
+	LOG_DEBUG("Gravity Generator Destroyed")
+	investigate_log("was destroyed!", "gravity")
+	on = 0
+	QDEL_NULL(soundloop)
+	update_list(TRUE)
+	linked?.gravity_generator = null
+	return ..()
 
-/obj/machinery/gravity_generator/main
-	icon_state = "on_8"
-	idle_power_usage = 0
-	active_power_usage = 3000
-	power_channel = AREA_USAGE_ENVIRON
-	sprite_number = 8
-	interact_offline = 1
-	var/on = 1
-	var/breaker = 1
-	var/list/parts = list()
-	var/obj/middle = null
-	var/charging_state = POWER_IDLE
-	var/charge_count = 100
-	var/current_overlay = null
-	var/broken_state = 0
-	var/list/localareas = list()
-	var/round_start = 2 //To help stop a bug with round start
-	var/backpanelopen = 0
-	var/eventon = 0
-
-/obj/machinery/gravity_generator/main/Destroy()
+// Duplicated to handle the return ..() being run at the end, not the beginning.
+/obj/machinery/gravity_generator/core/large/Destroy()
 	LOG_DEBUG("Gravity Generator Destroyed")
 	investigate_log("was destroyed!", "gravity")
 	on = 0
@@ -138,7 +163,7 @@
 	linked?.gravity_generator = null
 	return ..()
 
-/obj/machinery/gravity_generator/main/proc/eventshutofftoggle() // Used by the gravity event. Bypasses charging and all of that stuff.
+/obj/machinery/gravity_generator/core/proc/eventshutofftoggle() // Used by the gravity event. Bypasses charging and all of that stuff.
 	breaker = 0
 	set_state(eventon)
 	sleep(20)
@@ -149,10 +174,10 @@
 	eventon = !eventon
 	addtimer(CALLBACK(src, PROC_REF(reset_event)), 100) // Because it takes 100 seconds for it to recharge. And we need to make sure we resen this var
 
-/obj/machinery/gravity_generator/main/proc/reset_event()
+/obj/machinery/gravity_generator/core/proc/reset_event()
 	eventon = !eventon
 
-/obj/machinery/gravity_generator/main/proc/setup_parts()
+/obj/machinery/gravity_generator/core/large/proc/setup_parts()
 	var/turf/our_turf = get_turf(src)
 	// 9x9 block obtained from the bottom middle of the block
 	var/list/spawn_turfs = block(locate(our_turf.x - 1, our_turf.y + 2, our_turf.z), locate(our_turf.x + 1, our_turf.y, our_turf.z))
@@ -172,14 +197,11 @@
 		parts += part
 		part.update_icon()
 
-/obj/machinery/gravity_generator/main/proc/connected_parts()
+/obj/machinery/gravity_generator/core/large/proc/connected_parts()
 	return parts.len == 8
 
-/obj/machinery/gravity_generator/main/set_broken()
+/obj/machinery/gravity_generator/core/set_broken()
 	..()
-	for(var/obj/machinery/gravity_generator/M in parts)
-		if(!(M.stat & BROKEN))
-			M.set_broken()
 	middle.ClearOverlays()
 	charge_count = 0
 	breaker = 0
@@ -187,19 +209,28 @@
 	set_state(0)
 	investigate_log("has broken down.", "gravity")
 
-/obj/machinery/gravity_generator/main/set_fix()
+/obj/machinery/gravity_generator/core/large/set_broken()
 	..()
 	for(var/obj/machinery/gravity_generator/M in parts)
-		if(M.stat & BROKEN)
-			M.set_fix()
+		if(!(M.stat & BROKEN))
+			M.set_broken()
+
+/obj/machinery/gravity_generator/core/set_fix()
+	..()
 	broken_state = 0
 	update_icon()
 	set_power()
 
+/obj/machinery/gravity_generator/core/large/set_fix()
+	..()
+	for(var/obj/machinery/gravity_generator/M in parts)
+		if(M.stat & BROKEN)
+			M.set_fix()
+
 // Interaction
 
 // Fixing the gravity generator.
-/obj/machinery/gravity_generator/main/attackby(obj/item/attacking_item, mob/user)
+/obj/machinery/gravity_generator/core/attackby(obj/item/attacking_item, mob/user)
 	var/old_broken_state = broken_state
 	switch(broken_state)
 		if(GRAV_NEEDS_SCREWDRIVER)
@@ -244,11 +275,11 @@
 	if(old_broken_state != broken_state)
 		update_icon()
 
-/obj/machinery/gravity_generator/main/attack_hand(mob/user as mob)
+/obj/machinery/gravity_generator/core/attack_hand(mob/user as mob)
 	if(!..())
 		return interact(user)
 
-/obj/machinery/gravity_generator/main/interact(mob/user as mob)
+/obj/machinery/gravity_generator/core/interact(mob/user as mob)
 	if(stat & BROKEN)
 		return
 	var/dat = "Gravity Generator Breaker: "
@@ -277,7 +308,7 @@
 	popup.open()
 
 
-/obj/machinery/gravity_generator/main/Topic(href, href_list)
+/obj/machinery/gravity_generator/core/Topic(href, href_list)
 
 	if(..())
 		return
@@ -292,17 +323,17 @@
 		eshutoff()
 
 
-/obj/machinery/gravity_generator/main/power_change()
+/obj/machinery/gravity_generator/core/power_change()
 	..()
 	breaker = (stat & NOPOWER) ? FALSE : TRUE
 	set_power()
 	investigate_log("has [stat & NOPOWER ? "lost" : "regained"] power.", "gravity")
 
-/obj/machinery/gravity_generator/main/proc/eshutoff()
+/obj/machinery/gravity_generator/core/proc/eshutoff()
 	if(charge_count > 0)
 		charge_count = 0
 		playsound(src.loc, 'sound/effects/EMPulse.ogg', 100, 1)
-		pulse_radiation(100)
+		SSradiation.radiate(src, 100)
 		set_state(0)
 		if(middle)
 			middle.ClearOverlays()
@@ -316,18 +347,21 @@
 		sleep(5)
 		set_light(0,0,"#000000")
 
-/obj/machinery/gravity_generator/main/get_status()
+/obj/machinery/gravity_generator/core/get_status()
 	if(stat & BROKEN)
 		return "fix[min(broken_state, 3)]"
 	return on || charging_state != POWER_IDLE ? "on" : "off"
 
-/obj/machinery/gravity_generator/main/update_icon()
+/obj/machinery/gravity_generator/core/update_icon()
+	..()
+
+/obj/machinery/gravity_generator/core/large/update_icon()
 	..()
 	for(var/obj/O in parts)
 		O.update_icon()
 
 // Set the charging state based on power/breaker.
-/obj/machinery/gravity_generator/main/proc/set_power()
+/obj/machinery/gravity_generator/core/proc/set_power()
 	var/new_state = 0
 	if(stat & (NOPOWER|BROKEN) || !breaker)
 		new_state = 0
@@ -339,7 +373,7 @@
 	update_icon()
 
 // Set the state of the gravity.
-/obj/machinery/gravity_generator/main/proc/set_state(var/new_state)
+/obj/machinery/gravity_generator/core/proc/set_state(var/new_state)
 	charging_state = POWER_IDLE
 	var/gravity_changed = (on != new_state)
 	on = new_state
@@ -370,7 +404,7 @@
 
 // Charge/Discharge and turn on/off gravity when you reach 0/100 percent.
 // Also emit radiation and handle the overlays.
-/obj/machinery/gravity_generator/main/process()
+/obj/machinery/gravity_generator/core/process()
 	if(stat & BROKEN)
 		return
 	if(charging_state != POWER_IDLE)
@@ -388,8 +422,8 @@
 				playsound(src.loc, 'sound/effects/EMPulse.ogg', 100, 1)
 
 			updateDialog()
-			if(prob(30)) // To help stop "Your clothes feel warm" spam.
-				pulse_radiation()
+
+			SSradiation.radiate(src, 20)
 
 			var/overlay_state = null
 			switch(charge_count)
@@ -416,12 +450,8 @@
 						middle.AddOverlays(overlay_state)
 					current_overlay = overlay_state
 
-/obj/machinery/gravity_generator/main/proc/pulse_radiation(var/amount = 20)
-	for(var/mob/living/L in view(7, src))
-		L.apply_damage(amount, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
-
 // Shake everyone on the z level to let them know that gravity was enagaged/disenagaged.
-/obj/machinery/gravity_generator/main/proc/shake_everyone()
+/obj/machinery/gravity_generator/core/proc/shake_everyone()
 	var/turf/our_turf = get_turf(src)
 	for(var/mob/M in GLOB.mob_list)
 		var/turf/their_turf = get_turf(M)
@@ -432,7 +462,7 @@
 				shake_camera(M, 5, 1)
 				M.playsound_local(our_turf, 'sound/effects/alert.ogg', 100, vary = TRUE, falloff_distance = 0.5)
 
-/obj/machinery/gravity_generator/main/proc/update_list(var/gravity_changed = FALSE)
+/obj/machinery/gravity_generator/core/proc/update_list(var/gravity_changed = FALSE)
 	var/turf/T = get_turf(src.loc)
 	if(T)
 		if(!SSmachinery.gravity_generators)
@@ -447,13 +477,13 @@
 				A.gravitychange(FALSE)
 			SSmachinery.gravity_generators -= src
 
-/obj/machinery/gravity_generator/main/Initialize()
+/obj/machinery/gravity_generator/core/Initialize()
 	. = ..()
 	soundloop = new(src, start_immediately = FALSE)
 	addtimer(CALLBACK(src, PROC_REF(updateareas)), 10)
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/gravity_generator/main/LateInitialize()
+/obj/machinery/gravity_generator/core/LateInitialize()
 	if(SSatlas.current_map.use_overmap && !linked)
 		var/my_sector = GLOB.map_sectors["[z]"]
 		if (istype(my_sector, /obj/effect/overmap/visitable))
@@ -461,13 +491,13 @@
 	if(linked)
 		linked.gravity_generator = src
 
-/obj/machinery/gravity_generator/main/proc/updateareas()
+/obj/machinery/gravity_generator/core/proc/updateareas()
 	for(var/area/A in get_sorted_areas())
 		if(!(get_area_type(A) == AREA_STATION))
 			continue
 		localareas += A
 
-/obj/machinery/gravity_generator/main/proc/get_area_type(var/area/A = get_area(src))
+/obj/machinery/gravity_generator/core/proc/get_area_type(var/area/A = get_area(src))
 	if (A.name == "Space")
 		return AREA_SPACE
 	else if(A.alwaysgravity == 1 || A.nevergravity == 1)
@@ -475,7 +505,7 @@
 	else
 		return AREA_STATION
 
-/obj/machinery/gravity_generator/main/proc/throw_up_and_down(var/area/Area)
+/obj/machinery/gravity_generator/core/proc/throw_up_and_down(var/area/Area)
 	if(!Area)
 		return
 	to_world("<h2 class='alert'>Station Announcement:</h2>")
@@ -494,7 +524,6 @@
 					continue
 			to_chat(M, SPAN_DANGER("Suddenly the gravity pushed you up to the ceiling and dropped you back on the floor with great force!"))
 			M.fall_impact(1)
-
 
 #undef POWER_IDLE
 #undef POWER_UP

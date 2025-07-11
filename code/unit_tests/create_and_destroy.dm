@@ -135,7 +135,7 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 	ignore += typesof(/obj/machinery/ammunition_loader)
 
 	// Requires others of its components at init
-	ignore += typesof(/obj/machinery/gravity_generator/main/station)
+	ignore += typesof(/obj/machinery/gravity_generator/core/large/station)
 
 	// Requires an owner's client
 	ignore += typesof(/atom/movable/screen/psi)

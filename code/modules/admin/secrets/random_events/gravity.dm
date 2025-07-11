@@ -18,7 +18,7 @@
 
 	GLOB.gravity_is_on = !GLOB.gravity_is_on
 	for(var/A in SSmachinery.gravity_generators)
-		var/obj/machinery/gravity_generator/main/B = A
+		var/obj/machinery/gravity_generator/core/B = A
 		B.eventshutofftoggle()
 
 	feedback_inc("admin_secrets_fun_used",1)
