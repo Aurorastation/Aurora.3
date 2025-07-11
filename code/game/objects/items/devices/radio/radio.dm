@@ -115,6 +115,9 @@ var/global/list/default_interrogation_channels = list(
 		else
 			. += SPAN_NOTICE("\The [src] can not be modified or attached!")
 
+	if(radio_desc)
+		. += radio_desc
+
 /obj/item/device/radio/proc/set_frequency(new_frequency)
 	SSradio.remove_object(src, frequency)
 	if(new_frequency)

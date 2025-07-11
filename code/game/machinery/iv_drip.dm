@@ -75,13 +75,13 @@
 /obj/machinery/iv_drip/feedback_hints(mob/user, distance, is_adjacent)
 	. = list()
 	. += ..()
-	. += "[src] is [mode ? "injecting" : "taking blood"] at a rate of <b/>[src.transfer_amount] u/sec<b>, the automatic injection stop mode is <b>[toggle_stop ? "on" : "off"]</b>."
+	. += "[src] is [mode ? "injecting" : "taking blood"] at a rate of <b>[src.transfer_amount] u/sec</b>, the automatic injection stop mode is <b>[toggle_stop ? "on" : "off"]</b>."
 	. += "The Emergency Positive Pressure system is [epp ? "on" : "off"]."
 	if(attached)
 		. += "\The [src] is attached to [attached]'s [vein.name]."
 	if(beaker)
 		if(LAZYLEN(beaker.reagents.reagent_volumes))
-			. += "Attached is \a [beaker] with <b>[adv_scan ? "[beaker.reagents.total_volume] units</b> of primarily <b>[beaker.reagents.get_primary_reagent_name()]</b>" : "some liquid"]."
+			. += "Attached is \a [beaker] with [adv_scan ? "<b>[beaker.reagents.total_volume] units</b> of primarily <b>[beaker.reagents.get_primary_reagent_name()]</b>" : "some liquid"]."
 		else
 			. += "Attached is \a [beaker]. It is empty."
 	else

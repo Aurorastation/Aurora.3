@@ -97,24 +97,25 @@
 /obj/structure/closet/feedback_hints(mob/user, distance, is_adjacent)
 	. = list()
 	. += ..()
+
+	if(!src.opened && isghost(user))
+		. += "It contains: [counting_english_list(contents)]"
+
 	if(distance <= 1 && !src.opened)
 		var/content_size = 0
 		for(var/obj/item/I in contents)
 			if(!I.anchored)
 				content_size += Ceiling(I.w_class/2)
 		if(!content_size)
-			. = "\The [src] is empty."
+			. += "\The [src] is empty."
 		else if(storage_capacity > content_size*4)
-			. = "\The [src] is barely filled."
+			. += "\The [src] is barely filled."
 		else if(storage_capacity > content_size*2)
-			. = "\The [src] is less than half full."
+			. += "\The [src] is less than half full."
 		else if(storage_capacity > content_size)
-			. = "\The [src] still has some free space."
+			. += "\The [src] still has some free space."
 		else
-			. = "\The [src] is full."
-
-	if(!src.opened && isghost(user))
-		. += "It contains: [counting_english_list(contents)]"
+			. += "\The [src] is full."
 
 	if(src.opened && linked_teleporter && is_adjacent)
 		. += SPAN_WARNING("There appears to be a device <b>screwed</b> onto the interior backplate of \the [src]...")

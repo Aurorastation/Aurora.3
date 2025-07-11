@@ -33,6 +33,9 @@
 	. += ..()
 	. += "Crates can be placed on top of tables by clicking and dragging the crate onto the target table."
 
+/obj/structure/closet/crate/antagonist_hints(mob/user, distance, is_adjacent)
+	. = list()
+
 /obj/structure/closet/crate/can_open()
 	if(tablestatus == UNDER_TABLE)//Can't be opened while under a table
 		return 0
