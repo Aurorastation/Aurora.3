@@ -21,28 +21,28 @@
 	icon_state = "disposal"
 	anchored = 1
 	density = 1
-	// Unit is powered
+	/// Unit is powered
 	var/is_on = TRUE
 	var/datum/wires/disposal/wires
-	// Internal reservoir
+	/// Internal reservoir
 	var/datum/gas_mixture/air_contents
 	var/mode = MODE_PRESSURIZING
-	// Controlled by flush wire status
+	/// Controlled by flush wire status
 	var/can_flush = TRUE
-	// TRUE if flush handle is pulled
+	/// TRUE if flush handle is pulled
 	var/flush = FALSE
-	// The attached pipe trunk
+	/// The attached pipe trunk
 	var/obj/structure/disposalpipe/trunk/trunk = null
-	// TRUE if flushing in progress. To be replaced with mode entirely
+	/// TRUE if flushing in progress. To be replaced with mode entirely
 	var/flushing = 0
-	// Every 30 ticks it will look whether it is ready to flush
+	/// Every 30 ticks it will look whether it is ready to flush
 	var/flush_every_ticks = 30
-	// This var adds 1 once per tick. When it reaches flush_every_ticks it resets and tries to flush
+	/// This var adds 1 once per tick. When it reaches flush_every_ticks it resets and tries to flush
 	var/flush_count = 0
 	var/last_sound = 0
-	// Most pumps require air to function, but some don't
+	/// Most pumps require air to function, but some don't
 	var/uses_air = TRUE
-	// The pneumatic pump power. 3 HP ~ 2200W
+	/// The pneumatic pump power. 3 HP ~ 2200W
 	active_power_usage = 2200
 	idle_power_usage = 100
 
@@ -97,8 +97,8 @@
 		return FALSE
 	return TRUE
 
-// create a new disposal
-// find the attached trunk (if present) and init gas resvr.
+/// create a new disposal
+/// find the attached trunk (if present) and init gas resvr.
 /obj/machinery/disposal/Initialize()
 	. = ..()
 	trunk = locate() in src.loc
@@ -129,7 +129,7 @@
 		things++
 	return things
 
-// attack by item places it in to disposal
+/// attack by item places it in to disposal
 /obj/machinery/disposal/attackby(obj/item/attacking_item, mob/user)
 	if(stat & BROKEN || !attacking_item || !user)
 		return
@@ -218,7 +218,8 @@
 			return TRUE
 
 	var/obj/item/grab/G = attacking_item
-	if(istype(G))	// handle grabbed mob
+	// handle grabbed mob
+	if(istype(G))
 		if(ismob(G.affecting))
 			var/mob/GM = G.affecting
 			if(!check_mob_size(GM))
@@ -249,7 +250,7 @@
 	user.visible_message("<b>[user]</b> places \the [attacking_item] into \the [src].", SPAN_NOTICE("You place \the [attacking_item] into the [src]."), range = 3)
 	update()
 
-// Mouse drop another mob or self
+/// Mouse drop another mob or self
 /obj/machinery/disposal/mouse_drop_receive(atom/dropped, mob/user, params)
 	var/mob/target = dropped
 	if(!istype(target))
@@ -286,8 +287,8 @@
 		return
 	if(target_loc != target.loc)
 		return
-	if(target == user && !user.stat && !user.weakened && !user.stunned && !user.paralysis)	// if drop self, then climbed in
-											// must be awake, not stunned or whatever
+	// If drop self, then climbed in. Must be awake, not stunned or whatever
+	if(target == user && !user.stat && !user.weakened && !user.stunned && !user.paralysis)
 		msg = "[user.name] climbs into the [src]."
 		to_chat(user, "You climb into the [src].")
 	else if(target != user && !user.restrained() && !user.stat && !user.weakened && !user.stunned && !user.paralysis)
@@ -315,7 +316,7 @@
 /obj/machinery/disposal/proc/check_mob_size(mob/target)
 	return 1
 
-// attempt to move while inside
+/// Attempt to move while inside
 /obj/machinery/disposal/relaymove(mob/living/user, direction)
 	. = ..()
 
@@ -325,7 +326,7 @@
 		src.go_out(user)
 	return
 
-// leave the disposal
+/// Leave the disposal
 /obj/machinery/disposal/proc/go_out(mob/user)
 
 	if (user.client)
@@ -335,14 +336,14 @@
 	update()
 	return
 
-// ai as human but can't flush
+/// AI as human but can't flush
 /obj/machinery/disposal/attack_ai(mob/user as mob)
 	if(!ai_can_interact(user))
 		return
 	var/inside_bin = (user.loc == src)
 	interact(user, !inside_bin)
 
-// human interact with machine
+/// Human interact with machine
 /obj/machinery/disposal/attack_hand(mob/user as mob)
 	if(stat & BROKEN)
 		return
@@ -367,7 +368,6 @@
 /obj/machinery/disposal/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		LOG_DEBUG("ui_interact")
 		ui = new(user, src, "DisposalUnit", "Disposal Unit", 320, 200)
 		ui.open()
 
@@ -427,7 +427,7 @@
 	if(stat & NOPOWER || mode == MODE_OFF)
 		return
 
-	// 	check for items in disposal - occupied light
+	// check for items in disposal - occupied light
 	if(length(contents))
 		AddOverlays("[icon_state]-full")
 
@@ -551,8 +551,10 @@
 
 /// Called when area power changes.
 /obj/machinery/disposal/power_change()
-	..()	// do default setting/reset of stat NOPOWER bit
-	update()	// update icon
+	// do default setting/reset of stat NOPOWER bit
+	..()
+	// update icon
+	update()
 	return
 
 /// Called when holder is expelled from a disposal- should usually only occur if the pipe network is modified
@@ -560,13 +562,15 @@
 
 	var/turf/target
 	playsound(src, 'sound/machines/hiss.ogg', 50, 0, 0)
-	if(H) // Somehow, someone managed to flush a window which broke mid-transit and caused the disposal to go in an infinite loop trying to expel null, hopefully this fixes it
+	// Somehow, someone managed to flush a window which broke mid-transit and caused the disposal to go in an infinite loop trying to expel null, hopefully this fixes it
+	if(H)
 		for(var/atom/movable/AM in H)
 			target = get_offset_target_turf(src.loc, rand(5)-rand(5), rand(5)-rand(5))
 
 			AM.forceMove(src.loc)
 			AM.pipe_eject(0)
-			if(!istype(AM,/mob/living/silicon/robot/drone)) //Poor drones kept smashing windows and taking system damage being fired out of disposals. ~Z
+			// Poor drones kept smashing windows and taking system damage being fired out of disposals. ~Z
+			if(!istype(AM,/mob/living/silicon/robot/drone))
 				addtimer(CALLBACK(AM, TYPE_PROC_REF(/atom/movable, throw_at), target, 5, 1), 1)
 
 		H.vent_gas(loc)
@@ -595,25 +599,32 @@
 		return ..()
 
 
-// virtual disposal object
-// travels through pipes in lieu of actual items
-// contents will be items flushed by the disposal
-// this allows the gas flushed to be tracked
-
+/*
+ *	Virtual disposal object
+ *	Travels through pipes in lieu of actual items
+ *	Contents will be items flushed by the disposal
+ *	This allows the gas flushed to be tracked
+ */
 /obj/disposalholder
 	invisibility = 101
-	var/datum/gas_mixture/gas = null	// gas used to flush, will appear at exit point
+	/// Gas used to flush, will appear at exit point
+	var/datum/gas_mixture/gas = null
 	dir = 0
-	var/count = 2048	//*** can travel 2048 steps before going inactive (in case of loops)
-	var/destinationTag = "" // changes if contains a delivery container
-	var/tomail = 0 //changes if contains wrapped package
-	var/hasmob = 0 //If it contains a mob
+	/// Can travel 2048 steps before going inactive (in case of loops)
+	var/count = 2048
+	/// Vhanges if contains a delivery container
+	var/destinationTag = ""
+	/// Changes if contains wrapped package
+	var/tomail = 0
+	/// If it contains a mob
+	var/hasmob = 0
 
-	var/partialTag = "" //set by a partial tagger the first time round, then put in destinationTag if it goes through again.
+	/// Set by a partial tagger the first time round, then put in destinationTag if it goes through again.
+	var/partialTag = ""
 
 	var/tmp/obj/structure/disposalpipe/tick_last
 
-	// initialize a holder from the contents of a disposal unit
+/// Initialize a holder from the contents of a disposal unit
 /obj/disposalholder/proc/init(var/obj/machinery/disposal/D, var/datum/gas_mixture/flush_gas)
 	gas = flush_gas// transfer gas resv. into holder object -- let's be explicit about the data this proc consumes, please.
 
@@ -651,22 +662,26 @@
 			src.destinationTag = drone.mail_destination
 
 
-	// start the movement process
-	// argument is the disposal unit the holder started in
+/// Start the movement process
+/// aArgument is the disposal unit the holder started in
 /obj/disposalholder/proc/start(var/obj/machinery/disposal/D)
+	// No trunk connected, so expel immediately
 	if(!D.trunk)
-		D.expel(src)	// no trunk connected, so expel immediately
+		D.expel(src)
 		return
 
 	forceMove(D.trunk)
 	set_dir(DOWN)
 	START_PROCESSING(SSdisposals, src)
 
-/obj/disposalholder/process()	// For the new SSdisposals-based movement.
+/// For the new SSdisposals-based movement.
+/obj/disposalholder/process()
 	if (hasmob && prob(3))
 		for(var/mob/living/H in src)
-			if(!istype(H,/mob/living/silicon/robot/drone)) //Drones use the mailing code to move through the disposal system,
-				H.take_overall_damage(20, 0, DAMAGE_FLAG_SHARP, "Blunt Trauma")//horribly maim any living creature jumping down disposals.  c'est la vie
+			// Drones use the mailing code to move through the disposal system,
+			if(!istype(H,/mob/living/silicon/robot/drone))
+				// Horribly maim any living creature jumping down disposals. C'est la vie
+				H.take_overall_damage(20, 0, DAMAGE_FLAG_SHARP, "Blunt Trauma")
 
 	var/obj/structure/disposalpipe/curr = loc
 	if (!loc)
@@ -692,30 +707,34 @@
 		STOP_PROCESSING(SSdisposals, src)
 		tick_last = null
 
-// find the turf which should contain the next pipe
+/// Find the turf which should contain the next pipe
 /obj/disposalholder/proc/nextloc()
 	return get_step(loc,dir)
 
-	// find a matching pipe on a turf
+/// Find a matching pipe on a turf
 /obj/disposalholder/proc/findpipe(var/turf/T)
 	if(!T)
 		return null
 
-	var/fdir = turn(dir, 180)	// flip the movement direction
+	// flip the movement direction
+	var/fdir = turn(dir, 180)
 	for(var/obj/structure/disposalpipe/P in T)
-		if(fdir & P.dpdir)		// find pipe direction mask that matches flipped dir
+		// find pipe direction mask that matches flipped dir
+		if(fdir & P.dpdir)
 			return P
 	// if no matching pipe, return null
 	return null
 
-	// merge two holder objects
-	// used when a a holder meets a stuck holder
+/// Merge two holder objects
+/// Used when a a holder meets a stuck holder
 /obj/disposalholder/proc/merge(obj/disposalholder/other)
 	for(var/atom/movable/AM in other)
-		AM.forceMove(src)		// move everything in other holder to this one
+		// move everything in other holder to this one
+		AM.forceMove(src)
 		if(ismob(AM))
 			var/mob/M = AM
-			if(M.client)	// if a client mob, update eye to follow this holder
+			// if a client mob, update eye to follow this holder
+			if(M.client)
 				M.client.eye = src
 
 	qdel(other)
@@ -731,7 +750,7 @@
 		partialTag = new_tag
 
 
-	// called when player tries to move while in a pipe
+/// Called when player tries to move while in a pipe
 /obj/disposalholder/relaymove(mob/living/user, direction)
 	. = ..()
 
@@ -751,7 +770,7 @@
 
 	playsound(src.loc, 'sound/effects/clang.ogg', 50, 0, 0)
 
-	// called to vent all gas in holder to a location
+/// Called to vent all gas in holder to a location
 /obj/disposalholder/proc/vent_gas(atom/location)
 	location.assume_air(gas)  // vent all gas to turf
 
@@ -762,7 +781,6 @@
 	return ..()
 
 // Disposal pipes
-
 /obj/structure/disposalpipe
 	icon = 'icons/obj/disposals.dmi'
 	name = "disposal pipe"
@@ -789,8 +807,8 @@
 		I.alpha = 125
 		LAZYADD(T.blueprints, I)
 
-// pipe is deleted
-// ensure if holder is present, it is expelled
+/// pipe is deleted
+/// ensure if holder is present, it is expelled
 /obj/structure/disposalpipe/Destroy()
 	var/obj/disposalholder/H = locate() in src
 	if(H)
@@ -813,14 +831,13 @@
 			expel(H, T, 0)
 	return ..()
 
-// returns the direction of the next pipe object, given the entrance dir
-// by default, returns the bitmask of remaining directions
+/// returns the direction of the next pipe object, given the entrance dir
+/// by default, returns the bitmask of remaining directions
 /obj/structure/disposalpipe/proc/nextdir(var/fromdir)
 	return dpdir & (~turn(fromdir, 180))
 
-// transfer the holder through this pipe segment
-// overriden for special behaviour
-//
+/// transfer the holder through this pipe segment
+/// overriden for special behaviour
 /obj/structure/disposalpipe/proc/transfer(var/obj/disposalholder/H)
 	var/nextdir = nextdir(H.dir)
 	H.set_dir(nextdir)
@@ -841,18 +858,18 @@
 	return P
 
 
-// update the icon_state to reflect hidden status
+/// update the icon_state to reflect hidden status
 /obj/structure/disposalpipe/proc/update()
 	var/turf/T = src.loc
 	hide(!T.is_plating() && !istype(T,/turf/space))	// space never hides pipes
 
-// hide called by levelupdate if turf intact status changes
-// change visibility status and force update of icon
+/// hide called by levelupdate if turf intact status changes
+/// change visibility status and force update of icon
 /obj/structure/disposalpipe/hide(var/intact)
 	set_invisibility(intact ? 101: 0)	// hide if floor is intact
 
-	// expel the held objects into a turf
-	// called when there is a break in the pipe
+/// expel the held objects into a turf
+/// called when there is a break in the pipe
 /obj/structure/disposalpipe/proc/expel(var/obj/disposalholder/H, var/turf/T, var/direction)
 	if(!istype(H) || !istype(T))
 		return
@@ -901,10 +918,10 @@
 			H.vent_gas(T)	// all gas vent to turf
 			qdel(H)
 
-// call to break the pipe
-// will expel any holder inside at the time
-// then delete the pipe
-// remains : set to leave broken pipe pieces in place
+/// call to break the pipe
+/// will expel any holder inside at the time
+/// then delete the pipe
+/// remains : set to leave broken pipe pieces in place
 /obj/structure/disposalpipe/proc/broken(var/remains = 0)
 	if(remains)
 		for(var/D in GLOB.cardinals)
@@ -935,7 +952,7 @@
 	QDEL_IN(src, 2)	// delete pipe after 2 ticks to ensure expel proc finished
 
 
-// pipe affected by explosion
+/// pipe affected by explosion
 /obj/structure/disposalpipe/ex_act(severity)
 	switch(severity)
 		if(1.0)
@@ -951,16 +968,15 @@
 			return
 
 
-// test health for brokenness
+/// test health for brokenness
 /obj/structure/disposalpipe/proc/healthcheck()
 	if(health < -2)
 		broken(0)
 	else if(health<1)
 		broken(1)
 
-//attack by item
-//weldingtool: unfasten and convert to obj/disposalconstruct
-
+///attack by item
+///weldingtool: unfasten and convert to obj/disposalconstruct
 /obj/structure/disposalpipe/attackby(obj/item/attacking_item, mob/user)
 	var/turf/T = src.loc
 	if(!T.is_plating())
@@ -981,7 +997,7 @@
 		else
 			to_chat(user, "You need more welding fuel to cut the pipe.")
 
-// called when pipe is cut with welder
+/// called when pipe is cut with welder
 /obj/structure/disposalpipe/proc/welded()
 	var/obj/structure/disposalconstruct/C = new (src.loc)
 	switch(icon_state)
@@ -1030,7 +1046,7 @@
 //	for(var/obj/disposalholder/H in world)
 //		H.active = 0
 
-// a straight or bent segment
+/// a straight or bent segment
 /obj/structure/disposalpipe/segment
 	icon_state = "pipe-s"
 
@@ -1043,7 +1059,7 @@
 
 	update()
 
-///// Z-Level stuff
+/// Z-Level stuff
 /obj/structure/disposalpipe/up
 	icon_state = "pipe-u"
 
@@ -1143,12 +1159,12 @@
 		return null
 
 	return P
-///// Z-Level stuff
+// Z-Level stuff
 
 /obj/structure/disposalpipe/junction/yjunction
 	icon_state = "pipe-y"
 
-//a three-way junction with dir being the dominant direction
+///a three-way junction with dir being the dominant direction
 /obj/structure/disposalpipe/junction
 	icon_state = "pipe-j1"
 
@@ -1162,9 +1178,9 @@
 		dpdir = dir | turn(dir,90) | turn(dir, -90)
 	update()
 
-// next direction to move
-// if coming in from secondary dirs, then next is primary dir
-// if coming in from primary dir, then next is equal chance of other dirs
+/// next direction to move
+/// if coming in from secondary dirs, then next is primary dir
+/// if coming in from primary dir, then next is equal chance of other dirs
 /obj/structure/disposalpipe/junction/nextdir(var/fromdir)
 	var/flipdir = turn(fromdir, 180)
 	if(flipdir != dir)	// came from secondary dir
@@ -1246,7 +1262,7 @@
 	icon_state = "pipe-tagger-partial"
 	partial = 1
 
-//a three-way junction that sorts objects
+///a three-way junction that sorts objects
 /obj/structure/disposalpipe/sortjunction
 	name = "sorting junction"
 	icon_state = "pipe-j1s"
@@ -1305,10 +1321,10 @@
 /obj/structure/disposalpipe/sortjunction/proc/divert_check(var/checkTag)
 	return sortType == checkTag
 
-// next direction to move
-// if coming in from negdir, then next is primary dir or sortdir
-// if coming in from posdir, then flip around and go back to posdir
-// if coming in from sortdir, go to posdir
+/// next direction to move
+/// if coming in from negdir, then next is primary dir or sortdir
+/// if coming in from posdir, then flip around and go back to posdir
+/// if coming in from sortdir, go to posdir
 
 /obj/structure/disposalpipe/sortjunction/nextdir(var/fromdir, var/sortTag)
 	if(fromdir != sortdir)	// probably came from the negdir
@@ -1339,7 +1355,7 @@
 
 	return P
 
-//a three-way junction that filters all wrapped and tagged items
+/// a three-way junction that filters all wrapped and tagged items
 /obj/structure/disposalpipe/sortjunction/wildcard
 	name = "tagged sorting junction"
 	desc = "An underfloor disposal pipe which filters all wrapped and tagged items."
@@ -1348,7 +1364,7 @@
 /obj/structure/disposalpipe/sortjunction/wildcard/divert_check(var/checkTag)
 	return checkTag != ""
 
-//junction that filters all untagged items
+/// junction that filters all untagged items
 /obj/structure/disposalpipe/sortjunction/untagged
 	name = "untagged sorting junction"
 	desc = "An underfloor disposal pipe which filters all untagged items."
@@ -1366,7 +1382,7 @@
 /obj/structure/disposalpipe/sortjunction/untagged/flipped
 	icon_state = "pipe-j2s"
 
-//a trunk joining to a disposal bin or outlet on the same turf
+/// a trunk joining to a disposal bin or outlet on the same turf
 /obj/structure/disposalpipe/trunk
 	icon_state = "pipe-t"
 	var/obj/linked 	// the linked obj/machinery/disposal or obj/disposaloutlet
@@ -1393,7 +1409,7 @@
 
 	update()
 
-// Override attackby so we disallow trunkremoval when somethings ontop
+/// Override attackby so we disallow trunkremoval when somethings ontop
 /obj/structure/disposalpipe/trunk/attackby(obj/item/attacking_item, mob/user)
 
 	//Disposal bins or chutes
@@ -1433,9 +1449,9 @@
 		else
 			to_chat(user, "You need more welding fuel to cut the pipe.")
 
-// would transfer to next pipe segment, but we are in a trunk
-// if not entering from disposal bin,
-// transfer to linked object (outlet or bin)
+/// would transfer to next pipe segment, but we are in a trunk
+/// if not entering from disposal bin,
+/// transfer to linked object (outlet or bin)
 /obj/structure/disposalpipe/trunk/transfer(var/obj/disposalholder/H)
 
 	if(H.dir == DOWN)		// we just entered from a disposer
@@ -1466,7 +1482,7 @@
 	if (!linked)
 		..(H)
 
-// a broken pipe
+/// a broken pipe
 /obj/structure/disposalpipe/broken
 	icon_state = "pipe-b"
 	dpdir = 0		// broken pipes have dpdir=0 so they're not found as 'real' pipes
@@ -1477,15 +1493,14 @@
 	. = ..()
 	update()
 
-// called when welded
-// for broken pipe, remove and turn into scrap
+/// called when welded
+/// for broken pipe, remove and turn into scrap
 /obj/structure/disposalpipe/broken/welded()
 //	var/obj/item/scrap/S = new(src.loc)
 //	S.set_components(200,0,0)
 	qdel(src)
 
-// the disposal outlet machine
-
+/// the disposal outlet machine
 /obj/structure/disposaloutlet
 	name = "disposal outlet"
 	desc = "An outlet for the pneumatic disposal system."
@@ -1604,13 +1619,12 @@
 			to_chat(user, "You need more welding fuel to complete this task.")
 			return
 
-// called when movable is expelled from a disposal pipe or outlet
-// by default does nothing, override for special behaviour
-
+/// called when movable is expelled from a disposal pipe or outlet
+/// by default does nothing, override for special behaviour
 /atom/movable/proc/pipe_eject(var/direction)
 	return
 
-// check if mob has client, if so restore client view on eject
+/// check if mob has client, if so restore client view on eject
 /mob/pipe_eject(var/direction)
 	if (src.client)
 		src.client.perspective = MOB_PERSPECTIVE
