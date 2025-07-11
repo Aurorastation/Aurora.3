@@ -1,4 +1,4 @@
-/datum/faction/orin_express
+/datum/faction/orion_express
 	name = "Orion Express"
 	description = {"<p>
 	Founded in 2464, the Orion Express is a corporation designed to handle logistics for the

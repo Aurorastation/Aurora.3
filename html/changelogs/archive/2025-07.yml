@@ -143,3 +143,82 @@
   SleepyGemmy:
   - bugfix: Fixed ringer buttons not animating when pressed.
   - bugfix: Fixed the hydroponics ringers being named wrong.
+2025-07-09:
+  Batrachophreno:
+  - rscadd: New item for Odyssey Storytellers, antag_spawner/ody_actor, that when
+      spawned opens a new Actor slot.
+  Batrachophrenoboocosmomachia:
+  - bugfix: Fixed unclosed hrefs; Integrated Circuits and Electronic Assembly UIs
+      work again.
+  - bugfix: Fixed unclosed hrefs; Exosuits 'being piloted by' text with link to pilot
+      works again.
+  - bugfix: Fixed unclosed hrefs; Show Held Item 'Take a closer look' text link works
+      again.
+  - bugfix: Fixed unclosed hrefs; additional clothing accessory Examine detail links
+      work again.
+  - bugfix: Fixed unclosed hrefs; AI/Borg ship alarm camera links work again.
+  - bugfix: Fixed unclosed hrefs; borg/drone installed modules detail links works
+      again.
+  - bugfix: Fixed unclosed hrefs; various library computer links work again.
+  - bugfix: Fixed unclosed hrefs; various pAI window links work again.
+  - bugfix: Fixed unclosed hrefs; newscaster story comments work again.
+  Kano:
+  - bugfix: 'Fixed the following issues: banners appearing with their stand when put
+      on walls in mapping, being unable to place it when standing on furniture or
+      dense objects, banner duplication.'
+2025-07-10:
+  notagonk:
+  - bugfix: Fixes various mapping and code issues with the Dominian Corvette.
+2025-07-11:
+  CourierBravo:
+  - rscadd: Added destination taggers and package paper to the bar, hydroponics, library,
+      security, research and development, the mutual xenobio area, xenoarcheology,
+      engineering, medical, the chapel, deck 1 janitorial, the corporate rep offices,
+      the consular offices, and the bridge.
+  Geeves, Greenjoe:
+  - rscadd: You can now spawn with broken limbs. Select these via the disabilities
+      menu.
+  Jasorn:
+  - bugfix: Removed withdrawal messages from ambrosia extract to prevent constant
+      chatspam.
+  SimpleMaroon:
+  - bugfix: Fixed the loadout tab returning a /list error if you selected the Shirts
+      and Tops section.
+  Skull132:
+  - rscadd: Allows users to log in from the forums without having a ckey linked.
+  WickedCybs:
+  - rscadd: Added Sezrak's new custom item.
+  - rscdel: Removed their other retconned item.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes Skrell shirts not showing up on loadout or in-game.
+  - bugfix: IPCs no longer have a minimum age for working assistant jobs.
+  - bugfix: Fixes Sinta Hoods not showing up on suits.
+  - bugfix: Fixes accessories being removed from range.
+  - bugfix: Fixes invisible glass tables.
+  - bugfix: Fixes invisible mag-claws, teriyaki donk pocket box, and warden's mine
+      detector.
+  hazelmouse:
+  - rscadd: All IPC subspecies besides shells are now limited exclusively to using
+      the machine variant of voidsuits rather than the human variants, in the interest
+      of enforcing more uniformity. Hardsuits have not been changed.
+  kermit:
+  - rscadd: Implements the bare essentials of the Xanu system and the planet of Xanu
+      Prime.
+  - soundadd: Xanu lobby music from 'Indulgence' album by Swara Sutra @ Bandcamp.
+  nauticall:
+  - rscadd: Added the Expeditionary radio frequency to all radios that come with Common
+      (and Entertainment) frequencies as a default radio channel.
+  - rscadd: The Expeditionary radio channel is now accessible in-radio via the shortcut
+      key 'D', e.g. ':d' or '.d'.
+  - qol: Expeditionary radio channel changed to custard yellow for easier visibility.
+  notagonk:
+  - qol: Completely remaps the PRA's Headmaster Cruiser to better spread the immortal
+      science of Hadiism across the stars.
+  - rscadd: Remaps the Operations Manager's office to a modern standard, including
+      their locker contents.
+  - qol: Instead of spawning with a clipboard, the Operations Manager can now find
+      it in their office.
+  steviii:
+  - bugfix: Fixed some unsimulated turfs, not having a distress beacon launcher, lighting
+      issues, an accidentally included (broken) flask, and the radio on the Himeo
+      Patrol Ship.

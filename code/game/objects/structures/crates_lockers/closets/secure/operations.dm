@@ -14,10 +14,8 @@
 	new /obj/item/device/radio/headset/operations_manager(src)
 	new /obj/item/device/radio/headset/operations_manager/alt(src)
 	new /obj/item/storage/box/fancy/keypouch/cargo(src)
-	new /obj/item/clothing/gloves/black(src)
-	new /obj/item/clothing/suit/fire(src)
-	new /obj/item/tank/emergency_oxygen(src)
-	new /obj/item/clothing/mask/gas(src)
+	new /obj/item/clothing/head/welding(src)
+	new /obj/item/clothing/glasses/welding(src)
 	new /obj/item/clothing/head/softcap/cargo(src)
 	new /obj/item/clothing/head/bandana/cargo(src)
 	new /obj/item/clothing/head/beret/cargo(src)
@@ -26,11 +24,13 @@
 	new /obj/item/device/orbital_dropper/drill(src)
 	new /obj/item/device/megaphone/cargo(src)
 	new /obj/item/storage/stickersheet/goldstar(src)
-	new /obj/item/device/flashlight/marshallingwand(src)
 	new /obj/item/gun/energy/disruptorpistol/miniature(src)
 	new /obj/item/clothing/accessory/holster/waist(src)
+	new /obj/item/storage/belt/utility/full(src)
+	new /obj/item/device/multitool(src)
 	new /obj/item/device/memorywiper(src)
 	new /obj/item/device/price_scanner(src)
+	new /obj/item/device/robotanalyzer(src)
 
 // Hangar Technician
 /obj/structure/closet/secure_closet/hangar_tech

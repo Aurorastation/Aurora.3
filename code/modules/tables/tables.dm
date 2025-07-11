@@ -268,10 +268,10 @@
 		if(material) // Standard table image.
 			for(var/i = 1 to 4)
 				if(material.table_icon)
-					if(reinforced && ("reinf_[material.name]_[connections[i]]" in icon_states(material.table_icon)))
-						I = image(material.table_icon, "reinf_[material.name]_[connections[i]]", dir = 1<<(i-1))
+					if(reinforced && ("reinf_[material.icon_base]_[connections[i]]" in icon_states(material.table_icon)))
+						I = image(material.table_icon, "reinf_[material.icon_base]_[connections[i]]", dir = 1<<(i-1))
 					else
-						I = image(material.table_icon, "[material.name]_[connections[i]]", dir = 1<<(i-1))
+						I = image(material.table_icon, "[material.icon_base]_[connections[i]]", dir = 1<<(i-1))
 				else
 					if(reinforced && ("reinf_[material.icon_base]_[connections[i]]" in icon_states(icon)))
 						I = image(icon, "reinf_[material.icon_base]_[connections[i]]", dir = 1<<(i-1))

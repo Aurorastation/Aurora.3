@@ -137,3 +137,8 @@ sound/machines/steam_pipe2.ogg - "Steam Leaking" by PatrickLieberkind. Licensed 
 sound/machines/steam_pipe3.ogg - "file0571_air_hiss_weak.wav" by beerbelly38. Licensed under CC-BY NC 4.0. Obtained from https://freesound.org/people/beerbelly38/sounds/277360/
 sound/machines/steam_pipe4.ogg - "Steam Sewer Ambient" by Geoff-Bremner-Audio. Licensed under CC0. Obtained from https://freesound.org/people/Geoff-Bremner-Audio/sounds/724892/
 ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTOR START
+sound/music/lobby/xanu/xanu_rock_1.ogg - "Rise" by Swara Sutra, licensed under CC BY-NC-SA 3.0. Obtained from https://swarasutra.bandcamp.com/track/rise
+sound/music/lobby/xanu/xanu_rock_2.ogg - "Induldge" by Swara Sutra, licensed under CC BY-NC-SA 3.0. Obtained from https://swarasutra.bandcamp.com/track/indulgence
+ATTRIBUTIONS SECTION END
