@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: ASmallCuteCat
+author: CourierBravo
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,4 +55,4 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "You can now wash dishes, cooking pots, and glassware! With the empty item in hand, left-click a sink with DISARM intent."
+  - rscadd: "Added destination taggers and package paper to the bar, hydroponics, library, security, research and development, the mutual xenobio area, xenoarcheology, engineering, medical, the chapel, deck 1 janitorial, the corporate rep offices, the consular offices, and the bridge."

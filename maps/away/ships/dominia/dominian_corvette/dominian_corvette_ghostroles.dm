@@ -33,7 +33,7 @@
 
 	l_ear = /obj/item/device/radio/headset/ship
 
-	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/clothing/accessory/badge/passport/dominia)
+	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/clothing/accessory/badge/passport/dominia = 1)
 
 /obj/outfit/admin/imperial_fleet_voidsman/get_id_access()
 	return list(ACCESS_IMPERIAL_FLEET_VOIDSMAN_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
@@ -46,6 +46,7 @@
 	desc = "You are a Ma’zal (a Dominian citizen not from Moroz) who serves as an Imperial Fleet armsman, and are expected to defend the ship from boarders. While not one of the elite Marines, you are older, more experienced, and are well-trained and well-equipped to defend your vessel. You have been trained to obey your commanding officer, and most nobles, without question or delay. (OOC Note: Players should be familiar with Dominian lore and play a character with a background appropriate to a Dominian Ma'zal.)"
 	mob_name_prefix = "ARMSN. " //Armsman
 
+	spawnpoints = list("imperial_fleet_armsman")
 	max_count = 2
 
 	outfit = /obj/outfit/admin/imperial_fleet_voidsman/armsman
@@ -67,6 +68,7 @@
 	desc = "You are a Ma’zal (a Dominian citizen not from Moroz) educated and trained by the Moroz Holy Tribunal to serve as a priest or priestess of the Imperial Military, a great honour. While you are nominally a civilian, life on the frontier is harsh and barbaric Coalitioners will show you little mercy. You have been trained in basic military tactics and are expected to fight shoulder-to-shoulder with your fellow crew in a boarding action. You have more education than your fellow crewmembers and also serve as the ship’s doctor. (OOC Note: Players should be familiar with Dominian lore and play a character with a background appropriate to a Dominian Ma'zal.)"
 	mob_name_prefix = null
 
+	spawnpoints = list("imperial_fleet_priest")
 	max_count = 1
 
 	outfit = /obj/outfit/admin/imperial_fleet_voidsman/priest
@@ -79,19 +81,19 @@
 	head = /obj/item/clothing/head/dominia/fleet/officer
 	uniform = /obj/item/clothing/under/dominia/fleet/officer
 	shoes = /obj/item/clothing/shoes/laceup
-	gloves = /obj/item/clothing/gloves/black_leather/white
+	gloves = /obj/item/clothing/gloves/black_leather/fleet
 	suit = /obj/item/clothing/suit/storage/dominia/fleet
 	back = /obj/item/storage/backpack/satchel/leather
 
 // Captain
 
 /datum/ghostspawner/human/imperial_fleet_voidsman/officer
-	short_name = "imperial_fleet_voidsman_officer"
+	short_name = "imperial_fleet_officer"
 	name = "Imperial Fleet Officer"
 	desc = "You are a Ma’zal (a Dominian citizen not from Moroz) Ensign of the Imperial Fleet assigned to captain a corvette. You are not a noble, but you are better than your fellow Ma’zals. Prove to your sponsor that you are worthy of command and keep your crew, and hull, intact. Goddess protect and keep you. (OOC Note: Players should be familiar with Dominian lore and play a character with a background appropriate to a Dominian Ma'zal.)"
 	mob_name_prefix = "ENS. "
 
-	spawnpoints = list("imperial_fleet_voidsman", "imperial_fleet_voidsman/officer")
+	spawnpoints = list("imperial_fleet_officer")
 	max_count = 1
 
 	outfit = /obj/outfit/admin/imperial_fleet_voidsman/officer
@@ -105,7 +107,7 @@
 	head = /obj/item/clothing/head/dominia/fleet/officer
 	uniform = /obj/item/clothing/under/dominia/fleet/officer
 	shoes = /obj/item/clothing/shoes/laceup
-	gloves = /obj/item/clothing/gloves/black_leather/white
+	gloves = /obj/item/clothing/gloves/black_leather/fleet
 	suit = /obj/item/clothing/suit/storage/dominia/fleet
 	back = /obj/item/storage/backpack/satchel/leather
 
@@ -115,6 +117,6 @@
 	name = "imperial fleet id"
 	access = list(ACCESS_IMPERIAL_FLEET_VOIDSMAN_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
 
-/obj/item/clothing/gloves/black_leather/white
+/obj/item/clothing/gloves/black_leather/fleet
 	name = "white leather gloves"
 	color = "#DDDDDD"

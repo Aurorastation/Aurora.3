@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: GeneralCamo
+author: nauticall
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,4 +55,6 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Prosthetics with lights now have emissives."
+  - rscadd: "Added the Expeditionary radio frequency to all radios that come with Common (and Entertainment) frequencies as a default radio channel."
+  - rscadd: "The Expeditionary radio channel is now accessible in-radio via the shortcut key 'D', e.g. ':d' or '.d'."
+  - qol: "Expeditionary radio channel changed to custard yellow for easier visibility."

@@ -10,7 +10,7 @@
 	var/translate_hivenet = FALSE
 	var/syndie = FALSE // Signifies that it de-crypts Syndicate transmissions
 	var/independent = FALSE // Signifies that it lets you talk on the spicy channel
-	var/list/channels = list(CHANNEL_COMMON = TRUE, CHANNEL_ENTERTAINMENT = TRUE)
+	var/list/channels = list(CHANNEL_COMMON = TRUE, CHANNEL_ENTERTAINMENT = TRUE, CHANNEL_EXPED = TRUE)
 	var/list/additional_channels = list()
 
 /obj/item/device/encryptionkey/attackby(obj/item/attacking_item, mob/user)

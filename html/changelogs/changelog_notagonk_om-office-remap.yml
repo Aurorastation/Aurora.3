@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: SimpleMaroon
+author: notagonk
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,4 +55,5 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - qol: "Queenless K'lax Vaurcae can now select Si'akh as their religion. This is only meant for those of the Ssup'vihtal group!"
+  - rscadd: "Remaps the Operations Manager's office to a modern standard, including their locker contents."
+  - qol: "Instead of spawning with a clipboard, the Operations Manager can now find it in their office."
