@@ -4685,6 +4685,10 @@ Follow by example and make good judgement based on length which list to include 
 	name = "orbit2 IPC screen"
 	icon_state = "ipc_orbit2"
 
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_question_mark
+	name = "question mark IPC screen"
+	icon_state = "ipc_question"
+
 /datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_green_eyes
 	name = "green eyes IPC screen"
 	icon_state = "ipc_green_eyes"
