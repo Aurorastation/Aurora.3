@@ -426,6 +426,7 @@
 	wall_colour = COLOR_CONCRETE
 	wall_icon = 'icons/turf/smooth/composite_solid_color.dmi'
 	table_icon = 'icons/obj/structure/tables/steel_table.dmi'
+	icon_base = "steel"
 	stack_type = null
 	golem = null
 
@@ -438,6 +439,7 @@
 	protectiveness = 10 // 33%
 	wall_icon = 'icons/turf/smooth/composite_solid_color.dmi'
 	table_icon = 'icons/obj/structure/tables/steel_table.dmi'
+	icon_base = "steel"
 	icon_colour = COLOR_GRAY40
 	wall_colour = COLOR_GRAY20
 	golem = SPECIES_GOLEM_STEEL
