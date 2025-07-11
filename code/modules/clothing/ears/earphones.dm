@@ -401,7 +401,9 @@ Earphone Variants
 		new/datum/track("All Night", 'sound/music/regional/venus/all_night.ogg'),
 		new/datum/track("#billyocean", 'sound/music/regional/venus/billy_ocean.ogg'),
 		new/datum/track("Artificially Sweetened", 'sound/music/regional/venus/artificially_sweetened.ogg'),
-		new/datum/track("Real Love", 'sound/music/regional/venus/real_love.ogg')
+		new/datum/track("Real Love", 'sound/music/regional/venus/real_love.ogg'),
+		new/datum/track("F U N K Y G I R L <3", 'sound/music/regional/venus/funky_girl.ogg'),
+		new/datum/track("Break The System", 'sound/music/regional/venus/break_the_system.ogg')
 	)
 
 

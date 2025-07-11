@@ -145,6 +145,8 @@ sound/music/regional/venus/artificially_sweetened.ogg - "Artificially Sweetened"
 sound/music/regional/venus/real_love.ogg - "Real Love" by Stevia Sphere, licensed under CC BY 3.0. Obtained from https://steviasphere.bandcamp.com/album/artificially-sweetened-single
 sound/music/regional/venus/dance.ogg - "Danceさせる" by ウナチャンUNACHAN, licensed under CC BY 3.0. Obtained from https://unachan.bandcamp.com/track/dance
 sound/music/regional/venus/love_sensation.ogg - "love sensation" by ウナチャンUNACHAN and bedroomtheft, licensed under CC BY 3.0. Obtained from https://unachan.bandcamp.com/track/love-sensation
+sound/music/regional/venus/funky_girl.ogg - "F U N K Y G I R L <3" by B~mO9000, licensed under CC BY-SA 3.0. Obtained from https://bmo9000.bandcamp.com/album/v-i-n-t-a-g-e
+sound/music/regional/venus/break_the_system.ogg - "Break The System" by B~mO9000, licensed under CC BY-SA 3.0. Obtained from https://bmo9000.bandcamp.com/album/wanted-in-80s (Download Only)
 ATTRIBUTIONS SECTION END
 
 ATTRIBUTIONS SECTOR START
