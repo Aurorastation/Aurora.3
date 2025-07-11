@@ -415,5 +415,25 @@
 
 	return test_status
 
+/datum/unit_test/map_test/no_map_spawn_guaranteed_flag
+	name = "MAP: Check for Spawn Guaranteed flag"
+
+/datum/unit_test/map_test/no_map_spawn_guaranteed_flag/start_test()
+	var/test_status = UNIT_TEST_PASSED
+
+	for (var/site_id in SSmapping.away_sites_templates)
+		var/datum/map_template/ruin/away_site/site = SSmapping.away_sites_templates[site_id]
+		if (site.template_flags & TEMPLATE_FLAG_SPAWN_GUARANTEED)
+			test_status = TEST_FAIL("Away site [site.name] has the debug flag TEMPLATE_FLAG_SPAWN_GUARANTEED set.")
+		else
+			TEST_DEBUG("Away site [site.name] does not have the flag set.")
+
+	if(test_status == UNIT_TEST_PASSED)
+		TEST_PASS("All away sites are free of offending debug flags.")
+	else
+		TEST_FAIL("Some away sites have the offending debug flag TEMPLATE_FLAG_SPAWN_GUARANTEED set.")
+
+	return test_status
+
 #undef SUCCESS
 #undef FAILURE
