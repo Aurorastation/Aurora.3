@@ -604,7 +604,7 @@
 
 /obj/item/storage/box/donkpockets/gwok
 	name = "box of teriyaki Gwok-pockets"
-	icon_state = "gwokpocketbox"
+	icon_state = "donkpocketboxteriyaki"
 	item_state = "redbox"
 	illustration = null
 	starts_with = list(/obj/item/reagent_containers/food/snacks/donkpocket/teriyaki = 6)
