@@ -116,7 +116,7 @@
 	if(!owner)
 		return
 
-	if(owner.bodytemperature > species.heat_level_1)
+	if(owner.bodytemperature > species.heat_level_2)
 		// placeholder values
 		take_internal_damage(min(owner.bodytemperature * 0.001, 2))
 		if(heat_alarm_cooldown < world.time)
