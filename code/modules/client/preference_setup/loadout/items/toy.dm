@@ -182,3 +182,10 @@
 		if(path) // repeat 3 times for each item
 			for(i = 0, i < 3, ++i)
 				new path(sheet)
+
+/datum/gear/toy/football
+	display_name = "football"
+	description = "A classic, black and white football for kicking. Also known as a soccerball on Biesel and some parts of Earth for some reason."
+	cost = 1
+	allowed_roles = list("Off-Duty Crew Member", "Passenger")
+	path = /obj/item/toy/football
