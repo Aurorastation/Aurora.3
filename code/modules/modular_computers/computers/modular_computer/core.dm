@@ -144,6 +144,11 @@
 
 	return ..()
 
+/obj/item/modular_computer/CouldUseUI(mob/user)
+	..()
+	if(iscarbon(user))
+		playsound(src, 'sound/machines/pda_click.ogg', 20)
+
 /obj/item/modular_computer/CouldUseTopic(var/mob/user)
 	..()
 	if(iscarbon(user))
