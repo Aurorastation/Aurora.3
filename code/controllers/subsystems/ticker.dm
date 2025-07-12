@@ -27,7 +27,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	var/datum/game_mode/mode = null
 	var/post_game = 0
 
-	var/login_music			// music played in pregame lobby
+	var/list/login_music			// music played in pregame lobby
 
 	var/list/datum/mind/minds = list()//The people in the game. Used for objective tracking.
 
@@ -53,11 +53,11 @@ var/datum/controller/subsystem/ticker/SSticker
 	var/atom/movable/screen/cinematic = null
 
 	var/list/default_lobby_tracks = list(
-		'sound/music/lobby/space.ogg',
-		'sound/music/lobby/traitor.ogg',
-		'sound/music/lobby/title2.ogg',
-		'sound/music/lobby/title3mk2.ogg',
-		'sound/music/lobby/clouds.s3m'
+		'sound/music/lobby/yuki_satellites.xm',
+		'sound/music/lobby/snow.ogg',
+		'sound/music/lobby/saturn.ogg',
+		'sound/music/lobby/kaaistoep.ogg',
+		'sound/music/lobby/saturn.ogg'
 	)
 
 	var/lobby_ready = FALSE
@@ -436,9 +436,9 @@ var/datum/controller/subsystem/ticker/SSticker
 	sleep(1)	// Sleep so the MC has a chance to update its init time.
 	if(!login_music)
 		if(SSatlas.current_sector && SSatlas.current_sector.lobby_tracks)
-			login_music = pick(SSatlas.current_sector.lobby_tracks)
+			login_music = SSatlas.current_sector.lobby_tracks
 		else
-			login_music = pick(default_lobby_tracks)
+			login_music = default_lobby_tracks
 
 	if (is_revote)
 		pregame_timeleft = LOBBY_TIME
