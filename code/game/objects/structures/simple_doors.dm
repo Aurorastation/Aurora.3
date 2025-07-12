@@ -15,6 +15,12 @@
 	var/health = 100
 	var/maxhealth = 100
 
+/obj/structure/simple_door/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	if(lock)
+		. += SPAN_NOTICE("It appears to have a lock.")
+
 /obj/structure/simple_door/fire_act(exposed_temperature, exposed_volume)
 	. = ..()
 
@@ -59,11 +65,6 @@
 	qdel(lock)
 	lock = null
 	return ..()
-
-/obj/structure/simple_door/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(lock)
-		. += SPAN_NOTICE("It appears to have a lock.")
 
 /obj/structure/simple_door/CollidedWith(atom/bumped_atom)
 	..()

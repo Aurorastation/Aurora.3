@@ -168,8 +168,12 @@
  */
 /obj/item/trap/sharpened
 	name = "sharpened mechanical trap"
-	desc_antag = "This device has an even higher chance of penetrating armor and locking foes in place."
 	activated_armor_penetration = 100
+
+/obj/item/trap/sharpened/antagonist_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "This device has an even higher chance of penetrating armor and locking foes in place."
 
 /**
  * # Tripwire trap
@@ -238,6 +242,13 @@
 	icon_state = "punji"
 	var/message = null
 
+/obj/item/trap/punji/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	if(src.message && distance < 3)
+		. += SPAN_ALERT("You notice something written on a plate inside the trap:")
+		. += SPAN_BAD(message)
+
 /obj/item/trap/punji/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	if(deployed && isliving(arrived))
 		var/mob/living/L = arrived
@@ -305,12 +316,6 @@
 		return
 
 	victim.visible_message(SPAN_ALERT("You notice something written on a plate inside the trap: <br>")+SPAN_BAD(message))
-
-/obj/item/trap/punji/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(src.message && distance < 3)
-		. += SPAN_ALERT("You notice something written on a plate inside the trap:")
-		. += SPAN_BAD(message)
 
 /obj/item/trap/punji/verb/hide_under()
 	set src in oview(1)
@@ -874,8 +879,9 @@
 	force = 11
 	w_class = WEIGHT_CLASS_HUGE
 
-/obj/item/large_trap_foundation/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/large_trap_foundation/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
 	. += SPAN_NOTICE("\The [src] can be turned into a large trap by attaching twelve metal rods to it.")
 
 /obj/item/large_trap_foundation/attackby(obj/item/attacking_item, mob/user)

@@ -1040,13 +1040,14 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 	icon_on = "cigrollon"
 	icon_off = "cigrolloff"
 
-/obj/item/trash/cigbutt/roll
-	icon_state = "rollbutt"
-
-/obj/item/clothing/mask/smokable/cigarette/rolled/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/clothing/mask/smokable/cigarette/rolled/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
 	if(filter)
 		. += "It's capped off one end with a filter."
+
+/obj/item/trash/cigbutt/roll
+	icon_state = "rollbutt"
 
 /obj/item/clothing/mask/smokable/cigarette/rolled/update_icon()
 	. = ..()
@@ -1091,7 +1092,6 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 		var/obj/item/clothing/mask/smokable/cigarette/rolled/CR = attacking_item
 		return CR.attackby(src, user)
 	. = ..()
-
 
 //tobacco sold seperately if you're too snobby to grow it yourself.
 /obj/item/reagent_containers/food/snacks/grown/dried_tobacco

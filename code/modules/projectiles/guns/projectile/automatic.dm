@@ -370,6 +370,14 @@
 	var/use_launcher = 0
 	var/obj/item/gun/launcher/grenade/underslung/launcher
 
+/obj/item/gun/projectile/automatic/rifle/z8/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	if(launcher.chambered)
+		. += "\The [launcher] has \a [launcher.chambered] loaded."
+	else
+		. += "\The [launcher] is empty."
+
 /obj/item/gun/projectile/automatic/rifle/z8/Initialize()
 	. = ..()
 	launcher = new(src)
@@ -405,13 +413,6 @@
 		icon_state = "carbine"
 	else
 		icon_state = "carbine-empty"
-
-/obj/item/gun/projectile/automatic/rifle/z8/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(launcher.chambered)
-		. += "\The [launcher] has \a [launcher.chambered] loaded."
-	else
-		. += "\The [launcher] is empty."
 
 /obj/item/gun/projectile/automatic/rifle/jingya
 	name = "burst rifle"

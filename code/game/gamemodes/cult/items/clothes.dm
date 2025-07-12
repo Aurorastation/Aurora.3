@@ -2,7 +2,6 @@
 	name = "ragged hood"
 	icon_state = "culthood"
 	desc = "A torn, dust-caked hood."
-	desc_antag = "As a Cultist, this can be reforged to become an eldritch voidsuit helmet."
 	flags_inv = HIDEFACE|HIDEEARS|HIDEEYES
 	body_parts_covered = HEAD|EYES
 	armor = list(
@@ -16,6 +15,10 @@
 	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0
 
+/obj/item/clothing/head/culthood/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "As a Cultist, this can be reforged to become an eldritch voidsuit helmet."
+
 /obj/item/clothing/head/culthood/cultify()
 	var/obj/item/clothing/head/helmet/space/cult/C = new /obj/item/clothing/head/helmet/space/cult(get_turf(src))
 	qdel(src)
@@ -27,7 +30,6 @@
 /obj/item/clothing/suit/cultrobes
 	name = "ragged robe"
 	desc = "A ragged, dusty robe."
-	desc_antag = "As a Cultist, this item can be reforged to become an eldritch voidsuit."
 	icon_state = "cultrobes"
 	item_state = "cultrobes"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
@@ -41,6 +43,10 @@
 		)
 	flags_inv = HIDEJUMPSUIT
 	siemens_coefficient = 0
+
+/obj/item/clothing/suit/cultrobes/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "As a Cultist, this item can be reforged to become an eldritch voidsuit."
 
 /obj/item/clothing/suit/cultrobes/cultify()
 	var/obj/item/clothing/suit/space/cult/C = new /obj/item/clothing/suit/space/cult(get_turf(src))

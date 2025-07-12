@@ -17,9 +17,12 @@
 		/obj/item/circuitboard/outlet
 	)
 
-	component_hint_cap = "Upgraded <b>capacitors</b> will increase the rate at which connected devices charge."
-
 	parts_power_mgmt = FALSE
+
+/obj/machinery/power/outlet/upgrade_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "Upgraded <b>capacitors</b> will increase the rate at which connected devices charge."
 
 /obj/machinery/power/outlet/Initialize()
 	. = ..()

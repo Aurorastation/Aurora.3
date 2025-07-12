@@ -9,6 +9,11 @@
 	var/refund_type = /obj/item/stack/material/steel
 	var/reverse = 0 //if resulting object faces opposite its dir (like light fixtures)
 
+/obj/item/floor_frame/assembly_hints()
+	. = list()
+	. += ..()
+	. += "It could be installed by using it on an adjacent <b>floor</b>."
+
 /obj/item/floor_frame/attackby(obj/item/attacking_item, mob/user)
 	if (attacking_item.iswrench())
 		new refund_type(get_turf(src.loc), refund_amt)

@@ -17,8 +17,9 @@ GLOBAL_LIST_EMPTY(teleportbeacons)
 	GLOB.teleportbeacons -= src
 	return ..()
 
-/obj/item/device/radio/beacon/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/device/radio/beacon/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
 	if(anchored)
 		. += SPAN_NOTICE("It's been secured to the ground with anchoring screws.")
 
