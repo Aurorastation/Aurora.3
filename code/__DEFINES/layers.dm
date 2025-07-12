@@ -185,8 +185,6 @@
 	/// The layer you should use when you -really- don't want an emissive overlay to be blocked.
 	#define EMISSIVE_LAYER_UNBLOCKABLE 9999
 
-#define RUNECHAT_PLANE 500
-
 //-------------------- Rendering ---------------------
 
 /// Semantics - The final compositor or a filter effect renderer

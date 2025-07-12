@@ -378,7 +378,6 @@
 #include "code\controllers\subsystems\radio.dm"
 #include "code\controllers\subsystems\records.dm"
 #include "code\controllers\subsystems\responseteam.dm"
-#include "code\controllers\subsystems\runechat.dm"
 #include "code\controllers\subsystems\skybox.dm"
 #include "code\controllers\subsystems\sound_loops.dm"
 #include "code\controllers\subsystems\sounds.dm"
