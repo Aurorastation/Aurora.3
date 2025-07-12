@@ -303,7 +303,7 @@
 	name = "Stellar Corporate Conglomerate jacket"
 	desc = "A comfortable blue jacket. Tailored upon its back is a large Stellar Corporate Conglomerate logo."
 	desc_extended = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
-	icon = 'icons/clothing/suits/scc_jacket.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/corp_dep_jackets.dmi'
 	icon_state = "scc_jacket"
 	item_state = "scc_jacket"
 	contained_sprite = TRUE
@@ -313,7 +313,7 @@
 	desc = "A more formal jacket for bridge staff. Designed in a typical Colettish style."
 	desc_extended= "While not a true Colettish uniform the aiguillette and cuff tabs of this one are obviously based on the real thing. \
 	An actual Civil Guard uniform, commonly known as a rayadillo, is generally of a darker blue and features the wearer’s ranks on the collar."
-	icon = 'icons/obj/item/clothing/suit/storage/toggle/bridge_crew_jacket_sancol.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/corp_dep_jackets.dmi'
 	icon_state = "bridge_crew_jacket_sancol"
 	item_state = "bridge_crew_jacket_sancol"
 
@@ -569,7 +569,7 @@
 /obj/item/clothing/suit/storage/toggle/highloft
 	name = "high loft jacket"
 	desc = "A high loft insulated jacket intended for long hours in cold station conditions."
-	icon = 'icons/clothing/suits/highloft.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/highloft.dmi'
 	icon_state = "highloft"
 	item_state = "highloft"
 	worn_overlay = "over"

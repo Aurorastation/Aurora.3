@@ -36,7 +36,7 @@
 /obj/item/clothing/suit/storage/toggle/konyang
 	name = "konyanger jacket"
 	desc = "A remarkably breathable yet water-resistant jacket from Konyang."
-	icon = 'icons/clothing/suits/konyang_jacket.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/konyang_jacket.dmi'
 	icon_state = "konyang_jacket"
 	item_state = "konyang_jacket"
 	contained_sprite = TRUE
@@ -68,7 +68,7 @@
 	desc = "Styled after the latest fashion trends on Konyang, this hybrid faux-leather and polyester mesh jacket was built with the planet’s humid climate in mind. This one has a pale beige color."
 	desc_extended = "Only recently entering the larger Coalition scene, Konyanger fashion has taken the frontier by storm, owing to its unique blend of durability, waterproofing, \
 	and breathability. This innovation in clothing was only accomplished due to Konyanger fashion brands utilizing the fabrics and textiles unique to their planet."
-	icon = 'icons/clothing/suits/konyang_double_breasted_jacket.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/konyang_jacket.dmi'
 	icon_state = "konyang_coat_pale"
 	item_state = "konyang_coat_pale"
 	heat_protection = UPPER_TORSO|LOWER_TORSO|ARMS
@@ -145,7 +145,7 @@
 /obj/item/clothing/shoes/konyang
 	name = "gomusin"
 	desc = "A traditional pair of shoes typically worn by men."
-	icon = 'icons/clothing/shoes/konyang_gomusin.dmi'
+	icon = 'icons/obj/item/clothing/shoes/boots.dmi'
 	icon_state = "gomusin"
 	item_state = "gomusin"
 	contained_sprite = TRUE

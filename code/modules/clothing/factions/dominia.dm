@@ -35,7 +35,7 @@
 /obj/item/clothing/shoes/lyodsuit
 	name = "lyodsuit boots"
 	desc = "A pair of thermal boots, guaranteed to prevent cold feet."
-	icon = 'icons/clothing/shoes/lyodsuit.dmi'
+	icon = 'icons/obj/item/clothing/shoes/boots.dmi'
 	icon_state = "dom_thermal_boots"
 	item_state = "dom_thermal_boots"
 	contained_sprite = TRUE
@@ -217,7 +217,7 @@
 /obj/item/clothing/suit/storage/dominia
 	name = "dominian great coat"
 	desc = "This is a great coat in the style of Dominian nobility. It's the latest fashion across Dominian space."
-	icon = 'icons/clothing/suits/coats/dominia_noble_coats.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/dominia_noble_coats.dmi'
 	icon_state = "greatcoat_red"
 	item_state = "greatcoat_red"
 	contained_sprite = TRUE
@@ -270,7 +270,7 @@
 	desc_extended = "Fisanduhian fashion remains as rugged and steadfast as its people, as well as very distinctive from the usual Morozi fashions \
 	sourced from Moroz proper. Bomber jackets such as these were also frequently seen worn by members of the Fisanduh Freedom Front and came \
 	to be seen as an enduring symbol of their struggle for liberty."
-	icon = 'icons/clothing/suits/coats/dominia_bomber.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/dominia_bomber.dmi'
 	icon_state = "dominia_bomber"
 	item_state = "dominia_bomber"
 
