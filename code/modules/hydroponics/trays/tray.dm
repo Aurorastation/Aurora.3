@@ -202,7 +202,6 @@
 		harvest()
 
 /obj/machinery/portable_atmospherics/hydroponics/attack_generic(var/mob/user)
-
 	// Why did I ever think this was a good idea. TODO: move this onto the nymph mob.
 	if(istype(user,/mob/living/carbon/alien/diona))
 		var/mob/living/carbon/alien/diona/nymph = user
@@ -243,7 +242,6 @@
 	update_icon()
 
 /obj/machinery/portable_atmospherics/hydroponics/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
-
 	//Don't act on seeds like dionaea that shouldn't change.
 	if(seed && seed.get_trait(TRAIT_IMMUTABLE) > 0)
 		return BULLET_ACT_HIT
@@ -275,12 +273,14 @@
 	else
 		return !density
 
+/// If the plant should be dead, kill it. Otherwise, don't.
 /obj/machinery/portable_atmospherics/hydroponics/proc/check_health()
 	if(seed && !dead && health <= 0)
 		die()
 	check_level_sanity()
 	update_icon()
 
+/// Call this to kill a plant. Don't modify the dead variable directly.
 /obj/machinery/portable_atmospherics/hydroponics/proc/die()
 	dead = 1
 	mutation_level = 0
@@ -294,7 +294,6 @@
 
 /// Process reagents being input into the tray.
 /obj/machinery/portable_atmospherics/hydroponics/proc/process_reagents()
-
 	if(!reagents) return
 
 	if(reagents.total_volume <= 0)
@@ -345,7 +344,6 @@
 
 /// Harvests the product of a plant.
 /obj/machinery/portable_atmospherics/hydroponics/proc/harvest(var/mob/user)
-
 	//Harvest the product of the plant,
 	if(!seed || !harvest)
 		return
@@ -399,7 +397,6 @@
 
 /// If a weed growth is sufficient, this proc is called.
 /obj/machinery/portable_atmospherics/hydroponics/proc/weed_invasion()
-
 	//Remove the seed if something is already planted.
 	if(seed) seed = null
 	seed = SSplants.seeds[pick(list("reishi","nettles","amanita","mushrooms","plumphelmet","towercap","harebells","weeds"))]
@@ -419,7 +416,6 @@
 	return
 
 /obj/machinery/portable_atmospherics/hydroponics/proc/mutate(var/severity)
-
 	// No seed, no mutations.
 	if(!seed)
 		return
@@ -445,22 +441,23 @@
 
 	return
 
-/obj/machinery/portable_atmospherics/hydroponics/verb/setlight()
-	set name = "Set Light"
-	set category = "Object"
-	set src in view(1)
+/// This is in its own proc so we can call it via a ctrl + click.
+/obj/machinery/portable_atmospherics/hydroponics/proc/change_lighting(var/mob/user)
+	var/new_light = tgui_input_list(usr, "Specify a light level.", "Set Light", list(0,1,2,3,4,5,6,7,8,9,10))
+	if(new_light)
+		tray_light = new_light
+		user.visible_message(SPAN_NOTICE("\The [user] sets \the [src] to a light level of [tray_light] lumens."),
+		SPAN_NOTICE("You set the \the [src] to a light level of [tray_light] lumens."))
+		playsound(src, /singleton/sound_category/button_sound, 25, TRUE)
 
+/obj/machinery/portable_atmospherics/hydroponics/CtrlClick(var/mob/user)
 	if(usr.incapacitated())
 		return
 	if(ishuman(usr) || istype(usr, /mob/living/silicon/robot))
-		var/new_light = tgui_input_list(usr, "Specify a light level.", "Set Light", list(0,1,2,3,4,5,6,7,8,9,10))
-		if(new_light)
-			tray_light = new_light
-			to_chat(usr, "You set the tray to a light level of [tray_light] lumens.")
-	return
+		change_lighting(user)
 
+/// Verifies that all values are what they should be.
 /obj/machinery/portable_atmospherics/hydroponics/proc/check_level_sanity()
-	//Make sure various values are sane.
 	if(seed)
 		health =     max(0,min(seed.get_trait(TRAIT_ENDURANCE),health))
 	else
@@ -475,7 +472,6 @@
 	toxins =         max(0,min(toxins,10))
 
 /obj/machinery/portable_atmospherics/hydroponics/proc/mutate_species()
-
 	var/previous_plant = seed.display_name
 	var/newseed = seed.get_mutant_variant()
 	if(newseed in SSplants.seeds)
@@ -497,7 +493,6 @@
 	return
 
 /obj/machinery/portable_atmospherics/hydroponics/attackby(obj/item/attacking_item, mob/user)
-
 	//A special case for if the container has only water, for manual watering with buckets
 	if (istype(attacking_item, /obj/item/reagent_containers))
 		var/obj/item/reagent_containers/RC = attacking_item
@@ -520,7 +515,6 @@
 		return FALSE
 
 	if((attacking_item.iswirecutter() || istype(attacking_item, /obj/item/surgery/scalpel)) && !closed_system)
-
 		if(!seed)
 			to_chat(user, "There is nothing to take a sample from in \the [src].")
 			return
@@ -551,7 +545,6 @@
 		return
 
 	else if(istype(attacking_item, /obj/item/reagent_containers/syringe) && !closed_system)
-
 		var/obj/item/reagent_containers/syringe/S = attacking_item
 
 		if (S.mode == 1)
@@ -569,9 +562,7 @@
 			return TRUE
 
 	else if (istype(attacking_item, /obj/item/seeds))
-
 		if(!seed)
-
 			var/obj/item/seeds/S = attacking_item
 			user.remove_from_mob(attacking_item)
 
@@ -631,9 +622,7 @@
 			to_chat(user, SPAN_DANGER("There is nothing in this plot for you to uproot!"))
 
 	else if (istype(attacking_item, /obj/item/storage/bag/plants))
-
 		attack_hand(user)
-
 		var/obj/item/storage/bag/plants/S = attacking_item
 		for (var/obj/item/reagent_containers/food/snacks/grown/G in locate(user.x,user.y,user.z))
 			if(!S.can_be_inserted(G))
@@ -641,7 +630,6 @@
 			S.handle_item_insertion(G, 1)
 
 	else if (istype(attacking_item, /obj/item/plantspray))
-
 		var/obj/item/plantspray/spray = attacking_item
 		user.remove_from_mob(attacking_item)
 		toxins += spray.toxicity
@@ -653,7 +641,6 @@
 		check_health()
 
 	else if(mechanical && attacking_item.iswrench())
-
 		//If there's a connector here, the portable_atmospherics setup can handle it.
 		if(locate(/obj/machinery/atmospherics/portables_connector/) in loc)
 			return ..()
@@ -664,6 +651,8 @@
 
 	else if(attacking_item.force && seed && !closed_system)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		user.do_attack_animation(src)
+		playsound(loc, /singleton/sound_category/swing_hit_sound, 25, TRUE)
 		user.visible_message(SPAN_DANGER("\The [seed.display_name] has been attacked by [user] with \the [attacking_item]!"))
 		if(!dead)
 			var/total_damage = attacking_item.force
@@ -680,11 +669,11 @@
 		harvest(user)
 
 /obj/machinery/portable_atmospherics/hydroponics/attack_hand(mob/user as mob)
-
 	if(istype(usr,/mob/living/silicon))
 		return
 
 	// If the lid is closed and stasis enabled, disable it. Otherwise, enable it. If there's no power, cut it early.
+	// TODO: Split this to its own proc?
 	if(closed_system)
 		if(stat & (NOPOWER|BROKEN))
 			to_chat(user, SPAN_NOTICE("You flick the stasis mode switch, but nothing happens."))
@@ -697,7 +686,7 @@
 			update_use_power(POWER_USE_ACTIVE)
 			stasis = TRUE
 
-		playsound(src, /singleton/sound_category/button_sound, 50, 1)
+		playsound(src, /singleton/sound_category/button_sound, 25, TRUE)
 		update_icon()
 		return
 
@@ -707,8 +696,8 @@
 		remove_dead(user)
 
 /obj/machinery/portable_atmospherics/hydroponics/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
+
 	if(!seed)
 		. += "[src] is empty."
 		return
@@ -766,21 +755,15 @@
 			stasis_string = "Stasis is disabled."
 		. += SPAN_NOTICE(stasis_string)
 
-/obj/machinery/portable_atmospherics/hydroponics/verb/close_lid_verb()
-	set name = "Toggle Tray Lid"
-	set category = "Object"
-	set src in view(1)
-	if(usr.incapacitated())
-		return
-
-	if(ishuman(usr) || istype(usr, /mob/living/silicon/robot))
-		close_lid(usr)
-	return
-
+/// Opens and closes the lid.
 /obj/machinery/portable_atmospherics/hydroponics/proc/close_lid(var/mob/living/user)
 	if(closed_system)
 		stasis = FALSE
+		density = FALSE
 		update_use_power(POWER_USE_IDLE)
+	else
+		density = TRUE
 	closed_system = !closed_system
+	playsound(src, 'sound/items/pickup/device.ogg', 25, TRUE)
 	to_chat(user, "You [closed_system ? "close" : "open"] the tray's lid.")
 	update_icon()

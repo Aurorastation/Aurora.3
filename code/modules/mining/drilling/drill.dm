@@ -153,7 +153,15 @@
 		return
 
 	//Drill through the flooring, if any.
-	if(istype(get_turf(src), /turf/simulated/floor/exoplanet/asteroid))
+	if(istype(get_turf(src), /turf/simulated/floor/exoplanet/asteroid/ash/rocky/phoron_deposit))
+		var/turf/simulated/floor/exoplanet/asteroid/ash/rocky/phoron_deposit/T = get_turf(src)
+		if(!T.dug)
+			T.gets_dug()
+			for(var/obj/item/ore/ore in range(1, src)) // gets_dug causes ore to spawn, this picks that ore up as well
+				ore.forceMove(src)
+				if(attached_satchel?.linked_box)
+					attached_satchel.insert_into_storage(ore)
+	else if(istype(get_turf(src), /turf/simulated/floor/exoplanet/asteroid))
 		var/turf/simulated/floor/exoplanet/asteroid/T = get_turf(src)
 		if(!T.dug)
 			T.gets_dug()

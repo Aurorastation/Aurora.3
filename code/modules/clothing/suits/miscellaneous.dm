@@ -728,3 +728,12 @@
 		src.item_state = "caution"
 		usr.show_message("You turn the wet floor sign off.")
 	update_clothing_icon()
+
+/obj/item/clothing/suit/caution/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/wetfloor_holder))
+		var/obj/item/wetfloor_holder/WFH = attacking_item
+		if(!WFH.held)
+			to_chat(user, SPAN_NOTICE("You collect \the [src]."))
+			forceMove(WFH)
+			WFH.held = src
+		return TRUE
