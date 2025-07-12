@@ -65,6 +65,12 @@
 
 	return ..()
 
+/mob/living/carbon/human/say(message, datum/language/speaking, verb, alt_name, ghost_hearing, whisper, skip_edit)
+	// Messaging the user is handled by the species proc.
+	if(!species.can_speak(src, speaking, message))
+		return FALSE
+	. = ..()
+
 /mob/living/carbon/human/GetVoice()
 	var/voice_sub
 	if(istype(back,/obj/item/rig))
