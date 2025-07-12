@@ -1089,7 +1089,6 @@
 /obj/item/storage/backpack/kala
 	name = "skrell backpack"
 	desc = "A lightly padded, waterproof backpack worn by Skrell."
-	icon = 'icons/obj/item/clothing/backpacks/kala_backpack.dmi'
 	icon_state = "kala_backpack"
 	item_state = "kala_backpack"
 	contained_sprite = TRUE

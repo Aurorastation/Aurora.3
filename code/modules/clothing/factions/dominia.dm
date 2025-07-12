@@ -899,7 +899,6 @@
 /obj/item/storage/backpack/dominia
 	name = "imperial army rucksack"
 	desc = "A rugged Imperial Army backpack intended for use during the Empire's frontier wars."
-	icon = 'icons/obj/item/clothing/backpacks/dominia_backpack.dmi'
 	icon_state = "dom_backpack"
 	item_state = "dom_backpack"
 

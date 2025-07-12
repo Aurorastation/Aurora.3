@@ -238,7 +238,7 @@
 /obj/item/storage/backpack/goldendeep
 	name = "sacred icon"
 	desc = "A floating and imposing symbol with very discrete anti gravity emitters capable of rendering viewers blinded by its majesty, paralyzed, or dumbstruck."
-	icon = 'icons/obj/item/clothing/backpacks/sacred_icon.dmi'
+	icon = 'icons/obj/storage/backpack.dmi'
 	icon_state = "sacred_icon"
 	item_state = "sacred_icon"
 	contained_sprite = TRUE
