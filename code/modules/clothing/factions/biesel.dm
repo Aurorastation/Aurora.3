@@ -83,7 +83,7 @@
 /obj/item/clothing/suit/storage/toggle/tcaf_officer_greatcoat
 	name = "\improper TCAF officer's greatcoat"
 	desc = "This is a well-trimmed greatcoat worn by commissioned officers in the Tau Ceti Armed Forces, such as by a Decurion or Captain. The fabric seems quite robust, but not particularly well used."
-	icon = 'icons/clothing/suits/coats/tcaf_coat.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/tcaf_coat.dmi'
 	icon_state = "tcaf_officer_coat"
 	item_state = "tcaf_officer_coat"
 	contained_sprite = TRUE

@@ -13,7 +13,7 @@
 	desc_extended = "The manufacture of the highly-ornate clergy garb, much like most other religious items of Luceism, is done by highly-skilled, highly-paid artisan tailors who master their craft over years. Tailor shops and businesses must \
 	pass an examination and be granted a license to be able to make these robes, and once they do, the Church sends luxurious materials like silk and velvet, as well as inlays made of real gold. The result is a robe unlike any other, described by \
 	the Keepers who wear them as like being wrapped in a thick, padded blanket."
-	icon = 'icons/clothing/suits/assunzione_robes.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/assunzione_robes.dmi'
 	var/initial_icon_state = "keeper"
 	icon_state = "keeper"
 	hoodtype = /obj/item/clothing/head/winterhood/assunzione_robe
@@ -38,5 +38,5 @@
 /obj/item/clothing/head/winterhood/assunzione_robe
 	name = "luceian clerical robe hood"
 	desc = "A hood for an Assunzioni clerical robe."
-	icon = 'icons/clothing/suits/assunzione_robes.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/assunzione_robes.dmi'
 

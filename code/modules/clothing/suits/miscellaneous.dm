@@ -153,7 +153,7 @@
 /obj/item/clothing/suit/golden_tailcoat
 	name = "golden tailcoat"
 	desc = "A brilliant looking golden tailcoat of sorts."
-	icon = 'icons/clothing/suits/goldendeep_tailcoat.dmi'
+	icon = 'icons/obj/item/clothing/suit/goldendeep_tailcoat.dmi'
 	icon_state = "tailcoat"
 	item_state = "tailcoat"
 	body_parts_covered = UPPER_TORSO|ARMS
@@ -194,7 +194,7 @@
 
 /obj/item/clothing/suit/storage/toggle/leather_jacket/midriff
 	name = "cropped leather jacket"
-	icon = 'icons/clothing/suits/coats/cropped_leather_jacket.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/cropped_leather_jacket.dmi'
 	desc = "A thick leather jacket that doesn't actually cover the waist. Rebel against what's expected of your jacket!"
 	icon_state = "mid"
 	item_state = "mid"
@@ -636,7 +636,7 @@
 	desc = "A jacket used by Biesel Security Services Bureau agents while on the field."
 	icon_state = "bssb_jacket"
 	item_state = "bssb_jacket"
-	icon = 'icons/clothing/suits/coats/bssb_jacket.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/bssb_jacket.dmi'
 	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/toggle/bssb/armor
