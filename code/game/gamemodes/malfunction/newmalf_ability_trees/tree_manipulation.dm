@@ -245,7 +245,7 @@
 		return
 
 	for(var/A in SSmachinery.gravity_generators)
-		var/obj/machinery/gravity_generator/main/B = A
+		var/obj/machinery/gravity_generator/core/B = A
 		B.throw_up_and_down(Area)
 	log_ability_use(user, "gravity malfunction")
 

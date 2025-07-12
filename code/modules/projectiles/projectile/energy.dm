@@ -160,8 +160,8 @@
 		A.gravitychange(FALSE)
 		addtimer(CALLBACK(src, PROC_REF(turnongravity)), 150)
 
-	if(istype(target, /obj/machinery/gravity_generator/main))
-		var/obj/machinery/gravity_generator/main/T = target
+	if(istype(target, /obj/machinery/gravity_generator/core))
+		var/obj/machinery/gravity_generator/core/T = target
 		T.eshutoff()
 
 /obj/projectile/energy/gravitydisabler/proc/turnongravity(var/area/A)
