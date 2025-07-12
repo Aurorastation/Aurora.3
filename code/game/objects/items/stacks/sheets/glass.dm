@@ -123,6 +123,7 @@
 	created_window = null
 	default_type = "wired glass"
 	construction_options = list()
+	icon_has_variants = FALSE
 
 /obj/item/stack/material/glass/wired/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/stack/material/steel))

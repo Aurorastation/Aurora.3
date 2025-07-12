@@ -206,7 +206,7 @@ GLOBAL_LIST_INIT(gear_datums, list())
 				if(thing in pref.gear)
 					style = "style='color: #FF8000;'"
 					break
-			. += " <a href='byond://?src=[REF(src)];select_category=[category]'><font [style]'>[category]</font></a> "
+			. += " <a href='byond://?src=[REF(src)];select_category=[category]'><font [style]>[category]</font></a> "
 	. += "</b></center></td></tr>"
 
 	var/datum/loadout_category/LC = GLOB.loadout_categories[current_tab]
