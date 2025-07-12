@@ -16,21 +16,15 @@
 	. = ..()
 	color = get_random_colour(TRUE)
 
-/obj/item/clothing/head/beret/peaked/colourable
+/obj/item/clothing/head/beret/peaked/colorable
 	name = "peaked beret"
 	desc = "A peaked beret."
 	icon_state = "beret_peaked_colourable"
 	item_state = "beret_peaked_colourable"
 
-/obj/item/clothing/head/beret/peaked/colourable/random/Initialize()
+/obj/item/clothing/head/beret/peaked/colorable/random/Initialize()
 	. = ..()
 	color = get_random_colour(TRUE)
-
-/obj/item/clothing/head/beret/artist/colourable
-	name = "artist beret"
-	desc = "A beret fit for an artist."
-	icon_state = "artist_colorable"
-	item_state = "artist_colorable"
 
 /obj/item/clothing/head/beret/red // Antag red.
 	name = "red beret"
