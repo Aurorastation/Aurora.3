@@ -158,7 +158,7 @@
 
 	allow_borgs_to_leave = TRUE
 
-	warehouse_basearea = /area/operations/storage
+	warehouse_basearea = /area/horizon/operations/warehouse
 
 	shuttle_manifests = list(
 		"SCCV Canary" = list("color" = "blue", "icon" = "binoculars"),
