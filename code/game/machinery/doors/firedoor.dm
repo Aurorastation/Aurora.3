@@ -67,7 +67,7 @@
 	. += "Firedoors automatically close if the pressure differential on either side of them meets or exceeds 25 kPa, or temperature rises above 50° C or falls below 0° C on either side."
 	. += "Firedoors require electricity to operate."
 	. += "Firedoors on active lockdown can be examined, when adjacent, to view pressure and temperature data from each side of the door."
-	. += "Engineering, Atmospherics, or Paramedical access rights are required for crew to freely open firedoors on active lockdown."
+	. += "Engineering, Atmospherics, or Paramedical access rights are required to freely open firedoors on active lockdown."
 
 /obj/machinery/door/firedoor/feedback_hints(mob/user, distance, is_adjacent)
 	. = list()
@@ -75,8 +75,9 @@
 	if(!is_adjacent || !density)
 		return
 
+	var/pdiff_rounded = round(pdiff,0.1)
 	if(pdiff >= FIREDOOR_MAX_PRESSURE_DIFF)
-		. += SPAN_DANGER("Current pressure differential is [pdiff] kPa. Opening door will likely result in injury.")
+		. += SPAN_DANGER("Current pressure differential is <b>[pdiff_rounded]</b> kPa. Opening door will likely result in injury.")
 	if(pdiff <= 15)
 		. += SPAN_NOTICE("Current pressure differential is less than 15 kPa.")
 	else if(pdiff <= 1)
@@ -99,9 +100,9 @@
 		var/celsius = convert_k2c(tile_info[index][1])
 		var/pressure = tile_info[index][2]
 		. += "<span class='[(dir_alerts[index] & (FIREDOOR_ALERT_HOT|FIREDOOR_ALERT_COLD)) ? "danger" : "color:blue"]'>"
-		. += "[celsius]&deg;C</span> "
+		. += "[celsius]&deg; C</span> "
 		. += "<span style='color:blue'>"
-		. += "[pressure]kPa</span>"
+		. += "[pressure] kPa</span>"
 
 	if(islist(users_to_open) && users_to_open.len)
 		var/users_to_open_string = users_to_open[1]
