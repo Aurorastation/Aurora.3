@@ -101,10 +101,10 @@
 //Put removable circuits in separate categories from non-removable
 	for(var/obj/item/integrated_circuit/circuit in contents)
 		if(!circuit.removable)
-			HTML += "<a href='byond://?src=[REF(circuit)];examine=1;from_assembly=1>[circuit.displayed_name]</a> | "
-			HTML += "<a href='byond://?src=[REF(circuit)];rename=1;from_assembly=1>Rename</a> | "
-			HTML += "<a href='byond://?src=[REF(circuit)];scan=1;from_assembly=1>Scan with Debugger</a> | "
-			HTML += "<a href='byond://?src=[REF(circuit)];bottom=[REF(circuit)];from_assembly=1>Move to Bottom</a>"
+			HTML += "<a href='byond://?src=[REF(circuit)];examine=1;from_assembly=1'>'[circuit.displayed_name]</a> | "
+			HTML += "<a href='byond://?src=[REF(circuit)];rename=1;from_assembly=1'>Rename</a> | "
+			HTML += "<a href='byond://?src=[REF(circuit)];scan=1;from_assembly=1'>Scan with Debugger</a> | "
+			HTML += "<a href='byond://?src=[REF(circuit)];bottom=[REF(circuit)];from_assembly=1'>Move to Bottom</a>"
 			HTML += "<br>"
 
 	HTML += "<hr>"
@@ -112,11 +112,11 @@
 
 	for(var/obj/item/integrated_circuit/circuit in contents)
 		if(circuit.removable)
-			HTML += "<a href='byond://?src=[REF(circuit)];examine=1;from_assembly=1>[circuit.displayed_name]</a> | "
-			HTML += "<a href='byond://?src=[REF(circuit)];rename=1;from_assembly=1>Rename</a> | "
-			HTML += "<a href='byond://?src=[REF(circuit)];scan=1;from_assembly=1>Scan with Debugger</a> | "
-			HTML += "<a href='byond://?src=[REF(circuit)];remove=1;from_assembly=1>Remove</a> | "
-			HTML += "<a href='byond://?src=[REF(circuit)];bottom=[REF(circuit)];from_assembly=1>Move to Bottom</a>"
+			HTML += "<a href='byond://?src=[REF(circuit)];examine=1;from_assembly=1'>[circuit.displayed_name]</a> | "
+			HTML += "<a href='byond://?src=[REF(circuit)];rename=1;from_assembly=1'>Rename</a> | "
+			HTML += "<a href='byond://?src=[REF(circuit)];scan=1;from_assembly=1'>Scan with Debugger</a> | "
+			HTML += "<a href='byond://?src=[REF(circuit)];remove=1;from_assembly=1'>Remove</a> | "
+			HTML += "<a href='byond://?src=[REF(circuit)];bottom=[REF(circuit)];from_assembly=1'>Move to Bottom</a>"
 			HTML += "<br>"
 
 	var/datum/browser/B = new(user, "assembly-[REF(src)]", name, 600, 400)

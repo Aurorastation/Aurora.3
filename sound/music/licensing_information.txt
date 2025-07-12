@@ -86,6 +86,13 @@ Author: Joseph Toscano AKA Zhaytee
 License: CC BY-NC-SA 3.0
 Link: https://bandcamp.zhaytee.net/track/absconditus
 ----------
+File Name: phoron_deposit.ogg
+Original Title: earth rumble & Perpetual Tension
+Author: Reitanna & Zander Noriega
+License: CC0 & CC-BY 3.0
+Link: https://freesound.org/people/Reitanna/sounds/217657/
+Link 2: https://opengameart.org/content/perpetual-tension
+----------
 File Name: yuki_satellites.xm
 Original Title: Yuki Satellites
 Author: Rymdlego (Radix)
@@ -115,4 +122,3 @@ Original Title: Kaaistoep
 Author: Doxent Zsigmond
 License: CC BY-NC-SA 4.0
 Link: http://dig.ccmixter.org/files/doxent/58480
-

@@ -225,7 +225,7 @@ SUBSYSTEM_DEF(zcopy)
 		// Handle space parallax & starlight.
 		if (T.below.z_eventually_space)
 			T.z_eventually_space = TRUE
-			if ((T.below.z_flags & ZM_MIMIC_OVERWRITE) || T.below.type == /turf/space)
+			if ((T.below.z_flags & ZM_MIMIC_OVERWRITE) || T.below.type == /turf/space || T.below.type == /turf/space/dynamic)
 				t_target = SPACE_PLANE
 
 		if (T.z_flags & ZM_MIMIC_OVERWRITE)
