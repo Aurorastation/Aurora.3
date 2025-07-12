@@ -378,7 +378,7 @@ var/global/list/default_interrogation_channels = list(
 	if(channel && channels && channels.len > 0)
 		if(channel == "department")
 			for(var/freq in channels)
-				if(freq == "Common" || freq == "Entertainment")
+				if(freq == "Common" || freq == "Entertainment" || freq == "Expeditionary")
 					continue
 				channel = freq
 				break
@@ -411,7 +411,7 @@ var/global/list/default_interrogation_channels = list(
 	if(channels && channels.len > 0)
 		if(message_mode == "department") // Department radio shortcut
 			for(var/freq in channels)
-				if(freq == "Common" || freq == "Entertainment")
+				if(freq == "Common" || freq == "Entertainment" || freq == "Expeditionary")
 					continue
 				message_mode = freq
 				break
