@@ -168,12 +168,10 @@
 
 /datum/species/machine/handle_temperature_regulation(mob/living/carbon/human/human)
 	. = ..()
-	var/obj/item/organ/internal/machine/cooling_unit/cooling = human.internal_organs_by_name[BP_COOLING_UNIT]
 	// No cooling unit = you're cooking. Broken cooling unit effects are handled by the organ itself.
 	// Here we just want to check if it's been removed.
 	// 500K is about 226 degrees. Spicy!
-	if(!istype(cooling) && human.bodytemperature < 500 && human.stat != DEAD)
-		human.bodytemperature = max(human.bodytemperature + 3)
+	human.bodytemperature = min(human.bodytemperature + rand(1, 5), heat_level_3)
 
 /datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	. = ..()

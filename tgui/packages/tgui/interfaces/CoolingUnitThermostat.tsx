@@ -12,6 +12,7 @@ export type ThermostatData = {
   passive_temp_change: number;
   bodytemperature: number;
   temperature_safety: number;
+  estimated_power_consumption: number;
   safety_burnt: BooleanLike;
 };
 
@@ -42,6 +43,11 @@ export const ThermostatWindow = (props, context) => {
           My internals are currently at{' '}
           <AnimatedNumber value={round(data.bodytemperature, 1)} />
           °C.
+        </Box>
+        <Box textAlign="center">
+          Estimated power consumption:{' '}
+          <AnimatedNumber value={round(data.estimated_power_consumption, 1)} />
+          kW.
         </Box>
         <Knob
           size={2}

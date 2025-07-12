@@ -132,7 +132,7 @@ export const OrganDisplay = (props, context) => {
   return (
     <Section title={data.patient_name + ': Internal Components'}>
       {data.organs.map((organ) => (
-        <Collapsible open={1} content={organ.name} key={organ.name}>
+        <Collapsible content={organ.name} key={organ.name}>
           <Box italic>{organ.desc}</Box>
           <Divider />
           <Box>

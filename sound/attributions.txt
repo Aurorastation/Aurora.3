@@ -142,3 +142,8 @@ ATTRIBUTIONS SECTOR START
 sound/music/lobby/xanu/xanu_rock_1.ogg - "Rise" by Swara Sutra, licensed under CC BY-NC-SA 3.0. Obtained from https://swarasutra.bandcamp.com/track/rise
 sound/music/lobby/xanu/xanu_rock_2.ogg - "Induldge" by Swara Sutra, licensed under CC BY-NC-SA 3.0. Obtained from https://swarasutra.bandcamp.com/track/indulgence
 ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTOR START
+sound/effects/heat_alarm.ogg by Tim_Verberne -- https://freesound.org/s/514080/ -- License: Creative Commons 0
+sound/effects/reload_woosh.ogg by jwsounddesign -- https://freesound.org/s/611475/ -- License: Attribution 4.0
+ATTRIBUTIONS SECTION END

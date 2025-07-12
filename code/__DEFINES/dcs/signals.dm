@@ -60,6 +60,8 @@
 #define COMSIG_ITEM_UPDATE_STATE "update_state"
 /// updates sprites
 #define COMSIG_ITEM_ICON_UPDATE "icon_update"
+/// when a gun mag is emptied
+#define COMSIG_EMPTIED_MAGAZINE "emptied_magazine"
 
 // tgui signals
 #define COMSIG_TGUI_CLOSE "tgui_close"

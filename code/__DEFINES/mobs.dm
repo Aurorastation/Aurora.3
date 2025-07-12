@@ -151,6 +151,7 @@
 #define BP_ACTUATORS_RIGHT	"right arm actuators"
 #define BP_SURGE_PROTECTOR "surge"
 #define BP_DATACORE "data core"
+#define BP_TARGETING_CORE "targeting core"
 
 // Bishop frame only.
 #define BP_WIRELESS_ACCESS "wireless access point"

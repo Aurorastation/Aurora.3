@@ -114,7 +114,8 @@
 		BP_ACCESS_PORT = /obj/item/organ/internal/machine/access_port,
 		BP_CELL    = /obj/item/organ/internal/machine/power_core,
 		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
-		BP_SURGE_PROTECTOR   = /obj/item/organ/internal/machine/surge/advanced
+		BP_SURGE_PROTECTOR   = /obj/item/organ/internal/machine/surge/advanced,
+		BP_TARGETING_CORE = /obj/item/organ/internal/machine/targeting_core
 	)
 
 	unarmed_types = list(
@@ -272,7 +273,8 @@
 		BP_CELL    = /obj/item/organ/internal/machine/power_core,
 		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
 		BP_DATACORE = /obj/item/organ/internal/machine/data,
-		BP_SURGE_PROTECTOR = /obj/item/organ/internal/machine/surge/advanced
+		BP_SURGE_PROTECTOR = /obj/item/organ/internal/machine/surge/advanced,
+		BP_TARGETING_CORE = /obj/item/organ/internal/machine/targeting_core
 	)
 
 	has_limbs = list(

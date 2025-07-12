@@ -285,6 +285,7 @@
 /obj/item/access_cable/synthetic
 	name = "universal access cable"
 	desc = "A cable with universal access pins at its end. This particular access cable comes with most synthetics' access ports for quick access to electronics, firewalls, or other synthetics' diagnostics systems."
+	desc_info = "To retract this cable into your port, <span class='notice'>activate it in-hand</span>."
 
 /obj/item/access_cable/synthetic/attack_self(mob/user, modifiers)
 	if(isipc(user))

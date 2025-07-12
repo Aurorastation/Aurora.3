@@ -27,6 +27,7 @@
 
 #define SPAN_MACHINE_WARNING(str) ("<span class='machine-warning'>" + str + "</span>")
 #define SPAN_MACHINE_DANGER(str) ("<span class='machine-danger'>" + str + "</span>")
+#define SPAN_MACHINE_VISION(str) ("<span class='machine-vision'>" + str + "</span>")
 
 #define SPAN_RED(str) "<span style='color:[COLOR_RED]'>[str]</span>"
 #define SPAN_YELLOW(str) "<span style='color:[COLOR_YELLOW]'>[str]</span>"

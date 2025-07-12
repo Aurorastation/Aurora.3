@@ -76,6 +76,13 @@
 	data["passive_temp_change"] = passive_temp_change
 	data["bodytemperature"] = owner.bodytemperature - 273.15
 	data["temperature_safety"] = temperature_safety
+
+	var/estimated_power_consumption = base_power_consumption + (((initial(thermostat) - thermostat) + T0C) * 0.2)
+	var/integrity = get_integrity()
+	if(integrity < IPC_INTEGRITY_THRESHOLD_MEDIUM)
+		estimated_power_consumption = rand(-50, 100 + (100 - integrity))
+
+	data["estimated_power_consumption"] = estimated_power_consumption
 	data["safety_burnt"] = safety_burnt
 	return data
 
@@ -122,20 +129,20 @@
 			return
 
 		// Too much heat is bad for the cooling unit.
-		if(owner.bodytemperature > initial(thermostat_max) * 1.5)
-			if(prob(owner.bodytemperature / 100))
-				take_internal_damage(owner.bodytemperature / 200)
+		if(owner.bodytemperature > species.heat_level_1)
+			if(prob(owner.bodytemperature * 0.1))
+				take_internal_damage(owner.bodytemperature * 0.01)
 
 		// Now let's start cooling down!
 		// No power, no party.
-		var/obj/item/organ/internal/machine/power_core/cell = owner.organs_by_name[BP_CELL]
+		var/obj/item/organ/internal/machine/power_core/cell = owner.internal_organs_by_name[BP_CELL]
 		if(!istype(cell))
 			return
 
 		// The lower our thermostat setting, the more power we consume.
 		var/extra_power_consumption = 0
 		if(thermostat < initial(thermostat))
-			extra_power_consumption = ((initial(thermostat) - thermostat) - T0C)
+			extra_power_consumption = ((initial(thermostat) - thermostat) + T0C) * 0.2
 
 		var/temperature_change = passive_temp_change
 		if(thermostat < owner.bodytemperature)

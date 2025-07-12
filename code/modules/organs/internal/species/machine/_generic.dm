@@ -49,6 +49,13 @@
 			if(action.button)
 				action.button.update_icon()
 
+/obj/item/organ/internal/machine/rejuvenate()
+	. = ..()
+	wiring.heal_damage(wiring.max_wires)
+	plating.heal_damage(plating.max_health)
+	electronics.heal_damage(electronics.max_integrity)
+	damage_cooldown = initial(damage_cooldown)
+
 /obj/item/organ/internal/machine/process(seconds_per_tick)
 	..()
 
@@ -169,6 +176,9 @@
  */
 /obj/item/organ/internal/machine/proc/medium_integrity_damage(integrity)
 	last_damage_time = world.time
+	var/obj/item/organ/internal/machine/posibrain/brain = owner.internal_organs_by_name[BP_BRAIN]
+	if(istype(brain))
+		brain.damage_integrity(1)
 	return TRUE
 
 /**
@@ -176,6 +186,9 @@
  */
 /obj/item/organ/internal/machine/proc/high_integrity_damage(integrity)
 	last_damage_time = world.time
+	var/obj/item/organ/internal/machine/posibrain/brain = owner.internal_organs_by_name[BP_BRAIN]
+	if(istype(brain))
+		brain.damage_integrity(2)
 	return TRUE
 
 /**

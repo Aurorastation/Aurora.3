@@ -15,6 +15,10 @@
 	var/robotic_brain_type = /obj/item/device/mmi/digital/posibrain
 	/// The stored MMI object.
 	var/obj/item/device/mmi/stored_mmi
+	/// The cooldown between each alarm warning.
+	var/heat_alarm_cooldown = 0
+	/// The cooldown between each integrity alarm warning.
+	var/integrity_alarm_cooldown = 0
 	/// The cooldown between each 'patch'.
 	var/patching_cooldown = 30 SECONDS
 	/// The world.time of the last 'patch'.
@@ -89,6 +93,11 @@
 		stored_mmi.forceMove(get_turf(src))
 		qdel(src)
 
+/obj/item/organ/internal/machine/posibrain/proc/damage_integrity(integrity_damage)
+	take_internal_damage(integrity_damage)
+	if(integrity_alarm_cooldown < world.time)
+		to_chat(owner, SPAN_DANGER("Your internal software throws exceptions at you: faulty systems detected! Warning! Warning!"))
+
 /**
  * Generates a random hex number for cool hacking aesthetic.
  */
@@ -107,16 +116,20 @@
 	if(!owner)
 		return
 
-	// 200C
-	if(owner.bodytemperature > 473.15)
+	if(owner.bodytemperature > species.heat_level_1)
 		// placeholder values
-		take_internal_damage(owner.bodytemperature * 0.05)
+		take_internal_damage(min(owner.bodytemperature * 0.001, 2))
+		if(heat_alarm_cooldown < world.time)
+			to_chat(owner, SPAN_DANGER("Your sensors light up: extreme heat detected! Warning! Unsafe operating temperature!"))
+			sound_to(owner, 'sound/effects/heat_alarm.ogg')
+			heat_alarm_cooldown = world.time + 15 SECONDS
 
 	if(damage)
-		if(damage < max_damage * 0.25)
-			if(last_patch_time < world.time + patching_cooldown)
+		if(damage < max_damage * 0.5)
+			if((last_patch_time + patching_cooldown) < world.time)
 				heal_damage(rand(1, 5))
 				to_chat(owner, SPAN_MACHINE_WARNING("Neural pathway patch automatically applied to block 0x[generate_hex()]."))
+				last_patch_time = world.time
 	..()
 
 /obj/item/organ/internal/machine/posibrain/low_integrity_damage(integrity)
@@ -174,7 +187,7 @@
 					addtimer(CALLBACK(src, PROC_REF(recover_cooling_fault), previous_thermostat), 4 SECONDS)
 		take_internal_damage(2)
 	if(prob(1))
-		to_chat(owner, SPAN_MACHINE_DANGER(FONT_LARGE(pick(GLOB.low_integrity_messages))))
+		to_chat(owner, SPAN_MACHINE_VISION(FONT_LARGE(pick(GLOB.low_integrity_messages))))
 	. = ..()
 
 /obj/item/organ/internal/machine/posibrain/proc/rampant_self_preservation()
