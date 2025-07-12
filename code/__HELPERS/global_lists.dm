@@ -193,6 +193,8 @@ GLOBAL_LIST_EMPTY(all_particles)
 	//Disability datums
 	paths = subtypesof(/datum/character_disabilities)
 	for(var/path in paths)
+		if(is_abstract(path))
+			continue
 		var/datum/character_disabilities/T = new path()
 		GLOB.chargen_disabilities_list[T.name] = T
 
