@@ -103,6 +103,12 @@
 	fitting_is_on_floor = TRUE
 	layer = ABOVE_TILE_LAYER
 
+/obj/machinery/light/small/floor/emergency
+	brightness_range = 6
+	brightness_power = 0.45
+	brightness_color = LIGHT_COLOR_EMERGENCY_SOFT
+	randomize_color = FALSE
+
 /obj/machinery/light/small/emergency
 	icon_state = "bulb_emergency_preview"
 	brightness_range = 6
