@@ -5343,7 +5343,7 @@
 	icon_state = "closed_pink";
 	pixel_x = -2
 	},
-/obj/item/clothing/ears/earmuffs/earphones/headphones{
+/obj/item/clothing/ears/earphones/headphones{
 	pixel_x = 3;
 	pixel_y = 1
 	},
