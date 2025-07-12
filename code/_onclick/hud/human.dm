@@ -411,6 +411,7 @@
 // Yes, these use icon state. Yes, these are terrible. The alternative is duplicating
 // a bunch of fairly blobby logic for every click override on these objects.
 
+// SCREENTIPS TODO: Replace these with screentip override text on mouseover, not click!
 /atom/movable/screen/food/Click(var/location, var/control, var/params)
 	if(istype(usr) && usr.nutrition_icon == src)
 		switch(icon_state)

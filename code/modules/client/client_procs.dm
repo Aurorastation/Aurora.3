@@ -532,6 +532,7 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 		GLOB.staff -= src
 
 	SSping.currentrun -= src
+	SSmouse_entered.hovers -= src
 
 	QDEL_NULL(tooltips)
 

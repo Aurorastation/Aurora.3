@@ -112,11 +112,10 @@ GLOBAL_LIST(global_huds)
 		O.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /*
-	The hud datum
-	Used to show and hide huds for all the different mob types,
-	including inventories and item quick actions.
-*/
-
+ *	The hud datum
+ *	Used to show and hide huds for all the different mob types,
+ *	including inventories and item quick actions.
+ */
 /datum/hud
 	///The mob that possesses the HUD
 	var/mob/mymob
@@ -136,6 +135,16 @@ GLOBAL_LIST(global_huds)
 	///Boolean, if the action buttons are hidden
 	var/action_buttons_hidden = FALSE
 
+	/// Screen objects which are static
+	var/list/static_inventory = list()
+	/// Screen objects which can be hidden
+	var/list/toggleable_inventory = list()
+	/// Buttons that can be used via hotkeys
+	var/list/atom/movable/screen/hotkeybuttons = list()
+	// Screen objects that display mob info (health, blood, etc...)
+	var/list/infodisplay = list()
+	/// Screen objects that never exit view.
+	var/list/always_visible_inventory = list()
 	var/atom/movable/screen/blobpwrdisplay
 	var/atom/movable/screen/blobhealthdisplay
 	var/atom/movable/screen/r_hand_hud_object
@@ -145,13 +154,19 @@ GLOBAL_LIST(global_huds)
 
 	var/list/adding
 	var/list/other
-	var/list/atom/movable/screen/hotkeybuttons
 
 	var/atom/movable/screen/movable/action_button/hide_toggle/hide_actions_toggle
+
+	/// UI for screentips that appear when you mouse over things
+	var/atom/movable/screen/screentip/screentip_text
+	var/screentip_color = "#FFFFFF"
+	var/screentip_images
 
 /datum/hud/New(mob/owner)
 	mymob = owner
 	instantiate()
+	screentip_text = new(null, src)
+	static_inventory += screentip_text
 	..()
 
 /datum/hud/Destroy()
@@ -170,6 +185,12 @@ GLOBAL_LIST(global_huds)
 	hotkeybuttons = null
 //	item_action_list = null // ?
 	mymob = null
+
+	QDEL_LIST(toggleable_inventory)
+	QDEL_LIST(hotkeybuttons)
+	QDEL_LIST(infodisplay)
+	QDEL_LIST(static_inventory)
+	QDEL_NULL(screentip_text)
 
 	. = ..()
 

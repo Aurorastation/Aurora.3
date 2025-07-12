@@ -88,6 +88,8 @@
 	if(turf_hand_priority)
 		AddComponent(/datum/component/turf_hand, turf_hand_priority)
 
+	register_context()
+
 /obj/machinery/door/Move(new_loc, new_dir)
 	. = ..()
 	SetBounds()

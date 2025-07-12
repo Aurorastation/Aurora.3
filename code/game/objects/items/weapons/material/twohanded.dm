@@ -217,6 +217,22 @@
 	pickup_sound = 'sound/items/pickup/axe.ogg'
 	worth_multiplier = 31
 
+/obj/item/material/twohanded/fireaxe/Initialize(mapload)
+	. = ..()
+
+	register_item_context()
+
+/obj/item/material/twohanded/add_item_context(datum/source, list/context, atom/target, mob/living/user)
+	LOG_DEBUG("registering item context. source: [source] target: [target] user: [user]")
+	if (isturf(target))
+		return NONE
+	if (isobj(target))
+		context[SCREENTIP_CONTEXT_LMB] = "Attack"
+	if (user.a_intent == I_HURT)
+		context[SCREENTIP_CONTEXT_LMB] = "Attack, Intent Hurt"
+
+	return CONTEXTUAL_SCREENTIP_SET
+
 /obj/item/material/twohanded/fireaxe/afterattack(atom/A, mob/user, proximity)
 	if(!proximity) return
 	..()

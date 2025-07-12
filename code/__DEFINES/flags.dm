@@ -54,6 +54,10 @@ GLOBAL_LIST_INIT(mimic_defines, list("ZM_MIMIC_BELOW",
 #define ATOM_FLAG_ALWAYS_ALLOW_PICKUP FLAG(7)
 /// A reagent container that can dispense when being attacked by another container.
 #define ATOM_FLAG_DISPENSER FLAG(8)
+/// Whether or not this atom has contextual screentips when hovered OVER
+#define HAS_CONTEXTUAL_SCREENTIPS_1 (9)
+///Whether or not this atom shows screentips when hovered over
+#define NO_SCREENTIPS_1 (10)
 
 #define ATOM_AWAITING_OVERLAY_UPDATE FLAG(10)
 
