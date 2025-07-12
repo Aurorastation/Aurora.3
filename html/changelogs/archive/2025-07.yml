@@ -222,3 +222,14 @@
   - bugfix: Fixed some unsimulated turfs, not having a distress beacon launcher, lighting
       issues, an accidentally included (broken) flask, and the radio on the Himeo
       Patrol Ship.
+2025-07-12:
+  ASmallCuteCat:
+  - rscadd: Adds some karaoke decoration to the Private Lounge in the Horizon's bar.
+  - rscadd: Moves the the arcade machine and the GwokBuzz! vendor into the Bar Lounge.
+  Batrachophrenoboocosmomachia:
+  - bugfix: Fixed unclosed hrefs; Integrated Circuits complexity issues.
+  - bugfix: Fixed double-closed hrefs; loadout category issue.
+  MattAtlas:
+  - bugfix: Fixes dynamic space turfs not being Z-mimiced properly.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes invisible steel tables.
