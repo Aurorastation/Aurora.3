@@ -226,6 +226,9 @@
 	width = 3
 	length = 3
 
+/obj/item/tent/mining/narrow
+	width = 2
+
 /obj/structure/component/tent_canvas
 	name = "tent canvas"
 	desc = "The fabric and poles which make up the wall of a tent. Not air-tight, but able to keep out the weather, and very cozy."
@@ -296,6 +299,10 @@
 		tent.stages[stage] = STAGE_ASSEMBLED
 	qdel(tent_item)
 	qdel(src)
+
+/obj/effect/tent/mining_narrow
+	name = "Pre-frabricated narrow mining tent"
+	builds = /obj/item/tent/mining/narrow
 
 /*
 	Sleeping bags
@@ -388,6 +395,9 @@
 	S.color = color
 	usr.visible_message(SPAN_NOTICE("\The [usr] rolls up \the [src]."))
 	qdel(src)
+
+/obj/structure/bed/sleeping_bag/green
+	color = COLOR_HEPH_GREEN
 
 /*
 	Folding Tables

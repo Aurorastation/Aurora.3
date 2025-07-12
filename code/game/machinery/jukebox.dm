@@ -204,6 +204,9 @@
 	update_use_power(POWER_USE_ACTIVE)
 	update_icon()
 
+/obj/machinery/media/jukebox/anchored
+	anchored = 1
+
 /obj/machinery/media/jukebox/phonograph
 	name = "phonograph"
 	desc = "Play that funky music..."
