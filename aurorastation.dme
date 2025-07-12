@@ -340,7 +340,6 @@
 #include "code\controllers\subsystems\dbcore.dm"
 #include "code\controllers\subsystems\dcs.dm"
 #include "code\controllers\subsystems\discord.dm"
-#include "code\controllers\subsystems\documents.dm"
 #include "code\controllers\subsystems\economy.dm"
 #include "code\controllers\subsystems\effects.dm"
 #include "code\controllers\subsystems\evac.dm"
