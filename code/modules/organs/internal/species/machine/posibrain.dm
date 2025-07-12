@@ -187,6 +187,8 @@
 					addtimer(CALLBACK(src, PROC_REF(recover_cooling_fault), previous_thermostat), 4 SECONDS)
 		take_internal_damage(2)
 	if(prob(1))
+		// no metagaming these ones you metagamer :^)
+		// they're on the server config
 		to_chat(owner, SPAN_MACHINE_VISION(FONT_LARGE(pick(GLOB.low_integrity_messages))))
 	. = ..()
 
