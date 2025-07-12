@@ -139,6 +139,15 @@ sound/machines/steam_pipe4.ogg - "Steam Sewer Ambient" by Geoff-Bremner-Audio. L
 ATTRIBUTIONS SECTION END
 
 ATTRIBUTIONS SECTOR START
+sound/music/lobby/crescent_expanse/crescent_expanse_1.ogg - "Lüüü - Weedance" by Lüüü, licensed under CC BY-NC-SA 3.0. Obtained from https://myprivateunderground.bandcamp.com/track/lu-u-u-weedance
+sound/music/lobby/crescent_expanse/crescent_expanse_2.ogg - "Little Bradley - Sunset Drive" by Little Bradley, licensed under CC BY-NC 3.0. Obtained from https://myprivateunderground.bandcamp.com/track/little-bradley-sunset-drive
+sound/music/lobby/lights_edge/lights_edge_1.ogg - "Is Anyone Left?" by Karl Casey, licensed under CC BY 3.0. Obtained from https://karlcasey.bandcamp.com/track/is-anyone-left
+sound/music/lobby/lights_edge/lights_edge_2.ogg - "Running From The Wendigo" by Karl Casey, licensed under CC BY 3.0. Obtained from https://karlcasey.bandcamp.com/track/running-from-the-wendigo
+sound/music/lobby/dangerous_space/dangerous_space_1.ogg - "You Can't Kill The Boogeyman" by Karl Casey, licensed under CC BY 3.0. Obtained From https://karlcasey.bandcamp.com/track/you-can-t-kill-the-boogeyman
+sound/music/lobby/dangerous_space/dangerous_space_2.ogg - "Prison Planet" by Karl Casey, licensed under CC BY 3.0. Obtained from https://karlcasey.bandcamp.com/track/prison-planet
+ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTOR START
 sound/music/lobby/xanu/xanu_rock_1.ogg - "Rise" by Swara Sutra, licensed under CC BY-NC-SA 3.0. Obtained from https://swarasutra.bandcamp.com/track/rise
 sound/music/lobby/xanu/xanu_rock_2.ogg - "Induldge" by Swara Sutra, licensed under CC BY-NC-SA 3.0. Obtained from https://swarasutra.bandcamp.com/track/indulgence
 ATTRIBUTIONS SECTION END
