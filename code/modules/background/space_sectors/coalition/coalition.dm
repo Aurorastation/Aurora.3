@@ -53,7 +53,9 @@
 	description = "The beating heart of the modern Coalition of Colonies, Liberty’s Cradle is home to many of the Coalition’s most developed and influential worlds. In contrast to the Solarian stereotype of the frontier as a decivilized wasteland populated by roving bands of pirates and petty warlords, Liberty’s Cradle is a prosperous and safe region which has a higher standard of living than much of the former Middle and Outer Ring possessed prior to the Solarian Collapse of 2462. Post-Collapse the area has continued to prosper and, now that it dwells far behind the Coalition-controlled Weeping Stars, is more secure than it has ever been before."
 	skybox_icon = "arusha"//placeholder
 //	cargo_price_coef = TBD
-	starlight_range = 2
+	starlight_color = "#2d9647"
+	starlight_power = 2
+	starlight_range = 5
 
 /datum/space_sector/burzsia
 	name = SECTOR_BURZSIA
