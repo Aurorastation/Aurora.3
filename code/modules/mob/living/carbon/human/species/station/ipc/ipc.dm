@@ -173,6 +173,21 @@
 	// 500K is about 226 degrees. Spicy!
 	human.bodytemperature = min(human.bodytemperature + rand(1, 5), heat_level_3)
 
+/datum/species/machine/handle_stance_damage(mob/living/carbon/human/H, damage_only)
+	var/obj/item/organ/internal/machine/hydraulics/hydraulics = owner.internal_organs_by_name[BP_HYDRAULICS]
+	if(!hydraulics)
+		return 6 //no hydraulics, no party
+
+	if(hydraulics.status & ORGAN_DEAD)
+		return 5
+	else
+		switch(hydraulics.get_integrity())
+			if(IPC_INTEGRITY_THRESHOLD_LOW to IPC_INTEGRITY_THRESHOLD_MEDIUM)
+				to_chat(H, SPAN_MACHINE_WARNING("Your hydraulics spark and whine!"))
+				spark(H, rand(1, 3), GLOB.alldirs)
+				return 2
+	return 0
+
 /datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	. = ..()
 	check_tag(H, H.client)

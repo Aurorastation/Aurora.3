@@ -51,6 +51,7 @@
 
 /obj/item/organ/internal/machine/rejuvenate()
 	. = ..()
+	diagnostics_suite_visible = initial(diagnostics_suite_visible)
 	wiring.heal_damage(wiring.max_wires)
 	plating.heal_damage(plating.max_health)
 	electronics.heal_damage(electronics.max_integrity)
@@ -64,11 +65,25 @@
 		// This is when things start going Fucking Wrong.
 		do_integrity_damage_effects(integrity)
 
+	if(damage >= max_damage)
+		die()
+
+/obj/item/organ/internal/machine/die()
+	to_chat(owner, SPAN_MACHINE_WARNING("Some of your sensors go dark - you've lost connection to your [src]!"))
+	diagnostics_suite_visible = FALSE
+	damage = max_damage
+	status |= ORGAN_DEAD
+	death_time = world.time
+	STOP_PROCESSING(SSprocessing, src)
+	if(owner && vital)
+		owner.death()
+
 /obj/item/organ/internal/machine/take_internal_damage(amount, silent)
 	// Plating defends the internal bits. First, you have to get through it.
 	if(plating.get_status() > 0)
-		plating.take_damage(amount)
-		return
+		amount -= plating.take_damage(amount)
+		if(!amount)
+			return
 
 	// After that, it's open season.
 	var/datum/synthetic_internal/bits_to_hit = pick(wiring, electronics)

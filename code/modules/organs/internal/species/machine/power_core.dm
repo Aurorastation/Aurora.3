@@ -39,9 +39,6 @@
 	if(!cell)
 		return FALSE
 
-	if(status & ORGAN_DEAD)
-		return FALSE
-
 	return round(cell.charge*(1 - damage/max_damage))
 
 /**
@@ -51,11 +48,17 @@
 	if(!cell)
 		return
 
+	if(status & ORGAN_DEAD)
+		return
+
 	return cell.give(amount * get_damage_multiplier())
 
 /obj/item/organ/internal/machine/power_core/use(var/amount)
 	if(!is_usable() || !cell)
 		return
+
+	if(status & ORGAN_DEAD)
+		amount *= 1.2 // uh oh
 
 	return cell.use(amount)
 
@@ -129,12 +132,12 @@
 /obj/item/organ/internal/machine/power_core/medium_integrity_damage(integrity)
 	if(prob(get_integrity_damage_probability()))
 		to_chat(owner, SPAN_DANGER("Your [src]'s power conduits burn!"))
-		servo_cost *= 1.5
+		servo_cost *= 1.25
 	. = ..()
 
 /obj/item/organ/internal/machine/power_core/high_integrity_damage(integrity)
 	if(prob(get_integrity_damage_probability()))
-		to_chat(owner, SPAN_DANGER("Your [src]'s cell melts under the overvoltage!"))
+		to_chat(owner, SPAN_DANGER("Your [src]'s cell melts begins melting due to the overvoltage!"))
 		var/old_charge = cell.maxcharge
 		cell.maxcharge *= 0.85
 		cell.use(old_charge - cell.maxcharge)

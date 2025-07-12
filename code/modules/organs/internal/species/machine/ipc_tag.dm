@@ -23,6 +23,11 @@
 /obj/item/organ/internal/machine/ipc_tag/get_diagnostics_info()
 	return "S/N: [serial_number] | OWN: [ownership_info] | CTZ: [citizenship_info]"
 
+/obj/item/organ/internal/machine/ipc_tag/high_integrity_damage(integrity)
+	. = ..()
+	if(get_integrity_damage_probability())
+		serial_number = Gibberish(serial_number, rand(1, get_integrity_damage_probability()))
+
 /obj/item/organ/internal/machine/ipc_tag/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/ipc_tag_scanner))
 		if(src.loc != user)

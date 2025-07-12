@@ -33,7 +33,8 @@
 	var/datum/reagents/bio_reagents
 
 /obj/item/organ/internal/machine/reactor/Destroy()
-	QDEL_NULL(bio_reagents)
+	if(bio_reagents)
+		QDEL_NULL(bio_reagents)
 	return ..()
 
 /obj/item/organ/internal/machine/reactor/process(seconds_per_tick)

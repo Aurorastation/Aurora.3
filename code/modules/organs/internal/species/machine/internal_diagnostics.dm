@@ -22,8 +22,8 @@
 	if(!ishuman(user))
 		return
 
-	if(is_broken())
-		to_chat(user, SPAN_WARNING("You receive no feedback from the diagnostics unit!"))
+	if(status & ORGAN_DEAD)
+		to_chat(user, SPAN_MACHINE_WARNING("You receive nothing but a critical error notifying you that \the [src] is unreachable."))
 		return
 
 	var/mob/living/carbon/human/human = user
