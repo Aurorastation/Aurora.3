@@ -1003,7 +1003,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		if (W.damage_type == INJURY_TYPE_BURN)
 			dam_type = DAMAGE_BURN
 
-		if(owner.can_autoheal(dam_type))
+		if(owner.can_autoheal(dam_type) && (heal_amt > 0))
 			W.heal_damage(heal_amt)
 
 		// Salving also helps against infection
