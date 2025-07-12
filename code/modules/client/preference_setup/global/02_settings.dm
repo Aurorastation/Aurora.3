@@ -96,10 +96,10 @@
 		return TOPIC_REFRESH
 
 	if(href_list["select_volume"])
-		var/lobby_music_vol_new = input(src, "Choose lobby music volume, 0 to mute", "Global Preference", pref.lobby_music_vol) as num|null
+		var/lobby_music_vol_new = tgui_input_number(src, "Choose lobby music volume, 0 to mute", "Lobby Music Volume", pref.lobby_music_vol, 100, 0, 0, TRUE)
 		if(isnull(lobby_music_vol_new))
-			lobby_music_vol_new = 0
-		pref.lobby_music_vol = clamp(lobby_music_vol_new, 0, 100)
+			return
+		pref.lobby_music_vol = lobby_music_vol_new
 		return TOPIC_REFRESH
 
 	if(href_list["paratoggle"])
