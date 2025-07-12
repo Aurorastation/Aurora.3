@@ -465,7 +465,7 @@
 /area/konyang_village)
 "md" = (
 /obj/structure/table/wood,
-/obj/structure/cash_register{
+/obj/structure/closet/crate/cash_register{
 	pixel_x = -6;
 	pixel_y = 5
 	},
