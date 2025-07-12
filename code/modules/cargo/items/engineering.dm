@@ -3,7 +3,7 @@
 	name = "glass sheets"
 	supplier = "hephaestus"
 	description = "50 sheets of glass."
-	price = 275
+	price = 55
 	items = list(
 		/obj/item/stack/material/glass/full
 	)
@@ -16,7 +16,7 @@
 	name = "plasteel sheets"
 	supplier = "hephaestus"
 	description = "50 sheets of plasteel."
-	price = 700
+	price = 120
 	items = list(
 		/obj/item/stack/material/plasteel/full
 	)
@@ -30,7 +30,7 @@
 	name = "plastic sheets"
 	supplier = "hephaestus"
 	description = "50 sheets of plastic."
-	price = 250
+	price = 45
 	items = list(
 		/obj/item/stack/material/plastic/full
 	)
@@ -44,7 +44,7 @@
 	name = "steel sheets"
 	supplier = "hephaestus"
 	description = "50 sheets of steel."
-	price = 400
+	price = 75
 	items = list(
 		/obj/item/stack/material/steel/full
 	)
@@ -58,7 +58,7 @@
 	name = "wood planks"
 	supplier = "hephaestus"
 	description = "50 planks of wood."
-	price = 350
+	price = 65
 	items = list(
 		/obj/item/stack/material/wood/full
 	)
@@ -72,7 +72,7 @@
 	name = "phoron crystals"
 	supplier = "hephaestus"
 	description = "A bunch of 50 phoron crystals. Highly valuable."
-	price = 2200
+	price = 2250
 	items = list(
 		/obj/item/stack/material/phoron/full
 	)
@@ -85,7 +85,7 @@
 	name = "cardboard sheets"
 	supplier = "orion"
 	description = "50 sheets of cardboard."
-	price = 50
+	price = 10
 	items = list(
 		/obj/item/stack/material/cardboard/full
 	)
@@ -99,7 +99,7 @@
 	name = "carpet (x10)"
 	supplier = "hephaestus"
 	description = "Ten carpet sheets. It is the same size as a normal floor tile!"
-	price = 350
+	price = 60
 	items = list(
 		/obj/item/stack/tile/carpet
 	)
@@ -113,7 +113,7 @@
 	name = "antifuel grenade"
 	supplier = "hephaestus"
 	description = "This grenade is loaded with a foaming antifuel compound -- the twenty-fifth century standard for eliminating industrial spills."
-	price = 250
+	price = 45
 	items = list(
 		/obj/item/grenade/chem_grenade/antifuel
 	)
@@ -127,7 +127,7 @@
 	name = "brown webbing vest"
 	supplier = "hephaestus"
 	description = "Worn brownish synthcotton vest with lots of pockets to unload your hands."
-	price = 83
+	price = 15
 	items = list(
 		/obj/item/clothing/accessory/storage/brown_vest
 	)
@@ -141,7 +141,7 @@
 	name = "circuit board (bubble shield generator)"
 	supplier = "hephaestus"
 	description = "Looks like a circuit. Probably is."
-	price = 1500
+	price = 250
 	items = list(
 		/obj/item/circuitboard/shield_gen
 	)
@@ -155,7 +155,7 @@
 	name = "circuit board (hull shield generator)"
 	supplier = "hephaestus"
 	description = "Looks like a circuit. Probably is."
-	price = 1500
+	price = 250
 	items = list(
 		/obj/item/circuitboard/shield_gen_ex
 	)
@@ -169,7 +169,7 @@
 	name = "circuit board (shield capacitor)"
 	supplier = "hephaestus"
 	description = "Looks like a circuit. Probably is."
-	price = 1500
+	price = 250
 	items = list(
 		/obj/item/circuitboard/shield_cap
 	)
@@ -183,7 +183,7 @@
 	name = "circuit board (solar control console)"
 	supplier = "hephaestus"
 	description = "Looks like a circuit. Probably is."
-	price = 1500
+	price = 250
 	items = list(
 		/obj/item/circuitboard/solar_control
 	)
@@ -197,7 +197,7 @@
 	name = "coolant tank"
 	supplier = "hephaestus"
 	description = "A tank of industrial coolant."
-	price = 45
+	price = 10
 	items = list(
 		/obj/structure/reagent_dispensers/coolanttank
 	)
@@ -211,7 +211,7 @@
 	name = "Disposal Pipe Dispenser"
 	supplier = "hephaestus"
 	description = "It dispenses bigger pipes for things to travel through. No, the pipes aren't green."
-	price = 150
+	price = 30
 	items = list(
 		/obj/machinery/pipedispenser/disposal/orderable
 	)
@@ -225,7 +225,7 @@
 	name = "mechanical toolbox"
 	supplier = "hephaestus"
 	description = "Danger. Very robust."
-	price = 200
+	price = 45
 	items = list(
 		/obj/item/storage/toolbox/mechanical
 	)
@@ -239,7 +239,7 @@
 	name = "electrical toolbox"
 	supplier = "hephaestus"
 	description = "Danger. Very robust."
-	price = 200
+	price = 45
 	items = list(
 		/obj/item/storage/toolbox/electrical
 	)
@@ -253,7 +253,7 @@
 	name = "emergency toolbox"
 	supplier = "hephaestus"
 	description = "Danger. Very robust."
-	price = 120
+	price = 42
 	items = list(
 		/obj/item/storage/toolbox/emergency
 	)
@@ -267,7 +267,7 @@
 	name = "EM Acceleration Chamber"
 	supplier = "hephaestus"
 	description = "Part of a Particle Accelerator."
-	price = 3000
+	price = 1550
 	items = list(
 		/obj/structure/particle_accelerator/fuel_chamber
 	)
@@ -281,7 +281,7 @@
 	name = "EM Containment Grid Center"
 	supplier = "hephaestus"
 	description = "Part of a Particle Accelerator."
-	price = 3000
+	price = 1550
 	items = list(
 		/obj/structure/particle_accelerator/particle_emitter/center
 	)
@@ -295,7 +295,7 @@
 	name = "EM Containment Grid Left"
 	supplier = "hephaestus"
 	description = "Part of a Particle Accelerator."
-	price = 3000
+	price = 1550
 	items = list(
 		/obj/structure/particle_accelerator/particle_emitter/left
 	)
@@ -309,7 +309,7 @@
 	name = "EM Containment Grid Right"
 	supplier = "hephaestus"
 	description = "Part of a Particle Accelerator."
-	price = 3000
+	price = 1550
 	items = list(
 		/obj/structure/particle_accelerator/particle_emitter/right
 	)
@@ -323,7 +323,7 @@
 	name = "emergency bluespace relay circuit"
 	supplier = "hephaestus"
 	description = "Looks like a circuit. Probably is."
-	price = 3000
+	price = 620
 	items = list(
 		/obj/item/circuitboard/bluespacerelay
 	)
@@ -337,7 +337,7 @@
 	name = "emitter"
 	supplier = "hephaestus"
 	description = "It is a heavy duty industrial laser."
-	price = 1500
+	price = 1850
 	items = list(
 		/obj/machinery/power/emitter
 	)
@@ -348,10 +348,10 @@
 
 /singleton/cargo_item/doorlock_engineering
 	category = "engineering"
-	name = "engineering magnetic door lock - engineering"
+	name = "magnetic door lock - engineering"
 	supplier = "hephaestus"
 	description = "A large, ID locked device used for completely locking down airlocks. It is painted with Engineering colors."
-	price = 135
+	price = 48
 	items = list(
 		/obj/item/device/magnetic_lock/engineering
 	)
@@ -365,7 +365,7 @@
 	name = "engineering voidsuit"
 	supplier = "hephaestus"
 	description = "A special suit that protects against hazardous, low pressure environments. Has radiation shielding."
-	price = 1200
+	price = 800
 	items = list(
 		/obj/item/clothing/suit/space/void/engineering
 	)
@@ -379,7 +379,7 @@
 	name = "engineering voidsuit helmet"
 	supplier = "hephaestus"
 	description = "A special helmet designed for work in a hazardous, low-pressure environment. Has radiation shielding."
-	price = 850
+	price = 500
 	items = list(
 		/obj/item/clothing/head/helmet/space/void/engineering
 	)
@@ -393,7 +393,7 @@
 	name = "Field Generator"
 	supplier = "hephaestus"
 	description = "A large thermal battery that projects a high amount of energy when powered."
-	price = 1500
+	price = 250
 	items = list(
 		/obj/machinery/field_generator
 	)
@@ -407,7 +407,7 @@
 	name = "fireaxe"
 	supplier = "hephaestus"
 	description = "The fire axe is a wooden handled axe with a heavy steel head intended for firefighting use."
-	price = 1500
+	price = 25
 	items = list(
 		/obj/item/material/twohanded/fireaxe
 	)
@@ -421,7 +421,7 @@
 	name = "fuel tank"
 	supplier = "hephaestus"
 	description = "A tank filled with welding fuel."
-	price = 45
+	price = 10
 	items = list(
 		/obj/structure/reagent_dispensers/fueltank
 	)
@@ -435,7 +435,7 @@
 	name = "gas mask"
 	supplier = "hephaestus"
 	description = "A face-covering mask that can be connected to an air supply. Filters harmful gases from the air."
-	price = 75
+	price = 15
 	items = list(
 		/obj/item/clothing/mask/gas
 	)
@@ -451,7 +451,7 @@
 	name = "hard hat"
 	supplier = "hephaestus"
 	description = "A piece of headgear used in dangerous working conditions to protect the head. Comes with a built-in flashlight."
-	price = 35
+	price = 7
 	items = list(
 		/obj/item/clothing/head/hardhat
 	)
@@ -465,7 +465,7 @@
 	name = "hazard vest"
 	supplier = "hephaestus"
 	description = "A high-visibility vest used in work zones."
-	price = 90
+	price = 5
 	items = list(
 		/obj/item/clothing/suit/storage/hazardvest
 	)
@@ -479,7 +479,7 @@
 	name = "full toolbelt"
 	supplier = "hephaestus"
 	description = "A toolbelt, filled with basic mechanics' tools."
-	price = 500
+	price = 80
 	items = list(
 		/obj/item/storage/belt/utility/full
 	)
@@ -493,7 +493,7 @@
 	name = "high-capacity power cell"
 	supplier = "hephaestus"
 	description = "A high-capacity rechargable electrochemical power cell."
-	price = 240
+	price = 45
 	items = list(
 		/obj/item/cell/high
 	)
@@ -507,7 +507,7 @@
 	name = "power cell"
 	supplier = "hephaestus"
 	description = "A rechargable electrochemical power cell."
-	price = 90
+	price = 20
 	items = list(
 		/obj/item/cell
 	)
@@ -521,7 +521,7 @@
 	name = "hoist kit"
 	supplier = "hephaestus"
 	description = "A setup kit for a hoist that can be used to lift things. The hoist will deploy in the direction you're facing."
-	price = 225
+	price = 40
 	items = list(
 		/obj/item/hoist_kit
 	)
@@ -535,7 +535,7 @@
 	name = "inflatable barrier box"
 	supplier = "hephaestus"
 	description = "Contains inflatable walls and doors."
-	price = 360
+	price = 65
 	items = list(
 		/obj/item/storage/bag/inflatable
 	)
@@ -549,7 +549,7 @@
 	name = "insulated gloves"
 	supplier = "hephaestus"
 	description = "These gloves will protect the wearer from electric shock."
-	price = 450
+	price = 72
 	items = list(
 		/obj/item/clothing/gloves/yellow
 	)
@@ -563,7 +563,7 @@
 	name = "tajaran electrical gloves"
 	supplier = "hephaestus"
 	description = "These gloves will protect the wearer from electric shock. Made special for Tajaran use."
-	price = 450
+	price = 74
 	items = list(
 		/obj/item/clothing/gloves/yellow/specialt
 	)
@@ -577,7 +577,7 @@
 	name = "unathi electrical gloves"
 	supplier = "hephaestus"
 	description = "These gloves will protect the wearer from electric shock. Made special for Unathi use."
-	price = 450
+	price = 74
 	items = list(
 		/obj/item/clothing/gloves/yellow/specialu
 	)
@@ -591,7 +591,7 @@
 	name = "packaged antimatter reactor section"
 	supplier = "eckharts"
 	description = "A section of antimatter reactor shielding. Do not eat."
-	price = 1000
+	price = 220
 	items = list(
 		/obj/item/device/am_shielding_container
 	)
@@ -605,7 +605,7 @@
 	name = "debugger"
 	supplier = "hephaestus"
 	description = "Used to debug electronic equipment."
-	price = 50
+	price = 12
 	items = list(
 		/obj/item/device/debugger
 	)
@@ -619,7 +619,7 @@
 	name = "impact wrench"
 	supplier = "hephaestus"
 	description = "Wrenches and screws things. Faster."
-	price = 50
+	price = 12
 	items = list(
 		/obj/item/powerdrill
 	)
@@ -633,7 +633,7 @@
 	name = "paint gun"
 	supplier = "hephaestus"
 	description = "Useful for designating areas and pissing off coworkers."
-	price = 135
+	price = 25
 	items = list(
 		/obj/item/device/paint_sprayer
 	)
@@ -647,7 +647,7 @@
 	name = "Particle Accelerator Control Computer"
 	supplier = "hephaestus"
 	description = "This controls the density of the particles."
-	price = 1500
+	price = 2250
 	items = list(
 		/obj/machinery/particle_accelerator/control_box
 	)
@@ -661,7 +661,7 @@
 	name = "Particle Focusing EM Lens"
 	supplier = "hephaestus"
 	description = "Part of a Particle Accelerator."
-	price = 3000
+	price = 1250
 	items = list(
 		/obj/structure/particle_accelerator/power_box
 	)
@@ -675,7 +675,7 @@
 	name = "portable ladder"
 	supplier = "hephaestus"
 	description = "A lightweight deployable ladder, which you can use to move up or down. Or alternatively, you can bash some faces in."
-	price = 200
+	price = 40
 	items = list(
 		/obj/item/ladder_mobile
 	)
@@ -689,7 +689,7 @@
 	name = "radiation Hood"
 	supplier = "hephaestus"
 	description = "A hood with radiation protective properties. Label: Made with lead, do not eat insulation."
-	price = 375
+	price = 70
 	items = list(
 		/obj/item/clothing/head/radiation
 	)
@@ -703,7 +703,7 @@
 	name = "radiation suit"
 	supplier = "hephaestus"
 	description = "A suit that protects against radiation. Label: Made with lead, do not eat insulation."
-	price = 675
+	price = 120
 	items = list(
 		/obj/item/clothing/suit/radiation
 	)
@@ -717,7 +717,7 @@
 	name = "research shuttle console board"
 	supplier = "hephaestus"
 	description = "A replacement board for the research shuttle console, in case the original console is destroyed."
-	price = 500
+	price = 125
 	items = list(
 		/obj/item/circuitboard/research_shuttle
 	)
@@ -731,7 +731,7 @@
 	name = "singularity generator"
 	supplier = "hephaestus"
 	description = "Used to generate a Singularity. It is not adviced to use this on the asteroid."
-	price = 20000
+	price = 17000
 	items = list(
 		/obj/machinery/the_singularitygen
 	)
@@ -745,7 +745,7 @@
 	name = "superconductive magnetic coil"
 	supplier = "hephaestus"
 	description = "Standard superconductive magnetic coil with average capacity and I/O rating."
-	price = 1800
+	price = 800
 	items = list(
 		/obj/item/smes_coil
 	)
@@ -759,7 +759,7 @@
 	name = "supermatter crystal"
 	supplier = "hephaestus"
 	description = "An unstable, radioactive crystal that forms the power source of several experimental ships and stations. Extremely dangerous."
-	price = 30000
+	price = 18500
 	items = list(
 		/obj/machinery/power/supermatter
 	)
@@ -773,7 +773,7 @@
 	name = "thermoelectric generator kit"
 	supplier = "hephaestus"
 	description = "A kit that comes with a thermoelectric generator and two circulators that attach to it. For usage in high-power energy generation."
-	price = 7500
+	price = 1200
 	items = list(
 		/obj/machinery/power/generator,
 		/obj/machinery/atmospherics/binary/circulator,
@@ -789,7 +789,7 @@
 	name = "solar panel assembly"
 	supplier = "hephaestus"
 	description = "A solar panel assembly kit, allows constructions of a solar panel, or with a tracking circuit board, a solar tracker."
-	price = 1020
+	price = 350
 	items = list(
 		/obj/item/solar_assembly
 	)
@@ -803,7 +803,7 @@
 	name = "tracker electronics"
 	supplier = "hephaestus"
 	description = "Electronic guidance systems for a solar array."
-	price = 225
+	price = 100
 	items = list(
 		/obj/item/tracker_electronics
 	)
@@ -817,7 +817,7 @@
 	name = "watertank"
 	supplier = "hephaestus"
 	description = "A tank filled with water."
-	price = 45
+	price = 10
 	items = list(
 		/obj/structure/reagent_dispensers/watertank
 	)
@@ -831,7 +831,7 @@
 	name = "welding helmet"
 	supplier = "hephaestus"
 	description = "A head-mounted face cover designed to protect the wearer completely from space-arc eye."
-	price = 225
+	price = 20
 	items = list(
 		/obj/item/clothing/head/welding
 	)
@@ -845,7 +845,7 @@
 	name = "antimatter containment jar"
 	supplier = "eckharts"
 	description = "Holds antimatter. Warranty void if exposed to matter."
-	price = 1000
+	price = 280
 	items = list(
 		/obj/item/am_containment
 	)
@@ -859,7 +859,7 @@
 	name = "antimatter control unit"
 	supplier = "eckharts"
 	description = "The control unit for an antimatter reactor. Probably safe."
-	price = 5500
+	price = 1950
 	items = list(
 		/obj/machinery/power/am_control_unit
 	)
@@ -873,7 +873,7 @@
 	name = "Alpha Particle Generation Array"
 	supplier = "hephaestus"
 	description = "Part of a Particle Accelerator."
-	price = 3000
+	price = 1550
 	items = list(
 		/obj/structure/particle_accelerator/end_cap
 	)
@@ -887,7 +887,7 @@
 	name = "radiation collector array"
 	supplier = "hephaestus"
 	description = "A radiation collector array. Used to augment the power generation of a generator that emits ionising radiation."
-	price = 2000
+	price = 650
 	items = list(
 		/obj/machinery/power/rad_collector
 	)
