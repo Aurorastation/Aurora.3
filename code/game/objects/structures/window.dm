@@ -601,12 +601,14 @@
 	smoothing_flags = SMOOTH_MORE
 	canSmoothWith = list(
 		/obj/structure/window/shuttle/scc_space_ship,
-		/turf/simulated/wall/shuttle/scc_space_ship
+		/turf/simulated/wall/shuttle/scc_space_ship,
+		/turf/unsimulated/wall/shuttle/scc_space_ship
 	)
 	blend_overlay = "-wall"
 	attach_overlay = "attach"
 	can_blend_with = list(
 		/turf/simulated/wall/shuttle/scc_space_ship,
+		/turf/unsimulated/wall/shuttle/scc_space_ship,
 		/obj/structure/window/shuttle/scc_space_ship
 	)
 
