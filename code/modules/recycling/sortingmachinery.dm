@@ -337,7 +337,7 @@
 	INVOKE_ASYNC(src, PROC_REF(flush))
 
 /obj/machinery/disposal/deliveryChute/flush()
-	flushing = 1
+	flushing = TRUE
 	flick("intake-closing", src)
 	var/obj/disposalholder/H = new()	// virtual holder object which actually
 												// travels through the pipes.
@@ -350,7 +350,7 @@
 	H.init(src)	// copy the contents of disposer to holder
 
 	H.start(src) // start the holder processing movement
-	flushing = 0
+	flushing = FALSE
 	// now reset disposal state
 	flush = 0
 	if(mode == 2)	// if was ready,
