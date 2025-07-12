@@ -364,18 +364,15 @@
 	var/new_maptext
 
 	LOG_DEBUG("extra content [extra_context]")
-	if (extra_context == "")
-		new_maptext = ""
-	else
-		//We inline a MAPTEXT() here, because there's no good way to statically add to a string like this
-		new_maptext += "<span class='context' style='text-align: center; color: [active_hud.screentip_color]'>[used_name][extra_context]</span>"
-		LOG_DEBUG("<b>new maptext:</b> [new_maptext]")
+	//We inline a MAPTEXT() here, because there's no good way to statically add to a string like this
+	new_maptext = "<span class='context' style='text-align: center; color: [active_hud.screentip_color]'>[used_name][extra_context]</span>"
+	LOG_DEBUG("<b>new maptext:</b> [new_maptext]")
 /*
 	if (length(used_name) * 10 > active_hud.screentip_text.maptext_width)
 		INVOKE_ASYNC(src, PROC_REF(set_hover_maptext), client, active_hud, new_maptext)
 		return
 */
-	active_hud.screentip_text.maptext = "TEST"
+	active_hud.screentip_text.maptext = "[new_maptext]"
 	active_hud.screentip_text.screen_loc = "LEFT,TOP-3"
 	active_hud.screentip_text.maptext_y = 10 - (extra_lines > 0 ? 11 + 9 * (extra_lines - 1): 0)
 	active_hud.screentip_text.maptext_x = 0 - (extra_lines > 0 ? 11 + 9 * (extra_lines - 1): 0)
