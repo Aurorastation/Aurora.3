@@ -102,7 +102,7 @@
 	. = ..()
 	if(LAZYLEN(accessories))
 		for(var/obj/item/clothing/accessory/A in accessories)
-			. += SPAN_NOTICE("<a href='byond://?src=[REF(user)];lookitem=[REF(A)]>\A [A]</a> [A.gender == PLURAL ? "are" : "is"] attached to it.")
+			. += SPAN_NOTICE("<a href='byond://?src=[REF(user)];lookitem=[REF(A)]'>\A [A]</a> [A.gender == PLURAL ? "are" : "is"] attached to it.")
 
 /obj/item/clothing/proc/update_accessory_slowdown(mob/user)
 	slowdown_accessory = 0
@@ -141,6 +141,9 @@
 	if(!(A in accessories))
 		return
 
+	if(use_check_and_message(user))
+		return
+
 	A.on_removed(user)
 	LAZYREMOVE(accessories, A)
 	update_clothing_icon()
@@ -152,7 +155,7 @@
 	set category = "Object"
 	set src in usr
 
-	remove_accessory_handler(usr)
+	remove_accessory_handler(usr, FALSE)
 
 /obj/item/clothing/proc/remove_accessory_handler(var/mob/living/user, var/force_radial = FALSE)
 	if(!isliving(user))

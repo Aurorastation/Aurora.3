@@ -28,7 +28,7 @@
 	shuttle_area = list(/area/shuttle/dominian_shuttle)
 	current_location = "nav_hangar_dominia"
 	landmark_transition = "nav_transit_dominian_shuttle"
-	dock_target = "airlock_dominian_shuttle"
+	dock_target = "dominian_shuttle"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_dominia"
