@@ -17,7 +17,7 @@
 	set_trait(TRAIT_PRODUCT_COLOUR,"#749733")
 	set_trait(TRAIT_PLANT_COLOUR,"#749733")
 	set_trait(TRAIT_PLANT_ICON,"vine2")
-	set_trait(TRAIT_IDEAL_HEAT, 299)
+	set_trait(TRAIT_IDEAL_HEAT, 304)
 	set_trait(TRAIT_IDEAL_LIGHT, 7)
 	set_trait(TRAIT_WATER_CONSUMPTION, 6)
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)

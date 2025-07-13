@@ -373,14 +373,14 @@ ABSTRACT_TYPE(/datum/gear/accessory/skrell)
 	workcloak["iqi cloak"] = /obj/item/clothing/accessory/poncho/shouldercape/cloak/iqi
 	gear_tweaks += new /datum/gear_tweak/path(workcloak)
 
-/datum/gear/shirts/skrell/tees
+/datum/gear/shirts/skrell
 	display_name = "skrellian wetshirts"
 	path = /obj/item/clothing/under/dressshirt/tshirt/skrell/ocean
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 	sort_category = "Xenowear - Skrell"
 	flags = GEAR_HAS_DESC_SELECTION
 
-/datum/gear/shirts/skrell/tees/New()
+/datum/gear/shirts/skrell/New()
 	..()
 	var/list/tees = list()
 	tees["ocean wetshirt"] = /obj/item/clothing/under/dressshirt/tshirt/skrell/ocean
