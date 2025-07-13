@@ -26,6 +26,8 @@
 	time_to_remove,
 	)
 
+	LOG_DEBUG("<b>Effect Remover Init</b>")
+
 	. = ..()
 	if(!isitem(parent))
 		return COMPONENT_INCOMPATIBLE
@@ -102,6 +104,7 @@
 /datum/component/effect_remover/proc/add_item_context(obj/item/source, list/context, atom/target, mob/living/user)
 	SIGNAL_HANDLER
 
+	LOG_DEBUG("<b>Effect Remover HandleInit</b>")
 	if(effects_we_clear[target.type])
 		context[SCREENTIP_CONTEXT_LMB] = tip_text
 		return CONTEXTUAL_SCREENTIP_SET

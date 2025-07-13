@@ -53,6 +53,7 @@
 	var/atom/movable/screen/energy/energy_display = null
 	var/atom/movable/screen/instability/instability_display = null
 	var/atom/movable/screen/up_hint = null
+	var/atom/movable/screen/screentip = null
 
 	//spells hud icons - this interacts with add_spell and remove_spell
 	var/list/atom/movable/screen/movable/spell_master/spell_masters = null

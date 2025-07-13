@@ -277,7 +277,7 @@
 
 	// Screentips
 	var/datum/hud/active_hud = user.hud_used
-	LOG_DEBUG("active hud: [active_hud]")
+	LOG_DEBUG("<b>active hud: [active_hud] user: [user]")
 	if(!active_hud)
 		return
 
@@ -309,10 +309,9 @@
 				| (held_item && SEND_SIGNAL(held_item, COMSIG_ITEM_REQUESTING_CONTEXT_FOR_TARGET, context, src, user))
 
 			if (contextual_screentip_returns & CONTEXTUAL_SCREENTIP_SET)
-				var/screentip_images = active_hud.screentip_images
 				// LMB and RMB on one line...
-				var/lmb_text = build_context(context, SCREENTIP_CONTEXT_LMB, screentip_images)
-				var/rmb_text = build_context(context, SCREENTIP_CONTEXT_RMB, screentip_images)
+				var/lmb_text = build_context(context, SCREENTIP_CONTEXT_LMB)
+				var/rmb_text = build_context(context, SCREENTIP_CONTEXT_RMB)
 
 				if (lmb_text != "")
 					lmb_rmb_line = lmb_text
@@ -326,34 +325,34 @@
 					lmb_rmb_line += "<br>"
 					extra_lines++
 				if (SCREENTIP_CONTEXT_CTRL_LMB in context)
-					ctrl_lmb_ctrl_rmb_line += build_context(context, SCREENTIP_CONTEXT_CTRL_LMB, screentip_images)
+					ctrl_lmb_ctrl_rmb_line += build_context(context, SCREENTIP_CONTEXT_CTRL_LMB)
 
 				if (SCREENTIP_CONTEXT_CTRL_RMB in context)
 					if (ctrl_lmb_ctrl_rmb_line != "")
 						ctrl_lmb_ctrl_rmb_line += " | "
-					ctrl_lmb_ctrl_rmb_line += build_context(context, SCREENTIP_CONTEXT_CTRL_RMB, screentip_images)
+					ctrl_lmb_ctrl_rmb_line += build_context(context, SCREENTIP_CONTEXT_CTRL_RMB)
 
 				// Alt-LMB, Alt-RMB on one line...
 				if (ctrl_lmb_ctrl_rmb_line != "")
 					ctrl_lmb_ctrl_rmb_line += "<br>"
 					extra_lines++
 				if (SCREENTIP_CONTEXT_ALT_LMB in context)
-					alt_lmb_alt_rmb_line += build_context(context, SCREENTIP_CONTEXT_ALT_LMB, screentip_images)
+					alt_lmb_alt_rmb_line += build_context(context, SCREENTIP_CONTEXT_ALT_LMB)
 				if (SCREENTIP_CONTEXT_ALT_RMB in context)
 					if (alt_lmb_alt_rmb_line != "")
 						alt_lmb_alt_rmb_line += " | "
-					alt_lmb_alt_rmb_line += build_context(context, SCREENTIP_CONTEXT_ALT_RMB, screentip_images)
+					alt_lmb_alt_rmb_line += build_context(context, SCREENTIP_CONTEXT_ALT_RMB)
 
 				// Shift-LMB, Ctrl-Shift-LMB on one line...
 				if (alt_lmb_alt_rmb_line != "")
 					alt_lmb_alt_rmb_line += "<br>"
 					extra_lines++
 				if (SCREENTIP_CONTEXT_SHIFT_LMB in context)
-					shift_lmb_ctrl_shift_lmb_line += build_context(context, SCREENTIP_CONTEXT_SHIFT_LMB, screentip_images)
+					shift_lmb_ctrl_shift_lmb_line += build_context(context, SCREENTIP_CONTEXT_SHIFT_LMB)
 				if (SCREENTIP_CONTEXT_CTRL_SHIFT_LMB in context)
 					if (shift_lmb_ctrl_shift_lmb_line != "")
 						shift_lmb_ctrl_shift_lmb_line += " | "
-					shift_lmb_ctrl_shift_lmb_line += build_context(context, SCREENTIP_CONTEXT_CTRL_SHIFT_LMB, screentip_images)
+					shift_lmb_ctrl_shift_lmb_line += build_context(context, SCREENTIP_CONTEXT_CTRL_SHIFT_LMB)
 
 				if (shift_lmb_ctrl_shift_lmb_line != "")
 					extra_lines++
@@ -363,17 +362,15 @@
 
 	var/new_maptext
 
-	LOG_DEBUG("extra content [extra_context]")
 	//We inline a MAPTEXT() here, because there's no good way to statically add to a string like this
 	new_maptext = "<span class='context' style='text-align: center; color: [active_hud.screentip_color]'>[used_name][extra_context]</span>"
-	LOG_DEBUG("<b>new maptext:</b> [new_maptext]")
 /*
 	if (length(used_name) * 10 > active_hud.screentip_text.maptext_width)
 		INVOKE_ASYNC(src, PROC_REF(set_hover_maptext), client, active_hud, new_maptext)
 		return
 */
 	active_hud.screentip_text.maptext = "[new_maptext]"
-	active_hud.screentip_text.screen_loc = "LEFT,TOP-3"
+	active_hud.screentip_text.screen_loc = ui_screentip
 	active_hud.screentip_text.maptext_y = 10 - (extra_lines > 0 ? 11 + 9 * (extra_lines - 1): 0)
 	active_hud.screentip_text.maptext_x = 0 - (extra_lines > 0 ? 11 + 9 * (extra_lines - 1): 0)
 

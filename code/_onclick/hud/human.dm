@@ -379,7 +379,16 @@
 	mymob.unique_action_icon.alpha = ui_alpha
 	hud_elements |= mymob.unique_action_icon
 
+	mymob.screentip = new /atom/movable/screen/screentip(null)
+	//static_inventory += screentip_text
+	mymob.screentip.screen_loc = ui_screentip
+	mymob.unique_action_icon.alpha = ui_alpha
+	hud_elements |= mymob.screentip
+
 	mymob.client.screen = null
+
+	for(var/item in hud_elements)
+		LOG_DEBUG("<b>Initializing hud_element: [item]</b>")
 
 	mymob.client.screen += hud_elements
 	mymob.client.screen += src.adding + src.hotkeybuttons

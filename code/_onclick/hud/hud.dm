@@ -159,8 +159,7 @@ GLOBAL_LIST(global_huds)
 
 	/// UI for screentips that appear when you mouse over things
 	var/atom/movable/screen/screentip/screentip_text
-	var/screentip_color = "#FFFFFF"
-	var/screentip_images
+	var/screentip_color = "#888888"
 
 /datum/hud/New(mob/owner)
 	mymob = owner

@@ -17,18 +17,16 @@ GLOBAL_LIST_INIT_TYPED(screentip_context_icons, /image, prepare_screentip_contex
  * - key = string (REQUIRED)
  * - allow_image = boolean (not required)
 */
-/proc/build_context(list/context, key, allow_image)
+/proc/build_context(list/context, key)
 	if(!length(context) || !context[key] || !key)
 		return ""
 	// Splits key combinations from mouse buttons. e.g. `Ctrl-Shift-LMB` goes in, `Ctrl-Shift-` goes out. Will be empty for single button actions.
 	var/key_combo = length(key) > 3 ? "[copytext(key, 1, -3)]" : ""
 	// Grab the mouse button, LMB/RMB
 	var/button = copytext(key, -3)
-	if(allow_image)
-		// Compile into image, if allowed
-		button = "\icon[GLOB.screentip_context_icons[button]]"
+	button = "\icon[GLOB.screentip_context_icons[button]]"
 
 	// Voilá, final result
-	return "[key_combo][button][allow_image ? "" : ":"] [context[key]]"
+	return "[key_combo][button] [context[key]]"
 
 #undef HINT_ICON_FILE
