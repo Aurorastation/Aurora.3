@@ -174,7 +174,7 @@
 	human.bodytemperature = min(human.bodytemperature + rand(1, 5), heat_level_3)
 
 /datum/species/machine/handle_stance_damage(mob/living/carbon/human/H, damage_only)
-	var/obj/item/organ/internal/machine/hydraulics/hydraulics = owner.internal_organs_by_name[BP_HYDRAULICS]
+	var/obj/item/organ/internal/machine/hydraulics/hydraulics = H.internal_organs_by_name[BP_HYDRAULICS]
 	if(!hydraulics)
 		return 6 //no hydraulics, no party
 
@@ -182,7 +182,11 @@
 		return 5
 	else
 		switch(hydraulics.get_integrity())
-			if(IPC_INTEGRITY_THRESHOLD_LOW to IPC_INTEGRITY_THRESHOLD_MEDIUM)
+			if(0 to IPC_INTEGRITY_THRESHOLD_VERY_HIGH)
+				to_chat(H, SPAN_MACHINE_WARNING("Your hydraulics are on the verge of breaking completely!"))
+				spark(H, rand(3, 4), GLOB.alldirs)
+				return 4
+			if(IPC_INTEGRITY_THRESHOLD_VERY_HIGH to IPC_INTEGRITY_THRESHOLD_HIGH)
 				to_chat(H, SPAN_MACHINE_WARNING("Your hydraulics spark and whine!"))
 				spark(H, rand(1, 3), GLOB.alldirs)
 				return 2
