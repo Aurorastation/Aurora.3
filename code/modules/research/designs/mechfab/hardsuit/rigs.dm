@@ -17,6 +17,11 @@
 	desc = "An assembly for light rig that is desiged for repairs and maintenance to the outside of habitats and vessels."
 	build_path = /obj/item/rig_assembly/eva
 
+/datum/design/rig/eva/pilot
+	name = "pilot Suit Control Module Assembly"
+	desc = "An assembly for a light hardsuit that is designed for pilots."
+	build_path = /obj/item/rig_assembly/eva/pilot
+
 /datum/design/rig/industrial
 	name = "Industrial Suit Control Module Assembly"
 	desc = "An assembly for a heavy, powerful rig used by construction crews and mining corporations."
