@@ -73,6 +73,8 @@ GLOBAL_LIST_EMPTY(light_group_3)
 	var/mob/holo_icon
 	/// List of things to say.
 	var/list/things_to_say = list("Hi future coders.", "Welcome to real lore hologram hours.", "People should have fun with these!")
+	/// The sounds our hologram makes when it speaks. Use singleton sound categories. Null by default.
+	var/list/soundblock = "/singleton/sound_category/hivebot_wail" //change this
 	/// How long do we sleep between messages? 5 seconds by default.
 	var/loop_sleep_time = 5 SECONDS
 	/// Seconds integer. If set, the hologram will wait the set amount of seconds before making its speech. This applied only once and is null by default.
@@ -105,6 +107,9 @@ GLOBAL_LIST_EMPTY(light_group_3)
 	hologram.set_light(2, 1, rgb(214, 217, 221))
 	hologram.pixel_y = 16
 	hologram.name = speaking_name
+	var/sound_to_play
+	if(!sound_to_play && soundblock)
+		sound_to_play = text2path(soundblock)
 	var/datum/asset/spritesheet/S = get_asset_datum(/datum/asset/spritesheet/chat)
 	var/datum/accent/a = SSrecords.accents[ACCENT_SOL]
 	var/final_icon = "accent-[a.tag_icon]"
@@ -114,13 +119,8 @@ GLOBAL_LIST_EMPTY(light_group_3)
 			sleep_before_speak = null
 		hologram.langchat_speech("[I]", get_hearers_in_view(7, src), skip_language_check = TRUE)
 		to_chat(get_hearers_in_view(7, src), "[{"<span onclick="window.location.href='byond://?src=[REF(src)];accent_tag=[url_encode(SSrecords.accents[ACCENT_SOL])]'">[S.icon_tag(final_icon)]</span>"} + " "]<span class='game say'><span class='name'>[speaking_name]</span> says, <span class='message'><span class='body'>\"[I]\"</span></span></span>")
-		switch(rand(1, 3))
-			if(1)
-				playsound(loc, "sound/effects/creatures/hivebot/hivebot-bark-001.ogg", 100, 0, 7)
-			if(2)
-				playsound(loc, "sound/effects/creatures/hivebot/hivebot-bark-003.ogg", 100, 0, 7)
-			if(3)
-				playsound(loc, "sound/effects/creatures/hivebot/hivebot-bark-005.ogg", 100, 0, 7)
+		if(soundblock)
+			playsound(loc, soundblock, 100, FALSE, 7)
 		sleep(loop_sleep_time)
 	if(turn_off_after_speech)
 		QDEL_NULL(our_holo)
