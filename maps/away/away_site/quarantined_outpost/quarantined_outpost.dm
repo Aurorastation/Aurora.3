@@ -73,8 +73,6 @@ GLOBAL_LIST_EMPTY(light_group_3)
 	var/mob/holo_icon
 	/// List of things to say.
 	var/list/things_to_say = list("Hi future coders.", "Welcome to real lore hologram hours.", "People should have fun with these!")
-	/// The key of the soundblock. Used to align the any sounds we have. If null, no sound will be played.
-	var/list/soundblock = list(1, 3, 5)
 	/// How long do we sleep between messages? 5 seconds by default.
 	var/loop_sleep_time = 5 SECONDS
 	/// Seconds integer. If set, the hologram will wait the set amount of seconds before making its speech. This applied only once and is null by default.
@@ -116,8 +114,13 @@ GLOBAL_LIST_EMPTY(light_group_3)
 			sleep_before_speak = null
 		hologram.langchat_speech("[I]", get_hearers_in_view(7, src), skip_language_check = TRUE)
 		to_chat(get_hearers_in_view(7, src), "[{"<span onclick="window.location.href='byond://?src=[REF(src)];accent_tag=[url_encode(SSrecords.accents[ACCENT_SOL])]'">[S.icon_tag(final_icon)]</span>"} + " "]<span class='game say'><span class='name'>[speaking_name]</span> says, <span class='message'><span class='body'>\"[I]\"</span></span></span>")
-		if(soundblock)
-			playsound(loc, "sound/effects/creatures/hivebot/hivebot-bark-00[pick(soundblock)].ogg", 100, 0, 7)
+		switch(rand(1, 3))
+			if(1)
+				playsound(loc, "sound/effects/creatures/hivebot/hivebot-bark-001.ogg", 100, 0, 7)
+			if(2)
+				playsound(loc, "sound/effects/creatures/hivebot/hivebot-bark-003.ogg", 100, 0, 7)
+			if(3)
+				playsound(loc, "sound/effects/creatures/hivebot/hivebot-bark-005.ogg", 100, 0, 7)
 		sleep(loop_sleep_time)
 	if(turn_off_after_speech)
 		QDEL_NULL(our_holo)
