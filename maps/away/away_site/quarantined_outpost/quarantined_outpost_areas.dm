@@ -26,3 +26,13 @@
 /area/quarantined_outpost/science
 	name = "Extraction Laboratory"
 	icon_state = "purple"
+
+/area/quarantined_outpost/lobby
+	name = "Lobby"
+	icon_state = "bluenew"
+
+/area/quarantined_outpost/chasm
+	name = "Chasm"
+	icon_state = "exterior"
+	always_unpowered = TRUE
+

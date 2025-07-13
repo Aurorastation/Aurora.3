@@ -4,9 +4,9 @@
 	var/list/all_fillers = list()
 
 /*
-  * These should all be done in this style. It represents a coordinate map of the grid around `src`.
-  * The src itself should always have no density, as the density should be set on the atom and not with a filler
-  * list(
+ * These should all be done in this style. It represents a coordinate map of the grid around `src`.
+ * The src itself should always have no density, as the density should be set on the atom and not with a filler
+ * list(
 		list(0, 0, 0,		   0, 0),
 		list(0, 0, 0,		   0, 0),
 		list(0, 0, MACH_CENTER, 0, 0),
