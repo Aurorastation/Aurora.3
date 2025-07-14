@@ -165,17 +165,29 @@ GLOBAL_LIST_EMPTY(light_group_3)
 	. = ..()
 	GLOB.light_group_1 += src
 
+/obj/machinery/light/small/decayed/quarantined_outpost/dramatic/group_1/Destroy()
+	. = ..()
+	GLOB.light_group_1 -= src
+
 /obj/machinery/light/small/decayed/quarantined_outpost/dramatic/group_2
 
 /obj/machinery/light/small/decayed/quarantined_outpost/dramatic/group_2/Initialize(mapload)
 	. = ..()
 	GLOB.light_group_2 += src
 
+/obj/machinery/light/small/decayed/quarantined_outpost/dramatic/group_2/Destroy()
+	. = ..()
+	GLOB.light_group_2 -= src
+
 /obj/machinery/light/small/decayed/quarantined_outpost/dramatic/group_3
 
 /obj/machinery/light/small/decayed/quarantined_outpost/dramatic/group_3/Initialize(mapload)
 	. = ..()
 	GLOB.light_group_3 += src
+
+/obj/machinery/light/small/decayed/quarantined_outpost/dramatic/group_3/Destroy()
+	. = ..()
+	GLOB.light_group_3 -= src
 
 //---- Main player detector
 
