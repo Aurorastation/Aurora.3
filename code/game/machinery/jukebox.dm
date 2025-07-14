@@ -233,6 +233,14 @@
 	state_base = "audioconsole"
 	anchored = FALSE
 	tracks = list(
+		new/datum/track("Konyang Chill A", 'sound/music/lobby/konyang/konyang-1.ogg'),
+		new/datum/track("Konyang Chill B", 'sound/music/lobby/konyang/konyang-2.ogg'),
+		new/datum/track("Konyang Chill C", 'sound/music/lobby/konyang/konyang-3.ogg'),
+		new/datum/track("Konyang Chill D", 'sound/music/lobby/konyang/konyang-4.ogg'),
+		new/datum/track("Synthetic Future A", 'sound/music/lobby/adhomai/adhomai-1.ogg'),
+		new/datum/track("Synthetic Future B", 'sound/music/lobby/adhomai/adhomai-2.ogg'),
+		new/datum/track("Synthetic Future C", 'sound/music/lobby/adhomai/adhomai-3.ogg'),
+		new/datum/track("Synthetic Future D", 'sound/music/lobby/adhomai/adhomai-4.ogg'),
 		new/datum/track("Butterflies", 'sound/music/audioconsole/Butterflies.ogg'),
 		new/datum/track("That Ain't Chopin", 'sound/music/audioconsole/ThatAintChopin.ogg'),
 		new/datum/track("Don't Rush", 'sound/music/audioconsole/DontRush.ogg'),
