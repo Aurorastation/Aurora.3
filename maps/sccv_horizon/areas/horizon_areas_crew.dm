@@ -16,47 +16,51 @@
 	emergency_lights = TRUE
 	subdepartment = SUBLOC_HALLS
 
-/area/horizon/hallway/primary/deck_three
+/area/horizon/hallway/primary/deck_3
 	name = "Deck 3 Primary Hallway (PARENT AREA - DON'T USE)"
 	horizon_deck = 3
 
-/area/horizon/hallway/primary/deck_three/central
+/area/horizon/hallway/primary/deck_3/central
 	name = "Central Primary Hallway"
 
-/area/horizon/hallway/primary/deck_three/starboard
+/area/horizon/hallway/primary/deck_3/starboard
 	name = "Starboard Primary Hallway"
 	icon_state = "hallS"
 
-/area/horizon/hallway/primary/deck_three/starboard/docks
+/area/horizon/hallway/primary/deck_3/starboard/docks
 	name = "Starboard Primary Hallway - Docks"
 	holomap_color = HOLOMAP_AREACOLOR_DOCK
 
-/area/horizon/hallway/primary/deck_three/port
+/area/horizon/hallway/primary/deck_3/port
 	name = "Port Primary Hallway"
 	icon_state = "hallP"
 
-/area/horizon/hallway/primary/deck_three/port/docks
+/area/horizon/hallway/primary/deck_3/port/docks
 	name = "Port Primary Hallway - Docks"
 	holomap_color = HOLOMAP_AREACOLOR_DOCK
 
-/area/horizon/hallway/primary/deck_two
+/area/horizon/hallway/primary/deck_2
 	name = "Deck 2 Primary Hallway (PARENT AREA - DON'T USE)"
 	horizon_deck = 2
 
-/area/horizon/hallway/primary/deck_two/central
-	name = "Central Primary Hallway"
+/area/horizon/hallway/primary/deck_2/central
+	name = "Central Ring"
 	icon_state = "hallF"
 
-/area/horizon/hallway/primary/deck_two/fore
+/area/horizon/hallway/primary/deck_2/fore
 	name = "Fore Primary Hallway"
 	icon_state = "hallF"
 
-/area/horizon/hallway/primary/deck_one
+/area/horizon/hallway/primary/deck_2/starboard
+	name = "Starboard Primary Hallway"
+	icon_state = "hallF"
+
+/area/horizon/hallway/primary/deck_1
 	name = "Deck 1 Primary Hallway (PARENT AREA - DON'T USE)"
 	horizon_deck = 1
 
-/area/horizon/hallway/primary/deck_one/central
-	name = "Central Primary Hallway"
+/area/horizon/hallway/primary/deck_1/central
+	name = "Central Ring"
 	icon_state = "hallF"
 
 // Stairwells
@@ -75,15 +79,15 @@
 /area/horizon/stairwell/starboard
 	name = "Starboard Stairwell (PARENT AREA - DON'T USE)"
 
-/area/horizon/stairwell/starboard/deck_one
+/area/horizon/stairwell/starboard/deck_1
 	name = "Starboard Stairwell"
 	horizon_deck = 1
 
-/area/horizon/stairwell/starboard/deck_two
+/area/horizon/stairwell/starboard/deck_2
 	name = "Starboard Stairwell"
 	horizon_deck = 2
 
-/area/horizon/stairwell/starboard/deck_three
+/area/horizon/stairwell/starboard/deck_3
 	name = "Starboard Stairwell"
 	horizon_deck = 3
 
@@ -91,11 +95,11 @@
 /area/horizon/stairwell/port
 	name = "Port Stairwell (PARENT AREA - DON'T USE)"
 
-/area/horizon/stairwell/port/deck_two
+/area/horizon/stairwell/port/deck_2
 	name = "Port Stairwell"
 	horizon_deck = 2
 
-/area/horizon/stairwell/port/deck_three
+/area/horizon/stairwell/port/deck_3
 	name = "Port Stairwell"
 	horizon_deck = 3
 
@@ -105,11 +109,11 @@
 	icon_state = "bridge_stairs"
 	ambience = AMBIENCE_HIGHSEC
 
-/area/horizon/stairwell/bridge/deck_two
+/area/horizon/stairwell/bridge/deck_2
 	name = "Bridge Stairwell"
 	horizon_deck = 2
 
-/area/horizon/stairwell/bridge/deck_three
+/area/horizon/stairwell/bridge/deck_3
 	name = "Bridge Stairwell"
 	horizon_deck = 3
 
@@ -119,11 +123,11 @@
 	ambience = AMBIENCE_HIGHSEC
 	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
 
-/area/horizon/stairwell/engineering/deck_one
+/area/horizon/stairwell/engineering/deck_1
 	name = "Engineering Stairwell"
 	horizon_deck = 1
 
-/area/horizon/stairwell/engineering/deck_two
+/area/horizon/stairwell/engineering/deck_2
 	name = "Engineering Stairwell"
 	horizon_deck = 2
 
@@ -208,13 +212,13 @@
 	icon_state = "washroom"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
-/area/horizon/crew/washroom/deck_two
+/area/horizon/crew/washroom/deck_2
 	name = "Washroom"
 	icon_state = "washroom"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	horizon_deck = 2
 
-/area/horizon/crew/washroom/deck_three
+/area/horizon/crew/washroom/deck_3
 	name = "Washroom"
 	icon_state = "washroom"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED

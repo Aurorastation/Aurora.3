@@ -34,7 +34,7 @@
 		/area/horizon/maintenance,
 		/area/horizon/command/bridge/aibunker,
 		/area/horizon/medical/cryo,
-		/area/horizon/crew/washroom/deck_three,
+		/area/horizon/crew/washroom/deck_3,
 		/area/horizon/rnd/isolation_a,
 		/area/horizon/rnd/isolation_b,
 		/area/horizon/rnd/isolation_c

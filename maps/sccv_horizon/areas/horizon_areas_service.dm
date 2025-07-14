@@ -80,11 +80,11 @@
 	area_blurb = "A large trash compactor takes up much of the room, ready to crush the ship's rubbish."
 	area_blurb_category = "trash_compactor"
 
-/area/horizon/service/custodial/disposals/deck_one
+/area/horizon/service/custodial/disposals/deck_1
 	name = "Disposals and Recycling"
 	horizon_deck = 1
 
-/area/horizon/service/custodial/disposals/deck_two
+/area/horizon/service/custodial/disposals/deck_2
 	name = "Disposals and Recycling"
 	horizon_deck = 2
 
