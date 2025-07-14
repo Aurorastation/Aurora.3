@@ -128,7 +128,7 @@
 
 /obj/item/clothing/under/konyang/male/shortsleeve
 	name = "short sleeve hanbok"
-	icon = 'icons/obj/item/clothing/under/human/cocs/konyang_malehanbok_colorable.dmi'
+	icon = 'icons/obj/item/clothing/under/human/coc/konyang_malehanbok_colorable.dmi'
 	icon_state = "hanbok_male_shortsleeve_colorable"
 	worn_state = "hanbok_male_shortsleeve_colorable"
 	item_state = "hanbok_male_shortsleeve_colorable"

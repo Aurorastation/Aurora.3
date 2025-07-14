@@ -372,7 +372,7 @@
 /obj/item/clothing/head/helmet/security
 	name = "corporate helmet"
 	desc = "A shiny helmet in corporate black! Goes well with the respective plate carrier."
-	icon = 'icons/obj/item/clothing/suit/modular_armor/modular_armor_helmets.dmi'
+	icon = 'icons/obj/item/clothing/head/modular_armor_helmets.dmi'
 	contained_sprite = TRUE
 	icon_state = "helm_sec"
 	item_state = "helm_sec"
@@ -418,7 +418,7 @@
 /obj/item/clothing/head/helmet/military
 	name = "sol army helmet"
 	desc = "A helmet in drab olive. Standard-issue to the oft-forgotten Solarian Army. Comes with a fancy military HUDglass."
-	icon = 'icons/obj/item/clothing/suit/modular_armor/modular_armor.dmi_helmets'
+	icon = 'icons/obj/item/clothing/head/modular_armor_helmets.dmi'
 	contained_sprite = TRUE
 	icon_state = "helm_military"
 	item_state = "helm_military"
@@ -435,7 +435,7 @@
 	desc = "A standard-issue helmet of the Imperial Army of Dominia. Wear on head for best results."
 	desc_extended = "The distinctive outline of the Imperial Army's helmet has made it into a symbol of Dominian imperialism abroad. The helmets themselves protect well \
 	against lasers, ballistics, and shrapnel."
-	icon = 'icons/obj/item/clothing/suit/modular_armor/modular_armor_helmets.dmi'
+	icon = 'icons/obj/item/clothing/head/modular_armor_helmets.dmi'
 	contained_sprite = TRUE
 	icon_state = "dom_helmet"
 	item_state = "dom_helmet"
@@ -456,7 +456,7 @@
 /obj/item/clothing/head/helmet/tcaf
 	name = "\improper TCAF legionnaire faceplate helmet"
 	desc = "A carapace helmet in the traditional colors of the Tau Ceti Armed Forces. This one equipped with the signature faceplate."
-	icon = 'icons/obj/item/clothing/suit/modular_armor/modular_armor_helmets.dmi'
+	icon = 'icons/obj/item/clothing/head/modular_armor_helmets.dmi'
 	contained_sprite = TRUE
 	icon_state = "tcaf_helm_face"
 	item_state = "tcaf_helm_face"
@@ -483,7 +483,7 @@
 /obj/item/clothing/head/helmet/hoplan
 	name = "hoplan helm"
 	desc = "A modern combat helmet with a stylish outer shell to make it appear from another era entirely. What these robots do for fashion..."
-	icon = 'icons/obj/item/clothing/suit/modular_armor/modular_armor_helmets.dmi'
+	icon = 'icons/obj/item/clothing/head/modular_armor_helmets.dmi'
 	contained_sprite = TRUE
 	icon_state = "hoplan_helm"
 	item_state = "hoplan_helm"

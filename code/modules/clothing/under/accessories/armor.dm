@@ -177,7 +177,7 @@
 /obj/item/clothing/accessory/leg_guard/hoplan/skirt
 	name = "hoplan ballistic skirt"
 	desc = "A long skirt that falls down to one's ankles with an outer layer of ballistic padding, and woven in pouches featuring ablative plates."
-	icon = 'icons/obj/item/clothing/suit/modular_armor/modular_armor.dmi'
+	icon = 'icons/obj/item/clothing/suit/armor/modular_armor/modular_armor.dmi'
 	icon_state = "hoplan_ballistic_skirt"
 	item_state = "hoplan_ballistic_skirt"
 	contained_sprite = TRUE

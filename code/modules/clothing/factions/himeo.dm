@@ -25,7 +25,7 @@
 	name = "himean planetary guard utility cover"
 	desc = "A utility cover of Himean origin. This particular cap has the united syndicates of Himeo's typical symbol - a white hexagon by red triangles - on its face."
 	desc_extended = "The M293 utility cover is a standard-issue cap for Himeo's planetary guard. It is part of the standard base dress for the Himean planetary guard, and is thus a common sight throughout vessels across the Coalition."
-	icon = 'icons/obj/item/clothing/head/himeo_military.dmi'
+	icon = 'icons/obj/item/clothing/head/himeo_army.dmi'
 	icon_state = "himeo_pg_utility"
 	item_state = "himeo_pg_utility"
 	contained_sprite = TRUE
@@ -34,7 +34,7 @@
 	name = "himean naval garrison cap"
 	desc = "A sidecap of Himean origin. This particular sidecap has the United Syndicates of Himeo's typical symbol"
 	desc_extended = "The M361 garrison cap is a standard-issue softcover for the Planetary Guard's naval component. On the front is a small roundel containing the United Syndicates' national colors: black, white, and red."
-	icon = 'icons/obj/item/clothing/head/himeo_military.dmi'
+	icon = 'icons/obj/item/clothing/head/himeo_army.dmi'
 	icon_state = "himeo_navy_sidecap"
 	item_state = "himeo_navy_sidecap"
 	contained_sprite = TRUE

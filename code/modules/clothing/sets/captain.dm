@@ -216,7 +216,7 @@
 /obj/item/clothing/shoes/captain/formal
 	name = "captain's formal boots"
 	desc = "Polished boots made of strong synthleather, capable of kicking through a wall without a scratch."
-	icon = 'icons/clothing/kit/captain_formal.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/command.dmi'
 	icon_state = "captain_formal_boots"
 	item_state = "captain_formal_boots"
 	contained_sprite = TRUE

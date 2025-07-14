@@ -733,7 +733,7 @@
 /obj/item/clothing/head/xanu
 	name = "xanu armed forces garrison cap"
 	desc = "A garrison cap belonging to a member of the All-Xanu Spacefleet."
-	icon = 'icons/obj/item/clothing/head/xanu_military.dmi'
+	icon = 'icons/obj/item/clothing/head/xanu_army.dmi'
 	icon_state = "xanu_garrison_enlisted"
 	item_state = "xanu_garrison_enlisted"
 	contained_sprite = TRUE
