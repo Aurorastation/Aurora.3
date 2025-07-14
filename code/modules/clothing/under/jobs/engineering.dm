@@ -53,7 +53,7 @@
 	desc = "It's a grey-green high visibility jumpsuit worn by engineers. It has minor radiation shielding."
 	desc_extended = "Usually, but not necessarily worn by Einstein's Taipei Engineering Industrial subsidiary. Subsidiary or not, \
 	whoever wears this uniform probably knows a lot about the latest warp drives."
-	icon = 'icons/clothing/under/uniforms/einstein.dmi'
+	icon = 'icons/obj/item/clothing/under/human/corporation/einstein.dmi'
 	icon_state = "ee_engineer"
 	item_state = "ee_engineer"
 

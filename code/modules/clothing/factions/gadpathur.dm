@@ -5,7 +5,7 @@
 	found throughout the planet and are one of the most common markers of Gadpathurians abroad, due to the distinctive black \
 	shirt of the uniform. While some personalization is common on these uniforms, they mostly remain the same regardless of \
 	which cadre one belongs to."
-	icon = 'icons/clothing/under/uniforms/gadpathur_uniform.dmi'
+	icon = 'icons/obj/item/clothing/under/human/coc/gadpathur_uniform.dmi'
 	icon_state = "gadpathur_uniform"
 	item_state = "gadpathur_uniform"
 	contained_sprite = TRUE

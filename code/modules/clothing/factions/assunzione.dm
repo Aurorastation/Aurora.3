@@ -1,7 +1,7 @@
 /obj/item/clothing/under/assunzione/priest
 	name = "luceian cassock"
 	desc = "A linen cassock worn by clergyfolk of the Luceian faith of Assunzione. Despite being of simple make, the violet dye used for the shoulders has an almost iridescent sparkle to them."
-	icon = 'icons/clothing/under/uniforms/assunzione.dmi'
+	icon = 'icons/obj/item/clothing/under/human/coc/assunzione.dmi'
 	icon_state = "assunzione_cassock"
 	item_state = "assunzione_cassock"
 	contained_sprite = TRUE

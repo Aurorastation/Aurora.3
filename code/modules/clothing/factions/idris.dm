@@ -103,7 +103,7 @@
 /obj/item/clothing/under/dress/idris
 	name = "idris incorporated hospitality dress"
 	desc = "This is a stylish knee-length teal dress, installed with its own in-built undershirt and scarf that cannot be removed. It is branded prominently with the logo of Idris Incorporated. Commonly worn among Idris Customer Service units, alongside their organic peers."
-	icon = 'icons/clothing/under/uniforms/idris_dress.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	icon_state = "idris_dress"
 	item_state = "idris_dress"
 	contained_sprite = TRUE

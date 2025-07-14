@@ -287,7 +287,7 @@
 /obj/item/clothing/under/dominia/imperial_suit
 	name = "dominian suit"
 	desc = "This is a suit in the style of Dominia nobility. It's the latest fashion across Dominian space."
-	icon = 'icons/clothing/under/uniforms/dominia_suits.dmi'
+	icon = 'icons/obj/item/clothing/under/human/dominia/dominia_suits.dmi'
 	icon_state = "suit_imperial"
 	item_state = "suit_imperial"
 	var/house
@@ -334,7 +334,7 @@
 	sourced from Moroz proper. Sweaters such as this were a common sight in the region of Fisanduh, being comfortable to wear and very useful \
 	in the cold mountainous environment they lived in. It tends to be seen as something rather basic and droll by Imperials when compared \
 	to their more extravagant and colorful attire, but this suits the Confederates just fine."
-	icon = 'icons/clothing/under/uniforms/dominia_sweater.dmi'
+	icon = 'icons/obj/item/clothing/under/human/dominia/dominia_sweater.dmi'
 	icon_state = "dom_sweater"
 	item_state = "dom_sweater"
 
@@ -342,7 +342,7 @@
 	name = "lyodsuit"
 	desc = "An imitation Lyodsuit from Dominia. It's lightweight, and high has quality fabric that makes it extremely comfortable to wear."
 	desc_extended = "This Lyodsuit was created in Dominia. It is fashionable amongst the middle and lower classes of Dominia."
-	icon = 'icons/clothing/under/uniforms/lyodsuit.dmi'
+	icon = 'icons/obj/item/clothing/under/human/dominia/lyodsuit.dmi'
 	icon_state = "dom_thermal"
 	item_state = "dom_thermal"
 	contained_sprite = TRUE
@@ -350,7 +350,7 @@
 /obj/item/clothing/under/dominia/lyodsuit/hoodie
 	name = "hoodied lyodsuit"
 	desc = "An imitation Lyodsuit from Dominia. It's lightweight, and high has quality fabric that makes it extremely comfortable to wear. This one has a hood mask attached."
-	icon = 'icons/clothing/under/uniforms/lyodsuit_hoodie.dmi'
+	icon = 'icons/obj/item/clothing/under/human/dominia/lyodsuit_hoodie.dmi'
 	icon_state = "dom_thermal_hoodie"
 	item_state = "dom_thermal_hoodie"
 	action_button_name = "Toggle Lyodsuit Mask"
@@ -438,7 +438,7 @@
 	name = "dominian noble greatdress"
 	desc = "This is a greatdress in the style of Dominian nobility. Greatdresses are a Dominian fashion fad, distinguished from normal dresses by their colourful palettes \
 			and oversized gowns. More modest nobility would define them as excessively gaudy and unreasonable, but it depends on the individual."
-	icon = 'icons/clothing/under/uniforms/dominia_noble_dress.dmi'
+	icon = 'icons/obj/item/clothing/under/human/dominia/dominia_noble_dress.dmi'
 	icon_state = "dom_dress"
 	item_state = "dom_dress"
 	contained_sprite = TRUE
@@ -447,7 +447,7 @@
 	name = "dominian noble dress"
 	desc = "A dress commonly worn by Dominian nobility. While not as gaudy as the greatdress, it is extremely luxurious nonetheless, and a sign of excellent pedigree \
 			and good fortune."
-	icon = 'icons/clothing/under/uniforms/dominia_summer_dress.dmi'
+	icon = 'icons/obj/item/clothing/under/human/dominia/dominia_summer_dress.dmi'
 	icon_state = "altdress_imperial"
 	item_state = "altdress_imperial"
 	var/house
@@ -603,14 +603,13 @@
 	desc = "The traditional red-black-gold uniform of a member of His Majesty's Diplomatic Service."
 	desc_extended = "His Majesty's Diplomatic Service - as with much of the Empire tends to be dominated by the great houses, though the Service also employs many \
 	commoners - as long as they can pass the rigorous examinations required to become a full member of the Diplomatic Service."
-	icon = 'icons/clothing/under/uniforms/dominia_consular.dmi'
+	icon = 'icons/obj/item/clothing/under/human/dominia/dominia_consular.dmi'
 	icon_state = "dominia_consular"
 	item_state = "dominia_consular"
 
 /obj/item/clothing/under/dominia/consular/dress
 	name = "dominian consular officer's uniform"
 	desc = "The traditional red-black-gold uniform of a member of His Majesty's Diplomatic Service. This variant has a skirt, for the female diplomat on the go."
-	icon = 'icons/clothing/under/uniforms/dominia_consular.dmi'
 	icon_state = "dominia_consular_fem"
 	item_state = "dominia_consular_fem"
 
@@ -620,7 +619,7 @@
 	desc_extended = "While the most obvious purpose of an initiate's red-and-white robe is to show that the hopeful clergy member is pure in mind and body, \
 	the stark whites of the robe also show when an initiate has neglected their appearance. The white robes must be constantly maintained and washed in order to \
 	maintain their pristine appearance, lest an initiate be found neglectful."
-	icon = 'icons/clothing/under/uniforms/dominia_initiate.dmi'
+	icon = 'icons/obj/item/clothing/under/human/dominia/dominia_initiate.dmi'
 	icon_state = "dominia_initiate"
 	item_state = "dominia_initiate"
 	slot_flags = SLOT_OCLOTHING | SLOT_ICLOTHING
@@ -632,7 +631,7 @@
 	worn by Dominian nobility, in order to demonstrate the importance of Dominia's priestly classes. Each robe is tailor-made to fit an initiate upon their \
 	successful ascension to full member of the clergy, and they are expected to care for their robes throughout their lives. The loss of one's robe is \
 	considered a major embarrassment both for the individual and their church."
-	icon = 'icons/clothing/under/uniforms/dominia_priest.dmi'
+	icon = 'icons/obj/item/clothing/under/human/dominia/dominia_priest.dmi'
 	icon_state = "dominia_priest"
 	item_state = "dominia_priest"
 	slot_flags = SLOT_OCLOTHING | SLOT_ICLOTHING
@@ -642,7 +641,7 @@
 	desc = "The traditional red-black-gold uniform of a priestly member of His Majesty's Diplomatic Service."
 	desc_extended = "His Majesty's Diplomatic Service - as with much of the Empire tends to be dominated by the great houses, though the Service also employs many commoners \
 	- as long as they can pass the rigorous examinations required to become a full member of the Diplomatic Service."
-	icon = 'icons/clothing/under/uniforms/dominia_consular_priest.dmi'
+	icon = 'icons/obj/item/clothing/under/human/dominia/dominia_consular_priest.dmi'
 	icon_state = "dominia_consular_priest"
 	item_state = "dominia_consular_priest"
 	slot_flags = SLOT_OCLOTHING | SLOT_ICLOTHING
@@ -764,7 +763,7 @@
 	desc_extended = "Dresses such as this one are a common sight in the more developed colonies of the Empire of Dominia, and their origins can be traced back to \
 	the fashion houses of Nova Luxembourg. While both sleeved and sleeveless variants exist, the sleeved one is far more common \
 	due to the often frigid temperatures of Moroz."
-	icon = 'icons/clothing/under/uniforms/dominia_dresses.dmi'
+	icon = 'icons/obj/item/clothing/under/human/dominia/dominia_dresses.dmi'
 	icon_state = "dress_imperial"
 	item_state = "dress_imperial"
 	contained_sprite = TRUE
@@ -809,7 +808,7 @@
 	desc_extended = "The kerchief of a Fleet voidsman varies from battlefleet to battlefleet, \
 		and its color indicates where the rating originated from. This particular uniform comes from the elite 1st battlefleet, \
 		which is under the command of Grand Admiral Huiling Zhao herself."
-	icon = 'icons/clothing/under/uniforms/dominia_fleet.dmi'
+	icon = 'icons/obj/item/clothing/under/human/dominia/dominia_fleet.dmi'
 	icon_state = "voidsman"
 	item_state = "voidsman"
 	contained_sprite = TRUE
@@ -840,7 +839,7 @@
 	desc_extended = "Deliberately modest compared to their Officer counterparts, enlisted voidsmen's caps \
 		typically display their vessel of origin on the right side of the cap. \
 		These caps can easily be rolled and stored in the likely event other forms of headwear are required."
-	icon = 'icons/clothing/under/uniforms/dominia_fleet.dmi'
+	icon = 'icons/obj/item/clothing/head/dominia.dmi'
 	icon_state = "voidsmancap"
 	item_state = "voidsmancap"
 	contained_sprite = TRUE
@@ -866,7 +865,7 @@
 	desc = "An Imperial Fleet coat belonging to an officer. The single golden band around its wrist indicates it belongs to an Ensign."
 	desc_extended = "Imperial Fleet officer's coats are both a symbol of rank and of social status, \
 		and proudly bear the wearer's rank by the number of golden bands around their sleeves."
-	icon = 'icons/clothing/under/uniforms/dominia_fleet.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/dominia_officer_coat.dmi'
 	icon_state = "officercoat"
 	item_state = "officercoat"
 	contained_sprite = TRUE
@@ -876,7 +875,7 @@
 	desc = "The standard-issue combat fatigues of an Imperial Army regular. This one features forest camouflage."
 	desc_extended = "While the Empire's nobility is known for its vibrant fashion, the common soldiers of the Imperial Army wear drab fatigues intended to conceal them \
 	from view. The iconic “Morozian green,” camouflage of the Imperial Army's most common uniform has become a common symbol of the Empire's colonialist policies abroad."
-	icon = 'icons/clothing/under/uniforms/dominia_army.dmi'
+	icon = 'icons/obj/item/clothing/under/human/dominia/dominia_army.dmi'
 	icon_state = "dom_uniform"
 	item_state = "dom_uniform"
 	contained_sprite = TRUE

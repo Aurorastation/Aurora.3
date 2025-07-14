@@ -7,7 +7,7 @@
 	gold-appearance clothing is now popular within many Golden Deep brands, but this was the first, and still carries considerable prestige (and a price tag to match)."
 	icon_state = "goldendeep_dress"
 	item_state = "goldendeep_dress"
-	icon = 'icons/clothing/under/uniforms/goldendeep_dress.dmi'
+	icon = 'icons/obj/item/clothing/under/synthetic/goldendeep.dmi'
 	contained_sprite = TRUE
 
 /obj/item/clothing/under/goldendeep/wrap
@@ -18,7 +18,7 @@
 	(and more poorly-designed) predecessors."
 	icon_state = "goldendeep_wrap"
 	item_state = "goldendeep_wrap"
-	icon = 'icons/clothing/under/uniforms/goldendeep_wrap.dmi'
+	icon = 'icons/obj/item/clothing/under/synthetic/goldendeep.dmi'
 	contained_sprite = TRUE
 
 /obj/item/clothing/under/goldendeep/vest
@@ -29,7 +29,7 @@
 	may still be far out of the reach of the masses, but it barely approaches a fraction of the cost of a golden two piece, and is certainly far, far cheaper than the dresses made by Lux-Igmatic themself."
 	icon_state = "goldendeep_vest"
 	item_state = "goldendeep_vest"
-	icon = 'icons/clothing/under/uniforms/goldendeep_vest.dmi'
+	icon = 'icons/obj/item/clothing/under/synthetic/goldendeep.dmi'
 	slot_flags = SLOT_OCLOTHING | SLOT_ICLOTHING
 	contained_sprite = TRUE
 
@@ -42,7 +42,7 @@
 	Golden Deep social circles."
 	icon_state = "goldendeep_suit"
 	item_state = "goldendeep_suit"
-	icon = 'icons/clothing/under/uniforms/goldendeep_suit.dmi'
+	icon = 'icons/obj/item/clothing/under/synthetic/goldendeep.dmi'
 	contained_sprite = TRUE
 
 /obj/item/clothing/under/goldendeep/skirtsuit
@@ -53,7 +53,7 @@
 	GD citizens and traders have been rekindled - necessitating the need to 'keep up appearances' even within exclusively Golden Deep social circles."
 	icon_state = "goldendeep_skirtsuit"
 	item_state = "goldendeep_skirtsuit"
-	icon = 'icons/clothing/under/uniforms/goldendeep_skirtsuit.dmi'
+	icon = 'icons/obj/item/clothing/under/synthetic/goldendeep.dmi'
 	contained_sprite = TRUE
 
 // Hoplan
@@ -62,7 +62,7 @@
 	desc = "A standard issued uniform for a Hoplan house, often provided to represent a particular merchant or merchant organization who is funding the group."
 	icon_state = "hoplan_uniform"
 	item_state = "hoplan_uniform"
-	icon = 'icons/clothing/under/uniforms/goldendeep_hoplan.dmi'
+	icon = 'icons/obj/item/clothing/under/synthetic/goldendeep.dmi'
 	contained_sprite = TRUE
 
 /obj/item/clothing/head/goldendeep/hoplan
@@ -254,7 +254,7 @@
 	desc_extended = "Originally the invention of an unknown synthetic, the design of plain utilitarian jumpsuits known as 'Porter Uniforms' has skyrocketed in popularity, with many different firms and organizations within the Golden Deep inventing their own variety. Known not to be particularly comfortable for organic use."
 	icon_state = "porter_uniform"
 	item_state = "porter_uniform"
-	icon = 'icons/clothing/under/uniforms/goldendeep_porter_uniform.dmi'
+	icon = 'icons/obj/item/clothing/under/synthetic/goldendeep.dmi'
 	contained_sprite = TRUE
 
 /obj/item/clothing/head/goldendeep/porter
@@ -262,5 +262,5 @@
 	desc = "This is a simple and nondescript hood designed to fit over many shapes of head, intended to provide protection from the elements. While originally fashioned by the Golden Deep and remaining particularly popular in it, its use has also branched out widely throughout the spur among independent delivery workers."
 	icon_state = "porter_hood"
 	item_state = "porter_hood"
-	icon = 'icons/clothing/under/uniforms/goldendeep_porter_uniform.dmi'
+	icon = 'icons/obj/item/clothing/head/ipc/golden_deep.dmi'
 	contained_sprite = TRUE

@@ -561,7 +561,7 @@
 /obj/item/clothing/suit/storage/vest/konyang
 	name = "konyang police vest"
 	desc = "A fairly dated armor vest in bright blue issued to the various police forces of Konyang. It comes with a prominent silver emblem on the front."
-	icon = 'icons/clothing/under/uniforms/konyang_uniforms.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/konyang_police_vest.dmi'
 	icon_state = "police_vest"
 	item_state = "police_vest"
 	contained_sprite = TRUE

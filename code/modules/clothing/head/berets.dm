@@ -211,7 +211,7 @@
 /obj/item/clothing/head/beret/legion/tcaf
 	name = "\improper TCAF dress beret"
 	desc = "A blue dress beret bearing the flag of the Republic of Biesel. Often only seen worn by in-service members of the Tau Ceti Armed Forces."
-	icon = 'icons/clothing/under/uniforms/tcaf_uniform.dmi'
+	icon = 'icons/obj/item/clothing/head/tcaf_hats.dmi'
 	contained_sprite = TRUE
 	icon_state = "tcaf_dress_beret"
 	item_state = "tcaf_dress_beret"
