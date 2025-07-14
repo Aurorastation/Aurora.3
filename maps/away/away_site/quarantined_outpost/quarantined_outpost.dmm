@@ -75,7 +75,7 @@
 /area/quarantined_outpost/engineering)
 "at" = (
 /obj/random/dirt_75,
-/obj/abstract/footprint_spawner/blood{
+/obj/abstract/footprint_spawner{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/gunmetal,
@@ -338,7 +338,7 @@
 /obj/structure/railing/mapped,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/abstract/footprint_spawner/blood{
+/obj/abstract/footprint_spawner{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/gunmetal,
@@ -536,7 +536,7 @@
 /obj/machinery/light/small/decayed/quarantined_outpost,
 /obj/structure/railing/mapped,
 /obj/random/dirt_75,
-/obj/abstract/footprint_spawner/blood{
+/obj/abstract/footprint_spawner{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/gunmetal,
@@ -2013,7 +2013,7 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
-/obj/abstract/footprint_spawner/blood{
+/obj/abstract/footprint_spawner{
 	dir = 1
 	},
 /obj/abstract/footprint_spawner_turn_helper{
@@ -2850,7 +2850,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/abstract/footprint_spawner/blood{
+/obj/abstract/footprint_spawner{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
@@ -4387,7 +4387,7 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
-/obj/abstract/footprint_spawner/blood{
+/obj/abstract/footprint_spawner{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/gunmetal,
@@ -4783,7 +4783,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/abstract/footprint_spawner/blood{
+/obj/abstract/footprint_spawner{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
@@ -5004,9 +5004,6 @@
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/science)
 "zM" = (
-/obj/machinery/door/firedoor{
-	dir = 4
-	},
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/full,
 /area/quarantined_outpost/lobby)
@@ -5554,7 +5551,7 @@
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/entrance_lobby)
 "CE" = (
-/obj/abstract/footprint_spawner/blood{
+/obj/abstract/footprint_spawner{
 	dir = 1
 	},
 /obj/abstract/footprint_spawner_turn_helper{
@@ -6621,7 +6618,7 @@
 "Ik" = (
 /obj/effect/floor_decal/spline/plain/black,
 /obj/structure/railing/mapped,
-/obj/abstract/footprint_spawner/blood{
+/obj/abstract/footprint_spawner{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/gunmetal,
@@ -8088,11 +8085,6 @@
 "OE" = (
 /turf/simulated/wall,
 /area/space)
-"OL" = (
-/obj/machinery/door/firedoor,
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/turf/simulated/floor/tiled/full,
-/area/quarantined_outpost/lobby)
 "OM" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 8
@@ -9525,7 +9517,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/obj/abstract/footprint_spawner/blood{
+/obj/abstract/footprint_spawner{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/gunmetal,
@@ -10183,7 +10175,7 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
-/obj/abstract/footprint_spawner/blood{
+/obj/abstract/footprint_spawner{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/gunmetal,
@@ -41084,7 +41076,7 @@ sg
 sg
 sg
 sg
-OL
+zM
 Uo
 pt
 hD

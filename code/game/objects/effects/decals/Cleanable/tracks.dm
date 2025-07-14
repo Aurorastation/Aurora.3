@@ -217,11 +217,11 @@
 
 /// Spawns footprints. A mapping helper.
 /obj/abstract/footprint_spawner
-	name = "use my subtypes!"
+	name = "blood footprint"
 	icon = 'icons/effects/map_effects.dmi'
 	icon_state = "portal_side_a"
 	/// String. Object path for the track type the spawner will use.
-	var/trail_path = null
+	var/trail_path = "footprints"
 	var/going_dir
 	/// Blood colour by default.
 	var/trail_color = COLOR_HUMAN_BLOOD
@@ -237,13 +237,8 @@
 	T.add_tracks(text2path("/obj/effect/decal/cleanable/blood/tracks/[trail_path]"), null, 0, going_dir, trail_color)
 	qdel(src)
 
-/obj/abstract/footprint_spawner/blood
-	name = "blood footprint"
-	trail_path = "footprints"
-
 /obj/abstract/footprint_spawner/oil
 	name = "oil footprints"
-	trail_path = "footprints"
 	trail_color = COLOR_OIL
 
 /obj/abstract/footprint_spawner/body
