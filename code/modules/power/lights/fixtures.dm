@@ -80,6 +80,9 @@
 	fitting_has_empty_icon = TRUE
 	fitting_is_on_floor = TRUE
 
+/obj/machinery/light/floor/decayed/brighter
+	brightness_power = 0.45
+
 // the smaller bulb light fixture
 
 /obj/machinery/light/small

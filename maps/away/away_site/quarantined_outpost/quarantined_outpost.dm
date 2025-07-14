@@ -274,3 +274,10 @@ GLOBAL_LIST_EMPTY(light_group_3)
 /obj/structure/filler/ex_act()
 	return
 
+/obj/structure/decor/ladder
+	name = "ladder"
+	icon = 'icons/obj/structures.dmi'
+	icon_state = "ladder01"
+
+/obj/structure/decor/ladder/up
+	icon_state = "ladder10"
