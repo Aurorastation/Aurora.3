@@ -36,3 +36,7 @@
 	icon_state = "exterior"
 	always_unpowered = TRUE
 
+/area/quarantined_outpost/cafeteria
+	name = "Cafeteria"
+	icon_state = "kitchen"
+
