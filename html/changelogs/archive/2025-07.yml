@@ -291,3 +291,9 @@
       the usual whitelist/blacklist system.
   - rscdel: Burzsia is no longer a 'dangerous' system following completion of relief
       efforts.
+2025-07-14:
+  Hellfirejag:
+  - rscadd: Added a missing construction recipe for pilot hardsuits to the mechatronic
+      fabricator
+  SleepyGemmy:
+  - rscadd: Added the Konyang and Adhomai lobby music to the audioconsole.
