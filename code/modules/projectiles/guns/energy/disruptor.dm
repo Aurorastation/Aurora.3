@@ -46,7 +46,7 @@
 			charge_cost = 300, // paying double for +10 damage and 5 AP. OVERALL, does less damage, just does more in a shorter amount of time (5*30 = 150 dam VS. 10*20 = 200 dam). better hit those shots.
 			modifystate = "disruptorpistolkill",
 			accuracy = -2, //Better hit those shots I said :)
-			fire_delay = 24, // 4x delay so you can't rapid fire these stronger blaster bolts
+			fire_delay = 12, // 2x delay so you can't rapid fire these stronger blaster bolts
 			recoil = 3,
 			fire_sound = 'sound/weapons/gunshot/bolter.ogg')
 	)
