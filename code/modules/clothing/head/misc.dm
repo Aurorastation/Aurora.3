@@ -526,7 +526,7 @@
 /obj/item/clothing/head/sol
 	name = "sol navy utility cover"
 	desc = "A military cover issued to Solarian Navy personnel as part of their utility uniform."
-	icon = 'icons/clothing/under/uniforms/sol_uniform.dmi'
+	icon = 'icons/obj/item/clothing/head/sol_army.dmi'
 	icon_state = "navy_utility"
 	item_state = "navy_utility"
 	contained_sprite = TRUE
@@ -583,7 +583,7 @@
 /obj/item/clothing/head/helmet/sol
 	name = "sol combat helmet"
 	desc = "A woodland colored helmet made from advanced ceramic."
-	icon = 'icons/clothing/under/uniforms/sol_uniform.dmi'
+	icon = 'icons/obj/item/clothing/head/sol_army.dmi'
 	icon_state = "helmet_tac_sol"
 	item_state = "helmet_tac_sol"
 	armor = list(
