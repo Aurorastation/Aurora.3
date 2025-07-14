@@ -182,6 +182,18 @@
 	damage = 20
 	pass_flags = PASSTABLE | PASSRAILING
 
+	light_range = 4
+	light_color = "#ff665c"
+
+/obj/projectile/energy/blaster/disruptor/heavy
+	damage = 30
+	armor_penetration = 5
+
+/obj/projectile/energy/blaster/disruptor/heavy/practice
+	damage = 10
+	damage_type = DAMAGE_PAIN
+	eyeblur = 0
+
 /obj/projectile/energy/blaster/disruptor/practice
 	damage = 5
 	damage_type = DAMAGE_PAIN
@@ -195,6 +207,8 @@
 /obj/projectile/energy/disruptorstun
 	name = "disruptor bolt"
 	icon_state = "bluelaser"
+	light_color = "#8692ff"
+	light_range = 4
 	damage = 1
 	agony = 40
 	speed = 0.4
@@ -207,6 +221,29 @@
 	damage = 5
 	damage_type = DAMAGE_PAIN
 	eyeblur = 0
+
+/obj/projectile/energy/disruptorstun/flare
+	light_color = "#cbd0ff"
+	light_range = 14
+	agony = 5
+
+	var/flash_range = 1
+	var/brightness = 7
+	var/light_duration = 200
+
+/obj/projectile/energy/disruptorstun/flare/on_hit(atom/target, blocked, def_zone)
+	. = ..()
+
+	var/turf/T = flash_range ? src.loc : get_turf(target)
+	if(!istype(T))
+		return
+
+	//blind adjacent people
+	for(var/mob/living/M in viewers(T, flash_range))
+		if(M.flash_act(ignore_inherent = TRUE))
+			M.confused = rand(5, 15)
+
+	new /obj/effect/smoke/illumination(T, brightness=max(flash_range*2, brightness), lifetime=light_duration)
 
 /obj/projectile/energy/blaster/heavy
 	damage = 35
