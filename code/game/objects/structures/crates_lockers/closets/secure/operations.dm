@@ -24,7 +24,7 @@
 	new /obj/item/device/orbital_dropper/drill(src)
 	new /obj/item/device/megaphone/cargo(src)
 	new /obj/item/storage/stickersheet/goldstar(src)
-	new /obj/item/gun/energy/disruptorpistol/miniature(src)
+	new /obj/item/gun/energy/disruptorpistol/miniature/unlocked(src)
 	new /obj/item/clothing/accessory/holster/waist(src)
 	new /obj/item/storage/belt/utility/full(src)
 	new /obj/item/device/multitool(src)

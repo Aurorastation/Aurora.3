@@ -200,7 +200,7 @@
 	new /obj/item/clothing/glasses/sunglasses/sechud/aviator(src)
 	new /obj/item/clothing/glasses/sunglasses/sechud(src)
 	new /obj/item/taperoll/police(src)
-	new /obj/item/gun/energy/disruptorpistol(src)
+	new /obj/item/gun/energy/disruptorpistol/unlocked(src)
 	//Belts
 	new /obj/item/clothing/accessory/storage/black_vest(src)
 	new /obj/item/clothing/accessory/holster/hip(src)

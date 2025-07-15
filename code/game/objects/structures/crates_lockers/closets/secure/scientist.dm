@@ -42,7 +42,7 @@
 	new /obj/item/device/paicard(src)
 	new /obj/item/storage/box/tethers(src)
 	new /obj/item/taperoll/science(src)
-	new /obj/item/gun/energy/disruptorpistol/miniature(src)
+	new /obj/item/gun/energy/disruptorpistol/miniature/unlocked(src)
 	new /obj/item/clothing/accessory/holster/waist(src)
 	new /obj/item/storage/box/psireceiver(src)
 	new /obj/item/device/megaphone/sci(src)
