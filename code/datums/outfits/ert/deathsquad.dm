@@ -15,7 +15,6 @@
 	l_hand = /obj/item/gun/energy/rifle/pulse
 
 	belt_contents = list(
-		/obj/item/ammo_magazine/a454 = 2,
 		/obj/item/melee/baton/loaded = 1,
 		/obj/item/shield/energy = 1,
 		/obj/item/grenade/flashbang = 2,
@@ -48,7 +47,7 @@
 	if(syndie)
 		weapon = new /obj/item/gun/projectile/silenced(H)
 	else
-		weapon = new /obj/item/gun/projectile/revolver/mateba(H)
+		weapon = new /obj/item/gun/energy/disruptorpistol/magnum/unlocked(H)
 
 	if(weapon)
 		hold.contents += weapon
@@ -103,7 +102,7 @@
 	if(syndie)
 		weapon = new /obj/item/gun/projectile/silenced(H)
 	else
-		weapon = new /obj/item/gun/projectile/revolver/mateba(H)
+		weapon = new /obj/item/gun/energy/disruptorpistol/magnum/unlocked(H)
 
 	if(weapon)
 		hold.contents += weapon

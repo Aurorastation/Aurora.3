@@ -1718,8 +1718,8 @@
 "jd" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/hatch,
-/obj/item/gun/energy/disruptorpistol/magnum,
-/obj/item/gun/energy/disruptorpistol/magnum,
+/obj/item/gun/energy/disruptorpistol/magnum/unlocked,
+/obj/item/gun/energy/disruptorpistol/magnum/unlocked,
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "je" = (
@@ -6616,9 +6616,9 @@
 	name = "CCIA Bodyguard Sidearm";
 	req_access = list(109)
 	},
-/obj/item/gun/energy/disruptorpistol/magnum,
-/obj/item/gun/energy/disruptorpistol/magnum,
-/obj/item/gun/energy/disruptorpistol/magnum,
+/obj/item/gun/energy/disruptorpistol/magnum/unlocked,
+/obj/item/gun/energy/disruptorpistol/magnum/unlocked,
+/obj/item/gun/energy/disruptorpistol/magnum/unlocked,
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
 	},

@@ -189,6 +189,14 @@
 	damage = 30
 	armor_penetration = 5
 
+/obj/projectile/energy/blaster/disruptor/explosive // Magnum variant for Nexus Trauma Team ERT + HAPT
+	damage = 50
+	armor_penetration = 10
+
+/obj/projectile/energy/blaster/disruptor/explosive/on_hit(atom/target, blocked, def_zone)
+	explosion(target, -1, 0, 2)
+	. = ..()
+
 /obj/projectile/energy/blaster/disruptor/heavy/practice
 	damage = 10
 	damage_type = DAMAGE_PAIN

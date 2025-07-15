@@ -224,9 +224,46 @@
 	slot_flags = SLOT_BELT|SLOT_HOLSTER|SLOT_POCKET
 	w_class = WEIGHT_CLASS_SMALL
 
-/obj/item/gun/energy/disruptorpistol/magnum
+/obj/item/gun/energy/disruptorpistol/magnum // ERT variant
 	name = "magnum disruptor pistol"
-	desc = "A Nexus Corporate Security designed blaster pistol with variable settings. This is the NEXUS DP8 Magnum version."
+	desc = "A Nexus Corporate Security designed blaster pistol with variable settings. This is the NEXUS DP8 Magnum version, used by NCS' asset protection and trauma response team contractors."
 	icon = 'icons/obj/guns/disruptorpistol/disruptorpistolm.dmi'
-	max_shots = 15
+	max_shots = 30
 	force = 14
+
+	firemodes = list(
+		list(
+			mode_name = "stun",
+			projectile_type = /obj/projectile/energy/disruptorstun,
+			modifystate = "disruptorpistolstun",
+			fire_sound = 'sound/weapons/gunshot/bolter.ogg'),
+		list(
+			mode_name = "flash",
+			projectile_type = /obj/projectile/energy/disruptorstun/flare,
+			modifystate = "disruptorpistolstun",
+			fire_sound = 'sound/weapons/gunshot/bolter.ogg'),
+		list(
+			mode_name = "extra-lethal",
+			projectile_type = /obj/projectile/energy/blaster/disruptor/heavy, //normal lethal bolts replaced with heavy variant
+			modifystate = "disruptorpistolkill",
+			fire_sound = 'sound/weapons/gunshot/bolter.ogg',
+			recoil = 1),
+		list(
+			mode_name = "heavy (explosive)",
+			projectile_type = /obj/projectile/energy/blaster/disruptor/explosive,
+			charge_cost = 300,
+			modifystate = "disruptorpistolkill",
+			accuracy = -2,
+			fire_delay = 18, // 3x delay so you can't rapid fire these explosive blaster bolts
+			recoil = 3,
+			fire_sound = 'sound/weapons/gunshot/bolter.ogg')
+	)
+
+/obj/item/gun/energy/disruptorpistol/unlocked
+	pin = /obj/item/device/firing_pin/wireless/unlocked
+
+/obj/item/gun/energy/disruptorpistol/miniature/unlocked
+	pin = /obj/item/device/firing_pin/wireless/unlocked
+
+/obj/item/gun/energy/disruptorpistol/magnum/unlocked
+	pin = /obj/item/device/firing_pin/wireless/unlocked

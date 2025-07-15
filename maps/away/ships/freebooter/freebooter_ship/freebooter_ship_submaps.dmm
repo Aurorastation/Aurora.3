@@ -1346,7 +1346,7 @@
 	dir = 6
 	},
 /obj/structure/table/glass,
-/obj/item/gun/energy/disruptorpistol/magnum{
+/obj/item/gun/energy/disruptorpistol/unlocked{
 	pixel_y = 10
 	},
 /obj/item/handcuffs/cable/white{

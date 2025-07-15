@@ -96,7 +96,7 @@
 	belt = /obj/item/storage/belt/medical/paramedic/combat
 	back = /obj/item/storage/backpack/satchel/med
 	accessory = /obj/item/clothing/accessory/holster/thigh
-	accessory_contents = list(/obj/item/gun/energy/disruptorpistol/magnum = 1)
+	accessory_contents = list(/obj/item/gun/energy/disruptorpistol/unlocked = 1)
 	r_ear = /obj/item/device/flashlight/pen
 	l_pocket = /obj/item/device/healthanalyzer
 	r_pocket = /obj/item/melee/telebaton
@@ -140,7 +140,7 @@
 	back = /obj/item/storage/backpack/messenger/med
 	belt = /obj/item/storage/belt/medical/paramedic/combat
 	accessory = /obj/item/clothing/accessory/holster/thigh
-	accessory_contents = list(/obj/item/gun/energy/disruptorpistol/magnum = 1)
+	accessory_contents = list(/obj/item/gun/energy/disruptorpistol/unlocked = 1)
 	l_pocket = /obj/item/device/healthanalyzer
 	r_pocket = /obj/item/crowbar
 	l_hand = /obj/item/storage/firstaid/adv
