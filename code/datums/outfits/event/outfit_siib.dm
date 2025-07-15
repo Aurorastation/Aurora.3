@@ -32,7 +32,7 @@
 	belt = /obj/item/storage/belt/military
 	l_ear = /obj/item/device/radio/headset/ert/siib
 	head = /obj/item/clothing/head/helmet/merc
-	back = /obj/item/rig/military/equipped
+	back = /obj/item/storage/backpack/syndie
 	r_pocket = /obj/item/ammo_magazine/mc9mm
 
 	accessory = /obj/item/clothing/accessory/holster/hip
