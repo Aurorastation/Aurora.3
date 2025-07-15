@@ -70,7 +70,7 @@
 	desc = "A large poofy and floppy hat with a golden antennae sticking out its top where typically feathers would protrude. If you wanted to be historically accurate."
 	icon_state = "hoplan_combat_hat"
 	item_state = "hoplan_combat_hat"
-	icon = 'icons/clothing/head/hoplan_combat_hat.dmi'
+	icon = 'icons/obj/item/clothing/head/ipc/golden_deep.dmi'
 	contained_sprite = TRUE
 
 //colorable items go under here
@@ -188,7 +188,7 @@
 	desc = "Like a true monarch, has a metal rim capped with a cloth top piece. Peaked in a ornate point."
 	icon_state = "furred_crown"
 	item_state = "furred_crown"
-	icon = 'icons/clothing/head/furred_crown.dmi'
+	icon = 'icons/obj/item/clothing/head/ipc/golden_deep.dmi'
 	contained_sprite = TRUE
 	has_accents = TRUE
 
@@ -197,7 +197,7 @@
 	desc = "A cloth hood with special fabric rated for the acid rain of Pactolous."
 	icon_state = "cowl"
 	item_state = "cowl"
-	icon = 'icons/clothing/head/cowl.dmi'
+	icon = 'icons/obj/item/clothing/head/ipc/golden_deep.dmi'
 	body_parts_covered = 0
 	slot_flags = SLOT_EARS | SLOT_HEAD
 
@@ -206,7 +206,7 @@
 	desc = "Ornate and with subtle religious undertones, would make any wearer loom like a revered parent."
 	icon_state = "cube_hood"
 	item_state = "cube_hood"
-	icon = 'icons/clothing/head/cube_hood.dmi'
+	icon = 'icons/obj/item/clothing/head/ipc/golden_deep.dmi'
 	body_parts_covered = 0
 	slot_flags = SLOT_EARS | SLOT_HEAD
 
@@ -215,7 +215,7 @@
 	desc = "Jingling and dancing with movement. This chain is of metals or jewels that flaunt the wealth of the wearer. Or some facsimile of it."
 	icon_state = "chain_jewelry"
 	item_state = "chain_jewelry"
-	icon = 'icons/clothing/head/chain_jewelry.dmi'
+	icon = 'icons/obj/item/clothing/head/ipc/golden_deep.dmi'
 	slot_flags = SLOT_EARS | SLOT_HEAD | SLOT_MASK
 
 /obj/item/clothing/head/goldendeep/chainjewelry/baseline

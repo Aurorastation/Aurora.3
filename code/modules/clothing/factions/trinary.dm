@@ -18,7 +18,7 @@
 	name = "trinary coif"
 	desc = "A coif worn primarily by members of the Monastic Sorority of Our Lady Corkfell, a religious order within the Trinary Perfection focused on the medical needs of its human practicioners. It seems to be made out of a light \
 	and breathable material in order to cope with Orepit's hot summers."
-	icon = 'icons/clothing/head/trinary_coif.dmi'
+	icon = 'icons/obj/item/clothing/head/ipc/trinary_coif.dmi'
 	icon_state = "trinary_coif"
 	item_state = "trinary_coif"
 	contained_sprite = TRUE

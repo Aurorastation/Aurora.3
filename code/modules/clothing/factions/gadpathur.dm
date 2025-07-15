@@ -55,7 +55,7 @@
 	desc_extended = "Soft headgear is commonly worn by cadre members while indoors on Gadpathur or while traveling abroad from the planet. \
 	Gadpathurian cadres universally avoid decorating their headgear beyond the barest essentials - such as the cadre one belongs \
 	to - in order to not give away unwanted information to observers."
-	icon = 'icons/clothing/head/gadpathur_cap.dmi'
+	icon = 'icons/obj/item/clothing/head/gadpathur.dmi'
 	icon_state = "gadpathur_cap"
 	item_state = "gadpathur_cap"
 	contained_sprite = TRUE
@@ -63,7 +63,7 @@
 /obj/item/clothing/head/turban/gadpathur
 	name = "gadpathurian turban"
 	desc = "A turban commonly worn by Gadpathur's Sikh population. Like most Gadpathurian clothing, this turban is made of canvas."
-	icon = 'icons/clothing/head/gadpathur_cap.dmi'
+	icon = 'icons/obj/item/clothing/head/gadpathur.dmi'
 	icon_state = "turban_gadpathur"
 	item_state = "turban_gadpathur"
 
@@ -73,7 +73,7 @@
 	desc_extended = "Berets are commonly worn by cadre members while indoors on Gadpathur or while traveling abroad from the planet. \
 	Gadpathurian cadres universally avoid decorating their headgear beyond the barest essentials - such as the cadre one belongs \
 	to - in order to not give away unwanted information to observers."
-	icon = 'icons/clothing/head/gadpathur_beret.dmi'
+	icon = 'icons/obj/item/clothing/head/gadpathur.dmi'
 	icon_state = "gadpathur_beret"
 	item_state = "gadpathur_beret"
 
@@ -94,7 +94,7 @@
 	desc = "A Gadpathurian cap with a sun shade for protection against the planet's ash storms."
 	icon_state = "gadpathur_kepi"
 	item_state = "gadpathur_kepi"
-	icon = 'icons/clothing/head/gadpathur_kepi.dmi'
+	icon = 'icons/obj/item/clothing/head/gadpathur.dmi'
 	contained_sprite = TRUE
 
 /obj/item/clothing/head/ushanka/gadpathur/attack_self(mob/user as mob)

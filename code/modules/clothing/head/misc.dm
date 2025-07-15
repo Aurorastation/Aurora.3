@@ -292,7 +292,7 @@
 /obj/item/clothing/head/plain_hood
 	name = "plain hood"
 	desc = "A simple hood made of cloth, worn for myriad reasons - cultural, religious, protection from the elements, a fashion statement... or perhaps you simply want to look like you intend to give quests to adventurers who walk into your favorite tavern."
-	icon = 'icons/clothing/head/plain_hood.dmi'
+	icon = 'icons/obj/item/clothing/head/plain_hood.dmi'
 	icon_state = "plain_hood"
 	item_state = "plain_hood"
 	body_parts_covered = HEAD
@@ -354,7 +354,7 @@
 /obj/item/clothing/head/kippah
 	name = "kippah"
 	desc = "A head covering commonly worn by those of Jewish faith."
-	icon = 'icons/clothing/head/kippahs.dmi'
+	icon = 'icons/obj/item/clothing/head/kippahs.dmi'
 	icon_state = "kippah"
 	item_state = "kippah"
 	contained_sprite = 1
@@ -753,7 +753,7 @@
 /obj/item/clothing/head/grupo_amapola
 	name = "Grupo Amapola officer cap"
 	desc = "A peaked officer's cap bearing the poppy of the military contracting group Grupo Amapola."
-	icon = 'icons/clothing/head/pmcg.dmi'
+	icon = 'icons/obj/item/clothing/head/pmcg.dmi'
 	icon_state = "amapola_officer_hat"
 	item_state = "amapola_officer_hat"
 	contained_sprite = TRUE
