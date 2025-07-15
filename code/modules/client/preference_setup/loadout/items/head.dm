@@ -285,7 +285,7 @@ ABSTRACT_TYPE(/datum/gear/head)
 	hats_colourable["hat, softcap"] = /obj/item/clothing/head/softcap/colorable
 	hats_colourable["hat, softcap with accent"] = /obj/item/clothing/head/softcap/colorable/accent
 	hats_colourable["hat, newsboy"] = /obj/item/clothing/head/softcap/newsboy
-	hats_colourable["hat, visegradi ear-flap cap"] = /obj/item/clothing/head/ushanka/cap
+	hats_colourable["hat, visegradi nyakas"] = /obj/item/clothing/head/ushanka/cap
 	hats_colourable["hat, beret"] = /obj/item/clothing/head/beret/colorable
 	hats_colourable["hat, peaked beret"] = /obj/item/clothing/head/beret/peaked/colorable
 	hats_colourable["hat, side cap"] = /obj/item/clothing/head/sidecap

@@ -100,18 +100,25 @@
 	flags = GEAR_HAS_DESC_SELECTION
 	origin_restriction = list(/singleton/origin_item/origin/coa_spacer)
 
+/datum/gear/head/human/conical
+	display_name = "non la conical hat"
+	sort_category = "Xenowear - Human"
+	path = /obj/item/clothing/head/nonla
+	origin_restriction = list(/singleton/origin_item/origin/konyang, /singleton/origin_item/origin/ipc_konyang, /singleton/origin_item/origin/new_hai_phong)
+
+
 /datum/gear/head/human/konyanger
 	display_name = "konyanger hat selection"
 	sort_category = "Xenowear - Human"
-	path = /obj/item/clothing/head/nonla
+	path = /obj/item/clothing/head/konyang
 	origin_restriction = list(/singleton/origin_item/origin/konyang, /singleton/origin_item/origin/ipc_konyang)
 
 /datum/gear/head/human/konyanger/New()
 	..()
 	var/list/hats = list()
-	hats["hat, asian conical"] = /obj/item/clothing/head/nonla
+	hats["hat, asian conical"] =
 	hats["hat, gat"] = /obj/item/clothing/head/konyang
-	hats["hat, hachimaki"] = /obj/item/clothing/head/hachimaki
+	hats["hat, konyanger hachimaki"] = /obj/item/clothing/head/hachimaki
 
 /datum/gear/head/human/himeo
 	display_name = "himean cap"

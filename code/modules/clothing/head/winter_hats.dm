@@ -11,7 +11,7 @@
 	var/earsup = 0
 
 /obj/item/clothing/head/ushanka/cap
-	name = "ear-flap cap"
+	name = "visegradi nyakas"
 	desc = "A type of flap hat that is extremely popular on Visegrad. It is designed to keep one's head and neck dry, and the flap can be pinned to the sides of the hat when not needed."
 	contained_sprite = TRUE
 	build_from_parts = FALSE

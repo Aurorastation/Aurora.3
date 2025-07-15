@@ -200,7 +200,7 @@
 	item_state = "side_cap"
 
 /obj/item/clothing/head/sidecap/zavod
-	name = "zavodskoi side cap"
+	name = "zavodskoi pilotka cap"
 	desc = "A simple cap, often worn by pilots. This one is in Zavodskoi colors."
 	icon_state = "zavodskoi_side_cap"
 	item_state = "zavodskoi_side_cap"
