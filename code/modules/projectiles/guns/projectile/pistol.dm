@@ -422,12 +422,12 @@
 
 /obj/item/gun/projectile/pistol/sol/siib
 	name = "solarian SIIB silenced pistol"
-	desc = "A variant of the M8 solarian service pistol, this paticular variant comes with an integrated suppressor and are used by SIIB agents and operatives. Officially, this pistol does not exist."
+	desc = "A variant of the M8 solarian service pistol, this paticular variant comes with an integrated recoil compensator and are used by SIIB agents and operatives. Officially, this pistol does not exist."
 	icon = 'icons/obj/guns/sol_pistol.dmi'
 	icon_state = "m8-siib"
 	item_state = "m8-siib"
-	suppressed = TRUE
-	can_unsuppress = FALSE
+	suppressed = FALSE
+	can_suppress = FALSE
 
 /obj/item/gun/projectile/pistol/sol/siib/update_icon()
 	..()

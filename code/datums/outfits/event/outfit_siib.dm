@@ -1,14 +1,12 @@
 /obj/outfit/admin/siib
 	name = "SIIB Agent"
 
-	uniform = /obj/item/clothing/under/suit_jacket
-	suit = /obj/item/clothing/suit/wcoat
+	uniform = /obj/item/clothing/under/suit_jacket/charcoal
 	shoes = /obj/item/clothing/shoes/laceup
 	gloves = /obj/item/clothing/gloves/black
-	glasses = /obj/item/clothing/glasses/sunglasses
+	glasses = /obj/item/clothing/glasses/sunglasses/sechud
 	l_ear = /obj/item/device/radio/headset/ert/siib
-
-	l_pocket = /obj/item/reagent_containers/spray/pepper
+	back = /obj/item/storage/backpack/satchel/leather
 	r_pocket = /obj/item/ammo_magazine/mc9mm
 
 	accessory = /obj/item/clothing/accessory/holster/hip
@@ -24,17 +22,17 @@
 /obj/outfit/admin/siib/operative
 	name = "SIIB Operative"
 
-	uniform = /obj/item/clothing/under/suit_jacket
+	uniform = /obj/item/clothing/under/suit_jacket/charcoal
 	shoes = /obj/item/clothing/shoes/jackboots
 	gloves = /obj/item/clothing/gloves/black
-	glasses = /obj/item/clothing/glasses/sunglasses
-	suit = /obj/item/clothing/suit/armor/carrier/generic
+	glasses = /obj/item/clothing/glasses/sunglasses/sechud/tactical
+	suit = /obj/item/clothing/suit/armor/carrier/heavy
 	suit_store = /obj/item/gun/projectile/automatic/c20r/sol/siib
 	mask = /obj/item/clothing/mask/balaclava
 	belt = /obj/item/storage/belt/military
 	l_ear = /obj/item/device/radio/headset/ert/siib
-
-	l_pocket = /obj/item/reagent_containers/spray/pepper
+	head = /obj/item/clothing/head/helmet/merc
+	back = /obj/item/rig/military/equipped
 	r_pocket = /obj/item/ammo_magazine/mc9mm
 
 	accessory = /obj/item/clothing/accessory/holster/hip
