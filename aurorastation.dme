@@ -3072,6 +3072,7 @@
 #include "code\modules\organs\subtypes\augment\augments\language_processor.dm"
 #include "code\modules\organs\subtypes\augment\augments\lighter.dm"
 #include "code\modules\organs\subtypes\augment\augments\memory_inhibitor.dm"
+#include "code\modules\organs\subtypes\augment\augments\mind_blanker.dm"
 #include "code\modules\organs\subtypes\augment\augments\pen.dm"
 #include "code\modules\organs\subtypes\augment\augments\phalanx_facial_plate.dm"
 #include "code\modules\organs\subtypes\augment\augments\psi_receiver.dm"
