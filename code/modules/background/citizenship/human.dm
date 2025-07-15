@@ -427,10 +427,6 @@
 /obj/outfit/job/representative/consular/dominia
 	name = "Empire of Dominia Consular Officer"
 
-	head = /obj/item/clothing/head/dominia
-	suit = /obj/item/clothing/suit/storage/dominia/consular/coat
-	uniform = /obj/item/clothing/under/dominia/consular
-
 	backpack_contents = list(
 		/obj/item/storage/box/dominia_honor = 1
 	)

@@ -43,9 +43,10 @@
 	)
 	head = list(
 		/obj/item/clothing/head/beanie/random,
-		/obj/item/clothing/head/beanie/submariner/random,
-		/obj/item/clothing/head/beanie/earflap/random,
+		/obj/item/clothing/head/beanie/submariner,
+		/obj/item/clothing/head/beanie/winter,
 		/obj/item/clothing/head/flatcap,
+		/obj/item/clothing/head/newsboy,
 		/obj/item/clothing/head/softcap,
 		/obj/item/clothing/head/wool,
 	)

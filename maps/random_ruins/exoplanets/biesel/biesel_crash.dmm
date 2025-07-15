@@ -463,7 +463,7 @@
 /area/template_noop)
 "nf" = (
 /obj/structure/closet,
-/obj/item/clothing/head/tanker{
+/obj/item/clothing/head/padded{
 	color = "#BCA77E"
 	},
 /obj/item/clothing/head/beanie{

@@ -3796,6 +3796,10 @@
 /obj/item/clothing/suit/storage/target_costume,
 /obj/item/clothing/suit/storage/target_costume,
 /obj/item/clothing/suit/storage/target_costume,
+/obj/item/clothing/head/feathertrilby{
+	pixel_x = 6;
+	pixel_y = 12
+	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},

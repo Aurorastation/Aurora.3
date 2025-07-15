@@ -368,7 +368,6 @@
 	..()
 	new /obj/item/clothing/under/rank/bridge_crew(src)
 	new /obj/item/clothing/head/caphat/bridge_crew(src)
-	new /obj/item/clothing/head/caphat/bridge_crew/alt(src)
 	new /obj/item/clothing/glasses/sunglasses(src)
 	new /obj/item/clothing/accessory/holster/waist(src)
 	new /obj/item/gun/energy/disruptorpistol/miniature(src)
