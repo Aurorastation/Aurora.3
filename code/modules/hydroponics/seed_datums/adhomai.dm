@@ -159,4 +159,4 @@
 	set_trait(TRAIT_IDEAL_LIGHT, 3)
 
 /obj/item/seeds/sugartree
-	seed_type = "sugartree"
+	seed_type = "sugar tree"

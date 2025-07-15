@@ -16,13 +16,13 @@ GLOBAL_LIST_EMPTY(plant_seed_sprites)
 	update_seed()
 	. = ..()
 
-//Grabs the appropriate seed datum from the global list.
+/// Grabs the appropriate seed datum from the global list.
 /obj/item/seeds/proc/update_seed()
 	if(!seed && seed_type && !isnull(SSplants.seeds) && SSplants.seeds[seed_type])
 		seed = SSplants.seeds[seed_type]
 	update_appearance()
 
-//Updates strings and icon appropriately based on seed datum.
+/// Updates strings and icon appropriately based on seed datum.
 /obj/item/seeds/proc/update_appearance(var/ret_image = FALSE)
 	if(!seed)
 		return
@@ -74,6 +74,8 @@ GLOBAL_LIST_EMPTY(plant_seed_sprites)
 	. = ..()
 	if(seed && !seed.roundstart)
 		. += "It's tagged as variety #[seed.uid]."
+	. += "The packet reads that this has an ideal temperature of <b>[seed.get_trait(TRAIT_IDEAL_HEAT)] kelvin.</b>"
+	. += "The packet reads that this has an ideal light level of <b>[seed.get_trait(TRAIT_IDEAL_LIGHT)] lumens.</b>"
 
 /obj/item/seeds/cutting
 	name = SEED_NOUN_CUTTINGS
