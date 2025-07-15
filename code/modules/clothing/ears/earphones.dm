@@ -248,7 +248,6 @@
 	if(use_check_and_message(usr))
 		return
 
-// TODO: This isn't quite working yet
 	if(ismob(src.loc))
 		usr.visible_message(SPAN_NOTICE("[usr] clicks a button on [usr.get_pronoun("his")] [src]."))
 		playsound(usr, /singleton/sound_category/button_sound, 10)
