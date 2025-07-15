@@ -12,19 +12,31 @@ export type VendingData = {
   sel_icon: string;
   message: string;
   message_err: string;
+  all_products_free: boolean;
+  onstation: boolean;
+  department: string;
+  jobDiscount: number;
+  displayed_currency_icon: string;
+  displayed_currency_name: string;
 
-  products: Product[];
+  stock: StockItem[];
   coin: string;
 
   speaker: BooleanLike;
-  panel: BooleanLike;
   manufacturer: string;
 
   width_override: number;
   height_override: number;
 };
 
-type Product = {
+type UserData = {
+  name: string;
+  cash: number;
+  job: string;
+  department: string;
+};
+
+type StockItem = {
   key: string;
   name: string;
   price: number;
@@ -88,24 +100,25 @@ export const ShowAllItems = (props, context) => {
         }
       />
       <Section fill>
-        {data.products
+        {data.stock
           .filter(
-            (product) =>
-              product.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
+            (StockItem) =>
+              StockItem.name.toLowerCase().indexOf(searchTerm.toLowerCase()) >
+              -1
           )
-          ?.map((product) => (
+          ?.map((StockItem) => (
             <Button
-              tooltip={product.name}
-              key={product.name}
-              disabled={data.vending_item || product.amount <= 0}
-              onClick={() => act('vendItem', { vendItem: product.key })}
+              tooltip={StockItem.name}
+              key={StockItem.name}
+              disabled={data.vending_item || StockItem.amount <= 0}
+              onClick={() => act('vendItem', { vendItem: StockItem.key })}
               style={{
                 height: '70px',
                 width: '70px',
               }}>
               <Box
                 as="img"
-                className={product.icon_tag}
+                className={StockItem.icon_tag}
                 style={{
                   '-ms-interpolation-mode': 'nearest-neighbor',
                   transform: 'scale(1.5) translate(30%, 30%)',
@@ -114,13 +127,13 @@ export const ShowAllItems = (props, context) => {
               <Flex>
                 <Flex.Item py={2}>
                   <Box as="span" fontSize="10px">
-                    ({product.amount}x)
+                    ({StockItem.amount}x)
                   </Box>
                 </Flex.Item>
                 <Flex.Item py={2} px={2}>
-                  {product.price ? (
+                  {StockItem.price ? (
                     <Box as="span" fontSize="10px">
-                      {product.price}电
+                      {StockItem.price}电
                     </Box>
                   ) : (
                     ''

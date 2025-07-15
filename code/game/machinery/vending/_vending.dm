@@ -4,18 +4,24 @@
 /datum/data/vending_product
 	/// Display name for the product
 	var/product_name = "generic"
+	/// Typepath of the product that is created when this record "sells"
 	var/product_path = null
 	/// Amount held in the vending machine
 	var/amount = 0
+	/// How many we can store at maximum
 	var/max_amount = 0
 	/// Price to buy one
 	var/price = 0
+	/// Whether crew with an ID with an age below AGE_MINOR (20 by default) can buy this item
+	/// Imported from TG during rework and not implemented, but if we decided on this how FUNNY would that be.
+	// var/age_restricted = FALSE
 	/// Display color for vending machine listing
 	var/display_color = null
 	/// `CAT_HIDDEN` for contraband, `CAT_COIN` for premium
 	var/category = CAT_NORMAL
 	var/icon/product_icon
 	var/icon/icon_state
+	name = "generic"
 
 /datum/data/vending_product/New(var/path, var/name = null, var/amount = 1, var/price = 0, var/color = null, var/category = CAT_NORMAL)
 	. = ..()
@@ -43,10 +49,12 @@
 	QDEL_NULL(A)
 
 /**
- *  A vending machine
+ * Vending machine.
+ *
+ * Captalism in the year 2467: everything in a vending machine. Even love.
  */
 /obj/machinery/vending
-	name = "Vendomat"
+	name = "\improper Vendomat"
 	desc = "A generic vending machine."
 	icon = 'icons/obj/vending.dmi'
 	icon_state = "generic"
@@ -86,19 +94,22 @@
 	/// Set to 1 if status_message is an error
 	var/status_error = 0
 
-	/*
-		Variables used to initialize the product list
-		These are used for initialization only, and so are optional if
-		product_records is specified
-	*/
-	var/list/products	= list() // For each, use the following pattern:
-	var/list/contraband	= list() // list(/type/path = amount,/type/path2 = amount2)
-	var/list/premium 	= list() // No specified amount = only one in stock
-	var/list/prices     = list() // Prices for each item, list(/type/path = price), items not in the list don't have a price.
+	/**
+	 *	Variables used to initialize the product list These are used for initialization only, and so are
+	 *	optional if product_records is specified.
+	 *
+	 *	For each, use the following pattern:
+	 *	list(/type/path = amount,/type/path2 = amount2)
+	 *	No specified amount = only one in stock
+	 *	Prices for each item, list(/type/path = price), items not in the list don't have a price.
+	**/
+	var/list/products	= list()
+	var/list/contraband	= list()
+	var/list/premium 	= list()
+	var/list/prices     = list()
 
 	/// List of vending_product items available.
 	var/list/product_records = list()
-
 
 	// Variables used to initialize advertising
 	/// String of slogans spoken out loud, separated by semicolons
@@ -140,7 +151,7 @@
 
 	/// If you can wrench the machine out of place
 	var/can_move = TRUE
-	/// Id of the refill cartridge that has to be used
+	/// ID of the refill cartridge that has to be used
 	var/vend_id = "generic"
 	/// If items can be restocked into the vending machine
 	var/restock_items = FALSE
@@ -225,7 +236,7 @@
  *  products that the vending machine is to carry without manually populating
  *  src.product_records.
  */
-/obj/machinery/vending/proc/build_inventory()
+/obj/machinery/vending/proc/build_inventory(list/productlist, list/recordlist, list/categories, start_empty = FALSE, premium = FALSE)
 	var/list/all_products = list(
 		list(src.products, CAT_NORMAL),
 		list(src.contraband, CAT_HIDDEN),
@@ -626,12 +637,6 @@
 	else
 		data["coin"] = null
 
-	if(src.panel_open)
-		data["panel"] = TRUE
-		data["speaker"] = shut_up ? FALSE : TRUE
-	else
-		data["panel"] = FALSE
-
 	return data
 
 /obj/machinery/vending/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
@@ -703,7 +708,6 @@
 		add_fingerprint(usr)
 
 /obj/machinery/vending/proc/vend(datum/data/vending_product/R, mob/user)
-
 	if (!R || R.amount < 1)
 		return
 
@@ -882,7 +886,48 @@
 	src.visible_message(SPAN_WARNING("[src] launches [throw_item.name] at [target.name]!"))
 	return TRUE
 
-// screens go over the lighting layer, so googly eyes go under them
+/// Screens go over the lighting layer. Sorry.
 /obj/machinery/vending/can_attach_sticker(var/mob/user, var/obj/item/sticker/S)
 	to_chat(user, SPAN_WARNING("\The [src]'s non-stick surface prevents you from attaching a sticker to it!"))
 	return FALSE
+
+/**
+ * Refill a vending machine from a refill canister
+ *
+ * This takes the products from the refill canister and then fills the products, contraband and premium product categories
+ *
+ * Arguments:
+ * * canister - the vending canister we are refilling from
+ */
+/obj/item/device/vending_refill
+	name = "resupply canister"
+	desc = "A vending machine restock cart."
+	icon = 'icons/obj/assemblies/electronic_setups.dmi'
+	icon_state = "setup_medium-open"
+	item_state = "restock_unit"
+	force = 16
+	throwforce = 10
+	throw_speed = 1
+	throw_range = 7
+	w_class = WEIGHT_CLASS_NORMAL
+	var/vend_id = "generic"
+	var/charges = 0
+
+/obj/item/device/vending_refill/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(charges > 0)
+		. +=  "It can restock [charges] item(s)."
+	else
+		. += SPAN_WARNING("It's empty!")
+
+/obj/item/device/vending_refill/proc/restock_inventory(var/obj/machinery/vending/vendor)
+	if(vendor)
+		for(var/datum/data/vending_product/product in vendor.product_records)
+			if(product.amount < product.max_amount)
+				var/expense = product.max_amount - product.amount
+				if(charges < expense)
+					expense = charges
+				product.amount += expense
+				charges -= expense
+				if(!charges)
+					break
