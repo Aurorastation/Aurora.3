@@ -55,6 +55,8 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
+  - rscadd: "When plants grown in hydroponics or the garden go outside of their tolerances, they will now cease to grow in addition to taking damage. If you notice plants failing to grow for a long time, you may be running afoul of their light or heat tolerances!"
+  - rscadd: "Seed packets now show their temperature and light tolerances on examine."
   - rscadd: "Hydroponicists now spawn with filled hydrobelts, similarly to engineers and machinists."
   - rscadd: "Tweaked the preferential values of a few plants for consistency."
   - rscadd: "Eki is now, codewise, a mushroom."
