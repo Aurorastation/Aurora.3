@@ -49,16 +49,9 @@
 	var/playing = FALSE
 
 /obj/item/clothing/ears/earphones/Destroy()
-	QDEL_NULL(music_cartridge)
-	QDEL_NULL(soundplayer_token)
 	StopPlaying()
+	QDEL_NULL(music_cartridge)
 	. = ..()
-
-// TODO
-// /obj/item/clothing/ears/earphones/process()
-// 	if(!(ismob(src.loc)))
-//		StopPlaying() //So earphones discarded on floors or in pockets aren't still running their soundtoken.
-//	. = ..()
 
 /*
 	Music Cartridge Procs:
