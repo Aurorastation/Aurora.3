@@ -171,8 +171,7 @@
 
 /obj/item/organ/internal/brain/process(seconds_per_tick)
 	if(!owner)
-		..()
-		return
+		return ..()
 
 	if(damage > (max_damage * 0.75) && healed_threshold)
 		handle_severe_brain_damage()
@@ -184,8 +183,7 @@
 
 	// Brain damage from low oxygenation or lack of blood.
 	if(!owner.should_have_organ(BP_HEART))
-		..()
-		return
+		return ..()
 
 	// No heart? You are going to have a very bad time. Not 100% lethal because heart transplants should be a thing.
 	var/blood_volume = owner.get_blood_oxygenation()
