@@ -1,0 +1,26 @@
+SPRITES LICENSING INFORMATION
+----------
+File Name: streetpoles.dmi
+Icon Name: N/A
+Author: mojave-sun-13
+License: CC BY-NC-SA 3.0 US
+Adapt: Added crosswalk streetpoles (Wezzy)
+----------
+File Name: street_signs.dmi
+Icon Name: N/A
+Author: mojave-sun-13
+License: CC BY-NC-SA 3.0 US
+Adapt: Added some directionals (Wezzy)
+----------
+File Name: obstacles.dmi
+Icon Name: N/A
+Author: mojave-sun-13
+License: CC BY-NC-SA 3.0 US
+Adapt: N/A
+----------
+File Name: crate.dmi
+Icon Names: register_clean, registerclean_open, register, registeropen
+Author: mojave-sun-13
+License: CC BY-NC-SA 3.0 US
+Adapt: N/A
+----------

@@ -4,7 +4,7 @@
 	icon = 'icons/effects/32x96.dmi'
 	icon_state = "rustlamp_l"
 	anchored = TRUE
-	density = TRUE
+	density = FALSE
 	light_wedge = LIGHT_OMNI
 	light_color = LIGHT_COLOR_HALOGEN
 	light_range = 8
@@ -23,11 +23,10 @@
 /obj/structure/light_pole/konyang
 	name = "dangling lamp"
 	desc = "A flame-lit lamp dangling precariously from a tall pole."
-	icon = 'icons/obj/structure/streetpoles.dmi'
+	icon = 'icons/obj/structure/streetpoles_konyang.dmi'
 	icon_state = "lamp"
 	layer = ABOVE_HUMAN_LAYER
 	anchored = TRUE
-	density = FALSE
 	light_color = "#FA644B"
 	light_wedge = LIGHT_OMNI
 	light_range = 6
@@ -41,7 +40,7 @@
 /obj/structure/utility_pole
 	name = "tall pole"
 	desc = "A very tall utility pole for urban infrastructure."
-	icon = 'icons/obj/structure/streetpoles.dmi'
+	icon = 'icons/obj/structure/streetpoles_konyang.dmi'
 	icon_state = "junction"
 	layer = ABOVE_HUMAN_LAYER
 	anchored = TRUE
@@ -59,17 +58,13 @@
 /obj/structure/utility_pole/street
 	name = "\improper street lamp"
 	desc = "A tall light source. What more is there to say?"
-	icon = 'mojave/icons/obj/structure/streetpoles.dmi'
+	icon = 'icons/obj/structure/streetpoles.dmi'
 	icon_state = "streetlight"
 
 /obj/effect/overlay/street_light
-	icon = 'mojave/icons/obj/structure/streetpoles.dmi'
+	icon = 'icons/obj/structure/streetpoles.dmi'
 	icon_state = "street_light"
 	plane = EFFECTS_ABOVE_LIGHTING_PLANE
-
-/obj/effect/overlay/street_light/classic
-	icon_state = "classic_lamp_light"
-	density = 1
 
 /obj/structure/utility_pole/street/on
 	light_wedge = LIGHT_OMNI
@@ -108,11 +103,13 @@
 /obj/structure/utility_pole/street/konyang/classic
 	name = "\improper stone lamp"
 	desc = "A stone lamp commonly found in Konyang."
+	icon = 'icons/obj/structure/streetpoles_konyang.dmi'
 	icon_state = "classic_lamp"
+	density = TRUE
+
 
 /obj/effect/overlay/street_light/konyang/classic
 	icon_state = "classic_lamp_light"
-	density = TRUE
 
 /obj/structure/utility_pole/street/konyang/classic/on
 	light_wedge = LIGHT_OMNI
@@ -176,6 +173,7 @@
 /obj/structure/utility_pole/power
 	name = "power pole"
 	desc = "A very tall utility pole for urban infrastructure. This one is a basis for power lines overhead."
+	icon = 'icons/obj/structure/streetpoles_konyang.dmi'
 	icon_state = "power"
 
 /obj/structure/utility_pole/power/central
@@ -183,7 +181,7 @@
 
 /obj/effect/overlay/overhead_line
 	name = "overhead utility line"
-	icon = 'icons/obj/structure/streetpoles.dmi'
+	icon = 'icons/obj/structure/streetpoles_konyang.dmi'
 	icon_state = "line"
 	layer = ABOVE_HUMAN_LAYER
 	pixel_x = -32
@@ -197,7 +195,7 @@
 /obj/structure/street_sign
 	name = "stop sign"
 	desc = "A stop sign to direct traffic. Sometimes a demand."
-	icon = 'mojave/icons/obj/structure/street_signs.dmi'
+	icon = 'icons/obj/structure/street_signs.dmi'
 	icon_state = "stop"
 	layer = ABOVE_HUMAN_LAYER
 	anchored = TRUE
@@ -205,7 +203,7 @@
 /obj/structure/street_sign/yield
 	name = "yield sign"
 	desc = "A yield sign which tells you to slow down, rather politely. Let's hope you listen."
-	icon = 'icons/obj/structure/street_signs.dmi'
+	icon = 'icons/obj/structure/street_signs_konyang.dmi'
 	icon_state = "yield"
 
 /obj/structure/street_sign/warnings
@@ -219,7 +217,7 @@
 	icon_state = "directional"
 
 /obj/structure/street_sign/directional/blue
-	icon = 'icons/obj/structure/street_signs.dmi'
+	icon = 'icons/obj/structure/street_signs_konyang.dmi'
 	icon_state = "directional_blue"
 
 /obj/structure/street_sign/street
@@ -286,4 +284,5 @@
 /obj/structure/street_sign/drive_thru
 	name = "drive thru sign"
 	desc = "A drive-thru sign."
+	icon = 'icons/obj/structure/street_signs_konyang.dmi'
 	icon_state = "drivethru"

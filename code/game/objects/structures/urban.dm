@@ -474,7 +474,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 /obj/structure/chainlink_fence
 	name = "chainlink fence"
 	desc = "A tall, imposing metal fence."
-	icon = 'mojave/icons/obj/structure/obstacles.dmi'
+	icon = 'icons/obj/structure/obstacles.dmi'
 	density = TRUE
 	icon_state = "normal_fence"
 	color = null

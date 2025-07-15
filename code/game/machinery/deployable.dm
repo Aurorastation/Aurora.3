@@ -130,7 +130,7 @@ Deployable Kits
 /obj/structure/blocker/steel/fence
 	name = "fence"
 	force_material = MATERIAL_STEEL
-	icon = 'mojave/icons/obj/structure/obstacles.dmi'
+	icon = 'icons/obj/structure/obstacles.dmi'
 	icon_state = "normal_fence"
 
 //Actual Deployable machinery stuff
