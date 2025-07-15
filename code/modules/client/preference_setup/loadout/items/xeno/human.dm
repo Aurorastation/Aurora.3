@@ -106,7 +106,6 @@
 	path = /obj/item/clothing/head/nonla
 	origin_restriction = list(/singleton/origin_item/origin/konyang, /singleton/origin_item/origin/ipc_konyang, /singleton/origin_item/origin/new_hai_phong)
 
-
 /datum/gear/head/human/konyanger
 	display_name = "konyanger hat selection"
 	sort_category = "Xenowear - Human"
@@ -116,7 +115,6 @@
 /datum/gear/head/human/konyanger/New()
 	..()
 	var/list/hats = list()
-	hats["hat, asian conical"] =
 	hats["hat, gat"] = /obj/item/clothing/head/konyang
 	hats["hat, konyanger hachimaki"] = /obj/item/clothing/head/hachimaki
 
