@@ -11,10 +11,8 @@
 		/area/space,
 		/area/turbolift,
 		/area/construction/storage,
-		/area/turret_protected/ai_upload_foyer,
-		/area/turret_protected/ai,
-		/area/tcommsat/chamber,
-		/area/tcommsat/computer,
+		/area/turret_protected,
+		/area/tcommsat,
 		/area/construction/hallway
 	)
 	excluded_test_types = list(
