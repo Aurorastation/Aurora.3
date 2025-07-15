@@ -25,23 +25,23 @@
 
 	firemodes = list(
 		list(
-			mode_name = "stun",
+			mode_name = "Stun",
 			projectile_type = /obj/projectile/energy/disruptorstun,
 			modifystate = "disruptorpistolstun",
 			fire_sound = 'sound/weapons/gunshot/bolter.ogg'),
 		list(
-			mode_name = "flash",
+			mode_name = "Flash/Illuminate",
 			projectile_type = /obj/projectile/energy/disruptorstun/flare,
 			modifystate = "disruptorpistolstun",
 			fire_sound = 'sound/weapons/gunshot/bolter.ogg'),
 		list(
-			mode_name = "lethal",
+			mode_name = "Lethal",
 			projectile_type = /obj/projectile/energy/blaster/disruptor,
 			modifystate = "disruptorpistolkill",
 			fire_sound = 'sound/weapons/gunshot/bolter.ogg',
 			recoil = 1),
 		list(
-			mode_name = "heavy",
+			mode_name = "Heavy",
 			projectile_type = /obj/projectile/energy/blaster/disruptor/heavy,
 			charge_cost = 300, // paying double for +10 damage and 5 AP. OVERALL, does less damage, just does more in a shorter amount of time (5*30 = 150 dam VS. 10*20 = 200 dam). better hit those shots.
 			modifystate = "disruptorpistolkill",
@@ -122,20 +122,12 @@
 		old_mode.unapply_to(src)
 		if(findtext(msg,"stun"))
 			sel_mode = 1
-			to_chat(usr, SPAN_WARNING("[src.name] is now set to: Stun."))
-			playsound(src, safetyoff_sound, 25)
 		else if(findtext(msg,"flash") || findtext(msg,"illuminate"))
 			sel_mode = 2
-			to_chat(usr, SPAN_WARNING("[src.name] is now set to: Flash/Illuminate."))
-			playsound(src, safetyoff_sound, 25)
 		else if(findtext(msg,"lethal"))
 			sel_mode = 3
-			to_chat(usr, SPAN_WARNING("[src.name] is now set to: Lethal."))
-			playsound(src, safetyoff_sound, 25)
 		else if(findtext(msg,"heavy"))
 			sel_mode = 4
-			to_chat(usr, SPAN_WARNING("[src.name] is now set to: Heavy."))
-			playsound(src, safetyoff_sound, 25)
 		/* Messages */
 		else if((findtext(msg,"crowdcontrol") || findtext(msg,"crowd control")))
 			message = "This is an active incident scene; make space for security contractors!"
@@ -150,6 +142,9 @@
 			new_mode.apply_to(src)
 			update_firing_delays()
 			update_icon()
+
+			to_chat(usr, SPAN_WARNING("[src.name] is now set to: [new_mode.name]."))
+			playsound(src, safetyoff_sound, 25)
 
 /obj/item/gun/energy/disruptorpistol/AltClick(mob/user)
 	if(!pin || (pin && !(istype(pin, /obj/item/device/firing_pin/wireless))))
@@ -188,23 +183,23 @@
 	secondary_projectile_type = /obj/projectile/energy/blaster/disruptor/practice
 	firemodes = list(
 		list(
-			mode_name = "stun (practice)",
+			mode_name = "Stun (Practice)",
 			projectile_type = /obj/projectile/energy/disruptorstun/practice,
 			modifystate = "disruptorpistolstun",
 			fire_sound = 'sound/weapons/gunshot/bolter.ogg'),
 		list(
-			mode_name = "flash",
+			mode_name = "Flash/Illuminate",
 			projectile_type = /obj/projectile/energy/disruptorstun/flare,
 			modifystate = "disruptorpistolstun",
 			fire_sound = 'sound/weapons/gunshot/bolter.ogg'),
 		list(
-			mode_name = "lethal (practice)",
+			mode_name = "Lethal (Practice)",
 			projectile_type = /obj/projectile/energy/blaster/disruptor/practice,
 			modifystate = "disruptorpistolkill",
 			fire_sound = 'sound/weapons/gunshot/bolter.ogg',
 			recoil = 1),
 		list(
-			mode_name = "heavy (practice)",
+			mode_name = "Heavy (Practice)",
 			projectile_type = /obj/projectile/energy/blaster/disruptor/heavy/practice,
 			charge_cost = 300,
 			modifystate = "disruptorpistolkill",
@@ -233,23 +228,23 @@
 
 	firemodes = list(
 		list(
-			mode_name = "stun",
+			mode_name = "Stun",
 			projectile_type = /obj/projectile/energy/disruptorstun,
 			modifystate = "disruptorpistolstun",
 			fire_sound = 'sound/weapons/gunshot/bolter.ogg'),
 		list(
-			mode_name = "flash",
+			mode_name = "Flash/Illuminate",
 			projectile_type = /obj/projectile/energy/disruptorstun/flare,
 			modifystate = "disruptorpistolstun",
 			fire_sound = 'sound/weapons/gunshot/bolter.ogg'),
 		list(
-			mode_name = "extra-lethal",
+			mode_name = "Extra-Lethal",
 			projectile_type = /obj/projectile/energy/blaster/disruptor/heavy, //normal lethal bolts replaced with heavy variant
 			modifystate = "disruptorpistolkill",
 			fire_sound = 'sound/weapons/gunshot/bolter.ogg',
 			recoil = 1),
 		list(
-			mode_name = "heavy (explosive)",
+			mode_name = "Heavy (Explosive)",
 			projectile_type = /obj/projectile/energy/blaster/disruptor/explosive,
 			charge_cost = 300,
 			modifystate = "disruptorpistolkill",
