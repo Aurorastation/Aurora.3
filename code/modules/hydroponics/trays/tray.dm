@@ -448,7 +448,7 @@
 		tray_light = new_light
 		user.visible_message(SPAN_NOTICE("\The [user] sets \the [src] to a light level of [tray_light] lumens."),
 		SPAN_NOTICE("You set the \the [src] to a light level of [tray_light] lumens."))
-		playsound(src, /singleton/sound_category/button_sound, 25, TRUE)
+		playsound(src, /singleton/sound_category/button_sound, 50, TRUE)
 
 /obj/machinery/portable_atmospherics/hydroponics/CtrlClick(var/mob/user)
 	if(usr.incapacitated())
@@ -686,7 +686,7 @@
 			update_use_power(POWER_USE_ACTIVE)
 			stasis = TRUE
 
-		playsound(src, /singleton/sound_category/button_sound, 25, TRUE)
+		playsound(src, /singleton/sound_category/button_sound, 50, TRUE)
 		update_icon()
 		return
 
@@ -764,6 +764,6 @@
 	else
 		density = TRUE
 	closed_system = !closed_system
-	playsound(src, 'sound/items/pickup/device.ogg', 25, TRUE)
+	playsound(src, 'sound/items/pickup/device.ogg', 50, TRUE)
 	to_chat(user, "You [closed_system ? "close" : "open"] the tray's lid.")
 	update_icon()
