@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - refactor: "Gently refactored Heart code in preparation for Galatean BioAugs."

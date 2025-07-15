@@ -93,9 +93,9 @@
 		return 0.25 * blood_volume
 
 	var/recent_pump = LAZYACCESS(heart.external_pump, 1) > world.time - (20 SECONDS)
-	var/pulse_mod = 1
+	var/pulse_mod = heart.base_pump_rate
 	if((status_flags & FAKEDEATH) || BP_IS_ROBOTIC(heart))
-		pulse_mod = 1
+		pulse_mod = heart.norm_pump_modifier
 	else
 		switch(heart.pulse)
 			if(PULSE_NONE)
@@ -104,11 +104,15 @@
 				else
 					pulse_mod *= 0.25
 			if(PULSE_SLOW)
-				pulse_mod *= 0.9
+				pulse_mod *= heart.slow_pump_modifier
+			if(PULSE_NORM)
+				pulse_mod *= heart.norm_pump_modifier
 			if(PULSE_FAST)
-				pulse_mod *= 1.1
-			if(PULSE_2FAST, PULSE_THREADY)
-				pulse_mod *= 1.25
+				pulse_mod *= heart.fast_pump_modifier
+			if(PULSE_2FAST)
+				pulse_mod *= heart.too_fast_pump_modifier
+			if(PULSE_THREADY)
+				pulse_mod *= heart.thready_pump_modifier
 	blood_volume *= pulse_mod
 
 	var/min_efficiency = recent_pump ? 0.5 : 0.3
