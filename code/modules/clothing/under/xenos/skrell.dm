@@ -365,7 +365,7 @@
 /obj/item/clothing/under/skrell/cthur
 	name = "cthur uniform"
 	desc = "This white vaurca wetsuit is often worn by C’thur working with the Kala, most often the Qukala. It has ablative materials woven in."
-	icon = 'icons/obj/item/clothing/under/vaurca/nralakk_uniforms/kala_uniform.dmi'
+	icon = 'icons/obj/item/clothing/under/skrell/cthur_uniform.dmi'
 	icon_state = "cthur_uniform"
 	item_state = "cthur_uniform"
 	contained_sprite = TRUE
