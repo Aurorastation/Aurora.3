@@ -1,4 +1,6 @@
-ABSTRACT_TYPE(/datum/gear/head)
+/datum/gear/head
+	display_name = "headwear, circuitry (empty)"
+	path = /obj/item/clothing/head/circuitry
 	sort_category = "Hats and Headwear"
 	slot = slot_head
 
@@ -186,10 +188,6 @@ ABSTRACT_TYPE(/datum/gear/head)
 	iac["IAC cap"] = /obj/item/clothing/head/softcap/iac
 	iac["IAC beret"] = /obj/item/clothing/head/beret/iac
 	gear_tweaks += new /datum/gear_tweak/path(iac)
-
-/datum/gear/head/circuitry
-	display_name = "headwear, circuitry (empty)"
-	path = /obj/item/clothing/head/circuitry
 
 /datum/gear/head/tcaf
 	display_name = "tcaf hat selection"
