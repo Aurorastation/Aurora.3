@@ -10,7 +10,7 @@
 	icon_vend = "clothes-vend"
 	vend_id = "wardrobe"
 	products = list(
-		// Jumpsuits
+		// Suits
 		/obj/item/clothing/under/color/black = 4,
 		/obj/item/clothing/under/color/grey = 4,
 		/obj/item/clothing/under/color/white = 4,
@@ -20,6 +20,10 @@
 		/obj/item/clothing/under/color/green = 4,
 		/obj/item/clothing/under/color/blue = 4,
 		/obj/item/clothing/under/color/purple = 4,
+		/obj/item/clothing/under/swimsuit/black = 2,
+		/obj/item/clothing/under/swimsuit/blue = 2,
+		/obj/item/clothing/under/swimsuit/red = 2,
+		/obj/item/clothing/under/swimsuit/purple = 2,
 		// Shirts
 		/obj/item/clothing/under/dressshirt = 4,
 		/obj/item/clothing/under/dressshirt/longsleeve = 4,
@@ -41,7 +45,10 @@
 		/obj/item/clothing/pants/striped = 4,
 		/obj/item/clothing/pants/track = 4,
 		/obj/item/clothing/pants/track/red = 4,
-		/obj/item/clothing/pants/shorts/athletic/scc = 8,
+		/obj/item/clothing/pants/shorts/athletic/black = 2,
+		/obj/item/clothing/pants/shorts/athletic/blue = 2,
+		/obj/item/clothing/pants/shorts/athletic/red = 2,
+		/obj/item/clothing/pants/shorts/athletic/green = 2,
 		// Shoes
 		/obj/item/clothing/shoes/sneakers/black = 8,
 		/obj/item/clothing/shoes/sneakers/brown = 4,
