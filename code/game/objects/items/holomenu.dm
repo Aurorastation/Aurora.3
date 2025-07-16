@@ -9,7 +9,7 @@
 	light_color = LIGHT_COLOR_CYAN
 	light_range = 1.4
 
-	req_one_access = list(ACCESS_BAR, ACCESS_KITCHEN)
+	req_one_access = list(ACCESS_BAR, ACCESS_KITCHEN, ACCESS_HYDROPONICS)
 
 	var/rave_mode = FALSE
 	var/menu_text = ""
