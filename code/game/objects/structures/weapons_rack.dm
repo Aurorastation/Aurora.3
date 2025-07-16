@@ -18,7 +18,6 @@
 	VAR_PRIVATE/obj/effect/visual_holder
 
 /obj/structure/weapons_rack/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 
 	if(locate(/obj/item/gun) in src)

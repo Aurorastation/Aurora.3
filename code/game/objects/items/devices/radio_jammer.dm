@@ -29,7 +29,6 @@ GLOBAL_LIST_INIT_TYPED(active_radio_jammers, /obj/item/device/radiojammer, list(
 	var/icon_state_inactive = "shield0"
 
 /obj/item/device/radiojammer/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Use in-hand to activate or deactivate."
 	. += "Alt-click while adjacent or in-hand to toggle whether it blocks all signals or just stationbound wireless interfacing."

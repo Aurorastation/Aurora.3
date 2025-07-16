@@ -59,7 +59,6 @@ ABSTRACT_TYPE(/obj/item/rfd)
 	var/last_fail = 0
 
 /obj/item/rfd/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(loc == user)
 		. += "It currently holds <b>[stored_matter]/30</b> matter units."
@@ -510,7 +509,6 @@ ABSTRACT_TYPE(/obj/item/rfd)
 	item_state = "rfd-m"
 
 /obj/item/rfd/mining/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += SPAN_WARNING("The printed mining units have to either be placed down in order, or linked manually after deployment.")
 
@@ -627,7 +625,6 @@ ABSTRACT_TYPE(/obj/item/rfd)
 	var/malftransformermade = 0
 
 /obj/item/rfd/transformer/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(loc == user)
 		if(malftransformermade)
@@ -764,13 +761,11 @@ ABSTRACT_TYPE(/obj/item/rfd)
 	)
 
 /obj/item/rfd/piping/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Use in-hand to change pipe selection."
 	. += "ALT-click to change pipe category."
 
 /obj/item/rfd/piping/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Selected pipe category: <b>[selected_mode]</b>."
 	. += "Selected pipe: <b>[pipe_examine]</b>."

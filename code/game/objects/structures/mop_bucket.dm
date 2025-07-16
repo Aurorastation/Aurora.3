@@ -10,7 +10,6 @@
 	var/bucketsize = 600 //about 2x the size relative to a regular bucket.
 
 /obj/structure/mopbucket/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance <= 1)
 		. += "It contains <b>[reagents.total_volume] unit\s</b> of water."

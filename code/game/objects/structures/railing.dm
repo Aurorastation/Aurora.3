@@ -21,7 +21,6 @@
 	can_astar_pass = CANASTARPASS_ALWAYS_PROC
 
 /obj/structure/railing/condition_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if (health < maxhealth)
 		switch(health / maxhealth)
@@ -33,13 +32,11 @@
 				. += SPAN_NOTICE("It has a few scrapes and dents.")
 
 /obj/structure/railing/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if (anchored)
 		. += "It could be [density ? "opened" : "closed"] to passage with a wrench."
 
 /obj/structure/railing/assembly_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if (health < maxhealth)
 		. += "It could be repaired with a few choice <b>welds</b>."

@@ -23,7 +23,6 @@
 	var/current_health
 
 /obj/item/clothing/suit/armor/riot/laser_tag/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "You can alt-click this while holding or wearing it to set how many laser tag shots you want to be able to take before going down."
 

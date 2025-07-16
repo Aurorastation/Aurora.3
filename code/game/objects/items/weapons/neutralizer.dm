@@ -10,7 +10,6 @@
 	var/active = FALSE
 
 /obj/item/bluespace_neutralizer/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Click on it, or use it in-hand to activate it. Click on any portal-like structure to instantly close it."
 	. += "Stand near a bluespace rift while it's active to start the closing process."

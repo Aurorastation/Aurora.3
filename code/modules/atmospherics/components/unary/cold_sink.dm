@@ -31,12 +31,10 @@
 	parts_power_mgmt = FALSE
 
 /obj/machinery/atmospherics/unary/freezer/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Cools down the gas of the pipe it is connected to. It uses massive amounts of electricity while on."
 
 /obj/machinery/atmospherics/unary/freezer/upgrade_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Upgraded <b>matter bins</b> will improve cooling efficiency and increase the volume of air it can cool at once."
 	. += "Upgraded <b>capacitors</b> will increase maximum power setting."

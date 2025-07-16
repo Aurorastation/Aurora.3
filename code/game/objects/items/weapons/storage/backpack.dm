@@ -33,7 +33,6 @@
 	var/attached_icon = "backpack"
 
 /obj/item/storage/backpack/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "As a Cultist, this item can be reforged to become a cult backpack. Any stored items will be transferred."
 

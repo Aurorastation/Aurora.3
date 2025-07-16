@@ -83,7 +83,6 @@
 	icon_state = "fiberbag"
 
 /obj/item/sample/fibers/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Holds various fibre evidence. Place it in a slide and the slide into a microscope to check them."
 
@@ -95,7 +94,6 @@
 	item_state = "paper"
 
 /obj/item/sample/print/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "A sample card for fingerprints. Risks putting your own prints on it if touched without gloves."
 	. += "Place the card in a microscope to examine the contents."
@@ -175,7 +173,6 @@
 	var/evidence_path = /obj/item/sample/fibers
 
 /obj/item/forensics/sample_kit/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Click drag it onto an object to collect fiber evidence. Alternatively, click on an object with non-Help intent."
 

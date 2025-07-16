@@ -16,7 +16,6 @@
 	light_wedge = LIGHT_WIDE
 
 /obj/machinery/floodlight/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(!cell.charge)
 		. += SPAN_WARNING("The installed [cell.name] is completely flat!")

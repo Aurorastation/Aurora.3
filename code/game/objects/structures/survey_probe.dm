@@ -29,12 +29,10 @@
 	var/survey_type = SURVEY_TYPE_ATMOSPHERIC
 
 /obj/structure/survey_probe/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "The probe has to be deployed first before it is used: wrench it to deploy, then click with empty hand to activate."
 
 /obj/structure/survey_probe/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This probe was manufactured by Orion Express, but it is based on on older model designed by Hephaestus Industries."
 	if(survey_type == SURVEY_TYPE_ATMOSPHERIC)

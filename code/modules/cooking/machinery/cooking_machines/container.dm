@@ -23,7 +23,6 @@
 	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/reagent_containers/cooking_container/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(length(contents))
 		var/string = "It contains:</br><ul><li>"
@@ -273,7 +272,6 @@
 	max_space = 25
 
 /obj/item/reagent_containers/cooking_container/board/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "After adding food ingredients, click-drag this onto your character to attempt to cook/prepare them."
 

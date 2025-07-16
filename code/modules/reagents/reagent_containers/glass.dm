@@ -21,7 +21,6 @@
 	var/label_text = ""
 
 /obj/item/reagent_containers/glass/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance > 2)
 		return

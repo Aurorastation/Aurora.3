@@ -16,7 +16,6 @@
 	var/obj/special_assembly = null
 
 /obj/item/device/assembly_holder/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance <= 1 || src.loc == user)
 		if (src.secured)

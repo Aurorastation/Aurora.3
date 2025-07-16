@@ -3,7 +3,6 @@
 // fits in APC to provide backup power
 
 /obj/item/cell/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Injecting 5 units of phoron into a power cell with a syringe will rig it to explode!"
 	. += "The higher the charge in the cell, the bigger and more damaging the explosion will be."

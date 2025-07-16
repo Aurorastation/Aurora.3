@@ -17,7 +17,6 @@
 	var/mode = MODE_WALL // 0 - Walls 1 - Doors
 
 /obj/item/inflatable_dispenser/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += SPAN_NOTICE("It has <b>[stored_walls] wall segment\s</b> and <b>[stored_doors] door segment\s</b> stored.")
 	. += SPAN_NOTICE("It is set to deploy <b>[mode ? "doors" : "walls"]</b>.")

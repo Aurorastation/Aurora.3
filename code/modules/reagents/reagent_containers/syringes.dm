@@ -41,12 +41,10 @@
 	var/gets_dirty = TRUE
 
 /obj/item/reagent_containers/syringe/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This tool can be used to reinflate a collapsed lung. To do this, activate grab intent, select the patient's chest, then click on them. It will hurt a lot, but it will buy time until surgery can be performed."
 
 /obj/item/reagent_containers/syringe/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "You can use a syringe to inject phoron into both power cells and light bulbs to rig them to explode when used."
 

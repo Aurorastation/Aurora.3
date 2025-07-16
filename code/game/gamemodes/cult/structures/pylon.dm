@@ -59,7 +59,6 @@
 				. += SPAN_DANGER("It is almost cleaved in two, the pylon looks like it will fall to shards under its own weight.")
 
 /obj/structure/cult/pylon/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "A pylon can be upgraded into a magical defensive turret that shoots anyone opposing the cult."
 	. += "Upgrading a pylon requires a sacrifice. Bring it a small organic creature, like a monkey or rat. Use the creature on the pylon, or drag and drop to present it."

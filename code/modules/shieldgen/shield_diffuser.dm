@@ -18,7 +18,6 @@
 	var/diffuser_range = 0 // 1x1 tiles, including the tile its on.
 
 /obj/machinery/shield_diffuser/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "It is [diffuser_enabled ? "diffuser_enabled" : "disabled"]."
 

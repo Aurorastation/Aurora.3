@@ -16,7 +16,6 @@
 	needspin = FALSE
 
 /obj/item/gun/launcher/spikethrower/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance > 1)
 		return

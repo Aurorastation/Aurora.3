@@ -18,7 +18,6 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 300)
 
 /obj/item/grenade/chem_grenade/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(detonator)
 		. += "With attached [detonator.name]"

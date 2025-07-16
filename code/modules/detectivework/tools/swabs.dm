@@ -9,7 +9,6 @@
 	pickup_sound = 'sound/items/pickup/glass.ogg'
 
 /obj/item/forensics/swab/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Swab kits can be used to gather blood with DNA attached to it by clicking the blood."
 	. += "If it fails to collect a sample, it means that particular bit of blood has no associated DNA."

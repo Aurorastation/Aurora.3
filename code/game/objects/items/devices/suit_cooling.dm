@@ -30,7 +30,6 @@
 	//TODO: make it heat up the surroundings when not in space
 
 /obj/item/device/suit_cooling_unit/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 
 	if(!distance <= 1)

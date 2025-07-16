@@ -38,12 +38,10 @@
 	//var/list/ammo_states = list()	//values
 
 /obj/item/gun/projectile/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This is a ballistic weapon. It fires [caliber] ammunition. To reload most guns, click the gun with an empty hand to remove any spent casings or magazines, and then insert new ones."
 
 /obj/item/gun/projectile/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance > 1)
 		return

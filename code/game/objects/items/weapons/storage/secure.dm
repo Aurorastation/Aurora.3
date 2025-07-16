@@ -29,7 +29,6 @@ ABSTRACT_TYPE(/obj/item/storage/secure)
 	use_sound = 'sound/items/storage/briefcase.ogg'
 
 /obj/item/storage/secure/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance <= 1)
 		. += "The service panel is [src.open ? "open" : "closed"]."

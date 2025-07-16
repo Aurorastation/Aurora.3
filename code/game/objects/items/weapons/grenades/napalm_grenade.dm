@@ -5,7 +5,6 @@
 	device available, causing high-intensity sustained fires at over 2000K."
 
 /obj/item/grenade/napalm/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This causes a 5-tiles large fire that burns for quite a while. Don't be a dick with it."
 

@@ -19,7 +19,6 @@
 	distribute_pressure = ONE_ATMOSPHERE*O2STANDARD
 
 /obj/item/tank/oxygen/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if((is_adjacent) && air_contents.gas[GAS_OXYGEN] < 10)
 		. += SPAN_WARNING("The meter on \the [src] indicates you are almost out of oxygen!")
@@ -75,7 +74,6 @@
 	item_state = "oxygen"
 
 /obj/item/tank/air/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if((is_adjacent) && air_contents.gas[GAS_OXYGEN] < 1 && loc==user)
 		. += SPAN_WARNING("The meter on the [src.name] indicates you are almost out of air!")
@@ -147,13 +145,11 @@
 	volume = 2 //Tiny. Real life equivalents only have 21 breaths of oxygen in them. They're EMERGENCY tanks anyway -errorage (dangercon 2011)
 
 /obj/item/tank/emergency_oxygen/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if((is_adjacent) && air_contents.gas[GAS_OXYGEN] < 0.2 && loc==user)
 		. += SPAN_WARNING("The meter on the [src.name] indicates you are almost out of air!")
 
 /obj/item/tank/emergency_oxygen/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "As a Cultist, this item can be reforged to become a large brown oxygen tank."
 

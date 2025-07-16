@@ -24,12 +24,10 @@
 	pickup_sound = 'sound/items/pickup/paper.ogg'
 
 /obj/item/paper_bundle/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Both papers and photos can be added to a paper bundle."
 
 /obj/item/paper_bundle/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(is_adjacent)
 		src.show_content(user)

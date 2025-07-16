@@ -101,7 +101,6 @@
 	var/obj/effect/portal/destination_portal
 
 /obj/machinery/computer/telescience/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "There are [length(crystals) ? length(crystals) : "no"] bluespace crystal\s in the crystal slots."
 

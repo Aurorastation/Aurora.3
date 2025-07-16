@@ -98,7 +98,6 @@
 		fill_dart(dart)
 
 /obj/item/gun/projectile/dartgun/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if (beakers.len)
 		. += SPAN_NOTICE("[src] contains:")

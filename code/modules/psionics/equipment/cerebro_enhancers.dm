@@ -17,7 +17,6 @@
 	var/boosted_psipower = 120
 
 /obj/item/clothing/head/helmet/space/psi_amp/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Due to the nature of this headgear, it will also protect you from the pressure of space."
 	. += "When installing the boosters, your chosen faculties will be boosted to the headgear's maximum potential, but the unchosen faculties will also be boosted somewhat."

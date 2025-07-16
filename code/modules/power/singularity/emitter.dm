@@ -36,14 +36,12 @@
 	var/datum/effect_system/sparks/spark_system
 
 /obj/machinery/power/emitter/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Standing next to \the [src] and examining it will let you see how many shots it has fired since last being turned on."
 	. += "Using an Engineering ID on \the [src] will toggle its control locks."
 	. += "You can attach a signaler to \the [src] to remotely toggle it on and off (so long as its controls are not locked)."
 
 /obj/machinery/power/emitter/assembly_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	switch(state)
 		if(EMITTER_LOOSE)
@@ -52,7 +50,6 @@
 			. += "\The [src] must be <b>welded</b> securely to the floor before it can be fired."
 
 /obj/machinery/power/emitter/disassembly_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	switch(state)
 		if(EMITTER_BOLTED)
@@ -61,7 +58,6 @@
 			. += "\The [src] must first be <b>unwelded</b> before its anchoring bolts can be unsecured."
 
 /obj/machinery/power/emitter/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(state == EMITTER_WELDED)
 		. += SPAN_WARNING("\The [src] is bolted and welded to the floor, and ready to fire.")
@@ -70,7 +66,6 @@
 	. += "Its controls are currently [locked ? "locked" : "unlocked"]."
 
 /obj/machinery/power/emitter/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Emagging this will both disable the locking mechanism and put its capacitor and firing mechanisms into overdrive!"
 

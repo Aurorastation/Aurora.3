@@ -16,7 +16,6 @@
 	//	luminosity = 1
 
 /obj/machinery/light_switch/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance <= 1)
 		. += "It is [on ? "on" : "off"]."

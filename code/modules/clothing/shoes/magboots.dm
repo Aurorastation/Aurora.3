@@ -20,7 +20,6 @@
 	pickup_sound = 'sound/items/pickup/toolbox.ogg'
 
 /obj/item/clothing/shoes/magboots/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	var/state = "disabled"
 	if(item_flags & ITEM_FLAG_NO_SLIP)

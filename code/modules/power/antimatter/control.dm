@@ -31,7 +31,6 @@
 	var/stored_power = 0			//Power to deploy per tick
 
 /obj/machinery/power/am_control_unit/assembly_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(!anchored)
 		. += "First secure the control unit to the ground with some <b>bolts</b>."
@@ -40,7 +39,6 @@
 		. += "Reactor sections can only be activated if they are near the control unit, but otherwise are not restricted in how they must be placed."
 
 /obj/machinery/power/am_control_unit/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "The antimatter engine will quickly destabilize if the fuel injection rate is set too high, causing a large explosion."
 

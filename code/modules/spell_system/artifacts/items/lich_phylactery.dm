@@ -13,7 +13,6 @@
 	var/lich = null
 
 /obj/item/phylactery/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(!lich)
 		. += "The heart is inert."

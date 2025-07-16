@@ -18,7 +18,6 @@
 	var/datum/pipe_network/network_node3
 
 /obj/machinery/atmospherics/tvalve/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Click this to toggle the mode. The direction with the green light is where the gas will flow."
 

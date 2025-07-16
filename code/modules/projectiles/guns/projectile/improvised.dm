@@ -21,7 +21,6 @@
 	var/fail_chance = 35
 
 /obj/item/gun/projectile/shotgun/improvised/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	switch(fail_chance)
 		if(1)
@@ -91,7 +90,6 @@
 	var/buildstate = 0
 
 /obj/item/stock/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	switch(buildstate)
 		if(1)
@@ -112,7 +110,6 @@
 	icon_state = "ishotgun[buildstate]"
 
 /obj/item/receivergun/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	switch(buildstate)
 		if(1)
@@ -179,7 +176,6 @@
 	needspin = FALSE
 
 /obj/item/gun/projectile/improvised_handgun/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	switch(jam_chance)
 		if(1)

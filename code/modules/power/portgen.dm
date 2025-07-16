@@ -16,7 +16,6 @@
 	var/datum/looping_sound/generator/soundloop
 
 /obj/machinery/power/portgen/upgrade_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Upgraded <b>capacitors</b> will increase maximum power output."
 
@@ -144,7 +143,6 @@
 	parts_power_mgmt = FALSE
 
 /obj/machinery/power/portgen/basic/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "\The [src] appears to be producing <b>[power_gen*power_output] W</b>."
 	. += "There [sheets == 1 ? "is" : "are"] [sheets] sheet\s left in the hopper."
@@ -501,7 +499,6 @@
 	..()
 
 /obj/machinery/power/portgen/basic/fusion/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "The auxiliary tank shows [reagents.total_volume]u of liquid in it."
 

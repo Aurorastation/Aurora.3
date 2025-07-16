@@ -151,7 +151,6 @@
 	)
 
 /obj/item/clothing/accessory/armor_plate/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "These must be attached to plate carriers for them to work."
 

@@ -65,7 +65,6 @@ Possible to do for anyone motivated enough:
 	var/can_hear_flags = NONE
 
 /obj/machinery/hologram/holopad/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(connected_pad)
 		if(established_connection)

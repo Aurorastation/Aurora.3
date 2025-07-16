@@ -19,7 +19,6 @@
 	var/datum/wifi/receiver/button/flasher/wifi_receiver
 
 /obj/machinery/flasher/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Use a wirecutter on this to disconnect the flashbulb, disabling it. Use wirecutters again to reconnect it."
 

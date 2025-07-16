@@ -51,13 +51,11 @@
 	var/broadcast_status_next_process = FALSE
 
 /obj/machinery/atmospherics/unary/vent_pump/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This pumps the contents of the attached pipe out into the atmosphere, if needed."
 	. += "It can be controlled from an Air Alarm."
 
 /obj/machinery/atmospherics/unary/vent_pump/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance <= 1)
 		. += "A small gauge in the corner reads [round(last_flow_rate, 0.1)] L/s at [round(last_power_draw)] W."

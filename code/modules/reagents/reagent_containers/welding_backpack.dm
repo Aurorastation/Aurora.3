@@ -16,7 +16,6 @@
 	pickup_sound = 'sound/items/pickup/backpack.ogg'
 
 /obj/item/reagent_containers/weldpack/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(ishuman(loc) && user != loc) // what if we want to sneak some reagents out of somewhere?
 		return

@@ -34,7 +34,6 @@
 	var/list/connections = list("nw0", "ne0", "sw0", "se0")
 
 /obj/structure/table/condition_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(health < maxhealth)
 		switch(health / maxhealth)

@@ -22,7 +22,6 @@
 	matter = list(MATERIAL_GLASS = 400, DEFAULT_WALL_MATERIAL = 200)
 
 /obj/item/reagent_containers/inhaler/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(LAZYLEN(reagents.reagent_volumes))
 		. += SPAN_NOTICE("It is currently loaded.")

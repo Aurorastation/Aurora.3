@@ -12,7 +12,6 @@
 	var/projection_ready = TRUE
 
 /obj/item/stellascope/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "\The [src] displays the \"[selected_constellation]\"."
 
@@ -91,7 +90,6 @@
 	var/message_frequency = 5
 
 /obj/item/skrell_projector/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(selected_world && working)
 		. += "\The [src] displays a hologram of [selected_world]."

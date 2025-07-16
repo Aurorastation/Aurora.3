@@ -22,14 +22,12 @@
 	center_of_mass = null
 
 /obj/item/reagent_containers/hypospray/borghypo/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Stationbound synthesizers produce specific reagents dependent on the selected module, which you can select by using it."
 	. += "The reagents recharge automatically at the cost of energy."
 	. += "ALT-Click the synthesizer to change the transfer amount."
 
 /obj/item/reagent_containers/hypospray/borghypo/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if (distance > 2)
 		return

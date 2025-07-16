@@ -14,7 +14,6 @@
 	var/list/papers = new/list()	//List of papers put in the bin for reference.
 
 /obj/item/paper_bin/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(is_adjacent)
 		if(amount)

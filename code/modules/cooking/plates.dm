@@ -17,14 +17,12 @@ Plates that can hold your cooking stuff
 	var/grease = FALSE
 
 /obj/item/reagent_containers/bowl/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Click with food to put food into it."
 	. += "If it has food on it, click with cutlery to scoop some food up."
 	. += "If it has food on it, click it with the active hand to remove the food."
 
 /obj/item/reagent_containers/bowl/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(grease)
 		. += SPAN_WARNING("\The [name] looks a little unclean.")
@@ -114,7 +112,6 @@ Plates that can hold your cooking stuff
 	var/obj/item/holding
 
 /obj/item/reagent_containers/bowl/plate/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(holding)
 		. += "It looks like there is \a [SPAN_INFO(holding.name)] on \the [src]."

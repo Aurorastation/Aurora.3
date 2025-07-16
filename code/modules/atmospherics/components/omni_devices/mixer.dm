@@ -25,7 +25,6 @@
 	var/list/mixing_inputs = list()
 
 /obj/machinery/atmospherics/omni/mixer/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Combines gas from custom input and output directions. The percentage of combined gas can be defined."
 

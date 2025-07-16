@@ -32,14 +32,12 @@
 	var/broadcast_status_next_process = FALSE
 
 /obj/machinery/atmospherics/unary/vent_scrubber/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This filters the atmosphere of harmful gas. Filtered gas goes to the pipes connected to it, typically a scrubber pipe."
 	. += "It can be controlled from an Air Alarm."
 	. += "It can be configured to drain all air rapidly with a 'panic siphon' from an air alarm."
 
 /obj/machinery/atmospherics/unary/vent_scrubber/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance <= 1)
 		. += "A small gauge in the corner reads [round(last_flow_rate, 0.1)] L/s at [round(last_power_draw)] W."

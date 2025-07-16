@@ -11,7 +11,6 @@
 	var/hide_type = "hair" //type of skin this animal has; scales for lizard, carapace for xeno.
 
 /obj/item/stack/material/animalhide/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(bare)
 		. += "You could use a bladed item on this to scrape it clean, the first step in creating leather sheets."
@@ -64,7 +63,6 @@
 	bare = TRUE
 
 /obj/item/stack/material/animalhide/barehide/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "You can put this into a washing machine to make wet leather, another key step in making it into leather sheets."
 
@@ -81,7 +79,6 @@
 	var/being_dried = FALSE //If we're manually drying this.
 
 /obj/item/stack/material/animalhide/wetleather/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This can be dried into high-quality fine leather by exposing it to a fire of a sufficient temperature, or manually with a welding tool. You don't need eye protection for the welding tool."
 

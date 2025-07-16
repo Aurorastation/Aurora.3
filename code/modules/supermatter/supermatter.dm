@@ -107,7 +107,6 @@
 	var/last_accent_sound = 0
 
 /obj/machinery/power/supermatter/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "When energized by a laser (or something hitting it), it emits radiation and heat. If the heat reaches above 7000 kelvin, it will send an alert and start taking damage."
 	. += "After integrity falls to zero percent, it will delaminate, causing a massive explosion, station-wide radiation spikes, and hallucinations."
@@ -116,7 +115,6 @@
 	. += "Touching the supermatter will result in *instant death*, with no corpse left behind! You can drag the supermatter, but anything else will kill you."
 
 /obj/machinery/power/supermatter/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Always ahelp before sabotaging the supermatter, as it can potentially ruin the round."
 

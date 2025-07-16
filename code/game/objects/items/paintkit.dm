@@ -9,7 +9,6 @@
 	var/uses = 1        // Uses before the kit deletes itself.
 
 /obj/item/device/kit/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "It has <b>[uses] use\s</b> left."
 

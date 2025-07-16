@@ -1149,7 +1149,6 @@
 	restricted_accessory_slots = list(ACCESSORY_SLOT_UTILITY)
 
 /obj/item/clothing/under/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(has_sensor)
 		switch(src.sensor_mode)

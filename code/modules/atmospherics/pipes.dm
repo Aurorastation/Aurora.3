@@ -15,7 +15,6 @@
 	buckle_lying = -1
 
 /obj/machinery/atmospherics/pipe/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This pipe, and all other pipes, can be safely connected or disconnected by a pipe wrench. The internal pressure of the pipe must \
 	be below 300 kPa to do this."
@@ -25,7 +24,6 @@
 	. += "Use an Analyzer on a pipe to get details on its contents."
 
 /obj/machinery/atmospherics/pipe/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	var/pipe_color_check = pipe_color || PIPE_COLOR_GREY
 	var/found_color_name = "Unknown"
@@ -1097,7 +1095,6 @@
 	var/obj/machinery/atmospherics/node
 
 /obj/machinery/atmospherics/pipe/cap/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This is a cosmetic attachment, as pipes do not spill their contents into the air."
 

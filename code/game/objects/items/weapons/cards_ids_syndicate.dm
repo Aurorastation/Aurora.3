@@ -11,7 +11,6 @@
 	var/mob/registered_user = null
 
 /obj/item/card/id/syndicate/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(is_adjacent)
 		if(user == registered_user)

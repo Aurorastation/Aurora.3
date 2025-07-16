@@ -10,13 +10,11 @@
 	var/list/mode = list("dismantle"=0,"laying"=0,"collect"=0)
 
 /obj/machinery/floorlayer/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Use a screwdriver to set which tile to lay, a wrench to configure the various modes, and a crowbar to take out tiles."
 	. += "Clicking on it with an empty hand will turn it on and off."
 
 /obj/machinery/floorlayer/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	var/dismantle = mode["dismantle"]
 	var/laying = mode["laying"]

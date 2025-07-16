@@ -25,7 +25,6 @@
 														// analyzer with a force_divisor of 10 hit with a damage multiplier of 3000+.
 
 /obj/item/gun/launcher/pneumatic/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance > 2)
 		return
@@ -153,7 +152,6 @@
 	var/buildstate = 0
 
 /obj/item/cannonframe/assembly_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	switch(buildstate)
 		if(0)

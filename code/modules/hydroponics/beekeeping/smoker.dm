@@ -9,12 +9,10 @@
 	var/max_fuel = 60
 
 /obj/item/bee_smoker/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This device can be used to blind people in short range."
 
 /obj/item/bee_smoker/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(is_adjacent)
 		. += SPAN_NOTICE("It has <b>[get_fuel()]/[max_fuel]</b> welding fuel left.")

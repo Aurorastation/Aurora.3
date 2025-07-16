@@ -27,7 +27,6 @@
 	var/obj/item/detector_anchor/anchor
 
 /obj/item/ore_detector/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "ALT-click to set the type of ore you wish to search for."
 

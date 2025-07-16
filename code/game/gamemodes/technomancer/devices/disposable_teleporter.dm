@@ -18,7 +18,6 @@
 	origin_tech = list(TECH_BLUESPACE = 4, TECH_POWER = 3)
 
 /obj/item/disposable_teleporter/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "[uses] uses remaining."
 

@@ -23,13 +23,11 @@
 	var/pitch_toggle = 1
 
 /obj/machinery/constructable_frame/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "A blueprint that allows the user to rotate the direction the final result will be built in."
 	. += "Higher-quality components can improve the functionality of the machine in different ways."
 
 /obj/machinery/constructable_frame/assembly_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	switch(state)
 		if(BLUEPRINT_STATE)
@@ -42,7 +40,6 @@
 			. += "Add the required components. Use the screwdriver to complete the machine."
 
 /obj/machinery/constructable_frame/disassembly_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	switch(state)
 		if(BLUEPRINT_STATE)
@@ -55,7 +52,6 @@
 			. += "Use a crowbar to pry out the circuitboard and the components out."
 
 /obj/machinery/constructable_frame/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(machine_description)
 		. += "[machine_description]"

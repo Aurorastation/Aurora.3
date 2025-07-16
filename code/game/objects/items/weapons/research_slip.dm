@@ -6,7 +6,6 @@
 	contained_sprite = TRUE
 
 /obj/item/research_slip/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This item is to be used in the destructive analyzer to gain research points."
 

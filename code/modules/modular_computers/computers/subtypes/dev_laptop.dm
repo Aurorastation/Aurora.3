@@ -21,7 +21,6 @@
 	var/icon_state_closed = "laptop-closed"
 
 /obj/item/modular_computer/laptop/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "ALT-click the laptop while it's set down on a surface to open or close it."
 	. += "Left-click on it while it is open to operate it."

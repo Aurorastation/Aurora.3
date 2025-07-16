@@ -13,7 +13,6 @@
 	var/exploded = FALSE
 
 /obj/item/am_containment/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Antimatter is extremely volatile, and containment jars are not particularly strong. Weak explosions will reduce the container's integrity, and larger ones will cause it to explode immediately."
 /obj/item/am_containment/proc/boom()

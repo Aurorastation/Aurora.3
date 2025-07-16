@@ -242,7 +242,6 @@
 	var/blade_color
 
 /obj/item/melee/energy/sword/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "The energy sword is a very strong melee weapon, capable of severing limbs easily, if they are targeted."
 	. += "It also has a chance to block projectiles and melee attacks while it is on and being held."

@@ -31,7 +31,6 @@
 	var/obj/structure/ship_weapon_dummy/barrel
 
 /obj/machinery/ship_weapon/condition_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	var/ratio = (damage / max_damage) * 100
 	switch(ratio)
@@ -52,21 +51,18 @@
 			. += SPAN_NOTICE("It looks to be in tip top shape and not damaged at all.")
 
 /obj/machinery/ship_weapon/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Use a multitool to check or update the weapon's internal network ID for linking purposes. You probably don't need to do this."
 	. += "To load a ship weapon, you must use a nearby Ammunition Loader linked to it."
 	. += "This weapon is LOUD when it fires; you probably want to wear ear protection when nearby."
 
 /obj/machinery/ship_weapon/assembly_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	var/ratio = (damage / max_damage) * 100
 	if(ratio > 0)
 		. += "The damage can be repaired with a <b>welder</b>, but given the size of \the [src] it will take a lot of time and welding fuel."
 
 /obj/machinery/ship_weapon/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	var/loaded_ammo_count_txt = num2text(length(ammunition))
 	var/max_ammo_txt = num2text(max_ammo)

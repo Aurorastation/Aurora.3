@@ -33,7 +33,6 @@
 	var/allowed_analysis = MICROSCOPE_ALL
 
 /obj/machinery/microscope/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Use a microscope slide or a fingerprint card on this machine to insert it."
 	. += "Alt-click to remove any object within it."

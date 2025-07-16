@@ -20,7 +20,6 @@
 	can_hold_mob = TRUE
 
 /obj/vehicle/train/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(lead)
 		. += SPAN_NOTICE("It is being towed by \the [lead] in the [dir2text(get_dir(src, lead))].")

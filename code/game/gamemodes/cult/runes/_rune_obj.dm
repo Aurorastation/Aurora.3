@@ -11,7 +11,6 @@
 	var/datum/rune/rune
 
 /obj/effect/rune/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(iscultist(user) || isobserver(user))
 		. += rune.get_cultist_fluff_text()

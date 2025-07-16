@@ -76,13 +76,11 @@
 	var/last_time = 1
 
 /obj/machinery/power/smes/assembly_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(health < initial(health))
 		. += "It can be repaired with a <b>welding tool</b>."
 
 /obj/machinery/power/smes/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(is_badly_damaged())
 		. += SPAN_DANGER("\The [src] is damaged to the point of non-function!")

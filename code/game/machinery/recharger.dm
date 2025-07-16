@@ -33,17 +33,14 @@
 	var/list/chargebars
 
 /obj/machinery/recharger/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This device can recharge power cells, various handheld computers, energy weapons and stun batons, flashlights, ecigarettes, handheld inductive chargers, and more."
 
 /obj/machinery/recharger/assembly_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "It [anchored ? "is" : "could be"] anchored to the floor with some <b>bolts</b>."
 
 /obj/machinery/recharger/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	var/charging_power_kw = round(active_power_usage / 1000, 0.1)
 	. += "Uses a dedicated power supply to deliver <b>[charging_power_kw] kW</b> when in use."

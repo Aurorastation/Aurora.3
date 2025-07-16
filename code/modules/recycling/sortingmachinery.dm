@@ -14,7 +14,6 @@
 	var/tag_x
 
 /obj/structure/bigDelivery/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance <= 4)
 		if(sortTag)
@@ -205,7 +204,6 @@
 	return
 
 /obj/item/smallDelivery/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance <= 4)
 		if(sortTag)

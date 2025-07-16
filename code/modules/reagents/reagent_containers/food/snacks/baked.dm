@@ -84,7 +84,6 @@
 	reagents_to_add = list(/singleton/reagent/nutriment/protein = 1, /singleton/reagent/nutriment = 3)
 
 /obj/item/reagent_containers/food/snacks/donkpocket/sinpocket/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Use it in hand to heat and release chemicals."
 

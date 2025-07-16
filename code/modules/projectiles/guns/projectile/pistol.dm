@@ -484,7 +484,6 @@
 	accuracy_wielded = 1
 
 /obj/item/gun/projectile/pistol/super_heavy/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This is an extremely powerful ballistic weapon, using .599 Kumar Super ammunition."
 	. += "If you aren't an Unathi or a G2 IPC, firing without wielding (clicking in-hand) could lead to serious injury or death. Unathi and G2s may fire it unwielded with an aim penalty."

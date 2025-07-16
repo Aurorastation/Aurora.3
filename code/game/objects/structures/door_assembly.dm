@@ -27,7 +27,6 @@
 	var/width = 1
 
 /obj/structure/door_assembly/assembly_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Use a pen on \the [src] to name it."
 	if(anchored && !glass)
@@ -44,7 +43,6 @@
 			. += "The remaining panels can be <b>screwed</b> closed to complete the assembly."
 
 /obj/structure/door_assembly/disassembly_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	switch(state)
 		if(STATE_UNWIRED)

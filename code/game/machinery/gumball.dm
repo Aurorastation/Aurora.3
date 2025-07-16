@@ -15,7 +15,6 @@
 	var/broken = 0
 
 /obj/machinery/gumballmachine/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "\The [src] costs [gumprice] credits to use."
 

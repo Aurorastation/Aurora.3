@@ -1117,7 +1117,6 @@ BLIND     // can't see anything
 	prescription = 7
 
 /obj/item/clothing/glasses/thermal/aviator/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Modified aviator glasses with a toggled thermal-vision mode."
 

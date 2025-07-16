@@ -779,7 +779,6 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	var/obj/item/storage/storage_compartment
 
 /obj/structure/cash_register/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Drag this onto yourself to open the cash compartment."
 

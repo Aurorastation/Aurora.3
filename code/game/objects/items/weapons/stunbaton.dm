@@ -23,7 +23,6 @@
 	var/sheathed = 1 //electrocutes only on harm intent
 
 /obj/item/melee/baton/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "The baton needs to be turned on to apply the stunning effect; left-click it in-hand to toggle power."
 	. += "On Harm intent, you will inflict damage when using it, regardless if it is on or not."

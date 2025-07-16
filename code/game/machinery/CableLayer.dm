@@ -9,7 +9,6 @@
 	var/on = FALSE
 
 /obj/machinery/cablelayer/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += SPAN_NOTICE("\The [src]'s cable reel has [cable.amount] length\s left.")
 

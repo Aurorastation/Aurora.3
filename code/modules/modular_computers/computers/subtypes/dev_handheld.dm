@@ -15,7 +15,6 @@
 	looping_sound = FALSE
 
 /obj/item/modular_computer/handheld/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "To deploy the charging cable on this device, either drag and drop it over a nearby APC, or click on the APC with the computer in hand."
 

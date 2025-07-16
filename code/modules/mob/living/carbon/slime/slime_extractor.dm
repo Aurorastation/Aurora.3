@@ -19,18 +19,15 @@
 	)
 
 /obj/machinery/slime_extractor/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "It will place slime extracts into a slime extract bag automatically if it's adjacent to the machine."
 
 /obj/machinery/slime_extractor/upgrade_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Upgraded <b>matter bins</b> will increase slime capacity."
 	. += "Upgraded <b>micro-lasers</b> will increase extraction speed."
 
 /obj/machinery/slime_extractor/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "It can hold <b>[slime_limit] slime\s</b> at a time."
 	if(length(extract_slimes))

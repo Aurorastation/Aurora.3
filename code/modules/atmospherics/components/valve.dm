@@ -15,12 +15,10 @@
 	var/datum/pipe_network/network_node2
 
 /obj/machinery/atmospherics/valve/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "It is [open ? "open" : "closed"]."
 
 /obj/machinery/atmospherics/valve/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Click this to turn the valve."
 	. += "If red, the pipes on each end are seperated. Otherwise, they are connected."

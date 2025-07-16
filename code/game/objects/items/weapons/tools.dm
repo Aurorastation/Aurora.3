@@ -257,7 +257,6 @@
 	var/produces_flash = TRUE
 
 /obj/item/weldingtool/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance <= 0)
 		. += "It contains [get_fuel()]/[max_fuel] units of fuel."
@@ -671,7 +670,6 @@
 	contained_sprite = TRUE
 
 /obj/item/eyeshield/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This can be attached to an experimental welder to give it welding protection, removing the need for welding goggles or masks."
 
@@ -684,7 +682,6 @@
 	contained_sprite = TRUE
 
 /obj/item/overcapacitor/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This can be attached to an experimental welder to double the speed it works at, at the cost of tripling the fuel cost of using it."
 
@@ -897,7 +894,6 @@
 		)
 
 /obj/item/powerdrill/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Left-click \the [src] in-hand to cycle through the active bits."
 

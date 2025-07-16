@@ -19,7 +19,6 @@
 	var/topper = "sandwich_top"
 
 /obj/item/reagent_containers/food/snacks/csandwich/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	var/obj/item/O = pick(contents)
 	. += SPAN_NOTICE("You think you can see [O.name] in there.")

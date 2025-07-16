@@ -13,7 +13,6 @@
 	var/destroyed = 0
 
 /obj/structure/grille/condition_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(health < initial(health))
 		var/state
@@ -28,21 +27,17 @@
 		. += state
 
 /obj/structure/grille/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "A powered and knotted wire underneath this will cause the grille to shock anyone not wearing insulated gloves."
 
 /obj/structure/grille/assembly_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 
 /obj/structure/grille/disassembly_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "These could be easily <b>cut</b> through."
 
 /obj/structure/grille/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "\the [src] [anchored ? "is" : "could be"] anchored to the floor with some <b>screws<b/>."
 

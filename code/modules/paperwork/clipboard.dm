@@ -15,7 +15,6 @@
 	slot_flags = SLOT_BELT
 
 /obj/item/clipboard/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "You can store a pen in this."
 

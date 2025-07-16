@@ -22,7 +22,6 @@
 	/// Contains cart_griddle, cart_smartfridge, cart_table, cart_cent
 
 /obj/machinery/food_cart/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(stat & BROKEN)
 		return

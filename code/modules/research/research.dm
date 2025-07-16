@@ -251,7 +251,6 @@ GLOBAL_LIST_EMPTY(designs_imprinter_categories)
 	var/datum/tech/stored
 
 /obj/item/disk/tech_disk/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance <= 1)
 		if(stored)
@@ -276,7 +275,6 @@ GLOBAL_LIST_EMPTY(designs_imprinter_categories)
 	var/datum/design/blueprint
 
 /obj/item/disk/design_disk/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance <= 1)
 		if(blueprint)

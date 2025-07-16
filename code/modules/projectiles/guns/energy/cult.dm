@@ -37,7 +37,6 @@
 	is_wieldable = TRUE // see if i can get a sprite for this
 
 /obj/item/gun/energy/rifle/cult/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This weapon can be recharged by clicking on blood or remains with it. Remains recharge more than simple blood."
 

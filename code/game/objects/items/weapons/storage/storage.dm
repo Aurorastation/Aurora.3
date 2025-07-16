@@ -87,7 +87,6 @@
 	var/make_exact_fit = FALSE
 
 /obj/item/storage/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(isghost(user) || isstoryteller(user))
 		. += "It contains: [counting_english_list(contents)]"

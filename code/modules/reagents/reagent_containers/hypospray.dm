@@ -24,7 +24,6 @@
 	matter = list(MATERIAL_GLASS = 400, DEFAULT_WALL_MATERIAL = 200)
 
 /obj/item/reagent_containers/hypospray/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Unlike a syringe, reagents have to be poured into the hypospray before it can be used."
 
@@ -50,7 +49,6 @@
 	time = 0
 
 /obj/item/reagent_containers/hypospray/cmo/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This version of the hypospray has no delay before injecting a patient with reagent."
 
@@ -130,12 +128,10 @@
 	time = 0
 
 /obj/item/reagent_containers/hypospray/autoinjector/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Autoinjectors are spent after using them. To re-use, use a screwdriver to open the back panel, then simply pour any desired reagent inside. ALT-click while it's on your person to prepare it for reuse."
 
 /obj/item/reagent_containers/hypospray/autoinjector/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(LAZYLEN(reagents.reagent_volumes))
 		. += "It is currently loaded."

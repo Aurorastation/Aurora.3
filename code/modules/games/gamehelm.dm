@@ -47,7 +47,6 @@
 	var/muted = FALSE
 
 /obj/item/gamehelm/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "You can ALT-click the game-helm to open it up and turn it on. Click on the open device to play."
 

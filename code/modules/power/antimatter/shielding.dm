@@ -29,12 +29,10 @@
 	var/mapped = FALSE		//Set to 1 to ignore usual suicide if it doesn't immediately find a control_unit
 
 /obj/machinery/am_shielding/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Antimatter shielding sections must be beside an anchored control unit or another shielding section. If either are destroyed, the section will disappear."
 
 /obj/machinery/am_shielding/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Antimatter shielding sections are delicate. Attacking the shielding unit with a damaging object will reduce its stability, as will explosions. If the stability hits zero, the reactor may explode."
 
@@ -231,7 +229,6 @@
 	throw_range = 2
 
 /obj/item/device/am_shielding_container/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "To deploy, drop near an antimatter control unit or an existing deployed section and use your multitool on it."
 

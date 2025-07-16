@@ -33,13 +33,11 @@
 	var/pays_horizon_account = TRUE
 
 /obj/item/cargo_package/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "You can deliver this package to a cargo delivery point."
 	. += "An additional 2% is added to your account on delivery, or paid to you directly. Can be loaded into a cargo pack."
 
 /obj/item/cargo_package/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(delivery_point_id)
 		// if name not already set by cargo receptacle, acquire the sector name instead
@@ -129,7 +127,6 @@
 	var/horizon_delivery = FALSE
 
 /obj/item/cargo_package/offship/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(!delivery_point_id)
 		. += SPAN_NOTICE("Delivery site still being calculated, please check back later!")

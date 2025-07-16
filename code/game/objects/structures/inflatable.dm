@@ -8,7 +8,6 @@
 	var/deploy_path = null
 
 /obj/item/inflatable/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Inflate by using it in your hand. The inflatable barrier will inflate on the turf you are standing on."
 	. += "To deflate it, use the 'deflate' verb or ctrl-click on it."
@@ -52,7 +51,6 @@
 	var/health = 15
 
 /obj/structure/inflatable/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "To deflate it safely, use the 'deflate' verb or ctrl-click on it."
 	. += "Hitting these with any objects will probably puncture and break it forever."
@@ -208,7 +206,6 @@
 	var/isSwitchingStates = FALSE
 
 /obj/structure/inflatable/door/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Click the door to open or close it. It only stops air while closed."
 	. += "<b>When passing through an airlock made of inflatables, GO SLOWLY!</b>"

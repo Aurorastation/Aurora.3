@@ -36,7 +36,6 @@
 	)
 
 /obj/vehicle/animal/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Click-drag yourself onto the animal to climb onto it."
 	. += "Click-drag it onto yourself to access its mounted storage."

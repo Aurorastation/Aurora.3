@@ -32,13 +32,11 @@
 	var/cookoff_light = 3
 
 /obj/item/ship_ammunition/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Using a pen on \the [src] will let you write a lovely message on it for your intended target; this message is detectable on the overmap by ship sensors."
 	. += "Some types of ammunition are especially flammable, fragile, etc. They can cook off if not stored and handled very carefully."
 
 /obj/item/ship_ammunition/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(written_message)
 		if(distance > 3)
@@ -47,7 +45,6 @@
 			. += "It has a message written on the casing: <span class='notice'><i>[written_message]</i></span>."
 
 /obj/item/ship_ammunition/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(ammunition_flags & SHIP_AMMO_FLAG_INFLAMMABLE)
 		. += "This ammunition is flammable, and will cook off and explode when exposed to fire."

@@ -40,12 +40,10 @@
 	default_type = MATERIAL_GLASS
 
 /obj/item/stack/material/cyborg/glass/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "As a synthetic, you can replenish your material supplies by recharging."
 
 /obj/item/stack/material/cyborg/glass/assembly_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Use in your hand to build a window."
 

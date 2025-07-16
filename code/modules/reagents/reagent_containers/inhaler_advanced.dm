@@ -21,7 +21,6 @@
 	storage_slot_sort_by_name = TRUE
 
 /obj/item/reagent_containers/personal_inhaler_cartridge/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 
 	if (distance > 2)
@@ -104,7 +103,6 @@
 	var/eject_when_empty = FALSE
 
 /obj/item/personal_inhaler/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance > 2)
 		return

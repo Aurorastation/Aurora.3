@@ -13,13 +13,11 @@
 	var/datum/record/warrant/selected_warrant
 
 /obj/item/device/holowarrant/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Use this item in-hand to select the active warrant."
 	. += "Click on the person you want to show it to to display the warrant to them."
 
 /obj/item/device/holowarrant/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(selected_warrant)
 		. += "It's a holographic warrant for '[selected_warrant.name]'."

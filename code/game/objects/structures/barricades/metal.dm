@@ -15,7 +15,6 @@
 	var/build_state = BARRICADE_BSTATE_SECURED //Look at __game.dm for barricade defines
 
 /obj/structure/barricade/metal/disassembly_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	switch(build_state)
 		if(BARRICADE_BSTATE_SECURED)

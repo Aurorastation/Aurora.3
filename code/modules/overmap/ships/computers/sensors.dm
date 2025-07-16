@@ -497,7 +497,6 @@
 		AddOverlays("sensors-effect-hot")
 
 /obj/machinery/shipsensors/condition_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(health <= 0)
 		. += "\The [src] is wrecked."

@@ -14,7 +14,6 @@
 	var/active = 0
 
 /obj/item/pinpointer/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	for(var/obj/machinery/nuclearbomb/bomb in SSmachinery.machinery)
 		if(bomb.timing)

@@ -28,7 +28,6 @@
 	var/primmed = FALSE
 
 /obj/vehicle/bike/wasp_torpedo/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	// Not the fun kind of bike. Don't inherit.
 	. += "Click-drag yourself onto the torpedo to climb onto it."

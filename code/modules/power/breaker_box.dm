@@ -19,14 +19,12 @@
 	var/update_locked = 0
 
 /obj/machinery/power/breakerbox/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "A breaker brox functions as an electrical passthrough; if enabled, power will flow freely around it. In substations, this means that the PSU/SMES will be bypassed."
 	. += "Toggling the breaker box has a sixty-second cooldown time."
 	. += "A multitool can be used to update or clear the breaker's RCON tag."
 
 /obj/machinery/power/breakerbox/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(on)
 		. += "It seems to be online."

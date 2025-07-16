@@ -280,7 +280,6 @@
 	var/auto_examine = FALSE
 
 /obj/item/clothing/accessory/stethoscope/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Click on the UI action button toggle between the examination modes."
 	. += "Automatic will use the stethoscope on the person you're examining when adjacent to them, automatically using it on the selected body part."

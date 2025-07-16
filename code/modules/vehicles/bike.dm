@@ -50,7 +50,6 @@
 	var/spawns_with_key = TRUE
 
 /obj/vehicle/bike/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Click-drag yourself onto the bike to climb onto it."
 	. += "Click-drag it onto yourself to access its mounted storage."
@@ -61,7 +60,6 @@
 	. += "Use walk intent to move around carefully, or run intent to go fast, and risk crashing into other people or bikes."
 
 /obj/vehicle/bike/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance <= 4)
 		. += "\The [src] has a small registration plate on the back, '[registration_plate]'."

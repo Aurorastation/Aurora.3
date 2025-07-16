@@ -17,12 +17,10 @@
 	activation_sound = 'sound/effects/lighton.ogg'
 
 /obj/item/device/flashlight/lamp/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Left-click this item in-hand to toggle the light, or right-click it and use the 'Toggle Light' verb."
 
 /obj/item/device/flashlight/lamp/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "As a Cultist, this item can be reforged to become a pylon."
 

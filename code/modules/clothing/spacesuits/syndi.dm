@@ -48,12 +48,10 @@
 	contained_sprite = TRUE
 
 /obj/item/clothing/head/helmet/space/syndicate/covert/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This helmet has extra armor compared to a standard softsuit helmet."
 
 /obj/item/clothing/head/helmet/space/syndicate/covert/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance <= 1)
 		. += SPAN_ALERT("This helmet has extra armor compared to a normal softsuit helmet.")
@@ -67,12 +65,10 @@
 	contained_sprite = TRUE
 
 /obj/item/clothing/suit/space/syndicate/covert/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This suit is specially armored for additional protection, compared to a standard softsuit."
 
 /obj/item/clothing/suit/space/syndicate/covert/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance <= 1)
 		. += SPAN_ALERT("This suit has extra armor compared to a normal softsuit.")

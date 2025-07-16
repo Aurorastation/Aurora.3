@@ -21,7 +21,6 @@
 	var/obj/item/pen/pen
 
 /obj/item/portable_typewriter/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "You can ALT-click this to eject the paper."
 	. += "Click and drag \the [src] onto yourself while adjacent to type on it."
@@ -144,7 +143,6 @@
 	var/opened = FALSE
 
 /obj/item/typewriter_case/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "You can ALT-click on this case to open and close it. A typewriter can only be removed or added when it is open!"
 

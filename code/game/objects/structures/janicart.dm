@@ -22,7 +22,6 @@
 	var/mob/living/pulling
 
 /obj/structure/janitorialcart/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Click and drag a mop bucket onto the cart to mount it."
 	. += "ALT-Click with a mop to put it away; a normal click will wet it in the bucket."
@@ -30,12 +29,10 @@
 	. += "You can use a light replacer, spraybottle (of space cleaner) and four wet-floor signs on the cart to store them."
 
 /obj/structure/janitorialcart/disassembly_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "An empty custodial cart can be taken apart with a <b>wrench</b> or a <b>welder</b>. Or a <b>plasma cutter</b>, if you're that hardcore."
 
 /obj/structure/janitorialcart/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance <= 1)
 		if (mybucket)

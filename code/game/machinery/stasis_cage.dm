@@ -31,12 +31,10 @@
 	parts_power_mgmt = FALSE
 
 /obj/machinery/stasis_cage/upgrade_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Upgraded <b>capacitors</b> will reduce power usage."
 
 /obj/machinery/stasis_cage/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if (contained)
 		. += SPAN_NOTICE("\The [contained] is kept inside.")

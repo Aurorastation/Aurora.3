@@ -36,7 +36,6 @@
 	)
 
 /obj/machinery/r_n_d/protolathe/upgrade_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Upgraded <b>matter bins</b> will increase material storage capacity."
 	. += "Upgraded <b>manipulators</b> will improve material use efficiency and increase fabrication speed."

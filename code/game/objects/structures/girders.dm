@@ -16,7 +16,6 @@
 	var/plating = FALSE
 
 /obj/structure/girder/condition_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	var/state
 	var/current_damage = health / initial(health)

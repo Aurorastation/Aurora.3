@@ -63,7 +63,6 @@
 	var/set_unsafe_on_init = FALSE
 
 /obj/item/paper/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if (old_name && (icon_state == "paper_plane" || icon_state == "paper_swan"))
 		. += SPAN_NOTICE("You're going to have to unfold it before you can read it.")

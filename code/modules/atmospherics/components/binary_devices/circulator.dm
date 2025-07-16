@@ -25,7 +25,6 @@
 	density = TRUE
 
 /obj/machinery/atmospherics/binary/circulator/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This generates electricity, depending on the difference in temperature between each side of the machine."
 	. += "The meter in the center of the machine gives an indicator of how much elecrtricity is being generated."

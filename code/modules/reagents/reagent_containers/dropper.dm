@@ -16,12 +16,10 @@
 	pickup_sound = 'sound/items/pickup/glass_small.ogg'
 
 /obj/item/reagent_containers/dropper/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "ALT-Click or use this item to change transfer rate."
 
 /obj/item/reagent_containers/dropper/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(LAZYLEN(reagents.reagent_volumes))
 		. += "\The [src] is holding [reagents.total_volume] units out of [volume]. Current transfer is [amount_per_transfer_from_this] units."

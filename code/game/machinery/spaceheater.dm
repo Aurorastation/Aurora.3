@@ -18,7 +18,6 @@
 	var/obj/item/cell/apc/cell
 
 /obj/machinery/space_heater/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "The unit is <b>[on ? "on" : "off"]</b> and the hatch is <b>[panel_open ? "open" : "closed"]</b>."
 	if(panel_open)

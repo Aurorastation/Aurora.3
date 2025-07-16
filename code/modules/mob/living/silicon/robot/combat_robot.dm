@@ -107,7 +107,6 @@
 	icon_state = "emag"
 
 /obj/item/robot_emag/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This emag has an unlimited number of uses, however, each use will drain a little bit of your power cell."
 

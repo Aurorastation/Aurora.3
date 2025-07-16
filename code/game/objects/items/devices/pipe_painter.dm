@@ -7,7 +7,6 @@
 	var/mode
 
 /obj/item/device/pipe_painter/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. +=  "It is in [mode] mode."
 

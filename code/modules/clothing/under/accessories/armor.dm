@@ -21,7 +21,6 @@
 	pickup_sound = 'sound/items/pickup/boots.ogg'
 
 /obj/item/clothing/accessory/leg_guard/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "These must be attached to plate carriers for them to work."
 

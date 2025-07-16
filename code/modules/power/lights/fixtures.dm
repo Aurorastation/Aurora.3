@@ -60,12 +60,10 @@
 	init_flags = 0
 
 /obj/machinery/light/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Use Grab intent on a working light to remove it from its fixture."
 
 /obj/machinery/light/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	switch(status)
 		if(LIGHT_OK)

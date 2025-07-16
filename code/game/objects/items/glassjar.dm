@@ -26,7 +26,6 @@
 	pickup_sound = 'sound/items/pickup/glass.ogg'
 
 /obj/item/glass_jar/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Can be used to hold money, small animals, and gumballs. You can remove the lid and use it as a reagent container."
 

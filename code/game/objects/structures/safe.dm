@@ -31,7 +31,6 @@ FLOOR SAFES
 	var/drill_y_offset = -8				// The Y pixel offset for the drill
 
 /obj/structure/safe/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(broken)
 		. += SPAN_WARNING("\The [src]'s locking system has been drilled open!")

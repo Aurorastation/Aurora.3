@@ -132,12 +132,10 @@
 	var/port_item_path = /obj/item/fuel_port
 
 /obj/structure/fuel_port/assembly_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "The fuel port must be wrenched and welded in place before it can be loaded and used by the shuttle."
 
 /obj/structure/fuel_port/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	switch(state)
 		if(FUEL_PORT_UNSECURED)

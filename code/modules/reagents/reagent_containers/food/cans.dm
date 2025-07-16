@@ -21,7 +21,6 @@
 	pickup_sound = 'sound/items/pickup/soda.ogg'
 
 /obj/item/reagent_containers/food/drinks/cans/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Click it in your hand to open it."
 	. += "If it's carbonated and closed, you can shake it by clicking on it with harm intent."

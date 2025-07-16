@@ -16,14 +16,12 @@
 	maptext_y = 2
 
 /obj/item/inductive_charger/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Click on an adjacent object that contains or is a power cell to attempt to find and charge it."
 	. += "ALT-click to adjust the transferred amount"
 	. += "After a successful charge, the inductive charger recharge in a few minutes."
 
 /obj/item/inductive_charger/handheld/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(cell)
 		. += SPAN_NOTICE("Cell Charge: [cell.percent()]%")

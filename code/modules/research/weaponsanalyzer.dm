@@ -14,7 +14,6 @@
 		)
 
 /obj/machinery/r_n_d/weapons_analyzer/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += SPAN_NOTICE("It has [item ? "[item.name]" : "nothing"] attached.")
 

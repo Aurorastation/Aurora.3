@@ -21,7 +21,6 @@
 	)
 
 /obj/machinery/biogenerator/upgrade_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Upgraded <b>manipulators</b> will increase the nutrients provided by new inputs."
 	. += "Upgraded <b>matter bins</b> will decrease the conversion cost of bio-goods."

@@ -55,7 +55,6 @@
 	charge_failure_message = "'s charging socket was removed to make room for a minaturized reactor."
 
 /obj/item/gun/energy/crossbow/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This is a stealthy weapon which fires paralyzing bolts at your target. When it hits someone, they will suffer a stun effect."
 	. += "The energy crossbow recharges itself slowly, and can be concealed in your pocket or bag."

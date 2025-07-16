@@ -16,12 +16,10 @@
 	var/needs_user_location = TRUE
 
 /obj/item/device/megaphone/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Use it on yourself to broadcast something. LOUDLY."
 
 /obj/item/device/multitool/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This can be emagged to make it broadcast random insults or self-incriminations when used."
 

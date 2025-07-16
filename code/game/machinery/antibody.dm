@@ -20,7 +20,6 @@
 	var/mob/living/carbon/human/occupant
 
 /obj/machinery/antibody_extractor/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(!working)
 		. += "It's inactive, and beeping ominously every now and then."

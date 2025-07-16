@@ -15,7 +15,6 @@
 	var/obj/effect/projection/projection
 
 /obj/item/storage/slide_projector/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "You can use this in-hand or click-drag it to yourself to to open its interface."
 	. += "Click anywhere with it in your hand, or click-drag it, to project at that location."

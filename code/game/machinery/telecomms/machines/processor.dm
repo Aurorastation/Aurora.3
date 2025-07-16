@@ -19,7 +19,6 @@
 	var/process_mode = UNCOMPRESS
 
 /obj/machinery/telecomms/processor/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Attacking/damaging this machine will cause communications over its linked frequency(s) to become increasingly garbled."
 

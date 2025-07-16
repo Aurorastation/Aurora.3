@@ -27,7 +27,6 @@
 	)
 
 /obj/machinery/stasis_bed/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "You can alt-click this to toggle it on or off."
 

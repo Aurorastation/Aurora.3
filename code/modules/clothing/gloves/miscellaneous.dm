@@ -67,7 +67,6 @@
 	var/balloon = /obj/item/toy/balloon/latex
 
 /obj/item/clothing/gloves/latex/assembly_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "You can make balloons with these using some cable coil."
 

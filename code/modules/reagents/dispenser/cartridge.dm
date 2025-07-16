@@ -19,7 +19,6 @@
 	var/temperature_override = 0 //A non-zero value with set the temperature of the reagents inside to this value, in kelvin.
 
 /obj/item/reagent_containers/chem_disp_cartridge/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "It has a capacity of [volume] units."
 	if(reagents.total_volume <= 0)

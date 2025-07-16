@@ -22,7 +22,6 @@
 	var/reload_sound = 'sound/weapons/reload_bullet.ogg' //sound that plays when inserted into gun.
 
 /obj/item/ammo_casing/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if (!BB)
 		. += "This one is spent."
@@ -125,7 +124,6 @@
 	var/eject_sound = 'sound/weapons/magazine_eject.ogg'
 
 /obj/item/ammo_magazine/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "There [(stored_ammo.len == 1)? "is" : "are"] <b>[stored_ammo.len] round\s</b> left!"
 

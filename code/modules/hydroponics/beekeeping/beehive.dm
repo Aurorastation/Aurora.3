@@ -29,7 +29,6 @@
 	var/list/owned_bee_swarms = list()
 
 /obj/machinery/beehive/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += SPAN_NOTICE("\The [src] is holding <b>[frames]/[maxFrames]</b> frames.")
 	if(is_adjacent)

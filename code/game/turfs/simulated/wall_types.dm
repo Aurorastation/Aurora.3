@@ -3,7 +3,6 @@
 	icon_state = "r_wall"
 
 /turf/simulated/wall/r_wall/disassembly_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "You can deconstruct this by with the following steps:<br>\
 	Cut the outer grill with wirecutters, then unscrew them.<br>\

@@ -12,7 +12,6 @@
 	var/static/list/name2knit
 
 /obj/item/knittingneedles/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(is_adjacent)
 		if(ball)

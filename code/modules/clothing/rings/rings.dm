@@ -43,7 +43,6 @@
 	reagents_to_add = list(/singleton/reagent/polysomnine = 10)
 
 /obj/item/clothing/ring/reagent/sleepy/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This ring has a hidden injector that will activate when worn, administering a strong sedative. It is safe to hold in your hands."
 

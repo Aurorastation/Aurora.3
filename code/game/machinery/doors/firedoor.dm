@@ -62,7 +62,6 @@
 	can_astar_pass = CANASTARPASS_DENSITY
 
 /obj/machinery/door/firedoor/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Firedoors automatically close if the pressure differential on either side of them meets or exceeds 25 kPa, or temperature rises above 50° C or falls below 0° C on either side."
 	. += "Firedoors require electricity to operate."
@@ -70,7 +69,6 @@
 	. += "Engineering, Atmospherics, or Paramedical access rights are required to freely open firedoors on active lockdown."
 
 /obj/machinery/door/firedoor/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(!is_adjacent || !density)
 		return

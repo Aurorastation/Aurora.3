@@ -368,7 +368,6 @@ ABSTRACT_TYPE(/obj/item/ammo_casing/howitzer)
 	projectile_type = /obj/projectile/howitzer
 
 /obj/item/ammo_casing/howitzer/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "\A [name], to be used in a howitzer."
 	if(!BB && distance < 4)

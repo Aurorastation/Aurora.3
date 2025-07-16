@@ -398,12 +398,10 @@
 	var/global/list/gun_choices
 
 /obj/item/gun/energy/chameleon/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Exactly as it appears, officer."
 
 /obj/item/gun/energy/chameleon/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This gun is actually a hologram projector that can alter its appearance to mimick other weapons. "
 	. += "To change the appearance, use the appropriate verb in the chameleon items tab."

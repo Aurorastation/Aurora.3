@@ -15,7 +15,6 @@
 	var/sound_id
 
 /obj/item/device/geiger/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	var/msg = "[scanning ? "ambient" : "stored"] Radiation level: <b>[radiation_count ? radiation_count : "0"] IU/s</b>."
 	if(radiation_count > RAD_LEVEL_LOW)

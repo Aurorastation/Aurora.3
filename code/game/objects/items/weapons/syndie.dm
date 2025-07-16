@@ -120,7 +120,6 @@
 	var/when_recharge = 0
 
 /obj/item/syndie/teleporter/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "While this may look like a bog-standard pen, in reality, this is a handheld teleportation device."
 	. += "Simply click on any turf within view to attempt to teleport there! The teleporter will recharge after a minute."

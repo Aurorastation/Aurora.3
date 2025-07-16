@@ -164,7 +164,6 @@
 	var/next_spawn
 
 /obj/effect/portal/spawner/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This portal is a spawner portal. You cannot enter it to teleport, but it will periodically spawn things."
 
@@ -291,7 +290,6 @@
 	var/health_timer = 10 MINUTES // you need to reduce the health by standing near it with a neutralizer
 
 /obj/effect/portal/revenant/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This is a bluespace rift. It is a node wherein revenants can seep into this locale. To destroy it, you must bring a bluespace neutralizer near it."
 

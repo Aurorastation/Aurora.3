@@ -14,7 +14,6 @@ GLOBAL_LIST_INIT(tape_roll_applications, list())
 	var/icon_base
 
 /obj/item/taperoll/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Apply a length of tape by left-clicking \the [src] in-hand to define the start point, moving in a cardinal direction to the desired stop point, and left-clicking it again."
 	. += "Apply a short length of tape directly to a closed airlock by left-clicking it with \the [src] in-hand."
@@ -40,7 +39,6 @@ GLOBAL_LIST_INIT(tape_roll_applications, list())
 	var/icon_base
 
 /obj/item/tape/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(LAZYLEN(crumplers) && is_adjacent)
 		. += SPAN_WARNING("\The [initial(name)] has been crumpled by [english_list(crumplers)].")
@@ -99,12 +97,10 @@ GLOBAL_LIST_INIT(tape_roll_applications, list())
 	var/shield_marker = FALSE
 
 /obj/item/tape/engineering/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "You can use a multitool on this tape to allow emergency shield generators to deploy shields on this tile."
 
 /obj/item/tape/engineering/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(shield_marker)
 		. += "This strip of tape has been modified to serve as a marker for emergency shield generators to lock onto."

@@ -46,7 +46,6 @@ GLOBAL_VAR_INIT(photo_count, 0)
 	pickup_sound = 'sound/items/pickup/paper.ogg'
 
 /obj/item/photo/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance <= 1)
 		show(user)
@@ -157,7 +156,6 @@ GLOBAL_VAR_INIT(photo_count, 0)
 	var/size = 3
 
 /obj/item/device/camera/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(is_adjacent)
 		. += SPAN_NOTICE("It has <b>[pictures_left] photos</b> left.")

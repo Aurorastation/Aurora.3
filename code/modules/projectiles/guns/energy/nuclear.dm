@@ -57,7 +57,6 @@
 	var/lightfail = 0
 
 /obj/item/gun/energy/gun/nuclear/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Unlike most weapons, this weapon recharges itself."
 

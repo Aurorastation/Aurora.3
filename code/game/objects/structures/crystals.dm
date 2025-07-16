@@ -13,7 +13,6 @@
 	var/obj/machinery/power/crystal_agitator/creator // used to re-add dense turfs to agitation list when destroyed
 
 /obj/structure/reagent_crystal/condition_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	var/current_damage = health / initial(health)
 	switch(current_damage)
@@ -164,7 +163,6 @@
 	color = reagents.get_color()
 
 /obj/item/reagent_crystal/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This crystal can be ground to obtain the chemical material locked within."
 

@@ -20,7 +20,6 @@
 	var/activation_sound = 'sound/weapons/armbomb.ogg'
 
 /obj/item/grenade/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance <= 0)
 		if(det_time > 1)

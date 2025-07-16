@@ -120,7 +120,6 @@
 	reagents_to_add = list(/singleton/reagent/toxin/cyanide = 50)
 
 /obj/item/reagent_containers/pill/cyanide/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "A cyanide pill. Deadly if swallowed."
 

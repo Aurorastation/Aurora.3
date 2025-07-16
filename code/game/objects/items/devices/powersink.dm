@@ -38,7 +38,6 @@
 	var/obj/structure/cable/attached		// the attached cable
 
 /obj/item/device/powersink/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Dead APCs means their emergency shutters won't automatically close pressure loss. You could rapidly vent an entire department this way."
 

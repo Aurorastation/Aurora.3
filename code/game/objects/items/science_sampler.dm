@@ -23,7 +23,6 @@
 	var/obj/item/reagent_containers/glass/beaker/vial/vial
 
 /obj/item/sampler/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "It has attachments allowing for sampling of biological tissue, surface soil and water sources. Must be loaded with a vial. Alt-click to cycle between attachments."
 

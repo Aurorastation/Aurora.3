@@ -20,7 +20,6 @@
 	var/list/indices
 
 /obj/item/journal/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "ALT-click this while it's on your person or next to you to open this journal."
 	. += "While the journal is open, use it in hand or use a pen on it to access the contents."

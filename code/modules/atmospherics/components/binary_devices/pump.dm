@@ -37,7 +37,6 @@ Thus, the two variables affect pump operation are set in New():
 	var/broadcast_status_next_process = FALSE
 
 /obj/machinery/atmospherics/binary/pump/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This moves gas from one pipe to another. A higher target pressure demands more energy."
 	. += "The side with the colored end is the output."

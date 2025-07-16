@@ -13,7 +13,6 @@
 	var/obj/item/gun/energy/connected
 
 /obj/item/recharger_backpack/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(powersupply)
 		. += SPAN_NOTICE("The backpack display shows that the installed power cell is at <b>[round(powersupply.percent())]%</b>.")

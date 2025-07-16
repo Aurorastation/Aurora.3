@@ -17,7 +17,6 @@
 	var/unres_dir = null
 
 /obj/item/airlock_electronics/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Access control can be configured by using your ID on the circuitboard to unlock it, then using the circuitboard on yourself."
 	. += "You can copy the settings from one circuitboard to another by clicking the source board with the target board. Be mindful of directional access settings!"
@@ -151,6 +150,5 @@
 	secure = TRUE
 
 /obj/item/airlock_electronics/secure/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Airlocks built with this board will have their wires uniquely randomized, and bolts will automatically drop if the airlock is broken."

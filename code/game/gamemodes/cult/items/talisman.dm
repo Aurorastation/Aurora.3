@@ -7,7 +7,6 @@
 	info = "<center><img src='talisman.png'></center><br/><br/>"
 
 /obj/item/paper/talisman/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(iscultist(user) && rune)
 		var/network_text = ""

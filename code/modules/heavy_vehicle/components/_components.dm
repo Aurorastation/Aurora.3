@@ -17,7 +17,6 @@
 	dir = SOUTH
 
 /obj/item/mech_component/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(ready_to_install())
 		. += SPAN_NOTICE("It is ready for installation.")

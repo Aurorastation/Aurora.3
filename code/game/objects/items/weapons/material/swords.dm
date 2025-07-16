@@ -21,7 +21,6 @@
 	worth_multiplier = 30
 
 /obj/item/material/sword/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "As a Cultist, this item can be reforged to become a cult blade."
 

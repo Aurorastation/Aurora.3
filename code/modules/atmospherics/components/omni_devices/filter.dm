@@ -19,7 +19,6 @@
 	var/list/filtering_outputs = list()	//maps gasids to gas_mixtures
 
 /obj/machinery/atmospherics/omni/filter/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Filters gas from a custom input direction, with up to two filtered outputs and an 'everything else' output."
 	. += "The filtered output's arrows glow orange."

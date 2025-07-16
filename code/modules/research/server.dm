@@ -25,7 +25,6 @@
 	parts_power_mgmt = FALSE
 
 /obj/machinery/r_n_d/server/upgrade_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Upgraded <b>scanning modules</b> will reduce active power usage."
 

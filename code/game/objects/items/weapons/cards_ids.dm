@@ -690,7 +690,6 @@
 	iff_faction = IFF_BLUESPACE
 
 /obj/item/card/id/bluespace/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Access can be copied from other ID cards by clicking on them."
 

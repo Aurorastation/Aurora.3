@@ -26,7 +26,6 @@
 	var/broadcast_status_next_process = FALSE
 
 /obj/machinery/atmospherics/binary/passive_gate/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This is a one-way regulator, allowing gas to flow only at a specific pressure and flow rate."
 	. += "If the light is green, it is flowing."

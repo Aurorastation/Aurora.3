@@ -16,7 +16,6 @@
 	var/hotwire_progress = 8
 
 /obj/machinery/computer/shuttle_control/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(initial(hotwire_progress) != hotwire_progress)
 		if(hotwire_progress != 0)

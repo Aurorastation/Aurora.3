@@ -21,7 +21,6 @@
 	parts_power_mgmt = FALSE
 
 /obj/machinery/telepad/upgrade_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Upgraded <b>capacitors</b> will improve the power efficiency of the telepad."
 
@@ -131,7 +130,6 @@
 	var/teleporting = 0
 
 /obj/item/rcs/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "There are [rcharges] charge\s left."
 

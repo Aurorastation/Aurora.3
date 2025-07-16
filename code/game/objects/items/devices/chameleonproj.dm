@@ -19,7 +19,6 @@
 	var/saved_overlays
 
 /obj/item/device/chameleon/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This device can let you disguise as common objects."
 	. += "Left-click on an object with this in your active hand to scan it."

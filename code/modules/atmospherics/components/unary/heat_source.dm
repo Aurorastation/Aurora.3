@@ -28,12 +28,10 @@
 	)
 
 /obj/machinery/atmospherics/unary/heater/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "heats up the gas of the pipe it is connected to. It uses massive amounts of electricity while on."
 
 /obj/machinery/atmospherics/unary/heater/upgrade_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Upgraded <b>matter bins</b> will increase maximum temperature setting and the volume of air it can heat at once."
 	. += "Upgraded <b>capacitors</b> will increase maximum power setting and maximum temperature setting."

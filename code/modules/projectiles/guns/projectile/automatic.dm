@@ -371,7 +371,6 @@
 	var/obj/item/gun/launcher/grenade/underslung/launcher
 
 /obj/item/gun/projectile/automatic/rifle/z8/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(launcher.chambered)
 		. += "\The [launcher] has \a [launcher.chambered] loaded."

@@ -29,7 +29,6 @@
 	parts_power_mgmt = FALSE
 
 /obj/machinery/power/rtg/upgrade_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Upgraded <b>capacitors</b> will increase maximum power output."
 

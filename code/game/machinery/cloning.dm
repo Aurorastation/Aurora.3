@@ -392,7 +392,6 @@
 	var/read_only = 0 //Well,it's still a floppy disk
 
 /obj/item/disk/data/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "The write-protect tab is set to [read_only ? "protected" : "unprotected"]."
 

@@ -967,7 +967,6 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 	var/rolled = FALSE // Whether the newspaper is rolled or not, making it a deadly weapon.
 
 /obj/item/newspaper/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "You can use this on yourself with the Grab intent to roll it up or to unroll it."
 

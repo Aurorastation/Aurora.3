@@ -27,7 +27,6 @@
 	)
 
 /obj/machinery/chem_heater/upgrade_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Upgraded <b>manipulators</b> increase the speed at which vessel contents are heated."
 

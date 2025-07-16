@@ -78,7 +78,6 @@
 	recoil_wielded = 5
 
 /obj/item/gun/projectile/revolver/mateba/captain/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "In order to accurately fire this revolver, it must be wielded with both hands. Additionally, if you fire this revolver unwielded and you are not a G2 or Unathi, you will drop it."
 
@@ -190,7 +189,6 @@
 	fire_delay = ROF_INTERMEDIATE
 
 /obj/item/gun/projectile/revolver/lemat/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This is a unique ballistic weapon. It fires .38 ammunition, but may also load shotgun shells into a secondary barrel."
 	. += "By using the Unique-Action macro, you can switch from one barrel to the other."

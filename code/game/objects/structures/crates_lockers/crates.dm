@@ -29,7 +29,6 @@
 	var/static/list/animation_math //assoc list with pre calculated values
 
 /obj/structure/closet/crate/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Crates can be placed on top of tables by clicking and dragging the crate onto the target table."
 

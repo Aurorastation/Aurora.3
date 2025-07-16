@@ -70,7 +70,6 @@
 	syndie = TRUE
 
 /obj/item/device/encryptionkey/syndicate/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "An encryption key that allows you to intercept comms and speak on private non-standard channels. Use :t to access the private channel."
 
@@ -234,7 +233,6 @@
 	origin_tech = list(TECH_ILLEGAL = 2)
 
 /obj/item/device/encryptionkey/rev/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "An encryption key that allows you to intercept private comms speak on private non-ship channels. Use :x to access the private channel."
 

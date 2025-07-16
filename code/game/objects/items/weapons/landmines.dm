@@ -448,7 +448,6 @@
 	var/obj/item/device/assembly/signaler/signaler
 
 /obj/item/landmine/claymore/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This device can be fitted with a signaler device for remotely actuated detonations, or can be activated with the press of a button directly above it."
 

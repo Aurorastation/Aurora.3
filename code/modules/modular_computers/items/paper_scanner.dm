@@ -8,7 +8,6 @@
 	var/obj/item/computer_hardware/hard_drive/portable/drive
 
 /obj/item/paper_scanner/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Click paper or a paper bundle with it to digitize it and store it in the inserted drive."
 	. += "ALT-click it while it's in one of your hands to eject the portable drive."

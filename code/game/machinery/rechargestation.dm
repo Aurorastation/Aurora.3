@@ -46,13 +46,11 @@
 	)
 
 /obj/machinery/recharge_station/upgrade_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Upgraded <b>capacitors</b> will increase charging rate (for shipbounds only, not IPCs)."
 	. += "Upgraded <b>manipulators</b> will make the recharging station also start to repair brute damage, then also burn damage, at increasing speed (for shipbounds only, not IPCs)."
 
 /obj/machinery/recharge_station/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	var/charging_power_kw = round(charging_power / 1000, 0.1)
 	. += "Uses a dedicated power supply to deliver <b>[charging_power_kw] kW</b> when in use."

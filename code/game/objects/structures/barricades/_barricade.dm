@@ -30,7 +30,6 @@
 	starting_maxhealth = maxhealth
 
 /obj/structure/barricade/condition_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	switch(damage_state)
 		if(BARRICADE_DMG_NONE)
@@ -43,13 +42,11 @@
 			. += SPAN_WARNING("It's crumbling apart, just a few more blows will tear it apart!")
 
 /obj/structure/barricade/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(!is_wired)
 		. += "Use a length of barbed wire on this barricade to restrict enemies from climbing it and damage them on attacking it at close range."
 
 /obj/structure/barricade/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += SPAN_INFO("It is recommended to stand flush to a barricade or one tile away for maximum efficiency.")
 	if(is_wired)

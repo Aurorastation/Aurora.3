@@ -50,7 +50,6 @@
 
 
 /turf/simulated/wall/condition_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(!damage)
 		. += SPAN_NOTICE("It looks fully intact.")
@@ -64,24 +63,20 @@
 			. += SPAN_DANGER("It looks heavily damaged.")
 
 /turf/simulated/wall/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(locate(/obj/effect/overlay/wallrot) in src)
 		. += "Wall rot fungus makes walls highly susceptible to damage- pushing on it now might make it break apart."
 		. += "It can be removed cleanly with a welding tool, or scraped off for processing with a bladed item like wirecutters."
 
 /turf/simulated/wall/assembly_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "You can build a wall by using metal sheets and making a girder, then adding more material."
 
 /turf/simulated/wall/disassembly_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Plating can be removed from a wall by use of a <b>welder</b>."
 
 /turf/simulated/wall/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(locate(/obj/effect/overlay/wallrot) in src)
 		. += SPAN_WARNING("There is fungus growing on [src].")

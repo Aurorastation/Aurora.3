@@ -14,13 +14,11 @@
 	var/is_leaking = FALSE
 
 /obj/structure/reagent_dispensers/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Use Help intent to fill a container in your hand from this, and use any other intent to empty the container into this."
 	. += "Right-click this to change the amount transferred per use."
 
 /obj/structure/reagent_dispensers/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance > 2)
 		return
@@ -133,7 +131,6 @@
 	reagents_to_add = list(/singleton/reagent/fuel = 1000)
 
 /obj/structure/reagent_dispensers/fueltank/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance > 2)
 		return

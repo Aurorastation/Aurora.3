@@ -9,7 +9,6 @@
 	var/obj/item/plastique/parent
 
 /obj/effect/plastic_explosive/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(is_adjacent)
 		. += SPAN_WARNING("It is set to blow in [round((parent.detonate_time - world.time) / 10)] seconds.")

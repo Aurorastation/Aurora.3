@@ -16,7 +16,6 @@ GLOBAL_LIST_INIT_TYPED(all_tethers, /obj/item/tethering_device, list())
 	var/list/active_beams = list()
 
 /obj/item/tethering_device/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Use in-hand on yourself to activate: you must be on the same level and within fifteen tiles of another device to latch."
 	. += "Tethers are colour coded by distance."

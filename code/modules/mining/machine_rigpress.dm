@@ -19,7 +19,6 @@
 	)
 
 /obj/machinery/mineral/rigpress/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "The following devices can be made:"
 	for(var/press_type in press_types)

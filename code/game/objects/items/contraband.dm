@@ -125,7 +125,6 @@
 	volume = 50
 
 /obj/item/reagent_containers/powder/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(reagents)
 		. += SPAN_NOTICE("There's about <b>[reagents.total_volume] unit\s</b> here.")

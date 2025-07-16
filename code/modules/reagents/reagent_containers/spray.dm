@@ -26,7 +26,6 @@
 	var/spray_sound = 'sound/effects/spray2.ogg'
 
 /obj/item/reagent_containers/spray/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(is_adjacent)
 		. += "[round(reagents.total_volume)] units left."
@@ -180,7 +179,6 @@
 	reagents_to_add = list(/singleton/reagent/capsaicin/condensed = 40)
 
 /obj/item/reagent_containers/spray/pepper/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(is_adjacent)
 		. += "The safety is [safety ? "on" : "off"]."

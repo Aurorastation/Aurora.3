@@ -371,7 +371,6 @@
 	icon_state = "drill_head"
 
 /obj/item/material/drill_head/condition_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	var/percentage = get_durability_percentage()
 	var/descriptor = SPAN_DANGER("It looks close to breaking")
@@ -737,13 +736,11 @@
 	var/image/anomaly_overlay
 
 /obj/item/mecha_equipment/phazon/assembly_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(!AC)
 		. += "It needs an anomaly core to function. You can install one by using a core on it."
 
 /obj/item/mecha_equipment/phazon/disassembly_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(AC)
 		. += "The anomaly core could be extracted if the securing <b>bolts</b> are undone."

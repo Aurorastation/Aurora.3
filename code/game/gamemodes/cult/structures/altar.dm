@@ -5,7 +5,6 @@
 	var/last_use = 0
 
 /obj/structure/cult/talisman/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "If you are a Cultist, you could click on this altar to pray to Nar'Sie, who will in turn heal some of your ailments."
 	. += "It has a cooldown time of 15 seconds. Do not tempt the wrath of Nar'Sie demanding more!"

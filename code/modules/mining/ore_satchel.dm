@@ -16,12 +16,10 @@
 	var/linked_beacon_uses = 3 // to hold the amount of uses the beacon had, storage code a shit.
 
 /obj/item/storage/bag/ore/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "You can attach a warp extraction pack to it, then click on an ore box that has a warp extraction beacon signaller attached to it to link them. Then ore put into this will be bluespace teleported into the ore box."
 
 /obj/item/storage/bag/ore/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(is_adjacent && linked_beacon)
 		. += FONT_SMALL(SPAN_NOTICE("It has a <b>warp extraction pack</b> attached."))

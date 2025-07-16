@@ -16,7 +16,6 @@
 	var/turf/beam_origin //If we're not on this turf anymore, we've moved. Catches holder.master movements when we're attached to bombs and stuff.
 
 /obj/item/device/assembly/infra/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	var/direction_text = dir2text(dir)
 	. += SPAN_NOTICE("It is facing [direction_text].")

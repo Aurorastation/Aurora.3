@@ -1041,7 +1041,6 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 	icon_off = "cigrolloff"
 
 /obj/item/clothing/mask/smokable/cigarette/rolled/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(filter)
 		. += "It's capped off one end with a filter."

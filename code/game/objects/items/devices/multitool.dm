@@ -35,7 +35,6 @@
 	var/mode = 0
 
 /obj/item/device/multitool/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "You can use this on a variety of objects (including APCs, airlocks and more) to try to hack them without cutting wires."
 	. += "Using it in-hand will toggle tracking of nearby APCs."

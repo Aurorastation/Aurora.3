@@ -11,7 +11,6 @@
 	var/label_text = ""
 
 /obj/item/evidencebag/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Click drag this onto an object to put it inside."
 	. += "Click it in-hand to remove an object from it."

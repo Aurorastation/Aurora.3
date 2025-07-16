@@ -20,7 +20,6 @@
 	// BubbleWrap
 
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This radiates heat from the pipe's gas to space, cooling it down."
 

@@ -188,7 +188,6 @@
 	var/painted_colour
 
 /obj/item/material/stool/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Use in-hand or alt-click to right it."
 

@@ -13,7 +13,6 @@
 	var/pixel_offset_y = 13
 
 /obj/item/gun/bang/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This is a ballistic weapon. It fires [fakecaliber] ammunition. To reload most guns, click the gun with an empty hand to remove any spent casings or magazines, and then insert new ones."
 

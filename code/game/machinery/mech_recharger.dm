@@ -23,7 +23,6 @@
 	)
 
 /obj/machinery/mech_recharger/upgrade_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Upgraded <b>capacitors</b> will increase charging rate."
 	. += "Upgraded <b>scanning modules</b> will increase both charging rate and repair speed."

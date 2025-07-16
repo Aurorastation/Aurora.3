@@ -19,7 +19,6 @@
 	var/key_type = /obj/item/key/cargo_train
 
 /obj/vehicle/train/cargo/engine/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Click-drag yourself onto the truck to climb onto it."
 	. += "CTRL-click the truck to open the ignition and controls menu."
@@ -30,7 +29,6 @@
 	. += "Click-drag on a trolley to latch and tow it."
 
 /obj/vehicle/train/cargo/engine/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance > 1)
 		return
@@ -61,7 +59,6 @@
 	mob_offset_y = 8
 
 /obj/vehicle/train/cargo/trolley/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "You can use a wrench to unlatch this, click-drag to link it to another trolley to tow."
 

@@ -20,7 +20,6 @@
 	var/list/scrubbing_gas = list(GAS_PHORON, GAS_CO2, GAS_N2O, GAS_HYDROGEN, GAS_HELIUM, GAS_DEUTERIUM, GAS_TRITIUM, GAS_BORON, GAS_SULFUR, GAS_NO2, GAS_CHLORINE, GAS_STEAM)
 
 /obj/machinery/portable_atmospherics/powered/scrubber/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Filters the air, placing harmful gases into the internal gas container. The container can be emptied by connecting it to a connector port."
 	. += "The pump can pump the air in (sucking) or out (blowing), at a specific target pressure."

@@ -48,7 +48,6 @@
 	)
 
 /obj/machinery/appliance/cooker/oven/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Alt-click to open or close the oven door."
 

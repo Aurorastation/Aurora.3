@@ -29,7 +29,6 @@
 	var/contain_parts = 1
 
 /obj/item/circuitboard/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(build_path)
 		var/obj/machine = new build_path // instantiate to get the name and desc

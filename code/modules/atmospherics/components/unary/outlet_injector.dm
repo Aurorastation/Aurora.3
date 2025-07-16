@@ -25,7 +25,6 @@
 	level = 1
 
 /obj/machinery/atmospherics/unary/outlet_injector/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Outputs the pipe's gas into the atmosphere, similar to an airvent."
 	. += "It can be controlled by a nearby atmospherics computer."

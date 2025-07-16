@@ -16,7 +16,6 @@
 	var/use_material_sound = TRUE
 
 /obj/item/stack/material/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Use in your hand to bring up the crafting menu."
 	. += "If you have enough sheets, click on something on the list to build it."

@@ -21,7 +21,6 @@
 	pickup_sound = 'sound/items/pickup/gascan.ogg'
 
 /obj/item/reagent_containers/extinguisher_refill/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(!distance <= 2)
 		return
@@ -127,7 +126,6 @@
 	sprite_name = "miniFE"
 
 /obj/item/extinguisher/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance <= 0)
 		. += SPAN_NOTICE("\The [src] contains <b>[src.reagents.total_volume]</b> units of reagents.")

@@ -20,7 +20,6 @@
 		)
 
 /obj/item/device/modkit/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "It looks as though it modifies voidsuits to fit [is_multi_species ? "users of multiple species" : "[target_species] users"]."
 
@@ -131,7 +130,6 @@
 	var/parts = MODKIT_FULL
 
 /obj/item/voidsuit_modkit/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Click on a voidsuit or helmet with this item to convert it."
 	. += "Clicked on a converted voidsuit or helmet to convert it back into its regular form."
@@ -193,7 +191,6 @@
 	on a number of installations, such as the Horizon."
 
 /obj/item/voidsuit_modkit/himeo/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This modkit can be used to convert an industrial hardsuit assembly into a Himean variant."
 
@@ -222,7 +219,6 @@
 		/obj/item/clothing/suit/space/void/dominia = /obj/item/clothing/suit/space/void/dominia/voidsman
 	)
 /obj/item/voidsuit_modkit/dominianvoid/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += SPAN_DANGER("This is an OOC item, don't let anyone see it!")
 
@@ -260,7 +256,6 @@
 	var/parts = MODKIT_FULL
 
 /obj/item/voidsuit_modkit_multi/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Click on a voidsuit or helmet with this item to convert it."
 	. += "Clicked on a converted voidsuit or helmet to convert it back into its regular form."
@@ -337,7 +332,6 @@
 	)
 
 /obj/item/voidsuit_modkit_multi/sol_warlord/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += SPAN_DANGER("This is an OOC item, don't let anyone see it!")
 
@@ -359,7 +353,6 @@
 	)
 
 /obj/item/voidsuit_modkit_multi/unathi_pirate/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += SPAN_DANGER("This is an OOC item, don't let anyone see it!")
 
@@ -389,7 +382,6 @@
 	)
 
 /obj/item/voidsuit_modkit_multi/nanotrasen/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += SPAN_DANGER("This is an OOC item, don't let anyone see it!")
 

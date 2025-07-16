@@ -24,7 +24,6 @@ Note: Must be placed within 3 tiles of the R&D Console
 	)
 
 /obj/machinery/r_n_d/destructive_analyzer/upgrade_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Upgraded <b>micro-lasers</b> will increase data gathered from destructive analysis."
 	. += "Upgraded <b>scanning modules</b> will increase data gathered from destructive analysis."

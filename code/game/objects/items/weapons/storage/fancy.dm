@@ -26,13 +26,11 @@
 	contained_sprite = TRUE
 
 /obj/item/storage/box/fancy/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(closable)
 		. += "ALT-click to open and close the box." //aka force override icon state. for you know, style.
 
 /obj/item/storage/box/fancy/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(!icon_type || !storage_type)
 		return
@@ -312,7 +310,6 @@
 	var/cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette
 
 /obj/item/storage/box/fancy/cigarettes/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "You can put a cigarette directly in your mouth by selecting the mouth region and clicking on yourself with a cigarette packet in hand."
 

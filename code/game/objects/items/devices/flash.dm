@@ -18,13 +18,11 @@
 	var/last_use = 0
 
 /obj/item/device/flash/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Click on someone adjacent to you to attempt to blind them."
 	. += "Use it in your hand with HARM intent, or on yourself, to blind everyone in a small radius (including yourself!)"
 
 /obj/item/device/flash/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(!broken)
 		var/num_charges = max(0, max_charges - times_used)

@@ -22,7 +22,6 @@
 	footstep_sound = /singleton/sound_category/catwalk_footstep
 
 /obj/structure/lattice/assembly_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(name == "lattice")
 		. += "Add a <b>metal floor tile</b> to build a floor on top of the lattice."

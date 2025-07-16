@@ -25,7 +25,6 @@
 	anchored = TRUE
 
 /obj/effect/hoist_hook/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "To use the hook, click drag the object you want to it to attach it."
 	. += "To remove an object from the hook, click drag the hook to a nearby turf."
@@ -111,7 +110,6 @@
 	var/obj/effect/hoist_hook/source_hook
 
 /obj/structure/hoist/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "To use the hook, click drag the object you want to it to attach it."
 	. += "To remove an object from the hook, click drag the hook to a nearby turf."

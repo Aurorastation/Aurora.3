@@ -157,7 +157,6 @@
 	var/iff_capable = FALSE // if true, applies the user's ID iff_faction to the projectile
 
 /obj/item/gun/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(has_safety)
 		. += "To fire, toggle the safety with CTRL-click (or enable HARM intent), then click where you want to shoot."
@@ -165,7 +164,6 @@
 		. += "To fire, because this weapon has no safety, just click where you want to shoot."
 
 /obj/item/gun/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance > 1)
 		return

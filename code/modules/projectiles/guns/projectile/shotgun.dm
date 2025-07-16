@@ -8,7 +8,6 @@
 	var/sawing_in_progress = FALSE
 
 /obj/item/gun/projectile/shotgun/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "To pump a pump-action shotgun, use the Unique-Action hotkey or the button in the bottom right of your screen."
 	. += "To reload, insert shells or a magazine into the shotgun, then pump the shotgun to chamber a fresh round."
@@ -309,7 +308,6 @@
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2, TECH_ILLEGAL = 2)
 
 /obj/item/gun/projectile/shotgun/foldable/cameragun/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance <= 1)
 		. += SPAN_NOTICE("Upon closer inspection, this is not a camera at all, but a 9mm firearm concealed inside the shell of one, which can be deployed by pressing a button.")

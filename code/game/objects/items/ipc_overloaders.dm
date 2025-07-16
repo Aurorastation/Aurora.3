@@ -23,7 +23,6 @@
 	)
 
 /obj/item/ipc_overloader/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(is_adjacent)
 		if(uses)
@@ -359,7 +358,6 @@
 	var/sealed = TRUE
 
 /obj/item/storage/overloader/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	var/obj/item/ipc_overloader/overloader = locate() in contents
 	if(overloader)

@@ -7,7 +7,6 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/suppressor/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Suppressors can be attached to weapons to reduce their sound."
 	. += "Click on a weapon adjacent to you or in your hand to attach it and ALT-click the weapon to remove it."

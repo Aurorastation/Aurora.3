@@ -65,7 +65,6 @@
 //	var/datum/looping_sound/server/soundloop
 
 /obj/machinery/telecomms/condition_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(integrity < initial(integrity))
 		var/state
@@ -82,7 +81,6 @@
 		. += state
 
 /obj/machinery/telecomms/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "All telecomms machinery can repaired through the application of Nanopaste."
 

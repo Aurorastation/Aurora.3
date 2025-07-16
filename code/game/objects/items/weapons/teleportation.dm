@@ -158,14 +158,12 @@ Frequency:
 	var/max_portals = 2
 
 /obj/item/hand_tele/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Ctrl-click to choose which teleportation pad to link to."
 	. += "Use in-hand or alt-click to deploy a portal. "
 	. += "When not linked to a pad, or the pad isn't pointing at a beacon, it will choose a completely random teleportation destination."
 
 /obj/item/hand_tele/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(linked_pad)
 		var/area/A = get_area(linked_pad)
@@ -284,7 +282,6 @@ Frequency:
 	var/last_use = 0
 
 /obj/item/closet_teleporter/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Left-click a closet with this to install."
 	. += "Once two closets have been 'upgraded', step into one closet and close the door to teleport to the linked closet."

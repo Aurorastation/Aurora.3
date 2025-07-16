@@ -24,7 +24,6 @@
 	req_one_access = list(ACCESS_BAR, ACCESS_KITCHEN) // Access to change the menu
 
 /obj/machinery/orderterminal/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "To edit the menu, select 'Toggle Lock' while wearing an ID with kitchen access."
 	. += "All credits from the machine will automatically go to the civilian account."

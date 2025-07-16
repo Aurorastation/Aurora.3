@@ -15,7 +15,6 @@
 	obj_flags = OBJ_FLAG_ROTATABLE
 
 /obj/item/pipe/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	var/pipe_color_check = color || PIPE_COLOR_GREY
 	var/found_color_name = "Unknown"

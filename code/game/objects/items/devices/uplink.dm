@@ -402,7 +402,6 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/device/announcer/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This device allows you to create a single Central Command report. It has only one use."
 
@@ -437,7 +436,6 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 	var/starting_bluecrystals
 
 /obj/item/device/special_uplink/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This is hidden uplink! Use it in-hand to access the uplink interface and spend telecrystals to beam in items."
 	. += "Take care to only use it in private; it could look suspicious."

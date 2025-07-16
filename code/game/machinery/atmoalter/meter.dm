@@ -17,7 +17,6 @@
 	var/mutable_appearance/atmos_emissive
 
 /obj/machinery/meter/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance > 3 && !isAI(user))
 		. += SPAN_WARNING("You are too far away to read it.")

@@ -36,7 +36,6 @@
 	)
 
 /obj/machinery/mineral/processing_unit_console/upgrade_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Upgraded <b>capacitors</b> will increase the amount of ore smelted per second."
 	. += "Upgraded <b>micro-lasers</b> will increase the amount of ore smelted per second."

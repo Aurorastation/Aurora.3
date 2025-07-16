@@ -48,7 +48,6 @@ By design, d1 is the smallest direction and d2 is the highest
 	var/obj/machinery/power/breakerbox/breaker_box
 
 /obj/structure/cable/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	var/found_color_name = "Unknown"
 	for(var/color_name in GLOB.cable_coil_colours)
@@ -532,7 +531,6 @@ By design, d1 is the smallest direction and d2 is the highest
 	update_wclass()
 
 /obj/item/stack/cable_coil/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	var/found_color_name = "Unknown"
 	for(var/color_name in GLOB.cable_coil_colours)

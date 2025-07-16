@@ -15,7 +15,6 @@
 	fragile = 2
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "To toast with someone, aim for the right or left hand and click them on help intent with the glass in hand. They must be holding a glass in the targeted hand."
 

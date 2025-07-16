@@ -9,7 +9,6 @@
 	var/max_ammo = 5
 
 /obj/item/ammo_pile/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(is_adjacent)
 		. += SPAN_NOTICE("It contains [length(ammo)] rounds.")

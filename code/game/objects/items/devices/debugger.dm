@@ -16,6 +16,5 @@
 	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 1)
 
 /obj/item/device/debugger/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "The debugger can be used on vending machines and APCs to identify and resolve any viral infections."

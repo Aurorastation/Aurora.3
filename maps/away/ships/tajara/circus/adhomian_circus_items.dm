@@ -162,7 +162,6 @@
 	var/weight = "10"
 
 /obj/item/dumbbell/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "It weighs [weight] kilograms."
 

@@ -220,7 +220,6 @@
 		)
 
 /obj/machinery/cryopod/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(occupant)
 		. += SPAN_NOTICE("<b>[occupant]</b> [occupant.get_pronoun("is")] inside \the [initial(name)].")

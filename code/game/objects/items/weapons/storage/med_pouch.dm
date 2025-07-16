@@ -23,7 +23,6 @@ Single Use Emergency Pouches
 
 // All the med pouches have custom instructions. Don't inherit this.
 /obj/item/storage/box/fancy/med_pouch/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "1) Tear open the emergency medical pack using the easy open tab at the top."
 	. += "2) Carefully remove all items from the pouch and discard the pouch."

@@ -8,7 +8,6 @@
 	var/lastuser = null
 
 /obj/item/spirit_board/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "The planchette is sitting at \"[planchette]\"."
 

@@ -80,22 +80,18 @@
 	var/contains_body = FALSE
 
 /obj/structure/closet/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "When closed, a <b>welder</b> could be used to weld the closet shut."
 
 /obj/structure/closet/disassembly_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "When opened, a <b>welder</b> could be used to cut the closet back into steel sheets."
 
 /obj/structure/closet/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Using a Closet Teleporter (Stealth & Camouflage uplink item) on this can turn it into a quick transportation method- just don't get caught!"
 
 /obj/structure/closet/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 
 	if(!src.opened && isghost(user))

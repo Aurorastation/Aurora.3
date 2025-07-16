@@ -43,7 +43,6 @@
 	var/spawn_dir
 
 /obj/item/device/flashlight/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(!always_on)
 		. += "Left-click \the [src] in-hand to toggle the light."

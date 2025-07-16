@@ -10,7 +10,6 @@
 	var/pipe_cooldown = 0
 
 /obj/machinery/pipedispenser/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "It must be anchored to be used, or can be unanchored to be moved."
 	. += "You can put excess (atmospheric) pipes into the dispenser."
@@ -155,7 +154,6 @@
 	window_id = "disposaldispenser"
 
 /obj/machinery/pipedispenser/disposal/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "It must be anchored to be used, or can be unanchored to be moved."
 	. += "You can put excess (disposal) pipes into the dispenser."

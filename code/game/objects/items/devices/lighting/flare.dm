@@ -20,7 +20,6 @@
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
 /obj/item/device/flashlight/flare/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Left-click \the [src] in-hand to activate it."
 
@@ -104,7 +103,6 @@
 	pickup_sound = 'sound/items/pickup/woodweapon.ogg'
 
 /obj/item/device/flashlight/flare/torch/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Click on a source of flame with the torch to light it."
 

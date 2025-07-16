@@ -171,7 +171,6 @@
 	activated_armor_penetration = 100
 
 /obj/item/trap/sharpened/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This device has an even higher chance of penetrating armor and locking foes in place."
 
@@ -243,7 +242,6 @@
 	var/message = null
 
 /obj/item/trap/punji/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(src.message && distance < 3)
 		. += SPAN_ALERT("You notice something written on a plate inside the trap:")
@@ -880,7 +878,6 @@
 	w_class = WEIGHT_CLASS_HUGE
 
 /obj/item/large_trap_foundation/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += SPAN_NOTICE("\The [src] can be turned into a large trap by attaching twelve metal rods to it.")
 

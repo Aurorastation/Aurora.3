@@ -145,7 +145,6 @@
 	var/datum/looping_sound/showering/soundloop
 
 /obj/structure/shower/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Left-click \the [src] to toggle it on and off."
 	. += "Use a wrench on \the [src] to adjust the temperature."
@@ -323,7 +322,6 @@
 	var/possible_transfer_amounts = list(5,10,15,25,30,50,60,100,120,250,300)
 
 /obj/structure/sink/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Use Help intent to fill a container in your hand from this, and use any other intent to empty the container into this."
 	. += "Right-click \the [src] to change the amount transferred per use."

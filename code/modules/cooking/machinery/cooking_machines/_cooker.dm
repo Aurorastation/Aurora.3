@@ -19,7 +19,6 @@
 	var/starts_with = list()
 
 /obj/machinery/appliance/cooker/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if (is_adjacent)
 		if (!stat)

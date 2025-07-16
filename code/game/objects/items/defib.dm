@@ -20,7 +20,6 @@
 	var/obj/item/cell/bcell
 
 /obj/item/defibrillator/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(bcell)
 		. += "The charge meter is showing <b>[bcell.percent()]%</b> charge left."

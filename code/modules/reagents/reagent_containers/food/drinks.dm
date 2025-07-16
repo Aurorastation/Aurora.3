@@ -25,7 +25,6 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	possible_transfer_amounts = list(1, 2, 3, 4, 5, 10, 15, 25, 30)
 
 /obj/item/reagent_containers/food/drinks/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if (distance > 1)
 		return
@@ -332,7 +331,6 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	var/list/details = list("Customer" = null, "Order" = null)
 
 /obj/item/reagent_containers/food/drinks/takeaway_cup_idris/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Order: [details["Order"]]"
 	. += "For: [details["Customer"]]"

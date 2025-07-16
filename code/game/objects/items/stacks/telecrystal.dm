@@ -14,7 +14,6 @@
 	var/crystal_type = CRYSTAL_TYPE_TELECRYSTAL
 
 /obj/item/stack/telecrystal/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Crystals can be activated by utilizing them on devices with an actively running uplink. They will not activate on unactivated uplinks."
 

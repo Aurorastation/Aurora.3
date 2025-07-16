@@ -11,7 +11,6 @@
 	fire_sound_text = "a launcher firing"
 
 /obj/item/gun/launcher/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This is a projectile launcher, which launches objects such as arrows, rockets, or syringes."
 	. += "To fire it, toggle the safety (if one is present) with CTRL-click or by switching to HARM intent, then click where you wish to shoot."

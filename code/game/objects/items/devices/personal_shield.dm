@@ -13,7 +13,6 @@
 	var/obj/aura/personal_shield/device/shield
 
 /obj/item/device/personal_shield/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(is_adjacent)
 		. += "\The [src] has <b>[cell.charge]</b> charge remaining."

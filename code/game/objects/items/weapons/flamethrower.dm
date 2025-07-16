@@ -27,7 +27,6 @@
 	var/obj/item/tank/gas_tank = null
 
 /obj/item/flamethrower/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(is_adjacent)
 		if(gas_tank)

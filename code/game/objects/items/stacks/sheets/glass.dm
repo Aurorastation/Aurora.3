@@ -24,12 +24,10 @@
 	pickup_sound = 'sound/items/pickup/glass.ogg'
 
 /obj/item/stack/material/glass/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Left-click this item in-hand to view its crafting menu."
 
 /obj/item/stack/material/glass/assembly_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Combining this item with metal rods will create reinforced glass."
 

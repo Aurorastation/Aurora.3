@@ -10,7 +10,6 @@
 	var/new_augment
 
 /obj/item/device/augment_implanter/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(augment_type)
 		. += SPAN_NOTICE("\The [augment_type] can be seen floating inside \the [src]'s biogel.")

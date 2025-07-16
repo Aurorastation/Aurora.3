@@ -82,7 +82,6 @@
 
 // Examine to see tank pressure
 /obj/structure/closet/airbubble/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(!isnull(internal_tank))
 		. += SPAN_NOTICE("\The [src] has [internal_tank] attached, that displays <b>[round(internal_tank.air_contents.return_pressure() ? internal_tank.air_contents.return_pressure() : 0)] kPa</b>.")

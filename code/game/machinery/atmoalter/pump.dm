@@ -19,7 +19,6 @@
 	power_losses = 150
 
 /obj/machinery/portable_atmospherics/powered/pump/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "The internal gas container can be filled by connecting it to a connector port.  The pump can pump the air in (sucking) \
 	or out (blowing), at a specific target pressure."

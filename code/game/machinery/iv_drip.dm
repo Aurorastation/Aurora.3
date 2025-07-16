@@ -58,7 +58,6 @@
 		/obj/item/stock_parts/scanning_module)
 
 /obj/machinery/iv_drip/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "IV drips can be supplied beakers/bloodpacks for reagent transfusions, as well as one breath mask and gas tank for supplemental gas therapy."
 	. += "Use a wrench when it has a tank installed to secure it. Use it again to unsecure it before removal."
@@ -67,13 +66,11 @@
 	. += "ALT-Click the stand to remove items contained in the stand."
 
 /obj/machinery/iv_drip/upgrade_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Upgraded <b>scanning modules</b> will provide the exact volume and composition of attached beakers."
 	. += "Upgraded <b>manipulators</b> will allow patients to be hooked to IV through armor and increase the maximum reagent transfer rate."
 
 /obj/machinery/iv_drip/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "[src] is [mode ? "injecting" : "taking blood"] at a rate of <b>[src.transfer_amount] u/sec</b>, the automatic injection stop mode is <b>[toggle_stop ? "on" : "off"]</b>."
 	. += "The Emergency Positive Pressure system is [epp ? "on" : "off"]."

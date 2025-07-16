@@ -13,12 +13,10 @@
 	pickup_sound = 'sound/items/pickup/wrapper.ogg'
 
 /obj/item/stack/wrapping_paper/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "To wrap something into a gift, click on the wrapping paper that's not in your hands with the object you wish to wrap."
 
 /obj/item/stack/wrapping_paper/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance <= 1)
 		. += "There [amount == 1 ? "is" : "are"] about [amount] [singular_name]\s of paper left!"
@@ -113,7 +111,6 @@
 	pickup_sound = 'sound/items/pickup/wrapper.ogg'
 
 /obj/item/stack/packageWrap/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "To package wrap the object for delivery, use the package wrapper on the object."
 

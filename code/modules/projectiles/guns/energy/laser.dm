@@ -77,7 +77,6 @@
 	turret_sprite_set = "captain"
 
 /obj/item/gun/energy/captain/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Unlike most energy weapons, this weapon recharges itself."
 
@@ -167,7 +166,6 @@
 	accuracy_wielded = 0
 
 /obj/item/gun/energy/sniperrifle/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "To use the scope, use the appropriate verb in the object tab."
 

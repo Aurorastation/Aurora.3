@@ -45,7 +45,6 @@
 	var/build_callback_timer
 
 /obj/machinery/mecha_part_fabricator/upgrade_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Upgraded <b>matter bins</b> will increase material storage capacity."
 	. += "Upgraded <b>micro-lasers</b> will increase fabrication speed."

@@ -27,7 +27,6 @@
 	var/list/immune_things = list(/obj/effect/projectile/muzzle/emitter, /obj/effect/ebeam, /obj/effect/decal/cleanable/ash, /obj/singularity)
 
 /obj/singularity/energy_ball/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(orbiting_balls.len)
 		. +=  "There are <b>[orbiting_balls.len] energy balls</b> orbiting \the [src]."

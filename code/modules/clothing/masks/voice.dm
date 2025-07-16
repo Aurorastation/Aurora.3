@@ -10,7 +10,6 @@
 	origin_tech = list(TECH_ILLEGAL = 4)
 
 /obj/item/clothing/mask/gas/voice/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This mask can be used to change the owner's voice."
 
@@ -48,7 +47,6 @@
 	origin_tech = list(TECH_ILLEGAL = 4)
 
 /obj/item/clothing/mask/gas/vaurca/filter/voice/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "A Lii'draic filter port that allows to change voices."
 

@@ -11,7 +11,6 @@ GLOBAL_LIST_INIT_TYPED(doppler_arrays, /obj/machinery/doppler_array, list())
 	var/active = TRUE
 
 /obj/machinery/doppler_array/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += SPAN_NOTICE("\The [src] is [active ? "listening for explosions" : "inactive"].")
 

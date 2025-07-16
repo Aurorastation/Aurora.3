@@ -37,7 +37,6 @@
 	hand_type = /obj/item/hand/cards
 
 /obj/item/deck/cards/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "CTRL-click to draw/deal."
 	. += "ALT-click to shuffle."
@@ -290,7 +289,6 @@
 	var/list/cards = list()
 
 /obj/item/hand/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if((!concealed || src.loc == user) && length(cards))
 		if(length(cards) > 1)

@@ -4,7 +4,6 @@
 	icon_state = "tomealtar"
 
 /obj/structure/cult/tome/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "A desk covered with the scriptures of Nar-Sie, The One Who Sees, The Geometer of Blood. Most of them are beyond your current comprehension."
 	. += "If you are a cultist, you could left-click on this desk with any non-unique book to turn it into a tome"

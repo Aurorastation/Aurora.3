@@ -36,12 +36,10 @@
 	var/idle_threshold = 30
 
 /obj/item/clothing/mask/smokable/ecig/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "While holding \the [src], ALT-click it to remove the cartridge."
 
 /obj/item/clothing/mask/smokable/ecig/simple/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(ec_cartridge)
 		. += "There are <b>[round(ec_cartridge.reagents.total_volume, 1)] unit\s</b> of liquid remaining."
@@ -223,7 +221,6 @@
 	icon_on = "ecigon"
 
 /obj/item/clothing/mask/smokable/ecig/util/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(ec_cartridge)
 		. += "There are <b>[round(ec_cartridge.reagents.total_volume, 1)] unit\s</b> of liquid remaining."
@@ -254,7 +251,6 @@
 	cell_type = /obj/item/cell/device/high
 
 /obj/item/clothing/mask/smokable/ecig/deluxe/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(ec_cartridge)
 		. += "There are <b>[round(ec_cartridge.reagents.total_volume, 1)] unit\s</b> of liquid remaining."
@@ -277,7 +273,6 @@
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 
 /obj/item/reagent_containers/ecig_cartridge/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "The cartridge has <b>[reagents.total_volume] unit\s</b> of liquid remaining."
 

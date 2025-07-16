@@ -41,7 +41,6 @@
 	parts_power_mgmt = FALSE
 
 /obj/machinery/sleeper/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "The sleeper allows you to clean the blood by means of dialysis, and to administer medication in a controlled environment."
 	. += "Click your target with Grab intent, then click on the sleeper to place them in it. Then click the green console with an empty hand to open the menu."
@@ -52,7 +51,6 @@
 	Note that you cannot control the sleeper while inside of it."
 
 /obj/machinery/sleeper/upgrade_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Upgraded <b>capacitors</b> will reduce power usage."
 	. += "Upgraded <b>scanning modules</b> will reduce power usage."

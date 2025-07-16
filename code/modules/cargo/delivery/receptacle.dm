@@ -27,7 +27,6 @@ GLOBAL_LIST_INIT_TYPED(all_cargo_receptacles, /obj/structure/cargo_receptacle, l
 	var/max_spawn = 4
 
 /obj/structure/cargo_receptacle/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This is a delivery point for Orion Express cargo packages."
 	. += "To finish the delivery, have a cargo package in your hand and click on the delivery point."

@@ -115,7 +115,6 @@
 	var/status = 0 // 0 = normal, 1 = blow, 2 = burst
 
 /obj/item/toy/balloon/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "You can fill it up with different gases using a tank."
 
@@ -461,7 +460,6 @@
 	var/dart_count = 5
 
 /obj/item/toy/crossbow/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance <= 2 && dart_count)
 		. += "\The [src] is loaded with [dart_count] foam dart\s."
@@ -675,7 +673,6 @@
 	qdel(src)
 
 /obj/item/toy/snappop/syndi/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "These snap pops have an extra compound added that will deploy a tiny smokescreen when snapped."
 
@@ -1395,7 +1392,6 @@
 	anchored = TRUE
 
 /obj/item/toy/ringbell/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Use Help intent on the bell to signal the start of a contest."
 	. += "Use the Disarm intent to signal the end of a contest."

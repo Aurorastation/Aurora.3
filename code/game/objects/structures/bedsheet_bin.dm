@@ -30,7 +30,6 @@ LINEN BINS
 	var/inside_storage_item = FALSE
 
 /obj/item/bedsheet/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Click to roll and unroll."
 	. += "Alt-click to fold and unfold."
@@ -398,12 +397,10 @@ LINEN BINS
 	var/obj/item/hidden = null
 
 /obj/structure/bedsheetbin/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "You could hide things in here, so long as there are also some sheets to conceal it."
 
 /obj/structure/bedsheetbin/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(amount < 1)
 		. += "There are no bed sheets in the bin."

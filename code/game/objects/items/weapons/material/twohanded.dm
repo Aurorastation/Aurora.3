@@ -261,14 +261,12 @@
 	worth_multiplier = 7 //blade + stuff
 
 /obj/item/material/twohanded/spear/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(!explosive)
 		. += "You can strap a grenade of any type to head of this spear, which will explode on thrown impact."
 	. += "You can impale a severed head on a spear, if you're into that sort of thing. Most people don't like this."
 
 /obj/item/material/twohanded/spear/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(explosive)
 		. += SPAN_ALERT("It has \the [explosive] strapped to it.")
@@ -387,12 +385,10 @@
 	pickup_sound = 'sound/items/pickup/axe.ogg'
 
 /obj/item/material/twohanded/chainsaw/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "ALT-click on this in-hand to rev it and toggle it on or off."
 
 /obj/item/material/twohanded/chainsaw/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance <= 1)
 		. += "A heavy-duty chainsaw meant for cutting wood. Contains <b>[round(REAGENT_VOLUME(reagents, fuel_type))]</b> unit\s of fuel."

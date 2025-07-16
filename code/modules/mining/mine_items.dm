@@ -969,7 +969,6 @@ GLOBAL_LIST_INIT_TYPED(total_extraction_beacons, /obj/structure/extraction_point
 	origin_tech = list(TECH_BLUESPACE = 1, TECH_PHORON = 1, TECH_ENGINEERING = 2)
 
 /obj/item/warp_core/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "You can activate this item in-hand to create a static beacon."
 	. += "You can click on an ore box with it to allow the ore box to be linked to warp extraction pack-enabled mining satchels."

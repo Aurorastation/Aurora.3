@@ -29,7 +29,6 @@ MRE Stuff
 	make_exact_fit = TRUE
 
 /obj/item/storage/box/fancy/mre/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += meal_desc
 

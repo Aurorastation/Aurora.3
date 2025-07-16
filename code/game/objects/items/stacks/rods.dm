@@ -37,14 +37,12 @@ GLOBAL_LIST_INIT_TYPED(rod_recipes, /datum/stack_recipe, list(
 	icon_has_variants = TRUE
 
 /obj/item/stack/rods/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Left-click this item in-hand to view its crafting menu."
 	. += "Left-clicking with this item on a floor without any tiles will reinforce the floor."
 	. += "Combining this item with glass sheets will create reinforced glass."
 
 /obj/item/stack/rods/assembly_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Combining this item with glass sheets will create reinforced glass."
 	. += "Using a welder on two metal rods will recombine them back into a steel sheet."
@@ -118,7 +116,6 @@ GLOBAL_LIST_INIT_TYPED(rod_recipes, /datum/stack_recipe, list(
 	attack_verb = list("hit", "whacked", "sliced")
 
 /obj/item/stack/barbed_wire/assembly_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Left-click with this on a barricade to apply barbed wire to it."
 

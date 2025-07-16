@@ -23,7 +23,6 @@
 	var/update_flag = 0
 
 /obj/machinery/portable_atmospherics/canister/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "The canister can be connected to a connector port with a wrench."
 	. += "Tanks of gas (the kind you can hold in your hand) can be filled by the canister by using the tank on the canister, increasing \
@@ -31,7 +30,6 @@
 	. += "A gas analyzer can be used to check the contents of the canister."
 
 /obj/machinery/portable_atmospherics/canister/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Canisters can be damaged, spilling their contents into the air, or you can just leave the release valve open."
 	. += "You can attach a signaler to \the [src] to remotely toggle its valve opened or closed!"

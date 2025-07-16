@@ -58,7 +58,6 @@
 	var/max_stored = 10
 
 /obj/item/device/lightreplacer/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance <= 2)
 		. += "It has <b>[uses] lights</b> remaining."

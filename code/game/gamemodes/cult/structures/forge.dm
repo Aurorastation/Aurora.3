@@ -4,7 +4,6 @@
 	icon_state = "forge"
 
 /obj/structure/cult/forge/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "A forge used in crafting the unholy weapons used by the armies of Nar-Sie."
 	. += "This is a powerful forge; if you are a Cultist, you can click on this with an item in-hand to 'cultify' it.TEXT"

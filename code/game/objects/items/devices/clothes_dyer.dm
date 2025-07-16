@@ -14,7 +14,6 @@
 	var/list/colors_by_mode = list(BASE_COLOR = "#FFFFFF", ACCENT_COLOR = "#FFFFFF")
 
 /obj/item/device/clothes_dyer/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Select the desired color by using the item on yourself, and alternate between the primary and secondary colour of the item by alt-clicking the item. This only works on clothing items that are recolorable."
 

@@ -47,7 +47,6 @@
 	maptext_y = 2
 
 /obj/item/grenade/smokebomb/cyborg/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "When activated, it will deploy a smokebomb which will instantly prime, blowing out clouds of smoke."
 	. += "Upon deploying, it will enter a charging state which will restock a new smokebomb in two minutes."

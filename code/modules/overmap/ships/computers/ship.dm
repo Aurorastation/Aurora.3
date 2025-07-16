@@ -18,7 +18,6 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	var/hotwire_progress = 8
 
 /obj/machinery/computer/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Consoles like these are typically access-locked."
 	. += "You can remove this lock with <b>wirecutters</b>, but it would take awhile! Alternatively, you can also use a cryptographic sequencer (emag) for instant removal."

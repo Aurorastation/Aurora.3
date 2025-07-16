@@ -20,7 +20,6 @@
 	)
 
 /obj/item/storage/box/fancy/yoke/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Click drag it to pick it up, click on it to take out a can."
 

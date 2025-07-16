@@ -7,7 +7,6 @@
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/ammo_display/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Holographic ammo displays can be attached to firearms to give an ammo readout on the HUD."
 	. += "Click on a weapon adjacent to you or in your hand to attach it, and use a screwdriver on the weapon to remove it."

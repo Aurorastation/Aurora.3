@@ -26,7 +26,6 @@
 						//If they have and we haven't scanned it with a computer or handheld gas analyzer then we might just breath whatever they put in it.
 
 /obj/item/tank/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance <= 0)
 		var/celsius_temperature = air_contents.temperature - T0C

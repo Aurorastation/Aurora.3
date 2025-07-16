@@ -14,12 +14,10 @@
 	var/const/CHARGE_EFFICIENCY = 1.38
 
 /obj/machinery/cell_charger/assembly_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "It [anchored ? "is" : "could be"] anchored in place with a couple of <b>bolts</b>."
 
 /obj/machinery/cell_charger/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance > 5)
 		return

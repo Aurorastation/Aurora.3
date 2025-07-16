@@ -66,19 +66,16 @@
 	var/last_stored_ore_update = 0
 
 /obj/machinery/mining/drill/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Attaching a mining satchel with a warp extraction pack and a linked ore box to this drill will bluespace-teleport any mined ore directly into the linked ore box."
 
 /obj/machinery/mining/drill/upgrade_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Upgraded <b>matter bins</b> will increase ore capacity."
 	. += "Upgraded <b>capacitors</b> will improve power efficiency."
 	. += "Upgraded <b>micro-lasers</b> will increase the amount of ore harvested."
 
 /obj/machinery/mining/drill/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(need_player_check)
 		. += SPAN_WARNING("The drill error light is flashing. The cell panel is [panel_open ? "open" : "closed"].")

@@ -10,13 +10,11 @@
 	var/mob/living/silicon/ai/carded_ai
 
 /obj/item/aicard/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Use an active intelliCard to open its management interface."
 	. += "An AI inside an intelliCard can be transferred to an inactive AI Core by clicking on it."
 
 /obj/item/aicard/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	var/message = "Status of [carded_ai] is: "
 	if(!carded_ai)

@@ -31,7 +31,6 @@
 	var/date_string = null
 
 /obj/item/device/taperecorder/cciaa/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This recorder records the fingerprints of the interviewee, to do so, interact with this recorder when asked."
 

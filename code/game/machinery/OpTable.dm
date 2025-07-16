@@ -27,12 +27,10 @@
 	var/obj/machinery/computer/operating/computer = null
 
 /obj/machinery/optable/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Click your target with Grab intent, then click on the table with an empty hand, to place them on it."
 
 /obj/machinery/optable/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "The neural suppressors are switched [suppressing ? "on" : "off"]."
 

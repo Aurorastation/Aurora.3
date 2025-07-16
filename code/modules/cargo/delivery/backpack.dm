@@ -13,13 +13,11 @@
 	var/list/contained_packages
 
 /obj/item/cargo_backpack/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "To load packages onto your back, equip this item on the back slot, then click on it with a package in-hand."
 	. += "To unload a package, click on this item with an empty hand."
 
 /obj/item/cargo_backpack/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(length(contained_packages))
 		. += SPAN_NOTICE("\[?\] There are some packages loaded. <a href='byond://?src=[REF(src)];show_package_data=1>\[Show Package Data\]</a>")

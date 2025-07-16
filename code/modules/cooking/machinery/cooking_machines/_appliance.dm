@@ -55,18 +55,15 @@
 	var/combine_first = FALSE//If 1, this appliance will do combination cooking before checking recipes
 
 /obj/machinery/appliance/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Control-click this to change its temperature."
 
 /obj/machinery/appliance/upgrade_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Upgraded <b>capacitors</b> will increase heating power."
 	. += "Upgraded <b>scanning modules</b> will increase heating power and improve power efficiency."
 
 /obj/machinery/appliance/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(is_adjacent)
 		. += list_contents(user)

@@ -44,7 +44,6 @@ GLOBAL_LIST_INIT_TYPED(rad_collectors, /obj/machinery/power/rad_collector, list(
 	var/alert_delay = 10 SECONDS
 
 /obj/machinery/power/rad_collector/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if (..(user, 3))
 		var/last_power_kw = round(last_power / 1000, 0.1)

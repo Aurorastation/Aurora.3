@@ -25,7 +25,6 @@
 	icon_state = "rot_sample"
 
 /obj/item/rot_sample/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This sample can be ground to retrieve reagents inside it."
 

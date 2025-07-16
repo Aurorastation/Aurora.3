@@ -13,12 +13,10 @@
 	var/list/stored_ore = list()
 
 /obj/structure/ore_box/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "You can attach a warp extraction beacon signaller to this, then click on it with an ore satchel that has a warp extraction pack attached, to link them."
 
 /obj/structure/ore_box/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(!is_adjacent) //Can only check the contents of ore boxes if you can physically reach them.
 		return

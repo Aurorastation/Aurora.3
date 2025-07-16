@@ -16,7 +16,6 @@
 	//Card information here
 
 /obj/item/battle_monsters/card/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 
 	if(facedown && src.loc != user)

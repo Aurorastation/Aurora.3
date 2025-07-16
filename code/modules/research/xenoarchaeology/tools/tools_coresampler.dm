@@ -24,7 +24,6 @@
 	var/obj/item/sample
 
 /obj/item/device/core_sampler/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance <= 2)
 		. += SPAN_NOTICE("This one is [sample ? "full" : "empty"].")

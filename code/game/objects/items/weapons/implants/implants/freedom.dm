@@ -100,7 +100,6 @@ No Implant Specifics"}
 	var/datum/weakref/linked_telepad = null
 
 /obj/item/implant/telefreedom/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Left-click a telepad to link your telefreedom implant to it before implanting."
 

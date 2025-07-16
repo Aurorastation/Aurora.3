@@ -80,7 +80,6 @@
 	var/old_angle = 0
 
 /obj/machinery/porta_turret/condition_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(!health)
 		. += SPAN_DANGER("\The [src] is destroyed!")
@@ -94,7 +93,6 @@
 		. += "\The [src] is in perfect condition."
 
 /obj/machinery/porta_turret/assembly_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "It [anchored ? "is" : "could be"] anchored to the floor with some <b>bolts</b>."
 

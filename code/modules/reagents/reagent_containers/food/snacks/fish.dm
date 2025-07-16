@@ -75,7 +75,6 @@
 	var/shell_type = /obj/item/trash/mollusc_shell
 
 /obj/item/mollusc/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "You will need a sharp or edged implement to pry it open. You can also try opening it in your hand if you're strong enough."
 

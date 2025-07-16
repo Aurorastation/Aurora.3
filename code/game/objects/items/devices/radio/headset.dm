@@ -208,7 +208,6 @@
 	slot_flags = SLOT_EARS | SLOT_TWOEARS
 
 /obj/item/device/radio/headset/alt/double/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This radio doubles as a pair of earmuffs by providing sound protection."
 
@@ -224,7 +223,6 @@
 	EarSound = FALSE
 
 /obj/item/device/radio/headset/wrist/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This radio can be heard by people standing next to the one wearing it."
 
@@ -878,7 +876,6 @@
 	slot_flags = SLOT_EARS | SLOT_TWOEARS
 
 /obj/item/device/radio/headset/earmuff/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This set of earmuffs has a secret compartment housing radio gear, allowing it to function as a standard headset."
 

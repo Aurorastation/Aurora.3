@@ -45,7 +45,6 @@
 	repair_item = /obj/item/weldingtool
 
 /obj/item/laser_components/modifier/condition_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance <= 1)
 		if(malus > base_malus)
@@ -77,7 +76,6 @@
 	repair_item = /obj/item/stack/cable_coil
 
 /obj/item/laser_components/capacitor/condition_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance <= 1 && condition > 0)
 		. += SPAN_WARNING("\The [src] appears damaged.")
@@ -111,7 +109,6 @@
 	repair_item = /obj/item/stack/nanopaste
 
 /obj/item/laser_components/focusing_lens/condition_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance <= 1 && condition > 0)
 		. += SPAN_WARNING("\The [src] appears damaged.")

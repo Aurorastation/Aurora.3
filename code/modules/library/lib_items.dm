@@ -207,7 +207,6 @@
 	pickup_sound = 'sound/items/pickup/book.ogg'
 
 /obj/item/book/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "As a Cultist, this item can be reforged to become a cult tome."
 

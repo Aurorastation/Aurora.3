@@ -134,7 +134,6 @@
 	needspin = FALSE
 
 /obj/item/gun/energy/mousegun/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This gun can be emagged to make it fire damaging beams and get more max shots. It doesn't do a lot of damage, but it is concealable."
 

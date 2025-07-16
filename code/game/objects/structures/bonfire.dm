@@ -24,7 +24,6 @@ GLOBAL_LIST_EMPTY(total_active_bonfires)
 	var/burn_out = TRUE //Whether or not it deletes itself when fuel is depleted
 
 /obj/structure/bonfire/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance > 2)
 		return

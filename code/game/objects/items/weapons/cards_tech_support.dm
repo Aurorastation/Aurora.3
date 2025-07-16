@@ -6,7 +6,6 @@
 	overlay_state = "data"
 
 /obj/item/card/tech_support/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Using this on a modular computer will reset it to its original state."
 	. += "Using this on a hard drive will wipe it."

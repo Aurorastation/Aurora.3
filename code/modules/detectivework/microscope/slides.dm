@@ -6,7 +6,6 @@
 	var/obj/item/sample/fibers/has_sample
 
 /obj/item/forensics/slide/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Used with fibers and GSR swab tests to examine the samples in the microscope."
 	. += "To empty them, use in hand."

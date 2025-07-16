@@ -27,7 +27,6 @@
 
 
 /obj/item/gun/launcher/grenade/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(is_adjacent)
 		. += SPAN_NOTICE("It has [get_ammo()] grenade\s remaining.")

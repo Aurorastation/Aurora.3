@@ -60,7 +60,6 @@
 	announcer_frequency = SYND_FREQ
 
 /obj/item/device/orbital_dropper/armory/syndicate/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This is a stealthy variant of the standard armory orbital drop. It will not report itself dropping on Common, unless emagged."
 

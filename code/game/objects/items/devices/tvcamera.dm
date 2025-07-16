@@ -11,7 +11,6 @@
 	var/obj/item/device/radio/radio
 
 /obj/item/device/tvcamera/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Video feed is currently: [camera.status ? "<span style='color: rgb(51, 204, 51);font-weight: bold;'>Online</span>" : "<span style='color: rgb(204, 0, 0); font-weight: bold;'>Offline</span>"]"
 	. += "Audio feed is currently: [radio.get_broadcasting() ? "<span style='color: rgb(51, 204, 51); font-weight: bold;'>Online</span>" : "<span style='color: rgb(204, 0, 0); font-weight: bold;'>Offline</span>"]"

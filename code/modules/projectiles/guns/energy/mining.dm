@@ -22,7 +22,6 @@
 	needspin = FALSE
 
 /obj/item/gun/energy/plasmacutter/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(is_adjacent)
 		if(power_supply)

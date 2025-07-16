@@ -39,7 +39,6 @@
 	)
 
 /obj/machinery/bodyscanner/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if (anchored)
 		. += "The advanced scanner detects and reports internal injuries such as bone fractures, internal bleeding, and organ damage. This is useful if you are about to perform surgery."

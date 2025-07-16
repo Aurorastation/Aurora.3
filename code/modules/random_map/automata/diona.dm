@@ -103,7 +103,6 @@
 	light_range = 0
 
 /obj/structure/diona/bulb/unpowered/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This bulb requires a power cell to glow. Click on it with a power cell in hand to plug it in."
 

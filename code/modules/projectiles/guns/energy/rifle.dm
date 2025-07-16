@@ -85,7 +85,6 @@
 	)
 
 /obj/item/gun/energy/rifle/laser/noctiluca/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "The Noctiluca comes with a standard firing mode that is slightly worse in damage than the normal laser rifle, but has more armor penetration. Additionally, \
 	it has a secondary armor-piercing mode, which does less damage but has extremely high armor piercing."

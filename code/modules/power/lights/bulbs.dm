@@ -23,7 +23,6 @@
 	var/list/randomized_colors = LIGHT_STANDARD_COLORS
 
 /obj/item/light/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Injecting 5 units of phoron into a light bulb/tube with a syringe will rig it to explode!"
 	. += "When rigged, the light will explode immediately when it is next turned on."

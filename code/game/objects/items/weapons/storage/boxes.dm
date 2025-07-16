@@ -43,7 +43,6 @@
 	var/chewable = TRUE
 
 /obj/item/storage/box/condition_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if (health < maxHealth)
 		if (health >= (maxHealth * 0.5))
@@ -52,7 +51,6 @@
 			. += SPAN_DANGER("It is full of tears and holes.")
 
 /obj/item/storage/box/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(foldable)
 		. += "Left-click on this when empty to fold it into a sheet."
@@ -597,7 +595,6 @@
 	starts_with = list(/obj/item/reagent_containers/food/snacks/donkpocket/sinpocket = 6)
 
 /obj/item/storage/box/sinpockets/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Crush bottom of each package to initiate chemical heating. Wait for 20 seconds before consumption."
 	. += "Product will cool if not eaten within seven minutes."
@@ -707,7 +704,6 @@
 	starts_with = list(/obj/item/toy/snappop/syndi = 8)
 
 /obj/item/storage/box/snappops/syndi/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "These snap pops have an extra compound added that will deploy a tiny smokescreen when snapped."
 
@@ -1091,7 +1087,6 @@
 	starts_with = list(/obj/item/implantcase/aggression = 6, /obj/item/implanter = 1, /obj/item/implantpad = 1)
 
 /obj/item/storage/box/aggression/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This box contains various implants that will make their owners increasingly aggressive."
 
@@ -1101,7 +1096,6 @@
 	starts_with = list(/obj/item/device/encryptionkey/rev = 8)
 
 /obj/item/storage/box/encryption_key/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This box contains encryption keys that gives the user a safe channel to chatter in. Access the safe comms with :x."
 

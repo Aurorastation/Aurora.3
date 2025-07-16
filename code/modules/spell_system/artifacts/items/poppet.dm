@@ -11,7 +11,6 @@
 	var/cooldown = 0
 
 /obj/item/poppet/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(countenance)
 		. += SPAN_NOTICE("It is modeled after a [countenance].")

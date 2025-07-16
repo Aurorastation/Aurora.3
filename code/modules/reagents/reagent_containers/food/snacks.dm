@@ -24,7 +24,6 @@
 	var/flavor = null // set_flavor()
 
 /obj/item/reagent_containers/food/snacks/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance > 1)
 		return

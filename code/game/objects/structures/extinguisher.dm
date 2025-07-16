@@ -10,7 +10,6 @@
 	var/opened = 0
 
 /obj/structure/extinguisher_cabinet/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Alt-click to close the door."
 

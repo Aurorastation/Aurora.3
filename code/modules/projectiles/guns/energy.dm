@@ -43,12 +43,10 @@
 	var/turret_is_lethal = 1				//is the gun in lethal (secondary) mode by default
 
 /obj/item/gun/energy/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This is an energy weapon. Most energy weapons can fire through windows harmlessly. Energy weapons must be recharged once depleted."
 
 /obj/item/gun/energy/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance > 1)
 		return

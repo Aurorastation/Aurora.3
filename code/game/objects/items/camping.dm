@@ -141,7 +141,6 @@
 	var/datum/large_structure/tent/my_tent
 
 /obj/item/tent/assembly_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Drag this to yourself to begin assembly. This will take some time, in 4 stages. Others can start working on the other stages by dragging it to themselves as well."
 
@@ -243,7 +242,6 @@
 	layer = ABOVE_HUMAN_LAYER
 
 /obj/structure/component/tent_canvas/disassembly_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Drag this to yourself to begin disassembly. This will take some time, in 4 stages. Others can start working on the other stages by dragging it, or other sections, to themselves as well."
 
@@ -318,7 +316,6 @@
 	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/sleeping_bag/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Left-click with this item in-hand on a turf or on yourself to unroll it."
 	. += "This item can be attached to a backpack."
@@ -368,7 +365,6 @@
 	can_pad = FALSE
 
 /obj/structure/bed/sleeping_bag/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This object can be buckled into like any standard bed."
 	. += "Clicking and dragging this object onto yourself will roll it back up (so long as no one is sleeping inside)."
@@ -413,7 +409,6 @@
 	default_material = MATERIAL_ALUMINIUM
 
 /obj/item/material/folding_table/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Left-click on yourself with this item in-hand to deploy it."
 
@@ -441,7 +436,6 @@
 	table_mat = MATERIAL_ALUMINIUM
 
 /obj/structure/table/rack/folding_table/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Clicking and dragging this object onto yourself will collapse it again."
 

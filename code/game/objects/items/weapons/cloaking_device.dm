@@ -22,14 +22,12 @@
 	var/datum/modifier/cloaking_device/modifier = null
 
 /obj/item/cloaking_device/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "The default power cell will last for five minutes of continuous usage. It can be removed and recharged or replaced with a better one using a screwdriver."
 	. += "This will not make you inaudible; your footsteps can still be heard, and it will make a very distinctive sound when uncloaking."
 	. += "Any items you're holding in your hands can still be seen."
 
 /obj/item/cloaking_device/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Being cloaked makes you impossible to click on, which offers a major advantage in combat."
 	. += "People can only hit you by blind-firing in your direction."

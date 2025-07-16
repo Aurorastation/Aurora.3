@@ -705,7 +705,6 @@
 	armor = list(melee = 5, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
 
 /obj/item/clothing/suit/caution/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "ALT-click, or click in-hand to toggle the caution lights."
 	. += "It looks like you could wear it in your suit slot if you really wanted to."

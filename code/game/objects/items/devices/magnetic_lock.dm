@@ -29,13 +29,11 @@
 	var/obj/item/cell/powercell
 
 /obj/item/device/magnetic_lock/condition_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if (status == STATUS_BROKEN)
 		. += SPAN_DANGER("It looks broken!")
 
 /obj/item/device/magnetic_lock/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if (powercell)
 		var/power = round(powercell.charge / powercell.maxcharge * 100)
@@ -44,7 +42,6 @@
 		. += SPAN_WARNING("It has no powercell to power it!")
 
 /obj/item/device/magnetic_lock/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(department)
 		. += "Once applied to an airlock, this device can be activated/deactivated by swiping an ID from the <b>[department] department</b> across it."
@@ -466,7 +463,6 @@
 	var/configurable = TRUE
 
 /obj/item/device/magnetic_lock/keypad/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Keypad-enabled magnetic locks require a custom passcode to unlock them, configured on initial use."
 

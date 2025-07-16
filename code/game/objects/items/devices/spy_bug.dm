@@ -20,14 +20,12 @@
 	var/obj/machinery/camera/spy/camera
 
 /obj/item/device/spy_bug/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance <= 0)
 		. += "Needs to be both configured and brought in contact with monitor device to be fully functional."
 		. += "A pen can be used to label the device on a given network."
 
 /obj/item/device/spy_bug/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance <= 0)
 		. += "It's a tiny camera, microphone, and transmission device in a happy union."
@@ -81,7 +79,6 @@
 	var/list/obj/machinery/camera/spy/cameras = new()
 
 /obj/item/device/spy_monitor/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(distance <= 1)
 		. += "The time '12:00' is blinking in the corner of the screen and \the [src] looks very cheaply made."

@@ -35,7 +35,6 @@
 	pickup_sound = 'sound/items/pickup/food.ogg'
 
 /obj/item/reagent_containers/blood/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if (distance <= 2 && vampire_marks)
 		. += SPAN_WARNING("There are sharp, canine-like teeth marks on it.")

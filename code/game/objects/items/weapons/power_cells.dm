@@ -152,12 +152,10 @@
 	self_charge_percentage = 10
 
 /obj/item/cell/slime/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "This slime core is energized with powerful bluespace energies, allowing it to regenerate ten percent of its charge every minute."
 
 /obj/item/cell/slime/antagonist_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Maybe be fucking careful if you try rigging this one."
 

@@ -20,7 +20,6 @@
 	var/image/holo_border
 
 /obj/item/holomenu/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "If you have bar or kitchen access, you can swipe your ID on this to root it in place, then you can click on it with an empty hand to adjust its text."
 	. += "Alt-clicking it will toggle its border."
@@ -140,7 +139,6 @@
 	req_one_access = list()
 
 /obj/item/holomenu/holodeck/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "If you have bar or kitchen access, you can click on this with paper in hand to display text, or you can click on it with an empty hand to adjust its text."
 	. += "Alt-clicking it will toggle its border."

@@ -11,7 +11,6 @@
 	var/mode = "completely"
 
 /obj/item/device/dociler/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += SPAN_NOTICE("It is currently set to [mode] docile mode.")
 

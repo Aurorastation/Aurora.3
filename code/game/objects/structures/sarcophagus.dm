@@ -8,7 +8,6 @@
 	var/open = FALSE
 
 /obj/structure/sarcophagus/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(!open)
 		. += "\The [src]'s lid is closed shut."
