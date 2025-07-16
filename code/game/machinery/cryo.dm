@@ -40,7 +40,6 @@
 	var/current_stasis_mult = 1
 
 /obj/machinery/atmospherics/unary/cryo_cell/mechanics_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "The cryogenic chamber, or 'cryo', treats most damage types, most notably genetic damage. It also stabilizes patients \
 	in critical condition by placing them in stasis, so they can be treated at a later time."
@@ -56,12 +55,10 @@
 	. += "Remember to turn the cryo off once you've finished to save power and chemicals!"
 
 /obj/machinery/atmospherics/unary/cryo_cell/upgrade_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	. += "Upgraded <b>manipulators</b> will increase effectiveness of both hyper-metabolism and cryostasis functions."
 
 /obj/machinery/atmospherics/unary/cryo_cell/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
 	. += ..()
 	if(is_adjacent)
 		if(beaker)
