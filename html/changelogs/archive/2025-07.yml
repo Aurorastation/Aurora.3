@@ -297,3 +297,22 @@
       fabricator
   SleepyGemmy:
   - rscadd: Added the Konyang and Adhomai lobby music to the audioconsole.
+2025-07-16:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Fixed vertical cable connection from Security SMES to the actual department
+      subgrid, removed crosswire bandaid fix between it and Civilian Deck 2 subgrid.
+  - bugfix: Fixed mismatched maint floor grate coloring.
+  Kintsugi:
+  - bugfix: Liberty's Cradle now has proper starlight settings.
+  NobleRow:
+  - rscadd: 'Added six new baseline frame IPC screens: eyes colored green, red, yellow,
+      punk, orange, or blue.'
+  Wowzewow (Wezzy):
+  - bugfix: Fixes grammar for giving items.
+  - qol: Moved Dominian Consular outfit items from the loadout to be jobspawn items
+      to be in line with the other consulars.
+  - rscadd: Tidies up the hats section of the loadout and removes unused hats.
+  hazelmouse:
+  - bugfix: Hydroponicists can now access their own holomenu.
+  nauticall:
+  - rscadd: Added the Liberty's Cradle Stargazer hologram sprite to the game.
