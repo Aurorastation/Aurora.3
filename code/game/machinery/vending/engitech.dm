@@ -8,7 +8,7 @@
  *	SCC Encryption Key Vendor
  *	Vendomat (Parts Vendor)
  *		Syndicate
- **/
+ */
 
 /obj/machinery/vending/robotics
 	name = "Robotech Deluxe"

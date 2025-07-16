@@ -4,7 +4,7 @@
  *	GwokBuzz vendor
  *	Lavatory Essentials
  *		Low Supply
- **/
+ */
 
 /obj/machinery/vending/phoronresearch
 	name = "Toximate 3000"

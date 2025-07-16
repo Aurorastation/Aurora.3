@@ -2,7 +2,7 @@
  *	MREs
  *		Low Supply
  *	Ramen
- **/
+ */
 
 /obj/machinery/vending/mredispenser
 	name = "MRE dispenser"

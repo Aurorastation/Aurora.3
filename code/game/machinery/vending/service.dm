@@ -3,7 +3,7 @@
  *	Plastic utensil vendor
  *	Metal utensil vendor
  *	Glasses vendor
- **/
+ */
 
 /obj/machinery/vending/dinnerware
 	name = "\improper Dinnerware vendor"

@@ -3,7 +3,7 @@
  *		Merchant Station
  *		Abandoned
  *		Low Supply
- **/
+ */
 
 /obj/machinery/vending/boozeomat
 	name = "Booze-O-Mat"

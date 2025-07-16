@@ -1568,6 +1568,10 @@
 "fX" = (
 /turf/template_noop,
 /area/space)
+"gg" = (
+/obj/item/coin/platinum,
+/turf/simulated/floor/tiled,
+/area/construction/storage)
 "gk" = (
 /turf/simulated/floor/tiled,
 /area/construction/storage)
@@ -2948,6 +2952,10 @@
 /obj/machinery/shipsensors,
 /turf/template_noop,
 /area/engineering)
+"Fd" = (
+/obj/item/coin/silver,
+/turf/simulated/floor/tiled,
+/area/construction/storage)
 "Fn" = (
 /obj/machinery/light{
 	brightness_range = 16;
@@ -2967,6 +2975,10 @@
 /obj/machinery/alarm/west,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
+"FB" = (
+/obj/item/coin/gold,
+/turf/simulated/floor/tiled,
+/area/construction/storage)
 "FC" = (
 /obj/item/modular_computer/console/preset/ai,
 /obj/machinery/camera/network/command{
@@ -3430,6 +3442,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
+"OC" = (
+/obj/machinery/vending/boozeomat,
+/turf/simulated/floor/tiled,
+/area/construction/storage)
 "OX" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -73581,7 +73597,7 @@ gk
 gk
 gk
 gk
-gk
+FB
 gk
 qY
 og
@@ -73837,9 +73853,9 @@ gk
 jj
 gk
 gk
+OC
 gk
-gk
-gk
+gg
 gk
 TB
 nv
@@ -74095,7 +74111,7 @@ qi
 gk
 gk
 gk
-gk
+Fd
 gk
 gk
 gk

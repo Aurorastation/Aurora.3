@@ -7,7 +7,7 @@
  *		Low Supply
  *	NanoPharm Mini
  *		Low Supply
- **/
+ */
 
 /obj/machinery/vending/medical
 	name = "NanoMed Plus"

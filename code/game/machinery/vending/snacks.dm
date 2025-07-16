@@ -5,7 +5,7 @@
  *	FrontierVend
  *		Low Supply
  *		Hacked
- **/
+ */
 
 /obj/machinery/vending/snack
 	name = "Getmore Chocolate Corp"

@@ -3,7 +3,7 @@
  *		Low Supply
  *		Merchant Station
  *		Hacked
- **/
+ */
 
 /obj/machinery/vending/cigarette
 	name = "\improper cigarette machine" //OCD had to be uppercase to look nice with the new formating

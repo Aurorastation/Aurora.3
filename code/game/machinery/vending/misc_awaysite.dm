@@ -2,7 +2,7 @@
  *	Minimart refridgerator
  *	Minimart alcohol selection
  *	Rental Bikes self-service vendor
- **/
+ */
 
 /obj/machinery/vending/minimart
 	name = "\improper minimart refrigerator"

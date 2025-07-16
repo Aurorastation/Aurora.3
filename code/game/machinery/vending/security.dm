@@ -2,7 +2,7 @@
  *	SecTech
  *	Tactical Express
  *	Nanosecurity Plus
- **/
+ */
 
 /obj/machinery/vending/security
 	name = "SecTech"

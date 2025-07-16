@@ -12,31 +12,20 @@ export type VendingData = {
   sel_icon: string;
   message: string;
   message_err: string;
-  all_products_free: boolean;
-  onstation: boolean;
-  department: string;
-  jobDiscount: number;
-  displayed_currency_icon: string;
-  displayed_currency_name: string;
+  display_ad: string;
 
-  stock: StockItem[];
+  products: Product[];
   coin: string;
 
   speaker: BooleanLike;
+  panel: BooleanLike;
   manufacturer: string;
 
   width_override: number;
   height_override: number;
 };
 
-type UserData = {
-  name: string;
-  cash: number;
-  job: string;
-  department: string;
-};
-
-type StockItem = {
+type Product = {
   key: string;
   name: string;
   price: number;
@@ -50,6 +39,7 @@ export const Vending = (props, context) => {
   return (
     <Window resizable width={425} height={500} theme={data.manufacturer}>
       <Window.Content scrollable>
+        <Box textAlign="center">{data.display_ad}</Box>
         <Section>
           {data.vending_item && data.sel_price !== 0 ? (
             <ShowVendingItem />
@@ -100,25 +90,24 @@ export const ShowAllItems = (props, context) => {
         }
       />
       <Section fill>
-        {data.stock
+        {data.products
           .filter(
-            (StockItem) =>
-              StockItem.name.toLowerCase().indexOf(searchTerm.toLowerCase()) >
-              -1
+            (product) =>
+              product.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
           )
-          ?.map((StockItem) => (
+          ?.map((product) => (
             <Button
-              tooltip={StockItem.name}
-              key={StockItem.name}
-              disabled={data.vending_item || StockItem.amount <= 0}
-              onClick={() => act('vendItem', { vendItem: StockItem.key })}
+              tooltip={product.name}
+              key={product.name}
+              disabled={data.vending_item || product.amount <= 0}
+              onClick={() => act('vendItem', { vendItem: product.key })}
               style={{
                 height: '70px',
                 width: '70px',
               }}>
               <Box
                 as="img"
-                className={StockItem.icon_tag}
+                className={product.icon_tag}
                 style={{
                   '-ms-interpolation-mode': 'nearest-neighbor',
                   transform: 'scale(1.5) translate(30%, 30%)',
@@ -127,13 +116,13 @@ export const ShowAllItems = (props, context) => {
               <Flex>
                 <Flex.Item py={2}>
                   <Box as="span" fontSize="10px">
-                    ({StockItem.amount}x)
+                    ({product.amount}x)
                   </Box>
                 </Flex.Item>
                 <Flex.Item py={2} px={2}>
-                  {StockItem.price ? (
+                  {product.price ? (
                     <Box as="span" fontSize="10px">
-                      {StockItem.price}电
+                      {product.price}电
                     </Box>
                   ) : (
                     ''

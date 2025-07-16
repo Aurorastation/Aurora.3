@@ -16,7 +16,7 @@ TEMPLATE FOR NEW VENDING MACHINES
 	premium = list()
 */
 
-//RECURSION
+
 /obj/machinery/vending/vendors
 	name = "Omni-Restocker"
 	desc = "The mother of all vendors, from which vending itself comes!"

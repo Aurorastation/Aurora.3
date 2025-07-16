@@ -8,7 +8,7 @@
  *		Public Garden ($)
  *	GardenVend
  *	MegaSeed Servitor
- **/
+ */
 
 /obj/machinery/vending/hydronutrients
 	name = "NutriMax"

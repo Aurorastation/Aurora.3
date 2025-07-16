@@ -5,7 +5,7 @@
  *	Zo'ra Soda
  *		Low Supply
  *	BODA (Soviet Soda)
- **/
+ */
 
 /obj/machinery/vending/cola
 	name = "Idris Re-Fresh"

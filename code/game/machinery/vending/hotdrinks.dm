@@ -2,7 +2,7 @@
  *	Hot drinks machine
  *		Low Supply
  *		Free
- **/
+ */
 
 /obj/machinery/vending/coffee
 	name = "\improper Hot Drinks machine"

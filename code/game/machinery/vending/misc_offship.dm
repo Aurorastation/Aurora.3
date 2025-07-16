@@ -1,6 +1,6 @@
 /**
  *	Grand Romanovich casino vendor
- **/
+ */
 
 /obj/machinery/vending/casino
 	name = "Grand Romanovich vending machine"
