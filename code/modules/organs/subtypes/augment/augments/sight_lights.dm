@@ -8,6 +8,7 @@
 	organ_tag = BP_AUG_SIGHTLIGHTS
 	parent_organ = BP_HEAD
 	cooldown = 30
+
 	var/lights_on = FALSE
 	var/lights_color = LIGHT_COLOR_TUNGSTEN
 	var/lights_range = 4
