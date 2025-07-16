@@ -5,7 +5,7 @@
 /obj/item/rig/skrell
 	name = "qukala assault hardsuit control module"
 	desc = "A Nralakk-manufactured combat hardsuit, designed for use by elite operatives of the Qukala. Due to their expense and classified design, these suits are rarely seen outside of Qukala hands."
-	icon = 'icons/obj/item/clothing/suit/rigsuit/nralakk.dmi'
+	icon = 'icons/obj/item/clothing/rig/nralakk.dmi'
 	icon_state = "nralakk_rig"
 	armor = list(
 		MELEE = ARMOR_MELEE_MAJOR,
@@ -55,7 +55,7 @@
 /obj/item/rig/skrell/tup
 	name = "tupkala infiltration suit control module"
 	desc = "An old yet reliable suit control module, designed by the Nralakk Federation for clandestine operations. The best of the best, albeit outdated now."
-	icon = 'icons/obj/item/clothing/suit/rigsuit/tup.dmi'
+	icon = 'icons/obj/item/clothing/rig/tup.dmi'
 	icon_state = "tup_rig"
 	suit_type = "tup suit"
 	emp_protection = 95
