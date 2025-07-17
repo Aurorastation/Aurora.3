@@ -134,7 +134,7 @@
 	var/oxygenated_add = 0
 
 	// Check if any components on the user wish to mess with the blood oxygenation.
-	SEND_SIGNAL(src, COMSIG_HEART_BLOOD_OXYGENATION_EVENT)
+	SEND_SIGNAL(src, COMSIG_BLOOD_OXYGENATION_EVENT)
 
 	if(chem_effects[CE_OXYGENATED] == 1) // Dexalin.
 		oxygenated_add += 0.5
