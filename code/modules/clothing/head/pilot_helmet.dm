@@ -8,11 +8,11 @@
 	flags_inv = BLOCKHEADHAIR
 	body_parts_covered = HEAD|EYES
 	armor = list(
-		melee = ARMOR_MELEE_KNIVES,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED
+		MELEE = ARMOR_MELEE_KNIVES,
+		BULLET = ARMOR_BALLISTIC_SMALL,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED
 	)
 	siemens_coefficient = 0.35
 	action_button_name = "Toggle Visor"
@@ -157,6 +157,12 @@
 	icon_state = "legion_pilot"
 	item_state = "legion_pilot"
 	camera = /obj/machinery/camera/network/tcfl
+
+/obj/item/clothing/head/helmet/pilot/himeo
+	name = "himean naval flight helmet"
+	desc = "A helmet with a pilots visor attached, painted in the drab tan colours of the Himean navy uniform. The visor feeds its wearer in-flight information via an integrated heads-up display."
+	icon_state = "pilot_helmet_himeo"
+	item_state = "pilot_helmet_himeo"
 
 /obj/pilot_overlay_holder
 	name = null

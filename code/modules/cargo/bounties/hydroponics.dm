@@ -88,10 +88,10 @@
 				/datum/seed/watermelon,
 				/datum/seed/citrus,
 				/datum/seed/cherries,
-				/datum/seed/nifberries,
+				/datum/seed/dirtberries,
 				/datum/seed/dyn,
 				/datum/seed/wulumunusha,
-				/datum/seed/nmshaan)
+				/datum/seed/sugartree)
 
 /datum/bounty/item/hydroponicist/produce/mushroom
 	name = "Produce - Mushrooms"
@@ -106,3 +106,66 @@
 	required_count = 10
 	random_count = 2
 	produce_picks = list(/datum/seed/tobacco)
+
+/datum/bounty/item/hydroponicist/produce/rice
+	name = "Produce - Rice"
+	description = "They ran out of rice at %COMPNAME headquarters here in Mendell. Send them enough to hold them over until next quarter."
+	required_count = 25
+	random_count = 5
+	produce_picks = list(/datum/seed/rice)
+
+/datum/bounty/item/hydroponicist/goldstars
+	name = "Stickers - Gold Stars"
+	description = "We're getting ready for the quarterly %COMPNAME employee evaluation. Send us some gold stars so we can really let our employees know how valuable they are."
+	reward_low = 2600
+	reward_high = 3400
+	required_count = 6
+	random_count = 2
+	wanted_types = list(/obj/item/storage/stickersheet/goldstar)
+
+/datum/bounty/item/hydroponicist/stuffedanimals
+	name = "Toys - Stuffed Animals"
+	description = "We had to recall some products recently for being highly carcinogenic. To help with optics, we're hosting a toy drive for the handful of children's cancer hospitals in Mendell. Get us some stuffed animals for it."
+	reward_low = 2800
+	reward_high = 3800
+	required_count = 8
+	random_count = 2
+	wanted_types = list(
+		/obj/item/toy/plushie/ian,
+		/obj/item/toy/plushie/drone,
+		/obj/item/toy/plushie/carp,
+		/obj/item/toy/plushie/beepsky,
+		/obj/item/toy/plushie/ivancarp,
+		/obj/item/toy/plushie/nymph,
+		/obj/item/toy/plushie/mouse,
+		/obj/item/toy/plushie/kitten,
+		/obj/item/toy/plushie/lizard,
+		/obj/item/toy/plushie/spider,
+		/obj/item/toy/plushie/farwa,
+		/obj/item/toy/plushie/bear,
+		/obj/item/toy/plushie/bearfire,
+		/obj/item/toy/plushie/schlorrgo,
+		/obj/item/toy/plushie/coolschlorrgo,
+		/obj/item/toy/plushie/slime,
+		/obj/item/toy/plushie/bee,
+		/obj/item/toy/plushie/shark,
+		/obj/item/toy/plushie/greimorian,
+		/obj/item/toy/plushie/herring_gull,
+		/obj/item/toy/plushie/cockatoo,
+		/obj/item/toy/plushie/norinori,
+		/obj/item/toy/plushie/fox,
+		/obj/item/toy/plushie/fox/black,
+		/obj/item/toy/plushie/fox/marble,
+		/obj/item/toy/plushie/fox/blue,
+		/obj/item/toy/plushie/fox/orange,
+		/obj/item/toy/plushie/fox/coffee,
+		/obj/item/toy/plushie/fox/pink,
+		/obj/item/toy/plushie/fox/purple,
+		/obj/item/toy/plushie/fox/crimson,
+		/obj/item/toy/plushie/axic,
+		/obj/item/toy/plushie/qill,
+		/obj/item/toy/plushie/xana,
+		/obj/item/toy/plushie/ipc,
+		/obj/item/toy/plushie/domadice,
+		/obj/item/toy/plushie/squid
+		)

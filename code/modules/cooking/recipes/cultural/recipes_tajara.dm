@@ -1,7 +1,7 @@
 // Tajaran breads
 /singleton/recipe/tajaran_bread
 	appliance = OVEN
-	fruit = list("nifberries" = 1)
+	fruit = list("dirtberries" = 1)
 	reagents = list(/singleton/reagent/spacespice = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/flatbread
@@ -22,7 +22,7 @@
 // Tajaran peasant food
 /singleton/recipe/tajaran_stew
 	appliance = SAUCEPAN | POT
-	fruit = list("nifberries" = 2, "mushroom" = 1, "mtear" = 1)
+	fruit = list("dirtberries" = 2, "mushroom" = 1, "mtear" = 1)
 	reagents = list(/singleton/reagent/water = 10)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/meat/adhomai,
@@ -51,7 +51,7 @@
 		/obj/item/reagent_containers/food/snacks/meat/adhomai,
 		/obj/item/stack/rods
 	)
-	fruit = list("earthenroot" = 1, "nifberries" = 1)
+	fruit = list("earthenroot" = 1, "dirtberries" = 1)
 	result = /obj/item/reagent_containers/food/snacks/nomadskewer
 
 /datum/chemical_reaction/fermentedworm
@@ -106,7 +106,7 @@
 
 /singleton/recipe/earthenroot_salad
 	appliance = MIX
-	fruit = list("earthenroot" = 1, "mtear" = 2, "nifberries" = 1)
+	fruit = list("earthenroot" = 1, "mtear" = 2, "dirtberries" = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dip/sarmikhir
 	)
@@ -226,7 +226,7 @@
 /singleton/recipe/dirt_roast
 	appliance = OVEN
 	reagents = list(/singleton/reagent/spacespice = 1, /singleton/reagent/sugar = 5)
-	fruit = list("nifberries" = 1)
+	fruit = list("dirtberries" = 1)
 	result = /obj/item/reagent_containers/food/snacks/dirt_roast
 
 /singleton/recipe/fatshouter_fillet
@@ -253,7 +253,7 @@
 
 /singleton/recipe/creamice
 	reagents = list(/singleton/reagent/drink/milk/adhomai = 10, /singleton/reagent/sugar = 10, /singleton/reagent/drink/ice = 10)
-	fruit = list("nifberries" = 1)
+	fruit = list("dirtberries" = 1)
 	result = /obj/item/reagent_containers/food/snacks/creamice
 
 /singleton/recipe/stuffed_earthenroot
@@ -278,7 +278,7 @@
 
 /singleton/recipe/scoutration
 	appliance = OVEN
-	fruit = list("nifberries" = 2)
+	fruit = list("dirtberries" = 2)
 	reagents = list(/singleton/reagent/sodiumchloride = 1)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	items = list(
@@ -321,7 +321,7 @@
 // Tajaran candy
 /singleton/recipe/tajcandy
 	appliance = OVEN
-	fruit = list("nmshaan" = 2)
+	fruit = list("sugartree" = 2)
 	reagents = list(/singleton/reagent/drink/milk/adhomai = 5, /singleton/reagent/nutriment/protein/egg = 3)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	items = list(
@@ -338,14 +338,14 @@
 
 /singleton/recipe/tajhummus
 	appliance = MIX
-	fruit = list("mtear" = 1, "nifberries" = 1)
+	fruit = list("mtear" = 1, "dirtberries" = 1)
 	reagents = list(/singleton/reagent/spacespice = 1, /singleton/reagent/nutriment/flour/nfrihi = 5)
 	result = /obj/item/reagent_containers/food/snacks/dip/tajhummus
 
 // Tajaran gelatin-based food
 /singleton/recipe/seafoodmousse
 	appliance = MIX
-	fruit = list("nifberries" = 1)
+	fruit = list("dirtberries" = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/clam,
 		/obj/item/reagent_containers/food/snacks/clam,
@@ -357,14 +357,14 @@
 
 /singleton/recipe/vegello
 	appliance = MIX
-	fruit = list("nifberries" = 2, "earthenroot" = 2, "mtear" = 2)
+	fruit = list("dirtberries" = 2, "earthenroot" = 2, "mtear" = 2)
 	reagents = list(/singleton/reagent/nutriment/gelatin = 10, /singleton/reagent/water = 5, /singleton/reagent/spacespice = 1)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/sliceable/vegello
 
 /singleton/recipe/fruitgello
 	appliance = MIX
-	fruit = list("nmshaan" = 2, "nifberries" = 1)
+	fruit = list("sugartree" = 2, "dirtberries" = 1)
 	reagents = list(/singleton/reagent/nutriment/gelatin = 10, /singleton/reagent/water = 5, /singleton/reagent/sugar = 5, /singleton/reagent/drink/milk/cream = 5)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/fruitgello
@@ -385,7 +385,7 @@
 
 /singleton/recipe/fatshouterbake
 	appliance = OVEN
-	fruit = list("nmshaan" = 2)
+	fruit = list("sugartree" = 2)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/adhomian_can,
 		/obj/item/reagent_containers/food/snacks/adhomian_can
@@ -396,7 +396,7 @@
 
 /singleton/recipe/crownfurter
 	appliance = OVEN
-	fruit = list("nifberries" = 1)
+	fruit = list("dirtberries" = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/adhomian_sausage,
 		/obj/item/reagent_containers/food/snacks/adhomian_sausage,

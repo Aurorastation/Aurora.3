@@ -82,7 +82,7 @@
 	name = "Surgeon - Zeng-Hu"
 
 	uniform = /obj/item/clothing/under/rank/medical/surgeon/zeng
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
+	suit = /obj/item/clothing/suit/storage/surgical_gown/zeng
 	id = /obj/item/card/id/zeng_hu
 	shoes = /obj/item/clothing/shoes/sneakers/medsci/zeng
 

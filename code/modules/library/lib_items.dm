@@ -218,7 +218,7 @@
 			to_chat(user, SPAN_NOTICE("The pages of [title] have been cut out!"))
 			return
 	if(src.dat)
-		user << browse("<TT><I>Penned by [author].</I></TT> <BR>" + "[dat]", "window=book")
+		user << browse(HTML_SKELETON("<TT><I>Penned by [author].</I></TT> <BR>" + "[dat]"), "window=book")
 		user.visible_message("[user] opens a book titled \"[src.title]\" and begins reading intently.")
 		playsound(loc, 'sound/bureaucracy/bookopen.ogg', 50, TRUE)
 		onclose(user, "book")
@@ -314,7 +314,7 @@
 	if(target_zone == BP_EYES)
 		user.visible_message(SPAN_NOTICE("You open up the book and show it to [target_mob]. "), \
 			SPAN_NOTICE(" [user] opens up a book and shows it to [target_mob]. "))
-		target_mob << browse("<TT><I>Penned by [author].</I></TT> <BR>" + "[dat]", "window=book")
+		target_mob << browse(HTML_SKELETON("<TT><I>Penned by [author].</I></TT> <BR>" + "[dat]"), "window=book")
 		user.setClickCooldown(DEFAULT_QUICK_COOLDOWN) //to prevent spam
 
 

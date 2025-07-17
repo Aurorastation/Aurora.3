@@ -29,7 +29,7 @@
 	. = ..()
 	if(distance <= 0)
 		. += "It's a tiny camera, microphone, and transmission device in a happy union."
-		. += "Needs to be both configured and brought in contact with monitor device to be fully functional."
+		. += "Needs to be both configured and brought in contact with monitor device to be fully functional. A pen can also be used to label the device on a given network."
 
 /obj/item/device/spy_bug/attack_self(mob/user)
 	radio.set_broadcasting(!radio.get_broadcasting())
@@ -44,11 +44,17 @@
 		var/obj/item/device/spy_monitor/SM = attacking_item
 		SM.pair(src, user)
 		return TRUE
+	if(attacking_item.ispen())
+		var/n_tag = sanitizeSafe( tgui_input_text(user, "What would you like to label the camera?", "Bug Labelling", default = camera.c_tag, max_length = MAX_NAME_LEN), MAX_NAME_LEN )
+		if(Adjacent(user) && user.stat == CONSCIOUS && n_tag)
+			camera.c_tag = n_tag
+			camera.name = "[camera.initial_name] - [n_tag]"
+			return TRUE
 	else
 		return ..()
 
 /obj/item/device/spy_bug/hear_talk(mob/M, var/msg, verb, datum/language/speaking)
-	radio.hear_talk(M, msg, speaking)
+	radio.hear_talk(M, msg, verb, speaking)
 
 
 /obj/item/device/spy_monitor
@@ -108,17 +114,17 @@
 	selected_camera = cameras[1]
 	view_camera(user)
 
-	operating = 1
+	operating = TRUE
 	while(selected_camera && Adjacent(user))
 		selected_camera = tgui_input_list(user, "Select camera bug to view.", "Spy Monitor", cameras)
 	selected_camera = null
-	operating = 0
+	operating = FALSE
 
 /obj/item/device/spy_monitor/proc/view_camera(mob/user)
 	spawn(0)
 		while(selected_camera && Adjacent(user))
 			var/turf/T = get_turf(selected_camera)
-			if(!T || !(T.z == user.z || !is_station_level(T.z) || !is_station_level(user.z)) || !selected_camera.can_use())
+			if(!T || !(T.z in GetConnectedZlevels(user.z)) || !selected_camera.can_use())
 				user.unset_machine()
 				user.reset_view(null)
 				to_chat(user, SPAN_NOTICE("[selected_camera] unavailable."))
@@ -149,14 +155,17 @@
 	// These cheap toys are accessible from the mercenary camera console as well
 	network = list(NETWORK_MERCENARY)
 	active_power_usage = 0
+	/// Set on Initialize(), simulates initial() but for the name variable so we can restore it when needed
+	var/initial_name
 
 /obj/machinery/camera/spy/Initialize()
 	. = ..()
 	name = "DV-136ZB #[rand(1000,9999)]"
+	initial_name = name
 	c_tag = name
 
 /obj/machinery/camera/spy/check_eye(var/mob/user as mob)
-	return 0
+	return FALSE
 
 /obj/item/device/radio/spy
 	canhear_range = 7

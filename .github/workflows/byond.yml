@@ -103,7 +103,7 @@ jobs:
       # https://megalinter.io/latest/
       - name: Check EditorConfig Compliance
         id: ml
-        uses: oxsecurity/megalinter/flavors/python@v8.1.0
+        uses: oxsecurity/megalinter/flavors/python@v8.4.0
         # Env config options outlined in https://megalinter.io/configuration/
         env:
           PRINT_ALPACA: false
@@ -302,10 +302,6 @@ jobs:
         run: |
           tools/bootstrap/python -m mapmerge2.dmm_test
           tools/bootstrap/python -m tools.maplint.source
-
-      - name: Scan DMMs
-        run: |
-          tools/bootstrap/python -m dmm_scanner.scan_camera_ctags
 
 ###########################################
 ############## GENERIC TESTS ##############

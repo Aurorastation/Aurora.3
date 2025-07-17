@@ -17,6 +17,7 @@
 	volume = 60
 	drop_sound = 'sound/items/drop/food.ogg'
 	pickup_sound = 'sound/items/pickup/food.ogg'
+	storage_slot_sort_by_name = TRUE
 
 /obj/item/reagent_containers/pill/New()
 	..()
@@ -392,3 +393,21 @@
 	desc = "A pill used to treat nicotine addiction."
 	icon_state = "pill18"
 	reagents_to_add = list(/singleton/reagent/mental/nicotine = 5)
+
+/obj/item/reagent_containers/pill/colorspace
+	name = "5u Colorspace Pill"
+	desc = "A recreational drug, legal in Biesel."
+	icon_state = "pill8"
+	reagents_to_add = list(/singleton/reagent/drugs/colorspace = 5)
+
+/obj/item/reagent_containers/pill/snowflake
+	name = "5u Snowflake Pill"
+	desc = "A recreational drug, legal in Biesel, despite the dangers of overdoses."
+	icon_state = "pill18"
+	reagents_to_add = list(/singleton/reagent/drugs/snowflake = 5)
+
+/obj/item/reagent_containers/pill/psilocybin
+	name = "5u Psilocybin Pill"
+	desc = "A strong psychotropic derived from certain species of mushroom."
+	icon_state = "pill10"
+	reagents_to_add = list(/singleton/reagent/drugs/psilocybin = 5)

@@ -124,7 +124,7 @@
 	for(var/index=1, index<=construction.len, index++)
 		dat += "<A href='byond://?src=[REF(src)];activate=[index]'>\[[construction[index]]\]</a><br>"
 
-	user << browse(dat, "window=alien_replicator")
+	user << browse(HTML_SKELETON(dat), "window=alien_replicator")
 
 /obj/machinery/replicator/attackby(obj/item/attacking_item, mob/user)
 	user.drop_from_inventory(attacking_item, src)

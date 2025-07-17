@@ -9,13 +9,13 @@
 	action_button_name = "Toggle Headlamp"
 	brightness_on = 4 //luminosity when on
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_MINOR,
-		rad = ARMOR_RAD_MINOR
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_MINOR,
+		RAD = ARMOR_RAD_MINOR
 	)
 	flags_inv = 0
 	w_class = WEIGHT_CLASS_NORMAL
@@ -64,6 +64,23 @@
 	contained_sprite = TRUE
 	min_pressure_protection = FIRESUIT_MIN_PRESSURE
 	heat_protection = HEAD
+
+	///Initial name of the fire helmet's emissive overlay. Will be changed based on [icon_supported_species_tags], above
+	var/initial_emissive_state = "atmos_fire_emissive"
+	///Special variable to handle the fire helmet's emissive overlay
+	var/emissive_state
+
+/obj/item/clothing/head/hardhat/atmos/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	emissive_state = initial_emissive_state
+	if(icon_auto_adapt)
+		if(H && length(icon_supported_species_tags))
+			if(H.species.short_name in icon_supported_species_tags)
+				emissive_state = "[H.species.short_name]_[initial_emissive_state]"
+	if(slot == slot_head_str)
+		var/image/emissive_overlay = emissive_appearance(mob_icon, emissive_state, alpha = src.alpha)
+		I.AddOverlays(emissive_overlay)
+	return I
 
 /obj/item/clothing/head/hardhat/paramedic
 	name = "medical helmet"

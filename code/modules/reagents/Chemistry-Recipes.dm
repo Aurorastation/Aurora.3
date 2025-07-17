@@ -1851,6 +1851,13 @@
 	required_reagents = list(/singleton/reagent/drink/garlicjuice = 1, /singleton/reagent/nutriment/triglyceride/oil/corn = 1)
 	result_amount = 2
 
+/datum/chemical_reaction/sweet_chili
+	name = "Sweet Chili Sauce"
+	id = "sweet_chili"
+	result = /singleton/reagent/nutriment/sweet_chili
+	required_reagents = list(/singleton/reagent/sugar = 1, /singleton/reagent/capsaicin = 1)
+	result_amount = 2
+
 /datum/chemical_reaction/peanutbutter // Yes, this doesn't make sense. No, I don't know how to do this better
 	name = "Peanut Butter"
 	id = "peanutbutter"

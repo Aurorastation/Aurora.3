@@ -34,6 +34,9 @@
 	icon_base = null
 	footstep_sound_override = 'sound/machines/rig/rigstep.ogg'
 
+/obj/item/clothing/shoes/magboots/rig/advanced
+	slowdown_active = 0
+
 /obj/item/clothing/suit/space/rig
 	name = "chestpiece"
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit)

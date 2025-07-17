@@ -97,7 +97,7 @@
 			grenade.primed(scanning)
 
 /obj/item/device/assembly/prox_sensor/Move()
-	..()
+	. = ..()
 	sense()
 
 /obj/item/device/assembly/prox_sensor/interact(mob/user)

@@ -73,7 +73,8 @@
 
 /mob/living/simple_animal/space_worm/Move()
 	var/attachementNextPosition = loc
-	if(..())
+	. = ..()
+	if(.)
 		if(previous)
 			previous.Move(attachementNextPosition)
 		update_icon()

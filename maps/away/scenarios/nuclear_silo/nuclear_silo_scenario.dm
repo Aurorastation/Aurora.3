@@ -21,10 +21,10 @@
 		/singleton/role/nuclear_silo_crew/lower/silo_military_attache,
 	)
 	default_outfit = /obj/outfit/admin/generic/nuclear_silo_crew
+	actor_accesses = list(/datum/access/nuclear_missile_silo_access, /datum/access/nuclear_missile_silo_access_high)
+	radio_frequency_name = "Arctic Valley"
 
 	base_area = /area/nuclear_silo
-
-	radio_frequency_name = "Arctic Valley"
 
 /singleton/scenario_announcements/nuclear_silo
 	horizon_announcement_title = "SCC Vessel Sensor Relay Network"

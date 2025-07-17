@@ -13,11 +13,11 @@
 	max_heat_protection_temperature = 0
 	contained_sprite = TRUE
 	armor = list(
-		melee = ARMOR_MELEE_KNIVES,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED
+		MELEE = ARMOR_MELEE_KNIVES,
+		BULLET = ARMOR_BALLISTIC_PISTOL,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED
 	)
 
 /obj/item/clothing/suit/storage/toggle/armor/vest/idris/white
@@ -97,4 +97,13 @@
 	icon = 'icons/clothing/suits/coats/idris_windbreaker.dmi'
 	icon_state = "idris_windbreaker"
 	item_state = "idris_windbreaker"
+	contained_sprite = TRUE
+
+// Fancy dress, for service staff and ICSUs.
+/obj/item/clothing/under/dress/idris
+	name = "idris incorporated hospitality dress"
+	desc = "This is a stylish knee-length teal dress, installed with its own in-built undershirt and scarf that cannot be removed. It is branded prominently with the logo of Idris Incorporated. Commonly worn among Idris Customer Service units, alongside their organic peers."
+	icon = 'icons/clothing/under/uniforms/idris_dress.dmi'
+	icon_state = "idris_dress"
+	item_state = "idris_dress"
 	contained_sprite = TRUE

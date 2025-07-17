@@ -413,7 +413,7 @@
 
 	dellog += "</ol>"
 
-	usr << browse(dellog.Join(), "window=dellog")
+	usr << browse(HTML_SKELETON(dellog.Join()), "window=dellog")
 
 /**
  * Same as `cmd_display_del_log`, but only shows harddels
@@ -454,14 +454,14 @@
 
 	dellog += "</ol>"
 
-	usr << browse(dellog.Join(), "window=harddellog")
+	usr << browse(HTML_SKELETON(dellog.Join()), "window=harddellog")
 
 /client/proc/cmd_display_init_log()
 	set category = "Debug"
 	set name = "Display Initialize() Log"
 	set desc = "Displays a list of things that didn't handle Initialize() properly"
 
-	usr << browse(replacetext(SSatoms.InitLog(), "\n", "<br>"), "window=initlog")
+	usr << browse(HTML_SKELETON(replacetext(SSatoms.InitLog(), "\n", "<br>")), "window=initlog")
 
 /client/proc/reload_nanoui_resources()
 	set category = "Debug"
@@ -499,3 +499,19 @@
 		for(var/atom/an_atom in world)
 			if(world.tick_usage > (100+(tick_offenses+jitter_this_run)))
 				stoplag()
+
+/client/proc/allow_browser_inspect()
+	set category = "Debug"
+	set name = "Allow Browser Inspect"
+	set desc = "Allow browser debugging via inspect"
+
+	if(!check_rights(R_DEBUG) || !isclient(src))
+		return
+
+	if(byond_version < 516)
+		to_chat(src, SPAN_WARNING("You can only use this on 516!"))
+		return
+
+	to_chat(src, SPAN_INFO("You can now right click to use inspect on browsers."))
+	winset(src, null, list("browser-options" = "+devtools"))
+	winset(src, null, list("browser-options" = "+find"))

@@ -402,6 +402,43 @@
 	icon_state = "witchfindernovel"
 	item_state = "book"
 
+/*
+ * Magazines
+ */
+
+/obj/item/toy/comic/magazine/horticulturetoday
+	name = "horticulture today! magazine"
+	desc = "A staple publication of all things horticulture."
+	desc_extended = "One part magazine, one part scientific journal, Horticulture Today! has been the staple source for horticulture news for the last 150 years. Its found \
+	itself in every unconnected station, frontier colony, and doctors office across the spur. The magazine's fame largely comes from its writing, maintaining a perfect blend \
+	of entertaining commentary and nuanced summaries of recent discoveries."
+	icon_state = "horticulture1"
+	item_state = "horticulture"
+
+/obj/item/toy/comic/magazine/horticulturetoday/issue1
+	desc = "A staple publication of all things horticulture. This issue is about sunflowers."
+	icon_state = "horticulture1"
+
+/obj/item/toy/comic/magazine/horticulturetoday/issue2
+	desc = "A staple publication of all things horticulture. This issue is about root systems."
+	icon_state = "horticulture2"
+
+/obj/item/toy/comic/magazine/horticulturetoday/issue3
+	desc = "A staple publication of all things horticulture. This issue is about garden flowers."
+	icon_state = "horticulture3"
+
+/obj/item/toy/comic/magazine/horticulturetoday/issue4
+	desc = "A staple publication of all things horticulture. This issue is about wild flowers."
+	icon_state = "horticulture4"
+
+/obj/item/toy/comic/magazine/horticulturetoday/issue5
+	desc = "A staple publication of all things horticulture. This issue is about tomatoes of all kinds."
+	icon_state = "horticulture5"
+
+/obj/item/toy/comic/magazine/horticulturetoday/issue6
+	desc = "A staple publication of all things horticulture. This issue is about the genus Allium. Everything from Onions to Leeks."
+	icon_state = "horticulture6"
+
 //
 // Toy Crossbows
 //

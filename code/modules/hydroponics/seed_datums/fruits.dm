@@ -255,6 +255,22 @@
 
 /obj/item/seeds/strawberryseed
 	seed_type = "strawberries"
+
+/datum/seed/berry/cranberry
+	name = "cranberries"
+	seed_name = "cranberry"
+	display_name = "cranberry bush"
+	mutants = list("berries","poisonberries","glowberries")
+	chems = list(/singleton/reagent/nutriment = list(1,10), /singleton/reagent/drink/cranberryjuice = list(10,10))
+	kitchen_tag = "cranberries"
+
+/datum/seed/berry/cranberry/setup_traits()
+	..()
+	set_trait(TRAIT_PRODUCT_COLOUR,"#bb0202")
+
+/obj/item/seeds/cranberryseed
+	seed_type = "cranberries"
+
 //////////////
 //  Apples  //
 //////////////
@@ -352,7 +368,7 @@
 	set_trait(TRAIT_PRODUCT_COLOUR,"#FFEC1F")
 	set_trait(TRAIT_PLANT_COLOUR,"#69AD50")
 	set_trait(TRAIT_PLANT_ICON,"tree4")
-	set_trait(TRAIT_IDEAL_HEAT, 298)
+	set_trait(TRAIT_IDEAL_HEAT, 304)
 	set_trait(TRAIT_IDEAL_LIGHT, 7)
 	set_trait(TRAIT_WATER_CONSUMPTION, 6)
 
@@ -403,7 +419,7 @@
 	set_trait(TRAIT_PLANT_COLOUR,"#49be45")
 	set_trait(TRAIT_PLANT_ICON,"vine2")
 	set_trait(TRAIT_FLESH_COLOUR,"#ff5858")
-	set_trait(TRAIT_IDEAL_HEAT, 298)
+	set_trait(TRAIT_IDEAL_HEAT, 304)
 	set_trait(TRAIT_IDEAL_LIGHT, 6)
 	set_trait(TRAIT_WATER_CONSUMPTION, 6)
 

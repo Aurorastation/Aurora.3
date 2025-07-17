@@ -95,7 +95,7 @@
 		created_name = door_name
 
 	else if(attacking_item.iswelder())
-		if(!glass || anchored)
+		if(!glass && anchored)
 			to_chat(user, SPAN_WARNING("\The [src] isn't ready to be welded yet. It doesn't have any installed glass to remove, and it has to be unsecured to deconstruct it."))
 			return
 		var/obj/item/weldingtool/WT = attacking_item
@@ -225,6 +225,9 @@
 		var/obj/item/stack/S = attacking_item
 		var/material_name = S.get_material_name()
 		if(S.get_amount() >= 2)
+			if(material_name != MATERIAL_GLASS_REINFORCED)
+				to_chat(user, SPAN_WARNING("You can only use reinforced glass to install a window into an airlock assembly."))
+				return
 			if(material_name == MATERIAL_GLASS_REINFORCED)
 				user.visible_message("<b>[user]</b> starts installing \the [S] into the airlock assembly.", SPAN_WARNING("You start installing \the [S] into the airlock assembly."))
 				if(attacking_item.use_tool(src, user, 40, volume = 50) && !glass)

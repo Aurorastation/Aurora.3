@@ -3,6 +3,7 @@
 var/global/list/default_internal_channels = list(
 	num2text(PUB_FREQ) = list(),
 	num2text(ENT_FREQ) = list(),
+	num2text(EXP_FREQ) = list(),
 	num2text(AI_FREQ)  = list(ACCESS_EQUIPMENT),
 	num2text(ERT_FREQ) = list(ACCESS_CENT_SPECOPS),
 	num2text(COMM_FREQ)= list(ACCESS_HEADS),
@@ -377,7 +378,7 @@ var/global/list/default_interrogation_channels = list(
 	if(channel && channels && channels.len > 0)
 		if(channel == "department")
 			for(var/freq in channels)
-				if(freq == "Common" || freq == "Entertainment")
+				if(freq == "Common" || freq == "Entertainment" || freq == "Expeditionary")
 					continue
 				channel = freq
 				break
@@ -410,7 +411,7 @@ var/global/list/default_interrogation_channels = list(
 	if(channels && channels.len > 0)
 		if(message_mode == "department") // Department radio shortcut
 			for(var/freq in channels)
-				if(freq == "Common" || freq == "Entertainment")
+				if(freq == "Common" || freq == "Entertainment" || freq == "Expeditionary")
 					continue
 				message_mode = freq
 				break
@@ -633,7 +634,7 @@ var/global/list/default_interrogation_channels = list(
 	return
 
 /obj/item/device/radio/borg/proc/recalculateChannels()
-	channels = list(CHANNEL_COMMON = TRUE, CHANNEL_ENTERTAINMENT = TRUE)
+	channels = list(CHANNEL_COMMON = TRUE, CHANNEL_ENTERTAINMENT = TRUE, CHANNEL_EXPED = TRUE)
 	syndie = FALSE
 
 	if(isrobot(loc))

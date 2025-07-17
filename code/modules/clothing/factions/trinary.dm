@@ -63,11 +63,11 @@
 	icon_state = "exclusionist_armored_robe"
 	item_state = "exclusionist_armored_robe"
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_MAJOR,
-		laser = ARMOR_LASER_RIFLE,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_MAJOR,
+		LASER = ARMOR_LASER_RIFLE,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED,
 	)
 	contained_sprite = TRUE
 	slowdown = 1
@@ -81,9 +81,9 @@
 	item_state = "exclusionist_mask"
 	contained_sprite = TRUE
 	armor = list(
-		melee = ARMOR_MELEE_SMALL,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_MINOR,
-		bio = ARMOR_BIO_STRONG
+		MELEE = ARMOR_MELEE_SMALL,
+		BULLET = ARMOR_BALLISTIC_SMALL,
+		LASER = ARMOR_LASER_MINOR,
+		BIO = ARMOR_BIO_STRONG
 	)
 	flash_protection = FLASH_PROTECTION_MODERATE

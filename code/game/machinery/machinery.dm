@@ -68,7 +68,7 @@ Class Procs:
 		contained in the component_parts list. (example: glass and material amounts for
 		the autolathe)
 
-		Default definition does nothing.
+		Default definition handles power usage only (all parts contribute based on energy_rating).
 
 	assign_uid()               'game/machinery/machine.dm'
 		Called by machine to assign a value to the uid variable.
@@ -88,14 +88,24 @@ Class Procs:
 	init_flags = INIT_MACHINERY_PROCESS_SELF
 	pass_flags_self = PASSMACHINE | LETPASSCLICKS
 
+	/// Controlled by a bitflag, differentiates between a few different possible states including the machine being broken or unpowered.
+	/// See code/__defines/machinery.dm for the possible states.
 	var/stat = 0
+	/// Is this machine emagged?
 	var/emagged = 0
-	var/use_power = POWER_USE_IDLE // See code/__defines/machinery.dm
+
+	/// In what power state is this machine? Possible states include being off, idle, or active - see code/__defines/machinery.dm.
+	/// You should not be modifying this directly! Use the procs in power_usage.dm.
+	var/use_power = POWER_USE_IDLE
 	var/internal = FALSE
+	/// How much power should this be drawing in the idle power state?
 	var/idle_power_usage = 0
+	/// How much power should this be drawing in the active power state?
 	var/active_power_usage = 0
 	var/power_init_complete = FALSE
-	var/power_channel = AREA_USAGE_EQUIP //AREA_USAGE_EQUIP, AREA_USAGE_ENVIRON or AREA_USAGE_LIGHT
+	/// What power channel does this fall under in APCs? Possible channels include: AREA_USAGE_EQUIP, AREA_USAGE_ENVIRON or AREA_USAGE_LIGHT
+	var/power_channel = AREA_USAGE_EQUIP
+
 	/* List of types that should be spawned as component_parts for this machine.
 		Structure:
 			type -> num_objects
@@ -109,7 +119,20 @@ Class Procs:
 		)
 	*/
 	var/list/component_types
-	var/list/component_parts = null //list of all the parts used to build it, if made from certain kinds of frames.
+	/// List of all the parts used to build it, if made from certain kinds of frames.
+	var/list/component_parts = null
+	/// Use the generic power rating mechanics for parts, or bespoke.
+	var/parts_power_mgmt = TRUE
+	/// The total power rating of all parts serves as a power usage multiplier.
+	var/parts_power_usage = 0
+	/// Blurbs for what each component type does. Appended to machine's /desc_info.
+	/// Kindly use the format in appended comments for consistency
+	var/component_hint_bin // "Upgraded <b>matter bins</b> will XYZ."
+	var/component_hint_cap // "Upgraded <b>capacitors</b> will XYZ."
+	var/component_hint_laser // "Upgraded <b>micro-lasers</b> will XYZ"
+	var/component_hint_scan // "Upgraded <b>scanning modules</b> will XYZ"
+	var/component_hint_servo // "Upgraded <b>manipulators</b> will XYZ"
+
 	var/uid
 	var/panel_open = 0
 	var/global/gl_uid = 1
@@ -350,6 +373,25 @@ Class Procs:
 	return S
 
 /obj/machinery/proc/RefreshParts()
+	/*
+	if(parts_power_mgmt)
+		var/new_idle_power
+		var/new_active_power
+
+		if(!component_parts || !component_parts.len)
+			return
+		var/parts_energy_rating = 0
+
+		for(var/obj/item/stock_parts/part in component_parts)
+			parts_energy_rating += part.energy_rating()
+
+		new_idle_power = initial(idle_power_usage) * (1 + parts_energy_rating)
+		new_active_power = initial(active_power_usage) * (1 + parts_energy_rating)
+
+		change_power_consumption(new_idle_power)
+		change_power_consumption(new_active_power, POWER_USE_ACTIVE)
+	*/
+	GetPartUpgradeDesc()
 
 /obj/machinery/proc/assign_uid()
 	uid = gl_uid
@@ -414,56 +456,85 @@ Class Procs:
 	return TRUE
 
 /obj/machinery/proc/default_part_replacement(var/mob/user, var/obj/item/storage/part_replacer/R)
-	if(!istype(R))
-		return FALSE
 	if(!LAZYLEN(component_parts))
 		return FALSE
-	var/parts_replaced = FALSE
-	if(panel_open)
-		var/obj/item/circuitboard/CB = locate(/obj/item/circuitboard) in component_parts
-		var/P
-		for(var/obj/item/reagent_containers/glass/G in component_parts)
-			for(var/D in CB.req_components)
-				var/T = text2path(D)
-				if(ispath(G.type, T))
-					P = T
-					break
-			for(var/obj/item/reagent_containers/glass/B in R.contents)
-				if(B.reagents && B.reagents.total_volume > 0) continue
-				if(istype(B, P) && istype(G, P))
-					if(B.volume > G.volume)
-						R.remove_from_storage(B, src)
-						R.handle_item_insertion(G, 1)
-						component_parts -= G
-						component_parts += B
-						B.forceMove(src)
-						to_chat(user, SPAN_NOTICE("[G.name] replaced with [B.name]."))
+	else if(istype(R))
+		var/parts_replaced = FALSE
+		if(panel_open)
+			var/obj/item/circuitboard/CB = locate(/obj/item/circuitboard) in component_parts
+			var/P
+			for(var/obj/item/reagent_containers/glass/G in component_parts)
+				for(var/D in CB.req_components)
+					var/T = text2path(D)
+					if(ispath(G.type, T))
+						P = T
 						break
-		for(var/obj/item/stock_parts/A in component_parts)
-			for(var/D in CB.req_components)
-				var/T = text2path(D)
-				if(ispath(A.type, T))
-					P = T
-					break
-			for(var/obj/item/stock_parts/B in R.contents)
-				if(istype(B, P) && istype(A, P))
-					if(B.rating > A.rating)
-						R.remove_from_storage(B, src)
-						R.handle_item_insertion(A, 1)
-						component_parts -= A
-						component_parts += B
-						B.forceMove(src)
-						to_chat(user, SPAN_NOTICE("[A.name] replaced with [B.name]."))
-						parts_replaced = TRUE
+				for(var/obj/item/reagent_containers/glass/B in R.contents)
+					if(B.reagents && B.reagents.total_volume > 0) continue
+					if(istype(B, P) && istype(G, P))
+						if(B.volume > G.volume)
+							R.remove_from_storage(B, src)
+							R.handle_item_insertion(G, 1)
+							component_parts -= G
+							component_parts += B
+							B.forceMove(src)
+							to_chat(user, SPAN_NOTICE("[G.name] replaced with [B.name]."))
+							break
+			for(var/obj/item/stock_parts/A in component_parts)
+				for(var/D in CB.req_components)
+					var/T = text2path(D)
+					if(ispath(A.type, T))
+						P = T
 						break
-		RefreshParts()
-		update_icon()
-	else
-		to_chat(user, SPAN_NOTICE("The following parts have been detected in \the [src]:"))
-		to_chat(user, counting_english_list(component_parts))
-	if(parts_replaced) //only play sound when RPED actually replaces parts
-		playsound(src, 'sound/items/rped.ogg', 40, TRUE)
-	return 1
+				for(var/obj/item/stock_parts/B in R.contents)
+					if(istype(B, P) && istype(A, P))
+						if(B.rating > A.rating)
+							R.remove_from_storage(B, src)
+							R.handle_item_insertion(A, 1)
+							component_parts -= A
+							component_parts += B
+							B.forceMove(src)
+							to_chat(user, SPAN_NOTICE("[A.name] replaced with [B.name]."))
+							parts_replaced = TRUE
+							break
+			RefreshParts()
+			update_icon()
+			if(parts_replaced) //only play sound when RPED actually replaces parts
+				playsound(src, 'sound/items/rped.ogg', 40, TRUE)
+			return TRUE
+		else
+			to_chat(user, SPAN_NOTICE("The following parts have been detected in \the [src]:"))
+			to_chat(user, counting_english_list(component_parts))
+	else return FALSE
+
+/obj/machinery/proc/GetPartUpgradeDesc()
+	var/temp_desc_upgrade = initial(desc_upgrade)
+	// This is ugly code but it does get rid of even uglier double-line breaks in game.
+	var/first_line = TRUE
+	if(component_hint_cap)
+		temp_desc_upgrade += "- [component_hint_cap]"
+		first_line = FALSE
+	if(component_hint_scan)
+		if(!first_line)
+			temp_desc_upgrade += "<br>"
+		temp_desc_upgrade += "- [component_hint_scan]"
+		first_line = FALSE
+	if(component_hint_servo)
+		if(!first_line)
+			temp_desc_upgrade += "<br>"
+		temp_desc_upgrade += "- [component_hint_servo]"
+		first_line = FALSE
+	if(component_hint_laser)
+		if(!first_line)
+			temp_desc_upgrade += "<br>"
+		temp_desc_upgrade += "- [component_hint_laser]"
+		first_line = FALSE
+	if(component_hint_bin)
+		if(!first_line)
+			temp_desc_upgrade += "<br>"
+		temp_desc_upgrade += "- [component_hint_bin]"
+		first_line = FALSE
+	desc_upgrade = temp_desc_upgrade
 
 /obj/machinery/proc/dismantle()
 	playsound(loc, /singleton/sound_category/crowbar_sound, 50, 1)

@@ -48,6 +48,8 @@ var/global/enabled_spooking = 0
 		to_chat(usr, "Error: you are not an admin!")
 		return
 
+	var/ui_scale = owner.prefs?.ui_scale
+
 	var/body = "<html><head><title>Options for [M.key]</title></head>"
 	body += "<body>Options panel for <b>[M]</b>"
 	if(M.client)
@@ -219,7 +221,11 @@ var/global/enabled_spooking = 0
 		</body></html>
 	"}
 
-	usr << browse(body, "window=adminplayeropts;size=550x515")
+	var/window_size = "size=550x515"
+	if(owner.window_scaling && ui_scale)
+		window_size = "size=[550 * owner.window_scaling]x[515 * owner.window_scaling]"
+
+	usr << browse(body, "window=adminplayeropts;[window_size]")
 	feedback_add_details("admin_verb","SPP") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 
@@ -281,7 +287,7 @@ var/global/enabled_spooking = 0
 			if(index == page)
 				dat += "</b>"
 
-	usr << browse(dat, "window=player_notes;size=400x400")
+	usr << browse(HTML_SKELETON(dat), "window=player_notes;size=400x400")
 
 
 /datum/admins/proc/player_has_info(var/key as text)
@@ -338,7 +344,7 @@ var/global/enabled_spooking = 0
 		dat += "<A href='byond://?src=[REF(src)];add_player_info=[key]'>Add Comment</A><br>"
 
 		dat += "</body></html>"
-		show_browser(usr, dat, "window=adminplayerinfo;size=480x480")
+		show_browser(usr, HTML_SKELETON(dat), "window=adminplayerinfo;size=480x480")
 	else
 		show_notes_sql(key)
 
@@ -592,13 +598,13 @@ var/global/enabled_spooking = 0
 				dat+="No comments on this story yet!</BR>"
 			else
 				for(var/datum/feed_comment/COMMENT in src.admincaster_viewing_message.comments)
-					dat+="<BLOCKQUOTE style=\"padding:2px 4px;border-left:4px #797979 solid;\"><B>\[[world.time]\] [COMMENT.author]:</B>[COMMENT.message]<BR><A href='byond://?src=[REF(src)];ac_censorcomment=1;ac_comment=[REF(COMMENT)]>Censor Comment</A></BLOCKQUOTE>"
+					dat+="<BLOCKQUOTE style=\"padding:2px 4px;border-left:4px #797979 solid;\"><B>\[[world.time]\] [COMMENT.author]:</B>[COMMENT.message]<BR><A href='byond://?src=[REF(src)];ac_censorcomment=1;ac_comment=[REF(COMMENT)]'>Censor Comment</A></BLOCKQUOTE>"
 			dat+="<A href='byond://?src=[REF(src)];ac_setScreen=[9]'>Return</A>"
 		else
 			dat+="Please report this on GitHub, along with what you did to make this appear."
 
 
-	usr << browse(dat, "window=admincaster_main;size=400x600")
+	usr << browse(HTML_SKELETON(dat), "window=admincaster_main;size=400x600")
 	onclose(usr, "admincaster_main")
 
 
@@ -618,7 +624,7 @@ var/global/enabled_spooking = 0
 				dat += "<tr><td>[ckey] - [ban[2]] - (<a href='byond://?src=[REF(src)];jobban_tgt=[ckey];jobban_job=[job];'>unban</a>)</td></tr>"
 
 	dat += "</table>"
-	usr << browse(dat, "window=ban;size=400x400")
+	usr << browse(HTML_SKELETON(dat), "window=ban;size=400x400")
 
 /datum/admins/proc/Game()
 	if(!check_rights(0))	return
@@ -640,7 +646,7 @@ var/global/enabled_spooking = 0
 		<A href='byond://?src=[REF(src)];vsc=default'>Choose a default ZAS setting</A><br>
 		"}
 
-	usr << browse(dat, "window=admin2;size=210x280")
+	usr << browse(HTML_SKELETON(dat), "window=admin2;size=210x280")
 	return
 
 /datum/admins/proc/Secrets()
@@ -658,7 +664,7 @@ var/global/enabled_spooking = 0
 				continue
 			dat += "<A href='byond://?src=[REF(src)];admin_secrets=[REF(item)]'>[item.name()]</A><BR>"
 		dat += "<BR>"
-	usr << browse(dat, "window=secrets")
+	usr << browse(HTML_SKELETON(dat), "window=secrets")
 	return
 
 
@@ -808,8 +814,8 @@ var/global/enabled_spooking = 0
 	set desc="Start the round RIGHT NOW"
 	set name="Start Now"
 	if(!MC_RUNNING())
-		alert("Unable to start the game as it is not set up.")
-		return
+		to_chat(usr, SPAN_NOTICE("The round will be started automatically as soon as ready."))
+		UNTIL(SSticker?.current_state == GAME_STATE_PREGAME)
 	if(SSticker.current_state == GAME_STATE_PREGAME)
 		SSticker.current_state = GAME_STATE_SETTING_UP
 		log_admin("[usr.key] has started the game.")
@@ -1139,7 +1145,7 @@ var/global/enabled_spooking = 0
 		out += " None."
 	out += " <a href='byond://?src=[REF(SSticker.mode)];add_antag_type=1'>\[+\]</a><br/>"
 
-	usr << browse(out, "window=edit_mode[src]")
+	usr << browse(HTML_SKELETON(out), "window=edit_mode[src]")
 	feedback_add_details("admin_verb","SGM")
 
 

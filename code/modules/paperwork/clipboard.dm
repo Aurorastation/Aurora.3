@@ -73,7 +73,7 @@
 	return
 
 /obj/item/clipboard/attack_self(mob/user as mob)
-	var/dat = "<title>Clipboard</title>"
+	var/dat = ""
 	if(haspen)
 		dat += "<A href='byond://?src=[REF(src)];pen=1'>Remove Pen</A><BR><HR>"
 	else
@@ -93,7 +93,7 @@
 	for(var/obj/item/photo/Ph in r_contents)
 		dat += "<A href='byond://?src=[REF(src)];remove=[REF(Ph)]'>Remove</A> <A href='byond://?src=[REF(src)];rename=[REF(Ph)]'>Rename</A> - <A href='byond://?src=[REF(src)];look=[REF(Ph)]'>[Ph.name]</A><BR>"
 
-	user << browse(dat, "window=clipboard")
+	user << browse(HTML_SKELETON_TITLE("Clipboard", dat), "window=clipboard")
 	if(!ui_open)
 		ui_open = TRUE
 	onclose(user, "clipboard")

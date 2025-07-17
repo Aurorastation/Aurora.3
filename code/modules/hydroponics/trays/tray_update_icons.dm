@@ -1,4 +1,4 @@
-//Refreshes the icon and sets the luminosity
+/// Refreshes the icon and sets the luminosity.
 /obj/machinery/portable_atmospherics/hydroponics/update_icon()
 	// Update name.
 	if(seed)
@@ -66,6 +66,8 @@
 			AddOverlays("over_alert3")
 		if(harvest)
 			AddOverlays("over_harvest3")
+		if(stasis)
+			AddOverlays("stasis")
 
 	if(seed && seed.get_trait(TRAIT_LARGE))
 		density = TRUE

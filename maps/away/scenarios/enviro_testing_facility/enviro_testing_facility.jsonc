@@ -1,0 +1,142 @@
+[
+	{
+		"type": "SubmapExtractInsert",
+		"submap_size_x": 241,
+		"submap_size_y": 122,
+		"submap_size_z": 1,
+		"submaps_dmm": "enviro_testing_facility_submaps_layouts.dmm",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/enviro_testing_facility/base_layout",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/enviro_testing_facility/base_layout",
+		"submaps_can_repeat": false
+	},
+	{
+		"type": "SubmapExtractInsert",
+		"submap_size_x": 39,
+		"submap_size_y": 39,
+		"submap_size_z": 1,
+		"submaps_dmm": "enviro_testing_facility_submaps_main.dmm",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/enviro_testing_facility/main/dome",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/enviro_testing_facility/main/dome",
+		"submaps_can_repeat": false
+	},
+	{
+		"type": "SubmapExtractInsert",
+		"submap_size_x": 33,
+		"submap_size_y": 38,
+		"submap_size_z": 1,
+		"submaps_dmm": "enviro_testing_facility_submaps_main.dmm",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/enviro_testing_facility/main/department",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/enviro_testing_facility/main/department",
+		"submaps_can_repeat": false
+	},
+	{
+		"type": "SubmapExtractInsert",
+		"submap_size_x": 21,
+		"submap_size_y": 12,
+		"submap_size_z": 1,
+		"submaps_dmm": "enviro_testing_facility_submaps_main.dmm",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/enviro_testing_facility/main/workshop",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/enviro_testing_facility/main/workshop",
+		"submaps_can_repeat": false
+	},
+	{
+		"type": "SubmapExtractInsert",
+		"submap_size_x": 30,
+		"submap_size_y": 33,
+		"submap_size_z": 1,
+		"submaps_dmm": "enviro_testing_facility_submaps_main.dmm",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/enviro_testing_facility/main/crew_quarters",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/enviro_testing_facility/main/crew_quarters",
+		"submaps_can_repeat": false
+	},
+	{
+		"type": "SubmapExtractInsert",
+		"submap_size_x": 15,
+		"submap_size_y": 19,
+		"submap_size_z": 1,
+		"submaps_dmm": "enviro_testing_facility_submaps_main.dmm",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/enviro_testing_facility/main/offices",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/enviro_testing_facility/main/offices",
+		"submaps_can_repeat": false
+	},
+	{
+		"type": "SubmapExtractInsert",
+		"submap_size_x": 19,
+		"submap_size_y": 12,
+		"submap_size_z": 1,
+		"submaps_dmm": "enviro_testing_facility_submaps_main.dmm",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/enviro_testing_facility/main/canteen",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/enviro_testing_facility/main/canteen",
+		"submaps_can_repeat": false
+	},
+	{
+		"type": "SubmapExtractInsert",
+		"submap_size_x": 5,
+		"submap_size_y": 5,
+		"submap_size_z": 1,
+		"submaps_dmm": "enviro_testing_facility_submaps_main.dmm",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/enviro_testing_facility/misc/armory",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/enviro_testing_facility/misc/armory",
+		"submaps_can_repeat": false
+	},
+	{
+		"type": "SubmapExtractInsert",
+		"submap_size_x": 3,
+		"submap_size_y": 3,
+		"submap_size_z": 1,
+		"submaps_dmm": "enviro_testing_facility_submaps_main.dmm",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/enviro_testing_facility/misc/engineering_storage",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/enviro_testing_facility/misc/engineering_storage",
+		"submaps_can_repeat": false
+	},
+	{
+		"type": "SubmapExtractInsert",
+		"submap_size_x": 2,
+		"submap_size_y": 3,
+		"submap_size_z": 1,
+		"submaps_dmm": "enviro_testing_facility_submaps_main.dmm",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/enviro_testing_facility/misc/science_storage",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/enviro_testing_facility/misc/science_storage",
+		"submaps_can_repeat": false
+	},
+	{
+		"type": "SubmapExtractInsert",
+		"submap_size_x": 3,
+		"submap_size_y": 3,
+		"submap_size_z": 1,
+		"submaps_dmm": "enviro_testing_facility_submaps_main.dmm",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/enviro_testing_facility/misc/crew_room_small",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/enviro_testing_facility/misc/crew_room_small",
+		"submaps_can_repeat": true
+	},
+	{
+		"type": "SubmapExtractInsert",
+		"submap_size_x": 4,
+		"submap_size_y": 3,
+		"submap_size_z": 1,
+		"submaps_dmm": "enviro_testing_facility_submaps_main.dmm",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/enviro_testing_facility/misc/crew_room_big",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/enviro_testing_facility/misc/crew_room_big",
+		"submaps_can_repeat": true
+	},
+	{
+		"type": "SubmapExtractInsert",
+		"submap_size_x": 5,
+		"submap_size_y": 4,
+		"submap_size_z": 1,
+		"submaps_dmm": "enviro_testing_facility_submaps_main.dmm",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/enviro_testing_facility/misc/crew_lounge",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/enviro_testing_facility/misc/crew_lounge",
+		"submaps_can_repeat": false
+	},
+	{
+		"type": "SubmapExtractInsert",
+		"submap_size_x": 5,
+		"submap_size_y": 5,
+		"submap_size_z": 1,
+		"submaps_dmm": "enviro_testing_facility_submaps_main.dmm",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/enviro_testing_facility/misc/warehouse_room",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/enviro_testing_facility/misc/warehouse_room",
+		"submaps_can_repeat": false
+	}
+]

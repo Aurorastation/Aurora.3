@@ -19,6 +19,8 @@
 
 	var/storage_cost
 
+	var/storage_slot_sort_by_name = FALSE
+
 	///Dimensions of the icon file used when this item is worn, eg: hats.dmi (32x32 sprite, 64x64 sprite, etc.). Allows inhands/worn sprites to be of any size, but still centered on a mob properly
 	var/worn_x_dimension = 32
 
@@ -223,7 +225,6 @@
 	///Used to override hardcoded clothing dmis in human clothing pr
 	var/icon_override
 
-
 	var/charge_failure_message = " cannot be recharged."
 	var/held_maptext
 
@@ -354,7 +355,7 @@
 	. = ..(user, distance, "", "It is a [size] item.", get_extended = get_extended)
 	var/datum/component/armor/armor_component = GetComponent(/datum/component/armor)
 	if(armor_component)
-		. += FONT_SMALL(SPAN_NOTICE("\[?\] This item has armor values. <a href='byond://?src=[REF(src)];examine_armor=1>\[Show Armor Values\]</a>"))
+		. += FONT_SMALL(SPAN_NOTICE("\[?\] This item has armor values. <a href='byond://?src=[REF(src)];examine_armor=1'>\[Show Armor Values\]</a>"))
 
 /obj/item/Topic(href, href_list)
 	if(href_list["examine_armor"])
@@ -454,12 +455,12 @@
 	if(SEND_SIGNAL(hit_atom, COMSIG_ATOM_PREHITBY, src, throwingdatum) & COMSIG_HIT_PREVENTED)
 		return
 
+	var/volume = get_volume_by_throwforce_and_or_w_class()
 	if(isliving(hit_atom)) //Living mobs handle hit sounds differently.
 		var/mob/living/L = hit_atom
 		if(L.in_throw_mode)
 			playsound(hit_atom, pickup_sound, PICKUP_SOUND_VOLUME, TRUE)
 		else
-			var/volume = get_volume_by_throwforce_and_or_w_class()
 			if(throwforce > 0)
 				if(mob_throw_hit_sound)
 					playsound(hit_atom, mob_throw_hit_sound, volume, TRUE, -1)
@@ -470,7 +471,7 @@
 			else
 				playsound(hit_atom, 'sound/weapons/throwtap.ogg', 1, volume, -1)
 	else
-		playsound(src, drop_sound, YEET_SOUND_VOLUME)
+		playsound(src, drop_sound, volume)
 
 	var/itempush = TRUE
 	if(w_class < WEIGHT_CLASS_NORMAL)
@@ -908,9 +909,11 @@ GLOBAL_LIST_INIT(slot_flags_enumeration, list(
 	SSicon_cache.bloody_cache[type] = blood_overlay
 
 /obj/item/proc/showoff(mob/user)
-	for (var/mob/M in view(user))
+	var/list/viewers = get_hearers_in_view(world.view, src)
+	user.langchat_speech("holds up [src].", viewers, GLOB.all_languages, skip_language_check = TRUE, animation_style = LANGCHAT_FAST_POP, additional_styles = list("langchat_small", "emote"))
+	for (var/mob/M in viewers)
 		if(!user.is_invisible_to(M))
-			M.show_message("<b>[user]</b> holds up [icon2html(src, viewers(get_turf(src)))] [src]. <a href='byond://?src=[REF(M)];lookitem=[REF(src)]>Take a closer look.</a>",1)
+			M.show_message("<b>[user]</b> holds up [icon2html(src, viewers)] [src]. <a href='byond://?src=[REF(M)];lookitem=[REF(src)]'>Take a closer look.</a>",1)
 
 /mob/living/carbon/verb/showoff()
 	set name = "Show Held Item"

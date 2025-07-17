@@ -16,21 +16,15 @@
 	. = ..()
 	color = get_random_colour(TRUE)
 
-/obj/item/clothing/head/beret/peaked/colourable
+/obj/item/clothing/head/beret/peaked/colorable
 	name = "peaked beret"
 	desc = "A peaked beret."
 	icon_state = "beret_peaked_colourable"
 	item_state = "beret_peaked_colourable"
 
-/obj/item/clothing/head/beret/peaked/colourable/random/Initialize()
+/obj/item/clothing/head/beret/peaked/colorable/random/Initialize()
 	. = ..()
 	color = get_random_colour(TRUE)
-
-/obj/item/clothing/head/beret/artist/colourable
-	name = "artist beret"
-	desc = "A beret fit for an artist."
-	icon_state = "artist_colorable"
-	item_state = "artist_colorable"
 
 /obj/item/clothing/head/beret/red // Antag red.
 	name = "red beret"
@@ -256,3 +250,15 @@
 	desc_extended = "While a common sight in the Alliance's more rebellious or devastated worlds such as Mars, the Army beret became a potent symbol of Sol's triumph in the civil war. Nowhere else in the Spur are the blue berets more omnipresent than with peacekeepers on the former capital of the Restoration Front - Lycoris."
 	icon_state = "sapk"
 	item_state = "sapk"
+
+/obj/item/clothing/head/beret/sol
+	name = "sol marine beret"
+	desc = "A green beret with an attached cap badge bearing the insignia of a Solarian Marine Corps regiment."
+	icon_state = "sol"
+	item_state = "sol"
+
+/obj/item/clothing/head/beret/sol/grey
+	name = "sol marine beret"
+	desc = "A grey beret with an attached cap badge bearing the insignia of a Solarian Marine Corps regiment."
+	icon_state = "solgrey"
+	item_state = "solgrey"

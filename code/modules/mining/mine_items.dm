@@ -1360,6 +1360,12 @@ GLOBAL_LIST_INIT_TYPED(total_extraction_beacons, /obj/structure/extraction_point
 	flick("[icon_state]2", src)
 	playsound(get_turf(src), /singleton/sound_category/swing_hit_sound, 25, 1, -1)
 
+/obj/structure/punching_bag/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/holo/practicesword))
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		flick("[icon_state]2", src)
+		playsound(get_turf(src), 'sound/weapons/bladeparry.ogg', 25, 1, -1)
+
 /obj/structure/weightlifter
 	name = "weight machine"
 	desc = "Just looking at this thing makes you feel tired."

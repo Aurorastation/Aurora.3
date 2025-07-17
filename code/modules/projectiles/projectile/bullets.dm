@@ -4,7 +4,7 @@
 	damage = 60
 	damage_type = DAMAGE_BRUTE
 	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_BULLET_MEAT, BULLET_IMPACT_METAL = SOUNDS_BULLET_METAL)
-	check_armor = "bullet"
+	check_armor = BULLET
 	embed = TRUE
 	sharp = TRUE
 	shrapnel_type = /obj/item/material/shard/shrapnel
@@ -100,6 +100,7 @@
 	// if (hits >= total_pellets || pellets <= 0)
 	// 	return TRUE
 	if(hits)
+		damage *= hits
 		return BULLET_ACT_HIT //Technically not everything, but good enough
 	return BULLET_ACT_BLOCK //Nothing hit
 
@@ -181,6 +182,10 @@
 	damage = 20
 	armor_penetration = 15
 
+/obj/projectile/bullet/pistol/polymer
+	damage = 12
+	armor_penetration = 30
+
 /obj/projectile/bullet/pistol/medium
 	damage = 30
 	armor_penetration = 0
@@ -199,7 +204,7 @@
 
 /obj/projectile/bullet/pistol/rubber //"rubber" bullets
 	name = "rubber bullet"
-	check_armor = "melee"
+	check_armor = MELEE
 	damage = 5
 	agony = 40
 	embed = 0
@@ -217,7 +222,7 @@
 
 /obj/projectile/bullet/shotgun/beanbag		//because beanbags are not bullets
 	name = "beanbag"
-	check_armor = "melee"
+	check_armor = MELEE
 	damage = 10
 	agony = 60
 	embed = 0
@@ -225,7 +230,7 @@
 
 /obj/projectile/bullet/shotgun/incendiary
 	name = "incendiary"
-	check_armor = "melee"
+	check_armor = MELEE
 	damage = 5
 	agony = 0
 	embed = 0
@@ -438,7 +443,7 @@
 	damage = 40
 	armor_penetration = 15
 	damage_type = DAMAGE_BRUTE
-	check_armor = "bullet"
+	check_armor = BULLET
 	embed = 1
 	sharp = 1
 	penetrating = 1

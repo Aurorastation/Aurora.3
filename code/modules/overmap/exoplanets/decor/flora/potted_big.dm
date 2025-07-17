@@ -149,9 +149,9 @@
 	. = ..()
 	set_light(l_range = 2, l_power = 2, l_color = "#007fff")
 
-/obj/structure/flora/pottedplant/orientaltree
-	name = "potted oriental tree"
-	desc = "This is a rather oriental style tree. It's flowers are bright pink."
+/obj/structure/flora/pottedplant/cherrytree
+	name = "potted cherry blossom tree"
+	desc = "A beautiful kwanzan cherry blossom tree. A notably ornamental tree, appreciated for its lack of fruit."
 	icon_state = "plant-10"
 
 /obj/structure/flora/pottedplant/smallcactus

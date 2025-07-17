@@ -145,6 +145,20 @@
 	icon_state = "Commie"
 	desc = "The name of a bar, located at Pluto's biggest spaceport."
 	desc_extended = "People's Preferred is the name of the drinking hole at Pluto's biggest spaceport. Everyone stops there and everyone loves it there. It's what the people prefer, apparently."
+/singleton/sign/double/bar/we_are_open
+	name = "We Are Open!"
+	icon_state = "We Are Open!"
+	desc = "The bar's sign flashing 'We Are Open!' indicating that it is indeed open for business."
+	desc_extended = "Sometimes it doesn't need a fancy sign, slogan, or flashy colours to draw in people to the bar. The service and booze usually does. This sign here simply lets crew know that they are getting both here, right now."
+/singleton/sign/double/bar/closed
+	name = "Closed"
+	icon_state = "Closed"
+	desc = "The sign flashes 'CLOSED'. A real tragedy for crew far and wide."
+/singleton/sign/double/bar/free_drinks
+	name = "Free Drinks!"
+	icon_state = "Free Drinks!"
+	desc = "Either the XO or the Captain were in a really good mood, someone's pranking the crew, or it is your lucky day. Cheers!"
+
 /singleton/sign/double/kitchen/event_horizon // Start of the kitchen signs. Don't mix it up.
 	name = "Event Horizon"
 	icon_state = "Event Horizon"

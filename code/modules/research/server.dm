@@ -22,6 +22,10 @@
 		/obj/item/stack/cable_coil = 2
 	)
 
+	component_hint_scan = "Upgraded <b>scanning modules</b> will reduce active power usage."
+
+	parts_power_mgmt = FALSE
+
 /obj/machinery/r_n_d/server/Destroy()
 	for(var/obj/machinery/r_n_d/tech_processor/TP as anything in linked_processors)
 		TP.set_server(null)
@@ -29,6 +33,7 @@
 	return ..()
 
 /obj/machinery/r_n_d/server/RefreshParts()
+	..()
 	var/tot_rating = 0
 
 	for(var/obj/item/stock_parts/SP in component_parts)
@@ -348,7 +353,7 @@
 			for(var/obj/machinery/r_n_d/server/S in servers)
 				dat += "[S.name] <A href='byond://?src=[REF(src)];send_to=[S.server_id]'> (Transfer)</A><BR>"
 			dat += "<HR><A href='byond://?src=[REF(src)];main=1'>Main Menu</A>"
-	user << browse("<TITLE>R&D Server Control</TITLE><HR>[dat]", "window=server_control;size=575x400")
+	user << browse(HTML_SKELETON_TITLE("R&D Server Control", dat), "window=server_control;size=575x400")
 	onclose(user, "server_control")
 	return
 

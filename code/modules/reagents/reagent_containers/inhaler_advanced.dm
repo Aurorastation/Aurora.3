@@ -18,6 +18,7 @@
 	origin_tech = list(TECH_BIO = 2, TECH_MATERIAL = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 250)
 	center_of_mass = null
+	storage_slot_sort_by_name = TRUE
 
 /obj/item/reagent_containers/personal_inhaler_cartridge/on_reagent_change()
 	update_icon()
@@ -237,6 +238,17 @@
 /obj/item/reagent_containers/personal_inhaler_cartridge/large/inaprovaline/Initialize()
 	. = ..()
 	reagents.add_reagent(/singleton/reagent/inaprovaline, 30)
+	atom_flags ^= ATOM_FLAG_OPEN_CONTAINER
+	update_icon()
+	return
+
+/obj/item/reagent_containers/personal_inhaler_cartridge/mms
+	name = "inhaler cartridge (Mercury Monolithium Sucrose)"
+	desc = "An inhaler cartridge containing 15 units of MMS."
+
+/obj/item/reagent_containers/personal_inhaler_cartridge/mms/Initialize()
+	. = ..()
+	reagents.add_reagent(/singleton/reagent/drugs/mms, volume)
 	atom_flags ^= ATOM_FLAG_OPEN_CONTAINER
 	update_icon()
 	return

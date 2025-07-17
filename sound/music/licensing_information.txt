@@ -68,6 +68,12 @@ Author: Eric Schumaker AKA CBoyardee
 License: N/A
 Link: N/A
 ----------
+File Name: title3mk2.ogg
+Original Title: Tintin On The Moon
+Author: Jeroen Tel (original), PinkBlossom6 (Mk. II)
+License: Creative Commons Attribution License (reuse allowed)
+Link: Mk I: https://www.youtube.com/watch?v=YKVmXn-Gv0M, Mk II: https://www.youtube.com/watch?v=d7hc_GrZP4Y
+----------
 File Name: traitor.ogg
 Original Title: Absconditus
 Author: Joseph Toscano AKA Zhaytee
@@ -80,3 +86,10 @@ Author: Naelynn
 License: CC0 1.0
 License Link: https://github.com/Aurorastation/Aurora.3/pull/7729#issuecomment-567239575
 Link: https://github.com/Aurorastation/Aurora.3/pull/7729
+----------
+File Name: phoron_deposit.ogg
+Original Title: earth rumble & Perpetual Tension
+Author: Reitanna & Zander Noriega
+License: CC0 & CC-BY 3.0
+Link: https://freesound.org/people/Reitanna/sounds/217657/
+Link 2: https://opengameart.org/content/perpetual-tension

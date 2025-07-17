@@ -9,7 +9,7 @@
 	item_state = "research_director"
 	contained_sprite = TRUE
 	armor = list(
-		bio = ARMOR_BIO_MINOR
+		BIO = ARMOR_BIO_MINOR
 	)
 
 // Scientist
@@ -21,7 +21,7 @@
 	item_state = "nt_scientist"
 	permeability_coefficient = 0.50
 	armor = list(
-		bio = ARMOR_BIO_MINOR
+		BIO = ARMOR_BIO_MINOR
 	)
 	contained_sprite = TRUE
 
@@ -94,7 +94,7 @@
 	item_state = "nt_xenoarch"
 	permeability_coefficient = 0.50
 	armor = list(
-		bomb = ARMOR_BOMB_MINOR
+		BOMB = ARMOR_BOMB_MINOR
 	)
 
 /obj/item/clothing/under/rank/scientist/xenoarchaeologist/zeng
@@ -112,7 +112,7 @@
 	item_state = "nt_xenoarch"
 	permeability_coefficient = 0.50
 	armor = list(
-		bomb = ARMOR_BOMB_MINOR
+		BOMB = ARMOR_BOMB_MINOR
 	)
 
 /obj/item/clothing/under/rank/scientist/anomalist/zeng
@@ -137,7 +137,7 @@
 	contained_sprite = TRUE
 	permeability_coefficient = 0.50
 	armor = list(
-		bio = ARMOR_BIO_MINOR
+		BIO = ARMOR_BIO_MINOR
 	)
 
 /obj/item/clothing/under/rank/iacjumpsuit
@@ -149,7 +149,7 @@
 	contained_sprite = TRUE
 	permeability_coefficient = 0.50
 	armor = list(
-		bio = ARMOR_BIO_MINOR
+		BIO = ARMOR_BIO_MINOR
 	)
 
 // Physician
@@ -163,7 +163,7 @@
 	contained_sprite = TRUE
 	permeability_coefficient = 0.50
 	armor = list(
-		bio = ARMOR_BIO_MINOR
+		BIO = ARMOR_BIO_MINOR
 	)
 
 /obj/item/clothing/under/rank/medical/generic
@@ -183,6 +183,11 @@
 /obj/item/clothing/under/rank/medical/pmc/alt
 	icon_state = "pmc_alt_phys"
 	item_state = "pmc_alt_phys"
+
+// Hephaestus doesn't have medical jobs, but off-ships use them
+/obj/item/clothing/under/rank/medical/heph
+	icon_state = "heph_phys"
+	item_state = "heph_phys"
 
 // Intern
 

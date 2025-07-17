@@ -31,7 +31,7 @@
 	 */
 	var/production_speed = 1
 
-	var/list/materials = list(DEFAULT_WALL_MATERIAL = 0, MATERIAL_GLASS = 0, MATERIAL_GOLD = 0, MATERIAL_SILVER = 0, MATERIAL_DIAMOND = 0, MATERIAL_PHORON = 0, MATERIAL_URANIUM = 0)
+	var/list/materials = list(DEFAULT_WALL_MATERIAL = 0, MATERIAL_GLASS = 0, MATERIAL_GOLD = 0, MATERIAL_SILVER = 0, MATERIAL_DIAMOND = 0, MATERIAL_PHORON = 0, MATERIAL_URANIUM = 0, MATERIAL_PLASTEEL = 0, MATERIAL_ALUMINIUM = 0, MATERIAL_LEAD = 0)
 	var/res_max_amount = 200000
 
 	var/datum/research/files
@@ -43,6 +43,10 @@
 
 	///The timer id for the build callback, if we're building something
 	var/build_callback_timer
+
+	component_hint_bin = "Upgraded <b>matter bins</b> will increase material storage capacity."
+	component_hint_laser = "Upgraded <b>micro-lasers</b> will increase fabrication speed."
+	component_hint_servo = "Upgraded <b>manipulators</b> will improve material use efficiency."
 
 /obj/machinery/mecha_part_fabricator/Initialize()
 	. = ..()
@@ -73,6 +77,7 @@
 	..()
 
 /obj/machinery/mecha_part_fabricator/RefreshParts()
+	..()
 	res_max_amount = 0
 
 	for(var/obj/item/stock_parts/matter_bin/M in component_parts)

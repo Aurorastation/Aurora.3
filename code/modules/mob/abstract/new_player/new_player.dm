@@ -351,7 +351,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	if (SSticker.current_state == GAME_STATE_PLAYING)
 		if(character.mind.role_alt_title)
 			rank = character.mind.role_alt_title
-		// can't use their name here, since cyborg namepicking is done post-spawn, so we'll just say "A new Cyborg has arrived"/"A new Android has arrived"/etc.
+		// can't use their name here, since cyborg namepicking is done post-spawn, so we'll just say "A new Cyborg has arrived"/"A new Robot has arrived"/etc.
 		GLOB.global_announcer.autosay("A new[rank ? " [rank]" : " visitor" ] [join_message ? join_message : "has arrived on the [SSatlas.current_map.station_type]"].", "Arrivals Announcer")
 
 /mob/abstract/new_player/proc/LateChoices()

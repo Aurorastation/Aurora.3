@@ -1,5 +1,6 @@
 /turf/simulated/floor/exoplanet/desert
 	name = "sand"
+	gender = PLURAL
 	desc = "It's coarse and gets everywhere."
 	icon = 'icons/turf/desert.dmi'
 	icon_state = "desert"

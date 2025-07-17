@@ -33,9 +33,6 @@ BLIND     // can't see anything
 	var/activated_color = null
 	var/normal_layer = GLASSES_LAYER
 	var/shatter_material = /obj/item/material/shard
-	sprite_sheets = list(
-		BODYTYPE_VAURCA_WARFORM = 'icons/mob/species/warriorform/eyes.dmi'
-		)
 	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER)
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
@@ -850,7 +847,7 @@ BLIND     // can't see anything
 	icon_state = "blinders"
 	item_state = "blinders"
 	sprite_sheets = list(
-		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/eyes.dmi', BODYTYPE_VAURCA_WARFORM = 'icons/mob/species/warriorform/eyes.dmi'
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/eyes.dmi'
 	)
 	contained_sprite = TRUE
 	shatter_material = FALSE
@@ -1195,7 +1192,7 @@ BLIND     // can't see anything
 		eye.color = eye_color
 		AddOverlays(eye)
 
-/obj/item/clothing/glasses/eyepatch/hud/forceMove(atom/newloc)
+/obj/item/clothing/glasses/eyepatch/hud/forceMove(atom/destination)
 	if (!ishuman(loc))
 		return ..()
 

@@ -34,6 +34,12 @@ All sounds listed above in this section part of "Valhalla", licensed under CC0 1
 ATTRIBUTIONS SECTION END
 
 ATTRIBUTIONS SECTION START
+sound/items/drop/bone_drop.ogg - "MugClinks", licensed under CC0. Obtained from https://freesound.org/people/sidequesting/sounds/547489/
+sound/item/cards/bone_flip.ogg - "MugClinks", licensed under CC0. Obtained from https://freesound.org/people/sidequesting/sounds/547489/
+sound/item/cards/bone_shuffle.ogg - "Porcelain Shards", licensed under CC0. Obtained from https://freesound.org/people/IENBA/sounds/763616/
+ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTION START
 sound/weapons/gunshot/ship_weapons/120mm_mortar.ogg - "Mortar", licensed under CC0. Obtained from https://freesound.org/people/Mozfoo/sounds/529239/
 sound/weapons/gunshot/ship_weapons/rotary_fire.ogg - "Minigun", licensed under CC0. Obtained and edited from https://freesound.org/people/Breviceps/sounds/557595/
 sound/weapons/gunshot/ship_weapons/flak_fire.ogg - "Minigun Fire", licensed under CC0. Obtained and edited from https://freesound.org/people/Bratish/sounds/500304/
@@ -114,4 +120,34 @@ ATTRIBUTIONS SECTION END
 
 ATTRIBUTIONS SECTOR START
 sound/voice/bugrattle.ogg - https://pixabay.com/sound-effects/snake-rattle-sound-hq-240150/
+ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTOR START
+sound/machines/hatch_open1.ogg - "Metal_Hatch_Small_Open_03" by Rudmer Rotteveel, licensed under CC0. Obtained from https://freesound.org/people/Rudmer_Rotteveel/sounds/718445/
+sound/machines/hatch_open2.ogg - "Opening and closing a small metal hatch" by Irolan, licensed under CC0. Obtained from https://freesound.org/people/Irolan/sounds/488221/
+sound/machines/hatch_open3.ogg - "Opening and closing a small metal hatch" by Irolan, licensed under CC0. Obtained from https://freesound.org/people/Irolan/sounds/488221/
+sound/machines/hatch_open4.ogg - by PRIMEVAL, licensed under CC0. Obtained from https://freesound.org/people/PRIMEVAL/sounds/393822/
+sound/machines/hatch_close1.ogg - "Hatch Seal.wav" by paul368. Licensed under CC0. Obtained from https://freesound.org/people/Paul368/sounds/264063/
+sound/machines/hatch_close2.ogg - "SFX Door Open.wav" by paul368. Licensed under CC0. Obtained from https://freesound.org/people/Paul368/sounds/264061/
+sound/machines/electrical_hum1.ogg - "EDF_Electrical_substation.wav" by nicotep. Licensed under CC0. Obtained from https://freesound.org/people/nicotep/sounds/547900/
+sound/machines/electrical_hum2.ogg - "electrical box.wav" by keweldog. Licensed under CC0. Obtained from https://freesound.org/people/keweldog/sounds/181131/
+sound/machines/electrical_spark1.ogg - "Electricity Sound" by NachtmahrTV. Licensed under CC0. Obtained from https://freesound.org/people/NachtmahrTV/sounds/556717/
+sound/machines/steam_pipe1.ogg - "steam.flac" by tim.kahn. Licensed under CC-BY 4.0. Obtained from https://freesound.org/people/tim.kahn/sounds/27975/
+sound/machines/steam_pipe2.ogg - "Steam Leaking" by PatrickLieberkind. Licensed under CC-BY 4.0. Obtained from https://freesound.org/people/PatrickLieberkind/sounds/213083/
+sound/machines/steam_pipe3.ogg - "file0571_air_hiss_weak.wav" by beerbelly38. Licensed under CC-BY NC 4.0. Obtained from https://freesound.org/people/beerbelly38/sounds/277360/
+sound/machines/steam_pipe4.ogg - "Steam Sewer Ambient" by Geoff-Bremner-Audio. Licensed under CC0. Obtained from https://freesound.org/people/Geoff-Bremner-Audio/sounds/724892/
+ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTOR START
+sound/music/lobby/crescent_expanse/crescent_expanse_1.ogg - "Lüüü - Weedance" by Lüüü, licensed under CC BY-NC-SA 3.0. Obtained from https://myprivateunderground.bandcamp.com/track/lu-u-u-weedance
+sound/music/lobby/crescent_expanse/crescent_expanse_2.ogg - "Little Bradley - Sunset Drive" by Little Bradley, licensed under CC BY-NC 3.0. Obtained from https://myprivateunderground.bandcamp.com/track/little-bradley-sunset-drive
+sound/music/lobby/lights_edge/lights_edge_1.ogg - "Is Anyone Left?" by Karl Casey, licensed under CC BY 3.0. Obtained from https://karlcasey.bandcamp.com/track/is-anyone-left
+sound/music/lobby/lights_edge/lights_edge_2.ogg - "Running From The Wendigo" by Karl Casey, licensed under CC BY 3.0. Obtained from https://karlcasey.bandcamp.com/track/running-from-the-wendigo
+sound/music/lobby/dangerous_space/dangerous_space_1.ogg - "You Can't Kill The Boogeyman" by Karl Casey, licensed under CC BY 3.0. Obtained From https://karlcasey.bandcamp.com/track/you-can-t-kill-the-boogeyman
+sound/music/lobby/dangerous_space/dangerous_space_2.ogg - "Prison Planet" by Karl Casey, licensed under CC BY 3.0. Obtained from https://karlcasey.bandcamp.com/track/prison-planet
+ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTOR START
+sound/music/lobby/xanu/xanu_rock_1.ogg - "Rise" by Swara Sutra, licensed under CC BY-NC-SA 3.0. Obtained from https://swarasutra.bandcamp.com/track/rise
+sound/music/lobby/xanu/xanu_rock_2.ogg - "Induldge" by Swara Sutra, licensed under CC BY-NC-SA 3.0. Obtained from https://swarasutra.bandcamp.com/track/indulgence
 ATTRIBUTIONS SECTION END

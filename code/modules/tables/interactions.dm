@@ -239,9 +239,6 @@
 				to_chat(user, SPAN_WARNING("You need a better grip to do that!"))
 				return
 
-	if(!attacking_item.dropsafety())
-		return
-
 	if(reinforced && attacking_item.isscrewdriver())
 		remove_reinforced(attacking_item, user)
 		if(!reinforced)
@@ -339,6 +336,9 @@
 					if(D.use(1))
 						health = maxhealth
 						visible_message("<b>[user]</b> repairs \the [src].", SPAN_NOTICE("You repair \the [src]."))
+
+	if(!attacking_item.dropsafety())
+		return
 
 	// Placing stuff on tables
 	if(user.unEquip(attacking_item, 0, loc)) //Loc is intentional here so we don't forceMove() items into oblivion

@@ -47,8 +47,8 @@
 		var/virtual_epicenter = locate(epicenter.x, epicenter.y, z)
 
 		//We assume each zlevel to be 9 meters tall, and apply the pythagorean theorem to obtain the radius of the sphere at that vertical distance from the epicenter
-		var/virtual_heavy_range = abs(epicenter.z - z) ? ( sqrt(((heavy_range*heavy_range)-((9*(epicenter.z - z))*(9*(epicenter.z - z))))) ) : heavy_range
-		var/virtual_light_range = abs(epicenter.z - z) ? ( sqrt(((light_range*light_range)-((9*(epicenter.z - z))*(9*(epicenter.z - z))))) ) : light_range
+		var/virtual_heavy_range = abs(epicenter.z - z) ? ( sqrt(abs((heavy_range*heavy_range)-((9*(epicenter.z - z))*(9*(epicenter.z - z))))) ) : heavy_range
+		var/virtual_light_range = abs(epicenter.z - z) ? ( sqrt(abs((light_range*light_range)-((9*(epicenter.z - z))*(9*(epicenter.z - z))))) ) : light_range
 
 		#ifdef EMPDEBUG
 		log_and_message_admins("EMPDEBUG: Heavy range for explosion at Z-level [z] is [virtual_heavy_range]")

@@ -32,9 +32,9 @@
 	organic = TRUE
 	on = TRUE
 	var/list/armor_values = list( //some default values that seem about right for an average animal
-		melee = ARMOR_MELEE_MEDIUM,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		bomb = ARMOR_BOMB_MINOR
+		MELEE = ARMOR_MELEE_MEDIUM,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		BOMB = ARMOR_BOMB_MINOR
 	)
 
 /obj/vehicle/animal/setup_vehicle()
@@ -243,10 +243,10 @@
 	storage_type = /obj/item/storage/toolbox/bike_storage/saddle
 	corpse = /mob/living/simple_animal/hostile/retaliate/hegeranzi/saddle
 	armor_values = list( //big tough war beast, has some more armor particularly against bullets and melee
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_MINOR,
-		bomb = ARMOR_BOMB_MINOR
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_MINOR,
+		BOMB = ARMOR_BOMB_MINOR
 	)
 
 /obj/vehicle/animal/warmount/RunOver(mob/living/carbon/human/H)

@@ -11,7 +11,7 @@
 	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BELT
 	accuracy = 1
-	max_shots = 10
+	max_shots = 15
 	can_turret = 1
 	secondary_projectile_type = /obj/projectile/beam
 	secondary_fire_sound = 'sound/weapons/laser1.ogg'
@@ -133,7 +133,7 @@
 	item_state = "epistolstun100"
 	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
-	max_shots = 7
+	max_shots = 10
 	fire_delay = 4
 	can_turret = 1
 	secondary_projectile_type = /obj/projectile/beam/pistol
@@ -161,7 +161,7 @@
 	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
-	max_shots = 10
+	max_shots = 12
 	fire_delay = 3
 	can_turret = FALSE
 	secondary_projectile_type = /obj/projectile/beam/pistol/hegemony
@@ -187,7 +187,7 @@
 	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/laser2.ogg'
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
-	max_shots = 10
+	max_shots = 12
 	fire_delay = 3
 	can_turret = FALSE
 	secondary_projectile_type = /obj/projectile/beam/pistol
@@ -214,7 +214,7 @@
 	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/energy_repeater.ogg'
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
-	max_shots = 20
+	max_shots = 24
 	fire_delay = 3
 
 	offhand_accuracy = 6 // same as firing it in your main hand
@@ -238,7 +238,7 @@
 	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
-	max_shots = 8
+	max_shots = 10
 	fire_delay = 5
 	secondary_projectile_type = /obj/projectile/beam/pistol/scc/weak
 	secondary_fire_sound = 'sound/weapons/energy_repeater.ogg'
@@ -288,7 +288,7 @@
 	icon_state = "particlesmg"
 	item_state = "particlesmg"
 	slot_flags = SLOT_BELT|SLOT_HOLSTER|SLOT_BACK
-	max_shots = 14
+	max_shots = 18
 	force = 16
 	projectile_type = /obj/projectile/beam/stun/skrell
 	secondary_projectile_type = /obj/projectile/beam/pulse/skrell
@@ -340,7 +340,7 @@
 	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	pin = /obj/item/device/firing_pin/psionic
-	max_shots = 8
+	max_shots = 10
 	fire_delay = 4
 	can_turret = FALSE
 	secondary_projectile_type = /obj/projectile/energy/blaster/skrell

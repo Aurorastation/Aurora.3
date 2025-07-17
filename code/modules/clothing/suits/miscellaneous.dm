@@ -234,7 +234,7 @@
 	icon_state = "lflight"
 	item_state = "lflight"
 	armor = list(
-		bio = ARMOR_BIO_MINOR
+		BIO = ARMOR_BIO_MINOR
 	)
 	siemens_coefficient = 0.75
 
@@ -245,11 +245,11 @@
 /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion/alt
 	desc = "A Tau Ceti Foreign Legion pilot's jacket made from a silky, shiny nanonylon material and lined with tough, protective synthfabrics."
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED
 	)
 	siemens_coefficient = 0.35
 
@@ -447,6 +447,23 @@
 		I.AddOverlays(emissive_overlay)
 	return I
 
+/obj/item/clothing/suit/storage/toggle/highvis_orange
+	name = "high visibility jacket"
+	desc = "An orange jacket with reflective stripes. For use in different departments, commonly found in civilian industrial services, in dark or secluded areas where visibility is critical for safety."
+	icon = 'icons/clothing/kit/highvis.dmi'
+	icon_state = "jacket_highvis_orange"
+	item_state = "jacket_highvis_orange"
+	body_parts_covered = UPPER_TORSO|ARMS
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/toggle/highvis_orange/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(slot == slot_wear_suit_str)
+		var/image/emissive_overlay = emissive_appearance(mob_icon, "[opened ? "jacket_highvis_orange_open_su-emis" : "jacket_highvis_orange_su-emis"]", alpha = src.alpha)
+		I.AddOverlays(emissive_overlay)
+	return I
+
+
 /obj/item/clothing/suit/storage/toggle/track
 	name = "track jacket"
 	desc = "a track jacket, for the athletic."
@@ -628,11 +645,11 @@
 	icon_state = "bssb_jacket_armored"
 	item_state = "bssb_jacket_armored"
 	armor = list(
-		melee = ARMOR_MELEE_KNIVES,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED
+		MELEE = ARMOR_MELEE_KNIVES,
+		BULLET = ARMOR_BALLISTIC_SMALL,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED
 	)
 
 // Cardigans.
@@ -706,3 +723,12 @@
 		src.item_state = "caution"
 		usr.show_message("You turn the wet floor sign off.")
 	update_clothing_icon()
+
+/obj/item/clothing/suit/caution/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/wetfloor_holder))
+		var/obj/item/wetfloor_holder/WFH = attacking_item
+		if(!WFH.held)
+			to_chat(user, SPAN_NOTICE("You collect \the [src]."))
+			forceMove(WFH)
+			WFH.held = src
+		return TRUE

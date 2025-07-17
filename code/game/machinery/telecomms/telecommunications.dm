@@ -19,6 +19,7 @@
 
 /obj/machinery/telecomms
 	icon = 'icons/obj/machinery/telecomms.dmi'
+	desc_info = "All telecomms machinery can repaired through the application of Nanopaste."
 	density = TRUE
 	anchored = TRUE
 	idle_power_usage = 600 // WATTS
@@ -44,6 +45,8 @@
 	var/delay = 10 					// how many process() ticks to delay per heat
 	var/circuitboard = null 		// string pointing to a circuitboard type
 	var/hide = FALSE				// Is it a hidden machine?
+
+	var/hitsound = 'sound/weapons/smash.ogg'
 
 	// Overmap ranges in terms of map tile distance, used by receivers, relays, and broadcasters (and AIOs)
 	var/overmap_range = 0
@@ -109,7 +112,7 @@
 
 /obj/machinery/telecomms/update_icon()
 	ClearOverlays()
-	if(operable())
+	if(operable() && use_power)
 		AddOverlays(emissive_appearance(icon, "[icon_state]_lights"))
 		AddOverlays("[icon_state]_lights")
 	if(panel_open)
@@ -146,6 +149,9 @@
 
 	stat |= EMPED
 	addtimer(CALLBACK(src, PROC_REF(post_emp_act)), (300 SECONDS) / severity)
+
+/obj/machinery/telecomms/proc/emp_damage()
+	integrity = between(0, integrity - (rand(5,15)), 100)
 
 /obj/machinery/telecomms/proc/post_emp_act()
 	stat &= ~EMPED
@@ -261,3 +267,19 @@
 	if (overmap_dist > overmap_range)
 		return -1
 	return overmap_dist
+
+/obj/machinery/telecomms/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(integrity < initial(integrity))
+		var/state
+		var/current_damage = integrity / initial(integrity)
+		switch(current_damage)
+			if(0 to 0.2)
+				state = SPAN_DANGER("The machine is on its last legs!")
+			if(0.2 to 0.4)
+				state = SPAN_WARNING("The machine looks seriously damaged.")
+			if(0.4 to 0.8)
+				state = SPAN_WARNING("The machine's condition appears somewhat degraded.")
+			if(0.8 to 1)
+				state = SPAN_NOTICE("The machine shows some indications of minor damage.")
+		. += state

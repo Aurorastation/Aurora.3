@@ -66,11 +66,13 @@ SUBSYSTEM_DEF(discord)
  */
 /datum/controller/subsystem/discord/proc/initialize_webhooks()
 	PRIVATE_PROC(TRUE)
-	if(!establish_db_connection(GLOB.dbcon))
+	if(!SSdbcore.Connect())
+		log_subsystem_discord("initialize_webhooks - Unable to connect to db - Loading from File")
 		var/file = return_file_text("config/webhooks.json")
 		if (file)
 			var/jsonData = json_decode(file)
 			if(!jsonData)
+				log_subsystem_discord("initialize_webhooks - Invalid JSON in config/webhooks.json")
 				return 1
 			for(var/hook in jsonData)
 				if(!hook["url"] || !hook["tags"])
@@ -81,18 +83,24 @@ SUBSYSTEM_DEF(discord)
 					W.mention = hook["mention"]
 			return 0
 		else
-			return 1
+			log_subsystem_discord("initialize_webhooks - config/webhooks.json does not exist")
+			return 2
 	else
-		var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT url, tags, mention FROM ss13_webhooks")
-		query.Execute()
-		while (query.NextRow())
-			var/url = query.item[1]
-			var/list/tags = splittext(query.item[2], ";")
-			var/mention = query.item[3]
+		var/datum/db_query/discord_webhook_query = SSdbcore.NewQuery("SELECT url, tags, mention FROM ss13_webhooks")
+		if(!discord_webhook_query.Execute())
+			log_subsystem_discord("initialize_webhooks - Error while executing webhook query: [discord_webhook_query.last_error]")
+			qdel(discord_webhook_query)
+			return 3
+		while (discord_webhook_query.NextRow())
+			var/url = discord_webhook_query.item[1]
+			var/list/tags = splittext(discord_webhook_query.item[2], ";")
+			var/mention = discord_webhook_query.item[3]
 			var/datum/webhook/W = new(url, tags)
 			webhooks += W
 			if(mention)
 				W.mention = mention
+		log_subsystem_discord("initialize_webhooks - Loaded [webhooks.len] webhooks")
+		qdel(discord_webhook_query)
 	return 0
 
 /**
@@ -108,7 +116,7 @@ SUBSYSTEM_DEF(discord)
 		log_subsystem_discord("UpdateChannels - Failed - Discord bot is not active")
 		return 1
 
-	if (!establish_db_connection(GLOB.dbcon))
+	if (!SSdbcore.Connect())
 		log_subsystem_discord("UpdateChannels - Failed - Unable to connect to database")
 		return 2
 
@@ -116,31 +124,34 @@ SUBSYSTEM_DEF(discord)
 	channels_to_group.Cut()
 	channels.Cut()
 
-	var/DBQuery/channel_query = GLOB.dbcon.NewQuery("SELECT channel_group, channel_id, pin_flag, server_id FROM discord_channels")
-	channel_query.Execute()
+	var/datum/db_query/discord_channel_query = SSdbcore.NewQuery("SELECT channel_group, channel_id, pin_flag, server_id FROM discord_channels")
+	if(!discord_channel_query.Execute())
+		log_subsystem_discord("UpdateChannels - Failed - Execute Error: [discord_channel_query.last_error]")
+		qdel(discord_channel_query)
+		return 3
 
-	while (channel_query.NextRow())
+	while (discord_channel_query.NextRow())
 		// Create the channel map.
-		if (isnull(channels_to_group[channel_query.item[1]]))
-			channels_to_group[channel_query.item[1]] = list()
+		if (isnull(channels_to_group[discord_channel_query.item[1]]))
+			channels_to_group[discord_channel_query.item[1]] = list()
 
-		var/datum/discord_channel/B = channels[channel_query.item[2]]
+		var/datum/discord_channel/B = channels[discord_channel_query.item[2]]
 
 		// We don't have this channel datum yet.
 		if (isnull(B))
-			B = new(channel_query.item[2], channel_query.item[4], text2num(channel_query.item[3]))
+			B = new(discord_channel_query.item[2], discord_channel_query.item[4], text2num(discord_channel_query.item[3]))
 
 			if (!B)
-				log_subsystem_discord("UpdateChannels - Error - Bad channel data during update channels - [jointext(channel_query.item, ", ")]")
+				log_subsystem_discord("UpdateChannels - Error - Bad channel data during update channels - [jointext(discord_channel_query.item, ", ")]")
 				continue
 
-			channels[channel_query.item[2]] = B
+			channels[discord_channel_query.item[2]] = B
 
-		if (text2num(channel_query.item[3]))
-			B.pin_flag |= text2num(channel_query.item[3])
+		if (text2num(discord_channel_query.item[3]))
+			B.pin_flag |= text2num(discord_channel_query.item[3])
 
 		// Add the channel to the required lists.
-		channels_to_group[channel_query.item[1]] += B
+		channels_to_group[discord_channel_query.item[1]] += B
 
 	if (!isnull(channels_to_group[CHAN_INVITE]))
 		invite_channel = channels_to_group[CHAN_INVITE][1]
@@ -148,6 +159,7 @@ SUBSYSTEM_DEF(discord)
 		log_subsystem_discord("UpdateChannels - No Invite Channel Designated")
 
 	log_subsystem_discord("UpdateChannels - Completed")
+	qdel(discord_channel_query)
 	return 0
 
 /**
@@ -345,7 +357,7 @@ SUBSYSTEM_DEF(discord)
 	if(GLOB.evacuation_controller.evacuation_type == TRANSFER_EMERGENCY)
 		escape_text = "escaped"
 	else
-		escape_text = "transfered"
+		escape_text = "transferred"
 
 	if (!webhooks.len)
 		return

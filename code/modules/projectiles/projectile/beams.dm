@@ -7,7 +7,7 @@
 	armor_penetration = 10
 	damage_type = DAMAGE_BURN
 	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_LASER_MEAT, BULLET_IMPACT_METAL = SOUNDS_LASER_METAL)
-	check_armor = "laser"
+	check_armor = LASER
 	eyeblur = 4
 	damage_flags = DAMAGE_FLAG_LASER
 	var/frequency = 1
@@ -161,7 +161,7 @@
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE | PASSRAILING
 	damage = 0
 	damage_type = DAMAGE_BURN
-	check_armor = "laser"
+	check_armor = LASER
 	var/laser_tag_color = "red"
 
 	muzzle_type = /obj/effect/projectile/muzzle/laser
@@ -496,7 +496,7 @@
 	pass_flags = PASSTABLE | PASSRAILING
 	damage = 15
 	damage_type = DAMAGE_BURN
-	check_armor = "energy"
+	check_armor = ENERGY
 
 	muzzle_type = /obj/effect/projectile/muzzle/laser/blue
 	tracer_type = /obj/effect/projectile/tracer/laser/blue

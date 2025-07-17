@@ -390,7 +390,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 		if(BP_EYES)
 			name = "retinal overlayed [initial(name)]"
 		if(BP_BRAIN)
-			name = "positronic-implanted [initial(name)]"
+			name = "pseudoneuron-assisted [initial(name)]"
 		else
 			name = "mechanically assisted [initial(name)]"
 	icon_state = initial(icon_state)

@@ -22,7 +22,7 @@
 	max_brig_time = 20
 
 /datum/law/med_severity/suicide
-	name = "i203- Suicide Attempt"
+	name = "i203 - Suicide Attempt"
 	desc = "To attempt or threaten to commit suicide."
 	id = "i203"
 
@@ -103,7 +103,7 @@
 
 /datum/law/med_severity/sabotage
 	name = "i213 - Sabotage"
-	desc = "To hinder the efforts of the crew or ship with malicious intent. To cause irreparable damage to the chassis or positronic brain of an owned IPC."
+	desc = "To hinder the efforts of the crew or ship with malicious intent. To cause irreparable damage to the chassis or positronic brain of an owned IPC or wiping of an owned IPC without authorization."
 	id = "i213"
 
 	min_brig_time = 15

@@ -7,9 +7,9 @@
 	item_state = "navy_coveralls"
 	contained_sprite = TRUE
 	armor = list(
-		melee = ARMOR_MELEE_SMALL,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_MINOR
+		MELEE = ARMOR_MELEE_SMALL,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_MINOR
 		)
 
 /obj/item/clothing/under/rank/sol/marine //green sol marine fatigues

@@ -23,7 +23,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 3000, MATERIAL_GLASS = 1000)
 	var/up = 0
 	armor = list(
-			melee = ARMOR_MELEE_SMALL
+			MELEE = ARMOR_MELEE_SMALL
 		)
 	flags_inv = (HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE)
 	body_parts_covered = HEAD|FACE|EYES

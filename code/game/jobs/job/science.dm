@@ -41,7 +41,7 @@
 	uniform = /obj/item/clothing/under/rank/research_director
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science
 	shoes = /obj/item/clothing/shoes/sneakers/brown
-	id = /obj/item/card/id/scc/silver
+	id = /obj/item/card/id/silver
 	l_hand = /obj/item/clipboard
 
 	headset = /obj/item/device/radio/headset/heads/rd
@@ -119,7 +119,7 @@
 	department_flag = MEDSCI
 	faction = "Station"
 	alt_titles = list("Anomalist")
-	alt_outfits = list("Anomalist" = "/obj/outfit/job/scientist/anomalist")
+	alt_outfits = list("Anomalist" = /obj/outfit/job/scientist/anomalist)
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the research director"

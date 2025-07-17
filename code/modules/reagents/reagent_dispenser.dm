@@ -342,7 +342,7 @@
 /obj/structure/reagent_dispensers/keg
 	name = "keg"
 	desc = "An empty keg."
-	icon_state = "beertankTEMP"
+	icon_state = "keg"
 	amount_per_transfer_from_this = 10
 
 /obj/structure/reagent_dispensers/keg/attackby(obj/item/attacking_item, mob/user)
@@ -367,10 +367,14 @@
 
 /obj/structure/reagent_dispensers/keg/beerkeg
 	name = "beer keg"
-	desc = "A beer keg"
+	desc = "A keg full of Virklunder beer, a simple brew from New Gibson."
+	icon_state = "keg_beer"
 	reagents_to_add = list(/singleton/reagent/alcohol/beer = 1000)
 
 /obj/structure/reagent_dispensers/keg/beerkeg/rice
+	name = "rice beer keg"
+	desc = "A keg full of Ebisu rice beer, a light lagered beer popular on Konyang."
+	icon_state = "keg_rice"
 	reagents_to_add = list(/singleton/reagent/alcohol/rice_beer = 1000)
 
 /obj/structure/reagent_dispensers/keg/xuizikeg
@@ -378,6 +382,12 @@
 	desc = "A keg full of Xuizi juice, blended flower buds from the Moghean Xuizi cactus. The export stamp of the Arizi Guild is imprinted on the side."
 	icon_state = "keg_xuizi"
 	reagents_to_add = list(/singleton/reagent/alcohol/butanol/xuizijuice = 1000)
+
+/obj/structure/reagent_dispensers/keg/kvass
+	name = "\improper Dorshafen kvass keg"
+	desc = "A keg full of Dorshafen Deluxe kvass, a fermented non-alcoholic mushroom drink. It is a common sight across workers homes in Himeo, and even abroad."
+	icon_state = "keg_kvass"
+	reagents_to_add = list(/singleton/reagent/drink/mushroom_kvass = 1000)
 
 /obj/structure/reagent_dispensers/keg/mead
 	name = "mead barrel"
@@ -390,6 +400,12 @@
 	desc = "A wooden sake barrel."
 	icon_state = "woodkeg"
 	reagents_to_add = list(/singleton/reagent/alcohol/sake = 1000)
+
+/obj/structure/reagent_dispensers/keg/kvass
+	name = "kvass keg"
+	desc = "A keg full of Dorshafen kvass - non-alcoholic, and a common sight in any workers home across Himeo."
+	icon_state = "keg_kvass"
+	reagents_to_add = list(/singleton/reagent/drink/mushroom_kvass = 1000)
 
 //Cooking oil tank
 /obj/structure/reagent_dispensers/cookingoil

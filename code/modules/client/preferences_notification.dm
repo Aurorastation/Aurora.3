@@ -132,7 +132,7 @@
 		new_notification("danger", custom_event_warn)
 
 	if (lastchangelog != GLOB.changelog_hash)
-		winset(user, "rpane.changelog", "background-color=#eaeaea;font-style=bold")
+		winset(user, "infowindow.changelog", "background-color=#eaeaea;font-style=bold")
 		if (GLOB.config.aggressive_changelog)
 			new_notification("info", "You have unread updates in the changelog.", callback_src = user, callback_proc = "changes")
 		else

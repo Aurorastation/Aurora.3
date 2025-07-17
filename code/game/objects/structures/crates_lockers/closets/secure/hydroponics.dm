@@ -20,6 +20,7 @@
 	new /obj/item/wirecutters/clippers(src)
 	new /obj/item/reagent_containers/spray/plantbgone(src)
 	new /obj/item/storage/belt/hydro(src)
+	new /obj/item/watertank(src)
 
 /obj/structure/closet/secure_closet/xenobotany
 	name = "xenobotanist's locker"

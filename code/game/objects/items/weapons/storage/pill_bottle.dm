@@ -8,12 +8,12 @@
 	center_of_mass = list("x" = 16,"y" = 12)
 	w_class = WEIGHT_CLASS_SMALL
 	can_hold = list(/obj/item/reagent_containers/pill,/obj/item/stack/dice,/obj/item/paper)
-	allow_quick_gather = 1
-	use_to_pickup = 1
+	allow_quick_gather = TRUE
+	use_to_pickup = TRUE
 	use_sound = 'sound/items/storage/pillbottle.ogg'
 	drop_sound = 'sound/items/drop/pillbottle.ogg'
 	pickup_sound = 'sound/items/pickup/pillbottle.ogg'
-	max_storage_space = 16
+	max_storage_space = DEFAULT_BOX_STORAGE
 
 /obj/item/storage/pill_bottle/attack_self(mob/living/user)
 	if(user.get_inactive_hand())
@@ -196,3 +196,17 @@
 	desc = "Contains pills used to treat vitamin deficiency."
 	starts_with = list(/obj/item/reagent_containers/pill/bio_vitamin/cheap = 7)
 
+/obj/item/storage/pill_bottle/colorspace
+	name = "bottle of Colorspace pills"
+	desc = "Contains Colorspace pills, a legal recreational drug."
+	starts_with = list(/obj/item/reagent_containers/pill/colorspace = 4)
+
+/obj/item/storage/pill_bottle/snowflake
+	name = "bottle of Snowflake pills"
+	desc = "Contains Snowflake pills, made from frost oil. The label warns about the danger of overdosing."
+	starts_with = list(/obj/item/reagent_containers/pill/snowflake = 4)
+
+/obj/item/storage/pill_bottle/psilocybin
+	name = "bottle of Psilocybin pills"
+	desc = "Contains psychotropic pills derived from certain species of mushroom."
+	starts_with = list(/obj/item/reagent_containers/pill/psilocybin = 4)

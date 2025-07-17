@@ -1,7 +1,16 @@
 /obj/machinery/portable_atmospherics/hydroponics/process()
 
+	// If there is no power, and stasis is enabled, disable stasis.
+	if((stat & (NOPOWER|BROKEN)) && stasis)
+		stasis = FALSE
+		update_use_power(POWER_USE_IDLE)
+
+	// If the tray is under stasis, return now and process nothing.
+	if(stasis)
+		return
+
 	// Handle nearby smoke if any.
-	for(var/obj/effect/effect/smoke/chem/smoke in view(1, src))
+	for(var/obj/effect/smoke/chem/smoke in view(1, src))
 		if(smoke.reagents.total_volume)
 			smoke.reagents.trans_to_obj(src, 5, copy = 1)
 
@@ -35,9 +44,6 @@
 	if(!seed || dead)
 		if(mechanical) update_icon() //Harvesting would fail to set alert icons properly.
 		return
-
-	// Advance plant age.
-	if(prob(30)) age += 1 * HYDRO_SPEED_MULTIPLIER
 
 	//Highly mutable plants have a chance of mutating every tick.
 	if(seed.get_trait(TRAIT_IMMUTABLE) == -1)
@@ -75,7 +81,7 @@
 	if(!environment && istype(T)) environment = T.return_air()
 	if(!environment) return
 
-	// Seed datum handles gasses, light and pressure.
+	// Seed datum handles gasses, light and pressure relevant to whether the plant should be damaged.
 	if(mechanical && closed_system)
 		health -= seed.handle_environment(T,environment,tray_light)
 	else
@@ -84,6 +90,34 @@
 	// If we're attached to a pipenet, then we should let the pipenet know we might have modified some gasses
 	if (closed_system && connected_port)
 		update_connected_network()
+
+	// By standard, the probability of growth is only 15%. This rises if growing conditions are within their preferences.
+	// This is intended to motivate the use of atmospheric equipment to more viably grow plants with irregular preferences.
+	// You *can* grow plants outside of their preferences without them dying so long as it's within their tolerance, but it'll be pretty slow.
+	var/probability_of_growth = 15
+
+	// Are we within the preference zone for temperature? If so, add 15% to the chance of growth.
+	if(abs(environment.temperature - seed.get_trait(TRAIT_IDEAL_HEAT)) < seed.get_trait(TRAIT_HEAT_PREFERENCE))
+		probability_of_growth += 15
+
+	// The light value we'll be using here.
+	var/actual_light
+
+	// What kind of lighting are we under? If the lid isn't on and the turf isn't dynamically lit, default to 5 lumens.
+	if(closed_system && mechanical)
+		actual_light = tray_light
+	else if(TURF_IS_DYNAMICALLY_LIT(T))
+		actual_light = T.get_lumcount(0, 3) * 10
+	else
+		actual_light = 5
+
+	// If we're within the preference zone for light, add another 5% to the chance for growth.
+	if(abs(actual_light - seed.get_trait(TRAIT_IDEAL_LIGHT)) < seed.get_trait(TRAIT_LIGHT_PREFERENCE))
+		probability_of_growth += 5
+
+	// Roll the dice on advancing plant age, per a probability defined by the previous two checks. At minimum, 15% - at maximum, 35%.
+	// TODO: Move to seed datum?
+	if(prob(probability_of_growth)) age += 1 * HYDRO_SPEED_MULTIPLIER
 
 	// Toxin levels beyond the plant's tolerance cause damage, but
 	// toxins are sucked up each tick and slowly reduce over time.

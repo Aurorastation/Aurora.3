@@ -314,11 +314,45 @@
 
 /obj/item/clothing/under/skrell/wetsuit
 	name = "casual wetsuit"
-	desc = "A wetsuit intended as casualwear for Skrell. Can be worn on its own or under additional clothes."
+	desc = "A wetsuit made as standard apparel for skrell, and functions as underclothes for non-hydrophobic apparel. Acceptable to wear on its own, or as a base for other clothing worn atop it."
 	icon = 'icons/obj/item/clothing/under/skrell/wetsuit.dmi'
 	icon_state = "wetsuit"
 	item_state = "wetsuit"
 	has_accents = TRUE
+
+/obj/item/clothing/under/skrell/wetsuit/dark
+	name = "casual wetsuit"
+	desc = "A wetsuit made as standard apparel for skrell, and functions as underclothes for non-hydrophobic apparel. Acceptable to wear on its own, or as a base for other clothing worn atop it. This set is darker, for easier accessorizing."
+	icon_state = "wetsuit_dark"
+	item_state = "wetsuit_dark"
+	has_accents = TRUE
+
+/obj/item/clothing/under/skrell/wetsuit/swimsuit
+	name = "casual swimsuit"
+	desc = "A wetsuit made as standard apparel for skrell. This one is stylized after human swimwear, and is more popular among the younger generations. This swimsuit is Nioh'wan, or 'full-moon', and covers as much as the usual wetsuit would, without the pantlegs or sleeves."
+	desc_extended = "Adopting human swimwear styles, modern swimsuit-style wetsuits have levels of stylization and showiness referred to by the phases of the moon. Nioh'wan, or 'full moon', covers as much as a wetsuit would usually, but lacks pantlegs. Nioh'miki, or 'half moon', cuts down further to mimic the appearance of human one-piece swimsuit. Nioh'waji, or 'crescent moon', has portions of the swimsuit with the fabric removed to further stylize itself, while Nioh'riri, or 'new moon', is essentially a two-piece swimsuit."
+	icon_state = "swim"
+	item_state = "swim"
+	has_accents = TRUE
+
+/obj/item/clothing/under/skrell/wetsuit/swimsuit/alt
+	name = "casual swimsuit"
+	desc = "A wetsuit made as standard apparel for skrell. This one is stylized after human swimwear, and is more popular among the younger generations. These swimsuits have varying levels of stylization."
+	icon_state = "swim_alt"
+	item_state = "swim_alt"
+	has_accents = TRUE
+
+/obj/item/clothing/under/skrell/wetsuit/swimstars
+	name = "swimstars swimsuit"
+	desc = "A wetsuit made as standard apparel for skrell. This one is stylized after human swimwear, and is more popular among the younger generations. These swimsuits are stylized after the original styles of the skrell characters from the animated series Swimstars, which have since caught on with younger skrell to the point of being officially produced."
+	icon_state = "swimstars"
+	item_state = "swimstars"
+
+/obj/item/clothing/under/skrell/wetsuit/swimstars/alt
+	name = "swimstars swimsuit"
+	desc = "A wetsuit made as standard apparel for skrell. This one is stylized after human swimwear, and is more popular among the younger generations. These swimsuits are stylized after the original styles of the skrell characters from the animated series Swimstars, which have since caught on with younger skrell to the point of being officially produced."
+	icon_state = "swimstars_alt"
+	item_state = "swimstars_alt"
 
 /obj/item/clothing/suit/storage/toggle/skrell/starcoat
 	name = "star coat"
@@ -336,7 +370,7 @@
 	item_state = "cthur_uniform"
 	contained_sprite = TRUE
 	armor = list(
-		laser = ARMOR_LASER_SMALL
+		LASER = ARMOR_LASER_SMALL
 	)
 	species_restricted = list(BODYTYPE_VAURCA)
 
@@ -348,8 +382,8 @@
 	item_state = "qukala_uniform"
 	contained_sprite = TRUE
 	armor = list(
-		melee = ARMOR_MELEE_SMALL,
-		bullet = ARMOR_BALLISTIC_MINOR
+		MELEE = ARMOR_MELEE_SMALL,
+		BULLET = ARMOR_BALLISTIC_MINOR
 	)
 
 /obj/item/clothing/under/skrell/nlomkala
@@ -360,8 +394,8 @@
 	item_state = "nlom_uniform"
 	contained_sprite = TRUE
 	armor = list(
-		melee = ARMOR_MELEE_SMALL,
-		bullet = ARMOR_BALLISTIC_MINOR
+		MELEE = ARMOR_MELEE_SMALL,
+		BULLET = ARMOR_BALLISTIC_MINOR
 	)
 
 /obj/item/clothing/under/skrell/ruupkala
@@ -372,8 +406,8 @@
 	item_state = "ruup_uniform"
 	contained_sprite = TRUE
 	armor = list(
-		melee = ARMOR_MELEE_SMALL,
-		bullet = ARMOR_BALLISTIC_MINOR
+		MELEE = ARMOR_MELEE_SMALL,
+		BULLET = ARMOR_BALLISTIC_MINOR
 	)
 
 /obj/item/clothing/under/skrell/sromkala
@@ -391,8 +425,8 @@
 	icon_state = "tup_uniform"
 	item_state = "tup_uniform"
 	armor = list(
-		melee = ARMOR_MELEE_SMALL,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_MINOR
+		MELEE = ARMOR_MELEE_SMALL,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_MINOR
 	)
 	contained_sprite = TRUE
