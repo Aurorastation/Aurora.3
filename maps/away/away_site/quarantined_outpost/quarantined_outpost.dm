@@ -107,7 +107,7 @@ GLOBAL_LIST_EMPTY(light_group_3)
 	hologram.set_light(2, 1, rgb(214, 217, 221))
 	hologram.pixel_y = 16
 	hologram.name = speaking_name
-	var/sound_to_play
+	var/sound_to_play // apparently this is useless, remove after confirming it
 	if(!sound_to_play && soundblock)
 		sound_to_play = text2path(soundblock)
 	var/datum/asset/spritesheet/S = get_asset_datum(/datum/asset/spritesheet/chat)
@@ -246,7 +246,7 @@ GLOBAL_LIST_EMPTY(light_group_3)
 		O.stat &= ~POWEROFF
 		O.update()
 	I++
-	playsound(src.loc, 'sound/effects/light_heavy_on.ogg', 50)
+	playsound(loc, 'sound/effects/light_heavy_on.ogg', 50)
 	if(I <= 3)
 		goto loop_again
 	sleep(2 SECONDS)
@@ -293,3 +293,82 @@ GLOBAL_LIST_EMPTY(light_group_3)
 
 /obj/structure/decor/ladder/up
 	icon_state = "ladder10"
+
+//---- Ruin creatures
+
+/mob/living/simple_animal/hostile/abomination
+	name = "abomination"
+	desc = "Its ominous presence is enough to make even the calmest soul shudder. It seems agitated and you probably shouldn't get close to it."
+	icon = 'icons/mob/npc/the_thing.dmi'
+	icon_state = "the_thing"
+	icon_living = "the_thing"
+	icon_dead = "the_thing_dead"
+	pixel_x = -17
+	tameable = FALSE
+
+	maxHealth = 300
+	health = 300
+
+	speed = 6
+
+	melee_damage_lower = 30
+	melee_damage_upper = 30
+	armor_penetration = 15
+	/// Used on deleting revive timer if we're burning while being dead.
+	var/revive_timer
+	/// The amount of time it takes for this mob to revive. 5 minutes by default.
+	var/revival_countdown = 20 SECONDS
+	/// Did we yell at our unfortunate victim the moment we spot them? This prevents yell spams.
+	var/recently_yelled = FALSE
+	var/desc_after_death = "One might wonder if the evolution ever had a hand in its creation. Whatever it was, it's now dead, hopefully..."
+
+/mob/living/simple_animal/hostile/abomination/death()
+	. = ..()
+	if(desc_after_death)
+		desc = desc_after_death
+	playsound(loc, 'sound/effects/creatures/siro_shriek.ogg', 60)
+	START_PROCESSING(SSprocessing, src)
+
+/mob/living/simple_animal/hostile/abomination/process() // we check every process cycle if our mob is burning, if not we revive it
+	if(locate(/obj/item/device/flashlight/flare) in get_turf(src))
+		for(var/obj/item/device/flashlight/flare/F in get_turf(src))
+			if(F.on)
+				src.IgniteMob(2)
+
+	if(on_fire || QDELETED(src))
+		if(revive_timer)
+			deltimer(revive_timer)
+			revive_timer = null
+			playsound(loc, 'sound/effects/creatures/siro_shriek.ogg', 60)
+			src.visible_message((SPAN_DANGER("\The [src] trembles and lets out a final, sharp shriek as its corpse is consumed by the flames!")))
+		STOP_PROCESSING(SSprocessing, src)
+		return
+
+	if(!revive_timer) // if our timer is already running don't start new timers
+		revive_timer = addtimer(CALLBACK(src, PROC_REF(revive)), revival_countdown, TIMER_STOPPABLE)
+	return
+
+/mob/living/simple_animal/hostile/abomination/revive()
+	. = ..()
+	update_icon()
+	desc = "Its ominous presence is enough to make even the calmest soul shudder. It seems agitated and you probably shouldn't get close to it."
+	src.visible_message((SPAN_DANGER("\The [src] abruptly rises with a deafening shriek!")))
+	playsound(loc, 'sound/effects/creatures/siro_shriek.ogg', 60)
+	STOP_PROCESSING(SSprocessing, src) // we are revived and no longer need to check if we were burning
+
+/mob/living/simple_animal/hostile/abomination/update_fire()
+
+	CutOverlays(image("icon" = 'icons/mob/npc/the_thing.dmi', "icon_state" = "lower"))
+
+	if(on_fire)
+		AddOverlays(image("icon" = 'icons/mob/npc/the_thing.dmi', "icon_state" = "lower"))
+
+/mob/living/simple_animal/hostile/abomination/AttackTarget()
+	. = ..()
+	if(last_found_target && !recently_yelled) //
+		playsound(loc, /singleton/sound_category/bear_loud, 60)
+		recently_yelled = TRUE
+
+/mob/living/simple_animal/hostile/abomination/LoseTarget()
+	. = ..()
+	recently_yelled = FALSE

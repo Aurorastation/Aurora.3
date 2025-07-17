@@ -15,8 +15,8 @@
 	name = "Entrance Lobby"
 	icon_state = "maintcentral"
 
-/area/quarantined_outpost/cargo_hold
-	name = "Cargo Hold"
+/area/quarantined_outpost/cargo_bay
+	name = "Cargo Bay"
 	icon_state = "quartloading"
 
 /area/quarantined_outpost/engineering
@@ -38,5 +38,16 @@
 
 /area/quarantined_outpost/cafeteria
 	name = "Cafeteria"
-	icon_state = "kitchen"
+	icon_state = "cafeteria"
 
+/area/quarantined_outpost/central_hallway
+	name = "Central Hallway"
+	icon_state = "hallC"
+
+/area/quarantined_outpost/elevator_hallway
+	name = "Residential Lift Hallway"
+	icon_state = "hallS"
+
+/area/quarantined_outpost/auxiliary_power
+	name = "Auxiliary Power Storage"
+	icon_state = "storage"
