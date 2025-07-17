@@ -103,7 +103,7 @@
 	var/thready_pump_modifier = 1.25
 
 	/// Useful for high end robotic hearts, whether they have ways of faking the appearance of a pulse so long as they're active.
-	var/fake_pulse = 0
+	var/fake_pulse = FALSE
 
 /obj/item/organ/internal/heart/process(seconds_per_tick)
 	if(!owner)
