@@ -342,15 +342,20 @@
 					+ "It provides an improvement to blood oxygenation and stamina, at the cost of requiring more food and water." \
 					+ "Outside of Galatea, this augment is popular among professional athletes."
 	max_damage = 80
+	min_broken_damage = 60
+	shock_stage_for_fibrillation = 140
+	fibrillation_stop_risk = 3.5
 	base_pump_rate = 1.15
 	nutrition_cost_per_blood_regen = 4
 	hydration_cost_per_blood_regen = 3
+	blood_regen_modifier = 1.1
+	bleed_drip_modifier = 1.1
 
 // Example heart item that has significantly lowered statistics.
 // TODO: After refactoring the organ selector, make it so that this is a selectable heart type.
 /obj/item/organ/internal/heart/scarred_heart
 	name = "scarred heart"
-	desc = "Life has not been good to this old ticker"
+	desc = "Life has not been good to this old ticker."
 	max_damage = 45
 	min_broken_damage = 30
 	fibrillation_stop_risk = 7.5
