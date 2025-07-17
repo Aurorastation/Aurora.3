@@ -120,7 +120,7 @@
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/desert,
-/area/desert_comms)
+/area/template_noop)
 "dw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -266,7 +266,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/desert,
-/area/desert_comms)
+/area/template_noop)
 "iM" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
@@ -351,7 +351,7 @@
 /obj/effect/decal/cleanable/blood,
 /obj/item/wirecutters,
 /turf/simulated/floor/exoplanet/desert,
-/area/desert_comms)
+/area/template_noop)
 "lo" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2";
@@ -773,7 +773,7 @@
 "vO" = (
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/exoplanet/desert,
-/area/desert_comms)
+/area/template_noop)
 "vW" = (
 /obj/structure/ledge{
 	dir = 4;
@@ -886,7 +886,7 @@
 "zj" = (
 /obj/structure/sign/securearea,
 /turf/simulated/wall/r_wall,
-/area/desert_comms)
+/area/template_noop)
 "zy" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -1044,7 +1044,7 @@
 	deployed = 1
 	},
 /turf/simulated/floor/exoplanet/desert,
-/area/desert_comms)
+/area/template_noop)
 "Ea" = (
 /obj/structure/ledge/corner{
 	dir = 4
@@ -1148,6 +1148,9 @@
 /area/desert_comms)
 "Ga" = (
 /turf/simulated/floor/exoplanet/desert,
+/area/template_noop)
+"Ge" = (
+/turf/simulated/wall/r_wall,
 /area/template_noop)
 "Gm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
@@ -1548,7 +1551,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/desert,
-/area/desert_comms)
+/area/template_noop)
 "Pc" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/effect/floor_decal/industrial/outline_straight/grey,
@@ -1599,7 +1602,7 @@
 	deployed = 1
 	},
 /turf/simulated/floor/exoplanet/desert,
-/area/desert_comms)
+/area/template_noop)
 "PN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1680,7 +1683,7 @@
 /obj/structure/ledge,
 /obj/structure/blocker/steel/fence,
 /turf/simulated/floor/exoplanet/desert,
-/area/desert_comms)
+/area/template_noop)
 "Rn" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/structure/sink{
@@ -1922,7 +1925,7 @@
 "Vk" = (
 /obj/structure/blocker/steel/fence,
 /turf/simulated/floor/exoplanet/desert,
-/area/desert_comms)
+/area/template_noop)
 "VC" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -2200,31 +2203,31 @@ HI
 "}
 (2,1,1) = {"
 OS
-qs
+Ga
 Dp
-qs
+Ga
 Dp
-qs
+Ga
 Dp
-qs
+Ga
 Dp
-qs
+Ga
 Dp
-qs
+Ga
 Dp
-qs
+Ga
 Dp
-qs
+Ga
 Dp
-qs
+Ga
 Dp
-qs
+Ga
 Dp
-qs
+Ga
 Dp
-qs
+Ga
 Dp
-qs
+Ga
 Dp
 OS
 HI
@@ -2235,7 +2238,7 @@ HI
 (3,1,1) = {"
 OS
 Dp
-Zm
+Ge
 Vk
 Vk
 Vk
@@ -2258,8 +2261,8 @@ Vk
 Vk
 Vk
 Vk
-Zm
-qs
+Ge
+Ga
 OS
 HI
 HI
@@ -2268,7 +2271,7 @@ HI
 "}
 (4,1,1) = {"
 OS
-qs
+Ga
 OS
 qs
 qs
@@ -2327,7 +2330,7 @@ qs
 qs
 qs
 OS
-qs
+Ga
 OS
 HI
 HI
@@ -2336,7 +2339,7 @@ HI
 "}
 (6,1,1) = {"
 OS
-qs
+Ga
 OS
 qs
 qs
@@ -2395,7 +2398,7 @@ qs
 qs
 qs
 OS
-qs
+Ga
 OS
 HI
 HI
@@ -2404,7 +2407,7 @@ HI
 "}
 (8,1,1) = {"
 OS
-qs
+Ga
 OS
 qs
 UZ
@@ -2463,7 +2466,7 @@ qs
 qs
 qs
 OS
-qs
+Ga
 OS
 HI
 HI
@@ -2472,7 +2475,7 @@ HI
 "}
 (10,1,1) = {"
 OS
-qs
+Ga
 OS
 qs
 qs
@@ -2531,7 +2534,7 @@ qs
 qs
 qs
 OS
-qs
+Ga
 OS
 HI
 HI
@@ -2540,7 +2543,7 @@ HI
 "}
 (12,1,1) = {"
 OS
-qs
+Ga
 OS
 qs
 qs
@@ -2599,7 +2602,7 @@ qs
 qs
 qs
 OS
-qs
+Ga
 OS
 HI
 HI
@@ -2608,7 +2611,7 @@ HI
 "}
 (14,1,1) = {"
 OS
-qs
+Ga
 OS
 qs
 qs
@@ -2666,7 +2669,7 @@ Zm
 Ne
 qs
 qs
-Zm
+Ge
 Vk
 zj
 HI
@@ -2676,7 +2679,7 @@ HI
 "}
 (16,1,1) = {"
 OS
-qs
+Ga
 OS
 qs
 qs
@@ -2744,7 +2747,7 @@ BN
 "}
 (18,1,1) = {"
 OS
-qs
+Ga
 OS
 qs
 qs
@@ -2802,7 +2805,7 @@ Zm
 Ne
 qs
 qs
-Zm
+Ge
 Rl
 Zm
 pi
@@ -2812,7 +2815,7 @@ EX
 "}
 (20,1,1) = {"
 OS
-qs
+Ga
 OS
 qs
 qs
@@ -2880,7 +2883,7 @@ Pd
 "}
 (22,1,1) = {"
 OS
-qs
+Ga
 OS
 qs
 qs
@@ -2938,7 +2941,7 @@ qs
 qs
 qs
 qs
-Zm
+Ge
 Rl
 Zm
 ND
@@ -2948,7 +2951,7 @@ EX
 "}
 (24,1,1) = {"
 OS
-qs
+Ga
 OS
 qs
 qs
@@ -3007,7 +3010,7 @@ qs
 qs
 qs
 OS
-qs
+Ga
 OS
 HI
 HI
@@ -3016,7 +3019,7 @@ HI
 "}
 (26,1,1) = {"
 OS
-qs
+Ga
 OS
 qs
 qs
@@ -3075,7 +3078,7 @@ qs
 qs
 qs
 OS
-qs
+Ga
 OS
 HI
 HI
@@ -3084,7 +3087,7 @@ HI
 "}
 (28,1,1) = {"
 OS
-qs
+Ga
 OS
 qs
 qs
@@ -3143,7 +3146,7 @@ qs
 qs
 qs
 OS
-qs
+Ga
 OS
 HI
 HI
@@ -3152,8 +3155,8 @@ HI
 "}
 (30,1,1) = {"
 OS
-qs
-Zm
+Ga
+Ge
 Vk
 Vk
 Vk
@@ -3165,8 +3168,8 @@ Vk
 Vk
 Vk
 Vk
-RP
-qs
+qi
+Ga
 vO
 Vk
 Vk
@@ -3176,7 +3179,7 @@ Vk
 Vk
 Vk
 Vk
-Zm
+Ge
 Dp
 OS
 HI
@@ -3187,31 +3190,31 @@ HI
 (31,1,1) = {"
 OS
 Dp
-qs
+Ga
 Dp
-qs
+Ga
 Dp
-qs
+Ga
 Dp
-qs
+Ga
 Dp
-qs
+Ga
 Dp
-qs
+Ga
 Dp
-RP
+qi
 dp
-qs
+Ga
 Dp
-qs
+Ga
 Dp
-qs
+Ga
 Dp
-qs
+Ga
 Dp
-qs
+Ga
 Dp
-qs
+Ga
 OS
 HI
 HI
@@ -3235,7 +3238,7 @@ Vk
 Vk
 vO
 kT
-RP
+qi
 Vk
 Vk
 Vk
@@ -3885,176 +3888,6 @@ HI
 HI
 HI
 fb
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-"}
-(52,1,1) = {"
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-"}
-(53,1,1) = {"
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-"}
-(54,1,1) = {"
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-"}
-(55,1,1) = {"
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-"}
-(56,1,1) = {"
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
-HI
 HI
 HI
 HI
