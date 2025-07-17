@@ -133,7 +133,7 @@
 		return
 
 	// pulse mod starts out as just the chemical effect amount
-	var/pulse_mod = owner.chem_effects[CE_PULSE] // TODO: Make events go through signals.
+	var/pulse_mod = owner.chem_effects[CE_PULSE] // TODO: Make chems go through signals.
 	var/is_stable = owner.chem_effects[CE_STABLE]
 	var/oxy = owner.get_blood_oxygenation()
 	var/circulation = owner.get_blood_circulation()
