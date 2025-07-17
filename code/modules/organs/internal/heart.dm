@@ -356,6 +356,7 @@
 	hydration_cost_per_blood_regen = 3
 	blood_regen_modifier = 1.1
 	bleed_drip_modifier = 1.1
+	blood_spray_distance = 3
 
 // Example heart item that has significantly lowered statistics.
 // TODO: After refactoring the organ selector, make it so that this is a selectable heart type.
@@ -370,3 +371,4 @@
 	base_pump_rate = 0.9
 	thready_pump_modifier = 1.5
 	damage_from_chemicals = 0.7
+	blood_spray_distance = 1
