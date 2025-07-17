@@ -108,17 +108,17 @@
 /obj/item/organ/internal/heart/process(seconds_per_tick)
 	if(!owner)
 		return ..()
-	handle_pulse(seconds_per_tick)
+	handle_pulse()
 	if(pulse)
 		if(pulse == PULSE_2FAST)
 			take_internal_damage(heart_tachycardia_damage * seconds_per_tick)
 		if(pulse == PULSE_THREADY)
 			take_internal_damage(heart_fibrillation_damage * seconds_per_tick)
 		handle_heartbeat()
-	handle_blood(seconds_per_tick)
+	handle_blood()
 	..()
 
-/obj/item/organ/internal/heart/proc/handle_pulse(seconds_per_tick)
+/obj/item/organ/internal/heart/proc/handle_pulse()
 	if(owner.stat == DEAD || (species && species.flags & NO_BLOOD) || BP_IS_ROBOTIC(src)) //No heart, no pulse, buddy. Or if the heart is robotic. Or you're dead.
 		pulse = PULSE_NONE
 		return
@@ -129,8 +129,9 @@
 
 	// If you have enough heart chemicals to be over 2, take extra damage per tick.
 	if(pulse_mod > 2 && !is_stable)
-		take_internal_damage(((pulse_mod - 2) ** 2) * seconds_per_tick)
-
+		var/damage_chance = (pulse_mod - 2) ** 2
+		if(prob(damage_chance))
+			take_internal_damage(0.5)
 
 	// Now pulse mod is impacted by shock stage and other things too
 	if(owner.shock_stage > first_shock_stage)
@@ -194,7 +195,7 @@
 		else
 			heartbeat++
 
-/obj/item/organ/internal/heart/proc/handle_blood(seconds_per_tick)
+/obj/item/organ/internal/heart/proc/handle_blood()
 	if(!owner)
 		return
 
@@ -210,7 +211,7 @@
 		//Blood regeneration if there is some space
 		if(blood_volume < species.blood_volume && blood_volume)
 			if(REAGENT_DATA(owner.vessel, /singleton/reagent/blood)) // Make sure there's blood at all
-				owner.vessel.add_reagent(/singleton/reagent/blood, (seconds_per_tick * blood_regen_modifier) + LAZYACCESS(owner.chem_effects, CE_BLOODRESTORE), temperature = species?.body_temperature)
+				owner.vessel.add_reagent(/singleton/reagent/blood, (BLOOD_REGEN_RATE * blood_regen_modifier) + LAZYACCESS(owner.chem_effects, CE_BLOODRESTORE), temperature = species?.body_temperature)
 				if(blood_volume <= BLOOD_VOLUME_SAFE) //We lose nutrition and hydration very slowly if our blood is too low
 					owner.adjustNutritionLoss(nutrition_cost_per_blood_regen)
 					owner.adjustHydrationLoss(hydration_cost_per_blood_regen)
@@ -229,9 +230,9 @@
 								var/mob/living/carbon/human/H = temp.applied_pressure
 								H.bloody_hands(src, 0)
 							var/min_eff_damage = max(0, W.damage - 10) / 6
-							blood_max += max(min_eff_damage, W.damage - 30) * seconds_per_tick * cut_bloodloss_modifier
+							blood_max += max(min_eff_damage, W.damage - 30) / 40 * cut_bloodloss_modifier
 						else
-							blood_max += (W.damage * seconds_per_tick * species.bleed_mod * cut_bloodloss_modifier)
+							blood_max += ((W.damage / 40) * species.bleed_mod * cut_bloodloss_modifier)
 
 			if(temp.status & ORGAN_ARTERY_CUT)
 				var/bleed_amount = FLOOR((owner.vessel.total_volume / (temp.applied_pressure || !open_wound ? 450 : 250)) * temp.arterial_bleed_severity, 0.1)
