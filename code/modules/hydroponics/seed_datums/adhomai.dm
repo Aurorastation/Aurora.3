@@ -134,8 +134,8 @@
 	seed_type = "nfrihi"
 
 /datum/seed/sugartree
-	name = "sugartree"
-	seed_name = "sugartree"
+	name = "sugar tree"
+	seed_name = "sugar tree"
 	display_name = "sugar trees"
 	product_desc = "The fruit of the Sugar Tree, native to Adhomai. It is sweet and commonly used in candies."
 	product_desc_extended = "Sugar Tree, or Nm'shaan, are hardy snow bamboo invaluable for sugar production on the planet. They are unique in that on every stem it bears a single spherical fruit at the very top, surrounded by a white woolly rind. Short stems which end in thick-leafed fronds grow along the length of the 'trunk', giving it an appearance like Terran bamboo. The stalks tend to be as thick as one's thigh with very hard, protective woody shells around its vulnerable interior."
@@ -159,4 +159,4 @@
 	set_trait(TRAIT_IDEAL_LIGHT, 3)
 
 /obj/item/seeds/sugartree
-	seed_type = "sugartree"
+	seed_type = "sugar tree"
