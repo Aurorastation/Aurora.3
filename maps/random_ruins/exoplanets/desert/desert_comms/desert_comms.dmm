@@ -632,9 +632,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/desert_comms)
-"qL" = (
-/turf/template_noop,
-/area/desert_comms)
 "rz" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	locked = 0;
@@ -836,7 +833,7 @@
 	dir = 8;
 	pixel_y = -1
 	},
-/turf/template_noop,
+/turf/simulated/floor/exoplanet/desert,
 /area/desert_comms)
 "yT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
@@ -1049,7 +1046,7 @@
 /obj/structure/ledge/corner{
 	dir = 4
 	},
-/turf/template_noop,
+/turf/simulated/floor/exoplanet/desert,
 /area/desert_comms)
 "Em" = (
 /obj/structure/ledge{
@@ -1059,7 +1056,7 @@
 /obj/machinery/light/colored/decayed/dimmed{
 	dir = 4
 	},
-/turf/template_noop,
+/turf/simulated/floor/exoplanet/desert,
 /area/desert_comms)
 "Ep" = (
 /obj/structure/cable/yellow{
@@ -1192,7 +1189,7 @@
 	icon_state = "sensors";
 	pixel_x = -32;
 	pixel_y = -16;
-	name = "\improper Ground-Based S-24MG Beacon sensor array";
+	name = "Ground-Based S-24MG Beacon sensor array";
 	desc = "A vintage sensor array found on Solarian sensor relays throughout the galaxy. While it lacks deep scanning capabilities, it does have a high heat capacity. This one is emblazoned with the fading flag of the pre-war Solarian Alliance, and seems to be broken... it's core component parts fizzled out years ago."
 	},
 /turf/simulated/floor/exoplanet/plating,
@@ -1373,7 +1370,7 @@
 /obj/structure/ledge/corner{
 	dir = 8
 	},
-/turf/template_noop,
+/turf/simulated/floor/exoplanet/desert,
 /area/desert_comms)
 "LJ" = (
 /obj/structure/cable/yellow{
@@ -1674,7 +1671,7 @@
 	icon_state = "sensors";
 	pixel_x = -32;
 	pixel_y = -16;
-	name = "\improper Ground-Based S-24MG Beacon sensor array";
+	name = "Ground-Based S-24MG Beacon sensor array";
 	desc = "A vintage sensor array found on Solarian sensor relays throughout the galaxy. While it lacks deep scanning capabilities, it does have a high heat capacity. This one is emblazoned with the fading flag of the pre-war Solarian Alliance, and seems to be broken... it's core component parts fizzled out years ago."
 	},
 /turf/simulated/floor/exoplanet/plating,
@@ -1826,7 +1823,7 @@
 	icon_state = "sensors";
 	pixel_x = -32;
 	pixel_y = -16;
-	name = "\improper Ground-Based S-24MG Beacon sensor array";
+	name = "Ground-Based S-24MG Beacon sensor array";
 	desc = "A vintage sensor array found on Solarian sensor relays throughout the galaxy. While it lacks deep scanning capabilities, it does have a high heat capacity. This one is emblazoned with the fading flag of the pre-war Solarian Alliance, and seems to be broken... it's core component parts fizzled out years ago."
 	},
 /turf/simulated/floor/exoplanet/plating,
@@ -1852,7 +1849,7 @@
 /obj/machinery/light/colored/decayed/dimmed{
 	dir = 8
 	},
-/turf/template_noop,
+/turf/simulated/floor/exoplanet/desert,
 /area/desert_comms)
 "UJ" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -2706,10 +2703,10 @@ BN
 qs
 qs
 Bk
-qL
+qs
 BN
 BN
-qL
+qs
 "}
 (17,1,1) = {"
 OS
@@ -2741,7 +2738,7 @@ BN
 BN
 Bk
 BN
-qL
+qs
 BN
 BN
 "}

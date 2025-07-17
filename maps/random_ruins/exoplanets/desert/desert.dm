@@ -56,7 +56,7 @@
 
 	spawn_weight = 1
 	spawn_cost = 1
-	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
+	sectors = list(SECTOR_COALITION, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_GENERIC)
 
 	prefix = "desert/desert_comms/"
 	suffix = "desert_comms.dmm"
