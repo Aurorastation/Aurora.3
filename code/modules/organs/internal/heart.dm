@@ -345,3 +345,17 @@
 	base_pump_rate = 1.15
 	nutrition_cost_per_blood_regen = 4
 	hydration_cost_per_blood_regen = 3
+
+// Example heart item that has significantly lowered statistics.
+// TODO: After refactoring the organ selector, make it so that this is a selectable heart type.
+/obj/item/organ/internal/heart/scarred_heart
+	name = "scarred heart"
+	desc = "Life has not been good to this old ticker"
+	max_damage = 45
+	min_broken_damage = 30
+	fibrillation_stop_risk = 7.5
+	shock_stage_for_fibrillation = 100
+	blood_regen_modifier = 0.9
+	base_pump_rate = 0.9
+	thready_pump_modifier = 1.5
+	damage_from_chemicals = 0.7
