@@ -114,6 +114,9 @@
 	/// Sound effect used for heartbeat warnings, such as when the user is in pain/risk of dying.
 	var/heartbeat_sound = 'sound/effects/singlebeat.ogg'
 
+	/// Distance effects for arterial sprays.
+	var/blood_spray_distance = 2
+
 /obj/item/organ/internal/heart/process(seconds_per_tick)
 	if(!owner)
 		return ..()
@@ -286,7 +289,7 @@
 			var/turf/sprayloc = get_turf(owner)
 			blood_max -= owner.drip(Ceiling(blood_max/3), sprayloc)
 			if(blood_max > 0)
-				blood_max -= owner.blood_squirt(blood_max, sprayloc)
+				blood_max -= owner.blood_squirt(blood_max, sprayloc, blood_spray_distance)
 				if(blood_max > 0)
 					owner.drip(blood_max, get_turf(owner))
 		else

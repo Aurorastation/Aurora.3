@@ -36,14 +36,13 @@
 	vessel.remove_reagent(/singleton/reagent/blood,amt)
 	blood_splatter(tar, src, spray_dir = spraydir)
 
-#define BLOOD_SPRAY_DISTANCE 2
-/mob/living/carbon/human/proc/blood_squirt(var/amt, var/turf/sprayloc)
+/mob/living/carbon/human/proc/blood_squirt(var/amt, var/turf/sprayloc, var/blood_spray_distance)
 	if(amt <= 0 || !istype(sprayloc))
 		return
 	var/spraydir = pick(GLOB.alldirs)
-	amt = Ceiling(amt/BLOOD_SPRAY_DISTANCE)
+	amt = Ceiling(amt/blood_spray_distance)
 	var/bled = 0
-	for(var/i = 1 to BLOOD_SPRAY_DISTANCE)
+	for(var/i = 1 to blood_spray_distance)
 		sprayloc = get_step(sprayloc, spraydir)
 		if(!istype(sprayloc) || (sprayloc.density && !iswall(sprayloc)))
 			break
@@ -81,7 +80,6 @@
 		if(hit_mob || iswall(sprayloc))
 			break
 	return bled
-#undef BLOOD_SPRAY_DISTANCE
 
 /mob/living/carbon/human/proc/get_blood_volume()
 	return round((REAGENT_VOLUME(vessel, /singleton/reagent/blood)/species.blood_volume)*100)
