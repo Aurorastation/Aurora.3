@@ -399,6 +399,9 @@
 			src.vend(currently_vending, usr)
 		else if(handled)
 			SStgui.update_uis(src)
+		// Update ads.
+		if(length(ads_list))
+			display_ad = pick(ads_list)
 		return TRUE // don't smack that machine with your 2 credits
 
 	if (I || istype(attacking_item, /obj/item/spacecash))
@@ -873,9 +876,6 @@
 		src.last_slogan = world.time
 		src.speak(slogan)
 
-	if(length(ads_list) && ((src.last_ad + 300) <= world.time))
-		display_ad = pick(ads_list)
-
 	if(src.shoot_inventory && prob(shoot_inventory_chance))
 		src.throw_item()
 
@@ -897,14 +897,14 @@
 	if(!anchored)
 		stat |= NOPOWER
 	if(stat & BROKEN)
-		icon_state = "[initial(icon_state)]-broken"
+		icon_state = icon_broken
 		ClearOverlays()
 		set_light(0)
 	else if(!(stat & NOPOWER))
 		icon_state = initial(icon_state)
 		update_icon()
 	else
-		icon_state = "[initial(icon_state)]-off"
+		icon_state = icon_off
 		ClearOverlays()
 		set_light(0)
 
@@ -924,7 +924,7 @@
 		break
 
 	stat |= BROKEN
-	src.icon_state = "[initial(icon_state)]-broken"
+	src.icon_state = icon_broken
 	return
 
 /// Somebody cut an important wire and now we're following a new definition of "pitch."
