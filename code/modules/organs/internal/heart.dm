@@ -336,6 +336,9 @@
 
 	. = "[pulsesound] pulse"
 
+// Example heart item that has significantly higher statistics.
+// Also to be used for the Galatean Bio-augments PRs.
+// TODO: After refactoring the organ selector, make it so that this is a selectable heart type(For Galateans)
 /obj/item/organ/internal/heart/boosted_heart
 	name = "boosted heart"
 	desc = "Intended for athletes, some workers, and soldiers, this improved heart increases blood flow and circulation." \
