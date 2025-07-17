@@ -49,7 +49,7 @@
 	if(owner)
 		UnregisterSignal(owner, COMSIG_PSI_MIND_POWER)
 
-/obj/item/organ/internal/augment/mind_blanker_lethal/proc/cancel_power_lethal(var/mob/caster)
+/obj/item/organ/internal/augment/mind_blanker_lethal/proc/cancel_power_lethal(mob/caster)
 	SIGNAL_HANDLER
 	if(isliving(caster))
 		var/mob/living/victim = caster
