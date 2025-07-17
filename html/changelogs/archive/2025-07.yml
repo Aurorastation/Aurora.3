@@ -316,3 +316,6 @@
   - bugfix: Hydroponicists can now access their own holomenu.
   nauticall:
   - rscadd: Added the Liberty's Cradle Stargazer hologram sprite to the game.
+2025-07-17:
+  Wowzewow (Wezzy):
+  - bugfix: Fixes head loadout.
