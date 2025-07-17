@@ -117,6 +117,7 @@
 	var/list/hats = list()
 	hats["hat, gat"] = /obj/item/clothing/head/konyang
 	hats["hat, konyanger hachimaki"] = /obj/item/clothing/head/hachimaki
+	gear_tweaks += new /datum/gear_tweak/path(hats)
 
 /datum/gear/head/human/himeo
 	display_name = "himean cap"
