@@ -74,8 +74,7 @@ GLOBAL_LIST_EMPTY(plant_seed_sprites)
 	. = ..()
 	if(seed && !seed.roundstart)
 		. += "It's tagged as variety #[seed.uid]."
-	. += "The packet reads that this has an ideal temperature of <b>[seed.get_trait(TRAIT_IDEAL_HEAT)] kelvin.</b>"
-	. += "The packet reads that this has an ideal light level of <b>[seed.get_trait(TRAIT_IDEAL_LIGHT)] lumens.</b>"
+	. += "This has an ideal temperature of <b>[seed.get_trait(TRAIT_IDEAL_HEAT)] kelvin</b> and light level of <b>[seed.get_trait(TRAIT_IDEAL_LIGHT)] lumens.</b>"
 
 /obj/item/seeds/cutting
 	name = SEED_NOUN_CUTTINGS
