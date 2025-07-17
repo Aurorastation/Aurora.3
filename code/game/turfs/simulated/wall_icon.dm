@@ -103,6 +103,8 @@
 		damage_image = damage_overlays[overlay]
 		overlays_to_add += damage_image
 
+	// Remove the existing damage overlay entirely and replace it with the newly-calculated one.
+	CutOverlays(damage_overlays)
 	AddOverlays(overlays_to_add)
 	UNSETEMPTY(reinforcement_images)
 	QUEUE_SMOOTH(src)
@@ -115,5 +117,5 @@
 	for(var/i = 1; i <= damage_overlays.len; i++)
 		var/image/img = image(icon = 'icons/turf/walls.dmi', icon_state = "overlay_damage")
 		img.blend_mode = BLEND_MULTIPLY
-		img.alpha = (i * alpha_inc) - 1
+		img.alpha = (i * alpha_inc * 2) - i
 		damage_overlays[i] = img
