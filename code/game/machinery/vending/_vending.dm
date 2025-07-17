@@ -65,11 +65,16 @@
 	manufacturer = "idris"
 	z_flags = ZMM_MANGLE_PLANES
 
-	/// `icon_state` when vending
-	var/icon_vend
-	/// `icon_state` when denying
-	var/icon_deny
+	/// `icon_state` when off. Defined on init.
+	var/icon_off
+	/// 'icon_state' when on, if overlay exists. Defined on init.
 	var/icon_screen
+	/// `icon_state` when vending. Defined on init.
+	var/icon_vend
+	/// `icon_state` when denying. Defined on init.
+	var/icon_deny
+	/// 'icon_state' when broken. Defined on init.
+	var/icon_broken
 
 	// Power
 	idle_power_usage = 10
@@ -240,6 +245,12 @@
 
 	if(src.vend_reply)
 		src.reply_list += text2list(src.vend_reply, ";")
+
+	icon_vend = "[initial(icon_state)]-vend"
+	icon_screen = "[initial(icon_state)]-screen"
+	icon_deny = "[initial(icon_state)]-deny"
+	icon_broken = "[initial(icon_state)]-broken"
+	icon_off = "[initial(icon_state)]-off"
 
 	reset_light()
 	build_products()
