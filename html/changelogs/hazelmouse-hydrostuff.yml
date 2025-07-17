@@ -61,5 +61,6 @@ changes:
   - rscadd: "Tweaked the preferential values of a few plants for consistency."
   - rscadd: "Eki is now, codewise, a mushroom."
   - rscadd: "Soil plots now produce noise when watered."
+  - rscadd: "Hydrobelts can now contain crowbars."
   - rscadd: "Slightly increased the volume of a few sound effects for hydroponics trays."
   - bugfix: "Sugar tree seeds now appear corectly in seed storage machines."
