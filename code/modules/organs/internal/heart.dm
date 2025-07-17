@@ -87,6 +87,9 @@
 	/// The base rate at which this heart pumps blood regardless of pulse rate.
 	var/base_pump_rate = 1
 
+	/// The "base blood circulation" for if the heart is fully stopped. This can get floored later to as little as 0.075 on default settings.
+	var/none_pump_modifier = 0.25
+
 	/// Modifier on how much blood this heart pumps while at a "slow" pulse rate.
 	var/slow_pump_modifier = 0.9
 
@@ -104,6 +107,11 @@
 
 	/// Useful for high end robotic hearts, whether they have ways of faking the appearance of a pulse so long as they're active.
 	var/fake_pulse = FALSE
+
+	/// How much damage this heart can take from chemically induced arythmia per instance.
+	var/damage_from_chemicals = 0.5
+
+	var/heartbeat_sound = 'sound/effects/singlebeat.ogg'
 
 /obj/item/organ/internal/heart/process(seconds_per_tick)
 	if(!owner)
@@ -124,14 +132,19 @@
 		return
 
 	// pulse mod starts out as just the chemical effect amount
-	var/pulse_mod = owner.chem_effects[CE_PULSE]
+	var/pulse_mod = owner.chem_effects[CE_PULSE] // TODO: Make events go through signals.
 	var/is_stable = owner.chem_effects[CE_STABLE]
+	var/oxy = owner.get_blood_oxygenation()
+	var/circulation = owner.get_blood_circulation()
+
+	// Check if any components on the user wish to mess with the pulse calculations.
+	SEND_SIGNAL(src, COMSIG_HEART_PULSE_EVENT)
 
 	// If you have enough heart chemicals to be over 2, take extra damage per tick.
 	if(pulse_mod > 2 && !is_stable)
 		var/damage_chance = (pulse_mod - 2) ** 2
 		if(prob(damage_chance))
-			take_internal_damage(0.5)
+			take_internal_damage(damage_from_chemicals)
 
 	// Now pulse mod is impacted by shock stage and other things too
 	if(owner.shock_stage > first_shock_stage)
@@ -139,7 +152,6 @@
 	if(owner.shock_stage > second_shock_stage)
 		pulse_mod++
 
-	var/oxy = owner.get_blood_oxygenation()
 	if(oxy < BLOOD_VOLUME_OKAY) //brain wants us to get moar oxygen
 		pulse_mod++
 	if(oxy < BLOOD_VOLUME_BAD) //MOAR
@@ -153,7 +165,7 @@
 	if(pulse == PULSE_NONE)
 		return
 	else //and if it's beating, let's see if it should
-		var/should_stop = prob(80) && owner.get_blood_circulation() < BLOOD_VOLUME_SURVIVE //cardiovascular shock, not enough liquid to pump
+		var/should_stop = prob(80) && circulation < BLOOD_VOLUME_SURVIVE //cardiovascular shock, not enough liquid to pump
 		should_stop = should_stop || prob(max(0, owner.getBrainLoss() - owner.maxHealth * 0.75)) //brain failing to work heart properly
 		should_stop = should_stop || (prob(fibrillation_stop_risk) && pulse == PULSE_THREADY) //erratic heart patterns, usually caused by oxyloss
 		should_stop = should_stop || owner.chem_effects[CE_NOPULSE]
@@ -191,7 +203,7 @@
 
 		if(heartbeat >= rate)
 			heartbeat = 0
-			sound_to(owner, sound('sound/effects/singlebeat.ogg', 0, 0, 0, 50))
+			sound_to(owner, sound(heartbeat_sound, 0, 0, 0, 50))
 		else
 			heartbeat++
 
@@ -289,7 +301,7 @@
 	var/obj/item/organ/external/E = owner.organs_by_name[parent_organ]
 	if(prob(surge_damage))
 		owner.custom_pain(SPAN_DANGER("Your [E.name] stings horribly!"), 15, FALSE, E)
-		sound_to(owner, sound('sound/effects/singlebeat.ogg', 0, 0, 0, 100))
+		sound_to(owner, sound(heartbeat_sound, 0, 0, 0, 100))
 
 /obj/item/organ/internal/heart/listen()
 	if((BP_IS_ROBOTIC(src) && is_working()) & !fake_pulse)

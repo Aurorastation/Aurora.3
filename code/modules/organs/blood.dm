@@ -94,6 +94,11 @@
 
 	var/recent_pump = LAZYACCESS(heart.external_pump, 1) > world.time - (20 SECONDS)
 	var/pulse_mod = heart.base_pump_rate
+	var/min_efficiency = recent_pump ? 0.5 : 0.3
+
+	// Check if any components on the user wish to mess with the pump rate.
+	SEND_SIGNAL(src, COMSIG_HEART_PUMP_EVENT, heart)
+
 	if((status_flags & FAKEDEATH) || BP_IS_ROBOTIC(heart))
 		pulse_mod = heart.norm_pump_modifier
 	else
@@ -102,7 +107,7 @@
 				if(recent_pump)
 					pulse_mod = LAZYACCESS(heart.external_pump, 2)
 				else
-					pulse_mod *= 0.25
+					pulse_mod *= heart.none_pump_modifier
 			if(PULSE_SLOW)
 				pulse_mod *= heart.slow_pump_modifier
 			if(PULSE_NORM)
@@ -113,10 +118,7 @@
 				pulse_mod *= heart.too_fast_pump_modifier
 			if(PULSE_THREADY)
 				pulse_mod *= heart.thready_pump_modifier
-	blood_volume *= pulse_mod
-
-	var/min_efficiency = recent_pump ? 0.5 : 0.3
-	blood_volume *= max(min_efficiency, (1-(heart.damage / heart.max_damage)))
+	blood_volume *= pulse_mod * max(min_efficiency, (1-(heart.damage / heart.max_damage)))
 
 	return min(blood_volume, 100)
 
@@ -129,12 +131,16 @@
 		return blood_volume
 
 	var/blood_volume_mod = max(0, 1 - getOxyLoss()/(species.total_health/2))
-	var/oxygenated_mult = 0
+	var/oxygenated_add = 0
+
+	// Check if any components on the user wish to mess with the blood oxygenation.
+	SEND_SIGNAL(src, COMSIG_HEART_BLOOD_OXYGENATION_EVENT)
+
 	if(chem_effects[CE_OXYGENATED] == 1) // Dexalin.
-		oxygenated_mult = 0.5
+		oxygenated_add += 0.5
 	else if(chem_effects[CE_OXYGENATED] >= 2) // Dexplus.
-		oxygenated_mult = 0.8
-	blood_volume_mod = blood_volume_mod + oxygenated_mult - (blood_volume_mod * oxygenated_mult)
+		oxygenated_add += 0.8
+	blood_volume_mod = blood_volume_mod + oxygenated_add - (blood_volume_mod * oxygenated_add)
 	blood_volume = blood_volume * blood_volume_mod
 	return min(blood_volume, 100)
 
