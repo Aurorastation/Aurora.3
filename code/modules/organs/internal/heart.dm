@@ -338,10 +338,10 @@
 
 /obj/item/organ/internal/heart/boosted_heart
 	name = "boosted heart"
-	description = "Intended for athletes, some workers, and soldiers, this improved heart increases blood flow and circulation." \
+	desc = "Intended for athletes, some workers, and soldiers, this improved heart increases blood flow and circulation." \
 					+ "It provides an improvement to blood oxygenation and stamina, at the cost of requiring more food and water." \
 					+ "Outside of Galatea, this augment is popular among professional athletes."
 	max_damage = 80
 	base_pump_rate = 1.15
-	nutrition_cost_per_blood_regen: 4
-	hydration_cost_per_blood_regen: 3
+	nutrition_cost_per_blood_regen = 4
+	hydration_cost_per_blood_regen = 3
