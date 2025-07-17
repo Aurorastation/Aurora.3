@@ -111,6 +111,7 @@
 	/// How much damage this heart can take from chemically induced arythmia per instance.
 	var/damage_from_chemicals = 0.5
 
+	/// Sound effect used for heartbeat warnings, such as when the user is in pain/risk of dying.
 	var/heartbeat_sound = 'sound/effects/singlebeat.ogg'
 
 /obj/item/organ/internal/heart/process(seconds_per_tick)
