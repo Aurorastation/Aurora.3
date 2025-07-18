@@ -90,7 +90,7 @@
 /obj/item/seeds/guamiseed
 	seed_type = "guami"
 
-/datum/seed/eki
+/datum/seed/mushroom/eki
 	name = "eki"
 	seed_name = "eki"
 	display_name = "eki"
@@ -98,7 +98,7 @@
 	chems = list(/singleton/reagent/nutriment = list(7, 11))
 	kitchen_tag = "eki"
 
-/datum/seed/eki/setup_traits()
+/datum/seed/mushroom/eki/setup_traits()
 	..()
 	set_trait(TRAIT_SPREAD, 1)
 	set_trait(TRAIT_MATURATION, 10)

@@ -133,7 +133,7 @@
 	set_trait(TRAIT_PRODUCT_ICON,"eggplant")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#892694")
 	set_trait(TRAIT_PLANT_ICON,"bush4")
-	set_trait(TRAIT_IDEAL_HEAT, 298)
+	set_trait(TRAIT_IDEAL_HEAT, 304)
 	set_trait(TRAIT_IDEAL_LIGHT, 7)
 
 /obj/item/seeds/eggplantseed

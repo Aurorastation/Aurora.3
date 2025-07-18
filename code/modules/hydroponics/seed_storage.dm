@@ -296,6 +296,7 @@
 		/obj/item/seeds/cocoapodseed = 3,
 		/obj/item/seeds/coffeeseed = 3,
 		/obj/item/seeds/cornseed = 3,
+		/obj/item/seeds/cranberryseed = 2,
 		/obj/item/seeds/dirtberries = 2,
 		/obj/item/seeds/dynseed = 3,
 		/obj/item/seeds/earthenroot = 2,
@@ -354,8 +355,7 @@
 		/obj/item/seeds/whitebeetseed = 3,
 		/obj/item/seeds/wulumunushaseed = 2,
 		/obj/item/seeds/xuiziseed = 3,
-		/obj/item/seeds/ylpha = 2,
-		/obj/item/seeds/cranberryseed = 2,
+		/obj/item/seeds/ylpha = 2
 	)
 
 /obj/machinery/seed_storage/garden/hydroponics
