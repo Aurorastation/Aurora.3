@@ -27,10 +27,7 @@
 //Makes a blood drop, leaking amt units of blood from the mob
 /mob/living/carbon/human/proc/drip(var/amt as num, var/tar = src, var/spraydir)
 
-	if(species && species.flags & NO_BLOOD) //TODO: Make drips come from the reagents instead.
-		return
-
-	if(!amt)
+	if(!amt || species && species.flags & NO_BLOOD) //TODO: Make drips come from the reagents instead.
 		return
 
 	vessel.remove_reagent(/singleton/reagent/blood,amt)
@@ -49,31 +46,29 @@
 		var/hit_mob
 		for(var/thing in sprayloc)
 			var/atom/A = thing
-			if(!A.simulated)
+			if(!A.simulated || !ishuman(A) || !(A.CanPass(src, sprayloc)) || hit_mob)
 				continue
 
-			if(ishuman(A))
-				var/mob/living/carbon/human/H = A
-				if(!H.lying)
-					H.bloody_body(src)
-					H.bloody_hands(src)
-					var/blinding = FALSE
-					if(ran_zone(BP_HEAD, 75))
-						blinding = TRUE
-						for(var/obj/item/I in list(H.head, H.glasses, H.wear_mask))
-							if(I && (I.body_parts_covered & EYES))
-								blinding = FALSE
-								break
-					if(blinding)
-						H.eye_blurry = max(H.eye_blurry, 10)
-						H.eye_blind = max(H.eye_blind, 5)
-						to_chat(H, SPAN_DANGER("You are blinded by a spray of blood!"))
-					else
-						to_chat(H, SPAN_DANGER("You are hit by a spray of blood!"))
-					hit_mob = TRUE
-
-			if(!(A.CanPass(src, sprayloc)) || hit_mob)
+			var/mob/living/carbon/human/H = A
+			if(H.lying)
 				continue
+
+			H.bloody_body(src)
+			H.bloody_hands(src)
+			var/blinding = FALSE
+			if(ran_zone(BP_HEAD, 75))
+				blinding = TRUE
+				for(var/obj/item/I in list(H.head, H.glasses, H.wear_mask))
+					if(I && (I.body_parts_covered & EYES))
+						blinding = FALSE
+						break
+			if(blinding)
+				H.eye_blurry = max(H.eye_blurry, 10)
+				H.eye_blind = max(H.eye_blind, 5)
+				to_chat(H, SPAN_DANGER("You are blinded by a spray of blood!"))
+			else
+				to_chat(H, SPAN_DANGER("You are hit by a spray of blood!"))
+			hit_mob = TRUE
 
 		drip(amt, sprayloc, spraydir)
 		bled += amt
