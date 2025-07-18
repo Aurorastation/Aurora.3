@@ -33,7 +33,7 @@ GLOBAL_LIST_EMPTY_TYPED(dream_entries, /turf)
 					G = l_hand
 				if(G)
 					var/mob/living/carbon/human/victim = G.affecting
-					if(ishuman(victim) && !isSynthetic(victim) && victim.is_psi_pingable())
+					if(ishuman(victim) && !isSynthetic(victim) && victim.is_psi_pingable(srom_puller))
 						to_chat(bg, SPAN_NOTICE("You have taken [victim] to the Srom with you."))
 						victim.srom_pulled_by = WEAKREF(src)
 						srom_pulling = WEAKREF(victim)

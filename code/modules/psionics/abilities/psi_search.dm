@@ -30,7 +30,7 @@
 		for(var/mob/living/carbon/human/H in GLOB.human_mob_list)
 			if(H == L)
 				continue
-			if((GET_Z(H) == GET_Z(L)) && !H.is_psi_blocked())
+			if((GET_Z(H) == GET_Z(L)) && !H.is_psi_blocked(user))
 				if(HAS_TRAIT(H, TRAIT_PSIONIC_SUPPRESSION))
 					continue
 				level_humans |= H

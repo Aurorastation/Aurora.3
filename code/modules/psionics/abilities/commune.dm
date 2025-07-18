@@ -36,7 +36,7 @@
 		to_chat(user, SPAN_WARNING("Not even a psion of your level can speak to the dead."))
 		return
 
-	var/psi_blocked = target.is_psi_blocked()
+	var/psi_blocked = target.is_psi_blocked(user)
 	if(psi_blocked)
 		to_chat(user, psi_blocked)
 		return

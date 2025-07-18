@@ -30,7 +30,7 @@
 	// get mobs
 	var/list/affected_mobs = list()
 	for(var/mob/living/carbon/human/mob_in_range in get_hearers_in_LOS(world.view, src))
-		if((!mob_in_range.is_psi_blocked()) && (mob_in_range.has_psionics() || mob_in_range.has_psi_aug() || mob_in_range.has_zona_bovinae()))
+		if((!mob_in_range.is_psi_blocked(src)) && (mob_in_range.has_psionics() || mob_in_range.has_psi_aug() || mob_in_range.has_zona_bovinae()))
 			affected_mobs += mob_in_range
 
 	// set up timer for delayed effects
