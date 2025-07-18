@@ -6311,7 +6311,7 @@
 	pixel_x = -1;
 	pixel_y = -5
 	},
-/obj/item/clothing/ears/earmuffs/earphones/headphones{
+/obj/item/clothing/ears/earphones/headphones{
 	pixel_y = 2;
 	pixel_x = 3
 	},

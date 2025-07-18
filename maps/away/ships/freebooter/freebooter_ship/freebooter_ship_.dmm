@@ -3788,7 +3788,7 @@
 /area/ship/freebooter_ship/exterior)
 "oUu" = (
 /obj/structure/table/steel,
-/obj/item/clothing/ears/earmuffs/earphones/headphones{
+/obj/item/clothing/ears/earphones/headphones{
 	pixel_x = -4;
 	pixel_y = 3
 	},

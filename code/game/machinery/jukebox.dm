@@ -36,7 +36,6 @@
 		new/datum/track("Velvet Rose", 'sound/music/velvet_rose.ogg')
 	)
 
-
 /obj/machinery/media/jukebox/Destroy()
 	StopPlaying()
 	return ..()
