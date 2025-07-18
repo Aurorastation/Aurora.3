@@ -71,19 +71,23 @@
 	feedback_add_details("admin_verb","TP") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/verb/toggletitlemusic()
-	set name = "Hear/Silence LobbyMusic"
+	set name = "Lobby Music Volume"
 	set category = "Preferences.Sound"
-	set desc = "Toggles hearing the GameLobby music"
-	prefs.toggles ^= SOUND_LOBBY
-	prefs.save_preferences()
-	if(prefs.toggles & SOUND_LOBBY)
+	set desc = "Adjusts the Game Lobby music volume"
+
+	var/lobby_music_vol_new = tgui_input_number(src, "Choose lobby music volume, 0 to mute", "Lobby Music Volume", prefs.lobby_music_vol, 100, 0, 0, TRUE)
+	if(isnull(lobby_music_vol_new))
+		return
+	if(!prefs.lobby_music_vol && lobby_music_vol_new)
 		to_chat(src, "You will now hear music in the game lobby.")
-		if(istype(mob, /mob/abstract/new_player))
-			playtitlemusic()
-	else
+	prefs.lobby_music_vol = lobby_music_vol_new
+	if(!prefs.lobby_music_vol)
 		to_chat(src, "You will no longer hear music in the game lobby.")
-		if(istype(mob, /mob/abstract/new_player))
-			src << sound(null, repeat = 0, wait = 0, volume = 85, channel = CHANNEL_LOBBYMUSIC) // stop the jamsz)
+	prefs.save_preferences()
+
+	if(istype(mob, /mob/abstract/new_player))
+		playtitlemusic()
+
 	feedback_add_details("admin_verb","TLobby") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/verb/togglemidis()
