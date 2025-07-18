@@ -23,7 +23,7 @@
 	icon = 'icons/obj/clothing/ears/earmuffs.dmi'
 	icon_state = "earphones"
 	item_state = "earphones"
-	slot_flags = SLOT_EARS | SLOT_TWOEARS
+	slot_flags = SLOT_EARS
 	contained_sprite = TRUE
 	build_from_parts = TRUE
 
@@ -248,9 +248,21 @@
 			if(soundplayer_token.status != SOUND_PAUSED)
 				soundplayer_token.Pause()
 				to_chat(usr, SPAN_NOTICE("Music paused."))
+
+				// Icon/Overlay stuff for the music notes
+				ClearOverlays()
+				worn_overlay = null
+				update_icon()
+				update_clothing_icon()
+
 			else if (soundplayer_token.status == SOUND_PAUSED)
 				soundplayer_token.Unpause()
 				to_chat(usr, SPAN_NOTICE("Music unpaused."))
+
+				// Icon/Overlay stuff for the music notes
+				worn_overlay = "music" // this is rather annoying but prevents the music notes on getting colored
+				update_icon()
+				update_clothing_icon()
 		else
 			play_stop() //No soundtoken? They probably meant to use the other verb instead.
 
@@ -313,6 +325,8 @@ Earphone Variants
 	desc_extended = "Unce unce unce unce."
 	icon_state = "headphones"
 	item_state = "headphones"
+
+	slot_flags = SLOT_EARS | SLOT_TWOEARS
 
 /obj/item/clothing/ears/earphones/headphones/update_icon()
 	..()
