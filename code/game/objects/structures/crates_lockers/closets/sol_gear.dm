@@ -131,12 +131,12 @@
 	new /obj/item/clothing/shoes/laceup(src)
 	new /obj/item/clothing/shoes/laceup(src)
 
-/obj/structure/closet/secure_closet/soll_officer
+/obj/structure/closet/secure_closet/sol_officer
 	name = "sol alliance officer locker"
 	req_access = list(ACCESS_CAPTAIN)
 	icon_state = "cap"
 
-/obj/structure/closet/secure_closet/soll_officer/fill()
+/obj/structure/closet/secure_closet/sol_officer/fill()
 	..()
 	if(prob(50))
 		new /obj/item/storage/backpack/captain(src)
