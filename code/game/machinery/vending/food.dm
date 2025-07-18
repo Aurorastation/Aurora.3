@@ -8,7 +8,7 @@
 	name = "MRE dispenser"
 	desc = "A vending machine filled with MRE's."
 	icon_state = "mrevend"
-	icon_vend = "mrevend-vend"
+	icon_deny = "mrevend-deny"
 	product_slogans = ";FOREIGN LEGION TESTED!, FOREIGN LEGION RECOMMENDED!, FOREIGN LEGION APPROVED!;YOU ARE NOT ALLOWED A JELLY DOUGHNUT!;YOU DON'T WANT TO DIE HUNGRY, SOLDIER!"
 	product_ads = "Everything the body needs!;Now trans-fat free!;Vegan options are available.;Safe for all known species!"
 	products = list(
@@ -59,6 +59,7 @@
 	desc = "A generic brand vending machine capable of cooking tonkotsu ramen at the push of a button. Truly a pinnacle of human engineering!"
 	icon_state = "ramen"
 	icon_vend = "ramen-vend"
+	icon_deny = "ramen-deny"
 	product_slogans = "Irasshaimase!"
 	vend_id = "ramen"
 	products = list(

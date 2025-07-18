@@ -51,7 +51,6 @@
 	vend_id = "robo-tools"
 	charges = 38
 
-
 /obj/machinery/vending/engivend
 	name = "Engi-Vend"
 	desc = "Spare tool vending. What? Did you expect some witty description?"

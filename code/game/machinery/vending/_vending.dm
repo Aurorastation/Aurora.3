@@ -65,16 +65,19 @@
 	manufacturer = "idris"
 	z_flags = ZMM_MANGLE_PLANES
 
+	// Every vending machine has one of these.
 	/// `icon_state` when off. Defined on init.
 	var/icon_off
-	/// 'icon_state' when on, if overlay exists. Defined on init.
-	var/icon_screen
 	/// `icon_state` when vending. Defined on init.
 	var/icon_vend
-	/// `icon_state` when denying. Defined on init.
-	var/icon_deny
 	/// 'icon_state' when broken. Defined on init.
 	var/icon_broken
+
+	/// 'icon_state' when on, if overlay exists.
+	var/icon_screen
+	/// `icon_state` when denying.
+	var/icon_deny
+
 
 	// Power
 	idle_power_usage = 10
@@ -219,6 +222,7 @@
 	 *	Recommended to set multipliers on these for a given vending machine's parent obj, to make things broadly more or less expensive.
 	 *	Vending machine products with no price explicitly set will use the defined prices- otherwise, an explicit price will override.
 	 *	If all_products_free is TRUE, all of this will be ignored.
+	 *	NOT YET IMPLEMENTED
 	 */
 	///Default price of items if not overridden
 	var/default_price = 20
@@ -247,8 +251,6 @@
 		src.reply_list += text2list(src.vend_reply, ";")
 
 	icon_vend = "[initial(icon_state)]-vend"
-	icon_screen = "[initial(icon_state)]-screen"
-	icon_deny = "[initial(icon_state)]-deny"
 	icon_broken = "[initial(icon_state)]-broken"
 	icon_off = "[initial(icon_state)]-off"
 
