@@ -9,11 +9,10 @@
 	return !has_psionics()
 
 /mob/living/carbon/is_psi_blocked(mob/user)
-	var/cancelled = SEND_SIGNAL(src, COMSIG_PSI_MIND_POWER)
-	if (cancelled & COMSIG_PSI_MIND_POWER_CANCELLED)
+	var/cancelled = SEND_SIGNAL(src, COMSIG_PSI_MIND_POWER, user)
+	if((cancelled & COMSIG_PSI_MIND_POWER_CANCELLED) && !has_zona_bovinae() && !has_psi_aug())
 		return SPAN_WARNING("[src]'s mind is inaccessible, like hitting a brick wall.")
-	if(HAS_TRAIT(src, TRAIT_PSIONICALLY_DEAF) && !has_psi_aug())
-		return SPAN_WARNING("[src]'s mind is inaccessible, like hitting a brick wall.")
+
 	for (var/obj/item/implant/mindshield/I in src)
 		if (I.implanted)
 			return SPAN_WARNING("[src]'s mind is inaccessible, like hitting a brick wall.")
