@@ -21,7 +21,7 @@
 /obj/item/clothing/tail_accessory/tail_cloth
 	name = "tail cloth"
 	desc = "A simple cloth that can be wrapped around the tail."
-	icon = 'icons/clothing/tail/tajtailcloth.dmi'
+	icon = 'icons/obj/item/clothing/accessory/tail/tajtailcloth.dmi'
 	icon_state = "tail_cloth"
 
 	compatible_species_type = list(/datum/species/tajaran)
@@ -31,7 +31,7 @@
 /obj/item/clothing/tail_accessory/prosthetic
 	name = "solid prosthetic tail"
 	desc = "A simple prosthetic tail made to help tajara with a stunted tail to balance."
-	icon = 'icons/clothing/tail/taj_solid_prosthetic.dmi'
+	icon = 'icons/obj/item/clothing/accessory/tail/taj_solid_prosthetic.dmi'
 	icon_state = "tail_prosthetic"
 
 	compatible_species_type = list(/datum/species/tajaran)
@@ -41,9 +41,9 @@
 /obj/item/clothing/tail_accessory/prosthetic/flexible
 	name = "flexible prosthetic tail"
 	desc = "A flexible prosthetic tail for a tajara. Still rather stiff."
-	icon = 'icons/clothing/tail/taj_flexible_prosthetic.dmi'
+	icon = 'icons/obj/item/clothing/accessory/tail/taj_flexible_prosthetic.dmi'
 
 /obj/item/clothing/tail_accessory/prosthetic/tesla
 	name = "tesla prosthetic tail"
 	desc = "A prosthetic tail made for Republican citizens born with Hakh'jar."
-	icon = 'icons/clothing/tail/taj_tesla_prosthetic.dmi'
+	icon = 'icons/obj/item/clothing/accessory/tail/taj_tesla_prosthetic.dmi'

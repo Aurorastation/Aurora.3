@@ -629,7 +629,7 @@
 /obj/item/storage/belt/fannypack
 	name = "fannypack"
 	desc = "A dorky fannypack for keeping small items in."
-	icon = 'icons/clothing/belts/fannypacks.dmi'
+	icon = 'icons/obj/item/clothing/belts/fannypacks.dmi'
 	icon_state = "fannypack"
 	item_state = "fannypack"
 	max_w_class = WEIGHT_CLASS_SMALL

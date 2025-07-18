@@ -201,7 +201,7 @@
 /obj/item/clothing/shoes/jackboots/kala
 	name = "skrell boots"
 	desc = "A sleek pair of boots. They seem to be retaining moisture."
-	icon = 'icons/clothing/kit/skrell_armor.dmi'
+	icon = 'icons/obj/item/clothing/shoes/miscellaneous.dmi'
 	icon_state = "kala_boots"
 	item_state = "kala_boots"
 	contained_sprite = TRUE

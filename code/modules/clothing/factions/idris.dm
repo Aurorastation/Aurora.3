@@ -2,7 +2,7 @@
 /obj/item/clothing/suit/storage/toggle/armor/vest/idris
 	name = "black Idris Unit coat"
 	desc = "A coat worn by the Idris units, notorious across space."
-	icon = 'icons/clothing/suits/coats/idris_iru_coats.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/idris_iru_coats.dmi'
 	icon_state = "idris_coat"
 	item_state = "idris_coat"
 	allowed = list(/obj/item/gun,/obj/item/reagent_containers/spray/pepper,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/device/flashlight)
@@ -94,7 +94,7 @@
 /obj/item/clothing/suit/storage/toggle/idris
 	name = "\improper Idris Incorporated jacket"
 	desc = "A comfortable windbreaker for Idris Incorporated investigations staff styled after the coats of Idris reclamation units. Many of the Idris patches and badges on the coat are holographic."
-	icon = 'icons/clothing/suits/coats/idris_windbreaker.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/corp_dep_jackets.dmi'
 	icon_state = "idris_windbreaker"
 	item_state = "idris_windbreaker"
 	contained_sprite = TRUE
@@ -103,7 +103,7 @@
 /obj/item/clothing/under/dress/idris
 	name = "idris incorporated hospitality dress"
 	desc = "This is a stylish knee-length teal dress, installed with its own in-built undershirt and scarf that cannot be removed. It is branded prominently with the logo of Idris Incorporated. Commonly worn among Idris Customer Service units, alongside their organic peers."
-	icon = 'icons/clothing/under/uniforms/idris_dress.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	icon_state = "idris_dress"
 	item_state = "idris_dress"
 	contained_sprite = TRUE

@@ -365,7 +365,7 @@
 /obj/item/clothing/under/skrell/cthur
 	name = "cthur uniform"
 	desc = "This white vaurca wetsuit is often worn by C’thur working with the Kala, most often the Qukala. It has ablative materials woven in."
-	icon = 'icons/clothing/kit/skrell_armor.dmi'
+	icon = 'icons/obj/item/clothing/under/skrell/cthur_uniform.dmi'
 	icon_state = "cthur_uniform"
 	item_state = "cthur_uniform"
 	contained_sprite = TRUE
@@ -377,7 +377,7 @@
 /obj/item/clothing/under/skrell/qukala
 	name = "qukala uniform"
 	desc = "This combat-grade wetsuit is issued to the Qukala to be worn in the field. It has small kinetic dampeners woven in."
-	icon = 'icons/clothing/kit/skrell_armor.dmi'
+	icon = 'icons/obj/item/clothing/under/skrell/nralakk_uniforms.dmi'
 	icon_state = "qukala_uniform"
 	item_state = "qukala_uniform"
 	contained_sprite = TRUE
@@ -389,7 +389,7 @@
 /obj/item/clothing/under/skrell/nlomkala
 	name = "nlomkala uniform"
 	desc = "A robust wetsuit designed for police work, it is often worn by the Nlomkala. It has small kinetic dampeners woven in."
-	icon = 'icons/clothing/kit/skrell_armor.dmi'
+	icon = 'icons/obj/item/clothing/under/skrell/nralakk_uniforms.dmi'
 	icon_state = "nlom_uniform"
 	item_state = "nlom_uniform"
 	contained_sprite = TRUE
@@ -401,7 +401,7 @@
 /obj/item/clothing/under/skrell/ruupkala
 	name = "ruupkala uniform"
 	desc = "An uncommon sight in the Federation. This is a field-issue Ruupkala wetsuit equipped with small kinetic dampeners."
-	icon = 'icons/clothing/kit/skrell_armor.dmi'
+	icon = 'icons/obj/item/clothing/under/skrell/nralakk_uniforms.dmi'
 	icon_state = "ruup_uniform"
 	item_state = "ruup_uniform"
 	contained_sprite = TRUE
@@ -413,7 +413,7 @@
 /obj/item/clothing/under/skrell/sromkala
 	name = "sromkala uniform"
 	desc = "This comfortable and breathable wetsuit belongs to the Sromkala. It makes their extended times of slumber all the more cozy."
-	icon = 'icons/clothing/kit/skrell_armor.dmi'
+	icon = 'icons/obj/item/clothing/under/skrell/nralakk_uniforms.dmi'
 	icon_state = "srom_uniform"
 	item_state = "srom_uniform"
 	contained_sprite = TRUE
@@ -421,7 +421,7 @@
 /obj/item/clothing/under/skrell/tupkala
 	name = "tupkala uniform"
 	desc = "This purple wetsuit belongs to the infamous Tupkala. It is made of some kind of exotic material."
-	icon = 'icons/clothing/kit/skrell_armor.dmi'
+	icon = 'icons/obj/item/clothing/under/skrell/nralakk_uniforms.dmi'
 	icon_state = "tup_uniform"
 	item_state = "tup_uniform"
 	armor = list(

@@ -286,7 +286,7 @@
 /obj/item/clothing/head/plain_hood
 	name = "plain hood"
 	desc = "A simple hood made of cloth, worn for myriad reasons - cultural, religious, protection from the elements, a fashion statement... or perhaps you simply want to look like you intend to give quests to adventurers who walk into your favorite tavern."
-	icon = 'icons/clothing/head/plain_hood.dmi'
+	icon = 'icons/obj/item/clothing/head/plain_hood.dmi'
 	icon_state = "plain_hood"
 	item_state = "plain_hood"
 	body_parts_covered = HEAD
@@ -345,7 +345,7 @@
 /obj/item/clothing/head/kippah
 	name = "kippah"
 	desc = "A head covering commonly worn by those of Jewish faith."
-	icon = 'icons/clothing/head/kippahs.dmi'
+	icon = 'icons/obj/item/clothing/head/kippahs.dmi'
 	icon_state = "kippah"
 	item_state = "kippah"
 	contained_sprite = 1
@@ -481,7 +481,7 @@
 /obj/item/clothing/head/sol
 	name = "sol navy utility cover"
 	desc = "A military cover issued to Solarian Navy personnel as part of their utility uniform."
-	icon = 'icons/clothing/under/uniforms/sol_uniform.dmi'
+	icon = 'icons/obj/item/clothing/head/sol_army.dmi'
 	icon_state = "navy_utility"
 	item_state = "navy_utility"
 	contained_sprite = TRUE
@@ -538,7 +538,7 @@
 /obj/item/clothing/head/helmet/sol
 	name = "sol combat helmet"
 	desc = "A woodland colored helmet made from advanced ceramic."
-	icon = 'icons/clothing/under/uniforms/sol_uniform.dmi'
+	icon = 'icons/obj/item/clothing/head/sol_army.dmi'
 	icon_state = "helmet_tac_sol"
 	item_state = "helmet_tac_sol"
 	armor = list(
@@ -609,7 +609,7 @@
 /obj/item/clothing/head/konyang/army
 	name = "konyang army field cap"
 	desc = "A cloth field cap issued to Konyang soldiers as part of their field uniform."
-	icon = 'icons/clothing/under/uniforms/konyang_uniforms.dmi'
+	icon = 'icons/obj/item/clothing/head/konyang.dmi'
 	icon_state = "konyang_army_cap"
 	item_state = "konyang_army_cap"
 	contained_sprite = TRUE
@@ -623,7 +623,7 @@
 /obj/item/clothing/head/konyang/navy
 	name = "konyang navy officer peaked cap"
 	desc = "A white peaked cap issued to officers of the Konyang Navy."
-	icon = 'icons/clothing/under/uniforms/konyang_uniforms.dmi'
+	icon = 'icons/obj/item/clothing/head/konyang.dmi'
 	icon_state = "konyang_navy_cap"
 	item_state = "konyang_navy_cap"
 	contained_sprite = TRUE
@@ -631,7 +631,7 @@
 /obj/item/clothing/head/konyang/space
 	name = "konyang aerospace forces officer peaked cap"
 	desc = "A white peaked cap issued to officers of the Konyang Aerospace Forces."
-	icon = 'icons/clothing/under/uniforms/konyang_uniforms.dmi'
+	icon = 'icons/obj/item/clothing/head/konyang.dmi'
 	icon_state = "konyang_space_cap"
 	item_state = "konyang_space_cap"
 	contained_sprite = TRUE
@@ -639,7 +639,7 @@
 /obj/item/clothing/head/konyang/police
 	name = "konyang national police hat"
 	desc = "A white peaked cap issued to personnel of the Konyang National Police"
-	icon = 'icons/clothing/under/uniforms/konyang_uniforms.dmi'
+	icon = 'icons/obj/item/clothing/head/konyang.dmi'
 	icon_state = "konyang_police_hat"
 	item_state = "konyang_police_hat"
 	contained_sprite = TRUE
@@ -653,7 +653,7 @@
 /obj/item/clothing/head/konyang/burger
 	name = "\improper UP! Burger cap"
 	desc = "An astoundingly bright orange hat, worn by employees of UP! Burger (or Burger UP!, depending on preference), a Gwok Group subsidiary."
-	icon = 'icons/clothing/under/uniforms/konyang_uniforms.dmi'
+	icon = 'icons/obj/item/clothing/head/konyang.dmi'
 	icon_state = "upburger-cap"
 	item_state = "upburger-cap"
 	contained_sprite = TRUE
@@ -661,7 +661,7 @@
 /obj/item/clothing/head/helmet/konyang
 	name = "konyang army helmet"
 	desc = "A woodland colored helmet made from advanced ceramic."
-	icon = 'icons/clothing/under/uniforms/konyang_uniforms.dmi'
+	icon = 'icons/obj/item/clothing/head/konyang.dmi'
 	icon_state = "helmet_konyang_army"
 	item_state = "helmet_konyang_army"
 	armor = list(
@@ -688,7 +688,7 @@
 /obj/item/clothing/head/xanu
 	name = "xanu armed forces garrison cap"
 	desc = "A garrison cap belonging to a member of the All-Xanu Spacefleet."
-	icon = 'icons/clothing/under/uniforms/xanu.dmi'
+	icon = 'icons/obj/item/clothing/head/xanu_army.dmi'
 	icon_state = "xanu_garrison_enlisted"
 	item_state = "xanu_garrison_enlisted"
 	contained_sprite = TRUE
@@ -708,7 +708,7 @@
 /obj/item/clothing/head/grupo_amapola
 	name = "Grupo Amapola officer cap"
 	desc = "A peaked officer's cap bearing the poppy of the military contracting group Grupo Amapola."
-	icon = 'icons/clothing/head/pmcg.dmi'
+	icon = 'icons/obj/item/clothing/head/pmcg.dmi'
 	icon_state = "amapola_officer_hat"
 	item_state = "amapola_officer_hat"
 	contained_sprite = TRUE
