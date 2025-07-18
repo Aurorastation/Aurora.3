@@ -185,7 +185,7 @@
 	pulse = clamp(PULSE_NORM + pulse_mod, PULSE_SLOW, PULSE_2FAST)
 
 	// If fibrillation, then it can be PULSE_THREADY
-	var/fibrillation = oxy <= BLOOD_VOLUME_SURVIVE || (owner.shock_stage > shock_stage_for_fibrillation & prob(shock_risk_from_pain))
+	var/fibrillation = oxy <= BLOOD_VOLUME_SURVIVE || (owner.shock_stage > shock_stage_for_fibrillation && prob(shock_risk_from_pain))
 	if(pulse && fibrillation)	//I SAID MOAR OXYGEN
 		pulse = PULSE_THREADY
 
@@ -311,7 +311,7 @@
 		sound_to(owner, sound(heartbeat_sound, 0, 0, 0, 100))
 
 /obj/item/organ/internal/heart/listen()
-	if((BP_IS_ROBOTIC(src) && is_working()) & !fake_pulse)
+	if((BP_IS_ROBOTIC(src) && is_working()) && !fake_pulse)
 		if(is_bruised())
 			return "sputtering pump"
 		else

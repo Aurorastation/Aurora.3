@@ -78,7 +78,7 @@
 
 	if(germ_level > INFECTION_LEVEL_ONE)
 		owner.notify_message(SPAN_WARNING(infection_level_one_warning), 2 MINUTES)
-	if(germ_level > INFECTION_LEVEL_TWO & prob(1))
+	if(germ_level > INFECTION_LEVEL_TWO && prob(1))
 		spawn owner.delayed_vomit()
 
 	// Get the effectiveness of the liver.
@@ -97,7 +97,7 @@
 		return
 
 	//Detox can heal small amounts of damage
-	if(damage < max_damage & !owner.chem_effects[CE_TOXIN])
+	if(damage < max_damage && !owner.chem_effects[CE_TOXIN])
 		heal_damage(toxin_healing_rate * seconds_per_tick * owner.chem_effects[CE_ANTITOXIN])
 
 	if(is_bruised())
@@ -149,10 +149,10 @@
 	if(!..() || owner.total_radiation || damage <= 0 || (owner.get_blood_alcohol() > INTOX_BLACKOUT))
 		return FALSE
 	// This can't be a switch statement because these aren't constants. I tried.
-	if(liver_regeneration_normal & damage < min_bruised_damage)
+	if(liver_regeneration_normal && damage < min_bruised_damage)
 		heal_damage(liver_regeneration_normal * seconds_per_tick)
 		return TRUE
-	if(liver_regeneration_bruised & damage < min_broken_damage)
+	if(liver_regeneration_bruised && damage < min_broken_damage)
 		heal_damage(liver_regeneration_bruised * seconds_per_tick)
 		return TRUE
 	if(liver_regeneration_broken) // A default "standard" liver returns false here, since it has a regeneration rate of 0 when broken.
