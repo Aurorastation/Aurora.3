@@ -131,6 +131,14 @@
 	else
 		. += SPAN_NOTICE("You have to go closer if you want to read it.")
 
+	// Storyteller writing support (terrible hack).
+	if (isstoryteller(user) && icon_state != "scrap")
+		var/datum/browser/paper_win = new(user, name, null, 450, 500, null, TRUE)
+		paper_win.set_content("<head><title>[capitalize_first_letters(name)]</title><style>body {background-color: [color];}</style></head><body>[info_links][stamps]</body>")
+		paper_win.add_stylesheet("paper_languages", 'html/browser/paper_languages.css')
+		paper_win.open()
+		return
+
 /obj/item/paper/proc/show_content(mob/user, forceshow)
 	simple_asset_ensure_is_sent(user, /datum/asset/simple/paper)
 	var/datum/browser/paper_win = new(user, name, null, 450, 500, null, TRUE)
