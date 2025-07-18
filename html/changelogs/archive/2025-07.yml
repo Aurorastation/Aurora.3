@@ -319,3 +319,9 @@
 2025-07-17:
   Wowzewow (Wezzy):
   - bugfix: Fixes head loadout.
+2025-07-18:
+  Hellfirejag:
+  - rscadd: Mechatronic fabricators now support recipes that require Plasteel, Lead,
+      or Aluminium.
+  - balance: Pilot hardsuits have had some of their steel costs replaced with the
+      more valuable plasteel.
