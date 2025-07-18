@@ -85,6 +85,7 @@
 /obj/item/gun/projectile/automatic/c20r/sol
 	name = "solarian submachine gun"
 	desc = "Designed by Zavodskoi as a scaled-down version of their M469, the M470-L is a personal defense weapon intended for use by second-line personnel from all branches of the Solarian military, such as support troops and Navy crewmen."
+	desc_extended = null
 	icon = 'icons/obj/guns/sol_smg.dmi'
 	icon_state = "vityaz"
 	item_state = "vityaz"
