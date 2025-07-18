@@ -22,13 +22,13 @@
 	 * The amount of damage a heart takes per second while in fibrillation(red pulse).
 	 * A Heart risks stopping as it takes damage.
 	 */
-	var/heart_fibrillation_damage = 0.5
+	var/heart_fibrillation_damage = 0.16666
 
 	/**
 	 * The amount of damage a heart takes per second while in tachycardia(yellow pulse).
 	 * A Heart risks stopping as it takes damage.
 	 */
-	var/heart_tachycardia_damage = 0.1
+	var/heart_tachycardia_damage = 0.033333
 
 	/// The percent chance each tick that a heart in fibrillation will immediately stop
 	var/fibrillation_stop_risk = 5
@@ -140,9 +140,12 @@
 	var/is_stable = owner.chem_effects[CE_STABLE]
 	var/oxy = owner.get_blood_oxygenation()
 	var/circulation = owner.get_blood_circulation()
+	var/canceled = FALSE
 
 	// Check if any components on the user wish to mess with the pulse calculations.
-	SEND_SIGNAL(src, COMSIG_HEART_PULSE_EVENT)
+	SEND_SIGNAL(owner, COMSIG_HEART_PULSE_EVENT)
+	if(canceled)
+		return // Oh hey someone stopped my heart from beating via a SIGNAL response!
 
 	// If you have enough heart chemicals to be over 2, take extra damage per tick.
 	if(pulse_mod > 2 && !is_stable)

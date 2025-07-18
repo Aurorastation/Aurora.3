@@ -31,3 +31,9 @@
  * "circulation" the percentage of blood remaining in the body from 0 to 100.
  */
 #define COMSIG_HEART_PULSE_EVENT "heart_pulse_event"
+
+// Liver signals
+/**
+ * Raised on an entity whose liver is attempting to filter blood.
+ */
+#define COMSIG_LIVER_FILTER_EVENT "liver_filter_event"
