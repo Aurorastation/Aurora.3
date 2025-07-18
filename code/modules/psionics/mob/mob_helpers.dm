@@ -5,15 +5,28 @@
 	var/obj/item/organ/internal/augment/psi/psiaug = internal_organs_by_name[BP_AUG_PSI]
 	return psiaug && !psiaug.is_broken()
 
+/// For simplemobs.
 /mob/living/proc/is_psi_blocked()
 	return !has_psionics()
 
+/// Checks if the target is psionically deaf, if they have a receiver, and also for mindshields.
 /mob/living/carbon/is_psi_blocked()
 	if(HAS_TRAIT(src, TRAIT_PSIONICALLY_DEAF) && !has_psi_aug())
 		return SPAN_WARNING("[src]'s mind is inaccessible, like hitting a brick wall.")
 	for (var/obj/item/implant/mindshield/I in src)
 		if (I.implanted)
 			return SPAN_WARNING("[src]'s mind is inaccessible, like hitting a brick wall.")
+	return FALSE
+
+/// For simplemobs.
+/mob/living/proc/is_psi_compatible()
+	return !has_psionics()
+
+/** Only checks if the target is psionically deaf and if they have a receiver.
+Used for abilities which shouldn't check for a mindshield. */
+/mob/living/carbon/is_psi_compatible()
+	if(HAS_TRAIT(src, TRAIT_PSIONICALLY_DEAF) && !has_psi_aug())
+		return SPAN_WARNING("[src]'s mind is inaccessible, like hitting a brick wall.")
 	return FALSE
 
 /mob/living/proc/has_zona_bovinae()
