@@ -37,8 +37,8 @@
 
 /datum/bounty/reagent/simple_drink
 	name = "Simple Drink"
-	reward_low = 1000
-	reward_high = 1800
+	reward_low = 50
+	reward_high = 150
 
 /datum/bounty/reagent/simple_drink/New()
 	..()
@@ -91,13 +91,13 @@
 	name = wanted_reagent.name
 	description = "[pick(possible_descriptions)] Send a shipment of [name]." //punctuation is already in pick()
 	required_volume = rand(2, 12) * 10
-	reward += required_volume * 20		//range from +400(20u) to +2400(120u)
+	reward += required_volume * 20		//range from +40(20u) to +240(120u)
 
 //Complex drinks. Requires coordination with other departments for ingredients
 /datum/bounty/reagent/complex_drink
 	name = "Complex Drink"
-	reward_low = 2000
-	reward_high = 3200
+	reward_low = 150
+	reward_high = 250
 
 /datum/bounty/reagent/complex_drink/New()
 	..()
@@ -128,13 +128,13 @@
 	name = wanted_reagent.name
 	description = "[pick(possible_descriptions)] Send a shipment of [name]." //punctuation is already in pick()
 	required_volume = rand(2, 12) * 10
-	reward += required_volume * 30		//range from +600(20u) to +3600(120u)
+	reward += required_volume * 30		//range from +60(20u) to +360(120u)
 
 //Medicines, toxins, and drugs
 /datum/bounty/reagent/chemical
 	name = "Chemical"
-	reward_low = 2000
-	reward_high = 3200
+	reward_low = 150
+	reward_high = 350
 
 /datum/bounty/reagent/chemical/New()
 	..()
@@ -175,4 +175,4 @@
 	name = wanted_reagent.name
 	description = "One of our labs is in desperate need of [name]. Ship a container of it to be rewarded."
 	required_volume = rand(2, 12) * 10
-	reward += required_volume * 40		//range from +800(20u) to +4800(120u)
+	reward += required_volume * 40		//range from +80(20u) to +480(120u)
