@@ -419,7 +419,7 @@
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
 "fQ" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "red1"
 	},
 /obj/effect/overlay/container_logo{
@@ -1750,7 +1750,7 @@
 /turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/konyang_landing_zone)
 "xd" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "red3"
 	},
 /obj/effect/overlay/container_logo{
@@ -1765,7 +1765,7 @@
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "xo" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "red2"
 	},
 /obj/effect/overlay/container_logo,

@@ -14,7 +14,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/atmos)
 "aj" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "blue3"
 	},
 /obj/effect/overlay/container_logo/zenghu{
@@ -66,7 +66,7 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/bridge)
 "ay" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "grey2"
 	},
 /obj/effect/overlay/container_logo/einstein{
@@ -97,7 +97,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/atmos)
 "aK" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "red2"
 	},
 /obj/effect/overlay/container_logo,
@@ -141,7 +141,7 @@
 /turf/simulated/floor/greengrid,
 /area/konyang_wreck/aicore)
 "bv" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "green1"
 	},
 /obj/effect/overlay/container_logo{
@@ -182,7 +182,7 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod1)
 "bJ" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "blue3"
 	},
 /obj/effect/overlay/container_logo/zenghu{
@@ -194,7 +194,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod7)
 "bK" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "green1"
 	},
 /obj/effect/overlay/container_logo{
@@ -296,7 +296,7 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck)
 "cl" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "red1"
 	},
 /obj/effect/overlay/container_logo{
@@ -425,7 +425,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck)
 "dB" = (
-/obj/structure/shipping_container,
+/obj/structure/shipping_container_old,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod1)
 "dD" = (
@@ -484,7 +484,7 @@
 /turf/simulated/wall/shuttle/dark/cardinal/merc,
 /area/konyang_wreck/cryo)
 "ec" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "grey3"
 	},
 /obj/effect/overlay/container_logo/einstein{
@@ -702,7 +702,7 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod4)
 "fg" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "blue2"
 	},
 /obj/effect/overlay/container_logo/zenghu,
@@ -733,7 +733,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/portdock)
 "fx" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "red2"
 	},
 /obj/effect/overlay/container_logo,
@@ -838,7 +838,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/mechbay)
 "gz" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "green2"
 	},
 /obj/effect/overlay/container_logo,
@@ -963,7 +963,7 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/starboarddock)
 "hz" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "green3"
 	},
 /obj/effect/overlay/container_logo{
@@ -1227,7 +1227,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod7)
 "jQ" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "green2"
 	},
 /obj/effect/overlay/container_logo,
@@ -1445,7 +1445,7 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod7)
 "lJ" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "red1"
 	},
 /obj/effect/overlay/container_logo{
@@ -1471,7 +1471,7 @@
 /turf/template_noop,
 /area/space)
 "mk" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "red1"
 	},
 /obj/effect/overlay/container_logo{
@@ -1701,7 +1701,7 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/starboarddock)
 "os" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "green1"
 	},
 /obj/effect/overlay/container_logo{
@@ -1721,7 +1721,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod1)
 "ov" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "green3"
 	},
 /obj/effect/overlay/container_logo{
@@ -1832,7 +1832,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod7)
 "pB" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "red3"
 	},
 /obj/effect/overlay/container_logo{
@@ -1847,7 +1847,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/captain)
 "pO" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "grey3"
 	},
 /obj/effect/overlay/container_logo/einstein{
@@ -1908,7 +1908,7 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/bridge)
 "qw" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "blue2"
 	},
 /obj/effect/overlay/container_logo/zenghu,
@@ -2001,7 +2001,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/portdock)
 "qV" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "red2"
 	},
 /obj/effect/overlay/container_logo,
@@ -2114,7 +2114,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod2)
 "rI" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "grey2"
 	},
 /obj/effect/overlay/container_logo/einstein{
@@ -2222,14 +2222,14 @@
 /turf/simulated/floor/bluegrid,
 /area/konyang_wreck/engineering)
 "sD" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "green2"
 	},
 /obj/effect/overlay/container_logo,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod1)
 "sE" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "grey1"
 	},
 /obj/effect/overlay/container_logo{
@@ -2354,7 +2354,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/mechbay)
 "ue" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "green2"
 	},
 /obj/effect/overlay/container_logo,
@@ -2662,7 +2662,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod2)
 "wP" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "blue2"
 	},
 /obj/effect/overlay/container_logo/zenghu,
@@ -2752,7 +2752,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/engineering)
 "xo" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "red1"
 	},
 /obj/effect/overlay/container_logo{
@@ -2774,7 +2774,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/atmos)
 "xw" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "grey2"
 	},
 /obj/effect/overlay/container_logo/einstein{
@@ -2876,7 +2876,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/atmos)
 "yE" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "green3"
 	},
 /obj/effect/overlay/container_logo{
@@ -2905,7 +2905,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/atmos)
 "yR" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "red2"
 	},
 /obj/effect/overlay/container_logo/einstein{
@@ -3069,7 +3069,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/cryo)
 "zN" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "red1"
 	},
 /obj/effect/overlay/container_logo{
@@ -3309,7 +3309,7 @@
 /turf/simulated/floor/bluegrid,
 /area/konyang_wreck/engineering)
 "BN" = (
-/obj/structure/shipping_container,
+/obj/structure/shipping_container_old,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod8)
 "BO" = (
@@ -3568,7 +3568,7 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/starbthrust)
 "EB" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "red2"
 	},
 /obj/effect/overlay/container_logo,
@@ -3771,7 +3771,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/atmos)
 "GR" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "green1"
 	},
 /obj/effect/overlay/container_logo{
@@ -3839,7 +3839,7 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/starboarddock)
 "Hw" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "grey2"
 	},
 /obj/effect/overlay/container_logo/einstein{
@@ -4150,7 +4150,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck)
 "KJ" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "grey3"
 	},
 /obj/effect/overlay/container_logo/einstein{
@@ -4268,7 +4268,7 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod3)
 "LK" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "green1"
 	},
 /obj/effect/overlay/container_logo{
@@ -4305,7 +4305,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/captain)
 "Mk" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "red2"
 	},
 /obj/effect/overlay/container_logo,
@@ -4323,7 +4323,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/portdock)
 "Mw" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "grey1"
 	},
 /obj/effect/overlay/container_logo{
@@ -4350,7 +4350,7 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck)
 "MI" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "red3"
 	},
 /obj/effect/overlay/container_logo{
@@ -4420,7 +4420,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod2)
 "Ng" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "red1"
 	},
 /obj/machinery/light,
@@ -4451,7 +4451,7 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/starbthrust)
 "Ns" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "green2"
 	},
 /obj/effect/overlay/container_logo,
@@ -4556,7 +4556,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod1)
 "Oj" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "blue3"
 	},
 /obj/effect/overlay/container_logo/zenghu{
@@ -4691,7 +4691,7 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod8)
 "Pa" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "grey3"
 	},
 /obj/effect/overlay/container_logo/einstein{
@@ -4704,7 +4704,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod8)
 "Pd" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "green3"
 	},
 /obj/effect/overlay/container_logo{
@@ -4713,7 +4713,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod6)
 "Pg" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "red1"
 	},
 /obj/effect/overlay/container_logo{
@@ -4777,7 +4777,7 @@
 /turf/simulated/wall/shuttle/dark/cardinal/merc,
 /area/konyang_wreck/starbthrust)
 "PD" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "red3"
 	},
 /obj/effect/overlay/container_logo/einstein{
@@ -4786,7 +4786,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod4)
 "PE" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "red3"
 	},
 /obj/effect/overlay/container_logo{
@@ -4828,7 +4828,7 @@
 /turf/simulated/floor/greengrid,
 /area/konyang_wreck/aicore)
 "PS" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "red3"
 	},
 /obj/effect/overlay/container_logo{
@@ -4837,7 +4837,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod5)
 "PT" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "red3"
 	},
 /obj/effect/overlay/container_logo{
@@ -5326,7 +5326,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod8)
 "Va" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "grey1"
 	},
 /obj/effect/overlay/container_logo{
@@ -5356,7 +5356,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/engineering)
 "Vm" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "green3"
 	},
 /obj/effect/overlay/container_logo{
@@ -5563,7 +5563,7 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/starbthrust)
 "Xo" = (
-/obj/structure/shipping_container,
+/obj/structure/shipping_container_old,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod7)
 "Xr" = (
@@ -5775,7 +5775,7 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod1)
 "Zv" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "grey1"
 	},
 /obj/effect/overlay/container_logo{
