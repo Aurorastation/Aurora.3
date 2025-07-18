@@ -56,3 +56,5 @@ delete-after: True
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
   - rscadd: "The operations commissary has been moved to service, adjacent to the library, and now accomodates access both from operations and service staff. The library has also been remapped to accomodate this move."
+  - rscadd: "Bookcases no longer obstruct vision."
+  - rscadd: "Hydroponics now has a first-aid kit."
