@@ -379,7 +379,16 @@
 	mymob.unique_action_icon.alpha = ui_alpha
 	hud_elements |= mymob.unique_action_icon
 
+	mymob.screentip = new /atom/movable/screen/screentip(null)
+	//static_inventory += screentip_text
+	mymob.screentip.screen_loc = ui_screentip
+	mymob.unique_action_icon.alpha = ui_alpha
+	hud_elements |= mymob.screentip
+
 	mymob.client.screen = null
+
+	for(var/item in hud_elements)
+		LOG_DEBUG("<b>Initializing hud_element: [item]</b>")
 
 	mymob.client.screen += hud_elements
 	mymob.client.screen += src.adding + src.hotkeybuttons
@@ -411,6 +420,7 @@
 // Yes, these use icon state. Yes, these are terrible. The alternative is duplicating
 // a bunch of fairly blobby logic for every click override on these objects.
 
+// SCREENTIPS TODO: Replace these with screentip override text on mouseover, not click!
 /atom/movable/screen/food/Click(var/location, var/control, var/params)
 	if(istype(usr) && usr.nutrition_icon == src)
 		switch(icon_state)

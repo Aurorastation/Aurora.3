@@ -15,6 +15,8 @@
 
 #define ui_entire_screen "WEST,SOUTH to EAST,NORTH"
 
+// Upper center, screentips
+#define ui_screentip "CENTER-1,NORTH:5"
 //Lower left, persistant menu
 #define ui_inventory "WEST:6,SOUTH:5"
 

@@ -176,6 +176,7 @@
 	#define RADIAL_BACKGROUND_LAYER 5
 	#define RADIAL_BASE_LAYER 6
 	#define RADIAL_CONTENT_LAYER 7
+	#define SCREENTIP_LAYER 7
 
 #define BALLOON_CHAT_PLANE 9
 
@@ -184,8 +185,6 @@
 #define EMISSIVE_TARGET "*emissive"
 	/// The layer you should use when you -really- don't want an emissive overlay to be blocked.
 	#define EMISSIVE_LAYER_UNBLOCKABLE 9999
-
-#define RUNECHAT_PLANE 500
 
 //-------------------- Rendering ---------------------
 

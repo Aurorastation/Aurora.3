@@ -41,10 +41,10 @@
 	var/typing_indicator_x_offset = 0
 	var/typing_indicator_y_offset = 0
 
-	///Horizontal offset in pixel used as a baseline for the runechat images (chat text above the mob when it talks)
+	///Horizontal offset in pixel used as a baseline for the langchat images (chat text above the mob when it talks)
 	var/floating_chat_x_offset = null
 
-	///Vertical offset in pixel used as a baseline for the runechat images (chat text above the mob when it talks)
+	///Vertical offset in pixel used as a baseline for the langchat images (chat text above the mob when it talks)
 	var/floating_chat_y_offset = 8
 
 	// special consideration should be made when adding new emote types to different species, as they'll be able to initiate it, but their target might not be able to

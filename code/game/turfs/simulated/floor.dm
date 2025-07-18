@@ -55,6 +55,12 @@
 	if(floortype)
 		set_flooring(GET_SINGLETON(floortype), mapload)
 
+	AddElement( \
+	/datum/element/contextual_screentip_bare_hands, \
+	lmb_text = "Turn on", \
+	rmb_text = "Turn off", \
+	)
+
 /turf/simulated/floor/proc/set_flooring(singleton/flooring/newflooring, mapload)
 	if (!mapload)
 		make_plating(defer_icon_update = 1)
