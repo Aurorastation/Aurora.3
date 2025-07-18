@@ -412,7 +412,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 
 /obj/effect/overlay/container_logo
 	name = "Hephaestus Industries emblem"
-	icon = 'icons/obj/structure/industrial/shipping_containers.dmi'
+	icon = 'icons/obj/structure/industrial/shipping_containers_old.dmi'
 	icon_state = "heph1"
 	layer = ABOVE_HUMAN_LAYER + 0.01
 
