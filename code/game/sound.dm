@@ -1026,3 +1026,11 @@
 		'sound/machines/steam_pipe3.ogg',
 		'sound/machines/steam_pipe4.ogg'
 	)
+
+/singleton/sound_category/bear_loud
+	sounds = list(
+		'sound/effects/creatures/bear_loud_1.ogg',
+		'sound/effects/creatures/bear_loud_2.ogg',
+		'sound/effects/creatures/bear_loud_3.ogg',
+		'sound/effects/creatures/bear_loud_4.ogg'
+	)
