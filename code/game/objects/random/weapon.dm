@@ -147,7 +147,7 @@
 		/obj/item/gun/projectile/revolver/lemat,
 		/obj/item/gun/projectile/tanto,
 		/obj/item/gun/projectile/automatic/x9,
-		/obj/item/gun/energy/disruptorpistol,
+		/obj/item/gun/energy/disruptorpistol/unlocked,
 		/obj/item/gun/energy/retro,
 		/obj/item/gun/projectile/revolver/konyang/pirate
 	)

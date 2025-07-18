@@ -33,6 +33,10 @@
 		var/obj/item/device/firing_pin/wireless/P = i
 		if(!istype(P) || !P.gun)
 			continue
+
+		if(istype(P, /obj/item/device/firing_pin/wireless/unlocked)) // We don't want to show unlocked firing pins in the guntracker: 1) they cannot be remotely controlled, 2) antags/thirdparties may have these /unlocked pins
+			continue
+
 		var/turf/Ts = get_turf(P)
 		if(AreConnectedZLevels(T.z, Ts.z))
 			var/list/guntracker_info = list(

@@ -258,7 +258,6 @@ Pins Below.
 
 ///A list of all initialized wireless firing pins. Used in the firearm tracking program in guntracker.dm
 GLOBAL_LIST_EMPTY_TYPED(wireless_firing_pins, /obj/item/device/firing_pin/wireless)
-
 /obj/item/device/firing_pin/wireless
 	name = "wireless-control firing pin"
 	desc = "This firing pin is wirelessly controlled. On automatic mode it allow allows weapons to be fired on stun unless the alert level is elevated. Otherwise, it can be controlled from a firearm control console."
@@ -380,3 +379,11 @@ GLOBAL_LIST_EMPTY_TYPED(wireless_firing_pins, /obj/item/device/firing_pin/wirele
 		registered_user = idcard.registered_name
 		return TRUE
 	return FALSE
+
+/obj/item/device/firing_pin/wireless/unlocked
+	name = "unrestricted wireless-control firing pin"
+	desc = "This firing pin is wirelessly controlled. However, it seems to have been locked into the 'Unrestricted Mode', be it jailbroken or overridden by a superior fire control programme."
+
+/obj/item/device/firing_pin/wireless/unlocked/pin_auth(mob/living/user)
+	lock_status = WIRELESS_PIN_LETHAL
+	. = ..()
