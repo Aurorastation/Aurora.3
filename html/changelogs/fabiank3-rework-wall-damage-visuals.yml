@@ -1,0 +1,9 @@
+author: FabianK3
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed permanently stuck wall damage overlays. Walls now properly display the correct damage visually according to their state and the damaged look vanishes when they get repaired."
+  - rscadd: "Added new informative descriptions when inspecting damaged walls to get a better feeling for their state."
+  - bugfix: "Fixed wall damage descriptions ignoring added strength of reinforced materials. Reinforced wall descriptions will now show damage later as their additional health is considered properly."
+  - balance: "Changed levels of visual damage to walls to scale more linear. Thanks to Batrachophrenoboocosmomachia."

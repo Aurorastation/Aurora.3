@@ -147,13 +147,23 @@
 	if(!damage)
 		. += SPAN_NOTICE("It looks fully intact.")
 	else
-		var/dam = damage / material.integrity
-		if(dam <= 0.3)
-			. += SPAN_WARNING("It looks slightly damaged.")
-		else if(dam <= 0.6)
+		// Total damage is based of base material integrity and optionally, if reinforced, reinforcement material integrity on top
+		var/integrity = material.integrity
+		if(reinf_material)
+			integrity += reinf_material.integrity
+
+		var/relative_damage = damage / integrity
+
+		if(relative_damage <= 0.25)
+			. += SPAN_NOTICE("It looks slightly damaged.")
+		else if(relative_damage <= 0.5)
+			. += SPAN_WARNING("It looks damaged.")
+		else if(relative_damage <= 0.75)
 			. += SPAN_WARNING("It looks moderately damaged.")
-		else
+		else if(relative_damage <= 0.9)
 			. += SPAN_DANGER("It looks heavily damaged.")
+		else
+			. += SPAN_DANGER("It looks critically damaged and on the verge of structural collapse.")
 
 	if(locate(/obj/effect/overlay/wallrot) in src)
 		. += SPAN_WARNING("There is fungus growing on [src].")
