@@ -54,7 +54,7 @@
 	var/list/msg = list("<span class='info'>This is ")
 
 	if(icon)
-		msg += icon2html(icon, user)
+		msg += costly_icon2html(icon, user)
 
 	msg += "<EM>[src.name]</EM>"
 
@@ -83,16 +83,16 @@
 				tie_msg_warn += " [lowertext(english_list(accessory_descs))]"
 
 		if(w_uniform.blood_color)
-			msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(w_uniform, user)] [w_uniform.gender==PLURAL?"some":"a"] [fluid_color_type_map(w_uniform.blood_color)]-stained <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(w_uniform)]'>[w_uniform.name]</a>[tie_msg_warn].\n")
+			msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("is")] wearing [costly_icon2html(w_uniform, user)] [w_uniform.gender==PLURAL?"some":"a"] [fluid_color_type_map(w_uniform.blood_color)]-stained <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(w_uniform)]'>[w_uniform.name]</a>[tie_msg_warn].\n")
 		else
-			msg += "[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(w_uniform, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(w_uniform)]'>\a [w_uniform]</a>[tie_msg].\n"
+			msg += "[get_pronoun("He")] [get_pronoun("is")] wearing [costly_icon2html(w_uniform, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(w_uniform)]'>\a [w_uniform]</a>[tie_msg].\n"
 
 	//head
 	if(head)
 		if(head.blood_color)
-			msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(head, user)] [head.gender==PLURAL?"some":"a"] [fluid_color_type_map(head.blood_color)]-stained <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(head)]'>[head.name]</a> [head.get_head_examine_text(src)]!\n")
+			msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("is")] wearing [costly_icon2html(head, user)] [head.gender==PLURAL?"some":"a"] [fluid_color_type_map(head.blood_color)]-stained <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(head)]'>[head.name]</a> [head.get_head_examine_text(src)]!\n")
 		else
-			msg += "[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(head, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(head)]'>\a [head]</a> [head.get_head_examine_text(src)].\n"
+			msg += "[get_pronoun("He")] [get_pronoun("is")] wearing [costly_icon2html(head, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(head)]'>\a [head]</a> [head.get_head_examine_text(src)].\n"
 
 	//suit/armor
 	if(wear_suit)
@@ -111,103 +111,103 @@
 				tie_msg_warn += " [lowertext(english_list(accessory_descs))]"
 
 		if(wear_suit.blood_color)
-			msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(wear_suit, user)] [wear_suit.gender==PLURAL?"some":"a"] [fluid_color_type_map(wear_suit.blood_color)]-stained <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(wear_suit)]'>[wear_suit.name]</a>[tie_msg_warn].\n")
+			msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("is")] wearing [costly_icon2html(wear_suit, user)] [wear_suit.gender==PLURAL?"some":"a"] [fluid_color_type_map(wear_suit.blood_color)]-stained <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(wear_suit)]'>[wear_suit.name]</a>[tie_msg_warn].\n")
 		else
-			msg += "[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(wear_suit, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(wear_suit)]'>\a [wear_suit]</a>[tie_msg].\n"
+			msg += "[get_pronoun("He")] [get_pronoun("is")] wearing [costly_icon2html(wear_suit, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(wear_suit)]'>\a [wear_suit]</a>[tie_msg].\n"
 
 		//suit/armor storage
 		if(s_store && !skipsuitstorage)
 			if(s_store.blood_color)
-				msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("is")] carrying [icon2html(s_store, user)] [s_store.gender==PLURAL?"some":"a"] [fluid_color_type_map(s_store.blood_color)]-stained <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(s_store)]'>[s_store.name]</a> on [get_pronoun("his")] [wear_suit.name]!\n")
+				msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("is")] carrying [costly_icon2html(s_store, user)] [s_store.gender==PLURAL?"some":"a"] [fluid_color_type_map(s_store.blood_color)]-stained <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(s_store)]'>[s_store.name]</a> on [get_pronoun("his")] [wear_suit.name]!\n")
 			else
-				msg += "[get_pronoun("He")] [get_pronoun("is")] carrying [icon2html(s_store, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(s_store)]'>\a [s_store]</a> on [get_pronoun("his")] [wear_suit.name].\n"
+				msg += "[get_pronoun("He")] [get_pronoun("is")] carrying [costly_icon2html(s_store, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(s_store)]'>\a [s_store]</a> on [get_pronoun("his")] [wear_suit.name].\n"
 	else if(s_store && !skipsuitstorage)
 		if(s_store.blood_color)
-			msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("is")] carrying [icon2html(s_store, user)] [s_store.gender==PLURAL?"some":"a"] [fluid_color_type_map(s_store.blood_color)]-stained <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(s_store)]'>[s_store.name]</a> on [get_pronoun("his")] chest!\n")
+			msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("is")] carrying [costly_icon2html(s_store, user)] [s_store.gender==PLURAL?"some":"a"] [fluid_color_type_map(s_store.blood_color)]-stained <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(s_store)]'>[s_store.name]</a> on [get_pronoun("his")] chest!\n")
 		else
-			msg += "[get_pronoun("He")] [get_pronoun("is")] carrying [icon2html(s_store, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(s_store)]'>\a [s_store]</a> on [get_pronoun("his")] chest.\n"
+			msg += "[get_pronoun("He")] [get_pronoun("is")] carrying [costly_icon2html(s_store, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(s_store)]'>\a [s_store]</a> on [get_pronoun("his")] chest.\n"
 
 	//back
 	if(back)
 		if(back.blood_color)
-			msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("has")] [icon2html(back, user)] [fluid_color_type_map(back.blood_color)]-stained <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(back)]'>[back]</a> on [get_pronoun("his")] back.\n")
+			msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("has")] [costly_icon2html(back, user)] [fluid_color_type_map(back.blood_color)]-stained <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(back)]'>[back]</a> on [get_pronoun("his")] back.\n")
 		else
-			msg += "[get_pronoun("He")] [get_pronoun("has")] [icon2html(back, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(back)]'>\a [back]</a> on [get_pronoun("his")] back.\n"
+			msg += "[get_pronoun("He")] [get_pronoun("has")] [costly_icon2html(back, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(back)]'>\a [back]</a> on [get_pronoun("his")] back.\n"
 
 	//left hand
 	if(l_hand)
 		if(l_hand.blood_color)
-			msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("is")] holding [icon2html(l_hand, user)] [l_hand.gender==PLURAL?"some":"a"] [fluid_color_type_map(l_hand.blood_color)]-stained <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(l_hand)]'>[l_hand.name]</a> in [get_pronoun("his")] left hand!\n")
+			msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("is")] holding [costly_icon2html(l_hand, user)] [l_hand.gender==PLURAL?"some":"a"] [fluid_color_type_map(l_hand.blood_color)]-stained <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(l_hand)]'>[l_hand.name]</a> in [get_pronoun("his")] left hand!\n")
 		else
-			msg += "[get_pronoun("He")] [get_pronoun("is")] holding [icon2html(l_hand, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(l_hand)]'>\a [l_hand]</a> in [get_pronoun("his")] left hand.\n"
+			msg += "[get_pronoun("He")] [get_pronoun("is")] holding [costly_icon2html(l_hand, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(l_hand)]'>\a [l_hand]</a> in [get_pronoun("his")] left hand.\n"
 
 	//right hand
 	if(r_hand)
 		if(r_hand.blood_color)
-			msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("is")] holding [icon2html(r_hand, user)] [r_hand.gender==PLURAL?"some":"a"] [fluid_color_type_map(r_hand.blood_color)]-stained <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(r_hand)]'>[r_hand.name]</a> in [get_pronoun("his")] right hand!\n")
+			msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("is")] holding [costly_icon2html(r_hand, user)] [r_hand.gender==PLURAL?"some":"a"] [fluid_color_type_map(r_hand.blood_color)]-stained <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(r_hand)]'>[r_hand.name]</a> in [get_pronoun("his")] right hand!\n")
 		else
-			msg += "[get_pronoun("He")] [get_pronoun("is")] holding [icon2html(r_hand, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(r_hand)]'>\a [r_hand]</a> in [get_pronoun("his")] right hand.\n"
+			msg += "[get_pronoun("He")] [get_pronoun("is")] holding [costly_icon2html(r_hand, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(r_hand)]'>\a [r_hand]</a> in [get_pronoun("his")] right hand.\n"
 
 	//gloves
 	if(gloves && !skipgloves)
 		var/gloves_name = gloves
 		if(gloves.blood_color)
-			msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("has")] [icon2html(gloves, user)] [gloves.gender==PLURAL?"some":"a"] [fluid_color_type_map(gloves.blood_color)]-stained <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(gloves)]'>[gloves_name]</a> on [get_pronoun("his")] hands!\n")
+			msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("has")] [costly_icon2html(gloves, user)] [gloves.gender==PLURAL?"some":"a"] [fluid_color_type_map(gloves.blood_color)]-stained <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(gloves)]'>[gloves_name]</a> on [get_pronoun("his")] hands!\n")
 		else
-			msg += "[get_pronoun("He")] [get_pronoun("has")] [icon2html(gloves, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(gloves)]'>\a [gloves_name]</a> on [get_pronoun("his")] hands.\n"
+			msg += "[get_pronoun("He")] [get_pronoun("has")] [costly_icon2html(gloves, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(gloves)]'>\a [gloves_name]</a> on [get_pronoun("his")] hands.\n"
 	else if(blood_color)
 		msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("has")] [fluid_color_type_map(hand_blood_color)]-stained hands!\n")
 
 	//belt
 	if(belt)
 		if(belt.blood_color)
-			msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("has")] [icon2html(belt, user)] [belt.gender==PLURAL?"some":"a"] [fluid_color_type_map(belt.blood_color)]-stained <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(belt)]'>[belt.name]</a> about [get_pronoun("his")] waist!\n")
+			msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("has")] [costly_icon2html(belt, user)] [belt.gender==PLURAL?"some":"a"] [fluid_color_type_map(belt.blood_color)]-stained <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(belt)]'>[belt.name]</a> about [get_pronoun("his")] waist!\n")
 		else
-			msg += "[get_pronoun("He")] [get_pronoun("has")] [icon2html(belt, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(belt)]'>\a [belt]</a> about [get_pronoun("his")] waist.\n"
+			msg += "[get_pronoun("He")] [get_pronoun("has")] [costly_icon2html(belt, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(belt)]'>\a [belt]</a> about [get_pronoun("his")] waist.\n"
 
 	//pants
 	if(pants && !skippants)
-		msg += "[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(pants, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(pants)]'>\a [pants]</a> about [get_pronoun("his")] waist.\n"
+		msg += "[get_pronoun("He")] [get_pronoun("is")] wearing [costly_icon2html(pants, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(pants)]'>\a [pants]</a> about [get_pronoun("his")] waist.\n"
 
 	//shoes
 	if(shoes && !skipshoes)
 		if(shoes.blood_color)
-			msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(shoes, user)] [shoes.gender==PLURAL?"some":"a"] [fluid_color_type_map(shoes.blood_color)]-stained <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(shoes)]'>[shoes.name]</a> on [get_pronoun("his")] feet!\n")
+			msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("is")] wearing [costly_icon2html(shoes, user)] [shoes.gender==PLURAL?"some":"a"] [fluid_color_type_map(shoes.blood_color)]-stained <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(shoes)]'>[shoes.name]</a> on [get_pronoun("his")] feet!\n")
 		else
-			msg += "[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(shoes, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(shoes)]'>\a [shoes]</a> on [get_pronoun("his")] feet.\n"
+			msg += "[get_pronoun("He")] [get_pronoun("is")] wearing [costly_icon2html(shoes, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(shoes)]'>\a [shoes]</a> on [get_pronoun("his")] feet.\n"
 	else if(footprint_color)
 		msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("has")] [fluid_color_type_map(footprint_color)]-stained feet!\n")
 
 	//mask
 	if(wear_mask && !skipmask)
 		if(wear_mask.blood_color)
-			msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("has")] [icon2html(wear_mask, user)] [wear_mask.gender==PLURAL?"some":"a"] [fluid_color_type_map(wear_mask.blood_color)]-stained <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(wear_mask)]'>[wear_mask.name]</a> [wear_mask.get_mask_examine_text(src)]!\n")
+			msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("has")] [costly_icon2html(wear_mask, user)] [wear_mask.gender==PLURAL?"some":"a"] [fluid_color_type_map(wear_mask.blood_color)]-stained <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(wear_mask)]'>[wear_mask.name]</a> [wear_mask.get_mask_examine_text(src)]!\n")
 		else
-			msg += "[get_pronoun("He")] [get_pronoun("has")] [icon2html(wear_mask, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(wear_mask)]'>\a [wear_mask]</a> [wear_mask.get_mask_examine_text(src)].\n"
+			msg += "[get_pronoun("He")] [get_pronoun("has")] [costly_icon2html(wear_mask, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(wear_mask)]'>\a [wear_mask]</a> [wear_mask.get_mask_examine_text(src)].\n"
 
 	//eyes
 	if(glasses && !skipeyes)
 		if(glasses.blood_color)
-			msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("has")] [icon2html(glasses, user)] [glasses.gender==PLURAL?"some":"a"] [fluid_color_type_map(glasses.blood_color)]-stained <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(glasses)]'>[glasses]</a> covering [get_pronoun("his")] eyes!\n")
+			msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("has")] [costly_icon2html(glasses, user)] [glasses.gender==PLURAL?"some":"a"] [fluid_color_type_map(glasses.blood_color)]-stained <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(glasses)]'>[glasses]</a> covering [get_pronoun("his")] eyes!\n")
 		else
-			msg += "[get_pronoun("He")] [get_pronoun("has")] [icon2html(glasses, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(glasses)]'>\a [glasses]</a> covering [get_pronoun("his")] eyes.\n"
+			msg += "[get_pronoun("He")] [get_pronoun("has")] [costly_icon2html(glasses, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(glasses)]'>\a [glasses]</a> covering [get_pronoun("his")] eyes.\n"
 
 	//left ear
 	if(l_ear && !skipears)
-		msg += "[get_pronoun("He")] [get_pronoun("has")] [icon2html(l_ear, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(l_ear)]'>\a [l_ear]</a> [l_ear.get_ear_examine_text(src, "left")].\n"
+		msg += "[get_pronoun("He")] [get_pronoun("has")] [costly_icon2html(l_ear, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(l_ear)]'>\a [l_ear]</a> [l_ear.get_ear_examine_text(src, "left")].\n"
 
 	//right ear
 	if(r_ear && !skipears)
-		msg += "[get_pronoun("He")] [get_pronoun("has")] [icon2html(r_ear, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(r_ear)]'>\a [r_ear]</a> [r_ear.get_ear_examine_text(src, "right")].\n"
+		msg += "[get_pronoun("He")] [get_pronoun("has")] [costly_icon2html(r_ear, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(r_ear)]'>\a [r_ear]</a> [r_ear.get_ear_examine_text(src, "right")].\n"
 
 	//ID
 	if(wear_id)
 		var/id_name = wear_id
-		msg += "[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(wear_id, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(wear_id)]'>\a [id_name]</a>.\n"
+		msg += "[get_pronoun("He")] [get_pronoun("is")] wearing [costly_icon2html(wear_id, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(wear_id)]'>\a [id_name]</a>.\n"
 
 	//wrists
 	if(wrists && !skipwrists)
-		msg += "[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(wrists, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(wrists)]'>\a [wrists]</a> [wrists.get_wrist_examine_text(src)].\n"
+		msg += "[get_pronoun("He")] [get_pronoun("is")] wearing [costly_icon2html(wrists, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(wrists)]'>\a [wrists]</a> [wrists.get_wrist_examine_text(src)].\n"
 
 	//Jitters
 	if(is_jittery)
@@ -235,15 +235,15 @@
 
 	//buckled_to
 	if(buckled_to)
-		msg += "[get_pronoun("He")] [get_pronoun("is")] buckled to [icon2html(buckled_to, user)] [buckled_to].\n"
+		msg += "[get_pronoun("He")] [get_pronoun("is")] buckled to [costly_icon2html(buckled_to, user)] [buckled_to].\n"
 
 	//handcuffed?
 	if(handcuffed)
-		msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("has")] [icon2html(handcuffed, user)] cuffs around [get_pronoun("his")] wrists!\n")
+		msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("has")] [costly_icon2html(handcuffed, user)] cuffs around [get_pronoun("his")] wrists!\n")
 
 	//handcuffed?
 	if(legcuffed)
-		msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("has")] [icon2html(legcuffed, user)] cuffs around [get_pronoun("his")] ankles!\n")
+		msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("has")] [costly_icon2html(legcuffed, user)] cuffs around [get_pronoun("his")] ankles!\n")
 
 	//Red Nightshade
 	if(is_berserk())

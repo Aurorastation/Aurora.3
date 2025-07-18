@@ -107,7 +107,7 @@
 		var/obj/item/reagent_containers/food/snacks/icecream/I = attacking_item
 		if(!I.ice_creamed)
 			if(product_types[dispense_flavour] > 0)
-				visible_message("\icon[src] <b>[user]</b> scoops [flavour_name] icecream into [I].")
+				visible_message("[icon2html(src, viewers(get_turf(src)))] <b>[user]</b> scoops [flavour_name] icecream into [I].")
 				product_types[dispense_flavour]--
 				I.add_ice_cream(flavour_name)
 			//	if(beaker)
