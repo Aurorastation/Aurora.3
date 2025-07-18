@@ -1,0 +1,6 @@
+author: Tag103
+
+delete-after: True
+
+changes:
+  - refactor: "The name used in the code for the Solarian army beret has been changed from '/obj/item/clothing/head/beret/sapk' to '/obj/item/clothing/head/beret/sol/army.'"
