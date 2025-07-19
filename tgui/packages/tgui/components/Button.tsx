@@ -134,8 +134,6 @@ export const Button = (props) => {
   return buttonContent;
 };
 
-Button.defaultHooks = pureComponentHooks;
-
 export const ButtonCheckbox = (props) => {
   const { checked, ...rest } = props;
   return (

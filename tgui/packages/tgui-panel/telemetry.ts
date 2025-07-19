@@ -11,16 +11,21 @@ const logger = createLogger('telemetry');
 
 const MAX_CONNECTIONS_STORED = 10;
 
-// prettier-ignore
-const connectionsMatch = (a, b) => (
-  a.ckey === b.ckey
-    && a.address === b.address
-    && a.computer_id === b.computer_id
-);
+type Client = {
+  ckey: string;
+  address: string;
+  computer_id: string;
+};
+type Telemetry = { limits: { connections: number }[]; connections: Client[] };
+
+const connectionsMatch = (a: Client, b: Client) =>
+  a.ckey === b.ckey &&
+  a.address === b.address &&
+  a.computer_id === b.computer_id;
 
 export const telemetryMiddleware = (store) => {
-  let telemetry;
-  let wasRequestedWithPayload;
+  let telemetry: Telemetry;
+  let wasRequestedWithPayload: Telemetry | null;
   return (next) => (action) => {
     const { type, payload } = action;
     // Handle telemetry requests
@@ -37,6 +42,14 @@ export const telemetryMiddleware = (store) => {
       const connections = telemetry.connections.slice(0, limits.connections);
       Byond.sendMessage('telemetry', { connections });
       return;
+    }
+    // For whatever reason we didn't get the telemetry, re-request
+    if (type === 'testTelemetryCommand') {
+      setTimeout(() => {
+        if (!telemetry) {
+          Byond.sendMessage('ready');
+        }
+      }, 500);
     }
     // Keep telemetry up to date
     if (type === 'backend/update') {
@@ -58,9 +71,10 @@ export const telemetryMiddleware = (store) => {
         }
         // Append a connection record
         let telemetryMutated = false;
-        // prettier-ignore
-        const duplicateConnection = telemetry.connections
-          .find(conn => connectionsMatch(conn, client));
+
+        const duplicateConnection = telemetry.connections.find((conn) =>
+          connectionsMatch(conn, client)
+        );
         if (!duplicateConnection) {
           telemetryMutated = true;
           telemetry.connections.unshift(client);

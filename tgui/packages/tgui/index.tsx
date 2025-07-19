@@ -33,57 +33,38 @@ import './styles/themes/hephaestus.scss';
 import './styles/themes/sol.scss';
 import './styles/themes/vaurca.scss';
 
-import { configureStore } from './store';
-import { setGlobalStore } from './backend';
-import { captureExternalLinks } from './links';
-import { createRenderer } from './renderer';
 import { perf } from 'common/perf';
+
+import { App } from './App';
+import { setGlobalStore } from './backend';
 import { setupGlobalEvents } from './events';
 import { setupHotKeys } from './hotkeys';
-import { setupHotReloading } from 'tgui-dev-server/link/client.cjs';
+import { captureExternalLinks } from './links';
+import { render } from './renderer';
+import { configureStore } from './store';
 
-perf.mark('inception', window.performance?.timing?.navigationStart);
+perf.mark('inception', window.performance?.timeOrigin);
 perf.mark('init');
 
 const store = configureStore();
 
-const renderApp = createRenderer(() => {
-  setGlobalStore(store);
-  const { getRoutedComponent } = require('./routes');
-  const Component = getRoutedComponent();
-  return <Component />;
-});
-
-const setupApp = () => {
+function setupApp() {
   // Delay setup
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', setupApp);
     return;
   }
 
+  setGlobalStore(store);
+
   setupGlobalEvents();
   setupHotKeys();
   captureExternalLinks();
 
-  // Re-render UI on store updates
-  store.subscribe(renderApp);
+  store.subscribe(() => render(<App />));
 
   // Dispatch incoming messages as store actions
   Byond.subscribe((type, payload) => store.dispatch({ type, payload }));
-
-  // Enable hot module reloading
-  if (module.hot) {
-    setupHotReloading();
-    // prettier-ignore
-    module.hot.accept([
-      './components',
-      './debug',
-      './layouts',
-      './routes',
-    ], () => {
-      renderApp();
-    });
-  }
-};
+}
 
 setupApp();

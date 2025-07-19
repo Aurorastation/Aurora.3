@@ -23,8 +23,6 @@ export const Table = (props) => {
   );
 };
 
-Table.defaultHooks = pureComponentHooks;
-
 export const TableRow = (props) => {
   const { className, header, ...rest } = props;
   return (
@@ -39,8 +37,6 @@ export const TableRow = (props) => {
     />
   );
 };
-
-TableRow.defaultHooks = pureComponentHooks;
 
 export const TableCell = (props) => {
   const { className, collapsing, header, ...rest } = props;
@@ -57,8 +53,6 @@ export const TableCell = (props) => {
     />
   );
 };
-
-TableCell.defaultHooks = pureComponentHooks;
 
 Table.Row = TableRow;
 Table.Cell = TableCell;
