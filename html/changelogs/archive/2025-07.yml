@@ -316,3 +316,12 @@
   - bugfix: Hydroponicists can now access their own holomenu.
   nauticall:
   - rscadd: Added the Liberty's Cradle Stargazer hologram sprite to the game.
+2025-07-17:
+  Wowzewow (Wezzy):
+  - bugfix: Fixes head loadout.
+2025-07-18:
+  Hellfirejag:
+  - rscadd: Mechatronic fabricators now support recipes that require Plasteel, Lead,
+      or Aluminium.
+  - balance: Pilot hardsuits have had some of their steel costs replaced with the
+      more valuable plasteel.
