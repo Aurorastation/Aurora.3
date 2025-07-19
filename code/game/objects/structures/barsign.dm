@@ -6,6 +6,9 @@
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/cult = 0
 	var/choice_types = /singleton/sign/double/bar
+	var/lit = 0
+	var/id = null
+	var/on_icon = "sign"
 
 /obj/structure/sign/double/barsign/attackby(obj/item/attacking_item, mob/user)
 	if(cult)
@@ -58,7 +61,7 @@
 	icon_state = "Off"
 	req_access = list(ACCESS_CARGO, ACCESS_JANITOR, ACCESS_ROBOTICS, ACCESS_MINING, ACCESS_PARAMEDIC, ACCESS_HYDROPONICS, ACCESS_BAR, ACCESS_KITCHEN, ACCESS_LIBRARY)
 	choice_types = /singleton/sign/double/market
-	var/on_icon = "sign_on"
+	var/on_icon = "sign"
 
 // For the marketsigns's on and off states.
 /obj/structure/sign/double/marketsign/update_icon()
@@ -218,7 +221,6 @@
 	desc_extended = "Before the SCC merged to one Conglomerate, NanoTrasen already tried to reel in as much revenue as possible. One of the easiest markets was retail. After some time, the NT-Mart could be seen on many corners \
 	in many places, selling a limited selection of basic items, usually with a markup."
 	on_icon = "ntmart"
-
 /singleton/sign/double/market/gm24
 	name ="GetMore24"
 	icon_state = "gm24"
