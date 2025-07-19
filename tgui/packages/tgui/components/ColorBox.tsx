@@ -5,25 +5,26 @@
  */
 
 import { classes } from 'common/react';
-import { computeBoxClassName, computeBoxProps } from './Box';
+import type { ReactNode } from 'react';
 
-export const ColorBox = (props) => {
-  // prettier-ignore
-  const {
-    content,
-    children,
-    className,
-    color,
-    backgroundColor,
-    ...rest
-  } = props;
-  rest.color = content ? null : 'transparent';
-  rest.backgroundColor = color || backgroundColor;
+import { type BoxProps, computeBoxClassName, computeBoxProps } from './Box';
+
+type Props = {
+  readonly content?: ReactNode;
+} & BoxProps;
+
+export function ColorBox(props: Props) {
+  const { content, children, className, ...rest } = props;
+
+  rest.color = content ? 'default' : 'transparent';
+  rest.backgroundColor = props.color || 'default';
+
   return (
     <div
       className={classes(['ColorBox', className, computeBoxClassName(rest)])}
-      {...computeBoxProps(rest)}>
+      {...computeBoxProps(rest)}
+    >
       {content || '.'}
     </div>
   );
-};
+}

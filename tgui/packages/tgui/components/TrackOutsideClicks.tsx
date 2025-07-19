@@ -1,7 +1,7 @@
-import { Component, createRef, PropsWithChildren } from 'react';
+import { Component, createRef, type PropsWithChildren } from 'react';
 
 type Props = {
-  onOutsideClick: () => void;
+  readonly onOutsideClick: () => void;
 } & PropsWithChildren;
 
 export class TrackOutsideClicks extends Component<Props> {

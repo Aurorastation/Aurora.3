@@ -1,17 +1,48 @@
-import { computeBoxProps } from './Box';
-import { Stack } from './Stack';
-import { ProgressBar } from './ProgressBar';
-import { Button } from './Button';
-import { Component } from 'react';
+import { round } from 'common/math';
+import { Component, type PropsWithChildren } from 'react';
+import { Button, ProgressBar, Stack } from 'tgui/components';
+
+import { type BoxProps, computeBoxProps } from './Box';
 
 const ZOOM_MIN_VAL = 0.5;
 const ZOOM_MAX_VAL = 1.5;
 
 const ZOOM_INCREMENT = 0.1;
 
-export class InfinitePlane extends Component {
-  constructor() {
-    super();
+export type InfinitePlaneProps = PropsWithChildren<
+  {
+    readonly onZoomChange?: (newZoomValue: number) => void;
+    readonly onBackgroundMoved?: (newX: number, newY: number) => void;
+    readonly initialLeft?: number;
+    readonly initialTop?: number;
+    readonly backgroundImage?: string;
+    readonly imageWidth: number;
+  } & BoxProps
+>;
+
+type InfinitePlaneState = {
+  mouseDown: boolean;
+
+  left: number;
+  top: number;
+
+  lastLeft: number;
+  lastTop: number;
+
+  zoom: number;
+};
+
+export type MouseEventExtension = {
+  screenZoomX: number;
+  screenZoomY: number;
+};
+
+export class InfinitePlane extends Component<
+  InfinitePlaneProps,
+  InfinitePlaneState
+> {
+  constructor(props: InfinitePlaneProps) {
+    super(props);
 
     this.state = {
       mouseDown: false,
@@ -24,14 +55,6 @@ export class InfinitePlane extends Component {
 
       zoom: 1,
     };
-
-    this.handleMouseDown = this.handleMouseDown.bind(this);
-    this.handleMouseMove = this.handleMouseMove.bind(this);
-    this.handleZoomIncrease = this.handleZoomIncrease.bind(this);
-    this.handleZoomDecrease = this.handleZoomDecrease.bind(this);
-    this.onMouseUp = this.onMouseUp.bind(this);
-
-    this.doOffsetMouse = this.doOffsetMouse.bind(this);
   }
 
   componentDidMount() {
@@ -50,13 +73,14 @@ export class InfinitePlane extends Component {
     window.removeEventListener('mouseup', this.doOffsetMouse);
   }
 
-  doOffsetMouse(event) {
+  // This is really, REALLY cursed and basically overrides a built-in browser event via propagation rules
+  doOffsetMouse = (event: MouseEvent & MouseEventExtension) => {
     const { zoom } = this.state;
     event.screenZoomX = event.screenX * Math.pow(zoom, -1);
     event.screenZoomY = event.screenY * Math.pow(zoom, -1);
-  }
+  };
 
-  handleMouseDown(event) {
+  handleMouseDown = (event: React.MouseEvent<HTMLDivElement>) => {
     this.setState((state) => {
       return {
         mouseDown: true,
@@ -64,30 +88,36 @@ export class InfinitePlane extends Component {
         lastTop: event.clientY - state.top,
       };
     });
-  }
+  };
 
-  onMouseUp() {
+  onMouseUp = () => {
     this.setState({
       mouseDown: false,
     });
-  }
+  };
 
-  handleZoomIncrease(event) {
+  handleZoomIncrease = (event: any) => {
     const { onZoomChange } = this.props;
     const { zoom } = this.state;
-    const newZoomValue = Math.min(zoom + ZOOM_INCREMENT, ZOOM_MAX_VAL);
+    const newZoomValue = round(
+      Math.min(zoom + ZOOM_INCREMENT, ZOOM_MAX_VAL),
+      1,
+    );
     this.setState({
       zoom: newZoomValue,
     });
     if (onZoomChange) {
       onZoomChange(newZoomValue);
     }
-  }
+  };
 
-  handleZoomDecrease(event) {
+  handleZoomDecrease = (event: any) => {
     const { onZoomChange } = this.props;
     const { zoom } = this.state;
-    const newZoomValue = Math.max(zoom - ZOOM_INCREMENT, ZOOM_MIN_VAL);
+    const newZoomValue = round(
+      Math.max(zoom - ZOOM_INCREMENT, ZOOM_MIN_VAL),
+      1,
+    );
     this.setState({
       zoom: newZoomValue,
     });
@@ -95,25 +125,25 @@ export class InfinitePlane extends Component {
     if (onZoomChange) {
       onZoomChange(newZoomValue);
     }
-  }
+  };
 
-  handleMouseMove(event) {
+  handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
     const { onBackgroundMoved, initialLeft = 0, initialTop = 0 } = this.props;
     if (this.state.mouseDown) {
       let newX, newY;
       this.setState((state) => {
         newX = event.clientX - state.lastLeft;
         newY = event.clientY - state.lastTop;
+        if (onBackgroundMoved) {
+          onBackgroundMoved(newX + initialLeft, newY + initialTop);
+        }
         return {
           left: newX,
           top: newY,
         };
       });
-      if (onBackgroundMoved) {
-        onBackgroundMoved(newX + initialLeft, newY + initialTop);
-      }
     }
-  }
+  };
 
   render() {
     const {
@@ -131,7 +161,6 @@ export class InfinitePlane extends Component {
 
     return (
       <div
-        ref={this.ref}
         {...computeBoxProps({
           ...rest,
           style: {
@@ -139,30 +168,32 @@ export class InfinitePlane extends Component {
             overflow: 'hidden',
             position: 'relative',
           },
-        })}>
+        })}
+      >
         <div
           onMouseDown={this.handleMouseDown}
           onMouseMove={this.handleMouseMove}
           style={{
-            'position': 'fixed',
-            'height': '100%',
-            'width': '100%',
-            'background-image': `url("${backgroundImage}")`,
-            'background-position': `${finalLeft}px ${finalTop}px`,
-            'background-repeat': 'repeat',
-            'background-size': `${zoom * imageWidth}px`,
+            position: 'fixed',
+            height: '100%',
+            width: '100%',
+            backgroundImage: `url("${backgroundImage}")`,
+            backgroundPosition: `${finalLeft}px ${finalTop}px`,
+            backgroundRepeat: 'repeat',
+            backgroundSize: `${zoom * imageWidth}px`,
           }}
         />
         <div
           onMouseDown={this.handleMouseDown}
           onMouseMove={this.handleMouseMove}
           style={{
-            'position': 'fixed',
-            'transform': `translate(${finalLeft}px, ${finalTop}px) scale(${zoom})`,
-            'transform-origin': 'top left',
-            'height': '100%',
-            'width': '100%',
-          }}>
+            position: 'fixed',
+            transform: `translate(${finalLeft}px, ${finalTop}px) scale(${zoom})`,
+            transformOrigin: 'top left',
+            height: '100%',
+            width: '100%',
+          }}
+        >
           {children}
         </div>
 
@@ -174,7 +205,8 @@ export class InfinitePlane extends Component {
             <ProgressBar
               minValue={ZOOM_MIN_VAL}
               value={zoom}
-              maxValue={ZOOM_MAX_VAL}>
+              maxValue={ZOOM_MAX_VAL}
+            >
               {zoom}x
             </ProgressBar>
           </Stack.Item>

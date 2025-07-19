@@ -5,21 +5,24 @@
  */
 
 import { useDispatch, useSelector } from 'tgui/backend';
-import { Box, Tabs, Flex, Button } from 'tgui/components';
-import { changeChatPage, addChatPage } from './actions';
-import { selectChatPages, selectCurrentChatPage } from './selectors';
-import { openChatSettings } from '../settings/actions';
+import { Box, Button, Flex, Tabs } from 'tgui/components';
 
-const UnreadCountWidget = ({ value }) => (
+import { openChatSettings } from '../settings/actions';
+import { addChatPage, changeChatPage } from './actions';
+import { selectChatPages, selectCurrentChatPage } from './selectors';
+import type { Page } from './types';
+
+const UnreadCountWidget = ({ value }: { readonly value: number }) => (
   <Box
     style={{
-      'fontSize': '0.7em',
-      'border-radius': '0.25em',
-      'width': '1.7em',
-      'lineHeight': '1.55em',
-      'background-color': 'crimson',
-      'color': '#fff',
-    }}>
+      fontSize: '0.7em',
+      borderRadius: '0.25em',
+      width: '1.7em',
+      lineHeight: '1.55em',
+      backgroundColor: 'crimson',
+      color: '#fff',
+    }}
+  >
     {Math.min(value, 99)}
   </Box>
 );
@@ -32,11 +35,12 @@ export const ChatTabs = (props) => {
     <Flex align="center">
       <Flex.Item>
         <Tabs textAlign="center">
-          {pages.map((page) => (
+          {pages.map((page: Page) => (
             <Tabs.Tab
               key={page.id}
               selected={page === currentPage}
               rightSlot={
+                !page.hideUnreadCount &&
                 page.unreadCount > 0 && (
                   <UnreadCountWidget value={page.unreadCount} />
                 )
@@ -45,9 +49,10 @@ export const ChatTabs = (props) => {
                 dispatch(
                   changeChatPage({
                     pageId: page.id,
-                  })
+                  }),
                 )
-              }>
+              }
+            >
               {page.name}
             </Tabs.Tab>
           ))}

@@ -4,42 +4,42 @@
  * @license MIT
  */
 
-import { Component } from 'react';
-import { Box } from './Box';
+import { type ReactNode, useState } from 'react';
+
+import { Box, type BoxProps } from './Box';
 import { Button } from './Button';
 
-export class Collapsible extends Component {
-  constructor(props) {
-    super(props);
-    const { open } = props;
-    this.state = {
-      open: open || false,
-    };
-  }
+type Props = Partial<{
+  buttons: ReactNode;
+  open: boolean;
+  title: ReactNode;
+  icon: string;
+}> &
+  BoxProps;
 
-  render() {
-    const { props } = this;
-    const { open } = this.state;
-    const { children, color = 'default', title, buttons, ...rest } = props;
-    return (
-      <Box mb={1}>
-        <div className="Table">
-          <div className="Table__cell">
-            <Button
-              fluid
-              color={color}
-              icon={open ? 'chevron-down' : 'chevron-right'}
-              onClick={() => this.setState({ open: !open })}
-              {...rest}>
-              {title}
-            </Button>
-          </div>
-          {buttons && (
-            <div className="Table__cell Table__cell--collapsing">{buttons}</div>
-          )}
+export function Collapsible(props: Props) {
+  const { children, color, title, buttons, icon, ...rest } = props;
+  const [open, setOpen] = useState(props.open);
+
+  return (
+    <Box mb={1}>
+      <div className="Table">
+        <div className="Table__cell">
+          <Button
+            fluid
+            color={color}
+            icon={icon ? icon : open ? 'chevron-down' : 'chevron-right'}
+            onClick={() => setOpen(!open)}
+            {...rest}
+          >
+            {title}
+          </Button>
         </div>
-        {open && <Box mt={1}>{children}</Box>}
-      </Box>
-    );
-  }
+        {buttons && (
+          <div className="Table__cell Table__cell--collapsing">{buttons}</div>
+        )}
+      </div>
+      {open && <Box mt={1}>{children}</Box>}
+    </Box>
+  );
 }

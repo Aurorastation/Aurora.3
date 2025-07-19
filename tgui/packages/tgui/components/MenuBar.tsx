@@ -5,16 +5,17 @@
  */
 
 import { classes } from 'common/react';
-import { Component, createRef, ReactNode, RefObject } from 'react';
-import { Box } from './Box';
+import { Component, createRef, type ReactNode, type RefObject } from 'react';
+
 import { logger } from '../logging';
+import { Box } from './Box';
 import { Icon } from './Icon';
 
 type MenuProps = {
-  children: any;
-  width: string;
-  menuRef: RefObject<HTMLElement>;
-  onOutsideClick: () => void;
+  readonly children: any;
+  readonly width: string;
+  readonly menuRef: RefObject<HTMLElement>;
+  readonly onOutsideClick: () => void;
 };
 
 class Menu extends Component<MenuProps> {
@@ -53,7 +54,8 @@ class Menu extends Component<MenuProps> {
         className={'MenuBar__menu'}
         style={{
           width: width,
-        }}>
+        }}
+      >
         {children}
       </div>
     );
@@ -61,15 +63,15 @@ class Menu extends Component<MenuProps> {
 }
 
 type MenuBarDropdownProps = {
-  open: boolean;
-  openWidth: string;
-  children: any;
-  disabled?: boolean;
-  display: any;
-  onMouseOver: () => void;
-  onClick: () => void;
-  onOutsideClick: () => void;
-  className?: string;
+  readonly open: boolean;
+  readonly openWidth: string;
+  readonly children: any;
+  readonly disabled?: boolean;
+  readonly display: any;
+  readonly onMouseOver: () => void;
+  readonly onClick: () => void;
+  readonly onOutsideClick: () => void;
+  readonly className?: string;
 };
 
 class MenuBarButton extends Component<MenuBarDropdownProps> {
@@ -105,15 +107,17 @@ class MenuBarButton extends Component<MenuBarDropdownProps> {
             className,
           ])}
           {...rest}
-          onClick={disabled ? undefined : onClick}
-          onmouseover={onMouseOver}>
+          onClick={disabled ? () => null : onClick}
+          onMouseOver={onMouseOver}
+        >
           <span className="MenuBar__MenuBarButton-text">{display}</span>
         </Box>
         {open && (
           <Menu
             width={openWidth}
             menuRef={this.menuRef}
-            onOutsideClick={onOutsideClick}>
+            onOutsideClick={onOutsideClick}
+          >
             {children}
           </Menu>
         )}
@@ -123,16 +127,16 @@ class MenuBarButton extends Component<MenuBarDropdownProps> {
 }
 
 type MenuBarItemProps = {
-  entry: string;
-  children: any;
-  openWidth: string;
-  display: ReactNode;
-  setOpenMenuBar: (entry: string | null) => void;
-  openMenuBar: string | null;
-  setOpenOnHover: (flag: boolean) => void;
-  openOnHover: boolean;
-  disabled?: boolean;
-  className?: string;
+  readonly entry: string;
+  readonly children: any;
+  readonly openWidth: string;
+  readonly display: ReactNode;
+  readonly setOpenMenuBar: (entry: string | null) => void;
+  readonly openMenuBar: string | null;
+  readonly setOpenOnHover: (flag: boolean) => void;
+  readonly openOnHover: boolean;
+  readonly disabled?: boolean;
+  readonly className?: string;
 };
 
 export const Dropdown = (props: MenuBarItemProps) => {
@@ -169,7 +173,8 @@ export const Dropdown = (props: MenuBarItemProps) => {
         if (openOnHover) {
           setOpenMenuBar(entry);
         }
-      }}>
+      }}
+    >
       {children}
     </MenuBarButton>
   );
@@ -185,7 +190,8 @@ const MenuItemToggle = (props) => {
         'MenuBar__MenuItemToggle',
         'MenuBar__hover',
       ])}
-      onClick={() => onClick(value)}>
+      onClick={() => onClick(value)}
+    >
       <div className="MenuBar__MenuItemToggle__check">
         {checked && <Icon size={1.3} name="check" />}
       </div>
@@ -205,7 +211,8 @@ const MenuItem = (props) => {
         'MenuBar__MenuItem',
         'MenuBar__hover',
       ])}
-      onClick={() => onClick(value)}>
+      onClick={() => onClick(value)}
+    >
       {displayText}
     </Box>
   );
@@ -220,7 +227,7 @@ const Separator = () => {
 Dropdown.Separator = Separator;
 
 type MenuBarProps = {
-  children: any;
+  readonly children: any;
 };
 
 export const MenuBar = (props: MenuBarProps) => {

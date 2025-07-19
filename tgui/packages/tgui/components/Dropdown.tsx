@@ -1,7 +1,7 @@
 import { classes } from 'common/react';
-/* eslint-disable react/no-deprecated */
-import { ReactNode, useEffect, useRef, useState } from 'react';
-import { BoxProps, unit } from './Box';
+import { type ReactNode, useEffect, useRef, useState } from 'react';
+
+import { type BoxProps, unit } from './Box';
 import { Button } from './Button';
 import { Icon } from './Icon';
 import { Popper } from './Popper';
@@ -16,11 +16,11 @@ type DropdownOption = string | DropdownEntry;
 type Props = {
   /** An array of strings which will be displayed in the
   dropdown when open. See Dropdown.tsx for more advanced usage with DropdownEntry */
-  options: DropdownOption[];
+  readonly options: DropdownOption[];
   /** Called when a value is picked from the list, `value` is the value that was picked */
-  onSelected: (value: any) => void;
+  readonly onSelected: (value: any) => void;
   /** Currently selected entry to display. Can be left stateless to permanently display this value. */
-  selected: DropdownOption | null | undefined;
+  readonly selected: DropdownOption | null | undefined;
 } & Partial<{
   /** Whether to scroll automatically on open. Defaults to true */
   autoScroll: boolean;
@@ -154,7 +154,8 @@ export function Dropdown(props: Props) {
         <div
           className="Layout Dropdown__menu"
           style={{ minWidth: menuWidth }}
-          ref={innerRef}>
+          ref={innerRef}
+        >
           {options.length === 0 && (
             <div className="Dropdown__menuentry">No options</div>
           )}
@@ -172,13 +173,15 @@ export function Dropdown(props: Props) {
                 onClick={() => {
                   setOpen(false);
                   onSelected?.(value);
-                }}>
+                }}
+              >
                 {typeof option === 'string' ? option : option.displayText}
               </div>
             );
           })}
         </div>
-      }>
+      }
+    >
       <div className="Dropdown" style={{ width: unit(width) }}>
         <div
           className={classes([
@@ -195,7 +198,8 @@ export function Dropdown(props: Props) {
             }
             setOpen(!open);
             onClick?.(event);
-          }}>
+          }}
+        >
           {icon && (
             <Icon mr={1} name={icon} rotation={iconRotation} spin={iconSpin} />
           )}
@@ -203,7 +207,8 @@ export function Dropdown(props: Props) {
             className="Dropdown__selected-text"
             style={{
               overflow: clipSelectedText ? 'hidden' : 'visible',
-            }}>
+            }}
+          >
             {displayText ||
               (selected && getOptionValue(selected)) ||
               placeholder}

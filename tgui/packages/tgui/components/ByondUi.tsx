@@ -1,50 +1,70 @@
-/**
- * @file
- * @copyright 2020 Aleksej Komarov
- * @license MIT
- */
-
-import { shallowDiffers } from 'common/react';
 import { debounce } from 'common/timer';
-import { Component, createRef } from 'react';
-import { createLogger } from '../logging';
-import { computeBoxProps } from './Box';
+import { useEffect, useRef } from 'react';
 
-const logger = createLogger('ByondUi');
+import { type BoxProps, computeBoxProps } from './Box';
+
+type ByondUiElement = {
+  render: (params: Record<string, any>) => void;
+  unmount: () => void;
+};
+
+type BoundingBox = {
+  pos: number[];
+  size: number[];
+};
+
+type SampleByondParams = Partial<{
+  /** Can be auto-generated. */
+  id: string;
+  /**  Defaults to the current window */
+  parent: string;
+  /** The type of control. Read-only. */
+  type: string;
+  /** Text shown in label/button/input. For input controls this setting is only available at runtime. */
+  text: string;
+}>;
+
+type Props = Partial<{
+  /** An object with parameters, which are directly passed to
+   * the `winset` proc call.
+   *
+   * You can find a full reference of these parameters
+   * in [BYOND controls and parameters guide](https://secure.byond.com/docs/ref/skinparams.html). */
+  params: SampleByondParams & Record<string, any>;
+}> &
+  BoxProps;
 
 // Stack of currently allocated BYOND UI element ids.
-const byondUiStack = [];
+const byondUiStack: Array<string | null> = [];
 
-const createByondUiElement = (elementId) => {
+function createByondUiElement(elementId: string | undefined): ByondUiElement {
   // Reserve an index in the stack
   const index = byondUiStack.length;
   byondUiStack.push(null);
   // Get a unique id
-  const id = elementId || 'byondui_' + index;
-  logger.log(`allocated '${id}'`);
+  const id = elementId || `byondui_${index}`;
+
   // Return a control structure
   return {
-    render: (params) => {
-      logger.log(`rendering '${id}'`);
+    render: (params: SampleByondParams) => {
       byondUiStack[index] = id;
-      Byond.winset(id, params);
+
+      Byond.winset(id, { ...params, style: Byond.styleSheet });
     },
     unmount: () => {
-      logger.log(`unmounting '${id}'`);
       byondUiStack[index] = null;
       Byond.winset(id, {
         parent: '',
       });
     },
-  };
-};
+  } as ByondUiElement;
+}
 
 window.addEventListener('beforeunload', () => {
   // Cleanly unmount all visible UI elements
   for (let index = 0; index < byondUiStack.length; index++) {
     const id = byondUiStack[index];
     if (typeof id === 'string') {
-      logger.log(`unmounting '${id}' (beforeunload)`);
       byondUiStack[index] = null;
       Byond.winset(id, {
         parent: '',
@@ -56,83 +76,85 @@ window.addEventListener('beforeunload', () => {
 /**
  * Get the bounding box of the DOM element in display-pixels.
  */
-const getBoundingBox = (element) => {
+function getBoundingBox(element: HTMLDivElement): BoundingBox {
   const pixelRatio = window.devicePixelRatio ?? 1;
   const rect = element.getBoundingClientRect();
-  // prettier-ignore
+
   return {
-    pos: [
-      rect.left * pixelRatio,
-      rect.top * pixelRatio,
-    ],
+    pos: [rect.left * pixelRatio, rect.top * pixelRatio],
     size: [
       (rect.right - rect.left) * pixelRatio,
       (rect.bottom - rect.top) * pixelRatio,
     ],
   };
-};
+}
 
-export class ByondUi extends Component {
-  constructor(props) {
-    super(props);
-    this.containerRef = createRef();
-    this.byondUiElement = createByondUiElement(props.params?.id);
-    this.handleResize = debounce(() => {
-      this.forceUpdate();
-    }, 100);
-  }
+/**
+ * ## ByondUi
+ * Displays a BYOND UI element on top of the browser, and leverages browser's
+ * layout engine to position it just like any other HTML element. It is
+ * especially useful if you want to display a secondary game map in your
+ * interface.
+ *
+ * @example
+ * ```tsx
+ * <ByondUi
+ *   params={{
+ *    id: 'test_button', // optional, can be auto-generated
+ *    parent: 'some_container', // optional, defaults to the current window
+ *    type: 'button',
+ *    text: 'Hello, world!',
+ *   }} />
+ * ```
+ *
+ * @example
+ * ```tsx
+ * <ByondUi
+ *   params={{
+ *    id: 'test_map',
+ *    type: 'map',
+ *   }} />
+ * ```
+ *
+ * It supports a full set of `Box` properties for layout purposes.
+ */
+export function ByondUi(props: Props) {
+  const { params, ...rest } = props;
 
-  shouldComponentUpdate(nextProps) {
-    const { params: prevParams = {}, ...prevRest } = this.props;
-    const { params: nextParams = {}, ...nextRest } = nextProps;
-    return (
-      shallowDiffers(prevParams, nextParams) ||
-      shallowDiffers(prevRest, nextRest)
-    );
-  }
+  const containerRef = useRef<HTMLDivElement>(null);
+  const byondUiElement = useRef(createByondUiElement(params?.id));
 
-  componentDidMount() {
-    // IE8: It probably works, but fuck you anyway.
-    if (Byond.IS_LTE_IE10) {
-      return;
-    }
-    window.addEventListener('resize', this.handleResize);
-    this.componentDidUpdate();
-    this.handleResize();
-  }
+  function updateRender() {
+    const element = containerRef.current;
+    if (!element) return;
 
-  componentDidUpdate() {
-    // IE8: It probably works, but fuck you anyway.
-    if (Byond.IS_LTE_IE10) {
-      return;
-    }
-    const { params = {} } = this.props;
-    const box = getBoundingBox(this.containerRef.current);
-    logger.debug('bounding box', box);
-    this.byondUiElement.render({
+    const box = getBoundingBox(element);
+    byondUiElement.current.render({
       parent: Byond.windowId,
       ...params,
-      pos: box.pos[0] + ',' + box.pos[1],
-      size: box.size[0] + 'x' + box.size[1],
+      pos: `${box.pos[0]},${box.pos[1]}`,
+      size: `${box.size[0]}x${box.size[1]}`,
     });
   }
 
-  componentWillUnmount() {
-    // IE8: It probably works, but fuck you anyway.
-    if (Byond.IS_LTE_IE10) {
-      return;
-    }
-    window.removeEventListener('resize', this.handleResize);
-    this.byondUiElement.unmount();
-  }
+  const handleResize = debounce(() => {
+    updateRender();
+  }, 100);
 
-  render() {
-    const { params, ...rest } = this.props;
-    return (
-      <div ref={this.containerRef} {...computeBoxProps(rest)}>
-        {/* Filler */}
-        <div style={{ 'min-height': '22px' }} />
-      </div>
-    );
-  }
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    updateRender();
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      byondUiElement.current.unmount();
+    };
+  }, []);
+
+  return (
+    <div ref={containerRef} {...computeBoxProps(rest)}>
+      {/* Filler */}
+      <div style={{ minHeight: '22px' }} />
+    </div>
+  );
 }

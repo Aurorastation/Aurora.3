@@ -1,12 +1,18 @@
-import { Component, createRef, HTMLAttributes, PropsWithChildren, RefObject } from 'react';
+import {
+  Component,
+  createRef,
+  type HTMLAttributes,
+  type PropsWithChildren,
+  type RefObject,
+} from 'react';
 
 const DEFAULT_ACCEPTABLE_DIFFERENCE = 5;
 
 type Props = {
-  acceptableDifference?: number;
-  maxWidth: number;
-  maxFontSize: number;
-  native?: HTMLAttributes<HTMLDivElement>;
+  readonly acceptableDifference?: number;
+  readonly maxWidth: number;
+  readonly maxFontSize: number;
+  readonly native?: HTMLAttributes<HTMLDivElement>;
 } & PropsWithChildren;
 
 type State = {
@@ -84,7 +90,8 @@ export class FitText extends Component<Props, State> {
           ...(typeof this.props.native?.style === 'object'
             ? this.props.native.style
             : {}),
-        }}>
+        }}
+      >
         {this.props.children}
       </span>
     );

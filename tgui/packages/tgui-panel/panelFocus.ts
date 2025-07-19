@@ -15,13 +15,13 @@ import { focusMap } from 'tgui/focus';
 // text you can select with the mouse.
 const MIN_SELECTION_DISTANCE = 10;
 
-const deferredFocusMap = () => setImmediate(() => focusMap());
+const deferredFocusMap = () => setTimeout(() => focusMap());
 
 export const setupPanelFocusHacks = () => {
-  let focusStolen = false;
-  let clickStartPos = null;
+  let focusStolen: boolean = false;
+  let clickStartPos: number[] | null = null;
   window.addEventListener('focusin', (e) => {
-    focusStolen = canStealFocus(e.target);
+    focusStolen = canStealFocus(e.target as HTMLElement);
   });
   window.addEventListener('mousedown', (e) => {
     clickStartPos = [e.screenX, e.screenY];
@@ -33,6 +33,9 @@ export const setupPanelFocusHacks = () => {
       if (dist >= MIN_SELECTION_DISTANCE) {
         focusStolen = true;
       }
+    }
+    if (document.activeElement?.className.includes('Button')) {
+      focusStolen = true;
     }
     if (!focusStolen) {
       deferredFocusMap();

@@ -5,7 +5,13 @@
  */
 
 import { classes } from 'common/react';
-import { BoxProps, computeBoxClassName, computeBoxProps, unit } from './Box';
+
+import {
+  type BoxProps,
+  computeBoxClassName,
+  computeBoxProps,
+  unit,
+} from './Box';
 
 export type FlexProps = Partial<{
   align: string | boolean;
@@ -22,14 +28,13 @@ export const computeFlexClassName = (props: FlexProps) => {
   return classes([
     'Flex',
     props.inline && 'Flex--inline',
-    Byond.IS_LTE_IE10 && 'Flex--iefix',
-    Byond.IS_LTE_IE10 && props.direction === 'column' && 'Flex--iefix--column',
     computeBoxClassName(props),
   ]);
 };
 
 export const computeFlexProps = (props: FlexProps) => {
   const { className, direction, wrap, align, justify, inline, ...rest } = props;
+
   return computeBoxProps({
     style: {
       ...rest.style,
@@ -63,11 +68,7 @@ export type FlexItemProps = BoxProps &
   }>;
 
 export const computeFlexItemClassName = (props: FlexItemProps) => {
-  return classes([
-    'Flex__item',
-    Byond.IS_LTE_IE10 && 'Flex__item--iefix',
-    computeBoxClassName(props),
-  ]);
+  return classes(['Flex__item', computeBoxClassName(props)]);
 };
 
 export const computeFlexItemProps = (props: FlexItemProps) => {
@@ -82,6 +83,7 @@ export const computeFlexItemProps = (props: FlexItemProps) => {
     // If grow is used, basis should be set to 0 to be consistent with
     // flex css shorthand `flex: 1`.
     (grow !== undefined ? 0 : undefined);
+
   return computeBoxProps({
     style: {
       ...style,

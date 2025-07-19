@@ -25,7 +25,7 @@ export async function setDisplayScaling() {
   const newSizes: { [element: string]: number } = {};
 
   for (const element of ELEMENTS_TO_ADJUST) {
-    newSizes[`${element}.fontSize`] =
+    newSizes[`${element}.font-size`] =
       DEFAULT_BUTTON_FONT_SIZE * window.devicePixelRatio;
   }
 

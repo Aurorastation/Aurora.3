@@ -1,59 +1,204 @@
-import { classes } from 'common/react';
+import { KEY_ENTER, KEY_ESCAPE } from 'common/keycodes';
 import { clamp } from 'common/math';
+import { classes } from 'common/react';
 import { Component, createRef } from 'react';
-import { Box } from './Box';
-import { KEY_ESCAPE, KEY_ENTER } from 'common/keycodes';
+
+import { Box, type BoxProps } from './Box';
 
 const DEFAULT_MIN = 0;
 const DEFAULT_MAX = 10000;
+
+/**
+ * Sanitize a number without interfering with writing negative or floating point numbers.
+ * Handling dots and minuses in a user friendly way
+ * @param value {String}
+ * @param minValue {Number}
+ * @param maxValue {Number}
+ * @param allowFloats {Boolean}
+ * @returns {String}
+ */
+function softSanitizeNumber(value, minValue, maxValue, allowFloats) {
+  const minimum = minValue || DEFAULT_MIN;
+  const maximum = maxValue || maxValue === 0 ? maxValue : DEFAULT_MAX;
+
+  let sanitizedString = allowFloats
+    ? value.replace(/[^\-\d.]/g, '')
+    : value.replace(/[^\-\d]/g, '');
+
+  if (allowFloats) {
+    sanitizedString = maybeLeadWithMin(sanitizedString, minimum);
+    sanitizedString = keepOnlyFirstOccurrence('.', sanitizedString);
+  }
+  if (minValue < 0) {
+    sanitizedString = maybeMoveMinusSign(sanitizedString);
+    sanitizedString = keepOnlyFirstOccurrence('-', sanitizedString);
+  } else {
+    sanitizedString = sanitizedString.replaceAll('-', '');
+  }
+  if (minimum <= 1 && maximum >= 0) {
+    return clampGuessedNumber(sanitizedString, minimum, maximum, allowFloats);
+  }
+  return sanitizedString;
+}
+
+/**
+ * Clamping the input to the restricted range, making the Input smart for min <= 1 and max >= 0
+ * @param softSanitizedNumber {String}
+ * @param allowFloats {Boolean}
+ * @returns {string}
+ */
+const clampGuessedNumber = (
+  softSanitizedNumber,
+  minValue,
+  maxValue,
+  allowFloats,
+) => {
+  const parsed = allowFloats
+    ? Number.parseFloat(softSanitizedNumber)
+    : Number.parseInt(softSanitizedNumber, 10);
+  if (
+    !Number.isNaN(parsed) &&
+    (softSanitizedNumber.slice(-1) !== '.' || parsed < Math.floor(minValue))
+  ) {
+    const clamped = clamp(parsed, minValue, maxValue);
+    if (parsed !== clamped) {
+      return String(clamped);
+    }
+  }
+  return softSanitizedNumber;
+};
+
+/**
+ * Translate x- to -x and -x- to x
+ * @param string {String}
+ * @returns {string}
+ */
+function maybeMoveMinusSign(string) {
+  let retString = string;
+  // if minus sign is present but not first
+  const minusIdx = string.indexOf('-');
+  if (minusIdx > 0) {
+    const newString = string.replace('-', '');
+    retString = '-'.concat(newString);
+  } else if (minusIdx === 0) {
+    if (string.indexOf('-', minusIdx + 1) > 0) {
+      retString = string.replaceAll('-', '');
+    }
+  }
+  return retString;
+}
+
+/**
+ * Translate . to min. or .x to mim.x or -. to -min.
+ * @param string {String}
+ */
+function maybeLeadWithMin(string, min) {
+  let retString = string;
+  const cuttedVal = Math.sign(min) * Math.floor(Math.abs(min));
+  if (string.indexOf('.') === 0) {
+    retString = String(cuttedVal).concat(string);
+  } else if (string.indexOf('-') === 0 && string.indexOf('.') === 1) {
+    retString = cuttedVal + '.'.concat(string.slice(2));
+  }
+  return retString;
+}
+
+/**
+ * Keep only the first occurrence of a string in another string.
+ * @param needle {String}
+ * @param haystack {String}
+ * @returns {string}
+ */
+function keepOnlyFirstOccurrence(needle, haystack) {
+  const idx = haystack.indexOf(needle);
+  const len = haystack.length;
+  let newHaystack = haystack;
+  if (idx !== -1 && idx < len - 1) {
+    let trailingString = haystack.slice(idx + 1, len);
+    trailingString = trailingString.replaceAll(needle, '');
+    newHaystack = haystack.slice(0, idx + 1).concat(trailingString);
+  }
+  return newHaystack;
+}
 
 /**
  * Takes a string input and parses integers or floats from it.
  * If none: Minimum is set.
  * Else: Clamps it to the given range.
  */
-const getClampedNumber = (value, minValue, maxValue, allowFloats) => {
+function getClampedNumber(value, minValue, maxValue, allowFloats) {
   const minimum = minValue || DEFAULT_MIN;
   const maximum = maxValue || maxValue === 0 ? maxValue : DEFAULT_MAX;
   if (!value || !value.length) {
     return String(minimum);
   }
-  let parsedValue = allowFloats
-    ? parseFloat(value.replace(/[^\-\d.]/g, ''))
-    : parseInt(value.replace(/[^\-\d]/g, ''), 10);
-  if (isNaN(parsedValue)) {
+  const parsedValue = allowFloats
+    ? Number.parseFloat(value.replace(/[^\-\d.]/g, ''))
+    : Number.parseInt(value.replace(/[^\-\d]/g, ''), 10);
+  if (Number.isNaN(parsedValue)) {
     return String(minimum);
-  } else {
-    return String(clamp(parsedValue, minimum, maximum));
   }
-};
+  return String(clamp(parsedValue, minimum, maximum));
+}
 
 export class RestrictedInput extends Component {
-  constructor() {
-    super();
+  handleBlur: (e: any) => void;
+  inputRef: React.RefObject<HTMLInputElement>;
+  declare props: {
+    readonly autoSelect?: boolean;
+    readonly autoFocus?: boolean;
+    readonly maxValue?: number | null;
+    readonly minValue?: number | null;
+    readonly fluid?: boolean;
+    readonly monospace?: boolean;
+    readonly onBlur?: (e: any, number: number) => void;
+    readonly onChange?: (e: any, number: number) => void;
+    readonly onInput?: (e: any, number: number) => void;
+    readonly onEnter?: (e: any, number: number) => void;
+    readonly onEscape?: (e: any) => void;
+    readonly allowFloats?: boolean;
+    readonly value?: string | number;
+  } & BoxProps;
+  state: { editing: boolean };
+  handleChange: (e: any) => void;
+  handleFocus: (_e: any) => void;
+  handleInput: (e: any) => void;
+  handleKeyDown: (e: any) => void;
+  constructor(props) {
+    super(props);
     this.inputRef = createRef();
     this.state = {
       editing: false,
     };
     this.handleBlur = (e) => {
+      const { maxValue, minValue, onBlur, allowFloats } = this.props;
       const { editing } = this.state;
       if (editing) {
         this.setEditing(false);
       }
-    };
-    this.handleChange = (e) => {
-      const { maxValue, minValue, onChange, allowFloats } = this.props;
-      e.target.value = getClampedNumber(
+      const safeNum = getClampedNumber(
         e.target.value,
         minValue,
         maxValue,
-        allowFloats
+        allowFloats,
+      );
+      if (onBlur) {
+        onBlur(e, +safeNum);
+      }
+    };
+    this.handleChange = (e) => {
+      const { maxValue, minValue, onChange, allowFloats } = this.props;
+      e.target.value = softSanitizeNumber(
+        e.target.value,
+        minValue,
+        maxValue,
+        allowFloats,
       );
       if (onChange) {
         onChange(e, +e.target.value);
       }
     };
-    this.handleFocus = (e) => {
+    this.handleFocus = (_e) => {
       const { editing } = this.state;
       if (!editing) {
         this.setEditing(true);
@@ -76,7 +221,7 @@ export class RestrictedInput extends Component {
           e.target.value,
           minValue,
           maxValue,
-          allowFloats
+          allowFloats,
         );
         this.setEditing(false);
         if (onChange) {
@@ -110,15 +255,17 @@ export class RestrictedInput extends Component {
         nextValue,
         minValue,
         maxValue,
-        allowFloats
+        allowFloats,
       );
     }
     if (this.props.autoFocus || this.props.autoSelect) {
       setTimeout(() => {
-        input.focus();
+        if (input) {
+          input.focus();
 
-        if (this.props.autoSelect) {
-          input.select();
+          if (this.props.autoSelect) {
+            input.select();
+          }
         }
       }, 1);
     }
@@ -136,7 +283,7 @@ export class RestrictedInput extends Component {
           nextValue,
           minValue,
           maxValue,
-          allowFloats
+          allowFloats,
         );
       }
     }
@@ -148,7 +295,7 @@ export class RestrictedInput extends Component {
 
   render() {
     const { props } = this;
-    const { onChange, onEnter, onInput, value, ...boxProps } = props;
+    const { onChange, onEnter, onInput, onBlur, value, ...boxProps } = props;
     const { className, fluid, monospace, ...rest } = boxProps;
     return (
       <Box
@@ -158,7 +305,8 @@ export class RestrictedInput extends Component {
           monospace && 'Input--monospace',
           className,
         ])}
-        {...rest}>
+        {...rest}
+      >
         <div className="Input__baseline">.</div>
         <input
           className="Input__input"
@@ -168,7 +316,7 @@ export class RestrictedInput extends Component {
           onBlur={this.handleBlur}
           onKeyDown={this.handleKeyDown}
           ref={this.inputRef}
-          type="number"
+          type="number | string"
         />
       </Box>
     );
