@@ -4,9 +4,9 @@ import { usePopper } from 'react-popper';
 
 type RequiredProps = {
   /** The content to display in the popper */
-  readonly content: ReactNode;
+  content: ReactNode;
   /** Whether the popper is open */
-  readonly isOpen: boolean;
+  isOpen: boolean;
 };
 
 type OptionalProps = Partial<{

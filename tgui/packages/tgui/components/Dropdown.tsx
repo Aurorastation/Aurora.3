@@ -16,11 +16,11 @@ type DropdownOption = string | DropdownEntry;
 type Props = {
   /** An array of strings which will be displayed in the
   dropdown when open. See Dropdown.tsx for more advanced usage with DropdownEntry */
-  readonly options: DropdownOption[];
+  options: DropdownOption[];
   /** Called when a value is picked from the list, `value` is the value that was picked */
-  readonly onSelected: (value: any) => void;
+  onSelected: (value: any) => void;
   /** Currently selected entry to display. Can be left stateless to permanently display this value. */
-  readonly selected: DropdownOption | null | undefined;
+  selected: DropdownOption | null | undefined;
 } & Partial<{
   /** Whether to scroll automatically on open. Defaults to true */
   autoScroll: boolean;

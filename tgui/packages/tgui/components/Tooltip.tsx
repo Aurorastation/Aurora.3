@@ -5,9 +5,9 @@ import { Component, ReactNode } from 'react';
 import { findDOMNode, render } from 'react-dom';
 
 type TooltipProps = {
-  readonly children?: ReactNode;
-  readonly content: ReactNode;
-  readonly position?: Placement;
+  children?: ReactNode;
+  content: ReactNode;
+  position?: Placement;
 };
 
 type TooltipState = {
