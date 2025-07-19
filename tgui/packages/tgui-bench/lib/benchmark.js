@@ -107,7 +107,7 @@ module.exports = (function() {
    * @param {Object} [context=root] The context object.
    * @returns {Function} Returns a new `Benchmark` function.
    */
-  function runInContext() {
+  function runInContext(context) {
     // Exit early if unable to acquire lodash.
     var _ = context && context._ || require('lodash') || root._;
     if (!_) {
@@ -150,10 +150,10 @@ module.exports = (function() {
         unshift = arrayRef.unshift;
 
     /** Detect DOM document object. */
-    var doc = isHostType('document') && context.document;
+    var doc = isHostType(context, 'document') && context.document;
 
     /** Used to access Node.js's high resolution timer. */
-    var processObject = isHostType('process') && context.process;
+    var processObject = isHostType(context, 'process') && context.process;
 
     /** Used to prevent a `removeChild` memory leak in IE < 9. */
     var trash = doc && doc.createElement('div');
@@ -181,7 +181,7 @@ module.exports = (function() {
        * @memberOf Benchmark.support
        * @type boolean
        */
-      support.browser = doc && isHostType('navigator') && !isHostType('phantom');
+      support.browser = doc && isHostType(context, 'navigator') && !isHostType(context, 'phantom');
 
       /**
        * Detect if the Timers API exists.
@@ -189,7 +189,7 @@ module.exports = (function() {
        * @memberOf Benchmark.support
        * @type boolean
        */
-      support.timeout = isHostType('setTimeout') && isHostType('clearTimeout');
+      support.timeout = isHostType(context, 'setTimeout') && isHostType(context, 'clearTimeout');
 
       /**
        * Detect if function decompilation is support.

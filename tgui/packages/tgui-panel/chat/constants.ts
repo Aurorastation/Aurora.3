@@ -4,6 +4,8 @@
  * @license MIT
  */
 
+export const MAX_VISIBLE_MESSAGES = 5000;
+export const MAX_PERSISTED_MESSAGES = 2500;
 export const MESSAGE_SAVE_INTERVAL = 10000;
 export const MESSAGE_PRUNE_INTERVAL = 60000;
 export const COMBINE_MAX_MESSAGES = 5;
@@ -11,6 +13,7 @@ export const COMBINE_MAX_TIME_WINDOW = 5000;
 export const IMAGE_RETRY_DELAY = 250;
 export const IMAGE_RETRY_LIMIT = 10;
 export const IMAGE_RETRY_MESSAGE_AGE = 60000;
+export const RENDERER_RELOAD_WAIT = 1000;
 
 // Default message type
 export const MESSAGE_TYPE_UNKNOWN = 'unknown';

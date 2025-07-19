@@ -6,26 +6,34 @@
  * @license MIT
  */
 
-import { classes } from 'common/react';
-import { computeBoxClassName, computeBoxProps } from './Box';
+import { type BooleanLike, classes } from 'common/react';
+import type { ReactNode } from 'react';
+
+import { type BoxProps, computeBoxClassName, computeBoxProps } from './Box';
 
 const FA_OUTLINE_REGEX = /-o$/;
 
-export const Icon = (props) => {
-  const { name, size, spin, className, rotation, inverse, ...rest } = props;
+type IconPropsUnique = { readonly name: string } & Partial<{
+  size: number;
+  spin: BooleanLike;
+  className: string;
+  rotation: number;
+  style: Partial<HTMLDivElement['style']>;
+}>;
 
+export type IconProps = IconPropsUnique & BoxProps;
+
+export const Icon = (props: IconProps) => {
+  const { name, size, spin, className, rotation, ...rest } = props;
+
+  const customStyle = rest.style || {};
   if (size) {
-    if (!rest.style) {
-      rest.style = {};
-    }
-    rest.style['fontSize'] = size * 100 + '%';
+    customStyle.fontSize = size * 100 + '%';
   }
-  if (typeof rotation === 'number') {
-    if (!rest.style) {
-      rest.style = {};
-    }
-    rest.style['transform'] = `rotate(${rotation}deg)`;
+  if (rotation) {
+    customStyle.transform = `rotate(${rotation}deg)`;
   }
+  rest.style = customStyle;
 
   const boxProps = computeBoxProps(rest);
 
@@ -61,12 +69,20 @@ export const Icon = (props) => {
   );
 };
 
-export const IconStack = (props) => {
+type IconStackUnique = {
+  readonly children: ReactNode;
+  readonly className?: string;
+};
+
+export type IconStackProps = IconStackUnique & BoxProps;
+
+export const IconStack = (props: IconStackProps) => {
   const { className, children, ...rest } = props;
   return (
     <span
-      class={classes(['IconStack', className, computeBoxClassName(rest)])}
-      {...computeBoxProps(rest)}>
+      className={classes(['IconStack', className, computeBoxClassName(rest)])}
+      {...computeBoxProps(rest)}
+    >
       {children}
     </span>
   );

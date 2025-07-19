@@ -101,7 +101,7 @@ const LabeledListItem = (props: LabeledListItemProps) => {
 };
 
 type LabeledListDividerProps = {
-  size?: number;
+  readonly size?: number;
 };
 
 const LabeledListDivider = (props: LabeledListDividerProps) => {
