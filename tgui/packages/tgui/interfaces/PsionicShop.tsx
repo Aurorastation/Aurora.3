@@ -17,8 +17,8 @@ type Psionic = {
   path: string;
 };
 
-export const PsionicShop = (props, context) => {
-  const { act, data } = useBackend<PsiData>(context);
+export const PsionicShop = (props) => {
+  const { act, data } = useBackend<PsiData>();
 
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
@@ -74,8 +74,8 @@ export const PsionicShop = (props, context) => {
   );
 };
 
-export const PsionicsList = (props, context) => {
-  const { act, data } = useBackend<PsiData>(context);
+export const PsionicsList = (props) => {
+  const { act, data } = useBackend<PsiData>();
 
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,

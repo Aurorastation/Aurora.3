@@ -14,7 +14,7 @@ $border-radius: base.$border-radius !default;
   z-index: 2;
   padding: 0.5em 0.75em;
   pointer-events: none;
-  text-align: left;
+  textalign: left;
   transition: opacity 150ms ease-out;
   background-color: $background-color;
   color: $color;

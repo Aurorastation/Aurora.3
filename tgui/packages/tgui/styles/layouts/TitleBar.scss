@@ -40,10 +40,10 @@ $shadow-color: rgba(0, 0, 0, 0.1) !default;
   left: 46px;
   left: base.rem(46px);
   color: $text-color;
-  font-size: 14px;
-  font-size: base.rem(14px);
-  line-height: 31px;
-  line-height: base.rem(31px);
+  fontsize: 14px;
+  fontsize: base.rem(14px);
+  lineheight: 31px;
+  lineheight: base.rem(31px);
   white-space: nowrap;
   pointer-events: none;
 }
@@ -70,10 +70,10 @@ $shadow-color: rgba(0, 0, 0, 0.1) !default;
   left: 12px;
   left: base.rem(12px);
   transition: color 0.5s;
-  font-size: 20px;
-  font-size: base.rem(20px);
-  line-height: 32px !important;
-  line-height: base.rem(32px) !important;
+  fontsize: 20px;
+  fontsize: base.rem(20px);
+  lineheight: 32px !important;
+  lineheight: base.rem(32px) !important;
 }
 
 .TitleBar__close {
@@ -84,11 +84,11 @@ $shadow-color: rgba(0, 0, 0, 0.1) !default;
   width: base.rem(45px);
   height: 32px;
   height: base.rem(32px);
-  font-size: 20px;
-  font-size: base.rem(20px);
-  line-height: 31px;
-  line-height: base.rem(31px);
-  text-align: center;
+  fontsize: 20px;
+  fontsize: base.rem(20px);
+  lineheight: 31px;
+  lineheight: base.rem(31px);
+  textalign: center;
 }
 
 .TitleBar__devBuildIndicator {
@@ -103,5 +103,5 @@ $shadow-color: rgba(0, 0, 0, 0.1) !default;
   padding: base.rem(2px) base.rem(4px);
   background-color: rgba(colors.$good, 0.75);
   color: #fff;
-  text-align: center;
+  textalign: center;
 }

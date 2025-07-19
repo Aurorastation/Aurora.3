@@ -14,8 +14,8 @@ export type CleanBotConfig = {
   beacon_freq: number;
 };
 
-export const CleanBot = (props, context) => {
-  const { act, data } = useBackend<CleanBotConfig>(context);
+export const CleanBot = (props) => {
+  const { act, data } = useBackend<CleanBotConfig>();
 
   return (
     <Window title="CleanBot" theme="idris">

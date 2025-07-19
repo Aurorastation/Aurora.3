@@ -18,7 +18,7 @@ $inner-padding: 0.1em;
 
 .Knob {
   position: relative;
-  font-size: 1rem;
+  fontsize: 1rem;
   width: 2.6em;
   height: 2.6em;
   margin: 0 auto;
@@ -30,7 +30,7 @@ $inner-padding: 0.1em;
   &:after {
     content: '.';
     color: transparent;
-    line-height: 2.5em;
+    lineheight: 2.5em;
   }
 }
 
@@ -72,8 +72,8 @@ $inner-padding: 0.1em;
   position: absolute;
   top: -2rem;
   right: 50%;
-  font-size: 1rem;
-  text-align: center;
+  fontsize: 1rem;
+  textalign: center;
   padding: 0.25rem 0.5rem;
   color: $popup-text-color;
   background-color: $popup-background-color;

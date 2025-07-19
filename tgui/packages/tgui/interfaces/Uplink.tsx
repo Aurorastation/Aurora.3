@@ -57,8 +57,8 @@ type ContractData = {
   reward_other: String;
 };
 
-export const Uplink = (props, context) => {
-  const { act, data } = useBackend<UplinkData>(context);
+export const Uplink = (props) => {
+  const { act, data } = useBackend<UplinkData>();
 
   return (
     <Window resizable theme="syndicate">
@@ -105,8 +105,8 @@ export const Uplink = (props, context) => {
             </Table.Row>
           </Table>
         </Section>
-        {data.menu === 0 ? ItemCategoriesSection(context, act, data) : ''}
-        {data.menu === 1 ? ItemSection(context, act, data) : ''}
+        {data.menu === 0 ? ItemCategoriesSection(act, data) : ''}
+        {data.menu === 1 ? ItemSection(act, data) : ''}
         {data.menu === 2 ? ExploitSection(act, data) : ''}
         {data.menu === 21 ? ExploitRecordSection(act, data) : ''}
         {data.menu === 3 ? ContractsSection(act, data) : ''}
@@ -130,10 +130,8 @@ const ItemCategoriesSection = function (
   return (
     <Section
       title={'Gear ' + (!searchTerm ? 'categories' : 'search')}
-      buttons={ItemSearch(context)}>
-      {!searchTerm
-        ? CategoriesList(act, data)
-        : ItemSection(context, act, data)}
+      buttons={ItemSearch()}>
+      {!searchTerm ? CategoriesList(act, data) : ItemSection(act, data)}
     </Section>
   );
 };
@@ -178,7 +176,7 @@ const ItemSection = function (context: any, act: any, data: UplinkData) {
     true
   );
 
-  const [searchTerm] = useLocalState<string>(context, `searchTerm`, ``);
+  const [searchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   if (searchTerm) {
     if (data.menu === 0 && searchTerm.length <= 2) {
@@ -216,9 +214,7 @@ const ItemSection = function (context: any, act: any, data: UplinkData) {
   });
 
   return (
-    <Section
-      title="Request Gear"
-      buttons={data.menu === 1 ? ItemSearch(context) : ''}>
+    <Section title="Request Gear" buttons={data.menu === 1 ? ItemSearch() : ''}>
       <span class="white">
         <i>
           Each item costs a number of telecrystals or bluecrystals as indicated

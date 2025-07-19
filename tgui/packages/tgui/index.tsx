@@ -33,8 +33,8 @@ import './styles/themes/hephaestus.scss';
 import './styles/themes/sol.scss';
 import './styles/themes/vaurca.scss';
 
-import { StoreProvider, configureStore } from './store';
-
+import { configureStore } from './store';
+import { setGlobalStore } from './backend';
 import { captureExternalLinks } from './links';
 import { createRenderer } from './renderer';
 import { perf } from 'common/perf';
@@ -48,13 +48,10 @@ perf.mark('init');
 const store = configureStore();
 
 const renderApp = createRenderer(() => {
+  setGlobalStore(store);
   const { getRoutedComponent } = require('./routes');
-  const Component = getRoutedComponent(store);
-  return (
-    <StoreProvider store={store}>
-      <Component />
-    </StoreProvider>
-  );
+  const Component = getRoutedComponent();
+  return <Component />;
 });
 
 const setupApp = () => {

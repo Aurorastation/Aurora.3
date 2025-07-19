@@ -34,8 +34,8 @@ type Blood = {
   DNA: String;
 };
 
-const ReagentFactory = (props, context) => {
-  const { act, data } = useBackend<DispenserData>(context);
+const ReagentFactory = (props) => {
+  const { act, data } = useBackend<DispenserData>();
   const { reagents, quantities, clickOperation } = props;
 
   return (
@@ -70,8 +70,8 @@ const ReagentFactory = (props, context) => {
   );
 };
 
-const DispenseButton = (props, context) => {
-  const { act, data } = useBackend<DispenserData>(context);
+const DispenseButton = (props) => {
+  const { act, data } = useBackend<DispenserData>();
   const { quantity, reagent, operation } = props;
 
   if (quantity === 'Custom') {
@@ -105,8 +105,8 @@ const DispenseButton = (props, context) => {
   }
 };
 
-export const ChemMaster = (props, context) => {
-  const { act, data } = useBackend<DispenserData>(context);
+export const ChemMaster = (props) => {
+  const { act, data } = useBackend<DispenserData>();
   let dispensable_quantities = [1, 2, 5, 10, 15, 20, 30, 60, 'Custom', 'All'];
 
   return (

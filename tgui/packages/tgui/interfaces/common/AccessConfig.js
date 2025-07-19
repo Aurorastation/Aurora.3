@@ -2,7 +2,7 @@ import { sortBy } from 'common/collections';
 import { Section, Button, Flex, Tabs, Grid } from '../../components';
 import { useLocalState } from '../../backend';
 
-export const AccessConfig = (props, context) => {
+export const AccessConfig = (props) => {
   const {
     accesses = [],
     selectedList = [],

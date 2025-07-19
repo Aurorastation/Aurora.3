@@ -79,8 +79,8 @@ type RecordLocked = {
   rank: string;
 };
 
-export const Records = (props, context) => {
-  const { act, data } = useBackend<RecordsData>(context);
+export const Records = (props) => {
+  const { act, data } = useBackend<RecordsData>();
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
     `searchTerm`,
@@ -107,9 +107,9 @@ export const Records = (props, context) => {
   );
 };
 
-export const RecordsView = (props, context) => {
-  const { act, data } = useBackend<RecordsData>(context);
-  const [recordTab, setRecordTab] = useLocalState(context, 'recordTab', 'All');
+export const RecordsView = (props) => {
+  const { act, data } = useBackend<RecordsData>();
+  const [recordTab, setRecordTab] = useLocalState('recordTab', 'All');
 
   return (
     <Stack>
@@ -121,9 +121,9 @@ export const RecordsView = (props, context) => {
   );
 };
 
-export const ListAllRecords = (props, context) => {
-  const { act, data } = useBackend<RecordsData>(context);
-  const [recordTab, setRecordTab] = useLocalState(context, 'recordTab', 'All');
+export const ListAllRecords = (props) => {
+  const { act, data } = useBackend<RecordsData>();
+  const [recordTab, setRecordTab] = useLocalState('recordTab', 'All');
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
     `searchTerm`,
@@ -179,9 +179,9 @@ export const ListAllRecords = (props, context) => {
 };
 
 // Omega shitcode ahead but this is my like 56th UI and I don't give a fuck anymore.
-export const ListActive = (props, context) => {
-  const { act, data } = useBackend<RecordsData>(context);
-  const [recordTab, setRecordTab] = useLocalState(context, 'recordTab', 'All');
+export const ListActive = (props) => {
+  const { act, data } = useBackend<RecordsData>();
+  const [recordTab, setRecordTab] = useLocalState('recordTab', 'All');
   const [editingPhysStatus, setEditingPhysStatus] = useLocalState<boolean>(
     context,
     'editingPhysStatus',
@@ -198,7 +198,7 @@ export const ListActive = (props, context) => {
     false
   );
   const [editingCriminalStatus, setEditingCriminalStatus] =
-    useLocalState<boolean>(context, 'editingCriminalStatus', false);
+    useLocalState<boolean>('editingCriminalStatus', false);
   const [editingSpecies, setEditingSpecies] = useLocalState<boolean>(
     context,
     'editingSpecies',

@@ -8,8 +8,8 @@ export type TimerData = {
   time: number;
 };
 
-export const Timer = (props, context) => {
-  const { act, data } = useBackend<TimerData>(context);
+export const Timer = (props) => {
+  const { act, data } = useBackend<TimerData>();
 
   return (
     <Window resizable>

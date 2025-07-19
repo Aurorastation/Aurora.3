@@ -10,8 +10,8 @@ export type NTNetData = {
   dos_crashed: BooleanLike;
 };
 
-export const NTNetRelay = (props, context) => {
-  const { act, data } = useBackend<NTNetData>(context);
+export const NTNetRelay = (props) => {
+  const { act, data } = useBackend<NTNetData>();
 
   return (
     <Window resizable>

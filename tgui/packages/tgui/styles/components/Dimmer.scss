@@ -8,8 +8,8 @@ $background-dimness: 0.75 !default;
   // Align everything in the middle.
   // A fat middle finger for anything less than IE11.
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justifycontent: center;
+  alignitems: center;
   // Fill positioned parent
   position: absolute;
   top: 0;

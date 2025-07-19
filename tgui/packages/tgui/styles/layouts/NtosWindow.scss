@@ -11,10 +11,10 @@
   left: 0;
   right: 0;
   height: 2em;
-  line-height: 1.928em;
+  lineheight: 1.928em;
   background-color: rgba(0, 0, 0, 0.5);
   font-family: Consolas, monospace;
-  font-size: base.em(14px);
+  fontsize: base.em(14px);
   user-select: none;
   -ms-user-select: none;
 }
@@ -22,5 +22,5 @@
 .NtosWindow__content .Layout__content {
   margin-top: 2em;
   font-family: Consolas, monospace;
-  font-size: base.em(14px);
+  fontsize: base.em(14px);
 }

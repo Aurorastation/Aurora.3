@@ -9,8 +9,8 @@ export type DirectivesData = {
   supplemental: string;
 };
 
-export const pAIDirectives = (props, context) => {
-  const { act, data } = useBackend<DirectivesData>(context);
+export const pAIDirectives = (props) => {
+  const { act, data } = useBackend<DirectivesData>();
 
   return (
     <NtosWindow resizable>

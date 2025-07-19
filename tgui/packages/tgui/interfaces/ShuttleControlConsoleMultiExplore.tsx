@@ -22,9 +22,8 @@ export type ShuttleControlConsoleMultiExploreData = {
   fuel_span: string;
 };
 
-export const ShuttleControlConsoleMultiExplore = (props, context) => {
-  const { act, data } =
-    useBackend<ShuttleControlConsoleMultiExploreData>(context);
+export const ShuttleControlConsoleMultiExplore = (props) => {
+  const { act, data } = useBackend<ShuttleControlConsoleMultiExploreData>();
 
   return (
     <Window resizable>

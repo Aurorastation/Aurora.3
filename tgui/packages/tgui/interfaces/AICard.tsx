@@ -21,8 +21,8 @@ type Law = {
   law: string;
 };
 
-export const AICard = (props, context) => {
-  const { act, data } = useBackend<AIData>(context);
+export const AICard = (props) => {
+  const { act, data } = useBackend<AIData>();
 
   return (
     <Window resizable>
@@ -35,8 +35,8 @@ export const AICard = (props, context) => {
   );
 };
 
-export const AIWindow = (props, context) => {
-  const { act, data } = useBackend<AIData>(context);
+export const AIWindow = (props) => {
+  const { act, data } = useBackend<AIData>();
 
   return (
     <>
@@ -58,8 +58,8 @@ export const AIWindow = (props, context) => {
   );
 };
 
-export const LawWindow = (props, context) => {
-  const { act, data } = useBackend<AIData>(context);
+export const LawWindow = (props) => {
+  const { act, data } = useBackend<AIData>();
   const { laws } = data;
 
   return (
@@ -78,8 +78,8 @@ export const LawWindow = (props, context) => {
   );
 };
 
-export const CommandWindow = (props, context) => {
-  const { act, data } = useBackend<AIData>(context);
+export const CommandWindow = (props) => {
+  const { act, data } = useBackend<AIData>();
   const { laws } = data;
 
   return (

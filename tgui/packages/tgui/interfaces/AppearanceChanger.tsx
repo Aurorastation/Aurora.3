@@ -58,8 +58,8 @@ export type ChangerData = {
   change_prosthetics: BooleanLike;
 };
 
-export const AppearanceChanger = (props, context) => {
-  const { act, data } = useBackend<ChangerData>(context);
+export const AppearanceChanger = (props) => {
+  const { act, data } = useBackend<ChangerData>();
 
   return (
     <Window resizable>
@@ -80,8 +80,8 @@ export const AppearanceChanger = (props, context) => {
   );
 };
 
-export const SpeciesWindow = (props, context) => {
-  const { act, data } = useBackend<ChangerData>(context);
+export const SpeciesWindow = (props) => {
+  const { act, data } = useBackend<ChangerData>();
 
   return (
     <Section title="Species">
@@ -99,8 +99,8 @@ export const SpeciesWindow = (props, context) => {
   );
 };
 
-export const GenderWindow = (props, context) => {
-  const { act, data } = useBackend<ChangerData>(context);
+export const GenderWindow = (props) => {
+  const { act, data } = useBackend<ChangerData>();
 
   return (
     <Section title="Gender and Pronouns">
@@ -125,8 +125,8 @@ export const GenderWindow = (props, context) => {
     </Section>
   );
 };
-export const BodyWindow = (props, context) => {
-  const { act, data } = useBackend<ChangerData>(context);
+export const BodyWindow = (props) => {
+  const { act, data } = useBackend<ChangerData>();
 
   return (
     <Section title="Body Modifications">
@@ -153,8 +153,8 @@ export const BodyWindow = (props, context) => {
   );
 };
 
-export const CultureWindow = (props, context) => {
-  const { act, data } = useBackend<ChangerData>(context);
+export const CultureWindow = (props) => {
+  const { act, data } = useBackend<ChangerData>();
 
   return (
     <Section title="Cultures">
@@ -214,8 +214,8 @@ export const CultureWindow = (props, context) => {
   );
 };
 
-export const LanguagesWindow = (props, context) => {
-  const { act, data } = useBackend<ChangerData>(context);
+export const LanguagesWindow = (props) => {
+  const { act, data } = useBackend<ChangerData>();
 
   return (
     <Section title="Languages">
@@ -231,8 +231,8 @@ export const LanguagesWindow = (props, context) => {
   );
 };
 
-export const ColorsWindow = (props, context) => {
-  const { act, data } = useBackend<ChangerData>(context);
+export const ColorsWindow = (props) => {
+  const { act, data } = useBackend<ChangerData>();
 
   return (
     <Section title="Colors">
@@ -281,8 +281,8 @@ export const ColorsWindow = (props, context) => {
   );
 };
 
-export const HairWindow = (props, context) => {
-  const { act, data } = useBackend<ChangerData>(context);
+export const HairWindow = (props) => {
+  const { act, data } = useBackend<ChangerData>();
 
   return (
     <Section title="Hair Styles">

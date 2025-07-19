@@ -15,8 +15,8 @@ type Crew = {
   head: BooleanLike;
 };
 
-export const ManifestSection = (props, context) => {
-  const { act, data } = useBackend<ManifestData>(context);
+export const ManifestSection = (props) => {
+  const { act, data } = useBackend<ManifestData>();
   const manifest = data.manifest || {};
   const allow_follow = data.allow_follow;
   return (

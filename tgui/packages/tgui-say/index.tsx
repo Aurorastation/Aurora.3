@@ -1,5 +1,5 @@
 import './styles/main.scss';
-import { render } from 'inferno';
+import { render } from 'react';
 
 import { TguiSay } from './TguiSay';
 

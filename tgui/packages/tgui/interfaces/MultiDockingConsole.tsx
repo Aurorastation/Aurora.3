@@ -12,8 +12,8 @@ export type MultiDockingConsoleData = {
   airlocks: AirlockData[];
 };
 
-export const MultiDockingConsole = (props, context) => {
-  const { act, data } = useBackend<MultiDockingConsoleData>(context);
+export const MultiDockingConsole = (props) => {
+  const { act, data } = useBackend<MultiDockingConsoleData>();
 
   return (
     <Window resizable>

@@ -25,8 +25,8 @@ export type DoorsData = {
   wtime: number;
 };
 
-export const Doors = (props, context) => {
-  const { act, data } = useBackend<DoorsData>(context);
+export const Doors = (props) => {
+  const { act, data } = useBackend<DoorsData>();
   const door_title = data.doorArea + '(' + data.doorName + ')';
   return (
     <Window resizable>

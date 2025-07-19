@@ -13,10 +13,10 @@ export type TankData = {
   maskConnected: BooleanLike;
 };
 
-export const Tank = (props, context) => {
-  const { act, data } = useBackend<TankData>(context);
+export const Tank = (props) => {
+  const { act, data } = useBackend<TankData>();
 
-  const [tank_color, setColor] = useLocalState(context, 'color', '');
+  const [tank_color, setColor] = useLocalState('color', '');
 
   const tank_presure_color = tank_color
     ? { color: tank_color }

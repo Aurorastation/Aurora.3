@@ -4,7 +4,7 @@
  * @license MIT
  */
 
-import { createAction } from 'common/redux';
+import { createAction } from 'tgui/backend';
 import { createHighlightSetting } from './model';
 
 export const updateSettings = createAction('settings/update');

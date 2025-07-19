@@ -5,9 +5,9 @@
  */
 
 import { classes } from 'common/react';
-import { useDispatch } from 'common/redux';
+import { useDispatch } from 'tgui/backend';
 import { decodeHtmlEntities, toTitleCase } from 'common/string';
-import { Component } from 'inferno';
+import { Component } from 'react';
 import { backendSuspendStart, useBackend } from '../backend';
 import { Icon } from '../components';
 import { UI_DISABLED, UI_INTERACTIVE, UI_UPDATE } from '../constants';
@@ -142,7 +142,7 @@ const statusToColor = (status) => {
   }
 };
 
-const TitleBar = (props, context) => {
+const TitleBar = (props) => {
   const {
     className,
     title,
@@ -153,7 +153,7 @@ const TitleBar = (props, context) => {
     onClose,
     children,
   } = props;
-  const dispatch = useDispatch(context);
+  const dispatch = useDispatch();
   // prettier-ignore
   const finalTitle = (
     typeof title === 'string'

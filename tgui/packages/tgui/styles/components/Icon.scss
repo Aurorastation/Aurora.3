@@ -8,14 +8,14 @@
 .IconStack > .Icon {
   position: absolute;
   width: 100%;
-  text-align: center;
+  textalign: center;
 }
 
 .IconStack {
   position: relative;
   display: inline-block;
   height: 1.2em;
-  line-height: 2em;
+  lineheight: 2em;
   vertical-align: middle;
 
   &:after {

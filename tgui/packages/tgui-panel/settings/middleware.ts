@@ -37,7 +37,7 @@ function updateGlobalOverrideRule() {
   // no other way to force a CSS refresh other than to update its innerText
   overrideRule.innerText = constructedRule;
 
-  document.body.style.setProperty('font-size', overrideFontSize);
+  document.body.style.setProperty('fontSize', overrideFontSize);
 }
 
 function setGlobalFontSize(

@@ -11,8 +11,8 @@ export type DoorjackData = {
   aborted: BooleanLike;
 };
 
-export const pAIDoorjack = (props, context) => {
-  const { act, data } = useBackend<DoorjackData>(context);
+export const pAIDoorjack = (props) => {
+  const { act, data } = useBackend<DoorjackData>();
 
   return (
     <NtosWindow resizable>

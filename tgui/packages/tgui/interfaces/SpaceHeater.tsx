@@ -16,8 +16,8 @@ export type SpaceHeaterData = {
   set_temperature_min: number;
 };
 
-export const SpaceHeater = (props, context) => {
-  const { act, data } = useBackend<SpaceHeaterData>(context);
+export const SpaceHeater = (props) => {
+  const { act, data } = useBackend<SpaceHeaterData>();
 
   return (
     <Window width="382" height="277">

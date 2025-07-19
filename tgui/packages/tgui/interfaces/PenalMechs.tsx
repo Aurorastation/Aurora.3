@@ -25,8 +25,8 @@ type Robot = {
   ref: string;
 };
 
-export const PenalMechs = (props, context) => {
-  const { act, data } = useBackend<MechsData>(context);
+export const PenalMechs = (props) => {
+  const { act, data } = useBackend<MechsData>();
 
   return (
     <NtosWindow resizable>

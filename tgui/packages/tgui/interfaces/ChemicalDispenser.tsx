@@ -26,8 +26,8 @@ type Chemical = {
   amount: number;
 };
 
-export const ChemicalDispenser = (props, context) => {
-  const { act, data } = useBackend<DispenserData>(context);
+export const ChemicalDispenser = (props) => {
+  const { act, data } = useBackend<DispenserData>();
 
   return (
     <Window resizable theme={data.manufacturer}>
@@ -89,8 +89,8 @@ export const ChemicalDispenser = (props, context) => {
   );
 };
 
-export const ChemTable = (props, context) => {
-  const { act, data } = useBackend<DispenserData>(context);
+export const ChemTable = (props) => {
+  const { act, data } = useBackend<DispenserData>();
 
   return (
     <Box mr={-1}>
@@ -108,8 +108,8 @@ export const ChemTable = (props, context) => {
   );
 };
 
-export const BeakerContents = (props, context) => {
-  const { act, data } = useBackend<DispenserData>(context);
+export const BeakerContents = (props) => {
+  const { act, data } = useBackend<DispenserData>();
 
   return (
     <Section>

@@ -23,8 +23,8 @@ type FaxData = {
   departments: String[];
 };
 
-export const Fax = (props, context) => {
-  const { act, data } = useBackend<FaxData>(context);
+export const Fax = (props) => {
+  const { act, data } = useBackend<FaxData>();
 
   return (
     <Window resizable>
@@ -65,8 +65,8 @@ export const Fax = (props, context) => {
   );
 };
 
-const FaxWindow = (props, context) => {
-  const { act, data } = useBackend<FaxData>(context);
+const FaxWindow = (props) => {
+  const { act, data } = useBackend<FaxData>();
   const remaining_cooldown = data.cooldown_end - data.world_time;
 
   return (
@@ -90,8 +90,8 @@ const FaxWindow = (props, context) => {
   );
 };
 
-const SendWindow = (props, context) => {
-  const { act, data } = useBackend<FaxData>(context);
+const SendWindow = (props) => {
+  const { act, data } = useBackend<FaxData>();
 
   return (
     <Section>
@@ -111,8 +111,8 @@ const SendWindow = (props, context) => {
   );
 };
 
-const PaperWindow = (props, context) => {
-  const { act, data } = useBackend<FaxData>(context);
+const PaperWindow = (props) => {
+  const { act, data } = useBackend<FaxData>();
 
   return (
     <Section>
@@ -131,8 +131,8 @@ const PaperWindow = (props, context) => {
   );
 };
 
-const PDANotifyWindow = (props, context) => {
-  const { act, data } = useBackend<FaxData>(context);
+const PDANotifyWindow = (props) => {
+  const { act, data } = useBackend<FaxData>();
 
   return (
     <Section>

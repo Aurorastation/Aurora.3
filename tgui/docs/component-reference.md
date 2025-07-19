@@ -438,8 +438,8 @@ items on a line are inflexible, or are flexible but have reached their
 maximum size. It also exerts some control over the alignment of items
 when they overflow the line.
   - `flex-start` (default) - items are packed toward the start of the
-  flex-direction.
-  - `flex-end` - items are packed toward the end of the flex-direction.
+  flexDirection.
+  - `flex-end` - items are packed toward the end of the flexDirection.
   - `space-between` - items are evenly distributed in the line; first item is
   on the start line, last item on the end line
   - `space-around` - items are evenly distributed in the line with equal space
@@ -474,7 +474,7 @@ before any flex-related calculations are done. Has to be a length
   working with tables inside flex (they have wacky internal widths and such).
   Setting basis to `0` breaks the loop and fixes all of the problems.
 - `align: string` - This allows the default alignment (or the one specified by
-align-items) to be overridden for individual flex items. See: [Flex](#flex).
+alignItems) to be overridden for individual flex items. See: [Flex](#flex).
 
 ### `Grid`
 

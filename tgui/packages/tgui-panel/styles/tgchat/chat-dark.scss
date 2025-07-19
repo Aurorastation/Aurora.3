@@ -11,7 +11,7 @@ em {
 img {
   margin: 0;
   padding: 0;
-  line-height: 1;
+  lineheight: 1;
   -ms-interpolation-mode: nearest-neighbor;
   image-rendering: pixelated;
 }
@@ -58,7 +58,7 @@ a.popt {
   z-index: 2;
   padding: 0 10px;
   height: 30px;
-  line-height: 30px;
+  lineheight: 30px;
 }
 
 .popup .close:hover {
@@ -70,9 +70,9 @@ a.popt {
   color: #ddd;
   padding: 0 10px;
   height: 30px;
-  line-height: 30px;
+  lineheight: 30px;
   text-transform: uppercase;
-  font-size: 0.9em;
+  fontsize: 0.9em;
   font-weight: bold;
   border-bottom: 2px solid green;
 }
@@ -97,7 +97,7 @@ a.popt {
   background: #999;
   color: #ddd;
   text-transform: uppercase;
-  font-size: 0.9em;
+  fontsize: 0.9em;
   font-weight: bold;
 }
 
@@ -125,13 +125,13 @@ a.popt {
 
 .highlightPopup {
   padding: 10px;
-  text-align: center;
+  textalign: center;
 }
 
 .highlightPopup input[type='text'] {
   display: block;
   width: 215px;
-  text-align: left;
+  textalign: left;
   margin-top: 5px;
 }
 
@@ -181,7 +181,7 @@ a.popt {
 
 .icon-stack {
   height: 1em;
-  line-height: 1em;
+  lineheight: 1em;
   width: 1em;
   vertical-align: middle;
   margin-top: -2px;
@@ -273,7 +273,7 @@ em {
 .tag {
   color: #fff;
   border-radius: 15px;
-  font-size: 80%;
+  fontsize: 80%;
   padding-left: 4px;
   padding-right: 4px;
 }
@@ -366,7 +366,7 @@ em {
 .pm .howto {
   color: #ff0000;
   font-weight: bold;
-  font-size: 200%;
+  fontsize: 200%;
 }
 .pm .in {
   color: #ff0000;

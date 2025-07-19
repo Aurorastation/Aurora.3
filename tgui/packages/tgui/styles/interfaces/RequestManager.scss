@@ -50,25 +50,25 @@ $text-color: base.$color-fg !default;
 }
 
 .RequestManager__header {
-  line-height: 1.375rem;
+  lineheight: 1.375rem;
   min-height: 1.375rem;
   color: $color-muted;
   white-space: break-spaces;
   word-wrap: pre-wrap;
   vertical-align: baseline;
   margin-bottom: 0;
-  padding-bottom: 0.1rem;
+  paddingbottom: 0.1rem;
 }
 
 .RequestManager__headerText {
   margin-right: 0.5rem;
-  font-size: 1rem;
+  fontsize: 1rem;
   font-weight: bold;
   color: $color-header;
 }
 
 .RequestManager__timestamp {
-  font-size: 0.75rem;
+  fontsize: 0.75rem;
 }
 
 .RequestManager__row:first-of-type {
@@ -76,8 +76,8 @@ $text-color: base.$color-fg !default;
 }
 
 .RequestManager__row {
-  padding-top: 0.125rem;
-  padding-bottom: 0.125rem;
+  paddingtop: 0.125rem;
+  paddingbottom: 0.125rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   margin-top: 0.75rem;

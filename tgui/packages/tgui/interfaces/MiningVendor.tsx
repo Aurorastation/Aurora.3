@@ -16,8 +16,8 @@ export type MiningVendorData = {
   prizeList: PrizeListData[];
 };
 
-export const MiningVendor = (props, context) => {
-  const { act, data } = useBackend<MiningVendorData>(context);
+export const MiningVendor = (props) => {
+  const { act, data } = useBackend<MiningVendorData>();
 
   return (
     <Window resizable theme="hephaestus">

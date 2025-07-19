@@ -17,8 +17,8 @@ export type ShuttleControlConsoleMultiData = {
   destination_name: string;
 };
 
-export const ShuttleControlConsoleMulti = (props, context) => {
-  const { act, data } = useBackend<ShuttleControlConsoleMultiData>(context);
+export const ShuttleControlConsoleMulti = (props) => {
+  const { act, data } = useBackend<ShuttleControlConsoleMultiData>();
 
   return (
     <Window resizable>

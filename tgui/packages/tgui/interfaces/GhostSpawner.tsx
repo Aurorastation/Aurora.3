@@ -78,10 +78,10 @@ const ManifestTable = function (act, spawner: Spawner) {
   );
 };
 
-export const GhostSpawner = (props, context) => {
-  const { act, data } = useBackend<SpawnerData>(context);
+export const GhostSpawner = (props) => {
+  const { act, data } = useBackend<SpawnerData>();
 
-  const [tab, setTab] = useLocalState(context, 'tab', 'All');
+  const [tab, setTab] = useLocalState('tab', 'All');
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
     `searchTerm`,

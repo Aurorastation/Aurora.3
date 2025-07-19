@@ -4,7 +4,7 @@
 .window {
   background-color: colors.$background;
   display: flex;
-  flex-direction: column;
+  flexdirection: column;
   max-width: 380px;
   overflow: hidden;
 }
@@ -23,7 +23,7 @@
 
 .window__content {
   display: flex;
-  flex-direction: row;
+  flexdirection: row;
   height: 100%;
   padding: 1px 0 1px 5px;
 }

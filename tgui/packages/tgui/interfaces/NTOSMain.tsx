@@ -21,8 +21,8 @@ type NTService = {
   running: BooleanLike;
 };
 
-export const NTOSMain = (props, context) => {
-  const { act, data } = useBackend<NTOSMainData>(context);
+export const NTOSMain = (props) => {
+  const { act, data } = useBackend<NTOSMainData>();
   const { programs = [], services = [] } = data;
   return (
     <NtosWindow title={'NtOS Main Menu'} width={400} height={500}>

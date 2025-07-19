@@ -44,9 +44,9 @@ type QueueItem = {
   progress: number;
 };
 
-export const Autolathe = (props, context) => {
-  const { act, data } = useBackend<AutolatheData>(context);
-  const [tab, setTab] = useLocalState(context, 'tab', 'All');
+export const Autolathe = (props) => {
+  const { act, data } = useBackend<AutolatheData>();
+  const [tab, setTab] = useLocalState('tab', 'All');
 
   return (
     <Window resizable theme="hephaestus" width="1000" height="700">
@@ -112,15 +112,15 @@ export const Autolathe = (props, context) => {
   );
 };
 
-export const CategoryData = (props, context) => {
-  const { act, data } = useBackend<AutolatheData>(context);
-  const [tab, setTab] = useLocalState(context, 'tab', 'All');
+export const CategoryData = (props) => {
+  const { act, data } = useBackend<AutolatheData>();
+  const [tab, setTab] = useLocalState('tab', 'All');
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
     `searchTerm`,
     ``
   );
-  const [amount, setAmount] = useLocalState(context, 'amount', 1);
+  const [amount, setAmount] = useLocalState('amount', 1);
 
   return (
     <Section
@@ -272,8 +272,8 @@ export const CategoryData = (props, context) => {
   );
 };
 
-export const QueueData = (props, context) => {
-  const { act, data } = useBackend<AutolatheData>(context);
+export const QueueData = (props) => {
+  const { act, data } = useBackend<AutolatheData>();
 
   return (
     <Section fill title="Queue">

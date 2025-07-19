@@ -23,8 +23,8 @@ $border-radius: Input.$border-radius !default;
   background-color: $background-color;
   padding: 0 base.em(4px);
   margin-right: base.em(2px);
-  line-height: base.em(17px);
-  text-align: right;
+  lineheight: base.em(17px);
+  textalign: right;
   overflow: visible;
   cursor: n-resize;
 }
@@ -64,13 +64,13 @@ $border-radius: Input.$border-radius !default;
   border: 0;
   outline: 0;
   width: 100%;
-  font-size: base.em(12px);
-  line-height: base.em(17px);
+  fontsize: base.em(12px);
+  lineheight: base.em(17px);
   height: base.em(17px);
   margin: 0;
   padding: 0 0.5em;
   font-family: Verdana, sans-serif;
   background-color: $background-color;
   color: $text-color;
-  text-align: right;
+  textalign: right;
 }

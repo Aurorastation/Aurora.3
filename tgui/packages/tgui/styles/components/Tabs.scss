@@ -22,7 +22,7 @@ $fg-map: colors.$fg-map !default;
 
 .Tabs {
   display: flex;
-  align-items: stretch;
+  alignitems: stretch;
   overflow: hidden;
   background-color: base.$color-bg-section;
 }
@@ -45,7 +45,7 @@ $fg-map: colors.$fg-map !default;
 }
 
 .Tabs--vertical {
-  flex-direction: column;
+  flexdirection: column;
   padding: 0.25em 0 0.25em 0.25em;
 }
 
@@ -59,17 +59,17 @@ $fg-map: colors.$fg-map !default;
 }
 
 .Tabs__Tab {
-  flex-grow: 0;
+  flexgrow: 0;
 }
 
 .Tabs--fluid .Tabs__Tab {
-  flex-grow: 1;
+  flexgrow: 1;
 }
 
 .Tab {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  alignitems: center;
+  justifycontent: space-between;
   background-color: $tab-color;
   color: $text-color;
   min-height: 2.25em;
@@ -86,19 +86,19 @@ $fg-map: colors.$fg-map !default;
 }
 
 .Tab__text {
-  flex-grow: 1;
+  flexgrow: 1;
   margin: 0 0.5em;
 }
 
 .Tab__left {
   min-width: 1.5em;
-  text-align: center;
+  textalign: center;
   margin-left: 0.25em;
 }
 
 .Tab__right {
   min-width: 1.5em;
-  text-align: center;
+  textalign: center;
   margin-right: 0.25em;
 }
 

@@ -70,7 +70,7 @@ export const MinimapView = (props: MinimapViewProps) => {
           y="-8"
           text-anchor="left"
           fill="red"
-          font-size="12"
+          fontSize="12"
           transform={`translate(
               ${center_point_x * zoom_mod}
               ${(map_size - center_point_y) * zoom_mod}
@@ -82,7 +82,7 @@ export const MinimapView = (props: MinimapViewProps) => {
           y="8"
           text-anchor="left"
           fill="red"
-          font-size="12"
+          fontSize="12"
           transform={`translate(
               ${center_point_x * zoom_mod}
               ${(map_size - center_point_y) * zoom_mod}

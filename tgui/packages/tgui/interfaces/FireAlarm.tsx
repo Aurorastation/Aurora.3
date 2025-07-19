@@ -10,8 +10,8 @@ export type FireAlarmData = {
   timing: BooleanLike;
 };
 
-export const FireAlarm = (props, context) => {
-  const { act, data } = useBackend<FireAlarmData>(context);
+export const FireAlarm = (props) => {
+  const { act, data } = useBackend<FireAlarmData>();
   return (
     <Window resizable theme="hephaestus" title="Fire Alarm">
       <Window.Content scrollable>

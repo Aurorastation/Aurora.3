@@ -10,8 +10,8 @@ export type HowitzerData = {
   vertical_angle: number;
 };
 
-export const Howitzer = (props, context) => {
-  const { act, data } = useBackend<HowitzerData>(context);
+export const Howitzer = (props) => {
+  const { act, data } = useBackend<HowitzerData>();
   return (
     <Window>
       <Window.Content>

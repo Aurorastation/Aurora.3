@@ -19,8 +19,8 @@ type TrackingImplant = {
   ref: string;
 };
 
-export const ImplantTracker = (props, context) => {
-  const { act, data } = useBackend<TrackerData>(context);
+export const ImplantTracker = (props) => {
+  const { act, data } = useBackend<TrackerData>();
 
   return (
     <NtosWindow resizable width={800}>

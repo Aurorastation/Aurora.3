@@ -4,7 +4,7 @@ $mqIterations: 19;
   @while $i <= $iterations {
     @media all and (min-width: 100px * $i) {
       .fit-text {
-        font-size: 0.1em * $i;
+        fontsize: 0.1em * $i;
       }
     }
     $i: $i + 1;

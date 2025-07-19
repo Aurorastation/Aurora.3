@@ -18,8 +18,8 @@ export type MonitorData = {
   ntnetmaxlogs: number;
 };
 
-export const NTMonitor = (props, context) => {
-  const { act, data } = useBackend<MonitorData>(context);
+export const NTMonitor = (props) => {
+  const { act, data } = useBackend<MonitorData>();
 
   return (
     <NtosWindow resizable>

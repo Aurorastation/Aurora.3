@@ -18,8 +18,8 @@ export type MiningProcessorData = {
   oreList: OreListData[];
 };
 
-export const MiningProcessor = (props, context) => {
-  const { act, data } = useBackend<MiningProcessorData>(context);
+export const MiningProcessor = (props) => {
+  const { act, data } = useBackend<MiningProcessorData>();
 
   return (
     <Window resizable theme="hephaestus">

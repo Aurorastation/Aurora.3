@@ -1,6 +1,6 @@
 import { Channel, ChannelIterator } from './ChannelIterator';
 import { ChatHistory } from './ChatHistory';
-import { Component, createRef, InfernoKeyboardEvent, RefObject } from 'inferno';
+import { Component, createRef, InfernoKeyboardEvent, RefObject } from 'react';
 import { LINE_LENGTHS, RADIO_PREFIXES, WINDOW_SIZES } from './constants';
 import { byondMessages } from './timers';
 import { dragStartHandler } from 'tgui/drag';

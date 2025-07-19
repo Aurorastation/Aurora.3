@@ -29,8 +29,8 @@ type Camera = {
   z: number;
 };
 
-export const AlarmMonitoring = (props, context) => {
-  const { act, data } = useBackend<AlarmData>(context);
+export const AlarmMonitoring = (props) => {
+  const { act, data } = useBackend<AlarmData>();
 
   return (
     <NtosWindow resizable width={600} height={700}>

@@ -4,11 +4,11 @@
  * @license MIT
  */
 
-import { Middleware, Reducer, Store, applyMiddleware, combineReducers, createStore } from 'common/redux';
+import { Middleware, Reducer, Store, applyMiddleware, combineReducers, createStore } from 'tgui/backend';
 import { backendMiddleware, backendReducer } from './backend';
 import { debugMiddleware, debugReducer, relayMiddleware } from './debug';
 
-import { Component } from 'inferno';
+import { Component } from 'react';
 import { assetMiddleware } from './assets';
 import { createLogger } from './logging';
 import { flow } from 'common/fp';

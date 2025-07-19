@@ -4,9 +4,9 @@
  * @license MIT
  */
 
-import { Action, AnyAction, Middleware } from '../common/redux';
+import { Action, AnyAction, Middleware } from '../tgui/backend';
 
-import { Dispatch } from 'common/redux';
+import { Dispatch } from 'tgui/backend';
 
 const EXCLUDED_PATTERNS = [/v4shim/i];
 const loadedMappings: Record<string, string> = {};

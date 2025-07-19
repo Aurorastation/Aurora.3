@@ -1,4 +1,4 @@
-import { SFC } from 'inferno';
+import { SFC } from 'react';
 import { Box } from './Box';
 
 // The cost of flexibility and prettiness.

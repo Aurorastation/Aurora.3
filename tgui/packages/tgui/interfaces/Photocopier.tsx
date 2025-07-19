@@ -11,8 +11,8 @@ export type PhotocopierData = {
   num_copies: number;
 };
 
-export const Photocopier = (props, context) => {
-  const { act, data } = useBackend<PhotocopierData>(context);
+export const Photocopier = (props) => {
+  const { act, data } = useBackend<PhotocopierData>();
   // Extract `health` and `color` variables from the `data` object.
   return (
     <Window resizable>
@@ -56,8 +56,8 @@ export const Photocopier = (props, context) => {
   );
 };
 
-const PrintOptions = (props, context) => {
-  const { act, data } = useBackend<PhotocopierData>(context);
+const PrintOptions = (props) => {
+  const { act, data } = useBackend<PhotocopierData>();
   const { num_copies } = data;
   return (
     <Section>
@@ -89,8 +89,8 @@ const PrintOptions = (props, context) => {
   );
 };
 
-const Toner = (props, context) => {
-  const { act, data } = useBackend<PhotocopierData>(context);
+const Toner = (props) => {
+  const { act, data } = useBackend<PhotocopierData>();
   const { toner, max_toner } = data;
 
   const average_toner = max_toner * 0.66;

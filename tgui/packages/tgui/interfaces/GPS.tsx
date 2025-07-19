@@ -24,8 +24,8 @@ type GPSDevice = {
   compass_color: string;
 };
 
-export const GPS = (props, context) => {
-  const { act, data } = useBackend<GPSData>(context);
+export const GPS = (props) => {
+  const { act, data } = useBackend<GPSData>();
 
   return (
     <Window resizable>

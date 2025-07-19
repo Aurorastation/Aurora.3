@@ -30,8 +30,8 @@ type NTOSConfigData = {
   max_message_range: number;
 };
 
-const BatteryStatus = (props, context) => {
-  const { act, data } = useBackend<NTOSConfigData>(context);
+const BatteryStatus = (props) => {
+  const { act, data } = useBackend<NTOSConfigData>();
   const { battery } = data;
   if (!battery) {
     return (
@@ -65,8 +65,8 @@ const BatteryStatus = (props, context) => {
   }
 };
 
-const ResourceUsage = (props, context) => {
-  const { act, data } = useBackend<NTOSConfigData>(context);
+const ResourceUsage = (props) => {
+  const { act, data } = useBackend<NTOSConfigData>();
   const { power_usage, disk_used, disk_size } = data;
   const remainingSpace = disk_size - disk_used;
   return (
@@ -90,8 +90,8 @@ const ResourceUsage = (props, context) => {
   );
 };
 
-export const NTOSConfig = (props, context) => {
-  const { act, data } = useBackend<NTOSConfigData>(context);
+export const NTOSConfig = (props) => {
+  const { act, data } = useBackend<NTOSConfigData>();
   const {
     hardware = [],
     card_slot,

@@ -21,8 +21,8 @@ export type ShieldData = {
   target_field_strength: number;
 };
 
-export const ShieldGenerator = (props, context) => {
-  const { act, data } = useBackend<ShieldData>(context);
+export const ShieldGenerator = (props) => {
+  const { act, data } = useBackend<ShieldData>();
 
   return (
     <Window resizable>

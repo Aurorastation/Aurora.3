@@ -13,8 +13,8 @@ type Recipe = {
   appliances: string;
 };
 
-export const CookingCodex = (props, context) => {
-  const { act, data } = useBackend<CodexData>(context);
+export const CookingCodex = (props) => {
+  const { act, data } = useBackend<CodexData>();
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
     `searchTerm`,

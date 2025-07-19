@@ -43,7 +43,7 @@ $bg-map: colors.$bg-map !default;
 .Button {
   position: relative;
   display: inline-block;
-  line-height: 1.667em;
+  lineheight: 1.667em;
   padding: 0 0.5em;
   margin-right: base.em(2px);
   white-space: nowrap;
@@ -65,7 +65,7 @@ $bg-map: colors.$bg-map !default;
     margin-left: -0.25em;
     margin-right: -0.25em;
     min-width: 1.333em;
-    text-align: center;
+    textalign: center;
   }
 }
 
@@ -104,7 +104,7 @@ $bg-map: colors.$bg-map !default;
 
 .Button--compact {
   padding: 0 0.25em;
-  line-height: 1.333em;
+  lineheight: 1.333em;
 }
 
 @each $color-name, $color-value in $bg-map {
@@ -141,7 +141,7 @@ $bg-map: colors.$bg-map !default;
 
 .Button--flex {
   display: inline-flex; //Inline even for fluid
-  flex-direction: column;
+  flexdirection: column;
 }
 
 .Button--flex--fluid {
@@ -149,18 +149,18 @@ $bg-map: colors.$bg-map !default;
 }
 
 .Button--verticalAlignContent--top {
-  justify-content: flex-start;
+  justifycontent: flex-start;
 }
 
 .Button--verticalAlignContent--middle {
-  justify-content: center;
+  justifycontent: center;
 }
 
 .Button--verticalAlignContent--bottom {
-  justify-content: flex-end;
+  justifycontent: flex-end;
 }
 
 .Button__content {
   display: block;
-  align-self: stretch;
+  alignself: stretch;
 }
