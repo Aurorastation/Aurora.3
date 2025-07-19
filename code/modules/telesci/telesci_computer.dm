@@ -100,6 +100,10 @@
 	 */
 	var/obj/effect/portal/destination_portal
 
+/obj/machinery/computer/telescience/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "There are [length(crystals) ? length(crystals) : "no"] bluespace crystal\s in the crystal slots."
+
 /obj/machinery/computer/telescience/Initialize()
 	. = ..()
 
@@ -142,11 +146,6 @@
 	telepad = null
 
 	return ..()
-
-/obj/machinery/computer/telescience/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += "There are [length(crystals) ? length(crystals) : "no"] bluespace crystal\s in the crystal slots."
-
 
 /obj/machinery/computer/telescience/attackby(obj/item/attacking_item, mob/user, params)
 

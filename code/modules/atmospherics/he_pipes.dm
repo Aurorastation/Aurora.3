@@ -1,5 +1,4 @@
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging
-	desc_info = "This radiates heat from the pipe's gas to space, cooling it down."
 	icon = 'icons/atmos/heat.dmi'
 	icon_state = "intact"
 	pipe_icon = "hepipe"
@@ -19,6 +18,11 @@
 	volume = ATMOS_DEFAULT_VOLUME_HE_PIPE
 
 	// BubbleWrap
+
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This radiates heat from the pipe's gas to space, cooling it down."
+
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/Initialize()
 	. = ..()
 	initialize_directions_he = initialize_directions	// The auto-detection from /pipe is good enough for a simple HE pipe

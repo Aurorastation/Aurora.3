@@ -19,17 +19,22 @@
 	var/obj/item/device/radio/spy/radio
 	var/obj/machinery/camera/spy/camera
 
+/obj/item/device/spy_bug/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance <= 0)
+		. += "Needs to be both configured and brought in contact with monitor device to be fully functional."
+		. += "A pen can be used to label the device on a given network."
+
+/obj/item/device/spy_bug/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance <= 0)
+		. += "It's a tiny camera, microphone, and transmission device in a happy union."
+
 /obj/item/device/spy_bug/New()
 	..()
 	radio = new(src)
 	camera = new(src)
 	become_hearing_sensitive(ROUNDSTART_TRAIT)
-
-/obj/item/device/spy_bug/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance <= 0)
-		. += "It's a tiny camera, microphone, and transmission device in a happy union."
-		. += "Needs to be both configured and brought in contact with monitor device to be fully functional. A pen can also be used to label the device on a given network."
 
 /obj/item/device/spy_bug/attack_self(mob/user)
 	radio.set_broadcasting(!radio.get_broadcasting())
@@ -73,14 +78,14 @@
 	var/obj/machinery/camera/spy/selected_camera
 	var/list/obj/machinery/camera/spy/cameras = new()
 
+/obj/item/device/spy_monitor/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance <= 1)
+		. += "The time '12:00' is blinking in the corner of the screen and \the [src] looks very cheaply made."
+
 /obj/item/device/spy_monitor/New()
 	radio = new(src)
 	become_hearing_sensitive(ROUNDSTART_TRAIT)
-
-/obj/item/device/spy_monitor/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance <= 1)
-		. += "The time '12:00' is blinking in the corner of the screen and \the [src] looks very cheaply made."
 
 /obj/item/device/spy_monitor/attack_self(mob/user)
 	if(operating)

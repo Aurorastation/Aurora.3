@@ -14,7 +14,6 @@
 /obj/item/glass_jar
 	name = "glass jar"
 	desc = "A glass jar. Does not contain brain submerged in formaldehyde."
-	desc_info = "Can be used to hold money, small animals, and gumballs. You can remove the lid and use it as a reagent container."
 	icon = 'icons/obj/item/reagent_containers/glass.dmi'
 	icon_state = "jar_lid"
 	w_class = WEIGHT_CLASS_SMALL
@@ -25,6 +24,10 @@
 	var/list/contained = list()
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
+
+/obj/item/glass_jar/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Can be used to hold money, small animals, and gumballs. You can remove the lid and use it as a reagent container."
 
 /obj/item/glass_jar/New()
 	..()

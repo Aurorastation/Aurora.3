@@ -11,6 +11,12 @@
 	var/static/list/knitables = list(/obj/item/clothing/accessory/sweater, /obj/item/clothing/suit/storage/toggle/cardigan, /obj/item/clothing/suit/storage/toggle/cardigan/sweater, /obj/item/clothing/suit/storage/toggle/cardigan/argyle, /obj/item/clothing/accessory/sweater/vest, /obj/item/clothing/accessory/sweater/turtleneck, /obj/item/clothing/gloves/fingerless/colour/knitted, /obj/item/clothing/gloves/knitted, /obj/item/clothing/accessory/bandanna/colorable/knitted, /obj/item/clothing/accessory/scarf, /obj/item/clothing/accessory/shawl)
 	var/static/list/name2knit
 
+/obj/item/knittingneedles/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(is_adjacent)
+		if(ball)
+			. += "There is \the [ball] between the needles."
+
 /obj/item/knittingneedles/verb/remove_yarn()
 	set name = "Remove Yarn"
 	set category = "Object"
@@ -38,12 +44,6 @@
 	if(ball)
 		QDEL_NULL(ball)
 	return ..()
-
-/obj/item/knittingneedles/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(is_adjacent)
-		if(ball)
-			. += "There is \the [ball] between the needles."
 
 /obj/item/knittingneedles/update_icon()
 	if(working)

@@ -8,7 +8,6 @@
 					researchers to take a variety of samples, ranging from plant and animal tissue to soil or water samples, compacted into \
 					a single handheld device. It became widely popular even among rival corporations and independant research groups, with \
 					its versatility and compact nature making it the tool-of-choice for almost every modern scientific expedition."
-	desc_info = "It has attachments allowing for sampling of biological tissue, surface soil and water sources. Must be loaded with a vial. Alt-click to cycle between attachments."
 	icon = 'icons/obj/item/sampling.dmi'
 	icon_state = "sampler"
 	item_state = "sampler"
@@ -22,6 +21,10 @@
 	 * The vial we load our sample into
 	 */
 	var/obj/item/reagent_containers/glass/beaker/vial/vial
+
+/obj/item/sampler/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "It has attachments allowing for sampling of biological tissue, surface soil and water sources. Must be loaded with a vial. Alt-click to cycle between attachments."
 
 /obj/item/sampler/Initialize(mapload, ...)
 	. = ..()

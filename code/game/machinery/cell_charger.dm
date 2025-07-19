@@ -1,7 +1,6 @@
 /obj/machinery/cell_charger
 	name = "heavy-duty cell charger"
 	desc = "A much more powerful version of the standard recharger that is specifically designed to charge power cells."
-	desc_info = "This can be moved by using a wrench. You will need to wrench it again when and where you want to use it. Requires electricity to function."
 	icon = 'icons/obj/machinery/cell_charger.dmi'
 	icon_state = "ccharger"
 	anchored = TRUE
@@ -13,6 +12,20 @@
 	var/obj/item/cell/charging = null
 	var/charge_level = -1
 	var/const/CHARGE_EFFICIENCY = 1.38
+
+/obj/machinery/cell_charger/assembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "It [anchored ? "is" : "could be"] anchored in place with a couple of <b>bolts</b>."
+
+/obj/machinery/cell_charger/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance > 5)
+		return
+
+	if(charging)
+		. += "There's \a [charging.name] in the charger. Current charge: [charging.percent()]%."
+	else
+		. += SPAN_WARNING("The charger is empty.")
 
 /obj/machinery/cell_charger/proc/update_charge_level()
 	if(!charging)
@@ -38,16 +51,6 @@
 	update_charge_level()
 	AddOverlays("cell-o2")
 	AddOverlays("[icon_state]-o[charge_level]")
-
-/obj/machinery/cell_charger/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance > 5)
-		return
-
-	if(charging)
-		. += "There's \a [charging.name] in the charger. Current charge: [charging.percent()]%."
-	else
-		. += SPAN_WARNING("The charger is empty.")
 
 /obj/machinery/cell_charger/attackby(obj/item/attacking_item, mob/user)
 	if(stat & BROKEN)

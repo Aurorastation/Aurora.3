@@ -15,6 +15,9 @@
 	anchored = TRUE
 	wall_mounted = TRUE
 
+/obj/structure/closet/walllocker/antagonist_hints(mob/user, distance, is_adjacent)
+	. = list()
+
 /obj/structure/closet/walllocker/secure
 	name = "secure wall locker"
 	icon_door = "walllocker_secure"

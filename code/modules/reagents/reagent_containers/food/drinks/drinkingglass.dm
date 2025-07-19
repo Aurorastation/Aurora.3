@@ -3,7 +3,6 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass
 	name = "glass"
 	desc = "Your standard drinking glass."
-	desc_info = "To toast with someone, aim for the right or left hand and click them on help intent with the glass in hand. They must be holding a glass in the targeted hand."
 	icon_state = "glass_empty"
 	item_state = "glass_empty"
 	amount_per_transfer_from_this = 5
@@ -14,6 +13,10 @@
 	pickup_sound = 'sound/items/pickup/drinkglass.ogg'
 	matter = list(MATERIAL_GLASS = 300)
 	fragile = 2
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "To toast with someone, aim for the right or left hand and click them on help intent with the glass in hand. They must be holding a glass in the targeted hand."
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/on_reagent_change()
 	var/singleton/reagent/R = reagents.get_primary_reagent_decl()

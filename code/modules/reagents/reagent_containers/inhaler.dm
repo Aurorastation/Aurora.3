@@ -21,6 +21,13 @@
 	var/has_overlays = TRUE
 	matter = list(MATERIAL_GLASS = 400, DEFAULT_WALL_MATERIAL = 200)
 
+/obj/item/reagent_containers/inhaler/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(LAZYLEN(reagents.reagent_volumes))
+		. += SPAN_NOTICE("It is currently loaded.")
+	else
+		. += SPAN_NOTICE("It is spent.")
+
 /obj/item/reagent_containers/inhaler/Initialize()
 	. =..()
 	if(name_label)
@@ -154,13 +161,6 @@
 			AddOverlays(reagent_overlay)
 
 	update_held_icon()
-
-/obj/item/reagent_containers/inhaler/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(LAZYLEN(reagents.reagent_volumes))
-		. += SPAN_NOTICE("It is currently loaded.")
-	else
-		. += SPAN_NOTICE("It is spent.")
 
 /obj/item/reagent_containers/inhaler/dexalin
 	name_label = "dexalin"

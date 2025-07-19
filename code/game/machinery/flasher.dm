@@ -18,6 +18,10 @@
 	var/_wifi_id
 	var/datum/wifi/receiver/button/flasher/wifi_receiver
 
+/obj/machinery/flasher/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use a wirecutter on this to disconnect the flashbulb, disabling it. Use wirecutters again to reconnect it."
+
 /obj/machinery/flasher/portable //Portable version of the flasher. Only flashes when anchored
 	name = "portable flasher"
 	desc = "A portable flashing device. Wrench to activate and deactivate. Cannot detect slow movements."

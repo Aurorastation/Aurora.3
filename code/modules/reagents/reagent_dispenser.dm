@@ -1,8 +1,6 @@
 /obj/structure/reagent_dispensers
 	name = "strange dispenser"
 	desc = "What the fuck is this?"
-	desc_info = "Use HELP intent to fill a container in your hand from this, and use any other intent to empty the container into this. \
-	You can right-click this and change the amount transferred per use."
 	icon = 'icons/obj/reagent_dispensers.dmi'
 	icon_state = "watertank"
 	density = 1
@@ -15,18 +13,22 @@
 	var/can_tamper = TRUE
 	var/is_leaking = FALSE
 
+/obj/structure/reagent_dispensers/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use Help intent to fill a container in your hand from this, and use any other intent to empty the container into this."
+	. += "Right-click this to change the amount transferred per use."
+
+/obj/structure/reagent_dispensers/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance > 2)
+		return
+	. += SPAN_NOTICE("It contains [reagents.total_volume] units of reagents.")
+
 /obj/structure/reagent_dispensers/Initialize()
 	. = ..()
 	create_reagents(capacity)
 	if (!possible_transfer_amounts)
 		src.verbs -= /obj/structure/reagent_dispensers/verb/set_APTFT
-		desc_info = ""
-
-/obj/structure/reagent_dispensers/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance > 2)
-		return
-	. += SPAN_NOTICE("It contains [reagents.total_volume] units of reagents.")
 
 /obj/structure/reagent_dispensers/verb/set_APTFT() //set amount_per_transfer_from_this
 	set name = "Set transfer amount"
@@ -128,8 +130,8 @@
 	var/obj/item/device/assembly_holder/rig = null
 	reagents_to_add = list(/singleton/reagent/fuel = 1000)
 
-/obj/structure/reagent_dispensers/fueltank/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/structure/reagent_dispensers/fueltank/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(distance > 2)
 		return
 	if (is_leaking)

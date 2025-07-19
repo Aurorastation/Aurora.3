@@ -22,6 +22,14 @@
 		TRAIT_OVERLOADER_OD_MEDIUM = TRAIT_OVERLOADER_OD_INITIAL
 	)
 
+/obj/item/ipc_overloader/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(is_adjacent)
+		if(uses)
+			. += SPAN_NOTICE("It has <b>[uses] uses</b> left.")
+		else
+			. += SPAN_WARNING("It's totally spent.")
+
 /obj/item/ipc_overloader/Initialize()
 	. = ..()
 	item_state = icon_state
@@ -33,14 +41,6 @@
 		icon_state = "[initial(icon_state)]-spent"
 	else
 		icon_state = "[initial(icon_state)]-[initial(uses)-uses]"
-
-/obj/item/ipc_overloader/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(is_adjacent)
-		if(uses)
-			. += SPAN_NOTICE("It has <b>[uses]</b> uses left.")
-		else
-			. += SPAN_WARNING("It's totally spent.")
 
 // Jabbing yourself with an overloader.
 /obj/item/ipc_overloader/attack_self(mob/user)
@@ -357,15 +357,15 @@
 	pickup_sound = 'sound/items/pickup/backpack.ogg'
 	var/sealed = TRUE
 
-/obj/item/storage/overloader/Initialize(mapload, defer_shrinkwrap)
-	icon_state = "box"
-	return ..()
-
-/obj/item/storage/overloader/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/storage/overloader/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	var/obj/item/ipc_overloader/overloader = locate() in contents
 	if(overloader)
 		. += SPAN_NOTICE("This one has a <b>[overloader.name]</b> inside.")
+
+/obj/item/storage/overloader/Initialize(mapload, defer_shrinkwrap)
+	icon_state = "box"
+	return ..()
 
 /obj/item/storage/overloader/open(mob/user)
 	..()

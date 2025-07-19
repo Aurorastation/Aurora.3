@@ -16,6 +16,13 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 15000, MATERIAL_PLASTIC = 1000, MATERIAL_OSMIUM = 500)
 	dir = SOUTH
 
+/obj/item/mech_component/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(ready_to_install())
+		. += SPAN_NOTICE("It is ready for installation.")
+	else
+		. += get_missing_parts_text(user)
+
 /obj/item/mech_component/pickup(mob/user)
 	pixel_x = initial(pixel_x)
 	pixel_y = initial(pixel_y)
@@ -32,13 +39,6 @@
 	take_burn_damage(rand((10 - (severity*3)),15-(severity*4)))
 	for(var/obj/item/thing in contents)
 		thing.emp_act(severity)
-
-/obj/item/mech_component/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(ready_to_install())
-		. += SPAN_NOTICE("It is ready for installation.")
-	else
-		. += get_missing_parts_text(user)
 
 /obj/item/mech_component/set_dir()
 	..(SOUTH)

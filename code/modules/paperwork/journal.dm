@@ -2,7 +2,6 @@
 	name = "journal"
 	desc = "A journal, kind of like a folder, but bigger! And personal."
 	var/closed_desc
-	desc_info = "Alt-click this while it's on your person or next to you to open this journal.\nWhile the journal is open, use it in hand or use a pen on it to access the contents."
 	icon = 'icons/obj/library.dmi'
 	icon_state = "journal"
 	item_state = "journal"
@@ -19,6 +18,11 @@
 
 	var/open = FALSE
 	var/list/indices
+
+/obj/item/journal/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "ALT-click this while it's on your person or next to you to open this journal."
+	. += "While the journal is open, use it in hand or use a pen on it to access the contents."
 
 /obj/item/journal/Destroy()
 	for(var/obj/item/folder/embedded/E as anything in indices)
@@ -109,7 +113,7 @@
 /obj/item/journal/notepad
 	name = "notepad"
 	desc = "A notepad for jotting down notes in meetings or interrogations."
-	desc_info = "Alt-click this while it's on your person or next to you to open this notepad.\nWhile the notepad is open, use it in hand or use a pen on it to access the contents."
+
 	icon = 'icons/obj/library.dmi'
 	icon_state = "notepad"
 	item_state = "notepad"
@@ -140,7 +144,6 @@
 /obj/item/journal/notepad/scc
 	name = "scc notepad"
 	desc = "A notepad for jotting down notes in corporate meetings. This one is navy blue with a gold SCC logo on the front."
-	desc_info = "Alt-click this while it's on your person or next to you to open this notepad.\nWhile the notepad is open, use it in hand or use a pen on it to access the contents."
 	icon_state = "notepad_scc"
 	item_state = "notepad_scc"
 	color = COLOR_WHITE

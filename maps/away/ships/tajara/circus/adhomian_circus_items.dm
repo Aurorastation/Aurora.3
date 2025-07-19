@@ -161,8 +161,8 @@
 	contained_sprite = TRUE
 	var/weight = "10"
 
-/obj/item/dumbbell/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/dumbbell/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	. += "It weighs [weight] kilograms."
 
 /obj/item/dumbbell/twenty

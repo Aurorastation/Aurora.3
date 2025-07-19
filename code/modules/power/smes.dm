@@ -21,7 +21,6 @@
 /obj/machinery/power/smes
 	name = "power storage unit"
 	desc = "A high-capacity superconducting magnetic energy storage (SMES) unit."
-	desc_info = "It can be repaired with a welding tool."
 	icon_state = "smes"
 	density = 1
 	anchored = 1
@@ -76,6 +75,23 @@
 	var/charge_mode = 0
 	var/last_time = 1
 
+/obj/machinery/power/smes/assembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(health < initial(health))
+		. += "It can be repaired with a <b>welding tool</b>."
+
+/obj/machinery/power/smes/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(is_badly_damaged())
+		. += SPAN_DANGER("\The [src] is damaged to the point of non-function!")
+	if(open_hatch)
+		. += "The maintenance hatch is open."
+		if (max_coils > 1 && Adjacent(user))
+			var/list/coils = list()
+			for(var/obj/item/smes_coil/C in component_parts)
+				coils += C
+			. += "The [max_coils] coil slots contain: [counting_english_list(coils)]."
+
 /obj/machinery/power/smes/drain_power(var/drain_check, var/surge, var/amount = 0)
 
 	if(drain_check)
@@ -122,18 +138,6 @@
 
 	if(!should_be_mapped)
 		warning("Non-buildable or Non-magical SMES at [src.x]X [src.y]Y [src.z]Z")
-
-/obj/machinery/power/smes/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(is_badly_damaged())
-		. += SPAN_DANGER("\The [src] is damaged to the point of non-function!")
-	if(open_hatch)
-		. += SPAN_SUBTLE("The maintenance hatch is open.")
-		if (max_coils > 1 && Adjacent(user))
-			var/list/coils = list()
-			for(var/obj/item/smes_coil/C in component_parts)
-				coils += C
-			. += "The [max_coils] coil slots contain: [counting_english_list(coils)]."
 
 /obj/machinery/power/smes/proc/can_function()
 	if(is_badly_damaged())

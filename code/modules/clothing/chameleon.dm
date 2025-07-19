@@ -382,10 +382,6 @@
 /obj/item/gun/energy/chameleon
 	name = "desert eagle"
 	desc = null
-	desc_info = null //The chameleon gun adopts the desc_info of the weapon it is impersonating as, to make meta-ing harder.
-	desc_antag = "This gun is actually a hologram projector that can alter its appearance to mimick other weapons.  To change the appearance, use \
-	the appropriate verb in the chameleon items tab. Any beams or projectiles fired from this gun are actually holograms and useless for actual combat. \
-	Projecting these holograms over distance uses a little bit of charge."
 	icon = 'icons/obj/guns/deagle.dmi'
 	icon_state = "deagle"
 	w_class = WEIGHT_CLASS_NORMAL
@@ -400,6 +396,17 @@
 
 	var/obj/projectile/copy_projectile
 	var/global/list/gun_choices
+
+/obj/item/gun/energy/chameleon/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Exactly as it appears, officer."
+
+/obj/item/gun/energy/chameleon/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This gun is actually a hologram projector that can alter its appearance to mimick other weapons. "
+	. += "To change the appearance, use the appropriate verb in the chameleon items tab."
+	. += "Any beams or projectiles fired from this gun are actually holograms and useless for actual combat."
+	. += "Projecting these holograms over distance uses a little bit of charge."
 
 /obj/item/gun/energy/chameleon/Initialize()
 	. = ..()
@@ -447,7 +454,6 @@
 	if(istype(E))
 		copy_projectile = E.projectile_type
 		desc = E.desc
-		desc_info = E.desc_info
 	else
 		copy_projectile = null
 

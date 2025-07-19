@@ -370,27 +370,27 @@
 	desc = "A replaceable drill head usually used in exosuit drills."
 	icon_state = "drill_head"
 
+/obj/item/material/drill_head/condition_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	var/percentage = get_durability_percentage()
+	var/descriptor = SPAN_DANGER("It looks close to breaking")
+	if(percentage > 10)
+		descriptor = SPAN_ALERT("It is very worn")
+	if(percentage > 50)
+		descriptor = SPAN_ALERT("It is fairly worn")
+	if(percentage > 75)
+		descriptor = SPAN_ALERT("It shows some signs of wear")
+	if(percentage > 95)
+		descriptor = SPAN_NOTICE("It shows no wear")
+
+	. += descriptor
+
 /obj/item/material/drill_head/Initialize(newloc, material_key)
 	. = ..()
 	durability = 2 * material.integrity
 
 /obj/item/material/drill_head/proc/get_durability_percentage()
 	return (durability * 100) / (2 * material.integrity)
-
-/obj/item/material/drill_head/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	var/percentage = get_durability_percentage()
-	var/descriptor = "looks close to breaking"
-	if(percentage > 10)
-		descriptor = "is very worn"
-	if(percentage > 50)
-		descriptor = "is fairly worn"
-	if(percentage > 75)
-		descriptor = "shows some signs of wear"
-	if(percentage > 95)
-		descriptor = "shows no wear"
-
-	. += SPAN_NOTICE("It [descriptor].")
 
 /obj/item/mecha_equipment/drill
 	name = "drill"
@@ -726,7 +726,6 @@
 /obj/item/mecha_equipment/phazon
 	name = "phazon bluespace transmission system"
 	desc = "A large back-mounted device that grants the exosuit it's mounted to the ability to semi-shift into bluespace, allowing it to pass through dense objects."
-	desc_info = "It needs an anomaly core to function. You can install some simply by using a core on it."
 	icon_state = "mecha_phazon"
 	restricted_hardpoints = list(HARDPOINT_BACK)
 	w_class = WEIGHT_CLASS_HUGE
@@ -736,6 +735,16 @@
 	var/obj/item/anomaly_core/AC
 	var/image/anomaly_overlay
 
+/obj/item/mecha_equipment/phazon/assembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(!AC)
+		. += "It needs an anomaly core to function. You can install one by using a core on it."
+
+/obj/item/mecha_equipment/phazon/disassembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(AC)
+		. += "The anomaly core could be extracted if the securing <b>bolts</b> are undone."
+
 /obj/item/mecha_equipment/phazon/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/anomaly_core))
 		if(AC)
@@ -744,7 +753,6 @@
 		user.drop_from_inventory(attacking_item, src)
 		AC = attacking_item
 		to_chat(user, SPAN_NOTICE("You insert \the [AC] into \the [src]."))
-		desc_info = "\The [src] has an anomaly core installed! You can use a wrench to remove it."
 		anomaly_overlay = image(AC.icon, null, AC.icon_state)
 		anomaly_overlay.pixel_y = 3
 		AddOverlays(anomaly_overlay)

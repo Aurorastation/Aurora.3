@@ -1,10 +1,6 @@
 /obj/machinery/portable_atmospherics/powered/pump
 	name = "portable air pump"
-	desc = "Used to fill or drain rooms without differentiating between gasses."
-	desc_info = "Invaluable for filling air in a room rapidly after a breach repair.  The internal gas container can be filled by \
-	connecting it to a connector port.  The pump can pump the air in (sucking) or out (blowing), at a specific target pressure.  The powercell inside can be \
-	replaced by using a screwdriver, and then adding a new cell.  A tank of gas can also be attached to the air pump."
-
+	desc = "Used to fill or drain rooms without differentiating between gases. Invaluable for filling air in a room rapidly after a breach repair."
 	icon = 'icons/obj/atmos.dmi'
 	icon_state = "psiphon:0"
 	density = TRUE
@@ -21,6 +17,13 @@
 
 	power_rating = 7500 //7500 W ~ 10 HP
 	power_losses = 150
+
+/obj/machinery/portable_atmospherics/powered/pump/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "The internal gas container can be filled by connecting it to a connector port.  The pump can pump the air in (sucking) \
+	or out (blowing), at a specific target pressure."
+	. += "The power cell inside can be replaced by using a screwdriver, then adding a new cell. Screw it closed again afterwards."
+	. += "A tank of gas can also be attached to the air pump."
 
 /obj/machinery/portable_atmospherics/powered/pump/filled
 	start_pressure = PRESSURE_ONE_THOUSAND * 5
@@ -63,7 +66,6 @@
 	target_pressure = rand(0,1300)
 	update_icon()
 	SStgui.update_uis(src)
-
 
 /obj/machinery/portable_atmospherics/powered/pump/process()
 	..()

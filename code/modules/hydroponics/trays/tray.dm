@@ -695,9 +695,9 @@
 	else if(dead)
 		remove_dead(user)
 
-/// TODO: Need to modernise this.
-/obj/machinery/portable_atmospherics/hydroponics/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/machinery/portable_atmospherics/hydroponics/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+
 	if(!seed)
 		. += "[src] is empty."
 		return

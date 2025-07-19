@@ -31,8 +31,22 @@ ABSTRACT_TYPE(/obj/structure/engineer_maintenance)
 	/// The key-value list of tools that can be used on the panel once it's been opened. The key is the typepath of the item, and the value is a singleton which holds some data to be used
 	var/list/panel_tools
 
-	/// The list of tool names that can be used on the panel once it's open, but in name format, to be used in get_examine_text
+	/// The list of tool names that can be used on the panel once it's open, but in name format, to be used in mechanics_hints
 	var/list/panel_tool_names = list()
+
+/obj/structure/engineer_maintenance/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += SPAN_NOTICE("Any wrench, or an impact drill with the wrenchbit selected, can be used to open/close the panel.")
+	if(panel_open)
+		. += SPAN_NOTICE("The following tools can be used to interact with the panel:")
+	for(var/tool_name in panel_tool_names)
+		. += SPAN_NOTICE("- [tool_name]")
+
+/obj/structure/engineer_maintenance/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(panel_open)
+		. += SPAN_NOTICE(detailed_desc)
+	. += SPAN_ITALIC("OOC NOTE: This object is purely a fluff item, and has no mechanical effect.")
 
 /obj/structure/engineer_maintenance/Initialize(mapload)
 	. = ..()
@@ -49,21 +63,6 @@ ABSTRACT_TYPE(/obj/structure/engineer_maintenance)
 /obj/structure/engineer_maintenance/proc/remove_self()
 	SIGNAL_HANDLER
 	qdel(src)
-
-/obj/structure/engineer_maintenance/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended)
-	. = ..()
-	if(panel_open)
-		. += SPAN_NOTICE("---")
-		. += SPAN_NOTICE(detailed_desc)
-		. += SPAN_NOTICE("---")
-	. += SPAN_NOTICE("Any wrench, or an impact drill with the wrenchbit selected, can be used to open/close the panel.")
-	if(panel_open)
-		. += SPAN_NOTICE("---")
-		. += SPAN_NOTICE("The following tools can be used to interact with the panel:")
-		for(var/tool_name in panel_tool_names)
-			. += SPAN_NOTICE("- [tool_name]")
-	. += SPAN_ITALIC("OOC NOTE: This object is purely a fluff item, and has no mechanical effect.")
-
 
 /obj/structure/engineer_maintenance/update_icon()
 	if(!panel_open)
@@ -219,14 +218,11 @@ ABSTRACT_TYPE(/obj/structure/engineer_maintenance)
 	if(finish_sound)
 		playsound(get_turf(target), finish_sound, 30, TRUE)
 
-
 /singleton/engineer_maintenance_tool/steam_pipe
 	finish_sound = /singleton/sound_category/steam_pipe
 
-
 /singleton/engineer_maintenance_tool/electrical_hum
 	finish_sound = /singleton/sound_category/electrical_hum
-
 
 /singleton/engineer_maintenance_tool/electrical_spark
 	finish_sound = /singleton/sound_category/electrical_spark

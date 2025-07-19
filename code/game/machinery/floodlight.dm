@@ -15,19 +15,18 @@
 	light_color = LIGHT_COLOR_TUNGSTEN
 	light_wedge = LIGHT_WIDE
 
+/obj/machinery/floodlight/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(!cell.charge)
+		. += SPAN_WARNING("The installed [cell.name] is completely flat!")
+		return
+	else
+		. += SPAN_WARNING("\The [src] has no cell installed!")
+	. += SPAN_NOTICE("The installed [cell.name] has [Percent(cell.charge, cell.maxcharge)]% charge remaining.")
+
 /obj/machinery/floodlight/Initialize()
 	. = ..()
 	cell = new /obj/item/cell(src)
-
-/obj/machinery/floodlight/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(cell)
-		if(!cell.charge)
-			. += SPAN_WARNING("The installed [cell.name] is completely flat!")
-			return
-		. += SPAN_NOTICE("The installed [cell.name] has [Percent(cell.charge, cell.maxcharge)]% charge remaining.")
-	else
-		. += SPAN_WARNING("\The [src] has no cell installed!")
 
 /obj/machinery/floodlight/update_icon()
 	ClearOverlays()
@@ -83,7 +82,6 @@
 		if(!turn_on(TRUE))
 			to_chat(user, SPAN_WARNING("You try to turn on \the [src] but it does not work."))
 
-
 /obj/machinery/floodlight/attack_hand(mob/user)
 	if(open && cell)
 		user.put_in_hands(cell)
@@ -104,7 +102,6 @@
 			to_chat(user, SPAN_WARNING("You try to turn on \the [src] but it does not work."))
 
 	update_icon()
-
 
 /obj/machinery/floodlight/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.isscrewdriver())

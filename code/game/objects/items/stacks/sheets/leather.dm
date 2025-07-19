@@ -10,6 +10,11 @@
 	var/bare = FALSE //is this hair devoid of fur, hair, scales, carapace? Prevents re-stripping. Can also apply it to a hide type if we don't want to tan, like, xeno hide.
 	var/hide_type = "hair" //type of skin this animal has; scales for lizard, carapace for xeno.
 
+/obj/item/stack/material/animalhide/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(bare)
+		. += "You could use a bladed item on this to scrape it clean, the first step in creating leather sheets."
+
 /obj/item/stack/material/animalhide/human
 	name = "human skin"
 	desc = "The by-product of human farming."
@@ -52,16 +57,18 @@
 /obj/item/stack/material/animalhide/barehide
 	name = "bare hide"
 	desc = "A hide without fur or scales. Can be tanned into leather."
-	desc_info = "You can put this into a washing machine to make wet leather, which is the first step in making it into leather sheets."
 	singular_name = "bare hide piece"
 	icon_state = "sheet-hairlesshide"
 	default_type = "bare hide"
 	bare = TRUE
 
+/obj/item/stack/material/animalhide/barehide/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can put this into a washing machine to make wet leather, another key step in making it into leather sheets."
+
 /obj/item/stack/material/animalhide/wetleather
 	name = "wet leather"
 	desc = "This leather has been cleaned but still needs to be dried."
-	desc_info = "This can be dried into high-quality fine leather by exposing it to a fire of a sufficient temperature, or manually with a welding tool. You don't need eye protection for the welding tool."
 	singular_name = "wet leather piece"
 	icon_state = "sheet-wetleather"
 	default_type = "wet leather"
@@ -71,11 +78,14 @@
 	var/drying_threshold_temperature = 500 //Kelvin to start drying from exposed fire.
 	var/being_dried = FALSE //If we're manually drying this.
 
+/obj/item/stack/material/animalhide/wetleather/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This can be dried into high-quality fine leather by exposing it to a fire of a sufficient temperature, or manually with a welding tool. You don't need eye protection for the welding tool."
+
 //Wet leather can't be used to make things. Too soggy.
 /obj/item/stack/material/animalhide/wetleather/list_recipes(mob/user, recipes_sublist, var/datum/stack_recipe/sublist)
 	to_chat(user, SPAN_WARNING("\The [src] isn't suitable for crafting!"))
 	return
-
 
 //Animal Hide to leather steps
 //Step one - dehairing.

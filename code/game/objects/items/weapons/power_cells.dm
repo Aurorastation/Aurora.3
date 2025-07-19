@@ -142,7 +142,6 @@
 /obj/item/cell/slime
 	name = "charged slime core"
 	desc = "A yellow slime core infused with phoron, it crackles with power."
-	desc_info = "This slime core is energized with powerful bluespace energies, allowing it to regenerate ten percent of its charge every minute."
 	origin_tech = list(TECH_POWER = 2, TECH_BIO = 4)
 	icon = 'icons/mob/npc/slimes.dmi'
 	icon_state = "yellow slime extract"
@@ -151,6 +150,14 @@
 
 	// slime cores recharges 10% every one minute
 	self_charge_percentage = 10
+
+/obj/item/cell/slime/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This slime core is energized with powerful bluespace energies, allowing it to regenerate ten percent of its charge every minute."
+
+/obj/item/cell/slime/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Maybe be fucking careful if you try rigging this one."
 
 /obj/item/cell/nuclear
 	name = "miniaturized nuclear power cell"

@@ -155,14 +155,17 @@
 
 /obj/effect/portal/spawner
 	name = "portal"
-	desc = "A bluespace tear in space, reaching directly to another point within this region. This one looks like a one-way portal to here, don't come too close."
-	desc_info = "This portal is a spawner portal. You cannot enter it to teleport, but it will periodically spawn things."
+	desc = "A bluespace tear in space, reaching directly to another point within this region. This one looks like a one-way portal to here; don't get too close."
 	does_teleport = FALSE
 	has_lifespan = FALSE
 	layer = OBJ_LAYER - 0.01
 	var/list/spawn_things = list() // The list things to spawn
 	var/num_of_spawns			   // How many times we want to spawn them before qdel
 	var/next_spawn
+
+/obj/effect/portal/spawner/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This portal is a spawner portal. You cannot enter it to teleport, but it will periodically spawn things."
 
 /obj/effect/portal/spawner/Initialize()
 	. = ..()
@@ -273,7 +276,6 @@
 /obj/effect/portal/revenant
 	name = "bluespace rift"
 	desc = "A bluespace tear in space, reaching directly to another point within this region. This one looks like a one-way portal to here, don't come too close."
-	desc_info = "This is a bluespace rift. It is a node wherein revenants can seep into this locale. To destroy it, you must bring a bluespace neutralizer near it."
 	icon_state = "portal_g"
 
 	does_teleport = FALSE
@@ -286,6 +288,10 @@
 
 	var/last_color_level = 5
 	var/health_timer = 10 MINUTES // you need to reduce the health by standing near it with a neutralizer
+
+/obj/effect/portal/revenant/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This is a bluespace rift. It is a node wherein revenants can seep into this locale. To destroy it, you must bring a bluespace neutralizer near it."
 
 /obj/effect/portal/revenant/Initialize(mapload)
 	. = ..()

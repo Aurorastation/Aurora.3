@@ -106,11 +106,15 @@
 	return TRUE
 
 /obj/item/blueprints/shuttle
-	desc_info = "These blueprints can be used to modify a shuttle. In order to be used, the shuttle must be located on its \"Open Space\" z-level. Newly-created areas will be automatically added to the shuttle. If all shuttle areas are removed, the shuttle will be destroyed!"
 	///Name of the blueprints' linked shuttle. Mapped-in versions should have this preset, or be mapped into the shuttle area itself.
 	var/shuttle_name
 	///The actual overmap shuttle type, for setting on preset blueprints.
 	var/obj/effect/overmap/visitable/ship/landable/shuttle_type
+
+/obj/item/blueprints/shuttle/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "These blueprints can be used to modify a shuttle. In order to be used, the shuttle must be located on its \"Open Space\" z-level."
+	. += "Newly-created areas will be automatically added to the shuttle. If all shuttle areas are removed, the shuttle will be destroyed!"
 
 /obj/item/blueprints/shuttle/set_valid_z_levels()
 	if(SSatlas.current_map.use_overmap)

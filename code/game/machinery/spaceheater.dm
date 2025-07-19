@@ -17,6 +17,14 @@
 	var/datum/gas_mixture/env
 	var/obj/item/cell/apc/cell
 
+/obj/machinery/space_heater/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "The unit is <b>[on ? "on" : "off"]</b> and the hatch is <b>[panel_open ? "open" : "closed"]</b>."
+	if(panel_open)
+		. += "The power cell is <b>[cell ? "installed" : "missing"]</b>."
+	else
+		. += "The charge meter reads <b>[cell ? round(cell.percent(),1) : 0]%</b>."
+
 /obj/machinery/space_heater/Initialize()
 	. = ..()
 	cell = new(src)
@@ -38,15 +46,6 @@
 		set_light(0)
 	if(panel_open)
 		AddOverlays("sheater-open")
-
-/obj/machinery/space_heater/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += "The unit is [on ? "on" : "off"] and the hatch is [panel_open ? "open" : "closed"]."
-	if(panel_open)
-		. += "The power cell is [cell ? "installed" : "missing"]."
-	else
-		. += "The charge meter reads [cell ? round(cell.percent(),1) : 0]%"
-	return
 
 /obj/machinery/space_heater/powered()
 	if(cell && cell.charge)

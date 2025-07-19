@@ -1,8 +1,6 @@
 /obj/item/gun/energy
 	name = "energy gun"
 	desc = "A basic energy-based gun."
-	desc_info = "This is an energy weapon.  To fire this weapon, toggle the safety with ctrl-click (or enable HARM intent), \
-	then click where you want to fire.  Most energy weapons can fire through windows harmlessly.  To recharge this weapon, use a weapon recharger."
 	icon = 'icons/obj/guns/ecarbine.dmi'
 	icon_state = "energykill100"
 	item_state = "energykill100"
@@ -43,6 +41,17 @@
 	var/can_switch_modes = 0				//1 allows switching lethal and stun modes
 	var/turret_sprite_set = "carbine"		//set of sprites to use for the turret gun
 	var/turret_is_lethal = 1				//is the gun in lethal (secondary) mode by default
+
+/obj/item/gun/energy/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This is an energy weapon. Most energy weapons can fire through windows harmlessly. Energy weapons must be recharged once depleted."
+
+/obj/item/gun/energy/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance > 1)
+		return
+	var/shots_remaining = round(power_supply.charge / charge_cost)
+	. += "It has [shots_remaining] shot\s remaining."
 
 /obj/item/gun/energy/switch_firemodes()
 	. = ..()
@@ -237,13 +246,6 @@
 
 	if(recharger)
 		disconnect()
-
-/obj/item/gun/energy/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance > 1)
-		return
-	var/shots_remaining = round(power_supply.charge / charge_cost)
-	. += "It has [shots_remaining] shot\s remaining."
 
 /obj/item/gun/energy/update_icon()
 	if(charge_meter && power_supply && power_supply.maxcharge)

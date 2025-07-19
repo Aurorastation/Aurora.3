@@ -128,7 +128,6 @@
 /obj/item/tent
 	name = "expedition tent"
 	desc = "A rolled up tent, ready to be assembled to make a base camp, shelter, or just a cozy place to chat."
-	desc_info = "Drag this to yourself to begin assembly. This will take some time, in 4 stages. Others can start working on the other stages by dragging it to themselves as well."
 	icon = 'icons/obj/item/camping.dmi'
 	icon_state = "tent"
 	item_state = "tent"
@@ -140,6 +139,10 @@
 	var/decal
 
 	var/datum/large_structure/tent/my_tent
+
+/obj/item/tent/assembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Drag this to yourself to begin assembly. This will take some time, in 4 stages. Others can start working on the other stages by dragging it to themselves as well."
 
 /obj/item/tent/Initialize()
 	. = ..()
@@ -229,7 +232,6 @@
 /obj/structure/component/tent_canvas
 	name = "tent canvas"
 	desc = "The fabric and poles which make up the wall of a tent. Not air-tight, but able to keep out the weather, and very cozy."
-	desc_info = "Drag this to yourself to begin disassembly. This will take some time, in 4 stages. Others can start working on the other stages by dragging it, or other sections, to themselves as well."
 	icon = 'icons/obj/item/camping.dmi'
 	icon_state = "canvas"
 	item_state = "canvas"
@@ -238,6 +240,10 @@
 	atom_flags = ATOM_FLAG_CHECKS_BORDER
 	atmos_canpass = CANPASS_ALWAYS //Tents are not air tight
 	layer = ABOVE_HUMAN_LAYER
+
+/obj/structure/component/tent_canvas/disassembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Drag this to yourself to begin disassembly. This will take some time, in 4 stages. Others can start working on the other stages by dragging it, or other sections, to themselves as well."
 
 /obj/structure/component/tent_canvas/CanPass(atom/movable/mover, turf/target, height, air_group)
 	. = ..()
@@ -303,12 +309,16 @@
 /obj/item/sleeping_bag
 	name = "sleeping bag"
 	desc = "A rolled up sleeping bag, ready to be taken on a camping trip."
-	desc_extended = "This item can be attached to a backpack."
 	icon = 'icons/obj/item/camping.dmi'
 	icon_state = "sleepingbag"
 	item_state = "sleepingbag"
 	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_BULKY
+
+/obj/item/sleeping_bag/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Left-click with this item in-hand on a turf or on yourself to unroll it."
+	. += "This item can be attached to a backpack."
 
 /obj/item/sleeping_bag/Initialize(mapload, ...)
 	. = ..()
@@ -328,14 +338,6 @@
 	var/turf/T = get_turf(user)
 	if(istype(T))
 		unroll(T, user)
-
-/obj/item/sleeping_bag/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
-	. = ..()
-	if(use_check(usr) || !Adjacent(usr))
-		return
-	var/turf/T = get_turf(src)
-	if(istype(T))
-		unroll(T, usr)
 
 /**
  * Creates sleeping bag structure on the target turf, deleting this item in the process
@@ -361,6 +363,11 @@
 	held_item = /obj/item/sleeping_bag
 	can_dismantle = FALSE
 	can_pad = FALSE
+
+/obj/structure/bed/sleeping_bag/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This object can be buckled into like any standard bed."
+	. += "Clicking and dragging this object onto yourself will roll it back up (so long as no one is sleeping inside)."
 
 /obj/structure/bed/sleeping_bag/update_icon()
 	return
@@ -401,6 +408,10 @@
 	contained_sprite = TRUE
 	default_material = MATERIAL_ALUMINIUM
 
+/obj/item/material/folding_table/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Left-click on yourself with this item in-hand to deploy it."
+
 /obj/item/material/folding_table/attack_self(mob/user)
 	if(use_check(user) || !Adjacent(user))
 		return
@@ -423,6 +434,10 @@
 	desc = "A temporary surface, for when you need a table, but only for a little while."
 	icon_state = "camping_table"
 	table_mat = MATERIAL_ALUMINIUM
+
+/obj/structure/table/rack/folding_table/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Clicking and dragging this object onto yourself will collapse it again."
 
 /obj/structure/table/rack/folding_table/dismantle(obj/item/wrench/W, mob/user)
 	return FALSE

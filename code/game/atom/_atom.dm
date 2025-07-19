@@ -53,19 +53,44 @@
 
 	var/gfi_layer_rotation = GFI_ROTATION_DEFAULT
 
-	/// Extra Descriptions
-	/// Regular text about the atom's extended description, if any exists.
+	/*
+	 *	EXTRA DESCRIPTIONS
+	 *	Adds additional information of different types about a given object.
+	 *	get_examine_text() in "obj\game\code\atom\atom_examine.dm" handles structure, formatting, etc.
+	 *
+	 *	Most of these vars only concern objs, but they are initialized here in case any functionality
+	 *	is migrated elsewhere.
+	 *
+	 *	These vars should not be set in the object definition, but in defined funcs just beneath definition.
+	 */
+
+	/// Text about the atom's damage/condition.
+	/// Gets built by children of /atom/proc/condition_hints()
+	var/desc_damagecondition = null
+
+	/// Text about the atom's extended description, if any exists.
+	/// Should be a regular string.
 	var/desc_extended = null
-	/// Blue text (SPAN_NOTICE()), informing the user about how to use the item or about game controls.
-	var/desc_info = null
-	/// Blue text (SPAN_NOTICE()), informing the user about how to assemble or disassemble the item.
+
+	/// Informs the user about how to use the item or about game controls.
+	/// Gets built by children of /atom/proc/mechanics_hints()
+	var/desc_mechanics = null
+
+	/// Informs the user about how to assemble or disassemble the item.
+	/// Gets built by children of /atom/proc/build_hints()
 	var/desc_build = null
+
 	/// Blue text (SPAN_NOTICE()), informing the user about what upgrades the item has and what they do.
-	/// Format desc_upgrade = "This object/item/machine/structure/etc has the following upgrades available:"
-	/// Currently only supports machines, see "code\game\machinery\machinery.dm" for example.
+	/// Gets built by children of /atom/proc/upgrade_hints()
 	var/desc_upgrade = null
-	/// Red text (SPAN_ALERT()), informing the user about how they can use an object to antagonize.
+
+	/// Informs the user about how they can use an object to antagonize.
+	/// Gets built by children of /atom/proc/antag_hints()
 	var/desc_antag = null
+
+	/// Feedback text.
+	/// Gets built by children of /atom/proc/feedback_hints()
+	var/desc_feedback = null
 
 	/* SSicon_update VARS */
 

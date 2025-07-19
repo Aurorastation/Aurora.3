@@ -1,7 +1,6 @@
 /obj/machinery/meter
 	name = "meter"
-	desc = "It measures something."
-	desc_info = "Measures the volume and temperature of the pipe under the meter."
+	desc = "Measures the volume and temperature of the pipe under the meter."
 	icon = 'icons/obj/meter.dmi'
 	icon_state = "meter_base"
 	var/obj/machinery/atmospherics/pipe/target = null
@@ -17,6 +16,22 @@
 	var/mutable_appearance/button_emissive
 	var/mutable_appearance/atmos_emissive
 
+/obj/machinery/meter/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance > 3 && !isAI(user))
+		. += SPAN_WARNING("You are too far away to read it.")
+
+	else if(stat & (NOPOWER|BROKEN))
+		. += SPAN_WARNING("The display is off.")
+
+	else if(src.target)
+		var/datum/gas_mixture/environment = target.return_air()
+		if(environment)
+			. += "The pressure gauge reads [round(environment.return_pressure(), 0.01)] kPa; [round(environment.temperature,0.01)]K ([round(environment.temperature-T0C,0.01)]&deg;C)"
+		else
+			. += SPAN_WARNING("The sensor error light is blinking.")
+	else
+		. += SPAN_WARNING("The connect error light is blinking.")
 
 /obj/machinery/meter/Initialize()
 	. = ..()
@@ -114,30 +129,7 @@
 		)
 		radio_connection.post_signal(src, signal)
 
-/obj/machinery/meter/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-
-	var/t = "A gas flow meter. "
-
-	if(distance > 3 && !isAI(user))
-		t += SPAN_WARNING("You are too far away to read it.")
-
-	else if(stat & (NOPOWER|BROKEN))
-		t += SPAN_WARNING("The display is off.")
-
-	else if(src.target)
-		var/datum/gas_mixture/environment = target.return_air()
-		if(environment)
-			t += "The pressure gauge reads [round(environment.return_pressure(), 0.01)] kPa; [round(environment.temperature,0.01)]K ([round(environment.temperature-T0C,0.01)]&deg;C)"
-		else
-			t += SPAN_WARNING("The sensor error light is blinking.")
-	else
-		t += SPAN_WARNING("The connect error light is blinking.")
-
-	. += t
-
 /obj/machinery/meter/Click()
-
 	if(istype(usr, /mob/living/silicon/ai)) // ghosts can call ..() for examine
 		examinate(usr, src)
 		return 1

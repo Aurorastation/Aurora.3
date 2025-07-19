@@ -18,6 +18,11 @@
 	var/base_name = "sandwich"
 	var/topper = "sandwich_top"
 
+/obj/item/reagent_containers/food/snacks/csandwich/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	var/obj/item/O = pick(contents)
+	. += SPAN_NOTICE("You think you can see [O.name] in there.")
+
 /obj/item/reagent_containers/food/snacks/csandwich/attackby(obj/item/attacking_item, mob/user)
 
 	var/sandwich_limit = 4
@@ -68,11 +73,6 @@
 /obj/item/reagent_containers/food/snacks/csandwich/Destroy()
 	QDEL_LIST(ingredients)
 	return ..()
-
-/obj/item/reagent_containers/food/snacks/csandwich/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	var/obj/item/O = pick(contents)
-	. += SPAN_NOTICE("You think you can see [O.name] in there.")
 
 /obj/item/reagent_containers/food/snacks/csandwich/roll
 	name = "roll"

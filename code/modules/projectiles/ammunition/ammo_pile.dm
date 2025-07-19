@@ -8,6 +8,11 @@
 	var/ammo_type // the type of ammo this ammo pile accepts
 	var/max_ammo = 5
 
+/obj/item/ammo_pile/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(is_adjacent)
+		. += SPAN_NOTICE("It contains [length(ammo)] rounds.")
+
 /obj/item/ammo_pile/Initialize(mapload, var/list/provided_ammo)
 	. = ..()
 	if(islist(provided_ammo))
@@ -25,11 +30,6 @@
 			var/obj/C = new ammo_type()
 			add_ammo(C)
 	addtimer(CALLBACK(src, PROC_REF(check_ammo)), 5) // if we don't have any ammo in 5 deciseconds, we're an empty pile, which is worthless, so self-delete
-
-/obj/item/ammo_pile/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(is_adjacent)
-		. += SPAN_NOTICE("It contains [length(ammo)] rounds.")
 
 /obj/item/ammo_pile/attack(mob/living/target_mob, mob/living/user, target_zone)
 	return

@@ -97,11 +97,14 @@
 /obj/item/plastique/cyborg
 	name = "plastic explosives dispenser"
 	desc = "A stationbound-mounted C4 dispenser, how thrilling!"
-	desc_antag = "When used, this dispenser will deploy C4 on a target, upon which it will enter a charging state. After two minutes, it will restock a new C4 bundle."
 	var/can_deploy = TRUE
 	var/recharge_time = 5 MINUTES
 	maptext_x = 3
 	maptext_y = 2
+
+/obj/item/plastique/cyborg/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "When used, this dispenser will deploy C4 on a target, upon which it will enter a charging state. After two minutes, it will restock a new C4 bundle."
 
 /obj/item/plastique/cyborg/Initialize()
 	. = ..()

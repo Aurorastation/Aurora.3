@@ -1109,13 +1109,16 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/thermal/aviator
 	name = "aviators"
 	desc = "A pair of designer sunglasses. They should put HUDs in these."
-	desc_antag = "Modified aviator glasses with a toggled thermal-vision mode."
 	icon_state = "aviator_thr"
 	off_state = "aviator_off"
 	item_state_slots = list(slot_r_hand_str = "sunglasses", slot_l_hand_str = "sunglasses")
 	action_button_name = "Toggle HUD"
 	activation_sound = 'sound/effects/pop.ogg'
 	prescription = 7
+
+/obj/item/clothing/glasses/thermal/aviator/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Modified aviator glasses with a toggled thermal-vision mode."
 
 /obj/item/clothing/glasses/thermal/aviator/verb/toggle()
 	set category = "Object"

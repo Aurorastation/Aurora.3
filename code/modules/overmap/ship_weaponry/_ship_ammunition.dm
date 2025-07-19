@@ -31,6 +31,28 @@
 	var/cookoff_heavy = 2
 	var/cookoff_light = 3
 
+/obj/item/ship_ammunition/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Using a pen on \the [src] will let you write a lovely message on it for your intended target; this message is detectable on the overmap by ship sensors."
+	. += "Some types of ammunition are especially flammable, fragile, etc. They can cook off if not stored and handled very carefully."
+
+/obj/item/ship_ammunition/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(written_message)
+		if(distance > 3)
+			. += "It has something written on it, but you'd need to get closer to tell what the writing says."
+		else
+			. += "It has a message written on the casing: <span class='notice'><i>[written_message]</i></span>."
+
+/obj/item/ship_ammunition/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(ammunition_flags & SHIP_AMMO_FLAG_INFLAMMABLE)
+		. += "This ammunition is flammable, and will cook off and explode when exposed to fire."
+	if(ammunition_flags & SHIP_AMMO_FLAG_VULNERABLE)
+		. += "This ammunition is vulnerable, and will cook off and explode on impact if shot at or attacked."
+	if(ammunition_flags & SHIP_AMMO_FLAG_VERY_FRAGILE)
+		. += "This ammunition is very fragile, and will cook off and explode on impact if thrown, or even just dropped with the Harm intent!"
+
 /obj/item/ship_ammunition/Initialize()
 	. = ..()
 	update_status()
@@ -56,14 +78,6 @@
 			visible_message(SPAN_NOTICE("[user] writes something on \the [src] with \the [P]."), SPAN_NOTICE("You leave a nice message on \the [src]!"))
 			return
 	return ..()
-
-/obj/item/ship_ammunition/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(written_message)
-		if(distance > 3)
-			. += "It has something written on it, but you'd need to get closer to tell what the writing says."
-		else
-			. += "It has a message written on the casing: <span class='notice'><i>[written_message]</i></span>."
 
 /obj/item/ship_ammunition/do_additional_pickup_checks(var/mob/user)
 	if(ammunition_flags & SHIP_AMMO_FLAG_VERY_HEAVY)

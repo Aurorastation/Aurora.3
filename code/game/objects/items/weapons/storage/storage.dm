@@ -86,6 +86,11 @@
 
 	var/make_exact_fit = FALSE
 
+/obj/item/storage/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(isghost(user) || isstoryteller(user))
+		. += "It contains: [counting_english_list(contents)]"
+
 /obj/item/storage/Destroy()
 	close_all()
 	QDEL_NULL(boxes)
@@ -197,12 +202,6 @@
 		handle_storage_deferred(user)
 
 	return return_status
-
-
-/obj/item/storage/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(isghost(user))
-		. += "It contains: [counting_english_list(contents)]"
 
 /obj/item/storage/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	. = ..()

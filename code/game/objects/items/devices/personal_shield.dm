@@ -12,11 +12,11 @@
 	var/upkeep_cost = 2
 	var/obj/aura/personal_shield/device/shield
 
-/obj/item/device/personal_shield/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/device/personal_shield/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(is_adjacent)
-		. += SPAN_NOTICE("\The [src] has [cell.charge] charge remaining.")
-		. += SPAN_NOTICE("Shield upkeep costs [upkeep_cost] charge, and blocking a shot costs [SPAN_NOTICE("[charge_per_shot]")] charge.")
+		. += "\The [src] has <b>[cell.charge]</b> charge remaining."
+		. += "Shield upkeep costs <b>[upkeep_cost]</b> charge, and blocking a shot costs <b>[charge_per_shot]</b> charge."
 
 /obj/item/device/personal_shield/Initialize()
 	. = ..()

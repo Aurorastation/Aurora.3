@@ -21,6 +21,11 @@
 	pickup_sound = 'sound/items/pickup/ring.ogg'
 	var/reload_sound = 'sound/weapons/reload_bullet.ogg' //sound that plays when inserted into gun.
 
+/obj/item/ammo_casing/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if (!BB)
+		. += "This one is spent."
+
 /obj/item/ammo_casing/Initialize()
 	. = ..()
 	if(ispath(projectile_type))
@@ -79,11 +84,6 @@
 	if(spent_icon && !BB)
 		icon_state = spent_icon
 
-/obj/item/ammo_casing/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if (!BB)
-		. += "This one is spent."
-
 //Gun loading types
 #define SINGLE_CASING 	1	//The gun only accepts ammo_casings. ammo_magazines should never have this as their mag_type.
 #define SPEEDLOADER 	2	//Transfers casings from the mag to the gun when used.
@@ -122,6 +122,10 @@
 	var/insert_sound = /singleton/sound_category/metal_slide_reload
 	/// sound item plays when it is ejected from a gun.
 	var/eject_sound = 'sound/weapons/magazine_eject.ogg'
+
+/obj/item/ammo_magazine/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "There [(stored_ammo.len == 1)? "is" : "are"] <b>[stored_ammo.len] round\s</b> left!"
 
 /obj/item/ammo_magazine/Initialize()
 	. = ..()
@@ -184,10 +188,6 @@
 		recyclable = TRUE
 	else
 		recyclable = FALSE
-
-/obj/item/ammo_magazine/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += "There [(stored_ammo.len == 1)? "is" : "are"] [stored_ammo.len] round\s left!"
 
 //magazine icon state caching (caching lists are in SSicon_cache)
 

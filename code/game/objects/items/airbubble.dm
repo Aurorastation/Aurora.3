@@ -63,7 +63,6 @@
 	var/zipped = FALSE
 	density = 0
 	storage_capacity = 20
-	var/contains_body = FALSE
 	var/used = TRUE // If we have deployed it once
 	var/ripped = FALSE // If it has a hole it in, vent all the air outside
 	var/breakout_time = 1 // How many minutes it takes to break out of it.
@@ -82,14 +81,14 @@
 	slowdown = 0
 
 // Examine to see tank pressure
-/obj/structure/closet/airbubble/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/structure/closet/airbubble/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(!isnull(internal_tank))
-		. += SPAN_NOTICE("\The [src] has [internal_tank] attached, that displays [round(internal_tank.air_contents.return_pressure() ? internal_tank.air_contents.return_pressure() : 0)] KPa.")
+		. += SPAN_NOTICE("\The [src] has [internal_tank] attached, that displays <b>[round(internal_tank.air_contents.return_pressure() ? internal_tank.air_contents.return_pressure() : 0)] kPa</b>.")
 	else
 		. += SPAN_NOTICE("\The [src] has no tank attached.")
 	if (cell)
-		. += "\The [src] has [cell] attached, the charge meter reads [round(cell.percent())]%."
+		. += "\The [src] has [cell] attached, the charge meter reads <b>[round(cell.percent())]%</b>."
 	else
 		. += SPAN_WARNING("[src] has no power cell installed.")
 

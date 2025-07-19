@@ -687,7 +687,6 @@
 	name = "wet floor sign"
 	desc = "Caution! Wet Floor!"
 	desc_extended = "Used by the janitor to passive-aggressively point at when you eventually slip on one of their mopped floors."
-	desc_info = "Alt-click, or click in-hand to toggle the caution lights. It looks like you can wear it in your suit slot."
 	icon = 'icons/obj/janitor.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_janitor.dmi',
@@ -704,6 +703,11 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 	attack_verb = list("warned", "cautioned", "smashed")
 	armor = list(melee = 5, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
+
+/obj/item/clothing/suit/caution/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "ALT-click, or click in-hand to toggle the caution lights."
+	. += "It looks like you could wear it in your suit slot if you really wanted to."
 
 /obj/item/clothing/suit/caution/attack_self()
 	toggle()

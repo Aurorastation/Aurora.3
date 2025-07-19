@@ -141,7 +141,6 @@ Frequency:
 /obj/item/hand_tele
 	name = "hand tele"
 	desc = "A hand-held bluespace teleporter that can rip open portals to a random nearby location, or lock onto a teleporter with a selected teleportation beacon."
-	desc_info = "Ctrl-click to choose which teleportation pad to link to. Use in-hand or alt-click to deploy a portal. When not linked to a pad, or the pad isn't pointing at a beacon, it will choose a completely random teleportation destination."
 	icon = 'icons/obj/item/hand_tele.dmi'
 	icon_state = "hand_tele"
 	item_state = "electronic"
@@ -158,8 +157,14 @@ Frequency:
 
 	var/max_portals = 2
 
-/obj/item/hand_tele/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/hand_tele/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Ctrl-click to choose which teleportation pad to link to."
+	. += "Use in-hand or alt-click to deploy a portal. "
+	. += "When not linked to a pad, or the pad isn't pointing at a beacon, it will choose a completely random teleportation destination."
+
+/obj/item/hand_tele/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(linked_pad)
 		var/area/A = get_area(linked_pad)
 		. += SPAN_NOTICE("\The [src] is linked to a teleportation pad in [A.name]")
@@ -266,7 +271,6 @@ Frequency:
 /obj/item/closet_teleporter
 	name = "closet teleporter"
 	desc = "A device that allows a user to connect two closets into a bluespace network."
-	desc_antag = "Click a closet with this to install. Step into the closet and close the door to teleport to the linked closet. It has a one minute cooldown after a batch teleport."
 	icon = 'icons/obj/modular_components.dmi'
 	icon_state = "cpu_normal_photonic"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
@@ -276,6 +280,12 @@ Frequency:
 	var/obj/structure/closet/attached_closet
 	var/obj/item/closet_teleporter/linked_teleporter
 	var/last_use = 0
+
+/obj/item/closet_teleporter/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Left-click a closet with this to install."
+	. += "Once two closets have been 'upgraded', step into one closet and close the door to teleport to the linked closet."
+	. += "It has a one minute cooldown after a batch teleport."
 
 /obj/item/closet_teleporter/proc/do_teleport(var/mob/user)
 	if(!attached_closet)

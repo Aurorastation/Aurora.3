@@ -6,7 +6,6 @@
 /obj/item/device/multitool
 	name = "multitool"
 	desc = "This small, handheld device is made of durable, insulated plastic. It has a electrode jack, perfect for interfacing with numerous machines, as well as an in-built NT-SmartTrack! system."
-	desc_info = "You can use this on airlocks or APCs to try to hack them without cutting wires. You can also use it to wire circuits, and track APCs by using it in-hand."
 	icon = 'icons/obj/item/device/multitool.dmi'
 	icon_state = "multitool"
 	item_state = "multitool"
@@ -34,6 +33,14 @@
 
 	var/datum/integrated_io/selected_io = null
 	var/mode = 0
+
+/obj/item/device/multitool/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can use this on a variety of objects (including APCs, airlocks and more) to try to hack them without cutting wires."
+	. += "Using it in-hand will toggle tracking of nearby APCs."
+	. += "Using it on a length of laid cable will return how much current it is carrying."
+	. += "It is used for interacting with a variety of machines."
+	. += "It is a necessary tool for integrated electronics wiring."
 
 /obj/item/device/multitool/Destroy()
 	unregister_buffer(buffer_object)

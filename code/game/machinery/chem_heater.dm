@@ -18,7 +18,6 @@
 	var/min_temperature = 100
 	var/max_temperature = 600
 	var/slow_mode = FALSE
-	component_hint_servo = "Upgraded <b>servos</b> increase the speed at which vessel contents are heated."
 
 	component_types = list(
 		/obj/item/circuitboard/chem_heater,
@@ -26,6 +25,10 @@
 		/obj/item/stock_parts/manipulator,
 		/obj/item/stock_parts/manipulator
 	)
+
+/obj/machinery/chem_heater/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>manipulators</b> increase the speed at which vessel contents are heated."
 
 /obj/machinery/chem_heater/attack_hand(mob/user)
 	user.set_machine(src)

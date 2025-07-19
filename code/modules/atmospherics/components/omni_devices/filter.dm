@@ -5,8 +5,6 @@
 	name = "omni gas filter"
 	icon_state = "map_filter"
 	base_icon = "filter"
-	desc_info = "Filters gas from a custom input direction, with up to two filtered outputs and a 'everything else' \
-	output.  The filtered output's arrows glow orange."
 
 	var/list/active_filters = new()
 	var/datum/omni_port/input
@@ -19,6 +17,11 @@
 	var/set_flow_rate = ATMOS_DEFAULT_VOLUME_FILTER
 
 	var/list/filtering_outputs = list()	//maps gasids to gas_mixtures
+
+/obj/machinery/atmospherics/omni/filter/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Filters gas from a custom input direction, with up to two filtered outputs and an 'everything else' output."
+	. += "The filtered output's arrows glow orange."
 
 /obj/machinery/atmospherics/omni/filter/Initialize()
 	. = ..()

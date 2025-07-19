@@ -1,7 +1,6 @@
 /obj/item/device/flash
 	name = "flash"
 	desc = "A security device capable of producing a blinding, incapacitating flash at close ranges. Repeated use may result in a burnt-out bulb and/or excessive force investigations."
-	desc_info = "Click on someone adjacent to you to attempt to blind them. Use it in your hand with HARM intent, or on yourself, to blind everyone in a small radius (including yourself!)"
 	icon = 'icons/obj/item/device/flash.dmi'
 	icon_state = "flash"
 	item_state = "flash"
@@ -18,13 +17,18 @@
 
 	var/last_use = 0
 
-/obj/item/device/flash/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/device/flash/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Click on someone adjacent to you to attempt to blind them."
+	. += "Use it in your hand with HARM intent, or on yourself, to blind everyone in a small radius (including yourself!)"
+
+/obj/item/device/flash/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(!broken)
 		var/num_charges = max(0, max_charges - times_used)
-		. += SPAN_NOTICE("The charge indicator shows [num_charges] charge[num_charges == 1 ? "" : "s"] remain[num_charges == 1 ? "s" : ""].")
+		. += "The charge indicator shows [num_charges] charge[num_charges == 1 ? "" : "s"] remain[num_charges == 1 ? "s" : ""]."
 	else
-		. += SPAN_WARNING("\The [src]'s bulb is burnt out!")
+		. += SPAN_ALERT("\The [src]'s bulb is burnt out!")
 
 /obj/item/device/flash/proc/clumsy_check(mob/user)
 	if(user && (user.is_clumsy()) && prob(50))

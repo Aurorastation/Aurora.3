@@ -1,6 +1,4 @@
 /obj/machinery/atmospherics/pipe
-	desc_info = "This pipe, and all other pipes, can be connected or disconnected by a wrench.  The internal pressure of the pipe must \
-	be below 300 kPa to do this.  More pipes can be obtained from the pipe dispenser."
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/datum/gas_mixture/air_temporary // used when reconstructing a pipeline that broke
 	var/datum/pipeline/parent
@@ -16,18 +14,17 @@
 	buckle_require_restraints = 1
 	buckle_lying = -1
 
-/obj/machinery/atmospherics/pipe/drain_power()
-	return -1
+/obj/machinery/atmospherics/pipe/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This pipe, and all other pipes, can be safely connected or disconnected by a pipe wrench. The internal pressure of the pipe must \
+	be below 300 kPa to do this."
+	. += "Using a regular wrench on a pressurized pipe is not a good idea."
+	. += "Special pipe types, like Supply, Scrubber, Fuel, and Aux, will not connect to normal pipes or to each other. If you want to connect them, use \
+	a Universal Adapter pipe."
+	. += "Use an Analyzer on a pipe to get details on its contents."
 
-/obj/machinery/atmospherics/pipe/Initialize()
-	if(istype(get_turf(src), /turf/simulated/wall) || istype(get_turf(src), /turf/unsimulated/wall))
-		level = 1
-	. = ..()
-	desc_info += "<br>Most pipes and atmospheric devices can be connected or disconnected with a wrench.  The pipe's pressure must not be too high, \
-	or if it is a device, it must be turned off first."
-
-/obj/machinery/atmospherics/pipe/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/machinery/atmospherics/pipe/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	var/pipe_color_check = pipe_color || PIPE_COLOR_GREY
 	var/found_color_name = "Unknown"
 	for(var/color_name in GLOB.pipe_colors)
@@ -36,6 +33,14 @@
 			found_color_name = color_name
 			break
 	. += "This pipe is: <span style='color:[pipe_color_check == PIPE_COLOR_GREY ? COLOR_GRAY : pipe_color_check]'>[capitalize(found_color_name)]</span>"
+
+/obj/machinery/atmospherics/pipe/drain_power()
+	return -1
+
+/obj/machinery/atmospherics/pipe/Initialize()
+	if(istype(get_turf(src), /turf/simulated/wall) || istype(get_turf(src), /turf/unsimulated/wall))
+		level = 1
+	. = ..()
 
 /obj/machinery/atmospherics/pipe/hides_under_flooring()
 	return level != 2
@@ -351,16 +356,12 @@
 	return null
 
 /obj/machinery/atmospherics/pipe/simple/visible
-	desc_info = "This is a special 'scrubber' pipe, which does not connect to 'normal' pipes.  If you want to connect it, use \
-	a Universal Adapter pipe."
 	icon_state = "intact"
 	level = 2
 
 /obj/machinery/atmospherics/pipe/simple/visible/scrubbers
 	name = "Scrubbers pipe"
 	desc = "A one meter section of scrubbers pipe."
-	desc_info = "This is a special 'scrubbers' pipe, which does not connect to 'normal' pipes.  If you want to connect it, use \
-	a Universal Adapter pipe."
 	icon_state = "intact-scrubbers"
 	connect_types = CONNECT_TYPE_SCRUBBER
 	icon_connect_type = "-scrubbers"
@@ -369,8 +370,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible/supply
 	name = "Air supply pipe"
 	desc = "A one meter section of supply pipe"
-	desc_info = "This is a special 'supply' pipe, which does not connect to 'normal' pipes.  If you want to connect it, use \
-	a Universal Adapter pipe."
 	icon_state = "intact-supply"
 	connect_types = CONNECT_TYPE_SUPPLY
 	icon_connect_type = "-supply"
@@ -379,8 +378,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible/fuel
 	name = "Fuel pipe"
 	desc = "A one meter section of fuel pipe."
-	desc_info = "This is a special 'fuel' pipe, which does not connect to 'normal' pipes.  If you want to connect it, use \
-	a Universal Adapter pipe."
 	icon_state = "intact-fuel"
 	connect_types = CONNECT_TYPE_FUEL
 	icon_connect_type = "-fuel"
@@ -389,8 +386,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible/aux
 	name = "Auxiliary pipe"
 	desc = "A one meter section of auxiliary pipe."
-	desc_info = "This is a special 'aux' pipe, which does not connect to 'normal' pipes.  If you want to connect it, use \
-	a Universal Adapter pipe."
 	icon_state = "intact-aux"
 	connect_types = CONNECT_TYPE_AUX
 	icon_connect_type = "-aux"
@@ -425,8 +420,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers
 	name = "Scrubbers pipe"
 	desc = "A one meter section of scrubbers pipe."
-	desc_info = "This is a special 'scrubber' pipe, which does not connect to 'normal' pipes.  If you want to connect it, use \
-	a Universal Adapter pipe."
 	icon_state = "intact-scrubbers"
 	connect_types = CONNECT_TYPE_SCRUBBER
 	icon_connect_type = "-scrubbers"
@@ -435,8 +428,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply
 	name = "Air supply pipe"
 	desc = "A one meter section of supply pipe."
-	desc_info = "This is a special 'supply' pipe, which does not connect to 'normal' pipes.  If you want to connect it, use \
-	a Universal Adapter pipe."
 	icon_state = "intact-supply"
 	connect_types = CONNECT_TYPE_SUPPLY
 	icon_connect_type = "-supply"
@@ -445,8 +436,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel
 	name = "Fuel pipe"
 	desc = "A one meter section of fuel pipe."
-	desc_info = "This is a special 'fuel' pipe, which does not connect to 'normal' pipes.  If you want to connect it, use \
-	a Universal Adapter pipe."
 	icon_state = "intact-fuel"
 	connect_types = CONNECT_TYPE_FUEL
 	icon_connect_type = "-fuel"
@@ -455,8 +444,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux
 	name = "Auxiliary pipe"
 	desc = "A one meter section of auxiliary pipe."
-	desc_info = "This is a special 'aux' pipe, which does not connect to 'normal' pipes.  If you want to connect it, use \
-	a Universal Adapter pipe."
 	icon_state = "intact-aux"
 	connect_types = CONNECT_TYPE_AUX
 	icon_connect_type = "-aux"
@@ -486,7 +473,6 @@
 /obj/machinery/atmospherics/pipe/manifold
 	name = "pipe manifold"
 	desc = "A manifold composed of regular pipes."
-	desc_info = "A normal pipe with three ends to connect to."
 	icon = 'icons/atmos/manifold.dmi'
 	icon_state = ""
 
@@ -680,8 +666,6 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/scrubbers
 	name = "scrubbers pipe manifold"
 	desc = "A manifold composed of scrubbers pipes"
-	desc_info = "This is a special 'scrubber' pipe, which does not connect to 'normal' pipes.  If you want to connect it, use \
-	a Universal Adapter pipe."
 	icon_state = "map-scrubbers"
 	connect_types = CONNECT_TYPE_SCRUBBER
 	icon_connect_type = "-scrubbers"
@@ -690,8 +674,6 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/supply
 	name = "air supply pipe manifold"
 	desc = "A manifold composed of supply pipes."
-	desc_info = "This is a special 'supply' pipe, which does not connect to 'normal' pipes.  If you want to connect it, use \
-	a Universal Adapter pipe."
 	icon_state = "map-supply"
 	connect_types = CONNECT_TYPE_SUPPLY
 	icon_connect_type = "-supply"
@@ -700,8 +682,6 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/fuel
 	name = "fuel pipe manifold"
 	desc = "A manifold composed of fuel piping."
-	desc_info = "This is a special 'fuel' pipe, which does not connect to 'normal' pipes.  If you want to connect it, use \
-	a Universal Adapter pipe."
 	icon_state = "map-fuel"
 	connect_types = CONNECT_TYPE_FUEL
 	icon_connect_type = "-fuel"
@@ -710,8 +690,6 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/aux
 	name = "auxiliary pipe manifold"
 	desc = "A manifold composed of auxiliary piping."
-	desc_info = "This is a special 'aux' pipe, which does not connect to 'normal' pipes.  If you want to connect it, use \
-	a Universal Adapter pipe."
 	icon_state = "map-aux"
 	connect_types = CONNECT_TYPE_AUX
 	icon_connect_type = "-aux"
@@ -746,8 +724,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers
 	name = "scrubbers pipe manifold"
 	desc = "A manifold composed of scrubbers pipes."
-	desc_info = "This is a special 'scrubber' pipe, which does not connect to 'normal' pipes.  If you want to connect it, use \
-	a Universal Adapter pipe."
 	icon_state = "map-scrubbers"
 	connect_types = CONNECT_TYPE_SCRUBBER
 	icon_connect_type = "-scrubbers"
@@ -756,8 +732,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply
 	name = "air supply pipe manifold"
 	desc = "A manifold composed of supply pipes."
-	desc_info = "This is a special 'supply' pipe, which does not connect to 'normal' pipes.  If you want to connect it, use \
-	a Universal Adapter pipe."
 	icon_state = "map-supply"
 	connect_types = CONNECT_TYPE_SUPPLY
 	icon_connect_type = "-supply"
@@ -766,8 +740,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel
 	name = "Fuel pipe manifold"
 	desc = "A manifold composed of fuel pipes."
-	desc_info = "This is a special 'fuel' pipe, which does not connect to 'normal' pipes.  If you want to connect it, use \
-	a Universal Adapter pipe."
 	icon_state = "map-fuel"
 	connect_types = CONNECT_TYPE_FUEL
 	icon_connect_type = "-fuel"
@@ -776,8 +748,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux
 	name = "Auxiliary pipe"
 	desc = "A manifold composed of auxiliary pipes."
-	desc_info = "This is a special 'aux' pipe, which does not connect to 'normal' pipes.  If you want to connect it, use \
-	a Universal Adapter pipe."
 	icon_state = "map-aux"
 	connect_types = CONNECT_TYPE_AUX
 	icon_connect_type = "-aux"
@@ -807,7 +777,6 @@
 /obj/machinery/atmospherics/pipe/manifold4w
 	name = "4-way pipe manifold"
 	desc = "A manifold composed of regular pipes."
-	desc_info = "This is a four-way pipe."
 	icon = 'icons/atmos/manifold.dmi'
 	icon_state = ""
 
@@ -1003,8 +972,6 @@
 /obj/machinery/atmospherics/pipe/manifold4w/visible/scrubbers
 	name = "4-way scrubbers pipe manifold"
 	desc = "A manifold composed of scrubbers pipes."
-	desc_info = "This is a special 'scrubber' pipe, which does not connect to 'normal' pipes.  If you want to connect it, use \
-	a Universal Adapter pipe."
 	icon_state = "map_4way-scrubbers"
 	connect_types = CONNECT_TYPE_SCRUBBER
 	icon_connect_type = "-scrubbers"
@@ -1013,8 +980,6 @@
 /obj/machinery/atmospherics/pipe/manifold4w/visible/supply
 	name = "4-way air supply pipe manifold"
 	desc = "A manifold composed of supply pipes"
-	desc_info = "This is a special 'supply' pipe, which does not connect to 'normal' pipes.  If you want to connect it, use \
-	a Universal Adapter pipe."
 	icon_state = "map_4way-supply"
 	connect_types = CONNECT_TYPE_SUPPLY
 	icon_connect_type = "-supply"
@@ -1023,8 +988,6 @@
 /obj/machinery/atmospherics/pipe/manifold4w/visible/fuel
 	name = "4-way fuel pipe manifold"
 	desc = "A manifold composed of fuel pipes."
-	desc_info = "This is a special 'fuel' pipe, which does not connect to 'normal' pipes.  If you want to connect it, use \
-	a Universal Adapter pipe."
 	icon_state = "map_4way-fuel"
 	connect_types = CONNECT_TYPE_FUEL
 	icon_connect_type = "-fuel"
@@ -1033,8 +996,6 @@
 /obj/machinery/atmospherics/pipe/manifold4w/visible/aux
 	name = "4-way auxiliary pipe manifold"
 	desc = "A manifold composed of auxiliary pipes"
-	desc_info = "This is a special 'aux' pipe, which does not connect to 'normal' pipes.  If you want to connect it, use \
-	a Universal Adapter pipe."
 	icon_state = "map_4way-aux"
 	connect_types = CONNECT_TYPE_AUX
 	icon_connect_type = "-aux"
@@ -1069,8 +1030,6 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers
 	name = "4-way scrubbers pipe manifold"
 	desc = "A manifold composed of scrubbers pipes."
-	desc_info = "This is a special 'scrubber' pipe, which does not connect to 'normal' pipes.  If you want to connect it, use \
-	a Universal Adapter pipe."
 	icon_state = "map_4way-scrubbers"
 	connect_types = CONNECT_TYPE_SCRUBBER
 	icon_connect_type = "-scrubbers"
@@ -1079,8 +1038,6 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply
 	name = "4-way air supply pipe manifold"
 	desc = "A manifold composed of supply pipes."
-	desc_info = "This is a special 'supply' pipe, which does not connect to 'normal' pipes.  If you want to connect it, use \
-	a Universal Adapter pipe."
 	icon_state = "map_4way-supply"
 	connect_types = CONNECT_TYPE_SUPPLY
 	icon_connect_type = "-supply"
@@ -1089,8 +1046,6 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/fuel
 	name = "4-way fuel pipe manifold"
 	desc = "A manifold composed of fuel pipes."
-	desc_info = "This is a special 'fuel' pipe, which does not connect to 'normal' pipes.  If you want to connect it, use \
-	a Universal Adapter pipe."
 	icon_state = "map_4way-fuel"
 	connect_types = CONNECT_TYPE_FUEL
 	icon_connect_type = "-fuel"
@@ -1099,8 +1054,6 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/aux
 	name = "4-way auxiliary pipe manifold"
 	desc = "A manifold composed of auxiliary pipes."
-	desc_info = "This is a special 'aux' pipe, which does not connect to 'normal' pipes.  If you want to connect it, use \
-	a Universal Adapter pipe."
 	icon_state = "map_4way-aux"
 	connect_types = CONNECT_TYPE_AUX
 	icon_connect_type = "-aux"
@@ -1130,7 +1083,6 @@
 /obj/machinery/atmospherics/pipe/cap
 	name = "pipe endcap"
 	desc = "An endcap for pipes"
-	desc_info = "This is a cosmetic attachment, as pipes do not spill their contents into the air."
 	icon = 'icons/atmos/pipes.dmi'
 	icon_state = ""
 	level = 2
@@ -1141,6 +1093,10 @@
 	initialize_directions = SOUTH
 
 	var/obj/machinery/atmospherics/node
+
+/obj/machinery/atmospherics/pipe/cap/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This is a cosmetic attachment, as pipes do not spill their contents into the air."
 
 /obj/machinery/atmospherics/pipe/cap/Initialize()
 	initialize_directions = dir
@@ -1465,10 +1421,14 @@
 /obj/machinery/atmospherics/pipe/simple/visible/universal
 	name = "universal pipe adapter"
 	desc = "An adapter for regular, supply, scrubbers, fuel, and auxiliary pipes."
-	desc_info = "This allows you to connect 'normal' pipes, blue 'supply' pipes, red 'scrubber' pipes, yellow 'fuel' pipes, and cyan 'aux' pipes together."
 	connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_SUPPLY|CONNECT_TYPE_SCRUBBER|CONNECT_TYPE_FUEL|CONNECT_TYPE_AUX
 	icon_state = "map_universal"
 	gfi_layer_rotation = GFI_ROTATION_OVERDIR
+
+/obj/machinery/atmospherics/pipe/simple/visible/universal/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += "This allows you to connect 'normal' pipes, blue 'supply' pipes, red 'scrubber' pipes, yellow 'fuel' pipes, and cyan 'aux' pipes together."
+	. += ..()
 
 /obj/machinery/atmospherics/pipe/simple/visible/universal/update_icon(var/safety = 0)
 	if(!check_icon_cache())
@@ -1497,15 +1457,17 @@
 	..()
 	queue_icon_update()
 
-
-
 /obj/machinery/atmospherics/pipe/simple/hidden/universal
 	name = "universal pipe adapter"
 	desc = "An adapter for regular, supply, scrubbers, fuel, and auxiliary pipes."
-	desc_info = "This allows you to connect 'normal' pipes, blue 'supply' pipes, red 'scrubber' pipes, yellow 'fuel' pipes, and cyan 'aux' pipes together."
 	connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_SUPPLY|CONNECT_TYPE_SCRUBBER|CONNECT_TYPE_FUEL|CONNECT_TYPE_AUX
 	icon_state = "map_universal"
 	gfi_layer_rotation = GFI_ROTATION_OVERDIR
+
+/obj/machinery/atmospherics/pipe/simple/hidden/universal/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += "This allows you to connect 'normal' pipes, blue 'supply' pipes, red 'scrubber' pipes, yellow 'fuel' pipes, and cyan 'aux' pipes together."
+	. += ..()
 
 /obj/machinery/atmospherics/pipe/simple/hidden/universal/update_icon(var/safety = 0)
 	if(!check_icon_cache())

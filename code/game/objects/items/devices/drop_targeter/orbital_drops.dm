@@ -56,9 +56,12 @@
 	map = new /datum/map_template/armory
 
 /obj/item/device/orbital_dropper/armory/syndicate
-	desc_antag = "This is a stealthy variant of the standard armory orbital drop. It will not report itself dropping on common, unless emagged."
 	announcer_name = "Tactical Autodrone"
 	announcer_frequency = SYND_FREQ
+
+/obj/item/device/orbital_dropper/armory/syndicate/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This is a stealthy variant of the standard armory orbital drop. It will not report itself dropping on Common, unless emagged."
 
 /obj/item/device/orbital_dropper/icarus_drones
 	name = "icarus painter"

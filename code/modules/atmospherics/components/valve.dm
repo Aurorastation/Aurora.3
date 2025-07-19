@@ -1,7 +1,6 @@
 /obj/machinery/atmospherics/valve
 	name = "manual valve"
 	desc = "A pipe valve."
-	desc_info = "Click this to turn the valve.  If red, the pipes on each end are seperated.  Otherwise, they are connected."
 	icon = 'icons/atmos/valve.dmi'
 	icon_state = "map_valve0"
 
@@ -14,6 +13,15 @@
 
 	var/datum/pipe_network/network_node1
 	var/datum/pipe_network/network_node2
+
+/obj/machinery/atmospherics/valve/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "It is [open ? "open" : "closed"]."
+
+/obj/machinery/atmospherics/valve/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Click this to turn the valve."
+	. += "If red, the pipes on each end are seperated. Otherwise, they are connected."
 
 /obj/machinery/atmospherics/valve/open
 	open = 1
@@ -323,7 +331,3 @@
 		new /obj/item/pipe(loc, make_from=src)
 		qdel(src)
 		return TRUE
-
-/obj/machinery/atmospherics/valve/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += "It is [open ? "open" : "closed"]."

@@ -26,14 +26,13 @@
 	/// The anchor used to render the ore pings on top of, this follows us around as the ore detector resets its blips
 	var/obj/item/detector_anchor/anchor
 
+/obj/item/ore_detector/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "ALT-click to set the type of ore you wish to search for."
+
 /obj/item/ore_detector/Initialize(mapload, ...)
 	. = ..()
 	anchor = new /obj/item/detector_anchor(src)
-
-/obj/item/ore_detector/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance <= 1)
-		. += FONT_SMALL(SPAN_NOTICE("Alt-click to set the ore you wish to search for."))
 
 /obj/item/ore_detector/Destroy()
 	deactivate()

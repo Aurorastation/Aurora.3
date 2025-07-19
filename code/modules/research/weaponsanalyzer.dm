@@ -13,8 +13,8 @@
 			/obj/item/stock_parts/console_screen = 1
 		)
 
-/obj/machinery/r_n_d/weapons_analyzer/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/machinery/r_n_d/weapons_analyzer/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	. += SPAN_NOTICE("It has [item ? "[item.name]" : "nothing"] attached.")
 
 /obj/machinery/r_n_d/weapons_analyzer/attackby(obj/item/attacking_item, mob/user)

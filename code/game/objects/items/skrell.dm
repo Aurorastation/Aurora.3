@@ -11,13 +11,13 @@
 	var/selected_constellation
 	var/projection_ready = TRUE
 
+/obj/item/stellascope/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "\The [src] displays the \"[selected_constellation]\"."
+
 /obj/item/stellascope/Initialize()
 	. = ..()
 	pick_constellation()
-
-/obj/item/stellascope/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += "\The [src] displays the \"[selected_constellation]\"."
 
 /obj/item/stellascope/throw_impact(atom/hit_atom)
 	..()
@@ -89,14 +89,14 @@
 	var/working = FALSE
 	var/message_frequency = 5
 
+/obj/item/skrell_projector/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(selected_world && working)
+		. += "\The [src] displays a hologram of [selected_world]."
+
 /obj/item/skrell_projector/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
-
-/obj/item/skrell_projector/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(selected_world && working)
-		. += "\The [src] displays a hologram of [selected_world]."
 
 /obj/item/skrell_projector/attack_self(mob/user as mob)
 	working = !working

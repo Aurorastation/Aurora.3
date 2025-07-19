@@ -76,6 +76,45 @@
 	/// Set to 0 to make the door not animate at all
 	var/door_anim_time = 2.5
 
+	/// Used by body bags and air bubbles.
+	var/contains_body = FALSE
+
+/obj/structure/closet/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "When closed, a <b>welder</b> could be used to weld the closet shut."
+
+/obj/structure/closet/disassembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "When opened, a <b>welder</b> could be used to cut the closet back into steel sheets."
+
+/obj/structure/closet/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Using a Closet Teleporter (Stealth & Camouflage uplink item) on this can turn it into a quick transportation method- just don't get caught!"
+
+/obj/structure/closet/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+
+	if(!src.opened && isghost(user))
+		. += "It contains: [counting_english_list(contents)]"
+
+	if(distance <= 1 && !src.opened)
+		var/content_size = 0
+		for(var/obj/item/I in contents)
+			if(!I.anchored)
+				content_size += Ceiling(I.w_class/2)
+		if(!content_size)
+			. += "\The [src] is empty."
+		else if(storage_capacity > content_size*4)
+			. += "\The [src] is barely filled."
+		else if(storage_capacity > content_size*2)
+			. += "\The [src] is less than half full."
+		else if(storage_capacity > content_size)
+			. += "\The [src] still has some free space."
+		else
+			. += "\The [src] is full."
+
+	if(src.opened && linked_teleporter && is_adjacent)
+		. += SPAN_WARNING("There appears to be a device <b>screwed</b> onto the interior backplate of \the [src]...")
 
 /obj/structure/closet/Initialize(mapload, var/no_fill)
 	. = ..()
@@ -114,33 +153,6 @@
 /// Fill lockers with this.
 /obj/structure/closet/proc/fill()
 	return
-
-/obj/structure/closet/proc/content_info(mob/user, content_size)
-	if(!content_size)
-		. = "\The [src] is empty."
-	else if(storage_capacity > content_size*4)
-		. = "\The [src] is barely filled."
-	else if(storage_capacity > content_size*2)
-		. = "\The [src] is less than half full."
-	else if(storage_capacity > content_size)
-		. = "\The [src] still has some free space."
-	else
-		. = "\The [src] is full."
-
-/obj/structure/closet/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance <= 1 && !src.opened)
-		var/content_size = 0
-		for(var/obj/item/I in contents)
-			if(!I.anchored)
-				content_size += Ceiling(I.w_class/2)
-		. += content_info(user, content_size)
-
-	if(!src.opened && isghost(user))
-		. += "It contains: [counting_english_list(contents)]"
-
-	if(src.opened && linked_teleporter && is_adjacent)
-		. += FONT_SMALL(SPAN_NOTICE("There appears to be a device attached to the interior backplate of \the [src]..."))
 
 /obj/structure/closet/proc/stored_weight()
 	var/content_size = 0

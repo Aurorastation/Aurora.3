@@ -18,9 +18,11 @@
 
 	var/heat_delay = 10
 
-	component_hint_scan = "Upgraded <b>scanning modules</b> will increase speed at which research calculations are made and reduce active power usage."
-
 	parts_power_mgmt = FALSE
+
+/obj/machinery/r_n_d/tech_processor/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>scanning modules</b> will increase speed at which research calculations are made and reduce active power usage."
 
 /obj/machinery/r_n_d/tech_processor/Destroy()
 	set_server(null)

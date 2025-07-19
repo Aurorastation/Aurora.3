@@ -10,6 +10,10 @@ GLOBAL_LIST_INIT_TYPED(doppler_arrays, /obj/machinery/doppler_array, list())
 	density = TRUE
 	var/active = TRUE
 
+/obj/machinery/doppler_array/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += SPAN_NOTICE("\The [src] is [active ? "listening for explosions" : "inactive"].")
+
 /obj/machinery/doppler_array/Initialize()
 	. = ..()
 	GLOB.doppler_arrays += src
@@ -18,10 +22,6 @@ GLOBAL_LIST_INIT_TYPED(doppler_arrays, /obj/machinery/doppler_array, list())
 /obj/machinery/doppler_array/Destroy()
 	GLOB.doppler_arrays -= src
 	return ..()
-
-/obj/machinery/doppler_array/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += SPAN_NOTICE("\The [src] is [active ? "listening for explosions" : "[SPAN_WARNING("inactive")]"].")
 
 /obj/machinery/doppler_array/attack_hand(mob/user)
 	active = !active

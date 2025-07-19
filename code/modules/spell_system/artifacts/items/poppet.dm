@@ -10,15 +10,15 @@
 	var/cooldown_time = 120
 	var/cooldown = 0
 
+/obj/item/poppet/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(countenance)
+		. += SPAN_NOTICE("It is modeled after a [countenance].")
+
 /obj/item/poppet/Destroy()
 	if(target)
 		to_chat(target, SPAN_NOTICE("The strange presence vanishes away..."))
 	return ..()
-
-/obj/item/poppet/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(countenance)
-		. += SPAN_NOTICE("It is modeled after a [countenance].")
 
 /obj/item/poppet/afterattack(var/atom/A, var/mob/user, var/proximity)
 

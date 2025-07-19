@@ -12,6 +12,11 @@
 	///The gun we're currently recharging. Connection handled in connect() and /obj/item/gun/energy/connect()
 	var/obj/item/gun/energy/connected
 
+/obj/item/recharger_backpack/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(powersupply)
+		. += SPAN_NOTICE("The backpack display shows that the installed power cell is at <b>[round(powersupply.percent())]%</b>.")
+
 /obj/item/recharger_backpack/Initialize()
 	. = ..()
 	//To update the icon based on the power cell charge we spawn with
@@ -24,11 +29,6 @@
 	QDEL_NULL(powersupply)
 
 	. = ..()
-
-/obj/item/recharger_backpack/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(powersupply)
-		. += SPAN_NOTICE("The backpack display shows that the installed power cell is at [round(powersupply.percent())]%.")
 
 /obj/item/recharger_backpack/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/cell) && !powersupply)

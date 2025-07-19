@@ -16,6 +16,11 @@
 	var/is_installed = FALSE // no double-spending
 	var/unres_dir = null
 
+/obj/item/airlock_electronics/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Access control can be configured by using your ID on the circuitboard to unlock it, then using the circuitboard on yourself."
+	. += "You can copy the settings from one circuitboard to another by clicking the source board with the target board. Be mindful of directional access settings!"
+
 /obj/item/airlock_electronics/attack_self(mob/user)
 	if(!ishuman(user) && !istype(user,/mob/living/silicon/robot))
 		return ..(user)
@@ -141,6 +146,9 @@
 /obj/item/airlock_electronics/secure
 	name = "secure airlock electronics"
 	desc = "Designed to be somewhat more resistant to hacking than standard electronics."
-	desc_info = "With these electronics, wires will be randomized and bolts will drop if the airlock is broken."
 	origin_tech = list(TECH_DATA = 2)
 	secure = TRUE
+
+/obj/item/airlock_electronics/secure/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Airlocks built with this board will have their wires uniquely randomized, and bolts will automatically drop if the airlock is broken."

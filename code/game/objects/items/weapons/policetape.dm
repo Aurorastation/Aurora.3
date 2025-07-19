@@ -13,6 +13,12 @@ GLOBAL_LIST_INIT(tape_roll_applications, list())
 	var/tape_type = /obj/item/tape
 	var/icon_base
 
+/obj/item/taperoll/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Apply a length of tape by left-clicking \the [src] in-hand to define the start point, moving in a cardinal direction to the desired stop point, and left-clicking it again."
+	. += "Apply a short length of tape directly to a closed airlock by left-clicking it with \the [src] in-hand."
+	. += "Apply a hazard tape marking to a turf by left-clicking on it with \the [src] in-hand; it will match your facing direction. Remove the marking by clicking it again."
+
 /obj/item/taperoll/Initialize()
 	. = ..()
 	if(!hazard_overlays)
@@ -32,8 +38,8 @@ GLOBAL_LIST_INIT(tape_roll_applications, list())
 	var/crumpled = 0
 	var/icon_base
 
-/obj/item/tape/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/tape/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(LAZYLEN(crumplers) && is_adjacent)
 		. += SPAN_WARNING("\The [initial(name)] has been crumpled by [english_list(crumplers)].")
 
@@ -86,15 +92,18 @@ GLOBAL_LIST_INIT(tape_roll_applications, list())
 /obj/item/tape/engineering
 	name = "engineering tape"
 	desc = "A length of engineering tape. Better not cross it."
-	desc_info = "You can use a multitool on this tape to allow emergency shield generators to deploy shields on this tile."
 	req_one_access = list(ACCESS_ENGINE, ACCESS_ATMOSPHERICS)
 	icon_base = "engineering"
 	var/shield_marker = FALSE
 
-/obj/item/tape/engineering/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/tape/engineering/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can use a multitool on this tape to allow emergency shield generators to deploy shields on this tile."
+
+/obj/item/tape/engineering/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(shield_marker)
-		. += SPAN_NOTICE("This strip of tape has been modified to serve as a marker for emergency shield generators to lock onto.")
+		. += "This strip of tape has been modified to serve as a marker for emergency shield generators to lock onto."
 
 /obj/item/tape/engineering/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.ismultitool())

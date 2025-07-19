@@ -1,7 +1,6 @@
 /obj/machinery/optable
 	name = "operating table"
 	desc = "Used for advanced medical procedures."
-	desc_info = "Click your target with Grab intent, then click on the table with an empty hand, to place them on it."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "table2-idle"
 	pass_flags_self = PASSTABLE
@@ -27,6 +26,13 @@
 	///The connected surgery computer
 	var/obj/machinery/computer/operating/computer = null
 
+/obj/machinery/optable/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Click your target with Grab intent, then click on the table with an empty hand, to place them on it."
+
+/obj/machinery/optable/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "The neural suppressors are switched [suppressing ? "on" : "off"]."
 
 /obj/machinery/optable/Initialize()
 	..()
@@ -118,10 +124,6 @@
 		return
 
 	patient.reset_view(null)
-
-/obj/machinery/optable/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += SPAN_NOTICE("The neural suppressors are switched [suppressing ? "on" : "off"].")
 
 /obj/machinery/optable/ex_act(severity)
 	switch(severity)

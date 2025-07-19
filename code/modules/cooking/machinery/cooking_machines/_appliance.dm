@@ -12,7 +12,6 @@
 /obj/machinery/appliance
 	name = "cooker"
 	desc = DESC_PARENT
-	desc_info = "Control-click this to change its temperature."
 	icon = 'icons/obj/machinery/cooking_machines.dmi'
 	var/appliancetype = 0
 	density = 1
@@ -55,8 +54,19 @@
 	var/place_verb = "into"
 	var/combine_first = FALSE//If 1, this appliance will do combination cooking before checking recipes
 
-	component_hint_cap = "Upgraded <b>capacitors</b> will increase heating power."
-	component_hint_scan = "Upgraded <b>scanning modules</b> will increase heating power and improve power efficiency."
+/obj/machinery/appliance/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Control-click this to change its temperature."
+
+/obj/machinery/appliance/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>capacitors</b> will increase heating power."
+	. += "Upgraded <b>scanning modules</b> will increase heating power and improve power efficiency."
+
+/obj/machinery/appliance/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(is_adjacent)
+		. += list_contents(user)
 
 /obj/machinery/appliance/Initialize()
 	. = ..()
@@ -75,11 +85,6 @@
 		cooking_objs -= CI
 		qdel(CI)
 	return ..()
-
-/obj/machinery/appliance/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(is_adjacent)
-		. += list_contents(user)
 
 /obj/machinery/appliance/proc/list_contents(var/mob/user)
 	. = list()

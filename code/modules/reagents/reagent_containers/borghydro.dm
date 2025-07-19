@@ -1,8 +1,6 @@
 /obj/item/reagent_containers/hypospray/borghypo
 	name = "cyborg hypospray"
 	desc = "An advanced chemical synthesizer and injection system, designed for heavy-duty medical equipment."
-	desc_info = "Stationbound synthesizers produce specific reagents dependent on the selected module, which you can select by using it. \
-	The reagents recharge automatically at the cost of energy.<br> Alt Click the synthesizer to change the transfer amount."
 	desc_extended = null
 	icon = 'icons/obj/item/reagent_containers/syringe.dmi'
 	icon_state = "medical_synth"
@@ -22,6 +20,20 @@
 	var/list/reagent_names = list()
 
 	center_of_mass = null
+
+/obj/item/reagent_containers/hypospray/borghypo/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Stationbound synthesizers produce specific reagents dependent on the selected module, which you can select by using it."
+	. += "The reagents recharge automatically at the cost of energy."
+	. += "ALT-Click the synthesizer to change the transfer amount."
+
+/obj/item/reagent_containers/hypospray/borghypo/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if (distance > 2)
+		return
+
+	var/singleton/reagent/R = GET_SINGLETON(reagent_ids[mode])
+	. += "It is currently producing [R.name] and has [reagent_volumes[reagent_ids[mode]]] out of [volume] units left."
 
 /obj/item/reagent_containers/hypospray/borghypo/medical
 	reagent_ids = list(/singleton/reagent/bicaridine, /singleton/reagent/kelotane, /singleton/reagent/dexalin, /singleton/reagent/inaprovaline, /singleton/reagent/dylovene, /singleton/reagent/perconol, /singleton/reagent/mortaphenyl, /singleton/reagent/thetamycin)
@@ -125,14 +137,6 @@
 			var/singleton/reagent/R = GET_SINGLETON(reagent_ids[mode])
 			to_chat(usr, SPAN_NOTICE("Synthesizer is now producing '[R.name]'."))
 			update_icon()
-
-/obj/item/reagent_containers/hypospray/borghypo/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if (distance > 2)
-		return
-
-	var/singleton/reagent/R = GET_SINGLETON(reagent_ids[mode])
-	. += SPAN_NOTICE("It is currently producing [R.name] and has [reagent_volumes[reagent_ids[mode]]] out of [volume] units left.")
 
 /obj/item/reagent_containers/hypospray/borghypo/service
 	name = "cyborg drink synthesizer"

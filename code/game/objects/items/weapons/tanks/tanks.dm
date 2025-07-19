@@ -25,6 +25,24 @@
 	var/manipulated_by = null		//Used by _onclick/hud/screen_objects.dm internals to determine if someone has messed with our tank or not.
 						//If they have and we haven't scanned it with a computer or handheld gas analyzer then we might just breath whatever they put in it.
 
+/obj/item/tank/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance <= 0)
+		var/celsius_temperature = air_contents.temperature - T0C
+		switch(celsius_temperature)
+			if(300 to INFINITY)
+				. += SPAN_DANGER("\The [src] feels furiously hot.")
+			if(100 to 300)
+				. += SPAN_ALERT("\The [src] feels hot.")
+			if(80 to 100)
+				. += SPAN_NOTICE("\The [src] feels warm.")
+			if(40 to 80)
+				. += SPAN_NOTICE("\The [src] feels lukewarm.")
+			if(20 to 40)
+				. += SPAN_NOTICE("\The [src] feels room temperature.")
+			else
+				. += SPAN_NOTICE("\The [src] feels cold.")
+
 /obj/item/tank/Initialize()
 	. = ..()
 
@@ -46,26 +64,6 @@
 		TTV.remove_tank(src)
 
 	return ..()
-
-/obj/item/tank/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance <= 0)
-		var/celsius_temperature = air_contents.temperature - T0C
-		var/descriptive
-		switch(celsius_temperature)
-			if(300 to INFINITY)
-				descriptive = "furiously hot"
-			if(100 to 300)
-				descriptive = "hot"
-			if(80 to 100)
-				descriptive = "warm"
-			if(40 to 80)
-				descriptive = "lukewarm"
-			if(20 to 40)
-				descriptive = "room temperature"
-			else
-				descriptive = "cold"
-		. += SPAN_NOTICE("\The [src] feels [descriptive].")
 
 /obj/item/tank/attackby(obj/item/attacking_item, mob/user)
 	..()

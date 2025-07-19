@@ -5,7 +5,6 @@
 	name = "omni gas mixer"
 	icon_state = "map_mixer"
 	base_icon = "mixer"
-	desc_info = "Combines gas from custom input and output directions.  The percentage of combined gas can be defined."
 
 	use_power = POWER_USE_IDLE
 	idle_power_usage = 150		//internal circuitry, friction losses and stuff
@@ -24,6 +23,10 @@
 	var/set_flow_rate = ATMOS_DEFAULT_VOLUME_MIXER
 
 	var/list/mixing_inputs = list()
+
+/obj/machinery/atmospherics/omni/mixer/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Combines gas from custom input and output directions. The percentage of combined gas can be defined."
 
 /obj/machinery/atmospherics/omni/mixer/Initialize()
 	. = ..()

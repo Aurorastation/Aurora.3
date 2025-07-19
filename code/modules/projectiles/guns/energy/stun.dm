@@ -35,10 +35,6 @@
 /obj/item/gun/energy/crossbow
 	name = "mini energy-crossbow"
 	desc = "A weapon favored by many mercenary stealth specialists."
-	desc_info = "This is an energy weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
-	then click where you want to fire."
-	desc_antag = "This is a stealthy weapon which fires paralyzing bolts at your target.  When it hits someone, they will suffer a stun effect. \
-	The energy crossbow recharges itself slowly, and can be concealed in your pocket or bag."
 	icon = 'icons/obj/guns/crossbow.dmi'
 	icon_state = "crossbow"
 	item_state = "crossbow"
@@ -57,6 +53,11 @@
 	can_turret = 1
 	turret_sprite_set = "crossbow"
 	charge_failure_message = "'s charging socket was removed to make room for a minaturized reactor."
+
+/obj/item/gun/energy/crossbow/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This is a stealthy weapon which fires paralyzing bolts at your target. When it hits someone, they will suffer a stun effect."
+	. += "The energy crossbow recharges itself slowly, and can be concealed in your pocket or bag."
 
 /obj/item/gun/energy/crossbow/get_cell()
 	return DEVICE_NO_CELL

@@ -14,8 +14,8 @@
 	level = 2
 	obj_flags = OBJ_FLAG_ROTATABLE
 
-/obj/item/pipe/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/pipe/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	var/pipe_color_check = color || PIPE_COLOR_GREY
 	var/found_color_name = "Unknown"
 	for(var/color_name in GLOB.pipe_colors)

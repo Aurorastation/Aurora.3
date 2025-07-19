@@ -1,7 +1,6 @@
 /obj/item/clothing/mask/smokable/ecig
 	name = "electronic cigarette"
 	desc = "A battery powered cigarette."
-	desc_info = "Alt-Click to remove the cartridge. The cigarette must be in one of your hands to do this."
 	icon = 'icons/obj/ecig.dmi'
 	contained_sprite = TRUE
 	item_icons = null // Needs to nuke this because Contained Sprites and all
@@ -35,6 +34,17 @@
 	var/idle = 0
 	/// The threshold to equal before the cigarette shuts down automatically.
 	var/idle_threshold = 30
+
+/obj/item/clothing/mask/smokable/ecig/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "While holding \the [src], ALT-click it to remove the cartridge."
+
+/obj/item/clothing/mask/smokable/ecig/simple/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(ec_cartridge)
+		. += "There are <b>[round(ec_cartridge.reagents.total_volume, 1)] unit\s</b> of liquid remaining."
+	else
+		. += "There's no cartridge connected."
 
 /obj/item/clothing/mask/smokable/ecig/Initialize()
 	. = ..()
@@ -78,7 +88,7 @@
 
 		if (src == C.wear_mask && C.check_has_mouth()) //transfer, but only when not disabled
 			idle = 0
-			//here we'll reduce battery by usage, and check powerlevel - you only use batery while smoking
+			//here we'll reduce battery by usage, and check powerlevel - you only use battery while smoking
 			if(!cig_cell.checked_use(power_usage * CELLRATE)) //if this passes, there's not enough power in the battery
 				deactivate()
 				to_chat(C,SPAN_NOTICE("\The [src]'s power meter flashes a low battery warning and shuts down."))
@@ -202,13 +212,6 @@
 	icon_empty = "ccigoff"
 	icon_on = "ccigon"
 
-/obj/item/clothing/mask/smokable/ecig/simple/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(ec_cartridge)
-		. += SPAN_NOTICE("There are [round(ec_cartridge.reagents.total_volume, 1)] unit\s of liquid remaining.")
-	else
-		. += SPAN_NOTICE("There's no cartridge connected.")
-
 /obj/item/clothing/mask/smokable/ecig/util
 	name = "electronic cigarette"
 	desc = "A popular utilitarian model electronic cigarette, the ONI-55. Comes in a variety of colors."
@@ -217,26 +220,26 @@
 	icon_empty = "ecigoff1"
 	icon_on = "ecigon"
 
+/obj/item/clothing/mask/smokable/ecig/util/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(ec_cartridge)
+		. += "There are <b>[round(ec_cartridge.reagents.total_volume, 1)] unit\s</b> of liquid remaining."
+	else
+		. += "There's no cartridge connected."
+
+	if(cig_cell)
+		. += "The power meter shows that there's about <b>[round(cig_cell.percent(), 5)]%</b> power remaining."
+	else
+		. += "There's no power cell connected."
+
+	if(active)
+		. += "It is currently turned on."
+	else
+		. += "It is currently turned off."
+
 /obj/item/clothing/mask/smokable/ecig/util/Initialize()
 	. = ..()
 	color = pick(ecig_colors)
-
-/obj/item/clothing/mask/smokable/ecig/util/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(ec_cartridge)
-		. += SPAN_NOTICE("There are [round(ec_cartridge.reagents.total_volume, 1)] unit\s of liquid remaining.")
-	else
-		. += SPAN_NOTICE("There's no cartridge connected.")
-
-	if(cig_cell)
-		. += SPAN_NOTICE("The power meter shows that there's about [round(cig_cell.percent(), 5)]% power remaining.")
-	else
-		. += SPAN_NOTICE("There's no power cell connected.")
-
-	if(active)
-		. += SPAN_NOTICE("It is currently turned on.")
-	else
-		. += SPAN_NOTICE("It is currently turned off.")
 
 /obj/item/clothing/mask/smokable/ecig/deluxe
 	name = "deluxe electronic cigarette"
@@ -247,17 +250,17 @@
 	icon_on = "pcigon"
 	cell_type = /obj/item/cell/device/high
 
-/obj/item/clothing/mask/smokable/ecig/deluxe/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/clothing/mask/smokable/ecig/deluxe/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(ec_cartridge)
-		. += SPAN_NOTICE("There are [round(ec_cartridge.reagents.total_volume, 1)] unit\s of liquid remaining.")
+		. += "There are <b>[round(ec_cartridge.reagents.total_volume, 1)] unit\s</b> of liquid remaining."
 	else
-		. += SPAN_NOTICE("There's no cartridge connected.")
+		. += "There's no cartridge connected."
 
 	if(cig_cell)
-		. += SPAN_NOTICE("The power meter shows that there's about [round(cig_cell.percent(), 1)]% power remaining.")
+		. += "The power meter shows that there's about <b>[round(cig_cell.percent(), 1)]%</b> power remaining."
 	else
-		. += SPAN_NOTICE("There's no power cell connected.")
+		. += "There's no power cell connected."
 
 /obj/item/reagent_containers/ecig_cartridge
 	name = "tobacco flavour cartridge"
@@ -269,9 +272,9 @@
 	volume = 20
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 
-/obj/item/reagent_containers/ecig_cartridge/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += SPAN_NOTICE("The cartridge has [reagents.total_volume] unit\s of liquid remaining.")
+/obj/item/reagent_containers/ecig_cartridge/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "The cartridge has <b>[reagents.total_volume] unit\s</b> of liquid remaining."
 
 //flavours
 /obj/item/reagent_containers/ecig_cartridge/blank

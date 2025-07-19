@@ -14,6 +14,10 @@
 	var/obj/item/cell/cell
 	var/obj/effect/suspension_field/suspension_field
 
+/obj/effect/suspension_field/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += SPAN_NOTICE("You can see something floating inside it:")
+	. += SPAN_NOTICE(english_list(contents))
 
 /obj/machinery/suspension_gen/Initialize()
 	. = ..()
@@ -174,11 +178,6 @@
 
 	var/field_type = "chlorine"
 	var/victim_number  //number of mobs it affected, needed for generator powerdraw calc
-
-/obj/effect/suspension_field/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += SPAN_NOTICE("You can see something floating inside it:")
-	. += SPAN_NOTICE(english_list(contents))
 
 /obj/effect/suspension_field/Initialize()
 	. = ..()

@@ -391,6 +391,10 @@
 	var/datum/dna2/record/buf = null
 	var/read_only = 0 //Well,it's still a floppy disk
 
+/obj/item/disk/data/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "The write-protect tab is set to [read_only ? "protected" : "unprotected"]."
+
 /obj/item/disk/data/proc/initializeDisk()
 	buf = new
 	buf.dna=new
@@ -433,10 +437,6 @@
 /obj/item/disk/data/attack_self(mob/user as mob)
 	read_only = !read_only
 	to_chat(user, "You flip the write-protect tab to [read_only ? "protected" : "unprotected"].")
-
-/obj/item/disk/data/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += "The write-protect tab is set to [read_only ? "protected" : "unprotected"]."
 
 /*
  *	Diskette Box

@@ -1,7 +1,6 @@
 /obj/machinery/mineral/rigpress
 	name = "hardsuit module press"
 	desc = "This machine converts certain items permanently into hardsuit modules."
-	desc_info = "The following devices can be made:"
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "coinpress0"
 	density = TRUE
@@ -19,12 +18,13 @@
 	/obj/item/gun/energy/vaurca/thermaldrill = /obj/item/rig_module/mounted/thermalldrill
 	)
 
-/obj/machinery/mineral/rigpress/Initialize()
-	. = ..()
+/obj/machinery/mineral/rigpress/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "The following devices can be made:"
 	for(var/press_type in press_types)
 		var/obj/item/base = press_type
 		var/obj/item/product = press_types[press_type]
-		desc_info += "\n[initial(base.name)] -> [initial(product.name)]"
+		. += "[initial(base.name)] -> [initial(product.name)]"
 
 /obj/machinery/mineral/rigpress/update_icon()
 	if(pressing)
