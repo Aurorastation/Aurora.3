@@ -6,12 +6,12 @@
 @use '../colors.scss';
 
 .AlertModal__Message {
-  text-align: center;
-  justify-content: center;
+  textalign: center;
+  justifycontent: center;
 }
 
 .AlertModal__Buttons {
-  justify-content: center;
+  justifycontent: center;
 }
 
 .AlertModal__Loader {

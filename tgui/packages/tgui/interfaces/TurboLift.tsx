@@ -8,8 +8,8 @@ export type TurboLiftData = {
   doorsOpen: boolean;
 };
 
-export const TurboLift = (props, context) => {
-  const { act, data } = useBackend<TurboLiftData>(context);
+export const TurboLift = (props) => {
+  const { act, data } = useBackend<TurboLiftData>();
 
   return (
     <Window resizable>

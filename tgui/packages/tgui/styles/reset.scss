@@ -10,7 +10,7 @@ body {
   box-sizing: border-box;
   height: 100%;
   margin: 0;
-  font-size: base.$font-size;
+  fontsize: base.$fontSize;
 }
 
 html {
@@ -38,27 +38,27 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 18px;
-  font-size: 1.5rem;
+  fontsize: 18px;
+  fontsize: 1.5rem;
 }
 
 h2 {
-  font-size: 16px;
-  font-size: 1.333rem;
+  fontsize: 16px;
+  fontsize: 1.333rem;
 }
 
 h3 {
-  font-size: 14px;
-  font-size: 1.167rem;
+  fontsize: 14px;
+  fontsize: 1.167rem;
 }
 
 h4 {
-  font-size: 12px;
-  font-size: 1rem;
+  fontsize: 12px;
+  fontsize: 1rem;
 }
 
 td,
 th {
   vertical-align: baseline;
-  text-align: left;
+  textalign: left;
 }

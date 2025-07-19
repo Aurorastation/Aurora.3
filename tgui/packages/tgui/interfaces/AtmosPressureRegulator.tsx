@@ -13,8 +13,8 @@ type Data = {
   regulate_mode: number;
 };
 
-export const AtmosPressureRegulator = (props, context) => {
-  const { act, data } = useBackend<Data>(context);
+export const AtmosPressureRegulator = (props) => {
+  const { act, data } = useBackend<Data>();
   const {
     on,
     max_rate,

@@ -20,8 +20,8 @@ export type EscapeShuttleControlConsoleData = {
   has_auth: boolean;
 };
 
-export const EscapeShuttleControlConsole = (props, context) => {
-  const { act, data } = useBackend<EscapeShuttleControlConsoleData>(context);
+export const EscapeShuttleControlConsole = (props) => {
+  const { act, data } = useBackend<EscapeShuttleControlConsoleData>();
 
   return (
     <Window resizable>

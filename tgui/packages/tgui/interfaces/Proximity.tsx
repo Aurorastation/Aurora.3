@@ -10,8 +10,8 @@ export type ProximityData = {
   time: number;
 };
 
-export const Proximity = (props, context) => {
-  const { act, data } = useBackend<ProximityData>(context);
+export const Proximity = (props) => {
+  const { act, data } = useBackend<ProximityData>();
 
   return (
     <Window resizable>

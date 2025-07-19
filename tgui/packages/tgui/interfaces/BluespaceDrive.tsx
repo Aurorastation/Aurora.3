@@ -10,8 +10,8 @@ export type BluespaceDriveData = {
   jumping: BooleanLike;
 };
 
-export const BluespaceDrive = (props, context) => {
-  const { act, data } = useBackend<BluespaceDriveData>(context);
+export const BluespaceDrive = (props) => {
+  const { act, data } = useBackend<BluespaceDriveData>();
   return (
     <Window>
       <Window.Content>

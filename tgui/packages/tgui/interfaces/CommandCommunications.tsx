@@ -48,8 +48,8 @@ type EvacOption = {
   silicon_allowed: BooleanLike;
 };
 
-export const CommandCommunications = (props, context) => {
-  const { act, data } = useBackend<CommsData>(context);
+export const CommandCommunications = (props) => {
+  const { act, data } = useBackend<CommsData>();
   const [choosingAlert, setChoosingAlert] = useLocalState<boolean>(
     context,
     `choosingAlert`,
@@ -274,8 +274,8 @@ export const CommandCommunications = (props, context) => {
   );
 };
 
-export const MessageList = (props, context) => {
-  const { act, data } = useBackend<CommsData>(context);
+export const MessageList = (props) => {
+  const { act, data } = useBackend<CommsData>();
   const [viewingMessage, setViewingMessage] = useLocalState<number | null>(
     context,
     'viewingMessage',

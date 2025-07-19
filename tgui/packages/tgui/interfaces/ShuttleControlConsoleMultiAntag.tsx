@@ -18,9 +18,8 @@ export type ShuttleControlConsoleMultiAntagData = {
   destination_name: string;
 };
 
-export const ShuttleControlConsoleMultiAntag = (props, context) => {
-  const { act, data } =
-    useBackend<ShuttleControlConsoleMultiAntagData>(context);
+export const ShuttleControlConsoleMultiAntag = (props) => {
+  const { act, data } = useBackend<ShuttleControlConsoleMultiAntagData>();
 
   return (
     <Window resizable theme="syndicate">

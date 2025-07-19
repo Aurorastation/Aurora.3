@@ -28,8 +28,8 @@ type CrewMember = {
   z: number;
 };
 
-export const SuitSensors = (props, context) => {
-  const { act, data } = useBackend<SensorsData>(context);
+export const SuitSensors = (props) => {
+  const { act, data } = useBackend<SensorsData>();
 
   return (
     <NtosWindow resizable width={900}>

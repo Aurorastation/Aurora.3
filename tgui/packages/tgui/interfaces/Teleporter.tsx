@@ -29,8 +29,8 @@ type Implant = {
   ref: string;
 };
 
-export const Teleporter = (props, context) => {
-  const { act, data } = useBackend<TeleporterData>(context);
+export const Teleporter = (props) => {
+  const { act, data } = useBackend<TeleporterData>();
 
   return (
     <NtosWindow resizable>
@@ -41,8 +41,8 @@ export const Teleporter = (props, context) => {
   );
 };
 
-export const TeleporterPad = (props, context) => {
-  const { act, data } = useBackend<TeleporterData>(context);
+export const TeleporterPad = (props) => {
+  const { act, data } = useBackend<TeleporterData>();
 
   return (
     <>
@@ -109,8 +109,8 @@ export const TeleporterPad = (props, context) => {
   );
 };
 
-export const FindPad = (props, context) => {
-  const { act, data } = useBackend<TeleporterData>(context);
+export const FindPad = (props) => {
+  const { act, data } = useBackend<TeleporterData>();
 
   return (
     <Section title="Nearby Teleporter Pads">

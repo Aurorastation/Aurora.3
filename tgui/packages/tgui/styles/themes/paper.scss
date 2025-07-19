@@ -21,7 +21,7 @@
   $color-bg-grad-spread: 0%,
 );
 
-$font-size: 24px;
+$fontSize: 24px;
 
 // A fat warning to anyone who wants to use this: this only half works.
 // It was made almost purely for the nuke ui, and requires a good amount of manual hacks to get it working as intended.
@@ -73,7 +73,7 @@ $font-size: 24px;
     background-color: rgba(255, 255, 62, 0.8);
     padding: 0 4px;
     margin-right: 2px;
-    line-height: 17px;
+    lineheight: 17px;
     overflow: visible;
   }
 
@@ -92,8 +92,8 @@ $font-size: 24px;
     border: 0;
     outline: 0;
     width: 100%;
-    font-size: 12px;
-    line-height: 17px;
+    fontsize: 12px;
+    lineheight: 17px;
     height: 17px;
     margin: 0;
     padding: 0 6px;
@@ -129,7 +129,7 @@ $font-size: 24px;
       background-color: rgba(255, 255, 62, 0.8);
       padding: 0 4px;
       margin-right: 2px;
-      line-height: 17px;
+      lineheight: 17px;
       overflow: visible;
     }
 
@@ -143,7 +143,7 @@ $font-size: 24px;
       background-color: rgba(255, 255, 62, 0.8);
       padding: 0 4px;
       margin-right: 2px;
-      line-height: 17px;
+      lineheight: 17px;
       overflow: visible;
     }
   }
@@ -163,7 +163,7 @@ $font-size: 24px;
     background-color: rgba(255, 255, 62, 0.8);
     padding: 0 4px;
     margin-right: 2px;
-    line-height: 17px;
+    lineheight: 17px;
     overflow: visible;
 
     input:disabled {
@@ -177,7 +177,7 @@ $font-size: 24px;
       background-color: rgba(255, 255, 62, 0.8);
       padding: 0 4px;
       margin-right: 2px;
-      line-height: 17px;
+      lineheight: 17px;
       overflow: visible;
     }
   }

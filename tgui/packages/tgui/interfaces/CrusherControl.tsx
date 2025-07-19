@@ -18,8 +18,8 @@ type Piston = {
   piston: number;
 };
 
-export const CrusherControl = (props, context) => {
-  const { act, data } = useBackend<CrusherData>(context);
+export const CrusherControl = (props) => {
+  const { act, data } = useBackend<CrusherData>();
 
   return (
     <NtosWindow resizable>
@@ -47,8 +47,8 @@ export const CrusherControl = (props, context) => {
   );
 };
 
-export const PistonManagement = (props, context) => {
-  const { act, data } = useBackend<CrusherData>(context);
+export const PistonManagement = (props) => {
+  const { act, data } = useBackend<CrusherData>();
 
   return (
     <LabeledList>
@@ -83,8 +83,8 @@ export const PistonManagement = (props, context) => {
   );
 };
 
-export const PistonMonitoring = (props, context) => {
-  const { act, data } = useBackend<CrusherData>(context);
+export const PistonMonitoring = (props) => {
+  const { act, data } = useBackend<CrusherData>();
 
   return (
     <Section title="Piston Monitoring">

@@ -36,8 +36,8 @@ type Targeting = {
   distance: number;
 };
 
-export const GunneryWindow = (props, context) => {
-  const { act, data } = useBackend<GunneryData>(context);
+export const GunneryWindow = (props) => {
+  const { act, data } = useBackend<GunneryData>();
   const { entry_points, z_levels, guns, platform_directions } = data;
   let gun_names: String[];
   gun_names = [];
@@ -153,8 +153,8 @@ export const GunneryWindow = (props, context) => {
   }
 };
 
-export const Gunnery = (props, context) => {
-  const { act, data } = useBackend<GunneryData>(context);
+export const Gunnery = (props) => {
+  const { act, data } = useBackend<GunneryData>();
   return (
     <Window resizable theme="zavodskoi">
       <Window.Content scrollable>

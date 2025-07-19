@@ -2,7 +2,7 @@ import { sortBy } from 'common/collections';
 import { useSharedState } from '../../backend';
 import { Button, Flex, Section, Tabs } from '../../components';
 
-export const AccessList = (props, context) => {
+export const AccessList = (props) => {
   const {
     accesses = [],
     wildcardSlots = {},
@@ -130,7 +130,7 @@ export const AccessList = (props, context) => {
   );
 };
 
-export const FormatWildcards = (props, context) => {
+export const FormatWildcards = (props) => {
   const { wildcardSlots = {}, showBasic, basicUsed = 0, basicMax = 0 } = props;
 
   const [wildcardTab, setWildcardTab] = useSharedState(
@@ -184,7 +184,7 @@ export const FormatWildcards = (props, context) => {
   );
 };
 
-const RegionTabList = (props, context) => {
+const RegionTabList = (props) => {
   const { accesses = [] } = props;
 
   const [selectedAccessName, setSelectedAccessName] = useSharedState(
@@ -216,7 +216,7 @@ const RegionTabList = (props, context) => {
   );
 };
 
-const RegionAccessList = (props, context) => {
+const RegionAccessList = (props) => {
   const {
     accesses = [],
     selectedList = [],

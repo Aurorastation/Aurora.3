@@ -27,13 +27,13 @@
   background: transparent;
   border: none;
   font-family: inherit;
-  font-size: 1.1rem;
+  fontsize: 1.1rem;
 }
 
 // Remove conditionals with 516
 @supports (not (-webkit-hyphens: none)) and (not (-moz-appearance: none)) {
   .textarea {
-    flex-grow: 8;
+    flexgrow: 8;
     outline: none;
     resize: none;
   }
@@ -42,9 +42,9 @@
 // Remove with 516
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   .textarea {
-    align-items: center;
+    alignitems: center;
     display: flex;
-    flex-grow: 4;
+    flexgrow: 4;
     overflow: hidden;
     margin: 0.1rem 0 0 0.4rem;
   }

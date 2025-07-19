@@ -97,7 +97,7 @@
 	if(!window.is_ready())
 		window.initialize(
 			strict_mode = TRUE,
-			fancy = user.client.prefs.tgui_fancy,
+			fancy = user.client?.prefs.tgui_fancy,
 			assets = list(
 				get_asset_datum(/datum/asset/simple/tgui),
 			))
@@ -202,7 +202,7 @@
  * optional custom_data list Custom data to send instead of ui_data.
  * optional force bool Send an update even if UI is not interactive.
  */
-/datum/tgui/proc/send_full_update(custom_data, force)
+/datum/tgui/proc/send_full_update(custom_data, force, force_refresh=FALSE)
 	if(!user.client || !initialized || closing)
 		return
 	if(!COOLDOWN_FINISHED(src, refresh_cooldown))
@@ -250,9 +250,9 @@
 		"window" = list(
 			"key" = window_key,
 			"size" = window_size,
-			"fancy" = user.client.prefs.tgui_fancy,
-			"locked" = user.client.prefs.tgui_lock,
-			"scale" = user.client.prefs.ui_scale,
+			"fancy" = user.client?.prefs.tgui_fancy,
+			"locked" = user.client?.prefs.tgui_lock,
+			"scale" = user.client?.prefs.ui_scale,
 		),
 		"client" = list(
 			"ckey" = user.client.ckey,
@@ -264,6 +264,10 @@
 			"observer" = isobserver(user),
 		),
 	)
+	// sanity...
+	if(!src_object && !custom_data)
+		return
+
 	var/data = custom_data || with_data && src_object.ui_data(user)
 	if(data)
 		json_data["data"] = data

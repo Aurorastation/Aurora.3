@@ -63,8 +63,8 @@ type Item = {
   shield_power: number;
 };
 
-export const WeaponsAnalyzer = (props, context) => {
-  const { act, data } = useBackend<AnalyzerData>(context);
+export const WeaponsAnalyzer = (props) => {
+  const { act, data } = useBackend<AnalyzerData>();
 
   return (
     <Window resizable theme="zavodskoi">
@@ -83,8 +83,8 @@ export const WeaponsAnalyzer = (props, context) => {
   );
 };
 
-export const ItemWindow = (props, context) => {
-  const { act, data } = useBackend<AnalyzerData>(context);
+export const ItemWindow = (props) => {
+  const { act, data } = useBackend<AnalyzerData>();
 
   return (
     <Section title={data.item.name}>
@@ -140,8 +140,8 @@ export const ItemWindow = (props, context) => {
   );
 };
 
-export const GunWindow = (props, context) => {
-  const { act, data } = useBackend<AnalyzerData>(context);
+export const GunWindow = (props) => {
+  const { act, data } = useBackend<AnalyzerData>();
 
   return (
     <>
@@ -217,8 +217,8 @@ export const GunWindow = (props, context) => {
   );
 };
 
-export const GunMods = (props, context) => {
-  const { act, data } = useBackend<AnalyzerData>(context);
+export const GunMods = (props) => {
+  const { act, data } = useBackend<AnalyzerData>();
 
   return (
     <Section title="Modifications">
@@ -264,8 +264,8 @@ export const GunMods = (props, context) => {
   );
 };
 
-export const AssemblyWindow = (props, context) => {
-  const { act, data } = useBackend<AnalyzerData>(context);
+export const AssemblyWindow = (props) => {
+  const { act, data } = useBackend<AnalyzerData>();
 
   return (
     <>

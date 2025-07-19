@@ -31,9 +31,9 @@ type Transaction = {
   source_terminal: string;
 };
 
-export const AccountDatabase = (props, context) => {
-  const { act, data } = useBackend<DatabaseData>(context);
-  const [active, setActive] = useLocalState(context, 'active', '');
+export const AccountDatabase = (props) => {
+  const { act, data } = useBackend<DatabaseData>();
+  const [active, setActive] = useLocalState('active', '');
 
   return (
     <NtosWindow resizable width={900}>
@@ -61,17 +61,17 @@ export const AccountDatabase = (props, context) => {
   );
 };
 
-export const AccountWindow = (props, context) => {
-  const { act, data } = useBackend<DatabaseData>(context);
-  const [active, setActive] = useLocalState(context, 'active', 'none');
-  const [tab, setTab] = useLocalState(context, 'tab', 'All Accounts');
+export const AccountWindow = (props) => {
+  const { act, data } = useBackend<DatabaseData>();
+  const [active, setActive] = useLocalState('active', 'none');
+  const [tab, setTab] = useLocalState('tab', 'All Accounts');
   const [make_new_acc, setMakeNewAcc] = useLocalState(
     context,
     'make_new_acc',
     0
   );
-  const [new_name, setNewName] = useLocalState(context, 'new_name', '');
-  const [new_funds, setNewFunds] = useLocalState(context, 'new_funds', 0);
+  const [new_name, setNewName] = useLocalState('new_name', '');
+  const [new_funds, setNewFunds] = useLocalState('new_funds', 0);
 
   return (
     <Section
@@ -158,11 +158,11 @@ export const AccountWindow = (props, context) => {
   );
 };
 
-export const SpecificAccountData = (props, context) => {
-  const { act, data } = useBackend<DatabaseData>(context);
-  const [active, setActive] = useLocalState(context, 'active', 'none');
-  const [tab, setTab] = useLocalState(context, 'tab', 'All Accounts');
-  const [adding_funds, setAdding] = useLocalState(context, 'adding_funds', 0);
+export const SpecificAccountData = (props) => {
+  const { act, data } = useBackend<DatabaseData>();
+  const [active, setActive] = useLocalState('active', 'none');
+  const [tab, setTab] = useLocalState('tab', 'All Accounts');
+  const [adding_funds, setAdding] = useLocalState('adding_funds', 0);
   const [removing_funds, setRemoving] = useLocalState(
     context,
     'removing_funds',

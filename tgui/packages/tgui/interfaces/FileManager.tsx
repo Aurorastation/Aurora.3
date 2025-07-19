@@ -22,8 +22,8 @@ type File = {
   password: BooleanLike;
 };
 
-export const FileManager = (props, context) => {
-  const { act, data } = useBackend<FileData>(context);
+export const FileManager = (props) => {
+  const { act, data } = useBackend<FileData>();
 
   return (
     <NtosWindow resizable width={675} height={700}>
@@ -48,8 +48,8 @@ export const FileManager = (props, context) => {
   );
 };
 
-export const ShowFiles = (props, context) => {
-  const { act, data } = useBackend<FileData>(context);
+export const ShowFiles = (props) => {
+  const { act, data } = useBackend<FileData>();
 
   return (
     <Section
@@ -153,8 +153,8 @@ export const ShowFiles = (props, context) => {
   );
 };
 
-export const ShowFile = (props, context) => {
-  const { act, data } = useBackend<FileData>(context);
+export const ShowFile = (props) => {
+  const { act, data } = useBackend<FileData>();
   const contentHtml = { __html: sanitizeText(data.filedata) };
 
   return (

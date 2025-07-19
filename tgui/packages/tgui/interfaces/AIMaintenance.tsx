@@ -18,8 +18,8 @@ type Law = {
   text: string;
 };
 
-export const AIMaintenance = (props, context) => {
-  const { act, data } = useBackend<AIData>(context);
+export const AIMaintenance = (props) => {
+  const { act, data } = useBackend<AIData>();
 
   return (
     <NtosWindow resizable>
@@ -34,8 +34,8 @@ export const AIMaintenance = (props, context) => {
   );
 };
 
-export const MaintenanceWindow = (props, context) => {
-  const { act, data } = useBackend<AIData>(context);
+export const MaintenanceWindow = (props) => {
+  const { act, data } = useBackend<AIData>();
 
   return (
     <>

@@ -15,8 +15,8 @@ export type ArcadeData = {
   information: string;
 };
 
-export const NTOSArcade = (props, context) => {
-  const { act, data } = useBackend<ArcadeData>(context);
+export const NTOSArcade = (props) => {
+  const { act, data } = useBackend<ArcadeData>();
 
   return (
     <NtosWindow resizable>
@@ -27,8 +27,8 @@ export const NTOSArcade = (props, context) => {
   );
 };
 
-export const GameOverWindow = (props, context) => {
-  const { act, data } = useBackend<ArcadeData>(context);
+export const GameOverWindow = (props) => {
+  const { act, data } = useBackend<ArcadeData>();
 
   return (
     <Section>
@@ -45,8 +45,8 @@ export const GameOverWindow = (props, context) => {
   );
 };
 
-export const GameWindow = (props, context) => {
-  const { act, data } = useBackend<ArcadeData>(context);
+export const GameWindow = (props) => {
+  const { act, data } = useBackend<ArcadeData>();
 
   return (
     <Section>

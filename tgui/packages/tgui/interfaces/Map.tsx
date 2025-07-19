@@ -14,8 +14,8 @@ export type MapData = {
   pois: { name: string; desc: string; x: number; y: number; z: number }[];
 };
 
-export const Map = (props, context) => {
-  const { act, data } = useBackend<MapData>(context);
+export const Map = (props) => {
+  const { act, data } = useBackend<MapData>();
 
   const [minimapZoom, setMinimapZoom] = useLocalState<number>(
     context,
@@ -133,7 +133,7 @@ export const Map = (props, context) => {
                     fill="#FF0000"
                     stroke="#FFFF00"
                     stroke-width="0.1"
-                    font-size="9"
+                    fontSize="9"
                     text-anchor={poi.x > data.user_x ? 'start' : 'end'}>
                     {poi.name}
                   </text>

@@ -13,8 +13,8 @@ type Alarm = {
   danger: BooleanLike;
 };
 
-export const AtmosAlarmControl = (props, context) => {
-  const { act, data } = useBackend<AlarmData>(context);
+export const AtmosAlarmControl = (props) => {
+  const { act, data } = useBackend<AlarmData>();
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
     `searchTerm`,

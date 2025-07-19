@@ -7,8 +7,8 @@ export type LightingData = {
   status: string;
 };
 
-export const LightingControl = (props, context) => {
-  const { act, data } = useBackend<LightingData>(context);
+export const LightingControl = (props) => {
+  const { act, data } = useBackend<LightingData>();
 
   return (
     <NtosWindow resizable>

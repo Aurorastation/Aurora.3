@@ -24,8 +24,8 @@ export type OperatingData = {
   blood_type: string;
 };
 
-export const Operating = (props, context) => {
-  const { act, data } = useBackend<OperatingData>(context);
+export const Operating = (props) => {
+  const { act, data } = useBackend<OperatingData>();
 
   return (
     <Window resizable theme="zenghu">
@@ -36,8 +36,8 @@ export const Operating = (props, context) => {
   );
 };
 
-export const InvalidWindow = (props, context) => {
-  const { act, data } = useBackend<OperatingData>(context);
+export const InvalidWindow = (props) => {
+  const { act, data } = useBackend<OperatingData>();
 
   return (
     <Section>
@@ -56,14 +56,14 @@ export const InvalidWindow = (props, context) => {
   );
 };
 
-export const OperatingWindow = (props, context) => {
-  const { act, data } = useBackend<OperatingData>(context);
+export const OperatingWindow = (props) => {
+  const { act, data } = useBackend<OperatingData>();
 
   return (
     <Table>
       <Table.Row>
         <Table.Cell>
-          <Section title="Patient Status" fill={false}>
+          <Section title="Patient Status">
             <Section>
               <LabeledList>
                 <LabeledList.Item label="Name">{data.name}</LabeledList.Item>
@@ -87,7 +87,7 @@ export const OperatingWindow = (props, context) => {
                 </LabeledList.Item>
               </LabeledList>
             </Section>
-            <Section title="Blood Status" fill:true>
+            <Section title="Blood Status">
               <LabeledList>
                 <LabeledList.Item
                   label="Blood Pressure"

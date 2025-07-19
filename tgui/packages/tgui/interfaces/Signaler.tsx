@@ -8,8 +8,8 @@ export type SignalerData = {
   code: number;
 };
 
-export const Signaler = (props, context) => {
-  const { act, data } = useBackend<SignalerData>(context);
+export const Signaler = (props) => {
+  const { act, data } = useBackend<SignalerData>();
 
   return (
     <Window resizable>

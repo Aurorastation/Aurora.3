@@ -23,8 +23,8 @@ type ItemBuy = {
   amount: number;
 };
 
-export const QuikPay = (props, context) => {
-  const { act, data } = useBackend<PayData>(context);
+export const QuikPay = (props) => {
+  const { act, data } = useBackend<PayData>();
 
   return (
     <Window resizable theme="idris">
@@ -47,8 +47,8 @@ export const QuikPay = (props, context) => {
   );
 };
 
-export const ItemWindow = (props, context) => {
-  const { act, data } = useBackend<PayData>(context);
+export const ItemWindow = (props) => {
+  const { act, data } = useBackend<PayData>();
 
   return (
     <Section>
@@ -95,8 +95,8 @@ export const ItemWindow = (props, context) => {
   );
 };
 
-export const AddItems = (props, context) => {
-  const { act, data } = useBackend<PayData>(context);
+export const AddItems = (props) => {
+  const { act, data } = useBackend<PayData>();
   return (
     <Section>
       <Input
@@ -115,8 +115,8 @@ export const AddItems = (props, context) => {
   );
 };
 
-export const CartWindow = (props, context) => {
-  const { act, data } = useBackend<PayData>(context);
+export const CartWindow = (props) => {
+  const { act, data } = useBackend<PayData>();
   return (
     <Section>
       <LabeledList>

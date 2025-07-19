@@ -21,8 +21,8 @@ type Tank = {
   tankPressure: number;
 };
 
-export const Canister = (props, context) => {
-  const { act, data } = useBackend<CanisterData>(context);
+export const Canister = (props) => {
+  const { act, data } = useBackend<CanisterData>();
   let port_string = data.portConnected ? 'Connected' : 'Disconnected';
 
   return (
@@ -119,8 +119,8 @@ export const Canister = (props, context) => {
   );
 };
 
-export const HoldingTankWindow = (props, context) => {
-  const { act, data } = useBackend<CanisterData>(context);
+export const HoldingTankWindow = (props) => {
+  const { act, data } = useBackend<CanisterData>();
   return (
     <Section>
       <LabeledList>

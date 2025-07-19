@@ -20,9 +20,9 @@ type Supply = {
   supply_type: string;
 };
 
-export const Janitor = (props, context) => {
-  const { act, data } = useBackend<JanitorData>(context);
-  const [tab, setTab] = useLocalState(context, 'tab', 'Mops');
+export const Janitor = (props) => {
+  const { act, data } = useBackend<JanitorData>();
+  const [tab, setTab] = useLocalState('tab', 'Mops');
   return (
     <NtosWindow resizable>
       <NtosWindow.Content scrollable>

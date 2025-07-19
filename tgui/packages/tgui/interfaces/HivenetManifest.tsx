@@ -17,8 +17,8 @@ export type HivenetManifestData = {
   all_vaurca: VaurcaListData[];
 };
 
-export const HivenetManifest = (props, context) => {
-  const { act, data } = useBackend<HivenetManifestData>(context);
+export const HivenetManifest = (props) => {
+  const { act, data } = useBackend<HivenetManifestData>();
 
   return (
     <Window resizable theme="vaurca">

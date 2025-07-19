@@ -11,8 +11,8 @@ type List = {
   value: any;
 };
 
-export const ListViewer = (props, context) => {
-  const { act, data } = useBackend<ListData>(context);
+export const ListViewer = (props) => {
+  const { act, data } = useBackend<ListData>();
 
   return (
     <Window resizable>

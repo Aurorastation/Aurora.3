@@ -295,7 +295,7 @@ const ContactDetailsSection = function (act, data: SensorsData) {
   }
 };
 
-const CompassSection = function (context, act, data: SensorsData) {
+const CompassSection = function (act, data: SensorsData) {
   return (
     <Section title="Sensor Contacts Compass">
       <Box textAlign="center">
@@ -361,7 +361,7 @@ const CompassSection = function (context, act, data: SensorsData) {
                     y="2"
                     text-anchor="middle"
                     fill="white"
-                    font-size="5"
+                    fontSize="5"
                     transform={'rotate(' + contact.bearing + ' 50 50)'}>
                     {contact.bearing}
                   </text>
@@ -374,7 +374,7 @@ const CompassSection = function (context, act, data: SensorsData) {
                 y="8"
                 text-anchor="middle"
                 fill="white"
-                font-size="8"
+                fontSize="8"
                 transform={'rotate(' + b + ' 50 50)'}>
                 {b}
               </text>
@@ -570,8 +570,8 @@ const DistressSection = function (act, data: SensorsData) {
   );
 };
 
-export const Sensors = (props, context) => {
-  const { act, data } = useBackend<SensorsData>(context);
+export const Sensors = (props) => {
+  const { act, data } = useBackend<SensorsData>();
 
   {
     let color_i = 0;
@@ -613,7 +613,7 @@ export const Sensors = (props, context) => {
           ''
         )}
         {SensorSection(act, data)}
-        {CompassSection(context, act, data)}
+        {CompassSection(act, data)}
         {ContactsSection(act, data)}
         {ContactDetailsSection(act, data)}
         {DatalinksSection(act, data)}

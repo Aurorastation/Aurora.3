@@ -13,9 +13,7 @@
     const READ_ONLY = 'readonly';
     const READ_WRITE = 'readwrite';
 
-    let maxStoredMessages = 2500;
-    let startFrom = 0;
-    let writeFrom = 0;
+    const MAX_MESSAGES = 1000;
 
     const dbPromise = new Promise((resolve, reject) => {
       const indexedDB = window.indexedDB || window.msIndexedDB;
@@ -32,8 +30,7 @@
             req.result.createObjectStore("messages", { autoIncrement: true }).transaction.oncomplete = async () => {
               const trans = req.result.transaction("messages", READ_WRITE).objectStore("messages");
 
-              startFrom = await promiseForRequest(trans.add(null)) - 1;
-              for (let index = 0; index < maxStoredMessages - 1; index++) {
+              for (let index = 0; index < MAX_MESSAGES; index++) {
                   await promiseForRequest(trans.add(null));
               }
             }
@@ -44,23 +41,9 @@
         }
       };
       req.onsuccess = async () => {
-        const storage = req.result.transaction(["ring", "messages", INDEXED_DB_STORE_NAME], "readonly")
+        const ringPos = await promiseForRequest(req.result.transaction("ring", "readonly").objectStore("ring").get("value"));
 
-        writeFrom = await promiseForRequest(storage.objectStore("ring").get("value")) || 0;
-
-        const panelSettings = await promiseForRequest(storage.objectStore(INDEXED_DB_STORE_NAME).get("panel-settings"))
-        maxStoredMessages = panelSettings?.maxMessages || 2500;
-
-        const messageStore = storage.objectStore("messages");
-
-        const messageCount = await promiseForRequest(messageStore.count());
-        if(messageCount !== maxStoredMessages) {
-          await alterMessageRing(req.result);
-        }
-
-        let cursorReq = await promiseForRequest(messageStore.openCursor());
-        let cursor = await(cursorReq);
-        startFrom = cursor.key - 1;
+        writeFrom = ringPos || 0;
 
         resolve(req.result);
       };
@@ -69,30 +52,8 @@
       };
     });
 
-    const alterMessageRing = async (db) => {
-      db = db ?? await dbPromise;
-
-      const existingMessages = (await getSavedMessages(db)).slice(0, maxStoredMessages);
-
-      const trans = db.transaction("messages", READ_WRITE).objectStore("messages");
-
-      await promiseForRequest(trans.clear());
-
-      startFrom = await promiseForRequest(trans.add(null)) - 1;
-      for (let index = 0; index < maxStoredMessages - 1; index++) {
-          await promiseForRequest(trans.add(null));
-      }
-
-      writeFrom = startFrom;
-
-      await addMessageBatch(existingMessages, db);
-    }
-
     window.addEventListener('message', (messageEvent) => {
       switch (messageEvent.data.type) {
-        case 'ping':
-          messageEvent.source.postMessage(true, "*");
-          break;
         case 'get':
           get(messageEvent.data.key).then((value) => {
             messageEvent.source.postMessage({key: messageEvent.data.key, value: value}, "*");
@@ -107,10 +68,6 @@
         case 'clear':
           clear();
           break;
-        case 'setNumberStored':
-          maxStoredMessages = messageEvent.data.newMax;
-          alterMessageRing();
-          break;
         case 'processChatMessages':
           addMessageBatch(messageEvent.data.messages);
           break;
@@ -123,14 +80,12 @@
       }
     });
 
-    const addMessageBatch = async (messages, db) => {
-      if(!messages || !messages.length) return;
+    let writeFrom = 0;
 
-      const database = db ?? await dbPromise;
+    const addMessageBatch = async (messages) => {
+      const database = await dbPromise;
 
       const trans = database.transaction("messages", READ_WRITE).objectStore("messages");
-
-      console.log(writeFrom, startFrom);
 
       let cursorReq = trans.openCursor(IDBKeyRange.bound(writeFrom, writeFrom + messages.length, true));
       let cursor = await promiseForRequest(cursorReq);
@@ -141,10 +96,10 @@
           cursor.update(message);
           writeFrom = cursor.key;
 
-          if(cursor.key === startFrom + maxStoredMessages) {
-              writeFrom = startFrom;
+          if(cursor.key === MAX_MESSAGES) {
+              writeFrom = 0;
 
-              cursorReq = trans.openCursor(IDBKeyRange.bound(startFrom, startFrom + messages.length - index + 1, true));
+              cursorReq = trans.openCursor(IDBKeyRange.bound(0, messages.length - index + 1, true));
               cursor = await promiseForRequest(cursorReq);
           } else {
               cursor.continue();
@@ -155,8 +110,8 @@
       database.transaction("ring", READ_WRITE).objectStore("ring").put(writeFrom, "value");
     }
 
-    const getSavedMessages = async (db) => {
-      const database = db ?? await dbPromise;
+    const getSavedMessages = async () => {
+      const database = await dbPromise;
 
       const trans = database.transaction("messages", READ_ONLY).objectStore("messages");
       const messyMessages = await promiseForRequest(trans.getAll());

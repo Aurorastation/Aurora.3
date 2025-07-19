@@ -8,8 +8,8 @@ export type NarrateData = {
   narrate_locations: string[];
 };
 
-export const NarratePanel = (props, context) => {
-  const { act, data } = useBackend<NarrateData>(context);
+export const NarratePanel = (props) => {
+  const { act, data } = useBackend<NarrateData>();
   const [narrateText, setNarrateText] = useLocalState(
     context,
     'narrateText',

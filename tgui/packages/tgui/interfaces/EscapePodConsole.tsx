@@ -11,8 +11,8 @@ export type EscapePodConsoleData = {
   is_armed: boolean;
 };
 
-export const EscapePodConsole = (props, context) => {
-  const { act, data } = useBackend<EscapePodConsoleData>(context);
+export const EscapePodConsole = (props) => {
+  const { act, data } = useBackend<EscapePodConsoleData>();
 
   return (
     <Window resizable>
