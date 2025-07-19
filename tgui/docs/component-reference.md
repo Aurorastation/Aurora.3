@@ -1,7 +1,9 @@
+
+
 # Component Reference
 
-> Notice: This documentation might be out of date, so always check the source
-> code to see the most up-to-date information.
+> Notice: This documentation is out of date. Check the current source of information here:
+> [Component Reference](https://tgstation.github.io/tgui-core/?path=/docs/components-animatednumber--docs) - UI building blocks
 
 <!--
 This table of contents must be manually maintained.
