@@ -4,7 +4,7 @@
  * @license MIT
  */
 
-import { Middleware, Reducer, Store, applyMiddleware, combineReducers, createStore } from 'tgui/backend';
+import { Middleware, Reducer, Store, applyMiddleware, combineReducers, createStore } from 'common/redux';
 import { backendMiddleware, backendReducer } from './backend';
 import { debugMiddleware, debugReducer, relayMiddleware } from './debug';
 

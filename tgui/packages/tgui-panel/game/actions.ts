@@ -4,7 +4,7 @@
  * @license MIT
  */
 
-import { createAction } from 'tgui/backend';
+import { createAction } from 'common/redux';
 
 export const roundRestarted = createAction('roundrestart');
 export const connectionLost = createAction('game/connectionLost');

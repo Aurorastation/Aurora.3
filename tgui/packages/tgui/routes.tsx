@@ -6,7 +6,7 @@
 
 import { Icon, Section, Stack } from './components';
 
-import { Store } from 'tgui/backend';
+import { Store } from 'common/redux';
 import { Window } from './layouts';
 import { selectBackend } from './backend';
 import { selectDebug } from './debug/selectors';

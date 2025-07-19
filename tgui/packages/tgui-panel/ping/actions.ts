@@ -4,7 +4,7 @@
  * @license MIT
  */
 
-import { createAction } from 'tgui/backend';
+import { createAction } from 'common/redux';
 
 export const pingReply = createAction('ping/reply');
 

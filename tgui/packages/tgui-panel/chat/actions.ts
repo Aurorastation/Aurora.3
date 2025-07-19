@@ -4,7 +4,7 @@
  * @license MIT
  */
 
-import { createAction } from 'tgui/backend';
+import { createAction } from 'common/redux';
 import { createPage } from './model';
 
 export const loadChat = createAction('chat/load');
