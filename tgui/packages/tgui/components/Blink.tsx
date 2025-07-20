@@ -1,4 +1,4 @@
-import { Component, type PropsWithChildren } from 'react';
+import { Component, PropsWithChildren } from 'react';
 
 type Props = Partial<{
   /**
@@ -80,8 +80,7 @@ export class Blink extends Component<Props, State> {
       <span
         style={{
           visibility: this.state.hidden ? 'hidden' : 'visible',
-        }}
-      >
+        }}>
         {this.props.children}
       </span>
     );

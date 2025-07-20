@@ -3,7 +3,7 @@ import { ChatHistory } from './ChatHistory';
 import { LineLength, RADIO_PREFIXES, WindowSize } from './constants';
 import { dragStartHandler } from 'tgui/drag';
 import { isEscape, KEY } from 'common/keys';
-import { type BooleanLike, classes } from 'common/react';
+import { BooleanLike, classes } from 'common/react';
 import { useEffect, useRef, useState } from 'react';
 import { getPrefix, windowClose, windowOpen, windowSet } from './helpers';
 import { byondMessages } from './timers';
@@ -148,14 +148,14 @@ export function TguiSay() {
     const prefix = currentPrefix ?? '';
     const grunt = iterator.isSay() ? prefix + value : value;
 
-    messages.current.forceSayMsg(grunt, iterator.current());
+    messages.current.forceSayMsg(grunt);
     unloadChat();
   }
 
   function handleIncrementChannel(): void {
     const iterator = channelIterator.current;
 
-    iterator.next(extraChannels);
+    iterator.next();
     setButtonContent(iterator.current());
     setCurrentPrefix(null);
     messages.current.channelIncrementMsg(iterator.isVisible());
@@ -200,7 +200,7 @@ export function TguiSay() {
   }
 
   function handleKeyDown(
-    event: React.KeyboardEvent<HTMLTextAreaElement>,
+    event: React.KeyboardEvent<HTMLTextAreaElement>
   ): void {
     if (event.getModifierState('AltGraph')) return;
 
@@ -303,22 +303,19 @@ export function TguiSay() {
         style={{
           zoom: scale.current ? '' : `${100 / window.devicePixelRatio}%`,
         }}
-        onMouseDown={dragStartHandler}
-      >
+        onMouseDown={dragStartHandler}>
         {!lightMode && <div className={`shine shine-${theme}`} />}
       </div>
       <div
         className={classes(['content', lightMode && 'content-lightMode'])}
         style={{
           zoom: scale.current ? '' : `${100 / window.devicePixelRatio}%`,
-        }}
-      >
+        }}>
         <button
           className={`button button-${theme}`}
           onMouseDown={handleButtonClick}
           onMouseUp={handleButtonRelease}
-          type="button"
-        >
+          type="button">
           {buttonContent}
         </button>
         <textarea
@@ -339,8 +336,7 @@ export function TguiSay() {
           key="escape"
           className={`button button-${theme}`}
           onClick={handleClose}
-          type="submit"
-        >
+          type="submit">
           X
         </button>
       </div>

@@ -8,16 +8,9 @@
 import { isEscape, KEY } from 'common/keys';
 import { classes } from 'common/react';
 import type { KeyboardEvent, SyntheticEvent } from 'react';
-import {
-  forwardRef,
-  type RefObject,
-  useEffect,
-  useImperativeHandle,
-  useRef,
-  useState,
-} from 'react';
+import { forwardRef, RefObject, useEffect, useImperativeHandle, useRef, useState } from 'react';
 
-import { Box, boxprops } from './Box';
+import { Box, BoxProps } from './Box';
 import { toInputValue } from './Input';
 
 type Props = Partial<{
@@ -108,7 +101,7 @@ export const TextArea = forwardRef(
 
     useImperativeHandle(
       forwardedRef,
-      () => textareaRef.current as HTMLTextAreaElement,
+      () => textareaRef.current as HTMLTextAreaElement
     );
 
     /** Focuses the input on mount */
@@ -152,8 +145,7 @@ export const TextArea = forwardRef(
           noborder && 'TextArea--noborder',
           className,
         ])}
-        {...rest}
-      >
+        {...rest}>
         {!!displayedValue && (
           <div
             style={{
@@ -161,8 +153,7 @@ export const TextArea = forwardRef(
               overflow: 'hidden',
               position: 'absolute',
               width: '100%',
-            }}
-          >
+            }}>
             <div
               className={classes([
                 'TextArea__textarea',
@@ -170,8 +161,7 @@ export const TextArea = forwardRef(
               ])}
               style={{
                 transform: `translateY(-${scrolledAmount}px)`,
-              }}
-            >
+              }}>
               {displayedValue}
             </div>
           </div>
@@ -202,5 +192,5 @@ export const TextArea = forwardRef(
         />
       </Box>
     );
-  },
+  }
 );
