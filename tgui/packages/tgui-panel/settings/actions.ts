@@ -17,18 +17,18 @@ export const addHighlightSetting = createAction(
   'settings/addHighlightSetting',
   () => ({
     payload: createHighlightSetting(),
-  }),
+  })
 );
 export const removeHighlightSetting = createAction(
-  'settings/removeHighlightSetting',
+  'settings/removeHighlightSetting'
 );
 export const updateHighlightSetting = createAction(
-  'settings/updateHighlightSetting',
+  'settings/updateHighlightSetting'
 );
 export const exportSettings = createAction('settings/export');
 export const importSettings = createAction(
   'settings/import',
   (settings, pages) => ({
     payload: { newSettings: settings, newPages: pages },
-  }),
+  })
 );
