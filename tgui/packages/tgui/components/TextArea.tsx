@@ -17,7 +17,7 @@ import {
   useState,
 } from 'react';
 
-import { Box, type BoxProps } from './Box';
+import { Box, boxprops } from './Box';
 import { toInputValue } from './Input';
 
 type Props = Partial<{

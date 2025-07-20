@@ -3,7 +3,7 @@ import { clamp } from 'common/math';
 import { classes } from 'common/react';
 import { Component, createRef } from 'react';
 
-import { Box, type BoxProps } from './Box';
+import { Box, BoxProps } from './Box';
 
 const DEFAULT_MIN = 0;
 const DEFAULT_MAX = 10000;
@@ -51,7 +51,7 @@ const clampGuessedNumber = (
   softSanitizedNumber,
   minValue,
   maxValue,
-  allowFloats,
+  allowFloats
 ) => {
   const parsed = allowFloats
     ? Number.parseFloat(softSanitizedNumber)
@@ -180,7 +180,7 @@ export class RestrictedInput extends Component {
         e.target.value,
         minValue,
         maxValue,
-        allowFloats,
+        allowFloats
       );
       if (onBlur) {
         onBlur(e, +safeNum);
@@ -192,7 +192,7 @@ export class RestrictedInput extends Component {
         e.target.value,
         minValue,
         maxValue,
-        allowFloats,
+        allowFloats
       );
       if (onChange) {
         onChange(e, +e.target.value);
@@ -221,7 +221,7 @@ export class RestrictedInput extends Component {
           e.target.value,
           minValue,
           maxValue,
-          allowFloats,
+          allowFloats
         );
         this.setEditing(false);
         if (onChange) {
@@ -255,7 +255,7 @@ export class RestrictedInput extends Component {
         nextValue,
         minValue,
         maxValue,
-        allowFloats,
+        allowFloats
       );
     }
     if (this.props.autoFocus || this.props.autoSelect) {
@@ -283,7 +283,7 @@ export class RestrictedInput extends Component {
           nextValue,
           minValue,
           maxValue,
-          allowFloats,
+          allowFloats
         );
       }
     }
@@ -305,8 +305,7 @@ export class RestrictedInput extends Component {
           monospace && 'Input--monospace',
           className,
         ])}
-        {...rest}
-      >
+        {...rest}>
         <div className="Input__baseline">.</div>
         <input
           className="Input__input"

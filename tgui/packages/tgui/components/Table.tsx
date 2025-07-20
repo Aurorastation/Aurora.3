@@ -6,7 +6,7 @@
 
 import { classes } from 'common/react';
 
-import { type BoxProps, computeBoxClassName, computeBoxProps } from './Box';
+import { BoxProps, computeBoxClassName, computeBoxProps } from './Box';
 
 type Props = Partial<{
   /** Collapses table to the smallest possible size. */
@@ -25,8 +25,7 @@ export function Table(props: Props) {
         className,
         computeBoxClassName(rest),
       ])}
-      {...computeBoxProps(rest)}
-    >
+      {...computeBoxProps(rest)}>
       <tbody>{children}</tbody>
     </table>
   );

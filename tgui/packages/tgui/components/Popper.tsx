@@ -1,11 +1,5 @@
 import type { Placement } from '@popperjs/core';
-import {
-  type PropsWithChildren,
-  type ReactNode,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import { PropsWithChildren, ReactNode, useEffect, useRef, useState } from 'react';
 import { usePopper } from 'react-popper';
 
 type RequiredProps = {
@@ -39,7 +33,7 @@ export function Popper(props: PropsWithChildren<Props>) {
   const [referenceElement, setReferenceElement] =
     useState<HTMLDivElement | null>(null);
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
-    null,
+    null
   );
 
   // One would imagine we could just use useref here, but it's against react-popper documentation and causes a positioning bug
@@ -79,8 +73,7 @@ export function Popper(props: PropsWithChildren<Props>) {
         ref={(node) => {
           setReferenceElement(node);
           parentRef.current = node;
-        }}
-      >
+        }}>
         {children}
       </div>
       {isOpen && (
@@ -90,8 +83,7 @@ export function Popper(props: PropsWithChildren<Props>) {
             popperRef.current = node;
           }}
           style={{ ...styles.popper, zIndex: props.baseZIndex ?? 5 }}
-          {...attributes.popper}
-        >
+          {...attributes.popper}>
           {content}
         </div>
       )}

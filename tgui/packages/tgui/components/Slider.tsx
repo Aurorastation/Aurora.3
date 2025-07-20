@@ -8,7 +8,7 @@ import { clamp01, keyOfMatchingRange, scale } from 'common/math';
 import { classes } from 'common/react';
 import type { PropsWithChildren } from 'react';
 
-import { type BoxProps, computeBoxClassName, computeBoxProps } from './Box';
+import { boxprops, computeBoxClassName, computeBoxProps } from './Box';
 import { DraggableControl } from './DraggableControl';
 
 type Props = {
@@ -95,8 +95,7 @@ export function Slider(props: Props) {
         suppressFlicker,
         unit,
         value,
-      }}
-    >
+      }}>
       {(control) => {
         const {
           displayElement,
@@ -112,7 +111,7 @@ export function Slider(props: Props) {
         const scaledFillValue = scale(
           fillValue ?? displayValue,
           minValue,
-          maxValue,
+          maxValue
         );
         const scaledDisplayValue = scale(displayValue, minValue, maxValue);
 
@@ -129,8 +128,7 @@ export function Slider(props: Props) {
               computeBoxClassName(rest),
             ])}
             {...computeBoxProps(rest)}
-            onMouseDown={handleDragStart}
-          >
+            onMouseDown={handleDragStart}>
             <div
               className={classes([
                 'ProgressBar__fill',
@@ -153,8 +151,7 @@ export function Slider(props: Props) {
               className="Slider__cursorOffset"
               style={{
                 width: clamp01(scaledDisplayValue) * 100 + '%',
-              }}
-            >
+              }}>
               <div className="Slider__cursor" />
               <div className="Slider__pointer" />
               {dragging && (

@@ -9,7 +9,7 @@ import { classes } from 'common/react';
 import type { PropsWithChildren } from 'react';
 
 import { CSS_COLORS } from '../constants';
-import { type BoxProps, computeBoxClassName, computeBoxProps } from './Box';
+import { BoxProps, computeBoxClassName, computeBoxProps } from './Box';
 
 type Props = {
   readonly value: number;

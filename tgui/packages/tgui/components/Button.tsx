@@ -6,23 +6,10 @@
 
 import type { Placement } from '@popperjs/core';
 import { isEscape, KEY } from 'common/keys';
-import { type BooleanLike, classes } from 'common/react';
-import {
-  type ChangeEvent,
-  createRef,
-  type MouseEvent,
-  type ReactNode,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import { BooleanLike, classes } from 'common/react';
+import { ChangeEvent, createRef, MouseEvent, ReactNode, useEffect, useRef, useState } from 'react';
 
-import {
-  Box,
-  type BoxProps,
-  computeBoxClassName,
-  computeBoxProps,
-} from './Box';
+import { Box, BoxProps, computeBoxClassName, computeBoxProps } from './Box';
 import { Icon } from './Icon';
 import { Tooltip } from './Tooltip';
 
@@ -144,8 +131,7 @@ export const Button = (props: Props) => {
           event.preventDefault();
         }
       }}
-      {...computeBoxProps(rest)}
-    >
+      {...computeBoxProps(rest)}>
       <div className="Button__content">
         {icon && iconPosition !== 'right' && (
           <Icon
@@ -162,8 +148,7 @@ export const Button = (props: Props) => {
             className={classes([
               'Button--ellipsis',
               icon && 'Button__textMargin',
-            ])}
-          >
+            ])}>
             {toDisplay}
           </span>
         )}
@@ -244,7 +229,7 @@ export const ButtonConfirm = (props: ConfirmProps) => {
 
   const handleClick = (
     newState: boolean,
-    event: MouseEvent<HTMLDivElement> | undefined,
+    event: MouseEvent<HTMLDivElement> | undefined
   ) => {
     if (clickedOnce) {
       if (event && (props.allowAnyClick || event.button === 0)) {
@@ -263,8 +248,7 @@ export const ButtonConfirm = (props: ConfirmProps) => {
       onClick={(event: MouseEvent<HTMLDivElement>) => {
         handleClick(!clickedOnce, event);
       }}
-      {...rest}
-    >
+      {...rest}>
       {clickedOnce && confirmContent ? confirmContent : children}
     </Button>
   );
@@ -346,8 +330,7 @@ const ButtonInput = (props: InputProps) => {
       onClick={() => {
         if (disabled) return;
         setInInput(true);
-      }}
-    >
+      }}>
       {icon && <Icon name={icon} rotation={iconRotation} spin={iconSpin} />}
       <div>{toDisplay}</div>
       <input

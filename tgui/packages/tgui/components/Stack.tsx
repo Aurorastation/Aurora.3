@@ -7,14 +7,7 @@
 import { classes } from 'common/react';
 import type { RefObject } from 'react';
 
-import {
-  computeFlexClassName,
-  computeFlexItemClassName,
-  computeFlexItemProps,
-  computeFlexProps,
-  type FlexItemProps,
-  type FlexProps,
-} from './Flex';
+import { computeFlexClassName, computeFlexItemClassName, computeFlexItemProps, computeFlexProps, FlexItemProps, FlexProps } from './Flex';
 
 type Props = Partial<{
   /** Fills available space. */

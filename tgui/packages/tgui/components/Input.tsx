@@ -7,14 +7,9 @@
 import { isEscape, KEY } from 'common/keys';
 import { classes } from 'common/react';
 import { debounce } from 'common/timer';
-import {
-  type KeyboardEvent,
-  type SyntheticEvent,
-  useEffect,
-  useRef,
-} from 'react';
+import { KeyboardEvent, SyntheticEvent, useEffect, useRef } from 'react';
 
-import { Box, type BoxProps } from './Box';
+import { Box, BoxProps } from './Box';
 
 type ConditionalProps =
   | {
@@ -172,8 +167,7 @@ export function Input(props: Props) {
       onClick={() => {
         inputRef.current?.focus();
       }}
-      {...rest}
-    >
+      {...rest}>
       <div className="Input__baseline">.</div>
       <input
         className="Input__input"

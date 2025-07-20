@@ -5,7 +5,7 @@
  */
 
 import { shallowDiffers } from 'common/react';
-import { Component, createRef, type RefObject } from 'react';
+import { Component, createRef, RefObject } from 'react';
 import { Button } from 'tgui/components';
 
 import { chatRenderer } from './renderer';
@@ -35,7 +35,7 @@ export class ChatPanel extends Component<ChatPanelTypes> {
     chatRenderer.mount(this.ref.current);
     chatRenderer.events.on(
       'scrollTrackingChanged',
-      this.handleScrollTrackingChange,
+      this.handleScrollTrackingChange
     );
     this.componentDidUpdate();
   }
@@ -43,7 +43,7 @@ export class ChatPanel extends Component<ChatPanelTypes> {
   componentWillUnmount() {
     chatRenderer.events.off(
       'scrollTrackingChanged',
-      this.handleScrollTrackingChange,
+      this.handleScrollTrackingChange
     );
   }
 
@@ -72,8 +72,7 @@ export class ChatPanel extends Component<ChatPanelTypes> {
           <Button
             className="Chat__scrollButton"
             icon="arrow-down"
-            onClick={() => chatRenderer.scrollToBottom()}
-          >
+            onClick={() => chatRenderer.scrollToBottom()}>
             Scroll to bottom
           </Button>
         )}

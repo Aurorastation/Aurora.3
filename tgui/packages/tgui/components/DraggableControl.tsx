@@ -6,7 +6,7 @@
 
 import { isEscape, KEY } from 'common/keys';
 import { clamp } from 'common/math';
-import { Component, createRef, type CSSProperties } from 'react';
+import { Component, createRef, CSSProperties } from 'react';
 
 import { AnimatedNumber } from './AnimatedNumber';
 
@@ -141,13 +141,13 @@ export class DraggableControl extends Component<ControlProps> {
           state.internalValue = clamp(
             state.internalValue! + (offset * step) / stepPixelSize,
             minValue - step,
-            maxValue + step,
+            maxValue + step
           );
           // Clamp the final value
           state.value = clamp(
             state.internalValue! - (state.internalValue! % step) + stepOffset,
             minValue,
-            maxValue,
+            maxValue
           );
           state.origin = getScalarScreenOffset(e, dragMatrix);
         } else if (Math.abs(offset) > 4) {
@@ -280,7 +280,7 @@ export class DraggableControl extends Component<ControlProps> {
               value = clamp(
                 parseFloat((e.target as HTMLInputElement).value),
                 minValue,
-                maxValue,
+                maxValue
               );
             }
             if (Number.isNaN(value)) {

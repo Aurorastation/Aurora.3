@@ -1,7 +1,7 @@
 import { debounce } from 'common/timer';
 import { useEffect, useRef } from 'react';
 
-import { type BoxProps, computeBoxProps } from './Box';
+import { BoxProps, computeBoxProps } from './Box';
 
 type ByondUiElement = {
   render: (params: Record<string, any>) => void;

@@ -5,9 +5,9 @@
  */
 
 import { map, zip } from 'common/collections';
-import { Component, createRef, type RefObject } from 'react';
+import { Component, createRef, RefObject } from 'react';
 
-import { Box, type BoxProps } from './Box';
+import { Box, BoxProps } from './Box';
 
 type Props = {
   readonly data: number[][];
@@ -31,7 +31,7 @@ const normalizeData = (
   data: Point[],
   scale: number[],
   rangeX?: Range,
-  rangeY?: Range,
+  rangeY?: Range
 ) => {
   if (data.length === 0) {
     return [];
@@ -53,8 +53,8 @@ const normalizeData = (
   const normalized = map(data, (point) =>
     map(
       zip(point, min, max, scale),
-      ([value, min, max, scale]) => ((value - min) / (max - min)) * scale,
-    ),
+      ([value, min, max, scale]) => ((value - min) / (max - min)) * scale
+    )
   );
 
   return normalized;
@@ -139,8 +139,7 @@ class LineChart extends Component<Props> {
               right: 0,
               bottom: 0,
               overflow: 'hidden',
-            }}
-          >
+            }}>
             <polyline
               transform={`scale(1, -1) translate(0, -${viewBox[1]})`}
               fill={fillColor}

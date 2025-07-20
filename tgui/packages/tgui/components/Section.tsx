@@ -5,10 +5,10 @@
  */
 
 import { canRender, classes } from 'common/react';
-import { forwardRef, type ReactNode, type RefObject, useEffect } from 'react';
+import { forwardRef, ReactNode, RefObject, useEffect } from 'react';
 
 import { addScrollableNode, removeScrollableNode } from '../events';
-import { type BoxProps, computeBoxClassName, computeBoxProps } from './Box';
+import { BoxProps, computeBoxClassName, computeBoxProps } from './Box';
 
 type Props = Partial<{
   /** Buttons to render aside the section title. */
@@ -104,8 +104,7 @@ export const Section = forwardRef(
           className,
           computeBoxClassName(rest),
         ])}
-        {...computeBoxProps(rest)}
-      >
+        {...computeBoxProps(rest)}>
         {hasTitle && (
           <div className="Section__title">
             <span className="Section__titleText">{title}</span>
@@ -118,12 +117,11 @@ export const Section = forwardRef(
             onScroll={onScroll}
             // For posterity: the forwarded ref needs to be here specifically
             // to actually let things interact with the scrolling.
-            ref={forwardedRef}
-          >
+            ref={forwardedRef}>
             {children}
           </div>
         </div>
       </div>
     );
-  },
+  }
 );

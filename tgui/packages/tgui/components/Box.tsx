@@ -4,14 +4,8 @@
  * @license MIT
  */
 
-import { type BooleanLike, classes } from 'common/react';
-import {
-  createElement,
-  type KeyboardEventHandler,
-  type MouseEventHandler,
-  type ReactNode,
-  type UIEventHandler,
-} from 'react';
+import { BooleanLike, classes } from 'common/react';
+import { createElement, KeyboardEventHandler, MouseEventHandler, ReactNode, UIEventHandler } from 'react';
 
 import { CSS_COLORS } from '../constants';
 import { logger } from '../logging';
@@ -247,7 +241,7 @@ export const Box = (props: BoxProps & DangerDoNotUse) => {
 
   if (as === 'img') {
     logger.error(
-      'Box component cannot be used as an image. Use Image component instead.',
+      'Box component cannot be used as an image. Use Image component instead.'
     );
   }
 
@@ -258,6 +252,6 @@ export const Box = (props: BoxProps & DangerDoNotUse) => {
       ...computedProps,
       className: computedClassName,
     },
-    children,
+    children
   );
 };

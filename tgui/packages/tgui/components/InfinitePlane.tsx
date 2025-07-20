@@ -1,8 +1,8 @@
 import { round } from 'common/math';
-import { Component, type PropsWithChildren } from 'react';
+import { Component, PropsWithChildren } from 'react';
 import { Button, ProgressBar, Stack } from 'tgui/components';
 
-import { type BoxProps, computeBoxProps } from './Box';
+import { BoxProps, computeBoxProps } from './Box';
 
 const ZOOM_MIN_VAL = 0.5;
 const ZOOM_MAX_VAL = 1.5;
@@ -101,7 +101,7 @@ export class InfinitePlane extends Component<
     const { zoom } = this.state;
     const newZoomValue = round(
       Math.min(zoom + ZOOM_INCREMENT, ZOOM_MAX_VAL),
-      1,
+      1
     );
     this.setState({
       zoom: newZoomValue,
@@ -116,7 +116,7 @@ export class InfinitePlane extends Component<
     const { zoom } = this.state;
     const newZoomValue = round(
       Math.max(zoom - ZOOM_INCREMENT, ZOOM_MIN_VAL),
-      1,
+      1
     );
     this.setState({
       zoom: newZoomValue,
@@ -168,8 +168,7 @@ export class InfinitePlane extends Component<
             overflow: 'hidden',
             position: 'relative',
           },
-        })}
-      >
+        })}>
         <div
           onMouseDown={this.handleMouseDown}
           onMouseMove={this.handleMouseMove}
@@ -192,8 +191,7 @@ export class InfinitePlane extends Component<
             transformOrigin: 'top left',
             height: '100%',
             width: '100%',
-          }}
-        >
+          }}>
           {children}
         </div>
 
@@ -205,8 +203,7 @@ export class InfinitePlane extends Component<
             <ProgressBar
               minValue={ZOOM_MIN_VAL}
               value={zoom}
-              maxValue={ZOOM_MAX_VAL}
-            >
+              maxValue={ZOOM_MAX_VAL}>
               {zoom}x
             </ProgressBar>
           </Stack.Item>

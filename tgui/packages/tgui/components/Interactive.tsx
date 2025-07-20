@@ -13,7 +13,7 @@
  */
 
 import { clamp } from 'common/math';
-import { Component, createRef, type ReactNode, type RefObject } from 'react';
+import { Component, createRef, ReactNode, RefObject } from 'react';
 
 export interface Interaction {
   left: number;
@@ -28,7 +28,7 @@ const getParentWindow = (node?: HTMLDivElement | null): Window => {
 // Returns a relative position of the pointer inside the node's bounding box
 const getRelativePosition = (
   node: HTMLDivElement,
-  event: MouseEvent | React.MouseEvent,
+  event: MouseEvent | React.MouseEvent
 ): Interaction => {
   const rect = node.getBoundingClientRect();
   const pointer = event as React.MouseEvent;
@@ -37,13 +37,13 @@ const getRelativePosition = (
       (pointer.pageX - (rect.left + getParentWindow(node).pageXOffset)) /
         rect.width,
       0,
-      1,
+      1
     ),
     top: clamp(
       (pointer.pageY - (rect.top + getParentWindow(node).pageYOffset)) /
         rect.height,
       0,
-      1,
+      1
     ),
   };
 };
@@ -144,8 +144,7 @@ export class Interactive extends Component {
         className="react-colorful__interactive"
         onKeyDown={this.handleKeyDown}
         tabIndex={0}
-        role="slider"
-      >
+        role="slider">
         {this.props.children}
       </div>
     );

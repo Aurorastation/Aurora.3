@@ -4,7 +4,7 @@
  * @license MIT
  */
 
-import { Flex, type FlexProps } from './Flex';
+import { Flex, FlexProps } from './Flex';
 
 export function LabeledControls(props: FlexProps) {
   const { children, wrap, ...rest } = props;
@@ -15,8 +15,7 @@ export function LabeledControls(props: FlexProps) {
       wrap={wrap}
       align="stretch"
       justify="space-between"
-      {...rest}
-    >
+      {...rest}>
       {children}
     </Flex>
   );
@@ -37,8 +36,7 @@ function LabeledControlsItem(props: ItemProps) {
         align="center"
         textAlign="center"
         justify="space-between"
-        {...rest}
-      >
+        {...rest}>
         <Flex.Item />
         <Flex.Item>{children}</Flex.Item>
         <Flex.Item color="label">{label}</Flex.Item>

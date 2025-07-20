@@ -7,7 +7,7 @@
 import { classes } from 'common/react';
 import type { ReactNode } from 'react';
 
-import { type BoxProps, computeBoxClassName, computeBoxProps } from './Box';
+import { BoxProps, computeBoxClassName, computeBoxProps } from './Box';
 
 type Props = {
   readonly content?: ReactNode;
@@ -22,8 +22,7 @@ export function ColorBox(props: Props) {
   return (
     <div
       className={classes(['ColorBox', className, computeBoxClassName(rest)])}
-      {...computeBoxProps(rest)}
-    >
+      {...computeBoxProps(rest)}>
       {content || '.'}
     </div>
   );

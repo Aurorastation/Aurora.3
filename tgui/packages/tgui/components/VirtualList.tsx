@@ -1,10 +1,4 @@
-import {
-  type PropsWithChildren,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import { PropsWithChildren, useCallback, useEffect, useRef, useState } from 'react';
 
 /**
  * A vertical list that renders items to fill space up to the extents of the
@@ -37,8 +31,7 @@ export const VirtualList = (props: PropsWithChildren) => {
     if (unusedArea > 0) {
       const newVisibleElements = Math.min(
         children.length,
-        visibleElements +
-          Math.max(1, Math.ceil(unusedArea / averageItemHeight)),
+        visibleElements + Math.max(1, Math.ceil(unusedArea / averageItemHeight))
       );
 
       setVisibleElements(newVisibleElements);

@@ -7,7 +7,7 @@
 import { canRender, classes } from 'common/react';
 import type { PropsWithChildren, ReactNode } from 'react';
 
-import { type BoxProps, computeBoxClassName, computeBoxProps } from './Box';
+import { BoxProps, computeBoxClassName, computeBoxProps } from './Box';
 import { Icon } from './Icon';
 
 type Props = Partial<{
@@ -45,8 +45,7 @@ export const Tabs = (props: Props) => {
         className,
         computeBoxClassName(rest),
       ])}
-      {...computeBoxProps(rest)}
-    >
+      {...computeBoxProps(rest)}>
       {children}
     </div>
   );
@@ -74,8 +73,7 @@ const Tab = (props: TabProps) => {
         className,
         computeBoxClassName(rest),
       ])}
-      {...computeBoxProps(rest)}
-    >
+      {...computeBoxProps(rest)}>
       {(canRender(leftSlot) && <div className="Tab__left">{leftSlot}</div>) ||
         (!!icon && (
           <div className="Tab__left">

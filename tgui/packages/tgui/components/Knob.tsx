@@ -5,9 +5,9 @@
  */
 
 import { keyOfMatchingRange, scale } from 'common/math';
-import { type BooleanLike, classes } from 'common/react';
+import { BooleanLike, classes } from 'common/react';
 
-import { type BoxProps, computeBoxClassName, computeBoxProps } from './Box';
+import { BoxProps, computeBoxClassName, computeBoxProps } from './Box';
 import { DraggableControl } from './DraggableControl';
 
 type Props = {
@@ -99,8 +99,7 @@ export function Knob(props: Props) {
         unclamped,
         unit,
         value,
-      }}
-    >
+      }}>
       {(control) => {
         const {
           displayElement,
@@ -113,7 +112,7 @@ export function Knob(props: Props) {
         const scaledFillValue = scale(
           fillValue ?? displayValue,
           minValue,
-          maxValue,
+          maxValue
         );
         const scaledDisplayValue = scale(displayValue, minValue, maxValue);
         const effectiveColor =
@@ -136,15 +135,13 @@ export function Knob(props: Props) {
               },
               ...rest,
             })}
-            onMouseDown={handleDragStart}
-          >
+            onMouseDown={handleDragStart}>
             <div className="Knob__circle">
               <div
                 className="Knob__cursorBox"
                 style={{
                   transform: `rotate(${rotation}deg)`,
-                }}
-              >
+                }}>
                 <div className="Knob__cursor" />
               </div>
             </div>
@@ -153,14 +150,12 @@ export function Knob(props: Props) {
             )}
             <svg
               className="Knob__ring Knob__ringTrackPivot"
-              viewBox="0 0 100 100"
-            >
+              viewBox="0 0 100 100">
               <circle className="Knob__ringTrack" cx="50" cy="50" r="50" />
             </svg>
             <svg
               className="Knob__ring Knob__ringFillPivot"
-              viewBox="0 0 100 100"
-            >
+              viewBox="0 0 100 100">
               <circle
                 className="Knob__ringFill"
                 style={{
@@ -168,7 +163,7 @@ export function Knob(props: Props) {
                     ((bipolar ? 2.75 : 2.0) - scaledFillValue * 1.5) *
                       Math.PI *
                       50,
-                    0,
+                    0
                   ),
                 }}
                 cx="50"
