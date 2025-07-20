@@ -50,7 +50,7 @@ export const createMessage = (payload: { type: string }): message => ({
 
 export const serializeMessage = (
   message: message,
-  archive = false
+  archive = false,
 ): message => ({
   type: message.type,
   text: message.text,
@@ -62,21 +62,3 @@ export const serializeMessage = (
 export const isSameMessage = (a: message, b: message): boolean =>
   (typeof a.text === 'string' && a.text === b.text) ||
   (typeof a.html === 'string' && a.html === b.html);
-
-export const createHighlightSetting = (obj) => ({
-  id: createUuid(),
-  highlightText: '',
-  highlightColor: '#ffdd44',
-  highlightWholeMessage: true,
-  backgroundHighlightColor: '#ffdd44',
-  backgroundHighlightOpacity: 10,
-  matchWord: false,
-  matchCase: false,
-  ...obj,
-});
-
-export const createDefaultHighlightSetting = (obj) =>
-  createHighlightSetting({
-    id: 'default',
-    ...obj,
-  });

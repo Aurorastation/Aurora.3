@@ -10,7 +10,21 @@ import { createRoot } from 'react-dom/client';
 import { Tooltip } from 'tgui/components';
 import { createLogger } from 'tgui/logging';
 
-import { COMBINE_MAX_MESSAGES, COMBINE_MAX_TIME_WINDOW, IMAGE_RETRY_DELAY, IMAGE_RETRY_LIMIT, IMAGE_RETRY_MESSAGE_AGE, MAX_PERSISTED_MESSAGES, MAX_VISIBLE_MESSAGES, MESSAGE_PRUNE_INTERVAL, MESSAGE_TYPE_INTERNAL, MESSAGE_TYPE_UNKNOWN, MESSAGE_TYPES, RENDERER_RELOAD_WAIT } from './constants';
+import {
+  COMBINE_MAX_MESSAGES,
+  COMBINE_MAX_TIME_WINDOW,
+  IMAGE_RETRY_DELAY,
+  IMAGE_RETRY_LIMIT,
+  IMAGE_RETRY_MESSAGE_AGE,
+  MAX_PERSISTED_MESSAGES,
+  MAX_VISIBLE_MESSAGES,
+  MESSAGE_PRUNE_INTERVAL,
+  MESSAGE_TYPE_INTERNAL,
+  MESSAGE_TYPE_UNKNOWN,
+  MESSAGE_TYPES,
+  RENDERER_RELOAD_WAIT,
+  RENDERER_RELOAD_WAIT_TRIDENT,
+} from './constants';
 import { canPageAcceptType, createMessage, isSameMessage } from './model';
 import { highlightNode, linkifyNode } from './replaceInTextNode';
 import type { message, Page } from './types';
@@ -238,7 +252,7 @@ class ChatRenderer {
             // Must be alphanumeric (with some punctuation)
             allowedRegex.test(str) &&
             // Reset lastIndex so it does not mess up the next word
-            ((allowedRegex.lastIndex = 0) || true)
+            ((allowedRegex.lastIndex = 0) || true),
         );
       let highlightWords;
       let highlightRegex;
@@ -278,7 +292,7 @@ class ChatRenderer {
           highlightRegex = new RegExp('(' + regexStr + ')', flags);
         } else {
           const pattern = `${matchWord ? '\\b' : ''}(${highlightWords.join(
-            '|'
+            '|',
           )})${matchWord ? '\\b' : ''}`;
           highlightRegex = new RegExp(pattern, flags);
         }
@@ -312,7 +326,7 @@ class ChatRenderer {
     if (this.rootNode) {
       if (!this.scrollNode || this.scrollNode.scrollHeight === undefined) {
         this.scrollNode = findNearestScrollableParent(
-          this.rootNode
+          this.rootNode,
         ) as HTMLElement;
         if (this.scrollNode) {
           this.scrollNode.addEventListener('scroll', this.handleScroll);
@@ -376,7 +390,7 @@ class ChatRenderer {
     options: {
       prepend?: boolean;
       notifyListeners?: boolean;
-    } = {}
+    } = {},
   ) {
     const { prepend, notifyListeners = true } = options;
     const now = Date.now();
@@ -471,7 +485,7 @@ class ChatRenderer {
                 <span dangerouslySetInnerHTML={oldHtml} />
               </Element>
               {childNode}
-            </>
+            </>,
           );
           /* eslint-enable react/no-danger */
         }
@@ -483,7 +497,7 @@ class ChatRenderer {
               node,
               parser.highlightRegex,
               parser.highlightWords,
-              (text) => createHighlightNode(text, parser.highlightColor)
+              (text) => createHighlightNode(text, parser.highlightColor),
             );
             if (highlighted && parser.highlightWholeMessage) {
               node.className += ' ChatMessage--highlighted';
@@ -510,7 +524,7 @@ class ChatRenderer {
       // Query all possible selectors to find out the message type
       if (!message.type) {
         const typeDef = MESSAGE_TYPES.find(
-          (typeDef) => typeDef.selector && node.querySelector(typeDef.selector)
+          (typeDef) => typeDef.selector && node.querySelector(typeDef.selector),
         );
         message.type = typeDef?.type || MESSAGE_TYPE_UNKNOWN;
       }
@@ -570,7 +584,7 @@ class ChatRenderer {
         // Remove pruned messages from the message array
 
         this.messages = this.messages.filter(
-          (message) => message.node !== 'pruned'
+          (message) => message.node !== 'pruned',
         );
         logger.log(`pruned ${fromIndex} visible messages`);
       }
@@ -579,7 +593,7 @@ class ChatRenderer {
     {
       const fromIndex = Math.max(
         0,
-        this.messages.length - MAX_PERSISTED_MESSAGES
+        this.messages.length - MAX_PERSISTED_MESSAGES,
       );
       if (fromIndex > 0) {
         this.messages = this.messages.slice(fromIndex);
@@ -595,7 +609,7 @@ class ChatRenderer {
     // Make a copy of messages
     const fromIndex = Math.max(
       0,
-      this.messages.length - MAX_PERSISTED_MESSAGES
+      this.messages.length - MAX_PERSISTED_MESSAGES,
     );
     const messages = this.messages.slice(fromIndex);
     // Remove existing nodes
@@ -634,7 +648,7 @@ class ChatRenderer {
     }
     // Remove pruned messages from the message array
     this.messages = this.messages.filter(
-      (message) => message.node !== 'pruned'
+      (message) => message.node !== 'pruned',
     );
     logger.log(`Cleared chat`);
   }
@@ -704,8 +718,11 @@ if (!chatWindow.__chatRenderer__) {
 /** @type {ChatRenderer} */
 export const chatRenderer = chatWindow.__chatRenderer__;
 
-setTimeout(() => {
-  if (!chatRenderer.isReady()) {
-    location.reload();
-  }
-}, RENDERER_RELOAD_WAIT);
+setTimeout(
+  () => {
+    if (!chatRenderer.isReady()) {
+      location.reload();
+    }
+  },
+  Byond.TRIDENT ? RENDERER_RELOAD_WAIT_TRIDENT : RENDERER_RELOAD_WAIT,
+);

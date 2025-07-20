@@ -4,12 +4,33 @@
  * @license MIT
  */
 
+import { storage as realStorage, StorageProxy } from 'common/storage';
 import DOMPurify from 'dompurify';
-import { storage } from 'common/storage';
-import { addHighlightSetting, importSettings, loadSettings, removeHighlightSetting, updateHighlightSetting, updateSettings } from '../settings/actions';
+
+import {
+  addHighlightSetting,
+  importSettings,
+  loadSettings,
+  removeHighlightSetting,
+  updateHighlightSetting,
+  updateSettings,
+} from '../settings/actions';
 import { selectSettings } from '../settings/selectors';
-import { addChatPage, changeChatPage, changeScrollTracking, clearChat, loadChat, rebuildChat, removeChatPage, saveChatToDisk, toggleAcceptedType, updateMessageCount } from './actions';
-import { MESSAGE_SAVE_INTERVAL } from './constants';
+import {
+  addChatPage,
+  changeChatPage,
+  changeScrollTracking,
+  clearChat,
+  loadChat,
+  moveChatPageLeft,
+  moveChatPageRight,
+  rebuildChat,
+  removeChatPage,
+  saveChatToDisk,
+  toggleAcceptedType,
+  updateMessageCount,
+} from './actions';
+import { MAX_PERSISTED_MESSAGES, MESSAGE_SAVE_INTERVAL } from './constants';
 import { createMessage, serializeMessage } from './model';
 import { chatRenderer } from './renderer';
 import { selectChat, selectCurrentChatPage } from './selectors';
@@ -17,37 +38,41 @@ import { selectChat, selectCurrentChatPage } from './selectors';
 // List of blacklisted tags
 const FORBID_TAGS = ['a', 'iframe', 'link', 'video'];
 
+const usingCdnStorage =
+  !Byond.TRIDENT && Byond.storageCdn !== 'tgui:storagecdn';
+const storage = usingCdnStorage ? new StorageProxy(true) : realStorage;
+
 const saveChatToStorage = async (store) => {
-  const settings = selectSettings(store.getState());
   const state = selectChat(store.getState());
 
-  if (!window.Storage && !Byond.TRIDENT) {
+  if (usingCdnStorage) {
     const indexedDbBackend = await storage.backendPromise;
     indexedDbBackend.processChatMessages(chatRenderer.storeQueue);
   } else {
     const fromIndex = Math.max(
       0,
-      chatRenderer.messages.length - settings.maxMessages
+      chatRenderer.messages.length - MAX_PERSISTED_MESSAGES,
     );
+
     const messages = chatRenderer.messages
       .slice(fromIndex)
       .map((message) => serializeMessage(message));
 
-    storage.set('chat-messages', messages);
+    storage.set('chat-messages-cm', messages);
   }
 
   chatRenderer.storeQueue = [];
-  storage.set('chat-state', state);
+  storage.set('chat-state-cm', state);
 };
 
 const loadChatFromStorage = async (store) => {
-  const state = await storage.get('chat-state');
+  const state = await storage.get('chat-state-cm');
 
   let messages;
-  if (!window.Storage && !Byond.TRIDENT) {
+  if (usingCdnStorage) {
     messages = await (await storage.backendPromise).getChatMessages();
   } else {
-    messages = await storage.get('chat-messages');
+    messages = await storage.get('chat-messages-cm');
   }
 
   // Discard incompatible versions
@@ -57,7 +82,7 @@ const loadChatFromStorage = async (store) => {
   }
   if (messages) {
     for (let message of messages) {
-      if (message?.html) {
+      if (message.html) {
         message.html = DOMPurify.sanitize(message.html, {
           FORBID_TAGS,
         });
@@ -154,7 +179,9 @@ export const chatMiddleware = (store) => {
       type === changeChatPage.type ||
       type === addChatPage.type ||
       type === removeChatPage.type ||
-      type === toggleAcceptedType.type
+      type === toggleAcceptedType.type ||
+      type === moveChatPageLeft.type ||
+      type === moveChatPageRight.type
     ) {
       next(action);
       const page = selectCurrentChatPage(store.getState());
@@ -178,7 +205,7 @@ export const chatMiddleware = (store) => {
       const nextSettings = selectSettings(store.getState());
       chatRenderer.setHighlight(
         nextSettings.highlightSettings,
-        nextSettings.highlightSettingById
+        nextSettings.highlightSettingById,
       );
 
       return;

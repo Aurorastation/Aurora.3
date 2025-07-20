@@ -6,12 +6,14 @@
 
 import { toFixed } from 'common/math';
 import { useDispatch, useSelector } from 'tgui/backend';
-import { Button, Collapsible, Flex, Knob, Section } from 'tgui/components';
+import { Button, Collapsible, Knob, Section, Stack } from 'tgui/components';
+
 import { useSettings } from '../settings';
 import { selectAudio } from './selectors';
+import type { AudioState } from './types';
 
 export const NowPlayingWidget = (props) => {
-  const audio = useSelector(selectAudio),
+  const audio: AudioState = useSelector(selectAudio),
     dispatch = useDispatch(),
     settings = useSettings(),
     title = audio.meta?.title,
@@ -20,64 +22,65 @@ export const NowPlayingWidget = (props) => {
     upload_date = audio.meta?.upload_date || 'Unknown Date',
     album = audio.meta?.album || 'Unknown Album',
     duration = audio.meta?.duration,
-    date = !isNaN(upload_date)
+    date = !isNaN(Number(upload_date))
       ? upload_date?.substring(0, 4) +
-      '-' +
-      upload_date?.substring(4, 6) +
-      '-' +
-      upload_date?.substring(6, 8)
+        '-' +
+        upload_date?.substring(4, 6) +
+        '-' +
+        upload_date?.substring(6, 8)
       : upload_date;
 
   return (
-    <Flex align="center">
+    <Stack align="center">
       {(audio.playing && (
-        <Flex.Item
+        <Stack.Item
           mx={0.5}
-          grow={1}
+          grow
           style={{
-            'white-space': 'nowrap',
-            'overflow': 'hidden',
-            'text-overflow': 'ellipsis',
-          }}>
+            whiteSpace: 'nowrap',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+          }}
+        >
           {
             <Collapsible title={title || 'Unknown Track'} color={'blue'}>
               <Section>
                 {URL !== 'Song Link Hidden' && (
-                  <Flex.Item grow={1} color="label">
-                    Url: {URL}
-                  </Flex.Item>
+                  <Stack.Item grow color="label">
+                    URL: {URL}
+                  </Stack.Item>
                 )}
-                <Flex.Item grow={1} color="label">
+                <Stack.Item grow color="label">
                   Duration: {duration}
-                </Flex.Item>
+                </Stack.Item>
                 {Artist !== 'Song Artist Hidden' &&
                   Artist !== 'Unknown Artist' && (
-                    <Flex.Item grow={1} color="label">
+                    <Stack.Item grow color="label">
                       Artist: {Artist}
-                    </Flex.Item>
+                    </Stack.Item>
                   )}
                 {album !== 'Song Album Hidden' && album !== 'Unknown Album' && (
-                  <Flex.Item grow={1} color="label">
+                  <Stack.Item grow color="label">
                     Album: {album}
-                  </Flex.Item>
+                  </Stack.Item>
                 )}
                 {upload_date !== 'Song Upload Date Hidden' &&
                   upload_date !== 'Unknown Date' && (
-                    <Flex.Item grow={1} color="label">
+                    <Stack.Item grow color="label">
                       Uploaded: {date}
-                    </Flex.Item>
+                    </Stack.Item>
                   )}
               </Section>
             </Collapsible>
           }
-        </Flex.Item>
+        </Stack.Item>
       )) || (
-        <Flex.Item grow={1} color="label">
+        <Stack.Item grow color="label">
           Nothing to play.
-        </Flex.Item>
+        </Stack.Item>
       )}
       {audio.playing && (
-        <Flex.Item mx={0.5} fontSize="0.9em">
+        <Stack.Item mx={0.5} fontSize="0.9em">
           <Button
             tooltip="Stop"
             icon="stop"
@@ -87,9 +90,9 @@ export const NowPlayingWidget = (props) => {
               })
             }
           />
-        </Flex.Item>
+        </Stack.Item>
       )}
-      <Flex.Item mx={0.5} fontSize="0.9em">
+      <Stack.Item mx={0.5} fontSize="0.9em">
         <Knob
           minValue={0}
           maxValue={1}
@@ -103,7 +106,7 @@ export const NowPlayingWidget = (props) => {
             })
           }
         />
-      </Flex.Item>
-    </Flex>
+      </Stack.Item>
+    </Stack>
   );
 };
