@@ -244,7 +244,7 @@
 
 // Factional
 
-/obj/item/clothing/head/beret/sapk
+/obj/item/clothing/head/beret/sol/army
 	name = "solarian army beret"
 	desc = "A sky-blue Army beret with a white trim, proudly displaying a golden emblem of the Alliance."
 	desc_extended = "While a common sight in the Alliance's more rebellious or devastated worlds such as Mars, the Army beret became a potent symbol of Sol's triumph in the civil war. Nowhere else in the Spur are the blue berets more omnipresent than with peacekeepers on the former capital of the Restoration Front - Lycoris."
