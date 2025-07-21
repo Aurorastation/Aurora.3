@@ -26,7 +26,7 @@
 /datum/event/prison_break/bridge
 	eventDept = "Bridge"
 	areaName = list("Bridge")
-	areaType = list(/area/horizon/command/bridge, /area/horizon/command/teleporter, /area/horizon/maintenance/maintcentral)
+	areaType = list(/area/horizon/command/bridge, /area/horizon/command/teleporter, /area/horizon/maintenance/deck_3/bridge)
 	areaNotType = list(/area/horizon/command/bridge/aibunker, /area/horizon/command/bridge/selfdestruct)
 
 /datum/event/prison_break/setup()

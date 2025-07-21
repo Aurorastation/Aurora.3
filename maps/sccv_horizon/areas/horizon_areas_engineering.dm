@@ -74,18 +74,18 @@
 
 /// Engineering Hallways
 /area/horizon/engineering/hallway
-	name = "Hallway (PARENT AREA - DON'T USE)"
+	name = "Engineering Hallway (PARENT AREA - DON'T USE)"
 	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 	horizon_deck = 2
 
 /area/horizon/engineering/hallway/fore
-	name = "Fore Hallway"
+	name = "Engineering Fore Hallway"
 
 /area/horizon/engineering/hallway/aft
-	name = "Aft Hallway"
+	name = "Engineering Aft Hallway"
 
 /area/horizon/engineering/hallway/interior
-	name = "Interior Hallway"
+	name = "Engineering Interior Hallway"
 
 /// ENGINEERING_AREAS - ATMOSIA_AREAS
 /area/horizon/engineering/atmos

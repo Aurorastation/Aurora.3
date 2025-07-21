@@ -8,13 +8,13 @@
 	horizon_deck = 2
 
 /area/horizon/rnd/hallway
-	name = "Central Hallway"
+	name = "Science Port Hallway"
 	icon_state = "research"
 	lightswitch = TRUE
 	horizon_deck = 2
 
 /area/horizon/rnd/hallway/secondary
-	name = "Aft Hallway"
+	name = "Science Aft Hallway"
 	icon_state = "research"
 	lightswitch = TRUE
 	horizon_deck = 2

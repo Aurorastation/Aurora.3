@@ -140,7 +140,6 @@
 /area/horizon/storage
 	name = "Storage (PARENT AREA - DON'T USE)"
 
-/// STORAGE_AREAS
 /area/horizon/storage/primary
 	name = "Primary Tool Storage"
 	icon_state = "primarystorage"
@@ -151,6 +150,13 @@
 	icon_state = "eva"
 	horizon_deck = 1
 
+/// Science-restricted section of EVA.
+/area/horizon/storage/eva/expedition
+	name = "Expedition EVA Storage"
+	icon_state = "eva"
+	horizon_deck = 1
+
+/// THE VAAAAAAUULLT
 /area/horizon/storage/secure
 	name = "Secure Storage"
 	icon_state = "storage"
