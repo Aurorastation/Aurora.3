@@ -1241,7 +1241,7 @@
 /obj/item/clothing/accessory/apron/qeburgerapron
 	name = "Quick-E-Burger Food Technician Apron"
 	desc = "For industrious employees hard at work, the Quick-E-Burger Food Technician Apron is the perfect protection! Supplied and manufactured in bulk by Quick-E-Burger's parent company, Orion Express, the Food Technician Apron is constructed from highly-resistant rubber with ergonomic quick-fastening security straps to ensure it can be made to fit any employee, of any species, anywhere!"
-	icon = 'icons/clothing/suits/quickeburger_apron.dmi'
+	icon = 'icons/obj/item/clothing/accessory/aprons.dmi'
 	icon_state = "quickeburger_apron"
 	item_state = "quickeburger_apron"
 	allowed = list(

@@ -1,7 +1,7 @@
 /obj/item/clothing/under/dress/colorable
 	name = "strapless midi dress"
 	desc = "A one-piece fashionable garment."
-	icon = 'icons/clothing/under/uniforms/colorable_dresses.dmi'
+	icon = 'icons/obj/item/clothing/under/dress/colorable/colorable_dresses.dmi'
 	icon_state = "dress"
 	item_state = "dress"
 	body_parts_covered = UPPER_TORSO | LOWER_TORSO

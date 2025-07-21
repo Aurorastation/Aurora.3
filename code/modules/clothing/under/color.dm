@@ -1,7 +1,7 @@
 /obj/item/clothing/under/color
 	name = "grey jumpsuit"
 	desc = "A basic jumpsuit."
-	icon = 'icons/clothing/under/uniforms/jumpsuits.dmi'
+	icon = 'icons/obj/item/clothing/under/jumpsuits.dmi'
 	icon_state = "grey"
 	item_state = "grey"
 	item_icons = null

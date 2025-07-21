@@ -4,7 +4,7 @@
 /obj/item/clothing/suit/armor/riot/laser_tag
 	name = "laser tag armor"
 	desc = "A set of laser tag armor. Very swanky."
-	icon = 'icons/clothing/kit/laser_tag.dmi'
+	icon = 'icons/obj/item/clothing/suit/armor/laser_tag.dmi'
 	icon_state = "vest"
 	item_state = "vest"
 	contained_sprite = TRUE
@@ -72,7 +72,7 @@
 /obj/item/clothing/head/helmet/riot/laser_tag
 	name = "laser tag helmet"
 	desc = "A helmet in the form of a riot helm, made for high-impact laser tag gameplay."
-	icon = 'icons/clothing/kit/laser_tag.dmi'
+	icon = 'icons/obj/item/clothing/head/laser_tag.dmi'
 	icon_state = "helmet"
 	item_state = "helmet"
 	contained_sprite = TRUE
