@@ -261,13 +261,13 @@
 /datum/gear/head/hats_colourable
 	display_name = "hat selection (colourable)"
 	description = "A selection of colorable hats."
-	path = /obj/item/clothing/head/flatcap
+	path = /obj/item/clothing/head/flatcap/colourable
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 
 /datum/gear/head/hats_colourable/New()
 	..()
 	var/list/hats_colourable = list()
-	hats_colourable["hat, flatcap"] = /obj/item/clothing/head/flatcap
+	hats_colourable["hat, flatcap"] = /obj/item/clothing/head/flatcap/colourable
 	hats_colourable["hat, feather trilby"] = /obj/item/clothing/head/feathertrilby
 	hats_colourable["hat, woolen"] = /obj/item/clothing/head/wool
 	hats_colourable["hat, fedora"] = /obj/item/clothing/head/fedora
