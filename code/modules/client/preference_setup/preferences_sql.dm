@@ -97,7 +97,7 @@
 		var/DBQuery/query = GLOB.dbcon.NewQuery(query_text)
 		query.Execute(arg_list)
 		if (query.ErrorMsg())
-			log_world("ERROR: SQL CHARACTER LOAD: SQL query error: [query.ErrorMsg()]")
+			LOG_DEBUG("ERROR: SQL CHARACTER LOAD: SQL query error: [query.ErrorMsg()]")
 			LOG_DEBUG("SQL CHARACTER LOAD: query args: [json_encode(arg_list)]")
 
 			continue
@@ -215,7 +215,7 @@
 		query.Execute(arg_list)
 
 		if (query.ErrorMsg())
-			log_world("ERROR: SQL CHARACTER SAVE: SQL query error: [query.ErrorMsg()]")
+			LOG_DEBUG("ERROR: SQL CHARACTER SAVE: SQL query error: [query.ErrorMsg()]")
 			LOG_DEBUG("SQL CHARACTER SAVE: query args: [json_encode(arg_list)]")
 
 			continue
