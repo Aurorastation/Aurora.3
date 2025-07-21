@@ -161,7 +161,7 @@ GLOBAL_LIST_EMPTY(gps_list)
 /obj/item/device/gps/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "GPS", capitalize_first_letters(name), 460, 600)
+		ui = new(user, src, "GPS", capitalize_first_letters(name), 720, 960)
 		ui.open()
 
 /obj/item/device/gps/process()

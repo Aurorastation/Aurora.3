@@ -46,7 +46,7 @@
 	location_ew = LOC_STARBOARD_FAR
 
 /area/horizon/maintenance/deck_1/workshop
-	name = "Auxillary Engineering Maintenance"
+	name = "Auxiliary Engineering Maintenance"
 	icon_state = "maint_engineering"
 	department = LOC_ENGINEERING
 	location_ew = LOC_STARBOARD
@@ -107,8 +107,7 @@
 	location_ew = LOC_STARBOARD
 
 /area/horizon/maintenance/deck_2/wing/starboard/auxatmos
-	name = "Wing Frame Interior (Auxiliary Atmospherics)"
-	department = LOC_ENGINEERING
+	name = "Auxiliary Atmospherics"
 	subdepartment = SUBLOC_ATMOS
 	location_ew = LOC_STARBOARD
 

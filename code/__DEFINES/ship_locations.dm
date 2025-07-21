@@ -24,9 +24,9 @@
 // If we rename any of these, also change them in subsystems.dm define.
 #define LOC_AI			"Artificial Intelligence"
 #define LOC_COMMAND		"Command"
-// LOC_CIV and LOC_CREW are effectively the same thing, just separated for flavor.
-// LOC_CIV is pretty much going to be hallways/stairs etc.
-#define LOC_CIV			"Public"
+// LOC_PUBLIC and LOC_CREW are effectively the same thing, just separated for flavor.
+// LOC_PUBLIC is pretty much going to be hallways/stairs etc.
+#define LOC_PUBLIC		"Public"
 #define LOC_CREW		"Crew Areas"
 #define LOC_ENGINEERING	"Engineering"
 #define LOC_HOLODECK	"Holodeck"

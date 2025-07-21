@@ -92,7 +92,7 @@
 
 /// ENGINEERING_AREAS - ATMOSIA_AREAS
 /area/horizon/engineering/atmos
-	name = "Atmospherics Control"
+	name = "Distribution Control"
 	icon_state = "atmos"
 	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 	no_light_control = 1
@@ -103,33 +103,29 @@
 	subdepartment = SUBLOC_ATMOS
 
 /area/horizon/engineering/atmos/storage
-	name = "Atmospherics Storage"
+	name = "Atmos Storage"
 	icon_state = "atmos_storage"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	horizon_deck = 2
 
 /area/horizon/engineering/atmos/air
 	name = "Air Mixing"
-	horizon_deck = 1
 
 /area/horizon/engineering/atmos/propulsion
-	name = "Primary Propulsion"
+	name = "Port Propulsion"
 	icon_state = "blue2"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
-	horizon_deck = 1
 	location_ew = LOC_PORT
 	location_ns = LOC_AFT_FAR
 
 /area/horizon/engineering/atmos/propulsion/starboard
-	name = "Primary Propulsion"
+	name = "Starboard Propulsion"
 	icon_state = "blue-red2"
-	horizon_deck = 1
 	location_ew = LOC_STARBOARD
 	location_ns = LOC_AFT_FAR
 
 /area/horizon/engineering/atmos/turbine
 	name = "Combustion Turbine"
-	horizon_deck = 1
 
 /// ENGINEERING_AREAS - REACTOR_AREAS
 /area/horizon/engineering/reactor

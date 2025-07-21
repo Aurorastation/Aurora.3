@@ -27,7 +27,7 @@
  *	Example of a fully configured area name output:
  *	Engineering (Atmospherics) - Deck 1 - Combustion Turbine - Port Amidships, Aft
  */
-/proc/get_area_display_name(var/area/A, var/show_dept = TRUE, var/show_subdept = TRUE, var/show_deck = TRUE, var/show_location = TRUE)
+/proc/get_area_display_name(var/area/A, var/show_dept = TRUE, var/show_subdept = TRUE, var/show_deck = TRUE, var/show_location = TRUE, var/show_hidden_depts = FALSE)
 	if(!is_station_area(A))
 		return A.name
 	var/horizon_deck = A.horizon_deck
@@ -37,8 +37,11 @@
 	var/subdepartment = A.subdepartment
 	var/output = ""
 
-	// All maintenance areas should, by name, be self-identifying as being maints. Don't display it.
-	if(department == LOC_MAINTENANCE)
+	// All maintenance areas should, by name, be self-identifying as being maints. We usually don't care to see it.
+	// Likewise public areas are self-evident.
+	if(horizon_deck && show_deck)
+		output += "Deck [num2text(horizon_deck)] - "
+	if(!show_hidden_depts && (department == LOC_MAINTENANCE || department == LOC_PUBLIC))
 		department = null
 	if(department && show_dept)
 		output += "[department]"
@@ -46,19 +49,17 @@
 			output += " ([subdepartment])"
 		output += " - "
 
-	if(horizon_deck && show_deck)
-		output += "Deck [num2text(horizon_deck)] - "
-
 	output += "[A.name]"
 
 	if((location_ew || location_ns) && show_location)
-		output += " - "
+		output += " ("
 		if(location_ew)
 			output += "[location_ew]"
 			if(location_ns)
 				output += ", "
 		if(location_ns)
 			output += "[location_ns]"
+		output += ")"
 
 	return output
 

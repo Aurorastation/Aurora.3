@@ -81,12 +81,12 @@
 	horizon_deck = 2
 
 /area/horizon/medical/emergency_storage
-	name = "Lower Deck Emergency Storage"
+	name = "Emergency Storage"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	horizon_deck = 1
 
 /area/horizon/medical/morgue
-	name = "Long-term Morgue"
+	name = "Morgue"
 	icon_state = "morgue"
 	ambience = AMBIENCE_GHOSTLY
 	area_blurb = "Morgue trays sit within this room, ready to hold the deceased until their postmortem wishes can be attended to."

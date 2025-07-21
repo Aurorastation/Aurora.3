@@ -2,22 +2,25 @@
 /area/horizon/rnd
 	holomap_color = HOLOMAP_AREACOLOR_SCIENCE
 	department = LOC_SCIENCE
+	horizon_deck = 2
 
 /area/horizon/rnd/conference
 	name = "Conference Room"
 	horizon_deck = 2
 
 /area/horizon/rnd/hallway
-	name = "Science Port Hallway"
+	name = "Hallway"
 	icon_state = "research"
+	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 	lightswitch = TRUE
-	horizon_deck = 2
+	location_ew = LOC_PORT
 
 /area/horizon/rnd/hallway/secondary
-	name = "Science Aft Hallway"
+	name = "Hallway"
 	icon_state = "research"
 	lightswitch = TRUE
 	horizon_deck = 2
+	location_ns = LOC_AFT
 
 /area/horizon/rnd/telesci
 	name = "Telescience Laboratory"

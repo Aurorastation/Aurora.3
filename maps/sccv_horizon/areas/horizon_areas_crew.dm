@@ -14,6 +14,7 @@
 	lightswitch = TRUE
 	holomap_color = HOLOMAP_AREACOLOR_HALLWAYS
 	emergency_lights = TRUE
+	department = LOC_PUBLIC
 	subdepartment = SUBLOC_HALLS
 
 /area/horizon/hallway/primary/deck_3
@@ -21,23 +22,28 @@
 	horizon_deck = 3
 
 /area/horizon/hallway/primary/deck_3/central
-	name = "Central Primary Hallway"
+	name = "Primary Hallway"
+	location_ew = LOC_AMIDSHIPS
 
 /area/horizon/hallway/primary/deck_3/starboard
-	name = "Starboard Primary Hallway"
+	name = "Primary Hallway"
 	icon_state = "hallS"
+	location_ew = LOC_STARBOARD
 
 /area/horizon/hallway/primary/deck_3/starboard/docks
-	name = "Starboard Primary Hallway - Docks"
+	name = "Docking Arm"
 	holomap_color = HOLOMAP_AREACOLOR_DOCK
+	location_ew = LOC_STARBOARD_FAR
 
 /area/horizon/hallway/primary/deck_3/port
-	name = "Port Primary Hallway"
+	name = "Primary Hallway"
 	icon_state = "hallP"
+	location_ew = LOC_PORT
 
 /area/horizon/hallway/primary/deck_3/port/docks
-	name = "Port Primary Hallway - Docks"
+	name = "Docking Arm"
 	holomap_color = HOLOMAP_AREACOLOR_DOCK
+	location_ew = LOC_PORT_FAR
 
 /area/horizon/hallway/primary/deck_2
 	name = "Deck 2 Primary Hallway (PARENT AREA - DON'T USE)"
@@ -46,14 +52,17 @@
 /area/horizon/hallway/primary/deck_2/central
 	name = "Central Ring"
 	icon_state = "hallF"
+	location_ew = LOC_AMIDSHIPS
 
 /area/horizon/hallway/primary/deck_2/fore
-	name = "Fore Primary Hallway"
+	name = "Primary Hallway"
 	icon_state = "hallF"
+	location_ns = LOC_FORE
 
 /area/horizon/hallway/primary/deck_2/starboard
-	name = "Starboard Primary Hallway"
+	name = "Primary Hallway"
 	icon_state = "hallF"
+	location_ew = LOC_STARBOARD
 
 /area/horizon/hallway/primary/deck_1
 	name = "Deck 1 Primary Hallway (PARENT AREA - DON'T USE)"
@@ -62,6 +71,7 @@
 /area/horizon/hallway/primary/deck_1/central
 	name = "Central Ring"
 	icon_state = "hallF"
+	location_ew = LOC_AMIDSHIPS
 
 // Stairwells
 /area/horizon/stairwell
@@ -73,34 +83,37 @@
 	allow_nightmode = TRUE
 	lightswitch = TRUE
 	emergency_lights = TRUE
+	department = LOC_PUBLIC
 	subdepartment = SUBLOC_STAIRS
 
 // Starboard Stairwell (Medical/Evac)
 /area/horizon/stairwell/starboard
 	name = "Starboard Stairwell (PARENT AREA - DON'T USE)"
+	location_ew = LOC_STARBOARD
 
 /area/horizon/stairwell/starboard/deck_1
-	name = "Starboard Stairwell"
+	name = "Stairwell"
 	horizon_deck = 1
 
 /area/horizon/stairwell/starboard/deck_2
-	name = "Starboard Stairwell"
+	name = "Stairwell"
 	horizon_deck = 2
 
 /area/horizon/stairwell/starboard/deck_3
-	name = "Starboard Stairwell"
+	name = "Stairwell"
 	horizon_deck = 3
 
 // Starboard Stairwell (Security/Cafe)
 /area/horizon/stairwell/port
 	name = "Port Stairwell (PARENT AREA - DON'T USE)"
+	location_ew = LOC_PORT
 
 /area/horizon/stairwell/port/deck_2
-	name = "Port Stairwell"
+	name = "Stairwell"
 	horizon_deck = 2
 
 /area/horizon/stairwell/port/deck_3
-	name = "Port Stairwell"
+	name = "Stairwell"
 	horizon_deck = 3
 
 // Bridge Stairwell (Captain/Kitchen/Hydro)
@@ -108,13 +121,16 @@
 	name = "Horizon - Bridge Stairwell (PARENT AREA - DON'T USE)"
 	icon_state = "bridge_stairs"
 	ambience = AMBIENCE_HIGHSEC
+	department = LOC_COMMAND
+	location_ew = LOC_STARBOARD
+	location_ns = LOC_FORE_FAR
 
 /area/horizon/stairwell/bridge/deck_2
-	name = "Bridge Stairwell"
+	name = "Stairwell"
 	horizon_deck = 2
 
 /area/horizon/stairwell/bridge/deck_3
-	name = "Bridge Stairwell"
+	name = "Stairwell"
 	horizon_deck = 3
 
 // Engineering Stairwell (Engineering/Atmos)
@@ -122,13 +138,15 @@
 	name = "Horizon - Engineering Stairwell (PARENT AREA - DON'T USE)"
 	ambience = AMBIENCE_HIGHSEC
 	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
+	department = LOC_ENGINEERING
+	location_ns = LOC_AFT
 
 /area/horizon/stairwell/engineering/deck_1
-	name = "Engineering Stairwell"
+	name = "Stairwell"
 	horizon_deck = 1
 
 /area/horizon/stairwell/engineering/deck_2
-	name = "Engineering Stairwell"
+	name = "Stairwell"
 	horizon_deck = 2
 
 /// Cryogenics

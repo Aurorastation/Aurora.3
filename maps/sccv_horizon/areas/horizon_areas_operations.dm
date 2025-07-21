@@ -139,6 +139,7 @@
 /// STORAGE_AREAS
 /area/horizon/storage
 	name = "Storage (PARENT AREA - DON'T USE)"
+	department = LOC_CREW
 
 /area/horizon/storage/primary
 	name = "Primary Tool Storage"
@@ -155,9 +156,13 @@
 	name = "Expedition EVA Storage"
 	icon_state = "eva"
 	horizon_deck = 1
+	holomap_color = HOLOMAP_AREACOLOR_SCIENCE
+	department = LOC_SCIENCE
 
 /// THE VAAAAAAUULLT
 /area/horizon/storage/secure
 	name = "Secure Storage"
 	icon_state = "storage"
 	horizon_deck = 2
+	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
+	department = LOC_COMMAND
