@@ -62,6 +62,18 @@
 	var/can_change_icon_state = TRUE
 	var/set_unsafe_on_init = FALSE
 
+/obj/item/paper/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if (old_name && (icon_state == "paper_plane" || icon_state == "paper_swan"))
+		. += SPAN_NOTICE("You're going to have to unfold it before you can read it.")
+		return
+	if(name != initial(name))
+		. += "It's titled '[name]'."
+	if(distance <= 1)
+		show_content(user)
+	else
+		. += SPAN_NOTICE("You have to go closer if you want to read it.")
+
 /obj/item/paper/Initialize(mapload, text, title)
 	. = ..()
 	base_state = initial(icon_state)
@@ -118,18 +130,6 @@
 /obj/item/paper/proc/update_space(new_text)
 	if(new_text)
 		free_space -= length(strip_html_properly(new_text))
-
-/obj/item/paper/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if (old_name && (icon_state == "paper_plane" || icon_state == "paper_swan"))
-		. += SPAN_NOTICE("You're going to have to unfold it before you can read it.")
-		return
-	if(name != initial(name))
-		. += "It's titled '[name]'."
-	if(distance <= 1)
-		show_content(user)
-	else
-		. += SPAN_NOTICE("You have to go closer if you want to read it.")
 
 /obj/item/paper/proc/show_content(mob/user, forceshow)
 	simple_asset_ensure_is_sent(user, /datum/asset/simple/paper)

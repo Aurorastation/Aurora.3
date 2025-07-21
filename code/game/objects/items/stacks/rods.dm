@@ -18,8 +18,6 @@ GLOBAL_LIST_INIT_TYPED(rod_recipes, /datum/stack_recipe, list(
 /obj/item/stack/rods
 	name = "metal rod"
 	desc = "Some rods. Can be used for building, or something."
-	desc_info = "Made from metal sheets.  You can build a grille by using it in your hand. \
-	Clicking on a floor without any tiles will reinforce the floor.  You can make reinforced glass by combining rods and normal glass sheets."
 	singular_name = "metal rod"
 	icon_state = "rods"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
@@ -37,6 +35,17 @@ GLOBAL_LIST_INIT_TYPED(rod_recipes, /datum/stack_recipe, list(
 	lock_picking_level = 3
 	stacktype = /obj/item/stack/rods
 	icon_has_variants = TRUE
+
+/obj/item/stack/rods/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Left-click this item in-hand to view its crafting menu."
+	. += "Left-clicking with this item on a floor without any tiles will reinforce the floor."
+	. += "Combining this item with glass sheets will create reinforced glass."
+
+/obj/item/stack/rods/assembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Combining this item with glass sheets will create reinforced glass."
+	. += "Using a welder on two metal rods will recombine them back into a steel sheet."
 
 /obj/item/stack/rods/Destroy()
 	. = ..()
@@ -105,6 +114,10 @@ GLOBAL_LIST_INIT_TYPED(rod_recipes, /datum/stack_recipe, list(
 	w_class = WEIGHT_CLASS_SMALL
 	matter = list(DEFAULT_WALL_MATERIAL = 937.5)
 	attack_verb = list("hit", "whacked", "sliced")
+
+/obj/item/stack/barbed_wire/assembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Left-click with this on a barricade to apply barbed wire to it."
 
 /obj/item/stack/barbed_wire/half_full
 	amount = 25

@@ -1,13 +1,15 @@
 /obj/item/clothing/under/color
 	name = "grey jumpsuit"
 	desc = "A basic jumpsuit."
-	desc_info = "Jumpsuits can have their sleeves rolled up/down via the Roll Up/Down Sleeves verb, and also have their upper body part be up/down via the \
-	the Rolled Up/Down verb."
-	icon = 'icons/clothing/under/uniforms/jumpsuits.dmi'
+	icon = 'icons/obj/item/clothing/under/jumpsuits.dmi'
 	icon_state = "grey"
 	item_state = "grey"
 	item_icons = null
 	contained_sprite = TRUE
+
+/obj/item/clothing/under/color/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Jumpsuits can have their sleeves rolled up/down via the Roll Up/Down Sleeves verb, and also have their upper body part be up/down via the Rolled Up/Down verb."
 
 /obj/item/clothing/under/color/colorable
 	name = "colorable jumpsuit"
