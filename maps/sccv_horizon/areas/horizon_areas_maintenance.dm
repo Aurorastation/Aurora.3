@@ -12,24 +12,6 @@
 /area/horizon/maintenance/deck_1
 	horizon_deck = 1
 
-/area/horizon/maintenance/deck_1/hangar/port
-	name = "Hangar Maintenance - Port"
-
-/area/horizon/maintenance/deck_1/hangar/starboard
-	name = "Hangar Maintenance - Starboard"
-
-/area/horizon/maintenance/deck_1/hangar/far_port
-	name = "Lower Wing Frame Interior - Far Port"
-
-/area/horizon/maintenance/deck_1/operations/starboard
-	name = "Operations Maintenance - Far Starboard"
-
-/area/horizon/maintenance/deck_1/operations/starboard
-	name = "Operations Maintenance - Internal"
-
-/area/horizon/maintenance/deck_1/operations/starboard/far
-	name = "Operations Maintenance - Starboard"
-
 /area/horizon/maintenance/deck_1/main/starboard
 	name = "Primary Maintenance Conduit - Starboard"
 
@@ -39,30 +21,89 @@
 /area/horizon/maintenance/deck_1/main/interstitial
 	name = "Primary Maintenance Conduit - Interstitial"
 
+/area/horizon/maintenance/deck_1/hangar/port
+	name = "Primary Hangar Maintenance - Port"
+
+/area/horizon/maintenance/deck_1/hangar/starboard
+	name = "Primary Hangar Maintenance - Starboard"
+
+/area/horizon/maintenance/deck_1/operations/starboard
+	name = "Operations Maintenance - Far to Starboard"
+
+/area/horizon/maintenance/deck_1/operations/starboard/amidships
+	name = "Operations Maintenance - Starboard Amidships"
+
+/area/horizon/maintenance/deck_1/operations/starboard/far
+	name = "Operations Maintenance - Starboard"
+
+/area/horizon/maintenance/deck_1/workshop
+	name = "Auxillary Engineering Maintenance - Starboard"
+	icon_state = "maint_engineering"
+
 /area/horizon/maintenance/deck_1/teleporter
 	name = "Teleporter Maintenance - Central"
 
-/area/horizon/maintenance/deck_1/combustion
+/area/horizon/maintenance/deck_1/wing/starboard
+	name = "Lower Wing Frame Interior - Starboard"
+
+/area/horizon/maintenance/deck_1/wing/starboard/far
+	name = "Lower Wing Frame Interior - Far to Starboard"
+
+/area/horizon/maintenance/deck_1/wing/port/far
+	name = "Lower Wing Frame Interior - Far to Port"
+
+/area/horizon/maintenance/deck_1/auxatmos
 	name = "Combustion Turbine Maintenance - Aft Port"
 
 /area/horizon/maintenance/deck_2
 	horizon_deck = 2
 
+/area/horizon/maintenance/deck_2/auxatmos
+	name = "Auxiliary Atmospherics - Starboard"
+
+/area/horizon/maintenance/deck_2/wing/starboard
+	name = "Central Wing Frame Interior - Starboard"
+
+/area/horizon/maintenance/deck_2/wing/starboard/near
+	name = "Central Wing Frame Interior - Starboard Amidships"
+
+/area/horizon/maintenance/deck_2/wing/starboard/far
+	name = "Central Wing Frame Interior - Far to Starboard"
+
+/area/horizon/maintenance/deck_2/wing/starboard/nacelle
+	name = "Starboard Nacelle"
+
+/area/horizon/maintenance/deck_2/wing/port
+	name = "Central Wing Frame Interior - Port"
+
+/area/horizon/maintenance/deck_2/wing/port/near
+	name = "Central Wing Frame Interior - Port Amidships"
+
+/area/horizon/maintenance/deck_2/wing/port/far
+	name = "Central Wing Frame Interior - Far to Port"
+
+/area/horizon/maintenance/deck_2/wing/port/nacelle
+	name = "Port Nacelle"
+
+/area/horizon/maintenance/deck_2/fore/starboard
+	name = "Service Maintenance - Starboard Fore"
+
+/area/horizon/maintenance/deck_2/fore/port
+	name = "Service Maintenance - Port Fore"
+
+/area/horizon/maintenance/deck_2/research
+	name = "Research Maintenance - Port Aft"
+	icon_state = "maint_research_port"
+
+/area/horizon/maintenance/deck_2/aft
+	name = "Machine Shop Maintenance - Aft"
+	icon_state = "amaint"
+
 /area/horizon/maintenance/deck_3
 	horizon_deck = 3
 
-/area/horizon/maintenance/deck_2/fore/starboard
-	name = "Horizon - Maintenance - Deck Two - Fore Starboard"
-
-/area/horizon/maintenance/deck_2/fore/port
-	name = "Horizon - Maintenance - Deck Two - Fore Port"
-
 /area/horizon/maintenance/deck_3/aft/starboard
 	name = "Horizon - Maintenance - Deck Three - Aft Starboard"
-
-/area/horizon/maintenance/aft
-	name = "Aft Maintenance"
-	icon_state = "amaint"
 
 /area/horizon/maintenance/maintcentral
 	name = "Bridge Maintenance"
@@ -71,14 +112,6 @@
 /area/horizon/maintenance/engineering
 	name = "Engineering Maintenance"
 	icon_state = "maint_engineering"
-
-/area/horizon/maintenance/engineering/auxillary
-	name = "Auxillary Engineering Maintenance"
-	icon_state = "maint_engineering"
-
-/area/horizon/maintenance/research_port
-	name = "Research Maintenance - Port"
-	icon_state = "maint_research_port"
 
 /area/horizon/maintenance/engineering_ladder
 	name = "Engineering Ladder Shaft"
@@ -98,27 +131,6 @@
 
 /area/horizon/maintenance/deck_2/aux_atmospherics
 	name = "Auxiliary Atmospherics - Starboard Wing"
-
-//Wings
-
-/area/horizon/maintenance/wing
-	name = "Wing Frame Maintenance"
-	icon_state = "fpmaint"
-
-/area/horizon/maintenance/wing/starboard
-	name = "Central Wing Frame Interior - Starboard"
-
-/area/horizon/maintenance/wing/starboard/far
-	name = "Central Wing Frame Interior - Far Starboard"
-
-/area/horizon/maintenance/wing/starboard/deck1
-	name = "Lower Wing Frame Interior - Starboard"
-
-/area/horizon/maintenance/wing/port
-	name = "Central Wing Frame Interior - Port"
-
-/area/horizon/maintenance/wing/port/far
-	name = "Central Wing Frame Interior - Far Port"
 
 // SUBSTATIONS (Subtype of maint, that should let them serve as shielded area during radstorm)
 

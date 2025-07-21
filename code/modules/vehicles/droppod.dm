@@ -196,8 +196,7 @@
 			if("operations")
 				var/list/ops_list = list(
 					/area/horizon/operations/break_room = 15,
-					/area/horizon/maintenance/wing/starboard = 20,
-					/area/horizon/maintenance/wing/starboard/deck1 = 20,
+					/area/horizon/maintenance/deck_1/operations/starboard = 20,
 					/area/horizon/operations/office = 10,
 					/area/horizon/operations/warehouse = 15,
 					/area/horizon/operations/mining_main/refinery = 20
@@ -205,8 +204,8 @@
 				A = pickweight(ops_list)
 			if("starboard_wing")
 				var/list/starboard_wing_list = list(
-					/area/horizon/maintenance/wing/starboard = 50,
-					/area/horizon/maintenance/wing/starboard/far = 50
+					/area/horizon/maintenance/deck_1/wing/starboard = 50,
+					/area/horizon/maintenance/deck_1/wing/starboard/far = 50
 					)
 				A = pickweight(starboard_wing_list)
 		if(A)
