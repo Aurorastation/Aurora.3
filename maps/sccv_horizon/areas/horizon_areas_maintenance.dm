@@ -105,6 +105,9 @@
 	location_ew = LOC_PORT
 	location_ns = LOC_FORE
 
+/area/horizon/maintenance/deck_2/cargo_compartment
+	name = "Auxiliary Cargo Maintenance"
+
 /area/horizon/maintenance/deck_2/wing/starboard
 	name = "Wing Frame Interior"
 	location_ew = LOC_STARBOARD
