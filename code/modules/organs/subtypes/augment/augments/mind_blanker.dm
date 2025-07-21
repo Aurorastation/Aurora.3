@@ -55,5 +55,5 @@
 		var/mob/living/victim = caster
 		victim.adjustBrainLoss(20)
 		victim.confused += 20
-		to_chat(victim, SPAN_DANGER("Agony lances through my mind as [src]'s mind clamps down upon me."))
+		to_chat(victim, SPAN_DANGER("Agony lances through my mind as [src]'s mind clamps down upon me!"))
 	return COMSIG_PSI_MIND_POWER_CANCELLED
