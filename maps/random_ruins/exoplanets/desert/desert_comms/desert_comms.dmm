@@ -745,6 +745,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/desert_comms)
+"ve" = (
+/obj/structure/ledge,
+/obj/structure/blocker/steel/fence,
+/turf/simulated/floor/exoplanet/desert,
+/area/desert_comms)
 "vq" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -2802,8 +2807,8 @@ Zm
 Ne
 qs
 qs
-Ge
-Rl
+Zm
+ve
 Zm
 pi
 ND
