@@ -2,7 +2,6 @@
 /obj/item/clothing/accessory/leg_guard
 	name = "corporate leg guards"
 	desc = "These will protect your legs."
-	desc_info = "These items must be hooked onto plate carriers for them to work!"
 	icon = 'icons/obj/item/clothing/suit/armor/modular_armor/modular_armor.dmi'
 	icon_state = "legguards_sec"
 	item_state = "legguards_sec"
@@ -20,6 +19,10 @@
 	body_parts_covered = LEGS
 	drop_sound = 'sound/items/drop/boots.ogg'
 	pickup_sound = 'sound/items/pickup/boots.ogg'
+
+/obj/item/clothing/accessory/leg_guard/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "These must be attached to plate carriers for them to work."
 
 /obj/item/clothing/accessory/leg_guard/before_attached(var/obj/item/clothing/clothing, var/mob/user)
 	if(!clothing.valid_accessory_slots || !(slot in clothing.valid_accessory_slots))

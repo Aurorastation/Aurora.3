@@ -13,11 +13,14 @@
 	name = "processor unit"
 	icon_state = "processor"
 	desc = "This machine is used to process large quantities of information."
-	desc_antag = "Attacking this machine will cause communications over its linked frequency(s) to become increasingly garbled."
 	telecomms_type = /obj/machinery/telecomms/processor
 	delay = 5
 	circuitboard = "/obj/item/circuitboard/telecomms/processor"
 	var/process_mode = UNCOMPRESS
+
+/obj/machinery/telecomms/processor/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Attacking/damaging this machine will cause communications over its linked frequency(s) to become increasingly garbled."
 
 /obj/machinery/telecomms/processor/receive_information(datum/signal/subspace/signal, obj/machinery/telecomms/machine_from)
 	if(!is_freq_listening(signal))

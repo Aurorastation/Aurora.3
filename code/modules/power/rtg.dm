@@ -26,9 +26,11 @@
 		/obj/item/circuitboard/rtg
 	)
 
-	component_hint_cap = "Upgraded <b>capacitors</b> will increase maximum power output."
-
 	parts_power_mgmt = FALSE
+
+/obj/machinery/power/rtg/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>capacitors</b> will increase maximum power output."
 
 /obj/machinery/power/rtg/Initialize()
 	. = ..()
@@ -66,7 +68,6 @@
 		return
 	..()
 
-
 /obj/machinery/power/rtg/advanced
 	desc = "An advanced RTG capable of moderating isotope decay, increasing power output but reducing lifetime. It uses phoron-fueled radiation collectors to increase output even further."
 	power_gen = 1250 // 2500 on T1, 10000 on T4.
@@ -79,7 +80,6 @@
 		/obj/item/stack/material/phoron{amount = 5},
 		/obj/item/circuitboard/rtg/advanced
 	)
-
 
 /obj/item/circuitboard/rtg
 	name = T_BOARD("radioisotope thermoelectric generator")

@@ -8,6 +8,10 @@
 	var/max_cable = 100
 	var/on = FALSE
 
+/obj/machinery/cablelayer/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += SPAN_NOTICE("\The [src]'s cable reel has [cable.amount] length\s left.")
+
 /obj/machinery/cablelayer/Initialize()
 	. = ..()
 	cable = new(src)
@@ -54,10 +58,6 @@
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have any cable loaded!"))
 			return TRUE
 		return cable.attackby(attacking_item, user)
-
-/obj/machinery/cablelayer/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += SPAN_NOTICE("\The [src]'s cable reel has [cable.amount] length\s left.")
 
 /obj/machinery/cablelayer/proc/load_cable(var/obj/item/stack/cable_coil/CC)
 	if(istype(CC) && CC.amount)

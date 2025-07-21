@@ -16,44 +16,73 @@
 
 	Inbound Signal -> Receiver -> Hub -> Bus -> Processor -> Bus -> Server -> Hub -> Broadcaster
 */
-
 /obj/machinery/telecomms
 	icon = 'icons/obj/machinery/telecomms.dmi'
-	desc_info = "All telecomms machinery can repaired through the application of Nanopaste."
 	density = TRUE
 	anchored = TRUE
 	idle_power_usage = 600 // WATTS
 	active_power_usage = 2 KILO WATTS
 
-	var/list/links = list() // list of machines this machine is linked to
+	/// List of machines this machine is linked to
+	var/list/links = list()
 	/*
 		Associative lazylist of the telecomms_type of linked telecomms machines and a list of said machines
 		eg list(telecomms_type1 = list(everything linked to us with that type), telecomms_type2 = list(everything linked to us with THAT type, etc.))
 	*/
 	var/list/links_by_telecomms_type
-	var/traffic = 0 // value increases as traffic increases
-	var/netspeed = 5 // how much traffic to lose per tick (50 gigabytes/second * netspeed)
-	var/list/autolinkers = list() // list of text/number values to link with
-	var/id = "NULL" // identification string
-	var/telecomms_type = null // Relevant typepath of the machine (important to use machine's base path rather than server/preset or w.e)
-	var/network = "NULL" // the network of the machinery
+	/// Value increases as traffic increases
+	var/traffic = 0
+	/// How much traffic to lose per tick (50 gigabytes/second * netspeed)
+	var/netspeed = 5
+	/// List of text/number values to link with
+	var/list/autolinkers = list()
+	/// Identification string
+	var/id = "NULL"
+	/// Relevant typepath of the machine (important to use machine's base path rather than server/preset or w.e)
+	var/telecomms_type = null
+	/// The network ID of the machinery
+	var/network = "NULL"
 
-	var/list/freq_listening = list() // list of frequencies to tune into: if none, will listen to all
-
-	var/integrity = 100 			// basically HP, loses integrity by heat
-	var/produces_heat = TRUE		//whether the machine will produce heat when on.
-	var/delay = 10 					// how many process() ticks to delay per heat
-	var/circuitboard = null 		// string pointing to a circuitboard type
-	var/hide = FALSE				// Is it a hidden machine?
+	/// List of frequencies to tune into: if none, will listen to all
+	var/list/freq_listening = list()
+	/// Basically HP, loses integrity by heat
+	var/integrity = 100
+	/// Whether the machine will produce heat when on.
+	var/produces_heat = TRUE
+	/// How many process() ticks to delay per heat
+	var/delay = 10
+	/// String pointing to a circuitboard type
+	var/circuitboard = null
+	/// Is it a hidden machine?
+	var/hide = FALSE
 
 	var/hitsound = 'sound/weapons/smash.ogg'
 
-	// Overmap ranges in terms of map tile distance, used by receivers, relays, and broadcasters (and AIOs)
+	/// Overmap ranges in terms of map tile distance, used by receivers, relays, and broadcasters (and AIOs)
 	var/overmap_range = 0
 
 	///Looping sounds for any servers
 //	var/datum/looping_sound/server/soundloop
 
+/obj/machinery/telecomms/condition_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(integrity < initial(integrity))
+		var/state
+		var/current_damage = integrity / initial(integrity)
+		switch(current_damage)
+			if(0 to 0.2)
+				state = SPAN_DANGER("The machine is on its last legs!")
+			if(0.2 to 0.4)
+				state = SPAN_WARNING("The machine looks seriously damaged.")
+			if(0.4 to 0.8)
+				state = SPAN_WARNING("The machine's condition appears somewhat degraded.")
+			if(0.8 to 1)
+				state = SPAN_NOTICE("The machine shows some indications of minor damage.")
+		. += state
+
+/obj/machinery/telecomms/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "All telecomms machinery can repaired through the application of Nanopaste."
 
 /obj/machinery/telecomms/Initialize(mapload)
 	. = ..()
@@ -84,7 +113,7 @@
 	links = list()
 	return ..()
 
-// This proc returns distance, so -1 is our error value
+/// This proc returns distance, so -1 is our error value
 /obj/machinery/telecomms/proc/receive_range(datum/signal/subspace/sig)
 	if(!use_power || !istype(sig) || !is_freq_listening(sig))
 		return -1
@@ -100,7 +129,7 @@
 		for(var/obj/effect/overmap/visitable/V in range(overmap_range, linked))
 			. |= V.map_z
 
-// Used in auto linking
+/// Used in auto linking
 /obj/machinery/telecomms/proc/add_automatic_link(var/obj/machinery/telecomms/T)
 	if(src == T)
 		return
@@ -161,15 +190,20 @@
 	// Checks heat from the environment and applies any integrity damage
 	if(!loc) return
 	var/datum/gas_mixture/environment = loc.return_air()
-	var/damage_chance = 0                           // Percent based chance of applying 1 integrity damage this tick
+	// Percent based chance of applying 1 integrity damage this tick
+	var/damage_chance = 0
 	switch(environment.temperature)
-		if((T0C + 40) to (T0C + 70))                // 40C-70C, minor overheat, 10% chance of taking damage
+		// 40C-70C, minor overheat, 10% chance of taking damage
+		if((T0C + 40) to (T0C + 70))
 			damage_chance = 10
-		if((T0C + 70) to (T0C + 130))				// 70C-130C, major overheat, 25% chance of taking damage
+		// 70C-130C, major overheat, 25% chance of taking damage
+		if((T0C + 70) to (T0C + 130))
 			damage_chance = 25
-		if((T0C + 130) to (T0C + 200))              // 130C-200C, dangerous overheat, 50% chance of taking damage
+		// 130C-200C, dangerous overheat, 50% chance of taking damage
+		if((T0C + 130) to (T0C + 200))
 			damage_chance = 50
-		if((T0C + 200) to INFINITY)					// More than 200C, INFERNO. Takes damage every tick.
+		// More than 200C, INFERNO. Takes damage every tick.
+		if((T0C + 200) to INFINITY)
 			damage_chance = 100
 	if (damage_chance && prob(damage_chance))
 		integrity = between(0, integrity - 1, 100)
@@ -195,14 +229,16 @@
 	if(!removed)
 		return
 
-	var/heat_produced = get_power_usage()	//obviously can't produce more heat than the machine draws from it's power source
+	// Obviously can't produce more heat than the machine draws from its power source
+	var/heat_produced = get_power_usage()
 	if (use_power < POWER_USE_ACTIVE)
-		heat_produced *= 0.30	//if idle, produce less heat.
+		// If idle, produce less heat.
+		heat_produced *= 0.30
 
 	removed.add_thermal_energy(heat_produced)
 	env.merge(removed)
 
-// relay signal to all linked machinery that are of type [filter]. If signal has been sent [amount] times, stop sending
+/// Relay signal to all linked machinery that are of type [filter]. If signal has been sent [amount] times, stop sending
 /obj/machinery/telecomms/proc/relay_information(datum/signal/subspace/signal, filter, copysig, amount = 20)
 	if(!use_power)
 		return
@@ -238,12 +274,12 @@
 
 	return send_count
 
-// send signal directly to a machine
+/// Send signal directly to a machine
 /obj/machinery/telecomms/proc/relay_direct_information(datum/signal/signal, obj/machinery/telecomms/machine)
 	if(use_power)
 		machine.receive_information(signal, src)
 
-// receive information from linked machinery
+/// Receive information from linked machinery
 /obj/machinery/telecomms/proc/receive_information(datum/signal/signal, obj/machinery/telecomms/machine_from)
 	return
 
@@ -251,8 +287,10 @@
 	// return TRUE if found, FALSE if not found
 	return signal && (!freq_listening.len || (signal.frequency in freq_listening))
 
-// Reception range of telecomms machines is limited via overmap_range
-// Returns distance, not a boolean value, so don't do !get_reception or so help me god
+/*
+ *	Reception range of telecomms machines is limited via overmap_range
+ *	Returns distance, not a boolean value, so don't do !get_reception or so help me god
+ */
 /obj/machinery/telecomms/proc/get_signal_dist(datum/signal/subspace/signal)
 	if(!SSatlas.current_map.use_overmap || !istype(linked) || !istype(signal.sector))
 		if(z == signal.origin_level || (signal.origin_level in GetConnectedZlevels(z)))
@@ -268,18 +306,3 @@
 		return -1
 	return overmap_dist
 
-/obj/machinery/telecomms/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(integrity < initial(integrity))
-		var/state
-		var/current_damage = integrity / initial(integrity)
-		switch(current_damage)
-			if(0 to 0.2)
-				state = SPAN_DANGER("The machine is on its last legs!")
-			if(0.2 to 0.4)
-				state = SPAN_WARNING("The machine looks seriously damaged.")
-			if(0.4 to 0.8)
-				state = SPAN_WARNING("The machine's condition appears somewhat degraded.")
-			if(0.8 to 1)
-				state = SPAN_NOTICE("The machine shows some indications of minor damage.")
-		. += state

@@ -3,7 +3,6 @@
 /obj/item/gun/energy/wand
 	name = "wand of nothing"
 	desc = "A magic stick, this one don't do much however."
-	desc_info = null
 	icon = 'icons/obj/wands.dmi'
 	icon_state = "nothingwand"
 	item_state = "wand"
@@ -18,6 +17,10 @@
 	charge_meter = 0
 	has_safety = FALSE
 	needspin = FALSE
+
+/obj/item/gun/energy/wand/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ""
 
 /obj/item/gun/energy/wand/handle_click_empty(mob/user = null)
 	if (user)

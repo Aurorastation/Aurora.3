@@ -1,7 +1,6 @@
 /obj/machinery/orderterminal
 	name = "Idris Ordering Terminal"
 	desc = "An ordering terminal designed by Idris for quicker expedition."
-	desc_info = "To edit the menu, select 'Toggle Lock' while wearing an ID with kitchen access. \nAll credits from the machine will automatically go to the civilian account."
 	icon = 'icons/obj/machinery/wall/terminals.dmi'
 	icon_state = "kitchenterminal"
 	anchored = 1
@@ -23,6 +22,11 @@
 	var/destinationact = "Service"
 	var/ticket_number = 1
 	req_one_access = list(ACCESS_BAR, ACCESS_KITCHEN) // Access to change the menu
+
+/obj/machinery/orderterminal/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "To edit the menu, select 'Toggle Lock' while wearing an ID with kitchen access."
+	. += "All credits from the machine will automatically go to the civilian account."
 
 /obj/machinery/orderterminal/Initialize()
 	. = ..()

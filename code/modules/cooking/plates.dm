@@ -8,9 +8,6 @@ Plates that can hold your cooking stuff
 /obj/item/reagent_containers/bowl
 	name = "bowl"
 	desc = "A small bowl for serving liquid meals in."
-	desc_info = "Click with food to put food on.<br>\
-	- Click with cutlery to eat some.<br>\
-	- Click it with the active hand to remove food."
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "bowl"
 	fragile = 3
@@ -19,8 +16,14 @@ Plates that can hold your cooking stuff
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	var/grease = FALSE
 
-/obj/item/reagent_containers/bowl/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/reagent_containers/bowl/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Click with food to put food into it."
+	. += "If it has food on it, click with cutlery to scoop some food up."
+	. += "If it has food on it, click it with the active hand to remove the food."
+
+/obj/item/reagent_containers/bowl/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(grease)
 		. += SPAN_WARNING("\The [name] looks a little unclean.")
 
@@ -108,17 +111,17 @@ Plates that can hold your cooking stuff
 	icon_state = "plate"
 	var/obj/item/holding
 
+/obj/item/reagent_containers/bowl/plate/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(holding)
+		. += "It looks like there is \a [SPAN_INFO(holding.name)] on \the [src]."
+		. += SPAN_INFO(" - [holding.desc]")
+
 /obj/item/reagent_containers/bowl/plate/Destroy()
 	if(holding)
 		holding = null
 		qdel(holding)
 	return ..()
-
-/obj/item/reagent_containers/bowl/plate/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(holding)
-		. += "It looks like there is \a [SPAN_INFO(holding.name)] on \the [src]."
-		. += SPAN_INFO(" - [holding.desc]")
 
 /obj/item/reagent_containers/bowl/plate/attackby(obj/item/attacking_item, mob/user)
 	if((istype(attacking_item, /obj/item/reagent_containers/food/snacks) || istype(attacking_item, /obj/item/trash)) && !holding)
