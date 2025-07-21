@@ -10,7 +10,7 @@
 	desc_extended = "The proprietary PMCG Modular Fatigue Jumpsuit, quickly dubbed the modsuit, is an innovation by the recently-formed PMCG to quickly outfit its scores of new \
 	hires and acquisitions at economic production costs. Designed to fit military contractors of a wide range of sizes, species, and operating environments with tolerable comfort, \
 	the modsuit features a number of smart-fabric connection points for the modern contractor to modify their uniform to a number of preset configurations."
-	icon = 'icons/clothing/under/uniforms/pmcg_modsuit.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/security.dmi'
 	icon_state = "pmcg_modsuit"
 	item_state = "pmcg_modsuit"
 	contained_sprite = TRUE
@@ -30,7 +30,7 @@
 /obj/item/clothing/under/pmc_modsuit/Initialize()
 	. = ..()
 	for(var/option in configuration_options)
-		configuration_options[option] = image('icons/clothing/under/uniforms/pmcg_modsuit.dmi', initial(icon_state) + "_" + option)
+		configuration_options[option] = image('icons/obj/item/clothing/department_uniforms/security.dmi', initial(icon_state) + "_" + option)
 
 /obj/item/clothing/under/pmc_modsuit/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
@@ -100,7 +100,7 @@
 	name = "\improper Ve'katak Phalanx representative uniform"
 	desc = "A uniform used by the forces of the Ve'katak Phalanx, a Vaurca-run private military company. This one has ice blue shoulder stripes, identifying it as belonging to a Phalanx member that is representing the direct interests of the Phalanx and their immediate employers."
 	desc_extended = "These uniforms are designed to fit under the combat hardsuits favored by the Phalanx. They are utilitarian in design, and reportedly somewhat uncomfortable - though few of the non-Vaurcae bold enough to join Ve'katak seem to complain."
-	icon = 'icons/clothing/under/uniforms/pmcg.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	icon_state = "phalanx-rep_jumpsuit"
 	item_state = "phalanx-rep_jumpsuit"
 	contained_sprite = TRUE
@@ -115,7 +115,7 @@
 	name = "Grupo Amapola uniform"
 	desc = "A uniform used by the forces of the Grupo Amapola, a private military company originating out of Mictlan. It is based off the old uniforms of the Mictlan Defense Force, a once-Solarian planetary guard, with red poppy patches on the back and right arm."
 	desc_extended = "The Grupo Amapola's light green camo is taken from old uniforms of the Mictlan Defense Force, the same uniforms used by the insurgents known as the Samaritans. Many MDF service personnel defected to the Samaritans, and after the fighting between the Tau Ceti Armed Forces and Samaritans ended, the less scrupulous among their number now work for Grupo Amapola."
-	icon = 'icons/clothing/under/uniforms/pmcg.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/security.dmi'
 	icon_state = "amapola_ftg"
 	item_state = "amapola_ftg"
 	contained_sprite = TRUE

@@ -37,6 +37,10 @@
 	var/datum/powernet/PN			// Our powernet
 	var/obj/structure/cable/attached		// the attached cable
 
+/obj/item/device/powersink/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Dead APCs means their emergency shutters won't automatically close pressure loss. You could rapidly vent an entire department this way."
+
 /obj/item/device/powersink/Destroy()
 	PN = null
 	attached = null
@@ -76,17 +80,28 @@
 	return
 
 /obj/item/device/powersink/attack_hand(var/mob/user)
+	if(!mode)
+		..()
+	else
+		toggle_mode(user)
+
+/// Used to be handled in attack_hand(), but moved to its own proc to handle future signaler usage.
+/obj/item/device/powersink/proc/toggle_mode(var/mob/user)
 	switch(mode)
-		if(0)
-			..()
 		if(1)
-			visible_message(SPAN_NOTICE("\The [user] activates \the [src]!"))
+			if(user)
+				visible_message(SPAN_NOTICE("\The [user] activates \the [src]!"))
+			else
+				visible_message(SPAN_NOTICE("\The [src] suddenly starts to hum!"))
 			mode = 2
 			icon_state = "powersink1"
 			item_state = "powersink1"
 			START_PROCESSING(SSprocessing, src)
-		if(2)  //This switch option wasn't originally included. It exists now. --NeoFite
-			visible_message(SPAN_NOTICE("\The [user] deactivates \the [src]!"))
+		if(2)
+			if(user)
+				visible_message(SPAN_NOTICE("\The [user] deactivates \the [src]!"))
+			else
+				visible_message(SPAN_NOTICE("\The [src] suddenly goes quiet!"))
 			mode = 1
 			set_light(0)
 			icon_state = "powersink0"
@@ -126,7 +141,6 @@
 					drained += drain_val
 	power_drained += drained
 	return 1
-
 
 /obj/item/device/powersink/process(seconds_per_tick)
 	drained_this_tick = 0

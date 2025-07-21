@@ -15,7 +15,6 @@ Thus, the two variables affect pump operation are set in New():
 /obj/machinery/atmospherics/binary/pump
 	name = "gas pump"
 	desc = "A pump."
-	desc_info = "This moves gas from one pipe to another. A higher target pressure demands more energy. The side with the colored end is the output."
 	icon = 'icons/atmos/pump.dmi'
 	icon_state = "map_off"
 	level = 1
@@ -36,6 +35,11 @@ Thus, the two variables affect pump operation are set in New():
 	var/datum/radio_frequency/radio_connection
 
 	var/broadcast_status_next_process = FALSE
+
+/obj/machinery/atmospherics/binary/pump/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This moves gas from one pipe to another. A higher target pressure demands more energy."
+	. += "The side with the colored end is the output."
 
 /obj/machinery/atmospherics/binary/pump/Initialize()
 	. = ..()

@@ -4,11 +4,6 @@
 	name = "stabilizer harness"
 	desc = "A specialized medical harness that gives regular compressions to the patient's ribcage for cases of urgent heart issues, and functions as an emergency \
 	artificial respirator for cases of urgent lung issues."
-	desc_info = "The Stabilizer Harness' CPR mode is capable of restarting the heart much like manual CPR with a chance for rib cracking ONLY IF the patient is flat lining,\
-				while the EPP mode can keep the patient breathing during transport for as long as there's appropriate air in the installed tank. Both use power from the battery. \
-				<br> Use this item in your hand to toggle the CPR or EPP modes on/off.<br> Use a Screwdriver on it to unscrew the panel to be able to remove/add other items. \
-				The tank can be removed with a Wrench. The battery can be removed with a crowbar. Use the item in your hand the panel unscrewed to remove the breath mask."
-
 	icon = 'icons/obj/med_harness.dmi'
 	icon_state = "med_harness"
 	item_state = "med_harness"
@@ -39,6 +34,47 @@
 		/obj/item/clothing/mask/breath/skrell,
 		/obj/item/clothing/mask/breath/lyodsuit,
 		/obj/item/clothing/mask/breath/infiltrator)
+
+/obj/item/auto_cpr/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "The Stabilizer Harness' CPR mode is capable of restarting the heart much like manual CPR with a chance for rib cracking ONLY IF the patient is flatlining. Uses battery power."
+	. += "The EPP mode can keep the patient breathing during transport for as long as there's appropriate air in the installed tank. Uses battery power."
+	. += "Use this item in your hand to toggle the CPR or EPP modes on/off."
+
+/obj/item/auto_cpr/assembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(panel_open)
+		. += "The panel for adding/removing items is open and could be closed with some <b>screws</b>."
+
+/obj/item/auto_cpr/disassembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(!panel_open)
+		. += "The panel for adding/removing items is <b>screwed</b> shut."
+	else
+		if(battery)
+			. += "The battery could be <b>pried</b> out."
+		if(tank_type)
+			. += "The tank is secured with several <b>bolts</b>."
+		if(breath_mask)
+			. += "The breath mask could be removed <b>by hand</b>."
+
+/obj/item/auto_cpr/feedback_hints(mob/user, distance, is_adjacent)
+	if(distance > 2)
+		return
+	. += ..()
+	. += "\The [src]'s [EPP] is currently <b>[epp_mode ? "on" : "off"]</b>, while the Auto CPR is <b>[cpr_mode ? "on" : "off"]</b>."
+	if(battery)
+		if(battery.percent() > 10)
+			. += "It currently has a battery with <b>[battery.percent()]%</b> charge."
+		else if(battery.percent() > 0)
+			. += SPAN_ALERT("It currently has a battery with <b>[battery.percent()]%</b> charge.")
+		else
+			. += SPAN_DANGER("It currently has a battery with no charge left!")
+	if(tank)
+		. += "It has \the [tank] installed. The meter shows <b>[round(tank.air_contents.return_pressure())] kPa</b>, \
+		with the pressure set to <b>[round(tank.distribute_pressure)] kPa</b>.[epp_active ? " The [EPP] is active." : ""]"
+	if(breath_mask)
+		. += "It has \the [breath_mask] installed."
 
 /obj/item/auto_cpr/Initialize()
 	. = ..()
@@ -477,18 +513,5 @@
 	to_chat(usr, SPAN_NOTICE("You toggle \the [src]'s Auto CPR system [cpr_mode ? "on" : "off"]."))
 	playsound(usr, 'sound/machines/click.ogg', 50)
 	update_icon()
-
-/obj/item/auto_cpr/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(!is_adjacent)
-		return
-	. += SPAN_NOTICE("\The [src]'s [EPP] is currently [epp_mode ? "on" : "off"], while the Auto CPR is [cpr_mode ? "on" : "off"].")
-	if(battery)
-		. += SPAN_NOTICE("It currently has a battery with [battery.percent()]% charge.")
-	if(tank)
-		. += SPAN_NOTICE("It has [icon2html(tank, user)] \the [tank] installed. The meter shows [round(tank.air_contents.return_pressure())]kPa, \
-		with the pressure set to [round(tank.distribute_pressure)]kPa.[epp_active ? " The [EPP] is active." : ""]")
-	if(breath_mask)
-		. += SPAN_NOTICE("It has [icon2html(breath_mask, user)] \the [breath_mask] installed.")
 
 #undef EPP

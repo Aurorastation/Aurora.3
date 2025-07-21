@@ -42,13 +42,24 @@
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	var/chewable = TRUE
 
+/obj/item/storage/box/condition_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if (health < maxHealth)
+		if (health >= (maxHealth * 0.5))
+			. += SPAN_WARNING("It is slightly torn.")
+		else
+			. += SPAN_DANGER("It is full of tears and holes.")
+
+/obj/item/storage/box/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(foldable)
+		. += "Left-click on this when empty to fold it into a sheet."
+	if(ispath(src.trash))
+		. += "This can be crumpled up into a trash item when empty, or forcibly crumpled on harm intent. "
+
 /obj/item/storage/box/Initialize()
 	. = ..()
 	health = maxHealth
-	if(foldable)
-		desc_info += "You can fold this into a sheet. "
-	if(ispath(src.trash))
-		desc_info += "This can be crumpled up into a trash item when empty, or forcibly crumpled on harm intent. "
 	if(illustration)
 		AddOverlays(illustration)
 
@@ -91,14 +102,6 @@
 				playsound(loc, toplay, 30, 1)
 			damage(damage)
 	..()
-
-/obj/item/storage/box/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if (health < maxHealth)
-		if (health >= (maxHealth * 0.5))
-			. += SPAN_WARNING("It is slightly torn.")
-		else
-			. += SPAN_DANGER("It is full of tears and holes.")
 
 // BubbleWrap - A box can be folded up to make card
 /obj/item/storage/box/attack_self(mob/user as mob)
@@ -590,11 +593,15 @@
 	item_state = "redbox"
 	illustration = null
 	starts_with = list(/obj/item/reagent_containers/food/snacks/donkpocket/sinpocket = 6)
-	desc_antag = "Crush bottom of package to initiate chemical heating. Wait for 20 seconds before consumption. Product will cool if not eaten within seven minutes."
+
+/obj/item/storage/box/sinpockets/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Crush bottom of each package to initiate chemical heating. Wait for 20 seconds before consumption."
+	. += "Product will cool if not eaten within seven minutes."
 
 /obj/item/storage/box/donkpockets/gwok
 	name = "box of teriyaki Gwok-pockets"
-	icon_state = "gwokpocketbox"
+	icon_state = "donkpocketboxteriyaki"
 	item_state = "redbox"
 	illustration = null
 	starts_with = list(/obj/item/reagent_containers/food/snacks/donkpocket/teriyaki = 6)
@@ -694,8 +701,11 @@
 	starts_with = list(/obj/item/toy/snappop = 8)
 
 /obj/item/storage/box/snappops/syndi
-	desc_antag = "These snap pops have an extra compound added that will deploy a tiny smokescreen when snapped."
 	starts_with = list(/obj/item/toy/snappop/syndi = 8)
+
+/obj/item/storage/box/snappops/syndi/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "These snap pops have an extra compound added that will deploy a tiny smokescreen when snapped."
 
 /obj/item/storage/box/partypopper
 	name = "party popper box"
@@ -1072,16 +1082,22 @@
 	starts_with = list(/obj/item/pen/fountain = 7)
 
 /obj/item/storage/box/aggression
-	desc_antag = "This box contains various implants that will make their owners increasingly aggressive."
 	illustration = "implant"
 	max_storage_space = DEFAULT_BOX_STORAGE
 	starts_with = list(/obj/item/implantcase/aggression = 6, /obj/item/implanter = 1, /obj/item/implantpad = 1)
 
+/obj/item/storage/box/aggression/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This box contains various implants that will make their owners increasingly aggressive."
+
 /obj/item/storage/box/encryption_key
 	name = "box"
 	illustration = "circuit"
-	desc_antag = "This box contains encryption keys that gives the user a safe channel to chatter in. Access the safe comms with :x."
 	starts_with = list(/obj/item/device/encryptionkey/rev = 8)
+
+/obj/item/storage/box/encryption_key/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This box contains encryption keys that gives the user a safe channel to chatter in. Access the safe comms with :x."
 
 /obj/item/storage/box/dynamite
 	name = "wooden crate"
@@ -1308,7 +1324,7 @@
 /obj/item/storage/box/tea
 	name = "sencha cha-tin"
 	desc = "A tin bearing the logo of the Konyang-cha tea company. This one contains a bag of sencha, a type of green tea."
-	desc_info = "A subsidiary of Gwok Group, the Konyang-cha tea company is the spur's foremost vendor of artisanal loose leaf tea, \
+	desc_extended = "A subsidiary of Gwok Group, the Konyang-cha tea company is the spur's foremost vendor of artisanal loose leaf tea, \
 				selling blends sourced from independent Konyanger farmers. Popular both on Konyang and off-world, it is considered a symbol of Konyang's culture."
 	icon = 'icons/obj/item/reagent_containers/teaware.dmi'
 	icon_state = "can"

@@ -8,6 +8,7 @@
 	after a Federation tech leak provided them with the research required to create their own AI, as well as allowing them to create IPCs."
 	consular_outfit = /obj/outfit/job/representative/consular/nralakk
 	assistant_outfit = /obj/outfit/job/diplomatic_aide/nralakk
+	bodyguard_outfit = /obj/outfit/job/diplomatic_bodyguard/nralakk
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -47,6 +48,24 @@
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_UNATHI,
 			SPECIES_VAURCA_BREEDER
+		),
+		"Diplomatic Bodyguard" = list(
+			SPECIES_HUMAN,
+			SPECIES_HUMAN_OFFWORLD,
+			SPECIES_IPC,
+			SPECIES_IPC_BISHOP,
+			SPECIES_IPC_G1,
+			SPECIES_IPC_G2,
+			SPECIES_IPC_SHELL,
+			SPECIES_IPC_UNBRANDED,
+			SPECIES_IPC_XION,
+			SPECIES_IPC_ZENGHU,
+			SPECIES_TAJARA,
+			SPECIES_TAJARA_MSAI,
+			SPECIES_TAJARA_ZHAN,
+			SPECIES_UNATHI,
+			SPECIES_VAURCA_BREEDER,
+			SPECIES_VAURCA_WORKER
 		)
 	)
 
@@ -97,8 +116,6 @@
 
 /obj/outfit/job/representative/consular/nralakk/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H)
-		if(isskrell(H))
-			H.equip_to_slot_or_del(new /obj/item/gun/energy/fedpistol(H), slot_belt)
 		if(isvaurca(H)) // there should be a system for this but for now this will have to do i guess
 			H.equip_to_slot_or_del(new /obj/item/clothing/under/gearharness(H), slot_w_uniform)
 			H.equip_to_slot_or_del(new /obj/item/clothing/head/vaurca_breeder/nralakk(H), slot_head)
@@ -106,12 +123,22 @@
 			H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(H), slot_wear_mask)
 			H.equip_to_slot_or_del(new /obj/item/clothing/suit/vaurca/breeder/cthur(H), slot_wear_suit)
 			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/cthur(H), slot_back)
-			H.equip_to_slot_or_del(new /obj/item/gun/energy/vaurca/blaster(H), slot_belt) // Federation Ta Consulars get a Thermic Blaster.
-		else
-			H.equip_to_slot_or_del(new /obj/item/gun/energy/fedpistol/nopsi(H), slot_belt)
 		if(!visualsOnly)
 			addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
 	return TRUE
 
 /obj/outfit/job/diplomatic_aide/nralakk
+	name = "Nralakk Federation Diplomatic Aide"
 	uniform = /obj/item/clothing/under/skrell
+
+/obj/outfit/job/diplomatic_bodyguard/nralakk
+	name = "Nralakk Federation Diplomatic Bodyguard"
+	uniform = /obj/item/clothing/under/skrell
+
+/obj/outfit/job/diplomatic_bodyguard/nralakk/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	if(H)
+		if(isskrell(H))
+			H.equip_to_slot_or_del(new /obj/item/gun/energy/fedpistol(H), slot_belt)
+		else
+			H.equip_to_slot_or_del(new /obj/item/gun/energy/fedpistol/nopsi(H), slot_belt)
+	return TRUE
