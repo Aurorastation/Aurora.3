@@ -298,3 +298,18 @@
 	faction = "Private Military Contracting Group"
 	cost = 4
 	allowed_roles = list("Physician", "Surgeon", "Pharmacist", "Paramedic", "Psychiatrist", "Medical Intern", "Medical Personnel", "Security Officer", "Warden", "Security Cadet", "Investigator", "Security Personnel", "Corporate Liaison", "Assistant", "Off-Duty Crew Member", "Corporate Reporter", "Bridge Crew")
+
+/datum/gear/augment/mind_blanker
+	display_name = "Galatean Mind Blanker"
+	description = "A small, discrete organ attached near the base of the brainstem. Any attempt to read the mind of an individual with this augment installed will fail, as will attempts at psychic brainwashing."
+	path = /obj/item/organ/internal/augment/mind_blanker
+	origin_restriction = list(/singleton/origin_item/origin/galatea)
+	cost = 4
+
+/datum/gear/augment/mind_blanker_lethal
+	display_name = "Galatean Mind Blanker (Lethal)"
+	description = "Available only to higher-up MfAS agents and members of the Galatean government. This enhanced variant of a mind blanker introduces a psionic trap which inflicts severe neural damage on anyone attempting to read the user's mind."
+	path = /obj/item/organ/internal/augment/mind_blanker_lethal
+	origin_restriction = list(/singleton/origin_item/origin/galatea)
+	cost = 6
+	allowed_roles = list("Consular")
