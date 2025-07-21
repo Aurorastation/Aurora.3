@@ -185,7 +185,7 @@
 	var/obj/item/stack/material/M = attacking_item
 	if(!M.material)
 		return ..()
-	if(!(M.material.name in list(MATERIAL_STEEL, MATERIAL_GLASS, MATERIAL_GOLD, MATERIAL_SILVER, MATERIAL_DIAMOND, MATERIAL_PHORON, MATERIAL_URANIUM)))
+	if(!(M.material.name in list(MATERIAL_STEEL, MATERIAL_GLASS, MATERIAL_GOLD, MATERIAL_SILVER, MATERIAL_DIAMOND, MATERIAL_PHORON, MATERIAL_URANIUM, MATERIAL_PLASTEEL, MATERIAL_ALUMINIUM, MATERIAL_LEAD)))
 		to_chat(user, SPAN_WARNING("\The [src] cannot hold [M.material.name]."))
 		return TRUE
 
