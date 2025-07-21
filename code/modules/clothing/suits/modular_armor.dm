@@ -134,7 +134,6 @@
 /obj/item/clothing/accessory/armor_plate
 	name = "corporate armor plate"
 	desc = "A particularly light-weight armor plate in stylish corporate black. Unfortunately, not very good if you hold it with your hands."
-	desc_info = "These items must be hooked onto plate carriers for them to work!"
 	icon = 'icons/obj/item/clothing/suit/armor/modular_armor/modular_armor.dmi'
 	icon_state = "plate_sec"
 	item_state = "plate_sec"
@@ -150,6 +149,10 @@
 		ENERGY = ARMOR_ENERGY_SMALL,
 		BOMB = ARMOR_BOMB_PADDED
 	)
+
+/obj/item/clothing/accessory/armor_plate/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "These must be attached to plate carriers for them to work."
 
 /obj/item/clothing/accessory/armor_plate/before_attached(var/obj/item/clothing/clothing, var/mob/user)
 	if(!clothing.valid_accessory_slots || !(slot in clothing.valid_accessory_slots))

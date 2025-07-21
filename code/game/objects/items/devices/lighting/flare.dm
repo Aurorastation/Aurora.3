@@ -1,7 +1,6 @@
 /obj/item/device/flashlight/flare
 	name = "flare"
 	desc = "A red standard-issue flare. There are instructions on the side reading 'twist cap off, make light'."
-	desc_info = "Use this item in your hand, to turn on the light."
 	w_class = WEIGHT_CLASS_TINY
 	brightness_on = 5 // Pretty bright.
 	light_power = 6
@@ -19,6 +18,10 @@
 	toggle_sound = null
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
+
+/obj/item/device/flashlight/flare/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Left-click \the [src] in-hand to activate it."
 
 /obj/item/device/flashlight/flare/Initialize()
 	. = ..()
@@ -86,7 +89,6 @@
 /obj/item/device/flashlight/flare/torch
 	name = "torch"
 	desc = "A rustic source of light."
-	desc_info = "Click on a source of flame, to light the torch."
 	w_class = WEIGHT_CLASS_BULKY
 	brightness_on = 2
 	light_power = 3
@@ -99,6 +101,10 @@
 
 	drop_sound = 'sound/items/drop/woodweapon.ogg'
 	pickup_sound = 'sound/items/pickup/woodweapon.ogg'
+
+/obj/item/device/flashlight/flare/torch/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Click on a source of flame with the torch to light it."
 
 /obj/item/device/flashlight/flare/torch/attack_self(mob/user)
 	if (on)

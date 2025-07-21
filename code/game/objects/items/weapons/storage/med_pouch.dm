@@ -5,15 +5,6 @@ Single Use Emergency Pouches
 /obj/item/storage/box/fancy/med_pouch
 	name = "emergency medical pouch"
 	desc = "For use in emergency situations only."
-	desc_info = "\
-	1) Tear open the emergency medical pack using the easy open tab at the top.<br>\
-	2) Carefully remove all items from the pouch and discard the pouch.<br>\
-	3) Apply all autoinjectors to the injured party.<br>\
-	4) Use bandages to stop bleeding if required.<br>\
-	5) Force the injured party to swallow all pills.<br>\
-	6) Use ointment on any burns if required.<br>\
-	7) Contact the medical team with your location.<br>\
-	8) Stay in place once they respond."
 	icon = 'icons/obj/storage/firstaid.dmi'
 	storage_slots = 7
 	w_class = WEIGHT_CLASS_SMALL
@@ -30,6 +21,18 @@ Single Use Emergency Pouches
 	var/injury_type = "generic"
 	make_exact_fit = TRUE
 
+// All the med pouches have custom instructions. Don't inherit this.
+/obj/item/storage/box/fancy/med_pouch/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "1) Tear open the emergency medical pack using the easy open tab at the top."
+	. += "2) Carefully remove all items from the pouch and discard the pouch."
+	. += "3) Apply all autoinjectors to the injured party."
+	. += "4) Use bandages to stop bleeding if required."
+	. += "5) Force the injured party to swallow all pills."
+	. += "6) Use ointment on any burns if required."
+	. += "7) Contact the medical team with your location."
+	. += "8) Stay in place once they respond."
+
 /obj/item/storage/box/fancy/med_pouch/Initialize()
 	. = ..()
 	name = "emergency [injury_type] pouch"
@@ -38,14 +41,6 @@ Single Use Emergency Pouches
 
 /obj/item/storage/box/fancy/med_pouch/trauma
 	name = "trauma pouch"
-	desc_info = "\
-	1) Tear open the emergency medical pack using the easy open tab at the top.<br>\
-	2) Carefully remove all items from the pouch and discard the pouch.<br>\
-	3) Apply all autoinjectors to the injured party.<br>\
-	4) Use bandages to stop bleeding if required.<br>\
-	5) Force the injured party to swallow all pills.<br>\
-	6) Contact the medical team with your location.<br>\
-	7) Stay in place once they respond."
 	injury_type = "trauma"
 	color = COLOR_RED
 
@@ -55,6 +50,17 @@ Single Use Emergency Pouches
 		/obj/item/reagent_containers/pill/pouch_pill/perconol = 1,
 		/obj/item/stack/medical/bruise_pack = 2
 	)
+
+/obj/item/storage/box/fancy/med_pouch/trauma/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	// All the med pouches have custom instructions. Does not inherit.
+	. += "1) Tear open the emergency medical pack using the easy open tab at the top."
+	. += "2) Carefully remove all items from the pouch and discard the pouch."
+	. += "3) Apply all autoinjectors to the injured party."
+	. += "4) Use bandages to stop bleeding if required."
+	. += "5) Force the injured party to swallow all pills."
+	. += "6) Contact the medical team with your location."
+	. += "7) Stay in place once they respond."
 
 /obj/item/storage/box/fancy/med_pouch/burn
 	name = "burn pouch"
@@ -68,15 +74,18 @@ Single Use Emergency Pouches
 		/obj/item/reagent_containers/pill/pouch_pill/perconol = 1,
 		/obj/item/stack/medical/ointment = 2
 	)
-	desc_info = "\
-	1) Tear open the emergency medical pack using the easy open tab at the top.<br>\
-	2) Carefully remove all items from the pouch and discard the pouch.<br>\
-	3) Apply the emergency mortaphenyl autoinjector to the injured party.<br>\
-	4) Apply all remaining autoinjectors to the injured party.<br>\
-	5) Force the injured party to swallow all pills.<br>\
-	6) Use ointment on any burns if required<br>\
-	7) Contact the medical team with your location.<br>\
-	8) Stay in place once they respond."
+
+/obj/item/storage/box/fancy/med_pouch/burn/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	// All the med pouches have custom instructions. Does not inherit.
+	. += "1) Tear open the emergency medical pack using the easy open tab at the top."
+	. += "2) Carefully remove all items from the pouch and discard the pouch."
+	. += "3) Apply the emergency mortaphenyl autoinjector to the injured party."
+	. += "4) Apply all remaining autoinjectors to the injured party."
+	. += "5) Force the injured party to swallow all pills."
+	. += "6) Use ointment on any burns if required."
+	. += "7) Contact the medical team with your location."
+	. += "8) Stay in place once they respond."
 
 /obj/item/storage/box/fancy/med_pouch/oxyloss
 	name = "low oxygen pouch"
@@ -90,15 +99,18 @@ Single Use Emergency Pouches
 		/obj/item/reagent_containers/pill/pouch_pill/inaprovaline = 1,
 		/obj/item/reagent_containers/pill/pouch_pill/dexalin = 1
 	)
-	desc_info = "\
-	1) Tear open the emergency medical pack using the easy open tab at the top.<br>\
-	2) Carefully remove all items from the pouch and discard the pouch.<br>\
-	3) Apply all autoinjectors to the injured party.<br>\
-	4) Force the injured party to swallow all pills.<br>\
-	5) Contact the medical team with your location.<br>\
-	6) Find a source of oxygen if possible.<br>\
-	7) Update the medical team with your new location.<br>\
-	8) Stay in place once they respond."
+
+/obj/item/storage/box/fancy/med_pouch/oxyloss/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	// All the med pouches have custom instructions. Does not inherit.
+	. += "1) Tear open the emergency medical pack using the easy open tab at the top."
+	. += "2) Carefully remove all items from the pouch and discard the pouch."
+	. += "3) Apply all autoinjectors to the injured party."
+	. += "4) Force the injured party to swallow all pills."
+	. += "5) Contact the medical team with your location."
+	. += "6) Find a source of oxygen if possible."
+	. += "7) Update the medical team with your new location."
+	. += "8) Stay in place once they respond."
 
 /obj/item/storage/box/fancy/med_pouch/toxin
 	name = "toxin pouch"
@@ -109,13 +121,16 @@ Single Use Emergency Pouches
 		/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/dylovene = 1,
 		/obj/item/reagent_containers/pill/pouch_pill/dylovene = 1
 	)
-	desc_info = "\
-	1) Tear open the emergency medical pack using the easy open tab at the top.<br>\
-	2) Carefully remove all items from the pouch and discard the pouch.<br>\
-	3) Apply all autoinjectors to the injured party.<br>\
-	4) Force the injured party to swallow all pills.<br>\
-	5) Contact the medical team with your location.<br>\
-	6) Stay in place once they respond."
+
+/obj/item/storage/box/fancy/med_pouch/toxin/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	// All the med pouches have custom instructions. Does not inherit.
+	. += "1) Tear open the emergency medical pack using the easy open tab at the top."
+	. += "2) Carefully remove all items from the pouch and discard the pouch."
+	. += "3) Apply all autoinjectors to the injured party."
+	. += "4) Force the injured party to swallow all pills."
+	. += "5) Contact the medical team with your location."
+	. += "6) Stay in place once they respond."
 
 /obj/item/storage/box/fancy/med_pouch/radiation
 	name = "radiation pouch"
@@ -126,13 +141,16 @@ Single Use Emergency Pouches
 		/obj/item/reagent_containers/hypospray/autoinjector/hyronalin = 1,
 		/obj/item/reagent_containers/pill/pouch_pill/dylovene = 1
 	)
-	desc_info = "\
-	1) Tear open the emergency medical pack using the easy open tab at the top.<br>\
-	2) Carefully remove all items from the pouch and discard the pouch.<br>\
-	3) Apply all autoinjectors to the injured party.<br>\
-	4) Force the injured party to swallow all pills.<br>\
-	5) Contact the medical team with your location.<br>\
-	6) Stay in place once they respond."
+
+/obj/item/storage/box/fancy/med_pouch/radiation/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	// All the med pouches have custom instructions. Does not inherit.
+	. += "1) Tear open the emergency medical pack using the easy open tab at the top."
+	. += "2) Carefully remove all items from the pouch and discard the pouch."
+	. += "3) Apply all autoinjectors to the injured party."
+	. += "4) Force the injured party to swallow all pills."
+	. += "5) Contact the medical team with your location."
+	. += "6) Stay in place once they respond."
 
 /obj/item/reagent_containers/pill/pouch_pill
 	name = "emergency pill"
@@ -208,5 +226,5 @@ Single Use Emergency Pouches
 
 /obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/fluvectionem
 	name = "emergency bloodstream purge autoinjector"
-	desc = "An emergency anti-toxin autoinjector that, when injected into a person, purges their bloodstream of chemicals, including toxins and medicine alike. Useful in the event of severe poisonings.<b>PURGES MEDICINE. DO NOT APPLY IF ANY MEDICATION WAS ALREADY GIVEN.</b>"
+	desc = "An emergency anti-toxin autoinjector that, when injected into a person, purges their bloodstream of chemicals, including toxins and medicine alike. Useful in the event of severe poisonings. <b>PURGES MEDICINE. DO NOT APPLY IF ANY MEDICATION WAS ALREADY GIVEN.</b>"
 	reagents_to_add = list(/singleton/reagent/fluvectionem = 5)

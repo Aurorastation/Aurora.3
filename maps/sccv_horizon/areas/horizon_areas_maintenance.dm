@@ -91,6 +91,9 @@
 	location_ew = LOC_PORT
 	location_ns = LOC_AFT
 
+/area/horizon/maintenance/deck_2/cargo_compartment
+	name = "Auxiliary Cargo Maintenance"
+
 /area/horizon/maintenance/deck_2/aft
 	name = "Machine Shop Maintenance"
 	icon_state = "amaint"

@@ -174,7 +174,6 @@
 	icon_state = "stool_item_preview"
 	item_state = "stool"
 	base_icon = "stool"
-	desc_info = "Use in-hand or alt-click to right this."
 	randpixel = 0
 	center_of_mass = null
 	force = 15	// Doesn't really matter. Will get overriden by set_material.
@@ -187,6 +186,10 @@
 	var/obj/structure/bed/stool/origin_type = /obj/structure/bed/stool
 	var/deploy_verb = "right"
 	var/painted_colour
+
+/obj/item/material/stool/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use in-hand or alt-click to right it."
 
 /obj/item/material/stool/New(var/newloc, var/new_material, var/new_padding_material, var/new_painted_colour)
 	..(newloc, new_material)	// new_material handled in material_weapons.dm
