@@ -166,7 +166,7 @@
 		"SCCV Spark" = list("color" = "brown", "icon" = "gem"),
 		"SCCV Quark" = list("color" = "purple", "icon" = "microscope"),
 	)
-	shuttle_missions = list("Exploration", "Research", "Prospecting", "Transport", "Combat", "Rescue", "Training")
+	shuttle_missions = list("Exploration", "Research", "Prospecting", "Transport", "Combat", "Rescue", "Training", "Rendering Aid", "Expedition", "Recreation", "Other")
 
 /datum/map/sccv_horizon/send_welcome()
 	var/obj/effect/overmap/visitable/ship/horizon = SSshuttle.ship_by_type(overmap_visitable_type)
