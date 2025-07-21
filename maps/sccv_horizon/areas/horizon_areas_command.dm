@@ -46,7 +46,7 @@
 	horizon_deck = 2
 
 /area/horizon/command/heads/cmo
-	name = "Medbay - CMO's Office"
+	name = "Medical - CMO's Office"
 	icon_state = "head_quarters"
 	horizon_deck = 3
 
@@ -74,24 +74,20 @@
 	icon_state = "bridge_crew"
 
 /area/horizon/command/bridge/upperdeck
-	name = "Command Atrium Upper Deck"
+	name = "Bridge Atrium"
 	icon_state = "bridge"
 
 /area/horizon/command/bridge/minibar
-	name = "Command Break Room"
+	name = "Bridge Break Room"
 	icon_state = "bridge"
 
 /area/horizon/command/bridge/aibunker
-	name = "Command - Bunker"
+	name = "Command Bunker"
 	icon_state = "ai_foyer"
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_HIDE_FROM_HOLOMAP
 
-/area/horizon/command/bridge/centcom_meetingroom
-	name = "Level A Meeting Room"
-	icon_state = "bridge"
-
 /area/horizon/command/bridge/meeting_room
-	name = "Command - Conference Room"
+	name = "Bridge Conference Room"
 	icon_state = "bridge"
 	ambience = list()
 	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
@@ -100,7 +96,7 @@
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/horizon/command/bridge/cciaroom
-	name = "Command - Human Resources Meeting Room"
+	name = "Human Resources Meeting Room"
 	icon_state = "hr"
 	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
 	area_blurb = "You might feel dread when you enter this meeting room."
@@ -108,7 +104,7 @@
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/horizon/command/bridge/cciaroom/lounge
-	name = "Command - Human Resources Lounge"
+	name = "Human Resources Lounge"
 	icon_state = "hrlounge"
 	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
 	area_blurb = "A place that may worsen any anxiety surrounding meetings with your bosses' boss."
@@ -121,13 +117,13 @@
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 
 /area/horizon/command/bridge/controlroom
-	name = "Command - Control Room"
+	name = "Bridge Control Room"
 	area_blurb = "The full expanse of space lies beyond a thick pane of reinforced glass, all that protects you from a cold and painful death. The computers hum, showing various displays and holographic signs. The sight would be overwhelming if you are not used to such an environment. Even at full power, the sensors fail to map even a fraction of the dots of light making up the cosmic filament."
 	area_blurb_category = "bridge"
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
 //Teleporter
 /area/horizon/command/teleporter
-	name = "Command - Teleporter"
+	name = "Teleporter"
 	icon_state = "teleporter"
 	horizon_deck = 1

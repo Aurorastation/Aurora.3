@@ -56,7 +56,7 @@
 
 // Cafeteria
 /area/horizon/service/cafeteria
-	name = "Cafeteria"
+	name = "Cafe"
 	icon_state = "cafeteria"
 	area_blurb = "The smell of coffee wafts over from the cafe. Patience, the tree, stands proudly in the centre of the atrium."
 	area_blurb_category = "d3_cafe"

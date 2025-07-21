@@ -79,13 +79,13 @@
 	horizon_deck = 2
 
 /area/horizon/engineering/hallway/fore
-	name = "Engineering Fore Hallway"
+	name = "Fore Hallway"
 
 /area/horizon/engineering/hallway/aft
-	name = "Engineering Aft Hallway"
+	name = "Aft Hallway"
 
 /area/horizon/engineering/hallway/interior
-	name = "Engineering Interior Hallway"
+	name = "Amidships Hallway"
 
 /// ENGINEERING_AREAS - ATMOSIA_AREAS
 /area/horizon/engineering/atmos

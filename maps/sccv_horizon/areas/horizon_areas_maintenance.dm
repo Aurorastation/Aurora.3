@@ -53,7 +53,7 @@
 	name = "Lower Wing Frame Interior - Far to Port"
 
 /area/horizon/maintenance/deck_1/auxatmos
-	name = "Combustion Turbine Maintenance - Aft Port"
+	name = "Combustion Turbine Maintenance - Port Aft"
 
 /area/horizon/maintenance/deck_2
 	horizon_deck = 2
@@ -73,14 +73,14 @@
 	icon_state = "amaint"
 
 /area/horizon/maintenance/deck_2/security_port
-	name = "Security Maintenance - Fore"
+	name = "Security Maintenance - Port Fore"
 	icon_state = "maint_security_port"
 
 /area/horizon/maintenance/deck_2/wing/starboard
 	name = "Wing Frame Interior - Starboard"
 
 /area/horizon/maintenance/deck_2/wing/starboard/auxatmos
-	name = "Wing Frame Interior - Starboard Auxiliary Atmospherics"
+	name = "Wing Frame Interior (Auxiliary Atmospherics) - Starboard"
 
 /area/horizon/maintenance/deck_2/wing/starboard/near
 	name = "Wing Frame Interior - Starboard Amidships"
