@@ -356,12 +356,12 @@ Earphone Variants
 	desc = "An old music cartridge with a cheap-looking label."
 
 	tracks = list(
-		new/datum/track("Spacer Classic 1", 'sound/music/lobby/space.ogg'),
-		new/datum/track("Spacer Classic 2", 'sound/music/lobby/title2.ogg'),
-		new/datum/track("Spacer Classic 3", 'sound/music/lobby/title3mk2.ogg'),
-		new/datum/track("Spacer Classic 4", 'sound/music/lobby/traitor.ogg'),
-		new/datum/track("Spacer Classic 5", 'sound/music/title1.ogg'),
-		new/datum/track("Spacer Classic 6", 'sound/music/velvet_rose.ogg')
+		new/datum/track("Title 1", 'sound/music/title1.ogg'),
+		new/datum/track("Title 2", 'sound/music/title2.ogg'),
+		new/datum/track("Title 3", 'sound/music/title3.ogg'),
+		new/datum/track("Traitor", 'sound/music/traitor.ogg'),
+		new/datum/track("Space", 'sound/music/space.ogg'),
+		new/datum/track("Title 3 Mk2", 'sound/music/title3mk2.ogg')
 	)
 
 /obj/item/music_cartridge/audioconsole
