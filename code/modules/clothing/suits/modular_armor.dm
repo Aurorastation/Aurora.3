@@ -135,7 +135,6 @@
 	name = "corporate armor plate"
 	desc = "A particularly light-weight armor plate in stylish corporate black. Unfortunately, not very good if you hold it with your hands."
 	icon = 'icons/obj/item/clothing/suit/armor/modular_armor/modular_armor.dmi'
-	desc_info = "These items must be hooked onto plate carriers for them to work!"
 	icon_state = "plate_sec"
 	item_state = "plate_sec"
 	contained_sprite = TRUE
