@@ -33,6 +33,7 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	var/tgui_inputs_swapped = FALSE
 	var/tgui_say_light_mode = FALSE
 	var/ui_scale = TRUE
+	var/lobby_music_vol = 85
 	//Style for popup tooltips
 	var/tooltip_style = "Midnight"
 

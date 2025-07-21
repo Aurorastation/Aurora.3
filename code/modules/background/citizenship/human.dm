@@ -16,6 +16,9 @@
 		),
 		"Diplomatic Aide" = list(
 			SPECIES_VAURCA_BREEDER
+		),
+		"Diplomatic Bodyguard" = list(
+			SPECIES_VAURCA_WORKER
 		)
 	)
 
@@ -68,6 +71,12 @@
 	name = "Tau Ceti Diplomatic Aide"
 	accessory = /obj/item/clothing/accessory/tc_pin
 
+/obj/outfit/job/diplomatic_bodyguard/ceti
+	name = "Tau Ceti Diplomatic Bodyguard"
+	backpack_contents = list(
+		/obj/item/gun/energy/blaster/revolver
+	)
+
 /obj/outfit/job/representative/consular/ceti/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H)
 		if(isvaurca(H))
@@ -77,9 +86,6 @@
 			H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(H), slot_wear_mask)
 			H.equip_to_slot_or_del(new /obj/item/clothing/suit/vaurca/breeder(H), slot_wear_suit)
 			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec(H), slot_back)
-			H.equip_to_slot_or_del(new /obj/item/gun/energy/vaurca/blaster(H), slot_belt)
-		else
-			H.equip_to_slot_or_del(new /obj/item/gun/energy/blaster/revolver(H), slot_belt)
 		if(!visualsOnly)
 			addtimer(CALLBACK(src, .proc/send_representative_mission, H), 5 MINUTES)
 	return TRUE
@@ -93,6 +99,7 @@
 	Though much of its former possessions are now occupied by warlord statelets and other interstellar powers, the Alliance still maintains a revanchist outlook, refusing to relinquish its claims to its lost territories."
 	consular_outfit = /obj/outfit/job/representative/consular/sol
 	assistant_outfit = /obj/outfit/job/diplomatic_aide/sol
+	bodyguard_outfit = /obj/outfit/job/diplomatic_bodyguard/sol
 	job_species_blacklist = list(
 		"Consular Officer" = list(
 			SPECIES_IPC,
@@ -118,6 +125,29 @@
 			SPECIES_VAURCA_BREEDER
 		),
 		"Diplomatic Aide" = list(
+			SPECIES_IPC,
+			SPECIES_IPC_BISHOP,
+			SPECIES_IPC_G1,
+			SPECIES_IPC_G2,
+			SPECIES_IPC_SHELL,
+			SPECIES_IPC_UNBRANDED,
+			SPECIES_IPC_XION,
+			SPECIES_IPC_ZENGHU,
+			SPECIES_DIONA,
+			SPECIES_DIONA_COEUS,
+			SPECIES_SKRELL,
+			SPECIES_SKRELL_AXIORI,
+			SPECIES_TAJARA,
+			SPECIES_TAJARA_MSAI,
+			SPECIES_TAJARA_ZHAN,
+			SPECIES_UNATHI,
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_ATTENDANT,
+			SPECIES_VAURCA_BULWARK,
+			SPECIES_VAURCA_BREEDER
+		),
+		"Diplomatic Bodyguard" = list(
 			SPECIES_IPC,
 			SPECIES_IPC_BISHOP,
 			SPECIES_IPC_G1,
@@ -166,14 +196,19 @@
 	backpack_contents = list(
 		/obj/item/storage/box/sol_visa = 1,
 		/obj/item/stamp/sol = 1,
-		/obj/item/device/camera = 1,
-		/obj/item/gun/projectile/pistol/sol = 1
+		/obj/item/device/camera = 1
 	)
 
 /obj/outfit/job/diplomatic_aide/sol
 	name = "Sol Consular Officer"
 
 	accessory = /obj/item/clothing/accessory/sol_pin
+
+/obj/outfit/job/diplomatic_bodyguard/sol
+	name = "Sol Diplomatic Bodyguard"
+	backpack_contents = list(
+		/obj/item/gun/projectile/pistol/sol = 1
+	)
 
 /datum/citizenship/sol_alliance/eridani
 	name = CITIZENSHIP_ERIDANI
@@ -194,6 +229,7 @@
 	tightly-knit. Almost anything and anyone can be found in these wild, mostly uncharted lands. "
 	demonym = "frontiersman"
 	consular_outfit = /obj/outfit/job/representative/consular/coalition
+	bodyguard_outfit = /obj/outfit/job/diplomatic_bodyguard/coalition
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -217,6 +253,17 @@
 			SPECIES_VAURCA_ATTENDANT,
 			SPECIES_VAURCA_BULWARK,
 			SPECIES_VAURCA_BREEDER
+		),
+		"Diplomatic Bodyguard" = list(
+			SPECIES_TAJARA,
+			SPECIES_TAJARA_MSAI,
+			SPECIES_TAJARA_ZHAN,
+			SPECIES_UNATHI,
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_ATTENDANT,
+			SPECIES_VAURCA_BULWARK,
+			SPECIES_VAURCA_BREEDER
 		)
 	)
 
@@ -224,7 +271,12 @@
 	name = "Coalition Consular Officer"
 
 	backpack_contents = list(
-		/obj/item/device/camera = 1,
+		/obj/item/device/camera = 1
+	)
+
+/obj/outfit/job/diplomatic_bodyguard/coalition
+	name = "Coalition Diplomatic Bodyguard"
+	backpack_contents = list(
 		/obj/item/gun/projectile/xanupistol = 1
 	)
 
@@ -235,14 +287,15 @@
 	is \"For Greatness We Strive\". It's official language is Tau Ceti Basic, though several old-earth languages cling to life in small enclaves, such as arabic, persian, and farsi. \
 	The Republic has mixed relations with NanoTrasen, due to their own possession of phoron."
 	demonym = "elyran"
-	consular_outfit = /obj/outfit/job/representative/consular/elyra
+	bodyguard_outfit = /obj/outfit/job/diplomatic_bodyguard/elyra
 
-/obj/outfit/job/representative/consular/elyra
-	name = "Elyra Consular Officer"
 
+/obj/outfit/job/diplomatic_bodyguard/elyra
+	name = "Elyra Diplomatic Bodyguard"
 	backpack_contents = list(
 		/obj/item/gun/projectile/plasma/bolter/pistol = 1
 	)
+
 /datum/citizenship/elyran_ncp
 	name = CITIZENSHIP_ELYRA_NCP
 	description = "\"Non-Citizen Persons,\" (NCPs) as they are officially called, make-up approximately one-third of the total population of the Republic Elyra. \
@@ -289,6 +342,7 @@
 	Imperial society is dominated by the Great and Minor Houses under the Emperor and is very socio-economically stratified due to the so-called blood debt, known as the Mor'iz'al."
 
 	consular_outfit = /obj/outfit/job/representative/consular/dominia
+	bodyguard_outfit = /obj/outfit/job/diplomatic_bodyguard/dominia
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -330,6 +384,26 @@
 			SPECIES_VAURCA_ATTENDANT,
 			SPECIES_VAURCA_BULWARK,
 			SPECIES_VAURCA_BREEDER
+		),
+		"Diplomatic Bodyguard" = list(
+			SPECIES_IPC,
+			SPECIES_IPC_BISHOP,
+			SPECIES_IPC_G1,
+			SPECIES_IPC_G2,
+			SPECIES_IPC_SHELL,
+			SPECIES_IPC_UNBRANDED,
+			SPECIES_IPC_XION,
+			SPECIES_IPC_ZENGHU,
+			SPECIES_SKRELL,
+			SPECIES_SKRELL_AXIORI,
+			SPECIES_TAJARA,
+			SPECIES_TAJARA_MSAI,
+			SPECIES_TAJARA_ZHAN,
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_ATTENDANT,
+			SPECIES_VAURCA_BULWARK,
+			SPECIES_VAURCA_BREEDER
 		)
 	)
 
@@ -353,7 +427,16 @@
 /obj/outfit/job/representative/consular/dominia
 	name = "Empire of Dominia Consular Officer"
 
+	head = /obj/item/clothing/head/dominia
+	suit = /obj/item/clothing/suit/storage/dominia/consular/coat
+	uniform = /obj/item/clothing/under/dominia/consular
+
 	backpack_contents = list(
-		/obj/item/storage/box/dominia_honor = 1,
+		/obj/item/storage/box/dominia_honor = 1
+	)
+
+/obj/outfit/job/diplomatic_bodyguard/dominia
+	name = "Empire of Dominia Diplomatic Bodyguard"
+	backpack_contents = list(
 		/obj/item/gun/projectile/pistol/dominia = 1
 	)
