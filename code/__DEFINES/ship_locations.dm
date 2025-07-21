@@ -1,24 +1,32 @@
 /// Constants for area management on the Horizon.
 
 /// Locations
-#define LOC_CENTRAL			"Central"
-// South
-#define LOC_FORE			"Fore"
-#define LOC_FORE_F			"Far Fore"
-// North
-#define LOC_AFT				"Aft"
-#define LOC_AFT_F			"Far Aft"
-// West
-#define LOC_STARBOARD		"Starboard"
-#define LOC_STARBOARD_F		"Far Starboard"
+// LOC_AMIDSHIPS should only be assigned to var/location_ew
+#define LOC_AMIDSHIPS		"Amidships"
 // East
 #define LOC_PORT			"Port"
-#define LOC_PORT_F			"Far Port"
+#define LOC_PORT_FAR		"Far to Port"
+#define LOC_PORT_NEAR		"Port Amidships"
+// West
+#define LOC_STARBOARD		"Starboard"
+#define LOC_STARBOARD_FAR	"Far to Starboard"
+#define LOC_STARBOARD_NEAR	"Starboard Amidships"
+// North
+#define LOC_AFT				"Aft"
+#define LOC_AFT_FAR			"Far to Aft"
+#define LOC_AFT_NEAR		"Aft Amidships"
+// South
+#define LOC_FORE			"Fore"
+#define LOC_FORE_FAR		"Far to Fore"
+#define LOC_FORE_NEAR		"Fore Amidships"
 
-/// Departments - formal and informal
+/// 'Departments' - formal and informal
 // If we rename any of these, also change them in subsystems.dm define.
 #define LOC_AI			"Artificial Intelligence"
 #define LOC_COMMAND		"Command"
+// LOC_CIV and LOC_CREW are effectively the same thing, just separated for flavor.
+// LOC_CIV is pretty much going to be hallways/stairs etc.
+#define LOC_CIV			"Public"
 #define LOC_CREW		"Crew Areas"
 #define LOC_ENGINEERING	"Engineering"
 #define LOC_HOLODECK	"Holodeck"

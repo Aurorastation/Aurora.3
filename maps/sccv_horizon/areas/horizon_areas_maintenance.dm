@@ -8,128 +8,178 @@
 	area_blurb = "Scarcely lit, cramped, and filled with stale, dusty air. Around you hisses compressed air through the pipes, a buzz of electrical charge through the wires, and muffled rumbles of the hull settling. This place may feel alien compared to the interior of the ship and is a place where one could get lost or badly hurt, but some may find the isolation comforting."
 	area_blurb_category = "maint"
 	ambience = AMBIENCE_MAINTENANCE
+	department = LOC_MAINTENANCE
 
 /area/horizon/maintenance/deck_1
 	horizon_deck = 1
 
 /area/horizon/maintenance/deck_1/main/starboard
-	name = "Primary Maintenance Conduit - Starboard"
+	name = "Primary Maintenance Conduit"
+	location_ew = LOC_STARBOARD
 
 /area/horizon/maintenance/deck_1/main/port
-	name = "Primary Maintenance Conduit - Port"
+	name = "Primary Maintenance Conduit"
+	location_ew = LOC_PORT
 
 /area/horizon/maintenance/deck_1/main/interstitial
-	name = "Primary Maintenance Conduit - Interstitial"
+	name = "Primary Maintenance Conduit"
+	location_ew = LOC_AMIDSHIPS
 
 /area/horizon/maintenance/deck_1/hangar/port
-	name = "Primary Hangar Maintenance - Port"
+	name = "Primary Hangar Maintenance"
+	location_ew = LOC_PORT
 
 /area/horizon/maintenance/deck_1/hangar/starboard
-	name = "Primary Hangar Maintenance - Starboard"
+	name = "Primary Hangar Maintenance"
+	location_ew = LOC_STARBOARD
 
 /area/horizon/maintenance/deck_1/operations/starboard
-	name = "Operations Maintenance - Far to Starboard"
+	name = "Operations Maintenance"
+	location_ew = LOC_STARBOARD
 
 /area/horizon/maintenance/deck_1/operations/starboard/amidships
-	name = "Operations Maintenance - Starboard Amidships"
+	name = "Operations Maintenance"
+	location_ew = LOC_STARBOARD_NEAR
 
 /area/horizon/maintenance/deck_1/operations/starboard/far
-	name = "Operations Maintenance - Starboard"
+	name = "Operations Maintenance"
+	location_ew = LOC_STARBOARD_FAR
 
 /area/horizon/maintenance/deck_1/workshop
-	name = "Auxillary Engineering Maintenance - Starboard"
+	name = "Auxillary Engineering Maintenance"
 	icon_state = "maint_engineering"
+	department = LOC_ENGINEERING
+	location_ew = LOC_STARBOARD
 
 /area/horizon/maintenance/deck_1/teleporter
-	name = "Teleporter Maintenance - Central"
+	name = "Teleporter Maintenance"
+	location_ew = LOC_AMIDSHIPS
 
 /area/horizon/maintenance/deck_1/wing/starboard
-	name = "Lower Wing Frame Interior - Starboard"
+	name = "Lower Wing Frame Interior"
+	location_ew = LOC_STARBOARD
 
 /area/horizon/maintenance/deck_1/wing/starboard/far
-	name = "Lower Wing Frame Interior - Far to Starboard"
+	name = "Lower Wing Frame Interior"
+	location_ew = LOC_STARBOARD_FAR
 
 /area/horizon/maintenance/deck_1/wing/port/far
-	name = "Lower Wing Frame Interior - Far to Port"
+	name = "Lower Wing Frame Interior"
+	location_ew = LOC_PORT_FAR
 
 /area/horizon/maintenance/deck_1/auxatmos
-	name = "Combustion Turbine Maintenance - Port Aft"
+	name = "Combustion Turbine Maintenance"
+	location_ew = LOC_PORT
+	location_ns = LOC_AFT
 
 /area/horizon/maintenance/deck_2
 	horizon_deck = 2
 
 /area/horizon/maintenance/deck_2/service/starboard
-	name = "Service Maintenance - Starboard Fore"
+	name = "Service Maintenance"
+	location_ew = LOC_STARBOARD
+	location_ns = LOC_FORE
 
 /area/horizon/maintenance/deck_2/service/port
-	name = "Service Maintenance - Port Fore"
+	name = "Service Maintenance"
+	location_ew = LOC_PORT
+	location_ns = LOC_FORE
 
 /area/horizon/maintenance/deck_2/research
-	name = "Research Maintenance - Port Aft"
+	name = "Research Maintenance"
 	icon_state = "maint_research_port"
+	location_ew = LOC_PORT
+	location_ns = LOC_AFT
 
 /area/horizon/maintenance/deck_2/aft
-	name = "Machine Shop Maintenance - Aft"
+	name = "Machine Shop Maintenance"
 	icon_state = "amaint"
+	location_ns = LOC_AFT
 
 /area/horizon/maintenance/deck_2/security_port
-	name = "Security Maintenance - Port Fore"
+	name = "Security Maintenance"
 	icon_state = "maint_security_port"
+	location_ew = LOC_PORT
+	location_ns = LOC_FORE
 
 /area/horizon/maintenance/deck_2/wing/starboard
-	name = "Wing Frame Interior - Starboard"
+	name = "Wing Frame Interior"
+	location_ew = LOC_STARBOARD
 
 /area/horizon/maintenance/deck_2/wing/starboard/auxatmos
-	name = "Wing Frame Interior (Auxiliary Atmospherics) - Starboard"
+	name = "Wing Frame Interior (Auxiliary Atmospherics)"
+	department = LOC_ENGINEERING
+	subdepartment = SUBLOC_ATMOS
+	location_ew = LOC_STARBOARD
 
 /area/horizon/maintenance/deck_2/wing/starboard/near
-	name = "Wing Frame Interior - Starboard Amidships"
+	name = "Wing Frame Interior"
+	location_ew = LOC_STARBOARD_NEAR
 
 /area/horizon/maintenance/deck_2/wing/starboard/far
-	name = "Wing Frame Interior - Far to Starboard"
+	name = "Wing Frame Interior"
+	location_ew = LOC_STARBOARD_FAR
 
 /area/horizon/maintenance/deck_2/wing/starboard/nacelle
 	name = "Starboard Nacelle"
+	// Special case, we're just going to have the location in the name.
 
 /area/horizon/maintenance/deck_2/wing/port
-	name = "Wing Frame Interior - Port"
+	name = "Wing Frame Interior"
+	location_ew = LOC_PORT
 
 /area/horizon/maintenance/deck_2/wing/port/near
-	name = "Wing Frame Interior - Port Amidships"
+	name = "Wing Frame Interior"
+	location_ew = LOC_PORT_NEAR
 
 /area/horizon/maintenance/deck_2/wing/port/far
-	name = "Wing Frame Interior - Far to Port"
+	name = "Wing Frame Interior"
+	location_ew = LOC_PORT_FAR
 
 /area/horizon/maintenance/deck_2/wing/port/nacelle
+	// Special case, we're just going to have the location in the name.
 	name = "Port Nacelle"
 
 /area/horizon/maintenance/deck_3
 	horizon_deck = 3
 
 /area/horizon/maintenance/deck_3/aft/holodeck
-	name = "Holodeck Maintenance - Starboard"
+	name = "Holodeck Maintenance"
+	location_ew = LOC_STARBOARD
 
 /area/horizon/maintenance/deck_3/aft/starboard
-	name = "Command Systems Maintenance - Starboard Aft"
+	name = "Command Systems Maintenance"
+	location_ew = LOC_STARBOARD
+	location_ns = LOC_AFT
 
 /area/horizon/maintenance/deck_3/aft/starboard/far
-	name = "Command Systems Maintenance - Far to Starboard Aft"
+	name = "Command Systems Maintenance"
+	location_ew = LOC_STARBOARD_FAR
+	location_ns = LOC_AFT
 
 /area/horizon/maintenance/deck_3/aft/port
-	name = "Command Systems Maintenance - Port Aft"
+	name = "Command Systems Maintenance"
+	location_ew = LOC_PORT
+	location_ns = LOC_AFT
 
 /area/horizon/maintenance/deck_3/aft/port/far
-	name = "Command Systems Maintenance - Far to Port Aft"
+	name = "Command Systems Maintenance"
+	location_ew = LOC_PORT_FAR
+	location_ns = LOC_AFT
 
 /area/horizon/maintenance/deck_3/security/starboard
-	name = "Security Maintenance - Starboard"
+	name = "Security Maintenance"
+	location_ew = LOC_STARBOARD
 
 /area/horizon/maintenance/deck_3/security/port
-	name = "Security Maintenance - Port"
+	name = "Security Maintenance"
+	location_ew = LOC_PORT
 
 /area/horizon/maintenance/deck_3/bridge
-	name = "Bridge Maintenance - Starboard Fore"
+	name = "Bridge Maintenance"
 	icon_state = "maintcentral"
+	location_ew = LOC_STARBOARD
+	location_ns = LOC_FORE
 
 /// SUBSTATIONS (Subtype of maint)
 /area/horizon/maintenance/substation

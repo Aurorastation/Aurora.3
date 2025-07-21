@@ -79,12 +79,15 @@
 	horizon_deck = 2
 
 /area/horizon/engineering/hallway/fore
+	// Location is defined here relative to the department center itself. Whatever.
 	name = "Fore Hallway"
 
 /area/horizon/engineering/hallway/aft
+	// Location is defined here relative to the department center itself. Whatever.
 	name = "Aft Hallway"
 
 /area/horizon/engineering/hallway/interior
+	// Location is defined here relative to the department center itself. Whatever.
 	name = "Amidships Hallway"
 
 /// ENGINEERING_AREAS - ATMOSIA_AREAS
@@ -110,15 +113,19 @@
 	horizon_deck = 1
 
 /area/horizon/engineering/atmos/propulsion
-	name = "Port Propulsion"
+	name = "Primary Propulsion"
 	icon_state = "blue2"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	horizon_deck = 1
+	location_ew = LOC_PORT
+	location_ns = LOC_AFT_FAR
 
 /area/horizon/engineering/atmos/propulsion/starboard
-	name = "Starboard Propulsion"
+	name = "Primary Propulsion"
 	icon_state = "blue-red2"
 	horizon_deck = 1
+	location_ew = LOC_STARBOARD
+	location_ns = LOC_AFT_FAR
 
 /area/horizon/engineering/atmos/turbine
 	name = "Combustion Turbine"
@@ -145,7 +152,7 @@
 	name = "Supermatter Reactor Chamber"
 
 /area/horizon/engineering/smes
-	name = "Supermatter Reactor Substation"
+	name = "Supermatter Reactor SMES"
 	icon_state = "engine_smes"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
@@ -167,7 +174,7 @@
 	ambience = AMBIENCE_SINGULARITY
 
 /area/horizon/engineering/reactor/indra/smes
-	name = "INDRA Reactor Substation"
+	name = "INDRA Reactor SMES"
 	icon_state = "engine_smes"
 
 /area/horizon/engineering/reactor/indra/monitoring
