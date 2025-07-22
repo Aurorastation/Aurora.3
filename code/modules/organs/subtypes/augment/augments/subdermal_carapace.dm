@@ -5,6 +5,10 @@
 		+ "In combination with armor, it can turn lethal injuries into merely serious wounds."
 	organ_tag = BP_AUG_SUBDERMAL_CARAPACE
 	parent_organ = BP_CHEST
+	// Placeholder sprite to state "HEY I NEED A SPRITE" in the most violent way possible.
+	// Please contact @raistlin_jag on discord, I will pay you- dear reader, for sprites.
+	icon = 'icons/obj/machinery/ship_guns/longbow.dmi'
+	icon_state = "weapon_firing"
 
 /obj/item/organ/internal/augment/bioaug/subdermal_carapace/Initialize()
 	. = ..()

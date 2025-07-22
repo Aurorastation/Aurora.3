@@ -5,6 +5,10 @@
 		+ "This doesn't work if the original heart is completely destroyed, as there needs to be a reasonably intact cardiovascular system."
 	organ_tag = BP_AUG_AUX_HEART
 	parent_organ = BP_CHEST
+	// Placeholder sprite to state "HEY I NEED A SPRITE" in the most violent way possible.
+	// Please contact @raistlin_jag on discord, I will pay you- dear reader, for sprites.
+	icon = 'icons/obj/machinery/ship_guns/longbow.dmi'
+	icon_state = "weapon_firing"
 
 /obj/item/organ/internal/augment/bioaug/auxiliary_heart/Initialize()
 	. = ..()

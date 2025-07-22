@@ -4,6 +4,10 @@
 		+ "Any attempt to read the mind of an individual with this augment installed will fail, as will attempts at psychic brainwashing."
 	organ_tag = BP_AUG_MIND_BLANKER
 	parent_organ = BP_HEAD
+	// Placeholder sprite to state "HEY I NEED A SPRITE" in the most violent way possible.
+	// Please contact @raistlin_jag on discord, I will pay you- dear reader, for sprites.
+	icon = 'icons/obj/machinery/ship_guns/longbow.dmi'
+	icon_state = "weapon_firing"
 
 /obj/item/organ/internal/augment/bioaug/mind_blanker/Initialize()
 	. = ..()
