@@ -2,7 +2,7 @@
 	name = "disruptor pistol"
 	desc = "A Nexus Corporate Security designed blaster pistol with variable settings. This is the NEXUS DP8 Standard variant."
 	desc_extended = "Developed and produced by Nexus Corporate Security, the NEXUS DP-8 is a state of the art blaster pistol capable of firing varying blaster bolts to different effect."
-	desc_info = "The disruptor pistol is voice-controlled! Try saying 'Disruptor' then a firing mode, or 'Disruptor Crowd Control. Alt+Click to set a Loudspeaker Message, then Unique-Action to play it!"
+	desc_mechanics = "The disruptor pistol is voice-controlled! Try saying 'Disruptor' then a firing mode, or 'Disruptor Crowd Control. Alt+Click to set a Loudspeaker Message, then Unique-Action to play it!"
 	icon = 'icons/obj/guns/disruptorpistol/disruptorpistols.dmi'
 	icon_state = "disruptorpistol"
 	item_state = "disruptorpistol"
