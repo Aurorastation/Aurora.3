@@ -36,7 +36,8 @@
 	var/supports_limb = FALSE
 
 /obj/item/organ/internal/augment/Initialize()
-	robotize()
+	if(robotic == ROBOTIC_MECHANICAL)
+		robotize()
 	. = ..()
 
 /obj/item/organ/internal/augment/refresh_action_button()
