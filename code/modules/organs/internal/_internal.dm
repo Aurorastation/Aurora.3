@@ -152,11 +152,10 @@
 
 /obj/item/organ/internal/proc/handle_regeneration(seconds_per_tick)
 	SHOULD_CALL_PARENT(TRUE)
-	if(damage && !BP_IS_ROBOTIC(src) && istype(owner))
-		if(!owner.is_asystole())
-			if(!(owner.chem_effects[CE_TOXIN] || (toxin_type in owner.chem_effects)))
-				var/repair_modifier = owner.chem_effects[CE_ORGANREPAIR] || 0.1
-				if(damage < repair_modifier*max_damage)
-					heal_damage(repair_modifier)
-				return TRUE // regeneration is allowed
-	return FALSE // regeneration is prevented
+	if(!damage || BP_IS_ROBOTIC(src) || !istype(owner) || owner.is_asystole() || (owner.chem_effects[CE_TOXIN] || (toxin_type in owner.chem_effects)))
+		return FALSE
+
+	var/repair_modifier = owner.chem_effects[CE_ORGANREPAIR] || 0.1
+	if(damage < repair_modifier*max_damage)
+		heal_damage(repair_modifier)
+	return TRUE // regeneration is allowed
