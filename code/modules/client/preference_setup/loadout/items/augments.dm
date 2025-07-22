@@ -299,17 +299,40 @@
 	cost = 4
 	allowed_roles = list("Physician", "Surgeon", "Pharmacist", "Paramedic", "Psychiatrist", "Medical Intern", "Medical Personnel", "Security Officer", "Warden", "Security Cadet", "Investigator", "Security Personnel", "Corporate Liaison", "Assistant", "Off-Duty Crew Member", "Corporate Reporter", "Bridge Crew")
 
+/datum/gear/augment/auxiliary_heart
+	display_name = "Auxiliary Heart"
+	description = "Primarily intended for soldiers and the elderly, the auxiliary heart is a small secondary heart implanted below the original. Should the original heart shut down, the secondary heart will activate, keeping the user alive until the original can be restarted or replaced."
+	path = /obj/item/organ/internal/augment/bioaug/auxiliary_heart
+	origin_restriction = list(/singleton/origin_item/origin/galatea)
+	cost = 2
+
 /datum/gear/augment/mind_blanker
 	display_name = "Galatean Mind Blanker"
 	description = "A small, discrete organ attached near the base of the brainstem. Any attempt to read the mind of an individual with this augment installed will fail, as will attempts at psychic brainwashing."
-	path = /obj/item/organ/internal/augment/mind_blanker
+	path = /obj/item/organ/internal/augment/bioaug/mind_blanker
 	origin_restriction = list(/singleton/origin_item/origin/galatea)
 	cost = 4
 
 /datum/gear/augment/mind_blanker_lethal
 	display_name = "Galatean Mind Blanker (Lethal)"
 	description = "Available only to higher-up MfAS agents and members of the Galatean government. This enhanced variant of a mind blanker introduces a psionic trap which inflicts severe neural damage on anyone attempting to read the user's mind."
-	path = /obj/item/organ/internal/augment/mind_blanker_lethal
+	path = /obj/item/organ/internal/augment/bioaug/mind_blanker_lethal
+	origin_restriction = list(/singleton/origin_item/origin/galatea)
+	cost = 6
+	allowed_roles = list("Consular")
+
+/datum/gear/augment/platelet_factories
+	display_name = "Auxiliary Heart"
+	description = "Designed for military applications, this implant massively increases the user's blood clotting factor. This provides an extreme resistance to arterial bleeds, effectively all but preventing exsanguination. This augment has a reputation for causing heart attacks and strokes at a high rate, and is usually combined with an auxiliary heart for safety."
+	path = /obj/item/organ/internal/augment/bioaug/auxiliary_heart
+	origin_restriction = list(/singleton/origin_item/origin/galatea)
+	cost = 2
+	allowed_roles = list("Consular")
+
+/datum/gear/augment/subdermal_carapace
+	display_name = "Auxiliary Heart"
+	description = "Designed for military applications, this implant transforms the user's ribcage into a solid plate of bone. This provides a small amount of protection. In combination with armor, it can turn lethal injuries into merely serious wounds."
+	path = /obj/item/organ/internal/augment/bioaug/auxiliary_heart
 	origin_restriction = list(/singleton/origin_item/origin/galatea)
 	cost = 6
 	allowed_roles = list("Consular")

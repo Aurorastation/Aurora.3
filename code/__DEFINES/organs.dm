@@ -32,6 +32,11 @@
  */
 #define COMSIG_HEART_PULSE_EVENT "heart_pulse_event"
 
+/**
+ * Raised on a heart that is calculating the effects of bleeds.
+ */
+#define COMSIG_HEART_BLEED_EVENT "heart_bleed_event"
+
 // Liver signals
 /**
  * Raised on an entity whose liver is attempting to filter blood.

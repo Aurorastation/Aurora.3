@@ -92,7 +92,7 @@
 	var/canceled = FALSE
 
 	// Check if any components on the user wish to mess with liver filtration.
-	SEND_SIGNAL(owner, COMSIG_LIVER_FILTER_EVENT)
+	SEND_SIGNAL(owner, COMSIG_LIVER_FILTER_EVENT, filter_effect, filter_strength, toxin_healing_rate, canceled)
 	if(canceled)
 		return
 

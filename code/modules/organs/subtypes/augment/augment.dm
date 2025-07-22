@@ -82,3 +82,11 @@
 /obj/item/organ/internal/augment/proc/do_bruised_act()
 	spark(get_turf(owner), 3)
 	return FALSE
+
+/obj/item/organ/internal/augment/bioaug
+	name = "bioaugment"
+	robotic = FALSE
+	species_restricted = list(
+		SPECIES_HUMAN_OFFWORLD,
+		SPECIES_HUMAN,
+	)

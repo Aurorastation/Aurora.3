@@ -49,10 +49,10 @@
 	var/blood_regen_modifier = 1
 
 	/// How much this heart modifies the rate of bloodloss per arterial wound.
-	var/arterial_bloodloss_modifier = 1
+	var/base_arterial_bloodloss_modifier = 1
 
 	/// How much this heart modifies the rate of bloodloss per cut wound.
-	var/cut_bloodloss_modifier = 1
+	var/base_cut_bloodloss_modifier = 1
 
 	/// How much this heart modifies nutrition loss while regenerating blood.
 	var/nutrition_cost_per_blood_regen = 2
@@ -143,7 +143,7 @@
 	var/canceled = FALSE
 
 	// Check if any components on the user wish to mess with the pulse calculations.
-	SEND_SIGNAL(owner, COMSIG_HEART_PULSE_EVENT)
+	SEND_SIGNAL(owner, COMSIG_HEART_PULSE_EVENT, pulse_mod, is_stable, oxy, circulation, canceled)
 	if(canceled)
 		return // Oh hey someone stopped my heart from beating via a SIGNAL response!
 
@@ -226,6 +226,9 @@
 
 	if(pulse != PULSE_NONE || BP_IS_ROBOTIC(src))
 		var/blood_volume = round(REAGENT_VOLUME(owner.vessel, /singleton/reagent/blood))
+		var/cut_bloodloss_modifier = base_cut_bloodloss_modifier
+		var/arterial_bloodloss_modifier = base_arterial_bloodloss_modifier
+		SEND_SIGNAL(owner, COMSIG_HEART_BLEED_EVENT, blood_volume, cut_bloodloss_modifier, arterial_bloodloss_modifier)
 
 		//Blood regeneration if there is some space
 		if(blood_volume < species.blood_volume && blood_volume)

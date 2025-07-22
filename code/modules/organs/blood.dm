@@ -90,7 +90,7 @@
 	var/min_efficiency = recent_pump ? 0.5 : 0.3
 
 	// Check if any components on the user wish to mess with the pump rate.
-	SEND_SIGNAL(src, COMSIG_HEART_PUMP_EVENT, heart)
+	SEND_SIGNAL(src, COMSIG_HEART_PUMP_EVENT, heart, blood_volume, recent_pump, pulse_mod, min_efficiency)
 
 	if((status_flags & FAKEDEATH) || BP_IS_ROBOTIC(heart))
 		pulse_mod = heart.norm_pump_modifier
@@ -127,7 +127,7 @@
 	var/oxygenated_add = 0
 
 	// Check if any components on the user wish to mess with the blood oxygenation.
-	SEND_SIGNAL(src, COMSIG_BLOOD_OXYGENATION_EVENT)
+	SEND_SIGNAL(src, COMSIG_BLOOD_OXYGENATION_EVENT, blood_volume, blood_volume_mod, oxygenated_add)
 
 	if(chem_effects[CE_OXYGENATED] == 1) // Dexalin.
 		oxygenated_add += 0.5
