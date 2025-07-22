@@ -83,16 +83,21 @@
 
 	// Get the effectiveness of the liver.
 	var/filter_effect = base_filter_effect
+	var/fe = &filter_effect
 
 	// Copy the base filter variables, so that we aren't modifying the original values.
 	var/filter_strength = base_filter_strength
+	var/fs = &filter_strength
+
 	var/toxin_healing_rate = base_toxin_healing_rate
+	var/thr = &toxin_healing_rate
 
 	// Optionally allow signal repliers to cancel liver filtration. Antifreeze could be a fun one.
 	var/canceled = FALSE
+	var/c = &canceled
 
 	// Check if any components on the user wish to mess with liver filtration.
-	SEND_SIGNAL(owner, COMSIG_LIVER_FILTER_EVENT, filter_effect, filter_strength, toxin_healing_rate, canceled)
+	SEND_SIGNAL(owner, COMSIG_LIVER_FILTER_EVENT, fe, fs, thr, c)
 	if(canceled)
 		return
 

@@ -81,16 +81,24 @@
 
 /mob/living/carbon/human/proc/get_blood_circulation()
 	var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
+
 	var/blood_volume = get_blood_volume()
+	var/b = &blood_volume
+
 	if(!heart)
 		return 0.25 * blood_volume
 
 	var/recent_pump = LAZYACCESS(heart.external_pump, 1) > world.time - (20 SECONDS)
+	var/r = &recent_pump
+
 	var/pulse_mod = heart.base_pump_rate
+	var/p = &pulse_mod
+
 	var/min_efficiency = recent_pump ? 0.5 : 0.3
+	var/m = &min_efficiency
 
 	// Check if any components on the user wish to mess with the pump rate.
-	SEND_SIGNAL(src, COMSIG_HEART_PUMP_EVENT, heart, blood_volume, recent_pump, pulse_mod, min_efficiency)
+	SEND_SIGNAL(src, COMSIG_HEART_PUMP_EVENT, heart, b, r, p, m)
 
 	if((status_flags & FAKEDEATH) || BP_IS_ROBOTIC(heart))
 		pulse_mod = heart.norm_pump_modifier
@@ -117,6 +125,8 @@
 
 /mob/living/carbon/human/proc/get_blood_oxygenation()
 	var/blood_volume = get_blood_circulation()
+	var/bv = &blood_volume
+
 	if(is_asystole() || (status_flags & FAKEDEATH)) // Heart is missing or isn't beating and we're not breathing (hardcrit)
 		return min(blood_volume, BLOOD_VOLUME_SURVIVE)
 
@@ -124,10 +134,13 @@
 		return blood_volume
 
 	var/blood_volume_mod = max(0, 1 - getOxyLoss()/(species.total_health/2))
+	var/bvm = &blood_volume_mod
+
 	var/oxygenated_add = 0
+	var/oa = &oxygenated_add
 
 	// Check if any components on the user wish to mess with the blood oxygenation.
-	SEND_SIGNAL(src, COMSIG_BLOOD_OXYGENATION_EVENT, blood_volume, blood_volume_mod, oxygenated_add)
+	SEND_SIGNAL(src, COMSIG_BLOOD_OXYGENATION_EVENT, bv, bvm, oa)
 
 	if(chem_effects[CE_OXYGENATED] == 1) // Dexalin.
 		oxygenated_add += 0.5
