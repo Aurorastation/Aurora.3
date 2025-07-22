@@ -19,7 +19,7 @@
 /obj/item/clothing/ears/earphones
 	name = "earphones"
 	desc = "A pair of wireless earphones. Includes a little slot for a music cartridge."
-	desc_info = "Shift+Click to Start/Stop a playlist. Alt+Click to Pause/Resume the current track. Click character to eject cartridge. Alternatively, use verbs."
+	desc_mechanics = "Shift+Click to Start/Stop a playlist. Alt+Click to Pause/Resume the current track. Click character to eject cartridge. Alternatively, use verbs."
 	icon = 'icons/obj/clothing/ears/earmuffs.dmi'
 	icon_state = "earphones"
 	item_state = "earphones"
