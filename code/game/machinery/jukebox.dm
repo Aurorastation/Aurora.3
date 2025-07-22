@@ -36,7 +36,6 @@
 		new/datum/track("Thunderdome", 'sound/music/THUNDERDOME.ogg')
 	)
 
-
 /obj/machinery/media/jukebox/Destroy()
 	StopPlaying()
 	return ..()
