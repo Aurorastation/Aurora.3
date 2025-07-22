@@ -1,8 +1,0 @@
-
-author: Tag103
-
-# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
-delete-after: True
-
-changes:
-  - balance: "The Solarian Marine event oufit now has a solarian energy dagger in its belt rather than an energy sword. The Heavy Solarian Marine outfit has not been changed, and still has an energy sword."
