@@ -99,9 +99,12 @@
 /obj/structure/diona/bulb/unpowered
 	name = "unpowered glow bulb"
 	desc = "A bulb of some sort. Seems like it needs some power."
-	desc_info = "This bulb requires a power cell to glow. Click on it with a power cell in hand to plug it in."
 	light_power = 0
 	light_range = 0
+
+/obj/structure/diona/bulb/unpowered/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This bulb requires a power cell to glow. Click on it with a power cell in hand to plug it in."
 
 /obj/structure/diona/bulb/unpowered/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/cell))

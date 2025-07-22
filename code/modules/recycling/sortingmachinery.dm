@@ -13,6 +13,14 @@
 	var/label_x
 	var/tag_x
 
+/obj/structure/bigDelivery/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance <= 4)
+		if(sortTag)
+			. += SPAN_NOTICE("It is labeled \"[sortTag]\".")
+		if(examtext)
+			. += SPAN_NOTICE("It has a note attached which reads, \"[examtext]\".")
+
 /obj/structure/bigDelivery/attack_hand(mob/user as mob)
 	unwrap()
 
@@ -108,14 +116,6 @@
 			I.pixel_y = -3
 		AddOverlays(I)
 
-/obj/structure/bigDelivery/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance <= 4)
-		if(sortTag)
-			. += SPAN_NOTICE("It is labeled \"[sortTag]\".")
-		if(examtext)
-			. += SPAN_NOTICE("It has a note attached which reads, \"[examtext]\".")
-
 /obj/item/smallDelivery
 	desc = "A small wrapped package."
 	name = "small parcel"
@@ -203,6 +203,14 @@
 				playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
 	return
 
+/obj/item/smallDelivery/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance <= 4)
+		if(sortTag)
+			. += SPAN_NOTICE("It is labeled \"[sortTag]\".")
+		if(examtext)
+			. += SPAN_NOTICE("It has a note attached which reads, \"[examtext]\".")
+
 /obj/item/smallDelivery/update_icon()
 	ClearOverlays()
 	if((nameset || examtext) && icon_state != "deliverycrate1")
@@ -227,14 +235,6 @@
 			if("deliverycrate5")
 				I.pixel_y = -3
 		AddOverlays(I)
-
-/obj/item/smallDelivery/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance <= 4)
-		if(sortTag)
-			. += SPAN_NOTICE("It is labeled \"[sortTag]\".")
-		if(examtext)
-			. += SPAN_NOTICE("It has a note attached which reads, \"[examtext]\".")
 
 /obj/structure/bigDelivery/Destroy()
 	if(wrapped) //sometimes items can disappear. For example, bombs. --rastaf0
@@ -337,7 +337,7 @@
 	INVOKE_ASYNC(src, PROC_REF(flush))
 
 /obj/machinery/disposal/deliveryChute/flush()
-	flushing = 1
+	flushing = TRUE
 	flick("intake-closing", src)
 	var/obj/disposalholder/H = new()	// virtual holder object which actually
 												// travels through the pipes.
@@ -350,7 +350,7 @@
 	H.init(src)	// copy the contents of disposer to holder
 
 	H.start(src) // start the holder processing movement
-	flushing = 0
+	flushing = FALSE
 	// now reset disposal state
 	flush = 0
 	if(mode == 2)	// if was ready,

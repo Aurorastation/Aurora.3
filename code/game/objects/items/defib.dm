@@ -19,6 +19,13 @@
 	var/obj/item/shockpaddles/linked/paddles
 	var/obj/item/cell/bcell
 
+/obj/item/defibrillator/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(bcell)
+		. += "The charge meter is showing <b>[bcell.percent()]%</b> charge left."
+	else
+		. += "There is no cell inside."
+
 /obj/item/defibrillator/Initialize() //starts without a cell for rnd
 	. = ..()
 	if(ispath(paddles))
@@ -61,13 +68,6 @@
 		new_overlays += "[initial(icon_state)]-nocell"
 
 	overlays = new_overlays
-
-/obj/item/defibrillator/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(bcell)
-		. += "The charge meter is showing [bcell.percent()]% charge left."
-	else
-		. += "There is no cell inside."
 
 /obj/item/defibrillator/ui_action_click()
 	toggle_paddles()

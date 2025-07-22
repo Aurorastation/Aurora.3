@@ -5,7 +5,6 @@
 /obj/item/portable_typewriter
 	name = "portable typewriter"
 	desc = "A reasonably lightweight typewriter designed to be moved around."
-	desc_info = "You can alt-click this to eject the paper. Click and drag onto yourself while adjacent to type on the typewriter."
 	desc_extended = "The National Typist Company in the People's Republic of Adhomai was once the largest producer of \
 	typewriters on the planet. With the introduction of human technology, however, these items - \
 	which were once staples of Tajaran offices - have slowly become more uncommon. That \
@@ -20,6 +19,11 @@
 
 	var/obj/item/paper/stored_paper = null
 	var/obj/item/pen/pen
+
+/obj/item/portable_typewriter/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can ALT-click this to eject the paper."
+	. += "Click and drag \the [src] onto yourself while adjacent to type on it."
 
 /obj/item/portable_typewriter/Initialize()
 	. = ..()
@@ -119,7 +123,6 @@
 /obj/item/typewriter_case
 	name = "typewriter case"
 	desc = "A large briefcase-esque place to store one's typewriter."
-	desc_info = "You can alt-click on this case to open and close it. A typewriter can only be removed or added when it is open!"
 	desc_extended = "The National Typist Company in the People's Republic of Adhomai was once the largest producer of \
 	typewriters on the planet. With the introduction of human technology, however, these items - \
 	which were once staples of Tajaran offices - have slowly become more uncommon. That \
@@ -138,6 +141,10 @@
 
 	var/obj/item/portable_typewriter/machine
 	var/opened = FALSE
+
+/obj/item/typewriter_case/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can ALT-click on this case to open and close it. A typewriter can only be removed or added when it is open!"
 
 /obj/item/typewriter_case/Initialize()
 	. = ..()

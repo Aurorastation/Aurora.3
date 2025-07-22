@@ -3597,7 +3597,6 @@
 /obj/item/book{
 	name = "Quran";
 	icon_state = "holybook";
-	desc_antag = null;
 	desc = "This is the Quran. This is the holy text of Islam, believed by Muslims to be a revelation from God.";
 	pixel_y = 3
 	},
