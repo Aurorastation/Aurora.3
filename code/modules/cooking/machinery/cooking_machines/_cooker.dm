@@ -18,8 +18,8 @@
 	var/temperature = T20C
 	var/starts_with = list()
 
-/obj/machinery/appliance/cooker/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/machinery/appliance/cooker/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if (is_adjacent)
 		if (!stat)
 			if (temperature < min_temp)

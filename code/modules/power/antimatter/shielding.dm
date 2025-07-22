@@ -11,8 +11,6 @@
 /obj/machinery/am_shielding
 	name = "antimatter reactor section"
 	desc = "A shielding component for an antimatter reactor. Looks delicate."
-	desc_info = "Antimatter shielding sections must be beside an anchored control unit or another shielding section. If either are destroyed, the section will disappear."
-	desc_antag = "Antimatter shielding sections are delicate. Attacking the shielding unit with a damaging object will reduce its stability, as will explosions. If the stability hits zero, the reactor may explode."
 	icon = 'icons/obj/machinery/new_ame.dmi'
 	icon_state = "shield"
 	anchored = TRUE
@@ -29,6 +27,14 @@
 	var/coredirs = 0
 	var/dirs = 0
 	var/mapped = FALSE		//Set to 1 to ignore usual suicide if it doesn't immediately find a control_unit
+
+/obj/machinery/am_shielding/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Antimatter shielding sections must be beside an anchored control unit or another shielding section. If either are destroyed, the section will disappear."
+
+/obj/machinery/am_shielding/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Antimatter shielding sections are delicate. Attacking the shielding unit with a damaging object will reduce its stability, as will explosions. If the stability hits zero, the reactor may explode."
 
 // Stupidly easy way to use it in maps
 /obj/machinery/am_shielding/map
@@ -215,13 +221,16 @@
 /obj/item/device/am_shielding_container
 	name = "packaged antimatter reactor section"
 	desc = "A section of antimatter reactor shielding. Do not eat."
-	desc_info = "To deploy, drop near an antimatter control unit or an existing deployed section and use your multitool on it."
 	icon = 'icons/obj/machinery/antimatter.dmi'
 	icon_state = "box"
 	item_state = "electronic"
 	throwforce = 5
 	throw_speed = 1
 	throw_range = 2
+
+/obj/item/device/am_shielding_container/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "To deploy, drop near an antimatter control unit or an existing deployed section and use your multitool on it."
 
 /obj/item/device/am_shielding_container/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.ismultitool() && isturf(loc))

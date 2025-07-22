@@ -1,7 +1,6 @@
 /obj/item/reagent_containers/dropper
 	name = "dropper"
 	desc = "A dropper. It has a volume of 5 units."
-	desc_info = "Alt Click or Activate this item to change transfer rate."
 	icon = 'icons/obj/item/reagent_containers/dropper.dmi'
 	contained_sprite = TRUE
 	icon_state = "dropper"
@@ -15,6 +14,17 @@
 	volume = 5
 	drop_sound = 'sound/items/drop/glass_small.ogg'
 	pickup_sound = 'sound/items/pickup/glass_small.ogg'
+
+/obj/item/reagent_containers/dropper/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "ALT-Click or use this item to change transfer rate."
+
+/obj/item/reagent_containers/dropper/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(LAZYLEN(reagents.reagent_volumes))
+		. += "\The [src] is holding [reagents.total_volume] units out of [volume]. Current transfer is [amount_per_transfer_from_this] units."
+	else
+		. += "It is empty."
 
 /obj/item/reagent_containers/dropper/afterattack(var/obj/target, var/mob/user, var/flag)
 	if(!target.reagents || !flag)
@@ -101,13 +111,6 @@
 	else
 		worn_overlay = null
 	update_held_icon()
-
-/obj/item/reagent_containers/dropper/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(LAZYLEN(reagents.reagent_volumes))
-		. += SPAN_NOTICE("\The [src] is holding [reagents.total_volume] units out of [volume]. Current transfer is [amount_per_transfer_from_this] units.")
-	else
-		. += SPAN_NOTICE("It is empty.")
 
 /obj/item/reagent_containers/dropper/electronic_pipette
 	name = "electronic pipette"

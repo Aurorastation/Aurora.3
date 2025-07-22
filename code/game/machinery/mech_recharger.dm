@@ -22,9 +22,11 @@
 		/obj/item/stock_parts/manipulator = 2
 	)
 
-	component_hint_cap = "Upgraded <b>capacitors</b> will increase charging rate."
-	component_hint_scan = "Upgraded <b>scanning modules</b> will increase both charging rate and repair speed."
-	component_hint_servo = "Upgraded <b>manipulators</b> will increase repair speed."
+/obj/machinery/mech_recharger/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>capacitors</b> will increase charging rate."
+	. += "Upgraded <b>scanning modules</b> will increase both charging rate and repair speed."
+	. += "Upgraded <b>manipulators</b> will increase repair speed."
 
 /obj/machinery/mech_recharger/Initialize(mapload)
 	. = ..()

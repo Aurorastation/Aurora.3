@@ -10,7 +10,6 @@
 	var/base_state = "tube"		// base description and icon_state
 	icon_state = "tube_preview"
 	desc = "A lighting fixture."
-	desc_info = "Use grab intent when interacting with a working light to take it out of its fixture."
 	anchored = TRUE
 	layer = ABOVE_HUMAN_LAYER
 	use_power = POWER_USE_ACTIVE
@@ -61,6 +60,126 @@
 		LIGHT_MODE_DELTA = LIGHT_COLOR_ORANGE
 	)
 	init_flags = 0
+
+/obj/machinery/light/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use Grab intent on a working light to remove it from its fixture."
+
+/obj/machinery/light/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	switch(status)
+		if(LIGHT_OK)
+			. += "It is turned [!(stat & POWEROFF) ? "on" : "off"]."
+		if(LIGHT_EMPTY)
+			. += "\The [fitting] has been removed."
+		if(LIGHT_BURNED)
+			. += "\The [fitting] is burnt out."
+		if(LIGHT_BROKEN)
+			. += "\The [fitting] has been smashed."
+	if(cell)
+		. += "The charge meter reads [round((cell.charge / cell.maxcharge) * 100, 0.1)]%."
+
+/obj/machinery/light/skrell
+	base_state = "skrell"
+	icon_state = "skrell_empty"
+	supports_nightmode = FALSE
+	fitting = "skrell"
+	bulb_is_noisy = FALSE
+	light_type = /obj/item/light/tube
+	inserted_light = /obj/item/light/tube
+	brightness_power = 0.45
+	brightness_color = LIGHT_COLOR_PURPLE
+
+/obj/machinery/light/floor
+	name = "floor lighting fixture"
+	icon_state = "floortube_example"
+	base_state = "floortube"
+	desc = "A lighting fixture. This one is set into the floor."
+	layer = ABOVE_TILE_LAYER
+	fitting_has_empty_icon = TRUE
+	fitting_is_on_floor = TRUE
+
+// the smaller bulb light fixture
+
+/obj/machinery/light/small
+	icon_state = "bulb_preview"
+	base_state = "bulb"
+	fitting = "bulb"
+	brightness_range = 5
+	brightness_power = 0.45
+	brightness_color = LIGHT_COLOR_TUNGSTEN
+	desc = "A small lighting fixture."
+	light_type = /obj/item/light/bulb
+	inserted_light = /obj/item/light/bulb
+	supports_nightmode = FALSE
+	bulb_is_noisy = FALSE
+
+/obj/machinery/light/small/floor
+	name = "small floor lighting fixture"
+	icon_state = "floor_example"
+	base_state = "floor"
+	desc = "A small lighting fixture. This one is set into the floor."
+	fitting_is_on_floor = TRUE
+	layer = ABOVE_TILE_LAYER
+
+/obj/machinery/light/small/emergency
+	icon_state = "bulb_emergency_preview"
+	brightness_range = 6
+	brightness_power = 0.45
+	brightness_color = LIGHT_COLOR_EMERGENCY_SOFT
+	randomize_color = FALSE
+
+/obj/machinery/light/small/broken
+	status = LIGHT_BROKEN
+	icon_state = "bulb_broken_preview"
+
+/obj/machinery/light/small/red
+	brightness_range = 2.5
+	brightness_power = 0.45
+	brightness_color = LIGHT_COLOR_RED
+	randomize_color = FALSE
+
+/obj/machinery/light/colored/blue
+	brightness_color = LIGHT_COLOR_BLUE
+	randomize_color = FALSE
+
+/obj/machinery/light/colored/red
+	brightness_color = LIGHT_COLOR_RED
+	randomize_color = FALSE
+	icon_state = "tube_red_preview"
+
+/obj/machinery/light/colored/violet
+	brightness_color = LIGHT_COLOR_VIOLET
+	randomize_color = FALSE
+	icon_state = "tube_violet_preview"
+
+/obj/machinery/light/colored/decayed
+	brightness_color = LIGHT_COLOR_DECAYED
+	randomize_color = FALSE
+	icon_state = "tube_decayed_preview"
+
+/obj/machinery/light/colored/dying
+	brightness_color = LIGHT_COLOR_DYING
+	randomize_color = FALSE
+	icon_state = "tube_decayed_preview"
+
+/obj/machinery/light/broken
+	status = LIGHT_BROKEN
+	icon_state = "tube_broken_preview"
+
+/obj/machinery/light/spot
+	name = "spotlight fixture"
+	icon_state = "tube_empty"
+	desc = "An extremely powerful lighting fixture."
+	fitting = "large tube"
+	light_type = /obj/item/light/tube/large
+	inserted_light = /obj/item/light/tube/large
+	brightness_range = 12
+	brightness_power = 3.5
+	supports_nightmode = FALSE
+
+/obj/machinery/light/built
+	start_with_cell = FALSE
 
 /obj/machinery/light/built/Initialize()
 	status = LIGHT_EMPTY
@@ -292,21 +411,6 @@
 		broken()
 	user.do_attack_animation(src)
 	return TRUE
-
-// examine verb
-/obj/machinery/light/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	switch(status)
-		if(LIGHT_OK)
-			. += "It is turned [!(stat & POWEROFF) ? "on" : "off"]."
-		if(LIGHT_EMPTY)
-			. += "\The [fitting] has been removed."
-		if(LIGHT_BURNED)
-			. += "\The [fitting] is burnt out."
-		if(LIGHT_BROKEN)
-			. += "\The [fitting] has been smashed."
-	if(cell)
-		. += "The charge meter reads [round((cell.charge / cell.maxcharge) * 100, 0.1)]%."
 
 // attack with item - insert light (if right type), otherwise try to break the light
 
