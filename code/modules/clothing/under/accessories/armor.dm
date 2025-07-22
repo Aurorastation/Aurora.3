@@ -2,8 +2,7 @@
 /obj/item/clothing/accessory/leg_guard
 	name = "corporate leg guards"
 	desc = "These will protect your legs."
-	desc_info = "These items must be hooked onto plate carriers for them to work!"
-	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon = 'icons/obj/item/clothing/suit/armor/modular_armor/modular_armor.dmi'
 	icon_state = "legguards_sec"
 	item_state = "legguards_sec"
 	contained_sprite = TRUE
@@ -20,6 +19,10 @@
 	body_parts_covered = LEGS
 	drop_sound = 'sound/items/drop/boots.ogg'
 	pickup_sound = 'sound/items/pickup/boots.ogg'
+
+/obj/item/clothing/accessory/leg_guard/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "These must be attached to plate carriers for them to work."
 
 /obj/item/clothing/accessory/leg_guard/before_attached(var/obj/item/clothing/clothing, var/mob/user)
 	if(!clothing.valid_accessory_slots || !(slot in clothing.valid_accessory_slots))
@@ -131,7 +134,7 @@
 /obj/item/clothing/accessory/leg_guard/tcaf
 	name = "\improper TCAF legionnaire leg carapace"
 	desc = "Try to sweep the leg against someone wearing these."
-	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon = 'icons/obj/item/clothing/suit/armor/modular_armor/modular_armor.dmi'
 	icon_state = "tcaf_boot_armor"
 	item_state = "tcaf_boot_armor"
 	contained_sprite = TRUE
@@ -161,7 +164,7 @@
 	name = "hoplan thigh protector"
 	desc = "Ablative plating fashioned to sit around the thigh from the hips, \
 	made to link together with an adjoining breastplate. This ancient style is reinvigorated with ablative metals and ballistic padding."
-	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon = 'icons/obj/item/clothing/suit/armor/modular_armor/modular_armor.dmi'
 	icon_state = "hoplan_thigh_protector"
 	item_state = "hoplan_thigh_protector"
 	contained_sprite = TRUE
@@ -177,7 +180,7 @@
 /obj/item/clothing/accessory/leg_guard/hoplan/skirt
 	name = "hoplan ballistic skirt"
 	desc = "A long skirt that falls down to one's ankles with an outer layer of ballistic padding, and woven in pouches featuring ablative plates."
-	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon = 'icons/obj/item/clothing/suit/armor/modular_armor/modular_armor.dmi'
 	icon_state = "hoplan_ballistic_skirt"
 	item_state = "hoplan_ballistic_skirt"
 	contained_sprite = TRUE
@@ -187,7 +190,7 @@
 /obj/item/clothing/accessory/arm_guard
 	name = "corporate arm guards"
 	desc = "A pair of arm pads reinforced with armor plating. Attaches to a plate carrier."
-	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon = 'icons/obj/item/clothing/suit/armor/modular_armor/modular_armor.dmi'
 	icon_state = "armguards_sec"
 	item_state = "armguards_sec"
 	contained_sprite = TRUE
@@ -332,7 +335,7 @@
 /obj/item/clothing/accessory/arm_guard/tcaf
 	name = "\improper TCAF carapace arm guards"
 	desc = "Blue carapace armguards to protect you in the modern battlefield of 2465. Attaches to a plate carrier."
-	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon = 'icons/obj/item/clothing/suit/armor/modular_armor/modular_armor.dmi'
 	icon_state = "tcaf_armguards"
 	item_state = "tcaf_armguards"
 	contained_sprite = TRUE
@@ -355,7 +358,7 @@
 	name = "hoplan sleeves"
 	desc = "Big and poofy and reminiscent of an era more enlightened. \
 	These are lined with special fabric woven in the laboratories of Pactolus to provide armor to an otherwise gaudy fashion piece."
-	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon = 'icons/obj/item/clothing/suit/armor/modular_armor/modular_armor.dmi'
 	icon_state = "hoplan_sleeves"
 	item_state = "hoplan_sleeves"
 	contained_sprite = TRUE

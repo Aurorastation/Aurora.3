@@ -1,0 +1,6 @@
+author: Tag103
+
+delete-after: True
+
+changes:
+  - refactor: "Part of the name used in the code for the sol alliance officer locker has been changed from 'soll_officer' to 'sol_officer'."

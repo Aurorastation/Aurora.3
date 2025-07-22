@@ -6,6 +6,14 @@
 	var/datum/rune/rune
 	info = "<center><img src='talisman.png'></center><br/><br/>"
 
+/obj/item/paper/talisman/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(iscultist(user) && rune)
+		var/network_text = ""
+		if(network)
+			network_text = " This spell's network tag reads: [SPAN_CULT(network)]."
+		. += "The spell inscription reads: [SPAN_CULT(rune.name)].[network_text]"
+
 /obj/item/paper/talisman/Initialize()
 	. = ..()
 	name = "bloodied paper"
@@ -14,14 +22,6 @@
 /obj/item/paper/talisman/Destroy()
 	QDEL_NULL(rune)
 	return ..()
-
-/obj/item/paper/talisman/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(iscultist(user) && rune)
-		var/network_text = ""
-		if(network)
-			network_text = " This spell's network tag reads: [SPAN_CULT(network)]."
-		. += "The spell inscription reads: [SPAN_CULT(rune.name)].[network_text]"
 
 /obj/item/paper/talisman/attack_self(mob/living/user)
 	if(iscultist(user))
