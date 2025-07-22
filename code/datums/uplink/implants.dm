@@ -70,31 +70,31 @@
 	path = /obj/item/storage/box/telefreedom_kit
 
 /datum/uplink_item/item/implants/auxiliary_heart
-	name = "Galateam Auxiliary Heart Implanter"
+	name = "Galatean Auxiliary Heart Implanter"
 	bluecrystal_cost = 3
 	desc = "An augment implanter, with a Auxiliary Heart bioaug. ONLY WORKS ON HUMANS!"
 	path = /obj/item/device/augment_implanter/auxiliary_heart
 
 /datum/uplink_item/item/implants/mind_blanker
-	name = "Galateam Mind Blanker Implanter"
+	name = "Galatean Mind Blanker Implanter"
 	bluecrystal_cost = 2
 	desc = "An augment implanter, with a Mind Blanker bioaug. ONLY WORKS ON HUMANS!"
 	path = /obj/item/device/augment_implanter/mind_blanker
 
 /datum/uplink_item/item/implants/mind_blanker_lethal
-	name = "Galateam Mind Blanker (Lethal) Implanter"
+	name = "Galatean Mind Blanker (Lethal) Implanter"
 	bluecrystal_cost = 4
 	desc = "An augment implanter, with a Lethal Mind Blanker bioaug. ONLY WORKS ON HUMANS!"
 	path = /obj/item/device/augment_implanter/mind_blanker_lethal
 
 /datum/uplink_item/item/implants/platelet_factories
-	name = "Galateam Platelet Factories Implanter"
+	name = "Galatean Platelet Factories Implanter"
 	bluecrystal_cost = 3
 	desc = "An augment implanter, with a Platelet Factories bioaug. ONLY WORKS ON HUMANS!"
 	path = /obj/item/device/augment_implanter/platelet_factories
 
 /datum/uplink_item/item/implants/subdermal_carapace
-	name = "Galateam Subdermal Carapace Implanter"
+	name = "Galatean Subdermal Carapace Implanter"
 	bluecrystal_cost = 5
 	desc = "An augment implanter, with a Subdermal Carapace bioaug. ONLY WORKS ON HUMANS!"
 	path = /obj/item/device/augment_implanter/subdermal_carapace
