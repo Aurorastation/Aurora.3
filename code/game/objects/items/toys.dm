@@ -1586,7 +1586,7 @@
 /obj/item/toy/football
 	name = "football"
 	desc = "A classic, white and black football for kicking. Also known as a soccerball on Biesel and some parts of Earth."
-	desc_info = "Click to kick the ball. Alt+Click or use a non-Help intent to deliver a powerful kick. Drag the ball onto your character sprite to pick it up."
+	desc_mechanics = "Click to kick the ball. Alt+Click or use a non-Help intent to deliver a powerful kick. Drag the ball onto your character sprite to pick it up."
 	w_class = WEIGHT_CLASS_NORMAL
 	icon_state = "football"
 	item_state = "football"
