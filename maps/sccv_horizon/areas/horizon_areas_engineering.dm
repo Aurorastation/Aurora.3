@@ -105,7 +105,7 @@
 	no_light_control = 1
 	ambience = list(AMBIENCE_ENGINEERING, AMBIENCE_ATMOS)
 	area_blurb = "Many volume tanks filled with gas reside here, some providing vital gases for the vessel's life support systems. \
-	Through the aft windows, exterior stowage tanks filled mostly with hazardous or volatile gases loom patiently.
+	Through the aft windows, exterior stowage tanks filled mostly with hazardous or volatile gases loom patiently."
 	area_blurb_category = "atmos"
 	horizon_deck = 1
 	subdepartment = SUBLOC_ATMOS
