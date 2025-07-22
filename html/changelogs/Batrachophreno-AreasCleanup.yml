@@ -55,8 +55,8 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Area names now populate in the Status tab if your character is holding a GPS unit in their active or inactive hand.
-  - rscadd: "Area blurbs now poulate in the Status tab under any condition (so long as the area has one).
+  - rscadd: "Area names now populate in the Status tab if your character is holding a GPS unit in their active or inactive hand."
+  - rscadd: "Area blurbs now poulate in the Status tab under any condition (so long as the area has one)."
   - refactor: "Refactored all the scattered Horizon /area/ definitions into unified folder."
   - refactor: "Re-mapped and renamed most affected areas for better clarity and easier future updates."
   - code_imp: "Added additional metadata variables to Horizon /areas/"
