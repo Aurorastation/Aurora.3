@@ -3938,6 +3938,7 @@
 #include "maps\away\away_site\quarantined_outpost\quarantined_outpost.dm"
 #include "maps\away\away_site\quarantined_outpost\quarantined_outpost_areas.dm"
 #include "maps\away\away_site\quarantined_outpost\quarantined_outpost_landmarks.dm"
+#include "maps\away\away_site\quarantined_outpost\quarantined_outpost_objects.dm"
 #include "maps\away\away_site\racers\racers.dm"
 #include "maps\away\away_site\romanovich\grand_romanovich.dm"
 #include "maps\away\away_site\romanovich\grand_romanovich_ghostroles.dm"
