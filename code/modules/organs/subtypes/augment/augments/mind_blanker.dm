@@ -7,18 +7,24 @@
 
 /obj/item/organ/internal/augment/bioaug/mind_blanker/Initialize()
 	. = ..()
-	if(owner)
-		RegisterSignal(owner, COMSIG_PSI_MIND_POWER, PROC_REF(cancel_power))
+	if(!owner)
+		return
+
+	RegisterSignal(owner, COMSIG_PSI_MIND_POWER, PROC_REF(cancel_power))
 
 /obj/item/organ/internal/augment/bioaug/mind_blanker/replaced()
 	. = ..()
-	if(owner)
-		RegisterSignal(owner, COMSIG_PSI_MIND_POWER, PROC_REF(cancel_power))
+	if(!owner)
+		return
+
+	RegisterSignal(owner, COMSIG_PSI_MIND_POWER, PROC_REF(cancel_power))
 
 /obj/item/organ/internal/augment/bioaug/mind_blanker/removed()
 	. = ..()
-	if(owner)
-		UnregisterSignal(owner, COMSIG_PSI_MIND_POWER)
+	if(!owner)
+		return
+
+	UnregisterSignal(owner, COMSIG_PSI_MIND_POWER)
 
 /obj/item/organ/internal/augment/bioaug/mind_blanker/proc/cancel_power(mob/caster)
 	SIGNAL_HANDLER
@@ -34,18 +40,24 @@
 
 /obj/item/organ/internal/augment/bioaug/mind_blanker_lethal/Initialize()
 	. = ..()
-	if(owner)
-		RegisterSignal(owner, COMSIG_PSI_MIND_POWER, PROC_REF(cancel_power_lethal))
+	if(!owner)
+		return
+
+	RegisterSignal(owner, COMSIG_PSI_MIND_POWER, PROC_REF(cancel_power_lethal))
 
 /obj/item/organ/internal/augment/bioaug/mind_blanker_lethal/replaced()
 	. = ..()
-	if(owner)
-		RegisterSignal(owner, COMSIG_PSI_MIND_POWER, PROC_REF(cancel_power_lethal))
+	if(!owner)
+		return
+
+	RegisterSignal(owner, COMSIG_PSI_MIND_POWER, PROC_REF(cancel_power_lethal))
 
 /obj/item/organ/internal/augment/bioaug/mind_blanker_lethal/removed()
 	. = ..()
-	if(owner)
-		UnregisterSignal(owner, COMSIG_PSI_MIND_POWER)
+	if(!owner)
+		return
+
+	UnregisterSignal(owner, COMSIG_PSI_MIND_POWER)
 
 /obj/item/organ/internal/augment/bioaug/mind_blanker_lethal/proc/cancel_power_lethal(mob/caster)
 	SIGNAL_HANDLER

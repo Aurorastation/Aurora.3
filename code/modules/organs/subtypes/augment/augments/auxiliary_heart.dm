@@ -8,18 +8,24 @@
 
 /obj/item/organ/internal/augment/bioaug/auxiliary_heart/Initialize()
 	. = ..()
-	if(owner)
-		RegisterSignal(owner, COMSIG_HEART_PUMP_EVENT, PROC_REF(stabilize_circulation))
+	if(!owner)
+		return
+
+	RegisterSignal(owner, COMSIG_HEART_PUMP_EVENT, PROC_REF(stabilize_circulation))
 
 /obj/item/organ/internal/augment/bioaug/auxiliary_heart/replaced()
 	. = ..()
-	if(owner)
-		RegisterSignal(owner, COMSIG_HEART_PUMP_EVENT, PROC_REF(stabilize_circulation))
+	if(!owner)
+		return
+
+	RegisterSignal(owner, COMSIG_HEART_PUMP_EVENT, PROC_REF(stabilize_circulation))
 
 /obj/item/organ/internal/augment/bioaug/auxiliary_heart/removed()
 	. = ..()
-	if(owner)
-		UnregisterSignal(owner, COMSIG_HEART_PUMP_EVENT)
+	if(!owner)
+		return
+
+	UnregisterSignal(owner, COMSIG_HEART_PUMP_EVENT)
 
 /obj/item/organ/internal/augment/bioaug/auxiliary_heart/proc/stabilize_circulation(var/obj/item/organ/internal/heart/heart, var/blood_volume, var/recent_pump, var/pulse_mod, var/min_efficiency)
 	SIGNAL_HANDLER
