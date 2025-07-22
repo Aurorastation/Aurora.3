@@ -97,15 +97,6 @@
 /area/outpost/research/lab
 	name = "Research - Sublevel Laboratory"
 
-/area/outpost/research/anomaly_harvest
-	name = "Research - Exotic Energy Harvesting"
-
-/area/outpost/research/anomaly_storage
-	name = "Research - Artifact Storage"
-
-/area/outpost/research/anomaly_analysis
-	name = "Research - Anomaly Analysis"
-
 /area/outpost/research/kitchen
 	name = "Research - Kitchen"
 

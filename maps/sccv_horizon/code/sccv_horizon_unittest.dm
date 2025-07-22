@@ -25,9 +25,9 @@
 		/area/horizon/medical/surgery/storage,
 		/area/horizon/ai,
 		/area/horizon/engineering/reactor/indra/smes,
-		/area/horizon/rnd/isolation_a,
-		/area/horizon/rnd/isolation_b,
-		/area/horizon/rnd/isolation_c
+		/area/horizon/rnd/xenoarch/isolation_a,
+		/area/horizon/rnd/xenoarch/isolation_b,
+		/area/horizon/rnd/xenoarch/isolation_c
 	)
 
 	ut_fire_exempt_areas = list(
@@ -35,9 +35,9 @@
 		/area/horizon/command/bridge/aibunker,
 		/area/horizon/medical/cryo,
 		/area/horizon/crew/washroom/deck_3,
-		/area/horizon/rnd/isolation_a,
-		/area/horizon/rnd/isolation_b,
-		/area/horizon/rnd/isolation_c
+		/area/horizon/rnd/xenoarch/isolation_a,
+		/area/horizon/rnd/xenoarch/isolation_b,
+		/area/horizon/rnd/xenoarch/isolation_c
 	)
 
 /datum/unit_test/zas_area_test/sccv_horizon
