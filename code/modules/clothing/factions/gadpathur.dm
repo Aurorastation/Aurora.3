@@ -1,6 +1,6 @@
 /obj/item/clothing/under/uniform/gadpathur
 	name = "gadpathurian fatigues"
-	desc = "A simple black cloth shirt and brown NBC-treated pants commonly worn by Gadpathurians."
+	desc = "A simple black cloth shirt and khaki NBC-treated pants commonly worn by Gadpathurians."
 	desc_extended = "Gadpathur is, perhaps, the only planet with a government-mandated planetary costume. These uniforms can be \
 	found throughout the planet and are one of the most common markers of Gadpathurians abroad, due to the distinctive black \
 	shirt of the uniform. While some personalization is common on these uniforms, they mostly remain the same regardless of \
@@ -23,7 +23,7 @@
 
 /obj/item/clothing/suit/storage/toggle/trench/gadpathur
 	name = "gadpathurian trenchcoat"
-	desc = "A heavier Gadpathurian overcoat with some piping on the shoulders. Likely meant for the colder regions of the planet."
+	desc = "A heavier Gadpathurian overcoat made of thicker canvas. Likely meant for the colder regions of the planet."
 	desc_extended = "Due to the extremely hostile surface conditions of Gadpathur, overcoats such as this one are a common sight \
 	in order to protect against hazards. They are typically chemically treated to better resist chemicals and radiation, \
 	and are often the difference between life and death on the planet's surface."
