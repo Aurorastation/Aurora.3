@@ -10,5 +10,5 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - imageadd: "Fixes an iconsistency on the north facing sprites of every winter coat. "
+  - imageadd: "Fixes an inconsistency on the north-facing sprites of every winter coat. "
   - imageadd: "Changed the palette on the colorable winter coats. "
