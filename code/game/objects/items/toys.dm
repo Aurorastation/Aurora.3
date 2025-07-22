@@ -1582,3 +1582,74 @@
 			volume = 50
 	if(volume)
 		playsound(src.loc, squeeze_sound, volume, TRUE)
+
+/obj/item/toy/football
+	name = "football"
+	desc = "A classic, white and black football for kicking. Also known as a soccerball on Biesel and some parts of Earth."
+	desc_mechanics = "Click to kick the ball. Alt+Click or use a non-Help intent to deliver a powerful kick. Drag the ball onto your character sprite to pick it up."
+	w_class = WEIGHT_CLASS_NORMAL
+	icon_state = "football"
+	item_state = "football"
+	drop_sound = 'sound/items/drop/rubber.ogg'
+	pickup_sound = 'sound/items/drop/rubber.ogg'
+
+	/// The base distance in tiles the football is kicked.
+	var/base_kick_distance = 1
+
+/obj/item/toy/football/Initialize()
+	. = ..()
+
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_walk_into),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
+/obj/item/toy/football/proc/on_walk_into(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	if(!isliving(arrived))
+		return
+
+	var/mob/living/user = arrived
+
+	if(!isturf(loc))
+		to_chat(user, SPAN_NOTICE("\The [src] has to be on the floor to kick it!"))
+		return
+
+	if(!(user?.a_intent == I_HELP))
+		user.visible_message(SPAN_WARNING("[user] forcefully kicks \the [src]!"))
+		throw_at(get_edge_target_turf(user, get_dir(old_loc, src)), base_kick_distance+(rand(2,5)), 1)
+		return
+
+	user.visible_message(SPAN_NOTICE("[user] kicks \the [src]."))
+	throw_at(get_edge_target_turf(user, get_dir(old_loc, src)), base_kick_distance+(rand(1,2)), 1)
+
+/obj/item/toy/football/AltClick(var/mob/user)
+	if(use_check(user))
+		return
+
+	if(!isturf(loc))
+		to_chat(user, SPAN_NOTICE("\The [src] has to be on the floor to kick it!"))
+		return
+
+	user.visible_message(SPAN_WARNING("[user] forcefully kicks \the [src]!"))
+	throw_at(get_edge_target_turf(user, get_dir(user, src)), base_kick_distance+(rand(2,5)), 1)
+
+/obj/item/toy/football/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params) //ripped from box/fancy/tray
+	if((over && (!use_check(over))) && (over.contents.Find(src) || in_range(src, over)))
+		var/mob/dropped_onto_mob = over
+		if(ishuman(dropped_onto_mob) && !dropped_onto_mob.get_active_hand())
+			var/mob/living/carbon/human/H = user
+			var/obj/item/organ/external/temp = H.organs_by_name[H.hand?BP_L_HAND:BP_R_HAND]
+
+			if(temp && !temp.is_usable())
+				to_chat(user, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
+				return
+
+			to_chat(user, SPAN_NOTICE("You pick up \the [src]."))
+			pixel_x = 0
+			pixel_y = 0
+			forceMove(get_turf(user))
+			user.put_in_hands(src)
+	return
