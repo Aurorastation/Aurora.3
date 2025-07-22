@@ -224,17 +224,9 @@ GLOBAL_LIST_EMPTY(light_group_3)
 	pixel_x = -32
 	pixel_y = -32
 
-/obj/structure/bluespace_portal_device/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/multitile, list(
-		list(1, 1,		   1),
-		list(1, MACH_CENTER, 1),
-		list(1, 0,		   1),
-	))
-
-// Used by multitile component
 /obj/structure/filler
-	name = "big machinery part"
+	name = "invisible wall"
+	desc = "I cast barrier!"
 	density = TRUE
 	anchored = TRUE
 	invisibility = 101
@@ -569,7 +561,7 @@ GLOBAL_LIST_EMPTY(light_group_3)
 	var/obj/effect/elevator/SW //elevator effects (four so the entire elevator doesn't vanish when
 	var/obj/effect/elevator/SE //there's one opaque obstacle between you and the actual elevator loc).
 	var/obj/effect/elevator/NW
-	var/obj/effect/elevator/NE
+	var/obj/effect/elevator/NE // Note to self: check if these work as weakref datums, this may reduce your subsequent shitcode
 	var/obj/effect/elevator/animation_overlay/elevator_animation
 	var/target_dest_x
 	var/target_dest_y

@@ -503,6 +503,3 @@ example:
 #define MIN_WIND_PRESSURE 10
 
 #define NO_EMAG_ACT -50
-
-/// A define for the center of the coordinate map of big machinery
-#define MACH_CENTER 2

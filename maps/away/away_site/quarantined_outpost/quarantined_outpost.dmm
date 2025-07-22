@@ -3166,11 +3166,11 @@
 /area/quarantined_outpost/central_hallway)
 "kD" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/random/dirt_75,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/portable_atmospherics/canister/air,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
 "kE" = (
@@ -5124,6 +5124,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/quarantined_outpost/engineering)
+"qV" = (
+/obj/machinery/light/small/maybe_broken{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/basalt/airless,
+/area/space)
 "qX" = (
 /obj/random/dirt_75,
 /obj/structure/trash_pile,
@@ -6450,16 +6456,16 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/random/dirt_75,
 /obj/machinery/light/small/emergency{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning/dust{
-	dir = 1
+	dir = 9
 	},
 /obj/structure/cable/orange{
 	icon_state = "2-4"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/quarantined_outpost/exterior)
 "vI" = (
@@ -10070,6 +10076,17 @@
 /obj/structure/flora/rock/pile/random,
 /turf/simulated/floor/exoplanet/basalt/airless,
 /area/quarantined_outpost/maintennace)
+"Hs" = (
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/effect/map_effect/marker/airlock/quarantined_outpost/entrance,
+/obj/structure/bed/handrail{
+	dir = 8
+	},
+/obj/machinery/light/small/maybe_broken{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/quarantined_outpost/entrance_lobby)
 "Ht" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	dir = 1
@@ -10794,6 +10811,12 @@
 /obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/tiled/white,
 /area/quarantined_outpost/science)
+"JK" = (
+/obj/machinery/light/small/maybe_broken{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/basalt/airless,
+/area/space)
 "JL" = (
 /obj/structure/sign/securearea{
 	name = "\improper DANGER: HOT GAS sign";
@@ -14513,6 +14536,7 @@
 "VN" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/map_effect/marker/airlock/quarantined_outpost/entrance,
+/obj/machinery/light/small/maybe_broken,
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/entrance_lobby)
 "VP" = (
@@ -14590,6 +14614,12 @@
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/quarantined_outpost/engineering)
+"Wh" = (
+/obj/machinery/light/small/maybe_broken{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/basalt/airless,
+/area/space)
 "Wi" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
@@ -46999,7 +47029,7 @@ oQ
 Iq
 Rn
 KE
-SS
+Hs
 Gv
 SS
 KE
@@ -56512,7 +56542,7 @@ mm
 Rh
 Rh
 Rh
-pa
+Wh
 pa
 Rh
 gH
@@ -57043,7 +57073,7 @@ pa
 qM
 pa
 pa
-pa
+qV
 Rh
 Rh
 pa
@@ -57796,7 +57826,7 @@ cq
 cq
 ny
 ny
-pa
+JK
 Rh
 pa
 pa
@@ -58317,7 +58347,7 @@ Rh
 qM
 pa
 Rh
-pa
+qV
 pa
 Rh
 Xt
