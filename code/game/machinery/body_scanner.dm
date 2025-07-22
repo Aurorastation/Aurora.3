@@ -1,12 +1,6 @@
 /obj/machinery/bodyscanner
 	name = "body scanner"
 	desc = "A state-of-the-art medical diagnostics machine. Guaranteed detection of all your bodily ailments or your money back!"
-	desc_info = "The advanced scanner detects and reports internal injuries such as bone fractures, internal bleeding, and organ damage. \
-	This is useful if you are about to perform surgery.<br>\
-	<br>\
-	Click your target with Grab intent, then click on the scanner to place them in it. Click the connected terminal to operate. \
-	Right-click the scanner and click 'Eject Occupant' to remove them.  You can enter the scanner yourself in a similar way, using the 'Enter Body Scanner' \
-	verb."
 	icon = 'icons/obj/machinery/bodyscanner.dmi'
 	icon_state = "body_scanner"
 	density = TRUE
@@ -43,6 +37,14 @@
 		SPECIES_DIONA_COEUS,
 		SPECIES_MONKEY
 	)
+
+/obj/machinery/bodyscanner/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if (anchored)
+		. += "The advanced scanner detects and reports internal injuries such as bone fractures, internal bleeding, and organ damage. This is useful if you are about to perform surgery."
+		. += "Click your target with Grab intent, then click on the scanner to place them in it. Click the connected terminal to operate."
+		. += "Right-click the scanner and click 'Eject Occupant' to remove them."
+		. += "You can enter the scanner yourself in a similar way using the 'Enter Body Scanner' verb, or by clicking and dragging yourself onto the scanner with any intent."
 
 /obj/machinery/bodyscanner/Initialize()
 	. = ..()

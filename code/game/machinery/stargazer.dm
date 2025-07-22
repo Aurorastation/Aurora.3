@@ -8,17 +8,17 @@
 	pixel_y = -24
 	var/image/star_system_image
 
+/obj/machinery/stargazer/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(!(stat & BROKEN) && !(stat & NOPOWER))
+		. += SPAN_NOTICE("\The [src] shows the current sector to be <a href='byond://?src=[REF(src)];examine=1'>[SSatlas.current_sector.name]</a>.")
+
 /obj/machinery/stargazer/Initialize(mapload, d, populate_components)
 	. = ..()
 	star_system_image = image(icon, null, "stargazer_[SSatlas.current_sector.name]")
 	star_system_image.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 	star_system_image.layer = SUPERMATTER_WALL_LAYER
 	power_change()
-
-/obj/machinery/stargazer/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(!(stat & BROKEN) && !(stat & NOPOWER))
-		. += SPAN_NOTICE("\The [src] shows the current sector to be <a href='byond://?src=[REF(src)];examine=1'>[SSatlas.current_sector.name]</a>.")
 
 /obj/machinery/stargazer/power_change()
 	..()

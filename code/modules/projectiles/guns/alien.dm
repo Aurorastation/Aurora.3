@@ -15,6 +15,12 @@
 	fire_sound = 'sound/weapons/bladeslice.ogg'
 	needspin = FALSE
 
+/obj/item/gun/launcher/spikethrower/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance > 1)
+		return
+	. += "It has <b>[spikes] spike\s</b> remaining."
+
 /obj/item/gun/launcher/spikethrower/Initialize()
 	. = ..()
 	last_regen = world.time
@@ -33,12 +39,6 @@
 	update_icon()
 	if (spikes < max_spikes)
 		addtimer(CALLBACK(src, PROC_REF(regen_spike)), spike_gen_time, TIMER_UNIQUE)
-
-/obj/item/gun/launcher/spikethrower/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance > 1)
-		return
-	. += "It has [spikes] spike\s remaining."
 
 /obj/item/gun/launcher/spikethrower/update_icon()
 	icon_state = "spikethrower[spikes]"

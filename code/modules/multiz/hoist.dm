@@ -18,12 +18,16 @@
 /obj/effect/hoist_hook
 	name = "hoist clamp"
 	desc = "A clamp used to lift people or things."
-	desc_info = "To use the hook, click drag the object you want to it to attach it.\nTo remove an object from the hook, click drag the hook to a nearby turf."
 	icon = 'icons/obj/hoists.dmi'
 	icon_state = "hoist_hook"
 	var/obj/structure/hoist/source_hoist
 	can_buckle = TRUE
 	anchored = TRUE
+
+/obj/effect/hoist_hook/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "To use the hook, click drag the object you want to it to attach it."
+	. += "To remove an object from the hook, click drag the hook to a nearby turf."
 
 /obj/effect/hoist_hook/attack_hand(mob/living/user)
 	if (use_check_and_message(user, USE_DISALLOW_SILICONS))
@@ -96,7 +100,6 @@
 /obj/structure/hoist
 	icon = 'icons/obj/hoists.dmi'
 	icon_state = "hoist_base"
-	desc_info = "To use the hook, click drag the object you want to it to attach it.\nTo remove an object from the hook, click drag the hook to a nearby turf."
 	var/broken = 0
 	density = TRUE
 	anchored = TRUE
@@ -105,6 +108,11 @@
 	var/atom/movable/hoistee
 	var/movedir = UP
 	var/obj/effect/hoist_hook/source_hook
+
+/obj/structure/hoist/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "To use the hook, click drag the object you want to it to attach it."
+	. += "To remove an object from the hook, click drag the hook to a nearby turf."
 
 /obj/structure/hoist/Initialize(mapload, ndir)
 	. = ..()
