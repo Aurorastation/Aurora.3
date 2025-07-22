@@ -25,6 +25,14 @@
 	var/max_grenades = 5 //holds this + one in the chamber
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 
+
+/obj/item/gun/launcher/grenade/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(is_adjacent)
+		. += SPAN_NOTICE("It has [get_ammo()] grenade\s remaining.")
+		if(chambered)
+			. += SPAN_NOTICE("\A [chambered] is chambered.")
+
 //revolves the magazine, allowing players to choose between multiple grenade types
 /obj/item/gun/launcher/grenade/proc/pump(mob/M as mob)
 	playsound(M, 'sound/weapons/reloads/shotgun_pump.ogg', 60, 1)
@@ -42,13 +50,6 @@
 	else
 		to_chat(M, SPAN_WARNING("You pump [src], but the magazine is empty."))
 	update_icon()
-
-/obj/item/gun/launcher/grenade/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(is_adjacent)
-		. += SPAN_NOTICE("It has [get_ammo()] grenade\s remaining.")
-		if(chambered)
-			. += SPAN_NOTICE("\A [chambered] is chambered.")
 
 /obj/item/gun/launcher/grenade/proc/load(obj/item/grenade/G, mob/user)
 	if(!can_load_grenade_type(G, user))

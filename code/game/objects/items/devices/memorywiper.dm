@@ -1,8 +1,6 @@
-
 /obj/item/device/memorywiper
 	name = "portable memory wiper"
 	desc = "Inset into a sturdy pelican case, this computer holds the software and wiring necessary to wipe and factory reset any IPC."
-	desc_info = "You can alt-click the laptop while it's set down on surface to open it up and work with it. Left clicking while it is open will allow you to operate it."
 	icon = 'icons/obj/memorywiper.dmi'
 	icon_state = "portable_memorywiper"
 	item_state = "portable_memorywiper"
@@ -14,12 +12,16 @@
 	var/datum/progressbar/wipe_bar
 	var/wipe_start_time = 0
 
+/obj/item/device/memorywiper/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "ALT-click the device while it's set down on a surface to open or close it."
+	. += "Left-click on it while it is open to operate it."
+
 /obj/item/device/memorywiper/Destroy()
 	if(attached)
 		attached = null
 	wiping = FALSE
 	return ..()
-
 
 /obj/item/device/memorywiper/AltClick()
 	if(use_check(usr))

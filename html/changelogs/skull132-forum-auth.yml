@@ -1,6 +1,0 @@
-author: Skull132
-
-delete-after: True
-
-changes:
-  - rscadd: "Allows users to log in from the forums without having a ckey linked."

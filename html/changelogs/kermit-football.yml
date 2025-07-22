@@ -1,0 +1,7 @@
+author: kermit, cometblaze
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds a football to the game. Available only to off-duty and passenger loadouts only right now."
+  - imageadd: "Football sprite by Comet."

@@ -169,3 +169,217 @@
 2025-07-10:
   notagonk:
   - bugfix: Fixes various mapping and code issues with the Dominian Corvette.
+2025-07-11:
+  CourierBravo:
+  - rscadd: Added destination taggers and package paper to the bar, hydroponics, library,
+      security, research and development, the mutual xenobio area, xenoarcheology,
+      engineering, medical, the chapel, deck 1 janitorial, the corporate rep offices,
+      the consular offices, and the bridge.
+  Geeves, Greenjoe:
+  - rscadd: You can now spawn with broken limbs. Select these via the disabilities
+      menu.
+  Jasorn:
+  - bugfix: Removed withdrawal messages from ambrosia extract to prevent constant
+      chatspam.
+  SimpleMaroon:
+  - bugfix: Fixed the loadout tab returning a /list error if you selected the Shirts
+      and Tops section.
+  Skull132:
+  - rscadd: Allows users to log in from the forums without having a ckey linked.
+  WickedCybs:
+  - rscadd: Added Sezrak's new custom item.
+  - rscdel: Removed their other retconned item.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes Skrell shirts not showing up on loadout or in-game.
+  - bugfix: IPCs no longer have a minimum age for working assistant jobs.
+  - bugfix: Fixes Sinta Hoods not showing up on suits.
+  - bugfix: Fixes accessories being removed from range.
+  - bugfix: Fixes invisible glass tables.
+  - bugfix: Fixes invisible mag-claws, teriyaki donk pocket box, and warden's mine
+      detector.
+  hazelmouse:
+  - rscadd: All IPC subspecies besides shells are now limited exclusively to using
+      the machine variant of voidsuits rather than the human variants, in the interest
+      of enforcing more uniformity. Hardsuits have not been changed.
+  kermit:
+  - rscadd: Implements the bare essentials of the Xanu system and the planet of Xanu
+      Prime.
+  - soundadd: Xanu lobby music from 'Indulgence' album by Swara Sutra @ Bandcamp.
+  nauticall:
+  - rscadd: Added the Expeditionary radio frequency to all radios that come with Common
+      (and Entertainment) frequencies as a default radio channel.
+  - rscadd: The Expeditionary radio channel is now accessible in-radio via the shortcut
+      key 'D', e.g. ':d' or '.d'.
+  - qol: Expeditionary radio channel changed to custard yellow for easier visibility.
+  notagonk:
+  - qol: Completely remaps the PRA's Headmaster Cruiser to better spread the immortal
+      science of Hadiism across the stars.
+  - rscadd: Remaps the Operations Manager's office to a modern standard, including
+      their locker contents.
+  - qol: Instead of spawning with a clipboard, the Operations Manager can now find
+      it in their office.
+  steviii:
+  - bugfix: Fixed some unsimulated turfs, not having a distress beacon launcher, lighting
+      issues, an accidentally included (broken) flask, and the radio on the Himeo
+      Patrol Ship.
+2025-07-12:
+  ASmallCuteCat:
+  - rscadd: Adds some karaoke decoration to the Private Lounge in the Horizon's bar.
+  - rscadd: Moves the the arcade machine and the GwokBuzz! vendor into the Bar Lounge.
+  Batrachophrenoboocosmomachia:
+  - bugfix: Fixed unclosed hrefs; Integrated Circuits complexity issues.
+  - bugfix: Fixed double-closed hrefs; loadout category issue.
+  MattAtlas:
+  - bugfix: Fixes dynamic space turfs not being Z-mimiced properly.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes invisible steel tables.
+2025-07-13:
+  4000daniel1:
+  - rscadd: Added the phoron deposit away site.
+  - balance: Hostile mobs now attack barricades & girders in their way.
+  - balance: Barricades with barbed wire now deal slightly less damage to attacking
+      mobs.
+  - bugfix: Fixed a bug where hostile mobs rarely continue chasing their target even
+      after dying.
+  ASmallCuteCat:
+  - qol: Added wet floor signs to the custodial cyborg module.
+  Batrachophrenoboocosmomachia:
+  - balance: Tunes down all electrical storm variant frequencies.
+  Greenjoe:
+  - rscadd: Adds a diplomatic bodyguard role, which can be opened by a consular in
+      the same way as the aide role. Consulars no longer have a pistol on them, with
+      the bodyguard carrying it instead.
+  KingOfThePing:
+  - rscadd: 'Added three new signs to the bar: Free Drinks! We Are Open! and Closed!,
+      from BayStation12.'
+  - rscadd: Added a new holosign in a classic (american) diner design to both the
+      kitchen and the bar. Toggle on and off with the new button.
+  arrow768:
+  - rscdel: Gets rid of SSdocs as its unused.
+  hazelmouse:
+  - rscadd: Plants now grow faster if within their ideal heat and light preferences!
+      If you notice plants growing unusually slowly, try checking their requirements
+      with a plant analyzer - you might be able to speed it up drastically by giving
+      them the right conditions. Currently, preferential temperatures are within 5
+      kelvin of their ideal, and preferential lighting is within 2 lumens of their
+      ideal.
+  - rscadd: The internal lighting setting of hydroponics trays can now be edited with
+      a ctrl + click.
+  - rscdel: All verbs have been removed from hydroponics trays - namely for closing
+      the lid and for changing the lighting - now that both are accessible via an
+      alt + click and a ctrl + click respectively.
+  - balance: Several plants in hydroponics now have more dramatic temperature requirements
+      - mushrooms and Adhomian plants require cooler temperatures, and several others
+      require warmer temperatures.
+  - rscadd: More feedback has been added to attacking the contents of hydroponics
+      trays, opening and closing their lids, and changing their light levels.
+  - rscadd: Fertiliser jugs now have descriptions defining their niche.
+  - code_imp: Introduced and shuffled a lot of documentation in hydroponics code.
+  - bugfix: Using the :h key no longer erroneously causes you to speak into the expeditionary
+      channel rather than your departmental channel.
+  kermit:
+  - rscadd: Adds the Crescent Expanse region. It's a big region, with an east (Sol/Nralakk
+      presence), west (Sol/CoC presence) and far sector (uncharted!).
+  - rscadd: Also adds an uncharted Lemurian Sea variant.
+  - soundadd: "7 regional lobby music tracks by either L\xFC\xFC\xFC, Little Bradley\
+      \ or Karl Casey. All on Bandcamp, check them out."
+  - rscadd: Adds the ccia_link variable which can be used to stop outbound faxes to
+      the CCIA. For uncharted sectors, such as the Crescent Expanse's far sector.
+  - rscadd: Adds low supply variant of most vending machines and dispensers for later
+      use. Ominous.
+  - rscdel: Removes the guaranteed spawn flag from the sensors relay, deferring to
+      the usual whitelist/blacklist system.
+  - rscdel: Burzsia is no longer a 'dangerous' system following completion of relief
+      efforts.
+2025-07-14:
+  Hellfirejag:
+  - rscadd: Added a missing construction recipe for pilot hardsuits to the mechatronic
+      fabricator
+  SleepyGemmy:
+  - rscadd: Added the Konyang and Adhomai lobby music to the audioconsole.
+2025-07-16:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Fixed vertical cable connection from Security SMES to the actual department
+      subgrid, removed crosswire bandaid fix between it and Civilian Deck 2 subgrid.
+  - bugfix: Fixed mismatched maint floor grate coloring.
+  Kintsugi:
+  - bugfix: Liberty's Cradle now has proper starlight settings.
+  NobleRow:
+  - rscadd: 'Added six new baseline frame IPC screens: eyes colored green, red, yellow,
+      punk, orange, or blue.'
+  Wowzewow (Wezzy):
+  - bugfix: Fixes grammar for giving items.
+  - qol: Moved Dominian Consular outfit items from the loadout to be jobspawn items
+      to be in line with the other consulars.
+  - rscadd: Tidies up the hats section of the loadout and removes unused hats.
+  hazelmouse:
+  - bugfix: Hydroponicists can now access their own holomenu.
+  nauticall:
+  - rscadd: Added the Liberty's Cradle Stargazer hologram sprite to the game.
+2025-07-17:
+  Wowzewow (Wezzy):
+  - bugfix: Fixes head loadout.
+2025-07-18:
+  Hellfirejag:
+  - rscadd: Mechatronic fabricators now support recipes that require Plasteel, Lead,
+      or Aluminium.
+  - balance: Pilot hardsuits have had some of their steel costs replaced with the
+      more valuable plasteel.
+2025-07-22:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Disposal Unit again provides a UI window when clicked on.
+  - refactor: Disposal Unit UI refactored to use TGUI.
+  - bugfix: Fixed sightlights object hierarchy; offbrand sightlights now selectable
+      by non-Zeng-Hu crew.
+  - qol: Examine text rewritten/broken into sections to make mechanics clearer and
+      easier to access in-game.
+  - refactor: Examine info now exists at atom-level, is handled by categorical functions
+      after object definitions.
+  - bugfix: Spotlights construction can now be completed rather than getting stuck
+      at final construction stage.
+  CometBlaze:
+  - rscadd: Tweaked some greyscale items, view PR-21006 for a full list.
+  FabianK3:
+  - bugfix: Fixed permanently stuck wall damage overlays. Walls now properly display
+      the correct damage visually according to their state and the damaged look vanishes
+      when they get repaired.
+  - rscadd: Added new informative descriptions when inspecting damaged walls to get
+      a better feeling for their state.
+  - bugfix: Fixed wall damage descriptions ignoring added strength of reinforced materials.
+      Reinforced wall descriptions will now show damage later as their additional
+      health is considered properly.
+  - balance: Changed levels of visual damage to walls to scale more linear. Thanks
+      to Batrachophrenoboocosmomachia.
+  Hellfirejag:
+  - bugfix: Fixed mechfab not being able to have its new materials inserted.
+  - rscadd: Added two variants of mind blanker bioaugs as loadout options for Galatean
+      characters.
+  Tag103:
+  - rscadd: Added Northern Wildlands Intervention Day, celebrated on June 8, to the
+      list of holidays.
+  - balance: The Solarian Marine event oufit now has a solarian energy dagger in its
+      belt rather than an energy sword. The Heavy Solarian Marine outfit has not been
+      changed, and still has an energy sword.
+  - bugfix: The Solarian submachine gun no longer inherits the extended description
+      intended for the submachine gun, which it is a subtype of.
+  - refactor: Part of the name used in the code for the sol alliance officer locker
+      has been changed from 'soll_officer' to 'sol_officer'.
+  - refactor: The name used in the code for the Solarian army beret has been changed
+      from '/obj/item/clothing/head/beret/sapk' to '/obj/item/clothing/head/beret/sol/army.'
+  Wowzewow (Wezzy):
+  - bugfix: Fixes flatcap recolorable.
+  - rscadd: Adds new lobby music. Updates the lobby music preference to be able to
+      adjust the volume.
+  - rscadd: Added the original Title3 song.
+  - rscdel: Removed Velvet Rose song.
+  hazelmouse:
+  - rscadd: The operations commissary has been moved to service, adjacent to the library,
+      and now accomodates access both from operations and service staff. The library
+      has also been remapped to accomodate this move.
+  - rscadd: Bookcases no longer obstruct vision.
+  - rscadd: Hydroponics now has a first-aid kit.
+  nauticall:
+  - rscadd: 'Adds over two dozen new shipping containers to the game in different
+      colors, brands, and more. Comes in three types: standard, refrigerated and tank.'
+  - code_imp: Old shipping containers and relevant paths and references have been
+      remapped to 'shipping_container_old' to avoid confusion.

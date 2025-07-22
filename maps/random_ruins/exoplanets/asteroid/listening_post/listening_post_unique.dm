@@ -6,6 +6,7 @@
 	spawn_weight = 1
 	spawn_cost = 2
 	sectors = list(ALL_POSSIBLE_SECTORS)
+	sectors_blacklist = list(ALL_UNCHARTED_SECTORS)
 
 	prefix = "asteroid/listening_post/"
 	suffix = "listening_post_unique.dmm"

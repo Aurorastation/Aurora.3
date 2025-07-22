@@ -26,6 +26,18 @@
 	var/obj/item/device/assembly/igniter/igniter = null
 	var/obj/item/tank/gas_tank = null
 
+/obj/item/flamethrower/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(is_adjacent)
+		if(gas_tank)
+			. += SPAN_NOTICE("Release pressure is set to <b>[throw_amount] kPa</b>. The tank has about <b>[round(gas_tank.air_contents.return_pressure(), 10)]</b> kPa left in it.")
+		else
+			. += SPAN_WARNING("It has no gas tank installed.")
+		if(igniter)
+			. += SPAN_NOTICE("It has \an [igniter] installed.")
+		else
+			. += SPAN_WARNING("It has no igniter installed.")
+
 /obj/item/flamethrower/Initialize(mapload, var/welder)
 	. = ..()
 	icon_state = "flamethrower" // update to use the non-map version
@@ -33,18 +45,6 @@
 		welding_tool = welder
 		welding_tool.forceMove(src)
 	update_icon()
-
-/obj/item/flamethrower/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(is_adjacent)
-		if(gas_tank)
-			. += SPAN_NOTICE("Release pressure is set to [throw_amount] kPa. The tank has about [round(gas_tank.air_contents.return_pressure(), 10)] kPa left in it.")
-		else
-			. += SPAN_WARNING("It has no gas tank installed.")
-		if(igniter)
-			. += SPAN_NOTICE("It has \an [igniter] installed.")
-		else
-			. += SPAN_WARNING("It has no igniter installed.")
 
 /obj/item/flamethrower/Destroy()
 	QDEL_NULL(welding_tool)

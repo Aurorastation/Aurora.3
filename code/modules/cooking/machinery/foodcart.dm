@@ -21,6 +21,17 @@
 	var/list/packed_things
 	/// Contains cart_griddle, cart_smartfridge, cart_table, cart_cent
 
+/obj/machinery/food_cart/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(stat & BROKEN)
+		return
+	if(cart_griddle.stat & BROKEN)
+		. += SPAN_WARNING("The stand's [SPAN_BOLD("grill")] is completely broken!")
+	else
+		. += SPAN_NOTICE("The stand's [SPAN_BOLD("grill")] is intact.")
+	. += SPAN_NOTICE("The stand's [SPAN_BOLD("fridge")] seems fine.") //weirdly enough, these fridges don't break
+	. += SPAN_NOTICE("The stand's [SPAN_BOLD("table")] seems fine.")
+
 /obj/machinery/food_cart/Initialize(mapload)
 	. = ..()
 	cart_griddle = new(src)
@@ -40,17 +51,6 @@
 	QDEL_NULL(cart_tent)
 	packed_things.Cut()
 	return ..()
-
-/obj/machinery/food_cart/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(stat & BROKEN)
-		return
-	if(cart_griddle.stat & BROKEN)
-		. += SPAN_WARNING("The stand's [SPAN_BOLD("grill")] is completely broken!")
-	else
-		. += SPAN_NOTICE("The stand's [SPAN_BOLD("grill")] is intact.")
-	. += SPAN_NOTICE("The stand's [SPAN_BOLD("fridge")] seems fine.") //weirdly enough, these fridges don't break
-	. += SPAN_NOTICE("The stand's [SPAN_BOLD("table")] seems fine.")
 
 /**
  * Retract the structures into the food cart
