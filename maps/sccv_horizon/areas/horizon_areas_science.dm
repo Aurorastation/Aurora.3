@@ -3,6 +3,7 @@
 	holomap_color = HOLOMAP_AREACOLOR_SCIENCE
 	department = LOC_SCIENCE
 	horizon_deck = 2
+	area_blurb = "The science sectors of the ship lend themselves to a clean, functional sterility; at least when everything is going well."
 
 /area/horizon/rnd/conference
 	name = "Conference Room"

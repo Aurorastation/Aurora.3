@@ -9,6 +9,7 @@
 	name = "Hydroponics"
 	icon_state = "hydro"
 	horizon_deck = 2
+	area_blurb = "The humid air carries more than a strong whiff of assorted plant odors and fertilizing compounds, a complex admixture that is nonetheless quite pleasant."
 
 /area/horizon/service/hydroponics/lower
 	name = "Hydroponics"
@@ -18,6 +19,7 @@
 	name = "Public Garden"
 	icon_state = "garden"
 	horizon_deck = 2
+	area_blurb = "The smell of rich, dark soil and pleasant intermixed plant odors lends the compartment an air of serenity."
 
 /// Library areas
 /area/horizon/service/library
@@ -25,6 +27,7 @@
 	icon_state = "library"
 	sound_environment = SOUND_AREA_LARGE_SOFTFLOOR
 	horizon_deck = 2
+	area_blurb = "The soft rustling of actual paper and rich book-smell fill this compartment. Whoever designed the acoustics did a great job: sounds seem softened and subdued in here."
 
 /// Kitchen areas
 /area/horizon/service/kitchen
@@ -32,20 +35,24 @@
 	icon_state = "kitchen"
 	allow_nightmode = FALSE
 	horizon_deck = 2
+	area_blurb = "The clattering of cookware and dinnerware, the smells of every variety of meal; it's rare the crew who doesn't find something deeply ingrained and familiar about a bustling kitchen."
 
 /area/horizon/service/kitchen/freezer
 	name = "Kitchen - Freezer"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	area_blurb = "It's really cold in here. How about that?"
 
 /// Bar areas
 /area/horizon/service/bar
 	name = "Bar"
 	icon_state = "bar"
 	horizon_deck = 2
+	area_blurb = "A place whose atmosphere morphs with every shift to the tastes of the presiding bartenders. If bulkhead walls could talk."
 
 /area/horizon/service/bar/backroom
 	name = "Bar - Backroom"
 	area_flags = AREA_FLAG_RAD_SHIELDED
+	area_blurb = "A place whose atmosphere morphs with every shift to the tastes of the presiding bartenders. If bulkhead walls could talk, times three back here."
 
 // Dining Hall
 /area/horizon/service/dining_hall
@@ -53,6 +60,7 @@
 	icon_state = "lounge"
 	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
 	horizon_deck = 2
+	area_blurb = "One of the largest compartments on the SCCV Horizon and lavishly appointed to boot. The source of many accusations of excess, but nonetheless popular among the crew. "
 
 // Cafeteria
 /area/horizon/service/cafeteria
@@ -101,8 +109,10 @@
 /area/horizon/service/chapel/main
 	name = "Chapel"
 	icon_state = "chapel"
+	area_blurb = "An impressive, spacious compartment nonetheless kept somewhat bland to accommodate the many disparate faiths whose practice may be attended here."
 
 /area/horizon/service/chapel/office
 	name = "Chapel Office"
 	icon_state = "chapeloffice"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	area_blurb = "The atmosphere here is subdued and solemn."

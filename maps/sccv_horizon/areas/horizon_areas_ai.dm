@@ -12,11 +12,11 @@
 	icon_state = "ai_chamber"
 	ambience = AMBIENCE_AI
 	horizon_deck = 3
-	department = "LOC_AI"
+	department = LOC_AI
+	area_blurb = "Ticking, beeping, and buzzing. Great tides of invisible signal traffic across the electromagnetic spectrum, flowing in both directions. Otherwise, the silence and stillness of a tomb."
 
 /area/horizon/ai/chamber
 	name = "AI Chamber"
-	department = "LOC_AI"
 
 /area/horizon/ai/upload
 	name = "AI Upload Chamber"

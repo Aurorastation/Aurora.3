@@ -4,6 +4,7 @@
 	icon_state = "Sleep"
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 	department = LOC_CREW
+	area_blurb = "One of the Horizon's many crew areas."
 
 /// Hallway areas
 /area/horizon/hallway
@@ -16,6 +17,7 @@
 	emergency_lights = TRUE
 	department = LOC_PUBLIC
 	subdepartment = SUBLOC_HALLS
+	area_blurb = "One of the Horizon's public areas: either bustling with purpose and noise during the primary shifts, or eerily still during the graveyards."
 
 /area/horizon/hallway/primary/deck_3
 	name = "Deck 3 Primary Hallway (PARENT AREA - DON'T USE)"
@@ -85,6 +87,7 @@
 	emergency_lights = TRUE
 	department = LOC_PUBLIC
 	subdepartment = SUBLOC_STAIRS
+	area_blurb = "One of the Horizon's public areas: either bustling with purpose and noise during the primary shifts, or eerily still during the graveyards."
 
 // Starboard Stairwell (Medical/Evac)
 /area/horizon/stairwell/starboard
@@ -144,12 +147,16 @@
 /area/horizon/stairwell/engineering/deck_1
 	name = "Stairwell"
 	horizon_deck = 1
+	area_blurb = "The exterior stowage tanks are visible from the window, hunched like patient stones."
 
 /area/horizon/stairwell/engineering/deck_2
 	name = "Stairwell"
 	horizon_deck = 2
+	area_blurb = "Filled with the sounds of machinery and an atmosphere of meaningful, directed purpose."
 
 /// Cryogenics
+// This area is the only one post-reorg that isn't used on the actual map and it makes me sad and I refuse to delete the definition.
+// Bring back dedicated cryo compartments! They're so cool! - Bat
 /area/horizon/crew/cryo
 	name = "Cryogenic Storage"
 	area_flags = AREA_FLAG_RAD_SHIELDED
@@ -192,6 +199,7 @@
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 	horizon_deck = 3
 	department = LOC_COMMAND
+	area_blurb = "An office well-suited to the powerful: a useful lair for the consular or representative to withdraw with victims found after prowling the ship for themselves."
 
 /area/horizon/repoffice/consular_one
 	name = "Consular Office A"

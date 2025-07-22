@@ -3,6 +3,7 @@
 	name = "Security (PARENT AREA - DON'T USE)"
 	holomap_color = HOLOMAP_AREACOLOR_SECURITY
 	department = LOC_SECURITY
+	area_blurb = "Every sound seems to echo just a little louder and more threateningly in the Security sectors of the SCCV Horizon."
 
 /area/horizon/security/lobby
 	name = "Lobby"
@@ -123,9 +124,11 @@
 	icon_state = "checkpoint1"
 	no_light_control = 0
 	horizon_deck = 1
+	area_blurb = "A functional, unfriendly-looking compartment."
 
 /area/horizon/security/checkpoint2
 	name = "Arrivals Checkpoint"
 	icon_state = "security"
 	ambience = AMBIENCE_ARRIVALS
 	horizon_deck = 2
+	area_blurb = "A functional, unfriendly-looking compartment."

@@ -4,6 +4,7 @@
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 	horizon_deck = 3
+	area_blurb = "One of the SCCV Horizon's very expensive holodecks."
 
 /area/horizon/holodeck_control/beta
 	name = "Holodeck Beta"
@@ -17,6 +18,7 @@
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_NO_GHOST_TELEPORT_ACCESS
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 	horizon_deck = 3
+	area_blurb = "One of the SCCV Horizon's very expensive holodecks."
 
 /area/horizon/holodeck/alphadeck
 	name = "Holodeck Alpha"

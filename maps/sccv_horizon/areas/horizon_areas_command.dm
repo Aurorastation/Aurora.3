@@ -22,10 +22,12 @@
 	name = "Command - Captain's Office"
 	icon_state = "captain"
 	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
+	area_blurb = "The most daunting office on the entire ship. Except for CCIA's. Theirs is still a little scarier."
 	horizon_deck = 3
 
 /area/horizon/command/heads/xo
 	name = "Command - Executive Officer's Office"
+	area_blurb = "No one really knows what goes on in here, but Ian usually seems pretty happy so it's got that going for it.."
 	horizon_deck = 3
 
 /area/horizon/command/heads/hos
@@ -33,26 +35,31 @@
 	icon_state = "head_quarters"
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 	ambience = AMBIENCE_HIGHSEC
+	area_blurb = "This office is possessed of an austere, vaguely threatening atmosphere. Why does it smell like black powder? None of the guns use black powder?"
 	horizon_deck = 2
 
 /area/horizon/command/heads/rd
 	name = "Research - RD's Office"
 	icon_state = "head_quarters"
+	area_blurb = "There are nagging subtle scents of ink, chemicals, ozone, machine oil, alien blood, and a dozen more in the air here that the scrubbers seem simply incapable of finally purging."
 	horizon_deck = 2
 
 /area/horizon/command/heads/chief
 	name = "Engineering - CE's Office"
 	icon_state = "head_quarters"
+	area_blurb = "This office can't seem to decide if it smells like welding fumes or expensive cologne. Several bulkhead walls are covered in buttons and toggles that exude an air of dangerous importance."
 	horizon_deck = 2
 
 /area/horizon/command/heads/cmo
 	name = "Medical - CMO's Office"
 	icon_state = "head_quarters"
+	area_blurb = "There's a peculiar serenity to this office completely at odds with the often frenetic atmosphere of the rest of Medical. Maybe it's the cat."
 	horizon_deck = 3
 
 /area/horizon/command/heads/om
 	name = "Operations - OM's Office"
 	icon_state = "head_quarters"
+	area_blurb = "Just stepping through the threshold imparts the nagging feeling that there's someone  out there that owes you money."
 	horizon_deck = 2
 
 /// Bridge areas
@@ -91,7 +98,7 @@
 	icon_state = "bridge"
 	ambience = list()
 	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
-	area_blurb = "A place for behind-closed-doors meetings to get things done, or to argue for hours in..."
+	area_blurb = "A place for behind-closed-doors meetings to get things done (or to argue for hours)."
 	area_blurb_category = "command_meeting"
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
@@ -107,7 +114,7 @@
 	name = "Human Resources Lounge"
 	icon_state = "hrlounge"
 	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
-	area_blurb = "A place that may worsen any anxiety surrounding meetings with your bosses' boss."
+	area_blurb = "A place that may worsen any anxiety surrounding meetings with your bosses' bosses."
 	area_blurb_category = "hr_lounge"
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
@@ -127,3 +134,5 @@
 	name = "Teleporter"
 	icon_state = "teleporter"
 	horizon_deck = 1
+	area_blurb = "The air in here always feels charged with the subdued crackle of electricity, tasting faintly of ozone."
+	area_blurb_category = "teleporter"

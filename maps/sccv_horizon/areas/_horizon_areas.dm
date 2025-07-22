@@ -32,6 +32,7 @@
 	// department = constant in '\_DEFINES\departments.dm'
 	// Remember to set this for new areas!!
 	// subdepartment = constant in '\_DEFINES\departments.dm'
+	area_blurb = "One of the compartments of the SCCV Horizon."
 
 /area/horizon/exterior
 	name = "Horizon - Exterior"
@@ -44,3 +45,4 @@
 	allow_nightmode = FALSE
 	ambience = AMBIENCE_SPACE
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
+	area_blurb = "The sheer scale of the SCCV Horizon is never more apparent when crawling across its hull like an ant."

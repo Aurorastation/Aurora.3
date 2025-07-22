@@ -6,6 +6,7 @@
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	horizon_deck = 1
+	area_blurb = "A shuttle compartment: compact and rigidly functional."
 
 /area/horizon/shuttle/intrepid
 	name = "Intrepid"
@@ -41,6 +42,7 @@
 
 /area/horizon/shuttle/escape_pod
 	name = "Escape Pod"
+	area_blurb = "If you're in here, you've probably had a bad day."
 
 /area/horizon/shuttle/escape_pod/pod1
 	name = "Escape Pod - 1"

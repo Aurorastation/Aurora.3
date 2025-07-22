@@ -5,6 +5,7 @@
 	ambience = AMBIENCE_ENGINEERING
 	holomap_color = HOLOMAP_AREACOLOR_OPERATIONS
 	department = LOC_OPERATIONS
+	area_blurb = "While mighty 'Cargonia' may never reign like in the feverish dreams of so many hangar techs, the halls of Operations today continue to resound with the clamor of pallets and materiel and rustling paper."
 
 /area/horizon/operations/warehouse
 	name = "Warehouse"
@@ -110,6 +111,7 @@
 	icon_state = "outpost_mine_main"
 	ambience = AMBIENCE_EXPOUTPOST
 	subdepartment = SUBLOC_MINING
+	area_blurb = "Even louder and noisier and rowdier than the rest of Operations, which is saying something."
 
 /area/horizon/operations/mining_main/eva
 	name = "Mining EVA Storage"
@@ -127,6 +129,7 @@
 	ambience = AMBIENCE_HIGHSEC
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 	horizon_deck = 3
+	area_blurb = "One of the SCCV Horizon's daunting weapons bays."
 
 /area/horizon/weapons/grauwolf
 	name = "Grauwolf Weapon System"
@@ -135,6 +138,7 @@
 	ambience = AMBIENCE_HIGHSEC
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 	horizon_deck = 2
+	area_blurb = "One of the SCCV Horizon's daunting weapons bays."
 
 /// STORAGE_AREAS
 /area/horizon/storage
@@ -145,11 +149,13 @@
 	name = "Primary Tool Storage"
 	icon_state = "primarystorage"
 	horizon_deck = 2
+	area_blurb = "A compartment for keeping the various things useful on any ship."
 
 /area/horizon/storage/eva
 	name = "EVA Storage"
 	icon_state = "eva"
 	horizon_deck = 1
+	area_blurb = "Row after row of various types of void suits and the ancillary equipment for their use reside here, carefully checked and double-checked before each excursion."
 
 /// Science-restricted section of EVA.
 /area/horizon/storage/eva/expedition
@@ -166,3 +172,4 @@
 	horizon_deck = 2
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 	department = LOC_COMMAND
+	area_blurb = "A place not to be visited unless things are going either horribly wrong or horribly right."
