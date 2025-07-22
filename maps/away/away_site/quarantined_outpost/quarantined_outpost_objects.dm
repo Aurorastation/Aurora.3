@@ -572,10 +572,6 @@ GLOBAL_LIST_EMPTY(light_group_3)
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/effect/landmark/quarantined_outpost_elevator/LateInitialize(mapload)
-	dest_helper = locate(/obj/effect/landmark/quarantined_outpost_e_helper) in world
-	target_dest_x = dest_helper.x
-	target_dest_y = dest_helper.y
-	target_dest_z = dest_helper.z
 	elevator_animation = new /obj/effect/elevator/animation_overlay()
 	elevator_animation.pixel_x = 160
 	elevator_animation.pixel_y = -80
@@ -594,6 +590,10 @@ GLOBAL_LIST_EMPTY(light_group_3)
 	addtimer(CALLBACK(src, PROC_REF(position_the_elevators)), 1 SECOND)
 
 /obj/effect/landmark/quarantined_outpost_elevator/proc/position_the_elevators()
+	dest_helper = locate(/obj/effect/landmark/quarantined_outpost_e_helper) in world
+	target_dest_x = dest_helper.x
+	target_dest_y = dest_helper.y
+	target_dest_z = dest_helper.z
 	SW.forceMove(locate(target_dest_x - 2, target_dest_y  - 2, target_dest_z)) // the reason why we handle this like this is, cached `/obj/effect/elevator` objects
 	SE.forceMove(locate(target_dest_x + 2, target_dest_y  - 2, target_dest_z)) // won't respond properly, and will cause layer issues with played animation
 	NW.forceMove(locate(target_dest_x- 2, target_dest_y  + 2, target_dest_z))
