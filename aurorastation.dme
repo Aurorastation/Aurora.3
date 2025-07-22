@@ -1924,6 +1924,7 @@
 #include "code\modules\clothing\ears\antennae.dm"
 #include "code\modules\clothing\ears\bandanna.dm"
 #include "code\modules\clothing\ears\earmuffs.dm"
+#include "code\modules\clothing\ears\earphones.dm"
 #include "code\modules\clothing\ears\earrings.dm"
 #include "code\modules\clothing\ears\xeno\bulwark.dm"
 #include "code\modules\clothing\ears\xeno\skrell.dm"
