@@ -24,7 +24,7 @@
 	location_ns = LOC_AFT
 
 /area/horizon/rnd/telesci
-	name = "Telescience Laboratory"
+	name = "Telescience"
 	icon_state = "research"
 	horizon_deck = 2
 
@@ -34,12 +34,12 @@
 	horizon_deck = 2
 
 /area/horizon/rnd/lab
-	name = "R&D Laboratory"
+	name = "Research & Development"
 	icon_state = "toxlab"
 	horizon_deck = 2
 
 /area/horizon/rnd/xenobiology
-	name = "Xenobiology Lab"
+	name = "Primary Laboratory"
 	icon_state = "xeno_lab"
 	horizon_deck = 2
 	subdepartment = SUBLOC_XENOBIO
@@ -48,28 +48,27 @@
 	name = "Xenological Studies"
 	icon_state = "xeno_log"
 	horizon_deck = 2
-	subdepartment = SUBLOC_XENOBIO
 
 /area/horizon/rnd/xenobiology/hazardous
-	name = "Xenobiology Hazardous Containment"
+	name = "Hazardous Containment"
 	icon_state = "xeno_lab"
 	horizon_deck = 2
 	subdepartment = SUBLOC_XENOBIO
 
 /area/horizon/rnd/xenobiology/dissection
-	name = "Xenobiology Dissection"
+	name = "Dissection"
 	icon_state = "xeno_lab"
 	horizon_deck = 2
 	subdepartment = SUBLOC_XENOBIO
 
 /area/horizon/rnd/xenobiology/foyer
-	name = "Xenobiology Foyer"
+	name = "Foyer"
 	icon_state = "xeno_lab"
 	horizon_deck = 2
 	subdepartment = SUBLOC_XENOBIO
 
 /area/horizon/rnd/xenobiology/xenoflora
-	name = "Xenoflora Lab"
+	name = "Grow Lab"
 	icon_state = "xeno_f_lab"
 	no_light_control = TRUE
 	horizon_deck = 2
@@ -81,13 +80,13 @@
 	horizon_deck = 1
 
 /area/horizon/rnd/xenoarch_atrium
-	name = "Xenoarchaeology Atrium"
+	name = "Atrium"
 	icon_state = "research"
 	horizon_deck = 1
 	subdepartment = SUBLOC_XENOARCH
 
 /area/horizon/rnd/xenoarch_storage
-	name = "Xenoarchaeology Storage"
+	name = "Storage"
 	icon_state = "purple"
 	horizon_deck = 1
 	subdepartment = SUBLOC_XENOARCH
@@ -116,6 +115,6 @@
 	horizon_deck = 1
 
 /area/horizon/rnd/server
-	name = "Research Server Room"
+	name = "Server Room"
 	icon_state = "server"
 	horizon_deck = 2

@@ -354,12 +354,13 @@ pixel_x = 10;
 
 /obj/machinery/alarm/proc/first_run()
 	alarm_area = get_area(src)
+	var/area_display_name = get_area_display_name(alarm_area)
 	area_uid = alarm_area.uid
 	if (name == "alarm")
 		if (highpower)
-			name = "[alarm_area.name] High-Power Air Alarm"
+			name = "[area_display_name] High-Power Air Alarm"
 		else
-			name = "[alarm_area.name] Air Alarm"
+			name = "[area_display_name] Air Alarm"
 
 	if(!wires)
 		wires = new(src)
@@ -630,9 +631,10 @@ pixel_x = 10;
 		return
 
 	var/datum/signal/alert_signal = new
+	var/area_display_name = get_area_display_name(alarm_area)
 	alert_signal.source = src
 	alert_signal.transmission_method = TRANSMISSION_RADIO
-	alert_signal.data["zone"] = alarm_area.name
+	alert_signal.data["zone"] = area_display_name
 	alert_signal.data["type"] = "Atmospheric"
 
 	if(alert_level==2)

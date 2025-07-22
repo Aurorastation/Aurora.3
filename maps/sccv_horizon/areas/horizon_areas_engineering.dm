@@ -122,6 +122,7 @@
 
 /area/horizon/engineering/atmos/propulsion
 	name = "Propulsion"
+	subdepartment = null
 	icon_state = "blue2"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	area_blurb = "Every bulkhead is invisibly tense with the long-term strains of powerful impulse. The subtle aromas of various fuel compounds linger in the air."
