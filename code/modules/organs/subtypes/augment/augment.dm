@@ -86,6 +86,8 @@
 
 /obj/item/organ/internal/augment/bioaug
 	name = "bioaugment"
+	icon = 'icons/obj/organs/bioaugs.dmi'
+	icon_state = "boosted_heart"
 	robotic = FALSE
 	species_restricted = list(
 		SPECIES_HUMAN_OFFWORLD,

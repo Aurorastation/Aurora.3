@@ -3,12 +3,9 @@
 	desc = "Designed for military applications, this implant massively increases the user's blood clotting factor." \
 		+ "This provides an extreme resistance to arterial bleeds, effectively all but preventing exsanguination." \
 		+ "This augment has a reputation for causing heart attacks and strokes at a high rate, and is usually combined with an auxiliary heart for safety."
+	icon_state = "platelet_factories"
 	organ_tag = BP_AUG_PLATELET_FACTORIES
 	parent_organ = BP_CHEST
-	// Placeholder sprite to state "HEY I NEED A SPRITE" in the most violent way possible.
-	// Please contact @raistlin_jag on discord, I will pay you- dear reader, for sprites.
-	icon = 'icons/obj/machinery/ship_guns/longbow.dmi'
-	icon_state = "weapon_firing"
 
 /obj/item/organ/internal/augment/bioaug/platelet_factories/Initialize()
 	. = ..()

@@ -368,10 +368,8 @@
 	desc = "Intended for athletes, some workers, and soldiers, this improved heart increases blood flow and circulation." \
 					+ "It provides an improvement to blood oxygenation and stamina, at the cost of requiring more food and water." \
 					+ "Outside of Galatea, this augment is popular among professional athletes."
-	// Placeholder sprite to state "HEY I NEED A SPRITE" in the most violent way possible.
-	// Please contact @raistlin_jag on discord, I will pay you- dear reader, for sprites.
-	icon = 'icons/obj/machinery/ship_guns/longbow.dmi'
-	icon_state = "weapon_firing"
+	icon = 'icons/obj/organs/bioaugs.dmi'
+	icon_state = "boosted_heart"
 	max_damage = 80
 	min_broken_damage = 60
 	shock_stage_for_fibrillation = 140
@@ -388,10 +386,8 @@
 /obj/item/organ/internal/heart/scarred_heart
 	name = "scarred heart"
 	desc = "Life has not been good to this old ticker."
-	// Placeholder sprite to state "HEY I NEED A SPRITE" in the most violent way possible.
-	// Please contact @raistlin_jag on discord, I will pay you- dear reader, for sprites.
-	icon = 'icons/obj/machinery/ship_guns/longbow.dmi'
-	icon_state = "weapon_firing"
+	icon = 'icons/obj/organs/bioaugs.dmi'
+	icon_state = "scarred_heart"
 	max_damage = 45
 	min_broken_damage = 30
 	fibrillation_stop_risk = 7.5
