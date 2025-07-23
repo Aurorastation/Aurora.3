@@ -383,3 +383,11 @@
       colors, brands, and more. Comes in three types: standard, refrigerated and tank.'
   - code_imp: Old shipping containers and relevant paths and references have been
       remapped to 'shipping_container_old' to avoid confusion.
+2025-07-23:
+  kermit:
+  - rscadd: Makes earphones/headphones/earbuds play music, much like Audioconsoles!
+  - rscadd: Adds music cartridges which are used to load music into earphones.
+  kermit, cometblaze:
+  - rscadd: Adds a football to the game. Available only to off-duty and passenger
+      loadouts only right now.
+  - imageadd: Football sprite by Comet.
