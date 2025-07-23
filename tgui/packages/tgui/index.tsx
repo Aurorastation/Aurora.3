@@ -40,7 +40,7 @@ import { setGlobalStore } from './backend';
 import { setupGlobalEvents } from './events';
 import { setupHotKeys } from './hotkeys';
 import { captureExternalLinks } from './links';
-import { render } from 'react-dom';
+import { render } from 'tgui/renderer';
 import { configureStore } from './store';
 
 perf.mark('inception', window.performance?.timeOrigin);

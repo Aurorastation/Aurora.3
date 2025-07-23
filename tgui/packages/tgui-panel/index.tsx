@@ -13,7 +13,7 @@ import { combineReducers } from 'common/redux';
 import { setGlobalStore } from 'tgui/backend';
 import { setupGlobalEvents } from 'tgui/events';
 import { captureExternalLinks } from 'tgui/links';
-import { render } from 'react-dom';
+import { render } from 'tgui/renderer';
 import { configureStore } from 'tgui/store';
 import { audioMiddleware, audioReducer } from './audio';
 import { chatMiddleware, chatReducer } from './chat';
@@ -70,7 +70,7 @@ function setupApp() {
   Byond.subscribe((type, payload) => store.dispatch({ type, payload }));
 
   // Unhide the panel
-  Byond.winset('legacy_output_selector', {
+  Byond.winset('output_selector.legacy_output_selector', {
     left: 'output_browser',
   });
 
