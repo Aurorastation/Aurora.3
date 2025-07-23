@@ -478,7 +478,6 @@
 				feedback_inc("disposal_auto_flush",1)
 				flush()
 		flush_count = 0
-
 	src.updateDialog()
 
 	// If we're ready, don't draw any extra power
