@@ -1,5 +1,5 @@
 import { classes } from 'common/react';
-import { type ReactNode, useEffect, useRef, useState } from 'react';
+import { ReactNode, useEffect, useRef, useState } from 'react';
 
 import { BoxProps, unit } from './Box';
 import { Button } from './Button';
