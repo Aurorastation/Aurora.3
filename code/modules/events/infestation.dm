@@ -139,7 +139,7 @@
 
 		if(INFESTATION_NYMPHS)
 			event_name = "Stowaway Nymphs"
-			chosen_verb = "have crawled into"
+			chosen_verb = "have stowed away on"
 			show_area = FALSE
 			var/list/nymph_types = list(
 				/mob/living/carbon/alien/diona/ghost_playable,
