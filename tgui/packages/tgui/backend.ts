@@ -19,7 +19,7 @@ import { globalEvents } from './events';
 import { focusMap } from './focus';
 import { releaseHeldKeys, startKeyPassthrough, stopKeyPassthrough } from './hotkeys';
 import { createLogger } from './logging';
-import { resumeRenderer, suspendRenderer } from './renderer';
+import { resumeRenderer, suspendRenderer } from 'tgui/renderer';
 
 const logger = createLogger('backend');
 

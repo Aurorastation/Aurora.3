@@ -13,7 +13,7 @@ import { combineReducers } from 'common/redux';
 import { setGlobalStore } from 'tgui/backend';
 import { setupGlobalEvents } from 'tgui/events';
 import { captureExternalLinks } from 'tgui/links';
-import { render } from 'tgui/renderer';
+import { render } from 'react-dom';
 import { configureStore } from 'tgui/store';
 import { audioMiddleware, audioReducer } from './audio';
 import { chatMiddleware, chatReducer } from './chat';
