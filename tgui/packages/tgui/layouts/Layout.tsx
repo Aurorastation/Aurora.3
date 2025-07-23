@@ -5,7 +5,7 @@
  */
 
 import { classes } from 'common/react';
-import { type ComponentProps, useEffect, useRef } from 'react';
+import { ComponentProps, useEffect, useRef } from 'react';
 import {
   type Box,
   computeBoxClassName,
