@@ -21,7 +21,7 @@ jobs:
 
     - name: Update TGUI
       run: |
-        tools/bootstrap/node tools/build/build.js tgui
+        tools/bootstrap/node tools/build/build.ts tgui
 
     - name: Commit TGUI
       run: |
