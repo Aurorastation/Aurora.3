@@ -25,6 +25,8 @@ GLOBAL_LIST_INIT_TYPED(all_cargo_receptacles, /obj/structure/cargo_receptacle, l
 	var/min_spawn = 2
 	/// Maximum amount of packages that can spawn for this receptacle. INTEGER
 	var/max_spawn = 4
+	/// Used to handle spawn points for the packages. It's set to 'True' for the ships that is invisible if unoccupied.
+	var/late_spawner = FALSE
 
 /obj/structure/cargo_receptacle/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -42,8 +44,13 @@ GLOBAL_LIST_INIT_TYPED(all_cargo_receptacles, /obj/structure/cargo_receptacle, l
 	if(SSatlas.current_map.use_overmap)
 		var/turf/current_turf = get_turf(loc)
 		var/obj/effect/overmap/visitable/my_sector = GLOB.map_sectors["[current_turf.z]"]
-		if(my_sector)
+		if(my_sector && spawns_packages)
 			delivery_sector = WEAKREF(my_sector)
+			if(!my_sector?.invisible_until_ghostrole_spawn)
+				spawn_packages() // if the `overmap/visitable` isn't hidden, we don't need to wait for a ghost spawn.
+			else
+				late_spawner = TRUE
+				RegisterSignal(my_sector, COMSIG_GHOSTROLE_TAKEN, PROC_REF(spawn_packages)) // signal is sent by the same sector our object is in
 		else
 			delivery_sector = null
 	else
@@ -51,20 +58,29 @@ GLOBAL_LIST_INIT_TYPED(all_cargo_receptacles, /obj/structure/cargo_receptacle, l
 
 	GLOB.all_cargo_receptacles += src
 
-	if(spawns_packages)
-		var/list/warehouse_turfs = list()
-		for(var/area_path in typesof(SSatlas.current_map.warehouse_basearea))
-			var/area/warehouse = locate(area_path)
-			if(warehouse)
-				for(var/turf/simulated/floor/T in warehouse)
-					if(!turf_contains_dense_objects(T))
-						warehouse_turfs += T
+/obj/structure/cargo_receptacle/proc/spawn_packages()
+	SIGNAL_HANDLER
+	var/list/warehouse_turfs = list()
+	var/list/area_types
+	if(late_spawner)
+		area_types = typesof(SSatlas.current_map.warehouse_packagearea)
+	else
+		area_types = typesof(SSatlas.current_map.warehouse_basearea)
+	for(var/area_path in area_types)
+		var/area/warehouse = locate(area_path)
+		if(warehouse)
+			for(var/turf/simulated/floor/T in warehouse)
+				if(!turf_contains_dense_objects(T))
+					warehouse_turfs += T
 
-		var/package_amount = rand(min_spawn, max_spawn)
-		for(var/i = 1 to package_amount)
-			var/turf/random_turf = pick_n_take(warehouse_turfs)
-			if(random_turf)
-				new /obj/item/cargo_package(random_turf, src)
+	var/package_amount = rand(min_spawn, max_spawn)
+	for(var/i = 1 to package_amount)
+		var/turf/random_turf = pick_n_take(warehouse_turfs)
+		if(random_turf)
+			new /obj/item/cargo_package(random_turf, src)
+	if(late_spawner)
+		playsound(pick(warehouse_turfs), 'sound/machines/twobeep.ogg', 50, 1)
+		GLOB.global_announcer.autosay("A new delivery point has been detected in the sector. Relevant packages have been unloaded.", "Automated Delivery System", "Operations")
 
 /obj/structure/cargo_receptacle/Destroy()
 	GLOB.all_cargo_receptacles -= src
