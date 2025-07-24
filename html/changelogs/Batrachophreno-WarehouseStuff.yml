@@ -64,4 +64,3 @@ changes:
   - balance: "Warehouse chemical dispenser spawn pool now includes coffee makers, spawn chance slightly increased."
   - balance: "Warehouse uncommon phoron sheets spawn chance slightly decreased."
   - refactor: "Updated radioactive greenglow decal to use ssRadiation proc instead of old direct damage application."
-  -
