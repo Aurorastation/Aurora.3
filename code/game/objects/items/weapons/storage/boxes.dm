@@ -1251,8 +1251,8 @@
 	name = "Corporate flag box"
 	desc = "A box filled to the brim with various corporate flags, flying in service to the almighty credit."
 	starts_with = list(
-		/obj/item/flag/scc = 6,
-		/obj/item/flag/scc/l = 4,
+		/obj/item/flag/scc = 4,
+		/obj/item/flag/scc/l = 3,
 		/obj/item/flag/heph = 4,
 		/obj/item/flag/heph/l = 3,
 		/obj/item/flag/idris = 4,
