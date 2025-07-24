@@ -1044,6 +1044,272 @@
 		/obj/item/flag/azubarre = 1
 	)
 
+/// Parent object of various national flag boxes. Original intention for random cargo spawn.
+/obj/item/storage/box/flags
+	name = "national flag box - PARENT ITEM DO NOT USE"
+	desc = "A box filled to the brim with various flags."
+	icon_state = "largebox"
+	illustration = "flags"
+	make_exact_fit = TRUE
+	can_hold = list(
+		/obj/item/flag
+	)
+
+/obj/item/storage/box/flags/sol
+	name = "Solarian Alliance flag box"
+	desc = "A box filled to the brim with various national flags."
+	starts_with = list(
+		/obj/item/flag/sol = 6,
+		/obj/item/flag/sol/l = 4,
+		/obj/item/flag/venus = 2,
+		/obj/item/flag/venus/l = 1,
+		/obj/item/flag/luna = 2,
+		/obj/item/flag/luna/l = 1,
+		/obj/item/flag/callisto = 2,
+		/obj/item/flag/callisto/l = 1,
+		/obj/item/flag/mars = 2,
+		/obj/item/flag/mars/l = 1,
+		/obj/item/flag/pluto = 2,
+		/obj/item/flag/pluto/l = 1,
+		/obj/item/flag/visegrad = 2,
+		/obj/item/flag/visegrad/l = 1,
+		/obj/item/flag/nhp = 2,
+		/obj/item/flag/nhp/l = 1,
+		/obj/item/flag/silversun = 2,
+		/obj/item/flag/silversun/l = 1,
+		/obj/item/flag/sancolette = 2,
+		/obj/item/flag/sancolette/l = 1,
+		/obj/item/flag/nsrm = 2,
+		/obj/item/flag/nsrm/l = 1,
+		/obj/item/flag/ssrm = 2,
+		/obj/item/flag/ssrm/l = 1
+	)
+
+/obj/item/storage/box/flags/biesel
+	name = "Republic of Biesel flag box"
+	desc = "A box filled to the brim with various national flags."
+	starts_with = list(
+		/obj/item/flag/biesel = 6,
+		/obj/item/flag/biesel/l = 4,
+		/obj/item/flag/valkyrie = 2,
+		/obj/item/flag/valkyrie/l = 1,
+		/obj/item/flag/portantillia = 2,
+		/obj/item/flag/portantillia/l = 1,
+		/obj/item/flag/mictlan = 2,
+		/obj/item/flag/mictlan/l = 1,
+		/obj/item/flag/newgibson = 2,
+		/obj/item/flag/newgibson/l = 1
+	)
+
+/obj/item/storage/box/flags/coc
+	name = "Coalition of Colonies flag box"
+	desc = "A box filled to the brim with various national flags."
+	starts_with = list(
+		/obj/item/flag/coalition = 6,
+		/obj/item/flag/coalition/l = 4,
+		/obj/item/flag/xanu = 2,
+		/obj/item/flag/xanu/l = 1,
+		/obj/item/flag/gadpathur = 2,
+		/obj/item/flag/gadpathur/l = 1,
+		/obj/item/flag/vysoka = 2,
+		/obj/item/flag/vysoka/l = 1,
+		/obj/item/flag/himeo = 2,
+		/obj/item/flag/himeo/l = 1,
+		/obj/item/flag/konyang = 2,
+		/obj/item/flag/konyang/l = 1,
+		/obj/item/flag/assunzione = 2,
+		/obj/item/flag/assunzione/l = 1,
+		/obj/item/flag/burzsia = 2,
+		/obj/item/flag/burzsia/l = 1,
+		/obj/item/flag/scarab = 3,
+		/obj/item/flag/scarab/l = 2
+	)
+
+/obj/item/storage/box/flags/galataea
+	name = "Technocracy of Galatea flag box"
+	desc = "A box filled to the brim with various national flags."
+	starts_with = list(
+		/obj/item/flag/galatea_government = 4,
+		/obj/item/flag/galatea_government/l = 3,
+		/obj/item/flag/galatea = 2,
+		/obj/item/flag/galatea/l = 1,
+		/obj/item/flag/tsukuyomi = 2,
+		/obj/item/flag/tsukuyomi/l = 1,
+		/obj/item/flag/svarog = 2,
+		/obj/item/flag/svarog/l = 1,
+		/obj/item/flag/empyrean = 2,
+		/obj/item/flag/empyrean/l = 1
+	)
+
+/obj/item/storage/box/flags/dominia
+	name = "Empire of Dominia flag box"
+	desc = "A box filled to the brim with various national flags."
+	starts_with = list(
+		/obj/item/flag/dominia = 8,
+		/obj/item/flag/dominia/l = 6,
+		/obj/item/flag/strelitz = 4,
+		/obj/item/flag/volvalaad = 4,
+		/obj/item/flag/kazhkz = 4,
+		/obj/item/flag/caladius = 2,
+		/obj/item/flag/zhao = 4,
+		/obj/item/flag/diona = 2,
+		/obj/item/flag/hansan = 2,
+		/obj/item/flag/imperial_frontier = 3,
+		/obj/item/flag/imperial_frontier/l = 2
+	)
+
+/obj/item/storage/box/flags/elyra
+	name = "Serene Republic of Elyra flag box"
+	desc = "A box filled to the brim with various national flags."
+	starts_with = list(
+		/obj/item/flag/elyra = 6,
+		/obj/item/flag/elyra/l = 4,
+		/obj/item/flag/persepolis = 2,
+		/obj/item/flag/persepolis/l = 1,
+		/obj/item/flag/damascus = 2,
+		/obj/item/flag/damascus/l = 1,
+		/obj/item/flag/medina = 2,
+		/obj/item/flag/medina/l = 1,
+		/obj/item/flag/newsuez = 2,
+		/obj/item/flag/newsuez/l = 1,
+		/obj/item/flag/aemaq = 2,
+		/obj/item/flag/aemaq/l = 1
+	)
+
+/obj/item/storage/box/flags/diona
+	name = "Diona flag box"
+	desc = "A box filled to the brim with various national flags."
+	starts_with = list(
+		/obj/item/flag/consortium = 6,
+		/obj/item/flag/consortium/l = 4,
+		/obj/item/flag/ekane = 2,
+		/obj/item/flag/ekane/l = 1,
+		/obj/item/flag/narrows = 2,
+		/obj/item/flag/narrows/l = 1
+	)
+
+/obj/item/storage/box/flags/unathi
+	name = "Unathi flag box"
+	desc = "A box filled to the brim with various national flags."
+	starts_with = list(
+		/obj/item/flag/hegemony = 6,
+		/obj/item/flag/hegemony/l = 4,
+		/obj/item/flag/ouerea/old = 4,
+		/obj/item/flag/ouerea/old/l = 3,
+		/obj/item/flag/fishingleague = 2
+	)
+
+/obj/item/storage/box/flags/skrell
+	name = "Skrell flag box"
+	desc = "A box filled to the brim with various waterproof national flags."
+	starts_with = list(
+		/obj/item/flag/nralakk = 8,
+		/obj/item/flag/nralakk/l = 6,
+		/obj/item/flag/traverse = 2,
+		/obj/item/flag/traverse/l = 1
+	)
+
+/obj/item/storage/box/flags/tajara
+	name = "Tajaran collected flag box"
+	desc = "A box filled to the brim with various national flags. Whoever chose the selection for this one was either brave or stupid or both."
+	starts_with = list(
+		/obj/item/flag/dpra = 4,
+		/obj/item/flag/dpra/l = 3,
+		/obj/item/flag/pra = 4,
+		/obj/item/flag/pra/l = 3,
+		/obj/item/flag/nka = 4,
+		/obj/item/flag/nka/l = 3,
+		/obj/item/flag/ftc = 4,
+		/obj/item/flag/ftc/l = 3
+	)
+
+/obj/item/storage/box/flags/vaurca
+	name = "Vaurca flag box"
+	desc = "A box filled to the brim with various hive flags."
+	starts_with = list(
+		/obj/item/flag/sedantis = 4,
+		/obj/item/flag/sedantis/l = 3,
+		/obj/item/flag/zora = 4,
+		/obj/item/flag/zora/l = 3,
+		/obj/item/flag/klax = 4,
+		/obj/item/flag/klax/l = 3,
+		/obj/item/flag/cthur = 4,
+		/obj/item/flag/cthur/l = 3
+	)
+
+/obj/item/storage/box/flags/goldendeep
+	name = "Golden Deep flag box"
+	desc = "A box filled to the brim with various national flags. It's made from a bit sturdier board than most boxes."
+	starts_with = list(
+		/obj/item/flag/goldendeep = 8,
+		/obj/item/flag/goldendeep/l = 6,
+		// GD might not have a lot of flags but a single gold ingot included to broadcast their flagrant absurd wealth is kind of funny.
+		/obj/item/stack/material/gold
+	)
+
+/obj/item/storage/box/flags/corporate
+	name = "Corporate flag box"
+	desc = "A box filled to the brim with various corporate flags, flying in service to the almighty credit."
+	starts_with = list(
+		/obj/item/flag/scc = 4,
+		/obj/item/flag/scc/l = 3,
+		/obj/item/flag/heph = 4,
+		/obj/item/flag/heph/l = 3,
+		/obj/item/flag/idris = 4,
+		/obj/item/flag/idris/l = 3,
+		/obj/item/flag/heph = 4,
+		/obj/item/flag/heph/l = 3,
+		/obj/item/flag/nanotrasen = 4,
+		/obj/item/flag/nanotrasen/l = 3,
+		/obj/item/flag/orion_express = 4,
+		/obj/item/flag/orion_express/l = 3,
+		/obj/item/flag/pmcg = 4,
+		/obj/item/flag/pmcg/l = 3,
+		/obj/item/flag/zavodskoi = 4,
+		/obj/item/flag/zavodskoi/l = 3,
+		/obj/item/flag/zenghu = 4,
+		/obj/item/flag/zenghu/l = 3,
+		/obj/item/flag/eridani = 4,
+		/obj/item/flag/eridani/l = 3
+	)
+
+/// Random misc flags- either non-national or no longer in use or controversial or straight-up contraband. Randomized contents from Initialize().
+/obj/item/storage/box/flags/misc
+	name = "miscellaneous flag box"
+	desc = "A box filled to the brim with various disorganized flags that might provoke a variety of reactions."
+	starts_with = list()
+
+/**
+ * We don't want this box to always have every possible misc flag every time it spawns. Mix it up each time.
+ */
+/obj/item/storage/box/flags/misc/Initialize()
+	var/list/flag_options = list(
+		/obj/item/flag/red_coalition = 1,
+		/obj/item/flag/trinaryperfection = 2,
+		/obj/item/flag/trinaryperfection/l = 1,
+		/obj/item/flag/traditionalist = rand(1,2),
+		/obj/item/flag/traditionalist/l = 1,
+		/obj/item/flag/exclusionist = 1,
+		/obj/item/flag/glaorr = 1,
+		/obj/item/flag/glaorr/l = 1,
+		/obj/item/flag/ouerea = rand(1,2),
+		/obj/item/flag/ouerea/l = 1,
+		/obj/item/flag/sol/old = rand(1,2),
+		/obj/item/flag/sol/old/l = 1,
+		/obj/item/flag/old_visegrad = rand(1,2),
+		/obj/item/flag/old_visegrad/l = 1,
+		/obj/item/flag/fisanduh = rand(1,2),
+		/obj/item/flag/fisanduh/l = 1,
+		/obj/item/flag/hiskyn = rand(1,2),
+		/obj/item/flag/tarwa = rand(1,2),
+		/obj/item/flag/izharshan = rand(1,2)
+		)
+	var/flag
+	for(var/i in 1 to rand(4, 7))
+		flag = pick(flag_options)
+		starts_with |= flag
+	..()
+
 /obj/item/storage/box/dominia_honor
 	name = "dominian honor codex box"
 	desc = "A box full of dominian honor codices."
