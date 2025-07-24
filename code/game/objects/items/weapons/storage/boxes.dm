@@ -1277,12 +1277,13 @@
 /obj/item/storage/box/flags/misc
 	name = "miscellaneous flag box"
 	desc = "A box filled to the brim with various disorganized flags that might provoke a variety of reactions."
-	starts_with = list()
 
 /**
  * We don't want this box to always have every possible misc flag every time it spawns. Mix it up each time.
  */
-/obj/item/storage/box/flags/misc/Initialize()
+
+/obj/item/storage/box/flags/misc/fill()
+	..()
 	var/list/flag_options = list(
 		/obj/item/flag/red_coalition = 1,
 		/obj/item/flag/trinaryperfection = 2,
@@ -1304,11 +1305,9 @@
 		/obj/item/flag/tarwa = rand(1,2),
 		/obj/item/flag/izharshan = rand(1,2)
 		)
-	var/flag
-	for(var/i in 1 to rand(4, 7))
-		flag = pick(flag_options)
-		starts_with |= flag
-	..()
+	for(var/i in 1 to rand(5,8))
+		var/flag = pickweight(flag_options)
+		new flag(src)
 
 /obj/item/storage/box/dominia_honor
 	name = "dominian honor codex box"
