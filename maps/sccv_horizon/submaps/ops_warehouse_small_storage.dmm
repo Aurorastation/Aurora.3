@@ -1522,11 +1522,6 @@
 /obj/machinery/vending/hydronutrients/xenobotany,
 /turf/template_noop,
 /area/template_noop)
-"ND" = (
-/obj/structure/table/rack/no_cargo,
-/obj/structure/table/rack/no_cargo,
-/turf/template_noop,
-/area/template_noop)
 "NI" = (
 /obj/structure/reagent_dispensers/coolanttank,
 /obj/random/dirt_75,
@@ -4458,7 +4453,7 @@ sW
 PK
 Gz
 Gz
-ND
+iM
 kK
 nn
 Gz
