@@ -322,7 +322,7 @@
 	allowed_roles = list("Consular")
 
 /datum/gear/augment/platelet_factories
-	display_name = "Auxiliary Heart"
+	display_name = "Platelet Factories"
 	description = "Designed for military applications, this implant massively increases the user's blood clotting factor. This provides an extreme resistance to arterial bleeds, effectively all but preventing exsanguination. This augment has a reputation for causing heart attacks and strokes at a high rate, and is usually combined with an auxiliary heart for safety."
 	path = /obj/item/organ/internal/augment/bioaug/auxiliary_heart
 	origin_restriction = list(/singleton/origin_item/origin/galatea)
@@ -330,7 +330,7 @@
 	allowed_roles = list("Consular")
 
 /datum/gear/augment/subdermal_carapace
-	display_name = "Auxiliary Heart"
+	display_name = "Subdermal Carapace"
 	description = "Designed for military applications, this implant transforms the user's ribcage into a solid plate of bone. This provides a small amount of protection. In combination with armor, it can turn lethal injuries into merely serious wounds."
 	path = /obj/item/organ/internal/augment/bioaug/auxiliary_heart
 	origin_restriction = list(/singleton/origin_item/origin/galatea)
