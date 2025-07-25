@@ -133,9 +133,6 @@
 	temperature = 278.15
 	},
 /area/hailstorm_ship/bridge)
-"aq" = (
-/turf/space,
-/area/space)
 "as" = (
 /obj/structure/closet/cabinet{
 	name = "Personal Equipment";
@@ -1148,7 +1145,7 @@
 /area/hailstorm_ship/crew)
 "hq" = (
 /obj/structure/lattice/catwalk,
-/turf/space,
+/turf/space/dynamic,
 /area/space)
 "ht" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
@@ -2136,7 +2133,7 @@
 /obj/effect/map_effect/map_helper/ruler_tiles_3{
 	dir = 4
 	},
-/turf/space,
+/turf/space/dynamic,
 /area/space)
 "nq" = (
 /obj/random/dirt_75,
@@ -3142,7 +3139,7 @@
 /area/shuttle/hailstorm_shuttle)
 "uP" = (
 /obj/effect/step_trigger/teleporter,
-/turf/space/transit/north,
+/turf/space/dynamic,
 /area/space)
 "ve" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
@@ -3904,7 +3901,7 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, blaster"
 	},
-/turf/space,
+/turf/space/dynamic,
 /area/hailstorm_ship/gunnery_port)
 "zD" = (
 /obj/structure/cable/green{
@@ -4181,7 +4178,7 @@
 "BH" = (
 /obj/effect/step_trigger/teleporter,
 /obj/effect/step_trigger/teleporter,
-/turf/space/transit/north,
+/turf/space/dynamic,
 /area/space)
 "BL" = (
 /obj/structure/cable/green{
@@ -4690,7 +4687,7 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, rotary cannon"
 	},
-/turf/space,
+/turf/space/dynamic,
 /area/hailstorm_ship/gunnery_starboard)
 "Hh" = (
 /obj/machinery/appliance/cooker/fryer,
@@ -4823,7 +4820,7 @@
 "Ia" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/ship_weapon_dummy,
-/turf/space,
+/turf/space/dynamic,
 /area/hailstorm_ship/gunnery_starboard)
 "Id" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
@@ -5074,7 +5071,7 @@
 "Kj" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /obj/structure/lattice/catwalk,
-/turf/space,
+/turf/space/dynamic,
 /area/space)
 "Ko" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -5138,7 +5135,7 @@
 /area/hailstorm_ship/engineering)
 "KO" = (
 /obj/effect/shuttle_landmark/hailstorm_shuttle/transit,
-/turf/space,
+/turf/space/dynamic,
 /area/space)
 "KV" = (
 /obj/effect/floor_decal/industrial/warning/cee{
@@ -6612,7 +6609,7 @@
 	},
 /area/hailstorm_ship/armory)
 "Ve" = (
-/turf/space/transit/north,
+/turf/space/dynamic,
 /area/space)
 "Vg" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -7005,7 +7002,7 @@
 /area/hailstorm_ship/central_hallway)
 "Yl" = (
 /obj/structure/lattice,
-/turf/space,
+/turf/space/dynamic,
 /area/space)
 "Yv" = (
 /obj/machinery/power/terminal{
@@ -7677,7 +7674,7 @@ af
 uP
 Ve
 Ve
-aq
+Ve
 Ve
 Ve
 Ve
@@ -7934,7 +7931,7 @@ af
 uP
 Ve
 Ve
-aq
+Ve
 Ve
 Ve
 Ve
@@ -8191,7 +8188,7 @@ af
 uP
 Ve
 Ve
-aq
+Ve
 Ve
 Ve
 Ve
@@ -8448,7 +8445,7 @@ af
 uP
 Ve
 Ve
-aq
+Ve
 Ve
 Ve
 Ve
@@ -8705,7 +8702,7 @@ af
 uP
 Ve
 Ve
-aq
+Ve
 Ve
 Ve
 Ve
@@ -8962,7 +8959,6 @@ af
 uP
 Ve
 Ve
-aq
 Ve
 Ve
 Ve
@@ -8970,18 +8966,19 @@ Ve
 Ve
 Ve
 Ve
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
 Ve
 Ve
 Ve
@@ -9219,7 +9216,6 @@ af
 uP
 Ve
 Ve
-aq
 Ve
 Ve
 Ve
@@ -9227,18 +9223,19 @@ Ve
 Ve
 Ve
 Ve
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
 Ve
 Ve
 Ve
@@ -9476,7 +9473,6 @@ af
 uP
 Ve
 Ve
-aq
 Ve
 Ve
 Ve
@@ -9484,18 +9480,19 @@ Ve
 Ve
 Ve
 Ve
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
 Ve
 Ve
 Ve
@@ -9733,30 +9730,30 @@ af
 uP
 Ve
 Ve
-aq
 Ve
 Ve
 Ve
 Ve
 Ve
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
 Ve
 Ve
 Ve
-aq
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
 uP
 "}
 (11,1,1) = {"
@@ -9990,30 +9987,30 @@ af
 uP
 Ve
 Ve
-aq
 Ve
 Ve
 Ve
 Ve
 Ve
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
 Ve
 Ve
 Ve
-aq
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
 uP
 "}
 (12,1,1) = {"
@@ -10247,26 +10244,26 @@ af
 BH
 Ve
 Ve
-aq
 Ve
 Ve
 Ve
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
 Ve
 Ve
 Ve
@@ -10504,26 +10501,26 @@ af
 uP
 Ve
 Ve
-aq
 Ve
 Ve
 Ve
 Ve
 Ve
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
 KO
-aq
+Ve
 Ve
 Ve
 Ve
@@ -10761,30 +10758,30 @@ af
 uP
 Ve
 Ve
-aq
 Ve
 Ve
 Ve
 Ve
 Ve
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
 Ve
 Ve
 Ve
 Ve
 Ve
-aq
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
 uP
 "}
 (15,1,1) = {"
@@ -11018,24 +11015,24 @@ af
 uP
 Ve
 Ve
-aq
 Ve
 Ve
 Ve
 Ve
 Ve
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
 Ve
 Ve
 Ve
@@ -11275,24 +11272,24 @@ af
 uP
 Ve
 Ve
-aq
 Ve
 Ve
 Ve
 Ve
 Ve
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
+Ve
 Ve
 Ve
 Ve
@@ -11532,7 +11529,6 @@ af
 uP
 Ve
 Ve
-aq
 Ve
 Ve
 Ve
@@ -11555,7 +11551,8 @@ Ve
 Ve
 Ve
 Ve
-aq
+Ve
+Ve
 uP
 "}
 (18,1,1) = {"
@@ -11789,7 +11786,7 @@ af
 uP
 Ve
 Ve
-aq
+Ve
 Ve
 Ve
 Ve
@@ -12046,7 +12043,7 @@ af
 uP
 Ve
 Ve
-aq
+Ve
 Ve
 Ve
 Ve
@@ -12303,7 +12300,7 @@ af
 uP
 Ve
 Ve
-aq
+Ve
 Ve
 Ve
 Ve
@@ -12560,7 +12557,7 @@ af
 uP
 Ve
 Ve
-aq
+Ve
 Ve
 Ve
 Ve
@@ -12817,7 +12814,7 @@ af
 uP
 Ve
 Ve
-aq
+Ve
 Ve
 Ve
 Ve
@@ -13074,7 +13071,7 @@ af
 uP
 Ve
 Ve
-aq
+Ve
 Ve
 Ve
 Ve
@@ -13331,7 +13328,7 @@ af
 uP
 Ve
 Ve
-aq
+Ve
 Ve
 Ve
 Ve
@@ -37377,8 +37374,8 @@ Li
 lO
 ep
 Yl
-Yl
-Yl
+af
+af
 af
 af
 af
@@ -37633,11 +37630,11 @@ HG
 rD
 Jz
 HG
+Yl
+Yl
 af
 af
-Yl
-Yl
-Yl
+af
 af
 af
 af
@@ -37893,7 +37890,7 @@ HG
 af
 Yl
 Yl
-af
+Yl
 Yl
 Yl
 bF
@@ -38150,7 +38147,7 @@ HG
 Yl
 Yl
 af
-af
+Yl
 af
 Yl
 bF
@@ -38407,8 +38404,8 @@ HG
 af
 Yl
 af
-af
-af
+Yl
+Yl
 af
 bF
 bF
@@ -38436,7 +38433,7 @@ DZ
 Jx
 Oo
 af
-af
+Yl
 af
 ac
 KV
@@ -40979,7 +40976,7 @@ Yl
 af
 af
 af
-af
+Yl
 oE
 JA
 WP
@@ -41247,7 +41244,7 @@ vS
 wt
 pc
 QQ
-Yl
+af
 af
 Yl
 xM
