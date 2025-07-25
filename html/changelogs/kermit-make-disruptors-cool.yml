@@ -1,0 +1,10 @@
+author: kermit
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds voice-controlled firing modes and crowd control/customisable alerts to all disruptors."
+  - rscdel: "Removes non—wireless pin disruptors, as wireless pins are now required for disruptors to work."
+  - rscdel: "Makes disruptor bolts glow a lot! Looks very cool in dark environments."
+  - balance: "Adds a Flash/Illumination firing mode to Disruptors."
+  - balance: "Adds a Heavy firing mode to Disruptors. Halves your shot capacity for +10 Damage and a crumb of Armour Piercing. Increased recoil/reduced accuracy. Better hit those shots."
