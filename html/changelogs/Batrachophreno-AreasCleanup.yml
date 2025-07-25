@@ -62,3 +62,4 @@ changes:
   - code_imp: "Added additional metadata variables to Horizon /areas/"
   - qol: "Updated some procs to generate consistently descriptive area names for the Horizon."
   - qol: "Added directional exit helpers to several access-restricted airlocks (able to leave areas without needing someone to open the doors for you, where appropriate)."
+  - bugfix: "Assorted minor mapping bugfixes (random outside disconnected vent, non-functional shutters, merge-mangled grates, etc.)"
