@@ -759,7 +759,9 @@
 /turf/template_noop,
 /area/template_noop)
 "rW" = (
-/obj/structure/television,
+/obj/machinery/media/jukebox/audioconsole{
+	anchored = 1
+	},
 /turf/template_noop,
 /area/template_noop)
 "se" = (
@@ -1229,7 +1231,9 @@
 /area/template_noop)
 "Eg" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
-/obj/structure/television,
+/obj/machinery/media/jukebox/audioconsole{
+	anchored = 1
+	},
 /turf/template_noop,
 /area/template_noop)
 "Er" = (
@@ -2786,7 +2790,7 @@ nn
 Gz
 Gz
 sW
-Gz
+rW
 Gz
 Gz
 Gz
