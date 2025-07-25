@@ -55,10 +55,6 @@
 	to_chat(brainmob, "<b>As a synthetic intelligence, you answer to all crewmembers, as well as the AI.</b>")
 	to_chat(brainmob, "<b>Remember, the purpose of your existence is to serve the crew and the [station_name(TRUE)]. Above all else, do no harm.</b>")
 
-	var/area/A = get_area(src)
-	if(istype(A, /area/assembly/robotics))
-		GLOB.global_announcer.autosay("A positronic brain has completed its boot process in: [A.name].", "Robotics Oversight", "Science")
-
 	brainmob.client.init_verbs()
 
 	return src

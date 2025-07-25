@@ -162,10 +162,11 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 		init(mapload)
 	else
 		area = get_area(src)
+		var/area_display_name = get_area_display_name(area)
 		area.apc = src
 		opened = COVER_OPENED
 		operating = FALSE
-		name = "[area.name] APC"
+		name = "[area_display_name] APC"
 		stat |= MAINT
 		update_icon()
 
@@ -250,14 +251,15 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 		cell.charge = start_charge * cell.maxcharge / 100.0 		// (convert percentage to actual value)
 
 	var/area/A = loc.loc
+	var/area_display_name = get_area_display_name(A)
 
 	//if area isn't specified use current
 	if(isarea(A) && areastring == null)
 		area = A
-		name = "\improper [area.name] APC"
+		name = "[area_display_name] APC"
 	else
 		area = get_area_name(areastring)
-		name = "\improper [area.name] APC"
+		name = "[area_display_name] APC"
 	area.apc = src
 	update_icon()
 
@@ -939,7 +941,8 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 /obj/machinery/power/apc/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "Apc", "[area.name] - APC", 665, (isobserver(user) && check_rights(R_ADMIN, FALSE, user) || issilicon(user) || isstoryteller(user)) ? 540 : 480)
+		var/area_display_name = get_area_display_name(area)
+		ui = new(user, src, "Apc", "[area_display_name] - APC", 665, (isobserver(user) && check_rights(R_ADMIN, FALSE, user) || issilicon(user) || isstoryteller(user)) ? 540 : 480)
 		ui.open()
 
 /obj/machinery/power/apc/proc/update()

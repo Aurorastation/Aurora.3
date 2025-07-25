@@ -383,3 +383,26 @@
       colors, brands, and more. Comes in three types: standard, refrigerated and tank.'
   - code_imp: Old shipping containers and relevant paths and references have been
       remapped to 'shipping_container_old' to avoid confusion.
+2025-07-23:
+  kermit:
+  - rscadd: Makes earphones/headphones/earbuds play music, much like Audioconsoles!
+  - rscadd: Adds music cartridges which are used to load music into earphones.
+  kermit, cometblaze:
+  - rscadd: Adds a football to the game. Available only to off-duty and passenger
+      loadouts only right now.
+  - imageadd: Football sprite by Comet.
+2025-07-24:
+  hazelmouse:
+  - rscadd: When plants grown in hydroponics or the garden go outside of their tolerances,
+      they will now cease to grow in addition to taking damage. If you notice plants
+      failing to grow for a long time, you may be running afoul of their light or
+      heat tolerances!
+  - rscadd: Seed packets now show their temperature and light tolerances on examine.
+  - rscadd: Hydroponicists now spawn with filled hydrobelts, similarly to engineers
+      and machinists.
+  - rscadd: Tweaked the preferential values of a few plants for consistency.
+  - rscadd: Eki is now, codewise, a mushroom.
+  - rscadd: Soil plots now produce noise when watered.
+  - rscadd: Hydrobelts can now contain crowbars.
+  - rscadd: Slightly increased the volume of a few sound effects for hydroponics trays.
+  - bugfix: Sugar tree seeds now appear corectly in seed storage machines.
