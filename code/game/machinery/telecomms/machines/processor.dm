@@ -30,6 +30,7 @@
 	if(!process_mode)
 		// Data scrambling increased from 35-65 to MAXIMUM GIBBERISH
 		signal.data["compression"] = 100
+
 	// Processor set to UNCOMPRESS
 	else if (signal.data["compression"])
 		// Ion storm? Blow out any intelligibility.
