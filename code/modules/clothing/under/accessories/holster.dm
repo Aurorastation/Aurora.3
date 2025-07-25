@@ -203,7 +203,7 @@
 /obj/item/clothing/accessory/holster/modular
 	name = "plate carrier holster"
 	desc = "A special holster with rigging able to attach to modern modular plate carriers."
-	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon = 'icons/obj/item/clothing/suit/armor/modular_armor/modular_armor_attachments.dmi'
 	icon_state = "modular_holster"
 	item_state = "modular_holster"
 	contained_sprite = TRUE

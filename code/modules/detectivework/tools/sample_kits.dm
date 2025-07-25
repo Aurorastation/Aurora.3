@@ -80,18 +80,25 @@
 /obj/item/sample/fibers
 	name = "fiber bag"
 	desc = "Used to hold fiber evidence for the detective."
-	desc_info = "Holds various fibre evidence. Place it in a slide and the slide into a microscope to check them."
 	icon_state = "fiberbag"
+
+/obj/item/sample/fibers/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Holds various fibre evidence. Place it in a slide and the slide into a microscope to check them."
 
 /obj/item/sample/print
 	name = "fingerprint card"
 	desc = "Records a set of fingerprints."
-	desc_info = "A sample card for fingerprints. Risks putting your own prints on it if touched without gloves.\
-	\nPlace the card in a microscope to examine the contents. \
-	\nUse in hand to put your prints on it.\nTarget hands and click another creature to take their prints."
 	icon = 'icons/obj/card.dmi'
 	icon_state = "fingerprint0"
 	item_state = "paper"
+
+/obj/item/sample/print/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "A sample card for fingerprints. Risks putting your own prints on it if touched without gloves."
+	. += "Place the card in a microscope to examine the contents."
+	. += "Use in hand to put your prints on it."
+	. += "Target hands and click another creature to take their prints."
 
 /obj/item/sample/print/attack_self(var/mob/user)
 	if(LAZYLEN(evidence))
@@ -159,12 +166,15 @@
 /obj/item/forensics/sample_kit
 	name = "fiber collection kit"
 	desc = "A magnifying glass and tweezers. Used to lift suit fibers."
-	desc_info = "Click drag it on to an object to collect evidence. Alternatively click on non-help intent."
 	icon_state = "m_glass"
 	w_class = WEIGHT_CLASS_SMALL
 	item_flags = ITEM_FLAG_NO_BLUDGEON
 	var/evidence_type = "fiber"
 	var/evidence_path = /obj/item/sample/fibers
+
+/obj/item/forensics/sample_kit/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Click drag it onto an object to collect fiber evidence. Alternatively, click on an object with non-Help intent."
 
 /obj/item/forensics/sample_kit/proc/can_take_sample(var/mob/user, var/atom/supplied)
 	return (supplied.suit_fibers && supplied.suit_fibers.len)

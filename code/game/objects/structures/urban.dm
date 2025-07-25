@@ -355,10 +355,10 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	layer = ABOVE_HUMAN_LAYER
 	layer = ABOVE_HUMAN_LAYER
 
-/obj/structure/shipping_container
+/obj/structure/shipping_container_old
 	name = "freight container"
 	desc = "A hulking industrial shipping container, bound for who knows where."
-	icon = 'icons/obj/structure/industrial/shipping_containers.dmi'
+	icon = 'icons/obj/structure/industrial/shipping_containers_old.dmi'
 	icon_state = "blue1"
 	anchored = TRUE
 	density = TRUE
@@ -367,7 +367,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 
 /obj/effect/overlay/container_logo
 	name = "Hephaestus Industries emblem"
-	icon = 'icons/obj/structure/industrial/shipping_containers.dmi'
+	icon = 'icons/obj/structure/industrial/shipping_containers_old.dmi'
 	icon_state = "heph1"
 	layer = ABOVE_HUMAN_LAYER + 0.01
 	layer = 4.6

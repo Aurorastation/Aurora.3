@@ -26,6 +26,16 @@
 	var/gibs_ready = 0
 	var/obj/crayon
 
+/obj/machinery/washing_machine/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Click a washing machine to open and close the door."
+	. += "ALT-click a washing machine to start and stop it."
+	. += "Washing machines can be used as part of the leather tanning process by putting scraped bare hides in them."
+
+/obj/machinery/washing_machine/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "If you put Ian inside this machine and run it, terrible things will happen."
+
 /obj/machinery/washing_machine/verb/start()
 	set name = "Start Washing"
 	set category = "Object"

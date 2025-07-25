@@ -1,8 +1,6 @@
 /obj/machinery/power/am_control_unit
 	name = "antimatter control unit"
 	desc = "The control unit for an antimatter reactor. Probably safe."
-	desc_info = "Use a wrench to attach the control unit to the ground, then arrange the reactor sections nearby. Reactor sections can only be activated if they are near the control unit, but otherwise are not restricted in how they must be placed."
-	desc_antag = "The antimatter engine will quickly destabilize if the fuel injection rate is set too high, causing a large explosion."
 	icon = 'icons/obj/machinery/new_ame.dmi'
 	icon_state = "control"
 	var/icon_mod = "on" // on, critical, or fuck
@@ -31,6 +29,18 @@
 	var/stored_core_stability_delay = 0
 
 	var/stored_power = 0			//Power to deploy per tick
+
+/obj/machinery/power/am_control_unit/assembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(!anchored)
+		. += "First secure the control unit to the ground with some <b>bolts</b>."
+	else
+		. += "Arrange the reactor sections nearby and activate them."
+		. += "Reactor sections can only be activated if they are near the control unit, but otherwise are not restricted in how they must be placed."
+
+/obj/machinery/power/am_control_unit/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "The antimatter engine will quickly destabilize if the fuel injection rate is set too high, causing a large explosion."
 
 /obj/machinery/power/am_control_unit/Destroy()//Perhaps damage and run stability checks rather than just del on the others
 	for(var/obj/machinery/am_shielding/AMS in linked_shielding)

@@ -1175,7 +1175,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/tunnels)
 "aJa" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "grey2"
 	},
 /obj/effect/overlay/container_logo/zenghu,
@@ -1486,7 +1486,7 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/restaurant)
 "aTG" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "red3"
 	},
 /obj/effect/overlay/container_logo{
@@ -1563,7 +1563,7 @@
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/maint_janitorial)
 "aVO" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "grey2"
 	},
 /obj/effect/decal/road_marking/no_pass{
@@ -1713,7 +1713,7 @@
 /area/point_verdant/outdoors)
 "bax" = (
 /obj/effect/decal/curb,
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "red2"
 	},
 /obj/effect/overlay/container_logo,
@@ -2439,7 +2439,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior)
 "brk" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "blue2"
 	},
 /obj/effect/overlay/container_logo/einstein{
@@ -5308,7 +5308,7 @@
 /area/point_verdant/interior/hotel/basement)
 "cWf" = (
 /obj/effect/decal/curb,
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "red1"
 	},
 /obj/effect/overlay/container_logo{
@@ -6206,7 +6206,7 @@
 /turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/point_verdant/outdoors)
 "dsf" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "blue2"
 	},
 /obj/effect/overlay/container_logo/zenghu,
@@ -7452,7 +7452,7 @@
 /area/point_verdant/interior/tailor)
 "efn" = (
 /obj/effect/decal/curb,
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "green3"
 	},
 /turf/simulated/floor/asphalt,
@@ -7785,7 +7785,7 @@
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/hotel/basement)
 "enz" = (
-/obj/structure/shipping_container,
+/obj/structure/shipping_container_old,
 /obj/effect/overlay/container_logo/zenghu{
 	icon_state = "zeng3"
 	},
@@ -9058,7 +9058,7 @@
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "eTQ" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "green3"
 	},
 /obj/effect/overlay/container_logo{
@@ -9254,7 +9254,7 @@
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
 "faJ" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "red2"
 	},
 /obj/effect/overlay/container_logo{
@@ -10802,7 +10802,7 @@
 /area/point_verdant/outdoors)
 "fTy" = (
 /obj/effect/decal/curb,
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "grey3"
 	},
 /obj/effect/overlay/container_logo/zenghu{
@@ -11593,7 +11593,7 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior)
 "gwO" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "blue2"
 	},
 /turf/simulated/floor/asphalt,
@@ -12132,7 +12132,7 @@
 /area/point_verdant/interior/tunnels)
 "gLY" = (
 /obj/effect/decal/curb,
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "green1"
 	},
 /obj/effect/overlay/container_logo{
@@ -12295,7 +12295,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "gSl" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "blue3"
 	},
 /obj/effect/overlay/container_logo/einstein{
@@ -13039,7 +13039,7 @@
 /area/point_verdant/interior)
 "hqT" = (
 /obj/effect/decal/curb,
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "grey2"
 	},
 /obj/effect/overlay/container_logo/zenghu,
@@ -13136,7 +13136,7 @@
 /turf/simulated/floor/sidewalk/dark,
 /area/point_verdant/interior/offices/basement)
 "huR" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "green2"
 	},
 /obj/effect/overlay/container_logo/einstein{
@@ -13398,7 +13398,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "hCC" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "red1"
 	},
 /obj/effect/overlay/container_logo{
@@ -13782,7 +13782,7 @@
 /turf/simulated/open,
 /area/point_verdant/interior/arcade)
 "hPr" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "blue2"
 	},
 /obj/effect/overlay/container_logo/zenghu{
@@ -14017,7 +14017,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "hUr" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "grey1"
 	},
 /turf/simulated/floor/asphalt,
@@ -15055,7 +15055,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "iBv" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "green3"
 	},
 /obj/effect/overlay/container_logo{
@@ -15126,7 +15126,7 @@
 /turf/simulated/floor/concrete,
 /area/point_verdant/interior/streetvendor)
 "iDO" = (
-/obj/structure/shipping_container,
+/obj/structure/shipping_container_old,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "iDT" = (
@@ -15902,7 +15902,7 @@
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/restaurant)
 "iZe" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "grey3"
 	},
 /obj/effect/overlay/container_logo/zenghu{
@@ -17244,7 +17244,7 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/hotel)
 "jNN" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "blue3"
 	},
 /obj/effect/decal/curb,
@@ -18334,7 +18334,7 @@
 /obj/effect/overlay/container_logo{
 	icon_state = "heph2"
 	},
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "red2"
 	},
 /turf/simulated/floor/asphalt,
@@ -19106,7 +19106,7 @@
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/interior)
 "kKj" = (
-/obj/structure/shipping_container,
+/obj/structure/shipping_container_old,
 /obj/effect/decal/curb,
 /obj/effect/overlay/container_logo{
 	icon_state = "ee1"
@@ -19850,7 +19850,7 @@
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices/basement)
 "lmH" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "green1"
 	},
 /turf/simulated/floor/asphalt,
@@ -20694,7 +20694,7 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outdoors)
 "lHw" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "blue2"
 	},
 /obj/effect/decal/curb,
@@ -20951,7 +20951,7 @@
 /turf/unsimulated/floor/plating,
 /area/point_verdant/interior)
 "lPc" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "green3"
 	},
 /obj/effect/overlay/container_logo{
@@ -21212,7 +21212,7 @@
 /obj/effect/overlay/container_logo/zenghu{
 	icon_state = "zeng3"
 	},
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "grey2"
 	},
 /turf/simulated/floor/asphalt,
@@ -21652,7 +21652,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "mjc" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "red3"
 	},
 /turf/simulated/floor/asphalt,
@@ -22756,7 +22756,7 @@
 /area/point_verdant/outdoors)
 "mRe" = (
 /obj/effect/decal/curb,
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "red3"
 	},
 /obj/effect/overlay/container_logo{
@@ -23019,7 +23019,7 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/police)
 "mWc" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "grey3"
 	},
 /turf/simulated/floor/asphalt,
@@ -24450,7 +24450,7 @@
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/interior/police)
 "nPR" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "red2"
 	},
 /obj/effect/overlay/container_logo,
@@ -24721,7 +24721,7 @@
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/hotel/basement)
 "nZy" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "green2"
 	},
 /obj/effect/overlay/container_logo/einstein{
@@ -24859,7 +24859,7 @@
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/pharmacy)
 "ofv" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "green1"
 	},
 /obj/effect/decal/road_marking/no_pass{
@@ -27636,7 +27636,7 @@
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/pharmacy)
 "pNG" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "red1"
 	},
 /turf/simulated/floor/asphalt,
@@ -28076,7 +28076,7 @@
 /turf/simulated/floor/carpet/green,
 /area/point_verdant/interior/tailor)
 "qeL" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "blue2"
 	},
 /obj/effect/overlay/container_logo{
@@ -28414,7 +28414,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/sewer)
 "qtT" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "red3"
 	},
 /obj/effect/decal/road_marking/no_pass{
@@ -29387,7 +29387,7 @@
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/decrepit)
 "qVv" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "red3"
 	},
 /obj/effect/overlay/container_logo{
@@ -30598,7 +30598,7 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/bar)
 "rGK" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "red1"
 	},
 /obj/effect/overlay/container_logo{
@@ -32931,7 +32931,7 @@
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices)
 "tiB" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "green2"
 	},
 /obj/effect/overlay/container_logo/einstein{
@@ -34020,7 +34020,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "tLU" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "grey1"
 	},
 /turf/simulated/floor/asphalt,
@@ -34269,7 +34269,7 @@
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices)
 "tTL" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "blue3"
 	},
 /turf/simulated/floor/asphalt,
@@ -34522,7 +34522,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/parking)
 "udC" = (
-/obj/structure/shipping_container,
+/obj/structure/shipping_container_old,
 /obj/effect/overlay/container_logo{
 	icon_state = "ee1"
 	},
@@ -34814,7 +34814,7 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/spaceport)
 "unL" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "green3"
 	},
 /obj/effect/overlay/container_logo{
@@ -36835,7 +36835,7 @@
 /obj/effect/overlay/container_logo/einstein{
 	icon_state = "ee2"
 	},
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "green1"
 	},
 /obj/effect/decal/road_marking/thin,
@@ -36979,7 +36979,7 @@
 /turf/simulated/floor/concrete,
 /area/point_verdant/interior/shallow)
 "vyS" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "green2"
 	},
 /turf/simulated/floor/asphalt,
@@ -39969,7 +39969,7 @@
 /area/point_verdant/interior/maint_janitorial)
 "xjQ" = (
 /obj/effect/decal/curb,
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "grey1"
 	},
 /obj/effect/overlay/container_logo/zenghu{

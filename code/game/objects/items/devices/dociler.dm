@@ -10,8 +10,8 @@
 	var/loaded = 1
 	var/mode = "completely"
 
-/obj/item/device/dociler/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/device/dociler/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	. += SPAN_NOTICE("It is currently set to [mode] docile mode.")
 
 /obj/item/device/dociler/attack_self(var/mob/user)
