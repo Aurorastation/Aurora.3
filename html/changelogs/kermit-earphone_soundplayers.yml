@@ -1,7 +1,0 @@
-author: kermit
-
-delete-after: True
-
-changes:
-  - rscadd: "Makes earphones/headphones/earbuds play music, much like Audioconsoles!"
-  - rscadd: "Adds music cartridges which are used to load music into earphones."

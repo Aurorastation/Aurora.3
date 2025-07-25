@@ -158,7 +158,7 @@
 
 	allow_borgs_to_leave = TRUE
 
-	warehouse_basearea = /area/operations/storage
+	warehouse_basearea = /area/horizon/operations/warehouse
 	warehouse_packagearea = /area/operations/package_conveyors
 
 	shuttle_manifests = list(

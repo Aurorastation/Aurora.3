@@ -81,6 +81,13 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 	 * This includes any non-space area, including maintenance; it doesn't include space or shuttles (as they could be outside the station)
 	 */
 	var/station_area = FALSE
+	/// Only used for the Horizon, and mostly for mapping checks/naming. All except horizon_deck (integer) use '_DEFINES\ship_locations.dm' constants
+	var/horizon_deck = null
+	var/department = null
+	var/subdepartment = null
+	// 'amidships' belongs to location_ew
+	var/location_ew = null
+	var/location_ns = null
 
 	var/centcomm_area = FALSE
 
@@ -474,15 +481,13 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 			continue
 		if (istype(A, /area/solar) || findtext(A.name, "solar"))
 			continue
-		if (istype(A, /area/constructionsite) || istype(A, /area/maintenance/interstitial_construction_site))
+		if (istype(A, /area/constructionsite))
 			continue
-		if (istype(A, /area/rnd/xenobiology))
+		if (istype(A, /area/horizon/rnd/xenobiology))
 			continue
-		if (istype(A, /area/maintenance/substation))
+		if (istype(A, /area/horizon/maintenance/substation))
 			continue
 		if (istype(A, /area/turbolift))
-			continue
-		if (istype(A, /area/security/penal_colony))
 			continue
 		if (istype(A, /area/mine))
 			continue
