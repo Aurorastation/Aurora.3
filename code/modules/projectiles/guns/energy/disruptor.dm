@@ -33,7 +33,8 @@
 			mode_name = "Flash/Illuminate",
 			projectile_type = /obj/projectile/energy/disruptorstun/flare,
 			charge_cost = 300, // spam flashing is hella annoying. also it makes sense if youre expending so much energy to light up a massive area, i guess
-			modifystate = "disruptorpistolstun",
+			modifystate = "disruptorpistolflash",
+			fire_delay = 18, // 3x delay so you can't rapid fire annoying flashes
 			fire_sound = 'sound/weapons/gunshot/bolter.ogg'),
 		list(
 			mode_name = "Lethal",
@@ -45,7 +46,7 @@
 			mode_name = "Heavy",
 			projectile_type = /obj/projectile/energy/blaster/disruptor/heavy,
 			charge_cost = 300, // paying double for +10 damage and 5 AP. OVERALL, does less damage, just does more in a shorter amount of time (5*30 = 150 dam VS. 10*20 = 200 dam). better hit those shots.
-			modifystate = "disruptorpistolkill",
+			modifystate = "disruptorpistolheavy",
 			accuracy = -2, //Better hit those shots I said :)
 			fire_delay = 12, // 2x delay so you can't rapid fire these stronger blaster bolts
 			recoil = 3,
@@ -236,7 +237,9 @@
 		list(
 			mode_name = "Flash/Illuminate",
 			projectile_type = /obj/projectile/energy/disruptorstun/flare,
-			modifystate = "disruptorpistolstun",
+			charge_cost = 300,
+			modifystate = "disruptorpistolflash",
+			fire_delay = 18, // 3x delay so you can't rapid fire annoying flashes
 			fire_sound = 'sound/weapons/gunshot/bolter.ogg'),
 		list(
 			mode_name = "Extra-Lethal",
@@ -248,7 +251,7 @@
 			mode_name = "Heavy (Explosive)",
 			projectile_type = /obj/projectile/energy/blaster/disruptor/explosive,
 			charge_cost = 300,
-			modifystate = "disruptorpistolkill",
+			modifystate = "disruptorpistolheavy",
 			accuracy = -2,
 			fire_delay = 18, // 3x delay so you can't rapid fire these explosive blaster bolts
 			recoil = 3,
