@@ -1,6 +1,6 @@
 /obj/item/gun/energy/disruptorpistol
 	name = "disruptor pistol"
-	desc = "A Nexus Corporate Security designed blaster pistol with variable settings. This is the NEXUS DP8 Standard variant."
+	desc = "A Nexus Corporate Security designed blaster pistol with variable settings. This is the NEXUS DP-8 Standard variant."
 	desc_extended = "Developed and produced by Nexus Corporate Security, the NEXUS DP-8 is a state of the art blaster pistol capable of firing varying blaster bolts to different effect."
 	desc_mechanics = "The disruptor pistol is voice-controlled! Try saying 'Disruptor' then a firing mode, or 'Disruptor Crowd Control. Alt+Click to set a Loudspeaker Message, then Unique-Action to play it!"
 	icon = 'icons/obj/guns/disruptorpistol/disruptorpistols.dmi'
@@ -32,6 +32,7 @@
 		list(
 			mode_name = "Flash/Illuminate",
 			projectile_type = /obj/projectile/energy/disruptorstun/flare,
+			charge_cost = 300, // spam flashing is hella annoying. also it makes sense if youre expending so much energy to light up a massive area, i guess
 			modifystate = "disruptorpistolstun",
 			fire_sound = 'sound/weapons/gunshot/bolter.ogg'),
 		list(
@@ -68,7 +69,7 @@
 
 /obj/item/gun/energy/disruptorpistol/proc/check_disruptor_user(mob/user)
 	if(!pin || (pin && !(istype(pin, /obj/item/device/firing_pin/wireless))))
-		to_chat(usr, SPAN_WARNING("Incorrect firing pin installed."))
+		to_chat(usr, SPAN_WARNING("The incorrect or no firing pin installed. Contact a warden."))
 		return
 
 	var/mob/living/carbon/human/H = user
@@ -87,7 +88,7 @@
 
 /obj/item/gun/energy/disruptorpistol/proc/play_message()
 	if(!pin || (pin && !(istype(pin, /obj/item/device/firing_pin/wireless))))
-		to_chat(usr, SPAN_WARNING("Incorrect firing pin installed."))
+		to_chat(usr, SPAN_WARNING("The incorrect or no firing pin installed. Contact a warden."))
 		return
 
 	if(world.time - last_message_time <= 5)
@@ -101,7 +102,7 @@
 
 /obj/item/gun/energy/disruptorpistol/hear_talk(mob/living/M in range(0,src), msg)
 	if(!pin || (pin && !(istype(pin, /obj/item/device/firing_pin/wireless))))
-		to_chat(usr, SPAN_WARNING("Incorrect firing pin installed."))
+		to_chat(usr, SPAN_WARNING("The incorrect or no firing pin installed. Contact a warden."))
 		return
 
 	if(check_disruptor_user(M)) // Voice commands probably would go off a voice sample instead of ID credentials, but this is consistent with other ownership checks.
@@ -110,7 +111,7 @@
 
 /obj/item/gun/energy/disruptorpistol/proc/hear(var/msg)
 	if(!pin || (pin && !(istype(pin, /obj/item/device/firing_pin/wireless))))
-		to_chat(usr, SPAN_WARNING("Incorrect firing pin installed."))
+		to_chat(usr, SPAN_WARNING("The incorrect or no firing pin installed. Contact a warden."))
 		return
 
 	var/list/replacechars = list("'" = "","\"" = "",">" = "","<" = "","(" = "",")" = ""," " = "")
@@ -148,7 +149,7 @@
 
 /obj/item/gun/energy/disruptorpistol/AltClick(mob/user)
 	if(!pin || (pin && !(istype(pin, /obj/item/device/firing_pin/wireless))))
-		to_chat(usr, SPAN_WARNING("Incorrect firing pin installed."))
+		to_chat(usr, SPAN_WARNING("The incorrect or no firing pin installed. Contact a warden."))
 		return
 
 	if(!check_disruptor_user(user))
@@ -164,7 +165,7 @@
 
 /obj/item/gun/energy/disruptorpistol/unique_action(mob/living/carbon/user)
 	if(!pin || (pin && !(istype(pin, /obj/item/device/firing_pin/wireless))))
-		to_chat(usr, SPAN_WARNING("Incorrect firing pin installed."))
+		to_chat(usr, SPAN_WARNING("The incorrect or no firing pin installed. Contact a warden."))
 		return
 
 	if(!check_disruptor_user(user))
@@ -212,7 +213,7 @@
 
 /obj/item/gun/energy/disruptorpistol/miniature
 	name = "miniature disruptor pistol"
-	desc = "A Nexus Corporate Security designed blaster pistol with variable settings. This is the NEXUS DP8 Mini variant."
+	desc = "A Nexus Corporate Security designed blaster pistol with variable settings. This is the NEXUS DP-8 Mini variant."
 	icon = 'icons/obj/guns/disruptorpistol/disruptorpistolc.dmi'
 	max_shots = 8
 	force = 3
@@ -221,7 +222,7 @@
 
 /obj/item/gun/energy/disruptorpistol/magnum // ERT variant
 	name = "magnum disruptor pistol"
-	desc = "A Nexus Corporate Security designed blaster pistol with variable settings. This is the NEXUS DP8 Magnum version, used by NCS' asset protection and trauma response team contractors."
+	desc = "A Nexus Corporate Security designed blaster pistol with variable settings. This is the NEXUS DP-8 Magnum version, used by NCS' asset protection and trauma response team contractors."
 	icon = 'icons/obj/guns/disruptorpistol/disruptorpistolm.dmi'
 	max_shots = 30
 	force = 14
