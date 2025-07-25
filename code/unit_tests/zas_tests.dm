@@ -123,12 +123,12 @@ GLOBAL_LIST_EMPTY(turfs_to_map_type)
 
 /datum/unit_test/zas_area_test/ai_chamber
 	name = "ZAS: AI Chamber"
-	area_path = /area/turret_protected/ai
+	area_path = /area/horizon/ai/chamber
 	expectation = UT_NORMAL_COOL
 
 /datum/unit_test/zas_area_test/xenobio
 	name = "ZAS: Xenobiology"
-	area_path = /area/rnd/xenobiology
+	area_path = /area/horizon/rnd/xenobiology
 
 /*
 /datum/unit_test/zas_area_test/mining_area

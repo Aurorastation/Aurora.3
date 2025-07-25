@@ -23,12 +23,13 @@
 /obj/machinery/light_switch/Initialize()
 	. = ..()
 	src.area = get_area(src)
+	var/area_display_name = get_area_display_name(area)
 
 	if(otherarea)
 		src.area = locate(text2path("/area/[otherarea]"))
 
 	if(!name)
-		name = "light switch ([area.name])"
+		name = "light switch ([area_display_name])"
 
 	src.on = src.area.lightswitch
 	addtimer(CALLBACK(src, PROC_REF(sync_lights)), 25)
