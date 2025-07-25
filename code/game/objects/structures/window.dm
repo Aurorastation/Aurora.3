@@ -34,9 +34,8 @@
 
 	atmos_canpass = CANPASS_PROC
 
-/obj/structure/window/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-
+/obj/structure/window/condition_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(health == maxhealth)
 		. += SPAN_NOTICE("It looks fully intact.")
 	else

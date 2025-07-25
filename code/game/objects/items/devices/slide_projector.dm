@@ -1,7 +1,6 @@
 /obj/item/storage/slide_projector
 	name = "slide projector"
 	desc = "A handy device capable of showing an enlarged projection of whatever you can fit inside."
-	desc_info = "You can use this in hand to open the interface, click-dragging it to you also works. Click anywhere with it in your hand to project at that location. Click dragging it to that location also works."
 	icon = 'icons/obj/projector.dmi'
 	icon_state = "projector0"
 	max_w_class = WEIGHT_CLASS_SMALL
@@ -14,6 +13,11 @@
 	)
 	var/obj/item/current_slide
 	var/obj/effect/projection/projection
+
+/obj/item/storage/slide_projector/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can use this in-hand or click-drag it to yourself to to open its interface."
+	. += "Click anywhere with it in your hand, or click-drag it, to project at that location."
 
 /obj/item/storage/slide_projector/Destroy()
 	QDEL_NULL(current_slide)

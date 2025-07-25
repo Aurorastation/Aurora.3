@@ -35,8 +35,10 @@
 		/obj/item/reagent_containers/glass/beaker = 2
 	)
 
-	component_hint_bin = "Upgraded <b>matter bins</b> will increase material storage capacity."
-	component_hint_servo = "Upgraded <b>manipulators</b> will improve material use efficiency and increase fabrication speed."
+/obj/machinery/r_n_d/protolathe/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>matter bins</b> will increase material storage capacity."
+	. += "Upgraded <b>manipulators</b> will improve material use efficiency and increase fabrication speed."
 
 ///Returns the total of all the stored materials
 /obj/machinery/r_n_d/protolathe/proc/TotalMaterials()

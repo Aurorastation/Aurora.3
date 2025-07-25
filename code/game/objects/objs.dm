@@ -321,6 +321,10 @@
 		if(length(clients_in_hearers))
 			langchat_speech(message, hearers, GLOB.all_languages, skip_language_check = TRUE)
 
+/// Override this to customize the effects an activated signaler has.
+/obj/proc/do_signaler()
+	return
+
 /**
  * Called when an access cable - from an IPC or from a roboticist tool - is inserted into an object.
  */

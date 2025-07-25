@@ -189,6 +189,8 @@
 #define BP_AUG_LIGHTER         "retractable lighter"
 #define BP_AUG_MAGBOOT         "integrated mag-claws"
 #define BP_AUG_MEMORY          "memory inhibitor"
+#define BP_AUG_MIND_BLANKER	   "mind blanker"
+#define BP_AUG_MIND_BLANKER_L  "lethal mind blanker"
 #define BP_AUG_PEN             "retractable combipen"
 #define BP_AUG_PSI             "psionic receiver"
 #define BP_AUG_RADIO           "integrated radio"

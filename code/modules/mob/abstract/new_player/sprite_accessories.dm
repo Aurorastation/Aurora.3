@@ -4689,6 +4689,30 @@ Follow by example and make good judgement based on length which list to include 
 	name = "question mark IPC screen"
 	icon_state = "ipc_question"
 
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_green_eyes
+	name = "green eyes IPC screen"
+	icon_state = "ipc_green_eyes"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_red_eyes
+	name = "red eyes IPC screen"
+	icon_state = "ipc_red_eyes"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_yellow_eyes
+	name = "yellow eyes IPC screen"
+	icon_state = "ipc_yellow_eyes"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_pink_eyes
+	name = "pink eyes IPC screen"
+	icon_state = "ipc_pink_eyes"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_orange_eyes
+	name = "orange eyes IPC screen"
+	icon_state = "ipc_orange_eyes"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_blue_eyes
+	name = "blue eyes IPC screen"
+	icon_state = "ipc_blue_eyes"
+
 //bishop screens
 /datum/sprite_accessory/facial_hair/ipc_screen_blank/bishop
 	icon = 'icons/mob/human_face/ipc_screens.dmi'
