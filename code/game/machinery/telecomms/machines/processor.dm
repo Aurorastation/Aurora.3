@@ -32,8 +32,11 @@
 		signal.data["compression"] = 100
 	// Processor set to UNCOMPRESS
 	else if (signal.data["compression"])
+		// Ion storm? Blow out any intelligibility.
+		if(ion_storm)
+			signal.data["compression"] = 100
 		// Taken any damage? Start gently scrambling things.
-		if(integrity < 100)
+		else if(integrity < 100)
 			signal.data["compression"] = rand(0, round((100-integrity)))
 		// Uncompress signal to complete clarity
 		else signal.data["compression"] = 0
