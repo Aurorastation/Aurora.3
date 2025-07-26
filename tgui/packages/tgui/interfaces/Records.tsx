@@ -722,7 +722,7 @@ export const ListActive = (props, context) => {
                     </Box>
                     <Box color="red">
                       {incident.fine
-                        ? 'Fined ' + incident.fine + '电.'
+                        ? 'Fined ' + incident.fine.toFixed(2) + '电.'
                         : 'Sentenced to ' +
                         incident.brig_sentence +
                         ' minutes of brig time.'}

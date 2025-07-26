@@ -139,14 +139,14 @@ export const AuthenticatedWindow = (props, context) => {
       </Box>
       Your account balance is{' '}
       <Box as="span" bold>
-        {data.money}
+        {data.money.toFixed(2)}
       </Box>
       电.
       <LabeledList>
         <LabeledList.Item label="Withdraw">
           <NumberInput
             value={withdraw}
-            minValue={0}
+            minValue={1}
             width={3}
             maxValue={data.money}
             animated
