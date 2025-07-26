@@ -21,7 +21,7 @@
 	if(!..())
 		return FALSE
 	var/obj/machinery/power/apc/A = holder
-	return A?.wiresexposed
+	return A?.panel_open
 
 /datum/wires/apc/on_pulse(wire)
 
