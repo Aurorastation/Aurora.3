@@ -370,6 +370,7 @@
 #include "code\controllers\subsystems\overlays.dm"
 #include "code\controllers\subsystems\pai.dm"
 #include "code\controllers\subsystems\pathfinder.dm"
+#include "code\controllers\subsystems\persistent.dm"
 #include "code\controllers\subsystems\ping.dm"
 #include "code\controllers\subsystems\plants.dm"
 #include "code\controllers\subsystems\profiler.dm"
