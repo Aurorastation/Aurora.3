@@ -8,7 +8,7 @@ SUBSYSTEM_DEF(persistent)
 #############################################*/
 
 // List of all tracked objects, initially filled by Initialize(), later managed by register_datum() and deregister_datum(), consumed at the end by Destroy().
-var/list/tracks[]
+var/list/tracks[] // => list(list(obj, ckey))
 
 /*#############################################
 			    Internal methods
@@ -26,12 +26,15 @@ var/list/tracks[]
         return SS_INIT_FAILURE
     else
         // Delete all persistent objects in the database that have expired
-        // Pull remaining entries
-        // Instanciate all remaining entries based of their type
+        // TODO
 
+        // Pull remaining entries
         var/datum/db_query/query = SSdbcore.NewQuery("SELECT id, type, content FROM ss13_persistent_data")
         stats_query.Execute() // TODO Handle results
 		qdel(stats_query)
+
+        // Instanciate all remaining entries based of their type
+        //TODO
 	    return SS_INIT_SUCCESS
 
 /**
@@ -44,7 +47,14 @@ var/list/tracks[]
  * Destruction of the persistent subsystem. Adds new persistent objects, removes no longer existing persistent objects and updates changed persistent objects in the database.
  */
 /datum/controller/subsystem/persistent/Destroy()
+    // Saves tracked objects without ID to DB
+    //TODO
 
+    // Update tracked objects with ID to DB
+    //TODO
+    
+    // Drop entries from DB that are not in the tracking list
+    //TODO
 
 /**
  * Generates StatEntry. Returns information about currently tracked objects.
