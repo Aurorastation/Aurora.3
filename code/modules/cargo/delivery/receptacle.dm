@@ -55,11 +55,11 @@ GLOBAL_LIST_INIT_TYPED(all_cargo_receptacles, /obj/structure/cargo_receptacle, l
 	else
 		delivery_sector = null
 
-	if(!spawns_packages)
+	if(!spawns_packages) // excludes horizon's receptacle, we don't want to send packages to ourselves.
 		GLOB.all_cargo_receptacles += src
 		return
 
-	if(!my_sector?.invisible_until_ghostrole_spawn) // excludes horizon's receptacle, we don't want to send packages to ourselves.
+	if(!my_sector?.invisible_until_ghostrole_spawn)
 		spawn_packages() // if the `overmap/visitable` isn't hidden, we don't need to wait for a ghost spawn.
 	else if(my_sector)
 		late_spawner = TRUE
