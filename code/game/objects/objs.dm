@@ -66,6 +66,7 @@
 	/* END ACCESS VARS */
 
 	var/persistent_track_id = 0 // Tracking ID of the object used by the persistence subsystem.
+	var/persistent_author_ckey = "" // Author ckey of the object used in persistence subsystem.
 
 /obj/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
