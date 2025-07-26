@@ -9,6 +9,9 @@
 
 /obj/structure/noticeboard/Initialize()
 	. = ..()
+	add_papers_from_turf()
+
+/obj/structure/noticeboard/add_papers_from_turf()
 	for(var/obj/item/I in loc)
 		if(notices > 4) break
 		if(istype(I, /obj/item/paper))
