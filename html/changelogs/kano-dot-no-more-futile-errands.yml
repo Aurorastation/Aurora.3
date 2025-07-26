@@ -1,0 +1,7 @@
+
+author: Kano
+
+delete-after: True
+
+changes:
+  - qol: "Tweaked cargo package spawning logic for the hidden off-ships. It'll now be available after the ship is visible on overmap."

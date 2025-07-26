@@ -15,6 +15,11 @@
 	area_blurb_category = "ops_warehouse"
 	horizon_deck = 1
 
+/area/horizon/operations/package_conveyors
+	name = "Package Conveyors"
+	icon_state = "dark128"
+	horizon_deck = 1
+
 /area/horizon/operations/lobby
 	name = "Lobby"
 	horizon_deck = 2
