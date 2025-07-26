@@ -219,6 +219,11 @@
 		/obj/item/card/id/captains_spare
 		)
 
+/obj/machinery/cryopod/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(occupant)
+		. += SPAN_NOTICE("<b>[occupant]</b> [occupant.get_pronoun("is")] inside \the [initial(name)].")
+
 /obj/machinery/cryopod/robot
 	name = "robotic storage unit"
 	desc = "A storage unit for robots."
@@ -249,7 +254,6 @@
 	var/image/I = image(icon, "pod_top")
 	AddOverlays(I)
 
-
 	if(occupant)
 		I = image(icon, "pod_back")
 		AddOverlays(I)
@@ -279,11 +283,6 @@
 /obj/machinery/cryopod/LateInitialize()
 	. = ..()
 	find_control_computer()
-
-/obj/machinery/cryopod/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(occupant)
-		. += SPAN_NOTICE("<b>[occupant]</b> [occupant.get_pronoun("is")] inside \the [initial(name)].")
 
 /obj/machinery/cryopod/can_hold_dropped_items()
 	return FALSE

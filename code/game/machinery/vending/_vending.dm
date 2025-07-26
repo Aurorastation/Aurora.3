@@ -229,6 +229,12 @@
 	///Default price of premium items if not overridden
 	var/extra_price = 50
 
+/obj/machinery/vending/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "A vending machine infected with a launcher virus can be fixed by using a debugger on it. This takes longer than using a wiring panel."
+	. += "All vending machines can be hacked to obtain some contraband items from them, and some can be fed with coins to gain access to premium items."
+
+
 /obj/machinery/vending/Initialize(mapload)
 	. = ..()
 	wires = new(src)

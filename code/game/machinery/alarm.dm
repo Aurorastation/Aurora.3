@@ -1,5 +1,5 @@
 ////////////////////////////////////////
-//CONTAINS: Air Alarms and Fire Alarms//
+//CONTAINS: Air Alarms//
 ////////////////////////////////////////
 
 #define AALARM_MODE_SCRUBBING	1
@@ -354,12 +354,13 @@ pixel_x = 10;
 
 /obj/machinery/alarm/proc/first_run()
 	alarm_area = get_area(src)
+	var/area_display_name = get_area_display_name(alarm_area)
 	area_uid = alarm_area.uid
 	if (name == "alarm")
 		if (highpower)
-			name = "[alarm_area.name] High-Power Air Alarm"
+			name = "[area_display_name] High-Power Air Alarm"
 		else
-			name = "[alarm_area.name] Air Alarm"
+			name = "[area_display_name] Air Alarm"
 
 	if(!wires)
 		wires = new(src)
@@ -630,9 +631,10 @@ pixel_x = 10;
 		return
 
 	var/datum/signal/alert_signal = new
+	var/area_display_name = get_area_display_name(alarm_area)
 	alert_signal.source = src
 	alert_signal.transmission_method = TRANSMISSION_RADIO
-	alert_signal.data["zone"] = alarm_area.name
+	alert_signal.data["zone"] = area_display_name
 	alert_signal.data["type"] = "Atmospheric"
 
 	if(alert_level==2)
@@ -706,7 +708,6 @@ pixel_x = 10;
 	data["total_danger"] = danger_level
 	data["environment"] = environment_data
 	data["atmos_alarm"] = alarm_area.atmosalm
-	data["fire_alarm"] = alarm_area.fire != null
 	data["target_temperature"] = "[target_temperature - T0C]C"
 
 /obj/machinery/alarm/proc/populate_controls(var/list/data)
@@ -1046,8 +1047,6 @@ Just a object used in constructing air alarms
 	desc = "Looks like a circuit. Probably is."
 	w_class = WEIGHT_CLASS_SMALL
 	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 50)
-
-// Fire Alarms moved to firealarm.dm
 
 #undef AALARM_MODE_SCRUBBING
 #undef AALARM_MODE_REPLACEMENT

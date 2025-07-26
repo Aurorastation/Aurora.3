@@ -20,6 +20,15 @@
 	var/datum/radio_frequency/radio_connection
 	var/deadman = FALSE
 
+/obj/item/device/assembly/signaler/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Signalers can be attached to a variety of machinery to remotely activate them."
+	. += "Signalers can be to individual wires within machinery; when a signal is received, it will pulse the wire much like a multitool."
+
+/obj/item/device/assembly/signaler/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Signalers can be attached to a variety of machinery to do unspeakable harm or serve as fantastic diversions."
+
 /obj/item/device/assembly/signaler/Initialize()
 	. = ..()
 	set_frequency(frequency)

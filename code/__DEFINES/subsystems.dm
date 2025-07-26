@@ -149,6 +149,7 @@
 
 // - SSjobs --
 // departments
+// If we rename any of these, also change them in ship_locations.dm define.
 #define DEPARTMENT_COMMAND "Command"
 #define DEPARTMENT_COMMAND_SUPPORT "Command Support"
 #define DEPARTMENT_SECURITY "Security"

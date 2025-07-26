@@ -1,7 +1,6 @@
 /obj/machinery/stasis_bed
 	name = "lifeform stasis unit"
 	desc = "A not so comfortable looking bed with some nozzles at the top and bottom. It will keep someone in stasis."
-	desc_info = "You can alt-click this to toggle it on or off."
 	icon = 'icons/obj/machinery/sleeper.dmi'
 	icon_state = "stasis"
 	anchored = TRUE
@@ -26,6 +25,10 @@
 		/obj/item/stock_parts/scanning_module = 2,
 		/obj/item/stock_parts/console_screen
 	)
+
+/obj/machinery/stasis_bed/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can alt-click this to toggle it on or off."
 
 /obj/machinery/stasis_bed/Initialize(mapload, d, populate_components)
 	. = ..()

@@ -29,6 +29,35 @@
 
 	//TODO: make it heat up the surroundings when not in space
 
+/obj/item/device/suit_cooling_unit/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+
+	if(!distance <= 1)
+		return
+
+	if(on)
+		if(attached_to_suit(src.loc))
+			. += SPAN_NOTICE("It's switched on and running.")
+		else if(ishuman(loc))
+			var/mob/living/carbon/human/H = loc
+			if(H.species.flags & ACCEPTS_COOLER)
+				. += SPAN_NOTICE("It's switched on and running, connected to the cooling systems of [H].")
+		else
+			. += SPAN_NOTICE("It's switched on, but not attached to anything.")
+	else
+		. += SPAN_NOTICE("It is switched off.")
+
+	if(cover_open)
+		if(cell)
+			. += SPAN_NOTICE("The panel is open, exposing \the [cell].")
+		else
+			. += SPAN_NOTICE("The panel is open.")
+
+	if(cell)
+		. += SPAN_NOTICE("The charge meter reads [round(cell.percent())]%.")
+	else
+		. += SPAN_NOTICE("It doesn't have a power cell installed.")
+
 /obj/item/device/suit_cooling_unit/Initialize()
 	. = ..()
 	if(celltype)
@@ -211,35 +240,6 @@
 		var/mob/M = loc
 		M.update_inv_back()
 		M.update_inv_s_store()
-
-/obj/item/device/suit_cooling_unit/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-
-	if(!distance <= 1)
-		return
-
-	if(on)
-		if(attached_to_suit(src.loc))
-			. += SPAN_NOTICE("It's switched on and running.")
-		else if(ishuman(loc))
-			var/mob/living/carbon/human/H = loc
-			if(H.species.flags & ACCEPTS_COOLER)
-				. += SPAN_NOTICE("It's switched on and running, connected to the cooling systems of [H].")
-		else
-			. += SPAN_NOTICE("It's switched on, but not attached to anything.")
-	else
-		. += SPAN_NOTICE("It is switched off.")
-
-	if(cover_open)
-		if(cell)
-			. += SPAN_NOTICE("The panel is open, exposing \the [cell].")
-		else
-			. += SPAN_NOTICE("The panel is open.")
-
-	if(cell)
-		. += SPAN_NOTICE("The charge meter reads [round(cell.percent())]%.")
-	else
-		. += SPAN_NOTICE("It doesn't have a power cell installed.")
 
 /obj/item/device/suit_cooling_unit/no_cell
 	celltype = null
