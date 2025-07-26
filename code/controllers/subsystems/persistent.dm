@@ -34,6 +34,7 @@ var/list/tracks[] // => list(list(obj, ckey))
 		qdel(stats_query)
 
         // Instanciate all remaining entries based of their type
+        // They should be added to tracking by their individual implementation, not in here, but we need to assign the persistent_track_id
         //TODO
 	    return SS_INIT_SUCCESS
 
@@ -68,6 +69,7 @@ var/list/tracks[] // => list(list(obj, ckey))
 
 /**
  * Adds the given object to the list of tracked objects. At shutdown the tracked object will be either created or updated in the database.
+ * If ckey is not provided, we must either assume it's a SYSTEM owner or the obj already has a ckey and is tracked by an ID
  */
 /datum/controller/subsystem/persistent/register_obj(/obj/track, ckey)
     if(!(track in tracks)) // Prevent duplicates
