@@ -12,6 +12,7 @@ GLOBAL_LIST_INIT_TYPED(all_cargo_receptacles, /obj/structure/cargo_receptacle, l
 		with Orion Express only delivering to automated stations and other distribution points."
 	icon = 'icons/obj/orion_delivery.dmi'
 	icon_state = "delivery_point"
+	density = TRUE
 
 	var/delivery_id = ""
 	var/datum/weakref/delivery_sector
@@ -27,6 +28,9 @@ GLOBAL_LIST_INIT_TYPED(all_cargo_receptacles, /obj/structure/cargo_receptacle, l
 	var/max_spawn = 4
 	/// Used to handle spawn points for the packages. It's set to 'True' for the ships that is invisible if unoccupied.
 	var/late_spawner = FALSE
+	var/announcer_name = "Automated Delivery System"
+	var/announcement_message = "A new delivery point has been detected in the sector. Relevant packages have been unloaded."
+	var/channel = "Operations"
 
 /obj/structure/cargo_receptacle/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -40,21 +44,26 @@ GLOBAL_LIST_INIT_TYPED(all_cargo_receptacles, /obj/structure/cargo_receptacle, l
 /obj/structure/cargo_receptacle/LateInitialize()
 	delivery_id = "#[rand(1, 9)][rand(1, 9)][rand(1, 9)]"
 	name += " ([delivery_id])"
+	var/turf/current_turf = get_turf(loc)
+	var/obj/effect/overmap/visitable/my_sector = GLOB.map_sectors["[current_turf.z]"]
 
 	if(SSatlas.current_map.use_overmap)
-		var/turf/current_turf = get_turf(loc)
-		var/obj/effect/overmap/visitable/my_sector = GLOB.map_sectors["[current_turf.z]"]
-		if(my_sector && spawns_packages)
+		if(my_sector)
 			delivery_sector = WEAKREF(my_sector)
-			if(!my_sector?.invisible_until_ghostrole_spawn)
-				spawn_packages() // if the `overmap/visitable` isn't hidden, we don't need to wait for a ghost spawn.
-			else
-				late_spawner = TRUE
-				RegisterSignal(my_sector, COMSIG_GHOSTROLE_TAKEN, PROC_REF(spawn_packages)) // signal is sent by the same sector our object is in
 		else
 			delivery_sector = null
 	else
 		delivery_sector = null
+
+	if(!spawns_packages) // excludes horizon's receptacle, we don't want to send packages to ourselves.
+		GLOB.all_cargo_receptacles += src
+		return
+
+	if(!my_sector?.invisible_until_ghostrole_spawn)
+		spawn_packages() // if the `overmap/visitable` isn't hidden, we don't need to wait for a ghost spawn.
+	else if(my_sector)
+		late_spawner = TRUE
+		RegisterSignal(my_sector, COMSIG_GHOSTROLE_TAKEN, PROC_REF(spawn_packages)) // signal is sent by the same sector our object is in
 
 	GLOB.all_cargo_receptacles += src
 
@@ -80,7 +89,7 @@ GLOBAL_LIST_INIT_TYPED(all_cargo_receptacles, /obj/structure/cargo_receptacle, l
 			new /obj/item/cargo_package(random_turf, src)
 	if(late_spawner)
 		playsound(pick(warehouse_turfs), 'sound/machines/twobeep.ogg', 50, 1)
-		GLOB.global_announcer.autosay("A new delivery point has been detected in the sector. Relevant packages have been unloaded.", "Automated Delivery System", "Operations")
+		GLOB.global_announcer.autosay(announcement_message, capitalize_first_letters(announcer_name), channel)
 
 /obj/structure/cargo_receptacle/Destroy()
 	GLOB.all_cargo_receptacles -= src
