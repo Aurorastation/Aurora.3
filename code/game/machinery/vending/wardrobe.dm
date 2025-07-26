@@ -313,12 +313,6 @@
 		/obj/item/clothing/suit/storage/toggle/corp/nt = 2,
 		/obj/item/clothing/suit/storage/toggle/corp/orion = 2,
 		/obj/item/clothing/suit/storage/toggle/corp/orion/alt = 2,
-		/obj/item/clothing/suit/storage/toggle/labcoat/idris = 2,
-		/obj/item/clothing/suit/storage/toggle/labcoat/nt = 2,
-		/obj/item/clothing/suit/storage/toggle/labcoat/orion = 2,
-		/obj/item/clothing/suit/storage/toggle/longcoat/idris = 2,
-		/obj/item/clothing/suit/storage/toggle/longcoat/nt = 2,
-		/obj/item/clothing/suit/storage/toggle/longcoat/orion = 2,
 		/obj/item/clothing/accessory/wcoat = 3,
 		/obj/item/clothing/head/bowler = 3,
 		/obj/item/clothing/head/flatcap/bartender = 3,
@@ -384,12 +378,6 @@
 		/obj/item/clothing/suit/storage/toggle/corp/nt = 2,
 		/obj/item/clothing/suit/storage/toggle/corp/orion = 2,
 		/obj/item/clothing/suit/storage/toggle/corp/orion/alt = 2,
-		/obj/item/clothing/suit/storage/toggle/labcoat/idris = 2,
-		/obj/item/clothing/suit/storage/toggle/labcoat/nt = 2,
-		/obj/item/clothing/suit/storage/toggle/labcoat/orion = 2,
-		/obj/item/clothing/suit/storage/toggle/longcoat/idris = 2,
-		/obj/item/clothing/suit/storage/toggle/longcoat/nt = 2,
-		/obj/item/clothing/suit/storage/toggle/longcoat/orion = 2,
 		/obj/item/clothing/accessory/wcoat = 3,
 		/obj/item/clothing/head/hairnet = 3,
 		/obj/item/clothing/head/chefhat = 3,
@@ -549,3 +537,204 @@
 		/obj/item/toy/figure/gardener = 3
 	)
 	light_color = COLOR_LIME
+
+/obj/machinery/vending/wardrobe/chap_wardrobe
+	name = "ChapelVend"
+	desc = "God wills your purchase."
+	icon_state = "chapdrobe"
+	icon_deny = "chapdrobe-deny"
+	light_mask = "clothes-lightmask"
+	product_ads = "Maybe they'd listen if you dressed better?;Clothes for people of the cloth!;No laity allowed!"
+	vend_reply = "Thank you for using ChapelVend!"
+	products = list(
+		/obj/item/clothing/under/rank/chaplain = 3,
+		/obj/item/clothing/suit/nun = 3,
+		/obj/item/clothing/suit/holidaypriest = 3,
+		/obj/item/clothing/head/chaplain_hood = 3,
+		/obj/item/clothing/head/nun_hood = 3,
+		/obj/item/clothing/shoes/sneakers/black = 3,
+		/obj/item/storage/box/fancy/candle_box = 3,
+		/obj/item/storage/box/fancy/candle_box = 3,
+		/obj/item/deck/tarot = 3,
+		/obj/item/deck/tarot/nralakk = 2,
+		/obj/item/deck/tarot/nonnralakk = 2,
+		/obj/item/deck/tarot/adhomai = 2,
+		/obj/item/deck/lyodii = 2
+	)
+	contraband = list(
+		/obj/item/clothing/suit/cultrobes/alt = 2,
+		/obj/item/clothing/head/culthood/alt = 2,
+		/obj/item/clothing/shoes/cult = 2
+	)
+	premium = list(
+		/obj/item/toy/figure/chaplain = 3
+	)
+	light_color = COLOR_PALE_BLUE_GRAY
+
+/obj/machinery/vending/wardrobe/medi_wardrobe
+	name = "\improper MediDrobe"
+	desc = "A vending machine rumoured to be capable of dispensing clothing for medical personnel."
+	icon_state = "medidrobe"
+	product_ads = "Make those blood stains look fashionable!!"
+	vend_reply = "Thank you for using the MediDrobe!"
+	products = list(
+		/obj/item/clothing/accessory/pocketprotector = 4,
+		/obj/item/clothing/head/costume/nursehat = 4,
+		/obj/item/clothing/head/beret/medical = 4,
+		/obj/item/clothing/head/utility/surgerycap = 4,
+		/obj/item/clothing/head/utility/surgerycap/purple = 4,
+		/obj/item/clothing/head/utility/surgerycap/green = 4,
+		/obj/item/clothing/head/beret/medical/paramedic = 4,
+		/obj/item/clothing/head/soft/paramedic = 4,
+		/obj/item/clothing/head/utility/head_mirror = 4,
+		/obj/item/clothing/mask/bandana/striped/medical = 4,
+		/obj/item/clothing/mask/surgical = 4,
+		/obj/item/clothing/under/rank/medical/doctor = 4,
+		/obj/item/clothing/under/rank/medical/doctor/skirt = 4,
+		/obj/item/clothing/under/rank/medical/scrubs/blue = 4,
+		/obj/item/clothing/under/rank/medical/scrubs/green = 4,
+		/obj/item/clothing/under/rank/medical/scrubs/purple = 4,
+		/obj/item/clothing/under/rank/medical/paramedic = 4,
+		/obj/item/clothing/under/rank/medical/paramedic/skirt = 4,
+		/obj/item/clothing/suit/toggle/labcoat = 4,
+		/obj/item/clothing/suit/toggle/labcoat/paramedic = 4,
+		/obj/item/clothing/suit/apron/surgical = 4,
+		/obj/item/clothing/suit/hooded/wintercoat/medical = 4,
+		/obj/item/clothing/suit/hooded/wintercoat/medical/paramedic = 4,
+		/obj/item/clothing/shoes/sneakers/white = 4,
+		/obj/item/clothing/shoes/sneakers/blue = 4,
+		/obj/item/clothing/gloves/latex/nitrile = 4,
+		/obj/item/clothing/gloves/latex = 4,
+		/obj/item/storage/backpack/duffelbag/med = 4,
+		/obj/item/storage/backpack/medic = 4,
+		/obj/item/storage/backpack/satchel/med = 4,
+		/obj/item/storage/backpack/messenger/med = 4,
+		/obj/item/radio/headset/headset_med = 4,
+	)
+	refill_canister = /obj/item/vending_refill/wardrobe/medi_wardrobe
+	payment_department = ACCOUNT_MED
+
+/obj/machinery/vending/wardrobe/chem_wardrobe
+	name = "ChemDrobe"
+	desc = "A vending machine for dispensing chemistry related clothing."
+	icon_state = "chemdrobe"
+	product_ads = "Our clothes are 0.5% more resistant to acid spills! Get yours now!"
+	vend_reply = "Thank you for using the ChemDrobe!"
+	products = list(
+		/obj/item/clothing/head/beret/medical = 2,
+		/obj/item/clothing/under/rank/medical/chemist = 2,
+		/obj/item/clothing/under/rank/medical/chemist/skirt = 2,
+		/obj/item/clothing/suit/toggle/labcoat/chemist = 2,
+		/obj/item/clothing/suit/hooded/wintercoat/medical/chemistry = 2,
+		/obj/item/clothing/gloves/latex = 2,
+		/obj/item/clothing/shoes/sneakers/white = 2,
+		/obj/item/storage/backpack/chemistry = 2,
+		/obj/item/storage/backpack/satchel/chem = 2,
+		/obj/item/storage/backpack/duffelbag/chemistry = 2,
+		/obj/item/storage/backpack/messenger/chem = 2,
+		/obj/item/storage/bag/chemistry = 2,
+		/obj/item/ph_booklet = 3,
+		/obj/item/radio/headset/headset_med = 2,
+	)
+	contraband = list(
+		/obj/item/reagent_containers/spray/syndicate = 2,
+	)
+	refill_canister = /obj/item/vending_refill/wardrobe/chem_wardrobe
+	payment_department = ACCOUNT_MED
+
+	/obj/machinery/vending/wardrobe/science_wardrobe
+	name = "SciDrobe"
+	desc = "A simple vending machine suitable to dispense well tailored science clothing. Endorsed by Space Cubans."
+	icon_state = "scidrobe"
+	product_ads = "Longing for the smell of plasma burnt flesh? Buy your science clothing now!;Made with 10% Auxetics, so you don't have to worry about losing your arm!"
+	vend_reply = "Thank you for using the SciDrobe!"
+	products = list(
+		/obj/item/clothing/accessory/pocketprotector = 3,
+		/obj/item/clothing/head/beret/science = 3,
+		/obj/item/clothing/mask/gas = 3,
+		/obj/item/clothing/mask/bandana/striped/science = 3,
+		/obj/item/clothing/under/rank/rnd/scientist = 3,
+		/obj/item/clothing/under/rank/rnd/scientist/skirt = 3,
+		/obj/item/clothing/suit/toggle/labcoat/science = 3,
+		/obj/item/clothing/suit/hooded/wintercoat/science = 3,
+		/obj/item/clothing/gloves/latex = 3,
+		/obj/item/clothing/shoes/sneakers/white = 3,
+		/obj/item/storage/backpack/science = 3,
+		/obj/item/storage/backpack/satchel/science = 3,
+		/obj/item/storage/backpack/duffelbag/science = 3,
+		/obj/item/storage/backpack/messenger/science = 3,
+		/obj/item/radio/headset/headset_sci = 3,
+	)
+	refill_canister = /obj/item/vending_refill/wardrobe/science_wardrobe
+	payment_department = ACCOUNT_SCI
+
+/obj/machinery/vending/wardrobe/robo_wardrobe
+	name = "RoboDrobe"
+	desc = "A vending machine designed to dispense clothing known only to roboticists."
+	icon_state = "robodrobe"
+	product_ads = "You turn me TRUE, use defines!;0110001101101100011011110111010001101000011001010111001101101000011001010111001001100101"
+	vend_reply = "Thank you for using the RoboDrobe!"
+	products = list(
+		/obj/item/clothing/glasses/hud/diagnostic = 2,
+		/obj/item/clothing/head/soft/black = 2,
+		/obj/item/clothing/mask/bandana/skull/black = 2,
+		/obj/item/clothing/under/rank/rnd/roboticist = 2,
+		/obj/item/clothing/under/rank/rnd/roboticist/skirt = 2,
+		/obj/item/clothing/suit/toggle/labcoat/roboticist = 2,
+		/obj/item/clothing/suit/hooded/wintercoat/science/robotics = 2,
+		/obj/item/clothing/gloves/fingerless = 2,
+		/obj/item/clothing/shoes/sneakers/black = 2,
+		/obj/item/storage/backpack/science = 3,
+		/obj/item/storage/backpack/satchel/science = 3,
+		/obj/item/storage/backpack/duffelbag/science = 3,
+		/obj/item/storage/backpack/messenger/science = 3,
+		/obj/item/radio/headset/headset_sci = 2,
+	)
+	contraband = list(
+		/obj/item/clothing/under/costume/mech_suit = 2,
+		/obj/item/clothing/suit/hooded/techpriest = 2,
+		/obj/item/organ/tongue/robot = 2,
+	)
+	refill_canister = /obj/item/vending_refill/wardrobe/robo_wardrobe
+	extra_price = PAYCHECK_COMMAND * 1.2
+	payment_department = ACCOUNT_SCI
+
+/obj/machinery/vending/wardrobe/cargo_wardrobe
+	name = "CargoDrobe"
+	desc = "A highly advanced vending machine for buying cargo related clothing for free."
+	icon_state = "cargodrobe"
+	product_ads = "Upgraded Assistant Style! Pick yours today!;These shorts are comfy and easy to wear, get yours now!"
+	vend_reply = "Thank you for using the CargoDrobe!"
+	products = list(
+		/obj/item/clothing/head/beret/cargo = 3,
+		/obj/item/clothing/mask/bandana/striped/cargo = 3,
+		/obj/item/clothing/head/soft = 3,
+		/obj/item/clothing/head/utility/hardhat/orange = 3,
+		/obj/item/clothing/under/rank/cargo/tech = 3,
+		/obj/item/clothing/under/rank/cargo/tech/skirt = 3,
+		/obj/item/clothing/under/rank/cargo/tech/alt = 3,
+		/obj/item/clothing/under/rank/cargo/tech/skirt/alt = 3,
+		/obj/item/clothing/suit/toggle/cargo_tech = 3,
+		/obj/item/clothing/suit/hooded/wintercoat/cargo = 3,
+		/obj/item/clothing/suit/hazardvest = 3,
+		/obj/item/clothing/gloves/fingerless = 3,
+		/obj/item/clothing/shoes/sneakers/black = 3,
+		/obj/item/storage/backpack = 3,
+		/obj/item/storage/backpack/satchel = 3,
+		/obj/item/storage/backpack/satchel/leather = 3,
+		/obj/item/storage/backpack/duffelbag = 3,
+		/obj/item/storage/backpack/messenger = 3,
+		/obj/item/radio/headset/headset_cargo = 3,
+		/obj/item/clothing/accessory/pocketprotector = 3,
+	)
+	premium = list(
+		/obj/item/storage/bag/mail = 3,
+		/obj/item/clothing/head/costume/mailman = 1,
+		/obj/item/clothing/under/misc/mailman = 1,
+		/obj/item/flatpack/mailsorter = 1,
+		/obj/item/clothing/under/rank/cargo/miner = 3,
+		/obj/item/clothing/under/rank/cargo/miner/lavaland = 3,
+		/obj/item/clothing/under/rank/cargo/bitrunner = 3,
+	)
+	refill_canister = /obj/item/vending_refill/wardrobe/cargo_wardrobe
+	payment_department = ACCOUNT_CAR
