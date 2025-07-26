@@ -3,8 +3,8 @@
 	desc = "A mechanical basin designed to nurture plants and other aquatic life. It has various useful sensors."
 	icon = 'icons/obj/hydroponics_machines.dmi'
 	icon_state = "hydrotray3"
-	density = 1
-	anchored = 1
+	density = TRUE
+	anchored = TRUE
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	volume = 100
 
@@ -167,6 +167,18 @@
 		/singleton/reagent/radium =   8,
 		/singleton/reagent/mutagen = 15
 		)
+
+/obj/machinery/portable_atmospherics/hydroponics/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(mechanical)
+		. += "You can lower or raise the lid of a hydroponics tray using <b>Alt + Left Click</b> with an open hand."
+		. += "Improper lighting can be lethal to plants! If your surrounding lighting is inappropriate, you can lower the lid and set a tray light level \
+		using <b>Control + Left Click</b> with an open hand."
+		. += "When the lid is lowered, and if wrenched to a connector, hydroponics trays adopt the temperature of the gas inside the connector. Use this to \
+		change the temperature at which a tray is growing to conform to a plant's heat preferences."
+	else
+		. += "This is a soil plot, and therefore lacks many of the features of hydroponics trays. You will need to ensure that the surrounding atmosphere \
+		lighting of the plot matches the preferences of the plant you are trying to grow, or else it may grow slowly or not at all."
 
 /obj/machinery/portable_atmospherics/hydroponics/AltClick()
 	if (istype(usr, /mob/living/carbon/alien/diona))//A diona alt+clicking feeds the plant
@@ -576,6 +588,7 @@
 				return
 
 			to_chat(user, "You plant the [S.seed.seed_name] [S.seed.seed_noun].")
+			playsound(src, 'sound/items/pickup/herb.ogg', 50, 1)
 			lastproduce = 0
 			seed = S.seed //Grab the seed datum.
 			dead = 0
@@ -592,7 +605,6 @@
 			to_chat(user, SPAN_DANGER("\The [src] already has seeds in it!"))
 
 	else if (istype(attacking_item, /obj/item/material/minihoe))  // The minihoe
-
 		if(weedlevel > 0)
 			user.visible_message(SPAN_DANGER("[user] starts uprooting the weeds from \the [src]."),
 									SPAN_DANGER("You begin to remove the weeds from \the [src]."))
@@ -695,30 +707,28 @@
 	else if(dead)
 		remove_dead(user)
 
-/obj/machinery/portable_atmospherics/hydroponics/feedback_hints(mob/user, distance, is_adjacent)
-	. += ..()
+/obj/machinery/portable_atmospherics/hydroponics/get_examine_text(mob/user, distance, is_adjacent)
+	. = ..()
 
-	if(!seed)
-		. += "[src] is empty."
-		return
-
-	. += SPAN_NOTICE("[seed.display_name] are growing here.")
+	if(seed)
+		. += SPAN_NOTICE("[seed.display_name] are growing here.")
 
 	if(!is_adjacent)
 		return
 
-	. += "The water gauge displays [round(waterlevel,0.1)]/100."
-	. += "The nutrient gauge displays [round(nutrilevel,0.1)]/10."
+	. += "The water gauge displays <b>[round(waterlevel,0.1)]/100</b>."
+	. += "The nutrient gauge displays <b>[round(nutrilevel,0.1)]/10</b>."
 
 	if(weedlevel >= 5)
 		. += "\The [src] is <span class='danger'>infested with weeds</span>!"
 	if(pestlevel >= 5)
 		. += "\The [src] is <span class='danger'>infested with tiny worms</span>!"
 
-	if(dead)
-		. += SPAN_DANGER("The plant is dead.")
-	else if(health <= (seed.get_trait(TRAIT_ENDURANCE)/ 2))
-		. += "The plant looks <span class='danger'>unhealthy</span>."
+	if(seed)
+		if(dead)
+			. += SPAN_DANGER("The plant is dead.")
+		else if(health <= (seed.get_trait(TRAIT_ENDURANCE)/ 2))
+			. += "The plant looks <span class='danger'>unhealthy</span>."
 
 	if(mechanical)
 		var/turf/T = loc
@@ -735,19 +745,44 @@
 			return
 
 		var/light_string
+		var/light_available
 		if(closed_system && mechanical)
-			light_string = "that the internal lights are set to [tray_light] lumens"
+			light_available = tray_light
+			light_string = "that the internal lights are set to <b>[light_available] lumens</b>"
 		else
-			var/light_available
 			if(TURF_IS_DYNAMICALLY_LIT(T))
 				light_available = T.get_lumcount(0, 3) * 10
 			else
 				light_available = 5
 
-			light_string = "a light level of [light_available] lumens"
+			light_string = "a light level of <b>[light_available] lumens</b>"
 
-		. += "The tray's sensor suite is reporting [light_string] and a temperature of [environment.temperature]K."
+		. += "The tray's sensor suite is reporting [light_string] and a temperature of <b>[environment.temperature]K</b>."
 
+		if(seed)
+			// These record whether the tray is outside its tolerances, outside its preferences, or inside its preferences.
+			// These are the only three possible states.
+			var/heat_status
+			var/light_status
+
+			if(seed.check_heat_tolerances(environment))
+				heat_status = SPAN_BAD("outside its heat tolerances, totally preventing growth")
+			else if(seed.check_heat_preferences(environment))
+				heat_status = SPAN_GOOD("within its heat preferences, accelerating growth")
+			else
+				heat_status = SPAN_NOTICE("outside its heat preferences, slowing growth")
+
+			if(seed.check_light_tolerances(light_available))
+				light_status = SPAN_BAD("outside its light tolerances, totally preventing growth")
+			else if(seed.check_light_preferences(light_available))
+				light_status = SPAN_GOOD("within its light preferences, accelerating growth")
+			else
+				light_status = SPAN_NOTICE("outside its light preferences, slowing growth")
+
+			// Tells the user if they're messing things up or not.
+			. += SPAN_NOTICE("Sensors report that this tray is [heat_status], and [light_status].")
+
+		// Are we under stasis?
 		var/stasis_string
 		if(stasis)
 			stasis_string = "Stasis is enabled, freezing metabolic functions."
@@ -759,10 +794,8 @@
 /obj/machinery/portable_atmospherics/hydroponics/proc/close_lid(var/mob/living/user)
 	if(closed_system)
 		stasis = FALSE
-		density = FALSE
 		update_use_power(POWER_USE_IDLE)
-	else
-		density = TRUE
+
 	closed_system = !closed_system
 	playsound(src, 'sound/items/pickup/device.ogg', 50, TRUE)
 	to_chat(user, "You [closed_system ? "close" : "open"] the tray's lid.")

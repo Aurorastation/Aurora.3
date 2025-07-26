@@ -70,11 +70,24 @@ GLOBAL_LIST_EMPTY(plant_seed_sprites)
 		sm.Blend(so, ICON_OVERLAY)
 		return sm
 
+/obj/item/seeds/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "All plants have preferential heat and light values. They will grow faster if close to these values, and may even begin to stop growing and die if \
+	they are too far away from them. Use hydroponics trays to get plants within their optimal values!"
+	. += "Plants can be mutated with any mutagen, altering their genes in a random way. Do this with caution as the results may be hazardous!"
+
 /obj/item/seeds/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
+
 	if(seed && !seed.roundstart)
 		. += "It's tagged as variety #[seed.uid]."
-	. += "This has an ideal temperature of <b>[seed.get_trait(TRAIT_IDEAL_HEAT)] kelvin</b> and light level of <b>[seed.get_trait(TRAIT_IDEAL_LIGHT)] lumens.</b>"
+
+	var/lower_heat_tolerance = seed.get_trait(TRAIT_IDEAL_HEAT) - seed.get_trait(TRAIT_HEAT_PREFERENCE)
+	var/higher_heat_tolerance = seed.get_trait(TRAIT_IDEAL_HEAT) + seed.get_trait(TRAIT_HEAT_PREFERENCE)
+	var/lower_light_tolerance = seed.get_trait(TRAIT_IDEAL_LIGHT) - seed.get_trait(TRAIT_LIGHT_PREFERENCE)
+	var/higher_light_tolerance = seed.get_trait(TRAIT_IDEAL_LIGHT) + seed.get_trait(TRAIT_LIGHT_PREFERENCE)
+
+	. += SPAN_NOTICE("This grows optimally between <b>[lower_heat_tolerance] and [higher_heat_tolerance] kelvin</b>, and between <b>[lower_light_tolerance] and [higher_light_tolerance] lumens.</b>")
 
 /obj/item/seeds/cutting
 	name = SEED_NOUN_CUTTINGS
