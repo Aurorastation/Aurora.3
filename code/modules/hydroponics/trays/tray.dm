@@ -180,7 +180,7 @@
 	else
 		. += "This is a soil plot, and therefore lacks many of the features of hydroponics trays. You will need to ensure that the surrounding atmosphere \
 		lighting of the plot matches the preferences of the plant you are trying to grow, or else it may grow slowly or not at all."
-	. += "If a plant matures while not within within both their heat and light preferences, their yields will be reduced."
+	. += "If a plant matures while not within within both their heat and light preferences, its yield will be reduced."
 
 /obj/machinery/portable_atmospherics/hydroponics/AltClick()
 	if (istype(usr, /mob/living/carbon/alien/diona))//A diona alt+clicking feeds the plant
