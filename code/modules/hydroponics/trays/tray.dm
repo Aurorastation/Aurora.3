@@ -175,10 +175,12 @@
 		. += "Improper lighting can be lethal to plants! If your surrounding lighting is inappropriate, you can lower the lid and set a tray light level \
 		using <b>Control + Left Click</b> with an open hand."
 		. += "When the lid is lowered, and if wrenched to a connector, hydroponics trays adopt the temperature of the gas inside the connector. Use this to \
-		change the temperature at which a tray is growing to conform to a plant's heat preferences."
+		change the temperature at which a tray is growing to conform to a plant's heat preferences. Note that if you do this while the connector contains \
+		vacuum, it will cause the temperature of the interior of the tray to reduce drastically in temperature and kill whatever is growing there."
 	else
 		. += "This is a soil plot, and therefore lacks many of the features of hydroponics trays. You will need to ensure that the surrounding atmosphere \
 		lighting of the plot matches the preferences of the plant you are trying to grow, or else it may grow slowly or not at all."
+	. += "If a plant matures while not within within both their heat and light preferences, their yields will be reduced."
 
 /obj/machinery/portable_atmospherics/hydroponics/AltClick()
 	if (istype(usr, /mob/living/carbon/alien/diona))//A diona alt+clicking feeds the plant
@@ -759,7 +761,7 @@
 
 		. += "The tray's sensor suite is reporting [light_string] and a temperature of <b>[environment.temperature]K</b>."
 
-		if(seed)
+		if(seed && !dead)
 			// These record whether the tray is outside its tolerances, outside its preferences, or inside its preferences.
 			// These are the only three possible states.
 			var/heat_status
@@ -770,14 +772,14 @@
 			else if(seed.check_heat_preferences(environment))
 				heat_status = SPAN_GOOD("within its heat preferences, accelerating growth")
 			else
-				heat_status = SPAN_NOTICE("outside its heat preferences, slowing growth")
+				heat_status = SPAN_NOTICE("outside its heat preferences, slowing growth and reducing yield")
 
 			if(seed.check_light_tolerances(light_available))
 				light_status = SPAN_BAD("outside its light tolerances, totally preventing growth")
 			else if(seed.check_light_preferences(light_available))
 				light_status = SPAN_GOOD("within its light preferences, accelerating growth")
 			else
-				light_status = SPAN_NOTICE("outside its light preferences, slowing growth")
+				light_status = SPAN_NOTICE("outside its light preferences, slowing growtha and reducing yield")
 
 			// Tells the user if they're messing things up or not.
 			. += SPAN_NOTICE("Sensors report that this tray is [heat_status], and [light_status].")

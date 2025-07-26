@@ -19,8 +19,8 @@
 	set_trait(TRAIT_PRODUCT_ICON,"chili")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#ED3300")
 	set_trait(TRAIT_PLANT_ICON,"bush2")
-	set_trait(TRAIT_IDEAL_HEAT, 304)
-	set_trait(TRAIT_IDEAL_LIGHT, 7)
+	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
+	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
 
 /obj/item/seeds/chiliseed
 	seed_type = "chili"
@@ -61,8 +61,8 @@
 	set_trait(TRAIT_PRODUCT_COLOUR,"#ff922d")
 	set_trait(TRAIT_PLANT_COLOUR,"#35d65d")
 	set_trait(TRAIT_PLANT_ICON,"bush2")
-	set_trait(TRAIT_IDEAL_HEAT, 293)
-	set_trait(TRAIT_IDEAL_LIGHT, 6)
+	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
+	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
 	set_trait(TRAIT_WATER_CONSUMPTION, 5)
 
 /obj/item/seeds/bellpepperseed
@@ -133,8 +133,8 @@
 	set_trait(TRAIT_PRODUCT_ICON,"eggplant")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#892694")
 	set_trait(TRAIT_PLANT_ICON,"bush4")
-	set_trait(TRAIT_IDEAL_HEAT, 304)
-	set_trait(TRAIT_IDEAL_LIGHT, 7)
+	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
+	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
 
 /obj/item/seeds/eggplantseed
 	seed_type = "eggplant"
@@ -179,7 +179,8 @@
 	set_trait(TRAIT_PRODUCT_ICON,"nuts")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#F2B369")
 	set_trait(TRAIT_PLANT_ICON,"bush2")
-	set_trait(TRAIT_IDEAL_LIGHT, 6)
+	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
+	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
 
 /obj/item/seeds/peanutseed
 	seed_type = "peanut"
@@ -245,7 +246,6 @@
 	set_trait(TRAIT_PRODUCT_ICON, "bean")
 	set_trait(TRAIT_PRODUCT_COLOUR, "#70b74a")
 	set_trait(TRAIT_PLANT_ICON, "bush2")
-	set_trait(TRAIT_IDEAL_LIGHT, 6)
 
 /obj/item/seeds/peaseed
 	seed_type = "peas"
@@ -272,7 +272,6 @@
 	set_trait(TRAIT_PRODUCT_COLOUR,"#84BD82")
 	set_trait(TRAIT_PLANT_COLOUR,"#6D9C6B")
 	set_trait(TRAIT_PLANT_ICON,"vine2")
-	set_trait(TRAIT_IDEAL_LIGHT, 6)
 	set_trait(TRAIT_WATER_CONSUMPTION, 6)
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
 

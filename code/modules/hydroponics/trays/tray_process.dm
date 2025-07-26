@@ -136,8 +136,22 @@
 	// When the plant dies, weeds thrive and pests die off.
 	check_health()
 
+	// Handle light requirements for upcoming logic.
+	var/light_supplied
+	if(!closed_system)
+		if (TURF_IS_DYNAMICALLY_LIT(T))
+			light_supplied = T.get_lumcount(0, 3) * 10
+		else
+			light_supplied = 5
+	else
+		light_supplied = tray_light
+
 	// If enough time (in cycles, not ticks) has passed since the plant was harvested, we're ready to harvest again.
 	if((age > seed.get_trait(TRAIT_MATURATION)) && ((age - lastproduce) > seed.get_trait(TRAIT_PRODUCTION)) && (!harvest && !dead))
+		// If the plant matures while not at its heat and light preferences, the yield modifier is cut in half.
+		// Better grow your plants better next time.
+		if(!(seed.check_light_preferences(light_supplied) && seed.check_heat_preferences(environment)))
+			yield_mod * 0.5
 		harvest = 1
 		lastproduce = age
 		if(seed.get_trait(TRAIT_SPOROUS) && !closed_system)
