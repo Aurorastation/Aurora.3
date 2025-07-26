@@ -779,6 +779,20 @@
 	. = ..()
 	scan_target = WEAKREF(set_scan_target)
 
+/*#############################################
+				PERSISTENT
+#############################################*/
+
+/obj/item/paper/proc/get_persistence_content()
+	var/list/data[] = list()
+	data["title"] = name
+	data["text"] = info
+	return json_encode(data)
+
+/obj/item/paper/proc/apply_persistence_content(json)
+	var/list/data = list()
+	data = json_decode(json)
+	set_content(data["title"], data["text"])
 
 
 /*#############################################
