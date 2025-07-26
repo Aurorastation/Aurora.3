@@ -231,6 +231,10 @@
 	can_pass_under = FALSE
 	light_power_on = 1
 
+/obj/machinery/computer/terminal/update_icon()
+	. = ..()
+	layer = ABOVE_HUMAN_LAYER
+
 /obj/machinery/computer/terminal/inactive
 	name = "inactive terminal"
 	light_power = 0
