@@ -11,7 +11,7 @@ SUBSYSTEM_DEF(persistent)
 var/list/tracks
 
 /*#############################################
-			    Internal methods
+                Internal methods
 #############################################*/
 
 /**
@@ -31,12 +31,12 @@ var/list/tracks
         // Pull remaining entries
         var/datum/db_query/query = SSdbcore.NewQuery("SELECT id, type, content FROM ss13_persistent_data")
         stats_query.Execute() // TODO Handle results
-		qdel(stats_query)
+        qdel(stats_query)
 
         // Instanciate all remaining entries based of their type
         // They should be added to tracking by their individual implementation, not in here, but we need to assign the persistent_track_id and the existing ckey to the obj.
         //TODO
-	    return SS_INIT_SUCCESS
+        return SS_INIT_SUCCESS
 
 /**
  * Recovery of the persistent subsystem. Catches all objects registered in the old instance of the subsystem.
@@ -64,7 +64,7 @@ var/list/tracks
     ..("actively tracked objects: [length(tracks)]")
 
 /*#############################################
-			    Public methods
+                Public methods
 #############################################*/
 
 /**
