@@ -1,6 +1,6 @@
 /obj/machinery/mecha_part_fabricator
-	name = "mechatronic fabricator"
-	desc = "A general purpose fabricator that can be used to fabricate robotic equipment."
+	name = "synthetic fabricator"
+	desc = "A general purpose fabricator that can be used to fabricate equipment for synthetics or exosuits."
 	icon = 'icons/obj/machinery/robotics_fabricator.dmi'
 	icon_state = "fab"
 	density = TRUE
@@ -15,6 +15,7 @@
 		/obj/item/stock_parts/micro_laser,
 		/obj/item/stock_parts/console_screen
 	)
+	manufacturer = "hephaestus"
 
 	/**
 	 * A `/list` of enqueued `/datum/design` to be printed, processed in the queue
@@ -103,27 +104,36 @@
 	do_hair_pull(user)
 	ui_interact(user)
 
-/obj/machinery/mecha_part_fabricator/ui_interact(var/mob/user, var/ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-	var/data[0]
+/obj/machinery/mecha_part_fabricator/ui_interact(mob/user, datum/tgui/ui)
+	. = ..()
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "SyntheticFabricator", "Synthetic Fabricator", 800, 600)
+		ui.open()
 
+/obj/machinery/mecha_part_fabricator/ui_data(mob/user)
+	var/list/data = list()
+	data["manufacturer"] = manufacturer
 	var/datum/design/current = queue.len ? queue[1] : null
 	if(current)
 		data["current"] = current.name
 	data["queue"] = get_queue_names()
 	data["buildable"] = get_build_options()
 	data["category"] = category
-	data["categories"] = categories
+	data["available_categories"] = list()
+	for(var/possible_category in categories)
+		data["available_categories"] += list(list("name" = possible_category))
 
 	if(GLOB.fabricator_robolimbs)
 		var/list/T = list()
 		for(var/A in GLOB.fabricator_robolimbs)
 			var/datum/robolimb/R = GLOB.fabricator_robolimbs[A]
-			T += list(list("id" = A, "company" = R.company))
+			T += list(list("name" = R.company, "type" = A))
 		data["manufacturers"] = T
-		data["manufacturer"] = limb_manufacturer
+		data["selected_manufacturer"] = limb_manufacturer
 
 	data["materials"] = get_materials()
-	data["maxres"] = res_max_amount
+	data["maximum_resource_amount"] = res_max_amount
 	data["sync"] = sync_message
 
 	//If we have something in the queue that we're trying to build, show the time left if the build is undergoing, otherwise null
@@ -133,42 +143,43 @@
 			data["timeleft"] = round(timeleft(build_callback_timer))
 		else
 			data["timeleft"] = null
+	return data
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if(!ui)
-		ui = new(user, src, ui_key, "mechfab.tmpl", "Exosuit Fabricator UI", 800, 600)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
 
-/obj/machinery/mecha_part_fabricator/Topic(href, href_list)
-	if(..())
+/obj/machinery/mecha_part_fabricator/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
 		return
 
-	if(href_list["build"])
-		var/path = text2path(href_list["build"])
-		add_to_queue(path)
+	switch(action)
+		if("build")
+			var/path = text2path(params["build"])
+			add_to_queue(path)
+			return TRUE
 
-	if(href_list["remove"])
-		remove_from_queue(text2num(href_list["remove"]))
+		if("remove")
+			remove_from_queue(text2num(params["remove"]))
+			return TRUE
 
-	if(href_list["category"])
-		if(href_list["category"] in categories)
-			category = href_list["category"]
+		if("category")
+			if(params["category"] in categories)
+				category = params["category"]
+				return TRUE
 
-	if(href_list["manufacturer"])
-		if(href_list["manufacturer"] in GLOB.fabricator_robolimbs)
-			limb_manufacturer = href_list["manufacturer"]
+		if("manufacturer")
+			if(params["manufacturer"] in GLOB.fabricator_robolimbs)
+				limb_manufacturer = params["manufacturer"]
+				return TRUE
 
-	if(href_list["eject"])
-		eject_materials(href_list["eject"], text2num(href_list["amount"]))
+		if("eject")
+			eject_materials(params["eject"], text2num(params["amount"]))
+			return TRUE
 
-	if(href_list["sync"])
-		sync()
-	else
-		sync_message = ""
-
-	return 1
+		if("sync")
+			sync()
+			return TRUE
+		else
+			sync_message = ""
 
 /obj/machinery/mecha_part_fabricator/attackby(obj/item/attacking_item, mob/user)
 	if(build_callback_timer)
@@ -388,9 +399,9 @@
 	. = list()
 	for(var/path in files.known_designs)
 		var/datum/design/D = files.known_designs[path]
-		if(!D.build_path || !(D.build_type & MECHFAB) || !D.category)
+		if(!D.build_path || !(D.build_type & MECHFAB) || !D.category || (D.category != category))
 			continue
-		. += list(list("name" = D.name, "id" = D.type, "category" = D.category, "resourses" = get_design_resourses(D), "time" = get_design_time(D)))
+		. += list(list("name" = D.name, "type" = D.type, "category" = D.category, "resources" = get_design_resourses(D), "time" = get_design_time(D)))
 
 /obj/machinery/mecha_part_fabricator/proc/get_design_resourses(var/datum/design/D)
 	var/list/F = list()
@@ -414,7 +425,7 @@
 /obj/machinery/mecha_part_fabricator/proc/get_materials()
 	. = list()
 	for(var/T in materials)
-		. += list(list("mat" = capitalize(T), "amt" = materials[T]))
+		. += list(list("name" = capitalize(T), "amount" = materials[T]))
 
 /obj/machinery/mecha_part_fabricator/proc/eject_materials(var/material, var/amount) // 0 amount = 0 means ejecting a full stack; -1 means eject everything
 	var/recursive = amount == -1 ? 1 : 0
@@ -422,14 +433,14 @@
 	var/material/mattype = SSmaterials.get_material_by_name(material)
 	var/stack_type = mattype.stack_type
 
-	var/obj/item/stack/material/S = new stack_type(loc)
 	if(amount <= 0)
 		amount = S.max_amount
-	var/ejected = min(round(materials[material] / S.perunit), amount)
-	S.amount = min(ejected, amount)
-	if(S.amount <= 0)
+	var/ejected = min(round(materials[material]), amount)
+	var/obj/item/stack/material/S = new stack_type(loc, min(ejected, amount))
+	if(S.amount <= 0) //??????? kelenius what the fuck were you coding here? what is this dog?
 		qdel(S)
 		return
+	S.update_icon()
 	materials[material] -= ejected * S.perunit
 	if(recursive && materials[material] >= S.perunit)
 		eject_materials(material, -1)
