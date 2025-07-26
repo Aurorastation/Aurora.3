@@ -1,0 +1,8 @@
+author: kermit
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds a Europa music cartridge and tracks to go with it."
+  - bugfix: "Fixes the 'Spacer Classics' music cartridge loadout selection not working."
+  - qol: "Reduces volume of most recently added music tracks."
