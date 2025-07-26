@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "Added missing recipes for mounted Teargas and Smoke grenade launchers to the mechatronic fabricator."
