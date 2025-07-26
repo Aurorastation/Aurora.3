@@ -202,6 +202,8 @@
 	set_trait(TRAIT_PRODUCT_ICON,"bean")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#EBE7C0")
 	set_trait(TRAIT_PLANT_ICON,"stalk")
+	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
+	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
 
 /obj/item/seeds/soyaseed
 	seed_type = "soybean"
