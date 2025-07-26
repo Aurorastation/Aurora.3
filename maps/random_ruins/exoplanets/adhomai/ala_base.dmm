@@ -1112,9 +1112,7 @@
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "TB" = (
-/obj/structure/light_pole/r{
-	density = 0
-	},
+/obj/structure/light_pole/r,
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/ala_base)
 "Vc" = (

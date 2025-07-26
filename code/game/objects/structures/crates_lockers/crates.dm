@@ -749,6 +749,12 @@
 	icon_state = "security_crate"
 	secure = TRUE
 
+/obj/structure/closet/crate/cash_register
+	name = "cash register"
+	desc = "A retail nightmare object."
+	icon_state = "register_clean"
+	door_anim_time = 0
+
 /obj/structure/closet/crate/drinks
 	name = "exotic drinks crate"
 	desc = "A crate packed with boxes of various beverages. Handle with care!"
