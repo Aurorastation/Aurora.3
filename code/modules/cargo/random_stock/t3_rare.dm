@@ -110,9 +110,10 @@ STOCK_ITEM_RARE(ipctags, 0.5)
 	else
 		new /obj/item/implanter/ipc_tag(L)
 
-STOCK_ITEM_RARE(rfd, 0.5)
+STOCK_ITEM_RARE(rfd, 0.75)
 	var/obj/item/rfd/rfd_spawn = pick(/obj/item/rfd/construction, /obj/item/rfd/mining, /obj/item/rfd/piping)
 	new rfd_spawn(L)
+	new /obj/item/rfd_ammo(L)
 
 STOCK_ITEM_RARE(xbow, 0.5)
 	if(prob(95))
@@ -142,7 +143,7 @@ STOCK_ITEM_RARE(rare_clothing, 1)
 		/obj/item/clothing/under/lance,
 		/obj/item/clothing/under/dress/lance_dress/male,
 		/obj/item/clothing/under/kilt)
-	for(var/i in 1 to rand(1, 2))
+	for(var/i in 1 to rand(1, 4))
 		var/obj/item/clothing/C = pick(clothing_picks)
 		new C(L)
 
