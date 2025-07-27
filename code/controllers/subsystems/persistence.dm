@@ -75,7 +75,7 @@ var/list/tracks
  * Run cleanup on the persistence entries in the database.
  * Cleanup includes all entries that have expired and have passed the clean up grace period (PERSISTENT_EXPIRATION_CLEANUP_DELAY_DAYS).
  */
-/datum/controller/subsystem/persistence/database_clean()
+/datum/controller/subsystem/persistence/proc/database_clean()
 	if(!SSdbcore.Connect())
 		log_game("SQL ERROR during persistence database_clean. Failed to connect.")
 	else
@@ -90,7 +90,7 @@ var/list/tracks
  * RETURN:
  *	List of JSON, with ID, author_ckey, type, content, x, y, z
  */
-/datum/controller/subsystem/persistence/database_get_active_entries()
+/datum/controller/subsystem/persistence/proc/database_get_active_entries()
 	if(!SSdbcore.Connect())
 		log_game("SQL ERROR during persistence database_get_active_entries. Failed to connect.")
 	else
