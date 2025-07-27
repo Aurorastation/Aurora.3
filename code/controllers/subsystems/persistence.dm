@@ -7,7 +7,7 @@ SUBSYSTEM_DEF(persistence)
 				Internal vars
 #############################################*/
 
-// List of all tracked objects, initially filled by Initialize(), later managed by register_datum() and deregister_datum(), consumed at the end by Shutdown().
+// List of all tracked objects, initially filled by Initialize(), later managed by register_track() and deregister_track(), consumed at the end by Shutdown().
 var/list/persistence_register
 
 /*#############################################
@@ -41,7 +41,7 @@ var/list/persistence_register
 			instance.persistence_track_id = data["id"]
 			instance.persistence_author_ckey = data["author_ckey"]
 			instance.persistence_apply_content(data["content"], data["x"], data["y"], data["y"])
-			register_obj(instance)
+			register_track(instance)
 
 		return SS_INIT_SUCCESS
 
@@ -120,7 +120,7 @@ var/list/persistence_register
 /**
  * Adds the given object to the list of tracked objects. At shutdown the tracked object will be either created or updated in the database.
  */
-/datum/controller/subsystem/persistence/proc/register_obj(var/obj/new_track, ckey)
+/datum/controller/subsystem/persistence/proc/register_track(var/obj/new_track, ckey)
 	if(!(new_track in persistence_register)) // Prevent multiple registers per
 		persistence_register += new_track
 		if(!ckey) // Some persistent data may not have an actual owner, for example auto generated types like decals or similar.
@@ -129,7 +129,7 @@ var/list/persistence_register
 /**
  * Removes the given object from the list of tracked objects. At shutdown the tracked object will be remove from the database.
  */
-/datum/controller/subsystem/persistence/proc/deregister_obj(var/obj/old_track)
+/datum/controller/subsystem/persistence/proc/deregister_track(var/obj/old_track)
 	old_track.persistence_track_id = null
 	old_track.persistence_author_ckey = null
 	if(old_track in persistence_register)
