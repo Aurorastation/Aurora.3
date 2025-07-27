@@ -73,7 +73,7 @@ var/list/tracks
 /datum/controller/subsystem/persistence/proc/register_obj(var/obj/new_track, ckey)
 	if(!(new_track in tracks)) // Prevent duplicates
 		tracks += new_track
-		if(!ckey)
+		if(!ckey) // Some persistent data may not have an actual owner, for example auto generated types like decals or similar.
 			new_track.persistence_author_ckey = ckey
 
 /**
