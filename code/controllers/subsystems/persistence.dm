@@ -100,6 +100,34 @@ SUBSYSTEM_DEF(persistence)
 		qdel(get_query)
 		return results
 
+/**
+ * Adds the given objects to the database as new persistent data.
+ */
+/datum/controller/subsystem/persistence/proc/database_add_entries(var/list/objects)
+	if(!SSdbcore.Connect())
+		log_game("SQL ERROR during persistence database_add_entries. Failed to connect.")
+	else
+		var/datum/db_query_template/query_template = SSdbcore.NewQueryTemplate("\
+		INSERT INTO ss13_persistent_data (author_ckey, type, created_at, updated_at, expires_at, content, x, y, z) \
+		VALUES (:author_ckey:, :type:, NOW(), NOW(), DATE_ADD(NOW(), INTERVAL :expire_in_days: DAY), :content:, :x:, :y:, :z:)")
+		
+		for(var/object in objects)
+			if (!istype(object, /obj)) // Type checking
+				continue
+			var/obj/entry = object
+			var/datum/db_query/add_query = query_template.Execute(list(
+				"author_ckey"=length(entry.persistence_author_ckey) ? entry.persistence_author_ckey : null,
+				"type"="[entry.type]",
+				"expire_in_days"=entry.persistance_initial_expiration_time_days,
+				"content"=entry.persistence_get_content(),
+				"x"=entry.x,
+				"y"=entry.y,
+				"z"=entry.z
+			))
+			if (add_query.ErrorMsg())
+				log_game("SQL ERROR during persistence database_add_entries. " + add_query.ErrorMsg())
+			qdel(add_query)
+
 /*#############################################
 				Public methods
 #############################################*/
