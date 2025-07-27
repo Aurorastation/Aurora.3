@@ -39,12 +39,6 @@ SUBSYSTEM_DEF(persistence)
 		return SS_INIT_SUCCESS
 
 /**
- * Recovery of the persistence subsystem. Catches all objects registered in the old instance of the subsystem.
- */
-/datum/controller/subsystem/persistence/Recover()
-	// TODO, recover last data?		tracks = SSpersistence.tracks
-
-/**
  * Shutdown of the persistence subsystem. Adds new persistent objects, removes no longer existing persistent objects and updates changed persistent objects in the database.
  */
 /datum/controller/subsystem/persistence/Shutdown()
