@@ -28,6 +28,9 @@ var/list/tracks
 		// Delete all persistent objects in the database that have expired and have passed the cleanup grace period (PERSISTENT_EXPIRATION_CLEANUP_DELAY_DAYS)
 		database_clean()
 
+		// Retrieve all persistent data that is not expired
+		var/list/persistent_data = database_get_active_entries()
+
 		// Instantiate all remaining entries based of their type
 		// Assign persistence related vars found in /obj, apply content and add to live tracking list.
 		//TODO
@@ -71,6 +74,35 @@ var/list/tracks
 		if (cleanup_query.ErrorMsg())
 			log_game("SQL ERROR during persistence database_clean. " + cleanup_query.ErrorMsg())		
 		qdel(cleanup_query)
+
+/**
+ * Retrieve persistent data entries that haven't expired.
+ * RETURN:
+ *	List of JSON, with ID, author_ckey, type, content, x, y, z
+ */
+/datum/controller/subsystem/persistence/database_get_active_entries()
+	if(!SSdbcore.Connect())
+		log_game("SQL ERROR during persistence database_get_active_entries. Failed to connect.")
+	else
+		var/datum/db_query/get_query = SSdbcore.NewQuery("SELECT id, author_ckey, type, content, x, y, z FROM ss13_persistent_data WHERE NOW() < expires_at")
+		get_query.Execute()
+		var/list/results = list()
+		if (get_query.ErrorMsg())
+			log_game("SQL ERROR during persistence database_get_active_entries. " + get_query.ErrorMsg())
+			return
+		else			
+			while (get_query.NextRow())
+				var/list/entry[] = list()
+				entry["id"] = text2num(get_query.item[1])
+				entry["author_ckey"] = get_query.item[2]
+				entry["type"] = get_query.item[3]
+				entry["content"] = get_query.item[4]
+				entry["x"] = text2num(get_query.item[5])
+				entry["y"] = text2num(get_query.item[6])
+				entry["z"] = text2num(get_query.item[7])
+				results += entry
+		qdel(get_query)
+		return results
 
 /*#############################################
 				Public methods
