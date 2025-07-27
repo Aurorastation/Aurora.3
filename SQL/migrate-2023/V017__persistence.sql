@@ -6,6 +6,9 @@ CREATE TABLE ss13_persistent_data (
     updated_at DATETIME NOT NULL,
     expires_at DATETIME NULL,
     content JSON NOT NULL,
+    x INT NULL,
+    y INT NULL,
+    z INT NULL,
     PRIMARY KEY (id),
     INDEX idx_expireDate (expireDate)
 );

@@ -343,7 +343,9 @@
 /**
  * Called by the persistence subsystem to apply persistent data on the created object.
  * Expected to be overriden by derived objects.
- * PARAMS: JSON blob with all information relevant to the objects persistence.
+ * PARAMS:
+ * 	JSON 	Blob with all information relevant to the objects persistence.
+ *	x,y,z	x-y-z coordinates of object, can be null.
  */
-/obj/proc/persistence_apply_content(json)
+/obj/proc/persistence_apply_content(json, x, y, z)
 	return

@@ -790,11 +790,12 @@
 	data["location"] = loc
 	return json_encode(data)
 
-/obj/item/paper/persistence_apply_content(json)
-	var/list/data = list()
-	data = json_decode(json)
+/obj/item/paper/persistence_apply_content(json, x, y, z)
+	var/list/data = json_decode(json)
 	set_content(data["title"], data["text"])
-	loc = data["location"]
+	src.x = x
+	src.y = y
+	src.z = z
 	for(var/obj/object in loc) // Pin to noticeboard
 		if(istype(object, /obj/structure/noticeboard))
 			var/obj/structure/noticeboard/notice_board = object 
