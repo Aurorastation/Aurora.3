@@ -65,6 +65,9 @@
 	var/list/req_one_access
 	/* END ACCESS VARS */
 
+	var/persistent_track_id = 0 // Tracking ID of the object used by the persistence subsystem.
+	var/persistent_author_ckey = "" // Author ckey of the object used in persistence subsystem.
+
 /obj/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	unbuckle()
@@ -323,4 +326,24 @@
 
 /// Override this to customize the effects an activated signaler has.
 /obj/proc/do_signaler()
+	return
+
+/*#############################################
+				PERSISTENT
+#############################################*/
+
+/**
+ * Called by the persistence subsystem to retrieve relevant persistent information to be stored in the database.
+ * Expected to be overriden by derived objects.
+ * RETURN: JSON blob with all information relevant to the objects persistence.
+ */
+/obj/proc/get_persistent_content()
+	return
+
+/**
+ * Called by the persistence subsystem to apply persistent data on the created object.
+ * Expected to be overriden by derived objects.
+ * PARAMS: JSON blob with all information relevant to the objects persistence.
+ */
+/obj/proc/apply_persistent_content(json)
 	return
