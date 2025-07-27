@@ -6,6 +6,7 @@
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	horizon_deck = 1
+	department = LOC_SHUTTLE
 	area_blurb = "A shuttle compartment: compact and rigidly functional."
 
 /area/horizon/shuttle/intrepid

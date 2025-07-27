@@ -111,7 +111,6 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 	var/lastused_total = 0
 	var/main_status = 0
 	var/mob/living/silicon/ai/hacker = null // Malfunction var. If set AI hacked the APC and has full control.
-	var/wiresexposed = FALSE
 	powernet = 0		// set so that APCs aren't found as powernet nodes //Hackish, Horrible, was like this before I changed it :c
 	var/autoflag = AUTOFLAG_OFF
 	var/has_electronics = HAS_ELECTRONICS_NONE
@@ -414,7 +413,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 			update_state |= UPDATE_OPENED2
 	else if (emagged || failure_timer || (hacker && (hacker.system_override || prob(20))))
 		update_state |= UPDATE_BLUESCREEN
-	else if(wiresexposed)
+	else if(panel_open)
 		update_state |= UPDATE_WIREEXP
 	if(update_state <= 1)
 		update_state |= UPDATE_ALLGOOD
@@ -574,8 +573,8 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 					return
 				update_icon()
 		else
-			wiresexposed = !wiresexposed
-			to_chat(user, "The wires have been [wiresexposed ? "exposed" : "unexposed"]")
+			panel_open = !panel_open
+			to_chat(user, "The wires have been [panel_open ? "exposed" : "unexposed"]")
 			update_icon()
 
 	// ID CARD: Attempt to unlock the interface if you have sufficient access.
@@ -584,7 +583,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 			to_chat(user, "The interface is broken.")
 		else if(opened != COVER_CLOSED)
 			to_chat(user, "You must close the cover to swipe an ID card.")
-		else if(wiresexposed)
+		else if(panel_open)
 			to_chat(user, "You must close the wiring panel to swipe an ID card.")
 		else if(stat & (BROKEN|MAINT))
 			to_chat(user, "Nothing happens.")
@@ -783,7 +782,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 		else
 			if (issilicon(user))
 				return attack_hand(user)
-			if (opened == COVER_CLOSED && wiresexposed && \
+			if (opened == COVER_CLOSED && panel_open && \
 				attacking_item.ismultitool() || \
 				attacking_item.iswirecutter() || istype(attacking_item, /obj/item/device/assembly/signaler))
 				return attack_hand(user)
@@ -801,7 +800,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 	if(!(emagged || hacker))		// trying to unlock with an emag card
 		if(opened != COVER_CLOSED)
 			to_chat(user, "You must close the cover to swipe an ID card.")
-		else if(wiresexposed)
+		else if(panel_open)
 			to_chat(user, "You must close the panel first")
 		else if(stat & (BROKEN|MAINT))
 			to_chat(user, "Nothing happens.")
@@ -873,12 +872,12 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 
 			var/allcut = wires.is_all_cut()
 
-			if(beenhit >= pick(3, 4) && !wiresexposed)
-				wiresexposed = TRUE
+			if(beenhit >= pick(3, 4) && !panel_open)
+				panel_open = TRUE
 				update_icon()
 				visible_message(SPAN_WARNING("The [name]'s cover flies open, exposing the wires!"))
 
-			else if(wiresexposed && !allcut)
+			else if(panel_open && !allcut)
 				wires.cut_all()
 				update_icon()
 				visible_message(SPAN_WARNING("The [name]'s wires are shredded!"))
@@ -907,7 +906,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 	if(!user)
 		return
 
-	if(wiresexposed && !isAI(user))
+	if(panel_open && !isAI(user))
 		wires.interact(user)
 
 	return ui_interact(user)

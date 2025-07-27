@@ -113,18 +113,19 @@ pixel_x = 10;
 	z_flags = ZMM_MANGLE_PLANES
 
 	var/alarm_id = null
-	var/breach_detection = 1 // Whether to use automatic breach detection or not
 	var/frequency = 1439
+	/// Whether to use automatic breach detection or not
+	var/breach_detection = 1
 	//var/skipprocess = 0 //Experimenting
 	var/alarm_frequency = 1437
 	var/remote_control = 0
 	var/rcon_setting = 2
 	var/rcon_time = 0
 	var/locked = 1
-	var/wiresexposed = 0 // If it's been screwdrivered open.
 	var/aidisabled = 0
 	var/shorted = 0
-	var/highpower = 0	// if true, power usage & temperature regulation power is increased
+	/// If true, power usage & temperature regulation power is increased
+	var/highpower = FALSE
 
 	var/datum/wires/alarm/wires
 
@@ -132,7 +133,12 @@ pixel_x = 10;
 	var/screen = AALARM_SCREEN_MAIN
 	var/area_uid
 	var/area/alarm_area
-	var/buildstage = 2 //2 is built, 1 is building, 0 is frame.
+	/// Display name
+	var/alarm_area_name
+	/// FULL area name- only used internally in the TGUI for searches, and cached here. Dumb I know but it works.
+	var/alarm_area_name_full
+	/// 2 is built, 1 is building, 0 is frame.
+	var/buildstage = 2
 
 	var/target_temperature = T0C+20
 	var/regulating_temperature = 0
@@ -140,7 +146,8 @@ pixel_x = 10;
 	var/datum/radio_frequency/radio_connection
 
 	var/list/TLV = list()
-	var/list/trace_gas = list(GAS_N2O) //list of other gases that this air alarm is able to detect
+	/// List of other gases that this air alarm is able to detect
+	var/list/trace_gas = list(GAS_N2O)
 
 	var/danger_level = 0
 	var/pressure_dangerlevel = 0
@@ -331,7 +338,7 @@ pixel_x = 10;
 		if(dir)
 			src.set_dir(dir)
 		buildstage = 0
-		wiresexposed = 1
+		panel_open = 1
 
 		update_icon()
 		set_pixel_offsets()
@@ -354,13 +361,15 @@ pixel_x = 10;
 
 /obj/machinery/alarm/proc/first_run()
 	alarm_area = get_area(src)
-	var/area_display_name = get_area_display_name(alarm_area)
+	// Just directional indicators, if any
+	alarm_area_name = get_area_display_name(alarm_area, FALSE, FALSE, FALSE, TRUE)
+	alarm_area_name_full = get_area_display_name(alarm_area)
 	area_uid = alarm_area.uid
 	if (name == "alarm")
 		if (highpower)
-			name = "[area_display_name] High-Power Air Alarm"
+			name = "[alarm_area_name] High-Power Air Alarm"
 		else
-			name = "[area_display_name] Air Alarm"
+			name = "[alarm_area_name] Air Alarm"
 
 	if(!wires)
 		wires = new(src)
@@ -515,7 +524,7 @@ pixel_x = 10;
 	ClearOverlays()
 	icon_state = "alarmp"
 
-	if(wiresexposed)
+	if(panel_open)
 		icon_state = "alarmx"
 
 	if((stat & (NOPOWER|BROKEN)) || shorted)
@@ -631,10 +640,9 @@ pixel_x = 10;
 		return
 
 	var/datum/signal/alert_signal = new
-	var/area_display_name = get_area_display_name(alarm_area)
 	alert_signal.source = src
 	alert_signal.transmission_method = TRANSMISSION_RADIO
-	alert_signal.data["zone"] = area_display_name
+	alert_signal.data["zone"] = alarm_area_name
 	alert_signal.data["type"] = "Atmospheric"
 
 	if(alert_level==2)
@@ -659,7 +667,7 @@ pixel_x = 10;
 
 /obj/machinery/alarm/interact(mob/user)
 	ui_interact(user)
-	if (wiresexposed)
+	if (panel_open)
 		wires.interact(user)
 
 /obj/machinery/alarm/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, var/master_ui = null, var/datum/ui_state/state = GLOB.default_state)
@@ -961,12 +969,12 @@ pixel_x = 10;
 	switch(buildstage)
 		if(2)
 			if(attacking_item.isscrewdriver())  // Opening that Air Alarm up.
-				wiresexposed = !wiresexposed
-				to_chat(user, SPAN_NOTICE("You [wiresexposed ? "open" : "close"] the maintenance panel."))
+				panel_open = !panel_open
+				to_chat(user, SPAN_NOTICE("You [panel_open ? "open" : "close"] the maintenance panel."))
 				update_icon()
 				return TRUE
 
-			if (wiresexposed && attacking_item.iswirecutter())
+			if (panel_open && attacking_item.iswirecutter())
 				user.visible_message(SPAN_WARNING("[user] has cut the wires inside \the [src]!"), "You cut the wires inside \the [src].")
 				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 				new/obj/item/stack/cable_coil(get_turf(src), 5)
