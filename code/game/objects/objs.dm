@@ -65,8 +65,14 @@
 	var/list/req_one_access
 	/* END ACCESS VARS */
 
-	var/persistence_track_id = 0 // Tracking ID of the object used by the persistence subsystem.
-	var/persistence_author_ckey = "" // Author ckey of the object used in persistence subsystem.
+	/* START PERSISTENCE VARS */
+	// Tracking ID of the object used by the persistence subsystem
+	var/persistence_track_id = 0
+	// Author ckey of the object used in persistence subsystem
+	var/persistence_author_ckey = ""
+	// Expiration time used when saving a new persistent type, this can be changed depending on the use case
+	var/persistance_initial_expiration_time_days = PERSISTENT_DEFAULT_EXPIRATION_DAYS
+	/* END PERSISTENCE VARS */
 
 /obj/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
