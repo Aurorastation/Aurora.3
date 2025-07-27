@@ -226,7 +226,8 @@
 #define INIT_ORDER_EARLY_ASSETS 48
 #define INIT_ORDER_SPATIAL_GRID 43
 #define INIT_ORDER_ECONOMY 40
-#define INIT_ORDER_MAPFINALIZE 31 //Asteroid generation, another aurora snowflake, must run before the atoms init
+#define INIT_ORDER_MAPFINALIZE 32 // Asteroid generation, another aurora snowflake, must run before the atoms init
+#define INIT_ORDER_PERSISTENCE 31 // Persistence subsystem, requires map load
 #define INIT_ORDER_ATOMS 30
 #define INIT_ORDER_MACHINES 20
 #define INIT_ORDER_DEFAULT 0
@@ -248,7 +249,6 @@
 #define INIT_ORDER_ZCOPY -21 //Aurora snowflake, Z-mimic flush. Should run after SSoverlay & SSicon_smooth so it copies the smoothed sprites.
 #define INIT_ORDER_PATH -50
 #define INIT_ORDER_STATPANELS -97
-#define INIT_ORDER_PERSISTENCE -98
 #define INIT_ORDER_CHAT -100 //Should be last to ensure chat remains smooth during init.
 
 // Subsystem fire priority, from lowest to highest priority
