@@ -7,9 +7,10 @@
 	anchored = 1
 	var/notices = 0
 
-/obj/structure/noticeboard/Initialize()
-	. = ..()
-	add_papers_from_turf()
+/obj/structure/noticeboard/Initialize(mapload)
+    if (mapload)
+        add_papers_from_turf()
+    . = ..()
 
 /obj/structure/noticeboard/proc/add_papers_from_turf()
 	for(var/obj/item/I in loc)
