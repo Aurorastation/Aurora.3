@@ -1,6 +1,6 @@
-SUBSYSTEM_DEF(persistent)
-	name = "Persistent"
-	init_order = INIT_ORDER_PERSISTENT
+SUBSYSTEM_DEF(persistence)
+	name = "Persistence"
+	init_order = INIT_ORDER_PERSISTENCE
 	flags = SS_NO_FIRE
 
 /*#############################################
@@ -15,9 +15,9 @@ var/list/tracks
 #############################################*/
 
 /**
- * Initialization of the persistent subsystem. Initialization includes loading all persistent data and spawning the related objects.
+ * Initialization of the persistence subsystem. Initialization includes loading all persistent data and spawning the related objects.
  */
-/datum/controller/subsystem/persistent/Initialize()
+/datum/controller/subsystem/persistence/Initialize()
 	. = ..()
 	tracks = list()
 
@@ -39,15 +39,15 @@ var/list/tracks
 		return SS_INIT_SUCCESS
 
 /**
- * Recovery of the persistent subsystem. Catches all objects registered in the old instance of the subsystem.
+ * Recovery of the persistence subsystem. Catches all objects registered in the old instance of the subsystem.
  */
-/datum/controller/subsystem/persistent/Recover()
-	// TODO, recover last data?		tracks = SSpersistent.tracks
+/datum/controller/subsystem/persistence/Recover()
+	// TODO, recover last data?		tracks = SSpersistence.tracks
 
 /**
- * Shutdown of the persistent subsystem. Adds new persistent objects, removes no longer existing persistent objects and updates changed persistent objects in the database.
+ * Shutdown of the persistence subsystem. Adds new persistent objects, removes no longer existing persistent objects and updates changed persistent objects in the database.
  */
-/datum/controller/subsystem/persistent/Shutdown()
+/datum/controller/subsystem/persistence/Shutdown()
 	// Saves tracked objects without ID to DB
 	//TODO
 
@@ -60,7 +60,7 @@ var/list/tracks
 /**
  * Generates StatEntry. Returns information about currently tracked objects.
  */
-/datum/controller/subsystem/persistent/stat_entry()
+/datum/controller/subsystem/persistence/stat_entry()
 	..("actively tracked objects: [length(tracks)]")
 
 /*#############################################
@@ -70,15 +70,15 @@ var/list/tracks
 /**
  * Adds the given object to the list of tracked objects. At shutdown the tracked object will be either created or updated in the database.
  */
-/datum/controller/subsystem/persistent/proc/register_obj(var/obj/new_track, ckey)
+/datum/controller/subsystem/persistence/proc/register_obj(var/obj/new_track, ckey)
 	if(!(new_track in tracks)) // Prevent duplicates
 		tracks += new_track
 		if(!ckey)
-			new_track.persistent_author_ckey = ckey
+			new_track.persistence_author_ckey = ckey
 
 /**
  * Removes the given object from the list of tracked objects. At shutdown the tracked object will be remove from the database.
  */
-/datum/controller/subsystem/persistent/proc/deregister_obj(var/obj/old_track)
+/datum/controller/subsystem/persistence/proc/deregister_obj(var/obj/old_track)
 	if(old_track in tracks) // Prevent null ref
 		tracks -= old_track
