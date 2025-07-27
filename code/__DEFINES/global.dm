@@ -111,6 +111,7 @@ GLOBAL_VAR(custom_event_msg)
 GLOBAL_DATUM(dbcon, /DBConnection)
 GLOBAL_PROTECT(dbcon)
 
+// Persistence subsystem track register - List of all persistent data tracks managed by the subsystem.
 GLOBAL_LIST_EMPTY(persistence_register)
 GLOBAL_PROTECT(persistence_register)
 

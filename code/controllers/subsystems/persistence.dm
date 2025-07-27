@@ -4,13 +4,6 @@ SUBSYSTEM_DEF(persistence)
 	flags = SS_NO_FIRE
 
 /*#############################################
-				Internal vars
-#############################################*/
-
-// List of all tracked objects, initially filled by Initialize(), later managed by register_track() and deregister_track(), consumed at the end by Shutdown().
-var/list/persistence_register
-
-/*#############################################
 				Internal methods
 #############################################*/
 
@@ -19,7 +12,7 @@ var/list/persistence_register
  */
 /datum/controller/subsystem/persistence/Initialize()
 	. = ..()
-	persistence_register = list()
+	GLOB.persistence_register = list()
 
 	if(!SSdbcore.Connect())
 		log_game("SQL ERROR during persistence subsystem init. Failed to connect.")
@@ -68,7 +61,7 @@ var/list/persistence_register
  * Generates StatEntry. Returns information about currently tracked objects.
  */
 /datum/controller/subsystem/persistence/stat_entry()
-	..("actively tracked objects: [length(persistence_register)]")
+	..("actively tracked objects: [length(GLOB.persistence_register)]")
 
 /**
  * Run cleanup on the persistence entries in the database.
@@ -121,8 +114,8 @@ var/list/persistence_register
  * Adds the given object to the list of tracked objects. At shutdown the tracked object will be either created or updated in the database.
  */
 /datum/controller/subsystem/persistence/proc/register_track(var/obj/new_track, ckey)
-	if(!(new_track in persistence_register)) // Prevent multiple registers per
-		persistence_register += new_track
+	if(!(new_track in GLOB.persistence_register)) // Prevent multiple registers per
+		GLOB.persistence_register += new_track
 		if(!ckey) // Some persistent data may not have an actual owner, for example auto generated types like decals or similar.
 			new_track.persistence_author_ckey = ckey
 
@@ -132,5 +125,5 @@ var/list/persistence_register
 /datum/controller/subsystem/persistence/proc/deregister_track(var/obj/old_track)
 	old_track.persistence_track_id = null
 	old_track.persistence_author_ckey = null
-	if(old_track in persistence_register)
-		persistence_register -= old_track
+	if(old_track in GLOB.persistence_register)
+		GLOB.persistence_register -= old_track
