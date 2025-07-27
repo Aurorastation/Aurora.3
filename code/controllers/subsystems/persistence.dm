@@ -26,12 +26,7 @@ var/list/tracks
 		return SS_INIT_FAILURE
 	else
 		// Delete all persistent objects in the database that have expired and have passed the cleanup grace period (PERSISTENT_EXPIRATION_CLEANUP_DELAY_DAYS)
-		// TODO
-
-		// Pull remaining entries
-		//var/datum/db_query/query = SSdbcore.NewQuery("SELECT id, type, content FROM ss13_persistent_data")
-		//stats_query.Execute() // TODO Handle results
-		//qdel(stats_query)
+		database_clean()
 
 		// Instantiate all remaining entries based of their type
 		// Assign persistence related vars found in /obj, apply content and add to live tracking list.
@@ -62,6 +57,20 @@ var/list/tracks
  */
 /datum/controller/subsystem/persistence/stat_entry()
 	..("actively tracked objects: [length(tracks)]")
+
+/**
+ * Run cleanup on the persistence entries in the database.
+ * Cleanup includes all entries that have expired and have passed the clean up grace period (PERSISTENT_EXPIRATION_CLEANUP_DELAY_DAYS).
+ */
+/datum/controller/subsystem/persistence/database_clean()
+	if(!SSdbcore.Connect())
+		log_game("SQL ERROR during persistence database_clean. Failed to connect.")
+	else
+		var/datum/db_query/cleanup_query = SSdbcore.NewQuery("DELETE FROM ss13_persistent_data WHERE DATE_ADD(expires_at, INTERVAL :grace_period_days: DAY) <= NOW()")
+		cleanup_query.Execute(list("grace_period_days"=PERSISTENT_EXPIRATION_CLEANUP_DELAY_DAYS))
+		if (cleanup_query.ErrorMsg())
+			log_game("SQL ERROR during persistence database_clean. " + cleanup_query.ErrorMsg())		
+		qdel(cleanup_query)
 
 /*#############################################
 				Public methods
