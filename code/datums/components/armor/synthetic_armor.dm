@@ -13,7 +13,7 @@
 /datum/component/armor/synthetic/Initialize(list/armor, armor_type, _armor_degradation_speed)
 	. = ..()
 	max_armor_values = armor_values.Copy()
-	if(_armor_degradation_speed)
+	if(!isnull(_armor_degradation_speed))
 		armor_degradation_coef = _armor_degradation_speed
 
 /datum/component/armor/synthetic/on_blocking(damage, damage_type, damage_flags, armor_pen, blocked)

@@ -108,7 +108,7 @@
 	. = ..()
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "SyntheticFabricator", "Synthetic Fabricator", 800, 600)
+		ui = new(user, src, "SyntheticFabricator", "Synthetic Fabricator", 900, 700)
 		ui.open()
 
 /obj/machinery/mecha_part_fabricator/ui_data(mob/user)
@@ -203,7 +203,7 @@
 		return TRUE
 
 	var/sname = "[M.name]"
-	if(materials[M.material.name] + M.perunit <= res_max_amount)
+	if(materials[M.material.name] + SHEET_MATERIAL_AMOUNT <= res_max_amount)
 		if(M.amount >= 1)
 			var/count = 0
 			var/mutable_appearance/MA = mutable_appearance(icon, "material_insertion")
@@ -214,7 +214,7 @@
 			//now play the progress bar animation
 			flick_overlay_view(mutable_appearance(icon, "fab_progress"), 1 SECONDS)
 
-			while(materials[M.material.name] + M.perunit <= res_max_amount && M.amount >= 1)
+			while(materials[M.material.name] + SHEET_MATERIAL_AMOUNT <= res_max_amount && M.amount >= 1)
 				materials[M.material.name] += M.perunit
 				M.use(1)
 				count++
@@ -393,7 +393,7 @@
 	. = list()
 	for(var/i = 2 to queue.len)
 		var/datum/design/D = queue[i]
-		. += D.name
+		. += list(list("name" = D.name, "time" = get_design_time(D)))
 
 /obj/machinery/mecha_part_fabricator/proc/get_build_options()
 	. = list()
@@ -427,23 +427,15 @@
 	for(var/T in materials)
 		. += list(list("name" = capitalize(T), "amount" = materials[T]))
 
-/obj/machinery/mecha_part_fabricator/proc/eject_materials(var/material, var/amount) // 0 amount = 0 means ejecting a full stack; -1 means eject everything
-	var/recursive = amount == -1 ? 1 : 0
+/obj/machinery/mecha_part_fabricator/proc/eject_materials(var/material, var/amount)
 	material = lowertext(material)
 	var/material/mattype = SSmaterials.get_material_by_name(material)
 	var/stack_type = mattype.stack_type
 
-	if(amount <= 0)
-		amount = S.max_amount
-	var/ejected = min(round(materials[material]), amount)
-	var/obj/item/stack/material/S = new stack_type(loc, min(ejected, amount))
-	if(S.amount <= 0) //??????? kelenius what the fuck were you coding here? what is this dog?
-		qdel(S)
-		return
+	var/real_amount = round(amount / SHEET_MATERIAL_AMOUNT)
+	var/obj/item/stack/material/S = new stack_type(loc, real_amount)
 	S.update_icon()
-	materials[material] -= ejected * S.perunit
-	if(recursive && materials[material] >= S.perunit)
-		eject_materials(material, -1)
+	materials[material] -= amount
 
 /obj/machinery/mecha_part_fabricator/proc/sync()
 	sync_message = "Error: no console found."
