@@ -4228,7 +4228,6 @@
 #include "maps\random_ruins\exoplanets\crashed_pod\crashed_pod.dm"
 #include "maps\random_ruins\exoplanets\delivery\delivery_site.dm"
 #include "maps\random_ruins\exoplanets\desert\desert.dm"
-#include "maps\random_ruins\exoplanets\desert\desert_comms\desert_comms.dmm"
 #include "maps\random_ruins\exoplanets\grove\grove.dm"
 #include "maps\random_ruins\exoplanets\haneunim\haneunim_crash.dm"
 #include "maps\random_ruins\exoplanets\haneunim\haneunim_flag.dm"
