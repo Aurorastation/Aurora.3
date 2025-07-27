@@ -32,3 +32,4 @@
 	path = /obj/item/storage/belt/utility/alt
 	allowed_roles = list("Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Machinist", "Research Director", "Engineering Personnel", "Operations Personnel")
 	flags = null
+

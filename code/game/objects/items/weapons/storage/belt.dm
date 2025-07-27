@@ -389,6 +389,14 @@
 		/obj/item/ammo_magazine/c45m/rubber = 2,
 	)
 
+/obj/item/storage/belt/security/vestbelt
+	name = "security chestrig"
+	desc = "A chestrig designed to hold vital security equipment, like handcuffs and flashes."
+	icon_state = "securityvestbelt"
+	item_state = "securityvestbelt"
+	content_overlays = FALSE
+	show_above_suit = TRUE
+
 /obj/item/storage/belt/soulstone
 	name = "soul stone belt"
 	desc = "Designed for ease of access to the shards during a fight, as to not let a single enemy spirit slip away"

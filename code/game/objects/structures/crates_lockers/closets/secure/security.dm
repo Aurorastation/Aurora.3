@@ -143,6 +143,7 @@
 	//Belts
 	new /obj/item/clothing/accessory/holster/waist(src)
 	new /obj/item/storage/belt/security/full(src)
+	new /obj/item/storage/belt/security/vestbelt(src)
 	new /obj/item/storage/box/fancy/keypouch/sec(src)
 
 /obj/structure/closet/secure_closet/hos2
@@ -205,6 +206,7 @@
 	new /obj/item/clothing/accessory/storage/black_vest(src)
 	new /obj/item/clothing/accessory/holster/hip(src)
 	new /obj/item/storage/belt/security/full(src)
+	new /obj/item/storage/belt/security/vestbelt(src)
 	// Utility
 	new /obj/item/device/radio/sec(src)
 	new /obj/item/crowbar(src)
@@ -276,6 +278,7 @@
 	new /obj/item/clothing/accessory/holster/hip(src)
 	new /obj/item/clothing/accessory/holster/modular(src)
 	new /obj/item/storage/belt/security/full(src)
+	new /obj/item/storage/belt/security/vestbelt(src)
 	new /obj/item/clothing/suit/storage/hazardvest/security/officer(src)
 
 /obj/structure/closet/secure_closet/investigator
