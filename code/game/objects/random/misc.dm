@@ -639,5 +639,5 @@
 		/obj/random/plushie = 1,
 		/obj/random/mre = 1,
 		/obj/random/med_stack = 1,
-		/obj/item/reagent_containers/glass/bottle/ammonia,
+		/obj/item/reagent_containers/glass/bottle/ammonia = 1,
 	)

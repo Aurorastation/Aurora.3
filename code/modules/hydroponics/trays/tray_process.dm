@@ -151,7 +151,7 @@
 		// If the plant matures while not at its heat and light preferences, the yield modifier is cut in half.
 		// Better grow your plants better next time.
 		if(!(seed.check_light_preferences(light_supplied) && seed.check_heat_preferences(environment)))
-			yield_mod * 0.5
+			yield_mod *= 0.5
 		harvest = 1
 		lastproduce = age
 		if(seed.get_trait(TRAIT_SPOROUS) && !closed_system)
