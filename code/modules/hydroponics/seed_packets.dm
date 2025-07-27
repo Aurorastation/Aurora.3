@@ -4,7 +4,7 @@ GLOBAL_LIST_EMPTY(plant_seed_sprites)
 /obj/item/seeds
 	name = "packet of seeds"
 	icon = 'icons/obj/seeds.dmi'
-	icon_state = "blank"
+	icon_state = "random"
 	w_class = WEIGHT_CLASS_SMALL
 
 	storage_slot_sort_by_name = TRUE
@@ -26,6 +26,10 @@ GLOBAL_LIST_EMPTY(plant_seed_sprites)
 /obj/item/seeds/proc/update_appearance(var/ret_image = FALSE)
 	if(!seed)
 		return
+
+	// This is very hacky, but we clear the icon state here because the ingame packets
+	// are all pure overlays, but we still want seeds to show up in StrongDMM.
+	icon_state = "blank"
 
 	// Update icon.
 	ClearOverlays()

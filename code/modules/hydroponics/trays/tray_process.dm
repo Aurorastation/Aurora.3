@@ -101,9 +101,8 @@
 	if (closed_system && connected_port)
 		update_connected_network()
 
-	// We only let the plant grow if they're within their light, heat, and pressure tolerances - i.e. they've taken no damage in this process.
-	// We calculate this off the environmental_damage variable. If it's greater than 0, the plant has taken damage and shouldn't grow.
-	if(environmental_damage == 0)
+	// We only let the plant grow if they're within their light and heat tolerances.
+	if(!seed.check_light_tolerances(light_supplied) && !seed.check_heat_tolerances(environment))
 		// Roll the dice on advancing plant age.
 		if(prob(probability_of_growth)) age += 1 * HYDRO_SPEED_MULTIPLIER
 
@@ -152,6 +151,7 @@
 		// Better grow your plants better next time.
 		if(!(seed.check_light_preferences(light_supplied) && seed.check_heat_preferences(environment)))
 			yield_mod *= 0.5
+
 		harvest = 1
 		lastproduce = age
 		if(seed.get_trait(TRAIT_SPOROUS) && !closed_system)

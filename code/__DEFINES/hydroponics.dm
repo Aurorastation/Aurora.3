@@ -14,7 +14,7 @@
 #define GROWTH_BIOMASS			  "biomass"
 #define GROWTH_MOLD				  "mold"
 
-// The various standardised ideal heat values. They vary by increments of 10.
+// The various standardised ideal heat values.
 #define IDEAL_HEAT_MOGHES 333
 #define IDEAL_HEAT_TROPICAL 303
 #define IDEAL_HEAT_TEMPERATE 293

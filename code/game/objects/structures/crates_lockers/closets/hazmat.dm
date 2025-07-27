@@ -21,6 +21,7 @@
 	new /obj/item/clothing/mask/gas/half(src)
 	new /obj/item/clothing/mask/gas/half(src)
 	new /obj/item/tank/oxygen(src)
+	new /obj/item/tank/oxygen(src)
 
 // Research
 /obj/structure/closet/hazmat/research
@@ -35,6 +36,10 @@
 	new /obj/item/clothing/suit/hazmat/research(src)
 	new /obj/item/clothing/mask/gas/half(src)
 	new /obj/item/clothing/mask/gas/half(src)
+	new /obj/item/clothing/mask/gas(src)
+	new /obj/item/clothing/mask/gas(src)
+	new /obj/item/tank/oxygen(src)
+	new /obj/item/tank/oxygen(src)
 
 // Security
 /obj/structure/closet/hazmat/security
