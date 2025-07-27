@@ -112,6 +112,7 @@
 #include "code\__DEFINES\outfit.dm"
 #include "code\__DEFINES\overmap.dm"
 #include "code\__DEFINES\path.dm"
+#include "code\__DEFINES\persistence.dm"
 #include "code\__DEFINES\pipes.dm"
 #include "code\__DEFINES\prefs.dm"
 #include "code\__DEFINES\procpath.dm"
