@@ -8,6 +8,7 @@ SUBSYSTEM_DEF(persistence)
 #############################################*/
 
 // List of all tracked objects, initially filled by Initialize(), later managed by register_datum() and deregister_datum(), consumed at the end by Destroy().
+GLOBAL_VAR_INIT(tracks, list())
 var/list/tracks
 
 /*#############################################
