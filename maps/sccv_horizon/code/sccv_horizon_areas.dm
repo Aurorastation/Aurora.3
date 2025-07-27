@@ -231,6 +231,9 @@
 /area/maintenance/hangar/port
 	name = "Port Hangar Maintenance"
 
+/area/maintenance/wing/cargo_compartment
+	name = "Auxiliary Cargo Maintenance"
+
 /area/maintenance/hangar/starboard
 	name = "Starboard Hangar Maintenance"
 

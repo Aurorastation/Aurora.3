@@ -13,11 +13,14 @@
 	name = "processor unit"
 	icon_state = "processor"
 	desc = "This machine is used to process large quantities of information."
-	desc_antag = "Attacking this machine will cause communications over its linked frequency(s) to become increasingly garbled."
 	telecomms_type = /obj/machinery/telecomms/processor
 	delay = 5
 	circuitboard = "/obj/item/circuitboard/telecomms/processor"
 	var/process_mode = UNCOMPRESS
+
+/obj/machinery/telecomms/processor/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Attacking/damaging this machine will cause communications over its linked frequency(s) to become increasingly garbled."
 
 /obj/machinery/telecomms/processor/receive_information(datum/signal/subspace/signal, obj/machinery/telecomms/machine_from)
 	if(!is_freq_listening(signal))
@@ -27,10 +30,14 @@
 	if(!process_mode)
 		// Data scrambling increased from 35-65 to MAXIMUM GIBBERISH
 		signal.data["compression"] = 100
+
 	// Processor set to UNCOMPRESS
 	else if (signal.data["compression"])
+		// Ion storm? Blow out any intelligibility.
+		if(ion_storm)
+			signal.data["compression"] = 100
 		// Taken any damage? Start gently scrambling things.
-		if(integrity < 100)
+		else if(integrity < 100)
 			signal.data["compression"] = rand(0, round((100-integrity)))
 		// Uncompress signal to complete clarity
 		else signal.data["compression"] = 0

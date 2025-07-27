@@ -1,10 +1,14 @@
 /obj/item/forensics/slide
 	name = "microscope slide"
 	desc = "A pair of thin glass panes used in the examination of samples beneath a microscope."
-	desc_info = "Used with fibers and GSR swab tests to examine the samples in the microscope. To empty them, use in hand."
 	icon_state = "slide"
 	var/obj/item/forensics/swab/has_swab
 	var/obj/item/sample/fibers/has_sample
+
+/obj/item/forensics/slide/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Used with fibers and GSR swab tests to examine the samples in the microscope."
+	. += "To empty them, use in hand."
 
 /obj/item/forensics/slide/Initialize(mapload, ...)
 	. = ..()

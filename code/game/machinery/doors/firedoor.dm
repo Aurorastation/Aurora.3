@@ -61,6 +61,54 @@
 
 	can_astar_pass = CANASTARPASS_DENSITY
 
+/obj/machinery/door/firedoor/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Firedoors automatically close if the pressure differential on either side of them meets or exceeds 25 kPa, or temperature rises above 50° C or falls below 0° C on either side."
+	. += "Firedoors require electricity to operate."
+	. += "Firedoors on active lockdown can be examined, when adjacent, to view pressure and temperature data from each side of the door."
+	. += "Engineering, Atmospherics, or Paramedical access rights are required to freely open firedoors on active lockdown."
+
+/obj/machinery/door/firedoor/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(!is_adjacent || !density)
+		return
+
+	var/pdiff_rounded = round(pdiff,0.1)
+	if(pdiff >= FIREDOOR_MAX_PRESSURE_DIFF)
+		. += SPAN_DANGER("Current pressure differential is <b>[pdiff_rounded]</b> kPa. Opening door will likely result in injury.")
+	if(pdiff <= 15)
+		. += SPAN_NOTICE("Current pressure differential is less than 15 kPa.")
+	else if(pdiff <= 1)
+		. += SPAN_GOOD("Current pressure differential is less than 1 kPa.")
+
+	. += "<b>Sensor readings:</b>"
+	for(var/index = 1; index <= tile_info.len; index++)
+		switch(index)
+			if(1)
+				. += "NORTH: "
+			if(2)
+				. += "SOUTH: "
+			if(3)
+				. += "EAST: "
+			if(4)
+				. += "WEST: "
+		if(tile_info[index] == null)
+			. += SPAN_WARNING("DATA UNAVAILABLE")
+			continue
+		var/celsius = convert_k2c(tile_info[index][1])
+		var/pressure = tile_info[index][2]
+		. += "<span class='[(dir_alerts[index] & (FIREDOOR_ALERT_HOT|FIREDOOR_ALERT_COLD)) ? "danger" : "color:blue"]'>"
+		. += "[celsius]&deg; C</span> "
+		. += "<span style='color:blue'>"
+		. += "[pressure] kPa</span>"
+
+	if(islist(users_to_open) && users_to_open.len)
+		var/users_to_open_string = users_to_open[1]
+		if(users_to_open.len >= 2)
+			for(var/i = 2 to users_to_open.len)
+				users_to_open_string += ", [users_to_open[i]]"
+		. += "These people have opened \the [src] during an alert: [users_to_open_string]."
+
 /obj/machinery/door/firedoor/Initialize(var/mapload)
 	. = ..()
 	for(var/obj/machinery/door/firedoor/F in loc)
@@ -149,42 +197,6 @@
 
 /obj/machinery/door/firedoor/get_material()
 	return SSmaterials.get_material_by_name(DEFAULT_WALL_MATERIAL)
-
-/obj/machinery/door/firedoor/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(!is_adjacent || !density)
-		return
-
-	if(pdiff >= FIREDOOR_MAX_PRESSURE_DIFF)
-		. += SPAN_DANGER("Current pressure differential is [pdiff] kPa. Opening door will likely result in injury.")
-
-	. += "<b>Sensor readings:</b>"
-	for(var/index = 1; index <= tile_info.len; index++)
-		switch(index)
-			if(1)
-				. += "NORTH: "
-			if(2)
-				. += "SOUTH: "
-			if(3)
-				. += "EAST: "
-			if(4)
-				. += "WEST: "
-		if(tile_info[index] == null)
-			. += SPAN_WARNING("DATA UNAVAILABLE")
-			continue
-		var/celsius = convert_k2c(tile_info[index][1])
-		var/pressure = tile_info[index][2]
-		. += "<span class='[(dir_alerts[index] & (FIREDOOR_ALERT_HOT|FIREDOOR_ALERT_COLD)) ? "danger" : "color:blue"]'>"
-		. += "[celsius]&deg;C</span> "
-		. += "<span style='color:blue'>"
-		. += "[pressure]kPa</span>"
-
-	if(islist(users_to_open) && users_to_open.len)
-		var/users_to_open_string = users_to_open[1]
-		if(users_to_open.len >= 2)
-			for(var/i = 2 to users_to_open.len)
-				users_to_open_string += ", [users_to_open[i]]"
-		. += "These people have opened \the [src] during an alert: [users_to_open_string]."
 
 /obj/machinery/door/firedoor/CollidedWith(atom/bumped_atom)
 	if(p_open || operating)

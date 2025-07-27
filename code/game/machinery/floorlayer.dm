@@ -1,7 +1,6 @@
 /obj/machinery/floorlayer
 	name = "automatic floor layer"
 	desc = "A large piece of machinery used that can place, dismantle, and collect floor tiles."
-	desc_info = "Use a screwdriver to set which tile to lay, a wrench to configure the various modes, and a crowbar to take out tiles. Clicking on it with an empty hand will turn it on and off."
 	icon = 'icons/obj/floor_layer.dmi'
 	icon_state = "floor_layer"
 	density = TRUE
@@ -9,6 +8,21 @@
 	var/on = FALSE
 	var/obj/item/stack/tile/T
 	var/list/mode = list("dismantle"=0,"laying"=0,"collect"=0)
+
+/obj/machinery/floorlayer/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use a screwdriver to set which tile to lay, a wrench to configure the various modes, and a crowbar to take out tiles."
+	. += "Clicking on it with an empty hand will turn it on and off."
+
+/obj/machinery/floorlayer/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	var/dismantle = mode["dismantle"]
+	var/laying = mode["laying"]
+	var/collect = mode["collect"]
+	var/number = 0
+	if (T)
+		number = T.get_amount()
+	. += "\The [src] has [number] tile\s, dismantle is [dismantle ? "on" : "off"], laying is [laying ? "on" : "off"], collect is [collect ? "on" : "off"]."
 
 /obj/machinery/floorlayer/Initialize()
 	. = ..()
@@ -61,16 +75,6 @@
 	if(attacking_item.isscrewdriver())
 		T = tgui_input_list(user, "Choose which set of tiles you want \the [src] to lay.", "Tiles", contents)
 		return TRUE
-
-/obj/machinery/floorlayer/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	var/dismantle = mode["dismantle"]
-	var/laying = mode["laying"]
-	var/collect = mode["collect"]
-	var/number = 0
-	if (T)
-		number = T.get_amount()
-	. += SPAN_NOTICE("\The [src] has [number] tile\s, dismantle is [dismantle ? "on" : "off"], laying is [laying ? "on" : "off"], collect is [collect ? "on" : "off"].")
 
 /obj/machinery/floorlayer/proc/reset()
 	on = FALSE

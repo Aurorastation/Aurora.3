@@ -28,6 +28,24 @@
 	var/obj/machinery/door/airlock/target = null
 	var/obj/item/cell/powercell
 
+/obj/item/device/magnetic_lock/condition_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if (status == STATUS_BROKEN)
+		. += SPAN_DANGER("It looks broken!")
+
+/obj/item/device/magnetic_lock/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if (powercell)
+		var/power = round(powercell.charge / powercell.maxcharge * 100)
+		. += SPAN_NOTICE("The powercell is at <b>[power]%</b> charge.")
+	else
+		. += SPAN_WARNING("It has no powercell to power it!")
+
+/obj/item/device/magnetic_lock/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(department)
+		. += "Once applied to an airlock, this device can be activated/deactivated by swiping an ID from the <b>[department] department</b> across it."
+
 /obj/item/device/magnetic_lock/security
 	department = "Security"
 	icon_state = "inactive_Security"
@@ -74,18 +92,6 @@
 
 		status = STATUS_ACTIVE
 		attach(newtarget)
-
-/obj/item/device/magnetic_lock/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-
-	if (status == STATUS_BROKEN)
-		. += SPAN_DANGER("It looks broken!")
-	else
-		if (powercell)
-			var/power = round(powercell.charge / powercell.maxcharge * 100)
-			. += SPAN_NOTICE("The powercell is at [power]% charge.")
-		else
-			. += SPAN_WARNING("It has no powercell to power it!")
 
 /obj/item/device/magnetic_lock/attack_hand(var/mob/user)
 	add_fingerprint(user)
@@ -455,6 +461,10 @@
 
 	var/passcode = "open"
 	var/configurable = TRUE
+
+/obj/item/device/magnetic_lock/keypad/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Keypad-enabled magnetic locks require a custom passcode to unlock them, configured on initial use."
 
 /obj/item/device/magnetic_lock/keypad/update_overlays()
 	..()

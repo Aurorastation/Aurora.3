@@ -42,30 +42,36 @@
 /obj/item/clothing/head/helmet/space/syndicate/covert
 	name = "softsuit helmet"
 	desc = "A special helmet designed for work in a hazardous, low-pressure environment."
-	desc_antag = "This helmet is specially armored for additional protection, compared to a standard softsuit helmet."
 	icon = 'icons/obj/item/clothing/softsuits/softsuit.dmi'
 	icon_state = "softsuit_helmet"
 	item_state = "softsuit_helmet"
 	contained_sprite = TRUE
 
-/obj/item/clothing/head/helmet/space/syndicate/covert/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/clothing/head/helmet/space/syndicate/covert/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This helmet has extra armor compared to a standard softsuit helmet."
+
+/obj/item/clothing/head/helmet/space/syndicate/covert/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(distance <= 1)
-		. += SPAN_NOTICE("This helmet has extra armor compared to a normal softsuit helmet.")
+		. += SPAN_ALERT("This helmet has extra armor compared to a normal softsuit helmet.")
 
 /obj/item/clothing/suit/space/syndicate/covert
 	name = "softsuit"
 	desc = "A suit that protects against low pressure environments."
-	desc_antag = "This suit is specially armored for additional protection, compared to a standard softsuit."
 	icon = 'icons/obj/item/clothing/softsuits/softsuit.dmi'
 	icon_state = "softsuit"
 	item_state = "softsuit"
 	contained_sprite = TRUE
 
-/obj/item/clothing/suit/space/syndicate/covert/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/clothing/suit/space/syndicate/covert/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This suit is specially armored for additional protection, compared to a standard softsuit."
+
+/obj/item/clothing/suit/space/syndicate/covert/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(distance <= 1)
-		. += SPAN_NOTICE("This suit has extra armor compared to a normal softsuit.")
+		. += SPAN_ALERT("This suit has extra armor compared to a normal softsuit.")
 
 //Green syndicate space suit
 /obj/item/clothing/head/helmet/space/syndicate/green

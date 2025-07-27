@@ -193,19 +193,18 @@
 	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "Paramedic", "Psychiatrist", "Medical Intern", "Corporate Liaison", "Research Director","Scientist", "Xenobiologist", "Xenobotanist", "Xenoarchaeologist", "Research Intern", "Assistant", "Off-Duty Crew Member", "Corporate Reporter", "Captain", "Bridge Crew", "Medical Personnel", "Science Personnel")
 
 /datum/gear/augment/sightlights
-	display_name = "Zeng-Hu ocular sightlights"
-	description = "Designed to assist Zeng-Hu medical personnel in darker areas or places experiencing periodic power issues, Sightlights allow one to use their eyes as a flashlight. These are the original high-spec models available exclusively through Zeng-Hu."
-	path = /obj/item/organ/internal/augment/sightlights
-	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
-	faction = "Zeng-Hu Pharmaceuticals"
-	cost = 3
-	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "Paramedic", "Psychiatrist", "Medical Intern", "Corporate Liaison", "Research Director","Scientist", "Xenobiologist", "Xenobotanist", "Xenoarchaeologist", "Research Intern", "Assistant", "Off-Duty Crew Member", "Corporate Reporter", "Captain", "Bridge Crew", "Medical Personnel", "Science Personnel")
-
-/datum/gear/augment/sightlights/generic
 	display_name = "offbrand ocular sightlights"
 	description = "Designed to assist personnel in darker areas or places experiencing periodic power issues, sightlights allow one to use their eyes as a flashlight. Later SCC-mediated negotiation loosened the augment's patent restrictions, allowing offbrand manufacture and use of lesser models by other members of the Chainlink."
-	path = /obj/item/organ/internal/augment/sightlights/generic
+	path = /obj/item/organ/internal/augment/sightlights
 	cost = 3
+
+/datum/gear/augment/sightlights/zenghu
+	display_name = "Zeng-Hu ocular sightlights"
+	description = "Designed to assist Zeng-Hu medical personnel in darker areas or places experiencing periodic power issues, Sightlights allow one to use their eyes as a flashlight. These are the original high-spec models available exclusively through Zeng-Hu."
+	path = /obj/item/organ/internal/augment/sightlights/zenghu
+	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
+	faction = "Zeng-Hu Pharmaceuticals"
+	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "Paramedic", "Psychiatrist", "Medical Intern", "Corporate Liaison", "Research Director","Scientist", "Xenobiologist", "Xenobotanist", "Xenoarchaeologist", "Research Intern", "Assistant", "Off-Duty Crew Member", "Corporate Reporter", "Captain", "Bridge Crew", "Medical Personnel", "Science Personnel")
 
 /datum/gear/augment/zenghu_mask
 	display_name = "zeng-hu facial augment selection"
@@ -299,3 +298,18 @@
 	faction = "Private Military Contracting Group"
 	cost = 4
 	allowed_roles = list("Physician", "Surgeon", "Pharmacist", "Paramedic", "Psychiatrist", "Medical Intern", "Medical Personnel", "Security Officer", "Warden", "Security Cadet", "Investigator", "Security Personnel", "Corporate Liaison", "Assistant", "Off-Duty Crew Member", "Corporate Reporter", "Bridge Crew")
+
+/datum/gear/augment/mind_blanker
+	display_name = "Galatean Mind Blanker"
+	description = "A small, discrete organ attached near the base of the brainstem. Any attempt to read the mind of an individual with this augment installed will fail, as will attempts at psychic brainwashing."
+	path = /obj/item/organ/internal/augment/mind_blanker
+	origin_restriction = list(/singleton/origin_item/origin/galatea)
+	cost = 4
+
+/datum/gear/augment/mind_blanker_lethal
+	display_name = "Galatean Mind Blanker (Lethal)"
+	description = "Available only to higher-up MfAS agents and members of the Galatean government. This enhanced variant of a mind blanker introduces a psionic trap which inflicts severe neural damage on anyone attempting to read the user's mind."
+	path = /obj/item/organ/internal/augment/mind_blanker_lethal
+	origin_restriction = list(/singleton/origin_item/origin/galatea)
+	cost = 6
+	allowed_roles = list("Consular")
