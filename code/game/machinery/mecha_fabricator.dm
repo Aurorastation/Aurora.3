@@ -393,7 +393,7 @@
 	. = list()
 	for(var/i = 2 to queue.len)
 		var/datum/design/D = queue[i]
-		. += list(list("name" = D.name, "time" = get_design_time(D)))
+		. += list(list("name" = D.name, "time" = get_design_time(D), "index" = i))
 
 /obj/machinery/mecha_part_fabricator/proc/get_build_options()
 	. = list()

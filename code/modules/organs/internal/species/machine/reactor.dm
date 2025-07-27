@@ -1,8 +1,8 @@
 /obj/item/organ/internal/machine/reactor
 	name = "electrical power supply unit"
 	desc = "An electrical power supply system for a synthetic. It feeds from external sources."
-	icon = 'icons/obj/robot_component.dmi'
-	icon_state = "motor"
+	icon = 'icons/obj/organs/ipc_organs.dmi'
+	icon_state = "ipc_bio_reactor"
 	organ_tag = BP_REACTOR
 	parent_organ = BP_CHEST
 	possible_modifications = list(

@@ -3,8 +3,8 @@
 	desc = "A module that allows a Bishop frame to wirelessly access machines that it is authorized to interact with."
 	organ_tag = BP_WIRELESS_ACCESS
 	parent_organ = BP_HEAD
-	icon = 'icons/obj/robot_component.dmi'
-	icon_state = "binradio"
+	icon = 'icons/obj/organs/ipc_organs.dmi'
+	icon_state = "ipc_wireless_access"
 
 	action_button_name = "Access Internal Computer"
 

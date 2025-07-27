@@ -2,6 +2,7 @@
 	name = "generic machine organ"
 	parent_organ = BP_CHEST
 	organ_tag = "generic machine organ"
+	robotic_sprite = FALSE
 
 	/// The list of organ presets to use. Linked list of ORGAN_PREF to /singleton/synthetic_organ_preset. Use only if your organ has pref settings and presets.
 	/// For an example, see cooling_unit.dm. Remember to also update code\modules\client\preference_setup\general\03_body.dm at line 893!

@@ -1,8 +1,8 @@
 /obj/item/organ/internal/machine/power_core
 	name = "power core"
 	desc = "An advanced power storage system for use in fully prosthetic bodies."
-	icon = 'icons/obj/machinery/cell_charger.dmi'
-	icon_state = "nuclear_core"
+	icon = 'icons/obj/organs/ipc_organs.dmi'
+	icon_state = "ipc_battery"
 	organ_tag = BP_CELL
 	parent_organ = BP_CHEST
 	max_damage = 80

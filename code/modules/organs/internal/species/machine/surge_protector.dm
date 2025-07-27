@@ -1,8 +1,8 @@
 /obj/item/organ/internal/machine/surge
 	name = "surge preventor"
 	desc = "A small device that give immunity to EMP for few pulses."
-	icon = 'icons/obj/robot_component.dmi'
-	icon_state = "surge_ipc"
+	icon = 'icons/obj/organs/ipc_organs.dmi'
+	icon_state = "ipc_surge_protector"
 	organ_tag = BP_SURGE_PROTECTOR
 	parent_organ = BP_CHEST
 	vital = FALSE

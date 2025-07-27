@@ -1,6 +1,6 @@
 import { round } from '../../common/math';
 import { useBackend } from '../backend';
-import { Button, Flex, LabeledControls, LabeledList, ProgressBar, Section, Table, Tabs } from '../components';
+import { AnimatedNumber, Box, Button, Flex, LabeledControls, LabeledList, ProgressBar, Section, Table, Tabs } from '../components';
 import { Window } from '../layouts';
 
 export type FabricatorData = {
@@ -34,6 +34,7 @@ type BuildableItem = {
 type QueueItem = {
   name: string;
   time: string;
+  index: number;
 };
 
 type Category = {
@@ -154,13 +155,24 @@ export const SyntheticFabricator = (props, context) => {
         <Flex.Item>
           <Section title="Queue" fill>
             {data.queue.length ? (
-              <LabeledList>
-                {data.queue.map((queue) => (
-                  <LabeledList.Item key={queue.name} label={queue.name}>
-                    {queue.time}
-                  </LabeledList.Item>
-                ))}
-              </LabeledList>
+              <>
+                <Box>
+                  Time remaining:{' '}
+                  <AnimatedNumber value={data.timeleft} initial={0} />.
+                </Box>
+                <LabeledList>
+                  {data.queue.map((queue) => (
+                    <LabeledList.Item key={queue.name} label={queue.name}>
+                      {queue.time}{' '}
+                      <Button
+                        icon="cancel"
+                        color="red"
+                        onClick={() => act('remove', { remove: queue.index })}
+                      />
+                    </LabeledList.Item>
+                  ))}
+                </LabeledList>
+              </>
             ) : (
               'The manufacturing queue is currently empty.'
             )}

@@ -2,9 +2,8 @@
 	name = "optical sensor"
 	singular_name = "optical sensor"
 	organ_tag = BP_EYES
-	icon = 'icons/obj/robot_component.dmi'
-	icon_state = "camera"
-	dead_icon = "camera_broken"
+	icon = 'icons/obj/organs/ipc_organs.dmi'
+	icon_state = "ipc_eyes"
 	robotic_sprite = FALSE
 	possible_modifications = list("Mechanical")
 
