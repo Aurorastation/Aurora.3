@@ -18,7 +18,6 @@
 		if(istype(I, /obj/item/paper))
 			I.forceMove(src)
 			notices++
-			SSpersistence.register_obj(I) // Add paper to persistence tracker
 	icon_state = "nboard0[notices]"
 
 //attaching papers!!

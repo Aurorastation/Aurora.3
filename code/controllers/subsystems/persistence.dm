@@ -33,8 +33,8 @@ var/list/tracks
 		//stats_query.Execute() // TODO Handle results
 		//qdel(stats_query)
 
-		// Instanciate all remaining entries based of their type
-		// They should be added to tracking by their individual implementation, not in here, but we need to assign the persistent_track_id and the existing ckey to the obj.
+		// Instantiate all remaining entries based of their type
+		// Assign persistence related vars found in /obj, apply content and add to live tracking list.
 		//TODO
 		return SS_INIT_SUCCESS
 
