@@ -52,7 +52,7 @@ SUBSYSTEM_DEF(persistence)
 			update += track
 		else // Track has no ID, create record
 			create += track
-	
+
 	// Identify tracks that have been deleted and need to be removed by setting their expiration date to now
 	// Look-up approach for faster set-to-set comparison
 	var/list/tracks_dict[] = list()
@@ -63,10 +63,10 @@ SUBSYSTEM_DEF(persistence)
 	for(var/record in live)
 		if (!tracks_dict[record["id"]]) // No match with dict means it got removed in the round
 			delete += record["id"]
-	
+
 	// Free register as we have sorted everything
 	GLOB.persistence_register = list()
-	
+
 	database_add_entries(create)
 	// TODO Update
 	// TODO Delete (set expiration date to NOW to allow the delete period to work, clean up on round start)
@@ -130,7 +130,7 @@ SUBSYSTEM_DEF(persistence)
 		var/datum/db_query_template/query_template = SSdbcore.NewQueryTemplate("\
 		INSERT INTO ss13_persistent_data (author_ckey, type, created_at, updated_at, expires_at, content, x, y, z) \
 		VALUES (:author_ckey:, :type:, NOW(), NOW(), DATE_ADD(NOW(), INTERVAL :expire_in_days: DAY), :content:, :x:, :y:, :z:)")
-		
+
 		for(var/object in objects)
 			if (!istype(object, /obj)) // Type checking
 				continue
