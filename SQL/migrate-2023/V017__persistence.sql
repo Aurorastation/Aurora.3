@@ -10,5 +10,5 @@ CREATE TABLE ss13_persistent_data (
     y INT NULL,
     z INT NULL,
     PRIMARY KEY (id),
-    INDEX idx_expireDate (expireDate)
+    INDEX idx_expireDate (expires_at)
 );
