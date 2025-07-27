@@ -798,7 +798,7 @@
 	src.z = z
 	for(var/obj/object in loc) // Pin to noticeboard
 		if(istype(object, /obj/structure/noticeboard))
-			var/obj/structure/noticeboard/notice_board = object 
+			var/obj/structure/noticeboard/notice_board = object
 			notice_board.add_papers_from_turf()
 
 
