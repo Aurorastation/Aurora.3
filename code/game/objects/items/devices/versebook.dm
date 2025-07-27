@@ -203,23 +203,27 @@
 /// Tajaran Religious Texts
 
 /obj/item/device/versebook/twinsuns
-	name = "\improper The Holy Scrolls (abdridged version)"
-	desc = "Oh yeah description."
-	desc_extended = "Cool extended description"
+	name = "\improper Holy Scrolls"
+	desc = "An abridged collection of teachings for those worshipers of S’rendarr and Messa."
+	desc_extended = "Books and teachings of the S’randmarr worship have seen numerous variations over the storied existence of the faith. \
+	In recent times, many priests have taken to compiling their own copies of scripture and teachings for their local faithful \
+	until the great Horde of Scrolls has been conquered."
 	icon_state = "nkabook"
 	item_state = "nka"
 
 /obj/item/device/versebook/twinsuns/Initialize()
 	. = ..()
-	randomquip = file2list("texts/ingame_manuals/royalism.txt")
+	randomquip = file2list("texts/ingame_manuals/twinsuns.txt")
 
 /obj/item/device/versebook/matake
-	name = "Ma'ta'ke Legends (abdridged version)"
-	desc = "Oh yeah description."
-	desc_extended = "Cool extended description"
+	name = "\improper Ma'ta'ke legends"
+	desc = "An abridged collection of stories and teachings from the Ma’ta’ke gods."
+	desc_extended = "The Ma’ta’ke Gods and their worship has never been organized, \
+	however the Kraszarrumalkarii, the priesthood of Kraszar, in achieving their priestly duties, \
+	organize numerous volumes of stories and myths regarding the pantheon."
 	icon_state = "nkabook"
 	item_state = "nka"
 
 /obj/item/device/versebook/matake/Initialize()
 	. = ..()
-	randomquip = file2list("texts/ingame_manuals/royalism.txt")
+	randomquip = file2list("texts/ingame_manuals/matake.txt")
