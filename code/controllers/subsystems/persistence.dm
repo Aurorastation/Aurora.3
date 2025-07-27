@@ -121,7 +121,7 @@ var/list/tracks
  * Adds the given object to the list of tracked objects. At shutdown the tracked object will be either created or updated in the database.
  */
 /datum/controller/subsystem/persistence/proc/register_obj(var/obj/new_track, ckey)
-	if(!(new_track in tracks)) // Prevent duplicates
+	if(!(new_track in tracks)) // Prevent multiple registers per object
 		tracks += new_track
 		if(!ckey) // Some persistent data may not have an actual owner, for example auto generated types like decals or similar.
 			new_track.persistence_author_ckey = ckey
@@ -130,5 +130,7 @@ var/list/tracks
  * Removes the given object from the list of tracked objects. At shutdown the tracked object will be remove from the database.
  */
 /datum/controller/subsystem/persistence/proc/deregister_obj(var/obj/old_track)
-	if(old_track in tracks) // Prevent null ref
+	old_track.persistence_track_id = null
+	old_track.persistence_author_ckey = null
+	if(old_track in tracks)
 		tracks -= old_track
