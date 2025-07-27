@@ -25,7 +25,7 @@ var/list/tracks
 		log_game("SQL ERROR during persistence subsystem init. Failed to connect.")
 		return SS_INIT_FAILURE
 	else
-		// Delete all persistent objects in the database that have expired
+		// Delete all persistent objects in the database that have expired and have passed the cleanup grace period (PERSISTENT_EXPIRATION_CLEANUP_DELAY_DAYS)
 		// TODO
 
 		// Pull remaining entries
@@ -45,9 +45,9 @@ var/list/tracks
 	// TODO, recover last data?		tracks = SSpersistent.tracks
 
 /**
- * Destruction of the persistent subsystem. Adds new persistent objects, removes no longer existing persistent objects and updates changed persistent objects in the database.
+ * Shutdown of the persistent subsystem. Adds new persistent objects, removes no longer existing persistent objects and updates changed persistent objects in the database.
  */
-/datum/controller/subsystem/persistent/Destroy()
+/datum/controller/subsystem/persistent/Shutdown()
 	// Saves tracked objects without ID to DB
 	//TODO
 
