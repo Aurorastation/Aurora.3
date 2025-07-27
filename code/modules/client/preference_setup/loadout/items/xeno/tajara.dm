@@ -394,7 +394,7 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	gear_tweaks += new /datum/gear_tweak/path(card)
 
 /datum/gear/accessory/tajaranbooksrel
-	display_name = "tajaran Religious books"
+	display_name = "tajaran religious books"
 	description = "Tajaran religious texts."
 	path = /obj/item/device/versebook/twinsuns
 	sort_category = "Xenowear - Tajara"
@@ -404,8 +404,8 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 /datum/gear/accessory/tajaranbooksrel/New()
 	..()
 	var/list/card = list()
-	card["EDIT THIS"] = /obj/item/device/versebook/twinsuns
-	card["EDIT THIS"] = /obj/item/device/versebook/matake
+	card["holy scrolls"] = /obj/item/device/versebook/twinsuns
+	card["ma'ta'ke legends"] = /obj/item/device/versebook/matake
 	gear_tweaks += new /datum/gear_tweak/path(card)
 
 /datum/gear/tajaran_passports
