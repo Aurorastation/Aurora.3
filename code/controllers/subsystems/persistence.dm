@@ -8,8 +8,7 @@ SUBSYSTEM_DEF(persistence)
 #############################################*/
 
 // List of all tracked objects, initially filled by Initialize(), later managed by register_datum() and deregister_datum(), consumed at the end by Shutdown().
-GLOBAL_VAR_INIT(tracks, list())
-var/list/tracks
+var/list/persistence_register
 
 /*#############################################
 				Internal methods
@@ -20,7 +19,7 @@ var/list/tracks
  */
 /datum/controller/subsystem/persistence/Initialize()
 	. = ..()
-	tracks = list()
+	persistence_register = list()
 
 	if(!SSdbcore.Connect())
 		log_game("SQL ERROR during persistence subsystem init. Failed to connect.")
@@ -69,7 +68,7 @@ var/list/tracks
  * Generates StatEntry. Returns information about currently tracked objects.
  */
 /datum/controller/subsystem/persistence/stat_entry()
-	..("actively tracked objects: [length(tracks)]")
+	..("actively tracked objects: [length(persistence_register)]")
 
 /**
  * Run cleanup on the persistence entries in the database.
@@ -122,8 +121,8 @@ var/list/tracks
  * Adds the given object to the list of tracked objects. At shutdown the tracked object will be either created or updated in the database.
  */
 /datum/controller/subsystem/persistence/proc/register_obj(var/obj/new_track, ckey)
-	if(!(new_track in tracks)) // Prevent multiple registers per
-		tracks += new_track
+	if(!(new_track in persistence_register)) // Prevent multiple registers per
+		persistence_register += new_track
 		if(!ckey) // Some persistent data may not have an actual owner, for example auto generated types like decals or similar.
 			new_track.persistence_author_ckey = ckey
 
@@ -133,5 +132,5 @@ var/list/tracks
 /datum/controller/subsystem/persistence/proc/deregister_obj(var/obj/old_track)
 	old_track.persistence_track_id = null
 	old_track.persistence_author_ckey = null
-	if(old_track in tracks)
-		tracks -= old_track
+	if(old_track in persistence_register)
+		persistence_register -= old_track
