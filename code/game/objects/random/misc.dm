@@ -232,7 +232,7 @@
 		/obj/item/storage/belt/champion = 11,
 		/obj/item/pen/invisible = 10,
 		/obj/item/grenade/fake = 7,
-		/obj/item/gun/energy/wand/toy = 7,
+		/obj/item/gun/energy/wand/toy =	 7,
 		/obj/item/device/binoculars = 11,
 		/obj/item/device/megaphone = 11,
 		/obj/item/eightball = 11,
@@ -616,3 +616,28 @@
 		/obj/item/toy/comic/magazine/horticulturetoday/issue6
 	)
 
+/obj/random/hydroponics
+	name = "random hydroponics item"
+	desc = "This is a hydroponics thing."
+	icon_state = "tech_supply"
+	spawnlist = list(
+		/obj/item/material/scythe/sickle = 1,
+		/obj/item/material/scythe = 1,
+		/obj/item/reagent_containers/glass/bottle/mutagen = 1,
+		/obj/item/gun/energy/floragun = 1,
+		/obj/item/reagent_containers/glass/fertilizer/rh = 1,
+		/obj/item/reagent_containers/glass/fertilizer/l4z = 1,
+		/obj/item/reagent_containers/glass/fertilizer/ez = 1,
+		/obj/item/crowbar = 1,
+		/obj/item/shovel = 1,
+		/obj/item/shovel/spade = 1,
+		/obj/item/wrench = 1,
+		/obj/random/condiment = 3,
+		/obj/random/kitchen_staples = 3,
+		/obj/random/smokable = 1,
+		/obj/random/seed = 3,
+		/obj/random/plushie = 1,
+		/obj/random/mre = 1,
+		/obj/random/med_stack = 1,
+		/obj/item/reagent_containers/glass/bottle/ammonia,
+	)

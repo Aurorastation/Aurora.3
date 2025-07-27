@@ -26,7 +26,6 @@
 	set_trait(TRAIT_PLANT_ICON,"mushroom")
 	set_trait(TRAIT_WATER_CONSUMPTION, 6)
 	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_COLD)
-	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_DIM)
 
 /datum/seed/koisspore
 	name = "koisspore"

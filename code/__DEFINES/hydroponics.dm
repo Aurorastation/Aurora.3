@@ -22,7 +22,6 @@
 #define IDEAL_HEAT_ADHOMAI 255
 
 // The various standardised ideal light values. They vary by incrmeents of 2.
-#define IDEAL_LIGHT_MOGHES 9
 #define IDEAL_LIGHT_HIGH 7
 #define IDEAL_LIGHT_TEMPERATE 5
 #define IDEAL_LIGHT_DIM 3

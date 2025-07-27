@@ -779,7 +779,7 @@
 			else if(seed.check_light_preferences(light_available))
 				light_status = SPAN_GOOD("within its light preferences, accelerating growth")
 			else
-				light_status = SPAN_NOTICE("outside its light preferences, slowing growtha and reducing yield")
+				light_status = SPAN_NOTICE("outside its light preferences, slowing growth and reducing yield")
 
 			// Tells the user if they're messing things up or not.
 			. += SPAN_NOTICE("Sensors report that this tray is [heat_status], and [light_status].")
