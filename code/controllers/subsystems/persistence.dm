@@ -33,7 +33,16 @@ var/list/tracks
 
 		// Instantiate all remaining entries based of their type
 		// Assign persistence related vars found in /obj, apply content and add to live tracking list.
-		//TODO
+		for (var/data in persistent_data)
+			var/typepath = text2path(data["type"])
+			if (!ispath(typepath)) // Type checking
+				continue
+			var/obj/instance = new typepath()
+			instance.persistence_track_id = data["id"]
+			instance.persistence_author_ckey = data["author_ckey"]
+			instance.persistence_apply_content(data["content"], data["x"], data["y"], data["y"])
+			register_obj(instance)
+
 		return SS_INIT_SUCCESS
 
 /**
