@@ -193,7 +193,7 @@
 
 /mob/living/carbon/human/is_asystole()
 	if(isSynthetic())
-		var/obj/item/organ/internal/cell/C = internal_organs_by_name[BP_CELL]
+		var/obj/item/organ/internal/machine/power_core/C = internal_organs_by_name[BP_CELL]
 		if(istype(C) && C.is_usable() && C.percent())
 			return FALSE
 		return TRUE
