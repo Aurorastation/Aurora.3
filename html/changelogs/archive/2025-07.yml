@@ -439,3 +439,9 @@
   - imageadd: 'Fixes an inconsistency on the north-facing sprites of every winter
       coat. '
   - imageadd: 'Changed the palette on the colorable winter coats. '
+2025-07-27:
+  AlaunusLux:
+  - bugfix: Buckling a grabbed mob to a bed will no longer cause the mob to lower
+      after buckling.
+  hellfirejag:
+  - bugfix: Fixed brain damage being inconsistent under high or low server load.
