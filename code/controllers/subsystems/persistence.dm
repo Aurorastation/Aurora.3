@@ -7,7 +7,7 @@ SUBSYSTEM_DEF(persistence)
 				Internal vars
 #############################################*/
 
-// List of all tracked objects, initially filled by Initialize(), later managed by register_datum() and deregister_datum(), consumed at the end by Destroy().
+// List of all tracked objects, initially filled by Initialize(), later managed by register_datum() and deregister_datum(), consumed at the end by Shutdown().
 GLOBAL_VAR_INIT(tracks, list())
 var/list/tracks
 
