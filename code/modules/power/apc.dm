@@ -1589,7 +1589,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 ABSTRACT_TYPE(/obj/machinery/power/apc/quark)
 	cell_type = /obj/item/cell/high
 	req_access = null
-	req_one_access = list(ACCESS_XENOARCH, ACCESS_RESEARCH, ACCESS_BRIDGE_CREW)
+	req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_XENOARCH, ACCESS_XENOBIOLOGY, ACCESS_XENOBOTANY, ACCESS_BRIDGE_CREW)
 
 /obj/machinery/power/apc/quark/north
 	dir = NORTH
