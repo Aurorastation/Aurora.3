@@ -42,14 +42,34 @@ SUBSYSTEM_DEF(persistence)
  * Shutdown of the persistence subsystem. Adds new persistent objects, removes no longer existing persistent objects and updates changed persistent objects in the database.
  */
 /datum/controller/subsystem/persistence/Shutdown()
-	// Saves tracked objects without ID to DB
-	//TODO
+	var/list/create = list() // obj
+	var/list/update = list() // obj
+	var/list/delete = list() // int ID
 
-	// Update tracked objects with ID to DB
-	//TODO
+	// Iterate through the register to sort tracks with no ID and tracks that need an update (with ID)
+	for (var/track in GLOB.persistence_register)
+		if(track.persistence_track_id) // Track has an ID, update record
+			update += track
+		else // Track has no ID, create record
+			create += track
+	
+	// Identify tracks that have been deleted and need to be removed by setting their expiration date to now
+	// Look-up approach for faster set-to-set comparison
+	var/dict/tracked_objects = new()
+	for (var/obj in update) // Only tracks with an ID could've been deleted in the first place, anything in the create-list is irrelevant
+		tracked_objects[obj.persistence_track_id] = TRUE
 
-	// Drop entries from DB that are not in the tracking list
-	//TODO
+	var/list/live = database_get_active_entries()
+	for(var/record in live)
+		if (!record["id"] in tracked_objects) // No match with dict means it got removed in the round
+			delete += record["id"]
+	
+	// Free register as we have sorted everything
+	GLOB.persistence_register.clear()
+	
+	database_add_entries(create)
+	// TODO Update
+	// TODO Delete (set expiration date to NOW to allow the delete period to work, clean up on round start)
 
 /**
  * Generates StatEntry. Returns information about currently tracked objects.
