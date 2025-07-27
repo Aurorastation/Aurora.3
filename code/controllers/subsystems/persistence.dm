@@ -47,7 +47,7 @@ SUBSYSTEM_DEF(persistence)
 	var/list/delete = list() // int ID
 
 	// Iterate through the register to sort tracks with no ID and tracks that need an update (with ID)
-	for (var/track in GLOB.persistence_register)
+	for (var/obj/track in GLOB.persistence_register)
 		if(track.persistence_track_id) // Track has an ID, update record
 			update += track
 		else // Track has no ID, create record
@@ -55,17 +55,17 @@ SUBSYSTEM_DEF(persistence)
 	
 	// Identify tracks that have been deleted and need to be removed by setting their expiration date to now
 	// Look-up approach for faster set-to-set comparison
-	var/dict/tracked_objects = new()
-	for (var/obj in update) // Only tracks with an ID could've been deleted in the first place, anything in the create-list is irrelevant
-		tracked_objects[obj.persistence_track_id] = TRUE
+	var/list/tracks_dict[] = list()
+	for (var/obj/track in update) // Only tracks with an ID could've been deleted in the first place, anything in the create-list is irrelevant
+		tracks_dict[track.persistence_track_id] = TRUE
 
 	var/list/live = database_get_active_entries()
 	for(var/record in live)
-		if (!record["id"] in tracked_objects) // No match with dict means it got removed in the round
+		if (!tracks_dict[record["id"]]) // No match with dict means it got removed in the round
 			delete += record["id"]
 	
 	// Free register as we have sorted everything
-	GLOB.persistence_register.clear()
+	GLOB.persistence_register = list()
 	
 	database_add_entries(create)
 	// TODO Update
