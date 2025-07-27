@@ -81,7 +81,7 @@ var/list/tracks
 		var/datum/db_query/cleanup_query = SSdbcore.NewQuery("DELETE FROM ss13_persistent_data WHERE DATE_ADD(expires_at, INTERVAL :grace_period_days: DAY) <= NOW()")
 		cleanup_query.Execute(list("grace_period_days"=PERSISTENT_EXPIRATION_CLEANUP_DELAY_DAYS))
 		if (cleanup_query.ErrorMsg())
-			log_game("SQL ERROR during persistence database_clean. " + cleanup_query.ErrorMsg())		
+			log_game("SQL ERROR during persistence database_clean. " + cleanup_query.ErrorMsg())
 		qdel(cleanup_query)
 
 /**
@@ -99,7 +99,7 @@ var/list/tracks
 		if (get_query.ErrorMsg())
 			log_game("SQL ERROR during persistence database_get_active_entries. " + get_query.ErrorMsg())
 			return
-		else			
+		else
 			while (get_query.NextRow())
 				var/list/entry[] = list()
 				entry["id"] = text2num(get_query.item[1])
@@ -121,7 +121,7 @@ var/list/tracks
  * Adds the given object to the list of tracked objects. At shutdown the tracked object will be either created or updated in the database.
  */
 /datum/controller/subsystem/persistence/proc/register_obj(var/obj/new_track, ckey)
-	if(!(new_track in tracks)) // Prevent multiple registers per object
+	if(!(new_track in tracks)) // Prevent multiple registers per
 		tracks += new_track
 		if(!ckey) // Some persistent data may not have an actual owner, for example auto generated types like decals or similar.
 			new_track.persistence_author_ckey = ckey
