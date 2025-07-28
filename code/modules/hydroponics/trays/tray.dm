@@ -736,6 +736,10 @@
 			. += SPAN_DANGER("The plant is dead.")
 		else if(health <= (seed.get_trait(TRAIT_ENDURANCE)/ 2))
 			. += "The plant looks <span class='danger'>unhealthy</span>."
+		if(stunted)
+			. += SPAN_BAD("This harvest is stunted due to improper growing conditions at maturation, reducing yield.")
+		if(harvest)
+			. += SPAN_NOTICE("This is ready to harvest!")
 
 	if(mechanical)
 		var/turf/T = loc
@@ -782,9 +786,6 @@
 
 		. += "The tray thermometer displays a temperature of <b>[environment.temperature]K</b>[heat_status]."
 		. += "The tray light meter displays a light level of <b>[light_available] lumens</b>[light_status]."
-
-		if(stunted)
-			. += SPAN_BAD("This harvest is stunted due to improper growing conditions, reducing yield.")
 
 		// Are we under stasis?
 		var/stasis_string
