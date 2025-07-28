@@ -197,26 +197,26 @@
 	light_power = 0.9
 
 	/**
-	  * Is this item on station or not
-	  *
-	  * if it doesn't originate from off-station during mapload, all_products_free gets automatically set to TRUE if it was unset previously.
-	  * if it's off-station during mapload, it's also safe from the brand intelligence event
-	  */
+	 *	Is this item on station or not
+	 *
+	 *	if it doesn't originate from off-station during mapload, all_products_free gets automatically set to TRUE if it was unset previously.
+	 *	if it's off-station during mapload, it's also safe from the brand intelligence event
+	 */
 	var/onstation = TRUE
 
 	/**
-	 * DO NOT APPLY THIS GLOBALLY. For mapping var edits only.
-	 * A variable to change on a per instance basis that allows the instance to avoid having onstation set for them during mapload.
-	 * Setting this to TRUE means that the vending machine is treated as if it were still onstation if it spawns off-station during mapload.
-	 * Useful to specify an off-station machine that will be affected by machine-brand intelligence for whatever reason.
+	 *	DO NOT APPLY THIS GLOBALLY. For mapping var edits only.
+	 *	A variable to change on a per instance basis that allows the instance to avoid having onstation set for them during mapload.
+	 *	Setting this to TRUE means that the vending machine is treated as if it were still onstation if it spawns off-station during mapload.
+	 *	Useful to specify an off-station machine that will still have costs for any given reason.
 	 */
 	var/onstation_override = FALSE
 
 	/**
-	 * If this is set to TRUE, all products sold by the vending machine are free (cost nothing).
-	 * Takes precedence over any price setting.
-	 * If unset, this will get automatically set to TRUE during init if the machine originates from off-station during mapload.
-	 * Defaults to null, set it to TRUE or FALSE explicitly on a per-machine basis if you want to force it to be a certain value.
+	 *	If this is set to TRUE, all products sold by the vending machine are free (cost nothing).
+	 *	Takes precedence over any price setting.
+	 *	If unset, this will get automatically set to TRUE during init if the machine originates from off-station during mapload.
+	 *	Defaults to null, set it to TRUE or FALSE explicitly on a per-machine basis if you want to force it to be a certain value.
 	 */
 	var/all_products_free
 
@@ -226,9 +226,9 @@
 	 *	If all_products_free is TRUE, all of this will be ignored.
 	 *	NOT YET IMPLEMENTED
 	 */
-	///Default price of items if not overridden
+	/// Default price of items if not overridden
 	var/default_price = 20
-	///Default price of premium items if not overridden
+	/// Default price of premium items if not overridden
 	var/extra_price = 50
 
 /obj/machinery/vending/mechanics_hints(mob/user, distance, is_adjacent)
