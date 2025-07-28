@@ -55,4 +55,7 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - balance: "Added Xenobiology and Xenobotany to the job roles allowed to pilot the Quark."
+  - balance: "Added Xenobiology and Xenobotany to the job roles allowed to pilot shuttles."
+  - balance: "Added Xenobiology and Xenobotany to the job roles allowed to access the Pilot Room."
+  - refactor: "Added defined ACCESS_* roles for the Spark, Quark, and Canary to make them easier to manage in future (only need to update shuttle access rights from job access lists)."
+  - code_imp: "Created new prefab APCs and Air Alarms for the different shuttles to make it easier to build (no more manually overriding access_req on default objs)."
