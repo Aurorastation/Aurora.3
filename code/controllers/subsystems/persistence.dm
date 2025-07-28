@@ -62,7 +62,7 @@ SUBSYSTEM_DEF(persistence)
 	for(var/record in database_get_active_entries())
 		// Find removed objects by looking them up using the live dataset
 		var/obj/track = track_lookup[record["id"]]
-		
+
 		if (track)
 			// The record still exists as an active track, check if it may need an update
 			var/changed = FALSE
