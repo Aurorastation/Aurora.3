@@ -101,6 +101,16 @@
 	if (closed_system && connected_port)
 		update_connected_network()
 
+	// Handle light requirements for upcoming logic.
+	var/light_supplied
+	if(!closed_system)
+		if (TURF_IS_DYNAMICALLY_LIT(T))
+			light_supplied = T.get_lumcount(0, 3) * 10
+		else
+			light_supplied = 5
+	else
+		light_supplied = tray_light
+
 	// We only let the plant grow if they're within their light and heat tolerances.
 	if(!seed.check_light_tolerances(light_supplied) && !seed.check_heat_tolerances(environment))
 		// Roll the dice on advancing plant age.
@@ -134,16 +144,6 @@
 	// Handle life and death.
 	// When the plant dies, weeds thrive and pests die off.
 	check_health()
-
-	// Handle light requirements for upcoming logic.
-	var/light_supplied
-	if(!closed_system)
-		if (TURF_IS_DYNAMICALLY_LIT(T))
-			light_supplied = T.get_lumcount(0, 3) * 10
-		else
-			light_supplied = 5
-	else
-		light_supplied = tray_light
 
 	// If enough time (in cycles, not ticks) has passed since the plant was harvested, we're ready to harvest again.
 	if((age > seed.get_trait(TRAIT_MATURATION)) && ((age - lastproduce) > seed.get_trait(TRAIT_PRODUCTION)) && (!harvest && !dead))

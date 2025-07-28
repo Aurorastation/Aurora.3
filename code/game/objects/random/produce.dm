@@ -76,7 +76,6 @@
 /obj/random_produce/box/nralakk
 	produce_list = list(
 		"dyn" = 1,
-		"wulumunusha" = 1,
 		"qlort" = 1,
 		"guami" = 1,
 		"eki" = 1,
