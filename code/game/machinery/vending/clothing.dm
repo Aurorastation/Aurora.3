@@ -2,7 +2,6 @@
  * ClothesMate
  */
 
-
 /obj/machinery/vending/clothing
 	name = "ClothesMate"
 	desc = "A vending machine for clothing."
@@ -70,7 +69,7 @@
 		/obj/item/clothing/head/ushanka = 4,
 		/obj/item/clothing/head/beanie = 4,
 		/obj/item/clothing/head/wide_hat = 4,
-		/obj/item/clothing/head/sun_visor = 4,
+		/obj/item/clothing/head/skrell = 4,
 		/obj/item/clothing/head/hijab = 2,
 		/obj/item/clothing/head/turban = 2,
 		/obj/item/clothing/head/kippah = 2,
