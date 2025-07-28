@@ -118,3 +118,14 @@
 	mid_sounds = list('sound/machines/clanking.ogg' = 1)
 	mid_length = 5 SECONDS
 	volume = 75
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/datum/looping_sound/synth_fab
+	start_sound = 'sound/machines/synthfab/synthfab_start.ogg'
+	start_length = 1 SECOND
+	start_volume = 100
+	mid_sounds = list('sound/machines/synthfab/synthfab_running.ogg' = 1)
+	mid_length = 3 SECONDS
+	end_sound = 'sound/machines/synthfab/synthfab_end.ogg'
+	volume = 75

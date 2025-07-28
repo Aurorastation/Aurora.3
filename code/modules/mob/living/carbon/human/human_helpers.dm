@@ -134,7 +134,7 @@
 					if(istype(I, /obj/item/organ/internal/machine))
 						var/obj/item/organ/internal/machine/machine_organ = I
 						if(length(machine_organ.possible_modifications))
-							machine_organ.set_organ_preset(status)
+							machine_organ.get_preset_from_pref(status)
 						// If you add any more presets here, make sure to update the presets on the organ as well.
 						// Remember also that the default pref, but "default pref" is actually "the absence of any pref".
 						// We check for unique prefs and if we don't find a unique organ pref, then we default to the base type.

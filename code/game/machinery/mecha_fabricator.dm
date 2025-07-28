@@ -37,6 +37,9 @@
 
 	var/datum/research/files
 
+	/// The looping sound for production.
+	var/datum/looping_sound/synth_fab/fab_loop
+
 	var/list/categories = list()
 	var/category = null
 	var/sync_message = ""
@@ -55,11 +58,13 @@
 	. = ..()
 
 	files = new /datum/research(src) //Setup the research data holder.
+	fab_loop = new(src)
 	limb_manufacturer = GLOB.basic_robolimb.company
 	update_categories()
 
 /obj/machinery/mecha_part_fabricator/update_icon()
 	ClearOverlays()
+	update_fab_audio()
 	if(panel_open)
 		AddOverlays("[icon_state]_panel")
 	if(!(stat & (NOPOWER|BROKEN)))
@@ -70,9 +75,19 @@
 		AddOverlays(emissive_appearance(icon, "[icon_state]_lights_working"))
 		AddOverlays("[icon_state]_lights_working")
 
+/// Starts and stops the necessary audio.
+/obj/machinery/mecha_part_fabricator/proc/update_fab_audio()
+	if(!fab_loop)
+		return
+
+	if(build_callback_timer)
+		fab_loop.start()
+	else
+		fab_loop.stop()
+
 /obj/machinery/mecha_part_fabricator/dismantle()
 	for(var/f in materials)
-		eject_materials(f, -1)
+		eject_materials(f, materials[f])
 
 	//Stop the queue building if you're dismantling
 	deltimer(build_callback_timer)
@@ -155,31 +170,34 @@
 		if("build")
 			var/path = text2path(params["build"])
 			add_to_queue(path)
-			return TRUE
+			. = TRUE
 
 		if("remove")
 			remove_from_queue(text2num(params["remove"]))
-			return TRUE
+			. = TRUE
 
 		if("category")
 			if(params["category"] in categories)
 				category = params["category"]
-				return TRUE
+				. = TRUE
 
 		if("manufacturer")
 			if(params["manufacturer"] in GLOB.fabricator_robolimbs)
 				limb_manufacturer = params["manufacturer"]
-				return TRUE
+				. = TRUE
 
 		if("eject")
 			eject_materials(params["eject"], text2num(params["amount"]))
-			return TRUE
+			. = TRUE
 
 		if("sync")
 			sync()
-			return TRUE
+			. = TRUE
 		else
 			sync_message = ""
+
+	if(.)
+		playsound(src, 'sound/machines/synthfab/synthfab_button.ogg', 50)
 
 /obj/machinery/mecha_part_fabricator/attackby(obj/item/attacking_item, mob/user)
 	if(build_callback_timer)
@@ -401,7 +419,7 @@
 		var/datum/design/D = files.known_designs[path]
 		if(!D.build_path || !(D.build_type & MECHFAB) || !D.category || (D.category != category))
 			continue
-		. += list(list("name" = D.name, "type" = D.type, "category" = D.category, "resources" = get_design_resourses(D), "time" = get_design_time(D)))
+		. += list(list("name" = D.name, "desc" = D.desc, "type" = D.type, "category" = D.category, "resources" = get_design_resourses(D), "time" = get_design_time(D)))
 
 /obj/machinery/mecha_part_fabricator/proc/get_design_resourses(var/datum/design/D)
 	var/list/F = list()
@@ -428,6 +446,8 @@
 		. += list(list("name" = capitalize(T), "amount" = materials[T]))
 
 /obj/machinery/mecha_part_fabricator/proc/eject_materials(var/material, var/amount)
+	if(!amount)
+		return
 	material = lowertext(material)
 	var/material/mattype = SSmaterials.get_material_by_name(material)
 	var/stack_type = mattype.stack_type

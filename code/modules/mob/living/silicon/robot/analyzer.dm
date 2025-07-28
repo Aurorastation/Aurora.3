@@ -21,21 +21,12 @@
 	add_fingerprint(user)
 
 
-/proc/robotic_analyze_mob (var/mob/living/M, var/mob/living/user, var/just_scan = FALSE)
+/proc/robotic_analyze_mob(var/mob/living/M, var/mob/living/user, var/just_scan = FALSE)
 	if(!just_scan)
-		if((user.is_clumsy() || (user.mutations & DUMB)) && prob(50))
-			to_chat(user, SPAN_WARNING("You try to analyze the floor's vitals!"))
-			user.visible_message(SPAN_WARNING("\The [user] has analyzed the floor's vitals!"))
-			to_chat(user, SPAN_NOTICE("Analyzing Results for The floor:"))
-			to_chat(user, SPAN_NOTICE("Overall Status: Healthy"))
-			to_chat(user, SPAN_NOTICE("Damage Specifics: [0]-[0]-[0]-[0]"))
-			to_chat(user, SPAN_NOTICE("Key: Suffocation/Toxin/Burns/Brute"))
-			to_chat(user, SPAN_NOTICE("Body Temperature: ???"))
-			return
 		user.visible_message(SPAN_NOTICE("\The [user] has analyzed \the [M]'s components."), SPAN_NOTICE("You have analyzed \the [M]'s components."))
 
 	var/scan_type
-	if(istype(M, /mob/living/silicon/robot))
+	if(isrobot(M))
 		scan_type = "robot"
 	else if(istype(M, /mob/living/carbon/human))
 		scan_type = "prosthetics"
@@ -50,7 +41,7 @@
 
 			to_chat(user, SPAN_NOTICE("Analyzing Results for [M]:"))
 			to_chat(user, SPAN_NOTICE("Overall Status: [M.stat > 1 ? "fully disabled" : "[M.health - M.getHalLoss()]% functional"]"))
-			to_chat(user, "Key: <font color='#FFA500'>Electronics</font>/<span class='warning'>Brute</span>")
+			to_chat(user, "Key: <font color='#FFA500'>Electronics</font>/<span class='warning'>Physical Damage</span>")
 			to_chat(user, "Damage Specifics: <font color='#FFA500'>[BU]</font> - <span class='warning'>[BR]</span>")
 			if(M.tod && M.stat == DEAD)
 				to_chat(user, SPAN_NOTICE("Time of Disable: [M.tod]"))
@@ -105,7 +96,7 @@
 					to_chat(user, "[O.name]: <span class='warning'>[O.damage]</span>")
 					to_chat(user, "<i>[O.desc]</i>")
 			if(!organ_found)
-				to_chat(user, SPAN_NOTICE("No prosthetics located."))
+				to_chat(user, SPAN_NOTICE("No prosthetics located."))*
 
 
 /obj/item/device/robotanalyzer/augment

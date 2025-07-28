@@ -29,6 +29,9 @@
 	passive_temp_change = 20
 	plating_max_health = 50
 
+/obj/item/organ/internal/machine/cooling_unit/air
+	forced_preset = /singleton/synthetic_organ_preset/cooling_unit/air
+
 /singleton/synthetic_organ_preset/cooling_unit/liquid
 	name = "liquid-cooling pump and radiator array"
 	desc = "An extremely complex set of cooling pipes that transport coolant throughout a synthetic's body. The most efficient type of cooling, but also the most vulnerable."
@@ -36,6 +39,9 @@
 	passive_temp_change = 3
 	base_power_consumption = 2
 	plating_max_health = 20
+
+/obj/item/organ/internal/machine/cooling_unit/liquid
+	forced_preset = /singleton/synthetic_organ_preset/cooling_unit/liquid
 
 /singleton/synthetic_organ_preset/cooling_unit/passive
 	name = "passive radiator cooling block"
@@ -45,6 +51,10 @@
 	base_power_consumption = 5
 	plating_max_health = 120
 
+
+/obj/item/organ/internal/machine/cooling_unit/passive
+	forced_preset = /singleton/synthetic_organ_preset/cooling_unit/passive
+
 // Xion cooling units.
 /singleton/synthetic_organ_preset/cooling_unit/air_xion
 	name = "xion manufacturing advanced air cooling unit"
@@ -53,6 +63,9 @@
 	passive_temp_change = 10
 	plating_max_health = 25
 
+/obj/item/organ/internal/machine/cooling_unit/air/xion
+	forced_preset = /singleton/synthetic_organ_preset/cooling_unit/air_xion
+
 /singleton/synthetic_organ_preset/cooling_unit/liquid_xion
 	name = "xion manufacturing advanced cryo-cooling pump and radiator array"
 	desc = "An extremely complex cryo-cooling setup. It uses advanced coolant to allow the frame to still function in space - but its laminar super-flow piping is extremely fragile."
@@ -60,12 +73,18 @@
 	passive_temp_change = 20
 	plating_max_health = 25
 
+/obj/item/organ/internal/machine/cooling_unit/liquid/xion
+	forced_preset = /singleton/synthetic_organ_preset/cooling_unit/liquid_xion
+
 /singleton/synthetic_organ_preset/cooling_unit/passive_xion
 	name = "xion manufacturing passive mega-fin array"
 	desc = "The simplicity of this cooling design betrays its efficiency: an extremely durable array of laminar plasteel fins, supplemented with a coating of coolant that allows the synthetic to be cooled even in space."
 
 	passive_temp_change = 5
 	plating_max_health = 200
+
+/obj/item/organ/internal/machine/cooling_unit/passive/xion
+	forced_preset = /singleton/synthetic_organ_preset/cooling_unit/passive_xion
 
 // Zenghu cooling units.
 /singleton/synthetic_organ_preset/cooling_unit/air_zenghu
@@ -75,6 +94,9 @@
 	passive_temp_change = 3
 	plating_max_health = 40
 
+/obj/item/organ/internal/machine/cooling_unit/air/zenghu
+	forced_preset = /singleton/synthetic_organ_preset/cooling_unit/air_zenghu
+
 /singleton/synthetic_organ_preset/cooling_unit/liquid_zenghu
 	name = "zeng-hu lamellar liquid cooling system"
 	desc = "A sleek set of superimposed lamellar pipes with a custom cooling solution. In black market and enthusiast repair forums, this is known as 'the enthusiast's nightmare' due to its practical impossibility to repair in anything less than a Zeng-Hu facility; \
@@ -83,9 +105,16 @@
 	passive_temp_change = 4
 	plating_max_health = 15
 
+/obj/item/organ/internal/machine/cooling_unit/liquid/zenghu
+	forced_preset = /singleton/synthetic_organ_preset/cooling_unit/liquid_zenghu
+
 /singleton/synthetic_organ_preset/cooling_unit/passive_zenghu
 	name = "suprafin cooling fins"
 	desc = "A sleek set of engraved, plasteel fins patented by Zeng-Hu as 'suprafins'. The engravings help increase thermal area to the maximum possible, and a specialized cooling solution is imprinted onto the fins to improve their cooling ability."
 
 	passive_temp_change = 2
 	plating_max_health = 130
+
+/obj/item/organ/internal/machine/cooling_unit/passive/zenghu
+	forced_preset = /singleton/synthetic_organ_preset/cooling_unit/passive_zenghu
+

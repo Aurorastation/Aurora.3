@@ -3574,6 +3574,7 @@
 #include "code\modules\research\designs\mechfab\prosthetics\internal.dm"
 #include "code\modules\research\designs\mechfab\robot\robot.dm"
 #include "code\modules\research\designs\mechfab\robot\robot_upgrades.dm"
+#include "code\modules\research\designs\mechfab\synthetic\synthetic_organ_parts.dm"
 #include "code\modules\research\designs\protolathe\deployable_kits.dm"
 #include "code\modules\research\designs\protolathe\disk_designs.dm"
 #include "code\modules\research\designs\protolathe\hud_glasses_designs.dm"

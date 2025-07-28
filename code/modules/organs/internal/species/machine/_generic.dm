@@ -9,6 +9,8 @@
 	var/list/organ_presets
 	/// The default preset to fall back to if there is no pref (aka people want the base type). Must be of type /singleton/synthetic_organ_preset.
 	var/default_preset
+	/// This variable forces the organ to be of a certain preset and is applied automatically on Initialize. This is used to make subtypes spawn as proper presets.
+	var/forced_preset
 	/// The current preset, if any. Should only ever be null or an instance.
 	var/singleton/synthetic_organ_preset/current_preset
 
@@ -33,6 +35,8 @@
 	wiring = new(src)
 	plating = new(src)
 	electronics = new(src)
+	if(forced_preset)
+		apply_preset_data(GET_SINGLETON(forced_preset))
 
 /obj/item/organ/internal/machine/Destroy()
 	QDEL_NULL(wiring)
@@ -93,11 +97,11 @@
 	. = ..()
 
 /**
- * Called when prefs are synced to the organ to set the proper synthetic organ preset.
+ * Called when prefs are synced to the organ to set the proper synthetic organ preset. Turns the pref into a preset singleton.
  * Remember that the base type is the default, AKA when no prefs are set that organ will spawn.
  * TODOMATT: make this work with acting/changer.
  */
-/obj/item/organ/internal/machine/proc/set_organ_preset(organ_pref)
+/obj/item/organ/internal/machine/proc/get_preset_from_pref(organ_pref)
 	var/singleton/synthetic_organ_preset/new_preset
 	if(organ_pref && (organ_pref in organ_presets))
 		new_preset = GET_SINGLETON(organ_presets[organ_pref])
@@ -107,8 +111,17 @@
 	if(!istype(new_preset))
 		crash_with("Invalid organ preset [new_preset]!")
 
-	current_preset = new_preset
-	new_preset.apply_preset(src)
+	apply_preset_data(new_preset)
+
+/**
+ * Applies the preset data to the organ.
+ */
+/obj/item/organ/internal/machine/proc/apply_preset_data(singleton/synthetic_organ_preset/preset)
+	if(!istype(preset))
+		crash_with("apply_preset_data called with improper preset [preset]!")
+
+	current_preset = preset
+	preset.apply_preset(src)
 
 /**
  * This is a function used to return an overall integrity number that takes
@@ -208,7 +221,7 @@
 	return TRUE
 
 /**
- * Returns extra diagnostics info, viewable from the diagnostics unit verbs or through a robot scanner.
+ * Returns extra diagnostics info, viewable from the diagnostics unit.
  */
 /obj/item/organ/internal/machine/proc/get_diagnostics_info()
 	return

@@ -1,6 +1,6 @@
 import { round } from '../../common/math';
 import { useBackend } from '../backend';
-import { AnimatedNumber, Box, Button, Flex, LabeledControls, LabeledList, ProgressBar, Section, Table, Tabs } from '../components';
+import { AnimatedNumber, Box, Button, Flex, LabeledControls, LabeledList, NoticeBox, ProgressBar, Section, Table, Tabs } from '../components';
 import { Window } from '../layouts';
 
 export type FabricatorData = {
@@ -25,6 +25,7 @@ export type FabricatorData = {
 
 type BuildableItem = {
   name: string;
+  desc: string;
   type: string;
   category: string;
   resources: string;
@@ -138,6 +139,7 @@ export const SyntheticFabricator = (props, context) => {
                       <Table.Cell>
                         <Button
                           content={buildable.name}
+                          tooltip={buildable.desc}
                           onClick={() =>
                             act('build', { build: buildable.type })
                           }
@@ -154,25 +156,27 @@ export const SyntheticFabricator = (props, context) => {
         </Flex>
         <Flex.Item>
           <Section title="Queue" fill>
+            {data.timeleft ? (
+              <Box>
+                Time remaining:{' '}
+                <AnimatedNumber value={data.timeleft} initial={0} />.
+              </Box>
+            ) : (
+              <NoticeBox>No component is currently being lathed.</NoticeBox>
+            )}
             {data.queue.length ? (
-              <>
-                <Box>
-                  Time remaining:{' '}
-                  <AnimatedNumber value={data.timeleft} initial={0} />.
-                </Box>
-                <LabeledList>
-                  {data.queue.map((queue) => (
-                    <LabeledList.Item key={queue.name} label={queue.name}>
-                      {queue.time}{' '}
-                      <Button
-                        icon="cancel"
-                        color="red"
-                        onClick={() => act('remove', { remove: queue.index })}
-                      />
-                    </LabeledList.Item>
-                  ))}
-                </LabeledList>
-              </>
+              <LabeledList>
+                {data.queue.map((queue) => (
+                  <LabeledList.Item key={queue.name} label={queue.name}>
+                    {queue.time}{' '}
+                    <Button
+                      icon="cancel"
+                      color="red"
+                      onClick={() => act('remove', { remove: queue.index })}
+                    />
+                  </LabeledList.Item>
+                ))}
+              </LabeledList>
             ) : (
               'The manufacturing queue is currently empty.'
             )}
