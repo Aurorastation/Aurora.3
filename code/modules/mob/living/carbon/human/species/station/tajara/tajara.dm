@@ -43,7 +43,7 @@
 	name_language = LANGUAGE_SIIK_MAAS
 	ethanol_resistance = 0.9//Gets drunk a little faster
 	rarity_value = 2
-	economic_modifier = 7
+	economic_modifier = 9
 
 	stamina = 90	// Tajara evolved to maintain a steady pace in the snow, sprinting wastes energy
 	stamina_recovery = 4

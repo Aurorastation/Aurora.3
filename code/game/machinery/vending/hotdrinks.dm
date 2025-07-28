@@ -29,13 +29,13 @@
 		/obj/item/reagent_containers/food/drinks/carton/soymilk = 2
 	)
 	prices = list(
-		/obj/item/reagent_containers/food/drinks/coffee = 20,
-		/obj/item/reagent_containers/food/drinks/tea = 20,
-		/obj/item/reagent_containers/food/drinks/greentea = 20,
-		/obj/item/reagent_containers/food/drinks/chaitea = 25,
-		/obj/item/reagent_containers/food/drinks/hotcider = 28,
-		/obj/item/reagent_containers/food/drinks/h_chocolate = 22,
-		/obj/item/reagent_containers/food/snacks/donut/normal = 6
+		/obj/item/reagent_containers/food/drinks/coffee = 2,
+		/obj/item/reagent_containers/food/drinks/tea = 2,
+		/obj/item/reagent_containers/food/drinks/greentea = 2.25,
+		/obj/item/reagent_containers/food/drinks/chaitea = 2.50,
+		/obj/item/reagent_containers/food/drinks/hotcider = 2.50,
+		/obj/item/reagent_containers/food/drinks/h_chocolate = 2,
+		/obj/item/reagent_containers/food/snacks/donut/normal = 2.50
 	)
 	premium = list(
 		/obj/item/reagent_containers/glass/beaker/teapot/ = 5

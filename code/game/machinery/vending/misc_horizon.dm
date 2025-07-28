@@ -53,14 +53,14 @@
 		/obj/item/battle_monsters/wrapped/rare = 10
 	)
 	prices = list(
-		/obj/item/book/manual/wiki/battlemonsters = 12,
-		/obj/item/battle_monsters/wrapped = 100,
-		/obj/item/battle_monsters/wrapped/pro = 75,
-		/obj/item/battle_monsters/wrapped/species = 50,
-		/obj/item/battle_monsters/wrapped/species/lizard = 50,
-		/obj/item/battle_monsters/wrapped/species/cat = 50,
-		/obj/item/battle_monsters/wrapped/species/ant = 50,
-		/obj/item/battle_monsters/wrapped/rare = 100
+		/obj/item/book/manual/wiki/battlemonsters = 15.00,
+		/obj/item/battle_monsters/wrapped = 25.00,
+		/obj/item/battle_monsters/wrapped/pro = 20.00,
+		/obj/item/battle_monsters/wrapped/species = 15.00,
+		/obj/item/battle_monsters/wrapped/species/lizard = 15.00,
+		/obj/item/battle_monsters/wrapped/species/cat = 15.00,
+		/obj/item/battle_monsters/wrapped/species/ant = 15.00,
+		/obj/item/battle_monsters/wrapped/rare = 35.00
 	)
 	contraband = list(
 		/obj/item/battle_monsters/wrapped/legendary = 5
@@ -93,10 +93,11 @@
 		/obj/item/storage/overloader/screenshaker = 5
 	)
 	prices = list(
-		/obj/item/storage/overloader/classic = 100,
-		/obj/item/storage/overloader/tranquil = 100,
-		/obj/item/storage/overloader/rainbow = 100,
-		/obj/item/storage/overloader/screenshaker = 100
+		/obj/item/storage/overloader/classic = 50.00,
+		/obj/item/storage/overloader/tranquil = 60.00,
+		/obj/item/storage/overloader/rainbow = 60.00,
+		/obj/item/storage/overloader/screenshaker = 60.00,
+		/obj/item/storage/overloader/jitterbug = 85.00
 	)
 	contraband = list(
 		/obj/item/storage/overloader/rainbow = 2
@@ -121,14 +122,14 @@
 	icon_deny = "lavatory-deny"
 	product_ads = "Take a shower you hippie.;Get a haircut, hippie!;Reeking of Vaurca taint? Take a shower!;You reek! Freshen up!;Hey, you dropped something!;Cleansing the world, one person at a time!"
 	prices = list(
-		/obj/item/soap = 20,
-		/obj/item/mirror = 40,
-		/obj/item/haircomb/random = 40,
-		/obj/item/towel/random = 50,
-		/obj/item/reagent_containers/spray/cleaner/deodorant = 30,
-		/obj/item/reagent_containers/toothpaste = 40,
-		/obj/item/reagent_containers/toothbrush = 20,
-		/obj/item/reagent_containers/food/drinks/flask/vacuumflask/mouthwash = 30
+		/obj/item/soap = 3.50,
+		/obj/item/mirror = 7.00,
+		/obj/item/haircomb/random = 7.00,
+		/obj/item/towel/random = 8.50,
+		/obj/item/reagent_containers/spray/cleaner/deodorant = 5.00,
+		/obj/item/reagent_containers/toothpaste = 7.00,
+		/obj/item/reagent_containers/toothbrush = 3.50,
+		/obj/item/reagent_containers/food/drinks/flask/vacuumflask/mouthwash = 5.00
 	)
 	products = list(
 		/obj/item/soap = 12,
@@ -141,20 +142,20 @@
 		/obj/item/reagent_containers/food/drinks/flask/vacuumflask/mouthwash = 5
 	)
 	premium = list(
-		/obj/item/grenade/chem_grenade/metalfoam = 0,
+		/obj/item/grenade/chem_grenade/metalfoam = 0
 	)
 	contraband = list(
 		/obj/item/inflatable_duck = 1
 	)
 
 /obj/machinery/vending/lavatory/low_supply
-	prices = list(
-		/obj/item/soap = 7,
-		/obj/item/mirror = 12,
-		/obj/item/haircomb/random = 12,
-		/obj/item/towel/random = 14,
-		/obj/item/reagent_containers/spray/cleaner/deodorant = 6,
-		/obj/item/reagent_containers/toothpaste = 14,
-		/obj/item/reagent_containers/toothbrush = 23,
-		/obj/item/reagent_containers/food/drinks/flask/vacuumflask/mouthwash = 18
+	products = list(
+		/obj/item/soap = 4,
+		/obj/item/mirror = 2,
+		/obj/item/haircomb/random = 3,
+		/obj/item/towel/random = 4,
+		/obj/item/reagent_containers/spray/cleaner/deodorant = 2,
+		/obj/item/reagent_containers/toothpaste = 3,
+		/obj/item/reagent_containers/toothbrush = 6,
+		/obj/item/reagent_containers/food/drinks/flask/vacuumflask/mouthwash = 2
 	)

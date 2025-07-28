@@ -10,7 +10,7 @@
 	var/initialicon = "gumball"
 	var/amountleft = 20
 	var/vendingtype = /obj/item/clothing/mask/chewable/candy/gum
-	var/gumprice = 5
+	var/gumprice = 0.25
 	var/on = 1
 	var/broken = 0
 
@@ -115,4 +115,4 @@
 	initialicon = "sucker"
 	amountleft = 25
 	vendingtype = /obj/item/clothing/mask/chewable/candy/lolli
-	gumprice = 10
+	gumprice = 0.50

@@ -25,17 +25,17 @@
 		/obj/item/storage/box/fancy/mre/menu12 = 5
 	)
 	prices = list(
-		/obj/item/storage/box/fancy/mre = 50,
-		/obj/item/storage/box/fancy/mre/menu2 = 50,
-		/obj/item/storage/box/fancy/mre/menu3 = 50,
-		/obj/item/storage/box/fancy/mre/menu4 = 50,
-		/obj/item/storage/box/fancy/mre/menu5 = 50,
-		/obj/item/storage/box/fancy/mre/menu6 = 50,
-		/obj/item/storage/box/fancy/mre/menu7 = 50,
-		/obj/item/storage/box/fancy/mre/menu8 = 50,
-		/obj/item/storage/box/fancy/mre/menu9 = 50,
-		/obj/item/storage/box/fancy/mre/menu10 = 50,
-		/obj/item/storage/box/fancy/mre/menu12 = 50
+		/obj/item/storage/box/fancy/mre = 12.00,
+		/obj/item/storage/box/fancy/mre/menu2 = 12.00,
+		/obj/item/storage/box/fancy/mre/menu3 = 12.00,
+		/obj/item/storage/box/fancy/mre/menu4 = 12.00,
+		/obj/item/storage/box/fancy/mre/menu5 = 12.00,
+		/obj/item/storage/box/fancy/mre/menu6 = 12.00,
+		/obj/item/storage/box/fancy/mre/menu7 = 12.00,
+		/obj/item/storage/box/fancy/mre/menu8 = 12.00,
+		/obj/item/storage/box/fancy/mre/menu9 = 12.00,
+		/obj/item/storage/box/fancy/mre/menu10 = 12.00,
+		/obj/item/storage/box/fancy/mre/menu12 = 12.00
 	)
 	contraband = list(
 		/obj/item/storage/box/fancy/mre/menu11 = 5, // memes.
@@ -67,6 +67,7 @@
 		/obj/item/reagent_containers/food/snacks/aoyama_ramen = 15
 	)
 	prices = list(
-		/obj/item/reagent_containers/food/snacks/ramenbowl = 60,
+		/obj/item/reagent_containers/food/snacks/ramenbowl = 7.00,
+		/obj/item/reagent_containers/food/snacks/aoyama_ramen = 8.25
 	)
 	light_color = COLOR_GUNMETAL

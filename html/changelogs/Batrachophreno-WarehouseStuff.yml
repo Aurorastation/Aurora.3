@@ -1,0 +1,66 @@
+################################
+# Example Changelog File
+#
+# Note: This file, and files beginning with ".", and files that don't end in ".yml" will not be read. If you change this file, you will look really dumb.
+#
+# Your changelog will be merged with a master changelog. (New stuff added only, and only on the date entry for the day it was merged.)
+# When it is, any changes listed below will disappear.
+#
+# Valid Prefixes:
+#   bugfix
+#     - (fixes bugs)
+#   wip
+#     - (work in progress)
+#   qol
+#     - (quality of life)
+#   soundadd
+#     - (adds a sound)
+#   sounddel
+#     - (removes a sound)
+#   rscadd
+#     - (adds a feature)
+#   rscdel
+#     - (removes a feature)
+#   imageadd
+#     - (adds an image or sprite)
+#   imagedel
+#     - (removes an image or sprite)
+#   spellcheck
+#     - (fixes spelling or grammar)
+#   experiment
+#     - (experimental change)
+#   balance
+#     - (balance changes)
+#   code_imp
+#     - (misc internal code change)
+#   refactor
+#     - (refactors code)
+#   config
+#     - (makes a change to the config files)
+#   admin
+#     - (makes changes to administrator tools)
+#   server
+#     - (miscellaneous changes to server)
+#################################
+
+# Your name.
+author: Batrachophrenoboocosmomachia
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
+# Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
+changes:
+  - rscadd: "Added 39 additional options for Horizon warehouse submaps."
+  - rscadd: "Added 14 additional regular cargo item spawns (flag boxes- each contain sets of flags associated with a given nation, race, etc.)"
+  - rscdel: "Removed 'Russian' gimmick closet from warehouse spawn, increased spawn rate of 'Tacticool' gimmick closet."
+  - balance: "Warehouse rare RFD random spawn chance slightly increased, includes one compressed matter block."
+  - balance: "Warehouse rare clothing spawn now will spawn 1-4 items (increased from 1-2)."
+  - balance: "Warehouse 'unusual container' spawn chance slightly increased."
+  - balance: "Warehouse chemical dispenser spawn pool now includes coffee makers, spawn chance slightly increased."
+  - balance: "Warehouse uncommon phoron sheets spawn chance slightly decreased."
+  - refactor: "Updated radioactive greenglow decal to use ssRadiation proc instead of old direct damage application."

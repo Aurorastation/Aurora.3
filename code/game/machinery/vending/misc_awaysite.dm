@@ -40,25 +40,25 @@
 		/obj/item/reagent_containers/food/drinks/bottle/space_up = 2
 	)
 	prices = list(
-		/obj/item/reagent_containers/food/drinks/cans/cola = 15,
-		/obj/item/reagent_containers/food/drinks/cans/diet_cola = 15,
-		/obj/item/reagent_containers/food/drinks/cans/space_mountain_wind = 11,
-		/obj/item/reagent_containers/food/drinks/cans/dr_gibb = 16,
-		/obj/item/reagent_containers/food/drinks/cans/root_beer = 13,
-		/obj/item/reagent_containers/food/drinks/cans/starkist = 15,
-		/obj/item/reagent_containers/food/drinks/waterbottle = 12,
-		/obj/item/reagent_containers/food/drinks/cans/dyn = 18,
-		/obj/item/reagent_containers/food/drinks/cans/space_up = 15,
-		/obj/item/reagent_containers/food/drinks/cans/iced_tea = 13,
-		/obj/item/reagent_containers/food/drinks/cans/grape_juice = 16,
-		/obj/item/reagent_containers/food/drinks/cans/peach_soda = 16,
-		/obj/item/reagent_containers/food/drinks/cans/koispunch = 50,
-		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 5,
-		/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda = 35,
-		/obj/item/reagent_containers/food/drinks/carton/small/milk = 18,
-		/obj/item/reagent_containers/food/drinks/carton/small/milk/choco = 18,
-		/obj/item/reagent_containers/food/drinks/carton/small/milk/strawberry = 18,
-		/obj/item/reagent_containers/food/drinks/cans/melon_soda = 16
+		/obj/item/reagent_containers/food/drinks/cans/cola = 1.50,
+		/obj/item/reagent_containers/food/drinks/cans/diet_cola = 1.50,
+		/obj/item/reagent_containers/food/drinks/cans/space_mountain_wind = 1.20,
+		/obj/item/reagent_containers/food/drinks/cans/dr_gibb = 1.75,
+		/obj/item/reagent_containers/food/drinks/cans/root_beer = 1.40,
+		/obj/item/reagent_containers/food/drinks/cans/starkist = 1.50,
+		/obj/item/reagent_containers/food/drinks/waterbottle = 1.25,
+		/obj/item/reagent_containers/food/drinks/cans/dyn = 1.80,
+		/obj/item/reagent_containers/food/drinks/cans/space_up = 1.50,
+		/obj/item/reagent_containers/food/drinks/cans/iced_tea = 1.40,
+		/obj/item/reagent_containers/food/drinks/cans/grape_juice = 1.75,
+		/obj/item/reagent_containers/food/drinks/cans/peach_soda = 1.75,
+		/obj/item/reagent_containers/food/drinks/cans/koispunch = 5.00,
+		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 0.50,
+		/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda = 3.50,
+		/obj/item/reagent_containers/food/drinks/carton/small/milk = 1.80,
+		/obj/item/reagent_containers/food/drinks/carton/small/milk/choco = 1.80,
+		/obj/item/reagent_containers/food/drinks/carton/small/milk/strawberry = 1.80,
+		/obj/item/reagent_containers/food/drinks/cans/melon_soda = 1.75
 	)
 	light_color = COLOR_BABY_BLUE
 
@@ -79,18 +79,18 @@
 		/obj/item/reagent_containers/food/drinks/bottle/champagne = 3
 	)
 	prices = list(
-		/obj/item/reagent_containers/food/drinks/bottle/makgeolli = 30,
-		/obj/item/reagent_containers/food/drinks/bottle/soju = 15,
-		/obj/item/reagent_containers/food/drinks/bottle/soju/shochu = 30,
-		/obj/item/reagent_containers/food/drinks/bottle/sake = 40,
-		/obj/item/reagent_containers/food/drinks/cans/beer/rice = 20,
-		/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma = 20,
-		/obj/item/reagent_containers/food/drinks/cans/beer/rice/moonlabor = 20,
-		/obj/item/reagent_containers/food/drinks/cans/beer = 20,
-		/obj/item/reagent_containers/food/drinks/bottle/small/beer = 20,
-		/obj/item/reagent_containers/food/drinks/bottle/whiskey = 30,
-		/obj/item/reagent_containers/food/drinks/bottle/wine = 50,
-		/obj/item/reagent_containers/food/drinks/bottle/champagne = 100
+		/obj/item/reagent_containers/food/drinks/bottle/makgeolli = 12.00,
+		/obj/item/reagent_containers/food/drinks/bottle/soju = 6.00,
+		/obj/item/reagent_containers/food/drinks/bottle/soju/shochu = 12.00,
+		/obj/item/reagent_containers/food/drinks/bottle/sake = 16.00,
+		/obj/item/reagent_containers/food/drinks/cans/beer/rice = 8.00,
+		/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma = 8.00,
+		/obj/item/reagent_containers/food/drinks/cans/beer/rice/moonlabor = 8.00,
+		/obj/item/reagent_containers/food/drinks/cans/beer = 8.00,
+		/obj/item/reagent_containers/food/drinks/bottle/small/beer = 8.00,
+		/obj/item/reagent_containers/food/drinks/bottle/whiskey = 12.00,
+		/obj/item/reagent_containers/food/drinks/bottle/wine = 20.00,
+		/obj/item/reagent_containers/food/drinks/bottle/champagne = 40.00
 	)
 
 /obj/machinery/vending/rental_bikes
@@ -104,8 +104,8 @@
 		/obj/item/key/bike/sport = 0,
 	)
 	prices = list(
-		/obj/item/key/bike/moped = 50,
-		/obj/item/key/bike/sport = 200,
+		/obj/item/key/bike/moped = 15.00,
+		/obj/item/key/bike/sport = 50.00
 	)
 	restock_items = FALSE
 	random_itemcount = FALSE

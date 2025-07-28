@@ -176,14 +176,14 @@
 		/obj/item/storage/pill_bottle/rmt = 2
 	)
 	prices = list(
-		/obj/item/storage/pill_bottle/antidexafen = 140,
-		/obj/item/storage/pill_bottle/dexalin = 120,
-		/obj/item/storage/pill_bottle/dylovene = 150,
-		/obj/item/storage/pill_bottle/vitamin = 110,
-		/obj/item/storage/pill_bottle/cetahydramine  = 120,
-		/obj/item/storage/pill_bottle/caffeine = 180,
-		/obj/item/storage/pill_bottle/nicotine  = 170,
-		/obj/item/storage/pill_bottle/rmt = 550
+		/obj/item/storage/pill_bottle/antidexafen = 7.00,
+		/obj/item/storage/pill_bottle/dexalin = 25.00,
+		/obj/item/storage/pill_bottle/dylovene = 12.00,
+		/obj/item/storage/pill_bottle/vitamin = 8.00,
+		/obj/item/storage/pill_bottle/cetahydramine = 10.00,
+		/obj/item/storage/pill_bottle/caffeine = 9.00,
+		/obj/item/storage/pill_bottle/nicotine = 15.00,
+		/obj/item/storage/pill_bottle/rmt = 55.00
 	)
 	contraband = list(
 		/obj/item/reagent_containers/pill/tox = 3,
