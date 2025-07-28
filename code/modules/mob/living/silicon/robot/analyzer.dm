@@ -96,8 +96,7 @@
 					to_chat(user, "[O.name]: <span class='warning'>[O.damage]</span>")
 					to_chat(user, "<i>[O.desc]</i>")
 			if(!organ_found)
-				to_chat(user, SPAN_NOTICE("No prosthetics located."))*
-
+				to_chat(user, SPAN_NOTICE("No prosthetics located."))
 
 /obj/item/device/robotanalyzer/augment
 	name = "retractable cyborg analyzer"

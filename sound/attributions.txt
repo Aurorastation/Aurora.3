@@ -169,4 +169,8 @@ sound/effects/heat_alarm.ogg by Tim_Verberne -- https://freesound.org/s/514080/ 
 sound/effects/reload_woosh.ogg by jwsounddesign -- https://freesound.org/s/611475/ -- License: Attribution 4.0
 sound/machines/synthfab/synthfab_start|running|end.ogg-- https://freesound.org/s/530765/ -- License: Creative Commons 0
 sound/machines/synthfab/synthfab_button.ogg -- https://freesound.org/s/140773/ -- License: Creative Commons 0
+sound/species/synthetic/light_electric_discharge.ogg -- https://freesound.org/s/103687/ -- License: Attribution NonCommercial 4.0
+sound/species/synthetic/heavy_electric_discharge.ogg -- https://freesound.org/s/103687/ -- License: Attribution NonCommercial 4.0
+sound/species/synthetic/access_cable_in.ogg -- https://freesound.org/s/15545/ -- License: Sampling+
+sound/species/synthetic/access_cable_out.ogg -- https://freesound.org/s/15545/ -- License: Sampling+
 ATTRIBUTIONS SECTION END

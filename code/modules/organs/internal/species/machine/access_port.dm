@@ -130,6 +130,7 @@
 	desc = "A cable with universal access pins at its end. This is meant for jacking into synthetics to access their data."
 	icon = 'icons/obj/cloning.dmi'
 	icon_state = "access_cable" //todomatt move this icon somewhere where it makes sense
+	pickup_sound = 'sound/species/synthetic/access_cable_out.ogg'
 
 	/// Where this cable is extending from.
 	var/obj/source
@@ -311,6 +312,7 @@
 		synth.drop_from_inventory(src, get_turf(src))
 		forceMove(access_port)
 		clear_cable_full()
+		playsound(user, 'sound/species/synthetic/access_cable_in.ogg', 50)
 
 /mob/living/carbon/human/proc/access_cable()
 	set name = "Access Cable"

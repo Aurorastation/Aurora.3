@@ -474,7 +474,7 @@
 					var/needed_wires = I.wiring.max_wires - I.wiring.wires
 					if(needed_wires)
 						if(!(C.get_amount() >= (needed_wires * 10)))
-							to_chat(user, SPAN_DANGER("You need [needed_wires * 10] or more cable pieces to repair this damage."))
+							to_chat(user, SPAN_WARNING("You need [needed_wires * 10] or more cable pieces to repair this damage."))
 							return SURGERY_FAILURE
 						is_organ_damaged = TRUE
 						C.use(needed_wires * 10)
@@ -563,7 +563,7 @@
 				var/needed_plates = I.plating.max_health / 10
 				if(istype(steel))
 					if(!(steel.get_amount() >= (needed_plates)))
-						to_chat(user, SPAN_DANGER("You need [needed_plates] or more steel plates to repair this damage."))
+						to_chat(user, SPAN_WARNING("You need [needed_plates] or more steel plates to repair this damage."))
 						return SURGERY_FAILURE
 					is_organ_damaged = TRUE
 					steel.use(needed_plates)

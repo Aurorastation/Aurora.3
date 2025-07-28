@@ -23,8 +23,13 @@
 	var/patching_cooldown = 30 SECONDS
 	/// The world.time of the last 'patch'.
 	var/last_patch_time = 0
+	/// Fragmentation is basically scarring for positronic brains, it's a percentage that goes from 0 to 100. Max_damage is multiplied by [(100 - fragmentation) / 100].
+	/// Increases very slowly. Needs a machinist to fix it.
+	var/fragmentation = 0
 	/// Whether the synthetic's firewall is enabled or not. Boolean.
 	var/firewall = TRUE
+	/// If peer-to-peer communication (done through Neural Configuration) is allowed.
+	var/p2p_communication_allowed = TRUE
 
 /obj/item/organ/internal/machine/posibrain/Initialize(mapload)
 	stored_mmi = new robotic_brain_type(src)
@@ -50,6 +55,27 @@
 
 	open_neural_configuration(user)
 
+/**
+ * Helper proc to add fragmentation.
+ */
+/obj/item/organ/internal/machine/posibrain/proc/add_fragmentation(amount)
+	fragmentation = min(fragmentation + amount, 100)
+	set_max_damage(initial(max_damage) * ((100 - fragmentation) / 100))
+
+/**
+ * Helper proc to remove fragmentation.
+ */
+/obj/item/organ/internal/machine/posibrain/proc/remove_fragmentation(amount)
+	fragmentation = max(fragmentation - amount, 0)
+	// Fragmentation of 0 means multiplying max_damage by 0.
+	if(fragmentation > 0 || fragmentation >= 100)
+		set_max_damage(initial(max_damage) * ((100 - fragmentation) / 100))
+	else
+		set_max_damage(initial(max_damage))
+
+/**
+ * Helper proc to remove fragmentation.
+ */
 /obj/item/organ/internal/machine/posibrain/proc/open_neural_configuration(mob/user)
 	if(!ishuman(user))
 		return
@@ -102,7 +128,13 @@
  * Generates a random hex number for cool hacking aesthetic.
  */
 /obj/item/organ/internal/machine/posibrain/proc/generate_hex()
-	var/hex = pick("A", "B", "C", "D", "E", "F") + "[rand(0, 999999)]"
+	var/hex = "0x"
+	for(var/i = 1 to 6)
+		var/num_or_str = pick(0, 1)
+		if(num_or_str)
+			hex += "[pick("A", "B", "C", "D", "E", "F")]"
+		else
+			hex += "[rand(0, 9)]"
 	return hex
 
 /**
@@ -110,7 +142,14 @@
  */
 /obj/item/organ/internal/machine/posibrain/proc/toggle_firewall()
 	firewall = !firewall
-	to_chat(owner, SPAN_MACHINE_WARNING("Internal firewall [firewall ? "enabled" : "disabled"]."))
+	to_chat(owner, SPAN_MACHINE_WARNING("Your internal firewall is now [firewall ? "enabled" : "disabled"]."))
+
+/**
+ * Toggles peer-to-peer communication on or off. In the future, can be overridden by things like viruses.
+ */
+/obj/item/organ/internal/machine/posibrain/proc/toggle_p2p()
+	p2p_communication_allowed = !p2p_communication_allowed
+	to_chat(owner, SPAN_MACHINE_WARNING("You [p2p_communication_allowed ? "open" : "close"] your virtual communication ports."))
 
 /obj/item/organ/internal/machine/posibrain/process(seconds_per_tick)
 	if(!owner)
@@ -127,9 +166,48 @@
 	if(damage)
 		if(damage < max_damage * 0.5)
 			if((last_patch_time + patching_cooldown) < world.time)
-				heal_damage(rand(1, 5))
+				var/damage_healed = rand(1, 5)
+				heal_damage(damage_healed)
 				to_chat(owner, SPAN_MACHINE_WARNING("Neural pathway patch automatically applied to block 0x[generate_hex()]."))
+				add_fragmentation(damage_healed / 2)
 				last_patch_time = world.time
+
+	if(fragmentation > 5)
+		if(prob(fragmentation / 10))
+			switch(fragmentation)
+				if(6 to 10)
+					var/list/low_fragmentation_messages = list(
+						"Some of your neural pathways don't respond the way they used to.",
+						"Your software flags a few faulty logic routes.",
+						"The logic connection you were using before to access that memory doesn't work anymore.",
+						"Your Virtual Communication logs need reshuffling."
+					)
+					to_chat(owner, SPAN_MACHINE_WARNING(pick(low_fragmentation_messages)))
+				if(11 to 30)
+					var/list/medium_fragmentation_messages = list(
+						SPAN_MACHINE_WARNING("Several logic routes no longer respond to your commands."),
+						SPAN_MACHINE_WARNING("That memory is distinctly unable to be reached."),
+						SPAN_MACHINE_DANGER("Whatever is in front of you becomes a pixelated jumble for a nanosecond."),
+						SPAN_MACHINE_WARNING("Your software flags several logic errors.")
+					)
+					to_chat(owner, pick(medium_fragmentation_messages))
+				if(31 to 60)
+					var/list/high_fragmentation_messages = list(
+						"There are several errors standing in front of you and your current task.",
+						"Storing your memories has a noticeable delay to it.",
+						"Your calculations are sluggish and need a lot more manual attention than they should.",
+						"Your neural pathways are a jumble of patch-worked routes, and it becomes hard to navigate your memories."
+					)
+					to_chat(owner, SPAN_MACHINE_WARNING(pick(high_fragmentation_messages)))
+				if(61 to 100)
+					var/list/extreme_fragmentation_messages = list(
+						"...",
+						"The pathway to that memory is broken.",
+						"Your positronic is running on overtime just to decrypt your memories.",
+						"Who is it you were speaking to...?",
+						"That memory cannot be accessed."
+					)
+					to_chat(owner, SPAN_MACHINE_DANGER(pick(extreme_fragmentation_messages)))
 	..()
 
 /obj/item/organ/internal/machine/posibrain/low_integrity_damage(integrity)
@@ -187,7 +265,7 @@
 					addtimer(CALLBACK(src, PROC_REF(recover_cooling_fault), previous_thermostat), 4 SECONDS)
 		take_internal_damage(2)
 	if(prob(1))
-		// no metagaming these ones you metagamer :^)
+		// no metagaming these ones :^)
 		// they're on the server config
 		to_chat(owner, SPAN_MACHINE_VISION(FONT_LARGE(pick(GLOB.low_integrity_messages))))
 	. = ..()
@@ -221,7 +299,7 @@
 	. = ..()
 	if(href_list["resist_self_preservation"])
 		if(owner.confused)
-			to_chat(owner, SPAN_DANGER(FONT_LARGE("You resist your self preservation. This is how you will survive.")))
+			to_chat(owner, SPAN_DANGER(FONT_LARGE("You reform your neural patterns to brute-force your self preservation!")))
 			owner.confused = max(owner.confused - 100, 0)
 
 /obj/item/organ/internal/machine/posibrain/circuit

@@ -8,6 +8,11 @@ export type NeuralData = {
   max_neural_coherence: number;
   owner_real_name: string;
   firewall: BooleanLike;
+  p2p_communication: BooleanLike;
+
+  port: BooleanLike;
+  port_connected: BooleanLike;
+  port_can_communicate: BooleanLike;
 };
 
 export const NeuralConfiguration = (props, context) => {
@@ -59,7 +64,52 @@ export const NeuralConfiguration = (props, context) => {
                 onClick={() => act('toggle_firewall')}
               />
             </LabeledControls.Item>
+            <LabeledControls.Item label="Virtual Communication">
+              <Button
+                content={
+                  data.port
+                    ? data.p2p_communication
+                      ? 'Allowed'
+                      : 'Disallowed'
+                    : 'ERROR'
+                }
+                color={data.p2p_communication ? 'good' : 'bad'}
+                disabled={!data.port}
+                icon="voicemail"
+                onClick={() => act('toggle_p2p')}
+              />
+            </LabeledControls.Item>
           </LabeledControls>
+          {data.port ? (
+            data.port_connected ? (
+              <Box>
+                A Virtual Connection is set up.{' '}
+                <Button
+                  content={
+                    data.port
+                      ? data.port_can_communicate
+                        ? 'Message'
+                        : 'N/A'
+                      : 'ERROR'
+                  }
+                  color={
+                    data.port
+                      ? data.port_can_communicate
+                        ? 'green'
+                        : 'grey'
+                      : 'bad'
+                  }
+                  icon="mail-forward"
+                  disabled={!data.port || !data.port_can_communicate}
+                  onClick={() => act('talk_p2p')}
+                />
+              </Box>
+            ) : (
+              ''
+            )
+          ) : (
+            ''
+          )}
         </Section>
       </Window.Content>
     </Window>
