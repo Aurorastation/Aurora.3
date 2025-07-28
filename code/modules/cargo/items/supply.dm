@@ -3,7 +3,7 @@
 	name = "boxes (x5)"
 	supplier = "orion"
 	description = "Versatile cardboard boxes."
-	price = 45
+	price = 15
 	items = list(
 		/obj/item/storage/box
 	)
@@ -17,7 +17,7 @@
 	name = "bucket"
 	supplier = "blam"
 	description = "It's a bucket."
-	price = 10
+	price = 8
 	items = list(
 		/obj/item/reagent_containers/glass/bucket
 	)
@@ -45,7 +45,7 @@
 	name = "clipboard"
 	supplier = "orion"
 	description = "The timeless prop for looking like your working."
-	price = 23
+	price = 12
 	items = list(
 		/obj/item/clipboard
 	)
@@ -59,7 +59,7 @@
 	name = "blue folder"
 	supplier = "orion"
 	description = "A blue folder."
-	price = 8
+	price = 4.50
 	items = list(
 		/obj/item/folder/blue
 	)
@@ -73,7 +73,7 @@
 	name = "yellow folder"
 	supplier = "orion"
 	description = "A yellow folder."
-	price = 8
+	price = 4.50
 	items = list(
 		/obj/item/folder/yellow
 	)
@@ -87,7 +87,7 @@
 	name = "red folder"
 	supplier = "orion"
 	description = "A red folder."
-	price = 8
+	price = 4.50
 	items = list(
 		/obj/item/folder/red
 	)
@@ -101,7 +101,7 @@
 	name = "white folder"
 	supplier = "orion"
 	description = "A white folder."
-	price = 8
+	price = 4.50
 	items = list(
 		/obj/item/folder/white
 	)
@@ -115,7 +115,7 @@
 	name = "hand labeler"
 	supplier = "nanotrasen"
 	description = "Yes, it has your name on it!"
-	price = 8
+	price = 12.50
 	items = list(
 		/obj/item/device/hand_labeler
 	)
@@ -129,7 +129,7 @@
 	name = "inflatable duck"
 	supplier = "nanotrasen"
 	description = "No bother to sink or swim when you can just float!"
-	price = 200
+	price = 4.50
 	items = list(
 		/obj/item/inflatable_duck
 	)
@@ -142,7 +142,7 @@
 	category = "supply"
 	name = "paper bin"
 	supplier = "nanotrasen"
-	description = "A bin filled with paper - a paper bin!"
+	description = "Pre-stocked stationery bin filled with paper."
 	price = 12
 	items = list(
 		/obj/item/paper_bin
@@ -157,7 +157,7 @@
 	name = "pen"
 	supplier = "nanotrasen"
 	description = "A normal black ink ballpen."
-	price = 8
+	price = 2.50
 	items = list(
 		/obj/item/pen
 	)
@@ -171,7 +171,7 @@
 	name = "blue pen"
 	supplier = "nanotrasen"
 	description = "A normal blue ink ballpen."
-	price = 8
+	price = 2.50
 	items = list(
 		/obj/item/pen/blue
 	)
@@ -185,7 +185,7 @@
 	name = "red pen"
 	supplier = "nanotrasen"
 	description = "A normal red ink ballpen."
-	price = 8
+	price = 2.50
 	items = list(
 		/obj/item/pen/red
 	)
@@ -199,7 +199,7 @@
 	name = "multicolor pen"
 	supplier = "nanotrasen"
 	description = "A fancy pen that has several nibs in different colors that you can slide up and down."
-	price = 20
+	price = 4.35
 	items = list(
 		/obj/item/pen/multi
 	)
@@ -213,7 +213,7 @@
 	name = "fountain pen"
 	supplier = "nanotrasen"
 	description = "It's an expensive fountain pen."
-	price = 30
+	price = 50
 	items = list(
 		/obj/item/pen/fountain
 	)
@@ -241,7 +241,7 @@
 	name = "toner cartridge (x2)"
 	supplier = "nanotrasen"
 	description = "Toner is the back bone of any space based litigation."
-	price = 135
+	price = 125
 	items = list(
 		/obj/item/device/toner
 	)
@@ -255,7 +255,7 @@
 	name = "small potted plant"
 	supplier = "nanotrasen"
 	description = "A random small potted plant, for when you want to add some greenery to your desk."
-	price = 100
+	price = 35
 	items = list(
 		/obj/random/pottedplant_small
 	)
@@ -269,7 +269,7 @@
 	name = "large potted plant"
 	supplier = "nanotrasen"
 	description = "A random large potted plant, for when you want to add some greenery to your office space."
-	price = 300
+	price = 70
 	items = list(
 		/obj/random/pottedplant
 	)
