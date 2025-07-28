@@ -480,13 +480,13 @@
 	light_color = COLOR_LIME
 
 /obj/machinery/vending/wardrobe/hydro_wardrobe
-	name = "Hydrobe"
+	name = "HyDrobe"
 	desc = "A machine with a catchy name. It dispenses botany-related clothing and gear."
 	icon_state = "hydrobe"
 	icon_deny = "hydrobe-deny"
 	light_mask = "clothes-lightmask"
 	product_ads = "Do you love soil? Then buy our clothes!;Get outfits to match your green thumb here!;Soil resistant! Or absorbant! Who cares!;Guaranteed-ish to make plants grow faster if you wear it!;Can you hear them speaking too?"
-	vend_reply = "Thank you for using Hydrobe!"
+	vend_reply = "Thank you for using HyDrobe!"
 	products = list(
 		/obj/item/clothing/suit/storage/hooded/wintercoat/hydro = 4,
 		/obj/item/clothing/suit/storage/hooded/wintercoat/idris = 2,
@@ -541,13 +541,13 @@
 	light_color = COLOR_LIME
 
 /obj/machinery/vending/wardrobe/chap_wardrobe
-	name = "ChapelVend"
+	name = "ChapelDrobe"
 	desc = "God wills your purchase."
 	icon_state = "chapdrobe"
 	icon_deny = "chapdrobe-deny"
 	light_mask = "clothes-lightmask"
 	product_ads = "Maybe they'd listen if you dressed better?;Clothes for people of the cloth!;No laity allowed!"
-	vend_reply = "Thank you for using ChapelVend!"
+	vend_reply = "Thank you for using ChapelDrobe!"
 	products = list(
 		/obj/item/clothing/under/rank/chaplain = 3,
 		/obj/item/clothing/under/tajaran/matake = 3,
