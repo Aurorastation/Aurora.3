@@ -267,7 +267,7 @@
 
 	// Check if we were created off-station during mapload. Non-station vending machines are always free.
 	var/turf/T = get_turf(src)
-	if(mapload)
+	if(mapload && T)
 		if(!is_station_level(T.z))
 			if(!onstation_override)
 				onstation = FALSE
