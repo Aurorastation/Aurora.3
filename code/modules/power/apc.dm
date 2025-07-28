@@ -1547,7 +1547,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 /obj/machinery/power/apc/intrepid
 	cell_type = /obj/item/cell/high
 	req_access = null
-	req_one_access = list(ACCESS_INTREPID,ACCESS_ENGINE_EQUIP)
+	req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_INTREPID)
 
 /obj/machinery/power/apc/intrepid/north
 	dir = NORTH
@@ -1568,7 +1568,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 /obj/machinery/power/apc/canary
 	cell_type = /obj/item/cell/high
 	req_access = null
-	req_one_access = list(ACCESS_INTREPID,ACCESS_ENGINE_EQUIP)
+	req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_CANARY)
 
 /obj/machinery/power/apc/canary/north
 	dir = NORTH
@@ -1589,7 +1589,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 ABSTRACT_TYPE(/obj/machinery/power/apc/quark)
 	cell_type = /obj/item/cell/high
 	req_access = null
-	req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_XENOARCH, ACCESS_XENOBIOLOGY, ACCESS_XENOBOTANY, ACCESS_BRIDGE_CREW)
+	req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_QUARK)
 
 /obj/machinery/power/apc/quark/north
 	dir = NORTH
@@ -1610,7 +1610,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc/quark)
 /obj/machinery/power/apc/mining_shuttle
 	cell_type = /obj/item/cell/high
 	req_access = null
-	req_one_access = list(ACCESS_MINING,ACCESS_ENGINE_EQUIP)
+	req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_SPARK)
 
 /obj/machinery/power/apc/mining_shuttle/north
 	dir = NORTH

@@ -289,6 +289,72 @@ pixel_x = 10;
 /obj/machinery/alarm/warm/south
 	PRESET_SOUTH
 
+/// Air alarm parent objs for Horizon shuttles. Handles access control without needing to manually override anything in mapping.
+/obj/machinery/alarm/shuttle
+	desc = "A device that controls the local air regulation machinery. This one is designed for use in shuttles."
+	req_access = null
+	highpower = 1
+
+/obj/machinery/alarm/shuttle/intrepid
+	req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_ATMOSPHERICS, ACCESS_INTREPID)
+
+/obj/machinery/alarm/shuttle/intrepid/north
+	PRESET_NORTH
+
+/obj/machinery/alarm/shuttle/intrepid/east
+	PRESET_EAST
+
+/obj/machinery/alarm/shuttle/intrepid/west
+	PRESET_WEST
+
+/obj/machinery/alarm/shuttle/intrepid/south
+	PRESET_SOUTH
+
+/obj/machinery/alarm/shuttle/spark
+	req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_ATMOSPHERICS, ACCESS_SPARK)
+
+/obj/machinery/alarm/shuttle/spark/north
+	PRESET_NORTH
+
+/obj/machinery/alarm/shuttle/spark/east
+	PRESET_EAST
+
+/obj/machinery/alarm/shuttle/spark/west
+	PRESET_WEST
+
+/obj/machinery/alarm/shuttle/spark/south
+	PRESET_SOUTH
+
+/obj/machinery/alarm/shuttle/quark
+	req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_ATMOSPHERICS, ACCESS_QUARK)
+
+/obj/machinery/alarm/shuttle/quark/north
+	PRESET_NORTH
+
+/obj/machinery/alarm/shuttle/quark/east
+	PRESET_EAST
+
+/obj/machinery/alarm/shuttle/quark/west
+	PRESET_WEST
+
+/obj/machinery/alarm/shuttle/quark/south
+	PRESET_SOUTH
+
+/obj/machinery/alarm/shuttle/canary
+	req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_ATMOSPHERICS, ACCESS_CANARY)
+
+/obj/machinery/alarm/shuttle/canary/north
+	PRESET_NORTH
+
+/obj/machinery/alarm/shuttle/canary/east
+	PRESET_EAST
+
+/obj/machinery/alarm/shuttle/canary/west
+	PRESET_WEST
+
+/obj/machinery/alarm/shuttle/canary/south
+	PRESET_SOUTH
+
 /obj/machinery/alarm/server/Initialize()
 	. = ..()
 	TLV[GAS_OXYGEN] =			list(-1.0, -1.0,-1.0,-1.0) // Partial pressure, kpa
