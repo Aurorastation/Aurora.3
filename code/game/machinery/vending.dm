@@ -207,8 +207,8 @@
 	set_light(initial(light_range), initial(light_power), initial(light_color))
 
 /obj/machinery/vending/update_icon()
+	ClearOverlays()
 	if(stat & BROKEN || stat & NOPOWER)
-		ClearOverlays()
 		return
 	if(src.light_mask)
 		var/image/E = emissive_appearance(icon, light_mask)
