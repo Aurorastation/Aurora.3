@@ -63,4 +63,5 @@ changes:
   - rscadd: "Seed packets now show their ideal ranges of heat and light!"
   - rscadd: "Heat tolerances for plants are now tighter, down from 20K to 12K of tolerance from their ideal heat."
   - rscadd: "Growing a plant at a temperature or light outside of its tolerances now stunts the harvest, reducing its yield by half for that harvest."
-  - rscadd: "Due to the inaccessibility of certain crops to the public garden, the chef now has a number of alien produce boxes in their kitchen. You should still be able to prepare Skrellian, Unathi, or Tajaran meals without a present Hydroponicist."
+  - rscadd: "Due to the inaccessibility of certain crops to the public garden, the chef now has a number of alien produce boxes in their kitchen. You should still be able to prepare Skrellian, Unathi, or Tajaran meals without a hydroponicist."
+  - rscadd: "The xenobotanist now spawns with three random seeds inside their laboratory, so you don't invariably need to order these from operations at roundstart.""

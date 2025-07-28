@@ -87,7 +87,7 @@
 	set_trait(TRAIT_REQUIRES_NUTRIENTS,   1)
 	set_trait(TRAIT_REQUIRES_WATER,       1)
 	set_trait(TRAIT_WATER_CONSUMPTION,    3)
-	set_trait(TRAIT_LIGHT_TOLERANCE,      3) // Plants will begin to die if the light levels are three or more lumens from their ideal.
+	set_trait(TRAIT_LIGHT_TOLERANCE,      2.5) // Plants will begin to die if the light levels are 2.5 or more lumens from their ideal.
 	set_trait(TRAIT_TOXINS_TOLERANCE,     5)
 	set_trait(TRAIT_PEST_TOLERANCE,       5)
 	set_trait(TRAIT_WEED_TOLERANCE,       5)

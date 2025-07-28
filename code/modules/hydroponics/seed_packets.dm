@@ -76,8 +76,8 @@ GLOBAL_LIST_EMPTY(plant_seed_sprites)
 
 /obj/item/seeds/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "All plants have preferential heat and light values. They will grow faster if close to these values, and may even begin to stop growing and die if \
-	they are too far away from them. Use hydroponics trays to get plants within their optimal values!"
+	. += "All plants have preferential heat and light values. They will grow faster if close to these values. Plants also have tolerance values, \
+	and will stop growing and begin to take damage when outside of their tolerances. Use hydroponics trays to get plants within their optimal values!"
 	. += "Plants can be mutated with any mutagen, altering their genes in a random way. Do this with caution as the results may be hazardous!"
 
 /obj/item/seeds/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
@@ -86,12 +86,17 @@ GLOBAL_LIST_EMPTY(plant_seed_sprites)
 	if(seed && !seed.roundstart)
 		. += "It's tagged as variety #[seed.uid]."
 
-	var/lower_heat_tolerance = seed.get_trait(TRAIT_IDEAL_HEAT) - seed.get_trait(TRAIT_HEAT_PREFERENCE)
-	var/higher_heat_tolerance = seed.get_trait(TRAIT_IDEAL_HEAT) + seed.get_trait(TRAIT_HEAT_PREFERENCE)
-	var/lower_light_tolerance = seed.get_trait(TRAIT_IDEAL_LIGHT) - seed.get_trait(TRAIT_LIGHT_PREFERENCE)
-	var/higher_light_tolerance = seed.get_trait(TRAIT_IDEAL_LIGHT) + seed.get_trait(TRAIT_LIGHT_PREFERENCE)
+	var/lower_heat_preference = seed.get_trait(TRAIT_IDEAL_HEAT) - seed.get_trait(TRAIT_HEAT_PREFERENCE)
+	var/higher_heat_preference = seed.get_trait(TRAIT_IDEAL_HEAT) + seed.get_trait(TRAIT_HEAT_PREFERENCE)
+	var/lower_light_preference = seed.get_trait(TRAIT_IDEAL_LIGHT) - seed.get_trait(TRAIT_LIGHT_PREFERENCE)
+	var/higher_light_preference = seed.get_trait(TRAIT_IDEAL_LIGHT) + seed.get_trait(TRAIT_LIGHT_PREFERENCE)
 
-	. += SPAN_NOTICE("This grows optimally between <b>[lower_heat_tolerance] and [higher_heat_tolerance] kelvin</b>, and between <b>[lower_light_tolerance] and [higher_light_tolerance] lumens.</b>")
+	var/lower_heat_tolerance = seed.get_trait(TRAIT_IDEAL_HEAT) - seed.get_trait(TRAIT_HEAT_TOLERANCE)
+	var/higher_heat_tolerance = seed.get_trait(TRAIT_IDEAL_HEAT) + seed.get_trait(TRAIT_HEAT_TOLERANCE)
+	var/lower_light_tolerance = seed.get_trait(TRAIT_IDEAL_LIGHT) - seed.get_trait(TRAIT_LIGHT_TOLERANCE)
+	var/higher_light_tolerance = seed.get_trait(TRAIT_IDEAL_LIGHT) + seed.get_trait(TRAIT_LIGHT_TOLERANCE)
+
+	. += SPAN_NOTICE("This grows optimally between <b>[lower_heat_preference] and [higher_heat_preference] kelvin</b>, and between <b>[lower_light_preference] and [higher_light_preference] lumens.</b> It is capable of any growth at all between <b>[lower_heat_tolerance] and [higher_heat_tolerance] kelvin</b>, and between <b>[lower_light_tolerance] and [higher_light_tolerance] lumens.</b>")
 
 /obj/item/seeds/cutting
 	name = SEED_NOUN_CUTTINGS
