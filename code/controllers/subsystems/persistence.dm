@@ -55,7 +55,7 @@ SUBSYSTEM_DEF(persistence)
 
 	// Identify tracks that have been deleted and need to be removed by setting their expiration date to now
 	// Look-up approach for faster set-to-set comparison
-	var/list/tracks_dict[] = list()
+	var/list/tracks_dict = list()
 	for (var/obj/track in update) // Only tracks with an ID could've been deleted in the first place, anything in the create-list is irrelevant
 		tracks_dict[track.persistence_track_id] = TRUE
 
@@ -108,7 +108,7 @@ SUBSYSTEM_DEF(persistence)
 			return
 		else
 			while (get_query.NextRow())
-				var/list/entry[] = list()
+				var/list/entry = list()
 				entry["id"] = text2num(get_query.item[1])
 				entry["author_ckey"] = get_query.item[2]
 				entry["type"] = get_query.item[3]

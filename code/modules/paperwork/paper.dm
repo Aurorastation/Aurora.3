@@ -784,7 +784,7 @@
 #############################################*/
 
 /obj/item/paper/persistence_get_content()
-	var/list/data[] = list()
+	var/list/data = list()
 	data["title"] = name
 	data["text"] = info
 	data["location"] = loc
