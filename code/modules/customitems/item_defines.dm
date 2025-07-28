@@ -2030,3 +2030,55 @@ All custom items with worn sprites must follow the contained sprite system: http
 	override_robotize_force_icon = 'icons/mob/human_races/fluff/nines_leg.dmi'
 	override_robotize_painted = FALSE
 	robotize_children = FALSE
+
+/obj/item/material/knife/raskariim/fluff/tulkir_knife
+	name = "adhomian ritual dagger"
+	desc = "An adhomian knife used in occult rituals."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "raskariim_dagger"
+	item_state = "raskariim_dagger"
+	contained_sprite = TRUE
+	applies_material_colour = FALSE
+	use_material_name = FALSE
+	unbreakable = TRUE
+
+/obj/item/material/knife/raskariim/fluff/tulkir_knife/attack(mob/living/target_mob, mob/living/user, target_zone)
+	. = ..()
+	if(active == 1)
+		if(target_mob == user)
+			if (target_zone == BP_L_HAND || target_zone == BP_R_HAND)
+
+				ritualslice(user, target_mob, target_zone)
+
+/obj/item/material/knife/raskariim/fluff/tulkir_knife/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended)
+	. = ..()
+	if(ishuman(user))
+		var/mob/living/carbon/human/U = user
+		if(U.religion == RELIGION_RASKARA)
+			. += SPAN_CULT("\The [src] belongs to a raskariim.")
+
+
+
+/obj/item/material/knife/raskariim/fluff/tulkir_knife/proc/ritualslice(mob/living/user, mob/living/carbon/human/target, target_zone)
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+
+	if(affected.is_stump())
+		to_chat(user, SPAN_WARNING("You can't cut open the palm of a hand that is gone."))
+		return
+	if(target.gloves)
+		to_chat(user, SPAN_WARNING("You can't cut through the gloves."))
+		return
+
+	user.visible_message(SPAN_WARNING("[user] begins slicing open their palm with \the [src]!"))
+	if(!do_after(user, 1 SECOND, src))
+		user.visible_message(SPAN_WARNING("[user] stops slicing open their palm."))
+		return
+	user.visible_message(SPAN_WARNING("[user] slices open their palm with \the [src]!"))
+
+	if(istype(target) && !(target.species.flags & NO_BLOOD))
+		affected.status |= ORGAN_BLEEDING
+
+	target.apply_damage(6, DAMAGE_BRUTE, target_zone, 0, src, DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE)
+	playsound(target.loc, 'sound/weapons/bladeslice.ogg', 15, 1)
+
+
