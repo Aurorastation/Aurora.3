@@ -132,6 +132,8 @@
 	var/display_ad = ""
 	/// When did we last update the displayed ad?
 	var/last_ad = 0
+	/// How long until we refresh our ad?
+	var/ad_delay = 10 SECONDS
 	/// String of messages spoken when item is vended, seperated by semicolons
 	var/vend_reply = ""
 	/// Set on init. Populated by `vend_reply`
@@ -249,9 +251,7 @@
 
 	if(src.product_ads)
 		src.ads_list += text2list(src.product_ads, ";")
-
-	if(length(ads_list))
-		display_ad = pick(ads_list)
+		src.last_ad = world.time + rand(0, ad_delay)
 
 	if(src.vend_reply)
 		src.reply_list += text2list(src.vend_reply, ";")
@@ -407,9 +407,6 @@
 			src.vend(currently_vending, usr)
 		else if(handled)
 			SStgui.update_uis(src)
-		// Update ads.
-		if(length(ads_list))
-			display_ad = pick(ads_list)
 		return TRUE // don't smack that machine with your 2 credits
 
 	if (I || istype(attacking_item, /obj/item/spacecash))
@@ -879,6 +876,11 @@
 		src.seconds_electrified--
 
 	//Pitch to the people!  Really sell it!
+
+	if(((src.last_ad + src.ad_delay) <= world.time) && length(ads_list))
+		display_ad = pick(ads_list)
+		src.last_ad = world.time
+
 	if(((src.last_slogan + src.slogan_delay) <= world.time) && length(slogan_list) && !src.shut_up && prob(2))
 		var/slogan = pick(slogan_list)
 		src.last_slogan = world.time
