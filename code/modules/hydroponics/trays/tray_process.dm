@@ -147,12 +147,12 @@
 
 	// If enough time (in cycles, not ticks) has passed since the plant was harvested, we're ready to harvest again.
 	if((age > seed.get_trait(TRAIT_MATURATION)) && ((age - lastproduce) > seed.get_trait(TRAIT_PRODUCTION)) && (!harvest && !dead))
-		// If the plant matures while not at its heat and light preferences, the yield modifier is cut in half.
+		// If the plant matures while not at either its light or heat preference, it becomes stunted, reducing its yield on harvest.
 		// Better grow your plants better next time.
-		if(!(seed.check_light_preferences(light_supplied) && seed.check_heat_preferences(environment)))
-			yield_mod *= 0.5
+		if(!seed.check_light_preferences(light_supplied) || !seed.check_heat_preferences(environment))
+			stunted = TRUE
 
-		harvest = 1
+		harvest = TRUE
 		lastproduce = age
 		if(seed.get_trait(TRAIT_SPOROUS) && !closed_system)
 			seed.create_spores(get_turf(src))

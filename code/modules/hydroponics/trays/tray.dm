@@ -35,9 +35,9 @@
 
 	// --- Tray state vars. ---
 	/// Is it dead?
-	var/dead = 0
+	var/dead = FALSE
 	/// Is it ready to harvest?
-	var/harvest = 0
+	var/harvest = FALSE
 	/// Current plant age
 	var/age = 0
 	/// Have we taken a sample?
@@ -70,6 +70,8 @@
 	var/closed_system
 	/// Whether this tray is under stasis, freezing all functions. It won't grow, but it won't die.
 	var/stasis = FALSE
+	/// Is this harvest stunted? If so, the yield of that harvest is halfed.
+	var/stunted = FALSE
 	/// Set this to bypass the cycle time check.
 	var/force_update
 	/// Something to hold reagents during process_reagents()
@@ -296,9 +298,10 @@
 
 /// Call this to kill a plant. Don't modify the dead variable directly.
 /obj/machinery/portable_atmospherics/hydroponics/proc/die()
-	dead = 1
+	dead = TRUE
 	mutation_level = 0
-	harvest = 0
+	stunted = FALSE
+	harvest = FALSE
 	weedlevel += 1 * HYDRO_SPEED_MULTIPLIER
 	pestlevel = 0
 	if(prob(min(25,max(1,seed.get_trait(TRAIT_POTENCY/2)))))
@@ -367,14 +370,15 @@
 		return
 
 	if(user)
-		seed.harvest(user,yield_mod)
+		seed.harvest(user,yield_mod,stunted_status = stunted)
 	else
-		seed.harvest(get_turf(src),yield_mod)
+		seed.harvest(get_turf(src),yield_mod, stunted_status = stunted)
 	// Reset values.
 	if(seed.get_trait(TRAIT_SPOROUS))
 		seed.create_spores(get_turf(src))
 		visible_message(SPAN_DANGER("\The [src] releases its spores!"))
-	harvest = 0
+	harvest = FALSE
+	stunted = FALSE
 	lastproduce = age
 
 	if(!seed.get_trait(TRAIT_HARVEST_REPEAT))
@@ -398,7 +402,7 @@
 		return
 
 	seed = null
-	dead = 0
+	dead = FALSE
 	sampled = 0
 	age = 0
 	yield_mod = 0
@@ -416,11 +420,12 @@
 	seed = SSplants.seeds[pick(list("reishi","nettles","amanita","mushrooms","plumphelmet","towercap","harebells","weeds"))]
 	if(!seed) return //Weed does not exist, someone fucked up.
 
-	dead = 0
+	dead = FALSE
 	age = 0
 	health = seed.get_trait(TRAIT_ENDURANCE)
 	lastcycle = world.time
-	harvest = 0
+	stunted = FALSE
+	harvest = FALSE
 	weedlevel = 0
 	pestlevel = 0
 	sampled = 0
@@ -476,7 +481,7 @@
 		health =     max(0,min(seed.get_trait(TRAIT_ENDURANCE),health))
 	else
 		health = 0
-		dead = 0
+		dead = FALSE
 
 	mutation_level = max(0,min(mutation_level,100))
 	nutrilevel =     max(0,min(nutrilevel,10))
@@ -493,12 +498,12 @@
 	else
 		return
 
-	dead = 0
+	dead = FALSE
 	mutate(1)
 	age = 0
 	health = seed.get_trait(TRAIT_ENDURANCE)
 	lastcycle = world.time
-	harvest = 0
+	harvest = FALSE
 	weedlevel = 0
 
 	update_icon()
@@ -746,43 +751,40 @@
 		if(!environment) //We're in a crate or nullspace, bail out.
 			return
 
-		var/light_string
 		var/light_available
 		if(closed_system && mechanical)
 			light_available = tray_light
-			light_string = "that the internal lights are set to <b>[light_available] lumens</b>"
 		else
 			if(TURF_IS_DYNAMICALLY_LIT(T))
 				light_available = T.get_lumcount(0, 3) * 10
 			else
 				light_available = 5
 
-			light_string = "a light level of <b>[light_available] lumens</b>"
-
-		. += "The tray's sensor suite is reporting [light_string] and a temperature of <b>[environment.temperature]K</b>."
+		// These record whether the tray is outside its tolerances, outside its preferences, or inside its preferences.
+		// These are the only three possible states.
+		var/heat_status
+		var/light_status
 
 		if(seed && !dead)
-			// These record whether the tray is outside its tolerances, outside its preferences, or inside its preferences.
-			// These are the only three possible states.
-			var/heat_status
-			var/light_status
-
 			if(seed.check_heat_tolerances(environment))
-				heat_status = SPAN_BAD("outside its heat tolerances, totally preventing growth")
+				heat_status = SPAN_BAD(", placing it outside its heat tolerances, totally preventing growth")
 			else if(seed.check_heat_preferences(environment))
-				heat_status = SPAN_GOOD("within its heat preferences, accelerating growth")
+				heat_status = SPAN_GOOD(", placing it within its heat preferences, accelerating growth")
 			else
-				heat_status = SPAN_NOTICE("outside its heat preferences, slowing growth and reducing yield")
+				heat_status = SPAN_NOTICE(", placing it outside its heat preferences, slowing growth and reducing yield")
 
 			if(seed.check_light_tolerances(light_available))
-				light_status = SPAN_BAD("outside its light tolerances, totally preventing growth")
+				light_status = SPAN_BAD(", placing it outside its light tolerances, totally preventing growth")
 			else if(seed.check_light_preferences(light_available))
-				light_status = SPAN_GOOD("within its light preferences, accelerating growth")
+				light_status = SPAN_GOOD(", placing it within its light preferences, accelerating growth")
 			else
-				light_status = SPAN_NOTICE("outside its light preferences, slowing growth and reducing yield")
+				light_status = SPAN_NOTICE(", placing it outside its light preferences, slowing growth and reducing yield")
 
-			// Tells the user if they're messing things up or not.
-			. += SPAN_NOTICE("Sensors report that this tray is [heat_status], and [light_status].")
+		. += "The tray thermometer displays a temperature of <b>[environment.temperature]K</b>[heat_status]."
+		. += "The tray light meter displays a light level of <b>[light_available] lumens</b>[light_status]."
+
+		if(stunted)
+			. += SPAN_BAD("This harvest is stunted due to improper growing conditions, reducing yield.")
 
 		// Are we under stasis?
 		var/stasis_string

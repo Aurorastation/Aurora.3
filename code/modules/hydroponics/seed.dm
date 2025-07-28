@@ -791,7 +791,7 @@
 	return (P ? P : 0)
 
 /// Place the plant products at the feet of the user.
-/datum/seed/proc/harvest(var/mob/user,var/yield_mod,var/harvest_sample,var/force_amount)
+/datum/seed/proc/harvest(var/mob/user,var/yield_mod,var/harvest_sample,var/force_amount,var/stunted_status = FALSE)
 	if(!user)
 		return
 
@@ -823,6 +823,10 @@
 				else
 					total_yield = get_trait(TRAIT_YIELD) + rand(yield_mod)
 				total_yield = max(1,total_yield)
+
+		// If the plant is stunted, you get half the yield.
+		if(stunted_status)
+			total_yield *= 0.5
 
 		for(var/i = 0;i<total_yield;i++)
 			spawn_seed(get_turf(user))
