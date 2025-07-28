@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: Batrachophreno
+author: Batrachophrenoboocosmomachia
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,4 +55,4 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Grants Odyssey Storytellers access to 21 different moderator/admin commands to make their lives easier."
+  - rscadd: "Grants Odyssey Storytellers access to 22 different moderator/admin/debug commands to make their lives easier."
