@@ -55,4 +55,12 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Makes the plant job better."
+  - rscadd: "Botany mechanics have been substantially overhauled to hinge much more substantially on light and temperature levels to determine the viability of a crop. Mushrooms require slightly cooler temperatures, tropical fruit require slightly higher temperatures, and so on. Moghresian and Adhomian crops in particular will not grow at room temperature at all, and require a botanist to get them to their ideal conditions."
+  - rscadd: "Hydroponics and Xenobotany have been remapped with additional atmospheric equipment to match the new mechanical changes."
+  - bugfix: "Hydroponics trays no longer lack density."
+  - bugfix: "You can now see the nutrient and water levels of a hydroponics tray when there is no seed planted inside it."
+  - rscadd: "More descriptive examine text has been added to a lot of hydroponics items and equipment, particularly everything to do with beekeeping, to help elucidate their mechanics a little."
+  - rscadd: "Seed packets now show their ideal ranges of heat and light!"
+  - rscadd: "Heat tolerances for plants are now tighter, down from 20K to 12K of tolerance from their ideal heat."
+  - rscadd: "Growing a plant at a temperature or light outside of its tolerances now stunts the harvest, reducing its yield by half for that harvest."
+  - rscadd: "Due to the inaccessibility of certain crops to the public garden, the chef now has a number of alien produce boxes in their kitchen. You should still be able to prepare Skrellian, Unathi, or Tajaran meals without a present Hydroponicist."
