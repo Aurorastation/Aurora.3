@@ -535,6 +535,7 @@ GLOBAL_LIST_INIT(admin_verbs_storyteller, list(
 	/client/proc/damage_menu,
 	/client/proc/change_human_appearance_admin,	// Allows an admin to change the basic appearance of human-based mobs ,
 	/client/proc/change_security_level,
+	/client/proc/cmd_dev_bst,
 	/datum/admins/proc/create_admin_fax,
 	/client/proc/check_fax_history,
 	/client/proc/clear_toxins,
