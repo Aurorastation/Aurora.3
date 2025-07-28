@@ -52,7 +52,7 @@ SUBSYSTEM_DEF(persistence)
 	// Iterate through the register to sort tracks with no ID and tracks that may need an update (tracks with ID)
 	// We are using a dictionary look-up to find no longer existing records by comparing them with a live dataset later on
 	for (var/obj/track in GLOB.persistence_register)
-		if(track.persistence_track_id)
+		if(track.persistence_track_id > 0) // (0 is the default tracking ID value)
 			// Tracked object has an ID, add it to lookup
 			track_lookup[track.persistence_track_id] = track
 		else
