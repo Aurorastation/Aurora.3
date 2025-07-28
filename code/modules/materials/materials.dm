@@ -426,6 +426,7 @@
 	wall_colour = COLOR_CONCRETE
 	wall_icon = 'icons/turf/smooth/composite_solid_color.dmi'
 	table_icon = 'icons/obj/structure/tables/steel_table.dmi'
+	icon_base = "steel"
 	stack_type = null
 	golem = null
 
@@ -438,6 +439,7 @@
 	protectiveness = 10 // 33%
 	wall_icon = 'icons/turf/smooth/composite_solid_color.dmi'
 	table_icon = 'icons/obj/structure/tables/steel_table.dmi'
+	icon_base = "steel"
 	icon_colour = COLOR_GRAY40
 	wall_colour = COLOR_GRAY20
 	golem = SPECIES_GOLEM_STEEL
@@ -994,6 +996,7 @@
 	sheet_singular_name = "tile"
 	sheet_plural_name = "tiles"
 	protectiveness = 1 // 4%
+	icon_base = "carpet"
 	table_icon = 'icons/obj/structure/tables/fancy_table.dmi'
 	golem = SPECIES_GOLEM_CLOTH
 	drop_sound = 'sound/items/drop/cloth.ogg'
@@ -1005,6 +1008,7 @@
 	use_name = "black upholstery"
 	stack_type = /obj/item/stack/tile/carpet/black
 	icon_colour = COLOR_BLACK
+	icon_base = "carpet_black"
 	table_icon = 'icons/obj/structure/tables/fancy_table_black.dmi'
 
 /material/carpet/blue
@@ -1012,6 +1016,7 @@
 	use_name = "blue upholstery"
 	stack_type = /obj/item/stack/tile/carpet/lightblue
 	icon_colour = COLOR_BLUE
+	icon_base = "carpet_blue"
 	table_icon = 'icons/obj/structure/tables/fancy_table_blue.dmi'
 
 /material/carpet/cyan
@@ -1019,6 +1024,7 @@
 	use_name = "cyan upholstery"
 	stack_type = /obj/item/stack/tile/carpet/cyan
 	icon_colour = COLOR_CYAN
+	icon_base = "carpet_cyan"
 	table_icon = 'icons/obj/structure/tables/fancy_table_cyan.dmi'
 
 /material/carpet/green
@@ -1026,6 +1032,7 @@
 	use_name = "green upholstery"
 	stack_type = /obj/item/stack/tile/carpet/green
 	icon_colour = COLOR_GREEN
+	icon_base = "carpet_green"
 	table_icon = 'icons/obj/structure/tables/fancy_table_green.dmi'
 
 /material/carpet/orange
@@ -1033,6 +1040,7 @@
 	use_name = "orange upholstery"
 	stack_type = /obj/item/stack/tile/carpet/orange
 	icon_colour = COLOR_ORANGE
+	icon_base = "carpet_orange"
 	table_icon = 'icons/obj/structure/tables/fancy_table_green.dmi'
 
 /material/carpet/purple
@@ -1040,12 +1048,14 @@
 	use_name = "purple upholstery"
 	stack_type = /obj/item/stack/tile/carpet/purple
 	icon_colour = COLOR_PURPLE
+	icon_base = "carpet_purple"
 	table_icon = 'icons/obj/structure/tables/fancy_table_purple.dmi'
 
 /material/carpet/red
 	name = MATERIAL_CARPET_RED
 	stack_type = /obj/item/stack/tile/carpet/red
 	icon_colour = COLOR_RED
+	icon_base = "carpet_red"
 	table_icon = 'icons/obj/structure/tables/fancy_table_red.dmi'
 
 /material/cloth

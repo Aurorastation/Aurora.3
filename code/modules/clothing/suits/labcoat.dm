@@ -190,9 +190,9 @@
 /obj/item/clothing/suit/storage/galatea_labcoat
 	name = "\improper Galatean labcoat"
 	desc = "A style of labcoat commonly worn by Galatean researchers which is intended to resemble labcoats commonly used throughout the Alliance prior to the Interstellar War’s outbreak in the late 2200s."
-	icon = 'icons/clothing/suits/coats/galatea.dmi'
-	icon_state = "labcoat1"
-	item_state = "labcoat1"
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/labcoat.dmi'
+	icon_state = "labcoat_galatea"
+	item_state = "labcoat_galatea"
 	contained_sprite = TRUE
 	body_parts_covered = UPPER_TORSO|ARMS
 	allowed = list(/obj/item/device/analyzer,/obj/item/stack/medical,/obj/item/dnainjector,/obj/item/reagent_containers/dropper,/obj/item/reagent_containers/syringe,/obj/item/reagent_containers/hypospray,/obj/item/device/healthanalyzer,/obj/item/device/flashlight/pen,/obj/item/reagent_containers/glass/bottle,/obj/item/reagent_containers/glass/beaker,/obj/item/reagent_containers/pill,/obj/item/storage/pill_bottle,/obj/item/paper, /obj/item/device/breath_analyzer)
@@ -201,5 +201,5 @@
 	)
 
 /obj/item/clothing/suit/storage/galatea_labcoat/alt
-	icon_state = "labcoat2"
-	item_state = "labcoat2"
+	icon_state = "labcoat_galatea_alt"
+	item_state = "labcoat_galatea_alt"

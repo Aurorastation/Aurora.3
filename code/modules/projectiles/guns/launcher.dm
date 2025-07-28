@@ -1,9 +1,6 @@
 /obj/item/gun/launcher
 	name = "launcher"
 	desc = "A device that launches things."
-	desc_info = "This is a projectile launcher, which launches objects such as arrows, rockets, or syringes. To fire it, toggle the safety(if one is present) with CTRL-click or by \
-	switching to HARM intent, then click where you wish to fire. To reload it, insert the appropriate items. Some weapons may require additional drawing of the string or charging, \
-	which can typically be done with the Unique-Action macro or button located in the bottom right of the screen."
 	w_class = WEIGHT_CLASS_HUGE
 	obj_flags =  OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BACK
@@ -12,6 +9,13 @@
 	var/throw_distance = 10
 	muzzle_flash = 0
 	fire_sound_text = "a launcher firing"
+
+/obj/item/gun/launcher/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This is a projectile launcher, which launches objects such as arrows, rockets, or syringes."
+	. += "To fire it, toggle the safety (if one is present) with CTRL-click or by switching to HARM intent, then click where you wish to shoot."
+	. += "To reload it, insert the appropriate items."
+	. += "Some weapons may require additional drawing of the string or charging, which can typically be done with the Unique-Action macro or button located in the bottom right of the screen."
 
 //This normally uses a proc on projectiles and our ammo is not strictly speaking a projectile.
 /obj/item/gun/launcher/can_hit(var/mob/living/target as mob, var/mob/living/user as mob)

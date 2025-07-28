@@ -13,6 +13,8 @@
 			for(var/obj/item/grab/G in moving_mob.grabbed_by)
 				if(G.assailant == src)
 					return TRUE
+		if(HAS_TRAIT(src, TRAIT_UNDENSE))
+			return TRUE
 		return (!mover.density || !density || lying)
 	else
 		return (!mover.density || !density || lying)

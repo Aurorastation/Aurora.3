@@ -31,7 +31,7 @@
 	 */
 	var/production_speed = 1
 
-	var/list/materials = list(DEFAULT_WALL_MATERIAL = 0, MATERIAL_GLASS = 0, MATERIAL_GOLD = 0, MATERIAL_SILVER = 0, MATERIAL_DIAMOND = 0, MATERIAL_PHORON = 0, MATERIAL_URANIUM = 0)
+	var/list/materials = list(DEFAULT_WALL_MATERIAL = 0, MATERIAL_GLASS = 0, MATERIAL_GOLD = 0, MATERIAL_SILVER = 0, MATERIAL_DIAMOND = 0, MATERIAL_PHORON = 0, MATERIAL_URANIUM = 0, MATERIAL_PLASTEEL = 0, MATERIAL_ALUMINIUM = 0, MATERIAL_LEAD = 0)
 	var/res_max_amount = 200000
 
 	var/datum/research/files
@@ -43,6 +43,12 @@
 
 	///The timer id for the build callback, if we're building something
 	var/build_callback_timer
+
+/obj/machinery/mecha_part_fabricator/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>matter bins</b> will increase material storage capacity."
+	. += "Upgraded <b>micro-lasers</b> will increase fabrication speed."
+	. += "Upgraded <b>manipulators</b> will improve material use efficiency."
 
 /obj/machinery/mecha_part_fabricator/Initialize()
 	. = ..()
@@ -73,6 +79,7 @@
 	..()
 
 /obj/machinery/mecha_part_fabricator/RefreshParts()
+	..()
 	res_max_amount = 0
 
 	for(var/obj/item/stock_parts/matter_bin/M in component_parts)
@@ -180,7 +187,7 @@
 	var/obj/item/stack/material/M = attacking_item
 	if(!M.material)
 		return ..()
-	if(!(M.material.name in list(MATERIAL_STEEL, MATERIAL_GLASS, MATERIAL_GOLD, MATERIAL_SILVER, MATERIAL_DIAMOND, MATERIAL_PHORON, MATERIAL_URANIUM)))
+	if(!(M.material.name in list(MATERIAL_STEEL, MATERIAL_GLASS, MATERIAL_GOLD, MATERIAL_SILVER, MATERIAL_DIAMOND, MATERIAL_PHORON, MATERIAL_URANIUM, MATERIAL_PLASTEEL, MATERIAL_ALUMINIUM, MATERIAL_LEAD)))
 		to_chat(user, SPAN_WARNING("\The [src] cannot hold [M.material.name]."))
 		return TRUE
 

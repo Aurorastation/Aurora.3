@@ -1,7 +1,7 @@
 /obj/item/rig/combat
 	name = "combat hardsuit control module"
 	desc = "A sleek and dangerous hardsuit for active combat. This one is a Stellar Corporate Conglomerate design in color scheme and make."
-	icon = 'icons/clothing/rig/combat.dmi'
+	icon = 'icons/obj/item/clothing/rig/combat.dmi'
 	icon_state = "combat_rig"
 	icon_supported_species_tags = list("skr")
 	suit_type = "combat hardsuit"
@@ -44,7 +44,7 @@
 /obj/item/rig/military
 	name = "vampire hardsuit control module"
 	desc = "A Zavodskoi-manufactured hardsuit designed for the Solarian Armed Forces, the Type-9 \"Vampire\" is the suit issued to Alliance military specialists and team leaders."
-	icon = 'icons/clothing/rig/military.dmi'
+	icon = 'icons/obj/item/clothing/rig/military.dmi'
 	icon_state = "military_rig"
 	suit_type = "military hardsuit"
 	armor = list(
@@ -116,7 +116,7 @@
 /obj/item/rig/military/commando
 	name = "nosferatu hardsuit control module"
 	desc = "A Zavodskoi-manufactured hardsuit specially designed for the elite units of the Solarian SOCOM. A feared sight to behold, the most well-known usage of the Type-9A \"Nosferatu\" suits is by the forces of the Alliance's MARSOC operatives."
-	icon = 'icons/clothing/rig/sol_marsoc.dmi'
+	icon = 'icons/obj/item/clothing/rig/sol_marsoc.dmi'
 	armor = list(
 		MELEE = ARMOR_MELEE_SHIELDED,
 		BULLET = ARMOR_BALLISTIC_RIFLE,
@@ -150,7 +150,7 @@
 /obj/item/rig/retro
 	name = "retrofitted military hardsuit control module"
 	desc = "An old repurposed construction exoskeleton redesigned for combat. Its colors and insignias match those of the Tau Ceti Armed Forces."
-	icon = 'icons/clothing/rig/legion.dmi'
+	icon = 'icons/obj/item/clothing/rig/legion.dmi'
 	icon_state = "legion_rig"
 	icon_supported_species_tags = list("ipc", "skr", "taj", "una", "vau", "vaw")
 	suit_type = "retrofitted military hardsuit"
@@ -205,7 +205,7 @@
 /obj/item/rig/gunslinger
 	name = "gunslinger hardsuit control module"
 	desc = "A favorite of the Frontier Rangers, the Gunslinger suit is a Xanan-designed hardsuit meant to provide the user absolute situational awareness, while remaining sturdy under fire."
-	icon = 'icons/clothing/rig/gunslinger.dmi'
+	icon = 'icons/obj/item/clothing/rig/gunslinger.dmi'
 	icon_state = "gunslinger"
 	suit_type = "gunslinger hardsuit"
 	icon_supported_species_tags = list("ipc", "skr", "taj")
@@ -258,7 +258,7 @@
 /obj/item/rig/strike
 	name = "strike hardsuit control module"
 	desc = "An expensive hardsuit utilized by Eridani security contractors to field heavy weapons and coordinate non-lethal takedowns directly. Usually seen spearheading police raids."
-	icon = 'icons/clothing/rig/strikesuit.dmi'
+	icon = 'icons/obj/item/clothing/rig/strikesuit.dmi'
 	icon_state = "strikesuit"
 	suit_type = "strike hardsuit"
 	armor = list(
@@ -326,7 +326,7 @@
 /obj/item/rig/elyran
 	name = "elyran battlesuit control module"
 	desc = "An advanced Elyran hardsuit specialized in scorched earth tactics."
-	icon = 'icons/clothing/rig/elyran_battlesuit.dmi'
+	icon = 'icons/obj/item/clothing/rig/elyran_battlesuit.dmi'
 	icon_state = "elyran_rig"
 	suit_type = "elyran battlesuit"
 	armor = list(
@@ -377,7 +377,7 @@
 /obj/item/rig/bunker
 	name = "bunker suit control module"
 	desc = "A powerful niche-function hardsuit utilized by Ceres' Lance to apprehend synthetics. Unstoppable in the right circumstances, and nothing more than a burden anywhere else."
-	icon = 'icons/clothing/rig/bunker.dmi'
+	icon = 'icons/obj/item/clothing/rig/bunker.dmi'
 	icon_state = "bunker"
 	suit_type = "bunker suit"
 	armor = list(
@@ -415,7 +415,7 @@
 /obj/item/rig/jinxiang
 	name = "jinxiang-pattern combat suit control module"
 	desc = "An off-shoot of the core Bunker Suit design, utilized by the Imperial Dominian military and painted accordingly. This is a powerful suit specializing in melee confrontations."
-	icon = 'icons/clothing/rig/dominia.dmi'
+	icon = 'icons/obj/item/clothing/rig/dominia.dmi'
 	icon_state = "dominia"
 	icon_supported_species_tags = list("una")
 	suit_type = "jinxiang combat suit"
@@ -463,7 +463,7 @@
 	name = "\improper NanoTrasen military-grade hardsuit control module"
 	desc = "A sleek and dangerous hardsuit, used by NanoTrasen's navy and emergency response teams."
 	suit_type = "\improper NanoTrasen military-grade hardsuit"
-	icon = 'icons/clothing/rig/nt_ert/commander.dmi'
+	icon = 'icons/obj/item/clothing/rig/nt_ert/commander.dmi'
 	icon_state = "ert_commander_rig"
 	icon_supported_species_tags = list("skr")
 	species_restricted = list(BODYTYPE_SKRELL, BODYTYPE_HUMAN)
@@ -493,7 +493,7 @@
 	name = "\improper Nexus RTRT hardsuit control module"
 	desc = "A variant of NanoTrasen's military-grade hardsuit, designed for usage by Nexus Corporate Security's rapid trauma response teams."
 	suit_type = "\improper Nexus RTRT hardsuit"
-	icon = 'icons/clothing/rig/nt_ert/medical.dmi'
+	icon = 'icons/obj/item/clothing/rig/nt_ert/medical.dmi'
 	icon_state = "ert_medical_rig"
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/nanotrasen/nexus
@@ -505,7 +505,7 @@
 	name = "\improper NanoTrasen corporate auxiliary hardsuit control module"
 	desc = "A variant of NanoTrasen's military-grade hardsuit, designed for usage by NanoTrasen's contributions to the Republic of Biesel's corporate auxiliary forces."
 	suit_type = "\improper NanoTrasen corporate auxiliary hardsuit"
-	icon = 'icons/clothing/rig/nt_ert/corporate_auxiliary.dmi'
+	icon = 'icons/obj/item/clothing/rig/nt_ert/corporate_auxiliary.dmi'
 	icon_state = "corporate_auxiliary_rig"
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/nanotrasen/corporate_auxiliary
@@ -520,7 +520,7 @@
 	desc_extended = "This hardsuit is brimming with modules and material. Manufactured initially by NanoTrasen, and later modified by Zavodskoi, \
 	the Legionnaire hardsuit comes in many shapes and sizes to accommodate its missions. Seeing both action in orbit and on the ground. \
 	The blue armored plates are layered with brown ballistic padding, and finally a tightly woven black armored liner to keep out any hazardous environment, from air to space."
-	icon = 'icons/clothing/rig/tcaf_legionnaire.dmi'
+	icon = 'icons/obj/item/clothing/rig/tcaf_legionnaire.dmi'
 	icon_state = "legionnaire_rig"
 	icon_supported_species_tags = null
 	suit_type = "\improper Legionnaire Hardsuit"

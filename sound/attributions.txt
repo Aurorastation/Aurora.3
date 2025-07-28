@@ -137,3 +137,29 @@ sound/machines/steam_pipe2.ogg - "Steam Leaking" by PatrickLieberkind. Licensed 
 sound/machines/steam_pipe3.ogg - "file0571_air_hiss_weak.wav" by beerbelly38. Licensed under CC-BY NC 4.0. Obtained from https://freesound.org/people/beerbelly38/sounds/277360/
 sound/machines/steam_pipe4.ogg - "Steam Sewer Ambient" by Geoff-Bremner-Audio. Licensed under CC0. Obtained from https://freesound.org/people/Geoff-Bremner-Audio/sounds/724892/
 ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTOR START
+sound/music/regional/venus/all_night.ogg - "All Night" by Rollergirl, licensed under CC BY-NC-SA 3.0. Obtained from https://rollergirl.bandcamp.com/album/rollergirl
+sound/music/regional/venus/billy_ocean.ogg - "#billyocean" by Rollergirl, licensed under CC BY-NC-SA 3.0. Obtained from https://rollergirl.bandcamp.com/album/rollergirl
+sound/music/regional/venus/artificially_sweetened.ogg - "Artificially Sweetened" by Stevia Sphere, licensed under CC BY 3.0. https://steviasphere.bandcamp.com/album/artificially-sweetened-single
+sound/music/regional/venus/real_love.ogg - "Real Love" by Stevia Sphere, licensed under CC BY 3.0. Obtained from https://steviasphere.bandcamp.com/album/artificially-sweetened-single
+sound/music/regional/venus/dance.ogg - "Danceさせる" by ウナチャンUNACHAN, licensed under CC BY 3.0. Obtained from https://unachan.bandcamp.com/track/dance
+sound/music/regional/venus/love_sensation.ogg - "love sensation" by ウナチャンUNACHAN and bedroomtheft, licensed under CC BY 3.0. Obtained from https://unachan.bandcamp.com/track/love-sensation
+sound/music/regional/venus/funky_girl.ogg - "F U N K Y G I R L <3" by B~mO9000, licensed under CC BY-SA 3.0. Obtained from https://bmo9000.bandcamp.com/album/v-i-n-t-a-g-e
+sound/music/regional/venus/break_the_system.ogg - "Break The System" by B~mO9000, licensed under CC BY-SA 3.0. Obtained from https://bmo9000.bandcamp.com/album/wanted-in-80s (Download Only)
+ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTOR START
+sound/music/regional/xanu/xanu_rock_1.ogg - "Rise" by Swara Sutra, licensed under CC BY-NC-SA 3.0. Obtained from https://swarasutra.bandcamp.com/track/rise
+sound/music/regional/xanu/xanu_rock_2.ogg - "Induldge" by Swara Sutra, licensed under CC BY-NC-SA 3.0. Obtained from https://swarasutra.bandcamp.com/track/indulgence
+sound/music/regional/xanu/xanu_rock_3.ogg - "Shimmer" by Swara Sutra, licensed under CC BY-NC-SA 3.0. Obtained from https://swarasutra.bandcamp.com/track/indulgence
+ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTOR START
+sound/music/lobby/crescent_expanse/crescent_expanse_1.ogg - "Lüüü - Weedance" by Lüüü, licensed under CC BY-NC-SA 3.0. Obtained from https://myprivateunderground.bandcamp.com/track/lu-u-u-weedance
+sound/music/lobby/crescent_expanse/crescent_expanse_2.ogg - "Little Bradley - Sunset Drive" by Little Bradley, licensed under CC BY-NC 3.0. Obtained from https://myprivateunderground.bandcamp.com/track/little-bradley-sunset-drive
+sound/music/lobby/lights_edge/lights_edge_1.ogg - "Is Anyone Left?" by Karl Casey, licensed under CC BY 3.0. Obtained from https://karlcasey.bandcamp.com/track/is-anyone-left
+sound/music/lobby/lights_edge/lights_edge_2.ogg - "Running From The Wendigo" by Karl Casey, licensed under CC BY 3.0. Obtained from https://karlcasey.bandcamp.com/track/running-from-the-wendigo
+sound/music/lobby/dangerous_space/dangerous_space_1.ogg - "You Can't Kill The Boogeyman" by Karl Casey, licensed under CC BY 3.0. Obtained From https://karlcasey.bandcamp.com/track/you-can-t-kill-the-boogeyman
+sound/music/lobby/dangerous_space/dangerous_space_2.ogg - "Prison Planet" by Karl Casey, licensed under CC BY 3.0. Obtained from https://karlcasey.bandcamp.com/track/prison-planet
+ATTRIBUTIONS SECTION END

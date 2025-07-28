@@ -20,6 +20,11 @@
 		/obj/item/stock_parts/manipulator
 	)
 
+/obj/machinery/biogenerator/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>manipulators</b> will increase the nutrients provided by new inputs."
+	. += "Upgraded <b>matter bins</b> will decrease the conversion cost of bio-goods."
+
 #define BIOGEN_FOOD "Food"
 #define BIOGEN_ITEMS "Items"
 #define BIOGEN_FLAGS "Corporate Flags"

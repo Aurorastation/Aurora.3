@@ -231,3 +231,49 @@
   - imageadd: Adds new sprites for the distillery, and empty, beer, rice beer, kvass
       and xuizi juice kegs. Art credit to spookywastaken
   - rscadd: Adds a dorshafen deluxe kvass keg.
+2025-06-24:
+  FlamingLily:
+  - balance: Nerfs stinger grenades. Reduces projectile count and pain per projectile
+      by half (now 50 and 25 respectively)
+  SleepyGemmy:
+  - bugfix: Made first-aid kits use a define for its max storage space.
+  - rscadd: Updated the title of i105 and the descriptions of i105 and i109.
+  hazelmouse:
+  - rscadd: Doubled the number of glasses available in glasses vendors to 40 from
+      20, and the number of pitchers to 8 from 4 to balance a number of both being
+      removed from the booze vendor in the bar.
+2025-06-26:
+  SleepyGemmy:
+  - spellcheck: Fixed all instances of transferred being spelled as "transfered".
+  - spellcheck: Fixed the hydraulic rescue tool name being capitalized.
+  - spellcheck: Fixed grammar on the long distance wireless bolt control message.
+  - spellcheck: Fixed extra punctuation on the potted cherry blossom tree.
+  - bugfix: Raised the S'rendarr's Hand (tobacco) content from 5 to 10 units in the
+      adhomian cigarettes to match the total amount found in other cigarettes.
+  - spellcheck: Changed the extended description prompt "Show In Chat" to "Show in
+      Chat".
+  - rscadd: Updated the descriptions on regulations i213 and i310.
+  steviii:
+  - imageadd: Adds new wetsuits and swimsuits for Skrell.
+  - rscadd: Adds swimstars swimsuits and adds them to the maint loot pool.
+2025-06-27:
+  CourierBravo:
+  - bugfix: Changes the door names for the drone fabrication room to drone fabrication
+      instead of auxiliary atmospherics.
+  Wowzewow (Wezzy):
+  - rscadd: Reverts the body scanner console sprite.
+  hazelmouse:
+  - rscadd: Yokes now have their contents appended to their name, allowing them to
+      be more easily sorted in stacks. If a yoke contains more than one kind of drink,
+      only the first two are appended.
+2025-06-30:
+  Batrachophreno:
+  - bugfix: Removes a floating black pixel on the icon of the Labourer's Choice cigarette
+      packet when opened with two cigs left inside.
+  - bugfix: Finished partially-implemented Fuel and Aux pipe modes for RFD-P.
+  - refactor: Renamed the air conditioning unit to temperature control unit.
+  - refactor: Migrated the temperature control unit menu to TGUI, made it prettier.
+  - refactor: Migrated the gas tank dispenser menu to TGUI, made it prettier.
+  SleepyGemmy:
+  - bugfix: Fixed double doors with glass having the glass overlay misaligning when
+      access is denied.

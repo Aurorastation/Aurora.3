@@ -1,7 +1,6 @@
 /obj/item/storage/box/fancy/yoke
 	name = "yoke"
 	desc = "A sturdy device made out of bio-friendly materials. This will hold your canned drinks together easy peasy."
-	desc_info = "Click drag it to pick it up, click on it to take out a can."
 	icon = 'icons/obj/item/reagent_containers/food/drinks/soda.dmi'
 	icon_state = "yoke"
 	center_of_mass = list("x" = 16,"y" = 9)
@@ -20,6 +19,10 @@
 		list(-10, 2)
 	)
 
+/obj/item/storage/box/fancy/yoke/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Click drag it to pick it up, click on it to take out a can."
+
 /obj/item/storage/box/fancy/yoke/fill()
 	. = ..()
 	for(var/obj/item/reagent_containers/food/drinks/cans/C in contents)
@@ -35,6 +38,32 @@
 		can.pixel_x = positions[1]
 		can.pixel_y = positions[2]
 		underlays += can
+
+	// Calling this here so the appended names change when cans are removed from the yoke.
+	append_cans()
+
+/// We use this to append the names of the cans in a yoke to its name, for QoL.
+/obj/item/storage/box/fancy/yoke/proc/append_cans()
+	// Return early and use the initial name if there's no cans, so we don't have stray brackets.
+	if(!length(cans))
+		name = initial(name)
+		return
+
+	// Names of cans in the yoke that we are selecting to append to the name. No names in this should repeat.
+	var/list/taken_names = list()
+
+	for(var/obj/can in cans)
+		taken_names |= can.name
+
+	// We end this at the third item, so at maximum two items in the yoke will be in the name.
+	var/can_name_string = initial(name) + " (" + jointext(taken_names, ", ", 1, 3)
+
+	if(length(taken_names) > 2)
+		can_name_string += ", ...)"
+	else
+		can_name_string += ")"
+
+	name = can_name_string
 
 /obj/item/storage/box/fancy/yoke/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	var/mob/mob_dropped_over = over
@@ -193,8 +222,7 @@
 /obj/item/storage/box/fancy/yoke/threetowns
 	starts_with = list(/obj/item/reagent_containers/food/drinks/cans/threetowns = 6)
 
-// energy drinks
-
+// Energy drinks
 /obj/item/storage/box/fancy/yoke/energy
 	icon_state = "yoke_energy" //energy drinks are 2 pixels taller
 

@@ -126,7 +126,7 @@
 	uniform = /obj/item/clothing/under/rank/hydroponics
 	head = /obj/item/clothing/head/bandana/hydro/nt
 	shoes = /obj/item/clothing/shoes/sneakers/black
-	suit_store = /obj/item/device/analyzer/plant_analyzer
+	belt = /obj/item/storage/belt/hydro/full
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian
@@ -369,7 +369,6 @@
 	uniform = /obj/item/clothing/under/rank/operations_manager
 	shoes = /obj/item/clothing/shoes/sneakers/brown
 	id = /obj/item/card/id/silver
-	l_hand = /obj/item/clipboard
 	glasses = /obj/item/clothing/glasses/sunglasses
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/supply/om

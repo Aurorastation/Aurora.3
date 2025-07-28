@@ -189,24 +189,37 @@
 	var/mob/abstract/unauthed/una = GLOB.unauthed[queryparams["clienttoken"]]
 	if(!istype(una) || !una.client)
 		statuscode = 500
-		response = "Somethnig went horribly wrong."
+		response = "Something went horribly wrong."
 		return TRUE
 
 	if(!GLOB.config.external_auth)
 		statuscode = 500
-		response = "External auth is disalowed."
+		response = "External auth is disallowed."
 		del(una.client)
 		del(una)
 		return TRUE
 
-	var/client/cl = GLOB.directory[ckey(queryparams["key"])]
+	var/ckey_is_external = queryparams["use-external-key"]
+
+	if(ckey_is_external && GLOB.config.external_auth != 2)
+		statuscode = 403
+		response = "External auth is disabled for users without linked ckeys."
+		del(una.client)
+		del(una)
+		return TRUE
+
+	var/ckey_to_apply = queryparams["key"]
+	if (ckey_is_external && ckey_to_apply == null)
+		ckey_to_apply = "GuestF-[ckey(queryparams["forumuser"])]"
+
+	var/client/cl = GLOB.directory[ckey(ckey_to_apply)]
 	if(cl)
 		to_chat(cl, "Another connection has been made using your login key. This session has been terminated.")
 		del(cl)
 
 	statuscode = 200
 	response = "Client has been authenticated sucessfully."
-	una.ClientLogin(queryparams["key"])
+	una.ClientLogin(ckey_to_apply, ckey_is_external)
 
 // Authenticates client from external system
 /datum/topic_command/get_auth_client_ip

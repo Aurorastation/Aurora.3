@@ -206,6 +206,24 @@
 
 /mob/living/carbon/human/get_status_tab_items()
 	. = ..()
+
+	/// This needs to be updated to use signals.
+	var/holding_gps = FALSE
+	if(istype(src.get_active_hand(), /obj/item/device/gps) || istype(src.get_inactive_hand(), /obj/item/device/gps))
+		holding_gps = TRUE
+
+	var/area/A = get_area(src)
+	var/area_name
+	if(holding_gps)
+		if(is_station_area(A))
+			area_name = get_area_display_name(A)
+		else
+			area_name = A.name
+		. += "[area_name]"
+		. += ""
+	if(A.area_blurb)
+		. += "[A.area_blurb]"
+		. += ""
 	. += "Intent: [a_intent]"
 	. += "Move Mode: [m_intent]"
 	if(is_diona() && DS)
@@ -213,8 +231,8 @@
 		. += "Energy: [round(DS.stored_energy)] / [round(DS.max_energy)]"
 		if(DS.regen_limb)
 			. += "Regeneration Progress: [round(DS.regen_limb_progress)] / [LIMB_REGROW_REQUIREMENT]"
-	if (internal)
-		if (!internal.air_contents)
+	if(internal)
+		if(!internal.air_contents)
 			qdel(internal)
 		else
 			. += "Internal Atmosphere Info: [internal.name]"

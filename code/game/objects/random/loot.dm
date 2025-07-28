@@ -54,6 +54,8 @@
 		/obj/item/clothing/under/overalls = 1,
 		/obj/item/clothing/under/syndicate/tacticool = 0.4,
 		/obj/item/clothing/under/syndicate/tracksuit = 0.2,
+		/obj/item/clothing/under/skrell/wetsuit/swimstars = 0.1, // WE LOVE SWIMSTARS!
+		/obj/item/clothing/under/skrell/wetsuit/swimstars/alt = 0.1,
 		/obj/item/device/firing_pin = 0.3,
 		/obj/item/device/firing_pin/clown = 0.01,
 		/obj/item/device/flashlight = 1,

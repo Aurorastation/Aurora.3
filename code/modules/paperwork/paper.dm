@@ -62,6 +62,18 @@
 	var/can_change_icon_state = TRUE
 	var/set_unsafe_on_init = FALSE
 
+/obj/item/paper/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if (old_name && (icon_state == "paper_plane" || icon_state == "paper_swan"))
+		. += SPAN_NOTICE("You're going to have to unfold it before you can read it.")
+		return
+	if(name != initial(name))
+		. += "It's titled '[name]'."
+	if(distance <= 1)
+		show_content(user)
+	else
+		. += SPAN_NOTICE("You have to go closer if you want to read it.")
+
 /obj/item/paper/Initialize(mapload, text, title)
 	. = ..()
 	base_state = initial(icon_state)
@@ -130,14 +142,6 @@
 		show_content(user)
 	else
 		. += SPAN_NOTICE("You have to go closer if you want to read it.")
-
-	// Storyteller writing support (terrible hack).
-	if (isstoryteller(user) && icon_state != "scrap")
-		var/datum/browser/paper_win = new(user, name, null, 450, 500, null, TRUE)
-		paper_win.set_content("<head><title>[capitalize_first_letters(name)]</title><style>body {background-color: [color];}</style></head><body>[info_links][stamps]</body>")
-		paper_win.add_stylesheet("paper_languages", 'html/browser/paper_languages.css')
-		paper_win.open()
-		return
 
 /obj/item/paper/proc/show_content(mob/user, forceshow)
 	simple_asset_ensure_is_sent(user, /datum/asset/simple/paper)

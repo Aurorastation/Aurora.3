@@ -598,7 +598,7 @@ var/global/enabled_spooking = 0
 				dat+="No comments on this story yet!</BR>"
 			else
 				for(var/datum/feed_comment/COMMENT in src.admincaster_viewing_message.comments)
-					dat+="<BLOCKQUOTE style=\"padding:2px 4px;border-left:4px #797979 solid;\"><B>\[[world.time]\] [COMMENT.author]:</B>[COMMENT.message]<BR><A href='byond://?src=[REF(src)];ac_censorcomment=1;ac_comment=[REF(COMMENT)]>Censor Comment</A></BLOCKQUOTE>"
+					dat+="<BLOCKQUOTE style=\"padding:2px 4px;border-left:4px #797979 solid;\"><B>\[[world.time]\] [COMMENT.author]:</B>[COMMENT.message]<BR><A href='byond://?src=[REF(src)];ac_censorcomment=1;ac_comment=[REF(COMMENT)]'>Censor Comment</A></BLOCKQUOTE>"
 			dat+="<A href='byond://?src=[REF(src)];ac_setScreen=[9]'>Return</A>"
 		else
 			dat+="Please report this on GitHub, along with what you did to make this appear."

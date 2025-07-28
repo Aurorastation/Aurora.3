@@ -44,6 +44,18 @@
 	random_itemcount = 0
 	light_color = COLOR_GOLD
 
+/obj/machinery/vending/vendors/low_supply
+	products = list(
+		/obj/item/device/vending_refill/tools = 1,
+		/obj/item/device/vending_refill/coffee = 1,
+		/obj/item/device/vending_refill/meds = 1,
+		/obj/item/device/vending_refill/robust = 1,
+		/obj/item/device/vending_refill/hydro = 1,
+		/obj/item/device/vending_refill/cutlery = 1,
+		/obj/item/device/vending_refill/robo = 1,
+		/obj/item/device/vending_refill/battlemonsters = 1,
+		/obj/item/device/vending_refill/encryption = 1
+	)
 
 /obj/machinery/vending/boozeomat
 	name = "Booze-O-Mat"
@@ -188,6 +200,41 @@
 	restock_items = TRUE
 	use_power = 0
 
+/obj/machinery/vending/boozeomat/low_supply
+	// just badly stocked
+	products = list(
+		/obj/item/reagent_containers/food/drinks/bottle/applejack = 1,
+		/obj/item/reagent_containers/food/drinks/bottle/bitters = 2,
+		/obj/item/reagent_containers/food/drinks/bottle/boukha = 1,
+		/obj/item/reagent_containers/food/drinks/bottle/grenadine = 2,
+		/obj/item/reagent_containers/food/drinks/bottle/tequila = 1,
+		/obj/item/reagent_containers/food/drinks/bottle/rum = 1,
+		/obj/item/reagent_containers/food/drinks/bottle/fernet = 1,
+		/obj/item/reagent_containers/food/drinks/bottle/drambuie = 2,
+		/obj/item/reagent_containers/food/drinks/bottle/melonliquor = 1,
+		/obj/item/reagent_containers/food/drinks/bottle/chartreusegreen = 2,
+		/obj/item/reagent_containers/food/drinks/bottle/absinthe = 1,
+		/obj/item/reagent_containers/food/drinks/bottle/kahlua = 1,
+		/obj/item/reagent_containers/food/drinks/bottle/triplesec = 1,
+		/obj/item/reagent_containers/food/drinks/bottle/sarezhiwine = 1,
+		/obj/item/reagent_containers/food/drinks/bottle/vodka = 2,
+		/obj/item/reagent_containers/food/drinks/bottle/pulque = 1,
+		/obj/item/reagent_containers/food/drinks/bottle/fireball = 2,
+		/obj/item/reagent_containers/food/drinks/bottle/cremewhite = 1,
+		/obj/item/reagent_containers/food/drinks/bottle/mintsyrup = 2,
+		/obj/item/reagent_containers/food/drinks/bottle/chartreuseyellow = 1,
+		/obj/item/reagent_containers/food/drinks/bottle/messa_mead = 2,
+		/obj/item/reagent_containers/food/drinks/bottle/kvass = 1,
+		/obj/item/reagent_containers/food/drinks/bottle/hooch = 4,
+		/obj/item/reagent_containers/food/drinks/bottle/nemiik = 1,
+		/obj/item/reagent_containers/food/drinks/carton/applejuice = 1,
+		/obj/item/reagent_containers/food/drinks/carton/cream = 4,
+		/obj/item/reagent_containers/food/drinks/carton/dynjuice = 1,
+		/obj/item/reagent_containers/food/drinks/carton/tomatojuice = 1,
+		/obj/item/reagent_containers/food/drinks/carton/cranberryjuice = 1,
+		/obj/item/reagent_containers/food/drinks/ice = 9
+	)
+
 /obj/machinery/vending/assist
 	vend_id = "tools"
 	icon_state = "generic"
@@ -285,6 +332,17 @@
 	)
 	prices = list()
 
+/obj/machinery/vending/coffee/low_supply
+	products = list(
+		/obj/item/reagent_containers/food/drinks/coffee = 2,
+		/obj/item/reagent_containers/food/drinks/tea = 3,
+		/obj/item/reagent_containers/food/drinks/greentea = 1,
+		/obj/item/reagent_containers/food/drinks/chaitea = 1,
+		/obj/item/reagent_containers/food/drinks/hotcider = 1,
+		/obj/item/reagent_containers/food/drinks/h_chocolate = 1,
+		/obj/item/reagent_containers/food/snacks/donut/normal = 2
+	)
+
 /obj/machinery/vending/snack
 	name = "Getmore Chocolate Corp"
 	desc = "A snack machine courtesy of the Getmore Chocolate Corporation, based out of Mars."
@@ -370,6 +428,20 @@
 	)
 	light_color = COLOR_BABY_BLUE
 	manufacturer = "nanotrasen"
+
+/obj/machinery/vending/snack/low_supply
+	products = list(
+		/obj/item/reagent_containers/food/drinks/dry_ramen = 4,
+		/obj/item/reagent_containers/food/snacks/chips = 1,
+		/obj/item/reagent_containers/food/snacks/sosjerky = 2,
+		/obj/item/reagent_containers/food/snacks/no_raisin = 4,
+		/obj/item/storage/box/fancy/vkrexitaffy = 3,
+		/obj/item/reagent_containers/food/snacks/skrellsnacks = 1,
+		/obj/item/reagent_containers/food/snacks/maps = 1,
+		/obj/item/reagent_containers/food/snacks/koisbar_clean = 1,
+		/obj/item/reagent_containers/food/snacks/adhomian_can = 1,
+		/obj/item/reagent_containers/food/drinks/jyalra = 1
+	)
 
 /obj/machinery/vending/snack/konyang
 	products = list(
@@ -462,6 +534,20 @@
 	vending_sound = 'sound/machines/vending/vending_cans.ogg'
 	temperature_setting = -1
 	light_color = COLOR_GUNMETAL
+
+/obj/machinery/vending/cola/low_supply
+	products = list(
+		/obj/item/reagent_containers/food/drinks/cans/diet_cola = 1,
+		/obj/item/reagent_containers/food/drinks/cans/space_mountain_wind = 2,
+		/obj/item/reagent_containers/food/drinks/cans/dr_gibb = 1,
+		/obj/item/reagent_containers/food/drinks/cans/root_beer = 2,
+		/obj/item/reagent_containers/food/drinks/cans/starkist = 1,
+		/obj/item/reagent_containers/food/drinks/waterbottle = 4,
+		/obj/item/reagent_containers/food/drinks/cans/dyn = 1,
+		/obj/item/reagent_containers/food/drinks/cans/space_up = 2,
+		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 8,
+		/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda = 2
+	)
 
 /obj/machinery/vending/cola/konyang
 	products = list(
@@ -580,6 +666,26 @@
 	)
 	light_color = COLOR_BLUE_GRAY
 
+/obj/machinery/vending/cigarette/low_supply
+	products = list(
+		/obj/item/storage/box/fancy/cigarettes/rugged = 4,
+		/obj/item/storage/box/fancy/cigarettes = 2,
+		/obj/item/storage/box/fancy/cigarettes/dpra = 2,
+		/obj/item/storage/box/fancy/cigarettes/federation = 1,
+		/obj/item/storage/chewables/rollable = 2,
+		/obj/item/storage/chewables/rollable/unathi = 1,
+		/obj/item/storage/chewables/tobacco/bad = 2,
+		/obj/item/storage/chewables/tobacco/koko = 1,
+		/obj/item/storage/cigfilters = 1,
+		/obj/item/storage/box/fancy/cigpaper = 4,
+		/obj/item/storage/box/fancy/matches = 4,
+		/obj/item/spacecash/ewallet/lotto = 9,
+		/obj/item/clothing/mask/smokable/ecig/util = 1,
+		/obj/item/clothing/mask/smokable/ecig/simple = 1,
+		/obj/item/reagent_containers/ecig_cartridge/med_nicotine = 2,
+		/obj/item/reagent_containers/ecig_cartridge/grape = 1
+	)
+
 /obj/machinery/vending/cigarette/merchant
 	// Mapped in merchant station
 	premium = list()
@@ -646,6 +752,25 @@
 	light_color = LIGHT_COLOR_GREEN
 	manufacturer = "zenghu"
 
+/obj/machinery/vending/medical/low_supply
+	products = list(
+		/obj/item/reagent_containers/glass/bottle/inaprovaline = 1,
+		/obj/item/reagent_containers/glass/bottle/perconol = 1,
+		/obj/item/reagent_containers/glass/bottle/toxin = 1,
+		/obj/item/reagent_containers/glass/bottle/thetamycin = 1,
+		/obj/item/reagent_containers/syringe = 8,
+		/obj/item/device/healthanalyzer = 1,
+		/obj/item/stack/medical/bruise_pack = 2,
+		/obj/item/stack/medical/ointment = 1,
+		/obj/item/stack/medical/splint = 1,
+		/obj/item/reagent_containers/pill/antitox = 2,
+		/obj/item/reagent_containers/pill/cetahydramine = 1,
+		/obj/item/reagent_containers/pill/perconol = 1,
+		/obj/item/reagent_containers/glass/beaker/medcup = 4,
+		/obj/item/storage/pill_bottle = 2,
+		/obj/item/reagent_containers/spray/sterilizine = 1
+	)
+
 //This one's from bay12
 /obj/machinery/vending/phoronresearch
 	name = "Toximate 3000"
@@ -709,6 +834,15 @@
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	manufacturer = "zenghu"
 
+/obj/machinery/vending/wallmed1/low_supply
+	products = list(
+		/obj/item/stack/medical/bruise_pack = 1,
+		/obj/item/stack/medical/ointment = 1,
+		/obj/item/reagent_containers/pill/perconol = 2,
+		/obj/item/storage/box/fancy/med_pouch/oxyloss = 1,
+		/obj/item/storage/box/fancy/med_pouch/toxin = 1
+	)
+
 /obj/machinery/vending/wallmed2
 	name = "\improper NanoMed Mini"
 	desc = "A wall-mounted version of the NanoMed, containing only vital first aid equipment."
@@ -739,6 +873,14 @@
 	light_color = LIGHT_COLOR_GREEN
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	manufacturer = "zenghu"
+
+/obj/machinery/vending/wallmed2/low_supply
+	products = list(
+		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 1,
+		/obj/item/stack/medical/bruise_pack = 2,
+		/obj/item/stack/medical/ointment = 2,
+		/obj/item/storage/box/fancy/med_pouch/radiation = 1
+	)
 
 /obj/machinery/vending/wallpharm
 	name = "\improper NanoPharm Mini"
@@ -778,6 +920,18 @@
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	manufacturer = "nanotrasen"
 
+/obj/machinery/vending/wallpharm/low_supply
+	products = list(
+		/obj/item/stack/medical/bruise_pack = 2,
+		/obj/item/stack/medical/ointment = 2,
+		/obj/item/storage/pill_bottle/antidexafen = 1,
+		/obj/item/storage/pill_bottle/dexalin = 1,
+		/obj/item/storage/pill_bottle/dylovene = 2,
+		/obj/item/storage/pill_bottle/vitamin = 2,
+		/obj/item/storage/pill_bottle/cetahydramine  = 1,
+		/obj/item/storage/pill_bottle/rmt = 1
+	)
+
 /obj/machinery/vending/security
 	name = "SecTech"
 	desc = "A security equipment vendor."
@@ -816,6 +970,18 @@
 	light_color = COLOR_BABY_BLUE
 	manufacturer = "zavodskoi"
 
+/obj/machinery/vending/security/low_supply
+	products = list(
+		/obj/item/handcuffs = 2,
+		/obj/item/grenade/chem_grenade/teargas = 1,
+		/obj/item/device/flash = 2,
+		/obj/item/reagent_containers/spray/pepper = 2,
+		/obj/item/storage/box/evidence = 4,
+		/obj/item/device/holowarrant = 3,
+		/obj/item/device/flashlight/maglight = 2,
+		/obj/item/device/hailer = 1
+	)
+
 /obj/machinery/vending/hydronutrients
 	name = "NutriMax"
 	desc = "A plant nutrients vendor."
@@ -844,6 +1010,16 @@
 	random_itemcount = 0
 	light_color = COLOR_BABY_BLUE
 
+/obj/machinery/vending/hydronutrients/low_supply
+	products = list(
+		/obj/item/reagent_containers/glass/fertilizer/ez = 3,
+		/obj/item/reagent_containers/glass/fertilizer/l4z = 4,
+		/obj/item/reagent_containers/glass/fertilizer/rh = 1,
+		/obj/item/plantspray/pests = 12,
+		/obj/item/reagent_containers/syringe = 3,
+		/obj/item/storage/bag/plants = 3
+	)
+
 /obj/machinery/vending/hydronutrients/xenobotany
 	products = list(
 		/obj/item/reagent_containers/glass/fertilizer/ez = 6,
@@ -858,6 +1034,22 @@
 		/obj/item/wirecutters/clippers = 2,
 		/obj/item/reagent_containers/spray/plantbgone = 2,
 		/obj/item/reagent_containers/glass/bottle/mutagen = 3
+	)
+
+/obj/machinery/vending/hydronutrients/xenobotany/low_supply
+	products = list(
+		/obj/item/reagent_containers/glass/fertilizer/ez = 3,
+		/obj/item/reagent_containers/glass/fertilizer/l4z = 4,
+		/obj/item/reagent_containers/glass/fertilizer/rh = 1,
+		/obj/item/plantspray/pests = 12,
+		/obj/item/reagent_containers/syringe = 4,
+		/obj/item/storage/bag/plants = 2,
+		/obj/item/device/analyzer/plant_analyzer = 1,
+		/obj/item/material/minihoe = 1,
+		/obj/item/material/hatchet = 1,
+		/obj/item/wirecutters/clippers = 1,
+		/obj/item/reagent_containers/spray/plantbgone = 1,
+		/obj/item/reagent_containers/glass/bottle/mutagen = 2
 	)
 
 //Used specifically for more advanced setups, includes analyzers and tools inside the machine.
@@ -924,6 +1116,16 @@
 		/obj/item/reagent_containers/glass/bottle/mutagen = 2
 	)
 
+/obj/machinery/vending/hydronutrients/gardenvend/low_supply
+	products = list(
+		/obj/item/reagent_containers/glass/fertilizer/ez = 2,
+		/obj/item/plantspray/pests = 3,
+		/obj/item/storage/bag/plants = 1,
+		/obj/item/material/minihoe = 1,
+		/obj/item/material/hatchet = 1,
+		/obj/item/wirecutters/clippers = 1,
+		/obj/item/reagent_containers/spray/plantbgone = 1
+	)
 
 /obj/machinery/vending/hydroseeds
 	name = "MegaSeed Servitor"
@@ -1288,6 +1490,20 @@
 	light_color = COLOR_GOLD
 	manufacturer = "hephaestus"
 
+/obj/machinery/vending/tool/low_supply
+	products = list(
+		/obj/item/stack/cable_coil/random = 4,
+		/obj/item/crowbar = 3,
+		/obj/item/weldingtool = 1,
+		/obj/item/wirecutters = 2,
+		/obj/item/wrench = 2,
+		/obj/item/device/analyzer = 3,
+		/obj/item/device/t_scanner = 2,
+		/obj/item/screwdriver = 3,
+		/obj/item/tape_roll = 1,
+		/obj/item/hammer = 1
+	)
+
 /obj/machinery/vending/engivend
 	name = "Engi-Vend"
 	desc = "Spare tool vending. What? Did you expect some witty description?"
@@ -1317,6 +1533,20 @@
 	random_itemcount = 0
 	light_color = COLOR_GOLD
 	manufacturer = "hephaestus"
+
+/obj/machinery/vending/engivend/low_supply
+	products = list(
+		/obj/item/device/multitool = 2,
+		/obj/item/taperoll/engineering = 2,
+		/obj/item/clothing/glasses/safety/goggles = 3,
+		/obj/item/airlock_electronics = 12,
+		/obj/item/module/power_control = 7,
+		/obj/item/airalarm_electronics = 7,
+		/obj/item/firealarm_electronics = 8,
+		/obj/item/cell/high = 4,
+		/obj/item/grenade/chem_grenade/antifuel = 3,
+		/obj/item/device/geiger = 1
+	)
 
 /obj/machinery/vending/tacticool //Tried not to go overboard with the amount of fun security has access to.
 	name = "Tactical Express"
@@ -1503,6 +1733,17 @@
 	temperature_setting = -1
 	light_color = COLOR_CULT_REINFORCED
 
+/obj/machinery/vending/zora/low_supply
+	products = list(
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/cherry = 2,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/phoron = 3,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/venomgrass = 2,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/kois = 1,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/drone = 5,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/xuizi = 3,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/dyn = 1
+	)
+
 /obj/machinery/vending/battlemonsters
 	name = "\improper Battlemonsters vendor"
 	desc = "A good place to dump all your rent money."
@@ -1640,6 +1881,16 @@
 	vend_delay = 15
 	idle_power_usage = 211 // Cold MREs...
 
+/obj/machinery/vending/mredispenser/low_supply
+	products = list(
+		/obj/item/storage/box/fancy/mre = 1,
+		/obj/item/storage/box/fancy/mre/menu2 = 1,
+		/obj/item/storage/box/fancy/mre/menu4 = 1,
+		/obj/item/storage/box/fancy/mre/menu9 = 4,
+		/obj/item/storage/box/fancy/mre/menu10 = 5,
+		/obj/item/storage/box/fancy/mre/menu12 = 3
+	)
+
 /obj/machinery/vending/overloaders
 	name = "GwokBuzz Vendor"
 	desc = "An entertainment software machine supplied by Gwok Software, a member of the Gwok Group."
@@ -1667,6 +1918,13 @@
 		/obj/item/storage/overloader/jitterbug = 5
 	)
 	light_color = LIGHT_COLOR_CYAN
+
+/obj/machinery/vending/overloaders/low_supply
+	products = list(
+		/obj/item/storage/overloader/classic = 2,
+		/obj/item/storage/overloader/rainbow = 1,
+		/obj/item/storage/overloader/screenshaker = 1
+	)
 
 /obj/machinery/vending/minimart
 	name = "minimart refrigerator"
@@ -1832,6 +2090,26 @@
 	)
 	random_itemcount = 0
 	light_color = COLOR_BABY_BLUE
+
+/obj/machinery/vending/frontiervend/low_supply
+	products = list(
+		/obj/item/reagent_containers/food/drinks/cans/himeokvass = 2,
+		/obj/item/reagent_containers/food/drinks/cans/boch = 1,
+		/obj/item/reagent_containers/food/drinks/cans/boch/buckthorn = 2,
+		/obj/item/reagent_containers/food/drinks/cans/xanuchai = 2,
+		/obj/item/reagent_containers/food/drinks/cans/xanuchai/creme = 1,
+		/obj/item/reagent_containers/food/drinks/cans/galatea = 1,
+		/obj/item/reagent_containers/food/drinks/bottle/bestblend = 2,
+		/obj/item/reagent_containers/food/snacks/fishjerky = 1,
+		/obj/item/reagent_containers/food/snacks/pepperoniroll = 1,
+		/obj/item/reagent_containers/food/snacks/salmiak = 1,
+		/obj/item/reagent_containers/food/snacks/pemmicanbar = 1,
+		/obj/item/reagent_containers/food/snacks/peanutsnack = 2,
+		/obj/item/reagent_containers/food/snacks/peanutsnack/pepper = 1,
+		/obj/item/reagent_containers/food/snacks/chana = 1,
+		/obj/item/reagent_containers/food/snacks/papad = 2,
+		/obj/item/storage/box/fancy/foysnack = 1
+	)
 
 /obj/machinery/vending/frontiervend/hacked
 	name = "hacked FrontierVend"
@@ -2087,4 +2365,16 @@ If you want to expand this to more than primarily generic items, I recommend des
 	)
 	contraband = list(
 		/obj/item/inflatable_duck = 1
+	)
+
+/obj/machinery/vending/lavatory/low_supply
+	prices = list(
+		/obj/item/soap = 7,
+		/obj/item/mirror = 12,
+		/obj/item/haircomb/random = 12,
+		/obj/item/towel/random = 14,
+		/obj/item/reagent_containers/spray/cleaner/deodorant = 6,
+		/obj/item/reagent_containers/toothpaste = 14,
+		/obj/item/reagent_containers/toothbrush = 23,
+		/obj/item/reagent_containers/food/drinks/flask/vacuumflask/mouthwash = 18
 	)
