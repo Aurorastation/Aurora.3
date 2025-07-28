@@ -56,7 +56,7 @@
 		/obj/item/clothing/suit/armor/riot/laser_tag/blue = 2
 		)
 	prices = list(
-		/obj/item/coin/casino = 500
+		/obj/item/coin/casino = 100
 	)
 
 	restock_items = FALSE
