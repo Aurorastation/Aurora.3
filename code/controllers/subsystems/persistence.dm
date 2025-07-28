@@ -19,7 +19,7 @@ SUBSYSTEM_DEF(persistence)
 		return SS_INIT_FAILURE
 	else
 		// Delete all persistent objects in the database that have expired and have passed the cleanup grace period (PERSISTENT_EXPIRATION_CLEANUP_DELAY_DAYS)
-		database_clean()
+		database_clean_entries()
 
 		// Retrieve all persistent data that is not expired
 		var/list/persistent_data = database_get_active_entries()
@@ -42,34 +42,46 @@ SUBSYSTEM_DEF(persistence)
  * Shutdown of the persistence subsystem. Adds new persistent objects, removes no longer existing persistent objects and updates changed persistent objects in the database.
  */
 /datum/controller/subsystem/persistence/Shutdown()
-	var/list/create = list() // obj
-	var/list/update = list() // obj
-	var/list/delete = list() // int ID
+	// Subsystem shutdown:
+	// Create new persistent records for objects that have been created in the round
+	// Update tracked objects that have an ID (already existing from previous rounds) if they have changed
+	// Delete persistent records that no longer exist in the registry (removed during the round)
 
-	// Iterate through the register to sort tracks with no ID and tracks that need an update (with ID)
+	var/list/track_lookup = list()
+
+	// Iterate through the register to sort tracks with no ID and tracks that may need an update (tracks with ID)
+	// We are using a dictionary look-up to find no longer existing records by comparing them with a live dataset later on
 	for (var/obj/track in GLOB.persistence_register)
-		if(track.persistence_track_id) // Track has an ID, update record
-			update += track
-		else // Track has no ID, create record
-			create += track
+		if(track.persistence_track_id)
+			// Tracked object has an ID, add it to lookup
+			track_lookup[track.persistence_track_id] = track
+		else
+			// Tracked object has no ID, create a new persistent record for it
+			database_add_entry(track)
 
-	// Identify tracks that have been deleted and need to be removed by setting their expiration date to now
-	// Look-up approach for faster set-to-set comparison
-	var/list/tracks_dict = list()
-	for (var/obj/track in update) // Only tracks with an ID could've been deleted in the first place, anything in the create-list is irrelevant
-		tracks_dict[track.persistence_track_id] = TRUE
-
-	var/list/live = database_get_active_entries()
-	for(var/record in live)
-		if (!tracks_dict[record["id"]]) // No match with dict means it got removed in the round
-			delete += record["id"]
-
-	// Free register as we have sorted everything
-	GLOB.persistence_register = list()
-
-	database_add_entries(create)
-	// TODO Update
-	// TODO Delete (set expiration date to NOW to allow the delete period to work, clean up on round start)
+	for(var/record in database_get_active_entries())
+		// Find removed objects by looking them up using the live dataset
+		var/obj/track = track_lookup[record["id"]]
+		
+		if (track)
+			// The record still exists as an active track, check if it may need an update
+			var/changed = FALSE
+			if (track.persistence_author_ckey != record["author_ckey"])
+				changed = TRUE
+			else if (track.persistence_get_content() != record["content"])
+				changed = TRUE
+			else if (track.x != record["x"])
+				changed = TRUE
+			else if (track.y != record["y"])
+				changed = TRUE
+			else if (track.z != record["z"])
+				changed = TRUE
+			if (changed == TRUE)
+				database_update_entry(track)
+		else
+			// There was no match in the lookup meaning the object got removed this round
+			// We delete persistent data by setting it's expiration date to now, actual deletion has more logic and is handled in cleanup during init.
+			database_expire_entry(record["id"])
 
 /**
  * Generates StatEntry. Returns information about currently tracked objects.
@@ -81,14 +93,14 @@ SUBSYSTEM_DEF(persistence)
  * Run cleanup on the persistence entries in the database.
  * Cleanup includes all entries that have expired and have passed the clean up grace period (PERSISTENT_EXPIRATION_CLEANUP_DELAY_DAYS).
  */
-/datum/controller/subsystem/persistence/proc/database_clean()
+/datum/controller/subsystem/persistence/proc/database_clean_entries()
 	if(!SSdbcore.Connect())
-		log_game("SQL ERROR during persistence database_clean. Failed to connect.")
+		log_game("SQL ERROR during persistence database_clean_entries. Failed to connect.")
 	else
 		var/datum/db_query/cleanup_query = SSdbcore.NewQuery("DELETE FROM ss13_persistent_data WHERE DATE_ADD(expires_at, INTERVAL :grace_period_days: DAY) <= NOW()")
 		cleanup_query.Execute(list("grace_period_days"=PERSISTENT_EXPIRATION_CLEANUP_DELAY_DAYS))
 		if (cleanup_query.ErrorMsg())
-			log_game("SQL ERROR during persistence database_clean. " + cleanup_query.ErrorMsg())
+			log_game("SQL ERROR during persistence database_clean_entries. " + cleanup_query.ErrorMsg())
 		qdel(cleanup_query)
 
 /**
@@ -121,32 +133,61 @@ SUBSYSTEM_DEF(persistence)
 		return results
 
 /**
- * Adds the given objects to the database as new persistent data.
+ * Adds a persistent data record to the database.
  */
-/datum/controller/subsystem/persistence/proc/database_add_entries(var/list/objects)
+/datum/controller/subsystem/persistence/proc/database_add_entry(var/obj/track)
 	if(!SSdbcore.Connect())
-		log_game("SQL ERROR during persistence database_add_entries. Failed to connect.")
+		log_game("SQL ERROR during persistence database_add_entry. Failed to connect.")
 	else
-		var/datum/db_query_template/query_template = SSdbcore.NewQueryTemplate("\
+		var/datum/db_query/insert_query = SSdbcore.NewQuery("\
 		INSERT INTO ss13_persistent_data (author_ckey, type, created_at, updated_at, expires_at, content, x, y, z) \
 		VALUES (:author_ckey:, :type:, NOW(), NOW(), DATE_ADD(NOW(), INTERVAL :expire_in_days: DAY), :content:, :x:, :y:, :z:)")
 
-		for(var/object in objects)
-			if (!istype(object, /obj)) // Type checking
-				continue
-			var/obj/entry = object
-			var/datum/db_query/add_query = query_template.Execute(list(
-				"author_ckey"=length(entry.persistence_author_ckey) ? entry.persistence_author_ckey : null,
-				"type"="[entry.type]",
-				"expire_in_days"=entry.persistance_initial_expiration_time_days,
-				"content"=entry.persistence_get_content(),
-				"x"=entry.x,
-				"y"=entry.y,
-				"z"=entry.z
-			))
-			if (add_query.ErrorMsg())
-				log_game("SQL ERROR during persistence database_add_entries. " + add_query.ErrorMsg())
-			qdel(add_query)
+		insert_query.Execute(list(
+			"author_ckey"=length(track.persistence_author_ckey) ? track.persistence_author_ckey : null,
+			"type"="[track.type]",
+			"expire_in_days"=track.persistance_initial_expiration_time_days,
+			"content"=track.persistence_get_content(),
+			"x"=track.x,
+			"y"=track.y,
+			"z"=track.z
+		))
+		if (insert_query.ErrorMsg())
+			log_game("SQL ERROR during persistence database_add_entry. " + insert_query.ErrorMsg())
+		qdel(insert_query)
+
+/**
+ * Updates a persistent data record in the database.
+ */
+/datum/controller/subsystem/persistence/proc/database_update_entry(var/obj/track)
+	if(!SSdbcore.Connect())
+		log_game("SQL ERROR during persistence database_update_entry. Failed to connect.")
+	else
+		var/datum/db_query/update_query = SSdbcore.NewQuery("UPDATE ss13_persistent_data SET author_ckey=:author_ckey:, updated_at=NOW(), content=:content:, x=:x:, y=:y:, z=:z: WHERE id = :id:")
+		update_query.Execute(list(
+			"author_ckey"=length(track.persistence_author_ckey) ? track.persistence_author_ckey : null,,
+			"content"=track.persistence_get_content(),
+			"x"=track.x,
+			"y"=track.y,
+			"z"=track.z,
+			"id"=track.persistence_track_id
+		))
+		if (update_query.ErrorMsg())
+			log_game("SQL ERROR during persistence database_update_entry. " + update_query.ErrorMsg())
+		qdel(update_query)
+
+/**
+ * Expire a persistent data record in the database by setting it's expiration date to now.
+ */
+/datum/controller/subsystem/persistence/proc/database_expire_entry(var/track_id)
+	if(!SSdbcore.Connect())
+		log_game("SQL ERROR during persistence database_expire_entry. Failed to connect.")
+	else
+		var/datum/db_query/expire_query = SSdbcore.NewQuery("UPDATE ss13_persistent_data SET expires_at=NOW() WHERE id = :id:")
+		expire_query.Execute(list("id"=track_id))
+		if (expire_query.ErrorMsg())
+			log_game("SQL ERROR during persistence database_expire_entry. " + expire_query.ErrorMsg())
+		qdel(expire_query)
 
 /*#############################################
 				Public methods
