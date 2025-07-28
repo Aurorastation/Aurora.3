@@ -1320,7 +1320,7 @@ var/global/enabled_spooking = 0
 
 /datum/admins/proc/paralyze_mob(mob/living/H as mob)
 	set category = "Admin"
-	set name = "Toggle Windedness/Paralysis"
+	set name = "Toggle Winded"
 	set desc = "Paralyzes a player. Or unparalyses them."
 
 	toggle_wind_paralysis(H, usr)
