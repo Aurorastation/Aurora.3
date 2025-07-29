@@ -111,11 +111,15 @@ SUBSYSTEM_DEF(persistence)
 			"DELETE FROM ss13_persistent_data WHERE DATE_ADD(expires_at, INTERVAL :grace_period_days: DAY) <= NOW()",
 			list("grace_period_days"=PERSISTENT_EXPIRATION_CLEANUP_DELAY_DAYS)
 		)
-		cleanup_query.Execute()
+		
+		cleanup_query.SetFailCallback(CALLBACK(src, .proc/database_clean_entries_callback_failure))
+		cleanup_query.SetSuccessCallback(CALLBACK(GLOBAL_PROC, /proc/qdel))
+		cleanup_query.ExecuteNoSleep(TRUE)
 
-		if (cleanup_query.ErrorMsg())
-			log_game("SQL ERROR during persistence database_clean_entries. " + cleanup_query.ErrorMsg())
-		qdel(cleanup_query)
+/datum/controller/subsystem/persistence/proc/database_clean_entries_callback_failure(var/datum/db_query/cleanup_query)
+	if (cleanup_query.ErrorMsg())
+		log_game("SQL ERROR during persistence database_clean_entries. " + cleanup_query.ErrorMsg())
+	qdel(cleanup_query)
 
 /**
  * Retrieve persistent data entries that haven't expired.
