@@ -27,6 +27,7 @@ SUBSYSTEM_DEF(persistence)
 		// Instantiate all remaining entries based of their type
 		// Assign persistence related vars found in /obj, apply content and add to live tracking list.
 		for (var/data in persistent_data)
+			CHECK_TICK
 			var/typepath = text2path(data["type"])
 			if (!ispath(typepath)) // Type checking
 				continue
@@ -52,6 +53,7 @@ SUBSYSTEM_DEF(persistence)
 	// Iterate through the register to sort tracks with no ID and tracks that may need an update (tracks with ID)
 	// We are using a dictionary look-up to find no longer existing records by comparing them with a live dataset later on
 	for (var/obj/track in GLOB.persistence_register)
+		CHECK_TICK
 		if(track.persistence_track_id > 0) // (0 is the default tracking ID value)
 			// Tracked object has an ID, add it to lookup
 			track_lookup[track.persistence_track_id] = track
@@ -60,6 +62,7 @@ SUBSYSTEM_DEF(persistence)
 			database_add_entry(track)
 
 	for(var/record in database_get_active_entries())
+		CHECK_TICK
 		// Find removed objects by looking them up using the live dataset
 		var/obj/track = track_lookup[record["id"]]
 
