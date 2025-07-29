@@ -77,7 +77,7 @@
 	/* END PERSISTENCE VARS */
 
 /obj/Destroy()
-	if(persistence_track_active)
+	if(persistence_track_active) // Prevent hard deletion of references in the persistence register by removing it preemptively
 		SSpersistence.deregister_track(src)
 	STOP_PROCESSING(SSprocessing, src)
 	unbuckle()
