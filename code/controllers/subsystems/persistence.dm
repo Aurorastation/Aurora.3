@@ -136,6 +136,7 @@ SUBSYSTEM_DEF(persistence)
 			return
 		else
 			while (get_query.NextRow())
+				CHECK_TICK
 				var/list/entry = list()
 				entry["id"] = text2num(get_query.item[1])
 				entry["author_ckey"] = get_query.item[2]
