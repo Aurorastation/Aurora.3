@@ -731,41 +731,31 @@
 	if(pestlevel >= 5)
 		. += "\The [src] is <span class='danger'>infested with tiny worms</span>!"
 
-	if(seed)
-		if(dead)
-			. += SPAN_DANGER("The plant is dead.")
-		else if(health <= (seed.get_trait(TRAIT_ENDURANCE)/ 2))
-			. += "The plant looks <span class='danger'>unhealthy</span>."
-		if(stunted)
-			. += SPAN_BAD("This harvest is stunted due to improper growing conditions at maturation, reducing yield.")
-		if(harvest)
-			. += SPAN_NOTICE("This is ready to harvest!")
+	// What's the current atmosphere?
+	var/turf/T = loc
+	var/datum/gas_mixture/environment
+	if(closed_system && (connected_port || holding) && mechanical)
+		environment = air_contents
+	if(!environment)
+		if(istype(T))
+			environment = T.return_air()
 
-	if(mechanical)
-		var/turf/T = loc
-		var/datum/gas_mixture/environment
+	// We're in a crate or nullspace, bail out.
+	if(!environment)
+		return
 
-		if(closed_system && (connected_port || holding))
-			environment = air_contents
-
-		if(!environment)
-			if(istype(T))
-				environment = T.return_air()
-
-		if(!environment) //We're in a crate or nullspace, bail out.
-			return
-
-		var/light_available
-		if(closed_system && mechanical)
-			light_available = tray_light
+	// What's the current light level?
+	var/light_available
+	if(closed_system && mechanical)
+		light_available = tray_light
+	else
+		if(TURF_IS_DYNAMICALLY_LIT(T))
+			light_available = T.get_lumcount(0, 3) * 10
 		else
-			if(TURF_IS_DYNAMICALLY_LIT(T))
-				light_available = T.get_lumcount(0, 3) * 10
-			else
-				light_available = 5
+			light_available = 5
 
-		// These record whether the tray is outside its tolerances, outside its preferences, or inside its preferences.
-		// These are the only three possible states.
+	// If it's a mechanical tray, provide precise information to the user about the plant's conditions.
+	if(mechanical)
 		var/heat_status
 		var/light_status
 
@@ -794,6 +784,25 @@
 		else
 			stasis_string = "Stasis is disabled."
 		. += SPAN_NOTICE(stasis_string)
+
+	// Provide a vaguer description of what's going on if it's a soil plot.
+	if(!mechanical && seed && !dead)
+		if(seed.check_heat_tolerances(environment) || seed.check_light_tolerances(light_available))
+			. += SPAN_BAD("This plot is unable to grow whatsoever under its current conditions!")
+		else if(seed.check_heat_preferences(environment) || seed.check_light_preferences(light_available))
+			. += SPAN_GOOD("This plot is thriving under its current conditions!")
+		else
+			. += SPAN_NOTICE("This plot is struggling to grow under its current conditions.")
+
+	if(seed)
+		if(dead)
+			. += SPAN_DANGER("The plant is dead.")
+		else if(health <= (seed.get_trait(TRAIT_ENDURANCE)/ 2))
+			. += SPAN_BAD("The plant looks unhealthy.")
+		if(stunted)
+			. += SPAN_BAD("This harvest is stunted due to improper growing conditions, reducing yield.")
+		else if(harvest)
+			. += SPAN_GOOD("This is ready to harvest!")
 
 /// Opens and closes the lid.
 /obj/machinery/portable_atmospherics/hydroponics/proc/close_lid(var/mob/living/user)
