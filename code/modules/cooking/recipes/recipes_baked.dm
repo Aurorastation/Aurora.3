@@ -32,40 +32,40 @@
 	result_quantity = 2
 
 /singleton/recipe/donkpocket
-	appliance = OVEN
+	appliance = OVEN | MICROWAVE
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough,
 		/obj/item/reagent_containers/food/snacks/meatball
 	)
-	result = /obj/item/reagent_containers/food/snacks/donkpocket //does it make sense for newly made donk to come out cold? no, do I care? coincidentally, also no.
+	result = /obj/item/reagent_containers/food/snacks/donkpocket
+
+/singleton/recipe/donkpocket/make_food(obj/container as obj)
+	. = ..(container)
+	for (var/obj/item/reagent_containers/food/snacks/donkpocket/being_cooked in .)
+		being_cooked?.SetHot()
 
 /singleton/recipe/plumphelmetbiscuit
-	appliance = OVEN
+	appliance = OVEN | MICROWAVE
 	fruit = list("plumphelmet" = 1)
 	reagents = list(/singleton/reagent/water = 5, /singleton/reagent/nutriment/flour = 5)
 	result = /obj/item/reagent_containers/food/snacks/plumphelmetbiscuit
 
 /singleton/recipe/spacylibertyduff
-	appliance = OVEN
+	appliance = OVEN | MICROWAVE
 	reagents = list(/singleton/reagent/water = 5, /singleton/reagent/alcohol/vodka = 5, /singleton/reagent/drugs/psilocybin = 5)
 	result = /obj/item/reagent_containers/food/snacks/spacylibertyduff
 
-/singleton/recipe/hotdiggitydonk //heated donk, in lieu of a microwave
-	appliance = OVEN
+/singleton/recipe/hotdiggitydonk
+	appliance = OVEN | MICROWAVE | GRILL
 	items = list(
 		/obj/item/reagent_containers/food/snacks/donkpocket
 	)
-	result = /obj/item/reagent_containers/food/snacks/donkpocket/warm
+	result = /obj/item/reagent_containers/food/snacks/donkpocket
 
-/singleton/recipe/donkteriyaki //heated donk, in lieu of a microwave
-	appliance = OVEN
-	items = list(/obj/item/reagent_containers/food/snacks/donkpocket/teriyaki)
-	result = /obj/item/reagent_containers/food/snacks/donkpocket/teriyaki/warm
-
-/singleton/recipe/donktakoyaki //heated donk, in lieu of a microwave
-	appliance = OVEN
-	items = list(/obj/item/reagent_containers/food/snacks/donkpocket/takoyaki)
-	result = /obj/item/reagent_containers/food/snacks/donkpocket/takoyaki/warm
+/singleton/recipe/hotdiggitydonk/make_food(obj/container as obj)
+	. = ..(container)
+	for (var/obj/item/reagent_containers/food/snacks/donkpocket/being_cooked in .)
+		being_cooked?.SetHot()
 
 /singleton/recipe/meat_lasagna_tray
 	appliance = OVEN
