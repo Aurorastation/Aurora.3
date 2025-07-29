@@ -778,12 +778,10 @@
 		. += "The tray light meter displays a light level of <b>[light_available] lumens</b>[light_status]."
 
 		// Are we under stasis?
-		var/stasis_string
 		if(stasis)
-			stasis_string = "Stasis is enabled, freezing metabolic functions."
+			. += SPAN_NOTICE("Stasis is enabled, freezing metabolic functions.")
 		else
-			stasis_string = "Stasis is disabled."
-		. += SPAN_NOTICE(stasis_string)
+			. += SPAN_NOTICE("Stasis is disabled.")
 
 	// Provide a vaguer description of what's going on if it's a soil plot.
 	if(!mechanical && seed && !dead)
