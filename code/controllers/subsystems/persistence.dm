@@ -12,6 +12,9 @@ SUBSYSTEM_DEF(persistence)
  */
 /datum/controller/subsystem/persistence/Initialize()
 	. = ..()
+	if(!GLOB.config.sql_enabled)
+		return
+
 	GLOB.persistence_register = list()
 
 	if(!SSdbcore.Connect())
@@ -43,6 +46,9 @@ SUBSYSTEM_DEF(persistence)
  * Shutdown of the persistence subsystem. Adds new persistent objects, removes no longer existing persistent objects and updates changed persistent objects in the database.
  */
 /datum/controller/subsystem/persistence/Shutdown()
+	if(!GLOB.config.sql_enabled)
+		return
+
 	// Subsystem shutdown:
 	// Create new persistent records for objects that have been created in the round
 	// Update tracked objects that have an ID (already existing from previous rounds) if they have changed
