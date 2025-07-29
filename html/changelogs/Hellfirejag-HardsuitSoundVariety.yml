@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - soundadd: "Added 'medium', 'heavy', and 'chonk' alternate sounds for hardsuits. Many pre-existing hardsuits now use heavier sounds depending on type."
