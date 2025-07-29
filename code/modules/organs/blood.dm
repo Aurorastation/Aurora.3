@@ -83,22 +83,22 @@
 	var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
 
 	var/blood_volume = get_blood_volume()
-	var/b = &blood_volume
+	var/blood_volume_pointer = &blood_volume
 
 	if(!heart)
 		return 0.25 * blood_volume
 
 	var/recent_pump = LAZYACCESS(heart.external_pump, 1) > world.time - (20 SECONDS)
-	var/r = &recent_pump
+	var/recent_pump_pointer = &recent_pump
 
 	var/pulse_mod = heart.base_pump_rate
-	var/p = &pulse_mod
+	var/pulse_mod_pointer = &pulse_mod
 
 	var/min_efficiency = recent_pump ? 0.5 : 0.3
-	var/m = &min_efficiency
+	var/min_efficiency_pointer = &min_efficiency
 
 	// Check if any components on the user wish to mess with the pump rate.
-	SEND_SIGNAL(src, COMSIG_HEART_PUMP_EVENT, heart, b, r, p, m)
+	SEND_SIGNAL(src, COMSIG_HEART_PUMP_EVENT, heart, blood_volume_pointer, recent_pump_pointer, pulse_mod_pointer, min_efficiency_pointer)
 
 	if((status_flags & FAKEDEATH) || BP_IS_ROBOTIC(heart))
 		pulse_mod = heart.norm_pump_modifier
