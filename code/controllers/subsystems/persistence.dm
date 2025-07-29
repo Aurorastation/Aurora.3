@@ -106,8 +106,12 @@ SUBSYSTEM_DEF(persistence)
 	if(!SSdbcore.Connect())
 		log_game("SQL ERROR during persistence database_clean_entries. Failed to connect.")
 	else
-		var/datum/db_query/cleanup_query = SSdbcore.NewQuery("DELETE FROM ss13_persistent_data WHERE DATE_ADD(expires_at, INTERVAL :grace_period_days: DAY) <= NOW()")
-		cleanup_query.Execute(list("grace_period_days"=PERSISTENT_EXPIRATION_CLEANUP_DELAY_DAYS))
+		var/datum/db_query/cleanup_query = SSdbcore.NewQuery(
+			"DELETE FROM ss13_persistent_data WHERE DATE_ADD(expires_at, INTERVAL :grace_period_days: DAY) <= NOW()",
+			list("grace_period_days"=PERSISTENT_EXPIRATION_CLEANUP_DELAY_DAYS)
+		)
+		cleanup_query.Execute()
+
 		if (cleanup_query.ErrorMsg())
 			log_game("SQL ERROR during persistence database_clean_entries. " + cleanup_query.ErrorMsg())
 		qdel(cleanup_query)
@@ -121,8 +125,11 @@ SUBSYSTEM_DEF(persistence)
 	if(!SSdbcore.Connect())
 		log_game("SQL ERROR during persistence database_get_active_entries. Failed to connect.")
 	else
-		var/datum/db_query/get_query = SSdbcore.NewQuery("SELECT id, author_ckey, type, content, x, y, z FROM ss13_persistent_data WHERE NOW() < expires_at")
+		var/datum/db_query/get_query = SSdbcore.NewQuery(
+			"SELECT id, author_ckey, type, content, x, y, z FROM ss13_persistent_data WHERE NOW() < expires_at"
+		)
 		get_query.Execute()
+
 		var/list/results = list()
 		if (get_query.ErrorMsg())
 			log_game("SQL ERROR during persistence database_get_active_entries. " + get_query.ErrorMsg())
@@ -148,19 +155,21 @@ SUBSYSTEM_DEF(persistence)
 	if(!SSdbcore.Connect())
 		log_game("SQL ERROR during persistence database_add_entry. Failed to connect.")
 	else
-		var/datum/db_query/insert_query = SSdbcore.NewQuery("\
-		INSERT INTO ss13_persistent_data (author_ckey, type, created_at, updated_at, expires_at, content, x, y, z) \
-		VALUES (:author_ckey:, :type:, NOW(), NOW(), DATE_ADD(NOW(), INTERVAL :expire_in_days: DAY), :content:, :x:, :y:, :z:)")
+		var/datum/db_query/insert_query = SSdbcore.NewQuery(
+			"INSERT INTO ss13_persistent_data (author_ckey, type, created_at, updated_at, expires_at, content, x, y, z) \
+			VALUES (:author_ckey:, :type:, NOW(), NOW(), DATE_ADD(NOW(), INTERVAL :expire_in_days: DAY), :content:, :x:, :y:, :z:)",
+			list(
+				"author_ckey"=length(track.persistence_author_ckey) ? track.persistence_author_ckey : null,
+				"type"="[track.type]",
+				"expire_in_days"=track.persistance_initial_expiration_time_days,
+				"content"=track.persistence_get_content(),
+				"x"=track.x,
+				"y"=track.y,
+				"z"=track.z
+			)
+		)
+		insert_query.Execute()
 
-		insert_query.Execute(list(
-			"author_ckey"=length(track.persistence_author_ckey) ? track.persistence_author_ckey : null,
-			"type"="[track.type]",
-			"expire_in_days"=track.persistance_initial_expiration_time_days,
-			"content"=track.persistence_get_content(),
-			"x"=track.x,
-			"y"=track.y,
-			"z"=track.z
-		))
 		if (insert_query.ErrorMsg())
 			log_game("SQL ERROR during persistence database_add_entry. " + insert_query.ErrorMsg())
 		qdel(insert_query)
@@ -172,15 +181,19 @@ SUBSYSTEM_DEF(persistence)
 	if(!SSdbcore.Connect())
 		log_game("SQL ERROR during persistence database_update_entry. Failed to connect.")
 	else
-		var/datum/db_query/update_query = SSdbcore.NewQuery("UPDATE ss13_persistent_data SET author_ckey=:author_ckey:, updated_at=NOW(), content=:content:, x=:x:, y=:y:, z=:z: WHERE id = :id:")
-		update_query.Execute(list(
-			"author_ckey"=length(track.persistence_author_ckey) ? track.persistence_author_ckey : null,,
-			"content"=track.persistence_get_content(),
-			"x"=track.x,
-			"y"=track.y,
-			"z"=track.z,
-			"id"=track.persistence_track_id
-		))
+		var/datum/db_query/update_query = SSdbcore.NewQuery(
+			"UPDATE ss13_persistent_data SET author_ckey=:author_ckey:, updated_at=NOW(), content=:content:, x=:x:, y=:y:, z=:z: WHERE id = :id:",
+			list(
+				"author_ckey"=length(track.persistence_author_ckey) ? track.persistence_author_ckey : null,,
+				"content"=track.persistence_get_content(),
+				"x"=track.x,
+				"y"=track.y,
+				"z"=track.z,
+				"id"=track.persistence_track_id
+			)
+		)
+		update_query.Execute()
+
 		if (update_query.ErrorMsg())
 			log_game("SQL ERROR during persistence database_update_entry. " + update_query.ErrorMsg())
 		qdel(update_query)
@@ -192,8 +205,12 @@ SUBSYSTEM_DEF(persistence)
 	if(!SSdbcore.Connect())
 		log_game("SQL ERROR during persistence database_expire_entry. Failed to connect.")
 	else
-		var/datum/db_query/expire_query = SSdbcore.NewQuery("UPDATE ss13_persistent_data SET expires_at=NOW() WHERE id = :id:")
-		expire_query.Execute(list("id"=track_id))
+		var/datum/db_query/expire_query = SSdbcore.NewQuery(
+			"UPDATE ss13_persistent_data SET expires_at=NOW() WHERE id = :id:",
+			list("id"=track_id)
+		)
+		expire_query.Execute()
+
 		if (expire_query.ErrorMsg())
 			log_game("SQL ERROR during persistence database_expire_entry. " + expire_query.ErrorMsg())
 		qdel(expire_query)
