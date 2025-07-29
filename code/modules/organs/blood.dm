@@ -125,7 +125,7 @@
 
 /mob/living/carbon/human/proc/get_blood_oxygenation()
 	var/blood_volume = get_blood_circulation()
-	var/bv = &blood_volume
+	var/blood_volume_pointer = &blood_volume
 
 	if(is_asystole() || (status_flags & FAKEDEATH)) // Heart is missing or isn't beating and we're not breathing (hardcrit)
 		return min(blood_volume, BLOOD_VOLUME_SURVIVE)
@@ -134,13 +134,13 @@
 		return blood_volume
 
 	var/blood_volume_mod = max(0, 1 - getOxyLoss()/(species.total_health/2))
-	var/bvm = &blood_volume_mod
+	var/blood_volume_mod_pointer = &blood_volume_mod
 
 	var/oxygenated_add = 0
-	var/oa = &oxygenated_add
+	var/oxygenated_add_pointer = &oxygenated_add
 
 	// Check if any components on the user wish to mess with the blood oxygenation.
-	SEND_SIGNAL(src, COMSIG_BLOOD_OXYGENATION_EVENT, bv, bvm, oa)
+	SEND_SIGNAL(src, COMSIG_BLOOD_OXYGENATION_EVENT, blood_volume_pointer, blood_volume_mod_pointer, oxygenated_add_pointer)
 
 	if(chem_effects[CE_OXYGENATED] == 1) // Dexalin.
 		oxygenated_add += 0.5
