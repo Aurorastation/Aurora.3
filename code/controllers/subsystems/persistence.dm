@@ -74,7 +74,7 @@ SUBSYSTEM_DEF(persistence)
 
 		if (track)
 			// The record still exists as an active track, check if it may need an update
-			var/changed = FALSE			
+			var/changed = FALSE
 			var/turf/T = get_turf(track)
 			if (track.persistence_author_ckey != record["author_ckey"])
 				changed = TRUE
