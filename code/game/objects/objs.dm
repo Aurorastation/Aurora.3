@@ -66,6 +66,8 @@
 	/* END ACCESS VARS */
 
 	/* START PERSISTENCE VARS */
+	// State check if the subsystem is tracking the object, used for easy state checking without iterating the register
+	var/persistence_track_active = FALSE
 	// Tracking ID of the object used by the persistence subsystem
 	var/persistence_track_id = 0
 	// Author ckey of the object used in persistence subsystem
@@ -75,6 +77,8 @@
 	/* END PERSISTENCE VARS */
 
 /obj/Destroy()
+	if(persistence_track_active)
+		SSpersistence.deregister_track(src)
 	STOP_PROCESSING(SSprocessing, src)
 	unbuckle()
 	QDEL_NULL(talking_atom)

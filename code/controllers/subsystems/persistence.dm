@@ -231,16 +231,22 @@ SUBSYSTEM_DEF(persistence)
  * Adds the given object to the list of tracked objects. At shutdown the tracked object will be either created or updated in the database.
  */
 /datum/controller/subsystem/persistence/proc/register_track(var/obj/new_track, var/ckey)
-	if(!(new_track in GLOB.persistence_register)) // Prevent multiple registers per
-		GLOB.persistence_register += new_track
-		if(!ckey) // Some persistent data may not have an actual owner, for example auto generated types like decals or similar.
-			new_track.persistence_author_ckey = ckey
+	if(new_track.persistence_track_active) // Prevent multiple registers per object and removes the need to check the register if it's already in there
+		return
+
+	new_track.persistence_track_active = TRUE
+	GLOB.persistence_register += new_track
+	if(!ckey) // Some persistent data may not have an actual owner, for example auto generated types like decals or similar.
+		new_track.persistence_author_ckey = ckey
 
 /**
  * Removes the given object from the list of tracked objects. At shutdown the tracked object will be remove from the database.
  */
 /datum/controller/subsystem/persistence/proc/deregister_track(var/obj/old_track)
-	old_track.persistence_track_id = null
+	if(!old_track.persistence_track_active) // Prevent multiple deregisters per object and removes the need to check the register if it's not in there
+		return
+
+	old_track.persistence_track_active = FALSE
+	old_track.persistence_track_id = 0
 	old_track.persistence_author_ckey = null
-	if(old_track in GLOB.persistence_register)
-		GLOB.persistence_register -= old_track
+	GLOB.persistence_register -= old_track
