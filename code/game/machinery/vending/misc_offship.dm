@@ -59,6 +59,5 @@
 		/obj/item/coin/casino = 100
 	)
 
-
 	restock_items = FALSE
 	random_itemcount = FALSE
