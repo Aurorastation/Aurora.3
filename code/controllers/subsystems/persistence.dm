@@ -74,16 +74,17 @@ SUBSYSTEM_DEF(persistence)
 
 		if (track)
 			// The record still exists as an active track, check if it may need an update
-			var/changed = FALSE
+			var/changed = FALSE			
+			var/turf/T = get_turf(track)
 			if (track.persistence_author_ckey != record["author_ckey"])
 				changed = TRUE
 			else if (track.persistence_get_content() != record["content"])
 				changed = TRUE
-			else if (track.x != record["x"])
+			else if (T.x != record["x"])
 				changed = TRUE
-			else if (track.y != record["y"])
+			else if (T.y != record["y"])
 				changed = TRUE
-			else if (track.z != record["z"])
+			else if (T.z != record["z"])
 				changed = TRUE
 			if (changed == TRUE)
 				database_update_entry(track)
@@ -156,6 +157,7 @@ SUBSYSTEM_DEF(persistence)
 	if(!SSdbcore.Connect())
 		log_game("SQL ERROR during persistence database_add_entry. Failed to connect.")
 	else
+		var/turf/T = get_turf(track)
 		var/datum/db_query/insert_query = SSdbcore.NewQuery(
 			"INSERT INTO ss13_persistent_data (author_ckey, type, created_at, updated_at, expires_at, content, x, y, z) \
 			VALUES (:author_ckey:, :type:, NOW(), NOW(), DATE_ADD(NOW(), INTERVAL :expire_in_days: DAY), :content:, :x:, :y:, :z:)",
@@ -164,9 +166,9 @@ SUBSYSTEM_DEF(persistence)
 				"type"="[track.type]",
 				"expire_in_days"=track.persistance_initial_expiration_time_days,
 				"content"=track.persistence_get_content(),
-				"x"=track.x,
-				"y"=track.y,
-				"z"=track.z
+				"x"=T.x,
+				"y"=T.y,
+				"z"=T.z
 			)
 		)
 		insert_query.Execute()
@@ -182,14 +184,15 @@ SUBSYSTEM_DEF(persistence)
 	if(!SSdbcore.Connect())
 		log_game("SQL ERROR during persistence database_update_entry. Failed to connect.")
 	else
+		var/turf/T = get_turf(track)
 		var/datum/db_query/update_query = SSdbcore.NewQuery(
 			"UPDATE ss13_persistent_data SET author_ckey=:author_ckey:, updated_at=NOW(), content=:content:, x=:x:, y=:y:, z=:z: WHERE id = :id:",
 			list(
 				"author_ckey"=length(track.persistence_author_ckey) ? track.persistence_author_ckey : null,,
 				"content"=track.persistence_get_content(),
-				"x"=track.x,
-				"y"=track.y,
-				"z"=track.z,
+				"x"=T.x,
+				"y"=T.y,
+				"z"=T.z,
 				"id"=track.persistence_track_id
 			)
 		)
@@ -223,7 +226,7 @@ SUBSYSTEM_DEF(persistence)
 /**
  * Adds the given object to the list of tracked objects. At shutdown the tracked object will be either created or updated in the database.
  */
-/datum/controller/subsystem/persistence/proc/register_track(var/obj/new_track, ckey)
+/datum/controller/subsystem/persistence/proc/register_track(var/obj/new_track, var/ckey)
 	if(!(new_track in GLOB.persistence_register)) // Prevent multiple registers per
 		GLOB.persistence_register += new_track
 		if(!ckey) // Some persistent data may not have an actual owner, for example auto generated types like decals or similar.
