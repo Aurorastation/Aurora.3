@@ -111,7 +111,7 @@ SUBSYSTEM_DEF(persistence)
 			"DELETE FROM ss13_persistent_data WHERE DATE_ADD(expires_at, INTERVAL :grace_period_days: DAY) <= NOW()",
 			list("grace_period_days"=PERSISTENT_EXPIRATION_CLEANUP_DELAY_DAYS)
 		)
-		
+
 		cleanup_query.SetFailCallback(CALLBACK(src, .proc/database_clean_entries_callback_failure))
 		cleanup_query.SetSuccessCallback(CALLBACK(GLOBAL_PROC, /proc/qdel))
 		cleanup_query.ExecuteNoSleep(TRUE)
