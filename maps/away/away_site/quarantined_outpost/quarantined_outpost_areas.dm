@@ -5,7 +5,16 @@
 /area/quarantined_outpost/exterior
 	name = "Exterior"
 	icon_state = "exterior"
+	always_unpowered = TRUE
+
+/area/quarantined_outpost/exterior/powered
 	requires_power = FALSE
+	always_unpowered = FALSE
+
+/area/quarantined_outpost/chasm
+	name = "Chasm"
+	icon_state = "exterior"
+	always_unpowered = TRUE
 
 /area/quarantined_outpost/entrance_lobby
 	name = "Entrance Lobby"
@@ -31,11 +40,6 @@
 	name = "Lobby"
 	icon_state = "bluenew"
 
-/area/quarantined_outpost/chasm
-	name = "Chasm"
-	icon_state = "exterior"
-	always_unpowered = TRUE
-
 /area/quarantined_outpost/cafeteria
 	name = "Cafeteria"
 	icon_state = "cafeteria"
@@ -51,3 +55,7 @@
 /area/quarantined_outpost/auxiliary_power
 	name = "Auxiliary Power Storage"
 	icon_state = "storage"
+
+/area/quarantined_outpost/security
+	name = "Security Wing"
+	icon_state = "security"

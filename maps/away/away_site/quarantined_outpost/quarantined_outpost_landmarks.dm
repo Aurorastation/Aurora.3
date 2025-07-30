@@ -12,6 +12,7 @@
 	name = "In transit"
 	landmark_tag = "nav_quarantined_outpost_shuttle_transit"
 	base_turf = /turf/space/transit/north
+	dir = NORTH
 
 //---- Inner docking zones
 

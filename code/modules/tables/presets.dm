@@ -8,6 +8,11 @@
 	icon_state = "solid_flip0"
 	flipped = TRUE
 
+/obj/structure/table/standard/flipped/Initialize()
+	. = ..()
+	if(dir != NORTH)
+		layer = ABOVE_HUMAN_LAYER
+
 /obj/structure/table/steel
 	icon = 'icons/obj/structure/tables/steel_table.dmi'
 	icon_state = "steel_preview"

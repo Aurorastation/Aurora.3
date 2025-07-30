@@ -11,7 +11,11 @@
 		/obj/projectile,
 		/obj/effect,
 		/obj/machinery/light,
-		/obj/structure/railing
+		/obj/structure/railing,
+		/obj/structure/stairs_railing,
+		/obj/structure/platform,
+		/obj/structure/extinguisher_cabinet,
+		/obj/structure/sign
 		))
 
 /turf/simulated/abyss/Initialize()

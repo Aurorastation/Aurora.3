@@ -12,7 +12,7 @@
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED // delete this
 	//sectors_blacklist = list(SECTOR_BURZSIA, SECTOR_HANEUNIM)
 	spawn_weight = 1
-	spawn_cost = 1
+	spawn_cost = 2 // chonky ruin
 	id = "quarantined_outpost"
 
 	unit_test_groups = list(1)
