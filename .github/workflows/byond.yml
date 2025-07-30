@@ -238,7 +238,7 @@ jobs:
 
       #Setup bun
       - name: Setup Bun
-        uses: ./.github/actions/action.yml
+        uses: ./.github/actions/setup_bun
 
       #Lint TGUI
       - name: Check Tgui

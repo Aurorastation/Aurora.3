@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
     - name: Install Bun
-      uses: ./.github/actions/action.yml
+      uses: ./.github/actions/setup_bun
 
     - name: Checkout Repository
       uses: actions/checkout@v4
