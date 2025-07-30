@@ -7,7 +7,7 @@
  */
 
 import Bun from "bun";
-import fs from "node:fs";
+import fs from "fs";
 import Juke from "./juke/index.js";
 import { bun } from "./lib/bun";
 import { DreamDaemon, DreamMaker, NamedVersionFile } from "./lib/byond";
@@ -335,11 +335,7 @@ export const TguiCleanTarget = new Juke.Target({
     Juke.rm("tgui/public/*.map");
     Juke.rm("tgui/public/*.{chunk,bundle,hot-update}.*");
     Juke.rm("tgui/packages/tgfont/dist", { recursive: true });
-    Juke.rm("tgui/.yarn/{cache,unplugged,webpack}", { recursive: true });
-    Juke.rm("tgui/.yarn/build-state.yml");
-    Juke.rm("tgui/.yarn/install-state.gz");
-    Juke.rm("tgui/.yarn/install-target");
-    Juke.rm("tgui/.pnp.*");
+    Juke.rm('tgui/node_modules', { recursive: true });
   },
 });
 
