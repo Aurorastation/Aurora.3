@@ -247,7 +247,7 @@ jobs:
       #Lint TGUI
       - name: Check Tgui
         run: |
-          tools/build/build --ci lint tgui-test
+          tools/build/build.sh --ci lint tgui-test
 
 
 ###########################################
