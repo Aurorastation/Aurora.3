@@ -290,10 +290,6 @@ GLOBAL_LIST_INIT(severity_to_string, list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 			50),
 
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Comms Blackout - Damage", /datum/event/communications_blackout/damage_machinery,
-			50, list(ASSIGNMENT_ENGINEER = 25),
-			pop_needed = 6),
-
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Comms Blackout - Damage", /datum/event/communications_blackout/damage_machinery,
 			100, list(ASSIGNMENT_ENGINEER = 25),
 			pop_needed = 6),
 

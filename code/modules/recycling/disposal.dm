@@ -475,28 +475,31 @@
 		if(length(contents))
 			if(mode == MODE_READY)
 				spawn(0)
-					feedback_inc("disposal_auto_flush",1)
-					flush()
+				feedback_inc("disposal_auto_flush",1)
+				flush()
 		flush_count = 0
-
 	src.updateDialog()
-
-	// Validate whether we're pressurized or not...
-	if(mode == MODE_PRESSURIZING && air_contents.return_pressure() >= SEND_PRESSURE)
-		mode = MODE_READY
-	// ... And if we need to pressurize, do so.
-	else
-		src.pressurize()
-		update()
-		return
 
 	// If we're ready, don't draw any extra power
 	if(mode == MODE_READY || !uses_air)
 		update_use_power(POWER_USE_IDLE)
+		// We used the manual flush button
+		if(flush)
+			flush()
+			return
+		update()
 
-	// We used the manual flush button
-	if(flush && mode == MODE_READY)
-		flush()
+	// Validate whether we're pressurized or not.
+	if(mode == MODE_PRESSURIZING && air_contents.return_pressure() >= SEND_PRESSURE)
+		mode = MODE_READY
+		update()
+		return
+
+	// If you turn this into a bare 'else' statement it just tries to pressurize infinitely and I don't know why.
+	else if(mode == MODE_PRESSURIZING && air_contents.return_pressure() < SEND_PRESSURE)
+		src.pressurize()
+		update()
+		return
 
 /**
  *	If powered and working, transfer gas from local env to internal reservoir and use the required power to do so.
