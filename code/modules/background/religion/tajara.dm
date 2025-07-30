@@ -33,8 +33,27 @@
 	subverting something S'rendarr and Messa stands for."
 	book_name = "ma'ta'ke legends"
 	nulloptions = list(
-		"Tajaran charm" = /obj/item/nullrod/charm
+		"Tajaran charm" = /obj/item/nullrod/charm,
+		"Mata'ke Sword" = /obj/item/nullrod/matake,
+		"Rredouane Sword" = /obj/item/nullrod/rredouane,
+		"Shumaila Hammer" = /obj/item/nullrod/shumaila,
+		"Zhukamir Ladle" = /obj/item/nullrod/zhukamir,
+		"Azubarre Torch" = /obj/item/nullrod/azubarre
 	)
 
 /datum/religion/raskara/get_records_name()
 	return RELIGION_MATAKE
+
+/datum/religion/raskara_alt
+	name = RELIGION_RASKARA_ALT
+	description = "Raskariim, commonly known as The Cult of Raskara are a prolific cult on Adhomai. The religion has been created on Adhomai but with the free commerce, a few human \
+	members have been recorded. While Raskara may seem like a single deity it is in fact split into three aspects, each one leading down a different path and seemingly every path \
+	subverting something S'rendarr and Messa stands for."
+	book_name = "holy scrolls"
+	book_sprite = "holylight"
+	nulloptions = list(
+		"Tajaran charm" = /obj/item/nullrod/charm
+	)
+
+/datum/religion/raskara_alt/get_records_name()
+	return RELIGION_TWINSUNS
