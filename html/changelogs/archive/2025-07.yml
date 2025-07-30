@@ -476,3 +476,7 @@
       accounts.
   - balance: Adjusted the funding Tajara, Unathi, Diona, Vaurca, and IPCs receive
       in their accounts. Should earn more on average than they used to.
+2025-07-30:
+  TheGreyWolf:
+  - bugfix: Fixed the south-facing variant of the closed labcoat.
+  - bugfix: Vending machines no longer have a light overlay when losing power.
