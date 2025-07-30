@@ -499,7 +499,6 @@
 			user.visible_message(SPAN_NOTICE("[user] fixes the wiring in [target]'s [affected]."))
 			I.wiring.heal_damage(needed_wires)
 
-//TODOMATT: PLACEHOLDER
 /singleton/surgery_step/internal/fix_internal_electronics
 	name = "Repair Internal Electronics"
 	allowed_tools = list(
@@ -560,10 +559,13 @@
 	if(limb_can_operate)
 		for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
 			if(I.plating.get_status() < 100)
+				if(I.plating.get_status() <= 0)
+					to_chat(user, SPAN_WARNING("That plating is too far gone! You'll need to totally replace it with new plates!"))
+					return FALSE
 				var/needed_plates = I.plating.max_health / 10
 				if(istype(steel))
 					if(!(steel.get_amount() >= (needed_plates)))
-						to_chat(user, SPAN_WARNING("You need [needed_plates] or more steel plates to repair this damage."))
+						to_chat(user, SPAN_WARNING("You need [round(needed_plates) / 10] or more steel plates to repair this damage."))
 						return SURGERY_FAILURE
 					is_organ_damaged = TRUE
 					steel.use(needed_plates)
@@ -576,7 +578,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
 		if(I && (I.plating.get_status() < 100))
-			user.visible_message(SPAN_NOTICE("[user] begins replacing the plating in [target]'s [I]..."))
+			user.visible_message(SPAN_NOTICE("[user] begins melding steel to the [pick("damage", "kinks", "gashes", "holes")] on the plating around [target]'s [I]..."))
 	..()
 
 /singleton/surgery_step/internal/fix_internal_plating/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -584,5 +586,48 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
 		if(I && (I.plating.get_status() < 100))
+			user.visible_message(SPAN_NOTICE("[user] mends the plating around [target]'s [affected]."))
+			I.plating.heal_damage(I.plating.max_health)
+
+/singleton/surgery_step/internal/replace_internal_plating
+	name = "Replace Internal Plating"
+	allowed_tools = list(
+		/obj/item/synth_plating = 100,
+	)
+
+	min_duration = 100
+	max_duration = 150
+
+/singleton/surgery_step/internal/replace_internal_plating/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	var/obj/item/synth_plating/plating = tool
+	var/is_plating_destroyed = FALSE
+	var/limb_can_operate = (affected && affected.open == ORGAN_ENCASED_RETRACTED && target_zone != BP_MOUTH)
+	if(limb_can_operate)
+		for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
+			if(I.plating.get_status() <= 0)
+				is_plating_destroyed = TRUE
+	return is_plating_destroyed
+
+/singleton/surgery_step/internal/replace_internal_plating/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
+		if(I && (I.plating.get_status() < 100))
+			user.visible_message(SPAN_NOTICE("[user] begins cutting apart the old plating arund [target]'s [I] and replacing it with new plates..."))
+	..()
+
+/singleton/surgery_step/internal/replace_internal_plating/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	. = ..()
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
+		if(I && (I.plating.get_status() <= 0))
 			user.visible_message(SPAN_NOTICE("[user] fully replaces the plating in [target]'s [affected]."))
+			user.remove_from_mob(tool)
+			qdel(tool)
 			I.plating.heal_damage(I.plating.max_health)

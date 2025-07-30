@@ -334,12 +334,20 @@
 	if(default_part_replacement(user, attacking_item))
 		return TRUE
 
+//todomatt: this can't be an optable
 /obj/machinery/optable/robotics
-	name = "heavy machinery table"
-	desc = "An operating table modified to be outfitted with an access cable for synthetic diagnostic access."
+	name = "machinery chair"
+	desc = "Some sort of hybrid between an operating table and a chair, typically used by machinists and roboticists to strap synthetics to while they work on them. \
+			It comes with an access cable for easy access to a synthetic's diagnostics unit."
+	icon_state = "machinist_or_table"
 
 	/// The access cable linked to this table.
 	var/obj/item/access_cable/access_cable
+
+/obj/machinery/optable/robotics/mechanics_hints(mob/user, distance, is_adjacent)
+	. = ..()
+	. += list("Use the <b>Retrieve Cable</b> verb on this chair in order to take the access cable from it.")
+	. += list("You can then click an IPC with that cable to slot it into them. After that, click on the chair with <b>grab</b> intent")
 
 /obj/machinery/optable/robotics/Initialize()
 	. = ..()
@@ -347,7 +355,7 @@
 	color = COLOR_ORANGE
 
 /obj/machinery/optable/robotics/attack_hand(mob/user)
-	if(access_cable?.target)
+	if(access_cable?.target && user.a_intent == I_GRAB)
 		if(istype(access_cable.target, /obj/item/organ/internal/machine/access_port))
 			var/obj/item/organ/internal/machine/access_port/port = access_cable.target
 			port.cable_interact(access_cable, user)
