@@ -236,13 +236,9 @@ jobs:
       - name: Set ENV variables
         run: bash dependencies.sh
 
-      #Setup NodeJS using YARN as cache
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ env.NODE_VERSION_LTS }}
-          cache: 'yarn'
-          cache-dependency-path: tgui/yarn.lock
+      #Setup bun
+      - name: Setup Bun
+        uses: ./.github/actions/setup-bun.yml
 
       #Lint TGUI
       - name: Check Tgui
