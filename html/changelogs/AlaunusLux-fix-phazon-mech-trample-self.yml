@@ -1,0 +1,6 @@
+author: AlaunusLux
+
+delete-after: True
+
+changes:
+  - bugfix: "Mechs will no longer trample themselves when using a Phazon Bluespace Transmission System."
