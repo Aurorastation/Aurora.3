@@ -2,22 +2,21 @@
   "private": true,
   "name": "tgui-workspace",
   "version": "4.3.1",
-  "packageManager": "yarn@3.3.1",
+  "packageManager": "bun@1.2.16",
   "workspaces": [
     "packages/*"
   ],
   "scripts": {
     "tgui:analyze": "webpack --analyze",
-    "tgui:bench": "webpack --env TGUI_BENCH=1 && node packages/tgui-bench/index.js",
-    "tgui:build": "BROWSERSLIST_IGNORE_OLD_DATA=true webpack",
-    "tgui:dev": "node --experimental-modules packages/tgui-dev-server/index.js",
+    "tgui:bench": "webpack --env TGUI_BENCH=1 && bun packages/tgui-bench/index.js",
+    "tgui:build": "webpack",
+    "tgui:dev": "bun packages/tgui-dev-server/index.js",
     "tgui:lint": "eslint packages --ext .js,.cjs,.ts,.tsx",
     "tgui:prettier": "prettierx --check .",
     "tgui:sonar": "eslint packages --ext .js,.cjs,.ts,.tsx -c .eslintrc-sonar.yml",
-    "tgui:test": "jest --watch",
-    "tgui:test-simple": "CI=true jest --color",
-    "tgui:test-ci": "CI=true jest --color --collect-coverage",
-    "tgui:tsc": "tsc"
+    "tgui:tsc": "tsc",
+    "tgui:prettier-fix": "prettier --write .",
+    "tgui:eslint-fix": "eslint --fix packages --ext .js,.cjs,.ts,.jsx,.tsx"
   },
   "dependencies": {
     "@babel/core": "^7.15.0",
@@ -29,7 +28,6 @@
     "@types/jest": "^29.2.4",
     "@types/jsdom": "^20.0.1",
     "@types/node": "14.x",
-    "@types/webpack": "^5.28.0",
     "@types/webpack-env": "^1.18.0",
     "@typescript-eslint/parser": "^5.47.1",
     "babel-jest": "^27.0.6",
@@ -47,7 +45,6 @@
     "inferno": "^7.4.8",
     "jest": "^27.0.6",
     "jest-circus": "^27.0.6",
-    "jsdom": "^16.7.0",
     "mini-css-extract-plugin": "^1.6.2",
     "prettier": "npm:prettierx@0.19.0",
     "sass": "^1.37.5",
@@ -59,5 +56,12 @@
     "webpack": "^5.94.0",
     "webpack-bundle-analyzer": "^4.4.2",
     "webpack-cli": "^4.7.2"
+  },
+  "devDependencies": {
+		"@happy-dom/global-registrator": "^17.4.7",
+		"@types/bun": "^1.2.14",
+		"@types/react": "^19.1.5",
+		"@types/react-dom": "^19.1.5",
+		"@types/wicg-file-system-access": "^2023.10.6"
   }
 }

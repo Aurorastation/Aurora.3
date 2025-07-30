@@ -7,12 +7,8 @@ jobs:
     concurrency: tgui
     runs-on: ubuntu-24.04
     steps:
-    - name: Install Node
-      uses: actions/setup-node@v3
-      with:
-        node-version: 14
-        cache: 'yarn'
-        cache-dependency-path: tgui/yarn.lock
+    - name: Install Bun
+      uses: ./.github/actions/setup-bun.yml
 
     - name: Checkout Repository
       uses: actions/checkout@v4
@@ -21,7 +17,7 @@ jobs:
 
     - name: Update TGUI
       run: |
-        tools/bootstrap/node tools/build/build.sh tgui
+        tools/bootstrap/javascript tools/build/build.sh tgui
 
     - name: Commit TGUI
       run: |
