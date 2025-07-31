@@ -338,7 +338,7 @@
 /obj/item/clothing/suit/space/rig/light/falcata/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
 	if(slot == slot_wear_suit_str)
-		var/obj/item/rig/rigcontroller = get_equipped_item(slot_wear_suit)
+		var/obj/item/rig/rigcontroller = H.get_equipped_item(slot_wear_suit)
 		if(!istype(rigcontroller, /obj/item/rig) || rigcontroller.offline)
 			return I
 		var/image/emissive_overlay = emissive_appearance(mob_icon, "falcata_rig_ba_lights")
@@ -351,7 +351,7 @@
 /obj/item/clothing/gloves/rig/light/falcata/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
 	if(slot == slot_gloves_str)
-		var/obj/item/rig/rigcontroller = get_equipped_item(slot_wear_suit)
+		var/obj/item/rig/rigcontroller = H.get_equipped_item(slot_wear_suit)
 		if(!istype(rigcontroller, /obj/item/rig) || rigcontroller.offline)
 			return I
 		var/image/emissive_overlay = emissive_appearance(mob_icon, "falcata_rig_sealed_su_lights")
