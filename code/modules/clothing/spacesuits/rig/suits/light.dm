@@ -360,4 +360,13 @@
 
 /obj/item/clothing/head/helmet/space/rig/light/falcata
 	name = "helmet"
+	// The helmet's unusually thick, with the fun caveat that it fully blacks out your screen when unpowered.
 	flash_protection = FLASH_PROTECTION_MAJOR
+	armor = list(
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_RIFLE,
+		LASER = ARMOR_LASER_RIFLE,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_RESISTANT,
+		BIO = ARMOR_BIO_SHIELDED,
+	)
