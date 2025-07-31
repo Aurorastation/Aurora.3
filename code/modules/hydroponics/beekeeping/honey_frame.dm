@@ -8,7 +8,7 @@
 
 /obj/item/honey_frame/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += SPAN_NOTICE("This contains <b>[honey] units</b> units of honey.")
+	. += SPAN_NOTICE("This contains <b>[honey] units</b> of honey.")
 
 /obj/item/honey_frame/filled
 	name = "filled beehive frame"
