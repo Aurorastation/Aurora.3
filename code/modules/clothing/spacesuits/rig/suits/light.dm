@@ -332,6 +332,15 @@
 	glove_type = null
 	boot_type = null
 
+/obj/item/rig/light/falcata/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(slot == slot_back_str)
+		if(offline)
+			return I
+		var/image/emissive_overlay = emissive_appearance(mob_icon, "falcata_rig_ba-emissive")
+		I.AddOverlays(emissive_overlay)
+	return I
+
 /obj/item/clothing/suit/space/rig/light/falcata
 	name = "chestpiece"
 
@@ -341,26 +350,9 @@
 		var/obj/item/rig/rigcontroller = H.get_equipped_item(slot_wear_suit)
 		if(!istype(rigcontroller, /obj/item/rig) || rigcontroller.offline)
 			return I
-		var/image/emissive_overlay = emissive_appearance(mob_icon, "falcata_rig_ba_lights")
+		var/image/emissive_overlay = emissive_appearance(mob_icon, "falcata_rig_sealed_su-emissive")
 		I.AddOverlays(emissive_overlay)
 	return I
-
-/obj/item/clothing/gloves/rig/light/falcata
-	name = "exoskeleton gyros"
-
-/obj/item/clothing/gloves/rig/light/falcata/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
-	var/image/I = ..()
-	if(slot == slot_gloves_str)
-		var/obj/item/rig/rigcontroller = H.get_equipped_item(slot_wear_suit)
-		if(!istype(rigcontroller, /obj/item/rig) || rigcontroller.offline)
-			return I
-		var/image/emissive_overlay = emissive_appearance(mob_icon, "falcata_rig_sealed_su_lights")
-		I.AddOverlays(emissive_overlay)
-	return I
-
-/obj/item/clothing/shoes/magboots/rig/light/falcata
-	name = "exoskeleton frame"
-	footstep_sound_override = 'sound/machines/rig/rigstep.ogg'
 
 /obj/item/clothing/head/helmet/space/rig/light/falcata
 	name = "helmet"
