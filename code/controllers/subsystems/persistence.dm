@@ -14,7 +14,7 @@ SUBSYSTEM_DEF(persistence)
 	. = ..()
 	if(!GLOB.config.sql_enabled)
 		log_subsystem_persistence("SQL configuration not enabled! Persistence subsystem requires SQL.")
-		return SS_INIT_FAILURE // Subsystem depends on SQL
+		return SS_INIT_SUCCESS
 
 	GLOB.persistence_register = list()
 
