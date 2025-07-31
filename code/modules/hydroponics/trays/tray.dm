@@ -787,7 +787,7 @@
 	if(!mechanical && seed && !dead)
 		if(seed.check_heat_tolerances(environment) || seed.check_light_tolerances(light_available))
 			. += SPAN_BAD("This plot is unable to grow whatsoever under its current conditions!")
-		else if(seed.check_heat_preferences(environment) || seed.check_light_preferences(light_available))
+		else if(seed.check_heat_preferences(environment) && seed.check_light_preferences(light_available))
 			. += SPAN_GOOD("This plot is thriving under its current conditions!")
 		else
 			. += SPAN_NOTICE("This plot is struggling to grow under its current conditions.")
