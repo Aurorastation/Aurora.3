@@ -334,9 +334,7 @@
 
 /obj/item/rig/light/falcata/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
-	if(slot == slot_back_str)
-		if(offline)
-			return I
+	if(slot == slot_back_str && !offline)
 		var/image/emissive_overlay = emissive_appearance(mob_icon, "falcata_rig_ba-emissive")
 		I.AddOverlays(emissive_overlay)
 	return I
