@@ -341,6 +341,7 @@
 
 /obj/item/clothing/suit/space/rig/light/falcata
 	name = "myomer frame"
+	body_parts_covered = null
 
 /obj/item/clothing/suit/space/rig/light/falcata/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
