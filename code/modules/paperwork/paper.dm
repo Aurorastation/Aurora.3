@@ -787,7 +787,6 @@
 	var/list/data = list()
 	data["title"] = name
 	data["text"] = info
-	data["location"] = loc
 	return json_encode(data)
 
 /obj/item/paper/persistence_apply_content(json, x, y, z)
