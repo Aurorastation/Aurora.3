@@ -57,11 +57,11 @@
 
 /obj/item/circuitboard/rig_assembly/combat/falcata
 	name = "falcata exoskeleton central circuit board"
-	req_tech = list(TECH_COMBAT = 1)
+	origin_tech = list(TECH_COMBAT = 1)
 
 /obj/item/circuitboard/rig_assembly/combat/targeting/falcata
 	name = "falcata exoskeleton control and targeting board"
-	req_tech = list(TECH_COMBAT = 1)
+	origin_tech = list(TECH_COMBAT = 1)
 
 //////////////////////
 ////ILLEGAL BOARDS////
