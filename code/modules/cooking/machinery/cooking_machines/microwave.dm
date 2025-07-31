@@ -2,7 +2,7 @@
 /obj/machinery/appliance/cooker/microwave
 	name = "microwave"
 	desc = "A possibly occult device capable of perfectly preparing many types of food."
-	icon_state = "mw0"
+	icon_state = "mw"
 
 	cook_type = "microwaved"
 	appliancetype = MICROWAVE
@@ -14,6 +14,7 @@
 	idle_power_usage = 0
 	heating_power = 6000
 
+	finish_verb = null
 	cooked_sound = null
 
 	///Looping sound for the microwave
@@ -182,6 +183,7 @@
 	operating = FALSE
 	temperature = T20C
 	update_use_power(POWER_USE_OFF)
+	audible_message(SPAN_NOTICE("<b>[src]</b> pings!"))
 	update_icon()
 
 /obj/machinery/appliance/cooker/microwave/burn_food(datum/cooking_item/cooking_item)
@@ -193,25 +195,35 @@
 	update_icon()
 
 /obj/machinery/appliance/cooker/microwave/proc/broke()
-	spark(loc, 2, 1)
+	spark(loc, 2, GLOB.alldirs)
 	playsound(loc, /singleton/sound_category/spark_sound, 50, 1)
 	if (prob(100 * break_multiplier))
 		visible_message(SPAN_WARNING("\The [src] sputters and grinds to a halt!")) //Let them know they're stupid
 		broken = 2 // Make it broken so it can't be used until fixed
 		turn_off()
 
+/obj/machinery/appliance/cooker/microwave/add_content(obj/item/I, mob/user)
+	. = ..()
+	flick("mwo", src)
+	playsound(src, 'sound/machines/microwave/microwave-start.ogg', 50, TRUE)
+
 /obj/machinery/appliance/cooker/microwave/update_icon()
 	..()
+	ClearOverlays()
+	icon_state = initial(icon_state)
 	update_microwaving_audio()
+	if(operating)
+		var/image/mwclosed_on = image(icon, "mw_on")
+		if(!dirtiness)
+			mwclosed_on.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+		AddOverlays(mwclosed_on)
 	if(dirtiness == 100)
 		if(broken)
-			icon_state = "mwbloodyb"
+			AddOverlays(image(icon, "mwbloodyo"))
 		else
-			icon_state = "mwbloody[operating]"
-	else if(broken)
+			AddOverlays(image(icon, "mwbloody"))
+	if(broken)
 		icon_state = "mwb"
-	else
-		icon_state = "mw[operating]"
 
 /obj/machinery/appliance/cooker/microwave/proc/update_microwaving_audio()
 	if(!microwave_loop)
