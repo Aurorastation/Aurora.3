@@ -27,6 +27,7 @@ SUBSYSTEM_DEF(persistence)
 
 		// Retrieve all persistent data that is not expired
 		var/list/persistent_data = database_get_active_entries()
+		log_subsystem_persistence("Init: Retrieved [length(persistent_data)] entries for instancing this round.")
 
 		// Instantiate all remaining entries based of their type
 		// Assign persistence related vars found in /obj, apply content and add to live tracking list.
@@ -57,6 +58,9 @@ SUBSYSTEM_DEF(persistence)
 	// Delete persistent records that no longer exist in the registry (removed during the round)
 
 	var/list/track_lookup = list()
+	var/saved = 0
+	var/updated = 0
+	var/expired = 0
 
 	// Iterate through the register to sort tracks with no ID and tracks that may need an update (tracks with ID)
 	// We are using a dictionary look-up to find no longer existing records by comparing them with a live dataset later on
@@ -68,6 +72,7 @@ SUBSYSTEM_DEF(persistence)
 		else
 			// Tracked object has no ID, create a new persistent record for it
 			database_add_entry(track)
+			saved += 1
 
 	for(var/record in database_get_active_entries())
 		CHECK_TICK
@@ -90,16 +95,21 @@ SUBSYSTEM_DEF(persistence)
 				changed = TRUE
 			if (changed == TRUE)
 				database_update_entry(track)
+				updated += 1
 		else
 			// There was no match in the lookup meaning the object got removed this round
 			// We delete persistent data by setting it's expiration date to now, actual deletion has more logic and is handled in cleanup during init.
 			database_expire_entry(record["id"])
+			expired += 1
+	
+	log_subsystem_persistence("Shutdown: Saved [saved], updated [updated], expired [expired] tracks.")
 
 /**
  * Generates StatEntry. Returns information about currently tracked objects.
  */
-/datum/controller/subsystem/persistence/stat_entry()
-	..("actively tracked objects: [length(GLOB.persistence_register)]")
+/datum/controller/subsystem/persistence/stat_entry(msg)
+	msg = ("actively tracked objects: [length(GLOB.persistence_register)]")
+	return ..()
 
 /**
  * Run cleanup on the persistence entries in the database.
