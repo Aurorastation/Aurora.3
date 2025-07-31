@@ -101,7 +101,7 @@ SUBSYSTEM_DEF(persistence)
 			// We delete persistent data by setting it's expiration date to now, actual deletion has more logic and is handled in cleanup during init.
 			database_expire_entry(record["id"])
 			expired += 1
-	
+
 	log_subsystem_persistence("Shutdown: Saved [saved], updated [updated], expired [expired] tracks.")
 
 /**
