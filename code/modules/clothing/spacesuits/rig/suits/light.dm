@@ -314,7 +314,7 @@
 	icon_state = "falcata_rig"
 	icon_supported_species_tags = list("skr", "taj", "una", "vau",)
 	suit_type = "falcata combat exoskeleton"
-
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	armor = list(
 		MELEE = ARMOR_MELEE_MAJOR,
 		BULLET = ARMOR_BALLISTIC_MAJOR,
@@ -354,3 +354,4 @@
 
 /obj/item/clothing/head/helmet/space/rig/light/falcata
 	name = "helmet"
+	flash_protection = FLASH_PROTECTION_MAJOR
