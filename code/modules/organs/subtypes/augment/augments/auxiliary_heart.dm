@@ -30,5 +30,5 @@
 
 /obj/item/organ/internal/augment/bioaug/auxiliary_heart/proc/stabilize_circulation(var/obj/item/organ/internal/heart/heart, var/blood_volume, var/recent_pump, var/pulse_mod, var/min_efficiency)
 	SIGNAL_HANDLER
-	*min_efficiency *= 2
-	*blood_volume += 5 // This doesn't affect actual blood volume, only the "effective" volume used for calculating thresholds.
+	*min_efficiency *= 1.5
+	*blood_volume += 2.5 // This doesn't affect actual blood volume, only the "effective" volume used for calculating thresholds.
