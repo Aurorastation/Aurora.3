@@ -311,7 +311,7 @@
 	name = "falcata exoskeleton control module"
 	desc = "An armored security exoskeleton, known as the Falcata. It serves as a lightweight platform for bearing security hardsuit modules"
 	icon = 'icons/obj/item/clothing/rig/falcata.dmi'
-	icon_state = "falcata6"
+	icon_state = "falcata_rig"
 	icon_supported_species_tags = list("skr", "taj", "una", "vau",)
 	suit_type = "falcata combat exoskeleton"
 
