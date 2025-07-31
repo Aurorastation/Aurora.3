@@ -323,7 +323,7 @@
 		BOMB = ARMOR_BOMB_PADDED,
 	)
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_UNATHI, BODYTYPE_SKRELL, BODYTYPE_VAURCA, BODYTYPE_IPC, BODYTYPE_TAJARA)
-
+	seal_delay = 3 // Its only deploying the myomers and helmet.
 	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/melee/baton)
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT
 
@@ -342,6 +342,7 @@
 /obj/item/clothing/suit/space/rig/light/falcata
 	name = "myomer frame"
 	body_parts_covered = null
+	breach_threshold = 45 // We aren't a real hardsuit, rather a very thick torso plate.
 
 /obj/item/clothing/suit/space/rig/light/falcata/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
