@@ -34,7 +34,7 @@
 /obj/outfit/admin/Solfrig_navy_crewman/get_id_access()
 	return list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
 
-/datum/ghostspawner/human/ssrm_navy_officer
+/datum/ghostspawner/human/Solfrig_Commander
 	short_name = "Solfrig_Commander"
 	name = "Solarian Frigate Commander"
 	desc = "Command a Solarian Naval Frigate, under the authority of either the Northern or Southern Solarian Reconstruction Mandate. Serve and defend the interests of the Solarian Government, wherever you are assigned to. Praying for a more prestigious command is optional (NOTE: It is recommended to use appropirate accents and origins depending on which region of the Spur you are in; Visegradi accents for the South, and San Colettish accents for the North.) "
@@ -44,7 +44,7 @@
 	spawnpoints = list("Solfrig_commander")
 	max_count = 1
 
-	outfit = /obj/outfit/admin/ssrm_navy_officer
+	outfit = /obj/outfit/admin/Solfrig_Commander
 	possible_species = list(SPECIES_HUMAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -53,7 +53,7 @@
 	respawn_flag = null
 
 
-/obj/outfit/admin/ssrm_navy_officer
+/obj/outfit/admin/Solfrig_Commander
 	name = "Solarian Frigate Commander"
 
 	uniform = /obj/item/clothing/under/rank/sol/dress/officer
@@ -68,7 +68,7 @@
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife/sol = 1)
 
-/obj/outfit/admin/ssrm_navy_officer/get_id_access()
+/obj/outfit/admin/Solfrig_Commander/get_id_access()
 	return list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/Solfrig_XO
@@ -83,7 +83,7 @@
 	assigned_role = "Solarian Frigate Executive Officer"
 	special_role = "Solarian Frigate Executive Officer"
 
-/obj/outfit/admin/Solfrig_navy_XO
+/obj/outfit/admin/Solfrig_XO
 	name = "Solarian Frigate Executive Officer"
 
 	uniform = /obj/item/clothing/under/rank/sol/dress/subofficer
@@ -111,7 +111,7 @@
 	respawn_flag = null
 
 
-/obj/outfit/admin/ssrm_marine_pilot
+/obj/outfit/admin/Solfrig_pilot
 	name = "Sol Marine Recon Exosuit Pilot"
 
 	uniform = /obj/item/clothing/under/rank/sol/marine
@@ -126,7 +126,7 @@
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife/sol = 1)
 
-/obj/outfit/admin/ssrm_marine_pilot/get_id_access()
+/obj/outfit/admin/Solfrig_pilot/get_id_access()
 	return list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/Solfrig_Intern
