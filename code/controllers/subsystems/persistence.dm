@@ -27,7 +27,7 @@ SUBSYSTEM_DEF(persistence)
 
 		// Retrieve all persistent data that is not expired
 		var/list/persistent_data = database_get_active_entries()
-		log_subsystem_persistence("Init: Retrieved [length(persistent_data)] entries for instancing this round.")
+		log_subsystem_persistence("Init: Retrieved [persistent_data.len] entries for instancing this round.")
 
 		// Instantiate all remaining entries based of their type
 		// Assign persistence related vars found in /obj, apply content and add to live tracking list.
