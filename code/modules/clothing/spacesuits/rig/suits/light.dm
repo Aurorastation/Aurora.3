@@ -306,3 +306,61 @@
 		/obj/item/rig_module/device/door_hack,
 		/obj/item/rig_module/mounted/xray
 		)
+
+/obj/item/rig/light/falcata
+	name = "falcata exoskeleton control module"
+	desc = "An armored security exoskeleton, known as the Falcata. It serves as a lightweight platform for bearing security hardsuit modules"
+	icon = 'icons/obj/item/clothing/rig/falcata.dmi'
+	icon_state = "falcata_rig"
+	icon_supported_species_tags = list("skr", "taj", "una", "vau",)
+	suit_type = "falcata combat exoskeleton"
+
+	armor = list(
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_MAJOR,
+		LASER = ARMOR_LASER_RIFLE,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED,
+	)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_UNATHI, BODYTYPE_SKRELL, BODYTYPE_VAURCA, BODYTYPE_IPC, BODYTYPE_TAJARA)
+
+	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/melee/baton)
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT
+
+	chest_type = /obj/item/clothing/suit/space/rig/light/falcata
+	helm_type =  /obj/item/clothing/head/helmet/space/rig/light/falcata
+	boot_type =  /obj/item/clothing/shoes/magboots/rig/light/falcata
+	glove_type = /obj/item/clothing/gloves/rig/light/falcata
+
+/obj/item/clothing/suit/space/rig/light/falcata
+	name = "chestpiece"
+
+/obj/item/clothing/suit/space/rig/light/falcata/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(slot == slot_wear_suit_str)
+		var/obj/item/rig/rigcontroller = get_equipped_item(slot_wear_suit)
+		if(!istype(rigcontroller, /obj/item/rig) || rigcontroller.offline)
+			return I
+		var/image/emissive_overlay = emissive_appearance(mob_icon, "falcata_rig_ba_lights")
+		I.AddOverlays(emissive_overlay)
+	return I
+
+/obj/item/clothing/gloves/rig/light/falcata
+	name = "exoskeleton gyros"
+
+/obj/item/clothing/gloves/rig/light/falcata/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(slot == slot_gloves_str)
+		var/obj/item/rig/rigcontroller = get_equipped_item(slot_wear_suit)
+		if(!istype(rigcontroller, /obj/item/rig) || rigcontroller.offline)
+			return I
+		var/image/emissive_overlay = emissive_appearance(mob_icon, "falcata_rig_sealed_su_lights")
+		I.AddOverlays(emissive_overlay)
+	return I
+
+/obj/item/clothing/shoes/magboots/rig/light/falcata
+	name = "exoskeleton frame"
+	footstep_sound_override = 'sound/machines/rig/rigstep.ogg'
+
+/obj/item/clothing/head/helmet/space/rig/light/falcata
+	name = "helmet"
