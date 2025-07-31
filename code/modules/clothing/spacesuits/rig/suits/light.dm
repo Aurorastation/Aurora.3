@@ -323,7 +323,11 @@
 		BOMB = ARMOR_BOMB_PADDED,
 	)
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_UNATHI, BODYTYPE_SKRELL, BODYTYPE_VAURCA, BODYTYPE_IPC, BODYTYPE_TAJARA)
+
 	seal_delay = 3 // Its only deploying the myomers and helmet.
+	offline_slowdown = 2
+	offline_vision_restriction = TINT_BLIND // Visorless helmet sprite, the helmet's face is just a camera.
+
 	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/melee/baton)
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT
 
