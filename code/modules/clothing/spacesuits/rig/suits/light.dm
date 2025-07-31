@@ -329,8 +329,8 @@
 
 	chest_type = /obj/item/clothing/suit/space/rig/light/falcata
 	helm_type =  /obj/item/clothing/head/helmet/space/rig/light/falcata
-	boot_type =  /obj/item/clothing/shoes/magboots/rig/light/falcata
-	glove_type = /obj/item/clothing/gloves/rig/light/falcata
+	glove_type = null
+	boot_type = null
 
 /obj/item/clothing/suit/space/rig/light/falcata
 	name = "chestpiece"
