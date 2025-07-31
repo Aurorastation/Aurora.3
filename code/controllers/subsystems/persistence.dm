@@ -13,12 +13,13 @@ SUBSYSTEM_DEF(persistence)
 /datum/controller/subsystem/persistence/Initialize()
 	. = ..()
 	if(!GLOB.config.sql_enabled)
-		return
+		log_subsystem_persistence("SQL configuration not enabled! Persistence subsystem requires SQL.")
+		return SS_INIT_FAILURE // Subsystem depends on SQL
 
 	GLOB.persistence_register = list()
 
 	if(!SSdbcore.Connect())
-		log_game("SQL ERROR during persistence subsystem init. Failed to connect.")
+		log_subsystem_persistence("SQL ERROR during persistence subsystem init. Failed to connect.")
 		return SS_INIT_FAILURE
 	else
 		// Delete all persistent objects in the database that have expired and have passed the cleanup grace period (PERSISTENT_EXPIRATION_CLEANUP_DELAY_DAYS)
@@ -47,6 +48,7 @@ SUBSYSTEM_DEF(persistence)
  */
 /datum/controller/subsystem/persistence/Shutdown()
 	if(!GLOB.config.sql_enabled)
+		log_subsystem_persistence("SQL configuration not enabled! Panic - Cannot save current round track changes!")
 		return
 
 	// Subsystem shutdown:
@@ -105,7 +107,7 @@ SUBSYSTEM_DEF(persistence)
  */
 /datum/controller/subsystem/persistence/proc/database_clean_entries()
 	if(!SSdbcore.Connect())
-		log_game("SQL ERROR during persistence database_clean_entries. Failed to connect.")
+		log_subsystem_persistence("SQL ERROR during persistence database_clean_entries. Failed to connect.")
 	else
 		var/datum/db_query/cleanup_query = SSdbcore.NewQuery(
 			"DELETE FROM ss13_persistent_data WHERE DATE_ADD(expires_at, INTERVAL :grace_period_days: DAY) <= NOW()",
@@ -118,7 +120,7 @@ SUBSYSTEM_DEF(persistence)
 
 /datum/controller/subsystem/persistence/proc/database_clean_entries_callback_failure(var/datum/db_query/cleanup_query)
 	if (cleanup_query.ErrorMsg())
-		log_game("SQL ERROR during persistence database_clean_entries. " + cleanup_query.ErrorMsg())
+		log_subsystem_persistence("SQL ERROR during persistence database_clean_entries. " + cleanup_query.ErrorMsg())
 	qdel(cleanup_query)
 
 /**
@@ -128,7 +130,7 @@ SUBSYSTEM_DEF(persistence)
  */
 /datum/controller/subsystem/persistence/proc/database_get_active_entries()
 	if(!SSdbcore.Connect())
-		log_game("SQL ERROR during persistence database_get_active_entries. Failed to connect.")
+		log_subsystem_persistence("SQL ERROR during persistence database_get_active_entries. Failed to connect.")
 	else
 		var/datum/db_query/get_query = SSdbcore.NewQuery(
 			"SELECT id, author_ckey, type, content, x, y, z FROM ss13_persistent_data WHERE NOW() < expires_at"
@@ -137,7 +139,7 @@ SUBSYSTEM_DEF(persistence)
 
 		var/list/results = list()
 		if (get_query.ErrorMsg())
-			log_game("SQL ERROR during persistence database_get_active_entries. " + get_query.ErrorMsg())
+			log_subsystem_persistence("SQL ERROR during persistence database_get_active_entries. " + get_query.ErrorMsg())
 			return
 		else
 			while (get_query.NextRow())
@@ -159,7 +161,7 @@ SUBSYSTEM_DEF(persistence)
  */
 /datum/controller/subsystem/persistence/proc/database_add_entry(var/obj/track)
 	if(!SSdbcore.Connect())
-		log_game("SQL ERROR during persistence database_add_entry. Failed to connect.")
+		log_subsystem_persistence("SQL ERROR during persistence database_add_entry. Failed to connect.")
 	else
 		var/turf/T = get_turf(track)
 		var/datum/db_query/insert_query = SSdbcore.NewQuery(
@@ -178,7 +180,7 @@ SUBSYSTEM_DEF(persistence)
 		insert_query.Execute()
 
 		if (insert_query.ErrorMsg())
-			log_game("SQL ERROR during persistence database_add_entry. " + insert_query.ErrorMsg())
+			log_subsystem_persistence("SQL ERROR during persistence database_add_entry. " + insert_query.ErrorMsg())
 		qdel(insert_query)
 
 /**
@@ -186,7 +188,7 @@ SUBSYSTEM_DEF(persistence)
  */
 /datum/controller/subsystem/persistence/proc/database_update_entry(var/obj/track)
 	if(!SSdbcore.Connect())
-		log_game("SQL ERROR during persistence database_update_entry. Failed to connect.")
+		log_subsystem_persistence("SQL ERROR during persistence database_update_entry. Failed to connect.")
 	else
 		var/turf/T = get_turf(track)
 		var/datum/db_query/update_query = SSdbcore.NewQuery(
@@ -203,7 +205,7 @@ SUBSYSTEM_DEF(persistence)
 		update_query.Execute()
 
 		if (update_query.ErrorMsg())
-			log_game("SQL ERROR during persistence database_update_entry. " + update_query.ErrorMsg())
+			log_subsystem_persistence("SQL ERROR during persistence database_update_entry. " + update_query.ErrorMsg())
 		qdel(update_query)
 
 /**
@@ -211,7 +213,7 @@ SUBSYSTEM_DEF(persistence)
  */
 /datum/controller/subsystem/persistence/proc/database_expire_entry(var/track_id)
 	if(!SSdbcore.Connect())
-		log_game("SQL ERROR during persistence database_expire_entry. Failed to connect.")
+		log_subsystem_persistence("SQL ERROR during persistence database_expire_entry. Failed to connect.")
 	else
 		var/datum/db_query/expire_query = SSdbcore.NewQuery(
 			"UPDATE ss13_persistent_data SET expires_at=NOW() WHERE id = :id:",
@@ -220,7 +222,7 @@ SUBSYSTEM_DEF(persistence)
 		expire_query.Execute()
 
 		if (expire_query.ErrorMsg())
-			log_game("SQL ERROR during persistence database_expire_entry. " + expire_query.ErrorMsg())
+			log_subsystem_persistence("SQL ERROR during persistence database_expire_entry. " + expire_query.ErrorMsg())
 		qdel(expire_query)
 
 /*#############################################

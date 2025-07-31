@@ -266,6 +266,7 @@
 #include "code\__HELPERS\logging\subsystems\law.dm"
 #include "code\__HELPERS\logging\subsystems\mapfinalization.dm"
 #include "code\__HELPERS\logging\subsystems\odyssey.dm"
+#include "code\__HELPERS\logging\subsystems\persistence.dm"
 #include "code\__HELPERS\logging\subsystems\ZAS.dm"
 #include "code\__HELPERS\paths\jps.dm"
 #include "code\__HELPERS\paths\path.dm"
