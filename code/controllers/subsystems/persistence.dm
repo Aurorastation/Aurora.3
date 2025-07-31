@@ -108,7 +108,7 @@ SUBSYSTEM_DEF(persistence)
  * Generates StatEntry. Returns information about currently tracked objects.
  */
 /datum/controller/subsystem/persistence/stat_entry(msg)
-	msg = ("actively tracked objects: [length(GLOB.persistence_register)]")
+	msg = ("Global register tracks: [GLOB.persistence_register.len]")
 	return ..()
 
 /**
@@ -121,7 +121,7 @@ SUBSYSTEM_DEF(persistence)
 	else
 		var/datum/db_query/cleanup_query = SSdbcore.NewQuery(
 			"DELETE FROM ss13_persistent_data WHERE DATE_ADD(expires_at, INTERVAL :grace_period_days: DAY) <= NOW()",
-			list("grace_period_days"=PERSISTENT_EXPIRATION_CLEANUP_DELAY_DAYS)
+			list("grace_period_days" = PERSISTENT_EXPIRATION_CLEANUP_DELAY_DAYS)
 		)
 
 		cleanup_query.SetFailCallback(CALLBACK(src, .proc/database_clean_entries_callback_failure))
@@ -178,13 +178,13 @@ SUBSYSTEM_DEF(persistence)
 			"INSERT INTO ss13_persistent_data (author_ckey, type, created_at, updated_at, expires_at, content, x, y, z) \
 			VALUES (:author_ckey:, :type:, NOW(), NOW(), DATE_ADD(NOW(), INTERVAL :expire_in_days: DAY), :content:, :x:, :y:, :z:)",
 			list(
-				"author_ckey"=length(track.persistence_author_ckey) ? track.persistence_author_ckey : null,
-				"type"="[track.type]",
-				"expire_in_days"=track.persistance_initial_expiration_time_days,
-				"content"=track.persistence_get_content(),
-				"x"=T.x,
-				"y"=T.y,
-				"z"=T.z
+				"author_ckey" = length(track.persistence_author_ckey) ? track.persistence_author_ckey : null,
+				"type" = "[track.type]",
+				"expire_in_days" = track.persistance_initial_expiration_time_days,
+				"content" = track.persistence_get_content(),
+				"x" = T.x,
+				"y" = T.y,
+				"z" = T.z
 			)
 		)
 		insert_query.Execute()
@@ -204,12 +204,12 @@ SUBSYSTEM_DEF(persistence)
 		var/datum/db_query/update_query = SSdbcore.NewQuery(
 			"UPDATE ss13_persistent_data SET author_ckey=:author_ckey:, updated_at=NOW(), content=:content:, x=:x:, y=:y:, z=:z: WHERE id = :id:",
 			list(
-				"author_ckey"=length(track.persistence_author_ckey) ? track.persistence_author_ckey : null,,
-				"content"=track.persistence_get_content(),
-				"x"=T.x,
-				"y"=T.y,
-				"z"=T.z,
-				"id"=track.persistence_track_id
+				"author_ckey" = length(track.persistence_author_ckey) ? track.persistence_author_ckey : null,,
+				"content" = track.persistence_get_content(),
+				"x" = T.x,
+				"y" = T.y,
+				"z" = T.z,
+				"id" = track.persistence_track_id
 			)
 		)
 		update_query.Execute()
@@ -227,7 +227,7 @@ SUBSYSTEM_DEF(persistence)
 	else
 		var/datum/db_query/expire_query = SSdbcore.NewQuery(
 			"UPDATE ss13_persistent_data SET expires_at=NOW() WHERE id = :id:",
-			list("id"=track_id)
+			list("id" = track_id)
 		)
 		expire_query.Execute()
 
