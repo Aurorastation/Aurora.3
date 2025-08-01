@@ -2,7 +2,7 @@
 	name = "electrical power supply unit"
 	desc = "An electrical power supply system for a synthetic, with improved external charging ports that give it a better charging speed from external sources."
 	icon = 'icons/obj/organs/ipc_organs.dmi'
-	icon_state = "ipc_bio_reactor"
+	icon_state = "ipc_electrical_reactor"
 	organ_tag = BP_REACTOR
 	parent_organ = BP_CHEST
 	possible_modifications = list(

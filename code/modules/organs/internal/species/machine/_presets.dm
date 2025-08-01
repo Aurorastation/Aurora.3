@@ -8,6 +8,8 @@
 	var/name = "epic synthetic organ"
 	/// The description synthetic organ will get.
 	var/desc = "It is super epic and cool."
+	/// Replacement icon state. Leave null if you don't want to replace the original state.
+	var/icon_state
 
 /singleton/synthetic_organ_preset/proc/apply_preset(obj/item/organ/internal/machine/organ)
 	SHOULD_CALL_PARENT(TRUE)
@@ -16,3 +18,5 @@
 
 	organ.name = name
 	organ.desc = desc
+	if(icon_state)
+		organ.icon_state = icon_state

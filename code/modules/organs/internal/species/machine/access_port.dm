@@ -1,8 +1,8 @@
 /obj/item/organ/internal/machine/access_port
 	name = "universal access port"
 	desc = "A slot built into nearly all synthetics for universal access to information such as diagnostics or internal processes."
-	icon = 'icons/obj/robot_component.dmi'
-	icon_state = "radio"
+	icon = 'icons/obj/organs/ipc_organs.dmi'
+	icon_state = "ipc_port"
 	organ_tag = BP_ACCESS_PORT
 	parent_organ = BP_HEAD
 
@@ -128,8 +128,8 @@
 /obj/item/access_cable
 	name = "external access cable"
 	desc = "A cable with universal access pins at its end. This is meant for jacking into synthetics to access their data."
-	icon = 'icons/obj/cloning.dmi'
-	icon_state = "access_cable" //todomatt move this icon somewhere where it makes sense
+	icon = 'icons/obj/organs/ipc_organs.dmi'
+	icon_state = "cable"
 	pickup_sound = 'sound/species/synthetic/access_cable_out.ogg'
 
 	/// Where this cable is extending from.

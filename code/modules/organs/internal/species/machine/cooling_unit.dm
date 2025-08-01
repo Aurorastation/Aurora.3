@@ -18,7 +18,7 @@
 	action_button_name = "Regulate Thermostat"
 
 	/// The power consumed when we are cooling down.
-	var/base_power_consumption = 10
+	var/base_power_consumption = 8
 	/// The passive temperature change. Basically, cooling units counteract an IPC's passive temperature gain. But the IPC's temperature goes to get itself fucked if the cooling unit dies.
 	/// Remember, can be negative or positive. Depends on what we're trying to stabilize towards.
 	var/passive_temp_change = 2
