@@ -603,7 +603,6 @@
 		return FALSE
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	var/obj/item/synth_plating/plating = tool
 	var/is_plating_destroyed = FALSE
 	var/limb_can_operate = (affected && affected.open == ORGAN_ENCASED_RETRACTED && target_zone != BP_MOUTH)
 	if(limb_can_operate)

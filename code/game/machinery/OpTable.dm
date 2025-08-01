@@ -257,10 +257,16 @@
 	add_fingerprint(patient)
 	add_fibers(patient)
 
-	patient.resting = TRUE
-	patient.forceMove(loc)
+	move_patient_to_table(patient, giver)
 
 	return TRUE
+
+/**
+ * Actually moves a patient to the table.
+ */
+/obj/machinery/optable/proc/move_patient_to_table(mob/living/carbon/patient, mob/living/carbon/giver)
+	patient.resting = TRUE
+	patient.forceMove(loc)
 
 /obj/machinery/optable/mouse_drop_receive(atom/dropped, mob/user, params)
 	//If the user is a ghost, stop.
@@ -348,10 +354,15 @@
 	. += list("Use the <b>Retrieve Cable</b> verb on this chair in order to take the access cable from it.")
 	. += list("You can then click an IPC with that cable to slot it into them. After that, click on the chair with <b>grab</b> intent.")
 
+/obj/machinery/optable/robotics/refresh_icon_state()
+	return
+
+/obj/machinery/optable/robotics/move_patient_to_table(mob/living/carbon/patient, mob/living/carbon/giver)
+	buckle(patient, giver)
+
 /obj/machinery/optable/robotics/Initialize()
 	. = ..()
 	access_cable = new(src, src)
-	color = COLOR_ORANGE
 
 /obj/machinery/optable/robotics/attack_hand(mob/user)
 	if(access_cable?.target && user.a_intent == I_GRAB)
