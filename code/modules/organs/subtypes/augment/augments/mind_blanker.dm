@@ -27,9 +27,9 @@
 
 	UnregisterSignal(owner, COMSIG_PSI_MIND_POWER)
 
-/obj/item/organ/internal/augment/bioaug/mind_blanker/proc/cancel_power(mob/caster)
+/obj/item/organ/internal/augment/bioaug/mind_blanker/proc/cancel_power(mob/caster, var/cancelled)
 	SIGNAL_HANDLER
-	return COMSIG_PSI_MIND_POWER_CANCELLED
+	*cancelled = TRUE
 
 /obj/item/organ/internal/augment/bioaug/mind_blanker_lethal
 	name = "lethal mind blanker"
@@ -60,11 +60,11 @@
 
 	UnregisterSignal(owner, COMSIG_PSI_MIND_POWER)
 
-/obj/item/organ/internal/augment/bioaug/mind_blanker_lethal/proc/cancel_power_lethal(mob/caster)
+/obj/item/organ/internal/augment/bioaug/mind_blanker_lethal/proc/cancel_power_lethal(mob/caster, var/cancelled)
 	SIGNAL_HANDLER
+	*cancelled = TRUE
 	if(isliving(caster))
 		var/mob/living/victim = caster
 		victim.adjustBrainLoss(20)
 		victim.confused += 20
 		to_chat(victim, SPAN_DANGER("Agony lances through my mind as [src]'s mind clamps down upon me!"))
-	return COMSIG_PSI_MIND_POWER_CANCELLED

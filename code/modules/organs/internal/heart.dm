@@ -137,22 +137,13 @@
 
 	// pulse mod starts out as just the chemical effect amount
 	var/pulse_mod = owner.chem_effects[CE_PULSE] // TODO: Make chems go through signals.
-	var/pulse_mod_pointer = &pulse_mod
-
 	var/is_stable = owner.chem_effects[CE_STABLE]
-	var/is_stable_pointer = &is_stable
-
 	var/oxy = owner.get_blood_oxygenation()
-	var/oxy_pointer = &oxy
-
 	var/circulation = owner.get_blood_circulation()
-	var/circulation_pointer = &circulation
-
 	var/canceled = FALSE
-	var/canceled_pointer = &canceled
 
 	// Check if any components on the user wish to mess with the pulse calculations.
-	SEND_SIGNAL(owner, COMSIG_HEART_PULSE_EVENT, pulse_mod_pointer, is_stable_pointer, oxy_pointer, circulation_pointer, canceled_pointer)
+	SEND_SIGNAL(owner, COMSIG_HEART_PULSE_EVENT, &pulse_mod, &is_stable, &oxy, &circulation, &canceled)
 	if(canceled)
 		return // Oh hey someone stopped my heart from beating via a SIGNAL response!
 
@@ -235,15 +226,10 @@
 
 	if(pulse != PULSE_NONE || BP_IS_ROBOTIC(src))
 		var/blood_volume = round(REAGENT_VOLUME(owner.vessel, /singleton/reagent/blood))
-		var/blood_volume_pointer = &blood_volume
-
 		var/cut_bloodloss_modifier = base_cut_bloodloss_modifier
-		var/cut_bloodloss_modifier_pointer = &cut_bloodloss_modifier
-
 		var/arterial_bloodloss_modifier = base_arterial_bloodloss_modifier
-		var/arterial_bloodloss_modifier_pointer = &arterial_bloodloss_modifier
 
-		SEND_SIGNAL(owner, COMSIG_HEART_BLEED_EVENT, blood_volume_pointer, cut_bloodloss_modifier_pointer, arterial_bloodloss_modifier_pointer)
+		SEND_SIGNAL(owner, COMSIG_HEART_BLEED_EVENT, &blood_volume, &cut_bloodloss_modifier, &arterial_bloodloss_modifier)
 
 		//Blood regeneration if there is some space
 		if(blood_volume < species.blood_volume && blood_volume)
