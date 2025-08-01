@@ -39,7 +39,7 @@ SUBSYSTEM_DEF(persistence)
 			var/obj/instance = new typepath()
 			instance.persistence_track_id = data["id"]
 			instance.persistence_author_ckey = data["author_ckey"]
-			instance.persistence_apply_content(data["content"], data["x"], data["y"], data["y"])
+			instance.persistence_apply_content(data["content"], data["x"], data["y"], data["z"])
 			register_track(instance)
 
 		return SS_INIT_SUCCESS
@@ -102,7 +102,7 @@ SUBSYSTEM_DEF(persistence)
 			database_expire_entry(record["id"])
 			expired += 1
 
-	log_subsystem_persistence("Shutdown: Saved [saved], updated [updated], expired [expired] tracks.")
+	log_subsystem_persistence("Shutdown: Tried to saved [saved], update [updated] and expire [expired] tracks.")
 
 /**
  * Generates StatEntry. Returns information about currently tracked objects.
@@ -120,7 +120,7 @@ SUBSYSTEM_DEF(persistence)
 		log_subsystem_persistence("SQL ERROR during persistence database_clean_entries. Failed to connect.")
 	else
 		var/datum/db_query/cleanup_query = SSdbcore.NewQuery(
-			"DELETE FROM ss13_persistent_data WHERE DATE_ADD(expires_at, INTERVAL :grace_period_days: DAY) <= NOW()",
+			"DELETE FROM ss13_persistent_data WHERE DATE_ADD(expires_at, INTERVAL :grace_period_days DAY) <= NOW()",
 			list("grace_period_days" = PERSISTENT_EXPIRATION_CLEANUP_DELAY_DAYS)
 		)
 
@@ -154,15 +154,16 @@ SUBSYSTEM_DEF(persistence)
 		else
 			while (get_query.NextRow())
 				CHECK_TICK
-				var/list/entry = list()
-				entry["id"] = text2num(get_query.item[1])
-				entry["author_ckey"] = get_query.item[2]
-				entry["type"] = get_query.item[3]
-				entry["content"] = get_query.item[4]
-				entry["x"] = text2num(get_query.item[5])
-				entry["y"] = text2num(get_query.item[6])
-				entry["z"] = text2num(get_query.item[7])
-				results += entry
+				var/list/entry = list(
+					"id" = text2num(get_query.item[1]),
+					"author_ckey" = get_query.item[2],
+					"type" = get_query.item[3],
+					"content" = get_query.item[4],
+					"x" = text2num(get_query.item[5]),
+					"y" = text2num(get_query.item[6]),
+					"z" = text2num(get_query.item[7])
+				)
+				results += list(entry)
 		qdel(get_query)
 		return results
 
@@ -176,7 +177,7 @@ SUBSYSTEM_DEF(persistence)
 		var/turf/T = get_turf(track)
 		var/datum/db_query/insert_query = SSdbcore.NewQuery(
 			"INSERT INTO ss13_persistent_data (author_ckey, type, created_at, updated_at, expires_at, content, x, y, z) \
-			VALUES (:author_ckey:, :type:, NOW(), NOW(), DATE_ADD(NOW(), INTERVAL :expire_in_days: DAY), :content:, :x:, :y:, :z:)",
+			VALUES (:author_ckey, :type, NOW(), NOW(), DATE_ADD(NOW(), INTERVAL :expire_in_days DAY), :content, :x, :y, :z)",
 			list(
 				"author_ckey" = length(track.persistence_author_ckey) ? track.persistence_author_ckey : null,
 				"type" = "[track.type]",
@@ -202,7 +203,7 @@ SUBSYSTEM_DEF(persistence)
 	else
 		var/turf/T = get_turf(track)
 		var/datum/db_query/update_query = SSdbcore.NewQuery(
-			"UPDATE ss13_persistent_data SET author_ckey=:author_ckey:, updated_at=NOW(), content=:content:, x=:x:, y=:y:, z=:z: WHERE id = :id:",
+			"UPDATE ss13_persistent_data SET author_ckey=:author_ckey, updated_at=NOW(), content=:content, x=:x, y=:y, z=:z WHERE id = :id",
 			list(
 				"author_ckey" = length(track.persistence_author_ckey) ? track.persistence_author_ckey : null,,
 				"content" = track.persistence_get_content(),
@@ -226,7 +227,7 @@ SUBSYSTEM_DEF(persistence)
 		log_subsystem_persistence("SQL ERROR during persistence database_expire_entry. Failed to connect.")
 	else
 		var/datum/db_query/expire_query = SSdbcore.NewQuery(
-			"UPDATE ss13_persistent_data SET expires_at=NOW() WHERE id = :id:",
+			"UPDATE ss13_persistent_data SET expires_at=NOW() WHERE id = :id",
 			list("id" = track_id)
 		)
 		expire_query.Execute()
