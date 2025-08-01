@@ -241,6 +241,9 @@
 	cold_protection = UPPER_TORSO
 	flags_inv = 0
 
+/obj/item/rig/light/offworlder/colorable
+	icon_state = "offworlder_rig_colorable"
+
 /obj/item/rig/light/offworlder/frontier
 	name = "advanced mobility hardsuit control module"
 	desc = "Patterned off of the standard Exo-Stellar Skeleton, this sophisticated and light hardsuit is a staple of many armed forces throughout the Frontier. The mobility it grants compared to bulkier suits, while still packing the potential for a versatile toolset, has made it especially popular in the often cramped environments of ships and stations."
