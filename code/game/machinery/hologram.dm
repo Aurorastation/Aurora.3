@@ -89,7 +89,8 @@ Possible to do for anyone motivated enough:
 
 /obj/machinery/hologram/holopad/proc/get_holopad_id()
 	var/area/A = get_area(src)
-	holopad_id = "[A.name] ([src.x]-[src.y]-[src.z])"
+	var/display_name = get_area_display_name(A)
+	holopad_id = "[display_name] ([src.x]-[src.y]-[src.z])"
 
 /obj/machinery/hologram/holopad/update_icon(var/recurse = TRUE)
 	if(LAZYLEN(active_holograms) || has_established_connection())
@@ -479,7 +480,8 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		holopad_id = "[linked.name] | "
 
 	var/area/A = get_area(src)
-	holopad_id += "[A.name]"
+	var/display_name = get_area_display_name(A)
+	holopad_id += "[display_name]"
 
 /obj/machinery/hologram/holopad/long_range/can_connect(var/obj/machinery/hologram/holopad/HP)
 	if(HP.long_range != long_range)
