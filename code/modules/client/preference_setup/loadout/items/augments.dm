@@ -313,7 +313,7 @@
 	path = /obj/item/organ/internal/augment/bioaug/mind_blanker
 	origin_restriction = list(/singleton/origin_item/origin/galatea)
 	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
-	cost = 4
+	cost = 2
 
 /datum/gear/augment/mind_blanker_lethal
 	display_name = "Galatean Mind Blanker (Lethal)"
@@ -321,7 +321,7 @@
 	path = /obj/item/organ/internal/augment/bioaug/mind_blanker_lethal
 	origin_restriction = list(/singleton/origin_item/origin/galatea)
 	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
-	cost = 6
+	cost = 4
 	allowed_roles = list("Consular Officer")
 
 /datum/gear/augment/platelet_factories
