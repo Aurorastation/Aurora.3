@@ -733,3 +733,29 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	sort_category = "Xenowear - Tajara"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/accessory/tajara_colorable_fur_scarf
+	display_name = "fur scarf (colorable)"
+	path = /obj/item/clothing/accessory/tajaran/colorable
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	sort_category = "Xenowear - Tajara"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/suit/colorable_tajara_cloak
+	display_name = "tajara cloaks selection (colorable)"
+	description = "A selection of colorable tajaran native cloaks."
+	path = /obj/item/clothing/accessory/poncho/tajarancloak/colorable
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	sort_category = "Xenowear - Tajara"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+
+/datum/gear/suit/colorable_tajara_cloak/New()
+	..()
+	var/list/colorable_cloaks = list()
+	colorable_cloaks["gruff cloak"] = /obj/item/clothing/suit/storage/hooded/tajaran/colorable
+	colorable_cloaks["fancy cloak"] = /obj/item/clothing/accessory/poncho/tajarancloak/colorable
+	colorable_cloaks["fancy cloak (hooded)"] = /obj/item/clothing/suit/storage/hooded/tajaran/colorable/fancy
+	colorable_cloaks["royal cloak"] = /obj/item/clothing/accessory/poncho/tajarancloak/colorable/royal
+	colorable_cloaks["royal cloak (hooded)"] = /obj/item/clothing/suit/storage/hooded/tajaran/colorable/royal
+	colorable_cloaks["amohda cloak"] = /obj/item/clothing/suit/storage/hooded/tajaran/colorable/amohda
+	gear_tweaks += new /datum/gear_tweak/path(colorable_cloaks)
