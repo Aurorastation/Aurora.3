@@ -307,6 +307,22 @@
 	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
 	cost = 2
 
+/datum/gear/augment/boosted_heart
+	display_name = "Boosted Heart"
+	description = "Intended for athletes, some workers, and soldiers, this improved heart increases blood flow and circulation. It provides an improvement to blood oxygenation and stamina, at the cost of requiring more food and water. Outside of Galatea, this augment is popular among professional athletes."
+	path = /obj/item/organ/internal/heart/boosted_heart
+	origin_restriction = list(/singleton/origin_item/origin/galatea)
+	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
+	cost = 3
+
+/datum/gear/augment/boosted_liver
+	display_name = "Boosted Liver"
+	description = "Designed primarily for diplomats or Galateans abroad, the boosted liver improves toxin filtering, giving a resistance to toxin damage. As a consequence, it makes it impossible for the user to get drunk."
+	path = /obj/item/organ/internal/liver/boosted_liver
+	origin_restriction = list(/singleton/origin_item/origin/galatea)
+	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
+	cost = 2
+
 /datum/gear/augment/mind_blanker
 	display_name = "Galatean Mind Blanker"
 	description = "A small, discrete organ attached near the base of the brainstem. Any attempt to read the mind of an individual with this augment installed will fail, as will attempts at psychic brainwashing."

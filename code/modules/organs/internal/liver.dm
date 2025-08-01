@@ -159,3 +159,14 @@
 		heal_damage(liver_regeneration_broken * seconds_per_tick)
 		return TRUE
 	return FALSE
+
+/obj/item/organ/internal/liver/boosted_liver
+	name = "boosted liver"
+	desc = "Designed primarily for diplomats or Galateans abroad, the boosted liver improves toxin filtering, giving a resistance to toxin damage. As a consequence, it makes it impossible for the user to get drunk."
+	//icon = 'icons/obj/organs/bioaugs.dmi'
+	//icon_state = "boosted_liver"
+	base_filter_strength = 1.5
+	base_filter_effect = 5
+	toxin_critical_mass = 90
+	booze_filtering_modifier = 100 // "Impossible to get drunk", this should make it impossible. :)
+	blackout_booze_filtering_modifier = 1
