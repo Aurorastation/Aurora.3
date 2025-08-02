@@ -38,19 +38,10 @@
 		"95.8 Radio Masyara'Triq (Unlicensed)" = 'texts/lore_radio/crescent_expanse/95.8_CE-Unlicensed_Music_Station.txt'
 	)
 
-	lobby_tracks = list(
-		'sound/music/lobby/crescent_expanse/crescent_expanse_1.ogg',
-		'sound/music/lobby/crescent_expanse/crescent_expanse_2.ogg'
-	)
-
 /datum/space_sector/crescent_expanse/west
 	name = SECTOR_CRESCENT_EXPANSE_WEST
 	lore_radio_stations = list(
 		"95.8 Radio Masyara'Triq (Unlicensed)" = 'texts/lore_radio/crescent_expanse/95.8_CE-Unlicensed_Music_Station.txt'
-	)
-	lobby_tracks = list(
-		'sound/music/lobby/crescent_expanse/crescent_expanse_1.ogg',
-		'sound/music/lobby/crescent_expanse/crescent_expanse_2.ogg'
 	)
 
 /datum/space_sector/crescent_expanse/far
@@ -81,7 +72,6 @@
 		"95.8 Radio Masyara'Triq (Unlicensed)" = 'texts/lore_radio/crescent_expanse/95.8_CE-Unlicensed_Music_Station.txt'
 	)
 	lobby_tracks = list(
-		'sound/music/lobby/crescent_expanse/crescent_expanse_1.ogg',
 		'sound/music/lobby/dangerous_space/dangerous_space_1.ogg',
 		'sound/music/lobby/dangerous_space/dangerous_space_2.ogg'
 	)
