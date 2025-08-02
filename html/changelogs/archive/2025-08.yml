@@ -1,0 +1,25 @@
+2025-08-02:
+  Batrachophrenoboocosmomachia:
+  - code_imp: Updated alarms to use parent 'panel_open' var instead of child 'wiresexposed'
+      var.
+  - code_imp: Filled missing area metadata for a few cases, corrected engi SM SMES
+      area parentage.
+  - qol: Refactored Atmos control app to use grid-based UI using new area metadata.
+  - bugfix: Atmos control app search no longer crashes on init (no defined search
+      term given).
+  - bugfix: Atmos control app search field now returns correct/full results based
+      on area name, deck, and department.
+  - bugfix: Removed several manually defined air alarm 'name' fields from map.
+  - bugfix: Fixed swapped ops and aux hangar descriptions.
+  - qol: More area metadata cleanup and more replacements of area.name with area display
+      names for clarity.
+  Ben10083:
+  - rscadd: Adds S'rendmarr and Ma'ta'ke versebooks to Tajaran loadout.
+  - qol: S'rendmarr and Ma'ta'ke chaplains now spawn with their respective versebook.
+  CometBlaze:
+  - rscadd: Added a colorable exo-stellar skeletons offworlders can pick in the loadout.
+  TheGreyWolf, Noble Row:
+  - rscadd: Added an alternative to the security belt, the security chestrig, to the
+      warden, HoS and sec officer's lockers as well as the loadout.
+  notagonk:
+  - rscadd: Remaps the Hailstorm Ship.
