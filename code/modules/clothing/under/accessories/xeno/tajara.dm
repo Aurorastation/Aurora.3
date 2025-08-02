@@ -51,6 +51,11 @@
 	icon_state = "furscarf_cream"
 	item_state = "furscarf_cream"
 
+/obj/item/clothing/accessory/tajaran/colorable
+	desc = "A furred scarf, a common tajaran vanity item."
+	icon_state = "furscarf_colorable"
+	item_state = "furscarf_colorable"
+
 /obj/item/clothing/accessory/tajaran/summershirt
 	name = "adhomian summerwear shirt"
 	desc = "A simple piece of adhomian summerwear made with linen."
@@ -115,6 +120,22 @@
 	desc = "A fancy black Adhomian cloak."
 	icon_state = "hb_cloak"
 	item_state = "hb_cloak"
+
+/obj/item/clothing/accessory/poncho/tajarancloak/colorable
+	name = "fancy adhomian cloak"
+	desc = "A fancy Adhomian cloak."
+	icon_state = "hb_cloak_colorable"
+	item_state = "hb_cloak_colorable"
+	worn_overlay =  "adornment"
+	build_from_parts = TRUE
+	has_accents = TRUE
+
+/obj/item/clothing/accessory/poncho/tajarancloak/colorable/royal
+	name = "adhomian royal cloak"
+	desc = "An Adhomian cloak with an asymmetric design."
+	icon_state = "royal_cloak_colorable"
+	item_state = "royal_cloak_colorable"
+	worn_overlay =  "adornment"
 
 /obj/item/clothing/accessory/tajaran_wrap
 	name = "marriage wrap"
