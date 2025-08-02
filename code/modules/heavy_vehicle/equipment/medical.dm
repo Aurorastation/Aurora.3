@@ -9,6 +9,12 @@
 	origin_tech = list(TECH_DATA = 2, TECH_BIO = 3)
 	passive_power_use = 25
 	var/obj/machinery/sleeper/mounted/sleeper = null
+	module_hints = list(
+		"<b>Left Click(Living Target):</b> Load the target into the mech's onboard Medical Sleeper unit.",
+		"<b>Alt Click(Icon):</b> Activate the sleeper unit's control interface.",
+		"Mounted sleepers are capable of performing any task that a stationary sleeper can do.",
+		"This includes putting a patient into stasis, injecting medicines, and performing kidney dialysis.",
+	)
 
 /obj/item/mecha_equipment/sleeper/Initialize()
 	. = ..()
@@ -132,7 +138,16 @@
 	var/mob/living/carbon/Target = null
 	var/datum/beam/MyBeam = null
 
+	module_hints = list(
+		"<b>Alt Click(Drone Icon):</b> Activates the drone. When active, it will bob up and down rapidly as a visual indication.",
+		"When active, a crisis drone will constantly attempt to heal injured people within <b>3</b> tiles.",
+		"The drone is capable of healing most damage types, it will even alleviate a patient's pain. It cannot heal patients with less than 30 total damage.",
+		"It <b>cannot</b> heal the dead. It also <b>cannot</b> mend broken bones.",
+	)
+
 /obj/item/mecha_equipment/crisis_drone/Destroy()
+	Target = null
+	MyBeam = null
 	STOP_PROCESSING(SSprocessing, src)
 	. = ..()
 
@@ -279,6 +294,10 @@
 	holding_type = /obj/item/device/healthanalyzer/mech
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
 	restricted_software = list(MECH_SOFTWARE_MEDICAL)
+	module_hints = list(
+		"<b>Left Click(Target):</b> Instantly perform a basic medical scan of the target.",
+		"<b>Ctrl Click(Target):</b> After remaining still for 7 seconds, print a full body scan of the target.",
+	)
 
 /// Special health analyzer used by the exosuit health analyzer.
 /obj/item/device/healthanalyzer/mech
