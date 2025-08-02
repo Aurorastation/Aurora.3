@@ -1191,9 +1191,23 @@
 	od_minimum_dose = 0.02
 	taste_description = "bugs"
 	ingest_mul = 1
-	var/alchohol_affected = 1
+	/// Imparts hallucination effects scaling with bac.
+	var/alchohol_affected = TRUE
 	var/messagedelay = MEDICATION_MESSAGE_DELAY
-	var/list/goodmessage = list() //Fluff messages
+	/// Fluff messages for all users, regardless of species.
+	var/list/goodmessage = list()
+	/// Fluff messages for all Human users only.
+	var/list/goodmessage_human = list()
+	/// Fluff messages for all Diona users only.
+	var/list/goodmessage_diona = list()
+	/// Fluff messages for all Unathi users only.
+	var/list/goodmessage_unathi = list()
+	/// Fluff messages for all Skrell users only.
+	var/list/goodmessage_skrell = list()
+	/// Fluff messages for all Tajara users only.
+	var/list/goodmessage_tajara = list()
+	/// Fluff messages for all Vaurca users only.
+	var/list/goodmessage_vaurca = list()
 
 	fallback_specific_heat = 1.5
 
@@ -1206,14 +1220,44 @@
 	if(!istype(H) || world.time < holder.reagent_data[type]["last_tick_time"] || messagedelay == -1)
 		return
 
+	var/message
 	var/bac = H.get_blood_alcohol()
 	if(alchohol_affected && bac > 0.03)
 		H.hallucination = max(H.hallucination, bac * 400)
 
 	if(H.chem_doses[type] < overdose && H.shock_stage < 5) //Don't want feel-good messages when we're suffering an OD or particularly hurt/injured
-		to_chat(H, SPAN_GOOD("[pick(goodmessage)]"))
+		message = feedback_message(H)
+		to_chat(H, SPAN_GOOD("[message]"))
 
 	LAZYSET(holder.reagent_data[type], "last_tick_time", world.time + (messagedelay))
+
+/**
+ * Holds logic for returning feedback message strings based on race.
+ */
+/singleton/reagent/mental/proc/feedback_message(var/mob/living/carbon/human/mob)
+	var/list/all_goodmessages
+
+	if(length(goodmessage))
+		all_goodmessages |= goodmessage
+
+	// This feels shitty but here we are.
+	if(length(goodmessage_human) && ishuman_species(mob))
+		all_goodmessages |= goodmessage_human
+	//Why is only this one different??
+	else if(length(goodmessage_diona) && mob.is_diona())
+		all_goodmessages |= goodmessage_diona
+	else if(length(goodmessage_unathi) && isunathi(mob))
+		all_goodmessages |= goodmessage_unathi
+	else if(length(goodmessage_skrell) && isskrell(mob))
+		all_goodmessages |= goodmessage_skrell
+	else if(length(goodmessage_tajara) && istajara(mob))
+		all_goodmessages |= goodmessage_tajara
+	else if(length(goodmessage_vaurca) && isvaurca(mob))
+		all_goodmessages |= goodmessage_vaurca
+
+	var/message = pick(all_goodmessages)
+
+	return message
 
 /singleton/reagent/mental/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_EMETIC, M.chem_doses[type] / 6)
@@ -1400,7 +1444,7 @@
 	overdose = 5
 	od_minimum_dose = 3
 	taste_description = "sugar"
-	goodmessage = list("You feel pleasantly warm.","You feel like you've been basking in the sun.","You feel focused and warm...")
+	goodmessage_unathi = list("You feel pleasantly warm.","You feel like you've been basking in the sun.","You feel focused and warm...")
 
 /singleton/reagent/mental/kokoreed/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
