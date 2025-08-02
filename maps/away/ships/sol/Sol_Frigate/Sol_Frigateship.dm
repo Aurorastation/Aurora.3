@@ -34,7 +34,7 @@
 	volume = "80 meters length, 42 meters beam/width, 37 meters vertical height"
 	drive = "Medum-Speed Warp Acceleration FTL Drive"
 	weapons = "Dual extruding fore caliber ballistic armament, fore obscured flight craft hangar"
-	sizeclass = "Curiassier-Class Frigate (Revised)"
+	sizeclass = "Cuirassier-Class Frigate (Revised)"
 	shiptype = "Naval Frigate"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
