@@ -73,3 +73,6 @@
 /// from /obj/projectile/energy/fisher/on_hit() or /obj/item/gun/energy/recharge/fisher when striking a target
 #define COMSIG_HIT_BY_SABOTEUR "hit_by_saboteur"
 	#define COMSIG_SABOTEUR_SUCCESS (1<<0)
+
+/// from /obj/effect/shuttle_landmark/proc/shuttle_arrived() when a shuttle docks.
+#define COMSIG_SHUTTLE_ARRIVED "shuttle_arrived"
