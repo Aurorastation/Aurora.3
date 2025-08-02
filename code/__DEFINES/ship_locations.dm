@@ -29,6 +29,7 @@
 #define LOC_PUBLIC		"Public"
 #define LOC_CREW		"Crew Areas"
 #define LOC_ENGINEERING	"Engineering"
+#define LOC_HANGAR		"Hangar"
 #define LOC_HOLODECK	"Holodeck"
 #define LOC_MAINTENANCE	"Maintenance"
 #define LOC_MEDICAL		"Medical"
@@ -55,7 +56,6 @@
 
 /// Operations Subdepartments
 #define SUBLOC_MINING		"Mining"
-#define SUBLOC_HANGAR		"Hangar"
 #define SUBLOC_MACHINING	"Machining"
 
 /// Science Subdepartments

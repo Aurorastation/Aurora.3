@@ -67,7 +67,11 @@
 	var/alarms = list()
 	for(var/obj/machinery/alarm/alarm in monitored_alarms)
 		alarms += list(list(
-			"name" = sanitize(alarm.name),
+			"deck" = alarm.alarm_area.horizon_deck,
+			"dept" = alarm.alarm_area.department,
+			"subdept" = alarm.alarm_area.subdepartment,
+			"name" = alarm.alarm_area_name,
+			"searchname" = alarm.alarm_area_name_full,
 			"ref"= "[REF(alarm)]",
 			"danger" = max(alarm.danger_level, alarm.alarm_area.atmosalm)
 		))
