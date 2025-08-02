@@ -40,7 +40,7 @@
 /obj/outfit/admin/elyran_navy_crewman/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(isipc(H)) // All Elyran Navy synthetics are tagged, self-owned, and have Elyran citizenship.
-		var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+		var/obj/item/organ/internal/machine/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
 		if(istype(tag))
 			tag.serial_number = uppertext(dd_limittext(md5(H.real_name), 12))
 			tag.ownership_info = IPC_OWNERSHIP_SELF

@@ -217,7 +217,7 @@
 		return
 	..()
 
-/obj/item/gun/projectile/contender/unload_ammo(mob/user, var/allow_dump=1)
+/obj/item/gun/projectile/contender/unload_ammo(mob/user, allow_dump = TRUE, drop_mag = FALSE)
 	if(!retracted_bolt)
 		to_chat(user, SPAN_NOTICE("You can't unload \the [src] without cycling the bolt."))
 		return
