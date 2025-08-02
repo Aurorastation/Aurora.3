@@ -48,13 +48,13 @@ SUBSYSTEM_DEF(economy)
 	if(next_account_number > 999999) //If we're hitting 7 digits, reset to the minimum and increase from there.
 		next_account_number = 111111 + rand(1,500)
 	station_account.remote_access_pin = rand(1111, 111111)
-	station_account.money = 75000
+	station_account.money = 35000
 
 	//create an entry in the account transaction log for when it was created
 	var/datum/transaction/T = new()
 	T.target_name = station_account.owner_name
 	T.purpose = "Account creation"
-	T.amount = 75000
+	T.amount = 10000
 	T.date = "13th May, 2461"
 	T.time = "11:24"
 	T.source_terminal = "Idris Remote Terminal #[rand(111,11111)]"

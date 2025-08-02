@@ -215,10 +215,7 @@
 	var/area/A = get_area(src)
 	var/area_name
 	if(holding_gps)
-		if(is_station_area(A))
-			area_name = get_area_display_name(A)
-		else
-			area_name = A.name
+		area_name = get_area_display_name(A)
 		. += "[area_name]"
 		. += ""
 	if(A.area_blurb)

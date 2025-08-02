@@ -64,17 +64,8 @@
 		var/mob/living/carbon/human/H = user
 		H.apply_radiation(5)
 
-/obj/effect/decal/cleanable/greenglow/radioactive/Initialize(mapload)
-	. = ..()
-	START_PROCESSING(SSprocessing, src)
-
-/obj/effect/decal/cleanable/greenglow/radioactive/Destroy()
-	STOP_PROCESSING(SSprocessing, src)
-	return ..()
-
 /obj/effect/decal/cleanable/greenglow/radioactive/process()
-	for(var/mob/living/L in range(4,src))
-		L.apply_damage(25, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
+	SSradiation.radiate(src, 25)
 
 /obj/effect/decal/cleanable/cobweb
 	name = "cobweb"
