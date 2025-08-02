@@ -36,7 +36,8 @@
 	var/supports_limb = FALSE
 
 /obj/item/organ/internal/augment/Initialize()
-	robotize()
+	if(robotic == ROBOTIC_MECHANICAL)
+		robotize()
 	. = ..()
 
 /obj/item/organ/internal/augment/refresh_action_button()
@@ -82,3 +83,13 @@
 /obj/item/organ/internal/augment/proc/do_bruised_act()
 	spark(get_turf(owner), 3)
 	return FALSE
+
+/obj/item/organ/internal/augment/bioaug
+	name = "bioaugment"
+	icon = 'icons/obj/organs/bioaugs.dmi'
+	icon_state = "boosted_heart"
+	robotic = FALSE
+	species_restricted = list(
+		SPECIES_HUMAN_OFFWORLD,
+		SPECIES_HUMAN,
+	)

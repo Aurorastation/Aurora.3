@@ -146,17 +146,16 @@
 /obj/item/organ/internal/process(seconds_per_tick)
 	..()
 	if(istype(owner) && (toxin_type in owner.chem_effects))
-		take_damage(owner.chem_effects[toxin_type] * 0.1 * PROCESS_ACCURACY, SPT_PROB(1, seconds_per_tick))
-	handle_regeneration()
+		take_damage(owner.chem_effects[toxin_type] * seconds_per_tick)
+	handle_regeneration(seconds_per_tick)
 	tick_surge_damage() //Yes, this is intentional.
 
-/obj/item/organ/internal/proc/handle_regeneration()
+/obj/item/organ/internal/proc/handle_regeneration(seconds_per_tick)
 	SHOULD_CALL_PARENT(TRUE)
-	if(damage && !BP_IS_ROBOTIC(src) && istype(owner))
-		if(!owner.is_asystole())
-			if(!(owner.chem_effects[CE_TOXIN] || (toxin_type in owner.chem_effects)))
-				var/repair_modifier = owner.chem_effects[CE_ORGANREPAIR] || 0.1
-				if(damage < repair_modifier*max_damage)
-					heal_damage(repair_modifier)
-				return TRUE // regeneration is allowed
-	return FALSE // regeneration is prevented
+	if(!damage || BP_IS_ROBOTIC(src) || !istype(owner) || owner.is_asystole() || (owner.chem_effects[CE_TOXIN] || (toxin_type in owner.chem_effects)))
+		return FALSE
+
+	var/repair_modifier = owner.chem_effects[CE_ORGANREPAIR] || 0.1
+	if(damage < repair_modifier*max_damage)
+		heal_damage(repair_modifier)
+	return TRUE // regeneration is allowed

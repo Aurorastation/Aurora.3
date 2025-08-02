@@ -27,97 +27,99 @@
 //Makes a blood drop, leaking amt units of blood from the mob
 /mob/living/carbon/human/proc/drip(var/amt as num, var/tar = src, var/spraydir)
 
-	if(species && species.flags & NO_BLOOD) //TODO: Make drips come from the reagents instead.
-		return
-
-	if(!amt)
+	if(!amt || species && species.flags & NO_BLOOD) //TODO: Make drips come from the reagents instead.
 		return
 
 	vessel.remove_reagent(/singleton/reagent/blood,amt)
 	blood_splatter(tar, src, spray_dir = spraydir)
 
-#define BLOOD_SPRAY_DISTANCE 2
-/mob/living/carbon/human/proc/blood_squirt(var/amt, var/turf/sprayloc)
+/mob/living/carbon/human/proc/blood_squirt(var/amt, var/turf/sprayloc, var/blood_spray_distance)
 	if(amt <= 0 || !istype(sprayloc))
 		return
 	var/spraydir = pick(GLOB.alldirs)
-	amt = Ceiling(amt/BLOOD_SPRAY_DISTANCE)
+	amt = Ceiling(amt/blood_spray_distance)
 	var/bled = 0
-	for(var/i = 1 to BLOOD_SPRAY_DISTANCE)
+	for(var/i = 1 to blood_spray_distance)
 		sprayloc = get_step(sprayloc, spraydir)
 		if(!istype(sprayloc) || (sprayloc.density && !iswall(sprayloc)))
 			break
 		var/hit_mob
 		for(var/thing in sprayloc)
 			var/atom/A = thing
-			if(!A.simulated)
+			if(!A.simulated || !ishuman(A) || !(A.CanPass(src, sprayloc)) || hit_mob)
 				continue
 
-			if(ishuman(A))
-				var/mob/living/carbon/human/H = A
-				if(!H.lying)
-					H.bloody_body(src)
-					H.bloody_hands(src)
-					var/blinding = FALSE
-					if(ran_zone(BP_HEAD, 75))
-						blinding = TRUE
-						for(var/obj/item/I in list(H.head, H.glasses, H.wear_mask))
-							if(I && (I.body_parts_covered & EYES))
-								blinding = FALSE
-								break
-					if(blinding)
-						H.eye_blurry = max(H.eye_blurry, 10)
-						H.eye_blind = max(H.eye_blind, 5)
-						to_chat(H, SPAN_DANGER("You are blinded by a spray of blood!"))
-					else
-						to_chat(H, SPAN_DANGER("You are hit by a spray of blood!"))
-					hit_mob = TRUE
-
-			if(!(A.CanPass(src, sprayloc)) || hit_mob)
+			var/mob/living/carbon/human/H = A
+			if(H.lying)
 				continue
+
+			H.bloody_body(src)
+			H.bloody_hands(src)
+			var/blinding = FALSE
+			if(ran_zone(BP_HEAD, 75))
+				blinding = TRUE
+				for(var/obj/item/I in list(H.head, H.glasses, H.wear_mask))
+					if(I && (I.body_parts_covered & EYES))
+						blinding = FALSE
+						break
+			if(blinding)
+				H.eye_blurry = max(H.eye_blurry, 10)
+				H.eye_blind = max(H.eye_blind, 5)
+				to_chat(H, SPAN_DANGER("You are blinded by a spray of blood!"))
+			else
+				to_chat(H, SPAN_DANGER("You are hit by a spray of blood!"))
+			hit_mob = TRUE
 
 		drip(amt, sprayloc, spraydir)
 		bled += amt
 		if(hit_mob || iswall(sprayloc))
 			break
 	return bled
-#undef BLOOD_SPRAY_DISTANCE
 
 /mob/living/carbon/human/proc/get_blood_volume()
 	return round((REAGENT_VOLUME(vessel, /singleton/reagent/blood)/species.blood_volume)*100)
 
 /mob/living/carbon/human/proc/get_blood_circulation()
 	var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
+
 	var/blood_volume = get_blood_volume()
+
 	if(!heart)
 		return 0.25 * blood_volume
 
 	var/recent_pump = LAZYACCESS(heart.external_pump, 1) > world.time - (20 SECONDS)
-	var/pulse_mod = 1
+	var/pulse_mod = heart.base_pump_rate
+	var/min_efficiency = recent_pump ? 0.5 : 0.3
+
+	// Check if any components on the user wish to mess with the pump rate.
+	SEND_SIGNAL(src, COMSIG_HEART_PUMP_EVENT, heart, &blood_volume, &recent_pump, &pulse_mod, &min_efficiency)
+
 	if((status_flags & FAKEDEATH) || BP_IS_ROBOTIC(heart))
-		pulse_mod = 1
+		pulse_mod = heart.norm_pump_modifier
 	else
 		switch(heart.pulse)
 			if(PULSE_NONE)
 				if(recent_pump)
 					pulse_mod = LAZYACCESS(heart.external_pump, 2)
 				else
-					pulse_mod *= 0.25
+					pulse_mod *= heart.none_pump_modifier
 			if(PULSE_SLOW)
-				pulse_mod *= 0.9
+				pulse_mod *= heart.slow_pump_modifier
+			if(PULSE_NORM)
+				pulse_mod *= heart.norm_pump_modifier
 			if(PULSE_FAST)
-				pulse_mod *= 1.1
-			if(PULSE_2FAST, PULSE_THREADY)
-				pulse_mod *= 1.25
-	blood_volume *= pulse_mod
-
-	var/min_efficiency = recent_pump ? 0.5 : 0.3
-	blood_volume *= max(min_efficiency, (1-(heart.damage / heart.max_damage)))
+				pulse_mod *= heart.fast_pump_modifier
+			if(PULSE_2FAST)
+				pulse_mod *= heart.too_fast_pump_modifier
+			if(PULSE_THREADY)
+				pulse_mod *= heart.thready_pump_modifier
+	blood_volume *= pulse_mod * max(min_efficiency, (1-(heart.damage / heart.max_damage)))
 
 	return min(blood_volume, 100)
 
 /mob/living/carbon/human/proc/get_blood_oxygenation()
 	var/blood_volume = get_blood_circulation()
+
 	if(is_asystole() || (status_flags & FAKEDEATH)) // Heart is missing or isn't beating and we're not breathing (hardcrit)
 		return min(blood_volume, BLOOD_VOLUME_SURVIVE)
 
@@ -125,12 +127,16 @@
 		return blood_volume
 
 	var/blood_volume_mod = max(0, 1 - getOxyLoss()/(species.total_health/2))
-	var/oxygenated_mult = 0
+	var/oxygenated_add = 0
+
+	// Check if any components on the user wish to mess with the blood oxygenation.
+	SEND_SIGNAL(src, COMSIG_BLOOD_OXYGENATION_EVENT, &blood_volume, &blood_volume_mod, &oxygenated_add)
+
 	if(chem_effects[CE_OXYGENATED] == 1) // Dexalin.
-		oxygenated_mult = 0.5
+		oxygenated_add += 0.5
 	else if(chem_effects[CE_OXYGENATED] >= 2) // Dexplus.
-		oxygenated_mult = 0.8
-	blood_volume_mod = blood_volume_mod + oxygenated_mult - (blood_volume_mod * oxygenated_mult)
+		oxygenated_add += 0.8
+	blood_volume_mod = blood_volume_mod + oxygenated_add - (blood_volume_mod * oxygenated_add)
 	blood_volume = blood_volume * blood_volume_mod
 	return min(blood_volume, 100)
 
