@@ -19,6 +19,8 @@
 	offline_vision_restriction = TINT_HEAVY
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/combat
+	boot_type =  /obj/item/clothing/shoes/magboots/rig/chonk
+
 	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/melee/baton)
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT
@@ -64,6 +66,7 @@
 	species_restricted = list(BODYTYPE_HUMAN)
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/military
+	boot_type =  /obj/item/clothing/shoes/magboots/rig/heavy
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY
 
@@ -169,6 +172,7 @@
 	offline_vision_restriction = TINT_HEAVY
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/tcfl
+	boot_type =  /obj/item/clothing/shoes/magboots/rig/heavy
 
 	allowed = list(
 		/obj/item/device/flashlight,
@@ -222,6 +226,8 @@
 	offline_slowdown = 2
 	offline_vision_restriction = TINT_HEAVY
 
+	boot_type =  /obj/item/clothing/shoes/magboots/rig/heavy
+
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
@@ -274,6 +280,7 @@
 	offline_slowdown = 2
 	offline_vision_restriction = TINT_HEAVY
 
+	boot_type =  /obj/item/clothing/shoes/magboots/rig/heavy
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
@@ -342,6 +349,8 @@
 	offline_slowdown = 2
 	offline_vision_restriction = TINT_HEAVY
 
+	boot_type =  /obj/item/clothing/shoes/magboots/rig/heavy
+
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
@@ -403,7 +412,7 @@
 	max_heat_protection_temperature = ARMOR_MAX_HEAT_PROTECTION_TEMPERATURE
 
 	glove_type = /obj/item/clothing/gloves/powerfist
-	boot_type =  /obj/item/clothing/shoes
+	boot_type =  /obj/item/clothing/shoes/magboots/rig/chonk
 
 /obj/item/rig/bunker/equipped
 	initial_modules = list(
@@ -440,6 +449,7 @@
 	max_heat_protection_temperature = ARMOR_MAX_HEAT_PROTECTION_TEMPERATURE
 
 	glove_type = /obj/item/clothing/gloves/powerfist
+	boot_type =  /obj/item/clothing/shoes/magboots/rig/chonk
 
 /obj/item/rig/jinxiang/equipped
 	initial_modules = list(
@@ -479,6 +489,7 @@
 	siemens_coefficient = 0.1
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/nanotrasen
+	boot_type =  /obj/item/clothing/shoes/magboots/rig/heavy
 
 	slowdown = 1
 	offline_slowdown = 2

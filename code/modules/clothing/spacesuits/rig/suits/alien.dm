@@ -19,6 +19,7 @@
 	offline_slowdown = 10
 	vision_restriction = TINT_HEAVY
 	offline_vision_restriction = TINT_BLIND
+	boot_type =  /obj/item/clothing/shoes/magboots/rig/chonk
 
 	species_restricted = list(BODYTYPE_UNATHI)
 

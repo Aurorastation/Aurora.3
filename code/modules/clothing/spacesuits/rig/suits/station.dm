@@ -94,6 +94,7 @@
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/industrial
 	chest_type = /obj/item/clothing/suit/space/rig/industrial
+	boot_type =  /obj/item/clothing/shoes/magboots/rig/medium
 
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/bag/ore,/obj/item/pickaxe, /obj/item/gun/custom_ka,/obj/item/material/twohanded/fireaxe,/obj/item/gun/energy/vaurca/thermaldrill,/obj/item/storage/backpack/cell,/obj/item/rfd/mining)
 
@@ -208,6 +209,7 @@
 		BIO = ARMOR_BIO_SHIELDED,
 		RAD = ARMOR_RAD_SHIELDED
 	)
+	boot_type =  /obj/item/clothing/shoes/magboots/rig/medium // Its almost on par with typical combat hardsuits for armor.
 
 /obj/item/rig/eva/pilot/equipped
 
@@ -371,6 +373,7 @@
 	offline_vision_restriction = TINT_HEAVY
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/hazard
+	boot_type =  /obj/item/clothing/shoes/magboots/rig/heavy
 
 	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/melee/baton)
 
@@ -415,6 +418,7 @@
 	slowdown = 3
 	offline_slowdown = 4
 	offline_vision_restriction = TINT_HEAVY
+	boot_type =  /obj/item/clothing/shoes/magboots/rig/chonk
 
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/bag/inflatable,/obj/item/device/t_scanner,/obj/item/rfd/construction)
 

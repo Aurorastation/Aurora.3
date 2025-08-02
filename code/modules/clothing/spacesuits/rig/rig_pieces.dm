@@ -37,6 +37,15 @@
 /obj/item/clothing/shoes/magboots/rig/advanced
 	slowdown_active = 0
 
+/obj/item/clothing/shoes/magboots/rig/medium
+	footstep_sound_override = 'sound/machines/rig/rigstep_medium.ogg'
+
+/obj/item/clothing/shoes/magboots/rig/heavy
+	footstep_sound_override = 'sound/machines/rig/rigstep_heavy.ogg'
+
+/obj/item/clothing/shoes/magboots/rig/chonk
+	footstep_sound_override = 'sound/machines/rig/rigstep_chonk.ogg'
+
 /obj/item/clothing/suit/space/rig
 	name = "chestpiece"
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit)
