@@ -1543,87 +1543,87 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 	dir = SOUTH
 	pixel_y = -4
 
-/obj/machinery/power/apc/intrepid
+/obj/machinery/power/apc/shuttle/intrepid
 	cell_type = /obj/item/cell/high
 	req_access = null
-	req_one_access = list(ACCESS_INTREPID,ACCESS_ENGINE_EQUIP)
+	req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_INTREPID)
 
-/obj/machinery/power/apc/intrepid/north
+/obj/machinery/power/apc/shuttle/intrepid/north
 	dir = NORTH
 	pixel_y = 22
 
-/obj/machinery/power/apc/intrepid/east
+/obj/machinery/power/apc/shuttle/intrepid/east
 	dir = EAST
 	pixel_x = 12
 
-/obj/machinery/power/apc/intrepid/west
+/obj/machinery/power/apc/shuttle/intrepid/west
 	dir = WEST
 	pixel_x = -12
 
-/obj/machinery/power/apc/intrepid/south
+/obj/machinery/power/apc/shuttle/intrepid/south
 	dir = SOUTH
 	pixel_y = -4
 
-/obj/machinery/power/apc/canary
+/obj/machinery/power/apc/shuttle/canary
 	cell_type = /obj/item/cell/high
 	req_access = null
-	req_one_access = list(ACCESS_INTREPID,ACCESS_ENGINE_EQUIP)
+	req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_CANARY)
 
-/obj/machinery/power/apc/canary/north
+/obj/machinery/power/apc/shuttle/canary/north
 	dir = NORTH
 	pixel_y = 22
 
-/obj/machinery/power/apc/canary/east
+/obj/machinery/power/apc/shuttle/canary/east
 	dir = EAST
 	pixel_x = 12
 
-/obj/machinery/power/apc/canary/west
+/obj/machinery/power/apc/shuttle/canary/west
 	dir = WEST
 	pixel_x = -12
 
-/obj/machinery/power/apc/canary/south
+/obj/machinery/power/apc/shuttle/canary/south
 	dir = SOUTH
 	pixel_y = -4
 
-ABSTRACT_TYPE(/obj/machinery/power/apc/quark)
+ABSTRACT_TYPE(/obj/machinery/power/apc/shuttle/quark)
 	cell_type = /obj/item/cell/high
 	req_access = null
-	req_one_access = list(ACCESS_XENOARCH, ACCESS_RESEARCH, ACCESS_BRIDGE_CREW)
+	req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_QUARK)
 
-/obj/machinery/power/apc/quark/north
+/obj/machinery/power/apc/shuttle/quark/north
 	dir = NORTH
 	pixel_y = 22
 
-/obj/machinery/power/apc/quark/east
+/obj/machinery/power/apc/shuttle/quark/east
 	dir = EAST
 	pixel_x = 12
 
-/obj/machinery/power/apc/quark/west
+/obj/machinery/power/apc/shuttle/quark/west
 	dir = WEST
 	pixel_x = -12
 
-/obj/machinery/power/apc/quark/south
+/obj/machinery/power/apc/shuttle/quark/south
 	dir = SOUTH
 	pixel_y = -4
 
-/obj/machinery/power/apc/mining_shuttle
+/obj/machinery/power/apc/shuttle/spark
 	cell_type = /obj/item/cell/high
 	req_access = null
-	req_one_access = list(ACCESS_MINING,ACCESS_ENGINE_EQUIP)
+	req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_SPARK)
 
-/obj/machinery/power/apc/mining_shuttle/north
+/obj/machinery/power/apc/shuttle/spark/north
 	dir = NORTH
 	pixel_y = 22
 
-/obj/machinery/power/apc/mining_shuttle/east
+/obj/machinery/power/apc/shuttle/spark/east
 	dir = EAST
 	pixel_x = 12
 
-/obj/machinery/power/apc/mining_shuttle/west
+/obj/machinery/power/apc/shuttle/spark/west
 	dir = WEST
 	pixel_x = -12
 
-/obj/machinery/power/apc/mining_shuttle/south
+/obj/machinery/power/apc/shuttle/spark/south
 	dir = SOUTH
 	pixel_y = -4
 
@@ -1636,23 +1636,6 @@ ABSTRACT_TYPE(/obj/machinery/power/apc/quark)
 	locked = FALSE
 	coverlocked = FALSE
 	start_charge = 100
-
-/obj/machinery/power/apc/canary/north
-	dir = NORTH
-	pixel_y = 22
-
-/obj/machinery/power/apc/canary/east
-	dir = EAST
-	pixel_x = 12
-
-/obj/machinery/power/apc/canary/west
-	dir = WEST
-	pixel_x = -12
-
-/obj/machinery/power/apc/canary/south
-	dir = SOUTH
-	pixel_y = -4
-
 
 /obj/machinery/power/apc/super
 	cell_type = /obj/item/cell/super
