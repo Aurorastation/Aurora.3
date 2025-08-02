@@ -395,3 +395,18 @@
 		return
 
 	return max((maxHealth - health), 0)
+
+//version for the infestation event
+/mob/living/carbon/alien/diona/ghost_playable
+
+/mob/living/carbon/alien/diona/ghost_playable/Initialize(mapload)
+	. = ..()
+	if(!ckey && !client)
+		SSghostroles.add_spawn_atom("stowaway_nymph", src)
+
+/mob/living/carbon/alien/diona/ghost_playable/Destroy()
+	. = ..()
+	SSghostroles.remove_spawn_atom("stowaway_nymph", src)
+
+/mob/living/carbon/alien/diona/ghost_playable/flowery/Initialize(var/mapload)
+	. = ..(mapload, 100)
