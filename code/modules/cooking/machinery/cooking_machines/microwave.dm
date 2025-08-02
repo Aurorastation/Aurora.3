@@ -20,9 +20,12 @@
 	///Looping sound for the microwave
 	var/datum/looping_sound/microwave/microwave_loop
 
-	var/dirtiness = 0 // Ranges from 0 to 100, increasing a little with failed recipes and emptying reagents
-	var/broken = 0 // If above 0, the microwave is broken and can't be used
-	var/break_multiplier = 1.0 // Multiplier for break chance
+	/// Ranges from 0 to 100, increasing a little with failed recipes and emptying reagents
+	var/dirtiness = 0
+	/// If above 0, the microwave is broken and can't be used
+	var/broken = 0
+	/// Multiplier for break chance
+	var/break_multiplier = 1.0
 
 	starts_with = list(
 		/obj/item/reagent_containers/cooking_container/microwave_plate
