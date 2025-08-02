@@ -779,6 +779,26 @@
 	. = ..()
 	scan_target = WEAKREF(set_scan_target)
 
+/*#############################################
+				PERSISTENT
+#############################################*/
+
+/obj/item/paper/persistence_get_content()
+	var/list/data = list()
+	data["title"] = name
+	data["text"] = info
+	return json_encode(data)
+
+/obj/item/paper/persistence_apply_content(json, x, y, z)
+	var/list/data = json_decode(json)
+	set_content(data["title"], data["text"])
+	src.x = x
+	src.y = y
+	src.z = z
+	for(var/obj/object in loc) // Pin to noticeboard
+		if(istype(object, /obj/structure/noticeboard))
+			var/obj/structure/noticeboard/notice_board = object
+			notice_board.add_papers_from_turf()
 
 
 /*#############################################

@@ -65,7 +65,20 @@
 	var/list/req_one_access
 	/* END ACCESS VARS */
 
+	/* START PERSISTENCE VARS */
+	// State check if the subsystem is tracking the object, used for easy state checking without iterating the register
+	var/persistence_track_active = FALSE
+	// Tracking ID of the object used by the persistence subsystem
+	var/persistence_track_id = 0
+	// Author ckey of the object used in persistence subsystem
+	var/persistence_author_ckey = ""
+	// Expiration time used when saving a new persistent type, this can be changed depending on the use case
+	var/persistance_initial_expiration_time_days = PERSISTENT_DEFAULT_EXPIRATION_DAYS
+	/* END PERSISTENCE VARS */
+
 /obj/Destroy()
+	if(persistence_track_active) // Prevent hard deletion of references in the persistence register by removing it preemptively
+		SSpersistence.deregister_track(src)
 	STOP_PROCESSING(SSprocessing, src)
 	unbuckle()
 	QDEL_NULL(talking_atom)
@@ -323,4 +336,26 @@
 
 /// Override this to customize the effects an activated signaler has.
 /obj/proc/do_signaler()
+	return
+
+/*#############################################
+				PERSISTENT
+#############################################*/
+
+/**
+ * Called by the persistence subsystem to retrieve relevant persistent information to be stored in the database.
+ * Expected to be overriden by derived objects.
+ * RETURN: JSON blob with all information relevant to the objects persistence.
+ */
+/obj/proc/persistence_get_content()
+	return
+
+/**
+ * Called by the persistence subsystem to apply persistent data on the created object.
+ * Expected to be overriden by derived objects.
+ * PARAMS:
+ * 	JSON 	Blob with all information relevant to the objects persistence.
+ *	x,y,z	x-y-z coordinates of object, can be null.
+ */
+/obj/proc/persistence_apply_content(json, x, y, z)
 	return
