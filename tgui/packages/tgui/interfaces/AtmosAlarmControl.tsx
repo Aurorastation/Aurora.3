@@ -30,17 +30,20 @@ export const AtmosAlarmControl = (props, context) => {
         <Section
           title="Alarms"
           buttons={
-            <Input
-              autoFocus
-              autoSelect
-              placeholder="Search"
-              width="40vw"
-              maxLength={512}
-              onInput={(e, value) => {
-                setSearchTerm(value);
-              }}
-              value={searchTerm}
-            />
+            <>
+              <Button content={'Refresh'} onClick={() => act('refresh')} />
+              <Input
+                autoFocus
+                autoSelect
+                placeholder="Search by name"
+                width="40vw"
+                maxLength={512}
+                onInput={(e, value) => {
+                  setSearchTerm(value);
+                }}
+                value={searchTerm}
+              />
+            </>
           }>
           <Table>
             <Table.Row header>
