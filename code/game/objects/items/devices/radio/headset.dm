@@ -454,6 +454,7 @@
 
 /obj/item/device/radio/headset/headset_mining/alt
 	name = "mining bowman radio headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "mine_headset_alt"
 	item_state = "headset_alt"
 

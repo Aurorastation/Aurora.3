@@ -750,6 +750,8 @@
 			if(check_slot && check_slot == use_obj)
 				return
 			use_obj.forceMove(wearer)
+			if(src.color)
+				use_obj.color = src.color
 			if(!wearer.equip_to_slot_if_possible(use_obj, equip_to, 0, 1))
 				use_obj.forceMove(src)
 				if(check_slot)
