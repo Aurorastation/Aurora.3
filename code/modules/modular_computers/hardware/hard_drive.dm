@@ -56,6 +56,7 @@
 	icon_state = "hdd_micro"
 	hardware_size = 1
 
+
 /**
  *	Returns number of stored files and storage usage/capacity.
  */
