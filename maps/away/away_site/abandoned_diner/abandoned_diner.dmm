@@ -5874,7 +5874,7 @@
 /obj/machinery/door/firedoor{
 	dir = 4
 	},
-/obj/structure/cash_register{
+/obj/structure/closet/crate/cash_register{
 	dir = 4;
 	pixel_y = 8
 	},

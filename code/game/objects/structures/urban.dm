@@ -5,7 +5,7 @@
 	icon_state = "car"
 	anchored = TRUE
 	density = TRUE
-	layer = 7
+	layer = ABOVE_HUMAN_LAYER
 
 /obj/random/automobile
 	name = "random civilian automobile"
@@ -198,44 +198,7 @@
 	anchored = TRUE
 	density = TRUE
 
-/obj/structure/road_sign
-	name = "stop sign"
-	desc = "A stop sign to direct traffic. Sometimes a demand."
-	icon = 'icons/obj/structure/urban/road_signs.dmi'
-	icon_state = "stop"
-	layer = 9
-	anchored = TRUE
-
-/obj/structure/road_sign/yield
-	name = "yield sign"
-	desc = "A yield sign which tells you to slow down, rather politely. Let's hope you listen."
-	icon_state = "yield"
-
-/obj/structure/road_sign/pedestrian
-	name = "pedestrian passing sign"
-	desc = "A yellow sign which alerts you of bonus points ahead."
-	icon_state = "pedestrian"
-
-/obj/structure/road_sign/turn
-	name = "turn ahead sign"
-	desc = "A sign which warns of an approaching turn to the right. Is it the right choice?"
-	icon_state = "right"
-
-/obj/structure/road_sign/turn/left
-	desc = "A sign which warns of an approaching turn to the left. Is anything left?"
-	icon_state = "left"
-
-/obj/structure/road_sign/street
-	name = "street sign"
-	desc = "A green, wide street sign with words telling you that you are indeed on a street."
-	icon_state = "street_big"
-
-	var/street_name = null
-
-/obj/structure/road_sign/street/Initialize(mapload)
-	. = ..()
-	name = "[street_name]"
-	desc = "This sign indicates this crossing street is called [street_name]."
+// infrastructure
 
 ABSTRACT_TYPE(/obj/structure/stairs/urban)
 	icon = 'icons/obj/structure/urban/ledges.dmi'
@@ -312,16 +275,6 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 
 /obj/structure/structural_support/side
 	icon_state = "truss_side"
-
-/obj/structure/urban/pylon
-	name = "vehicle charging pylon"
-	desc = "A vehicle-grade charging pylon attached to a nearby port."
-	icon = 'icons/obj/structure/urban/infrastructure.dmi'
-	icon_state = "chargepylon"
-	light_color = LIGHT_COLOR_CYAN
-	light_range = 1.2
-	density = TRUE
-	anchored = TRUE
 
 /obj/structure/manhole
 	name = "sewer access manhole"
@@ -400,6 +353,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	icon_state = "sign1"
 	anchored = TRUE
 	layer = ABOVE_HUMAN_LAYER
+	layer = ABOVE_HUMAN_LAYER
 
 /obj/structure/shipping_container_old
 	name = "freight container"
@@ -409,12 +363,14 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	anchored = TRUE
 	density = TRUE
 	layer = ABOVE_HUMAN_LAYER
+	layer = ABOVE_HUMAN_LAYER
 
 /obj/effect/overlay/container_logo
 	name = "Hephaestus Industries emblem"
 	icon = 'icons/obj/structure/industrial/shipping_containers_old.dmi'
 	icon_state = "heph1"
 	layer = ABOVE_HUMAN_LAYER + 0.01
+	layer = 4.6
 
 /obj/effect/overlay/container_logo/einstein
 	name = "Einstein Engines emblem"
@@ -431,6 +387,8 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	icon = 'icons/obj/structure/urban/blockers.dmi'
 	icon_state = "rod_railing"
 	density = TRUE
+	climbable = TRUE
+	layer = ABOVE_HUMAN_LAYER
 	anchored = TRUE
 	pass_flags_self = PASSSTRUCTURE | LETPASSTHROW
 	climbable = TRUE
@@ -465,6 +423,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	density = TRUE
 	anchored = TRUE
 	pass_flags_self = PASSSTRUCTURE | LETPASSTHROW
+	layer = ABOVE_HUMAN_LAYER
 
 /obj/structure/road_barrier
 	name = "roadway barrier"
@@ -475,6 +434,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	pass_flags_self = PASSSTRUCTURE | LETPASSTHROW
 	climbable = TRUE
 	anchored = TRUE
+	layer = ABOVE_HUMAN_LAYER
 
 //smoothing these things would suck so here you go. i have no idea why you would want these buildable. map them manually
 /obj/structure/road_barrier/bot_in
@@ -512,16 +472,28 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	return TRUE
 
 /obj/structure/chainlink_fence
-	name = "chainlink industrial fencing"
-	desc = "A tall, imposing metal fence. Not to be confused with the slightly more popular Chainlink of recent years."
-	icon = 'icons/obj/structure/industrial/fencing_tall.dmi'
+	name = "chainlink fence"
+	desc = "A tall, imposing metal fence."
+	icon = 'icons/obj/structure/obstacles.dmi'
 	density = TRUE
-	icon_state = "fence"
+	icon_state = "normal_fence"
 	color = null
 	anchored = TRUE
 	can_be_unanchored = FALSE
 	atom_flags = ATOM_FLAG_CHECKS_BORDER
 	layer = ABOVE_HUMAN_LAYER //The sprite will be in front of players when positioned correctly.
+
+/obj/structure/chainlink_fence/corner
+	icon_state = "fence_corner"
+
+/obj/structure/chainlink_fence/intersect_bottom
+	icon_state = "fence_intersect_bottom"
+
+/obj/structure/chainlink_fence/intersect_middle
+	icon_state = "fence_intersect_middle"
+
+/obj/structure/chainlink_fence/intersect_corner
+	icon_state = "fence_intersect_corner"
 
 /obj/structure/chainlink_fence/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)//So bullets will fly over and stuff.
 	if(mover?.movement_type & PHASING)
@@ -593,7 +565,6 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	density = TRUE
 	anchored = TRUE
 
-
 /obj/structure/statue/buddha
 	name = "buddha statue"
 	desc = "A bronze statue of the Amitabha Buddha, the Buddha of Limitless Light."
@@ -603,13 +574,6 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	name = "gusoku"
 	desc = "A set of armor modelled after historical designs. Pieces replicating ancient artifacts are common on Konyang and viewed as favored pieces of art."
 	icon_state = "gusoku"
-
-/obj/structure/sign/urban
-	name = "exit sign"
-	desc = "A sign indicating where you should probably go in a hurry."
-	icon = 'icons/obj/structure/urban/infrastructure.dmi'
-	icon_state = "exit"
-	layer = ABOVE_HUMAN_LAYER
 
 /obj/structure/sign/billboard
 	name = "commercial billboard"
@@ -630,23 +594,6 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	ClearOverlays()
 	icon_state = "sign[rand(1, 14)]"
 	return
-
-/obj/structure/sign/urban/drive_thru
-	name = "drive thru sign"
-	desc = "A drive-thru sign."
-	icon = 'icons/obj/structure/urban/restaurant.dmi'
-	icon_state = "drivethru"
-	density = 1
-
-/obj/structure/sign/urban/restroom
-	name = "restroom sign"
-	desc = "A sign indicating where you can find a restroom."
-	icon_state = "restroom"
-
-/obj/structure/sign/urban/staff
-	name = "staff only sign"
-	desc = "A sign that warns of this entry being barred to the public."
-	icon_state = "staff"
 
 /obj/structure/restaurant_menu
 	name = "restaurant menu"
@@ -674,37 +621,6 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 		update_icon()
 		return TRUE
 	return ..()
-
-/obj/structure/sign/urban/konyang
-	name = "convenience store sign"
-	desc = "A sign labeling the structure as a 24-7 MINI MART. Convenient!"
-	icon = 'icons/obj/structure/urban/konyang_signs.dmi'
-	icon_state = "shop_sign"
-
-/obj/structure/sign/urban/konyang/police
-	name = "police station sign"
-	desc = "A sign labeling the structure as a Konyang police department building."
-	icon_state = "police_sign"
-
-/obj/structure/sign/urban/konyang/robotics
-	name = "robotics clinic sign"
-	desc = "A sign labeling the structure as a robotics and clinical support building."
-	icon_state = "krc_sign"
-
-/obj/structure/sign/urban/konyang/bar
-	name = "club and bar sign"
-	desc = "A sign labeling the structure as the Resting Tiger nightclub and bar."
-	icon_state = "bar_sign"
-
-/obj/structure/sign/urban/konyang/arcade
-	name = "arcade sign"
-	desc = "A sign labeling the structure as a very cool arcade."
-	icon_state = "arcade_sign"
-
-/obj/structure/sign/urban/konyang/pharmacy
-	name = "pharmacy sign"
-	desc = "A sign labeling the structure as a Konyang health and supply pharmacy."
-	icon_state = "pharmacy_sign"
 
 /obj/structure/window/urban
 	icon = 'icons/obj/structure/urban/windows_tall.dmi'
@@ -766,34 +682,6 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 
 /obj/structure/blocker/exterior_wall/blue
 	color = COLOR_COMMAND_BLUE
-
-/obj/structure/cash_register
-	name = "cash register machine"
-	desc = "A retail nightmare object."
-	icon = 'icons/obj/structure/urban/infrastructure.dmi'
-	icon_state = "cashier"
-	layer = 2.99
-	density = 0
-	anchored = 0
-	var/storage_type = /obj/item/storage/toolbox/cash_register_storage
-	var/obj/item/storage/storage_compartment
-
-/obj/structure/cash_register/mechanics_hints(mob/user, distance, is_adjacent)
-	. += ..()
-	. += "Drag this onto yourself to open the cash compartment."
-
-/obj/structure/cash_register/Initialize(mapload)
-	. = ..()
-	if(storage_type)
-		storage_compartment = new storage_type(src)
-
-/obj/item/storage/toolbox/cash_register_storage
-	name = "cash compartment"
-
-/obj/structure/cash_register/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
-	if(user == over && ishuman(over))
-		var/mob/living/carbon/human/H = over
-		storage_compartment.open(H)
 
 /**
  * # Urban doors
