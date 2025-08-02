@@ -75,6 +75,21 @@ However, if you want finer control over the installation or build process, you w
 > tools/build/build tgui tgui-lint tgui-tsc tgui-test
 > ```
 
+**Via Bun (cross-platform)**:
+
+Run `bun install` once to install tgui dependencies.
+
+- `bun tgui:build` - Build tgui in production mode.
+  - `bun tgui:build [options]` - Build tgui with custom webpack options.
+- `bun tgui:dev` - Launch a development server.
+  - `bun tgui:dev --reload` - Reload byond cache once.
+  - `bun tgui:dev --debug` - Run server with debug logging enabled.
+- `bun tgui:lint` - Show (and auto-fix) problems with the code.
+- `bun tgui:tsc` - Check code with TypeScript compiler.
+- `bun tgui:test` - Run unit and integration tests.
+- `bun tgui:analyze` - Run a bundle analyzer.
+- `bun tgfont:build` - Build icon fonts.
+
 **Via Yarn (cross-platform)**:
 
 Run `yarn install` once to install tgui dependencies.
