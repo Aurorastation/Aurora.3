@@ -44,6 +44,9 @@
 	var/tmp/image/fake_wall_image
 	var/tmp/cached_adjacency
 
+	/// A lazylist of humans leaning on this wall.
+	var/list/hiding_humans
+
 	smoothing_flags = SMOOTH_MORE | SMOOTH_NO_CLEAR_ICON | SMOOTH_UNDERLAYS
 
 	pathing_pass_method = TURF_PATHING_PASS_NO //Literally a wall, until we implement bots that can wallwarp, we might aswell save the processing
@@ -116,6 +119,7 @@
 /turf/simulated/wall/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	dismantle_wall(null, null, TRUE, TRUE)
+	LAZYNULL(hiding_humans)
 	return ..()
 
 /turf/simulated/wall/process()
@@ -309,3 +313,79 @@
 
 /turf/simulated/wall/is_wall()
 	return TRUE
+
+/turf/simulated/wall/mouse_drop_receive(atom/dropped, mob/user, params)
+	if(!ismob(dropped))
+		return
+
+	var/mob/living/carbon/human/current_mob = dropped
+
+	// wall leaning by androbetel
+	if(!ishuman(current_mob))
+		return
+
+	if(current_mob != user)
+		return
+
+	var/mob/living/carbon/hiding_human = current_mob
+	var/can_lean = TRUE
+
+	if(istype(user.l_hand, /obj/item/grab) || istype(user.r_hand, /obj/item/grab))
+		to_chat(user, SPAN_WARNING("You can't lean while grabbing someone!"))
+		can_lean = FALSE
+	if(current_mob.incapacitated())
+		to_chat(user, SPAN_WARNING("You can't lean while incapacitated!"))
+		can_lean = FALSE
+	if(current_mob.resting)
+		to_chat(user, SPAN_WARNING("You can't lean while resting!"))
+		can_lean = FALSE
+	if(current_mob.buckled_to)
+		to_chat(user, SPAN_WARNING("You can't lean while buckled!"))
+		can_lean = FALSE
+
+	var/direction = get_dir(src, current_mob)
+	var/shift_pixel_x = 0
+	var/shift_pixel_y = 0
+
+	if(!can_lean)
+		return
+	switch(direction)
+		if(NORTH)
+			shift_pixel_y = -10
+		if(SOUTH)
+			shift_pixel_y = 16
+		if(WEST)
+			shift_pixel_x = 10
+		if(EAST)
+			shift_pixel_x = -10
+		else
+			return
+
+	for(var/mob/living/carbon/human/hiding in hiding_humans)
+		if(hiding_humans[hiding] == direction)
+			return
+
+	LAZYADD(hiding_humans, current_mob)
+	hiding_humans[current_mob] = direction
+	hiding_human.Moved() //just to be safe
+	hiding_human.set_dir(direction)
+	animate(hiding_human, pixel_x = shift_pixel_x, pixel_y = shift_pixel_y, time = 1)
+	if(direction == NORTH)
+		hiding_human.add_filter("cutout", 1, alpha_mask_filter(icon = icon('icons/effects/effects.dmi', "cutout")))
+	hiding_human.density = FALSE
+	RegisterSignals(hiding_human, list(COMSIG_MOVABLE_MOVED, COMSIG_MOB_RESISTED), PROC_REF(unhide_human), hiding_human)
+	..()
+
+/turf/simulated/wall/proc/unhide_human(mob/living/carbon/human/to_unhide)
+	SIGNAL_HANDLER
+	if(!to_unhide)
+		return
+
+	to_unhide.density = FALSE
+	to_unhide.pixel_x = initial(to_unhide.pixel_x)
+	to_unhide.pixel_y = initial(to_unhide.pixel_y)
+	to_unhide.layer = initial(to_unhide.layer)
+	LAZYREMOVE(hiding_humans, to_unhide)
+	UnregisterSignal(to_unhide, list(COMSIG_MOVABLE_MOVED, COMSIG_MOB_RESISTED))
+	to_chat(to_unhide, SPAN_NOTICE("You stop leaning on the wall."))
+	to_unhide.remove_filter("cutout")

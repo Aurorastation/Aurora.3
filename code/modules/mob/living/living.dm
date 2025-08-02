@@ -678,6 +678,7 @@ default behaviour is:
 /mob/living/proc/execute_resist()
 
 	if(!incapacitated(INCAPACITATION_KNOCKOUT) && canClick())
+		SEND_SIGNAL(src, COMSIG_MOB_RESISTED)
 		resist_grab()
 		if(!weakened)
 			process_resist()
