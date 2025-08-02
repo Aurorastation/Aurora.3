@@ -286,6 +286,11 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/structure/table/standard,
+/obj/item/storage/belt/utility,
+/obj/item/storage/belt/utility{
+	pixel_y = 5
+	},
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering2)
 "cl" = (
@@ -1396,7 +1401,7 @@
 /area/shuttle/tarwa)
 "mC" = (
 /obj/machinery/vending/engineering{
-	req_access = list(113)
+	req_access = null
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
@@ -4937,11 +4942,11 @@
 /area/tarwa_ship/oldhangar)
 "SG" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/machinery/vending/cigarette,
 /obj/structure/sign/flag/tarwa{
 	pixel_y = 25;
 	stand_icon = "banner"
 	},
+/obj/machinery/vending/cigarette/hacked,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/bridge)
 "SI" = (
@@ -35196,16 +35201,16 @@ ef
 ef
 ef
 ef
+Rz
+sC
+sC
 sC
 sC
 sC
 sC
 sC
 Rz
-Rz
-sC
-sC
-VF
+UV
 Zg
 MR
 MR
@@ -35452,17 +35457,17 @@ ef
 sP
 sP
 ef
-sC
-sC
+Rz
+Rz
 Rz
 TV
 MM
-Rz
+sC
 Uj
 Fc
-Rz
+sC
 aE
-VF
+UV
 VF
 ns
 KI
@@ -35714,10 +35719,10 @@ Rz
 Ss
 HG
 kI
-Rz
+sC
 jf
 Id
-Rz
+sC
 lb
 aE
 VF
@@ -35971,7 +35976,7 @@ Rz
 Rz
 Gd
 HG
-Rz
+sC
 pE
 BJ
 sC

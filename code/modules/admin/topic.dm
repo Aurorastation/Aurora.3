@@ -141,7 +141,7 @@
 
 	else if(href_list["simplemake"])
 
-		if(!check_rights(R_SPAWN))
+		if(!check_rights(R_FUN))
 			return
 
 		var/mob/M = locate(href_list["mob"])
@@ -416,7 +416,7 @@
 		dat += {"<A href='byond://?src=[REF(src)];c_mode2=secret'>Secret</A><br>"}
 		dat += {"<A href='byond://?src=[REF(src)];c_mode2=random'>Random</A><br>"}
 		dat += {"Now: [GLOB.master_mode]"}
-		usr << browse(dat, "window=c_mode")
+		usr << browse(HTML_SKELETON(dat), "window=c_mode")
 
 	else if(href_list["f_secret"])
 		if(!check_rights(R_ADMIN))
@@ -431,7 +431,7 @@
 			dat += {"<A href='byond://?src=[REF(src)];f_secret2=[mode]'>[GLOB.config.mode_names[mode]]</A><br>"}
 		dat += {"<A href='byond://?src=[REF(src)];f_secret2=secret'>Random (default)</A><br>"}
 		dat += {"Now: [GLOB.secret_force_mode]"}
-		usr << browse(dat, "window=f_secret")
+		usr << browse(HTML_SKELETON(dat), "window=f_secret")
 
 	else if(href_list["c_mode2"])
 		if(!check_rights(R_ADMIN|R_SERVER))
@@ -474,7 +474,7 @@
 		psi.check_psionic_trigger(100, "outside intervention", redactive = TRUE)
 
 	else if(href_list["monkeyone"])
-		if(!check_rights(R_SPAWN))
+		if(!check_rights(R_FUN))
 			return
 
 		var/mob/living/carbon/human/H = locate(href_list["monkeyone"])
@@ -487,7 +487,7 @@
 		H.monkeyize()
 
 	else if(href_list["corgione"])
-		if(!check_rights(R_SPAWN))
+		if(!check_rights(R_FUN))
 			return
 
 		var/mob/living/carbon/human/H = locate(href_list["corgione"])
@@ -645,7 +645,7 @@
 		message_admins("[key_name_admin(usr)] has sent [key_name_admin(M)] to the thunderdome. (Observer.)", 1)
 
 	else if(href_list["revive"])
-		if(!check_rights(R_REJUVINATE))
+		if(!check_rights(R_REJUVENATE))
 			return
 
 		var/mob/living/L = locate(href_list["revive"])
@@ -661,7 +661,7 @@
 			to_chat(usr, "Admin Rejuvinates have been disabled")
 
 	else if(href_list["makeai"])
-		if(!check_rights(R_SPAWN))
+		if(!check_rights(R_FUN))
 			return
 
 		var/mob/living/carbon/human/H = locate(href_list["makeai"])
@@ -674,7 +674,7 @@
 		H.AIize()
 
 	else if(href_list["makeslime"])
-		if(!check_rights(R_SPAWN))
+		if(!check_rights(R_FUN))
 			return
 
 		var/mob/living/carbon/human/H = locate(href_list["makeslime"])
@@ -685,7 +685,7 @@
 		usr.client.cmd_admin_slimeize(H)
 
 	else if(href_list["makerobot"])
-		if(!check_rights(R_SPAWN))
+		if(!check_rights(R_FUN))
 			return
 
 		var/mob/living/carbon/human/H = locate(href_list["makerobot"])
@@ -696,7 +696,7 @@
 		usr.client.cmd_admin_robotize(H)
 
 	else if(href_list["makeanimal"])
-		if(!check_rights(R_SPAWN))
+		if(!check_rights(R_FUN))
 			return
 
 		var/mob/M = locate(href_list["makeanimal"])
@@ -707,7 +707,7 @@
 		usr.client.cmd_admin_animalize(M)
 
 	else if(href_list["togmutate"])
-		if(!check_rights(R_SPAWN))
+		if(!check_rights(R_FUN))
 			return
 
 		var/mob/living/carbon/human/H = locate(href_list["togmutate"])
@@ -981,7 +981,7 @@
 				var/obj/pageobj = B.pages[page]
 				data += "<A href='byond://?src=[REF(src)];AdminFaxViewPage=[page];paper_bundle=[REF(B)]'>Page [page] - [pageobj.name]</A><BR>"
 
-			usr << browse(data, "window=[B.name]")
+			usr << browse(HTML_SKELETON(data), "window=[B.name]")
 		else
 			to_chat(usr, SPAN_WARNING("The faxed item is not viewable. This is probably a bug, and should be reported on the tracker: [fax.type]"))
 
@@ -1014,14 +1014,14 @@
 		return
 
 	else if(href_list["jumpto"])
-		if(!check_rights(R_ADMIN))
+		if(!check_rights(R_BAN))
 			return
 
 		var/mob/M = locate(href_list["jumpto"])
 		usr.client.jumptomob(M)
 
 	else if(href_list["getmob"])
-		if(!check_rights(R_ADMIN))
+		if(!check_rights(R_BAN))
 			return
 
 		if(alert(usr, "Confirm?", "Message", "Yes", "No") != "Yes")
@@ -1030,7 +1030,7 @@
 		usr.client.Getmob(M)
 
 	else if(href_list["sendmob"])
-		if(!check_rights(R_ADMIN))
+		if(!check_rights(R_BAN))
 			return
 
 		var/mob/M = locate(href_list["sendmob"])
@@ -1571,6 +1571,20 @@
 			error_viewer.show_to(owner, locate(href_list["viewruntime_backto"]), href_list["viewruntime_linear"])
 		else
 			error_viewer.show_to(owner, null, href_list["viewruntime_linear"])
+	else if(href_list["slowquery"])
+		if(!check_rights(R_ADMIN))
+			return
+
+		var/data = list("key" = usr.key)
+		var/answer = href_list["slowquery"]
+		if(answer == "yes")
+			if(tgui_alert(usr, "Did you just press any admin buttons?", "Query server hang report", list("Yes", "No")) == "Yes")
+				var/response = input(usr,"What were you just doing?","Query server hang report") as null|text
+				if(response)
+					data["response"] = response
+			log_subsystem_dbcore("SLOW QUERY - SERVER HANG - [json_encode(data)]") //We really need a better logging system (BRING BACK GELF)
+		else if(answer == "no")
+			log_subsystem_dbcore("SLOW QUERY - NO SERVER HANG - [json_encode(data)]") //We really need a better logging system (BRING BACK GELF)
 
 /mob/living/proc/can_centcom_reply()
 	return 0

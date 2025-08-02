@@ -214,7 +214,7 @@ var/list/VVdynamic_lock = list(
 	if(variable in VVlocked)
 		if(!check_rights(R_DEBUG|R_DEV))	return
 	if(variable in VVckey_edit)
-		if(!check_rights(R_SPAWN|R_DEBUG|R_DEV)) return
+		if(!check_rights(R_FUN|R_DEBUG|R_DEV)) return
 	if(variable in VVicon_edit_lock)
 		if(!check_rights(R_FUN|R_DEBUG|R_DEV)) return
 
@@ -433,7 +433,7 @@ var/list/VVdynamic_lock = list(
 		if(param_var_name in VVlocked)
 			if(!check_rights(R_DEBUG|R_DEV))	return
 		if(param_var_name in VVckey_edit)
-			if(!check_rights(R_SPAWN|R_DEBUG|R_DEV)) return
+			if(!check_rights(R_FUN|R_DEBUG|R_DEV)) return
 		if(param_var_name in VVicon_edit_lock)
 			if(!check_rights(R_FUN|R_DEBUG|R_DEV)) return
 		if(VVdynamic_lock[variable])
@@ -498,7 +498,7 @@ var/list/VVdynamic_lock = list(
 		if(variable in VVlocked)
 			if(!check_rights(R_DEBUG|R_DEV)) return
 		if(variable in VVckey_edit)
-			if(!check_rights(R_SPAWN|R_DEBUG|R_DEV)) return
+			if(!check_rights(R_FUN|R_DEBUG|R_DEV)) return
 		if(variable in VVicon_edit_lock)
 			if(!check_rights(R_FUN|R_DEBUG|R_DEV)) return
 		if(VVdynamic_lock[variable])

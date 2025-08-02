@@ -6,7 +6,6 @@
 /obj/item/storage/backpack
 	name = "backpack"
 	desc = "You wear this on your back and put items into it."
-	desc_antag = "As a Cultist, this item can be reforged to become a cult backpack. Any stored items will be transferred."
 	icon = 'icons/obj/storage/backpack.dmi'
 	icon_state = "backpack"
 	item_state = "backpack"
@@ -32,6 +31,10 @@
 	 * Suffix used for overlays with an attached sleeping bag, because satchels are at people's sides while other bags are on people's backs.
 	 */
 	var/attached_icon = "backpack"
+
+/obj/item/storage/backpack/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "As a Cultist, this item can be reforged to become a cult backpack. Any stored items will be transferred."
 
 /obj/item/storage/backpack/Initialize()
 	. = ..()
@@ -117,9 +120,9 @@
 		I.AddOverlays(over)
 	return I
 
-/obj/item/storage/backpack/AltClick(mob/usr)
-	if(attached_bag && ishuman(usr))
-		var/mob/living/carbon/human/H = usr
+/obj/item/storage/backpack/AltClick(mob/user)
+	if(attached_bag && ishuman(user))
+		var/mob/living/carbon/human/H = user
 		H.put_in_hands(attached_bag)
 		attached_bag = null
 		update_icon()
@@ -140,7 +143,7 @@
 	icon_state = "holdingpack"
 	item_state = "holdingpack"
 	max_w_class = WEIGHT_CLASS_BULKY
-	max_storage_space = 56
+	max_storage_space = DEFAULT_HOLDING_STORAGE
 	storage_cost = 29
 	empty_delay = 0.8 SECOND
 
@@ -157,19 +160,9 @@
 		return 1
 	return ..()
 
-/obj/item/storage/backpack/santabag
-	name = "\improper Santa's gift bag"
-	desc = "Space Santa uses this to deliver toys to all the nice children in space in Christmas! Wow, it's pretty big!"
-	icon_state = "giftbag0"
-	item_state = "giftbag"
-	w_class = WEIGHT_CLASS_BULKY
-	max_storage_space = 200 // can store a ton of shit!
-	empty_delay = 1 SECOND
-
 /obj/item/storage/backpack/cultpack
 	name = "trophy rack"
 	desc = "It's useful for both carrying extra gear and proudly declaring your insanity."
-	desc_antag = null // It's already been forged once.
 	icon_state = "cultpack"
 	item_state = "cultpack"
 
@@ -395,7 +388,7 @@
 	icon = 'icons/obj/unathi_items.dmi'
 	icon_state = "hegemony_satchel"
 	item_state = "hegemony_satchel"
-	max_storage_space = 32
+	max_storage_space = DEFAULT_DUFFELBAG_STORAGE
 	allow_quick_empty = FALSE // Pouches 'n shit.
 
 /obj/item/storage/backpack/satchel/eng
@@ -563,7 +556,7 @@
 	w_class = WEIGHT_CLASS_HUGE // to avoid recursive backpacks
 	slot_flags = SLOT_BACK
 	max_w_class = WEIGHT_CLASS_NORMAL
-	max_storage_space = 20
+	max_storage_space = DEFAULT_LARGEBOX_STORAGE
 	build_from_parts = TRUE
 	worn_overlay = "overlay"
 
@@ -580,7 +573,6 @@
 	desc = "A small, fashionable bag typically worn over the shoulder."
 	icon_state = "purse"
 	item_state = "purse"
-	max_storage_space = 16
 	straps = FALSE
 
 // Duffel Bags
@@ -592,7 +584,7 @@
 	icon_state = "duffel"
 	item_state = "duffel"
 	slowdown = 1
-	max_storage_space = 38
+	max_storage_space = DEFAULT_DUFFELBAG_STORAGE
 	straps = TRUE
 
 /obj/item/storage/backpack/duffel/cap
@@ -926,7 +918,7 @@
 	contained_sprite = FALSE
 	w_class = WEIGHT_CLASS_HUGE
 	slot_flags = SLOT_BACK
-	max_storage_space = 12
+	max_storage_space = DEFAULT_BOX_STORAGE
 	canremove = FALSE
 	species_restricted = list(BODYTYPE_VAURCA_BREEDER)
 	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/back.dmi')
@@ -1099,7 +1091,6 @@
 /obj/item/storage/backpack/kala
 	name = "skrell backpack"
 	desc = "A lightly padded, waterproof backpack worn by Skrell."
-	icon = 'icons/clothing/kit/skrell_armor.dmi'
 	icon_state = "kala_backpack"
 	item_state = "kala_backpack"
 	contained_sprite = TRUE

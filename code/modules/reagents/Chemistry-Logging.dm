@@ -24,4 +24,4 @@ GLOBAL_LIST_EMPTY(chemical_reaction_logs)
 	for(var/entry in GLOB.chemical_reaction_logs)
 		html += "[entry]<br>"
 
-	usr << browse(html, "window=chemlogs")
+	usr << browse(HTML_SKELETON(html), "window=chemlogs")

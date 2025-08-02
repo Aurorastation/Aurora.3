@@ -6,18 +6,18 @@
 /obj/item/rig/merc
 	name = "crimson hardsuit control module"
 	desc = "A blood-red hardsuit featuring some fairly illegal technology."
-	icon = 'icons/clothing/rig/merc_crimson.dmi'
+	icon = 'icons/obj/item/clothing/rig/merc_crimson.dmi'
 	icon_state = "merc_rig"
 	icon_supported_species_tags = list("ipc", "skr", "taj", "una")
 	suit_type = "crimson hardsuit"
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_MAJOR,
-		laser = ARMOR_LASER_MEDIUM,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SMALL
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_MAJOR,
+		LASER = ARMOR_LASER_MEDIUM,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.1
 	offline_slowdown = 3
@@ -72,17 +72,17 @@
 /obj/item/rig/merc/distress
 	name = "rhino hardsuit control module"
 	desc = "A combat hardsuit utilized by many private military companies, packing some seriously heavy plating."
-	icon = 'icons/clothing/rig/rhino.dmi'
+	icon = 'icons/obj/item/clothing/rig/rhino.dmi'
 	icon_state = "rhino"
 	suit_type = "rhino hardsuit"
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_MAJOR,
-		laser = ARMOR_LASER_MEDIUM,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SMALL
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_MAJOR,
+		LASER = ARMOR_LASER_MEDIUM,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.1
 	offline_slowdown = 3
@@ -121,7 +121,7 @@
 	name = "paragon suit control module"
 	desc = "A back mounted control mechanism of an Einstein Engines hardsuit. This model is issued to the leaders of security teams within the corporation."
 	suit_type = "paragon"
-	icon = 'icons/clothing/rig/einstein_merc.dmi'
+	icon = 'icons/obj/item/clothing/rig/einstein_merc.dmi'
 	icon_state = "paragon"
 	icon_supported_species_tags = null
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY

@@ -42,13 +42,24 @@
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	var/chewable = TRUE
 
+/obj/item/storage/box/condition_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if (health < maxHealth)
+		if (health >= (maxHealth * 0.5))
+			. += SPAN_WARNING("It is slightly torn.")
+		else
+			. += SPAN_DANGER("It is full of tears and holes.")
+
+/obj/item/storage/box/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(foldable)
+		. += "Left-click on this when empty to fold it into a sheet."
+	if(ispath(src.trash))
+		. += "This can be crumpled up into a trash item when empty, or forcibly crumpled on harm intent. "
+
 /obj/item/storage/box/Initialize()
 	. = ..()
 	health = maxHealth
-	if(foldable)
-		desc_info += "You can fold this into a sheet. "
-	if(ispath(src.trash))
-		desc_info += "This can be crumpled up into a trash item when empty, or forcibly crumpled on harm intent. "
 	if(illustration)
 		AddOverlays(illustration)
 
@@ -91,14 +102,6 @@
 				playsound(loc, toplay, 30, 1)
 			damage(damage)
 	..()
-
-/obj/item/storage/box/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if (health < maxHealth)
-		if (health >= (maxHealth * 0.5))
-			. += SPAN_WARNING("It is slightly torn.")
-		else
-			. += SPAN_DANGER("It is full of tears and holes.")
 
 // BubbleWrap - A box can be folded up to make card
 /obj/item/storage/box/attack_self(mob/user as mob)
@@ -442,7 +445,7 @@
 	name = "box of assorted firing pins"
 	desc = "A box of varied assortment of firing pins. Appears to have R&D stickers on all sides of the box. Also seems to have a smiley face sticker on the top of it."
 	illustration = "firingpin"
-	starts_with = list(/obj/item/device/firing_pin = 2, /obj/item/device/firing_pin/access = 2, /obj/item/device/firing_pin/implant/loyalty = 2, /obj/item/device/firing_pin/clown = 1, /obj/item/device/firing_pin/dna = 1)
+	starts_with = list(/obj/item/device/firing_pin = 2, /obj/item/device/firing_pin/access = 2, /obj/item/device/firing_pin/implant/loyalty = 2, /obj/item/device/firing_pin/psionic = 1, /obj/item/device/firing_pin/dna = 1)
 
 /obj/item/storage/box/psireceiver
 	name = "box of psionic receivers"
@@ -454,10 +457,7 @@
 	name = "box of tethering devices"
 	desc = "A box containing eight electro-tethers, used primarily to keep track of partners during expeditions."
 	starts_with = list(/obj/item/tethering_device = 8)
-
-/obj/item/storage/box/tethers/fill()
-	..()
-	make_exact_fit()
+	make_exact_fit = TRUE
 
 /obj/item/storage/box/teargas
 	name = "box of pepperspray grenades"
@@ -593,11 +593,15 @@
 	item_state = "redbox"
 	illustration = null
 	starts_with = list(/obj/item/reagent_containers/food/snacks/donkpocket/sinpocket = 6)
-	desc_antag = "Crush bottom of package to initiate chemical heating. Wait for 20 seconds before consumption. Product will cool if not eaten within seven minutes."
+
+/obj/item/storage/box/sinpockets/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Crush bottom of each package to initiate chemical heating. Wait for 20 seconds before consumption."
+	. += "Product will cool if not eaten within seven minutes."
 
 /obj/item/storage/box/donkpockets/gwok
 	name = "box of teriyaki Gwok-pockets"
-	icon_state = "gwokpocketbox"
+	icon_state = "donkpocketboxteriyaki"
 	item_state = "redbox"
 	illustration = null
 	starts_with = list(/obj/item/reagent_containers/food/snacks/donkpocket/teriyaki = 6)
@@ -609,7 +613,7 @@
 /obj/item/storage/box/janitorgloves
 	name = "janitorial gloves box"
 	desc = "A box full of janitorial gloves of all shapes and sizes."
-	max_storage_space = 4
+	make_exact_fit = TRUE
 	can_hold = list(
 		/obj/item/clothing/gloves/janitor
 	)
@@ -626,9 +630,9 @@
 	desc_extended = "The manufacture of a cubed animal produces subjects that are similar but have marked differences compared to their ordinary cousins. Higher brain functions are all but destroyed \
 	and the life expectancy of the cubed animal is greatly reduced, with most expiring only a few days after introduction with water."
 	icon_state = "monkeycubebox"
+	illustration = null
 	can_hold = list(/obj/item/reagent_containers/food/snacks/monkeycube)
 	starts_with = list(/obj/item/reagent_containers/food/snacks/monkeycube/wrapped = 5)
-
 
 /obj/item/storage/box/monkeycubes/farwacubes
 	name = "farwa cube box"
@@ -697,8 +701,11 @@
 	starts_with = list(/obj/item/toy/snappop = 8)
 
 /obj/item/storage/box/snappops/syndi
-	desc_antag = "These snap pops have an extra compound added that will deploy a tiny smokescreen when snapped."
 	starts_with = list(/obj/item/toy/snappop/syndi = 8)
+
+/obj/item/storage/box/snappops/syndi/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "These snap pops have an extra compound added that will deploy a tiny smokescreen when snapped."
 
 /obj/item/storage/box/partypopper
 	name = "party popper box"
@@ -716,11 +723,8 @@
 	name = "box of replacement bulbs"
 	illustration = "light"
 	desc = "This box is shaped on the inside so that only light tubes and bulbs fit."
-	use_to_pickup = 1 // for picking up broken bulbs, not that most people will try
-
-/obj/item/storage/box/lights/Initialize()	// TODO-STORAGE: Initialize()?
-	. = ..()
-	make_exact_fit()
+	use_to_pickup = TRUE // for picking up broken bulbs, not that most people will try
+	make_exact_fit = TRUE
 
 /obj/item/storage/box/lights/bulbs
 	starts_with = list(/obj/item/light/bulb = 21)
@@ -918,10 +922,7 @@
 	icon_state = "largebox"
 	illustration = "fruit"
 	starts_with = list(/obj/random_produce/box = 15)
-
-/obj/item/storage/box/produce/fill()
-	. = ..()
-	make_exact_fit()
+	make_exact_fit = TRUE
 
 
 /obj/item/storage/box/candy
@@ -929,6 +930,7 @@
 	desc = "A large box of assorted small candy."
 	icon_state = "largebox"
 	illustration = "writing_large"
+	make_exact_fit = TRUE
 
 /obj/item/storage/box/candy/fill()
 	var/list/assorted_list = list(
@@ -947,8 +949,6 @@
 	for(var/i in 1 to 24)
 		var/chosen_candy = pickweight(assorted_list)
 		new chosen_candy(src)
-
-	make_exact_fit()
 
 
 /obj/item/storage/box/crabmeat
@@ -1054,6 +1054,271 @@
 		/obj/item/flag/azubarre = 1
 	)
 
+/// Parent object of various national flag boxes. Original intention for random cargo spawn.
+/obj/item/storage/box/flags
+	name = "national flag box - PARENT ITEM DO NOT USE"
+	desc = "A box filled to the brim with various flags."
+	icon_state = "largebox"
+	illustration = "flags"
+	make_exact_fit = TRUE
+	can_hold = list(
+		/obj/item/flag
+	)
+
+/obj/item/storage/box/flags/sol
+	name = "Solarian Alliance flag box"
+	desc = "A box filled to the brim with various national flags."
+	starts_with = list(
+		/obj/item/flag/sol = 6,
+		/obj/item/flag/sol/l = 4,
+		/obj/item/flag/venus = 2,
+		/obj/item/flag/venus/l = 1,
+		/obj/item/flag/luna = 2,
+		/obj/item/flag/luna/l = 1,
+		/obj/item/flag/callisto = 2,
+		/obj/item/flag/callisto/l = 1,
+		/obj/item/flag/mars = 2,
+		/obj/item/flag/mars/l = 1,
+		/obj/item/flag/pluto = 2,
+		/obj/item/flag/pluto/l = 1,
+		/obj/item/flag/visegrad = 2,
+		/obj/item/flag/visegrad/l = 1,
+		/obj/item/flag/nhp = 2,
+		/obj/item/flag/nhp/l = 1,
+		/obj/item/flag/silversun = 2,
+		/obj/item/flag/silversun/l = 1,
+		/obj/item/flag/sancolette = 2,
+		/obj/item/flag/sancolette/l = 1,
+		/obj/item/flag/nsrm = 2,
+		/obj/item/flag/nsrm/l = 1,
+		/obj/item/flag/ssrm = 2,
+		/obj/item/flag/ssrm/l = 1
+	)
+
+/obj/item/storage/box/flags/biesel
+	name = "Republic of Biesel flag box"
+	desc = "A box filled to the brim with various national flags."
+	starts_with = list(
+		/obj/item/flag/biesel = 6,
+		/obj/item/flag/biesel/l = 4,
+		/obj/item/flag/valkyrie = 2,
+		/obj/item/flag/valkyrie/l = 1,
+		/obj/item/flag/portantillia = 2,
+		/obj/item/flag/portantillia/l = 1,
+		/obj/item/flag/mictlan = 2,
+		/obj/item/flag/mictlan/l = 1,
+		/obj/item/flag/newgibson = 2,
+		/obj/item/flag/newgibson/l = 1
+	)
+
+/obj/item/storage/box/flags/coc
+	name = "Coalition of Colonies flag box"
+	desc = "A box filled to the brim with various national flags."
+	starts_with = list(
+		/obj/item/flag/coalition = 6,
+		/obj/item/flag/coalition/l = 4,
+		/obj/item/flag/xanu = 2,
+		/obj/item/flag/xanu/l = 1,
+		/obj/item/flag/gadpathur = 2,
+		/obj/item/flag/gadpathur/l = 1,
+		/obj/item/flag/vysoka = 2,
+		/obj/item/flag/vysoka/l = 1,
+		/obj/item/flag/himeo = 2,
+		/obj/item/flag/himeo/l = 1,
+		/obj/item/flag/konyang = 2,
+		/obj/item/flag/konyang/l = 1,
+		/obj/item/flag/assunzione = 2,
+		/obj/item/flag/assunzione/l = 1,
+		/obj/item/flag/burzsia = 2,
+		/obj/item/flag/burzsia/l = 1,
+		/obj/item/flag/scarab = 3,
+		/obj/item/flag/scarab/l = 2
+	)
+
+/obj/item/storage/box/flags/galataea
+	name = "Technocracy of Galatea flag box"
+	desc = "A box filled to the brim with various national flags."
+	starts_with = list(
+		/obj/item/flag/galatea_government = 4,
+		/obj/item/flag/galatea_government/l = 3,
+		/obj/item/flag/galatea = 2,
+		/obj/item/flag/galatea/l = 1,
+		/obj/item/flag/tsukuyomi = 2,
+		/obj/item/flag/tsukuyomi/l = 1,
+		/obj/item/flag/svarog = 2,
+		/obj/item/flag/svarog/l = 1,
+		/obj/item/flag/empyrean = 2,
+		/obj/item/flag/empyrean/l = 1
+	)
+
+/obj/item/storage/box/flags/dominia
+	name = "Empire of Dominia flag box"
+	desc = "A box filled to the brim with various national flags."
+	starts_with = list(
+		/obj/item/flag/dominia = 8,
+		/obj/item/flag/dominia/l = 6,
+		/obj/item/flag/strelitz = 4,
+		/obj/item/flag/volvalaad = 4,
+		/obj/item/flag/kazhkz = 4,
+		/obj/item/flag/caladius = 2,
+		/obj/item/flag/zhao = 4,
+		/obj/item/flag/diona = 2,
+		/obj/item/flag/hansan = 2,
+		/obj/item/flag/imperial_frontier = 3,
+		/obj/item/flag/imperial_frontier/l = 2
+	)
+
+/obj/item/storage/box/flags/elyra
+	name = "Serene Republic of Elyra flag box"
+	desc = "A box filled to the brim with various national flags."
+	starts_with = list(
+		/obj/item/flag/elyra = 6,
+		/obj/item/flag/elyra/l = 4,
+		/obj/item/flag/persepolis = 2,
+		/obj/item/flag/persepolis/l = 1,
+		/obj/item/flag/damascus = 2,
+		/obj/item/flag/damascus/l = 1,
+		/obj/item/flag/medina = 2,
+		/obj/item/flag/medina/l = 1,
+		/obj/item/flag/newsuez = 2,
+		/obj/item/flag/newsuez/l = 1,
+		/obj/item/flag/aemaq = 2,
+		/obj/item/flag/aemaq/l = 1
+	)
+
+/obj/item/storage/box/flags/diona
+	name = "Diona flag box"
+	desc = "A box filled to the brim with various national flags."
+	starts_with = list(
+		/obj/item/flag/consortium = 6,
+		/obj/item/flag/consortium/l = 4,
+		/obj/item/flag/ekane = 2,
+		/obj/item/flag/ekane/l = 1,
+		/obj/item/flag/narrows = 2,
+		/obj/item/flag/narrows/l = 1
+	)
+
+/obj/item/storage/box/flags/unathi
+	name = "Unathi flag box"
+	desc = "A box filled to the brim with various national flags."
+	starts_with = list(
+		/obj/item/flag/hegemony = 6,
+		/obj/item/flag/hegemony/l = 4,
+		/obj/item/flag/ouerea/old = 4,
+		/obj/item/flag/ouerea/old/l = 3,
+		/obj/item/flag/fishingleague = 2
+	)
+
+/obj/item/storage/box/flags/skrell
+	name = "Skrell flag box"
+	desc = "A box filled to the brim with various waterproof national flags."
+	starts_with = list(
+		/obj/item/flag/nralakk = 8,
+		/obj/item/flag/nralakk/l = 6,
+		/obj/item/flag/traverse = 2,
+		/obj/item/flag/traverse/l = 1
+	)
+
+/obj/item/storage/box/flags/tajara
+	name = "Tajaran collected flag box"
+	desc = "A box filled to the brim with various national flags. Whoever chose the selection for this one was either brave or stupid or both."
+	starts_with = list(
+		/obj/item/flag/dpra = 4,
+		/obj/item/flag/dpra/l = 3,
+		/obj/item/flag/pra = 4,
+		/obj/item/flag/pra/l = 3,
+		/obj/item/flag/nka = 4,
+		/obj/item/flag/nka/l = 3,
+		/obj/item/flag/ftc = 4,
+		/obj/item/flag/ftc/l = 3
+	)
+
+/obj/item/storage/box/flags/vaurca
+	name = "Vaurca flag box"
+	desc = "A box filled to the brim with various hive flags."
+	starts_with = list(
+		/obj/item/flag/sedantis = 4,
+		/obj/item/flag/sedantis/l = 3,
+		/obj/item/flag/zora = 4,
+		/obj/item/flag/zora/l = 3,
+		/obj/item/flag/klax = 4,
+		/obj/item/flag/klax/l = 3,
+		/obj/item/flag/cthur = 4,
+		/obj/item/flag/cthur/l = 3
+	)
+
+/obj/item/storage/box/flags/goldendeep
+	name = "Golden Deep flag box"
+	desc = "A box filled to the brim with various national flags. It's made from a bit sturdier board than most boxes."
+	starts_with = list(
+		/obj/item/flag/goldendeep = 8,
+		/obj/item/flag/goldendeep/l = 6,
+		// GD might not have a lot of flags but a single gold ingot included to broadcast their flagrant absurd wealth is kind of funny.
+		/obj/item/stack/material/gold
+	)
+
+/obj/item/storage/box/flags/corporate
+	name = "Corporate flag box"
+	desc = "A box filled to the brim with various corporate flags, flying in service to the almighty credit."
+	starts_with = list(
+		/obj/item/flag/scc = 4,
+		/obj/item/flag/scc/l = 3,
+		/obj/item/flag/heph = 4,
+		/obj/item/flag/heph/l = 3,
+		/obj/item/flag/idris = 4,
+		/obj/item/flag/idris/l = 3,
+		/obj/item/flag/heph = 4,
+		/obj/item/flag/heph/l = 3,
+		/obj/item/flag/nanotrasen = 4,
+		/obj/item/flag/nanotrasen/l = 3,
+		/obj/item/flag/orion_express = 4,
+		/obj/item/flag/orion_express/l = 3,
+		/obj/item/flag/pmcg = 4,
+		/obj/item/flag/pmcg/l = 3,
+		/obj/item/flag/zavodskoi = 4,
+		/obj/item/flag/zavodskoi/l = 3,
+		/obj/item/flag/zenghu = 4,
+		/obj/item/flag/zenghu/l = 3,
+		/obj/item/flag/eridani = 4,
+		/obj/item/flag/eridani/l = 3
+	)
+
+/// Random misc flags- either non-national or no longer in use or controversial or straight-up contraband. Randomized contents from Initialize().
+/obj/item/storage/box/flags/misc
+	name = "miscellaneous flag box"
+	desc = "A box filled to the brim with various disorganized flags that might provoke a variety of reactions."
+
+/**
+ * We don't want this box to always have every possible misc flag every time it spawns. Mix it up each time.
+ */
+
+/obj/item/storage/box/flags/misc/fill()
+	..()
+	var/list/flag_options = list(
+		/obj/item/flag/red_coalition = 1,
+		/obj/item/flag/trinaryperfection = 2,
+		/obj/item/flag/trinaryperfection/l = 1,
+		/obj/item/flag/traditionalist = rand(1,2),
+		/obj/item/flag/traditionalist/l = 1,
+		/obj/item/flag/exclusionist = 1,
+		/obj/item/flag/glaorr = 1,
+		/obj/item/flag/glaorr/l = 1,
+		/obj/item/flag/ouerea = rand(1,2),
+		/obj/item/flag/ouerea/l = 1,
+		/obj/item/flag/sol/old = rand(1,2),
+		/obj/item/flag/sol/old/l = 1,
+		/obj/item/flag/old_visegrad = rand(1,2),
+		/obj/item/flag/old_visegrad/l = 1,
+		/obj/item/flag/fisanduh = rand(1,2),
+		/obj/item/flag/fisanduh/l = 1,
+		/obj/item/flag/hiskyn = rand(1,2),
+		/obj/item/flag/tarwa = rand(1,2),
+		/obj/item/flag/izharshan = rand(1,2)
+		)
+	for(var/i in 1 to rand(5,8))
+		var/flag = pickweight(flag_options)
+		new flag(src)
+
 /obj/item/storage/box/dominia_honor
 	name = "dominian honor codex box"
 	desc = "A box full of dominian honor codices."
@@ -1072,7 +1337,7 @@
 	illustration = null
 	icon_state = "sharpsbox"
 	use_sound = 'sound/items/storage/briefcase.ogg'
-	max_storage_space = 20
+	max_storage_space = DEFAULT_LARGEBOX_STORAGE
 	chewable = FALSE
 	foldable = null
 
@@ -1082,16 +1347,22 @@
 	starts_with = list(/obj/item/pen/fountain = 7)
 
 /obj/item/storage/box/aggression
-	desc_antag = "This box contains various implants that will make their owners increasingly aggressive."
 	illustration = "implant"
-	max_storage_space = 12
+	max_storage_space = DEFAULT_BOX_STORAGE
 	starts_with = list(/obj/item/implantcase/aggression = 6, /obj/item/implanter = 1, /obj/item/implantpad = 1)
+
+/obj/item/storage/box/aggression/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This box contains various implants that will make their owners increasingly aggressive."
 
 /obj/item/storage/box/encryption_key
 	name = "box"
 	illustration = "circuit"
-	desc_antag = "This box contains encryption keys that gives the user a safe channel to chatter in. Access the safe comms with :x."
 	starts_with = list(/obj/item/device/encryptionkey/rev = 8)
+
+/obj/item/storage/box/encryption_key/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This box contains encryption keys that gives the user a safe channel to chatter in. Access the safe comms with :x."
 
 /obj/item/storage/box/dynamite
 	name = "wooden crate"
@@ -1213,7 +1484,7 @@
 	icon_state = "largebox"
 	illustration = "flare"
 	foldable = FALSE
-	max_storage_space = 12
+	max_storage_space = DEFAULT_BOX_STORAGE
 	can_hold = list(
 		/obj/item/device/flashlight/flare
 	)
@@ -1228,7 +1499,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	max_w_class = WEIGHT_CLASS_NORMAL
 	foldable = FALSE
-	max_storage_space = 16
+	max_storage_space = DEFAULT_BOX_STORAGE
 	can_hold = list(
 		/obj/item/device/magnetic_lock
 	)
@@ -1241,7 +1512,7 @@
 	name = "power cell box"
 	desc = "A box full of power cells."
 	foldable = FALSE
-	max_storage_space = 6
+	make_exact_fit = TRUE
 	can_hold = list(
 		/obj/item/cell
 	)
@@ -1281,19 +1552,17 @@
 	desc = "A box of advanced formula chemical tablets designed by Idris Incorporated."
 	desc_extended = "A new generation of cleaning chemicals, according to Idris at least. The instructions on the box reads: \"Dissolve tablet fully in container of water\". A warning label mentions that you should not consume the tablets nor drink the mixture after dissolving them."
 	illustration = "soapbucket"
-	max_storage_space = 16
 	starts_with = list(
 		/obj/item/reagent_containers/pill/cleaner_tablet = 16
 	)
+	make_exact_fit = TRUE
 
 /obj/item/storage/box/led_collars
 	name = "box of LED collars"
 	desc = "A box containing eight LED collars, usually worn around the neck of the voidsuit."
 	starts_with = list(/obj/item/clothing/accessory/led_collar = 8)
+	make_exact_fit = TRUE
 
-/obj/item/storage/box/led_collars/fill()
-	..()
-	make_exact_fit()
 /obj/item/storage/box/traps/punji
 	name = "box of punji traps"
 	desc = "A box containing 5 punji traps."
@@ -1320,7 +1589,7 @@
 /obj/item/storage/box/tea
 	name = "sencha cha-tin"
 	desc = "A tin bearing the logo of the Konyang-cha tea company. This one contains a bag of sencha, a type of green tea."
-	desc_info = "A subsidiary of Gwok Group, the Konyang-cha tea company is the spur's foremost vendor of artisanal loose leaf tea, \
+	desc_extended = "A subsidiary of Gwok Group, the Konyang-cha tea company is the spur's foremost vendor of artisanal loose leaf tea, \
 				selling blends sourced from independent Konyanger farmers. Popular both on Konyang and off-world, it is considered a symbol of Konyang's culture."
 	icon = 'icons/obj/item/reagent_containers/teaware.dmi'
 	icon_state = "can"
@@ -1328,7 +1597,7 @@
 	drop_sound = 'sound/items/drop/metal_pot.ogg'
 	pickup_sound = 'sound/items/drop/metal_pot.ogg'
 	contained_sprite = TRUE
-	max_storage_space = 1
+	make_exact_fit = TRUE
 	can_hold = list(
 		/obj/item/reagent_containers/food/snacks/grown/konyang_tea
 	)
@@ -1371,7 +1640,7 @@
 	new /obj/item/stack/material/steel(src, 2)
 
 /obj/item/storage/box/sawn_doublebarrel_shotgun
-	name = "sawn-off Dduble-barrel shotgun kit"
+	name = "sawn-off Double-barrel shotgun kit"
 	desc = "A box containing a sawn-off double-barrel shotgun, an holster and some ammo."
 	starts_with = list(/obj/item/gun/projectile/shotgun/doublebarrel/sawn = 1,
 						/obj/item/ammo_casing/shotgun/pellet = 6,
@@ -1382,4 +1651,128 @@
 	desc = "A box containing a number of randomly-coloured stress balls."
 	starts_with = list(
 		/obj/item/toy/stressball = 6
+	)
+
+/obj/item/storage/box/mms_inhaler
+	name = "mms inhaler kit"
+	desc = "A box filled with an inhaler and cartridges containing Mercury Monolithium Sucrose."
+	illustration = "inhalers"
+	starts_with = list(
+		/obj/item/personal_inhaler = 1, /obj/item/reagent_containers/personal_inhaler_cartridge/mms = 3
+	)
+
+/obj/item/storage/box/ambrosia
+	name = "ambrosia box"
+	starts_with = list(
+		/obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris/dried = 4
+	)
+
+/obj/item/storage/box/reishi
+	name = "reishi box"
+	starts_with = list(
+		/obj/item/reagent_containers/food/snacks/grown/mushroom/reishi/dried = 4
+	)
+
+/obj/item/storage/box/wulumunusha
+	name = "wulumunusha box"
+	starts_with = list(
+		/obj/item/reagent_containers/food/snacks/grown/wulumunusha/dried = 4
+	)
+
+/obj/item/storage/box/ale
+	name = "pack of ale"
+	desc = "A box containing a six pack of ale."
+	illustration = "soda"
+	starts_with = list(
+		/obj/item/reagent_containers/food/drinks/bottle/small/ale = 6
+	)
+
+/obj/item/storage/box/beer
+	name = "pack of beer"
+	desc = "A box containing a six pack of beer."
+	illustration = "soda"
+	starts_with = list(
+		/obj/item/reagent_containers/food/drinks/bottle/small/beer = 6
+	)
+
+/obj/item/storage/box/skrellbeerdyn
+	name = "pack of dyn beer"
+	desc = "A box containing a six pack of dyn beer."
+	illustration = "soda"
+	starts_with = list(
+		/obj/item/reagent_containers/food/drinks/bottle/small/skrellbeerdyn = 6
+	)
+
+/obj/item/storage/box/xuizijuice
+	name = "pack of xuizi juice"
+	desc = "A box containing a six pack of xuizi juice."
+	illustration = "soda"
+	starts_with = list(
+		/obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice = 6
+	)
+
+/obj/item/storage/box/khlibnyz
+	name = "pack of khlibnyz"
+	desc = "A box containing a six pack of khlibnyz."
+	illustration = "soda"
+	starts_with = list(
+		/obj/item/reagent_containers/food/drinks/bottle/small/khlibnyz = 6
+	)
+
+/obj/item/storage/box/cola
+	name = "pack of cola"
+	desc = "A box containing a six pack of cola."
+	illustration = "soda"
+	starts_with = list(
+		/obj/item/reagent_containers/food/drinks/bottle/cola = 6
+	)
+
+/obj/item/storage/box/space_mountain_wind
+	name = "pack of space mountain wind"
+	desc = "A box containing a six pack of space mountain wind."
+	illustration = "soda"
+	starts_with = list(
+		/obj/item/reagent_containers/food/drinks/bottle/space_mountain_wind = 6
+	)
+
+/obj/item/storage/box/space_up
+	name = "pack of space-up"
+	desc = "A box containing a six pack of space-up."
+	illustration = "soda"
+	starts_with = list(
+		/obj/item/reagent_containers/food/drinks/bottle/space_up = 6
+	)
+
+/obj/item/storage/box/hrozamal_soda
+	name = "pack of hrozamal soda"
+	desc = "A box containing a six pack of hrozamal soda."
+	illustration = "soda"
+	starts_with = list(
+		/obj/item/reagent_containers/food/drinks/bottle/hrozamal_soda = 6
+	)
+
+/obj/item/storage/box/midynhr_water
+	name = "pack of midynhr water"
+	desc = "A box containing a six pack of midynhr water."
+	illustration = "soda"
+	starts_with = list(
+		/obj/item/reagent_containers/food/drinks/bottle/small/midynhr_water = 6
+	)
+
+/obj/item/storage/box/burukutu
+	name = "pack of burukutu"
+	desc = "A box containing a six pack of burukutu."
+	illustration = "soda"
+	starts_with = list(
+		/obj/item/reagent_containers/food/drinks/bottle/small/burukutu = 6
+	)
+
+/obj/item/storage/box/crutch_pair
+	starts_with = list(
+		/obj/item/cane/crutch = 2
+	)
+
+/obj/item/storage/box/forearm_crutch_pair
+	starts_with = list(
+		/obj/item/cane/crutch/forearm = 2
 	)

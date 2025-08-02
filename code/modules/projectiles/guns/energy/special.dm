@@ -119,7 +119,6 @@
 /obj/item/gun/energy/mousegun
 	name = "pest gun"
 	desc = "The NT \"Arodentia\" Pesti-Shock is a highly sophisticated and probably safe beamgun designed for rapid pest-control."
-	desc_antag = "This gun can be emagged to make it fire damaging beams and get more max shots. It doesn't do a lot of damage, but it is concealable."
 	icon = 'icons/obj/guns/pestishock.dmi'
 	icon_state = "pestishock"
 	item_state = "pestishock"
@@ -133,6 +132,10 @@
 	sel_mode = 1
 	var/emagged = FALSE
 	needspin = FALSE
+
+/obj/item/gun/energy/mousegun/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This gun can be emagged to make it fire damaging beams and get more max shots. It doesn't do a lot of damage, but it is concealable."
 
 /obj/item/gun/energy/mousegun/handle_post_fire(mob/user, atom/target, var/pointblank=0, var/reflex=0, var/playemote = 1)
 	var/T = get_turf(user)
@@ -295,13 +298,10 @@
 /obj/item/gun/energy/vaurca/typec
 	name = "thermal lance"
 	desc = "A powerful piece of Zo'rane energy artillery, converted to be portable...if you weigh a metric tonne, that is."
-	icon = 'icons/mob/species/breeder/inventory.dmi'
+	icon = 'icons/obj/guns/megaglaive.dmi'
+	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/obj/guns/megaglaive.dmi')
 	icon_state = "megaglaive0"
 	item_state = "megaglaive"
-	item_icons = list(//DEPRECATED. USE CONTAINED SPRITES IN FUTURE
-		slot_l_hand_str = 'icons/mob/species/breeder/held_l.dmi',
-		slot_r_hand_str = 'icons/mob/species/breeder/held_r.dmi'
-		)
 	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 8)
 	fire_sound = 'sound/magic/lightningbolt.ogg'
 	attack_verb = list("sundered", "annihilated", "sliced", "cleaved", "slashed", "pulverized")
@@ -324,7 +324,6 @@
 	self_recharge = 1
 	recharge_time = 2
 	needspin = FALSE
-
 	is_wieldable = TRUE
 
 /obj/item/gun/energy/vaurca/typec/attack(mob/living/target_mob, mob/living/user, target_zone)
@@ -655,7 +654,7 @@
 		user.update_inv_back()
 
 /obj/item/gun/energy/galatea/Move()
-	..()
+	. = ..()
 	if(loc != source.loc)
 		INVOKE_ASYNC(source, TYPE_PROC_REF(/obj/item/laserpack, remove_gun)) // prevent even weirder shit
 

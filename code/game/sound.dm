@@ -233,12 +233,14 @@
 	S.status = SOUND_UPDATE
 	SEND_SOUND(src, S)
 
-/client/proc/playtitlemusic(vol = 85)
+/client/proc/playtitlemusic()
 	set waitfor = FALSE
 	UNTIL(SSticker.login_music) //wait for SSticker init to set the login music
+	SEND_SOUND(src, sound(null, repeat = 0, wait = 0, volume = prefs.lobby_music_vol, channel = CHANNEL_LOBBYMUSIC))
 
-	if(prefs.toggles & SOUND_LOBBY)
-		SEND_SOUND(src, sound(SSticker.login_music, repeat = 0, wait = 0, volume = vol, channel = CHANNEL_LOBBYMUSIC)) // MAD JAMS
+	if(prefs.lobby_music_vol)
+		for(var/lobby_music in SSticker.login_music)
+			SEND_SOUND(src, sound(lobby_music, repeat = 0, wait = TRUE, volume = prefs.lobby_music_vol, channel = CHANNEL_LOBBYMUSIC)) // MAD JAMS
 
 /proc/get_rand_frequency()
 	return rand(32000, 55000) //Frequency stuff only works with 45kbps oggs.
@@ -992,4 +994,37 @@
 	sounds = list(
 		'sound/items/polaroid1.ogg',
 		'sound/items/polaroid2.ogg'
+	)
+
+/singleton/sound_category/hatch_open
+	sounds = list(
+		'sound/machines/hatch_open1.ogg',
+		'sound/machines/hatch_open2.ogg',
+		'sound/machines/hatch_open3.ogg',
+		'sound/machines/hatch_open4.ogg'
+	)
+
+/singleton/sound_category/hatch_close
+	sounds = list(
+		'sound/machines/hatch_close1.ogg',
+		'sound/machines/hatch_close2.ogg'
+	)
+
+/singleton/sound_category/electrical_hum
+	sounds = list(
+		'sound/machines/electrical_hum1.ogg',
+		'sound/machines/electrical_hum2.ogg'
+	)
+
+/singleton/sound_category/electrical_spark
+	sounds = list(
+		'sound/machines/electrical_spark1.ogg'
+	)
+
+/singleton/sound_category/steam_pipe
+	sounds = list(
+		'sound/machines/steam_pipe1.ogg',
+		'sound/machines/steam_pipe2.ogg',
+		'sound/machines/steam_pipe3.ogg',
+		'sound/machines/steam_pipe4.ogg'
 	)

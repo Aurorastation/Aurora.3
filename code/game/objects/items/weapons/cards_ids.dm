@@ -44,7 +44,8 @@
 
 /obj/item/card/update_icon()
 	var/matrix/tf = matrix()
-	if(istype(loc, /obj/item/storage))
+	var/obj/item/storage/S = loc
+	if(istype(S, /obj/item/storage) && !S.storage_slots)
 		tf.Turn(-90) //Vertical for storing compactly
 		tf.Translate(-1, 0) //Could do this with pixel_x but let's just update the appearance once.
 	transform = tf
@@ -685,9 +686,12 @@
 /obj/item/card/id/bluespace
 	name = "bluespace identification card"
 	desc = "A bizarre imitation of an ID card; shifting and moving."
-	desc_antag = "Access can be copied from other ID cards by clicking on them."
 	icon_state = "crystalid"
 	iff_faction = IFF_BLUESPACE
+
+/obj/item/card/id/bluespace/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Access can be copied from other ID cards by clicking on them."
 
 /obj/item/card/id/bluespace/update_name()
 	return

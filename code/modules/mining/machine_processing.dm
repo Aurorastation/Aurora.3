@@ -12,7 +12,6 @@
 /obj/machinery/mineral/processing_unit_console
 	name = "ore redemption console"
 	desc = "A handy console which can be use to retrieve mining points for use in the mining vendor, or to set processing values for various ore types."
-	desc_info = "Up to date settings for the refinery can be found in the Aurorastation Guide to Mining wikipage."
 	icon = 'icons/obj/machinery/wall/terminals.dmi'
 	icon_state = "production_console"
 	density = FALSE
@@ -35,6 +34,12 @@
 		/obj/item/stock_parts/scanning_module,
 		/obj/item/stock_parts/console_screen
 	)
+
+/obj/machinery/mineral/processing_unit_console/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>capacitors</b> will increase the amount of ore smelted per second."
+	. += "Upgraded <b>micro-lasers</b> will increase the amount of ore smelted per second."
+	. += "Upgraded <b>scanning modules</b> will increase the amount of ore smelted per second."
 
 /obj/machinery/mineral/processing_unit_console/Initialize(mapload, d, populate_components)
 	. = ..()

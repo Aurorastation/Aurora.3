@@ -1,0 +1,835 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/simulated/floor/exoplanet/desert,
+/area/template_noop)
+"d" = (
+/obj/structure/table/wood,
+/obj/item/storage/box/fancy/cigarettes,
+/obj/item/flame/lighter/random,
+/obj/structure/lattice/catwalk/indoor/planks{
+	name = "duckboard"
+	},
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/template_noop)
+"e" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/wood,
+/area/template_noop)
+"f" = (
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lantern/on,
+/obj/structure/lattice/catwalk/indoor/planks{
+	name = "duckboard"
+	},
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/template_noop)
+"g" = (
+/obj/item/stack/material/wood/full,
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/template_noop)
+"h" = (
+/obj/structure/lattice/catwalk/indoor/planks,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/desert,
+/area/template_noop)
+"i" = (
+/obj/structure/bed,
+/obj/item/bedsheet/brown,
+/obj/random/dirt_75,
+/turf/simulated/floor/wood,
+/area/template_noop)
+"j" = (
+/turf/simulated/mineral/random/exoplanet,
+/area/template_noop)
+"k" = (
+/obj/structure/lattice/catwalk/indoor/planks{
+	name = "duckboard"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/template_noop)
+"l" = (
+/obj/structure/closet/crate/loot,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/template_noop)
+"n" = (
+/obj/structure/closet/crate/loot,
+/obj/structure/lattice/catwalk/indoor/planks{
+	name = "duckboard"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/template_noop)
+"o" = (
+/obj/structure/table/wood,
+/obj/item/device/radio,
+/obj/random/dirt_75,
+/turf/simulated/floor/wood,
+/area/template_noop)
+"q" = (
+/obj/item/pickaxe{
+	pixel_x = 13
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/template_noop)
+"r" = (
+/obj/random/dirt_75,
+/obj/machinery/door/urban,
+/turf/simulated/floor/wood,
+/area/template_noop)
+"s" = (
+/obj/structure/bed,
+/obj/item/bedsheet/brown,
+/obj/structure/lattice/catwalk/indoor/planks{
+	name = "duckboard"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/template_noop)
+"t" = (
+/obj/structure/closet/crate/secure{
+	req_access = list(242)
+	},
+/obj/item/stack/material/phoron,
+/obj/item/stack/material/phoron,
+/obj/item/stack/material/phoron,
+/obj/random/highvalue/no_weapon,
+/obj/random/highvalue/no_weapon,
+/obj/random/highvalue/no_weapon,
+/obj/random/highvalue/cash,
+/obj/structure/lattice/catwalk/indoor/planks{
+	name = "duckboard"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/template_noop)
+"u" = (
+/obj/structure/bed,
+/obj/item/bedsheet/brown,
+/obj/structure/lattice/catwalk/indoor/planks{
+	name = "duckboard"
+	},
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/template_noop)
+"w" = (
+/obj/structure/bed/stool/chair/plastic,
+/obj/structure/lattice/catwalk/indoor/planks{
+	name = "duckboard"
+	},
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/template_noop)
+"x" = (
+/obj/structure/bed,
+/obj/item/bedsheet/black,
+/obj/structure/lattice/catwalk/indoor/planks{
+	name = "duckboard"
+	},
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/template_noop)
+"y" = (
+/obj/structure/closet/cabinet,
+/obj/item/clothing/under/sl_suit,
+/obj/item/clothing/under/gearharness,
+/obj/item/clothing/under/color/black,
+/obj/item/clothing/under/color/lightgreen,
+/obj/item/clothing/suit/armor/vest,
+/obj/item/clothing/suit/storage/hazardvest/red,
+/obj/item/clothing/suit/jacket/puffer/vest,
+/obj/item/clothing/shoes/combat,
+/obj/item/clothing/shoes/sneakers/brown,
+/obj/item/clothing/shoes/sneakers/black,
+/obj/item/clothing/pants/classic,
+/obj/item/clothing/head/bandana/red,
+/obj/item/clothing/head/helmet/tank,
+/obj/structure/lattice/catwalk/indoor/planks{
+	name = "duckboard"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/template_noop)
+"z" = (
+/obj/structure/bed,
+/obj/item/bedsheet/grey,
+/obj/structure/lattice/catwalk/indoor/planks{
+	name = "duckboard"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/template_noop)
+"A" = (
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/template_noop)
+"C" = (
+/obj/structure/lattice/catwalk/indoor/planks,
+/turf/simulated/floor/exoplanet/desert,
+/area/template_noop)
+"F" = (
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/template_noop)
+"I" = (
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/template_noop)
+"K" = (
+/obj/structure/bed/stool/chair/plastic,
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/template_noop)
+"L" = (
+/obj/random/dirt_75,
+/obj/machinery/door/urban{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/template_noop)
+"M" = (
+/obj/structure/closet/crate/loot,
+/obj/structure/lattice/catwalk/indoor/planks{
+	name = "duckboard"
+	},
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/template_noop)
+"N" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/template_noop)
+"O" = (
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lantern/on,
+/turf/simulated/floor/wood,
+/area/template_noop)
+"P" = (
+/turf/simulated/wall/wood,
+/area/template_noop)
+"R" = (
+/obj/item/device/flashlight/lantern/on,
+/obj/structure/table/wood,
+/obj/structure/lattice/catwalk/indoor/planks{
+	name = "duckboard"
+	},
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/template_noop)
+"U" = (
+/turf/simulated/wall/wood{
+	can_open = 1
+	},
+/area/template_noop)
+"V" = (
+/obj/structure/lattice/catwalk/indoor/planks{
+	name = "duckboard"
+	},
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/template_noop)
+"W" = (
+/obj/structure/closet/crate/weapon,
+/obj/random/civgun,
+/obj/random/civgun,
+/obj/random/civgun,
+/obj/random/civgun/rifle,
+/obj/random/melee/highvalue,
+/obj/random/survival_weapon,
+/obj/structure/lattice/catwalk/indoor/planks{
+	name = "duckboard"
+	},
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/template_noop)
+"X" = (
+/obj/structure/bed/stool/chair/plastic{
+	dir = 1
+	},
+/obj/structure/lattice/catwalk/indoor/planks{
+	name = "duckboard"
+	},
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/template_noop)
+"Y" = (
+/obj/structure/lattice/catwalk/indoor/planks{
+	name = "duckboard"
+	},
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/template_noop)
+"Z" = (
+/obj/structure/barricade/wooden{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/template_noop)
+
+(1,1,1) = {"
+h
+C
+h
+h
+C
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(2,1,1) = {"
+P
+L
+P
+P
+P
+a
+a
+a
+a
+a
+a
+a
+a
+j
+j
+j
+j
+j
+j
+a
+a
+a
+a
+"}
+(3,1,1) = {"
+P
+e
+O
+o
+P
+a
+a
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+a
+a
+a
+"}
+(4,1,1) = {"
+P
+e
+e
+e
+P
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+a
+a
+"}
+(5,1,1) = {"
+P
+i
+e
+Z
+P
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+a
+a
+"}
+(6,1,1) = {"
+P
+P
+P
+U
+P
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+a
+a
+"}
+(7,1,1) = {"
+a
+j
+j
+k
+Y
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+a
+a
+"}
+(8,1,1) = {"
+a
+j
+j
+j
+k
+k
+I
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+a
+a
+"}
+(9,1,1) = {"
+a
+j
+j
+A
+k
+k
+j
+j
+j
+j
+j
+I
+q
+j
+j
+j
+j
+j
+j
+j
+j
+a
+a
+"}
+(10,1,1) = {"
+a
+j
+j
+Y
+j
+Y
+k
+Y
+j
+j
+k
+N
+A
+j
+j
+j
+y
+A
+j
+j
+j
+j
+a
+"}
+(11,1,1) = {"
+a
+a
+j
+j
+j
+I
+j
+k
+r
+N
+Y
+k
+N
+Y
+Y
+Y
+Y
+Y
+R
+j
+j
+j
+a
+"}
+(12,1,1) = {"
+a
+a
+j
+j
+j
+j
+j
+j
+j
+Y
+K
+f
+I
+Y
+j
+I
+N
+k
+I
+j
+j
+j
+j
+"}
+(13,1,1) = {"
+a
+a
+j
+j
+j
+j
+j
+j
+j
+Y
+w
+d
+X
+I
+j
+N
+Y
+k
+z
+j
+j
+j
+j
+"}
+(14,1,1) = {"
+a
+a
+j
+j
+j
+j
+j
+j
+j
+N
+V
+Y
+Y
+I
+j
+s
+x
+u
+j
+j
+j
+j
+j
+"}
+(15,1,1) = {"
+a
+a
+a
+j
+j
+j
+j
+j
+j
+j
+N
+k
+g
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+"}
+(16,1,1) = {"
+a
+a
+a
+j
+j
+j
+j
+j
+j
+j
+j
+Y
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+"}
+(17,1,1) = {"
+a
+a
+a
+j
+j
+j
+j
+j
+j
+j
+j
+I
+Y
+n
+l
+j
+j
+j
+j
+j
+j
+j
+j
+"}
+(18,1,1) = {"
+a
+a
+a
+a
+j
+j
+j
+j
+j
+j
+j
+k
+k
+N
+W
+j
+j
+j
+j
+j
+j
+j
+a
+"}
+(19,1,1) = {"
+a
+a
+a
+a
+j
+j
+j
+j
+j
+j
+j
+F
+f
+A
+N
+M
+j
+j
+j
+j
+j
+j
+a
+"}
+(20,1,1) = {"
+a
+a
+a
+a
+a
+j
+j
+j
+j
+j
+j
+j
+j
+n
+t
+l
+j
+j
+j
+j
+j
+j
+a
+"}
+(21,1,1) = {"
+a
+a
+a
+a
+a
+a
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+a
+"}
+(22,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+a
+"}
+(23,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+j
+a
+a
+"}

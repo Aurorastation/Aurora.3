@@ -54,7 +54,7 @@
 	name = "electrical discharge"
 	icon_state = "stun"
 	damage_type = DAMAGE_BURN
-	check_armor = "energy"
+	check_armor = ENERGY
 	damage = 5
 
 	muzzle_type = /obj/effect/projectile/muzzle/stun

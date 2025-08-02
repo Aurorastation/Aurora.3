@@ -113,7 +113,7 @@ GLOBAL_DATUM_INIT(vsc, /vs_control, new())
 			if("[ch]_NAME" in vars) vw_name = vars["[ch]_NAME"]
 		dat += "<b>[vw_name] = [vw]</b> <A href='byond://?src=[REF(src)];changevar=[ch]'>\[Change\]</A><br>"
 		dat += "<i>[vw_desc]</i><br><br>"
-	user << browse(dat,"window=settings")
+	user << browse(HTML_SKELETON(dat), "window=settings")
 
 /vs_control/Topic(href,href_list)
 	if("changevar" in href_list)

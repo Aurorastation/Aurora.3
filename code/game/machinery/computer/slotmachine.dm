@@ -1,7 +1,7 @@
-#define SPIN_PRICE 5
-#define SMALL_PRIZE 400
-#define BIG_PRIZE 1000
-#define JACKPOT 10000
+#define SPIN_PRICE 1
+#define SMALL_PRIZE 40
+#define BIG_PRIZE 100
+#define JACKPOT 1000
 #define SPIN_TIME 65 //As always, deciseconds.
 #define REEL_DEACTIVATE_DELAY 7
 #define SEVEN "<font color='red'>7</font>"
@@ -324,14 +324,14 @@
 	money = max(0, money - amount)
 	balance += surplus
 
-/obj/machinery/computer/slot_machine/proc/give_payout(amount, usr)
+/obj/machinery/computer/slot_machine/proc/give_payout(amount, user)
 	if(paymode == CREDITCHIP)
 		cointype = /obj/item/spacecash
 	else
 		cointype = emagged ? /obj/item/coin/iron : /obj/item/coin/silver
 
 	if(!(emagged))
-		amount = dispense(amount, cointype, usr, 0)
+		amount = dispense(amount, cointype, user, 0)
 
 	else
 		var/mob/living/target = locate() in range(2, src)

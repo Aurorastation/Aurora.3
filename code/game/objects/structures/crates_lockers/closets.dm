@@ -66,16 +66,55 @@
 	/// Used if you want to have an overlay below the door. used for guncabinets.
 	var/door_underlay = FALSE
 	/// Multiplier on proc/get_door_transform. basically, how far you want this to swing out. value of 1 means the length of the door is unchanged (and will swing out of the tile), 0 means it will just slide back and forth.
-	var/door_anim_squish = 0.12
+	var/door_anim_squish = 0.12 // DON'T TOUCH!!!
 	/// The maximum angle the door will be drawn at
-	var/door_anim_angle = 140
+	var/door_anim_angle = 136 // DON'T TOUCH!!!
 	/// X position of the closet door hinge, relative to the center of the sprite
 	var/door_hinge_x = -6.5
 	/// For closets with two doors. why a seperate var? because some closets may be weirdly shaped or something.
-	var/door_hinge_alt = 6.5
+	var/door_hinge_x_alt = 6.5
 	/// Set to 0 to make the door not animate at all
 	var/door_anim_time = 2.5
 
+	/// Used by body bags and air bubbles.
+	var/contains_body = FALSE
+
+/obj/structure/closet/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "When closed, a <b>welder</b> could be used to weld the closet shut."
+
+/obj/structure/closet/disassembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "When opened, a <b>welder</b> could be used to cut the closet back into steel sheets."
+
+/obj/structure/closet/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Using a Closet Teleporter (Stealth & Camouflage uplink item) on this can turn it into a quick transportation method- just don't get caught!"
+
+/obj/structure/closet/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+
+	if(!src.opened && isghost(user))
+		. += "It contains: [counting_english_list(contents)]"
+
+	if(distance <= 1 && !src.opened)
+		var/content_size = 0
+		for(var/obj/item/I in contents)
+			if(!I.anchored)
+				content_size += Ceiling(I.w_class/2)
+		if(!content_size)
+			. += "\The [src] is empty."
+		else if(storage_capacity > content_size*4)
+			. += "\The [src] is barely filled."
+		else if(storage_capacity > content_size*2)
+			. += "\The [src] is less than half full."
+		else if(storage_capacity > content_size)
+			. += "\The [src] still has some free space."
+		else
+			. += "\The [src] is full."
+
+	if(src.opened && linked_teleporter && is_adjacent)
+		. += SPAN_WARNING("There appears to be a device <b>screwed</b> onto the interior backplate of \the [src]...")
 
 /obj/structure/closet/Initialize(mapload, var/no_fill)
 	. = ..()
@@ -114,33 +153,6 @@
 /// Fill lockers with this.
 /obj/structure/closet/proc/fill()
 	return
-
-/obj/structure/closet/proc/content_info(mob/user, content_size)
-	if(!content_size)
-		. = "\The [src] is empty."
-	else if(storage_capacity > content_size*4)
-		. = "\The [src] is barely filled."
-	else if(storage_capacity > content_size*2)
-		. = "\The [src] is less than half full."
-	else if(storage_capacity > content_size)
-		. = "\The [src] still has some free space."
-	else
-		. = "\The [src] is full."
-
-/obj/structure/closet/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance <= 1 && !src.opened)
-		var/content_size = 0
-		for(var/obj/item/I in contents)
-			if(!I.anchored)
-				content_size += Ceiling(I.w_class/2)
-		. += content_info(user, content_size)
-
-	if(!src.opened && isghost(user))
-		. += "It contains: [counting_english_list(contents)]"
-
-	if(src.opened && linked_teleporter && is_adjacent)
-		. += FONT_SMALL(SPAN_NOTICE("There appears to be a device attached to the interior backplate of \the [src]..."))
 
 /obj/structure/closet/proc/stored_weight()
 	var/content_size = 0
@@ -623,26 +635,23 @@
 	if(!door_obj)
 		door_obj = new
 	var/default_door_icon = "[icon_door || icon_state]_door"
-	vis_contents += door_obj
+	vis_contents |= door_obj
 	door_obj.icon = icon
 	door_obj.icon_state = default_door_icon
 	is_animating_door = TRUE
 	var/num_steps = door_anim_time / world.tick_lag
-
 	for(var/step in 0 to num_steps)
 		var/angle = door_anim_angle * (closing ? 1 - (step/num_steps) : (step/num_steps))
-
 		var/matrix/door_transform = get_door_transform(angle)
 		var/door_state
 		var/door_layer
 
 		if (angle >= 90)
-			door_state = "[icon_state]_back"
+			door_state = "[icon_door_override ? icon_door : icon_state]_back"
 			door_layer = FLOAT_LAYER
 		else
 			door_state = default_door_icon
 			door_layer = ABOVE_HUMAN_LAYER
-
 		if(step == 0)
 			door_obj.transform = door_transform
 			door_obj.icon_state = door_state
@@ -654,34 +663,44 @@
 	addtimer(CALLBACK(src, PROC_REF(end_door_animation)), door_anim_time, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_CLIENT_TIME)
 
 /obj/structure/closet/proc/end_door_animation()
-	is_animating_door = FALSE
-	vis_contents -= door_obj
+	is_animating_door = FALSE // comment this out and the line below to manually tweak the animation end state by fiddling with the door_anim vars to match the open door icon
+	remove_vis_contents(door_obj)
 	update_icon()
+	UpdateOverlays(src)
 
 /obj/structure/closet/proc/animate_door_alt(var/closing = FALSE)
 	if(!door_anim_time)
 		return
-	if(!door_obj_alt) door_obj_alt = new
+	if(!door_obj_alt)
+		door_obj_alt = new
+	var/default_door_icon = "[icon_door || icon_state]_door_alt"
 	vis_contents |= door_obj_alt
 	door_obj_alt.icon = icon
-	door_obj_alt.icon_state = "[icon_door || icon_state]_door_alt"
+	door_obj_alt.icon_state = default_door_icon
 	is_animating_door = TRUE
 	var/num_steps = door_anim_time / world.tick_lag
-	for(var/I in 0 to num_steps)
-		var/angle = door_anim_angle * (closing ? 1 - (I/num_steps) : (I/num_steps))
-		var/matrix/M = get_door_transform(angle, TRUE)
-		var/door_state = angle >= 90 ? "[icon_door_override ? icon_door : icon_state]_back_alt" : "[icon_door || icon_state]_door_alt"
-		var/door_layer = angle >= 90 ? FLOAT_LAYER : ABOVE_HUMAN_LAYER
+	for(var/step in 0 to num_steps)
+		var/angle = door_anim_angle * (closing ? 1 - (step/num_steps) : (step/num_steps))
+		var/matrix/door_transform = get_door_transform(angle, TRUE)
+		var/door_state
+		var/door_layer
 
-		if(I == 0)
-			door_obj_alt.transform = M
+		if (angle >= 90)
+			door_state = "[icon_door_override ? icon_door : icon_state]_back_alt"
+			door_layer = FLOAT_LAYER
+		else
+			door_state = default_door_icon
+			door_layer = ABOVE_HUMAN_LAYER
+
+		if(step == 0)
+			door_obj_alt.transform = door_transform
 			door_obj_alt.icon_state = door_state
 			door_obj_alt.layer = door_layer
-		else if(I == 1)
-			animate(door_obj_alt, transform = M, icon_state = door_state, layer = door_layer, time = world.tick_lag, flags = ANIMATION_END_NOW)
+		else if(step == 1)
+			animate(door_obj_alt, transform = door_transform, icon_state = door_state, layer = door_layer, time = world.tick_lag, flags = ANIMATION_END_NOW)
 		else
-			animate(transform = M, icon_state = door_state, layer = door_layer, time = world.tick_lag)
-	addtimer(CALLBACK(src, PROC_REF(end_door_animation_alt)),door_anim_time,TIMER_UNIQUE|TIMER_OVERRIDE)
+			animate(transform = door_transform, icon_state = door_state, layer = door_layer, time = world.tick_lag)
+	addtimer(CALLBACK(src, PROC_REF(end_door_animation_alt)), door_anim_time, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_CLIENT_TIME)
 
 /obj/structure/closet/proc/end_door_animation_alt()
 	is_animating_door = FALSE // comment this out and the line below to manually tweak the animation end state by fiddling with the door_anim vars to match the open door icon
@@ -689,11 +708,12 @@
 	update_icon()
 	UpdateOverlays(src)
 
-/obj/structure/closet/proc/get_door_transform(angle)
+/obj/structure/closet/proc/get_door_transform(angle, var/inverse_hinge = FALSE)
 	var/matrix/door_matrix = matrix()
-	door_matrix.Translate(-door_hinge_x, 0)
-	door_matrix.Multiply(matrix(cos(angle), 0, 0, -sin(angle) * door_anim_squish, 1, 0))
-	door_matrix.Translate(door_hinge_x, 0)
+	var/matrix_door_hinge = inverse_hinge ? door_hinge_x_alt : door_hinge_x
+	door_matrix.Translate(-matrix_door_hinge, 0)
+	door_matrix.Multiply(matrix(cos(angle), 0, 0, ((matrix_door_hinge >= 0) ? sin(angle) : -sin(angle)) * door_anim_squish, 1, 0)) // this matrix door hinge >= 0 check is for door hinges on the right, so they swing out instead of upwards
+	door_matrix.Translate(matrix_door_hinge, 0)
 	return door_matrix
 
 /obj/structure/closet/hear_talk(mob/M as mob, text, verb, datum/language/speaking)

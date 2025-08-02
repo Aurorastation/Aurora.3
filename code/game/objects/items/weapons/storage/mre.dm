@@ -26,18 +26,18 @@ MRE Stuff
 		/obj/item/reagent_containers/food/condiment/small/packet/capsaicin = 1,
 		/obj/item/material/kitchen/utensil/fork/plastic = 1
 	)
+	make_exact_fit = TRUE
+
+/obj/item/storage/box/fancy/mre/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += meal_desc
 
 /obj/item/storage/box/fancy/mre/fill()
 	new main_meal(src)
 	. = ..()
-	make_exact_fit()
 
 /obj/item/storage/mre/attack_self(mob/user)
 	open(user)
-
-/obj/item/storage/box/fancy/mre/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += meal_desc
 
 /obj/item/storage/box/fancy/mre/menu2
 	name = "\improper MRE, menu 2"

@@ -931,6 +931,6 @@ GLOBAL_LIST_INIT(golem_types, list(
 		stance_damage += 3
 	return stance_damage
 
-/datum/species/golem/technomancer/handle_emp_act(mob/living/carbon/human/H, var/severity)
-	H.apply_damage(75 * (4 - severity)) // their brute_mod means damage needs to be high
-	return TRUE
+/datum/species/golem/technomancer/handle_emp_act(mob/living/carbon/human/hit_mob, severity)
+	hit_mob.apply_damage(75 * (4 - severity)) // their brute_mod means damage needs to be high
+	return EMP_PROTECT_ALL

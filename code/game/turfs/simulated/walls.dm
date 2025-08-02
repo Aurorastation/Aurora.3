@@ -1,8 +1,6 @@
 /turf/simulated/wall
 	name = "wall"
 	desc = "A huge chunk of metal used to seperate rooms."
-	desc_info = "You can deconstruct this by welding it, and then wrenching the girder.<br>\
-	You can build a wall by using metal sheets and making a girder, then adding more material."
 	icon = 'icons/turf/smooth/wall_preview.dmi'
 	icon_state = "wall"
 	opacity = TRUE
@@ -49,6 +47,49 @@
 	smoothing_flags = SMOOTH_MORE | SMOOTH_NO_CLEAR_ICON | SMOOTH_UNDERLAYS
 
 	pathing_pass_method = TURF_PATHING_PASS_NO //Literally a wall, until we implement bots that can wallwarp, we might aswell save the processing
+
+
+/turf/simulated/wall/condition_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(!damage)
+		. += SPAN_NOTICE("It looks fully intact.")
+	else
+		// Total damage is based of base material integrity and optionally, if reinforced, reinforcement material integrity on top
+		var/integrity = material.integrity
+		if(reinf_material)
+			integrity += reinf_material.integrity
+
+		var/relative_damage = damage / integrity
+
+		if(relative_damage <= 0.25)
+			. += SPAN_NOTICE("It looks slightly damaged.")
+		else if(relative_damage <= 0.5)
+			. += SPAN_WARNING("It looks damaged.")
+		else if(relative_damage <= 0.75)
+			. += SPAN_WARNING("It looks moderately damaged.")
+		else if(relative_damage <= 0.9)
+			. += SPAN_DANGER("It looks heavily damaged.")
+		else
+			. += SPAN_DANGER("It looks critically damaged and on the verge of structural collapse.")
+
+/turf/simulated/wall/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(locate(/obj/effect/overlay/wallrot) in src)
+		. += "Wall rot fungus makes walls highly susceptible to damage- pushing on it now might make it break apart."
+		. += "It can be removed cleanly with a welding tool, or scraped off for processing with a bladed item like wirecutters."
+
+/turf/simulated/wall/assembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can build a wall by using metal sheets and making a girder, then adding more material."
+
+/turf/simulated/wall/disassembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Plating can be removed from a wall by use of a <b>welder</b>."
+
+/turf/simulated/wall/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(locate(/obj/effect/overlay/wallrot) in src)
+		. += SPAN_WARNING("There is fungus growing on [src].")
 
 // Walls always hide the stuff below them.
 /turf/simulated/wall/levelupdate(mapload)
@@ -135,27 +176,10 @@
 		INVOKE_ASYNC(src, TYPE_PROC_REF(/obj/effect/plant, update_neighbors))
 
 /turf/simulated/wall/ChangeTurf(path, tell_universe = TRUE, force_lighting_update = FALSE, ignore_override = FALSE, mapload = FALSE)
+	SEND_SIGNAL(src, COMSIG_ATOM_DECONSTRUCTED)
 	clear_plants()
 	clear_bulletholes()
-	..()
-
-//Appearance
-/turf/simulated/wall/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-
-	if(!damage)
-		. += SPAN_NOTICE("It looks fully intact.")
-	else
-		var/dam = damage / material.integrity
-		if(dam <= 0.3)
-			. += SPAN_WARNING("It looks slightly damaged.")
-		else if(dam <= 0.6)
-			. += SPAN_WARNING("It looks moderately damaged.")
-		else
-			. += SPAN_DANGER("It looks heavily damaged.")
-
-	if(locate(/obj/effect/overlay/wallrot) in src)
-		. += SPAN_WARNING("There is fungus growing on [src].")
+	return ..()
 
 //Damage
 

@@ -1,7 +1,6 @@
 /obj/item/clipboard
 	name = "clipboard"
 	desc = "When other writing surfaces are unavailable."
-	desc_info = "You can store a pen in this."
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "clipboard"
 	item_state = "clipboard"
@@ -14,6 +13,10 @@
 	var/list/r_contents = list()
 	var/ui_open = FALSE
 	slot_flags = SLOT_BELT
+
+/obj/item/clipboard/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can store a pen in this."
 
 /obj/item/clipboard/Initialize()
 	. = ..()
@@ -73,7 +76,7 @@
 	return
 
 /obj/item/clipboard/attack_self(mob/user as mob)
-	var/dat = "<title>Clipboard</title>"
+	var/dat = ""
 	if(haspen)
 		dat += "<A href='byond://?src=[REF(src)];pen=1'>Remove Pen</A><BR><HR>"
 	else
@@ -93,7 +96,7 @@
 	for(var/obj/item/photo/Ph in r_contents)
 		dat += "<A href='byond://?src=[REF(src)];remove=[REF(Ph)]'>Remove</A> <A href='byond://?src=[REF(src)];rename=[REF(Ph)]'>Rename</A> - <A href='byond://?src=[REF(src)];look=[REF(Ph)]'>[Ph.name]</A><BR>"
 
-	user << browse(dat, "window=clipboard")
+	user << browse(HTML_SKELETON_TITLE("Clipboard", dat), "window=clipboard")
 	if(!ui_open)
 		ui_open = TRUE
 	onclose(user, "clipboard")

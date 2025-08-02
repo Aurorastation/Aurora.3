@@ -340,3 +340,9 @@ ABSTRACT_TYPE(/datum/gear/augment/machine)
 	origin_restriction = list(/singleton/origin_item/origin/ipc_assunzione)
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	sort_category = "Xenowear - IPC"
+
+/datum/gear/accessory/goldendeeppassport
+	display_name = "golden deep passport"
+	path = /obj/item/clothing/accessory/badge/passport/goldendeep
+	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
+	sort_category = "Xenowear - IPC"

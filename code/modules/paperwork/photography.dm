@@ -45,6 +45,14 @@ GLOBAL_VAR_INIT(photo_count, 0)
 	drop_sound = 'sound/items/drop/paper.ogg'
 	pickup_sound = 'sound/items/pickup/paper.ogg'
 
+/obj/item/photo/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance <= 1)
+		show(user)
+		. += SPAN_NOTICE("[picture_desc]")
+	else
+		. += SPAN_NOTICE("You are too far away to discern its contents.")
+
 /obj/item/photo/New()
 	. = ..()
 	id = GLOB.photo_count++
@@ -59,14 +67,6 @@ GLOBAL_VAR_INIT(photo_count, 0)
 			scribble = txt
 	..()
 
-/obj/item/photo/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance <= 1)
-		show(user)
-		. += SPAN_NOTICE("[picture_desc]")
-	else
-		. += SPAN_NOTICE("You are too far away to discern its contents.")
-
 /obj/item/photo/proc/show(mob/user as mob)
 	send_rsc(user, img, "tmp_photo_[id].png")
 	var/dat = "<html><head><title>[name]</title></head>" \
@@ -74,7 +74,7 @@ GLOBAL_VAR_INIT(photo_count, 0)
 		+ "<img src='tmp_photo_[id].png' width='[64*photo_size]' style='-ms-interpolation-mode:nearest-neighbor' />" \
 		+ "[scribble ? "<br>Written on the back:<br><i>[scribble]</i>" : ""]" \
 		+ "</body></html>"
-	show_browser(user, dat, "window=book;size=[64*photo_size]x[scribble ? 400 : 64*photo_size]")
+	show_browser(user, HTML_SKELETON(dat), "window=book;size=[64*photo_size]x[scribble ? 400 : 64*photo_size]")
 	onclose(user, "[name]")
 	return
 
@@ -155,10 +155,10 @@ GLOBAL_VAR_INIT(photo_count, 0)
 	var/icon_off = "camera_off"
 	var/size = 3
 
-/obj/item/device/camera/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/device/camera/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(is_adjacent)
-		. += SPAN_NOTICE("It has <b>[pictures_left]</b> photos left.")
+		. += SPAN_NOTICE("It has <b>[pictures_left] photos</b> left.")
 
 /obj/item/device/camera/verb/change_size()
 	set name = "Set Photo Focus"

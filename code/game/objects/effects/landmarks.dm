@@ -71,7 +71,17 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	GLOB.latejoin_living_quarters_lift += get_turf(src)
 	return INITIALIZE_HINT_QDEL
 
+/**
+ * # Latejoin medbay marker
+ */
 
+/obj/effect/landmark/latejoinmedbayrecovery
+	invisibility = INVISIBILITY_ABSTRACT
+
+/obj/effect/landmark/latejoinmedbayrecovery/Initialize()
+	. = ..()
+	GLOB.latejoin_medbay_recovery += get_turf(src)
+	return INITIALIZE_HINT_QDEL
 
 /**
  * # Start marker

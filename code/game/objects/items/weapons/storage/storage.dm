@@ -84,6 +84,13 @@
 	///Boolean, whether or not we should have the squish animation when inserting and removing objects
 	var/animated = TRUE
 
+	var/make_exact_fit = FALSE
+
+/obj/item/storage/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(isghost(user) || isstoryteller(user))
+		. += "It contains: [counting_english_list(contents)]"
+
 /obj/item/storage/Destroy()
 	close_all()
 	QDEL_NULL(boxes)
@@ -196,12 +203,6 @@
 
 	return return_status
 
-
-/obj/item/storage/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(isghost(user))
-		. += "It contains: [counting_english_list(contents)]"
-
 /obj/item/storage/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	. = ..()
 	if(!canremove)
@@ -237,12 +238,12 @@
 				user.equip_to_slot_if_possible(src, slot_l_hand)
 		src.add_fingerprint(user)
 
-/obj/item/storage/AltClick(var/mob/usr)
+/obj/item/storage/AltClick(var/mob/user)
 	if(!canremove)
 		return ..()
-	if (!use_check_and_message(usr))
-		add_fingerprint(usr)
-		open(usr)
+	if (!use_check_and_message(user))
+		add_fingerprint(user)
+		open(user)
 		return TRUE
 	. = ..()
 
@@ -398,7 +399,7 @@
 	// Don't touch these numbers. This works on literal pixel measurements. Unless you want to fix this shit or change the sprites.
 	var/storage_cap_width = 2 //length of sprite for start and end of the box representing total storage space
 	var/stored_cap_width = 4 //length of sprite for start and end of the box representing the stored item
-	var/storage_width = (1+stored_cap_width*2)*max_storage_space - 1 //length of sprite for the box representing total storage space, -1px. because no spacing on left for first item.
+	var/storage_width = min(((1+stored_cap_width*2)*max_storage_space - 1),((1+stored_cap_width*2)*DEFAULT_DUFFELBAG_STORAGE - 1)) //length of sprite for the box representing total storage space, -1px. because no spacing on left for first item.
 
 	storage_start.ClearOverlays()
 
@@ -442,7 +443,7 @@
 		storage_screens += list(stored_start, stored_continue, stored_end)
 		storage_start.add_vis_contents(list(stored_start, stored_continue, stored_end))
 
-		O.screen_loc = "4:[startpoint + round(stored_width/2)],2:16"
+		O.screen_loc = "4:[round(startpoint + round(stored_width/2))],2:16"
 		O.maptext = ""
 		O.hud_layerise()
 
@@ -473,11 +474,16 @@
 		numbered_contents = list()
 		adjusted_contents = 0
 		for(var/obj/item/I in contents)
-			var/found = 0
+			var/found = FALSE
 			for(var/datum/numbered_display/ND in numbered_contents)
-				if(ND.sample_object.type == I.type)
+				if(ND.sample_object.storage_slot_sort_by_name)
+					if(ND.sample_object.name == I.name)
+						ND.number++
+						found = TRUE
+						break
+				else if(ND.sample_object.type == I.type)
 					ND.number++
-					found = 1
+					found = TRUE
 					break
 			if(!found)
 				adjusted_contents++
@@ -588,13 +594,11 @@
 			add_fingerprint(user)
 
 		if(!prevent_warning)
-			for(var/mob/M in viewers(user, null))
-				if(M == usr)
-					continue
-				else if (M in range(1)) //If someone is standing close enough, they can tell what it is...
-					M.show_message(SPAN_NOTICE("\The [user] puts [W] into [src]."))
-				else if (W && W.w_class >= WEIGHT_CLASS_NORMAL) //Otherwise they can only see large or normal items from a distance...
-					M.show_message(SPAN_NOTICE("\The [user] puts [W] into [src]."))
+			if(W?.w_class >= WEIGHT_CLASS_NORMAL)
+				user.visible_message(SPAN_NOTICE("\The [user] puts [W] into [src]."), SPAN_NOTICE("You put [W] into [src]."))
+			else
+				user.visible_message(SPAN_NOTICE("\The [user] puts [W] into [src]."), SPAN_NOTICE("You slip [W] into [src]."), null, 2)
+
 		orient2hud(user)
 		if(user.s_active)
 			user.s_active.show_to(user)
@@ -700,7 +704,6 @@
 	if (user.s_active)
 		user.s_active.show_to(user)
 
-	// who knows what the fuck this does
 	if (istype(src, /obj/item/storage/box/fancy))
 		update_icon(1)
 	else
@@ -829,6 +832,9 @@
 		max_storage_space = STORAGE_SPACE_CAP
 
 	fill()
+
+	if(make_exact_fit)
+		make_exact_fit()
 
 	for(var/obj/item/I in contents)
 		I.in_storage = TRUE

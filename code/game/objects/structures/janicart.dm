@@ -1,10 +1,6 @@
 /obj/structure/janitorialcart
 	name = "custodial cart"
 	desc = "The ultimate in custodial carts. Has space for water, mops, signs, trash bags, and more."
-	desc_info  = "Click and drag a mop bucket onto the cart to mount it\
-	</br>Alt+Click with a mop to put it away, a normal click will wet it in the bucket.\
-	</br>Alt+Click with a container, such as a bucket, to pour its contents into the mounted bucket. A normal click will toss it into the trash\
-	</br>You can also use a lightreplacer, spraybottle (of spacecleaner) and four wet-floor signs on the cart to store them"
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "cart"
 	anchored = FALSE
@@ -24,6 +20,27 @@
 	var/has_items = FALSE //This is set true whenever the cart has anything loaded/mounted on it
 	var/driving
 	var/mob/living/pulling
+
+/obj/structure/janitorialcart/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Click and drag a mop bucket onto the cart to mount it."
+	. += "ALT-Click with a mop to put it away; a normal click will wet it in the bucket."
+	. += "ALT-Click with a container, such as a bucket, to pour its contents into the mounted bucket. A normal click will toss it into the trash."
+	. += "You can use a light replacer, spraybottle (of space cleaner) and four wet-floor signs on the cart to store them."
+
+/obj/structure/janitorialcart/disassembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "An empty custodial cart can be taken apart with a <b>wrench</b> or a <b>welder</b>. Or a <b>plasma cutter</b>, if you're that hardcore."
+
+/obj/structure/janitorialcart/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance <= 1)
+		if (mybucket)
+			var/contains = mybucket.reagents.total_volume
+			. += "[icon2html(src, user)] The bucket contains <b>[contains] unit\s</b> of liquid!"
+		else
+			. += "[icon2html(src, user)] There is no bucket mounted on it!"
+	//everything else is visible, so doesn't need to be mentioned
 
 // Regular Variant
 // No trashbag and no light replacer, this is inside the custodian's locker.
@@ -74,10 +91,12 @@
 
 /obj/structure/janitorialcart/New()
 	..()
-	GLOB.janitorial_supplies |= src
+	if(is_station_turf(get_turf(src)))
+		GLOB.janitorial_supplies |= src
 
 /obj/structure/janitorialcart/Destroy()
-	GLOB.janitorial_supplies -= src
+	if(src in GLOB.janitorial_supplies)
+		GLOB.janitorial_supplies -= src
 	QDEL_NULL(mybag)
 	QDEL_NULL(mymop)
 	QDEL_NULL(myspray)
@@ -87,17 +106,6 @@
 
 /obj/structure/janitorialcart/proc/get_short_status()
 	return "Contents: [english_list(contents)]"
-
-/obj/structure/janitorialcart/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance <= 1)
-		if (mybucket)
-			var/contains = mybucket.reagents.total_volume
-			. += "[icon2html(src, user)] The bucket contains [contains] unit\s of liquid!"
-		else
-			. += "[icon2html(src, user)] There is no bucket mounted on it!"
-	//everything else is visible, so doesn't need to be mentioned
-
 
 /obj/structure/janitorialcart/mouse_drop_receive(atom/dropped, mob/user, params)
 	var/atom/movable/O = dropped
@@ -132,7 +140,6 @@
 		var/obj/item/device/lightreplacer/LR = I
 		if (LR.store_broken)
 			return mybag.attackby(I, usr)
-
 
 /obj/structure/janitorialcart/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/mop) || istype(attacking_item, /obj/item/reagent_containers/glass/rag) || istype(attacking_item, /obj/item/soap))
@@ -259,8 +266,6 @@
 		mybag = null
 
 	update_icon()
-
-
 
 /obj/structure/janitorialcart/attack_hand(mob/user)
 	ui_interact(user)

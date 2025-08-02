@@ -2051,7 +2051,7 @@
 	icon_state = "coil2"
 	},
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
-/obj/structure/flora/pottedplant/orientaltree,
+/obj/structure/flora/pottedplant/cherrytree,
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "TE" = (

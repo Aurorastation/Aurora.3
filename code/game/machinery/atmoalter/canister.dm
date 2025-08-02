@@ -1,11 +1,6 @@
 /obj/machinery/portable_atmospherics/canister
 	name = "canister"
 	desc = "Holds gas. Has a built-in valve to allow for filling portable tanks."
-	desc_info = "The canister can be connected to a connector port with a wrench.  Tanks of gas (the kind you can hold in your hand) \
-	can be filled by the canister, by using the tank on the canister, increasing the release pressure, then opening the valve until it is full, and then close it.  \
-	*DO NOT* remove the tank until the valve is closed.  A gas analyzer can be used to check the contents of the canister."
-
-	desc_antag = "Canisters can be damaged, spilling their contents into the air, or you can just leave the release valve open."
 	icon = 'icons/obj/atmos.dmi'
 	icon_state = "yellow"
 	density = 1
@@ -26,6 +21,18 @@
 	interact_offline = 1 // Allows this to be used when not in powered area.
 	var/release_log = ""
 	var/update_flag = 0
+
+/obj/machinery/portable_atmospherics/canister/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "The canister can be connected to a connector port with a wrench."
+	. += "Tanks of gas (the kind you can hold in your hand) can be filled by the canister by using the tank on the canister, increasing \
+	the release pressure, then opening the valve until it is full, and then closing it again. <b>DO NOT</b> remove the tank until the valve is closed."
+	. += "A gas analyzer can be used to check the contents of the canister."
+
+/obj/machinery/portable_atmospherics/canister/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Canisters can be damaged, spilling their contents into the air, or you can just leave the release valve open."
+	. += "You can attach a signaler to \the [src] to remotely toggle its valve opened or closed!"
 
 /obj/machinery/portable_atmospherics/canister/drain_power()
 	return -1
@@ -55,8 +62,10 @@
 /obj/machinery/portable_atmospherics/canister/oxygen/Initialize()
 	. = ..()
 	src.air_contents.adjust_gas(GAS_OXYGEN, MolesForPressure())
+
 /obj/machinery/portable_atmospherics/canister/oxygen/prechilled
 	name = "Canister: \[O2 (Cryo)\]"
+
 /obj/machinery/portable_atmospherics/canister/oxygen/prechilled/Initialize()
 	. = ..()
 	src.air_contents.temperature = 80
@@ -69,6 +78,7 @@
 /obj/machinery/portable_atmospherics/canister/phoron/Initialize()
 	. = ..()
 	src.air_contents.adjust_gas(GAS_PHORON, MolesForPressure())
+
 /obj/machinery/portable_atmospherics/canister/phoron_scarce // replacing on-station canisters with this for scarcity - full-capacity canisters are staying to avoid mapping errors in future
 	name = "Canister \[Phoron\]"
 	icon_state = "orange"
@@ -92,6 +102,7 @@
 /obj/machinery/portable_atmospherics/canister/hydrogen/Initialize()
 	. = ..()
 	air_contents.adjust_gas(GAS_HYDROGEN, MolesForPressure())
+
 /obj/machinery/portable_atmospherics/canister/hydrogen/deuterium
 	name = "Canister \[2H\]"
 	icon_state = "teal"
@@ -100,6 +111,7 @@
 /obj/machinery/portable_atmospherics/canister/hydrogen/deuterium/Initialize()
 	. = ..()
 	air_contents.adjust_gas(GAS_DEUTERIUM, MolesForPressure())
+
 /obj/machinery/portable_atmospherics/canister/hydrogen/tritium
 	name = "Canister \[3H\]"
 	icon_state = "pink"
@@ -126,6 +138,7 @@
 /obj/machinery/portable_atmospherics/canister/boron/Initialize()
 	. = ..()
 	air_contents.adjust_gas(GAS_BORON, MolesForPressure())
+
 /obj/machinery/portable_atmospherics/canister/chlorine
 	name = "\improper Chlorine \[Cl2\]"
 	icon_state = "darkyellow"
@@ -234,9 +247,6 @@
 	name = "Canister \[H2O\]"
 	icon_state = "whitebrs"
 	canister_color = "whitebrs"
-
-
-
 
 /obj/machinery/portable_atmospherics/canister/proc/check_change()
 	var/old_flag = update_flag

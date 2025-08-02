@@ -97,8 +97,8 @@
 	if(istype(dart))
 		fill_dart(dart)
 
-/obj/item/gun/projectile/dartgun/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/gun/projectile/dartgun/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if (beakers.len)
 		. += SPAN_NOTICE("[src] contains:")
 		for(var/obj/item/reagent_containers/glass/beaker/B in beakers)
@@ -159,7 +159,7 @@
 			dat += SPAN_WARNING("The dart cartridge is empty!")
 		dat += " \[<A href='byond://?src=[REF(src)];eject_cart=1'>Eject</A>\]"
 
-	user << browse(dat, "window=dartgun")
+	user << browse(HTML_SKELETON(dat), "window=dartgun")
 	onclose(user, "dartgun", src)
 
 /obj/item/gun/projectile/dartgun/proc/check_beaker_mixing(var/obj/item/B)

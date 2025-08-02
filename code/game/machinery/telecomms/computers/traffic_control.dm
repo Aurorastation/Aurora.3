@@ -69,7 +69,7 @@
 	if(stat & (BROKEN|NOPOWER))
 		return
 	user.set_machine(src)
-	var/dat = "<TITLE>Telecommunication Traffic Control</TITLE><center><b>Telecommunications Traffic Control</b></center>"
+	var/dat = "<center><b>Telecommunications Traffic Control</b></center>"
 
 	switch(screen)
 
@@ -105,7 +105,7 @@
 				dat += "<a href='byond://?src=[REF(src)];operation=togglerun'>NEVER</a>"
 
 
-	user << browse(dat, "window=traffic_control;size=575x400")
+	user << browse(HTML_SKELETON_TITLE("Telecommunication Traffic Control", dat), "window=traffic_control;size=575x400")
 	onclose(user, "server_control")
 
 	temp = ""

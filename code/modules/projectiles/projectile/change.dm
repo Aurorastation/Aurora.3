@@ -3,7 +3,7 @@
 	icon_state = "ice_1"
 	damage = 0
 	damage_type = DAMAGE_BURN
-	check_armor = "energy"
+	check_armor = ENERGY
 
 /obj/projectile/change/on_hit(atom/target, blocked, def_zone)
 	. = ..()

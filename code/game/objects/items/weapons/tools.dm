@@ -79,9 +79,10 @@
 
 /obj/item/screwdriver/update_icon()
 	var/matrix/tf = matrix()
-	if(istype(loc, /obj/item/storage))
+	var/obj/item/storage/S = loc
+	if(istype(S, /obj/item/storage) && !S.storage_slots)
 		tf.Turn(-90) //Vertical for storing compactly
-		tf.Translate(-3,0) //Could do this with pixel_x but let's just update the appearance once.
+		tf.Translate(-1, 0) //Could do this with pixel_x but let's just update the appearance once.
 	transform = tf
 
 /obj/item/screwdriver/get_belt_overlay()
@@ -160,9 +161,10 @@
 
 /obj/item/wirecutters/update_icon()
 	var/matrix/tf = matrix()
-	if(istype(loc, /obj/item/storage))
+	var/obj/item/storage/S = loc
+	if(istype(S, /obj/item/storage) && !S.storage_slots)
 		tf.Turn(-90) //Vertical for storing compactly
-		tf.Translate(-1,0) //Could do this with pixel_x but let's just update the appearance once.
+		tf.Translate(-1, 0) //Could do this with pixel_x but let's just update the appearance once.
 	transform = tf
 
 /obj/item/wirecutters/get_belt_overlay()
@@ -253,6 +255,11 @@
 	var/max_fuel = 20 	//The max amount of fuel the welder can hold
 	var/change_icons = TRUE
 	var/produces_flash = TRUE
+
+/obj/item/weldingtool/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance <= 0)
+		. += "It contains [get_fuel()]/[max_fuel] units of fuel."
 
 /obj/item/weldingtool/iswelder()
 	return TRUE
@@ -346,11 +353,6 @@
 /obj/item/weldingtool/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
-
-/obj/item/weldingtool/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance <= 0)
-		. += "It contains [get_fuel()]/[max_fuel] units of fuel."
 
 /obj/item/weldingtool/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.isscrewdriver())
@@ -662,21 +664,26 @@
 /obj/item/eyeshield
 	name = "experimental eyeshield"
 	desc = "An advanced eyeshield capable of dampening the welding glare produced when working on modern super-materials, removing the need for user-worn welding gear."
-	desc_info = "This can be attached to an experimental welder to give it welding protection, removing the need for welding goggles or masks."
 	icon = 'icons/obj/item/welding_tools.dmi'
 	icon_state = "eyeshield"
 	item_state = "eyeshield"
 	contained_sprite = TRUE
 
+/obj/item/eyeshield/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This can be attached to an experimental welder to give it welding protection, removing the need for welding goggles or masks."
+
 /obj/item/overcapacitor
 	name = "experimental overcapacitor"
 	desc = "An advanced capacitor that injects a current into the welding stream, doubling the speed of welding tasks without sacrificing quality. Excess current burns up welding fuel, reducing fuel efficiency, however."
-	desc_info = "This can be attached to an experimental welder to double the speed it works at, at the cost of tripling the fuel cost of using it."
 	icon = 'icons/obj/item/welding_tools.dmi'
 	icon_state = "overcap"
 	item_state = "overcap"
 	contained_sprite = TRUE
 
+/obj/item/overcapacitor/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This can be attached to an experimental welder to double the speed it works at, at the cost of tripling the fuel cost of using it."
 
 /*
  * Crowbar
@@ -713,7 +720,7 @@
 	icon_state = "crowbar_red"
 	item_state = "crowbar_red"
 
-/obj/item/crowbar/rescue_axe //Imagine something like a crash axe found on airplanes or forcing tools used by emergency services. This is a tool first and foremost.
+/obj/item/crowbar/rescue_axe // Imagine something like a crash axe found on airplanes or forcing tools used by emergency services. This is a tool first and foremost.
 	name = "rescue axe"
 	desc = "A short lightweight emergency tool meant to chop, pry and pierce. Most of the handle is insulated excepting the wedge at the very bottom. The axe head atop the tool has a short pick opposite of the blade."
 	icon_state = "rescue_axe"
@@ -721,19 +728,19 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	force = 18
 	throwforce = 12
-	obj_flags = null //Handle is insulated, so this means it won't conduct electricity and hurt you.
+	obj_flags = null // Handle is insulated, so this means it won't conduct electricity and hurt you.
 	sharp = TRUE
 	edge = TRUE
 	origin_tech = list(TECH_ENGINEERING = 2)
 
-/obj/item/crowbar/rescue_axe/resolve_attackby(atom/A)//In practice this means it just does full damage to reinforced windows, which halve the force of attacks done against it already. That's just fine.
+/obj/item/crowbar/rescue_axe/resolve_attackby(atom/A) // In practice this means it just does full damage to reinforced windows, which halve the force of attacks done against it already. That's just fine.
 	if(istype(A, /obj/structure/window))
 		force = initial(force) * 2
 	else
 		force = initial(force)
 	. = ..()
 
-/obj/item/crowbar/rescue_axe/iscrowbar()//go ham
+/obj/item/crowbar/rescue_axe/iscrowbar()
 	if(ismob(loc))
 		var/mob/M = loc
 		if(M.a_intent && M.a_intent == I_HURT)
@@ -749,7 +756,7 @@
 	item_state = "rescue_axe_red"
 
 /obj/item/crowbar/hydraulic_rescue_tool
-	name = "Hydraulic rescue tool"
+	name = "hydraulic rescue tool"
 	desc = "A hydraulic rescue tool that functions like a crowbar by applying strong amounts of hydraulic pressure to force open different things. Also known as jaws of life."
 	icon = 'icons/obj/item/hydraulic_rescue_tool.dmi'
 	icon_state = "jawspry"
@@ -762,8 +769,6 @@
 	origin_tech = list(TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
 	attack_verb = list("attacked", "rammed", "battered", "bludgeoned")
-	sharp = FALSE
-	edge = FALSE
 
 // Pipe wrench
 /obj/item/pipewrench
@@ -813,16 +818,17 @@
 		)
 	var/current_tool = 1
 
+/obj/item/combitool/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. = ..()
+	if(tools.len)
+		. += "It has the following fittings: <b>[english_list(tools)]</b>."
+
 /obj/item/combitool/Initialize()
 	desc = "[initial(desc)] It has [tools.len] possibilit[tools.len == 1 ? "y" : "ies"]."
 	for(var/tool in tools)
 		tools[tool] = image('icons/obj/tools.dmi', icon_state = "[icon_state]-[tool]")
 	. = ..()
-
-/obj/item/combitool/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(tools.len)
-		. += "It has the following fittings: <b>[english_list(tools)]</b>."
 
 /obj/item/combitool/iswrench()
 	return current_tool == "wrench"
@@ -883,9 +889,13 @@
 	usesound = 'sound/items/drill_use.ogg'
 	var/current_tool = 1
 	var/list/tools = list(
-		"screwdriverbit",
-		"wrenchbit"
+		"screwdriver bit",
+		"wrench bit"
 		)
+
+/obj/item/powerdrill/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Left-click \the [src] in-hand to cycle through the active bits."
 
 /obj/item/powerdrill/Initialize()
 	. = ..()
@@ -893,13 +903,6 @@
 
 /obj/item/powerdrill/set_initial_maptext()
 	held_maptext = SMALL_FONTS(7, "S")
-
-/obj/item/powerdrill/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(tools.len)
-		. += "It has the following fittings:"
-		for(var/tool in tools)
-			. += "- [tool][tools[current_tool] == tool ? " (selected)" : ""]"
 
 /obj/item/powerdrill/MouseEntered(location, control, params)
 	. = ..()
@@ -913,10 +916,10 @@
 	closeToolTip(usr)
 
 /obj/item/powerdrill/iswrench()
-	return tools[current_tool] == "wrenchbit"
+	return tools[current_tool] == "wrench bit"
 
 /obj/item/powerdrill/isscrewdriver()
-	return tools[current_tool] == "screwdriverbit"
+	return tools[current_tool] == "screwdriver bit"
 
 /obj/item/powerdrill/proc/update_tool()
 	if(isscrewdriver())

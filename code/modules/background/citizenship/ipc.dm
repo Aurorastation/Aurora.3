@@ -11,6 +11,7 @@
 	Frontier collective. Due to their peerless skill in business and clerical duties, affiliates share warm relations with NanoTrasen and \
 	find themselves the target of job opportunities in exchange for citizenship."
 	consular_outfit = /obj/outfit/job/representative/consular/golden
+	bodyguard_outfit = /obj/outfit/job/diplomatic_bodyguard/golden
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -53,6 +54,9 @@
 	name = "Golden Deep Consular Officer"
 
 	uniform = /obj/item/clothing/under/goldendeep/suit
+
+/obj/outfit/job/diplomatic_bodyguard/golden
+	name = "Golden Deep Diplomatic Bodyguard"
 	backpack_contents = list(
 		/obj/item/gun/energy/pistol/goldendeep = 1
 	)
@@ -65,5 +69,6 @@
 	allowing its populace to work, study, and travel abroad in the Coalition and beyond, primarily in the All-Xanu Republic, utilizing Xanan documents."
 
 	job_species_blacklist = list(
-		"Consular Officer" = ALL_SPECIES
+		"Consular Officer" = ALL_SPECIES,
+		"Diplomatic Aide" = ALL_SPECIES,
 	)

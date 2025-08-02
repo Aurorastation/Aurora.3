@@ -14,8 +14,8 @@
 	max_w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/storage/firstaid/empty
-	name = "empty first-aid kit"
 	desc = "It's a first-aid kit. Comes with nothing, so feel free to put your own stuff in it."
+	max_storage_space = DEFAULT_BOX_STORAGE // So empty first-aid kits don't start with less space than filled ones.
 
 /obj/item/storage/firstaid/regular
 	starts_with = list(
@@ -188,10 +188,7 @@
 		/obj/item/stack/medical/advanced/bruise_pack = 1,
 		/obj/item/reagent_containers/inhaler/soporific = 2
 	)
-
-/obj/item/storage/firstaid/surgery/fill()
-	. = ..()
-	make_exact_fit()
+	make_exact_fit = TRUE
 
 /obj/item/storage/firstaid/trauma
 	name = "trauma first-aid kit"

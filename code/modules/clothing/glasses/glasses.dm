@@ -33,9 +33,6 @@ BLIND     // can't see anything
 	var/activated_color = null
 	var/normal_layer = GLASSES_LAYER
 	var/shatter_material = /obj/item/material/shard
-	sprite_sheets = list(
-		BODYTYPE_VAURCA_WARFORM = 'icons/mob/species/warriorform/eyes.dmi'
-		)
 	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER)
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
@@ -789,7 +786,7 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/aug/welding
 	name = "glare dampeners"
 	desc = "A subdermal implant installed just above the brow line that deploys a thin sheath of hyperpolycarbonate that protects from eye damage associated with arc flash."
-	icon = 'icons/clothing/eyes/welding_goggles.dmi'
+	icon = 'icons/obj/item/clothing/eyes/welding_goggles.dmi'
 	icon_state = "welding-aug"
 	item_state = "welding-aug"
 	contained_sprite = TRUE
@@ -819,7 +816,7 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/welding/emergency
 	name = "emergency welding goggles"
 	desc = "A cheaper version of standard welding goggles, approved for emergency use by the NanoTrasen Safety Board."
-	icon = 'icons/clothing/eyes/welding_goggles.dmi'
+	icon = 'icons/obj/item/clothing/eyes/welding_goggles.dmi'
 	icon_state = "ewelding-g"
 	item_state = "ewelding-g"
 	contained_sprite = TRUE
@@ -850,7 +847,7 @@ BLIND     // can't see anything
 	icon_state = "blinders"
 	item_state = "blinders"
 	sprite_sheets = list(
-		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/eyes.dmi', BODYTYPE_VAURCA_WARFORM = 'icons/mob/species/warriorform/eyes.dmi'
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/eyes.dmi'
 	)
 	contained_sprite = TRUE
 	shatter_material = FALSE
@@ -1112,13 +1109,16 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/thermal/aviator
 	name = "aviators"
 	desc = "A pair of designer sunglasses. They should put HUDs in these."
-	desc_antag = "Modified aviator glasses with a toggled thermal-vision mode."
 	icon_state = "aviator_thr"
 	off_state = "aviator_off"
 	item_state_slots = list(slot_r_hand_str = "sunglasses", slot_l_hand_str = "sunglasses")
 	action_button_name = "Toggle HUD"
 	activation_sound = 'sound/effects/pop.ogg'
 	prescription = 7
+
+/obj/item/clothing/glasses/thermal/aviator/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Modified aviator glasses with a toggled thermal-vision mode."
 
 /obj/item/clothing/glasses/thermal/aviator/verb/toggle()
 	set category = "Object"
@@ -1195,7 +1195,7 @@ BLIND     // can't see anything
 		eye.color = eye_color
 		AddOverlays(eye)
 
-/obj/item/clothing/glasses/eyepatch/hud/forceMove(atom/newloc)
+/obj/item/clothing/glasses/eyepatch/hud/forceMove(atom/destination)
 	if (!ishuman(loc))
 		return ..()
 

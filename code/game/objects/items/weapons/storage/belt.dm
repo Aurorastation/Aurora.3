@@ -118,7 +118,10 @@
 		/obj/item/device/debugger,
 		/obj/item/device/eftpos,
 		/obj/item/tape_roll,
-		/obj/item/device/geiger
+		/obj/item/device/geiger,
+		/obj/item/clothing/gloves/yellow,
+		/obj/item/clothing/gloves/yellow/specialu,
+		/obj/item/clothing/gloves/yellow/specialt
 	)
 	content_overlays = TRUE
 
@@ -147,11 +150,12 @@
 
 /obj/item/storage/belt/utility/very_full
 	starts_with = list(
+		/obj/item/screwdriver = 1,
+		/obj/item/wrench = 1,
 		/obj/item/weldingtool/largetank = 1,
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters/toolbelt = 1,
 		/obj/item/stack/cable_coil/random = 1,
-		/obj/item/powerdrill = 1,
 		/obj/item/device/multitool = 1,
 		/obj/item/device/radio = 1
 	)
@@ -332,6 +336,7 @@
 		/obj/item/melee,
 		/obj/item/crowbar,
 		/obj/item/gun/projectile/sec,
+		/obj/item/gun/energy/repeater/pistol,
 		/obj/item/gun/energy/disruptorpistol,
 		/obj/item/taperoll/police,
 		/obj/item/material/knife/trench,
@@ -384,6 +389,14 @@
 		/obj/item/ammo_magazine/c45m/rubber = 2,
 	)
 
+/obj/item/storage/belt/security/vestbelt
+	name = "security chestrig"
+	desc = "A chestrig designed to hold vital security equipment, like handcuffs and flashes."
+	icon_state = "securityvestbelt"
+	item_state = "securityvestbelt"
+	content_overlays = FALSE
+	show_above_suit = TRUE
+
 /obj/item/storage/belt/soulstone
 	name = "soul stone belt"
 	desc = "Designed for ease of access to the shards during a fight, as to not let a single enemy spirit slip away"
@@ -423,7 +436,7 @@
 	item_state = "militarybelt"
 	storage_slots = 9 //same as a combat belt now
 	max_w_class = WEIGHT_CLASS_NORMAL
-	max_storage_space  = 28
+	max_storage_space  = DEFAULT_BACKPACK_STORAGE
 	can_hold = list(
 		/obj/item/grenade,
 		/obj/item/handcuffs,
@@ -451,7 +464,8 @@
 		/obj/item/stack/telecrystal,
 		/obj/item/device/radio,
 		/obj/item/shield/riot/tact,
-		/obj/item/material/knife/tacknife
+		/obj/item/material/knife/tacknife,
+		/obj/item/cell/hydrogen
 		)
 
 /obj/item/storage/belt/military/syndicate
@@ -564,7 +578,7 @@
 	max_w_class = WEIGHT_CLASS_BULKY
 	can_hold = list(
 		/obj/item/reagent_containers/glass,
-		/obj/item/grenade/chem_grenade, //weed killer grenades mostly, or water-pottassium if you grow the bannanas!
+		/obj/item/grenade/chem_grenade,
 		/obj/item/bee_smoker, //will this ever get used? Probally not.
 		/obj/item/plantspray/pests,
 		/obj/item/storage/bag/plants,
@@ -577,8 +591,19 @@
 		/obj/item/reagent_containers/spray, //includes if you ever wish to get a spraybottle full of other chemicals, Like water
 		/obj/item/device/analyzer/plant_analyzer,
 		/obj/item/clothing/gloves/botanic_leather,
-		/obj/item/device/radio
+		/obj/item/device/radio,
+		/obj/item/crowbar
 	)
+
+/obj/item/storage/belt/hydro/full
+	starts_with = list(
+		/obj/item/material/minihoe = 1,
+		/obj/item/material/hatchet = 1,
+		/obj/item/wirecutters/clippers = 1,
+		/obj/item/device/analyzer/plant_analyzer = 1,
+		/obj/item/storage/bag/plants = 1
+	)
+
 
 /obj/item/storage/belt/ninja //credits to BurgerBB
 	name = "advanced combat belt"
@@ -623,7 +648,7 @@
 /obj/item/storage/belt/fannypack
 	name = "fannypack"
 	desc = "A dorky fannypack for keeping small items in."
-	icon = 'icons/clothing/belts/fannypacks.dmi'
+	icon = 'icons/obj/item/clothing/belts/fannypacks.dmi'
 	icon_state = "fannypack"
 	item_state = "fannypack"
 	max_w_class = WEIGHT_CLASS_SMALL

@@ -102,7 +102,7 @@
 	item_state = "hazard_iac"
 	permeability_coefficient = 0.50
 	armor = list(
-		bio = ARMOR_BIO_MINOR
+		BIO = ARMOR_BIO_MINOR
 	)
 
 /obj/item/clothing/suit/storage/hazardvest/colorable

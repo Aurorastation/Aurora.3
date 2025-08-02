@@ -383,6 +383,11 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 	tgui_panel = new(src, "browseroutput")
 	tgui_say = new(src, "tgui_say")
 
+	// Forcibly enable hardware-accelerated graphics, as we need them for the lighting overlays.
+	winset(src, null, "command=\".configure graphics-hwmode on\"")
+
+	winset(src, "map", "style=\"[MAP_STYLESHEET]\"")
+
 	if(IsGuestKey(key) && GLOB.config.external_auth)
 		src.authed = FALSE
 		var/mob/abstract/unauthed/m = new()
@@ -395,23 +400,8 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 		. = ..()
 		src.InitClient()
 		src.InitPrefs()
+		src.InitUI()
 		mob.LateLogin()
-
-	// Initialize stat panel
-	stat_panel.initialize(
-		inline_html = file("html/statbrowser.html"),
-		inline_js = file("html/statbrowser.js"),
-		inline_css = file("html/statbrowser.css"),
-	)
-	addtimer(CALLBACK(src, PROC_REF(check_panel_loaded)), 30 SECONDS)
-
-	// Initialize tgui panel
-	tgui_panel.initialize()
-
-	tgui_say.initialize()
-
-	// Forcibly enable hardware-accelerated graphics, as we need them for the lighting overlays.
-	winset(src, null, "command=\".configure graphics-hwmode on\"")
 
 	send_resources()
 
@@ -419,6 +409,7 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 		to_chat(src, SPAN_WARNING("Unable to access asset cache browser, if you are using a custom skin file, please allow DS to download the updated version, if you are not, then make a bug report. This is not a critical issue but can cause issues with resource downloading, as it is impossible to know when extra resources arrived to you."))
 
 	Master.UpdateTickRate()
+	fully_created = TRUE
 
 /client/proc/InitPrefs()
 	SHOULD_NOT_SLEEP(TRUE)
@@ -437,7 +428,25 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 		fps = prefs.clientfps
 
 	if(prefs.toggles_secondary & FULLSCREEN_MODE)
-		toggle_fullscreen(TRUE)
+		addtimer(CALLBACK(src, VERB_REF(toggle_fullscreen), 1 SECONDS))
+
+	if(prefs.toggles_secondary & CLIENT_PREFERENCE_HIDE_MENU)
+		addtimer(CALLBACK(src, VERB_REF(toggle_menu), 1 SECONDS))
+
+/client/proc/InitUI()
+	INVOKE_ASYNC(src, PROC_REF(acquire_dpi))
+
+	// Initialize tgui panel
+	tgui_panel.initialize()
+	tgui_say.initialize()
+
+	// Initialize stat panel
+	stat_panel.initialize(
+		inline_html = file("html/statbrowser.html"),
+		inline_js = file("html/statbrowser.js"),
+		inline_css = file("html/statbrowser.css"),
+	)
+	addtimer(CALLBACK(src, PROC_REF(check_panel_loaded)), 30 SECONDS)
 
 /client/proc/InitClient()
 	SHOULD_NOT_SLEEP(TRUE)
@@ -555,7 +564,7 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 	if(!establish_db_connection(GLOB.dbcon))
 		return
 
-	var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT datediff(Now(),firstseen) as age, whitelist_status, account_join_date, DATEDIFF(NOW(), account_join_date) FROM ss13_player WHERE ckey = :ckey:")
+	var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT datediff(Now(),firstseen) as age, whitelist_status, account_join_date, DATEDIFF(NOW(), account_join_date), ckey_is_external FROM ss13_player WHERE ckey = :ckey:")
 
 	if(!query.Execute(list("ckey"=ckey(key))))
 		return
@@ -569,6 +578,7 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 		whitelist_status = text2num(query.item[2])
 		account_join_date = query.item[3]
 		account_age = text2num(query.item[4])
+		ckey_is_external = !!text2num(query.item[5])
 		if (!account_age)
 			account_join_date = sanitizeSQL(findJoinDate())
 			if (!account_join_date)
@@ -604,8 +614,8 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 		query_update.Execute(list("ckey"=ckey(key),"ip"=src.address,"computerid"=src.computer_id,"lastadminrank"=admin_rank,"account_join_date"=account_join_date,"byond_version"=byond_version,"byond_build"=byond_build))
 	else if (!GLOB.config.access_deny_new_players)
 		//New player!! Need to insert all the stuff
-		var/DBQuery/query_insert = GLOB.dbcon.NewQuery("INSERT INTO ss13_player (ckey, firstseen, lastseen, ip, computerid, lastadminrank, account_join_date, byond_version, byond_build) VALUES (:ckey:, Now(), Now(), :ip:, :computerid:, :lastadminrank:, :account_join_date:, :byond_version:, :byond_build:)")
-		query_insert.Execute(list("ckey"=ckey(key),"ip"=src.address,"computerid"=src.computer_id,"lastadminrank"=admin_rank,"account_join_date"=account_join_date,"byond_version"=byond_version,"byond_build"=byond_build))
+		var/DBQuery/query_insert = GLOB.dbcon.NewQuery("INSERT INTO ss13_player (ckey, ckey_is_external, firstseen, lastseen, ip, computerid, lastadminrank, account_join_date, byond_version, byond_build) VALUES (:ckey:, :ckey_is_external:, Now(), Now(), :ip:, :computerid:, :lastadminrank:, :account_join_date:, :byond_version:, :byond_build:)")
+		query_insert.Execute(list("ckey"=ckey(key), "ckey_is_external"=src.ckey_is_external,"ip"=src.address,"computerid"=src.computer_id,"lastadminrank"=admin_rank,"account_join_date"=account_join_date,"byond_version"=byond_version,"byond_build"=byond_build))
 	else
 		// Flag as -1 to know we have to kiiick them.
 		player_age = -1
@@ -649,27 +659,38 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 	if(mob)
 		return mob.MayRespawn()
 
-	// Something went wrong, client is usually kicked or transfered to a new mob at this point
+	// Something went wrong, client is usually kicked or transferred to a new mob at this point
 	return 0
 
 /client/verb/character_setup()
 	set name = "Character Setup"
-	set category = "Preferences"
+	set category = "Preferences.Character"
 	if(prefs)
 		prefs.ShowChoices(usr)
 
 /client/verb/toggle_fullscreen_preference()
 	set name = "Toggle Fullscreen Preference"
-	set category = "Preferences"
+	set category = "Preferences.Menu"
 	set desc = "Toggles whether the game window will be true fullscreen or normal."
 
 	prefs.toggles_secondary ^= FULLSCREEN_MODE
 	prefs.save_preferences()
-	toggle_fullscreen(prefs.toggles_secondary & FULLSCREEN_MODE)
+	if(prefs.toggles_secondary & FULLSCREEN_MODE)
+		toggle_fullscreen()
+
+/client/verb/toggle_hide_menu_preference()
+	set name = "Toggle Hide Menu Preference"
+	set category = "Preferences.Menu"
+	set desc = "Toggles whether the game window will have the top menu bar hidden or not."
+
+	prefs.toggles_secondary ^= CLIENT_PREFERENCE_HIDE_MENU
+	prefs.save_preferences()
+	if(prefs.toggles_secondary & CLIENT_PREFERENCE_HIDE_MENU)
+		toggle_menu()
 
 /client/verb/toggle_accent_tag_text()
 	set name = "Toggle Accent Tag Text"
-	set category = "Preferences"
+	set category = "Preferences.Game"
 	set desc = "Toggles whether accents will be shown as text or images.."
 
 	to_chat(usr, SPAN_NOTICE("You toggle the accent tag text [(prefs?.toggles_secondary & ACCENT_TAG_TEXT) ? "off" : "on"]."))
@@ -677,14 +698,34 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 	prefs.toggles_secondary ^= ACCENT_TAG_TEXT
 	prefs.save_preferences()
 
-/client/proc/toggle_fullscreen(new_value)
-	if(new_value)
-		winset(src, "mainwindow", "is-maximized=false;can-resize=false;titlebar=false;menu=menu")
-		winset(src, "mainwindow.mainvsplit", "pos=0x0")
+/client/verb/toggle_fullscreen()
+	set name = "Toggle Fullscreen"
+	set category = "Preferences.Menu"
+
+	fullscreen = !fullscreen
+
+	winset(src, "mainwindow", "menu=[fullscreen ? "" : "menu"];is-fullscreen=[fullscreen ? "true" : "false"];titlebar=[fullscreen ? "false" : "true"]")
+	attempt_auto_fit_viewport()
+
+/client/verb/toggle_status_bar()
+	set name = "Toggle Status Bar"
+	set category = "Preferences.Menu"
+
+	show_status_bar = !show_status_bar
+
+	if (show_status_bar)
+		winset(src, "mapwindow.status_bar", "is-visible=true")
 	else
-		winset(src, "mainwindow", "is-maximized=false;can-resize=true;titlebar=true;menu=menu")
-		winset(src, "mainwindow.mainvsplit", "pos=3x0")
-	winset(src, "mainwindow", "is-maximized=true")
+		winset(src, "mapwindow.status_bar", "is-visible=false")
+
+/client/verb/toggle_menu()
+	set name = "Toggle Menu"
+	set category = "Preferences.Menu"
+
+	var/has_menu = winget(src, "mainwindow", "menu")
+
+	winset(src, "mainwindow", "menu=[has_menu ? "" : "menu"]")
+	attempt_auto_fit_viewport()
 
 /client/proc/apply_fps(var/client_fps)
 	if(world.byond_version >= 511 && byond_version >= 511 && client_fps >= 0 && client_fps <= 1000)
@@ -732,7 +773,7 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 		dat += "The request is [request["request_age"]] days old.<br>"
 		dat += "OPTIONS: <a href='byond://?src=[REF(src)];linkingrequest=[request["id"]];linkingaction=accept'>Accept Request</a> | <a href='byond://?src=[REF(src)];linkingrequest=[request["id"]];linkingaction=deny'>Deny Request</a>"
 
-	src << browse(dat, "window=LinkingRequests")
+	src << browse(HTML_SKELETON(dat), "window=LinkingRequests")
 	return
 
 /client/proc/gather_linking_requests()
@@ -978,3 +1019,7 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 	if(stat_panel.is_ready())
 		return
 	to_chat(src, SPAN_DANGER("Statpanel failed to load, click <a href='byond://?src=[REF(src)];reload_statbrowser=1'>here</a> to reload the panel "))
+
+/// This grabs the DPI of the user per their skin
+/client/proc/acquire_dpi()
+	window_scaling = text2num(winget(src, null, "dpi"))

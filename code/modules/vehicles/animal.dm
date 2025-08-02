@@ -1,8 +1,6 @@
 /obj/vehicle/animal
 	name = "animal"
 	desc = "Base type of rideable animals - you shouldn't be seeing this!"
-	desc_info = "Click-drag yourself onto the animal to climb onto it.<br>\
-		- Click-drag it onto yourself to access its mounted storage.<br>"
 	load_item_visible = 1
 	mob_offset_y = 5
 	health = 100
@@ -32,10 +30,15 @@
 	organic = TRUE
 	on = TRUE
 	var/list/armor_values = list( //some default values that seem about right for an average animal
-		melee = ARMOR_MELEE_MEDIUM,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		bomb = ARMOR_BOMB_MINOR
+		MELEE = ARMOR_MELEE_MEDIUM,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		BOMB = ARMOR_BOMB_MINOR
 	)
+
+/obj/vehicle/animal/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Click-drag yourself onto the animal to climb onto it."
+	. += "Click-drag it onto yourself to access its mounted storage."
 
 /obj/vehicle/animal/setup_vehicle()
 	..()
@@ -180,8 +183,6 @@
 	desc = "A rideable beast of burden, large enough for one adult rider only but perfectly adapted for the rough terrain on Adhomai. This one has a saddle mounted on it."
 	icon = 'icons/mob/npc/adhomai_48.dmi'
 	icon_state = "climber_s"
-	desc_info = "Click-drag yourself onto the animal to climb onto it.<br>\
-		- Click-drag it onto yourself to access its mounted storage.<br>"
 	pixel_x = -8
 	mob_offset_y = 8
 	land_speed = 2
@@ -208,8 +209,6 @@
 	desc = "Large herbivorous reptiles native to Moghes, the azkrazal or 'threshbeast' is commonly used as a mount, beast of burden, or convenient food source by Unathi. They are highly valued for their speed and strength, capable of running at 30-42 miles per hour at top speed. This one has been fitted with a saddle."
 	icon = 'icons/mob/npc/moghes_64.dmi'
 	icon_state = "threshbeast_s"
-	desc_info = "Click-drag yourself onto the animal to climb onto it.<br>\
-		- Click-drag it onto yourself to access its mounted storage.<br>"
 	pixel_x = -15
 	mob_offset_y = 10
 	land_speed = 2
@@ -227,8 +226,6 @@
 	desc = "A large species of herbivorous horned reptiles native to Moghes, the hegeranzi or 'warmount' is commonly used as  mount or beast of war by the Unathi. They are highly valued for their speed, aggression, and fearsome horns. This one seems to have been fitted with a saddle."
 	icon = 'icons/mob/npc/moghes_64.dmi'
 	icon_state = "warmount_s"
-	desc_info = "Click-drag yourself onto the animal to climb onto it.<br>\
-		- Click-drag it onto yourself to access its mounted storage.<br>"
 	pixel_x = -14
 	mob_offset_y = 12
 
@@ -243,10 +240,10 @@
 	storage_type = /obj/item/storage/toolbox/bike_storage/saddle
 	corpse = /mob/living/simple_animal/hostile/retaliate/hegeranzi/saddle
 	armor_values = list( //big tough war beast, has some more armor particularly against bullets and melee
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_MINOR,
-		bomb = ARMOR_BOMB_MINOR
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_MINOR,
+		BOMB = ARMOR_BOMB_MINOR
 	)
 
 /obj/vehicle/animal/warmount/RunOver(mob/living/carbon/human/H)

@@ -35,7 +35,7 @@
 	set_trait(TRAIT_PRODUCT_COLOUR,"#B4D6BD")
 	set_trait(TRAIT_PLANT_COLOUR,"#6BBD68")
 	set_trait(TRAIT_PLANT_ICON,"stalk3")
-	set_trait(TRAIT_IDEAL_HEAT, 298)
+	set_trait(TRAIT_IDEAL_HEAT, 304)
 
 /obj/item/seeds/sugarcaneseed
 	seed_type = "sugarcane"
@@ -74,6 +74,7 @@
 	..()
 	set_trait(TRAIT_PRODUCT_COLOUR, "#0F6E56")
 	set_trait(TRAIT_PLANT_COLOUR, "#0D4836")
+	set_trait(TRAIT_IDEAL_HEAT, 284) // To fit with molluscs.
 
 /obj/item/seeds/seaweed
 	seed_type = "seaweed"

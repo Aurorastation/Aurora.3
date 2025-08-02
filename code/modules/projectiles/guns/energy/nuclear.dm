@@ -1,9 +1,6 @@
 /obj/item/gun/energy/gun
 	name = "energy carbine"
 	desc = "A NanoTrasen designed energy-based carbine with two settings: Stun and kill."
-	desc_info = "This is an energy weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
-	then click where you want to fire.  Most energy weapons can fire through windows harmlessly.  To switch between stun and lethal, click the weapon \
-	in your hand.  To recharge this weapon, use a weapon recharger."
 	desc_extended = "The NT EC-4 is an energy carbine developed and produced by NanoTrasen. Compact, light and durable, used by security forces and law enforcement for its ability to fire stun or lethal beams, depending on selection. It is widely sold and distributed across the galaxy."
 	icon = 'icons/obj/guns/ecarbine.dmi'
 	icon_state = "energystun"
@@ -11,7 +8,7 @@
 	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BELT
 	accuracy = 1
-	max_shots = 10
+	max_shots = 15
 	can_turret = 1
 	secondary_projectile_type = /obj/projectile/beam
 	secondary_fire_sound = 'sound/weapons/laser1.ogg'
@@ -40,9 +37,6 @@
 /obj/item/gun/energy/gun/nuclear
 	name = "advanced energy gun"
 	desc = "An energy gun with an experimental miniaturized reactor."
-	desc_info = "This is an energy weapon. To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
-	then click where you want to fire.  Most energy weapons can fire through windows harmlessly.  To switch between stun and lethal, click the weapon \
-	in your hand.  Unlike most weapons, this weapon recharges itself."
 	icon = 'icons/obj/guns/nucgun.dmi'
 	icon_state = "nucgun"
 	item_state = "nucgun"
@@ -61,6 +55,10 @@
 		)
 
 	var/lightfail = 0
+
+/obj/item/gun/energy/gun/nuclear/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Unlike most weapons, this weapon recharges itself."
 
 /obj/item/gun/energy/gun/nuclear/get_cell()
 	return DEVICE_NO_CELL
@@ -133,7 +131,7 @@
 	item_state = "epistolstun100"
 	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
-	max_shots = 7
+	max_shots = 10
 	fire_delay = 4
 	can_turret = 1
 	secondary_projectile_type = /obj/projectile/beam/pistol
@@ -161,7 +159,7 @@
 	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
-	max_shots = 10
+	max_shots = 12
 	fire_delay = 3
 	can_turret = FALSE
 	secondary_projectile_type = /obj/projectile/beam/pistol/hegemony
@@ -187,7 +185,7 @@
 	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/laser2.ogg'
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
-	max_shots = 10
+	max_shots = 12
 	fire_delay = 3
 	can_turret = FALSE
 	secondary_projectile_type = /obj/projectile/beam/pistol
@@ -214,7 +212,7 @@
 	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/energy_repeater.ogg'
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
-	max_shots = 20
+	max_shots = 24
 	fire_delay = 3
 
 	offhand_accuracy = 6 // same as firing it in your main hand
@@ -238,7 +236,7 @@
 	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
-	max_shots = 8
+	max_shots = 10
 	fire_delay = 5
 	secondary_projectile_type = /obj/projectile/beam/pistol/scc/weak
 	secondary_fire_sound = 'sound/weapons/energy_repeater.ogg'
@@ -288,7 +286,7 @@
 	icon_state = "particlesmg"
 	item_state = "particlesmg"
 	slot_flags = SLOT_BELT|SLOT_HOLSTER|SLOT_BACK
-	max_shots = 14
+	max_shots = 18
 	force = 16
 	projectile_type = /obj/projectile/beam/stun/skrell
 	secondary_projectile_type = /obj/projectile/beam/pulse/skrell
@@ -340,7 +338,7 @@
 	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	pin = /obj/item/device/firing_pin/psionic
-	max_shots = 8
+	max_shots = 10
 	fire_delay = 4
 	can_turret = FALSE
 	secondary_projectile_type = /obj/projectile/energy/blaster/skrell

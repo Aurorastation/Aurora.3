@@ -5139,7 +5139,7 @@
 /area/ship/yacht_civ/lounge)
 "Tl" = (
 /obj/structure/flora/ausbushes/ppflowers,
-/obj/structure/flora/pottedplant/orientaltree,
+/obj/structure/flora/pottedplant/cherrytree,
 /turf/simulated/floor/exoplanet/grass,
 /area/ship/yacht_civ/hallway_mid)
 "Tw" = (
@@ -5343,7 +5343,7 @@
 	icon_state = "closed_pink";
 	pixel_x = -2
 	},
-/obj/item/clothing/ears/earmuffs/earphones/headphones{
+/obj/item/clothing/ears/earphones/headphones{
 	pixel_x = 3;
 	pixel_y = 1
 	},

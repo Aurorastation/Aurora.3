@@ -64,7 +64,7 @@
 		pans += pan_overlay
 		pan_number = pan_position_number
 		//filling
-		if(CC.reagents.total_volume)
+		if(CC.reagents?.total_volume)
 			var/mutable_appearance/filling_overlay = mutable_appearance('icons/obj/machinery/cooking_machines.dmi', "filling_overlay")
 			filling_overlay.pixel_x = positions[1]
 			filling_overlay.pixel_y = positions[2]

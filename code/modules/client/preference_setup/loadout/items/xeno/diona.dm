@@ -528,3 +528,28 @@ ABSTRACT_TYPE(/datum/gear/accessory/diona)
 	jizixi["jizixi dress, white"] = /obj/item/clothing/under/unathi/jizixi/white
 	jizixi["jizixi dress, orange"] = /obj/item/clothing/under/unathi/jizixi/orange
 	gear_tweaks += new /datum/gear_tweak/path(jizixi)
+
+/datum/gear/accessory/consortium_passport
+	display_name = "consortium of hieroaetheria passport"
+	path = /obj/item/clothing/accessory/badge/passport/consortium
+	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	sort_category = "Xenowear - Diona"
+
+/datum/gear/accessory/alt_consortium_passport
+	display_name = "non-consortium hieroaetherian passport selection"
+	path = /obj/item/clothing/accessory/badge/passport/dionaunion
+	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	sort_category = "Xenowear - Diona"
+
+/datum/gear/accessory/alt_consortium_passport/New()
+	..()
+	var/list/diona_passport = list()
+	diona_passport["union of gla'orr passport"] = /obj/item/clothing/accessory/badge/passport/dionaunion
+	diona_passport["eternal republic of the ekane passport"] = /obj/item/clothing/accessory/badge/passport/eternalrepublic
+	gear_tweaks += new /datum/gear_tweak/path(diona_passport)
+
+/datum/gear/diet_diesel
+	display_name = "diet diesel jar"
+	path = /obj/item/reagent_containers/food/condiment/diet_diesel
+	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	sort_category = "Xenowear - Diona"

@@ -166,7 +166,7 @@
 /obj/structure/cryofeed
 	name = "cryogenic feed"
 	desc = "A bewildering tangle of machinery and pipes."
-	icon = 'icons/obj/machinery/sleeper.dmi'
+	icon = 'icons/obj/machinery/cryopod.dmi'
 	icon_state = "cryo_rear"
 	anchored = TRUE
 	dir = WEST
@@ -174,15 +174,15 @@
 /obj/structure/cryofeed/pipes
 	name = "cryogenic feed pipes"
 	desc = "A bewildering tangle of pipes."
-	icon = 'icons/obj/machinery/sleeper.dmi'
+	icon = 'icons/obj/machinery/cryopod.dmi'
 	icon_state = "cryo_rear_pipes"
 
 //Cryopods themselves.
 /obj/machinery/cryopod
 	name = "cryogenic freezer"
 	desc = "A man-sized pod for entering suspended animation."
-	icon = 'icons/obj/machinery/sleeper.dmi'
-	icon_state = "body_scanner"
+	icon = 'icons/obj/machinery/cryopod.dmi'
+	icon_state = "cryo_pod"
 	density = TRUE
 	anchored = TRUE
 	dir = WEST
@@ -219,6 +219,11 @@
 		/obj/item/card/id/captains_spare
 		)
 
+/obj/machinery/cryopod/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(occupant)
+		. += SPAN_NOTICE("<b>[occupant]</b> [occupant.get_pronoun("is")] inside \the [initial(name)].")
+
 /obj/machinery/cryopod/robot
 	name = "robotic storage unit"
 	desc = "A storage unit for robots."
@@ -249,7 +254,6 @@
 	var/image/I = image(icon, "pod_top")
 	AddOverlays(I)
 
-
 	if(occupant)
 		I = image(icon, "pod_back")
 		AddOverlays(I)
@@ -279,11 +283,6 @@
 /obj/machinery/cryopod/LateInitialize()
 	. = ..()
 	find_control_computer()
-
-/obj/machinery/cryopod/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(occupant)
-		. += SPAN_NOTICE("<b>[occupant]</b> [occupant.get_pronoun("is")] inside \the [initial(name)].")
 
 /obj/machinery/cryopod/can_hold_dropped_items()
 	return FALSE

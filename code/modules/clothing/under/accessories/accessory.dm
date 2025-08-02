@@ -272,14 +272,18 @@
 /obj/item/clothing/accessory/stethoscope
 	name = "stethoscope"
 	desc = "An outdated medical apparatus for listening to the sounds of the human body. It also makes you look like you know what you're doing."
-	desc_info = "Click on the UI action button toggle between the examination modes. Automatic will use the stethoscope on the person you're \
-	examining when adjacent to them, automatically using it on the selected body part. Manual will make it so you don't automatically use it via examine."
 	icon = 'icons/obj/item/clothing/accessory/stethoscope.dmi'
 	icon_state = "stethoscope"
 	item_state = "stethoscope"
 	contained_sprite = TRUE
 	flippable = 1
 	var/auto_examine = FALSE
+
+/obj/item/clothing/accessory/stethoscope/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Click on the UI action button toggle between the examination modes."
+	. += "Automatic will use the stethoscope on the person you're examining when adjacent to them, automatically using it on the selected body part."
+	. += "Manual will make it so you don't automatically use it via examine."
 
 /obj/item/clothing/accessory/stethoscope/attack(mob/living/target_mob, mob/living/user, target_zone)
 	var/mob/living/carbon/human/M = target_mob
@@ -1237,7 +1241,7 @@
 /obj/item/clothing/accessory/apron/qeburgerapron
 	name = "Quick-E-Burger Food Technician Apron"
 	desc = "For industrious employees hard at work, the Quick-E-Burger Food Technician Apron is the perfect protection! Supplied and manufactured in bulk by Quick-E-Burger's parent company, Orion Express, the Food Technician Apron is constructed from highly-resistant rubber with ergonomic quick-fastening security straps to ensure it can be made to fit any employee, of any species, anywhere!"
-	icon = 'icons/clothing/suits/quickeburger_apron.dmi'
+	icon = 'icons/obj/item/clothing/accessory/aprons.dmi'
 	icon_state = "quickeburger_apron"
 	item_state = "quickeburger_apron"
 	allowed = list(

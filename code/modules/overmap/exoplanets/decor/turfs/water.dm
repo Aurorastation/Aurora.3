@@ -1,4 +1,9 @@
 /turf/simulated/floor/exoplanet/water
+	name = "water"
+	gender = PLURAL
+	icon = 'icons/misc/beach.dmi'
+	icon_state = "seadeep"
+	desc = "It is wet."
 	footstep_sound = /singleton/sound_category/water_footstep
 	movement_cost = 4
 	has_resources = FALSE
@@ -86,12 +91,12 @@
 		if(numobjects)
 			numobjects -= 1
 		var/mob/living/L = AM
-		if(!istype(newloc, /turf/simulated/floor/exoplanet/water))
+		var/new_turf = get_step(src, newloc)
+		if(!istype(new_turf, src))
 			to_chat(L, SPAN_WARNING("You climb out of \the [src]."))
 	..()
 
 /turf/simulated/floor/exoplanet/water/process()
-	clean(src)
 	for(var/mob/living/L in src)
 		var/obj/structure/lattice/lattice = locate(/obj/structure/lattice, src)
 		if(!lattice)
@@ -109,6 +114,7 @@
 
 /turf/simulated/floor/exoplanet/water/shallow
 	name = "shallow water"
+	desc = "Some water shallow enough to wade through."
 	icon = 'icons/misc/beach.dmi'
 	icon_state = "seashallow"
 	footstep_sound = /singleton/sound_category/water_footstep

@@ -151,7 +151,7 @@
 	storage_type = "packaging"
 	starts_with = list(/obj/item/reagent_containers/food/snacks/vkrexitaffy = 6)
 	can_hold = list(/obj/item/reagent_containers/food/snacks/vkrexitaffy)
-	max_storage_space = 6
+	make_exact_fit = TRUE
 
 	use_sound = 'sound/items/storage/wrapper.ogg'
 	drop_sound = 'sound/items/drop/wrapper.ogg'

@@ -1,8 +1,6 @@
 /obj/machinery/pipedispenser
 	name = "pipe dispenser"
 	desc = "A large piece of machinery used to dispense pipes that transport and manipulate gasses."
-	desc_info = "This can be moved by using a wrench.  You will need to wrench it again when you want to use it.  You can put \
-	excess (atmospheric) pipes into the dispenser, as well.  It needs electricity to function."
 	icon = 'icons/obj/pipe_dispenser.dmi'
 	icon_state = "pipe_dispenser"
 	density = TRUE
@@ -10,6 +8,12 @@
 
 	var/window_id = "pipedispenser"
 	var/pipe_cooldown = 0
+
+/obj/machinery/pipedispenser/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "It must be anchored to be used, or can be unanchored to be moved."
+	. += "You can put excess (atmospheric) pipes into the dispenser."
+	. += "It will not work in unpowered areas."
 
 /obj/machinery/pipedispenser/attack_hand(mob/user)
 	if(..())
@@ -146,10 +150,14 @@
 /obj/machinery/pipedispenser/disposal
 	name = "disposal pipe dispenser"
 	desc = "A large piece of machinery used to dispense pipes that transport and manipulate objects."
-	desc_info = "This can be moved by using a wrench.  You will need to wrench it again when you want to use it.  You can put \
-	excess disposal pipes into the dispenser by dragging them onto it.  It needs electricity to function."
 	icon_state = "disposal_dispenser"
 	window_id = "disposaldispenser"
+
+/obj/machinery/pipedispenser/disposal/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "It must be anchored to be used, or can be unanchored to be moved."
+	. += "You can put excess (disposal) pipes into the dispenser."
+	. += "It will not work in unpowered areas."
 
 //Allow you to drag-drop disposal pipes into it
 /obj/machinery/pipedispenser/disposal/mouse_drop_receive(atom/dropped, mob/user, params)

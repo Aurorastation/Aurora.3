@@ -6,6 +6,7 @@
 	has_skybox_image = TRUE
 	var/list/valid_apcs
 	var/global/lightning_color
+	var/storm_damage
 
 /datum/event/electrical_storm/Destroy(force)
 	valid_apcs = null
@@ -25,14 +26,15 @@
 		if(EVENT_LEVEL_MODERATE)
 			command_announcement.Announce("The [location_name()] is about to pass through an electrical storm. Please secure sensitive electrical equipment until the storm passes.", "[location_name()] Sensor Array", new_sound = 'sound/AI/electrical_storm.ogg', zlevels = affecting_z)
 		if(EVENT_LEVEL_MAJOR)
-			command_announcement.Announce("Alert. A strong electrical storm has been detected in proximity of the [location_name()]. It is recommended to immediately secure sensitive electrical equipment until the storm passes.", "[location_name()] Sensor Array", new_sound = 'sound/AI/electrical_storm.ogg', zlevels = affecting_z)
+			command_announcement.Announce("Alert. A catastrophic electrical storm has been detected in proximity of the [location_name()]. It is recommended to immediately secure sensitive electrical equipment until the storm passes.", "[location_name()] Sensor Array", new_sound = 'sound/AI/electrical_storm.ogg', zlevels = affecting_z)
 
-/datum/event/electrical_storm/setup()
+/datum/event/electrical_storm/start()
+	..()
 	valid_apcs = list()
-	for(var/obj/machinery/power/apc/A in SSmachinery.machinery)
-		if((A.z in affecting_z) && !A.is_critical)
-			valid_apcs += A
-	endWhen = (severity * 60) + startWhen
+	for(var/obj/machinery/power/apc/valid_apc in SSmachinery.apc_units)
+		if((valid_apc.z in affecting_z) && !valid_apc.is_critical)
+			valid_apcs += valid_apc
+	endWhen = (severity * 45) + startWhen
 
 /datum/event/electrical_storm/end(faked)
 	..()
@@ -42,32 +44,68 @@
 /datum/event/electrical_storm/tick()
 	..()
 
+	/*
+		While we want this event to keep Engineers on their toes and provide openings for people to break regs if they so wished,
+		most of this should be theater: the biggest show should be lights flickering all over the place and a few APCs temporarily
+		disabled (and able to be immediately re-enabled by anyone) rather than creating excessive work for Engineering/Janitors.
+
+		The damage and effect will add up very quickly when multiple APCs are targeted though. While Mundane and Moderate events are mostly
+		flavorful and will just give Engineers a few excuses to visit different departments and RP with people. Major events will be your
+		'all hands on deck' affairs (as Major events are ought) and in very rare circumstances could even cascade into more serious issues
+		(battery detonates somewhere that pokes a hole in the hull and enough rooms are depowered once to start venting a portion of the ship.)
+	*/
+
 	if(!length(valid_apcs))
 		return
 
 	var/list/picked_apcs = list()
-	for(var/i=0, i< severity*2, i++) // up to 2/4/6 APCs per tick depending on severity
+	// Up to 2/4/6 APCs per tick depending on severity
+	for(var/i = 0, i < ((severity + 1)), i++)
+	for(var/i = 0, i < (severity * 2), i++)
 		picked_apcs |= pick(valid_apcs)
 
-	for(var/obj/machinery/power/apc/T in picked_apcs)
-		// Main breaker is turned off. Consider this APC protected.
-		if(!T.operating)
+	for(var/obj/machinery/power/apc/victim_apc in picked_apcs)
+		// Determine what each APC does. Depending on how bad they roll, might be nothing or might blow out the entire thing.
+		// Mundane storm:  0-55 nothing, 56+ lights flicker, 86+ damage (2 APC at a time)
+		// Moderate storm: 0-30 nothing, 31+ lights flicker, 81+ damage (3 APCs at a time)
+		// Severe storm:   0-5 nothing,  6+ lights flicker, 76+ damage (4 APCs at a time)
+		// Once storm damage exceeds a threshold, there is a random chance of certain secondary effects.
+		storm_damage = rand(0,100)
+
+		// We don't want to obliterate small offships (lucky 7 APCs or fewer).
+		if(LAZYLEN(valid_apcs) < 8)
+			LAZYREMOVE(victim_apc, valid_apcs)
+
+		// Main breaker is turned off, or we rolled lucky. Consider this APC protected.
+		if(!victim_apc.operating || storm_damage <= (80 - (severity * 25)))
 			continue
 
-		// Decent chance to overload lighting circuit.
-		if(prob(3 * severity))
-			T.overload_lighting()
+		// If the APC wasn't protected or we didn't roll lucky, flicker the lights for dramatic effect.
+		victim_apc.flicker_all()
 
-		// Relatively small chance to emag the apc as apc_damage event does.
-		if(prob(0.2 * severity))
-			T.emagged = 1
-			T.update_icon()
+		// Now all the things that can happen if we roll high on damage.
+		if(storm_damage > (90 - (severity * 5)))
+			// Very tiny chance to completely break the APC. Has a check to ensure we don't break critical APCs such as the Engine room, or AI core. Does not occur on Mundane severity.
+			if(prob((1 * severity) - 1))
+				LOG_DEBUG("[victim_apc.name]: storm destroyed")
+				victim_apc.set_broken()
+				continue
 
-		T.energy_fail(10 * severity * rand(severity * 2, severity * 4))
+			// Very high chance to shutdown the APC for a short time; this can be reversed immediately by interacting with it.
+			if(prob(80 + (severity * 5)))
+				victim_apc.energy_fail(4 * severity * rand(severity * 2, severity * 4))
 
-		// Very tiny chance to completely break the APC. Has a check to ensure we don't break critical APCs such as the Engine room, or AI core. Does not occur on Mundane severity.
-		if(prob((0.2 * severity) - 0.2))
-			T.set_broken()
+			// Medium chance to overload lighting circuit.
+			if(prob(15 * severity))
+				victim_apc.overload_lighting((range(15 * severity, 100)))
+				// Tiny chance to corrupt the cell (could potentially cause minor explosions!)
+				if(!QDELETED(victim_apc.cell) && prob(8 * severity))
+					victim_apc.cell.corrupt()
+
+			// Small chance to emag the apc as apc_damage event does.
+			if(prob(8 * severity))
+				victim_apc.emagged = 1
+				victim_apc.update_icon()
 
 /datum/event/electrical_storm/announce_end()
 	. = ..()

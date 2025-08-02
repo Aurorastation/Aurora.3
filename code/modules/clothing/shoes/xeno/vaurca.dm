@@ -8,7 +8,7 @@
 	build_from_parts = TRUE
 
 	armor = list(
-		melee = ARMOR_MELEE_MINOR
+		MELEE = ARMOR_MELEE_MINOR
 		)
 
 	sprite_sheets = list(

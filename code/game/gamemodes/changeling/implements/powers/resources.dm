@@ -16,7 +16,7 @@
 	return TRUE
 
 /mob/proc/changeling_armor()
-	AddComponent(/datum/component/armor, list(melee = ARMOR_MELEE_RESISTANT, bullet = ARMOR_BALLISTIC_CARBINE, laser = ARMOR_LASER_MEDIUM))
+	AddComponent(/datum/component/armor, list(MELEE = ARMOR_MELEE_RESISTANT, BULLET = ARMOR_BALLISTIC_CARBINE, LASER = ARMOR_LASER_MEDIUM))
 	return TRUE
 
 //removes the need to breathe

@@ -401,10 +401,10 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	anchored = TRUE
 	layer = ABOVE_HUMAN_LAYER
 
-/obj/structure/shipping_container
+/obj/structure/shipping_container_old
 	name = "freight container"
 	desc = "A hulking industrial shipping container, bound for who knows where."
-	icon = 'icons/obj/structure/industrial/shipping_containers.dmi'
+	icon = 'icons/obj/structure/industrial/shipping_containers_old.dmi'
 	icon_state = "blue1"
 	anchored = TRUE
 	density = TRUE
@@ -412,7 +412,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 
 /obj/effect/overlay/container_logo
 	name = "Hephaestus Industries emblem"
-	icon = 'icons/obj/structure/industrial/shipping_containers.dmi'
+	icon = 'icons/obj/structure/industrial/shipping_containers_old.dmi'
 	icon_state = "heph1"
 	layer = ABOVE_HUMAN_LAYER + 0.01
 
@@ -520,24 +520,21 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	color = null
 	anchored = TRUE
 	can_be_unanchored = FALSE
+	atom_flags = ATOM_FLAG_CHECKS_BORDER
+	layer = ABOVE_HUMAN_LAYER //The sprite will be in front of players when positioned correctly.
 
 /obj/structure/chainlink_fence/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)//So bullets will fly over and stuff.
 	if(mover?.movement_type & PHASING)
 		return TRUE
-	if(air_group || (height==0))
-		return TRUE
 	if(istype(mover, /obj/projectile))
-		var/obj/projectile/P = mover
-		if(P.original == src)
+		if(isliving(mover))
 			return FALSE
-		if(P.firer && Adjacent(P.firer))
-			return TRUE
 		return prob(35)
-	if(isliving(mover))
-		return FALSE
-	if(istype(mover) && mover.pass_flags & PASSTABLE)
+	if(!istype(mover) || mover.pass_flags & PASSGRILLE)
 		return TRUE
-	return FALSE
+	if(get_dir(loc, target) == dir)
+		return !density
+	return TRUE
 
 /obj/structure/chainlink_fence/CheckExit(var/atom/movable/O, var/turf/target)
 	if(istype(O) && CanPass(O, target))
@@ -773,7 +770,6 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 /obj/structure/cash_register
 	name = "cash register machine"
 	desc = "A retail nightmare object."
-	desc_info = "Drag this onto yourself to open the cash compartment."
 	icon = 'icons/obj/structure/urban/infrastructure.dmi'
 	icon_state = "cashier"
 	layer = 2.99
@@ -781,6 +777,10 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	anchored = 0
 	var/storage_type = /obj/item/storage/toolbox/cash_register_storage
 	var/obj/item/storage/storage_compartment
+
+/obj/structure/cash_register/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Drag this onto yourself to open the cash compartment."
 
 /obj/structure/cash_register/Initialize(mapload)
 	. = ..()

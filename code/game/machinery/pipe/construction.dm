@@ -14,8 +14,8 @@
 	level = 2
 	obj_flags = OBJ_FLAG_ROTATABLE
 
-/obj/item/pipe/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/pipe/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	var/pipe_color_check = color || PIPE_COLOR_GREY
 	var/found_color_name = "Unknown"
 	for(var/color_name in GLOB.pipe_colors)
@@ -406,7 +406,7 @@
 		set_dir(2)
 
 /obj/item/pipe/Move()
-	..()
+	. = ..()
 	if ((pipe_type in list (PIPE_SIMPLE_BENT, PIPE_SUPPLY_BENT, PIPE_SCRUBBERS_BENT, PIPE_FUEL_BENT, PIPE_AUX_BENT, PIPE_HE_BENT)) \
 		&& (src.dir in GLOB.cardinals))
 		src.set_dir(src.dir|turn(src.dir, 90))

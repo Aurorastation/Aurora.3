@@ -152,13 +152,13 @@
 
 	evac_controller_type = /datum/evacuation_controller/starship
 
-	allowed_spawns = list("Living Quarters Lift", "Cryogenic Storage")
-	spawn_types = list(/datum/spawnpoint/living_quarters_lift, /datum/spawnpoint/cryo)
+	allowed_spawns = list("Living Quarters Lift", "Cryogenic Storage", "Medbay Recovery Ward")
+	spawn_types = list(/datum/spawnpoint/living_quarters_lift, /datum/spawnpoint/cryo, /datum/spawnpoint/medbay_recovery)
 	default_spawn = "Living Quarters Lift"
 
 	allow_borgs_to_leave = TRUE
 
-	warehouse_basearea = /area/operations/storage
+	warehouse_basearea = /area/horizon/operations/warehouse
 
 	shuttle_manifests = list(
 		"SCCV Canary" = list("color" = "blue", "icon" = "binoculars"),
@@ -166,7 +166,7 @@
 		"SCCV Spark" = list("color" = "brown", "icon" = "gem"),
 		"SCCV Quark" = list("color" = "purple", "icon" = "microscope"),
 	)
-	shuttle_missions = list("Exploration", "Research", "Prospecting", "Transport", "Combat", "Rescue", "Training")
+	shuttle_missions = list("Exploration", "Research", "Prospecting", "Salvaging", "Transport", "Combat", "Rescue", "Training", "Humanitarian", "Expedition", "Recreation", "Other")
 
 /datum/map/sccv_horizon/send_welcome()
 	var/obj/effect/overmap/visitable/ship/horizon = SSshuttle.ship_by_type(overmap_visitable_type)

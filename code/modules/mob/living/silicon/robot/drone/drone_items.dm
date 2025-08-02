@@ -180,13 +180,12 @@
 	if(!module)
 		module = new /obj/item/robot_module/drone(src)
 
-	var/dat = "<HEAD><TITLE>Drone modules</TITLE></HEAD><BODY>\n"
-	dat += {"
+	var/dat = {"
 	<B>Activated Modules</B>
 	<BR>
-	Module 1: [module_state_1 ? "<A href='byond://?src=[REF(src)];mod=[REF(module_state_1)]>[module_state_1]<A>" : "No Module"]<BR>
-	Module 2: [module_state_2 ? "<A href='byond://?src=[REF(src)];mod=[REF(module_state_2)]>[module_state_2]<A>" : "No Module"]<BR>
-	Module 3: [module_state_3 ? "<A href='byond://?src=[REF(src)];mod=[REF(module_state_3)]>[module_state_3]<A>" : "No Module"]<BR>
+	Module 1: [module_state_1 ? "<A href='byond://?src=[REF(src)];mod=[REF(module_state_1)]'>[module_state_1]<A>" : "No Module"]<BR>
+	Module 2: [module_state_2 ? "<A href='byond://?src=[REF(src)];mod=[REF(module_state_2)]'>[module_state_2]<A>" : "No Module"]<BR>
+	Module 3: [module_state_3 ? "<A href='byond://?src=[REF(src)];mod=[REF(module_state_3)]'>[module_state_3]<A>" : "No Module"]<BR>
 	<BR>
 	<B>Installed Modules</B><BR><BR>"}
 
@@ -201,7 +200,7 @@
 		else if(activated(O))
 			module_string += "[O]: <B>Activated</B><BR>"
 		else
-			module_string += "[O]: <A href='byond://?src=[REF(src)];act=[REF(O)]>Activate</A><BR>"
+			module_string += "[O]: <A href='byond://?src=[REF(src)];act=[REF(O)]'>Activate</A><BR>"
 
 		var/obj/item/I = O
 		if((istype(I, /obj/item) || istype(I, /obj/item/device)) && !(I.iscoil()))
@@ -217,8 +216,8 @@
 		else if(activated(module.emag))
 			dat += "[module.emag]: <B>Activated</B><BR>"
 		else
-			dat += "[module.emag]: <A href='byond://?src=[REF(src)];act=[REF(module.emag)]>Activate</A><BR>"
+			dat += "[module.emag]: <A href='byond://?src=[REF(src)];act=[REF(module.emag)]'>Activate</A><BR>"
 
 	dat += resources
 
-	src << browse(dat, "window=robotmod")
+	src << browse(HTML_SKELETON_TITLE("Drone modules", dat), "window=robotmod")
