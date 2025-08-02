@@ -175,6 +175,10 @@
 	area_blurb = "Scuff marks scar the floor from the movement of many crates and stored goods."
 	area_blurb_category = "ops_warehouse"
 
+/area/operations/package_conveyors
+	name = "Operations Package Conveyors"
+	icon_state = "dark128"
+
 /area/operations/lower/machinist
 	name = "Machinist Workshop"
 	icon_state = "machinist_workshop"

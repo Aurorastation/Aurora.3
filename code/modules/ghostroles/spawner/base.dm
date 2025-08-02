@@ -224,6 +224,7 @@
 			sector.y = sector.start_y
 			sector.z = SSatlas.current_map.overmap_z
 			sector.invisible_until_ghostrole_spawn = FALSE
+			SEND_SIGNAL(sector, COMSIG_GHOSTROLE_TAKEN)
 	return TRUE
 
 //Proc to check if a specific user can edit this spawner (open/close/...)

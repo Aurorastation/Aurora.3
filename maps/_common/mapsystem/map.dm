@@ -131,6 +131,7 @@
 
 	var/allow_borgs_to_leave = FALSE //this controls if borgs can leave the station or ship without exploding
 	var/area/warehouse_basearea //this controls where the cargospawner tries to populate warehouse items
+	var/area/warehouse_packagearea // used to handle spawnpoints for the packages that spawned after Initialize. See: `receptacle.dm`.
 
 	/**
 	 * A list of the shuttles on this map, used by the Shuttle Manifest program to populate itself.
