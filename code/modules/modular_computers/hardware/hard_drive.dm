@@ -37,7 +37,7 @@
 	icon_state = "hdd_cluster"
 	hardware_size = 3
 
-// For tablets, etc. - highly power efficient.
+/// For tablets, etc. - highly power efficient.
 /obj/item/computer_hardware/hard_drive/small
 	name = "small hard drive"
 	desc = "A small highly efficient solid state drive for portable devices."
@@ -56,9 +56,12 @@
 	icon_state = "hdd_micro"
 	hardware_size = 1
 
+/**
+ *	Returns number of stored files and storage usage/capacity.
+ */
 /obj/item/computer_hardware/hard_drive/diagnostics(var/mob/user)
 	..()
-	// 999 is a byond limit that is in place. It's unlikely someone will reach that many files anyway, since you would sooner run out of space.
+	/// 999 is a byond limit that is in place. It's unlikely someone will reach that many files anyway, since you would sooner run out of space.
 	to_chat(user, SPAN_NOTICE("NT-NFS File Table Status: [stored_files.len]/999"))
 	to_chat(user, SPAN_NOTICE("Storage capacity: [used_capacity]/[max_capacity]GQ"))
 
