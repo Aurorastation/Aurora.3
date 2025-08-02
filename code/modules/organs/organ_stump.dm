@@ -11,7 +11,6 @@
 		amputation_point = limb.amputation_point
 		joint = limb.joint
 		parent_organ = limb.parent_organ
-		wounds = limb.wounds
 	. = ..(mapload, internal)
 	if(istype(limb))
 		max_damage = limb.max_damage
