@@ -520,10 +520,6 @@
 		/obj/item/clothing/head/wool/nt = 3,
 		/obj/item/clothing/head/wool/orion = 3,
 		/obj/item/clothing/head/wool/orion/alt = 3,
-		/obj/item/clothing/gloves/botanic_leather = 4,
-		/obj/item/clothing/gloves/botanic_leather/unathi = 2,
-		/obj/item/clothing/gloves/botanic_leather/tajara = 2,
-		/obj/item/clothing/gloves/botanic_leather/vaurca = 2,
 		/obj/item/storage/backpack/hydroponics = 5,
 		/obj/item/storage/backpack/idris = 2,
 		/obj/item/storage/backpack/nt = 2,
@@ -561,7 +557,6 @@
 		/obj/item/clothing/head/hijab = 3,
 		/obj/item/clothing/head/turban = 3,
 		/obj/item/clothing/head/kippah = 3,
-		/obj/item/clothing/head/tajaran/raskara = 3,
 		/obj/item/clothing/head/unathi/maxtlatl = 3,
 		/obj/item/clothing/mask/trinary_mask = 3,
 		/obj/item/clothing/mask/gas/unathi = 3,
@@ -578,7 +573,8 @@
 	contraband = list(
 		/obj/item/clothing/suit/cultrobes/alt = 2,
 		/obj/item/clothing/head/culthood/alt = 2,
-		/obj/item/clothing/shoes/cult = 2
+		/obj/item/clothing/shoes/cult = 2,
+		/obj/item/clothing/head/tajaran/raskara = 2
 	)
 	premium = list(
 		/obj/item/toy/figure/chaplain = 3
