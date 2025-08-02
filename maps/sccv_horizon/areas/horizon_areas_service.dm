@@ -15,6 +15,11 @@
 	name = "Hydroponics"
 	horizon_deck = 1
 
+/area/horizon/service/hydroponics/hazard
+	name = "Hydroponics - Hazardous Specimens Unit"
+	horizon_deck = 1
+	area_blurb = "Harsh, discordant lighting bears down upon you in the cramped confines of your surroundings. The air is stale and musty."
+
 /area/horizon/service/hydroponics/garden
 	name = "Public Garden"
 	icon_state = "garden"
