@@ -171,7 +171,6 @@
 		return TRUE
 	if (use_power == POWER_USE_ACTIVE)
 		update_use_power(POWER_USE_IDLE)
-		playsound(src, 'sound/machines/click.ogg', 20, 1)
 		update_icon()
 
 //Cookers do differently, they use containers

@@ -1,5 +1,5 @@
 /singleton/recipe/chilied_eggs
-	appliance = SAUCEPAN | POT
+	appliance = SAUCEPAN | POT | MICROWAVE
 	items = list(
 		/obj/item/reagent_containers/food/snacks/hotchili,
 		/obj/item/reagent_containers/food/snacks/boiledegg,
@@ -9,7 +9,7 @@
 	result = /obj/item/reagent_containers/food/snacks/chilied_eggs
 
 /singleton/recipe/red_sun_special
-	appliance = SKILLET | SAUCEPAN
+	appliance = SKILLET | SAUCEPAN | MICROWAVE
 	items = list(
 		/obj/item/reagent_containers/food/snacks/sausage,
 		/obj/item/reagent_containers/food/snacks/cheesewedge
@@ -18,7 +18,7 @@
 	result = /obj/item/reagent_containers/food/snacks/red_sun_special
 
 /singleton/recipe/hatchling_suprise
-	appliance = SKILLET | SAUCEPAN
+	appliance = SKILLET | SAUCEPAN | MICROWAVE
 	items = list(
 		/obj/item/reagent_containers/food/snacks/poachedegg,
 		/obj/item/reagent_containers/food/snacks/bacon,
@@ -29,7 +29,7 @@
 	result = /obj/item/reagent_containers/food/snacks/hatchling_suprise
 
 /singleton/recipe/riztizkzi_sea
-	appliance = SAUCEPAN | POT
+	appliance = SAUCEPAN | POT | MICROWAVE
 	items = list(
 		/obj/item/reagent_containers/food/snacks/egg,
 		/obj/item/reagent_containers/food/snacks/egg,
@@ -55,7 +55,7 @@
 	result = /obj/item/reagent_containers/food/snacks/stuffed_meatball
 
 /singleton/recipe/grilled_carp
-	appliance = SKILLET // 'grilled' is even in the name
+	appliance = SKILLET | GRILL // 'grilled' is even in the name
 	items = list(
 		/obj/item/reagent_containers/food/snacks/fish,
 		/obj/item/reagent_containers/food/snacks/fish,
@@ -76,7 +76,7 @@
 	result = /obj/item/reagent_containers/food/snacks/bacon_stick
 
 /singleton/recipe/egg_pancake
-	appliance = SKILLET
+	appliance = SKILLET | MICROWAVE
 	items = list(
 		/obj/item/reagent_containers/food/snacks/meatball,
 		/obj/item/reagent_containers/food/snacks/meatball,

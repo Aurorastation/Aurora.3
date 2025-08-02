@@ -3,7 +3,7 @@
 
 ////////////////////////////////////////////MUFFINS////////////////////////////////////////////
 /singleton/recipe/muffin
-	appliance = OVEN
+	appliance = OVEN | MICROWAVE
 	reagents = list(/singleton/reagent/drink/milk = 20, /singleton/reagent/sugar = 20)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	items = list(
@@ -109,14 +109,14 @@
 	result = /obj/item/reagent_containers/food/snacks/waffles
 
 /singleton/recipe/soywafers
-	appliance = OVEN
+	appliance = OVEN | MICROWAVE
 	fruit = list("soybeans" = 1)
 	reagents = list(/singleton/reagent/nutriment/flour = 10)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/soywafers
 
 /singleton/recipe/rofflewaffles
-	appliance = OVEN
+	appliance = OVEN | MICROWAVE
 	reagents = list(/singleton/reagent/drugs/psilocybin = 5, /singleton/reagent/sugar = 10)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough,

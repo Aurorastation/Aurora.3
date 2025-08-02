@@ -258,6 +258,18 @@
 		return FALSE
 	return TRUE
 
+/obj/item/reagent_containers/cooking_container/microwave_plate
+	name = "microwave plate"
+	shortname = "plate"
+	desc = "Put ingredients on this; designed for use with a microwave."
+	icon_state = "microwave_plate"
+	appliancetype = MICROWAVE
+	max_space = 30
+	volume = 90
+	force = 18
+	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
+
 /obj/item/reagent_containers/cooking_container/board
 	name = "chopping board"
 	shortname = "board"
