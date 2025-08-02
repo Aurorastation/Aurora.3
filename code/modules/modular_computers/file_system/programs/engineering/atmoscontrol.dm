@@ -34,8 +34,9 @@
 				if(alarm.alarm_id && (alarm.alarm_id in monitored_alarm_ids) && AreConnectedZLevels(computer.z, alarm.z))
 					monitored_alarms += alarm
 		else
+			/// The computer of a silicon has null Z, so...
+			var/turf/T = get_turf(computer)
 			for(var/obj/machinery/alarm/alarm in SSmachinery.processing)
-				var/turf/T = get_turf(computer) /// The computer of a silicon has null Z, so...
 				if(AreConnectedZLevels(T.z, alarm.z))
 					monitored_alarms += alarm
 
@@ -43,12 +44,18 @@
 	if(..())
 		return
 
-	if(action == "alarm")
-		var/obj/machinery/alarm/alarm = locate(params["alarm"]) in (monitored_alarms.len ? monitored_alarms : SSmachinery.processing)
-		if(alarm)
-			var/datum/ui_state/TS = generate_state(alarm)
-			alarm.ui_interact(usr, state = TS) //what the fuck?
-		return TRUE
+	switch(action)
+		// Opens the interface for the given air alarm.
+		if("alarm")
+			var/obj/machinery/alarm/alarm = locate(params["alarm"]) in (monitored_alarms.len ? monitored_alarms : SSmachinery.processing)
+			if(alarm)
+				var/datum/ui_state/TS = generate_state(alarm)
+				alarm.ui_interact(usr, state = TS) //what the fuck?
+			return TRUE
+		// Manually clear and repopulate the alarm list.
+		if("refresh")
+			monitored_alarms = null
+			get_alarms()
 
 /datum/computer_file/program/atmos_control/ui_data(mob/user)
 	var/list/data = initial_data()
