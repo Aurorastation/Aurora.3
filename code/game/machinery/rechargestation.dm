@@ -1,6 +1,6 @@
 /obj/machinery/recharge_station
-	name = "cyborg recharging station"
-	desc = "A heavy duty rapid charging system, designed to quickly recharge cyborg power reserves."
+	name = "synthetic recharging station"
+	desc = "A heavy duty rapid charging system, designed to quickly recharge synthetic power reserves."
 	icon = 'icons/obj/robot_charger.dmi'
 	icon_state = "borgcharger0"
 	density = 1
