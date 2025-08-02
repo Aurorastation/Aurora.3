@@ -592,7 +592,9 @@
 		/obj/item/device/analyzer/plant_analyzer,
 		/obj/item/clothing/gloves/botanic_leather,
 		/obj/item/device/radio,
-		/obj/item/crowbar
+		/obj/item/crowbar,
+		/obj/item/device/analyzer,
+		/obj/item/device/t_scanner,
 	)
 
 /obj/item/storage/belt/hydro/full
