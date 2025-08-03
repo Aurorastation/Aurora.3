@@ -171,6 +171,7 @@
 #include "code\__DEFINES\dcs\signals\signals_area.dm"
 #include "code\__DEFINES\dcs\signals\signals_client.dm"
 #include "code\__DEFINES\dcs\signals\signals_datum.dm"
+#include "code\__DEFINES\dcs\signals\signals_ghostrole.dm"
 #include "code\__DEFINES\dcs\signals\signals_global.dm"
 #include "code\__DEFINES\dcs\signals\signals_lore_radio.dm"
 #include "code\__DEFINES\dcs\signals\signals_moveloop.dm"
