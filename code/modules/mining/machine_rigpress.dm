@@ -32,33 +32,40 @@
 	else
 		icon_state = "coinpress0"
 
+/**
+ *	If a compatible item is fed into the machine, begin conversion. Only allow one at a time.
+ */
 /obj/machinery/mineral/rigpress/attackby(obj/item/attacking_item, mob/user)
 	if(!pressing)
 		var/outcome_path
+		// Check that the item is compatible.
 		for(var/press_type in press_types)
 			if(istype(attacking_item, press_type))
 				outcome_path = press_types[press_type]
 				break
-
+		// It's not.
 		if(!outcome_path)
 			..()
 			return
 
 		to_chat(user, SPAN_NOTICE("You start feeding [attacking_item] into \the [src]"))
 		if(do_after(user, 30))
-			src.visible_message(SPAN_NOTICE("\The [src] begins to print out a modsuit."))
-			pressing = TRUE
-			update_icon()
-			use_power_oneoff(500)
-			qdel(attacking_item)
-			spawn(300)
-				ping("\The [src] pings, \"Module successfuly produced!\"")
-
-				new outcome_path(get_turf(src))
-
-				use_power_oneoff(500)
-				pressing = FALSE
+			// Extra !pressing check here to protect against button-mashers. Naughty naughty.
+			if(!pressing)
+				src.visible_message(SPAN_NOTICE("\The [src] begins to print out a modsuit."))
+				pressing = TRUE
 				update_icon()
+				use_power_oneoff(500)
+				qdel(attacking_item)
+				spawn(300)
+					ping("\The [src] pings, \"Module successfuly produced!\"")
 
+					new outcome_path(get_turf(src))
+
+					use_power_oneoff(500)
+					pressing = FALSE
+					update_icon()
+			else
+				src.visible_message(SPAN_WARNING("\The [src] is already printing something!"))
 	else
 		..()
