@@ -7,7 +7,7 @@
 	observers_only = TRUE
 
 	loc_type = GS_LOC_ATOM
-	atom_add_message = "A gremorian queen has birthed a Gremorian servant!"
+	atom_add_message = "A gremorian queen has birthed a gremorian servant!"
 
 	spawn_mob = /mob/living/simple_animal/hostile/giant_spider/nurse/servant
 
