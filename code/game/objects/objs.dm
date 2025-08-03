@@ -70,7 +70,10 @@
 	var/persistence_track_active = FALSE
 	// Tracking ID of the object used by the persistence subsystem
 	var/persistence_track_id = 0
-	// Author ckey of the object used in persistence subsystem, optional/nullable
+	// Author ckey of the object used in persistence subsystem
+	// Note: Not every type can have an author, like generated dirt for example
+	// Additionally, the ckey is only an indicator, for example: A player could pin a paper without having written it
+	// This should be considered for any moderation purpose
 	var/persistence_author_ckey = null
 	// Expiration time used when saving/updating a persistent type, this can be changed depending on the use case by assigning a new value
 	var/persistance_expiration_time_days = PERSISTENT_DEFAULT_EXPIRATION_DAYS
