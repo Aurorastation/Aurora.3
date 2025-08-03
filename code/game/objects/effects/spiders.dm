@@ -1,7 +1,7 @@
 //generic procs copied from obj/effect/alien
 /obj/effect/spider
 	name = "web"
-	desc = "It's stringy and sticky, eugh. Probably came from one of those Gigarachne..."
+	desc = "It's stringy and sticky, eugh. Probably came from one of those gremorians..."
 	icon = 'icons/effects/effects.dmi'
 	anchored = TRUE
 	density = FALSE
@@ -138,11 +138,12 @@
 		qdel(src)
 
 /obj/effect/spider/spiderling
-	name = "gigarachne larva"
+	name = "gremorian larva"
 	desc = "A small, agile alien creature. It oozes some disgusting slime."
-	desc_extended = "The Gigarachne's evolutionary traits have made them a dangerously invasive species of arthropods. \
+	desc_extended = "The gremorian's evolutionary traits have made them a dangerously invasive species of arthropods. \
 	Their origins are hotly debated within the scientific community - perhaps they were a genetic experiment, or some aliens that hitched a ride on a unsuspecting human vessel. \
-	The only thing that is agreed upon is the general scientific term of 'Gigarachne' - although every space-faring society has their own unique name for them."
+	The only thing that is agreed upon is the general term of 'Gremorian' - \
+	folk legend tells that the first contact engineering team referred to their incessant skittering in ventilation shafts as 'Gremlin Tremors' - portmanteaued to 'Gremors'."
 	icon_state = "spiderling"
 	anchored = 0
 	layer = 2.7
@@ -331,14 +332,14 @@
 		qdel(O)
 
 /obj/effect/decal/cleanable/spiderling_remains
-	name = "gigarachne larva remains"
+	name = "gremorian larva remains"
 	desc = "Green squishy mess."
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "greenshatter"
 
 /obj/effect/spider/cocoon
 	name = "cocoon"
-	desc = "Something wrapped in silky Gigarachne web"
+	desc = "Something wrapped in silky Gremorian web"
 	icon_state = "cocoon1"
 	health = 60
 

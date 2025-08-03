@@ -20,9 +20,9 @@
 	telecrystal_cost = 5
 	path = /obj/item/storage/box/syndie_kit/heartworms
 
-/datum/uplink_item/item/bioweapons/gigarachne_eggs
-	name = "Gigarachne Eggs"
-	desc = "A cluster of Gigarachne eggs. (They will be planted at your feet on-purchase and CANNOT be moved, so make sure you're where you want them to be)"
+/datum/uplink_item/item/bioweapons/gremorian_eggs
+	name = "Gremorian Eggs"
+	desc = "A cluster of Gremorian eggs. (They will be planted at your feet on-purchase and CANNOT be moved, so make sure you're where you want them to be)"
 	telecrystal_cost = 4
 	path = /obj/effect/spider/eggcluster
 

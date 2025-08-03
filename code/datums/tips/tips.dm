@@ -92,7 +92,7 @@ GLOBAL_LIST_EMPTY(tips_by_category)
 		"Some people are unable to read text on a game where half of it is based on text.",
 		"There is no anti-security agenda... Or is there?",
 		"Fax machines cannot comprehend the elegant penmanship that is cursive. It is a simple machine afterall.",
-		"Spice up any round by spawning 100 Gigarachne larva on top of a vent.",
+		"Spice up any round by spawning 100 Gremorian larva on top of a vent.",
 		"The Maintenance Drones will never threaten to stab you, and in fact, cannot speak.",
 		"The Bluespace Technicians aren't real, they can't hurt you.",
 		"There is no escape.",

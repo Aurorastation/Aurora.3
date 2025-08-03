@@ -85,7 +85,7 @@
 		/obj/item/toy/plushie/slime,
 		/obj/item/toy/plushie/bee,
 		/obj/item/toy/plushie/shark,
-		/obj/item/toy/plushie/gigarachne,
+		/obj/item/toy/plushie/gremorian,
 		/obj/item/toy/plushie/herring_gull,
 		/obj/item/toy/plushie/cockatoo,
 		/obj/item/toy/plushie/norinori,

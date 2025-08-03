@@ -2271,7 +2271,7 @@
 #include "code\modules\ghostroles\spawner\atom\cult_construct.dm"
 #include "code\modules\ghostroles\spawner\atom\diona_nymph.dm"
 #include "code\modules\ghostroles\spawner\atom\golem.dm"
-#include "code\modules\ghostroles\spawner\atom\greimorian_servant.dm"
+#include "code\modules\ghostroles\spawner\atom\gremorian_servant.dm"
 #include "code\modules\ghostroles\spawner\atom\hivebot.dm"
 #include "code\modules\ghostroles\spawner\atom\living_plant.dm"
 #include "code\modules\ghostroles\spawner\atom\matriarchmaintdrone.dm"

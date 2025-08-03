@@ -6,11 +6,12 @@
 
 //basic spider mob, these generally guard nests
 /mob/living/simple_animal/hostile/giant_spider
-	name = "gigarachne warrior"
-	desc = "A furry, brown carapace covers this vicious Gigarachne warrior."
-	desc_extended = "The Gigarachne's evolutionary traits have made them a dangerously invasive species of arthropods. \
+	name = "gremorian warrior"
+	desc = "A furry, brown carapace covers this vicious Gremorian warrior."
+	desc_extended = "The gremorian's evolutionary traits have made them a dangerously invasive species of arthropods. \
 	Their origins are hotly debated within the scientific community - perhaps they were a genetic experiment, or some aliens that hitched a ride on a unsuspecting human vessel. \
-	The only thing that is agreed upon is the general scientific term of 'Gigarachne' - although every space-faring society has their own unique name for them."
+	The only thing that is agreed upon is the general term of 'Gremorian' - \
+	folk legend tells that the first contact engineering team referred to their incessant skittering in ventilation shafts as 'Gremlin Tremors' - portmanteaued to 'Gremors'."
 	icon = 'icons/mob/npc/giant_spider.dmi'
 	icon_state = "guard"
 	icon_living = "guard"
@@ -53,8 +54,8 @@
 
 //nursemaids - these create webs and eggs
 /mob/living/simple_animal/hostile/giant_spider/nurse
-	name = "gigarachne worker"
-	desc = "A hideous Gigarachne with an awful stench about it."
+	name = "gremorian worker"
+	desc = "A hideous Gremorian with an awful stench about it."
 	icon_state = "nurse"
 	icon_living = "nurse"
 	icon_dead = "nurse_dead"
@@ -71,8 +72,8 @@
 	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Cellular structures indicative of high offspring production")
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/servant
-	name = "gigarachne servant"
-	desc = "A Gigarachne with a startling intelligence. Its needle-like mandibles look like they could easily punch through armor - or flesh."
+	name = "gremorian servant"
+	desc = "A Gremorian with a startling intelligence. Its needle-like mandibles look like they could easily punch through armor - or flesh."
 	icon_state = "servant"
 	icon_living = "servant"
 	icon_dead = "servant_dead"
@@ -95,8 +96,8 @@
 
 //hunters have the most poison and move the fastest, so they can find prey
 /mob/living/simple_animal/hostile/giant_spider/hunter
-	name = "gigarachne hunter"
-	desc = "A vicious, hostile Gigarachne. This one holds a mighty stinger to impale its prey."
+	name = "gremorian hunter"
+	desc = "A vicious, hostile Gremorian. This one holds a mighty stinger to impale its prey."
 	icon_state = "hunter"
 	icon_living = "hunter"
 	icon_dead = "hunter_dead"
@@ -112,8 +113,8 @@
 	smart_melee = TRUE
 
 /mob/living/simple_animal/hostile/giant_spider/emp
-	name = "gigarachne jackal"
-	desc = "A slithering Gigarachne. This one gently buzzes with electrical potential."
+	name = "gremorian jackal"
+	desc = "A slithering Gremorian. This one gently buzzes with electrical potential."
 	icon_state = "jackal"
 	icon_living = "jackal"
 	icon_dead = "jackal_dead"
@@ -129,8 +130,8 @@
 	smart_melee = TRUE
 
 /mob/living/simple_animal/hostile/giant_spider/bombardier
-	name = "gigarachne bombardier"
-	desc = "A disgusting crawling Gigarachne. This one has vents that shoot out condensed capsaicin."
+	name = "gremorian bombardier"
+	desc = "A disgusting crawling Gremorian. This one has vents that shoot out condensed capsaicin."
 	icon_state = "bombardier"
 	icon_living = "bombardier"
 	icon_dead = "bombardier_dead"
@@ -163,8 +164,8 @@
 /mob/living/simple_animal/hostile/giant_spider/Initialize(mapload, atom/parent)
 	. = ..()
 	get_light_and_color(parent)
-	add_language(LANGUAGE_GIGARACHNE)
-	add_language(LANGUAGE_GIGARACHNE_HIVEMIND)
+	add_language(LANGUAGE_GREMORIAN)
+	add_language(LANGUAGE_GREMORIAN_HIVEMIND)
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/servant/Initialize()
 	. = ..()
@@ -352,7 +353,7 @@
 /mob/living/simple_animal/hostile/giant_spider/verb/web()
 	set name = "Spin Web"
 	set desc = "Create a web that slows down movement."
-	set category = "Gigarachne"
+	set category = "Gremorian"
 
 	if(!locate(/obj/effect/spider/stickyweb) in src.loc)
 		src.visible_message(SPAN_NOTICE("\The [src] begins to secrete a sticky substance."))
@@ -366,7 +367,7 @@
 /mob/living/simple_animal/hostile/giant_spider/nurse/verb/cocoon()
 	set name = "Cocoon and Feed"
 	set desc = "Cocoon an incapacitated mob so you can feed upon it. This will give you one food point."
-	set category = "Gigarachne"
+	set category = "Gremorian"
 
 
 	var/list/available_mobs = list()
@@ -414,8 +415,8 @@
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/verb/eggs()
 	set name = "Lay Eggs"
-	set desc = "Lay a clutch of eggs to make new Gigarachne. This will cost one food point."
-	set category = "Gigarachne"
+	set desc = "Lay a clutch of eggs to make new Gremorian. This will cost one food point."
+	set category = "Gremorian"
 
 	var/obj/effect/spider/eggcluster/E = locate() in get_turf(src)
 	if(!E && fed > 0)
@@ -429,8 +430,8 @@
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen/verb/servant()
 	set name = "Lay Servant"
-	set desc = "Lay a Gigarachne servant, which can be player-controlled. This will cost one food point."
-	set category = "Gigarachne"
+	set desc = "Lay a Gremorian servant, which can be player-controlled. This will cost one food point."
+	set category = "Gremorian"
 
 
 	var/obj/effect/spider/eggcluster/E = locate() in get_turf(src)

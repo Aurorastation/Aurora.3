@@ -28,10 +28,10 @@
 		"Corgi"					=	/mob/living/simple_animal/corgi,
 		"Corgi Pup"				=	/mob/living/simple_animal/corgi/puppy,
 		"Bat"					=	/mob/living/simple_animal/hostile/scarybat,
-		"Gigarachne"			=	/mob/living/simple_animal/hostile/giant_spider,
-		"Gigarachne Hunter"		=	/mob/living/simple_animal/hostile/giant_spider/hunter,
-		"Gigarachne Bombadier"	=	/mob/living/simple_animal/hostile/giant_spider/bombardier,
-		"Gigarachne Nurse"		=	/mob/living/simple_animal/hostile/giant_spider/nurse,
+		"Gremorian"			=	/mob/living/simple_animal/hostile/giant_spider,
+		"Gremorian Hunter"		=	/mob/living/simple_animal/hostile/giant_spider/hunter,
+		"Gremorian Bombadier"	=	/mob/living/simple_animal/hostile/giant_spider/bombardier,
+		"Gremorian Nurse"		=	/mob/living/simple_animal/hostile/giant_spider/nurse,
 		"Carp"					=	/mob/living/simple_animal/hostile/carp,
 		"Bear"					=	/mob/living/simple_animal/hostile/bear
 		)

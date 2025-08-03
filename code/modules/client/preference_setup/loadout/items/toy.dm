@@ -96,7 +96,7 @@
 	plushies["plushie, cool schlorrgo"] = /obj/item/toy/plushie/coolschlorrgo
 	plushies["plushie, slime"] = /obj/item/toy/plushie/slime
 	plushies["plushie, penny"] = /obj/item/toy/plushie/pennyplush
-	plushies["plushie, gigarachne"] = /obj/item/toy/plushie/gigarachne
+	plushies["plushie, gremorian"] = /obj/item/toy/plushie/gremorian
 	plushies["plushie, Axic"] = /obj/item/toy/plushie/axic
 	plushies["plushie, Qill"] = /obj/item/toy/plushie/qill
 	plushies["plushie, Xana"] = /obj/item/toy/plushie/xana

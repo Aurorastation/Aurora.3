@@ -160,9 +160,9 @@
 			return TRUE
 	return FALSE
 
-/datum/language/gigarachne
-	name = LANGUAGE_GIGARACHNE
-	desc = "The method which Gigarachne use to communicate with one another."
+/datum/language/gremorian
+	name = LANGUAGE_GREMORIAN
+	desc = "The method which Gremorian use to communicate with one another."
 	speech_verb = list("chitters")
 	ask_verb = list("hisses")
 	exclaim_verb = list("shrieks")
@@ -172,9 +172,9 @@
 	syllables = list("sksk", "chch", "ss", "kh", "shsh", "sh", "gh", "ch", "tt")
 	flags = RESTRICTED
 
-/datum/language/gigarachne/hivemind
-	name = LANGUAGE_GIGARACHNE
-	desc = "A way for Gigarachne to communicate with one another even when seperated."
+/datum/language/gremorian/hivemind
+	name = LANGUAGE_GREMORIAN
+	desc = "A way for Gremorian to communicate with one another even when seperated."
 	key = "gh"
 	flags = RESTRICTED | HIVEMIND
 

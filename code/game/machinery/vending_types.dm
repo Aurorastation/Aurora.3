@@ -2089,7 +2089,7 @@
 	premium = list(
 		/obj/item/toy/comic/inspector = 2,
 		/obj/item/toy/comic/stormman = 2,
-		/obj/item/toy/plushie/gigarachne = 2
+		/obj/item/toy/plushie/gremorian = 2
 	)
 	random_itemcount = 0
 	light_color = COLOR_BABY_BLUE

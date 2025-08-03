@@ -3881,7 +3881,7 @@
 /area/tret_industrial/inside/medical)
 "azG" = (
 /obj/structure/table/steel,
-/obj/item/toy/plushie/greimorian{
+/obj/item/toy/plushie/gremorian{
 	color = "#356635";
 	name = "retainer plushie";
 	desc = "A lovable plushie of a type AA worker! This one seems to be of Vetju brood.";

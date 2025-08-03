@@ -1,13 +1,13 @@
 /datum/ghostspawner/servant
 	short_name = "servant"
-	name = "Gigarachne Servant"
+	name = "Gremorian Servant"
 	desc = "Protect the queen with your life, and make sure she has all of the food she needs to grow the infestation. Help grow the infestation yourself."
 	tags = list("Antagonist")
 
 	observers_only = TRUE
 
 	loc_type = GS_LOC_ATOM
-	atom_add_message = "A Gigarachne queen has birthed a Gigarachne servant!"
+	atom_add_message = "A gremorian queen has birthed a Gremorian servant!"
 
 	spawn_mob = /mob/living/simple_animal/hostile/giant_spider/nurse/servant
 

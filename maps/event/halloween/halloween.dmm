@@ -1898,10 +1898,10 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/effect/spider/stickyweb,
 /mob/living/simple_animal/rat{
-	icon = 'icons/mob/npc/greimorian.dmi';
-	icon_living = "greimorian";
-	icon_dead = "greimorian_dead";
-	icon_state = "greimorian";
+	icon = 'icons/mob/npc/giant_spider.dmi';
+	icon_living = "gremorian";
+	icon_dead = "gremorian_dead";
+	icon_state = "gremorian";
 	update_icon = 0
 	},
 /turf/simulated/floor/grass,
@@ -10207,10 +10207,10 @@
 	dir = 8
 	},
 /mob/living/simple_animal/rat{
-	icon = 'icons/mob/npc/greimorian.dmi';
-	icon_living = "greimorian";
-	icon_dead = "greimorian_dead";
-	icon_state = "greimorian";
+	icon = 'icons/mob/npc/giant_spider.dmi';
+	icon_living = "gremorian";
+	icon_dead = "gremorian_dead";
+	icon_state = "gremorian";
 	update_icon = 0;
 	name = "Friendly Gremorian!";
 	desc = "A large Gremorian with a collar denoting its name as 'Stephanie'."
@@ -13194,10 +13194,10 @@
 	dir = 4
 	},
 /mob/living/simple_animal/rat{
-	icon = 'icons/mob/npc/greimorian.dmi';
-	icon_living = "greimorian";
-	icon_dead = "greimorian_dead";
-	icon_state = "greimorian";
+	icon = 'icons/mob/npc/giant_spider.dmi';
+	icon_living = "gremorian";
+	icon_dead = "gremorian_dead";
+	icon_state = "gremorian";
 	update_icon = 0;
 	name = "Friendly Gremorian!";
 	desc = "A large Gremorian with a collar denoting its name as 'Brittany'."

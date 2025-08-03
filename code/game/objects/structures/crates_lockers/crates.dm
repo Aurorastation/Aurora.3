@@ -555,7 +555,7 @@
 					break
 	return
 
-/obj/structure/closet/crate/secure/large/larva // Spawns with one gigarachne larva inside of it. Can mature inside, so be careful.
+/obj/structure/closet/crate/secure/large/larva // Spawns with one gremorian larva inside of it. Can mature inside, so be careful.
 
 /obj/structure/closet/crate/secure/large/larva/fill()
 	new /obj/effect/spider/spiderling(src)

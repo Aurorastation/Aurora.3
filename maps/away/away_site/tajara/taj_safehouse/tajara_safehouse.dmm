@@ -151,7 +151,7 @@
 "dU" = (
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "spiderling";
-	name = "dead greimorian"
+	name = "dead gremorian"
 	},
 /turf/simulated/floor/wood,
 /area/tajara_safehouse)
