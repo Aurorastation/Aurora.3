@@ -17,6 +17,7 @@
 	set_trait(TRAIT_PRODUCT_ICON,"leaves")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#00e0e0")
 	set_trait(TRAIT_PLANT_ICON,"bush8")
+	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
 
 /obj/item/seeds/dynseed
 	seed_type = "dyn"
@@ -38,6 +39,7 @@
 	set_trait(TRAIT_PRODUCT_COLOUR,"#61E2EC")
 	set_trait(TRAIT_PLANT_ICON,"wumpavines")
 	set_trait(TRAIT_WATER_CONSUMPTION, 10)
+	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
 
 /obj/item/seeds/wulumunushaseed
 	seed_type = "wulumunusha"
@@ -61,6 +63,7 @@
 	set_trait(TRAIT_FLESH_COLOUR, "#9FE4B0")
 	set_trait(TRAIT_PLANT_ICON,"mushroom9")
 	set_trait(TRAIT_WATER_CONSUMPTION, 6)
+	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
 
 /obj/item/seeds/qlortseed
 	seed_type = "qlort"
@@ -86,6 +89,7 @@
 	set_trait(TRAIT_PLANT_COLOUR,"#4790DA")
 	set_trait(TRAIT_PLANT_ICON,"alien1")
 	set_trait(TRAIT_WATER_CONSUMPTION, 10)
+	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
 
 /obj/item/seeds/guamiseed
 	seed_type = "guami"
@@ -135,6 +139,7 @@
 	set_trait(TRAIT_PLANT_ICON,"bush")
 	set_trait(TRAIT_WATER_CONSUMPTION, 10)
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
+	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
 
 /obj/item/seeds/ylpha
 	seed_type = "ylpha"
@@ -161,6 +166,7 @@
 	set_trait(TRAIT_BIOLUM_COLOUR,"#990033")
 	set_trait(TRAIT_SPREAD,1)
 	set_trait(TRAIT_WATER_CONSUMPTION, 10)
+	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
 
 /obj/item/seeds/fjylozyn
 	seed_type = "fjylozyn"

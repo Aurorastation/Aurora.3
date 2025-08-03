@@ -65,7 +65,7 @@
 	sound_environment = SOUND_ENVIRONMENT_HANGAR
 	holomap_color = HOLOMAP_AREACOLOR_HANGAR
 	horizon_deck = 1
-	subdepartment = SUBLOC_HANGAR
+	department = LOC_HANGAR
 
 /area/horizon/hangar/control
 	name = "Hangar Control Room"
@@ -81,12 +81,12 @@
 
 /area/horizon/hangar/operations
 	name = "Starboard Auxiliary Hangar"
-	area_blurb = "A big, open room, home to two of the SCCV Horizon's shuttles, the Quark and the Canary."
+	area_blurb = "A big, open room, home to the SCCV Horizon's mining shuttle, the Spark."
 	area_blurb_category = "hanger"
 
 /area/horizon/hangar/auxiliary
 	name = "Port Auxiliary Hangar"
-	area_blurb = "A big, open room, home to the SCCV Horizon's mining shuttle, the Spark."
+	area_blurb = "A big, open room, home to two of the SCCV Horizon's shuttles, the Quark and the Canary."
 	area_blurb_category = "hanger"
 
 /// OPERATIONS_AREAS - MACHINIST_AREAS
@@ -130,6 +130,7 @@
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 	horizon_deck = 3
 	area_blurb = "One of the SCCV Horizon's daunting weapons bays."
+	department = LOC_COMMAND
 
 /area/horizon/weapons/grauwolf
 	name = "Grauwolf Weapon System"
@@ -139,6 +140,7 @@
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 	horizon_deck = 2
 	area_blurb = "One of the SCCV Horizon's daunting weapons bays."
+	department = LOC_COMMAND
 
 /// STORAGE_AREAS
 /area/horizon/storage
@@ -170,6 +172,6 @@
 	name = "Secure Storage"
 	icon_state = "storage"
 	horizon_deck = 2
-	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 	department = LOC_COMMAND
 	area_blurb = "A place not to be visited unless things are going either horribly wrong or horribly right."
