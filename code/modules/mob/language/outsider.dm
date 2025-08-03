@@ -173,7 +173,7 @@
 	flags = RESTRICTED
 
 /datum/language/gremorian/hivemind
-	name = LANGUAGE_GREMORIAN
+	name = LANGUAGE_GREMORIAN_HIVEMIND
 	desc = "A way for Gremorian to communicate with one another even when seperated."
 	key = "gh"
 	flags = RESTRICTED | HIVEMIND

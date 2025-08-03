@@ -7,7 +7,7 @@
 //basic spider mob, these generally guard nests
 /mob/living/simple_animal/hostile/giant_spider
 	name = "gremorian warrior"
-	desc = "A furry, brown carapace covers this vicious Gremorian warrior."
+	desc = "A furry carapace covers this vicious gremorian warrior."
 	desc_extended = "The gremorian's evolutionary traits have made them a dangerously invasive species of arthropods. \
 	Their origins are hotly debated within the scientific community - perhaps they were a genetic experiment, or some aliens that hitched a ride on a unsuspecting human vessel. \
 	The only thing that is agreed upon is the general term of 'Gremorian' - \
