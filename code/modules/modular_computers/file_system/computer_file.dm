@@ -1,15 +1,23 @@
 GLOBAL_VAR_INIT(file_uid, 0)
 
 /datum/computer_file
-	var/filename = "NewFile"								// Placehard_drive. No spacebars
-	var/filetype = "XXX"									// File full names are [filename].[filetype] so like NewFile.XXX in this case
+	/// Placehard_drive. No spacebars
+	var/filename = "NewFile"
+	/// File full names are [filename].[filetype] so like NewFile.XXX in this case
+	var/filetype = "XXX"
 	var/filedesc = null
-	var/size = 1											// File size in GQ. Integers only!
-	var/obj/item/computer_hardware/hard_drive/hard_drive	// Harddrive that contains this file.
-	var/unsendable = FALSE									// Whether the file may be sent to someone via NTNet transfer or other means.
-	var/undeletable = FALSE									// Whether the file may be deleted. Setting to 1 prevents deletion/renaming/etc.
-	var/password = ""										// Placeholder for password protected files.
-	var/uid													// UID of this file
+	/// File size in GQ. Integers only!
+	var/size = 1
+	/// Harddrive that contains this file.
+	var/obj/item/computer_hardware/hard_drive/hard_drive
+	/// Whether the file may be sent to someone via NTNet transfer or other means.
+	var/unsendable = FALSE
+	/// Whether the file may be deleted. Setting to 1 prevents deletion/renaming/etc.
+	var/undeletable = FALSE
+	/// Placeholder for password protected files.
+	var/password = ""
+	/// UID of this file
+	var/uid
 
 /datum/computer_file/New()
 	..()
