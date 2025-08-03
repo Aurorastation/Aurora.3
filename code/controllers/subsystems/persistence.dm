@@ -70,7 +70,7 @@ SUBSYSTEM_DEF(persistence)
 		CHECK_TICK
 		if(track.persistence_track_id > 0) // (0 is the default tracking ID value)
 			// Tracked object has an ID, add it to lookup
-			track_lookup[track.persistence_track_id] = track
+			track_lookup["[track.persistence_track_id]"] = track
 		else
 			// Tracked object has no ID, create a new persistent record for it
 			database_add_entry(track)
@@ -80,8 +80,8 @@ SUBSYSTEM_DEF(persistence)
 		CHECK_TICK
 		// Find removed objects by looking them up using the live dataset
 		var/obj/track = null
-		if(record["id"] in track_lookup)
-			track = track_lookup[record["id"]]
+		if("[record["id"]]" in track_lookup)
+			track = track_lookup["[record["id"]]"]
 
 		if (track)
 			// The record still exists as an active track, check if it may need an update
@@ -183,7 +183,7 @@ SUBSYSTEM_DEF(persistence)
 			"INSERT INTO ss13_persistent_data (author_ckey, type, created_at, updated_at, expires_at, content, x, y, z) \
 			VALUES (:author_ckey, :type, NOW(), NOW(), DATE_ADD(NOW(), INTERVAL :expire_in_days DAY), :content, :x, :y, :z)",
 			list(
-				"author_ckey" = length(track.persistence_author_ckey) ? track.persistence_author_ckey : null,
+				"author_ckey" = track.persistence_author_ckey,
 				"type" = "[track.type]",
 				"expire_in_days" = track.persistance_expiration_time_days,
 				"content" = track.persistence_get_content(),
