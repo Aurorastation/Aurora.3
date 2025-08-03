@@ -72,8 +72,8 @@
 	var/persistence_track_id = 0
 	// Author ckey of the object used in persistence subsystem
 	var/persistence_author_ckey = ""
-	// Expiration time used when saving a new persistent type, this can be changed depending on the use case
-	var/persistance_initial_expiration_time_days = PERSISTENT_DEFAULT_EXPIRATION_DAYS
+	// Expiration time used when saving/updating a persistent type, this can be changed depending on the use case by assigning a new value
+	var/persistance_expiration_time_days = PERSISTENT_DEFAULT_EXPIRATION_DAYS
 	/* END PERSISTENCE VARS */
 
 /obj/Destroy()
