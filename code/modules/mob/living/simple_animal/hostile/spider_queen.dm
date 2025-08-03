@@ -1,10 +1,9 @@
 /mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen
-	name = "colossal greimorian"
-	desc = "A monstrous six-legged Greimorian."
-	desc_extended = "Greimorians are a species of arthropods whose evolutionary traits have made them an extremely dangerous invasive species.  \
-	They originate from the Badlands planet Greima, once covered in crystalized phoron. A decaying orbit led to its combustion from proximity to its sun, and its dominant inhabitants \
-	managed to survive in orbit. Countless years later, they prove to be a menace across the galaxy, having carried themselves within the hulls of Human vessels to spread wildly."
-	icon = 'icons/mob/npc/spider_queen.dmi'
+	name = "colossal gigarachne"
+	desc = "A monstrous six-legged Gigarachne."
+	desc_extended = "The Gigarachne's evolutionary traits have made them a dangerously invasive species of arthropods. \
+	Their origins are hotly debated within the scientific community - perhaps they were a genetic experiment, or some aliens that hitched a ride on a unsuspecting human vessel. \
+	The only thing that is agreed upon is the general scientific term of 'Gigarachne' - although every space-faring society has their own unique name for them."	icon = 'icons/mob/npc/spider_queen.dmi'
 	icon_state = "spider_queen"
 	icon_living = "spider_queen"
 	icon_rest = "spider_queen_rest"

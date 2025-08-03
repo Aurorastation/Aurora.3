@@ -63,7 +63,7 @@
 						"Central Command has chosen [holder] as the SCC employee of the month! Everyone please congratulate them.",
 						"Everything is fine.",
 						"The tesla may or may not be loose.",
-						"This is your directive 11. [pick("Greimorians have killed several crew.", "Boarders have taken a hostage.", "[holder] is armed and dangerous. Avoid them at all costs.", "Two black-suited individuals have taken items from the armory.")]",
+						"This is your directive 11. [pick("Gigarachne have killed several crew.", "Boarders have taken a hostage.", "[holder] is armed and dangerous. Avoid them at all costs.", "Two black-suited individuals have taken items from the armory.")]",
 						"Please stop [pick("drawing in blood. It's unsanitary.", "killing your fellow crew. It's rude.", "[holder] at all costs.", "falling down holes.")]",
 						"[holder] disappoints us all once again.")
 			sound_to(holder, 'sound/misc/announcements/notice.ogg')
@@ -122,7 +122,7 @@
 	max_power = 60
 
 /datum/hallucination/skitter/start()
-	to_chat(holder, "The greimorian larva skitters around.")
+	to_chat(holder, "The Gigarachne larva skitters around.")
 
 
 /datum/hallucination/prick

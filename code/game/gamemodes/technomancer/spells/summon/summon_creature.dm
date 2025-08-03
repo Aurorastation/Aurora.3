@@ -27,13 +27,13 @@
 		"Cat"					=	/mob/living/simple_animal/cat,
 		"Corgi"					=	/mob/living/simple_animal/corgi,
 		"Corgi Pup"				=	/mob/living/simple_animal/corgi/puppy,
-		"BAT"					=	/mob/living/simple_animal/hostile/scarybat,
-		"GREIMORIAN"			=	/mob/living/simple_animal/hostile/giant_spider,
-		"GREIMORIAN HUNTER"		=	/mob/living/simple_animal/hostile/giant_spider/hunter,
-		"GREIMORIAN BOMBARDIER"	=	/mob/living/simple_animal/hostile/giant_spider/bombardier,
-		"GREIMORIAN NURSE"		=	/mob/living/simple_animal/hostile/giant_spider/nurse,
-		"CARP"					=	/mob/living/simple_animal/hostile/carp,
-		"BEAR"					=	/mob/living/simple_animal/hostile/bear
+		"Bat"					=	/mob/living/simple_animal/hostile/scarybat,
+		"Gigarachne"			=	/mob/living/simple_animal/hostile/giant_spider,
+		"Gigarachne Hunter"		=	/mob/living/simple_animal/hostile/giant_spider/hunter,
+		"Gigarachne Bombadier"	=	/mob/living/simple_animal/hostile/giant_spider/bombardier,
+		"Gigarachne Nurse"		=	/mob/living/simple_animal/hostile/giant_spider/nurse,
+		"Carp"					=	/mob/living/simple_animal/hostile/carp,
+		"Bear"					=	/mob/living/simple_animal/hostile/bear
 		)
 	cooldown = 30
 	instability_cost = 10

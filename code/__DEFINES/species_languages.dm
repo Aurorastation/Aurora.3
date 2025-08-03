@@ -68,8 +68,8 @@
 #define LANGUAGE_REVENANT_RIFTSPEAK "Riftspeak"
 #define LANGUAGE_TERMINATOR "Hephaestus Darkcomms"	// HKs.
 #define LANGUAGE_LIIDRA "Lii'draic Hivemind" //Lii'dra
-#define LANGUAGE_GREIMORIAN "Greimorian Chattering" //Intelligent Greimorians
-#define LANGUAGE_GREIMORIAN_HIVEMIND "Greimorian Hivemind" //Intelligent Greimorian Hivemind
+#define LANGUAGE_GIGARACHNE "Gigarachne Chattering" //Intelligent Gigarachne
+#define LANGUAGE_GIGARACHNE_HIVEMIND "Gigarachne Hivemind" //Intelligent Gigarachne Hivemind
 #define LANGUAGE_PURPOSE "Encrypted Transmission" //Purpose
 #define LANGUAGE_HIVEBOT "Hivebot Network" //Hivebots
 

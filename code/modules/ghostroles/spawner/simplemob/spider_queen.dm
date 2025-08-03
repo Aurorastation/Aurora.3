@@ -1,6 +1,6 @@
 /datum/ghostspawner/simplemob/spider_queen
 	short_name = "spiderqueen"
-	name = "Greimorian Queen"
+	name = "Gigarachne Queen"
 	desc = "Hunt your quarry. Build a glorious hive."
 	tags = list("External")
 	spawnpoints = list("spiderqueen")
