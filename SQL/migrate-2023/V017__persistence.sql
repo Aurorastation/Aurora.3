@@ -5,7 +5,7 @@ CREATE TABLE ss13_persistent_data (
     created_at DATETIME NOT NULL,
     updated_at DATETIME NOT NULL,
     expires_at DATETIME NULL,
-    content JSON NOT NULL,
+    content MEDIUMTEXT NOT NULL,
     x INT NULL,
     y INT NULL,
     z INT NULL,
