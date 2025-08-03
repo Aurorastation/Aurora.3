@@ -340,24 +340,6 @@
 	cost = 4
 	allowed_roles = list("Consular Officer")
 
-/datum/gear/augment/platelet_factories
-	display_name = "Platelet Factories"
-	description = "Designed for military applications, this implant massively increases the user's blood clotting factor. This provides an extreme resistance to arterial bleeds, effectively all but preventing exsanguination. This augment has a reputation for causing heart attacks and strokes at a high rate, and is usually combined with an auxiliary heart for safety."
-	path = /obj/item/organ/internal/augment/bioaug/platelet_factories
-	origin_restriction = list(/singleton/origin_item/origin/galatea)
-	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
-	cost = 2
-	allowed_roles = list("Consular Officer")
-
-/datum/gear/augment/subdermal_carapace
-	display_name = "Subdermal Carapace"
-	description = "Designed for military applications, this implant transforms the user's ribcage into a solid plate of bone. This provides a small amount of protection. In combination with armor, it can turn lethal injuries into merely serious wounds."
-	path = /obj/item/organ/internal/augment/bioaug/subdermal_carapace
-	origin_restriction = list(/singleton/origin_item/origin/galatea)
-	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
-	cost = 6
-	allowed_roles = list("Consular Officer")
-
 /datum/gear/augment/bio_head_fluff
 	display_name = "custom head bioaug"
 	description = "A fluff based bioaug that can be renamed/redescribed to appear as something else for RP purposes."
