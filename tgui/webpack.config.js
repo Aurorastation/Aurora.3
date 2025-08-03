@@ -113,7 +113,7 @@ module.exports = (env = {}, argv) => {
     devtool: false,
     cache: {
       type: 'filesystem',
-      cacheLocation: path.resolve(__dirname, `.yarn/webpack/${mode}`),
+      cacheLocation: path.resolve(__dirname, `node_mudles/webpack/${mode}`),
       buildDependencies: {
         config: [__filename],
       },
