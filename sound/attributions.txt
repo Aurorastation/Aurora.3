@@ -163,3 +163,9 @@ sound/music/lobby/lights_edge/lights_edge_2.ogg - "Running From The Wendigo" by 
 sound/music/lobby/dangerous_space/dangerous_space_1.ogg - "You Can't Kill The Boogeyman" by Karl Casey, licensed under CC BY 3.0. Obtained From https://karlcasey.bandcamp.com/track/you-can-t-kill-the-boogeyman
 sound/music/lobby/dangerous_space/dangerous_space_2.ogg - "Prison Planet" by Karl Casey, licensed under CC BY 3.0. Obtained from https://karlcasey.bandcamp.com/track/prison-planet
 ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTION START
+sound/machines/rig/rigstep_chonk.ogg - by majormoth(Discord), licensed under CC-BY-SA-3.0
+sound/machines/rig/rigstep_heavy.ogg - by majormoth(Discord), licensed under CC-BY-SA-3.0
+sound/machines/rig/rigstep_medium.ogg - by majormoth(Discord), licensed under CC-BY-SA-3.0
+ATTRIBUTIONS SECTION END
