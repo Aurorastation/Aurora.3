@@ -11,6 +11,7 @@ env:
   browser: true
   node: true
 plugins:
+  - inferno
   - radar
   - react
   - unused-imports
