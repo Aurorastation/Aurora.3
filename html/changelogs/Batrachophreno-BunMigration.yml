@@ -57,6 +57,5 @@ delete-after: True
 changes:
   - server: "Build tool Javascript to Typescript migrations."
   - code_imp: "Migration to bun 1.2.16."
-  - code_imp: "Upgrade eslint 7.32.0 -> 9.31.0."
-  - code_imp: "Upgrade eslint-config-prettier 8.5.0 -> 10.1.8."
-  - code_imp: "Upgrade eslint-plugin-unused-imports 1.1.4 -> 4.1.4."
+  - code_imp: "Migration from eslint 7.32.0 -> biome 2.1.2."
+

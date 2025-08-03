@@ -1,4 +1,3 @@
-/* eslint-disable */
 /*!
  * Benchmark.js <https://benchmarkjs.com/>
  * Copyright 2010-2016 Mathias Bynens <https://mths.be/>

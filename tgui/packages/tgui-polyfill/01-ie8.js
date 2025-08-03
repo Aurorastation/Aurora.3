@@ -4,7 +4,6 @@
  * @license MIT
  */
 
-/* eslint-disable */
 // prettier-ignore
 (function(window){
   /*! (C) WebReflection Mit Style License */

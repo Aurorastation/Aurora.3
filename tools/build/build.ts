@@ -9,7 +9,7 @@
 import Bun from "bun";
 import fs from "fs";
 import Juke from "./juke/index.js";
-import { bun } from "./lib/bun";
+import { bun, bunRoot } from "./lib/bun";
 import { DreamDaemon, DreamMaker, NamedVersionFile } from "./lib/byond";
 import { downloadFile } from "./lib/download";
 import { formatDeps } from "./lib/helpers";
@@ -212,6 +212,17 @@ export const BunTarget = new Juke.Target({
   },
 });
 
+export const BiomeInstallTarget = new Juke.Target({
+  dependsOn: [BunTarget],
+  inputs: ['package.json', 'bun.lock'],
+  onlyWhen: () => {
+    return Juke.glob('node_modules/@biomejs/**').length === 0;
+  },
+  executes: () => {
+    return bunRoot('install');
+  },
+});
+
 export const TgFontTarget = new Juke.Target({
   dependsOn: [BunTarget],
   inputs: [
@@ -254,35 +265,24 @@ export const TguiTarget = new Juke.Target({
   executes: () => bun("tgui:build"),
 });
 
-export const TguiEslintTarget = new Juke.Target({
-  parameters: [CiParameter],
-  dependsOn: [BunTarget],
-  executes: ({ get }) => bun("tgui:lint", !get(CiParameter) && "--fix"),
-});
-
-export const TguiPrettierTarget = new Juke.Target({
-  dependsOn: [BunTarget],
-  executes: () => bun("tgui:prettier"),
-});
-
-export const TguiSonarTarget = new Juke.Target({
-  dependsOn: [BunTarget],
-  executes: () => bun("tgui:sonar"),
-});
-
 export const TguiTscTarget = new Juke.Target({
   dependsOn: [BunTarget],
-  executes: () => bun("tgui:tsc"),
+  executes: () => bun('tgui:tsc'),
 });
 
 export const TguiTestTarget = new Juke.Target({
   parameters: [CiParameter],
   dependsOn: [BunTarget],
-  executes: () => bun("tgui:test"),
+  executes: () => bun('tgui:test'),
+});
+
+export const BiomeCheckTarget = new Juke.Target({
+  dependsOn: [BunTarget, BiomeInstallTarget],
+  executes: () => bunRoot('tgui:lint'),
 });
 
 export const TguiLintTarget = new Juke.Target({
-  dependsOn: [BunTarget, TguiPrettierTarget, TguiEslintTarget, TguiTscTarget],
+  dependsOn: [BunTarget, BiomeCheckTarget, TguiTscTarget],
 });
 
 export const TguiDevTarget = new Juke.Target({
@@ -293,11 +293,6 @@ export const TguiDevTarget = new Juke.Target({
 export const TguiAnalyzeTarget = new Juke.Target({
   dependsOn: [BunTarget],
   executes: () => bun("tgui:analyze"),
-});
-
-export const TguiBenchTarget = new Juke.Target({
-  dependsOn: [BunTarget],
-  executes: () => bun("tgui:bench"),
 });
 
 export const TestTarget = new Juke.Target({

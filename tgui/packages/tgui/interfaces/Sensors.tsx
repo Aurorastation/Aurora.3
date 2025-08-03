@@ -267,11 +267,9 @@ const ContactsSection = function (act, data: SensorsData) {
 
 const ContactDetailsSection = function (act, data: SensorsData) {
   if (data.contact_details && data.contact_details !== '') {
-    /* eslint-disable react/no-danger */
     const contact_details = (
       <div dangerouslySetInnerHTML={{ __html: data.contact_details }} />
     );
-    /* eslint-enable */
     return (
       <Section title="Sensor Contact Details">
         <Box textAlign="center">

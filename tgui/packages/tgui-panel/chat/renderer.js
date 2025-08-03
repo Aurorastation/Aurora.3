@@ -395,14 +395,12 @@ class ChatRenderer {
             childNode.removeChild(childNode.firstChild);
           }
           const Element = TGUI_CHAT_COMPONENTS[targetName];
-          /* eslint-disable react/no-danger */
           render(
             <Element {...outputProps}>
               <span dangerouslySetInnerHTML={oldHtml} />
             </Element>,
             childNode
           );
-          /* eslint-enable react/no-danger */
         }
 
         // Highlight text

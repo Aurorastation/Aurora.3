@@ -1,4 +1,3 @@
-/* eslint-disable */
 // Type definitions for Benchmark v2.1.4
 // Project: https://benchmarkjs.com
 // Definitions by: Asana <https://asana.com>

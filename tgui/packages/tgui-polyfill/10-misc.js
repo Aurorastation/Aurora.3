@@ -4,7 +4,6 @@
  * @license MIT
  */
 
-/* eslint-disable */
 // prettier-ignore
 (function () {
   'use strict';
