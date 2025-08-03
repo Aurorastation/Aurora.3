@@ -1,3 +1,6 @@
+#define NOT_BROKEN			0
+#define SCREWDRIVER_BROKEN	1
+#define WRENCH_BROKEN		2
 
 /obj/machinery/appliance/cooker/microwave
 	name = "microwave"
@@ -20,10 +23,10 @@
 	///Looping sound for the microwave
 	var/datum/looping_sound/microwave/microwave_loop
 
-	/// Ranges from 0 to 100, increasing a little with failed recipes and emptying reagents
-	var/dirtiness = 0
+	/// Becomes dirty when a wrong recipe is inputted or something burns
+	var/dirtiness = FALSE
 	/// If above 0, the microwave is broken and can't be used
-	var/broken = 0
+	var/broken = NOT_BROKEN
 	/// Multiplier for break chance
 	var/break_multiplier = 1.0
 
@@ -61,9 +64,9 @@
 	return FALSE
 
 /obj/machinery/appliance/cooker/microwave/attackby(obj/item/O, mob/living/user, list/click_params)
-	if (broken > 0)
+	if (broken)
 		// Start repairs by using a screwdriver
-		if(broken == 2 && O.isscrewdriver())
+		if(broken == SCREWDRIVER_BROKEN && O.isscrewdriver())
 			user.visible_message( \
 				SPAN_NOTICE("\The [user] starts to fix part of \the [src]."), \
 				SPAN_NOTICE("You start to fix part of \the [src].") \
@@ -73,11 +76,11 @@
 					SPAN_NOTICE("\The [user] fixes part of \the [src]."), \
 					SPAN_NOTICE("You have fixed part of \the [src].") \
 				)
-				broken = 1 // Fix it a bit
+				broken = WRENCH_BROKEN // Fix it a bit
 			return TRUE
 
 		// Finish repairs using a wrench
-		if (broken == 1 && O.iswrench())
+		if (broken == WRENCH_BROKEN && O.iswrench())
 			user.visible_message( \
 				SPAN_NOTICE("\The [user] starts to fix part of \the [src]."), \
 				SPAN_NOTICE("You start to fix part of \the [src].") \
@@ -87,7 +90,7 @@
 					SPAN_NOTICE("\The [user] fixes \the [src]."), \
 					SPAN_NOTICE("You have fixed \the [src].") \
 				)
-				broken = 0 // Fix it!
+				broken = NOT_BROKEN // Fix it!
 				update_icon()
 				atom_flags = ATOM_FLAG_OPEN_CONTAINER
 			return TRUE
@@ -97,7 +100,7 @@
 			to_chat(user, SPAN_WARNING("It's broken, and this isn't the right way to fix it!"))
 			return TRUE
 
-	if(dirtiness == 100) // The microwave is all dirty, so it can't be used!
+	if(dirtiness) // The microwave is all dirty, so it can't be used!
 		var/has_rag = istype(O, /obj/item/reagent_containers/glass/rag)
 		var/has_cleaner = O.reagents != null && O.reagents.has_reagent(/singleton/reagent/spacecleaner, 5)
 		if (has_rag || has_cleaner)
@@ -117,8 +120,8 @@
 					O.reagents.remove_reagent(/singleton/reagent/spacecleaner, 5)
 					playsound(loc, 'sound/effects/spray2.ogg', 50, 1, -6)
 
-				dirtiness = 0 // It's clean!
-				broken = 0 // just to be sure
+				dirtiness = FALSE // It's clean!
+				broken = NOT_BROKEN // just to be sure
 				update_icon()
 				atom_flags = ATOM_FLAG_OPEN_CONTAINER
 			return TRUE
@@ -151,10 +154,10 @@
 	if (use_check_and_message(user, issilicon(user) ? USE_ALLOW_NON_ADJACENT : 0))
 		return
 
-	if (broken > 0)
+	if (broken)
 		to_chat(user, SPAN_WARNING("[src] is very broken. You'll need to fix it before you can use it again."))
 		return
-	else if (dirtiness == 100)
+	else if (dirtiness)
 		to_chat(user, SPAN_WARNING("[src] is covered in muck. You'll need to wipe it down or clean it out before you can use it again."))
 		return
 
@@ -193,7 +196,7 @@
 	..()
 	playsound(loc, 'sound/effects/splat.ogg', 50, 1)
 	visible_message(SPAN_WARNING("Muck splatters over the inside of \the [src]!"))
-	dirtiness = 100 // Make it dirty so it can't be used until cleaned
+	dirtiness = TRUE // Make it dirty so it can't be used until cleaned
 	broke()
 	update_icon()
 
@@ -202,7 +205,7 @@
 	playsound(loc, /singleton/sound_category/spark_sound, 50, 1)
 	if (prob(100 * break_multiplier))
 		visible_message(SPAN_WARNING("\The [src] sputters and grinds to a halt!")) //Let them know they're stupid
-		broken = 2 // Make it broken so it can't be used until fixed
+		broken = WRENCH_BROKEN // Make it broken so it can't be used until fixed
 		turn_off()
 
 /obj/machinery/appliance/cooker/microwave/add_content(obj/item/I, mob/user)
@@ -220,7 +223,7 @@
 		if(!dirtiness)
 			mwclosed_on.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 		AddOverlays(mwclosed_on)
-	if(dirtiness == 100)
+	if(dirtiness)
 		if(broken)
 			AddOverlays(image(icon, "mwbloodyo"))
 		else
@@ -238,7 +241,11 @@
 
 /obj/machinery/appliance/cooker/microwave/condition_hints(mob/user, distance, is_adjacent)
 	. = ..()
-	if(broken > 0)
+	if(broken)
 		. += SPAN_WARNING("\The [src] is very broken. You'll need to fix it before you can use it again.")
-	else if (dirtiness == 100)
+	else if (dirtiness)
 		. += SPAN_WARNING("\The [src] is covered in muck. You'll need to wipe it down or clean it out before you can use it again.")
+
+#undef NOT_BROKEN
+#undef SCREWDRIVER_BROKEN
+#undef WRENCH_BROKEN
