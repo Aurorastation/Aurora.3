@@ -266,6 +266,5 @@ SUBSYSTEM_DEF(persistence)
 		return
 
 	old_track.persistence_track_active = FALSE
-	old_track.persistence_track_id = 0
 	old_track.persistence_author_ckey = null
 	GLOB.persistence_register -= old_track
