@@ -31,7 +31,7 @@ module.exports = (env = {}, argv) => {
   const config = {
     mode: mode === 'production' ? 'production' : 'development',
     context: path.resolve(__dirname),
-    target: ['web', 'es3', 'browserslist:ie 8'],
+    target: ['web', 'browserslist:ie 8'],
     entry: {
       'tgui': [
         './packages/tgui-polyfill',
