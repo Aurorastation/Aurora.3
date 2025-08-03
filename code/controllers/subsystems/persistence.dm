@@ -62,6 +62,9 @@ SUBSYSTEM_DEF(persistence)
 	var/updated = 0
 	var/expired = 0
 
+	// Get already stored data before saving new tracks so we can compare what has been modified/removed during the round.
+	var/list/existing_data = database_get_active_entries()
+
 	// Iterate through the register to sort tracks with no ID and tracks that may need an update (tracks with ID)
 	// We are using a dictionary look-up to find no longer existing records by comparing them with a live dataset later on
 	for (var/obj/track in GLOB.persistence_register)
@@ -74,7 +77,7 @@ SUBSYSTEM_DEF(persistence)
 			database_add_entry(track)
 			saved += 1
 
-	for(var/record in database_get_active_entries())
+	for(var/record in existing_data)
 		CHECK_TICK
 		// Find removed objects by looking them up using the live dataset
 		var/obj/track = null
