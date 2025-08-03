@@ -32,3 +32,11 @@
 	path = /obj/item/storage/belt/utility/alt
 	allowed_roles = list("Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Machinist", "Research Director", "Engineering Personnel", "Operations Personnel")
 	flags = null
+
+/datum/gear/belt/securitybelt_alt
+	display_name = "security-belt, alt"
+	description = "An alternative look to a standard security belt, this one looks like it got a chestrig."
+	cost = 1
+	path = /obj/item/storage/belt/security/vestbelt
+	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Investigator", "Security Personnel")
+	flags = null

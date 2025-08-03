@@ -12,7 +12,7 @@
 
 	var/area/a = random_station_area()
 	spawn_loc = a.random_space()
-	location_name = a.name
+	location_name = get_area_display_name(a)
 
 	if(prob(90))
 		var/rarity = 4
