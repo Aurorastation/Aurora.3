@@ -32,13 +32,13 @@
 		if(monitored_alarm_ids)
 			for(var/obj/machinery/alarm/alarm in SSmachinery.processing)
 				if(alarm.alarm_id && (alarm.alarm_id in monitored_alarm_ids) && AreConnectedZLevels(computer.z, alarm.z))
-					monitored_alarms += alarm
+					monitored_alarms |= alarm
 		else
 			/// The computer of a silicon has null Z, so...
 			var/turf/T = get_turf(computer)
 			for(var/obj/machinery/alarm/alarm in SSmachinery.processing)
 				if(AreConnectedZLevels(T.z, alarm.z))
-					monitored_alarms += alarm
+					monitored_alarms |= alarm
 
 /datum/computer_file/program/atmos_control/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	if(..())
@@ -54,7 +54,7 @@
 			return TRUE
 		// Manually clear and repopulate the alarm list.
 		if("refresh")
-			monitored_alarms = null
+			monitored_alarms = list()
 			get_alarms()
 
 /datum/computer_file/program/atmos_control/ui_data(mob/user)
