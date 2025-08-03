@@ -247,15 +247,15 @@ SUBSYSTEM_DEF(persistence)
 
 /**
  * Adds the given object to the list of tracked objects. At shutdown the tracked object will be either created or updated in the database.
+ * The ckey is an optional argument and is used for tracking user generated content by adding an author to the persistent data.
  */
 /datum/controller/subsystem/persistence/proc/register_track(var/obj/new_track, var/ckey)
 	if(new_track.persistence_track_active) // Prevent multiple registers per object and removes the need to check the register if it's already in there
 		return
 
 	new_track.persistence_track_active = TRUE
+	new_track.persistence_author_ckey = ckey
 	GLOB.persistence_register += new_track
-	if(!ckey) // Some persistent data may not have an actual owner, for example auto generated types like decals or similar.
-		new_track.persistence_author_ckey = ckey
 
 /**
  * Removes the given object from the list of tracked objects. At shutdown the tracked object will be remove from the database.
@@ -265,5 +265,4 @@ SUBSYSTEM_DEF(persistence)
 		return
 
 	old_track.persistence_track_active = FALSE
-	old_track.persistence_author_ckey = null
 	GLOB.persistence_register -= old_track
