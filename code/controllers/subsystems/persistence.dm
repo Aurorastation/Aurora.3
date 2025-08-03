@@ -157,13 +157,13 @@ SUBSYSTEM_DEF(persistence)
 			while (get_query.NextRow())
 				CHECK_TICK
 				var/list/entry = list(
-					"id" = text2num(get_query.item[1]),
+					"id" = get_query.item[1],
 					"author_ckey" = get_query.item[2],
 					"type" = get_query.item[3],
 					"content" = get_query.item[4],
-					"x" = text2num(get_query.item[5]),
-					"y" = text2num(get_query.item[6]),
-					"z" = text2num(get_query.item[7])
+					"x" = get_query.item[5],
+					"y" = get_query.item[6],
+					"z" = get_query.item[7]
 				)
 				results += list(entry)
 		qdel(get_query)
