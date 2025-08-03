@@ -111,6 +111,10 @@
 /obj/machinery/portable_atmospherics/hydroponics,
 /turf/template_noop,
 /area/template_noop)
+"cn" = (
+/obj/structure/automobile_filler,
+/turf/template_noop,
+/area/template_noop)
 "cE" = (
 /obj/structure/closet/crate/trashcart,
 /obj/random/junk,
@@ -3865,11 +3869,11 @@ Gz
 Gz
 Gz
 Gz
+cn
 Gz
 Gz
 Gz
-Gz
-Gz
+cn
 Gz
 Gz
 Gz
@@ -3911,11 +3915,11 @@ nn
 Gz
 Gz
 sW
+cn
 Gz
 Gz
 Gz
-Gz
-Gz
+cn
 nn
 sW
 gp
