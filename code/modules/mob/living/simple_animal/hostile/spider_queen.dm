@@ -3,7 +3,8 @@
 	desc = "A monstrous six-legged Gigarachne."
 	desc_extended = "The Gigarachne's evolutionary traits have made them a dangerously invasive species of arthropods. \
 	Their origins are hotly debated within the scientific community - perhaps they were a genetic experiment, or some aliens that hitched a ride on a unsuspecting human vessel. \
-	The only thing that is agreed upon is the general scientific term of 'Gigarachne' - although every space-faring society has their own unique name for them."	icon = 'icons/mob/npc/spider_queen.dmi'
+	The only thing that is agreed upon is the general scientific term of 'Gigarachne' - although every space-faring society has their own unique name for them."
+	icon = 'icons/mob/npc/spider_queen.dmi'
 	icon_state = "spider_queen"
 	icon_living = "spider_queen"
 	icon_rest = "spider_queen_rest"
