@@ -29,7 +29,7 @@
 			user.drop_from_inventory(attacking_item,src)
 			notices++
 			icon_state = "nboard0[notices]"	//update sprite
-			SSpersistence.register_track(attacking_item, ckey(user.key)) // Add paper to persistent tracker
+			SSpersistence.register_track(attacking_item, ckey(usr.key)) // Add paper to persistent tracker
 			to_chat(user, SPAN_NOTICE("You pin the paper to the noticeboard."))
 		else
 			to_chat(user, SPAN_NOTICE("You reach to pin your paper to the board but hesitate. You are certain your paper will not be seen among the many others already attached."))

@@ -38,9 +38,8 @@ SUBSYSTEM_DEF(persistence)
 				continue
 			var/obj/instance = new typepath()
 			instance.persistence_track_id = data["id"]
-			instance.persistence_author_ckey = data["author_ckey"]
 			instance.persistence_apply_content(data["content"], data["x"], data["y"], data["z"])
-			register_track(instance)
+			register_track(instance, data["author_ckey"])
 
 		return SS_INIT_SUCCESS
 
