@@ -1,8 +1,8 @@
 /obj/item/airlock_electronics
 	name = "airlock electronics"
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/module.dmi'
 	icon_state = "door_electronics"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 50)
 
@@ -16,35 +16,40 @@
 	var/is_installed = FALSE // no double-spending
 	var/unres_dir = null
 
+/obj/item/airlock_electronics/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Access control can be configured by using your ID on the circuitboard to unlock it, then using the circuitboard on yourself."
+	. += "You can copy the settings from one circuitboard to another by clicking the source board with the target board. Be mindful of directional access settings!"
+
 /obj/item/airlock_electronics/attack_self(mob/user)
 	if(!ishuman(user) && !istype(user,/mob/living/silicon/robot))
 		return ..(user)
 
-	var/t1 = text("<B>Access Control</B><br>\n")
+	var/t1 = "<B>Access Control</B><br>\n"
 
 	if(last_configurator)
 		t1 += "Operator: [last_configurator]<br>"
 
 	if(locked)
-		t1 += "<a href='?src=\ref[src];login=1'>Swipe ID</a><hr>"
+		t1 += "<a href='byond://?src=[REF(src)];login=1'>Swipe ID</a><hr>"
 	else
-		t1 += "<a href='?src=\ref[src];logout=1'>Block</a><hr>"
+		t1 += "<a href='byond://?src=[REF(src)];logout=1'>Block</a><hr>"
 
 		t1 += "<B>Unrestricted Access Settings</B><br>"
 
 
-		for(var/direction in GLOB.cardinal)
+		for(var/direction in GLOB.cardinals)
 			if(direction & unres_dir)
-				t1 += "<a style='color:#00dd12' href='?src=\ref[src];unres_dir=[direction]'>[capitalize(dir2text(direction))]</a><br>"
+				t1 += "<a style='color:#00dd12' href='byond://?src=[REF(src)];unres_dir=[direction]'>[capitalize(dir2text(direction))]</a><br>"
 			else
-				t1 += "<a href='?src=\ref[src];unres_dir=[direction]'>[capitalize(dir2text(direction))]</a><br>"
+				t1 += "<a href='byond://?src=[REF(src)];unres_dir=[direction]'>[capitalize(dir2text(direction))]</a><br>"
 
 		t1 += "<hr>"
 
 		t1 += "Access requirement is set to "
-		t1 += one_access ? "<a style='color:#00dd12' href='?src=\ref[src];one_access=1'>ONE</a><hr>" : "<a style='color:#f7066a' href='?src=\ref[src];one_access=1'>ALL</a><hr>"
+		t1 += one_access ? "<a style='color:#00dd12' href='byond://?src=[REF(src)];one_access=1'>ONE</a><hr>" : "<a style='color:#f7066a' href='byond://?src=[REF(src)];one_access=1'>ALL</a><hr>"
 
-		t1 += conf_access == null ? "<font color=#f7066a>All</font><br>" : "<a href='?src=\ref[src];access=all'>All</a><br>"
+		t1 += conf_access == null ? "<font color=#f7066a>All</font><br>" : "<a href='byond://?src=[REF(src)];access=all'>All</a><br>"
 
 		t1 += "<br>"
 
@@ -53,11 +58,11 @@
 			var/aname = get_access_desc(acc)
 
 			if(!conf_access?.len || !(acc in conf_access))
-				t1 += "<a href='?src=\ref[src];access=[acc]'>[aname]</a><br>"
+				t1 += "<a href='byond://?src=[REF(src)];access=[acc]'>[aname]</a><br>"
 			else if(one_access)
-				t1 += "<a style='color:#00dd12' href='?src=\ref[src];access=[acc]'>[aname]</a><br>"
+				t1 += "<a style='color:#00dd12' href='byond://?src=[REF(src)];access=[acc]'>[aname]</a><br>"
 			else
-				t1 += "<a style='color:#f7066a' href='?src=\ref[src];access=[acc]'>[aname]</a><br>"
+				t1 += "<a style='color:#f7066a' href='byond://?src=[REF(src)];access=[acc]'>[aname]</a><br>"
 
 	var/datum/browser/electronics_win = new(user, "electronics", capitalize_first_letters(name))
 	electronics_win.set_content(t1)
@@ -76,7 +81,7 @@
 			var/obj/item/card/id/I = usr.GetIdCard()
 			if(istype(I) && src.check_access(I))
 				locked = FALSE
-				last_configurator = I:registered_name
+				last_configurator = I.registered_name
 
 	if(locked)
 		return
@@ -141,6 +146,9 @@
 /obj/item/airlock_electronics/secure
 	name = "secure airlock electronics"
 	desc = "Designed to be somewhat more resistant to hacking than standard electronics."
-	desc_info = "With these electronics, wires will be randomized and bolts will drop if the airlock is broken."
 	origin_tech = list(TECH_DATA = 2)
 	secure = TRUE
+
+/obj/item/airlock_electronics/secure/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Airlocks built with this board will have their wires uniquely randomized, and bolts will automatically drop if the airlock is broken."

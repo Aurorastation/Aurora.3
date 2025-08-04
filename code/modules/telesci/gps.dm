@@ -3,9 +3,10 @@ GLOBAL_LIST_EMPTY(gps_list)
 /obj/item/device/gps
 	name = "global positioning system"
 	desc = "Helping lost spacemen find their way through the planets since 2016."
-	icon = 'icons/obj/telescience.dmi'
+	icon = 'icons/obj/item/device/gps.dmi'
 	icon_state = "gps-com"
-	w_class = ITEMSIZE_SMALL
+	item_state = "radio"
+	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
 	var/gps_prefix = "COM"
@@ -50,10 +51,10 @@ GLOBAL_LIST_EMPTY(gps_list)
 	update_icon()
 
 	if(held_by)
-		GLOB.moved_event.register(held_by, src, PROC_REF(update_position))
+		RegisterSignal(held_by, COMSIG_MOVABLE_MOVED, PROC_REF(update_position), TRUE)
 	if(implanted_into)
-		GLOB.moved_event.register(implanted_into, src, PROC_REF(update_position))
-	GLOB.moved_event.register(src, src, PROC_REF(update_position))
+		RegisterSignal(implanted_into, COMSIG_MOVABLE_MOVED, PROC_REF(update_position), TRUE)
+	RegisterSignal(src, COMSIG_MOVABLE_MOVED, PROC_REF(update_position))
 
 	for(var/gps in GLOB.gps_list)
 		tracking += GLOB.gps_list[gps]["tag"]
@@ -62,15 +63,22 @@ GLOBAL_LIST_EMPTY(gps_list)
 
 /obj/item/device/gps/Destroy()
 	GLOB.gps_list -= GLOB.gps_list[gpstag]
-	GLOB.moved_event.unregister(src, src)
+	UnregisterSignal(src, COMSIG_MOVABLE_MOVED)
 	if(held_by)
-		GLOB.moved_event.unregister(held_by, src)
+		UnregisterSignal(held_by, COMSIG_MOVABLE_MOVED)
 		held_by = null
 	if(implanted_into)
-		GLOB.moved_event.unregister(implanted_into, src)
+		UnregisterSignal(implanted_into, COMSIG_MOVABLE_MOVED)
 		implanted_into = null
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
+
+/obj/item/device/gps/attack_self(mob/user, modifiers)
+	if(!emped)
+		ui_interact(user)
+
+	var/turf/T = get_turf(src)
+	to_chat(user, SPAN_NOTICE("[icon2html(src, user)] [src] flashes <i>[T.x].[rand(0,9)]:[T.y].[rand(0,9)]:[T.z].[rand(0,9)]</i>."))
 
 /obj/item/device/gps/update_icon()
 	ClearOverlays()
@@ -84,16 +92,16 @@ GLOBAL_LIST_EMPTY(gps_list)
 /obj/item/device/gps/pickup(var/mob/user)
 	..()
 	if(held_by)
-		GLOB.moved_event.unregister(held_by, src)
+		UnregisterSignal(held_by, COMSIG_MOVABLE_MOVED)
 	held_by = user
-	GLOB.moved_event.register(user, src, PROC_REF(update_position))
+	RegisterSignal(user, COMSIG_MOVABLE_MOVED, PROC_REF(update_position), TRUE)
 	update_icon()
 
 /obj/item/device/gps/dropped(mob/user)
 	..()
 	if(isturf(loc))
 		held_by = null
-		GLOB.moved_event.unregister(user, src)
+		UnregisterSignal(user, COMSIG_MOVABLE_MOVED)
 	if(user.client)
 		user.client.screen -= compass
 	update_icon()
@@ -153,7 +161,7 @@ GLOBAL_LIST_EMPTY(gps_list)
 /obj/item/device/gps/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "GPS", capitalize_first_letters(name), 460, 600)
+		ui = new(user, src, "GPS", capitalize_first_letters(name), 550, 650)
 		ui.open()
 
 /obj/item/device/gps/process()
@@ -234,12 +242,13 @@ GLOBAL_LIST_EMPTY(gps_list)
 /obj/item/device/gps/proc/update_position(var/check_held_by = TRUE)
 	var/turf/T = get_turf(src)
 	if(check_held_by && held_by && (held_by.x != T.x || held_by.y != T.y || held_by.z != T.z) && held_by != recursive_loc_turf_check(src, 3, held_by))
-		GLOB.moved_event.unregister(held_by, src)
+		UnregisterSignal(held_by, COMSIG_MOVABLE_MOVED)
 		held_by = null
 		update_icon()
 		return
 	var/area/gpsarea = get_area(src)
-	GLOB.gps_list[gpstag] = list("tag" = gpstag, "pos_x" = T.x, "pos_y" = T.y, "pos_z" = T.z, "area" = "[gpsarea.name]", "emped" = emped, "compass_color" = compass_color)
+	var/gps_areaname = get_area_display_name(gpsarea, TRUE, FALSE, FALSE, TRUE)
+	GLOB.gps_list[gpstag] = list("tag" = gpstag, "pos_x" = T.x, "pos_y" = T.y, "pos_z" = T.z, "area" = "[gps_areaname]", "emped" = emped, "compass_color" = compass_color)
 	if(check_held_by && held_by && (held_by.get_active_hand() == src || held_by.get_inactive_hand() == src))
 		update_compass(TRUE)
 
@@ -342,10 +351,10 @@ GLOBAL_LIST_EMPTY(gps_list)
 	update_icon()
 
 	if(held_by)
-		GLOB.moved_event.register(held_by, src, PROC_REF(update_position))
+		RegisterSignal(held_by, COMSIG_MOVABLE_MOVED, PROC_REF(update_position), TRUE)
 	if(implanted_into)
-		GLOB.moved_event.register(implanted_into, src, PROC_REF(update_position))
-	GLOB.moved_event.register(src, src, PROC_REF(update_position))
+		RegisterSignal(implanted_into, COMSIG_MOVABLE_MOVED, PROC_REF(update_position), TRUE)
+	RegisterSignal(src, COMSIG_MOVABLE_MOVED, PROC_REF(update_position))
 
 	for(var/gps in GLOB.gps_list)
 		tracking += GLOB.gps_list[gps]["tag"]
@@ -382,4 +391,13 @@ GLOBAL_LIST_EMPTY(gps_list)
 	gps_prefix = "COM"
 	compass_color = "#57c5e0"
 	gpstag = "CANARY"
+
+/obj/item/device/gps/stationary/sccv_quark
+	name = "static GPS (SCCV Quark)"
+	desc = "A static global positioning system helpful for finding your way back to the SCCV Quark."
+	icon_state = "gps-sci"
+	gps_prefix = "SCI"
+	compass_color = "#d691ce"
+	gpstag = "QUARK"
+
 /********** Static GPS End **********/

@@ -59,9 +59,9 @@
 	SSair.can_fire = FALSE
 	log_and_message_admins("is attempting to place a map template [log_name].")
 	to_chat(usr, "Attempting to place map template [log_name].")
-	var/new_z_centre = template.load_new_z(FALSE) // Don't skip changeturf
-	if (new_z_centre)
-		log_and_message_admins("has placed a map template [log_name].", location = new_z_centre)
+	var/bounds = template.load_new_z(FALSE) // Don't skip changeturf
+	if (bounds)
+		log_and_message_admins("has placed a map template [log_name] on Z bounds [bounds[MAP_MINZ]] - [bounds[MAP_MAXZ]].")
 		to_chat(usr, "Successfully place map template [log_name].")
 	else
 		log_and_message_admins("has failed to place a map template [log_name].")

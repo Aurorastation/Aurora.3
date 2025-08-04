@@ -1,8 +1,12 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aO" = (
-/obj/random/junk,
-/turf/simulated/floor/exoplanet/asphalt,
-/area/exoplanet/grass/konyang)
+/obj/structure/lattice/catwalk/indoor/tatami{
+	dir = 4
+	},
+/obj/structure/table/rack/folding_table,
+/obj/item/storage/toolbox/mechanical,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/konyang/house_small)
 "bi" = (
 /obj/structure/table/stone/marble,
 /turf/simulated/floor/exoplanet/tiled/white,
@@ -12,10 +16,11 @@
 /turf/simulated/floor/exoplanet/sidewalk/paved,
 /area/exoplanet/grass/konyang)
 "bY" = (
-/obj/random/junk,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/foundation,
-/area/konyang/house_small)
+/obj/structure/table/rack/folding_table,
+/obj/item/hammer,
+/obj/item/screwdriver,
+/turf/simulated/floor/exoplanet/sidewalk/blocks,
+/area/exoplanet/grass/konyang)
 "cq" = (
 /obj/structure/window/urban{
 	dir = 4
@@ -54,8 +59,7 @@
 /turf/simulated/floor/exoplanet/sidewalk/paved,
 /area/exoplanet/grass/konyang)
 "dj" = (
-/obj/structure/lattice/catwalk/indoor/planks/deep{
-	},
+/obj/structure/lattice/catwalk/indoor/planks/deep,
 /turf/simulated/floor/exoplanet/wood/bamboo,
 /area/konyang/house_small)
 "ek" = (
@@ -80,8 +84,7 @@
 /turf/simulated/floor/exoplanet/sidewalk/paved,
 /area/exoplanet/grass/konyang)
 "fb" = (
-/obj/structure/lattice/catwalk/indoor/planks/deep{
-	},
+/obj/structure/lattice/catwalk/indoor/planks/deep,
 /obj/structure/table/wood,
 /turf/simulated/floor/exoplanet/wood/bamboo,
 /area/konyang/house_small)
@@ -151,20 +154,13 @@
 /obj/structure/ledge/quarter,
 /turf/simulated/floor/exoplanet/sidewalk/blocks,
 /area/exoplanet/grass/konyang)
-"jA" = (
-/obj/structure/window/urban{
-	dir = 8;
-	},
-/turf/simulated/floor/exoplanet/sidewalk/dark,
-/area/konyang/house_small)
 "jB" = (
 /obj/item/mop,
 /obj/item/device/flashlight/empty,
 /turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/house_small)
 "jL" = (
-/obj/structure/lattice/catwalk/indoor/planks/deep{
-	},
+/obj/structure/lattice/catwalk/indoor/planks/deep,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/wood/bamboo,
 /area/konyang/house_small)
@@ -185,8 +181,7 @@
 /turf/simulated/floor/exoplanet/foundation,
 /area/konyang/house_small)
 "kf" = (
-/obj/structure/lattice/catwalk/indoor/planks/deep{
-	},
+/obj/structure/lattice/catwalk/indoor/planks/deep,
 /obj/machinery/door/urban{
 	dir = 4
 	},
@@ -291,11 +286,6 @@
 "nP" = (
 /turf/simulated/floor/exoplanet/foundation,
 /area/konyang/house_small)
-"oF" = (
-/obj/structure/table/glass,
-/obj/item/device/toner,
-/turf/simulated/floor/exoplanet/wood/bamboo,
-/area/konyang/house_small)
 "oG" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/tiled/white,
@@ -331,19 +321,8 @@
 	},
 /turf/simulated/floor/exoplanet/wood/bamboo,
 /area/konyang/house_small)
-"re" = (
-/obj/structure/window/urban{
-	dir = 4;
-	},
-/turf/simulated/floor/exoplanet/sidewalk/dark,
-/area/konyang/house_small)
-"rh" = (
-/obj/random/junk,
-/turf/simulated/floor/exoplanet/wood/bamboo,
-/area/konyang/house_small)
 "rl" = (
-/obj/structure/lattice/catwalk/indoor/planks/deep{
-	},
+/obj/structure/lattice/catwalk/indoor/planks/deep,
 /obj/structure/curtain/black,
 /turf/simulated/floor/exoplanet/wood/bamboo,
 /area/konyang/house_small)
@@ -380,14 +359,17 @@
 /turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/house_small)
 "uk" = (
-/obj/structure/table,
-/obj/item/material/shard,
+/obj/structure/table/rack/folding_table,
+/obj/item/stack/tile/wood/bamboo,
+/obj/item/stack/tile/wood/bamboo,
+/obj/item/stack/tile/wood/bamboo,
+/obj/item/stack/tile/wood/bamboo,
 /turf/simulated/floor/exoplanet/wood/bamboo,
 /area/konyang/house_small)
 "um" = (
 /obj/random/dirt_75,
 /obj/structure/table/rack/clothing{
-	dir = 4;
+	dir = 4
 	},
 /turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/house_small)
@@ -508,21 +490,15 @@
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/exoplanet/grass/konyang)
 "yn" = (
-/obj/structure/lattice/catwalk/indoor/planks/deep{
-	},
+/obj/structure/lattice/catwalk/indoor/planks/deep,
 /obj/structure/window/urban{
-	dir = 4;
+	dir = 4
 	},
 /turf/simulated/floor/exoplanet/wood/bamboo,
 /area/konyang/house_small)
 "zC" = (
 /obj/machinery/appliance/cooker/stove,
 /turf/simulated/floor/exoplanet/foundation,
-/area/konyang/house_small)
-"Aj" = (
-/obj/random/junk,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/wood/bamboo,
 /area/konyang/house_small)
 "AB" = (
 /obj/structure/curtain/open/privacy,
@@ -531,14 +507,6 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/tiled/white,
-/area/konyang/house_small)
-"BH" = (
-/obj/structure/lattice/catwalk/indoor/planks/deep{
-	},
-/obj/structure/window/urban{
-	dir = 4
-	},
-/turf/simulated/floor/exoplanet/wood/bamboo,
 /area/konyang/house_small)
 "BP" = (
 /obj/structure/table/standard,
@@ -561,8 +529,7 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "EF" = (
-/obj/structure/lattice/catwalk/indoor/planks/deep{
-	},
+/obj/structure/lattice/catwalk/indoor/planks/deep,
 /obj/structure/bed/stool/padded/red{
 	dir = 8
 	},
@@ -606,13 +573,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/tiled/white,
 /area/konyang/house_small)
-"HA" = (
-/obj/structure/table,
-/obj/item/material/shard,
-/obj/item/stack/rods,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled/white,
-/area/konyang/house_small)
 "HB" = (
 /turf/simulated/floor/exoplanet/konyang,
 /area/exoplanet/grass/konyang)
@@ -621,8 +581,7 @@
 /turf/simulated/floor/exoplanet/wood/bamboo,
 /area/konyang/house_small)
 "HQ" = (
-/obj/structure/lattice/catwalk/indoor/planks/deep{
-	},
+/obj/structure/lattice/catwalk/indoor/planks/deep,
 /obj/structure/bed/stool/padded/red{
 	dir = 1
 	},
@@ -637,9 +596,15 @@
 /turf/simulated/floor/exoplanet/wood/bamboo,
 /area/konyang/house_small)
 "HZ" = (
-/obj/item/reagent_containers/food/snacks/ricetub,
-/turf/simulated/floor/exoplanet/foundation,
-/area/konyang/house_small)
+/obj/structure/table/rack/folding_table,
+/obj/item/stack/material/wood,
+/obj/item/stack/material/wood,
+/obj/item/stack/material/wood,
+/obj/item/stack/material/wood,
+/obj/item/stack/material/wood,
+/obj/item/stack/material/wood,
+/turf/simulated/floor/exoplanet/sidewalk/blocks,
+/area/exoplanet/grass/konyang)
 "Im" = (
 /obj/structure/flora/rock/konyang/small,
 /obj/effect/decal/curb{
@@ -649,13 +614,11 @@
 /turf/simulated/floor/exoplanet/sidewalk/paved,
 /area/exoplanet/grass/konyang)
 "Iv" = (
-/obj/item/stack/rods,
 /obj/structure/filingcabinet,
 /turf/simulated/floor/exoplanet/wood/bamboo,
 /area/konyang/house_small)
 "Ix" = (
-/obj/structure/lattice/catwalk/indoor/planks/deep{
-	},
+/obj/structure/lattice/catwalk/indoor/planks/deep,
 /obj/structure/window/urban,
 /turf/simulated/floor/exoplanet/wood/bamboo,
 /area/konyang/house_small)
@@ -675,8 +638,7 @@
 /turf/simulated/floor/exoplanet/sidewalk/blocks,
 /area/exoplanet/grass/konyang)
 "IS" = (
-/obj/structure/lattice/catwalk/indoor/planks/deep{
-	},
+/obj/structure/lattice/catwalk/indoor/planks/deep,
 /obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/exoplanet/wood/bamboo,
 /area/konyang/house_small)
@@ -690,12 +652,6 @@
 	},
 /turf/simulated/floor/exoplanet/sidewalk/paved,
 /area/exoplanet/grass/konyang)
-"JS" = (
-/obj/structure/television{
-	pixel_y = -8
-	},
-/turf/simulated/floor/exoplanet/foundation,
-/area/konyang/house_small)
 "JX" = (
 /obj/effect/decal/curb{
 	dir = 4
@@ -703,8 +659,7 @@
 /turf/simulated/floor/exoplanet/sidewalk/paved,
 /area/exoplanet/grass/konyang)
 "Kc" = (
-/obj/structure/lattice/catwalk/indoor/planks/deep{
-	},
+/obj/structure/lattice/catwalk/indoor/planks/deep,
 /obj/structure/bed/stool/padded/red{
 	dir = 4
 	},
@@ -885,11 +840,6 @@
 	},
 /turf/simulated/floor/exoplanet/sidewalk/blocks,
 /area/exoplanet/grass/konyang)
-"UL" = (
-/obj/random/junk,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/sidewalk/dark,
-/area/konyang/house_small)
 "Vq" = (
 /obj/structure/lattice/catwalk/indoor/tatami{
 	dir = 8
@@ -1027,13 +977,13 @@ vQ
 jm
 xY
 xY
-BH
+yn
 yn
 xY
 cq
-re
+cq
 xY
-BH
+yn
 yn
 xY
 xY
@@ -1086,15 +1036,15 @@ PB
 oG
 oG
 gZ
-JS
+nP
 OY
-HZ
+nP
 MU
 xY
 vd
 lo
 vo
-aO
+vo
 vo
 vQ
 vQ
@@ -1111,10 +1061,10 @@ zC
 PB
 PB
 Vq
-HA
+oG
 sY
 OT
-bY
+gZ
 gZ
 lN
 xY
@@ -1139,8 +1089,8 @@ nP
 nP
 nh
 Nc
-nh
-OT
+aO
+uk
 gZ
 gZ
 HE
@@ -1243,7 +1193,7 @@ HB
 jm
 xY
 kZ
-UL
+ZG
 XI
 xY
 Qk
@@ -1349,7 +1299,7 @@ mb
 mb
 Jv
 Lb
-oF
+OT
 Iv
 OT
 OT
@@ -1357,7 +1307,7 @@ xY
 xo
 xY
 ep
-jA
+ep
 xY
 kr
 lT
@@ -1376,7 +1326,7 @@ vQ
 mb
 Jv
 nP
-uk
+OT
 qB
 HE
 OT
@@ -1401,11 +1351,11 @@ vQ
 vQ
 vQ
 Jv
-mb
+HZ
 xY
 Ob
 Ui
-Aj
+HE
 OT
 xY
 dj
@@ -1428,7 +1378,7 @@ vQ
 vQ
 mb
 Jv
-mb
+bY
 Lb
 OT
 OT
@@ -1517,7 +1467,7 @@ xY
 OT
 HE
 OT
-rh
+OT
 HE
 HE
 xY
@@ -1572,7 +1522,7 @@ cB
 if
 xY
 pH
-rh
+OT
 OT
 Po
 xY

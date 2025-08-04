@@ -1,4 +1,4 @@
-var/global/ntnet_card_uid = 1
+GLOBAL_VAR_INIT(ntnet_card_uid, 1)
 
 /obj/item/computer_hardware/network_card
 	name = "basic NTNet network card"
@@ -30,8 +30,8 @@ var/global/ntnet_card_uid = 1
 
 /obj/item/computer_hardware/network_card/Initialize()
 	. = ..()
-	identification_id = ntnet_card_uid
-	ntnet_card_uid++
+	identification_id = GLOB.ntnet_card_uid
+	GLOB.ntnet_card_uid++
 
 /obj/item/computer_hardware/network_card/signaler
 	name = "NTNet signaler network card"
@@ -86,7 +86,7 @@ var/global/ntnet_card_uid = 1
 
 	if(parent_computer)
 		var/turf/T = get_turf(parent_computer)
-		if((T && istype(T)) && isStationLevel(T.z))
+		if((T && istype(T)) && is_station_level(T.z))
 			// Computer is on station. Low/High signal depending on what type of network card you have
 			if(ethernet)
 				return 3

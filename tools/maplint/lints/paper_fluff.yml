@@ -1,0 +1,10 @@
+help: "No map made papers, make a subtype in code and write the text there."
+=/obj/item/paper/fluff:
+  banned: true
+
+#This should be done for all /paper but there's just too much shit
+/obj/item/paper/fluff:
+  banned_variables:
+  - name
+  - info
+  - language

@@ -27,7 +27,7 @@
 	. = ..()
 	// Arm the escape pods.
 	if(evacuation_type == TRANSFER_EMERGENCY)
-		for (var/datum/shuttle/autodock/ferry/escape_pod/pod in escape_pods)
+		for (var/datum/shuttle/autodock/ferry/escape_pod/pod in GLOB.escape_pods)
 			if (pod.arming_controller)
 				pod.arming_controller.arm()
 
@@ -38,7 +38,7 @@
 	switch(evacuation_type)
 		if("evacuation")
 			// Abandon Ship
-			for(var/datum/shuttle/autodock/ferry/escape_pod/pod in escape_pods) // Launch the pods!
+			for(var/datum/shuttle/autodock/ferry/escape_pod/pod in GLOB.escape_pods) // Launch the pods!
 				if(!pod.arming_controller || pod.arming_controller.armed)
 					pod.move_time = (evac_transit_delay/10)
 					pod.launch(src)
@@ -47,7 +47,8 @@
 		if(TRANSFER_JUMP)
 			// Bluespace Jump
 			priority_announcement.Announce(replacetext(replacetext(SSatlas.current_map.bluespace_leaving_dock, "%dock_name%", "[SSatlas.current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60,1)] minute\s"))
-			SetUniversalState(/datum/universal_state/bluespace_jump, arguments=list(SSatlas.current_map.station_levels))
+			SetUniversalState(/datum/universal_state/bluespace_jump, arguments=list(SSmapping.levels_by_trait(ZTRAIT_STATION)))
+
 		if(TRANSFER_CREW)
 			priority_announcement.Announce(replacetext(replacetext(SSatlas.current_map.shuttle_leaving_dock, "%dock_name%", "[SSatlas.current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60,1)] minute\s"))
 
@@ -79,18 +80,18 @@
 	abandon_ship = TRUE
 
 /datum/evacuation_option/abandon_ship/execute(mob/user)
-	if (!evacuation_controller)
+	if (!GLOB.evacuation_controller)
 		return
-	if (evacuation_controller.deny)
+	if (GLOB.evacuation_controller.deny)
 		to_chat(user, "Unable to initiate escape procedures.")
 		return
-	if (evacuation_controller.is_on_cooldown())
-		to_chat(user, evacuation_controller.get_cooldown_message())
+	if (GLOB.evacuation_controller.is_on_cooldown())
+		to_chat(user, GLOB.evacuation_controller.get_cooldown_message())
 		return
-	if (evacuation_controller.is_evacuating())
+	if (GLOB.evacuation_controller.is_evacuating())
 		to_chat(user, "Escape procedures already in progress.")
 		return
-	if (evacuation_controller.call_evacuation(user, 1))
+	if (GLOB.evacuation_controller.call_evacuation(user, 1))
 		log_and_message_admins("[user? key_name(user) : "Autotransfer"] has initiated abandonment of the spacecraft.")
 
 /datum/evacuation_option/bluespace_jump
@@ -101,18 +102,18 @@
 	silicon_allowed = TRUE
 
 /datum/evacuation_option/bluespace_jump/execute(mob/user)
-	if (!evacuation_controller)
+	if (!GLOB.evacuation_controller)
 		return
-	if (evacuation_controller.deny)
+	if (GLOB.evacuation_controller.deny)
 		to_chat(user, "Unable to initiate jump preparation.")
 		return
-	if (evacuation_controller.is_on_cooldown())
-		to_chat(user, evacuation_controller.get_cooldown_message())
+	if (GLOB.evacuation_controller.is_on_cooldown())
+		to_chat(user, GLOB.evacuation_controller.get_cooldown_message())
 		return
-	if (evacuation_controller.is_evacuating())
+	if (GLOB.evacuation_controller.is_evacuating())
 		to_chat(user, "Jump preparation already in progress.")
 		return
-	if (evacuation_controller.call_evacuation(user, 0))
+	if (GLOB.evacuation_controller.call_evacuation(user, 0))
 		log_and_message_admins("[user? key_name(user) : "Autotransfer"] has initiated bluespace jump preparation.")
 
 /datum/evacuation_option/crew_transfer
@@ -123,18 +124,18 @@
 	silicon_allowed = TRUE
 
 /datum/evacuation_option/crew_transfer/execute(mob/user)
-	if(!evacuation_controller)
+	if(!GLOB.evacuation_controller)
 		return
-	if(evacuation_controller.deny)
+	if(GLOB.evacuation_controller.deny)
 		to_chat(user, "Unable to initiate crew transfer preparation.")
 		return
-	if(evacuation_controller.is_on_cooldown())
-		to_chat(user, evacuation_controller.get_cooldown_message())
+	if(GLOB.evacuation_controller.is_on_cooldown())
+		to_chat(user, GLOB.evacuation_controller.get_cooldown_message())
 		return
-	if(evacuation_controller.is_evacuating())
+	if(GLOB.evacuation_controller.is_evacuating())
 		to_chat(user, "Crew transfer preparation already in progress.")
 		return
-	if(evacuation_controller.call_evacuation(user, 0))
+	if(GLOB.evacuation_controller.call_evacuation(user, 0))
 		log_and_message_admins("[user? key_name(user) : "Autotransfer"] has initiated crew transfer preparation.")
 
 /datum/evacuation_option/cancel_abandon_ship
@@ -145,7 +146,7 @@
 	silicon_allowed = FALSE
 
 /datum/evacuation_option/cancel_abandon_ship/execute(mob/user)
-	if (evacuation_controller && evacuation_controller.cancel_evacuation())
+	if (GLOB.evacuation_controller?.cancel_evacuation())
 		log_and_message_admins("[key_name(user)] has cancelled abandonment of the spacecraft.")
 
 /datum/evacuation_option/cancel_bluespace_jump
@@ -156,7 +157,7 @@
 	silicon_allowed = FALSE
 
 /datum/evacuation_option/cancel_bluespace_jump/execute(mob/user)
-	if (evacuation_controller && evacuation_controller.cancel_evacuation())
+	if (GLOB.evacuation_controller?.cancel_evacuation())
 		log_and_message_admins("[key_name(user)] has cancelled the bluespace jump.")
 
 /datum/evacuation_option/cancel_crew_transfer
@@ -167,10 +168,10 @@
 	silicon_allowed = FALSE
 
 /datum/evacuation_option/cancel_crew_transfer/execute(mob/user)
-	if(evacuation_controller && evacuation_controller.cancel_evacuation())
+	if(GLOB.evacuation_controller?.cancel_evacuation())
 		log_and_message_admins("[key_name(user)] has cancelled the crew transfer.")
 
-/obj/screen/fullscreen/bluespace_overlay
+/atom/movable/screen/fullscreen/bluespace_overlay
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "mfoam"
 	screen_loc = "WEST,SOUTH to EAST,NORTH"

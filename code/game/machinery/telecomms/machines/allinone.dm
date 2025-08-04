@@ -5,7 +5,6 @@
 
 /obj/machinery/telecomms/allinone
 	name = "telecommunications mainframe"
-	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "comm_server"
 	desc = "A compact machine used for portable subspace telecommuniations processing."
 	idle_power_usage = 0
@@ -47,8 +46,10 @@
 	else
 		signal.broadcast()
 
-	spawn(10)
-		recent_broadcasts -= signal_message
+	addtimer(CALLBACK(src, PROC_REF(remove_signal_message_from_recent_broadcasts), signal_message), 1 SECONDS)
+
+/obj/machinery/telecomms/allinone/proc/remove_signal_message_from_recent_broadcasts(signal_message)
+	recent_broadcasts -= signal_message
 
 /obj/machinery/telecomms/allinone/ship
 	away_aio = TRUE
@@ -77,14 +78,15 @@
 //This goes on the station map so away ships can maintain radio contact.
 /obj/machinery/telecomms/allinone/ship/station_relay
 	name = "external signal receiver"
-	icon = 'icons/obj/machinery/telecomms.dmi'
-	icon_state = "ntnet"
 	desc = "This device allows nearby third-party ships to maintain radio contact with their crew that are aboard the %STATIONNAME."
-	desc_info = "This device does not need to be linked to other telecommunications equipment; it will receive and broadcast on its own. It only needs to be powered."
 	idle_power_usage = 25
 	active_power_usage = 200
 	freq_listening = list(HAIL_FREQ)
 	away_aio = FALSE
+
+/obj/machinery/telecomms/allinone/ship/station_relay/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This device does not need to be linked to other telecommunications equipment; it will receive and broadcast on its own. It only needs to be powered."
 
 /obj/machinery/telecomms/allinone/ship/station_relay/LateInitialize()
 	. = ..()

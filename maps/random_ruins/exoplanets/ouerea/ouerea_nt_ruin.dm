@@ -5,7 +5,7 @@
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "ouerea/"
-	suffixes = list("ouerea_nt_ruin.dmm")
+	suffix = "ouerea_nt_ruin.dmm"
 	unit_test_groups = list(3)
 
 /area/ouerea_nt_ruin
@@ -22,3 +22,7 @@
 	name = "Research Director's Log"
 	info = "I fucking hate this place. The other day, one of my scientists somehow managed to wind up, in the process of a standard dissection, cutting his own fucking arm off. \
 	I thought NanoTrasen was supposed to hire the best and brightest of the Spur? At least I have you, Special Reserve..."
+
+/obj/item/research_slip/nt_ouerea
+	desc = "A small slip of plastic with an embedded chip. It is commonly used to store small amounts of research data. This one appears worn down from age. Why did they leave this behind?"
+	origin_tech = list(TECH_BLUESPACE = 6, TECH_MAGNET = 3, TECH_ARCANE = 1)

@@ -7,6 +7,6 @@
 	sectors = list(SECTOR_HANEUNIM)
 
 	prefix = "konyang/"
-	suffixes = list("swamp_2.dmm")
+	suffix = "swamp_2.dmm"
 
 	unit_test_groups = list(1)

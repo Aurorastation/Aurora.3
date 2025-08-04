@@ -124,9 +124,12 @@
 	else
 		..()
 
-/obj/vehicle/bullet_act(var/obj/item/projectile/Proj)
-	health -= Proj.get_structure_damage()
-	..()
+/obj/vehicle/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	health -= hitting_projectile.get_structure_damage()
 
 	if (prob(20) && !organic)
 		spark(src, 5, GLOB.alldirs)
@@ -164,7 +167,7 @@
 	pulse2.icon_state = "empdisable"
 	pulse2.name = "emp sparks"
 	pulse2.anchored = 1
-	pulse2.set_dir(pick(GLOB.cardinal))
+	pulse2.set_dir(pick(GLOB.cardinals))
 
 	QDEL_IN(pulse2, 10)
 	if(on)
@@ -397,6 +400,9 @@
 
 	if(ismob(load))
 		unbuckle(user)
+		if(ishuman(load))
+			var/mob/living/carbon/human/H = load
+			H.update_body()
 
 	load = null
 
@@ -419,7 +425,7 @@
 	if(!damage)
 		return
 	visible_message(SPAN_DANGER("[user] [attack_message] the [src]!"))
-	user.attack_log += text("\[[time_stamp()]\] <span class='warning'>attacked [src.name]</span>")
+	user.attack_log += "\[[time_stamp()]\] <span class='warning'>attacked [src.name]</span>"
 	user.do_attack_animation(src)
 	src.health -= damage
 	if(prob(10))

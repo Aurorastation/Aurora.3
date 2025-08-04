@@ -422,7 +422,7 @@
 /obj/item/storage/box/dpra_manifesto,
 /obj/item/storage/field_ration/dpra,
 /obj/item/flame/lighter/adhomai,
-/obj/item/pocketwatch/adhomai,
+/obj/item/clothing/wrists/watch/pocketwatch/adhomai,
 /obj/item/clothing/under/tajaran/ala/black/officer,
 /obj/item/clothing/head/tajaran/ala_officer,
 /turf/simulated/floor/exoplanet/wood,
@@ -478,7 +478,7 @@
 /obj/item/device/flashlight/lamp{
 	pixel_y = 9
 	},
-/obj/item/book/manual/dpra_manifesto{
+/obj/item/device/versebook/dpra{
 	pixel_y = 1;
 	pixel_x = 4
 	},
@@ -1101,7 +1101,7 @@
 /obj/structure/sign/painting_frame/nated{
 	pixel_y = 32
 	},
-/obj/item/book/manual/dpra_manifesto,
+/obj/item/device/versebook/dpra,
 /obj/structure/table/standard,
 /turf/simulated/floor/exoplanet/wood,
 /area/ala_base)

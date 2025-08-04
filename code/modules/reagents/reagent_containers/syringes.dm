@@ -9,7 +9,6 @@
 /obj/item/reagent_containers/syringe
 	name = "syringe"
 	desc = "A syringe."
-	desc_info = "This tool can be used to reinflate a collapsed lung. To do this, activate grab intent, select the patient's chest, then click on them. It will hurt a lot, but it will buy time until surgery can be performed."
 	icon = 'icons/obj/item/reagent_containers/syringe.dmi'
 	contained_sprite = TRUE
 	icon_state = "0"
@@ -19,7 +18,7 @@
 	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = list(1, 2, 5, 10, 15)
 	volume = 15
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	slot_flags = SLOT_EARS
 	sharp = 1
 	noslice = 1
@@ -32,12 +31,22 @@
 	var/list/datum/disease2/disease/viruses
 	var/time = 30
 
-
 	var/last_jab = 0 //Spam prevention
 	center_of_mass = null
 
 	drop_sound = 'sound/items/drop/glass_small.ogg'
 	pickup_sound = 'sound/items/pickup/glass_small.ogg'
+
+	///Boolean, if this syringe gets dirty (and consequently infects people when reused)
+	var/gets_dirty = TRUE
+
+/obj/item/reagent_containers/syringe/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This tool can be used to reinflate a collapsed lung. To do this, activate grab intent, select the patient's chest, then click on them. It will hurt a lot, but it will buy time until surgery can be performed."
+
+/obj/item/reagent_containers/syringe/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can use a syringe to inject phoron into both power cells and light bulbs to rig them to explode when used."
 
 /obj/item/reagent_containers/syringe/Initialize()
 	. = ..()
@@ -73,7 +82,7 @@
 		log_and_message_admins("[loc] infected [target]'s [eo.name] with \the [src].")
 		addtimer(CALLBACK(src, PROC_REF(infect_limb), eo), rand(5 MINUTES, 10 MINUTES))
 
-	if(!used)
+	if(!used && gets_dirty)
 		START_PROCESSING(SSprocessing, src)
 		used = TRUE
 
@@ -281,7 +290,7 @@
 		AddOverlays("capped")
 
 	if(reagents && reagents.total_volume)
-		worn_overlay = Clamp(round((reagents.total_volume / volume * 15),5), 1, 15) //rounded_vol
+		worn_overlay = clamp(round((reagents.total_volume / volume * 15),5), 1, 15) //rounded_vol
 		AddOverlays(overlay_image(icon, "[iconstring][worn_overlay]", color = reagents.get_color()))
 		worn_overlay_color = reagents.get_color() // handles inhands
 	else
@@ -314,7 +323,7 @@
 
 		var/hit_area = affecting.name
 
-		if((user != target) && H.check_shields(7, src, user, "\the [src]"))
+		if((user != target) && (H.check_shields(7, src, user, "\the [src]") != BULLET_ACT_HIT))
 			return
 
 		var/armor = H.get_blocked_ratio(target_zone, DAMAGE_BRUTE, damage_flags = DAMAGE_FLAG_SHARP, damage = 5)*100
@@ -325,7 +334,7 @@
 
 			user.attack_log += "\[[time_stamp()]\]<span class='warning'> Attacked [target.name] ([target.ckey]) with \the [src] (INTENT: HARM).</span>"
 			target.attack_log += "\[[time_stamp()]\]<font color='orange'> Attacked by [user.name] ([user.ckey]) with [src.name] (INTENT: HARM).</font>"
-			msg_admin_attack("[key_name_admin(user)] attacked [key_name_admin(target)] with [src.name] (INTENT: HARM) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(src))
+			msg_admin_attack("[key_name_admin(user)] attacked [key_name_admin(target)] with [src.name] (INTENT: HARM) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(src))
 
 			return
 
@@ -381,6 +390,22 @@
 /// Syringes. END
 ////////////////////////////////////////////////////////////////////////////////
 
+/*#############
+	SUBTYPES
+#############*/
+
+/**
+ * #Robotic syringe
+ *
+ * This syringe is for borgs and the likes, do not give it around otherwise
+ */
+/obj/item/reagent_containers/syringe/robotic
+	name = "robotic syringe"
+	desc = "A syringe for our synthetic friends."
+	gets_dirty = FALSE
+
+
+// Pre-Loaded Medications
 /obj/item/reagent_containers/syringe/inaprovaline
 	name = "Syringe (inaprovaline)"
 	desc = "Contains inaprovaline - used to stabilize patients."
@@ -411,16 +436,6 @@
 	mode = SYRINGE_INJECT
 	update_icon()
 
-/obj/item/reagent_containers/syringe/drugs
-	name = "Syringe (drugs)"
-	desc = "Contains aggressive drugs meant for torture. Markered lines denote points at which to stop injecting."
-	reagents_to_add = list(/singleton/reagent/toxin/panotoxin = 1, /singleton/reagent/drugs/cryptobiolin = 4, /singleton/reagent/drugs/mindbreaker = 10)
-
-/obj/item/reagent_containers/syringe/drugs/Initialize()
-	. = ..()
-	mode = SYRINGE_INJECT
-	update_icon()
-
 /obj/item/reagent_containers/syringe/fluvectionem
 	name = "Syringe (fluvectionem)"
 	desc = "Contains purging medicine."
@@ -445,6 +460,38 @@
 	reagents_to_add = list(/singleton/reagent/antiparasitic = 10)
 
 /obj/item/reagent_containers/syringe/antiparasitic/Initialize()
+	. = ..()
+	mode = SYRINGE_INJECT
+	update_icon()
+
+// Contraband
+
+/obj/item/reagent_containers/syringe/drugs
+	name = "Syringe (drugs)"
+	desc = "Contains aggressive drugs meant for torture. Markered lines denote points at which to stop injecting."
+	reagents_to_add = list(/singleton/reagent/toxin/panotoxin = 1, /singleton/reagent/drugs/cryptobiolin = 4, /singleton/reagent/drugs/mindbreaker = 10)
+
+/obj/item/reagent_containers/syringe/drugs/Initialize()
+	. = ..()
+	mode = SYRINGE_INJECT
+	update_icon()
+
+/obj/item/reagent_containers/syringe/heroin
+	name = "Syringe (heroin)"
+	desc = "For those unbearable pains. Markered lines indicate that this syringe contains three doses."
+	reagents_to_add = list(/singleton/reagent/drugs/heroin = 15)
+
+/obj/item/reagent_containers/syringe/heroin/Initialize()
+	. = ..()
+	mode = SYRINGE_INJECT
+	update_icon()
+
+/obj/item/reagent_containers/syringe/raskara_dust
+	name = "Syringe (raskara dust)"
+	desc = "A syringe of raskara dust, a narcotic that provokes a trance-like state in the user. More potent when injected."
+	reagents_to_add = list(/singleton/reagent/drugs/raskara_dust = 15)
+
+/obj/item/reagent_containers/syringe/raskara_dust/Initialize()
 	. = ..()
 	mode = SYRINGE_INJECT
 	update_icon()

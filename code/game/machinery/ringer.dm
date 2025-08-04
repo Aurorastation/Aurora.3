@@ -127,8 +127,7 @@ pixel_x = 8;
 			return TRUE
 		to_chat(user, SPAN_NOTICE("You link \the [attacking_item] to \the [src], it will now ring upon someone using \the [src]."))
 		rings_pdas += attacking_item
-		// WONT FIX: This requires callbacks fuck my dick.
-		GLOB.destroyed_event.register(attacking_item, src, PROC_REF(remove_pda))
+		UnregisterSignal(attacking_item, COMSIG_QDELETING)
 		update_icon()
 		return TRUE
 	else
@@ -161,7 +160,7 @@ pixel_x = 8;
 	pinged = TRUE
 	update_icon()
 
-	playsound(src.loc, 'sound/machines/ringer.ogg', 50, 1)
+	playsound(src.loc, 'sound/machines/ringer.ogg', 50, TRUE, ignore_walls = FALSE)
 
 	for (var/obj/item/modular_computer/P in rings_pdas)
 		var/message = "Attention required!"
@@ -173,7 +172,7 @@ pixel_x = 8;
 	pinged = FALSE
 	update_icon()
 
-/obj/machinery/ringer/proc/remove_pda(var/obj/item/modular_computer/P)
+/obj/machinery/ringer/proc/remove_pda(obj/item/modular_computer/P)
 	if (istype(P))
 		rings_pdas -= P
 
@@ -205,7 +204,7 @@ pixel_x = 8;
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
-	flick(src, "ringer_on")
+	flick("ringer_on", src)
 
 	if(use_power)
 		use_power_oneoff(active_power_usage)

@@ -110,18 +110,22 @@
 	data["viewing"] = viewing_overmap(user)
 	data["muted"] = muted
 
-	data["grid_x"] = linked.x
-	data["grid_y"] = linked.y
-	data["direction"] = dir2angle(linked.dir)
-	var/linked_x = linked.x
-	var/linked_y = linked.y
-	var/obj/effect/overmap/visitable/ship/linked_ship = linked
-	if(istype(linked_ship))
-		linked_x += linked_ship.position[1] / 2.0
-		linked_y += linked_ship.position[2] / 2.0
-		data["is_ship"] = TRUE
-	data["x"] = linked_x
-	data["y"] = linked_y
+
+	var/linked_x
+	var/linked_y
+	if(linked)
+		data["grid_x"] = linked.x
+		data["grid_y"] = linked.y
+		data["direction"] = dir2angle(linked.dir)
+		linked_x = linked.x
+		linked_y = linked.y
+		var/obj/effect/overmap/visitable/ship/linked_ship = linked
+		if(istype(linked_ship))
+			linked_x += linked_ship.position[1] / 2.0
+			linked_y += linked_ship.position[2] / 2.0
+			data["is_ship"] = TRUE
+		data["x"] = linked_x
+		data["y"] = linked_y
 
 	if(sensors)
 		data["on"] = sensors.use_power
@@ -142,15 +146,15 @@
 		else
 			data["status"] = "OK"
 		var/list/distress_beacons = list()
-		for(var/caller in SSdistress.active_distress_beacons)
-			var/datum/distress_beacon/beacon = SSdistress.active_distress_beacons[caller]
-			var/obj/effect/overmap/vessel = beacon.caller
+		for(var/requester in SSdistress.active_distress_beacons)
+			var/datum/distress_beacon/beacon = SSdistress.active_distress_beacons[requester]
+			var/obj/effect/overmap/vessel = beacon.requester
 			var/mob/living/carbon/human/H = beacon.user
 			var/job_string = H.job ? "[H.job] " : ""
 			var/bearing = round(90 - Atan2(vessel.x - linked.x, vessel.y - linked.y),5)
 			if(bearing < 0)
 				bearing += 360
-			distress_beacons.Add(list(list("caller" = vessel.name, "sender" = "[job_string][H.name]", "bearing" = bearing)))
+			distress_beacons.Add(list(list("requester" = vessel.name, "sender" = "[job_string][H.name]", "bearing" = bearing)))
 		if(length(distress_beacons))
 			data["distress_beacons"] = distress_beacons
 		data["desired_range"] = sensors.desired_range
@@ -197,7 +201,7 @@
 
 			contacts.Add(list(list(
 				"name"=contact.name,
-				"ref"="\ref[contact]",
+				"ref"="[REF(contact)]",
 				"bearing"=bearing,
 				"can_datalink"=(!(contact in connected.datalinked)),
 				"distance"=distance,
@@ -212,13 +216,13 @@
 		if(length(connected.datalink_requests))
 			var/list/local_datalink_requests = list()
 			for(var/obj/effect/overmap/visitable/requestor in connected.datalink_requests)
-				local_datalink_requests.Add(list(list("name"=requestor.name, "ref"="\ref[requestor]")))
+				local_datalink_requests.Add(list(list("name"=requestor.name, "ref"="[REF(requestor)]")))
 			data["datalink_requests"]  = local_datalink_requests
 
 		if(length(connected.datalinked))
 			var/list/local_datalinked = list()
 			for(var/obj/effect/overmap/visitable/datalinked_ship in connected.datalinked)
-				local_datalinked.Add(list(list("name"=datalinked_ship.name, "ref"="\ref[datalinked_ship]")))
+				local_datalinked.Add(list(list("name"=datalinked_ship.name, "ref"="[REF(datalinked_ship)]")))
 			data["datalinked"]  = local_datalinked
 
 		data["last_scan"] = last_scan
@@ -268,14 +272,14 @@
 			if(!CanInteract(usr, GLOB.default_state))
 				return FALSE
 			if (nrange)
-				sensors.set_desired_range(Clamp(nrange, 1, sensors.max_range))
+				sensors.set_desired_range(clamp(nrange, 1, sensors.max_range))
 			return TRUE
 		if(action == "range_choice")
 			var/nrange = text2num(params["range_choice"])
 			if(!CanInteract(usr, GLOB.default_state))
 				return FALSE
 			if(nrange)
-				sensors.set_desired_range(Clamp(nrange, 1, sensors.max_range))
+				sensors.set_desired_range(clamp(nrange, 1, sensors.max_range))
 			return TRUE
 		if (action == "toggle")
 			sensors.toggle()
@@ -373,8 +377,8 @@
 			return TRUE
 
 	if (action == "play_message")
-		var/caller = params["play_message"]
-		var/datum/distress_beacon/beacon = SSdistress.active_distress_beacons[caller]
+		var/requester = params["play_message"]
+		var/datum/distress_beacon/beacon = SSdistress.active_distress_beacons[requester]
 		var/mob/living/carbon/human/sender = beacon.user
 		var/user_name = beacon.user_name
 		var/accent_icon = sender.get_accent_icon()
@@ -492,20 +496,23 @@
 	if(heat_percentage > 85)
 		AddOverlays("sensors-effect-hot")
 
-/obj/machinery/shipsensors/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/machinery/shipsensors/condition_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(health <= 0)
 		. += "\The [src] is wrecked."
 	else if(health < max_health * 0.25)
 		. += SPAN_DANGER("\The [src] looks like it's about to break!")
 	else if(health < max_health * 0.5)
-		. += SPAN_DANGER("\The [src] looks seriously damaged!")
+		. += SPAN_ALERT("\The [src] looks seriously damaged!")
 	else if(health < max_health * 0.75)
 		. += "\The [src] shows signs of damage!"
 
-/obj/machinery/shipsensors/bullet_act(var/obj/item/projectile/Proj)
-	take_damage(Proj.get_structure_damage())
-	..()
+/obj/machinery/shipsensors/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	take_damage(hitting_projectile.get_structure_damage())
 
 /obj/machinery/shipsensors/proc/toggle()
 	if(use_power) // reset desired range when turning off
@@ -576,7 +583,7 @@
 /obj/machinery/shipsensors/weak
 	heat_reduction = 1.7 // Can sustain range 4
 	max_range = 7
-	desc = "Miniturized gravity scanner with various other sensors, used to detect irregularities in surrounding space. Can only run in vacuum to protect delicate quantum BS elements."
+	desc = "Miniaturized gravity scanner with various other sensors, used to detect irregularities in surrounding space. Can only run in vacuum to protect delicate quantum BS elements."
 	deep_scan_range = 0
 	component_types = list(
 		/obj/item/circuitboard/shipsensors/weak,
@@ -654,7 +661,7 @@
 
 /obj/machinery/shipsensors/strong/relay
 	name = "\improper S-24 Beacon sensor array"
-	desc = "A vintage sensor array found on Solarian beacon relays throughout the galaxy. While it lacks deep scanning capabilities, it does have a high heat capacity."
+	desc = "A vintage sensor array of Solarian design. While it lacks deep scanning capabilities, it does have a high heat capacity."
 	icon = 'icons/obj/machinery/sensors_relay.dmi'
 	density = 1
 	layer = ABOVE_HUMAN_LAYER
@@ -673,3 +680,9 @@
 	)
 	pixel_x = -32
 	pixel_y = -16
+
+/obj/machinery/shipsensors/strong/relay/sol
+	name = "\improper S-24M Beacon sensor array"
+	desc = "A vintage sensor array found on Solarian sensor relays throughout the galaxy. While it lacks deep scanning capabilities, it does have a high heat capacity. This one is emblazoned with the fading flag of the pre-war Solarian Alliance."
+	icon = 'icons/obj/machinery/sensors_relay_sol.dmi'
+	desc_extended = ""

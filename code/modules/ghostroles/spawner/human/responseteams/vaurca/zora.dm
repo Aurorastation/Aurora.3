@@ -5,7 +5,7 @@
 	outfit = /obj/outfit/admin/ert/zora
 	mob_name_suffix = " Zo'ra"
 	mob_name_pick_message = "Choose a Vaurca first name."
-	possible_species = list(SPECIES_VAURCA_WARRIOR)
+	possible_species = list(SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT)
 	uses_species_whitelist = FALSE
 	max_count = 2
 	assigned_role = "Zo'ra Warrior"

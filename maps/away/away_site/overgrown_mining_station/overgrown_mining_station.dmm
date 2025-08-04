@@ -84,7 +84,7 @@
 /area/overgrown_mining_station)
 "ax" = (
 /obj/item/reagent_containers/glass/bottle/cyanide,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/overgrown_mining_station)
 "aK" = (
 /obj/item/crowbar,
@@ -127,7 +127,7 @@
 /area/overgrown_mining_station)
 "bU" = (
 /obj/item/ore_detector,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/overgrown_mining_station)
 "bV" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -194,7 +194,7 @@
 /area/overgrown_mining_station)
 "dF" = (
 /obj/effect/floor_decal/asteroid,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/overgrown_mining_station)
 "dV" = (
 /obj/item/trash/cigbutt/roll,
@@ -202,7 +202,7 @@
 /area/overgrown_mining_station)
 "dX" = (
 /obj/item/pickaxe/silver,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/overgrown_mining_station)
 "eb" = (
 /obj/effect/decal/cleanable/dirt,
@@ -213,7 +213,7 @@
 /area/overgrown_mining_station)
 "ef" = (
 /obj/item/gun/projectile/shotgun/pump/rifle/blank,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/overgrown_mining_station)
 "ev" = (
 /obj/structure/closet/emcloset,
@@ -350,11 +350,11 @@
 /area/overgrown_mining_station)
 "hc" = (
 /obj/item/ore/strangerock,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/overgrown_mining_station)
 "hd" = (
 /obj/item/oreportal,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/overgrown_mining_station)
 "hi" = (
 /obj/structure/table/stone/marble,
@@ -397,7 +397,7 @@
 /area/overgrown_mining_station)
 "hN" = (
 /obj/structure/table/steel,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/overgrown_mining_station)
 "hS" = (
 /obj/structure/table/reinforced/steel,
@@ -432,7 +432,7 @@
 /area/overgrown_mining_station)
 "it" = (
 /obj/item/material/shard/shrapnel,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/overgrown_mining_station)
 "iH" = (
 /obj/machinery/floodlight,
@@ -698,7 +698,7 @@
 /area/overgrown_mining_station)
 "ox" = (
 /obj/structure/ore_box,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/overgrown_mining_station)
 "oz" = (
 /obj/item/modular_computer/console,
@@ -734,7 +734,7 @@
 /area/overgrown_mining_station)
 "pp" = (
 /obj/item/ore/silver,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/overgrown_mining_station)
 "pB" = (
 /obj/structure/closet/crate/loot,
@@ -770,7 +770,7 @@
 /area/space)
 "qu" = (
 /obj/structure/flora/rock,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/overgrown_mining_station)
 "qA" = (
 /obj/effect/decal/cleanable/liquid_fuel,
@@ -893,7 +893,7 @@
 /area/overgrown_mining_station)
 "sQ" = (
 /obj/structure/flora/rock/pile,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/overgrown_mining_station)
 "sR" = (
 /obj/machinery/door/airlock/silver{
@@ -1025,7 +1025,7 @@
 /area/overgrown_mining_station)
 "ws" = (
 /obj/item/ore/iron,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/overgrown_mining_station)
 "wt" = (
 /obj/structure/table/standard,
@@ -1143,7 +1143,7 @@
 "ys" = (
 /obj/structure/table/steel,
 /obj/item/stack/cable_coil,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/overgrown_mining_station)
 "yw" = (
 /obj/structure/platform,
@@ -1285,7 +1285,7 @@
 /area/overgrown_mining_station)
 "AJ" = (
 /mob/living/simple_animal/carp,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/overgrown_mining_station)
 "AQ" = (
 /obj/machinery/door/airlock/mining{
@@ -1389,7 +1389,7 @@
 /obj/effect/floor_decal/asteroid{
 	icon_state = "asteroid9"
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/overgrown_mining_station)
 "Dy" = (
 /obj/structure/closet/emcloset,
@@ -1510,7 +1510,7 @@
 /area/overgrown_mining_station)
 "Gl" = (
 /obj/machinery/artifact,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/overgrown_mining_station)
 "Gy" = (
 /obj/item/stack/cable_coil,
@@ -1563,7 +1563,7 @@
 "HW" = (
 /obj/structure/table/steel,
 /obj/item/gun/custom_ka/frame04/prebuilt,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/overgrown_mining_station)
 "Ia" = (
 /obj/machinery/mech_recharger,
@@ -1578,7 +1578,7 @@
 /area/overgrown_mining_station)
 "Im" = (
 /obj/structure/mech_wreckage,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/overgrown_mining_station)
 "In" = (
 /obj/structure/bed,
@@ -1642,7 +1642,7 @@
 /area/overgrown_mining_station)
 "Je" = (
 /obj/machinery/floodlight,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/overgrown_mining_station)
 "Jh" = (
 /obj/structure/reagent_dispensers/fueltank,
@@ -1682,7 +1682,7 @@
 /area/overgrown_mining_station)
 "Kf" = (
 /obj/item/ore,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/overgrown_mining_station)
 "Kq" = (
 /obj/structure/table/standard,
@@ -1810,7 +1810,7 @@
 /area/overgrown_mining_station)
 "MW" = (
 /obj/item/ore/glass,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/overgrown_mining_station)
 "Nb" = (
 /obj/item/device/flashlight,
@@ -1831,7 +1831,7 @@
 /area/overgrown_mining_station)
 "Nt" = (
 /obj/effect/floor_decal/asteroid_dug,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/overgrown_mining_station)
 "NV" = (
 /obj/item/material/shard/wood,
@@ -1844,7 +1844,7 @@
 /area/overgrown_mining_station)
 "NY" = (
 /obj/item/ore/uranium,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/overgrown_mining_station)
 "Oi" = (
 /obj/item/trash/uselessplastic,
@@ -1905,7 +1905,7 @@
 /area/overgrown_mining_station)
 "Px" = (
 /obj/structure/crystal,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/overgrown_mining_station)
 "PF" = (
 /obj/effect/floor_decal/corner/grey{
@@ -1986,7 +1986,7 @@
 /area/overgrown_mining_station)
 "Rj" = (
 /mob/living/simple_animal/carp/baby,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/overgrown_mining_station)
 "Rs" = (
 /obj/item/pickaxe/drill,
@@ -2040,7 +2040,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "SZ" = (
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/overgrown_mining_station)
 "Tc" = (
 /obj/item/wrench,
@@ -2051,7 +2051,7 @@
 	icon_state = "coil2"
 	},
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
-/obj/structure/flora/pottedplant/orientaltree,
+/obj/structure/flora/pottedplant/cherrytree,
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "TE" = (
@@ -2118,7 +2118,7 @@
 /area/overgrown_mining_station)
 "UZ" = (
 /obj/item/pickaxe/drill,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/overgrown_mining_station)
 "Vj" = (
 /obj/structure/bed,

@@ -23,8 +23,7 @@
 /area/peoples_station/training)
 "ai" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	icon_state = "warning"
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/tank,
 /turf/simulated/floor/plating{
@@ -41,14 +40,17 @@
 	},
 /area/peoples_station/armory)
 "ax" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee,
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/starboard,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/door/airlock/external{
-	dir = 1
+	dir = 4
 	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/fore,
-/turf/simulated/floor/plating{
-	temperature = 278.15
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
 	},
+/turf/simulated/floor/tiled/dark,
 /area/peoples_station/hangar)
 "ay" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -121,7 +123,11 @@
 	},
 /area/peoples_station)
 "aF" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	req_access = list(209);
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -161,11 +167,14 @@
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/peoples_station_transport)
 "aW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal,
-/obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
 	},
-/turf/simulated/floor/plating{
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/shuttle/fang)
@@ -191,6 +200,11 @@
 /obj/structure/sign/flag/pra/large/north{
 	pixel_y = 32
 	},
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -210,7 +224,6 @@
 "be" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/machinery/airlock_sensor{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = 6
 	},
@@ -233,13 +246,16 @@
 	},
 /area/peoples_station/visitor)
 "bi" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /obj/structure/cable/green{
-	icon_state = "1-4"
+	icon_state = "1-2"
 	},
-/turf/simulated/floor/plating{
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/shuttle/fang)
@@ -254,13 +270,36 @@
 	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
+"bk" = (
+/obj/machinery/door/airlock/external{
+	dir = 1
+	},
+/obj/machinery/access_button{
+	pixel_x = 28
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/fore,
+/obj/effect/shuttle_landmark/nav_peoples_station/fore_dock{
+	dir = 1
+	},
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = -12
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "bo" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Engineering";
 	req_access = list(209);
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -309,6 +348,22 @@
 	},
 /turf/simulated/floor/airless,
 /area/peoples_station/solars)
+"bx" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/transport_hangar)
 "bz" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -323,7 +378,11 @@
 	id = "peoples_station_transport_blast";
 	dir = 4
 	},
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	req_access = list(209);
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/peoples_station_transport)
 "bB" = (
@@ -334,6 +393,12 @@
 "bC" = (
 /obj/effect/floor_decal/corner/red/full{
 	dir = 4
+	},
+/obj/structure/cargo_receptacle{
+	override_name = "People's Station - Mess Hall";
+	payment_modifier = 0.4;
+	max_spawn = 2;
+	min_spawn = 1
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -355,6 +420,20 @@
 	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
+"bH" = (
+/obj/machinery/airlock_sensor{
+	pixel_y = 28;
+	pixel_x = 6
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/starboard,
+/turf/simulated/floor/plating,
+/area/peoples_station/hangar)
 "bK" = (
 /obj/structure/ship_weapon_dummy,
 /obj/effect/floor_decal/industrial/warning{
@@ -474,6 +553,9 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -525,6 +607,21 @@
 	temperature = 278.15
 	},
 /area/peoples_station/restroom)
+"ct" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "cu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -584,7 +681,10 @@
 	req_access = list(209);
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -655,16 +755,31 @@
 	temperature = 278.15
 	},
 /area/peoples_station/transport_hangar)
+"cW" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "cX" = (
 /obj/machinery/power/smes/buildable/third_party_shuttle,
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
 /obj/machinery/light/colored/decayed{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
-	},
 /turf/simulated/floor,
 /area/shuttle/peoples_station_transport)
 "cZ" = (
@@ -690,22 +805,8 @@
 	},
 /area/peoples_station)
 "dg" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
-/obj/effect/floor_decal/industrial/warning/dust{
-	dir = 10
-	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 10
-	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/shuttle/peoples_station_transport{
-	req_one_access = list(209)
-	},
-/turf/simulated/floor/reinforced,
-/area/shuttle/peoples_station_transport)
+/turf/simulated/floor/plating/cooled,
+/area/peoples_station/transport_hangar)
 "dh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -761,8 +862,7 @@
 /area/peoples_station/robotics_bay)
 "dv" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8;
-	icon_state = "map-scrubbers"
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -802,13 +902,28 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/peoples_station/defenses)
+"dz" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "dA" = (
 /obj/structure/closet/cabinet,
-/obj/item/book/manual/pra_manifesto,
-/obj/item/book/manual/pra_manifesto,
-/obj/item/book/manual/pra_manifesto,
-/obj/item/book/manual/pra_manifesto,
-/obj/item/book/manual/pra_manifesto,
+/obj/item/device/versebook/pra,
+/obj/item/device/versebook/pra,
+/obj/item/device/versebook/pra,
+/obj/item/device/versebook/pra,
+/obj/item/device/versebook/pra,
 /obj/item/ammo_magazine/a50,
 /obj/item/ammo_magazine/a50,
 /turf/simulated/floor/wood,
@@ -837,9 +952,22 @@
 	temperature = 278.15
 	},
 /area/peoples_station)
+"dE" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/obj/machinery/alarm/cold/east,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "dG" = (
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(209)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -847,6 +975,10 @@
 /area/shuttle/fang)
 "dI" = (
 /obj/structure/curtain/open/bed,
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/wood{
 	temperature = 278.15
 	},
@@ -879,8 +1011,7 @@
 /area/peoples_station/fang)
 "dP" = (
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/structure/window/reinforced{
 	dir = 8
@@ -991,8 +1122,7 @@
 /area/peoples_station/solars)
 "en" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8;
-	icon_state = "map-scrubbers"
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -1034,14 +1164,15 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
 	},
+/obj/structure/cable{
+	d2 = 4;
+	icon_state = "0-4"
+	},
 /obj/machinery/power/terminal{
 	dir = 1
 	},
 /obj/structure/sign/flag/pra{
 	pixel_x = -32
-	},
-/obj/structure/cable/green{
-	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/peoples_station_transport)
@@ -1051,11 +1182,17 @@
 	},
 /area/peoples_station/fang)
 "ey" = (
-/obj/effect/decal/cleanable/blood/oil,
-/turf/simulated/floor/plating{
+/obj/structure/fuel_port/hydrogen{
+	pixel_x = -32
+	},
+/obj/machinery/atmospherics/portables_connector/fuel{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/peoples_station/fang)
+/area/shuttle/fang)
 "eB" = (
 /obj/structure/table/wood,
 /obj/item/material/ashtray/bronze,
@@ -1100,6 +1237,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1141,8 +1281,7 @@
 /area/peoples_station/transport_hangar)
 "eQ" = (
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/effect/floor_decal/corner_wide/red/full{
 	dir = 6
@@ -1159,7 +1298,10 @@
 	},
 /area/peoples_station/range)
 "eS" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -1182,6 +1324,17 @@
 	temperature = 278.15
 	},
 /area/peoples_station/transport_hangar)
+"eV" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "eX" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9
@@ -1281,6 +1434,15 @@
 	temperature = 278.15
 	},
 /area/peoples_station/hangar)
+"fh" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "fi" = (
 /obj/machinery/door/window/brigdoor/southleft{
 	name = "Robot Storage";
@@ -1295,6 +1457,22 @@
 	temperature = 278.15
 	},
 /area/peoples_station/robotics_bay)
+"fn" = (
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/aft,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "fq" = (
 /obj/structure/table/steel,
 /obj/item/device/multitool,
@@ -1341,8 +1519,7 @@
 /area/peoples_station/atmos)
 "fx" = (
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1359,7 +1536,10 @@
 	name = "Hangar";
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
@@ -1371,11 +1551,14 @@
 	},
 /area/peoples_station/hangar)
 "fB" = (
-/obj/effect/floor_decal/corner/red/full{
-	dir = 1
+/obj/effect/floor_decal/corner/red{
+	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 10
+	dir = 8
+	},
+/obj/structure/sign/flag/pra/large/north{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1472,6 +1655,28 @@
 	},
 /turf/simulated/floor/airless,
 /area/peoples_station/transport_hangar)
+"fU" = (
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_y = 6;
+	pixel_x = 20
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/aft,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
+"fX" = (
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
+/area/peoples_station/bridge)
 "fY" = (
 /obj/machinery/light{
 	dir = 1
@@ -1522,10 +1727,10 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	cycle_to_external_air = 1;
-	master_tag = "headmaster_shuttle";
-	name = "peoples_station_transport";
+	master_tag = "peoples_station_transport_dock";
+	name = "peoples_station_transport_dock";
 	req_one_access = list(209);
-	shuttle_tag = "Orbital Fleet Shuttle"
+	shuttle_tag = "People's Station Transport Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/peoples_station_transport)
@@ -1536,17 +1741,11 @@
 	},
 /area/peoples_station/fang)
 "ge" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/obj/structure/sign/flag/pra{
-	pixel_y = 32
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 8
 	},
-/obj/machinery/light/small{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/plating{
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/shuttle/fang)
@@ -1568,7 +1767,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -1609,6 +1808,17 @@
 	temperature = 278.15
 	},
 /area/peoples_station/training)
+"gw" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "gz" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 6
@@ -1622,7 +1832,7 @@
 	pixel_y = 4;
 	pixel_x = 1
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
@@ -1667,6 +1877,8 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/survey_probe/pra,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -1677,7 +1889,6 @@
 	req_access = list(209);
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -1751,21 +1962,47 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /obj/machinery/meter{
 	name = "Air Supply Meter"
 	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/peoples_station_transport)
-"hc" = (
-/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
-	req_access = null
+"ha" = (
+/obj/machinery/airlock_sensor{
+	pixel_x = 20;
+	dir = 8;
+	pixel_y = -6
 	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/aft,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
+"hb" = (
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
+/obj/structure/curtain/open/bed,
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
+/area/peoples_station/barracks)
+"hc" = (
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard,
 /obj/item/storage/box/produce{
 	pixel_x = 3;
 	pixel_y = -11
@@ -1798,8 +2035,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8;
-	icon_state = "map-scrubbers"
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1888,6 +2124,22 @@
 	temperature = 278.15
 	},
 /area/peoples_station)
+"hx" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station)
 "hz" = (
 /turf/simulated/wall/shuttle/raider,
 /area/peoples_station/fang)
@@ -1933,7 +2185,9 @@
 	},
 /area/peoples_station/atmos)
 "hJ" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
 /obj/machinery/door/airlock{
 	req_access = list(209);
 	name = "Restroom";
@@ -1997,14 +2251,16 @@
 	},
 /area/peoples_station/transport_hangar)
 "id" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
-	},
-/obj/structure/cable{
-	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/peoples_station_transport)
@@ -2059,6 +2315,18 @@
 	},
 /turf/template_noop,
 /area/space)
+"iv" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "iw" = (
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -2092,7 +2360,11 @@
 	},
 /area/peoples_station/solars)
 "iD" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	req_access = list(209);
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -2170,7 +2442,9 @@
 	req_access = list(209);
 	dir = 1
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
@@ -2178,6 +2452,15 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station)
+"iX" = (
+/obj/effect/floor_decal/corner_wide/black{
+	dir = 5
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2202,7 +2485,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/computer/shuttle_control/explore/terminal/peoples_station_transport{
+/obj/machinery/computer/shuttle_control/explore/terminal/headmaster_shuttle{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -2219,7 +2502,9 @@
 	req_access = list(209);
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2272,6 +2557,7 @@
 /obj/item/storage/box/fancy/cigarettes/pra,
 /obj/item/storage/box/fancy/cigarettes/pra,
 /obj/item/storage/box/fancy/cigarettes/pra,
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2285,6 +2571,21 @@
 	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
+"jD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "jG" = (
 /obj/effect/floor_decal/corner/white{
 	dir = 5
@@ -2293,22 +2594,15 @@
 	temperature = 278.15
 	},
 /area/peoples_station/training)
-"jH" = (
-/obj/effect/ghostspawpoint{
-	identifier = "peoples_station_crew";
-	name = "igs - peoples_station_crew"
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/range)
 "jL" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Station Hatch";
 	req_access = list(209);
 	dir = 1
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -2358,7 +2652,10 @@
 	req_access = list(209);
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -2428,7 +2725,7 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/machinery/hologram/holopad/long_range,
 /obj/effect/overmap/visitable/ship/landable/peoples_station_fang,
-/turf/simulated/floor/plating{
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/shuttle/fang)
@@ -2438,6 +2735,15 @@
 	},
 /turf/simulated/floor/plating/cooled,
 /area/peoples_station/transport_hangar)
+"kj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "kk" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -2504,6 +2810,10 @@
 	req_access = list(209);
 	dir = 4
 	},
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2525,6 +2835,38 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/peoples_station/defenses)
+"kv" = (
+/obj/effect/floor_decal/corner/red/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
+"kx" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
+"ky" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station)
 "kA" = (
 /obj/structure/table/steel,
 /obj/item/stamp/denied{
@@ -2596,7 +2938,10 @@
 	name = "Hangar";
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -2628,6 +2973,20 @@
 	temperature = 278.15
 	},
 /area/peoples_station/transport_hangar)
+"kN" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "kO" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -2781,8 +3140,12 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2827,15 +3190,36 @@
 /area/peoples_station/hangar)
 "lu" = (
 /obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/machinery/door/airlock/external{
+	frequency = 1337;
+	icon_state = "door_locked";
+	id_tag = "fang_hatch";
+	name = "Ship External Access";
 	dir = 1
 	},
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, airlock"
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	req_one_access = list(209);
+	shuttle_tag = "Orbital Fleet Fang";
+	name = "peoples_station_fang";
+	req_access = "peoples_station_fang"
+	},
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = 12;
+	dir = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/peoples_station/fang)
+/area/shuttle/fang)
 "lv" = (
 /obj/structure/bed/handrail{
 	dir = 4
@@ -2847,8 +3231,12 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
-/obj/effect/map_effect/marker/airlock/shuttle/peoples_station_transport{
-	req_one_access = list(209)
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "peoples_station_transport_dock";
+	name = "peoples_station_transport_dock";
+	req_one_access = list(209);
+	shuttle_tag = "People's Station Transport Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/peoples_station_transport)
@@ -2922,12 +3310,18 @@
 	req_access = list(209);
 	dir = 1
 	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/peoples_station/fang)
 "lG" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
 /obj/machinery/door/airlock/glass_security{
 	name = "Armory Distribution";
 	req_access = list(209);
@@ -3069,12 +3463,18 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
 /area/peoples_station/medbay)
 "mt" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
 /obj/machinery/door/airlock/hatch{
 	name = "Station Hatch";
 	req_access = list(209);
@@ -3101,7 +3501,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -3125,13 +3527,20 @@
 	temperature = 278.15
 	},
 /area/peoples_station)
-"mF" = (
-/obj/structure/cable/green{
-	d2 = 4;
-	icon_state = "0-4"
+"my" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/effect/floor_decal/corner/red{
+	dir = 9
 	},
-/obj/machinery/power/apc/west{
-	req_access = list(209)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
+"mF" = (
+/obj/machinery/power/smes/buildable/third_party_shuttle,
+/obj/structure/cable/green{
+	icon_state = "0-8"
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -3170,8 +3579,8 @@
 	},
 /area/peoples_station/ammo_storage)
 "mM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 9
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+	dir = 4
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/fang)
@@ -3206,8 +3615,8 @@
 /turf/simulated/floor/carpet/art,
 /area/peoples_station/captain_quarters)
 "mT" = (
-/obj/effect/floor_decal/corner/dark_blue/full{
-	dir = 1
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 6
 	},
 /obj/structure/cable/green{
 	d2 = 8;
@@ -3251,6 +3660,18 @@
 	temperature = 278.15
 	},
 /area/peoples_station)
+"mX" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "nf" = (
 /obj/structure/table/rack,
 /obj/item/stack/rods,
@@ -3299,18 +3720,25 @@
 /obj/machinery/door/blast/regular/open{
 	id = "peoples_station_armory"
 	},
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "ns" = (
-/obj/effect/shuttle_landmark/peoples_station_transport/hangar{
-	dir = 1
+/obj/effect/floor_decal/corner/red{
+	dir = 6
 	},
-/turf/simulated/floor/plating{
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/peoples_station/transport_hangar)
+/area/peoples_station/hangar)
 "nz" = (
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
@@ -3350,10 +3778,23 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/survey_probe/pra,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/peoples_station/transport_hangar)
+"nK" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red,
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/starboard,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/peoples_station/hangar)
 "nL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -3371,6 +3812,9 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /obj/structure/lattice/catwalk/indoor,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
@@ -3378,11 +3822,12 @@
 	pixel_y = -4
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/effect/map_effect/marker/airlock/shuttle/peoples_station_transport{
-	req_one_access = list(209)
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "peoples_station_transport_dock";
+	name = "peoples_station_transport_dock";
+	req_one_access = list(209);
+	shuttle_tag = "People's Station Transport Shuttle"
 	},
 /turf/simulated/floor,
 /area/shuttle/peoples_station_transport)
@@ -3449,7 +3894,10 @@
 	name = "Hangar";
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
 /obj/machinery/door/blast/regular/open{
 	id = "peoples_station_hangar"
 	},
@@ -3476,15 +3924,19 @@
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/peoples_station_transport)
 "oc" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/lattice/catwalk/indoor,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/effect/map_effect/marker/airlock/shuttle/peoples_station_transport{
-	req_one_access = list(209)
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "peoples_station_transport_dock";
+	name = "peoples_station_transport_dock";
+	req_one_access = list(209);
+	shuttle_tag = "People's Station Transport Shuttle"
 	},
 /turf/simulated/floor,
 /area/shuttle/peoples_station_transport)
@@ -3510,6 +3962,28 @@
 	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
+"og" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
+"on" = (
+/obj/machinery/light/small/emergency,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red,
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/starboard,
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
+/turf/simulated/floor/plating,
+/area/peoples_station/hangar)
 "os" = (
 /obj/machinery/light/small/red{
 	dir = 8
@@ -3557,8 +4031,12 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/map_effect/marker/airlock/shuttle/peoples_station_transport{
-	req_one_access = list(209)
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "peoples_station_transport_dock";
+	name = "peoples_station_transport_dock";
+	req_one_access = list(209);
+	shuttle_tag = "People's Station Transport Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/peoples_station_transport)
@@ -3676,7 +4154,11 @@
 	},
 /area/peoples_station/training)
 "oU" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	req_access = list(209);
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -3720,7 +4202,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/turf/simulated/floor/plating{
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/shuttle/fang)
@@ -3731,6 +4213,20 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/peoples_station/defenses)
+"pn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station)
 "po" = (
 /obj/machinery/light{
 	dir = 8
@@ -3753,6 +4249,14 @@
 "pr" = (
 /turf/simulated/wall/shuttle/raider,
 /area/peoples_station/medbay)
+"ps" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "pt" = (
 /obj/structure/table/standard,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -3779,7 +4283,10 @@
 	req_access = list(209);
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -3792,8 +4299,7 @@
 /area/peoples_station)
 "px" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -3829,6 +4335,13 @@
 	pixel_y = 8;
 	pixel_x = -6
 	},
+/obj/machinery/embedded_controller/radio/docking_port_multi{
+	pixel_x = 24;
+	id_tag = "headmaster_shuttle";
+	child_names_txt = "Orbital Fleet Shuttle Airlock";
+	child_tags_txt = "headmaster_shuttle";
+	dir = 8
+	},
 /obj/machinery/button/remote/blast_door{
 	pixel_x = -5;
 	id = "peoples_station_transport_blast";
@@ -3863,7 +4376,8 @@
 	dir = 10
 	},
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -3934,15 +4448,16 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/machinery/alarm/cold/west{
-	req_one_access = list(209)
-	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "pZ" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	req_access = list(209);
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -4020,6 +4535,19 @@
 /obj/item/pen/fountain,
 /turf/simulated/floor/carpet/art,
 /area/peoples_station/captain_quarters)
+"qs" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station)
 "qu" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 8
@@ -4087,7 +4615,11 @@
 	id = "peoples_station_transport_blast";
 	dir = 4
 	},
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	req_access = list(209);
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/peoples_station_transport)
 "qJ" = (
@@ -4109,13 +4641,17 @@
 	},
 /area/peoples_station/barracks)
 "qS" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/sign/flag/pra{
+	pixel_y = 32
 	},
-/turf/simulated/floor/plating{
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/peoples_station/fang)
+/area/shuttle/fang)
 "qT" = (
 /obj/machinery/door/airlock/glass{
 	name = "Recreation Area";
@@ -4127,6 +4663,9 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -4155,8 +4694,7 @@
 /area/peoples_station)
 "ra" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -4177,6 +4715,18 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station)
+"rg" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -4221,7 +4771,9 @@
 /area/peoples_station/training)
 "rq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -4283,8 +4835,8 @@
 	},
 /area/peoples_station/robotics_bay)
 "rF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -4297,14 +4849,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/ammo_storage)
-"rH" = (
-/obj/structure/ship_weapon_dummy,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/peoples_station/defenses)
 "rJ" = (
 /obj/structure/cable/green{
 	d2 = 2;
@@ -4324,7 +4868,9 @@
 	req_access = list(209);
 	dir = 1
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark{
@@ -4353,18 +4899,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station)
-"rQ" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "rR" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -4501,7 +5035,7 @@
 /area/peoples_station/mess_hall)
 "sr" = (
 /obj/machinery/atmospherics/unary/engine,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 6
 	},
@@ -4512,7 +5046,10 @@
 	name = "Hangar";
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -4625,20 +5162,38 @@
 	temperature = 268.15
 	},
 /area/peoples_station/visitor)
-"sK" = (
+"sJ" = (
 /obj/machinery/door/airlock/external{
-	dir = 1
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
 	},
 /obj/machinery/access_button{
-	pixel_x = 28;
-	dir = 2
-	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/fore,
-/obj/effect/shuttle_landmark/nav_peoples_station/fore_dock{
+	pixel_x = -24;
+	pixel_y = -20;
 	dir = 1
 	},
-/turf/simulated/floor/plating{
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/port,
+/turf/simulated/floor/tiled/dark,
+/area/peoples_station/hangar)
+"sK" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/peoples_station/hangar)
@@ -4697,13 +5252,22 @@
 	temperature = 278.15
 	},
 /area/peoples_station)
+"sY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/peoples_station_transport)
 "ta" = (
 /obj/machinery/door/airlock/command{
 	req_access = list(209);
 	name = "Commissar's Quarters";
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -4889,18 +5453,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station)
-"tF" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "tG" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -4910,7 +5462,7 @@
 /area/peoples_station/transport_hangar)
 "tH" = (
 /obj/machinery/atmospherics/unary/engine,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 10
 	},
@@ -4954,7 +5506,11 @@
 	},
 /area/peoples_station/fang)
 "tS" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	req_access = list(209);
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -4989,8 +5545,7 @@
 /area/peoples_station/medbay)
 "um" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8;
-	icon_state = "map-scrubbers"
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
@@ -5007,7 +5562,7 @@
 /obj/item/reagent_containers/food/drinks/bottle/victorygin,
 /obj/item/reagent_containers/food/drinks/drinkingglass,
 /obj/item/reagent_containers/food/drinks/drinkingglass,
-/obj/item/book/manual/pra_manifesto,
+/obj/item/device/versebook/pra,
 /turf/simulated/floor/carpet/art,
 /area/peoples_station/captain_quarters)
 "uq" = (
@@ -5027,9 +5582,7 @@
 	},
 /area/peoples_station/training)
 "uu" = (
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71
-	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating/cooled,
 /area/peoples_station/transport_hangar)
 "uv" = (
@@ -5067,21 +5620,36 @@
 	},
 /area/peoples_station/commissar_quarters)
 "uA" = (
-/obj/effect/shuttle_landmark/peoples_station_fang/hangar{
-	dir = 1
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	req_one_access = list(209);
+	shuttle_tag = "Orbital Fleet Fang";
+	name = "peoples_station_fang";
+	req_access = "peoples_station_fang"
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 4;
+	pixel_x = -20
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = 20;
+	dir = 8;
+	pixel_y = 6
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/peoples_station/fang)
+/area/shuttle/fang)
 "uC" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -5098,10 +5666,16 @@
 	},
 /area/peoples_station/defenses)
 "uG" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
-	dir = 1
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
 	},
-/turf/simulated/wall/shuttle/raider,
+/obj/machinery/power/apc/west{
+	req_access = list(209)
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
 /area/shuttle/fang)
 "uJ" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -5118,6 +5692,7 @@
 	pixel_y = 6
 	},
 /obj/structure/window/reinforced,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/peoples_station_transport)
 "uK" = (
@@ -5181,7 +5756,10 @@
 	name = "Barracks";
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -5234,7 +5812,9 @@
 	req_access = list(209)
 	},
 /obj/structure/table/steel,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
 /obj/item/paper_bin,
 /obj/item/pen/black,
 /obj/machinery/door/blast/regular/open{
@@ -5262,7 +5842,6 @@
 /area/peoples_station/visitor)
 "vt" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = -6
 	},
@@ -5322,14 +5901,10 @@
 	},
 /area/peoples_station)
 "vE" = (
-/obj/structure/fuel_port/hydrogen{
-	pixel_x = -32
-	},
-/obj/machinery/atmospherics/portables_connector{
+/obj/machinery/atmospherics/binary/pump/fuel{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/turf/simulated/floor/plating{
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/shuttle/fang)
@@ -5359,21 +5934,28 @@
 /area/shuttle/fang)
 "vR" = (
 /obj/structure/lattice/catwalk/indoor,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
 	},
 /obj/machinery/access_button{
-	pixel_x = -22;
-	dir = 4;
-	pixel_y = 30
+	pixel_x = -26;
+	dir = 1;
+	pixel_y = 10
 	},
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/structure/cable/green{
-	icon_state = "1-2"
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, airlock"
 	},
-/obj/effect/map_effect/marker/airlock/shuttle/peoples_station_transport{
-	req_one_access = list(209)
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "peoples_station_transport_dock";
+	name = "peoples_station_transport_dock";
+	req_one_access = list(209);
+	shuttle_tag = "People's Station Transport Shuttle"
 	},
 /turf/simulated/floor,
 /area/shuttle/peoples_station_transport)
@@ -5400,8 +5982,7 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8;
-	icon_state = "map-scrubbers"
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -5443,8 +6024,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/peoples_station/ammo_storage)
@@ -5497,6 +6077,18 @@
 	temperature = 278.15
 	},
 /area/peoples_station/armory)
+"wv" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/alarm/cold/west,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "wz" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(209);
@@ -5564,6 +6156,7 @@
 	},
 /obj/structure/table/standard,
 /obj/machinery/chemical_dispenser/bar_soft/full,
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -5576,7 +6169,9 @@
 	dir = 1
 	},
 /obj/structure/plasticflaps/airtight,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -5591,13 +6186,17 @@
 	},
 /area/peoples_station/visitor)
 "wZ" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 8
+/obj/structure/sign/flag/pra{
+	pixel_y = 32
 	},
-/turf/simulated/floor/plating{
+/obj/machinery/atmospherics/portables_connector/supply{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/air,
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/peoples_station/fang)
+/area/shuttle/fang)
 "xa" = (
 /obj/machinery/portable_atmospherics/powered/scrubber,
 /obj/machinery/alarm/cold/north{
@@ -5642,7 +6241,7 @@
 /area/peoples_station/living_quarters)
 "xj" = (
 /obj/effect/floor_decal/corner/dark_blue{
-	dir = 6
+	dir = 4
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -5721,6 +6320,20 @@
 	temperature = 278.15
 	},
 /area/peoples_station/bridge)
+"xv" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/sign/flag/pra{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "xx" = (
 /obj/structure/table/standard,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -5766,8 +6379,7 @@
 /area/peoples_station/medbay)
 "xB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -5784,7 +6396,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -5950,6 +6562,9 @@
 	name = "Restroom";
 	dir = 1
 	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/tiled/freezer{
 	temperature = 278.15
 	},
@@ -6039,6 +6654,20 @@
 "yK" = (
 /turf/simulated/floor/carpet/art,
 /area/peoples_station/living_quarters)
+"yM" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/obj/machinery/alarm/cold/north{
+	req_one_access = list(209)
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "yQ" = (
 /obj/structure/table/standard,
 /obj/structure/window/reinforced,
@@ -6222,8 +6851,7 @@
 /area/peoples_station)
 "zr" = (
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -6258,6 +6886,7 @@
 /obj/effect/floor_decal/spline/plain/grey{
 	dir = 4
 	},
+/obj/effect/overmap/visitable/ship/landable/peoples_station_transport,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/peoples_station_transport)
 "zB" = (
@@ -6299,6 +6928,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -6313,8 +6945,7 @@
 /area/peoples_station/atmos)
 "zU" = (
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/machinery/shower{
 	dir = 8;
@@ -6336,6 +6967,23 @@
 	temperature = 278.15
 	},
 /area/peoples_station/living_quarters)
+"zW" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/starboard,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/access_button{
+	dir = 4;
+	pixel_x = 12;
+	pixel_y = 28
+	},
+/turf/simulated/floor/tiled/dark,
+/area/peoples_station/hangar)
 "zX" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9
@@ -6349,8 +6997,7 @@
 /area/peoples_station/fang)
 "zY" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -6393,17 +7040,21 @@
 	},
 /area/peoples_station/mess_hall)
 "Ae" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/lattice/catwalk/indoor,
 /obj/effect/map_effect/marker_helper/airlock/out,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/effect/map_effect/marker/airlock/shuttle/peoples_station_transport{
-	req_one_access = list(209)
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "peoples_station_transport_dock";
+	name = "peoples_station_transport_dock";
+	req_one_access = list(209);
+	shuttle_tag = "People's Station Transport Shuttle"
 	},
 /turf/simulated/floor,
 /area/shuttle/peoples_station_transport)
@@ -6427,27 +7078,14 @@
 	},
 /area/peoples_station/defenses)
 "Ao" = (
-/obj/effect/landmark/entry_point/aft{
-	name = "aft, airlock"
-	},
-/obj/structure/bed/handrail{
-	dir = 8
-	},
-/obj/structure/lattice/catwalk/indoor,
-/obj/machinery/airlock_sensor/airlock_exterior{
-	pixel_x = -21;
-	pixel_y = 8;
-	dir = 4
-	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/effect/map_effect/marker/airlock/shuttle/peoples_station_transport{
-	req_one_access = list(209)
+/obj/effect/shuttle_landmark/peoples_station_transport/hangar{
+	dir = 1
 	},
-/turf/simulated/floor,
-/area/shuttle/peoples_station_transport)
+/turf/simulated/floor/plating/cooled,
+/area/peoples_station/transport_hangar)
 "Au" = (
 /obj/structure/window/reinforced,
 /obj/effect/floor_decal/corner/dark_blue{
@@ -6487,7 +7125,11 @@
 	},
 /area/peoples_station/training)
 "AB" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	req_access = list(209);
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/fang)
 "AD" = (
@@ -6501,6 +7143,21 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/peoples_station_transport)
+"AK" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/sign/flag/pra/large/west{
+	pixel_x = -32;
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "AL" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -6518,7 +7175,9 @@
 	name = "Mess Hall";
 	dir = 1
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -6561,6 +7220,18 @@
 	temperature = 278.15
 	},
 /area/peoples_station/fang)
+"Ba" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "Bh" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -6574,8 +7245,7 @@
 /area/peoples_station/visitor)
 "Bi" = (
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/machinery/shower{
 	dir = 4
@@ -6614,6 +7284,9 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -6654,7 +7327,9 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/mob/living/heavy_vehicle/premade/pra_egg/armored,
+/mob/living/heavy_vehicle/premade/pra_egg/armored{
+	faction = "PRA"
+	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -6680,6 +7355,25 @@
 	temperature = 278.15
 	},
 /area/peoples_station/barracks)
+"BD" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "BE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -6736,18 +7430,25 @@
 /area/peoples_station)
 "BN" = (
 /obj/machinery/computer/shuttle_control/explore/terminal/peoples_station_fang{
-	dir = 8
+	dir = 8;
+	req_access = list(209)
 	},
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/simulated/floor/plating{
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/shuttle/fang)
 "BO" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -6784,11 +7485,8 @@
 /turf/simulated/floor/plating/cooled,
 /area/peoples_station/transport_hangar)
 "BY" = (
-/obj/effect/floor_decal/corner/red/full{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 5
+/obj/effect/floor_decal/corner/red{
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -6822,7 +7520,7 @@
 /obj/machinery/computer/ship/engines/terminal{
 	dir = 8
 	},
-/turf/simulated/floor/plating{
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/shuttle/fang)
@@ -6927,7 +7625,7 @@
 	pixel_y = 4;
 	pixel_x = -1
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
@@ -6956,10 +7654,27 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating{
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/shuttle/fang)
+"CJ" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "CN" = (
 /obj/machinery/light/small/red{
 	dir = 4
@@ -6973,8 +7688,7 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8;
-	icon_state = "map-scrubbers"
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
@@ -6991,8 +7705,7 @@
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
@@ -7050,7 +7763,7 @@
 "CY" = (
 /obj/structure/bed/stool/chair/cockpit,
 /obj/effect/floor_decal/industrial/outline/red,
-/turf/simulated/floor/plating{
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/shuttle/fang)
@@ -7110,6 +7823,11 @@
 	},
 /area/peoples_station/captain_quarters)
 "Do" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
 /obj/effect/floor_decal/corner/red{
 	dir = 9
@@ -7125,11 +7843,20 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/peoples_station_transport)
+"Dp" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/aft,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "Dr" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/light,
@@ -7148,6 +7875,18 @@
 	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
+"Dt" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "Dv" = (
 /obj/structure/cable/green,
 /obj/machinery/power/solar_control/autostart{
@@ -7174,12 +7913,11 @@
 /obj/machinery/power/apc/high/west{
 	req_access = list(209)
 	},
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
-	},
-/obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/peoples_station_transport)
@@ -7204,13 +7942,16 @@
 /obj/machinery/computer/ship/sensors/terminal{
 	dir = 4
 	},
-/turf/simulated/floor/plating{
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/shuttle/fang)
 "DF" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
+	},
+/obj/effect/shuttle_landmark/peoples_station_fang/hangar{
+	dir = 1
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -7248,7 +7989,11 @@
 	},
 /area/peoples_station/training)
 "DM" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	req_access = list(209);
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -7319,7 +8064,10 @@
 	req_access = list(209);
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -7385,16 +8133,17 @@
 	},
 /area/peoples_station/fang)
 "Ep" = (
-/obj/machinery/light{
+/obj/machinery/door/airlock/external{
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/red{
-	dir = 5
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = 12;
+	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark{
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/aft,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/peoples_station/hangar)
@@ -7468,6 +8217,17 @@
 /obj/structure/ship_weapon_dummy/barrel,
 /turf/simulated/floor/reinforced/airless,
 /area/peoples_station/defenses)
+"ED" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "EH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -7555,7 +8315,11 @@
 	},
 /area/peoples_station/solars)
 "Fe" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	req_access = list(209);
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -7669,6 +8433,10 @@
 /obj/machinery/door/blast/regular/open{
 	id = "peoples_station_armory"
 	},
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -7707,6 +8475,20 @@
 /obj/effect/step_trigger/teleporter,
 /turf/template_noop,
 /area/space)
+"FQ" = (
+/obj/machinery/door/airlock/external{
+	dir = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/fore,
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = -12
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "FS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -7729,6 +8511,24 @@
 	temperature = 278.15
 	},
 /area/peoples_station/bridge)
+"FV" = (
+/obj/machinery/access_button{
+	pixel_x = -12;
+	pixel_y = -28;
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee,
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/starboard,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/shuttle_landmark/nav_peoples_station/starboard_dock{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/peoples_station/hangar)
 "FX" = (
 /obj/structure/table/rack,
 /obj/item/tank/jetpack/oxygen,
@@ -7760,6 +8560,21 @@
 /obj/effect/shuttle_landmark/peoples_station_transport/transit,
 /turf/space/transit/north,
 /area/space)
+"Gc" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/obj/structure/sign/flag/pra/large/east{
+	dir = 4;
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "Gd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -7785,26 +8600,22 @@
 /obj/structure/bed/stool/chair/sofa/red{
 	dir = 4
 	},
-/obj/effect/ghostspawpoint{
-	identifier = "peoples_station_crew";
-	name = "igs - peoples_station_crew"
-	},
 /turf/simulated/floor/carpet/art,
 /area/peoples_station/living_quarters)
 "Gg" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
-/obj/structure/cable/green{
+/obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/peoples_station_transport)
@@ -7825,7 +8636,9 @@
 	name = "Mess Hall";
 	dir = 1
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -7839,14 +8652,15 @@
 	},
 /area/peoples_station/commissar_quarters)
 "Gn" = (
-/obj/effect/floor_decal/corner/red{
+/obj/effect/floor_decal/corner/red,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -7854,7 +8668,8 @@
 /area/peoples_station/hangar)
 "Go" = (
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(209)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/peoples_station_transport)
@@ -7863,6 +8678,9 @@
 	name = "Fang Hangar";
 	req_access = list(209);
 	dir = 1
+	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -7899,7 +8717,9 @@
 	req_access = list(209);
 	dir = 1
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
@@ -7997,20 +8817,12 @@
 	},
 /area/peoples_station/training)
 "GY" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4
-	},
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 6
+	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/shuttle/peoples_station_transport{
-	req_one_access = list(209)
-	},
-/turf/simulated/floor/reinforced,
-/area/shuttle/peoples_station_transport)
+/turf/simulated/floor/plating/cooled,
+/area/peoples_station/transport_hangar)
 "Hc" = (
 /obj/structure/bed/stool/chair/padded/black{
 	dir = 4
@@ -8107,7 +8919,9 @@
 	name = "Captain's Quarters";
 	dir = 1
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
@@ -8133,6 +8947,18 @@
 	temperature = 278.15
 	},
 /area/peoples_station/bridge)
+"Hx" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station)
 "Hy" = (
 /obj/structure/window/reinforced,
 /turf/simulated/floor/tiled{
@@ -8142,10 +8968,6 @@
 "HB" = (
 /turf/simulated/wall/shuttle/raider,
 /area/peoples_station/training)
-"HD" = (
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/plating/cooled,
-/area/peoples_station/transport_hangar)
 "HE" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -8184,6 +9006,15 @@
 	temperature = 278.15
 	},
 /area/peoples_station/medbay)
+"HN" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "HP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -8225,6 +9056,20 @@
 	temperature = 278.15
 	},
 /area/peoples_station/hangar)
+"Ic" = (
+/obj/effect/floor_decal/corner_wide/black{
+	dir = 5
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station)
 "Ie" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -8233,15 +9078,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/transport_hangar)
-"Ig" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/peoples_station/fang)
 "Ih" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
@@ -8318,6 +9154,20 @@
 	temperature = 278.15
 	},
 /area/peoples_station/visitor)
+"IE" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Station Hatch";
+	req_access = list(209);
+	dir = 4
+	},
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station)
 "IF" = (
 /obj/effect/floor_decal/corner/red/full,
 /obj/structure/dispenser/oxygen,
@@ -8341,8 +9191,7 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -8354,6 +9203,7 @@
 	},
 /obj/structure/table/standard,
 /obj/machinery/chemical_dispenser/bar_alc/full,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -8406,6 +9256,17 @@
 	temperature = 278.15
 	},
 /area/peoples_station/bridge)
+"Jc" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "Jd" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -8480,6 +9341,9 @@
 	},
 /area/peoples_station)
 "Jr" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 8
 	},
@@ -8487,11 +9351,6 @@
 	target_pressure = 250
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
 /turf/simulated/floor,
 /area/shuttle/peoples_station_transport)
 "Jx" = (
@@ -8534,7 +9393,10 @@
 	req_access = list(209);
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -8546,15 +9408,19 @@
 	},
 /area/peoples_station/mess_hall)
 "JI" = (
-/obj/structure/bed/padded,
-/obj/item/bedsheet/brown,
-/obj/structure/sign/painting_frame/hadii{
-	pixel_y = 32
+/obj/effect/floor_decal/corner/red{
+	dir = 5
 	},
-/turf/simulated/floor/wood{
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/peoples_station/barracks)
+/area/peoples_station/hangar)
 "JJ" = (
 /obj/effect/floor_decal/corner/red/full{
 	dir = 1
@@ -8630,6 +9496,9 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/alarm/cold/north{
+	req_one_access = list(209)
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -8666,6 +9535,17 @@
 	temperature = 268.15
 	},
 /area/peoples_station/visitor)
+"Kf" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "Kj" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1337;
@@ -8682,6 +9562,18 @@
 	temperature = 278.15
 	},
 /area/peoples_station/fang)
+"Kk" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/red,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "Kn" = (
 /turf/template_noop,
 /area/space)
@@ -8700,6 +9592,10 @@
 /obj/machinery/door/airlock/security{
 	name = "Zero Gravity Chamber";
 	dir = 4
+	},
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -8734,6 +9630,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -8750,8 +9650,7 @@
 "KI" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	icon_state = "warning"
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/visible/red,
 /turf/simulated/floor/plating{
@@ -8799,8 +9698,12 @@
 	},
 /area/peoples_station/hangar)
 "KZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
@@ -8833,6 +9736,21 @@
 	temperature = 278.15
 	},
 /area/peoples_station/hangar)
+"Ld" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "Lf" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -8850,6 +9768,21 @@
 	temperature = 278.15
 	},
 /area/peoples_station)
+"Li" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/red/full,
+/obj/machinery/light{
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/obj/structure/sign/flag/pra{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "Lk" = (
 /turf/simulated/wall/shuttle/raider,
 /area/peoples_station/transport_hangar)
@@ -8879,21 +9812,13 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/peoples_station/transport_hangar)
-"Lt" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "Lv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -8918,6 +9843,20 @@
 	temperature = 278.15
 	},
 /area/peoples_station/restroom)
+"Lz" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/brown,
+/obj/structure/sign/painting_frame/hadii{
+	pixel_y = 32
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "peoples_station_crew";
+	name = "igs - peoples_station_crew"
+	},
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
+/area/peoples_station/barracks)
 "LA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -8940,6 +9879,21 @@
 	temperature = 278.15
 	},
 /area/peoples_station/transport_hangar)
+"LD" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "LE" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -8960,7 +9914,11 @@
 /turf/simulated/floor/reinforced,
 /area/shuttle/fang)
 "LH" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	req_access = list(209);
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -8993,6 +9951,21 @@
 	temperature = 278.15
 	},
 /area/peoples_station/transport_hangar)
+"LP" = (
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_y = 28;
+	pixel_x = -6
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/starboard,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/turf/simulated/floor/plating,
+/area/peoples_station/hangar)
 "LT" = (
 /obj/structure/ship_weapon_dummy{
 	is_barrel = 1
@@ -9039,8 +10012,7 @@
 /area/peoples_station)
 "Mc" = (
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/effect/floor_decal/corner_wide/black/full{
 	dir = 6
@@ -9049,16 +10021,6 @@
 	temperature = 268.15
 	},
 /area/peoples_station/visitor)
-"Mj" = (
-/obj/structure/bed/stool/bar/padded/red,
-/obj/effect/ghostspawpoint{
-	identifier = "peoples_station_crew";
-	name = "igs - peoples_station_crew"
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/mess_hall)
 "Ml" = (
 /obj/machinery/light{
 	dir = 8
@@ -9116,16 +10078,6 @@
 /obj/machinery/computer/arcade/battle,
 /turf/simulated/floor/carpet/art,
 /area/peoples_station/living_quarters)
-"Mx" = (
-/obj/structure/bed/stool/chair/office/bridge/generic,
-/obj/effect/ghostspawpoint{
-	identifier = "peoples_station_crew";
-	name = "igs - peoples_station_crew"
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/bridge)
 "My" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -9133,8 +10085,7 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/item/ship_ammunition/francisca/frag,
 /obj/item/ship_ammunition/francisca/frag,
@@ -9153,8 +10104,7 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/effect/floor_decal/corner_wide/red/full{
 	dir = 6
@@ -9186,6 +10136,27 @@
 	temperature = 278.15
 	},
 /area/peoples_station)
+"ML" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 10
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "peoples_station_transport_dock";
+	name = "peoples_station_transport_dock";
+	req_one_access = list(209);
+	shuttle_tag = "People's Station Transport Shuttle"
+	},
+/turf/simulated/floor/reinforced,
+/area/shuttle/peoples_station_transport)
 "MM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -9251,8 +10222,7 @@
 	weapon_id = "Fang Rotary Gun"
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -9297,7 +10267,10 @@
 	req_access = list(209);
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -9417,6 +10390,17 @@
 	temperature = 278.15
 	},
 /area/peoples_station/captain_quarters)
+"NF" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "NH" = (
 /obj/structure/cable/green{
 	d2 = 8;
@@ -9490,6 +10474,22 @@
 	temperature = 278.15
 	},
 /area/peoples_station/visitor)
+"Oh" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/door/airlock/external{
+	dir = 1
+	},
+/obj/machinery/access_button{
+	dir = 8;
+	pixel_x = 24;
+	pixel_y = -27
+	},
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/aft,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "Oi" = (
 /obj/structure/sign/flag/pra{
 	pixel_y = 32
@@ -9525,7 +10525,11 @@
 /turf/simulated/floor/airless,
 /area/peoples_station/solars)
 "Ok" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	req_access = list(209);
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -9545,7 +10549,9 @@
 	req_access = list(209)
 	},
 /obj/structure/table/steel,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
 /obj/item/paper_bin,
 /obj/item/pen/black,
 /obj/machinery/door/blast/regular/open{
@@ -9645,8 +10651,7 @@
 /area/peoples_station/armory)
 "ON" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8;
-	icon_state = "map-scrubbers"
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -9731,8 +10736,7 @@
 /area/peoples_station)
 "OZ" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 8;
-	icon_state = "map"
+	dir = 1
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/peoples_station_transport)
@@ -9842,8 +10846,7 @@
 /area/peoples_station/atmos)
 "Pt" = (
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/machinery/door/window{
 	dir = 8;
@@ -9901,6 +10904,22 @@
 	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
+"PB" = (
+/obj/machinery/door/airlock/external{
+	dir = 1
+	},
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = 12;
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/aft,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/shuttle_landmark/nav_peoples_station/aft_dock,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "PC" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -9924,7 +10943,9 @@
 	},
 /area/peoples_station/solars)
 "PH" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
@@ -9941,6 +10962,19 @@
 	temperature = 278.15
 	},
 /area/peoples_station/ammo_storage)
+"PL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "PM" = (
 /obj/structure/bed/stool/chair/padded/red{
 	dir = 1
@@ -9965,11 +10999,12 @@
 /area/peoples_station/ammo_storage)
 "PQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 9
+	dir = 8
 	},
-/obj/machinery/power/terminal,
-/obj/structure/cable/green,
-/turf/simulated/floor/plating{
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/shuttle/fang)
@@ -9992,9 +11027,8 @@
 	},
 /area/peoples_station/commissar_quarters)
 "PU" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 4;
-	icon_state = "map"
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/peoples_station_transport)
@@ -10189,7 +11223,11 @@
 /obj/machinery/door/blast/regular/open{
 	id = "peoples_station_transport_blast"
 	},
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	req_access = list(209);
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/peoples_station_transport)
 "QX" = (
@@ -10268,10 +11306,6 @@
 /area/peoples_station/bridge)
 "Rm" = (
 /obj/structure/bed/stool/chair/office/dark,
-/obj/effect/ghostspawpoint{
-	identifier = "peoples_station_crew";
-	name = "igs - peoples_station_crew"
-	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -10288,9 +11322,6 @@
 	},
 /area/peoples_station)
 "Rs" = (
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -10330,7 +11361,9 @@
 	},
 /area/peoples_station/transport_hangar)
 "Rx" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
 /obj/machinery/door/airlock/hatch{
 	name = "Station Hatch";
 	req_access = list(209);
@@ -10376,7 +11409,7 @@
 /obj/structure/sign/painting_frame/hadii{
 	pixel_y = 32
 	},
-/obj/effect/ghostspawpoint{
+/obj/effect/ghostspawpoint/one_use{
 	identifier = "peoples_station_crew";
 	name = "igs - peoples_station_crew"
 	},
@@ -10410,7 +11443,11 @@
 	},
 /area/peoples_station/training)
 "RM" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	req_access = list(209);
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -10496,12 +11533,15 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
-/obj/effect/map_effect/marker/airlock/shuttle/peoples_station_transport{
-	req_one_access = list(209)
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "peoples_station_transport_dock";
+	name = "peoples_station_transport_dock";
+	req_one_access = list(209);
+	shuttle_tag = "People's Station Transport Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/peoples_station_transport)
@@ -10584,6 +11624,20 @@
 	temperature = 278.15
 	},
 /area/peoples_station/atmos)
+"Sx" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station)
 "SD" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -10619,8 +11673,7 @@
 /area/peoples_station/mess_hall)
 "SK" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	icon_state = "warning"
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/red,
 /turf/simulated/floor/plating{
@@ -10647,6 +11700,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -10669,7 +11725,9 @@
 "SP" = (
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/mob/living/heavy_vehicle/premade/ripley/loader,
+/mob/living/heavy_vehicle/premade/ripley/loader{
+	faction = "PRA"
+	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
@@ -10768,6 +11826,17 @@
 	temperature = 278.15
 	},
 /area/peoples_station/fang)
+"Tk" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "Tl" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 5
@@ -10779,6 +11848,16 @@
 	temperature = 278.15
 	},
 /area/peoples_station/visitor)
+"Tm" = (
+/obj/machinery/door/airlock/external{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/aft,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "To" = (
 /obj/structure/window/reinforced,
 /obj/machinery/computer/ship/navigation/terminal{
@@ -10839,6 +11918,21 @@
 	temperature = 268.15
 	},
 /area/peoples_station/visitor)
+"Tx" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/transport_hangar)
 "TA" = (
 /obj/machinery/light,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -10889,14 +11983,10 @@
 	},
 /area/peoples_station/visitor)
 "TF" = (
-/obj/machinery/power/smes/buildable/third_party_shuttle,
 /obj/structure/cable/green{
-	icon_state = "0-4"
+	icon_state = "4-8"
 	},
-/obj/structure/cable/green{
-	icon_state = "0-8"
-	},
-/turf/simulated/floor/plating{
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/shuttle/fang)
@@ -11063,17 +12153,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
-"Uk" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "Ul" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port, crew compartment"
@@ -11086,6 +12165,18 @@
 "Un" = (
 /turf/simulated/wall/shuttle/raider,
 /area/peoples_station/atmos)
+"Uo" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station)
 "Up" = (
 /obj/effect/floor_decal/corner/red/full{
 	dir = 4
@@ -11103,9 +12194,8 @@
 	},
 /area/peoples_station/commissar_quarters)
 "Ux" = (
-/obj/machinery/alarm/west{
-	req_access = list(207);
-	req_one_access = null
+/obj/machinery/alarm/cold/west{
+	req_one_access = list(209)
 	},
 /obj/machinery/computer/ship/engines/terminal{
 	dir = 4
@@ -11153,6 +12243,10 @@
 	dir = 4
 	},
 /obj/structure/plasticflaps/airtight,
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -11169,6 +12263,19 @@
 	},
 /turf/simulated/floor/airless,
 /area/peoples_station/solars)
+"UK" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/transport_hangar)
 "UN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/freezer{
@@ -11178,7 +12285,6 @@
 "UO" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot,
 /obj/effect/floor_decal/spline/plain/cee/grey,
-/obj/effect/overmap/visitable/ship/landable/peoples_station_transport,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/peoples_station_transport)
 "UP" = (
@@ -11207,6 +12313,16 @@
 	temperature = 278.15
 	},
 /area/peoples_station/bridge)
+"UV" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/suit_cycler/offship/pra,
+/obj/structure/sign/flag/pra/large/north{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/transport_hangar)
 "UW" = (
 /turf/simulated/floor/tiled/freezer{
 	temperature = 278.15
@@ -11319,6 +12435,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -11345,31 +12464,56 @@
 	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
-"VG" = (
-/obj/machinery/atmospherics/pipe/tank/air{
-	start_pressure = 5066.26;
+"Vv" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station)
+"VE" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
+	},
+/obj/machinery/access_button{
+	pixel_x = -12;
+	pixel_y = 28;
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/starboard,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/structure/sign/flag/pra{
-	pixel_y = 32
+/turf/simulated/floor/tiled/dark,
+/area/peoples_station/hangar)
+"VG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
 	},
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1337;
-	id_tag = "peoples_station_fang";
-	tag_door = "fang_hatch";
-	dir = 4;
-	pixel_x = -24
-	},
-/turf/simulated/floor/plating{
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/shuttle/fang)
+"VL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "VQ" = (
 /obj/structure/table/steel,
 /obj/machinery/door/window/brigdoor/westright,
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -11415,6 +12559,20 @@
 /obj/effect/shuttle_landmark/nav_peoples_station/nav1,
 /turf/template_noop,
 /area/space)
+"VZ" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "Wf" = (
 /obj/machinery/light,
 /obj/structure/table/standard,
@@ -11484,11 +12642,17 @@
 	},
 /area/peoples_station/mess_hall)
 "Ww" = (
-/obj/effect/floor_decal/industrial/warning/corner,
-/turf/simulated/floor/plating{
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
+	},
+/obj/machinery/power/terminal,
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/peoples_station/fang)
+/area/shuttle/fang)
 "Wy" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, station hull"
@@ -11504,6 +12668,17 @@
 	temperature = 278.15
 	},
 /area/peoples_station/atmos)
+"WB" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "WD" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
 /obj/effect/floor_decal/corner_wide/red{
@@ -11575,25 +12750,27 @@
 	},
 /area/peoples_station/hangar)
 "WO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 8
-	},
 /obj/machinery/door/airlock/external{
 	frequency = 1337;
 	icon_state = "door_locked";
 	id_tag = "fang_hatch";
 	name = "Ship External Access";
-	open_layer = 2.8;
 	dir = 1
 	},
 /obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/landmark/entry_point/aft{
-	name = "aft, airlock"
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	req_one_access = list(209);
+	shuttle_tag = "Orbital Fleet Fang";
+	name = "peoples_station_fang";
+	req_access = "peoples_station_fang"
 	},
+/obj/machinery/access_button{
+	pixel_x = -28
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -11680,7 +12857,10 @@
 	req_access = list(209);
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -11739,12 +12919,13 @@
 /area/peoples_station/fang)
 "Xy" = (
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 4
+	dir = 4;
+	req_access = list(209)
 	},
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/plating{
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/shuttle/fang)
@@ -11842,6 +13023,30 @@
 	temperature = 278.15
 	},
 /area/peoples_station/restroom)
+"XU" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "peoples_station_transport_dock";
+	name = "peoples_station_transport_dock";
+	req_one_access = list(209);
+	shuttle_tag = "People's Station Transport Shuttle"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/obj/machinery/airlock_sensor/airlock_exterior{
+	pixel_y = 28;
+	pixel_x = 20;
+	dir = 8
+	},
+/turf/simulated/floor/reinforced,
+/area/shuttle/peoples_station_transport)
 "XV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -11883,17 +13088,19 @@
 	},
 /area/peoples_station/fang)
 "Yf" = (
-/obj/effect/floor_decal/industrial/loading/yellow{
-	dir = 4
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 1
 	},
-/obj/effect/ghostspawpoint{
-	identifier = "peoples_station_crew";
-	name = "igs - peoples_station_crew"
+/obj/structure/cargo_receptacle{
+	override_name = "People's Station - Training Wing";
+	payment_modifier = 0.6;
+	max_spawn = 2;
+	min_spawn = 1
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/peoples_station/defenses)
+/area/peoples_station/training)
 "Yh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -12076,6 +13283,19 @@
 	},
 /turf/simulated/floor/carpet/art,
 /area/peoples_station/captain_quarters)
+"YU" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "YV" = (
 /obj/structure/table/standard,
 /obj/item/paper_bin,
@@ -12087,8 +13307,7 @@
 /area/peoples_station/bridge)
 "YW" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -12179,8 +13398,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	pixel_y = 24
@@ -12189,8 +13407,12 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
-/obj/effect/map_effect/marker/airlock/shuttle/peoples_station_transport{
-	req_one_access = list(209)
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "peoples_station_transport_dock";
+	name = "peoples_station_transport_dock";
+	req_one_access = list(209);
+	shuttle_tag = "People's Station Transport Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/peoples_station_transport)
@@ -12206,27 +13428,27 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/peoples_station/fang)
 "Zq" = (
-/obj/machinery/door/airlock/external{
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/access_button{
-	pixel_x = -12;
-	pixel_y = -28;
-	dir = 8
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
 	},
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/effect/floor_decal/industrial/warning/cee,
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/port,
-/turf/simulated/floor/tiled/dark,
 /area/peoples_station/hangar)
 "Zr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
@@ -12236,13 +13458,22 @@
 	temperature = 278.15
 	},
 /area/peoples_station/atmos)
+"Zs" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/iff_beacon/name_change,
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/airless,
+/area/peoples_station/bridge)
 "Zw" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Armory";
 	req_access = list(209);
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -12279,8 +13510,7 @@
 /area/peoples_station/mess_hall)
 "ZH" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8;
-	icon_state = "map-scrubbers"
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/firealarm/west,
@@ -12354,6 +13584,18 @@
 	temperature = 278.15
 	},
 /area/peoples_station/medbay)
+"ZX" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "ZY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -12375,6 +13617,19 @@
 	temperature = 278.15
 	},
 /area/peoples_station)
+"ZZ" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/transport_hangar)
 
 (1,1,1) = {"
 Kn
@@ -38986,8 +40241,8 @@ mN
 Uy
 aQ
 Pg
-rH
-rH
+Pg
+Pg
 EC
 Kn
 Kn
@@ -40784,9 +42039,9 @@ QX
 uD
 Uy
 fE
-rH
-rH
-rH
+Pg
+Pg
+Pg
 EC
 Kn
 Kn
@@ -41554,7 +42809,7 @@ Uy
 Dx
 xo
 JB
-Yf
+bq
 oU
 Kn
 Kn
@@ -43624,12 +44879,12 @@ sg
 gd
 DO
 eu
+vM
+vM
+vM
+gH
+vM
 eu
-eu
-eu
-eu
-eu
-ey
 eu
 eu
 eu
@@ -43879,18 +45134,18 @@ hz
 hz
 Kj
 eu
-GJ
 Vb
 Po
 vM
+wZ
+ey
+uG
 vM
-gH
 vM
-AB
 AB
 AB
 xE
-Ig
+FA
 NU
 eu
 WF
@@ -44059,7 +45314,7 @@ Kn
 Kn
 BJ
 Bx
-jH
+Bx
 Bx
 iO
 BJ
@@ -44136,20 +45391,20 @@ ed
 hz
 tP
 eu
-qS
-eu
+vM
 fy
+vM
 VG
 vE
-mF
+TF
 pF
 DC
 Xy
 AB
-AB
 vM
-wZ
-NU
+eu
+WF
+eu
 WF
 SH
 Kn
@@ -44403,10 +45658,10 @@ pg
 kg
 CY
 dG
-AB
 LF
 MU
 Ge
+eu
 WF
 SH
 Kn
@@ -44650,9 +45905,9 @@ dY
 hz
 CT
 eu
-qS
-eu
-uG
+vM
+fy
+vM
 ge
 PQ
 TF
@@ -44660,10 +45915,10 @@ EW
 Cg
 BN
 AB
-AB
 lc
-Ww
-xF
+eu
+WF
+eu
 WF
 SH
 Kn
@@ -44835,7 +46090,7 @@ BJ
 BJ
 BJ
 HB
-HB
+Yf
 mT
 TH
 pA
@@ -44907,14 +46162,14 @@ hz
 hz
 Xw
 eu
-dC
 Vb
 mM
 vM
+qS
+Ww
+mF
 vM
-xr
 vM
-AB
 AB
 AB
 gm
@@ -45091,7 +46346,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
+HB
 HB
 HB
 HB
@@ -45166,11 +46421,11 @@ AW
 hn
 Ef
 eu
-eu
-eu
-eu
-eu
-eu
+vM
+vM
+vM
+xr
+vM
 eu
 eu
 eu
@@ -45367,7 +46622,7 @@ CR
 CR
 CR
 CR
-jl
+IE
 CR
 CR
 CR
@@ -45912,13 +47167,13 @@ zv
 zv
 zv
 zv
-zv
+Uo
 zv
 Yn
 zv
 zv
 zv
-zv
+rg
 Yn
 zv
 yb
@@ -46169,13 +47424,13 @@ BM
 BM
 BM
 BM
+ky
 BM
 BM
 BM
 BM
 BM
-BM
-BM
+qs
 BM
 BM
 sB
@@ -46387,11 +47642,11 @@ yK
 yK
 OO
 Bz
-Rq
-GT
+Hx
+Sx
 hw
 CR
-Nr
+iX
 rF
 TS
 CR
@@ -47194,7 +48449,7 @@ JL
 jZ
 LA
 jZ
-Mj
+aM
 aM
 aM
 aM
@@ -47478,6 +48733,7 @@ Nu
 RB
 nj
 Kn
+dR
 Kn
 Kn
 Kn
@@ -47498,8 +48754,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
+dR
 Kn
 Kn
 Kn
@@ -47965,7 +49220,7 @@ Wp
 yE
 Lf
 jZ
-Mj
+aM
 aM
 aM
 aM
@@ -48187,8 +49442,8 @@ aF
 Bz
 Bz
 qh
-GT
-hw
+dD
+UX
 CR
 Nr
 WT
@@ -48219,8 +49474,8 @@ Kn
 Kn
 Fe
 II
-jZ
-LA
+yE
+Lf
 jZ
 jZ
 jZ
@@ -48249,6 +49504,7 @@ tK
 tK
 bV
 tS
+dR
 Kn
 Kn
 Kn
@@ -48269,8 +49525,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
+dR
 Kn
 Kn
 Kn
@@ -48461,9 +49716,9 @@ DJ
 YG
 pH
 iD
-Kn
-Kn
-Kn
+LJ
+NP
+qn
 CR
 Nr
 Ms
@@ -48476,8 +49731,8 @@ Kn
 Kn
 Fe
 wT
-jZ
-LA
+NK
+RC
 jZ
 aM
 aM
@@ -48704,7 +49959,7 @@ qh
 GT
 Eq
 CR
-sU
+Ic
 WT
 vA
 zJ
@@ -48718,9 +49973,9 @@ yv
 lf
 RQ
 iD
-LJ
-NP
-qn
+VS
+Zs
+NV
 CR
 Nr
 Ms
@@ -48972,11 +50227,11 @@ bs
 UP
 Gz
 DJ
-Mx
+YG
 EJ
 iD
 VS
-WP
+fX
 NV
 CR
 Iu
@@ -49020,6 +50275,7 @@ tK
 tK
 PM
 tS
+dR
 Kn
 Kn
 Kn
@@ -49040,8 +50296,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
+dR
 Kn
 Kn
 Kn
@@ -49232,8 +50487,8 @@ DJ
 Fv
 kQ
 iD
-IM
-Fo
+VS
+WP
 NV
 CR
 Nr
@@ -49471,8 +50726,8 @@ sE
 sE
 Wn
 Um
-qh
-GT
+Vv
+Sx
 hw
 CR
 Nr
@@ -49489,9 +50744,9 @@ DJ
 YG
 pH
 iD
-Kn
-Kn
-Kn
+IM
+Fo
+NV
 CR
 Nr
 Ms
@@ -49768,7 +51023,7 @@ aM
 aM
 aM
 aM
-Mj
+aM
 aM
 aM
 aM
@@ -49791,6 +51046,7 @@ tK
 wt
 nj
 nj
+dR
 Kn
 Kn
 Kn
@@ -49811,8 +51067,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
+dR
 Kn
 Kn
 Kn
@@ -50539,7 +51794,7 @@ aM
 aM
 aM
 aM
-Mj
+aM
 aM
 aM
 aM
@@ -50562,6 +51817,7 @@ tS
 nj
 Kn
 Kn
+dR
 Kn
 Kn
 Kn
@@ -50582,8 +51838,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
+dR
 Kn
 Kn
 Kn
@@ -50757,8 +52012,8 @@ no
 YT
 Um
 qh
-GT
-hw
+dD
+UX
 CR
 sU
 Ms
@@ -51333,6 +52588,7 @@ Kn
 Kn
 Kn
 Kn
+dR
 Kn
 Kn
 Kn
@@ -51353,8 +52609,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
+dR
 Kn
 Kn
 Kn
@@ -52104,6 +53359,7 @@ Kn
 Kn
 Kn
 Kn
+dR
 Kn
 Kn
 Kn
@@ -52124,8 +53380,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
+dR
 Kn
 Kn
 Kn
@@ -52578,7 +53833,7 @@ CR
 CR
 CR
 CR
-jl
+IE
 CR
 CR
 CR
@@ -52827,12 +54082,12 @@ qo
 qo
 qo
 qo
+Jp
 qo
 qo
 qo
 qo
-qo
-qo
+Jp
 qo
 qo
 yx
@@ -52875,6 +54130,7 @@ Kn
 Kn
 Kn
 Kn
+dR
 Kn
 Kn
 Kn
@@ -52895,8 +54151,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
+dR
 Kn
 Kn
 Kn
@@ -53075,6 +54330,7 @@ rO
 rO
 rO
 rO
+um
 rO
 rO
 rO
@@ -53083,13 +54339,12 @@ rO
 rO
 rO
 rO
-rO
-rO
+pn
 rO
 rO
 en
 rO
-rO
+hx
 rO
 en
 XE
@@ -53120,20 +54375,20 @@ lI
 lI
 lI
 lI
-ik
+WB
 Ne
 lI
 Kn
 Kn
 Kn
 Kn
-ir
 Kn
 Kn
-ir
 Kn
 Kn
-ir
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -53332,7 +54587,7 @@ QK
 QK
 No
 QK
-QK
+Yj
 QK
 QK
 No
@@ -53346,7 +54601,7 @@ QK
 QK
 Yh
 QK
-QK
+Yj
 No
 GT
 QK
@@ -53634,9 +54889,16 @@ sb
 PR
 Df
 DM
-ik
+Jc
 cj
 lI
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 dR
@@ -53660,14 +54922,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+dR
 Kn
 Kn
 Kn
@@ -53848,11 +55103,11 @@ RF
 bD
 tU
 vF
-JI
+RF
 bD
 tU
 vF
-JI
+RF
 bD
 tU
 vF
@@ -54126,7 +55381,7 @@ Zj
 Kn
 Kn
 Lk
-IS
+UV
 oV
 oV
 kJ
@@ -54162,24 +55417,24 @@ Kn
 Kn
 Kn
 Kn
+ir
 Kn
 Kn
+ir
 Kn
 Kn
+ir
+lI
+VE
+FV
+lI
+ir
 Kn
 Kn
+ir
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+ir
 Kn
 Kn
 Kn
@@ -54360,7 +55615,7 @@ PY
 PY
 vF
 vF
-dI
+hb
 vF
 vF
 vF
@@ -54410,7 +55665,6 @@ PV
 lI
 Kn
 Kn
-dR
 Kn
 Kn
 Kn
@@ -54427,9 +55681,10 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
+lI
+bH
+nK
+lI
 Kn
 Kn
 Kn
@@ -54646,7 +55901,7 @@ oV
 CV
 pt
 Lk
-LK
+ZZ
 TA
 Lk
 Kn
@@ -54683,10 +55938,10 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
+lI
+LP
+on
+lI
 Kn
 Kn
 Kn
@@ -54919,31 +56174,31 @@ Kn
 Kn
 Kn
 lI
-ik
-PV
+aZ
+BD
 lI
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+lI
+lI
+lI
+DM
+DM
+DM
+DM
+lI
+lI
+lI
+lI
+lI
+DM
+DM
+DM
+DM
+lI
+lI
+lI
+zW
+ax
+lI
 Kn
 Kn
 Kn
@@ -55154,13 +56409,13 @@ Zj
 Kn
 Kn
 Lk
-IS
+UV
 oV
 oV
 oV
 FX
 Lk
-LK
+UK
 WZ
 Lk
 Kn
@@ -55176,31 +56431,31 @@ Kn
 Kn
 Kn
 lI
-Lb
-PV
+kN
+LD
+Ld
+eV
+eV
+AK
+YU
+ED
+ED
+ED
+wv
+cW
+eV
+eV
+AK
+YU
+ED
+ED
+ED
+wv
+cW
+HN
+fh
+Kf
 lI
-Kn
-Kn
-dR
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
 Kn
 Kn
 Kn
@@ -55390,15 +56645,15 @@ RF
 bD
 tU
 vF
-JI
+RF
 bD
 tU
 vF
-JI
+RF
 bD
 tU
 vF
-JI
+Lz
 bD
 tU
 Zj
@@ -55431,33 +56686,33 @@ Kn
 Kn
 Kn
 Kn
-Kn
-lI
-aZ
-PV
 lI
 lI
+qa
+Kk
+og
+BY
+BY
+kx
+Tk
+BY
+BY
+BY
+BY
+Gc
+BY
+BY
+kx
+Tk
+BY
+BY
+BY
+BY
+Gc
+BY
+BY
+kv
 lI
-lI
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
 Kn
 Kn
 Kn
@@ -55689,32 +56944,32 @@ Kn
 Kn
 Kn
 lI
-lI
-ik
+Ia
+gw
 PV
-aP
-lt
-ov
-ax
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+lI
+lI
+lI
+lI
+DM
+DM
+DM
+DM
+lI
+lI
+lI
+lI
+lI
+DM
+DM
+DM
+DM
+lI
+lI
+lI
+lI
+lI
+lI
 Kn
 Kn
 Kn
@@ -55931,8 +57186,8 @@ qJ
 oV
 tG
 Lk
-LK
-WZ
+Tx
+bx
 Lk
 Kn
 Kn
@@ -55949,10 +57204,10 @@ lI
 Ia
 ys
 mv
-fG
-Px
-KU
-sK
+lI
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -56205,19 +57460,19 @@ Kn
 lI
 BH
 Dd
-PV
-lI
-lI
-lI
+sK
 lI
 Kn
 Kn
 Kn
 Kn
+ir
 Kn
 Kn
+ir
 Kn
 Kn
+ir
 Kn
 Kn
 Kn
@@ -56462,11 +57717,11 @@ Kn
 lI
 lI
 qa
-PV
+sK
 lI
 Kn
 Kn
-dR
+Kn
 Kn
 Kn
 Kn
@@ -56719,11 +57974,11 @@ Lk
 Kn
 lI
 xX
-PV
+sK
 lI
 Kn
 Kn
-Kn
+dR
 Kn
 Kn
 Kn
@@ -56976,8 +58231,8 @@ fS
 Kn
 lI
 Lc
-PV
-lI
+sK
+DM
 Kn
 Kn
 Kn
@@ -57214,7 +58469,7 @@ Cu
 mO
 gi
 jo
-jo
+XU
 sr
 kB
 dL
@@ -57222,7 +58477,7 @@ oa
 dL
 dL
 CB
-jo
+GY
 GQ
 wM
 Cu
@@ -57233,11 +58488,11 @@ fS
 Kn
 lI
 qa
-PV
-lI
+sK
+DM
 Kn
 Kn
-dR
+Kn
 Kn
 Kn
 Kn
@@ -57469,9 +58724,9 @@ Lk
 mh
 Cu
 xY
-GY
-dL
-dL
+dg
+tv
+sY
 dL
 Tf
 cX
@@ -57490,11 +58745,11 @@ fS
 Kn
 lI
 qa
-PV
-lI
+sK
+DM
 Kn
 Kn
-Kn
+dR
 Kn
 Kn
 Kn
@@ -57726,7 +58981,7 @@ Lk
 OX
 Cu
 uv
-TB
+dg
 OZ
 lv
 ow
@@ -57746,9 +59001,9 @@ Cu
 fS
 Kn
 lI
-qa
-PV
-lI
+yM
+sK
+DM
 Kn
 Kn
 Kn
@@ -57981,7 +59236,7 @@ Kn
 Kn
 Lk
 mh
-ns
+Cu
 eN
 Ao
 vR
@@ -57996,19 +59251,19 @@ zw
 UO
 Go
 qI
-HD
+uu
 ll
 ec
 Cu
 fS
 Kn
 lI
-qa
-PV
+mX
+ct
 lI
 Kn
 Kn
-dR
+Kn
 Kn
 Kn
 Kn
@@ -58240,8 +59495,8 @@ Lk
 OX
 Cu
 BU
-tv
-PU
+dg
+OZ
 Zn
 Sj
 ZT
@@ -58261,11 +59516,11 @@ fS
 Kn
 lI
 xX
-PV
+sK
 lI
 Kn
 Kn
-Kn
+dR
 Kn
 Kn
 Kn
@@ -58498,8 +59753,8 @@ mh
 Cu
 xh
 dg
-dL
-dL
+TB
+PU
 dL
 Tf
 AD
@@ -58518,19 +59773,19 @@ fS
 Kn
 lI
 Lc
-PV
+sK
+lI
+lI
+lI
 lI
 Kn
 Kn
 Kn
 Kn
-ir
 Kn
 Kn
-ir
 Kn
 Kn
-ir
 Kn
 Kn
 Kn
@@ -58756,7 +60011,7 @@ Cu
 Cu
 xh
 kh
-kh
+ML
 tH
 fK
 dL
@@ -58775,11 +60030,11 @@ fS
 Kn
 lI
 qa
-PV
-lI
-Kn
-Kn
-Kn
+CJ
+aP
+lt
+ov
+FQ
 Kn
 Kn
 Kn
@@ -59031,12 +60286,12 @@ Cu
 fS
 Kn
 lI
-tF
+qa
 Gn
-lI
-Kn
-Kn
-Kn
+fG
+Px
+KU
+bk
 Kn
 Kn
 Kn
@@ -59289,11 +60544,11 @@ Lk
 Kn
 lI
 qa
-Uk
+VZ
 lI
-Kn
-Kn
-Kn
+lI
+lI
+lI
 Kn
 Kn
 Kn
@@ -59546,11 +60801,11 @@ Kn
 Kn
 lI
 qa
-Uk
+VZ
 lI
 Kn
 Kn
-Kn
+dR
 Kn
 Kn
 Kn
@@ -59803,7 +61058,7 @@ Kn
 Kn
 lI
 xX
-Uk
+VZ
 lI
 Kn
 Kn
@@ -60047,21 +61302,21 @@ Kn
 Kn
 Kn
 Kn
+ir
 Kn
 Kn
+ir
 Kn
 Kn
-Kn
-Kn
-Kn
+ir
 Kn
 Kn
 Kn
 Kn
 lI
 Lc
-Uk
-lI
+VZ
+DM
 Kn
 Kn
 Kn
@@ -60316,12 +61571,12 @@ Kn
 Kn
 Kn
 lI
-rQ
-Lt
-lI
+qa
+BO
+DM
 Kn
 Kn
-Kn
+dR
 Kn
 Kn
 Kn
@@ -60569,13 +61824,13 @@ Kn
 Kn
 Kn
 Kn
-Kn
+dR
 Kn
 Kn
 lI
 qa
 BO
-lI
+DM
 Kn
 Kn
 Kn
@@ -60830,9 +62085,9 @@ Kn
 Kn
 Kn
 lI
-qa
+JI
 BO
-lI
+DM
 Kn
 Kn
 Kn
@@ -61087,12 +62342,12 @@ Kn
 Kn
 Kn
 lI
-qa
-BO
+ZX
+iv
 lI
 Kn
 Kn
-Kn
+dR
 Kn
 Kn
 Kn
@@ -61340,12 +62595,12 @@ Kn
 Kn
 Kn
 Kn
-Kn
+dR
 Kn
 Kn
 lI
-Ep
-BO
+qa
+Zq
 lI
 Kn
 Kn
@@ -61602,19 +62857,19 @@ Kn
 Kn
 lI
 fB
-BY
+Zq
 lI
 Kn
 Kn
 Kn
 Kn
+ir
 Kn
 Kn
+ir
 Kn
 Kn
-Kn
-Kn
-Kn
+ir
 Kn
 Kn
 Kn
@@ -61858,7 +63113,7 @@ Kn
 Kn
 Kn
 lI
-LE
+yM
 Zq
 lI
 Kn
@@ -62111,12 +63366,12 @@ Kn
 Kn
 Kn
 Kn
-Kn
+dR
 Kn
 Kn
 lI
-be
-sH
+JI
+Zq
 lI
 Kn
 Kn
@@ -62368,20 +63623,20 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
 lI
-vt
-uV
 lI
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+lI
+lI
+qa
+Zq
+lI
+lI
+DM
+DM
+DM
+DM
+lI
+lI
 Kn
 Kn
 Kn
@@ -62621,24 +63876,24 @@ Kn
 Kn
 Kn
 Kn
-ir
 Kn
 Kn
-ir
 Kn
 Kn
-ir
+PB
+Dp
+fn
+Tm
+NF
+dz
+jD
+xv
+PL
+my
+Dt
+kj
+Li
 lI
-UY
-kk
-lI
-ir
-Kn
-Kn
-ir
-Kn
-Kn
-ir
 Kn
 Kn
 Kn
@@ -62882,20 +64137,20 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+Ep
+ha
+fU
+Oh
+ns
+BY
+Ba
+BY
+Tk
+BY
+dE
+ps
+VL
+lI
 Kn
 Kn
 Kn
@@ -63133,28 +64388,28 @@ Kn
 Kn
 Kn
 Kn
-dR
 Kn
 Kn
 Kn
 Kn
 Kn
 Kn
+lI
+lI
+lI
+lI
+lI
+lI
+lI
+lI
+DM
+DM
+lI
+LE
+sJ
+lI
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-dR
 Kn
 Kn
 Kn
@@ -63396,6 +64651,7 @@ Kn
 Kn
 Kn
 Kn
+dR
 Kn
 Kn
 Kn
@@ -63405,11 +64661,10 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+lI
+be
+sH
+lI
 Kn
 Kn
 Kn
@@ -63663,10 +64918,10 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
+lI
+vt
+uV
+lI
 Kn
 Kn
 Kn
@@ -63904,7 +65159,6 @@ Kn
 Kn
 Kn
 Kn
-dR
 Kn
 Kn
 Kn
@@ -63914,23 +65168,24 @@ Kn
 Kn
 Kn
 Kn
+ir
 Kn
 Kn
+ir
 Kn
 Kn
+ir
+lI
+UY
+kk
+lI
+ir
 Kn
 Kn
+ir
 Kn
 Kn
-Kn
-Kn
-Kn
-dR
-Kn
-Kn
-Kn
-Kn
-Kn
+ir
 Kn
 Kn
 Kn
@@ -64167,7 +65422,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
+dR
 Kn
 Kn
 Kn
@@ -64425,6 +65680,7 @@ Kn
 Kn
 Kn
 Kn
+dR
 Kn
 Kn
 Kn
@@ -64445,8 +65701,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
+dR
 Kn
 Kn
 Kn
@@ -64675,7 +65930,6 @@ Kn
 Kn
 Kn
 Kn
-dR
 Kn
 Kn
 Kn
@@ -64696,7 +65950,8 @@ Kn
 Kn
 Kn
 Kn
-dR
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -64938,7 +66193,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
+dR
 Kn
 Kn
 Kn
@@ -65196,6 +66451,7 @@ Kn
 Kn
 Kn
 Kn
+dR
 Kn
 Kn
 Kn
@@ -65216,8 +66472,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
+dR
 Kn
 Kn
 Kn
@@ -65444,13 +66699,13 @@ Kn
 Kn
 Kn
 Kn
+ir
 Kn
 Kn
+ir
 Kn
 Kn
-Kn
-Kn
-Kn
+ir
 Kn
 Kn
 Kn
@@ -65967,6 +67222,7 @@ Kn
 Kn
 Kn
 Kn
+dR
 Kn
 Kn
 Kn
@@ -65987,8 +67243,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
+dR
 Kn
 Kn
 Kn

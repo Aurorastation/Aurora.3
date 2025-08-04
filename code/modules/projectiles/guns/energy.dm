@@ -1,8 +1,6 @@
 /obj/item/gun/energy
 	name = "energy gun"
 	desc = "A basic energy-based gun."
-	desc_info = "This is an energy weapon.  To fire this weapon, toggle the safety with ctrl-click (or enable HARM intent), \
-	then click where you want to fire.  Most energy weapons can fire through windows harmlessly.  To recharge this weapon, use a weapon recharger."
 	icon = 'icons/obj/guns/ecarbine.dmi'
 	icon_state = "energykill100"
 	item_state = "energykill100"
@@ -20,7 +18,7 @@
 	var/charge_cost = 200 //How much energy is needed to fire.
 	var/max_shots = 10 //Determines the capacity of the weapon's power cell. Specifying a cell_type overrides this value.
 	var/cell_type = null
-	var/projectile_type = /obj/item/projectile/beam/practice //also passed to turrets
+	var/projectile_type = /obj/projectile/beam/practice //also passed to turrets
 	var/modifystate
 	var/charge_meter = 1	//if set, the icon state will be chosen based on the current charge
 	var/list/required_firemode_auth //This list matches with firemode index, used to determine which firemodes get unlocked with what level of authorization.
@@ -43,6 +41,17 @@
 	var/can_switch_modes = 0				//1 allows switching lethal and stun modes
 	var/turret_sprite_set = "carbine"		//set of sprites to use for the turret gun
 	var/turret_is_lethal = 1				//is the gun in lethal (secondary) mode by default
+
+/obj/item/gun/energy/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This is an energy weapon. Most energy weapons can fire through windows harmlessly. Energy weapons must be recharged once depleted."
+
+/obj/item/gun/energy/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance > 1)
+		return
+	var/shots_remaining = round(power_supply.charge / charge_cost)
+	. += "It has [shots_remaining] shot\s remaining."
 
 /obj/item/gun/energy/switch_firemodes()
 	. = ..()
@@ -217,7 +226,7 @@
 	self_recharge = initial(self_recharge)
 	use_external_power = initial(use_external_power)
 
-/obj/item/gun/energy/MouseDrop(atom/over)
+/obj/item/gun/energy/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	. = ..()
 
 
@@ -237,13 +246,6 @@
 
 	if(recharger)
 		disconnect()
-
-/obj/item/gun/energy/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance > 1)
-		return
-	var/shots_remaining = round(power_supply.charge / charge_cost)
-	. += "It has [shots_remaining] shot\s remaining."
 
 /obj/item/gun/energy/update_icon()
 	if(charge_meter && power_supply && power_supply.maxcharge)
@@ -287,12 +289,12 @@
 	if(initial(self_recharge))
 		. += "Recharge Time: [initial(recharge_time)]<br>"
 	. += "<br><b>Primary Projectile</b><br>"
-	var/obj/item/projectile/P = new projectile_type
+	var/obj/projectile/P = new projectile_type
 	. += P.get_print_info()
 
 	if(secondary_projectile_type)
 		. += "<br><b>Secondary Projectile</b><br>"
-		var/obj/item/projectile/P_second = new secondary_projectile_type
+		var/obj/projectile/P_second = new secondary_projectile_type
 		. += P_second.get_print_info()
 	. += "<br>"
 

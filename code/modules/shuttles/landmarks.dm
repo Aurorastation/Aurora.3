@@ -57,7 +57,7 @@
 		if(!istype(docking_controller))
 			LOG_DEBUG("Could not find docking controller for shuttle waypoint '[name]', docking tag was '[docking_tag]'.")
 
-/obj/effect/shuttle_landmark/forceMove()
+/obj/effect/shuttle_landmark/forceMove(atom/destination)
 	var/obj/effect/overmap/visitable/map_origin = GLOB.map_sectors["[z]"]
 	. = ..()
 	var/obj/effect/overmap/visitable/map_destination = GLOB.map_sectors["[z]"]
@@ -280,7 +280,7 @@
 
 /obj/effect/shuttle_landmark/automatic/ghostrole_activation/shuttle_arrived(datum/shuttle/shuttle)
 	. = ..()
-	if(!triggered_away_sites && !isStationLevel(loc.z))
+	if(!triggered_away_sites && !is_station_level(loc.z))
 		for(var/s in SSghostroles.spawners)
 			var/datum/ghostspawner/G = SSghostroles.spawners[s]
 			for(var/obj/effect/ghostspawpoint/L in SSghostroles.spawnpoints[s])

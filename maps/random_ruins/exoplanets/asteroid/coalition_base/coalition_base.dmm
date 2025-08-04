@@ -78,9 +78,7 @@
 /turf/simulated/wall/r_wall,
 /area/coalition_base/kitchen)
 "bU" = (
-/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
-	req_access = null
-	},
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard,
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/item/reagent_containers/food/drinks/carton/milk,
@@ -203,7 +201,6 @@
 "eG" = (
 /obj/structure/toilet{
 	dir = 4;
-	layer = 2.6;
 	pixel_y = 1
 	},
 /obj/item/reagent_containers/toothbrush,
@@ -659,8 +656,7 @@
 /area/coalition_base/hydroponics)
 "lw" = (
 /obj/machinery/atmospherics/pipe/tank/air{
-	dir = 8;
-	layer = 3.5
+	dir = 8
 	},
 /obj/effect/decal/cleanable/cobweb2,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -733,8 +729,7 @@
 	dir = 6
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /obj/machinery/power/apc/north,
 /obj/structure/cable/green{
@@ -744,8 +739,7 @@
 /area/coalition_base/medbay)
 "mL" = (
 /obj/structure/platform_deco{
-	dir = 4;
-	layer = 2.7
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/coalition_base/telecomms)
@@ -1011,7 +1005,6 @@
 /obj/machinery/appliance/cooker/stove,
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/effect/decal/cleanable/ash{
-	layer = 3;
 	pixel_y = 10
 	},
 /turf/simulated/floor/tiled/white,
@@ -1235,8 +1228,7 @@
 	},
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/coalition_base/kitchen)
@@ -1653,9 +1645,7 @@
 "IC" = (
 /obj/structure/sink{
 	dir = 4;
-	icon_state = "sink";
-	pixel_x = 11;
-	pixel_y = 0
+	pixel_x = 11
 	},
 /obj/structure/mirror{
 	pixel_x = 27

@@ -7,7 +7,7 @@
 	sectors = list(SECTOR_HANEUNIM)
 
 	prefix = "konyang/abandoned/"
-	suffixes = list("office.dmm")
+	suffix = "office.dmm"
 
 	unit_test_groups = list(3)
 

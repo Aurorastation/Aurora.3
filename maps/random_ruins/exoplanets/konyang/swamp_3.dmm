@@ -501,8 +501,7 @@
 "Bo" = (
 /obj/structure/flora/rock/konyang,
 /obj/item/gun/projectile/revolver/konyang/pirate{
-	pixel_y = 14;
-	layer = 2.98
+	pixel_y = 14
 	},
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/flora/ausbushes/sparsegrass,

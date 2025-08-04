@@ -29,7 +29,7 @@
 	var/pressure_alert = 0
 	var/temperature_alert = 0
 
-/mob/living/carbon/human/Life()
+/mob/living/carbon/human/Life(seconds_per_tick, times_fired)
 	if (transforming)
 		return
 
@@ -114,7 +114,7 @@
 		if(zone_exposure >= 1)
 			return 1
 		pressure_adjustment_coefficient = max(pressure_adjustment_coefficient, zone_exposure)
-	pressure_adjustment_coefficient = Clamp(pressure_adjustment_coefficient, 0, 1) // So it isn't less than 0 or larger than 1.
+	pressure_adjustment_coefficient = clamp(pressure_adjustment_coefficient, 0, 1) // So it isn't less than 0 or larger than 1.
 
 	return pressure_adjustment_coefficient
 
@@ -185,9 +185,8 @@
 	if (disabilities & COUGHING)
 		if ((prob(5) && paralysis <= 1))
 			drop_item()
-			spawn( 0 )
-				emote("cough")
-				return
+			emote("cough")
+			return
 
 	if((disabilities & ASTHMA) && getOxyLoss() >= 10)
 		if(prob(5))
@@ -213,7 +212,7 @@
 		if(gene.is_active(src))
 			gene.OnMobLife(src)
 
-	total_radiation = Clamp(total_radiation,0,100)
+	total_radiation = clamp(total_radiation,0,100)
 
 	if (total_radiation)
 		if(src.is_diona())
@@ -643,7 +642,6 @@
 			max_stamina *= 1.1
 		stamina_recovery = species.stamina_recovery
 		sprint_cost_factor = species.sprint_cost_factor
-		move_delay_mod = 0
 
 		if(CE_ADRENALINE in chem_effects)
 			sprint_speed_factor += 0.1*chem_effects[CE_ADRENALINE]
@@ -651,21 +649,16 @@
 			sprint_cost_factor -= 0.35 * chem_effects[CE_ADRENALINE]
 			stamina_recovery += max ((stamina_recovery * 0.7 * chem_effects[CE_ADRENALINE]), 5)
 
-		if(CE_SPEEDBOOST in chem_effects)
-			sprint_speed_factor += 0.2 * chem_effects[CE_SPEEDBOOST]
-			stamina_recovery *= 1 + 0.3 * chem_effects[CE_SPEEDBOOST]
-			move_delay_mod += -1.5 * chem_effects[CE_SPEEDBOOST]
-
 		var/obj/item/clothing/C = wear_suit
 		if(!(C && (C.body_parts_covered & HANDS) && !(C.heat_protection & HANDS)) && !gloves)
 			for(var/obj/item/I in src)
 				if(I.contaminated && !(species.flags & PHORON_IMMUNE))
 					if(I == r_hand)
-						apply_damage(vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_R_HAND)
+						apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_R_HAND)
 					else if(I == l_hand)
-						apply_damage(vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_L_HAND)
+						apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_L_HAND)
 					else
-						adjustFireLoss(vsc.plc.CONTAMINATION_LOSS)
+						adjustFireLoss(GLOB.vsc.plc.CONTAMINATION_LOSS)
 
 	if (intoxication)
 		handle_intoxication()
@@ -882,7 +875,7 @@
 				if(-INFINITY to -95)	severity = 10
 			if(paralysis || InStasis())
 				severity = max(severity, 8)
-			overlay_fullscreen("crit", /obj/screen/fullscreen/crit, severity)
+			overlay_fullscreen("crit", /atom/movable/screen/fullscreen/crit, severity)
 		else
 			clear_fullscreen("crit")
 			//Oxygen damage overlay
@@ -896,7 +889,7 @@
 					if(35 to 40)		severity = 5
 					if(40 to 45)		severity = 6
 					if(45 to INFINITY)	severity = 7
-				overlay_fullscreen("oxy", /obj/screen/fullscreen/oxy, severity)
+				overlay_fullscreen("oxy", /atom/movable/screen/fullscreen/oxy, severity)
 			else
 				clear_fullscreen("oxy")
 
@@ -912,7 +905,7 @@
 				if(55 to 70)		severity = 4
 				if(70 to 85)		severity = 5
 				if(85 to INFINITY)	severity = 6
-			overlay_fullscreen("brute", /obj/screen/fullscreen/brute, severity)
+			overlay_fullscreen("brute", /atom/movable/screen/fullscreen/brute, severity)
 		else
 			clear_fullscreen("brute")
 
@@ -944,13 +937,13 @@
 				// Add wound overlays
 				for(var/obj/item/organ/external/O in organs)
 					if(O.damage_state == "00") continue
-					var/cache_index = "[O.damage_state]/[O.icon_name]/[species.blood_color]/[species.get_bodytype()]"
+					var/cache_index = "[O.damage_state]/[O.icon_name]/[get_blood_color()]/[species.get_bodytype()]"
 					var/list/damage_icon_parts = SSicon_cache.damage_icon_parts
 					var/icon/DI = damage_icon_parts[cache_index]
 					if(!DI)
 						DI = new /icon(species.damage_overlays, O.damage_state)			// the damage icon for whole human
 						DI.Blend(new /icon(species.damage_mask, O.icon_name), ICON_MULTIPLY)	// mask with this organ's pixels
-						DI.Blend(species.blood_color, ICON_MULTIPLY)
+						DI.Blend(get_blood_color(), ICON_MULTIPLY)
 						damage_icon_parts[cache_index] = DI
 					health_images += DI
 					if(O.is_stump())
@@ -958,7 +951,7 @@
 					var/bandage_icon = species.bandages_icon
 					if(!bandage_icon)
 						continue
-					var/bandage_level = O.bandage_level()
+					var/bandage_level = O.bandage_level
 					if(bandage_level)
 						health_images += image(bandage_icon, "[O.icon_name][bandage_level]")
 
@@ -990,7 +983,7 @@
 		//Update hunger and thirst UI less often, its not important
 		if((life_tick % 3 == 0))
 			if(nutrition_icon)
-				var/nut_factor = max_nutrition ? Clamp(nutrition / max_nutrition, 0, 1) : 1
+				var/nut_factor = max_nutrition ? clamp(nutrition / max_nutrition, 0, 1) : 1
 				var/nut_icon = 5 //5 to 0, with 5 being lowest, 0 being highest
 				if(nut_factor >= CREW_NUTRITION_OVEREATEN)
 					nut_icon = 0
@@ -1007,7 +1000,7 @@
 					nutrition_icon.icon_state = new_val
 
 			if(hydration_icon)
-				var/hyd_factor = max_hydration ? Clamp(hydration / max_hydration, 0, 1) : 1
+				var/hyd_factor = max_hydration ? clamp(hydration / max_hydration, 0, 1) : 1
 				var/hyd_icon = 5
 				if(hyd_factor >= CREW_HYDRATION_OVERHYDRATED)
 					hyd_icon = 0
@@ -1026,7 +1019,7 @@
 			if(isSynthetic())
 				var/obj/item/organ/internal/cell/IC = internal_organs_by_name[BP_CELL]
 				if(istype(IC) && IC.is_usable())
-					var/chargeNum = Clamp(Ceiling(IC.percent()/25), 0, 4)	//0-100 maps to 0-4, but give it a paranoid clamp just in case.
+					var/chargeNum = clamp(Ceiling(IC.percent()/25), 0, 4)	//0-100 maps to 0-4, but give it a paranoid clamp just in case.
 					cells.icon_state = "charge[chargeNum]"
 				else
 					cells.icon_state = "charge-empty"
@@ -1154,7 +1147,7 @@
 #undef POSING_STRING
 
 /mob/living/carbon/human/proc/add_status_to_hud(var/set_overlay, var/set_status_message)
-	var/obj/screen/status/new_status = new /obj/screen/status(null, ui_style2icon(client.prefs.UI_style), set_overlay, set_status_message)
+	var/atom/movable/screen/status/new_status = new /atom/movable/screen/status(null, ui_style2icon(client.prefs.UI_style), set_overlay, set_status_message)
 	new_status.alpha = client.prefs.UI_style_alpha
 	new_status.color = client.prefs.UI_style_color
 	new_status.screen_loc = get_status_loc(status_overlays ? LAZYLEN(status_overlays) + 1 : 1)
@@ -1425,7 +1418,7 @@
 
 /mob/living/carbon/human/handle_vision()
 	if(client)
-		client.screen.Remove(global_hud.blurry, global_hud.druggy, global_hud.vimpaired, global_hud.darkMask, global_hud.nvg, global_hud.thermal, global_hud.meson, global_hud.science)
+		client.screen.Remove(GLOB.global_hud.blurry, GLOB.global_hud.druggy, GLOB.global_hud.vimpaired, GLOB.global_hud.darkMask, GLOB.global_hud.nvg, GLOB.global_hud.thermal, GLOB.global_hud.meson, GLOB.global_hud.science)
 	var/machine_has_equipment_vision = FALSE
 	if(machine)
 		var/viewflags = machine.check_eye(src)

@@ -1,14 +1,12 @@
 /obj/item/device/flashlight/lamp
 	name = "desk lamp"
 	desc = "A desk lamp with an adjustable mount."
-	desc_info = "Use this item in your hand to toggle the light, or right click this object and use the 'Toggle Light' verb."
-	desc_antag = "As a Cultist, this item can be reforged to become a pylon."
 	icon_state = "lamp"
 	item_state = "lamp"
 	center_of_mass = list("x" = 13,"y" = 11)
 	brightness_on = 4
 	flashlight_power = 1.0
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	uv_intensity = 100
 	power_use = FALSE
@@ -17,6 +15,14 @@
 	light_wedge = LIGHT_OMNI
 	toggle_sound = /singleton/sound_category/switch_sound
 	activation_sound = 'sound/effects/lighton.ogg'
+
+/obj/item/device/flashlight/lamp/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Left-click this item in-hand to toggle the light, or right-click it and use the 'Toggle Light' verb."
+
+/obj/item/device/flashlight/lamp/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "As a Cultist, this item can be reforged to become a pylon."
 
 /obj/item/device/flashlight/lamp/off
 	on = FALSE
@@ -86,18 +92,15 @@
 	desc = "A portable, beautiful and flashy stage light!"
 	light_color = COLOR_ORANGE
 	icon_state = "stage"
-	item_state = "stage"
 
 /obj/item/device/flashlight/lamp/holodeck
 	name = "holographic lighting orb"
 	desc = "A floating orb that comes in a variety of colors. Optional holodeck lighting."
-	desc_info = "This is a holodeck item used for optional lighting. You can click on this to toggle it on and off."
 	anchored = 1
 	brightness_on = 12
 	light_color = "#ffcb9b"
 	icon = 'icons/effects/props/holodeck/holodeck_tools.dmi'
 	icon_state = "orb"
-	item_state = "orb"
 
 /obj/item/device/flashlight/lamp/holodeck/attack_hand(mob/user)
 	toggle()
@@ -109,4 +112,3 @@
 	light_color = "#ffcb9b"
 	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi'
 	icon_state = "boxlamp"
-	item_state = "boxlamp"

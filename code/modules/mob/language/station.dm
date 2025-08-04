@@ -229,7 +229,7 @@
 	return new_name
 
 /datum/language/bug/broadcast(var/mob/living/speaker,var/message,var/speaker_mask)
-	log_say("[key_name(speaker)] : ([name]) [message]",ckey=key_name(speaker))
+	log_say("[key_name(speaker)] : ([name]) [message]")
 
 	if(!speaker_mask)
 		speaker_mask = speaker.real_name
@@ -256,7 +256,7 @@
 	for(var/mob/player in GLOB.player_list)
 		if(player == speaker)
 			to_chat(player, msg)
-		else if(isobserver(player))
+		else if(isghost(player))
 			to_chat(player, "[ghost_follow_link(speaker, player)] [msg]")
 		else if(!within_jamming_range(player) && check_special_condition(player))
 			if(speaker_encryption_key)
@@ -265,23 +265,32 @@
 					to_chat(player, encrypted_msg)
 					continue
 				var/obj/item/organ/internal/vaurca/neuralsocket/listener_socket = listener_human.internal_organs_by_name[BP_NEURAL_SOCKET]
-				if(!listener_socket || listener_socket.decryption_key != speaker_encryption_key)
-					to_chat(player, encrypted_msg)
-					continue
+				var/obj/item/organ/internal/augment/language/vekatak/receiver = listener_human.internal_organs_by_name[BP_AUG_LANGUAGE]
+				if(listener_socket)
+					if(listener_socket.decryption_key == speaker_encryption_key)
+						to_chat(player, msg)
+						continue
+				if(receiver)
+					if(receiver.decryption_key == speaker_encryption_key)
+						to_chat(player, msg)
+						continue
+				to_chat(player, encrypted_msg)
+				continue
 			to_chat(player, msg)
 
 /datum/language/bug/format_message(message, verb, speaker_mask)
 	var/message_color = colour
 	var/list/speaker_surname = splittext(speaker_mask, " ")
-	switch(speaker_surname[2])
-		if("Zo'ra")
-			message_color = "vaurca_zora"
-		if("C'thur")
-			message_color = "vaurca_cthur"
-		if("K'lax")
-			message_color = "vaurca_klax"
-		if("Lii'dra")
-			message_color = "vaurca_liidra"
+	if(length(speaker_surname) > 1)
+		switch(speaker_surname[2])
+			if("Zo'ra")
+				message_color = "vaurca_zora"
+			if("C'thur")
+				message_color = "vaurca_cthur"
+			if("K'lax")
+				message_color = "vaurca_klax"
+			if("Lii'dra")
+				message_color = "vaurca_liidra"
 	if(copytext(message, 1, 2) == "!")
 		return " projects <span class='message'><span class='[message_color]'>[copytext(message, 2)]</span></span>"
 	return "[verb], <span class='message'><span class='[message_color]'>\"[capitalize(message)]\"</span></span>"
@@ -301,6 +310,10 @@
 		return 0
 	if(M.internal_organs_by_name[BP_NEURAL_SOCKET] && (GLOB.all_languages[LANGUAGE_VAURCA] in M.languages))
 		return 1
+	if(M.internal_organs_by_name[BP_AUG_LANGUAGE])
+		var/obj/item/organ/internal/augment/language/vekatak/V = M.internal_organs_by_name[BP_AUG_LANGUAGE]
+		if(istype(V) && (GLOB.all_languages[LANGUAGE_VAURCA] in M.languages))
+			return 1
 	if(M.internal_organs_by_name["blackkois"])
 		return 1
 
@@ -321,11 +334,17 @@
 /datum/language/bug/check_speech_restrict(var/mob/speaker)
 	var/mob/living/carbon/human/H = speaker
 	var/obj/item/organ/internal/vaurca/neuralsocket/S = H.internal_organs_by_name[BP_NEURAL_SOCKET]
+	var/obj/item/organ/internal/augment/language/vekatak/V = H.internal_organs_by_name[BP_AUG_LANGUAGE]
 
 	//Black k'ois zombies don't have neural sockets but need to talk, hence check if the socket exists, or it will runtime for them
 	if(S && (S.muted || S.disrupted))
 		to_chat(speaker, SPAN_WARNING("You have been muted over the Hivenet!"))
 		return FALSE
+
+	if(istype(V))
+		if(!V.transmitting || V.disrupted || V.muted)
+			to_chat(speaker, SPAN_WARNING("Your implant cannot freely transmit over the Hivenet!"))
+			return FALSE
 	else
 		return TRUE
 
@@ -351,9 +370,9 @@
 /datum/language/human/get_random_name(var/gender)
 	if (prob(80))
 		if(gender==FEMALE)
-			return capitalize(pick(first_names_female)) + " " + capitalize(pick(last_names))
+			return capitalize(pick(GLOB.first_names_female)) + " " + capitalize(pick(GLOB.last_names))
 		else
-			return capitalize(pick(first_names_male)) + " " + capitalize(pick(last_names))
+			return capitalize(pick(GLOB.first_names_male)) + " " + capitalize(pick(GLOB.last_names))
 	else
 		return ..()
 
@@ -384,9 +403,28 @@
 	key = "6"
 	flags = RESTRICTED | NO_STUTTER | TCOMSSIM
 	syllables = list("beep","beep","beep","beep","beep","boop","boop","boop","bop","bop","dee","dee","doo","doo","hiss","hss","buzz","buzz","bzz","ksssh","keey","wurr","wahh","tzzz")
-	space_chance = 10
+	period_chance = 0
+	space_chance = 0
 
 /datum/language/machine/get_random_name()
 	if(prob(70))
 		return "[pick(list("PBU","HIU","SINA","ARMA","OSI"))]-[rand(100, 999)]"
-	return pick(ai_names)
+	return pick(GLOB.ai_names)
+
+// we're trimming out the punctuation and not readding it, so we need to readd it at the very end
+/datum/language/machine/scramble(var/input, var/list/known_languages)
+	. = ..()
+	return formalize_text(.)
+
+/datum/language/machine/process_word_prescramble(var/original_word, var/new_word, var/word_index, var/new_sentence, var/understand_chance, var/list/music_notes)
+	// we drop every second word to make the resulting message shorter, to represent the effective compression of EAL
+	if(word_index % 2)
+		if(!prob(understand_chance) && !(original_word in music_notes))
+			new_word = trim(scramble_word(original_word))
+	else
+		new_word = ""
+	return list(new_word, new_sentence)
+
+// we don't care about the input_size at all, we just want one syllable used
+/datum/language/machine/scrambled_word_size_requirement(var/input_size)
+	return 1

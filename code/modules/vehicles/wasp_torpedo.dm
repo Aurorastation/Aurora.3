@@ -4,12 +4,6 @@
 	icon = 'icons/obj/wasp_torpedo.dmi'
 	icon_state = "torpedo_off"
 
-	desc_info = "Click-drag yourself onto the torpedo to climb onto it.<br>\
-		- CTRL-click the torpedo to toggle the engine.<br>\
-		- ALT-click to toggle the kickstand which prevents movement by driving and dragging.<br>\
-		- Click the resist button or type \"resist\" in the command bar at the bottom of your screen to get off the torpedo.<br>\
-		- CTRL-SHIFT-click to cause it to charge and detonate on impact."
-
 	health = 300
 	maxhealth = 300
 
@@ -32,6 +26,15 @@
 	ion_type = /datum/effect_system/ion_trail/explosion
 
 	var/primmed = FALSE
+
+/obj/vehicle/bike/wasp_torpedo/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	// Not the fun kind of bike. Don't inherit.
+	. += "Click-drag yourself onto the torpedo to climb onto it."
+	. += "CTRL-click the torpedo to toggle the engine."
+	. += "ALT-click to toggle the kickstand which prevents movement by driving and dragging."
+	. += "Click the resist button or type \"resist\" in the command bar at the bottom of your screen to get off the torpedo."
+	. += "CTRL-SHIFT-click to cause it to charge and detonate on impact."
 
 /obj/vehicle/bike/wasp_torpedo/collide_act(var/atom/movable/AM)
 	if(!AM.density)
@@ -88,11 +91,14 @@
 		return
 	..()
 
-/obj/vehicle/bike/wasp_torpedo/bullet_act(var/obj/item/projectile/Proj)
-	if(Proj.get_structure_damage())
+/obj/vehicle/bike/wasp_torpedo/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	if(hitting_projectile.get_structure_damage())
 		if(prob(10))
 			torpedo_explosion()
-	..()
 
 /obj/vehicle/bike/wasp_torpedo/ex_act(severity)
 	switch(severity)

@@ -72,7 +72,8 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 	listener = new /obj/cleanbot_listener(src)
 	listener.cleanbot = src
 
-	GLOB.janitorial_supplies |= src
+	if(is_station_turf(get_turf(src)))
+		GLOB.janitorial_supplies |= src
 
 	SSradio.add_object(listener, beacon_freq, filter = RADIO_NAVBEACONS)
 
@@ -86,7 +87,8 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 	QDEL_NULL(listener)
 	SSradio.remove_object(listener, beacon_freq)
 
-	GLOB.janitorial_supplies -= src
+	if(src in GLOB.janitorial_supplies)
+		GLOB.janitorial_supplies -= src
 	return ..()
 
 /mob/living/bot/cleanbot/proc/handle_target()
@@ -144,8 +146,10 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 /mob/living/bot/cleanbot/proc/remove_from_ignore(datum/weakref/thing_to_unignore)
 	ignorelist -= thing_to_unignore
 
-/mob/living/bot/cleanbot/Life()
-	..()
+/mob/living/bot/cleanbot/Life(seconds_per_tick, times_fired)
+	if(!..())
+		return FALSE
+
 	if(!on)
 		ignorelist = list()
 		return
@@ -172,6 +176,8 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 		var/obj/effect/decal/cleanable/blood/gibs/gib = new /obj/effect/decal/cleanable/blood/gibs(get_turf(src))
 		ignorelist += gib
 		addtimer(CALLBACK(src, PROC_REF(remove_from_ignore), gib), 600)
+
+	return TRUE
 
 /mob/living/bot/cleanbot/think()
 	if(pAI) // no AI if we have a pAI installed

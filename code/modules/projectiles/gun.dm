@@ -43,8 +43,6 @@
 /obj/item/gun
 	name = "gun"
 	desc = "It's a gun. It's pretty terrible, though."
-	desc_info = "This is a gun.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
-	then click where you want to fire."
 	icon = 'icons/obj/guns/pistol.dmi'
 	var/gun_gui_icons = 'icons/obj/guns/gun_gui.dmi'
 	icon_state = "pistol"
@@ -53,7 +51,7 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	throwforce = 5
 	throw_speed = 4
 	throw_range = 5
@@ -157,6 +155,31 @@
 	var/image/safety_overlay
 
 	var/iff_capable = FALSE // if true, applies the user's ID iff_faction to the projectile
+
+/obj/item/gun/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(has_safety)
+		. += "To fire, toggle the safety with CTRL-click (or enable HARM intent), then click where you want to shoot."
+	else
+		. += "To fire, because this weapon has no safety, just click where you want to shoot."
+
+/obj/item/gun/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance > 1)
+		return
+	if(markings)
+		. += SPAN_NOTICE("It has [markings] [markings == 1 ? "notch" : "notches"] carved into the stock.")
+	if(needspin)
+		if(pin)
+			. += "\The [pin] is installed in the trigger mechanism."
+			pin.examine_info(user) // Allows people to check the current firemode of their wireless-control firing pin. Returns nothing if there's no wireless-control firing pin.
+		else
+			. += "It doesn't have a firing pin installed, and won't fire."
+	if(firemodes.len > 1)
+		var/datum/firemode/current_mode = firemodes[sel_mode]
+		. += "The fire selector is set to [current_mode.name]."
+	if(has_safety)
+		. += "The safety is [safety() ? "on" : "off"]."
 
 /obj/item/gun/Initialize(mapload)
 	. = ..()
@@ -285,7 +308,7 @@
 	else
 		if(needspin)
 			to_chat(user, SPAN_WARNING("\The [src]'s trigger is locked. This weapon doesn't have a firing pin installed!"))
-			balloon_alert(user, "Trigger locked, firing pin needed!")
+			balloon_alert(user, "trigger locked, firing pin needed!")
 			return FALSE
 		else
 			return TRUE
@@ -302,18 +325,18 @@
 	else
 		Fire(A,user,params) //Otherwise, fire normally.
 
-/obj/item/gun/attack(atom/A, mob/living/user, def_zone)
-	if (A == user && user.zone_sel.selecting == BP_MOUTH && !mouthshoot)
+/obj/item/gun/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if (target_mob == user && user.zone_sel.selecting == BP_MOUTH && !mouthshoot)
 		handle_suicide(user)
 	else if(user.a_intent != I_HURT && user.aiming && user.aiming.active) //if aim mode, don't pistol whip
-		if (user.aiming.aiming_at != A)
-			PreFire(A, user)
+		if (user.aiming.aiming_at != target_mob)
+			PreFire(target_mob, user)
 		else
-			Fire(A, user, pointblank=1)
+			Fire(target_mob, user, pointblank=1)
 	else if(user.a_intent == I_HURT) //point blank shooting
-		Fire(A, user, pointblank=1)
+		Fire(target_mob, user, pointblank=1)
 	else if(bayonet)
-		bayonet.attack(A, user, def_zone)
+		bayonet.attack(target_mob, user, target_zone)
 	else
 		return ..() //Pistolwhippin'
 
@@ -422,18 +445,19 @@
 			break
 
 		if(isprojectile(projectile))
-			var/obj/item/projectile/P = projectile
+			var/obj/projectile/P = projectile
 
 			var/acc = burst_accuracy[min(i, burst_accuracy.len)]
 			var/disp = dispersion[min(i, dispersion.len)]
 
 			P.accuracy = accuracy + acc
-			P.dispersion = disp
+			P.spread += disp
 
-			P.shot_from = src.name
 			P.suppressed =  suppressed
 
-			P.launch_projectile(target)
+			P.preparePixelProjectile(target, get_turf(src))
+			P.fired_from = src
+			P.fire()
 
 			handle_post_fire() // should be safe to not include arguments here, as there are failsafes in effect (?)
 
@@ -510,7 +534,7 @@
 		playsound(loc, fire_sound, fire_sound_volume, vary_fire_sound, falloff_distance  = 0.5)
 
 /obj/item/gun/proc/process_point_blank(obj/projectile, mob/user, atom/target)
-	var/obj/item/projectile/P = projectile
+	var/obj/projectile/P = projectile
 	if(!istype(P))
 		return //default behaviour only applies to true projectiles
 
@@ -533,13 +557,13 @@
 	P.point_blank = TRUE
 
 /obj/item/gun/proc/process_accuracy(obj/projectile, mob/user, atom/target, acc_mod, dispersion)
-	var/obj/item/projectile/P = projectile
+	var/obj/projectile/P = projectile
 	if(!istype(P))
 		return //default behaviour only applies to true projectiles
 
 	//Accuracy modifiers
 	P.accuracy = accuracy + acc_mod
-	P.dispersion = dispersion
+	P.spread += dispersion
 
 	//Increasing accuracy across the board, ever so slightly
 	P.accuracy += 1
@@ -556,11 +580,11 @@
 		F = firemodes[sel_mode]
 	if(one_hand_fa_penalty > 2 && !wielded && F?.name == "full auto") // todo: make firemode names defines
 		P.accuracy -= one_hand_fa_penalty * 0.5
-		P.dispersion -= one_hand_fa_penalty * 0.5
+		P.spread -= one_hand_fa_penalty * 0.5
 
 //does the actual launching of the projectile
 /obj/item/gun/proc/process_projectile(obj/projectile, mob/user, atom/target, target_zone, params)
-	var/obj/item/projectile/P = projectile
+	var/obj/projectile/P = projectile
 	if(!istype(P))
 		return FALSE //default behaviour only applies to true projectiles
 
@@ -573,7 +597,12 @@
 		else if(mob.shock_stage > 70)
 			added_spread = 15
 
-	return !P.launch_from_gun(target, target_zone, user, params, null, added_spread, src)
+	P.preparePixelProjectile(target, src, deviation = added_spread)
+	P.firer = user
+	P.fired_from = src
+	P.def_zone = target_zone
+
+	return !P.fire()
 
 //Suicide handling.
 /obj/item/gun/var/mouthshoot = FALSE //To stop people from suiciding twice... >.>
@@ -588,7 +617,7 @@
 		M.visible_message(SPAN_GOOD("\The [user] takes \the [src] out of their mouth."))
 		mouthshoot = FALSE
 		return
-	var/obj/item/projectile/in_chamber = consume_next_projectile()
+	var/obj/projectile/in_chamber = consume_next_projectile()
 	if(istype(in_chamber))
 		user.visible_message(SPAN_DANGER("\The [user] pulls the trigger."))
 		if (!pin && needspin) // Checks the pin of the gun.
@@ -653,24 +682,6 @@
 	suppressor = null
 	update_icon()
 
-/obj/item/gun/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance > 1)
-		return
-	if(markings)
-		. += SPAN_NOTICE("It has [markings] [markings == 1 ? "notch" : "notches"] carved into the stock.")
-	if(needspin)
-		if(pin)
-			. += "\The [pin] is installed in the trigger mechanism."
-			pin.examine_info(user) // Allows people to check the current firemode of their wireless-control firing pin. Returns nothing if there's no wireless-control firing pin.
-		else
-			. += "It doesn't have a firing pin installed, and won't fire."
-	if(firemodes.len > 1)
-		var/datum/firemode/current_mode = firemodes[sel_mode]
-		. += "The fire selector is set to [current_mode.name]."
-	if(has_safety)
-		. += "The safety is [safety() ? "on" : "off"]."
-
 /obj/item/gun/proc/switch_firemodes()
 	if(!firemodes.len)
 		return null
@@ -699,7 +710,7 @@
 	safety_state = !safety_state
 	update_icon()
 	if(user)
-		balloon_alert(user, "Safety [safety_state ? "on" : "off"].")
+		balloon_alert(user, "safety [safety_state ? "on" : "off"].")
 		if(!safety_state)
 			playsound(src, safetyon_sound, 30, 1)
 		else
@@ -850,7 +861,7 @@
 
 ///////////OFFHAND///////////////
 /obj/item/offhand
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "offhand"
 	item_state = "nothing"
@@ -927,15 +938,15 @@
 /obj/item/gun/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/material/knife/bayonet))
 		if(!can_bayonet)
-			balloon_alert(user, "\the [attacking_item.name] doesn't fit")
+			balloon_alert(user, "doesn't fit!")
 			return ..()
 
 		if(bayonet)
-			balloon_alert(user, "\the [src] already has a bayonet")
+			balloon_alert(user, "already has a bayonet!")
 			return TRUE
 
 		if(user.l_hand != attacking_item && user.r_hand != attacking_item)
-			balloon_alert(user, "not in hand")
+			balloon_alert(user, "not in hand!")
 			return
 
 		user.drop_from_inventory(attacking_item,src)
@@ -950,19 +961,19 @@
 
 	if(istype(attacking_item, /obj/item/ammo_display))
 		if(!can_ammo_display)
-			balloon_alert(user, "\the [attacking_item.name] doesn't fit")
+			balloon_alert(user, "doesn't fit!")
 			return TRUE
 
 		if(ammo_display)
-			balloon_alert(user, "\the [src] already has an ammo display")
+			balloon_alert(user, "already has an ammo display!")
 			return TRUE
 
 		if(user.l_hand != attacking_item && user.r_hand != attacking_item)
-			balloon_alert(user, "not in hand")
+			balloon_alert(user, "not in hand!")
 			return
 
 		if(displays_maptext)
-			balloon_alert(user, "\the [src] is already displaying its ammo count")
+			balloon_alert(user, "already displaying its ammo count!")
 			return TRUE
 
 		user.drop_from_inventory(attacking_item, src)

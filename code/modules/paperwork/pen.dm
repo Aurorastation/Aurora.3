@@ -15,7 +15,7 @@
 /obj/item/pen
 	name = "pen"
 	desc = "An instrument for writing or drawing. This one is in black."
-	desc_info = {"This is an item for writing down your thoughts, on paper or elsewhere. The following special commands are available:
+	desc_extended = {"This is an item for writing down your thoughts, on paper or elsewhere. The following special commands are available:
 		<br>
 		Pen and crayon commands
 		\[br\] : Creates a linebreak.
@@ -30,7 +30,7 @@
 		\[redacted\] - \[/redacted\] : Covers the text in an unbreachable black box.
 		\[sign\] : Inserts a signature of your name in a foolproof way.
 		\[field\] : Inserts an invisible field which lets you start type from there. Useful for forms.
-		\[date\] : Inserts today's station date.
+		\[date\] : Inserts today's date.
 		\[time\] : Inserts the current station time.
 		<br>
 		Pen Exclusive Commands
@@ -43,7 +43,7 @@
 	item_state = "pen"
 	slot_flags = SLOT_BELT | SLOT_EARS
 	throwforce = 0
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	throw_speed = 7
 	throw_range = 15
 	matter = list(DEFAULT_WALL_MATERIAL = 10)
@@ -176,21 +176,21 @@
 	. = ..()
 	create_reagents(30)
 
-/obj/item/pen/reagent/attack(mob/living/M, mob/user)
+/obj/item/pen/reagent/attack(mob/living/target_mob, mob/living/user, target_zone)
 	. = ..()
-	if(!ismob(M))
+	if(!ismob(target_mob))
 		return
-	if(M.can_inject(user, 1))
+	if(target_mob.can_inject(user, 1))
 		if(reagents.total_volume)
-			if(M.reagents)
+			if(target_mob.reagents)
 				var/contained_reagents = reagents.get_reagents()
-				var/trans = reagents.trans_to_mob(M, 30, CHEM_BLOOD)
-				to_chat(user, SPAN_ALERT("You stab \the [M] with \the [src], injecting all of its contents.")) // To the stabber.
-				to_chat(M, SPAN_WARNING("You feel a small <b>pinch</b>!")) // To the stabbed.
-				M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been stabbed with [name] by [user.name] ([user.ckey])</font>")
-				user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Used the [name] to stab [M.name] ([M.ckey])</span>")
-				msg_admin_attack("[user.name] ([user.ckey]) Used the [name] to stab [M.name] ([M.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M))
-				admin_inject_log(user, M, src, contained_reagents, reagents.get_temperature(), trans) // Admin log.
+				var/trans = reagents.trans_to_mob(target_mob, 30, CHEM_BLOOD)
+				to_chat(user, SPAN_ALERT("You stab \the [target_mob] with \the [src], injecting all of its contents.")) // To the stabber.
+				to_chat(target_mob, SPAN_WARNING("You feel a small <b>pinch</b>!")) // To the stabbed.
+				target_mob.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been stabbed with [name] by [user.name] ([user.ckey])</font>"
+				user.attack_log += "\[[time_stamp()]\] <span class='warning'>Used the [name] to stab [target_mob.name] ([target_mob.ckey])</span>"
+				msg_admin_attack("[user.name] ([user.ckey]) Used the [name] to stab [target_mob.name] ([target_mob.ckey]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target_mob))
+				admin_inject_log(user, target_mob, src, contained_reagents, reagents.get_temperature(), trans) // Admin log.
 
 /*
  * Sleepy Pens
@@ -302,7 +302,7 @@
 	icon_state = "crayonred"
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	attack_verb = list("attacked", "coloured")
 	colour = "#FF0000" //RGB
 	var/shadeColour = "#220000" //RGB
@@ -325,7 +325,7 @@
 	item_state = "combipen"
 	colour = "#1c1713" //dark ashy brownish
 	cursive = FALSE
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/pen/augment/attack_self(mob/user)
 	var/choice = input(user, "Would you like to change colour or writing style?", "Pen Selector") as null|anything in list("Colour", "Style")

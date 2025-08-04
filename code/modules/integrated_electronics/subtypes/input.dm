@@ -288,7 +288,7 @@
 /obj/item/integrated_circuit/input/advanced_locator/on_data_written()
 	var/rad = get_pin_data(IC_INPUT, 2)
 	if(isnum(rad))
-		rad = Clamp(rad, 0, 7)
+		rad = clamp(rad, 0, 7)
 		radius = rad
 
 /obj/item/integrated_circuit/input/advanced_locator/do_work()
@@ -399,14 +399,17 @@
 	activate_pin(3)
 
 	for(var/mob/O in hearers(1, get_turf(src)))
-		O.show_message(text("[icon2html(src, viewers(get_turf(src)))] *beep* *beep*"), 3, "*beep* *beep*", 2)
+		O.show_message("[icon2html(src, viewers(get_turf(src)))] *beep* *beep*", 3, "*beep* *beep*", 2)
 
 //This circuit gives information on where the machine is.
 /obj/item/integrated_circuit/input/gps
 	name = "global positioning system"
 	desc = "This allows you to easily know the position of a machine containing this device."
 	extended_desc = "The GPS's coordinates it gives is absolute, not relative."
+	icon = 'icons/obj/item/device/gps.dmi'
 	icon_state = "gps"
+	item_state = "radio"
+	contained_sprite = TRUE
 	complexity = 4
 	inputs = list()
 	outputs = list(
@@ -546,7 +549,7 @@
 	desc = "This monitors the charge level of an internal battery."
 	icon_state = "internalbm"
 	extended_desc = "This circuit will give you values of charge, max charge and percentage of the internal battery on demand."
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	complexity = 1
 	inputs = list()
 	outputs = list(
@@ -579,7 +582,7 @@
 	desc = "This can help watch the battery level of any device in range."
 	icon_state = "externalbm"
 	extended_desc = "This circuit will give you values of charge, max charge and percentage of any device or battery in view"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	complexity = 2
 	inputs = list("target" = IC_PINTYPE_REF)
 	outputs = list(
@@ -847,8 +850,8 @@
 		activate_pin(3)
 		return
 	var/turf/T = get_turf(assembly)
-	var/target_x = Clamp(get_pin_data(IC_INPUT, 1), 0, world.maxx)
-	var/target_y = Clamp(get_pin_data(IC_INPUT, 2), 0, world.maxy)
+	var/target_x = clamp(get_pin_data(IC_INPUT, 1), 0, world.maxx)
+	var/target_y = clamp(get_pin_data(IC_INPUT, 2), 0, world.maxy)
 	var/turf/A = locate(target_x, target_y, T.z)
 	set_pin_data(IC_OUTPUT, 1, null)
 	if(!A || !(A in view(T)))
@@ -927,7 +930,7 @@
 	var/rad = get_pin_data(IC_INPUT, 2)
 
 	if(isnum(rad))
-		rad = Clamp(rad, 0, 8)
+		rad = clamp(rad, 0, 8)
 		radius = rad
 
 /obj/item/integrated_circuit/input/advanced_locator_list/do_work()

@@ -3,14 +3,19 @@
 	icon = 'icons/obj/pai.dmi'
 	icon_state = "aicard" // aicard-full
 	item_state = "electronic"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_DATA = 4, TECH_MATERIAL = 4)
 	var/flush = 0
 	var/mob/living/silicon/ai/carded_ai
 
-/obj/item/aicard/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/aicard/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use an active intelliCard to open its management interface."
+	. += "An AI inside an intelliCard can be transferred to an inactive AI Core by clicking on it."
+
+/obj/item/aicard/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	var/message = "Status of [carded_ai] is: "
 	if(!carded_ai)
 		message = "There is no AI loaded to the card."
@@ -22,8 +27,9 @@
 		message += SPAN_WARNING("inactive.")
 	. += message
 
-/obj/item/aicard/attack(mob/living/silicon/decoy/M as mob, mob/user as mob, var/target_zone)
-	if (!istype (M, /mob/living/silicon/decoy))
+/obj/item/aicard/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/mob/living/silicon/decoy/M = target_mob
+	if (!istype(M))
 		return ..()
 	else
 		M.death()
@@ -175,7 +181,9 @@
 		carded_ai.show_message(rendered, type)
 	..()
 
-/obj/item/aicard/relaymove(var/mob/user, var/direction)
+/obj/item/aicard/relaymove(mob/living/user, direction)
+	. = ..()
+
 	if(user.stat || user.stunned)
 		return
 	var/obj/item/rig/rig = src.get_rig()

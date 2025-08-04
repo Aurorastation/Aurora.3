@@ -16,7 +16,7 @@ BLIND     // can't see anything
 		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_glasses.dmi',
 		slot_r_hand_str = 'icons/mob/items/clothing/righthand_glasses.dmi'
 		)
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_EYES
 	body_parts_covered = EYES
 	var/vision_flags = 0
@@ -28,14 +28,11 @@ BLIND     // can't see anything
 	var/off_state = "degoggles"
 	var/active = 1
 	var/activation_sound = 'sound/items/goggles_charge.ogg'
-	var/obj/screen/overlay = null
+	var/atom/movable/screen/overlay = null
 	var/obj/item/clothing/glasses/hud/hud = null	// Hud glasses, if any
 	var/activated_color = null
 	var/normal_layer = GLASSES_LAYER
 	var/shatter_material = /obj/item/material/shard
-	sprite_sheets = list(
-		BODYTYPE_VAURCA_WARFORM = 'icons/mob/species/warriorform/eyes.dmi'
-		)
 	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER)
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
@@ -123,7 +120,7 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/meson/Initialize()
 	. = ..()
-	overlay = global_hud.meson
+	overlay = GLOB.global_hud.meson
 
 /obj/item/clothing/glasses/meson/prescription
 	name = "prescription mesons"
@@ -227,7 +224,7 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/night/Initialize()
 	. = ..()
-	overlay = global_hud.nvg
+	overlay = GLOB.global_hud.nvg
 
 /obj/item/clothing/glasses/night/aviator
 	name = "aviators"
@@ -343,14 +340,14 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/safety/goggles/science/Initialize()
 	. = ..()
-	overlay = global_hud.science
+	overlay = GLOB.global_hud.science
 
 /obj/item/clothing/glasses/safety/goggles/science/handle_additional_changes()
 	. = ..()
 	if(up)
 		overlay = null
 	else
-		overlay = global_hud.science
+		overlay = GLOB.global_hud.science
 
 /obj/item/clothing/glasses/safety/goggles/wasteland
 	name = "wasteland goggles"
@@ -369,8 +366,13 @@ BLIND     // can't see anything
 	name = "tactical goggles"
 	desc = "A stylish pair of tactical goggles that protect the eyes from aerosolized chemicals, debris and bright flashes."
 	var/brand_name
-	icon = 'icons/clothing/eyes/goon_goggles.dmi'
+	icon_state = "military_goggles"
 	var/sprite_state = "military_goggles"
+	// Implementing this temporarily to use the generic goggle inhands until unique sprites are made.
+	item_state_slots = list(
+		slot_l_hand_str = "plaingoggles",
+		slot_r_hand_str = "plaingoggles"
+	)
 	flash_protection = FLASH_PROTECTION_MODERATE //This needs to be set even if the state changes later, otherwise it spawns with no flash protection while appearing to be down
 	change_item_state_on_flip = TRUE
 
@@ -386,6 +388,7 @@ BLIND     // can't see anything
 	flash_protection = up ? FLASH_PROTECTION_NONE : FLASH_PROTECTION_MODERATE
 
 /obj/item/clothing/glasses/safety/goggles/tactical/generic
+	icon_state = "security_goggles"
 	sprite_state = "security_goggles"
 
 //security hud
@@ -393,8 +396,13 @@ BLIND     // can't see anything
 	name = "tactical goggles"
 	desc = "A stylish pair of tactical goggles that protect the eyes from aerosolized chemicals, debris and bright flashes. Comes with a security HUD."
 	var/brand_name
-	icon = 'icons/clothing/eyes/goon_goggles.dmi'
+	icon_state = "security_goggles"
 	var/sprite_state = "security_goggles"
+	// Implementing this temporarily to use the generic goggle inhands until unique sprites are made.
+	item_state_slots = list(
+		slot_l_hand_str = "plaingoggles",
+		slot_r_hand_str = "plaingoggles"
+	)
 	flash_protection = FLASH_PROTECTION_MODERATE
 	change_item_state_on_flip = TRUE
 
@@ -418,14 +426,17 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/safety/goggles/goon/pmc
 	sprite_state = "pmc_goggles"
+	icon_state = "pmc_goggles"
 	brand_name = "PMCG"
 
 /obj/item/clothing/glasses/safety/goggles/goon/zavod
 	sprite_state = "zavod_goggles"
+	icon_state = "zavod_goggles"
 	brand_name = "Zavodskoi"
 
 /obj/item/clothing/glasses/safety/goggles/goon/idris
 	sprite_state = "idris_goggles"
+	icon_state = "idris_goggles"
 	brand_name = "Idris"
 
 //medical hud
@@ -433,8 +444,13 @@ BLIND     // can't see anything
 	name = "medical goggles"
 	desc = "A stylish pair of medical goggles that protect the eyes from aerosolized chemicals and debris. Comes with a medical HUD."
 	var/brand_name
-	icon = 'icons/clothing/eyes/goon_goggles.dmi'
+	icon_state = "security_goggles"
 	var/sprite_state = "security_goggles"
+	// Implementing this temporarily to use the generic goggle inhands until unique sprites are made.
+	item_state_slots = list(
+		slot_l_hand_str = "plaingoggles",
+		slot_r_hand_str = "plaingoggles"
+	)
 	change_item_state_on_flip = TRUE
 
 /obj/item/clothing/glasses/safety/goggles/medical/Initialize(mapload, material_key)
@@ -457,10 +473,12 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/safety/goggles/medical/pmc
 	sprite_state = "pmc_goggles"
+	icon_state = "pmc_goggles"
 	brand_name = "PMCG"
 
 /obj/item/clothing/glasses/safety/goggles/medical/zeng
 	sprite_state = "zeng_goggles"
+	icon_state = "zeng_goggles"
 	brand_name = "Zeng-Hu"
 
 /obj/item/clothing/glasses/eyepatch
@@ -768,7 +786,7 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/aug/welding
 	name = "glare dampeners"
 	desc = "A subdermal implant installed just above the brow line that deploys a thin sheath of hyperpolycarbonate that protects from eye damage associated with arc flash."
-	icon = 'icons/clothing/eyes/welding_goggles.dmi'
+	icon = 'icons/obj/item/clothing/eyes/welding_goggles.dmi'
 	icon_state = "welding-aug"
 	item_state = "welding-aug"
 	contained_sprite = TRUE
@@ -798,7 +816,7 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/welding/emergency
 	name = "emergency welding goggles"
 	desc = "A cheaper version of standard welding goggles, approved for emergency use by the NanoTrasen Safety Board."
-	icon = 'icons/clothing/eyes/welding_goggles.dmi'
+	icon = 'icons/obj/item/clothing/eyes/welding_goggles.dmi'
 	icon_state = "ewelding-g"
 	item_state = "ewelding-g"
 	contained_sprite = TRUE
@@ -829,7 +847,7 @@ BLIND     // can't see anything
 	icon_state = "blinders"
 	item_state = "blinders"
 	sprite_sheets = list(
-		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/eyes.dmi', BODYTYPE_VAURCA_WARFORM = 'icons/mob/species/warriorform/eyes.dmi'
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/eyes.dmi'
 	)
 	contained_sprite = TRUE
 	shatter_material = FALSE
@@ -842,7 +860,7 @@ BLIND     // can't see anything
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "tape_cross"
 	item_state = null
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/clothing/glasses/sunglasses/sechud
 	name = "HUDsunglasses"
@@ -1053,7 +1071,7 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/thermal/Initialize()
 	. = ..()
-	overlay = global_hud.thermal
+	overlay = GLOB.global_hud.thermal
 
 /mob/living/carbon/human/proc/thermal_reset_blindness()
 	disabilities &= ~NEARSIGHTED
@@ -1091,13 +1109,16 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/thermal/aviator
 	name = "aviators"
 	desc = "A pair of designer sunglasses. They should put HUDs in these."
-	desc_antag = "Modified aviator glasses with a toggled thermal-vision mode."
 	icon_state = "aviator_thr"
 	off_state = "aviator_off"
 	item_state_slots = list(slot_r_hand_str = "sunglasses", slot_l_hand_str = "sunglasses")
 	action_button_name = "Toggle HUD"
 	activation_sound = 'sound/effects/pop.ogg'
 	prescription = 7
+
+/obj/item/clothing/glasses/thermal/aviator/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Modified aviator glasses with a toggled thermal-vision mode."
 
 /obj/item/clothing/glasses/thermal/aviator/verb/toggle()
 	set category = "Object"
@@ -1174,7 +1195,7 @@ BLIND     // can't see anything
 		eye.color = eye_color
 		AddOverlays(eye)
 
-/obj/item/clothing/glasses/eyepatch/hud/forceMove(atom/newloc)
+/obj/item/clothing/glasses/eyepatch/hud/forceMove(atom/destination)
 	if (!ishuman(loc))
 		return ..()
 
@@ -1216,7 +1237,7 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/eyepatch/hud/meson/Initialize()
 	. = ..()
-	overlay = global_hud.meson
+	overlay = GLOB.global_hud.meson
 
 /obj/item/clothing/glasses/eyepatch/hud/material
 	name = "MATpatch"
@@ -1231,7 +1252,7 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/eyepatch/hud/science/Initialize()
 	. = ..()
-	overlay = global_hud.science
+	overlay = GLOB.global_hud.science
 
 /obj/item/clothing/glasses/eyepatch/hud/thermal
 	name = "HEATpatch"
@@ -1242,7 +1263,7 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/eyepatch/hud/thermal/Initialize()
 	. = ..()
-	overlay = global_hud.thermal
+	overlay = GLOB.global_hud.thermal
 
 /obj/item/clothing/glasses/eyepatch/hud/welder
 	name = "WELDpatch"
@@ -1260,7 +1281,7 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/eyepatch/hud/night/Initialize()
 	. = ..()
-	overlay = global_hud.nvg
+	overlay = GLOB.global_hud.nvg
 
 //from verkister
 /obj/item/clothing/glasses/spiffygogs

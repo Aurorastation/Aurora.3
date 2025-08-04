@@ -20,6 +20,9 @@
 		BIOME_ARID = 1.0
 	)
 
+/datum/exoplanet_theme/barren/mountain
+	mountain_threshold = 0.0
+
 /datum/exoplanet_theme/barren/raskara
 	name = "Raskara"
 	surface_turfs = list(
@@ -38,7 +41,7 @@
 	perlin_zoom = 21
 	surface_turfs = list(
 		/turf/simulated/mineral,
-		/turf/unsimulated/floor/asteroid/ash
+		/turf/simulated/floor/exoplanet/asteroid/ash
 	)
 
 	possible_biomes = list(

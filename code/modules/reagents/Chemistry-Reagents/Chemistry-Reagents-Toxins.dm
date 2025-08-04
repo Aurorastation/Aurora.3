@@ -10,6 +10,7 @@
 	taste_mult = 1.2
 	fallback_specific_heat = 0.75
 	overdose = 10
+	value = 2
 
 	var/target_organ // needs to be null by default
 	var/strength = 2 // How much damage it deals per unit
@@ -48,6 +49,7 @@
 	color = "#CF3600"
 	strength = 5
 	taste_description = "plastic"
+	value = 2.1
 
 /singleton/reagent/toxin/amatoxin
 	name = "Amatoxin"
@@ -56,6 +58,7 @@
 	color = "#792300"
 	strength = 10
 	taste_description = "mushroom"
+	value = 2.3
 
 /singleton/reagent/toxin/carpotoxin
 	name = "Carpotoxin"
@@ -65,6 +68,7 @@
 	strength = 10
 	taste_description = "fish"
 	target_organ = BP_BRAIN
+	value = 3
 
 /singleton/reagent/toxin/carpotoxin/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien && alien == IS_UNATHI)
@@ -133,6 +137,7 @@
 	taste_mult = 1.5
 	breathe_mul = 2
 	fallback_specific_heat = 12 //Phoron is very dense and can hold a lot of energy.
+	value = 10
 
 /singleton/reagent/toxin/phoron/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(ishuman(M))
@@ -256,6 +261,7 @@
 	taste_description = "bitter almonds"
 	taste_mult = 1.5
 	target_organ = BP_HEART
+	value = 3.3
 
 /singleton/reagent/toxin/cyanide/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
@@ -274,6 +280,7 @@
 	overdose = 15
 	od_minimum_dose = 5
 	taste_description = "salt"
+	value = 4.4
 
 /singleton/reagent/toxin/potassium_chloride/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/mob/living/carbon/human/H = M
@@ -295,6 +302,7 @@
 	overdose = 5
 	od_minimum_dose = 20
 	taste_description = "salt"
+	value = 4.5
 
 /singleton/reagent/toxin/potassium_chlorophoride/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/mob/living/carbon/human/H = M
@@ -317,6 +325,7 @@
 	strength = 3
 	taste_description = "death"
 	target_organ = BP_BRAIN
+	value = 2.9
 
 /singleton/reagent/toxin/zombiepowder/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
@@ -344,6 +353,7 @@
 	taste_description = "plant food"
 	taste_mult = 0.5
 	touch_mul = 0
+	value = 1.2
 	unaffected_species = IS_MACHINE
 
 /singleton/reagent/toxin/fertilizer/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -442,6 +452,7 @@
 	strength = 4
 	metabolism = REM*1.5
 	taste_mult = 1
+	value = 1.1
 	unaffected_species = IS_MACHINE
 
 /singleton/reagent/toxin/plantbgone/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
@@ -478,6 +489,7 @@
 	color = "#C8A5DC"
 	overdose = REAGENTS_OVERDOSE
 	taste_description = "acid"
+	value = 2.4
 
 /singleton/reagent/lexorin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/mob/living/carbon/human/H = M
@@ -494,6 +506,7 @@
 	color = "#13BC5E"
 	taste_description = "slime"
 	taste_mult = 0.9
+	value = 3.1
 
 /singleton/reagent/mutagen/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(prob(33))
@@ -531,6 +544,7 @@
 	color = "#801E28"
 	taste_description = "slime"
 	taste_mult = 1.3
+	value = 1.2
 
 /singleton/reagent/slimejelly/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(isslime(M)) // stabilize slime mutation by reintroducing slime jelly into the slime
@@ -557,6 +571,7 @@
 	overdose = REAGENTS_OVERDOSE
 	taste_description = "bitterness"
 	breathe_met = REM * 0.5 * 0.33
+	value = 2.5
 	var/total_strength = 0
 
 /singleton/reagent/soporific/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -588,6 +603,7 @@
 	overdose = 15
 	taste_description = "bitterness"
 	breathe_met = REM * 0.5 * 0.5
+	value = 2.6
 
 /singleton/reagent/polysomnine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/mob/living/carbon/human/H = M
@@ -620,6 +636,7 @@
 	glass_center_of_mass = list("x"=16, "y"=8)
 
 	fallback_specific_heat = 1.2
+	value = 2.2
 
 /* Transformations */
 
@@ -629,6 +646,7 @@
 	reagent_state = LIQUID
 	color = "#13BC5E"
 	taste_description = "sludge"
+	value = 3
 
 /singleton/reagent/aslimetoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder) // TODO: check if there's similar code anywhere else
 	if(M.transforming)
@@ -663,12 +681,14 @@
 	color = "#535E66"
 	taste_description = "slimey metal"
 	fallback_specific_heat = 3
+	value = 9
 
 /singleton/reagent/toxin/undead
 	name = "Undead Ichor"
 	description = "A wicked liquid with unknown origins and uses."
 	color = "#b2beb5"
 	strength = 25
+	value = 300
 	taste_description = "ashes"
 
 /singleton/reagent/toxin/undead/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)

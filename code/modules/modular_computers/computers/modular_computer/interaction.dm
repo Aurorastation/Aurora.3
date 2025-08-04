@@ -1,3 +1,11 @@
+/obj/item/modular_computer/proc/force_shutdown()
+	set name = "Force Shutdown"
+	set category = "Object"
+	set src in view(1)
+
+	to_chat(usr, SPAN_NOTICE("You long-press the power button on \the [src], causing it to forcibly power off."))
+	shutdown_computer(TRUE)
+
 /obj/item/modular_computer/proc/eject_id()
 	set name = "Eject ID"
 	set category = "Object"
@@ -146,13 +154,13 @@
 	else
 		to_chat(user, SPAN_WARNING("\The [src] does not have a card or item stored in the card slot."))
 
-/obj/item/modular_computer/attack(mob/living/M, mob/living/user, var/sound_scan)
-	sound_scan = FALSE
+/obj/item/modular_computer/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/sound_scan = FALSE
 	if(last_scan <= world.time - 20) //Spam limiter.
 		last_scan = world.time
 		sound_scan = TRUE
 	if(scan_mode == SCANNER_MEDICAL)
-		health_scan_mob(M, user, TRUE, sound_scan = sound_scan)
+		health_scan_mob(target_mob, user, TRUE, sound_scan = sound_scan)
 
 /obj/item/modular_computer/afterattack(atom/A, mob/user, proximity_flag, click_parameters)
 	. = ..()
@@ -173,10 +181,10 @@
 	else if(scan_mode == SCANNER_GAS)
 		analyze_gases(A, user)
 
-/obj/item/modular_computer/attack_ghost(var/mob/abstract/observer/user)
+/obj/item/modular_computer/attack_ghost(var/mob/abstract/ghost/user)
 	if(enabled)
 		ui_interact(user)
-	else if(check_rights(R_ADMIN, 0, user))
+	else if(check_rights(R_ADMIN, 0, user) || isstoryteller(user))
 		var/response = alert(user, "This computer is turned off. Would you like to turn it on?", "Admin Override", "Yes", "No")
 		if(response == "Yes")
 			turn_on(user)
@@ -315,13 +323,13 @@
 		return TRUE
 	return ..()
 
-/obj/item/modular_computer/MouseDrop(atom/over_object)
-	var/mob/M = usr
+/obj/item/modular_computer/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	var/mob/M = user
 	if(use_check_and_message(M))
 		return
-	if(istype(over_object, /obj/machinery/power/apc) && tesla_link)
-		return over_object.attackby(src, M)
-	if(!istype(over_object, /obj/screen) && !(over_object == src))
+	if(istype(over, /obj/machinery/power/apc) && tesla_link)
+		return over.attackby(src, M)
+	if(!istype(over, /atom/movable/screen) && !(over == src))
 		return attack_self(M)
 
 /obj/item/modular_computer/GetID()

@@ -9,8 +9,6 @@
 
 //Main cryopod console.
 
-GLOBAL_LIST_EMPTY(frozen_crew)
-
 /obj/machinery/computer/cryopod
 	name = "cryogenic oversight console"
 	desc = "An interface between crew and the cryogenic storage oversight systems."
@@ -74,11 +72,10 @@ GLOBAL_LIST_EMPTY(frozen_crew)
 
 	dat += "<hr><b>[storage_name]</b><br>"
 	dat += "<i>Welcome, [user.real_name].</i><br><hr><br>"
-	dat += "<a href='?src=\ref[src];log=1'>View Storage Log</a><br>"
 	if(allow_items)
-		dat += "<a href='?src=\ref[src];view=1'>View Objects</a><br>"
-		dat += "<a href='?src=\ref[src];item=1'>Recover Object</a><br>"
-		dat += "<a href='?src=\ref[src];allitems=1'>Recover All Objects</a><br>"
+		dat += "<a href='byond://?src=[REF(src)];view=1'>View Objects</a><br>"
+		dat += "<a href='byond://?src=[REF(src)];item=1'>Recover Object</a><br>"
+		dat += "<a href='byond://?src=[REF(src)];allitems=1'>Recover All Objects</a><br>"
 
 	var/datum/browser/cryocon_win = new(user, "cryopod_console", "Cryogenic Oversight Console")
 	cryocon_win.set_content(dat)
@@ -91,19 +88,6 @@ GLOBAL_LIST_EMPTY(frozen_crew)
 	var/mob/user = usr
 
 	src.add_fingerprint(user)
-
-	if(href_list["log"])
-		if(!length(GLOB.frozen_crew))
-			to_chat(user, SPAN_WARNING("Nothing has been stored recently."))
-			return
-		var/dat = "<center><b>Recently Stored [storage_type]</b></center><hr>"
-		for(var/person in GLOB.frozen_crew)
-			dat += " - [person]<br>"
-		dat += "<hr>"
-
-		var/datum/browser/cryolog_win = new(user, "cryolog", "Cryogenic Storage Log")
-		cryolog_win.set_content(dat)
-		cryolog_win.open()
 
 	if(href_list["view"])
 		if(!allow_items)
@@ -182,7 +166,7 @@ GLOBAL_LIST_EMPTY(frozen_crew)
 /obj/structure/cryofeed
 	name = "cryogenic feed"
 	desc = "A bewildering tangle of machinery and pipes."
-	icon = 'icons/obj/sleeper.dmi'
+	icon = 'icons/obj/machinery/cryopod.dmi'
 	icon_state = "cryo_rear"
 	anchored = TRUE
 	dir = WEST
@@ -190,15 +174,15 @@ GLOBAL_LIST_EMPTY(frozen_crew)
 /obj/structure/cryofeed/pipes
 	name = "cryogenic feed pipes"
 	desc = "A bewildering tangle of pipes."
-	icon = 'icons/obj/sleeper.dmi'
+	icon = 'icons/obj/machinery/cryopod.dmi'
 	icon_state = "cryo_rear_pipes"
 
 //Cryopods themselves.
 /obj/machinery/cryopod
 	name = "cryogenic freezer"
 	desc = "A man-sized pod for entering suspended animation."
-	icon = 'icons/obj/sleeper.dmi'
-	icon_state = "body_scanner"
+	icon = 'icons/obj/machinery/cryopod.dmi'
+	icon_state = "cryo_pod"
 	density = TRUE
 	anchored = TRUE
 	dir = WEST
@@ -235,6 +219,11 @@ GLOBAL_LIST_EMPTY(frozen_crew)
 		/obj/item/card/id/captains_spare
 		)
 
+/obj/machinery/cryopod/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(occupant)
+		. += SPAN_NOTICE("<b>[occupant]</b> [occupant.get_pronoun("is")] inside \the [initial(name)].")
+
 /obj/machinery/cryopod/robot
 	name = "robotic storage unit"
 	desc = "A storage unit for robots."
@@ -265,7 +254,6 @@ GLOBAL_LIST_EMPTY(frozen_crew)
 	var/image/I = image(icon, "pod_top")
 	AddOverlays(I)
 
-
 	if(occupant)
 		I = image(icon, "pod_back")
 		AddOverlays(I)
@@ -295,11 +283,6 @@ GLOBAL_LIST_EMPTY(frozen_crew)
 /obj/machinery/cryopod/LateInitialize()
 	. = ..()
 	find_control_computer()
-
-/obj/machinery/cryopod/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(occupant)
-		. += SPAN_NOTICE("<b>[occupant]</b> [occupant.get_pronoun("is")] inside \the [initial(name)].")
 
 /obj/machinery/cryopod/can_hold_dropped_items()
 	return FALSE
@@ -393,11 +376,10 @@ GLOBAL_LIST_EMPTY(frozen_crew)
 			else
 				W.forceMove(T)
 
-	if(isStationLevel(z))
+	if(is_station_level(z))
 		GLOB.global_announcer.autosay("[occupant.real_name], [occupant.mind.role_alt_title], [on_store_message] [on_store_location].", "[on_store_name]")
 	visible_message(SPAN_NOTICE("\The [src] hums and hisses as it moves [occupant] to [on_store_location]."))
 	playsound(loc, on_store_sound, 25)
-	GLOB.frozen_crew += occupant
 	if(ishuman(occupant))
 		var/mob/living/carbon/human/H = occupant
 		if(H.ghost_spawner)
@@ -425,14 +407,14 @@ GLOBAL_LIST_EMPTY(frozen_crew)
 		go_in(user, M)
 		return TRUE
 
-/obj/machinery/cryopod/MouseDrop_T(atom/dropping, mob/user)
+/obj/machinery/cryopod/mouse_drop_receive(atom/dropped, mob/user, params)
 	if(!istype(user, /mob/living))
 		return
 
-	if(!check_occupant_allowed(dropping))
+	if(!check_occupant_allowed(dropped))
 		return
 
-	var/mob/living/M = dropping
+	var/mob/living/M = dropped
 	if(istype(M))
 		go_in(user, M)
 
@@ -491,8 +473,8 @@ GLOBAL_LIST_EMPTY(frozen_crew)
 
 	// Book keeping!
 	var/turf/location = get_turf(src)
-	log_admin("[key_name_admin(M)] has entered a [initial(src.name)].",ckey=key_name(M))
-	message_admins(SPAN_NOTICE("[key_name_admin(M)] has entered a [initial(src.name)].(<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)"))
+	log_admin("[key_name_admin(M)] has entered a [initial(src.name)].")
+	message_admins(SPAN_NOTICE("[key_name_admin(M)] has entered a [initial(src.name)].(<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)"))
 
 	//Despawning occurs when process() is called with an occupant without a client.
 	src.add_fingerprint(user)
@@ -560,7 +542,9 @@ GLOBAL_LIST_EMPTY(frozen_crew)
 		else
 			icon_state = initial(icon_state)
 
-/obj/machinery/cryopod/relaymove(var/mob/user)
+/obj/machinery/cryopod/relaymove(mob/living/user, direction)
+	. = ..()
+
 	go_out()
 
 /obj/machinery/cryopod/proc/save_ipc_tag(var/mob/M)

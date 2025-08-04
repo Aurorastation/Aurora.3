@@ -13,13 +13,13 @@
 	desc = "Boring, but practical."
 	cast_methods = CAST_RANGED
 	aspect = ASPECT_LIGHT
-	spell_projectile = /obj/item/projectile/beam/techno
+	spell_projectile = /obj/projectile/beam/techno
 	energy_cost_per_shot = 400
 	instability_per_shot = 3
 	cooldown = 10
 	fire_sound = 'sound/weapons/laserstrong.ogg'
 
-/obj/item/projectile/beam/techno
+/obj/projectile/beam/techno
 	damage = 35
 	armor_penetration = 25
 

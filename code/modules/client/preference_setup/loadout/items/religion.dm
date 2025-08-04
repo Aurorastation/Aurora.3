@@ -1,10 +1,8 @@
-/datum/gear/religion
-	abstract_type = /datum/gear/religion
+ABSTRACT_TYPE(/datum/gear/religion)
 	sort_category = "Religion"
 	flags = GEAR_HAS_DESC_SELECTION
 
-/datum/gear/religion/trinary
-	abstract_type = /datum/gear/religion/trinary
+ABSTRACT_TYPE(/datum/gear/religion/trinary)
 	religion = RELIGION_TRINARY
 
 /datum/gear/religion/trinary/mask
@@ -105,8 +103,7 @@
 	slot = slot_tie
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/religion/dominia
-	abstract_type = /datum/gear/religion/dominia
+ABSTRACT_TYPE(/datum/gear/religion/dominia)
 	religion = RELIGION_MOROZ
 
 /datum/gear/religion/dominia/robe
@@ -176,7 +173,7 @@
 	display_name = "tribunalist medical beret"
 	path = /obj/item/clothing/head/beret/dominia/medical
 	slot = slot_head
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Medical Personnel")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Intern", "Medical Personnel")
 
 /datum/gear/religion/dominia/robe_consular
 	display_name = "tribunalist consular uniform"
@@ -219,8 +216,13 @@
 	dominiaicon["icon of the martyr, valeria"] = /obj/item/sign/painting_frame/martyr/valeria
 	gear_tweaks += new /datum/gear_tweak/path(dominiaicon)
 
-/datum/gear/religion/assunzione
-	abstract_type = /datum/gear/religion/assunzione
+/datum/gear/religion/dominia/lyodii_deck
+	display_name = "lyodii fatesayer cards"
+	description = "A leather box holding a complete deck of Fatesayer cards, used by the people of the Lyod to tell one's fate."
+	path = /obj/item/storage/box/lyodii
+	culture_restriction = list(/singleton/origin_item/culture/dominia)
+
+ABSTRACT_TYPE(/datum/gear/religion/assunzione)
 	religion = RELIGION_LUCEISM
 
 /datum/gear/religion/assunzione/scripture

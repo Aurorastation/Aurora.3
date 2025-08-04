@@ -415,10 +415,10 @@
 	desc = "Medical Equipment"
 	region = ACCESS_REGION_MEDBAY
 
-#define ACCESS_FIRST_RESPONDER 67
-/datum/access/first_responder
-	id = ACCESS_FIRST_RESPONDER
-	desc = "First Responder Equipment"
+#define ACCESS_PARAMEDIC 67
+/datum/access/paramedic
+	id = ACCESS_PARAMEDIC
+	desc = "Paramedic Equipment"
 	region = ACCESS_REGION_MEDBAY
 
 // free_access_id = 68
@@ -462,6 +462,24 @@
 	id = ACCESS_SHIP_WEAPONS
 	desc = "Ship Weapons"
 	region = ACCESS_REGION_SUPPLY
+
+#define ACCESS_SPARK 76
+/datum/access/spark
+	id = ACCESS_SPARK
+	desc = "Spark Shuttle"
+	region = ACCESS_REGION_COMMAND
+
+#define ACCESS_QUARK 77
+/datum/access/quark
+	id = ACCESS_QUARK
+	desc = "Quark Shuttle"
+	region = ACCESS_REGION_COMMAND
+
+#define ACCESS_CANARY 78
+/datum/access/canary
+	id = ACCESS_CANARY
+	desc = "Canary Shuttle"
+	region = ACCESS_REGION_COMMAND
 
 /******************
 * Central Command *
@@ -670,10 +688,12 @@
 	id = ACCESS_HEPHAESTUS
 	access_type = ACCESS_TYPE_CENTCOM
 
+// For the Golden Deep ghostrole. This is the access for the merchant and guards, but not for the owned synthetics.
 #define ACCESS_GOLDEN_DEEP 217
 /datum/access/golden_deep
 	id = ACCESS_GOLDEN_DEEP
 	access_type = ACCESS_TYPE_CENTCOM
+	desc = "Golden Deep"
 
 #define ACCESS_KONYANG_POLICE 218
 /datum/access/konyang_police
@@ -732,6 +752,13 @@
 /datum/access/autakh
 	id = ACCESS_AUTAKH
 	access_type = ACCESS_TYPE_CENTCOM
+
+// For the Golden Deep ghostrole. This is for the owned synthetics, so they lack some of the access their superiors enjoy.
+#define ACCESS_GOLDEN_DEEP_OWNED 229
+/datum/access/golden_deep_owned
+	id = ACCESS_GOLDEN_DEEP_OWNED
+	access_type = ACCESS_TYPE_CENTCOM
+	desc = "Golden Deep, Limited Access"
 
 //guest rooms - for any ship/event that requires hotel-esque rooms
 
@@ -804,3 +831,58 @@
 /datum/access/unathi_trawler_access
 	id = ACCESS_FISHING_LEAGUE
 	desc = "General Fishing Trawler Access"
+
+#define ACCESS_TRAMP_FREIGHTER 242
+/datum/access/tramp_freighter_access
+	id = ACCESS_TRAMP_FREIGHTER
+	desc = "Independent Freighter Access"
+
+#define ACCESS_LONE_SPACER 243
+/datum/access/lone_spacer_access
+	id = ACCESS_LONE_SPACER
+	desc = "Independent Skiff Access"
+
+#define ACCESS_CRYO_OUTPOST 244
+/datum/access/cryo_outpost_access
+	id = ACCESS_CRYO_OUTPOST
+	desc = "Outpost #187-D Access"
+
+#define ACCESS_RUINED_PROPELLANT_DEPOT 245
+/datum/access/ruined_propellant_depot_access
+	id = ACCESS_RUINED_PROPELLANT_DEPOT
+	desc = "Propellant Depot AG5 Access"
+
+#define ACCESS_SPLF 246
+/datum/access/splf_access
+	id = ACCESS_SPLF
+	desc = "SPLF Access"
+
+#define ACCESS_NUCLEAR_MISSILE_SILO 247
+/datum/access/nuclear_missile_silo_access
+	id = ACCESS_NUCLEAR_MISSILE_SILO
+	desc = "Nuclear Missile Silo Access"
+
+#define ACCESS_NUCLEAR_MISSILE_SILO_HIGH 248
+/datum/access/nuclear_missile_silo_access_high
+	id = ACCESS_NUCLEAR_MISSILE_SILO_HIGH
+	desc = "Nuclear Missile Silo Access High Security"
+
+/datum/access/enviro_testing_facility_access_control
+	id = 249
+	desc = "Env-Test Facility Zoya, Control Access"
+
+/datum/access/enviro_testing_facility_access_medres
+	id = 250
+	desc = "Env-Test Facility Zoya, Medical-Research Access"
+
+/datum/access/enviro_testing_facility_access_engops
+	id = 251
+	desc = "Env-Test Facility Zoya, Engineering-Operations Access"
+
+/datum/access/enviro_testing_facility_access_sec
+	id = 252
+	desc = "Env-Test Facility Zoya, Security Access"
+
+#define ACCESS_HIMEO_PATROL_SHIP 253
+	id = ACCESS_HIMEO_PATROL_SHIP
+	desc = "Himean Military Patrol Vessel"

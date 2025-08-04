@@ -7,7 +7,7 @@
 	size = 6
 	requires_ntnet = TRUE
 	available_on_ntnet = TRUE
-	required_access_download = ACCESS_HOP
+	required_access_download = ACCESS_CARGO
 	usage_flags = PROGRAM_ALL
 	tgui_id = "CargoDelivery"
 

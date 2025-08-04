@@ -1,8 +1,7 @@
 /obj/random/mre
 	name = "random MRE"
 	desc = "This is a random single MRE."
-	icon = 'icons/obj/storage/fancy/mre.dmi'
-	icon_state = "mre"
+	icon_state = "mre_bag"
 	spawnlist = list(
 		/obj/item/storage/box/fancy/mre,
 		/obj/item/storage/box/fancy/mre/menu2,
@@ -19,7 +18,7 @@
 /obj/random/mre/main
 	name = "random MRE main course"
 	desc = "This is a random main course for MREs."
-	icon_state = "pouch_medium"
+	icon_state = "mre_meal"
 	spawnlist = list(
 		/obj/item/storage/box/fancy/mrebag,
 		/obj/item/storage/box/fancy/mrebag/menu2,
@@ -34,7 +33,7 @@
 /obj/random/mre/dessert
 	name = "random MRE dessert"
 	desc = "This is a random dessert for MREs."
-	icon_state = "pouch_medium"
+	icon_state = "mre_desert"
 	spawnlist = list(
 		/obj/item/reagent_containers/food/snacks/candy,
 		/obj/item/reagent_containers/food/snacks/cb01,
@@ -93,7 +92,7 @@
 /obj/random/mre/spread
 	name = "random MRE spread"
 	desc = "This is a random spread packet for MREs."
-	icon_state = "packet_small"
+	icon_state = "packet_medium"
 	spawnlist = list(
 		/obj/item/reagent_containers/food/condiment/small/packet/jelly,
 		/obj/item/reagent_containers/food/condiment/small/packet/honey
@@ -107,7 +106,7 @@
 /obj/random/mre/sauce
 	name = "random MRE sauce"
 	desc = "This is a random sauce packet for MREs."
-	icon_state = "packet_small"
+	icon_state = "packet_medium"
 	spawnlist = list(
 		/obj/item/reagent_containers/food/condiment/small/packet/salt,
 		/obj/item/reagent_containers/food/condiment/small/packet/pepper,
@@ -152,7 +151,6 @@
 /obj/random/booze
 	name = "random alcohol bottle"
 	desc = "This is a random alcohol bottle."
-	icon = 'icons/obj/drinks.dmi'
 	icon_state = "broken_bottle"
 	spawnlist = list(
 		/obj/item/reagent_containers/food/drinks/bottle/gin,
@@ -190,8 +188,7 @@
 /obj/random/keg
 	name = "random alcohol keg"
 	desc = "Contains a random alcohol keg."
-	icon = 'icons/obj/reagent_dispensers.dmi'
-	icon_state = "beertankTEMP"
+	icon_state = "keg"
 	spawnlist = list(
 		/obj/structure/reagent_dispensers/keg/beerkeg = 2,
 		/obj/structure/reagent_dispensers/keg/beerkeg/rice = 0.5,
@@ -203,8 +200,7 @@
 /obj/random/pizzabox
 	name = "random pizzabox"
 	desc = "Contains a random pizzabox."
-	icon = 'icons/obj/storage/fancy/pizzabox.dmi'
-	icon_state = "pizzabox1"
+	icon_state = "pizzabox"
 	spawnlist = list(
 		/obj/item/pizzabox/margherita,
 		/obj/item/pizzabox/vegetable,

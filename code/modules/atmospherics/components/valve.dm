@@ -1,7 +1,6 @@
 /obj/machinery/atmospherics/valve
 	name = "manual valve"
 	desc = "A pipe valve."
-	desc_info = "Click this to turn the valve.  If red, the pipes on each end are seperated.  Otherwise, they are connected."
 	icon = 'icons/atmos/valve.dmi'
 	icon_state = "map_valve0"
 
@@ -14,6 +13,15 @@
 
 	var/datum/pipe_network/network_node1
 	var/datum/pipe_network/network_node2
+
+/obj/machinery/atmospherics/valve/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "It is [open ? "open" : "closed"]."
+
+/obj/machinery/atmospherics/valve/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Click this to turn the valve."
+	. += "If red, the pipes on each end are seperated. Otherwise, they are connected."
 
 /obj/machinery/atmospherics/valve/open
 	open = 1
@@ -146,7 +154,7 @@
 	var/node1_dir
 	var/node2_dir
 
-	for(var/direction in GLOB.cardinal)
+	for(var/direction in GLOB.cardinals)
 		if(direction&initialize_directions)
 			if (!node1_dir)
 				node1_dir = direction
@@ -244,7 +252,7 @@
 
 	log_and_message_admins("has [open ? SPAN_WARNING("OPENED") : "closed"] [name].", user)
 
-/obj/machinery/atmospherics/valve/digital/AltClick(var/mob/abstract/observer/admin)
+/obj/machinery/atmospherics/valve/digital/AltClick(var/mob/abstract/ghost/observer/admin)
 	if (istype(admin))
 		if (admin.client && admin.client.holder && ((R_MOD|R_ADMIN) & admin.client.holder.rights))
 			if (open)
@@ -323,7 +331,3 @@
 		new /obj/item/pipe(loc, make_from=src)
 		qdel(src)
 		return TRUE
-
-/obj/machinery/atmospherics/valve/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += "It is [open ? "open" : "closed"]."

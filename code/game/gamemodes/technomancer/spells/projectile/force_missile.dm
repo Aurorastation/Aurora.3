@@ -14,13 +14,13 @@
 	desc = "Make it rain!"
 	cast_methods = CAST_RANGED
 	aspect = ASPECT_FORCE
-	spell_projectile = /obj/item/projectile/force_missile
+	spell_projectile = /obj/projectile/force_missile
 	energy_cost_per_shot = 300
 	instability_per_shot = 2
 	cooldown = 5
 	fire_sound = 'sound/weapons/wave.ogg'
 
-/obj/item/projectile/force_missile
+/obj/projectile/force_missile
 	name = "force missile"
 	icon_state = "plasma_bolt"
 	damage = 25

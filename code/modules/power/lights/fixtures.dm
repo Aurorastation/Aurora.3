@@ -10,13 +10,12 @@
 	var/base_state = "tube"		// base description and icon_state
 	icon_state = "tube_preview"
 	desc = "A lighting fixture."
-	desc_info = "Use grab intent when interacting with a working light to take it out of its fixture."
 	anchored = TRUE
 	layer = ABOVE_HUMAN_LAYER
 	use_power = POWER_USE_ACTIVE
 	idle_power_usage = 2
 	active_power_usage = 20
-	power_channel = LIGHT //Lights are calc'd via area so they dont need to be in the machine list
+	power_channel = AREA_USAGE_LIGHT //Lights are calc'd via area so they dont need to be in the machine list
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/brightness_range = 8	// luminosity when on, also used in power calculation
@@ -59,6 +58,24 @@
 		LIGHT_MODE_DELTA = LIGHT_COLOR_ORANGE
 	)
 	init_flags = 0
+
+/obj/machinery/light/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use Grab intent on a working light to remove it from its fixture."
+
+/obj/machinery/light/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	switch(status)
+		if(LIGHT_OK)
+			. += "It is turned [!(stat & POWEROFF) ? "on" : "off"]."
+		if(LIGHT_EMPTY)
+			. += "\The [fitting] has been removed."
+		if(LIGHT_BURNED)
+			. += "\The [fitting] is burnt out."
+		if(LIGHT_BROKEN)
+			. += "\The [fitting] has been smashed."
+	if(cell)
+		. += "The charge meter reads [round((cell.charge / cell.maxcharge) * 100, 0.1)]%."
 
 /obj/machinery/light/skrell
 	base_state = "skrell"
@@ -128,6 +145,11 @@
 	brightness_color = LIGHT_COLOR_RED
 	randomize_color = FALSE
 	icon_state = "tube_red_preview"
+
+/obj/machinery/light/colored/violet
+	brightness_color = LIGHT_COLOR_VIOLET
+	randomize_color = FALSE
+	icon_state = "tube_violet_preview"
 
 /obj/machinery/light/colored/decayed
 	brightness_color = LIGHT_COLOR_DECAYED
@@ -388,21 +410,6 @@
 	user.do_attack_animation(src)
 	return TRUE
 
-// examine verb
-/obj/machinery/light/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	switch(status)
-		if(LIGHT_OK)
-			. += "It is turned [!(stat & POWEROFF) ? "on" : "off"]."
-		if(LIGHT_EMPTY)
-			. += "\The [fitting] has been removed."
-		if(LIGHT_BURNED)
-			. += "\The [fitting] is burnt out."
-		if(LIGHT_BROKEN)
-			. += "\The [fitting] has been smashed."
-	if(cell)
-		. += "The charge meter reads [round((cell.charge / cell.maxcharge) * 100, 0.1)]%."
-
 // attack with item - insert light (if right type), otherwise try to break the light
 
 /obj/machinery/light/attackby(obj/item/attacking_item, mob/user)
@@ -507,8 +514,12 @@
 	else
 		user.visible_message(SPAN_WARNING("\The [user] hits \the [src], but it doesn't break."), SPAN_WARNING("You hit \the [src], but it doesn't break."), SPAN_WARNING("You hear something hitting against glass."))
 
-/obj/machinery/light/bullet_act(obj/item/projectile/P, def_zone)
-	bullet_ping(P)
+/obj/machinery/light/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	bullet_ping(hitting_projectile)
 	shatter()
 
 // returns whether this light has power

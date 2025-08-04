@@ -232,6 +232,9 @@ GUEST_BAN
 ## Rules address
 # RULESURL https://aurorastation.org/rules.html
 
+## Mainsite address
+# MAINSITEURL https://aurorastation.org/
+
 ## Ban appeals URL - usually for a forum or wherever people should go to contact your admins.
 # BANAPPEALS http://example.com
 
@@ -425,12 +428,6 @@ API_RATE_LIMIT 50
 ## IPs that should not be throttled by the API RATE Limiter
 ## IPs are separated by ;
 API_RATE_LIMIT_WHITELIST 127.0.0.1
-
-
-## GELF Logging Configuration
-LOG_GELF_ENABLED 0
-# Make sure the IP string is written in a manner of "IP:port", without the quotes.
-#LOG_GELF_ADDR 127.0.0.1:5667
 
 ### IPINTEL:
 ### This allows you to detect likely proxies by checking ips against getipintel.net

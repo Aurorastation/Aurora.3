@@ -1,4 +1,4 @@
-var/datum/evacuation_controller/evacuation_controller
+GLOBAL_DATUM(evacuation_controller, /datum/evacuation_controller)
 
 /datum/evacuation_controller
 
@@ -81,8 +81,8 @@ var/datum/evacuation_controller/evacuation_controller
 	state = EVAC_PREPPING
 	switch(evacuation_type)
 		if(TRANSFER_EMERGENCY)
-			for(var/area/A in GLOB.all_areas)
-				if(istype(A, /area/hallway))
+			for(var/area/A in get_sorted_areas())
+				if(istype(A, /area/horizon/hallway))
 					A.readyalert()
 			if(!skip_announce)
 				priority_announcement.Announce(replacetext(replacetext(SSatlas.current_map.emergency_shuttle_called_message, "%dock%", "[SSatlas.current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60)] minute\s"), new_sound = 'sound/AI/emergency_shuttle_called_message.ogg')
@@ -111,8 +111,8 @@ var/datum/evacuation_controller/evacuation_controller
 	switch(evacuation_type)
 		if(TRANSFER_EMERGENCY)
 			evac_recalled.Announce(SSatlas.current_map.emergency_shuttle_recall_message, new_sound = 'sound/AI/emergency_shuttle_recall_message.ogg')
-			for(var/area/A in GLOB.all_areas)
-				if(istype(A, /area/hallway))
+			for(var/area/A in get_sorted_areas())
+				if(istype(A, /area/horizon/hallway))
 					A.readyreset()
 		if(TRANSFER_JUMP)
 			priority_announcement.Announce(SSatlas.current_map.bluespace_recall_message, new_sound = 'sound/AI/bluespace_jump_recalled.ogg')

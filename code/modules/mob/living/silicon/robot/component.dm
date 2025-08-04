@@ -39,7 +39,7 @@
 	installed = -1
 
 /datum/robot_component/proc/get_damage(var/type)
-	return Clamp(brute_damage + electronics_damage,0,max_damage)
+	return clamp(brute_damage + electronics_damage,0,max_damage)
 
 /datum/robot_component/proc/take_damage(brute, electronics, damage_flags)
 	if(installed != 1)

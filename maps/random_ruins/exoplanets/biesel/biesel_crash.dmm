@@ -43,8 +43,7 @@
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/grate/old,
 /obj/effect/decal/cleanable/blood/gibs/limb,
@@ -222,8 +221,7 @@
 /area/template_noop)
 "hv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9;
-	icon_state = "intact"
+	dir = 9
 	},
 /turf/simulated/floor/exoplanet/tiled,
 /area/template_noop)
@@ -233,7 +231,6 @@
 /area/template_noop)
 "hI" = (
 /obj/machinery/atmospherics/pipe/tank/air{
-	layer = 3.5;
 	start_pressure = 5066.26;
 	dir = 4
 	},
@@ -275,8 +272,7 @@
 "iL" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9;
-	icon_state = "intact"
+	dir = 9
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/tiled,
@@ -467,7 +463,7 @@
 /area/template_noop)
 "nf" = (
 /obj/structure/closet,
-/obj/item/clothing/head/padded{
+/obj/item/clothing/head/tanker{
 	color = "#BCA77E"
 	},
 /obj/item/clothing/head/beanie{
@@ -488,10 +484,10 @@
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/alt,
 /obj/item/clothing/suit/storage/toggle/bomber,
 /obj/item/clothing/suit/storage/toggle/highvis,
-/obj/item/clothing/under/pants/track,
-/obj/item/clothing/under/pants/tacticool,
-/obj/item/clothing/under/pants/jeansblack,
-/obj/item/clothing/under/pants/classic,
+/obj/item/clothing/pants/track,
+/obj/item/clothing/pants/tacticool,
+/obj/item/clothing/pants/jeansblack,
+/obj/item/clothing/pants/classic,
 /obj/item/clothing/accessory/silversun,
 /obj/item/clothing/under/syndicate/tracksuit,
 /obj/item/clothing/under/syndicate,
@@ -743,7 +739,6 @@
 /area/template_noop)
 "yg" = (
 /obj/item/bedsheet/black{
-	layer = 4.2;
 	pixel_y = 13
 	},
 /obj/structure/railing/mapped{
@@ -1394,8 +1389,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5;
-	pixel_y = 0
+	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/grate/old,
 /obj/random/dirt_75,
@@ -1694,8 +1688,7 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/structure/lattice/catwalk/indoor/grate/old,
 /turf/simulated/floor/exoplanet/plating,

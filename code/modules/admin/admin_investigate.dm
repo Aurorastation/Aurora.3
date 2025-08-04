@@ -23,7 +23,7 @@
 	if(!message)	return
 	var/F = investigate_subject2file(subject)
 	if(!F)	return
-	to_chat(F, "<small>[time2text(world.timeofday,"hh:mm")] \ref[src] ([x],[y],[z])</small> || [src] [message]<br>")
+	to_chat(F, "<small>[time2text(world.timeofday,"hh:mm")] [REF(src)] ([x],[y],[z])</small> || [src] [message]<br>")
 
 //ADMINVERBS
 /client/proc/investigate_show( subject in list("hrefs","notes","singulo","telesci") )

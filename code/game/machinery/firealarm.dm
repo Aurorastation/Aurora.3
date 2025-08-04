@@ -12,18 +12,24 @@
 	anchored = 1
 	idle_power_usage = 2
 	active_power_usage = 6
-	power_channel = ENVIRON
+	power_channel = AREA_USAGE_ENVIRON
 	var/last_process = 0
-	var/wiresexposed = 0
 	var/buildstage = 2 // 2 = complete, 1 = no wires,  0 = circuit gone
 	var/seclevel
 	///looping sound datum for our fire alarm siren.
 	var/datum/looping_sound/firealarm/soundloop
 
-/obj/machinery/firealarm/Initialize(mapload, ndir = 0, building)
-	. = ..(mapload, ndir)
+/obj/machinery/firealarm/Initialize(mapload, var/dir, var/building = 0)
+	. = ..(mapload)
 
-	update_icon()
+	if(building)
+		if(dir)
+			src.set_dir(dir)
+		buildstage = 0
+		panel_open = 1
+
+		update_icon()
+		set_pixel_offsets()
 
 	if(isContactLevel(z))
 		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(set_security_level), (GLOB.security_level ? get_security_level() : "green"))
@@ -35,6 +41,8 @@
 
 	if(!mapload)
 		set_pixel_offsets()
+
+	update_icon()
 
 /obj/machinery/firealarm/Destroy()
 	QDEL_NULL(soundloop)
@@ -50,7 +58,7 @@
 /obj/machinery/firealarm/update_icon()
 	ClearOverlays()
 
-	if(wiresexposed)
+	if(panel_open)
 		switch(buildstage)
 			if(2)
 				AddOverlays("fire_b2")
@@ -82,8 +90,12 @@
 		if(exposed_temperature > T0C+200)
 			src.alarm()			// added check of detector status here
 
-/obj/machinery/firealarm/bullet_act()
-	return src.alarm()
+/obj/machinery/firealarm/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	src.alarm()
 
 /obj/machinery/firealarm/emp_act(severity)
 	. = ..()
@@ -98,13 +110,13 @@
 		return TRUE
 
 	if (attacking_item.isscrewdriver() && buildstage == 2)
-		if(!wiresexposed)
+		if(!panel_open)
 			set_light(0)
-		wiresexposed = !wiresexposed
+		panel_open = !panel_open
 		update_icon()
 		return TRUE
 
-	if(wiresexposed)
+	if(panel_open)
 		set_light(0)
 		switch(buildstage)
 			if(2)
@@ -140,11 +152,10 @@
 				else if(attacking_item.iscrowbar())
 					to_chat(user, "You pry out the circuit!")
 					attacking_item.play_tool_sound(get_turf(src), 50)
-					spawn(20)
-						var/obj/item/firealarm_electronics/circuit = new /obj/item/firealarm_electronics()
-						circuit.forceMove(user.loc)
-						buildstage = 0
-						update_icon()
+					var/obj/item/firealarm_electronics/circuit = new /obj/item/firealarm_electronics()
+					circuit.forceMove(user.loc)
+					buildstage = 0
+					update_icon()
 					return TRUE
 			if(0)
 				if(istype(attacking_item, /obj/item/firealarm_electronics))
@@ -194,10 +205,10 @@
 	if (buildstage != 2 || stat & (NOPOWER|BROKEN))
 		return
 
-	if(user.a_intent == I_HURT)
-		alarm()
-	else
+	if(user.a_intent != I_HURT)
 		ui_interact(user)
+	else
+		alarm()
 
 /obj/machinery/firealarm/ui_data(mob/user)
 	var/list/data = list()
@@ -227,7 +238,7 @@
 			if(!isnum(input_time))
 				return
 
-			time = Clamp(input_time SECONDS, 1, 600)
+			time = clamp(input_time SECONDS, 1, 600)
 
 		if("start_timer")
 			src.timing = 1
@@ -242,7 +253,7 @@
 		return
 	var/area/area = get_area(src)
 	for(var/obj/machinery/firealarm/FA in area)
-		fire_alarm.clearAlarm(loc, FA)
+		GLOB.fire_alarm.clearAlarm(loc, FA)
 		FA.soundloop.stop(FA)
 	update_icon()
 	return
@@ -252,7 +263,7 @@
 		return
 	var/area/area = get_area(src)
 	for(var/obj/machinery/firealarm/FA in area)
-		fire_alarm.triggerAlarm(loc, FA, duration)
+		GLOB.fire_alarm.triggerAlarm(loc, FA, duration)
 		FA.soundloop.start(FA)
 	update_icon()
 	return
@@ -289,8 +300,8 @@ Just a object used in constructing fire alarms
 */
 /obj/item/firealarm_electronics
 	name = "fire alarm electronics"
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/module.dmi'
 	icon_state = "door_electronics"
 	desc = "A circuit. It has a label on it, it says \"Can handle heat levels up to 40 degrees celsius!\""
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 50)

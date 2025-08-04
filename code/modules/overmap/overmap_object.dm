@@ -4,6 +4,8 @@
 	icon_state = "object"
 	color = "#fffffe"
 	mouse_opacity = MOUSE_OPACITY_ICON
+	layer = OVERMAP_SECTOR_LAYER
+	set_dir_on_move = FALSE
 
 //RP fluff details to appear on scan readouts for any object we want to include these details with
 	var/scanimage = "no_data.png"
@@ -19,7 +21,6 @@
 	var/static_vessel = FALSE //Used to expand scan details for visible space stations
 	var/landing_site = FALSE //Used for unique landing sites that occupy the same overmap tile as another - for example, the implementation of Point Verdant and Konyang
 
-	layer = OVERMAP_SECTOR_LAYER
 
 	var/list/map_z = list()
 
@@ -62,7 +63,7 @@
 		. += "<hr>"
 		. += "<br><center><b>Native Database Specifications</b>"
 		. += "<br><img src = [scanimage]></center>"
-		. += "<br><small><b>Governing Body:</b> [alignment]"
+		. += "<br><small><b>Governing Body:</b> [alignment]</small>"
 		. += "<hr>"
 		. += "<br><center><b>Native Database Notes</b></center>"
 		. += "<br><small>[desc]</small>"
@@ -110,14 +111,26 @@
 	if(requires_contact)
 		set_invisibility(INVISIBILITY_OVERMAP)// Effects that require identification have their images cast to the client via sensors.
 
-/obj/effect/overmap/Crossed(var/obj/effect/overmap/visitable/other)
-	if(istype(other))
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+		COMSIG_ATOM_EXITED = PROC_REF(on_exit),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
+/obj/effect/overmap/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	if(istype(arrived, /obj/effect/overmap/visitable))
 		for(var/obj/effect/overmap/visitable/O in loc)
 			SSskybox.rebuild_skyboxes(O.map_z)
 
-/obj/effect/overmap/Uncrossed(var/obj/effect/overmap/visitable/other)
-	if(istype(other))
-		SSskybox.rebuild_skyboxes(other.map_z)
+/obj/effect/overmap/proc/on_exit(atom/movable/gone, direction)
+	SIGNAL_HANDLER
+
+	if(istype(gone, /obj/effect/overmap/visitable))
+		var/obj/effect/overmap/visitable/V = gone
+		SSskybox.rebuild_skyboxes(V.map_z)
 		for(var/obj/effect/overmap/visitable/O in loc)
 			SSskybox.rebuild_skyboxes(O.map_z)
 

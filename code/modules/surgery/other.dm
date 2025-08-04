@@ -42,7 +42,8 @@
 	affected.status &= ~ORGAN_ARTERY_CUT
 	affected.update_damages()
 	if(ishuman(user) && prob(40))
-		user:bloody_hands(target, 0)
+		var/mob/living/carbon/human/H = user
+		H.bloody_hands(target, 0)
 
 /singleton/surgery_step/fix_vein/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)

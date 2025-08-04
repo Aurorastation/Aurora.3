@@ -4,13 +4,23 @@
 	icon = 'icons/obj/geiger_counter.dmi'
 	icon_state = "geiger_off"
 	item_state = "multitool"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	action_button_name = "Toggle geiger counter"
+	matter = list(MATERIAL_PLASTIC = 100, DEFAULT_WALL_MATERIAL = 100, MATERIAL_GLASS = 50)
+	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 1)
 	var/scanning = 0
 	var/radiation_count = 0
 	var/datum/sound_token/sound_token
 	var/geiger_volume = 0
 	var/sound_id
+
+/obj/item/device/geiger/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	var/msg = "[scanning ? "ambient" : "stored"] Radiation level: <b>[radiation_count ? radiation_count : "0"] IU/s</b>."
+	if(radiation_count > RAD_LEVEL_LOW)
+		. += SPAN_WARNING("[msg]")
+	else
+		. += SPAN_NOTICE("[msg]")
 
 /obj/item/device/geiger/Initialize()
 	. = ..()
@@ -32,14 +42,6 @@
 		return
 	radiation_count = SSradiation.get_rads_at_turf(get_turf(src))
 	update_icon()
-
-/obj/item/device/geiger/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	var/msg = "[scanning ? "ambient" : "stored"] Radiation level: [radiation_count ? radiation_count : "0"] IU/s."
-	if(radiation_count > RAD_LEVEL_LOW)
-		. += SPAN_WARNING("[msg]")
-	else
-		. += SPAN_NOTICE("[msg]")
 
 /obj/item/device/geiger/attack_self(mob/user)
 	scanning = !scanning

@@ -251,8 +251,9 @@
 			possible_spawns += /obj/item/stack/material/silver
 
 			var/new_type = pick(possible_spawns)
-			new_item = new new_type(src.loc)
-			new_item:amount = rand(5,45)
+			var/obj/item/stack/material/new_mat_stack = new new_type(src.loc)
+			new_mat_stack.amount = rand(5,45)
+			new_item = new_mat_stack
 		if(15)
 			if(prob(75))
 				new_item = new /obj/item/pen(src.loc)

@@ -1,12 +1,20 @@
-#define NO_TALISMAN                  1
-#define CAN_MEMORIZE                  2
-#define HAS_SPECIAL_TALISMAN_ACTION  4
+#define NO_TALISMAN	BITFLAG(1)
+#define CAN_MEMORIZE	BITFLAG(2)
+#define HAS_SPECIAL_TALISMAN_ACTION	BITFLAG(3)
 
 /datum/rune
-	var/name            	  // The rune's name.
-	var/desc         		  // The rune's description. This and the name are used in the guide.
-	var/rune_flags   		  // Things like if it can be a talisman or not.
-	var/max_number_allowed    // Maximum number allowed of this rune.
+	///The rune's name
+	var/name
+
+	///The rune's description; this and the name are used in the guide
+	var/desc
+
+	///Things like if it can be a talisman or not, see defines in `code\game\gamemodes\cult\runes\_rune_datum.dm`
+	var/rune_flags
+
+	///Maximum number allowed of this rune
+	var/max_number_allowed
+
 	var/atom/movable/parent
 
 /datum/rune/New(atom/owner)

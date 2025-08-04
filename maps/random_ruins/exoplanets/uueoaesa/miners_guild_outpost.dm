@@ -4,7 +4,7 @@
 	description = "A Miners' Guild mining outpost on one of Uueoa-Esa's minor celestial bodies."
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "uueoaesa/"
-	suffixes = list("miners_guild_outpost.dmm")
+	suffix = "miners_guild_outpost.dmm"
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	spawn_cost = 2
 	ban_ruins = list(/datum/map_template/ruin/exoplanet/heph_mining_station)

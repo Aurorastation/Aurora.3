@@ -1,15 +1,15 @@
-/obj/item/projectile/change
+/obj/projectile/change
 	name = "bolt of change"
 	icon_state = "ice_1"
 	damage = 0
 	damage_type = DAMAGE_BURN
-	nodamage = 1
-	check_armor = "energy"
+	check_armor = ENERGY
 
-/obj/item/projectile/change/on_hit(var/atom/change)
-	wabbajack(change)
+/obj/projectile/change/on_hit(atom/target, blocked, def_zone)
+	. = ..()
+	wabbajack(target)
 
-/obj/item/projectile/change/proc/wabbajack(var/mob/M)
+/obj/projectile/change/proc/wabbajack(var/mob/M)
 	if(istype(M, /mob/living) && M.stat != DEAD)
 		if(M.transforming)
 			return
@@ -68,11 +68,11 @@
 
 				if(M.gender == MALE)
 					H.gender = MALE
-					H.name = pick(first_names_male)
+					H.name = pick(GLOB.first_names_male)
 				else
 					H.gender = FEMALE
-					H.name = pick(first_names_female)
-				H.name += " [pick(last_names)]"
+					H.name = pick(GLOB.first_names_female)
+				H.name += " [pick(GLOB.last_names)]"
 				H.real_name = H.name
 
 				INVOKE_ASYNC(H, TYPE_PROC_REF(/mob/living/carbon/human, set_species), randomize)

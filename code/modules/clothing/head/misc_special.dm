@@ -23,13 +23,13 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 3000, MATERIAL_GLASS = 1000)
 	var/up = 0
 	armor = list(
-			melee = ARMOR_MELEE_SMALL
+			MELEE = ARMOR_MELEE_SMALL
 		)
 	flags_inv = (HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE)
 	body_parts_covered = HEAD|FACE|EYES
 	action_button_name = "Flip Welding Mask"
 	siemens_coefficient = 0.75 // what? it's steel.
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	var/base_state
 	flash_protection = FLASH_PROTECTION_MAJOR
 	tint = TINT_HEAVY
@@ -130,7 +130,7 @@
 	body_parts_covered = HEAD|FACE|EYES
 	drop_sound = 'sound/items/drop/herb.ogg'
 	pickup_sound = 'sound/items/pickup/herb.ogg'
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	throwforce = 1
 	throw_speed = 0.5
 
@@ -234,7 +234,6 @@
 /obj/item/clothing/head/cone
 	name = "warning cone"
 	desc = "This cone is trying to warn you of something!"
-	desc_info = "It looks like you can wear it in your head slot."
 	icon_state = "cone"
 	item_state = "cone"
 	drop_sound = 'sound/items/drop/shoes.ogg'
@@ -243,7 +242,12 @@
 	throwforce = 3
 	throw_speed = 2
 	throw_range = 5
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	body_parts_covered = HEAD
 	attack_verb = list("warned", "cautioned", "smashed")
 	armor = list(melee = 5, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
+
+/obj/item/clothing/head/cone/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "It looks like you can wear it in your head slot."
+

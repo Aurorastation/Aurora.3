@@ -7,7 +7,7 @@
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "moghes/"
-	suffixes = list("moghes_wasteland_izweski.dmm")
+	suffix = "moghes_wasteland_izweski.dmm"
 	ban_ruins = list(/datum/map_template/ruin/exoplanet/moghes_kataphract_wasteland)
 	unit_test_groups = list(3)
 
@@ -17,8 +17,14 @@
 	requires_power = FALSE
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
+	is_outside = OUTSIDE_NO
 	base_turf = /turf/simulated/floor/exoplanet/desert
 	area_flags = AREA_FLAG_RAD_SHIELDED|AREA_FLAG_INDESTRUCTIBLE_TURFS
+
+/area/moghes/hegemony_wasteland/outdoors
+	name = "Hegemony Wasteland Outpost"
+	icon_state = "bluenew"
+	is_outside = OUTSIDE_YES
 	area_blurb = "An outpost of the Izweski Hegemony, standing in the Wasteland. Red-and-gold banners snap in the wind."
 
 /datum/ghostspawner/human/moghes_hegemony_wasteland

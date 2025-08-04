@@ -14,6 +14,6 @@
 	ruin_tags = 0
 
 	prefix = "delivery/"
-	suffixes = list("delivery_site.dmm")
+	suffix = "delivery_site.dmm"
 
 	unit_test_groups = list(3)

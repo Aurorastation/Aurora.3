@@ -9,7 +9,7 @@
 	sectors = list(SECTOR_SRANDMARR)
 
 	prefix = "adhomai/"
-	suffixes = list("adhomai_sole_rock_nomad.dmm")
+	suffix = "adhomai_sole_rock_nomad.dmm"
 
 	unit_test_groups = list(3)
 
@@ -39,7 +39,7 @@
 /obj/outfit/admin/adhomai_sole_rock_nomad
 	name = "Rock Nomad"
 
-	uniform = /obj/item/clothing/under/pants/tajaran
+	pants = /obj/item/clothing/pants/tajaran
 	head = /obj/item/clothing/head/tajaran/fur
 	suit = /obj/item/clothing/suit/storage/toggle/tajaran/wool
 	shoes = /obj/item/clothing/shoes/tajara/footwraps

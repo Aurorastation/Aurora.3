@@ -106,9 +106,9 @@
 
 	if(!current_species || current_species.name_language == null)
 		if(gender==FEMALE)
-			return capitalize(pick(first_names_female)) + " " + capitalize(pick(last_names))
+			return capitalize(pick(GLOB.first_names_female)) + " " + capitalize(pick(GLOB.last_names))
 		else
-			return capitalize(pick(first_names_male)) + " " + capitalize(pick(last_names))
+			return capitalize(pick(GLOB.first_names_male)) + " " + capitalize(pick(GLOB.last_names))
 	else
 		return current_species.get_random_name(gender)
 
@@ -182,11 +182,11 @@ Proc for attack log creation, because really why not
 
 /proc/add_logs(mob/user, mob/target, what_done, var/admin=1, var/object=null, var/addition=null)
 	if(user && ismob(user))
-		user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Has [what_done] [target ? "[target.name][(ismob(target) && target.ckey) ? "([target.ckey])" : ""]" : "NON-EXISTANT SUBJECT"][object ? " with [object]" : " "][addition]</span>")
+		user.attack_log += "\[[time_stamp()]\] <span class='warning'>Has [what_done] [target ? "[target.name][(ismob(target) && target.ckey) ? "([target.ckey])" : ""]" : "NON-EXISTANT SUBJECT"][object ? " with [object]" : " "][addition]</span>"
 	if(target && ismob(target))
-		target.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been [what_done] by [user ? "[user.name][(ismob(user) && user.ckey) ? "([user.ckey])" : ""]" : "NON-EXISTANT SUBJECT"][object ? " with [object]" : " "][addition]</font>")
+		target.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been [what_done] by [user ? "[user.name][(ismob(user) && user.ckey) ? "([user.ckey])" : ""]" : "NON-EXISTANT SUBJECT"][object ? " with [object]" : " "][addition]</font>"
 	if(admin)
-		log_attack(SPAN_WARNING("[user ? "[user.name][(ismob(user) && user.ckey) ? "([user.ckey])" : ""]" : "NON-EXISTANT SUBJECT"] [what_done] [target ? "[target.name][(ismob(target) && target.ckey)? "([target.ckey])" : ""]" : "NON-EXISTANT SUBJECT"][object ? " with [object]" : " "][addition]"),ckey=key_name(user),ckey_target=key_name(target))
+		log_attack(SPAN_WARNING("[user ? "[user.name][(ismob(user) && user.ckey) ? "([user.ckey])" : ""]" : "NON-EXISTANT SUBJECT"] [what_done] [target ? "[target.name][(ismob(target) && target.ckey)? "([target.ckey])" : ""]" : "NON-EXISTANT SUBJECT"][object ? " with [object]" : " "][addition]"))
 
 //checks whether this item is a module of the robot or exosuit it is located in. This is mainly to ensure that things do not get embedded or fed into autolathes if attached to a bot or exosuit
 /proc/is_robot_module(var/obj/item/thing)
@@ -264,27 +264,33 @@ Proc for attack log creation, because really why not
 
 		//update our pda and id if we have them on our person
 		var/list/searching = GetAllContents()
-		var/search_id = 1
-		var/search_pda = 1
+		var/search_id = TRUE
+		var/search_pda = TRUE
 
 		for(var/A in searching)
-			if( search_id && istype(A,/obj/item/card/id) )
+			if(search_id && istype(A, /obj/item/card/id) )
 				var/obj/item/card/id/ID = A
 				if(ID.registered_name == oldname)
 					ID.registered_name = newname
 					ID.name = "[newname]'s ID Card ([ID.assignment])"
-					if(!search_pda)	break
-					search_id = 0
+					search_id = FALSE
 
-			else if(search_pda && istype(A,/obj/item/modular_computer))
+					if(!search_pda)
+						break
+
+			else if(search_pda && istype(A, /obj/item/modular_computer))
 				var/obj/item/modular_computer/PDA = A
 				if(!PDA.registered_id)
 					continue
-				if(PDA.registered_id.name == oldname)
+
+				if(PDA.registered_id.registered_name == oldname)
 					PDA.name = "PDA-[newname] ([PDA.registered_id.assignment])"
-					if(!search_id)	break
-					search_pda = 0
-	return 1
+					search_pda = FALSE
+
+					if(!search_id)
+						break
+
+	return TRUE
 
 // Generalised helper proc for letting mobs rename themselves
 /mob/proc/rename_self(var/role, var/allow_numbers=0)
@@ -321,3 +327,13 @@ Proc for attack log creation, because really why not
 			A.SetName(newname)
 
 	fully_replace_character_name(oldname,newname)
+
+///Makes a call in the context of a different usr. Use sparingly
+/world/proc/push_usr(mob/user_mob, datum/callback/invoked_callback, ...)
+	var/temp = usr
+	usr = user_mob
+	if (length(args) > 2)
+		. = invoked_callback.Invoke(arglist(args.Copy(3)))
+	else
+		. = invoked_callback.Invoke()
+	usr = temp

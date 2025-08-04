@@ -8,12 +8,15 @@
 	icon_state = "walllocker" //...man, how OLD is this $#!?
 	door_anim_angle = 132
 	door_anim_squish = 0.38
-	door_hinge = -7
+	door_hinge_x = -7
 	door_anim_time = 2.7
 	store_mobs = FALSE
 	density = FALSE
 	anchored = TRUE
 	wall_mounted = TRUE
+
+/obj/structure/closet/walllocker/antagonist_hints(mob/user, distance, is_adjacent)
+	. = list()
 
 /obj/structure/closet/walllocker/secure
 	name = "secure wall locker"
@@ -83,9 +86,16 @@
 	new /obj/item/storage/bag/inflatable/emergency(src)
 
 /obj/structure/closet/walllocker/medical //wall mounted medical closet
-	name = "first-aid closet"
-	desc = "It's wall-mounted storage unit for first aid supplies."
+	name = "medical closet"
+	desc = "It's a wall-mounted storage unit for medical supplies."
 	icon_state = "medical_wall"
+
+/obj/structure/closet/walllocker/medical/firstaid
+	name = "first-aid closet"
+	desc = "It's a wall-mounted storage unit for first aid supplies."
+
+/obj/structure/closet/walllocker/medical/firstaid/fill()
+	new /obj/item/storage/firstaid/regular(src)
 
 /obj/structure/closet/walllocker/medical/secure
 	desc = "It's a secure wall-mounted storage unit for first aid supplies."

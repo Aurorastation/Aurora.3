@@ -9,7 +9,7 @@
 	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	force = 15
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
@@ -171,7 +171,7 @@
 		return null
 	if (self_recharge)
 		addtimer(CALLBACK(src, PROC_REF(try_recharge)), recharge_time * 2 SECONDS, TIMER_UNIQUE)
-	var/obj/item/projectile/beam/A = new projectile_type(src)
+	var/obj/projectile/beam/A = new projectile_type(src)
 	A.damage = capacitor.damage
 	var/damage_coeff = 1
 	for(var/obj/item/laser_components/modifier/modifier in gun_mods)

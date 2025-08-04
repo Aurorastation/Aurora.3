@@ -28,7 +28,7 @@
 
 
 /obj/machinery/computer/aiupload/attackby(obj/item/attacking_item, mob/user)
-	if(isNotStationLevel(src.z))
+	if(!is_station_level(src.z))
 		to_chat(user, SPAN_DANGER("Unable to establish a connection:"))
 		return TRUE
 	if(istype(attacking_item, /obj/item/aiModule))
@@ -55,7 +55,7 @@
 		to_chat(user, "[src.current.name] selected for law changes.")
 	return
 
-/obj/machinery/computer/aiupload/attack_ghost(user as mob)
+/obj/machinery/computer/aiupload/attack_ghost(user)
 	return 1
 
 
@@ -72,7 +72,7 @@
 
 /obj/machinery/computer/borgupload/attackby(obj/item/attacking_item, mob/user)
 	var/obj/item/aiModule/module = attacking_item
-	if(isNotStationLevel(src.z))
+	if(!is_station_level(src.z))
 		to_chat(user, SPAN_DANGER("Unable to establish a connection:"))
 		return TRUE
 	if(istype(module, /obj/item/aiModule))
@@ -98,5 +98,5 @@
 		to_chat(user, "[src.current.name] selected for law changes.")
 	return
 
-/obj/machinery/computer/borgupload/attack_ghost(user as mob)
+/obj/machinery/computer/borgupload/attack_ghost(user)
 	return 1

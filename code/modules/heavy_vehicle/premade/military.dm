@@ -44,10 +44,10 @@
 	mech_health = 3500
 	power_use = 1500
 
+	cell_type = /obj/item/cell/mecha/nuclear
+
 /obj/item/mech_component/chassis/superheavy/prebuild()
 	. = ..()
-	QDEL_NULL(cell)
-	cell = new /obj/item/cell/super(src)
 	mech_armor = new /obj/item/robot_parts/robot_component/armor/mech/combat(src)
 
 /mob/living/heavy_vehicle/premade/superheavy

@@ -38,8 +38,10 @@ SUBSYSTEM_DEF(weather)
 	if(WS)
 		unregister_weather_system(WS)
 		qdel(WS)
-	//Create the new weather system and let it register itself
-	new /obj/abstract/weather_system(locate(1, 1, text2num(topmost_level)), topmost_level, initial_state)
+
+	// Create the new weather system and let it register itself
+	var/obj/abstract/weather_system/new_weather_system = new /obj/abstract/weather_system(locate(1, 1, text2num(topmost_level)), topmost_level, initial_state)
+	return new_weather_system
 
 ///Registers a given weather system obj for getting updates by SSweather.
 /datum/controller/subsystem/weather/proc/register_weather_system(var/obj/abstract/weather_system/WS)

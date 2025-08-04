@@ -3,7 +3,7 @@
 	desc = "Everyone gets a trophy."
 	icon = 'icons/obj/item/reagent_containers/food/drinks/bottle.dmi'
 	icon_state = "pewter_cup"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	force = 1
 	throwforce = 1
 	amount_per_transfer_from_this = 5
@@ -18,7 +18,7 @@
 	desc = "You're winner!"
 	icon_state = "golden_cup"
 	item_state = "golden_cup"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	force = 14
 	throwforce = 10
 	amount_per_transfer_from_this = 20
@@ -29,7 +29,7 @@
 	name = "silver cup"
 	desc = "Best loser!"
 	icon_state = "silver_cup"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	force = 10
 	throwforce = 8
 	amount_per_transfer_from_this = 15
@@ -40,7 +40,7 @@
 	name = "bronze cup"
 	desc = "At least you ranked!"
 	icon_state = "bronze_cup"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	force = 11
 	throwforce = 4
 	amount_per_transfer_from_this = 10

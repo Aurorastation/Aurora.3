@@ -9,16 +9,16 @@
 
 /obj/item/reagent_containers/food/snacks/lortl/Initialize()
 	. = ..()
-	if(!fruit_icon_cache["rind-#B1E4BE"])
+	if(!GLOB.fruit_icon_cache["rind-#B1E4BE"])
 		var/image/I = image(icon,"fruit_rind")
 		I.color = "#B1E4BE"
-		fruit_icon_cache["rind-#B1E4BE"] = I
-	AddOverlays(fruit_icon_cache["rind-#B1E4BE"])
-	if(!fruit_icon_cache["slice-#B1E4BE"])
+		GLOB.fruit_icon_cache["rind-#B1E4BE"] = I
+	AddOverlays(GLOB.fruit_icon_cache["rind-#B1E4BE"])
+	if(!GLOB.fruit_icon_cache["slice-#B1E4BE"])
 		var/image/I = image(icon,"fruit_slice")
 		I.color = "#9FE4B0"
-		fruit_icon_cache["slice-#B1E4BE"] = I
-	AddOverlays(fruit_icon_cache["slice-#B1E4BE"])
+		GLOB.fruit_icon_cache["slice-#B1E4BE"] = I
+	AddOverlays(GLOB.fruit_icon_cache["slice-#B1E4BE"])
 
 /obj/item/reagent_containers/food/snacks/soup/qilvo
 	name = "qilvo"
@@ -174,7 +174,7 @@
 	name = "konaqu"
 	desc = "Literally translating to 'whirpool orb', konaqu are popular pastry-like confections beloved among Nralakk youth. They tend to be soft and gooey underwater, or soft and brittle when dry. When served on dry land, they are often served with a small bowl or glass of water or milk to give people the option of dunking them."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/skrell.dmi'
-	icon_state = "qilvo"
+	icon_state = "konaqu1"
 	filling_color = "#64e3faff"
 	reagents_to_add = list(/singleton/reagent/nutriment = 4)
 	reagent_data = list(/singleton/reagent/nutriment = list("fruity dough" = 5, "sweetness" = 5))

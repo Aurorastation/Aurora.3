@@ -59,7 +59,6 @@
 #define CE_NOPULSE      "heartstop"		// Stops heartbeat
 #define CE_SEDATE       "sedation"
 #define CE_SLOWDOWN     "goslow"
-#define CE_SPEEDBOOST   "gofast"		// Hyperzine
 #define CE_STABLE       "stable"		// Epinephrine
 #define CE_PACIFIED     "pacified"
 #define CE_PAINKILLER   "painkiller"

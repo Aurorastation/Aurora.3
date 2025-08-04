@@ -21,6 +21,6 @@
 		parent_computer.set_light(initial(parent_computer.light_range), initial(parent_computer.light_power), flashlight_color)
 
 /obj/item/computer_hardware/flashlight/proc/tweak_brightness(var/new_power)
-	. = power = Clamp(0, new_power, 1)
+	. = power = clamp(0, new_power, 1)
 	if(parent_computer && enabled)
 		parent_computer.set_light(range, power, flashlight_color)

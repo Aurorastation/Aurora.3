@@ -115,7 +115,7 @@ SUBSYSTEM_DEF(zcopy)
 	zlev_maximums = new(world.maxz)
 	var/start_zlev = 1
 	for (var/z in 1 to world.maxz)
-		if (!HasAbove(z))
+		if (!SSmapping.multiz_levels[z][Z_LEVEL_UP])
 			for (var/member_zlev in start_zlev to z)
 				zlev_maximums[member_zlev] = z
 			if (z - start_zlev > OPENTURF_MAX_DEPTH)
@@ -225,7 +225,7 @@ SUBSYSTEM_DEF(zcopy)
 		// Handle space parallax & starlight.
 		if (T.below.z_eventually_space)
 			T.z_eventually_space = TRUE
-			if ((T.below.z_flags & ZM_MIMIC_OVERWRITE) || T.below.type == /turf/space)
+			if ((T.below.z_flags & ZM_MIMIC_OVERWRITE) || T.below.type == /turf/space || T.below.type == /turf/space/dynamic)
 				t_target = SPACE_PLANE
 
 		if (T.z_flags & ZM_MIMIC_OVERWRITE)
@@ -560,7 +560,7 @@ SUBSYSTEM_DEF(zcopy)
 		"<h1>Analysis of [T] at [T.x],[T.y],[T.z]</h1>",
 		"<b>Queue occurrences:</b> [T.z_queued]",
 		"<b>Above space:</b> Apparent [T.z_eventually_space ? "Yes" : "No"], Actual [is_above_space ? "Yes" : "No"] - [T.z_eventually_space == is_above_space ? "<font color='green'>OK</font>" : "<font color='red'>MISMATCH</font>"]",
-		"<b>Z Flags</b>: [english_list(bitfield2list(T.z_flags, global.mimic_defines), "(none)")]",
+		"<b>Z Flags</b>: [english_list(bitfield2list(T.z_flags, GLOB.mimic_defines), "(none)")]",
 		"<b>Has Shadower:</b> [T.shadower ? "Yes" : "No"]",
 		"<b>Has turf proxy:</b> [T.mimic_proxy ? "Yes" : "No"]",
 		"<b>Has above copy:</b> [T.mimic_above_copy ? "Yes" : "No"]",
@@ -641,7 +641,7 @@ SUBSYSTEM_DEF(zcopy)
 
 	out += "</body>"
 
-	show_browser(usr, out.Join("<br>"), "size=980x580;window=openturfanalysis-\ref[T]")
+	show_browser(usr, out.Join("<br>"), "size=980x580;window=openturfanalysis-[REF(T)]")
 
 	for (var/item in temp_objects)
 		qdel(item)

@@ -6,6 +6,7 @@
 		/singleton/origin_item/origin/autakh/undercity,
 		/singleton/origin_item/origin/autakh/eridani,
 		/singleton/origin_item/origin/autakh/razortail,
+		/singleton/origin_item/origin/autakh/luthien,
 		/singleton/origin_item/origin/autakh/hidden
 	)
 

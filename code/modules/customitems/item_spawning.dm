@@ -26,7 +26,7 @@
 //  The key in the item_data list is the name of the variable, and the value is the value of the variable.
 //  i.e. `item_data = list("name"="asdf")` would set the name of the item to asdf when its spawned in
 
-/var/list/custom_items = list()
+GLOBAL_LIST_INIT(custom_items, list())
 
 //Loads the custom items from the json file if the db backend is disabled
 /hook/pregame_start/proc/load_custom_items()
@@ -84,8 +84,8 @@
 					ci.item_data["desc"] = item["item_desc"]
 				ci.additional_data = item["additional_data"]
 				ci.req_titles = item["req_titles"]
-				custom_items.Add(ci)
-			log_module_customitems("Loaded [length(custom_items)] custom items")
+				GLOB.custom_items.Add(ci)
+			log_module_customitems("Loaded [length(GLOB.custom_items)] custom items")
 		else if(fexists("config/custom_items.txt")) //TODO: Retire that at some point down the line
 			log_module_customitems("Loading from txt")
 			log_and_message_admins("The deprecated custom_items.txt file is used. Migrate to SQL or JSON.")
@@ -98,7 +98,7 @@
 
 				if(findtext(line, "{", 1, 2) || findtext(line, "}", 1, 2)) // New block!
 					if(current_data && current_data.usr_ckey && current_data.usr_charname)
-						custom_items.Add(current_data)
+						GLOB.custom_items.Add(current_data)
 					current_data = null
 
 				var/split = findtext(line,":")
@@ -139,11 +139,11 @@
 						continue
 					if("additional_data")
 						current_data.additional_data = field_data
-	if(load_from_file == 2 && length(custom_items)) //insert the item into the db
+	if(load_from_file == 2 && length(GLOB.custom_items)) //insert the item into the db
 		log_module_customitems("Migrating custom_items to database")
 		var/success_count = 0
 		var/error_count = 0
-		for(var/item in custom_items)
+		for(var/item in GLOB.custom_items)
 			var/datum/custom_item/ci = item
 			log_module_customitems("Migrating Item for: [ci.usr_ckey] - [ci.usr_charname]")
 
@@ -213,68 +213,120 @@
 
 	return item
 
-//gets the relevant list for the key from the listlist if it exists, check to make sure they are meant to have it and then calls the giving function
-/proc/equip_custom_items(var/mob/living/carbon/human/M)
+GLOBAL_LIST_EMPTY(character_id_to_custom_items_mapping)
+
+/// Gets the relevant custom items for the given target_mob, character_id, and player_ckey, and equips the target_mob with those custom items
+/// If body_only is true, it will only equip augments and prosthetics. If body_only is false, it will equip everything else.
+/// You will need to call this twice, once true, once false. This distinction exists to avoid awkward behaviour with prosthetic custom items.
+/proc/equip_custom_items(var/mob/living/carbon/human/target_mob, var/character_id, var/player_ckey, var/body_only = FALSE)
+	if(!character_id)
+		character_id = target_mob.character_id
+
+	if(!player_ckey)
+		player_ckey = target_mob.ckey
+
+	var/glob_character_id_key = "[player_ckey]-[character_id]"
+
 	//Fetch the custom items for the mob
 	if(GLOB.config.sql_enabled)
 		if(!establish_db_connection(GLOB.dbcon))
 			log_module_customitems("Unable to establish database connection while loading item. - Aborting")
 			return
 
-		var/DBQuery/char_item_query = GLOB.dbcon.NewQuery("SELECT ss13_characters_custom_items.id, ss13_characters_custom_items.char_id, ss13_characters.ckey as usr_ckey, ss13_characters.name as usr_charname, item_path, item_data, req_titles, additional_data FROM ss13_characters_custom_items LEFT JOIN ss13_characters ON ss13_characters.id = ss13_characters_custom_items.char_id WHERE char_id = :char_id:")
-		char_item_query.Execute(list("char_id"=M.character_id))
-		while(char_item_query.NextRow())
-			CHECK_TICK
-			var/datum/custom_item/ci = new()
-			ci.id = text2num(char_item_query.item[1])
-			ci.character_id = text2num(char_item_query.item[2])
-			ci.usr_ckey = char_item_query.item[3]
-			ci.usr_charname = char_item_query.item[4]
-			ci.item_path = text2path(char_item_query.item[5])
-			ci.item_data = json_decode(char_item_query.item[6]) //TODO: try/catch
-			ci.req_titles = json_decode(char_item_query.item[7]) //TODO: try/catch
-			ci.additional_data = char_item_query.item[8]
+		if(!GLOB.character_id_to_custom_items_mapping[glob_character_id_key])
+			var/list/custom_items_list = list()
 
-			equip_custom_item_to_mob(ci,M)
+			var/DBQuery/char_item_query = GLOB.dbcon.NewQuery("SELECT ss13_characters_custom_items.id, ss13_characters_custom_items.char_id, ss13_characters.ckey as usr_ckey, ss13_characters.name as usr_charname, item_path, item_data, req_titles, additional_data FROM ss13_characters_custom_items LEFT JOIN ss13_characters ON ss13_characters.id = ss13_characters_custom_items.char_id WHERE char_id = :char_id:")
+			char_item_query.Execute(list("char_id"=character_id))
+			while(char_item_query.NextRow())
+				CHECK_TICK
+				var/datum/custom_item/ci = new()
+				ci.id = text2num(char_item_query.item[1])
+				ci.character_id = text2num(char_item_query.item[2])
+				ci.usr_ckey = char_item_query.item[3]
+				ci.usr_charname = char_item_query.item[4]
+				ci.item_path = text2path(char_item_query.item[5])
+				ci.item_data = json_decode(char_item_query.item[6]) //TODO: try/catch
+				ci.req_titles = json_decode(char_item_query.item[7]) //TODO: try/catch
+				ci.additional_data = char_item_query.item[8]
+
+				custom_items_list += ci
+
+			GLOB.character_id_to_custom_items_mapping[glob_character_id_key] = custom_items_list
 	else
-		for(var/item in custom_items)
-			CHECK_TICK
-			var/datum/custom_item/ci = item
-			if(lowertext(ci.usr_ckey) != lowertext(M.ckey))
-				continue
-			if(lowertext(ci.usr_charname) != lowertext(M.real_name))
-				continue
-			equip_custom_item_to_mob(ci,M)
+		if(!GLOB.character_id_to_custom_items_mapping[glob_character_id_key])
+			var/list/custom_items_list = list()
 
+			for(var/item in GLOB.custom_items)
+				CHECK_TICK
+				var/datum/custom_item/ci = item
+				if(lowertext(ci.usr_ckey) != lowertext(player_ckey))
+					continue
+				if(lowertext(ci.usr_charname) != lowertext(target_mob.real_name))
+					continue
+				custom_items_list += ci
 
-/proc/equip_custom_item_to_mob(var/datum/custom_item/citem, var/mob/living/carbon/human/M)
+			GLOB.character_id_to_custom_items_mapping[glob_character_id_key] = custom_items_list
+
+	for(var/datum/custom_item/ci as anything in GLOB.character_id_to_custom_items_mapping[glob_character_id_key])
+		equip_custom_item_to_mob(ci, target_mob, body_only)
+
+/// This equips custom items to mobs. The body_only parameter determines if it will equip non-body related augments (i.e. prosthetics or augments).
+/// If set to true, it only equips prosthetics and augments. If set to false, it only equips other custom items, such as clothes or accessories.
+/// It should be called twice, true then false - augments and prosthetics should be added before any clothing items, loadout or custom.
+/// This is so you don't get shoes falling off because someone's custom prosthetic foot was loaded in after their footwear, for instance.
+/proc/equip_custom_item_to_mob(var/datum/custom_item/citem, var/mob/living/carbon/human/target_mob, var/body_only = FALSE)
 	// Check for required job title.
 	if(length(citem.req_titles))
 		var/has_title
-		var/current_title = M.mind.role_alt_title ? M.mind.role_alt_title : M.mind.assigned_role
+		var/current_title = target_mob.mind.role_alt_title ? target_mob.mind.role_alt_title : target_mob.mind.assigned_role
 		for(var/title in citem.req_titles)
 			if(title == current_title)
 				has_title = 1
 				break
 		if(!has_title)
-			to_chat(M, "A custom item could not be equipped as you have joined with the wrong role.")
+			to_chat(target_mob, "A custom item could not be equipped as you have joined with the wrong role.")
 			return FALSE
 
-	if(ispath(citem.item_path, /obj/item/organ/internal/augment/fluff))
-		var/obj/item/organ/internal/augment/fluff/aug = citem.spawn_item(M)
-		var/obj/item/organ/external/affected = M.get_organ(aug.parent_organ)
-		aug.replaced(M, affected)
-		M.update_body()
-		M.updatehealth()
-		M.UpdateDamageIcon()
+	// Next two conditionals only proc if body_only is true, otherwise they do not. If body_only is true, only these proc.
+	if(body_only && ispath(citem.item_path, /obj/item/organ/internal/augment/fluff))
+		var/obj/item/organ/internal/augment/fluff/aug = citem.spawn_item(target_mob)
+		var/obj/item/organ/external/affected = target_mob.get_organ(aug.parent_organ)
+		aug.replaced(target_mob, affected)
+		target_mob.update_body()
+		target_mob.updatehealth()
+		target_mob.UpdateDamageIcon()
+		return
+
+	if(body_only)
+		if(ispath(citem.item_path, /obj/item/organ/external))
+			var/obj/item/organ/external/dummy_limb = citem.item_path
+			var/obj/item/organ/external/parent_organ = target_mob.get_organ(initial(dummy_limb.parent_organ))
+			if(parent_organ)
+				var/obj/item/organ/external/existing_limb = target_mob.get_organ(initial(dummy_limb.limb_name))
+				if(existing_limb)
+					existing_limb.droplimb(TRUE)
+					qdel(existing_limb)
+
+				var/obj/item/organ/external/custom_limb = citem.spawn_item(target_mob)
+				custom_limb.replaced(target_mob, parent_organ)
+
+				target_mob.update_body()
+				target_mob.updatehealth()
+				target_mob.UpdateDamageIcon()
+		// This return cuts the proc early if it should only be doing body-related items, i.e. augments and prosthetics.
 		return
 
 	// ID cards and MCs are applied directly to the existing object rather than spawned fresh.
 	var/obj/item/existing_item
 	if(citem.item_path == /obj/item/card/id)
-		existing_item = locate(/obj/item/card/id) in M.get_contents() //TODO: Improve this ?
+		existing_item = locate(/obj/item/card/id) in target_mob.get_contents() //TODO: Improve this ?
 	else if(citem.item_path == /obj/item/modular_computer)
-		existing_item = locate(/obj/item/modular_computer) in M.contents
+		existing_item = locate(/obj/item/modular_computer) in target_mob.contents
+
+	// So prosthetics or augments don't spawn in both variations of this proc.
+	if(ispath(citem.item_path, /obj/item/organ/external) || ispath(citem.item_path, /obj/item/organ/internal/augment/fluff))
+		return FALSE
 
 	// Spawn and equip the item.
 	if(existing_item)
@@ -283,12 +335,12 @@
 	else
 		var/obj/item/newitem = citem.spawn_item()
 
-		if(M.equip_to_appropriate_slot(newitem))
+		if(target_mob.equip_to_appropriate_slot(newitem))
 			return TRUE
 
-		if(M.equip_to_storage(newitem))
+		if(target_mob.equip_to_storage(newitem))
 			return TRUE
 
-		newitem.forceMove(get_turf(M.loc))
-		to_chat(M, "A custom item has been placed on the floor as there was no space for it on your mob.")
+		newitem.forceMove(get_turf(target_mob.loc))
+		to_chat(target_mob, "A custom item has been placed on the floor as there was no space for it on your mob.")
 		return TRUE

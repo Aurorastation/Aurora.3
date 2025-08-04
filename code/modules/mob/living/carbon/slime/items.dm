@@ -4,7 +4,7 @@
 	icon = 'icons/mob/npc/slimes.dmi'
 	icon_state = "grey slime extract"
 	force = 1
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	throwforce = 0
 	throw_speed = 3
 	throw_range = 6
@@ -137,10 +137,13 @@
 	filling.color = COLOR_PINK
 	AddOverlays(filling)
 
-/obj/item/docility_serum/attack(mob/living/carbon/slime/M as mob, mob/user as mob)
-	if(!istype(M, /mob/living/carbon/slime/))//If target is not a slime.
+/obj/item/docility_serum/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/mob/living/carbon/slime/M = target_mob
+
+	if(!istype(M))//If target is not a slime.
 		to_chat(user, SPAN_WARNING("The docility serum only works on slimes!"))
 		return ..()
+
 	if(M.stat)
 		to_chat(user, SPAN_WARNING("The slime is dead!"))
 		return ..()
@@ -180,10 +183,13 @@
 	filling.color = COLOR_PALE_PINK
 	AddOverlays(filling)
 
-/obj/item/advanced_docility_serum/attack(mob/living/carbon/slime/M as mob, mob/user as mob)
-	if(!istype(M, /mob/living/carbon/slime/))//If target is not a slime.
+/obj/item/advanced_docility_serum/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/mob/living/carbon/slime/M = target_mob
+
+	if(!istype(M))//If target is not a slime.
 		to_chat(user, SPAN_WARNING("The docility serum only works on slimes!"))
 		return ..()
+
 	if(M.stat)
 		to_chat(user, SPAN_WARNING("The slime is dead!"))
 		return ..()
@@ -230,10 +236,13 @@
 
 	return INITIALIZE_HINT_NORMAL
 
-/obj/item/slimesteroid/attack(mob/living/carbon/slime/M as mob, mob/user as mob)
-	if(!istype(M, /mob/living/carbon/slime)) //If target is not a slime.
+/obj/item/slimesteroid/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/mob/living/carbon/slime/M = target_mob
+
+	if(!istype(M)) //If target is not a slime.
 		to_chat(user, SPAN_WARNING("The steroid only works on baby slimes!"))
 		return ..()
+
 	if(M.is_adult) //Can't tame adults
 		to_chat(user, SPAN_WARNING("Only baby slimes can use the steroid!"))
 		return ..()
@@ -286,15 +295,15 @@
 
 /obj/effect/golemrune/random_type/Initialize()
 	. = ..()
-	golem_type = pick(golem_types)
+	golem_type = pick(GLOB.golem_types)
 
 /obj/effect/golemrune/Destroy()
 	SSghostroles.remove_spawn_atom("golem", src)
 	return ..()
 
 /obj/effect/golemrune/process()
-	var/mob/abstract/observer/ghost
-	for(var/mob/abstract/observer/O in src.loc)
+	var/mob/abstract/ghost/observer/ghost
+	for(var/mob/abstract/ghost/observer/O in src.loc)
 		if(!O.client)
 			continue
 		if(O.mind && O.mind.current && O.mind.current.stat != DEAD)

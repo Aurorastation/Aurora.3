@@ -22,8 +22,7 @@
 	icon_state = "1-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/effect/floor_decal/corner/white{
 	dir = 10
@@ -409,19 +408,16 @@
 /obj/item/ship_ammunition/lammergeier,
 /obj/item/ship_ammunition/lammergeier,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/structure/window/reinforced{
-	dir = 4;
-	icon_state = "rwindow"
+	dir = 4
 	},
 /obj/item/ship_ammunition/lammergeier,
 /turf/simulated/floor/tiled/dark,
@@ -433,8 +429,7 @@
 "dr" = (
 /obj/structure/ship_weapon_dummy,
 /obj/structure/window/reinforced{
-	dir = 4;
-	icon_state = "rwindow"
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/gun)
@@ -521,8 +516,7 @@
 /area/ship/dominian_unathi/med)
 "dY" = (
 /obj/machinery/atmospherics/portables_connector{
-	dir = 8;
-	layer = 2.8
+	dir = 8
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/structure/window/reinforced{
@@ -530,8 +524,7 @@
 	},
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	dir = 4;
-	icon_state = "rwindow"
+	dir = 4
 	},
 /obj/machinery/door/window{
 	dir = 8
@@ -540,8 +533,7 @@
 /area/ship/dominian_unathi/bridgefoyer)
 "dZ" = (
 /obj/machinery/atmospherics/portables_connector{
-	dir = 8;
-	layer = 2.8
+	dir = 8
 	},
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/plating,
@@ -736,8 +728,7 @@
 "fz" = (
 /obj/structure/ship_weapon_dummy,
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/gun)
@@ -1071,8 +1062,7 @@
 /obj/item/clothing/suit/space/void/hegemony/captain,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/loot)
@@ -1229,9 +1219,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/chapel)
 "jA" = (
-/obj/machinery/vending/tool{
-	req_access = null
-	},
+/obj/machinery/vending/tool,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/engineering)
 "jE" = (
@@ -1242,8 +1230,7 @@
 	dir = 10
 	},
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/dark,
@@ -1756,8 +1743,7 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/dark,
@@ -1770,8 +1756,7 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -1905,8 +1890,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/hangar)
@@ -1917,8 +1901,7 @@
 	icon_state = "1-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/table/standard,
@@ -2071,12 +2054,10 @@
 /area/ship/dominian_unathi/captain)
 "pp" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/gun)
@@ -2196,8 +2177,7 @@
 "qg" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
-	dir = 8;
-	layer = 2.8
+	dir = 8
 	},
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -2207,8 +2187,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	dir = 4;
-	icon_state = "rwindow"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/starboardhall)
@@ -2437,8 +2416,7 @@
 /area/ship/dominian_unathi/armory)
 "rG" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
@@ -2544,8 +2522,7 @@
 /area/ship/dominian_unathi/pods)
 "rV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5;
-	icon_state = "intact"
+	dir = 5
 	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
@@ -2695,8 +2672,7 @@
 /obj/item/ship_ammunition/francisca/ap,
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /obj/structure/window/reinforced,
 /obj/machinery/light,
@@ -2870,8 +2846,7 @@
 	},
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/loot)
@@ -2908,8 +2883,7 @@
 	icon_state = "1-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/cic)
@@ -3058,8 +3032,7 @@
 	},
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/loot)
@@ -3358,8 +3331,7 @@
 	icon_state = "1-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/eva)
@@ -3405,8 +3377,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5;
-	icon_state = "intact"
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_unathi)
@@ -3719,16 +3690,13 @@
 	},
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/structure/window/reinforced{
-	dir = 4;
-	icon_state = "rwindow"
+	dir = 4
 	},
 /obj/machinery/atmospherics/portables_connector{
-	dir = 8;
-	layer = 2.8
+	dir = 8
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/corner/orange{
@@ -3774,7 +3742,6 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/body_scanconsole{
 	dir = 1;
-	layer = 3.01;
 	pixel_y = 6
 	},
 /obj/machinery/light{
@@ -3937,8 +3904,7 @@
 /area/ship/dominian_unathi/portthrust)
 "Bx" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/portable_atmospherics/canister/empty{
@@ -3976,8 +3942,7 @@
 /obj/machinery/portable_atmospherics/canister/hydrogen,
 /obj/machinery/light,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
@@ -4048,8 +4013,7 @@
 /area/ship/dominian_unathi/bridgefoyer)
 "Ct" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -4292,15 +4256,13 @@
 /obj/item/ship_ammunition/lammergeier,
 /obj/item/ship_ammunition/lammergeier,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/structure/window/reinforced{
 	dir = 8
@@ -4452,12 +4414,10 @@
 /obj/item/ship_ammunition/lammergeier,
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/machinery/light{
 	dir = 1
@@ -4526,8 +4486,7 @@
 	icon_state = "2-4"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -4631,8 +4590,7 @@
 /area/ship/dominian_unathi/starboardthrust)
 "Fv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9;
-	icon_state = "intact"
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_unathi)
@@ -4680,8 +4638,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/machinery/door/window{
 	dir = 4;
@@ -4693,8 +4650,7 @@
 "FK" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_unathi/med)
@@ -5001,7 +4957,9 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
-/obj/machinery/computer/ship/helm,
+/obj/machinery/computer/ship/helm{
+	req_access = list(212)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_unathi)
 "HA" = (
@@ -5333,8 +5291,7 @@
 /area/ship/dominian_unathi/captain)
 "Kd" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
@@ -5353,8 +5310,7 @@
 /area/ship/dominian_unathi/loot)
 "Ki" = (
 /obj/machinery/atmospherics/portables_connector{
-	dir = 8;
-	layer = 2.8
+	dir = 8
 	},
 /obj/machinery/portable_atmospherics/canister/empty{
 	name = "waste canister"
@@ -5402,8 +5358,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/dark,
@@ -5982,7 +5937,8 @@
 	dir = 4
 	},
 /obj/machinery/computer/ship/targeting{
-	dir = 8
+	dir = 8;
+	req_access = list(212)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/gun)
@@ -6275,7 +6231,9 @@
 	},
 /area/ship/dominian_unathi/hangar)
 "RC" = (
-/obj/machinery/computer/ship/helm,
+/obj/machinery/computer/ship/helm{
+	req_access = list(212)
+	},
 /obj/structure/railing/mapped,
 /obj/machinery/button/distress{
 	dir = 4;
@@ -6399,8 +6357,7 @@
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -6590,7 +6547,8 @@
 /area/ship/dominian_unathi/bridge)
 "Tj" = (
 /obj/machinery/computer/ship/targeting{
-	dir = 8
+	dir = 8;
+	req_access = list(212)
 	},
 /obj/structure/railing/mapped{
 	dir = 4;
@@ -6933,7 +6891,7 @@
 /obj/item/bodybag/cryobag,
 /obj/item/reagent_containers/hypospray,
 /obj/item/storage/pill_bottle/dylovene,
-/obj/item/storage/belt/medical/first_responder,
+/obj/item/storage/belt/medical/paramedic,
 /obj/item/auto_cpr{
 	pixel_x = 6;
 	pixel_y = -1
@@ -7155,12 +7113,10 @@
 /area/ship/dominian_unathi/eva)
 "WF" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
@@ -7292,8 +7248,7 @@
 /area/ship/dominian_unathi/bridge)
 "XD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5;
-	icon_state = "intact"
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridgefoyer)
@@ -7507,7 +7462,8 @@
 	dir = 10
 	},
 /obj/machinery/computer/ship/targeting{
-	dir = 4
+	dir = 4;
+	req_access = list(212)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_unathi)
@@ -7579,8 +7535,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5;
-	icon_state = "intact"
+	dir = 5
 	},
 /obj/machinery/access_button{
 	pixel_x = -24;
@@ -7675,8 +7630,7 @@
 	},
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/loot)
@@ -7710,8 +7664,7 @@
 	dir = 10
 	},
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/dark,

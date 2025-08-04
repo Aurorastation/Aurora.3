@@ -1,8 +1,8 @@
-/obj/screen/movable/spell_master
+/atom/movable/screen/movable/spell_master
 	name = "Spells"
 	icon = 'icons/mob/screen/spells.dmi'
 	icon_state = "wiz_spell_ready"
-	var/list/obj/screen/spell/spell_objects = list()
+	var/list/atom/movable/screen/spell/spell_objects = list()
 	var/showing = 0
 
 	var/open_state = "master_open"
@@ -12,8 +12,8 @@
 
 	var/mob/spell_holder
 
-/obj/screen/movable/spell_master/Destroy()
-	for(var/obj/screen/spell/spells in spell_objects)
+/atom/movable/screen/movable/spell_master/Destroy()
+	for(var/atom/movable/screen/spell/spells in spell_objects)
 		spells.spellmaster = null
 	spell_objects.Cut()
 	if(spell_holder)
@@ -24,22 +24,22 @@
 
 	. = ..()
 
-/obj/screen/movable/spell_master/MouseDrop()
+/atom/movable/screen/movable/spell_master/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	if(showing)
 		return
 
 	return ..()
 
-/obj/screen/movable/spell_master/Click()
+/atom/movable/screen/movable/spell_master/Click()
 	if(!spell_objects.len)
 		qdel(src)
 		return
 
 	toggle_open()
 
-/obj/screen/movable/spell_master/proc/toggle_open(var/forced_state = 0)
+/atom/movable/screen/movable/spell_master/proc/toggle_open(var/forced_state = 0)
 	if(showing && (forced_state != 2))
-		for(var/obj/screen/spell/O in spell_objects)
+		for(var/atom/movable/screen/spell/O in spell_objects)
 			if(spell_holder && spell_holder.client)
 				spell_holder.client.screen -= O
 			O.handle_icon_updates = 0
@@ -53,7 +53,7 @@
 		ClearOverlays()
 		AddOverlays(open_state)
 
-/obj/screen/movable/spell_master/proc/open_spellmaster()
+/atom/movable/screen/movable/spell_master/proc/open_spellmaster()
 	var/list/screen_loc_xy = text2list(screen_loc,",")
 
 	//Create list of X offsets
@@ -67,7 +67,7 @@
 	var/y_pix = screen_loc_Y[2]
 
 	for(var/i = 1; i <= spell_objects.len; i++)
-		var/obj/screen/spell/S = spell_objects[i]
+		var/atom/movable/screen/spell/S = spell_objects[i]
 		var/xpos = x_position + (x_position < 8 ? 1 : -1)*(i%7)
 		var/ypos = y_position + (y_position < 8 ? round(i/7) : -round(i/7))
 		S.screen_loc = "[encode_screen_X(xpos)]:[x_pix],[encode_screen_Y(ypos)]:[y_pix]"
@@ -75,7 +75,7 @@
 			spell_holder.client.screen += S
 			S.handle_icon_updates = 1
 
-/obj/screen/movable/spell_master/proc/add_spell(var/spell/spell)
+/atom/movable/screen/movable/spell_master/proc/add_spell(var/spell/spell)
 	if(!spell) return
 
 	if(spell.connected_button) //we have one already, for some reason
@@ -90,7 +90,7 @@
 	if(spell.spell_flags & NO_BUTTON) //no button to add if we don't get one
 		return
 
-	var/obj/screen/spell/newscreen = new /obj/screen/spell
+	var/atom/movable/screen/spell/newscreen = new /atom/movable/screen/spell
 	newscreen.spellmaster = src
 	newscreen.spell = spell
 
@@ -109,7 +109,7 @@
 	if(spell_holder.client)
 		toggle_open(2) //forces the icons to refresh on screen
 
-/obj/screen/movable/spell_master/proc/remove_spell(var/spell/spell)
+/atom/movable/screen/movable/spell_master/proc/remove_spell(var/spell/spell)
 	qdel(spell.connected_button)
 
 	spell.connected_button = null
@@ -119,21 +119,21 @@
 	else
 		qdel(src)
 
-/obj/screen/movable/spell_master/proc/silence_spells(var/amount)
-	for(var/obj/screen/spell/spell in spell_objects)
+/atom/movable/screen/movable/spell_master/proc/silence_spells(var/amount)
+	for(var/atom/movable/screen/spell/spell in spell_objects)
 		spell.spell.silenced = amount
 		spell.spell.process()
 		spell.update_charge(1)
 
-/obj/screen/movable/spell_master/proc/update_spells(forced = 0, mob/user)
+/atom/movable/screen/movable/spell_master/proc/update_spells(forced = 0, mob/user)
 	if(user && user.client)
 		if(!(src in user.client.screen))
 			user.client.screen += src
-	for(var/obj/screen/spell/spell in spell_objects)
+	for(var/atom/movable/screen/spell/spell in spell_objects)
 		spell.update_charge(forced)
 
 
-/obj/screen/movable/spell_master/genetic
+/atom/movable/screen/movable/spell_master/genetic
 	name = "Mutant Powers"
 	icon_state = "genetic_spell_ready"
 
@@ -145,7 +145,7 @@
 //////////////ACTUAL SPELLS//////////////
 //This is what you click to cast things//
 /////////////////////////////////////////
-/obj/screen/spell
+/atom/movable/screen/spell
 	icon = 'icons/mob/screen/spells.dmi'
 	icon_state = "wiz_spell_base"
 	var/spell_base = "wiz"
@@ -153,11 +153,11 @@
 
 	var/spell/spell = null
 	var/handle_icon_updates = 0
-	var/obj/screen/movable/spell_master/spellmaster
+	var/atom/movable/screen/movable/spell_master/spellmaster
 
 	var/icon/last_charged_icon
 
-/obj/screen/spell/Destroy()
+/atom/movable/screen/spell/Destroy()
 	spell = null
 	last_charged_icon = null
 	if(spellmaster)
@@ -170,7 +170,7 @@
 
 	. = ..()
 
-/obj/screen/spell/proc/update_charge(var/forced_update = 0)
+/atom/movable/screen/spell/proc/update_charge(var/forced_update = 0)
 	if(!spell)
 		qdel(src)
 		return
@@ -208,7 +208,7 @@
 	if(spell.silenced)
 		AddOverlays("silence")
 
-/obj/screen/spell/Click()
+/atom/movable/screen/spell/Click()
 	if(!usr || !spell)
 		qdel(src)
 		return

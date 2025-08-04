@@ -71,7 +71,7 @@
 	card_slot.stored_item = new /obj/item/pen/silver
 
 /obj/item/modular_computer/handheld/pda/supply/miner
-	_app_preset_type = /datum/modular_computer_app_presets/civilian
+	_app_preset_type = /datum/modular_computer_app_presets/civilian/miner
 
 /obj/item/modular_computer/handheld/pda/supply/machinist
 	_app_preset_type = /datum/modular_computer_app_presets/supply/machinist
@@ -129,6 +129,9 @@
 	icon_add = "hos"
 
 // Command / Misc
+
+/obj/item/modular_computer/handheld/pda/bridge
+	_app_preset_type = /datum/modular_computer_app_presets/bridge
 
 /obj/item/modular_computer/handheld/pda/command
 	_app_preset_type = /datum/modular_computer_app_presets/command

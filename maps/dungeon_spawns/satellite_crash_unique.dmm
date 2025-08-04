@@ -3,18 +3,18 @@
 /turf/unsimulated/chasm_mask,
 /area/mine/unexplored)
 "b" = (
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "c" = (
 /turf/simulated/mineral,
 /area/mine/unexplored)
 "d" = (
 /obj/structure/girder,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "e" = (
 /obj/structure/girder,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_satellite)
 "f" = (
 /obj/effect/decal/cleanable/liquid_fuel,
@@ -24,7 +24,7 @@
 "g" = (
 /obj/structure/lattice,
 /obj/item/stack/cable_coil/cut,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "h" = (
 /obj/effect/decal/cleanable/liquid_fuel,
@@ -34,8 +34,7 @@
 /area/dungeon/crashed_satellite)
 "i" = (
 /obj/effect/decal/cleanable/liquid_fuel,
-/obj/structure/computerframe{
-	},
+/obj/structure/computerframe,
 /obj/item/device/gps,
 /obj/item/material/shard,
 /turf/simulated/floor/airless,
@@ -52,35 +51,35 @@
 /area/dungeon/crashed_satellite)
 "l" = (
 /obj/item/stack/material/steel,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "m" = (
 /obj/effect/decal/cleanable/liquid_fuel,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "n" = (
 /obj/item/arrow/rod,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "o" = (
 /obj/effect/decal/remains/robot,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "p" = (
 /obj/structure/lattice,
 /obj/effect/decal/cleanable/liquid_fuel,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "q" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/effect/decal/cleanable/liquid_fuel,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "r" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/effect/decal/cleanable/blood/oil,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "s" = (
 /obj/effect/decal/cleanable/liquid_fuel,
@@ -91,75 +90,75 @@
 /obj/structure/lattice,
 /obj/item/stack/material/steel,
 /obj/effect/decal/cleanable/liquid_fuel,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "u" = (
 /obj/item/arrow/rod,
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/effect/decal/cleanable/liquid_fuel,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "v" = (
 /obj/structure/lattice,
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/effect/decal/cleanable/ash,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "w" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/effect/decal/cleanable/liquid_fuel,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "x" = (
 /obj/item/stack/material/steel,
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/effect/decal/cleanable/liquid_fuel,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "y" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/effect/decal/cleanable/blood/oil,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "z" = (
 /obj/item/arrow/rod,
 /obj/effect/decal/cleanable/liquid_fuel,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "A" = (
 /obj/item/stack/material/steel,
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/effect/decal/cleanable/ash,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "B" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/effect/decal/cleanable/ash,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "C" = (
 /obj/effect/decal/remains/robot,
 /obj/effect/decal/cleanable/liquid_fuel,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "D" = (
 /obj/structure/lattice,
 /obj/item/material/shard,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "E" = (
 /turf/simulated/wall/shuttle/dark,
 /area/dungeon/crashed_satellite)
 "F" = (
 /obj/structure/lattice,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "G" = (
 /obj/structure/lattice,
 /obj/item/solar_assembly,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "H" = (
 /obj/effect/decal/cleanable/liquid_fuel,
@@ -176,28 +175,28 @@
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/random/junk,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "K" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/random/junk,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "L" = (
 /obj/random/tool,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "M" = (
 /obj/random/loot,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "N" = (
 /obj/item/material/shard,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "O" = (
 /mob/living/simple_animal/hostile/carp,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "P" = (
 /obj/effect/decal/cleanable/liquid_fuel,
@@ -223,7 +222,7 @@
 /obj/structure/lattice,
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/item/stack/cable_coil/cut,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "T" = (
 /obj/effect/decal/cleanable/liquid_fuel,
@@ -240,7 +239,7 @@
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/item/solar_assembly,
 /obj/item/material/shard,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 
 (1,1,1) = {"

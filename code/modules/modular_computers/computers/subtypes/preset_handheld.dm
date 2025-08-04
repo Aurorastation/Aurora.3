@@ -135,6 +135,9 @@
 
 // Command / Misc
 
+/obj/item/modular_computer/handheld/preset/bridge
+	_app_preset_type = /datum/modular_computer_app_presets/bridge
+
 /obj/item/modular_computer/handheld/preset/command
 	_app_preset_type = /datum/modular_computer_app_presets/command
 

@@ -4,7 +4,7 @@
 	icon = 'icons/obj/guns/saber.dmi'
 	icon_state = "saber"	//ugly //yup
 	item_state = "saber"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	load_method = SPEEDLOADER //yup. until someone sprites a magazine for it.
 	max_shells = 22
 	caliber = "9mm"
@@ -34,7 +34,7 @@
 	icon = 'icons/obj/guns/mini-uzi.dmi'
 	icon_state = "mini-uzi"
 	item_state = "mini-uzi"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/c45uzi
 	allowed_magazines = list(/obj/item/ammo_magazine/c45uzi)
@@ -59,7 +59,7 @@
 	icon = 'icons/obj/guns/c20r.dmi'
 	icon_state = "c20r"
 	item_state = "c20r"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	force = 10
 	caliber = "10mm"
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)
@@ -85,6 +85,7 @@
 /obj/item/gun/projectile/automatic/c20r/sol
 	name = "solarian submachine gun"
 	desc = "Designed by Zavodskoi as a scaled-down version of their M469, the M470-L is a personal defense weapon intended for use by second-line personnel from all branches of the Solarian military, such as support troops and Navy crewmen."
+	desc_extended = null
 	icon = 'icons/obj/guns/sol_smg.dmi'
 	icon_state = "vityaz"
 	item_state = "vityaz"
@@ -123,7 +124,7 @@
 	icon = 'icons/obj/guns/wt550.dmi'
 	icon_state = "wt550"
 	item_state = "wt550"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	caliber = "9mm"
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2)
 	slot_flags = SLOT_BELT
@@ -135,6 +136,9 @@
 	can_suppress = TRUE
 	suppressor_x_offset = 10
 	suppressor_y_offset = -1
+
+/obj/item/gun/projectile/automatic/wt550/unloaded
+	magazine_type = null
 
 /obj/item/gun/projectile/automatic/wt550/lethal
 	magazine_type = /obj/item/ammo_magazine/mc9mmt
@@ -154,7 +158,7 @@
 	icon = 'icons/obj/guns/pirate_smg.dmi'
 	icon_state = "pirate_smg"
 	item_state = "pirate_smg"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	caliber = "10mm"
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
 	slot_flags = SLOT_BELT|SLOT_HOLSTER|SLOT_OCLOTHING
@@ -180,7 +184,7 @@
 	icon = 'icons/obj/guns/arifle.dmi'
 	icon_state = "arifle"
 	item_state = "arifle"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	force = 10
 	caliber = "a762"
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 1, TECH_ILLEGAL = 4)
@@ -332,7 +336,6 @@
 /obj/item/gun/projectile/automatic/rifle/dominia/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "acr" : "acr-empty"
-	item_state = icon_state
 
 /obj/item/gun/projectile/automatic/rifle/z8
 	name = "bullpup assault carbine"
@@ -341,7 +344,7 @@
 	icon = 'icons/obj/guns/carbine.dmi'
 	icon_state = "carbine"
 	item_state = "carbine"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	force = 10
 	caliber = "a556"
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 3)
@@ -367,6 +370,13 @@
 
 	var/use_launcher = 0
 	var/obj/item/gun/launcher/grenade/underslung/launcher
+
+/obj/item/gun/projectile/automatic/rifle/z8/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(launcher.chambered)
+		. += "\The [launcher] has \a [launcher.chambered] loaded."
+	else
+		. += "\The [launcher] is empty."
 
 /obj/item/gun/projectile/automatic/rifle/z8/Initialize()
 	. = ..()
@@ -404,13 +414,6 @@
 	else
 		icon_state = "carbine-empty"
 
-/obj/item/gun/projectile/automatic/rifle/z8/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(launcher.chambered)
-		. += "\The [launcher] has \a [launcher.chambered] loaded."
-	else
-		. += "\The [launcher] is empty."
-
 /obj/item/gun/projectile/automatic/rifle/jingya
 	name = "burst rifle"
 	desc = "The Jingya A-1 is the first of a new line of NanoTrasen rifles, developed in cooperation with Zavodskoi Interstellar's Kumar Arms subsidiary. Primarily made of high strength polymers, the rifle is designed to be cheap to mass produce while remaining reliable."
@@ -418,7 +421,7 @@
 	icon = 'icons/obj/guns/burst_rifle.dmi'
 	icon_state = "arx"
 	item_state = "arx"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	force = 10
 	caliber = "a556"
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 3)
@@ -435,6 +438,9 @@
 		list(mode_name="2-round bursts", burst=2, burst_accuracy=list(1, 1))
 	)
 
+/obj/item/gun/projectile/automatic/rifle/jingya/unloaded
+	magazine_type = null
+
 /obj/item/gun/projectile/automatic/rifle/jingya/update_icon()
 	..()
 	if(ammo_magazine)
@@ -450,7 +456,7 @@
 	icon = 'icons/obj/guns/l6.dmi'
 	icon_state = "l6closed100"
 	item_state = "l6closedmag"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	force = 10
 	slot_flags = SLOT_BACK
 	max_shells = 50
@@ -585,7 +591,7 @@
 	icon = 'icons/obj/guns/tommygun.dmi'
 	icon_state = "tommygun"
 	item_state = "tommygun"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	max_shells = 50
 	caliber = ".45"
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
@@ -650,7 +656,7 @@
 	icon = 'icons/obj/guns/konyang_weapons.dmi'
 	icon_state = "k45carbine"
 	item_state = "k45carbine"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	max_shells = 30
 	load_method = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/c45
@@ -691,7 +697,7 @@
 	icon = 'icons/obj/guns/railgun.dmi'
 	icon_state = "railgun"
 	item_state = "railgun"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	force = 10
 	caliber = "trod"
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 7)
@@ -717,7 +723,7 @@
 	icon = 'icons/obj/guns/flechette.dmi'
 	icon_state = "flechetterifle"
 	item_state = "flechetterifle"
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	force = 30
 	caliber = "flechette"
 	slot_flags = SLOT_BELT|SLOT_BACK
@@ -765,7 +771,7 @@
 	icon_state = "k556rifle"
 	item_state = "k556rifle"
 	slot_flags = SLOT_BACK|SLOT_OCLOTHING
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	ammo_type = "/obj/item/ammo_casing/a556"
 	handle_casings = EJECT_CASINGS
 	caliber = "a556"
@@ -785,7 +791,7 @@
 	icon_state = "k47"
 	item_state = "k47"
 	slot_flags = SLOT_BACK|SLOT_OCLOTHING
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	ammo_type = "/obj/item/ammo_casing/a556"
 	handle_casings = EJECT_CASINGS
 	caliber = "a556"
@@ -805,7 +811,7 @@
 	item_state = "poacher"
 	slot_flags = SLOT_BACK|SLOT_OCLOTHING
 	load_method = SINGLE_CASING
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	ammo_type = /obj/item/ammo_casing/vintage
 	handle_casings = EJECT_CASINGS
 	caliber = "30-06 govt"
@@ -821,7 +827,7 @@
 	icon_state = "dom_carbine"
 	item_state = "dom_carbine"
 	slot_flags = SLOT_BACK|SLOT_OCLOTHING
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	ammo_type = "/obj/item/ammo_casing/a762"
 	handle_casings = EJECT_CASINGS
 	caliber = "a762"
@@ -854,7 +860,6 @@
 /obj/item/gun/projectile/automatic/rifle/dominia_lmg/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "dom_lmg" : "dom_lmg-empty"
-	item_state = icon_state
 
 /obj/item/gun/projectile/automatic/rifle/shotgun
 	name = "assault shotgun"
@@ -862,7 +867,7 @@
 	icon = 'icons/obj/guns/assaultshotgun.dmi'
 	icon_state = "assaultshotgun"
 	item_state = "assaultshotgun"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	load_method = MAGAZINE
 	max_shells = 8
 	caliber = "shotgun"
@@ -917,7 +922,7 @@
 	icon_state = "mshotgun"
 	item_state = "mshotgun"
 	slot_flags = SLOT_BACK|SLOT_OCLOTHING
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	ammo_type = /obj/item/ammo_casing/shotgun
 	handle_casings = DELETE_CASINGS
 	max_shells = 9
@@ -952,7 +957,7 @@
 		list(mode_name="full auto", can_autofire=1, burst=1, fire_delay=5, fire_delay_wielded=2, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25))
 	)
 	slot_flags = null
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	accuracy = -2
 	accuracy_wielded = 0
 

@@ -8,10 +8,11 @@
 	name = "glass pane"
 	desc = "A glass pane."
 	icon = 'icons/obj/structure/window/window_panes.dmi'
-	icon_state = "pane"
+	icon_state = "window"
 	alpha = 196
 	density = TRUE
-	w_class = ITEMSIZE_NORMAL
+	pass_flags_self = PASSWINDOW
+	w_class = WEIGHT_CLASS_NORMAL
 	layer = SIDE_WINDOW_LAYER
 	anchored = TRUE
 	atom_flags = ATOM_FLAG_CHECKS_BORDER
@@ -33,9 +34,8 @@
 
 	atmos_canpass = CANPASS_PROC
 
-/obj/structure/window/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-
+/obj/structure/window/condition_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(health == maxhealth)
 		. += SPAN_NOTICE("It looks fully intact.")
 	else
@@ -57,7 +57,7 @@
 			. += SPAN_NOTICE("There is a thick layer of silicate covering it.")
 
 /obj/structure/window/proc/update_nearby_icons()
-	SSicon_smooth.add_to_queue_neighbors(src)
+	QUEUE_SMOOTH_NEIGHBORS(src)
 
 /obj/structure/window/update_icon()
 	if(!full)
@@ -65,7 +65,7 @@
 			layer = ABOVE_HUMAN_LAYER
 		else
 			layer = SIDE_WINDOW_LAYER
-	SSicon_smooth.add_to_queue(src)
+	QUEUE_SMOOTH(src)
 
 /obj/structure/window/proc/take_damage(var/damage = 0,  var/sound_effect = 1, message = TRUE)
 	var/initialhealth = health
@@ -138,12 +138,15 @@
 	qdel(src)
 	return
 
-/obj/structure/window/bullet_act(var/obj/item/projectile/Proj)
-	var/proj_damage = Proj.get_structure_damage()
+/obj/structure/window/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	var/proj_damage = hitting_projectile.get_structure_damage()
 	if(!proj_damage)
-		return
+		return BULLET_ACT_BLOCK
 
-	..()
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
 	take_damage(proj_damage)
 	return
 
@@ -167,7 +170,9 @@
 	return (dir == SOUTHWEST || dir == SOUTHEAST || dir == NORTHWEST || dir == NORTHEAST)
 
 /obj/structure/window/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(istype(mover) && mover.checkpass(PASSGLASS))
+	if(mover?.movement_type & PHASING)
+		return TRUE
+	if(istype(mover) && mover.pass_flags & PASSGLASS)
 		return 1
 	if(is_full_window())
 		return !density	//full tile window, you can't move into it if it's solid!
@@ -177,33 +182,33 @@
 		return 1
 
 /obj/structure/window/CheckExit(atom/movable/O, turf/target)
-	if(istype(O) && O.checkpass(PASSGLASS))
+	if(istype(O) && O.pass_flags & PASSGLASS)
 		return 1
 	if(get_dir(O.loc, target) == dir)
 		return 0
 	return 1
 
-/obj/structure/window/hitby(AM as mob|obj, var/speed = THROWFORCE_SPEED_DIVISOR)
+/obj/structure/window/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	..()
 	var/tforce = 0
-	if(ismob(AM))
-		if(isliving(AM))
-			var/mob/living/M = AM
-			M.turf_collision(src, speed, /singleton/sound_category/glasscrack_sound)
+	if(ismob(hitting_atom))
+		if(isliving(hitting_atom))
+			var/mob/living/M = hitting_atom
+			M.turf_collision(src, throwingdatum.speed, /singleton/sound_category/glasscrack_sound)
 			return
 		else
-			visible_message(SPAN_DANGER("\The [src] was hit by \the [AM]."))
+			visible_message(SPAN_DANGER("\The [src] was hit by \the [hitting_atom]."))
 		tforce = 40
-	else if(isobj(AM))
-		visible_message(SPAN_DANGER("\The [src] was hit by \the [AM]."))
-		var/obj/item/I = AM
+	else if(isobj(hitting_atom))
+		visible_message(SPAN_DANGER("\The [src] was hit by \the [hitting_atom]."))
+		var/obj/item/I = hitting_atom
 		tforce = I.throwforce
 	if(reinf)
 		tforce *= 0.25
 	if(health - tforce <= 7 && !reinf)
 		anchored = 0
 		update_nearby_icons()
-		step(src, get_dir(AM, src))
+		step(src, get_dir(hitting_atom, src))
 	take_damage(tforce)
 
 /obj/structure/window/attack_hand(var/mob/living/user)
@@ -394,7 +399,7 @@
 
 	update_nearby_tiles(need_rebuild=1)
 
-	..()
+	. = ..()
 
 	set_dir(ini_dir)
 	update_nearby_tiles(need_rebuild=1)
@@ -480,7 +485,7 @@
 /obj/structure/window/reinforced/crescent/ex_act(var/severity = 2)
 	return
 
-/obj/structure/window/reinforced/crescent/hitby()
+/obj/structure/window/reinforced/crescent/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	return
 
 /obj/structure/window/reinforced/crescent/take_damage()
@@ -797,10 +802,10 @@
 	return ..(adjacencies, dir_mods)
 
 /obj/structure/window_frame/proc/update_nearby_icons()
-	SSicon_smooth.add_to_queue_neighbors(src)
+	QUEUE_SMOOTH_NEIGHBORS(src)
 
 /obj/structure/window_frame/update_icon()
-	SSicon_smooth.add_to_queue(src)
+	QUEUE_SMOOTH(src)
 
 // Indestructible Reinforced Window
 /obj/structure/window/full/reinforced/indestructible/attack_hand()
@@ -812,7 +817,7 @@
 /obj/structure/window/full/reinforced/indestructible/ex_act(var/severity = 2)
 	return
 
-/obj/structure/window/full/reinforced/indestructible/hitby()
+/obj/structure/window/full/reinforced/indestructible/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	return
 
 /obj/structure/window/full/reinforced/indestructible/take_damage()
@@ -845,7 +850,7 @@
 /obj/structure/window/full/reinforced/polarized/indestructible/ex_act(var/severity = 2)
 	return
 
-/obj/structure/window/full/reinforced/polarized/indestructible/hitby()
+/obj/structure/window/full/reinforced/polarized/indestructible/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	return
 
 /obj/structure/window/full/reinforced/polarized/indestructible/take_damage()

@@ -1,9 +1,10 @@
 /obj/item/device/hailer
 	name = "hailer"
 	desc = "Used by obese officers to save their breath for running."
+	icon = 'icons/obj/item/device/hailer.dmi'
 	icon_state = "voice0"
 	item_state = "flashbang"	//looks exactly like a flash (and nothing like a flashbang)
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 
 	var/use_message = "Halt! Security!"

@@ -10,7 +10,7 @@
 	base_active_power_usage = 25
 	max_hardware_size = 3
 	max_damage = 50
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	enrolled = DEVICE_PRIVATE
 	/// Thing that contains this computer. Used for silicon computers
 	var/mob/living/silicon/computer_host

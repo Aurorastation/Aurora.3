@@ -45,7 +45,7 @@
 
 /singleton/origin_item/origin/core_worlds
 	name = "Imperial Core Worlds"
-	desc = "The Imperial Core consists of worlds colonized mostly by Morozians with little involvement by Ma'zals such as Sparta, Alterim Obrirava, and Alterim Balteulis. Much of the culture of these planets is shared with the Imperial capital of Moroz, and the pomp-and-circumstance of Dominian noble life is well alive on these worlds as well. Much of the wealth of Dominians living in the Imperial Core has been built off of resources extracted from worlds conquered by the Empire. In the Empire, to be Morozian is to bear a badge of honor - yet with that honor comes an understanding that one must act as a Morozian, and not debase oneself to the level of a Ma'zal."
+	desc = "The Imperial Core consists of worlds colonized mostly by Morozians with little involvement by Ma'zals such as Zhurong, Alterim Obrirava, and Alterim Balteulis. Much of the culture of these planets is shared with the Imperial capital of Moroz, and the pomp-and-circumstance of Dominian noble life is well alive on these worlds as well. Much of the wealth of Dominians living in the Imperial Core has been built off of resources extracted from worlds conquered by the Empire. In the Empire, to be Morozian is to bear a badge of honor - yet with that honor comes an understanding that one must act as a Morozian, and not debase oneself to the level of a Ma'zal."
 	possible_accents = list(ACCENT_DOMINIA_VULGAR)
 	possible_citizenships = CITIZENSHIPS_DOMINIA
 	possible_religions = list(RELIGION_MOROZ)

@@ -13,12 +13,12 @@
 /turf/unsimulated/mineral/konyang
 	color = "#514e5c"
 
-// This is a global list so we can share the same list with all mineral turfs; it's the same for all of them anyways.
-var/list/mineral_can_smooth_with = list(
+/// This is a global list so we can share the same list with all mineral turfs; it's the same for all of them anyways.
+GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 	/turf/simulated/mineral,
 	/turf/simulated/wall,
 	/turf/unsimulated/wall
-)
+))
 
 /turf/simulated/mineral
 	name = "rock"
@@ -38,7 +38,9 @@ var/list/mineral_can_smooth_with = list(
 	density = TRUE
 	blocks_air = TRUE
 	temperature = T0C
-	var/mined_turf = /turf/unsimulated/floor/asteroid/ash/rocky
+	explosion_resistance = 2
+
+	var/mined_turf = /turf/simulated/floor/exoplanet/asteroid/ash/rocky
 	var/ore/mineral
 	var/mined_ore = 0
 	var/last_act = 0
@@ -71,7 +73,7 @@ var/list/mineral_can_smooth_with = list(
 	if(icon != actual_icon)
 		icon = actual_icon
 
-	if(isStationLevel(z))
+	if(is_station_level(z))
 		GLOB.station_turfs += src
 
 	if(dynamic_lighting)
@@ -82,15 +84,17 @@ var/list/mineral_can_smooth_with = list(
 	has_opaque_atom = TRUE
 
 	if(smoothing_flags)
-		canSmoothWith = mineral_can_smooth_with
+		canSmoothWith = GLOB.mineral_can_smooth_with
 
 	rock_health = rand(10,20)
 
 	var/area/A = loc
 
-	if(!baseturf)
+	if(A.base_turf)
+		baseturf = A.base_turf
+	else if(!baseturf)
 		// Hard-coding this for performance reasons.
-		baseturf = A.base_turf || SSatlas.current_map.base_turf_by_z["[z]"] || /turf/space
+		baseturf = SSatlas.current_map.base_turf_by_z["[z]"] || /turf/space
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -127,41 +131,57 @@ var/list/mineral_can_smooth_with = list(
 		if(1.0)
 			mined_ore = 2 //some of the stuff gets blown up
 			GetDrilled()
-	SSicon_smooth.add_to_queue_neighbors(src)
+	QUEUE_SMOOTH_NEIGHBORS(src)
 
-/turf/simulated/mineral/bullet_act(var/obj/item/projectile/Proj)
-	if(istype(Proj, /obj/item/projectile/beam/plasmacutter))
-		var/obj/item/projectile/beam/plasmacutter/PC_beam = Proj
+/turf/simulated/mineral/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	SHOULD_CALL_PARENT(FALSE) //Fucking snowflake stack of procs
+
+	var/sigreturn = SEND_SIGNAL(src, COMSIG_ATOM_PRE_BULLET_ACT, hitting_projectile, def_zone)
+	if(sigreturn & COMPONENT_BULLET_PIERCED)
+		return BULLET_ACT_FORCE_PIERCE
+	if(sigreturn & COMPONENT_BULLET_BLOCKED)
+		return BULLET_ACT_BLOCK
+	if(sigreturn & COMPONENT_BULLET_ACTED)
+		return BULLET_ACT_HIT
+
+	SEND_SIGNAL(src, COMSIG_ATOM_BULLET_ACT, hitting_projectile, def_zone)
+	if(QDELETED(hitting_projectile)) // Signal deleted it?
+		return BULLET_ACT_BLOCK
+
+	if(istype(hitting_projectile, /obj/projectile/beam/plasmacutter))
+		var/obj/projectile/beam/plasmacutter/PC_beam = hitting_projectile
 		var/list/cutter_results = PC_beam.pass_check(src)
 		. = cutter_results[1]
 		if(cutter_results[2]) // the cutter mined the turf, just pass on
-			return
+			return BULLET_ACT_HIT
 
 	// Emitter blasts
-	if(istype(Proj, /obj/item/projectile/beam/emitter))
+	if(istype(hitting_projectile, /obj/projectile/beam/emitter))
 		emitter_blasts_taken++
 
 	if(emitter_blasts_taken >= 3)
 		GetDrilled()
 
-/turf/simulated/mineral/CollidedWith(AM)
+	hitting_projectile.on_hit(src, 0, def_zone)
+
+/turf/simulated/mineral/CollidedWith(atom/bumped_atom)
 	. = ..()
-	if(istype(AM,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = AM
+	if(istype(bumped_atom, /mob/living/carbon/human))
+		var/mob/living/carbon/human/H = bumped_atom
 		if((istype(H.l_hand,/obj/item/pickaxe)) && (!H.hand))
 			var/obj/item/pickaxe/P = H.l_hand
 			if(P.autodrill)
-				attackby(H.l_hand,H)
+				INVOKE_ASYNC(src, TYPE_PROC_REF(/atom, attackby), H.l_hand, H)
 
-		else if((istype(H.r_hand,/obj/item/pickaxe)) && H.hand)
+		else if((istype(H.r_hand, /obj/item/pickaxe)) && H.hand)
 			var/obj/item/pickaxe/P = H.r_hand
 			if(P.autodrill)
-				attackby(H.r_hand,H)
+				INVOKE_ASYNC(src, TYPE_PROC_REF(/atom, attackby), H.r_hand, H)
 
-	else if(istype(AM,/mob/living/silicon/robot))
-		var/mob/living/silicon/robot/R = AM
+	else if(istype(bumped_atom, /mob/living/silicon/robot))
+		var/mob/living/silicon/robot/R = bumped_atom
 		if(istype(R.module_active,/obj/item/pickaxe))
-			attackby(R.module_active,R)
+			INVOKE_ASYNC(src, TYPE_PROC_REF(/atom, attackby), R.module_active, R)
 
 //For use in non-station z-levels as decoration.
 /turf/unsimulated/mineral/asteroid
@@ -187,7 +207,7 @@ var/list/mineral_can_smooth_with = list(
 	if(icon != actual_icon)
 		icon = actual_icon
 
-	if(isStationLevel(z))
+	if(is_station_level(z))
 		GLOB.station_turfs += src
 
 	if(dynamic_lighting)
@@ -407,7 +427,7 @@ var/list/mineral_can_smooth_with = list(
 		visible_message(SPAN_NOTICE("An old dusty crate was buried within!"))
 		new /obj/structure/closet/crate/secure/loot(src)
 
-/turf/simulated/mineral/ChangeTurf(N, tell_universe, force_lighting_update, ignore_override, mapload)
+/turf/simulated/mineral/ChangeTurf(path, tell_universe, force_lighting_update, ignore_override, mapload)
 	var/old_has_resources = has_resources
 	var/list/old_resources = resources
 	var/image/old_resource_indicator = resource_indicator
@@ -600,7 +620,8 @@ var/list/mineral_can_smooth_with = list(
 
 	if(ishuman(user) && user.a_intent == I_GRAB)
 		var/mob/living/carbon/human/H = user
-		var/turf/destination = GetAbove(H)
+		var/turf/T = get_turf(H)
+		var/turf/destination = GET_TURF_ABOVE(T)
 		if(destination)
 			var/turf/start = get_turf(H)
 			if(start.CanZPass(H, UP))
@@ -664,7 +685,7 @@ var/list/mineral_can_smooth_with = list(
 
 // Some extra types for the surface to keep things pretty.
 /turf/simulated/mineral/surface
-	mined_turf = /turf/unsimulated/floor/asteroid/ash
+	mined_turf = /turf/simulated/floor/exoplanet/asteroid/ash
 
 /turf/simulated/mineral/planet
 	mined_turf = /turf/simulated/floor/exoplanet/mineral
@@ -674,7 +695,7 @@ var/list/mineral_can_smooth_with = list(
 
 /turf/simulated/mineral/crystal
 	color = "#6fb1b5"
-	mined_turf = /turf/simulated/floor/exoplanet/basalt
+	mined_turf = /turf/simulated/floor/exoplanet/basalt/crystal
 
 /turf/simulated/mineral/lava
 	color = "#444444"
@@ -688,7 +709,7 @@ var/list/mineral_can_smooth_with = list(
 
 // Setting icon/icon_state initially will use these values when the turf is built on/replaced.
 // This means you can put grass on the asteroid etc.
-/turf/unsimulated/floor/asteroid
+/turf/simulated/floor/exoplanet/asteroid
 	name = "coder's blight"
 	icon = 'icons/turf/map_placeholders.dmi'
 	icon_state = ""
@@ -704,20 +725,21 @@ var/list/mineral_can_smooth_with = list(
 	var/digging
 	has_resources = 1
 	footstep_sound = /singleton/sound_category/asteroid_footstep
+	does_footprint = TRUE
 
 	roof_type = null
 	turf_flags = TURF_FLAG_BACKGROUND
 
-// Same as the other, this is a global so we don't have a lot of pointless lists floating around.
-// Basalt is explicitly omitted so ash will spill onto basalt turfs.
-var/list/asteroid_floor_smooth = list(
-	/turf/unsimulated/floor/asteroid/ash,
+/// Same as the other, this is a global so we don't have a lot of pointless lists floating around.
+/// Basalt is explicitly omitted so ash will spill onto basalt turfs.
+GLOBAL_LIST_INIT(asteroid_floor_smooth, list(
+	/turf/simulated/floor/exoplanet/asteroid/ash,
 	/turf/simulated/mineral,
 	/turf/simulated/wall
-)
+))
 
 // Copypaste parent for performance.
-/turf/unsimulated/floor/asteroid/Initialize(mapload)
+/turf/simulated/floor/exoplanet/asteroid/Initialize(mapload)
 	if(flags_1 & INITIALIZED_1)
 		stack_trace("Warning: [src]([type]) initialized multiple times!")
 	flags_1 |= INITIALIZED_1
@@ -728,7 +750,7 @@ var/list/asteroid_floor_smooth = list(
 	base_desc = desc
 	base_name = name
 
-	if(isStationLevel(z))
+	if(is_station_level(z))
 		GLOB.station_turfs += src
 
 	if(dynamic_lighting)
@@ -740,7 +762,7 @@ var/list/asteroid_floor_smooth = list(
 		queue_ao()
 
 	if(smoothing_flags)
-		canSmoothWith = asteroid_floor_smooth
+		canSmoothWith = GLOB.asteroid_floor_smooth
 		pixel_x = -4
 		pixel_y = -4
 
@@ -749,7 +771,7 @@ var/list/asteroid_floor_smooth = list(
 
 	return INITIALIZE_HINT_NORMAL
 
-/turf/unsimulated/floor/asteroid/ex_act(severity)
+/turf/simulated/floor/exoplanet/asteroid/ex_act(severity)
 	switch(severity)
 		if(3.0)
 			return
@@ -769,10 +791,10 @@ var/list/asteroid_floor_smooth = list(
 				gets_dug()
 	return
 
-/turf/unsimulated/floor/asteroid/is_plating()
+/turf/simulated/floor/exoplanet/asteroid/is_plating()
 	return FALSE
 
-/turf/unsimulated/floor/asteroid/attackby(obj/item/attacking_item, mob/user)
+/turf/simulated/floor/exoplanet/asteroid/attackby(obj/item/attacking_item, mob/user)
 	if(!attacking_item || !user)
 		return FALSE
 
@@ -816,19 +838,19 @@ var/list/asteroid_floor_smooth = list(
 		if(digging)
 			return
 		if(dug)
-			if(!GetBelow(src))
+			if(!GET_TURF_BELOW(src))
 				return
 			to_chat(user, SPAN_NOTICE("You start digging deeper."))
 			playsound(get_turf(user), 'sound/effects/stonedoor_openclose.ogg', 50, TRUE)
 			digging = TRUE
 			if(!attacking_item.use_tool(src, user, 60, volume = 50))
-				if(istype(src, /turf/unsimulated/floor/asteroid))
+				if(istype(src, /turf/simulated/floor/exoplanet/asteroid))
 					digging = FALSE
 				return
 
 			// Turfs are special. They don't delete. So we need to check if it's
 			// still the same turf as before the sleep.
-			if(!istype(src, /turf/unsimulated/floor/asteroid))
+			if(!istype(src, /turf/simulated/floor/exoplanet/asteroid))
 				return
 
 			playsound(get_turf(user), 'sound/effects/stonedoor_openclose.ogg', 50, TRUE)
@@ -871,13 +893,13 @@ var/list/asteroid_floor_smooth = list(
 
 		digging = TRUE
 		if(!do_after(user, 40))
-			if(istype(src, /turf/unsimulated/floor/asteroid))
+			if(istype(src, /turf/simulated/floor/exoplanet/asteroid))
 				digging = FALSE
 			return
 
 		// Turfs are special. They don't delete. So we need to check if it's
 		// still the same turf as before the sleep.
-		if(!istype(src, /turf/unsimulated/floor/asteroid))
+		if(!istype(src, /turf/simulated/floor/exoplanet/asteroid))
 			return
 
 		to_chat(user, SPAN_NOTICE("You dug a hole."))
@@ -903,7 +925,7 @@ var/list/asteroid_floor_smooth = list(
 		..()
 	return
 
-/turf/unsimulated/floor/asteroid/proc/gets_dug(mob/user)
+/turf/simulated/floor/exoplanet/asteroid/proc/gets_dug(mob/user)
 	AddOverlays("asteroid_dug", TRUE)
 
 	if(prob(75))
@@ -960,7 +982,7 @@ var/list/asteroid_floor_smooth = list(
 		dug += 1
 		AddOverlays("asteroid_dug", TRUE)
 	else
-		var/turf/below = GetBelow(src)
+		var/turf/below = GET_TURF_BELOW(src)
 		if(below)
 			var/area/below_area = get_area(below)	// Let's just assume that the turf is not in nullspace.
 			if(below_area.station_area)
@@ -970,7 +992,7 @@ var/list/asteroid_floor_smooth = list(
 			else
 				ChangeTurf(/turf/space)
 
-/turf/unsimulated/floor/asteroid/Entered(atom/movable/M as mob|obj)
+/turf/simulated/floor/exoplanet/asteroid/Entered(atom/movable/M as mob|obj)
 	..()
 	if(istype(M,/mob/living/silicon/robot))
 		var/mob/living/silicon/robot/R = M
@@ -986,5 +1008,5 @@ var/list/asteroid_floor_smooth = list(
 
 /turf/simulated/mineral/Destroy()
 	clear_ore_effects()
-	SSicon_smooth.add_to_queue_neighbors(src)
+	QUEUE_SMOOTH_NEIGHBORS(src)
 	. = ..()

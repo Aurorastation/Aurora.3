@@ -1,42 +1,42 @@
 // Screen objects hereon out.
-/obj/screen/mecha
+/atom/movable/screen/mecha
 	name = "hardpoint"
 	icon = 'icons/mecha/mecha_hud.dmi'
 	icon_state = "hardpoint"
 	var/mob/living/heavy_vehicle/owner
 	maptext_y = 11
 
-/obj/screen/mecha/proc/notify_user(var/mob/user, var/text)
+/atom/movable/screen/mecha/proc/notify_user(var/mob/user, var/text)
 	if(user && user.loc == owner)
 		to_chat(user, text)
 
-/obj/screen/mecha/radio
+/atom/movable/screen/mecha/radio
 	name = "radio"
 	icon_state = "base"
 	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 #242424; font-size: 6px;\">RADIO</span>"
 	maptext_x = 2
 	maptext_y = 11
 
-/obj/screen/mecha/radio/Click()
+/atom/movable/screen/mecha/radio/Click()
 	if(..())
 		if(owner.radio)
 			owner.radio.attack_self(usr)
 
-/obj/screen/mecha/Initialize()
+/atom/movable/screen/mecha/Initialize()
 	. = ..()
 	var/mob/living/heavy_vehicle/newowner = loc
 	if(!istype(newowner))
 		return INITIALIZE_HINT_QDEL
 	owner = newowner
 
-/obj/screen/mecha/Destroy(force)
+/atom/movable/screen/mecha/Destroy(force)
 	owner = null
 	. = ..()
 
-/obj/screen/mecha/Click()
+/atom/movable/screen/mecha/Click()
 	return (!owner || !usr.incapacitated() && (usr == owner || usr.loc == owner))
 
-/obj/screen/mecha/hardpoint
+/atom/movable/screen/mecha/hardpoint
 	name = "hardpoint"
 	var/hardpoint_tag
 	var/obj/item/holding
@@ -45,16 +45,17 @@
 	maptext_y = 3
 	maptext_width = 120
 
-/obj/screen/mecha/hardpoint/Destroy()
+/atom/movable/screen/mecha/hardpoint/Destroy()
 	holding = null
 	hardpoint_tag = null
 	. = ..()
 
-/obj/screen/mecha/hardpoint/MouseDrop()
+/atom/movable/screen/mecha/hardpoint/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	..()
-	if(holding) holding.screen_loc = screen_loc
+	if(holding)
+		holding.screen_loc = screen_loc
 
-/obj/screen/mecha/hardpoint/proc/update_system_info()
+/atom/movable/screen/mecha/hardpoint/proc/update_system_info()
 	// No point drawing it if we have no item to use or nobody to see it.
 	if(!holding || !owner)
 		return
@@ -132,12 +133,12 @@
 			new_overlays += GLOB.hardpoint_bar_cache[i]
 	overlays = new_overlays
 
-/obj/screen/mecha/hardpoint/Initialize(mapload, var/newtag)
+/atom/movable/screen/mecha/hardpoint/Initialize(mapload, var/newtag)
 	. = ..()
 	hardpoint_tag = newtag
 	name = "hardpoint ([hardpoint_tag])"
 
-/obj/screen/mecha/hardpoint/Click(var/location, var/control, var/params)
+/atom/movable/screen/mecha/hardpoint/Click(var/location, var/control, var/params)
 
 	if(!(..()))
 		return
@@ -160,98 +161,98 @@
 		if(owner.set_hardpoint(hardpoint_tag))
 			icon_state = "hardpoint_selected"
 
-/obj/screen/mecha/eject
+/atom/movable/screen/mecha/eject
 	name = "eject"
 	icon_state = "large_base"
 	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 #242424; font-size: 6px;\">EJECT</span>"
 	maptext_x = 3
 	maptext_y = 10
 
-/obj/screen/mecha/eject/Click()
+/atom/movable/screen/mecha/eject/Click()
 	if(..())
 		owner.eject(usr)
 
-/obj/screen/mecha/rename
+/atom/movable/screen/mecha/rename
 	name = "rename"
 	icon_state = "base"
 	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 #242424; font-size: 5px;\">RENAME</span>"
 	maptext_x = 1
 	maptext_y = 12
 
-/obj/screen/mecha/rename/Click()
+/atom/movable/screen/mecha/rename/Click()
 	if(..())
 		owner.rename(usr)
 
-/obj/screen/mecha/power
+/atom/movable/screen/mecha/power
 	name = "power"
 	icon_state = null
 
 	maptext_width = 64
 	maptext_y = 2
 
-/obj/screen/mecha/toggle
+/atom/movable/screen/mecha/toggle
 	name = "toggle"
 	var/toggled
 
-/obj/screen/mecha/toggle/Click()
+/atom/movable/screen/mecha/toggle/Click()
 	if(..()) toggled()
 
-/obj/screen/mecha/toggle/proc/toggled()
+/atom/movable/screen/mecha/toggle/proc/toggled()
 	toggled = !toggled
 	icon_state = "[initial(icon_state)][toggled ? "_enabled" : ""]"
 	return toggled
 
-/obj/screen/mecha/toggle/air
+/atom/movable/screen/mecha/toggle/air
 	name = "air"
 	icon_state = "base"
 	maptext = "<span style=\"font-family: 'Small Fonts'; color: #525252; -dm-text-outline: 1 #242424; font-size: 6px;\">AIR</span>"
 	maptext_x = 8
 
-/obj/screen/mecha/toggle/air/toggled()
+/atom/movable/screen/mecha/toggle/air/toggled()
 	toggled = !toggled
 	owner.use_air = toggled
 	var/main_color = owner.use_air ? "#d1d1d1" : "#525252"
 	maptext = "<span style=\"font-family: 'Small Fonts'; color: [main_color]; -dm-text-outline: 1 #242424; font-size: 6px;\">AIR</span>"
 	notify_user(usr, SPAN_NOTICE("Auxiliary atmospheric system [owner.use_air ? "enabled" : "disabled"]."))
 
-/obj/screen/mecha/toggle/maint
+/atom/movable/screen/mecha/toggle/maint
 	name = "toggle maintenance protocol"
 	icon_state = "large_base"
 	maptext = "<span style=\"font-family: 'Small Fonts'; color: #525252; -dm-text-outline: 1 #242424; font-size: 6px;\">MAINT</span>"
 	maptext_x = 2
 	maptext_y = 10
 
-/obj/screen/mecha/toggle/maint/toggled()
+/atom/movable/screen/mecha/toggle/maint/toggled()
 	toggled = !toggled
 	owner.maintenance_protocols = toggled
 	var/main_color = owner.maintenance_protocols ? "#d1d1d1" : "#525252"
 	maptext = "<span style=\"font-family: 'Small Fonts'; color: [main_color]; -dm-text-outline: 1 #242424; font-size: 6px;\">MAINT</span>"
 	notify_user(usr, SPAN_NOTICE("Maintenance protocols [owner.maintenance_protocols ? "enabled" : "disabled"]."))
 
-/obj/screen/mecha/toggle/power_control
+/atom/movable/screen/mecha/toggle/power_control
 	name = "power control"
 	icon_state = "large_base"
 	maptext = "<span style=\"font-family: 'Small Fonts'; color: #525252; -dm-text-outline: 1 #242424; font-size: 6px;\">POWER</span>"
 	maptext_x = 1
 	maptext_y = 11
 
-/obj/screen/mecha/toggle/power_control/toggled()
+/atom/movable/screen/mecha/toggle/power_control/toggled(var/remote = FALSE)
 	toggled = !toggled
-	owner.toggle_power(usr)
+	owner.toggle_power(usr, remote)
 	var/main_color = toggled ? "#d1d1d1" : "#525252"
 	maptext = "<span style=\"font-family: 'Small Fonts'; color: [main_color]; -dm-text-outline: 1 #242424; font-size: 6px;\">POWER</span>"
 
-/obj/screen/mecha/toggle/power_control/update_icon()
+/atom/movable/screen/mecha/toggle/power_control/update_icon()
 	toggled = (owner.power == MECH_POWER_ON)
 	return ..()
 
-/obj/screen/mecha/toggle/hardpoint
+/atom/movable/screen/mecha/toggle/hardpoint
 	name = "toggle hardpoint lock"
 	icon_state = "base"
 	maptext = "<span style=\"font-family: 'Small Fonts'; color: #525252; -dm-text-outline: 1 #242424; font-size: 6px;\">GEAR</span>"
 	maptext_x = 4
 
-/obj/screen/mecha/toggle/hardpoint/toggled()
+/atom/movable/screen/mecha/toggle/hardpoint/toggled()
 	if(owner.force_locked)
 		notify_user(usr, SPAN_WARNING("The locking system cannot be operated due to software restriction. Contact the manufacturer for more details."))
 		return
@@ -261,13 +262,13 @@
 	maptext = "<span style=\"font-family: 'Small Fonts'; color: [main_color]; -dm-text-outline: 1 #242424; font-size: 6px;\">GEAR</span>"
 	notify_user(usr, SPAN_NOTICE("Hardpoint system access is now [owner.hardpoints_locked ? "disabled" : "enabled"]."))
 
-/obj/screen/mecha/toggle/hatch
+/atom/movable/screen/mecha/toggle/hatch
 	name = "toggle hatch lock"
 	icon_state = "base"
 	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 #242424; font-size: 6px;\">LOCK</span>"
 	maptext_x = 5
 
-/obj/screen/mecha/toggle/hatch/toggled()
+/atom/movable/screen/mecha/toggle/hatch/toggled()
 	if(!owner.hatch_locked && !owner.hatch_closed)
 		notify_user(usr, SPAN_WARNING("You cannot lock the hatch while it is open."))
 		return
@@ -286,17 +287,17 @@
 		maptext_x = 5
 	notify_user(usr, SPAN_NOTICE("The [owner.body.hatch_descriptor] is [owner.hatch_locked ? "now" : "no longer" ] locked."))
 
-/obj/screen/mecha/toggle/hatch_open
+/atom/movable/screen/mecha/toggle/hatch_open
 	name = "open or close hatch"
 	icon_state = "base"
 	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 #242424; font-size: 6px;\">CLOSE</span>"
 	maptext_x = 3
 
-/obj/screen/mecha/toggle/hatch_open/update_icon()
+/atom/movable/screen/mecha/toggle/hatch_open/update_icon()
 	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 #242424; font-size: 6px;\">[owner.hatch_closed ? "OPEN" : "CLOSE"]</span>"
 	maptext_x = owner.hatch_closed ? 4 : 3
 
-/obj/screen/mecha/toggle/hatch_open/toggled(var/notify_user = TRUE)
+/atom/movable/screen/mecha/toggle/hatch_open/toggled(var/notify_user = TRUE)
 	if(owner.hatch_locked && owner.hatch_closed)
 		notify_user(usr, SPAN_WARNING("You cannot open the hatch while it is locked."))
 		return
@@ -308,18 +309,18 @@
 	owner.update_icon()
 
 // This is basically just a holder for the updates the mech does.
-/obj/screen/mecha/health
+/atom/movable/screen/mecha/health
 	name = "exosuit integrity"
 	icon_state = "health"
 
-/obj/screen/mecha/toggle/sensor
+/atom/movable/screen/mecha/toggle/sensor
 	name = "toggle sensor matrix"
 	icon_state = "base"
 	maptext = "<span style=\"font-family: 'Small Fonts'; color: #525252; -dm-text-outline: 1 #242424; font-size: 5px;\">SENSOR</span>"
 	maptext_x = 1
 	maptext_y = 12
 
-/obj/screen/mecha/toggle/sensor/toggled()
+/atom/movable/screen/mecha/toggle/sensor/toggled()
 	if(!owner.head)
 		notify_user(usr, SPAN_WARNING("I/O Error: Sensor systems not found."))
 		return
@@ -332,14 +333,14 @@
 	maptext = "<span style=\"font-family: 'Small Fonts'; color: [main_color]; -dm-text-outline: 1 #242424; font-size: 5px;\">SENSOR</span>"
 	notify_user(usr, SPAN_NOTICE("[capitalize_first_letters(owner.head.name)] Advanced Sensor mode is [owner.head.active_sensors ? "now" : "no longer" ] active."))
 
-/obj/screen/mecha/toggle/megaspeakers
+/atom/movable/screen/mecha/toggle/megaspeakers
 	name = "toggle integrated megaspeakers"
 	icon_state = "base" // based
 	maptext = "<span style=\"font-family: 'Small Fonts'; color: #525252; -dm-text-outline: 1 #242424; font-size: 5px;\">VOLUME</span>"
 	maptext_x = 1
 	maptext_y = 12
 
-/obj/screen/mecha/toggle/megaspeakers/toggled()
+/atom/movable/screen/mecha/toggle/megaspeakers/toggled()
 	toggled = !toggled
 	owner.loudening = toggled
 	var/main_color = owner.loudening ? "#d1d1d1" : "#525252"

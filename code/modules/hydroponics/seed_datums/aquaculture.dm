@@ -15,8 +15,8 @@
 	set_trait(TRAIT_PRODUCT_ICON,      "mollusc")
 	set_trait(TRAIT_PLANT_ICON,        "mollusc")
 	set_trait(TRAIT_WATER_CONSUMPTION, 6)
-	set_trait(TRAIT_IDEAL_HEAT,        288)
-	set_trait(TRAIT_LIGHT_TOLERANCE,   6)
+	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_COLD)
+	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_DIM)
 	set_trait(TRAIT_PRODUCT_COLOUR,    "#aaabba")
 	set_trait(TRAIT_PLANT_COLOUR,      "#aaabba")
 
@@ -64,3 +64,19 @@
 
 /obj/item/seeds/clam/rasval
 	seed_type = "rasval clam"
+
+/datum/seed/grass/sea
+	name = "seaweed"
+	seed_name = "seaweed"
+	display_name = "seaweed"
+	kitchen_tag = "seaweed"
+
+/datum/seed/grass/sea/setup_traits()
+	..()
+	set_trait(TRAIT_PRODUCT_COLOUR, "#0F6E56")
+	set_trait(TRAIT_PLANT_COLOUR, "#0D4836")
+	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_COLD)
+	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_DIM)
+
+/obj/item/seeds/seaweed
+	seed_type = "seaweed"

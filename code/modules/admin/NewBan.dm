@@ -133,11 +133,11 @@ var/savefile/Banlist
 	if (!Banlist.dir.Remove(foldername)) return 0
 
 	if(!usr)
-		log_admin("Ban Expired: [key]",ckey=key)
+		log_admin("Ban Expired: [key]")
 		message_admins("Ban Expired: [key]")
 	else
 		ban_unban_log_save("[key_name_admin(usr)] unbanned [key]")
-		log_admin("[key_name_admin(usr)] unbanned [key]",admin_key=key_name(usr),ckey=key)
+		log_admin("[key_name_admin(usr)] unbanned [key]")
 		message_admins("[key_name_admin(usr)] unbanned: [key]")
 		feedback_inc("ban_unban",1)
 		DB_ban_unban( ckey(key), BANTYPE_ANY_FULLBAN)
@@ -173,7 +173,7 @@ var/savefile/Banlist
 	for (var/A in Banlist.dir)
 		count++
 		Banlist.cd = "/base/[A]"
-		var/ref		= "\ref[src]"
+		var/ref		= "[REF(src)]"
 		var/key		= Banlist["key"]
 		var/id		= Banlist["id"]
 		var/ip		= Banlist["ip"]
@@ -185,11 +185,11 @@ var/savefile/Banlist
 			if(!expiry)		expiry = "Removal Pending"
 		else				expiry = "Permaban"
 
-		dat += text("<tr><td><A href='?src=[ref];unbanf=[key][id]'>(U)</A><A href='?src=[ref];unbane=[key][id]'>(E)</A> Key: <B>[key]</B></td><td>ComputerID: <B>[id]</B></td><td>IP: <B>[ip]</B></td><td> [expiry]</td><td>(By: [by])</td><td>(Reason: [reason])</td></tr>")
+		dat += "<tr><td><A href='byond://?src=[ref];unbanf=[key][id]'>(U)</A><A href='byond://?src=[ref];unbane=[key][id]'>(E)</A> Key: <B>[key]</B></td><td>ComputerID: <B>[id]</B></td><td>IP: <B>[ip]</B></td><td> [expiry]</td><td>(By: [by])</td><td>(Reason: [reason])</td></tr>"
 
 	dat += "</table>"
 	dat = "<HR><B>Bans:</B> <FONT COLOR=blue>(U) = Unban , (E) = Edit Ban</FONT> - <FONT COLOR=green>([count] Bans)</FONT><HR><table border=1 rules=all frame=void cellspacing=0 cellpadding=3 >[dat]"
-	usr << browse(dat, "window=unbanp;size=875x400")
+	usr << browse(HTML_SKELETON(dat), "window=unbanp;size=875x400")
 
 //////////////////////////////////// DEBUG ////////////////////////////////////
 

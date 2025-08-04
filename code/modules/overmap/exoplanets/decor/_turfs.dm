@@ -10,27 +10,36 @@
 	footstep_sound = /singleton/sound_category/asteroid_footstep
 	turf_flags = TURF_FLAG_BACKGROUND
 
-	does_footprint = TRUE
-
 	var/diggable = 1
 	var/dirt_color = "#7c5e42"
-	var/has_edge_icon = TRUE
 
 /turf/simulated/floor/exoplanet/New()
-	// try to get the the atmos and area of the exoplanet
+	// try to get the the atmos and area of the planet
 	if(SSatlas.current_map.use_overmap)
-		var/obj/effect/overmap/visitable/sector/exoplanet/E = GLOB.map_sectors["[z]"]
-		if(istype(E))
-			if(E.atmosphere)
-				initial_gas = E.atmosphere.gas.Copy()
-				temperature = E.atmosphere.temperature
+		// if exoplanet
+		var/datum/site = GLOB.map_sectors["[z]"]
+		var/datum/template = GLOB.map_templates["[z]"]
+		if(istype(site, /obj/effect/overmap/visitable/sector/exoplanet))
+			var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = site
+			if(exoplanet.atmosphere)
+				initial_gas = exoplanet.atmosphere.gas.Copy()
+				temperature = exoplanet.atmosphere.temperature
 			else
 				initial_gas = list()
 				temperature = T0C
 			//Must be done here, as light data is not fully carried over by ChangeTurf (but overlays are).
-			set_light(MINIMUM_USEFUL_LIGHT_RANGE, E.lightlevel, COLOR_WHITE)
-			if(E.planetary_area && istype(loc, world.area))
-				ChangeArea(src, E.planetary_area)
+			set_light(MINIMUM_USEFUL_LIGHT_RANGE, exoplanet.lightlevel, exoplanet.lightcolor)
+			if(exoplanet.planetary_area && istype(loc, world.area))
+				change_area(loc, exoplanet.planetary_area)
+		// if away site
+		else if(istype(template, /datum/map_template/ruin/away_site))
+			var/datum/map_template/ruin/away_site/away_site = template
+			if(away_site.exoplanet_atmosphere)
+				initial_gas = away_site.exoplanet_atmosphere.gas.Copy()
+				temperature = away_site.exoplanet_atmosphere.temperature
+			if(away_site.exoplanet_lightlevel && is_outside())
+				set_light(MINIMUM_USEFUL_LIGHT_RANGE, away_site.exoplanet_lightlevel, away_site.exoplanet_lightcolor)
+
 	// if not on an exoplanet, instead just keep the default or mapped in atmos
 	..()
 
@@ -80,7 +89,7 @@
 			AddOverlays(resource_indicator)
 		if(LAZYLEN(decals))
 			AddOverlays(decals)
-		for(var/direction in GLOB.cardinal)
+		for(var/direction in GLOB.cardinals)
 			var/turf/turf_to_check = get_step(src,direction)
 			if(!istype(turf_to_check, type))
 				var/image/rock_side = image(icon, "edge[pick(0,1,2)]", dir = turn(direction, 180))
@@ -99,12 +108,14 @@
 
 /turf/simulated/floor/exoplanet/water/shallow
 	name = "shallow water"
+	desc = "Some water shallow enough to wade through."
 	icon = 'icons/misc/beach.dmi'
 	icon_state = "seashallow"
 	footstep_sound = /singleton/sound_category/water_footstep
 
 /turf/simulated/floor/exoplanet/permafrost
 	name = "permafrost"
+	desc = "The ground here is frozen solid by the cold."
 	icon = 'icons/turf/flooring/snow.dmi'
 	icon_state = "permafrost"
 	footstep_sound = /singleton/sound_category/asteroid_footstep
@@ -159,15 +170,15 @@
 	O.name = "distant terrain"
 	O.desc = "You need to come over there to take a better look."
 
-/turf/unsimulated/planet_edge/CollidedWith(atom/movable/A)
+/turf/unsimulated/planet_edge/CollidedWith(atom/bumped_atom)
 	. = ..()
 	var/obj/effect/overmap/visitable/sector/exoplanet/E = GLOB.map_sectors["[z]"]
 	if(!istype(E))
 		return
 	if(E.planetary_area && istype(loc, world.area))
-		ChangeArea(src, E.planetary_area)
-	var/new_x = A.x
-	var/new_y = A.y
+		change_area(loc, E.planetary_area)
+	var/new_x = bumped_atom.x
+	var/new_y = bumped_atom.y
 	if(x <= TRANSITIONEDGE)
 		new_x = E.maxx - TRANSITIONEDGE - 1
 	else if (x >= (E.maxx - TRANSITIONEDGE))
@@ -177,11 +188,13 @@
 	else if (y >= (E.maxy - TRANSITIONEDGE))
 		new_y = TRANSITIONEDGE + 1
 
-	var/turf/T = locate(new_x, new_y, A.z)
+	var/turf/T = locate(new_x, new_y, bumped_atom.z)
 	if(T && !T.density)
-		A.forceMove(T)
-		if(isliving(A))
-			var/mob/living/L = A
-			if(L.pulling)
-				var/atom/movable/AM = L.pulling
-				AM.forceMove(T)
+		if(ismovable(bumped_atom))
+			var/atom/movable/AM = bumped_atom
+			AM.forceMove(T)
+			if(isliving(AM))
+				var/mob/living/L = bumped_atom
+				if(L.pulling)
+					var/atom/movable/pulling = L.pulling
+					pulling.forceMove(T)

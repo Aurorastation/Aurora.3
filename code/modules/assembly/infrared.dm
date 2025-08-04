@@ -15,6 +15,11 @@
 	var/obj/effect/beam/i_beam/first = null
 	var/turf/beam_origin //If we're not on this turf anymore, we've moved. Catches holder.master movements when we're attached to bombs and stuff.
 
+/obj/item/device/assembly/infra/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	var/direction_text = dir2text(dir)
+	. += SPAN_NOTICE("It is facing [direction_text].")
+
 /obj/item/device/assembly/infra/activate()
 	if(!..())
 		return FALSE //Cooldown check
@@ -57,11 +62,6 @@
 		var/direction_text = dir2text(dir)
 		to_chat(user, SPAN_NOTICE("You rotate \the [src] to face [direction_text]."))
 		QDEL_NULL(first)
-
-/obj/item/device/assembly/infra/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	var/direction_text = dir2text(dir)
-	. += SPAN_NOTICE("It is facing [direction_text].")
 
 /obj/item/device/assembly/infra/process()
 
@@ -106,10 +106,9 @@
 
 /obj/item/device/assembly/infra/Move()
 	var/t = dir
-	..()
+	. = ..()
 	set_dir(t)
 	QDEL_NULL(first)
-	return
 
 /obj/item/device/assembly/infra/holder_movement()
 	if(!holder)
@@ -222,10 +221,10 @@
 	..()
 	hit()
 
-/obj/effect/beam/i_beam/Crossed(atom/movable/AM as mob|obj)
-	if(istype(AM, /obj/effect/beam))
+/obj/effect/beam/i_beam/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	if(istype(arrived, /obj/effect/beam))
 		return
-	if(AM.invisibility == INVISIBILITY_OBSERVER || AM.invisibility == 101)
+	if(arrived.invisibility == INVISIBILITY_OBSERVER || arrived.invisibility == 101)
 		return
 	spawn(0)
 		hit()

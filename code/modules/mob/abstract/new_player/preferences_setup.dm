@@ -217,11 +217,15 @@
 		var/list/leftovers = list()
 		var/list/used_slots = list()
 
-		if((equip_preview_mob & EQUIP_PREVIEW_LOADOUT) && !(previewJob && (equip_preview_mob & EQUIP_PREVIEW_JOB) && (previewJob.type == /datum/job/ai || previewJob.type == /datum/job/cyborg)))
+		if(equip_preview_mob & EQUIP_PREVIEW_CUSTOM_ITEMS)
+			equip_custom_items(mannequin, current_character, client.ckey, TRUE) // Equips body-related custom items, like augments and prosthetics.
+			equip_custom_items(mannequin, current_character, client.ckey, FALSE) // Equips all other custom items.
+
+		if(equip_preview_mob & EQUIP_PREVIEW_LOADOUT)
 			SSjobs.EquipCustom(mannequin, previewJob, src, leftovers, null, used_slots)
 
 		if((equip_preview_mob & EQUIP_PREVIEW_JOB) && previewJob)
-			previewJob.equip_preview(mannequin, player_alt_titles[previewJob.title], faction)
+			previewJob.equip_preview(mannequin, src, player_alt_titles[previewJob.title], faction)
 
 		if((equip_preview_mob & EQUIP_PREVIEW_LOADOUT) && leftovers.len)
 			SSjobs.EquipCustomDeferred(mannequin, src, leftovers, used_slots)

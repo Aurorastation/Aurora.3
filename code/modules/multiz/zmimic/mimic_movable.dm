@@ -152,13 +152,13 @@
 /atom/movable/openspace/mimic/attack_hand(mob/user)
 	to_chat(user, SPAN_NOTICE("You cannot reach \the [src] from here."))
 
-/atom/movable/openspace/mimic/examine(..., show_extended)
+/atom/movable/openspace/mimic/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	SHOULD_CALL_PARENT(FALSE)
 	. = associated_atom.examine(arglist(args))	// just pass all the args to the copied atom
 
-/atom/movable/openspace/mimic/forceMove(turf/dest)
+/atom/movable/openspace/mimic/forceMove(atom/destination)
 	. = ..()
-	if (TURF_IS_MIMICING(dest))
+	if (TURF_IS_MIMICING(destination))
 		if (destruction_timer)
 			deltimer(destruction_timer)
 			destruction_timer = null
@@ -187,9 +187,9 @@
 /atom/movable/openspace/turf_proxy/attack_generic(mob/user as mob)
 	loc.attack_generic(user)
 
-/atom/movable/openspace/turf_proxy/examine(mob/examiner, show_extended)
+/atom/movable/openspace/turf_proxy/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	SHOULD_CALL_PARENT(FALSE)
-	. = loc.examine(examiner, show_extended = show_extended)
+	. = loc.examine(arglist(args))
 
 
 // -- TURF MIMIC --
@@ -203,7 +203,8 @@
 /atom/movable/openspace/turf_mimic/Initialize(mapload, ...)
 	. = ..()
 	ASSERT(isturf(loc))
-	delegate = loc:below
+	var/turf/T = loc
+	delegate = T.below
 
 /atom/movable/openspace/turf_mimic/attackby(obj/item/attacking_item, mob/user)
 	loc.attackby(attacking_item, user)
@@ -214,6 +215,6 @@
 /atom/movable/openspace/turf_mimic/attack_generic(mob/user as mob)
 	to_chat(user, SPAN_NOTICE("You cannot reach \the [src] from here."))
 
-/atom/movable/openspace/turf_mimic/examine(mob/examiner, show_extended)
+/atom/movable/openspace/turf_mimic/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	SHOULD_CALL_PARENT(FALSE)
-	. = delegate.examine(examiner, show_extended = show_extended)
+	. = delegate.examine(arglist(args))

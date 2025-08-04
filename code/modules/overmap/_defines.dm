@@ -1,7 +1,16 @@
+
 //How far from the edge of overmap zlevel could randomly placed objects spawn
 #define OVERMAP_EDGE 2
-//Dimension of overmap (squares 4 lyfe)
+
+/// All sector overmap objects.
+/// Assoc list of stringified zlevel integer value (like `"1"` or `"42"` etc)
+/// to an instance of `/obj/effect/overmap/visitable`.
 GLOBAL_LIST_EMPTY(map_sectors)
+
+/// All sector map templates. Analogous to the list above.
+/// Assoc list of stringified zlevel integer value
+/// to an instance of `/datum/map_template`.
+GLOBAL_LIST_EMPTY(map_templates)
 
 /area/overmap/
 	name = "System Map"
@@ -50,8 +59,9 @@ GLOBAL_LIST_EMPTY(map_sectors)
 			I.pixel_x = 5*i + 2
 		overlays += I
 
-//list used to track which zlevels are being 'moved' by the proc below
-var/list/moving_levels = list()
+///list used to track which zlevels are being 'moved' by the `toggle_move_stars` proc
+GLOBAL_LIST_EMPTY(moving_levels)
+
 //Proc to 'move' stars in spess
 //yes it looks ugly, but it should only fire when state actually change.
 //null direction stops movement
@@ -67,8 +77,8 @@ var/list/moving_levels = list()
 	if(!direction)
 		gen_dir = null
 
-	if (moving_levels["[zlevel]"] != gen_dir)
-		moving_levels["[zlevel]"] = gen_dir
+	if (GLOB.moving_levels["[zlevel]"] != gen_dir)
+		GLOB.moving_levels["[zlevel]"] = gen_dir
 
 		var/list/spaceturfs = block(locate(1, 1, zlevel), locate(world.maxx, world.maxy, zlevel))
 		for(var/turf/space/T in spaceturfs)
@@ -78,6 +88,6 @@ var/list/moving_levels = list()
 				T.icon_state = "speedspace_[gen_dir]_[rand(1,15)]"
 				for(var/atom/movable/AM in T)
 					if (AM.simulated && !AM.anchored)
-						AM.throw_at(get_step(T,reverse_direction(direction)), 5, 1)
+						AM.throw_at(get_step(T,REVERSE_DIR(direction)), 5, 1)
 						CHECK_TICK
 			CHECK_TICK

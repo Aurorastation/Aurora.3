@@ -5,16 +5,34 @@
 	icon_state = "paper"
 	item_state = "paper"
 	throwforce = 0
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throw_range = 2
 	throw_speed = 1
 	layer = ABOVE_OBJ_LAYER
 	attack_verb = list("bapped")
-	var/page = 1    // current page
-	var/list/pages = list()  // Ordered list of pages as they are to be displayed. Can be different order than src.contents.
-	var/amount = 0 // How many sheet
+
+	/// current page
+	var/page = 1
+
+	/// Ordered list of pages as they are to be displayed. Can be different order than src.contents.
+	var/list/pages = list()
+
+	/// How many sheet
+	var/amount = 0
+
 	drop_sound = 'sound/items/drop/paper.ogg'
 	pickup_sound = 'sound/items/pickup/paper.ogg'
+
+/obj/item/paper_bundle/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Both papers and photos can be added to a paper bundle."
+
+/obj/item/paper_bundle/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(is_adjacent)
+		src.show_content(user)
+	else
+		. += SPAN_NOTICE("It is too far away to read.")
 
 /obj/item/paper_bundle/attackby(obj/item/attacking_item, mob/user)
 	..()
@@ -91,13 +109,6 @@
 			else
 				to_chat(user, SPAN_WARNING("You must hold \the [P] steady to burn \the [src]."))
 
-/obj/item/paper_bundle/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(is_adjacent)
-		src.show_content(user)
-	else
-		. += SPAN_NOTICE("It is too far away.")
-
 /obj/item/paper_bundle/proc/show_content(mob/user as mob)
 	var/dat
 	var/obj/item/W = pages[page]
@@ -105,18 +116,18 @@
 	// first
 	if(page == 1)
 		dat+= "<DIV STYLE='float:left; text-align:left; width:33.33333%'>Front</DIV>"
-		dat+= "<DIV STYLE='float:left; text-align:center; width:33.33333%'><A href='?src=\ref[src];remove=1'>Remove [(istype(W, /obj/item/paper)) ? "paper" : "photo"]</A></DIV>"
-		dat+= "<DIV STYLE='float:left; text-align:right; width:33.33333%'><A href='?src=\ref[src];next_page=1'>Next Page</A></DIV><BR><HR>"
+		dat+= "<DIV STYLE='float:left; text-align:center; width:33.33333%'><A href='byond://?src=[REF(src)];remove=1'>Remove [(istype(W, /obj/item/paper)) ? "paper" : "photo"]</A></DIV>"
+		dat+= "<DIV STYLE='float:left; text-align:right; width:33.33333%'><A href='byond://?src=[REF(src)];next_page=1'>Next Page</A></DIV><BR><HR>"
 	// last
 	else if(page == pages.len)
-		dat+= "<DIV STYLE='float:left; text-align:left; width:33.33333%'><A href='?src=\ref[src];prev_page=1'>Previous Page</A></DIV>"
-		dat+= "<DIV STYLE='float:left; text-align:center; width:33.33333%'><A href='?src=\ref[src];remove=1'>Remove [(istype(W, /obj/item/paper)) ? "paper" : "photo"]</A></DIV>"
+		dat+= "<DIV STYLE='float:left; text-align:left; width:33.33333%'><A href='byond://?src=[REF(src)];prev_page=1'>Previous Page</A></DIV>"
+		dat+= "<DIV STYLE='float:left; text-align:center; width:33.33333%'><A href='byond://?src=[REF(src)];remove=1'>Remove [(istype(W, /obj/item/paper)) ? "paper" : "photo"]</A></DIV>"
 		dat+= "<DIV STYLE='float:left; text-align:right; width:33.33333%'>Back</DIV><BR><HR>"
 	// middle pages
 	else
-		dat+= "<DIV STYLE='float:left; text-align:left; width:33.33333%'><A href='?src=\ref[src];prev_page=1'>Previous Page</A></DIV>"
-		dat+= "<DIV STYLE='float:left; text-align:center; width:33.33333%'><A href='?src=\ref[src];remove=1'>Remove [(istype(W, /obj/item/paper)) ? "paper" : "photo"]</A></DIV>"
-		dat+= "<DIV STYLE='float:left; text-align:right; width:33.33333%'><A href='?src=\ref[src];next_page=1'>Next Page</A></DIV><BR><HR>"
+		dat+= "<DIV STYLE='float:left; text-align:left; width:33.33333%'><A href='byond://?src=[REF(src)];prev_page=1'>Previous Page</A></DIV>"
+		dat+= "<DIV STYLE='float:left; text-align:center; width:33.33333%'><A href='byond://?src=[REF(src)];remove=1'>Remove [(istype(W, /obj/item/paper)) ? "paper" : "photo"]</A></DIV>"
+		dat+= "<DIV STYLE='float:left; text-align:right; width:33.33333%'><A href='byond://?src=[REF(src)];next_page=1'>Next Page</A></DIV><BR><HR>"
 
 	if(istype(pages[page], /obj/item/paper))
 		var/obj/item/paper/P = W
@@ -141,7 +152,7 @@
 		+ "[P.scribble ? "<div> Written on the back:<br><i>[P.scribble]</i>" : null]" \
 		+ "</body></html>"
 
-		show_browser(user, dat, "window=[name]")
+		show_browser(user, HTML_SKELETON(dat), "window=[name]")
 
 /obj/item/paper_bundle/attack_self(mob/user as mob)
 	src.show_content(user)
@@ -203,7 +214,7 @@
 
 
 		if(pages.len <= 1)
-			var/obj/item/paper/P = src[1]
+			var/obj/item/paper/P = src.pages[1]
 			if(istype(loc, /obj/item/gripper)) //Hacky but without it there's a ghost icon with grippers and it all spills on the floor.
 				var/obj/item/gripper/G = loc
 				G.drop(get_turf(src), usr, FALSE)

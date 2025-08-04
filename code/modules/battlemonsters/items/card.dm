@@ -10,10 +10,24 @@
 	var/datum/battle_monsters/spell/spell_datum
 	var/datum/battle_monsters/trap/trap_datum
 
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	drop_sound = null
 
 	//Card information here
+
+/obj/item/battle_monsters/card/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+
+	if(facedown && src.loc != user)
+		. += SPAN_NOTICE("You can't examine \the [src] while it's face down!")
+		return
+
+	if(trap_datum)
+		SSbattle_monsters.ExamineTrapCard(user,trap_datum)
+	else if(spell_datum)
+		SSbattle_monsters.ExamineSpellCard(user,spell_datum)
+	else
+		SSbattle_monsters.ExamineMonsterCard(user,prefix_datum,root_datum,suffix_datum)
 
 /obj/item/battle_monsters/card/Initialize(var/mapload,var/prefix,var/root,var/title,var/trap,var/spell)
 	. = ..()
@@ -163,20 +177,6 @@
 			M.Turn(90)
 
 	transform = M
-
-/obj/item/battle_monsters/card/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-
-	if(facedown && src.loc != user)
-		. += SPAN_NOTICE("You can't examine \the [src] while it's face down!")
-		return
-
-	if(trap_datum)
-		SSbattle_monsters.ExamineTrapCard(user,trap_datum)
-	else if(spell_datum)
-		SSbattle_monsters.ExamineSpellCard(user,spell_datum)
-	else
-		SSbattle_monsters.ExamineMonsterCard(user,prefix_datum,root_datum,suffix_datum)
 
 /obj/item/battle_monsters/card/MouseEntered(location, control, params)
 	. = ..()

@@ -11,20 +11,25 @@
 	icon_state = "id_mod"
 	item_state = "electronic"
 	origin_tech = list(TECH_DATA = 2)
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 11
 	throwforce = 5
 	throw_speed = 3
 	throw_range = 15
 	var/build_path
-	var/board_type = "computer"
+
+	/**
+	 * The type of board
+	 *
+	 * One of the BOARD_* defines, see `code\game\objects\items\weapons\circuitboards\_defines.dm`
+	 */
+	var/board_type = BOARD_COMPUTER
 	var/list/req_components
 	var/contain_parts = 1
 
-/obj/item/circuitboard/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-
+/obj/item/circuitboard/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(build_path)
 		var/obj/machine = new build_path // instantiate to get the name and desc
 		. +=  FONT_SMALL(SPAN_NOTICE("This circuitboard will build a <b>[capitalize_first_letters(machine.name)]</b>: [machine.desc]"))

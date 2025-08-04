@@ -8,9 +8,6 @@
 	available_on_ntnet = 0
 	size = 12
 	usage_flags = PROGRAM_CONSOLE
-	requires_access_to_run = PROGRAM_ACCESS_LIST_ONE
-	required_access_run = list(ACCESS_MERCHANT)
-	required_access_download = list(ACCESS_MERCHANT)
 	tgui_id = "Merchant"
 	var/obj/machinery/merchant_pad/pad
 	var/current_merchant = 0
@@ -144,7 +141,7 @@
 				var/obj/item/spacecash/cash = target
 				bank += cash.worth
 				qdel(target)
-		last_comms = "ALL MONEY DETECTED ON PAD TRANSFERED"
+		last_comms = "ALL MONEY DETECTED ON PAD transferred"
 		return
 	last_comms = "PAD NOT CONNECTED"
 
@@ -201,7 +198,7 @@
 					scrolled = 1
 				if("left")
 					scrolled = -1
-			var/new_merchant  = Clamp(current_merchant + scrolled, 1, SStrade.traders.len)
+			var/new_merchant  = clamp(current_merchant + scrolled, 1, SStrade.traders.len)
 			if(new_merchant != current_merchant)
 				hailed_merchant = 0
 				last_comms = null
@@ -260,5 +257,5 @@
 	required_access_download = list(ACCESS_MERCHANTS_GUILD)
 
 /datum/computer_file/program/merchant/golden_deep
-	required_access_run = list(ACCESS_GOLDEN_DEEP)
-	required_access_download = list(ACCESS_GOLDEN_DEEP)
+	required_access_run = list(ACCESS_GOLDEN_DEEP, ACCESS_GOLDEN_DEEP_OWNED)
+	required_access_download = list(ACCESS_GOLDEN_DEEP, ACCESS_GOLDEN_DEEP_OWNED)

@@ -21,7 +21,6 @@
 // /turf signals
 
 // /atom/movable signals
-#define COMSIG_MOVABLE_MOVED "movable_moved"
 
 #define COMSIG_MOVABLE_HEAR "movable_hear"
 	#define HEARING_MESSAGE 	1
@@ -64,5 +63,10 @@
 
 // tgui signals
 #define COMSIG_TGUI_CLOSE "tgui_close"
+
+// Psionics signals
+/// Raised on the target of a "mind-affecting" psionic power.
+#define COMSIG_PSI_MIND_POWER "psi_block_check"
+	#define COMSIG_PSI_MIND_POWER_CANCELLED (1<<0)
 
 /*******Component Specific Signals*******/

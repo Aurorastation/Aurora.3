@@ -259,10 +259,14 @@ export const ScannerWindow = (props, context) => {
         <Flex.Item>
           <Section title="Symptom Status" width="46vw" minWidth="300px" fill>
             <LabeledList>
-              <LabeledList.Item label="Radiation Level">
+              <LabeledList.Item
+                label="Radiation Level"
+                color={data.rads !== 0 ? 'yellow' : 'white'}>
                 {Math.round(data.rads)} Gy
               </LabeledList.Item>
-              <LabeledList.Item label="Genetic Damage">
+              <LabeledList.Item
+                label="Genetic Damage"
+                color={data.cloneLoss !== 'None' ? 'orange' : 'white'}>
                 {data.cloneLoss}
               </LabeledList.Item>
               <LabeledList.Item label="Est. Paralysis Level">
@@ -367,8 +371,13 @@ export const OrganWindow = (props, context) => {
           <Table.Cell color={damageLabel(organ.damage)}>
             {organ.damage}
           </Table.Cell>
-          <Table.Cell>{organ.wounds}</Table.Cell>
-          <Table.Cell>{organ.infection}</Table.Cell>
+          <Table.Cell color={organ.wounds !== 'None' ? 'orange' : 'white'}>
+            {organ.wounds}
+          </Table.Cell>
+          <Table.Cell
+            color={organ.infection !== 'Healthy' ? 'yellow' : 'white'}>
+            {organ.infection}
+          </Table.Cell>
         </Table.Row>
       ))}
     </Table>
@@ -396,8 +405,12 @@ export const ExternalOrganWindow = (props, context) => {
           <Table.Cell color={damageLabel(organ.burn_damage)}>
             {organ.burn_damage}
           </Table.Cell>
-          <Table.Cell>{organ.wounds}</Table.Cell>
-          <Table.Cell>{organ.infection}</Table.Cell>
+          <Table.Cell color={organ.wounds !== 'None' ? 'orange' : 'white'}>
+            {organ.wounds}
+          </Table.Cell>
+          <Table.Cell color={organ.infection !== 'None' ? 'yellow' : 'white'}>
+            {organ.infection}
+          </Table.Cell>
         </Table.Row>
       ))}
     </Table>

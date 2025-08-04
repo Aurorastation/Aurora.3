@@ -4,7 +4,7 @@
 	description = "A farm on the moon Pid, operated by K'laxan Vaurca."
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "uueoaesa/"
-	suffixes = list("pid_kois_farm.dmm")
+	suffix = "pid_kois_farm.dmm"
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 
 	unit_test_groups = list(3)
@@ -51,7 +51,7 @@
 
 	max_count = 1
 	uses_species_whitelist = TRUE
-	possible_species = list(SPECIES_VAURCA_WARRIOR)
+	possible_species = list(SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT)
 	mob_name_pick_message = "Pick a Vaurca Warrior name."
 	welcome_message = "You are a Warrior of the Hive K'lax, tasked with protecting a k'ois farm on Pid. Ensure the safety of the Workers and Bulwarks at this location."
 

@@ -4,7 +4,7 @@
 	icon = 'icons/obj/assemblies/new_assemblies.dmi'
 	icon_state = ""
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	matter = list(DEFAULT_WALL_MATERIAL = 100)
 	recyclable = TRUE
 	throwforce = 2
@@ -123,6 +123,8 @@
 	interact(user)
 	return TRUE
 
+/obj/item/device/assembly/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
 
 /obj/item/device/assembly/interact(mob/user)
 	return

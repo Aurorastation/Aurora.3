@@ -1,6 +1,7 @@
 /datum/build_mode/edit
 	name = "Edit"
 	icon_state = "buildmode3"
+	permission_requirement = R_ADMIN
 	var/var_to_edit = "name"
 	var/value_to_set = "derp"
 
@@ -44,7 +45,7 @@
 	if(var_to_edit in VVlocked)
 		if(!check_rights(R_DEBUG))	return
 	if(var_to_edit in VVckey_edit)
-		if(!check_rights(R_SPAWN|R_DEBUG)) return
+		if(!check_rights(R_DEBUG)) return
 	if(var_to_edit in VVicon_edit_lock)
 		if(!check_rights(R_FUN|R_DEBUG)) return
 	if(!(var_to_edit in A.vars))
@@ -69,13 +70,13 @@
 		return
 	ClearValue()
 	value_to_set = new_value
-	GLOB.destroyed_event.register(value_to_set, src, /datum/build_mode/edit/proc/ClearValue)
+	RegisterSignal(value_to_set, COMSIG_QDELETING, /datum/build_mode/edit/proc/ClearValue)
 
 /datum/build_mode/edit/proc/ClearValue(var/feedback)
 	if(!istype(value_to_set, /datum))
 		return
 
-	GLOB.destroyed_event.unregister(value_to_set, src, /datum/build_mode/edit/proc/ClearValue)
+	UnregisterSignal(value_to_set, COMSIG_QDELETING)
 	value_to_set = initial(value_to_set)
 	if(feedback)
 		Warn("The selected reference value was deleted. Default value restored.")

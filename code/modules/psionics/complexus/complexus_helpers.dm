@@ -8,7 +8,7 @@
 /datum/psi_complexus/proc/get_armor(var/armortype)
 	if(can_use_passive())
 		last_armor_check = world.time
-		return round(Clamp(Clamp(4 * get_rank(), 0, 20) * get_rank() / 2, 0, 100) * (stamina/max_stamina))
+		return round(clamp(clamp(4 * get_rank(), 0, 20) * get_rank() / 2, 0, 100) * (stamina/max_stamina))
 	else
 		last_armor_check = 0
 		return 0

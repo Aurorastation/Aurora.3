@@ -1,9 +1,8 @@
 // Stacked resources. They use a material datum for a lot of inherited values.
 /obj/item/stack/material
-	desc_info = "Use in your hand to bring up the recipe menu.  If you have enough sheets, click on something on the list to build it."
 	force = 11
 	throwforce = 5
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	throw_speed = 3
 	throw_range = 3
 	max_amount = 50
@@ -15,6 +14,11 @@
 	var/apply_colour //temp pending icon rewrite
 	var/painted_colour
 	var/use_material_sound = TRUE
+
+/obj/item/stack/material/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use in your hand to bring up the crafting menu."
+	. += "If you have enough sheets, click on something on the list to build it."
 
 /obj/item/stack/material/Initialize(mapload, amount)
 	. = ..()
@@ -104,6 +108,7 @@
 	icon_state = "sheet-silver"
 	default_type = MATERIAL_IRON
 	apply_colour = TRUE
+	icon_has_variants = TRUE
 
 /obj/item/stack/material/iron/full/Initialize()
 	. = ..()
@@ -115,6 +120,7 @@
 	icon_state = "sheet-metal"
 	default_type = MATERIAL_ALUMINIUM
 	apply_colour = TRUE
+	icon_has_variants = TRUE
 
 /obj/item/stack/material/aluminium/full/Initialize()
 	. = ..()
@@ -126,6 +132,7 @@
 	icon_state = "sheet-silver"
 	default_type = MATERIAL_LEAD
 	apply_colour = TRUE
+	icon_has_variants = TRUE
 
 /obj/item/stack/material/lead/full/Initialize()
 	. = ..()
@@ -147,6 +154,7 @@
 	name = "marble brick"
 	icon_state = "sheet-marble"
 	default_type = MATERIAL_MARBLE
+	icon_has_variants = TRUE
 
 /obj/item/stack/material/marble/full/Initialize()
 	. = ..()
@@ -237,6 +245,7 @@
 	name = "metallic hydrogen"
 	icon_state = "sheet-metalhydrogen"
 	default_type = MATERIAL_HYDROGEN_METALLIC
+	icon_has_variants = TRUE
 
 /obj/item/stack/material/mhydrogen/full/Initialize()
 	. = ..()
@@ -249,6 +258,7 @@
 	icon_state = "sheet-silver"
 	default_type = MATERIAL_TRITIUM
 	apply_colour = TRUE
+	icon_has_variants = TRUE
 
 /obj/item/stack/material/tritium/ten/Initialize()
 	. = ..()
@@ -265,6 +275,7 @@
 	icon_state = "sheet-silver"
 	default_type = MATERIAL_OSMIUM
 	apply_colour = TRUE
+	icon_has_variants = TRUE
 
 /obj/item/stack/material/osmium/full/Initialize()
 	. = ..()

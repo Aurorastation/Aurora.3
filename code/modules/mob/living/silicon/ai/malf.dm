@@ -63,7 +63,7 @@
 
 	// Off-Station APCs should not count towards CPU generation.
 	for(var/obj/machinery/power/apc/A in hacked_apcs)
-		if(A.z in SSatlas.current_map.station_levels)
+		if(A.z in SSmapping.levels_by_trait(ZTRAIT_STATION))
 			cpu_gain += 0.05
 			cpu_storage += 100
 

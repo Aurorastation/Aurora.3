@@ -3,17 +3,14 @@
 /obj/item/device/laser_pointer
 	name = "laser pointer"
 	desc = "Don't shine it in your eyes!"
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/item/device/laser_pointer.dmi'
 	icon_state = "pointer"
 	item_state = "pen"
 	var/pointer_icon_state
 	slot_flags = SLOT_BELT
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	var/turf/pointer_loc
 	var/obj/item/stock_parts/micro_laser/diode //cant use the laser without it
-
-
-
 
 /obj/item/device/laser_pointer/red
 	pointer_icon_state = "red_laser"
@@ -38,8 +35,8 @@
 
 
 
-/obj/item/device/laser_pointer/attack(mob/living/M, mob/user)
-	laser_act(M, user)
+/obj/item/device/laser_pointer/attack(mob/living/target_mob, mob/living/user, target_zone)
+	laser_act(target_mob, user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
 /obj/item/device/laser_pointer/attackby(obj/item/attacking_item, mob/user)

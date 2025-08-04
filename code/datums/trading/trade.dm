@@ -27,7 +27,7 @@
 	/// Things they will automatically refuse
 	var/list/blacklisted_trade_items = list(/mob/living/carbon/human)
 	/// Which sector(s) this merchant can show up
-	var/list/allowed_space_sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL,
+	var/list/allowed_space_sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_TABITI, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL,
 										SECTOR_GAKAL, SECTOR_UUEOAESA)
 
 	/// The list of all their replies and messages. Structure is (id = talk)
@@ -66,7 +66,7 @@
 	..()
 	if(name_language)
 		if(name_language == TRADER_DEFAULT_NAME)
-			name = capitalize(pick(first_names_female + first_names_male)) + " " + capitalize(pick(last_names))
+			name = capitalize(pick(GLOB.first_names_female + GLOB.first_names_male)) + " " + capitalize(pick(GLOB.last_names))
 		else
 			var/datum/language/L = GLOB.all_languages[name_language]
 			if(L)
@@ -159,7 +159,7 @@
 	return replacetext(text, "ORIGIN", origin)
 
 /datum/trader/proc/print_trading_items(var/num)
-	num = Clamp(num,1,trading_items.len)
+	num = clamp(num,1,trading_items.len)
 	if(trading_items[num])
 		var/atom/movable/M = trading_items[num]
 		return "[initial(M.name)]"
@@ -192,7 +192,7 @@
 /datum/trader/proc/offer_items_for_trade(var/list/offers, var/num, var/turf/location, var/mob/user)
 	if(!offers || !offers.len)
 		return TRADER_NOT_ENOUGH
-	num = Clamp(num, 1, trading_items.len)
+	num = clamp(num, 1, trading_items.len)
 	var/offer_worth = 0
 	for(var/item in offers)
 		var/atom/movable/offer = item

@@ -1,6 +1,6 @@
 /proc/Christmas_Game_Start()
 	for(var/obj/structure/flora/tree/pine/xmas in world)
-		if(isNotStationLevel(xmas.z))	continue
+		if(!is_station_level(xmas.z))	continue
 		for(var/turf/simulated/floor/T in orange(1,xmas))
 			for(var/i=1,i<=rand(1,5),i++)
 				new /obj/item/a_gift(T)

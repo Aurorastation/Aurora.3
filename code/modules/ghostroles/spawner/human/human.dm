@@ -76,7 +76,7 @@
 
 	if(!length(mname))
 		if(mob_name_prefix || mob_name_suffix)
-			mname = capitalize(pick(last_names))
+			mname = capitalize(pick(GLOB.last_names))
 		else
 			mname = random_name(gender,species)
 
@@ -154,7 +154,7 @@
 
 	if(!age)
 		age = rand(35, 50)
-	M.age = Clamp(age, 21, 65)
+	M.age = clamp(age, 21, 65)
 
 	if(has_idris_account)
 		SSeconomy.create_and_assign_account(M, null, rand(idris_account_min, idris_account_max), is_idris_account_public)

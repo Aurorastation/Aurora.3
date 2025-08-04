@@ -65,7 +65,7 @@
 /obj/outfit/admin/ert/elyran_trooper/medical
 	name = "Elyran Navy Corpsman"
 
-	belt = /obj/item/storage/belt/medical/first_responder/combat
+	belt = /obj/item/storage/belt/medical/paramedic/combat
 	back = /obj/item/storage/backpack/satchel/med
 	glasses = /obj/item/clothing/glasses/hud/health
 	gloves = /obj/item/clothing/gloves/latex

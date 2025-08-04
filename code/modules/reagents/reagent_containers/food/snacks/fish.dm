@@ -67,13 +67,16 @@
 
 /obj/item/mollusc
 	name = "mollusc"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	desc = "A small slimy mollusc. Fresh!"
-	desc_info = "You will need a sharp or edged implement to pry it open. You can also try opening it in your hand if you're strong enough."
 	icon = 'icons/obj/item/reagent_containers/food/meat.dmi'
 	icon_state = "mollusc"
 	var/meat_type = /obj/item/reagent_containers/food/snacks/fish/mollusc
 	var/shell_type = /obj/item/trash/mollusc_shell
+
+/obj/item/mollusc/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You will need a sharp or edged implement to pry it open. You can also try opening it in your hand if you're strong enough."
 
 /obj/item/mollusc/barnacle
 	name = "barnacle"

@@ -2,7 +2,7 @@
 	name = "caltrops"
 	desc = "A sharp antipersonnel weapon. Useful to delay advances."
 	icon_state = "caltrop1"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	force_divisor = 0.1
 	thrown_force_divisor = 0.3
 	sharp = TRUE
@@ -15,10 +15,17 @@
 	. = ..()
 	icon_state = "caltrop[pick(1,2,3)]"
 
-/obj/item/material/caltrops/Crossed(AM as mob|obj)
-	..()
-	if(ishuman(AM))
-		var/mob/living/carbon/human/H = AM
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
+/obj/item/material/caltrops/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	if(ishuman(arrived))
+		var/mob/living/carbon/human/H = arrived
 		var/damage_coef = 1
 		if(H.buckled_to)
 			return

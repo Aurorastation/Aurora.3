@@ -71,3 +71,20 @@
 /datum/gear/gloves/circuitry
 	display_name = "gloves, circuitry (empty)"
 	path = /obj/item/clothing/gloves/circuitry
+
+/datum/gear/gloves/single
+	display_name = "single glove (colourable)"
+	path = /obj/item/clothing/gloves/single
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/gloves/single/New()
+	..()
+	var/list/glove_types = list()
+	glove_types["single glove, right"] = /obj/item/clothing/gloves/single
+	glove_types["single glove, left"] = /obj/item/clothing/gloves/single/left
+	gear_tweaks += new /datum/gear_tweak/path(glove_types)
+
+/datum/gear/gloves/multi_color
+	display_name = "multi-color gloves (colourable)"
+	path = /obj/item/clothing/gloves/multi_color
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION

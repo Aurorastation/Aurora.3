@@ -11,13 +11,20 @@
 	contained_sprite = TRUE
 	force = 11
 	throwforce = 6
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	origin_tech = list(TECH_BIO = 4, TECH_POWER = 2)
 	matter = list(MATERIAL_STEEL = 5000, MATERIAL_PLASTIC = 2000, MATERIAL_GLASS = 1500, MATERIAL_ALUMINIUM = 1000)
 	action_button_name = "Toggle Paddles"
 
 	var/obj/item/shockpaddles/linked/paddles
 	var/obj/item/cell/bcell
+
+/obj/item/defibrillator/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(bcell)
+		. += "The charge meter is showing <b>[bcell.percent()]%</b> charge left."
+	else
+		. += "There is no cell inside."
 
 /obj/item/defibrillator/Initialize() //starts without a cell for rnd
 	. = ..()
@@ -62,13 +69,6 @@
 
 	overlays = new_overlays
 
-/obj/item/defibrillator/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(bcell)
-		. += "The charge meter is showing [bcell.percent()]% charge left."
-	else
-		. += "There is no cell inside."
-
 /obj/item/defibrillator/ui_action_click()
 	toggle_paddles()
 
@@ -98,7 +98,7 @@
 			to_chat(user, SPAN_WARNING("You need a free hand to hold the paddles!"))
 		update_icon() //success
 
-/obj/item/defibrillator/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
+/obj/item/defibrillator/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	. = ..()
 	if(ismob(loc) && slot_flags)
 		var/mob/M = src.loc
@@ -106,11 +106,11 @@
 			return
 		if(!M.unEquip(src))
 			return
-		add_fingerprint(usr)
+		add_fingerprint(user)
 		M.put_in_active_hand(src)
 	else
-		if(ishuman(usr))
-			var/mob/living/carbon/human/H = usr
+		if(ishuman(user))
+			var/mob/living/carbon/human/H = user
 			if(Adjacent(H))
 				if(!H.put_in_active_hand(paddles))
 					to_chat(H, SPAN_WARNING("You need a free hand to take out the paddles!"))
@@ -184,7 +184,7 @@
 	desc = "A belt-equipped defibrillator that can be rapidly deployed."
 	icon_state = "defibcompact"
 	item_state = "defibcompact"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_BIO = 5, TECH_POWER = 3)
 
@@ -216,7 +216,7 @@
 	gender = PLURAL
 	force = 2
 	throwforce = 6
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 
 	var/safety = TRUE //if you can zap people with the paddles on harm mode
 	var/combat = FALSE //If it can be used to revive people wearing thick clothing (e.g. spacesuits)
@@ -342,8 +342,8 @@
 /obj/item/shockpaddles/proc/checked_use(charge_amt)
 	return 0
 
-/obj/item/shockpaddles/attack(mob/living/M, mob/living/user, target_zone)
-	var/mob/living/carbon/human/H = M
+/obj/item/shockpaddles/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/mob/living/carbon/human/H = target_mob
 	if(!istype(H) || user.a_intent == I_HURT)
 		return ..() //Do a regular attack. Harm intent shocking happens as a hit effect
 
@@ -593,7 +593,7 @@
 	Shockpaddles that are linked to a base unit
 */
 /obj/item/shockpaddles/linked
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	var/obj/item/defibrillator/base_unit
 
 /obj/item/shockpaddles/linked/Initialize(mapload, obj/item/defibrillator/defib)

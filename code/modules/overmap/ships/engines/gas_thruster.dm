@@ -63,7 +63,7 @@
 	connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_FUEL
 
 	use_power = POWER_USE_OFF
-	power_channel = EQUIP
+	power_channel = AREA_USAGE_EQUIP
 	idle_power_usage = 21600 //6 Wh per tick for default 2 capacitor. Gives them a reason to turn it off, really to nerf backup battery
 
 	component_types = list(
@@ -113,7 +113,9 @@
 	return 0
 
 /obj/machinery/atmospherics/unary/engine/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	return 0
+	if(mover?.movement_type & PHASING)
+		return TRUE
+	return FALSE
 
 /obj/machinery/atmospherics/unary/engine/atmos_init()
 	..()
@@ -195,7 +197,7 @@
 
 /obj/machinery/atmospherics/unary/engine/proc/check_blockage()
 	blockage = FALSE
-	var/exhaust_dir = reverse_direction(dir)
+	var/exhaust_dir = REVERSE_DIR(dir)
 	var/turf/A = get_turf(src)
 	for(var/i in 1 to exhaust_offset)
 		A = get_step(A, exhaust_dir)
@@ -233,7 +235,7 @@
 	if(network)
 		network.update = 1
 
-	var/exhaust_dir = reverse_direction(dir)
+	var/exhaust_dir = REVERSE_DIR(dir)
 	var/turf/T = get_turf(src)
 	for(var/i in 1 to exhaust_offset)
 		T = get_step(T, exhaust_dir)

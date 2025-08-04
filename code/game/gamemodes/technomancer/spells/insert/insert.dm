@@ -25,8 +25,7 @@
 	host = newloc
 	origin = user
 	if(light_color)
-		spawn(1)
-			set_light(inserter.spell_light_range, inserter.spell_light_intensity, inserter.spell_color)
+		set_light(inserter.spell_light_range, inserter.spell_light_intensity, inserter.spell_color)
 	on_insert()
 
 /obj/item/inserted_spell/proc/on_insert()

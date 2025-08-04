@@ -311,11 +311,11 @@
 	icon_state = "rods-1"
 	},
 /obj/structure/lattice,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/wrecked_nt_ship/exterior)
 "fS" = (
 /obj/structure/closet/crate/loot,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/wrecked_nt_ship/exterior)
 "gj" = (
 /obj/structure/sign/poster{
@@ -390,7 +390,7 @@
 /obj/item/stack/rods{
 	icon_state = "rods-1"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/wrecked_nt_ship/exterior)
 "hH" = (
 /obj/item/slime_extract/metal,
@@ -398,7 +398,7 @@
 /area/wrecked_nt_ship)
 "hJ" = (
 /obj/structure/mech_wreckage,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/wrecked_nt_ship/exterior)
 "hZ" = (
 /turf/template_noop,
@@ -512,7 +512,7 @@
 /obj/effect/floor_decal/asteroid{
 	icon_state = "asteroid9"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/wrecked_nt_ship/exterior)
 "kE" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -573,7 +573,7 @@
 "lV" = (
 /obj/effect/floor_decal/asteroid,
 /obj/effect/floor_decal/asteroid,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/wrecked_nt_ship/exterior)
 "mj" = (
 /obj/item/material/shard/shrapnel{
@@ -651,7 +651,7 @@
 /area/wrecked_nt_ship)
 "nW" = (
 /obj/effect/floor_decal/asteroid,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/wrecked_nt_ship/exterior)
 "nY" = (
 /obj/structure/lattice,
@@ -780,7 +780,7 @@
 /area/wrecked_nt_ship/exterior)
 "qH" = (
 /obj/item/material/shard,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/wrecked_nt_ship/exterior)
 "qK" = (
 /obj/structure/table/reinforced/steel,
@@ -1198,7 +1198,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "AD" = (
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/wrecked_nt_ship/exterior)
 "AT" = (
 /obj/item/material/shard/shrapnel{
@@ -1264,7 +1264,7 @@
 /area/wrecked_nt_ship)
 "CI" = (
 /obj/item/melee/vaurca/rock,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/wrecked_nt_ship/exterior)
 "CN" = (
 /obj/structure/table/reinforced/steel,
@@ -1386,7 +1386,7 @@
 /area/wrecked_nt_ship)
 "GH" = (
 /obj/item/ore/glass,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/wrecked_nt_ship/exterior)
 "GK" = (
 /obj/machinery/constructable_frame/temp_deco{
@@ -1581,7 +1581,7 @@
 /obj/item/stack/rods{
 	icon_state = "rods-1"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/wrecked_nt_ship/exterior)
 "Lh" = (
 /obj/structure/table/reinforced/steel,
@@ -1669,7 +1669,7 @@
 /area/wrecked_nt_ship)
 "Nf" = (
 /obj/machinery/artifact,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/wrecked_nt_ship/exterior)
 "Ni" = (
 /obj/item/trash/uselessplastic,
@@ -1678,7 +1678,7 @@
 /area/wrecked_nt_ship)
 "Nj" = (
 /obj/structure/lattice,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/wrecked_nt_ship/exterior)
 "Nq" = (
 /obj/item/stack/rods{
@@ -1732,7 +1732,7 @@
 "OH" = (
 /obj/item/material/shard,
 /obj/structure/lattice,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/wrecked_nt_ship/exterior)
 "OM" = (
 /obj/item/reagent_containers/blood/ripped,
@@ -1778,7 +1778,7 @@
 /obj/item/material/shard/shrapnel{
 	icon_state = "shrapnelmedium"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/wrecked_nt_ship/exterior)
 "PA" = (
 /obj/item/ore/glass,
@@ -1960,13 +1960,13 @@
 /area/wrecked_nt_ship)
 "Uf" = (
 /obj/structure/flora/rock/pile,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/wrecked_nt_ship/exterior)
 "Uk" = (
 /obj/effect/floor_decal/asteroid{
 	icon_state = "asteroid_dug_overlay"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/wrecked_nt_ship/exterior)
 "Uo" = (
 /obj/structure/curtain,

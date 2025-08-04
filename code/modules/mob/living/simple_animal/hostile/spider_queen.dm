@@ -33,12 +33,6 @@
 	faction = "spiders"
 	fed = 3
 
-	minbodytemp = 0
-	maxbodytemp = 350
-	min_oxy = 0
-	max_co2 = 0
-	max_tox = 0
-
 	mob_swap_flags = HUMAN|SIMPLE_ANIMAL|SLIME|MONKEY
 	mob_push_flags = ALLMOBS
 
@@ -46,8 +40,7 @@
 	attack_sound = 'sound/weapons/bite.ogg'
 
 	pass_flags = PASSTABLE|PASSRAILING
-	move_to_delay = 6
-	speed = -1
+	speed = 6
 	mob_size = 15
 	environment_smash = 2
 
@@ -68,11 +61,15 @@
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen/update_icon()
 	..()
-
-	if(hovering)
+	if(stat == DEAD)
+		icon_state = icon_dead
+	else if(hovering)
 		icon_state = "spider_queen_shadow"
+	else if (stat == UNCONSCIOUS || resting)
+		icon_state = icon_rest
 	else
-		icon_state = initial(icon_state)
+		icon_state = icon_living
+
 /mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen/UnarmedAttack(var/atom/A, var/proximity)
 	if(hovering)
 		return
@@ -125,6 +122,8 @@
 				M.apply_effect(6, STUN)
 	return TRUE
 
-/mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen/Life()
+/mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen/Life(seconds_per_tick, times_fired)
 	..()
+	if (stat == DEAD)
+		return 0
 	adjustBruteLoss(-3)

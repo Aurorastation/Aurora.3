@@ -18,12 +18,16 @@
 /obj/effect/hoist_hook
 	name = "hoist clamp"
 	desc = "A clamp used to lift people or things."
-	desc_info = "To use the hook, click drag the object you want to it to attach it.\nTo remove an object from the hook, click drag the hook to a nearby turf."
 	icon = 'icons/obj/hoists.dmi'
 	icon_state = "hoist_hook"
 	var/obj/structure/hoist/source_hoist
 	can_buckle = TRUE
 	anchored = TRUE
+
+/obj/effect/hoist_hook/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "To use the hook, click drag the object you want to it to attach it."
+	. += "To remove an object from the hook, click drag the hook to a nearby turf."
 
 /obj/effect/hoist_hook/attack_hand(mob/living/user)
 	if (use_check_and_message(user, USE_DISALLOW_SILICONS))
@@ -34,8 +38,8 @@
 		user.visible_message(SPAN_NOTICE("[user] detaches \the [source_hoist.hoistee] from the hoist clamp."), SPAN_NOTICE("You detach \the [source_hoist.hoistee] from the hoist clamp."), SPAN_NOTICE("You hear something unclamp."))
 		source_hoist.release_hoistee()
 
-/obj/effect/hoist_hook/MouseDrop_T(atom/dropping, mob/user)
-	var/atom/movable/AM = dropping
+/obj/effect/hoist_hook/mouse_drop_receive(atom/dropped, mob/user, params)
+	var/atom/movable/AM = dropped
 	if(!istype(AM))
 		return
 
@@ -63,25 +67,26 @@
 			AM.anchored = TRUE
 	source_hook.layer = AM.layer + 0.1
 
-/obj/effect/hoist_hook/MouseDrop(atom/dest)
+/obj/effect/hoist_hook/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	..()
-	if(!dest.Adjacent(usr)) return // carried over from the default proc
+	if(!over.Adjacent(user))
+		return // carried over from the default proc
 
-	if(use_check_and_message(usr, USE_DISALLOW_SILICONS))
+	if(use_check_and_message(user, USE_DISALLOW_SILICONS))
 		return
 
 	if (!source_hoist.hoistee)
 		return
-	if (!isturf(dest))
+	if (!isturf(over))
 		return
-	if (!dest.Adjacent(source_hoist.hoistee))
+	if (!over.Adjacent(source_hoist.hoistee))
 		return
 
 	source_hoist.check_consistency()
 
-	var/turf/desturf = dest
+	var/turf/desturf = over
 	source_hoist.hoistee.forceMove(desturf)
-	usr.visible_message(SPAN_NOTICE("[usr] detaches \the [source_hoist.hoistee] from the hoist clamp."), SPAN_NOTICE("You detach \the [source_hoist.hoistee] from the hoist clamp."), SPAN_NOTICE("You hear something unclamp."))
+	user.visible_message(SPAN_NOTICE("[user] detaches \the [source_hoist.hoistee] from the hoist clamp."), SPAN_NOTICE("You detach \the [source_hoist.hoistee] from the hoist clamp."), SPAN_NOTICE("You hear something unclamp."))
 	source_hoist.release_hoistee()
 
 // This will handle mobs unbuckling themselves.
@@ -95,7 +100,6 @@
 /obj/structure/hoist
 	icon = 'icons/obj/hoists.dmi'
 	icon_state = "hoist_base"
-	desc_info = "To use the hook, click drag the object you want to it to attach it.\nTo remove an object from the hook, click drag the hook to a nearby turf."
 	var/broken = 0
 	density = TRUE
 	anchored = TRUE
@@ -104,6 +108,11 @@
 	var/atom/movable/hoistee
 	var/movedir = UP
 	var/obj/effect/hoist_hook/source_hook
+
+/obj/structure/hoist/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "To use the hook, click drag the object you want to it to attach it."
+	. += "To remove an object from the hook, click drag the hook to a nearby turf."
 
 /obj/structure/hoist/Initialize(mapload, ndir)
 	. = ..()
@@ -229,7 +238,8 @@
 	collapse_kit()
 
 /obj/structure/hoist/proc/can_move_dir(direction)
-	var/turf/dest = direction == UP ? GetAbove(source_hook) : GetBelow(source_hook)
+	var/turf/T = get_turf(source_hook)
+	var/turf/dest = direction == UP ? GET_TURF_ABOVE(T) : GET_TURF_BELOW(T)
 	switch(direction)
 		if (UP)
 			if (!isopenturf(dest)) // can't move into a solid tile
@@ -247,7 +257,8 @@
 /obj/structure/hoist/proc/move_dir(direction)
 	if (!can_move_dir(direction))
 		return FALSE
-	var/turf/move_dest = direction == UP ? GetAbove(source_hook) : GetBelow(source_hook)
+	var/turf/T = get_turf(source_hook)
+	var/turf/move_dest = direction == UP ? GET_TURF_ABOVE(T) : GET_TURF_BELOW(T)
 	source_hook.forceMove(move_dest)
 	if (hoistee)
 		hoistee.hoist_act(move_dest)

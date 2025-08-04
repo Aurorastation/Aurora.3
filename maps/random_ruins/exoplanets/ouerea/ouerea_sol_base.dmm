@@ -34,7 +34,15 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/random/junk,
 /turf/simulated/floor/plating,
+/area/ouerea_sol)
+"bP" = (
+/obj/item/stack/rods,
+/obj/structure/flora/grass/junglegrass/random,
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
 /area/ouerea_sol)
 "bV" = (
 /turf/simulated/floor/exoplanet/tiled,
@@ -57,10 +65,26 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 4
+	},
 /turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "fs" = (
 /turf/simulated/floor/plating,
+/area/ouerea_sol)
+"fA" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/obj/structure/filingcabinet/chestdrawer,
+/obj/item/toy/desk/fan{
+	pixel_y = 13
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
 /area/ouerea_sol)
 "fP" = (
 /obj/effect/decal/cleanable/liquid_fuel,
@@ -68,7 +92,7 @@
 /area/ouerea_sol)
 "hb" = (
 /obj/structure/closet,
-/obj/item/clothing/under/rank/sol,
+/obj/item/clothing/under/rank/sol/army,
 /obj/item/clothing/shoes/jackboots,
 /turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
@@ -78,11 +102,16 @@
 	req_access = list(203)
 	},
 /obj/item/gun/projectile/shotgun/pump/combat/sol,
-/obj/machinery/light,
+/obj/machinery/light/colored/decayed/dimmed,
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
 /turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"hF" = (
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 298.15
+	},
 /area/ouerea_sol)
 "hS" = (
 /obj/structure/blocker/steel/fence{
@@ -93,18 +122,19 @@
 	},
 /area/ouerea_sol)
 "hX" = (
-/obj/machinery/light{
+/obj/machinery/light/colored/decayed/dimmed{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
+/obj/structure/mech_wreckage/powerloader,
+/obj/machinery/mech_recharger,
 /turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "ir" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	dir = 4;
-	layer = 2.71
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ouerea_sol)
@@ -129,11 +159,17 @@
 	temperature = 298.15
 	},
 /area/ouerea_sol)
+"iH" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
 "jl" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	icon_state = "warning"
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
@@ -141,13 +177,15 @@
 "kh" = (
 /obj/machinery/door/airlock/command{
 	name = "Commander's Office";
-	req_access = list(203)
+	req_access = list(203);
+	dir = 4
 	},
 /turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "lg" = (
 /obj/structure/table/steel,
 /obj/item/paper_bin,
+/obj/item/pen/fountain,
 /turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "ll" = (
@@ -162,8 +200,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	icon_state = "warning"
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -174,11 +211,24 @@
 	},
 /turf/simulated/floor/plating,
 /area/ouerea_sol)
+"lM" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_sol)
 "mt" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
+/area/ouerea_sol)
+"mY" = (
+/obj/random/junk,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "nb" = (
 /turf/simulated/wall,
@@ -191,7 +241,7 @@
 /area/ouerea_sol)
 "oz" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/machinery/light{
+/obj/machinery/light/colored/decayed/dimmed{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -208,9 +258,31 @@
 	temperature = 298.15
 	},
 /area/ouerea_sol)
+"pn" = (
+/obj/structure/table/wood,
+/obj/machinery/door/window/brigdoor{
+	req_access = null;
+	dir = 8
+	},
+/obj/item/paper_bin,
+/obj/item/pen/black,
+/obj/machinery/button/remote/blast_door{
+	name = "Compound Gates";
+	pixel_y = 25;
+	id = "sol_base_entry";
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_sol)
 "pp" = (
-/obj/machinery/door/blast/shutters,
-/turf/simulated/floor/exoplanet/tiled,
+/obj/machinery/door/blast/shutters{
+	id = "sol_base_entry"
+	},
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 298.15
+	},
 /area/ouerea_sol)
 "pq" = (
 /obj/structure/table/steel,
@@ -219,8 +291,7 @@
 /area/ouerea_sol)
 "pQ" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	icon_state = "warning"
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ouerea_sol)
@@ -242,9 +313,8 @@
 /area/ouerea_sol)
 "ry" = (
 /obj/structure/closet,
-/obj/item/clothing/under/rank/sol,
 /obj/item/clothing/shoes/jackboots,
-/obj/machinery/light{
+/obj/machinery/light/colored/decayed/dimmed{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/tiled,
@@ -340,6 +410,17 @@
 	},
 /turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
+"vu" = (
+/obj/structure/table/wood,
+/obj/machinery/door/window/brigdoor{
+	req_access = null;
+	dir = 8
+	},
+/obj/item/folder/blue,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_sol)
 "wc" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "gun cabinet (PDWs)";
@@ -354,6 +435,15 @@
 	dir = 5
 	},
 /turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"xA" = (
+/obj/machinery/door/airlock/security{
+	name = "Checkpoint";
+	req_access = list(203)
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
 /area/ouerea_sol)
 "xK" = (
 /obj/machinery/light{
@@ -385,9 +475,16 @@
 	},
 /turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
+"AK" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/clothing/under/rank/sol/army,
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
 "BE" = (
-/obj/effect/shuttle_landmark/automatic,
-/turf/simulated/floor/plating,
+/obj/structure/flora/grass/junglegrass/random,
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
 /area/ouerea_sol)
 "Cl" = (
 /obj/effect/floor_decal/corner/orange{
@@ -396,10 +493,22 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
+"CX" = (
+/obj/machinery/door/airlock/engineering{
+	name = "Hangar Supplies";
+	req_access = list(203);
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
 "Du" = (
 /obj/structure/bed,
 /obj/item/bedsheet/blue,
 /obj/structure/curtain/open/bed,
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"DQ" = (
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "DX" = (
@@ -412,11 +521,16 @@
 /obj/structure/closet,
 /obj/item/clothing/under/rank/sol,
 /obj/item/clothing/shoes/jackboots,
-/obj/machinery/light{
+/obj/machinery/light/colored/decayed/dimmed{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"El" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/shuttle_landmark/automatic,
+/turf/simulated/floor/plating,
 /area/ouerea_sol)
 "En" = (
 /obj/machinery/light{
@@ -507,7 +621,7 @@
 /turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "Gh" = (
-/obj/machinery/light{
+/obj/machinery/light/colored/decayed/dimmed{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/blue{
@@ -544,6 +658,12 @@
 /obj/item/modular_computer/laptop/preset/civilian,
 /turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
+"Hp" = (
+/obj/item/stack/rods,
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_sol)
 "Ia" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/industrial/warning{
@@ -576,6 +696,9 @@
 	dir = 10
 	},
 /turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"IY" = (
+/turf/simulated/wall/concrete,
 /area/ouerea_sol)
 "Jc" = (
 /obj/structure/closet/secure_closet/guncabinet{
@@ -643,6 +766,11 @@
 	},
 /turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
+"Lr" = (
+/obj/structure/closet,
+/obj/item/clothing/shoes/jackboots,
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
 "MD" = (
 /obj/structure/sign/flag/sol/large/north{
 	pixel_y = 32
@@ -657,6 +785,13 @@
 /obj/item/ammo_magazine/mc9mm/empty,
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"MH" = (
+/obj/machinery/door/airlock/service{
+	name = "Living Quarters";
+	dir = 4
 	},
 /turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
@@ -679,9 +814,7 @@
 /turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "OI" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	layer = 2.71
-	},
+/obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/plating,
 /area/ouerea_sol)
 "Pv" = (
@@ -695,10 +828,20 @@
 	},
 /obj/item/gun/projectile/pistol/sol,
 /obj/item/gun/projectile/pistol/sol,
-/obj/machinery/light,
+/obj/machinery/light/colored/decayed/dimmed,
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"Qi" = (
+/obj/structure/closet,
+/obj/item/clothing/under/rank/sol/army,
+/obj/item/clothing/shoes/jackboots,
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 4
+	},
+/obj/item/clothing/head/sol/army/service/garrison,
 /turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "QQ" = (
@@ -726,15 +869,18 @@
 /turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "Tw" = (
-/obj/machinery/light{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"Tz" = (
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
 /area/ouerea_sol)
 "TF" = (
 /obj/structure/sign/flag/sol/large/east{
@@ -752,9 +898,6 @@
 /turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "Up" = (
-/obj/structure/closet/secure_closet/soll_officer{
-	req_access = list(203)
-	},
 /obj/item/clothing/under/rank/sol/service,
 /obj/item/melee/energy/sword/knife/sol,
 /obj/item/gun/projectile/pistol/sol,
@@ -763,6 +906,9 @@
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
+	},
+/obj/structure/closet/secure_closet/sol_officer{
+	req_access = list(203)
 	},
 /turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
@@ -774,8 +920,7 @@
 /area/ouerea_sol)
 "US" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/ouerea_sol)
@@ -785,6 +930,32 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"Ww" = (
+/obj/structure/bed,
+/obj/item/bedsheet/blue,
+/obj/structure/curtain/open/bed,
+/obj/random/junk,
+/obj/item/clothing/head/sol/army/service/garrison,
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"WK" = (
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/plating,
+/area/ouerea_sol)
+"Xd" = (
+/obj/item/material/shard/shrapnel,
+/turf/simulated/floor/plating,
+/area/ouerea_sol)
+"Xk" = (
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"Xw" = (
+/obj/item/broken_bottle,
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
 /area/ouerea_sol)
 "XH" = (
 /obj/effect/floor_decal/corner/blue{
@@ -893,9 +1064,9 @@ oF
 oF
 oF
 oF
-oF
-oF
-oF
+nb
+nb
+nb
 Fc
 iw
 "}
@@ -918,20 +1089,20 @@ ES
 ES
 ES
 ES
+Pv
 bV
 bV
-bV
-bV
-bV
-bV
-bV
+ES
 bV
 bV
 bV
 bV
 bV
 pp
-ES
+hF
+hF
+pp
+hF
 "}
 (4,1,1) = {"
 ES
@@ -952,20 +1123,20 @@ nb
 nb
 nb
 ES
+DQ
 bV
+mY
 bV
+ES
 bV
-bV
-bV
-bV
-bV
-bV
-bV
-bV
-bV
+Pv
+Pv
 bV
 pp
-ES
+hF
+hF
+pp
+hF
 "}
 (5,1,1) = {"
 ES
@@ -977,7 +1148,7 @@ rZ
 nb
 Sr
 nb
-Du
+Ww
 nb
 rZ
 nb
@@ -987,7 +1158,6 @@ Sr
 nb
 ES
 bV
-bV
 ES
 ES
 ES
@@ -996,9 +1166,10 @@ ES
 ES
 ES
 ES
-ES
-ES
-Fc
+nb
+pn
+vu
+IY
 iw
 "}
 (6,1,1) = {"
@@ -1025,14 +1196,14 @@ bV
 ES
 ES
 ES
+BE
 ES
 ES
 ES
-ES
-ES
-ES
-ES
-hS
+xA
+lM
+fA
+nb
 ES
 "}
 (7,1,1) = {"
@@ -1041,32 +1212,32 @@ hS
 ES
 ES
 nb
+Xk
 bV
-bV
-bV
+DQ
 bV
 bV
 bV
 Pv
-bV
-Pv
+Xk
+AK
 Pv
 Pv
 nb
 ES
 bV
-bV
+Pv
+BE
 ES
 ES
 ES
 ES
+Tz
 ES
-ES
-ES
-ES
-ES
-ES
-hS
+nb
+nb
+nb
+nb
 ES
 "}
 (8,1,1) = {"
@@ -1077,22 +1248,22 @@ ES
 nb
 Pv
 bV
-ry
+Qi
 bV
 hb
 TF
 ry
 bV
-hb
+Lr
 bV
 DY
 nb
 ES
+ES
 bV
-bV
 ES
 ES
-ES
+BE
 ES
 ES
 ES
@@ -1109,7 +1280,7 @@ hS
 ES
 ES
 nb
-Oq
+MH
 nb
 nb
 nb
@@ -1122,7 +1293,7 @@ nb
 nb
 nb
 ES
-bV
+Pv
 bV
 ES
 ES
@@ -1149,7 +1320,7 @@ ES
 ES
 ES
 ES
-ES
+BE
 ES
 ES
 ES
@@ -1159,7 +1330,7 @@ ES
 bV
 bV
 ES
-ES
+BE
 ES
 nb
 rL
@@ -1191,13 +1362,13 @@ Ia
 nb
 iG
 bV
-bV
+Pv
 ES
 ES
 ES
 nb
 MD
-bV
+Xk
 Pv
 PI
 nb
@@ -1214,11 +1385,11 @@ bM
 US
 fs
 fs
+Xd
 fs
 fs
 fs
-fs
-fs
+WK
 fs
 fs
 mt
@@ -1231,7 +1402,7 @@ ES
 ES
 nb
 Fy
-bV
+DQ
 bV
 IL
 nb
@@ -1258,8 +1429,8 @@ fs
 fs
 XV
 ES
-bV
-bV
+DQ
+ES
 ES
 ES
 ES
@@ -1270,7 +1441,7 @@ Pv
 zv
 nb
 ES
-hS
+bP
 ES
 "}
 (14,1,1) = {"
@@ -1292,7 +1463,7 @@ fs
 fs
 XV
 ES
-bV
+Xk
 bV
 bV
 bV
@@ -1305,12 +1476,12 @@ We
 nb
 ES
 hS
-ES
+Hp
 "}
 (15,1,1) = {"
 ES
 hS
-ES
+BE
 ES
 zl
 fs
@@ -1326,10 +1497,10 @@ fs
 fs
 XV
 ES
-bV
+Pv
 bV
 ES
-ES
+BE
 ES
 nb
 Gh
@@ -1347,7 +1518,6 @@ hS
 ES
 ES
 zl
-BE
 fs
 fs
 fs
@@ -1358,7 +1528,8 @@ fs
 fs
 fs
 fs
-XV
+fs
+El
 ES
 bV
 bV
@@ -1382,7 +1553,7 @@ ES
 ES
 zl
 fs
-fs
+WK
 fs
 fs
 fs
@@ -1394,10 +1565,10 @@ fs
 fs
 XV
 ES
-bV
+Pv
 bV
 ES
-ES
+BE
 ES
 nb
 wc
@@ -1413,7 +1584,7 @@ ES
 ES
 hS
 ES
-ES
+BE
 zl
 fs
 fs
@@ -1490,7 +1661,7 @@ fs
 fs
 fs
 fs
-fs
+Xd
 fs
 fs
 fs
@@ -1500,12 +1671,12 @@ bV
 bV
 ES
 ES
+BE
 ES
 ES
 ES
 ES
-ES
-ES
+BE
 ES
 ES
 hS
@@ -1548,7 +1719,7 @@ ES
 (22,1,1) = {"
 ES
 hS
-ES
+BE
 Ns
 nb
 lI
@@ -1565,7 +1736,7 @@ jl
 nb
 iG
 bV
-ES
+Tz
 nb
 nb
 nb
@@ -1590,15 +1761,15 @@ ES
 ES
 ES
 ES
+BE
 ES
-ES
-ES
+BE
 ES
 ES
 ES
 xK
 ES
-bV
+ES
 ES
 nb
 FR
@@ -1619,7 +1790,7 @@ hS
 ES
 ES
 nb
-Jv
+CX
 nb
 nb
 nb
@@ -1640,7 +1811,7 @@ bV
 bV
 Pv
 bV
-bV
+DQ
 zv
 nb
 ES
@@ -1651,13 +1822,13 @@ ES
 ES
 hS
 ES
-ES
+BE
 nb
 Gv
 Og
 Og
 Hf
-Og
+iH
 Gb
 Og
 Og
@@ -1665,12 +1836,12 @@ Og
 Og
 aM
 nb
-ES
+Xw
 bV
 ES
 nb
 sF
-bV
+Xk
 bV
 ax
 bV
@@ -1700,7 +1871,7 @@ Pv
 Tu
 Jv
 bV
-bV
+DQ
 ES
 nb
 JQ
@@ -1802,7 +1973,7 @@ nb
 nb
 nb
 ES
-ES
+BE
 ES
 nb
 nb
@@ -1862,7 +2033,7 @@ oF
 oF
 oF
 oF
-oF
+Hp
 oF
 oF
 oF

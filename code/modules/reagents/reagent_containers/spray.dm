@@ -13,7 +13,7 @@
 	item_flags = ITEM_FLAG_NO_BLUDGEON
 	slot_flags = SLOT_BELT
 	throwforce = 3
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 2
 	throw_range = 10
 	amount_per_transfer_from_this = 10
@@ -24,6 +24,11 @@
 	volume = 250
 	var/safety = 0
 	var/spray_sound = 'sound/effects/spray2.ogg'
+
+/obj/item/reagent_containers/spray/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(is_adjacent)
+		. += "[round(reagents.total_volume)] units left."
 
 /obj/item/reagent_containers/spray/Initialize()
 	. = ..()
@@ -74,13 +79,13 @@
 
 	if(reagents.has_reagent(/singleton/reagent/acid))
 		message_admins("[key_name_admin(user)] fired sulphuric acid from \a [src].")
-		log_game("[key_name(user)] fired sulphuric acid from \a [src].",ckey=key_name(user))
+		log_game("[key_name(user)] fired sulphuric acid from \a [src].")
 	if(reagents.has_reagent(/singleton/reagent/acid/polyacid))
 		message_admins("[key_name_admin(user)] fired Polyacid from \a [src].")
-		log_game("[key_name(user)] fired Polyacid from \a [src].",ckey=key_name(user))
+		log_game("[key_name(user)] fired Polyacid from \a [src].")
 	if(reagents.has_reagent(/singleton/reagent/lube))
 		message_admins("[key_name_admin(user)] fired Space lube from \a [src].")
-		log_game("[key_name(user)] fired Space lube from \a [src].",ckey=key_name(user))
+		log_game("[key_name(user)] fired Space lube from \a [src].")
 	return
 
 /obj/item/reagent_containers/spray/proc/Spray_at(atom/A as mob|obj, mob/user as mob, proximity)
@@ -113,11 +118,6 @@
 	spray_size = next_in_list(spray_size, spray_sizes)
 	to_chat(user, SPAN_NOTICE("You adjusted the pressure nozzle. You'll now use [amount_per_transfer_from_this] units per spray, with a [spray_size] lane spray."))
 
-/obj/item/reagent_containers/spray/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(is_adjacent)
-		. += "[round(reagents.total_volume)] units left."
-
 /obj/item/reagent_containers/spray/verb/empty()
 
 	set name = "Empty Spray Bottle"
@@ -139,6 +139,13 @@
 	name = "space cleaner"
 	desc = "BLAM!-brand non-foaming space cleaner!"
 	volume = 50
+
+/obj/item/reagent_containers/spray/cleaner/deodorant
+	name = "deodorant"
+	desc = "A can of Gold Standard spray deodorant - for when you're too lazy to shower."
+	volume = 35
+	icon_state = "deodorant"
+	item_state = "deodorant"
 
 /obj/item/reagent_containers/spray/cleaner/Initialize()
 	. = ..()
@@ -171,8 +178,8 @@
 	safety = 1
 	reagents_to_add = list(/singleton/reagent/capsaicin/condensed = 40)
 
-/obj/item/reagent_containers/spray/pepper/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/reagent_containers/spray/pepper/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(is_adjacent)
 		. += "The safety is [safety ? "on" : "off"]."
 
@@ -211,7 +218,7 @@
 	contained_sprite = TRUE
 	center_of_mass = list("x" = 16,"y" = 16)
 	throwforce = 3
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	possible_transfer_amounts = null
 	volume = 600
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3, TECH_ENGINEERING = 3)

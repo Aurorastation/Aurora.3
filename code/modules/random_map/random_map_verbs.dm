@@ -26,7 +26,7 @@
 	GLOB.random_maps[choice] = null
 	if(istype(M))
 		message_admins("[key_name_admin(usr)] has deleted [M.name].")
-		log_admin("[key_name(usr)] has deleted [M.name].",admin_key=key_name(usr))
+		log_admin("[key_name(usr)] has deleted [M.name].")
 		qdel(M)
 
 /client/proc/create_random_map()
@@ -51,7 +51,7 @@
 
 	if(M)
 		message_admins("[key_name_admin(usr)] has created [M.name].")
-		log_admin("[key_name(usr)] has created [M.name].",admin_key=key_name(usr))
+		log_admin("[key_name(usr)] has created [M.name].")
 
 /client/proc/apply_random_map()
 	set category = "Debug"
@@ -74,7 +74,7 @@
 			ty = !isnull(ty) ? ty : T.y
 			tz = !isnull(tz) ? tz : T.z
 		message_admins("[key_name_admin(usr)] has applied [M.name] at x[tx],y[ty],z[tz].")
-		log_admin("[key_name(usr)] has applied [M.name] at x[tx],y[ty],z[tz].",admin_key=key_name(usr))
+		log_admin("[key_name(usr)] has applied [M.name] at x[tx],y[ty],z[tz].")
 		M.set_origins(tx,ty,tz)
 		M.apply_to_map()
 
@@ -103,6 +103,6 @@
 		if(!tx) tx = 1
 		if(!ty) ty = 1
 		message_admins("[key_name_admin(usr)] has applied [overlay_map.name] to [base_map.name] at x[tx],y[ty].")
-		log_admin("[key_name(usr)] has applied [overlay_map.name] to [base_map.name] at x[tx],y[ty].",admin_key=key_name(usr))
+		log_admin("[key_name(usr)] has applied [overlay_map.name] to [base_map.name] at x[tx],y[ty].")
 		overlay_map.overlay_with(base_map,tx,ty)
 		base_map.display_map(usr)

@@ -56,15 +56,12 @@
 	var/prefix = null
 
 	/**
-	 * The dynamic part of the ruin path, ie the files
-	 *
-	 * A `/list` with only the file names of the DMM files
-	 *
+	 * The dynamic part of the ruin path, ie the file
 	 * eg. `my_awesome_ruin.dmm`
 	 *
-	 * Gets combined with the prefix to form the path to the map files, that are loaded when the ruin loads
+	 * Gets combined with the prefix to form the path to the map file, that are loaded when the ruin loads
 	 */
-	var/list/suffixes = null
+	var/suffix = null
 
 	/// Template flags for this ruin
 	template_flags = TEMPLATE_FLAG_NO_RUINS
@@ -86,10 +83,8 @@
  */
 /datum/map_template/ruin/New(var/list/paths = null, rename = null)
 	// get the map paths
-	if (suffixes)
-		mappaths = list()
-		for (var/suffix in suffixes)
-			mappaths += (prefix + suffix)
+	if (suffix)
+		mappath = (prefix + suffix)
 
 	// set up sectors
 	sectors = flatten_list(sectors)

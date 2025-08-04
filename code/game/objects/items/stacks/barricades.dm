@@ -5,7 +5,7 @@
 	max_amount = 5
 	icon = 'icons/obj/barricade_stacks.dmi'
 	icon_state = "steel-kit"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	matter = list(DEFAULT_WALL_MATERIAL = 650, MATERIAL_PHORON = 100, MATERIAL_PLASTEEL = 150)
 	var/barricade_name = "steel"
 	var/barricade_type = /obj/structure/barricade/metal

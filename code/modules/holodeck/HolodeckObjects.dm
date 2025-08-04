@@ -228,7 +228,7 @@
 			close()
 
 	else if (src.density)
-		flick(text("[]deny", src.base_state), src)
+		flick("[src.base_state]deny", src)
 
 	return
 
@@ -263,7 +263,7 @@
 	throw_speed = 1
 	throw_range = 5
 	throwforce = 0
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	atom_flags = ATOM_FLAG_NO_BLOOD
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_energy.dmi',
@@ -284,8 +284,8 @@
 
 		spark(user.loc, 5)
 		playsound(user.loc, 'sound/weapons/blade.ogg', 50, 1)
-		return PROJECTILE_STOPPED
-	return FALSE
+		return BULLET_ACT_BLOCK
+	return BULLET_ACT_HIT
 
 /obj/item/holo/esword/New()
 	if(!item_color)
@@ -296,13 +296,13 @@
 	if (active)
 		force = 33
 		icon_state = "sword[item_color]"
-		w_class = ITEMSIZE_LARGE
+		w_class = WEIGHT_CLASS_BULKY
 		playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
 		to_chat(user, SPAN_NOTICE("[src] is now active."))
 	else
 		force = 3
 		icon_state = "sword0"
-		w_class = ITEMSIZE_SMALL
+		w_class = WEIGHT_CLASS_SMALL
 		playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
 		to_chat(user, SPAN_NOTICE("[src] can now be concealed."))
 
@@ -313,6 +313,44 @@
 
 	add_fingerprint(user)
 	return
+// ASCC holodeck practice sword
+
+/obj/item/holo/practicesword
+	name = "practice sword"
+	desc = "A holographic fascimile of a sword, except this one has no sharp points or edges that might cause injury."
+	icon = 'icons/obj/sword.dmi'
+	icon_state = "longsword"
+	item_state = "longsword"
+	contained_sprite = TRUE
+	slot_flags = SLOT_BELT|SLOT_BACK
+	w_class = WEIGHT_CLASS_BULKY
+	atom_flags = ATOM_FLAG_NO_BLOOD
+	force = 1
+	throw_speed = 1
+	throw_range = 3
+	hitsound = 'sound/weapons/bladeslice.ogg'
+	can_embed = 0
+	drop_sound = 'sound/items/drop/sword.ogg'
+	pickup_sound = /singleton/sound_category/sword_pickup_sound
+	equip_sound = /singleton/sound_category/sword_equip_sound
+
+/obj/item/holo/practicesword/holorapier
+	name = "fencing rapier"
+	desc = "A light sword with a cupped hilt which protects the hand, and a very thin blade that ends in a fine point. This one is but a hologram, unable to inflict actual wounds. Hopefully."
+	icon = 'icons/obj/sword.dmi'
+	icon_state = "rapier"
+	item_state = "rapier"
+	slot_flags = SLOT_BELT
+
+/obj/item/holo/practicesword/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+	if(default_parry_check(user, attacker, damage_source) && prob(50))
+		user.visible_message(SPAN_DANGER("\The [user] parries [attack_text] with \the [src]!"))
+		playsound(user.loc, 'sound/weapons/bladeparry.ogg', 50, 1)
+		return BULLET_ACT_BLOCK
+	return BULLET_ACT_HIT
+
+
+// end
 
 //BASKETBALL OBJECTS
 
@@ -322,7 +360,7 @@
 	name = "basketball"
 	item_state = "basketball"
 	desc = "Here's your chance, do your dance at the Space Jam."
-	w_class = ITEMSIZE_LARGE //Stops people from hiding it in their bags/pockets
+	w_class = WEIGHT_CLASS_BULKY //Stops people from hiding it in their bags/pockets
 	drop_sound = 'sound/items/drop/basketball.ogg'
 	pickup_sound = 'sound/items/pickup/basketball.ogg'
 
@@ -331,9 +369,9 @@
 	desc = "Boom, Shakalaka!"
 	icon = 'icons/obj/basketball.dmi'
 	icon_state = "hoop"
-	anchored = 1
-	density = 1
-	throwpass = 1
+	anchored = TRUE
+	density = TRUE
+	pass_flags_self = PASSSTRUCTURE | LETPASSTHROW
 
 /obj/structure/holohoop/attackby(obj/item/attacking_item, mob/user)
 	if (istype(attacking_item, /obj/item/grab) && get_dist(src,user)<2)
@@ -354,7 +392,7 @@
 /obj/structure/holohoop/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if (istype(mover,/obj/item) && mover.throwing)
 		var/obj/item/I = mover
-		if(istype(I, /obj/item/projectile))
+		if(istype(I, /obj/projectile))
 			return
 		if(prob(50))
 			I.forceMove(src.loc)
@@ -363,7 +401,7 @@
 			visible_message(SPAN_WARNING("\The [I] bounces off of \the [src]'s rim!"), range = 3)
 		return 0
 	else
-		return ..(mover, target, height, air_group)
+		return ..()
 
 
 /obj/machinery/readybutton
@@ -379,7 +417,7 @@
 	use_power = POWER_USE_OFF // reason is because the holodeck already takes power so this can be powered as a result.
 
 /obj/machinery/readybutton/attack_ai(mob/user as mob)
-	to_chat(user, "The station AI is not to interact with these devices!")
+	to_chat(user, "The AI is not to interact with these devices!")
 	return
 
 /obj/machinery/readybutton/attackby(obj/item/attacking_item, mob/user)
@@ -444,6 +482,7 @@
 	meat_amount = 0
 	meat_type = null
 	light_range = 2
+	smart_melee = TRUE
 
 /mob/living/simple_animal/hostile/carp/holodeck/proc/set_safety(var/safe)
 	if (safe)
@@ -466,9 +505,19 @@
 	..()
 	derez()
 
-/mob/living/simple_animal/hostile/carp/holodeck/proc/derez()
-	visible_message(SPAN_NOTICE("\The [src] fades away!"))
-	qdel(src)
+/mob/living/simple_animal/hostile/carp/holodeck/pain
+	damage_type = DAMAGE_PAIN
+
+/mob/living/simple_animal/hostile/carp/holodeck/pain/Initialize()
+	. = ..()
+	set_safety(FALSE)
+
+/mob/living/simple_animal/hostile/carp/holodeck/pain/set_safety(safe)
+	faction = "carp"
+	melee_damage_lower = 5
+	melee_damage_upper = 5
+	environment_smash = 0
+	destroy_surroundings = FALSE
 
 //Holo-penguin
 
@@ -504,6 +553,38 @@
 	..()
 	derez()
 
-/mob/living/simple_animal/penguin/holodeck/proc/derez()
-	visible_message(SPAN_NOTICE("\The [src] fades away!"))
-	qdel(src)
+//Holo Animal babies
+
+/mob/living/simple_animal/corgi/puppy/holodeck
+	icon_gib = null
+	meat_amount = 0
+	meat_type = null
+	light_range = 2
+	hunger_enabled = FALSE
+
+/mob/living/simple_animal/corgi/puppy/holodeck/can_name(var/mob/living/M)
+	return FALSE
+
+/mob/living/simple_animal/corgi/puppy/holodeck/gib()
+	derez() //holograms can't gib
+
+/mob/living/simple_animal/corgi/puppy/holodeck/death()
+	..()
+	derez()
+
+/mob/living/simple_animal/cat/kitten/holodeck
+	icon_gib = null
+	meat_amount = 0
+	meat_type = null
+	light_range = 2
+	hunger_enabled = FALSE
+
+/mob/living/simple_animal/cat/kitten/holodeck/can_name(var/mob/living/M)
+	return FALSE
+
+/mob/living/simple_animal/cat/kitten/holodeck/gib()
+	derez() //holograms can't gib
+
+/mob/living/simple_animal/cat/kitten/holodeck/death()
+	..()
+	derez()

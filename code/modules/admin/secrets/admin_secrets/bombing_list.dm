@@ -8,5 +8,5 @@
 
 	var/dat = "<B>Bombing List</B>"
 	for(var/l in GLOB.bombers)
-		dat += text("[l]<BR>")
-	user << browse(dat, "window=bombers")
+		dat += "[l]<BR>"
+	user << browse(HTML_SKELETON(dat), "window=bombers")

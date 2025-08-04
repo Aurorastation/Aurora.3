@@ -118,10 +118,19 @@
 	contents_path = "-food"
 	accepted_items = list(/obj/item/reagent_containers/food/snacks)
 
+/obj/machinery/smartfridge/foodheater/stand
+	desc = "A more commercialized version of your traditional SmartHeater. Nothing like stale, heat-lamp warmed food."
+	use_power = POWER_USE_OFF
+	idle_power_usage = 0
+	active_power_usage = 0
+
+/obj/machinery/smartfridge/foodheater/stand/powered()
+	return TRUE
+
 /obj/machinery/smartfridge/foodheater/abandoned
 	// badly stocked, with trash, junk, etc
 	desc = "Used to keep food nice and warm in the past, now it is all dirty, and doesn't look like it'll ever run again."
-	use_power = 0
+	use_power = POWER_USE_OFF
 
 /obj/machinery/smartfridge/seeds
 	name = "\improper MegaSeed Storage"
@@ -193,7 +202,6 @@
 	name = "\improper Drying Rack"
 	desc = "A machine for drying plants."
 	icon_state = "drying_rack"
-	opacity = TRUE
 	accepted_items = list(/obj/item/reagent_containers/food/snacks)
 	contents_path = null
 
@@ -388,7 +396,8 @@
 /obj/machinery/smartfridge/attack_hand(mob/user)
 	if(stat & (NOPOWER|BROKEN))
 		return
-	wires.interact(user)
+	if(panel_open)
+		wires.interact(user)
 	ui_interact(user)
 
 /*******************
@@ -427,7 +436,16 @@
 	if(.)
 		return
 
-	add_fingerprint(usr)
+	var/mob/user = ui.user
+
+	add_fingerprint(user)
+
+	if(stat & (NOPOWER|BROKEN) || !anchored)
+		return
+
+	if(!allowed(user) && !emagged && locked != -1 && is_secure)
+		to_chat(usr, SPAN_WARNING("Access denied."))
+		return
 
 	switch(action)
 		if("vendItem")
@@ -443,8 +461,8 @@
 				var/i = amount
 				for(var/obj/O in contents)
 					if(O.name == K)
-						if(Adjacent(usr))
-							usr.put_in_hands(O)
+						if(Adjacent(user))
+							user.put_in_hands(O)
 						else
 							O.forceMove(loc)
 						i--
@@ -475,8 +493,7 @@
 		break
 	if(!throw_item)
 		return FALSE
-	spawn(0)
-		throw_item.throw_at(target,16,3,src)
+	throw_item.throw_at(target,16,3,src)
 	visible_message(SPAN_DANGER("[src] launches [throw_item.name] at [target.name]!"))
 	return TRUE
 

@@ -1,5 +1,6 @@
 /obj/item/organ/internal/eyes
 	name = "eyeballs"
+	desc = "One could say that picking these up would be a sight to behold. Literally."
 	icon_state = "eyes"
 	gender = PLURAL
 	organ_tag = BP_EYES
@@ -44,7 +45,7 @@
 	if(is_broken() && !oldbroken && owner && !owner.stat)
 		to_chat(owner, SPAN_DANGER("You go blind!"))
 
-/obj/item/organ/internal/eyes/flash_act(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, ignore_inherent = FALSE, type = /obj/screen/fullscreen/flash, length = 2.5 SECONDS)
+/obj/item/organ/internal/eyes/flash_act(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, ignore_inherent = FALSE, type = /atom/movable/screen/fullscreen/flash, length = 2.5 SECONDS)
 	var/burnthrough = intensity - owner.get_flash_protection(ignore_inherent)
 	if(burnthrough <= 0)
 		return
@@ -82,7 +83,7 @@
 
 /obj/item/organ/internal/eyes/do_surge_effects()
 	if(owner)
-		owner.overlay_fullscreen("noise", /obj/screen/fullscreen/flash/noise)
+		owner.overlay_fullscreen("noise", /atom/movable/screen/fullscreen/flash/noise)
 
 /obj/item/organ/internal/eyes/clear_surge_effects()
 	if(owner)

@@ -486,7 +486,6 @@
 	icon_state = "toilet01"
 	},
 /obj/structure/sink{
-	layer = 3;
 	pixel_x = -7;
 	pixel_y = 23
 	},
@@ -627,8 +626,7 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/research)
@@ -720,8 +718,7 @@
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -753,7 +750,7 @@
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide{
 	start_pressure = 8000.63
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_survey_shuttle)
 "hH" = (
@@ -905,8 +902,7 @@
 /area/coc_survey_ship/kitchen)
 "iB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9;
-	icon_state = "intact"
+	dir = 9
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -917,7 +913,6 @@
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /obj/machinery/body_scanconsole{
 	dir = 1;
-	layer = 3.01;
 	pixel_y = 6
 	},
 /obj/structure/cable{
@@ -947,8 +942,7 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/research)
@@ -990,9 +984,7 @@
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/atmos)
 "jt" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
-	layer = 2.8
-	},
+/obj/machinery/atmospherics/binary/pump/high_power,
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 5
 	},
@@ -1011,8 +1003,7 @@
 /area/coc_survey_ship/anomaly)
 "jI" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 1;
-	layer = 2.8
+	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
@@ -1218,8 +1209,7 @@
 /area/coc_survey_ship/blaster)
 "lm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -1238,12 +1228,10 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = -6
 	},
 /obj/machinery/airlock_sensor{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = 6
 	},
@@ -1431,9 +1419,7 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/apc/east,
-/obj/effect/decal/cleanable/generic{
-	layer = 2.81
-	},
+/obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/quarters)
 "mv" = (
@@ -1495,7 +1481,6 @@
 /obj/machinery/conveyor{
 	dir = 10;
 	id = "Coallit_Mining_1";
-	layer = 2.9;
 	reversed = 1
 	},
 /turf/simulated/floor,
@@ -1758,9 +1743,7 @@
 	dir = 4
 	},
 /obj/machinery/alarm/east,
-/obj/effect/decal/cleanable/generic{
-	layer = 2.81
-	},
+/obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled/dark,
 /area/coc_survey_ship/cargo)
 "pw" = (
@@ -2084,8 +2067,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
@@ -2169,9 +2151,7 @@
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/medical)
 "sQ" = (
-/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
-	req_access = null
-	},
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
@@ -2181,7 +2161,6 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -2349,7 +2328,7 @@
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 10
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/survey_probe/coc,
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/miningeva)
@@ -2388,8 +2367,7 @@
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -3265,12 +3243,10 @@
 	landmark_tag = "nav_coc_surveyor_dock_starboard"
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = 6
 	},
 /obj/machinery/airlock_sensor{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = -6
 	},
@@ -3479,9 +3455,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/coc_survey_ship/cargo)
 "CW" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2
-	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/structure/lattice/catwalk,
 /obj/structure/bed/handrail{
 	dir = 1
@@ -3766,7 +3740,6 @@
 "Fr" = (
 /obj/machinery/mineral/processing_unit_console{
 	id = "coalition_miner";
-	layer = 3.3;
 	pixel_y = 28
 	},
 /obj/effect/floor_decal/corner_wide/orange{
@@ -3792,8 +3765,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 6
@@ -3804,7 +3776,7 @@
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 10
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/survey_probe/coc,
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/miningeva)
@@ -3826,16 +3798,14 @@
 "FK" = (
 /obj/machinery/conveyor{
 	dir = 8;
-	id = "Coallit_Mining_1";
-	layer = 2.9
+	id = "Coallit_Mining_1"
 	},
 /turf/simulated/floor,
 /area/coc_survey_ship/miningeva)
 "FM" = (
 /obj/structure/cable{
 	d2 = 2;
-	icon_state = "0-2";
-	pixel_y = 0
+	icon_state = "0-2"
 	},
 /obj/machinery/power/terminal{
 	dir = 8
@@ -3924,8 +3894,7 @@
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -4484,7 +4453,6 @@
 /area/coc_survey_ship/anomaly)
 "KQ" = (
 /obj/machinery/airlock_sensor{
-	dir = 2;
 	pixel_y = 28
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
@@ -4498,8 +4466,7 @@
 /area/shuttle/coc_survey_shuttle)
 "KX" = (
 /obj/machinery/conveyor{
-	id = "Coallit_Mining_1";
-	layer = 2.9
+	id = "Coallit_Mining_1"
 	},
 /obj/structure/plasticflaps/mining,
 /turf/simulated/floor,
@@ -4974,8 +4941,7 @@
 /area/coc_survey_ship/bridge)
 "Pk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -5089,7 +5055,7 @@
 	dir = 10
 	},
 /obj/machinery/light,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/survey_probe/coc,
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/miningeva)
@@ -5117,8 +5083,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 4;
-	icon_state = "map"
+	dir = 4
 	},
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -5132,8 +5097,7 @@
 /area/shuttle/coc_survey_shuttle)
 "Qx" = (
 /obj/machinery/conveyor{
-	id = "Coallit_Mining_1";
-	layer = 2.9
+	id = "Coallit_Mining_1"
 	},
 /turf/simulated/floor,
 /area/coc_survey_ship/miningeva)
@@ -5359,8 +5323,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -5517,9 +5480,7 @@
 /obj/item/storage/box/fancy/mre/random,
 /obj/item/storage/box/fancy/mre/random,
 /obj/machinery/light,
-/obj/effect/decal/cleanable/generic{
-	layer = 2.81
-	},
+/obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/quarters)
 "TY" = (
@@ -5775,9 +5736,7 @@
 /obj/structure/bed/handrail{
 	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2
-	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	shuttle_tag = "COC Survey Shuttle";
 	master_tag = "surveyor_shuttle";
@@ -5817,8 +5776,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/portables_connector{
-	dir = 8;
-	layer = 2.8
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
@@ -6110,7 +6068,6 @@
 "XU" = (
 /obj/item/bedsheet/black,
 /obj/item/bedsheet/black{
-	layer = 4.2;
 	pixel_y = 13
 	},
 /obj/structure/railing/mapped{
@@ -6238,8 +6195,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
@@ -6311,7 +6267,6 @@
 "Zo" = (
 /obj/item/bedsheet/black,
 /obj/item/bedsheet/black{
-	layer = 4.2;
 	pixel_y = 13
 	},
 /obj/structure/railing/mapped{

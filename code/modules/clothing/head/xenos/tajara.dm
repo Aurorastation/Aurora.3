@@ -53,6 +53,9 @@
 /obj/item/clothing/head/tajaran/raskara
 	name = "raskariim mask"
 	desc = "A face concealing mask worn by the members of the cult of Raskara."
+	desc_extended = "Raskariim, commonly known as The Cult of Raskara are a prolific cult on Adhomai. The religion has been created on Adhomai but with the free commerce, a few human \
+	members have been recorded. While Raskara may seem like a single deity it is in fact split into three aspects, each one leading down a different path and seemingly every path \
+	subverting something S'rendarr and Messa stands for."
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
 	body_parts_covered = HEAD|FACE|EYES
 	species_restricted = list(BODYTYPE_TAJARA)
@@ -153,8 +156,8 @@
 	item_state = "nka_consularhat"
 
 /obj/item/clothing/head/tajaran/archeologist
-	name = "archaeologist hat"
-	desc = "A well-worn fedora favored by Adhomian explorers and archaeologists. Not very protective but still very stylish."
+	name = "archeologist hat"
+	desc = "A well-worn fedora favored by Adhomian explorers and archeologists. Not very protective but still very stylish."
 	icon_state = "explorer_hat"
 	item_state = "explorer_hat"
 
@@ -169,11 +172,11 @@
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
 	species_restricted = list(BODYTYPE_TAJARA)
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_MINOR
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_PISTOL,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_MINOR
 	)
 	allow_hair_covering = FALSE
 	desc_extended = "The Feudal Era of Amohda is famous for the steel swords which became common. Many renowned swordsmen and famous warriors would travel the land fighting duels of \
@@ -192,11 +195,11 @@
 	item_state = "kettle"
 	contained_sprite = TRUE
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_MINOR
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_PISTOL,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_MINOR
 	)
 	has_storage = FALSE
 

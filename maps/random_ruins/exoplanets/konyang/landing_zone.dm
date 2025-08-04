@@ -7,7 +7,7 @@
 	sectors = list(SECTOR_HANEUNIM)
 
 	prefix = "konyang/"
-	suffixes = list("landing_zone.dmm")
+	suffix = "landing_zone.dmm"
 
 	unit_test_groups = list(1)
 
@@ -23,6 +23,7 @@
 /area/konyang_landing_zone/command_center
 	name = "SCC Expedition Command Center"
 	requires_power = TRUE
+	is_outside = OUTSIDE_NO
 
 /area/konyang_landing_zone/command_center/reactor
 	name = "SCC Expedition Command Center Reactor"
@@ -38,6 +39,7 @@
 
 /area/konyang_landing_zone/command_center/landing_pads
 	name = "SCC Expedition Command Center Landing Pads"
+	is_outside = OUTSIDE_YES
 
 /obj/effect/shuttle_landmark/konyang_landing_zone_intrepid
 	name = "SCC Expedition Command Center - Intrepid"

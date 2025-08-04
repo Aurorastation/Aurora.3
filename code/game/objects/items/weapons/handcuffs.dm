@@ -10,7 +10,7 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	throwforce = 5
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 2
 	throw_range = 5
 	origin_tech = list(TECH_MATERIAL = 1)
@@ -25,7 +25,11 @@
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
-/obj/item/handcuffs/attack(var/mob/living/carbon/C, var/mob/living/user)
+/obj/item/handcuffs/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/mob/living/carbon/C = target_mob
+	if(!istype(C))
+		return
+
 	if(!user.IsAdvancedToolUser())
 		return
 
@@ -83,9 +87,9 @@
 			return
 
 	if(user)
-		H.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been handcuffed (attempt) by [user.name] ([user.ckey])</font>")
-		user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Attempted to handcuff [H.name] ([H.ckey])</span>")
-		msg_admin_attack("[key_name_admin(user)] attempted to handcuff [key_name_admin(H)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(H))
+		H.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been handcuffed (attempt) by [user.name] ([user.ckey])</font>"
+		user.attack_log += "\[[time_stamp()]\] <span class='warning'>Attempted to handcuff [H.name] ([H.ckey])</span>"
+		msg_admin_attack("[key_name_admin(user)] attempted to handcuff [key_name_admin(H)] (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(H))
 	feedback_add_details("handcuffs","H")
 
 	if(user)
@@ -132,12 +136,12 @@
 
 	var/s = SPAN_WARNING("[H] chews on [H.get_pronoun("his")] [O.name]!")
 	H.visible_message(s, SPAN_WARNING("You chew on your [O.name]!"))
-	message_admins("[key_name_admin(H)] is chewing on [H.get_pronoun("his")] restrained hand - (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)")
-	H.attack_log += text("\[[time_stamp()]\] <span class='warning'>[s] ([H.ckey])</span>")
-	log_attack("[s] ([H.ckey])",ckey=key_name(H))
+	message_admins("[key_name_admin(H)] is chewing on [H.get_pronoun("his")] restrained hand - (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)")
+	H.attack_log += "\[[time_stamp()]\] <span class='warning'>[s] ([H.ckey])</span>"
+	log_attack("[s] ([H.ckey])")
 
 	if(O.take_damage(3, 0, damage_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE, used_weapon = "teeth marks"))
-		H:UpdateDamageIcon()
+		H.UpdateDamageIcon()
 
 	last_chew = world.time
 

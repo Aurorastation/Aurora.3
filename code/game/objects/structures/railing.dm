@@ -4,10 +4,10 @@
 	icon = 'icons/obj/structure/blocker/railing_basic.dmi'
 	icon_state = "railing0-1"
 	density = TRUE
-	throwpass = TRUE
 	climbable = TRUE
 	layer = OBJ_LAYER
 	anchored = FALSE
+	pass_flags_self = LETPASSTHROW|PASSSTRUCTURE|PASSRAILING
 
 	atom_flags = ATOM_FLAG_CHECKS_BORDER
 	obj_flags = OBJ_FLAG_ROTATABLE|OBJ_FLAG_MOVES_UNSUPPORTED
@@ -19,6 +19,30 @@
 	var/neighbor_status = 0
 
 	can_astar_pass = CANASTARPASS_ALWAYS_PROC
+
+/obj/structure/railing/condition_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if (health < maxhealth)
+		switch(health / maxhealth)
+			if (0.0 to 0.5)
+				. += SPAN_WARNING("It looks severely damaged!")
+			if (0.25 to 0.5)
+				. += SPAN_WARNING("It looks damaged!")
+			if (0.5 to 1.0)
+				. += SPAN_NOTICE("It has a few scrapes and dents.")
+
+/obj/structure/railing/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if (anchored)
+		. += "It could be [density ? "opened" : "closed"] to passage with a wrench."
+
+/obj/structure/railing/assembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if (health < maxhealth)
+		. += "It could be repaired with a few choice <b>welds</b>."
+	. += "It [anchored ? "is" : "could be"] anchored to the floor with a row of <b>screws</b>."
+	if (!anchored)
+		. += "It is held together by a couple of <b>bolts</b>."
 
 /obj/structure/railing/mapped
 	color = COLOR_GUNMETAL
@@ -73,23 +97,12 @@
 			R.update_icon()
 	return ..()
 
-/obj/structure/railing/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(health < maxhealth)
-		switch(health / maxhealth)
-			if(0.0 to 0.5)
-				. += SPAN_WARNING("It looks severely damaged!")
-			if(0.25 to 0.5)
-				. += SPAN_WARNING("It looks damaged!")
-			if(0.5 to 1.0)
-				. += SPAN_NOTICE("It has a few scrapes and dents.")
-	. += FONT_SMALL(SPAN_NOTICE("\The [src] is <b>[density ? "closed" : "open"]</b> to passage."))
-	. += FONT_SMALL(SPAN_NOTICE("\The [src] is <b>[anchored ? "" : "not"] screwed</b> to the floor."))
-
 /obj/structure/railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(istype(mover,/obj/item/projectile))
+	if(mover?.movement_type & PHASING)
 		return TRUE
-	if(!istype(mover) || mover.checkpass(PASSRAILING))
+	if(istype(mover,/obj/projectile))
+		return TRUE
+	if(!istype(mover) || mover.pass_flags & PASSRAILING)
 		return TRUE
 	if(mover.throwing)
 		return TRUE

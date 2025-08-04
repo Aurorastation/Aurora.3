@@ -14,6 +14,17 @@
 #define FAILURE 0
 #define SUCCESS 1
 
+#if defined(UNIT_TEST)
+/**
+ * A list of string-keyes lists that maps the type of what we put there to the turfs
+ *
+ * Keys are strings of typepaths, values are lists of turfs
+ *
+ * list("/datum/map_template/whatever" = list(/turf/simulated, /turf/simulated))
+ */
+GLOBAL_LIST_EMPTY(turfs_to_map_type)
+#endif
+
 //
 // Generic check for an area.
 //
@@ -112,12 +123,12 @@
 
 /datum/unit_test/zas_area_test/ai_chamber
 	name = "ZAS: AI Chamber"
-	area_path = /area/turret_protected/ai
+	area_path = /area/horizon/ai/chamber
 	expectation = UT_NORMAL_COOL
 
 /datum/unit_test/zas_area_test/xenobio
 	name = "ZAS: Xenobiology"
-	area_path = /area/rnd/xenobiology
+	area_path = /area/horizon/rnd/xenobiology
 
 /*
 /datum/unit_test/zas_area_test/mining_area
@@ -211,54 +222,114 @@
 		compose a message and fail the test, let the poor soul try to figure out where the issue is, assuming it's not intermittent
 	 */
 	var/fail_message = "\n\n\n\n\n[SSair.active_edges.len] edges active at round-start!\n"
+
+	#if defined(UNIT_TEST)
+	var/list/affected_map_types = list()
+	#endif
+
 	for(var/connection_edge/E in SSair.active_edges)
-		var/connection_edge/unsimulated/U = E
-		if(istype(U))
+
+		//Unsimulated edge
+		if(istype(E, /connection_edge/unsimulated))
+			var/connection_edge/unsimulated/U = E
 			var/turf/T = U.B
+			var/zone/zas_zone = U.A
+
+			fail_message += "Unsimulated edge between [zas_zone] and [T]\n"
+
 			if(istype(T))
-				fail_message += "--> [U.A.name] and [T.name] ([T.x], [T.y], [T.z]) have mismatched gas mixtures! <--\n"
+				fail_message += "--> [zas_zone.name] and [T.name] ([T.x], [T.y], [T.z]) have mismatched gas mixtures! <--\n"
+
 			else
-				fail_message += "--> [U.A.name] and [U.B] have mismatched gas mixtures! <--\n"
+				fail_message += "--> [zas_zone.name] and [T] have mismatched gas mixtures! <--\n"
 
-			var/zone/A = U.A
+			//Let's see if we can get what turfs are on the edge connection
+			fail_message += "[zas_zone.name] edge turfs:\n"
+			for(var/connection_edge/edge in zas_zone.edges)
+				if(edge.sleeping)
+					continue
+
+				for(var/turf/edge_turf in edge.connecting_turfs)
+					fail_message += "[edge_turf.type] ([edge_turf.x], [edge_turf.y], [edge_turf.z])\t"
+
+
+
+			fail_message += "\n\nMismatching edge gasses: [(zas_zone.air) ? json_encode(zas_zone.air.gas) : "vacuum"] <-----> [(T.air) ? json_encode(T.air.gas) : "vacuum"]\n\n"
+
 			var/offending_turfs_text = "Problem turfs: \n"
-			fail_message += "Mismatching edge gasses: [(U.A.air) ? json_encode(U.A.air.gas) : "vacuum"] <-----> [(U.B.air) ? json_encode(U.B.air.gas) : "vacuum"]\n\n"
-			for(var/turf/simulated/S in A.contents)
+			for(var/turf/simulated/S in zas_zone.contents)
 				if(("oxygen" in S.initial_gas) || ("nitrogen" in S.initial_gas))
-					offending_turfs_text += "[S] \[[S.type]\] ([S.x], [S.y], [S.z])\t"
+					offending_turfs_text += "[S.type] ([S.x], [S.y], [S.z])\t"
 
-			fail_message += "[offending_turfs_text]"
+					#if defined(UNIT_TEST)
+					for(var/type in GLOB.turfs_to_map_type)
+						if(S in GLOB.turfs_to_map_type[type])
+							affected_map_types |= type
+					#endif
 
+			fail_message += "[offending_turfs_text]\n\n"
+
+
+		//Simulated edge (zone edge)
 		else
 			var/connection_edge/zone/Z = E
+			if(!istype(Z))
+				stack_trace("Somehow, an edge is neither an unsimulated edge nor a zone edge!")
+				return
+
+			var/zone/first_zone = Z.A
+			var/zone/second_zone = Z.B
+
+			fail_message += "Simulated edge between [first_zone.name] and [second_zone.name]\n"
+
+
+			//Let's see if we can get what turfs are on the edge connection
+			fail_message += "[first_zone.name] and [second_zone.name] edge turfs:\n"
+			for(var/connection_edge/edge in (first_zone.edges + second_zone.edges))
+				if(edge.sleeping)
+					continue
+
+				for(var/turf/edge_turf in edge.connecting_turfs)
+					fail_message += "[edge_turf.type] ([edge_turf.x], [edge_turf.y], [edge_turf.z])\t"
 
 			//A list of turfs that are related to the found issue
 			var/list/turf/problem_turfs = list()
 
-			if(!istype(Z))
-				return
 
-			fail_message += "--> [Z.A.name] and [Z.B.name] have mismatched gas mixtures! <--\n"
+			fail_message += "\n\n--> [first_zone.name] and [second_zone.name] have mismatched gas mixtures! <--\n"
 
 			if(Z.A.air.gas.len && Z.B.air.gas.len)
 				fail_message += "--> Both zones have gas mixtures defined; either one is a normally vacuum zone exposed to a breach, or two differing gases are mixing at round-start. <--\n"
-				problem_turfs = Z.A.contents + Z.B.contents
+				problem_turfs = first_zone.contents + second_zone.contents
 			else if(Z.A.air.gas.len)
-				problem_turfs = Z.A.contents
+				problem_turfs = first_zone.contents
 			else if(Z.B.air.gas.len)
-				problem_turfs = Z.B.contents
+				problem_turfs = second_zone.contents
 
 			if(!length(problem_turfs))
 				continue
 
-			fail_message += "Mismatching edge gasses: [(Z.A.air) ? json_encode(Z.A.air.gas) : "vacuum"] <-----> [(Z.B.air) ? json_encode(Z.B.air.gas) : "vacuum"]\n\n"
+			fail_message += "Mismatching edge gasses: [(first_zone.air) ? json_encode(first_zone.air.gas) : "vacuum"] <-----> [(second_zone.air) ? json_encode(second_zone.air.gas) : "vacuum"]\n\n"
 
 			var/offending_turfs_text = "Problem turfs: "
 			for(var/turf/simulated/S in problem_turfs)
 				if(("oxygen" in S.initial_gas) || ("nitrogen" in S.initial_gas))
-					offending_turfs_text += "[S] \[[S.type]\] ([S.x], [S.y], [S.z])\t"
+					offending_turfs_text += "[S.type] ([S.x], [S.y], [S.z])\t"
 
-			fail_message += "[offending_turfs_text]"
+					#if defined(UNIT_TEST)
+					for(var/type in GLOB.turfs_to_map_type)
+						if(S in GLOB.turfs_to_map_type[type])
+							affected_map_types |= type
+					#endif
+
+			fail_message += "[offending_turfs_text]\n\n"
+
+
+	#if defined(UNIT_TEST)
+	if(length(affected_map_types))
+		TEST_FAIL("Affected map types: [english_list(affected_map_types)]")
+	#endif
+
 
 	TEST_FAIL("[fail_message]")
 	return UNIT_TEST_FAILED

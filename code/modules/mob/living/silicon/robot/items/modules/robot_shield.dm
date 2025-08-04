@@ -2,7 +2,7 @@
 /obj/item/borg/combat/shield
 	name = "personal shielding"
 	desc = "A powerful experimental module that turns aside or absorbs incoming attacks at the cost of charge."
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/item/device/chameleon.dmi'
 	icon_state = "shield1" //placeholder for now // four fucking years alberyk. FOUR
 	var/shield_level = 0.5 //Percentage of damage absorbed by the shield.
 

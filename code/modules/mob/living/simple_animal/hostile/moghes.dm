@@ -19,8 +19,8 @@
 	response_disarm = "shoves"
 	response_harm   = "harmlessly punches"
 	blood_overlay_icon = null
-	maxHealth = 500
-	health = 500
+	maxHealth = 400
+	health = 400
 	harm_intent_damage = 0
 	melee_damage_lower = 40
 	melee_damage_upper = 40
@@ -31,8 +31,12 @@
 	attacktext = "chomped"
 	attack_sound = 'sound/weapons/bloodyslice.ogg'
 
+	see_invisible = SEE_INVISIBLE_NOLIGHTING
+
 	faction = "Moghes"
 	butchering_products = list(/obj/item/stack/material/animalhide/lizard = 20)
+	resists_weather = TRUE
+	sample_data = list("Cellular biochemistry shows high metabolic capacity", "Tissue sample contains high muscle content", "Genetic biomarkers identified linked with aggressiveness", "Intracellular keratin synthesis present")
 	var/is_devouring = FALSE
 
 /mob/living/simple_animal/hostile/biglizard/AttackingTarget()
@@ -47,9 +51,39 @@
 	..()
 	anchored = TRUE
 
-/mob/living/simple_animal/hostile/biglizard/Life()
-	..()
-	adjustBruteLoss(-5)
+/mob/living/simple_animal/hostile/biglizard/Life(seconds_per_tick, times_fired)
+	if(!..())
+		return FALSE
+
+	//It's a predator, supposedly it shouldn't always alert his victims to be nearby
+	//(also saves some processing)
+	if(prob(30))
+		for(var/mob/living/poor_soul_approaching in get_hearers_in_range(world.view*1.8, src))
+			//No point in sending a message if there's no client
+			if(!poor_soul_approaching.client)
+				continue
+
+			var/message
+
+			var/poor_soul_distance_from_tyrant = get_dist(src, poor_soul_approaching)
+			//They can see us, no point
+			if(poor_soul_distance_from_tyrant <= world.view)
+				continue
+
+			//RUN FOR YOUR LIFE
+			else if(poor_soul_distance_from_tyrant <= world.view*1.4)
+				message = SPAN_HIGHDANGER(SPAN_BOLD("You hear loud stomping nearby!"))
+
+			//Fairly close, a normal warning should suffice
+			else
+				message = SPAN_DANGER("You hear a bone-chilling roar in the distance!")
+
+			poor_soul_approaching.notify_message(message, 10 SECONDS, key = "biglizard-[REF(src)]")
+
+
+	adjustBruteLoss(-0.5 * seconds_per_tick)
+
+	return TRUE
 
 /mob/living/simple_animal/hostile/biglizard/verb/devour(mob/living/target as mob in oview())
 	set category = "Plains Tyrant"
@@ -108,7 +142,7 @@
 	icon = 'icons/mob/npc/moghes_48.dmi'
 	icon_state = "siro"
 	icon_living = "siro"
-	icon_dead = "siro_dead"
+	icon_dead = "siro-dead"
 	turns_per_move = 3
 
 	organ_names = list("head", "chest", "right upper wing", "right lower wing", "left upper wing", "left lower wing", "right leg", "left leg")
@@ -134,6 +168,8 @@
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/moghes
 	meat_amount = 10
 	faction = "Moghes"
+	resists_weather = TRUE
+	sample_data = list("Cellular structures adapted to provide strong resonance protection", "Genetic biomarkers identified linked with agressiveness")
 	var/shriek_time = 0
 
 /mob/living/simple_animal/hostile/shrieker/proc/shriek(turf/T, mob/living/M)
@@ -150,5 +186,5 @@
 		shriek_time = world.time + 2 MINUTES //cant do it too often or it will get annoying as fuck
 
 /mob/living/simple_animal/hostile/shrieker/FoundTarget()
-	if(target_mob && shriek_time <= world.time)
-		shriek(get_turf(src), target_mob)
+	if(last_found_target && shriek_time <= world.time)
+		shriek(get_turf(src), last_found_target)

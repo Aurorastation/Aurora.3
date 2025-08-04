@@ -4,7 +4,7 @@
 	icon = 'icons/obj/item/umbrellas.dmi'
 	icon_state = "umbrella_yellow_closed"
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	matter = list(MATERIAL_PLASTIC = 1000)
 	force = 5
 	sharp = TRUE
@@ -29,7 +29,7 @@
 		if(!is_open)
 			to_chat(user, SPAN_NOTICE("You unfurl \the [src]."))
 			item_state = "umbrella_[umbrella_color]_open"
-			w_class = ITEMSIZE_LARGE
+			w_class = WEIGHT_CLASS_BULKY
 			is_open = TRUE
 			force = 1
 			sharp = FALSE

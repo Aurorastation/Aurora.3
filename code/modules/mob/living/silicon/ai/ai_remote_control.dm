@@ -25,11 +25,11 @@
 
 /obj/item/robot_module/aicontrol/Initialize()
 	. = ..()
-	modules += new /obj/item/crowbar/robotic/jawsoflife(src)
+	modules += new /obj/item/crowbar/hydraulic_rescue_tool(src)
 	modules += new /obj/item/wrench/robotic(src)
 	modules += new /obj/item/device/healthanalyzer(src)
 	modules += new /obj/item/extinguisher/mini(src)
-	modules += new /obj/item/device/advanced_healthanalyzer(src)
+	modules += new /obj/item/device/advanced_healthanalyzer/cyborg(src)
 	modules += new /obj/item/tank/jetpack/carbondioxide/synthetic(src)
 	modules += new /obj/item/inflatable_dispenser(src)
 	modules += new /obj/item/device/gps(src)
@@ -58,17 +58,3 @@
 
 /mob/living/silicon/robot/shell/choose_icon()
 	return
-
-/obj/item/crowbar/robotic/jawsoflife
-	name = "jaws of life"
-	desc = "A set of specialized tools that functions as both the ordinary crowbar, but is additionally capable of brute forcing bolted doors without power."
-	icon = 'icons/obj/item/tools/jawsoflife.dmi'
-	icon_state = "jawspry"
-	item_flags = ITEM_FLAG_NO_BLUDGEON
-	force = 0
-	sharp = FALSE
-	edge = FALSE
-
-/obj/item/crowbar/robotic/jawsoflife/attack(mob/living/carbon/M, mob/living/carbon/user)
-	user.visible_message("\The [user] [pick("boops", "squeezes", "pokes", "prods", "strokes", "bonks")] \the [M] with \the [src]")
-	return FALSE

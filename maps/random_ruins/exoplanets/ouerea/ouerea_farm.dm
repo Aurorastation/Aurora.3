@@ -7,7 +7,7 @@
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "ouerea/"
-	suffixes = list("ouerea_farm.dmm")
+	suffix = "ouerea_farm.dmm"
 	unit_test_groups = list(3)
 
 /area/ouerea_farm
@@ -70,7 +70,9 @@
 	if(H?.shoes)
 		H.shoes.color = "#423509"
 	if(isvaurca(H))
+		H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(H), slot_wear_mask)
 		var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
 		H.internal = preserve
 		H.internals.icon_state = "internal1"
+		H.equip_or_collect(new /obj/item/reagent_containers/food/snacks/koisbar, slot_in_backpack)
 		H.update_body()

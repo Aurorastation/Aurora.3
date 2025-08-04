@@ -21,7 +21,6 @@
 /obj/machinery/power/smes
 	name = "power storage unit"
 	desc = "A high-capacity superconducting magnetic energy storage (SMES) unit."
-	desc_info = "It can be repaired with a welding tool."
 	icon_state = "smes"
 	density = 1
 	anchored = 1
@@ -76,6 +75,23 @@
 	var/charge_mode = 0
 	var/last_time = 1
 
+/obj/machinery/power/smes/assembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(health < initial(health))
+		. += "It can be repaired with a <b>welding tool</b>."
+
+/obj/machinery/power/smes/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(is_badly_damaged())
+		. += SPAN_DANGER("\The [src] is damaged to the point of non-function!")
+	if(open_hatch)
+		. += "The maintenance hatch is open."
+		if (max_coils > 1 && Adjacent(user))
+			var/list/coils = list()
+			for(var/obj/item/smes_coil/C in component_parts)
+				coils += C
+			. += "The [max_coils] coil slots contain: [counting_english_list(coils)]."
+
 /obj/machinery/power/smes/drain_power(var/drain_check, var/surge, var/amount = 0)
 
 	if(drain_check)
@@ -106,7 +122,7 @@
 		connect_to_network()
 
 	dir_loop:
-		for(var/d in GLOB.cardinal)
+		for(var/d in GLOB.cardinals)
 			var/turf/T = get_step(src, d)
 			for(var/obj/machinery/power/terminal/term in T)
 				if(term && term.dir == turn(d, 180))
@@ -122,18 +138,6 @@
 
 	if(!should_be_mapped)
 		warning("Non-buildable or Non-magical SMES at [src.x]X [src.y]Y [src.z]Z")
-
-/obj/machinery/power/smes/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(is_badly_damaged())
-		. += SPAN_DANGER("\The [src] is damaged to the point of non-function!")
-	if(open_hatch)
-		. += SPAN_SUBTLE("The maintenance hatch is open.")
-		if (max_coils > 1 && Adjacent(user))
-			var/list/coils = list()
-			for(var/obj/item/smes_coil/C in component_parts)
-				coils += C
-			. += "The [max_coils] coil slots contain: [counting_english_list(coils)]."
 
 /obj/machinery/power/smes/proc/can_function()
 	if(is_badly_damaged())
@@ -224,8 +228,10 @@
 
 	var/goal = (delta_power < 0) ? (charge) : (capacity - charge)
 	time = world.time + (delta_power ? ((goal / abs(delta_power)) * (world.time - last_time)) : 0)
-	// If it is negative - we are discharging
-	if(delta_power < 0)
+
+	if(input_cut) // Cannot charge if input wire cut
+		charge_mode = 0
+	else if(delta_power < 0) // If we are negative - we are discharging
 		charge_mode = 0
 	else if(delta_power != 0)
 		charge_mode = 1
@@ -312,7 +318,7 @@
 			tempDir = EAST
 		if (NORTHWEST, SOUTHWEST)
 			tempDir = WEST
-	var/turf/tempLoc = get_step(src, reverse_direction(tempDir))
+	var/turf/tempLoc = get_step(src, REVERSE_DIR(tempDir))
 	if (istype(tempLoc, /turf/space))
 		to_chat(user, SPAN_WARNING("You can't build a terminal on space."))
 		return 1
@@ -478,7 +484,7 @@
 	failure_timer = max(failure_timer, duration)
 
 /obj/machinery/power/smes/proc/ion_act()
-	if(isStationLevel(src.z))
+	if(is_station_level(src.z))
 		if(prob(1)) //explosion
 			for(var/mob/M in viewers(src))
 				M.show_message(SPAN_WARNING("The [src.name] is making strange noises!"), 3, SPAN_WARNING("You hear sizzling electronics."), 2)

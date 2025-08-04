@@ -1,3 +1,11 @@
+/// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+/// !!!!!!!!!!HEY LISTEN!!!!!!!!!!!!!!!!!!!!!!!!
+/// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+// If you modify this file you ALSO need to modify tgui/packages/tgui-panel/styles/tgchat/chat-light.scss and chat-dark.scss
+// BUT you have to use PX font sizes with are on a x8 scale of these font sizes
+// Sample font-size: DM: 8 CSS: 64px
+
 /client/script = {"<style>
 body					{font-family: Verdana, sans-serif;}
 
@@ -55,6 +63,7 @@ em						{font-style: normal;font-weight: bold;}
 .entradio				{color: #bd893c;}
 .hailradio				{color: #7331c4;}
 .shipradio				{color: #738465;}
+.expradio				{color: #FFEEB5;}
 
 .secradio				{color: #A30000;}
 .penradio				{color: #DB1270;}

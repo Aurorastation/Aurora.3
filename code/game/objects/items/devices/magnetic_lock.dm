@@ -2,7 +2,6 @@
 #define STATUS_ACTIVE 1
 #define STATUS_BROKEN -1
 
-#define LAYER_ATTACHED 3.2
 #define LAYER_NORMAL 3
 
 /obj/item/device/magnetic_lock
@@ -11,7 +10,7 @@
 	icon = 'icons/obj/magnetic_locks.dmi'
 	icon_state = "inactive_CENTCOM"
 	//icon_state = "inactive"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	req_access = list(ACCESS_CENT_SPECOPS)
 	health = 150
 
@@ -29,6 +28,24 @@
 	var/obj/machinery/door/airlock/target = null
 	var/obj/item/cell/powercell
 
+/obj/item/device/magnetic_lock/condition_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if (status == STATUS_BROKEN)
+		. += SPAN_DANGER("It looks broken!")
+
+/obj/item/device/magnetic_lock/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if (powercell)
+		var/power = round(powercell.charge / powercell.maxcharge * 100)
+		. += SPAN_NOTICE("The powercell is at <b>[power]%</b> charge.")
+	else
+		. += SPAN_WARNING("It has no powercell to power it!")
+
+/obj/item/device/magnetic_lock/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(department)
+		. += "Once applied to an airlock, this device can be activated/deactivated by swiping an ID from the <b>[department] department</b> across it."
+
 /obj/item/device/magnetic_lock/security
 	department = "Security"
 	icon_state = "inactive_Security"
@@ -44,7 +61,7 @@
 	name = "legion magnetic door lock"
 	req_access = null
 	req_one_access = list(ACCESS_LEGION, ACCESS_TCAF_SHIPS)
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/device/magnetic_lock/security/legion/Initialize()
 	. = ..()
@@ -61,8 +78,8 @@
 	update_icon()
 	var/obj/machinery/door/airlock/newtarget = (locate(/obj/machinery/door/airlock) in get_turf(src))
 	if(newtarget)
-		var/direction = reverse_direction(dir)
-		forceMove(get_step(newtarget.loc, reverse_direction(direction)))
+		var/direction = REVERSE_DIR(dir)
+		forceMove(get_step(newtarget.loc, REVERSE_DIR(direction)))
 		for (var/obj/machinery/door/airlock/A in oview(1, newtarget))
 			var/rdir = get_dir(newtarget, A)
 			if (istype(A, newtarget.type) && (rdir == turn(direction, -90) || rdir == turn(direction, 90)))
@@ -75,18 +92,6 @@
 
 		status = STATUS_ACTIVE
 		attach(newtarget)
-
-/obj/item/device/magnetic_lock/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-
-	if (status == STATUS_BROKEN)
-		. += SPAN_DANGER("It looks broken!")
-	else
-		if (powercell)
-			var/power = round(powercell.charge / powercell.maxcharge * 100)
-			. += SPAN_NOTICE("The powercell is at [power]% charge.")
-		else
-			. += SPAN_WARNING("It has no powercell to power it!")
 
 /obj/item/device/magnetic_lock/attack_hand(var/mob/user)
 	add_fingerprint(user)
@@ -107,9 +112,12 @@
 	else
 		..()
 
-/obj/item/device/magnetic_lock/bullet_act(var/obj/item/projectile/Proj)
-	takedamage(Proj.damage)
-	..()
+/obj/item/device/magnetic_lock/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	takedamage(hitting_projectile.damage)
 
 /obj/item/device/magnetic_lock/attackby(obj/item/attacking_item, mob/user)
 	if (status == STATUS_BROKEN)
@@ -298,7 +306,7 @@
 				return
 
 		var/direction = get_dir(user, newtarget)
-		if ((direction in GLOB.alldirs) && !(direction in GLOB.cardinal))
+		if ((direction in GLOB.alldirs) && !(direction in GLOB.cardinals))
 			direction = turn(direction, -45)
 			if (check_neighbor_density(get_turf(newtarget.loc), direction))
 				direction = turn(direction, 90)
@@ -324,8 +332,8 @@
 
 		user.drop_from_inventory(src, src.loc)
 
-		forceMove(get_step(newtarget.loc, reverse_direction(direction)))
-		set_dir(reverse_direction(direction))
+		forceMove(get_step(newtarget.loc, REVERSE_DIR(direction)))
+		set_dir(REVERSE_DIR(direction))
 		status = STATUS_ACTIVE
 		attach(newtarget)
 		user.visible_message(SPAN_NOTICE("[user] attached [src] onto [newtarget] and flicks it on. The magnetic lock now seals [newtarget]."),
@@ -368,7 +376,7 @@
 		last_process_time = 0
 
 /obj/item/device/magnetic_lock/proc/attach(var/obj/machinery/door/airlock/newtarget as obj)
-	layer = LAYER_ATTACHED
+	layer = ABOVE_DOOR_LAYER
 
 	newtarget.bracer = src
 	target = newtarget
@@ -454,6 +462,10 @@
 	var/passcode = "open"
 	var/configurable = TRUE
 
+/obj/item/device/magnetic_lock/keypad/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Keypad-enabled magnetic locks require a custom passcode to unlock them, configured on initial use."
+
 /obj/item/device/magnetic_lock/keypad/update_overlays()
 	..()
 	switch (status)
@@ -515,5 +527,4 @@
 #undef STATUS_ACTIVE
 #undef STATUS_BROKEN
 
-#undef LAYER_ATTACHED
 #undef LAYER_NORMAL

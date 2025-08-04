@@ -3,7 +3,7 @@
 	desc = "A cube of shining metal, four inches to a side and covered in shallow grooves."
 	icon = 'icons/obj/assemblies.dmi'
 	icon_state = "posibrain"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 4, TECH_BLUESPACE = 2, TECH_DATA = 4)
 	req_access = list(ACCESS_ROBOTICS)
 	can_be_ipc = TRUE
@@ -53,11 +53,7 @@
 
 	to_chat(brainmob, "<b>You are a positronic brain, brought into existence on [station_name()].</b>")
 	to_chat(brainmob, "<b>As a synthetic intelligence, you answer to all crewmembers, as well as the AI.</b>")
-	to_chat(brainmob, "<b>Remember, the purpose of your existence is to serve the crew and the station. Above all else, do no harm.</b>")
-
-	var/area/A = get_area(src)
-	if(istype(A, /area/assembly/robotics))
-		GLOB.global_announcer.autosay("A positronic brain has completed its boot process in: [A.name].", "Robotics Oversight", "Science")
+	to_chat(brainmob, "<b>Remember, the purpose of your existence is to serve the crew and the [station_name(TRUE)]. Above all else, do no harm.</b>")
 
 	brainmob.client.init_verbs()
 

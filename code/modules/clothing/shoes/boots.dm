@@ -7,9 +7,9 @@
 	item_state = "jackboots"
 	force = 3
 	armor = list(
-		melee = ARMOR_MELEE_KNIVES,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_MINOR
+		MELEE = ARMOR_MELEE_KNIVES,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_MINOR
 	)
 	siemens_coefficient = 0.75
 	can_hold_knife = TRUE
@@ -63,10 +63,10 @@
 	item_state = "workboots"
 	force = 3
 	armor = list(
-		melee = ARMOR_MELEE_KNIVES,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_MINOR,
-		rad = ARMOR_RAD_MINOR
+		MELEE = ARMOR_MELEE_KNIVES,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_MINOR,
+		RAD = ARMOR_RAD_MINOR
 	)
 	icon_auto_adapt = TRUE
 	icon_supported_species_tags = list("taj")
@@ -136,12 +136,12 @@
 	contained_sprite = TRUE
 	force = 11
 	armor = list(
-		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_RIFLE,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_RESISTANT,
-		bio = ARMOR_BIO_MINOR
+		MELEE = ARMOR_MELEE_VERY_HIGH,
+		BULLET = ARMOR_BALLISTIC_RIFLE,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_RESISTANT,
+		BIO = ARMOR_BIO_MINOR
 	)
 	item_flags = ITEM_FLAG_NO_SLIP
 	siemens_coefficient = 0.35
@@ -168,8 +168,8 @@
 	heat_protection = FEET|LEGS
 	max_heat_protection_temperature = SHOE_MAX_HEAT_PROTECTION_TEMPERATURE
 	armor = list(
-			melee = ARMOR_MELEE_MINOR,
-			bio = ARMOR_BIO_MINOR
+			MELEE = ARMOR_MELEE_MINOR,
+			BIO = ARMOR_BIO_MINOR
 			)
 	icon_auto_adapt = TRUE
 	icon_supported_species_tags = list("taj")
@@ -201,7 +201,187 @@
 /obj/item/clothing/shoes/jackboots/kala
 	name = "skrell boots"
 	desc = "A sleek pair of boots. They seem to be retaining moisture."
-	icon = 'icons/clothing/kit/skrell_armor.dmi'
+	icon = 'icons/obj/item/clothing/shoes/miscellaneous.dmi'
 	icon_state = "kala_boots"
 	item_state = "kala_boots"
 	contained_sprite = TRUE
+
+/obj/item/clothing/shoes/heeledboots/toeless
+	name = "toeless heeled boots"
+	desc = "A pair of toeless boots with heels."
+	icon = 'icons/obj/item/clothing/shoes/boots.dmi'
+	contained_sprite = TRUE
+	icon_state = "heeledboots_toeless"
+	item_state = "heeledboots_toeless"
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)
+
+/obj/item/clothing/shoes/heeledboots
+	name = "heeled boots"
+	desc = "A pair of boots with heels."
+	icon = 'icons/obj/item/clothing/shoes/boots.dmi'
+	contained_sprite = TRUE
+	icon_state = "heeledboots"
+	item_state = "heeledboots"
+
+/obj/item/clothing/shoes/thighboots
+	name = "thigh-high boots"
+	desc = "A pair of casual boots that reach up to the thighs."
+	icon = 'icons/obj/item/clothing/shoes/boots.dmi'
+	contained_sprite = TRUE
+	icon_state = "thighboots"
+	item_state = "thighboots"
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("taj")
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)
+
+/obj/item/clothing/shoes/thighboots/toeless
+	name = "thigh-high toeless boots"
+	desc = "A pair of casual boots that reach up to the thighs, the toes have been cut off."
+	icon = 'icons/obj/item/clothing/shoes/boots.dmi'
+	contained_sprite = TRUE
+	icon_state = "thighboots_toeless"
+	item_state = "thighboots_toeless"
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("taj")
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)
+
+/obj/item/clothing/shoes/thighboots/heels
+	name = "thigh-high heeled boots"
+	desc = "A pair of casual heeled boots that reach up to the thigh."
+	icon = 'icons/obj/item/clothing/shoes/boots.dmi'
+	contained_sprite = TRUE
+	icon_state = "thighboots_heels"
+	item_state = "thighboots_heels"
+
+/obj/item/clothing/shoes/thighboots/heels/toeless
+	name = "thigh-high toeless heeled boots"
+	desc = "A pair of casual heeled boots that reach up to the thigh, the toes have been cut off."
+	icon = 'icons/obj/item/clothing/shoes/boots.dmi'
+	contained_sprite = TRUE
+	icon_state = "thighboots_heels_toeless"
+	item_state = "thighboots_heels_toeless"
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)
+
+/obj/item/clothing/shoes/fullboots
+	name = "full-length boots"
+	desc = "A pair of boots that cover the entire leg, probably uncomfortable to wear."
+	icon = 'icons/obj/item/clothing/shoes/boots.dmi'
+	contained_sprite = TRUE
+	icon_state = "fullboots"
+	item_state = "fullboots"
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("taj")
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)
+
+/obj/item/clothing/shoes/fullboots/toeless
+	name = "full-length toeless boots"
+	desc = "A pair of boots the cover the entire leg, except for the toes."
+	icon = 'icons/obj/item/clothing/shoes/boots.dmi'
+	contained_sprite = TRUE
+	icon_state = "fullboots_toeless"
+	item_state = "fullboots_toeless"
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("taj")
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)
+
+/obj/item/clothing/shoes/fullboots/heels
+	name = "full-length heeled boots"
+	desc = "A pair of heeled boots that cover the entire leg, probably uncomfortable to wear."
+	icon = 'icons/obj/item/clothing/shoes/boots.dmi'
+	contained_sprite = TRUE
+	icon_state = "fullboots_heels"
+	item_state = "fullboots_heels"
+
+/obj/item/clothing/shoes/fullboots/heels/toeless
+	name = "full-length toeless heeled boots"
+	desc = "A pair of heeled boots that cover the entire leg, except for the toes."
+	icon = 'icons/obj/item/clothing/shoes/boots.dmi'
+	contained_sprite = TRUE
+	icon_state = "fullboots_heels_toeless"
+	item_state = "fullboots_heels_toeless"
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)
+
+/obj/item/clothing/shoes/mudboots
+	name = "mudboots"
+	desc = "A nice pair of weatherproof mudboots to keep your feet dry."
+	icon = 'icons/obj/item/clothing/shoes/boots.dmi'
+	contained_sprite = TRUE
+	icon_state = "mudboots"
+	item_state = "mudboots"
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("taj")
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)
+
+/obj/item/clothing/shoes/mudboots/thigh
+	name = "thigh-high mudboots"
+	desc = "A nice pair of weatherproof mudboots to keep your legs dry."
+	icon = 'icons/obj/item/clothing/shoes/boots.dmi'
+	contained_sprite = TRUE
+	icon_state = "thighmudboots"
+	item_state = "thighmudboots"
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("taj")
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)
+
+/obj/item/clothing/shoes/colorcombat
+	name = "combat boots"
+	desc = "The sweatiest LARPer you know wears these."
+	icon = 'icons/obj/item/clothing/shoes/boots.dmi'
+	contained_sprite = TRUE
+	icon_state = "colorcombat"
+	item_state = "colorcombat"
+
+/obj/item/clothing/shoes/jackboots/color
+	name = "jackboots"
+	desc = "Synthleather boots with an artifical shine, in a variety of colors."
+	icon = 'icons/obj/item/clothing/shoes/boots.dmi'
+	contained_sprite = TRUE
+	icon_state = "colorjackboots"
+	item_state = "colorjackboots"
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("taj")
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)
+
+/obj/item/clothing/shoes/jackboots/toeless/color
+	name = "toeless jackboots"
+	desc = "Synthleather boots with the toes cut off, in a variety of colors"
+	icon = 'icons/obj/item/clothing/shoes/boots.dmi'
+	contained_sprite = TRUE
+	icon_state = "colorjackboots_toeless"
+	item_state = "colorjackboots_toeless"
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("taj")
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)
+
+
+/obj/item/clothing/shoes/workboots/color
+	name = "workboots"
+	desc = "A pair of steel-toed work boots designed for use in industrial settings. In a variety of colors!"
+	icon = 'icons/obj/item/clothing/shoes/boots.dmi'
+	contained_sprite = TRUE
+	icon_state = "colorworkboots"
+	item_state = "colorworkboots"
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("taj")
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)
+
+/obj/item/clothing/shoes/workboots/toeless/color
+	name = "toeless workboots"
+	desc = "A pair of toeless work boots designed for use in industrial settings. In a variety of colors!"
+	icon = 'icons/obj/item/clothing/shoes/boots.dmi'
+	contained_sprite = TRUE
+	icon_state = "colorworkboots_toeless"
+	item_state = "colorworkboots_toeless"
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("taj")
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)
+
+/obj/item/clothing/shoes/ankleboots
+	name = "ankle boots"
+	desc = "A pair of low-heeled boots, if you need inclosed shoes."
+	icon = 'icons/obj/item/clothing/shoes/boots.dmi'
+	contained_sprite = TRUE
+	icon_state = "ankleboots"
+	item_state = "ankleboots"
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)
+

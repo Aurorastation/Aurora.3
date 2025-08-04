@@ -4,7 +4,7 @@
 	regions of Moghes. The forest mantle is exclusively for nobility these days."
 	path = /obj/item/clothing/accessory/poncho/unathimantle
 	cost = 1
-	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_COLOR_SELECTION
 
@@ -13,6 +13,7 @@
 	var/list/mantles = list()
 	mantles["hide mantle, desert"] = /obj/item/clothing/accessory/poncho/unathimantle
 	mantles["hide mantle, mountain"] = /obj/item/clothing/accessory/poncho/unathimantle/mountain
+	mantles["hide mantle, jungle"] = /obj/item/clothing/accessory/poncho/unathimantle/jungle
 	gear_tweaks += new /datum/gear_tweak/path(mantles)
 
 /datum/gear/suit/unathi_mantle_noble
@@ -21,7 +22,7 @@
 	path = /obj/item/clothing/accessory/poncho/unathimantle/forest
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
-	origin_restriction = list(/singleton/origin_item/origin/heartland_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper, /singleton/origin_item/origin/zazalai_upper, /singleton/origin_item/origin/broken_nobles)
+	origin_restriction = list(/singleton/origin_item/origin/heartland_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper, /singleton/origin_item/origin/zazalai_upper, /singleton/origin_item/origin/broken_nobles, /singleton/origin_item/origin/dominian_unathi)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_COLOR_SELECTION
 
@@ -57,11 +58,30 @@
 	guildmantles["fishing league mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/fisher
 	gear_tweaks += new /datum/gear_tweak/path(guildmantles)
 
+/datum/gear/suit/unathi_scaleshields
+	display_name = "scaleshield selection"
+	description = "A collection of reinforced canvas and fabric covers worn by Dominian Unathi."
+	path = /obj/item/clothing/accessory/poncho/scaleshield
+	cost = 1
+	whitelisted = list(SPECIES_UNATHI)
+	origin_restriction = list(/singleton/origin_item/origin/dominian_unathi)
+	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/suit/unathi_scaleshields/New()
+	..()
+	var/list/scaleshields = list()
+	scaleshields["Colorable Scaleshield"] = /obj/item/clothing/accessory/poncho/scaleshield
+	scaleshields["Landsite Scaleshield"] = /obj/item/clothing/accessory/poncho/scaleshield/LSscaleshield
+	scaleshields["Anvil Towers Scaleshield"] = /obj/item/clothing/accessory/poncho/scaleshield/ATscaleshield
+	scaleshields["Widowtown Scaleshield"] = /obj/item/clothing/accessory/poncho/scaleshield/WTscaleshield
+	gear_tweaks += new /datum/gear_tweak/path(scaleshields)
+
 /datum/gear/suit/unathi_robe
 	display_name = "roughspun robe"
 	path = /obj/item/clothing/suit/unathi/robe
 	cost = 1
-	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
+	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
@@ -74,7 +94,7 @@
 	display_name = "tzirzi robe"
 	path = /obj/item/clothing/suit/unathi/robe/robe_coat
 	cost = 1
-	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/suit/robe_coat/New()
@@ -154,7 +174,7 @@
 /datum/gear/uniform/unathi
 	display_name = "sinta tunic"
 	path = /obj/item/clothing/under/unathi
-	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 
@@ -167,7 +187,7 @@
 /datum/gear/head/sinta_ronin
 	display_name = "straw hat"
 	path = /obj/item/clothing/head/unathi
-	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
+	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK)
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/head/sinta_ronin/New()
@@ -188,7 +208,7 @@
 /datum/gear/eyes/wasteland_goggles
 	display_name = "wasteland goggles"
 	path = /obj/item/clothing/glasses/safety/goggles/wasteland
-	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
+	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT)
 	origin_restriction = list(/singleton/origin_item/origin/wastelander, /singleton/origin_item/origin/mikuetz)
 	sort_category = "Xenowear - Unathi"
 
@@ -230,7 +250,7 @@
 	culture_restriction = list(/singleton/origin_item/culture/autakh)
 	sort_category = "Xenowear - Unathi"
 	cost = 2
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "First Responder", "Medical Intern", "Psychiatrist", "Pharmacist", "Medical Personnel")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Paramedic", "Medical Intern", "Psychiatrist", "Pharmacist", "Medical Personnel")
 	flags = GEAR_NO_SELECTION
 
 /datum/gear/augment/autakh_security
@@ -285,7 +305,7 @@
 /datum/gear/uniform/unathi/zazali
 	display_name = "zazali garb"
 	path = /obj/item/clothing/under/unathi/zazali
-	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 
@@ -298,8 +318,9 @@
 /datum/gear/uniform/unathi/zozo
 	display_name = "zozo top"
 	path = /obj/item/clothing/under/unathi/zozo
-	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/suit/unathi/wrapping_head
 	display_name = "Thakhist head wrappings"
@@ -406,7 +427,7 @@
 	path = /obj/item/clothing/accessory/poncho/rockstone
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
-	origin_restriction = list(/singleton/origin_item/origin/heartland_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper, /singleton/origin_item/origin/zazalai_upper, /singleton/origin_item/origin/broken_nobles)
+	origin_restriction = list(/singleton/origin_item/origin/heartland_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper, /singleton/origin_item/origin/zazalai_upper, /singleton/origin_item/origin/broken_nobles, /singleton/origin_item/origin/dominian_unathi)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 
@@ -414,7 +435,7 @@
 	display_name = "jeweled bracers"
 	path = /obj/item/clothing/wrists/unathi/jeweled
 	whitelisted = list(SPECIES_UNATHI)
-	origin_restriction = list(/singleton/origin_item/origin/heartland_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper, /singleton/origin_item/origin/zazalai_upper, /singleton/origin_item/origin/broken_nobles)
+	origin_restriction = list(/singleton/origin_item/origin/heartland_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper, /singleton/origin_item/origin/zazalai_upper, /singleton/origin_item/origin/broken_nobles, /singleton/origin_item/origin/dominian_unathi)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
@@ -422,7 +443,7 @@
 	display_name = "gyazo belt"
 	path = /obj/item/clothing/accessory/unathi
 	cost = 1
-	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
@@ -431,7 +452,7 @@
 	path = /obj/item/clothing/suit/unathi/jokfar
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
-	origin_restriction = list(/singleton/origin_item/origin/heartland_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper, /singleton/origin_item/origin/zazalai_upper, /singleton/origin_item/origin/broken_nobles)
+	origin_restriction = list(/singleton/origin_item/origin/heartland_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper, /singleton/origin_item/origin/zazalai_upper, /singleton/origin_item/origin/broken_nobles, /singleton/origin_item/origin/dominian_unathi)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
@@ -439,7 +460,7 @@
 	display_name = "hegemony passport"
 	path = /obj/item/clothing/accessory/badge/passport/hegemony
 	cost = 1
-	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER, SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_HUMAN)
+	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER, SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_HUMAN)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
@@ -447,7 +468,7 @@
 	display_name = "hegemony passcard selection"
 	path = /obj/item/clothing/accessory/badge/passcard/hegemony
 	cost = 1
-	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER, SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_HUMAN)
+	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER, SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_HUMAN)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
@@ -464,7 +485,6 @@
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
-	allowed_roles = list("Chaplain", "Off-Duty Crew Member")
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/uniform/unathi/skakh/New()
@@ -482,5 +502,4 @@
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
-	allowed_roles = list("Chaplain", "Off-Duty Crew Member")
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION

@@ -172,6 +172,8 @@
 #define BP_AUG_LIGHTER         "retractable lighter"
 #define BP_AUG_MAGBOOT         "integrated mag-claws"
 #define BP_AUG_MEMORY          "memory inhibitor"
+#define BP_AUG_MIND_BLANKER	   "mind blanker"
+#define BP_AUG_MIND_BLANKER_L  "lethal mind blanker"
 #define BP_AUG_PEN             "retractable combipen"
 #define BP_AUG_PSI             "psionic receiver"
 #define BP_AUG_RADIO           "integrated radio"
@@ -246,6 +248,7 @@
 #define INV_R_EAR_DEF_ICON			'icons/mob/r_ear.dmi'
 #define INV_SHOES_DEF_ICON			'icons/mob/feet.dmi'
 #define INV_WRISTS_DEF_ICON			'icons/mob/wrist.dmi'
+#define INV_PANTS_DEF_ICON			'icons/mob/pants.dmi'
 
 // IPC tags
 #define IPC_OWNERSHIP_SELF	  "Self Owned"
@@ -424,11 +427,15 @@
 #define PROSTHETIC_TESLA "Tesla Powered Prosthetics"
 #define PROSTHETIC_TESLA_BODY "Industrial Tesla Powered Prosthetics"
 #define PROSTHETIC_VAURCA "Vaurca Robotic Limb"
+#define PROSTHETIC_VAURCA_WARRIOR "Vaurca Warrior Robotic Limb"
 #define PROSTHETIC_UNBRANDED "Unbranded"
 #define PROSTHETIC_UNBRANDED_EMISSIVE "Unbranded Emissive"
 #define PROSTHETIC_HOPLAN "Hoplan Head"
 #define PROSTHETIC_RAXUS "Raxus Head"
 #define PROSTHETIC_INDRICUS "Indricus Head"
+#define PROSTHETIC_SELEN "Selen Head"
+#define PROSTHETIC_SIENNA "Sienna Head"
+#define PROSTHETIC_SISEYO "Siseyo Head"
 
 //Prosthetics that aren't restricted by species
 #define PROSTHETICS_UNRESTRICTED list(PROSTHETIC_BC, PROSTHETIC_HI, PROSTHETIC_XMG, PROSTHETIC_UNBRANDED, PROSTHETIC_ZH)

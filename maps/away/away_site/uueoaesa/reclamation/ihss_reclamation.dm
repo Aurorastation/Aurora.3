@@ -2,7 +2,7 @@
 	name = "IHSS Reclamation"
 	description = "The very first space station constructed by the Unathi, and nearly a century old, the IHSS Reclamation has been extensively refurbished to provide a monitoring and research station for ecological restoration efforts on the Moghresian Wasteland."
 	prefix = "away_site/uueoaesa/reclamation/"
-	suffixes = list("ihss_reclamation.dmm")
+	suffix = "ihss_reclamation.dmm"
 	sectors = list(SECTOR_UUEOAESA)
 	spawn_weight = 1
 	spawn_cost = 1
@@ -17,6 +17,8 @@
 /obj/effect/overmap/visitable/sector/ihss_reclamation
 	name = "IHSS Reclamation"
 	desc = "The very first space station constructed by the Unathi, and nearly a century old, the IHSS Reclamation has been extensively refurbished to provide a monitoring and research station for ecological restoration efforts on the Moghresian Wasteland."
+	class = "IHSS"
+	designation = "Reclamation"
 	icon = 'icons/obj/overmap/overmap_stationary.dmi'
 	icon_state = "battlestation"
 	color = "#f05c3e"
@@ -127,3 +129,20 @@
 	name = "In transit"
 	landmark_tag = "nav_transit_ihss_reclamation"
 	base_turf = /turf/space/transit/north
+
+/obj/item/paper/fluff/ihss_reclamation_cell
+	name = "Rules of Observation"
+	info = "<center>IHSS Reclamation<br>Hazardous Specimen Containment Rules of Observation</center><hr>\
+	I thought this crew could be trusted to not do the obvious, but I have witnessed firsthand that this was a <u>foolish</u> hope of mine. \
+	If you wish to not end up like others, you are to at least try to understand the following before entering:<br>\
+	<ol><li>Approach the cell slowly.</li><li>Do not touch or <u>shake</u> the fence.</li>\
+	<li>Do not knock on the glass.</li><li>Do not put their appendages or tail through the fence holes.</li>\
+	<li>Have means of escape prepared in event of containment failure.</li>\
+	<li>Check cell exterior periodically, if damage to cell is seen, engage the lockdown <b>immediately</b>.</li>\
+	<li>Do not unbolt or especially <i>open</i> the cell door unless you know what you are doing.</li>\
+	<li>The Skrazi is not to be used against any 'hostiles'. Stop asking.</li>\
+	<li>Put only food items in the delivery chute.</li>\
+	<li>Do not fall into the delivery chute. Rescue attempts are <u>not</u> to be made before the Skrazi is sedated.</li>\
+	<li>The cell is to be cleaned weekly. <b><u>Do not forget to sedate the Skrazi before entering the cell.</u></b></li>\
+	<li><b>Do not taunt the Skrazi.</b>.</li></ol>"
+	language = LANGUAGE_UNATHI

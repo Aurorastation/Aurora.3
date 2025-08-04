@@ -20,7 +20,7 @@
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "sliver1"	// 1 - 3
 	randpixel = 8
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	sharp = TRUE
 	var/datum/geosample/geologic_data
 

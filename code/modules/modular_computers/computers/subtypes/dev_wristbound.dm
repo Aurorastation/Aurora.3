@@ -25,31 +25,31 @@
 			return attack_self(user)
 	..()
 
-/obj/item/modular_computer/handheld/wristbound/MouseDrop(obj/over_object)
+/obj/item/modular_computer/handheld/wristbound/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	if(!canremove)
 		return
-	if(!over_object || over_object == src)
+	if(!over || over == src)
 		return
-	if(istype(over_object, /obj/screen/inventory))
-		var/obj/screen/inventory/S = over_object
+	if(istype(over, /atom/movable/screen/inventory))
+		var/atom/movable/screen/inventory/S = over
 		if(S.slot_id == equip_slot)
 			return
-	if(ishuman(usr))
-		if(!(istype(over_object, /obj/screen)))
+	if(ishuman(user))
+		if(!(istype(over, /atom/movable/screen)))
 			return ..()
 
-		if(!(loc == usr) || (loc && loc.loc == usr))
+		if(!(loc == user) || (loc && loc.loc == user))
 			return
-		if(use_check_and_message(usr))
+		if(use_check_and_message(user))
 			return
-		if((loc == usr) && !usr.unEquip(src))
+		if((loc == user) && !user.unEquip(src))
 			return
 
-		switch(over_object.name)
+		switch(over.name)
 			if("right hand")
-				usr.u_equip(src)
-				usr.equip_to_slot_if_possible(src, slot_r_hand)
+				user.u_equip(src)
+				user.equip_to_slot_if_possible(src, slot_r_hand)
 			if("left hand")
-				usr.u_equip(src)
-				usr.equip_to_slot_if_possible(src, slot_l_hand)
-		add_fingerprint(usr)
+				user.u_equip(src)
+				user.equip_to_slot_if_possible(src, slot_l_hand)
+		add_fingerprint(user)

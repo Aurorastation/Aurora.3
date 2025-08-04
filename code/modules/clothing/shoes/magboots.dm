@@ -19,15 +19,23 @@
 	drop_sound = 'sound/items/drop/toolbox.ogg'
 	pickup_sound = 'sound/items/pickup/toolbox.ogg'
 
+/obj/item/clothing/shoes/magboots/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	var/state = "disabled"
+	if(item_flags & ITEM_FLAG_NO_SLIP)
+		state = "enabled"
+	. += "Its mag-pulse traction system appears to be [state]."
+
 /obj/item/clothing/shoes/magboots/Destroy()
 	. = ..()
 	src.shoes = null
 	src.wearer = null
 
-/obj/item/clothing/shoes/magboots/proc/set_slowdown()
+/obj/item/clothing/shoes/magboots/proc/set_slowdown(mob/user)
 	slowdown = shoes? max(0, shoes.slowdown): 0	//So you can't put on magboots to make you walk faster.
 	if(magpulse)
 		slowdown += slowdown_active
+	user.update_equipment_speed_mods()
 
 /obj/item/clothing/shoes/magboots/proc/update_wearer()
 	if(QDELETED(wearer))
@@ -45,7 +53,7 @@
 	if(magpulse)
 		item_flags &= ~ITEM_FLAG_NO_SLIP
 		magpulse = 0
-		set_slowdown()
+		set_slowdown(user)
 		force = 3
 		if(icon_base)
 			icon_state = "[icon_base]0"
@@ -54,7 +62,7 @@
 	else
 		item_flags |= ITEM_FLAG_NO_SLIP
 		magpulse = 1
-		set_slowdown()
+		set_slowdown(user)
 		force = 11
 		if(icon_base)
 			icon_state = "[icon_base]1"
@@ -92,7 +100,7 @@
 
 	if (shoes)
 		to_chat(user, "You slip \the [src] on over \the [shoes].")
-	set_slowdown()
+	set_slowdown(user)
 	wearer = H
 	return 1
 
@@ -104,13 +112,6 @@
 	. = ..()
 	if (.)
 		INVOKE_ASYNC(src, PROC_REF(update_wearer))
-
-/obj/item/clothing/shoes/magboots/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	var/state = "disabled"
-	if(item_flags & ITEM_FLAG_NO_SLIP)
-		state = "enabled"
-	. += "Its mag-pulse traction system appears to be [state]."
 
 /obj/item/clothing/shoes/magboots/hegemony
 	name = "hegemony magboots"

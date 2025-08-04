@@ -29,8 +29,6 @@
 	var/preview_icon = 'icons/mob/human_races/human/human_preview.dmi'
 	var/bandages_icon
 
-	var/talk_bubble_icon
-
 	// Damage overlay and masks.
 	var/damage_overlays = 'icons/mob/human_races/masks/dam_human.dmi'
 	var/damage_mask = 'icons/mob/human_races/masks/dam_mask_human.dmi'
@@ -48,6 +46,15 @@
 
 	///Vertical offset in pixel used as a baseline for the runechat images (chat text above the mob when it talks)
 	var/floating_chat_y_offset = 8
+
+	// special consideration should be made when adding new emote types to different species, as they'll be able to initiate it, but their target might not be able to
+	// reciprocate the emote in any way
+	/// An associated list of list, where a list of body parts are the key for a specific emote (ex: list(BP_L_ARM, BP_R_ARM) = /singleton/overhead_emote/highfive)
+	var/list/overhead_emote_types = list(
+		list(BP_L_ARM, BP_R_ARM) = /singleton/overhead_emote/highfive,
+		list(BP_L_HAND, BP_R_HAND) = /singleton/overhead_emote/fistbump
+	)
+
 	var/eyes = "eyes_s"                                  // Icon for eyes.
 	var/eyes_icons = 'icons/mob/human_face/eyes.dmi'     // DMI file for eyes, mostly for none 32x32 species.
 	var/has_floating_eyes                                // Eyes will overlay over darkness (glow)
@@ -143,35 +150,60 @@
 	var/list/stutter_verbs = list("stammers", "stutters")
 
 	// Environment tolerance/life processes vars.
-	var/reagent_tag                                   //Used for metabolizing reagents.
-	var/breath_pressure = 16                          // Minimum partial pressure safe for breathing, kPa
-	var/breath_type = GAS_OXYGEN                        // Non-oxygen gas breathed, if any.
-	var/poison_type = GAS_PHORON                        // Poisonous air.
-	var/exhale_type = GAS_CO2                // Exhaled gas type.
-	var/breath_vol_mul = 1 							  // The fraction of air used, relative to the default carbon breath volume (1/2 L)
-	var/breath_eff_mul = 1 								  // The efficiency of breathing, relative to the default carbon breath efficiency (1/6)
-	var/cold_level_1 = 260                            // Cold damage level 1 below this point.
-	var/cold_level_2 = 200                            // Cold damage level 2 below this point.
-	var/cold_level_3 = 120                            // Cold damage level 3 below this point.
-	var/heat_level_1 = 360                            // Heat damage level 1 above this point.
-	var/heat_level_2 = 400                            // Heat damage level 2 above this point.
-	var/heat_level_3 = 1000                           // Heat damage level 3 above this point.
-	var/passive_temp_gain = 0		                  // Species will gain this much temperature every second
-	var/hazard_high_pressure = HAZARD_HIGH_PRESSURE   // Dangerously high pressure.
-	var/warning_high_pressure = WARNING_HIGH_PRESSURE // High pressure warning.
-	var/warning_low_pressure = WARNING_LOW_PRESSURE   // Low pressure warning.
-	var/hazard_low_pressure = HAZARD_LOW_PRESSURE     // Dangerously low pressure.
-	var/light_dam                                     // If set, mob will be damaged in light over this value and heal in light below its negative.
-	var/breathing_sound = 'sound/voice/monkey.ogg'    // If set, this mob will have a breathing sound.
-	var/body_temperature = 310.15	                  // Non-IS_SYNTHETIC species will try to stabilize at this temperature. (also affects temperature processing)
+	/// Used for metabolizing reagents.
+	var/reagent_tag
+	/// Minimum partial pressure safe for breathing, kPa
+	var/breath_pressure = 16
+	/// Non-oxygen gas breathed, if any
+	var/breath_type = GAS_OXYGEN
+	/// Poisonous air
+	var/poison_type = GAS_PHORON
+	/// Exhaled gas type.
+	var/exhale_type = GAS_CO2
+	/// The fraction of air used, relative to the default carbon breath volume (1/2 L)
+	var/breath_vol_mul = 1
+	/// The efficiency of breathing, relative to the default carbon breath efficiency (1/6)
+	var/breath_eff_mul = 1
+	/// Cold damage level 1 below this point
+	var/cold_level_1 = 260
+	/// Cold damage level 2 below this point
+	var/cold_level_2 = 200
+	/// Cold damage level 3 below this point
+	var/cold_level_3 = 120
+	/// Heat damage level 1 above this point
+	var/heat_level_1 = 360
+	/// Heat damage level 2 above this point
+	var/heat_level_2 = 400
+	/// Heat damage level 3 above this point
+	var/heat_level_3 = 1000
+	/// Species will gain this much temperature every second
+	var/passive_temp_gain = 0
+	/// Dangerously high pressure
+	var/hazard_high_pressure = HAZARD_HIGH_PRESSURE
+	/// High pressure warning
+	var/warning_high_pressure = WARNING_HIGH_PRESSURE
+	/// Low pressure warning
+	var/warning_low_pressure = WARNING_LOW_PRESSURE
+	/// Dangerously low pressure
+	var/hazard_low_pressure = HAZARD_LOW_PRESSURE
+	/// If set, mob will be damaged in light over this value and heal in light below its negative
+	var/light_dam
+	/// If set, this mob will have a breathing sound
+	var/breathing_sound = 'sound/voice/monkey.ogg'
 
-	var/heat_discomfort_level = 315                   // Aesthetic messages about feeling warm.
-	var/cold_discomfort_level = 285                   // Aesthetic messages about feeling chilly.
+	/// Non-IS_SYNTHETIC species will try to stabilize at this temperature. (also affects temperature processing)
+	var/body_temperature = 310.15 //37°C
+	/// When body temperature reaches or passes this threshold, species is considered too hot
+	var/heat_discomfort_level = 315 //41°C
+	/// When body temperature reaches or passes this threshold, species is considered too cold
+	var/cold_discomfort_level = 285 //11°C
+	/// Aesthetic messages about feeling warm.
 	var/list/heat_discomfort_strings = list(
 		"You feel sweat drip down your neck.",
 		"You feel uncomfortably warm.",
 		"Your skin prickles in the heat."
 		)
+	/// Aesthetic messages about feeling chilly.
 	var/list/cold_discomfort_strings = list(
 		"You feel chilly.",
 		"You shiver suddenly.",
@@ -189,8 +221,10 @@
 	var/datum/hud_data/hud
 	var/hud_type
 	var/health_hud_intensity = 1
-	var/healths_x // set this to specify where exactly the healths HUD element appears
-	var/healths_overlay_x = 0 // set this to tweak where the overlays on top of the healths HUD element goes
+	/// Set this to specify where exactly the healths HUD element appears
+	var/healths_x
+	/// Set this to tweak where the overlays on top of the healths HUD element goes
+	var/healths_overlay_x = 0
 
 	var/list/equip_overlays
 	var/list/equip_adjust
@@ -290,9 +324,17 @@
 	)
 
 	var/zombie_type	//What zombie species they become
-	var/list/character_color_presets
 	var/bodyfall_sound = /singleton/sound_category/bodyfall_sound //default, can be used for species specific falling sounds
 	var/footsound = /singleton/sound_category/blank_footsteps //same as above but for footsteps without shoes
+
+	/// Sets the base "tint" of the species' sprite, which is then adjusted by the skin tone
+	var/list/character_color_presets
+
+	/// The lower bound for the skin tone value, the lower, the "lighter" they'll appear
+	var/lower_skin_tone_bound = 30
+
+	/// The upper bound for the skin tone value, the higher, the "darker" they'll appear
+	var/upper_skin_tone_bound = 220
 
 	var/list/alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_BRAIN, BP_KIDNEYS, BP_STOMACH, BP_APPENDIX) //what internal organs can be changed in character setup
 	var/list/possible_external_organs_modifications = list("Normal","Amputated","Prosthesis")
@@ -383,9 +425,9 @@
 /datum/species/proc/get_random_name(var/gender)
 	if(!name_language)
 		if(gender == FEMALE)
-			return capitalize(pick(first_names_female)) + " " + capitalize(pick(last_names))
+			return capitalize(pick(GLOB.first_names_female)) + " " + capitalize(pick(GLOB.last_names))
 		else
-			return capitalize(pick(first_names_male)) + " " + capitalize(pick(last_names))
+			return capitalize(pick(GLOB.first_names_male)) + " " + capitalize(pick(GLOB.last_names))
 
 	var/datum/language/species_language = GLOB.all_languages[name_language]
 	if(!species_language)
@@ -414,7 +456,7 @@
 
 	var/datum/component/armor/armor_component = H.GetComponent(/datum/component/armor)
 	if(armor_component)
-		armor_component.RemoveComponent()
+		qdel(armor_component)
 
 	H.organs = list()
 	H.internal_organs = list()
@@ -459,7 +501,7 @@
 		target.IgniteMob()
 		H.visible_message(SPAN_DANGER("[H] taps [target], setting [target.get_pronoun("his")] ablaze!"), \
 						SPAN_WARNING("You tap [target], setting [target.get_pronoun("him")] ablaze!"))
-		msg_admin_attack("[key_name(H)] spread fire to [target.name] ([target.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)",ckey=key_name(H),ckey_target=key_name(target))
+		msg_admin_attack("[key_name(H)] spread fire to [target.name] ([target.ckey]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)",ckey=key_name(H),ckey_target=key_name(target))
 	else
 		H.visible_message(SPAN_NOTICE("[H] taps [target] to get [target.get_pronoun("his")] attention!"), \
 						SPAN_NOTICE("You tap [target] to get [target.get_pronoun("his")] attention!"))
@@ -585,20 +627,20 @@
 	if(!H.client)//no client, no screen to update
 		return 1
 
-	H.set_fullscreen(H.eye_blind, "blind", /obj/screen/fullscreen/blind)
-	H.set_fullscreen(H.stat == UNCONSCIOUS, "blackout", /obj/screen/fullscreen/blackout)
+	H.set_fullscreen(H.eye_blind, "blind", /atom/movable/screen/fullscreen/blind)
+	H.set_fullscreen(H.stat == UNCONSCIOUS, "blackout", /atom/movable/screen/fullscreen/blackout)
 
 	if(GLOB.config.welder_vision)
 		if(H.equipment_tint_total)
-			H.overlay_fullscreen("welder", /obj/screen/fullscreen/impaired, H.equipment_tint_total, 0.5 SECONDS)
+			H.overlay_fullscreen("welder", /atom/movable/screen/fullscreen/impaired, H.equipment_tint_total, 0.5 SECONDS)
 		else
 			H.clear_fullscreen("welder")
 	var/how_nearsighted = get_how_nearsighted(H)
-	H.set_fullscreen(how_nearsighted, "nearsighted", /obj/screen/fullscreen/oxy, how_nearsighted)
-	H.set_fullscreen(H.eye_blurry, "blurry", /obj/screen/fullscreen/blurry)
+	H.set_fullscreen(how_nearsighted, "nearsighted", /atom/movable/screen/fullscreen/oxy, how_nearsighted)
+	H.set_fullscreen(H.eye_blurry, "blurry", /atom/movable/screen/fullscreen/blurry)
 
 	if(H.druggy)
-		H.client.screen += global_hud.druggy
+		H.client.screen += GLOB.global_hud.druggy
 	if(H.druggy > 5)
 		H.add_client_color(/datum/client_color/oversaturated)
 	else
@@ -619,7 +661,7 @@
 		prescriptions += 7
 	if(H.equipment_prescription)
 		prescriptions -= H.equipment_prescription
-	return Clamp(prescriptions, 0, 7)
+	return clamp(prescriptions, 0, 7)
 
 // pre_move is set to TRUE when the mob checks whether it's even possible to move, so resources aren't drained until after the move completes
 // once the mob moves and its loc actually changes, the pre_move is set to FALSE and all the proper resources are drained
@@ -632,7 +674,7 @@
 	if(H.is_drowsy())
 		cost *= 1.25
 	if (H.stamina == -1)
-		LOG_DEBUG("Error: Species with special sprint mechanics has not overridden cost function.")
+		stack_trace("Error: Species with special sprint mechanics has not overridden cost function.")
 		return 0
 
 	var/obj/item/organ/internal/augment/calf_override/C = H.internal_organs_by_name[BP_AUG_CALF_OVERRIDE]
@@ -716,7 +758,7 @@
 	if(length(trail_info))
 		var/track_path = trail_info["footprint_type"]
 		T.add_tracks(track_path ? track_path : H.species.get_move_trail(H), trail_info["footprint_DNA"], H.dir, 0, trail_info["footprint_color"]) // Coming
-		var/turf/simulated/from = get_step(H, reverse_direction(H.dir))
+		var/turf/simulated/from = get_step(H, REVERSE_DIR(H.dir))
 		if(istype(from))
 			from.add_tracks(track_path ? track_path : H.species.get_move_trail(H), trail_info["footprint_DNA"], 0, H.dir, trail_info["footprint_color"]) // Going
 
@@ -734,7 +776,7 @@
 	if(!.)
 		return move_trail
 
-/datum/species/proc/bullet_act(var/obj/item/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
+/datum/species/proc/bullet_act(var/obj/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
 	return 0
 
 /datum/species/proc/handle_speech_problems(mob/living/carbon/human/H, message, say_verb, message_mode, message_range)
@@ -758,6 +800,9 @@
 /datum/species/proc/set_default_tail(var/mob/living/carbon/human/H)
 	H.set_tail_style(H.species.tail)
 
+/**
+ * DEPRECATED: Use `/datum/movespeed_modifier` instead
+ */
 /datum/species/proc/get_species_tally(var/mob/living/carbon/human/H)
 	return 0
 
@@ -810,10 +855,22 @@
 		return src
 	return name
 
-// prevents EMP damage if return it returns TRUE
-/datum/species/proc/handle_emp_act(var/mob/living/carbon/human/H, var/severity)
-	return FALSE
+/**
+ * Handles EMP act for a specie
+ *
+ * * hit_mob - The mob that was hit by the EMP (aka the mob that is this specie)
+ * * severity - The severity of the EMP, one of the EMP_ defines in empulse.dm
+ *
+ * returns a bitfield with the EMP_PROTECT_* defines to determine what should happen from the mob perspective
+ */
+/datum/species/proc/handle_emp_act(mob/living/carbon/human/hit_mob, severity)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_CALL_PARENT(FALSE)
+	return NONE
 
+/**
+ * DEPRECATED: Use `/datum/movespeed_modifier` instead
+ */
 /datum/species/proc/handle_movement_tally(var/mob/living/carbon/human/H)
 	var/tally = 0
 	if(istype(H.buckled_to, /obj/structure/bed/stool/chair/office/wheelchair))

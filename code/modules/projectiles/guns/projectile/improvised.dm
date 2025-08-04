@@ -7,7 +7,7 @@
 	icon_state = "ishotgun"
 	item_state = "ishotgun"
 	max_shells = 2
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	force = 11
 	recoil = 2
 	accuracy = -1
@@ -19,6 +19,20 @@
 	needspin = FALSE
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun2.ogg'
 	var/fail_chance = 35
+
+/obj/item/gun/projectile/shotgun/improvised/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	switch(fail_chance)
+		if(1)
+			. += "All craftsmanship is of the highest quality."
+		if(2 to 25)
+			. += "All craftsmanship is of high quality."
+		if(26 to 50)
+			. += "All craftsmanship is of average quality."
+		if(51 to 75)
+			. += "All craftsmanship is of low quality."
+		if(100)
+			. += "All craftsmanship is of the lowest quality."
 
 /obj/item/gun/projectile/shotgun/improvised/special_check(var/mob/living/carbon/human/M)
 	if(prob(fail_chance))
@@ -48,7 +62,7 @@
 		if(attacking_item.use_tool(src, user, 30, volume = 50))
 			icon_state = "ishotgunsawn"
 			item_state = "ishotgunsawn"
-			w_class = ITEMSIZE_NORMAL
+			w_class = WEIGHT_CLASS_NORMAL
 			force = 11
 			slot_flags &= ~SLOT_BACK
 			slot_flags |= (SLOT_BELT|SLOT_HOLSTER)
@@ -57,27 +71,13 @@
 	else
 		..()
 
-/obj/item/gun/projectile/shotgun/improvised/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	switch(fail_chance)
-		if(1)
-			. += "All craftsmanship is of the highest quality."
-		if(2 to 25)
-			. += "All craftsmanship is of high quality."
-		if(26 to 50)
-			. += "All craftsmanship is of average quality."
-		if(51 to 75)
-			. += "All craftsmanship is of low quality."
-		if(100)
-			. += "All craftsmanship is of the lowest quality."
-
 /obj/item/gun/projectile/shotgun/improvised/sawn
 	name = "sawn-off improvised shotgun"
 	desc = "An improvised pipe assembly that can fire shotgun shells."
 	icon_state = "ishotgunsawn"
 	item_state = "ishotgunsawn"
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	force = 11
 
 // shotgun construction
@@ -89,6 +89,16 @@
 	icon_state = "riflestock"
 	var/buildstate = 0
 
+/obj/item/stock/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	switch(buildstate)
+		if(1)
+			. += "It is carved in the shape of a pistol handle."
+		if(2)
+			. += "It has a receiver installed."
+		if(3)
+			. += "It has a pipe installed."
+
 /obj/item/receivergun
 	name = "receiver"
 	desc = "A receiver and trigger assembly for a firearm."
@@ -99,8 +109,8 @@
 /obj/item/receivergun/update_icon()
 	icon_state = "ishotgun[buildstate]"
 
-/obj/item/receivergun/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/receivergun/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	switch(buildstate)
 		if(1)
 			. += "It has a pipe segment installed."
@@ -165,11 +175,8 @@
 	jam_chance = 20
 	needspin = FALSE
 
-/obj/item/gun/projectile/improvised_handgun/loaded
-	magazine_type = /obj/item/ammo_magazine/c45m
-
-/obj/item/gun/projectile/improvised_handgun/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/gun/projectile/improvised_handgun/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	switch(jam_chance)
 		if(1)
 			. += "All craftsmanship is of the highest quality."
@@ -182,18 +189,11 @@
 		if(100)
 			. += "All craftsmanship is of the lowest quality."
 
+/obj/item/gun/projectile/improvised_handgun/loaded
+	magazine_type = /obj/item/ammo_magazine/c45m
+
 /obj/item/stock/update_icon()
 	icon_state = "ipistol[buildstate]"
-
-/obj/item/stock/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	switch(buildstate)
-		if(1)
-			. += "It is carved in the shape of a pistol handle."
-		if(2)
-			. += "It has a receiver installed."
-		if(3)
-			. += "It has a pipe installed."
 
 /obj/item/stock/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/material/hatchet))

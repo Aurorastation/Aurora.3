@@ -1,0 +1,22 @@
+[
+	{
+		"type": "SubmapExtractInsert",
+		"submap_size_x": 3,
+		"submap_size_y": 4,
+		"submap_size_z": 1,
+		"submaps_dmm": "lone_spacer_submaps.dmm",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/lone_spacer/storage_1",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/lone_spacer/storage_1",
+		"submaps_can_repeat": false
+	},
+	{
+		"type": "SubmapExtractInsert",
+		"submap_size_x": 3,
+		"submap_size_y": 4,
+		"submap_size_z": 1,
+		"submaps_dmm": "lone_spacer_submaps.dmm",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/lone_spacer/storage_2",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/lone_spacer/storage_2",
+		"submaps_can_repeat": false
+	}
+]

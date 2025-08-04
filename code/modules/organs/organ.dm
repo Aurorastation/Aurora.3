@@ -137,7 +137,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 /obj/item/organ/proc/can_recover()
 	return (max_damage > 0) && !(status & ORGAN_DEAD) || death_time >= world.time - ORGAN_RECOVERY_THRESHOLD
 
-/obj/item/organ/process()
+/obj/item/organ/process(seconds_per_tick)
 	if(loc != owner)
 		owner = null
 
@@ -390,7 +390,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 		if(BP_EYES)
 			name = "retinal overlayed [initial(name)]"
 		if(BP_BRAIN)
-			name = "positronic-implanted [initial(name)]"
+			name = "pseudoneuron-assisted [initial(name)]"
 		else
 			name = "mechanically assisted [initial(name)]"
 	icon_state = initial(icon_state)
@@ -419,7 +419,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	if(!(status & ORGAN_ASSISTED))
 		return //We check earlier, but just to make sure.
 
-	surge_damage = Clamp(0, surge + surge_damage, MAXIMUM_SURGE_DAMAGE) //We want X seconds at most of hampered movement or what have you.
+	surge_damage = clamp(0, surge + surge_damage, MAXIMUM_SURGE_DAMAGE) //We want X seconds at most of hampered movement or what have you.
 	surge_time = world.time
 
 /obj/item/organ/proc/removed(var/mob/living/carbon/human/target,var/mob/living/user)
@@ -450,7 +450,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 		if(user)
 			user.attack_log += "\[[time_stamp()]\]<span class='warning'> removed a vital organ ([src]) from [owner.name] ([owner.ckey]) [user ? "(INTENT: [uppertext(user.a_intent)])" : ""]</span>"
 			owner.attack_log += "\[[time_stamp()]\]<font color='orange'> had a vital organ ([src]) removed by [user.name] ([user.ckey]) (INTENT: [uppertext(user.a_intent)])</font>"
-			msg_admin_attack("[user.name] ([user.ckey]) removed a vital organ ([src]) from [owner.name] ([owner.ckey]) (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(owner))
+			msg_admin_attack("[user.name] ([user.ckey]) removed a vital organ ([src]) from [owner.name] ([owner.ckey]) (INTENT: [uppertext(user.a_intent)]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(owner))
 		owner.death()
 
 	owner.update_action_buttons()
@@ -474,9 +474,9 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 		target.update_eyes()
 	..()
 
-/obj/item/organ/attack(var/mob/target, var/mob/user)
+/obj/item/organ/attack(mob/living/target_mob, mob/living/user, target_zone)
 
-	if(robotic || !istype(target) || !istype(user) || (user != target && user.a_intent == I_HELP))
+	if(robotic || !istype(target_mob) || !istype(user) || (user != target_mob && user.a_intent == I_HELP))
 		return ..()
 
 	if(alert("Do you really want to use this organ as food? It will be useless for anything else afterwards.",,"No.","Yes.") == "No.")
@@ -496,7 +496,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 		O.fingerprintslast = fingerprintslast
 	user.put_in_active_hand(O)
 	qdel(src)
-	target.attackby(O, user)
+	target_mob.attackby(O, user)
 
 //used by stethoscope
 /obj/item/organ/proc/listen()

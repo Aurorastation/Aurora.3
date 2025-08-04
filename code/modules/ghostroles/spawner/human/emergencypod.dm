@@ -10,7 +10,7 @@
 
 	//Vars related to human mobs
 	outfit = /obj/outfit/admin/random/visitor
-	possible_species = list(SPECIES_HUMAN,SPECIES_HUMAN_OFFWORLD,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN,SPECIES_UNATHI,SPECIES_VAURCA_WARRIOR,SPECIES_VAURCA_WORKER)
+	possible_species = list(SPECIES_HUMAN,SPECIES_HUMAN_OFFWORLD,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN,SPECIES_UNATHI,SPECIES_VAURCA_WARRIOR,SPECIES_VAURCA_ATTENDANT,SPECIES_VAURCA_WORKER)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Pod Survivor"
@@ -48,7 +48,7 @@
 	else if(t == "tcfl")
 		welcome_message = "You are a stranded member of the Tau Ceti Foreign Legion!<br>Perhaps there was a training accident or maybe something went wrong during a routine operation in the Romanovich Cloud. The Prefect will never let you hear the end of this..."
 		outfit = /obj/outfit/admin/pod/tcfl
-		possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_IPC, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_DIONA) // TCFL accepts everyone. G1 and G2 have been excluded because they can't wear the hardsuit, which has the suit cooler.
+		possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_WORKER, SPECIES_IPC, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_DIONA) // TCFL accepts everyone. G1 and G2 have been excluded because they can't wear the hardsuit, which has the suit cooler.
 	else if(t == "fsf")
 		welcome_message = "You are a stranded Petty Officer of the Free Solarian Fleets!<br>Your skiff out of the FSFV Sforza was on a routine patrol when an accident or an attack forced you to abandon ship. Thankfully, you seem to be in friendly territory..."
 		outfit = /obj/outfit/admin/pod/fsf
@@ -471,4 +471,4 @@
 	if(W)
 		W.handle_item_insertion(passport)
 
-	burglars.add_antagonist(H.mind, TRUE, TRUE, FALSE, TRUE, TRUE)
+	GLOB.burglars.add_antagonist(H.mind, TRUE, TRUE, FALSE, TRUE, TRUE)

@@ -3,9 +3,9 @@
 	description = "Featuring a respectable cargo bay, light frame, and large thruster nacelles, the Xroquv-class is one of the fastest federation freighters of this size. This one in particular appears to be refitted with expanded thruster nacelles and minor structural modifications. This one's transponder identifies it as belonging to an independent freighter."
 
 	prefix = "ships/tirakqi_smuggler/"
-	suffixes = list("tirakqi_smuggler.dmm")
+	suffix = "tirakqi_smuggler.dmm"
 
-	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
+	sectors = list(ALL_TAU_CETI_SECTORS, ALL_BADLAND_SECTORS, SECTOR_CRESCENT_EXPANSE_WEST)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "tirakqi_smuggler"

@@ -46,7 +46,7 @@
 				A.spin(10,1)
 				M.Weaken(3)
 				A.visible_message(M, SPAN_DANGER("[A] swiftly leg sweeps [M]!"))
-				AM.throw_at(sweeptarget, ((Clamp((1 - (Clamp(distfromcaster - 2, 0, distfromcaster))), 1, 1))), 1)
+				AM.throw_at(sweeptarget, ((clamp((1 - (clamp(distfromcaster - 2, 0, distfromcaster))), 1, 1))), 1)
 
 /datum/martial_art/sol_combat/proc/quick_choke(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)//is actually lung punch
 	A.do_attack_animation(D)
@@ -88,9 +88,9 @@
 		playsound(get_turf(D), /singleton/sound_category/punch_sound, 50, 1, -1)
 
 	A.visible_message(SPAN_DANGER("[A] [picked_hit_type] [D]!"))
-	A.attack_log += text("\[[time_stamp()]\] <span class='warning'>["[picked_hit_type]"] [D.name] ([D.ckey])</span>")
-	D.attack_log += text("\[[time_stamp()]\] <font color='orange'>["Has Been [picked_hit_type]"] by [A.name] ([A.ckey])</font>")
-	msg_admin_attack("[key_name(A)] ["has [picked_hit_type]"] [key_name(D)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[A.x];Y=[A.y];Z=[A.z]'>JMP</a>)",ckey=key_name(A),ckey_target=key_name(D))
+	A.attack_log += "\[[time_stamp()]\] <span class='warning'>["[picked_hit_type]"] [D.name] ([D.ckey])</span>"
+	D.attack_log += "\[[time_stamp()]\] <font color='orange'>["Has Been [picked_hit_type]"] by [A.name] ([A.ckey])</font>"
+	msg_admin_attack("[key_name(A)] ["has [picked_hit_type]"] [key_name(D)] (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[A.x];Y=[A.y];Z=[A.z]'>JMP</a>)",ckey=key_name(A),ckey_target=key_name(D))
 
 	return 1
 
@@ -100,9 +100,9 @@
 	if(check_streak(A,D))
 		return 1
 
-	A.attack_log += text("\[[time_stamp()]\] <span class='warning'>Disarmed [D.name] ([D.ckey])</span>")
-	D.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been disarmed by [A.name] ([A.ckey])</font>")
-	msg_admin_attack("[key_name(A)] disarmed [D.name] ([D.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[D.x];Y=[D.y];Z=[D.z]'>JMP</a>)",ckey=key_name(D),ckey_target=key_name(A))
+	A.attack_log += "\[[time_stamp()]\] <span class='warning'>Disarmed [D.name] ([D.ckey])</span>"
+	D.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been disarmed by [A.name] ([A.ckey])</font>"
+	msg_admin_attack("[key_name(A)] disarmed [D.name] ([D.ckey]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[D.x];Y=[D.y];Z=[D.z]'>JMP</a>)",ckey=key_name(D),ckey_target=key_name(A))
 
 	if(prob(60))
 		var/obj/item/I = D.get_active_hand()

@@ -61,7 +61,7 @@
 	has_damage_range = 0
 	has_damage_state = TRUE
 	damage_temperature = T0C+80
-	flags = TURF_HAS_EDGES | TURF_HAS_CORNERS | TURF_REMOVE_SHOVEL | TURF_CAN_BREAK | TURF_CAN_BURN
+	flags = TURF_HAS_EDGES | TURF_OFFSET_EDGES | TURF_HAS_CORNERS | TURF_REMOVE_SHOVEL | TURF_CAN_BREAK | TURF_CAN_BURN
 	build_type = /obj/item/stack/tile/grass
 	footstep_sound = /singleton/sound_category/grass_footstep
 	floor_smooth = SMOOTH_NONE
@@ -73,7 +73,7 @@
 	desc = "Gritty and unpleasant."
 	icon = 'icons/turf/flooring/asteroid.dmi'
 	icon_base = "asteroid"
-	flags = TURF_HAS_EDGES | TURF_REMOVE_SHOVEL
+	flags = TURF_HAS_EDGES | TURF_OFFSET_EDGES | TURF_REMOVE_SHOVEL
 	build_type = null
 	footstep_sound = /singleton/sound_category/asteroid_footstep
 
@@ -83,7 +83,7 @@
 	icon = 'icons/turf/flooring/grass.dmi'
 	icon_base = "snow"
 	has_base_range = 2
-	flags = TURF_HAS_EDGES | TURF_REMOVE_SHOVEL
+	flags = TURF_HAS_EDGES | TURF_OFFSET_EDGES | TURF_REMOVE_SHOVEL
 	footstep_sound = /singleton/sound_category/snow_footstep
 
 //Carpet
@@ -94,7 +94,7 @@
 	icon_base = "carpet"
 	build_type = /obj/item/stack/tile/carpet
 	damage_temperature = T0C+200
-	flags = TURF_HAS_CORNERS | TURF_HAS_INNER_CORNERS | TURF_REMOVE_CROWBAR | TURF_CAN_BREAK | TURF_CAN_BURN
+	flags = TURF_HAS_CORNERS | TURF_HAS_INNER_CORNERS | TURF_REMOVE_CROWBAR | TURF_CAN_BREAK | TURF_CAN_BURN | TURF_HAS_EDGES
 	footstep_sound = /singleton/sound_category/carpet_footstep
 	floor_smooth = SMOOTH_NONE
 	wall_smooth = SMOOTH_NONE

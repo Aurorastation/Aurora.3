@@ -254,6 +254,7 @@
 			else
 				conv.cl_join(src)
 		computer.update_static_data_for_all_viewers()
+		active = conv
 		. = TRUE
 
 	if(action == "set_active")
@@ -298,8 +299,9 @@
 		. = TRUE
 
 	if(action == "new_channel")
-		GLOB.ntnet_global.begin_conversation(src, sanitize(params["new_channel"]))
+		var/datum/ntnet_conversation/conversation = GLOB.ntnet_global.begin_conversation(src, sanitize(params["new_channel"]))
 		computer.update_static_data_for_all_viewers()
+		active = conversation
 		. = TRUE
 
 	if(action == "delete")
@@ -312,8 +314,9 @@
 
 	if(action == "direct")
 		var/datum/ntnet_user/tUser = locate(params["direct"])
-		GLOB.ntnet_global.begin_direct(src, tUser)
+		var/datum/ntnet_conversation/conversation = GLOB.ntnet_global.begin_direct(src, tUser)
 		computer.update_static_data_for_all_viewers()
+		active = conversation
 		. = TRUE
 
 	if(action == "toggleadmin")

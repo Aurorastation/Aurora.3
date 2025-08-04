@@ -2,15 +2,9 @@
 #define PYLON_AWAITING_SACRIFICE 1	//1 = Awaiting sacrifice. The pylon is actively tracking a creature to be sacrificed to it
 #define PYLON_TURRET 2				//2 = Turret. The pylon has been empowered by a sacrifice and is now a turret permanantly
 
-
 /obj/structure/cult/pylon
 	name = "pylon"
 	desc = "A floating crystal that hums with an unearthly energy."
-	desc_antag = "A pylon can be upgraded into a magical defensive turret that shoots anyone opposing the cult\
-	</br>Upgrading a pylon requires a sacrifice. Bring it a small organic creature, like a monkey or rat. Use the creature on the pylon, or drag and drop to present it.\
-	</br>Once the sacrifice is accepted, kill it to complete the process. This will gib its body and make a very visible mess. After this point the pylon is fixed to the floor and cant be moved\
-	</br>The pylon will fire weak beams that are harmless to the cult. In addition it can be upgraded even more by shooting it with a laser, which will give it a limited number of extra-power shots."
-
 	icon_state = "pylonbase"
 	var/isbroken = FALSE
 	light_range = 5
@@ -18,20 +12,31 @@
 	var/pylonmode = PYLON_IDLE
 
 	var/damagetaken = 0
-	var/empowered = FALSE //Number of empowered, higher-damage shots remaining
+
+	///Number of empowered, higher-damage shots remaining
+	var/empowered = 0
+
 	var/mob/living/sacrifice //Holds a reference to a mob that is a pending sacrifice
 	var/mob/living/sacrificer //A reference to the last mob that attempted to sacrifice something. So we can message them
 	//Sacrifier is also used in target handling. the pylon will not bite the hand that feeds it. Noncultist colleagues are fair game though
 
-	var/next_shot = 0 //Absolute world time when we're allowed to fire again
-	var/shot_delay = 5 //Minimum delay between shots, in deciseconds
+	///Absolute world time when we're allowed to fire again
+	var/next_shot = 0
+
+	///Minimum delay between shots, in deciseconds
+	var/shot_delay = 5
+
 	var/mob/living/target
 
-	var/notarget //Number of times handle_firing has been called without finding anything to shoot at
-	//This is used for switching to lower-intensity processing
+	/**
+	 * Number of times handle_firing has been called without finding anything to shoot at
+	 *
+	 * This is used for switching to lower-intensity processing
+	 */
+	var/notarget
 
+	///An instance of the cult language datum. Used to scramble speech when speaking to noncultists
 	var/datum/language/cultcommon/lang
-	//An instance of the cult language datum. Used to scramble speech when speaking to noncultists
 
 	var/turf/last_target_loc
 
@@ -39,18 +44,46 @@
 	var/ticks
 	anchored = FALSE
 
+/obj/structure/cult/pylon/condition_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. = ..()
+	if(damagetaken)
+		switch(damagetaken)
+			if(1 to 8)
+				. += SPAN_WARNING("It has very faint hairline fractures.")
+			if(8 to 20)
+				. += SPAN_WARNING("It has several cracks across its surface.")
+			if(20 to 30)
+				. += SPAN_WARNING("It is chipped and deeply cracked, it may shatter with much more pressure.")
+			if(30 to INFINITY)
+				. += SPAN_DANGER("It is almost cleaved in two, the pylon looks like it will fall to shards under its own weight.")
+
+/obj/structure/cult/pylon/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "A pylon can be upgraded into a magical defensive turret that shoots anyone opposing the cult."
+	. += "Upgrading a pylon requires a sacrifice. Bring it a small organic creature, like a monkey or rat. Use the creature on the pylon, or drag and drop to present it."
+	. += "Once the sacrifice is accepted, kill it to complete the process. This will gib its body and make a very visible mess."
+	. += "Alternatively, you can attack it with disarm intent to sacrifice some of your blood for the upgrade."
+	. += "Once a sacrifice has been made, the pylon is fixed to the floor and cant be moved, and will fire weak lasers at any non-cultists."
+	. += "It can be temporarily upgraded by shooting it with a laser weapon, which will give it a limited number of extra-power shots."
+	. += "If broken, an Artificer can repair it."
 
 //Just a subtype that starts off in turret mode. For adminbus and debugging. Maybe a future wizard spell
 //Spawn them next to ERPers
 /obj/structure/cult/pylon/turret
 	pylonmode = PYLON_TURRET
 
-/obj/structure/cult/pylon/turret/New()
-	..()
+/obj/structure/cult/pylon/turret/Initialize()
+	. = ..()
 	start_process()
 
 /obj/structure/cult/pylon/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
+	last_target_loc = null
+	target = null
+	sacrifice = null
+	sacrificer = null
+
 	return ..()
 
 //Another subtype which starts with infinite empower shots. For empowered adminbus
@@ -62,22 +95,8 @@
 	lang = new /datum/language/cultcommon()
 	update_icon()
 
-/obj/structure/cult/pylon/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(damagetaken)
-		switch(damagetaken)
-			if(1 to 8)
-				. += SPAN_WARNING("It has very faint hairline fractures.")
-			if(8 to 20)
-				. += SPAN_WARNING("It has several cracks across its surface.")
-			if(20 to 30)
-				. += SPAN_WARNING("It is chipped and deeply cracked, it may shatter with much more pressure.")
-			if(30 to INFINITY)
-				. += SPAN_WARNING("It is almost cleaved in two, the pylon looks like it will fall to shards under its own weight.")
-
-
 /obj/structure/cult/pylon/Move()
-	..()
+	. = ..()
 	last_target_loc = null
 
 /obj/structure/cult/pylon/proc/start_process()
@@ -104,7 +123,6 @@
 	mindist = min(150, mindist)
 	process_interval = Ceiling(mindist*0.1)
 	process_interval = max(1, process_interval)
-
 
 //Run each process loop, this function checks if we can stop processing yet.
 //Returns 0 if its time to stop. Returns 1 if we should keep going.
@@ -147,7 +165,6 @@
 		if(empowered <= 0)
 			update_icon()
 
-
 //If user is a cultist, speaks message to them with a prefix
 //If user is not cultist, then speaks cult-y gibberish
 /obj/structure/cult/pylon/proc/speak_to(var/mob/user, var/message)
@@ -155,7 +172,6 @@
 		to_chat(user, "A voice speaks into your mind, <span class='cult'><i>[message]</i></span>")
 	else
 		to_chat(user, "A voice speaks into your mind, <span class='cult'><i>[lang.scramble(message)]</i></span>")
-
 
 //Todo: Replace the messages here with better ones. Should display a proper message to cultists
 //And nonsensical arcane gibberish to non cultists
@@ -248,7 +264,6 @@
 
 	update_icon()
 
-
 //Called every process in turret mode, and also by chaining spawns
 /obj/structure/cult/pylon/proc/handle_firing()
 	if((world.time < next_shot) || isbroken)
@@ -259,7 +274,7 @@
 	//Stuffcache holds a list of things found by a dview call, so we only need to do it once per proc.
 
 	if(target && target.stat != DEAD)
-		if(target.loc == last_target_loc)
+		if(get_turf(target) == last_target_loc)
 		//To minimise expensive DVIEW calls, if the target hasnt moved since the last shot we'll assume they're still in sight
 		//This could cause problems in some edge cases (like lowering firelocks or shutters without moving)
 		//But it has a major performance gain that makes it worth it
@@ -306,34 +321,51 @@
 			notarget = 0
 			reconsider_interval()
 
-
 /obj/structure/cult/pylon/proc/fire_at(var/atom/target)
-	//Only store loc if target is on a turf. Otherwise this bugs out with people in exosuits
-	if(istype(target.loc, /turf))
-		last_target_loc = target.loc
+	last_target_loc = get_turf(target.loc)
 
 	process_interval = 1 //Instantly wake up if we found a target
-	var/obj/item/projectile/beam/cult/A
+
+	var/projectile_type
 	if(empowered > 0)
-		A = new /obj/item/projectile/beam/cult/heavy(loc)
+		projectile_type = /obj/projectile/beam/cult/heavy
 		empowered = max(0, empowered-1)
-		playsound(loc, 'sound/weapons/laserdeep.ogg', 100, 1)
 		if(empowered <= 0)
 			update_icon()
 	else
-		A = new /obj/item/projectile/beam/cult(loc)
-		playsound(loc, 'sound/weapons/laserdeep.ogg', 65, 1)
-	A.ignore = sacrificer
-	A.launch_projectile(target)
+		projectile_type = new /obj/projectile/beam/cult(loc)
+
+	src.fire_projectile(projectile_type, target, 'sound/weapons/laserdeep.ogg', src, list(sacrificer))
+
 	next_shot = world.time + shot_delay
-	A = null //So projectiles can GC
 	addtimer(CALLBACK(src, PROC_REF(handle_firing)), shot_delay + 1)
 
-/obj/structure/cult/pylon/attack_hand(mob/M)
-	if (M.a_intent == "help")
-		to_chat(M, SPAN_WARNING("The pylon feels warm to the touch..."))
+/obj/structure/cult/pylon/attack_hand(mob/living/user)
+	if (user.a_intent == I_HELP)
+		to_chat(user, SPAN_WARNING("The pylon feels warm to the touch..."))
+
+	else if((user.a_intent == I_DISARM) && (pylonmode != PYLON_TURRET))
+		if(!iscultist(user))
+			return
+
+		var/mob/living/carbon/human/cultist_upgrader = user
+		if(!istype(cultist_upgrader))
+			return
+
+		if(tgui_alert(user, "Do you wish to sacrifice some of your blood to upgrade this pylon?", "Upgrade Pylon", list("Yes", "No")) != "Yes")
+			return
+
+		if(cultist_upgrader.get_blood_volume() < BLOOD_VOLUME_OKAY)
+			to_chat(cultist_upgrader, SPAN_WARNING("You do not have enough blood to do this, the Geometer values you being alive more... For now."))
+			return
+
+		cultist_upgrader.remove_blood_simple((DEFAULT_BLOOD_AMOUNT / 100) * 20) //20% of the default blood volume
+		pylonmode = PYLON_TURRET
+		update_icon()
+		start_process()
+
 	else
-		attackpylon(M, 4, M)
+		attackpylon(user, 4, user)
 
 /obj/structure/cult/pylon/attack_generic(mob/user, damage)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -356,14 +388,18 @@
 	attackpylon(user, attacking_item.force, attacking_item)
 
 //Mousedrop so that constructs can drag rats out of maintenance to make turrets
-/obj/structure/cult/pylon/MouseDrop_T(atom/dropping, mob/user)
-	if(istype(dropping, /mob/living))
-		present_sacrifice(user, dropping)
+/obj/structure/cult/pylon/mouse_drop_receive(atom/dropped, mob/user, params)
+	if(istype(dropped, /mob/living))
+		present_sacrifice(user, dropped)
 		return
 	return ..()
 
-/obj/structure/cult/pylon/bullet_act(var/obj/item/projectile/Proj)
-	attackpylon(Proj.firer, Proj.damage, Proj)
+/obj/structure/cult/pylon/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	attackpylon(hitting_projectile.firer, hitting_projectile.damage, hitting_projectile)
 
 //Explosions will usually cause instant shattering, or heavy damage
 //Class 3 or lower blast is sometimes survivable. 2 or higher will always shatter
@@ -384,10 +420,10 @@
 			to_chat(user, SPAN_WARNING("You swing at the pylon to no effect."))
 			return
 
-	if(istype(source, /obj/item/projectile))
-		if(istype(source, /obj/item/projectile/beam/cult))
+	if(istype(source, /obj/projectile))
+		if(istype(source, /obj/projectile/beam/cult))
 			return //No feedback loops
-		var/obj/item/projectile/proj = source
+		var/obj/projectile/proj = source
 		if(proj.damage_type == DAMAGE_BURN)
 			if(empowered <= 0)
 				visible_message(SPAN_CULT("The beam refracts inside the pylon, splitting into an indistinct violet glow. The crystal takes on a new, more ominous aura!"))
@@ -469,7 +505,6 @@
 	notarget = 0
 	damagetaken = 0
 	update_icon()
-
 
 /obj/structure/cult/pylon/update_icon()
 	ClearOverlays()

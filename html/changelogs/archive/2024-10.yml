@@ -1,0 +1,319 @@
+2024-10-01:
+  SimpleMaroon:
+  - rscadd: Added Vaurca Attendants, a subspecies of a subspecies (Warriors). Compared
+      to Warriors, they're faster, less prone to brute injury but more prone to burns,
+      experience more pain than other Vaurcae, have a signature gaster tail, and no
+      mandibles, along with a somewhat unique appearance compared to Warriors overall.
+      They can also hold normal-sized items instead of small ones with their vestigial
+      arms, and they have no bite attack.
+  - imageadd: Added unique sprite aspects for the Vaurca Attendant compared to the
+      Warrior, including a differently-shaped head and feet.
+  - bugfix: Fixed the Vaurca Warrior left hand icon state, which was one pixel too
+      far to the side on the north-facing sprite.
+  - qol: Changed the name of Vaurca Warriors to Vaurca Myrmidon.
+  hazelmouse:
+  - rscadd: Remaps the Tau Ceti Armed Forces corvette ghostrole map to fit newer mapping
+      standards. Go Biesel!
+  - rscadd: Adds a variety of Tau Ceti Armed Forces uniform assets to the codebase,
+      including assets for officers and non-combatants, sprited by NobleRow.
+  - bugfix: The TCAF jacket is no longer invisible when worn.
+2024-10-03:
+  Crozarius:
+  - qol: Ethanol no longer automatically makes Unathi vomit.
+  FabianK3:
+  - qol: 'Added cameras to missing angles or completely uncovered areas: Central ring
+      (locker room entrance), bridge conference room, XO office, gym, telescience,
+      secure artifact storage, deck two tool storage.'
+  - qol: Added lights and lightswitch to research secure artifact storage.
+  - bugfix: Fixed unrealistic power readings throughout the combustion turbine power
+      grid.
+  - rscadd: Added a powernet sensor to the combustion turbine power grid.
+  hazelmouse:
+  - rscadd: Added a paintgun to the Jockey Workshop, so you can paint your exosuits
+      as a Jockey. Bonus points if they're an eye-sore.
+  - rscadd: Adds the new Vaurca Attendant subspecies to a number of ghostroles.
+  - bugfix: Vaurca Attendants can now take species-specific items from the loadout,
+      including clothing and augments.
+  - bugfix: Vaurca Attendants can no longer join as consulars.
+  - bugfix: Vaurca Attendants now work smoothly with a number of event outfits.
+  - balance: Overloaders now cost fewer credits and last substantially longer.
+2024-10-04:
+  Furrycactus:
+  - rscadd: Updated and fixed some small bugs with the IAC Rescue Ship.
+  - bugfix: Fixes the uranium-fueled advanced portable generator exploding when running
+      at level 4.
+2024-10-05:
+  Ben10083:
+  - qol: Doubles the starting pressure of airlock air canisters to lessen occurances
+      of canisters not having enough air to work.
+  - bugfix: TCAF shuttle should now dock and undock with Hangar properly.
+  Geeves:
+  - rscadd: Added power outlets to the service area. More can be printed at RnD. The
+      capacitor can be upgraded to improve charging speed for connected devices.
+  hazelmouse:
+  - bugfix: Coaliton Rangers now spawn with appropriate access. You can unlock your
+      suit cyclers now!
+  - bugfix: Resolves a bug preventing characters from lighting smoking pipes.
+2024-10-06:
+  CourierBravo:
+  - rscadd: Redid random object sprites, assigning unique sprites to each random object.
+      With the expectation that in the future, random objects have unique icons. You'll
+      only ever see this when you do map making stuff.
+  - rscadd: Created a new sprite for the cooking oil tank, a modified reagent tank
+      sprite.
+  - imageadd: Added rainbow sprites for random objects, and replaced the oil tank
+      sprite.
+  - balance: Reduced the amount of cooking oil in oil tanks to be in line with other
+      reagent tanks.
+  hazelmouse:
+  - bugfix: SCC and TCAF flight helmets are no longer invisible on Unathi and Tajara.
+  hazelmouse, stev iii:
+  - rscadd: Adds a number of new flags into the game, now available in the loadout!
+2024-10-07:
+  Ben10083:
+  - rscadd: Fixes up various aspects of the Coalition Ranger ship, primarily relating
+      to airlock names, wrong facing buttons, and missing access.
+  - rscadd: Coalition Ranger ship given aft docking port.
+  - balance: Replaces rat in Coalition Ranger ship with more balanced white variant.
+  FluffyGhost:
+  - refactor: Refactored the attack proc signature.
+  - code_imp: Added signals and components for the attack proc.
+  - code_imp: Added signals and components for the attackby proc.
+  - code_imp: Adjusted some leftover attackby procs signatures.
+  - server: Added grep test to ensure people don't keep adding attack/attackby procs
+      with the wrong signature.
+  - rscadd: Runtime map now has a bunch of new areas / items with often-tested stuffs,
+      and some hard-to-put-at-runtime stuffs.
+  - rscadd: Runtime map jobs now are positioned to make it faster to reach the aforementioned
+      often-tested stuffs.
+  - code_imp: Runtime map doesn't generate an overmap anymore by default, which speeds
+      up the process.
+  - code_imp: Runtime map now loads in ~11 seconds instead of ~40 seconds as it was
+      before.
+  - refactor: Updated the maploader to be faster in parsing maps.
+  - code_imp: Bapi is not engaged anymore if we're only measuring the map size, which
+      speeds up the process.
+  - code_imp: In fastboot we do not generate the codexes anymore, which speeds up
+      the process.
+  - code_imp: In fastboot and if exoplanets and away sites are not enabled, we do
+      not parse the map templates anymore, which speeds up the process.
+  - refactor: Updated the icon smoothing to be faster.
+  - code_imp: Optimized cargo area code.
+  - code_imp: Other optimizations.
+  Furrycactus:
+  - rscadd: Updated airlock markers on the Hephaestus Cyclops ship, and added two
+      small EVA docking platforms.
+  - rscadd: Added the circuitboard for the miniature fusion reactors to the circuit
+      imprinter list. Also added a board and some spare tritium to Engineering Hard
+      Storage as a potential backup power source, or for more energy intensive construction
+      projects.
+  MattAtlas:
+  - code_imp: Cleaned up electronic cigarette code slightly.
+  - qol: Electronic cigarette cartridges are now removed with alt-click.
+  - qol: Electronic cigarette cartridges now last far longer.
+  Snowy1237:
+  - bugfix: Made power outlets not dense.
+  - bugfix: Fixed jetpacks not working while in suit storage.
+  - bugfix: fixes magnetic door locks being layered under the door and unremovable.
+  Tag114:
+  - rscadd: Re-enables the ability for changelings to stealthily extract DNA from
+      targets by stinging them.
+  hazelmouse:
+  - balance: Reduces the spawn chance of all Adhomian ghostroles in the Badlands by
+      half.
+2024-10-09:
+  hazelmouse:
+  - bugfix: Fixed the broken sprite of the Vaurca phoron autoinhaler.
+  - qol: Implemented several small quality-of-life improvements to the Lone Spacer,
+      Orion Express, and Tramp Freighter ghostroles.
+2024-10-10:
+  FluffyGhost:
+  - bugfix: Fixed the maploader sleeping without reinitializing SSAtoms to initialize,
+      which caused some runtimes in niche cases in the CI.
+  - bugfix: Generic attacks below 15 damage were being ignored due to a logic error
+      in how the shields are handled, now they aren't anymore, fixes gremorian nurses
+      doing no damage and possibly other things.
+2024-10-11:
+  Ben10083:
+  - bugfix: Only Fat Schlorrgos (or wider) can now lay eggs.
+  - rscadd: Adds new Golden Deep Hoplan uniform and armor. Thanks to NobleRow for
+      lore and sprites.
+  - rscadd: Hoplan assets added to traitor uplink.
+  FluffyGhost:
+  - bugfix: Fixes exosuit sleeper TGUI runtime due to invalid parameter.
+  - bugfix: Fixed monkey cubes under showers from turning the game into Doom.
+  - bugfix: Fixed showers not showering you because of an improper early return on
+      wet floors.
+  - bugfix: Fixed blood overlays being wrongly cleared when you shower.
+  - code_imp: Sonme code improvements.
+  SimpleMaroon:
+  - rscadd: Added a Burzsian banner and flagpatch to the loadout.
+  hazelmouse:
+  - rscadd: Added the rattle audible emote, available exclusively to Vaurca Attendants.
+  - bugfix: Solarian Navy utility covers are no longer invisible.
+  notagonk:
+  - rscadd: Adds the Himean vendor foods & drink to the lunchbox selection.
+2024-10-14:
+  Ben10083:
+  - rscadd: Headmaster ship now has an Autocannon.
+  CourierBravo:
+  - bugfix: Removed the crew armory buttons around the Horizon.
+  - bugfix: Added air alarms to several rooms in science missing one.
+  - qol: Moved the supermatter controls on the CE's desk onto the wall. Also, moved
+      the window so Ginny can look into that back hallway.
+  DreamySkrell:
+  - bugfix: BAPI - mapmanip grid alloc bugfix.
+  FluffyGhost:
+  - bugfix: Fixed robots duplication on insertion of posibrain without a player.
+  - bugfix: Fixed runtime that caused the above.
+  - bugfix: Fixed runtime on cyborg building inspection.
+  - bugfix: Fixed runtime on cyborg building due to uninitalized list vars.
+  - bugfix: Fixed secure storage not displaying the pin code correctly.
+  - rscadd: Mechatronic fabricator autorefreshes the queue on material insertion.
+  - bugfix: Mechatronic fabricator aborts the queue if deconstructed.
+  Geeves:
+  - rscadd: You can now view your custom items from within the loadout.
+  Snowy1237:
+  - rscadd: Removed the FSF ship from possible spawns, and replaced it with the SSRM
+      patrol ship in Valley Hale.
+  - bugfix: Fixes the Nightlife and Impedrezine injectors spawning empty.
+  Wowzewow (Wezzy):
+  - rscadd: Adds a new species trait, NO_EQUIP_SPEEDMODS. Ignores slowdown effects
+      from equipment and dragging things. G2s, Vaurca Bulwarks, and Tajara Teslas.
+2024-10-15:
+  CourierBravo:
+  - rscadd: Added the Dino Grabber. A toy weapon, that does no damage. But, it has
+      a 1 in 5 chance of disarming a target you attack with it. Works the same way
+      as whips, so targeting anywhere but the hands will not trigger the disarm.
+  - rscadd: Added the Dino Grabber to the warehouse rare item spawn pool.
+  - imageadd: Added an object sprite and in hand sprites for the dino grabber. Thanks
+      to @_bluebeerry for the object sprite.
+  FabianK3:
+  - rscadd: Updated engineering lobby layout and adjacent areas.
+  - rscadd: Added a notice board to the engineering lobby.
+  - qol: Moved engineering first aid locker into the lobby. Remember that.
+  SimpleMaroon:
+  - qol: Gives all Vaurca Ta representatives the thermic blaster as their firearm.
+  - balance: Gives the thermic blaster a slow self-recharge.
+  - qol: Updates the thermic blaster description and extended description.
+  nauticall:
+  - rscadd: Adds a right-click verb 'Force Shutdown' to modular computers that forces
+      them to power off. Useful for bluescreen situations.
+2024-10-17:
+  FluffyGhost:
+  - rscadd: Improved ZAS error reporting.
+  - rscdel: Removed a cursed ruin that was failing tests.
+  hazelmouse:
+  - qol: Made several QoL improvements to the TCAF Corvette ghostrole.
+  - rscadd: Added the Heavy Autocannon ship weapon to the TCAF Corvette ghostrole.
+2024-10-18:
+  Evandorf:
+  - rscadd: Adds Tokash's Consular Mantle custom item.
+  Snowy1237:
+  - rscdel: Temporairly disables the Adhomian Circus until it is remapped.
+2024-10-19:
+  FabianK3:
+  - bugfix: Added the missing ringer terminal to the XO office. Now the ringer is
+      functional.
+  - bugfix: Removed duplicate standard holopad from the XO office.
+  - bugfix: Fixed the water tank refill of Farmbots. Farmbots will now refill their
+      tank if the option is enabled and a sink is nearby.
+  - bugfix: Fixed shield generator stability label.
+  - bugfix: Fixed Atmospheric technician spawn slot count, now three out of three
+      ATs can spawn at roundstart instead of two out of three.
+  FluffyGhost:
+  - bugfix: Fixed APC construction.
+  - code_imp: Cleaned up APC construction try_build() proc.
+  - server: Updated megalinter to v8.1.0.
+  WickedCybs, Ansekishokuu:
+  - rscadd: Added 2 new hairstyles for humans and tajara. Bobcut, overeye and Diagonal
+      Bangs.
+2024-10-20:
+  Ben10083:
+  - rscadd: Adds new black and brown greatcoats, thanks to greytide_ for the sprites!
+  - rscadd: Greatcoat options added to loadout.
+  dessysalta:
+  - rscadd: Rejoice! The freebooter and freighter offships can now have IPC captains.
+2024-10-21:
+  ClemTheDuck:
+  - balance: Tweaked armour slowdown to be spread between the plate, arm and leg guards.
+      Having the full set on will slow you down the most, taking the arm and leg guards
+      off will make you faster.
+  - balance: Changes the armour values of the Heavy Helmet to be in line with the
+      Heavy Plate stats and other heavy armour stats.
+  - balance: Changes the armour values of the Imperial Flak Vest to be equal to Corporate
+      Security plates, should make the imperial flak vest actually useful as armour.
+  - balance: Changes the armour values of the TCAF Light carapce to be equal to Corporate
+      Security plates, this is to make it actually have some tradeoff and stand out
+      against the TCAF Heavy Carapce.
+  FluffyGhost:
+  - bugfix: Replaced the outside turfs with exoplanet ones for the digsite.
+  - bugfix: Fixed some exoplanet areas not having an exoplanet base turf.
+  - code_imp: Wrote a unit test for exoplanet areas to ensure they have an exoplanet
+      base turf.
+  - bugfix: Fixed toys being interactable from distance, while floored etcetera.
+  - rscadd: Added a robotic syringe, to be used by borgs, that do not get dirty and
+      gives infection to people after the first use.
+  - code_imp: Removed a snowflake storage code for the light replacer, that was bypassing
+      the doafter loading inside afterattack.
+  - bugfix: Fixed multi-stacking light replacing doafter.
+  - bugfix: Fixed grippers icon not displaying the content of the gripper.
+  - bugfix: Gripper icon now updates when the item content changes (in most situations?).
+  - bugfix: Fixed the xenomorph helmet icon state.
+  SimpleMaroon:
+  - qol: Vaurca Attendants can now use the same mecha eye body markings as Workers.
+  Snowy1237:
+  - bugfix: Fixed greimorian workers making greimorians out of dead greimorians.
+2024-10-22:
+  AlaunusLux:
+  - balance: Removes chance of failure when opening a surgical site for vaurca with
+      surgical drill.
+2024-10-25:
+  Ben10083:
+  - qol: The Strange One darkens the sky on October 31st.
+2024-10-26:
+  Ben10083:
+  - spellcheck: Grammar fix for Twin Suns Charm.
+  FluffyGhost:
+  - rscadd: Ingested ryetalyn now cures tumors, and does its effect.
+  - code_imp: Implemented time-constant STP_PROB in some procs.
+  - bugfix: Fixed a runtime on book opening.
+  - bugfix: Fixed a runtime in floating message generator when the client disconnects.
+  - bugfix: Fixed some TGUI number inputs where the default could be larger than the
+      max in some instances, causing a runtime.
+  - bugfix: Fixed harvesters vision not making them shoot at opaque turfs on non-vertical
+      alignments.
+  - code_imp: Some code QoL changes.
+  - bugfix: Fixed even more active edges on the abandoned adhomian village turfs.
+  - bugfix: Fix lazarus injector not working.
+  - bugfix: Fix corgi attack resolution not returning parent result.
+  - bugfix: Resolved some runtimes for mimic turfs on examine.
+  - code_imp: All examine headers respect the proc signature.
+  - code_imp: All examine that do not explicitly need not to, passthrough the arglist
+      to references examine target procs.
+  - refactor: Refactored directionals, ported lists of directions from TG, got rid
+      of useless proc to get the reverse direction.
+  - bugfix: Fixed a runtime in handle_intoxication().
+  Snowy1237:
+  - bugfix: Fixes wieldable items un-wielding when hovered over a compatible storage
+      slot.
+  hazelmouse:
+  - rscadd: Remaps the Golden Deep ghostrole to fit newer standards.
+  - rscadd: Adds a number of new assets to the game for the Golden Deep, including
+      new voidsuits and menial uniforms.
+  - rscadd: Adds the clothes dyer item to the game, used to recolor recolorable clothing.
+      Adds it to the Golden Deep ghostrole.
+2024-10-27:
+  FluffyGhost:
+  - rscadd: Chemmaster and chemdispenser UI disables if the machine is not operable.
+  - code_imp: Turned a comment into a DMDoc.
+  - refactor: Refactored movement observable away, use only the signal.
+  - refactor: Refactored and fixed orbiter for ghosts.
+  - code_imp: Some tweaks to the signal.
+2024-10-31:
+  SimpleMaroon:
+  - bugfix: Vaurca Myrmidons can now select the left overlay for mecha eyes and the
+      large right-side faceplate body markings when they previously couldn't.
+  - qol: Allowed Vaurca Attendants to use hair gradient styles.
+  Snowy1237:
+  - qol: Changed the SSRM patrol ship's shuttle docking time to speed it up.

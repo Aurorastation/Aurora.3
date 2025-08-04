@@ -1,11 +1,11 @@
-var/global/datum/getrev/revdata = new()
+GLOBAL_DATUM_INIT(revdata, /datum/getrev, new())
 
 /hook/startup/proc/initialize_test_merges()
-	if (!revdata)
+	if (!GLOB.revdata)
 		LOG_DEBUG("GETREV: No rev found.")
 		return TRUE
 
-	revdata.testmerge_initialize()
+	GLOB.revdata.testmerge_initialize()
 
 	return TRUE
 
@@ -45,12 +45,12 @@ var/global/datum/getrev/revdata = new()
 	set name = "Show Server Revision"
 	set desc = "Check the current server code revision"
 
-	if(revdata.revision)
-		to_chat(src, "<b>Server revision:</b> [revdata.branch] - [revdata.date]")
+	if(GLOB.revdata.revision)
+		to_chat(src, "<b>Server revision:</b> [GLOB.revdata.branch] - [GLOB.revdata.date]")
 		if(GLOB.config.githuburl)
-			to_chat(src, "<a href='[GLOB.config.githuburl]/commit/[revdata.revision]'>[revdata.revision]</a>")
+			to_chat(src, "<a href='[GLOB.config.githuburl]/commit/[GLOB.revdata.revision]'>[GLOB.revdata.revision]</a>")
 		else
-			to_chat(src, revdata.revision)
+			to_chat(src, GLOB.revdata.revision)
 	else
 		to_chat(src, "Revision unknown")
 
@@ -122,7 +122,7 @@ var/global/datum/getrev/revdata = new()
 	. += {"<tr><th>Author:</th><td>[html_encode(tm.author)]</td></tr>"}
 
 	if (GLOB.config.githuburl)
-		. += {"<tr><td colspan="2"><a href="?JSlink=github;pr=[tm.number]">Link to GitHub</a></td></tr>"}
+		. += {"<tr><td colspan="2"><a href="byond://?JSlink=github;pr=[tm.number]">Link to GitHub</a></td></tr>"}
 
 	. += {"<tr><th>Description:</th><td>[html_encode(tm.body)]</td></tr>"}
 	if(tm.comment)

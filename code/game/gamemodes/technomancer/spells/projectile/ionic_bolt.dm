@@ -13,7 +13,7 @@
 	desc = "For those pesky security units."
 	cast_methods = CAST_RANGED
 	aspect = ASPECT_EMP
-	spell_projectile = /obj/item/projectile/ion
+	spell_projectile = /obj/projectile/ion
 	energy_cost_per_shot = 500
 	instability_per_shot = 6
 	cooldown = 10

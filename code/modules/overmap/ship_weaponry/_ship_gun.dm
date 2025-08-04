@@ -10,7 +10,7 @@
 	var/max_damage = 1000
 	var/heavy_firing_sound = 'sound/weapons/gunshot/ship_weapons/120mm_mortar.ogg' //The sound in the immediate firing area. Very loud.
 	var/light_firing_sound = 'sound/effects/explosionfar.ogg' //The sound played when you're a few walls away. Kind of loud.
-	var/projectile_type = /obj/item/projectile/ship_ammo
+	var/projectile_type = /obj/projectile/ship_ammo
 	var/special_firing_mechanism = FALSE //If set to TRUE, the gun won't show up on normal controls.
 	var/charging_sound					 //The sound played when the gun is charging up.
 	var/caliber = SHIP_CALIBER_NONE
@@ -29,6 +29,48 @@
 	var/weapon_id //Used to identify a gun in the targeting consoles and connect weapon systems to the relevant ammunition loader. Must be unique!
 	var/list/obj/structure/ship_weapon_dummy/connected_dummies = list()
 	var/obj/structure/ship_weapon_dummy/barrel
+
+/obj/machinery/ship_weapon/condition_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	var/ratio = (damage / max_damage) * 100
+	switch(ratio)
+		if(1 to 10)
+			. += SPAN_NOTICE("It looks to be in tip top shape apart from a few minor scratches and dings.")
+		if(10 to 20)
+			. += SPAN_ALERT("It has some kinks and bends here and there.")
+		if(20 to 40)
+			. += SPAN_ALERT("It has a few holes through which you can see some machinery.")
+		if(40 to 60)
+			. += SPAN_WARNING("Some fairly important parts are missing... but it should work anyway.")
+		if(60 to 80)
+			. += SPAN_WARNING("It needs repairs direly. Both aiming and firing components are missing or broken. It has a lot of holes, too. It definitely wouldn't \
+				pass inspection.")
+		if(90 to 100)
+			. += SPAN_DANGER("It's falling apart! Just touching it might make the whole thing collapse!")
+		else //At roundstart, weapons start with 0 damage, so it'd be 0 / 1000 * 100 -> 0
+			. += SPAN_NOTICE("It looks to be in tip top shape and not damaged at all.")
+
+/obj/machinery/ship_weapon/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use a multitool to check or update the weapon's internal network ID for linking purposes. You probably don't need to do this."
+	. += "To load a ship weapon, you must use a nearby Ammunition Loader linked to it."
+	. += "This weapon is LOUD when it fires; you probably want to wear ear protection when nearby."
+
+/obj/machinery/ship_weapon/assembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	var/ratio = (damage / max_damage) * 100
+	if(ratio > 0)
+		. += "The damage can be repaired with a <b>welder</b>, but given the size of \the [src] it will take a lot of time and welding fuel."
+
+/obj/machinery/ship_weapon/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	var/loaded_ammo_count_txt = num2text(length(ammunition))
+	var/max_ammo_txt = num2text(max_ammo)
+	. += "\the [src] can load a maximum of [max_ammo_txt] [max_ammo == 1 ? "round" : "rounds"] at a time."
+	if(length(ammunition) >= max_ammo)
+		. += "\the [src] is fully loaded with ammunition!"
+	else
+		. += SPAN_NOTICE("\the [src] is currently loaded with [loaded_ammo_count_txt] [length(ammunition) == 1 ? "round" : "rounds"] of ammunition.")
 
 /obj/machinery/ship_weapon/Initialize(mapload)
 	..()
@@ -69,29 +111,6 @@
 /obj/machinery/ship_weapon/proc/update_damage()
 	if(damage >= max_damage)
 		qdel(src)
-
-/obj/machinery/ship_weapon/proc/get_damage_description()
-	var/ratio = (damage / max_damage) * 100
-	switch(ratio)
-		if(1 to 10)
-			. = "It looks to be in tip top shape."
-		if(10 to 20)
-			. = "It has some kinks and bends here and there."
-		if(20 to 40)
-			. = "It has a few holes through which you can see some machinery."
-		if(40 to 60)
-			. = SPAN_WARNING("Some fairly important parts are missing... but it should work anyway.")
-		if(60 to 80)
-			. = SPAN_DANGER("It needs repairs direly. Both aiming and firing components are missing or broken. It has a lot of holes, too. It definitely wouldn't \
-				pass inspection.")
-		if(90 to 100)
-			. = SPAN_DANGER("It's falling apart! Just touching it might make the whole thing collapse!")
-		else //At roundstart, weapons start with 0 damage, so it'd be 0 / 1000 * 100 -> 0
-			return "It looks to be in tip top shape and not damaged at all."
-
-/obj/machinery/ship_weapon/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += get_damage_description()
 
 /obj/machinery/ship_weapon/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/device/multitool))
@@ -221,7 +240,7 @@
 	if(!barrel)
 		crash_with("No barrel found for [src] at [x] [y] [z]! Cannot fire!")
 	var/turf/firing_turf = get_step(barrel, barrel.dir)
-	var/obj/item/projectile/ship_ammo/projectile
+	var/obj/projectile/ship_ammo/projectile
 	if(SA.projectile_type_override)
 		projectile = new SA.projectile_type_override(firing_turf)
 	else
@@ -230,7 +249,6 @@
 	projectile.desc = SA.desc
 	projectile.ammo = SA
 	projectile.dir = barrel.dir
-	projectile.shot_from = name
 	SA.overmap_target = overmap_target
 	SA.entry_point = landmark
 	SA.origin = linked
@@ -243,7 +261,9 @@
 		SA.heading = barrel.dir
 	SA.forceMove(projectile)
 	var/turf/target = get_step(projectile, barrel.dir)
-	projectile.launch_projectile(target)
+	projectile.preparePixelProjectile(target, firing_turf)
+	projectile.fired_from = barrel
+	projectile.fire()
 	return TRUE
 
 /obj/machinery/ship_weapon/proc/consume_ammo()
@@ -279,7 +299,7 @@
 	SHOULD_CALL_PARENT(FALSE)
 
 	if(connected)
-		return connected.examine(user, distance, is_adjacent, infix, suffix, show_extended)
+		return connected.examine(arglist(args))
 	else
 		return TRUE
 
@@ -291,17 +311,21 @@
 	if(connected)
 		connected.attackby(attacking_item, user)
 
-/obj/structure/ship_weapon_dummy/hitby(atom/movable/AM, var/speed = THROWFORCE_SPEED_DIVISOR)
+/obj/structure/ship_weapon_dummy/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	if(connected)
-		connected.hitby(AM)
-	if(ismob(AM))
-		if(isliving(AM))
-			var/mob/living/M = AM
-			M.turf_collision(src, speed)
+		connected.hitby(arglist(args))
+	if(ismob(hitting_atom))
+		if(isliving(hitting_atom))
+			var/mob/living/M = hitting_atom
+			M.turf_collision(src, throwingdatum.speed)
 			return
 
-/obj/structure/ship_weapon_dummy/bullet_act(obj/item/projectile/P, def_zone)
-	connected.bullet_act(P)
+/obj/structure/ship_weapon_dummy/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	connected.bullet_act(hitting_projectile)
 
 /obj/structure/ship_weapon_dummy/ex_act(severity)
 	connected.ex_act(severity)

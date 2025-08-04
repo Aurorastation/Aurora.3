@@ -46,7 +46,7 @@
 
 // Updates what the eye can see. It is recommended you use this when the eye moves or it's location is set.
 
-/datum/visualnet/proc/update_eye_chunks(mob/abstract/eye/eye, var/full_update = FALSE)
+/datum/visualnet/proc/update_eye_chunks(mob/abstract/eye/freelook/eye, var/full_update = FALSE)
 	. = list()
 	var/turf/T = get_turf(eye)
 	if(T)
@@ -74,7 +74,7 @@
 		var/datum/chunk/c = chunk
 		c.add_eye(eye)
 
-/datum/visualnet/proc/remove_eye(mob/abstract/eye/eye)
+/datum/visualnet/proc/remove_eye(mob/abstract/eye/freelook/eye)
 	for(var/chunk in eye.visibleChunks)
 		var/datum/chunk/c = chunk
 		c.remove_eye(eye)
@@ -118,8 +118,8 @@
 	if(source in sources)
 		return FALSE
 	sources += source
-	GLOB.moved_event.register(source, src, PROC_REF(source_moved))
-	GLOB.destroyed_event.register(source, src, PROC_REF(remove_source))
+	RegisterSignal(source, COMSIG_MOVABLE_MOVED, PROC_REF(source_moved))
+	RegisterSignal(source, COMSIG_QDELETING, PROC_REF(remove_source))
 	for_all_chunks_in_range(source, TYPE_PROC_REF(/datum/chunk, add_source), list(source))
 	if(update_visibility)
 		update_visibility(source, opacity_check)
@@ -128,16 +128,16 @@
 /datum/visualnet/proc/remove_source(var/atom/source, var/update_visibility = TRUE, var/opacity_check = FALSE)
 	if(!sources.Remove(source))
 		return FALSE
-	GLOB.moved_event.unregister(source, src)
-	GLOB.destroyed_event.unregister(source, src)
+	UnregisterSignal(source, COMSIG_MOVABLE_MOVED)
+	UnregisterSignal(source, COMSIG_QDELETING)
 	for_all_chunks_in_range(source, /datum/chunk/proc/remove_source, list(source))
 	if(update_visibility)
 		update_visibility(source, opacity_check)
 	return TRUE
 
-/datum/visualnet/proc/source_moved(var/atom/movable/source, var/old_loc, var/new_loc)
+/datum/visualnet/proc/source_moved(atom/movable/source, atom/old_loc, dir, forced, list/old_locs)
 	var/turf/old_turf = get_turf(old_loc)
-	var/turf/new_turf = get_turf(new_loc)
+	var/turf/new_turf = get_turf(source)
 
 	if(old_turf == new_turf)
 		return

@@ -15,7 +15,7 @@
 	desc = "A camera film cartridge. Insert it into a camera to reload it."
 	icon_state = "film"
 	item_state = "electropack"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/device/camera_film/taj_film
 	name = "film canister"
@@ -26,7 +26,7 @@
 /********
 * photo *
 ********/
-var/global/photo_count = 0
+GLOBAL_VAR_INIT(photo_count, 0)
 
 /obj/item/photo
 	name = "photo"
@@ -34,7 +34,7 @@ var/global/photo_count = 0
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "photo"
 	item_state = "paper"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	var/picture_desc // Who and/or what's in the picture.
 	var/id
 	var/icon/img	//Big photo image
@@ -45,8 +45,17 @@ var/global/photo_count = 0
 	drop_sound = 'sound/items/drop/paper.ogg'
 	pickup_sound = 'sound/items/pickup/paper.ogg'
 
+/obj/item/photo/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance <= 1)
+		show(user)
+		. += SPAN_NOTICE("[picture_desc]")
+	else
+		. += SPAN_NOTICE("You are too far away to discern its contents.")
+
 /obj/item/photo/New()
-	id = photo_count++
+	. = ..()
+	id = GLOB.photo_count++
 
 /obj/item/photo/attack_self(mob/user as mob)
 	examinate(user, src)
@@ -58,14 +67,6 @@ var/global/photo_count = 0
 			scribble = txt
 	..()
 
-/obj/item/photo/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance <= 1)
-		show(user)
-		. += SPAN_NOTICE("[picture_desc]")
-	else
-		. += SPAN_NOTICE("You are too far away to discern its contents.")
-
 /obj/item/photo/proc/show(mob/user as mob)
 	send_rsc(user, img, "tmp_photo_[id].png")
 	var/dat = "<html><head><title>[name]</title></head>" \
@@ -73,7 +74,7 @@ var/global/photo_count = 0
 		+ "<img src='tmp_photo_[id].png' width='[64*photo_size]' style='-ms-interpolation-mode:nearest-neighbor' />" \
 		+ "[scribble ? "<br>Written on the back:<br><i>[scribble]</i>" : ""]" \
 		+ "</body></html>"
-	show_browser(user, dat, "window=book;size=[64*photo_size]x[scribble ? 400 : 64*photo_size]")
+	show_browser(user, HTML_SKELETON(dat), "window=book;size=[64*photo_size]x[scribble ? 400 : 64*photo_size]")
 	onclose(user, "[name]")
 	return
 
@@ -109,27 +110,27 @@ var/global/photo_count = 0
 	item_state = "briefcase"
 	can_hold = list(/obj/item/photo)
 
-/obj/item/storage/photo_album/MouseDrop(obj/over_object as obj)
+/obj/item/storage/photo_album/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 
-	if((istype(usr, /mob/living/carbon/human)))
-		var/mob/M = usr
-		if(!( istype(over_object, /obj/screen) ))
+	if((istype(user, /mob/living/carbon/human)))
+		var/mob/M = user
+		if(!( istype(over, /atom/movable/screen) ))
 			return ..()
 		playsound(loc, /singleton/sound_category/rustle_sound, 50, 1, -5)
 		if((!( M.restrained() ) && !( M.stat ) && M.back == src))
-			switch(over_object.name)
+			switch(over.name)
 				if("right hand")
 					M.u_equip(src)
 					M.equip_to_slot_if_possible(src, slot_r_hand)
 				if("left hand")
 					M.u_equip(src)
 					M.equip_to_slot_if_possible(src, slot_l_hand)
-			add_fingerprint(usr)
+			add_fingerprint(user)
 			return
-		if(over_object == usr && in_range(src, usr) || usr.contents.Find(src))
-			if(usr.s_active)
-				usr.s_active.close(usr)
-			show_to(usr)
+		if(over == user && in_range(src, user) || user.contents.Find(src))
+			if(user.s_active)
+				user.s_active.close(user)
+			show_to(user)
 			return
 	return
 
@@ -142,7 +143,7 @@ var/global/photo_count = 0
 	desc = "A polaroid camera."
 	icon_state = "camera"
 	item_state = "electropack"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
@@ -154,10 +155,10 @@ var/global/photo_count = 0
 	var/icon_off = "camera_off"
 	var/size = 3
 
-/obj/item/device/camera/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/device/camera/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(is_adjacent)
-		. += SPAN_NOTICE("It has <b>[pictures_left]</b> photos left.")
+		. += SPAN_NOTICE("It has <b>[pictures_left] photos</b> left.")
 
 /obj/item/device/camera/verb/change_size()
 	set name = "Set Photo Focus"
@@ -169,7 +170,7 @@ var/global/photo_count = 0
 		size = nsize
 		to_chat(usr, SPAN_NOTICE("Camera will now take [size]x[size] photos."))
 
-/obj/item/device/camera/attack(mob/living/carbon/human/M as mob, mob/user as mob)
+/obj/item/device/camera/attack(mob/living/target_mob, mob/living/user, target_zone)
 	return
 
 /obj/item/device/camera/attack_self(mob/user as mob)
@@ -210,9 +211,9 @@ var/global/photo_count = 0
 					holding = "They are holding \a [A.r_hand]"
 
 		if(!mob_detail)
-			mob_detail = "You can see [A] in the photo[A:health < 75 ? " - [A] looks hurt":""].[holding ? " [holding]":"."]. "
+			mob_detail = "You can see [A] in the photo[A.health < 75 ? " - [A] looks hurt":""].[holding ? " [holding]":"."]. "
 		else
-			mob_detail += "You can also see [A] in the photo[A:health < 75 ? " - [A] looks hurt":""].[holding ? " [holding]":"."]."
+			mob_detail += "You can also see [A] in the photo[A.health < 75 ? " - [A] looks hurt":""].[holding ? " [holding]":"."]."
 	return mob_detail
 
 /obj/item/device/camera/afterattack(atom/target as mob|obj|turf|area, mob/user as mob, flag)
@@ -319,7 +320,6 @@ var/global/photo_count = 0
 	desc = "A slightly antiquated camera with a large flash bulb. Still popular with Tajara all over Adhomai."
 	icon_state = "taj_camera_on"
 	item_state = "taj_camera"
-	contained_sprite = TRUE
 	slot_flags = SLOT_MASK
 	black_white = TRUE
 	icon_on = "taj_camera_on"

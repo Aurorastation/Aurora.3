@@ -15,6 +15,11 @@
 	var/health = 100
 	var/maxhealth = 100
 
+/obj/structure/simple_door/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(lock)
+		. += SPAN_NOTICE("It appears to have a lock.")
+
 /obj/structure/simple_door/fire_act(exposed_temperature, exposed_volume)
 	. = ..()
 
@@ -60,15 +65,10 @@
 	lock = null
 	return ..()
 
-/obj/structure/simple_door/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(lock)
-		. += SPAN_NOTICE("It appears to have a lock.")
-
-/obj/structure/simple_door/CollidedWith(atom/user)
+/obj/structure/simple_door/CollidedWith(atom/bumped_atom)
 	..()
 	if(!state)
-		return TryToSwitchState(user)
+		return TryToSwitchState(bumped_atom)
 	return
 
 /obj/structure/simple_door/attack_ai(mob/user as mob) //those aren't machinery, they're just big fucking slabs of a mineral
@@ -86,7 +86,10 @@
 	return
 
 /obj/structure/simple_door/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(air_group) return 0
+	if(air_group)
+		return FALSE
+	if(mover?.movement_type & PHASING)
+		return TRUE
 	if(istype(mover, /obj/effect/beam))
 		return !opacity
 	return !density
@@ -123,22 +126,30 @@
 	isSwitchingStates = 1
 	playsound(loc, material.dooropen_noise, 100, 1)
 	flick("[material.door_icon_base]opening",src)
-	sleep(10)
-	density = 0
-	opacity = 0
-	state = 1
-	update_icon()
-	isSwitchingStates = 0
-	update_nearby_tiles()
+	addtimer(CALLBACK(src, PROC_REF(change_state_after_openclode), TRUE), 1 SECONDS)
+
 
 /obj/structure/simple_door/proc/Close()
 	isSwitchingStates = 1
 	playsound(loc, material.dooropen_noise, 100, 1)
 	flick("[material.door_icon_base]closing",src)
-	sleep(10)
-	density = 1
-	opacity = 1
-	state = 0
+	addtimer(CALLBACK(src, PROC_REF(change_state_after_openclode), FALSE), 1 SECONDS)
+
+/**
+ * Complete the open/close of the door
+ *
+ * * to_open - Whether the door is to be set as open, if FALSE, it is to be set as closed instead
+ */
+/obj/structure/simple_door/proc/change_state_after_openclode(to_open = FALSE)
+	if(to_open)
+		density = 0
+		opacity = 0
+		state = 1
+	else
+		density = 1
+		opacity = 1
+		state = 0
+
 	update_icon()
 	isSwitchingStates = 0
 	update_nearby_tiles()
@@ -185,9 +196,13 @@
 		attack_hand(user)
 	return
 
-/obj/structure/simple_door/bullet_act(var/obj/item/projectile/Proj)
-	health -= Proj.damage
-	bullet_ping(Proj)
+/obj/structure/simple_door/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	health -= hitting_projectile.damage
+	bullet_ping(hitting_projectile)
 	CheckHealth()
 
 /obj/structure/simple_door/proc/CheckHealth()

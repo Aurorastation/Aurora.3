@@ -6,7 +6,7 @@
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "ouerea/"
-	suffixes = list("ouerea_freewater.dmm")
+	suffix = "ouerea_freewater.dmm"
 	unit_test_groups = list(2)
 
 /area/ouerea_freewater
@@ -30,7 +30,7 @@
 	max_count = 4
 
 	spawnpoints = list("ouerea_freewater")
-	possible_species = list(SPECIES_UNATHI, SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR)
+	possible_species = list(SPECIES_UNATHI, SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	outfit = /obj/outfit/admin/freewater
 
@@ -60,13 +60,16 @@
 	l_pocket = /obj/item/storage/wallet/random
 	l_ear = null
 	species_shoes = list(
-		SPECIES_VAURCA_WARRIOR = /obj/item/clothing/shoes/vaurca
+		SPECIES_VAURCA_WARRIOR = /obj/item/clothing/shoes/vaurca,
+		SPECIES_VAURCA_ATTENDANT = /obj/item/clothing/shoes/vaurca
 	)
 
 /obj/outfit/admin/freewater/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(isvaurca(H))
+		H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(H), slot_wear_mask)
 		var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
 		H.internal = preserve
 		H.internals.icon_state = "internal1"
+		H.equip_or_collect(new /obj/item/reagent_containers/food/snacks/koisbar, slot_in_backpack)
 		H.update_body()
 

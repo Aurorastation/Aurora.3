@@ -4,7 +4,7 @@
 	description = "A small, abandoned mining drill operation."
 
 	prefix = "lava/drill_site/"
-	suffixes = list("drill_site.dmm")
+	suffix = "drill_site.dmm"
 
 	spawn_weight = 1
 	spawn_cost = 0.5

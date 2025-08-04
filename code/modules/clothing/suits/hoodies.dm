@@ -30,12 +30,15 @@
 	SEND_SIGNAL(src, COMSIG_ITEM_UPDATE_STATE)
 	update_icon()
 
+/obj/item/clothing/suit/storage/hooded/AltClick(mob/user)
+	ToggleHood(user)
+
 //hoodies and the like
 
 /obj/item/clothing/suit/storage/hooded/wintercoat
 	name = "winter coat"
 	desc = "A heavy jacket made from animal furs."
-	icon = 'icons/obj/clothing/hoodies.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/hoodies.dmi'
 	icon_state = "coatwinter"
 	item_state = "coatwinter"
 	contained_sprite = TRUE
@@ -43,7 +46,7 @@
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
 	armor = list(
-		bio = ARMOR_BIO_MINOR
+		BIO = ARMOR_BIO_MINOR
 	)
 	siemens_coefficient = 0.75
 	protects_against_weather = TRUE
@@ -51,7 +54,7 @@
 /obj/item/clothing/head/winterhood
 	name = "winter hood"
 	desc = "A hood attached to a heavy winter jacket."
-	icon = 'icons/obj/clothing/hoodies.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/hoodies.dmi'
 	icon_state = "coatwinter_hood"
 	contained_sprite = TRUE
 	body_parts_covered = HEAD
@@ -219,18 +222,10 @@
 	icon_state = "coatheph"
 	item_state = "coatheph"
 
-/obj/item/clothing/suit/storage/hooded/wintercoat/heph/alt
-	icon_state = "coatheph_alt"
-	item_state = "coatheph_alt"
-
 /obj/item/clothing/suit/storage/hooded/wintercoat/nt
 	name = "nanotrasen winter coat"
 	icon_state = "coatnt"
 	item_state = "coatnt"
-
-/obj/item/clothing/suit/storage/hooded/wintercoat/nt/alt
-	icon_state = "coatnt_alt"
-	item_state = "coatnt_alt"
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/zeng
 	name = "zeng-hu winter coat"
@@ -372,4 +367,37 @@
 
 /obj/item/clothing/head/winterhood/colorable/ponczo
 	name = "visegradi ponczo hood"
+	desc = "A hood for a Visegradi ponczo."
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/patterned_ponczo
+	name = "red visegradi patterned ponczo"
+	desc = "A type of shelter-half or zeltbahn, the ponczo is a ubiquitous article of clothing on the planet of Visegrad. Resembling a long smock or raincoat, the ponczo is as waterproof as it is rugged. While true shelter-halves can be made into a tent, most ponczos are no longer capable of this. This one is red, and has a patterned design."
+	icon_state = "red_ponczo"
+	item_state = "red_ponczo"
+	hoodtype = /obj/item/clothing/head/winterhood/patterned_ponczo
+
+/obj/item/clothing/head/winterhood/patterned_ponczo
+	name = "red visegradi ponczo hood"
+	desc = "A hood for a Visegradi ponczo."
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/patterned_ponczo/brown
+	name = "brown visegradi patterned ponczo"
+	desc = "A type of shelter-half or zeltbahn, the ponczo is a ubiquitous article of clothing on the planet of Visegrad. Resembling a long smock or raincoat, the ponczo is as waterproof as it is rugged. While true shelter-halves can be made into a tent, most ponczos are no longer capable of this. This one is brown, and has a patterned design."
+	icon_state = "brown_ponczo"
+	item_state = "brown_ponczo"
+	hoodtype = /obj/item/clothing/head/winterhood/patterned_ponczo/brown
+
+/obj/item/clothing/head/winterhood/patterned_ponczo/brown
+	name = "brown visegradi ponczo hood"
+	desc = "A hood for a Visegradi ponczo."
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/patterned_ponczo/blue
+	name = "blue visegradi patterned ponczo"
+	desc = "A type of shelter-half or zeltbahn, the ponczo is a ubiquitous article of clothing on the planet of Visegrad. Resembling a long smock or raincoat, the ponczo is as waterproof as it is rugged. While true shelter-halves can be made into a tent, most ponczos are no longer capable of this. This one is blue, and has a patterned design."
+	icon_state = "blue_ponczo"
+	item_state = "blue_ponczo"
+	hoodtype = /obj/item/clothing/head/winterhood/patterned_ponczo/blue
+
+/obj/item/clothing/head/winterhood/patterned_ponczo/blue
+	name = "blue visegradi ponczo hood"
 	desc = "A hood for a Visegradi ponczo."

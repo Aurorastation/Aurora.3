@@ -6,38 +6,41 @@
 	They are used with the client/screen list and the screen_loc var.
 	For more information, see the byond documentation on the screen_loc and screen vars.
 */
-/obj/screen
+/atom/movable/screen
 	name = ""
 	icon = 'icons/mob/screen/generic.dmi'
 	plane = HUD_PLANE
 	layer = HUD_BASE_LAYER
-	unacidable = 1
 	var/obj/master = null	//A reference to the object in the slot. Grabs or items, generally.
 	var/datum/hud/hud = null // A reference to the owner HUD, if any.
 	appearance_flags = NO_CLIENT_COLOR
 
-/obj/screen/Initialize(mapload, ...)
+/atom/movable/screen/Initialize(mapload, ...)
 	. = ..()
 	//This is done with signals because the screen code sucks, blame the ancient developers
 	if(hud)
 		RegisterSignal(hud, COMSIG_QDELETING, PROC_REF(handle_hud_destruction))
 
-/obj/screen/Destroy(force = FALSE)
+/atom/movable/screen/Destroy(force = FALSE)
 	master = null
 	screen_loc = null
 	hud = null
 	. = ..()
 
+///Screen elements are always on top of the players screen and don't move so yes they are adjacent
+/atom/movable/screen/Adjacent(atom/neighbor, atom/target, atom/movable/mover)
+	return TRUE
+
 /**
  * Handles the deletion of the HUD this screen is associated to
  */
-/obj/screen/proc/handle_hud_destruction()
+/atom/movable/screen/proc/handle_hud_destruction()
 	SIGNAL_HANDLER
 
 	UnregisterSignal(hud, COMSIG_QDELETING)
 	qdel(src)
 
-/obj/screen/text
+/atom/movable/screen/text
 	icon = null
 	icon_state = null
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
@@ -45,21 +48,21 @@
 	maptext_height = 480
 	maptext_width = 480
 
-/obj/screen/inventory
+/atom/movable/screen/inventory
 	var/slot_id	//The identifier for the slot. It has nothing to do with ID cards.
 	var/list/object_overlays = list() // Required for inventory/screen overlays.
 	var/color_changed = FALSE
 
-/obj/screen/inventory/MouseEntered()
+/atom/movable/screen/inventory/MouseEntered()
 	..()
 	add_overlays()
 
-/obj/screen/inventory/MouseExited()
+/atom/movable/screen/inventory/MouseExited()
 	..()
 	CutOverlays(object_overlays)
 	object_overlays.Cut()
 
-/obj/screen/inventory/proc/add_overlays()
+/atom/movable/screen/inventory/proc/add_overlays()
 	var/mob/user = hud.mymob
 
 	if(hud && user && slot_id)
@@ -76,7 +79,7 @@
 		object_overlays += item_overlay
 		AddOverlays(object_overlays)
 
-/obj/screen/inventory/proc/set_color_for(var/set_color, var/set_time)
+/atom/movable/screen/inventory/proc/set_color_for(var/set_color, var/set_time)
 	if(color_changed)
 		return
 	var/old_color = color
@@ -84,14 +87,14 @@
 	color_changed = TRUE
 	addtimer(CALLBACK(src, PROC_REF(set_color_to), old_color), set_time)
 
-/obj/screen/inventory/proc/set_color_to(var/set_color)
+/atom/movable/screen/inventory/proc/set_color_to(var/set_color)
 	color = set_color
 	color_changed = FALSE
 
-/obj/screen/close
+/atom/movable/screen/close
 	name = "close"
 
-/obj/screen/close/Click()
+/atom/movable/screen/close/Click()
 	if(master)
 		if(istype(master, /obj/item/storage))
 			var/obj/item/storage/S = master
@@ -99,14 +102,14 @@
 	return 1
 
 
-/obj/screen/item_action
+/atom/movable/screen/item_action
 	var/obj/item/owner
 
-/obj/screen/item_action/Destroy()
+/atom/movable/screen/item_action/Destroy()
 	owner = null
 	. = ..()
 
-/obj/screen/item_action/Click()
+/atom/movable/screen/item_action/Click()
 	if(!usr || !owner)
 		return 1
 	if(!usr.canClick())
@@ -121,28 +124,28 @@
 	owner.ui_action_click()
 	return 1
 
-/obj/screen/grab
+/atom/movable/screen/grab
 	name = "grab"
 
-/obj/screen/grab/Click()
+/atom/movable/screen/grab/Click()
 	var/obj/item/grab/G = master
 	G.s_click(src)
 	return 1
 
-/obj/screen/grab/attack_hand()
+/atom/movable/screen/grab/attack_hand()
 	return
 
-/obj/screen/grab/attackby()
+/atom/movable/screen/grab/attackby()
 	return
 
 
-/obj/screen/storage
+/atom/movable/screen/storage
 	name = "storage"
 	screen_loc = "7,7 to 10,8"
 	plane = HUD_PLANE
 	layer = HUD_BASE_LAYER
 
-/obj/screen/storage/Click()
+/atom/movable/screen/storage/Click()
 	if(!usr.canClick())
 		return TRUE
 	if(usr.stat || usr.paralysis || usr.stunned || usr.weakened)
@@ -153,25 +156,25 @@
 			usr.ClickOn(master)
 	return TRUE
 
-/obj/screen/storage/background
+/atom/movable/screen/storage/background
 	name = "background storage"
 	layer = HUD_BELOW_ITEM_LAYER
 
-/obj/screen/storage/background/Initialize(mapload, var/obj/set_master, var/set_icon_state)
+/atom/movable/screen/storage/background/Initialize(mapload, var/obj/set_master, var/set_icon_state)
 	. = ..()
 	master = set_master
 	if(master)
 		name = master.name
 	icon_state = set_icon_state
 
-/obj/screen/storage/background/Click()
+/atom/movable/screen/storage/background/Click()
 	if(usr.incapacitated())
 		return TRUE
 	if(master)
 		usr.ClickOn(master)
 	return TRUE
 
-/obj/screen/zone_sel
+/atom/movable/screen/zone_sel
 	name = "damage zone"
 	icon_state = "zone_sel"
 	screen_loc = ui_zonesel
@@ -180,7 +183,7 @@
 	var/hovering_choice
 	var/mutable_appearance/selecting_appearance
 
-/obj/screen/zone_sel/Click(location, control,params)
+/atom/movable/screen/zone_sel/Click(location, control,params)
 	if(isobserver(usr))
 		return
 
@@ -193,10 +196,10 @@
 
 	return set_selected_zone(choice, usr)
 
-/obj/screen/zone_sel/MouseEntered(location, control, params)
+/atom/movable/screen/zone_sel/MouseEntered(location, control, params)
 	MouseMove(location, control, params)
 
-/obj/screen/zone_sel/MouseMove(location, control, params)
+/atom/movable/screen/zone_sel/MouseMove(location, control, params)
 	if(isobserver(usr))
 		return
 
@@ -225,12 +228,12 @@
 	anchored = TRUE
 	plane = HUD_ITEM_LAYER
 
-/obj/screen/zone_sel/MouseExited(location, control, params)
+/atom/movable/screen/zone_sel/MouseExited(location, control, params)
 	if(!isobserver(usr) && hovering_choice)
 		remove_vis_contents(hover_overlays_cache[hovering_choice])
 		hovering_choice = null
 
-/obj/screen/zone_sel/proc/get_zone_at(icon_x, icon_y)
+/atom/movable/screen/zone_sel/proc/get_zone_at(icon_x, icon_y)
 	switch(icon_y)
 		if(1 to 3) //Feet
 			switch(icon_x)
@@ -274,7 +277,7 @@
 							return BP_EYES
 				return BP_HEAD
 
-/obj/screen/zone_sel/proc/set_selected_zone(choice, mob/user)
+/atom/movable/screen/zone_sel/proc/set_selected_zone(choice, mob/user)
 	if(isobserver(user))
 		return
 	if(choice != selecting)
@@ -282,12 +285,12 @@
 		update_icon()
 		SEND_SIGNAL(user, COMSIG_MOB_ZONE_SEL_CHANGE, user)
 
-/obj/screen/zone_sel/update_icon()
+/atom/movable/screen/zone_sel/update_icon()
 	ClearOverlays()
 	selecting_appearance = mutable_appearance('icons/mob/zone_sel.dmi', "[selecting]")
 	AddOverlays(selecting_appearance)
 
-/obj/screen/Click(location, control, params)
+/atom/movable/screen/Click(location, control, params)
 	if(!usr)
 		return TRUE
 	var/list/modifiers = params2list(params)
@@ -331,7 +334,7 @@
 			usr.stop_pulling()
 		if("throw")
 			if(!usr.stat && isturf(usr.loc) && !usr.restrained())
-				usr:toggle_throw_mode()
+				usr.toggle_throw_mode()
 		if("drop")
 			if(usr.client)
 				usr.client.drop_item()
@@ -347,7 +350,7 @@
 				for(var/turf/T in view(usr.client.view + 3, usr)) // slightly extra to account for moving while looking for openness
 					if(T.density)
 						continue
-					var/turf/above_turf = GetAbove(T)
+					var/turf/above_turf = GET_TURF_ABOVE(T)
 					if(!isopenspace(above_turf))
 						continue
 					var/image/up_image = image(icon = 'icons/mob/screen/generic.dmi', icon_state = "arrow_up", loc = T)
@@ -356,13 +359,18 @@
 					usr << up_image
 					QDEL_IN(up_image, 12)
 				return
-			var/turf/T = GetAbove(usr)
+
+			if(!isliving(usr))
+				return
+			var/mob/living/user = usr
+			var/turf/T1 = get_turf(user)
+			var/turf/T = GET_TURF_ABOVE(T1)
 			if (!T)
-				to_chat(usr, SPAN_NOTICE("There is nothing above you!"))
+				to_chat(user, SPAN_NOTICE("There is nothing above you!"))
 			else if (T.is_hole)
-				to_chat(usr, SPAN_NOTICE("There's no roof above your head! You can see up!"))
+				user.look_up_open_space(T1)
 			else
-				to_chat(usr, SPAN_NOTICE("You see a ceiling staring back at you."))
+				to_chat(user, SPAN_NOTICE("You see a ceiling staring back at you."))
 
 		if("module")
 			if(isrobot(usr))
@@ -396,19 +404,21 @@
 					to_chat(R, "You haven't selected a module yet.")
 
 		if("radio")
-			if(issilicon(usr))
-				if(isrobot(usr))
-					if(modifiers["shift"])
-						var/mob/living/silicon/robot/R = usr
-						if(!R.radio.radio_desc)
-							R.radio.setupRadioDescription()
-						to_chat(R, SPAN_NOTICE("You analyze your integrated radio:"))
-						to_chat(R, R.radio.radio_desc)
-						return
-				usr:radio_menu()
+			if(isrobot(usr))
+				var/mob/living/silicon/robot/R = usr
+				if(modifiers["shift"])
+					if(!R.radio.radio_desc)
+						R.radio.setupRadioDescription()
+					to_chat(R, SPAN_NOTICE("You analyze your integrated radio:"))
+					to_chat(R, R.radio.radio_desc)
+					return
+
+				R.radio_menu()
+
 		if("panel")
-			if(issilicon(usr))
-				usr:installed_modules()
+			if(isrobot(usr))
+				var/mob/living/silicon/robot/R = usr
+				R.installed_modules()
 
 		if("store")
 			if(isrobot(usr))
@@ -425,7 +435,7 @@
 			return 0
 	return 1
 
-/obj/screen/inventory/Click()
+/atom/movable/screen/inventory/Click()
 	// At this point in client Click() code we have passed the 1/10 sec check and little else
 	// We don't even know if it's a middle click
 	if(!usr.canClick())
@@ -442,9 +452,9 @@
 				var/mob/living/carbon/C = usr
 				C.activate_hand("l")
 		if("swap")
-			usr:swap_hand()
+			usr.swap_hand()
 		if("hand")
-			usr:swap_hand()
+			usr.swap_hand()
 		else
 			if(usr.attack_ui(slot_id))
 				usr.update_inv_l_hand(0)
@@ -452,35 +462,35 @@
 
 	return 1
 
-/obj/screen/movement_intent
+/atom/movable/screen/movement_intent
 	name = "mov_intent"
 	screen_loc = ui_movi
 
 //This updates the run/walk button on the hud
-/obj/screen/movement_intent/proc/update_move_icon(var/mob/living/user)
-	if (!user.client)
+/atom/movable/screen/movement_intent/proc/update_move_icon(var/mob/living/user)
+	if(!user.client)
 		return
 
-	if (user.max_stamina == -1 || user.stamina == user.max_stamina)
-		if (user.stamina_bar)
-			user.stamina_bar.endProgress()
-			user.stamina_bar = null
+	if(user.max_stamina == -1 || user.stamina == user.max_stamina)
+		if(user.stamina_bar)
+			user.stamina_bar.end_progress()
+			QDEL_NULL(user.stamina_bar) //Because otherwise they stack weirdly when calculating the progress bar offsets
 	else
-		if (!user.stamina_bar)
+		if(!user.stamina_bar)
 			user.stamina_bar = new(user, user.max_stamina, src)
 		user.stamina_bar.goal = user.max_stamina
 		user.stamina_bar.update(user.stamina)
 
-	if (user.m_intent == M_RUN)
+	if(user.m_intent == M_RUN)
 		icon_state = "running"
-	else if (user.m_intent == M_LAY)
+	else if(user.m_intent == M_LAY)
 		icon_state = "lying"
 	else
 		icon_state = "walking"
 
 #define BLACKLIST_SPECIES_RUNNING list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 
-/obj/screen/movement_intent/Click(location, control, params)
+/atom/movable/screen/movement_intent/Click(location, control, params)
 	if(!usr)
 		return 1
 	var/list/modifiers = params2list(params)
@@ -538,12 +548,12 @@
 #undef BLACKLIST_SPECIES_RUNNING
 
 // Hand slots are special to handle the handcuffs overlay
-/obj/screen/inventory/hand
+/atom/movable/screen/inventory/hand
 	var/image/handcuff_overlay
 	var/image/disabled_hand_overlay
 	var/image/removed_hand_overlay
 
-/obj/screen/inventory/hand/update_icon()
+/atom/movable/screen/inventory/hand/update_icon()
 	..()
 	if(!hud)
 		return
@@ -571,5 +581,5 @@
 		if(H.handcuffed)
 			AddOverlays(handcuff_overlay)
 
-/obj/screen/inventory/back
+/atom/movable/screen/inventory/back
 	name = "back"

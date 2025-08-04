@@ -1,6 +1,11 @@
 /obj/structure/table/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(air_group || (height==0)) return 1
-	if(istype(mover,/obj/item/projectile))
+	if(air_group || (height==0))
+		return TRUE
+
+	if(mover?.movement_type & PHASING)
+		return TRUE
+
+	if(istype(mover,/obj/projectile))
 		return (check_cover(mover,target))
 	if (flipped == 1)
 		if (get_dir(loc, target) == dir)
@@ -9,14 +14,14 @@
 			return 1
 	if(istype(mover, /obj/structure/closet/crate))
 		return TRUE
-	if(istype(mover) && mover.checkpass(PASSTABLE))
+	if(istype(mover) && mover.pass_flags & PASSTABLE)
 		return 1
 	if(locate(/obj/structure/table) in get_turf(mover))
 		return 1
 	return 0
 
 //checks if projectile 'P' from turf 'from' can hit whatever is behind the table. Returns 1 if it can, 0 if bullet stops.
-/obj/structure/table/proc/check_cover(obj/item/projectile/P, turf/from)
+/obj/structure/table/proc/check_cover(obj/projectile/P, turf/from)
 	var/turf/cover
 	if(flipped==1)
 		cover = get_turf(src)
@@ -49,7 +54,7 @@
 	return 1
 
 /obj/structure/table/CheckExit(atom/movable/O as mob|obj, target as turf)
-	if(istype(O) && O.checkpass(PASSTABLE))
+	if(istype(O) && O.pass_flags & PASSTABLE)
 		return 1
 	if (flipped==1)
 		if (get_dir(loc, target) == dir)
@@ -58,16 +63,17 @@
 			return 1
 	return 1
 
-/obj/structure/table/Crossed(var/atom/movable/am as mob|obj)
-	..()
-	if(ishuman(am))
-		var/mob/living/carbon/human/H = am
+/obj/structure/table/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	if(ishuman(arrived))
+		var/mob/living/carbon/human/H = arrived
 		if(H.a_intent != I_HELP || H.m_intent == M_RUN)
-			throw_things(H)
+			INVOKE_ASYNC(src, PROC_REF(throw_things), H)
 		else if(H.is_diona() || H.species.get_bodytype() == BODYTYPE_IPC_INDUSTRIAL)
-			throw_things(H)
-	else if((isliving(am) && !issmall(am)) || isslime(am))
-		throw_things(am)
+			INVOKE_ASYNC(src, PROC_REF(throw_things), H)
+	else if((isliving(arrived) && !issmall(arrived)) || isslime(arrived))
+		INVOKE_ASYNC(src, PROC_REF(throw_things), arrived)
 
 /obj/structure/table/proc/throw_things(var/mob/living/user)
 	var/list/targets = list(get_step(src,dir),get_step(src,turn(dir, 45)),get_step(src,turn(dir, -45)))
@@ -126,23 +132,23 @@
 			throw_things(user)
 	LAZYREMOVE(climbers, user)
 
-/obj/structure/table/MouseDrop_T(atom/dropping, mob/user, params)
-	var/obj/item/stack/material/what = dropping
+/obj/structure/table/mouse_drop_receive(atom/dropped, mob/user, params)
+	var/obj/item/stack/material/what = dropped
 	if(can_reinforce && isliving(usr) && (!usr.stat) && istype(what) && usr.get_active_hand() == what && Adjacent(usr))
 		reinforce_table(what, usr)
 		return
 
-	if(ismob(dropping.loc)) //If placing an item
-		if(!isitem(dropping) || user.get_active_hand() != dropping)
+	if(ismob(dropped.loc)) //If placing an item
+		if(!isitem(dropped) || user.get_active_hand() != dropped)
 			return ..()
 		if(isrobot(user))
 			return
 		user.drop_item()
-		if(dropping.loc != src.loc)
-			step(dropping, get_dir(dropping, src))
+		if(dropped.loc != src.loc)
+			step(dropped, get_dir(dropped, src))
 
-	else if(isturf(dropping.loc) && isitem(dropping)) //If pushing an item on the tabletop
-		var/obj/item/I = dropping
+	else if(isturf(dropped.loc) && isitem(dropped)) //If pushing an item on the tabletop
+		var/obj/item/I = dropped
 		if(I.anchored)
 			return
 
@@ -179,7 +185,7 @@
 									to_chat(H, SPAN_WARNING("Ow! That hurt..."))
 							else
 								for(var/obj/item/O in get_turf(src))
-									if(!O.anchored && O.w_class < ITEMSIZE_HUGE)
+									if(!O.anchored && O.w_class < WEIGHT_CLASS_HUGE)
 										animate(O, pixel_y = 3, time = 2, loop = 1, easing = BOUNCE_EASING)
 										addtimer(CALLBACK(O, TYPE_PROC_REF(/obj/item, reset_table_position), 2))
 
@@ -232,9 +238,6 @@
 			else
 				to_chat(user, SPAN_WARNING("You need a better grip to do that!"))
 				return
-
-	if(!attacking_item.dropsafety())
-		return
 
 	if(reinforced && attacking_item.isscrewdriver())
 		remove_reinforced(attacking_item, user)
@@ -333,6 +336,9 @@
 					if(D.use(1))
 						health = maxhealth
 						visible_message("<b>[user]</b> repairs \the [src].", SPAN_NOTICE("You repair \the [src]."))
+
+	if(!attacking_item.dropsafety())
+		return
 
 	// Placing stuff on tables
 	if(user.unEquip(attacking_item, 0, loc)) //Loc is intentional here so we don't forceMove() items into oblivion

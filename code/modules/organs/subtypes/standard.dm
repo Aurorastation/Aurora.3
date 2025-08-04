@@ -8,7 +8,7 @@
 	icon_name = "torso"
 	max_damage = 100
 	min_broken_damage = 35
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	body_part = UPPER_TORSO
 	vital = TRUE
 	amputation_point = "spine"
@@ -33,7 +33,7 @@
 	icon_name = "groin"
 	max_damage = 100
 	min_broken_damage = 35
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	body_part = LOWER_TORSO
 	parent_organ = BP_CHEST
 	amputation_point = "lumbar"
@@ -73,14 +73,14 @@
 	icon_name = "l_arm"
 	max_damage = 65
 	min_broken_damage = 30
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	body_part = ARM_LEFT
 	parent_organ = BP_CHEST
 	joint = "left elbow"
 	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_HAS_TENDON | ORGAN_CAN_GRASP
 	tendon_name = "palmaris longus tendon"
 	artery_name = "basilic vein"
-	arterial_bleed_severity = 0.75
+	arterial_bleed_severity = 0.5
 	amputation_point = "left shoulder"
 	augment_limit = 2
 
@@ -106,14 +106,14 @@
 	icon_name = "l_leg"
 	max_damage = 65
 	min_broken_damage = 30
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	body_part = LEG_LEFT
 	icon_position = LEFT
 	parent_organ = BP_GROIN
 	joint = "left knee"
 	tendon_name = "quadriceps tendon"
 	artery_name = "femoral artery"
-	arterial_bleed_severity = 0.75
+	arterial_bleed_severity = 0.5
 	amputation_point = "left hip"
 	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_HAS_TENDON
 	augment_limit = 2
@@ -139,7 +139,7 @@
 	icon_name = "l_foot"
 	max_damage = 50
 	min_broken_damage = 15
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	body_part = FOOT_LEFT
 	icon_position = LEFT
 	parent_organ = BP_L_LEG
@@ -176,7 +176,7 @@
 	icon_name = "l_hand"
 	max_damage = 50
 	min_broken_damage = 15
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	body_part = HAND_LEFT
 	parent_organ = BP_L_ARM
 	joint = "left wrist"
@@ -221,7 +221,7 @@
 	name = BP_HEAD
 	max_damage = 75
 	min_broken_damage = 35
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	body_part = HEAD | FACE
 	vital = TRUE
 	parent_organ = BP_CHEST

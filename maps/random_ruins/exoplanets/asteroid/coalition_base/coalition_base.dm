@@ -6,7 +6,7 @@
 	sectors = list(ALL_COALITION_SECTORS)
 
 	prefix = "asteroid/coalition_base/"
-	suffixes = list("coalition_base.dmm")
+	suffix = "coalition_base.dmm"
 
 	planet_types = PLANET_ASTEROID|PLANET_BARREN
 	ruin_tags = RUIN_AIRLESS|RUIN_LOWPOP
@@ -19,6 +19,7 @@
 	requires_power = TRUE
 	dynamic_lighting = TRUE
 	no_light_control = TRUE
+	is_outside = OUTSIDE_NO
 
 /area/coalition_base/eva_prep
 	name = "EVA Preparation Room"

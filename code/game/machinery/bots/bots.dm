@@ -15,6 +15,15 @@
 	var/locked = 1
 	//var/emagged = 0 //Urist: Moving that var to the general /bot tree as it's used by most bots
 
+/obj/machinery/bot/condition_hints(mob/user, distance, is_adjacent)
+	. += list()
+	. = ..()
+	if (src.health < maxhealth)
+		if (src.health > maxhealth/3)
+			. += SPAN_WARNING("[src]'s parts look loose.")
+		else
+			. += SPAN_DANGER("[src]'s parts look very loose!")
+
 /obj/machinery/bot/Initialize(mapload, d, populate_components, is_internal)
 	. = ..()
 	add_to_target_grid()
@@ -53,14 +62,6 @@
 		log_and_message_admins("emagged [src]'s inner circuits")
 		return 1
 
-/obj/machinery/bot/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if (src.health < maxhealth)
-		if (src.health > maxhealth/3)
-			. += SPAN_WARNING("[src]'s parts look loose.")
-		else
-			. += SPAN_DANGER("[src]'s parts look very loose!")
-
 /obj/machinery/bot/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.isscrewdriver())
 		if(!locked)
@@ -92,11 +93,15 @@
 		else
 			return ..()
 
-/obj/machinery/bot/bullet_act(var/obj/item/projectile/Proj)
+/obj/machinery/bot/bullet_act(var/obj/projectile/Proj)
 	if(!(Proj.damage_type == DAMAGE_BRUTE || Proj.damage_type == DAMAGE_BURN))
-		return
+		return BULLET_ACT_BLOCK
+
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
 	health -= Proj.damage
-	..()
 	healthcheck()
 
 /obj/machinery/bot/ex_act(severity)
@@ -127,7 +132,7 @@
 	pulse2.icon_state = "empdisable"
 	pulse2.name = "emp sparks"
 	pulse2.anchored = 1
-	pulse2.set_dir(pick(GLOB.cardinal))
+	pulse2.set_dir(pick(GLOB.cardinals))
 
 	QDEL_IN(pulse2, 10)
 
@@ -170,7 +175,7 @@
 
 	//	for(var/turf/simulated/t in oview(src,1))
 
-	for(var/d in GLOB.cardinal)
+	for(var/d in GLOB.cardinals)
 		var/turf/simulated/T = get_step(src, d)
 		if(istype(T) && !T.density)
 			if(!LinkBlockedWithAccess(src, T, ID))

@@ -156,7 +156,7 @@
 		var/old_next_use = next_use
 		next_use = world.time + module_cooldown
 		if(next_use > old_next_use && holder.wearer)
-			var/obj/screen/inventory/back/B = locate(/obj/screen/inventory/back) in holder.wearer.hud_used.adding
+			var/atom/movable/screen/inventory/back/B = locate(/atom/movable/screen/inventory/back) in holder.wearer.hud_used.adding
 			if(B)
 				B.set_color_for(COLOR_RED, module_cooldown)
 
@@ -207,12 +207,11 @@
 
 	active = TRUE
 
-	spawn(1)
-		if(suit_overlay_active)
-			suit_overlay = suit_overlay_active
-		else
-			suit_overlay = null
-		holder.update_icon()
+	if(suit_overlay_active)
+		suit_overlay = suit_overlay_active
+	else
+		suit_overlay = null
+	holder.update_icon()
 
 	return TRUE
 
@@ -226,13 +225,12 @@
 
 	active = FALSE
 
-	spawn(1)
-		if(suit_overlay_inactive)
-			suit_overlay = suit_overlay_inactive
-		else
-			suit_overlay = null
-		if(holder)
-			holder.update_icon()
+	if(suit_overlay_inactive)
+		suit_overlay = suit_overlay_inactive
+	else
+		suit_overlay = null
+	if(holder)
+		holder.update_icon()
 
 	return TRUE
 
@@ -268,7 +266,7 @@
 		for(var/obj/item/rig_module/module in R.installed_modules)
 			for(var/stat_rig_module/SRM in module.stat_modules)
 				if(SRM.CanUse())
-					data += list(list("Hardsuit Modules", "[SRM.module.interface_name]", "[SRM]", ref(SRM)))
+					data += list(list("Hardsuit Modules", "[SRM.module.interface_name]", "[SRM]", REF(SRM)))
 	return data
 
 /stat_rig_module

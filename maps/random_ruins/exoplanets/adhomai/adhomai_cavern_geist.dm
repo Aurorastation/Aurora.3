@@ -9,7 +9,7 @@
 	sectors = list(SECTOR_SRANDMARR)
 
 	prefix = "adhomai/"
-	suffixes = list("adhomai_cavern_geist.dmm")
+	suffix = "adhomai_cavern_geist.dmm"
 
 	unit_test_groups = list(1)
 

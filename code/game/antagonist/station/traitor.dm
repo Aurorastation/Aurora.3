@@ -1,4 +1,4 @@
-var/datum/antagonist/traitor/traitors
+GLOBAL_DATUM(traitors, /datum/antagonist/traitor)
 
 // Inherits most of its vars from the base datum.
 /datum/antagonist/traitor
@@ -13,15 +13,19 @@ var/datum/antagonist/traitor/traitors
 
 /datum/antagonist/traitor/New()
 	..()
-	traitors = src
+	GLOB.traitors = src
 
 /datum/antagonist/traitor/get_extra_panel_options(var/datum/mind/player)
-	return "<a href='?src=\ref[player];common=crystals'>\[set crystals\]</a><a href='?src=\ref[src];spawn_uplink=\ref[player.current]'>\[spawn uplink\]</a>"
+	return "<a href='byond://?src=[REF(player)];common=crystals'>\[set crystals\]</a><a href='byond://?src=[REF(src)];spawn_uplink=[REF(player.current)]'>\[spawn uplink\]</a>"
 
 /datum/antagonist/traitor/Topic(href, href_list)
 	if (..())
 		return
-	if(href_list["spawn_uplink"]) spawn_uplink(locate(href_list["spawn_uplink"]))
+	if(!check_rights(R_ADMIN))
+		return
+
+	if(href_list["spawn_uplink"])
+		spawn_uplink(locate(href_list["spawn_uplink"]))
 
 /datum/antagonist/traitor/can_become_antag(var/datum/mind/player)
 	if(!..())

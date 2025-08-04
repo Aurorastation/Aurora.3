@@ -13,7 +13,7 @@
 	slowdown = 10
 	layer = ABOVE_HUMAN_LAYER
 
-/obj/structure/ecd/examine(mob/living/user, distance, is_adjacent, infix, suffix, show_extended)
+/obj/structure/ecd/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	. = ..()
 	switch(state)
 		if(ECD_LOOSE)
@@ -22,22 +22,25 @@
 			to_chat(user, SPAN_NOTICE("\The [src] is bolted to the floor."))
 		if(ECD_WELDED)
 			to_chat(user, SPAN_NOTICE("\The [src] is bolted and welded to the floor."))
-	if(user.isSynthetic())
-		to_chat(user, SPAN_NOTICE("\The [src] does not seem to be doing anything, but you can feel it. A signal, beyond anything you can consciously understand, weaving and scratching a shield around the back of your mind."))
 
-/obj/structure/ecd/attackby(obj/item/W, mob/user)
-	if(W.iswrench())
+	if(istype(user, /mob/living))
+		var/mob/living/living_user = user
+		if(living_user.isSynthetic())
+			to_chat(living_user, SPAN_NOTICE("\The [src] does not seem to be doing anything, but you can feel it. A signal, beyond anything you can consciously understand, weaving and scratching a shield around the back of your mind."))
+
+/obj/structure/ecd/attackby(obj/item/attacking_item, mob/user, params)
+	if(attacking_item.iswrench())
 		switch(state)
 			if(ECD_LOOSE)
 				state = ECD_BOLTED
-				W.play_tool_sound(get_turf(src), 75)
+				attacking_item.play_tool_sound(get_turf(src), 75)
 				user.visible_message(SPAN_NOTICE("\The [user] secures \the [src] to the floor."), \
 					SPAN_NOTICE("You secure \the [src]'s external reinforcing bolts to the floor."), \
 					SPAN_WARNING("You hear a ratcheting noise."))
 				anchored = TRUE
 			if(ECD_BOLTED)
 				state = ECD_LOOSE
-				W.play_tool_sound(get_turf(src), 75)
+				attacking_item.play_tool_sound(get_turf(src), 75)
 				user.visible_message(SPAN_NOTICE("\The [user] unsecures \the [src]'s reinforcing bolts from the floor."), \
 					SPAN_NOTICE("You undo \the [src]'s external reinforcing bolts."), \
 					SPAN_WARNING("You hear a ratcheting noise."))
@@ -46,8 +49,8 @@
 				to_chat(user, SPAN_WARNING("\The [src] needs to be unwelded from the floor."))
 		return
 
-	if(W.iswelder())
-		var/obj/item/weldingtool/WT = W
+	if(attacking_item.iswelder())
+		var/obj/item/weldingtool/WT = attacking_item
 		switch(state)
 			if(ECD_LOOSE)
 				to_chat(user, SPAN_WARNING("\The [src] needs to be wrenched to the floor."))
@@ -57,7 +60,7 @@
 					user.visible_message(SPAN_NOTICE("\The [user] starts to weld \the [src] to the floor."), \
 						SPAN_NOTICE("You start to weld \the [src] to the floor."), \
 						SPAN_WARNING("You hear the sound of metal being welded."))
-					if(W.use_tool(src, user, 20, volume = 50))
+					if(attacking_item.use_tool(src, user, 20, volume = 50))
 						if(!src || !WT.isOn())
 							return
 						state = ECD_WELDED
@@ -70,14 +73,13 @@
 					user.visible_message(SPAN_NOTICE("\The [user] starts to cut \the [src] free from the floor."), \
 						SPAN_NOTICE("You start to cut \the [src] free from the floor."), \
 						SPAN_WARNING("You hear the sound of metal being welded."))
-					if(W.use_tool(src, user, 20, volume = 50))
+					if(attacking_item.use_tool(src, user, 20, volume = 50))
 						if(!src || !WT.isOn())
 							return
 						state = ECD_BOLTED
 						to_chat(user, SPAN_NOTICE("You cut \the [src] free from the floor."))
 				else
 					to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
-		return
 
 #undef ECD_LOOSE
 #undef ECD_BOLTED

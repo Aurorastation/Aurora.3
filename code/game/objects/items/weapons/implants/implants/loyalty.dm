@@ -19,7 +19,7 @@
 <b>Integrity:</b> Implant will last so long as the nanobots are inside the bloodstream."
 <B>Loyal entity:</B><BR>
 This is the entity that the implantee will align their thoughts to benefit.<BR>
-<A href='byond://?src=\ref[src];loyal=1'>[loyal_entity ? loyal_entity : "NONE SET"]</A>
+<A href='byond://?src=[REF(src)];loyal=1'>[loyal_entity ? loyal_entity : "NONE SET"]</A>
 "}
 
 /obj/item/implant/mindshield/loyalty/Topic(href, href_list)

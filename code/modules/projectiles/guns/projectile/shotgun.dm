@@ -1,14 +1,16 @@
 /obj/item/gun/projectile/shotgun
 	name = "strange shotgun"
 	desc = DESC_PARENT
-	desc_info = "This is a shotgun, chambered for various shells and slugs. To fire the weapon, toggle the safety with CTRL-Click or enable 'HARM' intent, then click where \
-	you want to fire. To pump a pump-action shotgun, use the Unique-Action hotkey or the button in the bottom right of your screen. To reload, insert shells or a magazine \
-	into the shotgun, then pump the shotgun to chamber a fresh round."
 	accuracy = -1
 	accuracy_wielded = 1
 	var/can_sawoff = FALSE
 	var/sawnoff_workmsg
 	var/sawing_in_progress = FALSE
+
+/obj/item/gun/projectile/shotgun/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "To pump a pump-action shotgun, use the Unique-Action hotkey or the button in the bottom right of your screen."
+	. += "To reload, insert shells or a magazine into the shotgun, then pump the shotgun to chamber a fresh round."
 
 /obj/item/gun/projectile/shotgun/attackby(obj/item/attacking_item, mob/user)
 	if (!can_sawoff || sawing_in_progress)
@@ -46,14 +48,11 @@
 /obj/item/gun/projectile/shotgun/pump
 	name = "pump shotgun"
 	desc = "An ubiquitous unbranded shotgun. Useful for sweeping alleys."
-	desc_info = "This is a ballistic weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
-	then click where you want to fire.  After firing, you will need to pump the gun, by using the unique-action verb.  To reload, load more shotgun \
-	shells into the gun."
 	icon = 'icons/obj/guns/shotgun.dmi'
 	icon_state = "shotgun"
 	item_state = "shotgun"
 	max_shells = 7 // max of 8
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	force = 15
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BACK
@@ -111,6 +110,9 @@
 		loaded -= AC //Remove casing from loaded list.
 		chambered = AC
 
+/obj/item/gun/projectile/shotgun/pump/unloaded
+	ammo_type = null
+
 /obj/item/gun/projectile/shotgun/pump/combat
 	name = "combat shotgun"
 	desc = "Built for close quarters combat, the Hephaestus Industries KS-40 is widely regarded as a weapon of choice for repelling boarders."
@@ -145,7 +147,7 @@
 	load_method = SINGLE_CASING|SPEEDLOADER
 	handle_casings = CYCLE_CASINGS
 	max_shells = 2
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	force = 15
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	is_wieldable = TRUE
@@ -192,7 +194,7 @@
 	item_state = "sawnshotgun"
 	accuracy = 0
 	is_wieldable = FALSE
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	force = 11
 	slot_flags &= ~SLOT_BACK	//you can't sling it on your back
 	slot_flags |= (SLOT_BELT|SLOT_HOLSTER) //but you can wear it on your belt (poorly concealed under a trenchcoat, ideally) - or in a holster, why not.
@@ -210,7 +212,7 @@
 	is_wieldable = FALSE
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	force = 11
 
 /obj/item/gun/projectile/shotgun/doublebarrel/nitro
@@ -226,7 +228,7 @@
 	load_method = SINGLE_CASING|SPEEDLOADER
 	handle_casings = CYCLE_CASINGS
 	max_shells = 2
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	force = 10
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	is_wieldable = TRUE
@@ -248,7 +250,7 @@
 	item_state = "overunder"
 	accuracy = 0
 	slot_flags = SLOT_BELT
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet
 	load_method = SINGLE_CASING|SPEEDLOADER
 	max_shells = 1
@@ -273,7 +275,7 @@
 		slot_flags = initial(slot_flags)
 		playsound(user, 'sound/weapons/sawclose.ogg', 60, 1)
 	else
-		w_class = ITEMSIZE_LARGE
+		w_class = WEIGHT_CLASS_BULKY
 		slot_flags &= ~SLOT_BELT
 		playsound(user, 'sound/weapons/sawopen.ogg', 60, 1)
 	to_chat(user, "You [folded ? "fold" : "unfold"] \the [src].")
@@ -295,7 +297,7 @@
 	icon_state = "cameragun"
 	item_state = "cameragun"
 	slot_flags = SLOT_BELT
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	magazine_type = /obj/item/ammo_magazine/mc9mm
 	allowed_magazines = list(/obj/item/ammo_magazine/mc9mm)
 	fire_delay = ROF_PISTOL
@@ -305,8 +307,8 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2, TECH_ILLEGAL = 2)
 
-/obj/item/gun/projectile/shotgun/foldable/cameragun/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/gun/projectile/shotgun/foldable/cameragun/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(distance <= 1)
 		. += SPAN_NOTICE("Upon closer inspection, this is not a camera at all, but a 9mm firearm concealed inside the shell of one, which can be deployed by pressing a button.")
 
@@ -322,7 +324,7 @@
 	slot_flags = SLOT_BELT
 	ammo_type = /obj/item/ammo_casing/shotgun/moghes
 	load_method = SINGLE_CASING|SPEEDLOADER
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	fire_delay = ROF_INTERMEDIATE
 	force = 5
 	max_shells = 1
@@ -367,7 +369,7 @@
 			if(H.mob_size <10)
 				H.visible_message(SPAN_WARNING("\The [src] flies out of \the [H]'s' hand!"), SPAN_WARNING("\The [src] flies out of your hand!"))
 				H.drop_item(src)
-				src.throw_at(get_edge_target_turf(src, GLOB.reverse_dir[H.dir]), 4, 4)
+				src.throw_at(get_edge_target_turf(src, REVERSE_DIR(H.dir)), 4, 4)
 
 				var/obj/item/organ/external/LH = H.get_organ(BP_L_HAND)
 				var/obj/item/organ/external/RH = H.get_organ(BP_R_HAND)

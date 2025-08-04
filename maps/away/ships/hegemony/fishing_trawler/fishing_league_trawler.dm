@@ -3,7 +3,7 @@
 	description = "A freighter sponsored by the Fishing league has been augmented with sharpened pylons designed to harvest carp shoals."
 
 	prefix = "ships/hegemony/fishing_trawler/"
-	suffixes = list("fishing_league_trawler.dmm")
+	suffix = "fishing_league_trawler.dmm"
 
 	sectors = list(SECTOR_BADLANDS, SECTOR_UUEOAESA)
 	spawn_weight_sector_dependent = list(SECTOR_UUEOAESA = 3)

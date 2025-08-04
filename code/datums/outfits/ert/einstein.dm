@@ -32,7 +32,7 @@
 
 /obj/outfit/admin/ert/einstein/medic
 	name = "Einstein Medic"
-	belt = /obj/item/storage/belt/medical/first_responder/combat
+	belt = /obj/item/storage/belt/medical/paramedic/combat
 	glasses = /obj/item/clothing/glasses/hud/health
 	gloves = /obj/item/clothing/gloves/latex/nitrile
 	backpack = /obj/item/storage/backpack/satchel/med

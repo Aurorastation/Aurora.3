@@ -18,7 +18,7 @@
 
 /area/exoplanet/barren/asteroid
 	name = "\improper Asteroid Surface"
-	base_turf = /turf/unsimulated/floor/asteroid/ash
+	base_turf = /turf/simulated/floor/exoplanet/asteroid/ash
 
 /area/exoplanet/barren/raskara
 	name = "Raskara Surface"
@@ -68,10 +68,14 @@
 	name = "Konyang Wilderness"
 	base_turf = /turf/simulated/floor/exoplanet/konyang
 
+/area/exoplanet/grass/xanu
+	name = "Xanu Prime Wilderness"
+	base_turf = /turf/simulated/floor/exoplanet/grass/stalk
+
 /area/exoplanet/lava
 	name = "\improper Planetary surface"
 	ambience = AMBIENCE_LAVA
-	base_turf = /turf/unsimulated/floor/asteroid/basalt
+	base_turf = /turf/simulated/floor/exoplanet/basalt
 
 /area/exoplanet/snow
 	ambience = list('sound/effects/wind/tundra0.ogg','sound/effects/wind/tundra1.ogg','sound/effects/wind/tundra2.ogg','sound/effects/wind/spooky0.ogg','sound/effects/wind/spooky1.ogg')

@@ -7,9 +7,9 @@
 	size = 12
 	requires_ntnet = TRUE
 	available_on_ntnet = TRUE
-	required_access_download = ACCESS_HOP
+	required_access_download = ACCESS_CARGO
 	required_access_run = ACCESS_CARGO
-	usage_flags = PROGRAM_CONSOLE | PROGRAM_TELESCREEN
+	usage_flags = PROGRAM_LAPTOP | PROGRAM_CONSOLE | PROGRAM_TELESCREEN
 	tgui_id = "CargoControl"
 
 	var/page = "overview_main" //overview_main - Main Menu, overview_submitted - Submitted Order Overview, overview_approved - Approved Order Overview, settings - Settings, details - order details, bounties - centcom bounties

@@ -176,6 +176,14 @@
 /// Traits given by psionics.
 #define TRAIT_SOURCE_PSIONICS "psionics"
 
+/// Traits given by augments
+#define TRAIT_SOURCE_AUGMENT "augment"
+
+/// This trait makes Check_Shoegrip return TRUE. Used for magboot-like behaviour.
+#define TRAIT_SHOE_GRIP "shoe_grip"
+
+/// Trait is added from a species verb.
+#define TRAIT_SOURCE_SPECIES_VERB "species_verb"
 
 // DISABILITY TRAITS
 
@@ -184,3 +192,15 @@
 
 /// Causes the mob to never clot their wounds
 #define TRAIT_DISABILITY_HEMOPHILIA_MAJOR "disability_hemophilia_major"
+
+/// hnnnnnnnggggg..... you're pretty good....
+#define TRAIT_NICE_SHOT "nice_shot"
+/// Mobs with this trait cannot be hit by projectiles, meaning the projectiles will just go through.
+#define TRAIT_UNHITTABLE_BY_PROJECTILES "unhittable_by_projectiles"
+///This mob is currently blocking a projectile.
+#define TRAIT_BLOCKING_PROJECTILES "blocking_projectiles"
+
+/// This trait is used for double shuttle seats in a single tile, used in handling occupant density.
+#define TRAIT_DOUBLE_SEATS "double_seats"
+/// Apply this to make a mob passable by other mobs.
+#define TRAIT_UNDENSE "undense"

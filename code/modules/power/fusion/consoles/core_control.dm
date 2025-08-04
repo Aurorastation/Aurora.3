@@ -54,7 +54,7 @@
 			var/list/core = list()
 			var/obj/machinery/power/fusion_core/C = fusion_cores[i]
 			core["id"] = "#[i]"
-			core["ref"] = "\ref[C]"
+			core["ref"] = "[REF(C)]"
 			core["field"] = !isnull(C.owned_field)
 			core["power"] = "[C.field_strength / 10]"
 			core["field_strength"] = C.field_strength

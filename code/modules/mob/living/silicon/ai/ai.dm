@@ -1,8 +1,9 @@
 #define AI_CHECK_WIRELESS 1
 #define AI_CHECK_RADIO 2
 
-var/list/ai_list = list()
-var/list/ai_verbs_default = list(
+GLOBAL_LIST_INIT_TYPED(ai_list, /mob/living/silicon/ai, list())
+
+GLOBAL_LIST_INIT(ai_verbs_default, list(
 	/mob/living/silicon/ai/proc/ai_announcement,
 	/mob/living/silicon/ai/proc/ai_call_shuttle,
 	/mob/living/silicon/ai/proc/ai_emergency_message,
@@ -21,20 +22,20 @@ var/list/ai_verbs_default = list(
 	/mob/living/silicon/ai/proc/core,
 	/mob/living/silicon/ai/proc/pick_icon,
 	/mob/living/silicon/ai/proc/sensor_mode,
-	/mob/living/silicon/ai/proc/remote_control_shell,
+	/mob/living/silicon/ai/proc/remote_control,
 	/mob/living/silicon/ai/proc/show_laws_verb,
 	/mob/living/silicon/ai/proc/toggle_acceleration,
 	/mob/living/silicon/ai/proc/toggle_camera_light,
 	/mob/living/silicon/ai/proc/ai_examine,
 	/mob/living/silicon/ai/proc/multitool_mode,
 	/mob/living/silicon/ai/proc/toggle_hologram_movement
-)
+))
 
 //Not sure why this is necessary...
 /proc/AutoUpdateAI(obj/subject)
 	var/is_in_use = 0
 	if (subject!=null)
-		for(var/A in ai_list)
+		for(var/A in GLOB.ai_list)
 			var/mob/living/silicon/ai/M = A
 			if ((M.client && M.machine == subject))
 				is_in_use = 1
@@ -107,11 +108,11 @@ var/list/ai_verbs_default = list(
 	var/custom_sprite = FALSE 				// Whether the selected icon is custom
 
 /mob/living/silicon/ai/proc/add_ai_verbs()
-	add_verb(src, ai_verbs_default)
+	add_verb(src, GLOB.ai_verbs_default)
 	add_verb(src, silicon_subsystems)
 
 /mob/living/silicon/ai/proc/remove_ai_verbs()
-	remove_verb(src, ai_verbs_default)
+	remove_verb(src, GLOB.ai_verbs_default)
 	remove_verb(src, silicon_subsystems)
 
 /mob/living/silicon/ai/Initialize(mapload, datum/ai_laws/L, obj/item/device/mmi/B, safety = 0)
@@ -121,11 +122,11 @@ var/list/ai_verbs_default = list(
 	announcement.announcement_type = "A.I. Announcement"
 	announcement.newscast = TRUE
 
-	var/list/possibleNames = ai_names
+	var/list/possibleNames = GLOB.ai_names
 
 	var/pickedName
 	while(!pickedName)
-		pickedName = pick(ai_names)
+		pickedName = pick(GLOB.ai_names)
 		for(var/mob/living/silicon/ai/A in GLOB.mob_list)
 			if(A.real_name == pickedName && length(possibleNames) > 1) //fixing the theoretically possible infinite loop
 				possibleNames -= pickedName
@@ -141,7 +142,7 @@ var/list/ai_verbs_default = list(
 	if(L && istype(L, /datum/ai_laws))
 		laws = L
 	else
-		laws = new base_law_type
+		laws = new GLOB.base_law_type
 
 	ai_multi = new(src)
 	ai_radio = new(src)
@@ -158,15 +159,16 @@ var/list/ai_verbs_default = list(
 	add_language(LANGUAGE_ROBOT, TRUE)
 	add_language(LANGUAGE_TCB, TRUE)
 	add_language(LANGUAGE_SOL_COMMON, TRUE)
+	add_language(LANGUAGE_TRADEBAND, TRUE)
+	add_language(LANGUAGE_EAL, TRUE)
+	add_language(LANGUAGE_DRONE, TRUE)
 	add_language(LANGUAGE_ELYRAN_STANDARD, FALSE)
 	add_language(LANGUAGE_UNATHI, FALSE)
 	add_language(LANGUAGE_SIIK_MAAS, FALSE)
 	add_language(LANGUAGE_SKRELLIAN, FALSE)
-	add_language(LANGUAGE_TRADEBAND, TRUE)
 	add_language(LANGUAGE_GUTTER, FALSE)
 	add_language(LANGUAGE_VAURCA, FALSE)
 	add_language(LANGUAGE_ROOTSONG, FALSE)
-	add_language(LANGUAGE_EAL, TRUE)
 	add_language(LANGUAGE_YA_SSA, FALSE)
 	add_language(LANGUAGE_DELVAHII, FALSE)
 
@@ -186,17 +188,17 @@ var/list/ai_verbs_default = list(
 
 	addtimer(CALLBACK(src, PROC_REF(create_powersupply)), 5)
 
-	hud_list[HEALTH_HUD]      = new /image/hud_overlay('icons/mob/hud_med.dmi', src, "100")
-	hud_list[STATUS_HUD]      = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[LIFE_HUD] 		  = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[ID_HUD]          = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[WANTED_HUD]      = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[IMPLOYAL_HUD]    = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[IMPCHEM_HUD]     = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[IMPTRACK_HUD]    = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[SPECIALROLE_HUD] = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
+	hud_list[HEALTH_HUD]      = new /image/hud_overlay('icons/hud/hud_med.dmi', src, "100")
+	hud_list[STATUS_HUD]      = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
+	hud_list[LIFE_HUD] 		  = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
+	hud_list[ID_HUD]          = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
+	hud_list[WANTED_HUD]      = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
+	hud_list[IMPLOYAL_HUD]    = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
+	hud_list[IMPCHEM_HUD]     = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
+	hud_list[IMPTRACK_HUD]    = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
+	hud_list[SPECIALROLE_HUD] = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
 
-	ai_list += src
+	GLOB.ai_list += src
 
 	GLOB.cameranet.add_source(src)
 
@@ -212,15 +214,15 @@ var/list/ai_verbs_default = list(
 	QDEL_NULL(psupply)
 	QDEL_NULL(ai_camera)
 	QDEL_NULL(holo_icon)
-	ai_list -= src
+	GLOB.ai_list -= src
 	destroy_eyeobj()
 	return ..()
 
 /mob/living/silicon/ai/proc/on_mob_init()
-	to_chat(src, "<h3>You are playing the station's AI.</h3>")
-	to_chat(src, "<strong><a href='?src=\ref[src];view_ai_help=1'>\[View help\]</a></strong> (or use OOC command <code>AI-Help</code> at any time)<br>")
+	to_chat(src, "<h3>You are playing the [station_name()]'s AI.</h3>")
+	to_chat(src, "<strong><a href='byond://?src=[REF(src)];view_ai_help=1'>\[View help\]</a></strong> (or use OOC command <code>AI-Help</code> at any time)<br>")
 
-	if(malf && !(mind in malf.current_antagonists))
+	if(GLOB.malf && !(mind in GLOB.malf.current_antagonists))
 		show_laws()
 		to_chat(src, "<b>These laws may be changed by other players, or by you if you are malfunctioning.</b>")
 
@@ -283,7 +285,7 @@ var/list/ai_verbs_default = list(
 		icon = CUSTOM_ITEM_SYNTH
 		selected_sprite = new/datum/ai_icon("Custom", "[sprite.aichassisicon]", "4", "[sprite.aichassisicon]-crash", "#FFFFFF", "#FFFFFF", "#FFFFFF")
 	else
-		selected_sprite = default_ai_icon
+		selected_sprite = GLOB.default_ai_icon
 	update_icon()
 
 /mob/living/silicon/ai/pointed(atom/A as mob|obj|turf in view())
@@ -317,7 +319,7 @@ var/list/ai_verbs_default = list(
 	name = "power supply"
 	active_power_usage = 50000 // Station AIs use significant amounts of power. This, when combined with charged SMES should mean AI lasts for 1hr without external power.
 	use_power = POWER_USE_ACTIVE
-	power_channel = EQUIP
+	power_channel = AREA_USAGE_EQUIP
 	var/mob/living/silicon/ai/powered_ai
 	invisibility = 100
 
@@ -357,13 +359,13 @@ var/list/ai_verbs_default = list(
 	var/radio_keys = jointext(src.get_radio_keys(), "<br>")
 	var/dat = "\
 		<h1>AI Basics</h1>\
-		<p>You are playing the station's AI. The AI cannot move, but can interact with many objects while viewing them (through cameras).</p>\
+		<p>You are playing the [station_name()]'s AI. The AI cannot move, but can interact with many objects while viewing them (through cameras).</p>\
 		<p>Familiarize yourself with the GUI buttons in world view. They are shortcuts to running commands for camera tracking, displaying alerts, moving up and down and such.</p>\
 		<p>While observing through a camera, you can use most (networked) devices which you can see, such as computers, APCs, intercoms, doors, etc. \
 			To use something, simply click on it.</p>\
 		<h2>AI Shell</h2>\
 		<p>As an AI, you have access to an unique, inhabitable AI shell that spawns behind your core.\
-			This construct can be used in a variety of ways, but its primary function is to be a <strong>role play tool</strong> to give you the ability to have an actual physical presence on the station.\
+			This construct can be used in a variety of ways, but its primary function is to be a <strong>role play tool</strong> to give you the ability to have an actual physical presence on the [station_name(TRUE)].\
 			The shell is an extension of you, which means <strong>your laws apply to it aswell.</strong>\
 		</p>\
 		<h2>OOC Notes</h2>\
@@ -381,7 +383,7 @@ var/list/ai_verbs_default = list(
 			Recall the channel list at any time by calling <code>Radio-Settings</code> under <em>AI Commands</em>.\
 		</p>\
 		"
-	usr << browse(dat, "window=aihelp,size=520x700")
+	usr << browse(HTML_SKELETON(dat), "window=aihelp,size=520x700")
 
 /mob/living/silicon/ai/proc/pick_icon()
 	set category = "AI Commands"
@@ -390,7 +392,7 @@ var/list/ai_verbs_default = list(
 		return
 
 	if (!custom_sprite)
-		var/new_sprite = tgui_input_list(src, "Select an icon!", "AI", ai_icons, selected_sprite)
+		var/new_sprite = tgui_input_list(src, "Select an icon!", "AI", GLOB.ai_icons, selected_sprite)
 		if(new_sprite) selected_sprite = new_sprite
 	update_icon()
 
@@ -423,7 +425,7 @@ var/list/ai_verbs_default = list(
 	if(message_cooldown)
 		to_chat(src, "Please allow one minute to pass between announcements.")
 		return
-	var/input = tgui_input_text(usr, "Please write a message to announce to the station crew.", "A.I. Announcement", multiline = TRUE)
+	var/input = tgui_input_text(usr, "Please write a message to announce to the [station_name(TRUE)] crew.", "A.I. Announcement", multiline = TRUE)
 	if(!input)
 		return
 
@@ -484,7 +486,7 @@ var/list/ai_verbs_default = list(
 		return
 	Centcomm_announce(input, usr)
 	to_chat(usr, SPAN_NOTICE("Message transmitted."))
-	log_say("[key_name(usr)] has made an AI [SSatlas.current_map.boss_short] announcement: [input]",ckey=key_name(usr))
+	log_say("[key_name(usr)] has made an AI [SSatlas.current_map.boss_short] announcement: [input]")
 	emergency_message_cooldown = 1
 	spawn(300)
 		emergency_message_cooldown = 0
@@ -516,7 +518,7 @@ var/list/ai_verbs_default = list(
 	if (href_list["mach_close"])
 		if (href_list["mach_close"] == "aialerts")
 			view_alerts = 0
-		var/t1 = text("window=[]", href_list["mach_close"])
+		var/t1 = "window=[href_list["mach_close"]]"
 		unset_machine()
 		src << browse(null, t1)
 	if (href_list["switchcamera"])
@@ -545,7 +547,7 @@ var/list/ai_verbs_default = list(
 			to_chat(src, SPAN_NOTICE("Unable to locate visual entry."))
 			return
 		var/info = cameraRecords[entry]
-		src << browse(text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", info[1], info[2]), text("window=[]", html_encode(info[1])))
+		src << browse("<HTML><HEAD><TITLE>[info[1]]</TITLE></HEAD><BODY><TT>[info[2]]</TT></BODY></HTML>", "window=[html_encode(info[1])]")
 		return
 
 	return
@@ -603,7 +605,7 @@ var/list/ai_verbs_default = list(
 	for (var/obj/machinery/camera/C in GLOB.cameranet.cameras)
 		if(!C.can_use())
 			continue
-		var/list/tempnetwork = difflist(C.network,restricted_camera_networks,1)
+		var/list/tempnetwork = difflist(C.network, GLOB.restricted_camera_networks, 1)
 		for(var/i in tempnetwork)
 			cameralist[i] = i
 
@@ -679,8 +681,11 @@ var/list/ai_verbs_default = list(
 					else
 						to_chat(src, SPAN_WARNING("You do not have a custom sprite!"))
 				if("loadout character")
-					var/mob/living/carbon/human/H = SSmobs.get_mannequin(usr.client.ckey)
-					holo_icon.appearance = H.appearance
+					var/client/client = usr.client
+					client.prefs.update_mannequin()
+
+					var/mob/living/carbon/human/loadout_mob = SSmobs.get_mannequin(usr.client.ckey)
+					holo_icon.appearance = loadout_mob.appearance
 				else
 					set_hologram_unique(icon('icons/mob/AI.dmi', input))
 
@@ -796,14 +801,33 @@ var/list/ai_verbs_default = list(
 	set desc = "Augment visual feed with internal sensor overlays"
 	toggle_sensor_mode()
 
-/mob/living/silicon/ai/proc/remote_control_shell()
-	set name = "Remote Control Shell"
+/// Retrieves all mobs assigned to REMOTE_AI_ROBOT or REMOTE_AI_MECH and allows the user to select one to control using SSvirtualreality
+/mob/living/silicon/ai/proc/remote_control()
+	set name = "Remote Control"
 	set category = "AI Commands"
-	set desc = "Remotely control any active shells on your AI shell network."
+	set desc = "Remotely control any active shells or mechs on your AI network."
 
 	if(check_unable(AI_CHECK_WIRELESS))
 		return
-	SSvirtualreality.bound_selection(src, REMOTE_AI_ROBOT)
+
+	// Grab from relevant networks
+	var/list/remote_shell = SSvirtualreality.bound_choices(src, REMOTE_AI_ROBOT)
+	var/list/remote_mech = SSvirtualreality.mech_choices(src, REMOTE_AI_MECH)
+	var/list/remote = flatten_list(list(remote_shell, remote_mech))
+
+	if(!length(remote))
+		to_chat(usr, SPAN_WARNING("No active remote units are available."))
+		return
+	var/choice = tgui_input_list(usr, "Please select what to take over.", "Remote Control Selection", remote)
+	if(!choice)
+		return
+
+	// Transfer
+	if(choice in remote_mech)
+		var/mob/living/heavy_vehicle/chosen_mech = remote_mech[choice]
+		SSvirtualreality.mind_transfer(src, chosen_mech.pilots[1]) // the first pilot
+	else
+		SSvirtualreality.mind_transfer(src, choice)
 
 /mob/living/silicon/ai/proc/toggle_hologram_movement()
 	set name = "Toggle Hologram Movement"
@@ -842,7 +866,7 @@ var/list/ai_verbs_default = list(
 	to_chat(src, SPAN_NOTICE("Multitool mode: [multitool_mode ? "E" : "Dise"]ngaged"))
 
 /mob/living/silicon/ai/update_icon()
-	if(!selected_sprite) selected_sprite = default_ai_icon
+	if(!selected_sprite) selected_sprite = GLOB.default_ai_icon
 
 	if(stat == DEAD)
 		icon_state = selected_sprite.dead_icon

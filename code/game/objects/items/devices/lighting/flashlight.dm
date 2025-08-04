@@ -1,15 +1,10 @@
 /obj/item/device/flashlight
 	name = "flashlight"
 	desc = "A hand-held emergency light."
-	desc_info = "Use this item in your hand, to turn on the light. Click this light with the opposite hand, to remove the cell contained inside."
 	icon = 'icons/obj/lighting.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_lighting.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_lighting.dmi',
-		)
 	icon_state = "flashlight"
 	item_state = "flashlight"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	light_color = LIGHT_COLOR_HALOGEN
@@ -46,6 +41,22 @@
 	var/efficiency_modifier = 1.0
 	/// A way for mappers to force which way a flashlight faces upon spawning
 	var/spawn_dir
+
+/obj/item/device/flashlight/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(!always_on)
+		. += "Left-click \the [src] in-hand to toggle the light."
+		. += "While held, left-click \the [src] with your free hand to remove the power cell."
+
+/obj/item/device/flashlight/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. = ..()
+	if(power_use && brightness_level)
+		. += "\The [src] is set to [brightness_level]."
+		if(cell)
+			. += "\The [src] has \a [cell] attached. It has [round(cell.percent())]% charge remaining."
+	if(light_wedge && isturf(loc))
+		. += SPAN_NOTICE("\The [src] is facing [dir2text(dir)].")
 
 /obj/item/device/flashlight/Initialize()
 
@@ -123,15 +134,6 @@
 		M.update_inv_l_ear()
 		M.update_inv_r_ear()
 		M.update_inv_head()
-
-/obj/item/device/flashlight/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(power_use && brightness_level)
-		. += SPAN_NOTICE("\The [src] is set to [brightness_level].")
-		if(cell)
-			. += SPAN_NOTICE("\The [src] has \a [cell] attached. It has [round(cell.percent())]% charge remaining.")
-	if(light_wedge && isturf(loc))
-		. += FONT_SMALL(SPAN_NOTICE("\The [src] is facing [dir2text(dir)]."))
 
 /obj/item/device/flashlight/attack_self(mob/user)
 	if(always_on)
@@ -220,7 +222,7 @@
 	for(var/obj/O in contents)
 		O.emp_act(severity)
 
-/obj/item/device/flashlight/attack(mob/living/M as mob, mob/living/user as mob)
+/obj/item/device/flashlight/attack(mob/living/target_mob, mob/living/user, target_zone)
 	add_fingerprint(user)
 	if(on && user.zone_sel.selecting == BP_EYES)
 
@@ -231,10 +233,10 @@
 			to_chat(user, SPAN_WARNING("This light is too dim to see anything with!"))
 			return
 
-		var/mob/living/carbon/human/H = M	//mob has protective eyewear
+		var/mob/living/carbon/human/H = target_mob	//mob has protective eyewear
 		if(istype(H))
 			if(H.get_flash_protection())
-				to_chat(user, SPAN_WARNING("You're going to need to remove \the [M]'s eye protection first."))
+				to_chat(user, SPAN_WARNING("You're going to need to remove \the [H]'s eye protection first."))
 				return
 
 			var/obj/item/organ/vision
@@ -244,8 +246,8 @@
 				to_chat(user, SPAN_WARNING("You can't find any [H.species.vision_organ ? H.species.vision_organ : "eyes"] on [H]!"))
 
 			user.visible_message(
-				SPAN_NOTICE("\The [user] directs [src] to [M]'s eyes."),
-				SPAN_NOTICE("You direct [src] to [M]'s eyes.")
+				SPAN_NOTICE("\The [user] directs [src] to [H]'s eyes."),
+				SPAN_NOTICE("You direct [src] to [H]'s eyes.")
 			)
 
 			inspect_vision(vision, user)
@@ -311,7 +313,7 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_EARS
 	brightness_on = 2
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	light_wedge = LIGHT_OMNI
 
 /obj/item/device/flashlight/drone
@@ -322,7 +324,7 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	brightness_on = 2
 	efficiency_modifier = 2
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/device/flashlight/heavy
 	name = "heavy duty flashlight"
@@ -330,7 +332,7 @@
 	icon_state = "heavyflashlight"
 	item_state = "heavyflashlight"
 	brightness_on = 4
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	uv_intensity = 60
 	matter = list(MATERIAL_PLASTIC = 100, MATERIAL_GLASS = 70)
 	light_wedge = LIGHT_SEMI
@@ -343,10 +345,10 @@
 	desc = "A heavy flashlight, designed for security personnel."
 	icon_state = "maglight"
 	item_state = "maglight"
-	force = 5
+	force = 9
 	brightness_on = 5
 	efficiency_modifier = 0.8
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	uv_intensity = 70
 	attack_verb = list("slammed", "whacked", "bashed", "thunked", "battered", "bludgeoned", "thrashed")
 	matter = list(MATERIAL_ALUMINIUM = 200, MATERIAL_GLASS = 100)
@@ -367,11 +369,10 @@
 	gender = PLURAL
 	name = "glowing slime extract"
 	desc = "A glowing ball of what appears to be amber."
-	desc_info = null
-	icon = 'icons/obj/lighting.dmi'
-	icon_state = "floor1" //not a slime extract sprite but... something close enough!
-	item_state = "slime"
-	w_class = ITEMSIZE_TINY
+	icon = 'icons/mob/npc/slimes.dmi'
+	icon_state = "yellow slime extract"
+	item_state = "flashlight"
+	w_class = WEIGHT_CLASS_TINY
 	brightness_on = 6
 	uv_intensity = 200
 	on = TRUE //Bio-luminesence has one setting, on.
@@ -388,7 +389,7 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_HEAD | SLOT_EARS
 	brightness_on = 2
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	light_wedge = LIGHT_WIDE
 	body_parts_covered = 0
 
@@ -399,10 +400,6 @@
 	desc = "A mining lantern. Accepts larger cells than normal flashlights."
 	icon_state = "lantern"
 	item_state = "lantern"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_mining.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_mining.dmi',
-		)
 	attack_verb = list("bludgeoned, bashed, whacked")
 	matter = list(MATERIAL_STEEL = 200,MATERIAL_GLASS = 100)
 	flashlight_power = 1

@@ -23,14 +23,14 @@
 	var/aura_color = "#ff0022"
 
 	var/datum/component/armor/psionic/armor_component
-	var/obj/screen/psi/hub/ui	      // Reference to the master psi UI object.
+	var/atom/movable/screen/psi/hub/ui	      // Reference to the master psi UI object.
 	var/mob/living/owner              // Reference to our owner.
 	var/image/_aura_image             // Client image
 
 /datum/psi_complexus/proc/get_aura_image()
 	if(_aura_image && !istype(_aura_image))
 		var/atom/A = _aura_image
-		LOG_DEBUG("Non-image found in psi complexus: \ref[A] - \the [A] - [istype(A) ? A.type : "non-atom"]")
+		LOG_DEBUG("Non-image found in psi complexus: [REF(A)] - \the [A] - [istype(A) ? A.type : "non-atom"]")
 		destroy_aura_image(_aura_image)
 		_aura_image = null
 	if(!_aura_image)

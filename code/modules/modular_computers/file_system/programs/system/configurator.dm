@@ -22,7 +22,7 @@
 		return TRUE
 
 	if(action == "brightness" && computer.flashlight)
-		var/new_brightness = Clamp(0, params["new_brightness"]/10, 1)
+		var/new_brightness = clamp(0, params["new_brightness"]/10, 1)
 		computer.flashlight.tweak_brightness(new_brightness)
 		. = TRUE
 
@@ -61,7 +61,7 @@
 	data["battery"] = computer.battery_module ? list("rating" = computer.battery_module.battery_rating, "percent" = computer.battery_module.battery.percent()) : null
 
 	if(computer.flashlight)
-		var/brightness = Clamp(0, round(computer.flashlight.power, 0.1) * 10, 10)
+		var/brightness = clamp(0, round(computer.flashlight.power, 0.1) * 10, 10)
 		data["brightness"] = brightness
 
 	return data

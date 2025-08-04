@@ -8,8 +8,6 @@
 	anchored = TRUE
 	manufacturer = "zenghu"
 
-	obj_flags = OBJ_FLAG_ROTATABLE
-
 	/// Icon state when used.
 	var/icon_state_active = "dispenser_active"
 	/// Set to a list of types to spawn one of each on New().
@@ -33,15 +31,15 @@
 	/// Allow these cans/glasses/condiment bottles but forbid ACTUAL food.
 	var/list/drink_accepted = list(/obj/item/reagent_containers/food/drinks, /obj/item/reagent_containers/food/condiment)
 
+/obj/machinery/chemical_dispenser/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "It has [cartridges.len] cartridges installed, and has space for [DISPENSER_MAX_CARTRIDGES - cartridges.len] more."
+
 /obj/machinery/chemical_dispenser/Initialize()
 	. = ..()
 	if(spawn_cartridges)
 		for(var/type in spawn_cartridges)
 			add_cartridge(new type(src))
-
-/obj/machinery/chemical_dispenser/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += "It has [cartridges.len] cartridges installed, and has space for [DISPENSER_MAX_CARTRIDGES - cartridges.len] more."
 
 /obj/machinery/chemical_dispenser/proc/add_cartridge(obj/item/reagent_containers/chem_disp_cartridge/C, mob/user)
 	if(!istype(C))
@@ -201,6 +199,12 @@
 				. = TRUE
 
 	add_fingerprint(usr)
+
+/obj/machinery/chemical_dispenser/ui_status(mob/user, datum/ui_state/state)
+	if(!operable())
+		return UI_DISABLED
+
+	. = ..()
 
 /obj/machinery/chemical_dispenser/attack_ai(mob/user as mob)
 	if(!ai_can_interact(user))

@@ -8,10 +8,10 @@
 	desc = "Directions for use: Requires two people, one to pull each end."
 	var/cracked = 0
 
-/obj/item/toy/xmas_cracker/attack(mob/target, mob/user, var/target_zone)
-	if( !cracked && istype(target,/mob/living/carbon/human) && (target.stat == CONSCIOUS) && !target.get_active_hand() )
-		target.visible_message(SPAN_NOTICE("[user] and [target] pop \an [src]! *pop*"),
-								SPAN_NOTICE("You pull \an [src] with [target]! *pop*"),
+/obj/item/toy/xmas_cracker/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if( !cracked && istype(target_mob,/mob/living/carbon/human) && (target_mob.stat == CONSCIOUS) && !target_mob.get_active_hand() )
+		target_mob.visible_message(SPAN_NOTICE("[user] and [target_mob] pop \an [src]! *pop*"),
+								SPAN_NOTICE("You pull \an [src] with [target_mob]! *pop*"),
 								SPAN_NOTICE("You hear a *pop*."))
 
 		var/obj/item/paper/Joke = new /obj/item/paper(user.loc)
@@ -27,14 +27,14 @@
 			"Why is Christmas just like life in NanoTrasen?\n\n<i>You do all the work and the fat guy gets all the credit.</i>",
 			"Why doesn't Santa have any children?\n\n<i>Because he only comes down the chimney.</i>")
 		Joke.set_content_unsafe(title, content)
-		new /obj/item/clothing/head/festive(target.loc)
+		new /obj/item/clothing/head/festive(target_mob.loc)
 		user.update_icon()
 		cracked = 1
 		icon_state = "cracker1"
-		var/obj/item/toy/xmas_cracker/other_half = new /obj/item/toy/xmas_cracker(target)
+		var/obj/item/toy/xmas_cracker/other_half = new /obj/item/toy/xmas_cracker(target_mob)
 		other_half.cracked = 1
 		other_half.icon_state = "cracker2"
-		target.put_in_active_hand(other_half)
+		target_mob.put_in_active_hand(other_half)
 		playsound(user, 'sound/effects/snap.ogg', 50, 1)
 		return 1
 	return ..()
@@ -55,7 +55,7 @@
 	..()
 	pixel_x = rand(-10,10)
 	pixel_y = rand(-10,10)
-	if(w_class > 0 && w_class < ITEMSIZE_LARGE)
+	if(w_class > 0 && w_class < WEIGHT_CLASS_BULKY)
 		icon_state = "gift[w_class]"
 	else
 		icon_state = "gift[pick(1, 2, 3)]"
@@ -76,7 +76,9 @@
 	qdel(src)
 	return
 
-/obj/effect/spresent/relaymove(mob/user as mob)
+/obj/effect/spresent/relaymove(mob/living/user, direction)
+	. = ..()
+
 	if (user.stat)
 		return
 	to_chat(user, SPAN_WARNING("You can't move."))
@@ -160,7 +162,7 @@
 	icon = 'icons/holidays/christmas/presents.dmi'
 	icon_state = "gift1"
 	item_state = "gift"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	randpixel = 12
 	var/gift_type
 
@@ -269,7 +271,7 @@
 
 /obj/item/xmasgift/medium
 	icon_state = "gift2"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/xmasgift/medium/get_gift_type()
 	var/picked_gift_type = pick(
@@ -332,7 +334,7 @@
 
 /obj/item/xmasgift/large
 	icon_state = "gift3"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/xmasgift/large/get_gift_type()
 	var/picked_gift_type = pick(
@@ -370,11 +372,11 @@
 
 /obj/item/xmasgift/schlorrgo
 	gift_type = /mob/living/simple_animal/schlorrgo
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/xmasgift/viscerator
 	gift_type = /mob/living/simple_animal/hostile/viscerator
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 // Things on your HEAD
 /obj/item/clothing/head/festive
@@ -467,7 +469,7 @@
 	desc = "Now with 99% less pine needles."
 	icon = 'icons/holidays/christmas/items.dmi'
 	icon_state = "tinyxmastree"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	force = 1
 	throwforce = 1
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'

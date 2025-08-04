@@ -12,19 +12,19 @@ datum/admins/proc/notes_gethtml(var/ckey)
 	var/savefile/notesfile = new(NOTESFILE)
 	if(!notesfile)	return SPAN_WARNING("Error: Cannot access [NOTESFILE]")
 	if(ckey)
-		. = "<b>Notes for <a href='?src=\ref[src];notes=show'>[ckey]</a>:</b> <a href='?src=\ref[src];notes=add;ckey=[ckey]'>\[+\]</a> <a href='?src=\ref[src];notes=remove;ckey=[ckey]'>\[-\]</a><br>"
+		. = "<b>Notes for <a href='byond://?src=[REF(src)];notes=show'>[ckey]</a>:</b> <a href='byond://?src=[REF(src)];notes=add;ckey=[ckey]'>\[+\]</a> <a href='byond://?src=[REF(src)];notes=remove;ckey=[ckey]'>\[-\]</a><br>"
 		notesfile.cd = "/[ckey]"
 		var/index = 1
 		while( !notesfile.eof )
 			var/note
 			notesfile >> note
-			. += "[note] <a href='?src=\ref[src];notes=remove;ckey=[ckey];from=[index]'>\[-\]</a><br>"
+			. += "[note] <a href='byond://?src=[REF(src)];notes=remove;ckey=[ckey];from=[index]'>\[-\]</a><br>"
 			index++
 	else
-		. = "<b>All Notes:</b> <a href='?src=\ref[src];notes=add'>\[+\]</a> <a href='?src=\ref[src];notes=remove'>\[-\]</a><br>"
+		. = "<b>All Notes:</b> <a href='byond://?src=[REF(src)];notes=add'>\[+\]</a> <a href='byond://?src=[REF(src)];notes=remove'>\[-\]</a><br>"
 		notesfile.cd = "/"
 		for(var/dir in notesfile.dir)
-			. += "<a href='?src=\ref[src];notes=show;ckey=[dir]'>[dir]</a><br>"
+			. += "<a href='byond://?src=[REF(src)];notes=show;ckey=[dir]'>[dir]</a><br>"
 	return
 
 //handles removing entries from the buffer, or removing the entire directory if no start_index is given
@@ -104,7 +104,7 @@ datum/admins/proc/notes_gethtml(var/ckey)
 	info << infos
 
 	message_admins(SPAN_NOTICE("[key_name_admin(user)] has edited [key]'s notes."))
-	log_admin("[key_name(user)] has edited [key]'s notes.",admin_key=key_name(user),ckey=key)
+	log_admin("[key_name(user)] has edited [key]'s notes.")
 
 	del(info) // savefile, so NOT qdel
 
@@ -129,7 +129,7 @@ datum/admins/proc/notes_gethtml(var/ckey)
 	info << infos
 
 	message_admins(SPAN_NOTICE("[key_name_admin(usr)] deleted one of [key]'s notes."))
-	log_admin("[key_name(usr)] deleted one of [key]'s notes.",admin_key=key_name(usr),ckey=key)
+	log_admin("[key_name(usr)] deleted one of [key]'s notes.")
 
 	qdel(info)
 

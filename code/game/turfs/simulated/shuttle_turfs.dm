@@ -60,6 +60,9 @@
 /turf/simulated/wall/shuttle/dark/cardinal/gold
 	color = COLOR_GOLD
 
+/turf/simulated/wall/shuttle/dark/cardinal/closet_gold
+	color = COLOR_CLOSET_GOLD
+
 /turf/simulated/wall/shuttle/dark/long_diagonal_2
 	name = "test diagonal"
 	icon_state = "d2-we-1"
@@ -118,7 +121,7 @@
 	outside_part = FALSE
 
 /turf/simulated/wall/shuttle/raider
-	color = "#6C7364"
+	color = COLOR_RAIDER
 
 /turf/simulated/wall/shuttle/hapt
 	color = "#2E2B2B"
@@ -185,12 +188,6 @@
 	var/outside_part = TRUE
 	atmos_canpass = CANPASS_DENSITY
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED|OBJ_FLAG_NOFALL
-
-/obj/structure/shuttle_part/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(density)
-		return 0
-	else
-		return ..()
 
 /obj/structure/window/shuttle/unique
 	name = "shuttle window"

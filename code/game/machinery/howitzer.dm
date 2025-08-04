@@ -3,9 +3,7 @@
  *
  * Howitzers are a field weapon capable of delivering artillery fire to a location
  */
-/obj/machinery/howitzer
-	abstract_type = /obj/machinery/howitzer
-
+ABSTRACT_TYPE(/obj/machinery/howitzer)
 	name = "howitzer"
 
 	icon = 'icons/obj/machinery/howitzer/howitzer.dmi'
@@ -13,7 +11,7 @@
 	dir = NORTH
 
 	//Big thing
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 
 	//Can't pass through it
 	density = TRUE
@@ -95,7 +93,6 @@
 				loaded_shot = null
 			return
 
-
 /obj/machinery/howitzer/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
@@ -171,7 +168,7 @@
 		return
 
 	if(rotation_timerid)
-		balloon_alert_to_viewers("The howitzer is already doing an alignment!")
+		balloon_alert_to_viewers("already doing an alignment!")
 		return
 
 	//Not the same angle we are at, we have to rotate
@@ -193,7 +190,7 @@
 		if(degrees_to_rotate > 180)
 			degrees_to_rotate = 360 - degrees_to_rotate
 
-		balloon_alert_to_viewers("The howitzer starts to rotate!")
+		balloon_alert_to_viewers("rotating...")
 
 		//Start the rotation looping sound
 		rotation_looping_sound = new rotation_looping_sound_type(src)
@@ -212,7 +209,7 @@
 	horizontal_angle = angle
 	set_dir(wanted_dir)
 
-	balloon_alert_to_viewers("The howitzer stops rotating!")
+	balloon_alert_to_viewers("finished rotating")
 	rotation_looping_sound.stop()
 	QDEL_NULL(rotation_looping_sound)
 
@@ -229,7 +226,7 @@
 		return
 
 	if(rotation_timerid)
-		balloon_alert_to_viewers("The howitzer is already doing an alignment!")
+		balloon_alert_to_viewers("already doing an alignment!")
 		return
 
 	if(vertical_angle != angle)
@@ -240,7 +237,7 @@
 		if(degrees_to_change > 180) //Yes this shouldn't happen, copy paste anyways
 			degrees_to_change = 360 - degrees_to_change
 
-		balloon_alert_to_viewers("The howitzer starts to change the elevation!")
+		balloon_alert_to_viewers("changing elevation...")
 
 		rotation_looping_sound = new rotation_looping_sound_type(src)
 		rotation_looping_sound.start()
@@ -255,7 +252,7 @@
 
 	vertical_angle = angle
 
-	balloon_alert_to_viewers("The howitzer steadies the barrel at the requested elevation!")
+	balloon_alert_to_viewers("finished changing elevation")
 	rotation_looping_sound.stop()
 	QDEL_NULL(rotation_looping_sound)
 
@@ -268,7 +265,7 @@
  */
 /obj/machinery/howitzer/proc/fire(mob/user)
 	if(!anchored)
-		balloon_alert_to_viewers("The howitzer is not anchored down!")
+		balloon_alert_to_viewers("not anchored down!")
 		to_chat(user, SPAN_WARNING("The howitzer is not anchored down!"))
 		return
 
@@ -276,12 +273,12 @@
 		return
 
 	if(!ready_to_fire)
-		balloon_alert_to_viewers("The howitzer is not ready to fire, it's adjusting the aim!")
+		balloon_alert_to_viewers("not ready to fire!")
 		to_chat(user, SPAN_WARNING("The howitzer is not ready to fire, it's adjusting the aim!"))
 		return
 
 	if(!loaded_shot)
-		balloon_alert_to_viewers("The barrel is empty!")
+		balloon_alert_to_viewers("barrel is empty!")
 		to_chat(user, SPAN_WARNING("The barrel is empty!"))
 		return
 
@@ -297,7 +294,7 @@
 	var/datum/projectile_data/shot_data = projectile_trajectory(T.x, T.y, horizontal_angle, vertical_angle, fire_power)
 
 	//Use the projectile and the pellets
-	var/obj/item/projectile/shot_projectile = loaded_shot.expend()
+	var/obj/projectile/shot_projectile = loaded_shot.expend()
 	QDEL_LIST(loaded_howitzer_pellets)
 
 	//Casing already expended, nothing to shoot
@@ -323,7 +320,10 @@
 		stack_trace("Unable to locate the target, somehow.")
 		return
 
-	shot_projectile.launch_projectile(target)
+	shot_projectile.preparePixelProjectile(target, get_turf(src))
+	shot_projectile.firer = src
+	shot_projectile.fired_from = src
+	shot_projectile.fire()
 
 	flick((icon_state + "_fire"), src)
 
@@ -339,7 +339,7 @@
 		else
 			break
 
-	new /obj/effect/effect/smoke(smoke_position, 2 SECONDS)
+	new /obj/effect/smoke(smoke_position, 2 SECONDS)
 
 	for(var/mob/living/carbon/human/H in range(3, src))
 		if(H.client)
@@ -355,9 +355,7 @@
  *
  * Howitzer ammo casing is a type of ammo casing that can be loaded into howitzers.
  */
-/obj/item/ammo_casing/howitzer
-	abstract_type = /obj/item/ammo_casing/howitzer
-
+ABSTRACT_TYPE(/obj/item/ammo_casing/howitzer)
 	name = "howitzer ammo casing"
 	icon = 'icons/obj/machinery/howitzer/howitzer_ammo.dmi'
 	icon_state = "howitzer_ammo"
@@ -367,54 +365,50 @@
 	drop_sound = 'sound/items/drop/shell_drop.ogg'
 	pickup_sound = 'sound/items/pickup/weldingtool.ogg'
 
-	projectile_type = /obj/item/projectile/howitzer
+	projectile_type = /obj/projectile/howitzer
 
-/obj/item/ammo_casing/howitzer/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/ammo_casing/howitzer/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	. += "\A [name], to be used in a howitzer."
 	if(!BB && distance < 4)
 		. += "This one is spent."
-
 
 /**
  * # Howitzer Ammo
  *
  * Howitzer ammo is a type of ammo that can be used in howitzers.
  */
-/obj/item/projectile/howitzer
-	abstract_type = /obj/item/projectile/howitzer
-
+ABSTRACT_TYPE(/obj/projectile/howitzer)
 	name = "howitzer ammo"
 	icon = 'icons/obj/machinery/howitzer/howitzer_ammo.dmi'
 	icon_state = "howitzer_ammo"
 	damage = 0
 	range = 999 //Follow what the path says, not range
-	forcedodge = TRUE //Don't directly hit people
 
-/obj/item/projectile/howitzer/can_hit_target(atom/target, list/passthrough)
+/obj/projectile/howitzer/can_hit_target(atom/target, direct_target = FALSE, ignore_loc = FALSE, cross_failed = FALSE)
 	if(target == original)
 		return TRUE
 	else
 		return FALSE
 
 //We have to handle collisions like the snowflake projectile we are. Or rewrite the projectile logic, you can do that if you want, I do not
-/obj/item/projectile/howitzer/Collide(atom/A)
+/obj/projectile/howitzer/Collide(atom/A)
 	if(A == original)
-		on_impact(A)
+		on_hit(A)
 		qdel(src)
 
-/obj/item/projectile/howitzer/on_impact(atom/A, affected_limb)
+/obj/projectile/howitzer/on_hit(atom/target, blocked, def_zone)
 	. = ..()
 
-	if(A == original)
-		terminal_effect(get_turf(A))
+	if(target == original)
+		terminal_effect(get_turf(target))
 
 /**
  * Takes care of performing the terminal effect of the projectile
  *
  * * impacted_turf - The `/turf` that the projectile landed on
  */
-/obj/item/projectile/howitzer/proc/terminal_effect(turf/impacted_turf)
+/obj/projectile/howitzer/proc/terminal_effect(turf/impacted_turf)
 	SHOULD_NOT_SLEEP(TRUE)
 	SHOULD_CALL_PARENT(TRUE)
 
@@ -426,20 +420,16 @@
 /*
 	High Explosive
 */
-/obj/item/ammo_casing/howitzer/high_explosive
+ABSTRACT_TYPE(/obj/item/ammo_casing/howitzer/high_explosive)
 	name = "high explosive howitzer ammo"
-	abstract_type = /obj/item/ammo_casing/howitzer/high_explosive
-
-	projectile_type = /obj/item/projectile/howitzer/high_explosive
+	projectile_type = /obj/projectile/howitzer/high_explosive
 
 /**
  * # High Explosive howitzer ammo
  *
  * Big boom, many fragments
  */
-/obj/item/projectile/howitzer/high_explosive
-	abstract_type = /obj/item/projectile/howitzer/high_explosive
-
+ABSTRACT_TYPE(/obj/projectile/howitzer/high_explosive)
 	name = "high explosive howitzer ammo"
 
 	///The minimum number of fragments this HE shell will create
@@ -459,7 +449,7 @@
 	///Boolean, if people can cover from the explosion
 	var/can_cover = TRUE
 
-/obj/item/projectile/howitzer/high_explosive/terminal_effect(turf/impacted_turf)
+/obj/projectile/howitzer/high_explosive/terminal_effect(turf/impacted_turf)
 	. = ..()
 	if(!.)
 		return
@@ -474,9 +464,7 @@
 /*####################################
 		GUNPOWDER PELLETS
 ####################################*/
-/obj/item/howitzer_pellet
-	abstract_type = /obj/item/howitzer_pellet
-
+ABSTRACT_TYPE(/obj/item/howitzer_pellet)
 	name = "howitzer pellet"
 	desc = "A pellet that can be used in a howitzer to propel the projectile."
 
@@ -524,9 +512,9 @@
 /obj/item/ammo_casing/howitzer/high_explosive/gadpathur_105mm
 	name = "gadpathur 105mm light field howitzer HE ammo"
 	desc = "A 105mm light field howitzer ammo, designed with the idea of obliterating any Solarian that might put foot on the surface of the planet."
-	projectile_type = /obj/item/projectile/howitzer/high_explosive/gadpathur_105mm
+	projectile_type = /obj/projectile/howitzer/high_explosive/gadpathur_105mm
 
-/obj/item/projectile/howitzer/high_explosive/gadpathur_105mm
+/obj/projectile/howitzer/high_explosive/gadpathur_105mm
 	name = "gadpathur 105mm light field howitzer HE projectile"
 	fragment_minimum = 30
 	fragment_maximum = 50

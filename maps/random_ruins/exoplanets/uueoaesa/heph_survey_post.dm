@@ -4,7 +4,7 @@
 	description = "A long-abandoned Hephaestus survey outpost."
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "uueoaesa/"
-	suffixes = list("heph_survey_post.dmm")
+	suffix = "heph_survey_post.dmm"
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 
 	unit_test_groups = list(1)

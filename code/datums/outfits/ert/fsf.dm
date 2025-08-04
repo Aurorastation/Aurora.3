@@ -36,7 +36,7 @@
 /obj/outfit/admin/ert/fsf/medic
 	name = "Free Solarian Fleets Medic"
 
-	belt = /obj/item/storage/belt/medical/first_responder/combat
+	belt = /obj/item/storage/belt/medical/paramedic/combat
 	back = /obj/item/storage/backpack/satchel/med
 	glasses = /obj/item/clothing/glasses/hud/health
 	suit_store = /obj/item/gun/projectile/shotgun/pump/combat/sol

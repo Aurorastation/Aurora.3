@@ -1,5 +1,6 @@
 /obj/item/organ/internal/heart
 	name = "heart"
+	desc = "When it's calling to you, you'd better listen."
 	icon_state = "heart-on"
 	organ_tag = BP_HEART
 	parent_organ = BP_CHEST
@@ -57,7 +58,7 @@
 		pulse_mod++
 
 	if(owner.status_flags & FAKEDEATH)
-		pulse = Clamp(PULSE_NONE + pulse_mod, PULSE_NONE, PULSE_2FAST) //pretend that we're dead. unlike actual death, can be inflienced by meds
+		pulse = clamp(PULSE_NONE + pulse_mod, PULSE_NONE, PULSE_2FAST) //pretend that we're dead. unlike actual death, can be inflienced by meds
 		return
 
 	//If heart is stopped, it isn't going to restart itself randomly.
@@ -74,7 +75,7 @@
 			return
 
 	// Pulse normally shouldn't go above PULSE_2FAST
-	pulse = Clamp(PULSE_NORM + pulse_mod, PULSE_SLOW, PULSE_2FAST)
+	pulse = clamp(PULSE_NORM + pulse_mod, PULSE_SLOW, PULSE_2FAST)
 
 	// If fibrillation, then it can be PULSE_THREADY
 	var/fibrillation = oxy <= BLOOD_VOLUME_SURVIVE || (prob(30) && owner.shock_stage > 120)
@@ -146,7 +147,7 @@
 							blood_max += ((W.damage / 40) * species.bleed_mod)
 
 			if(temp.status & ORGAN_ARTERY_CUT)
-				var/bleed_amount = FLOOR((owner.vessel.total_volume / (temp.applied_pressure || !open_wound ? 450 : 250)) * temp.arterial_bleed_severity, 1)
+				var/bleed_amount = FLOOR((owner.vessel.total_volume / (temp.applied_pressure || !open_wound ? 450 : 250)) * temp.arterial_bleed_severity, 0.1)
 				if(bleed_amount)
 					if((CE_BLOODCLOT in owner.chem_effects) && !(owner.chem_effects[CE_BLOODTHIN]))
 						bleed_amount *= 0.8 // won't do much, but it'll help

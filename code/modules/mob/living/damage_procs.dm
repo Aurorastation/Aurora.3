@@ -9,6 +9,8 @@
 */
 
 /mob/living/proc/apply_damage(damage = 0, damagetype = DAMAGE_BRUTE, def_zone, blocked, used_weapon, damage_flags = 0, armor_pen, silent = FALSE)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	if(!damage)
 		return FALSE
 
@@ -41,12 +43,12 @@
 	return TRUE
 
 /mob/living/proc/apply_damages(var/brute = 0, var/burn = 0, var/tox = 0, var/oxy = 0, var/clone = 0, var/halloss = 0, var/def_zone, var/damage_flags = 0)
-	if(brute)	apply_damage(brute, DAMAGE_BRUTE, def_zone, blocked)
-	if(burn)	apply_damage(burn, DAMAGE_BURN, def_zone, blocked)
-	if(tox)		apply_damage(tox, DAMAGE_TOXIN, def_zone, blocked)
-	if(oxy)		apply_damage(oxy, DAMAGE_OXY, def_zone, blocked)
-	if(clone)	apply_damage(clone, DAMAGE_CLONE, def_zone, blocked)
-	if(halloss) apply_damage(halloss, DAMAGE_PAIN, def_zone, blocked)
+	if(brute)	apply_damage(brute, DAMAGE_BRUTE, def_zone, GLOB.blocked)
+	if(burn)	apply_damage(burn, DAMAGE_BURN, def_zone, GLOB.blocked)
+	if(tox)		apply_damage(tox, DAMAGE_TOXIN, def_zone, GLOB.blocked)
+	if(oxy)		apply_damage(oxy, DAMAGE_OXY, def_zone, GLOB.blocked)
+	if(clone)	apply_damage(clone, DAMAGE_CLONE, def_zone, GLOB.blocked)
+	if(halloss) apply_damage(halloss, DAMAGE_PAIN, def_zone, GLOB.blocked)
 	return TRUE
 
 /**
@@ -54,7 +56,7 @@
  *
  * * effect - The amount of effect to apply, a number
  * * effect_type - An effect eg. `STUN`, `WEAKEN`; see `code\__DEFINES\damage_organs.dm` for relative defines
- * * blocked - The amount of effect that was blocked, eg. by armor, a number, percentage
+ * * blocked - The **percentage** of effect that was blocked, eg. by armor, a number
  *
  * Returns `TRUE` if the effect was applied, `FALSE` otherwise
  */
@@ -111,18 +113,44 @@
 
 	return TRUE
 
+/**
+ * Convenience proc to apply effects to a mob
+ *
+ * * blocked - The **percentage** of effects that was blocked, eg. by armor, a number
+ *
+ * Returns `TRUE` if the effects were not completely blocked, `FALSE` otherwise
+ */
+/mob/living/proc/apply_effects(stun = 0, weaken = 0, paralyze = 0, irradiate = 0, stutter = 0, eyeblur = 0, drowsy = 0, agony = 0, incinerate = 0, blocked = 0)
+	SHOULD_NOT_SLEEP(TRUE)
 
-/mob/living/proc/apply_effects(var/stun = 0, var/weaken = 0, var/paralyze = 0, var/irradiate = 0, var/stutter = 0, var/eyeblur = 0, var/drowsy = 0, var/agony = 0, var/incinerate = 0, var/blocked = 0)
-	if(blocked >= 2)	return 0
-	if(stun)		apply_effect(stun, STUN, blocked)
-	if(weaken)		apply_effect(weaken, WEAKEN, blocked)
-	if(paralyze)	apply_effect(paralyze, PARALYZE, blocked)
-	if(stutter)		apply_effect(stutter, STUTTER, blocked)
-	if(eyeblur)		apply_effect(eyeblur, EYE_BLUR, blocked)
-	if(drowsy)		apply_effect(drowsy, DROWSY, blocked)
-	if(agony)		apply_effect(agony, DAMAGE_PAIN, blocked)
-	if(incinerate) apply_effect(incinerate, INCINERATE, blocked)
-	return 1
+	if(blocked >= 100)
+		return FALSE
+
+	if(stun)
+		apply_effect(stun, STUN, blocked)
+
+	if(weaken)
+		apply_effect(weaken, WEAKEN, blocked)
+
+	if(paralyze)
+		apply_effect(paralyze, PARALYZE, blocked)
+
+	if(stutter)
+		apply_effect(stutter, STUTTER, blocked)
+
+	if(eyeblur)
+		apply_effect(eyeblur, EYE_BLUR, blocked)
+
+	if(drowsy)
+		apply_effect(drowsy, DROWSY, blocked)
+
+	if(agony)
+		apply_effect(agony, DAMAGE_PAIN, blocked)
+
+	if(incinerate)
+		apply_effect(incinerate, INCINERATE, blocked)
+
+	return TRUE
 
 // overridden by human
 /mob/living/proc/apply_radiation(var/rads)

@@ -13,7 +13,7 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 	item_state = "pen"
 	origin_tech = list(TECH_MATERIAL = 2, TECH_COMBAT = 2)
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	attack_verb = list("poked")
 	var/emagged = FALSE
 	var/fail_message = SPAN_WARNING("INVALID USER.")
@@ -29,10 +29,30 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 	.=..()
 	if(istype(loc, /obj/item/gun))
 		gun = loc
+	update_icon()
+
+/obj/item/device/firing_pin/pickup(mob/user)
+	..()
+	update_icon()
+
+/obj/item/device/firing_pin/dropped(mob/user)
+	..()
+	update_icon()
+
+/obj/item/device/firing_pin/attack_hand()
+	..()
+	update_icon()
+
+/obj/item/firing_pin/update_icon()
+	var/matrix/tf = matrix()
+	var/obj/item/storage/S = loc
+	if(istype(S, /obj/item/storage) && !S.storage_slots)
+		tf.Turn(-90) //Vertical for storing compactly
+		tf.Translate(-1, 0) //Could do this with pixel_x but let's just update the appearance once.
+	transform = tf
 
 /obj/item/device/firing_pin/proc/examine_info() // Part of what allows people to see what firing mode  their wireless control pin is in. Returns nothing here if there's no wireless-control firing pin.
 		return
-
 
 /obj/item/device/firing_pin/afterattack(atom/target, mob/user, proximity_flag)
 	if(proximity_flag)
@@ -234,9 +254,10 @@ Pins Below.
 
 /obj/item/device/firing_pin/away_site/pin_auth(mob/living/user)
 	var/turf/T = get_turf(src)
-	return !isStationLevel(T.z)
+	return !is_station_level(T.z)
 
-var/list/wireless_firing_pins = list() //A list of all initialized wireless firing pins. Used in the firearm tracking program in guntracker.dm
+///A list of all initialized wireless firing pins. Used in the firearm tracking program in guntracker.dm
+GLOBAL_LIST_EMPTY_TYPED(wireless_firing_pins, /obj/item/device/firing_pin/wireless)
 
 /obj/item/device/firing_pin/wireless
 	name = "wireless-control firing pin"
@@ -259,11 +280,12 @@ var/list/wireless_firing_pins = list() //A list of all initialized wireless firi
 	to_chat(user, SPAN_NOTICE("The wireless-control firing pin <b>[wireless_description]</b>."))
 
 /obj/item/device/firing_pin/wireless/Initialize() //Adds wireless pins to the list of initialized wireless firing pins.
-	wireless_firing_pins += src
-	return ..()
+	. = ..()
+
+	GLOB.wireless_firing_pins += src
 
 /obj/item/device/firing_pin/wireless/Destroy() //Removes the wireless pins from the list of initialized wireless firing pins.
-	wireless_firing_pins -= src
+	GLOB.wireless_firing_pins -= src
 	return ..()
 
 /*
@@ -305,13 +327,13 @@ var/list/wireless_firing_pins = list() //A list of all initialized wireless firi
 			var/obj/item/gun/energy/EG = gun
 			if(EG.required_firemode_auth[EG.sel_mode] == WIRELESS_PIN_STUN)
 				return TRUE
-			else if (GLOB.security_level == SEC_LEVEL_YELLOW || GLOB.security_level == SEC_LEVEL_RED)
+			else if (GLOB.security_level >= SEC_LEVEL_YELLOW)
 				return TRUE
 			else
 				fail_message = SPAN_WARNING("Unable to fire: insufficient security level.")
 				return FALSE
 		else
-			if (GLOB.security_level == SEC_LEVEL_YELLOW || GLOB.security_level == SEC_LEVEL_RED)
+			if (GLOB.security_level >= SEC_LEVEL_YELLOW)
 				return TRUE
 			else
 				fail_message = SPAN_WARNING("Unable to fire: insufficient security level.")

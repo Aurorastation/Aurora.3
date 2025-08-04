@@ -1,8 +1,8 @@
 /obj/machinery/mecha_part_fabricator
 	name = "mechatronic fabricator"
 	desc = "A general purpose fabricator that can be used to fabricate robotic equipment."
-	icon = 'icons/obj/machinery/robotics.dmi'
-	icon_state = "fab-base"
+	icon = 'icons/obj/machinery/robotics_fabricator.dmi'
+	icon_state = "fab"
 	density = TRUE
 	anchored = TRUE
 	idle_power_usage = 20
@@ -31,7 +31,7 @@
 	 */
 	var/production_speed = 1
 
-	var/list/materials = list(DEFAULT_WALL_MATERIAL = 0, MATERIAL_GLASS = 0, MATERIAL_GOLD = 0, MATERIAL_SILVER = 0, MATERIAL_DIAMOND = 0, MATERIAL_PHORON = 0, MATERIAL_URANIUM = 0)
+	var/list/materials = list(DEFAULT_WALL_MATERIAL = 0, MATERIAL_GLASS = 0, MATERIAL_GOLD = 0, MATERIAL_SILVER = 0, MATERIAL_DIAMOND = 0, MATERIAL_PHORON = 0, MATERIAL_URANIUM = 0, MATERIAL_PLASTEEL = 0, MATERIAL_ALUMINIUM = 0, MATERIAL_LEAD = 0)
 	var/res_max_amount = 200000
 
 	var/datum/research/files
@@ -44,6 +44,12 @@
 	///The timer id for the build callback, if we're building something
 	var/build_callback_timer
 
+/obj/machinery/mecha_part_fabricator/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>matter bins</b> will increase material storage capacity."
+	. += "Upgraded <b>micro-lasers</b> will increase fabrication speed."
+	. += "Upgraded <b>manipulators</b> will improve material use efficiency."
+
 /obj/machinery/mecha_part_fabricator/Initialize()
 	. = ..()
 
@@ -53,18 +59,27 @@
 
 /obj/machinery/mecha_part_fabricator/update_icon()
 	ClearOverlays()
-	icon_state = "fab-base"
-	if(build_callback_timer)
-		AddOverlays("fab-active")
 	if(panel_open)
-		AddOverlays("fab-panel")
+		AddOverlays("[icon_state]_panel")
+	if(!(stat & (NOPOWER|BROKEN)))
+		AddOverlays(emissive_appearance(icon, "[icon_state]_lights"))
+		AddOverlays("[icon_state]_lights")
+	if(build_callback_timer)
+		AddOverlays("[icon_state]_working")
+		AddOverlays(emissive_appearance(icon, "[icon_state]_lights_working"))
+		AddOverlays("[icon_state]_lights_working")
 
 /obj/machinery/mecha_part_fabricator/dismantle()
 	for(var/f in materials)
 		eject_materials(f, -1)
+
+	//Stop the queue building if you're dismantling
+	deltimer(build_callback_timer)
+
 	..()
 
 /obj/machinery/mecha_part_fabricator/RefreshParts()
+	..()
 	res_max_amount = 0
 
 	for(var/obj/item/stock_parts/matter_bin/M in component_parts)
@@ -172,7 +187,7 @@
 	var/obj/item/stack/material/M = attacking_item
 	if(!M.material)
 		return ..()
-	if(!(M.material.name in list(MATERIAL_STEEL, MATERIAL_GLASS, MATERIAL_GOLD, MATERIAL_SILVER, MATERIAL_DIAMOND, MATERIAL_PHORON, MATERIAL_URANIUM)))
+	if(!(M.material.name in list(MATERIAL_STEEL, MATERIAL_GLASS, MATERIAL_GOLD, MATERIAL_SILVER, MATERIAL_DIAMOND, MATERIAL_PHORON, MATERIAL_URANIUM, MATERIAL_PLASTEEL, MATERIAL_ALUMINIUM, MATERIAL_LEAD)))
 		to_chat(user, SPAN_WARNING("\The [src] cannot hold [M.material.name]."))
 		return TRUE
 
@@ -180,10 +195,13 @@
 	if(materials[M.material.name] + M.perunit <= res_max_amount)
 		if(M.amount >= 1)
 			var/count = 0
-			var/icon/load = icon(icon, "load")
-			load.Blend(M.material.icon_colour,ICON_MULTIPLY)
-			AddOverlays(load)
-			CUT_OVERLAY_IN(load, 6)
+			var/mutable_appearance/MA = mutable_appearance(icon, "material_insertion")
+			MA.color = M.material.icon_colour
+			//first play the insertion animation
+			flick_overlay_view(MA, 1 SECONDS)
+
+			//now play the progress bar animation
+			flick_overlay_view(mutable_appearance(icon, "fab_progress"), 1 SECONDS)
 
 			while(materials[M.material.name] + M.perunit <= res_max_amount && M.amount >= 1)
 				materials[M.material.name] += M.perunit
@@ -191,12 +209,15 @@
 				count++
 			to_chat(user, SPAN_NOTICE("You insert [count] [sname] into \the [src]."))
 
+			//Wake up, we have things to do (maybe)
+			handle_queue()
+
 	else
 		to_chat(user, SPAN_NOTICE("\The [src] cannot hold more [sname]."))
 	return TRUE
 
-/obj/machinery/mecha_part_fabricator/MouseDrop_T(atom/dropping, mob/user)
-	var/mob/living/carbon/human/target = dropping
+/obj/machinery/mecha_part_fabricator/mouse_drop_receive(atom/dropped, mob/user, params)
+	var/mob/living/carbon/human/target = dropped
 	if (!istype(target) || target.buckled_to || get_dist(user, src) > 1 || get_dist(user, target) > 1 || user.stat || istype(user, /mob/living/silicon/ai))
 		return
 	if(target == user)
@@ -224,9 +245,9 @@
 		if(target != user && !user.restrained() && !user.stat && !user.weakened && !user.stunned && !user.paralysis)
 			user.visible_message(SPAN_WARNING("[user] feeds the [target]'s hair into the [src] and flicks it on!"), SPAN_ALERT("You turn the [src] on!"))
 			do_hair_pull(target)
-			user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Has fed [target.name]'s ([target.ckey]) hair into a [src].</span>")
-			target.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has had their hair fed into [src] by [user.name] ([user.ckey])</font>")
-			msg_admin_attack("[key_name_admin(user)] fed [key_name_admin(target)] in a [src]. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
+			user.attack_log += "\[[time_stamp()]\] <span class='warning'>Has fed [target.name]'s ([target.ckey]) hair into a [src].</span>"
+			target.attack_log += "\[[time_stamp()]\] <font color='orange'>Has had their hair fed into [src] by [user.name] ([user.ckey])</font>"
+			msg_admin_attack("[key_name_admin(user)] fed [key_name_admin(target)] in a [src]. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
 		else
 			return
 		if(!do_after(user, 3.5 SECONDS, target, DO_UNIQUE))

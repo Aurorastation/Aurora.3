@@ -11,6 +11,7 @@ GLOBAL_LIST_EMPTY(total_active_bonfires)
 	density = FALSE
 	light_color = LIGHT_COLOR_FIRE
 	build_amt = 20
+	pass_flags_self = PASSTABLE | LETPASSTHROW
 	var/fuel = 2000
 	var/max_fuel = 2000
 	var/on_fire = FALSE
@@ -22,18 +23,8 @@ GLOBAL_LIST_EMPTY(total_active_bonfires)
 	var/last_ambient_message
 	var/burn_out = TRUE //Whether or not it deletes itself when fuel is depleted
 
-/obj/structure/bonfire/Initialize()
-	. = ..()
-	fuel = rand(1000, 2000)
-	create_reagents(120)
-
-/obj/structure/bonfire/Destroy()
-	STOP_PROCESSING(SSprocessing, src)
-	GLOB.total_active_bonfires -= src
-	. = ..()
-
-/obj/structure/bonfire/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/structure/bonfire/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(distance > 2)
 		return
 	if(on_fire)
@@ -48,6 +39,22 @@ GLOBAL_LIST_EMPTY(total_active_bonfires)
 				. += "The flames are dancing wildly!"
 			if(1300 to 2000)
 				. += "The fire is roaring!"
+
+/obj/structure/bonfire/Initialize()
+	. = ..()
+	fuel = rand(1000, 2000)
+	create_reagents(120)
+
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
+/obj/structure/bonfire/Destroy()
+	STOP_PROCESSING(SSprocessing, src)
+	GLOB.total_active_bonfires -= src
+	. = ..()
 
 /obj/structure/bonfire/update_icon()
 	if(on_fire)
@@ -292,10 +299,11 @@ GLOBAL_LIST_EMPTY(total_active_bonfires)
 		var/heat_eff = fuel / max_fuel	//Less fuel, less heat provided
 		H.bodytemperature = min(H.bodytemperature + (abs((temp_adj * heat_eff)) / heating_div), 311)
 
-/obj/structure/bonfire/Crossed(AM as mob|obj)
+/obj/structure/bonfire/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
 	if(on_fire)
-		burn(AM, TRUE)
-	..()
+		burn(arrived, TRUE)
 
 /obj/structure/bonfire/proc/burn(var/mob/living/M, var/entered = FALSE)
 	if(safe)
@@ -344,6 +352,7 @@ GLOBAL_LIST_EMPTY(total_active_bonfires)
 	safe = TRUE
 	density = TRUE
 	burn_out = FALSE
+	pass_flags_self = PASSTABLE
 
 /obj/structure/bonfire/fireplace/New(var/newloc, var/material_name)
 	..()
@@ -373,7 +382,7 @@ GLOBAL_LIST_EMPTY(total_active_bonfires)
 		AddOverlays("fireplace_glow")
 
 /obj/structure/bonfire/fireplace/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(!istype(mover) || mover.checkpass(PASSTABLE))
+	if(mover?.movement_type & PHASING)
 		return TRUE
 	if(get_dir(loc, target) == NORTH)
 		return !density

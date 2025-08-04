@@ -99,6 +99,11 @@
 	icon_state = "45e"
 	max_ammo = 11
 
+/obj/item/ammo_magazine/c45m/stendo/rubber
+	name = "extended magazine (.45 rubber)"
+	ammo_type = /obj/item/ammo_casing/c45/rubber
+	icon_state = "r45e"
+
 /obj/item/ammo_magazine/c45m/lebman
 	name = "extended magazine (.45)"
 	desc = "A custom .45 pistol magazine made by welding two together. Has double the capacity of a normal magazine at eighteen rounds."
@@ -206,6 +211,15 @@
 
 /obj/item/ammo_magazine/mc9mm/empty
 	initial_ammo = 0
+
+/obj/item/ammo_magazine/mc9mm/polymer
+	name = "magazine (9mm polymer)"
+	icon_state = "9x19AP"
+	mag_type = MAGAZINE
+	caliber = "9mm"
+	ammo_type = /obj/item/ammo_casing/c9mm/polymer
+	max_ammo = 12
+	multiple_sprites = 1
 
 /obj/item/ammo_magazine/mc9mm/flash
 	name = "magazine (9mm flash)"
@@ -316,7 +330,7 @@
 /obj/item/ammo_magazine/submachinedrum
 	name = "drum magazine (.45)"
 	icon_state = "tommy-drum"
-	w_class = ITEMSIZE_NORMAL // Bulky ammo doesn't fit in your pockets!
+	w_class = WEIGHT_CLASS_NORMAL // Bulky ammo doesn't fit in your pockets!
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/c45
 	matter = list(DEFAULT_WALL_MATERIAL = 3750)
@@ -688,7 +702,7 @@
 /obj/item/ammo_magazine/nuke
 	name = "nuclear launcher cartridge"
 	icon_state = "nukemag"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	mag_type = MAGAZINE
 	caliber = "nuke"
 	insert_sound = 'sound/weapons/reloads/rifle_slide3.ogg'

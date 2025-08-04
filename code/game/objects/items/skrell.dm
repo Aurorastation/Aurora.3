@@ -3,7 +3,7 @@
 	desc = "An antique and delicate looking instrument used to study the stars."
 	icon = 'icons/obj/item/skrell/stellascope.dmi'
 	icon_state = "starscope"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	matter = list(MATERIAL_GLASS = 200)
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
@@ -11,13 +11,13 @@
 	var/selected_constellation
 	var/projection_ready = TRUE
 
+/obj/item/stellascope/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "\The [src] displays the \"[selected_constellation]\"."
+
 /obj/item/stellascope/Initialize()
 	. = ..()
 	pick_constellation()
-
-/obj/item/stellascope/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += "\The [src] displays the \"[selected_constellation]\"."
 
 /obj/item/stellascope/throw_impact(atom/hit_atom)
 	..()
@@ -80,23 +80,23 @@
 	icon = 'icons/obj/item/skrell/nralakk_projector.dmi'
 	icon_state = "projector"
 	light_color = LIGHT_COLOR_HALOGEN
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	matter = list(MATERIAL_GLASS = 200)
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
 	var/list/worlds_selection = list("Nralakk", "Qerrbalak", "Qerr'Malic", "Aliose", "Aweiji", "Xrim", "the Traverse", "Europa", "New Gibson", "Mictlan", "the Starlight Zone", "Diulszi")
 	var/selected_world
 	var/working = FALSE
-	var/message_frequency = 10
+	var/message_frequency = 5
+
+/obj/item/skrell_projector/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(selected_world && working)
+		. += "\The [src] displays a hologram of [selected_world]."
 
 /obj/item/skrell_projector/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
-
-/obj/item/skrell_projector/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(selected_world && working)
-		. += "\The [src] displays a hologram of [selected_world]."
 
 /obj/item/skrell_projector/attack_self(mob/user as mob)
 	working = !working
@@ -231,7 +231,7 @@
 /obj/item/nralakktag
 	name = "\improper Nralakk Federation loyalty ear-tag"
 	desc = "An ear-tag that shows the wearer is loyal to the Nralakk Federation. A small cable travels into the ear canal..."
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_EARS
 	icon = 'icons/obj/item/skrell/jargtag.dmi'
 	icon_state = "jargtag"
@@ -285,7 +285,7 @@
 /obj/item/clothing/accessory/badge/starlight
 	name = "starlight zone residency card"
 	desc = "A residency card given to Skrell who reside within the Starlight Zone in District Eight."
-	icon = 'icons/clothing/accessories/passcards.dmi'
+	icon = 'icons/obj/item/clothing/accessory/passcards.dmi'
 	icon_state = "resident_starlight"
 	item_state = "resident_starlight"
 	flippable = FALSE

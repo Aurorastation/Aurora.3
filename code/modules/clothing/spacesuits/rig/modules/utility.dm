@@ -484,12 +484,11 @@
 
 	active = TRUE
 
-	spawn(1)
-		if(suit_overlay_active)
-			suit_overlay = suit_overlay_active
-		else
-			suit_overlay = null
-		holder.update_icon()
+	if(suit_overlay_active)
+		suit_overlay = suit_overlay_active
+	else
+		suit_overlay = null
+	holder.update_icon()
 
 	if(!jets.on)
 		var/list/extra_mobs = list()
@@ -655,7 +654,7 @@
 		var/obj/structure/lattice/L = locate() in T
 		if(L)
 			return L.name
-		var/turf/leapBelow = GetBelow(T)
+		var/turf/leapBelow = GET_TURF_BELOW(T)
 		if(leapBelow.density)
 			return leapBelow.name
 		else if(T.contains_dense_objects())
@@ -715,10 +714,11 @@
 			SPAN_WARNING("You leap horizontally at \the [T]!"),
 			SPAN_WARNING("You hear an electric <i>whirr</i> followed by a weighty thump!"))
 		H.face_atom(T)
-		H.throw_at(T, leapDistance, 1, src, do_throw_animation = FALSE)
+		H.throw_at(T, leapDistance, 1, spin = FALSE)
 		return TRUE
 	else
-		var/turf/simulated/open/TA = GetAbove(src)
+		var/turf/current_turf = get_turf(src)
+		var/turf/simulated/open/TA = GET_TURF_ABOVE(current_turf)
 		if (!istype(TA))
 			to_chat(user, SPAN_WARNING("There is a ceiling above you that stop you from leaping upwards!"))
 			return FALSE

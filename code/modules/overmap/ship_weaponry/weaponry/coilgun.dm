@@ -4,7 +4,7 @@
 	desc_extended = "Although originally an expensive blunder made by over-worked Kumar Arms designers, the Nadziak later preformed to an outstanding degree following numerous improvements. Its fame among post-War Admirals was such that its name and purpose has largely remained the same, with a new 'Type' iteration commissioned every decade or so. With the expulsion of Zavodskoi and its subsidiary from Solarian space, this aging giant and symbol of military might is under threat of being consumed by the resulting arms manufacturing vacuum."
 	icon = 'icons/obj/machinery/ship_guns/sol_coilgun.dmi'
 	icon_state = "weapon_base"
-	projectile_type = /obj/item/projectile/ship_ammo/coilgun
+	projectile_type = /obj/projectile/ship_ammo/coilgun
 
 	heavy_firing_sound = 'sound/weapons/railgun.ogg'
 	firing_effects = FIRING_EFFECT_FLAG_EXTREMELY_LOUD
@@ -21,14 +21,14 @@
 	overmap_icon_state = "cannon"
 	impact_type = SHIP_AMMO_IMPACT_HE
 
-/obj/item/projectile/ship_ammo/coilgun
+/obj/projectile/ship_ammo/coilgun
 	name = "high-power tungsten rod"
 	icon_state = "heavy"
 	damage = 10000
 	armor_penetration = 1000
 	penetrating = 1
 
-/obj/item/projectile/ship_ammo/coilgun/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
+/obj/projectile/ship_ammo/coilgun/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
 	. = ..()
 	if(ismob(target))
 		var/mob/M = target

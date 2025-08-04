@@ -2,6 +2,15 @@
 "ak" = (
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
+"aw" = (
+/obj/structure/filingcabinet{
+	pixel_x = -10
+	},
+/obj/structure/filingcabinet{
+	pixel_x = 10
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
 "ay" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 9
@@ -11,10 +20,19 @@
 	},
 /turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
+"bz" = (
+/obj/structure/table/skrell,
+/obj/item/paper/crumpled,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
 "bX" = (
 /turf/simulated/floor/exoplanet/water/shallow{
 	temperature = 298.15
 	},
+/area/ouerea_skrell)
+"dc" = (
+/obj/structure/bed/stool/chair/office/hover,
+/turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
 "dS" = (
 /obj/structure/table/skrell,
@@ -25,6 +43,13 @@
 /obj/structure/table/skrell,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/nralakk,
 /turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"en" = (
+/obj/effect/floor_decal/corner/purple{
+	dir = 9
+	},
+/obj/machinery/chemical_dispenser/full,
+/turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "eA" = (
 /obj/effect/floor_decal/corner/purple{
@@ -42,6 +67,11 @@
 /obj/structure/sign/flag/nralakk/large/south{
 	pixel_y = -32
 	},
+/obj/machinery/appliance/cooker/oven,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"fK" = (
+/obj/machinery/appliance/cooker/stove,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
 "fL" = (
@@ -49,6 +79,9 @@
 	dir = 10
 	},
 /obj/machinery/light/skrell,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
 /turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "fU" = (
@@ -60,12 +93,35 @@
 	},
 /turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
+"gx" = (
+/obj/random/junk,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"hw" = (
+/obj/effect/floor_decal/spline/plain/white{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
 "hD" = (
 /turf/simulated/floor/shuttle/skrell,
 /area/ouerea_skrell)
 "hK" = (
 /obj/structure/bed/aqua,
+/obj/structure/curtain/open/privacy,
 /turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"it" = (
+/obj/item/paper/crumpled,
+/obj/effect/floor_decal/spline/plain/white{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"iy" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/material/shard,
+/turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "iF" = (
 /turf/simulated/wall/shuttle/skrell,
@@ -74,18 +130,12 @@
 /obj/machinery/bodyscanner{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 9
+/obj/effect/floor_decal/spline/plain/cee/yellow{
+	dir = 1
 	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 5
-	},
-/turf/simulated/floor/exoplanet/tiled/white,
+/turf/simulated/floor/exoplanet/tiled/dark,
 /area/ouerea_skrell)
 "jD" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner/purple{
 	dir = 10
 	},
@@ -95,22 +145,43 @@
 /obj/machinery/light/skrell,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
+"kD" = (
+/turf/simulated/floor/exoplanet/carpet/rubber,
+/area/ouerea_skrell)
+"kM" = (
+/obj/item/material/stool/hover,
+/obj/machinery/light/skrell{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"kO" = (
+/obj/item/beach_ball,
+/turf/simulated/floor/exoplanet/water/shallow{
+	temperature = 298.15
+	},
+/area/ouerea_skrell)
 "lo" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "lB" = (
-/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced{
+	color = "#800080";
+	frame_color = "#800080"
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"lY" = (
+/obj/structure/table/skrell,
+/obj/item/material/ashtray/glass,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
 "mv" = (
 /obj/machinery/door/airlock/skrell{
-	name = "Laboratory"
+	name = "Laboratory";
+	dir = 4
 	},
 /turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
@@ -134,6 +205,11 @@
 	dir = 5
 	},
 /turf/simulated/floor/exoplanet/tiled/white,
+/area/ouerea_skrell)
+"nE" = (
+/obj/item/trash/skrellsnacks,
+/obj/item/material/stool/hover,
+/turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
 "nF" = (
 /obj/effect/floor_decal/corner/purple{
@@ -170,6 +246,12 @@
 	temperature = 298.15
 	},
 /area/ouerea_skrell)
+"pw" = (
+/obj/structure/sign/flag/nralakk{
+	pixel_y = 32
+	},
+/turf/simulated/wall/shuttle/skrell,
+/area/ouerea_skrell)
 "pG" = (
 /obj/structure/table/skrell,
 /obj/item/storage/box/fancy/tray,
@@ -177,6 +259,15 @@
 	dir = 10
 	},
 /turf/simulated/floor/exoplanet/tiled/white,
+/area/ouerea_skrell)
+"pY" = (
+/obj/machinery/light/skrell{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain/white{
+	dir = 10
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
 "rR" = (
 /obj/structure/closet/skrell,
@@ -194,6 +285,11 @@
 	temperature = 298.15
 	},
 /area/ouerea_skrell)
+"sD" = (
+/obj/structure/table/skrell,
+/obj/random/junk,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
 "tb" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 9
@@ -205,7 +301,8 @@
 /area/ouerea_skrell)
 "tv" = (
 /obj/machinery/door/airlock/skrell{
-	name = "Medbay"
+	name = "Medbay";
+	dir = 4
 	},
 /turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
@@ -234,6 +331,16 @@
 /obj/machinery/light/skrell{
 	dir = 1
 	},
+/obj/item/trash/broken_electronics,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"wW" = (
+/obj/structure/table/skrell,
+/obj/machinery/door/window/brigdoor{
+	req_access = null;
+	dir = 4
+	},
+/obj/item/paper/crumpled,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
 "xj" = (
@@ -254,6 +361,22 @@
 	},
 /turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
+"xy" = (
+/obj/item/stack/rods,
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_skrell)
+"xF" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle/skrell,
+/area/ouerea_skrell)
 "ym" = (
 /obj/structure/table/skrell,
 /obj/random/firstaid,
@@ -271,6 +394,23 @@
 /obj/item/gun/energy/gun/qukala,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
+"zH" = (
+/obj/machinery/door/airlock/skrell{
+	name = "Checkpoint"
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"AF" = (
+/obj/item/reagent_containers/blood/ripped,
+/obj/structure/table/skrell,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"AT" = (
+/obj/machinery/door/blast/shutters{
+	id = "skrentry"
+	},
+/turf/simulated/floor/shuttle/skrell,
+/area/ouerea_skrell)
 "AX" = (
 /obj/structure/table/skrell,
 /obj/item/skrell_projector{
@@ -278,15 +418,27 @@
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
+"Ca" = (
+/obj/item/paper/crumpled,
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_skrell)
 "Cb" = (
 /obj/machinery/photocopier,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
 "Cj" = (
-/obj/machinery/door/blast/shutters,
+/obj/machinery/door/blast/shutters{
+	id = "skrentry"
+	},
 /turf/simulated/floor/exoplanet/grass{
 	temperature = 298.15
 	},
+/area/ouerea_skrell)
+"Cp" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
 "CR" = (
 /obj/structure/table/skrell,
@@ -307,6 +459,7 @@
 /obj/machinery/light/skrell{
 	dir = 8
 	},
+/obj/structure/curtain/open/privacy,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
 "Dx" = (
@@ -317,6 +470,14 @@
 /obj/item/clothing/suit/storage/toggle/skrell/iqi,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
+"DM" = (
+/obj/effect/floor_decal/spline/plain/white,
+/turf/simulated/floor/exoplanet/carpet/rubber,
+/area/ouerea_skrell)
+"DU" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle/skrell,
+/area/ouerea_skrell)
 "DY" = (
 /turf/simulated/floor/shuttle/skrell/ramp/top,
 /area/ouerea_skrell)
@@ -324,6 +485,11 @@
 /obj/machinery/door/airlock/skrell{
 	name = "Command"
 	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"EJ" = (
+/obj/structure/closet/secure_closet/refrigerator,
+/obj/item/reagent_containers/food/snacks/hugemushroomslice,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
 "Fh" = (
@@ -341,6 +507,11 @@
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
+"Fr" = (
+/obj/machinery/light/skrell,
+/obj/structure/table/skrell,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
 "GI" = (
 /obj/effect/floor_decal/corner/purple{
 	dir = 10
@@ -348,6 +519,7 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 6
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "Hv" = (
@@ -376,6 +548,12 @@
 	},
 /turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
+"HW" = (
+/obj/structure/flora/grass/junglegrass/random,
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_skrell)
 "Ip" = (
 /obj/structure/table/skrell,
 /obj/machinery/light/skrell{
@@ -398,6 +576,7 @@
 /obj/structure/sign/flag/nralakk/large/north{
 	pixel_y = 32
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
 "Mp" = (
@@ -407,15 +586,22 @@
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
-"ME" = (
-/obj/machinery/iv_drip,
+"MB" = (
 /obj/effect/floor_decal/corner/lime{
-	dir = 9
+	dir = 6
 	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/ouerea_skrell)
+"ME" = (
 /obj/machinery/light/skrell{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/tiled/white,
+/obj/machinery/sleeper{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain/cee/yellow,
+/turf/simulated/floor/exoplanet/tiled/dark,
 /area/ouerea_skrell)
 "MO" = (
 /obj/structure/sign/flag/nralakk/large/north{
@@ -425,10 +611,24 @@
 /obj/item/gun/energy/gun/qukala,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
+"MQ" = (
+/obj/structure/bed/stool/chair/office/hover{
+	dir = 4
+	},
+/obj/item/folder/purple,
+/obj/machinery/button/remote/blast_door{
+	dir = 8;
+	pixel_x = -20;
+	id = "skrentry";
+	name = "Compound Entry"
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
 "Nc" = (
 /obj/structure/sign/flag/nralakk/large/east{
 	pixel_x = 32
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
 "Nd" = (
@@ -441,6 +641,12 @@
 /area/ouerea_skrell)
 "Nf" = (
 /turf/simulated/floor/exoplanet/tiled/white,
+/area/ouerea_skrell)
+"Ny" = (
+/obj/structure/bed/stool/chair/office/hover{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
 "NM" = (
 /obj/machinery/optable,
@@ -459,6 +665,12 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 9
 	},
+/obj/machinery/chem_master,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/ouerea_skrell)
+"QC" = (
+/obj/item/reagent_containers/blood/ripped,
+/obj/machinery/iv_drip,
 /turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "QN" = (
@@ -466,6 +678,18 @@
 	name = "Living Quarters"
 	},
 /turf/simulated/floor/shuttle/skrell,
+/area/ouerea_skrell)
+"Rg" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/skrell,
+/obj/item/trash/cigbutt/roll,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"RF" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/trash/broken_electronics,
+/turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
 "RP" = (
 /obj/structure/railing/mapped{
@@ -485,6 +709,19 @@
 /obj/item/paper/skrell_ouerea,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
+"Si" = (
+/obj/item/material/stool/hover,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"SP" = (
+/obj/structure/table/skrell,
+/obj/machinery/light/skrell{
+	dir = 8
+	},
+/obj/item/toy/waterballoon,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
 "Tc" = (
 /obj/structure/blocker/steel/fence,
 /turf/simulated/floor/exoplanet/grass{
@@ -493,8 +730,14 @@
 /area/ouerea_skrell)
 "Tm" = (
 /obj/machinery/door/airlock/skrell{
-	name = "Security Equipment"
+	name = "Security Equipment";
+	dir = 4
 	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"TU" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
 "Uc" = (
@@ -507,6 +750,10 @@
 	},
 /turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
+"Vh" = (
+/obj/item/broken_bottle,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
 "Vk" = (
 /obj/structure/filingcabinet/chestdrawer,
 /turf/simulated/floor/shuttle/skrell/blue,
@@ -515,13 +762,21 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+/obj/effect/decal/cleanable/dirt,
+/obj/item/material/shard,
 /turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "Vz" = (
-/obj/structure/sign/flag/nralakk,
-/turf/simulated/floor/exoplanet/grass{
-	temperature = 298.15
+/obj/structure/sign/flag/nralakk{
+	pixel_y = 32
 	},
+/obj/structure/table/skrell,
+/obj/machinery/door/window/brigdoor{
+	req_access = null;
+	dir = 4
+	},
+/obj/item/toy/plushie/squid,
+/turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
 "VH" = (
 /obj/structure/table/skrell,
@@ -535,15 +790,26 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 6
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "VT" = (
 /obj/item/material/stool/hover,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
+"Wy" = (
+/obj/effect/floor_decal/corner/purple{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/ouerea_skrell)
 "WD" = (
 /obj/machinery/light/skrell{
 	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain/white{
+	dir = 6
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
@@ -579,6 +845,11 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 5
 	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/ouerea_skrell)
+"Zg" = (
+/obj/item/reagent_containers/glass/beaker,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "ZV" = (
@@ -694,7 +965,7 @@ sp
 ps
 sp
 sp
-sp
+xy
 sp
 sp
 sp
@@ -742,7 +1013,7 @@ VH
 Dn
 AX
 hK
-Ip
+SP
 hK
 iF
 sp
@@ -759,7 +1030,7 @@ sp
 "}
 (6,1,1) = {"
 sp
-ps
+xy
 sp
 sp
 sp
@@ -770,7 +1041,7 @@ sp
 sp
 iF
 ak
-ak
+gx
 ak
 ak
 ak
@@ -783,7 +1054,7 @@ sp
 iF
 Cb
 ak
-ak
+Cp
 Mp
 jQ
 iF
@@ -804,7 +1075,7 @@ hD
 hD
 QN
 ak
-ak
+Cp
 ak
 ak
 ak
@@ -816,7 +1087,7 @@ iF
 hD
 EI
 ak
-ak
+Cp
 WE
 dS
 Fn
@@ -834,23 +1105,23 @@ sp
 hD
 sp
 sp
-sp
+Ca
 sp
 iF
 LZ
+Cp
+dc
 ak
 ak
 ak
-ak
-ak
-ak
-ak
+Cp
+Ny
 rR
 iF
-hD
+DU
 iF
 Vk
-ak
+Cp
 ak
 CR
 jQ
@@ -864,7 +1135,7 @@ sp
 ps
 sp
 sp
-sp
+HW
 hD
 sp
 sp
@@ -873,19 +1144,19 @@ sp
 iF
 ak
 ak
+Rg
+lY
 ak
 ak
-ak
-ak
-ak
-ak
+sD
+VH
 ak
 iF
 hD
 iF
 Vk
 ak
-ak
+Cp
 Nc
 Dx
 iF
@@ -900,7 +1171,7 @@ sp
 sp
 sp
 hD
-sp
+HW
 sp
 sp
 sp
@@ -949,7 +1220,7 @@ bX
 bX
 sp
 sp
-hD
+DU
 iF
 iH
 ME
@@ -963,10 +1234,10 @@ sp
 "}
 (12,1,1) = {"
 sp
-ps
-sp
-sp
-sp
+iF
+iF
+iF
+iF
 hD
 sp
 sp
@@ -986,8 +1257,8 @@ sp
 hD
 iF
 vt
-Nf
-Nf
+lo
+QC
 Nf
 pG
 iF
@@ -997,10 +1268,10 @@ sp
 "}
 (13,1,1) = {"
 sp
-ps
-sp
-sp
-sp
+iF
+aw
+MQ
+zH
 hD
 sp
 sp
@@ -1016,11 +1287,11 @@ bX
 bX
 bX
 sp
-sp
+HW
 hD
 iF
 uD
-Nf
+lo
 Nf
 Nf
 Nd
@@ -1033,8 +1304,8 @@ sp
 sp
 iF
 Vz
-sp
-sp
+wW
+iF
 hD
 sp
 sp
@@ -1044,7 +1315,7 @@ sp
 sp
 bX
 bX
-bX
+kO
 bX
 bX
 bX
@@ -1056,7 +1327,7 @@ iF
 HM
 eI
 eI
-eI
+MB
 ym
 iF
 sp
@@ -1068,12 +1339,12 @@ sp
 Cj
 hD
 hD
+AT
 hD
-hD
 sp
 sp
 sp
-sp
+HW
 bX
 bX
 bX
@@ -1102,7 +1373,7 @@ sp
 Cj
 hD
 hD
-hD
+AT
 hD
 sp
 sp
@@ -1121,11 +1392,11 @@ bX
 sp
 hD
 iF
-ak
+hw
 WD
+DM
 ak
-ak
-ak
+VH
 iF
 sp
 ps
@@ -1134,9 +1405,9 @@ sp
 (17,1,1) = {"
 sp
 iF
-Vz
-sp
-sp
+pw
+iF
+iF
 hD
 hD
 hD
@@ -1146,8 +1417,8 @@ RP
 RP
 RP
 RP
-RP
-RP
+xF
+xF
 RP
 RP
 RP
@@ -1155,11 +1426,11 @@ RP
 DY
 hD
 Iw
+kD
+kD
+DM
 ak
-ak
-ak
-ak
-jQ
+Fr
 iF
 sp
 ps
@@ -1189,11 +1460,11 @@ bX
 sp
 sp
 iF
+it
+pY
+DM
 ak
-Yk
-ak
-ak
-ak
+AF
 iF
 sp
 ps
@@ -1258,9 +1529,9 @@ bX
 sp
 iF
 nw
+Wy
 eA
-eA
-eA
+en
 Pr
 iF
 sp
@@ -1272,9 +1543,9 @@ sp
 ps
 sp
 iF
+Cp
 ak
-ak
-ak
+Cp
 iF
 hD
 sp
@@ -1292,9 +1563,9 @@ bX
 sp
 iF
 xp
+Zg
+iy
 Nf
-Nf
-lo
 jD
 iF
 sp
@@ -1308,7 +1579,7 @@ sp
 iF
 wo
 ak
-ak
+Cp
 iF
 hD
 sp
@@ -1319,7 +1590,7 @@ bX
 bX
 bX
 bX
-sp
+HW
 sp
 bX
 bX
@@ -1349,7 +1620,7 @@ sp
 sp
 sp
 sp
-sp
+HW
 bX
 sp
 sp
@@ -1416,14 +1687,14 @@ hD
 sp
 sp
 iF
-ak
-VT
-VT
+Cp
 VT
 VT
 VT
 VT
 ak
+ak
+fK
 iF
 sp
 sp
@@ -1450,13 +1721,13 @@ hD
 hD
 hD
 xj
+TU
+VH
+bz
+VH
+VH
+nE
 ak
-VH
-VH
-VH
-VH
-ZV
-VH
 ff
 iF
 sp
@@ -1484,14 +1755,14 @@ sp
 sp
 sp
 iF
-ak
+Cp
 VH
 ZV
-VH
-VH
 dT
 VH
+VT
 ak
+EJ
 iF
 sp
 sp
@@ -1518,13 +1789,13 @@ sp
 sp
 sp
 iF
+RF
+kM
+Si
+VT
+WZ
+Vh
 ak
-WZ
-VT
-VT
-WZ
-VT
-VT
 Yk
 iF
 sp
@@ -1595,7 +1866,7 @@ sp
 sp
 sp
 sp
-sp
+xy
 sp
 sp
 sp
@@ -1628,7 +1899,7 @@ Tc
 Tc
 Tc
 Tc
-Tc
+xy
 Tc
 Tc
 Tc

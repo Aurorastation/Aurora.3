@@ -10,9 +10,7 @@
  *
  * A device used for rapid fabrication of things, built from a compressed matter cartridge
  */
-/obj/item/rfd
-	abstract_type = /obj/item/rfd //This is an abstract, use one of the subtypes instead
-
+ABSTRACT_TYPE(/obj/item/rfd)
 	name = "\improper Rapid Fabrication Device"
 	desc = "A device used for rapid fabrication. The matter decompression matrix is untuned, rendering it useless."
 	icon = 'icons/obj/rfd.dmi'
@@ -30,7 +28,7 @@
 	throwforce = 10
 	throw_speed = 1
 	throw_range = 5
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 50000)
 	drop_sound = 'sound/items/drop/gun.ogg'
@@ -60,20 +58,24 @@
 	var/build_delay
 	var/last_fail = 0
 
+/obj/item/rfd/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(loc == user)
+		. += "It currently holds <b>[stored_matter]/30</b> matter units."
+
 /obj/item/rfd/Initialize()
+	. = ..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/item/rfd/LateInitialize()
 	. = ..()
 	update_icon()
 
-/obj/item/rfd/attack()
+/obj/item/rfd/attack(mob/living/target_mob, mob/living/user, target_zone)
 	return FALSE
 
 /obj/item/rfd/proc/can_use(var/mob/user,var/turf/T)
 	return (user.Adjacent(T) && user.get_active_hand() == src && !user.stat && !user.restrained())
-
-/obj/item/rfd/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(loc == user)
-		. += "It currently holds [stored_matter]/30 matter units."
 
 /obj/item/rfd/attack_self(mob/user)
 	//Change the mode
@@ -142,13 +144,13 @@
 	return TRUE
 
 /obj/item/rfd/update_icon()	// For the fancy "ammo" counter.
-	overlays.Cut()
+	CutOverlays()
 
 	var/ratio = 0
 	ratio = stored_matter / 30	//30 is the hardcoded max capacity of the RFD
 	ratio = max(round(ratio, 0.10) * 100, 10)
 
-	overlays += "[icon_state]-[ratio]"
+	AddOverlays("[icon_state]-[ratio]")
 
 /**
  * # RFD Compressed Matter Cartridge
@@ -161,7 +163,7 @@
 	icon = 'icons/obj/ammo.dmi'
 	icon_state = "rfd"
 	item_state = "rfdammo"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	origin_tech = list(TECH_MATERIAL = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 2000, MATERIAL_GLASS = 2000)
 	recyclable = TRUE
@@ -506,6 +508,10 @@
 	icon_state = "rfd-m"
 	item_state = "rfd-m"
 
+/obj/item/rfd/mining/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += SPAN_WARNING("The printed mining units have to either be placed down in order, or linked manually after deployment.")
+
 /obj/item/rfd/mining/Initialize()
 	. = ..()
 
@@ -594,7 +600,6 @@
 	to_chat(user, SPAN_NOTICE("You deploy \a [mode] on \the [target]."))
 	update_icon()
 
-
 	//In case of success, consume the resources
 	if(isrobot(user))
 		var/mob/living/silicon/robot/R = user
@@ -605,10 +610,6 @@
 		to_chat(user, SPAN_NOTICE("The RFD now holds <b>[stored_matter]/[initial(stored_matter)]</b> fabrication-units.")) //As they start full, initial(stored_matter) also gives the maximum
 
 	return TRUE
-
-/obj/item/rfd/mining/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += FONT_SMALL(SPAN_WARNING("The printed mining units have to either be placed down in order, or linked manually after deployment."))
 
 #undef RFD_MINING_MODE_MINE_TRACK
 #undef RFD_MINING_MODE_MINE_CART
@@ -623,16 +624,16 @@
 	stored_matter = 30
 	var/malftransformermade = 0
 
-/obj/item/rfd/transformer/attack_self(mob/user)
-	return
-
-/obj/item/rfd/transformer/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/rfd/transformer/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(loc == user)
 		if(malftransformermade)
 			. += "There is already a transformer machine made!"
 		else
 			. += "It is ready to deploy a transformer machine."
+
+/obj/item/rfd/transformer/attack_self(mob/user)
+	return
 
 /obj/item/rfd/transformer/afterattack(atom/A, mob/user as mob, proximity)
 
@@ -689,7 +690,7 @@
 	desc = "A heavily modified RFD, modified to construct pipes and piping accessories."
 	icon_state = "rfd-p"
 	item_state = "rfd-p"
-	modes = list(STANDARD_PIPE, SUPPLY_PIPE, SCRUBBER_PIPE, DEVICES)
+	modes = list(STANDARD_PIPE, SUPPLY_PIPE, SCRUBBER_PIPE, FUEL_PIPE, AUX_PIPE, DEVICES)
 	var/selected_mode = STANDARD_PIPE
 	var/pipe_examine = "Pipe" // used in the examine proc to see what you're putting down at a glance
 	var/selected_pipe = 0 // default is standard pipe, used for the new pipe creation
@@ -759,11 +760,15 @@
 		"Omni Gas Filter" = PIPE_OMNI_FILTER
 	)
 
-/obj/item/rfd/piping/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += FONT_SMALL(SPAN_NOTICE("Change pipe category by ALT-clicking, change pipe selection by using in-hand."))
-	. += SPAN_NOTICE("Selected pipe category: <b>[selected_mode]</b>.")
-	. += SPAN_NOTICE("Selected pipe: <b>[pipe_examine]</b>.")
+/obj/item/rfd/piping/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use in-hand to change pipe selection."
+	. += "ALT-click to change pipe category."
+
+/obj/item/rfd/piping/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Selected pipe category: <b>[selected_mode]</b>."
+	. += "Selected pipe: <b>[pipe_examine]</b>."
 
 /obj/item/rfd/piping/afterattack(atom/A, mob/user, proximity)
 	if(!proximity || !isturf(A))
@@ -772,7 +777,7 @@
 		to_chat(user, SPAN_WARNING("You can't materialize a pipe here!"))
 		return FALSE
 	var/turf/T = get_turf(A)
-	if(isNotStationLevel(T.z))
+	if(!is_station_level(T.z))
 		to_chat(user, SPAN_WARNING("You can't materialize a pipe on this level!"))
 		return FALSE
 	return do_pipe(T, user)

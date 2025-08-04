@@ -67,7 +67,7 @@
 
 	var/area/A = finalize_area(area_name)
 	for(var/turf/T in selected_turfs)
-		ChangeArea(T, A)
+		T.change_area(T.loc, A)
 	remove_selection() // Reset the selection for clarity.
 
 /mob/abstract/eye/blueprints/proc/finalize_area(var/area_name)
@@ -91,13 +91,15 @@
 		return
 	to_chat(owner, SPAN_NOTICE("You scrub [A.name] off the blueprints."))
 	log_and_message_admins("deleted area [A.name] via station blueprints.")
-	var/background_area = /area/space
+	var/background_area = world.area
 	var/obj/effect/overmap/visitable/sector/sector = GLOB.map_sectors["[A.z]"]
 	var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = sector
 	if(istype(exoplanet))
 		background_area = exoplanet.planetary_area
+	if(SSodyssey.scenario && (GET_Z(owner) in SSodyssey.scenario_zlevels))
+		background_area = SSodyssey.scenario.base_area
 	for(var/turf/T in A.contents)
-		ChangeArea(T, background_area)
+		T.change_area(T.loc, background_area)
 	if(!locate(/turf) in A)
 		qdel(A)
 
@@ -202,7 +204,7 @@
 			break
 		var/turf/T = pending_turfs[1]
 		pending_turfs -= T
-		for(var/dir in GLOB.cardinal)	// Floodfill to find all turfs contiguous with the randomly chosen start_turf.
+		for(var/dir in GLOB.cardinals)	// Floodfill to find all turfs contiguous with the randomly chosen start_turf.
 			var/turf/NT = get_step(T, dir)
 			if(!isturf(NT) || !(NT in selected_turfs) || (NT in pending_turfs) || (NT in checked_turfs))
 				continue
@@ -265,7 +267,7 @@
 	return SEE_TURFS|BLIND
 
 /mob/abstract/eye/blueprints/apply_visual(mob/living/M)
-	M.overlay_fullscreen("blueprints", /obj/screen/fullscreen/blueprints)
+	M.overlay_fullscreen("blueprints", /atom/movable/screen/fullscreen/blueprints)
 	M.client.screen += area_name_effect
 	M.add_client_color(/datum/client_color/monochrome)
 
@@ -309,13 +311,15 @@
 		return
 	to_chat(owner, SPAN_NOTICE("You scrub [A.name] off the blueprints."))
 	log_and_message_admins("deleted area [A.name] from [our_shuttle.name] via shuttle blueprints.")
-	var/background_area = /area/space
+	var/background_area = world.area
 	var/obj/effect/overmap/visitable/sector/sector = GLOB.map_sectors["[A.z]"]
 	var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = sector
 	if(istype(exoplanet))
 		background_area = exoplanet.planetary_area
+	if(SSodyssey.scenario && (GET_Z(owner) in SSodyssey.scenario_zlevels))
+		background_area = SSodyssey.scenario.base_area
 	for(var/turf/T in A.contents)
-		ChangeArea(T, background_area)
+		T.change_area(T.loc, background_area)
 	if(!(locate(/turf) in A))
 		qdel(A) // uh oh, is this safe?
 

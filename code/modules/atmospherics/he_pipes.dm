@@ -1,5 +1,4 @@
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging
-	desc_info = "This radiates heat from the pipe's gas to space, cooling it down."
 	icon = 'icons/atmos/heat.dmi'
 	icon_state = "intact"
 	pipe_icon = "hepipe"
@@ -19,6 +18,11 @@
 	volume = ATMOS_DEFAULT_VOLUME_HE_PIPE
 
 	// BubbleWrap
+
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This radiates heat from the pipe's gas to space, cooling it down."
+
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/Initialize()
 	. = ..()
 	initialize_directions_he = initialize_directions	// The auto-detection from /pipe is good enough for a simple HE pipe
@@ -31,7 +35,7 @@
 	var/node1_dir
 	var/node2_dir
 
-	for(var/direction in GLOB.cardinal)
+	for(var/direction in GLOB.cardinals)
 		if(direction&initialize_directions_he)
 			if (!node1_dir)
 				node1_dir = direction
@@ -58,8 +62,10 @@
 		..()
 	else
 		var/datum/gas_mixture/pipe_air = return_air()
+		var/turf/T = get_turf(loc)
+		var/turf/turf_above = GET_TURF_ABOVE(T)
 
-		if(istype(loc, /turf/space) || (isopenturf(loc) && (istype(GetBelow(loc), /turf/space) || istype(GetAbove(loc), /turf/space))))
+		if(istype(loc, /turf/space) || (isopenturf(loc) && (istype(GET_TURF_BELOW(T), /turf/space) || istype(turf_above, /turf/space))))
 			parent.radiate_heat_to_space(surface, 1)
 
 		else if(istype(loc, /turf/simulated/lava))
@@ -72,10 +78,11 @@
 			var/energy_to_temp = parent.air.get_thermal_energy_change(lava_temperature)
 			parent.air.add_thermal_energy(max(min(energy_to_temp, max_energy_change), 0))
 
-		else if(istype(loc, /turf/simulated/))
+		else if(istype(loc, /turf/simulated))
+			var/turf/simulated/simulated_turf = loc
 			var/environment_temperature = 0
-			if(loc:blocks_air)
-				environment_temperature = loc:temperature
+			if(simulated_turf.blocks_air)
+				environment_temperature = simulated_turf.temperature
 			else
 				var/datum/gas_mixture/environment = loc.return_air()
 				environment_temperature = environment.temperature

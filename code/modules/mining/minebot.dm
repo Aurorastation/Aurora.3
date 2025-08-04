@@ -15,7 +15,7 @@
 	hat_x_offset = 1
 	hat_y_offset = -12
 	standard_drone = FALSE
-	var/list/allowed_areas = list(/area/exoplanet, /area/shuttle/mining, /area/shuttle/intrepid) //Needed for the bot to go mining
+	var/list/allowed_areas = list(/area/exoplanet, /area/horizon/shuttle/mining, /area/horizon/shuttle/intrepid) //Needed for the bot to go mining
 	var/seeking_player = FALSE
 	var/health_upgrade
 	var/ranged_upgrade
@@ -121,7 +121,7 @@
 		return FALSE
 	//Check if they are not on a station level -> else abort
 	var/turf/T = get_turf(src)
-	if (!T || isStationLevel(T.z))
+	if (!T || is_station_level(T.z))
 		return FALSE
 	if(is_type_in_list(get_area(T), allowed_areas))
 		return FALSE

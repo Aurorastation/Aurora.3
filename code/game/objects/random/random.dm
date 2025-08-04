@@ -1,8 +1,8 @@
 /obj/random
 	name = "random object"
 	desc = "This item type is used to spawn random objects at round-start"
-	icon = 'icons/misc/mark.dmi'
-	icon_state = "rup"
+	icon = 'icons/obj/random.dmi'
+	icon_state = "need-sprite"
 	var/spawn_nothing_percentage = 0 // this variable determines the likelyhood that this random object will not spawn anything
 	var/list/spawnlist
 	var/list/problist

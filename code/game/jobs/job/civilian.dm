@@ -126,7 +126,7 @@
 	uniform = /obj/item/clothing/under/rank/hydroponics
 	head = /obj/item/clothing/head/bandana/hydro/nt
 	shoes = /obj/item/clothing/shoes/sneakers/black
-	suit_store = /obj/item/device/analyzer/plant_analyzer
+	belt = /obj/item/storage/belt/hydro/full
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian
@@ -167,7 +167,7 @@
 	supervisors = "the executive officer"
 	selection_color = "#90524b"
 	access = list(ACCESS_JANITOR, ACCESS_MAINT_TUNNELS, ACCESS_ENGINE, ACCESS_RESEARCH, ACCESS_SEC_DOORS, ACCESS_MEDICAL)
-	minimal_access = list(ACCESS_JANITOR, ACCESS_ENGINE, ACCESS_RESEARCH, ACCESS_SEC_DOORS, ACCESS_MEDICAL)
+	minimal_access = list(ACCESS_JANITOR, ACCESS_MAINT_TUNNELS, ACCESS_ENGINE, ACCESS_RESEARCH, ACCESS_SEC_DOORS, ACCESS_MEDICAL)
 	outfit = /obj/outfit/job/janitor
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
@@ -209,7 +209,7 @@
 	minimal_access = list(ACCESS_LIBRARY)
 	alt_titles = list("Curator", "Tech Support")
 	alt_outfits = list("Curator" = /obj/outfit/job/librarian/curator, "Tech Support" = /obj/outfit/job/librarian/tech_support)
-	title_accesses = list("Tech Support" = ACCESS_IT)
+	title_accesses = list("Tech Support" = list(ACCESS_IT, ACCESS_TECH_STORAGE))
 	outfit = /obj/outfit/job/librarian
 
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
@@ -276,7 +276,7 @@
 	selection_color = "#90524b"
 	access = list(ACCESS_CHAPEL_OFFICE, ACCESS_MAINT_TUNNELS)
 	minimal_access = list(ACCESS_CHAPEL_OFFICE)
-	alt_titles = list("Presbyter", "Rabbi", "Imam", "Priest", "Shaman", "Counselor", "Keeper", "Shaper")
+	alt_titles = list("Presbyter", "Rabbi", "Imam", "Priest", "Priestess", "Shaman", "Counselor", "Keeper", "Shaper")
 	outfit = /obj/outfit/job/chaplain
 
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
@@ -360,7 +360,7 @@
 
 	outfit = /obj/outfit/job/operations_manager
 
-	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
 /obj/outfit/job/operations_manager
 	name = "Operations Manager"
@@ -368,8 +368,7 @@
 
 	uniform = /obj/item/clothing/under/rank/operations_manager
 	shoes = /obj/item/clothing/shoes/sneakers/brown
-	id = /obj/item/card/id/navy
-	l_hand = /obj/item/clipboard
+	id = /obj/item/card/id/silver
 	glasses = /obj/item/clothing/glasses/sunglasses
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/supply/om
@@ -405,8 +404,12 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	access = list(ACCESS_MAINT_TUNNELS, ACCESS_MAILSORTING, ACCESS_CARGO, ACCESS_SHIP_WEAPONS, ACCESS_CARGO_BOT, ACCESS_MINING, ACCESS_MINING_STATION)
-	minimal_access = list(ACCESS_CARGO, ACCESS_CARGO_BOT, ACCESS_SHIP_WEAPONS, ACCESS_MAILSORTING)
+	access = list(
+		ACCESS_MAINT_TUNNELS, ACCESS_MAILSORTING, ACCESS_CARGO, ACCESS_SHIP_WEAPONS, ACCESS_CARGO_BOT, ACCESS_MINING, ACCESS_MINING_STATION
+	)
+	minimal_access = list(
+		ACCESS_CARGO, ACCESS_CARGO_BOT, ACCESS_SHIP_WEAPONS, ACCESS_MAILSORTING
+	)
 	outfit = /obj/outfit/job/hangar_tech
 
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
@@ -447,8 +450,12 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	access = list(ACCESS_MAINT_TUNNELS, ACCESS_MAILSORTING, ACCESS_CARGO, ACCESS_CARGO_BOT, ACCESS_MINING, ACCESS_MINING_STATION)
-	minimal_access = list(ACCESS_MINING, ACCESS_MINING_STATION, ACCESS_MAILSORTING)
+	access = list(
+		ACCESS_MAINT_TUNNELS, ACCESS_MAILSORTING, ACCESS_CARGO, ACCESS_CARGO_BOT, ACCESS_MINING, ACCESS_MINING_STATION, ACCESS_SPARK
+	)
+	minimal_access = list(
+		ACCESS_MINING, ACCESS_MINING_STATION, ACCESS_MAILSORTING, ACCESS_SPARK
+	)
 	outfit = /obj/outfit/job/mining
 
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
@@ -500,8 +507,12 @@
 		SPECIES_SKRELL_AXIORI = 55
 	)
 
-	access = list(ACCESS_ROBOTICS, ACCESS_TECH_STORAGE, ACCESS_MAILSORTING)
-	minimal_access = list(ACCESS_ROBOTICS, ACCESS_TECH_STORAGE, ACCESS_MAILSORTING)
+	access = list(
+		ACCESS_ROBOTICS, ACCESS_TECH_STORAGE, ACCESS_MAILSORTING
+	)
+	minimal_access = list(
+		ACCESS_ROBOTICS, ACCESS_TECH_STORAGE, ACCESS_MAILSORTING
+	)
 
 	minimal_player_age = 7
 
@@ -535,6 +546,5 @@
 		/obj/item/weldingtool = 1,
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters = 1,
-		/obj/item/stack/cable_coil/random = 1,
-		/obj/item/powerdrill = 1
+		/obj/item/stack/cable_coil/random = 1
 	)

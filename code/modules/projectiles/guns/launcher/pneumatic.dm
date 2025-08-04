@@ -5,7 +5,7 @@
 	icon_state = "pneumatic"
 	item_state = "pneumatic"
 	slot_flags = SLOT_BELT
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	fire_sound_text = "a loud whoosh of moving air"
 	fire_delay = 50
@@ -13,8 +13,8 @@
 	needspin = FALSE
 
 	var/fire_pressure                                   // Used in fire checks/pressure checks.
-	var/max_w_class = ITEMSIZE_NORMAL                                 // Hopper intake size.
-	var/max_storage_space = 20                       // Total internal storage size.
+	var/max_w_class = WEIGHT_CLASS_NORMAL                                 // Hopper intake size.
+	var/max_storage_space = DEFAULT_LARGEBOX_STORAGE                      // Total internal storage size.
 	var/obj/item/tank/tank = null                // Tank of gas for use in firing the cannon.
 
 	var/obj/item/storage/item_storage
@@ -23,6 +23,17 @@
 	var/force_divisor = 400                             // Force equates to speed. Speed/5 equates to a damage multiplier for whoever you hit.
 														// For reference, a fully pressurized oxy tank at 50% gas release firing a health
 														// analyzer with a force_divisor of 10 hit with a damage multiplier of 3000+.
+
+/obj/item/gun/launcher/pneumatic/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance > 2)
+		return
+	. += "The valve is dialed to <b>[pressure_setting]%</b>."
+	if(tank)
+		. += "The tank dial reads <b>[tank.air_contents.return_pressure()] kPa</b>."
+	else
+		. += "Nothing is attached to the tank valve!"
+
 /obj/item/gun/launcher/pneumatic/Initialize()
 	. = ..()
 	item_storage = new(src)
@@ -101,16 +112,6 @@
 	item_storage.remove_from_storage(launched, src)
 	return launched
 
-/obj/item/gun/launcher/pneumatic/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance > 2)
-		return
-	. += "The valve is dialed to [pressure_setting]%."
-	if(tank)
-		. += "The tank dial reads [tank.air_contents.return_pressure()] kPa."
-	else
-		. += "Nothing is attached to the tank valve!"
-
 /obj/item/gun/launcher/pneumatic/update_release_force(obj/item/projectile)
 	if(tank)
 		release_force = ((fire_pressure*tank.volume)/projectile.w_class)/force_divisor //projectile speed.
@@ -150,22 +151,24 @@
 	icon = 'icons/obj/weapons.dmi'
 	var/buildstate = 0
 
+/obj/item/cannonframe/assembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	switch(buildstate)
+		if(0)
+			. += "It must be fitted with a segment of straight atmospherics pipe."
+		if(1)
+			. += "It must have the pipe segment <b>welded</b> in place."
+		if(2)
+			. += "Its chassis requires five <b>steel sheets</b>."
+		if(3)
+			. += "It must have its chassis <b>welded</b> in place."
+		if(4)
+			. += "It must have a <b>tank transfer valve</b> installed."
+		if(5)
+			. += "It must have the transfer valve <b>welded</b> into place."
+
 /obj/item/cannonframe/update_icon()
 	icon_state = "pneumatic[buildstate]"
-
-/obj/item/cannonframe/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	switch(buildstate)
-		if(1)
-			. += "It has a pipe segment installed."
-		if(2)
-			. += "It has a pipe segment welded in place."
-		if(3)
-			. += "It has an outer chassis installed."
-		if(4)
-			. += "It has an outer chassis welded in place."
-		if(5)
-			. += "It has a transfer valve installed."
 
 /obj/item/cannonframe/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/pipe))
@@ -224,5 +227,5 @@
 /obj/item/gun/launcher/pneumatic/small
 	name = "small pneumatic cannon"
 	desc = "It looks smaller than your garden variety cannon"
-	max_w_class = ITEMSIZE_TINY
-	w_class = ITEMSIZE_NORMAL
+	max_w_class = WEIGHT_CLASS_TINY
+	w_class = WEIGHT_CLASS_NORMAL

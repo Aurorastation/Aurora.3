@@ -304,7 +304,7 @@
 	icon_state = "conveyor0"
 	name = "conveyor belt assembly"
 	desc = "A conveyor belt assembly."
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	var/id = "" //inherited by the belt
 
 /obj/item/conveyor_construct/attackby(obj/item/attacking_item, mob/user, params)
@@ -319,7 +319,7 @@
 	if(!proximity || !istype(A, /turf/simulated/floor) || istype(A, /area/shuttle) || user.incapacitated())
 		return
 	var/cdir = get_dir(A, user)
-	if(!(cdir in GLOB.cardinal) || A == user.loc)
+	if(!(cdir in GLOB.cardinals) || A == user.loc)
 		return
 	for(var/obj/machinery/conveyor/CB in A)
 		if(CB.dir == cdir || CB.dir == turn(cdir,180))
@@ -336,7 +336,7 @@
 	desc = "A conveyor control switch assembly."
 	icon = 'icons/obj/recycling.dmi'
 	icon_state = "switch-off"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	var/id = "" //inherited by the switch
 
 /obj/item/conveyor_switch_construct/New()

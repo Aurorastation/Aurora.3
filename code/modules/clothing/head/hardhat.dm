@@ -9,16 +9,16 @@
 	action_button_name = "Toggle Headlamp"
 	brightness_on = 4 //luminosity when on
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_MINOR,
-		rad = ARMOR_RAD_MINOR
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_MINOR,
+		RAD = ARMOR_RAD_MINOR
 	)
 	flags_inv = 0
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	siemens_coefficient = 0.9
 	max_pressure_protection = FIRESUIT_MAX_PRESSURE
 	light_wedge = LIGHT_WIDE
@@ -52,7 +52,7 @@
 	name = "atmospheric firefighter helmet"
 	desc = "An atmospheric firefighter's helmet, able to keep the user protected from heat and fire."
 	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE + 15000
-	icon = 'icons/clothing/kit/firefighter.dmi'
+	icon = 'icons/obj/item/clothing/head/firefighter.dmi'
 	sprite_sheets = list(
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/fire.dmi'
 	)
@@ -63,10 +63,28 @@
 	icon_supported_species_tags = list("una", "taj")
 	contained_sprite = TRUE
 	min_pressure_protection = FIRESUIT_MIN_PRESSURE
+	heat_protection = HEAD
 
-/obj/item/clothing/head/hardhat/first_responder
+	///Initial name of the fire helmet's emissive overlay. Will be changed based on [icon_supported_species_tags], above
+	var/initial_emissive_state = "atmos_fire_emissive"
+	///Special variable to handle the fire helmet's emissive overlay
+	var/emissive_state
+
+/obj/item/clothing/head/hardhat/atmos/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	emissive_state = initial_emissive_state
+	if(icon_auto_adapt)
+		if(H && length(icon_supported_species_tags))
+			if(H.species.short_name in icon_supported_species_tags)
+				emissive_state = "[H.species.short_name]_[initial_emissive_state]"
+	if(slot == slot_head_str)
+		var/image/emissive_overlay = emissive_appearance(mob_icon, emissive_state, alpha = src.alpha)
+		I.AddOverlays(emissive_overlay)
+	return I
+
+/obj/item/clothing/head/hardhat/paramedic
 	name = "medical helmet"
-	desc = "A polymer helmet worn by first responders throughout human space to protect their heads. This one comes with an attached flashlight and has green crosses on the sides."
+	desc = "A polymer helmet worn by paramedics throughout human space to protect their heads. This one comes with an attached flashlight and has green crosses on the sides."
 	icon_state = "helmet_paramed"
 	item_state = "helmet_paramed"
 	light_overlay = "EMS_light"
@@ -74,7 +92,7 @@
 /obj/item/clothing/head/hardhat/firefighter
 	name = "firefighter helmet"
 	desc = "A complete, face covering helmet specially designed for firefighting. It is airtight and has a port for internals."
-	icon = 'icons/clothing/kit/firefighter.dmi'
+	icon = 'icons/obj/item/clothing/head/firefighter.dmi'
 	icon_state = "helmet_firefighter"
 	item_state = "helmet_firefighter"
 	sprite_sheets = list(
@@ -91,6 +109,8 @@
 	cold_protection = HEAD
 	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
 	flash_protection = FLASH_PROTECTION_MODERATE
+	heat_protection = HEAD
+	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/head/hardhat/firefighter/chief
 	name = "chief firefighter helmet"

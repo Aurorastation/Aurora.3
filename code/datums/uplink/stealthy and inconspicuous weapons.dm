@@ -80,3 +80,9 @@
 	desc = "A 9mm pistol concealed within the shell of a camera, which has to be deployed before it can be fired. Closer inspection will reveal its true nature, but when in its concealed form it will look totally harmless."
 	telecrystal_cost = 3
 	path = /obj/item/gun/projectile/shotgun/foldable/cameragun
+
+/datum/uplink_item/item/stealthy_weapons/sawn_doublebarrel_shotgun
+	name = "Sawn-off Double-Barrel Shotgun"
+	desc = "A box for a sidearm double barrel shotgun, containing a sawn-off double barrel shotgun, a holster and some ammo."
+	telecrystal_cost = 4
+	path = /obj/item/storage/box/sawn_doublebarrel_shotgun

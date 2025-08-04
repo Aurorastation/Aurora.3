@@ -56,7 +56,7 @@
 	else
 		var/icon/T = new('icons/effects/drip.dmi')
 		I = image(T, pick(T.IconStates()), layer = TURF_LAYER)
-	I.color = holder.species?.blood_color
+	I.color = holder.get_blood_color()
 	return I
 
 

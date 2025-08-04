@@ -44,6 +44,8 @@
 	jackets["flannel jacket, yellow"] = /obj/item/clothing/suit/storage/toggle/flannel/yellow
 	jackets["high visibility jacket"] = /obj/item/clothing/suit/storage/toggle/highvis
 	jackets["high visibility jacket, alt"] = /obj/item/clothing/suit/storage/toggle/highvis_alt
+	jackets["high visibility jacket, red"] = /obj/item/clothing/suit/storage/toggle/highvis_red
+	jackets["high visibility jacket, orange"] = /obj/item/clothing/suit/storage/toggle/highvis_orange
 	jackets["black vest"] = /obj/item/clothing/suit/storage/toggle/leather_vest
 	jackets["brown vest"] = /obj/item/clothing/suit/storage/toggle/brown_jacket/sleeveless
 	jackets["leather coat"] = /obj/item/clothing/suit/storage/leathercoat
@@ -122,24 +124,56 @@
 	display_name = "surgical apron"
 	path = /obj/item/clothing/accessory/apron/surgery
 	cost = 1
-	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Research Director", "Investigator", "Medical Personnel", "Science Personnel")
+	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Intern", "Xenobiologist", "Research Director", "Investigator", "Medical Personnel", "Science Personnel")
+
+/datum/gear/suit/surgicalgown
+	display_name = "surgical gown selection"
+	description = "A selection of corporate surgical gowns."
+	path = /obj/item/clothing/suit/storage/surgical_gown/nt
+	cost = 1
+	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Intern", "Xenobiologist", "Research Director", "Investigator", "Medical Personnel", "Science Personnel")
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/suit/surgicalgown/New()
+	..()
+	var/list/surgical_gowns = list()
+	surgical_gowns["surgical gown, nanotrasen"] = /obj/item/clothing/suit/storage/surgical_gown/nt
+	surgical_gowns["surgical gown, zeng-hu"] = /obj/item/clothing/suit/storage/surgical_gown/zeng
+	surgical_gowns["surgical gown, pmcg"] = /obj/item/clothing/suit/storage/surgical_gown/pmc
+	surgical_gowns["surgical gown, pmcg, alternate"] = /obj/item/clothing/suit/storage/surgical_gown/pmc/alt
+	surgical_gowns["surgical gown, zavodskoi"] = /obj/item/clothing/suit/storage/surgical_gown/zavod
+	surgical_gowns["surgical gown, idris"] = /obj/item/clothing/suit/storage/surgical_gown/idris
+	gear_tweaks += new /datum/gear_tweak/path(surgical_gowns)
+
+/datum/gear/suit/surgicalgown_colorable
+	display_name = "surgical gown, colorable"
+	description = "A customizable surgical gown."
+	path = /obj/item/clothing/suit/storage/surgical_gown
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+
+/datum/gear/suit/surgicalgown_colorable/New()
+	..()
+	var/list/surgical_gowns_colorable = list()
+	surgical_gowns_colorable["surgical gown, colorable"] = /obj/item/clothing/suit/storage/surgical_gown
+	surgical_gowns_colorable["surgical gown, accented"] = /obj/item/clothing/suit/storage/surgical_gown/accent
+	gear_tweaks += new /datum/gear_tweak/path(surgical_gowns_colorable)
 
 /datum/gear/suit/medical_outerwear
 	display_name = "medical outerwear (jackets, vests, rigs)"
-	path = /obj/item/clothing/suit/storage/toggle/fr_jacket
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Medical Personnel")
+	path = /obj/item/clothing/suit/storage/toggle/para_jacket
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Intern", "Medical Personnel")
 
 /datum/gear/suit/medical_outerwear/New()
 	..()
 	var/list/medical_outerwear = list()
 	medical_outerwear["medical chest-rig"] = /obj/item/clothing/suit/storage/medical_chest_rig
-	medical_outerwear["first responder jacket"] = /obj/item/clothing/suit/storage/toggle/fr_jacket
+	medical_outerwear["paramedic jacket"] = /obj/item/clothing/suit/storage/toggle/para_jacket
 	gear_tweaks += new /datum/gear_tweak/path(medical_outerwear)
 
 /datum/gear/suit/iac_outerwear
 	display_name = "IAC outerwear (jackets, vests, rigs)"
 	path = /obj/item/clothing/suit/storage/hazardvest/iac
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Medical Personnel")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Intern", "Medical Personnel")
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/suit/iac_outerwear/New()
@@ -212,8 +246,8 @@
 	coat["trenchcoat, dark brown"] = /obj/item/clothing/suit/storage/toggle/trench/alt
 	coat["trenchcoat, grey alternate"] = /obj/item/clothing/suit/storage/toggle/trench/grey_alt
 	coat["trenchcoat, green"] = /obj/item/clothing/suit/storage/toggle/trench/green
-	coat["brown trenchcoat (Detective)"] = /obj/item/clothing/suit/storage/toggle/det_trench
-	coat["black trenchcoat (Detective)"] = /obj/item/clothing/suit/storage/toggle/det_trench/black
+	coat["brown trenchcoat (Detective)"] = /obj/item/clothing/suit/storage/toggle/trench/det_trench
+	coat["black trenchcoat (Detective)"] = /obj/item/clothing/suit/storage/toggle/trench/det_trench/black
 	gear_tweaks += new /datum/gear_tweak/path(coat)
 
 /datum/gear/suit/trenchcoat_colorable
@@ -229,6 +263,19 @@
 	trenches["trenchcoat, alt"] = /obj/item/clothing/suit/storage/toggle/trench/colorable/alt
 
 	gear_tweaks += new /datum/gear_tweak/path(trenches)
+
+/datum/gear/suit/greatcoats
+	display_name = "greatcoat selection"
+	description = "A selection of greatcoats."
+	path = /obj/item/clothing/suit/storage/toggle/greatcoat
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/suit/greatcoats/New()
+	..()
+	var/list/greatcoat = list()
+	greatcoat["greatcoat, black"] = /obj/item/clothing/suit/storage/toggle/greatcoat
+	greatcoat["greatcoat, brown"] = /obj/item/clothing/suit/storage/toggle/greatcoat/brown
+	gear_tweaks += new /datum/gear_tweak/path(greatcoat)
 
 /datum/gear/suit/ian
 	display_name = "worn shirt"
@@ -287,17 +334,34 @@
 	dominiacape["white dominian cape, volvalaad"] = /obj/item/clothing/accessory/poncho/dominia_cape/volvalaad/white
 	dominiacape["dominian cape, kazhkz"] = /obj/item/clothing/accessory/poncho/dominia_cape/kazhkz
 	dominiacape["white dominian cape, kazhkz"] = /obj/item/clothing/accessory/poncho/dominia_cape/kazhkz/white
+	dominiacape["dominian cape, han'san"] = /obj/item/clothing/accessory/poncho/dominia_cape/hansan
+	dominiacape["white dominian cape, han'san"] = /obj/item/clothing/accessory/poncho/dominia_cape/hansan/white
 	dominiacape["dominian cape, caladius"] = /obj/item/clothing/accessory/poncho/dominia_cape/caladius
 	dominiacape["white dominian cape, caladius"] = /obj/item/clothing/accessory/poncho/dominia_cape/caladius/white
 	dominiacape["dominian cape, zhao"] = /obj/item/clothing/accessory/poncho/dominia_cape/zhao
 	dominiacape["white dominian cape, zhao"] = /obj/item/clothing/accessory/poncho/dominia_cape/zhao/white
+	dominiacape["dominian cape, military"]	= /obj/item/clothing/accessory/poncho/dominia_cape/mantle
+	gear_tweaks += new /datum/gear_tweak/path(dominiacape)
+
+/datum/gear/suit/dominia_cape_colorable
+	display_name = "dominian cape selection, colorable"
+	path = /obj/item/clothing/accessory/poncho/dominia_cape/colorable
+	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+	description = "A black or white Dominian cape with a colorable stripe that can be used to represent either a generic cape or a Minor House."
+	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
+
+/datum/gear/suit/dominia_cape_colorable/New()
+	..()
+	var/list/dominiacape = list()
+	dominiacape["dominian cape"] = /obj/item/clothing/accessory/poncho/dominia_cape/colorable
+	dominiacape["white dominian cape"] = /obj/item/clothing/accessory/poncho/dominia_cape/white/colorable
 	gear_tweaks += new /datum/gear_tweak/path(dominiacape)
 
 /datum/gear/suit/dominia_medical_cape
 	display_name = "tribunalist medical cape"
 	path = /obj/item/clothing/accessory/poncho/dominia_cape/hospital
 	flags = GEAR_HAS_DESC_SELECTION
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Intern")
 	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/suit/dominia
@@ -318,21 +382,6 @@
 	coat["dominian great coat, black"] = /obj/item/clothing/suit/storage/dominia/black
 	gear_tweaks += new /datum/gear_tweak/path(coat)
 
-/datum/gear/suit/dominia_consular
-	display_name = "dominian consular officer coat selection"
-	description = "A selection of coats belonging to the Diplomatic Service."
-	path = /obj/item/clothing/suit/storage/dominia/consular
-	allowed_roles = list("Consular Officer")
-	flags = GEAR_HAS_DESC_SELECTION
-	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
-
-/datum/gear/suit/dominia_consular/New()
-	..()
-	var/list/coat = list()
-	coat["dominian consular's greatcoat"] = /obj/item/clothing/suit/storage/dominia/consular
-	coat["dominian consular's coat"] = /obj/item/clothing/suit/storage/dominia/consular/coat
-	gear_tweaks += new /datum/gear_tweak/path(coat)
-
 /datum/gear/suit/fisanduhian_bomber
 	display_name = "fisanduhian bomber jacket selection"
 	description = "A selection of Fisanduhian jackets."
@@ -347,18 +396,19 @@
 	coat["long fisanduhian bomber jacket"] = /obj/item/clothing/suit/storage/toggle/dominia/bomber/long
 	gear_tweaks += new /datum/gear_tweak/path(coat)
 
-/datum/gear/suit/tcfl
-	display_name = "Tau Ceti Foreign Legion jacket selection"
-	description = "A selection of fine, surplus jackets of the Foreign Legion."
+/datum/gear/suit/tcaf
+	display_name = "Tau Ceti Armed Forces jacket selection"
+	description = "A selection of fine, surplus jackets of the Armed Forces."
 	path = /obj/item/clothing/suit/storage/legion
 	flags = GEAR_HAS_DESC_SELECTION
 
-/datum/gear/suit/tcfl/New()
+/datum/gear/suit/tcaf/New()
 	..()
-	var/list/tcfljac = list()
-	tcfljac ["tcfl jacket"] = /obj/item/clothing/suit/storage/legion
-	tcfljac ["tcfl jacket, flight"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion
-	gear_tweaks += new /datum/gear_tweak/path(tcfljac)
+	var/list/tcafjacket = list()
+	tcafjacket ["tcaf jacket"] = /obj/item/clothing/suit/storage/legion/tcaf
+	tcafjacket ["tcfl jacket"] = /obj/item/clothing/suit/storage/legion
+	tcafjacket ["tcfl jacket, flight"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion
+	gear_tweaks += new /datum/gear_tweak/path(tcafjacket)
 
 /datum/gear/suit/dep_jacket
 	display_name = "department jackets selection"
@@ -376,8 +426,7 @@
 	jacket["departmental jacket, service"] = /obj/item/clothing/suit/storage/toggle/serv_dep_jacket
 	gear_tweaks += new /datum/gear_tweak/path(jacket)
 
-/datum/gear/suit/miscellaneous
-	abstract_type = /datum/gear/suit/miscellaneous
+ABSTRACT_TYPE(/datum/gear/suit/miscellaneous)
 
 /datum/gear/suit/miscellaneous/peacoat
 	display_name = "peacoat"
@@ -559,3 +608,35 @@
 	galatea_labcoat["galatean labcoat"] = /obj/item/clothing/suit/storage/galatea_labcoat
 	galatea_labcoat["galatean labcoat, alt"] = /obj/item/clothing/suit/storage/galatea_labcoat/alt
 	gear_tweaks += new /datum/gear_tweak/path(galatea_labcoat)
+
+/datum/gear/suit/patterned_ponczo
+	display_name = "visegradi patterned ponczo selection"
+	description = "A patterned style of Visegradi ponczo."
+	path = /obj/item/clothing/suit/storage/hooded/wintercoat/patterned_ponczo
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/suit/patterned_ponczo/New()
+	..()
+	var/list/patterned_ponczo = list()
+	patterned_ponczo["red patterned ponczo"] = /obj/item/clothing/suit/storage/hooded/wintercoat/patterned_ponczo
+	patterned_ponczo["brown patterned ponczo"] = /obj/item/clothing/suit/storage/hooded/wintercoat/patterned_ponczo/brown
+	patterned_ponczo["blue patterned ponczo"] = /obj/item/clothing/suit/storage/hooded/wintercoat/patterned_ponczo/blue
+	gear_tweaks += new /datum/gear_tweak/path(patterned_ponczo)
+
+/datum/gear/suit/gentlecoat
+	display_name = "gentlemans coat"
+	description = "A heavy threaded tweed gray jacket. For a different sort of Gentleman."
+	path = /obj/item/clothing/suit/storage/toggle/wizrobe/gentlecoat
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/suit/hazard_vest_colorable
+	display_name = "colorable hazard vest selection"
+	path = /obj/item/clothing/suit/storage/hazardvest/colorable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+
+/datum/gear/suit/hazard_vest_colorable/New()
+	..()
+	var/list/hazard_vest = list()
+	hazard_vest["colorable hazard vest"] = /obj/item/clothing/suit/storage/hazardvest/colorable
+	hazard_vest["colorable hazard vest, alt"] = /obj/item/clothing/suit/storage/hazardvest/colorable/alt
+	gear_tweaks += new /datum/gear_tweak/path(hazard_vest)

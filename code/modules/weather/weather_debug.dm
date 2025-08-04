@@ -28,8 +28,8 @@
 		return
 
 	var/turf/T = get_turf(usr)
-	while(T && HasAbove(T.z))
-		T = GetAbove(T)
+	while(T && GET_TURF_ABOVE(T))
+		T = GET_TURF_ABOVE(T)
 	if(!istype(T))
 		to_chat(usr, SPAN_WARNING("You need to have a turf to use this verb."))
 		return

@@ -1,13 +1,12 @@
 /obj/item/material/sword
 	name = "claymore"
 	desc = "What are you standing around staring at this for? Get to killing!"
-	desc_antag = "As a Cultist, this item can be reforged to become a cult blade."
 	icon = 'icons/obj/sword.dmi'
 	icon_state = "claymore"
 	item_state = "claymore"
 	contained_sprite = TRUE
 	slot_flags = SLOT_BELT|SLOT_BACK
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	force_divisor = 0.7 // 42 when wielded with hardnes 60 (steel)
 	thrown_force_divisor = 0.5 // 10 when thrown with weight 20 (steel)
 	sharp = 1
@@ -19,6 +18,11 @@
 	drop_sound = 'sound/items/drop/sword.ogg'
 	pickup_sound = /singleton/sound_category/sword_pickup_sound
 	equip_sound = /singleton/sound_category/sword_equip_sound
+	worth_multiplier = 30
+
+/obj/item/material/sword/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "As a Cultist, this item can be reforged to become a cult blade."
 
 /obj/item/material/sword/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	var/parry_bonus = 1
@@ -32,8 +36,8 @@
 	if(default_parry_check(user, attacker, damage_source) && prob(parry_chance * parry_bonus))
 		user.visible_message(SPAN_DANGER("\The [user] parries [attack_text] with \the [src]!"))
 		playsound(user.loc, 'sound/weapons/bladeparry.ogg', 50, 1)
-		return PROJECTILE_STOPPED
-	return FALSE
+		return BULLET_ACT_BLOCK
+	return BULLET_ACT_HIT
 
 /obj/item/material/sword/perform_technique(var/mob/living/carbon/human/target, var/mob/living/carbon/human/user, var/target_zone)
 	var/armor_reduction = target.get_blocked_ratio(target_zone, DAMAGE_BRUTE, DAMAGE_FLAG_EDGE|DAMAGE_FLAG_SHARP, damage = force)*100

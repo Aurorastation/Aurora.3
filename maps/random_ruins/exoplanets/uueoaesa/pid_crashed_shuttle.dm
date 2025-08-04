@@ -4,7 +4,7 @@
 	description = "A crashed Hegemony shuttle on the moon Pid, filled with k'ois spores."
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "uueoaesa/"
-	suffixes = list("pid_crashed_shuttle.dmm")
+	suffix = "pid_crashed_shuttle.dmm"
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 
 	unit_test_groups = list(2)

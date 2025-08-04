@@ -10,7 +10,7 @@
 	max_count = 4
 
 	outfit = /obj/outfit/admin/heph_security
-	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_XION, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR)
+	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_XION, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT)
 	uses_species_whitelist = TRUE
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -20,7 +20,8 @@
 
 /obj/outfit/admin/heph_security
 	name = "Hephaestus Asset Protection"
-	uniform = /obj/item/clothing/under/rank/security/heph
+	uniform = /obj/item/clothing/under/ert/hephaestus
+	head = /obj/item/clothing/head/hephaestus_military
 	shoes = /obj/item/clothing/shoes/jackboots
 	gloves = /obj/item/clothing/gloves/combat
 	l_ear = /obj/item/device/radio/headset/ship
@@ -30,7 +31,8 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 	species_shoes = list(
 		SPECIES_UNATHI = /obj/item/clothing/shoes/sandals/caligae/socks,
-		SPECIES_VAURCA_WARRIOR = /obj/item/clothing/shoes/vaurca
+		SPECIES_VAURCA_WARRIOR = /obj/item/clothing/shoes/vaurca,
+		SPECIES_VAURCA_ATTENDANT = /obj/item/clothing/shoes/vaurca
 	)
 	species_suit = list(
 		SPECIES_UNATHI = /obj/item/clothing/accessory/poncho/unathimantle/hephaestus
@@ -71,4 +73,5 @@
 
 /obj/outfit/admin/heph_security/captain
 	name = "Hephaestus Asset Protection Squad Leader"
-	uniform = /obj/item/clothing/under/rank/captain/hephaestus
+	uniform = /obj/item/clothing/under/ert/hephaestus/leader
+	head = /obj/item/clothing/head/caphat/cap/hephaestus

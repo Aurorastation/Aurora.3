@@ -24,7 +24,7 @@
 		input = message
 
 	if(input)
-		log_emote("Ghost/[src.key] : [input]",ckey=key_name(src))
+		log_emote("Ghost/[src.key] : [input]")
 		say_dead_direct(input, src)
 
 
@@ -42,7 +42,7 @@
 		if (!M.client || isnewplayer(M))
 			continue
 		if(get_turf(M) in messageturfs)
-			if (isobserver(M))
+			if (isghost(M))
 				ghosts_nearby += M
 				continue
 			else if (isliving(M) && !(type == 2 && isdeaf(M)))

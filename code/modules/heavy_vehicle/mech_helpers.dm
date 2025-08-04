@@ -37,19 +37,30 @@
 	return offset_x
 
 /mob/living/heavy_vehicle/proc/toggle_maintenance_protocols()
-	var/obj/screen/mecha/toggle/maint/M = locate() in hud_elements
-	M.toggled()
-	return TRUE
+	var/atom/movable/screen/mecha/toggle/maint/M = locate() in hud_elements
+	if(M)
+		M.toggled()
+		return TRUE
 
 /mob/living/heavy_vehicle/proc/toggle_hatch()
-	var/obj/screen/mecha/toggle/hatch_open/H = locate() in hud_elements
-	H.toggled()
-	return TRUE
+	var/atom/movable/screen/mecha/toggle/hatch_open/H = locate() in hud_elements
+	if(H)
+		H.toggled()
+		return TRUE
+
+/// Called by voice command
+/// Ensures the hud element for power is updated, and sends special condition to have messages not be sent to the user
+/mob/living/heavy_vehicle/proc/toggle_power_remote()
+	var/atom/movable/screen/mecha/toggle/power_control/P = locate() in hud_elements
+	if(P)
+		P.toggled(TRUE)
+		return TRUE
 
 /mob/living/heavy_vehicle/proc/toggle_lock()
-	var/obj/screen/mecha/toggle/hatch/L = locate() in hud_elements
-	L.toggled()
-	return TRUE
+	var/atom/movable/screen/mecha/toggle/hatch/L = locate() in hud_elements
+	if(L)
+		L.toggled()
+		return TRUE
 
 /mob/living/heavy_vehicle/proc/can_listen()
 	return TRUE

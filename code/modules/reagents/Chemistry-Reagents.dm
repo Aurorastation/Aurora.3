@@ -21,6 +21,7 @@
 	var/glass_name = null
 	var/glass_desc = null
 	var/glass_center_of_mass = null
+	var/condiment_icon = null
 	var/condiment_icon_state = null
 	var/condiment_name = null
 	var/condiment_desc = null
@@ -38,6 +39,9 @@
 
 	var/germ_adjust = 0 // for makeshift bandages/disinfectant
 	var/carbonated = FALSE // if it's carbonated or not
+
+	/// Adds to the value of whatever container's holding it, value * units of reagents
+	var/value = 1
 
 /singleton/reagent/proc/initialize_data(var/newdata, var/datum/reagents/holder) // Called when the reagent is created.
 	if(!isnull(newdata))
@@ -100,7 +104,7 @@
 
 	LAZYSET(M.chem_doses, type, LAZYACCESS(M.chem_doses, type) + removed)
 
-	var/bodytempchange = Clamp((holder.get_temperature() - M.bodytemperature) * removed * REAGENTS_BODYTEMP,-REAGENTS_BODYTEMP_MAX * removed, REAGENTS_BODYTEMP_MAX * removed)
+	var/bodytempchange = clamp((holder.get_temperature() - M.bodytemperature) * removed * REAGENTS_BODYTEMP,-REAGENTS_BODYTEMP_MAX * removed, REAGENTS_BODYTEMP_MAX * removed)
 	if(abs(bodytempchange) >= REAGENTS_BODYTEMP_MIN)
 		M.bodytemperature += round(bodytempchange,REAGENTS_BODYTEMP_MIN)
 		holder.set_temperature(holder.get_temperature() - round(bodytempchange,REAGENTS_BODYTEMP_MIN))

@@ -44,7 +44,14 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 	///The timer id for the build callback, if we're building something
 	var/build_callback_timer
 
+
+/obj/machinery/r_n_d/circuit_imprinter/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>matter bins</b> will increase material storage capacity."
+	. += "Upgraded <b>manipulators</b> will improve material use efficiency and increase fabrication speed."
+
 /obj/machinery/r_n_d/circuit_imprinter/RefreshParts()
+	..()
 	// Adjust reagent container volume to match combined volume of the inserted beakers
 	var/T = 0
 	for(var/obj/item/reagent_containers/glass/G in component_parts)
@@ -139,9 +146,8 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 		to_chat(user, SPAN_WARNING("This stack cannot be used!"))
 		return
 
-	var/amount = tgui_input_number(user, "How many sheets do you want to add?", "Add sheets", 10,
-								max_value = min(stack.get_amount(), round((max_material_storage - TotalMaterials()) / SHEET_MATERIAL_AMOUNT)),
-								min_value = 1, round_value = TRUE)
+	var/max_value = min(stack.get_amount(), round((max_material_storage - TotalMaterials()) / SHEET_MATERIAL_AMOUNT))
+	var/amount = tgui_input_number(user, "How many sheets do you want to add?", "Add sheets", min(10, max_value), max_value = max_value, min_value = 1, round_value = TRUE)
 
 	if(!attacking_item)
 		return

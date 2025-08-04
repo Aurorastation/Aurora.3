@@ -38,12 +38,13 @@
 	flying = TRUE
 
 	psi_pingable = FALSE
+	sample_data = null
 
 /mob/living/simple_animal/hostile/faithless/Allow_Spacemove(var/check_drift = 0)
 	return 1
 
 /mob/living/simple_animal/hostile/faithless/FindTarget()
-	var/my_target = target_mob
+	var/my_target = last_found_target
 	. = ..()
 	if(. && (prob(30) || (. != my_target)))
 		audible_emote("wails at [.]")
@@ -63,7 +64,7 @@
 /mob/living/simple_animal/hostile/faithless/cult/cultify()
 	return
 
-/mob/living/simple_animal/hostile/faithless/cult/Life()
+/mob/living/simple_animal/hostile/faithless/cult/Life(seconds_per_tick, times_fired)
 	..()
 	check_horde()
 

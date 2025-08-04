@@ -8,7 +8,7 @@
 	throwforce = 2.0
 	throw_speed = 1
 	throw_range = 4
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	attack_verb = list("called", "rang")
 	hitsound = 'sound/weapons/ring.ogg'
 
@@ -22,7 +22,7 @@
 	anchored = 0.0
 	var/stored_matter = 0
 	var/mode = 1
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/bikehorn
 	name = "bike horn"
@@ -31,7 +31,7 @@
 	icon_state = "bike_horn"
 	item_state = "bike_horn"
 	throwforce = 3
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 3
 	throw_range = 15
 	attack_verb = list("HONKED")
@@ -53,18 +53,18 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 15
 	throwforce = 7.0
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
 	attack_verb = list("bludgeoned", "whacked", "disciplined", "thrashed")
 	var/can_support = TRUE
 
-/obj/item/cane/attack(mob/living/target, mob/living/carbon/human/user, target_zone = BP_CHEST)
+/obj/item/cane/attack(mob/living/target_mob, mob/living/user, target_zone)
 
-	if(!(istype(target) && istype(user)))
+	if(!(istype(target_mob) && istype(user)))
 		return ..()
 
-	var/targetIsHuman = ishuman(target)
-	var/mob/living/carbon/human/targetashuman = target
+	var/targetIsHuman = ishuman(target_mob)
+	var/mob/living/carbon/human/targetashuman = target_mob
 	var/wasselfattack = 0
 	var/verbtouse = pick(attack_verb)
 	var/punct = "!"
@@ -80,13 +80,13 @@
 		wasselfattack = 1
 
 	if (user.a_intent == I_HURT)
-		target_zone = get_zone_with_miss_chance(target_zone, target) //Vary the attack
+		target_zone = get_zone_with_miss_chance(target_zone, target_mob) //Vary the attack
 		damagetype = DAMAGE_BRUTE
 
 	if (targetIsHuman)
-		var/mob/living/carbon/human/targethuman = target
+		var/mob/living/carbon/human/targethuman = target_mob
 		armorpercent = targethuman.get_blocked_ratio(target_zone, DAMAGE_BRUTE, damage = force)*100
-		wasblocked = targethuman.check_shields(force, src, user, target_zone, null)
+		wasblocked = (targethuman.check_shields(force, src, user, target_zone, null) in list(BULLET_ACT_BLOCK, BULLET_ACT_FORCE_PIERCE))
 
 	var/damageamount = force
 
@@ -105,19 +105,19 @@
 			soundname = "punch"
 			if(targetIsHuman)
 				user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun("his")] [name]...</span>", "<span class='[class]'>You flip [src], preparing a disarm...</span>")
-				if (do_mob(user,target,chargedelay,display_progress=0))
+				if (do_mob(user,target_mob,chargedelay,display_progress=0))
 					if(!wasblocked && damageamount)
 						var/chancemod = (100 - armorpercent)*0.05*damageamount // Lower chance if lower damage + high armor. Base chance is 50% at 10 damage.
 						if(target_zone == BP_L_HAND || target_zone == BP_L_ARM)
-							if (prob(chancemod) && target.l_hand && target.l_hand != src)
+							if (prob(chancemod) && target_mob.l_hand && target_mob.l_hand != src)
 								shoulddisarm = 1
 						else if(target_zone == BP_R_HAND || target_zone == BP_R_ARM)
-							if (prob(chancemod) && target.r_hand && target.r_hand != src)
+							if (prob(chancemod) && target_mob.r_hand && target_mob.r_hand != src)
 								shoulddisarm = 2
 						else
-							if (prob(chancemod*0.5) && target.l_hand && target.l_hand != src)
+							if (prob(chancemod*0.5) && target_mob.l_hand && target_mob.l_hand != src)
 								shoulddisarm = 1
-							if (prob(chancemod*0.5) && target.r_hand && target.r_hand != src)
+							if (prob(chancemod*0.5) && target_mob.r_hand && target_mob.r_hand != src)
 								shoulddisarm += 2
 				else
 					user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun("his")] [name] back to its original position.</span>", "<span class='[class]'>You flip [src] back to its original position.</span>")
@@ -128,9 +128,9 @@
 			soundname = "punch"
 			if(targetIsHuman)
 				user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun("his")] [name]...</span>", "<span class='[class]'>You flip [src], preparing a grab...</span>")
-				if (do_mob(user,target,chargedelay,display_progress=0))
+				if (do_mob(user,target_mob,chargedelay,display_progress=0))
 					if(!wasblocked && damageamount)
-						user.start_pulling(target)
+						user.start_pulling(target_mob)
 					else
 						verbtouse = pick("awkwardly tries to hook","fails to grab")
 				else
@@ -142,80 +142,80 @@
 
 	// Damage Logs
 	/////////////////////////
-	user.lastattacked = target
-	target.lastattacker = user
+	user.lastattacked = target_mob
+	target_mob.lastattacker = user
 	if(!no_attack_log)
-		user.attack_log += "\[[time_stamp()]\]<span class='warning'> Attacked [target.name] ([target.ckey]) with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damagetype)])</span>"
-		target.attack_log += "\[[time_stamp()]\]<font color='orange'> Attacked by [user.name] ([user.ckey]) with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damagetype)])</font>"
-		msg_admin_attack("[key_name(user, highlight_special = 1)] attacked [key_name(target, highlight_special = 1)] with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damagetype)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target) )
+		user.attack_log += "\[[time_stamp()]\]<span class='warning'> Attacked [target_mob.name] ([target_mob.ckey]) with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damagetype)])</span>"
+		target_mob.attack_log += "\[[time_stamp()]\]<font color='orange'> Attacked by [user.name] ([user.ckey]) with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damagetype)])</font>"
+		msg_admin_attack("[key_name(user, highlight_special = 1)] attacked [key_name(target_mob, highlight_special = 1)] with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damagetype)]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target_mob) )
 	/////////////////////////
 
 	var/washit = 0
 	var/endmessage1st
 	var/endmessage3rd
 
-	if(!target_zone || get_dist(user,target) > 1) //Dodged
-		endmessage1st = "Your [name] was dodged by [target]"
-		endmessage3rd = "[target] dodged the [name]"
+	if(!target_zone || get_dist(user,target_mob) > 1) //Dodged
+		endmessage1st = "Your [name] was dodged by [target_mob]"
+		endmessage3rd = "[target_mob] dodged the [name]"
 		soundname = "punchmiss"
 	else if(wasblocked) // Blocked by Shield
-		endmessage1st = "Your [name] was blocked by [target]"
-		endmessage3rd = "[target] blocks the [name]"
+		endmessage1st = "Your [name] was blocked by [target_mob]"
+		endmessage3rd = "[target_mob] blocks the [name]"
 		soundname = "punchmiss"
 	else
 
 		washit = 1
-		var/noun = "[target]"
+		var/noun = "[target_mob]"
 		var/selfnoun = "your"
 
 		if(shoulddisarm)
 			if(wasselfattack)
 				selfnoun = "your grip"
-				noun = "[target.get_pronoun("his")] grip"
+				noun = "[target_mob.get_pronoun("his")] grip"
 			else
-				noun = "[target]'s grip"
+				noun = "[target_mob]'s grip"
 				selfnoun = noun
 		if (targetIsHuman && shoulddisarm != 3) // Query: Can non-humans hold objects in hands?
-			var/mob/living/carbon/human/targethuman = target
+			var/mob/living/carbon/human/targethuman = target_mob
 			var/obj/item/organ/external/O = targethuman.get_organ(target_zone)
 			if (O.is_stump())
 				if(wasselfattack)
 					selfnoun = "your missing [O.name]"
-					noun = "[target.get_pronoun("his")] missing [O.name]"
+					noun = "[target_mob.get_pronoun("his")] missing [O.name]"
 				else
-					noun = "[target]'s missing [O.name]"
+					noun = "[target_mob]'s missing [O.name]"
 					selfnoun = noun
 			else
 				if(wasselfattack)
 					selfnoun = "your [O.name]"
-					noun = "[target.get_pronoun("his")] [O.name]"
+					noun = "[target_mob.get_pronoun("his")] [O.name]"
 				else
-					noun = "[target]'s [O.name]"
+					noun = "[target_mob]'s [O.name]"
 					selfnoun = noun
 
 		switch(shoulddisarm)
 			if(1)
-				endmessage1st = "You [verbtouse] the [target.l_hand.name] out of [selfnoun]"
-				endmessage3rd = "[user] [verbtouse] the [target.l_hand.name] out of [noun]"
-				target.drop_l_hand()
+				endmessage1st = "You [verbtouse] the [target_mob.l_hand.name] out of [selfnoun]"
+				endmessage3rd = "[user] [verbtouse] the [target_mob.l_hand.name] out of [noun]"
+				target_mob.drop_l_hand()
 			if(2)
-				endmessage1st = "You [verbtouse] the [target.r_hand.name] out of [selfnoun]"
-				endmessage3rd = "[user] [verbtouse] the [target.r_hand.name] out of [noun]"
-				target.drop_r_hand()
+				endmessage1st = "You [verbtouse] the [target_mob.r_hand.name] out of [selfnoun]"
+				endmessage3rd = "[user] [verbtouse] the [target_mob.r_hand.name] out of [noun]"
+				target_mob.drop_r_hand()
 			if(3)
-				endmessage1st = "You [verbtouse] both the [target.r_hand.name] and the [target.l_hand.name] out of [selfnoun]"
-				endmessage3rd = "[user] [verbtouse] both the [target.r_hand.name] and the [target.l_hand.name] out of [noun]"
-				target.drop_l_hand()
-				target.drop_r_hand()
+				endmessage1st = "You [verbtouse] both the [target_mob.r_hand.name] and the [target_mob.l_hand.name] out of [selfnoun]"
+				endmessage3rd = "[user] [verbtouse] both the [target_mob.r_hand.name] and the [target_mob.l_hand.name] out of [noun]"
+				target_mob.drop_l_hand()
+				target_mob.drop_r_hand()
 			else
 				endmessage1st = "You [verbtouse] [selfnoun] with the [name]"
 				endmessage3rd = "[user] [verbtouse] [noun] with the [name]"
 
 	if(damageamount > 0) // Poking will no longer do damage until there is some fix that makes it so that 0.0001 HALLOS doesn't cause bleed.
-		target.standard_weapon_hit_effects(src, user, damageamount, armorpercent, target_zone)
+		target_mob.standard_weapon_hit_effects(src, user, damageamount, armorpercent, target_zone)
 
 	user.visible_message("<span class='[class]'>[endmessage3rd][punct]</span>", "<span class='[class]'>[endmessage1st][punct]</span>")
-	user.do_attack_animation(target)
+	user.do_attack_animation(target_mob)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
 	if(soundname)
@@ -276,12 +276,11 @@
 	icon_state = "crutch"
 	item_state = "crutch"
 
-/obj/item/cane/white
-	name = "white cane"
-	desc = "A white cane, used by the visually impaired."
-	icon_state = "whitecane"
-	item_state = "whitecane"
-	can_support = FALSE
+/obj/item/cane/crutch/forearm
+	name = "forearm crutch"
+	desc = "A different style of crutch with a handle and a cuff that goes around the forearm for additional support."
+	icon_state = "forearm_crutch"
+	item_state = "forearm_crutch"
 
 /obj/item/cane/shillelagh
 	name = "adhomian shillelagh"
@@ -297,41 +296,55 @@
 	icon = 'icons/obj/item/telecane.dmi'
 	icon_state = "telecane"
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_BELT
 	drop_sound = 'sound/items/drop/crowbar.ogg'
 	pickup_sound = 'sound/items/pickup/crowbar.ogg'
 	var/on = FALSE
 	can_support = FALSE
+	var/extended_icon_state = "telecane_1"
+	var/extended_item_state = "telestick"
+	var/retracted_icon_state = "telecane"
+	var/retracted_item_state = "telestick_0"
 
 /obj/item/cane/telecane/attack_self(mob/user)
 	on = !on
 	if(on)
-		user.visible_message(SPAN_WARNING("With a flick of their wrist, [user] extends their telescopic cane."), SPAN_WARNING("You extend the cane."), SPAN_WARNING("You hear an ominous click."))
-		icon_state = "telecane_1"
-		item_state = "telestick"
-		w_class = ITEMSIZE_LARGE
+		user.visible_message(SPAN_NOTICE("With a flick of their wrist, [user] extends their [src.name]"), SPAN_NOTICE("You extend the [src.name]."), SPAN_NOTICE("You hear a click."))
+		icon_state = extended_icon_state
+		item_state = extended_item_state
+		w_class = WEIGHT_CLASS_BULKY
 		slot_flags = null
 		force = 14
 		attack_verb = list("smacked", "struck", "slapped")
 		can_support = TRUE
 	else
-		user.visible_message(SPAN_NOTICE("\The [user] collapses their telescopic cane."), SPAN_NOTICE("You collapse the cane."), SPAN_NOTICE("You hear a click."))
-		icon_state = "telecane"
-		item_state = "telestick_0"
-		w_class = ITEMSIZE_SMALL
+		user.visible_message(SPAN_NOTICE("\The [user] collapses their [src.name]."), SPAN_NOTICE("You collapse the [src.name]."), SPAN_NOTICE("You hear a click."))
+		icon_state = retracted_icon_state
+		item_state = retracted_item_state
+		w_class = WEIGHT_CLASS_SMALL
 		slot_flags = SLOT_BELT
 		force = 3
 		attack_verb = list("hit", "punched")
 		can_support = FALSE
 
 	if(istype(user,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = user
-		H.update_inv_l_hand()
-		H.update_inv_r_hand()
+		update_held_icon()
 
 	playsound(src.loc, 'sound/weapons/click.ogg', 50, 1)
 	add_fingerprint(user)
+
+/obj/item/cane/telecane/white
+	name = "white cane"
+	desc = "A white cane, used by the visually impaired."
+	icon = 'icons/obj/item/whitecane.dmi'
+	icon_state = "whitecane"
+	drop_sound =  /singleton/sound_category/generic_drop_sound
+	pickup_sound =  /singleton/sound_category/generic_pickup_sound
+	extended_icon_state = "whitecane_extended"
+	extended_item_state = "whitecane"
+	retracted_icon_state = "whitecane"
+	retracted_item_state = "whitecane_0"
 
 /obj/item/disk
 	name = "disk"
@@ -351,7 +364,7 @@
 	var/size = 3.0
 	var/obj/item/gift = null
 	item_state = "gift"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/gift/random_pixel/Initialize()
 	. = ..()
@@ -363,6 +376,8 @@
 	desc = "Used to communicate, it appears."
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "radio"
+	item_state = "radio"
+	contained_sprite = TRUE
 	var/temp = null
 	var/uses = 4.0
 	var/selfdestruct = 0.0
@@ -370,9 +385,8 @@
 	var/obj/item/device/radio/origradio = null
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
-	item_state = "radio"
 	throwforce = 5
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 4
 	throw_range = 20
 	matter = list(MATERIAL_ALUMINIUM = 25, MATERIAL_PLASTIC = 75)
@@ -387,7 +401,7 @@
 	throwforce = 5.0
 	throw_speed = 1
 	throw_range = 5
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	attack_verb = list("bludgeoned", "whacked", "disciplined")
 
 /obj/item/staff/broom
@@ -413,12 +427,12 @@
 	throwforce = 5.0
 	throw_speed = 1
 	throw_range = 5
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/module
 	icon = 'icons/obj/module.dmi'
 	icon_state = "std_mod"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	item_state = "electronic"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	usesound = 'sound/items/Deconstruct.ogg'
@@ -460,20 +474,20 @@
 
 /obj/item/device/camera_bug
 	name = "camera bug"
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/item/device/flash.dmi'
 	icon_state = "flash"
-	w_class = ITEMSIZE_TINY
-	item_state = "electronic"
+	item_state = "flash"
+	w_class = WEIGHT_CLASS_TINY
 	throw_speed = 4
 	throw_range = 20
 
-/obj/item/camera_bug/attack_self(mob/usr as mob)
+/obj/item/camera_bug/attack_self(mob/user as mob)
 	var/list/cameras = new/list()
 	for (var/obj/machinery/camera/C in GLOB.cameranet.cameras)
 		if (C.bugged && C.status)
 			cameras.Add(C)
 	if (length(cameras) == 0)
-		to_chat(usr, SPAN_WARNING("No bugged functioning cameras found."))
+		to_chat(user, SPAN_WARNING("No bugged functioning cameras found."))
 		return
 
 	var/list/friendly_cameras = new/list()
@@ -481,16 +495,16 @@
 	for (var/obj/machinery/camera/C in cameras)
 		friendly_cameras.Add(C.c_tag)
 
-	var/target = tgui_input_list(usr, "Select the camera to observe", "Camera Bug", friendly_cameras)
+	var/target = tgui_input_list(user, "Select the camera to observe", "Camera Bug", friendly_cameras)
 	if (!target)
 		return
 	for (var/obj/machinery/camera/C in cameras)
 		if (C.c_tag == target)
 			target = C
 			break
-	if (usr.stat == 2) return
+	if (user.stat == 2) return
 
-	usr.client.eye = target
+	user.client.eye = target
 
 /obj/item/pai_cable
 	desc = "A flexible coated cable with a universal jack on one end."
@@ -521,15 +535,16 @@
 	icon_state = "RPED"
 	item_state = "RPED"
 	icon = 'icons/obj/storage/misc.dmi'
-	w_class = ITEMSIZE_HUGE
+	contained_sprite = TRUE
+	w_class = WEIGHT_CLASS_HUGE
 	can_hold = list(/obj/item/stock_parts,/obj/item/reagent_containers/glass/beaker)
 	storage_slots = 50
-	use_to_pickup = 1
-	allow_quick_gather = 1
-	allow_quick_empty = 1
+	use_to_pickup = TRUE
+	allow_quick_gather = TRUE
+	allow_quick_empty = TRUE
 	collection_mode = 1
-	display_contents_with_number = 1
-	max_w_class = ITEMSIZE_NORMAL
+	display_contents_with_number = TRUE
+	max_w_class = WEIGHT_CLASS_NORMAL
 	max_storage_space = 100
 
 /obj/item/ectoplasm

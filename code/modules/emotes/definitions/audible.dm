@@ -77,6 +77,12 @@
 	key = "clack"
 	emote_message_3p = "USER clacks USER_THEIR mandibles together."
 	emote_sound = 'sound/voice/bugclack.ogg'
+
+/singleton/emote/audible/rattle
+	key = "rattle"
+	emote_message_3p = "USER rattles USER_THEIR gaster."
+	emote_sound = 'sound/voice/bugrattle.ogg'
+
 /singleton/emote/audible/shriek
 	key = "shriek"
 	emote_message_3p = "USER shrieks!"
@@ -278,3 +284,13 @@
 	key = "croak"
 	emote_message_3p = "USER croaks!"
 	emote_sound = 'sound/voice/croak.ogg'
+
+/singleton/emote/audible/peep
+	key = "peep"
+	emote_message_3p = "USER vocalizes a sharp chirp!"
+	emote_sound = 'sound/voice/peep1.ogg'
+
+/singleton/emote/audible/puff
+	key = "puff"
+	emote_message_3p = "USER puffs up their cheeks with air!"
+	emote_sound = 'sound/voice/puff.ogg'

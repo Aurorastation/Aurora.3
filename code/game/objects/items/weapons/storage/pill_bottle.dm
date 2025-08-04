@@ -6,14 +6,14 @@
 	contained_sprite = TRUE
 	item_state = "pill_canister"
 	center_of_mass = list("x" = 16,"y" = 12)
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	can_hold = list(/obj/item/reagent_containers/pill,/obj/item/stack/dice,/obj/item/paper)
-	allow_quick_gather = 1
-	use_to_pickup = 1
+	allow_quick_gather = TRUE
+	use_to_pickup = TRUE
 	use_sound = 'sound/items/storage/pillbottle.ogg'
 	drop_sound = 'sound/items/drop/pillbottle.ogg'
 	pickup_sound = 'sound/items/pickup/pillbottle.ogg'
-	max_storage_space = 16
+	max_storage_space = DEFAULT_BOX_STORAGE
 
 /obj/item/storage/pill_bottle/attack_self(mob/living/user)
 	if(user.get_inactive_hand())
@@ -180,3 +180,33 @@
 	name = "bottle of 10u Ryetalyn pills"
 	desc = "Contains pills used to treat genetic and immune diseases."
 	starts_with = list(/obj/item/reagent_containers/pill/ryetalyn = 4)
+
+/obj/item/storage/pill_bottle/caffeine
+	name = "bottle of 5u Caffeine pills"
+	desc = "Contains pills used to help with alertness and fatigue. The label warns against taking more than 2 in a 6-hour period. Possible side effects include jitteriness, heart palpitations, difficulty with concentrating, and even death."
+	starts_with = list(/obj/item/reagent_containers/pill/caffeine = 7)
+
+/obj/item/storage/pill_bottle/nicotine
+	name = "bottle of 5u Nicotine pills"
+	desc = "Contains pills used to treat nicotine addiction."
+	starts_with = list(/obj/item/reagent_containers/pill/nicotine = 7)
+
+/obj/item/storage/pill_bottle/vitamin
+	name = "bottle of Vitamin supplements"
+	desc = "Contains pills used to treat vitamin deficiency."
+	starts_with = list(/obj/item/reagent_containers/pill/bio_vitamin/cheap = 7)
+
+/obj/item/storage/pill_bottle/colorspace
+	name = "bottle of Colorspace pills"
+	desc = "Contains Colorspace pills, a legal recreational drug."
+	starts_with = list(/obj/item/reagent_containers/pill/colorspace = 4)
+
+/obj/item/storage/pill_bottle/snowflake
+	name = "bottle of Snowflake pills"
+	desc = "Contains Snowflake pills, made from frost oil. The label warns about the danger of overdosing."
+	starts_with = list(/obj/item/reagent_containers/pill/snowflake = 4)
+
+/obj/item/storage/pill_bottle/psilocybin
+	name = "bottle of Psilocybin pills"
+	desc = "Contains psychotropic pills derived from certain species of mushroom."
+	starts_with = list(/obj/item/reagent_containers/pill/psilocybin = 4)

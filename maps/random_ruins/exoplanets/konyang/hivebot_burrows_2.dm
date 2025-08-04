@@ -7,7 +7,7 @@
 	sectors = list(SECTOR_HANEUNIM)
 
 	prefix = "konyang/"
-	suffixes = list("hivebot_burrows_2.dmm")
+	suffix = "hivebot_burrows_2.dmm"
 
 	ban_ruins = list(/datum/map_template/ruin/exoplanet/hivebot_burrows_1)
 
@@ -39,7 +39,7 @@
 	name = "unidentifiable corpse"
 	corpseid = 0
 	corpseradio = null
-	corpseuniform = /obj/item/clothing/under/pants/khaki
+	corpseuniform = /obj/item/clothing/under/rank/medical/surgeon
 	corpsesuit = /obj/item/clothing/suit/storage/toggle/labcoat/accent
 	corpseback = /obj/item/storage/backpack/satchel/leather
 	corpseshoes = /obj/item/clothing/shoes/workboots/dark
@@ -49,8 +49,4 @@
 	M.ChangeToHusk()
 	M.ChangeToSkeleton()
 	M.adjustBruteLoss(rand(200,400))
-	M.dir = pick(GLOB.cardinal)
-
-	var/obj/item/clothing/under/U = M.w_uniform
-	var/obj/item/clothing/accessory/dressshirt/shirt = new()
-	U.attach_accessory(null, shirt)
+	M.dir = pick(GLOB.cardinals)

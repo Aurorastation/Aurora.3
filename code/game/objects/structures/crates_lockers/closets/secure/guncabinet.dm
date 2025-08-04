@@ -9,7 +9,7 @@
 	door_underlay = TRUE
 	door_anim_squish = 0.12
 	door_anim_angle = 119
-	door_hinge = -9.5
+	door_hinge_x = -9.5
 
 /obj/structure/closet/secure_closet/guncabinet/Initialize()
 	..()
@@ -51,6 +51,6 @@
 	name = "anti-materiel weapons platform cabinet"
 
 /obj/structure/closet/secure_closet/guncabinet/peac/fill()
-	new /obj/item/gun/projectile/peac(src)
-	for(var/i = 1 to 3)
+	new /obj/item/gun/projectile/peac/unloaded(src)
+	for(var/i = 1 to 4)
 		new /obj/item/ammo_casing/peac(src)

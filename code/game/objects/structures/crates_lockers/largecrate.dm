@@ -117,3 +117,14 @@
 
 /obj/structure/largecrate/animal/moghes/otzek
 	held_type = /mob/living/simple_animal/otzek
+
+// Hostile mob crates! Use with caution.
+/obj/structure/largecrate/animal/shark
+	name = "shark crate"
+	held_type = /mob/living/simple_animal/hostile/carp/shark
+	desc = "A hefty wooden crate. This one has bright yellow and red markings on the sides warning of hazardous contents."
+
+/obj/structure/largecrate/animal/babycarp
+	name = "carp crate"
+	held_type = /mob/living/simple_animal/carp/baby
+	desc = "A hefty wooden crate. This one has bright yellow and red markings on the sides warning of hazardous contents."

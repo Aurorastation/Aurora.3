@@ -291,7 +291,7 @@
 /obj/item/storage/firstaid/adv,
 /obj/item/storage/firstaid/o2,
 /obj/item/auto_cpr,
-/obj/item/storage/belt/medical/first_responder,
+/obj/item/storage/belt/medical/paramedic,
 /obj/item/roller,
 /obj/item/clothing/accessory/storage/white_vest,
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/alt,

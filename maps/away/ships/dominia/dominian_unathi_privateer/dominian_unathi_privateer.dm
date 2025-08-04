@@ -3,7 +3,7 @@
 	description = "Dominian Unathi pirates"
 
 	prefix = "ships/dominia/dominian_unathi_privateer/"
-	suffixes = list("dominian_unathi_privateer.dmm")
+	suffix = "dominian_unathi_privateer.dmm"
 
 	sectors = list(SECTOR_BADLANDS, SECTOR_WEEPING_STARS)
 	spawn_weight = 1

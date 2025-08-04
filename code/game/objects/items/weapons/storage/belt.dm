@@ -6,8 +6,8 @@
 	item_state = "utility"
 	force = 2
 	storage_slots = 7
-	max_w_class = ITEMSIZE_NORMAL
-	max_storage_space = 28
+	max_w_class = WEIGHT_CLASS_NORMAL
+	max_storage_space = DEFAULT_BACKPACK_STORAGE
 	slot_flags = SLOT_BELT
 	attack_verb = list("whipped", "lashed", "disciplined")
 	drop_sound = 'sound/items/drop/toolbelt.ogg'
@@ -118,7 +118,10 @@
 		/obj/item/device/debugger,
 		/obj/item/device/eftpos,
 		/obj/item/tape_roll,
-		/obj/item/device/geiger
+		/obj/item/device/geiger,
+		/obj/item/clothing/gloves/yellow,
+		/obj/item/clothing/gloves/yellow/specialu,
+		/obj/item/clothing/gloves/yellow/specialt
 	)
 	content_overlays = TRUE
 
@@ -147,11 +150,12 @@
 
 /obj/item/storage/belt/utility/very_full
 	starts_with = list(
+		/obj/item/screwdriver = 1,
+		/obj/item/wrench = 1,
 		/obj/item/weldingtool/largetank = 1,
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters/toolbelt = 1,
 		/obj/item/stack/cable_coil/random = 1,
-		/obj/item/powerdrill = 1,
 		/obj/item/device/multitool = 1,
 		/obj/item/device/radio = 1
 	)
@@ -230,13 +234,13 @@
 		/obj/item/storage/box/fancy/med_pouch/trauma = 1,
 	)
 
-/obj/item/storage/belt/medical/first_responder
-	name = "first responder utility belt"
+/obj/item/storage/belt/medical/paramedic
+	name = "paramedic utility belt"
 	desc = "A sturdy black webbing belt with attached pouches."
 	icon_state = "emsbelt"
 	item_state = "emsbelt"
 
-/obj/item/storage/belt/medical/first_responder/full
+/obj/item/storage/belt/medical/paramedic/full
 	starts_with = list(
 		/obj/item/reagent_containers/hypospray = 1,
 		/obj/item/reagent_containers/glass/bottle/inaprovaline = 1,
@@ -247,11 +251,11 @@
 		/obj/item/extinguisher/mini = 1,
 	)
 
-/obj/item/storage/belt/medical/first_responder/combat
+/obj/item/storage/belt/medical/paramedic/combat
 	name = "tactical medical belt"
 	desc = "A sturdy black webbing belt with attached pouches. This one is designed for medical professionals who expect to enter conflict zones on the daily. It has increased storage and utility."
 	storage_slots = 9
-	max_storage_space = 28
+	max_storage_space = DEFAULT_BACKPACK_STORAGE
 	can_hold = list(
 		/obj/item/device/breath_analyzer,
 		/obj/item/device/healthanalyzer,
@@ -293,7 +297,7 @@
 		/obj/item/reagent_containers/blood
 		)
 
-/obj/item/storage/belt/medical/first_responder/combat/full
+/obj/item/storage/belt/medical/paramedic/combat/full
 	starts_with = list(
 		/obj/item/reagent_containers/hypospray/cmo = 1,
 		/obj/item/reagent_containers/glass/bottle/inaprovaline = 1,
@@ -332,6 +336,7 @@
 		/obj/item/melee,
 		/obj/item/crowbar,
 		/obj/item/gun/projectile/sec,
+		/obj/item/gun/energy/repeater/pistol,
 		/obj/item/gun/energy/disruptorpistol,
 		/obj/item/taperoll/police,
 		/obj/item/material/knife/trench,
@@ -384,6 +389,14 @@
 		/obj/item/ammo_magazine/c45m/rubber = 2,
 	)
 
+/obj/item/storage/belt/security/vestbelt
+	name = "security chestrig"
+	desc = "A chestrig designed to hold vital security equipment, like handcuffs and flashes."
+	icon_state = "securityvestbelt"
+	item_state = "securityvestbelt"
+	content_overlays = FALSE
+	show_above_suit = TRUE
+
 /obj/item/storage/belt/soulstone
 	name = "soul stone belt"
 	desc = "Designed for ease of access to the shards during a fight, as to not let a single enemy spirit slip away"
@@ -413,8 +426,8 @@
 	icon_state = "swatbelt"
 	item_state = "swatbelt"
 	storage_slots = 9
-	max_w_class = ITEMSIZE_NORMAL
-	max_storage_space = 28
+	max_w_class = WEIGHT_CLASS_NORMAL
+	max_storage_space = DEFAULT_BACKPACK_STORAGE
 
 /obj/item/storage/belt/military
 	name = "military belt"
@@ -422,8 +435,8 @@
 	icon_state = "militarybelt"
 	item_state = "militarybelt"
 	storage_slots = 9 //same as a combat belt now
-	max_w_class = ITEMSIZE_NORMAL
-	max_storage_space  = 28
+	max_w_class = WEIGHT_CLASS_NORMAL
+	max_storage_space  = DEFAULT_BACKPACK_STORAGE
 	can_hold = list(
 		/obj/item/grenade,
 		/obj/item/handcuffs,
@@ -451,7 +464,8 @@
 		/obj/item/stack/telecrystal,
 		/obj/item/device/radio,
 		/obj/item/shield/riot/tact,
-		/obj/item/material/knife/tacknife
+		/obj/item/material/knife/tacknife,
+		/obj/item/cell/hydrogen
 		)
 
 /obj/item/storage/belt/military/syndicate
@@ -466,8 +480,8 @@
 	icon_state = "custodialbelt"
 	item_state = "custodialbelt"
 	storage_slots = 12
-	w_class = ITEMSIZE_NORMAL
-	max_w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
+	max_w_class = WEIGHT_CLASS_NORMAL
 	can_hold = list(
 		/obj/item/crowbar,
 		/obj/item/screwdriver,
@@ -494,14 +508,15 @@
 	icon_state = "explorer"
 	item_state = "explorer"
 	storage_slots = 9
-	w_class = ITEMSIZE_LARGE
-	max_w_class = ITEMSIZE_LARGE //Pickaxes are big.
+	w_class = WEIGHT_CLASS_BULKY
+	max_w_class = WEIGHT_CLASS_BULKY //Pickaxes are big.
 	can_hold = list(
 		/obj/item/crowbar,
 		/obj/item/screwdriver,
 		/obj/item/weldingtool,
 		/obj/item/wirecutters,
 		/obj/item/wrench,
+		/obj/item/powerdrill,
 		/obj/item/resonator,
 		/obj/item/oreportal,
 		/obj/item/oremagnet,
@@ -538,7 +553,8 @@
 		/obj/item/gun/custom_ka,
 		/obj/item/device/orbital_dropper,
 		/obj/item/ore_detector,
-		/obj/item/device/spaceflare
+		/obj/item/device/spaceflare,
+		/obj/item/cell
 		)
 
 /obj/item/storage/belt/mining/full
@@ -558,11 +574,11 @@
 	icon_state = "growbelt"
 	item_state = "growbelt"
 	storage_slots = 9
-	w_class = ITEMSIZE_NORMAL
-	max_w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_NORMAL
+	max_w_class = WEIGHT_CLASS_BULKY
 	can_hold = list(
 		/obj/item/reagent_containers/glass,
-		/obj/item/grenade/chem_grenade, //weed killer grenades mostly, or water-pottassium if you grow the bannanas!
+		/obj/item/grenade/chem_grenade,
 		/obj/item/bee_smoker, //will this ever get used? Probally not.
 		/obj/item/plantspray/pests,
 		/obj/item/storage/bag/plants,
@@ -575,8 +591,21 @@
 		/obj/item/reagent_containers/spray, //includes if you ever wish to get a spraybottle full of other chemicals, Like water
 		/obj/item/device/analyzer/plant_analyzer,
 		/obj/item/clothing/gloves/botanic_leather,
-		/obj/item/device/radio
+		/obj/item/device/radio,
+		/obj/item/crowbar,
+		/obj/item/device/analyzer,
+		/obj/item/device/t_scanner,
 	)
+
+/obj/item/storage/belt/hydro/full
+	starts_with = list(
+		/obj/item/material/minihoe = 1,
+		/obj/item/material/hatchet = 1,
+		/obj/item/wirecutters/clippers = 1,
+		/obj/item/device/analyzer/plant_analyzer = 1,
+		/obj/item/storage/bag/plants = 1
+	)
+
 
 /obj/item/storage/belt/ninja //credits to BurgerBB
 	name = "advanced combat belt"
@@ -584,8 +613,8 @@
 	icon_state = "securitybelt"
 	item_state = "security"
 	storage_slots = 9
-	max_w_class = ITEMSIZE_LARGE
-	max_storage_space = 28
+	max_w_class = WEIGHT_CLASS_BULKY
+	max_storage_space = DEFAULT_BACKPACK_STORAGE
 
 	can_hold = list(
 		/obj/item/grenade,
@@ -621,10 +650,10 @@
 /obj/item/storage/belt/fannypack
 	name = "fannypack"
 	desc = "A dorky fannypack for keeping small items in."
-	icon = 'icons/clothing/belts/fannypacks.dmi'
+	icon = 'icons/obj/item/clothing/belts/fannypacks.dmi'
 	icon_state = "fannypack"
 	item_state = "fannypack"
-	max_w_class = ITEMSIZE_SMALL
+	max_w_class = WEIGHT_CLASS_SMALL
 	contained_sprite = TRUE
 	storage_slots = null
 	max_storage_space = 8
@@ -641,7 +670,7 @@
 	name = "component pouch"
 	desc = "A dorky fannypack for keeping small items in. Also stores magickal components!"
 	starts_with = list(/obj/item/toy/snappop/syndi = 3, /obj/item/reagent_containers/glass/beaker/vial/random/toxin = 2, /obj/item/storage/pill_bottle/dice = 1)
-	max_storage_space = 14
+	max_storage_space = DEFAULT_BOX_STORAGE
 
 /obj/item/storage/belt/shumaila_buckle
 	name = "hammer buckle belt"
@@ -651,7 +680,7 @@
 	item_state = "hammerbelt"
 	contained_sprite = TRUE
 	storage_slots = 1
-	max_w_class = ITEMSIZE_SMALL
+	max_w_class = WEIGHT_CLASS_SMALL
 	desc_extended = "Shumaila is the sister of Mata'ke and the goddess of fortification, chastity, and building. She is the head of the town watch and the architect for all of the \
 	Holy Village's most important buildings. When Mata'ke's original hunting party had done battle with the King of Rraknarr, her beloved was killed in the fighting. Ever since then \
 	she has resolved to be eternally chaste in dedication to him. She is an M'sai who is depicted wearing modest dresses and carrying a hammer on a belt. She is not known for having \
@@ -665,7 +694,7 @@
 	item_state = "belt"
 	contained_sprite = TRUE
 	storage_slots = 1
-	max_w_class = ITEMSIZE_TINY
+	max_w_class = WEIGHT_CLASS_TINY
 
 /obj/item/storage/belt/generic/thin
 	name = "thin elastic belt"

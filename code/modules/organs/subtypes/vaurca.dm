@@ -191,7 +191,7 @@
 	action_button_name = "Toggle Hivenet Defense Suite"
 	action_button_icon = "augment-pda"
 	activable = TRUE
-	species_restricted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_WARFORM)
+	species_restricted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_WARFORM)
 	var/fullshield = FALSE
 
 /obj/item/organ/internal/augment/hiveshield/attack_self(var/mob/living/carbon/user)
@@ -265,7 +265,7 @@
 	action_button_name = "Deploy Toolset"
 	action_button_icon = "vaurcatool"
 	augment_type = /obj/item/combitool/robotic/vaurca
-	species_restricted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
+	species_restricted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK)
 
 /obj/item/organ/internal/augment/tool/combitool/vaurca/left
 	parent_organ = BP_L_HAND
@@ -283,17 +283,28 @@
 		"wirecutters"
 		)
 
-/obj/item/organ/internal/augment/tool/vaurcamag
+/obj/item/organ/internal/augment/vaurca_mag
 	name = "integrated mag-claws"
 	desc = "An integrated magnetic grip system, designed for Vaurcae without easy access to magboots."
 	icon_state = "suspension"
 	item_state = "suspension"
-	action_button_name = "Deploy Mag-Claws"
+	action_button_name = "Activate Mag-Claws"
 	action_button_icon = "magclaws"
-	augment_type = /obj/item/clothing/shoes/magboots/vaurca/aug
 	parent_organ = BP_GROIN
 	organ_tag = BP_AUG_MAGBOOT
-	aug_slot = slot_shoes
+	activable = TRUE
+	species_restricted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_WARFORM)
+
+/obj/item/organ/internal/augment/vaurca_mag/attack_self(mob/user)
+	if(use_check_and_message(owner))
+		return
+	if(HAS_TRAIT(owner, TRAIT_SHOE_GRIP))
+		to_chat(owner, SPAN_NOTICE("You deactivate \the [src]."))
+		REMOVE_TRAIT(owner, TRAIT_SHOE_GRIP, TRAIT_SOURCE_AUGMENT)
+	else
+		to_chat(owner, SPAN_NOTICE("You activate \the [src]."))
+		ADD_TRAIT(owner, TRAIT_SHOE_GRIP, TRAIT_SOURCE_AUGMENT)
+		playsound(get_turf(src), 'sound/effects/magnetclamp.ogg', 20)
 
 /obj/item/organ/internal/vaurca/preserve
 	icon = 'icons/obj/organs/vaurca_organs.dmi'

@@ -7,8 +7,8 @@
 	anchored = 0
 	var/open = FALSE
 
-/obj/structure/sarcophagus/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/structure/sarcophagus/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(!open)
 		. += "\The [src]'s lid is closed shut."
 	else
@@ -75,4 +75,4 @@
 	desc = "An archaic key, probably not used to open any airlock on station."
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "unknown1"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL

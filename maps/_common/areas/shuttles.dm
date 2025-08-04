@@ -34,26 +34,6 @@
 	base_turf = /turf/unsimulated/floor/plating
 	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 
-/area/shuttle/escape_pod
-	name = "Escape pod"
-	base_turf = /turf/unsimulated/floor/asteroid/ash
-
-/area/shuttle/escape_pod/pod1
-	name = "Escape pod - 1"
-
-/area/shuttle/escape_pod/pod2
-	name = "Escape pod - 2"
-
-/area/shuttle/escape_pod/pod3
-	name = "Escape pod - 3"
-
-/area/shuttle/escape_pod/pod4
-	name = "Escape pod - 4"
-
-/area/shuttle/mining
-	name = "Spark"
-	requires_power = TRUE
-
 /area/shuttle/transport1
 	icon_state = "shuttle"
 	name = "Transport Shuttle"
@@ -85,7 +65,7 @@
 
 /area/shuttle/research
 	name = "Research Shuttle"
-	base_turf = /turf/unsimulated/floor/asteroid/ash
+	base_turf = /turf/simulated/floor/exoplanet/asteroid/ash
 
 /area/shuttle/legion
 	name = "Foreign Legion Shuttle"

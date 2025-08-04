@@ -24,7 +24,7 @@
 
 /obj/machinery/gibber/autogibber/Initialize()
 	. = ..()
-	for(var/i in GLOB.cardinal)
+	for(var/i in GLOB.cardinals)
 		var/obj/machinery/mineral/input/input_obj = locate( /obj/machinery/mineral/input, get_step(loc, i) )
 		if(input_obj)
 			if(isturf(input_obj.loc))
@@ -37,12 +37,14 @@
 		log_misc("a [src] didn't find an input plate.")
 		return
 
-/obj/machinery/gibber/autogibber/CollidedWith(var/atom/A)
+/obj/machinery/gibber/autogibber/CollidedWith(atom/bumped_atom)
+	. = ..()
+
 	if(!input_plate)
 		return
-	if(!ismob(A))
+	if(!ismob(bumped_atom))
 		return
-	var/mob/M = A
+	var/mob/M = bumped_atom
 	if(M.loc == input_plate)
 		M.forceMove(src)
 		M.gib()
@@ -65,7 +67,9 @@
 	else
 		AddOverlays("gridle")
 
-/obj/machinery/gibber/relaymove(mob/user as mob)
+/obj/machinery/gibber/relaymove(mob/living/user, direction)
+	. = ..()
+
 	go_out()
 	return
 
@@ -103,10 +107,10 @@
 
 	do_hair_pull(user)
 
-/obj/machinery/gibber/MouseDrop_T(atom/dropping, mob/user)
+/obj/machinery/gibber/mouse_drop_receive(atom/dropped, mob/user, params)
 	if(user.stat || user.restrained())
 		return
-	move_into_gibber(user, dropping)
+	move_into_gibber(user, dropped)
 
 /obj/machinery/gibber/proc/move_into_gibber(var/mob/user,var/mob/living/victim)
 
@@ -209,7 +213,7 @@
 
 	occupant.attack_log += "\[[time_stamp()]\] Was gibbed by <b>[user]/[user.ckey]</b>" //One shall not simply gib a mob unnoticed!
 	user.attack_log += "\[[time_stamp()]\] Gibbed <b>[occupant]/[occupant.ckey]</b>"
-	msg_admin_attack("[key_name_admin(user)] gibbed [occupant] ([occupant.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(occupant))
+	msg_admin_attack("[key_name_admin(user)] gibbed [occupant] ([occupant.ckey]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(occupant))
 
 	occupant.ghostize()
 

@@ -5,7 +5,7 @@
 
 /datum/shuttle/autodock/ferry/emergency/New()
 	..()
-	emergency_controller = evacuation_controller
+	emergency_controller = GLOB.evacuation_controller
 	if(!istype(emergency_controller))
 		CRASH("Escape shuttle created without the appropriate controller type.")
 	if(emergency_controller.shuttle)
@@ -61,7 +61,7 @@
 			return 0
 
 		// If the emergency shuttle is waiting to leave the station and the world time exceeded the force time
-		if(evacuation_controller.is_prepared() && (world.time > emergency_controller.force_time))
+		if(GLOB.evacuation_controller.is_prepared() && (world.time > emergency_controller.force_time))
 			return 0
 
 	return ..()
@@ -76,7 +76,7 @@
 			to_world(SPAN_NOTICE("<b>Alert: The shuttle autopilot has been overridden. Launch sequence initiated!</b>"))
 
 	if(usr)
-		log_admin("[key_name(usr)] has overridden the shuttle autopilot and activated launch sequence",ckey=key_name(usr))
+		log_admin("[key_name(usr)] has overridden the shuttle autopilot and activated launch sequence")
 		message_admins("[key_name_admin(usr)] has overridden the shuttle autopilot and activated launch sequence")
 
 	..(user)
@@ -91,7 +91,7 @@
 			to_world(SPAN_NOTICE("<b>Alert: The shuttle autopilot has been overridden. Bluespace drive engaged!</b>"))
 
 	if(usr)
-		log_admin("[key_name(usr)] has overridden the shuttle autopilot and forced immediate launch",ckey=key_name(usr))
+		log_admin("[key_name(usr)] has overridden the shuttle autopilot and forced immediate launch")
 		message_admins("[key_name_admin(usr)] has overridden the shuttle autopilot and forced immediate launch")
 
 	..(user)
@@ -106,7 +106,7 @@
 			to_world(SPAN_NOTICE("<b>Alert: The shuttle autopilot has been overridden. Launch sequence aborted!</b>"))
 
 	if(usr)
-		log_admin("[key_name(usr)] has overridden the shuttle autopilot and cancelled launch sequence",ckey=key_name(usr))
+		log_admin("[key_name(usr)] has overridden the shuttle autopilot and cancelled launch sequence")
 		message_admins("[key_name_admin(usr)] has overridden the shuttle autopilot and cancelled launch sequence")
 
 	..(user)
@@ -161,12 +161,12 @@
 		to_world(SPAN_NOTICE("<b>Alert: [req_authorizations - authorized.len] authorization\s needed to override the shuttle autopilot.</b>"))
 
 	if(usr)
-		log_admin("[key_name(usr)] has inserted [ID] into the shuttle control computer - [req_authorizations - authorized.len] authorisation\s needed",ckey=key_name(usr))
+		log_admin("[key_name(usr)] has inserted [ID] into the shuttle control computer - [req_authorizations - authorized.len] authorisation\s needed")
 		message_admins("[key_name_admin(usr)] has inserted [ID] into the shuttle control computer - [req_authorizations - authorized.len] authorisation\s needed")
 
 	return 1
 
-/obj/machinery/computer/shuttle_control/emergency/emag_act(var/remaining_charges, var/mob/user)
+/obj/machinery/computer/shuttle_control/emergency/emag_act(var/remaining_charges, var/mob/user, var/hotwired = FALSE)
 	if (!emagged)
 		to_chat(user, SPAN_NOTICE("You short out \the [src]'s authorization protocols."))
 		emagged = 1

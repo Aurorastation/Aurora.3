@@ -117,3 +117,16 @@
 	reagents = list(/singleton/reagent/drink/milk = 5, /singleton/reagent/sugar = 5, /singleton/reagent/nutriment/protein/egg = 3)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/custard
+
+/singleton/recipe/nakarka_mousse_berry
+	appliance = SAUCEPAN
+	fruit = list ("berries" = 1)
+	reagents = list(/singleton/reagent/drink/milk/nemiik = 5, /singleton/reagent/drink/milk/cream = 5, /singleton/reagent/sugar = 5)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/nakarka_mousse
+
+/singleton/recipe/nakarka_mousse_cherry
+	appliance = SAUCEPAN
+	reagents = list(/singleton/reagent/drink/milk/nemiik = 5, /singleton/reagent/drink/milk/cream = 5, /singleton/reagent/sugar = 5, /singleton/reagent/nutriment/cherryjelly = 5)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/nakarka_mousse/cherry

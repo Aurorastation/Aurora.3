@@ -1,4 +1,4 @@
-var/global/list/bluespace_inhibitors
+GLOBAL_LIST_INIT_TYPED(bluespace_inhibitors, /obj/machinery/anti_bluespace, null)
 
 /obj/machinery/anti_bluespace
 	name = "bluespace inhibitor"
@@ -12,10 +12,10 @@ var/global/list/bluespace_inhibitors
 
 /obj/machinery/anti_bluespace/Initialize()
 	. = ..()
-	LAZYADD(bluespace_inhibitors, src)
+	LAZYADD(GLOB.bluespace_inhibitors, src)
 
 /obj/machinery/anti_bluespace/Destroy()
-	LAZYREMOVE(bluespace_inhibitors, src)
+	LAZYREMOVE(GLOB.bluespace_inhibitors, src)
 	return ..()
 
 /obj/machinery/anti_bluespace/update_icon()
@@ -74,11 +74,15 @@ var/global/list/bluespace_inhibitors
 
 	do_break()
 
-/obj/machinery/anti_bluespace/bullet_act(var/obj/item/projectile/Proj)
-	if(!(Proj.damage_type == DAMAGE_BRUTE || Proj.damage_type == DAMAGE_BURN))
-		return
-	if(!Proj.damage)
-		return
+/obj/machinery/anti_bluespace/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	if(!(hitting_projectile.damage_type == DAMAGE_BRUTE || hitting_projectile.damage_type == DAMAGE_BURN))
+		return BULLET_ACT_BLOCK
+	if(!hitting_projectile.damage)
+		return BULLET_ACT_BLOCK
 
 	do_break()
 

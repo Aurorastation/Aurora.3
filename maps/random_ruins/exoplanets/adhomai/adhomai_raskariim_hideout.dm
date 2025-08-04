@@ -9,7 +9,7 @@
 	sectors = list(SECTOR_SRANDMARR)
 
 	prefix = "adhomai/"
-	suffixes = list("adhomai_raskariim_hideout.dmm")
+	suffix = "adhomai_raskariim_hideout.dmm"
 
 	unit_test_groups = list(2)
 
@@ -58,11 +58,14 @@
 
 	uniform = list(
 				/obj/item/clothing/under/tajaran,
-				/obj/item/clothing/under/tajaran/summer,
-				/obj/item/clothing/under/pants/tajaran,
-				/obj/item/clothing/under/pants,
-				/obj/item/clothing/under/pants/track
+				/obj/item/clothing/under/tajaran/summer
+
 	)
+
+	pants = list(
+				/obj/item/clothing/pants/tajaran,
+				/obj/item/clothing/pants/track
+				)
 
 	suit = list(
 				/obj/item/clothing/suit/storage/toggle/bomber,

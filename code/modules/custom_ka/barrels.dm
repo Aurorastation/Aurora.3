@@ -11,7 +11,7 @@
 	cell_increase = 0
 	capacity_increase = -1
 	fire_sound = 'sound/weapons/kinetic_accel.ogg'
-	projectile_type = /obj/item/projectile/kinetic
+	projectile_type = /obj/projectile/kinetic
 	origin_tech = list(TECH_MATERIAL = 1,TECH_ENGINEERING = 1,TECH_MAGNET = 1, TECH_PHORON = 2)
 
 /obj/item/custom_ka_upgrade/barrels/barrel02
@@ -27,7 +27,7 @@
 	cell_increase = 0
 	capacity_increase = -2
 	fire_sound = 'sound/weapons/kinetic_accel.ogg'
-	projectile_type = /obj/item/projectile/kinetic
+	projectile_type = /obj/projectile/kinetic
 	origin_tech = list(TECH_MATERIAL = 1,TECH_ENGINEERING = 1,TECH_MAGNET = 3, TECH_PHORON = 2)
 
 /obj/item/custom_ka_upgrade/barrels/barrel03
@@ -43,7 +43,7 @@
 	cell_increase = 0
 	capacity_increase = -3
 	fire_sound = 'sound/weapons/resonator_fire.ogg'
-	projectile_type = /obj/item/projectile/kinetic
+	projectile_type = /obj/projectile/kinetic
 	origin_tech = list(TECH_MATERIAL = 4,TECH_ENGINEERING = 3,TECH_MAGNET = 3, TECH_PHORON = 3)
 
 
@@ -60,7 +60,7 @@
 	cell_increase = 0
 	capacity_increase = -4
 	fire_sound = 'sound/weapons/pulse.ogg'
-	projectile_type = /obj/item/projectile/kinetic
+	projectile_type = /obj/projectile/kinetic
 	origin_tech = list(TECH_MATERIAL = 6,TECH_ENGINEERING = 3,TECH_MAGNET = 5, TECH_PHORON = 4)
 
 /obj/item/custom_ka_upgrade/barrels/barrel05
@@ -76,7 +76,7 @@
 	cell_increase = 0
 	capacity_increase = -5
 	fire_sound = 'sound/weapons/resonator_blast.ogg'
-	projectile_type = /obj/item/projectile/kinetic
+	projectile_type = /obj/projectile/kinetic
 	origin_tech = list(TECH_MATERIAL = 6,TECH_ENGINEERING = 5,TECH_MAGNET = 6, TECH_PHORON = 5)
 
 /obj/item/custom_ka_upgrade/barrels/illegal
@@ -92,7 +92,7 @@
 	cell_increase = 0
 	capacity_increase = 0
 	fire_sound = 'sound/weapons/lasercannonfire.ogg'
-	projectile_type = /obj/item/projectile/beam/midlaser
+	projectile_type = /obj/projectile/beam/midlaser
 	origin_tech = list(TECH_MATERIAL = 4,TECH_ENGINEERING = 4,TECH_MAGNET = 4,TECH_COMBAT = 5,TECH_ILLEGAL = 5)
 
 /obj/item/custom_ka_upgrade/barrels/barrel02_alt
@@ -109,7 +109,7 @@
 	capacity_increase = -2
 	aoe_increase = -100
 	fire_sound = 'sound/weapons/kinetic_accel.ogg'
-	projectile_type = /obj/item/projectile/kinetic
+	projectile_type = /obj/projectile/kinetic
 	origin_tech = list(TECH_MATERIAL = 1,TECH_ENGINEERING = 1,TECH_MAGNET = 3, TECH_PHORON = 2)
 
 /obj/item/custom_ka_upgrade/barrels/phoron
@@ -125,7 +125,7 @@
 	cell_increase = 0
 	capacity_increase = -5
 	fire_sound = 'sound/weapons/marauder.ogg'
-	projectile_type = /obj/item/projectile/kinetic
+	projectile_type = /obj/projectile/kinetic
 	origin_tech = list(TECH_MATERIAL = 6,TECH_ENGINEERING = 5,TECH_MAGNET = 6, TECH_PHORON = 6)
 	disallow_chip = TRUE
 
@@ -142,6 +142,6 @@
 	cell_increase = 0
 	capacity_increase = -5
 	fire_sound = 'sound/weapons/pulse2.ogg'
-	projectile_type = /obj/item/projectile/kinetic
+	projectile_type = /obj/projectile/kinetic
 	origin_tech = list(TECH_MATERIAL = 8,TECH_ENGINEERING = 8,TECH_MAGNET = 8, TECH_ILLEGAL = 8)
 	disallow_chip = TRUE

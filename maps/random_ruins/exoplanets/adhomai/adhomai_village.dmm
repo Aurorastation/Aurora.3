@@ -256,8 +256,8 @@
 /obj/item/seeds/earthenroot,
 /obj/item/seeds/blizzard,
 /obj/item/seeds/blizzard,
-/obj/item/seeds/nifberries,
-/obj/item/seeds/nifberries,
+/obj/item/seeds/dirtberries,
+/obj/item/seeds/dirtberries,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "qk" = (
@@ -265,7 +265,7 @@
 /obj/item/clothing/shoes/workboots/tajara,
 /obj/item/clothing/shoes/workboots/tajara/adhomian_boots,
 /obj/item/clothing/suit/storage/toggle/tajaran/wool,
-/obj/item/clothing/under/pants/tajaran,
+/obj/item/clothing/pants/tajaran,
 /obj/item/gun/projectile/shotgun/pump/rifle/obrez,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
@@ -606,8 +606,8 @@
 /obj/item/seeds/blizzard,
 /obj/item/seeds/sugartree,
 /obj/item/seeds/sugartree,
-/obj/item/seeds/nifberries,
-/obj/item/seeds/nifberries,
+/obj/item/seeds/dirtberries,
+/obj/item/seeds/dirtberries,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "Iy" = (
@@ -692,7 +692,7 @@
 /area/adhomai_village)
 "LL" = (
 /obj/structure/table/wood,
-/obj/item/pocketwatch/adhomai,
+/obj/item/clothing/wrists/watch/pocketwatch/adhomai,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "Mv" = (
@@ -750,9 +750,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "Pc" = (
-/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
-	req_access = null
-	},
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard,
 /obj/item/storage/box/produce{
 	pixel_x = 3;
 	pixel_y = -11

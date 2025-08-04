@@ -185,8 +185,7 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/table/steel,
 /obj/item/folder/white{
-	pixel_x = -5;
-	pixel_y = 0
+	pixel_x = -5
 	},
 /obj/item/storage/box/masks{
 	pixel_y = 5;

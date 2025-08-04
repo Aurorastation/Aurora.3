@@ -382,24 +382,31 @@
 /obj/item/gun/energy/chameleon
 	name = "desert eagle"
 	desc = null
-	desc_info = null //The chameleon gun adopts the desc_info of the weapon it is impersonating as, to make meta-ing harder.
-	desc_antag = "This gun is actually a hologram projector that can alter its appearance to mimick other weapons.  To change the appearance, use \
-	the appropriate verb in the chameleon items tab. Any beams or projectiles fired from this gun are actually holograms and useless for actual combat. \
-	Projecting these holograms over distance uses a little bit of charge."
 	icon = 'icons/obj/guns/deagle.dmi'
 	icon_state = "deagle"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)
 	matter = list()
 
 	fire_sound = 'sound/weapons/gunshot/gunshot1.ogg'
-	projectile_type = /obj/item/projectile/chameleon
+	projectile_type = /obj/projectile/chameleon
 	charge_meter = 0
 	charge_cost = 20 //uses next to no power, since it's just holograms
 	max_shots = 50
 
-	var/obj/item/projectile/copy_projectile
+	var/obj/projectile/copy_projectile
 	var/global/list/gun_choices
+
+/obj/item/gun/energy/chameleon/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Exactly as it appears, officer."
+
+/obj/item/gun/energy/chameleon/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This gun is actually a hologram projector that can alter its appearance to mimick other weapons. "
+	. += "To change the appearance, use the appropriate verb in the chameleon items tab."
+	. += "Any beams or projectiles fired from this gun are actually holograms and useless for actual combat."
+	. += "Projecting these holograms over distance uses a little bit of charge."
 
 /obj/item/gun/energy/chameleon/Initialize()
 	. = ..()
@@ -411,7 +418,7 @@
 			src.gun_choices[initial(G.name)] = gun_type
 
 /obj/item/gun/energy/chameleon/consume_next_projectile()
-	var/obj/item/projectile/P = ..()
+	var/obj/projectile/P = ..()
 	if(P && ispath(copy_projectile))
 		P.name = initial(copy_projectile.name)
 		P.icon = initial(copy_projectile.icon)
@@ -447,7 +454,6 @@
 	if(istype(E))
 		copy_projectile = E.projectile_type
 		desc = E.desc
-		desc_info = E.desc_info
 	else
 		copy_projectile = null
 

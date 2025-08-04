@@ -7,21 +7,21 @@
 	slot_flags = SLOT_BELT
 	force = 11
 	fire_sound='sound/weapons/laser1.ogg'
-	projectile_type = /obj/item/projectile/beam
+	projectile_type = /obj/projectile/beam
 	sel_mode = 2
 	accuracy = 1
 	max_shots = 10
 	can_turret = 1
-	secondary_projectile_type = /obj/item/projectile/beam/pulse
+	secondary_projectile_type = /obj/projectile/beam/pulse
 	secondary_fire_sound = 'sound/weapons/pulse.ogg'
 	can_switch_modes = 0
 	turret_sprite_set = "pulse"
 	turret_is_lethal = 1
 
 	firemodes = list(
-		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, fire_sound='sound/weapons/Taser.ogg'),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, fire_sound='sound/weapons/laser1.ogg'),
-		list(mode_name="DESTROY", projectile_type=/obj/item/projectile/beam/pulse, fire_sound='sound/weapons/pulse.ogg', fire_delay=25)
+		list(mode_name="stun", projectile_type=/obj/projectile/beam/stun, fire_sound='sound/weapons/Taser.ogg'),
+		list(mode_name="lethal", projectile_type=/obj/projectile/beam, fire_sound='sound/weapons/laser1.ogg'),
+		list(mode_name="DESTROY", projectile_type=/obj/projectile/beam/pulse, fire_sound='sound/weapons/pulse.ogg', fire_delay=25)
 		)
 
 /obj/item/gun/energy/pulse/mounted

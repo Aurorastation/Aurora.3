@@ -15,8 +15,8 @@
 			strength *= reflexive_modifier
 		animate(user, pixel_z = 16, time = 3, easing = SINE_EASING | EASE_IN)
 		animate(pixel_z = 0, time = 3, easing = SINE_EASING | EASE_OUT)
-		user.throw_at(get_turf(target), strength, 1, user, FALSE)
-		end_leap(user, target, old_pass_flags)
+		var/end_leap_callback = CALLBACK(src, PROC_REF(end_leap), user, target, old_pass_flags)
+		user.throw_at(get_turf(target), strength, 1, user, spin = FALSE, diagonals_first = TRUE, callback = end_leap_callback)
 
 /singleton/maneuver/leap/proc/end_leap(var/mob/living/user, var/atom/target, var/pass_flag)
 	SHOULD_NOT_SLEEP(TRUE)
@@ -27,11 +27,11 @@
 			var/turf/T = get_turf(target)
 			var/damage_mod = 1
 			var/from_above = FALSE
-			if(H.can_fall(GET_BELOW(T)))
+			if(H.can_fall(GET_TURF_BELOW(T)))
 				from_above = TRUE
 				if(isopenspace(T))
 					while(isopenspace(T))
-						T = GET_BELOW(T)
+						T = GET_TURF_BELOW(T)
 						damage_mod += 1
 			if(isturf(T))
 				T.visible_message(SPAN_DANGER("[H] lands on \the [T] with a quake!"))

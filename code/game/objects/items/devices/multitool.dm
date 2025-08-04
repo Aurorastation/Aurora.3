@@ -6,15 +6,13 @@
 /obj/item/device/multitool
 	name = "multitool"
 	desc = "This small, handheld device is made of durable, insulated plastic. It has a electrode jack, perfect for interfacing with numerous machines, as well as an in-built NT-SmartTrack! system."
-	desc_info = "You can use this on airlocks or APCs to try to hack them without cutting wires. You can also use it to wire circuits, and track APCs by using it in-hand."
-	icon = 'icons/obj/item/tools/multitool.dmi'
+	icon = 'icons/obj/item/device/multitool.dmi'
 	icon_state = "multitool"
 	item_state = "multitool"
 	item_icons = null
-	contained_sprite = TRUE
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 11
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throwforce = 5.0
 	throw_range = 15
 	throw_speed = 3
@@ -35,6 +33,14 @@
 
 	var/datum/integrated_io/selected_io = null
 	var/mode = 0
+
+/obj/item/device/multitool/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can use this on a variety of objects (including APCs, airlocks and more) to try to hack them without cutting wires."
+	. += "Using it in-hand will toggle tracking of nearby APCs."
+	. += "Using it on a length of laid cable will return how much current it is carrying."
+	. += "It is used for interacting with a variety of machines."
+	. += "It is a necessary tool for integrated electronics wiring."
 
 /obj/item/device/multitool/Destroy()
 	unregister_buffer(buffer_object)
@@ -65,14 +71,18 @@
 			unregister_buffer(buffer_object)
 			buffer_object = buffer
 			if(buffer_object)
-				GLOB.destroyed_event.register(buffer_object, src, PROC_REF(unregister_buffer))
+				RegisterSignal(buffer_object, COMSIG_QDELETING, PROC_REF(on_buffer_object_deletion))
 		update_icon()
 
-/obj/item/device/multitool/proc/unregister_buffer(var/atom/buffer_to_unregister)
+/obj/item/device/multitool/proc/on_buffer_object_deletion(datum/source)
+	SIGNAL_HANDLER
+	unregister_buffer(source)
+
+/obj/item/device/multitool/proc/unregister_buffer(atom/buffer_to_unregister)
 	// Only remove the buffered object, don't reset the name
 	// This means one cannot know if the buffer has been destroyed until one attempts to use it.
 	if(buffer_to_unregister == buffer_object && buffer_object)
-		GLOB.destroyed_event.unregister(buffer_object, src)
+		UnregisterSignal(buffer_object, COMSIG_QDELETING)
 		buffer_object = null
 		update_icon()
 

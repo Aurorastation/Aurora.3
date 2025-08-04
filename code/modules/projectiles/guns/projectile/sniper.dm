@@ -7,7 +7,7 @@
 	icon = 'icons/obj/guns/heavysniper.dmi'
 	icon_state = "heavysniper"
 	item_state = "heavysniper"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	force = 15
 	slot_flags = SLOT_BACK
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)
@@ -104,7 +104,7 @@
 	icon_state = "slugger"
 	item_state = "slugger"
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 2, TECH_ILLEGAL = 4)
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	fire_sound = 'sound/effects/Explosion1.ogg'
 	caliber = "slugger"
 	ammo_type = /obj/item/ammo_casing/slugger
@@ -129,7 +129,7 @@
 		if(H.mob_size < 10 && !has_online_rig) // smaller than an unathi
 			H.visible_message(SPAN_WARNING("\The [src] goes flying out of \the [H]'s hand!"), SPAN_WARNING("\The [src] flies out of your hand!"))
 			H.drop_item(src)
-			src.throw_at(get_edge_target_turf(src, GLOB.reverse_dir[H.dir]), 3, 3)
+			src.throw_at(get_edge_target_turf(src, REVERSE_DIR(H.dir)), 3, 3)
 
 			var/obj/item/organ/external/LH = H.get_organ(BP_L_HAND)
 			var/obj/item/organ/external/RH = H.get_organ(BP_R_HAND)
@@ -142,15 +142,18 @@
 
 /obj/item/gun/projectile/heavysniper/tranq
 	name = "tranquilizer rifle"
-	desc = "A less-than-lethal modification to the PTR-7 anti-materiel rifle, designed to incapacitate rioters. Fires .50 cal PPS shells that deploy a torpor-inducing drug payload."
+	desc = "A scoped tranquilizer dart gun, with a torpor educing payload."
+	desc_extended = "Designed and sold by Zeng-Hu Pharmaceuticals and produced on contract by Zavodskoi's Kumar Arms subsidiary, the rifle has quietly become ubiquitous among xenobiological researchers. \
+	While the weapon platform itself is expensive for a dart gun, users have come to adore it thanks to the benefit of its conditionally cheap ammo. Pricey off the shelf, facilities often pay a fraction \
+	of the cost thanks to rebates and bulk order discounts."
 	icon = 'icons/obj/guns/tranqsniper.dmi'
 	icon_state = "tranqsniper"
 	item_state = "tranqsniper"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	force = 15
 	slot_flags = SLOT_BACK
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 2)
-	caliber = "PPS"
+	caliber = "PGS"
 	recoil = 1
 	suppressed = TRUE
 	can_unsuppress = FALSE
@@ -182,7 +185,7 @@
 	desc_extended = "The Ho'taki Marksman Rifle was created by the Shastar Technical University, created through the reverse engineering of captured Tsarrayut'yan rifle. \
 	The rifle is commonly issued to the feared Das'nrra Marksmen."
 
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	force = 15
 	slot_flags = SLOT_BACK
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 5)
@@ -235,7 +238,7 @@
 	icon = 'icons/obj/guns/w556.dmi'
 	icon_state = "w556rifle"
 	item_state = "w556rifle"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	force = 15
 	slot_flags = SLOT_BACK
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3)

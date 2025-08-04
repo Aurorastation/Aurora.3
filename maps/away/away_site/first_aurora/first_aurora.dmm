@@ -194,7 +194,7 @@
 /area/derelict/hallway/northwest)
 "aI" = (
 /obj/machinery/artifact,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/template_noop)
 "aJ" = (
 /obj/item/gun/energy/stunrevolver,
@@ -336,8 +336,7 @@
 /area/derelict/hallway/southwest)
 "bi" = (
 /obj/structure/cryofeed{
-	dir = 4;
-	icon_state = "cryo_rear"
+	dir = 4
 	},
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northeast)
@@ -389,10 +388,6 @@
 "br" = (
 /obj/structure/window/reinforced,
 /obj/machinery/constructable_frame/temp_deco,
-/turf/simulated/floor/tiled/airless,
-/area/derelict/hallway/northeast)
-"bs" = (
-/obj/structure/door_assembly/door_assembly_generic,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "bt" = (
@@ -461,7 +456,7 @@
 /turf/template_noop,
 /area/template_noop)
 "bG" = (
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/template_noop)
 "bH" = (
 /obj/item/tape/engineering{
@@ -587,7 +582,7 @@
 	dir = 4
 	},
 /obj/item/tape/engineering{
-	icon_state = "engineering_door";
+	icon_state = "engineering_door"
 	},
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/northeast)
@@ -659,7 +654,7 @@
 "cq" = (
 /obj/machinery/door/blast/regular,
 /obj/item/tape/engineering{
-	icon_state = "engineering_door";
+	icon_state = "engineering_door"
 	},
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northwest)
@@ -687,7 +682,7 @@
 	dir = 4
 	},
 /obj/item/tape/engineering{
-	icon_state = "engineering_door";
+	icon_state = "engineering_door"
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/derelict/hallway/northwest)
@@ -913,12 +908,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
-"dm" = (
-/obj/machinery/door/airlock/external{
-	dir = 1
-	},
-/turf/simulated/floor/airless,
-/area/template_noop)
 "dn" = (
 /obj/structure/table,
 /obj/effect/decal/cleanable/dirt,
@@ -1082,8 +1071,7 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced/tinted{
-	dir = 8;
-	icon_state = "twindow"
+	dir = 8
 	},
 /turf/template_noop,
 /area/derelict/hallway/northeast)
@@ -1098,8 +1086,7 @@
 /obj/structure/grille,
 /obj/structure/window/reinforced/tinted,
 /obj/structure/window/reinforced/tinted{
-	dir = 4;
-	icon_state = "twindow"
+	dir = 4
 	},
 /obj/structure/window/reinforced/tinted{
 	dir = 1
@@ -1112,8 +1099,7 @@
 /area/derelict/hallway/northeast)
 "dP" = (
 /obj/structure/window/reinforced/tinted{
-	dir = 4;
-	icon_state = "twindow"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
@@ -1205,12 +1191,6 @@
 /obj/item/stack/rods,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
-"ei" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/turf/simulated/floor/airless,
-/area/derelict/hallway/southeast)
 "ej" = (
 /obj/item/bedsheet/mime,
 /turf/simulated/floor/airless,
@@ -1467,8 +1447,7 @@
 "eX" = (
 /obj/machinery/power/solar_control{
 	id = "auxsolareast";
-	name = "Fore Port Solar Control";
-	track = 0
+	name = "Fore Port Solar Control"
 	},
 /obj/structure/cable/yellow{
 	d2 = 4;
@@ -1498,24 +1477,17 @@
 	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
 	icon_state = "space";
 	name = "EXTERNAL AIRLOCK";
-	pixel_x = 32;
-	pixel_y = 0
+	pixel_x = 32
 	},
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northwest)
-"fa" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/turf/simulated/floor/airless,
-/area/derelict/hallway/southeast)
 "fb" = (
 /obj/machinery/suit_cycler/medical,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northwest)
 "fc" = (
 /obj/structure/table/rack{
-	dir = 8;
+	dir = 8
 	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northwest)
@@ -1532,16 +1504,14 @@
 /area/derelict/hallway/northeast)
 "ff" = (
 /obj/machinery/shower{
-	dir = 4;
-	icon_state = "shower"
+	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "fg" = (
 /obj/machinery/shower{
-	dir = 8;
-	icon_state = "shower"
+	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
@@ -1598,14 +1568,12 @@
 "fo" = (
 /obj/structure/sink{
 	dir = 8;
-	icon_state = "sink";
 	pixel_x = -12;
 	pixel_y = 2
 	},
 /obj/structure/mirror{
 	dir = 4;
-	pixel_x = -32;
-	pixel_y = 0
+	pixel_x = -32
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
@@ -1625,8 +1593,7 @@
 /area/derelict/hallway/northeast)
 "fr" = (
 /obj/machinery/shower{
-	dir = 8;
-	icon_state = "shower"
+	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -1679,10 +1646,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northwest)
 "fz" = (
-/obj/machinery/power/smes/buildable{
-	RCon_tag = "NO_TAG";
-	charge = 0
-	},
+/obj/machinery/power/smes/buildable,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northwest)
 "fA" = (
@@ -1698,7 +1662,7 @@
 /area/derelict/hallway/northwest)
 "fE" = (
 /obj/structure/table/rack{
-	dir = 8;
+	dir = 8
 	},
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/mask/breath,
@@ -1709,7 +1673,7 @@
 /area/derelict/hallway/northwest)
 "fF" = (
 /obj/structure/table/rack{
-	dir = 8;
+	dir = 8
 	},
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/atmos,
@@ -1740,7 +1704,6 @@
 "fJ" = (
 /obj/structure/sink{
 	dir = 8;
-	icon_state = "sink";
 	pixel_x = -12;
 	pixel_y = 2
 	},
@@ -1763,7 +1726,6 @@
 "fN" = (
 /obj/machinery/door/airlock/engineering{
 	icon_state = "door_closed";
-	locked = 0;
 	name = "Fore Port Solar Access";
 	req_access = list(11);
 	dir = 1
@@ -1775,8 +1737,7 @@
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'HIGH VOLTAGE'";
 	icon_state = "shock";
-	name = "HIGH VOLTAGE";
-	pixel_y = 0
+	name = "HIGH VOLTAGE"
 	},
 /turf/simulated/wall/r_wall,
 /area/derelict/hallway/northwest)
@@ -1810,7 +1771,6 @@
 /area/derelict/hallway/northwest)
 "fT" = (
 /obj/machinery/status_display{
-	pixel_x = 0;
 	pixel_y = 32
 	},
 /obj/random/tech_supply,
@@ -1888,12 +1848,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/rust,
 /area/derelict/hallway/northwest)
-"ge" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/turf/simulated/floor/airless,
-/area/derelict/hallway/southeast)
 "gf" = (
 /obj/item/storage/belt/champion,
 /turf/simulated/floor/tiled/airless,
@@ -1974,10 +1928,6 @@
 /area/derelict/hallway/northwest)
 "gr" = (
 /obj/random/highvalue,
-/turf/simulated/floor/tiled/airless,
-/area/derelict/hallway/northwest)
-"gt" = (
-/obj/structure/door_assembly,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northwest)
 "gu" = (
@@ -2474,7 +2424,7 @@
 /area/template_noop)
 "ir" = (
 /obj/structure/table/rack{
-	dir = 8;
+	dir = 8
 	},
 /obj/item/stack/rods{
 	amount = 50
@@ -2487,7 +2437,7 @@
 /area/derelict/hallway/southwest)
 "it" = (
 /obj/structure/table/rack{
-	dir = 8;
+	dir = 8
 	},
 /obj/item/module/power_control,
 /obj/item/cell{
@@ -2529,9 +2479,7 @@
 "iA" = (
 /obj/structure/sink{
 	dir = 4;
-	icon_state = "sink";
-	pixel_x = 11;
-	pixel_y = 0
+	pixel_x = 11
 	},
 /obj/structure/mirror{
 	pixel_x = 28
@@ -2588,9 +2536,7 @@
 "iL" = (
 /obj/structure/sink{
 	dir = 4;
-	icon_state = "sink";
-	pixel_x = 11;
-	pixel_y = 0
+	pixel_x = 11
 	},
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
@@ -2650,9 +2596,7 @@
 "iU" = (
 /obj/structure/sink{
 	dir = 4;
-	icon_state = "sink";
-	pixel_x = 11;
-	pixel_y = 0
+	pixel_x = 11
 	},
 /obj/structure/mirror{
 	pixel_x = 28
@@ -2780,8 +2724,7 @@
 /area/derelict/hallway/southeast)
 "js" = (
 /obj/structure/morgue{
-	dir = 8;
-	icon_state = "morgue1"
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/derelict/hallway/southeast)
@@ -2820,8 +2763,7 @@
 /area/derelict/hallway/southeast)
 "jy" = (
 /obj/structure/morgue{
-	dir = 2;
-	icon_state = "morgue1"
+	dir = 2
 	},
 /turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
@@ -3066,9 +3008,7 @@
 "kr" = (
 /obj/structure/sink{
 	dir = 4;
-	icon_state = "sink";
-	pixel_x = 11;
-	pixel_y = 0
+	pixel_x = 11
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white/airless,
@@ -3101,10 +3041,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "ky" = (
-/obj/structure/sign/poster{
-	pixel_x = 0;
-	pixel_y = 0
-	},
+/obj/structure/sign/poster,
 /turf/simulated/wall,
 /area/derelict/hallway/southwest)
 "kz" = (
@@ -3180,10 +3117,7 @@
 /area/derelict/hallway/southeast)
 "kM" = (
 /obj/machinery/shower{
-	dir = 8;
-	icon_state = "shower";
-	pixel_x = 0;
-	pixel_y = 0
+	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white/airless,
@@ -3242,9 +3176,7 @@
 	dir = 4;
 	id = "packageExternal"
 	},
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
 "kW" = (
@@ -3267,8 +3199,7 @@
 "ld" = (
 /obj/item/material/shard,
 /obj/structure/window/reinforced{
-	dir = 4;
-	icon_state = "rwindow"
+	dir = 4
 	},
 /turf/template_noop,
 /area/template_noop)
@@ -3323,9 +3254,7 @@
 "lm" = (
 /obj/structure/sink{
 	dir = 4;
-	icon_state = "sink";
-	pixel_x = 11;
-	pixel_y = 0
+	pixel_x = 11
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -3343,15 +3272,11 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "lo" = (
 /obj/machinery/status_display{
-	density = 0;
-	pixel_x = 0;
 	pixel_y = 32
 	},
 /obj/structure/closet/emcloset,
@@ -3409,9 +3334,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "lw" = (
@@ -3474,10 +3397,6 @@
 	},
 /turf/template_noop,
 /area/derelict/hallway/southeast)
-"lF" = (
-/obj/structure/door_assembly,
-/turf/simulated/floor/tiled/airless,
-/area/derelict/hallway/southeast)
 "lG" = (
 /obj/item/cell/super,
 /turf/simulated/floor/tiled/white/airless,
@@ -3501,9 +3420,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "lK" = (
@@ -3613,9 +3530,7 @@
 	},
 /obj/structure/window/reinforced,
 /obj/structure/grille,
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "mb" = (
@@ -3737,9 +3652,7 @@
 	dir = 4;
 	id = "QMLoad2"
 	},
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/airless,
 /area/template_noop)
 "mu" = (
@@ -3791,14 +3704,8 @@
 /obj/random/medical,
 /turf/template_noop,
 /area/derelict/hallway/southeast)
-"mC" = (
-/obj/structure/door_assembly,
-/turf/simulated/floor/tiled/white/airless,
-/area/derelict/hallway/southeast)
 "mE" = (
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/airless,
 /area/template_noop)
 "mF" = (
@@ -3843,10 +3750,6 @@
 	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
-"mK" = (
-/obj/structure/door_assembly,
-/turf/simulated/floor/tiled/white/airless,
-/area/derelict/hallway/southeast)
 "mL" = (
 /obj/machinery/door/airlock/glass_medical{
 	id_tag = "GeneticsDoor";
@@ -3902,12 +3805,9 @@
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
 	icon_state = "space";
-	name = "EXTERNAL AIRLOCK";
-	pixel_x = 0
+	name = "EXTERNAL AIRLOCK"
 	},
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/airless,
 /area/template_noop)
 "mV" = (
@@ -3919,9 +3819,7 @@
 	},
 /obj/structure/window/reinforced,
 /obj/structure/grille,
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/airless,
 /area/template_noop)
 "mW" = (
@@ -4072,10 +3970,6 @@
 	},
 /turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
-"nt" = (
-/obj/structure/door_assembly,
-/turf/simulated/floor/tiled/airless,
-/area/derelict/hallway/southeast)
 "nu" = (
 /obj/structure/door_assembly,
 /obj/effect/decal/cleanable/dirt,
@@ -4093,9 +3987,7 @@
 	dir = 4;
 	id = "QMLoad"
 	},
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/airless,
 /area/template_noop)
 "ny" = (
@@ -4406,9 +4298,7 @@
 "oq" = (
 /obj/item/clipboard,
 /obj/item/stamp{
-	name = "Quartermaster's stamp";
-	pixel_x = 0;
-	pixel_y = 0
+	name = "Quartermaster's stamp"
 	},
 /obj/structure/table/standard{
 	name = "plastic table frame"
@@ -4519,9 +4409,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "oJ" = (
@@ -4573,22 +4461,19 @@
 /area/template_noop)
 "oR" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	dir = 9;
-	icon_state = "spline_fancy"
+	dir = 9
 	},
 /turf/simulated/floor/wood/airless,
 /area/derelict/hallway/southeast)
 "oS" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	dir = 1;
-	icon_state = "spline_fancy"
+	dir = 1
 	},
 /turf/simulated/floor/wood/airless,
 /area/derelict/hallway/southeast)
 "oT" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	dir = 5;
-	icon_state = "spline_fancy"
+	dir = 5
 	},
 /turf/simulated/floor/wood/airless,
 /area/derelict/hallway/southeast)
@@ -4698,30 +4583,25 @@
 /area/derelict/hallway/southeast)
 "pl" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8;
-	icon_state = "spline_fancy"
+	dir = 8
 	},
 /turf/simulated/floor/wood/airless,
 /area/derelict/hallway/southeast)
 "pm" = (
 /obj/structure/table/glass,
 /obj/item/device/radio{
-	anchored = 0;
-	broadcasting = 0;
 	canhear_range = 4;
 	desc = "Are you going to make the call?";
 	frequency = 1347;
 	icon = 'icons/obj/items.dmi';
 	icon_state = "red_phone";
-	listening = 1;
 	name = "Red Telephone"
 	},
 /turf/simulated/floor/wood/airless,
 /area/derelict/hallway/southeast)
 "pn" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4;
-	icon_state = "spline_fancy"
+	dir = 4
 	},
 /turf/simulated/floor/wood/airless,
 /area/derelict/hallway/southeast)
@@ -4768,8 +4648,7 @@
 /area/derelict/hallway/southeast)
 "pv" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	dir = 10;
-	icon_state = "spline_fancy"
+	dir = 10
 	},
 /turf/simulated/floor/wood/airless,
 /area/derelict/hallway/southeast)
@@ -4779,8 +4658,7 @@
 /area/derelict/hallway/southeast)
 "px" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	dir = 6;
-	icon_state = "spline_fancy"
+	dir = 6
 	},
 /turf/simulated/floor/wood/airless,
 /area/derelict/hallway/southeast)
@@ -4812,15 +4690,12 @@
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
 	icon_state = "space";
-	name = "EXTERNAL AIRLOCK";
-	pixel_x = 0
+	name = "EXTERNAL AIRLOCK"
 	},
 /turf/simulated/wall,
 /area/derelict/hallway/southwest)
 "pD" = (
 /obj/machinery/status_display{
-	density = 0;
-	pixel_x = 0;
 	pixel_y = -32
 	},
 /obj/structure/reagent_dispensers/fueltank,
@@ -4862,7 +4737,6 @@
 "pK" = (
 /obj/structure/sink{
 	dir = 8;
-	icon_state = "sink";
 	pixel_x = -12;
 	pixel_y = 5
 	},
@@ -4909,9 +4783,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "pT" = (
@@ -4920,9 +4792,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "pU" = (
@@ -4934,9 +4804,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "pV" = (
@@ -4967,8 +4835,7 @@
 /obj/structure/grille,
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'KEEP CLEAR OF DOCKING AREA'.";
-	name = "KEEP CLEAR: DOCKING AREA";
-	pixel_y = 0
+	name = "KEEP CLEAR: DOCKING AREA"
 	},
 /turf/template_noop,
 /area/template_noop)
@@ -5295,12 +5162,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/derelict/hallway/southeast)
-"rc" = (
-/obj/machinery/door/airlock/maintenance{
-	dir = 4
-	},
-/turf/simulated/floor/airless,
-/area/derelict/hallway/southeast)
 "rd" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -5392,8 +5253,7 @@
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'HIGH VOLTAGE'";
 	icon_state = "shock";
-	name = "HIGH VOLTAGE";
-	pixel_y = 0
+	name = "HIGH VOLTAGE"
 	},
 /turf/simulated/wall/r_wall,
 /area/derelict/hallway/southeast)
@@ -5416,10 +5276,6 @@
 	},
 /turf/template_noop,
 /area/template_noop)
-"rv" = (
-/obj/structure/door_assembly,
-/turf/simulated/floor/tiled/airless,
-/area/derelict/hallway/southeast)
 "rw" = (
 /obj/item/material/shard{
 	icon_state = "medium"
@@ -5462,10 +5318,7 @@
 /turf/simulated/floor/plating,
 /area/derelict/hallway/southeast)
 "rC" = (
-/obj/machinery/power/smes/buildable{
-	RCon_tag = "NO_TAG";
-	charge = 0
-	},
+/obj/machinery/power/smes/buildable,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
 "rD" = (
@@ -5505,8 +5358,7 @@
 /area/derelict/hallway/southeast)
 "rK" = (
 /obj/machinery/power/terminal{
-	dir = 1;
-	icon_state = "term"
+	dir = 1
 	},
 /obj/machinery/light/small{
 	dir = 4
@@ -5555,8 +5407,7 @@
 "rQ" = (
 /obj/machinery/power/solar_control{
 	id = "starboardsolar";
-	name = "Aft Starboard Solar Control";
-	track = 0
+	name = "Aft Starboard Solar Control"
 	},
 /obj/structure/cable/yellow{
 	d2 = 4;
@@ -5582,7 +5433,6 @@
 	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
 	icon_state = "space";
 	name = "EXTERNAL AIRLOCK";
-	pixel_x = 0;
 	pixel_y = -32
 	},
 /turf/simulated/floor/airless,
@@ -5639,7 +5489,6 @@
 	dir = 1
 	},
 /turf/simulated/floor{
-	dir = 2;
 	icon_state = "cmo"
 	},
 /area/derelict/hallway/southeast)
@@ -5654,9 +5503,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
 "sb" = (
@@ -5858,10 +5705,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
-/area/derelict/hallway/southeast)
-"sB" = (
-/obj/structure/door_assembly,
-/turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southeast)
 "sC" = (
 /obj/item/clipboard,
@@ -6454,9 +6297,7 @@
 "uh" = (
 /obj/structure/sink{
 	dir = 4;
-	icon_state = "sink";
-	pixel_x = 11;
-	pixel_y = 0
+	pixel_x = 11
 	},
 /turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
@@ -6558,8 +6399,7 @@
 	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
 	icon_state = "space";
 	name = "EXTERNAL AIRLOCK";
-	pixel_x = -32;
-	pixel_y = 0
+	pixel_x = -32
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/airless,
@@ -6577,19 +6417,11 @@
 	},
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
-"uv" = (
-/obj/machinery/power/smes/buildable{
-	RCon_tag = "NO_TAG";
-	charge = 0
-	},
-/turf/simulated/floor/airless,
-/area/derelict/hallway/southwest)
 "uw" = (
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'HIGH VOLTAGE'";
 	icon_state = "shock";
-	name = "HIGH VOLTAGE";
-	pixel_y = 0
+	name = "HIGH VOLTAGE"
 	},
 /turf/simulated/wall/r_wall,
 /area/derelict/hallway/southwest)
@@ -6679,9 +6511,7 @@
 /area/derelict/hallway/southwest)
 "uG" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	frequency = 1379;
 	id_tag = "robotics_solar_airlock";
-	pixel_x = 0;
 	pixel_y = -25;
 	req_access = list(13);
 	tag_airpump = "robotics_solar_pump";
@@ -6690,7 +6520,6 @@
 	tag_interior_door = "robotics_solar_inner"
 	},
 /obj/machinery/airlock_sensor{
-	frequency = 1379;
 	id_tag = "robotics_solar_sensor";
 	pixel_x = 12;
 	pixel_y = -25
@@ -6801,8 +6630,7 @@
 "uS" = (
 /obj/machinery/power/solar_control{
 	id = "portsolar";
-	name = "Aft Port Solar Control";
-	track = 0
+	name = "Aft Port Solar Control"
 	},
 /obj/structure/cable/yellow,
 /turf/simulated/floor/airless,
@@ -7126,7 +6954,6 @@
 /obj/machinery/power/emitter{
 	anchored = 1;
 	dir = 8;
-	id = null;
 	state = 2
 	},
 /turf/simulated/floor/airless,
@@ -7147,9 +6974,6 @@
 /obj/structure/girder,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
-"wb" = (
-/turf/template_noop,
-/area/template_noop)
 "wd" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/airless,
@@ -27933,7 +27757,7 @@ aa
 aa
 aa
 kQ
-uv
+vG
 wq
 wX
 kQ
@@ -28976,9 +28800,9 @@ aa
 aa
 aa
 aa
-wb
 aa
-wb
+aa
+aa
 aa
 aa
 aa
@@ -29154,10 +28978,10 @@ ax
 aH
 ba
 av
-gt
+hm
 av
 au
-gt
+hm
 aa
 aa
 ac
@@ -30260,11 +30084,11 @@ ac
 wq
 wq
 wq
-wb
-wb
 aa
-wb
-wb
+aa
+aa
+aa
+aa
 kQ
 aa
 aa
@@ -37428,7 +37252,7 @@ aa
 ik
 ij
 ij
-rv
+sZ
 ij
 in
 rX
@@ -37606,7 +37430,7 @@ ac
 bb
 bb
 bb
-bs
+ce
 bb
 bb
 bb
@@ -38485,7 +38309,7 @@ in
 in
 vH
 ni
-ei
+fj
 in
 aa
 aa
@@ -38890,7 +38714,7 @@ aa
 aa
 bb
 bb
-bs
+ce
 bb
 bb
 be
@@ -38992,7 +38816,7 @@ aa
 aa
 aa
 in
-fa
+fj
 in
 aa
 aa
@@ -41000,11 +40824,11 @@ ac
 aa
 aa
 ik
-lF
+sZ
 BS
 yi
 BS
-mK
+HF
 BS
 np
 ij
@@ -45149,7 +44973,7 @@ ij
 tn
 ij
 in
-rc
+cj
 ij
 in
 in
@@ -45652,7 +45476,7 @@ aa
 aa
 yi
 BS
-lF
+sZ
 ik
 aa
 ac
@@ -46171,13 +45995,13 @@ aa
 aa
 ij
 qv
-sB
+sZ
 ij
 jd
 to
 ij
 ij
-rc
+cj
 ij
 in
 ik
@@ -47688,7 +47512,7 @@ ij
 ij
 ij
 ij
-nt
+sZ
 ij
 ij
 ij
@@ -52332,11 +52156,11 @@ ac
 ac
 aa
 yi
-nt
+sZ
 aP
 ac
 aa
-mC
+HF
 Aa
 ik
 aa
@@ -54624,7 +54448,7 @@ in
 in
 in
 in
-mC
+HF
 BS
 in
 in
@@ -58242,7 +58066,7 @@ aa
 aa
 aa
 ij
-ge
+fj
 ij
 aa
 aa
@@ -63114,7 +62938,7 @@ aa
 oj
 ar
 ar
-dm
+ea
 az
 az
 az

@@ -7,6 +7,7 @@ SUBSYSTEM_DEF(records)
 
 	var/list/warrants
 	var/list/viruses
+	var/list/shuttle_assignments
 	var/list/shuttle_manifests
 
 	var/list/excluded_fields
@@ -23,6 +24,10 @@ SUBSYSTEM_DEF(records)
 	for(var/type in localized_fields)
 		localized_fields[type] = compute_localized_field(type)
 
+	for(var/shuttle in SSatlas.current_map.shuttle_manifests)
+		var/datum/record/shuttle_assignment/A = new /datum/record/shuttle_assignment(shuttle)
+		shuttle_assignments += A
+
 	InitializeCitizenships()
 	InitializeReligions()
 	InitializeAccents()
@@ -34,6 +39,7 @@ SUBSYSTEM_DEF(records)
 	records_locked = list()
 	warrants = list()
 	viruses = list()
+	shuttle_assignments = list()
 	shuttle_manifests = list()
 	excluded_fields = list()
 	localized_fields = list()
@@ -108,6 +114,9 @@ SUBSYSTEM_DEF(records)
 			viruses += record
 		if(/datum/record/shuttle_manifest)
 			shuttle_manifests += record
+			reset_manifest()
+		if(/datum/record/shuttle_assignment)
+			shuttle_assignments += record
 	onCreate(record)
 
 /datum/controller/subsystem/records/proc/update_record(var/datum/record/record)
@@ -123,6 +132,9 @@ SUBSYSTEM_DEF(records)
 			viruses |= record
 		if(/datum/record/shuttle_manifest)
 			shuttle_manifests |= record
+			reset_manifest()
+		if(/datum/record/shuttle_assignment)
+			shuttle_assignments |= record
 	onModify(record)
 
 /datum/controller/subsystem/records/proc/remove_record(var/datum/record/record)
@@ -138,6 +150,9 @@ SUBSYSTEM_DEF(records)
 			viruses *= record
 		if(/datum/record/shuttle_manifest)
 			shuttle_manifests -= record
+			reset_manifest()
+		if(/datum/record/shuttle_assignment)
+			shuttle_assignments -= record
 	onDelete(record)
 	qdel(record)
 
@@ -166,6 +181,13 @@ SUBSYSTEM_DEF(records)
 			if(r.vars[field] == value)
 				return r
 		return
+	if(record_type & RECORD_SHUTTLE_MANIFEST)
+		for(var/datum/record/shuttle_manifest/manifest as anything in shuttle_manifests)
+			if(manifest.excluded_fields[field])
+				continue
+			if(manifest.vars[field] == value)
+				return manifest
+		return
 	for(var/datum/record/general/r in searchedList)
 		if(r.excluded_fields[field])
 			continue
@@ -191,7 +213,7 @@ SUBSYSTEM_DEF(records)
 	return GLOB.always_state
 
 /datum/controller/subsystem/records/ui_status(mob/user, datum/ui_state/state)
-	return (isnewplayer(user) || isobserver(user) || issilicon(user)) ? UI_INTERACTIVE : UI_CLOSE
+	return (isnewplayer(user) || isghost(user) || issilicon(user)) ? UI_INTERACTIVE : UI_CLOSE
 
 /datum/controller/subsystem/records/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
@@ -199,7 +221,7 @@ SUBSYSTEM_DEF(records)
 		return
 
 	if(action == "follow")
-		var/mob/abstract/observer/O = usr
+		var/mob/abstract/ghost/O = usr
 		if(istype(O))
 			for(var/mob/living/M in GLOB.human_mob_list)
 				if(istype(M) && M.real_name == params["name"])
@@ -210,7 +232,7 @@ SUBSYSTEM_DEF(records)
 /datum/controller/subsystem/records/ui_static_data(mob/user)
 	var/list/data = list()
 	data["manifest"] = SSrecords.get_manifest_list()
-	data["allow_follow"] = isobserver(user)
+	data["allow_follow"] = isghost(user)
 	return data
 
 /datum/controller/subsystem/records/proc/open_manifest_tgui(mob/user, datum/tgui/ui)
@@ -231,6 +253,18 @@ SUBSYSTEM_DEF(records)
 			dat += "<h3>[dep]</h3><ul>[depDat]</ul>"
 	return dat
 
+/// gets the activity state, which gets displayed in the crew manifest
+/datum/controller/subsystem/records/proc/get_activity_state(var/datum/record/general/general_record)
+	// by default, we use the physical status as our activity_state
+	var/activity_state = general_record.physical_status
+
+	// look if we possibly have a manifest record we can use instead
+	var/datum/record/shuttle_manifest/manifest = find_record("name", general_record.name, RECORD_SHUTTLE_MANIFEST)
+	if(manifest)
+		return "Away Mission: " + manifest.shuttle
+
+	return activity_state
+
 /datum/controller/subsystem/records/proc/get_manifest_list()
 	if(manifest.len)
 		return manifest
@@ -238,13 +272,13 @@ SUBSYSTEM_DEF(records)
 		log_world("ERROR: SSjobs not available, cannot build manifest")
 		return
 	manifest = DEPARTMENTS_LIST_INIT
-	for(var/datum/record/general/t in records)
-		var/name = sanitize(t.name, encode = FALSE)
-		var/rank = sanitize(t.rank, encode = FALSE)
-		var/real_rank = make_list_rank(t.real_rank)
+	for(var/datum/record/general/general_record in records)
+		var/name = sanitize(general_record.name, encode = FALSE)
+		var/rank = sanitize(general_record.rank, encode = FALSE)
+		var/real_rank = make_list_rank(general_record.real_rank)
 
 		var/datum/job/job = SSjobs.GetJob(real_rank)
-		var/isactive = t.physical_status
+		var/activity_state = get_activity_state(general_record)
 
 		var/list/departments
 		if(istype(job) && job.departments.len > 0 && all_in_list(job.departments, manifest))
@@ -254,7 +288,7 @@ SUBSYSTEM_DEF(records)
 
 		for(var/department in departments) // add them to their departments
 			var/supervisor = departments[department] & JOBROLE_SUPERVISOR
-			manifest[department][++manifest[department].len] = list("name" = name, "rank" = rank, "active" = isactive, "head" = supervisor)
+			manifest[department][++manifest[department].len] = list("name" = name, "rank" = rank, "active" = activity_state, "head" = supervisor)
 			if(supervisor) // they are a supervisor/head, put them on top
 				manifest[department].Swap(1, manifest[department].len)
 
@@ -271,7 +305,7 @@ SUBSYSTEM_DEF(records)
 			manifest[dept][++manifest[dept].len] = list("name" = sanitize(R.name), "rank" = selected_module, "active" = "Online", "head" = FALSE)
 		else if(istype(S, /mob/living/silicon/ai))
 			var/mob/living/silicon/ai/A = S
-			manifest[dept][++manifest[dept].len] = list("name" = sanitize(A.name), "rank" = "Station Intelligence", "active" = "Online", "head" = TRUE)
+			manifest[dept][++manifest[dept].len] = list("name" = sanitize(A.name), "rank" = "Vessel Intelligence", "active" = "Online", "head" = TRUE)
 			manifest[dept].Swap(1, manifest[dept].len)
 
 	for(var/department in manifest)
@@ -354,6 +388,19 @@ SUBSYSTEM_DEF(records)
 	var/datum/religion/religion = SSrecords.religions[target_religion]
 	if(religion)
 		return religion.get_records_name()
+
+/**
+ * Gets the name of the citizenship to show on records and ID
+ *
+ * * target_citizenship - The citizenship to get the name for, one of the CITIZENSHIP_* constants
+ *
+ * Returns the name of the citizenship (string) or null if the citizenship is not found
+ */
+/datum/controller/subsystem/records/proc/get_citizenship_record_name(var/target_citizenship)
+	SHOULD_NOT_SLEEP(TRUE)
+	var/datum/citizenship/citizenship = SSrecords.citizenships[target_citizenship]
+	if(citizenship)
+		return citizenship.get_records_name()
 
 /datum/controller/subsystem/records/proc/compute_localized_field(var/type)
 	if(!localized_fields[type])

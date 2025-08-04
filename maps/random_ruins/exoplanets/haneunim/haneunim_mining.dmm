@@ -11,8 +11,7 @@
 /area/haneunim_mining)
 "bd" = (
 /obj/machinery/conveyor{
-	id = "haneunim_mining2";
-	layer = 2.9
+	id = "haneunim_mining2"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -105,8 +104,7 @@
 /area/haneunim_mining)
 "eG" = (
 /obj/machinery/conveyor{
-	id = "haneunim_mining3";
-	layer = 2.9
+	id = "haneunim_mining3"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -156,8 +154,7 @@
 /area/haneunim_mining)
 "gf" = (
 /obj/machinery/conveyor{
-	id = "haneunim_mining3";
-	layer = 2.9
+	id = "haneunim_mining3"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -218,8 +215,7 @@
 /area/haneunim_mining)
 "iv" = (
 /obj/machinery/conveyor{
-	id = "haneunim_mining2";
-	layer = 2.9
+	id = "haneunim_mining2"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -254,8 +250,7 @@
 /area/haneunim_mining)
 "jr" = (
 /obj/machinery/conveyor{
-	id = "haneunim_mining3";
-	layer = 2.9
+	id = "haneunim_mining3"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -288,8 +283,7 @@
 /area/haneunim_mining)
 "ny" = (
 /obj/machinery/conveyor{
-	id = "haneunim_mining2";
-	layer = 2.9
+	id = "haneunim_mining2"
 	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled/rust,
@@ -342,8 +336,7 @@
 /area/haneunim_mining)
 "sq" = (
 /obj/machinery/conveyor{
-	id = "haneunim_mining2";
-	layer = 2.9
+	id = "haneunim_mining2"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -422,8 +415,7 @@
 /area/haneunim_mining)
 "wZ" = (
 /obj/machinery/conveyor{
-	id = "haneunim_mining1";
-	layer = 2.9
+	id = "haneunim_mining1"
 	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled/rust,
@@ -494,8 +486,7 @@
 /area/haneunim_mining)
 "Ed" = (
 /obj/machinery/conveyor{
-	id = "haneunim_mining1";
-	layer = 2.9
+	id = "haneunim_mining1"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -568,8 +559,7 @@
 	dir = 4
 	},
 /obj/machinery/conveyor{
-	id = "haneunim_mining3";
-	layer = 2.9
+	id = "haneunim_mining3"
 	},
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
@@ -730,8 +720,7 @@
 /area/haneunim_mining)
 "Qs" = (
 /obj/machinery/conveyor{
-	id = "haneunim_mining1";
-	layer = 2.9
+	id = "haneunim_mining1"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -871,8 +860,7 @@
 /area/haneunim_mining)
 "Xx" = (
 /obj/machinery/conveyor{
-	id = "haneunim_mining3";
-	layer = 2.9
+	id = "haneunim_mining3"
 	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled/rust,

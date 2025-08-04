@@ -61,7 +61,7 @@
 			return
 		user.drop_from_inventory(attacking_item, src)
 		cell = attacking_item
-		w_class = ITEMSIZE_NORMAL
+		w_class = WEIGHT_CLASS_NORMAL
 		to_chat(user, SPAN_NOTICE("You attach \the [cell] to the [src]."))
 		update_icon()
 		return
@@ -74,7 +74,7 @@
 			to_chat(user, SPAN_NOTICE("You cut \the [cell] away from the [src]."))
 			cell.forceMove(get_turf(src.loc))
 			cell = null
-			w_class = ITEMSIZE_SMALL
+			w_class = WEIGHT_CLASS_SMALL
 			update_icon()
 			return
 		if(wired) //wires disappear into the void because fuck that shit

@@ -1,21 +1,12 @@
-/obj
-	var/list/can_buckle
-	var/buckle_movable = 0
-	var/buckle_dir = 0
-	var/buckle_lying = -1 //bed-like behavior, forces mob.lying = buckle_lying if != -1
-	var/buckle_require_restraints = 0 //require people to be handcuffed before being able to buckle. eg: pipes
-	var/atom/movable/buckled = null
-	var/buckle_delay = 0 //How much extra time to buckle someone to this object.
-
 /obj/attack_hand(mob/living/user)
 	. = ..()
 	if(buckled)
 		user_unbuckle(user)
 
-/obj/MouseDrop_T(atom/dropping, mob/user)
+/obj/mouse_drop_receive(atom/dropped, mob/user, params)
 	. = ..()
-	if(is_type_in_list(dropping, can_buckle))
-		user_buckle(dropping, user)
+	if(is_type_in_list(dropped, can_buckle))
+		user_buckle(dropped, user)
 
 /**
  * Buckles an `/atom/movable` to this obj, performed by a `/mob`
@@ -64,6 +55,7 @@
 		buckling_atom.anchored = TRUE
 
 	post_buckle(buckling_atom)
+	buckled_original_layer = buckling_atom.layer
 	buckling_atom.layer = layer + 0.1
 	return TRUE
 
@@ -72,6 +64,9 @@
 	if(MA && MA.buckled_to == src)
 		. = MA
 		MA.buckled_to = null
+		if(buckled_original_layer)
+			MA.layer = buckled_original_layer
+			buckled_original_layer = null
 		MA.anchored = initial(MA.anchored)
 		buckled = null
 		if(istype(MA, /mob/living))

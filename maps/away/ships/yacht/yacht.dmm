@@ -387,18 +387,14 @@
 /turf/simulated/floor/tiled/freezer,
 /area/shuttle/yacht/living)
 "bq" = (
-/obj/structure/bookcase/libraryspawn/fiction{
-	name = "bookcase"
-	},
+/obj/structure/bookcase/libraryspawn/fiction,
 /turf/simulated/floor/carpet/purple,
 /area/shuttle/yacht/living)
 "br" = (
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/structure/bookcase/libraryspawn/nonfiction{
-	name = "bookcase"
-	},
+/obj/structure/bookcase/libraryspawn/nonfiction,
 /turf/simulated/floor/carpet/purple,
 /area/shuttle/yacht/living)
 "bs" = (
@@ -1608,9 +1604,7 @@
 /turf/simulated/wall/titanium,
 /area/shuttle/yacht/living)
 "Wr" = (
-/obj/structure/bookcase/libraryspawn/reference{
-	name = "bookcase"
-	},
+/obj/structure/bookcase/libraryspawn/reference,
 /turf/simulated/floor/carpet/purple,
 /area/shuttle/yacht/living)
 "WI" = (

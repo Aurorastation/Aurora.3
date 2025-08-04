@@ -21,7 +21,7 @@
 	icon_state = "clothwrap"
 	item_state = "clothwrap"
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	species_restricted = null
 	icon_auto_adapt = TRUE
 	silent = 1
@@ -44,7 +44,9 @@
 	force = 2
 	sharp = TRUE
 
-/obj/item/clothing/shoes/heels/attack(mob/living/carbon/M, mob/living/carbon/user, var/target_zone)
+/obj/item/clothing/shoes/heels/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/mob/living/carbon/M = target_mob
+
 	if(!istype(M) || user.a_intent == "help")
 		return ..()
 	if((target_zone != BP_EYES && target_zone != BP_HEAD) || M.eyes_protected(src, FALSE))
@@ -97,9 +99,9 @@
 	species_restricted = list(BODYTYPE_UNATHI)
 	contained_sprite = TRUE
 	armor = list( //not designed to hold up to bullets or lasers, but still better than nothing.
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_SMALL
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_SMALL
 	)
 	drop_sound = 'sound/items/drop/sword.ogg'
 	pickup_sound = /singleton/sound_category/sword_pickup_sound

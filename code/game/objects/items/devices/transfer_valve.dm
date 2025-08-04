@@ -29,8 +29,8 @@
 			tank_two = attacking_item
 			user.drop_from_inventory(attacking_item,src)
 			to_chat(user, SPAN_NOTICE("You attach the tank to the transfer valve."))
-			message_admins("[key_name_admin(user)] attached both tanks to a transfer valve. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)")
-			log_game("[key_name_admin(user)] attached both tanks to a transfer valve.",ckey=key_name(user))
+			message_admins("[key_name_admin(user)] attached both tanks to a transfer valve. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)")
+			log_game("[key_name_admin(user)] attached both tanks to a transfer valve.")
 
 		update_icon()
 		update_static_data_for_all_viewers()
@@ -51,8 +51,8 @@
 		A.toggle_secure()	//this calls update_icon(), which calls update_icon() on the holder (i.e. the bomb).
 
 		GLOB.bombers += "[key_name(user)] attached a [attacking_item] to a transfer valve."
-		message_admins("[key_name_admin(user)] attached a [attacking_item] to a transfer valve. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)")
-		log_game("[key_name_admin(user)] attached a [attacking_item] to a transfer valve.",ckey=key_name(user))
+		message_admins("[key_name_admin(user)] attached a [attacking_item] to a transfer valve. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)")
+		log_game("[key_name_admin(user)] attached a [attacking_item] to a transfer valve.")
 		attacher = user
 		update_static_data_for_all_viewers()
 	return
@@ -190,16 +190,16 @@
 		else
 			attacher_name = "[attacher.name]([attacher.ckey])"
 
-		var/log_str = "Bomb valve opened in <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[bombturf.x];Y=[bombturf.y];Z=[bombturf.z]'>[A.name]</a> "
+		var/log_str = "Bomb valve opened in <A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[bombturf.x];Y=[bombturf.y];Z=[bombturf.z]'>[A.name]</a> "
 		log_str += "with [attached_device ? attached_device : "no device"] attacher: [attacher_name]"
 
 		if(attacher)
-			log_str += "(<A HREF='?_src_=holder;adminmoreinfo=\ref[attacher]'>?</A>)"
+			log_str += "(<A href='byond://?_src_=holder;adminmoreinfo=[REF(attacher)]'>?</A>)"
 
 		var/mob/mob = get_mob_by_key(src.fingerprintslast)
 		var/last_touch_info = ""
 		if(mob)
-			last_touch_info = "(<A HREF='?_src_=holder;adminmoreinfo=\ref[mob]'>?</A>)"
+			last_touch_info = "(<A href='byond://?_src_=holder;adminmoreinfo=[REF(mob)]'>?</A>)"
 
 		log_str += " Last touched by: [src.fingerprintslast][last_touch_info]"
 		GLOB.bombers += log_str

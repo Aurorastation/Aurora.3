@@ -8,7 +8,7 @@
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "moghes/"
-	suffixes = list("moghes_wasteland_queendom.dmm")
+	suffix = "moghes_wasteland_queendom.dmm"
 	unit_test_groups = list(3)
 
 /area/moghes_queendom
@@ -17,6 +17,7 @@
 	requires_power = FALSE
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
+	is_outside = OUTSIDE_NO
 	base_turf = /turf/simulated/floor/exoplanet/desert
 	area_flags = AREA_FLAG_RAD_SHIELDED|AREA_FLAG_INDESTRUCTIBLE_TURFS
 

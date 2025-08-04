@@ -3,7 +3,7 @@
 	description = "The Sanctuary-class rescue ship is a fast response medical vessel, based in large part off of the Asclepius-class medical transport, a much older and more widespread clinic ship, designed to operate mainly between planets rather than in open space. Most Sanctuary-class hulls are heavily refitted to accomodate for the new conditions in the Wildlands, sporting additional thrusters and a hangar bay, created from what was originally a waiting room. However, it is still limited by its origins, having only the bare minimum of crew and atmospherics facilities, as well as being rather obviously unarmed, often needing to return to port for repairs or supplies."
 
 	prefix = "ships/iac/"
-	suffixes = list("iac_rescue_ship.dmm")
+	suffix = "iac_rescue_ship.dmm"
 
 	sectors = list(SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, ALL_COALITION_SECTORS, SECTOR_UUEOAESA)
 	spawn_weight = 1
@@ -265,3 +265,51 @@
 	landmark_tag = "nav_transit_iac_shuttle"
 
 	base_turf = /turf/space/transit/north
+
+// airlocks
+
+/obj/effect/map_effect/marker/airlock/iac_rescue_ship/port
+	name = "Port Airlock"
+	master_tag = "airlock_iac_rescue_port"
+
+/obj/effect/map_effect/marker/airlock/iac_rescue_ship/starboard
+	name = "Starboard Airlock"
+	master_tag = "airlock_iac_rescue_stbd"
+
+// docks
+
+/obj/effect/map_effect/marker/airlock/docking/iac_rescue_ship/dock/port_berth
+	name = "Dock, Port Berth"
+	landmark_tag = "nav_iac_rescue_port_berth"
+	master_tag = "airlock_iac_rescue_dock_port_berth"
+
+/obj/effect/map_effect/marker/airlock/docking/iac_rescue_ship/dock/port_fore
+	name = "Dock, Port Fore"
+	landmark_tag = "nav_iac_rescue_port_fore"
+	master_tag = "airlock_iac_rescue_dock_port_fore"
+
+/obj/effect/map_effect/marker/airlock/docking/iac_rescue_ship/dock/port_aft
+	name = "Dock, Port Aft"
+	landmark_tag = "nav_iac_rescue_port_aft"
+	master_tag = "airlock_iac_rescue_dock_port_aft"
+
+/obj/effect/map_effect/marker/airlock/docking/iac_rescue_ship/dock/starboard_berth
+	name = "Dock, Starboard Berth"
+	landmark_tag = "nav_iac_rescue_stbd_berth"
+	master_tag = "airlock_iac_rescue_dock_stbd_berth"
+
+/obj/effect/map_effect/marker/airlock/docking/iac_rescue_ship/dock/starboard_fore
+	name = "Dock, Starboard Fore"
+	landmark_tag = "nav_iac_rescue_stbd_fore"
+	master_tag = "airlock_iac_rescue_dock_stbd_fore"
+
+/obj/effect/map_effect/marker/airlock/docking/iac_rescue_ship/dock/starboard_aft
+	name = "Dock, Starboard Aft"
+	landmark_tag = "nav_iac_rescue_stbd_aft"
+	master_tag = "airlock_iac_rescue_dock_stbd_aft"
+
+/obj/effect/map_effect/marker/airlock/shuttle/iac_rescue_ship/shuttle
+	name = "IAC Ambulance Shuttle"
+	shuttle_tag = "IAC Ambulance Shuttle"
+	master_tag = "airlock_iac_rescue_shuttle"
+	cycle_to_external_air = TRUE

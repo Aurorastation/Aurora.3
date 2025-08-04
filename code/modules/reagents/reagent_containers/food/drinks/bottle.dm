@@ -33,13 +33,13 @@
 	return ..()
 
 //when thrown on impact, bottles smash and spill their contents
-/obj/item/reagent_containers/food/drinks/bottle/throw_impact(atom/hit_atom, var/speed)
+/obj/item/reagent_containers/food/drinks/bottle/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	..()
 
-	var/mob/M = thrower
+	var/mob/M = throwingdatum?.thrower?.resolve()
 	if((drink_flags & IS_GLASS) && istype(M) && M.a_intent == I_HURT)
-		var/throw_dist = get_dist(throw_source, loc)
-		if(speed >= throw_speed && smash_check(throw_dist)) //not as reliable as smashing directly
+		var/throw_dist = get_dist(get_turf(M), get_turf(src))
+		if(throwingdatum.speed >= throw_speed && smash_check(throw_dist)) //not as reliable as smashing directly
 			if(reagents)
 				hit_atom.visible_message(SPAN_NOTICE("The contents of \the [src] splash all over [hit_atom]!"))
 				reagents.splash(hit_atom, reagents.total_volume)
@@ -148,12 +148,12 @@
 		return
 	..()
 
-/obj/item/reagent_containers/food/drinks/bottle/attack(mob/living/target, mob/living/user, var/hit_zone)
+/obj/item/reagent_containers/food/drinks/bottle/attack(mob/living/target_mob, mob/living/user, target_zone)
 	var/blocked = ..()
 
 	if(user.a_intent != I_HURT)
 		return
-	if(target == user)  //A check so you don't accidentally smash your brains out while trying to get your drink on.
+	if(target_mob == user)  //A check so you don't accidentally smash your brains out while trying to get your drink on.
 		var/confirm = alert("Do you want to smash the bottle on yourself?","Hit yourself?","No", "Yeah!", "Splash Reagents")
 		if(confirm == "No")
 			return 1 //prevents standard_splash_mob on return
@@ -165,29 +165,33 @@
 	// You are going to knock someone out for longer if they are not wearing a helmet.
 	var/weaken_duration = 0
 	if(blocked < 100)
-		weaken_duration = smash_duration + min(0, force - target.get_blocked_ratio(hit_zone, DAMAGE_BRUTE) * 100 + 10)
+		weaken_duration = smash_duration + min(0, force - target_mob.get_blocked_ratio(target_zone, DAMAGE_BRUTE) * 100 + 10)
 
-	var/mob/living/carbon/human/H = target
-	if(istype(H) && H.headcheck(hit_zone))
-		var/obj/item/organ/affecting = H.get_organ(hit_zone) //headcheck should ensure that affecting is not null
+	var/mob/living/carbon/human/H = target_mob
+	if(istype(H) && H.headcheck(target_zone))
+		var/obj/item/organ/affecting = H.get_organ(target_zone) //headcheck should ensure that affecting is not null
 		user.visible_message(SPAN_DANGER("[user] smashes [src] into [H]'s [affecting.name]!"))
 		if(weaken_duration)
-			target.apply_effect(min(weaken_duration, 5), WEAKEN, blocked) // Never weaken more than a flash!
+			target_mob.apply_effect(min(weaken_duration, 5), WEAKEN, blocked) // Never weaken more than a flash!
 	else
-		user.visible_message(SPAN_DANGER("\The [user] smashes [src] into [target]!"))
+		user.visible_message(SPAN_DANGER("\The [user] smashes [src] into [target_mob]!"))
 
-	//The reagents in the bottle splash all over the target, thanks for the idea Nodrak
+	//The reagents in the bottle splash all over the target_mob, thanks for the idea Nodrak
 	if(reagents)
-		user.visible_message(SPAN_NOTICE("The contents of \the [src] splash all over [target]!"))
-		reagents.splash(target, reagents.total_volume)
+		user.visible_message(SPAN_NOTICE("The contents of \the [src] splash all over [target_mob]!"))
+		reagents.splash(target_mob, reagents.total_volume)
 
 	//Finally, smash the bottle. This kills (qdel) the bottle.
-	var/obj/item/broken_bottle/B = smash(target.loc, target)
+	var/obj/item/broken_bottle/B = smash(target_mob.loc, target_mob)
 	user.put_in_active_hand(B)
 
 	return blocked
 
-/obj/item/reagent_containers/food/drinks/bottle/bullet_act()
+/obj/item/reagent_containers/food/drinks/bottle/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
 	smash(loc)
 
 /*
@@ -242,7 +246,7 @@
 	var/static/icon/broken_outline = icon('icons/obj/item/reagent_containers/food/drinks/drink_effects.dmi', "broken")
 	///The mask image for mimicking a broken-off neck of the bottle
 	var/static/icon/flipped_broken_outline = icon('icons/obj/item/reagent_containers/food/drinks/drink_effects.dmi', "broken-flipped")
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 #define DRINK_FLUFF_GETMORE  "This drink is made by Getmore Corporation, a subsidiary of NanoTrasen. It mostly specializes in fast food and consumer food products, \
 								but also makes average quality alcohol. Many can find Getmore products in grocery stores, vending machines, \
@@ -375,7 +379,7 @@
 		return
 
 	if(is_open_container())
-		balloon_alert(user, "the bottle was already open, you spill some on the floor...")
+		balloon_alert(user, "already open! you spill some on the floor!")
 		if(reagents.total_volume)
 			src.reagents.remove_any(reagents.total_volume / 5)
 		return
@@ -434,25 +438,24 @@
 	update_icon()
 	make_froth(offset_x = 0, offset_y = sabraged ? 13 : 15, intensity = froth_severity) //the y offset for sabraged is lower because the bottle's lip is smashed
 	///Type of cork to fire away
-	var/obj/item/projectile/bullet/cork_to_fire = sabraged ? /obj/item/projectile/bullet/champagne_cork/sabrage : /obj/item/projectile/bullet/champagne_cork
+	var/obj/projectile/bullet/cork_to_fire = sabraged ? /obj/projectile/bullet/champagne_cork/sabrage : /obj/projectile/bullet/champagne_cork
 	///Our resulting cork projectile
-	var/obj/item/projectile/bullet/champagne_cork/popped_cork = new cork_to_fire(get_turf(src))
+	var/obj/projectile/bullet/champagne_cork/popped_cork = new cork_to_fire(get_turf(src))
 	popped_cork.firer =  user
 	popped_cork.fire(dir2angle(user.dir) + rand(-30, 30))
 
-/obj/item/projectile/bullet/champagne_cork
+/obj/projectile/bullet/champagne_cork
 	name = "champagne cork"
 	icon = 'icons/obj/item/reagent_containers/food/drinks/bottle.dmi'
 	icon_state = "champagne_cork"
-	hitsound = 'sound/weapons/genhit.ogg'
 	damage = 5
 	embed = FALSE
 	sharp = FALSE
 	agony = 10 // ow!
 	var/drop_type = /obj/item/trash/champagne_cork
 
-/obj/item/projectile/bullet/champagne_cork/on_impact(var/atom/A)
-	..()
+/obj/projectile/bullet/champagne_cork/on_hit(atom/target, blocked, def_zone)
+	. = ..()
 	new drop_type(src.loc) //always use src.loc so that ash doesn't end up inside windows
 
 /obj/item/trash/champagne_cork
@@ -460,7 +463,7 @@
 	icon = 'icons/obj/item/reagent_containers/food/drinks/bottle.dmi'
 	icon_state = "champagne_cork"
 
-/obj/item/projectile/bullet/champagne_cork/sabrage
+/obj/projectile/bullet/champagne_cork/sabrage
 	icon_state = "champagne_cork_sabrage"
 	drop_type = /obj/item/trash/champagne_cork/sabrage
 
@@ -836,14 +839,14 @@
 	Tajara consider the wine to be exotic or outright disgusting. The Shyyr Kirr'tyr is usually eaten after the beverage is imbibed."
 	reagents_to_add = list(/singleton/reagent/alcohol/shyyrkirrtyr_wine = 100)
 
-/obj/item/reagent_containers/food/drinks/bottle/nmshaan_liquor
-	name = "nm'shaan liquor"
-	desc = "A strong Adhomian liquor reserved for special occasions. A label on the bottle recommends diluting it with icy water before drinking."
-	icon_state = "nmshaanliquor"
+/obj/item/reagent_containers/food/drinks/bottle/sugartree_liquor
+	name = "sugar tree liquor"
+	desc = "Also called nm'shaan liquor in native Siik'maas: a strong Adhomian liquor reserved for special occasions. A label on the bottle recommends diluting it with icy water before drinking."
+	icon_state = "sugartreeliquor"
 	center_of_mass = list("x" = 16,"y" = 5)
 	desc_extended = "An alcoholic drink manufactured from the fruit of the Nm'shaan plant. It usually has a high level of alcohol by volume. Nm'shaan liquor was once reserved for the \
 	consumption of the nobility; even today it is considered a decadent drink reserved for fancy occasions."
-	reagents_to_add = list(/singleton/reagent/alcohol/nmshaan_liquor = 100)
+	reagents_to_add = list(/singleton/reagent/alcohol/sugartree_liquor = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/veterans_choice
 	name = "veteran's choice"
@@ -872,7 +875,7 @@
 	desc_extended = "A famous variation of the Nm'shaan Liquor; it is described as one of Adhomai's finest spirits. It is produced solely by a small family-owned brewery in Miran'mir. Its \
 	recipe is a secret passed down through the generations of the Darmadhir household since immemorial times. The only living member of the family, Hazyr Darmadhir, is a 68 years old \
 	Tajara. His sole heir and son died in the Second Revolution after being drafted to fight for the royal army. Alcohol collectors stipulate that the brew's price will skyrocket after Hazyr's death."
-	reagents_to_add = list(/singleton/reagent/alcohol/nmshaan_liquor/darmadhirbrew = 100)
+	reagents_to_add = list(/singleton/reagent/alcohol/sugartree_liquor/darmadhirbrew = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/pulque
 	name = "Don Augusto's pulque"
@@ -1006,6 +1009,26 @@
 	center_of_mass = list("x"=16, "y"=8)
 	reagents_to_add = list(/singleton/reagent/alcohol/hooch = 100)
 
+
+/obj/item/reagent_containers/food/drinks/bottle/ogogoro
+	name = "ogogoro jar"
+	desc = "A traditional Eridani palm wine drink, stored in a mason jar."
+	desc_extended = "Ogogoro is a traditional West African drink which the colonists of Eridani originally took with them. The nature of it as a high-alcohol moonshine, however, meant that it would eventually be sidelined by the suits of Eridani as \
+	a vestige of the poor man's culture. As such, whilst it remains extremely common amongst dregs, a suit drinking ogogoro would often be looked down upon by their peers. It remains popular in opaque flasks, however. Appropriately, this jar was not brewed \
+	on Eridani itself, but instead by the dreg diaspora found in Burzsia."
+	icon_state = "ogogoro"
+	empty_icon_state = "ogogoro_empty"
+	reagents_to_add = list(/singleton/reagent/alcohol/ogogoro = 100)
+
+/obj/item/reagent_containers/food/drinks/bottle/small/burukutu
+	name = "burukutu bottle"
+	desc = "A traditional Eridani millet beer, distributed by Idris."
+	desc_extended = "Burukutu is a millet beer common throughout West Africa and colonies with West African influence. As such, it can be found commonly on the colony of Eridani. This bottle in particular is a Silverport product, extremely popular \
+	with the suits of the Eridani federation. In spite of their preference for stronger drinks, dregs can often be found with burukutu 'retrieved' from the aboveground cities of Eridani I. According to the label on the back, this was bottled in Tokura, \
+	Eridani I."
+	icon_state = "burukutu"
+	reagents_to_add = list(/singleton/reagent/alcohol/burukutu = 30)
+
 // Butanol-based alcoholic drinks
 //=====================================
 //These are mainly for unathi, and have very little (but still some) effect on other species
@@ -1068,3 +1091,18 @@
 	center_of_mass = list("x"=16, "y"=11)
 	reagents_to_add = list(/singleton/reagent/drink/milk/nemiik = 80)
 	empty_icon_state = "vrozka_empty"
+
+// Vaurca alcoholic drinks
+//=====================================
+
+/obj/item/reagent_containers/food/drinks/bottle/skyemok
+	name = "bottle of Skye'mok"
+	desc = "Traditional Sedantian drink. Looks like it's inside a pulsating stomach."
+	desc_extended = "A traditional Sedantian brew crafted from a special fungus fed to V'krexi, this unique beverage ferments in the swollen stomachs of these creatures. It is served traditionally on the head of the V'krexi it was prepared in."
+	icon_state = "skyemok"
+	empty_icon_state = "skyemok_empty"
+	drop_sound = 'sound/items/drop/flesh.ogg'
+	pickup_sound = 'sound/items/pickup/flesh.ogg'
+	center_of_mass = list("x"=16, "y"=11)
+	reagents_to_add = list(/singleton/reagent/drink/toothpaste/skyemok= 80)
+

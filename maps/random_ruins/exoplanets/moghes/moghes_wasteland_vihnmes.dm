@@ -1,15 +1,15 @@
 /datum/map_template/ruin/exoplanet/moghes_wasteland_vihnmes
 	name = "Vihnmes Wasteland Inn"
 
-	id = "moghes_wasteland_ozeuoi"
-	description = "An outpost of the Clan Ozeuoi"
+	id = "moghes_wasteland_vihnmes"
+	description = "An inn of the Clan Vihnmes"
 
 	spawn_weight = 1
 	spawn_cost = 2
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "moghes/"
-	suffixes = list("moghes_wasteland_vihnmes.dmm")
+	suffix = "moghes_wasteland_vihnmes.dmm"
 	unit_test_groups = list(1)
 
 /area/moghes_vihnmes
@@ -18,6 +18,7 @@
 	requires_power = FALSE
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
+	is_outside = OUTSIDE_NO
 	base_turf = /turf/simulated/floor/exoplanet/desert
 	area_flags = AREA_FLAG_RAD_SHIELDED|AREA_FLAG_INDESTRUCTIBLE_TURFS
 	area_blurb = "The sound of music and the warmth of a fire fill this place - an oasis of rest in the danger of the Wasteland."
@@ -98,6 +99,7 @@
 		/obj/item/clothing/shoes/footwraps
 	)
 	back = /obj/item/storage/backpack/satchel/leather
+	glasses = /obj/item/clothing/glasses/safety/goggles/wasteland
 	r_pocket = /obj/item/reagent_containers/food/drinks/waterbottle
 	l_pocket = /obj/item/storage/wallet/random
 	suit = list(

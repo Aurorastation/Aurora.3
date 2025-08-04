@@ -11,8 +11,7 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/spline/plain{
-	dir = 8;
-	layer = 2.41
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/fishing_trawler/kitchen)
@@ -201,9 +200,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71
-	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor,
 /area/ship/fishing_trawler/engineering/Starboard)
 "bB" = (
@@ -400,7 +397,7 @@
 "dD" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/fishing_trawler)
 "dF" = (
@@ -611,8 +608,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1;
-	icon_state = "map-supply"
+	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
@@ -628,9 +624,7 @@
 /obj/machinery/atmospherics/binary/pump/on{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71
-	},
+/obj/effect/floor_decal/industrial/warning,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/ship/fishing_trawler/engineering/Starboard)
@@ -738,8 +732,7 @@
 "gJ" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "trawler_lockdown";
-	name = "blast door"
+	id = "trawler_lockdown"
 	},
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor/plating,
@@ -815,8 +808,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/steel,
 /area/ship/fishing_trawler/corridor/central)
@@ -917,8 +909,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1;
-	icon_state = "map-supply"
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -1030,9 +1021,7 @@
 /area/space)
 "jo" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
-/obj/effect/decal/cleanable/generic{
-	layer = 2.81
-	},
+/obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled/steel,
 /area/ship/fishing_trawler/galley)
 "jp" = (
@@ -1440,9 +1429,7 @@
 	dir = 5
 	},
 /obj/machinery/meter,
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71
-	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor,
 /area/ship/fishing_trawler/engineering/Starboard)
 "lO" = (
@@ -1474,8 +1461,7 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /turf/simulated/floor/tiled/steel,
 /area/ship/fishing_trawler/EVA_port)
@@ -1516,8 +1502,7 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/effect/floor_decal/spline/plain{
-	dir = 8;
-	layer = 2.41
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/fishing_trawler/kitchen)
@@ -1638,12 +1623,9 @@
 /obj/machinery/door/airlock/freezer{
 	dir = 4;
 	name = "Freezer";
-	req_access = list(241);
-	layer = 2.8
+	req_access = list(241)
 	},
-/obj/structure/plasticflaps/airtight{
-	layer = 2
-	},
+/obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/freezer)
 "ne" = (
@@ -1705,12 +1687,10 @@
 	pixel_y = 10
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = 7
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = 1
 	},
@@ -2196,8 +2176,7 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -2340,8 +2319,7 @@
 /area/ship/fishing_trawler/corridor/central)
 "sc" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/fishing_trawler/engineering/port)
@@ -2435,8 +2413,7 @@
 /area/ship/fishing_trawler/corridor/port)
 "sU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
@@ -2594,7 +2571,8 @@
 	dir = 8
 	},
 /obj/machinery/vending/wallmed1{
-	pixel_y = 27
+	pixel_y = 27;
+	req_access = list(241)
 	},
 /turf/simulated/floor,
 /area/shuttle/fishing_trawler)
@@ -2728,8 +2706,7 @@
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/closet/emcloset,
@@ -2759,8 +2736,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "trawler_lockdown";
-	name = "blast door"
+	id = "trawler_lockdown"
 	},
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor/plating,
@@ -3023,8 +2999,7 @@
 /area/ship/fishing_trawler/corridor/central)
 "wE" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -3560,9 +3535,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71
-	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor,
 /area/ship/fishing_trawler/engineering/port)
 "Bh" = (
@@ -3654,8 +3627,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /turf/simulated/floor,
 /area/ship/fishing_trawler/engineering/Starboard)
@@ -3711,8 +3683,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1;
-	icon_state = "map-supply"
+	dir = 1
 	},
 /turf/simulated/floor/tiled/steel,
 /area/ship/fishing_trawler/corridor/central)
@@ -4369,8 +4340,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
@@ -4395,8 +4365,7 @@
 /area/ship/fishing_trawler/kitchen)
 "GB" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 6;
-	icon_state = "warning"
+	dir = 6
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/fishing_trawler/engineering/port)
@@ -4436,7 +4405,9 @@
 /turf/simulated/floor/tiled/freezer,
 /area/ship/fishing_trawler/Captain)
 "GP" = (
-/obj/machinery/computer/ship/helm,
+/obj/machinery/computer/ship/helm{
+	req_access = list(241)
+	},
 /obj/effect/floor_decal/corner/black{
 	dir = 10
 	},
@@ -4636,8 +4607,7 @@
 /area/ship/fishing_trawler/corridor/starboard)
 "Jo" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	layer = 2.71
+	dir = 4
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/fishing_trawler/engineering/port)
@@ -4687,7 +4657,6 @@
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 4;
 	frequency = 1336;
-	icon_state = "map_injector";
 	id = "trawler_thrust_in"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -5048,8 +5017,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1;
-	icon_state = "map-supply"
+	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
@@ -5084,8 +5052,7 @@
 /area/ship/fishing_trawler/crew_quarters)
 "Mx" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 10;
-	icon_state = "warning"
+	dir = 10
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/fishing_trawler/engineering/port)
@@ -5109,7 +5076,8 @@
 /area/ship/fishing_trawler/EVA_starboard)
 "MB" = (
 /obj/machinery/vending/wallmed2{
-	pixel_x = -28
+	pixel_x = -28;
+	req_access = list(241)
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -5130,7 +5098,6 @@
 "ML" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 2;
 	pixel_y = -3;
 	pixel_x = 24
 	},
@@ -5305,8 +5272,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+	dir = 4
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 8
@@ -5763,9 +5729,7 @@
 /turf/simulated/floor/airless,
 /area/ship/fishing/trawler/fishing_catwalk)
 "Sk" = (
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71
-	},
+/obj/effect/floor_decal/industrial/warning,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/ship/fishing_trawler/engineering/port)
@@ -5942,7 +5906,6 @@
 /obj/item/reagent_containers/food/snacks/fish/carpmeat,
 /obj/item/reagent_containers/food/snacks/fish/carpmeat,
 /obj/item/material/knife{
-	layer = 2.99;
 	pixel_x = -9
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -6035,7 +5998,9 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/fishing_trawler/kitchen)
 "Un" = (
-/obj/machinery/computer/ship/helm/terminal,
+/obj/machinery/computer/ship/helm/terminal{
+	req_access = list(241)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/fishing_trawler)
 "Ur" = (
@@ -6196,8 +6161,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /turf/simulated/floor,
 /area/ship/fishing_trawler/engineering/Starboard)
@@ -6230,8 +6194,7 @@
 "VT" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/spline/plain{
-	dir = 8;
-	layer = 2.41
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/fishing_trawler/kitchen)
@@ -6297,9 +6260,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/fishing_trawler/kitchen)
 "Wy" = (
-/obj/structure/plasticflaps/airtight{
-	layer = 2
-	},
+/obj/structure/plasticflaps/airtight,
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/door/airlock/freezer{
 	dir = 4;
@@ -6456,8 +6417,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -6624,9 +6584,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/ship/fishing_trawler/freezer)
 "Zk" = (
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71
-	},
+/obj/effect/floor_decal/industrial/warning,
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},

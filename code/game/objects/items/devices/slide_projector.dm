@@ -1,10 +1,9 @@
 /obj/item/storage/slide_projector
 	name = "slide projector"
 	desc = "A handy device capable of showing an enlarged projection of whatever you can fit inside."
-	desc_info = "You can use this in hand to open the interface, click-dragging it to you also works. Click anywhere with it in your hand to project at that location. Click dragging it to that location also works."
 	icon = 'icons/obj/projector.dmi'
 	icon_state = "projector0"
-	max_w_class = ITEMSIZE_SMALL
+	max_w_class = WEIGHT_CLASS_SMALL
 	max_storage_space = 10
 	use_sound = 'sound/items/storage/toolbox.ogg'
 	var/static/list/projection_types = list(
@@ -14,6 +13,11 @@
 	)
 	var/obj/item/current_slide
 	var/obj/effect/projection/projection
+
+/obj/item/storage/slide_projector/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can use this in-hand or click-drag it to yourself to to open its interface."
+	. += "Click anywhere with it in your hand, or click-drag it, to project at that location."
 
 /obj/item/storage/slide_projector/Destroy()
 	QDEL_NULL(current_slide)
@@ -41,17 +45,17 @@
 		return
 	project_at(get_turf(target))
 
-/obj/item/storage/slide_projector/MouseDrop(atom/over)
-	if(use_check_and_message(usr))
+/obj/item/storage/slide_projector/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(use_check_and_message(user))
 		return
 
-	if(over == usr)
-		interact(usr)
+	if(over == user)
+		interact(user)
 		return
 
 	var/turf/T = get_turf(over)
 	if(istype(T))
-		afterattack(over, usr)
+		afterattack(over, user)
 
 /obj/item/storage/slide_projector/proc/set_slide(obj/item/new_slide)
 	current_slide = new_slide
@@ -68,7 +72,7 @@
 /obj/item/storage/slide_projector/proc/stop_projecting()
 	if(projection)
 		QDEL_NULL(projection)
-	GLOB.moved_event.unregister(src, src, PROC_REF(check_projections))
+	UnregisterSignal(src, COMSIG_MOVABLE_MOVED)
 	set_light(0)
 	update_icon()
 
@@ -83,7 +87,7 @@
 			break
 	projection = new projection_type(target)
 	projection.set_source(current_slide)
-	GLOB.moved_event.register(src, src, PROC_REF(check_projections))
+	RegisterSignal(src, COMSIG_MOVABLE_MOVED, PROC_REF(check_projections))
 	set_light(1.4, 0.1, COLOR_WHITE) //Bit of light
 	update_icon()
 
@@ -93,7 +97,7 @@
 /obj/item/storage/slide_projector/interact(mob/user)
 	var/data = list()
 	if(projection)
-		data += "<a href='?src=\ref[src];stop_projector=1'>Disable Projector</a>"
+		data += "<a href='byond://?src=[REF(src)];stop_projector=1'>Disable Projector</a>"
 	else
 		data += "Projector Inactive"
 
@@ -104,13 +108,13 @@
 		if(I == current_slide)
 			table += "<td><b>[I.name]</b></td><td>SHOWING</td>"
 		else
-			table += "<td>[I.name]</td><td><a href='?src=\ref[src];set_active=[i]'>SHOW</a></td>"
+			table += "<td>[I.name]</td><td><a href='byond://?src=[REF(src)];set_active=[i]'>SHOW</a></td>"
 		table += "</tr>"
 		i++
 	table += "</table>"
 	data += jointext(table,null)
 
-	var/datum/browser/popup = new(user, "slides\ref[src]", "Slide Projector")
+	var/datum/browser/popup = new(user, "slides[REF(src)]", "Slide Projector")
 	popup.set_content(jointext(data, "<br>"))
 	popup.open()
 

@@ -34,7 +34,7 @@
 /datum/design/item/robot_upgrade/jetpack
 	name = "Jetpack Module"
 	desc = "A carbon dioxide jetpack suitable for low-gravity mining operations."
-	materials = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_PHORON = 15000, MATERIAL_URANIUM = 20000)
+	materials = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_SILVER = 15000, MATERIAL_URANIUM = 20000)
 	build_path = /obj/item/robot_parts/robot_component/jetpack
 
 /datum/design/item/robot_upgrade/syndicate

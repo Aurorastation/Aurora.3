@@ -2,7 +2,7 @@
 	name = "gun"
 	desc = "A gun that fires bullets."
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	matter = list(DEFAULT_WALL_MATERIAL = 1000)
 	recoil = 1
 
@@ -37,10 +37,24 @@
 	//var/list/icon_keys = list()		//keys
 	//var/list/ammo_states = list()	//values
 
+/obj/item/gun/projectile/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This is a ballistic weapon. It fires [caliber] ammunition. To reload most guns, click the gun with an empty hand to remove any spent casings or magazines, and then insert new ones."
+
+/obj/item/gun/projectile/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance > 1)
+		return
+	if(jam_num)
+		. += SPAN_WARNING("It looks jammed.")
+	if(ammo_magazine)
+		. += "It has \a [ammo_magazine] loaded."
+	if(suppressed)
+		. += "It has a suppressor attached."
+	. += "Has [get_ammo()] round\s remaining."
+
 /obj/item/gun/projectile/Initialize()
 	. = ..()
-	desc_info = "This is a ballistic weapon. It fires [caliber] ammunition. To fire the weapon, toggle the safety with ctrl-click (or enable HARM intent), \
-	then click where you want to fire.  To reload, click the gun with an empty hand to remove any spent casings or magazines, and then insert new ones."
 	if(ispath(ammo_type) && (load_method & (SINGLE_CASING|SPEEDLOADER)))
 		for(var/i in 1 to max_shells)
 			loaded += new ammo_type(src)
@@ -235,15 +249,15 @@
 	if(istype(attacking_item, /obj/item/suppressor))
 		var/obj/item/suppressor/S = attacking_item
 		if(!can_suppress)
-			balloon_alert(user, "\the [S.name] doesn't fit")
+			balloon_alert(user, "doesn't fit!")
 			return
 
 		if(suppressed)
-			balloon_alert(user, "already has a suppressor")
+			balloon_alert(user, "already has a suppressor!")
 			return
 
 		if(user.l_hand != S && user.r_hand != S)
-			balloon_alert(user, "not in hand")
+			balloon_alert(user, "not in hand!")
 			return
 
 		user.drop_from_inventory(suppressor, src)
@@ -288,19 +302,6 @@
 		ammo_magazine = null
 		update_icon() //make sure to do this after unsetting ammo_magazine
 
-/obj/item/gun/projectile/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance > 1)
-		return
-	if(jam_num)
-		. += SPAN_WARNING("It looks jammed.")
-	if(ammo_magazine)
-		. += "It has \a [ammo_magazine] loaded."
-	if(suppressed)
-		. += "It has a suppressor attached."
-	. += "Has [get_ammo()] round\s remaining."
-	return
-
 /obj/item/gun/projectile/get_ammo()
 	var/bullets = 0
 	if(loaded)
@@ -318,7 +319,7 @@
 		. += "Max Shots: [max_shells]<br>"
 		if(length(loaded))
 			var/obj/item/ammo_casing/casing = loaded[1]
-			var/obj/item/projectile/P = new casing.projectile_type
+			var/obj/projectile/P = new casing.projectile_type
 			. += "<br><b>Projectile</b><br>"
 			. += P.get_print_info()
 		else
@@ -327,7 +328,7 @@
 		. += "Load Type: Magazine<br>"
 		if(ammo_magazine)
 			var/obj/item/ammo_casing/casing = new ammo_magazine.ammo_type
-			var/obj/item/projectile/P = new casing.projectile_type
+			var/obj/projectile/P = new casing.projectile_type
 			. += "<br><b>Projectile</b><br>"
 			. += P.get_print_info()
 		else

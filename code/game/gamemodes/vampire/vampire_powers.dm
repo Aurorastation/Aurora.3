@@ -451,12 +451,21 @@
 	var/datum/vampire/owner_vampire = null
 	var/warning_level = 0
 
+/obj/effect/dummy/veil_walk/Initialize(mapload, ...)
+	. = ..()
+	RegisterSignal(src, COMSIG_ATOM_PRE_BULLET_ACT, PROC_REF(handle_bullet_act))
+
 /obj/effect/dummy/veil_walk/Destroy()
 	eject_all()
 
 	STOP_PROCESSING(SSprocessing, src)
 
 	return ..()
+
+/obj/effect/dummy/veil_walk/proc/handle_bullet_act(datum/source, obj/projectile/projectile)
+	SIGNAL_HANDLER
+
+	return COMPONENT_BULLET_BLOCKED
 
 /obj/effect/dummy/veil_walk/proc/eject_all()
 	for(var/atom/movable/A in src)
@@ -465,7 +474,9 @@
 			var/mob/M = A
 			M.reset_view(null)
 
-/obj/effect/dummy/veil_walk/relaymove(var/mob/user, direction)
+/obj/effect/dummy/veil_walk/relaymove(mob/living/user, direction)
+	. = ..()
+
 	if(user != owner_mob)
 		return
 	if(ghost_last_move + ghost_move_delay > world.time)
@@ -473,7 +484,7 @@
 	ghost_last_move = world.time
 
 	var/turf/new_loc = get_step(src, direction)
-	if(new_loc.turf_flags & TURF_FLAG_NOJAUNT || istype(new_loc.loc, /area/chapel))
+	if(new_loc.turf_flags & TURF_FLAG_NOJAUNT || istype(new_loc.loc, /area/horizon/service/chapel))
 		to_chat(usr, SPAN_WARNING("Some strange aura is blocking the way!"))
 		return
 
@@ -569,9 +580,6 @@
 	desc = "[initial(desc)] + Its features look faintly alike [owner_mob.name]'s."
 
 /obj/effect/dummy/veil_walk/ex_act(vars)
-	return
-
-/obj/effect/dummy/veil_walk/bullet_act(vars)
 	return
 
 // Heals the vampire at the cost of blood.
@@ -753,7 +761,7 @@
 		return
 
 	to_chat(T, SPAN_DANGER("Your mind blanks as you finish feeding from [src]'s wrist."))
-	thralls.add_antagonist(T.mind, 1, 1, 0, 1, 1)
+	GLOB.thralls.add_antagonist(T.mind, 1, 1, 0, 1, 1)
 
 	var/datum/vampire/T_vampire = T.mind.antag_datums[MODE_VAMPIRE]
 	T_vampire.assign_master(T, src, vampire)
@@ -907,7 +915,7 @@
 					to_chat(src, SPAN_NOTICE("[denial_response]"))
 					return
 
-				thralls.remove_antagonist(T.mind, 0, 0)
+				GLOB.thralls.remove_antagonist(T.mind, 0, 0)
 				qdel(draining_vamp)
 				draining_vamp = null
 			else
@@ -940,7 +948,7 @@
 
 	// You ain't goin' anywhere, bud.
 	if(!T.client && T.mind)
-		for(var/mob/abstract/observer/ghost in GLOB.player_list)
+		for(var/mob/abstract/ghost/observer/ghost in GLOB.player_list)
 			if(ghost.mind == T.mind)
 				ghost.can_reenter_corpse = TRUE
 				ghost.reenter_corpse()
@@ -948,7 +956,7 @@
 				to_chat(T, SPAN_DANGER("A dark force pushes you back into your body. You find yourself somehow still clinging to life."))
 
 	T.Weaken(15)
-	vamp.add_antagonist(T.mind, 1, 1, 0, 0, 1)
+	GLOB.vamp.add_antagonist(T.mind, 1, 1, 0, 0, 1)
 
 	admin_attack_log(src, T, "successfully embraced [key_name(T)]", "was successfully embraced by [key_name(src)]", "successfully embraced and turned into a vampire")
 

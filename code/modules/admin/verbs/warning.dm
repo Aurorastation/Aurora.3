@@ -49,7 +49,7 @@
 
 	feedback_add_details("admin_verb", "WARN-DB")
 	if (C)
-		to_chat(C, SPAN_WARNING("<BIG><B>You have been warned by an administrator.</B></BIG><br>Click <a href='byond://?src=\ref[src];warnview=1'>here</a> to review and acknowledge them!"))
+		to_chat(C, SPAN_WARNING("<BIG><B>You have been warned by an administrator.</B></BIG><br>Click <a href='byond://?src=[REF(src)];warnview=1'>here</a> to review and acknowledge them!"))
 
 	message_admins("[key_name_admin(src)] has warned [warned_ckey] for: [warning_reason].")
 
@@ -68,7 +68,7 @@
 	var/datum/preferences/D
 	var/client/C = GLOB.directory[warned_ckey]
 	if(C)	D = C.prefs
-	else	D = preferences_datums[warned_ckey]
+	else	D = GLOB.preferences_datums[warned_ckey]
 
 	if(!D)
 		to_chat(src, SPAN_WARNING("Error: warn_legacy(): No such ckey found."))
@@ -144,7 +144,7 @@
 		dat += "<tr bgcolor='90ee90' align='center'>"
 		dat += "<td>[notification_query.item[3]]</td>"
 		dat += "<td>[notification_query.item[2]]</td>"
-		dat += "<td><b>(<a href='byond://?src=\ref[src];notifacknowledge=[notification_query.item[1]]'>Acknowledge Notification</a>)</b></td>"
+		dat += "<td><b>(<a href='byond://?src=[REF(src)];notifacknowledge=[notification_query.item[1]]'>Acknowledge Notification</a>)</b></td>"
 		dat += "</tr>"
 
 	if(notification_header)
@@ -190,7 +190,7 @@
 		dat += "</tr>"
 
 		if (!ackn)
-			dat += "<tr><td align='center' colspan='3'><b>(<a href='byond://?src=\ref[src];warnacknowledge=[id]'>Acknowledge Warning</a>)</b></td></tr>"
+			dat += "<tr><td align='center' colspan='3'><b>(<a href='byond://?src=[REF(src)];warnacknowledge=[id]'>Acknowledge Warning</a>)</b></td></tr>"
 		else if (expired)
 			dat += "<tr><td align='center' colspan='3'><b>Warning expired and no longer active!</b></td></tr>"
 		else
@@ -201,7 +201,7 @@
 		dat += "</tr>"
 
 	dat += "</table>"
-	show_browser(usr, dat, "window=mywarnings;size=900x500")
+	show_browser(usr, HTML_SKELETON(dat), "window=mywarnings;size=900x500")
 
 /*
  * A proc for acknowledging a warning
@@ -266,7 +266,7 @@
 
 	var/list/data = list("unread" = "", "expired" = "")
 	if (count)
-		data["unread"] = "You have <b>[count] unread warning\s!</b> Click <a href='?JSlink=warnings;notification=:src_ref'>here</a> to review and acknowledge them!"
+		data["unread"] = "You have <b>[count] unread warning\s!</b> Click <a href='byond://?JSlink=warnings;notification=:src_ref'>here</a> to review and acknowledge them!"
 	if (count_expire)
 		data["expired"] = "[count_expire] of your warnings have expired."
 
@@ -327,8 +327,8 @@
 
 	//Totally not stealing code from the DB_ban_panel
 
-	dat += "<form method='GET' action='?src=\ref[src]'><b>Search:</b> "
-	dat += "<input type='hidden' name='src' value='\ref[src]'>"
+	dat += "<form method='GET' action='?src=[REF(src)]'><b>Search:</b> "
+	dat += "<input type='hidden' name='src' value='[REF(src)]'>"
 	dat += "<b>Ckey:</b> <input type='text' name='warnsearchckey' value='[playerckey]'>"
 	dat += "<b>Admin ckey:</b> <input type='text' name='warnsearchadmin' value='[adminckey]'>"
 	dat += "<input type='submit' value='search'>"
@@ -396,9 +396,9 @@
 			dat += "<tr>"
 			dat += "<td align='center' colspan='5'><b>Options:</b> "
 			if(check_rights(R_ADMIN) || a_ckey == sanitizeSQL(ckey))
-				dat += "<a href=\"byond://?src=\ref[src];dbwarningedit=editReason;dbwarningid=[id]\">Edit Reason</a> "
-				dat += "<a href=\"byond://?src=\ref[src];dbwarningedit=editNotes;dbwarningid=[id]\">Edit Note</a> "
-				dat += "<a href=\"byond://?src=\ref[src];dbwarningedit=delete;dbwarningid=[id]\">Delete Warning</a>"
+				dat += "<a href=\"byond://?src=[REF(src)];dbwarningedit=editReason;dbwarningid=[id]\">Edit Reason</a> "
+				dat += "<a href=\"byond://?src=[REF(src)];dbwarningedit=editNotes;dbwarningid=[id]\">Edit Note</a> "
+				dat += "<a href=\"byond://?src=[REF(src)];dbwarningedit=delete;dbwarningid=[id]\">Delete Warning</a>"
 			else
 				dat += "You can only edit or delete notes that you have issued."
 			dat += "</td>"
@@ -410,7 +410,7 @@
 
 		dat +="</table>"
 
-	show_browser(usr, dat, "window=lookupwarns;size=900x500")
+	show_browser(usr, HTML_SKELETON(dat), "window=lookupwarns;size=900x500")
 	feedback_add_details("admin_verb","WARN-LKUP")
 
 //Admin Proc to add a new User Notification
@@ -500,7 +500,7 @@
 				deleteQuery.Execute(query_details)
 
 				message_admins(SPAN_NOTICE("[key_name_admin(usr)] deleted one of [ckey]'s warnings."))
-				log_admin("[key_name(usr)] deleted one of [ckey]'s warnings.", admin_key=key_name(usr), ckey=ckey)
+				log_admin("[key_name(usr)] deleted one of [ckey]'s warnings.")
 			else
 				to_chat(usr, "Cancelled")
 				return
@@ -516,7 +516,7 @@
 			reason_query.Execute(query_details)
 
 			message_admins(SPAN_NOTICE("[key_name_admin(usr)] edited one of [ckey]'s warning reasons."))
-			log_admin("[key_name(usr)] edited one of [ckey]'s warning reasons.", admin_key=key_name(usr), ckey=ckey)
+			log_admin("[key_name(usr)] edited one of [ckey]'s warning reasons.")
 
 		if("editNotes")
 			query_details["new_notes"] = input("Edit this warning's notes.", "New Notes", notes, null) as null|text
@@ -529,4 +529,4 @@
 			notes_query.Execute(query_details)
 
 			message_admins(SPAN_NOTICE("[key_name_admin(usr)] edited one of [ckey]'s warning notes."))
-			log_admin("[key_name(usr)] edited one of [ckey]'s warning notes.", admin_key=key_name(usr), ckey=ckey)
+			log_admin("[key_name(usr)] edited one of [ckey]'s warning notes.")

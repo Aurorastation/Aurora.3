@@ -1,15 +1,13 @@
 /obj/item/gun/energy/rifle/cult
 	name = "bloodpike"
 	desc = "A ranged weapon of demonic origin, surely. It menaces with crimson spikes."
-	desc_info = null
 	desc_extended = null
-	desc_antag = "This weapon can be recharged by clicking on blood or remains with it, remains recharge more than simple blood."
 	icon = 'icons/obj/guns/bloodpike.dmi'
 	icon_state = "bloodpike"
 	item_state = "bloodpike"
 	fire_sound = 'sound/weapons/laserstrong.ogg'
 	slot_flags = SLOT_BACK
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	force = 15
 	max_shots = 5
 	fire_delay = 25
@@ -25,7 +23,7 @@
 	fire_delay_wielded = 1
 	accuracy_wielded = 2
 
-	projectile_type = /obj/item/projectile/bullet/shard
+	projectile_type = /obj/projectile/bullet/shard
 	secondary_projectile_type = null
 	secondary_fire_sound = null
 	firemodes = list()
@@ -37,6 +35,10 @@
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2, TECH_MAGNET = 3, TECH_ARCANE = 2, TECH_ILLEGAL = 3)
 
 	is_wieldable = TRUE // see if i can get a sprite for this
+
+/obj/item/gun/energy/rifle/cult/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This weapon can be recharged by clicking on blood or remains with it. Remains recharge more than simple blood."
 
 /obj/item/gun/energy/rifle/cult/Initialize()
 	. = ..()
@@ -75,4 +77,4 @@
 	self_recharge = TRUE
 	has_safety = FALSE
 	does_process = FALSE
-	projectile_type = /obj/item/projectile/bullet/shard/heavy
+	projectile_type = /obj/projectile/bullet/shard/heavy

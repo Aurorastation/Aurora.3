@@ -197,7 +197,7 @@ SUBSYSTEM_DEF(ghostroles)
 		if("jump_to")
 			var/spawner_id = params["spawner_id"]
 			var/datum/ghostspawner/human/spawner = spawners[spawner_id]
-			var/mob/abstract/observer/observer = usr
+			var/mob/abstract/ghost/observer/observer = usr
 			if(spawner && istype(observer) && spawner.can_jump_to(observer))
 				var/atom/turf = spawner.select_spawnlocation(FALSE)
 				if(isturf(turf))
@@ -208,7 +208,7 @@ SUBSYSTEM_DEF(ghostroles)
 			var/spawner_id = params["spawner_id"]
 			var/spawned_mob_name = params["spawned_mob_name"]
 			var/datum/ghostspawner/human/spawner = spawners[spawner_id]
-			var/mob/abstract/observer/observer = usr
+			var/mob/abstract/ghost/observer/observer = usr
 			if(istype(observer) && spawner.can_jump_to(observer) && spawner && LAZYLEN(spawner.spawned_mobs))
 				for(var/datum/weakref/mob_ref in spawner.spawned_mobs)
 					var/mob/spawned_mob = mob_ref.resolve()

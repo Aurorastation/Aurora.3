@@ -10,7 +10,7 @@
 	max_count = 2
 
 	outfit = /obj/outfit/admin/elyran_navy_crewman
-	possible_species = list(SPECIES_HUMAN)
+	possible_species = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Elyran Naval Infantryman"
@@ -37,6 +37,14 @@
 /obj/outfit/admin/elyran_navy_crewman/get_id_access()
 	return list(ACCESS_ELYRAN_NAVAL_INFANTRY_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
 
+/obj/outfit/admin/elyran_navy_crewman/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	if(isipc(H)) // All Elyran Navy synthetics are tagged, self-owned, and have Elyran citizenship.
+		var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+		if(istype(tag))
+			tag.serial_number = uppertext(dd_limittext(md5(H.real_name), 12))
+			tag.ownership_info = IPC_OWNERSHIP_SELF
+			tag.citizenship_info = CITIZENSHIP_ELYRA
 
 // senior crewman
 /datum/ghostspawner/human/elyran_navy_crewman/nco

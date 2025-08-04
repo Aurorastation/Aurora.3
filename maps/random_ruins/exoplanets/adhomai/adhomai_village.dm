@@ -9,7 +9,7 @@
 	sectors = list(SECTOR_SRANDMARR)
 
 	prefix = "adhomai/"
-	suffixes = list("adhomai_village.dmm")
+	suffix = "adhomai_village.dmm"
 
 	unit_test_groups = list(1)
 
@@ -50,8 +50,7 @@
 
 	uniform = list(
 				/obj/item/clothing/under/tajaran,
-				/obj/item/clothing/under/tajaran/summer,
-				/obj/item/clothing/under/pants/tajaran
+				/obj/item/clothing/under/tajaran/summer
 	)
 
 	shoes = list(

@@ -48,7 +48,7 @@
 	if(!source.loc)
 		// It's an announcer message, just send it to the horizon's receiver
 		for(var/obj/machinery/telecomms/receiver/R in SSmachinery.all_receivers)
-			if(R.z in SSatlas.current_map.station_levels)
+			if(is_station_level(R.z))
 				R.receive_signal(src)
 				return TRUE
 
@@ -111,7 +111,7 @@
 		if(SSatlas.current_map.use_overmap)
 			sector = GLOB.map_sectors["[T.z]"]
 	else // if the source is in nullspace, it's probably an autosay
-		levels = SSatlas.current_map.station_levels
+		levels = SSmapping.levels_by_trait(ZTRAIT_STATION)
 		origin_level = levels[1]
 		sector = GLOB.map_sectors["[levels[1]]"]
 
@@ -183,9 +183,14 @@
 			receive -= R
 
 	// Add observers who have ghost radio enabled
-	for (var/mob/abstract/observer/M in GLOB.player_list)
+	for (var/mob/abstract/ghost/observer/M in GLOB.player_list)
 		if(M.client && (M.client.prefs?.toggles & CHAT_GHOSTRADIO))
 			receive |= M
+
+	// a lot more efficient than checking big lists again
+	if(length(SSodyssey.storytellers))
+		for(var/mob/abstract/ghost/storyteller/storyteller in SSodyssey.storytellers)
+			receive |= storyteller
 
 	/* --- Some miscellaneous variables to format the string output --- */
 	var/freq_text = get_frequency_name(frequency)

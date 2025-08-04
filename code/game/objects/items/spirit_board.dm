@@ -7,8 +7,8 @@
 	var/planchette = "A"
 	var/lastuser = null
 
-/obj/item/spirit_board/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/spirit_board/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	. += "The planchette is sitting at \"[planchette]\"."
 
 /obj/item/spirit_board/attack_hand(mob/user)
@@ -17,13 +17,13 @@
 	else
 		spirit_board_pick_letter(user)
 
-/obj/item/spirit_board/MouseDrop(mob/user as mob)
-	if((user == usr && (!use_check(user))) && (user.contents.Find(src) || in_range(src, user)))
-		if(ishuman(usr))
-			forceMove(get_turf(usr))
-			usr.put_in_hands(src)
+/obj/item/spirit_board/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if((over == user && (!use_check(over))) && (over.contents.Find(src) || in_range(src, over)))
+		if(ishuman(user))
+			forceMove(get_turf(user))
+			user.put_in_hands(src)
 
-/obj/item/spirit_board/attack_ghost(var/mob/abstract/observer/user)
+/obj/item/spirit_board/attack_ghost(var/mob/abstract/ghost/user)
 	spirit_board_pick_letter(user)
 	return ..()
 

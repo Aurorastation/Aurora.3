@@ -2,6 +2,7 @@
 
 /obj/item/organ/internal/lungs
 	name = "lungs"
+	desc = "Think of them as a portable air alarm! If something's wrong with the atmosphere, they'll let you know right away."
 	icon_state = "lungs"
 	gender = PLURAL
 	organ_tag = BP_LUNGS
@@ -232,7 +233,7 @@
 	if(toxins_pp > safe_toxins_max)
 		var/ratio = (poison/safe_toxins_max) * 10
 		if(reagents)
-			reagents.add_reagent(/singleton/reagent/toxin, Clamp(ratio, MIN_TOXIN_DAMAGE, MAX_TOXIN_DAMAGE))
+			reagents.add_reagent(/singleton/reagent/toxin, clamp(ratio, MIN_TOXIN_DAMAGE, MAX_TOXIN_DAMAGE))
 			breath.adjust_gas(poison_type, -poison/6, update = 0) //update after
 		owner.phoron_alert = max(owner.phoron_alert, 1)
 	else
@@ -250,8 +251,7 @@
 		// There is sleeping gas in their lungs, but only a little, so give them a bit of a warning
 		else if(SA_pp > 0.15)
 			if(prob(20))
-				spawn(0)
-					owner.emote(pick("giggle", "laugh"))
+				owner.emote(pick("giggle", "laugh"))
 		breath.adjust_gas(GAS_N2O, -breath.gas[GAS_N2O]/6, update = 0) //update after
 
 	// Were we able to breathe?

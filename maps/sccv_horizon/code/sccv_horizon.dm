@@ -3,10 +3,26 @@
 	full_name = "SCCV Horizon"
 	path = "sccv_horizon"
 
-	lobby_icons = list('icons/misc/titlescreens/sccv_horizon/sccv_horizon.dmi', 'icons/misc/titlescreens/aurora/synthetics.dmi', 'icons/misc/titlescreens/aurora/tajara.dmi', 'icons/misc/titlescreens/aurora/vaurca.dmi')
+	traits = list(
+		//Z1
+		list(ZTRAIT_STATION = TRUE, ZTRAIT_UP = TRUE, ZTRAIT_DOWN = FALSE),
+		//Z2
+		list(ZTRAIT_STATION = TRUE, ZTRAIT_UP = TRUE, ZTRAIT_DOWN = TRUE),
+		//Z3
+		list(ZTRAIT_STATION = TRUE, ZTRAIT_UP = FALSE, ZTRAIT_DOWN = TRUE),
+		//Centcomm
+		ZTRAITS_CENTCOM
+	)
+
+	lobby_icon_image_paths = list(
+								list('icons/misc/titlescreens/tajara/taj1.png', 'icons/misc/titlescreens/tajara/taj2.png', 'icons/misc/titlescreens/tajara/taj3.png', 'icons/misc/titlescreens/tajara/taj4.png', 'icons/misc/titlescreens/tajara/Ghostsofwar.png', 'icons/misc/titlescreens/tajara/crack.png', 'icons/misc/titlescreens/tajara/blind_eye.png', 'icons/misc/titlescreens/tajara/RoyalGrenadier.png', 'icons/misc/titlescreens/tajara/For_the_King.png'),
+								list('icons/misc/titlescreens/synths/baseline.png', 'icons/misc/titlescreens/synths/bishop.png', 'icons/misc/titlescreens/synths/g2.png', 'icons/misc/titlescreens/synths/shell.png', 'icons/misc/titlescreens/synths/zenghu.png'),
+								list('icons/misc/titlescreens/vaurca/cthur.png', 'icons/misc/titlescreens/vaurca/klax.png', 'icons/misc/titlescreens/vaurca/liidra.png', 'icons/misc/titlescreens/vaurca/zora.png'),
+								list('icons/misc/titlescreens/space/odin.png', 'icons/misc/titlescreens/space/starmap.png', 'icons/misc/titlescreens/space/undocking.png', 'icons/misc/titlescreens/space/voyage.png')
+								)
+
 	lobby_transitions = 10 SECONDS
 
-	station_levels = list(1, 2, 3)
 	admin_levels = list(4)
 	contact_levels = list(1, 2, 3)
 	player_levels = list(1, 2, 3, 5)
@@ -98,6 +114,8 @@
 	rogue_drone_end_message = "The hostile drone swarm has left the ship's proximity."
 	rogue_drone_destroyed_message = "Sensors indicate the unidentified drone swarm has left the immediate proximity of the ship."
 
+	overmap_visitable_type = /obj/effect/overmap/visitable/ship/sccv_horizon
+
 	ports_of_call = TRUE
 
 	map_shuttles = list(
@@ -119,6 +137,7 @@
 		/datum/shuttle/autodock/overmap/intrepid,
 		/datum/shuttle/autodock/overmap/mining,
 		/datum/shuttle/autodock/overmap/canary,
+		/datum/shuttle/autodock/overmap/quark,
 		/datum/shuttle/autodock/ferry/merchant_aurora,
 		/datum/shuttle/autodock/ferry/autoreturn/ccia,
 		/datum/shuttle/autodock/overmap/orion_express_shuttle,
@@ -133,16 +152,24 @@
 
 	evac_controller_type = /datum/evacuation_controller/starship
 
-	allowed_spawns = list("Living Quarters Lift", "Cryogenic Storage")
-	spawn_types = list(/datum/spawnpoint/living_quarters_lift, /datum/spawnpoint/cryo)
+	allowed_spawns = list("Living Quarters Lift", "Cryogenic Storage", "Medbay Recovery Ward")
+	spawn_types = list(/datum/spawnpoint/living_quarters_lift, /datum/spawnpoint/cryo, /datum/spawnpoint/medbay_recovery)
 	default_spawn = "Living Quarters Lift"
 
 	allow_borgs_to_leave = TRUE
 
-	warehouse_basearea = /area/operations/storage
+	warehouse_basearea = /area/horizon/operations/warehouse
+
+	shuttle_manifests = list(
+		"SCCV Canary" = list("color" = "blue", "icon" = "binoculars"),
+		"SCCV Intrepid" = list("color" = "blue", "icon" = "compass"),
+		"SCCV Spark" = list("color" = "brown", "icon" = "gem"),
+		"SCCV Quark" = list("color" = "purple", "icon" = "microscope"),
+	)
+	shuttle_missions = list("Exploration", "Research", "Prospecting", "Salvaging", "Transport", "Combat", "Rescue", "Training", "Humanitarian", "Expedition", "Recreation", "Other")
 
 /datum/map/sccv_horizon/send_welcome()
-	var/obj/effect/overmap/visitable/ship/horizon = SSshuttle.ship_by_type(/obj/effect/overmap/visitable/ship/sccv_horizon)
+	var/obj/effect/overmap/visitable/ship/horizon = SSshuttle.ship_by_type(overmap_visitable_type)
 
 	var/welcome_text = "<center><img src = scclogo.png><br />[FONT_LARGE("<b>SCCV Horizon</b> Ultra-Range Sensor Readings:")]<br>"
 	welcome_text += "Report generated on [worlddate2text()] at [worldtime2text()]</center><br /><br />"
@@ -193,3 +220,9 @@
 		for(var/obj/machinery/computer/holodeck_control/holo in GLOB.holodeck_controls)
 			if(!holo.active)
 				holo.load_random_program()
+
+/obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage
+	name = "Ops Warehouse, Small Storage"
+
+/obj/effect/map_effect/marker/mapmanip/submap/insert/sccv_horizon/ops_warehouse_small_storage
+	name = "Ops Warehouse, Small Storage"

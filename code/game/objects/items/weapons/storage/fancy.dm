@@ -25,6 +25,20 @@
 	foldable = null // most of this stuff isn't foldable by default, e.g. cig packets and vial boxes
 	contained_sprite = TRUE
 
+/obj/item/storage/box/fancy/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(closable)
+		. += "ALT-click to open and close the box." //aka force override icon state. for you know, style.
+
+/obj/item/storage/box/fancy/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(!icon_type || !storage_type)
+		return
+	if(contents.len <= 0)
+		. += "There are no [src.icon_type]s left in the [src.storage_type]."
+	else
+		. += "There [src.contents.len == 1 ? "is" : "are"] <b>[src.contents.len]</b> [src.icon_type]\s left in \the [src.storage_type]."
+
 /obj/item/storage/box/fancy/open(mob/user)
 	. = ..()
 	if(!opened)
@@ -39,8 +53,6 @@
 /obj/item/storage/box/fancy/Initialize()
 	. = ..()
 	update_icon()
-	if(closable)
-		desc_info += "Alt-click to open and close the box. " //aka force override icon state. for you know, style.
 
 /obj/item/storage/box/fancy/AltClick(mob/user)
 	if(opened && !closable) // opened, non-closable items do nothing
@@ -73,15 +85,6 @@
 		update_icon()
 	. = ..()
 
-/obj/item/storage/box/fancy/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(!icon_type || !storage_type)
-		return
-	if(contents.len <= 0)
-		. += "There are no [src.icon_type]s left in the [src.storage_type]."
-	else
-		. += "There [src.contents.len == 1 ? "is" : "are"] <b>[src.contents.len]</b> [src.icon_type]\s left in \the [src.storage_type]."
-
 /*
  * Donut Box
  */
@@ -95,6 +98,7 @@
 	center_of_mass = list("x" = 16,"y" = 9)
 	can_hold = list(/obj/item/reagent_containers/food/snacks/donut)
 	starts_with = list(/obj/item/reagent_containers/food/snacks/donut/normal = 6)
+	max_storage_space = DEFAULT_BOX_STORAGE
 	storage_slots = 6
 	icon_overlays = FALSE
 	foldable = /obj/item/stack/material/cardboard
@@ -110,7 +114,6 @@
 
 /obj/item/storage/box/fancy/donut/empty
 	starts_with = null
-	max_storage_space = 12
 
 /*
  * Egg Box
@@ -161,7 +164,7 @@
 	pickup_sound = 'sound/items/pickup/wrapper.ogg'
 	closable = FALSE
 	storage_slots = 6
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	can_hold = list(/obj/item/reagent_containers/food/snacks/cracker)
 	starts_with = list(/obj/item/reagent_containers/food/snacks/cracker = 6)
 
@@ -177,7 +180,7 @@
 	item_state = "candlepack"
 	icon_type = "candle"
 	storage_type = "pack"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throwforce = 2
 	slot_flags = SLOT_BELT
 	storage_slots = 5
@@ -200,7 +203,7 @@
 	icon = 'icons/obj/storage/fancy/crayon.dmi'
 	icon_state = "crayonbox"
 	icon_type = "crayon"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_BELT
 	storage_slots = 6
 	can_hold = list(/obj/item/pen/crayon)
@@ -229,7 +232,7 @@
 /obj/item/storage/box/fancy/crayons/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/pen/crayon))
 		var/obj/item/pen/crayon/W = attacking_item
-		switch(W:colourName)
+		switch(W.colourName)
 			if("mime")
 				to_chat(usr, "This crayon is too sad to be contained in this box.")
 				return
@@ -249,7 +252,7 @@
 	icon_state = "matchbox"
 	item_state = "box"
 	icon_type = "match"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	drop_sound = 'sound/items/drop/matchbox.ogg'
 	pickup_sound =  'sound/items/pickup/matchbox.ogg'
 	slot_flags = SLOT_BELT
@@ -285,7 +288,6 @@
 /obj/item/storage/box/fancy/cigarettes
 	name = "Trans-Stellar Duty Frees cigarette packet"
 	desc = "A ubiquitous brand of cigarettes, found in the facilities of every major spacefaring corporation in the universe. As mild and flavorless as it gets."
-	desc_info = "You can put a cigarette directly in your mouth by selecting the mouth region and clicking on yourself with a cigarette packet in hand. "
 	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "cigpacket"
 	item_state = "cigpacket"
@@ -295,15 +297,21 @@
 		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
 		)
+	contained_sprite = FALSE // makes cigarette packets actually visible in hand
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 	use_sound = 'sound/items/storage/wrapper.ogg'
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	throwforce = 2
 	slot_flags = SLOT_BELT
 	storage_slots = 6
 	can_hold = list(/obj/item/clothing/mask/smokable/cigarette, /obj/item/flame/lighter, /obj/item/trash/cigbutt)
+	cant_hold = list(/obj/item/clothing/mask/smokable/cigarette/cigar) // prevents cigars from being put in regular cigarettes packs, because thats kind of silly
 	var/cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette
+
+/obj/item/storage/box/fancy/cigarettes/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can put a cigarette directly in your mouth by selecting the mouth region and clicking on yourself with a cigarette packet in hand."
 
 /obj/item/storage/box/fancy/cigarettes/Initialize()
 	atom_flags |= ATOM_FLAG_NO_REACT
@@ -311,13 +319,17 @@
 	. = ..()
 
 /obj/item/storage/box/fancy/cigarettes/fill()
-	for(var/i = 1 to storage_slots)
-		new cigarette_to_spawn(src)
+	if(cigarette_to_spawn)
+		for(var/i = 1 to storage_slots)
+			new cigarette_to_spawn(src)
 
 /obj/item/storage/box/fancy/cigarettes/update_icon()
 	. = ..()
 	if(opened)
-		icon_state = "[initial(icon_state)][contents.len]"
+		handle_open_icon()
+
+/obj/item/storage/box/fancy/cigarettes/proc/handle_open_icon()
+	icon_state = "[initial(icon_state)][contents.len]" // The old open states method, kept here as to not break old packages.
 
 /obj/item/storage/box/fancy/cigarettes/remove_from_storage(obj/item/removed_item, atom/new_location)
 	var/obj/item/clothing/mask/smokable/cigarette/C = removed_item
@@ -326,39 +338,39 @@
 	reagents.trans_to_obj(C, (reagents.total_volume/contents.len))
 	return ..()
 
-/obj/item/storage/box/fancy/cigarettes/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, target_zone)
-	if(!ismob(M))
+/obj/item/storage/box/fancy/cigarettes/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(!ismob(target_mob))
 		return
 	if(!opened)
 		to_chat(user, SPAN_WARNING("\The [src] is closed."))
 		return
 	if(target_zone == BP_MOUTH && contents.len > 0)
-		if(M.wear_mask)
-			to_chat(user, SPAN_WARNING("\The [M.wear_mask] is in the way."))
+		if(target_mob.wear_mask)
+			to_chat(user, SPAN_WARNING("\The [target_mob.wear_mask] is in the way."))
 			return
 		var/obj/item/clothing/mask/smokable/cigarette/cig = locate() in src
 		if(!istype(cig))
 			to_chat(user, SPAN_WARNING("There isn't a cigarette in \the [src]!"))
 			return
-		if(M != user)
-			if(!use_check(M))
-				to_chat(user, SPAN_WARNING("[M.name] is in no condition to handle items!"))
+		if(target_mob != user)
+			if(!use_check(target_mob))
+				to_chat(user, SPAN_WARNING("[target_mob.name] is in no condition to handle items!"))
 				return
-			user.visible_message(SPAN_NOTICE("\The <b>[user]</b> holds up the open [src.name] to \the [M]'s mouth."), SPAN_NOTICE("You hold up the open [src.name] to \the [M]'s mouth, waiting for them to accept."))
-			var/response = alert(M, "\The [user] offers you \a [cig.name]. Do you accept?", "Smokable Offer", "Accept", "Decline")
+			user.visible_message(SPAN_NOTICE("\The <b>[user]</b> holds up the open [src.name] to \the [target_mob]'s mouth."), SPAN_NOTICE("You hold up the open [src.name] to \the [target_mob]'s mouth, waiting for them to accept."))
+			var/response = alert(target_mob, "\The [user] offers you \a [cig.name]. Do you accept?", "Smokable Offer", "Accept", "Decline")
 			if(response != "Accept")
-				M.visible_message(SPAN_NOTICE("<b>[M]</b> pushes [user]'s [src.name] away."))
+				target_mob.visible_message(SPAN_NOTICE("<b>[target_mob]</b> pushes [user]'s [src.name] away."))
 				return
-			if(!M.Adjacent(user))
+			if(!target_mob.Adjacent(user))
 				to_chat(user, SPAN_WARNING("You need to stay in reaching distance while giving an object."))
-				to_chat(M, SPAN_WARNING("\The [user] moved too far away."))
+				to_chat(target_mob, SPAN_WARNING("\The [user] moved too far away."))
 				return
-		remove_from_storage(cig, get_turf(M))
-		M.equip_to_slot_if_possible(cig, slot_wear_mask)
-		M.visible_message(SPAN_NOTICE("<b>[M]</b> casually pulls out a [icon_type] from \the [src] with [M.get_pronoun("his")] mouth."), SPAN_NOTICE("You casually pull out a [icon_type] from \the [src] with your mouth."), range = 3)
+		remove_from_storage(cig, get_turf(target_mob))
+		target_mob.equip_to_slot_if_possible(cig, slot_wear_mask)
+		target_mob.visible_message(SPAN_NOTICE("<b>[target_mob]</b> casually pulls out a [icon_type] from \the [src] with [target_mob.get_pronoun("his")] mouth."), SPAN_NOTICE("You casually pull out a [icon_type] from \the [src] with your mouth."), range = 3)
 		update_icon()
 		return
-	if(M == user && target_zone == BP_R_HAND || target_zone == BP_L_HAND) // Cig packing. Because obsessive smokers do it.
+	if(target_mob == user && target_zone == BP_R_HAND || target_zone == BP_L_HAND) // Cig packing. Because obsessive smokers do it.
 		user.visible_message(SPAN_NOTICE("<b>[user]</b> taps \the [src] against [user.get_pronoun("his")] palm."), SPAN_NOTICE("You tap \the [src] against your palm."))
 	else
 		..()
@@ -391,6 +403,7 @@
 	use_sound = 'sound/items/storage/briefcase.ogg'
 	storage_slots = 8
 	can_hold = list(/obj/item/clothing/mask/smokable/cigarette/cigar)
+	cant_hold = list() //allows cigar cases to hold cigars
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/cigar
 	chewable = FALSE
 
@@ -425,6 +438,44 @@
 	item_state = "Fpacket"
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/oracle
 
+/obj/item/storage/box/fancy/cigarettes/case
+	name = "cigarette case"
+	desc = "A simple cigarette case for the aspiring chain-smoker."
+	icon_state = "cigarettecase"
+	item_state = "cigarettecase"
+	storage_type = "case"
+	drop_sound = 'sound/items/drop/weldingtool.ogg'
+	pickup_sound = 'sound/items/pickup/weldingtool.ogg'
+	use_sound = 'sound/items/storage/briefcase.ogg'
+	storage_slots = 14
+	max_storage_space = 14 //A janky but functional solution since I could not figure out how to increase the maximum storage to match how much the case is designed to hold in any other way
+	cigarette_to_spawn = null
+
+/// Added a new function to allow the base sprite (unopened) to still utilize the regular opened sprites (the ones that go from 0 to 1 to 2 etc etc etc),
+/// without needing to add them as separate items in the DMI file. Could be used with the cigar cases in the future if someone chooses to give them new closed sprites for fluff.
+/// Also allows contributors to add their own unique cigarette case sprites without adding additional confusing bloat.
+/obj/item/storage/box/fancy/cigarettes/case/handle_open_icon()
+	icon_state = "cigarettecase[contents.len]"
+
+// List of different cigarette cases (unique closed states sprites) - Add new ones here, please
+/obj/item/storage/box/fancy/cigarettes/case/mus
+	name = "decorated cigarette case"
+	desc = "A fancy cigarette case with some kind of golden inscription on its cover."
+	icon_state = "cigarettecase_mus"
+	item_state = "cigarettecase"
+
+/obj/item/storage/box/fancy/cigarettes/case/sol
+	name = "sol cigarette case"
+	desc = "A fancy cigarette case with the Solarian emblem on its cover."
+	icon_state = "cigarettecase_sol"
+	item_state = "cigarettecase"
+
+/obj/item/storage/box/fancy/cigarettes/case/tc
+	name = "biesel cigarette case"
+	desc = "A simple cigarette case with the symbol of the Republic of Biesel on its cover."
+	icon_state = "cigarettecase_tc"
+	item_state = "cigarettecase"
+
 /*
  * Vial Box
  */
@@ -453,9 +504,9 @@
 	use_sound = 'sound/items/drop/glass.ogg'
 	drop_sound = 'sound/items/drop/toolbox.ogg'
 	pickup_sound = 'sound/items/pickup/toolbox.ogg'
-	max_w_class = ITEMSIZE_SMALL
+	max_w_class = WEIGHT_CLASS_SMALL
 	can_hold = list(/obj/item/reagent_containers/glass/beaker/vial)
-	max_storage_space = 12 //The sum of the w_classes of all the items in this storage item.
+	make_exact_fit = TRUE
 	storage_slots = 6
 	req_access = list(ACCESS_VIROLOGY)
 
@@ -475,7 +526,7 @@
 	else
 		AddOverlays("ledb")
 
-/obj/item/storage/lockbox/vials/attackby(attacking_item, mob/user)
+/obj/item/storage/lockbox/vials/attackby(obj/item/attacking_item, mob/user, params)
 	..()
 	update_icon()
 
@@ -707,7 +758,7 @@
 	closable = FALSE
 	icon_overlays = FALSE
 	storage_slots = 6
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	can_hold = list(/obj/item/reagent_containers/food/snacks/chips)
 	starts_with = list(/obj/item/reagent_containers/food/snacks/chips = 6)
 
@@ -756,7 +807,7 @@
 	pickup_sound = 'sound/items/pickup/bottle.ogg'
 	storage_type = "glass"
 	storage_slots = 20
-	max_storage_space = 20
+	max_storage_space = DEFAULT_LARGEBOX_STORAGE
 	can_hold = list(
 		/obj/item/reagent_containers/food/snacks/cakepopselection
 	)
@@ -827,7 +878,7 @@
 	icon_type = "chocolate praline"
 	contained_sprite = TRUE
 	storage_slots = 10
-	max_storage_space = 10
+	make_exact_fit = TRUE
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	can_hold = list(

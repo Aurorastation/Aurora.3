@@ -26,6 +26,13 @@
 		/obj/item/circuitboard/crystal_agitator
 	)
 
+	parts_power_mgmt = FALSE
+
+/obj/machinery/power/crystal_agitator/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>capacitors</b> will reduce active power usage."
+	. += "Upgraded <b>manipulators</b> will increase agitation speed."
+
 /obj/machinery/power/crystal_agitator/Initialize()
 	. = ..()
 	connect_to_network()
@@ -47,7 +54,7 @@
 		var/turf/T = thing
 		if(our_turf == T)
 			continue
-		if(!istype(T, /turf/unsimulated/floor/asteroid))
+		if(!istype(T, /turf/simulated/floor/exoplanet/asteroid))
 			continue
 		if(locate(/obj/structure/reagent_crystal/dense) in T)
 			continue
@@ -87,6 +94,7 @@
 	last_agitation = world.time
 
 /obj/machinery/power/crystal_agitator/RefreshParts()
+	..()
 	for(var/obj/item/stock_parts/SP in component_parts)
 		if(ismanipulator(SP))
 			agitation_rate = initial(agitation_rate) - (SP.rating * 5)
@@ -105,7 +113,7 @@
 /obj/item/circuitboard/crystal_agitator
 	name = T_BOARD("Crystal Agitator")
 	build_path = /obj/machinery/power/crystal_agitator
-	board_type = "machine"
+	board_type = BOARD_MACHINE
 	origin_tech = list(
 		TECH_ENGINEERING = 3,
 		TECH_DATA = 2,

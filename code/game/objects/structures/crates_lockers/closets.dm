@@ -6,30 +6,40 @@
 	density = TRUE
 	build_amt = 2
 	slowdown = 5
+	pass_flags_self = PASSSTRUCTURE | LETPASSCLICKS | PASSTRACE
 
 	var/icon_door = null
-	var/icon_door_override = FALSE //override to have open overlay use icon different to its base's
-	var/icon_door_overlay = "" //handles secure locker overlays like the locking lights
+	/// Override to have open overlay use icon different to its base's
+	var/icon_door_override = FALSE
+	/// Handles secure locker overlays like the locking lights
+	var/icon_door_overlay = ""
 
-	var/secure = FALSE //secure locker or not. typically it shouldn't need lights if it's insecure
-	var/secure_lights = FALSE // whether to display secure lights when open.
+	/// Secure locker or not. typically it shouldn't need lights if it's insecure
+	var/secure = FALSE
+	/// Whether to display secure lights when open.
+	var/secure_lights = FALSE
 	var/opened = FALSE
 	var/welded = FALSE
 	var/locked = FALSE
 	var/broken = FALSE
 
-	var/large = TRUE // if you can shove people in it
-	var/canbemoved = FALSE // if it can be moved by people using the right tools. basically means if you can change the anchored var.
-	var/screwed = TRUE // if its screwed in place
-	var/wrenched = TRUE // if its wrenched down
+	/// If you can shove people in it.
+	var/large = TRUE
+	/// If it can be moved by people using the right tools. basically means if you can change the anchored var.
+	var/canbemoved = FALSE
+	/// If its screwed in place
+	var/screwed = TRUE
+	/// If its wrenched down
+	var/wrenched = TRUE
 
-	var/wall_mounted = FALSE //never solid (You can always pass over it)
+	/// Never solid (You can always pass over it)
+	var/wall_mounted = FALSE
 	var/health = 100
-	var/breakout = 0 //if someone is currently breaking out. mutex
+	/// If someone is currently breaking out. mutex
+	var/breakout = 0
 
+	/// This is so that someone can't pack hundreds of items in a locker/crate then open it in a populated area to crash clients.
 	var/storage_capacity = 45 //Tying this to mob sizes was dumb
-	//This is so that someone can't pack hundreds of items in a locker/crate
-							//then open it in a populated area to crash clients.
 
 	var/open_sound = 'sound/effects/closet_open.ogg'
 	var/close_sound = 'sound/effects/closet_close.ogg'
@@ -48,16 +58,73 @@
 
 	var/double_doors = FALSE
 
+	/// The overlay for the closet's door
 	var/obj/effect/overlay/closet_door/door_obj
 	var/obj/effect/overlay/closet_door/door_obj_alt
 	var/is_animating_door = FALSE
-	var/door_underlay = FALSE //used if you want to have an overlay below the door. used for guncabinets.
-	var/door_anim_squish = 0.12 // Multiplier on proc/get_door_transform. basically, how far you want this to swing out. value of 1 means the length of the door is unchanged (and will swing out of the tile), 0 means it will just slide back and forth.
-	var/door_anim_angle = 147
-	var/door_hinge = -6.5 // for closets, x away from the centre of the closet. typically good to add a 0.5 so it's centered on the edge of the closet.
-	var/door_hinge_alt = 6.5 // for closets with two doors. why a seperate var? because some closets may be weirdly shaped or something.
-	var/door_anim_time = 2.5 // set to 0 to make the door not animate at all
 
+	/// Used if you want to have an overlay below the door. used for guncabinets.
+	var/door_underlay = FALSE
+	/// Multiplier on proc/get_door_transform. basically, how far you want this to swing out. value of 1 means the length of the door is unchanged (and will swing out of the tile), 0 means it will just slide back and forth.
+	var/door_anim_squish = 0.12 // DON'T TOUCH!!!
+	/// The maximum angle the door will be drawn at
+	var/door_anim_angle = 136 // DON'T TOUCH!!!
+	/// X position of the closet door hinge, relative to the center of the sprite
+	var/door_hinge_x = -6.5
+	/// For closets with two doors. why a seperate var? because some closets may be weirdly shaped or something.
+	var/door_hinge_x_alt = 6.5
+	/// Set to 0 to make the door not animate at all
+	var/door_anim_time = 2.5
+
+	/// Used by body bags and air bubbles.
+	var/contains_body = FALSE
+
+/obj/structure/closet/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "When closed, a <b>welder</b> could be used to weld the closet shut."
+
+/obj/structure/closet/disassembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "When opened, a <b>welder</b> could be used to cut the closet back into steel sheets."
+
+/obj/structure/closet/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Using a Closet Teleporter (Stealth & Camouflage uplink item) on this can turn it into a quick transportation method- just don't get caught!"
+
+/obj/structure/closet/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+
+	if(!src.opened && isghost(user))
+		. += "It contains: [counting_english_list(contents)]"
+
+	if(distance <= 1 && !src.opened)
+		var/content_size = 0
+		for(var/obj/item/I in contents)
+			if(!I.anchored)
+				content_size += Ceiling(I.w_class/2)
+		if(!content_size)
+			. += "\The [src] is empty."
+		else if(storage_capacity > content_size*4)
+			. += "\The [src] is barely filled."
+		else if(storage_capacity > content_size*2)
+			. += "\The [src] is less than half full."
+		else if(storage_capacity > content_size)
+			. += "\The [src] still has some free space."
+		else
+			. += "\The [src] is full."
+
+	if(src.opened && linked_teleporter && is_adjacent)
+		. += SPAN_WARNING("There appears to be a device <b>screwed</b> onto the interior backplate of \the [src]...")
+
+/obj/structure/closet/Initialize(mapload, var/no_fill)
+	. = ..()
+
+	update_icon()
+	if(!no_fill)
+		fill()
+	if(secure)
+		verbs += /obj/structure/closet/proc/verb_togglelock
+	return mapload ? INITIALIZE_HINT_LATELOAD : INITIALIZE_HINT_NORMAL
 
 /obj/structure/closet/LateInitialize()
 	if(opened)	// if closed, any item at the crate's loc is put in the contents
@@ -76,44 +143,16 @@
 	if(content_size > storage_capacity-5)
 		storage_capacity = content_size + 5
 
-/obj/structure/closet/Initialize(mapload, var/no_fill)
-	. = ..()
-	update_icon()
-	if(!no_fill)
-		fill()
-	if(secure)
-		verbs += /obj/structure/closet/proc/verb_togglelock
-	return mapload ? INITIALIZE_HINT_LATELOAD : INITIALIZE_HINT_NORMAL
+/obj/structure/closet/Destroy()
+	QDEL_NULL(linked_teleporter)
+	QDEL_NULL(door_obj)
+	QDEL_NULL(door_obj_alt)
 
-// Fill lockers with this.
+	. = ..()
+
+/// Fill lockers with this.
 /obj/structure/closet/proc/fill()
-
-/obj/structure/closet/proc/content_info(mob/user, content_size)
-	if(!content_size)
-		. = "\The [src] is empty."
-	else if(storage_capacity > content_size*4)
-		. = "\The [src] is barely filled."
-	else if(storage_capacity > content_size*2)
-		. = "\The [src] is less than half full."
-	else if(storage_capacity > content_size)
-		. = "\The [src] still has some free space."
-	else
-		. = "\The [src] is full."
-
-/obj/structure/closet/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance <= 1 && !src.opened)
-		var/content_size = 0
-		for(var/obj/item/I in contents)
-			if(!I.anchored)
-				content_size += Ceiling(I.w_class/2)
-		. += content_info(user, content_size)
-
-	if(!src.opened && isobserver(user))
-		. += "It contains: [counting_english_list(contents)]"
-
-	if(src.opened && linked_teleporter && is_adjacent)
-		. += FONT_SMALL(SPAN_NOTICE("There appears to be a device attached to the interior backplate of \the [src]..."))
+	return
 
 /obj/structure/closet/proc/stored_weight()
 	var/content_size = 0
@@ -123,10 +162,9 @@
 	return content_size
 
 /obj/structure/closet/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(air_group || (height==0 || wall_mounted)) return 1
-	if(istype(mover) && mover.checkpass(PASSTRACE))
-		return 1
-	return (!density)
+	if(air_group || (height==0 || wall_mounted))
+		return TRUE
+	return ..()
 
 /obj/structure/closet/proc/can_open()
 	if(welded || locked)
@@ -291,17 +329,19 @@
 		new /obj/item/stack/material/steel(get_turf(src))
 		qdel(src)
 
-/obj/structure/closet/bullet_act(var/obj/item/projectile/Proj)
-	var/proj_damage = Proj.get_structure_damage()
+/obj/structure/closet/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	var/proj_damage = hitting_projectile.get_structure_damage()
 	if(!proj_damage)
-		return
+		return BULLET_ACT_BLOCK
 
-	if(Proj.penetrating || istype(Proj, /obj/item/projectile/bullet))
-		var/distance = get_dist(Proj.starting, get_turf(loc))
+	if(hitting_projectile.penetrating || istype(hitting_projectile, /obj/projectile/bullet))
 		for(var/mob/living/L in contents)
-			Proj.attack_mob(L, distance)
+			hitting_projectile.Impact(L)
 
-	..()
 	damage(proj_damage)
 
 /obj/structure/closet/attackby(obj/item/attacking_item, mob/user)
@@ -320,7 +360,7 @@
 	if(opened)
 		if(istype(attacking_item, /obj/item/grab))
 			var/obj/item/grab/G = attacking_item
-			MouseDrop_T(G.affecting, user) //act like they were dragged onto the closet
+			mouse_drop_receive(G.affecting, user) //act like they were dragged onto the closet
 			return 0
 		if(attacking_item.isscrewdriver()) // Moved here so you can only detach linked teleporters when the door is open. So you can like unscrew and bolt the locker normally in most circumstances.
 			if(linked_teleporter)
@@ -477,14 +517,20 @@
 
 // helper procs for callbacks
 /obj/structure/closet/proc/is_closed()
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
+
 	. = !opened
 
 /obj/structure/closet/proc/is_open()
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
+
 	. = opened
 
-/obj/structure/closet/MouseDrop_T(atom/dropping, mob/user)
-	var/atom/movable/O = dropping
-	if(istype(O, /obj/screen))	//fix for HUD elements making their way into the world	-Pete
+/obj/structure/closet/mouse_drop_receive(atom/dropped, mob/user, params)
+	var/atom/movable/screen/O = dropped
+	if(istype(O, /atom/movable/screen))	//fix for HUD elements making their way into the world	-Pete
 		return
 	if(O.loc == user)
 		return
@@ -516,7 +562,9 @@
 	if(istype(user, /mob/living/silicon/robot) && Adjacent(user)) // Robots can open/close it, but not the AI.
 		attack_hand(user)
 
-/obj/structure/closet/relaymove(mob/user as mob)
+/obj/structure/closet/relaymove(mob/living/user, direction)
+	. = ..()
+
 	if(user.stat || !isturf(loc))
 		return
 
@@ -584,27 +632,35 @@
 /obj/structure/closet/proc/animate_door(var/closing = FALSE)
 	if(!door_anim_time)
 		return
-	if(!door_obj) door_obj = new
+	if(!door_obj)
+		door_obj = new
+	var/default_door_icon = "[icon_door || icon_state]_door"
 	vis_contents |= door_obj
 	door_obj.icon = icon
-	door_obj.icon_state = "[icon_door || icon_state]_door"
+	door_obj.icon_state = default_door_icon
 	is_animating_door = TRUE
 	var/num_steps = door_anim_time / world.tick_lag
-	for(var/I in 0 to num_steps)
-		var/angle = door_anim_angle * (closing ? 1 - (I/num_steps) : (I/num_steps))
-		var/matrix/M = get_door_transform(angle)
-		var/door_state = angle >= 90 ? "[icon_door_override ? icon_door : icon_state]_back" : "[icon_door || icon_state]_door"
-		var/door_layer = angle >= 90 ? FLOAT_LAYER : ABOVE_HUMAN_LAYER
+	for(var/step in 0 to num_steps)
+		var/angle = door_anim_angle * (closing ? 1 - (step/num_steps) : (step/num_steps))
+		var/matrix/door_transform = get_door_transform(angle)
+		var/door_state
+		var/door_layer
 
-		if(I == 0)
-			door_obj.transform = M
+		if (angle >= 90)
+			door_state = "[icon_door_override ? icon_door : icon_state]_back"
+			door_layer = FLOAT_LAYER
+		else
+			door_state = default_door_icon
+			door_layer = ABOVE_HUMAN_LAYER
+		if(step == 0)
+			door_obj.transform = door_transform
 			door_obj.icon_state = door_state
 			door_obj.layer = door_layer
-		else if(I == 1)
-			animate(door_obj, transform = M, icon_state = door_state, layer = door_layer, time = world.tick_lag, flags = ANIMATION_END_NOW)
+		else if(step == 1)
+			animate(door_obj, transform = door_transform, icon_state = door_state, layer = door_layer, time = world.tick_lag, flags = ANIMATION_END_NOW)
 		else
-			animate(transform = M, icon_state = door_state, layer = door_layer, time = world.tick_lag)
-	addtimer(CALLBACK(src, PROC_REF(end_door_animation)),door_anim_time,TIMER_UNIQUE|TIMER_OVERRIDE)
+			animate(transform = door_transform, icon_state = door_state, layer = door_layer, time = world.tick_lag)
+	addtimer(CALLBACK(src, PROC_REF(end_door_animation)), door_anim_time, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_CLIENT_TIME)
 
 /obj/structure/closet/proc/end_door_animation()
 	is_animating_door = FALSE // comment this out and the line below to manually tweak the animation end state by fiddling with the door_anim vars to match the open door icon
@@ -615,27 +671,36 @@
 /obj/structure/closet/proc/animate_door_alt(var/closing = FALSE)
 	if(!door_anim_time)
 		return
-	if(!door_obj_alt) door_obj_alt = new
+	if(!door_obj_alt)
+		door_obj_alt = new
+	var/default_door_icon = "[icon_door || icon_state]_door_alt"
 	vis_contents |= door_obj_alt
 	door_obj_alt.icon = icon
-	door_obj_alt.icon_state = "[icon_door || icon_state]_door_alt"
+	door_obj_alt.icon_state = default_door_icon
 	is_animating_door = TRUE
 	var/num_steps = door_anim_time / world.tick_lag
-	for(var/I in 0 to num_steps)
-		var/angle = door_anim_angle * (closing ? 1 - (I/num_steps) : (I/num_steps))
-		var/matrix/M = get_door_transform(angle, TRUE)
-		var/door_state = angle >= 90 ? "[icon_door_override ? icon_door : icon_state]_back_alt" : "[icon_door || icon_state]_door_alt"
-		var/door_layer = angle >= 90 ? FLOAT_LAYER : ABOVE_HUMAN_LAYER
+	for(var/step in 0 to num_steps)
+		var/angle = door_anim_angle * (closing ? 1 - (step/num_steps) : (step/num_steps))
+		var/matrix/door_transform = get_door_transform(angle, TRUE)
+		var/door_state
+		var/door_layer
 
-		if(I == 0)
-			door_obj_alt.transform = M
+		if (angle >= 90)
+			door_state = "[icon_door_override ? icon_door : icon_state]_back_alt"
+			door_layer = FLOAT_LAYER
+		else
+			door_state = default_door_icon
+			door_layer = ABOVE_HUMAN_LAYER
+
+		if(step == 0)
+			door_obj_alt.transform = door_transform
 			door_obj_alt.icon_state = door_state
 			door_obj_alt.layer = door_layer
-		else if(I == 1)
-			animate(door_obj_alt, transform = M, icon_state = door_state, layer = door_layer, time = world.tick_lag, flags = ANIMATION_END_NOW)
+		else if(step == 1)
+			animate(door_obj_alt, transform = door_transform, icon_state = door_state, layer = door_layer, time = world.tick_lag, flags = ANIMATION_END_NOW)
 		else
-			animate(transform = M, icon_state = door_state, layer = door_layer, time = world.tick_lag)
-	addtimer(CALLBACK(src, PROC_REF(end_door_animation_alt)),door_anim_time,TIMER_UNIQUE|TIMER_OVERRIDE)
+			animate(transform = door_transform, icon_state = door_state, layer = door_layer, time = world.tick_lag)
+	addtimer(CALLBACK(src, PROC_REF(end_door_animation_alt)), door_anim_time, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_CLIENT_TIME)
 
 /obj/structure/closet/proc/end_door_animation_alt()
 	is_animating_door = FALSE // comment this out and the line below to manually tweak the animation end state by fiddling with the door_anim vars to match the open door icon
@@ -644,12 +709,12 @@
 	UpdateOverlays(src)
 
 /obj/structure/closet/proc/get_door_transform(angle, var/inverse_hinge = FALSE)
-	var/matrix/M = matrix()
-	var/matrix_door_hinge = inverse_hinge ? door_hinge_alt : door_hinge
-	M.Translate(-matrix_door_hinge, 0)
-	M.Multiply(matrix(cos(angle), 0, 0, ((matrix_door_hinge >= 0) ? sin(angle) : -sin(angle)) * door_anim_squish, 1, 0)) // this matrix door hinge >= 0 check is for door hinges on the right, so they swing out instead of upwards
-	M.Translate(matrix_door_hinge, 0)
-	return M
+	var/matrix/door_matrix = matrix()
+	var/matrix_door_hinge = inverse_hinge ? door_hinge_x_alt : door_hinge_x
+	door_matrix.Translate(-matrix_door_hinge, 0)
+	door_matrix.Multiply(matrix(cos(angle), 0, 0, ((matrix_door_hinge >= 0) ? sin(angle) : -sin(angle)) * door_anim_squish, 1, 0)) // this matrix door hinge >= 0 check is for door hinges on the right, so they swing out instead of upwards
+	door_matrix.Translate(matrix_door_hinge, 0)
+	return door_matrix
 
 /obj/structure/closet/hear_talk(mob/M as mob, text, verb, datum/language/speaking)
 	for (var/atom/A in src)
@@ -760,24 +825,6 @@
 	new /obj/item/stack/material/steel(get_turf(src))
 	qdel(src)
 
-/obj/structure/closet/Destroy()
-	if(linked_teleporter)
-		QDEL_NULL(linked_teleporter)
-	return ..()
-
-/obj/structure/closet/stair_act()
-	if(opened || !can_open())
-		return
-
-	visible_message(SPAN_WARNING("\The [src] flies open as it bounces on the stairs!"))
-	for(var/thing in src)
-		var/atom/movable/AM = thing
-		AM.forceMove(get_turf(src))
-		AM.throw_at_random(TRUE, 1, 2)
-	open()
-
-	return ..()
-
 /*
 ==========================
 	Contents Scanner
@@ -786,10 +833,10 @@
 /obj/item/device/cratescanner
 	name = "crate contents scanner"
 	desc = "A  handheld device used to scan and print a manifest of a container's contents. Does not work on locked crates, for privacy reasons."
+	icon = 'icons/obj/item/device/cratescanner.dmi'
 	icon_state = "cratescanner"
 	matter = list(DEFAULT_WALL_MATERIAL = 250, MATERIAL_GLASS = 140)
-	w_class = ITEMSIZE_SMALL
-	item_state = "electronic"
+	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 

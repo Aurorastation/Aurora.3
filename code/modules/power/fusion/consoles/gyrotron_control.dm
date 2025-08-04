@@ -58,7 +58,7 @@
 			var/list/gyrotron = list()
 			var/obj/machinery/power/emitter/gyrotron/G = lan_gyrotrons[i]
 			gyrotron["id"] = "#[i]"
-			gyrotron["ref"] = "\ref[G]"
+			gyrotron["ref"] = "[REF(G)]"
 			gyrotron["active"] = G.active
 			gyrotron["firedelay"] = G.rate
 			gyrotron["energy"] = G.mega_energy

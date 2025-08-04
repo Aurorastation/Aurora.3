@@ -7,7 +7,7 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "m_garment"
 	item_state = "m_garment"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	flags_inv = null
 	body_parts_covered = null
 	filtered_gases = list(GAS_NITROGEN, GAS_N2O, GAS_CHLORINE, GAS_ALIEN)
@@ -21,7 +21,7 @@
 	desc = "A basic screw on filter attached beneath the mouthparts of the common Vaurca."
 	name = "filter port"
 	icon_state = "filterport"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	flags_inv = null
 	body_parts_covered = null
 	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_WARFORM, BODYTYPE_VAURCA_BREEDER, BODYTYPE_VAURCA_BULWARK)
@@ -49,18 +49,30 @@
 	build_from_parts = TRUE
 	worn_overlay = "face"
 	contained_sprite = TRUE
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/head.dmi'
+	)
+	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_BULWARK)
 
 /obj/item/clothing/head/expression/skrell
 	name = "skrell expression mask"
 	desc = "A mask that allows emotively challenged aliens to convey facial expressions. This one depicts a Skrell."
 	icon_state = "skrell_helmet"
 	item_state = "skrell_helmet"
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/head.dmi'
+	)
+	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_BULWARK)
 
 /obj/item/clothing/head/expression/unathi
 	name = "unathi expression mask"
 	desc = "A mask that allows emotively challenged aliens to convey facial expressions. This one depicts a Unathi."
 	icon_state = "unathi_helmet"
 	item_state = "unathi_helmet"
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/head.dmi'
+	)
+	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_BULWARK)
 
 /obj/item/clothing/head/shroud
 	name = "vaurcan shroud"
@@ -104,14 +116,14 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "eknife0"
 	item_state = "eknife0"
-	active_force = 20
+	active_force = 25
 	active_throwforce = 20
-	active_w_class = ITEMSIZE_HUGE
+	active_w_class = WEIGHT_CLASS_HUGE
 	force = 11
 	throwforce = 5
 	throw_speed = 5
 	throw_range = 10
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	atom_flags = ATOM_FLAG_NO_BLOOD
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	attack_verb = list("stabbed", "chopped", "sliced", "cleaved", "slashed", "cut")
@@ -191,7 +203,7 @@
 	icon_state = "harddisk"
 	force = 15
 	throwforce = 5
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	contained_sprite = 1
 
 /obj/item/melee/vaurca/rock
@@ -201,7 +213,7 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	force = 22
 	throwforce = 30
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	contained_sprite = 1
 
 /obj/item/grenade/spawnergrenade/vaurca
@@ -214,7 +226,7 @@
 	icon_state = "beacon"
 	force = 22
 	throwforce = 30
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	var/seed = /datum/seed/koisspore
 
 /obj/item/grenade/spawnergrenade/vaurca/prime()
@@ -274,30 +286,10 @@
 
 	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_WARFORM, BODYTYPE_VAURCA_BULWARK)
 	sprite_sheets = list(
-		BODYTYPE_VAURCA_WARFORM = 'icons/mob/species/warriorform/shoes.dmi',
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/shoes.dmi'
 	)
 
 	action_button_name = "Toggle the magclaws"
-
-/obj/item/clothing/shoes/magboots/vaurca/aug
-	name = "integrated mag-claws"
-	desc = "A magnetic-grip system similar to a set of magboots integrated into a Vaurca's leg chitin."
-	magpulse = 1
-	slowdown = 3
-	action_button_name = null
-	item_flags = ITEM_FLAG_THICK_MATERIAL|ITEM_FLAG_AIRTIGHT|ITEM_FLAG_INJECTION_PORT|ITEM_FLAG_NO_SLIP
-	canremove = FALSE
-
-/obj/item/clothing/shoes/magboots/vaurca/aug/throw_at()
-	usr.drop_from_inventory(src)
-
-/obj/item/clothing/shoes/magboots/vaurca/aug/dropped()
-	. = ..()
-	qdel(src)
-
-/obj/item/clothing/shoes/magboots/vaurca/aug/negates_gravity()
-	return TRUE
 
 /obj/item/clothing/suit/space/void/scout
 	name = "scout armor"
@@ -310,11 +302,11 @@
 
 	species_restricted = list(BODYTYPE_VAURCA)
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_SMALL,
+		LASER = ARMOR_LASER_SMALL,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED
 	)
 /obj/item/clothing/head/helmet/space/void/scout
 	name = "scout helmet"
@@ -326,11 +318,11 @@
 
 	species_restricted = list(BODYTYPE_VAURCA)
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_SMALL,
+		LASER = ARMOR_LASER_SMALL,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED
 	)
 	light_overlay = "helmet_light_dual_green"
 	light_color = "#3e7c3e"
@@ -345,12 +337,12 @@
 
 	species_restricted = list(BODYTYPE_VAURCA)
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_MAJOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_MINOR
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_MAJOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_MINOR
 	)
 /obj/item/clothing/head/helmet/space/void/commando
 	name = "commando helmet"
@@ -362,12 +354,12 @@
 
 	species_restricted = list(BODYTYPE_VAURCA)
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_MAJOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_MINOR
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_MAJOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_MINOR
 	)
 
 	light_overlay = "helmet_light_dual_green"
@@ -380,14 +372,14 @@
 	flags_inv = HIDEEARS|HIDEEYES|HIDEFACE
 	body_parts_covered = FACE|EYES
 	gas_filter_strength = 3
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	filtered_gases = list(GAS_NITROGEN, GAS_N2O)
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_SMALL,
-		bio = ARMOR_BIO_STRONG,
-		rad = ARMOR_RAD_MINOR
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_SMALL,
+		BIO = ARMOR_BIO_STRONG,
+		RAD = ARMOR_RAD_MINOR
 	)
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "m_metalg"
@@ -400,15 +392,15 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "greatblade0"
 	item_state = "greatblade0"
-	active_force = 30
+	active_force = 33
 	armor_penetration = 30
 	active_throwforce = 20
-	active_w_class = ITEMSIZE_HUGE
+	active_w_class = WEIGHT_CLASS_HUGE
 	force = 15
 	throwforce = 10
 	throw_speed = 5
 	throw_range = 10
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	atom_flags = ATOM_FLAG_NO_BLOOD
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	attack_verb = list("stabbed", "chopped", "sliced", "cleaved", "slashed", "cut")
@@ -419,7 +411,7 @@
 	base_block_chance = 60
 	shield_power = 150
 
-/obj/item/melee/energy/vaurca_zweihander/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user as mob)
+/obj/item/melee/energy/vaurca_zweihander/attack(mob/living/target_mob, mob/living/user, target_zone)
 	user.setClickCooldown(16)
 	..()
 

@@ -5,10 +5,12 @@
 /obj/item/autopsy_scanner
 	name = "autopsy scanner"
 	desc = "Extracts information on wounds."
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/item/autopsy_scanner.dmi'
 	icon_state = "autopsy"
+	item_state = "autopsy"
+	contained_sprite = TRUE
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	var/list/datum/autopsy_data_scanner/wdata = list()
 	var/list/datum/autopsy_data_scanner/chemtraces = list()
@@ -151,7 +153,8 @@
 
 	usr.put_in_hands(P)
 
-/obj/item/autopsy_scanner/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user as mob)
+/obj/item/autopsy_scanner/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/mob/living/carbon/human/M = target_mob
 	if(!istype(M))
 		return
 
@@ -177,6 +180,7 @@
 	for(var/mob/O in viewers(M))
 		O.show_message(SPAN_NOTICE("\The [user] scans the wounds on [M.name]'s [S.name] with \the [src]"), 1)
 
+	flick("autopsy-scan", src)
 	src.add_data(S)
 
 	return 1

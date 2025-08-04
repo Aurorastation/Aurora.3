@@ -9,6 +9,7 @@
 	drop_sound = 'sound/items/drop/herb.ogg'
 	pickup_sound = 'sound/items/pickup/herb.ogg'
 
+	storage_slot_sort_by_name = TRUE
 	var/plantname
 	var/datum/seed/seed
 	var/potency = -1
@@ -60,6 +61,12 @@
 	update_desc()
 	if(reagents.total_volume > 0)
 		bitesize = 1+round(reagents.total_volume / 2, 1)
+
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
 
 /obj/item/reagent_containers/food/snacks/grown/proc/update_desc()
 
@@ -146,9 +153,12 @@
 		SSplants.plant_icon_cache[icon_key] = plant_icon
 	AddOverlays(plant_icon)
 
-/obj/item/reagent_containers/food/snacks/grown/Crossed(var/mob/living/M)
+/obj/item/reagent_containers/food/snacks/grown/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
 	if(seed && seed.get_trait(TRAIT_JUICY) == 2)
-		if(istype(M))
+		if(isliving(arrived))
+			var/mob/living/M = arrived
 
 			if(M.buckled_to)
 				return
@@ -164,7 +174,6 @@
 			M.Stun(8)
 			M.Weaken(5)
 			seed.thrown_at(src,M)
-			sleep(-1)
 			if(src) qdel(src)
 			return
 
@@ -357,7 +366,7 @@
 	dried_type = /obj/item/reagent_containers/food/snacks/fruit_slice
 	var/datum/seed/seed
 
-var/list/fruit_icon_cache = list()
+GLOBAL_LIST_EMPTY(fruit_icon_cache)
 
 /obj/item/reagent_containers/food/snacks/fruit_slice/Initialize(mapload, datum/seed/S)
 	. = ..()
@@ -373,16 +382,16 @@ var/list/fruit_icon_cache = list()
 	var/rind_colour = seed.get_trait(TRAIT_PRODUCT_COLOUR)
 	var/flesh_colour = seed.get_trait(TRAIT_FLESH_COLOUR)
 	if(!flesh_colour) flesh_colour = rind_colour
-	if(!fruit_icon_cache["rind-[rind_colour]"])
+	if(!GLOB.fruit_icon_cache["rind-[rind_colour]"])
 		var/image/I = image(icon,"fruit_rind")
 		I.color = rind_colour
-		fruit_icon_cache["rind-[rind_colour]"] = I
-	AddOverlays(fruit_icon_cache["rind-[rind_colour]"])
-	if(!fruit_icon_cache["slice-[rind_colour]"])
+		GLOB.fruit_icon_cache["rind-[rind_colour]"] = I
+	AddOverlays(GLOB.fruit_icon_cache["rind-[rind_colour]"])
+	if(!GLOB.fruit_icon_cache["slice-[rind_colour]"])
 		var/image/I = image(icon,"fruit_slice")
 		I.color = flesh_colour
-		fruit_icon_cache["slice-[rind_colour]"] = I
-	AddOverlays(fruit_icon_cache["slice-[rind_colour]"])
+		GLOB.fruit_icon_cache["slice-[rind_colour]"] = I
+	AddOverlays(GLOB.fruit_icon_cache["slice-[rind_colour]"])
 
 /obj/item/reagent_containers/food/snacks/grown/konyang_tea
 	name = "sencha leaves"

@@ -7,7 +7,6 @@
 /obj/machinery/constructable_frame //Made into a seperate type to make future revisions easier.
 	name = "machine blueprint"
 	desc = "A holo-blueprint for a machine."
-	desc_info = "A blueprint that allows the user to rotate the direction the final result will be built in. Putting better components in now, will cause the machine made to have better components and functionality."
 	var/machine_description
 	var/components_description
 	icon = 'icons/obj/stock_parts.dmi'
@@ -23,25 +22,41 @@
 	var/state = 1
 	var/pitch_toggle = 1
 
-/obj/machinery/constructable_frame/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/machinery/constructable_frame/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "A blueprint that allows the user to rotate the direction the final result will be built in."
+	. += "Higher-quality components can improve the functionality of the machine in different ways."
+
+/obj/machinery/constructable_frame/assembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	switch(state)
 		if(BLUEPRINT_STATE)
-			. += FONT_SMALL(SPAN_NOTICE("<i>Click on \the [src] to finalize its direction.</i>"))
-			. += FONT_SMALL(SPAN_WARNING("Use a wirecutter or a plasma cutter to disassemble \the [src]."))
+			. += "Click on \the [src] to finalize its direction."
 		if(WIRING_STATE)
-			. += FONT_SMALL(SPAN_NOTICE("<i>Add cable coil to wire \the [src].</i>"))
-			. += FONT_SMALL(SPAN_WARNING("Use a wrench or a plasma cutter to disassemble \the [src]."))
+			. += "Add cable coil to wire \the [src]."
 		if(CIRCUITBOARD_STATE)
-			. += FONT_SMALL(SPAN_NOTICE("<i>Add the desired circuitboard.</i>"))
-			. += FONT_SMALL(SPAN_WARNING("Use a wirecutter to remove the cables."))
+			. += "Add the desired circuitboard."
 		if(COMPONENT_STATE)
-			. += FONT_SMALL(SPAN_NOTICE("<i>Add the required components. Use the screwdriver to complete the machine.</i>"))
-			. += FONT_SMALL(SPAN_WARNING("Use a crowbar to pry out the circuitboard and the components out."))
+			. += "Add the required components. Use the screwdriver to complete the machine."
+
+/obj/machinery/constructable_frame/disassembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	switch(state)
+		if(BLUEPRINT_STATE)
+			. += "Use a wirecutter or a plasma cutter to disassemble \the [src]."
+		if(WIRING_STATE)
+			. += "Use a wrench or a plasma cutter to disassemble \the [src]."
+		if(CIRCUITBOARD_STATE)
+			. += "Use a wirecutter to remove the cables."
+		if(COMPONENT_STATE)
+			. += "Use a crowbar to pry out the circuitboard and the components out."
+
+/obj/machinery/constructable_frame/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(machine_description)
-		. += FONT_SMALL(SPAN_NOTICE(machine_description))
+		. += "[machine_description]"
 	if(components_description)
-		. += FONT_SMALL(SPAN_NOTICE(components_description))
+		. += "[components_description]"
 
 /obj/machinery/constructable_frame/proc/update_component_desc()
 	var/D
@@ -108,7 +123,7 @@
 		if(CIRCUITBOARD_STATE)
 			if(istype(attacking_item, /obj/item/circuitboard))
 				var/obj/item/circuitboard/B = attacking_item
-				if(B.board_type == "machine")
+				if(B.board_type == BOARD_MACHINE)
 					playsound(get_turf(src), 'sound/items/Deconstruct.ogg', 50, TRUE)
 					to_chat(user, SPAN_NOTICE("You add the circuit board to the blueprint."))
 					circuit = attacking_item
@@ -232,12 +247,14 @@
 /obj/machinery/constructable_frame/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(!mover)
 		return TRUE
-	if(istype(mover,/obj/item/projectile) && density)
+	if(mover.movement_type & PHASING)
+		return TRUE
+	if(istype(mover,/obj/projectile) && density)
 		if(prob(50))
 			return TRUE
 		else
 			return FALSE
-	else if(mover.checkpass(PASSTABLE)) // Animals can run under them, lots of empty space
+	else if(mover.pass_flags & PASSTABLE) // Animals can run under them, lots of empty space
 		return TRUE
 	return ..()
 

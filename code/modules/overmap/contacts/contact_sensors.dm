@@ -116,9 +116,7 @@
 				continue
 
 			// Generate contact information for this overmap object.
-			var/bearing = round(90 - Atan2(contact.x - linked.x, contact.y - linked.y),5)
-			if(bearing < 0)
-				bearing += 360
+			var/bearing = get_bearing(contact)
 			if(!record) // Begin attempting to identify ship.
 				// The chance of detection decreases with distance to the target ship.
 				if(contact.scannable && prob((SENSORS_DISTANCE_COEFFICIENT * contact.sensor_visibility)/max(get_dist(linked, contact), 0.5)))
@@ -137,13 +135,7 @@
 							visible_message(SPAN_NOTICE("<b>\The [src]</b> states, \"Contact '[contact.unknown_id]' tracing [objects_in_view[contact]]% complete, bearing [bearing_estimate], error +/- [bearing_variability].\""))
 					playsound(loc, 'sound/machines/sensors/contactgeneric.ogg', 10, 1) //Let players know there's something nearby.
 				if(objects_in_view[contact] >= 100) // Identification complete.
-					record = new /datum/overmap_contact(src, contact)
-					contact_datums[contact] = record
-					if(contact.scannable)
-						playsound(loc, 'sound/machines/sensors/newcontact.ogg', 30, 1)
-						visible_message(SPAN_NOTICE("<b>\The [src]</b> states, \"New contact identified, designation [record.name], bearing [bearing].\""))
-					record.show()
-					animate(record.marker, alpha=255, 2 SECOND, 1, LINEAR_EASING)
+					record = add_contact(contact)
 				continue
 			// Update identification information for this record.
 			record.update_marker_icon()
@@ -151,6 +143,28 @@
 			var/time_delay = max((SENSOR_TIME_DELAY * get_dist(linked, contact)),1)
 			if(!record.pinged)
 				addtimer(CALLBACK(record, PROC_REF(ping)), time_delay)
+
+/**
+ * Adds an overmap object to the known contacts.
+ */
+/obj/machinery/computer/ship/sensors/proc/add_contact(obj/effect/overmap/contact)
+	var/datum/overmap_contact/record = new(src, contact)
+	var/bearing = get_bearing(contact)
+	contact_datums[contact] = record
+	if(contact.scannable)
+		playsound(loc, 'sound/machines/sensors/newcontact.ogg', 30, 1)
+		visible_message(SPAN_NOTICE("<b>\The [src]</b> states, \"New contact identified, designation [record.name], bearing [bearing].\""))
+	record.show()
+	animate(record.marker, alpha=255, 2 SECOND, 1, LINEAR_EASING)
+	return record
+
+/**
+ * Gets the bearing of an obj/effect/overmap/contact from src.
+ */
+/obj/machinery/computer/ship/sensors/proc/get_bearing(obj/effect/overmap/contact)
+	. = round(90 - Atan2(contact.x - linked.x, contact.y - linked.y),5)
+	if(. < 0)
+		. += 360
 
 /obj/machinery/computer/ship/sensors/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
@@ -163,14 +177,14 @@
 
 	if(tracker in trackers)
 		trackers -= tracker
-		GLOB.destroyed_event.unregister(tracker, src, PROC_REF(remove_tracker))
+		UnregisterSignal(tracker, COMSIG_QDELETING)
 		to_chat(user, SPAN_NOTICE("You unlink the tracker in \the [P]'s buffer from \the [src]."))
 		return
 	trackers += tracker
-	GLOB.destroyed_event.register(tracker, src, PROC_REF(remove_tracker))
+	RegisterSignal(tracker, COMSIG_QDELETING, PROC_REF(remove_tracker))
 	to_chat(user, SPAN_NOTICE("You link the tracker in \the [P]'s buffer to \the [src]."))
 
-/obj/machinery/computer/ship/sensors/proc/remove_tracker(var/obj/item/ship_tracker/tracker)
+/obj/machinery/computer/ship/sensors/proc/remove_tracker(obj/item/ship_tracker/tracker)
 	trackers -= tracker
 
 /obj/machinery/computer/ship/sensors/proc/datalink_process()

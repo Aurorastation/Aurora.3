@@ -10,9 +10,9 @@
 	var/status = 0								// Bitfield including different statuses.
 	var/stealth = TRUE							// Do you want your victims to know of your sucking?
 
-	var/obj/screen/blood_hud
-	var/obj/screen/frenzy_hud
-	var/obj/screen/blood_suck_hud
+	var/atom/movable/screen/blood_hud
+	var/atom/movable/screen/frenzy_hud
+	var/atom/movable/screen/blood_suck_hud
 
 	var/list/datum/power/vampire/purchased_powers = list()			// List of power datums available for use.
 	var/obj/effect/dummy/veil_walk/holder = null					// The veil_walk dummy.
@@ -52,9 +52,9 @@
 /datum/vampire/proc/assign_master(var/mob/M, var/mob/set_master, var/datum/vampire/V)
 	master = set_master
 	V.thralls += M
-	thrall_image = image('icons/mob/hud.dmi', M, "hudthrall")
+	thrall_image = image('icons/hud/hud.dmi', M, "hudthrall")
 	set_master.client.images += thrall_image
-	master_image = image('icons/mob/hud.dmi', set_master, "hudvampire")
+	master_image = image('icons/hud/hud.dmi', set_master, "hudvampire")
 	M.client.images += master_image
 
 /datum/vampire/proc/lose_master(var/mob/M)

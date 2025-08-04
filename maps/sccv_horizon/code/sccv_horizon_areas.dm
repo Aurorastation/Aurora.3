@@ -19,6 +19,9 @@
 /area/engineering/engine_room/rust
 	name = "Engineering - INDRA Engine"
 
+/area/engineering/engine_room/turbine
+	name = "Engineering - Combustion Turbine"
+
 /area/engineering/smes
 	name = "Engineering - SM SMES"
 	icon_state = "engine_smes"
@@ -45,6 +48,14 @@
 
 /area/hallway/engineering/rust
 	name = "Engineering - INDRA Hallway"
+
+/area/engineering/bluespace_drive
+	name = "Engineering - Bluespace Drive"
+	icon_state = "engine"
+
+/area/engineering/bluespace_drive/monitoring
+	name = "Engineering - Bluespace Drive"
+	icon_state = "engineering"
 
 //Medical
 
@@ -140,9 +151,6 @@
 /area/maintenance/substation/hangar
 	name = "Hangar Substation"
 
-/area/hangar/canary
-	name = "Canary Hangar"
-
 //Operations
 
 /area/operations
@@ -222,6 +230,9 @@
 
 /area/maintenance/hangar/port
 	name = "Port Hangar Maintenance"
+
+/area/maintenance/wing/cargo_compartment
+	name = "Auxiliary Cargo Maintenance"
 
 /area/maintenance/hangar/starboard
 	name = "Starboard Hangar Maintenance"
@@ -310,22 +321,46 @@
 	name = "Intrepid"
 	icon_state = "intrepid"
 	requires_power = TRUE
-/area/shuttle/intrepid/crew_compartment
-	name = "Intrepid Crew Compartment"
-/area/shuttle/intrepid/cargo_bay
-	name = "Intrepid Cargo Bay"
-/area/shuttle/intrepid/engine_compartment
-	name = "Engine Compartment"
-/area/shuttle/intrepid/atmos_compartment
-	name = "Atmos Compartment"
-/area/shuttle/intrepid/cockpit
-	name = "Cockpit"
-/area/shuttle/intrepid/quarters
-	name = "Intrepid Crew Quarters"
+
+/area/shuttle/intrepid/main_compartment
+	name = "Intrepid Main Compartment"
+
+/area/shuttle/intrepid/port_compartment
+	name = "Intrepid Port Compartment"
+
+/area/shuttle/intrepid/starboard_compartment
+	name = "Intrepid Starboard Compartment"
+
+/area/shuttle/intrepid/junction_compartment
+	name = "Intrepid Junction Compartment"
+
+/area/shuttle/intrepid/buffet
+	name = "Intrepid Buffet"
+
+/area/shuttle/intrepid/medical
+	name = "Intrepid Medical Compartment"
+
+/area/shuttle/intrepid/engineering
+	name = "Intrepid Engineering Compartment"
+
+/area/shuttle/intrepid/port_storage
+	name = "Intrepid Port Nacelle"
+
+/area/shuttle/intrepid/flight_deck
+	name = "Intrepid Flight Deck"
 
 /area/shuttle/canary
 	name = "Canary"
 	requires_power = TRUE
+
+/area/shuttle/quark/cockpit
+	name = "Quark Cockpit"
+	requires_power = TRUE
+
+/area/shuttle/quark/cargo_hold
+	name = "Quark Cargo Hold"
+	requires_power = TRUE
+
 //
 // SCCV Horizon Areas
 //
@@ -337,7 +372,7 @@
 
 // Exterior
 /area/horizon/exterior
-	name = "Horizon - Exterior (DO NOT ENCROACH ON LANDING PLACES)"
+	name = "Horizon - Exterior"
 	icon_state = "exterior"
 	base_turf = /turf/space
 	dynamic_lighting = TRUE
@@ -346,6 +381,7 @@
 	no_light_control = TRUE
 	allow_nightmode = FALSE
 	ambience = AMBIENCE_SPACE
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 
 /********** Maintenance Start **********/
 // Maintenance
@@ -634,6 +670,16 @@
 
 /area/horizon/holodeck/source_trinary
 	name = "Horizon - Holodeck - Trinarist Chapel"
+
+/area/horizon/holodeck/source_cafe
+	name = "Horizon - Holodeck - Animal Cafe"
+
+/area/horizon/holodeck/source_lasertag
+	name = "Horizon - Holodeck - Laser Tag Arena"
+
+/area/horizon/holodeck/source_combat_training
+	name = "Horizon - Holodeck - Combat Training Arena"
+
 /********** Holodeck End **********/
 
 /********** Unique Start **********/

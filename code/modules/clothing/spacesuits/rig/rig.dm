@@ -14,17 +14,17 @@
 	slot_flags = SLOT_BACK
 	req_one_access = list()
 	req_access = list()
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 
 	// These values are passed on to all component pieces.
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_MINOR
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_MINOR
 	)
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
@@ -179,7 +179,7 @@
 		if(islist(armor))
 			var/datum/component/armor/armor_component = piece.GetComponent(/datum/component/armor)
 			if(istype(armor_component))
-				armor_component.RemoveComponent()
+				qdel(armor_component)
 			piece.AddComponent(/datum/component/armor, armor, ARMOR_TYPE_STANDARD|ARMOR_TYPE_RIG)
 
 	if(chest.flags_inv & HIDEJUMPSUIT)
@@ -426,7 +426,9 @@
 			offline = 0
 			if(istype(wearer) && !wearer.wearing_rig)
 				wearer.wearing_rig = src
-			slowdown = initial(slowdown)
+			if(slowdown != initial(slowdown))
+				slowdown = initial(slowdown)
+				wearer?.update_equipment_speed_mods()
 
 	set_vision(!offline)
 	if(offline)
@@ -435,7 +437,9 @@
 			for(var/obj/item/rig_module/module in installed_modules)
 				module.deactivate()
 			offline = 2
-			slowdown = offline_slowdown
+			if(slowdown != offline_slowdown)
+				slowdown = offline_slowdown
+				wearer?.update_equipment_speed_mods()
 		return
 
 	if(crushing)
@@ -746,6 +750,8 @@
 			if(check_slot && check_slot == use_obj)
 				return
 			use_obj.forceMove(wearer)
+			if(src.color)
+				use_obj.color = src.color
 			if(!wearer.equip_to_slot_if_possible(use_obj, equip_to, 0, 1))
 				use_obj.forceMove(src)
 				if(check_slot)
@@ -972,7 +978,7 @@
 			wearer.inertia_dir = 0 //If not then we can reset inertia and move
 
 	if(malfunctioning)
-		direction = pick(GLOB.cardinal)
+		direction = pick(GLOB.cardinals)
 
 	// Inside an object, tell it we moved.
 	if(isobj(wearer.loc) || ismob(wearer.loc))

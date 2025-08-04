@@ -6,7 +6,6 @@
 	name = "hypospray"
 	desc = "A sterile, air-needle autoinjector for administration of drugs to patients."
 	desc_extended = "The Zeng-Hu Pharmaceuticals' Hypospray - 9 out of 10 doctors recommend it!"
-	desc_info = "Unlike a syringe, reagents have to be poured into the hypospray before it can be used."
 	icon = 'icons/obj/item/reagent_containers/syringe.dmi'
 	contained_sprite = TRUE
 	item_state = "hypo"
@@ -24,6 +23,10 @@
 	var/image/filling //holds a reference to the current filling overlay
 	matter = list(MATERIAL_GLASS = 400, DEFAULT_WALL_MATERIAL = 200)
 
+/obj/item/reagent_containers/hypospray/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Unlike a syringe, reagents have to be poured into the hypospray before it can be used."
+
 /obj/item/reagent_containers/hypospray/Initialize()
 	. = ..()
 	update_icon()
@@ -39,17 +42,20 @@
 	name = "premium hypospray"
 	desc = "A high-end version of the regular hypospray, it allows for a substantially higher rate of drug administration to patients."
 	desc_extended = "The Zeng-Hu Pharmaceuticals' Hypospray Mk-II is a cutting-edge version of the regular hypospray, with a much more expensive and streamlined injection process."
-	desc_info = "This version of the hypospray has no delay before injecting a patient with reagent."
 	icon_state = "cmo_hypo"
 	item_state = "cmo_hypo"
 	volume = 30
 	possible_transfer_amounts = list(5, 10, 15, 30)
 	time = 0
 
-/obj/item/reagent_containers/hypospray/attack(var/mob/M, var/mob/user, target_zone)
+/obj/item/reagent_containers/hypospray/cmo/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This version of the hypospray has no delay before injecting a patient with reagent."
+
+/obj/item/reagent_containers/hypospray/attack(mob/living/target_mob, mob/living/user, target_zone)
 	. = ..()
-	if(isliving(M))
-		var/mob/living/L = M
+	if(isliving(target_mob))
+		var/mob/living/L = target_mob
 		var/inj_time = time
 		var/mod_time = L.can_inject(user, TRUE, target_zone, armorcheck)
 		if(!mod_time)
@@ -60,7 +66,7 @@
 			inj_time *= mod_time
 		user.visible_message(SPAN_WARNING("\The [user] is trying to inject \the [L] with \the [src]!"), SPAN_NOTICE("You are trying to inject \the [L] with \the [src]."))
 		if(do_mob(user, L, inj_time))
-			inject(M, user, M.Adjacent(user))
+			inject(target_mob, user, target_mob.Adjacent(user))
 
 /obj/item/reagent_containers/hypospray/update_icon()
 	ClearOverlays()
@@ -111,7 +117,6 @@
 	name = "autoinjector"
 	desc = "A rapid and safe way to administer small amounts of drugs by untrained or trained personnel."
 	desc_extended = "Funded by the Stellar Corporate Conglomerate, produced by Zeng-Hu Pharmaceuticals, this autoinjector system was rebuilt from the ground up from the old variant to provide maximum user feedback."
-	desc_info = "Autoinjectors are spent after using them. To re-use, use a screwdriver to open the back panel, then simply pour any desired reagent inside. Alt-click while it's on your person to prepare it for reuse."
 	icon_state = "autoinjector"
 	item_state = "autoinjector"
 	slot_flags = SLOT_EARS
@@ -121,6 +126,17 @@
 	possible_transfer_amounts = null
 	volume = 5
 	time = 0
+
+/obj/item/reagent_containers/hypospray/autoinjector/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Autoinjectors are spent after using them. To re-use, use a screwdriver to open the back panel, then simply pour any desired reagent inside. ALT-click while it's on your person to prepare it for reuse."
+
+/obj/item/reagent_containers/hypospray/autoinjector/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(LAZYLEN(reagents.reagent_volumes))
+		. += "It is currently loaded."
+	else
+		. += "It is empty."
 
 /obj/item/reagent_containers/hypospray/autoinjector/Initialize()
 	. = ..()
@@ -133,7 +149,7 @@
 		spent = FALSE
 	update_icon()
 
-/obj/item/reagent_containers/hypospray/autoinjector/attack(var/mob/M, var/mob/user, target_zone)
+/obj/item/reagent_containers/hypospray/autoinjector/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(is_open_container())
 		to_chat(user, SPAN_NOTICE("You must secure the reagents inside \the [src] before using it!"))
 		return FALSE
@@ -186,14 +202,6 @@
 		reagent_overlay.color = reagents.get_color()
 		AddOverlays(reagent_overlay)
 	update_held_icon()
-
-/obj/item/reagent_containers/hypospray/autoinjector/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(LAZYLEN(reagents.reagent_volumes))
-		. += SPAN_NOTICE("It is currently loaded.")
-	else
-		. += SPAN_NOTICE("It is empty.")
-
 
 /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline
 	name_label = "inaprovaline"
@@ -353,11 +361,25 @@
 	desc = "An autoinjector loaded with impedrezene, a narcotic that impairs one's ability to think by impeding the function of brain cells in the cerebral cortex."
 	volume = 5
 	amount_per_transfer_from_this = 5
-	reagents_to_add = list(/singleton/reagent/drugs/impedrezene)
+	reagents_to_add = list(/singleton/reagent/drugs/impedrezene = 5)
 
 /obj/item/reagent_containers/hypospray/autoinjector/night_juice
 	name = "night life autoinjector"
 	desc = "An auto injector loaded with night life, a liquid narcotic commonly used by the more wealthy drug-abusing citizens of the Eridani Federation."
 	volume = 10
 	amount_per_transfer_from_this = 10
-	reagents_to_add = list(/singleton/reagent/drugs/night_juice)
+	reagents_to_add = list(/singleton/reagent/drugs/night_juice = 10)
+
+/obj/item/reagent_containers/hypospray/autoinjector/krokjuice
+	name = "krok juice autoinjector"
+	desc = "An autoinjector loaded with krok juice, an Eridanian narcotic known for causing intense, and pleasurable, prosthetic malfunctions."
+	volume = 10
+	amount_per_transfer_from_this = 10
+	reagents_to_add = list(/singleton/reagent/toxin/krok = 10)
+
+/obj/item/reagent_containers/hypospray/autoinjector/snowflake
+	name = "snowflake autoinjector"
+	desc = "An autoinjector loaded with snowflake, a recreational stimulant known for causing euphoria while dramatically lowering a user's body temperature."
+	volume = 10
+	amount_per_transfer_from_this = 10
+	reagents_to_add = list(/singleton/reagent/drugs/snowflake = 10)

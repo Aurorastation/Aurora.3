@@ -87,7 +87,7 @@
 		if(ckey(clonemind.key) != R.ckey)
 			return 0
 	else
-		for(var/mob/abstract/observer/G in GLOB.player_list)
+		for(var/mob/abstract/ghost/observer/G in GLOB.player_list)
 			if(G.ckey == R.ckey)
 				if(G.can_reenter_corpse)
 					break
@@ -333,7 +333,9 @@
 			qdel(occupant)
 	return
 
-/obj/machinery/clonepod/relaymove(mob/user as mob)
+/obj/machinery/clonepod/relaymove(mob/living/user, direction)
+	. = ..()
+
 	if(user.stat)
 		return
 	go_out()
@@ -385,9 +387,13 @@
 	icon = 'icons/obj/cloning.dmi'
 	icon_state = "datadisk0" //Gosh I hope syndies don't mistake them for the nuke disk.
 	item_state = "card-id"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	var/datum/dna2/record/buf = null
 	var/read_only = 0 //Well,it's still a floppy disk
+
+/obj/item/disk/data/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "The write-protect tab is set to [read_only ? "protected" : "unprotected"]."
 
 /obj/item/disk/data/proc/initializeDisk()
 	buf = new
@@ -431,10 +437,6 @@
 /obj/item/disk/data/attack_self(mob/user as mob)
 	read_only = !read_only
 	to_chat(user, "You flip the write-protect tab to [read_only ? "protected" : "unprotected"].")
-
-/obj/item/disk/data/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += "The write-protect tab is set to [read_only ? "protected" : "unprotected"]."
 
 /*
  *	Diskette Box

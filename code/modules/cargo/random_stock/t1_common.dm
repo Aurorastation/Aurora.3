@@ -213,7 +213,8 @@ STOCK_ITEM_COMMON(gloves, 3.3)
 		/obj/item/clothing/gloves/fluff,
 		/obj/item/clothing/gloves/swat/bst,
 		/obj/item/clothing/gloves/powerfist,
-		/obj/item/clothing/gloves/claws
+		/obj/item/clothing/gloves/claws,
+		/obj/item/clothing/gloves/chameleon/changeling
 	)
 	exclusion += typesof(/obj/item/clothing/gloves/rig)
 	exclusion += typesof(/obj/item/clothing/gloves/lightrig)
@@ -524,6 +525,26 @@ STOCK_ITEM_COMMON(camera, 1)
 	new /obj/item/device/camera(L)
 	if(prob(60))
 		new /obj/item/device/camera_film(L)
+
+STOCK_ITEM_COMMON(flagbox, 3)
+	var/list/flagbox_type = list(
+		/obj/item/storage/box/flags/sol,
+		/obj/item/storage/box/flags/biesel,
+		/obj/item/storage/box/flags/coc,
+		/obj/item/storage/box/flags/galataea,
+		/obj/item/storage/box/flags/dominia,
+		/obj/item/storage/box/flags/elyra,
+		/obj/item/storage/box/flags/diona,
+		/obj/item/storage/box/flags/unathi,
+		/obj/item/storage/box/flags/skrell,
+		/obj/item/storage/box/flags/tajara,
+		/obj/item/storage/box/flags/vaurca,
+		/obj/item/storage/box/flags/goldendeep,
+		/obj/item/storage/box/flags/corporate,
+		/obj/item/storage/box/flags/misc
+	)
+	var/type = pick(flagbox_type)
+	new type(L)
 
 STOCK_ITEM_COMMON(nothing, 0)
 	// do nothing

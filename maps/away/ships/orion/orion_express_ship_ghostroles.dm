@@ -10,7 +10,7 @@
 	max_count = 3
 
 	outfit = /obj/outfit/admin/orion_express_courier
-	possible_species = list(SPECIES_HUMAN,SPECIES_HUMAN_OFFWORLD,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN,SPECIES_UNATHI,SPECIES_VAURCA_WARRIOR,SPECIES_VAURCA_WORKER, SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_WORKER, SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Orion Express Courier"
@@ -36,7 +36,8 @@
 		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/workboots/toeless,
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/workboots/toeless,
 		SPECIES_VAURCA_WORKER = /obj/item/clothing/shoes/workboots/toeless,
-		SPECIES_VAURCA_WARRIOR =/obj/item/clothing/shoes/workboots/toeless
+		SPECIES_VAURCA_WARRIOR =/obj/item/clothing/shoes/workboots/toeless,
+		SPECIES_VAURCA_ATTENDANT =/obj/item/clothing/shoes/workboots/toeless
 	)
 
 /obj/outfit/admin/orion_express_courier/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)

@@ -83,5 +83,5 @@
 	//entangling people
 	if(victim.loc == src.loc)
 		buckle(victim)
-		victim.set_dir(pick(GLOB.cardinal))
+		victim.set_dir(pick(GLOB.cardinals))
 		to_chat(victim, SPAN_DANGER("Tendrils tighten around you!"))

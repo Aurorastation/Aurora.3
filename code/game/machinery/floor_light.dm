@@ -1,5 +1,3 @@
-var/list/floor_light_cache = list()
-
 /obj/machinery/floor_light
 	name = "floor light"
 	icon = 'icons/obj/machinery/floor_light.dmi'
@@ -10,7 +8,7 @@ var/list/floor_light_cache = list()
 	use_power = POWER_USE_ACTIVE
 	idle_power_usage = 2
 	active_power_usage = 20
-	power_channel = LIGHT
+	power_channel = AREA_USAGE_LIGHT
 	matter = list(DEFAULT_WALL_MATERIAL = 2500, MATERIAL_GLASS = 2750)
 	recyclable = TRUE
 

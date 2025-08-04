@@ -514,10 +514,12 @@
 	post_scoop()
 	return H
 
-/mob/living/silicon/pai/MouseDrop(atom/over_object)
-	var/mob/living/carbon/H = over_object
-	if(!istype(H) || !Adjacent(H)) return ..()
-	get_scooped(H, usr)
+/mob/living/silicon/pai/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	var/mob/living/carbon/H = over
+	if(!istype(H) || !Adjacent(H))
+		return ..()
+
+	get_scooped(H, user)
 
 /mob/living/silicon/pai/start_pulling(var/atom/movable/AM)
 	if(istype(AM,/obj/item))

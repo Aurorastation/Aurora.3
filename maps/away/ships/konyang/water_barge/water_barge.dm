@@ -3,7 +3,7 @@
 	description = "A PACHROM transport barge, exporting water."
 
 	prefix = "ships/konyang/water_barge/"
-	suffixes = list("water_barge.dmm")
+	suffix = "water_barge.dmm"
 
 	sectors = list(SECTOR_HANEUNIM)
 	spawn_weight = 1

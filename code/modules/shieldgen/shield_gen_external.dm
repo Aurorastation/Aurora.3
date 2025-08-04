@@ -21,7 +21,7 @@
 		// Ignore station areas.
 		if (GLOB.the_station_areas[T.loc] || is_shuttle_area(T.loc))
 			continue
-		else if (istype(T, /turf/space) || istype(T, /turf/unsimulated/floor/asteroid) || isopenturf(T) || istype(T, /turf/simulated/floor/reinforced))
+		else if (istype(T, /turf/space) || istype(T, /turf/simulated/floor/exoplanet/asteroid) || isopenturf(T) || istype(T, /turf/simulated/floor/reinforced))
 			for (var/uu in RANGE_TURFS(1, T))
 				U = uu
 				if (T == U)
@@ -33,8 +33,8 @@
 
 	if(multiz)
 		var/connected_levels = list()
-		var/turf/above = getzabove(src)
-		var/turf/below = getzbelow(src)
+		var/list/turf/above = getzabove(get_turf(src))
+		var/list/turf/below = getzbelow(get_turf(src))
 		if(above)
 			for(var/turf/z as anything in above)
 				connected_levels += z
@@ -47,7 +47,7 @@
 				// Ignore station areas.
 				if (GLOB.the_station_areas[T.loc] || istype(T.loc, /area/shuttle))
 					continue
-				else if (istype(T, /turf/space) || istype(T, /turf/unsimulated/floor/asteroid) || isopenturf(T) || istype(T, /turf/simulated/floor/reinforced))
+				else if (istype(T, /turf/space) || istype(T, /turf/simulated/floor/exoplanet/asteroid) || isopenturf(T) || istype(T, /turf/simulated/floor/reinforced))
 					for (var/uu in RANGE_TURFS(1, T))
 						U = uu
 						if (T == U)

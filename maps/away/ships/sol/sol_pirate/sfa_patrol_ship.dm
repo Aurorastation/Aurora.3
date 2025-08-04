@@ -3,10 +3,10 @@
 	description = "A small ship that appears to be, at its core, a Montevideo-class corvette, a Solarian anti-piracy and patrol corvette designed with ample automation and streamlined equipment which allows for it to be manned by a small crew. This one, however, seems to have been host to a myriad of haphazard and radical modifications, and is scarcely identifiable as the original craft. Beyond the changes made to the ship itself, it also appears to have suffered extensive damage and wear, and seems to be near-derelict"
 
 	prefix = "ships/sol/sol_pirate/"
-	suffixes = list("sfa_patrol_ship.dmm")
+	suffix = "sfa_patrol_ship.dmm"
 
-	sectors = list(SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
-	spawn_weight = 1
+	sectors = list(SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
+	spawn_weight = 0.5 // Lowered to represent increasing scarcity of faction.
 	ship_cost = 1
 	id = "sfa_patrol_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/sfa_shuttle)
@@ -181,7 +181,7 @@
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
-	fore_dir = NORTH
+	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
 /obj/machinery/computer/shuttle_control/explore/sfa_shuttle

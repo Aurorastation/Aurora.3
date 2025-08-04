@@ -7,7 +7,6 @@ LINEN BINS
 /obj/item/bedsheet
 	name = "bedsheet"
 	desc = "A surprisingly soft linen bedsheet."
-	desc_info = "Click to roll and unroll. Alt-click to fold and unfold. Drag and drop to pick up. You can equip it in your backpack slot."
 	icon = 'icons/obj/bedsheets.dmi'
 	icon_state = "sheetwhite"
 	item_state = "sheetwhite"
@@ -20,7 +19,7 @@ LINEN BINS
 	throwforce = 1
 	throw_speed = 1
 	throw_range = 2
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	drop_sound = 'sound/items/drop/cloth.ogg'
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
 	randpixel = 0
@@ -29,6 +28,23 @@ LINEN BINS
 	var/fold = FALSE
 	var/inuse = FALSE
 	var/inside_storage_item = FALSE
+
+/obj/item/bedsheet/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Click to roll and unroll."
+	. += "Alt-click to fold and unfold."
+	. += "Drag and drop to pick up."
+	. += "You can equip it in your backpack slot."
+	. += "It could be cut up into sheets of cloth."
+	. += "Holes could be poked in it to make a ghost costume... if you really wanted to."
+
+/obj/item/bedsheet/Initialize()
+	. = ..()
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
 
 /obj/item/bedsheet/afterattack(atom/A, mob/user)
 	if(istype(A, /obj/structure/bed))
@@ -65,20 +81,21 @@ LINEN BINS
 		..()
 	add_fingerprint(user)
 
-/obj/item/bedsheet/MouseDrop(mob/user)
-	if((user && (!use_check(user))) && (user.contents.Find(src) || in_range(src, user)))
-		if(!istype(user, /mob/living/carbon/slime) && !istype(user, /mob/living/simple_animal))
-			if( !user.get_active_hand() )		//if active hand is empty
+/obj/item/bedsheet/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if((over && (!use_check(over))) && (over.contents.Find(src) || in_range(src, over)))
+		if(!istype(over, /mob/living/carbon/slime) && !istype(over, /mob/living/simple_animal))
+			var/mob/mouse_dropped_over = over
+			if( !mouse_dropped_over.get_active_hand() )		//if active hand is empty
 				var/mob/living/carbon/human/H = user
 				var/obj/item/organ/external/temp = H.organs_by_name["r_hand"]
 				if (H.hand)
 					temp = H.organs_by_name["l_hand"]
 				if(temp && !temp.is_usable())
-					to_chat(user, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
+					to_chat(H, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
 					return
 
-				to_chat(user, SPAN_NOTICE("You pick up \the [src]."))
-				user.put_in_hands(src)
+				to_chat(H, SPAN_NOTICE("You pick up \the [src]."))
+				H.put_in_hands(src)
 	return
 
 /obj/item/bedsheet/update_icon()
@@ -89,9 +106,11 @@ LINEN BINS
 	else
 		icon_state = initial(icon_state)
 
-/obj/item/bedsheet/Crossed(H as mob) //Basically, stepping on it resets it to below people.
-	if(isliving(H))
-		var/mob/living/M = H
+/obj/item/bedsheet/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	if(isliving(arrived))
+		var/mob/living/M = arrived
 		if(M.loc == src.loc)
 			return
 	else
@@ -124,12 +143,12 @@ LINEN BINS
 		if(!fold)
 			fold = TRUE
 			slot_flags = null
-			w_class = ITEMSIZE_SMALL
+			w_class = WEIGHT_CLASS_SMALL
 			layer = reset_plane_and_layer()
 		else
 			fold = FALSE
 			slot_flags = SLOT_BACK
-			w_class = ITEMSIZE_LARGE
+			w_class = WEIGHT_CLASS_BULKY
 		update_icon()
 		inuse = FALSE
 		return TRUE
@@ -158,14 +177,14 @@ LINEN BINS
 		if(!roll)
 			roll = TRUE
 			slot_flags = null
-			w_class = ITEMSIZE_NORMAL
+			w_class = WEIGHT_CLASS_NORMAL
 			layer = reset_plane_and_layer()
 			if(user.resting && get_turf(src) == get_turf(user)) // Make them rest
 				user.lay_down()
 		else
 			roll = FALSE
 			slot_flags = SLOT_BACK
-			w_class = ITEMSIZE_LARGE
+			w_class = WEIGHT_CLASS_BULKY
 			if(layer == initial(layer))
 				layer = ABOVE_HUMAN_LAYER
 			if(!user.resting && get_turf(src) == get_turf(user)) // Make them get up
@@ -377,9 +396,12 @@ LINEN BINS
 	var/list/sheets = list()
 	var/obj/item/hidden = null
 
+/obj/structure/bedsheetbin/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You could hide things in here, so long as there are also some sheets to conceal it."
 
-/obj/structure/bedsheetbin/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/structure/bedsheetbin/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(amount < 1)
 		. += "There are no bed sheets in the bin."
 		return

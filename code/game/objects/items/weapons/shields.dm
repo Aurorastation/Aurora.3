@@ -5,8 +5,8 @@
 /proc/check_shield_arc(mob/user, bad_arc, atom/damage_source = null, mob/attacker = null)
 	//check attack direction
 	var/attack_dir = 0 //direction from the user to the source of the attack
-	if(istype(damage_source, /obj/item/projectile))
-		var/obj/item/projectile/P = damage_source
+	if(istype(damage_source, /obj/projectile))
+		var/obj/projectile/P = damage_source
 		attack_dir = get_dir(get_turf(user), P.starting)
 	else if(attacker)
 		attack_dir = get_dir(get_turf(user), get_turf(attacker))
@@ -19,11 +19,11 @@
 
 /proc/default_parry_check(mob/user, mob/attacker, atom/damage_source)
 	//parry only melee attacks
-	if(istype(damage_source, /obj/item/projectile) || (attacker && get_dist(user, attacker) > 1) || user.incapacitated())
+	if(istype(damage_source, /obj/projectile) || (attacker && get_dist(user, attacker) > 1) || user.incapacitated())
 		return 0
 
 	//block as long as they are not directly behind us
-	var/bad_arc = reverse_direction(user.dir) //arc of directions from which we cannot block
+	var/bad_arc = REVERSE_DIR(user.dir) //arc of directions from which we cannot block
 	if(!check_shield_arc(user, bad_arc, damage_source, attacker))
 		return 0
 
@@ -40,15 +40,15 @@
 	recyclable = TRUE
 
 /obj/item/shield/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, def_zone = null, attack_text = "the attack")
-	var/shield_dir = on_back ? user.dir : GLOB.reverse_dir[user.dir]
+	var/shield_dir = on_back ? user.dir : REVERSE_DIR(user.dir)
 
 	if(user.incapacitated() || !(check_shield_arc(user, shield_dir, damage_source, attacker)))
-		return FALSE
+		return BULLET_ACT_HIT
 
 	if(prob(get_block_chance(user, damage, damage_source, attacker)))
 		user.visible_message(SPAN_DANGER("\The [user] blocks [attack_text] with \the [src]!"))
-		return PROJECTILE_STOPPED
-	return FALSE
+		return BULLET_ACT_BLOCK
+	return BULLET_ACT_HIT
 
 /obj/item/shield/can_shield_back()
 	return TRUE
@@ -66,7 +66,7 @@
 	throwforce = 5.0
 	throw_speed = 1
 	throw_range = 4
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	origin_tech = list(TECH_MATERIAL = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 1000, MATERIAL_GLASS = 7500)
 	attack_verb = list("shoved", "bashed")
@@ -74,13 +74,14 @@
 
 /obj/item/shield/riot/handle_shield(mob/user)
 	. = ..()
-	if(.) playsound(user.loc, 'sound/weapons/Genhit.ogg', 50, 1)
+	if(. != BULLET_ACT_HIT)
+		playsound(user.loc, 'sound/weapons/Genhit.ogg', 50, 1)
 
 /obj/item/shield/riot/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
-	if(istype(damage_source, /obj/item/projectile))
-		var/obj/item/projectile/P = damage_source
+	if(istype(damage_source, /obj/projectile))
+		var/obj/projectile/P = damage_source
 		//plastic shields do not stop bullets or lasers, even in space. Will block beanbags, rubber bullets, and stunshots just fine though.
-		if((is_sharp(P) && damage > 10) || istype(P, /obj/item/projectile/beam))
+		if((is_sharp(P) && damage > 10) || istype(P, /obj/projectile/beam))
 			return 0
 	return base_block_chance
 
@@ -106,19 +107,20 @@
 	base_block_chance = 60
 	throw_speed = 10
 	throw_range = 20
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	origin_tech = list(TECH_MATERIAL = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 1000, MATERIAL_WOOD = 1000)
 	attack_verb = list("shoved", "bashed")
 
 /obj/item/shield/buckler/handle_shield(mob/user)
 	. = ..()
-	if(.) playsound(user.loc, 'sound/weapons/Genhit.ogg', 50, 1)
+	if(. != BULLET_ACT_HIT)
+		playsound(user.loc, 'sound/weapons/Genhit.ogg', 50, 1)
 
 /obj/item/shield/buckler/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
-	if(istype(damage_source, /obj/item/projectile))
-		var/obj/item/projectile/P = damage_source
-		if((is_sharp(P) && damage > 10) || istype(P, /obj/item/projectile/beam))
+	if(istype(damage_source, /obj/projectile))
+		var/obj/projectile/P = damage_source
+		if((is_sharp(P) && damage > 10) || istype(P, /obj/projectile/beam))
 			return 0
 	return base_block_chance
 
@@ -135,7 +137,7 @@
 	throwforce = 5.0
 	throw_speed = 1
 	throw_range = 4
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	origin_tech = list(TECH_MATERIAL = 4, TECH_MAGNET = 3, TECH_ILLEGAL = 4)
 	attack_verb = list("shoved", "bashed")
 	var/shield_power = 150
@@ -175,12 +177,10 @@
 	user.update_inv_r_hand()
 
 /obj/item/shield/energy/handle_shield(mob/user, on_back, damage, atom/damage_source = null, mob/attacker = null, def_zone = null, attack_text = "the attack")
-	var/shield_dir = on_back ? user.dir : GLOB.reverse_dir[user.dir]
+	var/shield_dir = on_back ? user.dir : REVERSE_DIR(user.dir)
 
 	if(!active || user.incapacitated() || !(check_shield_arc(user, shield_dir, damage_source, attacker)))
-		return FALSE
-	if(.)
-		spark(user.loc, 5)
+		return BULLET_ACT_HIT
 
 	if(prob(get_block_chance(user, damage, damage_source, attacker)))
 		spark(user.loc, 5)
@@ -192,7 +192,7 @@
 			HandleShutOff()
 
 		if(isenergy(damage_source) || isbeam(damage_source))
-			var/obj/item/projectile/P = damage_source
+			var/obj/projectile/P = damage_source
 
 			var/reflectchance = 80 - (damage/3)
 			if(P.starting && prob(reflectchance))
@@ -214,13 +214,13 @@
 					new_angle_s -= 360
 				P.set_angle(new_angle_s)
 
-				return PROJECTILE_CONTINUE // complete projectile permutation
+				return BULLET_ACT_FORCE_PIERCE // complete projectile permutation
 			else
 				user.visible_message(SPAN_DANGER("\The [user] blocks [attack_text] with \the [src]!"))
-				return PROJECTILE_STOPPED
+				return BULLET_ACT_BLOCK
 		else
 			user.visible_message(SPAN_DANGER("\The [user] blocks [attack_text] with \the [src]!"))
-			return PROJECTILE_STOPPED
+			return BULLET_ACT_BLOCK
 
 
 /obj/item/shield/energy/get_block_chance(mob/user, damage, atom/damage_source = null, mob/attacker = null)
@@ -233,7 +233,7 @@
 	addtimer(CALLBACK(src, /obj/item/shield/energy/proc/UpdateSoundLoop), 0.25 SECONDS)
 	playsound(src, 'sound/items/shield/energy/shield-start.ogg', 40)
 	force = 15
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/shield/energy/proc/HandleShutOff()
 	addtimer(CALLBACK(src, /obj/item/shield/energy/proc/UpdateSoundLoop), 0.1 SECONDS)
@@ -311,7 +311,7 @@
 	throwforce = 3.0
 	throw_speed = 3
 	throw_range = 4
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	attack_verb = list("shoved", "bashed")
 	var/active = 0
 
@@ -323,11 +323,11 @@
 
 /obj/item/shield/riot/tact/handle_shield(mob/user)
 	if(!active)
-		return FALSE //turn it on first!
+		return BULLET_ACT_HIT //turn it on first!
 
 	. = ..()
-	if(.)
-		if(.) playsound(user.loc, 'sound/weapons/Genhit.ogg', 50, 1)
+	if(. != BULLET_ACT_HIT)
+		playsound(user.loc, 'sound/weapons/Genhit.ogg', 50, 1)
 
 /obj/item/shield/riot/tact/attack_self(mob/living/user)
 	active = !active
@@ -339,7 +339,7 @@
 		force = 11
 		throwforce = 5
 		throw_speed = 2
-		w_class = ITEMSIZE_LARGE
+		w_class = WEIGHT_CLASS_BULKY
 		slot_flags = SLOT_BACK
 		to_chat(user, SPAN_NOTICE("You extend \the [src] downward with a sharp snap of your wrist."))
 	else
@@ -348,7 +348,7 @@
 		force = 3
 		throwforce = 3
 		throw_speed = 3
-		w_class = ITEMSIZE_NORMAL
+		w_class = WEIGHT_CLASS_NORMAL
 		slot_flags = 0
 		to_chat(user, SPAN_NOTICE("\The [src] folds inwards neatly as you snap your wrist upwards and push it back into the frame."))
 

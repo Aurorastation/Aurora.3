@@ -18,6 +18,17 @@ SUBSYSTEM_DEF(atlas)
 
 	var/datum/space_sector/current_sector
 	var/list/possible_sectors = list()
+
+	/// A list of icons used for the lobby image
+	var/list/icon/lobby_icons = list()
+
+	/**
+	 * Delay between lobby transitions, in deciseconds
+	 *
+	 * If set to 0, no transitions will be used
+	 */
+	var/lobby_transitions = 0
+
 	//Note that the dirs here are REVERSE because they're used for entry points, so it'd be the dir facing starboard for example.
 	//These are strings because otherwise the list indexes would be out of bounds. Thanks BYOND.
 	var/list/naval_to_dir = list(
@@ -137,13 +148,13 @@ SUBSYSTEM_DEF(atlas)
 	)
 
 /datum/controller/subsystem/atlas/stat_entry(msg)
-	msg = "W:{X:[world.maxx] Y:[world.maxy] Z:[world.maxz]} ZL:[GLOB.z_levels]"
+	msg = "W:{X:[world.maxx] Y:[world.maxy] Z:[world.maxz]} ZL:[length(SSmapping.z_list)]"
 	return ..()
 
 /datum/controller/subsystem/atlas/Initialize(timeofday)
 	// Quick sanity check.
 	if (world.maxx != WORLD_MIN_SIZE || world.maxy != WORLD_MIN_SIZE || world.maxz != 1)
-		to_world(SPAN_WARNING("WARNING: Suspected pre-compiled map: things may break horribly!"))
+		stack_trace(SPAN_WARNING("WARNING: Suspected pre-compiled map: things may break horribly!"))
 		log_subsystem_atlas("-- WARNING: Suspected pre-compiled map! --")
 
 	maploader = new
@@ -213,7 +224,23 @@ SUBSYSTEM_DEF(atlas)
 
 	setup_spawnpoints()
 
+	setup_lobby_icons()
+
 	return SS_INIT_SUCCESS
+
+/datum/controller/subsystem/atlas/proc/setup_lobby_icons()
+	SHOULD_NOT_SLEEP(TRUE)
+
+	var/list/paths = current_sector.lobby_icon_image_paths || current_map.lobby_icon_image_paths
+
+	if(!length(paths))
+		stack_trace("No lobby icons found! Setup either the map or the sector ones!")
+		lobby_icons += icon('icons/misc/titlescreens/runtime/test.png')
+		return
+
+	var/random_path = pick(paths)
+	for(var/path in random_path)
+		lobby_icons += icon(path)
 
 /datum/controller/subsystem/atlas/proc/load_map_directory(directory, overwrite_default_z = FALSE)
 	. = 0
@@ -223,32 +250,32 @@ SUBSYSTEM_DEF(atlas)
 	var/static/regex/mapregex = new(".+\\.dmm$")
 	var/list/files = flist(directory)
 	sortTim(files, GLOBAL_PROC_REF(cmp_text_asc))
+	var/list/filemaps_to_load
+	for(var/file in files)
+		if(mapregex.Find(file))
+			filemaps_to_load += list(file)
+
 	var/mfile
-	var/first_dmm = TRUE
-	var/time
-	for (var/i in 1 to files.len)
-		mfile = files[i]
-		if (!mapregex.Find(mfile))
-			continue
+	var/time = world.time
 
-		log_subsystem_atlas("Loading '[mfile]'.")
-		time = world.time
+	if(length(filemaps_to_load) >= 2)
+		stack_trace("Only one file is now supported per map!")
+		return
 
-		mfile = "[directory][mfile]"
+	var/datum/space_level/first_level
+	for(var/traits in current_map.traits)
+		var/level = SSmapping.add_new_zlevel(name, traits, contain_turfs = FALSE)
+		if(!first_level)
+			first_level = level
 
-		var/target_z = 0
-		if (overwrite_default_z && first_dmm)
-			target_z = 1
-			first_dmm = FALSE
-			log_subsystem_atlas("Overwriting first Z.")
+	mfile = "[directory][filemaps_to_load[1]]"
 
-		if (!maploader.load_map(file(mfile), 0, 0, target_z, no_changeturf = TRUE))
-			log_subsystem_atlas("Failed to load '[mfile]'!")
-		else
-			log_subsystem_atlas("Loaded level in [(world.time - time)/10] seconds.")
-
-		.++
-		CHECK_TICK
+	if(!maploader.load_map(file(mfile), 0, 0, first_level.z_value, no_changeturf = TRUE))
+		log_subsystem_atlas("Failed to load '[mfile]'!")
+		return FALSE
+	else
+		log_subsystem_atlas("Loaded level in [(world.time - time)/10] seconds.")
+		return TRUE
 
 /datum/controller/subsystem/atlas/proc/get_selected_map()
 	if (GLOB.config.override_map)
@@ -263,9 +290,10 @@ SUBSYSTEM_DEF(atlas)
 		. = "sccv_horizon"
 
 /datum/controller/subsystem/atlas/proc/load_map_meta()
+	SHOULD_NOT_SLEEP(TRUE)
 	// This needs to be done after current_map is set, but before mapload.
 
-	admin_departments = list(
+	GLOB.admin_departments = list(
 		"[current_map.boss_name]",
 		"External Routing",
 		"Supply"
@@ -278,10 +306,8 @@ SUBSYSTEM_DEF(atlas)
 	for (var/thing in mapload_callbacks)
 		var/datum/callback/cb = thing
 		cb.InvokeAsync()
-		CHECK_TICK
 
 	mapload_callbacks.Cut()
-	mapload_callbacks = null
 
 /datum/controller/subsystem/atlas/proc/OnMapload(datum/callback/callback)
 	if (!istype(callback))
@@ -290,11 +316,15 @@ SUBSYSTEM_DEF(atlas)
 	mapload_callbacks += callback
 
 /datum/controller/subsystem/atlas/proc/setup_spawnpoints()
+	SHOULD_NOT_SLEEP(TRUE)
+
 	for (var/type in current_map.spawn_types)
 		var/datum/spawnpoint/S = new type
 		spawn_locations[S.display_name] = S
 
 /datum/controller/subsystem/atlas/proc/InitializeSectors()
+	SHOULD_NOT_SLEEP(TRUE)
+
 	for (var/type in subtypesof(/datum/space_sector))
 		var/datum/space_sector/space_sector = new type()
 
@@ -322,9 +352,13 @@ SUBSYSTEM_DEF(atlas)
 	sleep(1 MINUTE)
 	world.Reboot()
 
-/proc/station_name()
+/// Called to retrieve the name of the station. When short is TRUE, the short name of the station will be provided instead.
+/proc/station_name(var/short = FALSE)
 	ASSERT(SSatlas.current_map)
-	. = SSatlas.current_map.station_name
+	if(short)
+		. = SSatlas.current_map.station_short
+	else
+		. = SSatlas.current_map.station_name
 
 	var/sname
 	if (GLOB.config && GLOB.config.server_name)

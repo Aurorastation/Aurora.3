@@ -46,7 +46,7 @@
 	name = "Elyran Navy"
 	chance = 15
 	spawner = /datum/ghostspawner/human/ert/elyra
-	possible_space_sector = list(SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_VALLEY_HALE, SECTOR_AEMAQ)
+	possible_space_sector = list(SECTOR_BADLANDS, SECTOR_TABITI, SECTOR_VALLEY_HALE, SECTOR_AEMAQ)
 
 /datum/responseteam/coalition
 	name = "Coalition Rangers"

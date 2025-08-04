@@ -66,6 +66,6 @@
 			to_chat(src, SPAN_NOTICE("Unusable emote '[act]'. Say *help for a list."))
 
 	if (message)
-		log_emote("[name]/[key] : [message]",ckey=key_name(key))
+		log_emote("[name]/[key] : [message]")
 
 		send_emote(message, m_type)

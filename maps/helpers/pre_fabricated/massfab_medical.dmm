@@ -474,8 +474,7 @@
 	pixel_y = 6
 	},
 /obj/item/storage/toolbox/mechanical{
-	pixel_x = 2;
-	pixel_y = 0
+	pixel_x = 2
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -2515,8 +2514,7 @@
 	},
 /obj/structure/sink{
 	dir = 8;
-	pixel_x = -12;
-	pixel_y = 0
+	pixel_x = -12
 	},
 /obj/structure/mirror{
 	pixel_x = -28
@@ -2684,8 +2682,7 @@
 	pixel_y = 6
 	},
 /obj/item/storage/toolbox/mechanical{
-	pixel_x = 2;
-	pixel_y = 0
+	pixel_x = 2
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -3106,7 +3103,6 @@
 "WH" = (
 /obj/machinery/body_scanconsole{
 	dir = 1;
-	layer = 3.01;
 	pixel_y = 6
 	},
 /turf/simulated/floor/tiled/white,
@@ -3179,12 +3175,12 @@
 /obj/item/device/gps/medical{
 	pixel_x = 5
 	},
-/obj/item/storage/belt/medical/first_responder,
-/obj/item/storage/belt/medical/first_responder,
-/obj/item/storage/belt/medical/first_responder,
-/obj/item/storage/belt/medical/first_responder,
-/obj/item/storage/belt/medical/first_responder,
-/obj/item/storage/belt/medical/first_responder,
+/obj/item/storage/belt/medical/paramedic,
+/obj/item/storage/belt/medical/paramedic,
+/obj/item/storage/belt/medical/paramedic,
+/obj/item/storage/belt/medical/paramedic,
+/obj/item/storage/belt/medical/paramedic,
+/obj/item/storage/belt/medical/paramedic,
 /obj/effect/floor_decal/spline/plain/green,
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -3283,7 +3279,6 @@
 	},
 /obj/machinery/body_scanconsole{
 	dir = 1;
-	layer = 3.01;
 	pixel_y = 6
 	},
 /turf/simulated/floor/tiled/white,

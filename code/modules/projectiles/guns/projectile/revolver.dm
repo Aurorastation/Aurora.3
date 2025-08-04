@@ -60,7 +60,6 @@
 /obj/item/gun/projectile/revolver/mateba/captain
 	name = "\improper SCC command autorevolver"
 	desc = "A ludicrously powerful .454 autorevolver with equally ludicrous recoil which is issued by the SCC to the administrators of critical facilities and vessels. While revolvers may be a thing of the past, the stopping power displayed by this weapon is second to none."
-	desc_info = "In order to accurately fire this revolver, it must be wielded. Additionally, if you fire this revolver unwielded and you are not a G2 or Unathi, you will drop it."
 	desc_extended = "A Zavodskoi Interstellar design from the mid 2450s intended for export to the Eridani Corporate Federation and the Republic of Biesel, the Protektor \
 	revolver was never designed with practicality in mind. The .454 rounds fired from this weapon are liable to snap the wrist of an unprepared shooter and \
 	any following shots will be difficult to place onto a human-sized target due to the recoil, let alone a skrell. But nobody buys a Protektor for the purpose of \
@@ -78,6 +77,10 @@
 	recoil = 10
 	recoil_wielded = 5
 
+/obj/item/gun/projectile/revolver/mateba/captain/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "In order to accurately fire this revolver, it must be wielded with both hands. Additionally, if you fire this revolver unwielded and you are not a G2 or Unathi, you will drop it."
+
 /obj/item/gun/projectile/revolver/mateba/captain/handle_post_fire(mob/user)
 	..()
 	if(wielded)
@@ -88,7 +91,7 @@
 			if(H.mob_size <10)
 				H.visible_message(SPAN_WARNING("\The [src] flies out of \the [H]'s' hand!"), SPAN_WARNING("\The [src] flies out of your hand!"))
 				H.drop_item(src)
-				src.throw_at(get_edge_target_turf(src, GLOB.reverse_dir[H.dir]), 2, 2)
+				src.throw_at(get_edge_target_turf(src, REVERSE_DIR(H.dir)), 2, 2)
 
 /obj/item/gun/projectile/revolver/detective
 	name = "antique revolver"
@@ -131,7 +134,7 @@
 	icon_state = "derringer"
 	item_state = "derringer"
 	accuracy = -1
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ILLEGAL = 3)
 	handle_casings = CYCLE_CASINGS
 	load_method = SINGLE_CASING
@@ -185,12 +188,13 @@
 	var/list/tertiary_loaded = list()
 	fire_delay = ROF_INTERMEDIATE
 
+/obj/item/gun/projectile/revolver/lemat/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This is a unique ballistic weapon. It fires .38 ammunition, but may also load shotgun shells into a secondary barrel."
+	. += "By using the Unique-Action macro, you can switch from one barrel to the other."
 
 /obj/item/gun/projectile/revolver/lemat/Initialize()
 	. = ..()
-	desc_info = "This is a unique ballistic weapon. It fires .38 ammunition, but may also load shotgun shells into a secondary barrel. To fire the weapon, toggle the safety \
-	with ctrl-click (or enable HARM intent), then click where you want to fire. By using the Unique-Action macro, you can switch from one barrel to the other. To reload, click the gun \
-	with an empty hand to remove any spent casings or shells, then insert new ones."
 	for(var/i in 1 to secondary_max_shells)
 		secondary_loaded += new secondary_ammo_type(src)
 
@@ -251,8 +255,9 @@
 		if(rand(1,max_shells) > loaded.len)
 			chamber_offset = rand(0,max_shells - loaded.len)
 
-/obj/item/gun/projectile/revolver/lemat/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/gun/projectile/revolver/lemat/feedback_hints(mob/user, distance, is_adjacent, infix, suffix)
+	. = list()
+	. += ..()
 	if(secondary_loaded)
 		var/to_print
 		for(var/round in secondary_loaded)
@@ -300,8 +305,8 @@
 	if(default_parry_check(user, attacker, damage_source) && prob(20))
 		user.visible_message(SPAN_DANGER("\The [user] parries [attack_text] with \the [src]!"))
 		playsound(user.loc, "punchmiss", 50, 1)
-		return PROJECTILE_STOPPED
-	return FALSE
+		return BULLET_ACT_BLOCK
+	return BULLET_ACT_HIT
 
 /obj/item/gun/projectile/revolver/konyang/pirate
 	name = "reclaimed revolver"
@@ -331,7 +336,7 @@
 	icon = 'icons/obj/guns/konyang_weapons.dmi'
 	icon_state = "police_gun"
 	item_state = "police_gun"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	caliber = ".45"
 	ammo_type = /obj/item/ammo_casing/c45/revolver
 	magazine_type = /obj/item/ammo_magazine/c45/revolver

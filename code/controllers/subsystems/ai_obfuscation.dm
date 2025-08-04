@@ -9,7 +9,7 @@ SUBSYSTEM_DEF(ai_obfuscation)
 		return
 	obfuscation_images += added_image
 
-	for(var/ai in ai_list)
+	for(var/ai in GLOB.ai_list)
 		var/mob/living/silicon/ai/A = ai
 		if(A.client)
 			A.client.images += added_image
@@ -19,7 +19,7 @@ SUBSYSTEM_DEF(ai_obfuscation)
 		return
 	obfuscation_images -= removed_image
 
-	for(var/ai in ai_list)
+	for(var/ai in GLOB.ai_list)
 		var/mob/living/silicon/ai/A = ai
 		if(A.client)
 			A.client.images -= removed_image

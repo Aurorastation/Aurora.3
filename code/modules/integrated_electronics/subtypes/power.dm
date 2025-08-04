@@ -9,7 +9,7 @@
 	a reference to a machine to send electricity to.  This can be a battery, or anything containing a battery.  The machine can exist \
 	inside the assembly, or adjacent to it.  The power is sourced from the assembly's power cell.  If the target is outside of the assembly, \
 	some power is lost due to ineffiency."
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	complexity = 16
 	inputs = list("target" = IC_PINTYPE_REF)
 	outputs = list(
@@ -30,7 +30,7 @@
 	a reference to a machine to send electricity to.  This can be a battery, or anything containing a battery.  The machine can exist \
 	inside the assembly, or adjacent to it.  The power is sourced from the assembly's power cell.  If the target is outside of the assembly, \
 	some power is lost due to ineffiency."
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	complexity = 32
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_DATA = 4, TECH_POWER = 6, TECH_MAGNET = 5)
 	power_draw_per_use = 2000

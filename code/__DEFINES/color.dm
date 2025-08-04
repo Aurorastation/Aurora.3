@@ -103,6 +103,7 @@
 #define COLOR_LING_HIVEMIND    "#583012"
 #define COLOR_LINOLEUM         "#4E4D41"
 #define COLOR_LEATHER          "#5C4831"
+#define COLOR_RAIDER           "#6C7364"
 
 #define COLOR_TOOLS            "#eac041"
 
@@ -114,8 +115,11 @@
 
 // Blood colors
 #define COLOR_HUMAN_BLOOD      "#A10808"
-#define COLOR_DIONA_BLOOD      "#97DD7C"
+/// for robots with black oil "blood"
 #define COLOR_IPC_BLOOD        "#1F181F"
+/// for organics with synthetic blood substitute
+#define COLOR_SYNTH_BLOOD      "#D9F9FF"
+#define COLOR_DIONA_BLOOD      "#97DD7C"
 #define COLOR_SKRELL_BLOOD     "#0081CD"
 #define COLOR_VAURCA_BLOOD     "#E6E600"
 

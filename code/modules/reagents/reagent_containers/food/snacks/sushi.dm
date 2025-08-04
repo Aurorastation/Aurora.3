@@ -131,22 +131,22 @@
 		return
 	. = ..()
 // Used for turning other food into sushi.
-/obj/item/reagent_containers/food/snacks/friedegg/attackby(obj/item/attacking_item, var/mob/user)
+/obj/item/reagent_containers/food/snacks/friedegg/attackby(obj/item/attacking_item, mob/user, params)
 	if((locate(/obj/structure/table) in loc) && istype(attacking_item, /obj/item/reagent_containers/food/snacks/boiledrice))
 		new /obj/item/reagent_containers/food/snacks/sushi(get_turf(src), attacking_item, src)
 		return
 	. = ..()
-/obj/item/reagent_containers/food/snacks/tofu/attackby(obj/item/attacking_item, var/mob/user)
+/obj/item/reagent_containers/food/snacks/tofu/attackby(obj/item/attacking_item, mob/user, params)
 	if((locate(/obj/structure/table) in loc) && istype(attacking_item, /obj/item/reagent_containers/food/snacks/boiledrice))
 		new /obj/item/reagent_containers/food/snacks/sushi(get_turf(src), attacking_item, src)
 		return
 	. = ..()
-/obj/item/reagent_containers/food/snacks/rawcutlet/attackby(obj/item/attacking_item, var/mob/user)
+/obj/item/reagent_containers/food/snacks/rawcutlet/attackby(obj/item/attacking_item, mob/user, params)
 	if((locate(/obj/structure/table) in loc) && istype(attacking_item, /obj/item/reagent_containers/food/snacks/boiledrice))
 		new /obj/item/reagent_containers/food/snacks/sushi(get_turf(src), attacking_item, src)
 		return
 	. = ..()
-/obj/item/reagent_containers/food/snacks/cutlet/attackby(obj/item/attacking_item, var/mob/user)
+/obj/item/reagent_containers/food/snacks/cutlet/attackby(obj/item/attacking_item, mob/user, params)
 	if((locate(/obj/structure/table) in loc) && istype(attacking_item, /obj/item/reagent_containers/food/snacks/boiledrice))
 		new /obj/item/reagent_containers/food/snacks/sushi(get_turf(src), attacking_item, src)
 		return

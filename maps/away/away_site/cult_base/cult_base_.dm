@@ -6,7 +6,7 @@
 	description = "Cult Base."
 	id = "cult_base"
 	prefix = "away_site/cult_base/"
-	suffixes = list("cult_base.dmm")
+	suffix = "cult_base.dmm"
 	spawn_cost = 1
 	spawn_weight = 1
 	sectors = list(ALL_POSSIBLE_SECTORS)

@@ -1,3 +1,7 @@
+/*
+This represents Geras Dionae, the older variant of the species. Coeus can be accessed via the subspecies file, and are the younger variant.
+They are very slow, reasonably strong, and quite durable. They also require light to survive, and build nutrition from being exposed to it.
+*/
 /datum/species/diona
 	name = SPECIES_DIONA
 	short_name = "dio"
@@ -8,17 +12,17 @@
 	height_min = 100
 	height_max = 250
 	total_health = 240
-	age_min = 30
+	age_min = 1
 	age_max = 1000
 	default_genders = list(PLURAL)
 	selectable_pronouns = list(NEUTER, PLURAL)
-	economic_modifier = 3
+	economic_modifier = 7
 	icobase = 'icons/mob/human_races/diona/r_diona.dmi'
 	deform = 'icons/mob/human_races/diona/r_def_plant.dmi'
 	preview_icon = 'icons/mob/human_races/diona/diona_preview.dmi'
 	bandages_icon = 'icons/mob/bandage.dmi'
 	language = LANGUAGE_ROOTSONG
-	secondary_langs = list(LANGUAGE_SKRELLIAN, LANGUAGE_AZAZIBA)
+	secondary_langs = list(LANGUAGE_SKRELLIAN, LANGUAGE_AZAZIBA, LANGUAGE_UNATHI)
 	unarmed_types = list(
 		/datum/unarmed_attack/stomp,
 		/datum/unarmed_attack/kick,
@@ -27,7 +31,8 @@
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/consume_nutrition_from_air,
 		/mob/living/carbon/human/proc/create_structure,
-		/mob/living/carbon/proc/sample
+		/mob/living/carbon/human/proc/root_to_ground,
+		/mob/living/carbon/proc/sample,
 	)
 	//primitive_form = "Nymph"
 	slowdown = 4
@@ -64,6 +69,10 @@
 	pain_messages = list("We're in pain", "We hurt so much", "We can't stand the pain")
 	pain_item_drop_cry = list("creaks loudly and ", "rustles erratically and ", "twitches for a moment and ")
 
+	natural_armor = list(
+		MELEE = ARMOR_MELEE_MEDIUM
+	)
+
 	pain_mod = 0.5
 	grab_mod = 0.6 // Viney Tentacles and shit to cling onto
 	resist_mod = 1.5 // Reasonably stronk, not moreso than an Unathi or robot.
@@ -97,7 +106,7 @@
 
 	body_temperature = T0C + 15		//make the plant people have a bit lower body temperature, why not
 
-	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_SKIN_PRESET
+	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_PRESET
 	flags = NO_BREATHE | NO_SCAN | IS_PLANT | NO_BLOOD | NO_SLIP | NO_CHUBBY | NO_ARTERIES
 	spawn_flags = CAN_JOIN | IS_WHITELISTED | NO_AGE_MINIMUM
 
@@ -134,6 +143,10 @@
 	sleeps_upright = TRUE
 	snore_key = "chirp"
 	indefinite_sleep = TRUE
+
+	tail = "No Tail"
+	tail_animation = 'icons/mob/species/diona/tail.dmi'
+	selectable_tails = list("No Tail", "Unathi Tail")
 
 /datum/species/diona/can_understand(var/mob/other)
 	var/mob/living/carbon/alien/diona/D = other
@@ -177,6 +190,23 @@
 	for(var/mob/living/carbon/alien/diona/D in H.contents)
 		if((!D.client && !D.mind) || D.stat == DEAD)
 			qdel(D)
+
+//This handles nymphs, which are the only diona specie that can run, since they don't breathe they just take pain damage instead
+/datum/species/diona/handle_sprint_cost(mob/living/carbon/human/H, cost, pre_move)
+	if(!pre_move)
+		H.adjustHalLoss(cost*0.3)
+		H.updatehealth()
+
+	if(H.getHalLoss() > (H.maxHealth*0.6))
+		var/shock = H.get_shock()
+		if(prob(shock * 2))
+			to_chat(H, SPAN_DANGER("You feel a sharp pain in your nervous system! You can't run anymore, or you might die!"))
+			H.m_intent = M_WALK
+
+	if(!pre_move)
+		H.hud_used.move_intent.update_move_icon(H)
+	return 1
+
 
 /datum/species/diona/after_equip(mob/living/carbon/human/H, visualsOnly, datum/job/J)
 	. = ..()

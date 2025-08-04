@@ -75,4 +75,5 @@ var/list/datum/gender/gender_datums = list()
 
 /atom/proc/get_pronoun(var/wordtype)
 	var/gender_to_use = get_gender()
-	return gender_datums[gender_to_use][wordtype]
+	var/datum/gender/gender_datum = gender_datums[gender_to_use]
+	return gender_datum.vars[wordtype]

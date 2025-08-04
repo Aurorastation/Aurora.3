@@ -930,7 +930,7 @@
 /obj/effect/floor_decal/sign/gtr
 	icon_state = "white_gtr"
 
-/obj/effect/floor_decal/sign/first_responder
+/obj/effect/floor_decal/sign/paramedic
 	icon_state = "white_emt"
 
 /obj/effect/floor_decal/sign/w

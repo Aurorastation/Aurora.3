@@ -8,48 +8,38 @@ emp_act
 
 */
 
-/mob/living/carbon/human/bullet_act(var/obj/item/projectile/P, var/def_zone)
-	var/species_check = src.species.bullet_act(P, def_zone, src)
-
+/mob/living/carbon/human/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	var/species_check = src.species.bullet_act(hitting_projectile, def_zone, src)
 	if(species_check)
 		return species_check
 
 	if(!is_physically_disabled())
 		var/deflection_chance = check_martial_deflection_chance()
 		if(prob(deflection_chance))
-			visible_message(SPAN_WARNING("\The [src] deftly dodges \the [P]!"), SPAN_NOTICE("You deftly dodge \the [P]!"))
+			visible_message(SPAN_WARNING("\The [src] deftly dodges \the [hitting_projectile]!"), SPAN_NOTICE("You deftly dodge \the [hitting_projectile]!"))
 			playsound(src, /singleton/sound_category/bulletflyby_sound, 75, TRUE)
-			return PROJECTILE_DODGED
+			return BULLET_ACT_FORCE_PIERCE
 
 	def_zone = check_zone(def_zone)
 	if(!has_organ(def_zone))
-		return PROJECTILE_FORCE_MISS //if they don't have the organ in question then the projectile just passes by.
+		return BULLET_ACT_FORCE_PIERCE //if they don't have the organ in question then the projectile just passes by.
 
-	//Shields
-	var/shield_check = check_shields(P.damage, P, null, def_zone, "the [P.name]")
-	if(shield_check)
-		if(shield_check < 0)
-			return shield_check
-		else
-			P.on_hit(src, 100, def_zone)
-			return 100
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
 
 	var/obj/item/organ/external/organ = get_organ(def_zone)
 
 	// Tell clothing we're wearing that it got hit by a bullet/laser/etc
 	var/list/clothing = get_clothing_list_organ(organ)
 	for(var/obj/item/clothing/C in clothing)
-		C.clothing_impact(P, P.damage)
+		C.clothing_impact(hitting_projectile, hitting_projectile.damage)
 
 	//Shrapnel
-	if(!(species.flags & NO_EMBED) && P.can_embed())
-		var/armor = get_blocked_ratio(def_zone, DAMAGE_BRUTE, P.damage_flags(), armor_pen = P.armor_penetration, damage = P.damage)*100
-		if(prob(20 + max(P.damage + P.embed_chance - armor, -10)))
-			P.do_embed(organ)
-
-	var/blocked = ..(P, def_zone)
-
-	return blocked
+	if(!(species.flags & NO_EMBED) && hitting_projectile.can_embed())
+		var/armor = get_blocked_ratio(def_zone, DAMAGE_BRUTE, hitting_projectile.damage_flags(), armor_pen = hitting_projectile.armor_penetration, damage = hitting_projectile.damage)*100
+		if(prob(20 + max(hitting_projectile.damage + hitting_projectile.embed_chance - armor, -10)))
+			hitting_projectile.do_embed(organ)
 
 /mob/living/carbon/human/stun_effect_act(var/stun_amount, var/agony_amount, var/def_zone, var/used_weapon, var/damage_flags)
 	var/obj/item/organ/external/affected = get_organ(check_zone(def_zone))
@@ -69,7 +59,7 @@ emp_act
 				c_hand = r_hand
 
 			if(c_hand && (stun_amount || agony_amount > 10))
-				msg_admin_attack("[src.name] ([src.ckey]) was disarmed by a stun effect (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src))
+				msg_admin_attack("[src.name] ([src.ckey]) was disarmed by a stun effect (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src))
 
 				drop_from_inventory(c_hand)
 				if (affected.status & ORGAN_ROBOT)
@@ -83,11 +73,11 @@ emp_act
 /mob/living/carbon/human/get_blocked_ratio(def_zone, damage_type, damage_flags, armor_pen, damage)
 	if(!def_zone && (damage_flags & DAMAGE_FLAG_DISPERSED))
 		var/tally
-		for(var/zone in organ_rel_size)
-			tally += organ_rel_size[zone]
-		for(var/zone in organ_rel_size)
+		for(var/zone in GLOB.organ_rel_size)
+			tally += GLOB.organ_rel_size[zone]
+		for(var/zone in GLOB.organ_rel_size)
 			def_zone = zone
-			. += .() * organ_rel_size/tally
+			. += .() * GLOB.organ_rel_size/tally
 		return
 	return ..()
 
@@ -161,7 +151,7 @@ emp_act
 			return gear
 	return null
 
-/mob/living/carbon/human/proc/check_shields(var/damage = 0, var/atom/damage_source = null, var/mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+/mob/living/carbon/human/check_shields(damage, atom/damage_source, mob/attacker, def_zone, attack_text = "the attack")
 	for(var/obj/item/shield in list(l_hand, r_hand, wear_suit, back))
 		if(!shield)
 			continue
@@ -170,19 +160,29 @@ emp_act
 			if(!shield.can_shield_back())
 				continue
 			is_on_back = TRUE
-		. = shield.handle_shield(src, is_on_back, damage, damage_source, attacker, def_zone, attack_text)
-		if(.)
-			return
-	return FALSE
+		return shield.handle_shield(src, is_on_back, damage, damage_source, attacker, def_zone, attack_text)
+
+	return BULLET_ACT_HIT
 
 /mob/living/carbon/human/emp_act(severity)
+	/*
+		OK LISTEN UP this is absolutely shitcode but it works, basically we need the species EMP protection
+		to avoid antag IPCs being smoked by EMPs in one hit and the surge protection nanopaste is handled in their specie
+		and we have to call parent to have the signals working properly, hence we add an element to the mob to handle the protection
+		and then we remove it after the EMP is done. Yes this is garbage, but it works
+	*/
+	var/emp_protect_ipc = species.handle_emp_act(src, severity)
+	if(emp_protect_ipc)
+		AddElement(/datum/element/empprotection, emp_protect_ipc)
+
 	. = ..()
 
-	if(species.handle_emp_act(src, severity))
-		return // blocks the EMP
+	if(emp_protect_ipc)
+		RemoveElement(/datum/element/empprotection, emp_protect_ipc)
 
-	for(var/obj/O in src)
-		O.emp_act(severity)
+	if(!(.|emp_protect_ipc & EMP_PROTECT_CONTENTS))
+		for(var/obj/O in src)
+			O.emp_act(severity)
 
 /mob/living/carbon/human/get_attack_victim(obj/item/I, mob/living/user, var/target_zone)
 	if(a_intent != I_HELP)
@@ -209,7 +209,7 @@ emp_act
 		visible_message(SPAN_DANGER("[user] misses [src] with \the [I]!"))
 		return
 
-	if(check_shields(I.force, I, user, target_zone, "the [I.name]"))
+	if(check_shields(I.force, I, user, target_zone, "the [I.name]") != BULLET_ACT_HIT)
 		return
 
 	var/obj/item/organ/external/affecting = get_organ(hit_zone)
@@ -262,7 +262,7 @@ emp_act
 				//Harder to score a stun but if you do it lasts a bit longer
 				if(prob(effective_force) && head && !istype(head, /obj/item/clothing/head/helmet))
 					visible_message(SPAN_DANGER("[src] [species.knockout_message]"))
-					apply_effect(20, PARALYZE, blocked)
+					apply_effect(20, PARALYZE, GLOB.blocked)
 
 		//Apply blood
 		if(!(I.atom_flags & ATOM_FLAG_NO_BLOOD))
@@ -330,11 +330,11 @@ emp_act
 	return 1
 
 //this proc handles being hit by a thrown atom
-/mob/living/carbon/human/hitby(atom/movable/AM as mob|obj,var/speed = THROWFORCE_SPEED_DIVISOR)
-	if(istype(AM,/obj/))
-		var/obj/O = AM
+/mob/living/carbon/human/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
+	if(isobj(hitting_atom))
+		var/obj/O = hitting_atom
 
-		if(in_throw_mode && !get_active_hand() && speed <= THROWFORCE_SPEED_DIVISOR)	//empty active hand and we're in throw mode
+		if(in_throw_mode && !get_active_hand() && throwingdatum?.speed <= THROWFORCE_SPEED_DIVISOR)	//empty active hand and we're in throw mode
 			if(canmove && !restrained())
 				if(isturf(O.loc))
 					put_in_active_hand(O)
@@ -343,35 +343,33 @@ emp_act
 					return
 
 		var/dtype = O.damtype
-		var/throw_damage = O.throwforce*(speed/THROWFORCE_SPEED_DIVISOR)
+		var/throw_damage = O.throwforce
+		if(throwingdatum)
+			throw_damage *= (throwingdatum.speed/THROWFORCE_SPEED_DIVISOR)
 
 		var/zone
-		if (istype(O.thrower, /mob/living))
-			var/mob/living/L = O.thrower
+		if (istype(O.throwing?.thrower?.resolve(), /mob/living))
+			var/mob/living/L = O.throwing?.thrower?.resolve()
 			zone = check_zone(L.zone_sel.selecting)
 		else
 			zone = ran_zone(BP_CHEST,75)	//Hits a random part of the body, geared towards the chest
 
 		//check if we hit
 		var/miss_chance = 15
-		if (O.throw_source)
-			var/distance = get_dist(O.throw_source, loc)
+		if (O.throwing?.thrower?.resolve())
+			var/distance = get_dist(O.throwing?.thrower?.resolve(), loc)
 			miss_chance = 15 * (distance - 2)
 		zone = get_zone_with_miss_chance(zone, src, miss_chance, 1)
 
-		if(zone && O.thrower != src)
-			var/shield_check = check_shields(throw_damage, O, thrower, zone, "[O]")
-			if(shield_check == PROJECTILE_FORCE_MISS)
+		if(zone && O.throwing?.thrower?.resolve() != src)
+			var/shield_check = check_shields(throw_damage, O, throwing?.thrower?.resolve(), zone, "[O]")
+			if(shield_check != BULLET_ACT_HIT)
 				zone = null
-			else if(shield_check)
-				return
 
 		if(!zone)
 			visible_message(SPAN_NOTICE("\The [O] misses [src] narrowly!"))
 			playsound(src, 'sound/effects/throw_miss.ogg', rand(10, 50), 1)
 			return
-
-		O.throwing = 0		//it hit, so stop moving
 
 		var/obj/item/organ/external/affecting = get_organ(zone)
 		var/hit_area = affecting.name
@@ -380,14 +378,14 @@ emp_act
 							SPAN_WARNING("<font size=2>You're hit in the [hit_area] by [O]!</font>"))
 		apply_damage(throw_damage, dtype, zone, used_weapon = O, damage_flags = O.damage_flags(), armor_pen = O.armor_penetration)
 
-		if(ismob(O.thrower))
-			var/mob/M = O.thrower
+		if(ismob(O.throwing?.thrower?.resolve()))
+			var/mob/M = O.throwing?.thrower?.resolve()
 			var/client/assailant = M.client
 			if(assailant)
-				src.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been hit with a [O], thrown by [M.name] ([assailant.ckey])</font>")
-				M.attack_log += text("\[[time_stamp()]\] <span class='warning'>Hit [src.name] ([src.ckey]) with a thrown [O]</span>")
+				src.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been hit with a [O], thrown by [M.name] ([assailant.ckey])</font>"
+				M.attack_log += "\[[time_stamp()]\] <span class='warning'>Hit [src.name] ([src.ckey]) with a thrown [O]</span>"
 				if(!istype(src,/mob/living/simple_animal/rat))
-					msg_admin_attack("[src.name] ([src.ckey]) was hit by a [O], thrown by [M.name] ([assailant.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(M),ckey_target=key_name(src))
+					msg_admin_attack("[src.name] ([src.ckey]) was hit by a [O], thrown by [M.name] ([assailant.ckey]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(M),ckey_target=key_name(src))
 
 		//thrown weapon embedded object code.
 		if(dtype == DAMAGE_BRUTE && istype(O,/obj/item))
@@ -411,10 +409,13 @@ emp_act
 		if(isitem(O))
 			var/obj/item/I = O
 			mass = I.w_class/THROWNOBJ_KNOCKBACK_DIVISOR
-		var/momentum = speed*mass
 
-		if(O.throw_source && momentum >= THROWNOBJ_KNOCKBACK_SPEED)
-			var/dir = get_dir(O.throw_source, src)
+		var/momentum = 0
+		if(throwingdatum)
+			momentum = throwingdatum.speed*mass
+
+		if(O.throwing?.thrower?.resolve() && momentum >= THROWNOBJ_KNOCKBACK_SPEED)
+			var/dir = get_dir(O.throwing?.thrower?.resolve(), src)
 
 			visible_message(SPAN_WARNING("[src] staggers under the impact!"),
 							SPAN_WARNING("You stagger under the impact!"))
@@ -422,7 +423,7 @@ emp_act
 
 			if(!O || !src) return
 
-			if(O != ITEMSIZE_TINY)
+			if(O != WEIGHT_CLASS_TINY)
 				if(O.loc == src && O.sharp) //Projectile is embedded and suitable for pinning.
 					var/turf/T = near_wall(dir,2)
 
@@ -434,8 +435,8 @@ emp_act
 						)
 						src.anchored = TRUE
 						src.pinned += O
-	else if(ishuman(AM))
-		var/mob/living/carbon/human/H = AM
+	else if(ishuman(hitting_atom))
+		var/mob/living/carbon/human/H = hitting_atom
 		H.Weaken(3)
 		Weaken(3)
 		visible_message(SPAN_WARNING("[src] get knocked over by [H]!"), SPAN_WARNING("You get knocked over by [H]!"))

@@ -14,14 +14,14 @@
 		if (I.implanted)
 			to_chat(src, SPAN_WARNING("[M] is too loyal to be subverted!"))
 			return
-	convert_to_faction(src, M.mind, revs)
+	convert_to_faction(src, M.mind, GLOB.revs)
 
 /proc/convert_to_faction(var/client/antag, var/datum/mind/player, var/datum/antagonist/faction)
 
 	if(!player || !faction || !player.current)
 		return
 
-	if(!faction.faction_verb || !faction.faction_descriptor || !faction.faction_verb)
+	if(!faction.faction_descriptor || !LAZYLEN(faction.faction_verbs))
 		return
 
 	if(faction.is_antagonist(player))
@@ -41,7 +41,7 @@
 		return
 
 	to_chat(antag, SPAN_DANGER("You are attempting to convert \the [player.current]..."))
-	log_admin("[antag.mob]([antag.ckey]) attempted to convert [player.current].",ckey=antag.ckey,ckey_target=key_name(player.current))
+	log_admin("[antag.mob]([antag.ckey]) attempted to convert [player.current].")
 	message_admins(SPAN_DANGER("[antag.mob]([antag.ckey]) attempted to convert [player.current]."))
 
 	player.rev_cooldown = world.time+100
@@ -65,5 +65,5 @@
 		return
 	if(!M.mind)
 		return
-	convert_to_faction(src, M.mind, loyalists)
+	convert_to_faction(src, M.mind, GLOB.loyalists)
 

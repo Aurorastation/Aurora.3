@@ -51,7 +51,7 @@ GLOBAL_PROTECT(admin_log)
 GLOBAL_LIST_EMPTY(signal_log)
 GLOBAL_PROTECT(signal_log)
 
-GLOBAL_LIST_EMPTY(lastsignalers) // Keeps last 100 signals here in format: "[src] used \ref[src] @ location [src.loc]: [freq]/[code]"
+GLOBAL_LIST_EMPTY(lastsignalers) // Keeps last 100 signals here in format: "[src] used REF(src) @ location [src.loc]: [freq]/[code]"
 GLOBAL_PROTECT(lastsignalers)
 
 GLOBAL_LIST_EMPTY(lawchanges) // Stores who uploaded laws to which silicon-based lifeform, and what the law was.
@@ -68,6 +68,7 @@ GLOBAL_LIST_EMPTY(latejoin)
 GLOBAL_LIST_EMPTY(latejoin_cryo)
 GLOBAL_LIST_EMPTY(latejoin_cyborg)
 GLOBAL_LIST_EMPTY(latejoin_living_quarters_lift)
+GLOBAL_LIST_EMPTY(latejoin_medbay_recovery)
 GLOBAL_LIST_EMPTY(kickoffsloc)
 GLOBAL_LIST_EMPTY(virtual_reality_spawn)
 
@@ -77,14 +78,6 @@ GLOBAL_LIST_EMPTY(tdomeobserve)
 GLOBAL_LIST_EMPTY(tdomeadmin)
 GLOBAL_LIST_EMPTY(ninjastart)
 
-GLOBAL_LIST_INIT(cardinal, list(NORTH, SOUTH, EAST, WEST))
-GLOBAL_LIST_INIT(cornerdirs, list(NORTHWEST, SOUTHEAST, NORTHEAST, SOUTHWEST))
-GLOBAL_LIST_INIT(alldirs, list(NORTH, SOUTH, EAST, WEST, NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST))
-GLOBAL_LIST_INIT(reverse_dir, list( // reverse_dir[dir] = reverse of dir
-	2,  1,  3,  8, 10,  9, 11,  4,  6,  5,  7, 12, 14, 13, 15, 32, 34, 33, 35, 40, 42,
-	41, 43, 36, 38, 37, 39, 44, 46, 45, 47, 16, 18, 17, 19, 24, 26, 25, 27, 20, 22, 21,
-	23, 28, 30, 29, 31, 48, 50, 49, 51, 56, 58, 57, 59, 52, 54, 53, 55, 60, 62, 61, 63
-))
 GLOBAL_LIST_INIT(all_days, list("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"))
 
 GLOBAL_LIST_EMPTY(combatlog)
@@ -162,13 +155,13 @@ GLOBAL_DATUM_INIT(global_announcer, /obj/item/device/radio/all_channels, new)
 
 // the number next to it denotes how much money the department receives when its account is generated
 GLOBAL_LIST_INIT(department_funds, list(
-	"Command" = 10000,
-	"Medical" = 10000,
-	"Engineering" = 10000,
-	"Science" = 10000,
-	"Security" = 10000,
-	"Operations" = 5000,
-	"Service" = 10000,
+	"Command" = 15000,
+	"Medical" = 15000,
+	"Engineering" = 15000,
+	"Science" = 15000,
+	"Security" = 15000,
+	"Operations" = 10000,
+	"Service" = 15000,
 	"Vendor" = 0
 ))
 

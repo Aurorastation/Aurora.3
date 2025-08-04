@@ -26,18 +26,18 @@ MRE Stuff
 		/obj/item/reagent_containers/food/condiment/small/packet/capsaicin = 1,
 		/obj/item/material/kitchen/utensil/fork/plastic = 1
 	)
+	make_exact_fit = TRUE
+
+/obj/item/storage/box/fancy/mre/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += meal_desc
 
 /obj/item/storage/box/fancy/mre/fill()
 	new main_meal(src)
 	. = ..()
-	make_exact_fit()
 
 /obj/item/storage/mre/attack_self(mob/user)
 	open(user)
-
-/obj/item/storage/box/fancy/mre/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += meal_desc
 
 /obj/item/storage/box/fancy/mre/menu2
 	name = "\improper MRE, menu 2"
@@ -201,7 +201,7 @@ MRE Stuff
 	opened = FALSE
 	closable = FALSE
 	icon_overlays = FALSE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	open_sound = 'sound/effects/bubbles.ogg'
 	open_message = "The pouch heats up as you break the vacuum seal."
 	starts_with = list(/obj/item/reagent_containers/food/snacks/meatpizzaslice/filled = 1)

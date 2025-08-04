@@ -4,13 +4,20 @@
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "cursedheart-off"
 	origin_tech = list(TECH_BLUESPACE = 8, TECH_MATERIAL = 8, TECH_BIO = 8)
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	light_color = "#6633CC"
 	light_power = 3
 	light_range = 4
 	reagents_to_add = list(/singleton/reagent/toxin/undead = 120)
 
 	var/lich = null
+
+/obj/item/phylactery/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(!lich)
+		. += "The heart is inert."
+	else
+		. += "The heart is pulsing slowly."
 
 /obj/item/phylactery/Initialize()
 	. = ..()
@@ -21,13 +28,6 @@
 	GLOB.world_phylactery -= src
 	lich = null
 	return ..()
-
-/obj/item/phylactery/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(!lich)
-		. += "The heart is inert."
-	else
-		. += "The heart is pulsing slowly."
 
 /obj/item/phylactery/attackby(obj/item/attacking_item, mob/user)
 	..()

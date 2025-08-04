@@ -22,7 +22,11 @@
 	if(!state)
 		return
 
-	if(isobserver(user))
+	if(isghost(user))
+		// Storytellers can always interact with things.
+		if(isstoryteller(user))
+			. = max(., UI_INTERACTIVE)
+
 		// If they turn on ghost AI control, admins can always interact.
 		if(user.can_admin_interact())
 			. = max(., UI_INTERACTIVE)

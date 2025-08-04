@@ -2,7 +2,6 @@
 	name = "tablet computer"
 	lexical_name = "tablet"
 	desc = "A portable device for your needs on the go."
-	desc_info = "To deploy the charging cable on this device, either drag and drop it over a nearby APC, or click on the APC with the computer in hand."
 	icon = 'icons/obj/modular_tablet.dmi'
 	icon_state = "tablet"
 	icon_state_unpowered = "tablet"
@@ -12,8 +11,12 @@
 	can_reset = TRUE
 	hardware_flag = PROGRAM_TABLET
 	max_hardware_size = 1
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	looping_sound = FALSE
+
+/obj/item/modular_computer/handheld/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "To deploy the charging cable on this device, either drag and drop it over a nearby APC, or click on the APC with the computer in hand."
 
 /obj/item/modular_computer/handheld/Initialize()
 	. = ..()

@@ -5,10 +5,10 @@
 	These same redundancies, designed for greater survivability in a peer-on-peer conflict, make the Rapier an expensive investment, one which has seen the Estoc survive in the navies of other Coalition states."
 
 	prefix = "ships/xanu/"
-	suffixes = list("xanu_frigate.dmm")
+	suffix = "xanu_frigate.dmm"
 
 	sectors = list(ALL_COALITION_SECTORS)
-	spawn_weight_sector_dependent = list(SECTOR_LIBERTYS_CRADLE = 3)
+	spawn_weight_sector_dependent = list(SECTOR_LIBERTYS_CRADLE = 3, SECTOR_XANU = 3, SECTOR_BURZSIA = 0.5)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "xanu_frigate"

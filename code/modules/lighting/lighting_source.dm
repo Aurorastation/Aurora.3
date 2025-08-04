@@ -304,8 +304,12 @@
 
 	if (light_angle)
 		var/ndir
-		if (istype(top_atom, /mob) && top_atom:facing_dir)
-			ndir = top_atom:facing_dir
+		if(istype(top_atom, /mob) && top_atom:facing_dir)
+			var/mob/mob = top_atom
+			if(mob.facing_dir)
+				ndir = mob.facing_dir
+			else
+				ndir = top_atom.dir
 		else
 			ndir = top_atom.dir
 

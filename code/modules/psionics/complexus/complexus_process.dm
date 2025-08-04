@@ -63,7 +63,7 @@
 					P.apply(owner)
 
 /datum/psi_complexus/proc/wipe_user_abilities()
-	for(var/obj/screen/ability/obj_based/psionic/P in owner.ability_master.ability_objects)
+	for(var/atom/movable/screen/ability/obj_based/psionic/P in owner.ability_master.ability_objects)
 		if((P.connected_power.ability_flags & PSI_FLAG_APEX) && get_rank() < PSI_RANK_APEX)
 			owner.ability_master.remove_ability(P)
 		if((P.connected_power.ability_flags & PSI_FLAG_LIMITLESS) && get_rank() < PSI_RANK_LIMITLESS)

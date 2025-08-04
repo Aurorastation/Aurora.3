@@ -11,6 +11,7 @@
 	var/realistic = FALSE // If true, things like bullets and weapons will hit it, to be a bit more convincing from a distance.
 
 	psi_pingable = FALSE
+	sample_data = null
 
 /mob/living/simple_animal/illusion/update_icon() // We don't want the appearance changing AT ALL unless by copy_appearance().
 	return
@@ -33,18 +34,18 @@
 	SHOULD_CALL_PARENT(FALSE)
 
 	if(copying)
-		return copying.examine(user, distance, is_adjacent, infix, suffix, show_extended)
+		return copying.examine(arglist(args))
 	else
 		return list("???")
 
-/mob/living/simple_animal/illusion/bullet_act(obj/item/projectile/P)
-	if(!P)
-		return
+/mob/living/simple_animal/illusion/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	if(!hitting_projectile)
+		return BULLET_ACT_BLOCK
 
 	if(realistic)
 		return ..()
 
-	return PROJECTILE_FORCE_MISS
+	return BULLET_ACT_BLOCK
 
 /mob/living/simple_animal/illusion/attack_hand(mob/living/carbon/human/M)
 	if(!realistic)

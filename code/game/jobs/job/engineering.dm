@@ -17,20 +17,24 @@
 		SPECIES_SKRELL_AXIORI = 80
 	)
 
-	access = list(ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS,
-					ACCESS_TELEPORTER, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_ATMOSPHERICS, ACCESS_EMERGENCY_STORAGE, ACCESS_EVA, ACCESS_LEVIATHAN, ACCESS_SHIP_WEAPONS,
-					ACCESS_HEADS, ACCESS_CONSTRUCTION, ACCESS_SEC_DOORS, ACCESS_RESEARCH, ACCESS_MEDICAL, ACCESS_MINING, ACCESS_MAILSORTING,
-					ACCESS_CE, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_TCOMSAT, ACCESS_AI_UPLOAD, ACCESS_IT, ACCESS_INTREPID, ACCESS_NETWORK)
+	access = list(
+		ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_TELEPORTER, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_ATMOSPHERICS,
+		ACCESS_EMERGENCY_STORAGE, ACCESS_EVA, ACCESS_LEVIATHAN, ACCESS_SHIP_WEAPONS, ACCESS_HEADS, ACCESS_CONSTRUCTION, ACCESS_SEC_DOORS, ACCESS_RESEARCH,
+		ACCESS_MEDICAL, ACCESS_MINING, ACCESS_MAILSORTING, ACCESS_CE, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_TCOMSAT, ACCESS_AI_UPLOAD, ACCESS_IT,
+		ACCESS_INTREPID, ACCESS_SPARK, ACCESS_QUARK, ACCESS_CANARY, ACCESS_NETWORK
+	)
 
-	minimal_access = list(ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS,
-							ACCESS_TELEPORTER, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_ATMOSPHERICS, ACCESS_EMERGENCY_STORAGE, ACCESS_EVA, ACCESS_LEVIATHAN, ACCESS_SHIP_WEAPONS,
-							ACCESS_HEADS, ACCESS_CONSTRUCTION, ACCESS_SEC_DOORS, ACCESS_RESEARCH, ACCESS_MEDICAL, ACCESS_MINING, ACCESS_MAILSORTING,
-							ACCESS_CE, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_TCOMSAT, ACCESS_AI_UPLOAD, ACCESS_IT, ACCESS_BRIDGE_CREW, ACCESS_INTREPID, ACCESS_NETWORK)
+	minimal_access = list(
+		ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_TELEPORTER, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_ATMOSPHERICS,
+		ACCESS_EMERGENCY_STORAGE, ACCESS_EVA, ACCESS_LEVIATHAN, ACCESS_SHIP_WEAPONS, ACCESS_HEADS, ACCESS_CONSTRUCTION, ACCESS_SEC_DOORS, ACCESS_RESEARCH,
+		ACCESS_MEDICAL, ACCESS_MINING, ACCESS_MAILSORTING, ACCESS_CE, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_TCOMSAT, ACCESS_AI_UPLOAD, ACCESS_IT,
+		ACCESS_BRIDGE_CREW, ACCESS_INTREPID, ACCESS_SPARK, ACCESS_QUARK, ACCESS_CANARY, ACCESS_NETWORK
+	)
 
 	minimal_player_age = 7
 	outfit = /obj/outfit/job/chief_engineer
 
-	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
 /obj/outfit/job/chief_engineer
 	name = "Chief Engineer"
@@ -40,7 +44,7 @@
 	uniform = /obj/item/clothing/under/rank/chief_engineer
 	head = /obj/item/clothing/head/hardhat/white
 	belt = /obj/item/storage/belt/utility/ce
-	id = /obj/item/card/id/navy
+	id = /obj/item/card/id/silver
 	shoes = null
 	r_pocket = /obj/item/device/t_scanner
 
@@ -89,8 +93,12 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(ACCESS_EVA, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_SHIP_WEAPONS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_ATMOSPHERICS, ACCESS_LEVIATHAN)
-	minimal_access = list(ACCESS_EVA, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_SHIP_WEAPONS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_LEVIATHAN)
+	access = list(
+		ACCESS_EVA, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_SHIP_WEAPONS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_ATMOSPHERICS, ACCESS_LEVIATHAN
+	)
+	minimal_access = list(
+		ACCESS_EVA, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_SHIP_WEAPONS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_LEVIATHAN
+	)
 	outfit = /obj/outfit/job/engineer
 
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
@@ -123,11 +131,12 @@
 	messengerbag = /obj/item/storage/backpack/messenger/engi
 
 	belt_contents = list(
+		/obj/item/screwdriver = 1,
+		/obj/item/wrench = 1,
 		/obj/item/weldingtool = 1,
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters = 1,
-		/obj/item/stack/cable_coil/random = 1,
-		/obj/item/powerdrill = 1
+		/obj/item/stack/cable_coil/random = 1
 	)
 
 /obj/outfit/job/engineer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -146,7 +155,7 @@
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 3
-	spawn_positions = 2
+	spawn_positions = 3
 	intro_prefix = "an"
 	supervisors = "the chief engineer"
 	selection_color = "#c67519"
@@ -158,8 +167,12 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(ACCESS_EVA, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_ATMOSPHERICS, ACCESS_LEVIATHAN)
-	minimal_access = list(ACCESS_EVA, ACCESS_ENGINE, ACCESS_MAINT_TUNNELS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_ATMOSPHERICS, ACCESS_LEVIATHAN)
+	access = list(
+		ACCESS_EVA, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_ATMOSPHERICS, ACCESS_LEVIATHAN
+	)
+	minimal_access = list(
+		ACCESS_EVA, ACCESS_ENGINE, ACCESS_MAINT_TUNNELS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_ATMOSPHERICS, ACCESS_LEVIATHAN
+	)
 	outfit = /obj/outfit/job/atmos
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
@@ -189,13 +202,14 @@
 	tablet = /obj/item/modular_computer/handheld/preset/engineering/atmos
 
 	belt_contents = list(
+		/obj/item/screwdriver = 1,
+		/obj/item/wrench = 1,
 		/obj/item/weldingtool = 1,
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters = 1,
 		/obj/item/device/t_scanner = 1,
 		/obj/item/device/analyzer = 1,
-		/obj/item/pipewrench = 1,
-		/obj/item/powerdrill = 1
+		/obj/item/pipewrench = 1
 	)
 
 /obj/outfit/job/atmos/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -220,8 +234,12 @@
 	intro_prefix = "an"
 	supervisors = "the Chief Engineer"
 	selection_color = "#c67519"
-	access = list(ACCESS_MAINT_TUNNELS, ACCESS_CONSTRUCTION, ACCESS_ENGINE_EQUIP, ACCESS_ENGINE)
-	minimal_access = list(ACCESS_MAINT_TUNNELS, ACCESS_CONSTRUCTION, ACCESS_ENGINE_EQUIP, ACCESS_ENGINE)
+	access = list(
+		ACCESS_MAINT_TUNNELS, ACCESS_CONSTRUCTION, ACCESS_ENGINE_EQUIP, ACCESS_ENGINE
+	)
+	minimal_access = list(
+		ACCESS_MAINT_TUNNELS, ACCESS_CONSTRUCTION, ACCESS_ENGINE_EQUIP, ACCESS_ENGINE
+	)
 	outfit = /obj/outfit/job/intern_eng
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
@@ -242,11 +260,12 @@
 	belt = /obj/item/storage/belt/utility
 
 	belt_contents = list(
+		/obj/item/screwdriver = 1,
+		/obj/item/wrench = 1,
 		/obj/item/weldingtool = 1,
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters = 1,
-		/obj/item/stack/cable_coil/random = 1,
-		/obj/item/powerdrill = 1
+		/obj/item/stack/cable_coil/random = 1
 	)
 
 	headset = /obj/item/device/radio/headset/headset_eng
@@ -275,13 +294,14 @@
 	belt = /obj/item/storage/belt/utility
 
 	belt_contents = list(
+		/obj/item/screwdriver = 1,
+		/obj/item/wrench = 1,
 		/obj/item/weldingtool = 1,
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters = 1,
 		/obj/item/device/t_scanner = 1,
 		/obj/item/device/analyzer = 1,
-		/obj/item/pipewrench = 1,
-		/obj/item/powerdrill = 1
+		/obj/item/pipewrench = 1
 	)
 
 	headset = /obj/item/device/radio/headset/headset_eng

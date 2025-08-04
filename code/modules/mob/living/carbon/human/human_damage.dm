@@ -408,18 +408,33 @@ This function restores all organs.
 		return 0
 	return
 
-
-/mob/living/carbon/human/proc/get_organ(var/zone, var/allow_no_result = FALSE)
+/**
+ * Get an organ depending on the zone
+ *
+ * * zone - One of the `BP_*` defines
+ *
+ * Returns an `/obj/item/organ` corresponding to the `zone`, or null if the organ doesn't exist
+ */
+/mob/living/carbon/human/proc/get_organ(zone)
 	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
 	RETURN_TYPE(/obj/item/organ)
+
+	//This allows us to maintain the proc purity, though it kinda looks stupid
+	var/zone_to_get
+
 	if(!zone)
-		if(allow_no_result)
-			return
-		else
-			zone = BP_CHEST
-	if (zone in list(BP_EYES, BP_MOUTH))
-		zone = BP_HEAD
-	return organs_by_name[zone]
+		stack_trace("WARNING: get_organ() called with no zone! Defaulting to BP_CHEST, but it won't be supported anymore in the future!")
+		zone_to_get = BP_CHEST
+
+	if(zone in list(BP_EYES, BP_MOUTH))
+		zone_to_get = BP_HEAD
+
+	if(!zone_to_get)
+		zone_to_get = zone
+
+	if(zone_to_get in organs_by_name)
+		return organs_by_name[zone_to_get]
 
 /mob/living/carbon/human/apply_damage(damage = 0, damagetype = DAMAGE_BRUTE, def_zone, blocked, used_weapon, damage_flags = 0, armor_pen, silent = FALSE)
 	if (invisibility == INVISIBILITY_LEVEL_TWO && back && (istype(back, /obj/item/rig)))
@@ -427,17 +442,17 @@ This function restores all organs.
 			to_chat(src, SPAN_DANGER("You are now visible."))
 			set_invisibility(0)
 
-	var/obj/item/organ/external/organ = isorgan(def_zone) ? def_zone : get_organ(def_zone, TRUE)
+	var/obj/item/organ/external/organ = isorgan(def_zone) ? def_zone : (isnull(def_zone) ? get_organ(BP_CHEST) : get_organ(def_zone))
 	if(!organ)
 		if(!def_zone)
 			if(damage_flags & DAMAGE_FLAG_DISPERSED)
 				var/old_damage = damage
 				var/tally
 				silent = TRUE // Will damage a lot of organs, probably, so avoid spam.
-				for(var/zone in organ_rel_size)
-					tally += organ_rel_size[zone]
-				for(var/zone in organ_rel_size)
-					damage = old_damage * organ_rel_size[zone]/tally
+				for(var/zone in GLOB.organ_rel_size)
+					tally += GLOB.organ_rel_size[zone]
+				for(var/zone in GLOB.organ_rel_size)
+					damage = old_damage * GLOB.organ_rel_size[zone]/tally
 					def_zone = zone
 					. = .() || .
 				return

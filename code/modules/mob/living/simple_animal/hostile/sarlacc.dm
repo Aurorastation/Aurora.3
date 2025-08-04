@@ -21,25 +21,28 @@
 	var/mob/living/simple_animal/hostile/greatworm/originator
 	var/mob/living/captive
 
+/obj/item/trap/sarlacc/get_trap_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	return list()
+
 /obj/item/trap/sarlacc/Destroy()
 	if(originator)
 		originator = null
 	return ..()
 
-/obj/item/trap/sarlacc/Crossed(AM as mob|obj)
+/obj/item/trap/sarlacc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+
 	if(originator)
-		if(deployed && isliving(AM) && !originator.eating)
-			var/mob/living/L = AM
+		if(deployed && isliving(arrived) && !originator.eating)
+			var/mob/living/L = arrived
 			L.visible_message(
 				SPAN_DANGER("[L] steps into \the [src]."),
 				SPAN_DANGER("You step into \the [src]!"),
 				"<b>You hear a loud organic snap!</b>"
 				)
-			attack_mob(L)
+			INVOKE_ASYNC(src, PROC_REF(attack_mob), L)
 			originator.eating = 1
 			to_chat(L, SPAN_DANGER("\The [src] begins digesting your upper body!"))
 			addtimer(CALLBACK(src, PROC_REF(devour), L), 50 SECONDS)
-	..()
 
 /obj/item/trap/sarlacc/proc/devour(var/mob/living/C)
 	if(!C)
@@ -137,7 +140,7 @@
 		sarlacc = null
 	return ..()
 
-/mob/living/simple_animal/hostile/greatworm/Life()
+/mob/living/simple_animal/hostile/greatworm/Life(seconds_per_tick, times_fired)
 	..()
 	if(!sarlacc)
 		var/obj/item/trap/sarlacc/L = new /obj/item/trap/sarlacc(src.loc)
@@ -211,13 +214,15 @@
 		return
 	if(asleep)
 		return
-	..()
+	. = ..()
 
 /mob/living/simple_animal/hostile/greatworm/FoundTarget()
-	if(target_mob.faction != "syndicate")
-		spawn_tentacle(target_mob)
+	if(ismob(last_found_target))
+		var/mob/mob_target = last_found_target
+		if(mob_target.faction != "syndicate")
+			spawn_tentacle(mob_target)
+
 	LoseTarget()
-	return
 
 /mob/living/simple_animal/hostile/greatworm/proc/spawn_tentacle(var/mob/living/target)
 	if(active_tentacles.len >= tentacles)
@@ -227,12 +232,12 @@
 	if(target.loc == src.loc)
 		return 0
 	var/turf/T = get_turf(target.loc)
-	if(!istype(T,/turf/unsimulated/floor/asteroid))
+	if(!istype(T,/turf/simulated/floor/exoplanet/asteroid))
 		return 0
 	if(locate(/mob/living/simple_animal/hostile/lesserworm) in T)
 		return 0
 	spawn_delay = world.time + spawn_time
-	var/turf/unsimulated/floor/asteroid/A = T
+	var/turf/simulated/floor/exoplanet/asteroid/A = T
 	var/mob/living/simple_animal/hostile/lesserworm/L = new /mob/living/simple_animal/hostile/lesserworm(A)
 	if(A.dug < 1)
 		A.gets_dug()
@@ -337,7 +342,7 @@
 	minbodytemp = 0
 	ranged = 1
 	projectilesound = 'sound/magic/WandODeath.ogg'
-	projectiletype = /obj/item/projectile/energy/thoughtbubble
+	projectiletype = /obj/projectile/energy/thoughtbubble
 	speak_emote = list("gargles")
 	emote_hear = list("gargles")
 	emote_see = list("ooozes","pulses","drips","pumps")
@@ -355,12 +360,12 @@
 /mob/living/simple_animal/hostile/greatwormking/Move()
 	return
 
-/obj/item/projectile/energy/thoughtbubble
+/obj/projectile/energy/thoughtbubble
 	name = "psionic blast"
 	icon_state = "ion"
-	nodamage = TRUE
+	damage = 0
 	agony = 20
-	check_armor = "energy"
+	check_armor = ENERGY
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
 	var/list/thoughts = list(
 		"You hear a cacophany of alien sounds.",
@@ -388,10 +393,10 @@
 		"You've got a bad feeling about this."
 	)
 
-/obj/item/projectile/energy/thoughtbubble/on_impact(var/atom/A)
-	..()
-	if(istype(A, /mob/living))
-		var/mob/living/L = A
+/obj/projectile/energy/thoughtbubble/on_hit(atom/target, blocked, def_zone)
+	. = ..()
+	if(istype(target, /mob/living))
+		var/mob/living/L = target
 		if(L.reagents)
 			var/madhouse = pick(/singleton/reagent/drugs/psilocybin,/singleton/reagent/drugs/mindbreaker,/singleton/reagent/drugs/impedrezene,/singleton/reagent/drugs/cryptobiolin,/singleton/reagent/soporific,/singleton/reagent/mutagen)
 			var/madhouse_verbal_component = pick(thoughts)

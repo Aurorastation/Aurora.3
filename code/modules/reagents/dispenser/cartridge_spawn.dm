@@ -30,4 +30,4 @@
 	C.reagents.add_reagent(reagent, C.volume)
 	var/singleton/reagent/R = GET_SINGLETON(reagent)
 	C.setLabel(R.name)
-	log_admin("[key_name(usr)] spawned a [size] reagent container containing [reagent] at ([usr.x],[usr.y],[usr.z])",admin_key=key_name(usr))
+	log_admin("[key_name(usr)] spawned a [size] reagent container containing [reagent] at ([usr.x],[usr.y],[usr.z])")

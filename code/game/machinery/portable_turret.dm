@@ -17,7 +17,7 @@
 	density = 0
 	idle_power_usage = 50		//when inactive, this turret takes up constant 50 Equipment power
 	active_power_usage = 300	//when active, this turret takes up constant 300 Equipment power
-	power_channel = EQUIP	//drains power from the EQUIPMENT channel
+	power_channel = AREA_USAGE_EQUIP	//drains power from the EQUIPMENT channel
 
 	req_one_access = list(ACCESS_SECURITY, ACCESS_HEADS)
 
@@ -62,8 +62,8 @@
 	var/lethal = 0			//whether in lethal or stun mode
 	var/disabled = 0
 
-	var/projectile =/obj/item/projectile/beam/stun	//holder for stun (main) mode beam
-	var/eprojectile = /obj/item/projectile/beam		//holder for lethal (secondary) mode beam
+	var/projectile =/obj/projectile/beam/stun	//holder for stun (main) mode beam
+	var/eprojectile = /obj/projectile/beam		//holder for lethal (secondary) mode beam
 
 	var/shot_sound = 'sound/weapons/Taser.ogg'		//what sound should play when the turret fires
 	var/eshot_sound	= 'sound/weapons/laser1.ogg'		//what sound should play when the lethal turret fires
@@ -79,20 +79,22 @@
 
 	var/old_angle = 0
 
-/obj/machinery/porta_turret/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	var/msg = ""
+/obj/machinery/porta_turret/condition_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(!health)
-		msg += SPAN_DANGER("\The [src] is destroyed!")
+		. += SPAN_DANGER("\The [src] is destroyed!")
 	else if(health / maxhealth < 0.35)
-		msg += SPAN_DANGER("\The [src] is critically damaged!")
+		. += SPAN_DANGER("\The [src] is critically damaged!")
 	else if(health / maxhealth < 0.6)
-		msg += SPAN_WARNING("\The [src] is badly damaged!")
+		. += SPAN_ALERT("\The [src] is badly damaged!")
 	else if(health / maxhealth < 1)
-		msg += SPAN_NOTICE("\The [src] is slightly damaged!")
+		. += SPAN_NOTICE("\The [src] is slightly damaged.")
 	else
-		msg += SPAN_GOOD("\The [src] is not damaged!")
-	. +=  msg
+		. += "\The [src] is in perfect condition."
+
+/obj/machinery/porta_turret/assembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "It [anchored ? "is" : "could be"] anchored to the floor with some <b>bolts</b>."
 
 /obj/machinery/porta_turret/crescent
 	enabled = FALSE
@@ -444,17 +446,20 @@
 	if(health <= 0)
 		die()	//the death process :(
 
-/obj/machinery/porta_turret/bullet_act(obj/item/projectile/Proj)
-	var/damage = Proj.get_structure_damage()
+/obj/machinery/porta_turret/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	var/damage = hitting_projectile.get_structure_damage()
 
 	if(!damage)
-		return
+		return BULLET_ACT_BLOCK
 
 	if(enabled)
 		if(!attacked && !emagged)
 			attacked = 1
 			addtimer(CALLBACK(src, PROC_REF(reset_attacked)), 60, TIMER_UNIQUE | TIMER_OVERRIDE)
-	..()
+
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
 
 	take_damage(damage)
 
@@ -606,11 +611,11 @@
 		return TURRET_NOT_TARGET
 
 	var/flags =  PASSTABLE|PASSTRACE|PASSRAILING
-	if(ispath(projectile, /obj/item/projectile/beam) || ispath(eprojectile, /obj/item/projectile/beam))
+	if(ispath(projectile, /obj/projectile/beam) || ispath(eprojectile, /obj/projectile/beam))
 		flags |= PASSTABLE|PASSGLASS|PASSGRILLE|PASSRAILING
 
-	if(!(L in check_trajectory(L, src, pass_flags=flags)))	//check if we have true line of sight
-		return TURRET_NOT_TARGET
+	// if(!(L in check_trajectory(L, src, pass_flags=flags)))	//check if we have true line of sight
+	// 	return TURRET_NOT_TARGET
 
 	if(emagged)		// If emagged not even the dead get a rest
 		return L.stat ? TURRET_SECONDARY_TARGET : TURRET_PRIORITY_TARGET
@@ -726,7 +731,7 @@
 	if(target)
 		last_target = target
 		popUp()				//pop the turret up if it's not already up.
-		var/new_angle = Get_Angle(src, target)
+		var/new_angle = get_angle(src, target)
 		if(new_angle > old_angle + 30 || new_angle < old_angle - 30)
 			playsound(loc, 'sound/machines/turrets/turret_rotate.ogg', 100, 1)
 		set_angle(new_angle)
@@ -752,7 +757,7 @@
 		return
 
 	update_icon()
-	var/obj/item/projectile/A
+	var/obj/projectile/A
 
 	if(emagged || lethal)
 		A = new eprojectile(loc)
@@ -769,9 +774,12 @@
 
 	//Turrets aim for the center of mass by default.
 	//If the target is grabbing someone then the turret smartly aims for extremities
-	var/def_zone = get_exposed_defense_zone(target)
+	A.def_zone = get_exposed_defense_zone(target)
 	//Shooting Code:
-	A.launch_projectile(target, def_zone)
+	A.preparePixelProjectile(target, T)
+	A.firer = src
+	A.fired_from = src
+	A.fire()
 	last_fired = TRUE
 	addtimer(CALLBACK(src, PROC_REF(reset_last_fired)), shot_delay, TIMER_UNIQUE | TIMER_OVERRIDE)
 
@@ -1072,7 +1080,7 @@
 	egun = 0
 	sprite_set = "xray"
 
-	eprojectile = /obj/item/projectile/beam/xray
+	eprojectile = /obj/projectile/beam/xray
 	eshot_sound	= 'sound/weapons/laser3.ogg'
 	req_one_access = list(ACCESS_SYNDICATE)
 
@@ -1083,8 +1091,8 @@
 	egun = 1
 	sprite_set = "ion"
 
-	projectile = /obj/item/projectile/ion/stun
-	eprojectile = /obj/item/projectile/ion
+	projectile = /obj/projectile/ion/stun
+	eprojectile = /obj/projectile/ion
 	shot_sound = 'sound/weapons/laser1.ogg'
 	eshot_sound	= 'sound/weapons/laser1.ogg'
 	req_one_access = list(ACCESS_SYNDICATE)
@@ -1096,7 +1104,7 @@
 	egun = 0
 	sprite_set = "crossbow"
 
-	eprojectile = /obj/item/projectile/energy/bolt/large
+	eprojectile = /obj/projectile/energy/bolt/large
 	eshot_sound	= 'sound/weapons/Genhit.ogg'
 	req_one_access = list(ACCESS_SYNDICATE)
 
@@ -1107,7 +1115,7 @@
 	egun = 0
 	sprite_set = "cannon"
 
-	eprojectile = /obj/item/projectile/beam/heavylaser
+	eprojectile = /obj/projectile/beam/heavylaser
 	eshot_sound	= 'sound/weapons/lasercannonfire.ogg'
 	req_one_access = list(ACCESS_SYNDICATE)
 
@@ -1119,7 +1127,7 @@
 	sprite_set = "pulse"
 	no_salvage = TRUE
 
-	eprojectile = /obj/item/projectile/beam/pulse
+	eprojectile = /obj/projectile/beam/pulse
 	eshot_sound	= 'sound/weapons/pulse.ogg'
 	req_one_access = list(ACCESS_SYNDICATE)
 
@@ -1131,7 +1139,7 @@
 	sprite_set = "sniper"
 	no_salvage = TRUE
 
-	eprojectile = /obj/item/projectile/beam/sniper
+	eprojectile = /obj/projectile/beam/sniper
 	eshot_sound	= 'sound/weapons/marauder.ogg'
 	req_one_access = list(ACCESS_SYNDICATE)
 
@@ -1142,7 +1150,7 @@
 	egun = 0
 	sprite_set = "net"
 
-	eprojectile = /obj/item/projectile/beam/energy_net
+	eprojectile = /obj/projectile/beam/energy_net
 	eshot_sound	= 'sound/weapons/plasma_cutter.ogg'
 	req_one_access = list(ACCESS_SYNDICATE)
 
@@ -1153,7 +1161,7 @@
 	egun = 0
 	sprite_set = "thermaldrill"
 
-	eprojectile = /obj/item/projectile/beam/thermaldrill
+	eprojectile = /obj/projectile/beam/thermaldrill
 	eshot_sound	= 'sound/magic/lightningbolt.ogg'
 	req_one_access = list(ACCESS_SYNDICATE)
 
@@ -1165,7 +1173,7 @@
 	sprite_set = "meteor"
 	no_salvage = TRUE
 
-	eprojectile = /obj/item/projectile/meteor
+	eprojectile = /obj/projectile/meteor
 	eshot_sound	= 'sound/weapons/lasercannonfire.ogg'
 	req_one_access = list(ACCESS_SYNDICATE)
 
@@ -1177,7 +1185,7 @@
 	sprite_set = "ballistic"
 	no_salvage = TRUE
 
-	eprojectile = /obj/item/projectile/bullet/pistol/medium
+	eprojectile = /obj/projectile/bullet/pistol/medium
 	eshot_sound	= 'sound/weapons/gunshot/gunshot_saw.ogg'
 
 	req_one_access = list(ACCESS_SYNDICATE)
@@ -1192,7 +1200,7 @@
 	installation = /obj/item/gun/energy/blaster/carbine
 	sprite_set = "blaster"
 	cover_set = "legion"
-	eprojectile = /obj/item/projectile/energy/blaster/heavy
+	eprojectile = /obj/projectile/energy/blaster/heavy
 
 	check_arrest = 0
 	check_records = 0

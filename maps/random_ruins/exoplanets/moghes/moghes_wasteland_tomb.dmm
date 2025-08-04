@@ -14,6 +14,7 @@
 /obj/structure/sign/flag/unathi_tapestry/city/north{
 	pixel_y = 32
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 315.15
 	},
@@ -48,6 +49,7 @@
 /obj/structure/sign/flag/unathi_tapestry/unathi/north{
 	pixel_y = 32
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 315.15
 	},
@@ -56,6 +58,12 @@
 /obj/structure/table/stone/marble,
 /obj/item/stack/material/diamond/full,
 /turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"ej" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/silver{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
@@ -75,6 +83,19 @@
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
+"gM" = (
+/obj/structure/unathi_pillar,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"ic" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
 "iY" = (
 /obj/structure/unathi_statue/robe,
 /turf/simulated/floor/exoplanet/silver{
@@ -90,6 +111,14 @@
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
+"jz" = (
+/obj/structure/table/stone/marble,
+/obj/item/stack/material/diamond/full,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/gold{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
 "jI" = (
 /obj/structure/unathi_statue/warrior,
 /turf/simulated/floor/exoplanet/marble/dark{
@@ -98,6 +127,26 @@
 /area/moghes_wasteland_tomb)
 "lj" = (
 /turf/simulated/wall/sandstonediamond,
+/area/moghes_wasteland_tomb)
+"lu" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/gold{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"mt" = (
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/exoplanet/gold{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"oV" = (
+/obj/structure/table/stone/marble,
+/obj/item/material/sword/longsword,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
 /area/moghes_wasteland_tomb)
 "pu" = (
 /turf/simulated/floor/exoplanet/silver{
@@ -109,6 +158,26 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/exoplanet/gold{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"rn" = (
+/obj/structure/table/stone/marble,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"ro" = (
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"rT" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/exoplanet/silver{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
@@ -164,9 +233,23 @@
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
+"zd" = (
+/obj/structure/unathi_statue/warrior,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
 "zp" = (
 /obj/effect/landmark/corpse/ancient_unathi,
 /obj/structure/closet/sarcophagus/random,
+/turf/simulated/floor/exoplanet/silver{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"zA" = (
+/obj/structure/unathi_statue/robe,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/silver{
 	temperature = 315.15
 	},
@@ -199,6 +282,12 @@
 /obj/effect/landmark/corpse/ancient_unathi,
 /obj/structure/closet/sarcophagus/random,
 /turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"DR" = (
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/exoplanet/silver{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
@@ -243,6 +332,13 @@
 	pixel_y = -32;
 	stand_icon = "banner"
 	},
+/turf/simulated/floor/exoplanet/silver{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"GV" = (
+/obj/structure/simple_door/sandstone,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/silver{
 	temperature = 315.15
 	},
@@ -337,6 +433,13 @@
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
+"OC" = (
+/obj/structure/monolith/unathitomb,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/silver{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
 "QZ" = (
 /obj/structure/sign/flag/unathi_tapestry/unathi/east{
 	pixel_x = 32
@@ -350,6 +453,7 @@
 /obj/effect/landmark/corpse/ancient_unathi,
 /obj/structure/closet/sarcophagus/random,
 /obj/item/material/twohanded/pike/halberd/warscythe/bronze,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 315.15
 	},
@@ -373,6 +477,14 @@
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
+"WP" = (
+/obj/structure/table/stone/marble,
+/obj/item/stack/material/diamond/full,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
 "XB" = (
 /obj/structure/sign/flag/unathi_tapestry,
 /turf/simulated/floor/exoplanet/marble/dark{
@@ -381,6 +493,16 @@
 /area/moghes_wasteland_tomb)
 "XU" = (
 /turf/simulated/wall/sandstone,
+/area/moghes_wasteland_tomb)
+"YS" = (
+/obj/structure/sign/flag/unathi_tapestry/warrior{
+	pixel_y = 32;
+	stand_icon = "banner"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
 /area/moghes_wasteland_tomb)
 
 (1,1,1) = {"
@@ -472,7 +594,7 @@ XU
 Mq
 Mq
 Mq
-pu
+ej
 pu
 Mq
 Mq
@@ -497,11 +619,11 @@ Hb
 (4,1,1) = {"
 Hb
 XU
-Mq
+ic
 cy
 Mq
 pu
-pu
+ej
 Mq
 Nr
 Mq
@@ -515,7 +637,7 @@ Mq
 EZ
 Mq
 XU
-Mq
+ic
 Mq
 Mq
 Mq
@@ -535,18 +657,18 @@ Hb
 Hb
 XU
 Mq
-Mq
+ic
 Mq
 pu
-pu
-Mq
+ej
+ic
 Mq
 Mq
 XU
-Ci
-Mq
+YS
+ic
 Nr
-pu
+ej
 pu
 Nr
 Mq
@@ -555,7 +677,7 @@ XU
 cy
 Mq
 EZ
-Mq
+ic
 Mq
 Mq
 XU
@@ -576,12 +698,12 @@ pu
 pu
 pu
 Hg
-pu
+ej
 pu
 pu
 Ma
-pu
-pu
+DR
+ej
 pu
 pu
 Aa
@@ -592,7 +714,7 @@ XU
 tX
 Mq
 yo
-Mq
+ic
 Mq
 Mq
 XU
@@ -610,27 +732,27 @@ Hb
 XU
 zp
 pu
+ej
 pu
 pu
-pu
-pu
+ej
 pu
 pu
 Ma
 pu
+ej
 pu
 pu
-pu
-pu
+ej
 pu
 pu
 pu
 XU
 Mq
+ic
 Mq
-Mq
-Mq
-Mq
+ic
+ic
 Mq
 XU
 Hb
@@ -652,9 +774,9 @@ pu
 pu
 Mq
 Mq
-Mq
+ic
 XU
-Ci
+YS
 Mq
 jI
 pu
@@ -667,7 +789,7 @@ cy
 Mq
 EZ
 Mq
-Mq
+ic
 Mq
 XU
 Hb
@@ -682,7 +804,7 @@ Hb
 (9,1,1) = {"
 Hb
 XU
-Mq
+ic
 cy
 Mq
 pu
@@ -694,14 +816,14 @@ XU
 EZ
 TB
 Mq
-pu
+ej
 pu
 Mq
 EZ
 Ge
 XU
 Mq
-Mq
+ic
 Mq
 Mq
 Mq
@@ -728,8 +850,8 @@ Mq
 EZ
 Mq
 XU
-Mq
-Mq
+ic
+ic
 Mq
 pu
 pu
@@ -737,12 +859,12 @@ Mq
 Mq
 pu
 Ma
-Mq
+ic
 Ve
 RY
 MJ
 Ve
-Mq
+ic
 XU
 Hb
 Hb
@@ -793,9 +915,9 @@ Hb
 (12,1,1) = {"
 Hb
 XU
-EZ
-Mq
-Mq
+gM
+ic
+ic
 Mq
 Mq
 EZ
@@ -808,10 +930,10 @@ Mq
 pu
 pu
 Mq
-Mq
+ic
 XU
 Mq
-Mq
+ic
 Mq
 Mq
 Mq
@@ -835,17 +957,17 @@ FN
 aX
 aX
 FN
-Mq
+ic
 XU
 dc
 Mq
-Mq
+ic
 Mq
 Mq
 pu
 pu
 Mq
-Mq
+ic
 XU
 Mq
 Mq
@@ -867,8 +989,8 @@ Hb
 (14,1,1) = {"
 Hb
 XU
-Mq
-aD
+ic
+lu
 Mq
 Mq
 aD
@@ -904,18 +1026,18 @@ Hb
 (15,1,1) = {"
 Hb
 XU
-LQ
-aD
+rn
+lu
+ic
 Mq
-Mq
-aD
+lu
 Mq
 XU
 aD
 iY
 pu
 iY
-aD
+lu
 pu
 pu
 EZ
@@ -941,11 +1063,11 @@ Hb
 (16,1,1) = {"
 Hb
 XU
-bt
-Mq
+oV
+ic
+lu
 aD
-aD
-Mq
+ro
 Mq
 XU
 aD
@@ -958,7 +1080,7 @@ pu
 Mq
 Mq
 XU
-Mq
+ro
 Nr
 Mq
 wq
@@ -982,7 +1104,7 @@ gr
 Mq
 Mq
 Mq
-Mq
+ic
 Mq
 UO
 aD
@@ -990,15 +1112,15 @@ pu
 so
 pu
 pu
-pu
-pu
+ej
+ej
 pu
 pu
 lj
 pu
-pu
-pu
-pu
+ej
+ej
+ej
 pu
 pu
 pu
@@ -1017,28 +1139,28 @@ Hb
 XU
 bt
 Mq
+lu
 aD
-aD
-Mq
-Mq
+ic
+ic
 XU
 aD
 cC
 IZ
 pu
-pu
-pu
-pu
-pu
-pu
+DR
+ej
+ej
+ej
+ej
 Ma
 pu
 pu
 pu
-pu
-pu
-pu
-pu
+ej
+ej
+ej
+ej
 ET
 Mq
 Mq
@@ -1053,29 +1175,29 @@ Hb
 Hb
 XU
 LQ
-aD
+mt
 Mq
-Mq
+ic
 aD
 Mq
 XU
 aD
 pu
 so
-pu
+ej
 pu
 pu
 pu
 pu
 pu
 lj
+ej
 pu
 pu
 pu
 pu
-pu
-pu
-pu
+ej
+rT
 XU
 jI
 Mq
@@ -1089,9 +1211,9 @@ Hb
 (20,1,1) = {"
 Hb
 XU
-Mq
-aD
-Mq
+ic
+lu
+ic
 Mq
 aD
 Mq
@@ -1099,7 +1221,7 @@ XU
 aD
 pu
 at
-pu
+ej
 aD
 pu
 pu
@@ -1126,17 +1248,17 @@ Hb
 (21,1,1) = {"
 Hb
 XU
-Mq
-dD
+ic
+WP
+jz
 Ld
-Ld
 dD
-Mq
+ic
 XU
 aD
 iY
 pu
-iY
+zA
 aD
 pu
 pu
@@ -1149,7 +1271,7 @@ Mq
 EZ
 Mq
 Mq
-Mq
+ic
 XU
 Mq
 Mq
@@ -1174,8 +1296,8 @@ pD
 aD
 aD
 aD
-aD
-pu
+lu
+ej
 pu
 Mq
 Mq
@@ -1212,14 +1334,14 @@ Mq
 Mq
 Mq
 Mq
-pu
+ej
 pu
 Mq
 Mq
 XU
+ic
 Mq
-Mq
-Mq
+ic
 Mq
 Mq
 Mq
@@ -1249,17 +1371,17 @@ Mq
 EZ
 Mq
 Mq
-pu
+ej
 pu
 Mq
 Mq
 XU
 Mq
+ic
 Mq
 Mq
 Mq
-Mq
-Mq
+ic
 Mq
 XU
 XU
@@ -1286,7 +1408,7 @@ XU
 XU
 XU
 XU
-Ma
+GV
 Ma
 XU
 XU
@@ -1320,11 +1442,11 @@ Mq
 Mq
 Mq
 XU
-Mq
+ro
 Mq
 Mq
 pu
-pu
+ej
 pu
 pu
 pu
@@ -1394,11 +1516,11 @@ Mq
 Mq
 Mq
 XU
-Ci
+YS
 Mq
 Nr
 pu
-pu
+ej
 Nr
 Mq
 Mq
@@ -1432,9 +1554,9 @@ pu
 pu
 Ma
 pu
+ej
 pu
-pu
-pu
+ej
 pu
 Mq
 Mq
@@ -1472,9 +1594,9 @@ pu
 pu
 pu
 pu
-Aa
-Mq
-Mq
+OC
+ro
+ic
 Mq
 XU
 EZ
@@ -1507,8 +1629,8 @@ Mq
 XU
 Ci
 Mq
-jI
-pu
+zd
+ej
 pu
 jI
 Mq
@@ -1547,7 +1669,7 @@ TB
 Mq
 pu
 pu
-Mq
+ic
 EZ
 Mq
 XU
@@ -1575,7 +1697,7 @@ Mq
 zp
 zp
 Mq
-Mq
+ro
 Mq
 Mq
 XU

@@ -5,7 +5,7 @@
 	max_count = 2
 	outfit = /obj/outfit/admin/ert/qukala
 	uses_species_whitelist = FALSE
-	possible_species = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_DIONA)
+	possible_species = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_DIONA)
 	welcome_message = "You are a soldier of the Nralakk Federation Qukala, assigned to respond to a distress call from the SCCV Horizon."
 	assigned_role = "Qukala Responder"
 

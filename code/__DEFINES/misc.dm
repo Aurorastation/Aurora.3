@@ -32,7 +32,7 @@
 #define SOUND_ADMINHELP 0x1
 #define SOUND_MIDI      0x2
 // 0x4 is free.
-#define SOUND_LOBBY				0x8
+// 0x8 is free.
 #define CHAT_OOC				0x10
 #define CHAT_DEAD				0x20
 #define CHAT_GHOSTEARS			0x40
@@ -47,16 +47,17 @@
 #define CHAT_NOICONS			0x8000
 #define CHAT_GHOSTLOOC			0x10000
 
-#define SEE_ITEM_OUTLINES 0x1
-#define HIDE_ITEM_TOOLTIPS 0x2
-#define PROGRESS_BARS 0x4
-#define PARALLAX_IS_STATIC 0x8
-#define FLOATING_MESSAGES 0x10
-#define HOTKEY_DEFAULT 0x20
-#define FULLSCREEN_MODE 0x40
-#define ACCENT_TAG_TEXT 0x80
+#define SEE_ITEM_OUTLINES BITFLAG(1)
+#define HIDE_ITEM_TOOLTIPS BITFLAG(2)
+#define PROGRESS_BARS BITFLAG(3)
+#define PARALLAX_IS_STATIC BITFLAG(4)
+#define FLOATING_MESSAGES BITFLAG(5)
+#define HOTKEY_DEFAULT BITFLAG(6)
+#define FULLSCREEN_MODE BITFLAG(7)
+#define ACCENT_TAG_TEXT BITFLAG(8)
+#define CLIENT_PREFERENCE_HIDE_MENU BITFLAG(9)
 
-#define TOGGLES_DEFAULT (SOUND_ADMINHELP | SOUND_MIDI | SOUND_LOBBY | CHAT_OOC | CHAT_DEAD | CHAT_GHOSTEARS | CHAT_GHOSTSIGHT | CHAT_PRAYER | CHAT_RADIO | CHAT_ATTACKLOGS | CHAT_LOOC | CHAT_GHOSTLOOC)
+#define TOGGLES_DEFAULT (SOUND_ADMINHELP | SOUND_MIDI | CHAT_OOC | CHAT_DEAD | CHAT_GHOSTEARS | CHAT_GHOSTSIGHT | CHAT_PRAYER | CHAT_RADIO | CHAT_ATTACKLOGS | CHAT_LOOC | CHAT_GHOSTLOOC)
 
 // ASFX and SFX Toggles
 // (ASFX = Ambient Sound Effects; SFX = Sound Effects)
@@ -121,7 +122,7 @@
 #define EVENT_LEVEL_MODERATE 2
 #define EVENT_LEVEL_MAJOR    3
 
-//General-purpose life speed define for plants.
+/// General-purpose life speed define for plants.
 #define HYDRO_SPEED_MULTIPLIER 1
 
 #define DEFAULT_JOB_TYPE /datum/job/assistant
@@ -229,12 +230,6 @@
 #define SCANNER_REAGENT BITFLAG(1)
 #define SCANNER_GAS BITFLAG(2)
 
-// Special return values from bullet_act(). Positive return values are already used to indicate the blocked level of the projectile.
-#define PROJECTILE_CONTINUE   -1 //if the projectile should continue flying after calling bullet_act()
-#define PROJECTILE_FORCE_MISS -2 //if the projectile should treat the attack as a miss (suppresses attack and admin logs) - only applies to mobs.
-#define PROJECTILE_DODGED     -3 //this is similar to the above, but the check and message is run on the mob, instead of on the projectile code. basically just has a unique message
-#define PROJECTILE_STOPPED    -4 //stops the projectile completely, as if a shield absorbed it
-
 //Camera capture modes
 #define CAPTURE_MODE_REGULAR 0 //Regular polaroid camera mode
 #define CAPTURE_MODE_ALL 1 //Admin camera mode
@@ -267,7 +262,7 @@
 
 #define MIDNIGHT_ROLLOVER		864000	//number of deciseconds in a day
 
-#define DEBUG_REF(D) (D ? "\ref[D]|[D] ([D.type])" : "NULL")
+#define DEBUG_REF(D) (D ? "[REF(D)]|[D]] ([D.type])" : "NULL")
 
 // MultiZAS directions.
 #define NORTHUP (NORTH|UP)
@@ -282,10 +277,6 @@
 #define NL_NOT_DISABLED      0
 #define NL_TEMPORARY_DISABLE 1
 #define NL_PERMANENT_DISABLE 2
-
-///Used for creating soft references to objects. A manner of storing an item reference
-///DO NOT USE, USE `WEAKREF()`
-#define SOFTREF(A) ref(A)
 
 #define ADD_VERB_IN(the_atom,time,verb) addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(add_verb), the_atom, verb), time, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
 #define ADD_VERB_IN_IF(the_atom,time,verb,callback) addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(add_verb), the_atom, verb, callback), time, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
@@ -320,12 +311,6 @@
 
 #define DEFAULT_SIGHT (SEE_SELF)
 
-#define isStationLevel(Z) ((Z) in SSatlas.current_map.station_levels)
-#define isNotStationLevel(Z) !isStationLevel(Z)
-
-#define isPlayerLevel(Z) ((Z) in SSatlas.current_map.player_levels)
-#define isNotPlayerLevel(Z) !isPlayerLevel(Z)
-
 #define isAdminLevel(Z) ((Z) in SSatlas.current_map.admin_levels)
 #define isNotAdminLevel(Z) !isAdminLevel(Z)
 
@@ -337,14 +322,6 @@
 #define CARGO_CONTAINER_FREEZER "freezer"
 #define CARGO_CONTAINER_BOX "box"
 #define CARGO_CONTAINER_BODYBAG "bodybag"
-
-// We should start using these.
-#define ITEMSIZE_TINY   1
-#define ITEMSIZE_SMALL  2
-#define ITEMSIZE_NORMAL 3
-#define ITEMSIZE_LARGE  4
-#define ITEMSIZE_HUGE   5
-#define ITEMSIZE_IMMENSE 6
 
 // getFlatIcon function altering defines
 #define GFI_ROTATION_DEFAULT 0 //Don't do anything special
@@ -369,7 +346,7 @@ example:
 	CALCULATE_NEIGHBORS(src, result, T, isopenturf(T))
 */
 #define CALCULATE_NEIGHBORS(ORIGIN, VAR, TVAR, FUNC) \
-	for (var/_tdir in GLOB.cardinal) {                    \
+	for (var/_tdir in GLOB.cardinals) {                    \
 		TVAR = get_step(ORIGIN, _tdir);              \
 		if ((TVAR) && (FUNC)) {                      \
 			VAR |= 1 << _tdir;                       \
@@ -524,3 +501,5 @@ example:
 
 // arbitrary low pressure bound for wind weather effects
 #define MIN_WIND_PRESSURE 10
+
+#define NO_EMAG_ACT -50

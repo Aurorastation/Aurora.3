@@ -8,39 +8,72 @@
 	mouse_opacity = MOUSE_OPACITY_ICON
 	anchored = TRUE
 
-	var/does_teleport = TRUE // Some portals might just be visual
+	///Boolean, if the portal can actually teleport, or not (aka it's just visual)
+	var/does_teleport = TRUE
+
 	var/has_lifespan = TRUE // Whether we want to directly control the lifespan or not
+
+	///Chance that the portal will fail
 	var/failchance = 5
+
+	///Boolean, if the portal has failed (aka it will teleport you somewhere else)
 	var/has_failed = FALSE
-	var/obj/target
+
+	/**
+	 * The target the teleport aims to, an `/obj` or `/turf`
+	 *
+	 * *Not* to be set directly, use `set_target()` instead
+	 */
+	var/atom/target
+
+	///Who created the portal
 	var/creator
+
+	///How precise (turf range) is the teleportation
 	var/precision = 1
 
 /obj/effect/portal/Initialize(mapload, turf/set_target, set_creator, lifespan = 300, precise = 1)
 	. = ..()
 
 	if(set_target)
-		target = set_target
+		set_target(set_target)
+
 	if(set_creator)
 		creator = set_creator
+		if(istype(creator, /atom))
+			RegisterSignal(creator, COMSIG_QDELETING, PROC_REF(handle_creator_qdel))
+
 	if(has_lifespan && lifespan > 0)
 		QDEL_IN(src, lifespan)
+
 	if(prob(failchance))
 		has_failed = TRUE
 
 	precision = precise
 
-/obj/effect/portal/CollidedWith(mob/M)
-	set waitfor = FALSE
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
+/obj/effect/portal/Destroy()
+	if(istype(creator, /obj/item/hand_tele))
+		var/obj/item/hand_tele/HT = creator
+		HT.remove_portal(src)
+	. = ..()
+
+/obj/effect/portal/CollidedWith(atom/bumped_atom)
+	. = ..()
 
 	if(does_teleport)
-		teleport(M)
+		teleport(bumped_atom)
 
-/obj/effect/portal/Crossed(AM)
-	set waitfor = FALSE
+/obj/effect/portal/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
 
 	if(does_teleport)
-		teleport(AM)
+		teleport(arrived)
 
 /obj/effect/portal/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/bluespace_neutralizer))
@@ -50,8 +83,6 @@
 	return ..()
 
 /obj/effect/portal/attack_hand(mob/user)
-	set waitfor = FALSE
-
 	if(does_teleport)
 		teleport(user)
 
@@ -86,22 +117,55 @@
 		visible_message(SPAN_WARNING("\The [src] oscillates violently as \the [movable] comes into contact with it, and collapses! Seems like the rift was unstable..."))
 		qdel(src)
 
-/obj/effect/portal/Destroy()
-	if(istype(creator, /obj/item/hand_tele))
-		var/obj/item/hand_tele/HT = creator
-		HT.remove_portal(src)
-	return ..()
+/**
+ * Sets the target of the teleporter
+ */
+/obj/effect/portal/proc/set_target(atom/new_target)
+	if(!is_type_in_list(new_target, list(/obj, /turf, /mob)))
+		stack_trace("Portal was tried to be targeted at something that it is not supposed to!")
+		return
+
+	if(target)
+		UnregisterSignal(target, COMSIG_QDELETING)
+
+	target = new_target
+	RegisterSignal(target, COMSIG_QDELETING, PROC_REF(handle_target_qdel))
+
+/**
+ * Handles the teleporting target being deleted
+ */
+/obj/effect/portal/proc/handle_target_qdel()
+	SIGNAL_HANDLER
+
+	if(!QDELETED(src))
+		qdel(src)
+
+/**
+ * Handles the creator being deleted
+ */
+/obj/effect/portal/proc/handle_creator_qdel()
+	SIGNAL_HANDLER
+
+	creator = null
+
+
+/*##############
+	SUBTYPES
+##############*/
 
 /obj/effect/portal/spawner
 	name = "portal"
-	desc = "A bluespace tear in space, reaching directly to another point within this region. This one looks like a one-way portal to here, don't come too close."
-	desc_info = "This portal is a spawner portal. You cannot enter it to teleport, but it will periodically spawn things."
+	desc = "A bluespace tear in space, reaching directly to another point within this region. This one looks like a one-way portal to here; don't get too close."
 	does_teleport = FALSE
 	has_lifespan = FALSE
 	layer = OBJ_LAYER - 0.01
 	var/list/spawn_things = list() // The list things to spawn
 	var/num_of_spawns			   // How many times we want to spawn them before qdel
 	var/next_spawn
+
+/obj/effect/portal/spawner/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This portal is a spawner portal. You cannot enter it to teleport, but it will periodically spawn things."
 
 /obj/effect/portal/spawner/Initialize()
 	. = ..()
@@ -212,7 +276,6 @@
 /obj/effect/portal/revenant
 	name = "bluespace rift"
 	desc = "A bluespace tear in space, reaching directly to another point within this region. This one looks like a one-way portal to here, don't come too close."
-	desc_info = "This is a bluespace rift. It is a node wherein revenants can seep into this locale. To destroy it, you must bring a bluespace neutralizer near it."
 	icon_state = "portal_g"
 
 	does_teleport = FALSE
@@ -226,24 +289,28 @@
 	var/last_color_level = 5
 	var/health_timer = 10 MINUTES // you need to reduce the health by standing near it with a neutralizer
 
+/obj/effect/portal/revenant/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This is a bluespace rift. It is a node wherein revenants can seep into this locale. To destroy it, you must bring a bluespace neutralizer near it."
+
 /obj/effect/portal/revenant/Initialize(mapload)
 	. = ..()
-	if(revenants.revenant_rift)
+	if(GLOB.revenants.revenant_rift)
 		return INITIALIZE_HINT_QDEL
 	var/turf/T = get_turf(src)
 	log_and_message_admins("Revenant Bluespace Rift spawned at \the [get_area(T)]", null, T)
-	revenants.revenant_rift = src
+	GLOB.revenants.revenant_rift = src
 
 /obj/effect/portal/revenant/Destroy()
-	revenants.destroyed_rift()
+	GLOB.revenants.destroyed_rift()
 	visible_message(FONT_LARGE(SPAN_DANGER("\The [src] collapses!")))
 	new /obj/random/highvalue/no_crystal(src)
 	new /obj/random/highvalue/no_crystal(src)
 	for(var/thing in contents)
 		var/obj/O = thing
 		O.forceMove(get_turf(src))
-	var/area/A = get_area(src)
-	message_all_revenants(FONT_LARGE(SPAN_WARNING("The rift keeping us here has been destroyed in [A.name]!")))
+	var/area_display_name = get_area_display_name(get_area(src))
+	message_all_revenants(FONT_LARGE(SPAN_WARNING("The rift keeping us here has been destroyed in [area_display_name]!")))
 	return ..()
 
 /obj/effect/portal/revenant/attackby(obj/item/attacking_item, mob/user)
@@ -263,8 +330,8 @@
 	var/color_level = round((health_timer / 600) / 2) // this should give a value from 0 - 5
 	if(color_level == last_color_level)
 		return
-	var/area/A = get_area(src)
-	message_all_revenants(FONT_LARGE(SPAN_WARNING("The rift keeping us here is being attacked in [A.name]!")))
+	var/area_display_name = get_area_display_name(get_area(src))
+	message_all_revenants(FONT_LARGE(SPAN_WARNING("The rift keeping us here is being attacked in [area_display_name]!")))
 	last_color_level = color_level
 	switch(color_level)
 		if(0)

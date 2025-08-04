@@ -685,8 +685,7 @@
 /area/shuttle/einstein_shuttle/room/four)
 "se" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /turf/simulated/floor/carpet/brown,
 /area/shuttle/einstein_shuttle/main)
@@ -811,7 +810,7 @@
 /obj/structure/closet/crate/rad{
 	name = "fuel storage"
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/item/stack/material/uranium/full,
 /obj/item/stack/material/uranium/full,
 /obj/item/stack/material/uranium/full,
@@ -883,8 +882,7 @@
 "xe" = (
 /obj/structure/closet/cabinet,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /obj/item/clothing/under/suit_jacket/navy,
 /obj/item/clothing/under/suit_jacket/checkered,
@@ -1421,8 +1419,7 @@
 /area/shuttle/einstein_shuttle/porteng)
 "IF" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 1;
-	layer = 2.8
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
@@ -1491,8 +1488,7 @@
 /area/shuttle/einstein_shuttle/porteng)
 "Lh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9;
-	icon_state = "intact"
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/dock)
@@ -1769,7 +1765,9 @@
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/porteng)
 "TM" = (
-/obj/machinery/computer/ship/helm,
+/obj/machinery/computer/ship/helm{
+	req_access = list(205)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/helm)
 "Uv" = (
@@ -1794,8 +1792,7 @@
 /area/shuttle/einstein_shuttle/porteng)
 "Ux" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/helm)
@@ -2007,8 +2004,7 @@
 /area/shuttle/einstein_shuttle/porteng)
 "YJ" = (
 /obj/machinery/atmospherics/portables_connector{
-	dir = 8;
-	layer = 2.8
+	dir = 8
 	},
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/plating,
@@ -2040,8 +2036,7 @@
 "ZL" = (
 /obj/structure/bed/stool/chair/office/dark,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /obj/machinery/light{
 	dir = 8;

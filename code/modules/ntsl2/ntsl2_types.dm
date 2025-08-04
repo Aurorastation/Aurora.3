@@ -66,7 +66,7 @@
 			pass = !(signal.data["reject"]),
 			verb = signal.data["say_verb"],
 			language = signal_language.name,
-			reference = ref(signal)
+			reference = REF(signal)
 		)
 	), RUSTG_HTTP_METHOD_POST, callback = callback)
 	/* [

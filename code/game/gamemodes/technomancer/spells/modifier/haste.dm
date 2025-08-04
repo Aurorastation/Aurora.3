@@ -25,13 +25,12 @@
 	. = ..()
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = target
-		H.move_delay_mod += -0.8
+		H.add_movespeed_modifier(/datum/movespeed_modifier/spell/technomancer/haste)
 		H.sprint_cost_factor += -0.2
 
 /datum/modifier/technomancer/haste/deactivate()
 	. = ..()
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = target
-		H.move_delay_mod += 0.8
+		H.remove_movespeed_modifier(/datum/movespeed_modifier/spell/technomancer/haste)
 		H.sprint_cost_factor += 0.2
-

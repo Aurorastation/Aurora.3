@@ -43,7 +43,7 @@
 	var/cast_sound = null			// Sound file played when this is used.
 	var/psi_cost = 0				// Psi complexus cost to use this spell.
 
-/obj/item/spell/examine(mob/user, distance, is_adjacent, show_extended) // Nothing on examine.
+/obj/item/spell/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended) // Nothing on examine.
 	SHOULD_CALL_PARENT(FALSE)
 
 	return TRUE
@@ -236,7 +236,7 @@
 		if(core.loc != owner || (owner.back != core && owner.wrists != core)) //Make sure the core's being worn.
 			to_chat(owner, SPAN_DANGER("You need to be wearing a core on your back or your wrists!"))
 			return FALSE
-		if(!core.simple_operation && !technomancers.is_technomancer(owner.mind)) //Now make sure the person using this is the actual antag.
+		if(!core.simple_operation && !GLOB.technomancers.is_technomancer(owner.mind)) //Now make sure the person using this is the actual antag.
 			to_chat(owner, SPAN_DANGER("You can't seem to figure out how to make the machine work properly."))
 			return FALSE
 	else

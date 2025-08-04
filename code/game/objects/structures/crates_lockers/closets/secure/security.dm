@@ -20,6 +20,8 @@
 	new /obj/item/gun/energy/repeater/pistol(src)
 	new /obj/item/device/flash(src)
 	new /obj/item/melee/telebaton(src)
+	new /obj/item/device/radio/off(src)
+	new /obj/item/device/taperecorder(src)
 	// uniform briefcases
 	new /obj/item/storage/briefcase/nt/captain(src)
 	new /obj/item/storage/briefcase/nt/captain_white(src)
@@ -68,10 +70,13 @@
 	new /obj/item/device/radio/headset/heads/xo(src)
 	new /obj/item/device/radio/headset/heads/xo/alt(src)
 	new /obj/item/device/megaphone/command(src)
-	new /obj/item/storage/box/goldstar(src)
+	new /obj/item/storage/stickersheet/goldstar(src)
 	new /obj/item/gun/energy/repeater/pistol(src)
 	new /obj/item/gun/projectile/sec/flash(src)
 	new /obj/item/device/flash(src)
+	new /obj/item/device/eftpos(src)
+	new /obj/item/book/manual/wiki/security_space_law(src)
+	new /obj/item/device/radio/off(src)
 
 /obj/structure/closet/secure_closet/xo2
 	name = "executive officer's attire"
@@ -121,19 +126,24 @@
 	new /obj/item/device/radio/headset/heads/hos(src)
 	new /obj/item/device/radio/headset/heads/hos/alt(src)
 	new /obj/item/device/megaphone/sec(src)
-	new /obj/item/storage/box/tranquilizer(src)
 	new /obj/item/clothing/glasses/sunglasses/sechud(src)
 	new /obj/item/clothing/glasses/sunglasses/sechud/head(src)
 	new /obj/item/shield/riot/tact(src)
+	new /obj/item/device/flashlight/maglight(src)
 	new /obj/item/melee/telebaton(src)
 	new /obj/item/gun/energy/repeater/pistol(src)
 	new /obj/item/taperoll/police(src)
 	new /obj/item/device/breath_analyzer(src)
 	new /obj/item/crowbar/red(src)
 	new /obj/item/ipc_tag_scanner(src)
+	new /obj/item/device/taperecorder(src)
+	new /obj/item/device/binoculars(src)
+	new /obj/item/device/radio/sec(src)
+	new /obj/item/device/multitool(src)
 	//Belts
 	new /obj/item/clothing/accessory/holster/waist(src)
 	new /obj/item/storage/belt/security/full(src)
+	new /obj/item/storage/belt/security/vestbelt(src)
 	new /obj/item/storage/box/fancy/keypouch/sec(src)
 
 /obj/structure/closet/secure_closet/hos2
@@ -196,6 +206,7 @@
 	new /obj/item/clothing/accessory/storage/black_vest(src)
 	new /obj/item/clothing/accessory/holster/hip(src)
 	new /obj/item/storage/belt/security/full(src)
+	new /obj/item/storage/belt/security/vestbelt(src)
 	// Utility
 	new /obj/item/device/radio/sec(src)
 	new /obj/item/crowbar(src)
@@ -267,6 +278,7 @@
 	new /obj/item/clothing/accessory/holster/hip(src)
 	new /obj/item/clothing/accessory/holster/modular(src)
 	new /obj/item/storage/belt/security/full(src)
+	new /obj/item/storage/belt/security/vestbelt(src)
 	new /obj/item/clothing/suit/storage/hazardvest/security/officer(src)
 
 /obj/structure/closet/secure_closet/investigator
@@ -359,6 +371,7 @@
 	..()
 	new /obj/item/clothing/under/rank/bridge_crew(src)
 	new /obj/item/clothing/head/caphat/bridge_crew(src)
+	new /obj/item/clothing/head/caphat/bridge_crew/alt(src)
 	new /obj/item/clothing/glasses/sunglasses(src)
 	new /obj/item/clothing/accessory/holster/waist(src)
 	new /obj/item/gun/energy/disruptorpistol/miniature(src)

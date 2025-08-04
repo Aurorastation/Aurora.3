@@ -1,4 +1,4 @@
-/obj/screen/psi/hub
+/atom/movable/screen/psi/hub
 	name = "Psi"
 	icon_state = "psi_active"
 	screen_loc = "EAST-1:28,CENTER-3:11"
@@ -7,23 +7,23 @@
 	maptext_y = -8
 	var/image/on_cooldown
 
-/obj/screen/psi/hub/New(var/mob/living/_owner)
+/atom/movable/screen/psi/hub/New(var/mob/living/_owner)
 	on_cooldown = image(icon, "cooldown")
 	..()
 	START_PROCESSING(SSprocessing, src)
 
-/obj/screen/psi/hub/update_icon()
+/atom/movable/screen/psi/hub/update_icon()
 	if(!owner.psi)
 		return
 
 	icon_state = owner.psi.suppressed ? "psi_suppressed" : "psi_active"
 
-/obj/screen/psi/hub/Destroy()
+/atom/movable/screen/psi/hub/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	owner = null
 	. = ..()
 
-/obj/screen/psi/hub/process()
+/atom/movable/screen/psi/hub/process()
 	if(!istype(owner))
 		qdel(src)
 		return
@@ -32,27 +32,27 @@
 	maptext = SMALL_FONTS(7, "[round((owner.psi.stamina/owner.psi.max_stamina)*100)]%")
 	update_icon()
 
-/obj/screen/psi/hub/Click(var/location, var/control, var/params)
+/atom/movable/screen/psi/hub/Click(var/location, var/control, var/params)
 	ui_interact(owner)
 	update_icon()
 
-/obj/screen/psi/hub/ui_interact(mob/user, datum/tgui/ui)
+/atom/movable/screen/psi/hub/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, "PsionicShop", "Psionic Point Shop", 400, 500)
 		ui.open()
 
-/obj/screen/psi/hub/ui_state(mob/user)
+/atom/movable/screen/psi/hub/ui_state(mob/user)
 	return GLOB.conscious_state
 
-/obj/screen/psi/hub/ui_status(mob/user, datum/ui_state/state)
+/atom/movable/screen/psi/hub/ui_status(mob/user, datum/ui_state/state)
 	return UI_INTERACTIVE
 
-/obj/screen/psi/hub/ui_data(mob/user)
+/atom/movable/screen/psi/hub/ui_data(mob/user)
 	var/list/data = list()
 	var/owner_rank = owner.psi.get_rank()
 	data["available_psionics"] = list()
-	data["psi_rank"] = psychic_ranks_to_strings[owner_rank]
+	data["psi_rank"] = GLOB.psychic_ranks_to_strings[owner_rank]
 	data["psi_points"] = owner.psi.psi_points
 	data["bought_powers"] = owner.psi.psionic_powers
 	for(var/singleton/psionic_power/P in GET_SINGLETON_SUBTYPE_LIST(/singleton/psionic_power))
@@ -70,7 +70,7 @@
 				continue
 		if(owner_rank < PSI_RANK_HARMONIOUS && (P.ability_flags & PSI_FLAG_ANTAG))
 			continue
-		if(!(owner.mind in loners.current_antagonists) && (P.ability_flags & PSI_FLAG_LONER))
+		if(!(owner.mind in GLOB.loners.current_antagonists) && (P.ability_flags & PSI_FLAG_LONER))
 			continue
 		data["available_psionics"] += list(
 			list(
@@ -83,7 +83,7 @@
 		)
 	return data
 
-/obj/screen/psi/hub/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/atom/movable/screen/psi/hub/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return TRUE

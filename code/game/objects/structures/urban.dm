@@ -7,18 +7,188 @@
 	density = TRUE
 	layer = 7
 
-/obj/structure/automobile/random/Initialize(mapload)
-	. = ..()
-	ClearOverlays()
-	name = "[pick("deluxe Shibata Sport automotive","beat-up Poplar Auto Group automotive","weathered Shibata Sport automotive","beat-up Langenfeld automotive","deluxe Langenfeld automotive","weathered Langenfeld automotive")]"
-	desc = "A [name] vehicle of working condition."
-	icon_state = "car[rand(1, 10)]"
-	return
+/obj/random/automobile
+	name = "random civilian automobile"
+	desc = "A random make/model/color of a civilian vehicle"
+	icon = 'icons/obj/structure/urban/cars.dmi'
+	icon_state = "random_car"
+	spawnlist = list(
+		/obj/structure/automobile/poplar_boxvan_blue/deluxe = 1,
+		/obj/structure/automobile/poplar_boxvan_blue/weathered = 3,
+		/obj/structure/automobile/poplar_boxvan_blue/beat_up = 2,
+		/obj/structure/automobile/poplar_boxvan_green/deluxe = 1,
+		/obj/structure/automobile/poplar_boxvan_green/weathered = 3,
+		/obj/structure/automobile/poplar_boxvan_green/beat_up = 2,
+		/obj/structure/automobile/shibata_compact_white/deluxe = 1,
+		/obj/structure/automobile/shibata_compact_white/weathered = 3,
+		/obj/structure/automobile/shibata_compact_white/beat_up = 2,
+		/obj/structure/automobile/shibata_compact_teal/deluxe = 1,
+		/obj/structure/automobile/shibata_compact_teal/weathered = 3,
+		/obj/structure/automobile/shibata_compact_teal/beat_up = 2,
+		/obj/structure/automobile/shibata_compact_cyan/deluxe = 1,
+		/obj/structure/automobile/shibata_compact_cyan/weathered = 3,
+		/obj/structure/automobile/shibata_compact_cyan/beat_up = 2,
+		/obj/structure/automobile/shibata_compact_yellow/deluxe = 1,
+		/obj/structure/automobile/shibata_compact_yellow/weathered = 3,
+		/obj/structure/automobile/shibata_compact_yellow/beat_up = 2,
+		/obj/structure/automobile/langenfeld_hybrid_green/deluxe = 1,
+		/obj/structure/automobile/langenfeld_hybrid_green/weathered = 3,
+		/obj/structure/automobile/langenfeld_hybrid_green/beat_up = 2,
+		/obj/structure/automobile/langenfeld_hybrid_red/deluxe = 1,
+		/obj/structure/automobile/langenfeld_hybrid_red/weathered = 3,
+		/obj/structure/automobile/langenfeld_hybrid_red/beat_up = 2,
+		/obj/structure/automobile/langenfeld_hybrid_purple/deluxe = 1,
+		/obj/structure/automobile/langenfeld_hybrid_purple/weathered = 3,
+		/obj/structure/automobile/langenfeld_hybrid_purple/beat_up = 2,
+		/obj/structure/automobile/langenfeld_hybrid_white/deluxe = 1,
+		/obj/structure/automobile/langenfeld_hybrid_white/weathered = 3,
+		/obj/structure/automobile/langenfeld_hybrid_white/beat_up = 2
+	)
 
 /obj/structure/automobile/police
 	name = "police cruiser"
 	desc = "A police vehicle with all the bells and whistles you'd expect from a decently-funded agency."
 	icon_state = "copcar"
+
+/obj/structure/automobile/poplar_boxvan_blue
+	name = "blue poplar auto group van"
+	desc = "A boxy blue van. Cars in this style are found everywhere in the spur."
+	icon_state = "car1"
+
+/obj/structure/automobile/poplar_boxvan_blue/deluxe
+	name = "deluxe poplar auto group van"
+
+/obj/structure/automobile/poplar_boxvan_blue/weathered
+	name = "weathered poplar auto group van"
+
+/obj/structure/automobile/poplar_boxvan_blue/beat_up
+	name = "beat-up poplar auto group van"
+
+/obj/structure/automobile/poplar_boxvan_green
+	name = "green poplar auto group van"
+	desc = "A boxy green van. Cars in this style are found everywhere in the spur."
+	icon_state = "car2"
+
+/obj/structure/automobile/poplar_boxvan_green/deluxe
+	name = "deluxe poplar auto group van"
+
+/obj/structure/automobile/poplar_boxvan_green/weathered
+	name = "weathered poplar auto group van"
+
+/obj/structure/automobile/poplar_boxvan_green/beat_up
+	name = "beat-up poplar auto group van"
+
+/obj/structure/automobile/shibata_compact_white
+	name = "white shibata sport compact"
+	desc = "A compact electric car with a light cream paint job."
+	icon_state = "car3"
+
+/obj/structure/automobile/shibata_compact_white/deluxe
+	name = "deluxe shibata sport compact"
+
+/obj/structure/automobile/shibata_compact_white/weathered
+	name = "weathered shibata sport compact"
+
+/obj/structure/automobile/shibata_compact_white/beat_up
+	name = "beat-up shibata sport compact"
+
+/obj/structure/automobile/shibata_compact_teal
+	name = "teal shibata sport compact"
+	desc = "A compact electric car with a teal paint job."
+	icon_state = "car4"
+
+/obj/structure/automobile/shibata_compact_teal/deluxe
+	name = "deluxe shibata sport compact"
+
+/obj/structure/automobile/shibata_compact_teal/weathered
+	name = "weathered shibata sport compact"
+
+/obj/structure/automobile/shibata_compact_teal/beat_up
+	name = "beat-up shibata sport compact"
+
+/obj/structure/automobile/shibata_compact_cyan
+	name = "cyan shibata sport compact"
+	desc = "A compact electric car with a cyan paint job."
+	icon_state = "car5"
+
+/obj/structure/automobile/shibata_compact_cyan/deluxe
+	name = "deluxe shibata sport compact"
+
+/obj/structure/automobile/shibata_compact_cyan/weathered
+	name = "weathered shibata sport compact"
+
+/obj/structure/automobile/shibata_compact_cyan/beat_up
+	name = "beat-up shibata sport compact"
+
+/obj/structure/automobile/shibata_compact_yellow
+	name = "yellow shibata sport compact"
+	desc = "A compact electric car with a yellow paint job."
+	icon_state = "car6"
+
+/obj/structure/automobile/shibata_compact_yellow/deluxe
+	name = "deluxe shibata sport compact"
+
+/obj/structure/automobile/shibata_compact_yellow/weathered
+	name = "weathered shibata sport compact"
+
+/obj/structure/automobile/shibata_compact_yellow/beat_up
+	name = "beat-up shibata sport compact"
+
+/obj/structure/automobile/langenfeld_hybrid_green
+	name = "green langenfeld hybrid"
+	desc = "A hybrid combustion-electric car. Popular anywhere where electricity is expensive. This one has an olive green paint job."
+	icon_state = "car7"
+
+/obj/structure/automobile/langenfeld_hybrid_green/deluxe
+	name = "deluxe langenfeld compact"
+
+/obj/structure/automobile/langenfeld_hybrid_green/weathered
+	name = "weathered langenfeld compact"
+
+/obj/structure/automobile/langenfeld_hybrid_green/beat_up
+	name = "beat-up langenfeld compact"
+
+/obj/structure/automobile/langenfeld_hybrid_red
+	name = "red langenfeld hybrid"
+	desc = "A hybrid combustion-electric car. Popular anywhere where electricity is expensive. This one has a darker red paint job."
+	icon_state = "car8"
+
+/obj/structure/automobile/langenfeld_hybrid_red/deluxe
+	name = "deluxe langenfeld compact"
+
+/obj/structure/automobile/langenfeld_hybrid_red/weathered
+	name = "weathered langenfeld compact"
+
+/obj/structure/automobile/langenfeld_hybrid_red/beat_up
+	name = "beat-up langenfeld compact"
+
+/obj/structure/automobile/langenfeld_hybrid_purple
+	name = "purple langenfeld hybrid"
+	desc = "A hybrid combustion-electric car. Popular anywhere where electricity is expensive. This one has a midnight purple paint job."
+	icon_state = "car9"
+
+/obj/structure/automobile/langenfeld_hybrid_purple/deluxe
+	name = "deluxe langenfeld compact"
+
+/obj/structure/automobile/langenfeld_hybrid_purple/weathered
+	name = "weathered langenfeld compact"
+
+/obj/structure/automobile/langenfeld_hybrid_purple/beat_up
+	name = "beat-up langenfeld compact"
+
+/obj/structure/automobile/langenfeld_hybrid_white
+	name = "white langenfeld hybrid"
+	desc = "A hybrid combustion-electric car. Popular anywhere where electricity is expensive. This one has a light cream paint job."
+	icon_state = "car10"
+
+/obj/structure/automobile/langenfeld_hybrid_white/deluxe
+	name = "deluxe langenfeld compact"
+
+/obj/structure/automobile/langenfeld_hybrid_white/weathered
+	name = "weathered langenfeld compact"
+
+/obj/structure/automobile/langenfeld_hybrid_white/beat_up
+	name = "beat-up langenfeld compact"
 
 /obj/structure/automobile_filler
 	name = "vehicle"
@@ -67,8 +237,7 @@
 	name = "[street_name]"
 	desc = "This sign indicates this crossing street is called [street_name]."
 
-/obj/structure/stairs/urban
-	abstract_type = /obj/structure/stairs/urban
+ABSTRACT_TYPE(/obj/structure/stairs/urban)
 	icon = 'icons/obj/structure/urban/ledges.dmi'
 	icon_state = "stairs-single"
 	layer = 2.01
@@ -92,12 +261,11 @@
 	dir = SOUTH
 	bound_height = 64
 
-/obj/structure/stairs/urban/road_ramp
+ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	name = "inclined asphalt ramp"
 	desc = "A solid asphalt ramp to allow your vehicle to traverse inclines with ease."
 	icon_state = "road-ramp-center"
 	layer = 2.02
-	abstract_type = /obj/structure/stairs/urban/road_ramp
 
 /obj/structure/stairs/urban/road_ramp/right
 	dir = EAST
@@ -213,6 +381,11 @@
 	icon_state = "television"
 	anchored = TRUE
 
+/obj/structure/television/adhomai
+	name = "adhomaian television"
+	desc = "A classic box television, manufactured on Adhomai."
+	icon = 'icons/obj/computer.dmi'
+
 /obj/structure/dressing_divider
 	name = "wardrobe dressing divider"
 	desc = "A divider for an environment where you're probably swapping clothes, made with your privacy in mind."
@@ -228,10 +401,10 @@
 	anchored = TRUE
 	layer = ABOVE_HUMAN_LAYER
 
-/obj/structure/shipping_container
+/obj/structure/shipping_container_old
 	name = "freight container"
 	desc = "A hulking industrial shipping container, bound for who knows where."
-	icon = 'icons/obj/structure/industrial/shipping_containers.dmi'
+	icon = 'icons/obj/structure/industrial/shipping_containers_old.dmi'
 	icon_state = "blue1"
 	anchored = TRUE
 	density = TRUE
@@ -239,7 +412,7 @@
 
 /obj/effect/overlay/container_logo
 	name = "Hephaestus Industries emblem"
-	icon = 'icons/obj/structure/industrial/shipping_containers.dmi'
+	icon = 'icons/obj/structure/industrial/shipping_containers_old.dmi'
 	icon_state = "heph1"
 	layer = ABOVE_HUMAN_LAYER + 0.01
 
@@ -258,14 +431,16 @@
 	icon = 'icons/obj/structure/urban/blockers.dmi'
 	icon_state = "rod_railing"
 	density = TRUE
-	throwpass = TRUE
-	climbable = TRUE
 	anchored = TRUE
+	pass_flags_self = PASSSTRUCTURE | LETPASSTHROW
+	climbable = TRUE
 
 /obj/structure/rod_railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(istype(mover,/obj/item/projectile))
+	if(mover?.movement_type & PHASING)
 		return TRUE
-	if(!istype(mover) || mover.checkpass(PASSRAILING))
+	if(istype(mover,/obj/projectile))
+		return TRUE
+	if(!istype(mover) || mover.pass_flags & PASSRAILING)
 		return TRUE
 	if(mover.throwing)
 		return TRUE
@@ -288,8 +463,8 @@
 	icon = 'icons/obj/structure/urban/blockers.dmi'
 	icon_state = "dam1"
 	density = TRUE
-	throwpass = TRUE
 	anchored = TRUE
+	pass_flags_self = PASSSTRUCTURE | LETPASSTHROW
 
 /obj/structure/road_barrier
 	name = "roadway barrier"
@@ -297,7 +472,7 @@
 	icon = 'icons/obj/structure/urban/road_edges.dmi'
 	icon_state = "guard"
 	density = TRUE
-	throwpass = TRUE
+	pass_flags_self = PASSSTRUCTURE | LETPASSTHROW
 	climbable = TRUE
 	anchored = TRUE
 
@@ -315,9 +490,11 @@
 	icon_state = "guard_top_end"
 
 /obj/structure/road_barrier/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(istype(mover,/obj/item/projectile))
+	if(mover?.movement_type & PHASING)
 		return TRUE
-	if(!istype(mover) || mover.checkpass(PASSRAILING))
+	if(istype(mover,/obj/projectile))
+		return TRUE
+	if(!istype(mover) || mover.pass_flags & PASSRAILING)
 		return TRUE
 	if(mover.throwing)
 		return TRUE
@@ -343,22 +520,21 @@
 	color = null
 	anchored = TRUE
 	can_be_unanchored = FALSE
+	atom_flags = ATOM_FLAG_CHECKS_BORDER
+	layer = ABOVE_HUMAN_LAYER //The sprite will be in front of players when positioned correctly.
 
 /obj/structure/chainlink_fence/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)//So bullets will fly over and stuff.
-	if(air_group || (height==0))
+	if(mover?.movement_type & PHASING)
 		return TRUE
-	if(istype(mover, /obj/item/projectile))
-		var/obj/item/projectile/P = mover
-		if(P.original == src)
+	if(istype(mover, /obj/projectile))
+		if(isliving(mover))
 			return FALSE
-		if(P.firer && Adjacent(P.firer))
-			return TRUE
 		return prob(35)
-	if(isliving(mover))
-		return FALSE
-	if(istype(mover) && mover.checkpass(PASSTABLE))
+	if(!istype(mover) || mover.pass_flags & PASSGRILLE)
 		return TRUE
-	return FALSE
+	if(get_dir(loc, target) == dir)
+		return !density
+	return TRUE
 
 /obj/structure/chainlink_fence/CheckExit(var/atom/movable/O, var/turf/target)
 	if(istype(O) && CanPass(O, target))
@@ -380,9 +556,11 @@
 	can_be_unanchored = FALSE
 
 /obj/structure/rope_railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(istype(mover,/obj/item/projectile))
+	if(mover?.movement_type & PHASING)
 		return TRUE
-	if(!istype(mover) || mover.checkpass(PASSRAILING))
+	if(istype(mover,/obj/projectile))
+		return TRUE
+	if(!istype(mover) || mover.pass_flags & PASSRAILING)
 		return TRUE
 	if(mover.throwing)
 		return TRUE
@@ -592,7 +770,6 @@
 /obj/structure/cash_register
 	name = "cash register machine"
 	desc = "A retail nightmare object."
-	desc_info = "Drag this onto yourself to open the cash compartment."
 	icon = 'icons/obj/structure/urban/infrastructure.dmi'
 	icon_state = "cashier"
 	layer = 2.99
@@ -600,6 +777,10 @@
 	anchored = 0
 	var/storage_type = /obj/item/storage/toolbox/cash_register_storage
 	var/obj/item/storage/storage_compartment
+
+/obj/structure/cash_register/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Drag this onto yourself to open the cash compartment."
 
 /obj/structure/cash_register/Initialize(mapload)
 	. = ..()
@@ -609,8 +790,8 @@
 /obj/item/storage/toolbox/cash_register_storage
 	name = "cash compartment"
 
-/obj/structure/cash_register/MouseDrop(atom/over)
-	if(usr == over && ishuman(over))
+/obj/structure/cash_register/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(user == over && ishuman(over))
 		var/mob/living/carbon/human/H = over
 		storage_compartment.open(H)
 

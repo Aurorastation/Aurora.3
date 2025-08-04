@@ -6,7 +6,7 @@
 	contained_sprite = TRUE
 	icon_state = "technomancer_core"
 	item_state = "technomancer_core"
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	slot_flags = SLOT_BACK
 	unacidable = TRUE
 	origin_tech = list(TECH_MATERIAL = 8, TECH_ENGINEERING = 8, TECH_POWER = 8, TECH_BLUESPACE = 10,TECH_COMBAT = 7, TECH_MAGNET = 9, TECH_DATA = 5)
@@ -65,7 +65,7 @@
 /obj/item/technomancer_core/dropped(mob/user)
 	if(!wearer)
 		return
-	for(var/obj/screen/ability/obj_based/technomancer/A in wearer.ability_master.ability_objects)
+	for(var/atom/movable/screen/ability/obj_based/technomancer/A in wearer.ability_master.ability_objects)
 		wearer.ability_master.remove_ability(A)
 	wearer = null
 	..()
@@ -96,7 +96,7 @@
 	if(world.time % 5 == 0) // Maintaining fat lists is expensive, I imagine.
 		maintain_summon_list()
 	if(wearer && wearer.mind)
-		if(!technomancers.is_technomancer(wearer.mind)) // In case someone tries to wear a stolen core.
+		if(!GLOB.technomancers.is_technomancer(wearer.mind)) // In case someone tries to wear a stolen core.
 			wearer.adjust_instability(20)
 	if(!never_remove && (!wearer || wearer.stat == DEAD)) // Unlock if we're dead or not worn.
 		canremove = TRUE
@@ -152,7 +152,7 @@
 	if(picked != "Reset" && !ispath(chameleon_options[picked]))
 		return
 
-	if(!usr.mind || !technomancers.is_technomancer(usr.mind))
+	if(!usr.mind || !GLOB.technomancers.is_technomancer(usr.mind))
 		to_chat(usr, SPAN_WARNING("You have no idea how to do this!"))
 		return
 
@@ -221,7 +221,7 @@
 	if(spell_to_remove in spells)
 		spells.Remove(spell_to_remove)
 		if(wearer)
-			var/obj/screen/ability/obj_based/technomancer/A = wearer.ability_master.get_ability_by_instance(spell_to_remove)
+			var/atom/movable/screen/ability/obj_based/technomancer/A = wearer.ability_master.get_ability_by_instance(spell_to_remove)
 			if(A)
 				wearer.ability_master.remove_ability(A)
 		qdel(spell_to_remove)
@@ -383,7 +383,7 @@
 	icon_state = "bracelet_core"
 	item_state = "bracelet_core"
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_WRISTS
 	energy = 5000
 	max_energy = 5000

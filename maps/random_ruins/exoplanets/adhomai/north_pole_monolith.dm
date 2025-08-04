@@ -7,6 +7,6 @@
 	sectors = list(SECTOR_SRANDMARR)
 
 	prefix = "adhomai/"
-	suffixes = list("north_pole_monolith.dmm")
+	suffix = "north_pole_monolith.dmm"
 
 	unit_test_groups = list(1)

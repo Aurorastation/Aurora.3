@@ -192,12 +192,10 @@
 /area/template_noop)
 "aaJ" = (
 /obj/item/gun/energy/pistol{
-	layer = 2.99;
 	pixel_x = 2;
 	pixel_y = 3
 	},
 /obj/item/gun/energy/pistol{
-	layer = 2.99;
 	pixel_x = 2;
 	pixel_y = 3
 	},
@@ -249,7 +247,6 @@
 	pixel_y = 2
 	},
 /obj/structure/closet/walllocker/emerglocker/north{
-	layer = 3;
 	pixel_x = -1;
 	pixel_y = 29
 	},
@@ -583,7 +580,6 @@
 /area/centcom/holding)
 "avo" = (
 /obj/structure/railing/mapped{
-	layer = 4.1;
 	name = "adjusted railing"
 	},
 /obj/effect/floor_decal/spline/plain/black,
@@ -715,8 +711,7 @@
 /area/centcom/bar)
 "ayM" = (
 /obj/item/tape/engineering{
-	icon_state = "engineering_door";
-	layer = 4
+	icon_state = "engineering_door"
 	},
 /obj/machinery/door/airlock/centcom{
 	icon = 'icons/obj/doors/Doorglass.dmi';
@@ -1585,9 +1580,6 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
-"aNc" = (
-/turf/unsimulated/floor/plating,
-/area/centcom/spawning)
 "aNs" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10
@@ -1675,8 +1667,7 @@
 "aNY" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/blast/odin/open{
-	id = "arrivals_inner";
-	name = "blast door"
+	id = "arrivals_inner"
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
@@ -2444,16 +2435,6 @@
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
-"bsS" = (
-/obj/structure/table/standard,
-/obj/item/storage/box/fancy/tray{
-	layer = 2.99
-	},
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
-/area/centcom/holding)
 "bto" = (
 /obj/machinery/light{
 	dir = 8;
@@ -2577,12 +2558,10 @@
 	},
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/reagent_containers/glass/bottle/thetamycin{
-	layer = 2.99;
 	pixel_x = 9;
 	pixel_y = 7
 	},
 /obj/item/reagent_containers/glass/bottle/antitoxin{
-	layer = 2.99;
 	pixel_y = 7
 	},
 /obj/item/reagent_containers/glass/bottle/dexalin_plus{
@@ -2926,7 +2905,6 @@
 "bXx" = (
 /obj/structure/table/reinforced/wood,
 /obj/machinery/chemical_dispenser/coffee/full{
-	layer = 3.1;
 	pixel_y = 2;
 	spawn_cartridges = list(/obj/item/reagent_containers/chem_disp_cartridge/coffee,/obj/item/reagent_containers/chem_disp_cartridge/milk,/obj/item/reagent_containers/chem_disp_cartridge/cream,/obj/item/reagent_containers/chem_disp_cartridge/sugar)
 	},
@@ -3079,13 +3057,6 @@
 /obj/effect/floor_decal/corner/green/full,
 /turf/unsimulated/floor,
 /area/centcom/holding)
-"cik" = (
-/obj/effect/landmark/thunderdome1,
-/obj/effect/floor_decal/corner/grey/diagonal{
-	dir = 4
-	},
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/tdome/tdome1)
 "ciV" = (
 /turf/simulated/wall/elevator,
 /area/centcom/spawning)
@@ -3292,7 +3263,6 @@
 /area/centcom/control)
 "cCj" = (
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted window"
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -3537,7 +3507,6 @@
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
 	id_tag = "centcom_shuttle";
-	layer = 3.3;
 	pixel_x = 6;
 	pixel_y = 27;
 	tag_door = "centcom_shuttle_hatch"
@@ -3639,12 +3608,8 @@
 	req_one_access = list(101);
 	tag_door = "arrival_shuttle_hatch"
 	},
-/obj/structure/flora/ausbushes/sparsegrass{
-	layer = 2.97
-	},
-/obj/structure/flora/ausbushes/fullgrass{
-	layer = 2.97
-	},
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/pottedplant{
 	icon_state = "plant-01";
 	pixel_x = 2;
@@ -3748,7 +3713,6 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted window"
 	},
 /obj/machinery/light{
@@ -4091,7 +4055,6 @@
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
 	icon_state = "space";
-	layer = 4;
 	name = "EXTERNAL AIRLOCK"
 	},
 /turf/unsimulated/wall/darkshuttlewall,
@@ -4184,7 +4147,6 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted window"
 	},
 /obj/effect/floor_decal/spline/plain/black,
@@ -4291,17 +4253,13 @@
 	pixel_x = 6;
 	pixel_y = 8
 	},
-/obj/item/storage/firstaid/fire{
-	layer = 3.01
-	},
+/obj/item/storage/firstaid/fire,
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/item/storage/firstaid/toxin{
 	pixel_x = 6;
 	pixel_y = 8
 	},
-/obj/item/storage/firstaid/fire{
-	layer = 3.01
-	},
+/obj/item/storage/firstaid/fire,
 /obj/structure/sign/nosmoking_1{
 	pixel_y = 30
 	},
@@ -4345,11 +4303,6 @@
 	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
-"dXz" = (
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
-/area/centcom/bar)
 "dXJ" = (
 /obj/structure/table/reinforced/steel,
 /obj/structure/window/reinforced,
@@ -4365,12 +4318,10 @@
 	pixel_y = -1
 	},
 /obj/item/reagent_containers/food/drinks/waterbottle{
-	layer = 2.99;
 	pixel_x = -9;
 	pixel_y = -1
 	},
 /obj/item/storage/box/fancy/cookiesnack{
-	layer = 2.98;
 	pixel_x = -1;
 	pixel_y = 4
 	},
@@ -4578,7 +4529,6 @@
 	desc = "An automated gun turret.";
 	icon = 'icons/obj/turrets.dmi';
 	icon_state = "cover_0";
-	layer = 3.02;
 	name = "turret"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
@@ -4792,7 +4742,6 @@
 /area/centcom/bar)
 "eBh" = (
 /obj/structure/sink/kitchen{
-	layer = 3.5;
 	pixel_y = 27
 	},
 /turf/unsimulated/floor{
@@ -5382,7 +5331,6 @@
 "fqq" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4.1;
 	opacity = 0
 	},
 /obj/effect/floor_decal/spline/plain/black{
@@ -5392,7 +5340,6 @@
 /area/centcom/bar)
 "fso" = (
 /obj/structure/railing/mapped{
-	layer = 4.1;
 	name = "adjusted railing"
 	},
 /obj/structure/table/glass{
@@ -5555,7 +5502,7 @@
 /turf/unsimulated/floor,
 /area/centcom/control)
 "fFd" = (
-/obj/item/aiModule/nanotrasen,
+/obj/item/aiModule/conglomerate,
 /obj/item/aiModule/reset,
 /obj/item/aiModule/freeformcore,
 /obj/item/aiModule/protectStation,
@@ -5649,22 +5596,18 @@
 	pixel_y = 11
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass{
-	layer = 3.01;
 	pixel_x = 6;
 	pixel_y = 8
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass{
-	layer = 3.01;
 	pixel_x = 14;
 	pixel_y = 8
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass{
-	layer = 3.01;
 	pixel_x = 22;
 	pixel_y = 8
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass{
-	layer = 3.01;
 	pixel_x = 30;
 	pixel_y = 8
 	},
@@ -5699,11 +5642,9 @@
 "fLb" = (
 /obj/structure/railing/mapped{
 	dir = 4;
-	layer = 6;
 	name = "adjusted railing"
 	},
 /obj/structure/railing/mapped{
-	layer = 6;
 	name = "adjusted railing"
 	},
 /obj/effect/floor_decal/spline/plain/black{
@@ -5751,12 +5692,10 @@
 	pixel_y = 9
 	},
 /obj/item/material/knife{
-	layer = 2.99;
 	pixel_x = -9;
 	pixel_y = -14
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -5986,7 +5925,6 @@
 /area/shuttle/administration)
 "gcj" = (
 /obj/structure/railing/mapped{
-	layer = 4.1;
 	name = "adjusted railing"
 	},
 /obj/item/flame/lighter/zippo/gold{
@@ -6076,7 +6014,6 @@
 /area/centcom/control)
 "ghN" = (
 /obj/structure/railing/mapped{
-	layer = 6;
 	name = "adjusted railing"
 	},
 /obj/effect/floor_decal/spline/plain/black,
@@ -6126,11 +6063,9 @@
 	pixel_y = -1
 	},
 /obj/item/gun/projectile/automatic/wt550/lethal{
-	layer = 2.99;
 	pixel_y = 6
 	},
 /obj/item/gun/projectile/automatic/wt550/lethal{
-	layer = 2.99;
 	pixel_y = 6
 	},
 /obj/structure/table/reinforced/steel,
@@ -6278,7 +6213,6 @@
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
 	id_tag = "centcom_dock";
-	layer = 3.5;
 	name = "docking port controller";
 	pixel_x = 25;
 	req_one_access = list(13);
@@ -6673,15 +6607,12 @@
 	pixel_y = -5
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 2.99;
 	pixel_x = -10
 	},
 /obj/item/storage/firstaid/fire{
-	layer = 2.99;
 	pixel_x = 4
 	},
 /obj/item/storage/firstaid/toxin{
-	layer = 2.98;
 	pixel_x = 5;
 	pixel_y = 5
 	},
@@ -7021,7 +6952,6 @@
 "hmF" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/snacks/blt{
-	layer = 2.99;
 	pixel_x = 4;
 	pixel_y = 14
 	},
@@ -7171,7 +7101,6 @@
 "hyy" = (
 /obj/structure/table/reinforced/wood,
 /obj/machinery/chemical_dispenser/coffee/full{
-	layer = 3.1;
 	pixel_y = 2;
 	spawn_cartridges = list(/obj/item/reagent_containers/chem_disp_cartridge/coffee,/obj/item/reagent_containers/chem_disp_cartridge/milk,/obj/item/reagent_containers/chem_disp_cartridge/cream,/obj/item/reagent_containers/chem_disp_cartridge/sugar)
 	},
@@ -7458,7 +7387,6 @@
 	pixel_y = -11
 	},
 /obj/item/reagent_containers/hypospray/cmo{
-	layer = 2.99;
 	pixel_x = -2;
 	pixel_y = -3
 	},
@@ -7684,12 +7612,6 @@
 	name = "military corvette"
 	},
 /area/shuttle/administration)
-"ifi" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 6
-	},
-/turf/unsimulated/floor,
-/area/centcom/bar)
 "ifs" = (
 /obj/machinery/computer/security/telescreen,
 /obj/effect/floor_decal/corner/orange/diagonal,
@@ -8083,12 +8005,10 @@
 	},
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/reagent_containers/glass/bottle/thetamycin{
-	layer = 2.99;
 	pixel_x = 9;
 	pixel_y = 7
 	},
 /obj/item/reagent_containers/glass/bottle/antitoxin{
-	layer = 2.99;
 	pixel_y = 7
 	},
 /obj/item/reagent_containers/glass/bottle/dexalin_plus{
@@ -8130,8 +8050,7 @@
 "iKk" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/toilet{
-	dir = 1;
-	layer = 4.1
+	dir = 1
 	},
 /obj/machinery/light/small{
 	dir = 8;
@@ -8208,9 +8127,7 @@
 /area/shuttle/administration)
 "iMq" = (
 /obj/structure/railing/mapped,
-/obj/item/storage/box/fancy/tray{
-	layer = 2.99
-	},
+/obj/item/storage/box/fancy/tray,
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal{
 	dir = 8
 	},
@@ -8259,17 +8176,14 @@
 	},
 /obj/structure/table/rack,
 /obj/item/clothing/suit/storage/toggle/bssb{
-	layer = 2.99;
 	pixel_x = 6;
 	pixel_y = 2
 	},
 /obj/item/clothing/suit/storage/toggle/bssb{
-	layer = 2.99;
 	pixel_x = 6;
 	pixel_y = 2
 	},
 /obj/item/clothing/suit/storage/toggle/bssb{
-	layer = 2.99;
 	pixel_x = 6;
 	pixel_y = 2
 	},
@@ -8435,7 +8349,6 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted window"
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -8542,7 +8455,6 @@
 	icon_state = "tube_empty"
 	},
 /obj/structure/railing/mapped{
-	layer = 4.1;
 	name = "adjusted railing"
 	},
 /obj/effect/decal/fake_object{
@@ -8565,9 +8477,7 @@
 	icon_state = "intact-scrubbers";
 	name = "pipe"
 	},
-/obj/structure/lattice/catwalk/indoor{
-	layer = 3.5
-	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/unsimulated/floor/plating,
 /area/centcom/checkpoint/fore)
 "jkC" = (
@@ -8757,7 +8667,6 @@
 	dir = 1
 	},
 /obj/item/device/flashlight/lamp/green{
-	layer = 4.1;
 	pixel_x = -2;
 	pixel_y = 6
 	},
@@ -8792,7 +8701,6 @@
 	desc = "It's used to monitor rooms.";
 	icon = 'icons/obj/monitors.dmi';
 	icon_state = "camera";
-	layer = 3.02;
 	name = "surveillance camera"
 	},
 /turf/unsimulated/floor,
@@ -8889,7 +8797,6 @@
 	pixel_x = 5
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 2.8;
 	pixel_x = 4;
 	pixel_y = 6
 	},
@@ -8897,7 +8804,6 @@
 /obj/item/storage/box/gloves,
 /obj/item/storage/firstaid/toxin,
 /obj/item/storage/firstaid/fire{
-	layer = 2.9;
 	pixel_x = 2;
 	pixel_y = 3
 	},
@@ -9302,7 +9208,6 @@
 	color = "#545c68";
 	icon = 'icons/obj/railing.dmi';
 	icon_state = "mcorneroverlay1";
-	layer = 4.1;
 	name = "railing"
 	},
 /obj/effect/floor_decal/corner/paleblue/full,
@@ -9662,7 +9567,6 @@
 	desc = "An automated gun turret.";
 	icon = 'icons/obj/turrets.dmi';
 	icon_state = "cover_0";
-	layer = 3.02;
 	name = "turret"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
@@ -9763,7 +9667,6 @@
 /area/shuttle/escape)
 "kJQ" = (
 /obj/structure/railing/mapped{
-	layer = 4.1;
 	name = "adjusted railing"
 	},
 /obj/machinery/light{
@@ -9801,7 +9704,6 @@
 /area/centcom/bar)
 "kOI" = (
 /obj/structure/railing/mapped{
-	layer = 4.1;
 	name = "adjusted railing"
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -9967,11 +9869,6 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
-"kYq" = (
-/turf/unsimulated/floor{
-	icon_state = "dark_preview"
-	},
-/area/centcom/holding)
 "kYV" = (
 /obj/machinery/status_display{
 	pixel_y = 32
@@ -10000,7 +9897,6 @@
 	dir = 10
 	},
 /obj/structure/railing/mapped{
-	layer = 4.1;
 	name = "adjusted railing"
 	},
 /turf/unsimulated/floor{
@@ -10192,7 +10088,6 @@
 /area/centcom/bar)
 "lnh" = (
 /obj/structure/railing/mapped{
-	layer = 4.1;
 	name = "adjusted railing"
 	},
 /obj/structure/railing/mapped{
@@ -10456,7 +10351,6 @@
 	desc = "It's used to monitor rooms.";
 	icon = 'icons/obj/monitors.dmi';
 	icon_state = "camera";
-	layer = 3.02;
 	name = "surveillance camera"
 	},
 /turf/unsimulated/floor,
@@ -10555,7 +10449,6 @@
 /area/centcom/specops)
 "lRx" = (
 /obj/structure/railing/mapped{
-	layer = 4.1;
 	name = "adjusted railing"
 	},
 /obj/machinery/light{
@@ -10638,7 +10531,6 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted window"
 	},
 /obj/effect/floor_decal/spline/plain/black,
@@ -10886,7 +10778,6 @@
 /area/centcom/specops)
 "mrG" = (
 /obj/item/gun/projectile/automatic/rifle/z8{
-	layer = 2.99;
 	pixel_y = 10
 	},
 /obj/item/gun/projectile/automatic/rifle/z8{
@@ -10995,7 +10886,6 @@
 "mxm" = (
 /obj/structure/toilet{
 	dir = 4;
-	layer = 2.6;
 	pixel_y = 1
 	},
 /turf/unsimulated/floor,
@@ -11199,11 +11089,9 @@
 "mPL" = (
 /obj/structure/table/rack,
 /obj/item/storage/briefcase/aluminium{
-	layer = 2.99;
 	pixel_y = 6
 	},
 /obj/item/storage/briefcase/aluminium{
-	layer = 2.99;
 	pixel_y = 6
 	},
 /obj/item/storage/lockbox/cciaa/bssb{
@@ -11281,12 +11169,10 @@
 /area/shuttle/escape)
 "mVZ" = (
 /obj/machinery/recharger/wallcharger{
-	layer = 3;
 	pixel_x = 4;
 	pixel_y = 28
 	},
 /obj/machinery/recharger/wallcharger{
-	layer = 3;
 	pixel_x = 4;
 	pixel_y = 19
 	},
@@ -11310,7 +11196,6 @@
 "mYG" = (
 /obj/structure/table/reinforced/wood,
 /obj/machinery/chemical_dispenser/coffee/full{
-	layer = 3.1;
 	pixel_y = 2;
 	spawn_cartridges = list(/obj/item/reagent_containers/chem_disp_cartridge/coffee,/obj/item/reagent_containers/chem_disp_cartridge/milk,/obj/item/reagent_containers/chem_disp_cartridge/cream,/obj/item/reagent_containers/chem_disp_cartridge/sugar)
 	},
@@ -11338,7 +11223,6 @@
 	pixel_y = 7
 	},
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted window"
 	},
 /obj/item/flame/lighter,
@@ -11539,14 +11423,9 @@
 	icon_state = "intact-supply";
 	name = "pipe"
 	},
-/obj/structure/lattice/catwalk/indoor{
-	layer = 3.5
-	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/unsimulated/floor/plating,
 /area/centcom/checkpoint/aft)
-"nkX" = (
-/turf/simulated/floor/holofloor/space,
-/area/centcom/start)
 "nli" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
@@ -11660,7 +11539,6 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted window"
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -12010,7 +11888,6 @@
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/railing/mapped{
-	layer = 4.1;
 	name = "adjusted railing"
 	},
 /obj/effect/floor_decal/corner/paleblue{
@@ -12259,13 +12136,6 @@
 	icon_state = "wood"
 	},
 /area/centcom/specops)
-"odb" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 9
-	},
-/obj/effect/shuttle_landmark/admin/start,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
 "odx" = (
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/simulated/floor,
@@ -12539,7 +12409,6 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/table/rack,
 /obj/item/gun/energy/rifle/ionrifle{
-	layer = 2.99;
 	pixel_y = 6
 	},
 /obj/item/gun/energy/rifle/ionrifle{
@@ -12661,7 +12530,6 @@
 	icon_state = "tube_empty"
 	},
 /obj/structure/railing/mapped{
-	layer = 6;
 	name = "adjusted railing"
 	},
 /obj/structure/table/steel,
@@ -13025,17 +12893,14 @@
 "psh" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/snacks/sushi_serve{
-	layer = 3.5;
 	pixel_x = -6;
 	pixel_y = 4
 	},
 /obj/item/reagent_containers/food/snacks/sushi_serve{
-	layer = 3.6;
 	pixel_x = 3;
 	pixel_y = 2
 	},
 /obj/item/reagent_containers/food/snacks/breakfast_wrap{
-	layer = 2.99;
 	pixel_x = 29;
 	pixel_y = 8
 	},
@@ -13228,8 +13093,7 @@
 	dir = 1
 	},
 /obj/item/tape/engineering{
-	icon_state = "engineering_door";
-	layer = 4
+	icon_state = "engineering_door"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/centcom/bar)
@@ -13581,7 +13445,6 @@
 	desc = "An automated gun turret.";
 	icon = 'icons/obj/turrets.dmi';
 	icon_state = "cover_0";
-	layer = 3.02;
 	name = "turret"
 	},
 /turf/unsimulated/floor,
@@ -13667,7 +13530,6 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted window"
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -13912,7 +13774,6 @@
 "qFt" = (
 /obj/structure/railing/mapped{
 	dir = 4;
-	layer = 6;
 	name = "adjusted railing"
 	},
 /obj/effect/floor_decal/spline/plain/black{
@@ -13927,11 +13788,9 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
-/obj/structure/sign/poster{
-	icon_state = "tcflposter";
+/obj/structure/sign/poster/lore/tcaf{
 	pixel_x = -6;
-	pixel_y = 31;
-	poster_type = "/datum/poster/bay_67"
+	pixel_y = 31
 	},
 /turf/unsimulated/floor,
 /area/centcom/holding)
@@ -13971,7 +13830,6 @@
 /area/centcom/specops)
 "qHR" = (
 /obj/structure/railing/mapped{
-	layer = 4.1;
 	name = "adjusted railing"
 	},
 /obj/structure/flora/pottedplant{
@@ -13988,16 +13846,8 @@
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/transport1)
-"qKr" = (
-/obj/effect/landmark/thunderdome2,
-/obj/effect/floor_decal/corner/grey/diagonal{
-	dir = 4
-	},
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/tdome/tdome2)
 "qKH" = (
 /obj/structure/railing/mapped{
-	layer = 4.1;
 	name = "adjusted railing"
 	},
 /turf/unsimulated/floor{
@@ -14243,22 +14093,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/administration)
-"rky" = (
-/obj/structure/table/reinforced/wood,
-/obj/machinery/door/blast/odin{
-	dir = 4;
-	icon_state = "shutter1";
-	icon_state_closed = "shutter1";
-	icon_state_closing = "shutterc1";
-	icon_state_open = "shutter0";
-	icon_state_opening = "shutterc0";
-	id = "CentComBarShutters";
-	name = "Bar Shutter"
-	},
-/turf/unsimulated/floor{
-	icon_state = "lino_diamond"
-	},
-/area/centcom/bar)
 "rkF" = (
 /turf/simulated/wall/shuttle/unique/ert{
 	icon_state = "8,4"
@@ -14476,8 +14310,7 @@
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/blast/regular/open{
 	dir = 8;
-	id = "corvette_exterior";
-	name = "blast door"
+	id = "corvette_exterior"
 	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/administration)
@@ -14542,17 +14375,14 @@
 /area/centcom/control)
 "rKH" = (
 /obj/item/reagent_containers/food/drinks/waterbottle{
-	layer = 2.99;
 	pixel_x = -6;
 	pixel_y = 10
 	},
 /obj/item/reagent_containers/food/drinks/waterbottle{
-	layer = 2.99;
 	pixel_x = 1;
 	pixel_y = 10
 	},
 /obj/item/reagent_containers/food/drinks/waterbottle{
-	layer = 2.99;
 	pixel_x = 8;
 	pixel_y = 10
 	},
@@ -14598,12 +14428,10 @@
 "rRr" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/snacks/taco{
-	layer = 2.98;
 	pixel_x = -4;
 	pixel_y = 7
 	},
 /obj/item/reagent_containers/food/snacks/taco{
-	layer = 2.99;
 	pixel_x = -4;
 	pixel_y = 2
 	},
@@ -14728,7 +14556,6 @@
 /area/supply/dock)
 "sio" = (
 /obj/item/gun/energy/rifle{
-	layer = 2.99;
 	pixel_y = 6
 	},
 /obj/item/gun/energy/rifle{
@@ -15664,12 +15491,10 @@
 	},
 /obj/structure/table/rack,
 /obj/item/storage/firstaid/o2{
-	layer = 2.99;
 	pixel_x = 2;
 	pixel_y = 5
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 2.99;
 	pixel_x = 2;
 	pixel_y = 5
 	},
@@ -15801,8 +15626,7 @@
 "tRu" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/toilet{
-	dir = 1;
-	layer = 4.1
+	dir = 1
 	},
 /obj/machinery/light/small{
 	dir = 8;
@@ -15877,7 +15701,6 @@
 	pixel_y = 7
 	},
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted window"
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -16263,7 +16086,6 @@
 /area/centcom/holding)
 "uNJ" = (
 /obj/structure/railing/mapped{
-	layer = 4.1;
 	name = "adjusted railing"
 	},
 /obj/effect/floor_decal/corner/paleblue{
@@ -16312,7 +16134,6 @@
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/railing/mapped{
-	layer = 4.1;
 	name = "adjusted railing"
 	},
 /turf/unsimulated/floor,
@@ -16996,17 +16817,14 @@
 	pixel_y = 2
 	},
 /obj/item/clothing/mask/gas/tactical{
-	layer = 2.99;
 	pixel_x = -1;
 	pixel_y = 5
 	},
 /obj/item/clothing/mask/gas/tactical{
-	layer = 2.99;
 	pixel_x = -1;
 	pixel_y = 5
 	},
 /obj/item/clothing/mask/gas/tactical{
-	layer = 2.99;
 	pixel_x = -1;
 	pixel_y = 5
 	},
@@ -17084,12 +16902,10 @@
 	},
 /obj/structure/table/reinforced,
 /obj/item/paper_bin{
-	layer = 3;
 	pixel_x = -3;
 	pixel_y = 4
 	},
 /obj/item/pen{
-	layer = 3.01;
 	pixel_x = -4;
 	pixel_y = 5
 	},
@@ -17636,32 +17452,26 @@
 	pixel_y = 2
 	},
 /obj/item/ammo_magazine/c45m/auto{
-	layer = 2.99;
 	pixel_x = 2;
 	pixel_y = -2
 	},
 /obj/item/ammo_magazine/c45m/auto{
-	layer = 2.99;
 	pixel_x = 2;
 	pixel_y = -2
 	},
 /obj/item/ammo_magazine/c45m/auto{
-	layer = 2.99;
 	pixel_x = 2;
 	pixel_y = -2
 	},
 /obj/item/ammo_magazine/c45m/auto{
-	layer = 2.99;
 	pixel_x = 2;
 	pixel_y = -2
 	},
 /obj/item/ammo_magazine/c45m/auto{
-	layer = 2.99;
 	pixel_x = 2;
 	pixel_y = -2
 	},
 /obj/item/ammo_magazine/c45m/auto{
-	layer = 2.99;
 	pixel_x = 2;
 	pixel_y = -2
 	},
@@ -17687,7 +17497,6 @@
 /obj/machinery/porta_turret/crescent,
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/structure/railing/mapped{
-	layer = 4.1;
 	name = "adjusted railing"
 	},
 /obj/structure/lattice/catwalk/indoor,
@@ -17811,7 +17620,6 @@
 "xkI" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/snacks/salad/tossedsalad{
-	layer = 2.99;
 	pixel_x = 18;
 	pixel_y = 10
 	},
@@ -17856,7 +17664,6 @@
 	icon_state = "tube_empty"
 	},
 /obj/structure/railing/mapped{
-	layer = 4.1;
 	name = "adjusted railing"
 	},
 /obj/machinery/porta_turret/crescent,
@@ -17881,7 +17688,6 @@
 	dir = 8
 	},
 /obj/machinery/computer/cryopod{
-	layer = 3.3;
 	pixel_y = 27
 	},
 /turf/simulated/floor/carpet/cyan,
@@ -17920,7 +17726,6 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted window"
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -17938,11 +17743,9 @@
 	pixel_y = 8
 	},
 /obj/item/storage/firstaid/regular{
-	layer = 3.01;
 	pixel_x = 6
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 3.01;
 	pixel_x = -13
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -17951,11 +17754,9 @@
 	pixel_y = 8
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 3.01;
 	pixel_x = -13
 	},
 /obj/item/storage/firstaid/regular{
-	layer = 3.01;
 	pixel_x = 6
 	},
 /obj/machinery/light{
@@ -18025,7 +17826,6 @@
 /area/shuttle/escape)
 "xHb" = (
 /obj/machinery/vending/wallmed1{
-	layer = 3.3;
 	name = "Emergency NanoMed";
 	pixel_x = -12;
 	pixel_y = 28;
@@ -18245,8 +18045,7 @@
 "ydO" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/toilet{
-	dir = 1;
-	layer = 4.1
+	dir = 1
 	},
 /obj/machinery/light/small{
 	dir = 8;
@@ -18356,7 +18155,6 @@
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/railing/mapped{
-	layer = 4.1;
 	name = "adjusted railing"
 	},
 /turf/unsimulated/floor,
@@ -41423,7 +41221,7 @@ mbe
 mbe
 mbe
 mbe
-nkX
+mbe
 mbe
 mbe
 mbe
@@ -45226,7 +45024,7 @@ pqX
 pqX
 pqX
 pqX
-odb
+pqX
 rFI
 iSG
 kqG
@@ -47332,10 +47130,10 @@ qiY
 mLh
 khA
 lvy
-qKr
+egh
 lvy
-qKr
-qKr
+egh
+egh
 lvy
 rgN
 wEG
@@ -47588,12 +47386,12 @@ bLK
 qiY
 bIQ
 khA
-qKr
+egh
 gEh
-qKr
-qKr
+egh
+egh
 gEh
-qKr
+egh
 rgN
 cFp
 qiY
@@ -47845,12 +47643,12 @@ bLK
 qiY
 mLh
 khA
-qKr
+egh
 lvy
 egh
-qKr
+egh
 lvy
-qKr
+egh
 rgN
 wEG
 qiY
@@ -48102,12 +47900,12 @@ bLK
 qiY
 bIQ
 khA
-qKr
+egh
 gEh
-qKr
-qKr
+egh
+egh
 gEh
-qKr
+egh
 rgN
 cFp
 qiY
@@ -48360,10 +48158,10 @@ qiY
 mLh
 khA
 lvy
-qKr
-qKr
+egh
+egh
 lvy
-qKr
+egh
 lvy
 rgN
 wEG
@@ -49889,9 +49687,9 @@ eJc
 eJc
 bQP
 qrQ
-kYq
-kYq
-kYq
+aix
+aix
+aix
 wkk
 avk
 aiz
@@ -51166,7 +50964,7 @@ wjH
 bQP
 bLK
 rAP
-kYq
+aix
 aix
 bQP
 mAD
@@ -51417,23 +51215,23 @@ iEv
 bQP
 eMQ
 liY
-kYq
+aix
 liY
 oBu
 aDb
 kVk
 ebr
-kYq
-kYq
+aix
+aix
 aDb
 mAD
 bLK
 lOO
 bQP
 swe
-kYq
-kYq
-kYq
+aix
+aix
+aix
 ezF
 avk
 aiz
@@ -51673,15 +51471,15 @@ tRr
 qwA
 bQP
 kUb
-kYq
-kYq
-kYq
+aix
+aix
+aix
 oBu
 aag
-kYq
-kYq
-kYq
-kYq
+aix
+aix
+aix
+aix
 aah
 mAD
 bLK
@@ -51923,7 +51721,7 @@ vVC
 vVC
 txl
 bQP
-bsS
+rvo
 iGC
 tRr
 bCG
@@ -51931,14 +51729,14 @@ rvo
 bQP
 wfu
 liY
-kYq
+aix
 liY
 oBu
 aDb
 qnC
 qhn
-kYq
-kYq
+aix
+aix
 aDb
 mAD
 bLK
@@ -52194,8 +51992,8 @@ tDA
 bQP
 bLK
 wqv
-kYq
-kYq
+aix
+aix
 bQP
 mAD
 bLK
@@ -52708,7 +52506,7 @@ suV
 sXE
 bQP
 vKf
-kYq
+aix
 sAP
 bQP
 mAD
@@ -52965,7 +52763,7 @@ suV
 siK
 bQP
 iqi
-kYq
+aix
 awC
 aCm
 mAD
@@ -52986,10 +52784,10 @@ nOh
 iAl
 lDL
 wGT
-cik
-cik
+nYH
+nYH
 wGT
-cik
+nYH
 wGT
 ygd
 eUW
@@ -53222,7 +53020,7 @@ suV
 rsL
 bQP
 epa
-kYq
+aix
 awC
 aCm
 mAD
@@ -53242,12 +53040,12 @@ bLK
 nOh
 uWm
 lDL
-cik
+nYH
 cwK
-cik
-cik
+nYH
+nYH
 cwK
-cik
+nYH
 ygd
 ihi
 nOh
@@ -53479,7 +53277,7 @@ suV
 siK
 bQP
 iqi
-kYq
+aix
 awC
 aCm
 mAD
@@ -53499,12 +53297,12 @@ bLK
 nOh
 iAl
 lDL
-cik
+nYH
 wGT
 nYH
-cik
+nYH
 wGT
-cik
+nYH
 ygd
 eUW
 nOh
@@ -53736,7 +53534,7 @@ suV
 avT
 bQP
 idk
-kYq
+aix
 awE
 bQP
 mAD
@@ -53756,12 +53554,12 @@ bLK
 nOh
 uWm
 lDL
-cik
+nYH
 cwK
-cik
-cik
+nYH
+nYH
 cwK
-cik
+nYH
 ygd
 ihi
 nOh
@@ -53968,11 +53766,11 @@ hLp
 xQs
 eBz
 oaC
-rky
-rky
-rky
-rky
-rky
+oaC
+oaC
+oaC
+oaC
+oaC
 hWU
 vpg
 irn
@@ -54014,10 +53812,10 @@ nOh
 iAl
 lDL
 wGT
-cik
+nYH
 wGT
-cik
-cik
+nYH
+nYH
 wGT
 ygd
 eUW
@@ -54735,7 +54533,7 @@ aqu
 fOK
 exm
 ujM
-ifi
+exm
 xps
 rvN
 iCW
@@ -56027,7 +55825,7 @@ jcv
 hmF
 xhC
 vpg
-dXz
+vpg
 eCE
 vpg
 kOI
@@ -56039,7 +55837,7 @@ qqp
 cTw
 cTw
 cEa
-kYq
+aix
 tbP
 yao
 yao
@@ -56295,9 +56093,9 @@ nli
 kop
 tix
 iIp
-kYq
-kYq
-kYq
+aix
+aix
+aix
 vCY
 lWl
 hEz
@@ -56552,9 +56350,9 @@ nli
 etl
 qwZ
 amg
-kYq
-kYq
-kYq
+aix
+aix
+aix
 vxi
 nZv
 vbT
@@ -57815,7 +57613,7 @@ aaM
 eBz
 tAC
 iXX
-ifi
+exm
 xps
 eBz
 gsY
@@ -60943,7 +60741,7 @@ aKK
 aTs
 isr
 siZ
-aNc
+aJH
 qce
 pDr
 aOa

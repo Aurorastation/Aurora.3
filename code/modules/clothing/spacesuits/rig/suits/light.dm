@@ -2,17 +2,17 @@
 /obj/item/rig/light
 	name = "light suit control module"
 	desc = "A lighter, less armored hardsuit."
-	icon = 'icons/clothing/rig/light_ninja.dmi'
+	icon = 'icons/obj/item/clothing/rig/light_ninja.dmi'
 	icon_state = "ninja_rig"
 	icon_supported_species_tags = list("ipc", "skr", "taj", "una")
 	suit_type = "light suit"
 	allowed = list(/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/cell,/obj/item/material/twohanded/fireaxe)
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_RIFLE,
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_SMALL,
+		LASER = ARMOR_LASER_RIFLE,
 		energy = ARMOR_MELEE_MINOR,
-		bomb = ARMOR_BOMB_PADDED
+		BOMB = ARMOR_BOMB_PADDED
 	)
 	emp_protection = 100
 	slowdown = -1
@@ -46,7 +46,7 @@
 	name = "cybersuit control module"
 	suit_type = "cyber"
 	desc = "An advanced powered armor suit with many cyberwarfare enhancements. Comes with built-in insulated gloves for safely tampering with electronics."
-	icon = 'icons/clothing/rig/light_hacker.dmi'
+	icon = 'icons/obj/item/clothing/rig/light_hacker.dmi'
 	icon_state = "hacker_rig"
 
 	req_access = list(ACCESS_SYNDICATE)
@@ -105,17 +105,17 @@
 	name = "stealth suit control module"
 	suit_type = "stealth suit"
 	desc = "A unique, vacuum-proof suit of nano-enhanced armor designed specifically for stealth operations."
-	icon = 'icons/clothing/rig/light_ninja.dmi'
+	icon = 'icons/obj/item/clothing/rig/light_ninja.dmi'
 	icon_state = "ninja_rig"
 	icon_supported_species_tags = list("ipc", "skr", "taj", "una", "vau", "vaw")
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SHIELDED
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_PISTOL,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SHIELDED
 	)
 	emp_protection = 40
 	slowdown = 0
@@ -180,17 +180,17 @@
 	name = "stealth suit control module"
 	suit_type = "stealth"
 	desc = "A highly advanced and expensive suit designed for covert operations."
-	icon = 'icons/clothing/rig/light_stealth.dmi'
+	icon = 'icons/obj/item/clothing/rig/light_stealth.dmi'
 	icon_state = "stealth_rig"
 	icon_supported_species_tags = list("ipc", "skr", "taj", "una")
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_RIFLE,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SMALL,
-		rad = ARMOR_RAD_SMALL
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_SMALL,
+		LASER = ARMOR_LASER_RIFLE,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SMALL,
+		RAD = ARMOR_RAD_SMALL
 	)
 
 	req_access = list(ACCESS_SYNDICATE)
@@ -206,13 +206,13 @@
 	name = "exo-stellar skeleton module"
 	suit_type = "exo-stellar skeleton"
 	desc = "A compact exoskeleton that hugs the body tightly and has various inbuilt utilities for life support."
-	icon = 'icons/clothing/rig/offworlder.dmi'
+	icon = 'icons/obj/item/clothing/rig/offworlder.dmi'
 	icon_state = "offworlder_rig"
 	icon_supported_species_tags = null
 	allowed = list(/obj/item/tank, /obj/item/device/flashlight)
 	armor = list(
-		bio = ARMOR_BIO_MINOR,
-		rad = ARMOR_RAD_MINOR
+		BIO = ARMOR_BIO_MINOR,
+		RAD = ARMOR_RAD_MINOR
 	)
 	slowdown = 0
 	airtight = 0
@@ -241,20 +241,23 @@
 	cold_protection = UPPER_TORSO
 	flags_inv = 0
 
+/obj/item/rig/light/offworlder/colorable
+	icon_state = "offworlder_rig_colorable"
+
 /obj/item/rig/light/offworlder/frontier
 	name = "advanced mobility hardsuit control module"
 	desc = "Patterned off of the standard Exo-Stellar Skeleton, this sophisticated and light hardsuit is a staple of many armed forces throughout the Frontier. The mobility it grants compared to bulkier suits, while still packing the potential for a versatile toolset, has made it especially popular in the often cramped environments of ships and stations."
-	icon = 'icons/clothing/rig/frontier.dmi'
+	icon = 'icons/obj/item/clothing/rig/frontier.dmi'
 	icon_state = "frontier_rig"
 	suit_type = "advanced mobility hardsuit"
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SHIELDED
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_SMALL,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SHIELDED
 	)
 	slowdown = -1
 	offline_slowdown = 0

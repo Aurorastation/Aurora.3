@@ -77,7 +77,7 @@
 			var/list/injector = list()
 			var/obj/machinery/fusion_fuel_injector/I = fuel_injectors[i]
 			injector["id"] = "#[i]"
-			injector["ref"] = "\ref[I]"
+			injector["ref"] = "[REF(I)]"
 			injector["injecting"] =  I.injecting
 			injector["fueltype"] = "[I.cur_assembly ? I.cur_assembly.fuel_type : "No fuel inserted."]"
 			injector["depletion"] = I.cur_assembly ? (I.cur_assembly.percent_depleted * 100) : -1 //%

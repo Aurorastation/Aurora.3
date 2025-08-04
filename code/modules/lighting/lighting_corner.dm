@@ -136,7 +136,7 @@ var/list/REVERSE_LIGHTING_CORNER_DIAGONAL = list(0, 0, 0, 0, 3, 4, 0, 0, 2, 1)
 
 #define AVERAGE_BELOW_CORNER(Tt, Ti) \
 	if (TURF_IS_MIMICING(Tt)) { \
-		T = GET_BELOW(Tt); \
+		T = GET_TURF_BELOW(Tt); \
 		if (T && T.corners && TURF_IS_DYNAMICALLY_LIT_UNSAFE(T)) { \
 			C = T.corners[Ti]; \
 			if (C) { \
@@ -150,7 +150,7 @@ var/list/REVERSE_LIGHTING_CORNER_DIAGONAL = list(0, 0, 0, 0, 3, 4, 0, 0, 2, 1)
 
 #define UPDATE_ABOVE_CORNER(Tt, Ti) \
 	if (Tt) { \
-		T = GET_ABOVE(Tt); \
+		T = GET_TURF_ABOVE(Tt); \
 		if (TURF_IS_MIMICING(T) && TURF_IS_DYNAMICALLY_LIT_UNSAFE(T)) { \
 			if (!T.corners) { \
 				T.generate_missing_corners(); \

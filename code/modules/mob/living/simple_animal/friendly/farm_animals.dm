@@ -27,12 +27,12 @@
 	udder = null
 	canbrush = TRUE
 	emote_sounds = list('sound/effects/creatures/goat.ogg')
-	has_udder = TRUE
+	can_be_milked = TRUE
 	hostile_nameable = TRUE
 
 	butchering_products = list(/obj/item/stack/material/animalhide = 3)
 
-/mob/living/simple_animal/hostile/retaliate/goat/Life()
+/mob/living/simple_animal/hostile/retaliate/goat/Life(seconds_per_tick, times_fired)
 	. = ..()
 	if(.)
 		if(locate(/obj/effect/plant) in loc)
@@ -68,7 +68,7 @@
 		visible_message(SPAN_WARNING("[src] gets an evil-looking gleam in their eye."))
 
 /mob/living/simple_animal/hostile/retaliate/goat/Move()
-	..()
+	. = ..()
 	if(!stat)
 		for(var/obj/effect/plant/SV in loc)
 			SV.die_off(1)
@@ -99,7 +99,7 @@
 	mob_size = 20//based on mass of holstein fresian dairy cattle, what the sprite is based on
 	emote_sounds = list('sound/effects/creatures/cow.ogg')
 	canbrush = TRUE
-	has_udder = TRUE
+	can_be_milked = TRUE
 	butchering_products = list(/obj/item/stack/material/animalhide = 8)
 	forbidden_foods = list(/obj/item/reagent_containers/food/snacks/egg)
 
@@ -182,7 +182,7 @@
 	pixel_x = rand(-6, 6)
 	pixel_y = rand(0, 10)
 
-/mob/living/simple_animal/chick/Life()
+/mob/living/simple_animal/chick/Life(seconds_per_tick, times_fired)
 	. =..()
 	if(!.)
 		return
@@ -271,7 +271,7 @@
 	else
 		..()
 
-/mob/living/simple_animal/chicken/Life()
+/mob/living/simple_animal/chicken/Life(seconds_per_tick, times_fired)
 	. =..()
 	if(!.)
 		return
@@ -279,6 +279,7 @@
 		visible_message("[src] [pick("lays an egg.","squats down and croons.","begins making a huge racket.","begins clucking raucously.")]")
 		eggsleft--
 		var/obj/item/reagent_containers/food/snacks/egg/E = new(get_turf(src))
+		E.fertilize()
 		E.pixel_x = rand(-6,6)
 		E.pixel_y = rand(-6,6)
 

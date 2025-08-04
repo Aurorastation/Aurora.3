@@ -14,10 +14,10 @@
 
 // Channel numbers for power.
 #define POWER_CHAN  -1  // Use default
-#define EQUIP   1
-#define LIGHT   2
-#define ENVIRON 3
-#define TOTAL   4 // For total power used only.
+#define AREA_USAGE_EQUIP   1
+#define AREA_USAGE_LIGHT   2
+#define AREA_USAGE_ENVIRON 3
+#define AREA_USAGE_TOTAL   4 // For total power used only.
 
 #define POWER_USE_OFF       0
 #define POWER_USE_IDLE      1
@@ -79,13 +79,15 @@
 #define NETWORK_FIRST_DECK "First Deck"
 #define NETWORK_SECOND_DECK "Second Deck"
 #define NETWORK_THIRD_DECK "Third Deck"
-#define NETWORK_INTREPID "Intrepid"
-#define NETWORK_CANARY "Canary"
+#define NETWORK_INTREPID "Intrepid" // horizon shuttle, expedition/transport
+#define NETWORK_CANARY "Canary" // horizon shuttle, scout/fighter
+#define NETWORK_QUARK "Quark" // horizon shuttle, xenostudies
 #define NETWORK_NEWS "News"
+#define NETWORK_CRYO_OUTPOST "#187-D Outpost"
 
 
 // Those networks can only be accessed by pre-existing terminals. AIs and new terminals can't use them.
-var/list/restricted_camera_networks = list(NETWORK_ERT,NETWORK_MERCENARY,"Secret")
+GLOBAL_LIST_INIT(restricted_camera_networks, list(NETWORK_ERT,NETWORK_MERCENARY,"Secret"))
 
 
 //singularity defines

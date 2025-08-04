@@ -37,7 +37,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "0,10"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "bB" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -58,13 +58,13 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "20,16"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "bO" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "0,15"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "bQ" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -76,7 +76,7 @@
 "bW" = (
 /obj/structure/lattice,
 /obj/item/material/shard,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "cc" = (
 /obj/structure/computerframe,
@@ -134,13 +134,13 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "12,1"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "cE" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "6,15"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "cT" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -169,17 +169,17 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "6,14"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "ef" = (
 /mob/living/simple_animal/hostile/carp,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "eh" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "15,14"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "eo" = (
 /obj/structure/girder,
@@ -191,13 +191,13 @@
 /area/dungeon/crashed_ship)
 "ew" = (
 /obj/item/material/shard/shrapnel,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "eP" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "0,13"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "eQ" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -225,18 +225,18 @@
 	icon_state = "6,13"
 	},
 /obj/structure/railing/mapped,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "fl" = (
 /obj/structure/railing/mapped,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "fm" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "15,13"
 	},
 /obj/structure/railing/mapped,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "fw" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -256,7 +256,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "21,15"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "fT" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -269,14 +269,14 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "0,12"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "gg" = (
 /obj/structure/shuttle_part/raider{
 	density = 0;
 	icon_state = "7,0"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "go" = (
 /obj/structure/shuttle_part/raider{
@@ -301,7 +301,6 @@
 /area/dungeon/crashed_ship)
 "gB" = (
 /obj/machinery/door/airlock/external{
-	electrified_until = 0;
 	icon_state = "door_locked";
 	locked = 1;
 	welded = 1;
@@ -323,7 +322,7 @@
 	icon_state = "6,12"
 	},
 /obj/structure/lattice/catwalk,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "gQ" = (
 /obj/structure/lattice/catwalk,
@@ -331,19 +330,19 @@
 	pixel_x = -2;
 	pixel_y = 5
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "hg" = (
 /obj/structure/lattice/catwalk,
 /obj/vehicle/bike/speeder,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "hh" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "15,12"
 	},
 /obj/structure/lattice/catwalk,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "hv" = (
 /mob/living/simple_animal/hostile/carp{
@@ -368,7 +367,7 @@
 "hE" = (
 /obj/structure/lattice,
 /obj/structure/closet/crate/secure/loot,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "hN" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -381,7 +380,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "21,14"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "in" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black{
@@ -401,7 +400,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "0,11"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "iw" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -433,19 +432,19 @@
 	icon_state = "6,11"
 	},
 /obj/structure/lattice/catwalk,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "jI" = (
 /obj/structure/lattice/catwalk,
 /obj/machinery/light/small/emergency,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "jQ" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "15,11"
 	},
 /obj/structure/lattice/catwalk,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "jU" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -481,7 +480,7 @@
 	destroy_surroundings = 0;
 	wander = 0
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "kz" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -494,7 +493,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "21,13"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "kG" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -550,7 +549,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "1,0"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "mi" = (
 /obj/structure/bed/padded,
@@ -591,7 +590,7 @@
 	dir = 1;
 	wander = 0
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "mK" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -617,13 +616,13 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "21,10"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "mY" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "0,9"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "ns" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -665,7 +664,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "19,1"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "nI" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -722,19 +721,19 @@
 	},
 /area/dungeon/crashed_ship)
 "oE" = (
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "oO" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "21,9"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "pl" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "0,8"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "ps" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -850,19 +849,19 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "21,8"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "ri" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "15,0"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "ru" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "0,7"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "rF" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -903,13 +902,13 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "21,7"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "sA" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "0,6"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "sM" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -952,20 +951,19 @@
 /obj/effect/decal/fake_object{
 	density = 1;
 	desc = "A no longer functional cryogenic freezer.";
-	icon = 'icons/obj/sleeper.dmi';
+	icon = 'icons/obj/machinery/sleeper.dmi';
 	icon_state = "body_scanner";
 	name = "dilapitated cryogenic freezer";
 	pixel_x = 1
 	},
-/obj/effect/decal/cleanable/dirt{
-	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/dungeon/crashed_ship)
 "tA" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "19,0"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "tT" = (
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -973,13 +971,12 @@
 /obj/effect/decal/fake_object{
 	density = 1;
 	desc = "A no longer functional cryogenic freezer.";
-	icon = 'icons/obj/sleeper.dmi';
+	icon = 'icons/obj/machinery/sleeper.dmi';
 	icon_state = "body_scanner";
 	name = "dilapitated cryogenic freezer";
 	pixel_x = 1
 	},
-/obj/effect/decal/cleanable/dirt{
-	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/dungeon/crashed_ship)
 "tU" = (
@@ -1069,7 +1066,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "21,6"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "vL" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -1086,7 +1083,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "3,0"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "vY" = (
 /obj/item/reagent_containers/glass/bucket{
@@ -1139,7 +1136,7 @@
 /area/dungeon/crashed_ship)
 "wH" = (
 /obj/structure/lattice/catwalk,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "wR" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1150,7 +1147,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "5,0"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "xi" = (
 /obj/machinery/appliance/cooker/stove,
@@ -1242,13 +1239,13 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "21,5"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "yY" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "0,4"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "zm" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1275,7 +1272,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "0,5"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "zG" = (
 /obj/machinery/sleeper{
@@ -1336,13 +1333,13 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "21,4"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "Bi" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "18,0"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "BJ" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -1419,13 +1416,13 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "13,3"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "DB" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "6,1"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "DE" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -1466,13 +1463,13 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "21,3"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "Eo" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "0,2"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "Er" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -1539,13 +1536,13 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "8,2"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "Gj" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "13,2"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "GM" = (
 /obj/random/keg,
@@ -1577,13 +1574,13 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "21,2"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "Hp" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "1,1"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "Hq" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -1596,31 +1593,31 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "2,1"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "Hz" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "3,1"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "HD" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "7,1"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "HN" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "8,1"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "HO" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "17,1"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "HW" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -1637,27 +1634,26 @@
 	door_name = "ship airlock";
 	required_access = null
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "Id" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "14,1"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "Ie" = (
 /obj/structure/lattice,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "Iv" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "0,1"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "Iw" = (
 /obj/machinery/door/airlock/external{
-	electrified_until = 0;
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1667,7 +1663,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "15,1"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "IT" = (
 /obj/effect/gibspawner/human,
@@ -1692,40 +1688,40 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "16,1"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "Ja" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "20,1"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "Jk" = (
 /obj/structure/shuttle_part/raider{
 	density = 0;
 	icon_state = "21,1"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "Jl" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "20,0"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "Jn" = (
 /obj/item/stack/rods,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "Jy" = (
 /obj/item/material/shard,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "Kf" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "6,0"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "Kk" = (
 /obj/structure/bed/padded,
@@ -1766,7 +1762,7 @@
 /area/dungeon/crashed_ship)
 "Po" = (
 /obj/structure/shuttle_part/raider,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "Qe" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -1786,7 +1782,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "8,3"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "Rr" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -1824,26 +1820,25 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "4,0"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "Sm" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "18,1"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "Tc" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "16,0"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "TE" = (
 /obj/structure/closet/walllocker/medical/secure{
 	name = "blood closet";
 	pixel_y = 32;
-	req_access = null;
-	store_mobs = 0
+	req_access = null
 	},
 /obj/item/reagent_containers/blood/OMinus,
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -1854,7 +1849,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "2,0"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "TK" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -1867,19 +1862,19 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "17,0"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "Ui" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "0,3"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "Uz" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "0,14"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "Vn" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -1892,7 +1887,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "13,1"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "VT" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
@@ -1909,7 +1904,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "5,1"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "XI" = (
 /turf/simulated/floor/carpet/rubber,
@@ -1927,7 +1922,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/dungeon/crashed_ship)
 "Yd" = (
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "Zd" = (
 /turf/unsimulated/chasm_mask,

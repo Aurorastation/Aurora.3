@@ -1,14 +1,12 @@
 /obj/structure/lattice
 	name = "lattice"
 	desc = "A lightweight support lattice."
-	desc_info = "Add a metal floor tile to build a floor on top of the lattice.<br>\
-	Lattices can be made by applying metal rods to a space tile."
 	icon = 'icons/obj/smooth/lattice.dmi'
 	icon_state = "lattice"
 	density = FALSE
 	anchored = TRUE
-	w_class = ITEMSIZE_NORMAL
-	layer = LATTICE_LAYER
+	w_class = WEIGHT_CLASS_NORMAL
+	layer = ABOVE_TILE_LAYER
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	smoothing_flags = SMOOTH_MORE
 	canSmoothWith = list(
@@ -22,6 +20,12 @@
 		/turf/unsimulated/mineral/asteroid
 	)
 	footstep_sound = /singleton/sound_category/catwalk_footstep
+
+/obj/structure/lattice/assembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(name == "lattice")
+		. += "Add a <b>metal floor tile</b> to build a floor on top of the lattice."
+		. += "Lattices can be made by applying <b>metal rods</b> to a space tile."
 
 /obj/structure/lattice/Initialize()
 	. = ..()
@@ -105,8 +109,8 @@
 		if(attacking_item.use_tool(src, user, 5, volume = 50))
 			anchored = !anchored
 			to_chat(user, SPAN_NOTICE("You [anchored ? "" : "un"]anchor [src]."))
-			SSicon_smooth.add_to_queue(src)
-			SSicon_smooth.add_to_queue_neighbors(src)
+			QUEUE_SMOOTH(src)
+			QUEUE_SMOOTH_NEIGHBORS(src)
 	else
 		..()
 
@@ -185,6 +189,9 @@
 
 /obj/structure/lattice/catwalk/indoor/grate/dark
 	color = COLOR_DARK_GUNMETAL
+
+/obj/structure/lattice/catwalk/indoor/grate/gridded
+	color = COLOR_GRAY40
 
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal
 	color = COLOR_DARK_GUNMETAL

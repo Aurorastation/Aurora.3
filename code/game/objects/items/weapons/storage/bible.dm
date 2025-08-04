@@ -3,14 +3,10 @@
 	desc = "A holy item, containing the written words of a religion."
 	icon_state = "bible"
 	item_state = "bible"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_books.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_books.dmi'
-		)
 	icon = 'icons/obj/library.dmi'
 	throw_speed = 1
 	throw_range = 5
-	w_class = ITEMSIZE_SMALL // POKKET - geeves
+	w_class = WEIGHT_CLASS_SMALL // POKKET - geeves
 	var/mob/affecting = null
 	use_sound = 'sound/bureaucracy/bookopen.ogg'
 	drop_sound = 'sound/bureaucracy/bookclose.ogg'

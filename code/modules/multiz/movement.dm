@@ -40,7 +40,8 @@
 		to_chat(src, SPAN_WARNING("You lack means of travel in that direction."))
 		return FALSE
 
-	var/turf/destination = (direction == UP) ? GetAbove(src) : GetBelow(src)
+	var/turf/T = get_turf(src)
+	var/turf/destination = (direction == UP) ? GET_TURF_ABOVE(T) : GET_TURF_BELOW(T)
 
 	if(!destination)
 		to_chat(src, SPAN_NOTICE("There is nothing of interest in this direction."))
@@ -104,14 +105,17 @@
 	return ..()
 
 /mob/abstract/eye/zMove(direction)
-	var/turf/destination = (direction == UP) ? GetAbove(src) : GetBelow(src)
+	var/turf/T = get_turf(src)
+	var/turf/destination = (direction == UP) ? GET_TURF_ABOVE(T) : GET_TURF_BELOW(T)
 	if(destination)
 		setLoc(destination)
 	else
 		to_chat(owner, SPAN_NOTICE("There is nothing of interest in this direction."))
 
-/mob/abstract/observer/zMove(direction)
-	var/turf/destination = (direction == UP) ? GetAbove(src) : GetBelow(src)
+// Both observers and storytellers depend on this to be able to move through z-levels freely!
+/mob/abstract/ghost/zMove(direction)
+	var/turf/T = get_turf(src)
+	var/turf/destination = (direction == UP) ? GET_TURF_ABOVE(T) : GET_TURF_BELOW(T)
 	if(destination)
 		forceMove(destination)
 	else
@@ -130,7 +134,7 @@
 		return TRUE
 	return FALSE
 
-/mob/abstract/observer/can_ztravel(var/direction)
+/mob/abstract/ghost/observer/can_ztravel(var/direction)
 	return TRUE
 
 /mob/living/carbon/human/can_ztravel(var/direction)
@@ -151,9 +155,9 @@
 /mob/living/carbon/human/proc/climb(var/direction, var/turf/source, var/climb_bonus)
 	var/turf/destination
 	if(direction == UP)
-		destination = GetAbove(source)
+		destination = GET_TURF_ABOVE(source)
 	else
-		destination = GetBelow(source)
+		destination = GET_TURF_BELOW(source)
 
 	if(!destination)
 		return
@@ -663,7 +667,7 @@
 
 	var/z_velocity = 5*(levels_fallen**2)
 	var/damage = ((60 + z_velocity) + rand(-20,20)) * damage_mod
-	if(istype(loc, /turf/unsimulated/floor/asteroid))
+	if(istype(loc, /turf/simulated/floor/exoplanet/asteroid))
 		damage /= 2
 
 	health -= (damage * brute_dam_coeff)
@@ -785,46 +789,45 @@
 	simulated = FALSE
 	anchored = TRUE
 	mouse_opacity = FALSE
+	/// The mob that this observer belongs to.
 	var/mob/living/owner
-	var/tile_shifted = FALSE
+	/// The physical open-space turf we are watching.
+	var/turf/target_turf
 
-/atom/movable/z_observer/Initialize(mapload, var/mob/living/user, var/tile_shift = FALSE)
+/atom/movable/z_observer/Initialize(mapload, var/mob/living/user, var/turf/given_turf)
 	. = ..()
 	owner = user
-	if(tile_shift)
-		var/turf/T = get_step(owner, owner.dir)
-		forceMove(T)
-		tile_shifted = TRUE
+	target_turf = given_turf
 	follow()
-	GLOB.moved_event.register(owner, src, PROC_REF(follow))
+	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(follow))
 
 /atom/movable/z_observer/proc/follow()
 
 /atom/movable/z_observer/z_up/follow()
-	forceMove(get_step(owner, UP))
+	forceMove(get_step(target_turf, UP))
 	if(isturf(src.loc))
 		var/turf/T = src.loc
-		if(T && TURF_IS_MIMICING(T))
+		if((T && TURF_IS_MIMICING(T)) && (get_turf(owner) == get_step(src, DOWN)))
 			return
 	owner.reset_view(null)
 	owner.z_eye = null
 	qdel(src)
 
 /atom/movable/z_observer/z_down/follow()
-	var/turf/down_step = get_step(tile_shifted ? src : owner, DOWN)
+	var/turf/down_step = get_step(target_turf, DOWN)
 	/// If we move down more than 1 step, don't move down again.
 	if((GET_Z(owner) - down_step.z) < 2)
 		forceMove(down_step)
-	var/turf/T = get_turf(tile_shifted ? get_step(owner, owner.dir) : owner)
-	if(T && TURF_IS_MIMICING(T))
+	if(owner.Adjacent(target_turf) && (owner.dir == get_dir(owner, target_turf)))
 		return
 	owner.reset_view(null)
 	owner.z_eye = null
 	qdel(src)
 
 /atom/movable/z_observer/Destroy()
-	GLOB.moved_event.unregister(owner, src, PROC_REF(follow))
+	UnregisterSignal(owner, COMSIG_MOVABLE_MOVED)
 	owner = null
+	target_turf = null
 	. = ..()
 
 /atom/movable/z_observer/can_fall()

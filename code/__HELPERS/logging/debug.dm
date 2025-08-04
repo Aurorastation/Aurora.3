@@ -15,7 +15,6 @@
 			return
 		if(C.prefs.toggles & CHAT_DEBUGLOGS)
 			to_chat(C, "<span class='debug'>DEBUG: [text]</span>")
-	send_gelf_log(short_message = text, long_message = "[time_stamp()]: [text]", level = level, category = "DEBUG")
 
 /// Logging for loading and caching assets
 /proc/log_asset(text)

@@ -1,12 +1,9 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aw" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
 	pixel_x = -28;
-	pixel_y = -8;
-	dir = 2
+	pixel_y = -8
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock,
@@ -24,9 +21,7 @@
 /turf/template_noop,
 /area/template_noop)
 "cH" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/template_noop)
@@ -44,9 +39,7 @@
 /turf/simulated/floor/plating,
 /area/template_noop)
 "dk" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock,
 /turf/simulated/floor/plating,
@@ -75,7 +68,6 @@
 	pixel_x = 6
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = 6
 	},
@@ -90,7 +82,6 @@
 	pixel_x = 20
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = -6
 	},
@@ -121,9 +112,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
@@ -156,7 +145,6 @@
 	dir = 1
 	},
 /obj/machinery/airlock_sensor{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = -28
 	},
@@ -186,9 +174,7 @@
 /area/template_noop)
 "kg" = (
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock,
 /turf/simulated/floor/plating,
 /area/template_noop)
@@ -230,7 +216,6 @@
 	pixel_x = 6
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = 6
 	},
@@ -246,7 +231,6 @@
 	pixel_x = 20
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = -6
 	},
@@ -268,7 +252,6 @@
 "nz" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 8;
-	pixel_y = 0;
 	pixel_x = 20
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
@@ -276,12 +259,10 @@
 	pixel_y = -20
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	dir = 2;
 	pixel_y = 28
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 4;
-	pixel_y = 0;
 	pixel_x = -20
 	},
 /obj/effect/map_effect/marker/airlock,
@@ -301,9 +282,7 @@
 /turf/simulated/floor/plating,
 /area/template_noop)
 "oG" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock,
@@ -313,9 +292,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
@@ -353,12 +330,10 @@
 	pixel_x = -6
 	},
 /obj/machinery/airlock_sensor{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = 6
 	},
 /obj/machinery/airlock_sensor{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = -6
 	},
@@ -384,7 +359,6 @@
 	dir = 4
 	},
 /obj/machinery/airlock_sensor{
-	dir = 2;
 	pixel_y = 28
 	},
 /obj/effect/map_effect/marker/airlock,
@@ -396,7 +370,6 @@
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 8;
-	pixel_y = 0;
 	pixel_x = 20
 	},
 /obj/effect/map_effect/marker/airlock,
@@ -414,9 +387,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "sh" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
 	pixel_x = -28;
 	pixel_y = 12;
@@ -435,7 +406,6 @@
 "sx" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 8;
-	pixel_y = 0;
 	pixel_x = 20
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
@@ -443,12 +413,10 @@
 	pixel_y = -20
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 2;
 	pixel_y = 28
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 4;
-	pixel_y = 0;
 	pixel_x = -20
 	},
 /obj/effect/map_effect/marker/airlock/docking,
@@ -457,7 +425,6 @@
 "sN" = (
 /obj/machinery/access_button{
 	pixel_x = 24;
-	pixel_y = 0;
 	dir = 8
 	},
 /turf/simulated/floor/airless,
@@ -486,7 +453,6 @@
 "vo" = (
 /obj/machinery/access_button{
 	pixel_x = 24;
-	pixel_y = 0;
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock,
@@ -499,9 +465,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "wa" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
@@ -510,9 +474,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 4
 	},
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
@@ -550,13 +512,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "xX" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
 	pixel_x = 28;
-	pixel_y = -8;
-	dir = 2
+	pixel_y = -8
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock,
@@ -582,7 +541,6 @@
 	pixel_x = 6
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = 6
 	},
@@ -597,7 +555,6 @@
 	pixel_x = 20
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = -6
 	},
@@ -621,17 +578,13 @@
 /area/template_noop)
 "Bl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "Bt" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/map_effect/marker/airlock,
 /turf/simulated/floor/plating,
@@ -654,12 +607,10 @@
 	},
 /obj/effect/map_effect/marker/airlock,
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = -6
 	},
 /obj/machinery/airlock_sensor{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = 6
 	},
@@ -710,13 +661,10 @@
 /turf/simulated/floor/plating,
 /area/template_noop)
 "Ht" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
 	pixel_x = 28;
-	pixel_y = -8;
-	dir = 2
+	pixel_y = -8
 	},
 /obj/effect/map_effect/marker/airlock,
 /turf/simulated/floor/plating,
@@ -736,7 +684,6 @@
 "Ij" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 4;
-	pixel_y = 0;
 	pixel_x = -20
 	},
 /obj/effect/map_effect/marker/airlock,
@@ -761,9 +708,7 @@
 /turf/template_noop,
 /area/template_noop)
 "KX" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock,
 /turf/simulated/floor/plating,
 /area/template_noop)
@@ -778,9 +723,7 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/template_noop)
 "LF" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /turf/template_noop,
 /area/template_noop)
 "LJ" = (
@@ -803,9 +746,7 @@
 /turf/simulated/floor/plating,
 /area/template_noop)
 "Nr" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2
-	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /turf/template_noop,
 /area/template_noop)
 "Nt" = (
@@ -813,7 +754,6 @@
 	dir = 4
 	},
 /obj/machinery/airlock_sensor{
-	dir = 2;
 	pixel_y = 28
 	},
 /obj/effect/map_effect/marker/airlock,
@@ -822,9 +762,7 @@
 /area/template_noop)
 "NH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
 	pixel_x = 28;
 	pixel_y = 12;
@@ -845,8 +783,7 @@
 "Pe" = (
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/access_button{
-	pixel_y = 28;
-	dir = 2
+	pixel_y = 28
 	},
 /obj/effect/map_effect/marker/airlock,
 /turf/simulated/floor/tiled/dark/full,
@@ -886,9 +823,7 @@
 /turf/simulated/floor/plating,
 /area/template_noop)
 "Qu" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock,
@@ -900,7 +835,6 @@
 "QL" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 8;
-	pixel_y = 0;
 	pixel_x = 20
 	},
 /obj/effect/map_effect/marker/airlock,
@@ -918,13 +852,10 @@
 /turf/simulated/floor/airless,
 /area/template_noop)
 "Rh" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
 	pixel_x = 28;
-	pixel_y = -8;
-	dir = 2
+	pixel_y = -8
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock,
@@ -934,12 +865,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
 	},
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
-	pixel_x = 28;
-	dir = 2
+	pixel_x = 28
 	},
 /obj/effect/map_effect/marker/airlock,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -972,7 +900,6 @@
 "SH" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 8;
-	pixel_y = 0;
 	pixel_x = 20
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
@@ -1018,7 +945,6 @@
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 8;
-	pixel_y = 0;
 	pixel_x = 20
 	},
 /obj/effect/map_effect/marker/airlock,
@@ -1040,7 +966,6 @@
 "VO" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 8;
-	pixel_y = 0;
 	pixel_x = 20
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
@@ -1048,25 +973,20 @@
 	pixel_y = -20
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 2;
 	pixel_y = 28
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 4;
-	pixel_y = 0;
 	pixel_x = -20
 	},
 /obj/effect/map_effect/marker/airlock/shuttle,
 /turf/template_noop,
 /area/template_noop)
 "Wc" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
 	pixel_x = 28;
-	pixel_y = -8;
-	dir = 2
+	pixel_y = -8
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
@@ -1093,8 +1013,7 @@
 	dir = 8
 	},
 /obj/machinery/access_button{
-	pixel_x = -28;
-	dir = 2
+	pixel_x = -28
 	},
 /obj/machinery/access_button{
 	pixel_x = -12;
@@ -1107,8 +1026,7 @@
 	dir = 1
 	},
 /obj/machinery/access_button{
-	pixel_x = 28;
-	dir = 2
+	pixel_x = 28
 	},
 /obj/machinery/access_button{
 	pixel_x = 20;
@@ -1142,20 +1060,16 @@
 	},
 /obj/machinery/access_button{
 	pixel_x = 28;
-	pixel_y = 32;
-	dir = 2
+	pixel_y = 32
 	},
 /obj/machinery/access_button{
 	pixel_x = -28;
-	pixel_y = 32;
-	dir = 2
+	pixel_y = 32
 	},
 /turf/template_noop,
 /area/template_noop)
 "Wz" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
 	pixel_x = -28;
 	pixel_y = 12;
@@ -1180,9 +1094,7 @@
 /turf/template_noop,
 /area/template_noop)
 "Xv" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock,
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -1214,9 +1126,7 @@
 /turf/template_noop,
 /area/template_noop)
 "Yf" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
 	pixel_x = -28;
 	pixel_y = 12;
@@ -1240,7 +1150,6 @@
 	dir = 8
 	},
 /obj/machinery/airlock_sensor{
-	dir = 2;
 	pixel_y = 28
 	},
 /turf/template_noop,
@@ -1267,9 +1176,7 @@
 /turf/simulated/floor/airless,
 /area/template_noop)
 "YW" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
 	pixel_x = -28;
 	pixel_y = 12;
@@ -1283,9 +1190,7 @@
 /turf/space,
 /area/template_noop)
 "ZE" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock,
 /turf/simulated/floor/plating,

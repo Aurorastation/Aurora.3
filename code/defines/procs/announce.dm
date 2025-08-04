@@ -8,7 +8,7 @@
 	var/sound
 	var/newscast = 0
 	var/print = 0
-	var/channel_name = "Station Announcements"
+	var/channel_name = "Announcements"
 	var/announcement_type = "Announcement"
 
 /datum/announcement/New(var/do_log = 1, var/new_sound = null, var/do_newscast = 0, var/do_print = 0)
@@ -44,15 +44,20 @@
 
 	var/msg = FormMessage(message, message_title)
 	for(var/mob/M in GLOB.player_list)
-		if(!istype(M, /mob/abstract/new_player) && !isdeaf(M) && (GET_Z(M) in (zlevels | SSatlas.current_map.admin_levels)))
+		if(isnewplayer(M))
+			continue
+
+		// Due to spam, only print announcements if the ghost is in the matching z-level, OR if it's a Horizon message.
+		if((isghost(M) && ((zlevels == SSatlas.current_map.contact_levels) || (GET_Z(M) in zlevels))) || (!isdeaf(M) && (GET_Z(M) in zlevels)))
 			var/turf/T = get_turf(M)
 			if(T)
 				to_chat(M, msg)
 				if(message_sound && !isdeaf(M) && (M.client?.prefs.sfx_toggles & ASFX_VOX))
 					sound_to(M, message_sound)
-	if(do_newscast)
+
+	if(do_newscast && zlevels == SSatlas.current_map.contact_levels)
 		NewsCast(message, message_title)
-	if(do_print)
+	if(do_print && zlevels == SSatlas.current_map.contact_levels)
 		post_comm_message(message_title, message)
 	Log(message, message_title)
 
@@ -91,7 +96,7 @@
 
 /datum/announcement/proc/Log(message as text, message_title as text)
 	if(log)
-		log_say("[key_name(usr)] has made \a [announcement_type]: [message_title] - [message] - [announcer]",ckey=key_name(usr))
+		log_say("[key_name(usr)] has made \a [announcement_type]: [message_title] - [message] - [announcer]")
 		message_admins("[key_name_admin(usr)] has made \a [announcement_type].", 1)
 
 /proc/GetNameAndAssignmentFromId(var/obj/item/card/id/I)
@@ -100,10 +105,16 @@
 	// Format currently matches that of newscaster feeds: Registered Name (Assigned Rank)
 	return I.assignment ? "[I.registered_name], [I.assignment]" : I.registered_name
 
-/proc/level_seven_announcement(var/list/affecting_z = SSatlas.current_map.station_levels)
+/proc/level_seven_announcement(var/list/affecting_z = list())
+	if(!length(affecting_z))
+		affecting_z += SSmapping.levels_by_trait(ZTRAIT_STATION)
+
 	command_announcement.Announce("Confirmed outbreak of level 7 biohazard aboard [station_name()]. All personnel must contain the outbreak.", "Biohazard Alert", new_sound = 'sound/AI/level_7_biohazard.ogg', zlevels = affecting_z)
 
-/proc/ion_storm_announcement(var/list/affecting_z = SSatlas.current_map.station_levels)
+/proc/ion_storm_announcement(var/list/affecting_z = list())
+	if(!length(affecting_z))
+		affecting_z += SSmapping.levels_by_trait(ZTRAIT_STATION)
+
 	command_announcement.Announce("It has come to our attention that the ship has passed through an ion storm.  Please monitor all electronic equipment for malfunctions.", "Anomaly Alert", zlevels = affecting_z)
 
 /proc/AnnounceArrival(var/mob/living/carbon/human/character, var/rank, var/join_message)

@@ -1,4 +1,4 @@
-var/list/spells = typesof(/spell) //needed for the badmin verb for now
+GLOBAL_LIST_INIT(spells, typesof(/spell))
 
 /spell
 	var/name = "Spell"
@@ -54,7 +54,7 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 	var/hud_state = "" //name of the icon used in generating the spell hud object
 	var/override_base = ""
 
-	var/obj/screen/connected_button
+	var/atom/movable/screen/connected_button
 
 ///////////////////////
 ///SETUP AND PROCESS///
@@ -76,7 +76,7 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 			silenced = max(0,silenced-1)
 			sleep(1)
 		if(connected_button)
-			var/obj/screen/spell/S = connected_button
+			var/atom/movable/screen/spell/S = connected_button
 			if(!istype(S))
 				return
 			S.update_charge(1)
@@ -103,7 +103,7 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 		take_charge(user, skipcharge)
 
 		before_cast(targets) //applies any overlays and effects
-		user.attack_log += text("\[[time_stamp()]\] <span class='warning'>[user.real_name] ([user.ckey]) cast the spell [name].</span>")
+		user.attack_log += "\[[time_stamp()]\] <span class='warning'>[user.real_name] ([user.ckey]) cast the spell [name].</span>"
 		if(prob(critfailchance))
 			critfail(targets, user)
 		else
@@ -172,7 +172,7 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 	for(var/atom/target in targets)
 		var/location = get_turf(target)
 		if(istype(target,/mob/living) && message)
-			to_chat(target, text("[message]"))
+			to_chat(target, "[message]")
 		if(sparks_spread)
 			spark(location, sparks_amt)
 		if(smoke_spread)

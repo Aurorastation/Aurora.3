@@ -7,9 +7,10 @@
 	spawn_cost = 1
 	spawn_weight = 1
 	prefix = "away_site/abandoned_industrial/"
-	suffixes = list("abandoned_industrial_station.dmm")
+	suffix = "abandoned_industrial_station.dmm"
 
 	sectors = list(ALL_POSSIBLE_SECTORS)
+	sectors_blacklist = list(ALL_UNCHARTED_SECTORS)
 
 /singleton/submap_archetype/abandoned_industrial_station//Arbitrary duplicates of the above name/desc
 	map = "abandoned industrial station"

@@ -1,10 +1,9 @@
 /obj/item/device/flashlight/flare
 	name = "flare"
 	desc = "A red standard-issue flare. There are instructions on the side reading 'twist cap off, make light'."
-	desc_info = "Use this item in your hand, to turn on the light."
-	w_class = ITEMSIZE_SMALL
-	brightness_on = 3 // Pretty bright.
-	light_power = 4
+	w_class = WEIGHT_CLASS_TINY
+	brightness_on = 5 // Pretty bright.
+	light_power = 6
 	light_color = LIGHT_COLOR_FLARE //"#E58775"
 	icon_state = "flare"
 	item_state = "flare"
@@ -20,9 +19,13 @@
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
+/obj/item/device/flashlight/flare/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Left-click \the [src] in-hand to activate it."
+
 /obj/item/device/flashlight/flare/Initialize()
 	. = ..()
-	fuel = rand(4 MINUTES, 6 MINUTES)
+	fuel = rand(12 MINUTES, 15 MINUTES)
 
 /obj/item/device/flashlight/flare/process()
 	if(produce_heat)
@@ -86,8 +89,7 @@
 /obj/item/device/flashlight/flare/torch
 	name = "torch"
 	desc = "A rustic source of light."
-	desc_info = "Click on a source of flame, to light the torch."
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	brightness_on = 2
 	light_power = 3
 	light_color = LIGHT_COLOR_FIRE
@@ -99,6 +101,10 @@
 
 	drop_sound = 'sound/items/drop/woodweapon.ogg'
 	pickup_sound = 'sound/items/pickup/woodweapon.ogg'
+
+/obj/item/device/flashlight/flare/torch/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Click on a source of flame with the torch to light it."
 
 /obj/item/device/flashlight/flare/torch/attack_self(mob/user)
 	if (on)
@@ -152,15 +158,11 @@
 /obj/item/torch
 	name = "torch handle"
 	desc = "A torch handle without its head."
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	icon_state = "torch-empty"
 	item_state = "torch-empty"
 	icon = 'icons/obj/lighting.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_lighting.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_lighting.dmi',
-		)
-
+	contained_sprite = TRUE
 	drop_sound = 'sound/items/drop/woodweapon.ogg'
 	pickup_sound = 'sound/items/pickup/woodweapon.ogg'
 

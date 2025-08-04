@@ -3,9 +3,9 @@
 	description = "An asteroid with a occupied hangar carved into it."
 
 	prefix = "away_site/pirate_base/"
-	suffixes = list("pirate_base.dmm")
+	suffix = "pirate_base.dmm"
 
-	sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS)
+	sectors = list(ALL_POSSIBLE_SECTORS)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "pirate"
@@ -81,7 +81,7 @@
 	landmark_tag = "nav_hangar_pirate_ship"
 	docking_controller = "pirate_ship_shuttle_dock"
 	base_area = /area/mine
-	base_turf = /turf/unsimulated/floor/asteroid/ash/rocky
+	base_turf = /turf/simulated/floor/exoplanet/asteroid/ash/rocky
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/pirate_ship/transit

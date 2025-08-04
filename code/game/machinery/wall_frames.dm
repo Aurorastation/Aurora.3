@@ -2,12 +2,16 @@
 	name = "frame"
 	desc = "Used for building machines."
 	icon = 'icons/obj/monitors.dmi'
-	icon_state = "fire_bitem"
+	icon_state = ""
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	var/build_machine_type
 	var/refund_amt = 2
 	var/refund_type = /obj/item/stack/material/steel
-	var/reverse = 0 //if resulting object faces opposite its dir (like light fixtures)
+
+/obj/item/frame/assembly_hints()
+	. = list()
+	. += ..()
+	. += "It could be installed by using it on an adjacent <b>wall</b>."
 
 /obj/item/frame/attackby(obj/item/attacking_item, mob/user)
 	if (attacking_item.iswrench())
@@ -23,13 +27,9 @@
 	if (get_dist(on_wall,usr)>1)
 		return
 
-	var/ndir
-	if(reverse)
-		ndir = get_dir(usr,on_wall)
-	else
-		ndir = get_dir(on_wall,usr)
-
-	if (!(ndir in GLOB.cardinal))
+	var/ndir = get_dir(usr,on_wall)
+	if (!(ndir in GLOB.cardinals))
+		to_chat(user, SPAN_WARNING("You need to stand in front of the wall, directly, to build \the [src]!"))
 		return
 
 	var/turf/loc = get_turf(usr)
@@ -55,8 +55,8 @@
 /obj/item/frame/fire_alarm
 	name = "fire alarm frame"
 	desc = "Used for building fire alarms."
+	icon_state = "firealarm"
 	build_machine_type = /obj/machinery/firealarm
-	reverse = 1
 
 /obj/item/frame/air_alarm
 	name = "air alarm frame"
@@ -70,7 +70,6 @@
 	icon = 'icons/obj/machinery/light.dmi'
 	icon_state = "tube-construct-item"
 	build_machine_type = /obj/machinery/light_construct
-	reverse = 1
 
 /obj/item/frame/light/small
 	name = "small light fixture frame"

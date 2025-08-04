@@ -1,7 +1,9 @@
 #define MESSAGE_SERVER_SPAM_REJECT 1
 #define MESSAGE_SERVER_DEFAULT_SPAM_LIMIT 10
 
-// Log datums stored by the message server.
+/**
+ * Log datums stored by the message server
+ */
 /datum/data_pda_msg
 	var/sender = "Unspecified"
 	var/recipient = "Unspecified"
@@ -20,7 +22,7 @@
 
 /datum/data_pda_msg/proc/get_photo_ref()
 	if(photo)
-		return "<a href='byond://?src=["\ref[src]"];photo=1'>(Photo)</a>"
+		return "<a href='byond://?src=["[REF(src)]"];photo=1'>(Photo)</a>"
 	return ""
 
 /datum/data_pda_msg/Topic(href,href_list)
@@ -65,10 +67,9 @@
 				priority = "Undetermined"
 
 /obj/machinery/telecomms/message_server
-	icon = 'icons/obj/machinery/research.dmi'
-	icon_state = "server"
 	name = "messaging server"
 	desc = "A machine that processes and routes request console messages."
+	icon_state = "message_server"
 	telecomms_type = /obj/machinery/telecomms/message_server
 	idle_power_usage = 10
 	active_power_usage = 100
@@ -117,7 +118,7 @@
 		authmsg += "[id_auth]<br>"
 	if (stamp)
 		authmsg += "[stamp]<br>"
-	for (var/obj/machinery/requests_console/Console in allConsoles)
+	for (var/obj/machinery/requests_console/Console in GLOB.allConsoles)
 		if (ckey(Console.department) == ckey(recipient))
 			if(!Console.operable())
 				Console.message_log += "<B>Message lost due to console failure.</B><BR>Please contact [station_name()] system adminsitrator or AI for technical assistance.<BR>"
@@ -129,16 +130,16 @@
 				if(2)
 					if(!Console.silent)
 						playsound(Console.loc, 'sound/machines/twobeep.ogg', 50, 1)
-						Console.audible_message(text("[icon2html(Console, viewers(get_turf(Console)))] *The Requests Console beeps: 'PRIORITY Alert in [sender]'"),,5)
-					Console.message_log += "<B><span class='warning'>High Priority message from <A href='?src=\ref[Console];write=[sender]'>[sender]</A></span></B><BR>[authmsg]"
+						Console.audible_message("[icon2html(Console, viewers(get_turf(Console)))] *The Requests Console beeps: 'PRIORITY Alert in [sender]'",,5)
+					Console.message_log += "<B><span class='warning'>High Priority message from <A href='byond://?src=[REF(Console)];write=[sender]'>[sender]</A></span></B><BR>[authmsg]"
 					for(var/obj/item/modular_computer/pda in Console.alert_pdas)
 						var/pda_message = "A high priority message has arrived!"
 						pda.get_notification(pda_message, 1, "[Console.department] Requests Console")
 				else
 					if(!Console.silent)
 						playsound(Console.loc, 'sound/machines/twobeep.ogg', 50, 1)
-						Console.audible_message(text("[icon2html(Console, viewers(get_turf(Console)))] *The Requests Console beeps: 'Message from [sender]'"),,4)
-					Console.message_log += "<B>Message from <A href='?src=\ref[Console];write=[sender]'>[sender]</A></B><BR>[authmsg]"
+						Console.audible_message("[icon2html(Console, viewers(get_turf(Console)))] *The Requests Console beeps: 'Message from [sender]'",,4)
+					Console.message_log += "<B>Message from <A href='byond://?src=[REF(Console)];write=[sender]'>[sender]</A></B><BR>[authmsg]"
 					for(var/obj/item/modular_computer/pda in Console.alert_pdas)
 						var/pda_message = "A message has arrived!"
 						pda.get_notification(pda_message, 1, "[Console.department] Requests Console")
@@ -163,19 +164,12 @@
 	else
 		..()
 
-/obj/machinery/telecomms/message_server/update_icon()
-	if(!operable(EMPED))
-		icon_state = "server-nopower"
-	else if (!use_power)
-		icon_state = "server-off"
-	else
-		icon_state = "server-on"
-
 /datum/signal/subspace/pda
 	frequency = PUB_FREQ
 	server_type = /obj/machinery/telecomms/message_server
 
-/datum/signal/subspace/pda/New(source, data)
+/datum/signal/subspace/pda/New(obj/source, data)
+	. = ..(source, frequency, data = data)
 	src.source = source
 	src.data = data
 	var/turf/T = get_turf(source)
@@ -195,7 +189,7 @@
 
 /datum/signal/subspace/pda/proc/format_message()
 	if (data["photo"])
-		return "[data["message"]] <a href='byond://?src=["\ref[src]"];photo=1'>(Photo)</a>"
+		return "[data["message"]] <a href='byond://?src=["[REF(src)]"];photo=1'>(Photo)</a>"
 	return data["message"]
 
 /datum/signal/subspace/pda/broadcast()
@@ -218,7 +212,7 @@
 GLOBAL_DATUM(blackbox, /obj/machinery/blackbox_recorder)
 
 /obj/machinery/blackbox_recorder
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'icons/obj/machinery/telecomms.dmi'
 	icon_state = "blackbox"
 	name = "blackbox recorder"
 	density = TRUE

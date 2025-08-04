@@ -1,34 +1,88 @@
 // /program/ files are executable programs that do things.
-/datum/computer_file/program
+ABSTRACT_TYPE(/datum/computer_file/program)
 	filetype = "PRG"
-	filename = "UnknownProgram"								// File name. FILE NAME MUST BE UNIQUE IF YOU WANT THE PROGRAM TO BE DOWNLOADABLE FROM NTNET!
-	filedesc = "Unknown Program"						// User-friendly name of this program.
-	var/program_type = PROGRAM_NORMAL						// Program type, used to determine if program runs in background or not.
-	var/required_access_run									// List of required accesses to run the program.
-	var/required_access_download							// List of required accesses to download the program.
-	var/requires_access_to_run = PROGRAM_ACCESS_ONE			// Whether the program checks for required_access when run. (1 = requires single access, 2 = requires single access from list, 3 = requires all access from list)
-	var/requires_access_to_download = PROGRAM_ACCESS_ONE	// Whether the program checks for required_access when downloading. (1 = requires single access, 2 = requires single access from list, 3 = requires all access from list)
-	var/program_state = PROGRAM_STATE_KILLED				// PROGRAM_STATE_KILLED or PROGRAM_STATE_BACKGROUND or PROGRAM_STATE_ACTIVE - specifies whether this program is running.
-	var/obj/item/modular_computer/computer					// Device that runs this program.
-	var/extended_desc = "N/A"								// Short description of this program's function.
-	var/program_icon_state									// Program-specific screen icon state
-	var/program_key_icon_state								// Program-specific keyboard icon state (really only applies to consoles but can be used for other purposes like having mix-n-match screens)
-	var/requires_ntnet = FALSE								// Set to TRUE for program to require nonstop NTNet connection to run. If NTNet connection is lost program crashes.
-	var/requires_ntnet_feature = FALSE						// Optional, if above is set to TRUE checks for specific function of NTNet (currently NTNET_SOFTWAREDOWNLOAD, NTNET_PEERTOPEER, NTNET_SYSTEMCONTROL and NTNET_COMMUNICATION)
-	var/ntnet_status = TRUE									// NTNet status, updated every tick by computer running this program. Don't use this for checks if NTNet works, computers do that. Use this for calculations, etc.
-	var/usage_flags = PROGRAM_ALL							// Bitflags (PROGRAM_CONSOLE, PROGRAM_LAPTOP, PROGRAM_TABLET combination) or PROGRAM_ALL
-	var/network_destination									// Optional string that describes what NTNet server/system this program connects to. Used in default logging.
-	var/available_on_ntnet = TRUE							// Whether the program can be downloaded from NTNet. Set to 0 to disable.
-	var/available_on_syndinet = FALSE						// Whether the program can be downloaded from SyndiNet (accessible via emagging the computer). Set to 1 to enable.
-	var/computer_emagged = FALSE							// Set to TRUE if computer that's running us was emagged. Computer updates this every Process() tick
-	var/ui_header											// Example: "something.gif" - a header image that will be rendered in computer's UI when this program is running at background. Images are taken from /nano/images/status_icons. Be careful not to use too large images!
-	var/color = "#FFFFFF"									// The color of light the computer should emit when this program is open.
-	var/service_state = PROGRAM_STATE_DISABLED				// PROGRAM_STATE_KILLED or PROGRAM_STATE_ACTIVE - specifies whether this program's service is running.
+
+	/// File name. FILE NAME MUST BE UNIQUE IF YOU WANT THE PROGRAM TO BE DOWNLOADABLE FROM NTNET!
+	filename = "UnknownProgram"
+
+	/// User-friendly name of this program.
+	filedesc = "Unknown Program"
+
+	/// Program type, used to determine if program runs in background or not.
+	var/program_type = PROGRAM_NORMAL
+
+	/// List of required accesses to run the program.
+	var/required_access_run
+
+	/// List of required accesses to download the program.
+	var/required_access_download
+
+	/// Whether the program checks for required_access when run. (1 = requires single access, 2 = requires single access from list, 3 = requires all access from list)
+	var/requires_access_to_run = PROGRAM_ACCESS_ONE
+
+	/// Whether the program checks for required_access when downloading. (1 = requires single access, 2 = requires single access from list, 3 = requires all access from list)
+	var/requires_access_to_download = PROGRAM_ACCESS_ONE
+
+	/// PROGRAM_STATE_KILLED or PROGRAM_STATE_BACKGROUND or PROGRAM_STATE_ACTIVE - specifies whether this program is running.
+	var/program_state = PROGRAM_STATE_KILLED
+
+	/**
+	 * The device that runs this program
+	 *
+	 * **Only supported way to set this is by calling set_computer()**
+	 */
+	var/obj/item/modular_computer/computer
+
+	/// Short description of this program's function.
+	var/extended_desc = "N/A"
+
+	/// Program-specific screen icon state
+	var/program_icon_state
+
+	/// Program-specific keyboard icon state (really only applies to consoles but can be used for other purposes like having mix-n-match screens)
+	var/program_key_icon_state
+
+	/// Set to TRUE for program to require nonstop NTNet connection to run. If NTNet connection is lost program crashes.
+	var/requires_ntnet = FALSE
+
+	/// Optional, if above is set to TRUE checks for specific function of NTNet (currently NTNET_SOFTWAREDOWNLOAD, NTNET_PEERTOPEER, NTNET_SYSTEMCONTROL and NTNET_COMMUNICATION)
+	var/requires_ntnet_feature = FALSE
+
+	/// NTNet status, updated every tick by computer running this program. Don't use this for checks if NTNet works, computers do that. Use this for calculations, etc.
+	var/ntnet_status = TRUE
+
+	/// Bitflags (PROGRAM_CONSOLE, PROGRAM_LAPTOP, PROGRAM_TABLET combination) or PROGRAM_ALL
+	var/usage_flags = PROGRAM_ALL
+
+	/// Optional string that describes what NTNet server/system this program connects to. Used in default logging.
+	var/network_destination
+
+	/// Whether the program can be downloaded from NTNet. Set to 0 to disable.
+	var/available_on_ntnet = TRUE
+
+	/// Whether the program can be downloaded from SyndiNet (accessible via emagging the computer). Set to 1 to enable.
+	var/available_on_syndinet = FALSE
+
+	/// Set to TRUE if computer that's running us was emagged. Computer updates this every Process() tick
+	var/computer_emagged = FALSE
+
+	/// Example: "something.gif" - a header image that will be rendered in computer's UI when this program is running at background. Images are taken from /nano/images/status_icons. Be careful not to use too large images!
+	var/ui_header
+
+	/// The color of light the computer should emit when this program is open.
+	var/color = "#FFFFFF"
+
+	/// PROGRAM_STATE_KILLED or PROGRAM_STATE_ACTIVE - specifies whether this program's service is running.
+	var/service_state = PROGRAM_STATE_DISABLED
+
 	var/silent = FALSE
+
 	/// Name of the TGUI Interface
 	var/tgui_id
+
 	/// Theme of this TGUI interface
 	var/tgui_theme = "scc"
+
 	/// If this TGUI should autoupdate or not.
 	var/ui_auto_update = TRUE
 
@@ -36,13 +90,13 @@
 	var/datum/nano_module/NM								// If the program uses NanoModule, put it here and it will be automagically opened. Otherwise implement ui_interact.
 	var/nanomodule_path										// Path to nanomodule, make sure to set this if implementing new program.
 
-/datum/computer_file/program/New(var/obj/item/modular_computer/comp)
+/datum/computer_file/program/New(obj/item/modular_computer/comp)
 	..()
 	if(comp)
 		if(comp == "Compless") // we're software in the air, don't need a computer
 			return
 		else if(istype(comp))
-			computer = comp
+			set_computer(comp)
 		else
 			crash_with("Comp was of the wrong type for [src.filename]")
 	else
@@ -52,7 +106,7 @@
 	if(!QDELETED(computer))
 		computer.idle_threads -= src
 		computer.enabled_services -= src
-		computer = null
+		set_computer(null)
 	. = ..()
 	GC_TEMPORARY_HARDDEL
 
@@ -88,6 +142,39 @@
 	temp.requires_ntnet_feature = requires_ntnet_feature
 	temp.usage_flags = usage_flags
 	return temp
+
+/**
+ * Sets the computer this program is running on
+ *
+ * * computer - The computer to set this program to, or `null` to remove it
+ */
+/datum/computer_file/program/proc/set_computer(obj/item/modular_computer/computer)
+	SHOULD_NOT_SLEEP(TRUE)
+
+	//Not setting something already being deleted
+	if(istype(computer) && QDELETED(computer))
+		return
+
+	//It's already the same
+	if(src.computer == computer)
+		return
+
+	//Stop listening for the old computer
+	if(istype(src.computer))
+		UnregisterSignal(src.computer, COMSIG_QDELETING)
+
+	src.computer = computer
+
+	//Start listening for the new computer, if it's one
+	if(istype(computer))
+		RegisterSignal(computer, COMSIG_QDELETING, PROC_REF(on_computer_deleted))
+
+/**
+ * Handles signal when the computer we are referencing is deleted
+ */
+/datum/computer_file/program/proc/on_computer_deleted()
+	SIGNAL_HANDLER
+	qdel(src)
 
 // Relays icon update to the computer.
 /datum/computer_file/program/proc/update_computer_icon()

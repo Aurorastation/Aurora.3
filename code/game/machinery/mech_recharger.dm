@@ -22,14 +22,32 @@
 		/obj/item/stock_parts/manipulator = 2
 	)
 
-/obj/machinery/mech_recharger/Crossed(var/mob/living/heavy_vehicle/M)
-	. = ..()
-	if(istype(M) && charging != M)
-		start_charging(M)
+/obj/machinery/mech_recharger/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>capacitors</b> will increase charging rate."
+	. += "Upgraded <b>scanning modules</b> will increase both charging rate and repair speed."
+	. += "Upgraded <b>manipulators</b> will increase repair speed."
 
-/obj/machinery/mech_recharger/Uncrossed(var/mob/living/heavy_vehicle/M)
+/obj/machinery/mech_recharger/Initialize(mapload)
 	. = ..()
-	if(M == charging)
+
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+		COMSIG_ATOM_EXITED = PROC_REF(on_exit),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
+/obj/machinery/mech_recharger/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	if(istype(arrived, /mob/living/heavy_vehicle) && charging != arrived)
+		start_charging(arrived)
+
+/obj/machinery/mech_recharger/proc/on_exit(atom/movable/gone, direction)
+	SIGNAL_HANDLER
+
+	if(gone == charging)
 		stop_charging()
 
 /obj/machinery/mech_recharger/RefreshParts()

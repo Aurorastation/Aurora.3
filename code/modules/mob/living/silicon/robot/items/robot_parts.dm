@@ -31,7 +31,7 @@
 /obj/item/robot_parts/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(is_adjacent)
-		. = report_missing_parts(user)
+		. += report_missing_parts(user)
 
 /obj/item/robot_parts/proc/report_missing_parts(var/mob/user)
 	. = list()
@@ -259,7 +259,7 @@
 				C.replace_cell(chest.cell)
 				//so people won't mess around with the chassis until it is deleted
 				forceMove(new_shell)
-				M.brainmob.mind.transfer_to(new_shell)
+				M.brainmob.mind?.transfer_to(new_shell)
 				qdel(M)
 				new_shell.add_language(LANGUAGE_EAL)
 				var/newname = sanitizeSafe( tgui_input_text(new_shell, "Enter a name, or leave blank for the default name.", "Name change", "", MAX_NAME_LEN), MAX_NAME_LEN )
@@ -279,6 +279,11 @@
 					to_chat(user, SPAN_WARNING("\The [attacking_item] does not seem to fit. (The player has been banned from playing this role)"))
 					return
 
+				// So you cannot make a cyborg with a positronic in it.
+				if(istype(M, /obj/item/device/mmi/digital/posibrain))
+					to_chat(user, SPAN_WARNING("Positronic brains are not compatible with this kind of chassis."))
+					return
+
 				var/mob/living/silicon/robot/O = new /mob/living/silicon/robot(get_turf(src), TRUE)
 				if(!O)
 					return
@@ -289,7 +294,7 @@
 				O.custom_name = created_name
 				O.updatename("Default")
 
-				M.brainmob.mind.transfer_to(O)
+				M.brainmob.mind?.transfer_to(O)
 
 				O.job = "Cyborg"
 				O.cell = chest.cell
@@ -306,7 +311,7 @@
 				callHook("borgify", list(O))
 				O.Namepick()
 				qdel(src)
-		else
+		else if(!istype(M, /obj/item/device/mmi/digital/posibrain))
 			to_chat(user, SPAN_WARNING("\The [attacking_item] can only be inserted after everything else is installed."))
 		return
 

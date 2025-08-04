@@ -3,7 +3,7 @@
 	desc = "The assembly frame of a back-mounted hardsuit deployment and control mechanism."
 	icon = 'icons/obj/rig_modules.dmi'
 	var/icon_base = null
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 
 	///The type of board, a path of `/obj/item/circuitboard`
 	var/board_type = null

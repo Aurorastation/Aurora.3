@@ -4,7 +4,7 @@
 	pixel_y = 4;
 	pixel_x = -1
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 5
 	},
@@ -103,8 +103,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	pixel_y = 24
@@ -146,9 +145,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/elyran_corvette/portwep)
 "av" = (
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71
-	},
+/obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
@@ -499,8 +496,7 @@
 /area/ship/elyran_corvette/captain)
 "co" = (
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/structure/curtain/open/shower,
 /obj/machinery/shower{
@@ -532,8 +528,7 @@
 /area/ship/elyran_corvette/messhall)
 "cz" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /obj/effect/decal/cleanable/blood/drip/oil,
 /turf/simulated/floor/tiled/dark/full,
@@ -622,8 +617,7 @@
 /area/ship/elyran_corvette/dorm)
 "cN" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /obj/effect/decal/cleanable/blood/drip/oil,
 /obj/machinery/alarm/east{
@@ -656,8 +650,7 @@
 	},
 /obj/structure/bed/stool/chair/office/bridge/generic,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/elyran_corvette/starboardwep)
@@ -700,17 +693,25 @@
 /turf/simulated/floor/lino,
 /area/ship/elyran_corvette/messhall)
 "di" = (
-/obj/structure/ship_weapon_dummy,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	layer = 2.71
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/ship/elyran_corvette/portwep)
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/turf/simulated/floor/tiled/dark,
+/area/ship/elyran_corvette/briefing)
 "dE" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 4;
-	frequency = 1441;
 	id_tag = "elyra_co2_out_port"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -732,12 +733,9 @@
 /turf/simulated/floor/plating,
 /area/ship/elyran_corvette/portthrust)
 "dV" = (
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71
-	},
+/obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/reagent_dispensers/watertank,
@@ -820,8 +818,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ship/elyran_corvette/starboardhallway)
@@ -954,7 +951,6 @@
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
-	layer = 2.71;
 	dir = 8
 	},
 /obj/machinery/light/colored/decayed{
@@ -1067,9 +1063,7 @@
 	anchored = 1;
 	name = "Crewman's cabinet"
 	},
-/obj/item/clothing/head/hijab/black{
-	layer = 2.99
-	},
+/obj/item/clothing/head/hijab/black,
 /obj/item/clothing/accessory/badge/passcard/elyra,
 /obj/item/clothing/accessory/storage/black_vest,
 /obj/item/clothing/accessory/holster/thigh,
@@ -1083,7 +1077,7 @@
 	pixel_y = 4;
 	pixel_x = 1
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 9
 	},
@@ -1199,14 +1193,14 @@
 	},
 /obj/structure/cable{
 	d2 = 2;
-	icon_state = "0-2";
-	pixel_y = 0
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/marble/dark,
 /area/ship/elyran_corvette/prayerhall)
 "fX" = (
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(207)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/elyran_shuttle)
@@ -1232,6 +1226,8 @@
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 10
 	},
+/obj/item/stack/nanopaste,
+/obj/item/device/robotanalyzer,
 /turf/simulated/floor/tiled/white,
 /area/ship/elyran_corvette/medbay)
 "gc" = (
@@ -1259,8 +1255,7 @@
 /area/shuttle/elyran_shuttle)
 "ge" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/alarm/east{
@@ -1271,7 +1266,7 @@
 /area/ship/elyran_corvette/hangar)
 "gh" = (
 /obj/machinery/atmospherics/unary/engine,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 10
 	},
@@ -1383,9 +1378,7 @@
 /turf/simulated/floor/tiled,
 /area/ship/elyran_corvette/engineering)
 "gV" = (
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71
-	},
+/obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
@@ -1593,8 +1586,7 @@
 	name = "Pump to Waste"
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	layer = 2.71
+	dir = 4
 	},
 /obj/machinery/light/colored/decayed{
 	dir = 4
@@ -1750,8 +1742,7 @@
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
@@ -1766,9 +1757,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
-/obj/effect/decal/cleanable/generic{
-	layer = 2.81
-	},
+/obj/effect/decal/cleanable/generic,
 /obj/machinery/light/colored/decayed,
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/brig)
@@ -1831,14 +1820,12 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/ship/elyran_corvette/starboardwep)
 "jj" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	layer = 2.71;
 	dir = 8
 	},
 /obj/effect/decal/cleanable/cobweb2,
@@ -1893,7 +1880,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/elyran_corvette/cic)
 "jC" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/elyran_corvette/starboardthrust)
@@ -2000,9 +1987,7 @@
 	name = "trashbin";
 	pixel_x = 8
 	},
-/obj/effect/decal/cleanable/generic{
-	layer = 2.81
-	},
+/obj/effect/decal/cleanable/generic,
 /obj/machinery/light/colored/decayed{
 	dir = 4
 	},
@@ -2103,7 +2088,6 @@
 /area/shuttle/elyran_shuttle)
 "kZ" = (
 /obj/structure/closet/secure_closet/kitchen_cabinet/standard{
-	req_access = null;
 	anchored = 1
 	},
 /obj/item/reagent_containers/food/snacks/meat,
@@ -2114,9 +2098,7 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
-/obj/item/storage/box/produce{
-	layer = 2.99
-	},
+/obj/item/storage/box/produce,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/reagent_containers/food/drinks/carton/milk,
@@ -2273,8 +2255,7 @@
 "md" = (
 /obj/structure/ship_weapon_dummy,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/ship/elyran_corvette/portwep)
@@ -2312,8 +2293,7 @@
 /area/ship/elyran_corvette/porthallway)
 "ms" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /obj/effect/decal/cleanable/blood/drip/oil,
 /turf/simulated/floor/tiled/dark,
@@ -2375,7 +2355,7 @@
 /area/ship/elyran_corvette/dorm)
 "mW" = (
 /obj/machinery/atmospherics/unary/engine,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 6
 	},
@@ -2391,8 +2371,7 @@
 	},
 /obj/structure/bed/stool/chair/office/bridge/generic,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/elyran_corvette/portwep)
@@ -2510,8 +2489,7 @@
 /area/ship/elyran_corvette/engineering)
 "nB" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/hangar)
@@ -2670,7 +2648,7 @@
 /turf/simulated/floor/plating,
 /area/ship/elyran_corvette/engineering)
 "ol" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/elyran_corvette/portthrust)
@@ -2739,8 +2717,7 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -2835,8 +2812,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/elyran_corvette/engineering)
@@ -2848,8 +2824,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/effect/map_effect/marker/airlock/shuttle{
@@ -3029,7 +3004,8 @@
 	dir = 1
 	},
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(207)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/elyran_corvette/starboardwep)
@@ -3174,9 +3150,7 @@
 	anchored = 1;
 	name = "Engineer's cabinet"
 	},
-/obj/item/clothing/head/hijab/black{
-	layer = 2.99
-	},
+/obj/item/clothing/head/hijab/black,
 /obj/item/clothing/accessory/badge/passcard/elyra,
 /obj/item/clothing/accessory/storage/brown_vest,
 /obj/item/clothing/accessory/storage/pouches/brown,
@@ -3623,7 +3597,6 @@
 /obj/item/book{
 	name = "Quran";
 	icon_state = "holybook";
-	desc_antag = null;
 	desc = "This is the Quran. This is the holy text of Islam, believed by Muslims to be a revelation from God.";
 	pixel_y = 3
 	},
@@ -3665,9 +3638,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/starboardwep)
 "uv" = (
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
@@ -3675,6 +3645,7 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/elyran_corvette/porthallway)
 "uz" = (
@@ -3851,8 +3822,7 @@
 /area/ship/elyran_corvette/medbay)
 "vC" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
@@ -4295,8 +4265,7 @@
 /area/ship/elyran_corvette/starboardwep)
 "xT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -4478,9 +4447,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/elyran_corvette/mainhallway)
 "ze" = (
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71
-	},
+/obj/effect/floor_decal/industrial/warning,
 /obj/machinery/portable_atmospherics/powered/pump/filled{
 	start_pressure = 10000
 	},
@@ -4617,7 +4584,8 @@
 	dir = 10
 	},
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(207)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/cic)
@@ -4840,8 +4808,7 @@
 /area/ship/elyran_corvette/porthallway)
 "AV" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark,
@@ -4921,8 +4888,7 @@
 /area/ship/elyran_corvette/mainhallway)
 "Bt" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 6
@@ -4984,13 +4950,12 @@
 	pixel_y = -8;
 	pixel_x = 6
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/elyran_corvette/dorm)
 "BN" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/visible/red{
 	dir = 1
@@ -5066,7 +5031,9 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
-/obj/machinery/computer/ship/targeting/terminal,
+/obj/machinery/computer/ship/targeting/terminal{
+	req_access = list(207)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/cic)
 "Cm" = (
@@ -5353,8 +5320,7 @@
 /area/shuttle/elyran_shuttle)
 "Ej" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /obj/machinery/light/small/emergency{
 	dir = 4
@@ -5385,8 +5351,7 @@
 	},
 /obj/structure/cable{
 	d2 = 2;
-	icon_state = "0-2";
-	pixel_y = 0
+	icon_state = "0-2"
 	},
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
@@ -5451,7 +5416,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/brig)
 "ES" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 6
 	},
@@ -5894,8 +5859,7 @@
 /area/ship/elyran_corvette/medbay)
 "HD" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /obj/machinery/light/small/emergency{
 	dir = 4
@@ -6094,9 +6058,7 @@
 /turf/simulated/floor/plating,
 /area/ship/elyran_corvette/mainhallway)
 "IA" = (
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71
-	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/hangar)
 "IB" = (
@@ -6128,9 +6090,6 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/elyran_corvette/prayerhall)
 "IM" = (
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
@@ -6138,6 +6097,7 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/elyran_corvette/starboardhallway)
 "IO" = (
@@ -6220,7 +6180,7 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/elyran_corvette/portwep)
 "Js" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/portable_atmospherics/powered/scrubber,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small/emergency,
@@ -6261,12 +6221,8 @@
 /area/ship/elyran_corvette/medbay)
 "Jx" = (
 /obj/structure/closet/crate/freezer/rations,
-/obj/item/storage/box/fancy/cigarettes/dromedaryco{
-	layer = 2.99
-	},
-/obj/item/flame/lighter/zippo{
-	layer = 2.99
-	},
+/obj/item/storage/box/fancy/cigarettes/dromedaryco,
+/obj/item/flame/lighter/zippo,
 /obj/structure/sign/crush{
 	pixel_x = -32
 	},
@@ -6318,9 +6274,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/item/clothing/head/hijab/black{
-	layer = 2.99
-	},
+/obj/item/clothing/head/hijab/black,
 /obj/item/clothing/accessory/badge/passcard/elyra,
 /obj/item/clothing/accessory/storage/black_vest,
 /obj/item/clothing/accessory/holster/thigh,
@@ -6681,7 +6635,6 @@
 "Ls" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 8;
-	frequency = 1441;
 	id_tag = "elyra_co2_out_starboard"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -6716,9 +6669,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
-/obj/effect/decal/cleanable/generic{
-	layer = 2.81
-	},
+/obj/effect/decal/cleanable/generic,
 /obj/structure/noticeboard{
 	pixel_y = 32
 	},
@@ -6732,9 +6683,7 @@
 	anchored = 1;
 	name = "Senior Crewman's cabinet"
 	},
-/obj/item/clothing/head/hijab/black{
-	layer = 2.99
-	},
+/obj/item/clothing/head/hijab/black,
 /obj/item/clothing/accessory/badge/passcard/elyra,
 /obj/item/flag/elyra/l,
 /obj/item/grenade/chem_grenade/large/phoroncleaner,
@@ -6901,8 +6850,7 @@
 /area/space)
 "Nd" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/elyran_corvette/hangar)
@@ -6955,9 +6903,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/elyran_corvette/portthrust)
 "No" = (
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71
-	},
+/obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
@@ -6968,8 +6914,7 @@
 /area/ship/elyran_corvette/hangar)
 "Np" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/sign/nosmoking_2{
@@ -7075,13 +7020,11 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/item/clothing/head/hijab/black{
-	layer = 2.99
-	},
+/obj/item/clothing/head/hijab/black,
 /obj/item/clothing/accessory/badge/passcard/elyra,
 /obj/item/clothing/accessory/storage/white_vest,
 /obj/item/clothing/accessory/storage/pouches/white,
-/obj/item/storage/belt/medical/first_responder/combat/full,
+/obj/item/storage/belt/medical/paramedic/combat/full,
 /obj/item/clothing/accessory/armband/medgreen,
 /obj/item/clothing/head/beret/elyra,
 /turf/simulated/floor/carpet/rubber,
@@ -7100,8 +7043,7 @@
 /area/ship/elyran_corvette/captain)
 "NG" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 1;
-	icon_state = "map"
+	dir = 1
 	},
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/elyran_shuttle)
@@ -7325,12 +7267,6 @@
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
-/obj/item/tank/emergency_oxygen/double,
-/obj/item/tank/emergency_oxygen/double,
-/obj/item/tank/emergency_oxygen/double,
-/obj/item/tank/emergency_oxygen/double,
-/obj/item/tank/emergency_oxygen/double,
-/obj/item/tank/emergency_oxygen/double,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/elyran_corvette/briefing)
 "OY" = (
@@ -7546,9 +7482,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/item/clothing/head/hijab/black{
-	layer = 2.99
-	},
+/obj/item/clothing/head/hijab/black,
 /obj/item/clothing/accessory/badge/passcard/elyra,
 /obj/item/flag/elyra/l,
 /obj/item/grenade/chem_grenade/large/phoroncleaner,
@@ -7579,8 +7513,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/elyran_corvette/engineering)
@@ -8096,9 +8029,7 @@
 /turf/simulated/floor/tiled/full,
 /area/ship/elyran_corvette/mainhallway)
 "Su" = (
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71
-	},
+/obj/effect/floor_decal/industrial/warning,
 /obj/structure/ship_weapon_dummy/barrel,
 /turf/simulated/floor/reinforced/airless,
 /area/ship/elyran_corvette/portwep)
@@ -8154,8 +8085,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /obj/structure/ship_weapon_dummy/barrel,
 /turf/simulated/floor/reinforced/airless,
@@ -8374,8 +8304,7 @@
 /area/ship/elyran_corvette/dorm)
 "TY" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/dark/full,
@@ -8627,8 +8556,7 @@
 	icon_state = "1-8"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -8853,8 +8781,7 @@
 	icon_state = "2-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -9023,7 +8950,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/elyran_corvette/starboardwep)
 "XQ" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/portable_atmospherics/powered/scrubber,
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor/carpet/rubber,
@@ -9114,8 +9041,7 @@
 /area/ship/elyran_corvette/portthrust)
 "Yh" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark,
@@ -9229,7 +9155,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/elyran_corvette/starboardthrust)
 "YZ" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 10
 	},
@@ -9304,9 +9230,7 @@
 /turf/simulated/floor/tiled/full,
 /area/ship/elyran_corvette/washroom)
 "Zx" = (
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71
-	},
+/obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
@@ -9327,7 +9251,8 @@
 	dir = 1
 	},
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(207)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/elyran_corvette/portwep)
@@ -46987,7 +46912,7 @@ gD
 ve
 Dn
 GZ
-pu
+di
 UP
 Dn
 ve
@@ -47261,7 +47186,7 @@ Fc
 cV
 fe
 fe
-di
+La
 La
 Cs
 bk

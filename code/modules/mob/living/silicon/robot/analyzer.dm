@@ -3,20 +3,21 @@
 //
 /obj/item/device/robotanalyzer
 	name = "cyborg analyzer"
+	icon = 'icons/obj/item/device/robotanalyzer.dmi'
 	icon_state = "robotanalyzer"
 	item_state = "analyzer"
 	desc = "A hand-held scanner able to diagnose robotic injuries."
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	throwforce = 3
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 5
 	throw_range = 10
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 1, TECH_ENGINEERING = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 500, MATERIAL_GLASS = 200)
 
-/obj/item/device/robotanalyzer/attack(mob/living/M, mob/living/user)
-	robotic_analyze_mob(M, user)
+/obj/item/device/robotanalyzer/attack(mob/living/target_mob, mob/living/user, target_zone)
+	robotic_analyze_mob(target_mob, user)
 	add_fingerprint(user)
 
 
@@ -81,7 +82,7 @@
 			var/organ_found
 			if(length(H.internal_organs))
 				for(var/obj/item/organ/external/E in H.organs)
-					if(!(E.status & ORGAN_ROBOT))
+					if(!(E.status & (ORGAN_ROBOT || ORGAN_ASSISTED)))
 						continue
 					organ_found = TRUE
 					to_chat(user, "[E.name]: <span class='warning'>[E.brute_dam]</span> <font color='#FFA500'>[E.burn_dam]</font>")
@@ -96,12 +97,13 @@
 				if(head?.open == 3) // Hatch open
 					show_tag = TRUE
 				for(var/obj/item/organ/O in H.internal_organs)
-					if(!(O.status & ORGAN_ROBOT))
+					if(!(O.status & (ORGAN_ROBOT || ORGAN_ASSISTED)))
 						continue
 					if(!show_tag && istype(O, /obj/item/organ/internal/ipc_tag))
 						continue
 					organ_found = TRUE
 					to_chat(user, "[O.name]: <span class='warning'>[O.damage]</span>")
+					to_chat(user, "<i>[O.desc]</i>")
 			if(!organ_found)
 				to_chat(user, SPAN_NOTICE("No prosthetics located."))
 
@@ -109,10 +111,11 @@
 /obj/item/device/robotanalyzer/augment
 	name = "retractable cyborg analyzer"
 	desc = "An scanner implanted directly into the hand, popping through the finger. This scanner can diagnose robotic injuries."
+	icon = 'icons/obj/item/device/robotanalyzer.dmi'
 	icon_state = "robotanalyzer"
 	item_state = "analyzer"
 	slot_flags = null
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 
 /obj/item/device/robotanalyzer/augment/throw_at(atom/target, range, speed, mob/user)
 	user.drop_from_inventory(src)

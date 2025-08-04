@@ -15,8 +15,9 @@
 	icon = 'icons/obj/doors/rapid_pdoor.dmi'
 	icon_state = null
 	dir = 1
-	closed_layer = ABOVE_WINDOW_LAYER
+	closed_layer = ABOVE_DOOR_LAYER
 	explosion_resistance = 25
+	pass_flags_self = PASSDOORS
 
 	/// Most blast doors are infrequently toggled and sometimes used with regular doors anyways.
 	/// Turning this off prevents awkward zone geometry in places like medbay lobby, for example.
@@ -54,7 +55,7 @@
 // Proc: Bumped()
 // Parameters: 1 (AM - Atom that tried to walk through this object)
 // Description: If we are open returns zero, otherwise returns result of parent function.
-/obj/machinery/door/blast/CollidedWith(atom/AM)
+/obj/machinery/door/blast/CollidedWith(atom/bumped_atom)
 	if(!density)
 		return ..()
 	else
@@ -117,12 +118,27 @@
 /obj/machinery/door/blast/attackby(obj/item/attacking_item, mob/user)
 	if(!istype(attacking_item, /obj/item/forensics))
 		src.add_fingerprint(user)
-	if((istype(attacking_item, /obj/item/material/twohanded/fireaxe) && attacking_item:wielded == 1) || attacking_item.ishammer() || istype(attacking_item, /obj/item/crowbar/robotic/jawsoflife))
-		if (((stat & NOPOWER) || 	(stat & BROKEN)) && !( src.operating ))
+	if(istype(attacking_item, /obj/item/material/twohanded/fireaxe))
+		var/obj/item/material/twohanded/fireaxe/F = attacking_item
+		if(!F.wielded)
+			return TRUE
+
+		if(((stat & NOPOWER) || (stat & BROKEN)) && !src.operating)
 			force_toggle()
 		else
 			to_chat(usr, SPAN_NOTICE("[src]'s motors resist your effort."))
+
 		return TRUE
+
+
+	if(attacking_item.ishammer() || istype(attacking_item, /obj/item/crowbar/hydraulic_rescue_tool))
+		if(((stat & NOPOWER) || (stat & BROKEN)) && !src.operating)
+			force_toggle()
+		else
+			to_chat(usr, SPAN_NOTICE("[src]'s motors resist your effort."))
+
+		return TRUE
+
 	if(istype(attacking_item, /obj/item/stack/material) && attacking_item.get_material_name() == "plasteel")
 		var/amt = Ceiling((maxhealth - health)/150)
 		if(!amt)
@@ -151,8 +167,7 @@
 		return
 	force_open()
 	if(autoclose)
-		spawn(150)
-			close()
+		addtimer(CALLBACK(src, PROC_REF(close)), 15 SECONDS)
 	return 1
 
 // Proc: close()
@@ -198,6 +213,7 @@
 // SUBTYPE: Regular
 // Your classical blast door, found almost everywhere.
 /obj/machinery/door/blast/regular
+	name = "blast door" //Because SDMM doesn't recognise the name otherwise, for some reason
 	icon_state_open = "pdoor0"
 	icon_state_opening = "pdoorc0"
 	icon_state_closed = "pdoor1"
@@ -207,6 +223,7 @@
 	block_air_zones = 1
 
 /obj/machinery/door/blast/regular/open
+	name = "blast door" //Because SDMM doesn't recognise the name otherwise, for some reason
 	icon_state = "pdoor0"
 	density = FALSE
 	opacity = FALSE
@@ -221,6 +238,7 @@
 	icon_state_closing = "shutterc1"
 	icon_state = "shutter1"
 	damage = SHUTTER_CRUSH_DAMAGE
+	closed_layer = CLOSED_DOOR_LAYER
 
 /obj/machinery/door/blast/shutters/open
 	icon_state = "shutter0"
@@ -239,6 +257,7 @@
 	block_air_zones = 1
 
 /obj/machinery/door/blast/odin/open
+	name = "blast door" //Because SDMM doesn't recognise the name otherwise, for some reason
 	icon_state = "pdoor0"
 	density = 0
 	opacity = 0

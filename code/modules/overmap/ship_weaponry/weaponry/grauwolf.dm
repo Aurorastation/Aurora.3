@@ -20,7 +20,7 @@
 	overmap_icon_state = "flak"
 	caliber = SHIP_CALIBER_90MM
 	ammunition_behaviour = SHIP_AMMO_BEHAVIOUR_DUMBFIRE
-	projectile_type_override = /obj/item/projectile/ship_ammo/grauwolf
+	projectile_type_override = /obj/projectile/ship_ammo/grauwolf
 	burst = 4
 
 /obj/item/ship_ammunition/grauwolf_bundle/ap
@@ -28,23 +28,23 @@
 	desc = "A bundle of armor-piercing flak shells."
 	icon_state = "bundle_ap"
 	impact_type = SHIP_AMMO_IMPACT_AP
-	projectile_type_override = /obj/item/projectile/ship_ammo/grauwolf/ap
+	projectile_type_override = /obj/projectile/ship_ammo/grauwolf/ap
 
-/obj/item/projectile/ship_ammo/grauwolf
+/obj/projectile/ship_ammo/grauwolf
 	name = "high-explosive flak"
 	icon_state = "small_burst"
 	damage = 100
 	armor_penetration = 50
 	penetrating = 0
 
-/obj/item/projectile/ship_ammo/grauwolf/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
+/obj/projectile/ship_ammo/grauwolf/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
 	. = ..()
 	if(ammo && ammo.impact_type == SHIP_AMMO_IMPACT_HE)
 		explosion(target, 0, 2, 4)
 	else
 		explosion(target, 0, 1, 2)
 
-/obj/item/projectile/ship_ammo/grauwolf/ap
+/obj/projectile/ship_ammo/grauwolf/ap
 	name = "armor-piercing flak"
 	damage = 50
 	armor_penetration = 50

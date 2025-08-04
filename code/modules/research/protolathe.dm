@@ -35,6 +35,11 @@
 		/obj/item/reagent_containers/glass/beaker = 2
 	)
 
+/obj/machinery/r_n_d/protolathe/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>matter bins</b> will increase material storage capacity."
+	. += "Upgraded <b>manipulators</b> will improve material use efficiency and increase fabrication speed."
+
 ///Returns the total of all the stored materials
 /obj/machinery/r_n_d/protolathe/proc/TotalMaterials()
 	var/t = 0
@@ -43,6 +48,7 @@
 	return t
 
 /obj/machinery/r_n_d/protolathe/RefreshParts()
+	..()
 	// Adjust reagent container volume to match combined volume of the inserted beakers
 	var/T = 0
 	for(var/obj/item/reagent_containers/glass/G in component_parts)
@@ -63,6 +69,7 @@
 		T += M.rating
 	mat_efficiency = 1 - (T - 2) / 8
 	production_speed = T / 2
+	update_icon()
 
 /obj/machinery/r_n_d/protolathe/dismantle()
 	for(var/obj/I in component_parts)
@@ -76,13 +83,21 @@
 				S.amount = round(materials[f] / SHEET_MATERIAL_AMOUNT)
 	..()
 
+/obj/machinery/r_n_d/protolathe/power_change()
+	. = ..()
+	update_icon()
+
 /obj/machinery/r_n_d/protolathe/update_icon()
+	ClearOverlays()
 	if(panel_open)
-		icon_state = "protolathe_t"
-	else if(build_callback_timer)
-		icon_state = "protolathe_n"
-	else
-		icon_state = "protolathe"
+		AddOverlays("[icon_state]_panel")
+	if(!(stat & (NOPOWER|BROKEN)))
+		AddOverlays(emissive_appearance(icon, "[icon_state]_lights"))
+		AddOverlays("[icon_state]_lights")
+	if(build_callback_timer)
+		AddOverlays("[icon_state]_working")
+		AddOverlays(emissive_appearance(icon, "[icon_state]_lights_working"))
+		AddOverlays("[icon_state]_lights_working")
 
 /obj/machinery/r_n_d/protolathe/attackby(obj/item/attacking_item, mob/user)
 	if(build_callback_timer)
@@ -119,9 +134,10 @@
 	if(!stack.default_type)
 		to_chat(user, SPAN_WARNING("This stack cannot be used!"))
 		return
-	var/amount = tgui_input_number(user, "How many sheets do you want to add?", "Add sheets", 10,
-									max_value = min(stack.get_amount(), round((max_material_storage - TotalMaterials()) / SHEET_MATERIAL_AMOUNT)),
-									min_value = 1, round_value = TRUE)
+
+	var/max_value = min(stack.get_amount(), round((max_material_storage - TotalMaterials()) / SHEET_MATERIAL_AMOUNT))
+	var/amount = tgui_input_number(user, "How many sheets do you want to add?", "Add sheets", min(10, max_value), max_value = max_value, min_value = 1, round_value = TRUE)
+
 	if(!attacking_item)
 		return
 	if(!Adjacent(user))
@@ -130,14 +146,22 @@
 	if(amount <= 0)//No negative numbers, no nulls
 		return
 
-	AddOverlays("protolathe_[stack.default_type]")
-	CUT_OVERLAY_IN("protolathe_[stack.default_type]", 10)
+	var/mutable_appearance/M = mutable_appearance(icon, "material_insertion")
+	M.color = stack.material.icon_colour
+	//first play the insertion animation
+	flick_overlay_view(M, 1 SECONDS)
+
+	//now play the progress bar animation
+	flick_overlay_view(mutable_appearance(icon, "protolathe_progress"), 1 SECONDS)
 
 	//Use some power and add the materials
 	use_power_oneoff(max(1000, (SHEET_MATERIAL_AMOUNT * amount / 10)))
 	if(do_after(user, 1.6 SECONDS))
 		if(stack.use(amount))
-			to_chat(user, SPAN_NOTICE("You add [amount] sheets to \the [src]."))
+			if(amount>1)
+				to_chat(user, SPAN_NOTICE("You add [amount] [stack.material.sheet_plural_name] of [stack.material.name] to \the [src]."))
+			else
+				to_chat(user, SPAN_NOTICE("You add [amount] [stack.material.sheet_singular_name] of [stack.material.name] to \the [src]."))
 			materials[stack.default_type] += amount * SHEET_MATERIAL_AMOUNT
 
 			//In case there's things queued up, we run the queue handler
@@ -183,6 +207,7 @@
 	//If there's no power, there's no building
 	if(stat & NOPOWER)
 		queue = list()
+		update_icon()
 		return
 
 	//Get the first design in the queue

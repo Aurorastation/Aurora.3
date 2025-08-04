@@ -59,16 +59,27 @@
 	icon_state = "large"
 	density = TRUE
 	anchored = TRUE
-	pass_flags = PASSTABLE | PASSRAILING
+	pass_flags = PASSTABLE
 
+	///The resilience of our meteor
 	var/hits = 4
-	var/hitpwr = 2 //Level of ex_act to be called on hit.
-	var/dest
+	///Level of ex_act to be called on hit
+	var/hitpwr = 2
+	//Should we shake people's screens on impact
 	var/heavy = FALSE
+	///Our starting z level, prevents infinite meteors
 	var/z_original
 
-	var/meteor_loot = list(/obj/item/ore/iron) //the thing that the meteors will drop when it explodes
-	var/dropamt = 3 //amount of said thing
+	//Potential items to spawn when you die
+	var/meteordrop = list(/obj/item/ore/iron)
+	///How much stuff to spawn when you die
+	var/dropamt = 3
+
+	///The thing we're moving towards, usually a turf
+	var/atom/dest
+
+	///If TRUE, this meteor will not be destroyed by shield collisions
+	var/ignore_shield_destruction = FALSE
 
 
 /obj/effect/meteor/Destroy()
@@ -77,12 +88,12 @@
 
 /obj/effect/meteor/Collide(atom/A)
 	..()
-	if(istype(A, /obj/effect/energy_field))
+	if(!ignore_shield_destruction && istype(A, /obj/effect/energy_field))
 		hitpwr *= 0.5
 		A.ex_act(hitpwr)
 		visible_message(SPAN_DANGER("\The [src] breaks into dust!"))
 		make_debris()
-		msg_admin_attack("Meteor collided with shields at (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
+		msg_admin_attack("Meteor collided with shields at (<a href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
 		qdel(src)
 
 	if(A && !QDELETED(src))	// Prevents explosions and other effects when we were deleted by whatever we Bumped() - currently used by shields.
@@ -128,7 +139,7 @@
 
 /obj/effect/meteor/proc/make_debris()
 	for(var/throws = dropamt, throws > 0, throws--)
-		var/loot_path = pickweight(meteor_loot)
+		var/loot_path = pickweight(meteordrop)
 		var/obj/O = new loot_path(get_turf(src))
 		if(istype(O, /obj/item/stack))
 			var/obj/item/stack/S = O
@@ -139,6 +150,15 @@
 /obj/effect/meteor/touch_map_edge()
 	qdel(src)
 
+/obj/effect/meteor/Process_Spacemove(movement_dir = 0, continuous_move = FALSE)
+	return TRUE //Keeps us from drifting for no reason
+
+
+
+/*#####################
+	METEOR SUBTYPES
+#####################*/
+
 /obj/effect/meteor/medium
 	name = "meteor"
 	dropamt = 2
@@ -146,7 +166,7 @@
 /obj/effect/meteor/medium/meteor_effect()
 	..()
 	explosion(src.loc, 0, 1, 2, 3, 0)
-	msg_admin_attack("Meteor exploded at coords (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
+	msg_admin_attack("Meteor exploded at coords (<a href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
 
 /obj/effect/meteor/big
 	name = "large meteor"
@@ -158,13 +178,13 @@
 /obj/effect/meteor/big/meteor_effect()
 	..()
 	explosion(src.loc, 1, 2, 3, 4, 0)
-	msg_admin_attack("Meteor exploded at coords (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
+	msg_admin_attack("Meteor exploded at coords (<a href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
 
 /obj/effect/meteor/dust
 	name = "space dust"
 	icon_state = "dust"
 	pass_flags = PASSTABLE | PASSGRILLE | PASSRAILING
-	meteor_loot = list(/obj/item/ore/glass)
+	meteordrop = list(/obj/item/ore/glass)
 	dropamt = 1
 
 	hits = 1
@@ -174,17 +194,17 @@
 	name = "flaming meteor"
 	icon_state = "flaming"
 	hits = 3
-	meteor_loot = list(/obj/item/ore/phoron)
+	meteordrop = list(/obj/item/ore/phoron)
 
 /obj/effect/meteor/flaming/meteor_effect()
 	..()
 	explosion(src.loc, 1, 2, 3, 4, 0, 0, 5)
-	msg_admin_attack("Meteor exploded at coords (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
+	msg_admin_attack("Meteor exploded at coords (<a href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
 
 /obj/effect/meteor/irradiated
 	name = "glowing meteor"
 	icon_state = "glowing"
-	meteor_loot = list(/obj/item/ore/uranium)
+	meteordrop = list(/obj/item/ore/uranium)
 
 /obj/effect/meteor/irradiated/meteor_effect()
 	explosion(src.loc, 0, 0, 4, 3, 0)
@@ -194,22 +214,22 @@
 /obj/effect/meteor/golden
 	name = "golden meteor"
 	icon_state = "sharp"
-	meteor_loot = list(/obj/item/ore/gold)
+	meteordrop = list(/obj/item/ore/gold)
 
 /obj/effect/meteor/silver
 	name = "silver meteor"
 	icon_state = "glowing_blue"
-	meteor_loot = list(/obj/item/ore/silver)
+	meteordrop = list(/obj/item/ore/silver)
 
 /obj/effect/meteor/diamond
 	name = "diamond meteor"
 	icon_state = "glowing_blue"
-	meteor_loot = list(/obj/item/ore/diamond)
+	meteordrop = list(/obj/item/ore/diamond)
 
 /obj/effect/meteor/emp
 	name = "conducting meteor"
 	icon_state = "glowing_blue"
-	meteor_loot = list(/obj/item/ore/osmium)
+	meteordrop = list(/obj/item/ore/osmium)
 	dropamt = 2
 
 /obj/effect/meteor/emp/meteor_effect()
@@ -217,7 +237,7 @@
 
 /obj/effect/meteor/artifact
 	icon_state = "sharp"
-	meteor_loot = list(/obj/item/archaeological_find)
+	meteordrop = list(/obj/item/archaeological_find)
 	dropamt = 1
 
 /obj/effect/meteor/supermatter
@@ -228,19 +248,19 @@
 /obj/effect/meteor/supermatter/New()
 	..()
 	if(prob(5))
-		meteor_loot = list(/obj/machinery/power/supermatter/shard)
+		meteordrop = list(/obj/machinery/power/supermatter/shard)
 		dropamt = 1
 
 /obj/effect/meteor/supermatter/meteor_effect()
 	explosion(src.loc, 1, 2, 3, 4, 0)
 	for(var/obj/machinery/power/apc/A in range(rand(12, 20), src))
 		A.energy_fail(round(10 * rand(8, 12)))
-	msg_admin_attack("Meteor exploded at coords (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
+	msg_admin_attack("Meteor exploded at coords (<a href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
 
 /obj/effect/meteor/meaty
 	name = "meaty ore"
 	icon_state = "meateor"
-	meteor_loot = list(/obj/item/reagent_containers/food/snacks/meat/monkey)
+	meteordrop = list(/obj/item/reagent_containers/food/snacks/meat/monkey)
 	dropamt = 10
 
 /obj/effect/meteor/meaty/meteor_effect()
@@ -249,7 +269,7 @@
 /obj/effect/meteor/ship_debris
 	name = "ship debris"
 	icon_state = "dust"
-	meteor_loot = list(
+	meteordrop = list(
 		/obj/item/stack/material/plasteel = 19,
 		/obj/item/stack/material/steel = 19,
 		/obj/item/material/shard = 20,

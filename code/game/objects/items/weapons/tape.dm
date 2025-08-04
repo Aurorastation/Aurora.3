@@ -3,12 +3,13 @@
 	desc = "A roll of sticky tape. Possibly for taping ducks... or was that ducts?"
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "taperoll"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	surgerysound = /singleton/sound_category/rip_sound
 
-/obj/item/tape_roll/attack(var/mob/living/carbon/human/H, var/mob/user, var/target_zone)
+/obj/item/tape_roll/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/mob/living/carbon/human/H = target_mob
 	if(istype(H))
 		if(target_zone == BP_EYES)
 
@@ -92,7 +93,7 @@
 	desc = "A piece of sticky tape."
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "tape"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	layer = ABOVE_OBJ_LAYER
 	anchored = 1 //it's sticky, no you cant move it
 	drop_sound = null
@@ -138,8 +139,8 @@
 	var/dir_offset = 0
 	if(target_turf != source_turf)
 		dir_offset = get_dir(source_turf, target_turf)
-		if(!(dir_offset in GLOB.cardinal))
-			to_chat(user, "You cannot reach that from here.")		// can only place stuck papers in GLOB.cardinal directions, to)
+		if(!(dir_offset in GLOB.cardinals))
+			to_chat(user, "You cannot reach that from here.")		// can only place stuck papers in GLOB.cardinals directions, to)
 			return											// reduce papers around corners issue.
 
 	user.drop_from_inventory(src,source_turf)

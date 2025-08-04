@@ -20,11 +20,11 @@
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "sampler0"
 	item_state = "screwdriver_brown"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	var/obj/item/sample
 
-/obj/item/device/core_sampler/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/device/core_sampler/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(distance <= 2)
 		. += SPAN_NOTICE("This one is [sample ? "full" : "empty"].")
 

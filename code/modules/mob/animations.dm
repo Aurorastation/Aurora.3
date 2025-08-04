@@ -184,6 +184,8 @@ note dizziness decrements automatically in the mob's Life() proc.
 
 // either attack_item OR attack_image should be used. if both are used, attack_image will be the one chosen
 /mob/do_attack_animation(atom/A, var/atom/attack_item, var/image/attack_image)
+	set waitfor = FALSE
+
 	var/initial_pixel_x = get_standard_pixel_x()
 	var/initial_pixel_y = get_standard_pixel_y()
 	..(A, attack_item, attack_image, initial_pixel_x, initial_pixel_y)

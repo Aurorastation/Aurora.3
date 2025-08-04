@@ -158,9 +158,9 @@
 		if(1)
 			fulltext = "We have detected a hack attempt into your [text]. The intruder failed to access anything of importance, but disconnected before we could complete our traces."
 		if(2)
-			fulltext = "We have detected another hack attempt. It was targeting [text]. The intruder almost gained control of the system, so we had to disconnect them. We partially finished our trace and it seems to be originating either from the station, or its immediate vicinity."
+			fulltext = "We have detected another hack attempt. It was targeting [text]. The intruder almost gained control of the system, so we had to disconnect them. We partially finished our trace and it seems to be originating either from the [station_name(TRUE)], or its immediate vicinity."
 		if(3)
-			fulltext = "Another hack attempt has been detected, this time targeting [text]. We are certain the intruder entered the network via a terminal located somewhere on the station."
+			fulltext = "Another hack attempt has been detected, this time targeting [text]. We are certain the intruder entered the network via a terminal located somewhere on the [station_name(TRUE)]."
 		if(4)
 			fulltext = "We have finished our traces and it seems the recent hack attempts are originating from your AI system. We recommend investigation."
 		else
@@ -239,7 +239,7 @@
 /proc/log_ability_use(var/mob/living/silicon/ai/A, var/ability_name, var/atom/target = null, var/notify_admins = 1)
 	var/message
 	if(target)
-		message = text("used malf ability/function: [ability_name] on [target] ([target.x], [target.y], [target.z])")
+		message = "used malf ability/function: [ability_name] on [target] ([target.x], [target.y], [target.z])"
 	else
-		message = text("used malf ability/function: [ability_name].")
+		message = "used malf ability/function: [ability_name]."
 	admin_attack_log(A, null, message, null, message)

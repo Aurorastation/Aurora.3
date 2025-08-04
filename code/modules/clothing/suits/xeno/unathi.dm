@@ -8,6 +8,7 @@
 	desc = "A traditional Unathi garment."
 	icon_state = "roughspun_robe"
 	item_state = "roughspun_robe"
+	protects_against_weather = TRUE
 
 /obj/item/clothing/suit/unathi/robe/beige
 	color = "#DBC684"
@@ -57,6 +58,7 @@
 	flags_inv = HIDEJUMPSUIT|HIDETAIL
 	species_restricted = list(BODYTYPE_UNATHI)
 	contained_sprite = TRUE
+	protects_against_weather = TRUE
 
 /obj/item/clothing/suit/armor/unathi/ancient
 	name = "ancient bronze armor"
@@ -65,9 +67,9 @@
 	icon_state = "ancient_armor"
 	item_state = "ancient_armor"
 	armor = list( //not designed to hold up to bullets or lasers, but still better than nothing.
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_SMALL
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_SMALL
 	)
 	matter = list(MATERIAL_BRONZE = 1000)
 	drop_sound = 'sound/items/drop/sword.ogg'

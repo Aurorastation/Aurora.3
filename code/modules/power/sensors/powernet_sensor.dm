@@ -103,7 +103,7 @@
 		out = "<b>No APCs located in connected powernet!</b>"
 	else			// APCs found. Create very ugly (but working!) HTML table.
 
-		out += "<table><tr><th>Name<th>EQUIP<th>LIGHT<th>ENVIRON<th>CELL<th>LOAD"
+		out += "<table><tr><th>Name<th>AREA_USAGE_EQUIP<th>AREA_USAGE_LIGHT<th>AREA_USAGE_ENVIRON<th>CELL<th>LOAD"
 
 		// These lists are used as replacement for number based APC settings
 		var/list/S = list("M-OFF","A-OFF","M-ON", "A-ON")
@@ -122,10 +122,10 @@
 			load = reading_to_text(load)
 			out += "<td>[load]"
 
-	out += "<br><b>TOTAL AVAILABLE: [reading_to_text(powernet.avail)]</b>"
+	out += "<br><b>AREA_USAGE_TOTAL AVAILABLE: [reading_to_text(powernet.avail)]</b>"
 	out += "<br><b>APC LOAD: [reading_to_text(total_apc_load)]</b>"
 	out += "<br><b>OTHER LOAD: [reading_to_text(max(powernet.load - total_apc_load, 0))]</b>"
-	out += "<br><b>TOTAL GRID LOAD: [reading_to_text(powernet.viewload)] ([round((powernet.load / powernet.avail) * 100)]%)</b>"
+	out += "<br><b>AREA_USAGE_TOTAL GRID LOAD: [reading_to_text(powernet.viewload)] ([round((powernet.load / powernet.avail) * 100)]%)</b>"
 
 	if(powernet.problem)
 		out += "<br><b>WARNING: Abnormal grid activity detected!</b>"
@@ -164,11 +164,8 @@
 			APC_entry["cell_status"] = A.cell ? chg[A.charging+1] : 0
 			// Other info
 			APC_entry["total_load"] = reading_to_text(A.lastused_total)
-			// Hopefully removes those goddamn \improper s which are screwing up the UI
-			var/N = A.area.name
-			if(findtext(N, "�"))
-				N = copytext(N, 3)
-			APC_entry["name"] = N
+			var/area_display_name = get_area_display_name(A.area)
+			APC_entry["name"] = area_display_name
 			// Add data into main list of APC data.
 			APC_data += list(APC_entry)
 			// Add load of this APC to total APC load calculation

@@ -3,17 +3,24 @@
 	icon = 'icons/obj/structure/tables/table.dmi'
 	icon_state = "frame"
 	desc = "It's a table, for putting things on. Or standing on, if you really want to."
-	density = 1
-	anchored = 1
+	density = TRUE
+	anchored = TRUE
+	pass_flags_self = PASSTABLE | LETPASSTHROW
 	climbable = TRUE
 	layer = TABLE_LAYER
-	throwpass = 1
 	breakable = TRUE
+	build_amt = 1
+
+	//Preset shit
+	var/table_mat
+	var/table_reinf
+	var/no_cargo
+
 	var/flipped = 0
 	var/maxhealth = 10
 	var/health = 10
 
-	// For racks.
+	// For racks (which cannot be either of these things)
 	var/can_reinforce = 1
 	var/can_plate = 1
 
@@ -25,6 +32,62 @@
 	var/carpeted = 0
 
 	var/list/connections = list("nw0", "ne0", "sw0", "se0")
+
+/obj/structure/table/condition_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(health < maxhealth)
+		switch(health / maxhealth)
+			if(0.0 to 0.5)
+				. += SPAN_WARNING("It looks severely damaged!")
+			if(0.25 to 0.5)
+				. += SPAN_WARNING("It looks damaged!")
+			if(0.5 to 1.0)
+				. += SPAN_NOTICE("It has a few scrapes and dents.")
+
+/obj/structure/table/mechanics_hints()
+	. = list()
+	. += ..()
+	. += "Straight tables, so long as they're not too heavy or reinforced, can be flipped over with a verb when adjacent to them!"
+
+/obj/structure/table/assembly_hints()
+	. = list()
+	. += ..()
+	// Rule racks out entirely first.
+	if(!can_reinforce || !can_plate)
+		return FALSE
+
+	if(health < maxhealth)
+		. += "It could be repaired with a few choice <b>welds</b>... no matter what its made of!"
+
+	// Needs to be plated before it can be carpeted
+	if(material && !carpeted)
+		. += "It could be surfaced with some <b>carpet</b>."
+	// Needs to be plated before it can be reinforced
+	if(material)
+		. += "It could be reinforced with a <b>stack</b> of an appropriate material."
+	// Needs to be plated before we can do much of anything
+	else
+		. += "It could be plated with a <b>stack</b> of an appropriate material."
+
+/obj/structure/table/disassembly_hints()
+	. = list()
+	. += ..()
+	// Rule racks out entirely first. If we ever let them be customized/have health, update this.
+	if(!can_reinforce || !can_plate)
+		. += "It is held together by a couple of <b>bolts</b>."
+
+	// Has a carpet
+	if(carpeted)
+		. += "Its carpeted surface could be <b>pried</b> loose."
+	// Has reinforcements
+	if(reinforced)
+		. += "Its reinforcements have been securely <b>screwed<b/> into place."
+	// Is not reinforced or carpeted, but is plated
+	else if(material && !carpeted)
+		. += "Its plating is secured by a couple of <b>bolts</b>."
+	// Table naked!!!
+	else if(!material)
+		. += "It is held together by a couple of <b>bolts</b>."
 
 /obj/structure/table/proc/update_material()
 	var/old_maxhealth = maxhealth
@@ -70,7 +133,6 @@
 		if(3.0)
 			take_damage(rand(50,150), FALSE)
 
-
 /obj/structure/table/Initialize()
 	if(table_mat)
 		material = SSmaterials.get_material_by_name(table_mat)
@@ -98,6 +160,12 @@
 	update_desc()
 	update_material()
 
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
 /obj/structure/table/Destroy()
 	material = null
 	reinforced = null
@@ -105,17 +173,6 @@
 	for(var/obj/structure/table/T in oview(src, 1))
 		T.queue_icon_update()
 	return ..()
-
-/obj/structure/table/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(health < maxhealth)
-		switch(health / maxhealth)
-			if(0.0 to 0.5)
-				. += SPAN_WARNING("It looks severely damaged!")
-			if(0.25 to 0.5)
-				. += SPAN_WARNING("It looks damaged!")
-			if(0.5 to 1.0)
-				. += SPAN_NOTICE("It has a few scrapes and dents.")
 
 /obj/structure/table/proc/reinforce_table(obj/item/stack/material/S, mob/user)
 	if(reinforced)
@@ -255,10 +312,10 @@
 		if(material) // Standard table image.
 			for(var/i = 1 to 4)
 				if(material.table_icon)
-					if(reinforced && ("reinf_[material.name]_[connections[i]]" in icon_states(material.table_icon)))
-						I = image(material.table_icon, "reinf_[material.name]_[connections[i]]", dir = 1<<(i-1))
+					if(reinforced && ("reinf_[material.icon_base]_[connections[i]]" in icon_states(material.table_icon)))
+						I = image(material.table_icon, "reinf_[material.icon_base]_[connections[i]]", dir = 1<<(i-1))
 					else
-						I = image(material.table_icon, "[material.name]_[connections[i]]", dir = 1<<(i-1))
+						I = image(material.table_icon, "[material.icon_base]_[connections[i]]", dir = 1<<(i-1))
 				else
 					if(reinforced && ("reinf_[material.icon_base]_[connections[i]]" in icon_states(icon)))
 						I = image(icon, "reinf_[material.icon_base]_[connections[i]]", dir = 1<<(i-1))
@@ -292,15 +349,15 @@
 		var/tabledirs = 0
 		for(var/direction in list(turn(dir,90), turn(dir,-90)) )
 			var/obj/structure/table/T = locate(/obj/structure/table ,get_step(src,direction))
-			if (T && T.flipped == 1 && T.dir == src.dir && material && T.material && T.material.name == material.name)
+			if(T && T.flipped == 1 && T.dir == src.dir && material && T.material && T.material.name == material.name)
 				type++
 				tabledirs |= direction
 
 		type = "[type]"
-		if (type=="1")
-			if (tabledirs & turn(dir,90))
+		if(type=="1")
+			if(tabledirs & turn(dir,90))
 				type += "-"
-			if (tabledirs & turn(dir,-90))
+			if(tabledirs & turn(dir,-90))
 				type += "+"
 
 		if(material)
@@ -359,7 +416,7 @@
 	for(var/D in list(NORTH, SOUTH, EAST, WEST) - blocked_dirs)
 		var/turf/T = get_step(src, D)
 		for(var/obj/structure/window/W in T)
-			if(W.is_fulltile() || W.dir == GLOB.reverse_dir[D])
+			if(W.is_fulltile() || W.dir == REVERSE_DIR(D))
 				blocked_dirs |= D
 				break
 			else
@@ -370,7 +427,7 @@
 		var/turf/T = get_step(src, D)
 
 		for(var/obj/structure/window/W in T)
-			if(W.is_fulltile() || W.dir & GLOB.reverse_dir[D])
+			if(W.is_fulltile() || W.dir & REVERSE_DIR(D))
 				blocked_dirs |= D
 				break
 

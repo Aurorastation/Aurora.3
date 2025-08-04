@@ -14,16 +14,20 @@
 	icon_state = "rolled_poster"
 	drop_sound = 'sound/items/drop/wrapper.ogg'
 	pickup_sound = 'sound/items/pickup/wrapper.ogg'
-	var/serial_number = 0
+	/// Set this variable to a /singleton/poster_design specify a desired poster.
+	/// If unset, is randomly set on `Initialize()`
+	var/singleton/poster_design/poster_type
 
-
-/obj/item/contraband/poster/Initialize(mapload, given_serial = 0)
+/obj/item/contraband/poster/Initialize(mapload, given_type)
 	. = ..()
-	if(given_serial == 0)
-		serial_number = rand(1, GLOB.poster_designs.len)
+	if(!poster_type)
+		if(!given_type)
+			poster_type = pick(GET_SINGLETON_SUBTYPE_LIST(/singleton/poster_design))
+		else
+			poster_type = given_type
 	else
-		serial_number = given_serial
-	name += " - No. [serial_number]"
+		poster_type = GET_SINGLETON(poster_type)
+	name += " - [poster_type.name]"
 
 //Places the poster on a wall
 /obj/item/contraband/poster/afterattack(var/atom/A, var/mob/user, var/adjacent, var/clickparams)
@@ -37,7 +41,7 @@
 		return
 
 	var/placement_dir = get_dir(user, W)
-	if (!(placement_dir in GLOB.cardinal))
+	if (!(placement_dir in GLOB.cardinals))
 		to_chat(user, SPAN_WARNING("You must stand directly in front of the wall you wish to place that on."))
 		return
 
@@ -47,7 +51,7 @@
 		stuff_on_wall = 1
 
 	//crude, but will cover most cases. We could do stuff like check pixel_x/y but it's not really worth it.
-	for (var/dir in GLOB.cardinal)
+	for (var/dir in GLOB.cardinals)
 		var/turf/T = get_step(W, dir)
 		if (locate(/obj/structure/sign/poster) in T)
 			stuff_on_wall = 1
@@ -59,7 +63,7 @@
 
 	to_chat(user, SPAN_NOTICE("You start placing the poster on the wall...")) //Looks like it's uncluttered enough. Place the poster.)
 
-	var/obj/structure/sign/poster/P = new(user.loc, get_dir(user, W), serial_number)
+	var/obj/structure/sign/poster/P = new(user.loc, get_dir(user, W), poster_type)
 
 	flick("poster_being_set", P)
 	playsound(W, 'sound/items/package_wrap.ogg', 100, 1)
@@ -85,26 +89,22 @@
 	icon = 'icons/obj/contraband.dmi'
 	icon_state = "poster_map"
 	anchored = 1
-	var/serial_number	//Will hold the value of src.loc if nobody initialises it
-	var/poster_type		//So mappers can specify a desired poster
+	/// Set this variable to a /singleton/poster_design to specify a desired poster.
+	/// If unset, is randomly set on `Initialize()`
+	var/singleton/poster_design/poster_type
 	var/ruined = FALSE
 
-/obj/structure/sign/poster/Initialize(mapload, placement_dir = null, serial = null)
+/obj/structure/sign/poster/Initialize(mapload, placement_dir = null, type = null)
 	. = ..()
 
-	if(!serial)
-		serial = rand(1, GLOB.poster_designs.len) //use a random serial if none is given
-
-	serial_number = serial
-
-	var/datum/poster/design
 	if (poster_type)
-		var/path = text2path(poster_type)
-		design = new path
+		poster_type = GET_SINGLETON(poster_type)
+	else if(type)
+		poster_type = type
 	else
-		design = GLOB.poster_designs[serial_number]
+		poster_type = pick(GET_SINGLETON_SUBTYPE_LIST(/singleton/poster_design))
 
-	set_poster(design)
+	set_poster(poster_type)
 
 	switch (placement_dir)
 		if (NORTH)
@@ -121,10 +121,10 @@
 			pixel_y = 0
 
 
-/obj/structure/sign/poster/proc/set_poster(var/datum/poster/design)
+/obj/structure/sign/poster/proc/set_poster(var/singleton/poster_design/design)
 	name = "[initial(name)] - [design.name]"
 	desc = "[initial(desc)] [design.desc]"
-	icon_state = design.icon_state // poster[serial_number]
+	icon_state = design.icon_state
 
 /obj/structure/sign/poster/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.iswirecutter())
@@ -156,14 +156,15 @@
 		add_fingerprint(user)
 
 /obj/structure/sign/poster/proc/roll_and_drop(turf/newloc)
-	var/obj/item/contraband/poster/P = new(src, serial_number)
+	var/obj/item/contraband/poster/P = new(src, poster_type)
 	P.forceMove(newloc)
 	src.forceMove(P)
 	qdel(src)
 
-/datum/poster
-	// Name suffix. Poster - [name]
+/singleton/poster_design
+	/// Name suffix. Poster - [name]
 	var/name = ""
-	// Description suffix
+	/// Description suffix
 	var/desc = ""
+	/// The actual design
 	var/icon_state = ""

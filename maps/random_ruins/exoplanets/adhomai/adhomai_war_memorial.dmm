@@ -32,9 +32,7 @@
 /turf/simulated/floor/concrete/square,
 /area/exoplanet/adhomai)
 "u" = (
-/obj/structure/sign/adhomai_memorial{
-	pixel_y = 0
-	},
+/obj/structure/sign/adhomai_memorial,
 /turf/simulated/floor/concrete/square,
 /area/exoplanet/adhomai)
 "w" = (

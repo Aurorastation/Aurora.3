@@ -39,7 +39,7 @@
 /obj/structure/bed/stool/chair/remote/user_buckle(mob/user)
 	..()
 	var/area/A = get_area(src)
-	if(!A.powered(EQUIP))
+	if(!A.powered(AREA_USAGE_EQUIP))
 		to_chat(user, SPAN_WARNING("\The [src] is not powered."))
 		return FALSE
 	if(ishuman(user))
@@ -55,7 +55,7 @@
 	..()
 	if(buckled)
 		var/area/A = get_area(src)
-		if(!A.powered(EQUIP))
+		if(!A.powered(AREA_USAGE_EQUIP))
 			user_unbuckle(buckled)
 
 // Return to our body in the unfortunate event that we get unbuckled while plugged in

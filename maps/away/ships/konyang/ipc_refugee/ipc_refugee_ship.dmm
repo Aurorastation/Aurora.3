@@ -598,7 +598,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
@@ -741,8 +741,7 @@
 /obj/structure/table/steel,
 /obj/machinery/cell_charger,
 /obj/random/tech_supply{
-	pixel_x = 5;
-	pixel_y = 0
+	pixel_x = 5
 	},
 /obj/random/powercell{
 	pixel_x = -1;
@@ -937,8 +936,7 @@
 /area/ship/ipc_refugee/atmos)
 "hl" = (
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/structure/curtain/open/shower,
 /obj/item/stack/material/steel,
@@ -1781,8 +1779,7 @@
 	icon = 'icons/mob/human_races/ipc/r_ind_hephaestus.dmi';
 	icon_state = "r_foot";
 	name = "G2 Right Foot";
-	pixel_y = 18;
-	layer = 3.01
+	pixel_y = 18
 	},
 /obj/effect/decal/fake_object{
 	icon = 'icons/mob/human_races/ipc/r_ind_hephaestus.dmi';
@@ -1796,8 +1793,7 @@
 	icon_state = "hardhat_yellow_he";
 	dir = 8;
 	pixel_y = 20;
-	name = "Hardhat";
-	layer = 3.01
+	name = "Hardhat"
 	},
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/meteor.dmi';
@@ -1822,8 +1818,7 @@
 	icon = 'icons/mob/human_races/ipc/r_ind_hephaestus.dmi';
 	icon_state = "r_hand";
 	name = "G2 Right Hand";
-	pixel_y = 19;
-	layer = 3.01
+	pixel_y = 19
 	},
 /obj/effect/decal/fake_object{
 	icon = 'icons/mob/human_races/ipc/r_ind_hephaestus.dmi';
@@ -1842,12 +1837,11 @@
 	},
 /obj/effect/decal/fake_object{
 	name = "Impact Wrench";
-	icon = 'icons/obj/item/tools/impact_wrench.dmi';
+	icon = 'icons/obj/item/impact_wrench.dmi';
 	icon_state = "impact_wrench_lh";
 	dir = 8;
 	pixel_y = 20;
-	pixel_x = 5;
-	layer = 3.01
+	pixel_x = 5
 	},
 /turf/simulated/floor/airless,
 /area/ship/ipc_refugee/cargopod_b)
@@ -2732,8 +2726,7 @@
 	dir = 4
 	},
 /obj/random/tech_supply{
-	pixel_x = 5;
-	pixel_y = 0
+	pixel_x = 5
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
@@ -2816,7 +2809,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/closet,
-/obj/item/clothing/head/padded{
+/obj/item/clothing/head/tanker{
 	color = "#BCA77E"
 	},
 /obj/item/clothing/head/beanie{
@@ -2837,10 +2830,10 @@
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/alt,
 /obj/item/clothing/suit/storage/toggle/bomber,
 /obj/item/clothing/suit/storage/toggle/highvis,
-/obj/item/clothing/under/pants/track,
-/obj/item/clothing/under/pants/tacticool,
-/obj/item/clothing/under/pants/jeansblack,
-/obj/item/clothing/under/pants/classic,
+/obj/item/clothing/pants/track,
+/obj/item/clothing/pants/tacticool,
+/obj/item/clothing/pants/jeansblack,
+/obj/item/clothing/pants/classic,
 /obj/item/clothing/accessory/silversun,
 /obj/item/clothing/under/syndicate/tracksuit,
 /obj/item/clothing/under/syndicate,
@@ -2940,7 +2933,7 @@
 	req_one_access = null
 	},
 /obj/structure/closet,
-/obj/item/clothing/head/padded{
+/obj/item/clothing/head/tanker{
 	color = "#BCA77E"
 	},
 /obj/item/clothing/head/beanie{
@@ -2961,10 +2954,10 @@
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/alt,
 /obj/item/clothing/suit/storage/toggle/bomber,
 /obj/item/clothing/suit/storage/toggle/highvis,
-/obj/item/clothing/under/pants/track,
-/obj/item/clothing/under/pants/tacticool,
-/obj/item/clothing/under/pants/jeansblack,
-/obj/item/clothing/under/pants/classic,
+/obj/item/clothing/pants/track,
+/obj/item/clothing/pants/tacticool,
+/obj/item/clothing/pants/jeansblack,
+/obj/item/clothing/pants/classic,
 /obj/item/clothing/accessory/silversun,
 /obj/item/clothing/under/syndicate/tracksuit,
 /obj/item/clothing/under/syndicate,
@@ -3140,7 +3133,7 @@
 	},
 /obj/structure/closet/cabinet,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/clothing/head/padded{
+/obj/item/clothing/head/tanker{
 	color = "#BCA77E"
 	},
 /obj/item/clothing/head/beanie{
@@ -3159,10 +3152,10 @@
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military/tan,
 /obj/item/clothing/suit/storage/toggle/trench,
 /obj/item/clothing/suit/storage/toggle/flannel,
-/obj/item/clothing/under/pants/classic,
-/obj/item/clothing/under/pants/jeansblack,
-/obj/item/clothing/under/pants/tacticool,
-/obj/item/clothing/under/pants/track,
+/obj/item/clothing/pants/classic,
+/obj/item/clothing/pants/jeansblack,
+/obj/item/clothing/pants/tacticool,
+/obj/item/clothing/pants/track,
 /obj/item/clothing/under/syndicate/tracksuit,
 /obj/item/clothing/under/syndicate/tracksuit,
 /obj/item/clothing/under/syndicate,
@@ -3896,8 +3889,7 @@
 /area/ship/ipc_refugee/cargopod_b)
 "CW" = (
 /obj/random/tech_supply{
-	pixel_x = 5;
-	pixel_y = 0
+	pixel_x = 5
 	},
 /turf/simulated/floor,
 /area/ship/ipc_refugee/cargopod_a)
@@ -5168,7 +5160,6 @@
 /area/ship/ipc_refugee/mainhall)
 "Nl" = (
 /obj/item/bedsheet/black{
-	layer = 4.2;
 	pixel_y = 13
 	},
 /obj/structure/railing/mapped{
@@ -6528,9 +6519,7 @@
 	pixel_y = -3;
 	pixel_x = -6
 	},
-/obj/item/paper/ipc_refugee_ship/overloaders{
-	layer = 3.3
-	},
+/obj/item/paper/ipc_refugee_ship/overloaders,
 /obj/structure/curtain{
 	color = "#854636"
 	},

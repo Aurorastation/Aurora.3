@@ -43,6 +43,7 @@
 	var/is_punishing = FALSE
 
 	psi_pingable = FALSE
+	sample_data = null
 
 /mob/living/simple_animal/hostile/krampus/death(gibbed)
 	..()
@@ -153,7 +154,7 @@
 	minbodytemp = 0
 
 	faction = "Krampus"
-	move_to_delay = 4
+	speed = 4
 
 	tameable = FALSE
 

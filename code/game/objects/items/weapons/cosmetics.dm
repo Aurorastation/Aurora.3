@@ -7,7 +7,7 @@
 	item_state = "lipstick"
 	build_from_parts = TRUE
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	slot_flags = SLOT_EARS
 	update_icon_on_init = TRUE
 	var/lipstick_color = "#DC253A"
@@ -111,13 +111,15 @@
 	open = !open
 	update_icon()
 
-/obj/item/lipstick/attack(mob/M as mob, mob/user as mob)
-	if(!open)	return
+/obj/item/lipstick/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(!open)
+		return
 
-	if(!istype(M, /mob))	return
+	if(!istype(target_mob))
+		return
 
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+	if(ishuman(target_mob))
+		var/mob/living/carbon/human/H = target_mob
 		if(H.lipstick_color)	//if they already have lipstick on
 			to_chat(user, SPAN_NOTICE("You need to wipe off the old lipstick first!"))
 			return
@@ -143,7 +145,7 @@
 /obj/item/haircomb //sparklysheep's comb
 	name = "plastic comb"
 	desc = "A pristine comb made from flexible plastic."
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	slot_flags = SLOT_EARS
 	icon = 'icons/obj/cosmetics.dmi'
 	icon_state = "comb"
@@ -161,7 +163,7 @@
 	desc = "The latest and greatest power razor born from the science of shaving."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "razor"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/razor/proc/shave(mob/living/carbon/human/H, location)
 	if(location == BP_HEAD)
@@ -173,11 +175,11 @@
 	playsound(H, 'sound/items/welder_pry.ogg', 20, 1)
 
 
-/obj/item/razor/attack(mob/M, mob/user, var/target_zone)
-	if(!ishuman(M))
+/obj/item/razor/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(!ishuman(target_mob))
 		return ..()
 
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/human/H = target_mob
 	var/obj/item/organ/external/E = H.get_organ(target_zone)
 
 	if(!E || E.is_stump())

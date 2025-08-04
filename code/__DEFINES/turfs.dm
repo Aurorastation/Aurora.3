@@ -10,11 +10,12 @@
 #define TURF_CAN_BREAK          BITFLAG(6)
 #define TURF_CAN_BURN           BITFLAG(7)
 #define TURF_HAS_EDGES          BITFLAG(8)
-#define TURF_HAS_CORNERS        BITFLAG(9)
-#define TURF_HAS_INNER_CORNERS	BITFLAG(10)
-#define TURF_IS_FRAGILE			BITFLAG(11)
-#define TURF_ACID_IMMUNE		BITFLAG(12)
-#define TURF_NORUINS            BITFLAG(13)
+#define TURF_OFFSET_EDGES 		BITFLAG(9)
+#define TURF_HAS_CORNERS        BITFLAG(10)
+#define TURF_HAS_INNER_CORNERS	BITFLAG(11)
+#define TURF_IS_FRAGILE			BITFLAG(12)
+#define TURF_ACID_IMMUNE		BITFLAG(13)
+#define TURF_NORUINS            BITFLAG(14)
 
 //Used for floor/wall smoothing
 #define SMOOTH_NONE 0	//Smooth only with itself
@@ -104,32 +105,6 @@
 /*##############################
 			AURORA SHIT
 ################################*/
-
-// Turf-only flags.
-///Blocks the jaunting spell from accessing the turf
-#define TURF_FLAG_NOJAUNT BITFLAG(1)
-
-///Used by shuttle movement to determine if it should be ignored by turf translation
-#define TURF_FLAG_BACKGROUND BITFLAG(2)
-
-
-/**
- * Get the turf above the current atom, if any
- *
- * Returns a `/turf` if there's a turf on the Z-level above, `null` otherwise
- *
- * * atom - The `/atom` you want to know the above turf of
- */
-#define GET_ABOVE(atom) (HasAbove(atom.z) ? get_step(atom, UP) : null)
-
-/**
- * Get the turf below the current atom, if any
- *
- * Returns a `/turf` if there's a turf on the Z-level below, `null` otherwise
- *
- * * atom - The `/atom` you want to know the below turf of
- */
-#define GET_BELOW(atom) (HasBelow(atom.z) ? get_step(atom, DOWN) : null)
 
 #define NORTH_OF_TURF(T)	locate(T.x, T.y + 1, T.z)
 #define EAST_OF_TURF(T)		locate(T.x + 1, T.y, T.z)

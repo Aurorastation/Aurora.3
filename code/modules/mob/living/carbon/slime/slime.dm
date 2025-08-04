@@ -145,7 +145,7 @@
 	return toxloss
 
 /mob/living/carbon/slime/adjustToxLoss(var/amount)
-	toxloss = Clamp(toxloss + amount, 0, maxHealth)
+	toxloss = clamp(toxloss + amount, 0, maxHealth)
 
 /mob/living/carbon/slime/setToxLoss(var/amount)
 	adjustToxLoss(amount-getToxLoss())
@@ -202,7 +202,7 @@
 			if(istype(AM, /obj/structure/window) || istype(AM, /obj/structure/grille))
 				if(nutrition <= get_hunger_nutrition() && !Atkcool)
 					if(is_adult || prob(5))
-						UnarmedAttack(AM)
+						INVOKE_ASYNC(src, PROC_REF(UnarmedAttack), AM)
 						Atkcool = TRUE
 						addtimer(CALLBACK(src, PROC_REF(reset_atkcooldown)), 45)
 
@@ -246,10 +246,9 @@
 	..(-abs(amount)) // Heals them
 	return
 
-/mob/living/carbon/slime/bullet_act(var/obj/item/projectile/Proj)
+/mob/living/carbon/slime/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	attacked += 10
-	..(Proj)
-	return FALSE
+	. = ..()
 
 /mob/living/carbon/slime/emp_act(severity)
 	. = ..()

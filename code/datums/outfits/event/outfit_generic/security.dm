@@ -28,6 +28,11 @@
 		/obj/item/clothing/glasses/sunglasses/big,
 		/obj/item/clothing/glasses/sunglasses/visor,
 	)
+	gloves = list(
+		/obj/item/clothing/gloves/brown,
+		/obj/item/clothing/gloves/black_leather,
+		/obj/item/clothing/gloves/fingerless,
+	)
 	shoes = list(
 		/obj/item/clothing/shoes/jackboots,
 		/obj/item/clothing/shoes/workboots,
@@ -42,5 +47,6 @@
 		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/jackboots/toeless,
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/jackboots/toeless,
 		SPECIES_VAURCA_WORKER = /obj/item/clothing/shoes/jackboots/toeless,
-		SPECIES_VAURCA_WARRIOR = /obj/item/clothing/shoes/vaurca
+		SPECIES_VAURCA_WARRIOR = /obj/item/clothing/shoes/vaurca,
+		SPECIES_VAURCA_ATTENDANT = /obj/item/clothing/shoes/vaurca
 	)

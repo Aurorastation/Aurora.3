@@ -132,7 +132,7 @@
 
 	return ..()
 
-/mob/living/silicon/robot/drone/can_be_possessed_by(var/mob/abstract/observer/possessor)
+/mob/living/silicon/robot/drone/can_be_possessed_by(var/mob/abstract/ghost/observer/possessor)
 	if(!istype(possessor) || !possessor.client || !possessor.ckey)
 		return FALSE
 	if(!GLOB.config.allow_drone_spawn)
@@ -148,14 +148,14 @@
 		return FALSE
 	return TRUE
 
-/mob/living/silicon/robot/drone/do_possession(var/mob/abstract/observer/possessor)
+/mob/living/silicon/robot/drone/do_possession(var/mob/abstract/ghost/observer/possessor)
 	if(!(istype(possessor) && possessor.ckey))
 		return 0
 	if(src.ckey || src.client)
 		to_chat(possessor, SPAN_WARNING("\The [src] already has a player."))
 		return FALSE
 	message_admins("<span class='adminnotice'>[key_name_admin(possessor)] has taken control of \the [src].</span>")
-	log_admin("[key_name(possessor)] took control of \the [src].",ckey=key_name(possessor))
+	log_admin("[key_name(possessor)] took control of \the [src].")
 	transfer_personality(possessor.client)
 	qdel(possessor)
 	return TRUE
@@ -169,7 +169,7 @@
 	return GLOB.all_languages[LANGUAGE_LOCAL_DRONE]
 
 /mob/living/silicon/robot/drone/fall_impact()
-	..(damage_mod = 0.25) //reduces fall damage by 75%
+	..(damage_mod = 0.05) //reduces fall damage by 95%
 
 /mob/living/silicon/robot/drone/construction
 	// Look and feel
@@ -184,7 +184,7 @@
 	law_type = /datum/ai_laws/construction_drone
 
 	// Interaction
-	can_pull_size = ITEMSIZE_IMMENSE
+	can_pull_size = WEIGHT_CLASS_GIGANTIC
 	can_pull_mobs = MOB_PULL_SAME
 	holder_type = /obj/item/holder/drone/heavy
 
@@ -246,7 +246,7 @@
 	assign_drone_to_matrix(src, matrix_tag)
 	master_matrix.message_drones(MATRIX_NOTICE("Energy surges through your circuits. The matriarch has come online."))
 
-/mob/living/silicon/robot/drone/construction/matriarch/do_possession(mob/abstract/observer/possessor)
+/mob/living/silicon/robot/drone/construction/matriarch/do_possession(mob/abstract/ghost/observer/possessor)
 	. = ..()
 	SSghostroles.remove_spawn_atom("matriarchmaintdrone", src)
 
@@ -394,7 +394,7 @@
 	to_chat(src, SPAN_WARNING("You feel a sudden burst of malware loaded into your execute-as-root buffer. Your tiny brain methodically parses, loads and executes the script."))
 
 	message_admins("[key_name_admin(user)] emagged drone [key_name_admin(src)].  Laws overridden.")
-	log_game("[key_name(user)] emagged drone [key_name(src)].  Laws overridden.",ckey=key_name(user),ckey_target=key_name(src))
+	log_game("[key_name(user)] emagged drone [key_name(src)].  Laws overridden.")
 	var/time = time2text(world.realtime, "hh:mm:ss")
 	GLOB.lawchanges.Add("[time] <B>:</B> [user.name]([user.key]) emagged [name]([key])")
 

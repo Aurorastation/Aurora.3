@@ -97,14 +97,14 @@ GLOBAL_LIST_EMPTY(sparring_attack_cache)
 					else
 						target.visible_message(SPAN_DANGER("[target] slams into [T]!"))
 					if(prob(50))
-						target.set_dir(GLOB.reverse_dir[target.dir])
+						target.set_dir(REVERSE_DIR(target.dir))
 					target.apply_effect(attack_damage * 0.4, WEAKEN, armor)
 			if(BP_GROIN)
 				if(pain_message)
 					target.visible_message(SPAN_WARNING("[target] looks like [target.get_pronoun("he")] [target.get_pronoun("is")] in pain!"),
 											SPAN_WARNING("[(target.gender=="female") ? "Oh god that hurt!" : "Oh no, that REALLY hurt!"]"))
 
-				target.apply_effects(stutter = attack_damage * 2, agony = attack_damage* 3, blocked = armor)
+				target.apply_effects(stutter = attack_damage * 2, agony = attack_damage* 3, blocked = (armor * 100))
 			if(BP_L_LEG, BP_L_FOOT, BP_R_LEG, BP_R_FOOT)
 				if(!target.lying)
 					if(pain_message)
@@ -193,7 +193,7 @@ GLOBAL_LIST_EMPTY(sparring_attack_cache)
 
 	var/organ = affecting.name
 
-	attack_damage = Clamp(attack_damage, 1, 5) // We expect damage input of 1 to 5 for this proc. But we leave this check juuust in case.
+	attack_damage = clamp(attack_damage, 1, 5) // We expect damage input of 1 to 5 for this proc. But we leave this check juuust in case.
 
 	if(target == user)
 		user.visible_message(SPAN_DANGER("[user] [pick(attack_verb)] [user.get_pronoun("himself")] in the [organ]!"))
@@ -286,7 +286,7 @@ GLOBAL_LIST_EMPTY(sparring_attack_cache)
 
 	var/organ = affecting.name
 
-	attack_damage = Clamp(attack_damage, 1, 5)
+	attack_damage = clamp(attack_damage, 1, 5)
 
 	switch(attack_damage)
 		if(1 to 2)	user.visible_message(SPAN_DANGER("[user] threw [target] a glancing [pick(attack_noun)] to the [organ]!")) //it's not that they're kicking lightly, it's that the kick didn't quite connect
@@ -334,7 +334,7 @@ GLOBAL_LIST_EMPTY(sparring_attack_cache)
 
 	var/obj/item/clothing/shoes = user.shoes
 
-	attack_damage = Clamp(attack_damage, 1, 5)
+	attack_damage = clamp(attack_damage, 1, 5)
 
 	switch(attack_damage)
 		if(1 to 4)	user.visible_message(SPAN_DANGER("[pick("[user] stomped on", "[user] slammed [user.get_pronoun("his")] [shoes ? copytext(shoes.name, 1, -1) : "foot"] down onto")] [target]'s [organ]!"))

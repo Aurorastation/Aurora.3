@@ -1,4 +1,6 @@
-/mob/living/silicon/robot/Life()
+/mob/living/silicon/robot/Life(seconds_per_tick, times_fired)
+	SHOULD_CALL_PARENT(FALSE)
+
 	if(transforming)
 		return
 
@@ -26,6 +28,8 @@
 		process_queued_alarms()
 		process_level_restrictions()
 	update_canmove()
+
+	return TRUE
 
 /mob/living/silicon/robot/proc/clamp_values()
 	SetParalysis(min(paralysis, 30))
@@ -206,7 +210,7 @@
 			healths.icon_state = "health7"
 
 	if(syndicate && client)
-		for(var/datum/mind/tra in traitors.current_antagonists)
+		for(var/datum/mind/tra in GLOB.traitors.current_antagonists)
 			if(tra.current)
 				// TODO: Update to new antagonist system.
 				var/I = image('icons/mob/mob.dmi', loc = tra.current, icon_state = "traitor")
@@ -216,7 +220,7 @@
 			// TODO: Update to new antagonist system.
 			if(!mind.special_role)
 				mind.special_role = "traitor"
-				traitors.current_antagonists |= mind
+				GLOB.traitors.current_antagonists |= mind
 
 	if(cells)
 		if(cell)
@@ -250,11 +254,11 @@
 
 	if(stat != DEAD)
 		if(blinded)
-			overlay_fullscreen("blind", /obj/screen/fullscreen/blind)
+			overlay_fullscreen("blind", /atom/movable/screen/fullscreen/blind)
 		else
 			clear_fullscreen("blind")
-			set_fullscreen(disabilities & NEARSIGHTED, "impaired", /obj/screen/fullscreen/impaired, 1)
-			set_fullscreen(eye_blurry, "blurry", /obj/screen/fullscreen/blurry)
+			set_fullscreen(disabilities & NEARSIGHTED, "impaired", /atom/movable/screen/fullscreen/impaired, 1)
+			set_fullscreen(eye_blurry, "blurry", /atom/movable/screen/fullscreen/blurry)
 
 		if (machine)
 			if (machine.check_eye(src) < 0)
@@ -272,11 +276,11 @@
 			if(I && !(istype(I, /obj/item/cell) || istype(I, /obj/item/device/radio) || istype(I, /obj/machinery/camera) || istype(I, /obj/item/device/mmi)))
 				client.screen += I
 	if(module_state_1)
-		module_state_1:screen_loc = ui_inv1
+		module_state_1.screen_loc = ui_inv1
 	if(module_state_2)
-		module_state_2:screen_loc = ui_inv2
+		module_state_2.screen_loc = ui_inv2
 	if(module_state_3)
-		module_state_3:screen_loc = ui_inv3
+		module_state_3.screen_loc = ui_inv3
 	update_icon()
 
 /mob/living/silicon/robot/proc/process_killswitch()
@@ -312,13 +316,13 @@
 		return FALSE
 	//Check if they are on a player level -> abort
 	var/turf/T = get_turf(src)
-	if(!T || isStationLevel(T.z))
+	if(!T || is_station_level(T.z))
 		return FALSE
 	//If they are on centcom -> abort
 	if(istype(get_area(src), /area/centcom) || istype(get_area(src), /area/shuttle/escape) || istype(get_area(src), /area/shuttle/arrival))
 		return FALSE
 	if(!self_destructing)
-		start_self_destruct(TRUE)
+		INVOKE_ASYNC(src, PROC_REF(start_self_destruct), TRUE)
 	return TRUE
 
 /mob/living/silicon/robot/update_fire()

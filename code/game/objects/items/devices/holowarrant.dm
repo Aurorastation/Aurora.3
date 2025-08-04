@@ -1,17 +1,26 @@
 /obj/item/device/holowarrant
 	name = "warrant projector"
 	desc = "The practical paperwork replacement for the officer on the go."
-	desc_info = "Use this item in-hand to select the active warrant. Click on the person you want to show it to to display the warrant."
 	icon = 'icons/obj/holowarrant.dmi'
 	icon_state = "holowarrant"
 	item_state = "holowarrant"
 	throwforce = 5
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 4
 	throw_range = 10
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 
 	var/datum/record/warrant/selected_warrant
+
+/obj/item/device/holowarrant/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use this item in-hand to select the active warrant."
+	. += "Click on the person you want to show it to to display the warrant to them."
+
+/obj/item/device/holowarrant/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(selected_warrant)
+		. += "It's a holographic warrant for '[selected_warrant.name]'."
 
 /obj/item/device/holowarrant/Initialize(mapload, ...)
 	. = ..()
@@ -20,11 +29,6 @@
 /obj/item/device/holowarrant/Destroy()
 	unload_warrant()
 	return ..()
-
-/obj/item/device/holowarrant/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(selected_warrant)
-		. += "It's a holographic warrant for '[selected_warrant.name]'."
 
 /obj/item/device/holowarrant/attack_self(mob/living/user as mob)
 	if(!LAZYLEN(SSrecords.warrants))
@@ -86,13 +90,13 @@
 
 	play_message(SPAN_NOTICE("\The [src] pings, \"Active warrant modified.\""))
 
-/obj/item/device/holowarrant/attack(mob/living/victim, mob/living/user)
+/obj/item/device/holowarrant/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(!selected_warrant)
 		to_chat(user, SPAN_WARNING("There are no warrants loaded!"))
 		return
 
-	user.visible_message("<b>[user]</b> holds \the [src] up to \the [victim].", SPAN_NOTICE("You hold up \the [src] to \the [victim]."))
-	show_content(victim)
+	user.visible_message("<b>[user]</b> holds \the [src] up to \the [target_mob].", SPAN_NOTICE("You hold up \the [src] to \the [target_mob]."))
+	show_content(target_mob)
 
 /obj/item/device/holowarrant/update_icon()
 	if(selected_warrant)

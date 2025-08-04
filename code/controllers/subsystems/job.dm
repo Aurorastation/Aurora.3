@@ -288,9 +288,9 @@ SUBSYSTEM_DEF(jobs)
 	if(SSatlas.current_sector.description)
 		to_chat(H, SSatlas.current_sector.get_chat_description())
 
-	if("Arrivals Shuttle" in SSatlas.current_map.allowed_spawns && spawning_at == "Arrivals Shuttle")
+	if(("Arrivals Shuttle" in SSatlas.current_map.allowed_spawns) && spawning_at == "Arrivals Shuttle")
 		H.centcomm_despawn_timer = addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living, centcomm_timeout)), 10 MINUTES, TIMER_STOPPABLE)
-		to_chat(H,SPAN_NOTICE("You have ten minutes to reach the station before you will be forced there."))
+		to_chat(H,SPAN_NOTICE("You have ten minutes to reach the [SSatlas.current_map.station_name] before you will be forced there."))
 
 	var/datum/job/job = GetJob(rank)
 	var/list/spawn_in_storage = list()
@@ -598,12 +598,12 @@ SUBSYSTEM_DEF(jobs)
 				. = spawnpos.msg
 				spawnpos.after_join(H)
 			else
-				to_chat(H, "Your chosen spawnpoint ([spawnpos.display_name]) is unavailable for your chosen job. Spawning you at the Arrivals shuttle instead.")
+				to_chat(H, "Your chosen spawnpoint ([spawnpos.display_name]) is unavailable for your chosen job. Spawning you at the [SSatlas.current_map.default_spawn] instead.")
 				H.forceMove(pick(GLOB.latejoin))
-				. = "is inbound from the [SSatlas.current_map.dock_name]"
+				. = "is inbound from the [SSatlas.current_map.default_spawn]"
 		else
 			H.forceMove(pick(GLOB.latejoin))
-			. = "is inbound from the [SSatlas.current_map.dock_name]"
+			. = "is inbound from the [SSatlas.current_map.default_spawn]"
 
 	H.mind.selected_faction = SSjobs.GetFaction(H)
 
@@ -655,13 +655,16 @@ SUBSYSTEM_DEF(jobs)
 		log_loadout("EC/([H]): Abort: invalid arguments.")
 		return FALSE
 
-	switch (job.title)
-		if ("AI", "Cyborg")
-			log_loadout("EC/([H]): Abort: synthetic.")
-			return FALSE
+	// if it's for their preview mob, let them wear it
+	// so they can customize their loadout for their hologram
+	if(!istype(H, /mob/living/carbon/human/dummy/mannequin))
+		switch (job.title)
+			if ("AI", "Cyborg")
+				log_loadout("EC/([H]): Abort: synthetic.")
+				return FALSE
 
 	for(var/thing in prefs.gear)
-		var/datum/gear/G = gear_datums[thing]
+		var/datum/gear/G = GLOB.gear_datums[thing]
 		if(G)
 			if(G.augment) //augments are handled somewhere else
 				continue
@@ -710,7 +713,7 @@ SUBSYSTEM_DEF(jobs)
 	. = list()
 	log_loadout("ECD/([H]): Entry.")
 	for (var/thing in items)
-		var/datum/gear/G = gear_datums[thing]
+		var/datum/gear/G = GLOB.gear_datums[thing]
 
 		if (G.slot in used_slots)
 			. += thing
@@ -768,9 +771,9 @@ SUBSYSTEM_DEF(jobs)
 		log_loadout("EIS/([H]): [items.len] items.")
 		var/obj/item/storage/B = locate() in H
 		if (B)
-			for (var/thing in items)
+			for(var/thing in items)
 				to_chat(H, SPAN_NOTICE("Placing \the [thing] in your [B.name]!"))
-				var/datum/gear/G = gear_datums[thing]
+				var/datum/gear/G = GLOB.gear_datums[thing]
 				var/metadata
 				var/list/gear_test = prefs.gear[G.display_name]
 				if(gear_test?.len)
@@ -779,7 +782,8 @@ SUBSYSTEM_DEF(jobs)
 					metadata = list()
 				G.spawn_item(B, metadata, H)
 				log_loadout("EIS/([H]): placed [thing] in [B].")
-
+			for(var/obj/item/I in B.contents)
+				I.in_storage = TRUE
 		else
 			to_chat(H, SPAN_DANGER("Failed to locate a storage object on your mob, either you spawned with no arms and no backpack or this is a bug."))
 			log_loadout("EIS/([H]): unable to equip; no storage.")
@@ -827,7 +831,7 @@ SUBSYSTEM_DEF(jobs)
 			return FALSE
 
 	for(var/thing in prefs.gear)
-		var/datum/gear/G = gear_datums[thing]
+		var/datum/gear/G = GLOB.gear_datums[thing]
 		if(G)
 			if(!G.augment)
 				continue
@@ -892,7 +896,7 @@ SUBSYSTEM_DEF(jobs)
 	var/spawned_uniform = FALSE
 	var/spawned_suit = FALSE
 	for(var/item in prefs.gear)
-		var/datum/gear/L = gear_datums[item]
+		var/datum/gear/L = GLOB.gear_datums[item]
 		if(L.slot == slot_w_uniform)
 			if(U.uniform && !spawned_uniform && !istype(H.w_uniform, U.uniform))
 				H.equip_or_collect(new U.uniform(H), H.back)

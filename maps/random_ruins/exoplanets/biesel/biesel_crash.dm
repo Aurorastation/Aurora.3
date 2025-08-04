@@ -7,6 +7,6 @@
 	sectors = list(SECTOR_TAU_CETI)
 
 	prefix = "biesel/"
-	suffixes = list("biesel_crash.dmm")
+	suffix = "biesel_crash.dmm"
 
 	unit_test_groups = list(2)

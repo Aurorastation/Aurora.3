@@ -1,10 +1,11 @@
 /obj/item/device/uv_light
 	name = "\improper UV light"
 	desc = "A small handheld black light."
+	icon = 'icons/obj/item/device/uv_light.dmi'
 	icon_state = "uv_off"
-	slot_flags = SLOT_BELT
-	w_class = ITEMSIZE_SMALL
 	item_state = "electronic"
+	slot_flags = SLOT_BELT
+	w_class = WEIGHT_CLASS_SMALL
 	matter = list(DEFAULT_WALL_MATERIAL = 150)
 	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 1)
 	var/list/scanned = list()

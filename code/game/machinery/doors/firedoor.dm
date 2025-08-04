@@ -11,12 +11,12 @@
 	desc = "An airtight emergency shutter designed to seal off areas from hostile environments. It flashes a warning light if it detects an environmental hazard on any side."
 	icon = 'icons/obj/doors/basic/single/emergency/firedoor.dmi'
 	icon_state = "door_open"
-	req_one_access = list(ACCESS_ATMOSPHERICS, ACCESS_ENGINE_EQUIP, ACCESS_FIRST_RESPONDER)
+	req_one_access = list(ACCESS_ATMOSPHERICS, ACCESS_ENGINE_EQUIP, ACCESS_PARAMEDIC)
 	opacity = 0
 	density = 0
 	layer = OPEN_DOOR_LAYER
 	open_layer = OPEN_DOOR_LAYER // Just below doors when open
-	closed_layer = CLOSED_DOOR_LAYER + 0.2 // Just above doors when closed
+	closed_layer = ABOVE_DOOR_LAYER // Just above doors when closed
 
 	//These are frequenly used with windows, so make sure zones can pass.
 	//Generally if a firedoor is at a place where there should be a zone boundery then there will be a regular door underneath it.
@@ -35,7 +35,7 @@
 
 	var/hatch_open = 0
 
-	power_channel = ENVIRON
+	power_channel = AREA_USAGE_ENVIRON
 	idle_power_usage = 5
 	dir = SOUTH
 
@@ -61,6 +61,54 @@
 
 	can_astar_pass = CANASTARPASS_DENSITY
 
+/obj/machinery/door/firedoor/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Firedoors automatically close if the pressure differential on either side of them meets or exceeds 25 kPa, or temperature rises above 50° C or falls below 0° C on either side."
+	. += "Firedoors require electricity to operate."
+	. += "Firedoors on active lockdown can be examined, when adjacent, to view pressure and temperature data from each side of the door."
+	. += "Engineering, Atmospherics, or Paramedical access rights are required to freely open firedoors on active lockdown."
+
+/obj/machinery/door/firedoor/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(!is_adjacent || !density)
+		return
+
+	var/pdiff_rounded = round(pdiff,0.1)
+	if(pdiff >= FIREDOOR_MAX_PRESSURE_DIFF)
+		. += SPAN_DANGER("Current pressure differential is <b>[pdiff_rounded]</b> kPa. Opening door will likely result in injury.")
+	if(pdiff <= 15)
+		. += SPAN_NOTICE("Current pressure differential is less than 15 kPa.")
+	else if(pdiff <= 1)
+		. += SPAN_GOOD("Current pressure differential is less than 1 kPa.")
+
+	. += "<b>Sensor readings:</b>"
+	for(var/index = 1; index <= tile_info.len; index++)
+		switch(index)
+			if(1)
+				. += "NORTH: "
+			if(2)
+				. += "SOUTH: "
+			if(3)
+				. += "EAST: "
+			if(4)
+				. += "WEST: "
+		if(tile_info[index] == null)
+			. += SPAN_WARNING("DATA UNAVAILABLE")
+			continue
+		var/celsius = convert_k2c(tile_info[index][1])
+		var/pressure = tile_info[index][2]
+		. += "<span class='[(dir_alerts[index] & (FIREDOOR_ALERT_HOT|FIREDOOR_ALERT_COLD)) ? "danger" : "color:blue"]'>"
+		. += "[celsius]&deg; C</span> "
+		. += "<span style='color:blue'>"
+		. += "[pressure] kPa</span>"
+
+	if(islist(users_to_open) && users_to_open.len)
+		var/users_to_open_string = users_to_open[1]
+		if(users_to_open.len >= 2)
+			for(var/i = 2 to users_to_open.len)
+				users_to_open_string += ", [users_to_open[i]]"
+		. += "These people have opened \the [src] during an alert: [users_to_open_string]."
+
 /obj/machinery/door/firedoor/Initialize(var/mapload)
 	. = ..()
 	for(var/obj/machinery/door/firedoor/F in loc)
@@ -77,7 +125,7 @@
 	if(!mapload)
 		enable_smart_generation = 0
 
-	for(var/direction in GLOB.cardinal)
+	for(var/direction in GLOB.cardinals)
 		var/turf/T = get_step(src,direction)
 		A = get_area(T)
 		if(istype(A) && !(A in areas_added))
@@ -150,43 +198,7 @@
 /obj/machinery/door/firedoor/get_material()
 	return SSmaterials.get_material_by_name(DEFAULT_WALL_MATERIAL)
 
-/obj/machinery/door/firedoor/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(!is_adjacent || !density)
-		return
-
-	if(pdiff >= FIREDOOR_MAX_PRESSURE_DIFF)
-		. += SPAN_DANGER("Current pressure differential is [pdiff] kPa. Opening door will likely result in injury.")
-
-	. += "<b>Sensor readings:</b>"
-	for(var/index = 1; index <= tile_info.len; index++)
-		switch(index)
-			if(1)
-				. += "NORTH: "
-			if(2)
-				. += "SOUTH: "
-			if(3)
-				. += "EAST: "
-			if(4)
-				. += "WEST: "
-		if(tile_info[index] == null)
-			. += SPAN_WARNING("DATA UNAVAILABLE")
-			continue
-		var/celsius = convert_k2c(tile_info[index][1])
-		var/pressure = tile_info[index][2]
-		. += "<span class='[(dir_alerts[index] & (FIREDOOR_ALERT_HOT|FIREDOOR_ALERT_COLD)) ? "danger" : "color:blue"]'>"
-		. += "[celsius]&deg;C</span> "
-		. += "<span style='color:blue'>"
-		. += "[pressure]kPa</span>"
-
-	if(islist(users_to_open) && users_to_open.len)
-		var/users_to_open_string = users_to_open[1]
-		if(users_to_open.len >= 2)
-			for(var/i = 2 to users_to_open.len)
-				users_to_open_string += ", [users_to_open[i]]"
-		. += "These people have opened \the [src] during an alert: [users_to_open_string]."
-
-/obj/machinery/door/firedoor/CollidedWith(atom/AM)
+/obj/machinery/door/firedoor/CollidedWith(atom/bumped_atom)
 	if(p_open || operating)
 		return
 	if(!density)
@@ -511,7 +523,7 @@
 	air_properties_vary_with_direction = 1
 
 	CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-		if(istype(mover) && mover.checkpass(PASSGLASS))
+		if(istype(mover) && mover.pass_flags & PASSGLASS)
 			return 1
 		if(get_dir(loc, target) == dir) //Make sure looking at appropriate border
 			if(air_group) return 0
@@ -520,7 +532,7 @@
 			return 1
 
 	CheckExit(atom/movable/mover as mob|obj, turf/target as turf)
-		if(istype(mover) && mover.checkpass(PASSGLASS))
+		if(istype(mover) && mover.pass_flags & PASSGLASS)
 			return 1
 		if(get_dir(loc, target) == dir)
 			return !density

@@ -7,7 +7,7 @@
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "moghes/"
-	suffixes = list("moghes_bar.dmm")
+	suffix = "moghes_bar.dmm"
 	ban_ruins = list("ouerea_bar")
 
 	unit_test_groups = list(3)
@@ -18,6 +18,7 @@
 	requires_power = FALSE
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
+	is_outside = OUTSIDE_NO
 	base_turf = /turf/simulated/floor/exoplanet/grass/moghes/dirt
 	area_flags = AREA_FLAG_RAD_SHIELDED|AREA_FLAG_INDESTRUCTIBLE_TURFS
 	area_blurb = "The sound of music and the warmth of a fire fill this place."

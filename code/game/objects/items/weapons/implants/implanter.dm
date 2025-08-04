@@ -5,7 +5,7 @@
 	icon_state = "implanter-0"
 	throw_speed = 1
 	throw_range = 5
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	matter = list(DEFAULT_WALL_MATERIAL = 320, MATERIAL_GLASS = 800)
 	var/obj/item/implant/imp = null
 
@@ -32,7 +32,8 @@
 	else
 		..()
 
-/obj/item/implanter/attack(mob/living/carbon/human/M, mob/user, var/target_zone)
+/obj/item/implanter/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/mob/living/carbon/human/M = target_mob
 	if(!istype(M))
 		return
 
@@ -75,21 +76,18 @@
 	update_icon()
 
 /obj/item/implanter/ipc_tag/update_icon()
-	if(ipc_tag)
-		icon_state = "cimplanter1"
-	else
-		icon_state = "cimplanter0"
+	icon_state = "implanter-[ipc_tag ? "1" : "0"]"
 	return
 
-/obj/item/implanter/ipc_tag/attack(mob/M, mob/user)
-	if(!ishuman(M))
+/obj/item/implanter/ipc_tag/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(!ishuman(target_mob))
 		return
 
 	if(!ipc_tag)
 		to_chat(user, SPAN_WARNING("\The [src] doesn't have an IPC tag loaded!"))
 		return
 
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/human/H = target_mob
 	if(!H.species || !isipc(H) || !H.organs_by_name[BP_HEAD])
 		to_chat(user, SPAN_WARNING("You cannot use \the [src] on a non-IPC!"))
 		return
@@ -98,16 +96,16 @@
 		to_chat(user, SPAN_WARNING("\The [H] is already tagged!"))
 		return
 
-	user.visible_message(SPAN_WARNING("\The [user] tags \the [M] with \the [src]!"), SPAN_NOTICE("You tag \the [M] with \the [src]."), range = 3)
+	user.visible_message(SPAN_WARNING("\The [user] tags \the [target_mob] with \the [src]!"), SPAN_NOTICE("You tag \the [target_mob] with \the [src]."), range = 3)
 
-	M.attack_log += text("\[[time_stamp()]\] <font color='orange'> Implanted with [name] ([ipc_tag.name])  by [user.name] ([user.ckey])</font>")
-	user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Used the [name] ([ipc_tag.name]) to implant [M.name] ([M.ckey])</span>")
-	msg_admin_attack("[key_name_admin(user)] implanted [key_name_admin(M)] with [name] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M))
+	target_mob.attack_log += "\[[time_stamp()]\] <font color='orange'> Implanted with [name] ([ipc_tag.name])  by [user.name] ([user.ckey])</font>"
+	user.attack_log += "\[[time_stamp()]\] <span class='warning'>Used the [name] ([ipc_tag.name]) to implant [target_mob.name] ([target_mob.ckey])</span>"
+	msg_admin_attack("[key_name_admin(user)] implanted [key_name_admin(target_mob)] with [name] (INTENT: [uppertext(user.a_intent)]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target_mob))
 
 	ipc_tag.replaced(H, H.organs_by_name[BP_HEAD])
-	ipc_tag.forceMove(M)
+	ipc_tag.forceMove(target_mob)
 	if(ipc_tag.auto_generate)
-		ipc_tag.serial_number = uppertext(dd_limittext(md5(M.real_name), 12))
+		ipc_tag.serial_number = uppertext(dd_limittext(md5(target_mob.real_name), 12))
 	ipc_tag = null
 
 	update_icon()

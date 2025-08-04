@@ -67,7 +67,7 @@
 /mob/abstract/eye/pointed()
 	set popup_menu = 0
 	set src = usr.contents
-	return 0
+	return FALSE
 
 /mob/abstract/eye/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	SHOULD_CALL_PARENT(FALSE)
@@ -90,7 +90,7 @@
 	if(click_handler_type)
 		owner.PushClickHandler(click_handler_type)
 	setLoc(owner)
-	visualnet.update_eye_chunks(src, TRUE)
+	visualnet?.update_eye_chunks(src, TRUE)
 
 /mob/abstract/eye/proc/release(var/mob/user)
 	if(owner != user || !user)
@@ -99,7 +99,7 @@
 		return
 	remove_visual(owner)
 	LAZYREMOVE(owner.additional_vision_handlers, src)
-	visualnet.remove_eye(src)
+	visualnet?.remove_eye(src)
 	owner.eyeobj = null
 	if(owner.client)
 		owner.client.eye = owner
@@ -125,7 +125,7 @@
 	if(owner_follows_eye)
 		owner.forceMove(loc)
 
-	visualnet.update_eye_chunks(src)
+	visualnet?.update_eye_chunks(src)
 	return TRUE
 
 /mob/abstract/eye/proc/getLoc()

@@ -156,7 +156,7 @@
 	normalize_dir()
 	var/node1_dir
 
-	for(var/direction in GLOB.cardinal)
+	for(var/direction in GLOB.cardinals)
 		if(direction&initialize_directions)
 			if (!node1_dir)
 				node1_dir = direction
@@ -167,7 +167,8 @@
 				node1 = target
 				break
 
-	var/turf/above = GetAbove(src)
+	var/turf/current_turf = get_turf(src)
+	var/turf/above = GET_TURF_ABOVE(current_turf)
 	if(above)
 		for(var/obj/machinery/atmospherics/target in above)
 			if(target.initialize_directions && istype(target, /obj/machinery/atmospherics/pipe/zpipe/down))
@@ -199,7 +200,7 @@
 	normalize_dir()
 	var/node1_dir
 
-	for(var/direction in GLOB.cardinal)
+	for(var/direction in GLOB.cardinals)
 		if(direction&initialize_directions)
 			if (!node1_dir)
 				node1_dir = direction
@@ -210,7 +211,8 @@
 				node1 = target
 				break
 
-	var/turf/below = GetBelow(src)
+	var/turf/T = get_turf(src)
+	var/turf/below = GET_TURF_BELOW(T)
 	if(below)
 		for(var/obj/machinery/atmospherics/target in below)
 			if(target.initialize_directions && istype(target, /obj/machinery/atmospherics/pipe/zpipe/up))
@@ -219,7 +221,6 @@
 					break
 
 
-	var/turf/T = src.loc			// hide if turf is not intact
 	hide(!T.is_plating())
 
 ////////////////////////////////

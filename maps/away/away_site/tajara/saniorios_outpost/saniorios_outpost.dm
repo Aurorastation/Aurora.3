@@ -2,7 +2,7 @@
 	name = "Sani'Orios"
 	description = "A gas giant composed of ammonia. Its planetary ring is home to several spaceship wrecks and hidden smuggler bases."
 	prefix = "away_site/tajara/saniorios_outpost/"
-	suffixes = list("saniorios_outpost.dmm")
+	suffix = "saniorios_outpost.dmm"
 	sectors = list(SECTOR_SRANDMARR)
 	spawn_weight = 1
 	spawn_cost = 2

@@ -44,14 +44,14 @@
 		recession = owner.chem_effects[CE_ANTIPARASITE]/10
 
 	if((stage < max_stage) && !recession)
-		stage_ticker = Clamp(stage_ticker+=infection_speed, 0, stage_interval*max_stage)
+		stage_ticker = clamp(stage_ticker+=infection_speed, 0, stage_interval*max_stage)
 		if(stage_ticker >= stage*stage_interval)
 			process_stage()
 			get_infect_speed() //Each stage may progress faster or slower than the previous one
 			stage_effect()
 
 	if(recession)
-		stage_ticker = Clamp(stage_ticker-=recession, 0, stage_interval*max_stage)
+		stage_ticker = clamp(stage_ticker-=recession, 0, stage_interval*max_stage)
 		if(stage_ticker <= stage*stage_interval-stage_interval)
 			stage = max(stage-1, 1)
 			stage_effect()
@@ -87,11 +87,11 @@
 			switch(parasite_type) //such a shitty way to do this but i couldnt get a better alternative to work in a sane amount of time :/
 				if("malignant tumour")
 					var/obj/item/organ/internal/parasite/malignant_tumour/P = new()
-					P.parent_organ = organ_to_infest
+					P.parent_organ = organ_to_infest.limb_name
 					P.replaced(H, organ_to_infest)
 					P.generate_name()
 				if("benign tumour")
 					var/obj/item/organ/internal/parasite/benign_tumour/P = new()
-					P.parent_organ = organ_to_infest
+					P.parent_organ = organ_to_infest.limb_name
 					P.replaced(H, organ_to_infest)
 					P.generate_name()

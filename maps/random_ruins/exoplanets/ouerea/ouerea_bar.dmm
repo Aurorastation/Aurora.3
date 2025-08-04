@@ -68,6 +68,17 @@
 	temperature = 303.15
 	},
 /area/ouerea_bar)
+"bQ" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/obj/structure/closet/crate/hydroponics/prespawned,
+/obj/item/material/hatchet,
+/obj/item/material/minihoe,
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 298.15
+	},
+/area/ouerea_bar)
 "cg" = (
 /obj/structure/bed/stool/chair/sofa/left/red{
 	dir = 4
@@ -455,7 +466,6 @@
 /area/ouerea_bar)
 "wR" = (
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -5
 	},
@@ -464,7 +474,6 @@
 	pixel_y = 10
 	},
 /obj/item/material/knife{
-	layer = 2.99;
 	pixel_x = -9
 	},
 /obj/structure/table/wood,
@@ -623,7 +632,11 @@
 /obj/structure/railing/fence{
 	dir = 8
 	},
-/obj/structure/closet/crate/hydroponics,
+/obj/structure/cargo_receptacle{
+	max_spawn = 2;
+	min_spawn = 0;
+	override_name = "Ouerea - Inn"
+	},
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 298.15
 	},
@@ -1200,7 +1213,7 @@ FR
 FR
 FR
 Au
-Dm
+bQ
 Dm
 Dm
 Dm

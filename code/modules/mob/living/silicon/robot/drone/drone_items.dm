@@ -3,7 +3,7 @@
 /obj/item/matter_decompiler
 	name = "matter decompiler"
 	desc = "Eating trash, bits of glass, or other debris will replenish your stores."
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/item/gripper.dmi'
 	icon_state = "decompiler"
 	var/is_decompiling = FALSE
 
@@ -13,7 +13,7 @@
 	var/datum/matter_synth/wood
 	var/datum/matter_synth/plastic
 
-/obj/item/matter_decompiler/attack(mob/living/M, mob/living/user)
+/obj/item/matter_decompiler/attack(mob/living/target_mob, mob/living/user, target_zone)
 	return
 
 /obj/item/matter_decompiler/afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, proximity, params)
@@ -180,13 +180,12 @@
 	if(!module)
 		module = new /obj/item/robot_module/drone(src)
 
-	var/dat = "<HEAD><TITLE>Drone modules</TITLE></HEAD><BODY>\n"
-	dat += {"
+	var/dat = {"
 	<B>Activated Modules</B>
 	<BR>
-	Module 1: [module_state_1 ? "<A HREF=?src=\ref[src];mod=\ref[module_state_1]>[module_state_1]<A>" : "No Module"]<BR>
-	Module 2: [module_state_2 ? "<A HREF=?src=\ref[src];mod=\ref[module_state_2]>[module_state_2]<A>" : "No Module"]<BR>
-	Module 3: [module_state_3 ? "<A HREF=?src=\ref[src];mod=\ref[module_state_3]>[module_state_3]<A>" : "No Module"]<BR>
+	Module 1: [module_state_1 ? "<A href='byond://?src=[REF(src)];mod=[REF(module_state_1)]'>[module_state_1]<A>" : "No Module"]<BR>
+	Module 2: [module_state_2 ? "<A href='byond://?src=[REF(src)];mod=[REF(module_state_2)]'>[module_state_2]<A>" : "No Module"]<BR>
+	Module 3: [module_state_3 ? "<A href='byond://?src=[REF(src)];mod=[REF(module_state_3)]'>[module_state_3]<A>" : "No Module"]<BR>
 	<BR>
 	<B>Installed Modules</B><BR><BR>"}
 
@@ -197,11 +196,11 @@
 	for(var/O in module.modules)
 		var/module_string = ""
 		if(!O)
-			module_string += text("<B>Resource depleted</B><BR>")
+			module_string +="<B>Resource depleted</B><BR>"
 		else if(activated(O))
-			module_string += text("[O]: <B>Activated</B><BR>")
+			module_string += "[O]: <B>Activated</B><BR>"
 		else
-			module_string += text("[O]: <A HREF=?src=\ref[src];act=\ref[O]>Activate</A><BR>")
+			module_string += "[O]: <A href='byond://?src=[REF(src)];act=[REF(O)]'>Activate</A><BR>"
 
 		var/obj/item/I = O
 		if((istype(I, /obj/item) || istype(I, /obj/item/device)) && !(I.iscoil()))
@@ -213,12 +212,12 @@
 
 	if(emagged)
 		if(!module.emag)
-			dat += text("<B>Resource depleted</B><BR>")
+			dat += "<B>Resource depleted</B><BR>"
 		else if(activated(module.emag))
-			dat += text("[module.emag]: <B>Activated</B><BR>")
+			dat += "[module.emag]: <B>Activated</B><BR>"
 		else
-			dat += text("[module.emag]: <A HREF=?src=\ref[src];act=\ref[module.emag]>Activate</A><BR>")
+			dat += "[module.emag]: <A href='byond://?src=[REF(src)];act=[REF(module.emag)]'>Activate</A><BR>"
 
 	dat += resources
 
-	src << browse(dat, "window=robotmod")
+	src << browse(HTML_SKELETON_TITLE("Drone modules", dat), "window=robotmod")

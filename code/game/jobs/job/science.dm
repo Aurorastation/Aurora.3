@@ -21,18 +21,18 @@
 		ACCESS_RD, ACCESS_HEADS, ACCESS_TOX, ACCESS_GENETICS, ACCESS_MORGUE, ACCESS_EVA, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_TOX_STORAGE,
 		ACCESS_TELEPORTER, ACCESS_SEC_DOORS, ACCESS_MEDICAL, ACCESS_ENGINE, ACCESS_SHIP_WEAPONS, ACCESS_CONSTRUCTION, ACCESS_MINING, ACCESS_MAILSORTING, ACCESS_RESEARCH,
 		ACCESS_XENOBIOLOGY, ACCESS_XENOBOTANY, ACCESS_AI_UPLOAD, ACCESS_TECH_STORAGE, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_TCOMSAT, ACCESS_GATEWAY,
-		ACCESS_XENOARCH, ACCESS_NETWORK, ACCESS_MAINT_TUNNELS, ACCESS_IT, ACCESS_INTREPID
+		ACCESS_XENOARCH, ACCESS_NETWORK, ACCESS_MAINT_TUNNELS, ACCESS_IT, ACCESS_INTREPID, ACCESS_SPARK, ACCESS_QUARK, ACCESS_CANARY
 	)
 	minimal_access = list(
 		ACCESS_RD, ACCESS_HEADS, ACCESS_TOX, ACCESS_GENETICS, ACCESS_MORGUE, ACCESS_EVA, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_TOX_STORAGE,
 		ACCESS_TELEPORTER, ACCESS_SEC_DOORS, ACCESS_MEDICAL, ACCESS_ENGINE, ACCESS_SHIP_WEAPONS, ACCESS_CONSTRUCTION, ACCESS_MINING, ACCESS_MAILSORTING, ACCESS_RESEARCH,
 		ACCESS_XENOBIOLOGY, ACCESS_XENOBOTANY, ACCESS_AI_UPLOAD, ACCESS_TECH_STORAGE, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_TCOMSAT, ACCESS_GATEWAY,
-		ACCESS_XENOARCH, ACCESS_NETWORK, ACCESS_MAINT_TUNNELS, ACCESS_IT, ACCESS_INTREPID
+		ACCESS_XENOARCH, ACCESS_NETWORK, ACCESS_MAINT_TUNNELS, ACCESS_IT, ACCESS_INTREPID, ACCESS_SPARK, ACCESS_QUARK, ACCESS_CANARY
 	)
 	minimal_player_age = 14
 	outfit = /obj/outfit/job/rd
 
-	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
+	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK)
 
 /obj/outfit/job/rd
 	name = "Research Director"
@@ -41,7 +41,7 @@
 	uniform = /obj/item/clothing/under/rank/research_director
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science
 	shoes = /obj/item/clothing/shoes/sneakers/brown
-	id = /obj/item/card/id/navy
+	id = /obj/item/card/id/silver
 	l_hand = /obj/item/clipboard
 
 	headset = /obj/item/device/radio/headset/heads/rd
@@ -77,8 +77,8 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_INTREPID)
-	minimal_access = list(ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_INTREPID)
+	access = list(ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_INTREPID, ACCESS_SPARK, ACCESS_QUARK, ACCESS_CANARY)
+	minimal_access = list(ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_INTREPID, ACCESS_SPARK, ACCESS_QUARK, ACCESS_CANARY)
 
 	minimal_player_age = 14
 	outfit = /obj/outfit/job/scientist
@@ -118,6 +118,8 @@
 	departments = SIMPLEDEPT(DEPARTMENT_SCIENCE)
 	department_flag = MEDSCI
 	faction = "Station"
+	alt_titles = list("Anomalist")
+	alt_outfits = list("Anomalist" = /obj/outfit/job/scientist/anomalist)
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the research director"
@@ -130,8 +132,8 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_XENOARCH, ACCESS_INTREPID)
-	minimal_access = list(ACCESS_RESEARCH, ACCESS_XENOARCH, ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_INTREPID)
+	access = list(ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_XENOARCH, ACCESS_INTREPID, ACCESS_SPARK, ACCESS_QUARK, ACCESS_CANARY)
+	minimal_access = list(ACCESS_RESEARCH, ACCESS_XENOARCH, ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_INTREPID, ACCESS_SPARK, ACCESS_QUARK, ACCESS_CANARY)
 
 	minimal_player_age = 14
 	outfit = /obj/outfit/job/scientist/xenoarchaeologist
@@ -148,6 +150,18 @@
 	double_headset = /obj/item/device/radio/headset/alt/double/xenoarch
 	wrist_radio = /obj/item/device/radio/headset/wrist/xenoarch
 	clipon_radio = /obj/item/device/radio/headset/wrist/clip/xenoarch
+
+/obj/outfit/job/scientist/anomalist
+	name = "Anomalist"
+	jobtype = /datum/job/xenoarchaeologist
+
+	uniform = /obj/item/clothing/under/rank/scientist/anomalist
+
+	headset = /obj/item/device/radio/headset/headset_anom
+	bowman = /obj/item/device/radio/headset/headset_anom/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/anom
+	wrist_radio = /obj/item/device/radio/headset/wrist/anom
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/anom
 
 /datum/job/xenobiologist
 	title = "Xenobiologist"
@@ -167,8 +181,8 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_XENOBIOLOGY)
-	minimal_access = list(ACCESS_TOX, ACCESS_RESEARCH, ACCESS_XENOBIOLOGY, ACCESS_TOX_STORAGE)
+	access = list(ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_XENOBIOLOGY, ACCESS_INTREPID, ACCESS_SPARK, ACCESS_QUARK, ACCESS_CANARY)
+	minimal_access = list(ACCESS_TOX, ACCESS_RESEARCH, ACCESS_XENOBIOLOGY, ACCESS_TOX_STORAGE, ACCESS_INTREPID, ACCESS_SPARK, ACCESS_QUARK, ACCESS_CANARY)
 
 	minimal_player_age = 14
 
@@ -199,8 +213,8 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_XENOBOTANY, ACCESS_TOX)
-	minimal_access = list(ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_XENOBOTANY)
+	access = list(ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_XENOBOTANY, ACCESS_TOX, ACCESS_INTREPID, ACCESS_SPARK, ACCESS_QUARK, ACCESS_CANARY)
+	minimal_access = list(ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_XENOBOTANY, ACCESS_INTREPID, ACCESS_SPARK, ACCESS_QUARK, ACCESS_CANARY)
 
 	minimal_player_age = 14
 
@@ -215,11 +229,12 @@
 	uniform = /obj/item/clothing/under/rank/scientist/botany
 
 /datum/job/intern_sci
-	title = "Lab Assistant"
+	title = "Research Intern"
 	flag = INTERN_SCI
 	departments = SIMPLEDEPT(DEPARTMENT_SCIENCE)
 	department_flag = MEDSCI
 	faction = "Station"
+	alt_titles = list("Xenoarchaeology Intern", "Anomalistics Intern", "Xenobiology Intern", "Xenobotany Intern")
 	total_positions = 3
 	spawn_positions = 3
 	supervisors = "the Research Director"
@@ -230,7 +245,7 @@
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /obj/outfit/job/intern_sci
-	name = "Lab Assistant"
+	name = "Research Intern"
 	jobtype = /datum/job/intern_sci
 
 	uniform = /obj/item/clothing/under/rank/scientist/intern

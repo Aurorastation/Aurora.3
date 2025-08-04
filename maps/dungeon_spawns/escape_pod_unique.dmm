@@ -9,7 +9,7 @@
 /obj/structure/shuttle_part/escape_pod{
 	icon_state = "0,3"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "d" = (
 /obj/structure/window/shuttle/unique/escape_pod{
@@ -45,18 +45,18 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/mine/unexplored)
 "i" = (
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "j" = (
 /mob/living/simple_animal/hostile/carp/shark,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "k" = (
 /turf/simulated/open/airless,
 /area/mine/unexplored)
 "l" = (
 /obj/structure/closet/crate/secure/loot,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "n" = (
 /turf/simulated/wall/shuttle/unique/escape_pod{
@@ -72,7 +72,7 @@
 /obj/structure/shuttle_part/escape_pod{
 	icon_state = "2,3"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "D" = (
 /turf/simulated/wall/shuttle/unique/escape_pod{

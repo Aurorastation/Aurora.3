@@ -18,6 +18,7 @@
 	air_properties_vary_with_direction = 1
 
 	atmos_canpass = CANPASS_PROC
+	pass_flags_self = PASSGLASS
 
 /obj/machinery/door/window/Initialize(mapload)
 	. = ..()
@@ -51,20 +52,27 @@
 	update_nearby_tiles()
 	return ..()
 
-/obj/machinery/door/window/CollidedWith(atom/movable/AM as mob|obj)
-	var/mob/M = AM
+/obj/machinery/door/window/CollidedWith(atom/bumped_atom)
+	//Fucking snowflake code
+	SHOULD_CALL_PARENT(FALSE)
+	SEND_SIGNAL(src, COMSIG_ATOM_BUMPED, bumped_atom)
+
+	var/mob/M = bumped_atom
 	if (!( ROUND_IS_STARTED ) || operating || !density || !istype(M) || !allowed(M))
 		return
 
 	if(ishuman(M) || isrobot(M) || isbot(M) || istype(M, /mob/living/simple_animal/spiderbot) || ismech(M))
-		if(!operable())
-			if(do_after(M, 1 SECOND, src))
-				// The VM here is before open and the wording is backwards because density gets set after a background sleep in open
-				visible_message("\The [M] [density ? "pushes" : "pulls"] \the [src] [density ? "open" : "closed"].")
-				open()
-		else
+		INVOKE_ASYNC(src, PROC_REF(handle_collision_opening), M)
+
+/obj/machinery/door/window/proc/handle_collision_opening(var/mob/M)
+	if(!operable())
+		if(do_after(M, 1 SECOND, src))
+			// The VM here is before open and the wording is backwards because density gets set after a background sleep in open
+			visible_message("\The [M] [density ? "pushes" : "pulls"] \the [src] [density ? "open" : "closed"].")
 			open()
-			addtimer(CALLBACK(src, PROC_REF(close)), check_access(null) ? 5 SECONDS : 2 SECONDS)
+	else
+		open()
+		addtimer(CALLBACK(src, PROC_REF(close)), check_access(null) ? 5 SECONDS : 2 SECONDS)
 
 /obj/machinery/door/window/allowed(mob/M)
 	. = ..()
@@ -75,16 +83,20 @@
 		flick("[base_state]deny", src)
 
 /obj/machinery/door/window/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(istype(mover) && mover.checkpass(PASSGLASS))
-		return 1
+	if(mover?.movement_type & PHASING)
+		return TRUE
 	if(get_dir(loc, target) == dir) //Make sure looking at appropriate border
-		if(air_group) return 0
+		if(air_group)
+			return FALSE
+
 		return !density
+
 	else
-		return 1
+
+		return TRUE
 
 /obj/machinery/door/window/CheckExit(atom/movable/mover as mob|obj, turf/target as turf)
-	if(istype(mover) && mover.checkpass(PASSGLASS))
+	if(istype(mover) && mover.pass_flags & PASSGLASS)
 		return 1
 	if(get_dir(loc, target) == dir)
 		return !density
@@ -208,6 +220,9 @@
 
 	if(allowed(user))
 		if(!operable())
+			if (!user.Adjacent(src))
+				to_chat(user, SPAN_WARNING("\The [src] is unpowered."))
+				return TRUE
 			if(!do_after(user, 1 SECOND, src))
 				return TRUE
 			visible_message("\The [user] [density ? "pushes" : "pulls"] \the [src] [density ? "open" : "closed"].")

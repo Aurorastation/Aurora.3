@@ -22,7 +22,6 @@
 	desc = "A pile of unassuming rocks.";
 	icon = 'icons/obj/flora/largejungleflora.dmi';
 	icon_state = "rocks3";
-	layer = 2.5;
 	name = "rocks";
 	pixel_x = -16;
 	pixel_y = -16

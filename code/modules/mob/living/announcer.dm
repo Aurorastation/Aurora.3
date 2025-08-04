@@ -59,7 +59,8 @@
 	src.voice_name = initial(voice_name)
 	src.accent = initial(accent)
 
-/mob/living/announcer/Life()
+/mob/living/announcer/Life(seconds_per_tick, times_fired)
+	SHOULD_CALL_PARENT(FALSE)
 	return
 
 /mob/living/announcer/Move()
@@ -92,7 +93,7 @@
 /mob/living/announcer/InStasis()
 	return FALSE
 
-/mob/living/announcer/flash_act(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, ignore_inherent = FALSE, type = /obj/screen/fullscreen/flash, length = 2.5 SECONDS)
+/mob/living/announcer/flash_act(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, ignore_inherent = FALSE, type = /atom/movable/screen/fullscreen/flash, length = 2.5 SECONDS)
 	return FALSE
 
 /mob/living/announcer/dust()

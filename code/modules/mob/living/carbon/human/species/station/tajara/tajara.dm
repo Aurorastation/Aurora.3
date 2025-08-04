@@ -43,8 +43,7 @@
 	name_language = LANGUAGE_SIIK_MAAS
 	ethanol_resistance = 0.9//Gets drunk a little faster
 	rarity_value = 2
-	economic_modifier = 7
-	selectable_pronouns = list(MALE, FEMALE)
+	economic_modifier = 9
 
 	stamina = 90	// Tajara evolved to maintain a steady pace in the snow, sprinting wastes energy
 	stamina_recovery = 4
@@ -86,13 +85,13 @@
 
 	reagent_tag = IS_TAJARA
 
-	heat_discomfort_level = 292
+	heat_discomfort_level = 292 //18°C
 	heat_discomfort_strings = list(
 		"Your fur prickles in the heat.",
 		"You feel uncomfortably warm.",
 		"Your overheated skin itches."
 	)
-	cold_discomfort_level = 275
+	cold_discomfort_level = 275 //1°C
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/paw
 

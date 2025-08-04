@@ -11,6 +11,7 @@ export type MapData = {
   station_levels: number[];
   z_override: number;
   dept_colors_map: { d: string; c: string }[];
+  pois: { name: string; desc: string; x: number; y: number; z: number }[];
 };
 
 export const Map = (props, context) => {
@@ -19,13 +20,17 @@ export const Map = (props, context) => {
   const [minimapZoom, setMinimapZoom] = useLocalState<number>(
     context,
     `minimapZoom`,
-    100
+    150
   );
 
   const [showLegend, setShowLegend] = useLocalState<boolean>(
     context,
     `showLegend`,
     false
+  );
+
+  const pois = data.pois?.filter(
+    (poi) => poi.z === (data.z_override ? data.z_override : data.user_z)
   );
 
   const map_size = 255;
@@ -109,6 +114,31 @@ export const Map = (props, context) => {
                 height={map_size * zoom_mod}
                 xlinkHref={`data:image/jpeg;base64,${data.map_image}`}
               />
+              {pois?.map((poi) => (
+                <g
+                  key={poi.name}
+                  transform={`translate(
+                  ${poi.x * zoom_mod}
+                  ${(map_size - poi.y) * zoom_mod}
+                )`}>
+                  <polygon
+                    points="3,0 0,3 -3,0 0,-3"
+                    fill="#AA0000"
+                    stroke="#FFFF00"
+                    stroke-width="0.5"
+                  />
+                  <text
+                    x={poi.x > data.user_x ? 5 : -5}
+                    y={poi.y > data.user_y ? -3 : 9}
+                    fill="#FF0000"
+                    stroke="#FFFF00"
+                    stroke-width="0.1"
+                    font-size="9"
+                    text-anchor={poi.x > data.user_x ? 'start' : 'end'}>
+                    {poi.name}
+                  </text>
+                </g>
+              ))}
               {!data.z_override || data.user_z === data.z_override ? (
                 <>
                   <polygon

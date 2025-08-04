@@ -94,9 +94,11 @@
 	layer = ABOVE_HUMAN_LAYER
 
 /obj/structure/ledge/roof/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(istype(mover,/obj/item/projectile))
+	if(mover?.movement_type & PHASING)
 		return TRUE
-	if(!istype(mover) || mover.checkpass(PASSRAILING))
+	if(istype(mover,/obj/projectile))
+		return TRUE
+	if(!istype(mover) || mover.pass_flags & PASSRAILING)
 		return TRUE
 	if(mover.throwing)
 		return TRUE

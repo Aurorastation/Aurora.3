@@ -10,6 +10,7 @@
 	metabolism_min = REM * 0.125
 	breathe_mul = 0.5
 	scannable = TRUE
+	value = 2.5
 	taste_description = "bitterness"
 
 /singleton/reagent/inaprovaline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -33,6 +34,7 @@
 	taste_description = "bitterness"
 	fallback_specific_heat = 1
 	taste_mult = 3
+	value = 4.9
 
 /singleton/reagent/bicaridine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.heal_organ_damage(5 * removed, 0)
@@ -114,6 +116,7 @@
 	metabolism = REM * 0.5
 	overdose = 15
 	taste_mult = 1.5
+	value = 3.9
 
 /singleton/reagent/dermaline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.heal_organ_damage(0, 12 * removed)
@@ -129,6 +132,7 @@
 	scannable = TRUE
 	metabolism = REM * 0.5
 	taste_description = "a roll of gauze"
+	value = 2.1
 
 	var/remove_generic = TRUE
 	var/list/remove_toxins = list(
@@ -171,6 +175,7 @@
 	metabolism = REM * 0.75
 	breathe_met = REM * 0.5
 	breathe_mul = 2
+	value = 2.4
 	var/strength = 6
 
 /singleton/reagent/dexalin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -197,6 +202,7 @@
 	color = "#0040FF"
 	overdose = 15
 	strength = 12
+	value = 3.6
 
 /singleton/reagent/tricordrazine
 	name = "Tricordrazine"
@@ -209,9 +215,10 @@
 	taste_description = "bitterness"
 	breathe_mul = 0
 	metabolism = REM * 0.25
+	value = 6
 
 /singleton/reagent/tricordrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	var/power = 1 + Clamp((holder.get_temperature() - (T0C + 20))*0.1,-0.5,0.5)
+	var/power = 1 + clamp((holder.get_temperature() - (T0C + 20))*0.1,-0.5,0.5)
 	//Heals 10% more brute and less burn for every 1 celcius above 20 celcius, up 50% more/less.
 	//Heals 10% more burn and less brute for every 1 celcius below 20 celcius, up to 50% more/less.
 	M.heal_organ_damage(3 * removed * power,3 * removed * power)
@@ -228,6 +235,7 @@
 	overdose = 5
 	scannable = TRUE
 	taste_description = "sludge"
+	value = 3.9
 
 /singleton/reagent/cryoxadone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_CRYO, 1)
@@ -241,7 +249,8 @@
 			for(var/obj/item/organ/internal/I in H.internal_organs)
 				if(!BP_IS_ROBOTIC(I))
 					if(I.organ_tag == BP_BRAIN)
-						if(I.damage > I.max_damage/2) //will only treat brain activity above 50% brain activity
+						var/brain_activity = 100 - ((I.damage / I.max_damage) * 100) //converts brain damage to a percentage, to calculate BA
+						if(brain_activity >= 61) //will only treat brain activity below 61% brain activity
 							continue
 					I.heal_damage(4*removed)
 	else if(M.is_diona() && M.bodytemperature < 170)
@@ -260,6 +269,7 @@
 	overdose = 5
 	scannable = TRUE
 	taste_description = "slime"
+	value = 5.5
 
 /singleton/reagent/clonexadone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_CRYO, 1)
@@ -273,7 +283,8 @@
 			for(var/obj/item/organ/internal/I in H.internal_organs)
 				if(!BP_IS_ROBOTIC(I))
 					if(I.organ_tag == BP_BRAIN)
-						if(I.damage > I.max_damage/2) //will only treat brain activity above 50% brain activity
+						var/brain_activity = 100 - ((I.damage / I.max_damage) * 100) //converts brain damage to a percentage, to calculate BA
+						if(brain_activity >= 61) //will only treat brain activity below 61% brain activity
 							continue
 					I.heal_damage(4*removed)
 	else if(M.is_diona() && M.bodytemperature < 170)
@@ -299,6 +310,7 @@
 	taste_description = "sickness"
 	metabolism_min = 0.005
 	breathe_mul = 0
+	value = 3.3
 
 /singleton/reagent/perconol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(check_min_dose(M))
@@ -328,6 +340,7 @@
 	taste_description = "sourness"
 	metabolism_min = 0.005
 	breathe_mul = 0
+	value = 3.1
 
 /singleton/reagent/mortaphenyl/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/list/joy_messages = list("You feel soothed and at ease.", "You feel content and at peace.", "You feel a pleasant emptiness.", "You feel like sharing the wonderful memories and feelings you're experiencing.", "All your anxieties fade away.", "You feel like you're floating off the ground.", "You don't want this feeling to end.")
@@ -371,6 +384,9 @@
 	taste_description = "euphoric acid"
 
 /singleton/reagent/mortaphenyl/aphrodite/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	var/list/joy_messages = list("You feel soothed and at ease.", "You feel content and at peace.", "You feel a pleasant emptiness.", "You feel like sharing the wonderful memories and feelings you're experiencing.", "All your anxieties fade away.", "You feel like you're floating off the ground.", "You don't want this feeling to end.")
+	M.notify_message(SPAN_GOOD(pick(joy_messages)), rand(20 SECONDS, 40 SECONDS), key = "aphrodite_affect_blood")
+
 	M.add_chemical_effect(CE_PAINKILLER, 40)
 	if(!M.chem_effects[CE_CLEARSIGHT])
 		M.eye_blurry = max(M.eye_blurry, 3)
@@ -501,6 +517,7 @@
 	breathe_met = REM * 4 // .8 units per tick
 	taste_description = "bitterness"
 	metabolism_min = 0.005
+	value = 3.3
 
 /singleton/reagent/oxycomorphine/initial_effect(var/mob/living/carbon/human/M, var/alien, var/holder)
 	to_chat(M, SPAN_GOOD(pick("You lean back and begin to fall... and fall... and fall.", "A feeling of ecstasy builds within you.", "You're startled by just how amazing you suddenly feel.")))
@@ -552,6 +569,7 @@
 	scannable = TRUE
 	taste_description = "bitterness"
 	metabolism_min = REM * 0.0125
+	value = 4.6
 
 /singleton/reagent/synaptizine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.drowsiness = max(M.drowsiness - 5, 0)
@@ -593,6 +611,7 @@
 	scannable = TRUE
 	taste_description = "bitterness"
 	metabolism_min = REM * 0.075
+	value = 5.9
 
 /singleton/reagent/alkysine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(check_min_dose(M, 2)) //Increased effectiveness & no side-effects if given via IV drip with low transfer rate.
@@ -631,6 +650,7 @@
 	scannable = TRUE
 	taste_mult = 0.33 //Specifically to cut the dull toxin taste out of foods using carrot
 	taste_description = "dull toxin"
+	value = 4.2
 
 /singleton/reagent/oculine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.eye_blurry = max(M.eye_blurry - 5 * removed, 0)
@@ -663,6 +683,7 @@
 	overdose = 10
 	scannable = TRUE
 	taste_description = "bitterness"
+	value = 6
 
 /singleton/reagent/peridaxon/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(ishuman(M))
@@ -702,9 +723,11 @@
 	reagent_state = SOLID
 	color = "#004000"
 	overdose = REAGENTS_OVERDOSE
+	scannable = TRUE
 	taste_description = "acid"
 	metabolism = REM
 	metabolism_min = 0.25
+	value = 3.6
 
 /singleton/reagent/ryetalyn/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	holder.remove_reagent(/singleton/reagent/toxin/malignant_tumour_cells, 2)
@@ -719,6 +742,22 @@
 		var/mob/living/carbon/human/H = M
 		H.update_mutations()
 
+/singleton/reagent/ryetalyn/affect_ingest(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	. = ..()
+
+	holder.remove_reagent(/singleton/reagent/toxin/malignant_tumour_cells, 2)
+
+	var/needs_mutation_update = M.mutations > 0
+	M.mutations = 0
+	M.disabilities = 0
+	M.sdisabilities = 0
+
+	// Might need to update appearance for hulk etc.
+	if(needs_mutation_update && ishuman(M))
+		var/mob/living/carbon/human/H = M
+		H.update_mutations()
+
+
 /singleton/reagent/hyperzine
 	name = "Hyperzine"
 	description = "Hyperzine is a complex cardio-synaptic stimulant drug designed to increase the performance of the body. Downsides include violent muscle spasms and tremors."
@@ -726,10 +765,14 @@
 	color = "#FF3300"
 	metabolism = REM * 0.15
 	overdose = 15
-	var/datum/modifier = null
 	taste_description = "acid"
 	metabolism_min = REM * 0.025
 	breathe_met = REM * 0.15 * 0.5
+	value = 3.9
+
+/singleton/reagent/hyperzine/initial_effect(mob/living/carbon/M, alien, datum/reagents/holder)
+	. = ..()
+	M.add_movespeed_modifier(/datum/movespeed_modifier/reagent/hyperzine)
 
 /singleton/reagent/hyperzine/get_overdose(mob/living/carbon/M, location, datum/reagents/holder)
 	if(REAGENT_VOLUME(M.reagents, /singleton/reagent/adrenaline) > 5)
@@ -746,7 +789,6 @@
 		M.emote(pick("twitch", "blink_r", "shiver"))
 		to_chat(M, SPAN_GOOD(pick("You feel pumped!", "Energy, energy, energy - so much energy!", "You could run a marathon!", "You can't sit still!", "It's difficult to focus right now... but that's not important!")))
 	if(check_min_dose(M, 0.5))
-		M.add_chemical_effect(CE_SPEEDBOOST, 1)
 		M.add_chemical_effect(CE_PULSE, 1)
 
 /singleton/reagent/hyperzine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -759,9 +801,9 @@
 		M.take_organ_damage(5 * removed, 0)
 		M.adjustHalLoss(15)
 
-/singleton/reagent/hyperzine/Destroy()
-	QDEL_NULL(modifier)
-	return ..()
+/singleton/reagent/hyperzine/final_effect(mob/living/carbon/M, datum/reagents/holder)
+	M.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/hyperzine)
+	. = ..()
 
 #define ETHYL_INTOX_COST	3 //The cost of power to remove one unit of intoxication from the patient
 #define ETHYL_REAGENT_POWER	20 //The amount of power in one unit of ethyl
@@ -777,6 +819,7 @@
 	overdose = REAGENTS_OVERDOSE
 	scannable = TRUE
 	taste_description = "bitterness"
+	value = 3.1
 
 /singleton/reagent/ethylredoxrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/P = removed * ETHYL_REAGENT_POWER
@@ -829,6 +872,7 @@
 	overdose = REAGENTS_OVERDOSE
 	scannable = TRUE
 	taste_description = "bitterness"
+	value = 2.3
 	unaffected_species = IS_MACHINE
 	var/last_taste_time = -10000
 
@@ -859,6 +903,7 @@
 	overdose = REAGENTS_OVERDOSE
 	scannable = TRUE
 	taste_description = "bitterness"
+	value = 2.7
 	unaffected_species = IS_MACHINE
 
 /singleton/reagent/arithrazine/initialize_data(newdata)
@@ -896,6 +941,7 @@
 	scannable = TRUE
 	taste_description = "bitter gauze soaked in rubbing alcohol"
 	fallback_specific_heat = 0.605 // assuming it's ethanol-based
+	value = 2.5
 
 /singleton/reagent/thetamycin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_ANTIBIOTIC, M.chem_doses[type]) // strength of antibiotics; amount absorbed, need >5u dose to begin to be effective which'll take ~5 minutes to metabolise. need >10u dose if administered orally.
@@ -982,6 +1028,8 @@
 	breathe_met = REM * 2 // .4 units per tick
 	// touch is slow
 
+	value = 1.5
+
 	glass_name = "glass of cough syrup"
 	glass_desc = "You'd better not."
 
@@ -1027,6 +1075,7 @@
 	touch_met = 5
 	taste_description = "burning bleach"
 	germ_adjust = 20
+	value = 2.2
 
 /singleton/reagent/sterilizine/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.germ_level -= min(removed*20, M.germ_level)
@@ -1090,6 +1139,7 @@
 	overdose = REAGENTS_OVERDOSE
 	scannable = TRUE
 	taste_description = "bitterness"
+	value = 2
 
 /singleton/reagent/leporazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(!check_min_dose(M))
@@ -1127,7 +1177,7 @@
 
 /* mental */
 
-#define MEDICATION_MESSAGE_DELAY 10 MINUTES
+#define MEDICATION_MESSAGE_DELAY 10 SECONDS
 
 /singleton/reagent/mental
 	name = null //Just like alcohol
@@ -1141,9 +1191,29 @@
 	od_minimum_dose = 0.02
 	taste_description = "bugs"
 	ingest_mul = 1
-	var/alchohol_affected = 1
+	/// Imparts hallucination effects scaling with bac.
+	var/alchohol_affected = TRUE
 	var/messagedelay = MEDICATION_MESSAGE_DELAY
-	var/list/goodmessage = list() //Fluff messages
+	/// Generic fluff messages for anyone who takes it.
+	var/list/goodmessage = list()
+	/// Species-specific fluff messages- will override the generic version for the given species. See following comment/example for implementation details.
+	var/list/goodmessage_species
+
+	/**
+	 *	We leave goodmessage_species null so no unnecessary checks are performed for most reagents. However, if we want a given reagent to have unique
+	 *	messages for consumers of a given species, its value can be set as below within the singleton/reagent/mental:
+	 *
+	 *	goodmessage_species = list(
+	 *		SPECIES_HUMAN = list("Damn you're high.","You're totally zooted!"),
+	 *		SPECIES_HUMAN_OFFWORLD = list("Damn you're WAY higher than normal humans. Like, you might even say outside the gravity well high.", "Zooted bo booted boyyy."),
+	 *		SPECIES_UNATHI = list("You feel like shit and want to die.","Why the fuck did you smoke that shitty human stuff."),
+	 *		SPECIES_SKRELL = list("Aaaaaaaaaaaa!","Aaaauuuuaaaa!","Waaaoouuuuaaaaahhh!"),
+	 *		SPECIES_SKRELL_AXIORI = list("If you weren't axiori you'd probably be having a bad time but you're pretty zooted.")
+	 *		)
+	 *
+	 *	No, there's not support right now for things like ALL_DIONA_SPECIES. Once somebody wants to make Vaurca-only drugs, they will probably
+	 *	implement support for it out of sheer annoyance though.
+	 */
 
 	fallback_specific_heat = 1.5
 
@@ -1156,14 +1226,35 @@
 	if(!istype(H) || world.time < holder.reagent_data[type]["last_tick_time"] || messagedelay == -1)
 		return
 
+	var/message
 	var/bac = H.get_blood_alcohol()
 	if(alchohol_affected && bac > 0.03)
 		H.hallucination = max(H.hallucination, bac * 400)
 
 	if(H.chem_doses[type] < overdose && H.shock_stage < 5) //Don't want feel-good messages when we're suffering an OD or particularly hurt/injured
-		to_chat(H, SPAN_GOOD("[pick(goodmessage)]"))
+		message = feedback_message(H)
+		to_chat(H, SPAN_GOOD("[message]"))
 
 	LAZYSET(holder.reagent_data[type], "last_tick_time", world.time + (messagedelay))
+
+/**
+ * 	Holds logic for returning feedback message strings based on race.
+ *	'goodmessage' is your generic catch-all list of message strings.
+ *	'goodmessage_species', if set, will override the 'goodmessage' list only for that species.
+ */
+/singleton/reagent/mental/proc/feedback_message(var/mob/living/carbon/human/mob)
+	var/mob_species = mob.get_species()
+	var/message
+
+	if(length(goodmessage))
+		message = pick(goodmessage)
+
+	if(length(goodmessage_species))
+		for(var/species in goodmessage_species)
+			if(mob_species == species)
+				message = pick(goodmessage_species[species])
+
+	return message
 
 /singleton/reagent/mental/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_EMETIC, M.chem_doses[type] / 6)
@@ -1179,6 +1270,7 @@
 	taste_description = "bitterness"
 	messagedelay = MEDICATION_MESSAGE_DELAY * 0.75
 	goodmessage = list("You feel good.","You feel relaxed.","You feel alert and focused.")
+	value = 2
 
 /singleton/reagent/mental/nicotine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale, var/datum/reagents/holder)
 	..()
@@ -1213,6 +1305,7 @@
 	od_minimum_dose = 0.2
 	taste_description = "paper"
 	goodmessage = list("You feel focused.","You feel like you have no distractions.","You feel willing to work.")
+	value = 6
 
 /singleton/reagent/mental/corophenidate/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_HALLUCINATE, -1)
@@ -1227,6 +1320,7 @@
 	od_minimum_dose = 0.2
 	taste_description = "bitterness"
 	goodmessage = list("You do not feel the need to worry about simple things.","You feel calm and level-headed.","You feel fine.")
+	value = 6
 
 /singleton/reagent/mental/parvosil
 	name = "Parvosil"
@@ -1237,6 +1331,7 @@
 	od_minimum_dose = 0.4
 	taste_description = "paper"
 	goodmessage = list("You feel fine.","You feel rational.","You feel secure.")
+	value = 6
 
 /singleton/reagent/mental/minaphobin
 	name = "Minaphobin"
@@ -1247,6 +1342,7 @@
 	od_minimum_dose = 0.2
 	taste_description = "duct tape"
 	goodmessage = list("You feel relaxed.","You feel at ease.","You feel carefree.")
+	value = 6
 
 /singleton/reagent/mental/emoxanyl
 	name = "Emoxanyl"
@@ -1258,6 +1354,7 @@
 	taste_description = "scotch tape"
 	goodmessage = list("You feel at ease.","Your mind feels great.", "You feel centered.")
 	messagedelay = MEDICATION_MESSAGE_DELAY * 0.75
+	value = 6
 
 /singleton/reagent/mental/orastabin
 	name = "Orastabin"
@@ -1269,6 +1366,7 @@
 	taste_description = "glue"
 	goodmessage = list("You feel at ease.","You feel like you can speak with confidence.","You feel unafraid to speak.")
 	messagedelay = MEDICATION_MESSAGE_DELAY * 0.75
+	value = 6
 
 /singleton/reagent/mental/orastabin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_NOSTUTTER, 2)
@@ -1285,6 +1383,7 @@
 	taste_description = "tranquility"
 	goodmessage = list("Your mind feels as one.","You feel incredibly comfortable.","Your body feels good.","Your thoughts are clear.", "You feel stress free.", "Nothing is bothering you anymore.")
 	messagedelay = MEDICATION_MESSAGE_DELAY * 0.5
+	value = 6
 
 /singleton/reagent/mental/neurapan/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_HALLUCINATE, -2)
@@ -1307,6 +1406,7 @@
 	taste_description = "paint"
 	goodmessage = list("Your mind feels as one.","You feel comfortable speaking.","Your body feels good.","Your thoughts are pure.","Your body feels responsive.","You can handle being alone.")
 	messagedelay = MEDICATION_MESSAGE_DELAY * 0.5
+	value = 6
 
 /singleton/reagent/mental/nerospectan/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_HALLUCINATE, -2)
@@ -1327,6 +1427,7 @@
 	goodmessage = list("You feel like you have nothing to hide.","You feel compelled to spill your secrets.","You feel like you can trust those around you.")
 	messagedelay = 30
 	ingest_mul = 1
+	value = 8
 
 /singleton/reagent/mental/truthserum/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_PACIFIED, 1)
@@ -1340,17 +1441,27 @@
 	overdose = 5
 	od_minimum_dose = 3
 	taste_description = "sugar"
-	goodmessage = list("You feel pleasantly warm.","You feel like you've been basking in the sun.","You feel focused and warm...")
+	goodmessage_species = list(
+		SPECIES_UNATHI = list("You feel pleasantly warm.","You feel like you've been basking in the sun.","You feel focused and warm...")
+		)
 
 /singleton/reagent/mental/kokoreed/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
+
 	if(M.bodytemperature > 310)
 		M.bodytemperature = max(310, M.bodytemperature - (5 * TEMPERATURE_DAMAGE_COEFFICIENT))
 
 /singleton/reagent/mental/kokoreed/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale, var/datum/reagents/holder)
 	. = ..()
+
 	if(isunathi(M))
-		M.add_up_to_chemical_effect(CE_SPEEDBOOST, 1)
+		M.add_movespeed_modifier(/datum/movespeed_modifier/reagent/kokoreed)
+
+/singleton/reagent/mental/kokoreed/final_effect(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	if(isunathi(M))
+		M.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/kokoreed)
+
+	. = ..()
 
 /singleton/reagent/cataleptinol
 	name = "Cataleptinol"
@@ -1499,6 +1610,7 @@
 	scannable = TRUE
 	taste_description = "fine dust"
 	reagent_state = SOLID
+	value = 3.2
 
 /singleton/reagent/pneumalin/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
 	H.adjustOxyLoss(removed) //Every unit heals 1 oxy damage
@@ -1523,6 +1635,7 @@
 	overdose = REAGENTS_OVERDOSE
 	scannable = TRUE
 	taste_description = "sickness"
+	value = 5
 
 /singleton/reagent/rezadone/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
@@ -1552,6 +1665,7 @@
 	scannable = TRUE
 	taste_description = "blood"
 	specific_heat = 1
+	value = 5
 
 /singleton/reagent/sanasomnum/initial_effect(mob/living/carbon/M)
 	to_chat(M, SPAN_WARNING("Your limbs start to feel <b>numb</b> and <b>weak</b>, and your legs wobble as it becomes hard to stand!"))
@@ -1608,6 +1722,7 @@
 	overdose = REAGENTS_OVERDOSE
 	scannable = TRUE
 	taste_description = "sweet syrup"
+	value = 2
 
 /singleton/reagent/verunol/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if (prob(10+M.chem_doses[type]))
@@ -1626,6 +1741,7 @@
 	taste_description = "bitter metal"
 	overdose = 5
 	fallback_specific_heat = 1.2
+	value = 500
 
 /singleton/reagent/azoth/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
@@ -1714,6 +1830,7 @@
 	value = 2
 	breathe_mul = 0
 	ingest_mul = 0
+	value = 3
 
 /singleton/reagent/adrenaline/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien == IS_DIONA)
@@ -1751,6 +1868,7 @@
 	affects_dead = 1
 	taste_description = "eternal blissfulness"
 	fallback_specific_heat = 2
+	value = 1000
 
 /singleton/reagent/elixir/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(ishuman(M))
@@ -1847,7 +1965,7 @@
 /singleton/reagent/kilosemine/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed)
 	. = ..()
 	if(.)
-		M.add_chemical_effect(CE_SPEEDBOOST, 1)
+		M.add_movespeed_modifier(/datum/movespeed_modifier/reagent/kilosemine)
 		M.add_chemical_effect(CE_CLEARSIGHT)
 		M.add_chemical_effect(CE_STRAIGHTWALK)
 		M.add_chemical_effect(CE_PAINKILLER, 30)
@@ -1873,6 +1991,10 @@
 				if(heart)
 					to_chat(H, SPAN_DANGER("Your heart skips a beat and screams out in pain!"))
 					heart.take_internal_damage(10)
+
+/singleton/reagent/kilosemine/final_effect(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	M.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/kilosemine)
+	. = ..()
 
 /singleton/reagent/antiparasitic
 	name = "Helmizole"
@@ -1918,3 +2040,50 @@
 			var/obj/item/organ/external/E = Z.parent_organ
 			Z.curing = TRUE
 			to_chat(M, SPAN_WARNING("Your [E.name] tightens, pulses, and squirms as \the [Z] fights back against the antibodies!"))
+
+/singleton/reagent/caffeine // Copied from Hyperzine
+	name = "Caffeine"
+	description = "Caffeine is a central nervous system stimulant found naturally in many plants. It's used as a mild cognitive enhancer to increase alertness, attentional performance, and improve cardiovascular health."
+	reagent_state = SOLID
+	color = "#f9edea"
+	metabolism = REM * 0.15
+	overdose = 11
+	var/datum/modifier = null
+	taste_description = "bitter"
+	metabolism_min = REM * 0.025
+	breathe_met = REM * 0.15 * 0.5
+
+/singleton/reagent/caffeine/initial_effect(mob/living/carbon/M, alien, datum/reagents/holder)
+	. = ..()
+	M.add_movespeed_modifier(/datum/movespeed_modifier/reagent/caffeine)
+	M.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/reagent/caffeine, TRUE, -0.35)
+
+/singleton/reagent/caffeine/get_od_min_dose(mob/living/carbon/M, location, datum/reagents/holder)
+	if(REAGENT_VOLUME(M.reagents, /singleton/reagent/adrenaline) > 5)
+		return 0 // Takes effect instantly.
+	. = od_minimum_dose
+
+/singleton/reagent/caffeine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(prob(5))
+		to_chat(M, SPAN_GOOD(pick("You feel alert!", "You feel awake!", "You feel pumped!")))
+	if(check_min_dose(M, 0.5))
+		M.add_chemical_effect(CE_PULSE, 1)
+
+/singleton/reagent/caffeine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	M.adjustNutritionLoss(5*removed)
+	M.add_chemical_effect(CE_PULSE, 2)
+	M.make_jittery(5)
+	if(prob(5))
+		to_chat(M, SPAN_WARNING(pick("You have a headache!", "Energy, energy, energy - so much energy!", "You can't sit still!", "It's difficult to focus right now... but that's not important!", "Your heart is beating rapidly!", "Your chest hurts!", "You've totally over-exerted yourself!")))
+	if(prob(M.chem_doses[type] / 3))
+		M.emote(pick("twitch", "blink_r", "shiver"))
+		M.take_organ_damage(5 * removed, 0)
+		M.adjustHalLoss(15)
+
+/singleton/reagent/caffeine/final_effect(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	M.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/caffeine)
+	. = ..()
+
+/singleton/reagent/caffeine/Destroy()
+	QDEL_NULL(modifier)
+	return ..()

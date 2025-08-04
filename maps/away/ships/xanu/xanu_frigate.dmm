@@ -635,7 +635,8 @@
 /area/shuttle/xanu_boarder/main)
 "cl" = (
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(222)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/bridge)
@@ -681,7 +682,8 @@
 /area/ship/xanu_frigate/crew_quarters)
 "cB" = (
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 8
+	dir = 8;
+	req_access = list(222)
 	},
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 6
@@ -1615,7 +1617,7 @@
 	sensors = list("xanufrigate_stbdco2_sensor"="Tank");
 	name = "Starboard Fuel Control"
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/starboard)
 "fC" = (
@@ -1657,12 +1659,10 @@
 	pixel_y = 1
 	},
 /obj/machinery/recharger/wallcharger{
-	layer = 3.3;
 	pixel_x = 2;
 	pixel_y = 23
 	},
 /obj/machinery/recharger/wallcharger{
-	layer = 3.3;
 	pixel_x = 2;
 	pixel_y = 34
 	},
@@ -2235,7 +2235,6 @@
 	opacity = 1
 	},
 /obj/machinery/ship_weapon/francisca/compact{
-	layer = 3;
 	pixel_x = -40;
 	pixel_y = -54;
 	weapon_id = "Xanu Fighter Francisca"
@@ -3524,9 +3523,7 @@
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /obj/item/storage/bag/inflatable,
-/obj/structure/window{
-	layer = 3.19
-	},
+/obj/structure/window,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/ship/xanu_frigate/corridor/fore_atrium)
 "mp" = (
@@ -3688,7 +3685,6 @@
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
-	dir = 2;
 	icon_state = "pipe-c"
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -4029,7 +4025,6 @@
 /area/ship/xanu_frigate/galley)
 "nN" = (
 /obj/structure/disposalpipe/segment{
-	dir = 2;
 	icon_state = "pipe-c"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4272,7 +4267,8 @@
 /area/ship/xanu_frigate/corridor/starboard)
 "oy" = (
 /obj/machinery/computer/shuttle_control/explore/terminal/xanu_fighter{
-	dir = 8
+	dir = 8;
+	req_access = list(222)
 	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
@@ -4509,7 +4505,6 @@
 	},
 /obj/effect/floor_decal/industrial/outline,
 /obj/machinery/door/window/brigdoor/westleft{
-	layer = 3.21;
 	req_access = list(222)
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
@@ -4548,7 +4543,6 @@
 	dir = 8
 	},
 /obj/structure/disposalpipe/segment{
-	dir = 2;
 	icon_state = "pipe-c"
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -4879,7 +4873,6 @@
 	dir = 1
 	},
 /obj/structure/disposalpipe/segment{
-	dir = 2;
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/gunmetal,
@@ -5021,7 +5014,8 @@
 /area/ship/xanu_frigate/corridor/central)
 "ra" = (
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(222)
 	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
@@ -5646,11 +5640,9 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/structure/table/reinforced/steel,
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_y = 9
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_y = 3
 	},
 /turf/simulated/floor/tiled/white,
@@ -6447,7 +6439,8 @@
 /area/ship/xanu_frigate/crew_quarters)
 "wm" = (
 /obj/machinery/computer/shuttle_control/explore/terminal/xanu_boarder{
-	dir = 8
+	dir = 8;
+	req_access = list(222)
 	},
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 6
@@ -6995,7 +6988,8 @@
 /area/ship/xanu_frigate/weapon/longbow)
 "yw" = (
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 8
+	dir = 8;
+	req_access = list(222)
 	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
@@ -7774,7 +7768,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment{
-	dir = 2;
 	icon_state = "pipe-c"
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -8322,7 +8315,8 @@
 /area/ship/xanu_frigate/hangar)
 "Db" = (
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(222)
 	},
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 4
@@ -8332,7 +8326,8 @@
 /area/ship/xanu_frigate/cic)
 "Dc" = (
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 4
+	dir = 4;
+	req_access = list(222)
 	},
 /obj/machinery/light{
 	dir = 8
@@ -8871,7 +8866,6 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment{
-	dir = 2;
 	icon_state = "pipe-c"
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -10362,7 +10356,7 @@
 	sensors = list("xanufrigate_air_sensor"="Tank");
 	name = "Air Control"
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
 "JN" = (
@@ -11016,8 +11010,7 @@
 /obj/machinery/alarm/east,
 /obj/machinery/washing_machine{
 	pixel_y = 3;
-	pixel_x = 7;
-	layer = 2.91
+	pixel_x = 7
 	},
 /obj/machinery/washing_machine{
 	pixel_y = 3;
@@ -11345,7 +11338,7 @@
 /obj/item/clothing/accessory/storage/brown_vest,
 /obj/item/clothing/accessory/storage/brown_vest,
 /obj/item/clothing/accessory/storage/white_vest,
-/obj/item/storage/belt/medical/first_responder,
+/obj/item/storage/belt/medical/paramedic,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/cic)
 "MY" = (
@@ -11552,7 +11545,8 @@
 /area/ship/xanu_frigate/bridge)
 "NE" = (
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 8
+	dir = 8;
+	req_access = list(222)
 	},
 /obj/structure/railing/mapped{
 	dir = 4
@@ -12026,7 +12020,6 @@
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/door/window/brigdoor/eastright{
-	layer = 3.21;
 	req_access = list(222);
 	name = "Fuel Access"
 	},
@@ -12262,8 +12255,7 @@
 "Qh" = (
 /obj/machinery/washing_machine{
 	pixel_y = 3;
-	pixel_x = 7;
-	layer = 2.91
+	pixel_x = 7
 	},
 /obj/machinery/washing_machine{
 	pixel_y = 3;
@@ -13345,7 +13337,8 @@
 /area/ship/xanu_frigate/rec_room)
 "TA" = (
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(222)
 	},
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark,
@@ -13410,7 +13403,8 @@
 /area/ship/xanu_frigate/crew_quarters)
 "TR" = (
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 4
+	dir = 4;
+	req_access = list(222)
 	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
@@ -14166,7 +14160,6 @@
 	dir = 1
 	},
 /obj/structure/disposalpipe/segment{
-	dir = 2;
 	icon_state = "pipe-c"
 	},
 /obj/structure/cable{

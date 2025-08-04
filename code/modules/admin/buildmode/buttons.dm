@@ -3,6 +3,7 @@
 	density = 1
 	anchored = 1
 	layer = HUD_BASE_LAYER
+	plane = HUD_PLANE
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
 	icon = 'icons/misc/buildmode.dmi'
 	var/datum/click_handler/build_mode/host
@@ -75,4 +76,4 @@
 /obj/effect/bmode/quit/OnClick()
 	var/datum/click_handler/handler = usr.GetClickHandler()
 	if(handler.type == /datum/click_handler/build_mode)
-		usr.PopClickHandler()
+		usr.RemoveClickHandler(/datum/click_handler/build_mode)

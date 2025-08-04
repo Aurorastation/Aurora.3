@@ -5,21 +5,25 @@
 /obj/item/portable_typewriter
 	name = "portable typewriter"
 	desc = "A reasonably lightweight typewriter designed to be moved around."
-	desc_info = "You can alt-click this to eject the paper. Click and drag onto yourself while adjacent to type on the typewriter."
 	desc_extended = "The National Typist Company in the People's Republic of Adhomai was once the largest producer of \
 	typewriters on the planet. With the introduction of human technology, however, these items - \
 	which were once staples of Tajaran offices - have slowly become more uncommon. That \
 	said, rural areas and less urban parts of the planet still rely heavily on these machines."
 	icon_state = "typewriter"
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/bureaucracy.dmi'
 	force = 25
 	throwforce = 5
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	drop_sound = 'sound/items/drop/metalweapon.ogg'
 	pickup_sound = 'sound/items/pickup/metalweapon.ogg'
 
 	var/obj/item/paper/stored_paper = null
 	var/obj/item/pen/pen
+
+/obj/item/portable_typewriter/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can ALT-click this to eject the paper."
+	. += "Click and drag \the [src] onto yourself while adjacent to type on it."
 
 /obj/item/portable_typewriter/Initialize()
 	. = ..()
@@ -55,15 +59,16 @@
 	else
 		. = ..()
 
-/obj/item/portable_typewriter/MouseDrop(mob/user as mob)
-	if(use_check_and_message(user))
+/obj/item/portable_typewriter/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	var/mob/mob_dropped_over = over
+	if(use_check_and_message(mob_dropped_over))
 		return
 
-	if(((user.contents.Find(src) || in_range(src, user))))
+	if(((mob_dropped_over.contents.Find(src) || in_range(src, mob_dropped_over))))
 		if(isnull(stored_paper))
-			to_chat(user, SPAN_ALERT("\The [src] has no paper fed for typing!"))
+			to_chat(mob_dropped_over, SPAN_ALERT("\The [src] has no paper fed for typing!"))
 		else
-			stored_paper.attackby(pen, user)
+			stored_paper.attackby(pen, mob_dropped_over)
 	return
 
 /obj/item/portable_typewriter/update_icon()
@@ -100,8 +105,14 @@
 			to_chat(user, SPAN_ALERT("\The [src] already has a paper in it."))
 		. = ..()
 
-/obj/item/portable_typewriter/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
+/obj/item/portable_typewriter/attack(mob/living/target_mob, mob/living/user, target_zone)
 	..()
+
+	var/mob/living/carbon/M = target_mob
+
+	if(!istype(M))
+		return
+
 	user.visible_message(SPAN_ALERT("\The [src] shatters into metal pieces!"))
 	M.Weaken(2)
 	playsound(loc, 'sound/effects/metalhit.ogg', 50, 1)
@@ -112,7 +123,6 @@
 /obj/item/typewriter_case
 	name = "typewriter case"
 	desc = "A large briefcase-esque place to store one's typewriter."
-	desc_info = "You can alt-click on this case to open and close it. A typewriter can only be removed or added when it is open!"
 	desc_extended = "The National Typist Company in the People's Republic of Adhomai was once the largest producer of \
 	typewriters on the planet. With the introduction of human technology, however, these items - \
 	which were once staples of Tajaran offices - have slowly become more uncommon. That \
@@ -125,12 +135,16 @@
 	throwforce = 5
 	throw_speed = 1
 	throw_range = 4
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	drop_sound = 'sound/items/drop/backpack.ogg'
 	pickup_sound = 'sound/items/pickup/backpack.ogg'
 
 	var/obj/item/portable_typewriter/machine
 	var/opened = FALSE
+
+/obj/item/typewriter_case/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can ALT-click on this case to open and close it. A typewriter can only be removed or added when it is open!"
 
 /obj/item/typewriter_case/Initialize()
 	. = ..()
@@ -173,8 +187,8 @@
 			to_chat(user, SPAN_ALERT("\The [src] is currently closed!"))
 	return
 
-/obj/item/typewriter_case/MouseDrop(mob/user as mob)
-	attack_self(user)
+/obj/item/typewriter_case/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	attack_self(over)
 
 /obj/item/typewriter_case/attackby(obj/item/attacking_item, mob/user, params)
 	if(istype(attacking_item, /obj/item/portable_typewriter))

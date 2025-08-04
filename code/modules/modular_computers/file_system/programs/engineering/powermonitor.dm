@@ -3,7 +3,7 @@
 	filedesc = "Power Monitoring"
 	program_icon_state = "power_monitor"
 	program_key_icon_state = "yellow_key"
-	extended_desc = "This program connects to sensors around the station to provide information about electrical systems"
+	extended_desc = "This program connects to sensors around the station to provide information about electrical systems."
 	ui_header = "power_norm.gif"
 	required_access_run = ACCESS_ENGINE
 	required_access_download = ACCESS_CE
@@ -18,14 +18,15 @@
 	var/list/grid_sensors
 	var/active_sensor	//name_tag of the currently selected sensor
 
+/datum/computer_file/program/power_monitor/New()
+	..()
+
 /datum/computer_file/program/power_monitor/ui_data(mob/user)
 	var/list/data = initial_data()
-
 	var/list/sensors = list()
-	// Focus: If it remains null if no sensor is selected and UI will display sensor list, otherwise it will display sensor reading.
-	var/obj/machinery/power/sensor/focus
+	var/obj/machinery/power/sensor/focus // Placeholder for selected sensor, if one has been selected from the UI list
 
-	// Build list of data from sensor readings.
+	// Prepare list of sensors (see refresh_sensors()) and set focus to sensor based of active_sensor (see ui_act()->setsensor)
 	for(var/obj/machinery/power/sensor/S in grid_sensors)
 		sensors.Add(list(list(
 		"name" = S.name_tag,
@@ -34,11 +35,17 @@
 		if(S.name_tag == active_sensor)
 			focus = S
 
-	data["all_sensors"] = sensors
+	// Prepare return value: data["focus"] will dictate which view is visible (list or focused sensor)
+	data["all_sensors"] = sensors // Represents main menu list of all found sensors
 	if(focus)
-		data["focus"] = focus.return_reading_data()
-
+		data["focus"] = focus.return_reading_data() // Force view to selected sensor, include focused sensors data
+	else
+		data["focus"] = null // Force view to main menu
 	return data
+
+/datum/computer_file/program/power_monitor/kill_program(forced)
+	..()
+	active_sensor = null // Reset UI navigation state
 
 /datum/computer_file/program/power_monitor/proc/has_alarm()
 	for(var/obj/machinery/power/sensor/S in grid_sensors)
@@ -75,6 +82,7 @@
 
 /datum/computer_file/program/power_monitor/process_tick()
 	..()
+	refresh_sensors()
 	if(has_alarm())
 		if(!has_alert)
 			program_icon_state = "power_monitor_warn"

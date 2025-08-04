@@ -4,7 +4,7 @@
 	description = "A crashed survival pod from a destroyed ship."
 
 	prefix = "crashed_pod/"
-	suffixes = list("crashed_pod.dmm")
+	suffix = "crashed_pod.dmm"
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS | TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	ruin_tags = RUIN_LOWPOP|RUIN_WRECK

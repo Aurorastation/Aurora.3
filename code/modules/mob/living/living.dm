@@ -8,9 +8,7 @@
 
 	return
 
-//mob verbs are faster than object verbs. See above.
-var/mob/living/next_point_time = 0
-/mob/living/pointed(atom/A as mob|obj|turf in view())
+/mob/living/_pointed(atom/pointing_at)
 	if(src.stat || src.restrained())
 		return FALSE
 	if(src.status_flags & FAKEDEATH)
@@ -19,7 +17,7 @@ var/mob/living/next_point_time = 0
 	. = ..()
 
 	if(.)
-		visible_message("<b>\The [src]</b> points to \the [A].")
+		visible_message("<b>\The [src]</b> points to \the [pointing_at].")
 
 /mob/living/drop_from_inventory(var/obj/item/W, var/atom/target)
 	. = ..(W, target)
@@ -54,123 +52,123 @@ default behaviour is:
 	var/tmp/last_push_notif
 
 /mob/living/Collide(atom/movable/AM)
-	spawn
-		if (now_pushing || !loc)
+	if (now_pushing || !loc)
+		return
+
+	now_pushing = TRUE
+	if (istype(AM, /mob/living))
+		var/mob/living/tmob = AM
+
+		for(var/mob/living/M in range(tmob, 1))
+			if(tmob.pinned.len || ((M.pulling == tmob && ( tmob.restrained() && !( M.restrained() ) && M.stat == 0)) || locate(/obj/item/grab, tmob.grabbed_by.len)) )
+				if (last_push_notif + 0.5 SECONDS <= world.time)
+					to_chat(src, SPAN_WARNING("[tmob] is restrained, you cannot push past"))
+					last_push_notif = world.time
+
+				now_pushing = FALSE
+				return
+			if( tmob.pulling == M && ( M.restrained() && !( tmob.restrained() ) && tmob.stat == 0) )
+				if (last_push_notif + 0.5 SECONDS <= world.time)
+					to_chat(src, SPAN_WARNING("[tmob] is restraining [M], you cannot push past"))
+					last_push_notif = world.time
+
+				now_pushing = FALSE
+				return
+
+		//Leaping mobs just land on the tile, no pushing, no anything.
+		if(status_flags & LEAPING)
+			forceMove(tmob.loc)
+			status_flags &= ~LEAPING
+			now_pushing = FALSE
 			return
 
-		now_pushing = TRUE
-		if (istype(AM, /mob/living))
-			var/mob/living/tmob = AM
-
-			for(var/mob/living/M in range(tmob, 1))
-				if(tmob.pinned.len || ((M.pulling == tmob && ( tmob.restrained() && !( M.restrained() ) && M.stat == 0)) || locate(/obj/item/grab, tmob.grabbed_by.len)) )
-					if (last_push_notif + 0.5 SECONDS <= world.time)
-						to_chat(src, SPAN_WARNING("[tmob] is restrained, you cannot push past"))
-						last_push_notif = world.time
-
-					now_pushing = FALSE
-					return
-				if( tmob.pulling == M && ( M.restrained() && !( tmob.restrained() ) && tmob.stat == 0) )
-					if (last_push_notif + 0.5 SECONDS <= world.time)
-						to_chat(src, SPAN_WARNING("[tmob] is restraining [M], you cannot push past"))
-						last_push_notif = world.time
-
-					now_pushing = FALSE
-					return
-
-			//Leaping mobs just land on the tile, no pushing, no anything.
-			if(status_flags & LEAPING)
-				forceMove(tmob.loc)
-				status_flags &= ~LEAPING
-				now_pushing = FALSE
-				return
-
-			if(can_swap_with(tmob)) // mutual brohugs all around!
-				var/turf/tmob_oldloc = get_turf(tmob)
-				var/turf/src_oldloc = get_turf(src)
-				if(pulling?.density)
-					tmob.forceMove(pulling.loc)
-					forceMove(tmob_oldloc)
+		if(can_swap_with(tmob)) // mutual brohugs all around!
+			var/turf/tmob_oldloc = get_turf(tmob)
+			var/turf/src_oldloc = get_turf(src)
+			if(pulling?.density)
+				tmob.forceMove(pulling.loc)
+				forceMove(tmob_oldloc)
+				pulling.forceMove(src_oldloc)
+			else if(tmob.pulling?.density)
+				forceMove(tmob.pulling.loc)
+				tmob.forceMove(src_oldloc)
+				tmob.pulling.forceMove(tmob_oldloc)
+			else
+				forceMove(tmob_oldloc)
+				if(pulling)
 					pulling.forceMove(src_oldloc)
-				else if(tmob.pulling?.density)
-					forceMove(tmob.pulling.loc)
-					tmob.forceMove(src_oldloc)
+				tmob.forceMove(src_oldloc)
+				if(tmob.pulling)
 					tmob.pulling.forceMove(tmob_oldloc)
-				else
-					forceMove(tmob_oldloc)
-					if(pulling)
-						pulling.forceMove(src_oldloc)
-					tmob.forceMove(src_oldloc)
-					if(tmob.pulling)
-						tmob.pulling.forceMove(tmob_oldloc)
-				for(var/obj/item/grab/G in list(l_hand, r_hand))
-					G.affecting.forceMove(loc)
-				for(var/obj/item/grab/G in list(tmob.l_hand, tmob.r_hand))
-					G.affecting.forceMove(tmob.loc)
+			for(var/obj/item/grab/G in list(l_hand, r_hand))
+				G.affecting.forceMove(loc)
+			for(var/obj/item/grab/G in list(tmob.l_hand, tmob.r_hand))
+				G.affecting.forceMove(tmob.loc)
+			now_pushing = FALSE
+			for(var/mob/living/carbon/slime/slime in view(2, tmob))
+				if(slime.victim == tmob)
+					slime.UpdateFeed()
+			return
+
+		if(!can_move_mob(tmob, 0, 0))
+			now_pushing = FALSE
+			return
+
+		if(a_intent == I_HELP || src.restrained())
+			now_pushing = FALSE
+			return
+
+		if(istype(tmob, /mob/living/carbon/human) && (tmob.mutations & FAT))
+			if(prob(40) && !(mutations & FAT))
+				to_chat(src, SPAN_DANGER("You fail to push [tmob]'s fat ass out of the way."))
 				now_pushing = FALSE
-				for(var/mob/living/carbon/slime/slime in view(2, tmob))
-					if(slime.victim == tmob)
-						slime.UpdateFeed()
 				return
 
-			if(!can_move_mob(tmob, 0, 0))
+		if(istype(tmob.r_hand, /obj/item/shield/riot))
+			if(prob(99))
 				now_pushing = FALSE
 				return
 
-			if(a_intent == I_HELP || src.restrained())
+		if(istype(tmob.l_hand, /obj/item/shield/riot))
+			if(prob(99))
 				now_pushing = FALSE
 				return
 
-			if(istype(tmob, /mob/living/carbon/human) && (tmob.mutations & FAT))
-				if(prob(40) && !(mutations & FAT))
-					to_chat(src, SPAN_DANGER("You fail to push [tmob]'s fat ass out of the way."))
+		if(!(tmob.status_flags & CANPUSH))
+			now_pushing = FALSE
+			return
+
+		tmob.LAssailant = WEAKREF(src)
+
+	now_pushing = FALSE
+	. = ..()
+	if (!istype(AM, /atom/movable))
+		return
+	if (!now_pushing)
+		now_pushing = TRUE
+
+		if (!AM.anchored)
+			if(isobj(AM))
+				var/obj/O = AM
+				if ((can_pull_size == 0) || (can_pull_size < O.w_class))
 					now_pushing = FALSE
 					return
 
-			if(istype(tmob.r_hand, /obj/item/shield/riot))
-				if(prob(99))
+			var/t = get_dir(src, AM)
+			if (istype(AM, /obj/structure/window))
+				for(var/obj/structure/window/win in get_step(AM,t))
 					now_pushing = FALSE
 					return
 
-			if(istype(tmob.l_hand, /obj/item/shield/riot))
-				if(prob(99))
-					now_pushing = FALSE
-					return
-
-			if(!(tmob.status_flags & CANPUSH))
-				now_pushing = FALSE
-				return
-
-			tmob.LAssailant = WEAKREF(src)
+			step(AM, t)
+			if(ishuman(AM))
+				var/mob/living/carbon/human/H = AM
+				if(H.grabbed_by)
+					for(var/obj/item/grab/G in H.grabbed_by)
+						step(G.assailant, get_dir(G.assailant, H))
+						G.adjust_position()
 
 		now_pushing = FALSE
-		spawn(0)
-			. = ..()
-			if (!istype(AM, /atom/movable))
-				return
-			if (!now_pushing)
-				now_pushing = TRUE
-
-				if (!AM.anchored)
-					if(isobj(AM))
-						var/obj/O = AM
-						if ((can_pull_size == 0) || (can_pull_size < O.w_class))
-							now_pushing = FALSE
-							return
-
-					var/t = get_dir(src, AM)
-					if (istype(AM, /obj/structure/window))
-						for(var/obj/structure/window/win in get_step(AM,t))
-							now_pushing = FALSE
-							return
-
-					step(AM, t)
-					if(ishuman(AM) && AM:grabbed_by)
-						for(var/obj/item/grab/G in AM:grabbed_by)
-							step(G:assailant, get_dir(G:assailant, AM))
-							G.adjust_position()
-
-				now_pushing = FALSE
 
 /**
  * Checks if two mobs can swap with each other based on the density
@@ -284,7 +282,7 @@ default behaviour is:
 /mob/living/proc/adjustBruteLoss(var/amount)
 	if (status_flags & GODMODE)
 		return
-	health = Clamp(health - amount, 0, maxHealth)
+	health = clamp(health - amount, 0, maxHealth)
 
 /mob/living/proc/getOxyLoss()
 	return 0
@@ -352,7 +350,7 @@ default behaviour is:
 // ++++ROCKDTBEN++++ MOB PROCS //END
 
 /mob/proc/get_contents()
-
+	return list()
 
 //Recursive function to find everything a mob is holding.
 /mob/living/get_contents(var/obj/item/storage/Storage = null)
@@ -393,6 +391,7 @@ default behaviour is:
 				L += get_contents(D.wrapped)
 		return L
 
+/// Returns TRUE if mob has obj of A type anywhere in its contents.
 /mob/living/proc/check_contents_for(A)
 	var/list/L = src.get_contents()
 
@@ -673,7 +672,13 @@ default behaviour is:
 	set name = "Resist"
 	set category = "IC"
 
+	DEFAULT_QUEUE_OR_CALL_VERB(VERB_CALLBACK(src, PROC_REF(execute_resist)))
+
+///proc extender of [/mob/living/verb/resist] meant to make the process queable if the server is overloaded when the verb is called
+/mob/living/proc/execute_resist()
+
 	if(!incapacitated(INCAPACITATION_KNOCKOUT) && canClick())
+		SEND_SIGNAL(src, COMSIG_MOB_RESISTED)
 		resist_grab()
 		if(!weakened)
 			process_resist()
@@ -865,10 +870,10 @@ default behaviour is:
 	if(deaf >= 0)
 		ear_deaf = deaf
 
-/mob/proc/can_be_possessed_by(var/mob/abstract/observer/possessor)
+/mob/proc/can_be_possessed_by(var/mob/abstract/ghost/observer/possessor)
 	return istype(possessor) && possessor.client
 
-/mob/living/can_be_possessed_by(var/mob/abstract/observer/possessor)
+/mob/living/can_be_possessed_by(var/mob/abstract/ghost/observer/possessor)
 	if(!..())
 		return 0
 	if(!possession_candidate)
@@ -881,7 +886,7 @@ default behaviour is:
 		return 0
 	return 1
 
-/mob/living/proc/do_possession(var/mob/abstract/observer/possessor)
+/mob/living/proc/do_possession(var/mob/abstract/ghost/observer/possessor)
 
 	if(!(istype(possessor) && possessor.ckey))
 		return 0
@@ -891,7 +896,7 @@ default behaviour is:
 		return 0
 
 	message_admins("<span class='adminnotice'>[key_name_admin(possessor)] has taken control of \the [src].</span>")
-	log_admin("[key_name(possessor)] took control of \the [src].",admin_key=key_name(possessor))
+	log_admin("[key_name(possessor)] took control of \the [src].")
 	src.ckey = possessor.ckey
 	qdel(possessor)
 
@@ -911,7 +916,13 @@ default behaviour is:
 /mob/living/Initialize()
 	. = ..()
 	add_to_target_grid()
-	ability_master = new /obj/screen/movable/ability_master(FALSE, src)
+	ability_master = new /atom/movable/screen/movable/ability_master(FALSE, src)
+
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
 
 /mob/living/Destroy()
 
@@ -955,11 +966,12 @@ default behaviour is:
 	var/test_types = test.find_type()
 	. = (eat_types & test_types) == test_types
 
-/mob/living/Crossed(var/atom/movable/AM)
-	if(istype(AM, /mob/living/heavy_vehicle))
-		var/mob/living/heavy_vehicle/MB = AM
+/mob/living/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	if(istype(arrived, /mob/living/heavy_vehicle))
+		var/mob/living/heavy_vehicle/MB = arrived
 		MB.trample(src)
-	..()
 
 #define PPM 9	//Protein per meat, used for calculating the quantity of protein in an animal
 /mob/living/proc/calculate_composition()
@@ -1062,3 +1074,7 @@ default behaviour is:
 
 /mob/living/get_speech_bubble_state_modifier()
 	return isSynthetic() ? "robot" : ..()
+
+///Performs the aftereffects of blocking a projectile.
+/mob/living/proc/block_projectile_effects()
+	return

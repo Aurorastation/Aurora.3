@@ -42,7 +42,7 @@ PROCESSING_SUBSYSTEM_DEF(nanoui)
  * * ui_key - A string key used for the ui
  */
 /datum/controller/subsystem/processing/nanoui/proc/get_open_ui(mob/user, src_object, ui_key)
-	var/src_object_key = SOFTREF(src_object)
+	var/src_object_key = REF(src_object)
 	if (!LAZYLEN(open_uis[src_object_key]) || !LAZYLEN(open_uis[src_object_key][ui_key]))
 		return null
 
@@ -61,7 +61,7 @@ PROCESSING_SUBSYSTEM_DEF(nanoui)
  * Returns the number of UIs updated
  */
 /datum/controller/subsystem/processing/nanoui/proc/update_uis(src_object)
-	var/src_object_key = SOFTREF(src_object)
+	var/src_object_key = REF(src_object)
 	if (!LAZYLEN(open_uis[src_object_key]))
 		return 0
 
@@ -82,7 +82,7 @@ PROCESSING_SUBSYSTEM_DEF(nanoui)
  * Returns the number of UIs closed
  */
 /datum/controller/subsystem/processing/nanoui/proc/close_uis(src_object)
-	var/src_object_key = SOFTREF(src_object)
+	var/src_object_key = REF(src_object)
 	if (!open_uis[src_object_key] || !islist(open_uis[src_object_key]))
 		return 0
 
@@ -134,7 +134,7 @@ PROCESSING_SUBSYSTEM_DEF(nanoui)
  * * ui - The `/nanoui` ui to add
  */
 /datum/controller/subsystem/processing/nanoui/proc/ui_opened(datum/nanoui/ui)
-	var/src_object_key = SOFTREF(ui.src_object)
+	var/src_object_key = REF(ui.src_object)
 	LAZYINITLIST(open_uis[src_object_key])
 
 	LAZYADD(ui.user.open_uis, ui)
@@ -151,7 +151,7 @@ PROCESSING_SUBSYSTEM_DEF(nanoui)
  * Returns FALSE if no ui was removed, TRUE if removed successfully
  */
 /datum/controller/subsystem/processing/nanoui/proc/ui_closed(datum/nanoui/ui)
-	var/src_object_key = SOFTREF(ui.src_object)
+	var/src_object_key = REF(ui.src_object)
 	var/ui_key = ui.ui_key
 	var/list/obj_uis = open_uis[src_object_key]
 

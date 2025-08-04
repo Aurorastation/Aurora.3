@@ -109,6 +109,9 @@
 	set category = "Object"
 	set name = "Eject Primer"
 
+	if(use_check(usr))
+		return
+
 	if(!primer)
 		to_chat(usr, SPAN_WARNING("\The [src] doesn't have a primer!"))
 		return

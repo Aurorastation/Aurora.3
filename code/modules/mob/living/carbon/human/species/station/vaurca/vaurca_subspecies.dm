@@ -38,14 +38,80 @@
 	stamina_recovery = 3
 
 	unarmed_types = list(
+		/datum/unarmed_attack/bite/warrior,
 		/datum/unarmed_attack/stomp,
 		/datum/unarmed_attack/kick,
 		/datum/unarmed_attack/claws,
-		/datum/unarmed_attack/palm,
-		/datum/unarmed_attack/bite/warrior
+		/datum/unarmed_attack/palm
 	)
 
+	valid_prosthetics = list(PROSTHETIC_VAURCA, PROSTHETIC_VAURCA_WARRIOR)
 
+	character_color_presets = list(
+		"Zo'ra: Unbound Vaur" = "#3D0000",
+		"Zo'ra: Unbound Zoleth" = "#650015",
+		"Zo'ra: Unbound Athvur" = "#83290B",
+		"Zo'ra: Unbound Scay" = "#47001F",
+		"Zo'ra: Unbound Xakt" = "#5B1F00",
+
+		"K'lax: Unbound Zkaii" = "#0B2B1B",
+		"K'lax: Unbound Tupii" = "#299617",
+		"K'lax: Unbound Vedhra" = "#829614",
+		"K'lax: Unbound Leto" = "#00503C",
+		"K'lax: Unbound Vetju" = "#0B541F",
+
+		"C'thur: Unbound C'thur" = "#002373",
+		"C'thur: Unbound Vytel" = "#141437",
+		"C'thur: Unbound Mouv" = "#96B4FF",
+		"C'thur: Unbound Xetl" = "#370078"
+	)
+
+/datum/species/bug/type_b/type_bb
+	name = SPECIES_VAURCA_ATTENDANT
+	name_plural = "Type BB"
+	species_height = HEIGHT_CLASS_HUGE
+	icobase = 'icons/mob/human_races/vaurca/r_vaurcabb.dmi'
+	eyes = "vaurca_attendant_eyes"
+
+	slowdown = -0.8
+	brute_mod = 0.9
+	oxy_mod = 1
+	radiation_mod = 0.5
+	bleed_mod = 2.5
+	burn_mod = 1.2
+	sprint_speed_factor = 0.6
+	sprint_cost_factor = 0.40
+	grab_mod = 1.1
+	resist_mod = 4
+	standing_jump_range = 3
+	pain_mod = 1.5
+
+	unarmed_types = list(
+		/datum/unarmed_attack/stomp,
+		/datum/unarmed_attack/kick,
+		/datum/unarmed_attack/claws,
+		/datum/unarmed_attack/palm
+	)
+
+	mob_size = 8
+	blurb = "Type BB Warriors or \"Attendants\" are digitigrade bipeds, built to be agile and quick. They are primarily made to be scouts or serve in support positions and \
+	they excel at guerilla tactics. They can possess the same roles as regular warriors, but their speed-built forms are not as hardy. They are commonly attributed to the \
+	role of combat medics, providing medical assistance on the field, or removal of the neural socket if the individual cannot be saved." //Copied from the wiki
+
+	stamina = 100
+
+	tail = "Gaster"
+	tail_animation = 'icons/mob/species/vaurca/tail.dmi'
+	selectable_tails = list("Gaster")
+
+/datum/species/bug/type_b/type_bb/New()
+	..()
+	default_emotes += /singleton/emote/audible/rattle // Appends an emote unique to Attendants.
+
+/datum/species/bug/type_b/type_bb/can_hold_s_store(obj/item/I)
+	if(I.w_class <= WEIGHT_CLASS_NORMAL)
+		return TRUE
+	return FALSE
 
 /datum/species/bug/type_c
 	name = SPECIES_VAURCA_BREEDER
@@ -94,7 +160,6 @@
 	blood_mask = 'icons/mob/human_races/masks/blood_breeder.dmi'
 	canvas_icon = 'icons/mob/base_48.dmi'
 
-
 	stamina = 175
 	sprint_speed_factor = 1
 	sprint_cost_factor = 0.80
@@ -141,6 +206,23 @@
 	)
 	possible_external_organs_modifications = list("Normal", "Amputated") //We don't have any limb modfications for this species
 	valid_prosthetics = null
+
+	character_color_presets = list(
+		"Zo'ra: Vaur" = "#3D000F",
+		"Zo'ra: Zoleth" = "#730015",
+		"Zo'ra: Athvur" = "#7A1F00",
+		"Zo'ra: Scay" = "#470029",
+		"Zo'ra: Xakt" = "#51230A",
+
+		"K'lax: Zkaii" = "#2B483A",
+		"K'lax: Tupii" = "#067C12",
+		"K'lax: Vedhra" = "#627308",
+		"K'lax: Leto" = "#1C6654",
+
+		"C'thur" = "#0F2962",
+		"C'thur: Vytel" = "#191937",
+		"C'thur: Mouv" = "#7D75FF"
+	)
 
 /datum/species/bug/type_c/New()
 	..()
@@ -250,14 +332,16 @@
 	icobase = 'icons/mob/human_races/vaurca/r_vaurcae.dmi'
 	deform = 'icons/mob/human_races/vaurca/r_vaurcae.dmi'
 	canvas_icon = 'icons/mob/base_48.dmi'
-	talk_bubble_icon = 'icons/mob/talk_bulwark.dmi'
 
 	default_h_style = "Bulwark Classic Antennae"
 
-	icon_x_offset = -9
+	icon_x_offset = -8
+	floating_chat_x_offset = 8
+	floating_chat_y_offset = 14
+	typing_indicator_x_offset = 16
+	typing_indicator_y_offset = 12
 	healths_x = 22
 	healths_overlay_x = 9
-	floating_chat_x_offset = 6
 
 	damage_overlays = 'icons/mob/human_races/masks/dam_mask_bulwark.dmi'
 	damage_mask = 'icons/mob/human_races/masks/dam_mask_bulwark.dmi'
@@ -274,7 +358,7 @@
 	)
 
 	natural_armor = list(
-		melee = ARMOR_MELEE_MEDIUM
+		MELEE = ARMOR_MELEE_MEDIUM
 	)
 
 	brute_mod = 0.4
@@ -303,19 +387,40 @@ Bulwarks are much larger and have significantly thicker carapaces than most Vaur
 	possible_external_organs_modifications = list("Normal", "Amputated") //We don't have any limb modfications for this species, yet
 	valid_prosthetics = null
 
+	flags = NO_SLIP | NO_CHUBBY | NO_ARTERIES | PHORON_IMMUNE | NO_COLD_SLOWDOWN | NO_EQUIP_SPEEDMODS
+
+	character_color_presets = list(
+		"Zo'ra: Unbound Vaur" = "#3D000F", "Zo'ra: Bound Vaur" = "#37000F",
+		"Zo'ra: Unbound Zoleth" = "#730015", "Zo'ra: Bound Zoleth" = "#610015",
+		"Zo'ra: Unbound Athvur" = "#7A1F00", "Zo'ra: Bound Athvur" = "#691B00",
+		"Zo'ra: Unbound Scay" = "#470029", "Zo'ra: Bound Scay" = "#470519",
+		"Zo'ra: Unbound Xakt" = "#51230A", "Zo'ra: Bound Xakt" = "#491D05",
+
+		"K'lax: Unbound Zkaii" = "#2B483A", "K'lax: Bound Zkaii" = "#263B10",
+		"K'lax: Unbound Tupii" = "#067C12", "K'lax: Bound Tupii" = "#7D881D",
+		"K'lax: Unbound Vedhra" = "#627308", "K'lax: Bound Vedhra" = "#006400",
+		"K'lax: Unbound Leto" = "#1C6654", "K'lax: Bound Leto" = "#1A280F",
+		"K'lax: Unbound Vetju" = "#0D421B", "K'lax: Bound Vetju" = "#314831",
+
+		"C'thur: Unbound C'thur" = "#0F2962", "C'thur: Bound C'thur" = "#0A213F",
+		"C'thur: Unbound Vytel" = "#191937", "C'thur: Bound Vytel" = "#0E0E2B",
+		"C'thur: Unbound Mouv" = "#7D75FF", "C'thur: Bound Mouv" = "#4A8AFC",
+		"C'thur: Unbound Xetl" = "#3F0876", "C'thur: Bound Xetl" = "#330563"
+	)
+
 /datum/species/bug/type_e/New()
 	..()
 	equip_adjust = list(
-		slot_head_str    = list(                                     "[EAST]" = list("x" = 16, "y" = 0),  "[SOUTH]" = list("x" = 9, "y" = 0), "[WEST]" = list("x" = 0, "y" = 0)),
-		slot_glasses_str = list(                                     "[EAST]" = list("x" = 15, "y" = 0),  "[SOUTH]" = list("x" = 9, "y" = 0), "[WEST]" = list("x" = 1, "y" = 0)),
-		slot_l_hand_str  = list("[NORTH]" = list("x" = 6, "y" = 0),  "[EAST]" = list("x" = 9, "y" = 2),  "[SOUTH]" = list("x" = 12, "y" = 0), "[WEST]" = list("x" = 4, "y" = 0)),
-		slot_r_hand_str  = list("[NORTH]" = list("x" = 12, "y" = 0), "[EAST]" = list("x" = 12, "y" = 0), "[SOUTH]" = list("x" = 6, "y" = 0),  "[WEST]" = list("x" = 7, "y" = 2)),
-		slot_l_ear_str   = list(                                     "[EAST]" = list("x" = 0, "y" = 0),  "[SOUTH]" = list("x" = 9, "y" = 0),  "[WEST]" = list("x" = 0, "y" = 0)),
-		slot_r_ear_str   = list(                                     "[EAST]" = list("x" = 16, "y" = 0), "[SOUTH]" = list("x" = 9, "y" = 0),  "[WEST]" = list("x" = 0, "y" = 0)),
-		slot_belt_str    = list("[NORTH]" = list("x" = 9, "y" = 2),  "[EAST]" = list("x" = 10, "y" = 1), "[SOUTH]" = list("x" = 9, "y" = 2),  "[WEST]" = list("x" = 6, "y" = 1)),
-		slot_wear_id_str = list("[NORTH]" = list("x" = 0, "y" = 0),  "[EAST]" = list("x" = 12, "y" = 0), "[SOUTH]" = list("x" = 9, "y" = 0),  "[WEST]" = list("x" = 0, "y" = 0)),
-		slot_wrists_str  = list("[NORTH]" = list("x" = 15, "y" = 0), "[EAST]" = list("x" = 12, "y" = 0), "[SOUTH]" = list("x" = 4, "y" = 0),  "[WEST]" = list("x" = 9, "y" = 0)),
-		slot_shoes_str   = list("[NORTH]" = list("x" = 9, "y" = 0),  "[EAST]" = list("x" = 8, "y" = 0),  "[SOUTH]" = list("x" = 9, "y" = 0),  "[WEST]" = list("x" = 8, "y" = 0))
+		slot_head_str    = list(                                     "[EAST]" = list("x" = 15, "y" = 0), "[SOUTH]" = list("x" = 8, "y" = 0),  "[WEST]" = list("x" = 0, "y" = 0)),
+		slot_glasses_str = list(                                     "[EAST]" = list("x" = 14, "y" = 0), "[SOUTH]" = list("x" = 8, "y" = 0),  "[WEST]" = list("x" = 0, "y" = 0)),
+		slot_l_hand_str  = list("[NORTH]" = list("x" = 5, "y" = 0),  "[EAST]" = list("x" = 8, "y" = 2),  "[SOUTH]" = list("x" = 11, "y" = 0), "[WEST]" = list("x" = 3, "y" = 0)),
+		slot_r_hand_str  = list("[NORTH]" = list("x" = 11, "y" = 0), "[EAST]" = list("x" = 11, "y" = 0), "[SOUTH]" = list("x" = 5, "y" = 0),  "[WEST]" = list("x" = 6, "y" = 2)),
+		slot_l_ear_str   = list(                                     "[EAST]" = list("x" = 0, "y" = 0),  "[SOUTH]" = list("x" = 8, "y" = 0),  "[WEST]" = list("x" = 0, "y" = 0)),
+		slot_r_ear_str   = list(                                     "[EAST]" = list("x" = 15, "y" = 0), "[SOUTH]" = list("x" = 8, "y" = 0),  "[WEST]" = list("x" = 0, "y" = 0)),
+		slot_belt_str    = list("[NORTH]" = list("x" = 8, "y" = 2),  "[EAST]" = list("x" = 9, "y" = 1),  "[SOUTH]" = list("x" = 8, "y" = 2),  "[WEST]" = list("x" = 5, "y" = 1)),
+		slot_wear_id_str = list("[NORTH]" = list("x" = 0, "y" = 0),  "[EAST]" = list("x" = 11, "y" = 0), "[SOUTH]" = list("x" = 8, "y" = 0),  "[WEST]" = list("x" = 0, "y" = 0)),
+		slot_wrists_str  = list("[NORTH]" = list("x" = 14, "y" = 0), "[EAST]" = list("x" = 11, "y" = 0), "[SOUTH]" = list("x" = 3, "y" = 0),  "[WEST]" = list("x" = 8, "y" = 0)),
+		slot_shoes_str   = list("[NORTH]" = list("x" = 8, "y" = 0),  "[EAST]" = list("x" = 7, "y" = 0),  "[SOUTH]" = list("x" = 8, "y" = 0),  "[WEST]" = list("x" = 7, "y" = 0))
 	)
 
 /datum/species/bug/type_e/can_double_fireman_carry()

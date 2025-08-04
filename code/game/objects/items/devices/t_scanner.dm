@@ -3,12 +3,12 @@
 /obj/item/device/t_scanner
 	name = "\improper T-ray scanner"
 	desc = "A terahertz-ray emitter and scanner used to detect underfloor objects such as cables and pipes."
-	icon = 'icons/obj/item/tools/t_scanner.dmi'
+	icon = 'icons/obj/item/device/t_scanner.dmi'
 	icon_state = "t-ray0"
 	item_state = "t-ray"
-	contained_sprite = TRUE
+
 	slot_flags = SLOT_BELT
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	matter = list(MATERIAL_PLASTIC = 100, MATERIAL_ALUMINIUM = 50)
 	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 1)
 	action_button_name = "Toggle T-Ray scanner"

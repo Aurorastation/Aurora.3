@@ -39,12 +39,8 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/junction,
 /turf/simulated/floor/wood/ebony,
 /area/omgolo_tourist/dining)
@@ -52,17 +48,12 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/wood,
 /area/omgolo_tourist/roomhallway)
 "aaf" = (
 /obj/structure/disposalpipe/segment{
-	dir = 2;
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/wood,
@@ -71,12 +62,8 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/wood,
 /area/omgolo_tourist/roomhallway)
@@ -84,9 +71,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
@@ -151,9 +136,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 2
-	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
@@ -233,12 +216,8 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/lino,
 /area/omgolo_tourist/dining)
 "aax" = (
@@ -257,9 +236,7 @@
 /area/omgolo_tourist/hallway)
 "aay" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 2
-	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
@@ -282,23 +259,15 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/white,
 /area/omgolo_tourist/kitchen)
 "abb" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/white,
 /area/omgolo_tourist/kitchen)
@@ -439,12 +408,8 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/multi_tile/glass{
 	name = "Dining Room"
 	},
@@ -554,12 +519,8 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/omgolo_tourist/engineering)
@@ -645,12 +606,8 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/freezer,
 /area/omgolo_tourist/kitchen)
 "agC" = (
@@ -898,9 +855,7 @@
 /turf/simulated/floor/carpet/purple,
 /area/omgolo_tourist/dining)
 "ali" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 2
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/hallway)
 "alJ" = (
@@ -970,12 +925,8 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment{
 	dir = 1;
 	icon_state = "pipe-c"
@@ -1078,12 +1029,8 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
@@ -1278,12 +1225,8 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/wood/ebony,
 /area/omgolo_tourist/dining)
@@ -1510,7 +1453,6 @@
 	dir = 10
 	},
 /obj/structure/disposalpipe/segment{
-	dir = 2;
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/wood/ebony,
@@ -1660,12 +1602,8 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/white,
 /area/omgolo_tourist/kitchen)
@@ -1784,9 +1722,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
@@ -1843,12 +1779,8 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/junction,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
@@ -1912,7 +1844,6 @@
 /area/omgolo_tourist/hallway)
 "aGg" = (
 /obj/machinery/atmospherics/binary/pump/on{
-	dir = 2;
 	name = "Scrubbers to Waste"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2145,12 +2076,8 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/hallway)
@@ -2451,7 +2378,6 @@
 	dir = 9
 	},
 /obj/structure/disposalpipe/segment{
-	dir = 2;
 	icon_state = "pipe-c"
 	},
 /obj/effect/decal/cleanable/floor_damage/rust,
@@ -2536,9 +2462,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/wood,
 /area/omgolo_tourist/roomhallway)
 "aRS" = (
@@ -2676,8 +2600,7 @@
 /area/omgolo_tourist/atmos)
 "aTT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/atmos)
@@ -3112,12 +3035,8 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/ebony,
@@ -3176,7 +3095,6 @@
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
-	dir = 2;
 	icon_state = "pipe-c"
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
@@ -3210,8 +3128,7 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced{
-	dir = 8;
-	icon_state = "rwindow"
+	dir = 8
 	},
 /obj/structure/window/reinforced,
 /obj/machinery/door/window/eastleft{
@@ -3272,9 +3189,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/hallway)
 "jfp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 2
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/hallway)
@@ -3314,9 +3229,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
@@ -3391,12 +3304,8 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/random/dirt_75,
 /turf/simulated/floor/wood,
 /area/omgolo_tourist/roomhallway)
@@ -3519,9 +3428,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/atmos)
 "qoL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 2
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/random/dirt_75,
 /obj/item/trash/meatsnack,
 /turf/simulated/floor/tiled/dark,
@@ -3684,9 +3591,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/wood,
 /area/omgolo_tourist/roomhallway)
@@ -3696,8 +3601,7 @@
 /area/omgolo_tourist/dining)
 "vvr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -3755,7 +3659,6 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/structure/disposalpipe/junction{
-	dir = 2;
 	icon_state = "pipe-j2"
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
@@ -3785,9 +3688,7 @@
 /turf/simulated/floor/wood,
 /area/omgolo_tourist/roomhallway)
 "yfI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 2
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/machinery/light{
 	dir = 4;
 	status = 2

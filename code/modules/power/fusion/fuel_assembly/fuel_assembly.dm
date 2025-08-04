@@ -44,10 +44,10 @@
 		name = "[fuel_type] fuel rod assembly"
 		desc = "A fuel rod for a fusion reactor. This one is made from [fuel_type]."
 
-	icon_state = "blank"
+	icon_state = "fuel_assembly"
 	var/image/I = image(icon, "fuel_assembly")
 	I.color = fuel_colour
-	overlays += list(I, image(icon, "fuel_assembly_bracket"))
+	AddOverlays(list(I, image(icon, "fuel_assembly_bracket")))
 	rod_quantities[fuel_type] = initial_amount
 
 /obj/item/fuel_assembly/process()

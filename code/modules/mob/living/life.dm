@@ -1,14 +1,14 @@
-/mob/living/Life()
+/mob/living/Life(seconds_per_tick, times_fired)
 	if (QDELETED(src))	// If they're being deleted, why bother?
-		return
+		return FALSE
 
 	..()
 
-	if (transforming)
-		return
+	if(transforming)
+		return FALSE
 
 	if(!loc)
-		return
+		return FALSE
 
 	var/datum/gas_mixture/gas_environment = loc.return_air()
 	//Handle temperature/pressure differences between body and environment
@@ -21,7 +21,8 @@
 		handle_status_effects()
 
 	if(stat != DEAD)
-		aura_check(AURA_TYPE_LIFE)
+		if(LAZYLEN(auras))
+			aura_check(AURA_TYPE_LIFE)
 		if(!InStasis())
 			//Mutations and radiation
 			handle_mutations_and_radiation()
@@ -32,7 +33,7 @@
 	update_pulling()
 
 	for(var/obj/item/grab/G in src)
-		G.process()
+		INVOKE_ASYNC(G, TYPE_PROC_REF(/datum, process))
 
 	handle_actions()
 
@@ -131,13 +132,13 @@
 		return
 
 	if(eye_blind)
-		overlay_fullscreen("blind", /obj/screen/fullscreen/blind)
+		overlay_fullscreen("blind", /atom/movable/screen/fullscreen/blind)
 	else
 		clear_fullscreen("blind")
-		set_fullscreen(disabilities & NEARSIGHTED, "impaired", /obj/screen/fullscreen/impaired, 1)
-		set_fullscreen(eye_blurry, "blurry", /obj/screen/fullscreen/blurry)
+		set_fullscreen(disabilities & NEARSIGHTED, "impaired", /atom/movable/screen/fullscreen/impaired, 1)
+		set_fullscreen(eye_blurry, "blurry", /atom/movable/screen/fullscreen/blurry)
 
-	set_fullscreen(stat == UNCONSCIOUS, "blackout", /obj/screen/fullscreen/blackout)
+	set_fullscreen(stat == UNCONSCIOUS, "blackout", /atom/movable/screen/fullscreen/blackout)
 
 	if(machine)
 		var/viewflags = machine.check_eye(src)
@@ -160,6 +161,9 @@
 		setEarDamage(-1, max(ear_deaf, 1))
 
 /mob/living/proc/update_sight()
+	if(stop_sight_update)
+		return
+
 	set_sight(0)
 	if(stat == DEAD || (eyeobj && !eyeobj.living_eye))
 		update_dead_sight()
@@ -240,7 +244,7 @@
 			return
 
 		// Push sound to client. Pipe dream TODO: crossfade between the new and old weather ambience.
-		sound_to(src, sound(null, repeat = 0, wait = 0, volume = 0, channel = sound_channels.weather_channel))
+		sound_to(src, sound(null, repeat = 0, wait = 0, volume = 0, channel = GLOB.sound_channels.weather_channel))
 		if(send_sound)
-			sound_to(src, sound(send_sound, repeat = TRUE, wait = 0, volume = 30, channel = sound_channels.weather_channel))
+			sound_to(src, sound(send_sound, repeat = TRUE, wait = 0, volume = 30, channel = GLOB.sound_channels.weather_channel))
 

@@ -8,12 +8,13 @@
 #define IS_PLANT            BITFLAG(7)    // Is a treeperson.
 #define NO_EMBED            BITFLAG(8)    // Can not have shrapnel or any object embedded into its body
 #define IS_MECHANICAL       BITFLAG(9)    // Is a robot.
-#define ACCEPTS_COOLER      BITFLAG(10)    // Can wear suit coolers and have them work without a suit.
+#define ACCEPTS_COOLER      BITFLAG(10)   // Can wear suit coolers and have them work without a suit.
 #define NO_CHUBBY           BITFLAG(11)   // Cannot be visibly fat from nutrition type.
 #define NO_ARTERIES         BITFLAG(12)   // This species does not have arteries.
 #define PHORON_IMMUNE       BITFLAG(13)   // species doesn't suffer the negative effects of phoron contamination
 #define CAN_SWEAT           BITFLAG(14)   // Forgive me.
-#define NO_COLD_SLOWDOWN	BITFLAG(15)		//Doesn't slow down in the cold.
+#define NO_COLD_SLOWDOWN	BITFLAG(15)	  //Doesn't slow down in the cold.
+#define NO_EQUIP_SPEEDMODS	BITFLAG(16)	  //Doesn't get affected by carrying certain things or equipping some clothing
 // unused: 0x8000(32768) - higher than this will overflow
 
 // Base flags for IPCs.
@@ -70,6 +71,7 @@
 #define LANGUAGE_GREIMORIAN "Greimorian Chattering" //Intelligent Greimorians
 #define LANGUAGE_GREIMORIAN_HIVEMIND "Greimorian Hivemind" //Intelligent Greimorian Hivemind
 #define LANGUAGE_PURPOSE "Encrypted Transmission" //Purpose
+#define LANGUAGE_HIVEBOT "Hivebot Network" //Hivebots
 
 // Lesser-form Languages
 #define LANGUAGE_GIBBERING "Gibbering"			// alberyk

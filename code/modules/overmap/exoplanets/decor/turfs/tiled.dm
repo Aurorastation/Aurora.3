@@ -9,7 +9,6 @@
 	broken_overlay = "tiled"
 	burned_overlay = "tiled"
 	has_resources = FALSE
-	does_footprint = FALSE
 
 /turf/simulated/floor/exoplanet/tiled/dark
 	name = "plasteel tiles"
@@ -43,6 +42,13 @@
 	initial_flooring = /singleton/flooring/tiling/white
 	broken_overlay = null
 	burned_overlay = null
+
+/turf/simulated/floor/exoplanet/tiled/freezer
+	name = "tiles"
+	icon_state = "freezer"
+	tile_decal_state = "freezer_white"
+	initial_flooring = /singleton/flooring/tiling/freezer
+	color = null
 
 /turf/simulated/floor/exoplanet/silver
 	name = "silver floor"

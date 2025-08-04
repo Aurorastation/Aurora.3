@@ -1,13 +1,7 @@
 /obj/machinery/bodyscanner
 	name = "body scanner"
 	desc = "A state-of-the-art medical diagnostics machine. Guaranteed detection of all your bodily ailments or your money back!"
-	desc_info = "The advanced scanner detects and reports internal injuries such as bone fractures, internal bleeding, and organ damage. \
-	This is useful if you are about to perform surgery.<br>\
-	<br>\
-	Click your target with Grab intent, then click on the scanner to place them in it. Click the connected terminal to operate. \
-	Right-click the scanner and click 'Eject Occupant' to remove them.  You can enter the scanner yourself in a similar way, using the 'Enter Body Scanner' \
-	verb."
-	icon = 'icons/obj/sleeper.dmi'
+	icon = 'icons/obj/machinery/bodyscanner.dmi'
 	icon_state = "body_scanner"
 	density = TRUE
 	anchored = TRUE
@@ -36,12 +30,21 @@
 		SPECIES_TAJARA_ZHAN,
 		SPECIES_VAURCA_WORKER,
 		SPECIES_VAURCA_WARRIOR,
+		SPECIES_VAURCA_ATTENDANT,
 		SPECIES_VAURCA_BREEDER,
 		SPECIES_VAURCA_BULWARK,
 		SPECIES_DIONA,
 		SPECIES_DIONA_COEUS,
 		SPECIES_MONKEY
 	)
+
+/obj/machinery/bodyscanner/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if (anchored)
+		. += "The advanced scanner detects and reports internal injuries such as bone fractures, internal bleeding, and organ damage. This is useful if you are about to perform surgery."
+		. += "Click your target with Grab intent, then click on the scanner to place them in it. Click the connected terminal to operate."
+		. += "Right-click the scanner and click 'Eject Occupant' to remove them."
+		. += "You can enter the scanner yourself in a similar way using the 'Enter Body Scanner' verb, or by clicking and dragging yourself onto the scanner with any intent."
 
 /obj/machinery/bodyscanner/Initialize()
 	. = ..()
@@ -55,12 +58,15 @@
 /obj/machinery/bodyscanner/Destroy()
 	// So the GC can qdel this.
 	if (connected)
-		connected.connected = null
+		connected.unlink_scanner()
 		connected = null
 	occupant = null
 	return ..()
 
 /obj/machinery/bodyscanner/update_icon()
+	ClearOverlays()
+	if(panel_open)
+		AddOverlays("[icon_state]-panel")
 	flick("[initial(icon_state)]-anim", src)
 	if(occupant)
 		name = "[name] ([occupant])"
@@ -78,7 +84,9 @@
 		else
 			icon_state = initial(icon_state)
 
-/obj/machinery/bodyscanner/relaymove(mob/user as mob)
+/obj/machinery/bodyscanner/relaymove(mob/living/user, direction)
+	. = ..()
+
 	if (user.stat)
 		return
 	go_out()
@@ -165,18 +173,18 @@
 	qdel(G)
 	return TRUE
 
-/obj/machinery/bodyscanner/MouseDrop_T(atom/dropping, mob/user)
+/obj/machinery/bodyscanner/mouse_drop_receive(atom/dropped, mob/user, params)
 	if(!istype(user))
 		return
 
-	if(!ismob(dropping))
+	if(!ismob(dropped))
 		return
 
 	if (occupant)
 		to_chat(user, SPAN_NOTICE("<B>The scanner is already occupied!</B>"))
 		return
 
-	var/mob/living/L = dropping
+	var/mob/living/L = dropped
 	var/bucklestatus = L.bucklecheck(user)
 	if (!bucklestatus)
 		return
@@ -244,8 +252,8 @@
 	name = "body scanner console"
 	var/tgui_name = "Zeng-Hu Pharmaceuticals Body Scanner"
 	desc = "An advanced control panel that can be used to interface with a connected body scanner."
-	icon = 'icons/obj/sleeper.dmi'
-	icon_state = "body_scannerconsole"
+	icon = 'icons/obj/machinery/bodyscanner.dmi'
+	icon_state = "body_scanner_console"
 	var/obj/machinery/bodyscanner/connected
 	var/collapse_desc = ""
 	var/broken_desc = ""
@@ -259,7 +267,6 @@
 			/obj/item/stock_parts/scanning_module = 2,
 			/obj/item/stock_parts/console_screen
 		)
-	var/global/image/console_overlay
 	var/list/connected_displays = list()
 	var/list/data = list()
 	var/scan_data
@@ -282,23 +289,36 @@
 
 /obj/machinery/body_scanconsole/update_icon()
 	ClearOverlays()
+	if(panel_open)
+		AddOverlays("[icon_state]_panel")
 	if((stat & BROKEN) || (stat & NOPOWER))
 		return
-	else
-		if(!console_overlay)
-			console_overlay = image(icon, "body_scannerconsole-screen")
-		var/emissive_overlay = emissive_appearance(icon, "body_scannerconsole-screen")
-		AddOverlays(console_overlay)
-		AddOverlays(emissive_overlay)
-		set_light(1.4, 1, COLOR_PURPLE)
+	if(connected)
+		if(connected.stat & BROKEN || connected.stat & NOPOWER)
+			return
+		AddOverlays(emissive_appearance(icon, "[icon_state]_lights"))
+		AddOverlays("[icon_state]_lights")
 
 /obj/machinery/body_scanconsole/Initialize()
 	. = ..()
+	FindScanner()
+	update_icon()
+
+/obj/machinery/body_scanconsole/proc/FindScanner()
 	for(var/obj/machinery/bodyscanner/C in orange(1,src))
 		connected = C
+		RegisterSignal(connected, COMSIG_QDELETING, PROC_REF(on_linked_scanner_deletion))
 		break
 	if(connected)
 		connected.connected = src
+
+/obj/machinery/body_scanconsole/proc/on_linked_scanner_deletion()
+	SIGNAL_HANDLER
+	unlink_scanner()
+
+/obj/machinery/body_scanconsole/proc/unlink_scanner()
+	connected = null
+	UnregisterSignal(connected, COMSIG_QDELETING)
 	update_icon()
 
 /obj/machinery/body_scanconsole/attack_ai(var/mob/user)
@@ -330,7 +350,7 @@
 	for(var/obj/machinery/computer/operating/D in SSmachinery.machinery)
 		if (AreConnectedZLevels(D.z, z))
 			connected_displays += D
-			GLOB.destroyed_event.register(D, src, PROC_REF(remove_display))
+			RegisterSignal(D, COMSIG_QDELETING, PROC_REF(on_connected_display_deletion))
 	return !!length(connected_displays)
 
 /obj/machinery/body_scanconsole/ui_interact(mob/user, var/datum/tgui/ui)
@@ -342,9 +362,14 @@
 		ui = new(user, src, "BodyScanner", tgui_name, 850, 500)
 		ui.open()
 
-/obj/machinery/body_scanconsole/proc/remove_display(obj/machinery/computer/operating/display)
+/obj/machinery/body_scanconsole/proc/on_connected_display_deletion(datum/source)
+	SIGNAL_HANDLER
+
+	remove_display(source)
+
+/obj/machinery/body_scanconsole/proc/remove_display(datum/source, obj/machinery/computer/operating/display)
 	connected_displays -= display
-	GLOB.destroyed_event.unregister(display, src, PROC_REF(remove_display))
+	UnregisterSignal(display, COMSIG_QDELETING)
 
 /obj/machinery/body_scanconsole/proc/get_connected()
 	if(connected)
@@ -536,7 +561,7 @@
 		if(O.status & ORGAN_BROKEN)
 			wounds += "[O.broken_description]"
 		if(O.open)
-			wounds += "open"
+			wounds += "open incision"
 
 		var/list/infection = list()
 		if(O.germ_level)
@@ -784,48 +809,48 @@
 	dat += "<font face=\"Verdana\">"
 	dat += "<b>Patient Status</b><br><HR>"
 	dat += "<font size=\"1\">"
-	dat += text("Name: 					[]<br>", occ["name"])
-	dat += text("Status: 				[]<br>", occ["stat"])
-	dat += text("Species: 				[]<br>", occ["species"])
-	dat += text("Pulse: 				[] BPM<br>", occ["pulse"])
-	dat += text("Brain Activity:		[]<br>", occ["brain_activity"])
-	dat += text("Body Temperature: 		[]&deg;C ", (occ["bodytemp"] - T0C))
-	dat += text("([]&deg;F)<br>",  (occ["bodytemp"]*1.8-459.67))
+	dat += "Name: 					[occ["name"]]<br>"
+	dat += "Status: 				[occ["stat"]]<br>"
+	dat += "Species: 				[occ["species"]]<br>"
+	dat += "Pulse: 				[occ["pulse"]] BPM<br>"
+	dat += "Brain Activity:		[occ["brain_activity"]]<br>"
+	dat += "Body Temperature: 		[(occ["bodytemp"] - T0C)]&deg;C "
+	dat += "([(occ["bodytemp"]*1.8-459.67)]&deg;F)<br>"
 
 	dat += "<b><br>Blood Status</b><br><HR>"
-	dat += text("Blood Pressure:		[]<br>", occ["blood_pressure"])
-	dat += text("Blood Oxygenation: 	[]%<br>", occ["blood_oxygenation"])
-	dat += text("Blood Volume: 			[]%<br>", occ["blood_volume"])
-	dat += text("Blood Type: 			[]<br>", occ["blood_type"])
+	dat += "Blood Pressure:		[occ["blood_pressure"]]<br>"
+	dat += "Blood Oxygenation: 	[occ["blood_oxygenation"]]%<br>"
+	dat += "Blood Volume: 			[occ["blood_volume"]]%<br>"
+	dat += "Blood Type: 			[occ["blood_type"]]<br>"
 
 	if(occ["inaprovaline_amount"])
-		dat += text("Inaprovaline: 		[] units<BR>", occ["inaprovaline_amount"])
+		dat += "Inaprovaline: 		[occ["inaprovaline_amount"]] units<BR>"
 	if(occ["soporific_amount"])
-		dat += text("Soporific: 		[] units<BR>", occ["soporific_amount"])
+		dat += "Soporific: 		[occ["soporific_amount"]] units<BR>"
 	if(occ["dermaline_amount"])
-		dat += text("[]\tDermaline: 	[] units</font><BR>", ("<font color='[occ["dermaline_amount"] < 20  ? "black" : "red"]'>"), occ["dermaline_amount"])
+		dat += "[("<font color='[occ["dermaline_amount"] < 20  ? "black" : "red"]'>")]\tDermaline: 	[occ["dermaline_amount"]] units</font><BR>"
 	if(occ["bicaridine_amount"])
-		dat += text("[]\tBicaridine: 	[] units</font><BR>", ("<font color='[occ["bicaridine_amount"] < 20  ? "black" : "red"]'>"), occ["bicaridine_amount"])
+		dat += "[("<font color='[occ["bicaridine_amount"] < 20  ? "black" : "red"]'>")]\tBicaridine: 	[occ["bicaridine_amount"]] units</font><BR>"
 	if(occ["dexalin_amount"])
-		dat += text("[]\tDexalin: 		[] units</font><BR>", ("<font color='[occ["dexalin_amount"] < 20  ? "black" : "red"]'>"), occ["dexalin_amount"])
+		dat += "[("<font color='[occ["dexalin_amount"] < 20  ? "black" : "red"]'>")]\tDexalin: 		[occ["dexalin_amount"]] units</font><BR>"
 	if(occ["thetamycin_amount"])
-		dat += text("[]\tThetamycin: 	[] units</font><BR>", ("<font color='[occ["thetamycin_amount"] < 20 ? "black" : "red"]'>"), occ["thetamycin_amount"])
+		dat += "[("<font color='[occ["thetamycin_amount"] < 20 ? "black" : "red"]'>")]\tThetamycin: 	[occ["thetamycin_amount"]] units</font><BR>"
 	if(occ["other_amount"])
-		dat += text("Other:				[] units<BR>", occ["other_amount"])
+		dat += "Other:				[occ["other_amount"]] units<BR>"
 
 	dat += "<b><br>Symptom Status</b><br><HR>"
-	dat += text("Radiation Level:  [] Gy<br>", round(occ["rads"]))
-	dat += text("Genetic Damage:   []<br>", occ["cloneloss"])
+	dat += "Radiation Level:  [round(occ["rads"])] Gy<br>"
+	dat += "Genetic Damage:   [occ["cloneloss"]]<br>"
 	if(occ["paralysis"])
-		dat += text("Est Paralysis Level:	[] Seconds Left<br>", round(occ["paralysis"] / 4))
+		dat += "Est Paralysis Level:	[round(occ["paralysis"] / 4)] Seconds Left<br>"
 	else
-		dat += text("Est Paralysis Level:	None<br>")
+		dat += "Est Paralysis Level:	None<br>"
 
 	dat += "<b><br>Damage Status</b><br><HR>"
-	dat += text("Brute Trauma:       []<br>", occ["bruteloss"])
-	dat += text("Burn Severity:      []<br>", occ["fireloss"])
-	dat += text("Oxygen Deprivation: []<br>", occ["oxyloss"])
-	dat += text("Toxin Exposure:     []<br>", occ["toxloss"])
+	dat += "Brute Trauma:       [occ["bruteloss"]]<br>"
+	dat += "Burn Severity:      [occ["fireloss"]]<br>"
+	dat += "Oxygen Deprivation: [occ["oxyloss"]]<br>"
+	dat += "Toxin Exposure:     [occ["toxloss"]]<br>"
 
 	dat += "<br><b>Body Status</b><HR>"
 

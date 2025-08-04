@@ -8,7 +8,9 @@
 #define CONSULAR_ROLE /datum/job/consular
 #define JOURNALIST_ROLE /datum/job/journalist
 #define CHAPLAIN_ROLE /datum/job/chaplain
-#define CONSULAR_AIDE_ROLE /datum/job/consular_assistant
+#define DIPLOMATIC_AIDE_ROLE /datum/job/diplomatic_aide
+#define DIPLOMATIC_BODYGUARD_ROLE /datum/job/diplomatic_bodyguard
+#define CORPORATE_AIDE_ROLE /datum/job/corporate_aide
 
 //Event Roles
 //Used for generic department jobs for off-ship events
@@ -17,7 +19,7 @@
 #define EVENTENG_ROLE /datum/job/eventsec
 #define EVENTSCI_ROLE /datum/job/eventsci
 #define EVENTOPS_ROLE /datum/job/eventops
-#define EVENT_ROLES list(/datum/job/eventsec, /datum/job/eventmed, /datum/job/eventeng, /datum/job/eventsci, /datum/job/eventops)
+#define EVENT_ROLES list(/datum/job/eventsec, /datum/job/eventmed, /datum/job/eventeng, /datum/job/eventsci, /datum/job/eventops, /datum/job/eventsrv)
 
 // Departments
 // Used to know what roles are part of which department.
@@ -29,7 +31,7 @@
 #define SCIENCE_ROLES list(/datum/job/scientist, /datum/job/xenoarchaeologist, /datum/job/xenobiologist, /datum/job/xenobotanist, /datum/job/intern_sci, /datum/job/eventsci)
 #define MEDICAL_ROLES list(/datum/job/doctor, /datum/job/surgeon, /datum/job/pharmacist, /datum/job/psychiatrist, /datum/job/med_tech, /datum/job/intern_med, /datum/job/eventmed)
 #define ENGINEERING_ROLES list(/datum/job/engineer, /datum/job/atmos, /datum/job/intern_eng, /datum/job/eventeng)
-#define SERVICE_ROLES list(/datum/job/chaplain, /datum/job/bartender, /datum/job/chef, /datum/job/hydro, /datum/job/janitor, /datum/job/librarian)
+#define SERVICE_ROLES list(/datum/job/chaplain, /datum/job/bartender, /datum/job/chef, /datum/job/hydro, /datum/job/janitor, /datum/job/librarian, /datum/job/eventsrv)
 #define CIVILIAN_ROLES list(/datum/job/assistant, /datum/job/visitor, /datum/job/journalist)
 #define NON_CREW_CIVILIAN_ROLES list(/datum/job/passenger, /datum/job/merchant)
 #define SECURITY_ROLES list(/datum/job/warden, /datum/job/investigator, /datum/job/officer, /datum/job/intern_sec, /datum/job/eventsec)
@@ -48,4 +50,4 @@
 #define ZENG_ROLES list(SCIENCE_ROLES, MEDICAL_ROLES, CIVILIAN_ROLES, REPRESENTATIVE_ROLE)
 #define HEPH_ROLES list(OPERATIONS_ROLES, ENGINEERING_ROLES, CIVILIAN_ROLES, REPRESENTATIVE_ROLE)
 #define ORION_ROLES list(OPERATIONS_ROLES, CIVILIAN_ROLES, REPRESENTATIVE_ROLE, SERVICE_ROLES)
-#define INDEP_ROLES list(NON_CREW_CIVILIAN_ROLES, CONSULAR_ROLE, JOURNALIST_ROLE, CHAPLAIN_ROLE, OFF_DUTY_CREW_MEMBER_ROLE, JOURNALIST_ROLE, CONSULAR_AIDE_ROLE)
+#define INDEP_ROLES list(NON_CREW_CIVILIAN_ROLES, CONSULAR_ROLE, JOURNALIST_ROLE, CHAPLAIN_ROLE, OFF_DUTY_CREW_MEMBER_ROLE, JOURNALIST_ROLE, DIPLOMATIC_AIDE_ROLE, DIPLOMATIC_BODYGUARD_ROLE)

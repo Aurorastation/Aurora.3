@@ -2,7 +2,7 @@
 	..()
 
 	if(usr.client != src.owner || !check_rights(0))
-		log_admin("[key_name(usr)] tried to use the admin panel without authorization.",admin_key=key_name(usr))
+		log_admin("[key_name(usr)] tried to use the admin panel without authorization.")
 		message_admins("[usr.key] has attempted to override the admin panel!")
 		return
 
@@ -116,15 +116,15 @@
 
 		switch(href_list["call_shuttle"])
 			if("1")
-				if (evacuation_controller.call_evacuation(usr, TRUE))
+				if (GLOB.evacuation_controller.call_evacuation(usr, TRUE))
 					log_admin("[key_name(usr)] called an evacuation.")
 					message_admins("[key_name_admin(usr)] called an evacuation.", 1)
 
 			if("2")
-				if (evacuation_controller.call_evacuation(usr, TRUE))
+				if (GLOB.evacuation_controller.call_evacuation(usr, TRUE))
 					log_admin("[key_name(usr)] called an evacuation.")
 					message_admins("[key_name_admin(usr)] called an evacuation.", 1)
-				else if (evacuation_controller.cancel_evacuation())
+				else if (GLOB.evacuation_controller.cancel_evacuation())
 					log_admin("[key_name(usr)] cancelled an evacuation.")
 					message_admins("[key_name_admin(usr)] cancelled an evacuation.", 1)
 
@@ -135,13 +135,13 @@
 			return
 
 		SSticker.delay_end = !SSticker.delay_end
-		log_admin("[key_name(usr)] [SSticker.delay_end ? "delayed the round end" : "has made the round end normally"].",admin_key=key_name(usr))
+		log_admin("[key_name(usr)] [SSticker.delay_end ? "delayed the round end" : "has made the round end normally"].")
 		message_admins(SPAN_NOTICE("[key_name(usr)] [SSticker.delay_end ? "delayed the round end" : "has made the round end normally"]."), 1)
 		href_list["secretsadmin"] = "check_antagonist"
 
 	else if(href_list["simplemake"])
 
-		if(!check_rights(R_SPAWN))
+		if(!check_rights(R_FUN))
 			return
 
 		var/mob/M = locate(href_list["mob"])
@@ -156,12 +156,12 @@
 			if("Yes")
 				delmob = 1
 
-		log_admin("[key_name(usr)] has used rudimentary transformation on [key_name(M)]. Transforming to [href_list["simplemake"]]; deletemob=[delmob]",admin_key=key_name(usr))
+		log_admin("[key_name(usr)] has used rudimentary transformation on [key_name(M)]. Transforming to [href_list["simplemake"]]; deletemob=[delmob]")
 		message_admins(SPAN_NOTICE("[key_name_admin(usr)] has used rudimentary transformation on [key_name_admin(M)]. Transforming to [href_list["simplemake"]]; deletemob=[delmob]"), 1)
 
 		switch(href_list["simplemake"])
 			if("observer")
-				M.change_mob_type( /mob/abstract/observer , null, null, delmob )
+				M.change_mob_type( /mob/abstract/ghost/observer , null, null, delmob )
 			if("nymph")
 				M.change_mob_type( /mob/living/carbon/alien/diona , null, null, delmob )
 			if("human")
@@ -252,7 +252,7 @@
 				if(!reason)
 					return
 
-		log_admin("[key_name(usr)] edited [banned_key]'s ban. Reason: [reason] Duration: [duration]",admin_key=key_name(usr))
+		log_admin("[key_name(usr)] edited [banned_key]'s ban. Reason: [reason] Duration: [duration]")
 		ban_unban_log_save("[key_name(usr)] edited [banned_key]'s ban. Reason: [reason] Duration: [duration]")
 		message_admins(SPAN_NOTICE("[key_name_admin(usr)] edited [banned_key]'s ban. Reason: [reason] Duration: [duration]"), 1)
 		Banlist.cd = "/base/[banfolder]"
@@ -300,7 +300,7 @@
 				to_chat_immediate(M, SPAN_DANGER("You have been kicked from the server"))
 			else
 				to_chat_immediate(M, SPAN_DANGER("You have been kicked from the server: [reason]"))
-			log_admin("[key_name(usr)] booted [key_name(M)].",admin_key=key_name(usr),ckey=key_name(M))
+			log_admin("[key_name(usr)] booted [key_name(M)].")
 			message_admins(SPAN_NOTICE("[key_name_admin(usr)] booted [key_name_admin(M)]."), 1)
 			//M.client = null
 			del(M.client)
@@ -348,7 +348,7 @@
 					to_chat_immediate(M, SPAN_WARNING("To try to resolve this matter head to [GLOB.config.banappeals]"))
 				else
 					to_chat_immediate(M, SPAN_WARNING("No ban appeals URL has been set."))
-				log_admin("[usr.client.ckey] has banned [M.ckey].\nReason: [reason]\nThis will be removed in [mins] minutes.",admin_key=key_name(usr),ckey=key_name(M))
+				log_admin("[usr.client.ckey] has banned [M.ckey].\nReason: [reason]\nThis will be removed in [mins] minutes.")
 				message_admins(SPAN_NOTICE("[usr.client.ckey] has banned [M.ckey].\nReason: [reason]\nThis will be removed in [mins] minutes."))
 
 				del(M.client)
@@ -376,7 +376,7 @@
 					notes_add(M.ckey,"[usr.client.ckey] has permabanned [M.ckey]. - Reason: [reason] - This is a permanent ban.",usr)
 				else
 					notes_add_sql(M.ckey, "[usr.client.ckey] has permabanned [M.ckey]. - Reason: [reason] - This is a permanent ban.", usr, M.lastKnownIP, M.computer_id)
-				log_admin("[usr.client.ckey] has banned [M.ckey].\nReason: [reason]\nThis is a permanent ban.",admin_key=key_name(usr),ckey=key_name(M))
+				log_admin("[usr.client.ckey] has banned [M.ckey].\nReason: [reason]\nThis is a permanent ban.")
 				message_admins(SPAN_NOTICE("[usr.client.ckey] has banned [M.ckey].\nReason: [reason]\nThis is a permanent ban."))
 				feedback_inc("ban_perma",1)
 				DB_ban_record(BANTYPE_PERMA, M, -1, reason)
@@ -412,11 +412,11 @@
 			return alert(usr, "The game has already started.", null, null, null, null)
 		var/dat = {"<B>What mode do you wish to play?</B><HR>"}
 		for(var/mode in GLOB.config.modes)
-			dat += {"<A href='?src=\ref[src];c_mode2=[mode]'>[GLOB.config.mode_names[mode]]</A><br>"}
-		dat += {"<A href='?src=\ref[src];c_mode2=secret'>Secret</A><br>"}
-		dat += {"<A href='?src=\ref[src];c_mode2=random'>Random</A><br>"}
+			dat += {"<A href='byond://?src=[REF(src)];c_mode2=[mode]'>[GLOB.config.mode_names[mode]]</A><br>"}
+		dat += {"<A href='byond://?src=[REF(src)];c_mode2=secret'>Secret</A><br>"}
+		dat += {"<A href='byond://?src=[REF(src)];c_mode2=random'>Random</A><br>"}
 		dat += {"Now: [GLOB.master_mode]"}
-		usr << browse(dat, "window=c_mode")
+		usr << browse(HTML_SKELETON(dat), "window=c_mode")
 
 	else if(href_list["f_secret"])
 		if(!check_rights(R_ADMIN))
@@ -428,10 +428,10 @@
 			return alert(usr, "The game mode has to be secret!", null, null, null, null)
 		var/dat = {"<B>What game mode do you want to force secret to be? Use this if you want to change the game mode, but want the players to believe it's secret. This will only work if the current game mode is secret.</B><HR>"}
 		for(var/mode in GLOB.config.modes)
-			dat += {"<A href='?src=\ref[src];f_secret2=[mode]'>[GLOB.config.mode_names[mode]]</A><br>"}
-		dat += {"<A href='?src=\ref[src];f_secret2=secret'>Random (default)</A><br>"}
+			dat += {"<A href='byond://?src=[REF(src)];f_secret2=[mode]'>[GLOB.config.mode_names[mode]]</A><br>"}
+		dat += {"<A href='byond://?src=[REF(src)];f_secret2=secret'>Random (default)</A><br>"}
 		dat += {"Now: [GLOB.secret_force_mode]"}
-		usr << browse(dat, "window=f_secret")
+		usr << browse(HTML_SKELETON(dat), "window=f_secret")
 
 	else if(href_list["c_mode2"])
 		if(!check_rights(R_ADMIN|R_SERVER))
@@ -440,7 +440,7 @@
 		if (ROUND_IS_STARTED)
 			return alert(usr, "The game has already started.", null, null, null, null)
 		GLOB.master_mode = href_list["c_mode2"]
-		log_admin("[key_name(usr)] set the mode as [GLOB.master_mode].",admin_key=key_name(usr))
+		log_admin("[key_name(usr)] set the mode as [GLOB.master_mode].")
 		message_admins(SPAN_NOTICE("[key_name_admin(usr)] set the mode as [GLOB.master_mode]."), 1)
 		to_world(SPAN_NOTICE("<b>The mode is now: [GLOB.master_mode]</b>"))
 		Game() // updates the main game menu
@@ -456,7 +456,7 @@
 		if(GLOB.master_mode != "secret")
 			return alert(usr, "The game mode has to be secret!", null, null, null, null)
 		GLOB.secret_force_mode = href_list["f_secret2"]
-		log_admin("[key_name(usr)] set the forced secret mode as [GLOB.secret_force_mode].",admin_key=key_name(usr))
+		log_admin("[key_name(usr)] set the forced secret mode as [GLOB.secret_force_mode].")
 		message_admins(SPAN_NOTICE("[key_name_admin(usr)] set the forced secret mode as [GLOB.secret_force_mode]."), 1)
 		Game() // updates the main game menu
 		.(href, list("f_secret"=1))
@@ -474,7 +474,7 @@
 		psi.check_psionic_trigger(100, "outside intervention", redactive = TRUE)
 
 	else if(href_list["monkeyone"])
-		if(!check_rights(R_SPAWN))
+		if(!check_rights(R_FUN))
 			return
 
 		var/mob/living/carbon/human/H = locate(href_list["monkeyone"])
@@ -482,12 +482,12 @@
 			to_chat(usr, "This can only be used on instances of type /mob/living/carbon/human")
 			return
 
-		log_admin("[key_name(usr)] attempting to monkeyize [key_name(H)]",admin_key=key_name(usr))
+		log_admin("[key_name(usr)] attempting to monkeyize [key_name(H)]")
 		message_admins(SPAN_NOTICE("[key_name_admin(usr)] attempting to monkeyize [key_name_admin(H)]"), 1)
 		H.monkeyize()
 
 	else if(href_list["corgione"])
-		if(!check_rights(R_SPAWN))
+		if(!check_rights(R_FUN))
 			return
 
 		var/mob/living/carbon/human/H = locate(href_list["corgione"])
@@ -495,7 +495,7 @@
 			to_chat(usr, "This can only be used on instances of type /mob/living/carbon/human")
 			return
 
-		log_admin("[key_name(usr)] attempting to corgize [key_name(H)]",admin_key=key_name(usr),ckey=key_name(H))
+		log_admin("[key_name(usr)] attempting to corgize [key_name(H)]")
 		message_admins(SPAN_NOTICE("[key_name_admin(usr)] attempting to corgize [key_name_admin(H)]"), 1)
 		H.corgize()
 
@@ -512,7 +512,7 @@
 			return
 		M.say(speech)
 		speech = sanitize(speech) // Nah, we don't trust them
-		log_admin("[key_name(usr)] forced [key_name(M)] to say: [speech]",admin_key=key_name(usr))
+		log_admin("[key_name(usr)] forced [key_name(M)] to say: [speech]")
 		message_admins(SPAN_NOTICE("[key_name_admin(usr)] forced [key_name_admin(M)] to say: [speech]"))
 
 	else if(href_list["sendbacktolobby"])
@@ -562,7 +562,7 @@
 		M.forceMove(pick(GLOB.tdome1))
 		spawn(50)
 			to_chat(M, SPAN_NOTICE("You have been sent to the Thunderdome."))
-		log_admin("[key_name(usr)] has sent [key_name(M)] to the thunderdome. (Team 1)",admin_key=key_name(usr),ckey=key_name(M))
+		log_admin("[key_name(usr)] has sent [key_name(M)] to the thunderdome. (Team 1)")
 		message_admins("[key_name_admin(usr)] has sent [key_name_admin(M)] to the thunderdome. (Team 1)", 1)
 
 	else if(href_list["tdome2"])
@@ -588,7 +588,7 @@
 		M.forceMove(pick(GLOB.tdome2))
 		spawn(50)
 			to_chat(M, SPAN_NOTICE("You have been sent to the Thunderdome."))
-		log_admin("[key_name(usr)] has sent [key_name(M)] to the thunderdome. (Team 2)",admin_key=key_name(usr),ckey=key_name(M))
+		log_admin("[key_name(usr)] has sent [key_name(M)] to the thunderdome. (Team 2)")
 		message_admins("[key_name_admin(usr)] has sent [key_name_admin(M)] to the thunderdome. (Team 2)", 1)
 
 	else if(href_list["tdomeadmin"])
@@ -611,7 +611,7 @@
 		M.forceMove(pick(GLOB.tdomeadmin))
 		spawn(50)
 			to_chat(M, SPAN_NOTICE("You have been sent to the Thunderdome."))
-		log_admin("[key_name(usr)] has sent [key_name(M)] to the thunderdome. (Admin.)",admin_key=key_name(usr),ckey=key_name(M))
+		log_admin("[key_name(usr)] has sent [key_name(M)] to the thunderdome. (Admin.)")
 		message_admins("[key_name_admin(usr)] has sent [key_name_admin(M)] to the thunderdome. (Admin.)", 1)
 
 	else if(href_list["tdomeobserve"])
@@ -641,11 +641,11 @@
 		M.forceMove(pick(GLOB.tdomeobserve))
 		spawn(50)
 			to_chat(M, SPAN_NOTICE("You have been sent to the Thunderdome."))
-		log_admin("[key_name(usr)] has sent [key_name(M)] to the thunderdome. (Observer.)",admin_key=key_name(usr),ckey=key_name(M))
+		log_admin("[key_name(usr)] has sent [key_name(M)] to the thunderdome. (Observer.)")
 		message_admins("[key_name_admin(usr)] has sent [key_name_admin(M)] to the thunderdome. (Observer.)", 1)
 
 	else if(href_list["revive"])
-		if(!check_rights(R_REJUVINATE))
+		if(!check_rights(R_REJUVENATE))
 			return
 
 		var/mob/living/L = locate(href_list["revive"])
@@ -656,12 +656,12 @@
 		if(GLOB.config.allow_admin_rev)
 			L.revive()
 			message_admins(SPAN_DANGER("Admin [key_name_admin(usr)] healed / revived [key_name_admin(L)]!"), 1)
-			log_admin("[key_name(usr)] healed / Revived [key_name(L)]",admin_key=key_name(usr),ckey=key_name(L))
+			log_admin("[key_name(usr)] healed / Revived [key_name(L)]")
 		else
 			to_chat(usr, "Admin Rejuvinates have been disabled")
 
 	else if(href_list["makeai"])
-		if(!check_rights(R_SPAWN))
+		if(!check_rights(R_FUN))
 			return
 
 		var/mob/living/carbon/human/H = locate(href_list["makeai"])
@@ -670,11 +670,11 @@
 			return
 
 		message_admins(SPAN_DANGER("Admin [key_name_admin(usr)] AIized [key_name_admin(H)]!"), 1)
-		log_admin("[key_name(usr)] AIized [key_name(H)]",admin_key=key_name(usr),ckey=key_name(H))
+		log_admin("[key_name(usr)] AIized [key_name(H)]")
 		H.AIize()
 
 	else if(href_list["makeslime"])
-		if(!check_rights(R_SPAWN))
+		if(!check_rights(R_FUN))
 			return
 
 		var/mob/living/carbon/human/H = locate(href_list["makeslime"])
@@ -685,7 +685,7 @@
 		usr.client.cmd_admin_slimeize(H)
 
 	else if(href_list["makerobot"])
-		if(!check_rights(R_SPAWN))
+		if(!check_rights(R_FUN))
 			return
 
 		var/mob/living/carbon/human/H = locate(href_list["makerobot"])
@@ -696,7 +696,7 @@
 		usr.client.cmd_admin_robotize(H)
 
 	else if(href_list["makeanimal"])
-		if(!check_rights(R_SPAWN))
+		if(!check_rights(R_FUN))
 			return
 
 		var/mob/M = locate(href_list["makeanimal"])
@@ -707,7 +707,7 @@
 		usr.client.cmd_admin_animalize(M)
 
 	else if(href_list["togmutate"])
-		if(!check_rights(R_SPAWN))
+		if(!check_rights(R_FUN))
 			return
 
 		var/mob/living/carbon/human/H = locate(href_list["togmutate"])
@@ -731,7 +731,7 @@
 
 		var/mob/M = locate(href_list["adminplayerobservejump"])
 
-		if(!isobserver(usr))
+		if(!isghost(usr))
 			C.admin_ghost()
 		sleep(2)
 		C.jumptomob(M)
@@ -751,7 +751,7 @@
 		var/z = text2num(href_list["Z"])
 
 		var/client/C = usr.client
-		if(!isobserver(usr))
+		if(!isghost(usr))
 			C.admin_ghost()
 		C.jumptocoord(x,y,z)
 
@@ -831,7 +831,7 @@
 		dat += "Location: [location_description]<br>"
 		if(special_role_description)
 			dat += "Special Role Desc: [special_role_description]<br>"
-		dat += "(<a href='?src=\ref[usr];priv_msg=\ref[M]'>PM</a>) (<A HREF='?src=\ref[src];adminplayeropts=\ref[M]'>PP</A>) (<A HREF='?_src_=vars;Vars=\ref[M]'>VV</A>) (<A HREF='?src=\ref[src];subtlemessage=\ref[M]'>SM</A>) ([admin_jump_link(M, src)]) (<A HREF='?src=\ref[src];secretsadmin=check_antagonist'>CA</A>)"
+		dat += "(<a href='byond://?src=[REF(usr)];priv_msg=[REF(M)]'>PM</a>) (<A href='byond://?src=[REF(src)];adminplayeropts=[REF(M)]'>PP</A>) (<A href='byond://?_src_=vars;Vars=[REF(M)]'>VV</A>) (<A href='byond://?src=[REF(src)];subtlemessage=[REF(M)]'>SM</A>) ([admin_jump_link(M, src)]) (<A href='byond://?src=[REF(src)];secretsadmin=check_antagonist'>CA</A>)"
 
 		var/datum/browser/extrainfo_win = new(usr, "extrainfo", "Extra Info (M.name)", 450, 500)
 		extrainfo_win.set_content(dat)
@@ -850,14 +850,14 @@
 		if(!(istype(H.l_hand,/obj/item/reagent_containers/food/snacks/cookie)))
 			H.equip_to_slot_or_del( new /obj/item/reagent_containers/food/snacks/cookie(H), slot_r_hand )
 			if(!(istype(H.r_hand,/obj/item/reagent_containers/food/snacks/cookie)))
-				log_admin("[key_name(H)] has their hands full, so they did not receive their cookie, spawned by [key_name(src.owner)].",admin_key=key_name(src.owner),ckey=key_name(H))
+				log_admin("[key_name(H)] has their hands full, so they did not receive their cookie, spawned by [key_name(src.owner)].")
 				message_admins("[key_name(H)] has their hands full, so they did not receive their cookie, spawned by [key_name(src.owner)].")
 				return
 			else
 				H.update_inv_r_hand()//To ensure the icon appears in the HUD
 		else
 			H.update_inv_l_hand()
-		log_admin("[key_name(H)] got their cookie, spawned by [key_name(src.owner)]",admin_key=key_name(src.owner),ckey=key_name(H))
+		log_admin("[key_name(H)] got their cookie, spawned by [key_name(src.owner)]")
 		message_admins("[key_name(H)] got their cookie, spawned by [key_name(src.owner)]")
 		feedback_inc("admin_cookies_spawned",1)
 		to_chat(H, SPAN_NOTICE("Your prayers have been answered!! You received the <b>best cookie</b>!"))
@@ -883,7 +883,7 @@
 			BSACooldown = 0
 
 		to_chat(M, "You've been hit by bluespace artillery!")
-		log_admin("[key_name(M)] has been hit by Bluespace Artillery fired by [src.owner]",admin_key=key_name(src.owner),ckey=key_name(M))
+		log_admin("[key_name(M)] has been hit by Bluespace Artillery fired by [src.owner]")
 		message_admins("[key_name_admin(M)] has been hit by Bluespace Artillery fired by [src.owner]")
 
 		M.canmove = FALSE
@@ -917,7 +917,7 @@
 			if(!input)		return
 
 			to_chat(src.owner, "You sent [input] to [L] via a secure channel.")
-			log_admin("[src.owner] replied to [key_name(L)]'s Centcomm message with the message [input].",admin_key=key_name(src.owner),ckey=key_name(L))
+			log_admin("[src.owner] replied to [key_name(L)]'s Centcomm message with the message [input].")
 			message_admins("[src.owner] replied to [key_name(L)]'s Centcom message with: \"[input]\"")
 			if(!isAI(L))
 				to_chat(L, "<span class='info'>You hear something crackle in your headset for a moment before a voice speaks.</span>")
@@ -942,7 +942,7 @@
 		var/input = sanitize(input(src.owner, "Please enter a message to reply to [key_name(H)] via the Hivenet.", "Outgoing transmission from the Hive...", ""))
 		if(!input)	return
 		to_chat(src.owner, "You sent [input] to [H] via a secure Hivenet channel.")
-		log_admin("[src.owner] replied to [key_name(H)]'s Hivenet message with the message [input].", admin_key=key_name(src.owner), ckey=key_name(H))
+		log_admin("[src.owner] replied to [key_name(H)]'s Hivenet message with the message [input].")
 		to_chat(H, SPAN_INFO("You feel something shifting in the Hivenet, an encrypted whisper transmitted directly to your neural socket. Message as follows."))
 		to_chat(H, SPAN_NOTICE(SPAN_BOLD("\"[input]\"")))
 		to_chat(H, SPAN_INFO("Message ends."))
@@ -960,7 +960,7 @@
 		if(!input)	return
 
 		to_chat(src.owner, "You sent [input] to [H] via a secure channel.")
-		log_admin("[src.owner] replied to [key_name(H)]'s illegal message with the message [input].", admin_key=key_name(src.owner), ckey=key_name(H))
+		log_admin("[src.owner] replied to [key_name(H)]'s illegal message with the message [input].")
 		to_chat(H, "You hear something crackle in your headset for a moment before a voice speaks.  \"Please stand by for a message from your benefactor.  Message as follows, agent. <b>\"[input]\"</b>  Message ends.\"")
 
 	else if(href_list["AdminFaxView"])
@@ -979,9 +979,9 @@
 
 			for (var/page = 1, page <= B.pages.len, page++)
 				var/obj/pageobj = B.pages[page]
-				data += "<A href='?src=\ref[src];AdminFaxViewPage=[page];paper_bundle=\ref[B]'>Page [page] - [pageobj.name]</A><BR>"
+				data += "<A href='byond://?src=[REF(src)];AdminFaxViewPage=[page];paper_bundle=[REF(B)]'>Page [page] - [pageobj.name]</A><BR>"
 
-			usr << browse(data, "window=[B.name]")
+			usr << browse(HTML_SKELETON(data), "window=[B.name]")
 		else
 			to_chat(usr, SPAN_WARNING("The faxed item is not viewable. This is probably a bug, and should be reported on the tracker: [fax.type]"))
 
@@ -1007,21 +1007,21 @@
 			var/obj/machinery/photocopier/faxmachine/fax = locate(href_list["faxMachine"])
 			department = fax.department
 		else
-			department = input("Choose the target department.", "Target Department", null) in alldepartments
+			department = input("Choose the target department.", "Target Department", null) in GLOB.alldepartments
 
 		create_admin_fax(department)
 
 		return
 
 	else if(href_list["jumpto"])
-		if(!check_rights(R_ADMIN))
+		if(!check_rights(R_BAN))
 			return
 
 		var/mob/M = locate(href_list["jumpto"])
 		usr.client.jumptomob(M)
 
 	else if(href_list["getmob"])
-		if(!check_rights(R_ADMIN))
+		if(!check_rights(R_BAN))
 			return
 
 		if(alert(usr, "Confirm?", "Message", "Yes", "No") != "Yes")
@@ -1030,7 +1030,7 @@
 		usr.client.Getmob(M)
 
 	else if(href_list["sendmob"])
-		if(!check_rights(R_ADMIN))
+		if(!check_rights(R_BAN))
 			return
 
 		var/mob/M = locate(href_list["sendmob"])
@@ -1177,7 +1177,7 @@
 
 		if(target)
 			for (var/path in paths)
-				for (var/i = 0; i < number; i++)
+				for (var/i in 1 to number)
 					if(path in typesof(/turf))
 						var/turf/O = target
 						var/turf/N = O.ChangeTurf(path)
@@ -1227,7 +1227,7 @@
 			if(choice=="Confirm")
 				SSnews.CreateFeedChannel(admincaster_feed_channel.channel_name, admincaster_signature, admincaster_feed_channel.locked, 1)
 				feedback_inc("newscaster_channels",1)                  //Adding channel to the global network
-				log_admin("[key_name_admin(usr)] created command feed channel: [src.admincaster_feed_channel.channel_name]!",admin_key=key_name(usr))
+				log_admin("[key_name_admin(usr)] created command feed channel: [src.admincaster_feed_channel.channel_name]!")
 				src.admincaster_screen=5
 		src.access_news_network()
 
@@ -1252,7 +1252,7 @@
 			SSnews.SubmitArticle(src.admincaster_feed_message.body, src.admincaster_signature, ch, null, 1)
 			src.admincaster_screen=4
 
-		log_admin("[key_name_admin(usr)] submitted a feed story to channel: [src.admincaster_feed_channel.channel_name]!",admin_key=key_name(usr))
+		log_admin("[key_name_admin(usr)] submitted a feed story to channel: [src.admincaster_feed_channel.channel_name]!")
 		src.access_news_network()
 
 	else if(href_list["ac_create_channel"])
@@ -1304,7 +1304,7 @@
 					WANTED.backup_author = src.admincaster_signature                  //Submitted by
 					WANTED.is_admin_message = 1
 					SSnews.wanted_issue = WANTED
-					for(var/obj/machinery/newscaster/NEWSCASTER in allCasters)
+					for(var/obj/machinery/newscaster/NEWSCASTER in GLOB.allCasters)
 						NEWSCASTER.newsAlert()
 						NEWSCASTER.update_icon()
 					src.admincaster_screen = 15
@@ -1313,14 +1313,14 @@
 					SSnews.wanted_issue.body = src.admincaster_feed_message.body
 					SSnews.wanted_issue.backup_author = src.admincaster_feed_message.backup_author
 					src.admincaster_screen = 19
-				log_admin("[key_name_admin(usr)] issued a Station-wide Wanted Notification for [src.admincaster_feed_message.author]!",admin_key=key_name(usr))
+				log_admin("[key_name_admin(usr)] issued a [station_name(TRUE)]-wide Wanted Notification for [src.admincaster_feed_message.author]!")
 		src.access_news_network()
 
 	else if(href_list["ac_cancel_wanted"])
 		var/choice = alert("Please confirm Wanted Issue removal","Network Security Handler","Confirm","Cancel")
 		if(choice=="Confirm")
 			SSnews.wanted_issue = null
-			for(var/obj/machinery/newscaster/NEWSCASTER in allCasters)
+			for(var/obj/machinery/newscaster/NEWSCASTER in GLOB.allCasters)
 				NEWSCASTER.update_icon()
 			src.admincaster_screen=17
 		src.access_news_network()
@@ -1458,11 +1458,11 @@
 	else if(href_list["vsc"])
 		if(check_rights(R_ADMIN|R_SERVER))
 			if(href_list["vsc"] == "airflow")
-				vsc.ChangeSettingsDialog(usr,vsc.settings)
+				GLOB.vsc.ChangeSettingsDialog(usr, GLOB.vsc.settings)
 			if(href_list["vsc"] == GAS_PHORON)
-				vsc.ChangeSettingsDialog(usr,vsc.plc.settings)
+				GLOB.vsc.ChangeSettingsDialog(usr, GLOB.vsc.plc.settings)
 			if(href_list["vsc"] == "default")
-				vsc.SetDefault(usr)
+				GLOB.vsc.SetDefault(usr)
 
 	else if(href_list["toglang"])
 		if(check_rights(R_SPAWN))
@@ -1561,6 +1561,31 @@
 		access_control_topic(href_list["access_control"])
 		return
 
+	else if(href_list["viewruntime"])
+		var/datum/error_viewer/error_viewer = locate(href_list["viewruntime"])
+		if(!istype(error_viewer))
+			to_chat(usr, SPAN_WARNING("That runtime viewer no longer exists."), confidential = TRUE)
+			return
+
+		if(href_list["viewruntime_backto"])
+			error_viewer.show_to(owner, locate(href_list["viewruntime_backto"]), href_list["viewruntime_linear"])
+		else
+			error_viewer.show_to(owner, null, href_list["viewruntime_linear"])
+	else if(href_list["slowquery"])
+		if(!check_rights(R_ADMIN))
+			return
+
+		var/data = list("key" = usr.key)
+		var/answer = href_list["slowquery"]
+		if(answer == "yes")
+			if(tgui_alert(usr, "Did you just press any admin buttons?", "Query server hang report", list("Yes", "No")) == "Yes")
+				var/response = input(usr,"What were you just doing?","Query server hang report") as null|text
+				if(response)
+					data["response"] = response
+			log_subsystem_dbcore("SLOW QUERY - SERVER HANG - [json_encode(data)]") //We really need a better logging system (BRING BACK GELF)
+		else if(answer == "no")
+			log_subsystem_dbcore("SLOW QUERY - NO SERVER HANG - [json_encode(data)]") //We really need a better logging system (BRING BACK GELF)
+
 /mob/living/proc/can_centcom_reply()
 	return 0
 
@@ -1578,21 +1603,21 @@
 
 /mob/extra_admin_link(var/source)
 	if(client && eyeobj)
-		return "|<A HREF='?[source];adminplayerobservejump=\ref[eyeobj]'>EYE</A>"
+		return "|<A href='byond://?[source];adminplayerobservejump=[REF(eyeobj)]'>EYE</A>"
 
-/mob/abstract/observer/extra_admin_link(var/source)
+/mob/abstract/ghost/observer/extra_admin_link(var/source)
 	if(mind && mind.current)
-		return "|<A HREF='?[source];adminplayerobservejump=\ref[mind.current]'>BDY</A>"
+		return "|<A href='byond://?[source];adminplayerobservejump=[REF(mind.current)]'>BDY</A>"
 
 /proc/admin_jump_link(var/atom/target, var/source)
 	if(!target) return
 	// The way admin jump links handle their src is weirdly inconsistent...
 	if(istype(source, /datum/admins))
-		source = "src=\ref[source]"
+		source = "src=[REF(source)]"
 	else
 		source = "_src_=holder"
 
-	. = "<A HREF='?[source];adminplayerobservejump=\ref[target]'>JMP</A>"
+	. = "<A href='byond://?[source];adminplayerobservejump=[REF(target)]'>JMP</A>"
 	. += target.extra_admin_link(source)
 
 /proc/spawn_humanoid_species_admin(var/mob/user, var/mob/M, var/delmob)

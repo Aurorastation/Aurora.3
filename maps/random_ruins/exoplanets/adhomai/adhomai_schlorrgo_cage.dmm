@@ -25,10 +25,18 @@
 	dir = 8
 	},
 /obj/structure/closet/crate/freezer,
-/obj/item/reagent_containers/food/snacks/egg/schlorrgo,
-/obj/item/reagent_containers/food/snacks/egg/schlorrgo,
-/obj/item/reagent_containers/food/snacks/egg/schlorrgo,
-/obj/item/reagent_containers/food/snacks/egg/schlorrgo,
+/obj/item/reagent_containers/food/snacks/egg/schlorrgo{
+	fertile = 1
+	},
+/obj/item/reagent_containers/food/snacks/egg/schlorrgo{
+	fertile = 1
+	},
+/obj/item/reagent_containers/food/snacks/egg/schlorrgo{
+	fertile = 1
+	},
+/obj/item/reagent_containers/food/snacks/egg/schlorrgo{
+	fertile = 1
+	},
 /turf/simulated/floor/concrete/square,
 /area/adhomai_schlorrgo_cage)
 "f" = (

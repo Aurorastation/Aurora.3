@@ -125,10 +125,10 @@
 	var/rank = "Unassigned"
 	var/age = 0
 	var/sex = "Unknown"
+	var/species = "Unknown"
 	var/fingerprint = "Unknown"
 	var/physical_status = "Active"
 	var/mental_status = "Stable"
-	var/species = "Unknown"
 	var/citizenship = "Unknown"
 	var/employer = "Unknown"
 	var/religion = "Unknown"
@@ -138,7 +138,7 @@
 	var/icon/photo_side
 	var/datum/record/medical/medical
 	var/datum/record/security/security
-	var/list/advanced_fields = list("species", "citizenship", "employer", "religion", "ccia_record", "ccia_actions")
+	var/list/advanced_fields = list("citizenship", "employer", "religion", "ccia_record", "ccia_actions")
 	cmp_field = "name"
 	excluded_fields = list("photo_front", "photo_side", "advanced_fields", "real_rank")
 	excluded_print_fields = list("ccia_actions")
@@ -163,7 +163,7 @@
 		fingerprint = md5(H.dna.uni_identity)
 		sex = H.species.get_species_record_sex(H)
 		species = H.get_species(FALSE, TRUE)
-		citizenship = H.citizenship
+		citizenship = SSrecords.get_citizenship_record_name(H.citizenship)
 		employer = H.employer_faction
 		religion = SSrecords.get_religion_record_name(H.religion)
 		ccia_record = H.ccia_record
@@ -238,10 +238,10 @@
 	var/authorization = "Unauthorized"
 	var/wtype = "Unknown"
 
-var/warrant_uid = 0
+GLOBAL_VAR_INIT(warrant_uid, 0)
 /datum/record/warrant/New()
 	..()
-	id = warrant_uid++
+	id = GLOB.warrant_uid++
 
 // Virus record
 /datum/record/virus
@@ -254,10 +254,25 @@ var/warrant_uid = 0
 //Manifest record
 /datum/record/shuttle_manifest
 	name = "Unknown"
-	var/shuttle = "Unknown"
 	cmp_field = "name"
+	var/shuttle = "Unknown"
+	var/pilot = FALSE
+	var/lead = FALSE
 
-var/shuttle_uid = 0
+GLOBAL_VAR_INIT(shuttle_uid, 0)
 /datum/record/shuttle_manifest/New()
 	..()
-	id = shuttle_uid++
+	id = GLOB.shuttle_uid++
+
+/datum/record/shuttle_assignment
+	var/shuttle
+	var/destination = "Unknown"
+	var/heading = 0
+	var/mission = "Exploration"
+	var/departure_time
+	var/return_time
+	cmp_field = "destination"
+
+/datum/record/shuttle_assignment/New(var/for_shuttle)
+	. = ..()
+	shuttle = for_shuttle

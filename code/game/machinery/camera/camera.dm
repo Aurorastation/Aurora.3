@@ -66,7 +66,7 @@
 
 	set_pixel_offsets()
 
-	var/list/open_networks = difflist(network, restricted_camera_networks)
+	var/list/open_networks = difflist(network, GLOB.restricted_camera_networks)
 	on_open_network = open_networks.len
 	if(on_open_network)
 		GLOB.cameranet.add_source(src)
@@ -138,8 +138,12 @@
 			update_icon()
 			update_coverage()
 
-/obj/machinery/camera/bullet_act(var/obj/item/projectile/P)
-	take_damage(P.get_structure_damage())
+/obj/machinery/camera/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	take_damage(hitting_projectile.get_structure_damage())
 
 /obj/machinery/camera/ex_act(severity)
 	if(src.invuln)
@@ -151,10 +155,10 @@
 
 	..() //and give it the regular chance of being deleted outright
 
-/obj/machinery/camera/hitby(AM as mob|obj, var/speed = THROWFORCE_SPEED_DIVISOR)
+/obj/machinery/camera/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	..()
-	if (istype(AM, /obj))
-		var/obj/O = AM
+	if (istype(hitting_atom, /obj))
+		var/obj/O = hitting_atom
 		if (O.throwforce >= src.toughness)
 			visible_message(SPAN_WARNING("<B>[src] was hit by [O].</B>"))
 		take_damage(O.throwforce)
@@ -228,16 +232,16 @@
 			var/entry = O.addCameraRecord(itemname,info)
 			if(!O.client) continue
 			if(U.name == "Unknown")
-				to_chat(O, "<b>[U]</b> holds \a [itemname] up to one of your cameras ...<a href='?src=\ref[O];readcapturedpaper=\ref[entry]'>view message</a>")
+				to_chat(O, "<b>[U]</b> holds \a [itemname] up to one of your cameras ...<a href='byond://?src=[REF(O)];readcapturedpaper=[REF(entry)]'>view message</a>")
 			else
-				to_chat(O, "<b><a href='byond://?src=\ref[O];track2=\ref[O];track=\ref[U];trackname=[html_encode(U.name)]'>[U]</a></b> holds \a [itemname] up to one of your cameras ...<a href='?src=\ref[O];readcapturedpaper=[entry]'>view message</a>")
+				to_chat(O, "<b><a href='byond://?src=[REF(O)];track2=[REF(O)];track=[REF(U)];trackname=[html_encode(U.name)]'>[U]</a></b> holds \a [itemname] up to one of your cameras ...<a href='byond://?src=[REF(O)];readcapturedpaper=[entry]'>view message</a>")
 
 		for(var/mob/O in GLOB.player_list)
 			if (istype(O.machine, /obj/machinery/computer/security))
 				var/obj/machinery/computer/security/S = O.machine
 				if (S.current_camera == src)
 					to_chat(O, "[U] holds \a [itemname] up to one of the cameras ...")
-					O << browse(text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", itemname, info), text("window=[]", itemname)) //Force people watching to open the page so they can't see it again)
+					O << browse("<HTML><HEAD><TITLE>[itemname]</TITLE></HEAD><BODY><TT>[info]</TT></BODY></HTML>", "window=[itemname]") //Force people watching to open the page so they can't see it again)
 		return TRUE
 
 	else if (istype(attacking_item, /obj/item/camera_bug))
@@ -355,14 +359,14 @@
 
 /obj/machinery/camera/proc/triggerCameraAlarm(var/duration = 0)
 	alarm_on = 1
-	camera_alarm.triggerAlarm(loc, src, duration)
+	GLOB.camera_alarm.triggerAlarm(loc, src, duration)
 
 /obj/machinery/camera/proc/cancelCameraAlarm(var/force = FALSE)
 	if(wires.is_cut(WIRE_ALARM) && !force)
 		return
 
 	alarm_on = 0
-	camera_alarm.clearAlarm(loc, src)
+	GLOB.camera_alarm.clearAlarm(loc, src)
 
 //if false, then the camera is listed as DEACTIVATED and cannot be used
 /obj/machinery/camera/proc/can_use()
@@ -496,7 +500,7 @@
 	var/cam = list()
 	cam["name"] = sanitize(c_tag)
 	cam["deact"] = !can_use()
-	cam["camera"] = "\ref[src]"
+	cam["camera"] = "[REF(src)]"
 	cam["x"] = x
 	cam["y"] = y
 	cam["z"] = z

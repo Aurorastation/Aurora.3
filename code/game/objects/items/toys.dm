@@ -18,6 +18,7 @@
  *		Toy cult sword
  *		Ring bell
  *		Chess Pieces
+ *		Stress ball
  */
 
 
@@ -50,7 +51,7 @@
 	reagents = R
 	R.my_atom = src
 
-/obj/item/toy/waterballoon/attack(mob/living/carbon/human/M as mob, mob/user as mob)
+/obj/item/toy/waterballoon/attack(mob/living/target_mob, mob/living/user, target_zone)
 	return
 
 /obj/item/toy/waterballoon/afterattack(atom/A as mob|obj, mob/user as mob, proximity)
@@ -106,13 +107,16 @@
 
 /obj/item/toy/balloon
 	name = "balloon"
-	desc_info = "You can fill it up with gas using a tank."
 	desc_extended = "Thanks to the joint effort of the Research and Atmospherics teams, station enviroments have been set to allow balloons to float without helium. Look, it was the end of the month and we went under budget."
 	drop_sound = 'sound/items/drop/rubber.ogg'
 	pickup_sound = 'sound/items/pickup/rubber.ogg'
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	var/datum/gas_mixture/air_contents = null
 	var/status = 0 // 0 = normal, 1 = blow, 2 = burst
+
+/obj/item/toy/balloon/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can fill it up with different gases using a tank."
 
 /obj/item/toy/balloon/attack_self(mob/user as mob)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -167,7 +171,11 @@
 			if(prob(50))
 				qdel(src)
 
-/obj/item/toy/balloon/bullet_act()
+/obj/item/toy/balloon/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
 	burst()
 
 /obj/item/toy/balloon/fire_act(temperature, volume)
@@ -276,6 +284,7 @@
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "beacon"
 	item_state = "signaler"
+	contained_sprite = TRUE
 
 /*
  * Fake singularity
@@ -292,7 +301,9 @@
 /obj/item/toy/comic
 	name = "comic book"
 	desc = "A magazine presenting a fictional story through a sequence of images. Perfect for those long, boring shifts."
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
+	icon = 'icons/obj/library.dmi'
+	contained_sprite = TRUE
 	icon_state = "comic"
 	item_state = "comic"
 	drop_sound = 'sound/items/drop/paper.ogg'
@@ -302,16 +313,16 @@
 	name = "inspector 404 manga"
 	desc = "Inspector 404 follows the adventures of the titular I404, a shell inspector from Konyang. This issue, #67, follows the \
 	404, also known as Kyung-Sun's quest to bring down the corrupt Superintendent Hayashi."
-	icon_state = "comicinspector"
-	item_state = "comicinspector"
+	icon_state = "comic_inspector"
+	item_state = "comic_inspector"
 
 /obj/item/toy/comic/stormman
 	name = "stormman manga"
 	desc = "Stormman, often stylized as STORMMAN! is one of Konyang's most beloved anime series, following a masked superhero named Stormman \
 	who has the power to harness the weather to defend his homeworld while keeping his secret identity. Since its release, all kinds of merchandise \
 	have been made, including a conversion of the show to a paperback manga."
-	icon_state = "comicstormman"
-	item_state = "comicstormman"
+	icon_state = "comic_stormman"
+	item_state = "comic_stormman"
 
 /obj/item/toy/comic/outlandish_tales
 	name = "outlandish tales magazine"
@@ -322,13 +333,13 @@
 	aspects of fantasy, horror, and speculative fiction alongside Adhomian paranormal elements, frequently reimagining mythological creatures and events. Tajaran Otherworldly texts are usually \
 	published in magazines or on extranet sites."
 	icon_state = "comicoutlandish"
-	item_state = "comicoutlandish"
+	item_state = "comic"
 
 /obj/item/toy/comic/azmarian
 	name = "az'marian comic"
 	desc = "A comic book series revolving around a superhero from Az'Mar, popular in the New Kingdom."
 	icon_state = "comicazmarian"
-	item_state = "comicazmarian"
+	item_state = "comic"
 
 /obj/item/toy/comic/azmarian/issue_1
 	desc_extended = "Issue 1 - The Az'Marian Landing! - In this issue, the would-be hero departs from Az'Mar and lands in a war-torn \
@@ -383,7 +394,6 @@
 	newly regained powers to their fullest."
 
 /obj/item/toy/comic/witchfinder
-	icon = 'icons/obj/library.dmi'
 	name = "Witchfinder novel"
 	desc = "A popular genre of Dominian mystery literature, glorifying the Tribunal Investigations Constabulary and the work they do in \
 	defending the souls of the people of the Empire."
@@ -393,7 +403,44 @@
 	authors of witchfinder novels, such as Novi Jadran's Andrija Jurina, even travel abroad as honored servants of His Imperial Majesty Boleslaw Keeser, both to \
 	promote Dominian arts among their foreign partners and to proselytize their state religion to eager masses."
 	icon_state = "witchfindernovel"
-	item_state = "witchfindernovel"
+	item_state = "book"
+
+/*
+ * Magazines
+ */
+
+/obj/item/toy/comic/magazine/horticulturetoday
+	name = "horticulture today! magazine"
+	desc = "A staple publication of all things horticulture."
+	desc_extended = "One part magazine, one part scientific journal, Horticulture Today! has been the staple source for horticulture news for the last 150 years. Its found \
+	itself in every unconnected station, frontier colony, and doctors office across the spur. The magazine's fame largely comes from its writing, maintaining a perfect blend \
+	of entertaining commentary and nuanced summaries of recent discoveries."
+	icon_state = "horticulture1"
+	item_state = "horticulture"
+
+/obj/item/toy/comic/magazine/horticulturetoday/issue1
+	desc = "A staple publication of all things horticulture. This issue is about sunflowers."
+	icon_state = "horticulture1"
+
+/obj/item/toy/comic/magazine/horticulturetoday/issue2
+	desc = "A staple publication of all things horticulture. This issue is about root systems."
+	icon_state = "horticulture2"
+
+/obj/item/toy/comic/magazine/horticulturetoday/issue3
+	desc = "A staple publication of all things horticulture. This issue is about garden flowers."
+	icon_state = "horticulture3"
+
+/obj/item/toy/comic/magazine/horticulturetoday/issue4
+	desc = "A staple publication of all things horticulture. This issue is about wild flowers."
+	icon_state = "horticulture4"
+
+/obj/item/toy/comic/magazine/horticulturetoday/issue5
+	desc = "A staple publication of all things horticulture. This issue is about tomatoes of all kinds."
+	icon_state = "horticulture5"
+
+/obj/item/toy/comic/magazine/horticulturetoday/issue6
+	desc = "A staple publication of all things horticulture. This issue is about the genus Allium. Everything from Onions to Leeks."
+	icon_state = "horticulture6"
 
 //
 // Toy Crossbows
@@ -408,14 +455,14 @@
 	drop_sound = 'sound/items/drop/gun.ogg'
 	pickup_sound = 'sound/items/pickup/gun.ogg'
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	attack_verb = list("attacked", "struck", "hit")
 	var/dart_count = 5
 
-/obj/item/toy/crossbow/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/toy/crossbow/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(distance <= 2 && dart_count)
-		. += SPAN_NOTICE("\The [src] is loaded with [dart_count] foam dart\s.")
+		. += "\The [src] is loaded with [dart_count] foam dart\s."
 
 /obj/item/toy/crossbow/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/toy/ammo/crossbow))
@@ -426,7 +473,6 @@
 			to_chat(user, SPAN_NOTICE("You load the foam dart into \the [src]."))
 		else
 			to_chat(usr, SPAN_WARNING("\The [src] is already fully loaded."))
-
 
 /obj/item/toy/crossbow/afterattack(atom/target, mob/user, flag)
 	if(!isturf(target.loc) || target == user)
@@ -481,17 +527,17 @@
 
 		return
 
-/obj/item/toy/crossbow/attack(mob/M, mob/user)
+/obj/item/toy/crossbow/attack(mob/living/target_mob, mob/living/user, target_zone)
 	src.add_fingerprint(user)
 
-	if (src.dart_count > 0 && M.lying) // Check
-		for(var/mob/O in viewers(M, null))
+	if (src.dart_count > 0 && target_mob.lying) // Check
+		for(var/mob/O in viewers(target_mob, null))
 			if(O.client)
-				O.show_message(SPAN_NOTICE("\The [user] casually lines up a shot with [M]'s head and pulls the trigger."), 1)
-				O.show_message(SPAN_WARNING("\The [M] was hit in the head by the foam dart!"), 1)
+				O.show_message(SPAN_NOTICE("\The [user] casually lines up a shot with [target_mob]'s head and pulls the trigger."), 1)
+				O.show_message(SPAN_WARNING("\The [target_mob] was hit in the head by the foam dart!"), 1)
 
 		playsound(src, 'sound/items/syringeproj.ogg', 50, TRUE)
-		new /obj/item/toy/ammo/crossbow(M.loc)
+		new /obj/item/toy/ammo/crossbow(target_mob.loc)
 		src.dart_count--
 	return
 
@@ -500,7 +546,7 @@
 	desc = "A foam dart."
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "foamdart"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	slot_flags = SLOT_EARS
 	drop_sound = 'sound/items/drop/food.ogg'
 	pickup_sound = 'sound/items/pickup/food.ogg'
@@ -531,7 +577,7 @@
 	var/active = 0.0
 	var/colorvar = "blue"
 	var/last_active = 0
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	attack_verb = list("attacked", "struck", "hit")
 
 /obj/item/toy/sword/attack_self(mob/user as mob)
@@ -543,13 +589,13 @@
 			playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
 			src.icon_state = "sword[colorvar]"
 			src.item_state = "sword[colorvar]"
-			src.w_class = ITEMSIZE_LARGE
+			src.w_class = WEIGHT_CLASS_BULKY
 		else
 			to_chat(user, SPAN_NOTICE("You push the plastic blade back down into the handle."))
 			playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
 			src.icon_state = "sword0"
 			src.item_state = "sword0"
-			src.w_class = ITEMSIZE_SMALL
+			src.w_class = WEIGHT_CLASS_SMALL
 
 		if(istype(user,/mob/living/carbon/human))
 			var/mob/living/carbon/human/H = user
@@ -578,7 +624,7 @@
 	slot_flags = SLOT_BELT | SLOT_BACK
 	force = 11
 	throwforce = 5
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced")
 
 /*
@@ -589,9 +635,17 @@
 	desc = "Wow!"
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "snappop"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	drop_sound = 'sound/items/drop/food.ogg'
 	pickup_sound = 'sound/items/pickup/food.ogg'
+
+/obj/item/toy/snappop/Initialize()
+	. = ..()
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
 
 /obj/item/toy/snappop/attack_self(mob/user)
 	user.drop_from_inventory(src)
@@ -602,9 +656,9 @@
 	..()
 	do_pop()
 
-/obj/item/toy/snappop/Crossed(H as mob|obj)
-	if((ishuman(H))) //i guess carp and shit shouldn't set them off
-		var/mob/living/carbon/human/M = H
+/obj/item/toy/snappop/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	if((ishuman(arrived))) //i guess carp and shit shouldn't set them off
+		var/mob/living/carbon/human/M = arrived
 		if(M.shoes?.item_flags & ITEM_FLAG_LIGHT_STEP)
 			return
 		if(M.m_intent == M_RUN)
@@ -618,8 +672,9 @@
 	playsound(get_turf(src), 'sound/effects/snap.ogg', 50, TRUE)
 	qdel(src)
 
-/obj/item/toy/snappop/syndi
-	desc_antag = "These snap pops have an extra compound added that will deploy a tiny smokescreen when snapped."
+/obj/item/toy/snappop/syndi/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "These snap pops have an extra compound added that will deploy a tiny smokescreen when snapped."
 
 /obj/item/toy/snappop/syndi/do_pop()
 	var/datum/effect/effect/system/smoke_spread/smoke = new /datum/effect/effect/system/smoke_spread
@@ -645,7 +700,7 @@
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
 	var/cooldown = 0
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	slot_flags = SLOT_EARS
 
 /obj/item/toy/bosunwhistle/attack_self(mob/user as mob)
@@ -660,7 +715,7 @@
 /obj/item/toy/mech
 	icon_state = "ripleytoy"
 	var/cooldown = 0
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	drop_sound = 'sound/mecha/mechstep.ogg'
 
 /obj/item/toy/mech/attack_self(mob/user)
@@ -730,7 +785,7 @@
 	name = "completely glitched action figure"
 	desc = "A \"Space Life\" brand... wait, what the hell is this thing? It seems to be requesting the sweet release of death."
 	icon_state = "glitched"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
@@ -939,7 +994,7 @@
 	item_state = "therapyred"
 	var/active = 0.0
 	var/colorvar = "red"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/toy/plushie/therapy/Initialize()
 	. = ..()
@@ -1130,9 +1185,16 @@
 /obj/item/toy/plushie/ipc
 	name = "Aphy plushie"
 	desc = "A plushie of an old Hephaestus mascot, Aphy."
-	desc_extended = "Aphy, a play on the name Aphrodite, was Hephaestus Industries' first baseline prototype. While the original Aphy is on display in Hephaestus' Mars headquarters, the unit has become a cutesy mascot in recent years."
+	desc_extended = "Aphy, a play on the name Aphrodite, was Hephaestus Industries' first baseline prototype. The original Aphy was tragically lost alongside Hephaestus' Mars headquarters during the Violet Dawn disaster, but the unit lives on as a cutesy, marketable mascot."
 	icon_state = "ipcplushie"
 	phrase = "Bwoop!"
+
+/obj/item/toy/plushie/domadice
+	name = "Domadice plushie"
+	desc = "A marketable plushie of the Kessvalankan Domadice"
+	desc_extended = "Resurrected by the Golden Deep, the Kessvalankan Domadice is a Purpose adjacent synthetic. They hail from a time long before any of the current spur's inhabitants were even thoughts on the evolutionary track. Currently Domadice works as a leader in the Golden Deep, on the same footing as Midas Control."
+	icon_state = "domadiceplushie"
+	phrase = "♫Plin Plin Plon♫"
 
 //Squid Plushies
 
@@ -1293,12 +1355,14 @@
 /obj/item/toy/cultsword
 	name = "foam sword"
 	desc = "An arcane weapon wielded by the followers of the hit Saturday morning cartoon \"King Nursee and the Acolytes of Heroism\"."
-	icon = 'icons/obj/sword.dmi'
+	icon = 'icons/obj/sword_64.dmi'
 	icon_state = "cultblade"
 	item_state = "cultblade"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	attack_verb = list("attacked", "slashed", "stabbed", "poked")
 	contained_sprite = TRUE
+	worn_x_dimension = 64
+	worn_y_dimension = 64
 
 /obj/item/inflatable_duck
 	name = "inflatable duck"
@@ -1313,7 +1377,7 @@
 /obj/item/toy/aurora
 	name = "aurora miniature"
 	desc = "A miniature of a space station, built into an asteroid. A tiny suspension field keeps it afloat. A small plaque on the front reads: NSS Aurora, Tau Ceti, Romanovich Cloud, 2464. Onward to new horizons."
-	desc_info = "This miniature was given out on the 9th of April 2464 to all former crew members of the Aurora as a memento, before setting off to their new mission on the SCCV Horizon."
+	desc_extended = "This miniature was given out on the 9th of April 2464 to all former crew members of the Aurora as a memento, before setting off to their new mission on the SCCV Horizon."
 	icon_state = "aurora"
 
 /obj/item/toy/adhomian_map
@@ -1324,9 +1388,14 @@
 /obj/item/toy/ringbell
 	name = "ringside bell"
 	desc = "A bell used to signal the beginning and end of various ring sports."
-	desc_info = "Use help intent on the bell to signal the start of a contest\ndisarm intent to signal the end of a contest and\nharm intent to signal a disqualification."
 	icon_state = "ringbell"
 	anchored = TRUE
+
+/obj/item/toy/ringbell/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use Help intent on the bell to signal the start of a contest."
+	. += "Use the Disarm intent to signal the end of a contest."
+	. += "Use the Harm intent to signal a disqualification."
 
 /obj/item/toy/ringbell/attack_hand(mob/user)
 	switch(user.a_intent)
@@ -1356,7 +1425,8 @@
 	activate(user)
 
 /obj/item/toy/desk/AltClick(mob/user)
-	activate(user)
+	if(!use_check_and_message(user))
+		activate(user)
 
 /obj/item/toy/desk/proc/activate(mob/user)
 	on = !on
@@ -1392,7 +1462,7 @@
 	name = "party popper"
 	desc = "Instructions : Aim away from face. Wait for appropriate timing. Pull cord, enjoy confetti."
 	icon_state = "partypopper"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 
@@ -1414,7 +1484,7 @@
 	desc = "A %NAME% chess piece, this one is worth %POINT% points."
 	icon = 'icons/obj/item/chess.dmi'
 	icon_state = "white_pawn"
-	w_class = ITEMSIZE_HUGE // hugh mungus
+	w_class = WEIGHT_CLASS_HUGE // hugh mungus
 	var/piece_worth = 1
 
 /obj/item/chess_piece/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
@@ -1475,3 +1545,111 @@
 /obj/item/chess_piece/queen/black
 	name = "black queen"
 	icon_state = "black_queen"
+
+// Stress ball
+/obj/item/toy/stressball
+	name = "stress ball"
+	desc = "A small, squishy stress ball. This one has a squeaker inside."
+	w_class = WEIGHT_CLASS_SMALL
+	icon_state = "stressball"
+	drop_sound = 'sound/items/drop/plushie.ogg'
+	pickup_sound = 'sound/items/pickup/plushie.ogg'
+	var/squeeze_sound = 'sound/items/drop/plushie.ogg'
+	var/cooldown = 0
+
+/obj/item/toy/stressball/Initialize()
+	. = ..()
+	if(!color)
+		color = RANDOM_RGB
+	update_icon()
+
+/obj/item/toy/stressball/attack_self(mob/user as mob)
+	if(cooldown > world.time)
+		return
+	cooldown = world.time + 2 SECONDS
+	var/volume = 0
+	switch(user.a_intent)
+		if(I_HELP)
+			user.visible_message(SPAN_NOTICE("[SPAN_BOLD("\The [user]")] plays with \the [src]!"), SPAN_NOTICE("You play with \the [src]!"))
+		if(I_DISARM)
+			user.visible_message(SPAN_NOTICE("[SPAN_BOLD("\The [user]")] squeezes \the [src]!"), SPAN_NOTICE("You squeeze \the [src]!"))
+			volume = 30
+		if(I_GRAB)
+			user.visible_message(SPAN_NOTICE(SPAN_BOLD("\The [user] pinches \the [src]!")), SPAN_NOTICE(SPAN_BOLD("You pinch \the [src]!")))
+			volume = 40
+		if(I_HURT)
+			user.visible_message(SPAN_WARNING(SPAN_BOLD("\The [user] crushes \the [src]!")), SPAN_WARNING(SPAN_BOLD("You crush \the [src]!")))
+			volume = 50
+	if(volume)
+		playsound(src.loc, squeeze_sound, volume, TRUE)
+
+/obj/item/toy/football
+	name = "football"
+	desc = "A classic, white and black football for kicking. Also known as a soccerball on Biesel and some parts of Earth."
+	desc_mechanics = "Click to kick the ball. Alt+Click or use a non-Help intent to deliver a powerful kick. Drag the ball onto your character sprite to pick it up."
+	w_class = WEIGHT_CLASS_NORMAL
+	icon_state = "football"
+	item_state = "football"
+	drop_sound = 'sound/items/drop/rubber.ogg'
+	pickup_sound = 'sound/items/drop/rubber.ogg'
+
+	/// The base distance in tiles the football is kicked.
+	var/base_kick_distance = 1
+
+/obj/item/toy/football/Initialize()
+	. = ..()
+
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_walk_into),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
+/obj/item/toy/football/proc/on_walk_into(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	if(!isliving(arrived))
+		return
+
+	var/mob/living/user = arrived
+
+	if(!isturf(loc))
+		to_chat(user, SPAN_NOTICE("\The [src] has to be on the floor to kick it!"))
+		return
+
+	if(!(user?.a_intent == I_HELP))
+		user.visible_message(SPAN_WARNING("[user] forcefully kicks \the [src]!"))
+		throw_at(get_edge_target_turf(user, get_dir(old_loc, src)), base_kick_distance+(rand(2,5)), 1)
+		return
+
+	user.visible_message(SPAN_NOTICE("[user] kicks \the [src]."))
+	throw_at(get_edge_target_turf(user, get_dir(old_loc, src)), base_kick_distance+(rand(1,2)), 1)
+
+/obj/item/toy/football/AltClick(var/mob/user)
+	if(use_check(user))
+		return
+
+	if(!isturf(loc))
+		to_chat(user, SPAN_NOTICE("\The [src] has to be on the floor to kick it!"))
+		return
+
+	user.visible_message(SPAN_WARNING("[user] forcefully kicks \the [src]!"))
+	throw_at(get_edge_target_turf(user, get_dir(user, src)), base_kick_distance+(rand(2,5)), 1)
+
+/obj/item/toy/football/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params) //ripped from box/fancy/tray
+	if((over && (!use_check(over))) && (over.contents.Find(src) || in_range(src, over)))
+		var/mob/dropped_onto_mob = over
+		if(ishuman(dropped_onto_mob) && !dropped_onto_mob.get_active_hand())
+			var/mob/living/carbon/human/H = user
+			var/obj/item/organ/external/temp = H.organs_by_name[H.hand?BP_L_HAND:BP_R_HAND]
+
+			if(temp && !temp.is_usable())
+				to_chat(user, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
+				return
+
+			to_chat(user, SPAN_NOTICE("You pick up \the [src]."))
+			pixel_x = 0
+			pixel_y = 0
+			forceMove(get_turf(user))
+			user.put_in_hands(src)
+	return

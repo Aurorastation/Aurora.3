@@ -59,3 +59,8 @@ GLOBAL_DATUM_INIT(default_state, /datum/ui_state/default, new)
 				to_chat(src, SPAN_WARNING("Access denied."))
 
 	return min(..(), UI_UPDATE)
+
+/mob/living/simple_animal/spiderbot/default_can_use_topic(src_object)
+	if(ismech(src_object))
+		return UI_INTERACTIVE
+	return ..()

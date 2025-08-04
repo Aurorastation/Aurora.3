@@ -10,7 +10,6 @@
 /obj/machinery/atmospherics/unary/vent_pump
 	name = "air vent"
 	desc = "Has a valve and pump attached to it."
-	desc_info = "This pumps the contents of the attached pipe out into the atmosphere, if needed.  It can be controlled from an Air Alarm."
 	icon = 'icons/atmos/vent_pump.dmi'
 	icon_state = "map_vent"
 
@@ -50,6 +49,20 @@
 	var/radio_filter_in
 
 	var/broadcast_status_next_process = FALSE
+
+/obj/machinery/atmospherics/unary/vent_pump/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This pumps the contents of the attached pipe out into the atmosphere, if needed."
+	. += "It can be controlled from an Air Alarm."
+
+/obj/machinery/atmospherics/unary/vent_pump/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance <= 1)
+		. += "A small gauge in the corner reads [round(last_flow_rate, 0.1)] L/s at [round(last_power_draw)] W."
+	else
+		. += "You are too far away to read the gauge."
+	if(welded)
+		. += "It seems welded shut."
 
 /obj/machinery/atmospherics/unary/vent_pump/on
 	use_power = POWER_USE_IDLE
@@ -129,7 +142,7 @@
 
 /obj/machinery/atmospherics/unary/vent_pump/high_volume
 	name = "Large Air Vent"
-	power_channel = EQUIP
+	power_channel = AREA_USAGE_EQUIP
 	power_rating = 45000	//45 kW ~ 60 HP
 
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/Initialize()
@@ -143,7 +156,7 @@
 
 /obj/machinery/atmospherics/unary/vent_pump/engine
 	name = "Reactor Core Vent"
-	power_channel = ENVIRON
+	power_channel = AREA_USAGE_ENVIRON
 	power_rating = 30000	//30 kW ~ 40 HP
 
 /obj/machinery/atmospherics/unary/vent_pump/engine/Initialize()
@@ -454,15 +467,6 @@
 						qdel(src)
 
 		return ..()
-
-/obj/machinery/atmospherics/unary/vent_pump/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance <= 1)
-		. += "A small gauge in the corner reads [round(last_flow_rate, 0.1)] L/s at [round(last_power_draw)] W."
-	else
-		. += "You are too far away to read the gauge."
-	if(welded)
-		. += "It seems welded shut."
 
 /obj/machinery/atmospherics/unary/vent_pump/power_change()
 	var/old_stat = stat

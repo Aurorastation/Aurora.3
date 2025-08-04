@@ -2,17 +2,40 @@
 /obj/machinery/microscope
 	name = "high powered electron microscope"
 	desc = "A highly advanced microscope capable of zooming up to 3000x."
-	desc_info = "Use a microscope slide or a fingerprint card on this machine to insert it.\
-	\nAlt click to remove any object within it."
 	icon = 'icons/obj/forensics.dmi'
 	icon_state = "microscope"
 	anchored = 1
 	density = 1
 
+	/**
+	 * The sample being analysed
+	 */
 	var/obj/item/sample = null
+	/**
+	 * The report number of the last fiber analysis
+	 */
 	var/report_fiber_num = 0
+	/**
+	 * The report number of the last fingerprint analysis
+	 */
 	var/report_print_num = 0
+	/**
+	 * The report number of the last gunshot residue analysis
+	 */
 	var/report_gsr_num = 0
+	/**
+	 * The report number of the last cellular analysis
+	 */
+	var/report_cell_num = 0
+	/**
+	 * Which types of sample can we analyse
+	 */
+	var/allowed_analysis = MICROSCOPE_ALL
+
+/obj/machinery/microscope/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use a microscope slide or a fingerprint card on this machine to insert it."
+	. += "Alt-click to remove any object within it."
 
 /obj/machinery/microscope/attackby(obj/item/attacking_item, mob/user)
 
@@ -32,6 +55,15 @@
 
 	if(!sample)
 		to_chat(user, SPAN_WARNING("The microscope has no sample to examine."))
+		return
+
+	if(istype(sample, /obj/item/forensics/slide))
+		var/obj/item/forensics/slide/slide = sample
+		if((slide.has_swab && !(allowed_analysis & MICROSCOPE_GSR)) || (slide.has_sample && !(allowed_analysis & MICROSCOPE_FIBER)) || (slide.reagents.total_volume && !(allowed_analysis & MICROSCOPE_CELLS)))
+			to_chat(user, SPAN_NOTICE("The magnification of \the [src] is too low to analyse this."))
+			return
+	else if(istype(sample, /obj/item/sample/print) && !(allowed_analysis & MICROSCOPE_PRINTS))
+		to_chat(user, SPAN_NOTICE("The magnification of \the [src] is too low to analyse this."))
 		return
 
 	to_chat(user, SPAN_NOTICE("The microscope whirrs as you examine \the [sample]."))
@@ -75,6 +107,18 @@
 				info += "</ul>"
 			else
 				info += "No fibers found."
+		else if(slide.reagents.total_volume)
+			report_cell_num++
+			pname = "Cell report #[report_cell_num]"
+			var/list/tissue = REAGENT_DATA(slide.reagents, /singleton/reagent/biological_tissue)
+			if(tissue)
+				info = "<b><font size=\"4\">Cell anaylsis report #[report_cell_num]</font></b><HR>"
+				info += "Optical analysis has revealed unique cellular characteristics<ul>"
+				for(var/characteristic in tissue)
+					info += "<li>[characteristic]</li>"
+				info += "</ul>"
+			else
+				info += "No cells found."
 		else
 			pname = "Empty slide report #[report_fiber_num]"
 			info = "Evidence suggests that there's nothing in this slide."
@@ -133,9 +177,9 @@
 /obj/machinery/microscope/AltClick()
 	remove_sample(usr)
 
-/obj/machinery/microscope/MouseDrop(var/atom/other)
-	if(usr == other)
-		remove_sample(usr)
+/obj/machinery/microscope/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(over == user)
+		remove_sample(user)
 	else
 		return ..()
 

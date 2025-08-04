@@ -13,7 +13,7 @@
 	if(new_dir)
 		set_dir(new_dir)
 	else if(randomdir)
-		set_dir(pick(GLOB.cardinal))
+		set_dir(pick(GLOB.cardinals))
 
 	QDEL_IN(src, duration)
 

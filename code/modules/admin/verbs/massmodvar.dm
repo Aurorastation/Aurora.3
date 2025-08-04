@@ -120,9 +120,9 @@
 	var/original_name
 
 	if (!istype(O, /atom))
-		original_name = "\ref[O] ([O])"
+		original_name = "[REF(O)] ([O])"
 	else
-		original_name = O:name
+		original_name = O.name
 
 	switch(class)
 		if("restore to default")
@@ -391,5 +391,5 @@
 						if (A.type == O.type)
 							A.vv_edit_var(variable, O.vars[variable])
 
-	log_admin("[key_name(src)] mass modified [original_name]'s [variable] to [O.vars[variable]]",admin_key=key_name(src))
+	log_admin("[key_name(src)] mass modified [original_name]'s [variable] to [O.vars[variable]]")
 	message_admins("[key_name_admin(src)] mass modified [original_name]'s [variable] to [O.vars[variable]]", 1)

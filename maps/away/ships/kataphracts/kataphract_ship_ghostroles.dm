@@ -32,7 +32,7 @@
 	spawnpoints = list("kataphract_klax")
 
 	outfit = /obj/outfit/admin/kataphract/klax
-	possible_species = list(SPECIES_VAURCA_WARRIOR)
+	possible_species = list(SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT)
 	extra_languages = list(LANGUAGE_VAURCA)
 
 /datum/ghostspawner/human/kataphract/knight

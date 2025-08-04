@@ -4,7 +4,7 @@
 	icon = 'icons/obj/guns/rocket.dmi'
 	icon_state = "rocket"
 	item_state = "rocket"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	throw_speed = 2
 	throw_range = 10
 	force = 11
@@ -19,8 +19,8 @@
 	var/max_rockets = 1
 	var/list/rockets = new/list()
 
-/obj/item/gun/launcher/rocket/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/gun/launcher/rocket/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(is_adjacent)
 		. += SPAN_NOTICE("[rockets.len] / [max_rockets] rockets.")
 
@@ -45,7 +45,7 @@
 
 /obj/item/gun/launcher/rocket/handle_post_fire(mob/user, atom/target)
 	message_admins("[key_name_admin(user)] fired a rocket from a rocket launcher ([src.name]) at [target].")
-	log_game("[key_name(user)] used a rocket launcher ([src.name]) at [target].",ckey=key_name(src))
+	log_game("[key_name(user)] used a rocket launcher ([src.name]) at [target].")
 	..()
 
 /obj/item/gun/launcher/rocket/konyang

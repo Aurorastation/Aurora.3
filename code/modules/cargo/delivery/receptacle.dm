@@ -1,9 +1,15 @@
-var/global/list/all_cargo_receptacles = list()
+GLOBAL_LIST_INIT_TYPED(all_cargo_receptacles, /obj/structure/cargo_receptacle, list())
 
 /obj/structure/cargo_receptacle
 	name = "cargo delivery point"
-	desc = "An Orion Express automated cargo acceptance device. It's linked to a vast underground network of conveyors and de-sterilizers, transporting it to its final destination. These are generally used by researchers who find themselves bunkered alone on an exoplanet."
-	desc_info = "This is a delivery point for Orion Express cargo packages. To finish the delivery, have a cargo package in your hand and click on the delivery point."
+	desc = "\
+		An Orion Express automated cargo acceptance device. \
+		It is linked to a vast underground network of conveyors and shelves, storing packages for further transport or retrieval.\
+	"
+	desc_extended = "\
+		These are set up by Orion to expand its small-scale shipping network, especially in more remote areas, like outer edges of the Frontier or Coalition. \
+		It is a common sight all over the Spur, however, where Orion Express services depend on ordinary people and ships picking up and delivering packages for each other, \
+		with Orion Express only delivering to automated stations and other distribution points."
 	icon = 'icons/obj/orion_delivery.dmi'
 	icon_state = "delivery_point"
 
@@ -19,6 +25,11 @@ var/global/list/all_cargo_receptacles = list()
 	var/min_spawn = 2
 	/// Maximum amount of packages that can spawn for this receptacle. INTEGER
 	var/max_spawn = 4
+
+/obj/structure/cargo_receptacle/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This is a delivery point for Orion Express cargo packages."
+	. += "To finish the delivery, have a cargo package in your hand and click on the delivery point."
 
 /obj/structure/cargo_receptacle/Initialize(mapload)
 	..()
@@ -38,7 +49,7 @@ var/global/list/all_cargo_receptacles = list()
 	else
 		delivery_sector = null
 
-	all_cargo_receptacles += src
+	GLOB.all_cargo_receptacles += src
 
 	if(spawns_packages)
 		var/list/warehouse_turfs = list()
@@ -56,7 +67,7 @@ var/global/list/all_cargo_receptacles = list()
 				new /obj/item/cargo_package(random_turf, src)
 
 /obj/structure/cargo_receptacle/Destroy()
-	all_cargo_receptacles -= src
+	GLOB.all_cargo_receptacles -= src
 	return ..()
 
 /obj/structure/cargo_receptacle/attackby(obj/item/attacking_item, mob/user)
@@ -71,11 +82,23 @@ var/global/list/all_cargo_receptacles = list()
 			visible_message(SPAN_WARNING("\The [src] buzzes harshly, \"Invalid package! Check the delivery ID!\""))
 			return
 
+		var/pays_horizon_account = package.pays_horizon_account
+
 		user.visible_message("<b>[user]</b> starts heaving \the [attacking_item] into \the [src]...", SPAN_NOTICE("You start heaving \the [attacking_item] into \the [src]..."))
 		if(do_after(user, 1 SECONDS, src, DO_UNIQUE))
 			user.drop_from_inventory(attacking_item, src)
 			pay_account(user, attacking_item)
 			qdel(attacking_item)
+
+			var/obj/structure/cargo_receptacle/selected_delivery_point = get_cargo_package_delivery_point(src)
+			if(selected_delivery_point)
+				visible_message("\The [src] beeps, \"[SPAN_NOTICE("New package available for delivery.")]\"")
+				playsound(src, /singleton/sound_category/print_sound, 50, TRUE)
+
+				var/obj/item/cargo_package/printed_package = new /obj/item/cargo_package/offship(get_turf(user), selected_delivery_point)
+				printed_package.pays_horizon_account = pays_horizon_account
+				animate(printed_package, alpha = 0, alpha = 255, time = 1 SECOND) // Makes them fade in
+
 		return
 	return ..()
 

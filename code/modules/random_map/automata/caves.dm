@@ -2,7 +2,7 @@
 	iterations = 5
 	descriptor = "moon caves"
 	wall_type =  /turf/simulated/mineral
-	floor_type = /turf/unsimulated/floor/asteroid/ash/rocky
+	floor_type = /turf/simulated/floor/exoplanet/asteroid/ash/rocky
 	target_turf_type = /turf/unsimulated/mask
 	var/mineral_sparse =  /turf/simulated/mineral/random
 	var/mineral_rich = /turf/simulated/mineral/random/high_chance
@@ -129,7 +129,7 @@
 			if(EMPTY_CHAR)
 				new_path = mineral_rich
 			if(FLOOR_CHAR)
-				var/turf/below = GET_BELOW(T)
+				var/turf/below = GET_TURF_BELOW(T)
 				if(below)
 					var/area/below_area = below.loc		// Let's just assume that the turf is not in nullspace.
 					if(below_area.station_area)
@@ -157,8 +157,8 @@
 
 /datum/random_map/automata/cave_system/chasms/surface
 	descriptor = "chasm surface"
-	wall_type = /turf/unsimulated/floor/asteroid/ash
+	wall_type = /turf/simulated/floor/exoplanet/asteroid/ash
 	floor_type = /turf/simulated/open/airless
 	target_turf_type = /turf/unsimulated/chasm_mask
-	mineral_sparse = /turf/unsimulated/floor/asteroid/ash
-	mineral_rich = /turf/unsimulated/floor/asteroid/ash
+	mineral_sparse = /turf/simulated/floor/exoplanet/asteroid/ash
+	mineral_rich = /turf/simulated/floor/exoplanet/asteroid/ash

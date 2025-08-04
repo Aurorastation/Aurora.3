@@ -9,6 +9,6 @@
 	sectors = list(SECTOR_SRANDMARR)
 
 	prefix = "adhomai/"
-	suffixes = list("ala_cell.dmm")
+	suffix = "ala_cell.dmm"
 
 	unit_test_groups = list(2)

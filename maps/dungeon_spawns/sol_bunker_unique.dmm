@@ -6,7 +6,7 @@
 /obj/machinery/light/small{
 	brightness_color = "#FA8282"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/sol_outpost)
 "ac" = (
 /turf/simulated/wall/r_wall,
@@ -23,13 +23,6 @@
 "af" = (
 /obj/machinery/appliance/cooker/fryer,
 /turf/simulated/floor/tiled,
-/area/dungeon/sol_outpost)
-"ag" = (
-/obj/machinery/door/airlock/centcom{
-	opacity = 1;
-	dir = 1
-	},
-/turf/simulated/floor/wood,
 /area/dungeon/sol_outpost)
 "ah" = (
 /obj/effect/decal/cleanable/dirt,
@@ -66,14 +59,6 @@
 /area/dungeon/sol_outpost)
 "am" = (
 /obj/machinery/door/airlock/centcom{
-	opacity = 1;
-	dir = 1
-	},
-/turf/simulated/floor/wood,
-/area/dungeon/sol_outpost)
-"an" = (
-/obj/machinery/door/airlock/centcom{
-	opacity = 1;
 	dir = 1
 	},
 /turf/simulated/floor/wood,
@@ -238,9 +223,6 @@
 	},
 /turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
-"aS" = (
-/turf/simulated/floor/tiled/airless,
-/area/dungeon/sol_outpost)
 "aT" = (
 /obj/structure/sink{
 	dir = 8;
@@ -272,7 +254,7 @@
 /obj/item/landmine/frag{
 	deployed = 1
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "aY" = (
 /obj/structure/curtain/open/shower,
@@ -358,13 +340,6 @@
 	},
 /turf/simulated/floor,
 /area/dungeon/sol_outpost)
-"bn" = (
-/obj/machinery/door/airlock/centcom{
-	opacity = 1;
-	dir = 1
-	},
-/turf/simulated/floor/wood,
-/area/dungeon/sol_outpost)
 "bo" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -396,7 +371,6 @@
 /area/dungeon/sol_outpost)
 "br" = (
 /obj/machinery/door/airlock/centcom{
-	opacity = 1;
 	dir = 4
 	},
 /turf/simulated/floor/wood,
@@ -483,7 +457,7 @@
 /obj/item/landmine/frag{
 	deployed = 1
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "bD" = (
 /obj/structure/table/wood,
@@ -848,21 +822,17 @@
 	density = 1;
 	desc = "An old cryogenic freezer .";
 	dir = 4;
-	icon = 'icons/obj/sleeper.dmi';
+	icon = 'icons/obj/machinery/sleeper.dmi';
 	icon_state = "body_scanner";
 	name = "dilapitated cryogenic freezer";
 	pixel_x = 1
 	},
-/obj/effect/decal/cleanable/dirt{
-	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood{
 	nitrogen = 0;
 	oxygen = 0
 	},
 /area/dungeon/sol_outpost)
-"cA" = (
-/turf/unsimulated/floor/asteroid/ash/rocky,
-/area/mine/unexplored)
 "cB" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/blue,
@@ -896,13 +866,12 @@
 /turf/simulated/floor/wood,
 /area/dungeon/sol_outpost)
 "cG" = (
-/obj/effect/decal/cleanable/dirt{
-	},
+/obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/fake_object{
 	density = 1;
 	desc = "An old cryogenic freezer .";
 	dir = 4;
-	icon = 'icons/obj/sleeper.dmi';
+	icon = 'icons/obj/machinery/sleeper.dmi';
 	icon_state = "body_scanner";
 	name = "dilapitated cryogenic freezer";
 	pixel_x = 1
@@ -1057,11 +1026,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/sol_outpost)
 "de" = (
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "df" = (
 /obj/structure/boulder,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "dg" = (
 /obj/structure/bed/stool/chair/office/light{
@@ -1315,8 +1284,8 @@ aa
 aa
 dc
 dc
-cA
-cA
+de
+de
 dc
 dc
 dc
@@ -1348,7 +1317,7 @@ aa
 aa
 dc
 dc
-cA
+de
 aX
 ab
 ac
@@ -1381,10 +1350,10 @@ dc
 dc
 dc
 dc
-cA
-cA
-cA
-cA
+de
+de
+de
+de
 aZ
 bg
 bm
@@ -1415,10 +1384,10 @@ aa
 df
 df
 df
-cA
-cA
-cA
-cA
+de
+de
+de
+de
 aZ
 bh
 bh
@@ -1449,9 +1418,9 @@ aa
 df
 df
 df
-cA
+de
 aX
-cA
+de
 bC
 ac
 ac
@@ -1471,9 +1440,9 @@ dc
 dc
 aa
 aa
-cA
+de
 aa
-cA
+de
 aa
 aa
 "}
@@ -1483,9 +1452,9 @@ aa
 df
 df
 df
-cA
-cA
-cA
+de
+de
+de
 de
 ac
 ac
@@ -1505,9 +1474,9 @@ dc
 dc
 dc
 dc
-cA
-cA
-cA
+de
+de
+de
 aa
 aa
 "}
@@ -1517,9 +1486,9 @@ dc
 dc
 dc
 dc
-cA
-cA
-cA
+de
+de
+de
 ac
 ac
 aQ
@@ -1539,9 +1508,9 @@ dc
 dc
 dc
 dc
-cA
-cA
-cA
+de
+de
+de
 dc
 aa
 "}
@@ -1551,8 +1520,8 @@ dc
 dc
 dc
 dc
-cA
-cA
+de
+de
 ac
 ac
 aQ
@@ -1727,7 +1696,7 @@ aI
 aQ
 aN
 aQ
-ag
+am
 bF
 bx
 bT
@@ -1761,14 +1730,14 @@ aI
 aN
 aQ
 aN
-an
+am
 bx
 cH
 bT
 bT
 bx
 cH
-bn
+am
 aQ
 OV
 aQ
@@ -1826,7 +1795,7 @@ ao
 ax
 aG
 aA
-aS
+aQ
 aN
 aQ
 bp
@@ -1980,8 +1949,8 @@ dc
 dc
 dc
 dc
-cA
-cA
+de
+de
 dc
 dc
 dc
@@ -2014,8 +1983,8 @@ dc
 dc
 dc
 dc
-cA
-cA
+de
+de
 dc
 dc
 aa
@@ -2048,8 +2017,8 @@ dc
 dc
 dc
 df
-cA
-cA
+de
+de
 dc
 dc
 aa
@@ -2078,12 +2047,12 @@ cN
 ac
 dc
 dc
-cA
-cA
+de
+de
 df
-cA
-cA
-cA
+de
+de
+de
 dc
 aa
 aa
@@ -2110,13 +2079,13 @@ QN
 vX
 QN
 tn
-cA
-cA
-cA
-cA
-cA
-cA
-cA
+de
+de
+de
+de
+de
+de
+de
 aa
 aa
 aa
@@ -2145,12 +2114,12 @@ cB
 cB
 ac
 dc
-cA
-cA
-cA
-cA
-cA
-cA
+de
+de
+de
+de
+de
+de
 aa
 aa
 aa
@@ -2180,8 +2149,8 @@ cO
 ac
 dc
 dc
-cA
-cA
+de
+de
 aa
 aa
 aa

@@ -1,65 +1,181 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"a" = (
+"bi" = (
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes_dorviza/tent)
+"bA" = (
+/obj/random/seed,
+/obj/random/seed,
+/obj/item/seeds/clam,
+/obj/item/seeds/clam,
+/obj/structure/closet/crate/hydroponics,
+/turf/simulated/floor/exoplanet/carpet/red,
+/area/moghes_dorviza/tent)
+"bE" = (
+/obj/structure/curtain/open,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_dorviza/tent)
+"eP" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes_dorviza/tent)
+"fQ" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/obj/structure/sink/puddle,
+/mob/living/simple_animal/threshbeast,
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
 /area/moghes_dorviza)
-"b" = (
-/obj/machinery/light/small{
-	dir = 8
+"gE" = (
+/obj/structure/sink/puddle,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_dorviza)
+"iq" = (
+/obj/item/toy/desk/fan,
+/obj/effect/floor_decal/spline/plain/blue{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/carpet/darkblue,
+/area/moghes_dorviza/tent)
+"iX" = (
+/obj/item/device/flashlight/lamp/box,
+/turf/simulated/floor/exoplanet/carpet/red,
+/area/moghes_dorviza/tent)
+"jy" = (
+/obj/item/device/flashlight/lamp/box,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_dorviza)
+"ko" = (
+/obj/structure/flora/grass/desert,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_dorviza)
+"kD" = (
+/turf/template_noop,
+/area/exoplanet/moghes)
+"lk" = (
+/obj/structure/closet/crate,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_dorviza/tent)
+"mh" = (
+/obj/structure/curtain/open,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/spline/plain/brown,
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes_dorviza/tent)
+"mM" = (
+/obj/structure/railing/fence{
+	dir = 4
 	},
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
 /area/moghes_dorviza)
-"c" = (
-/obj/structure/closet/crate/medical,
-/obj/item/reagent_containers/blood/OMinus,
-/obj/item/reagent_containers/blood/OMinus,
-/obj/item/reagent_containers/blood/OMinus,
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 315.15
+"mN" = (
+/obj/structure/curtain/open,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/spline/plain/red{
+	dir = 4
 	},
-/area/moghes_dorviza)
-"d" = (
-/obj/structure/flora/grass/desert/bush,
-/turf/simulated/floor/exoplanet/desert{
-	temperature = 315.15
-	},
-/area/moghes_dorviza)
-"e" = (
-/obj/structure/closet/crate/medical,
-/obj/item/storage/box/syringes,
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 315.15
-	},
-/area/moghes_dorviza)
-"f" = (
-/obj/machinery/iv_drip,
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 315.15
-	},
-/area/moghes_dorviza)
-"h" = (
+/turf/simulated/floor/exoplanet/carpet/red,
+/area/moghes_dorviza/tent)
+"nw" = (
 /obj/structure/bed/stool/wood,
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
 /area/moghes_dorviza)
-"k" = (
+"ob" = (
+/obj/item/device/flashlight/lantern/on,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_dorviza)
+"oF" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_dorviza)
+"pB" = (
+/obj/structure/railing/fence,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_dorviza)
+"qJ" = (
 /obj/structure/flora/grass/desert/bush,
-/obj/machinery/portable_atmospherics/hydroponics/soil,
-/turf/simulated/floor/exoplanet/diona{
+/turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
 /area/moghes_dorviza)
-"l" = (
-/obj/structure/curtain/open,
-/turf/simulated/floor/exoplanet/carpet/rubber{
+"rx" = (
+/obj/structure/closet/crate,
+/obj/item/material/twohanded/spear/steel,
+/obj/random/sword,
+/obj/random/sword,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/carpet/red,
+/area/moghes_dorviza/tent)
+"ta" = (
+/obj/structure/flora/tree/desert/tiny,
+/turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
 /area/moghes_dorviza)
-"m" = (
+"tD" = (
+/obj/machinery/door/urban{
+	dir = 4;
+	pixel_x = -29
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_dorviza)
+"uG" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/spline/plain/blue{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/carpet/darkblue,
+/area/moghes_dorviza/tent)
+"uS" = (
+/obj/structure/closet/crate/medical,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/roller,
+/obj/item/roller,
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes_dorviza/tent)
+"wK" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_dorviza)
+"ym" = (
 /obj/structure/closet/crate,
 /obj/item/clothing/suit/unathi/robe/beige,
 /obj/item/clothing/suit/unathi/robe/beige,
@@ -84,11 +200,9 @@
 /obj/item/clothing/accessory/sinta_hood{
 	color = "#DBC684"
 	},
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 315.15
-	},
-/area/moghes_dorviza)
-"n" = (
+/turf/simulated/floor/exoplanet/carpet/darkblue,
+/area/moghes_dorviza/tent)
+"yV" = (
 /obj/effect/ghostspawpoint{
 	identifier = "moghes_dorviza_diona";
 	name = "igs - moghes_dorviza_diona"
@@ -96,214 +210,69 @@
 /turf/simulated/floor/exoplanet/diona{
 	temperature = 315.15
 	},
-/area/moghes_dorviza)
-"o" = (
-/obj/machinery/light/small,
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 315.15
-	},
-/area/moghes_dorviza)
-"p" = (
-/obj/structure/sink/puddle,
-/turf/simulated/floor/exoplanet/desert{
-	temperature = 315.15
-	},
-/area/moghes_dorviza)
-"q" = (
-/obj/item/bedsheet/brown,
-/obj/effect/ghostspawpoint{
-	name = "igs - moghes_dorviza";
-	identifier = "moghes_dorviza"
-	},
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 315.15
-	},
-/area/moghes_dorviza)
-"r" = (
-/obj/structure/closet/crate,
-/obj/item/material/twohanded/spear/steel,
-/obj/random/sword,
-/obj/random/sword,
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 315.15
-	},
-/area/moghes_dorviza)
-"s" = (
-/obj/structure/flora/grass/desert,
-/turf/simulated/floor/exoplanet/desert{
-	temperature = 315.15
-	},
-/area/moghes_dorviza)
-"t" = (
-/obj/structure/table/steel,
-/obj/item/storage/firstaid/surgery,
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 315.15
-	},
-/area/moghes_dorviza)
-"u" = (
-/obj/structure/closet/crate,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 315.15
-	},
-/area/moghes_dorviza)
-"v" = (
-/obj/structure/flora/tree/desert/small,
-/turf/simulated/floor/exoplanet/desert{
-	temperature = 315.15
-	},
-/area/moghes_dorviza)
-"x" = (
-/obj/item/flame/lighter/random,
-/obj/structure/closet/crate,
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 315.15
-	},
-/area/moghes_dorviza)
-"y" = (
-/obj/structure/closet/secure_closet/medical2{
-	req_access = null
-	},
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/mask/breath,
-/obj/item/tank/anesthetic,
-/obj/item/tank/anesthetic,
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 315.15
-	},
-/area/moghes_dorviza)
-"z" = (
-/obj/structure/closet/crate/medical,
-/obj/item/clothing/gloves/latex/nitrile/unathi,
-/obj/item/clothing/gloves/latex/nitrile/unathi,
-/obj/item/clothing/mask/surgical,
-/obj/item/clothing/mask/surgical,
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 315.15
-	},
-/area/moghes_dorviza)
-"A" = (
+/area/moghes_dorviza/tent)
+"zN" = (
 /turf/simulated/floor/exoplanet/water/shallow{
 	temperature = 303.15
 	},
 /area/moghes_dorviza)
-"B" = (
-/obj/structure/bonfire,
-/turf/simulated/floor/exoplanet/desert{
-	temperature = 315.15
-	},
-/area/moghes_dorviza)
-"C" = (
-/obj/structure/closet/crate/medical,
-/obj/item/roller,
-/obj/item/roller,
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 315.15
-	},
-/area/moghes_dorviza)
-"D" = (
-/obj/structure/bed,
-/obj/machinery/light/small{
-	dir = 1
-	},
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 315.15
-	},
-/area/moghes_dorviza)
-"E" = (
-/obj/machinery/light/small{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 315.15
-	},
-/area/moghes_dorviza)
-"F" = (
-/obj/item/nullrod/shaman,
-/obj/structure/closet/crate,
-/obj/item/clothing/head/unathi/deco/green,
-/obj/item/clothing/suit/unathi/robe/kilt{
-	color = "#DBC684"
-	},
-/obj/item/clothing/accessory/poncho/unathimantle{
-	color = "#42330f"
-	},
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 315.15
-	},
-/area/moghes_dorviza)
-"G" = (
+"Aa" = (
+/obj/structure/flora/grass/desert,
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /obj/structure/diona/bulb,
 /turf/simulated/floor/exoplanet/diona{
 	temperature = 315.15
 	},
 /area/moghes_dorviza)
-"H" = (
-/obj/machinery/light/small,
-/turf/simulated/floor/exoplanet/desert{
-	temperature = 315.15
-	},
-/area/moghes_dorviza)
-"I" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
-/turf/simulated/floor/exoplanet/desert{
-	temperature = 315.15
-	},
-/area/moghes_dorviza)
-"J" = (
-/obj/random/firstaid,
-/obj/random/firstaid,
-/obj/random/firstaid,
-/obj/item/storage/firstaid/radiation,
-/obj/item/storage/firstaid/radiation,
-/obj/structure/closet/crate/medical,
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 315.15
-	},
-/area/moghes_dorviza)
-"K" = (
-/obj/structure/flora/tree/desert/tiny,
-/turf/simulated/floor/exoplanet/desert{
-	temperature = 315.15
-	},
-/area/moghes_dorviza)
-"L" = (
-/obj/structure/closet/crate,
-/obj/item/saddle,
-/obj/item/saddle,
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 315.15
-	},
-/area/moghes_dorviza)
-"M" = (
-/obj/structure/closet/crate,
-/obj/item/nullrod/shaman,
-/obj/item/clothing/accessory/poncho/unathimantle{
-	color = "#42330f"
-	},
-/obj/item/clothing/accessory/poncho/unathimantle{
-	color = "#42330f"
-	},
-/obj/item/clothing/accessory/poncho/unathimantle{
-	color = "#42330f"
-	},
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 315.15
-	},
-/area/moghes_dorviza)
-"O" = (
+"Bz" = (
 /obj/structure/diona/bulb,
 /turf/simulated/floor/exoplanet/diona{
 	temperature = 315.15
 	},
 /area/moghes_dorviza)
-"P" = (
+"Ce" = (
+/obj/effect/floor_decal/spline/plain/brown{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes_dorviza/tent)
+"Ch" = (
+/obj/structure/railing/fence,
+/obj/structure/flora/grass/desert,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_dorviza)
+"DH" = (
+/obj/structure/bed,
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes_dorviza/tent)
+"Ea" = (
+/obj/machinery/iv_drip,
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes_dorviza/tent)
+"Ec" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/diona/bulb,
+/turf/simulated/floor/exoplanet/diona{
+	temperature = 315.15
+	},
+/area/moghes_dorviza)
+"Ep" = (
+/obj/structure/closet/crate/medical,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/clothing/mask/surgical,
+/obj/item/clothing/mask/surgical,
+/obj/random/soap,
+/obj/item/reagent_containers/glass/rag,
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes_dorviza/tent)
+"Eq" = (
+/obj/item/device/flashlight/lamp/box,
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes_dorviza/tent)
+"EK" = (
 /obj/structure/closet/crate,
 /obj/random/civgun/rifle,
 /obj/random/civgun/rifle,
@@ -313,35 +282,229 @@
 /obj/item/gun/projectile/pistol/spitter,
 /obj/item/ammo_magazine/spitterpistol,
 /obj/item/ammo_magazine/spitterpistol,
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 315.15
-	},
-/area/moghes_dorviza)
-"Q" = (
-/obj/machinery/light/small{
-	dir = 4
-	},
-/turf/simulated/floor/exoplanet/desert{
-	temperature = 315.15
-	},
-/area/moghes_dorviza)
-"R" = (
-/obj/random/seed,
-/obj/random/seed,
-/obj/item/seeds/clam,
-/obj/item/seeds/clam,
-/obj/structure/closet/crate/hydroponics,
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 315.15
-	},
-/area/moghes_dorviza)
-"S" = (
+/turf/simulated/floor/exoplanet/carpet/red,
+/area/moghes_dorviza/tent)
+"FR" = (
+/obj/structure/flora/grass/desert/bush,
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/diona{
 	temperature = 315.15
 	},
 /area/moghes_dorviza)
-"T" = (
+"FS" = (
+/obj/item/device/versebook/thakh,
+/obj/item/lore_radio,
+/turf/simulated/floor/exoplanet/carpet/red,
+/area/moghes_dorviza/tent)
+"Go" = (
+/obj/item/bedsheet/brown,
+/obj/effect/ghostspawpoint{
+	name = "igs - moghes_dorviza";
+	identifier = "moghes_dorviza"
+	},
+/turf/simulated/floor/exoplanet/carpet/red,
+/area/moghes_dorviza/tent)
+"Ia" = (
+/obj/structure/flora/tree/desert/small,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_dorviza)
+"Jp" = (
+/obj/structure/table/rack/cafe_table,
+/obj/item/storage/firstaid/surgery,
+/obj/item/device/flashlight/lamp/box,
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes_dorviza/tent)
+"JL" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/spline/plain/brown{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes_dorviza/tent)
+"JN" = (
+/obj/structure/bonfire,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_dorviza)
+"KU" = (
+/obj/structure/cargo_receptacle{
+	max_spawn = 2;
+	min_spawn = 0;
+	override_name = "Moghes - Dorviza Clan Outpost";
+	payment_modifier = 1.8
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_dorviza)
+"La" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_dorviza)
+"LW" = (
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_dorviza/tent)
+"Ma" = (
+/obj/structure/closet/crate,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_dorviza)
+"Me" = (
+/obj/structure/railing/fence,
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/obj/structure/flora/grass/desert,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_dorviza)
+"MJ" = (
+/obj/item/nullrod/shaman,
+/obj/structure/closet/crate,
+/obj/item/clothing/head/unathi/deco/green,
+/obj/item/clothing/suit/unathi/robe/kilt{
+	color = "#DBC684"
+	},
+/obj/item/clothing/accessory/poncho/unathimantle{
+	color = "#42330f"
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_dorviza/tent)
+"Nk" = (
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_dorviza)
+"Nx" = (
+/obj/effect/floor_decal/spline/plain/brown{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes_dorviza/tent)
+"Of" = (
+/obj/structure/closet/crate/medical,
+/obj/item/storage/box/syringes,
+/obj/item/storage/firstaid/radiation,
+/obj/item/storage/firstaid/radiation,
+/obj/random/firstaid,
+/obj/random/firstaid,
+/obj/random/firstaid,
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes_dorviza/tent)
+"Oj" = (
+/turf/simulated/floor/exoplanet/diona{
+	temperature = 315.15
+	},
+/area/moghes_dorviza/tent)
+"Oo" = (
+/obj/structure/closet/crate,
+/obj/item/nullrod/shaman,
+/obj/item/clothing/accessory/poncho/unathimantle{
+	color = "#42330f"
+	},
+/obj/item/clothing/accessory/poncho/unathimantle{
+	color = "#42330f"
+	},
+/obj/item/clothing/accessory/poncho/unathimantle{
+	color = "#42330f"
+	},
+/obj/item/flame/lighter/random,
+/turf/simulated/floor/exoplanet/carpet/darkblue,
+/area/moghes_dorviza/tent)
+"OT" = (
+/obj/structure/closet/crate,
+/obj/item/saddle,
+/obj/item/saddle,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_dorviza/tent)
+"Px" = (
+/obj/item/bedsheet/brown,
+/obj/effect/ghostspawpoint{
+	name = "igs - moghes_dorviza";
+	identifier = "moghes_dorviza"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/carpet/red,
+/area/moghes_dorviza/tent)
+"Qv" = (
+/obj/structure/flora/grass/desert,
+/mob/living/simple_animal/threshbeast,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_dorviza)
+"QF" = (
+/turf/simulated/floor/exoplanet/carpet/red,
+/area/moghes_dorviza/tent)
+"RC" = (
+/turf/simulated/wall/cloth,
+/area/moghes_dorviza/tent)
+"SB" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/spline/plain/brown{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes_dorviza/tent)
+"Td" = (
+/obj/structure/diona/bulb,
+/turf/simulated/floor/exoplanet/diona{
+	temperature = 315.15
+	},
+/area/moghes_dorviza/tent)
+"Tq" = (
+/obj/structure/closet/secure_closet/medical2{
+	req_access = null
+	},
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/mask/breath,
+/obj/item/tank/anesthetic,
+/obj/item/tank/anesthetic,
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes_dorviza/tent)
+"Ty" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_dorviza)
+"TX" = (
+/mob/living/simple_animal/threshbeast,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_dorviza)
+"UD" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/carpet/red,
+/area/moghes_dorviza/tent)
+"VD" = (
+/obj/effect/floor_decal/spline/plain/blue{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/carpet/darkblue,
+/area/moghes_dorviza/tent)
+"VO" = (
 /obj/structure/closet/crate/hydroponics,
 /obj/item/material/hatchet/lumber,
 /obj/item/material/hatchet,
@@ -353,19 +516,51 @@
 /obj/item/reagent_containers/glass/bottle/ammonia,
 /obj/item/reagent_containers/glass/bucket/wood,
 /obj/item/reagent_containers/glass/bucket/wood,
-/turf/simulated/floor/exoplanet/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/red,
+/area/moghes_dorviza/tent)
+"Wq" = (
+/obj/structure/railing/fence,
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
 /area/moghes_dorviza)
-"V" = (
-/turf/simulated/wall/cloth,
-/area/moghes_dorviza)
-"W" = (
-/turf/simulated/floor/exoplanet/carpet/rubber{
+"WZ" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/carpet/darkblue,
+/area/moghes_dorviza/tent)
+"XG" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/spline/plain/blue{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/carpet/darkblue,
+/area/moghes_dorviza/tent)
+"XY" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/exoplanet/diona{
 	temperature = 315.15
 	},
 /area/moghes_dorviza)
-"X" = (
+"Yz" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/spline/plain/brown{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes_dorviza/tent)
+"YU" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/obj/structure/flora/grass/desert,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_dorviza)
+"ZJ" = (
 /obj/structure/closet/crate/freezer,
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
@@ -379,1316 +574,1301 @@
 /obj/item/reagent_containers/food/drinks/waterbottle,
 /obj/item/reagent_containers/food/drinks/waterbottle,
 /obj/item/reagent_containers/food/drinks/waterbottle,
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 315.15
-	},
-/area/moghes_dorviza)
-"Y" = (
-/turf/simulated/floor/exoplanet/diona{
-	temperature = 315.15
-	},
-/area/moghes_dorviza)
-"Z" = (
-/obj/structure/flora/grass/desert,
-/obj/machinery/portable_atmospherics/hydroponics/soil,
-/obj/structure/diona/bulb,
-/turf/simulated/floor/exoplanet/diona{
-	temperature = 315.15
-	},
-/area/moghes_dorviza)
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes_dorviza/tent)
 
 (1,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+kD
+kD
+kD
+kD
+kD
+kD
+kD
+kD
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+kD
+kD
+kD
+kD
+kD
+kD
+kD
 "}
 (2,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-V
-V
-V
-V
-V
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+kD
+kD
+kD
+kD
+kD
+kD
+kD
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+RC
+RC
+RC
+RC
+RC
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+kD
+kD
+kD
+kD
+kD
 "}
 (3,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-V
-V
-W
-E
-W
-V
-V
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+kD
+kD
+kD
+kD
+kD
+kD
+kD
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+RC
+RC
+QF
+UD
+VD
+RC
+RC
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+kD
+kD
+kD
 "}
 (4,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-V
-q
-W
-W
-W
-x
-V
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+kD
+kD
+kD
+kD
+kD
+kD
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+RC
+Px
+UD
+FS
+uG
+WZ
+RC
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+kD
+kD
 "}
 (5,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-s
-s
-s
-s
-a
-a
-V
-q
-W
-W
-W
-m
-V
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+kD
+kD
+kD
+kD
+kD
+kD
+Nk
+Nk
+Nk
+ko
+ko
+ko
+ko
+Nk
+Nk
+RC
+Go
+QF
+iX
+iq
+ym
+RC
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+kD
 "}
 (6,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-s
-a
-a
-V
-q
-W
-W
-W
-M
-V
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+kD
+kD
+kD
+kD
+kD
+kD
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+ko
+Nk
+Nk
+RC
+Px
+UD
+UD
+XG
+Oo
+RC
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+kD
 "}
 (7,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-s
-a
-V
-V
-W
-W
-W
-V
-V
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+kD
+kD
+kD
+kD
+kD
+kD
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+ko
+Nk
+RC
+RC
+QF
+UD
+QF
+RC
+RC
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+kD
 "}
 (8,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-s
-a
-V
-V
-l
-V
-V
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+kD
+kD
+kD
+kD
+kD
+kD
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+ko
+Nk
+RC
+RC
+mN
+RC
+RC
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+kD
 "}
 (9,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-s
-s
-s
-a
-b
-a
-b
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+kD
+kD
+kD
+kD
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+ko
+ko
+ko
+ob
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
 "}
 (10,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-h
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+kD
+kD
+kD
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+nw
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
 "}
 (11,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-K
-a
-h
-B
-h
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+kD
+kD
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+ta
+Nk
+nw
+JN
+nw
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
 "}
 (12,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-s
-a
-h
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+kD
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+ko
+Nk
+nw
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
 "}
 (13,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-A
-A
-a
-A
-d
-A
-a
-d
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+zN
+zN
+Nk
+zN
+qJ
+zN
+Nk
+qJ
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
 "}
 (14,1,1) = {"
-a
-a
-a
-a
-V
-V
-V
-V
-V
-a
-a
-a
-a
-a
-s
-A
-A
-S
-G
-A
-A
-d
-d
-a
-a
-a
-V
-V
-V
-V
-V
-a
-a
-a
-a
+Nk
+Nk
+Nk
+Nk
+RC
+RC
+RC
+RC
+RC
+Nk
+Nk
+Nk
+Nk
+Nk
+ko
+zN
+zN
+XY
+Ec
+zN
+zN
+qJ
+qJ
+Nk
+Nk
+Nk
+RC
+RC
+RC
+RC
+RC
+Nk
+Nk
+Nk
+Nk
 "}
 (15,1,1) = {"
-a
-a
-a
-V
-V
-C
-c
-f
-V
-V
-a
-a
-a
-s
-A
-A
-A
-A
-A
-A
-A
-a
-a
-K
-a
-V
-V
-r
-P
-R
-V
-V
-a
-a
-a
+Nk
+Nk
+Nk
+RC
+RC
+bi
+uS
+Ea
+RC
+RC
+Ma
+Nk
+Nk
+ko
+zN
+zN
+zN
+zN
+zN
+zN
+zN
+Nk
+Nk
+ta
+Nk
+RC
+RC
+rx
+EK
+bA
+RC
+RC
+Nk
+Nk
+Nk
 "}
 (16,1,1) = {"
-a
-a
-a
-V
-y
-W
-W
-W
-W
-V
-I
-a
-p
-s
-A
-A
-A
-A
-A
-A
-A
-a
-a
-a
-H
-V
-W
-W
-W
-W
-X
-V
-a
-a
-a
+Nk
+Nk
+Nk
+RC
+Tq
+bi
+eP
+bi
+eP
+RC
+Nk
+Nk
+gE
+ko
+zN
+zN
+zN
+zN
+zN
+zN
+zN
+Nk
+Nk
+Nk
+jy
+RC
+UD
+QF
+SB
+Nx
+ZJ
+RC
+Nk
+Nk
+Nk
 "}
 (17,1,1) = {"
-a
-a
-a
-V
-D
-W
-W
-W
-W
-l
-a
-s
-A
-A
-A
-A
-A
-A
-A
-A
-A
-Z
-s
-a
-a
-l
-W
-W
-W
-W
-o
-V
-a
-a
-a
+Nk
+Nk
+Nk
+RC
+DH
+eP
+bi
+bi
+bi
+mh
+Nk
+ko
+zN
+zN
+zN
+zN
+zN
+zN
+zN
+zN
+zN
+Aa
+ko
+Nk
+Nk
+bE
+LW
+UD
+Yz
+eP
+bi
+RC
+Nk
+Nk
+Nk
 "}
 (18,1,1) = {"
-a
-a
-a
-V
-t
-W
-W
-W
-W
-V
-I
-a
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-a
-a
-H
-V
-W
-W
-W
-W
-W
-V
-a
-a
-a
+Nk
+Nk
+Nk
+RC
+Jp
+bi
+bi
+bi
+eP
+RC
+Bz
+Nk
+zN
+zN
+zN
+zN
+zN
+zN
+zN
+zN
+zN
+zN
+Nk
+Nk
+Nk
+RC
+LW
+LW
+JL
+Ce
+Eq
+RC
+Nk
+Nk
+Nk
 "}
 (19,1,1) = {"
-a
-a
-a
-V
-V
-e
-z
-J
-V
-V
-a
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-s
-a
-a
-V
-V
-u
-L
-T
-V
-V
-a
-a
-a
+Nk
+Nk
+Nk
+RC
+RC
+Of
+Ep
+bi
+RC
+RC
+Nk
+zN
+zN
+zN
+zN
+zN
+zN
+zN
+zN
+zN
+zN
+zN
+ko
+Nk
+Nk
+RC
+RC
+lk
+OT
+VO
+RC
+RC
+Nk
+Nk
+Nk
 "}
 (20,1,1) = {"
-a
-a
-a
-a
-V
-V
-V
-V
-V
-a
-a
-a
-G
-A
-A
-A
-A
-A
-A
-A
-A
-s
-a
-a
-a
-a
-V
-V
-V
-V
-V
-a
-a
-a
-a
+Nk
+Nk
+Nk
+Nk
+RC
+RC
+RC
+RC
+RC
+Nk
+Nk
+Nk
+Ec
+zN
+zN
+zN
+zN
+zN
+zN
+zN
+zN
+ko
+Nk
+Nk
+Nk
+Nk
+RC
+RC
+RC
+RC
+RC
+KU
+Nk
+Nk
+Nk
 "}
 (21,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-S
-A
-s
-s
-A
-G
-d
-A
-a
-A
-A
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+XY
+zN
+ko
+ko
+zN
+Ec
+qJ
+zN
+Nk
+zN
+zN
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
 "}
 (22,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-s
-a
-A
-a
-v
-s
-A
-k
-A
-a
-K
-s
-s
-s
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+ko
+Nk
+zN
+Nk
+Ia
+ko
+zN
+FR
+zN
+Nk
+ta
+ko
+ko
+ko
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
 "}
 (23,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-s
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+ko
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
 "}
 (24,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-s
-a
-s
-a
-a
-Q
-a
-Q
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+ko
+Nk
+ko
+Nk
+Nk
+Bz
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
 "}
 (25,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-s
-V
-V
-l
-V
-V
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+ko
+RC
+RC
+bE
+RC
+RC
+Nk
+Nk
+Ty
+La
+tD
+La
+Me
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
 "}
 (26,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-V
-V
-W
-W
-Y
-V
-V
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+kD
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+RC
+RC
+LW
+LW
+Oj
+RC
+RC
+Nk
+oF
+Qv
+Nk
+Nk
+pB
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
 "}
 (27,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-V
-W
-W
-Y
-W
-F
-V
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+kD
+kD
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+RC
+LW
+LW
+Oj
+LW
+MJ
+RC
+Nk
+oF
+Nk
+ko
+Qv
+pB
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
 "}
 (28,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-V
-Y
-W
-n
-O
-W
-V
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+kD
+kD
+kD
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+RC
+Oj
+LW
+yV
+Td
+LW
+RC
+Nk
+oF
+ko
+Nk
+Nk
+pB
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+kD
 "}
 (29,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-V
-W
-O
-W
-W
-Y
-V
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+kD
+kD
+kD
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+RC
+LW
+Td
+LW
+LW
+Oj
+RC
+Nk
+oF
+Nk
+Nk
+TX
+Ch
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+kD
 "}
 (30,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-V
-V
-W
-Y
-W
-V
-V
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+kD
+kD
+kD
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+RC
+RC
+LW
+Oj
+LW
+RC
+RC
+Nk
+wK
+fQ
+mM
+YU
+Wq
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+kD
 "}
 (31,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-V
-V
-V
-V
-V
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+kD
+kD
+kD
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+RC
+RC
+RC
+RC
+RC
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+kD
 "}
 (32,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+kD
+kD
+kD
+kD
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+kD
+kD
 "}
 (33,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+kD
+kD
+kD
+kD
+kD
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+kD
+kD
+kD
+kD
 "}
 (34,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+kD
+kD
+kD
+kD
+kD
+kD
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+kD
+kD
+kD
+kD
+kD
 "}
 (35,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+kD
+kD
+kD
+kD
+kD
+kD
+Nk
+kD
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+kD
+kD
+kD
+kD
+kD
+kD
 "}

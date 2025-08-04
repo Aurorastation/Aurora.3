@@ -6,13 +6,13 @@
 
 	heat_protection = HEAD
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_MINOR
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_MINOR
 	)
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	max_pressure_protection = VOIDSUIT_MAX_PRESSURE
@@ -22,7 +22,7 @@
 	icon = 'icons/obj/clothing/hats.dmi'
 
 	//Species-specific stuff.
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
+	species_restricted = list(BODYTYPE_HUMAN)
 	sprite_sheets_refit = list(
 		BODYTYPE_UNATHI = 'icons/mob/species/unathi/helmet.dmi',
 		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/helmet.dmi',
@@ -45,13 +45,13 @@
 	desc = "A high-tech dark red space suit. Used for AI satellite maintenance."
 	slowdown = 1
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_MINOR
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_MINOR
 	)
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit)
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
@@ -60,7 +60,7 @@
 	contained_sprite = FALSE
 	icon = 'icons/obj/clothing/suits.dmi'
 
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL)
 	sprite_sheets_refit = list(
 		BODYTYPE_UNATHI = 'icons/mob/species/unathi/suit.dmi',
 		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/suit.dmi',
@@ -314,6 +314,8 @@
 	else if(istype(attacking_item,/obj/item/tank))
 		if(tank)
 			to_chat(user, "\The [src] already has an airtank installed.")
+		else if(cooler)
+			to_chat(user, "\The [src] already has a suit cooler installed, there is no room for an airtank.")
 		else if(istype(attacking_item,/obj/item/tank/phoron))
 			to_chat(user, "\The [attacking_item] cannot be inserted into \the [src]'s storage compartment.")
 		else
@@ -325,6 +327,8 @@
 	else if (istype(attacking_item, /obj/item/device/suit_cooling_unit))
 		if(cooler)
 			to_chat(user, "\The [src] already has a suit cooler installed.")
+		else if(tank)
+			to_chat(user, "\The [src] already has an airtank installed, there is no room for a suit cooler.")
 		else
 			playsound(src, 'sound/items/Deconstruct.ogg', 30, 1)
 			to_chat(user, "You insert \the [attacking_item] into \the [src]'s storage compartment.")

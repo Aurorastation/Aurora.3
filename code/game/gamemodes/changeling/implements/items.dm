@@ -5,7 +5,7 @@
 	icon_state = "arm_blade"
 	item_state = "arm_blade"
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	force = 33
 	sharp = TRUE
 	edge = TRUE
@@ -109,9 +109,9 @@
 		QDEL_IN(src, 1)
 
 /obj/item/shield/riot/changeling/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
-	if(istype(damage_source, /obj/item/projectile))
-		var/obj/item/projectile/P = damage_source
-		if((is_sharp(P) && damage > 10) || istype(P, /obj/item/projectile/beam))
+	if(istype(damage_source, /obj/projectile))
+		var/obj/projectile/P = damage_source
+		if((is_sharp(P) && damage > 10) || istype(P, /obj/projectile/beam))
 			return base_block_chance / 2 //lings still have a 35% chance of blocking these kinds of attacks
 	return base_block_chance
 
@@ -125,7 +125,7 @@
 	edge = FALSE
 	throwforce = 15
 	armor_penetration = 15
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/finger_lockpick
 	name = "finger lockpick"

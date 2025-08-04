@@ -45,8 +45,21 @@
 	add_to_streak("D",D)
 	if(check_streak(A,D))
 		return 1
-	basic_hit(A,D)
+	if(istype(D, /mob/living/simple_animal))
+		simple_animal_basic_disarm(A,D)
+	else
+		basic_hit(A,D)
 	return 1
+
+/datum/martial_art/kis_khan/simple_animal_basic_disarm(var/mob/living/carbon/human/A, var/mob/living/simple_animal/D)
+	if(!D.paralysis)
+		A.visible_message("[SPAN_BOLD("[A]")] delivers a blow to \the [SPAN_BOLD("[D]")]'s head, making [D.get_pronoun("him")] fall unconscious!")
+		A.do_attack_animation(D)
+		playsound(D.loc, /singleton/sound_category/punch_sound, 25, TRUE, MEDIUM_RANGE_SOUND_EXTRARANGE+4)
+		D.AdjustParalysis(5)
+	else
+		to_chat(A, SPAN_WARNING("\The [SPAN_BOLD("[D]")] is already unconscious!"))
+		return
 
 /datum/martial_art/kis_khan/proc/tail_sweep(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	if(D.stat || D.weakened)
@@ -97,6 +110,7 @@
 	to_chat(usr, "<span class='notice'>Tail Sweep</span>: Harm Harm Disarm. Trips the victim with your tail, rendering them prone and unable to move for a short time.")
 	to_chat(usr, "<span class='notice'>Swift Disarm</span>: Disarm Disarm Grab. Strikes your target's weapon, trying to disarm it from their hands.")
 	to_chat(usr, "<span class='notice'>Hammering Strike</span>: Disarm Harm Disarm. Delivers a strikes that will push the target away from you.")
+	to_chat(usr, "<span class='notice'>You can also deal a knockout blow to non-sapient animals by using disarm.</span>")
 
 /obj/item/martial_manual/unathi
 	name = "kis khan scroll"

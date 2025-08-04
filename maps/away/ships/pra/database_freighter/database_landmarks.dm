@@ -25,10 +25,10 @@
 
 /obj/effect/shuttle_landmark/database_freighter/dock/aft
 	name = "Dock, Aft"
-	landmark_tag = "nav_database_freighter_dock_starboard"
-	docking_controller = "airlock_database_freighter_dock_starboard"
+	landmark_tag = "nav_database_freighter_dock_aft"
+	docking_controller = "airlock_database_freighter_dock_aft"
 
 /obj/effect/map_effect/marker/airlock/docking/database_freighter/dock/aft
 	name = "Dock, Aft"
-	landmark_tag = "nav_database_freighter_dock_starboard"
-	master_tag = "airlock_database_freighter_starboard"
+	landmark_tag = "nav_database_freighter_dock_aft"
+	master_tag = "airlock_database_freighter_aft"

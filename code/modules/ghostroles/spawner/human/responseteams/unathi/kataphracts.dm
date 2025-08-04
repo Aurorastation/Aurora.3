@@ -20,7 +20,7 @@
 	max_count = 1
 	outfit = /obj/outfit/admin/ert/kataphract/klax
 	mob_name_prefix = "Zosaa "
-	possible_species = list(SPECIES_VAURCA_WARRIOR)
+	possible_species = list(SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT)
 	extra_languages = list(LANGUAGE_VAURCA)
 
 /datum/ghostspawner/human/ert/kataphract/klax/New()

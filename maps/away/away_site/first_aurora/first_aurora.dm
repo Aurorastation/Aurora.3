@@ -3,7 +3,7 @@
 	description = "An abandoned space station."
 
 	prefix = "away_site/first_aurora/"
-	suffixes = list("first_aurora.dmm")
+	suffix = "first_aurora.dmm"
 
 	sectors = list(SECTOR_ROMANOVICH)
 	spawn_weight = 1

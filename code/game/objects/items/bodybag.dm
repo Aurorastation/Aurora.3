@@ -5,10 +5,27 @@
 	desc = "A folded bag designed for the storage and transportation of cadavers."
 	icon = 'icons/obj/bodybag.dmi'
 	icon_state = "bodybag_folded"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	drop_sound = 'sound/items/drop/cloth.ogg'
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
 	var/deploy_type = /obj/structure/closet/body_bag
+
+/obj/structure/closet/body_bag/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	// Doesn't inherit standard closet hints.
+	. += "It [contains_body ? "contains" : "does not contain"] a body."
+
+/obj/structure/closet/body_bag/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	// Doesn't inherit standard closet hints.
+
+/obj/structure/closet/body_bag/disassembly_hints(mob/user, distance, is_adjacent)
+	. = list()
+	// Doesn't inherit standard closet hints.
+
+/obj/structure/closet/body_bag/antagonist_hints(mob/user, distance, is_adjacent)
+	. = list()
+	// Doesn't inherit standard closet hints.
 
 /obj/item/bodybag/attack_self(mob/user)
 	deploy_bag(user, user.loc)
@@ -53,24 +70,11 @@
 	icon_state = "bodybag"
 	open_sound = 'sound/items/zip.ogg'
 	close_sound = 'sound/items/zip.ogg'
+	layer = ABOVE_STRUCTURE_LAYER
 	density = FALSE
 	storage_capacity = 30
 	var/item_path = /obj/item/bodybag
-	var/contains_body = FALSE
 	can_be_buckled = TRUE
-
-/obj/structure/closet/body_bag/content_info(mob/user, content_size)
-	if(!content_size && !contains_body)
-		to_chat(user, "\The [src] is empty.")
-	else if(storage_capacity > content_size*4)
-		to_chat(user, "\The [src] is barely filled.")
-	else if(storage_capacity > content_size*2)
-		to_chat(user, "\The [src] is less than half full.")
-	else if(storage_capacity > content_size)
-		to_chat(user, "\The [src] still has some free space.")
-	else
-		to_chat(user, "\The [src] is full.")
-	to_chat(user, "It [contains_body ? "contains" : "does not contain"] a body.")
 
 /obj/structure/closet/body_bag/attackby(obj/item/attacking_item, mob/user)
 	if (attacking_item.ispen())
@@ -120,10 +124,10 @@
 	..()
 	slowdown = initial(slowdown)
 
-/obj/structure/closet/body_bag/MouseDrop(over_object, src_location, over_location)
+/obj/structure/closet/body_bag/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	..()
-	if((over_object == usr && (in_range(src, usr) || usr.contents.Find(src))))
-		fold(usr)
+	if((over == user && (in_range(src, user) || user.contents.Find(src))))
+		fold(user)
 
 /obj/structure/closet/body_bag/proc/fold(var/user)
 	if(!(ishuman(user)))
@@ -141,9 +145,6 @@
 
 /obj/structure/closet/body_bag/animate_door()
 	flick("[initial(icon_state)]_anim_[opened ? "open" : "close"]", src)
-
-/obj/structure/closet/body_bag/stair_act() //Stops body bags flying open when pulled down stairs
-	return
 
 /obj/item/bodybag/cryobag
 	name = "stasis bag"
@@ -168,6 +169,14 @@
 
 	var/stasis_power = 20
 	var/degradation_time = 60 // 2 minutes: 60 ticks * 2 seconds per tick
+
+/obj/structure/closet/body_bag/cryobag/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "The stasis meter shows <b>'[stasis_power]x'</b>."
+	if(is_adjacent && length(contents)) //The bag's rather thick and opaque from a distance.
+		. += "<span class='info'>You peer into \the [src].</span>"
+		for(var/mob/living/L in contents)
+			L.examine(arglist(args))
 
 /obj/structure/closet/body_bag/cryobag/Initialize()
 	. = ..()
@@ -236,14 +245,6 @@
 	if(airtank)
 		return airtank
 	..()
-
-/obj/structure/closet/body_bag/cryobag/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += "The stasis meter shows '[stasis_power]x'."
-	if(is_adjacent && length(contents)) //The bag's rather thick and opaque from a distance.
-		. += "<span class='info'>You peer into \the [src].</span>"
-		for(var/mob/living/L in contents)
-			L.examine(arglist(args))
 
 /obj/item/usedcryobag
 	name = "used stasis bag"

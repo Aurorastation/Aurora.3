@@ -28,4 +28,4 @@
 		if(0 to 4)
 			return /turf/simulated/lava
 		else
-			return /turf/unsimulated/floor/asteroid/basalt
+			return /turf/simulated/floor/exoplanet/asteroid/basalt

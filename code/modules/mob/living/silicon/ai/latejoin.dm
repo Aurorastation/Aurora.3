@@ -42,7 +42,7 @@ GLOBAL_LIST_EMPTY(empty_playable_ai_cores)
 		return
 
 	if(carded)
-		to_chat(usr, SPAN_DANGER("No connection to station intelligence storage. You must be in an AI Core to store yourself (adminhelp if you need to leave)."))
+		to_chat(usr, SPAN_DANGER("No connection to [station_name(TRUE)] intelligence storage. You must be in an AI Core to store yourself (adminhelp if you need to leave)."))
 		return
 
 	// Guard against misclicks, this isn't the sort of thing we want happening accidentally

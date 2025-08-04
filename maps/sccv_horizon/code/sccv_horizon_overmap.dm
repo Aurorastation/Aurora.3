@@ -1,3 +1,8 @@
+
+//
+// ------------------------------------------- horizon
+//
+
 /obj/effect/overmap/visitable/ship/sccv_horizon
 	class = "SCCV"
 	designation = "Horizon"
@@ -22,7 +27,8 @@
 	initial_restricted_waypoints = list(
 		"Spark" = list("nav_hangar_mining"), 	//can't have random shuttles popping inside the ship
 		"Intrepid" = list("nav_hangar_intrepid"),
-		"Canary" = list("nav_hangar_canary")
+		"Canary" = list("nav_hangar_canary"),
+		"Quark" = list("nav_hangar_quark"),
 	)
 
 	initial_generic_waypoints = list(
@@ -36,6 +42,7 @@
 		"nav_hangar_mining",
 		"nav_hangar_intrepid",
 		"nav_hangar_canary",
+		"nav_hangar_quark",
 		"nav_cargo_shuttle_dock",
 		"nav_horizon_hangar_1",
 		"nav_burglar_hangar",
@@ -51,6 +58,10 @@
 	skybox_image.pixel_x = rand(0,64)
 	skybox_image.pixel_y = rand(128,256)
 	return skybox_image
+
+//
+// ------------------------------------------- intrepid
+//
 
 /obj/effect/overmap/visitable/ship/landable/intrepid
 	name = "Intrepid"
@@ -68,7 +79,7 @@
 	vessel_size = SHIP_SIZE_SMALL
 	scanimage = "intrepid.png"
 	designer = "Hephaestus Industries"
-	volume = "21 meters length, 16 meters beam/width, 6 meters vertical height"
+	volume = "26 meters length, 15 meters beam/width, 6 meters vertical height"
 	sizeclass = "Pathfinder Exploration Shuttle"
 	shiptype = "Field expeditions and private research uses"
 
@@ -78,16 +89,18 @@
 	skybox_image.pixel_y = rand(128,256)
 	return skybox_image
 
-/obj/machinery/computer/shuttle_control/explore/intrepid
+/obj/machinery/computer/shuttle_control/explore/terminal/intrepid
 	name = "\improper Intrepid control console"
 	shuttle_tag = "Intrepid"
 	req_access = list(ACCESS_INTREPID)
-	density = 0
-	icon = 'icons/obj/cockpit_console.dmi'
-	icon_state = "right"
-	icon_screen = "blue"
+	icon_state = "computer"
+	icon_screen = "helm"
 	icon_keyboard = null
 	circuit = null
+
+//
+// ------------------------------------------- spark
+//
 
 /obj/effect/overmap/visitable/ship/landable/mining_shuttle
 	name = "Spark"
@@ -125,6 +138,10 @@
 	icon_screen = "blue"
 	icon_keyboard = null
 	circuit = null
+
+//
+// ------------------------------------------- canary
+//
 
 /obj/effect/overmap/visitable/ship/landable/canary
 	name = "Canary"
@@ -175,3 +192,41 @@
 	icon_keyboard = null
 	circuit = null
 
+//
+// ------------------------------------------- quark
+//
+
+/obj/effect/overmap/visitable/ship/landable/quark
+	name = "Quark"
+	class = "SCCV"
+	designation = "Quark"
+	desc = "\
+		A small-sized exploration shuttle manufactured by Hephaestus, the Celeste-class is commonly used by the corporations of the SCC. \
+		Designed for short-term expeditions, it is entirely reliant on a bigger ship for supply and support. \
+		This one's transponder identifies it as the SCCV Quark. \
+	"
+	shuttle = "Quark"
+	icon_state = "pod" // <-------------- temporary, hopefully someone sprites it some day
+	moving_state = "pod_moving"
+	colors = list("#cfd4ff", "#78adf8")
+	// scanimage = "quark.png" // <-------------- hopefully someone sprites it some day
+	designer = "Hephaestus Industries"
+	volume = "15 meters length, 9 meters beam/width, 6 meters vertical height"
+	sizeclass = "Celeste-type Exploration Shuttlecraft"
+	shiptype = "Exploratory survey and scouting"
+	max_speed = 1/(3 SECONDS)
+	burn_delay = 2 SECONDS
+	vessel_mass = 3000
+	fore_dir = SOUTH
+	vessel_size = SHIP_SIZE_TINY
+
+// /obj/effect/overmap/visitable/ship/landable/quark/get_skybox_representation()
+// 	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "quark")
+// 	skybox_image.pixel_x = rand(0,64)
+// 	skybox_image.pixel_y = rand(128,256) // <---------- hopefully someone sprites it some day
+// 	return skybox_image
+
+/obj/machinery/computer/shuttle_control/explore/terminal/quark
+	name = "\improper Quark control console"
+	shuttle_tag = "Quark"
+	req_access = list(ACCESS_XENOARCH, ACCESS_RESEARCH)

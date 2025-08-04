@@ -3,7 +3,7 @@
 	description = "Ship with lizards."
 
 	prefix = "ships/hegemony/hegemony_corvette/"
-	suffixes = list("hegemony_corvette.dmm")
+	suffix = "hegemony_corvette.dmm"
 
 	sectors = list(SECTOR_BADLANDS, SECTOR_UUEOAESA)
 	spawn_weight_sector_dependent = list(SECTOR_UUEOAESA = 1.5)
@@ -37,6 +37,7 @@
 	vessel_mass = 5000
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
+	invisible_until_ghostrole_spawn = TRUE
 	initial_restricted_waypoints = list(
 		"Hegemony Shuttle" = list("nav_hegemony_corvette_shuttle")
 	)

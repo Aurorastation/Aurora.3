@@ -8,6 +8,7 @@
 	throw_speed = 0
 	var/maintain_cost = 3
 	var/mob/living/owner
+	w_class = WEIGHT_CLASS_NO_CONTAINER
 
 /obj/item/psychic_power/New(var/mob/living/_owner)
 	owner = _owner
@@ -23,9 +24,6 @@
 		UNSETEMPTY(owner.psi.manifested_items)
 	STOP_PROCESSING(SSprocessing, src)
 	. = ..()
-
-/obj/item/psychic_power/get_storage_cost()
-	return 5
 
 /obj/item/psychic_power/attack_self(var/mob/user)
 	sound_to(owner, 'sound/effects/psi/power_fail.ogg')

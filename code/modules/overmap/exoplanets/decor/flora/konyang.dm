@@ -110,13 +110,20 @@
 	. = ..()
 	icon_state = "stalks[rand(1, 5)]"
 
-/obj/structure/flora/bush/konyang_reeds/Crossed(atom/movable/AM, atom/oldloc)
-	if(istype(AM, /mob/living))
-		var/mob/living/L = AM
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
+/obj/structure/flora/bush/konyang_reeds/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	if(istype(arrived, /mob/living))
+		var/mob/living/L = arrived
 		to_chat(L, SPAN_NOTICE("You brush through \the [src] really quite loudly."))
 		playsound(loc, 'sound/effects/plantshake.ogg', 60, TRUE)
 		shake_animation()
-	..()
 
 /obj/structure/flora/bush/konyang_reeds/water
 	icon_state = "water_stalks"

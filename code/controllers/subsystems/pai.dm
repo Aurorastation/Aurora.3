@@ -90,7 +90,7 @@ SUBSYSTEM_DEF(pai)
 		if(istype(card,/obj/item/device/paicard) && istype(candidate,/datum/paiCandidate))
 			var/mob/living/silicon/pai/pai = new(card)
 			if(!candidate.name)
-				pai.name = pick(ninja_names)
+				pai.name = pick(GLOB.ninja_names)
 			else
 				pai.name = candidate.name
 			pai.real_name = pai.name
@@ -181,7 +181,7 @@ SUBSYSTEM_DEF(pai)
 	for(var/datum/paiCandidate/c in SSpai.pai_candidates)
 		if(c.ready)
 			var/found = 0
-			for(var/mob/abstract/observer/o in GLOB.player_list)
+			for(var/mob/abstract/ghost/observer/o in GLOB.player_list)
 				if(o.key == c.key && o.MayRespawn())
 					found = 1
 			if(found)
@@ -278,7 +278,7 @@ SUBSYSTEM_DEF(pai)
 					</tr>
 				</table>
 				<table class="download">
-					<td class="download"><a href='byond://?src=\ref[src];download=1;candidate=\ref[c];device=\ref[p]' class="button"><b>Download [c.name]</b></a>
+					<td class="download"><a href='byond://?src=[REF(src)];download=1;candidate=[REF(c)];device=[REF(p)]' class="button"><b>Download [c.name]</b></a>
 					</td>
 				</table>
 				<br>
@@ -293,7 +293,7 @@ SUBSYSTEM_DEF(pai)
 
 /datum/controller/subsystem/pai/proc/requestRecruits(mob/user)
 	inquirer = user
-	for(var/mob/abstract/observer/O in GLOB.player_list)
+	for(var/mob/abstract/ghost/observer/O in GLOB.player_list)
 		if(!O.MayRespawn())
 			continue
 		if(jobban_isbanned(O, "pAI"))

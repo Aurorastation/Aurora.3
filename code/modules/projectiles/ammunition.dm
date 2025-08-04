@@ -7,18 +7,24 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT | SLOT_EARS
 	throwforce = 1
-	w_class = ITEMSIZE_TINY
+	layer = BELOW_TABLE_LAYER
+	w_class = WEIGHT_CLASS_TINY
 
 	var/leaves_residue = 1
 	var/caliber = ""					//Which kind of guns it can be loaded into
 	var/max_stack = 5					// how many of us can fit in a pile
 	var/projectile_type					//The bullet type to create when New() is called
-	var/obj/item/projectile/BB = null	//The loaded bullet - make it so that the projectiles are created only when needed?
+	var/obj/projectile/BB = null	//The loaded bullet - make it so that the projectiles are created only when needed?
 	var/spent_icon = "s-casing-spent"
 
 	drop_sound = /singleton/sound_category/casing_drop_sound
 	pickup_sound = 'sound/items/pickup/ring.ogg'
 	var/reload_sound = 'sound/weapons/reload_bullet.ogg' //sound that plays when inserted into gun.
+
+/obj/item/ammo_casing/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if (!BB)
+		. += "This one is spent."
 
 /obj/item/ammo_casing/Initialize()
 	. = ..()
@@ -78,11 +84,6 @@
 	if(spent_icon && !BB)
 		icon_state = spent_icon
 
-/obj/item/ammo_casing/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if (!BB)
-		. += "This one is spent."
-
 //Gun loading types
 #define SINGLE_CASING 	1	//The gun only accepts ammo_casings. ammo_magazines should never have this as their mag_type.
 #define SPEEDLOADER 	2	//Transfers casings from the mag to the gun when used.
@@ -99,7 +100,7 @@
 	item_state = "box"
 	matter = list(DEFAULT_WALL_MATERIAL = 500)
 	throwforce = 5
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 4
 	throw_range = 10
 
@@ -121,6 +122,10 @@
 	var/insert_sound = /singleton/sound_category/metal_slide_reload
 	/// sound item plays when it is ejected from a gun.
 	var/eject_sound = 'sound/weapons/magazine_eject.ogg'
+
+/obj/item/ammo_magazine/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "There [(stored_ammo.len == 1)? "is" : "are"] <b>[stored_ammo.len] round\s</b> left!"
 
 /obj/item/ammo_magazine/Initialize()
 	. = ..()
@@ -183,10 +188,6 @@
 		recyclable = TRUE
 	else
 		recyclable = FALSE
-
-/obj/item/ammo_magazine/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += "There [(stored_ammo.len == 1)? "is" : "are"] [stored_ammo.len] round\s left!"
 
 //magazine icon state caching (caching lists are in SSicon_cache)
 

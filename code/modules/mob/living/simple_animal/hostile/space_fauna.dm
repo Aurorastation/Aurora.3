@@ -22,6 +22,11 @@
 	health = 25
 	mob_size = 10
 
+	can_be_milked = TRUE
+	udder_size = 3
+	milk_type = /singleton/reagent/toxin/carpotoxin
+	milk_regeneration = list(1, 2)
+
 	blood_overlay_icon = 'icons/mob/npc/blood_overlay_carp.dmi'
 	harm_intent_damage = 4
 	melee_damage_lower = 15
@@ -51,6 +56,7 @@
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 	smart_melee = FALSE
+	sample_data = list("Cellular structure shows adaptation for survival in vacuum", "Genetic biomarkers identified linked with agressiveness", "Tissue sample contains micro-gas release structures")
 
 /mob/living/simple_animal/hostile/carp/update_icon()
 	..()
@@ -65,15 +71,15 @@
 
 /mob/living/simple_animal/hostile/carp/MoveToTarget()
 	stop_automated_movement = 1
-	if(istype(target_mob, /obj/effect/energy_field) && !QDELETED(target_mob) && (target_mob in targets))
+	if(istype(last_found_target, /obj/effect/energy_field) && !QDELETED(last_found_target) && (last_found_target in targets))
 		change_stance(HOSTILE_STANCE_ATTACKING)
-		SSmove_manager.move_to(src, target_mob, 1, move_to_delay)
+		GLOB.move_manager.move_to(src, last_found_target, 1, speed)
 		return 1
 	..()
 
 /mob/living/simple_animal/hostile/carp/AttackTarget()
 	stop_automated_movement = 1
-	if(istype(target_mob, /obj/effect/energy_field) && !QDELETED(target_mob) && (get_dist(src, target_mob) <= 1))
+	if(istype(last_found_target, /obj/effect/energy_field) && !QDELETED(last_found_target) && (get_dist(src, last_found_target) <= 1))
 		AttackingTarget()
 		attacked_times += 1
 		return 1
@@ -83,8 +89,8 @@
 	. = ..()
 	if(.)
 		return
-	if(istype(target_mob, /obj/effect/energy_field))
-		var/obj/effect/energy_field/e = target_mob
+	if(istype(last_found_target, /obj/effect/energy_field))
+		var/obj/effect/energy_field/e = last_found_target
 		e.Stress(rand(1,2))
 		visible_message(SPAN_DANGER("\the [src] bites \the [e]!"))
 		src.do_attack_animation(e)
@@ -132,6 +138,7 @@
 
 	melee_damage_lower = 20
 	melee_damage_upper = 25
+	sample_data = list("Cellular structure shows adaptation for survival in vacuum", "Genetic biomarkers identified linked with agressiveness", "Tissue sample contains micro-gas release structures", "Tissue sample contains high muscle content")
 
 /mob/living/simple_animal/hostile/carp/shark/reaver
 	name = "reaver"
@@ -144,6 +151,8 @@
 
 	maxHealth = 100
 	health = 100
+
+	speed = 10
 
 	mob_size = 15
 
@@ -204,6 +213,7 @@
 
 	melee_damage_lower = 15
 	melee_damage_upper = 15
+	sample_data = list("Cellular structure shows adaptation for survival in vacuum", "Genetic biomarkers identified linked with agressiveness", "Tissue sample contains micro-gas release structures", "Intracellular synthesis of volatile compounds detected")
 
 	var/has_exploded = FALSE
 
@@ -219,7 +229,11 @@
 		has_exploded = TRUE
 		addtimer(CALLBACK(src, PROC_REF(explode)), 5)
 
-/mob/living/simple_animal/hostile/carp/bloater/bullet_act(var/obj/item/projectile/Proj)
+/mob/living/simple_animal/hostile/carp/bloater/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
 	if(!has_exploded)
 		has_exploded = TRUE
 		explode()
@@ -294,3 +308,4 @@
 
 	flying = TRUE
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	sample_data = list("Cellular structure shows adaptation for survival in vacuum", "Genetic biomarkers identified linked with agressiveness", "Tissue sample contains micro-gas release structures")

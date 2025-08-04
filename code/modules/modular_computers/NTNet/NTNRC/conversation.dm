@@ -1,4 +1,5 @@
-var/global/ntnrc_uid = 0
+GLOBAL_VAR_INIT(ntnrc_uid, 0)
+
 /datum/ntnet_conversation
 	var/id
 	var/title = "Untitled Conversation"
@@ -9,8 +10,8 @@ var/global/ntnrc_uid = 0
 	var/password
 
 /datum/ntnet_conversation/New(var/name, var/no_operator)
-	id = ntnrc_uid
-	ntnrc_uid++
+	id = GLOB.ntnrc_uid
+	GLOB.ntnrc_uid++
 	if(name)
 		title = name
 	if(GLOB.ntnet_global)
@@ -107,6 +108,26 @@ var/global/ntnrc_uid = 0
 	var/datum/ntnet_message/message/msg = new(Cl)
 	msg.message = message
 	msg.user = user
+
+	//[signal.data["name"]] ([signal.data["job"]])", signal.data["message"], signal.data["photo"]
+	var/list/signal_data = list()
+	signal_data["name"] = user.GetVoice()
+	signal_data["job"] = user.job
+	signal_data["message"] = message
+	signal_data["photo"] = null
+
+	// If the channel has a title, use the title, otherwise add the users
+	if(title != initial(title))
+		signal_data["targets"] = list("[title] (Channel)")
+	else
+		signal_data["targets"] = list()
+		for(var/datum/ntnet_user/U in users)
+			if(U != Cl.my_user)
+				signal_data["targets"] += U.username
+
+	var/datum/signal/subspace/pda/signal = new(Cl.computer, signal_data)
+	signal.send_to_receivers()
+
 	process_message(msg)
 
 /datum/ntnet_conversation/proc/cl_join(var/datum/computer_file/program/chat_client/Cl)
@@ -157,7 +178,11 @@ var/global/ntnrc_uid = 0
 	if(newPassword)
 		password = newPassword
 	else
-		password = FALSE
+		password = null
+
+	var/datum/ntnet_message/new_password/msg = new()
+	msg.nuser = operator
+	process_message(msg)
 
 /datum/ntnet_conversation/proc/cl_kick(var/datum/computer_file/program/chat_client/Cl, var/datum/ntnet_user/target)
 	if(!istype(Cl) || !istype(Cl.my_user) || !can_manage(Cl) || !(target in users) || direct)

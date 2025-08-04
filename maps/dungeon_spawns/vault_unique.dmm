@@ -155,7 +155,7 @@
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/turret_protected/corp_vault)
 "x" = (
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "y" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -201,8 +201,7 @@
 	master_tag = "hidden_vault_airlock";
 	name = "interior access button";
 	pixel_x = -28;
-	req_access = list(53);
-	req_one_access = null
+	req_access = list(53)
 	},
 /turf/simulated/floor,
 /area/turret_protected/corp_vault)
@@ -257,8 +256,7 @@
 	master_tag = "hidden_vault_airlock";
 	name = "exterior access button";
 	pixel_x = -28;
-	req_access = list(53);
-	req_one_access = null
+	req_access = list(53)
 	},
 /turf/simulated/floor,
 /area/turret_protected/corp_vault)

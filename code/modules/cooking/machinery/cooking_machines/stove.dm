@@ -42,7 +42,7 @@
 	var/pan_number = 0
 	for(var/obj/item/reagent_containers/cooking_container/CC in contents)
 		var/pan_icon_state
-		var/pan_position_number = Clamp((pan_number)+1, 1, 4)
+		var/pan_position_number = clamp((pan_number)+1, 1, 4)
 		var/list/positions = pan_positions[pan_position_number]
 		switch(CC.appliancetype)
 			if(SKILLET)
@@ -64,7 +64,7 @@
 		pans += pan_overlay
 		pan_number = pan_position_number
 		//filling
-		if(CC.reagents.total_volume)
+		if(CC.reagents?.total_volume)
 			var/mutable_appearance/filling_overlay = mutable_appearance('icons/obj/machinery/cooking_machines.dmi', "filling_overlay")
 			filling_overlay.pixel_x = positions[1]
 			filling_overlay.pixel_y = positions[2]

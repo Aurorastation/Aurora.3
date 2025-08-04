@@ -4,6 +4,9 @@
 
 // Mutable appearances are children of images, just so you know.
 
+/mutable_appearance
+	appearance_flags = DEFAULT_APPEARANCE_FLAGS //Bay shit
+
 /mutable_appearance/New(mutable_appearance/to_copy)
 	..()
 	if(!to_copy)

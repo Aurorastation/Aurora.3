@@ -68,15 +68,57 @@ Author: Eric Schumaker AKA CBoyardee
 License: N/A
 Link: N/A
 ----------
+File Name: title3.ogg
+Original Title: Tintin On The Moon
+Author: Jeroen Tel
+License: N/A
+Link: https://www.youtube.com/watch?v=YKVmXn-Gv0M
+----------
+File Name: title3mk2.ogg
+Original Title: Tintin On The Moon
+Author: PinkBlossom6
+License: Creative Commons Attribution License (reuse allowed)
+Link: https://www.youtube.com/watch?v=d7hc_GrZP4Y
+----------
 File Name: traitor.ogg
 Original Title: Absconditus
 Author: Joseph Toscano AKA Zhaytee
 License: CC BY-NC-SA 3.0
 Link: https://bandcamp.zhaytee.net/track/absconditus
 ----------
-File Name: velvet_rose.ogg
-Original Title: Velvet Rose
-Author: Naelynn
+File Name: phoron_deposit.ogg
+Original Title: earth rumble & Perpetual Tension
+Author: Reitanna & Zander Noriega
+License: CC0 & CC-BY 3.0
+Link: https://freesound.org/people/Reitanna/sounds/217657/
+Link 2: https://opengameart.org/content/perpetual-tension
+----------
+File Name: yuki_satellites.xm
+Original Title: Yuki Satellites
+Author: Rymdlego (Radix)
 License: CC0 1.0
-License Link: https://github.com/Aurorastation/Aurora.3/pull/7729#issuecomment-567239575
-Link: https://github.com/Aurorastation/Aurora.3/pull/7729
+Link: https://www.youtube.com/watch?v=PXTZA5bqIJ0
+----------
+File Name: snow.ogg
+Original Title: Snow (Vo1k1 Ashes Mix)
+Author: vo1k1
+License: CC BY-NC-SA 4.0
+Link: http://dig.ccmixter.org/files/vo1k1/69013
+----------
+File Name: saturn.ogg
+Original Title: SATURN
+Author: onlymeith
+License: CC BY-NC-SA 4.0
+Link: http://dig.ccmixter.org/files/onlymeith/55024
+----------
+File Name: anotherstory.ogg
+Original Title: anotherStory
+Author: airtone
+License: CC BY-NC-SA 4.0
+Link: http://dig.ccmixter.org/files/airtone/64312
+----------
+File Name: kaaistoep.ogg
+Original Title: Kaaistoep
+Author: Doxent Zsigmond
+License: CC BY-NC-SA 4.0
+Link: http://dig.ccmixter.org/files/doxent/58480

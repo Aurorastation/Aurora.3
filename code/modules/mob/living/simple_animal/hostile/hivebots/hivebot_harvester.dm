@@ -14,7 +14,7 @@
 	ranged = 1
 	attacktext = "skewered"
 	projectilesound = 'sound/weapons/lasercannonfire.ogg'
-	projectiletype = /obj/item/projectile/beam/hivebot/incendiary/heavy
+	projectiletype = /obj/projectile/beam/hivebot/incendiary/heavy
 	organ_names = list("head", "core", "side thruster", "harvesting array")
 	faction = "hivebot"
 	min_oxy = 0
@@ -43,6 +43,7 @@
 	mob_push_flags = 0
 
 	psi_pingable = FALSE
+	sample_data = null
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/Initialize(mapload,mob/living/simple_animal/hostile/hivebot/hivebotbeacon)
 	if(hivebotbeacon)
@@ -51,15 +52,13 @@
 	.=..()
 	set_light(3,2,LIGHT_COLOR_RED)
 	if(!mapload)
-		new /obj/effect/effect/smoke(src.loc,30)
-		playsound(src.loc, 'sound/effects/EMPulse.ogg', 25, 1)
+		spark(get_turf(src), 3, GLOB.alldirs)
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/death()
 	..(null,"teleports away!")
 	if(linked_parent)
 		linked_parent.harvester_amt --
-	new /obj/effect/effect/smoke(src.loc,30)
-	playsound(src.loc, 'sound/effects/EMPulse.ogg', 25, 1)
+	spark(get_turf(src), 3, GLOB.alldirs)
 	qdel(src)
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/Destroy()
@@ -73,12 +72,11 @@
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/AirflowCanMove(n)
 	return 0
 
-/mob/living/simple_animal/hostile/retaliate/hivebotharvester/bullet_act(var/obj/item/projectile/Proj)
-	if(istype(Proj, /obj/item/projectile/bullet/pistol/hivebotspike) || istype(Proj, /obj/item/projectile/beam/hivebot))
-		Proj.no_attack_log = 1
-		return PROJECTILE_CONTINUE
+/mob/living/simple_animal/hostile/retaliate/hivebotharvester/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	if(istype(hitting_projectile, /obj/projectile/bullet/pistol/hivebotspike) || istype(hitting_projectile, /obj/projectile/beam/hivebot))
+		return BULLET_ACT_BLOCK
 	else
-		return ..(Proj)
+		return ..()
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/emp_act(severity)
 	. = ..()
@@ -238,7 +236,7 @@
 	var/turf/T
 
 	if((!last_prospect_target) || (last_prospect_loc != src.loc))
-		destination = pick(GLOB.cardinal)
+		destination = pick(GLOB.cardinals)
 		T = get_step(src, destination)
 		last_prospect_target = T
 		last_prospect_loc = src.loc
@@ -255,9 +253,8 @@
 		return
 
 	if(istype(T, /turf/simulated/wall))
-		var/turf/simulated/wall/W = T
 		rapid = 1
-		OpenFire(W)
+		OpenFire(T, ignore_visibility = TRUE)
 		rapid = 0
 		return
 
@@ -299,7 +296,7 @@
 		if(istype(O, /obj/structure/window))
 			var/dir = get_dir(T,src.loc)
 			var/obj/structure/window/W = O
-			if(W.dir == GLOB.reverse_dir[dir])
+			if(W.dir == REVERSE_DIR(dir))
 				W.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
 			else
 				W.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
@@ -338,8 +335,7 @@
 	last_prospect_loc = null
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/shoot_wrapper(target, location, user)
-	target_mob = target
-	if(see_target())
-		Shoot(target, location, user)
-	target_mob = null
+	set_last_found_target(target)
+	Shoot(target, location, user)
+	unset_last_found_target()
 	return

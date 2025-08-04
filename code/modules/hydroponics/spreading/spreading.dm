@@ -2,7 +2,7 @@
 #define VINE_GROWTH_STAGES 5
 
 /proc/spacevine_infestation(var/potency_min=70, var/potency_max=100, var/maturation_min=1, var/maturation_max=3)
-	var/turf/T = pick_subarea_turf(/area/hallway, list(/proc/is_station_turf, /proc/not_turf_contains_dense_objects))
+	var/turf/T = pick_subarea_turf(/area/horizon/hallway, list(/proc/is_station_turf, /proc/not_turf_contains_dense_objects))
 	if(T)
 		var/datum/seed/seed = SSplants.create_random_seed(TRUE, SEED_NOUN_PITS)
 		seed.set_trait(TRAIT_SPREAD,2)             // So it will function properly as vines.
@@ -15,8 +15,9 @@
 		vine.health = vine.max_health
 		vine.mature_time = 0
 		vine.process()
+		var/area_display_name = get_area_display_name(get_area(T))
 
-		log_and_message_admins("Spacevines spawned at \the [get_area(T)]", location = T)
+		log_and_message_admins("Spacevines spawned at \the [area_display_name]", location = T)
 		return
 
 	log_and_message_admins(SPAN_NOTICE("Event: Spacevines failed to find a viable turf."))
@@ -208,7 +209,7 @@
 
 	var/direction = 16
 
-	for(var/wallDir in GLOB.cardinal)
+	for(var/wallDir in GLOB.cardinals)
 		var/turf/newTurf = get_step(T,wallDir)
 		if(newTurf.density)
 			direction |= wallDir

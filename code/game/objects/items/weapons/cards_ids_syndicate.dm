@@ -10,6 +10,12 @@
 	var/image/obfuscation_image
 	var/mob/registered_user = null
 
+/obj/item/card/id/syndicate/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(is_adjacent)
+		if(user == registered_user)
+			. += SPAN_NOTICE("It is at <b>[charge]/[initial(charge)]</b> charge.")
+
 /obj/item/card/id/syndicate/New(mob/user as mob)
 	..()
 	access = GLOB.syndicate_access.Copy()
@@ -19,12 +25,6 @@
 	STOP_PROCESSING(SSprocessing, src)
 	unset_registered_user(registered_user)
 	return ..()
-
-/obj/item/card/id/syndicate/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(is_adjacent)
-		if(user == registered_user)
-			. += FONT_SMALL(SPAN_NOTICE("It is at [charge]/[initial(charge)] charge."))
 
 /obj/item/card/id/syndicate/process()
 	if(electronic_warfare)
@@ -83,13 +83,17 @@
 	unset_registered_user()
 	registered_user = user
 	user.set_id_info(src)
-	GLOB.destroyed_event.register(user, src, PROC_REF(unset_registered_user))
+	RegisterSignal(user, COMSIG_QDELETING, PROC_REF(on_user_deletion))
 	return TRUE
+
+/obj/item/card/id/syndicate/proc/on_user_deletion(datum/source)
+	SIGNAL_HANDLER
+	unset_registered_user(source)
 
 /obj/item/card/id/syndicate/proc/unset_registered_user(var/mob/user)
 	if(!registered_user || (user && user != registered_user))
 		return
-	GLOB.destroyed_event.unregister(registered_user, src)
+	UnregisterSignal(registered_user, COMSIG_QDELETING)
 	registered_user = null
 
 /obj/item/card/id/syndicate/CanUseTopic(mob/user)
@@ -251,20 +255,20 @@
 	// Always update the UI, or buttons will spin indefinitely
 	SSnanoui.update_uis(src)
 
-/var/global/list/id_card_states
+GLOBAL_LIST_INIT_TYPED(id_card_states, /datum/card_state, null)
 /proc/id_card_states()
-	if(!id_card_states)
-		id_card_states = list()
+	if(!GLOB.id_card_states)
+		GLOB.id_card_states = list()
 		for(var/path in typesof(/obj/item/card/id))
 			var/obj/item/card/id/ID = path
 			var/datum/card_state/CS = new()
 			CS.icon_state = initial(ID.icon_state)
 			CS.item_state = initial(ID.item_state)
 			CS.name = initial(ID.name) + " - " + initial(ID.icon_state)
-			id_card_states += CS
-		sortTim(id_card_states, GLOBAL_PROC_REF(cmp_cardstate), FALSE)
+			GLOB.id_card_states += CS
+		sortTim(GLOB.id_card_states, GLOBAL_PROC_REF(cmp_cardstate), FALSE)
 
-	return id_card_states
+	return GLOB.id_card_states
 
 /datum/card_state
 	var/name

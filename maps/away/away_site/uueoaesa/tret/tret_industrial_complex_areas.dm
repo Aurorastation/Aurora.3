@@ -13,6 +13,7 @@
 
 /area/tret_industrial/outside
 	area_blurb = "The planet Tret, home of the K'lax Hive. Beneath you, the ground vibrates slightly - vast machinery deep below carrying out its work."
+	is_outside = OUTSIDE_YES
 
 /area/tret_industrial/outside/landing
 	name = "Tret - Landing Pad"
@@ -25,6 +26,7 @@
 
 /area/tret_industrial/inside
 	area_blurb = "The complex is pitch-dark, without any sign of lighting systems. The hums and whirs of vast alien machinery reverberate through the walls."
+	is_outside = OUTSIDE_NO
 
 // ------------- hallways
 
@@ -117,5 +119,3 @@
 
 /area/shuttle/tret_industrial/main
 	name = "Tret Mining Shuttle - Main"
-
-// ------------------------- fin

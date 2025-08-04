@@ -1,8 +1,7 @@
 /obj/random/smokable
 	name = "random smokable"
 	desc = "This is a random smoking item."
-	icon = 'icons/obj/cigs_lighters.dmi'
-	icon_state = "cigpacket"
+	icon_state = "cigarettes"
 	problist = list(
 		/obj/item/storage/box/fancy/cigarettes = 30,
 		/obj/item/storage/box/fancy/cigarettes/blank = 5,
@@ -21,8 +20,7 @@
 /obj/random/action_figure
 	name = "random action figure"
 	desc = "This is a random action figure."
-	icon = 'icons/obj/toy.dmi'
-	icon_state = "assistant"
+	icon_state = "toy"
 	spawnlist = list(
 		/obj/item/toy/figure/cmo,
 		/obj/item/toy/figure/assistant,
@@ -67,8 +65,7 @@
 /obj/random/plushie
 	name = "random plushie"
 	desc = "This is a random plushie."
-	icon = 'icons/obj/toy.dmi'
-	icon_state = "nymphplushie"
+	icon_state = "plushie"
 	spawnlist = list(
 		/obj/item/toy/plushie/ian,
 		/obj/item/toy/plushie/drone,
@@ -79,20 +76,40 @@
 		/obj/item/toy/plushie/mouse,
 		/obj/item/toy/plushie/kitten,
 		/obj/item/toy/plushie/lizard,
+		/obj/item/toy/plushie/spider,
 		/obj/item/toy/plushie/farwa,
-		/obj/item/toy/plushie/squid,
 		/obj/item/toy/plushie/bear,
 		/obj/item/toy/plushie/bearfire,
+		/obj/item/toy/plushie/schlorrgo,
+		/obj/item/toy/plushie/coolschlorrgo,
+		/obj/item/toy/plushie/slime,
+		/obj/item/toy/plushie/bee,
+		/obj/item/toy/plushie/shark,
+		/obj/item/toy/plushie/greimorian,
 		/obj/item/toy/plushie/herring_gull,
 		/obj/item/toy/plushie/cockatoo,
-		/obj/item/toy/plushie/norinori
+		/obj/item/toy/plushie/norinori,
+		/obj/item/toy/plushie/fox,
+		/obj/item/toy/plushie/fox/black,
+		/obj/item/toy/plushie/fox/marble,
+		/obj/item/toy/plushie/fox/blue,
+		/obj/item/toy/plushie/fox/orange,
+		/obj/item/toy/plushie/fox/coffee,
+		/obj/item/toy/plushie/fox/pink,
+		/obj/item/toy/plushie/fox/purple,
+		/obj/item/toy/plushie/fox/crimson,
+		/obj/item/toy/plushie/axic,
+		/obj/item/toy/plushie/qill,
+		/obj/item/toy/plushie/xana,
+		/obj/item/toy/plushie/ipc,
+		/obj/item/toy/plushie/domadice,
+		/obj/item/toy/plushie/squid
 	)
 
 /obj/random/balloon
 	name = "random balloon"
 	desc = "This is a random balloon."
-	icon = 'icons/obj/toy.dmi'
-	icon_state = "balloon"
+	icon_state = "bloon"
 	spawnlist = list(
 		/obj/item/toy/balloon/color = 7,
 		/obj/item/toy/balloon/latex = 1,
@@ -112,8 +129,7 @@
 /obj/random/desktoy
 	name = "random desk toy"
 	desc = "This is a random desk toy."
-	icon = 'icons/obj/toy.dmi'
-	icon_state = "dippybird"
+	icon_state = "desktoy"
 	spawnlist = list(
 		/obj/item/toy/desk/newtoncradle,
 		/obj/item/toy/desk/fan,
@@ -124,7 +140,6 @@
 /obj/random/lavalamp
 	name = "random lava lamp"
 	desc = "This is a random lava lamp."
-	icon = 'icons/obj/lighting.dmi'
 	icon_state = "lavalamp"
 	spawnlist = list(
 		/obj/item/device/flashlight/lamp/lava,
@@ -141,7 +156,6 @@
 /obj/random/glowstick
 	name = "random glowstick"
 	desc = "This is a random glowstick."
-	icon = 'icons/obj/lighting.dmi'
 	icon_state = "glowstick"
 	spawnlist = list(
 		/obj/item/device/flashlight/flare/glowstick,
@@ -154,8 +168,7 @@
 /obj/random/arcade
 	name = "random arcade loot"
 	desc = "Arcade loot!"
-	icon = 'icons/obj/items.dmi'
-	icon_state = "gift3"
+	icon_state = "toy"
 	spawnlist = list(
 		/obj/item/storage/box/snappops = 11,
 		/obj/item/clothing/under/syndicate/tacticool = 5,
@@ -204,8 +217,7 @@
 /obj/random/arcade/orion
 	name = "random arcade loot for orion trails"
 	desc = "Arcade loot for orion trails aracde machine!"
-	icon = 'icons/obj/items.dmi'
-	icon_state = "gift3"
+	icon_state = "toy"
 	spawnlist = list(
 		/obj/item/clothing/under/syndicate/tacticool = 7,
 		/obj/item/toy/sword = 22,
@@ -232,8 +244,7 @@
 /obj/random/animal_crate
 	name = "random animal"
 	desc = "Contains a random crate with an animal."
-	icon = 'icons/obj/structures.dmi'
-	icon_state = "densecrate"
+	icon_state = "woodcrate"
 	spawnlist = list(
 		/obj/structure/largecrate/animal/corgi = 3,
 		/obj/structure/largecrate/animal/cow = 4,
@@ -254,8 +265,7 @@
 /obj/random/random_flag
 	name = "random flag"
 	desc = "Contains a random boxed flag or banner."
-	icon = 'icons/obj/decals.dmi'
-	icon_state = "flag_boxed"
+	icon_state = "flagbox"
 	spawnlist = list(
 		/obj/item/flag/biesel,
 		/obj/item/flag/biesel/l,
@@ -292,8 +302,7 @@
 /obj/random/gift
 	name = "random gift"
 	desc = "Contains a randomly sized gift."
-	icon = 'icons/holidays/christmas/presents.dmi'
-	icon_state = "gift1"
+	icon_state = "present"
 	spawnlist = list(
 		/obj/item/xmasgift = 0.5,
 		/obj/item/xmasgift/medium =  0.3,
@@ -303,7 +312,6 @@
 /obj/random/junk
 	name = "random trash"
 	desc = "This is toss."
-	icon = 'icons/obj/random.dmi'
 	icon_state = "junk"
 	spawn_nothing_percentage = 5
 	problist = list(
@@ -375,6 +383,7 @@
 
 /obj/random/vendor
 	name = "random vendor"
+	icon_state = "vendor"
 	var/depleted = FALSE
 	var/scan_id = TRUE // Should the spawned vendor check IDs
 	problist = list(
@@ -427,6 +436,7 @@
 
 /obj/random/smalltank
 	name = "random small tank"
+	icon_state = "airtank"
 
 /obj/random/smalltank/item_to_spawn()
 	if (prob(40))
@@ -439,8 +449,7 @@
 /obj/random/pottedplant
 	name = "random potted plant, big"
 	desc = "Spawns a random potted plant."
-	icon = 'icons/obj/pottedplants_big.dmi'
-	icon_state = "plant-26"
+	icon_state = "potted_plant_big"
 	spawn_nothing_percentage = 1
 
 /obj/random/pottedplant/spawn_item()
@@ -456,15 +465,14 @@
 	)
 	while(!P)
 		P = pick(typesof(/obj/structure/flora/pottedplant))
-		if(P in unwanted || ((P in rare) && prob(50)))
+		if((P in unwanted) || ((P in rare) && prob(50)))
 			P = null
 	. = new P(loc)
 
 /obj/random/pottedplant_small
 	name = "random potted plant, small"
 	desc = "Spawns a random potted plant."
-	icon = 'icons/obj/pottedplants_small.dmi'
-	icon_state = "plant-01"
+	icon_state = "potted_plant_small"
 	spawn_nothing_percentage = 1
 
 /obj/random/pottedplant_small/spawn_item()
@@ -478,13 +486,14 @@
 	)
 	while(!P)
 		P = pick(typesof(/obj/item/flora/pottedplant_small))
-		if(P in unwanted || ((P in rare) && prob(50)))
+		if((P in unwanted) || ((P in rare) && prob(50)))
 			P = null
 	. = new P(loc)
 
 /obj/random/syrup
 	name = "random syrup"
 	desc = "Contains random bottles of flavored syrup."
+	icon_state = "syrup"
 	problist = list(
 		/obj/item/reagent_containers/food/condiment/syrup_chocolate = 2,
 		/obj/item/reagent_containers/food/condiment/syrup_strawberry = 1,
@@ -502,6 +511,7 @@
 /obj/random/condiment
 	name = "random condiments and sauces"
 	desc = "Contains random condiments for use in the kitchen."
+	icon_state = "condiment"
 	spawn_nothing_percentage = 10
 	problist = list(
 		/obj/item/reagent_containers/food/condiment/ketchup = 2,
@@ -515,12 +525,14 @@
 		/obj/item/reagent_containers/food/condiment/ntella = 1,
 		/obj/item/reagent_containers/food/condiment/peanut_butter = 1,
 		/obj/item/reagent_containers/food/condiment/cherry_jelly = 1,
+		/obj/item/reagent_containers/food/condiment/sweet_chili = 0.8,
 		/obj/item/reagent_containers/food/condiment/grape_jelly = 0.5
 	)
 
 /obj/random/kitchen_staples
 	name = "random kitchen staples"
 	desc = "Contains random ingredients that are handy in the kitchen"
+	icon_state = "ingredient_bag"
 	spawn_nothing_percentage = 20
 	problist = list(
 		/obj/item/reagent_containers/food/condiment/gelatin = 1,
@@ -529,4 +541,101 @@
 		/obj/item/reagent_containers/food/condiment/vanilla = 1,
 		/obj/item/reagent_containers/food/condiment/rice = 1,
 		/obj/item/reagent_containers/food/condiment/cocoa = 1
+	)
+
+/obj/random/maintenance_junk_or_loot
+	name = "random maintenance junk or loot"
+	desc = "Spawns any of: junk, loot, trash, trash pile, locker with junk or loot, (or other things)."
+	icon_state = "maint_junk_loot"
+	spawn_nothing_percentage = 25
+	has_postspawn = TRUE
+	problist = list(
+		// spawn just one thing:
+		/obj/random/junk = 3,
+		/obj/random/dirt_75 = 1,
+		/obj/random/loot = 1,
+		/obj/structure/trash_pile = 1,
+		/obj/random/tool = 0.2,
+		/obj/random/tech_supply = 0.1,
+		/obj/structure/girder = 0.1,
+		/obj/random/canister/empty = 0.1,
+		/obj/random/canister/filled = 0.05,
+		/obj/structure/closet/crate/loot = 0.01,
+
+		// spawn a container and maybe fill it with more junk:
+		/obj/structure/table/rack = 1,
+		/obj/structure/table/steel = 1,
+		/obj/structure/closet/crate = 1,
+		/obj/structure/closet/crate/trashcart = 0.2,
+		/obj/structure/closet/crate/plastic = 0.1,
+	)
+
+	var/list/more_junk_problist = list(
+		/obj/random/junk = 2,
+		/obj/random/loot = 1,
+		/obj/random/tech_supply = 0.2,
+		/obj/random/tool = 0.2,
+	)
+
+/obj/random/maintenance_junk_or_loot/post_spawn(var/obj/spawned)
+	if(istype(spawned, /obj/structure/table))
+		if(prob(65))
+			var/obj/more_junk = pickweight(more_junk_problist)
+			new more_junk(spawned.loc)
+	else if(istype(spawned, /obj/structure/closet))
+		if(prob(90))
+			var/i_max = rand(1, 4)
+			for(var/i in 1 to i_max)
+				var/obj/more_junk = pickweight(more_junk_problist)
+				new more_junk(spawned.loc)
+
+/obj/random/yarn
+	name = "random yarn"
+	desc = "This is a random ball of yarn."
+	icon = 'icons/obj/item/knitting.dmi'
+	icon_state = "white_ball"
+	spawnlist = list(
+		/obj/item/yarn/blue,
+		/obj/item/yarn/green,
+		/obj/item/yarn/purple,
+		/obj/item/yarn/red,
+		/obj/item/yarn/yellow
+	)
+
+/obj/random/horticulture_magazine
+	name = "random horticulture magazine"
+	desc = "This is a random magazine."
+	icon = 'icons/obj/library.dmi'
+	icon_state = "horticulture1"
+	spawnlist = list(
+		/obj/item/toy/comic/magazine/horticulturetoday/issue1,
+		/obj/item/toy/comic/magazine/horticulturetoday/issue2,
+		/obj/item/toy/comic/magazine/horticulturetoday/issue3,
+		/obj/item/toy/comic/magazine/horticulturetoday/issue4,
+		/obj/item/toy/comic/magazine/horticulturetoday/issue5,
+		/obj/item/toy/comic/magazine/horticulturetoday/issue6
+	)
+
+/obj/random/hydroponics
+	name = "random hydroponics item"
+	desc = "This is a hydroponics thing."
+	icon_state = "tech_supply"
+	spawnlist = list(
+		/obj/item/material/scythe/sickle = 1,
+		/obj/item/material/scythe = 1,
+		/obj/item/reagent_containers/glass/bottle/mutagen = 1,
+		/obj/item/reagent_containers/glass/fertilizer/rh = 1,
+		/obj/item/reagent_containers/glass/fertilizer/l4z = 1,
+		/obj/item/reagent_containers/glass/fertilizer/ez = 1,
+		/obj/item/crowbar = 1,
+		/obj/item/shovel = 1,
+		/obj/item/shovel/spade = 1,
+		/obj/item/wrench = 1,
+		/obj/random/condiment = 3,
+		/obj/random/kitchen_staples = 3,
+		/obj/random/smokable = 1,
+		/obj/random/seed = 3,
+		/obj/random/plushie = 1,
+		/obj/random/med_stack = 1,
+		/obj/item/reagent_containers/glass/bottle/ammonia = 1,
 	)

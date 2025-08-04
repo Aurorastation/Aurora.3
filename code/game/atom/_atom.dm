@@ -6,12 +6,27 @@
  */
 
 /atom
+
+	/// pass_flags that we are. If any of this matches a pass_flag on a moving thing, by default, we let them through.
+	var/pass_flags_self = NONE
+
 	///First atom flags var
 	var/flags_1 = NONE
+	///Intearaction flags
+	var/interaction_flags_atom = NONE
+
+	var/flags_ricochet = NONE
+
+	///When a projectile tries to ricochet off this atom, the projectile ricochet chance is multiplied by this
+	var/receive_ricochet_chance_mod = 1
+	///When a projectile ricochets off this atom, it deals the normal damage * this modifier to this atom
+	var/receive_ricochet_damage_coeff = 0.33
 
 	var/update_icon_on_init	= FALSE // Default to 'no'.
 
 	layer = TURF_LAYER
+	appearance_flags = DEFAULT_APPEARANCE_FLAGS
+
 	var/level = 2
 	var/atom_flags = 0
 	var/init_flags = 0
@@ -25,10 +40,11 @@
 	var/blood_color
 	var/last_bumped = 0
 	var/pass_flags = 0
-	var/throwpass = 0
 	var/germ_level = GERM_LEVEL_AMBIENT // The higher the germ level, the more germ on the atom.
 	var/simulated = 1 // Filter for actions. Used by lighting overlays.
 	var/fluorescent // Shows up under a UV light.
+
+	var/explosion_resistance
 
 	/// Chemistry.
 	var/datum/reagents/reagents = null
@@ -37,10 +53,44 @@
 
 	var/gfi_layer_rotation = GFI_ROTATION_DEFAULT
 
-	// Extra descriptions.
-	var/desc_extended = null // Regular text about the atom's extended description, if any exists.
-	var/desc_info = null // Blue text (SPAN_NOTICE()), informing the user about how to use the item or about game controls.
-	var/desc_antag = null // Red text (SPAN_ALERT()), informing the user about how they can use an object to antagonize.
+	/*
+	 *	EXTRA DESCRIPTIONS
+	 *	Adds additional information of different types about a given object.
+	 *	get_examine_text() in "obj\game\code\atom\atom_examine.dm" handles structure, formatting, etc.
+	 *
+	 *	Most of these vars only concern objs, but they are initialized here in case any functionality
+	 *	is migrated elsewhere.
+	 *
+	 *	These vars should not be set in the object definition, but in defined funcs just beneath definition.
+	 */
+
+	/// Text about the atom's damage/condition.
+	/// Gets built by children of /atom/proc/condition_hints()
+	var/desc_damagecondition = null
+
+	/// Text about the atom's extended description, if any exists.
+	/// Should be a regular string.
+	var/desc_extended = null
+
+	/// Informs the user about how to use the item or about game controls.
+	/// Gets built by children of /atom/proc/mechanics_hints()
+	var/desc_mechanics = null
+
+	/// Informs the user about how to assemble or disassemble the item.
+	/// Gets built by children of /atom/proc/build_hints()
+	var/desc_build = null
+
+	/// Blue text (SPAN_NOTICE()), informing the user about what upgrades the item has and what they do.
+	/// Gets built by children of /atom/proc/upgrade_hints()
+	var/desc_upgrade = null
+
+	/// Informs the user about how they can use an object to antagonize.
+	/// Gets built by children of /atom/proc/antag_hints()
+	var/desc_antag = null
+
+	/// Feedback text.
+	/// Gets built by children of /atom/proc/feedback_hints()
+	var/desc_feedback = null
 
 	/* SSicon_update VARS */
 
@@ -92,14 +142,53 @@
 	if(length(atom_protected_overlay_cache))
 		LAZYCLEARLIST(atom_protected_overlay_cache)
 
-	if(orbiters)
-		for(var/thing in orbiters)
-			var/datum/orbit/O = thing
-			if(O.orbiter)
-				O.orbiter.stop_orbit()
-	orbiters = null
+	orbiters = null // The component is attached to us normaly and will be deleted elsewhere
 
 	. = ..()
+
+/atom/proc/handle_ricochet(obj/projectile/ricocheting_projectile)
+	var/turf/p_turf = get_turf(ricocheting_projectile)
+	var/face_direction = get_dir(src, p_turf) || get_dir(src, ricocheting_projectile)
+	var/face_angle = dir2angle(face_direction)
+	var/incidence_s = GET_ANGLE_OF_INCIDENCE(face_angle, (ricocheting_projectile.Angle + 180))
+	var/a_incidence_s = abs(incidence_s)
+	if(a_incidence_s > 90 && a_incidence_s < 270)
+		return FALSE
+	// if((ricocheting_projectile.armor_flag in list(BULLET, BOMB)) && ricocheting_projectile.ricochet_incidence_leeway)
+	// 	if((a_incidence_s < 90 && a_incidence_s < 90 - ricocheting_projectile.ricochet_incidence_leeway) || (a_incidence_s > 270 && a_incidence_s -270 > ricocheting_projectile.ricochet_incidence_leeway))
+	// 		return FALSE
+	var/new_angle_s = SIMPLIFY_DEGREES(face_angle + incidence_s)
+	ricocheting_projectile.set_angle(new_angle_s)
+	return TRUE
+
+///Purpose: Determines if the object (or airflow) can pass this atom.
+///Called by: Movement, airflow.
+///Inputs: The moving atom (optional), target turf, "height" and air group
+///Outputs: Boolean if can pass.
+///**Please stop using this proc, use the `pass_flags_self` flags to determine what can pass unless you literally have no other choice**
+/atom/proc/CanPass(atom/movable/mover, turf/target, height=1.5, air_group = 0)
+	//I have condensed TG's `CanAllowThrough()` into this proc
+	if(mover) //Because some procs send null as a mover
+		if(mover.movement_type & PHASING)
+			return TRUE
+		if(mover.pass_flags & pass_flags_self)
+			return TRUE
+		if(mover.throwing && (pass_flags_self & LETPASSTHROW))
+			return TRUE
+
+	return (!density || !height || air_group)
+
+/**
+ * An atom we are buckled or is contained within us has tried to move
+ */
+/atom/proc/relaymove(mob/living/user, direction)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_CALL_PARENT(TRUE)
+
+	if(SEND_SIGNAL(src, COMSIG_ATOM_RELAYMOVE, user, direction) & COMSIG_BLOCK_RELAYMOVE)
+		return
+	return
+
 
 /**
  * An atom has entered this atom's contents
@@ -114,7 +203,6 @@
 
 	//Observables event, Aurora snowflake code
 	GLOB.entered_event.raise_event(src, arrived, old_loc)
-	GLOB.moved_event.raise_event(arrived, old_loc, arrived.loc)
 
 /**
  * An atom is attempting to exit this atom's contents
@@ -191,6 +279,6 @@
  * If this is NOT you, ensure you edit your can_astar_pass variable. Check __DEFINES/path.dm
  **/
 /atom/proc/CanAStarPass(to_dir, datum/can_pass_info/pass_info)
-	if(pass_info.pass_flags & pass_flags)
+	if(pass_info.pass_flags & pass_flags_self)
 		return TRUE
 	. = !density

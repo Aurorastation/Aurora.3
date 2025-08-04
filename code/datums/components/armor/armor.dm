@@ -77,12 +77,12 @@
 	if(isnull(armor_values[key]))
 		return 0
 	if(armor_flags & ARMOR_TYPE_RIG)
-		if(key == "bio" && sealed)
+		if(key == BIO && sealed)
 			return 100
 	return min(armor_values[key], 100)
 
 /datum/component/armor/proc/set_value(key, newval)
-	armor_values[key] = Clamp(newval, 0, 100)
+	armor_values[key] = clamp(newval, 0, 100)
 
 // There is a disconnect between legacy damage and armor code. This here helps bridge the gap.
 /proc/get_armor_key(damage_type, damage_flags)
@@ -90,23 +90,23 @@
 	switch(damage_type)
 		if(DAMAGE_BRUTE)
 			if(damage_flags & DAMAGE_FLAG_BULLET)
-				key = "bullet"
+				key = BULLET
 			else if(damage_flags & DAMAGE_FLAG_EXPLODE)
-				key = "bomb"
+				key = BOMB
 			else
-				key = "melee"
+				key = MELEE
 		if(DAMAGE_BURN)
 			if(damage_flags & DAMAGE_FLAG_LASER)
-				key = "laser"
+				key = LASER
 			else if(damage_flags & DAMAGE_FLAG_EXPLODE)
-				key = "bomb"
+				key = BOMB
 			else
-				key = "energy"
+				key = ENERGY
 		if (DAMAGE_TOXIN)
 			if(damage_flags & DAMAGE_FLAG_BIO)
-				key = "bio" // Otherwise just not blocked by default.
+				key = BIO // Otherwise just not blocked by default.
 		if (DAMAGE_RADIATION)
-			key = "rad"
+			key = RAD
 	return key
 
 /datum/component/armor/toggle

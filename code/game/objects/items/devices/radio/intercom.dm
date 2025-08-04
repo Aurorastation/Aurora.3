@@ -25,7 +25,7 @@ pixel_x = 8;
 	layer = ABOVE_WINDOW_LAYER
 	anchored = TRUE
 	appearance_flags = TILE_BOUND // prevents people from viewing the overlay through a wall
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	canhear_range = 2
 	atom_flags = ATOM_FLAG_NO_BLOOD
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED | OBJ_FLAG_CONDUCTABLE
@@ -406,7 +406,7 @@ pixel_x = 8;
 		if(!istype(position) || !(position.z in levels))
 			return FALSE
 
-	if(input_frequency in ANTAG_FREQS && !syndie)
+	if((input_frequency in ANTAG_FREQS) && !syndie)
 		return FALSE//Prevents broadcast of messages over devices lacking the encryption
 
 	return TRUE
@@ -415,9 +415,9 @@ pixel_x = 8;
 	set_on(has_power) // has_power is given by our listener machinery
 	update_icon()
 
-/obj/item/device/radio/intercom/forceMove(atom/dest)
-	power_interface.forceMove(dest)
-	..(dest)
+/obj/item/device/radio/intercom/forceMove(atom/destination)
+	power_interface.forceMove(destination)
+	. = ..()
 
 /obj/item/device/radio/intercom/update_icon()
 	ClearOverlays()

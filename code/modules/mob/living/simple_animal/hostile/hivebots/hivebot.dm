@@ -15,7 +15,7 @@
 	attacktext = "slashed"
 	attack_sound = /singleton/sound_category/hivebot_melee
 	projectilesound = 'sound/weapons/gunshot/gunshot_suppressed.ogg'
-	projectiletype = /obj/item/projectile/bullet/pistol/hivebotspike
+	projectiletype = /obj/projectile/bullet/pistol/hivebotspike
 	organ_names = list("head", "core", "side thruster", "bottom thruster")
 	faction = "hivebot"
 	min_oxy = 0
@@ -41,6 +41,7 @@
 	speak_chance = 5
 	attack_emote = "focuses on"
 	psi_pingable = FALSE
+	sample_data = null
 
 	/**
 	 * The hivebot beacon that we are liked to (and likely generated us)
@@ -54,8 +55,7 @@
 		linked_parent = hivebotbeacon
 
 	if(!mapload)
-		new /obj/effect/effect/smoke(src.loc,30)
-		playsound(src.loc, 'sound/effects/EMPulse.ogg', 25, 1)
+		spark(get_turf(src), 2, GLOB.alldirs)
 
 /mob/living/simple_animal/hostile/hivebot/Destroy()
 	if(linked_parent)
@@ -81,18 +81,31 @@
 	else
 		return "blood_overlay_armed"
 
-/mob/living/simple_animal/hostile/hivebot/bullet_act(var/obj/item/projectile/Proj)
-	if(istype(Proj, /obj/item/projectile/bullet/pistol/hivebotspike) || istype(Proj, /obj/item/projectile/beam/hivebot))
-		Proj.no_attack_log = 1
-		return PROJECTILE_CONTINUE
+/mob/living/simple_animal/hostile/hivebot/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	if(istype(hitting_projectile, /obj/projectile/bullet/pistol/hivebotspike) || istype(hitting_projectile, /obj/projectile/beam/hivebot))
+		return BULLET_ACT_BLOCK
 	else
-		return ..(Proj)
+		return ..()
 
 /mob/living/simple_animal/hostile/hivebot/death()
 	..(null,"blows apart!")
-	var/T = get_turf(src)
-	new /obj/effect/gibspawner/robot(T)
-	spark(T, 1, GLOB.alldirs)
+
+	var/turf/current_turf = get_turf(src)
+	if(!current_turf)
+		qdel(src)
+		return
+
+	var/robot_gib_type = /obj/effect/decal/cleanable/blood/gibs/robot
+	var/atom/turf_gibs = locate(robot_gib_type) in current_turf
+	if(turf_gibs) // we only want to spawn gibs here if there aren't any already
+		return
+
+	var/list/gib_types = typesof(robot_gib_type)
+	var/selected_gib_type = pick(gib_types)
+	new selected_gib_type(current_turf)
+
+	spark(current_turf, 1, GLOB.alldirs)
+
 	qdel(src)
 
 /mob/living/simple_animal/hostile/hivebot/think()
@@ -167,7 +180,7 @@
 	icon_state = "hivebotbomber"
 	organ_names = list("head", "core", "bottom thruster")
 	attacktext = "bumped"
-	move_to_delay = 8
+	speed = 8
 	var/has_exploded = FALSE
 
 /mob/living/simple_animal/hostile/hivebot/bomber/AttackingTarget()
@@ -181,11 +194,14 @@
 		has_exploded = TRUE
 		addtimer(CALLBACK(src, PROC_REF(burst)), 20)
 
-/mob/living/simple_animal/hostile/hivebot/bomber/bullet_act(var/obj/item/projectile/Proj)
-	if(istype(Proj, /obj/item/projectile/bullet/pistol/hivebotspike) || istype(Proj, /obj/item/projectile/beam/hivebot))
-		Proj.no_attack_log = 1
-		return PROJECTILE_CONTINUE
+/mob/living/simple_animal/hostile/hivebot/bomber/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	if(istype(hitting_projectile, /obj/projectile/bullet/pistol/hivebotspike) || istype(hitting_projectile, /obj/projectile/beam/hivebot))
+		return BULLET_ACT_BLOCK
 	else if(!has_exploded)
+		. = ..()
+		if(. != BULLET_ACT_HIT)
+			return .
+
 		has_exploded = TRUE
 		burst()
 
@@ -203,5 +219,96 @@
 	ranged = 1
 
 /mob/living/simple_animal/hostile/hivebot/range/rapid
-	projectiletype = /obj/item/projectile/bullet/pistol/hivebotspike/needle
+	projectiletype = /obj/projectile/bullet/pistol/hivebotspike/needle
 	rapid = 1
+
+/mob/living/simple_animal/hostile/hivebot/playable/
+	name = "Hivebot destroyer"
+	desc = "A primitive-yet-sturdy hovering robot, with some menacing looking blades jutting out from it. This one seems unusually aware of its surroundings."
+	icon_state = "hivebotdestroyer"
+	health = 350
+	maxHealth = 350
+	melee_damage_lower = 20
+	melee_damage_upper = 30
+	armor_penetration = 20
+	attacktext = "eviscerated"
+	projectiletype = null
+	var/playable = TRUE
+	speed = -2
+
+/mob/living/simple_animal/hostile/hivebot/playable/Initialize(mapload)
+	. = ..()
+	add_language(LANGUAGE_HIVEBOT)
+	var/number = rand(1000,9999)
+	name = initial(name) + " ([number])"
+	real_name = name
+	if(playable && !ckey && !client)
+		SSghostroles.add_spawn_atom("hivebotdestroyer", src)
+
+/mob/living/simple_animal/hostile/hivebot/playable/Destroy()
+	. = ..()
+	SSghostroles.remove_spawn_atom("hivebotdestroyer", src)
+
+/mob/living/simple_animal/hostile/hivebot/playable/ranged
+	name = "Hivebot marksman"
+	desc = "A primitive-yet-sturdy hovering robot, with some menacing looking blades jutting out from it. This one seems to be carefully surveying all activity."
+	icon_state = "hivebotmarksman"
+	health = 250
+	maxHealth = 250
+	melee_damage_lower = 10
+	melee_damage_upper = 20
+	armor_penetration = 20
+	attacktext = "stabbed"
+	ranged = 1
+	projectiletype = /obj/projectile/bullet/pistol/medium
+	speed = -3
+
+/mob/living/simple_animal/hostile/hivebot/playable/ranged/Initialize(mapload)
+	. = ..()
+	add_language(LANGUAGE_HIVEBOT)
+	var/number = rand(1000,9999)
+	name = initial(name) + " ([number])"
+	real_name = name
+	if(playable && !ckey && !client)
+		SSghostroles.add_spawn_atom("hivebotmarksman", src)
+
+/mob/living/simple_animal/hostile/hivebot/playable/ranged/Destroy()
+	. = ..()
+	SSghostroles.remove_spawn_atom("hivebotmarksman", src)
+
+/mob/living/simple_animal/hostile/hivebot/playable/overseer
+	name = "Hivebot overseer"
+	desc = "A primitive-yet-sturdy hovering robot, with some menacing looking blades jutting out from it. This one seems to be buzzing with unseen activity from within."
+	icon_state = "hivebotoverseer"
+	health = 300
+	maxHealth = 300
+	melee_damage_lower = 10
+	melee_damage_upper = 10
+	armor_penetration = 10
+	attacktext = "slashed"
+	ranged = -1
+	projectiletype = /obj/projectile/bullet/pistol/
+
+/mob/living/simple_animal/hostile/hivebot/playable/overseer/Initialize(mapload)
+	. = ..()
+	add_language(LANGUAGE_HIVEBOT)
+	var/number = rand(1000,9999)
+	name = initial(name) + " ([number])"
+	real_name = name
+	if(playable && !ckey && !client)
+		SSghostroles.add_spawn_atom("hivebotoverseer", src)
+
+/mob/living/simple_animal/hostile/hivebot/playable/overseer/Destroy()
+	. = ..()
+	SSghostroles.remove_spawn_atom("hivebotoverseer", src)
+
+/mob/living/simple_animal/hostile/hivebot/playable/overseer/verb/build_bot()
+	set name = "Assemble hivebot"
+	set desc = "Assemble a hivebot."
+	set category = "Hivebot"
+
+	src.visible_message("\The [src] begins to construct a hivebot.", "You begin to construct a hivebot.", "You hear the sounds of fabrication...")
+	if(!do_after(src, 12 SECONDS))
+		return
+	src.visible_message("\The [src] constructs a hivebot!", "You construct a hivebot!")
+	new /mob/living/simple_animal/hostile/hivebot(get_turf(src))

@@ -7,7 +7,7 @@
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "moghes/"
-	suffixes = list("moghes_wasteland_mikuetz.dmm")
+	suffix = "moghes_wasteland_mikuetz.dmm"
 	unit_test_groups = list(2)
 
 /area/moghes_mikuetz
@@ -25,6 +25,7 @@
 	short_name = "moghes_mikuetz"
 	desc = "Wander the Wasteland as a Queenless Vaurca."
 	tags = list("External")
+	spawnpoints = list("moghes_mikuetz")
 	welcome_message = "You are a Vaurca of the group known as the Mi'kuetz, merry traders and wanderers in the Wasteland of Moghes."
 	mob_name_pick_message = "Pick a Vaurca name."
 
@@ -33,7 +34,7 @@
 
 	extra_languages = list(LANGUAGE_VAURCA)
 	outfit = /obj/outfit/admin/moghes_mikuetz
-	possible_species = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
+	possible_species = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Mi'kuetz Wanderer"
@@ -44,6 +45,7 @@
 	uniform = list(/obj/item/clothing/under/unathi, /obj/item/clothing/under/vaurca)
 	suit = /obj/item/clothing/suit/vaurca/brown
 	shoes = /obj/item/clothing/shoes/vaurca
+	head = /obj/item/clothing/head/shroud/brown
 	back = null
 	l_ear = null
 	id = null

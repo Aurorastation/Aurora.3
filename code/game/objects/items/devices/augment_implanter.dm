@@ -1,26 +1,25 @@
 /obj/item/device/augment_implanter
 	name = "augment implanter"
 	desc = "A complex single use injector that is used to implant augments without the need for surgery."
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_BIO = 5, TECH_MATERIAL = 2)
 	icon = 'icons/obj/guns/decloner.dmi'
 	icon_state = "decloner"
 	item_state = "decloner"
-	contained_sprite = TRUE
 	var/obj/item/organ/augment_type
 	var/new_augment
+
+/obj/item/device/augment_implanter/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(augment_type)
+		. += SPAN_NOTICE("\The [augment_type] can be seen floating inside \the [src]'s biogel.")
+	else
+		. += SPAN_WARNING("It is spent.")
 
 /obj/item/device/augment_implanter/Initialize()
 	. = ..()
 	if(!augment_type)
 		augment_type = new new_augment(src)
-
-/obj/item/device/augment_implanter/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(augment_type)
-		. += FONT_SMALL(SPAN_NOTICE("\The [augment_type] can be seen floating inside \the [src]'s biogel."))
-	else
-		. += FONT_SMALL(SPAN_WARNING("It is spent."))
 
 /obj/item/device/augment_implanter/afterattack(mob/living/L, mob/user, proximity)
 	if(!proximity)
