@@ -233,6 +233,10 @@ SUBSYSTEM_DEF(persistence)
 	if(new_track.persistence_track_active) // Prevent multiple registers per object and removes the need to check the register if it's already in there
 		return
 
+	var/turf/T = get_turf(new_track)
+	if(!is_station_level(T.z)) // The persistence system only supports objects from the main map levels for multiple reasons, e.g. Z level value, mapping support
+		return
+
 	new_track.persistence_track_active = TRUE
 	new_track.persistence_author_ckey = ckey
 	GLOB.persistence_register += new_track
