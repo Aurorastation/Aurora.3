@@ -1177,7 +1177,7 @@
 
 /* mental */
 
-#define MEDICATION_MESSAGE_DELAY 10 SECONDS
+#define MEDICATION_MESSAGE_DELAY 10 MINUTES
 
 /singleton/reagent/mental
 	name = null //Just like alcohol
