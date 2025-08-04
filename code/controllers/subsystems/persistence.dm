@@ -38,7 +38,7 @@ SUBSYSTEM_DEF(persistence)
 				continue
 			var/obj/instance = new typepath()
 			instance.persistence_track_id = data["id"]
-			instance.persistence_apply_content(data["content"], data["x"], data["y"], data["z"])
+			track_apply_content(instance, data["content"], data["x"], data["y"], data["z"])
 			register_track(instance, data["author_ckey"])
 
 		return SS_INIT_SUCCESS
@@ -94,6 +94,31 @@ SUBSYSTEM_DEF(persistence)
 /datum/controller/subsystem/persistence/stat_entry(msg)
 	msg = ("Global register tracks: [GLOB.persistence_register.len]")
 	return ..()
+
+/**
+ * Safely get JSON persistent content of track.
+ * RETURN: JSON formatted content of track or null if an exception occured.
+ */
+/datum/controller/subsystem/persistence/proc/track_get_content(var/obj/track)
+	var/result = null
+	try
+		result = json_encode(track.persistence_get_content())
+	catch(var/exception/e)
+		log_subsystem_persistence("Track: Failed to get/encode track content: [e]")
+	return result
+
+/**
+ * Safely apply persistent content to track.
+ * PARAMS:
+ * 	track 	Object to apply content to.
+ *  json	Custom persistent content JSON to be applied.
+ *	x,y,z	x-y-z coordinates of object, can be null.
+ */
+/datum/controller/subsystem/persistence/proc/track_apply_content(var/obj/track, var/json, var/x, var/y, var/z)
+	try
+		track.persistence_apply_content(json_decode(json), x, y, z)
+	catch(var/exception/e)
+		log_subsystem_persistence("Track: Failed to apply/decode track content: [e]")
 
 /**
  * Run cleanup on the persistence entries in the database.
@@ -158,6 +183,9 @@ SUBSYSTEM_DEF(persistence)
 	if(!SSdbcore.Connect())
 		log_subsystem_persistence("SQL ERROR during persistence database_add_entry. Failed to connect.")
 	else
+		var/content = track_get_content(track)
+		if (content == null)
+			return
 		var/turf/T = get_turf(track)
 		var/datum/db_query/insert_query = SSdbcore.NewQuery(
 			"INSERT INTO ss13_persistent_data (author_ckey, type, created_at, updated_at, expires_at, content, x, y, z) \
@@ -166,7 +194,7 @@ SUBSYSTEM_DEF(persistence)
 				"author_ckey" = track.persistence_author_ckey,
 				"type" = "[track.type]",
 				"expire_in_days" = track.persistance_expiration_time_days,
-				"content" = track.persistence_get_content(),
+				"content" = content,
 				"x" = T.x,
 				"y" = T.y,
 				"z" = T.z
@@ -185,13 +213,16 @@ SUBSYSTEM_DEF(persistence)
 	if(!SSdbcore.Connect())
 		log_subsystem_persistence("SQL ERROR during persistence database_update_entry. Failed to connect.")
 	else
+		var/content = track_get_content(track)
+		if (content == null)
+			return
 		var/turf/T = get_turf(track)
 		var/datum/db_query/update_query = SSdbcore.NewQuery(
 			"UPDATE ss13_persistent_data SET author_ckey=:author_ckey, updated_at=NOW(), expires_at=DATE_ADD(NOW(), INTERVAL :expire_in_days DAY), content=:content, x=:x, y=:y, z=:z WHERE id = :id",
 			list(
 				"author_ckey" = track.persistence_author_ckey,
 				"expire_in_days" = track.persistance_expiration_time_days,
-				"content" = track.persistence_get_content(),
+				"content" = content,
 				"x" = T.x,
 				"y" = T.y,
 				"z" = T.z,

@@ -784,14 +784,13 @@
 #############################################*/
 
 /obj/item/paper/persistence_get_content()
-	var/list/data = list()
-	data["title"] = name
-	data["text"] = info
-	return json_encode(data)
+	var/list/content = list()
+	content["title"] = name
+	content["text"] = info
+	return content
 
-/obj/item/paper/persistence_apply_content(json, x, y, z)
-	var/list/data = json_decode(json)
-	set_content(data["title"], data["text"])
+/obj/item/paper/persistence_apply_content(content, x, y, z)
+	set_content(content["title"], content["text"])
 	src.x = x
 	src.y = y
 	src.z = z

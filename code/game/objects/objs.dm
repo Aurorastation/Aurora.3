@@ -348,7 +348,7 @@
 /**
  * Called by the persistence subsystem to retrieve relevant persistent information to be stored in the database.
  * Expected to be overriden by derived objects.
- * RETURN: JSON blob with all information relevant to the objects persistence.
+ * RETURN: Associated list with custom information (e.g.: ["test" = "abc", "counter" = 123])
  */
 /obj/proc/persistence_get_content()
 	return
@@ -357,8 +357,8 @@
  * Called by the persistence subsystem to apply persistent data on the created object.
  * Expected to be overriden by derived objects.
  * PARAMS:
- * 	JSON 	Blob with all information relevant to the objects persistence.
- *	x,y,z	x-y-z coordinates of object, can be null.
+ * 	content 	Associated list with custom information (e.g.: ["test" = "abc", "counter" = 123])
+ *	x,y,z		x-y-z coordinates of object, can be null.
  */
-/obj/proc/persistence_apply_content(json, x, y, z)
+/obj/proc/persistence_apply_content(content, x, y, z)
 	return
