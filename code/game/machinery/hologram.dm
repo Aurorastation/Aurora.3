@@ -1,8 +1,8 @@
 /* Holograms!
  * Contains:
- *		Holopad
- *		Hologram
- *		Other stuff
+ * * Holopad
+ * * Hologram
+ * * Other stuff
  */
 
 /*

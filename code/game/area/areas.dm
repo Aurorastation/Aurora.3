@@ -98,7 +98,9 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 
 	var/tmp/is_outside = OUTSIDE_NO
 
-// Don't move this to Initialize(). Things in here need to run before SSatoms does.
+/**
+ * Don't move this to Initialize(). Things in here need to run before SSatoms does.
+ */
 /area/New()
 	// DMMS hook - Required for areas to work properly.
 	if (!GLOB.areas_by_type[type])
@@ -172,7 +174,14 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 /area/proc/is_no_crew_expected()
 	return area_flags & AREA_FLAG_NO_CREW_EXPECTED
 
-/area/proc/set_lightswitch(var/state) // Set lights in area. TRUE for on, FALSE for off, NULL for initial state.
+ /**
+ * Set lights in area.
+ *
+ * * state - TRUE for on, FALSE for off, NULL for initial state
+ *
+ * Returns `TRUE`
+ */
+/area/proc/set_lightswitch(var/state) 
 	if(isnull(state))
 		state = initial(lightswitch)
 
@@ -292,7 +301,8 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 #define DO_PARTY(COLOR) animate(color = COLOR, time = 0.5 SECONDS, easing = QUAD_EASING)
 
 /area/update_icon()
-	if ((fire || eject || party || radiation_active) && (!requires_power||power_environ) && !istype(src, /area/space)) //If it doesn't require power, can still activate this proc.
+	// If it doesn't require power, can still activate this proc.
+	if ((fire || eject || party || radiation_active) && (!requires_power||power_environ) && !istype(src, /area/space))
 		if(radiation_active)
 			color = "#30e63f"
 			animate(src)	// stop any current animations.
@@ -404,24 +414,40 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 	for(var/atom/movable/recipient as anything in gone.important_recursive_contents[RECURSIVE_CONTENTS_AREA_SENSITIVE])
 		SEND_SIGNAL(recipient, COMSIG_EXIT_AREA, src)
 
-// Play Ambience
+/**
+ * Plays ambiance for the provided mob.
+ *
+ * * mob/living/L - Affected mob.
+ */
 /area/proc/play_ambience(var/mob/living/L)
 	if((world.time >= L.client.ambience_last_played_time + 5 MINUTES) && prob(20))
 		var/picked_ambience = pick(ambience)
 		L << sound(picked_ambience, volume = VOLUME_AMBIENCE, channel = CHANNEL_AMBIENCE)
 		L.client.ambience_last_played_time = world.time
 
-// Stop Ambience
+/**
+ * Stops ambiance for the provided mob.
+ *
+ * * mob/living/L - Affected mob.
+ */
 /area/proc/stop_ambience(var/mob/living/L)
 	L << sound(null, channel = 2)
 
-// Play Music
+/**
+ * Plays music for the provided mob.
+ *
+ * * mob/living/L - Affected mob.
+ */
 /area/proc/play_music(var/mob/living/L)
 	if(src.music.len)
 		var/picked_music = pick(music)
 		L << sound(picked_music, volume = VOLUME_MUSIC, channel = 4)
 
-// Stop Music
+/**
+ * Stops music for the provided mob.
+ *
+ * * mob/living/L - Affected mob.
+ */
 /area/proc/stop_music(var/mob/living/L)
 	L << sound(null, channel = 4)
 
@@ -467,8 +493,14 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 		return FALSE
 	return has_gravity
 
-//A useful proc for events.
-//This returns a random area of the station which is meaningful. Ie, a room somewhere
+/**
+ * Useful proc for events.
+ * This returns a random area of the station which is meaningful. Ie, a room somewhere
+ *
+ * * filter_players - Default FALSE. If TRUE, skips areas without any players in them.
+ *
+ * Returns /area/
+ */
 /proc/random_station_area(var/filter_players = FALSE)
 	var/list/possible = list()
 	for(var/Y in GLOB.the_station_areas)

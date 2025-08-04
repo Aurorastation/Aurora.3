@@ -1200,19 +1200,19 @@
 	var/list/goodmessage_species
 
 	/**
-	 *	We leave goodmessage_species null so no unnecessary checks are performed for most reagents. However, if we want a given reagent to have unique
-	 *	messages for consumers of a given species, its value can be set as below within the singleton/reagent/mental:
+	 * We leave goodmessage_species null so no unnecessary checks are performed for most reagents. However, if we want a given reagent to have unique
+	 * messages for consumers of a given species, its value can be set as below within the singleton/reagent/mental:
 	 *
-	 *	goodmessage_species = list(
-	 *		SPECIES_HUMAN = list("Damn you're high.","You're totally zooted!"),
-	 *		SPECIES_HUMAN_OFFWORLD = list("Damn you're WAY higher than normal humans. Like, you might even say outside the gravity well high.", "Zooted bo booted boyyy."),
-	 *		SPECIES_UNATHI = list("You feel like shit and want to die.","Why the fuck did you smoke that shitty human stuff."),
-	 *		SPECIES_SKRELL = list("Aaaaaaaaaaaa!","Aaaauuuuaaaa!","Waaaoouuuuaaaaahhh!"),
-	 *		SPECIES_SKRELL_AXIORI = list("If you weren't axiori you'd probably be having a bad time but you're pretty zooted.")
-	 *		)
+	 * goodmessage_species = list(
+	 * 	SPECIES_HUMAN = list("Damn you're high.","You're totally zooted!"),
+	 * 	SPECIES_HUMAN_OFFWORLD = list("Damn you're WAY higher than normal humans. Like, you might even say outside the gravity well high.", "Zooted bo booted boyyy."),
+	 * 	SPECIES_UNATHI = list("You feel like shit and want to die.","Why the fuck did you smoke that shitty human stuff."),
+	 * 	SPECIES_SKRELL = list("Aaaaaaaaaaaa!","Aaaauuuuaaaa!","Waaaoouuuuaaaaahhh!"),
+	 * 	SPECIES_SKRELL_AXIORI = list("If you weren't axiori you'd probably be having a bad time but you're pretty zooted.")
+	 * 	)
 	 *
-	 *	No, there's not support right now for things like ALL_DIONA_SPECIES. Once somebody wants to make Vaurca-only drugs, they will probably
-	 *	implement support for it out of sheer annoyance though.
+	 * No, there's not support right now for things like ALL_DIONA_SPECIES. Once somebody wants to make Vaurca-only drugs, they will probably
+	 * implement support for it out of sheer annoyance though.
 	 */
 
 	fallback_specific_heat = 1.5
@@ -1239,8 +1239,8 @@
 
 /**
  * 	Holds logic for returning feedback message strings based on race.
- *	'goodmessage' is your generic catch-all list of message strings.
- *	'goodmessage_species', if set, will override the 'goodmessage' list only for that species.
+ * 'goodmessage' is your generic catch-all list of message strings.
+ * 'goodmessage_species', if set, will override the 'goodmessage' list only for that species.
  */
 /singleton/reagent/mental/proc/feedback_message(var/mob/living/carbon/human/mob)
 	var/mob_species = mob.get_species()

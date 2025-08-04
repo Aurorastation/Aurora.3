@@ -1,9 +1,9 @@
 /* Diffrent misc types of tiles
  * Contains:
- *		Prototype
- *		Grass
- *		Wood
- *		Carpet
+ * * Prototype
+ * * Grass
+ * * Wood
+ * * Carpet
  */
 
 #define TILE_MATERIAL_AMOUNT 468
