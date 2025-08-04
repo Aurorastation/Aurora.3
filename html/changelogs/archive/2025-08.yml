@@ -56,3 +56,32 @@
       be able to prepare Skrellian, Unathi, or Tajaran meals without a hydroponicist.
   - rscadd: The xenobotanist now spawns with three random seeds inside their laboratory,
       so you don't invariably need to order these from operations at roundstart.
+2025-08-04:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Fixes Hardsuit Module Press duplication bug.
+  - balance: Added Xenobiology and Xenobotany to the job roles allowed to pilot shuttles.
+  - balance: Added Xenobiology and Xenobotany to the job roles allowed to access the
+      Pilot Room.
+  - refactor: Added defined ACCESS_* roles for the Spark, Quark, and Canary to make
+      them easier to manage in future (only need to update shuttle access rights from
+      job access lists).
+  - code_imp: Created new prefab APCs and Air Alarms for the different shuttles to
+      make it easier to build (no more manually overriding access_req on default objs).
+  - bugfix: Loadout laptop hard drives again initialize with default software.
+  - qol: Attempt to improve reliability of Atmos Control app gathering ALL air alarms.
+  - rscadd: Added 'refresh' button to Atmos Control app as an in-game fallback to
+      manually repopulate the list.
+  - code_imp: Updated several files related to modular computers and software to use
+      dmdocs.
+  Hellfirejag:
+  - soundadd: Added 'medium', 'heavy', and 'chonk' alternate sounds for hardsuits.
+      Many pre-existing hardsuits now use heavier sounds depending on type.
+  MattAtlas:
+  - rscadd: Ported wall leaning from CM. Click-drag your sprite to a wall to lean
+      on it.
+  hazelmouse:
+  - bugfix: Removes an erroenously mapped water tank in hydroponics.
+  kermit:
+  - rscadd: Adds a Europa music cartridge and tracks to go with it.
+  - bugfix: Fixes the 'Spacer Classics' music cartridge loadout selection not working.
+  - qol: Reduces volume of most recently added music tracks.
