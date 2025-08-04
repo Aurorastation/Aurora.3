@@ -53,60 +53,40 @@ SUBSYSTEM_DEF(persistence)
 
 	// Subsystem shutdown:
 	// Create new persistent records for objects that have been created in the round
-	// Update tracked objects that have an ID (already existing from previous rounds) if they have changed
+	// Update tracked objects that have an ID (already existing from previous rounds)
 	// Delete persistent records that no longer exist in the registry (removed during the round)
 
-	var/list/track_lookup = list()
-	var/saved = 0
+	var/created = 0
 	var/updated = 0
 	var/expired = 0
 
-	// Get already stored data before saving new tracks so we can compare what has been modified/removed during the round.
+	// Get already stored data before saving new tracks so we can compare what has been removed during the round.
 	var/list/existing_data = database_get_active_entries()
 
-	// Iterate through the register to sort tracks with no ID and tracks that may need an update (tracks with ID)
-	// We are using a dictionary look-up to find no longer existing records by comparing them with a live dataset later on
 	for (var/obj/track in GLOB.persistence_register)
 		CHECK_TICK
-		if(track.persistence_track_id > 0) // (0 is the default tracking ID value)
-			// Tracked object has an ID, add it to lookup
-			track_lookup["[track.persistence_track_id]"] = track
-		else
+		if (track.persistence_track_id == 0)
 			// Tracked object has no ID, create a new persistent record for it
 			database_add_entry(track)
-			saved += 1
-
-	for(var/record in existing_data)
-		CHECK_TICK
-		// Find removed objects by looking them up using the live dataset
-		var/obj/track = null
-		if("[record["id"]]" in track_lookup)
-			track = track_lookup["[record["id"]]"]
-
-		if (track)
-			// The record still exists as an active track, check if it may need an update
-			var/changed = FALSE
-			var/turf/T = get_turf(track)
-			if (track.persistence_author_ckey != record["author_ckey"])
-				changed = TRUE
-			else if (track.persistence_get_content() != record["content"])
-				changed = TRUE
-			else if (T.x != record["x"])
-				changed = TRUE
-			else if (T.y != record["y"])
-				changed = TRUE
-			else if (T.z != record["z"])
-				changed = TRUE
-			if (changed == TRUE)
-				database_update_entry(track)
-				updated += 1
+			created += 1
 		else
-			// There was no match in the lookup meaning the object got removed this round
-			// We delete persistent data by setting it's expiration date to now, actual deletion has more logic and is handled in cleanup during init.
+			// Tracked object has an ID, update it
+			database_update_entry(track)
+			updated += 1
+
+	// Find tracks that have been removed during the round by trying to find the track by database ID
+	for (var/record in existing_data)
+		var/found = FALSE
+		for (var/obj/track in GLOB.persistence_register)
+			CHECK_TICK
+			if (record["id"] == track.persistence_track_id)
+				found = TRUE // A track with the same ID has been found in the register, it still exists, break off
+				break
+		if (!found) // No track with the same ID has been found in the register, remove it from the database (expire)
 			database_expire_entry(record["id"])
 			expired += 1
 
-	log_subsystem_persistence("Shutdown: Tried to saved [saved], update [updated] and expire [expired] tracks.")
+	log_subsystem_persistence("Shutdown: Tried to create [created], update [updated] and expire [expired] tracks.")
 
 /**
  * Generates StatEntry. Returns information about currently tracked objects.
