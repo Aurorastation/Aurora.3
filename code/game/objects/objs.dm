@@ -357,8 +357,8 @@
  * Called by the persistence subsystem to apply persistent data on the created object.
  * Expected to be overriden by derived objects.
  * PARAMS:
- * 	content 	Associated list with custom information (e.g.: ["test" = "abc", "counter" = 123])
- *	x,y,z		x-y-z coordinates of object, can be null.
+ * 	content = Associated list with custom information (e.g.: ["test" = "abc", "counter" = 123]).
+ *	x,y,z = x-y-z coordinates of object, can be null.
  */
 /obj/proc/persistence_apply_content(content, x, y, z)
 	return

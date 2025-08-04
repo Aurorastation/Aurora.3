@@ -110,9 +110,9 @@ SUBSYSTEM_DEF(persistence)
 /**
  * Safely apply persistent content to track.
  * PARAMS:
- * 	track 	Object to apply content to.
- *  json	Custom persistent content JSON to be applied.
- *	x,y,z	x-y-z coordinates of object, can be null.
+ * 	track = Object to apply content to.
+ *  json = Custom persistent content JSON to be applied.
+ *	x,y,z = x-y-z coordinates of object, can be null.
  */
 /datum/controller/subsystem/persistence/proc/track_apply_content(var/obj/track, var/json, var/x, var/y, var/z)
 	try
@@ -144,8 +144,7 @@ SUBSYSTEM_DEF(persistence)
 
 /**
  * Retrieve persistent data entries that haven't expired.
- * RETURN:
- *	List of JSON, with ID, author_ckey, type, content, x, y, z
+ * RETURN: List of JSON, with ID, author_ckey, type, content, x, y, z
  */
 /datum/controller/subsystem/persistence/proc/database_get_active_entries()
 	if(!SSdbcore.Connect())
