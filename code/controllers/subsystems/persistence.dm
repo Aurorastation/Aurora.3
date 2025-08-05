@@ -191,8 +191,8 @@ SUBSYSTEM_DEF(persistence)
 			return
 
 		var/datum/db_query/insert_query = SSdbcore.NewQuery(
-			"INSERT INTO ss13_persistent_data (author_ckey, type, created_at, updated_at, expires_at, content, x, y, z) \
-			VALUES (:author_ckey, :type, NOW(), NOW(), DATE_ADD(NOW(), INTERVAL :expire_in_days DAY), :content, :x, :y, :z)",
+			"INSERT INTO ss13_persistent_data (author_ckey, type, created_at, expires_at, content, x, y, z) \
+			VALUES (:author_ckey, :type, NOW(), DATE_ADD(NOW(), INTERVAL :expire_in_days DAY), :content, :x, :y, :z)",
 			list(
 				"author_ckey" = track.persistence_author_ckey,
 				"type" = "[track.type]",
@@ -225,7 +225,7 @@ SUBSYSTEM_DEF(persistence)
 			return
 
 		var/datum/db_query/update_query = SSdbcore.NewQuery(
-			"UPDATE ss13_persistent_data SET author_ckey=:author_ckey, updated_at=NOW(), expires_at=DATE_ADD(NOW(), INTERVAL :expire_in_days DAY), content=:content, x=:x, y=:y, z=:z WHERE id = :id",
+			"UPDATE ss13_persistent_data SET author_ckey=:author_ckey, expires_at=DATE_ADD(NOW(), INTERVAL :expire_in_days DAY), content=:content, x=:x, y=:y, z=:z WHERE id = :id",
 			list(
 				"author_ckey" = track.persistence_author_ckey,
 				"expire_in_days" = track.persistance_expiration_time_days,

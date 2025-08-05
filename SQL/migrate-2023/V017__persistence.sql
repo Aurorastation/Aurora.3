@@ -3,7 +3,6 @@ CREATE TABLE ss13_persistent_data (
     author_ckey VARCHAR(32) NULL,
     type VARCHAR(32) NOT NULL,
     created_at DATETIME NOT NULL,
-    updated_at DATETIME NOT NULL,
     expires_at DATETIME NULL,
     content MEDIUMTEXT NOT NULL,
     x INT NULL,
