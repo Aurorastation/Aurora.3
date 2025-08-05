@@ -1337,7 +1337,7 @@
 	illustration = null
 	icon_state = "sharpsbox"
 	use_sound = 'sound/items/storage/briefcase.ogg'
-	max_storage_space = DEFAULT_LARGEBOX_STORAGE
+	max_storage_space = DEFAULT_BOX_STORAGE
 	chewable = FALSE
 	foldable = null
 

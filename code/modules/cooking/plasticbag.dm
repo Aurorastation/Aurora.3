@@ -28,5 +28,5 @@
 
 /obj/item/storage/box/plasticbag/fill()
 	..()
-	for(var/i=0;i < storage_slots, i++)
+	for(var/i=0; i < storage_slots; i++)
 		new /obj/item/evidencebag/plasticbag(src)
