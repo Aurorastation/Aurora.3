@@ -1,7 +1,0 @@
-author: Hellfirejag
-delete-after: True
-changes:
-  - refactor: "Gently refactored organ code in preparation for Galatean BioAugs."
-  - rscadd: "Added Auxiliary Heart as a new loadout implant available to Galateans"
-  - rscadd: "Added Platelet Factories and Subdermal Carapace as new loadout implants available only to Galatean Consulars."
-  - rscadd: "Auxiliary Heart, Mind Blankers (both types), Platelet Factories, and Subdermal Carapace are now available to antagonists via their uplink."

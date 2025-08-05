@@ -85,3 +85,17 @@
   - rscadd: Adds a Europa music cartridge and tracks to go with it.
   - bugfix: Fixes the 'Spacer Classics' music cartridge loadout selection not working.
   - qol: Reduces volume of most recently added music tracks.
+2025-08-05:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Remove reagent feedback message spam by correcting delay time (debug value).
+  Hellfirejag:
+  - refactor: Gently refactored organ code in preparation for Galatean BioAugs.
+  - rscadd: Added Auxiliary Heart as a new loadout implant available to Galateans
+  - rscadd: Added Platelet Factories and Subdermal Carapace as new loadout implants
+      available only to Galatean Consulars.
+  - rscadd: Auxiliary Heart, Mind Blankers (both types), Platelet Factories, and Subdermal
+      Carapace are now available to antagonists via their uplink.
+  Wowzewow (Wezzy):
+  - rscadd: Readds microwaves. They've got most of their old recipes, give or take.
+      They've been remapped in where appropriate.
+  - imageadd: Resprites the small oven.
