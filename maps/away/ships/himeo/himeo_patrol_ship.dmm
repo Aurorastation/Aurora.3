@@ -25,7 +25,9 @@
 	req_one_access = null;
 	req_access = list(253)
 	},
-/obj/machinery/power/apc/super/west,
+/obj/machinery/power/apc/super/west{
+	req_access = list(253)
+	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
@@ -2631,7 +2633,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/obj/machinery/power/apc/south,
+/obj/machinery/power/apc/south{
+	req_access = list(253)
+	},
 /obj/structure/cable/green,
 /turf/simulated/floor/carpet/rubber,
 /area/himeo_patrol_ship/infirmary)
@@ -3014,7 +3018,9 @@
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/bridge)
 "mV" = (
-/obj/machinery/power/apc/east,
+/obj/machinery/power/apc/east{
+	req_access = list(253)
+	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
@@ -4100,7 +4106,9 @@
 "rX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/machinery/atmospherics/pipe/simple/hidden/green,
-/obj/machinery/power/apc/east,
+/obj/machinery/power/apc/east{
+	req_access = list(253)
+	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
@@ -5739,7 +5747,9 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
-/obj/machinery/power/apc/east,
+/obj/machinery/power/apc/east{
+	req_access = list(253)
+	},
 /obj/random/dirt_75,
 /obj/structure/cable/green{
 	icon_state = "0-8"
@@ -6919,7 +6929,9 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/bridge)
 "Dv" = (
-/obj/machinery/power/apc/super/north,
+/obj/machinery/power/apc/super/north{
+	req_access = list(253)
+	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
@@ -6935,7 +6947,9 @@
 	},
 /obj/random/dirt_75,
 /obj/structure/cable/green,
-/obj/machinery/power/apc/east,
+/obj/machinery/power/apc/east{
+	req_access = list(253)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/wood,
@@ -7313,7 +7327,9 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/east,
+/obj/machinery/power/apc/east{
+	req_access = list(253)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/himeo_patrol_ship/deck_2_checkpoint)
 "Fj" = (
@@ -7674,7 +7690,9 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/super/north,
+/obj/machinery/power/apc/super/north{
+	req_access = list(253)
+	},
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/himeo_patrol/central)
@@ -8249,7 +8267,9 @@
 "JS" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/random/dirt_75,
-/obj/machinery/power/apc/east,
+/obj/machinery/power/apc/east{
+	req_access = list(253)
+	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
@@ -8951,7 +8971,9 @@
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
-/obj/machinery/power/apc/south,
+/obj/machinery/power/apc/south{
+	req_access = list(253)
+	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
@@ -9042,7 +9064,9 @@
 /turf/simulated/floor/reinforced,
 /area/himeo_patrol_ship/blaster)
 "NH" = (
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/north{
+	req_access = list(253)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
@@ -10640,7 +10664,9 @@
 /turf/simulated/floor,
 /area/himeo_patrol_ship/generator)
 "TG" = (
-/obj/machinery/power/apc/super/west,
+/obj/machinery/power/apc/super/west{
+	req_access = list(253)
+	},
 /obj/structure/cable/green,
 /obj/random/dirt_75,
 /obj/effect/floor_decal/corner/red{
