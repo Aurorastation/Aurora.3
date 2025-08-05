@@ -7,6 +7,8 @@
 	robotic_sprite = FALSE
 	possible_modifications = list("Mechanical")
 
+	relative_size = 15
+
 /obj/item/organ/internal/eyes/optical_sensor/Initialize()
 	robotize()
 	. = ..()

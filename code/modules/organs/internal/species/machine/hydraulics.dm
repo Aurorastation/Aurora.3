@@ -7,6 +7,8 @@
 	organ_tag = BP_HYDRAULICS
 	parent_organ = BP_GROIN
 
+	relative_size = 70
+
 /obj/item/organ/internal/machine/hydraulics/Initialize()
 	. = ..()
 	RegisterSignal(owner, COMSIG_IPC_HAS_SPRINTED, PROC_REF(handle_hydraulics))
@@ -39,7 +41,6 @@
 		spark(owner, 3, GLOB.alldirs)
 		to_chat(owner, SPAN_WARNING("Your hydraulics lock up for a second!"))
 		owner.Stun(1)
-
 
 /obj/item/organ/internal/machine/hydraulics/high_integrity_damage(integrity)
 	. = ..()

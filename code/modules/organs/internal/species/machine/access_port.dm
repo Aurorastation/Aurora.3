@@ -8,6 +8,8 @@
 
 	action_button_name = "Extend or Retract Cable"
 
+	relative_size = 15
+
 	/// Our access cable, which can be extended to connect into things.
 	var/obj/item/access_cable/access_cable = /obj/item/access_cable/synthetic
 	/// The internal port. This is where things get connected to to retrieve information or do effects.

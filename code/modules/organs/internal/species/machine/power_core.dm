@@ -6,8 +6,9 @@
 	organ_tag = BP_CELL
 	parent_organ = BP_CHEST
 	max_damage = 80
-	relative_size = 30
 	robotic_sprite = FALSE
+
+	relative_size = 25
 
 	/// If the power core's hatch is open. Battery can be removed if TRUE.
 	var/open = FALSE

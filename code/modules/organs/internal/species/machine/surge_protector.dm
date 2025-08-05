@@ -7,6 +7,9 @@
 	parent_organ = BP_CHEST
 	vital = FALSE
 	robotic_sprite = FALSE
+
+	relative_size = 30
+
 	var/surge_left = 0
 	var/broken = 0
 

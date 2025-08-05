@@ -7,6 +7,8 @@
 	parent_organ = BP_CHEST
 	action_button_name = "Internal Diagnostics"
 
+	relative_size = 25
+
 /obj/item/organ/internal/machine/internal_diagnostics/attack_self(var/mob/user)
 	. = ..()
 	if(user.stat == DEAD)

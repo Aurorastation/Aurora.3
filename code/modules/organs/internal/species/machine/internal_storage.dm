@@ -8,6 +8,8 @@
 
 	action_button_name = "Access Internal Storage"
 
+	relative_size = 25
+
 	/// The actual, physical storage item.
 	var/obj/item/storage/internal_storage/storage
 

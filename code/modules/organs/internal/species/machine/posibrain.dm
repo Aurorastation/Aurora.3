@@ -11,6 +11,8 @@
 
 	action_button_name = "Neural Configuration"
 
+	relative_size = 85
+
 	/// The type of 'robotic brain'. Must be a subtype of /obj/item/device/mmi/digital.
 	var/robotic_brain_type = /obj/item/device/mmi/digital/posibrain
 	/// The stored MMI object.

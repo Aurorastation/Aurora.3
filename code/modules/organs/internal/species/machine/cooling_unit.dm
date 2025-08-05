@@ -17,6 +17,8 @@
 	default_preset = /singleton/synthetic_organ_preset/cooling_unit/air
 	action_button_name = "Regulate Thermostat"
 
+	relative_size = 50
+
 	/// The power consumed when we are cooling down.
 	var/base_power_consumption = 8
 	/// The passive temperature change. Basically, cooling units counteract an IPC's passive temperature gain. But the IPC's temperature goes to get itself fucked if the cooling unit dies.

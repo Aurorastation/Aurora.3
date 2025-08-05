@@ -4,6 +4,8 @@
 	icon = 'icons/obj/organs/ipc_organs.dmi'
 	icon_state = "ipc_actuator"
 
+	relative_size = 50
+
 /obj/item/organ/internal/machine/actuators/left
 	name = "left arm actuators"
 	parent_organ = BP_L_ARM

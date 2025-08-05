@@ -8,6 +8,8 @@
 
 	action_button_name = "Access Internal Computer"
 
+	relative_size = 20
+
 	/// This frame's internal PDA.
 	var/obj/item/modular_computer/handheld/pda/synthetic_internal/internal_pda
 

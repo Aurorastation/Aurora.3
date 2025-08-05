@@ -19,6 +19,8 @@
 	)
 	default_preset = /singleton/synthetic_organ_preset/reactor/electric
 
+	relative_size = 25
+
 	/// What kind of power supply this is. Bitfield.
 	var/power_supply_type = POWER_SUPPLY_ELECTRIC
 	/// Base power generation for active power supplies.

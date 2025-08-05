@@ -5,3 +5,5 @@
 	icon_state = "ipc_voicebox"
 	organ_tag = BP_VOICE_SYNTHESIZER
 	parent_organ = BP_HEAD
+
+	relative_size = 10
