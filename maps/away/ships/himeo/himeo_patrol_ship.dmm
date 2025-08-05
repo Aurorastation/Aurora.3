@@ -1882,7 +1882,9 @@
 	dir = 9
 	},
 /obj/machinery/meter,
-/obj/machinery/power/apc/south,
+/obj/machinery/power/apc/south{
+	req_access = list(253)
+	},
 /obj/structure/cable/green,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
@@ -2672,7 +2674,9 @@
 /turf/simulated/floor/carpet/red,
 /area/himeo_patrol_ship/barracks)
 "lD" = (
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/north{
+	req_access = list(253)
+	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
@@ -2994,7 +2998,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/north{
+	req_access = list(253)
+	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
@@ -4311,7 +4317,9 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/north{
+	req_access = list(253)
+	},
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/deck_2_fore)
 "sV" = (
@@ -4344,7 +4352,9 @@
 	pixel_y = 11;
 	pixel_x = -6
 	},
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/north{
+	req_access = list(253)
+	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
@@ -5528,7 +5538,9 @@
 	},
 /obj/structure/bed/stool/chair,
 /obj/random/dirt_75,
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/north{
+	req_access = list(253)
+	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
@@ -7111,7 +7123,9 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/north{
+	req_access = list(253)
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/himeo_patrol_ship/ammunition)
 "Em" = (
@@ -7703,7 +7717,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/green{
 	dir = 8
 	},
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/north{
+	req_access = list(253)
+	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
@@ -9876,7 +9892,9 @@
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/power/apc/south,
+/obj/machinery/power/apc/south{
+	req_access = list(253)
+	},
 /obj/structure/cable/green,
 /turf/simulated/floor/carpet/rubber,
 /area/himeo_patrol_ship/engineering)
@@ -11554,7 +11572,9 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/north{
+	req_access = list(253)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/himeo_patrol_ship/armoury)
 "Xo" = (
@@ -11908,7 +11928,9 @@
 /obj/effect/floor_decal/industrial/outline_door/firefighting_closet{
 	dir = 8
 	},
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/north{
+	req_access = list(253)
+	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
