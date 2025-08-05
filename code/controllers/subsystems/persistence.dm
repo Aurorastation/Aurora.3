@@ -12,81 +12,89 @@ SUBSYSTEM_DEF(persistence)
  */
 /datum/controller/subsystem/persistence/Initialize()
 	. = ..()
-	if(!GLOB.config.sql_enabled)
-		log_subsystem_persistence("SQL configuration not enabled! Persistence subsystem requires SQL.")
-		return SS_INIT_SUCCESS
+	try
+		if(!GLOB.config.sql_enabled)
+			log_subsystem_persistence("SQL configuration not enabled! Persistence subsystem requires SQL.")
+			return SS_INIT_SUCCESS
 
-	GLOB.persistence_register = list()
+		GLOB.persistence_register = list()
 
-	if(!SSdbcore.Connect())
-		log_subsystem_persistence("SQL ERROR during persistence subsystem init. Failed to connect.")
+		if(!SSdbcore.Connect())
+			log_subsystem_persistence("SQL ERROR during persistence subsystem init. Failed to connect.")
+			return SS_INIT_FAILURE
+		else
+			// Delete all persistent objects in the database that have expired and have passed the cleanup grace period (PERSISTENT_EXPIRATION_CLEANUP_DELAY_DAYS)
+			database_clean_entries()
+
+			// Retrieve all persistent data that is not expired
+			var/list/persistent_data = database_get_active_entries()
+			log_subsystem_persistence("Init: Retrieved [persistent_data.len] entries for instancing this round.")
+
+			// Instantiate all remaining entries based of their type
+			// Assign persistence related vars found in /obj, apply content and add to live tracking list.
+			for (var/data in persistent_data)
+				CHECK_TICK
+				var/typepath = text2path(data["type"])
+				if (!ispath(typepath)) // Type checking
+					continue
+				var/obj/instance = new typepath()
+				instance.persistence_track_id = data["id"]
+				track_apply_content(instance, data["content"], data["x"], data["y"], data["z"])
+				register_track(instance, data["author_ckey"])
+
+			return SS_INIT_SUCCESS
+	catch(var/exception/e)
+		log_subsystem_persistence("Panic: Exception during subsystem initialize: [e]")
 		return SS_INIT_FAILURE
-	else
-		// Delete all persistent objects in the database that have expired and have passed the cleanup grace period (PERSISTENT_EXPIRATION_CLEANUP_DELAY_DAYS)
-		database_clean_entries()
-
-		// Retrieve all persistent data that is not expired
-		var/list/persistent_data = database_get_active_entries()
-		log_subsystem_persistence("Init: Retrieved [persistent_data.len] entries for instancing this round.")
-
-		// Instantiate all remaining entries based of their type
-		// Assign persistence related vars found in /obj, apply content and add to live tracking list.
-		for (var/data in persistent_data)
-			CHECK_TICK
-			var/typepath = text2path(data["type"])
-			if (!ispath(typepath)) // Type checking
-				continue
-			var/obj/instance = new typepath()
-			instance.persistence_track_id = data["id"]
-			track_apply_content(instance, data["content"], data["x"], data["y"], data["z"])
-			register_track(instance, data["author_ckey"])
-
-		return SS_INIT_SUCCESS
 
 /**
  * Shutdown of the persistence subsystem. Adds new persistent objects, removes no longer existing persistent objects and updates changed persistent objects in the database.
  */
 /datum/controller/subsystem/persistence/Shutdown()
-	if(!GLOB.config.sql_enabled)
-		log_subsystem_persistence("SQL configuration not enabled! Panic - Cannot save current round track changes!")
-		return
+	try
+		if(!GLOB.config.sql_enabled)
+			log_subsystem_persistence("SQL configuration not enabled! Panic - Cannot save current round track changes!")
+			return
 
-	// Subsystem shutdown:
-	// Create new persistent records for objects that have been created in the round
-	// Update tracked objects that have an ID (already existing from previous rounds)
-	// Delete persistent records that no longer exist in the registry (removed during the round)
+		// Subsystem shutdown:
+		// Create new persistent records for objects that have been created in the round
+		// Update tracked objects that have an ID (already existing from previous rounds)
+		// Delete persistent records that no longer exist in the registry (removed during the round)
 
-	var/created = 0
-	var/updated = 0
-	var/expired = 0
+		var/created = 0
+		var/updated = 0
+		var/expired = 0
 
-	// Get already stored data before saving new tracks so we can compare what has been removed during the round.
-	var/list/existing_data = database_get_active_entries()
+		// Get already stored data before saving new tracks so we can compare what has been removed during the round.
+		var/list/existing_data = database_get_active_entries()
 
-	for (var/obj/track in GLOB.persistence_register)
-		CHECK_TICK
-		if (track.persistence_track_id == 0)
-			// Tracked object has no ID, create a new persistent record for it
-			database_add_entry(track)
-			created += 1
-		else
-			// Tracked object has an ID, update it
-			database_update_entry(track)
-			updated += 1
-
-	// Find tracks that have been removed during the round by trying to find the track by database ID
-	for (var/record in existing_data)
-		var/found = FALSE
 		for (var/obj/track in GLOB.persistence_register)
 			CHECK_TICK
-			if (record["id"] == track.persistence_track_id)
-				found = TRUE // A track with the same ID has been found in the register, it still exists, break off
-				break
-		if (!found) // No track with the same ID has been found in the register, remove it from the database (expire)
-			database_expire_entry(record["id"])
-			expired += 1
+			if (track.persistence_track_id == 0)
+				// Tracked object has no ID, create a new persistent record for it
+				database_add_entry(track)
+				created += 1
+			else
+				// Tracked object has an ID, update it
+				database_update_entry(track)
+				updated += 1
 
-	log_subsystem_persistence("Shutdown: Tried to create [created], update [updated] and expire [expired] tracks.")
+		// Find tracks that have been removed during the round by trying to find the track by database ID
+		for (var/record in existing_data)
+			var/found = FALSE
+			for (var/obj/track in GLOB.persistence_register)
+				CHECK_TICK
+				if (record["id"] == track.persistence_track_id)
+					found = TRUE // A track with the same ID has been found in the register, it still exists, break off
+					break
+			if (!found) // No track with the same ID has been found in the register, remove it from the database (expire)
+				database_expire_entry(record["id"])
+				expired += 1
+
+		log_subsystem_persistence("Shutdown: Tried to create [created], update [updated] and expire [expired] tracks.")
+	catch(var/exception/e)
+		log_subsystem_persistence("Panic: Exception during subsystem shutdown: [e]")
+		return
 
 /**
  * Generates StatEntry. Returns information about currently tracked objects.
