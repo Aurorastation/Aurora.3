@@ -92,33 +92,32 @@
 	head = /obj/item/clothing/head/sol/dress
 	accessory = /obj/item/clothing/accessory/holster/thigh
 
-/datum/ghostspawner/human/ssrm_marine_pilot
-	short_name = "ssrm_marine_pilot"
-	name = "Sol Marine Recon Exosuit Pilot"
-	desc = "Serve as the Exosuit Pilot aboard an Solarian Frigate. Under the authority of either the Northern or Southern Solarian Reconstruction Mandate. Defend your ship, the honor of the corps, and the intrests of the Solarian Government. Oorah!"
+/datum/ghostspawner/human/ssrm_ipc
+	short_name = "Solfrig_ipc"
+	name = "Solarian Frigate Synthetic"
+	desc = "Serve as a Navy-owned IPC aboard a Solarian Frigate. Remember that you are not a free, enlisted soldier: you are the military's non-combatant property, programmed to rigidly serve the interests of the Solarian government above all else."
 	tags = list("External")
-	mob_name_prefix = "SGT. "
 
-	spawnpoints = list("Solfrig_navy_crewman")
+	spawnpoints = list("Solfrig_ipc")
 	max_count = 1
 
-	outfit = /obj/outfit/admin/ssrm_marine_pilot
-	possible_species = list(SPECIES_HUMAN)
+	outfit = /obj/outfit/admin/ssrm_ipc
+	possible_species = list(SPECIES_IPC, SPECIES_IPC_SHELL, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION)
+	uses_species_whitelist = TRUE
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
-	assigned_role = "Sol Marine Recon Exosuit Pilot"
-	special_role = "Sol Marine Recon Exosuit Pilot"
+	assigned_role = "Sol Navy Synthetic"
+	special_role = "Sol Navy Synthetic"
 	respawn_flag = null
 
 
-/obj/outfit/admin/Solfrig_pilot
-	name = "Sol Marine Recon Exosuit Pilot"
+/obj/outfit/admin/ssrm_ipc
+	name = "Sol Military Navy Synthetic"
 
-	uniform = /obj/item/clothing/under/rank/sol/marine
+	uniform = /obj/item/clothing/under/rank/sol/ipc
 	shoes = /obj/item/clothing/shoes/jackboots
 	back = /obj/item/storage/backpack/satchel
 	belt = /obj/item/storage/belt/utility/full
-	head = /obj/item/clothing/head/beret/sol
 
 	id = /obj/item/card/id/ssrm_ship
 
@@ -126,7 +125,14 @@
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife/sol = 1)
 
-/obj/outfit/admin/Solfrig_pilot/get_id_access()
+/obj/outfit/admin/ssrm_ipc/post_equip(mob/living/carbon/human/H, visualsOnly)
+	var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+	if(istype(tag))
+		tag.serial_number = uppertext(dd_limittext(md5(H.real_name), 12))
+		tag.ownership_info = IPC_OWNERSHIP_PRIVATE
+		tag.citizenship_info = CITIZENSHIP_NONE
+
+/obj/outfit/admin/ssrm_ipc/get_id_access()
 	return list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/Solfrig_Intern
