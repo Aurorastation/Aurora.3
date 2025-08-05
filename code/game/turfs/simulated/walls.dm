@@ -373,6 +373,7 @@
 	if(direction == NORTH)
 		hiding_human.add_filter("cutout", 1, alpha_mask_filter(icon = icon('icons/effects/effects.dmi', "cutout")))
 	hiding_human.density = FALSE
+	ADD_TRAIT(hiding_human, TRAIT_UNDENSE, TRAIT_SOURCE_WALL_LEANING)
 	RegisterSignals(hiding_human, list(COMSIG_MOVABLE_MOVED, COMSIG_MOB_RESISTED), PROC_REF(unhide_human), hiding_human)
 	..()
 
@@ -388,4 +389,5 @@
 	LAZYREMOVE(hiding_humans, to_unhide)
 	UnregisterSignal(to_unhide, list(COMSIG_MOVABLE_MOVED, COMSIG_MOB_RESISTED))
 	to_chat(to_unhide, SPAN_NOTICE("You stop leaning on the wall."))
+	REMOVE_TRAIT(to_unhide, TRAIT_UNDENSE, TRAIT_SOURCE_WALL_LEANING)
 	to_unhide.remove_filter("cutout")
