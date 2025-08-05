@@ -24,6 +24,8 @@
 	species_restricted = list(BODYTYPE_SKRELL)
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/skrell
+	boot_type =  /obj/item/clothing/shoes/magboots/rig/heavy
+
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs,/obj/item/material/twohanded/fireaxe)
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL

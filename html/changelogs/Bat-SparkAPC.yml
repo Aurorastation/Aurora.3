@@ -55,4 +55,5 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - qol: "More area metadata cleanup and more replacements of area.name with area display names for clarity."
+  - bugfix: "Fixed obj path name for Spark APC."
+  - bugfix: "Updated magazine area assignments to include turret controller obj."
