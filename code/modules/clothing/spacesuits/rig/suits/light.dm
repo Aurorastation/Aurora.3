@@ -224,7 +224,8 @@
 
 	initial_modules = list(
 		/obj/item/rig_module/device/healthscanner/vitalscanner,
-		/obj/item/rig_module/chem_dispenser/offworlder
+		/obj/item/rig_module/chem_dispenser/offworlder,
+		/obj/item/rig_module/storage
 		)
 
 	species_restricted = list(BODYTYPE_HUMAN)
