@@ -58,3 +58,4 @@ changes:
   - bugfix: "Wall leaning now properly updates mob density, meaning that you can walk through tiles where there are people leaning on walls."
   - bugfix: "Medical items like bandages and ATKs can no longer be used on robotic limbs."
   - bugfix: "Look Up will now follow the user around until they go under a solid tile."
+  - bugfix: "TGUI Say Light Mode preference will now actually save."

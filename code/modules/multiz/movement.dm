@@ -803,8 +803,11 @@
 
 /atom/movable/z_observer/proc/follow()
 
+/atom/movable/z_observer/z_up/Initialize(mapload, mob/living/user, turf/given_turf)
+	. = ..()
+
 /atom/movable/z_observer/z_up/follow()
-	forceMove(get_step(target_turf, UP))
+	forceMove(get_step(owner, UP))
 	if(isturf(src.loc))
 		var/turf/T = src.loc
 		if(T && TURF_IS_MIMICING(T))
