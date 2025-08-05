@@ -803,9 +803,6 @@
 
 /atom/movable/z_observer/proc/follow()
 
-/atom/movable/z_observer/z_up/Initialize(mapload, mob/living/user, turf/given_turf)
-	. = ..()
-
 /atom/movable/z_observer/z_up/follow()
 	forceMove(get_step(owner, UP))
 	if(isturf(src.loc))
