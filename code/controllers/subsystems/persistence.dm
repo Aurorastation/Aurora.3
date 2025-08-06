@@ -155,8 +155,8 @@ SUBSYSTEM_DEF(persistence)
 			list("grace_period_days" = PERSISTENT_EXPIRATION_CLEANUP_DELAY_DAYS)
 		)
 
-		cleanup_query.SetFailCallback(CALLBACK(src, .proc/database_clean_entries_callback_failure))
-		cleanup_query.SetSuccessCallback(CALLBACK(GLOBAL_PROC, /proc/qdel))
+		cleanup_query.SetFailCallback(CALLBACK(PROC_REF(database_clean_entries_callback_failure)))
+		cleanup_query.SetSuccessCallback(CALLBACK(GLOBAL_PROC_REF(qdel)))
 		cleanup_query.ExecuteNoSleep(TRUE)
 
 /datum/controller/subsystem/persistence/proc/database_clean_entries_callback_failure(var/datum/db_query/cleanup_query)
