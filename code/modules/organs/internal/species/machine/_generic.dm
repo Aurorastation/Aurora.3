@@ -24,10 +24,10 @@
 	/// The electronics datum of this organ.
 	var/datum/synthetic_internal/electronics/electronics
 
-	/// The world.time of the last damage proc.
-	var/last_damage_time = 0
-	/// The amount of time that has to pass between each damage proc.
-	var/damage_cooldown = 60 SECONDS
+	/// The world.time of the last integrity damage event.
+	var/last_integrity_event_time = 0
+	/// The amount of time that has to pass between each integrity damage event.
+	var/integrity_event_cooldown = 60 SECONDS
 
 /obj/item/organ/internal/machine/Initialize()
 	robotize()
@@ -60,7 +60,7 @@
 	wiring.heal_damage(wiring.max_wires)
 	plating.heal_damage(plating.max_health)
 	electronics.heal_damage(electronics.max_integrity)
-	damage_cooldown = initial(damage_cooldown)
+	integrity_event_cooldown = initial(integrity_event_cooldown)
 
 /obj/item/organ/internal/machine/process(seconds_per_tick)
 	..()
@@ -93,6 +93,8 @@
 	// After that, it's open season.
 	var/datum/synthetic_internal/bits_to_hit = pick(wiring, electronics)
 	bits_to_hit.take_damage(amount)
+
+	SEND_SIGNAL(owner, COMSIG_MACHINE_INTERNAL_DAMAGE, amount)
 
 	. = ..()
 
@@ -189,7 +191,7 @@
  * Returns TRUE if the cooldown for integrity damage has expired.
  */
 /obj/item/organ/internal/machine/proc/can_do_integrity_damage()
-	if(last_damage_time + damage_cooldown > world.time)
+	if(last_integrity_event_time + integrity_event_cooldown > world.time)
 		return FALSE
 	return TRUE
 
@@ -197,14 +199,14 @@
  * The proc called to do low-intensity integrity damage (50 to 75% damage).
  */
 /obj/item/organ/internal/machine/proc/low_integrity_damage(integrity)
-	last_damage_time = world.time
+	last_integrity_event_time = world.time
 	return TRUE
 
 /**
  * The proc called to do mediumlow-intensity integrity damage (25 to 50% damage).
  */
 /obj/item/organ/internal/machine/proc/medium_integrity_damage(integrity)
-	last_damage_time = world.time
+	last_integrity_event_time = world.time
 	var/obj/item/organ/internal/machine/posibrain/brain = owner.internal_organs_by_name[BP_BRAIN]
 	if(istype(brain))
 		brain.damage_integrity(1)
@@ -214,11 +216,16 @@
  * The proc called to do high-intensity integrity damage (0 to 25% damage).
  */
 /obj/item/organ/internal/machine/proc/high_integrity_damage(integrity)
-	last_damage_time = world.time
+	last_integrity_event_time = world.time
 	var/obj/item/organ/internal/machine/posibrain/brain = owner.internal_organs_by_name[BP_BRAIN]
 	if(istype(brain))
 		brain.damage_integrity(2)
 	return TRUE
+
+/**
+ * Apply the burst damage effects.
+ */
+/obj/item/organ/internal/machine/proc/burst_damage_effects()
 
 /**
  * Returns extra diagnostics info, viewable from the diagnostics unit.

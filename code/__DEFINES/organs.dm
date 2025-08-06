@@ -42,3 +42,6 @@
  * Raised on an entity whose liver is attempting to filter blood.
  */
 #define COMSIG_LIVER_FILTER_EVENT "liver_filter_event"
+
+/// Raised when an internal organ of subtype /machine takes internal damage. Used for the synthetic_burst_damage component.
+#define COMSIG_MACHINE_INTERNAL_DAMAGE "machine_internal_damage"
