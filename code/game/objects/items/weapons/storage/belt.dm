@@ -389,6 +389,14 @@
 		/obj/item/ammo_magazine/c45m/rubber = 2,
 	)
 
+/obj/item/storage/belt/security/full/investigator
+	starts_with = list(
+		/obj/item/taperoll/police = 1,
+		/obj/item/device/flash = 1,
+		/obj/item/device/camera/detective = 1,
+		/obj/item/device/taperecorder = 1
+	)
+
 /obj/item/storage/belt/security/vestbelt
 	name = "security chestrig"
 	desc = "A chestrig designed to hold vital security equipment, like handcuffs and flashes."
