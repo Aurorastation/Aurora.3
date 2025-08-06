@@ -15,15 +15,21 @@
 	z_flags = ZMM_MANGLE_PLANES
 	//	luminosity = 1
 
+/obj/machinery/light_switch/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance <= 1)
+		. += "It is [on ? "on" : "off"]."
+
 /obj/machinery/light_switch/Initialize()
 	. = ..()
 	src.area = get_area(src)
+	var/area_display_name = get_area_display_name(area)
 
 	if(otherarea)
 		src.area = locate(text2path("/area/[otherarea]"))
 
 	if(!name)
-		name = "light switch ([area.name])"
+		name = "light switch ([area_display_name])"
 
 	src.on = src.area.lightswitch
 	addtimer(CALLBACK(src, PROC_REF(sync_lights)), 25)
@@ -40,11 +46,6 @@
 			set_light(2, 0.3, on ? "#82ff4c" : "#f86060")
 	else if (light_range)
 		set_light(FALSE)
-
-/obj/machinery/light_switch/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance <= 1)
-		. += "It is [on ? "on" : "off"]."
 
 /obj/machinery/light_switch/attack_hand(mob/user)
 	playsound(src, /singleton/sound_category/switch_sound, 30)

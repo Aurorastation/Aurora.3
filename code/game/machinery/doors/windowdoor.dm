@@ -220,6 +220,9 @@
 
 	if(allowed(user))
 		if(!operable())
+			if (!user.Adjacent(src))
+				to_chat(user, SPAN_WARNING("\The [src] is unpowered."))
+				return TRUE
 			if(!do_after(user, 1 SECOND, src))
 				return TRUE
 			visible_message("\The [user] [density ? "pushes" : "pulls"] \the [src] [density ? "open" : "closed"].")

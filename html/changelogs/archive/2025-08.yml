@@ -1,0 +1,110 @@
+2025-08-02:
+  Batrachophrenoboocosmomachia:
+  - code_imp: Updated alarms to use parent 'panel_open' var instead of child 'wiresexposed'
+      var.
+  - code_imp: Filled missing area metadata for a few cases, corrected engi SM SMES
+      area parentage.
+  - qol: Refactored Atmos control app to use grid-based UI using new area metadata.
+  - bugfix: Atmos control app search no longer crashes on init (no defined search
+      term given).
+  - bugfix: Atmos control app search field now returns correct/full results based
+      on area name, deck, and department.
+  - bugfix: Removed several manually defined air alarm 'name' fields from map.
+  - bugfix: Fixed swapped ops and aux hangar descriptions.
+  - qol: More area metadata cleanup and more replacements of area.name with area display
+      names for clarity.
+  Ben10083:
+  - rscadd: Adds S'rendmarr and Ma'ta'ke versebooks to Tajaran loadout.
+  - qol: S'rendmarr and Ma'ta'ke chaplains now spawn with their respective versebook.
+  CometBlaze:
+  - rscadd: Added a colorable exo-stellar skeletons offworlders can pick in the loadout.
+  TheGreyWolf, Noble Row:
+  - rscadd: Added an alternative to the security belt, the security chestrig, to the
+      warden, HoS and sec officer's lockers as well as the loadout.
+  notagonk:
+  - rscadd: Remaps the Hailstorm Ship.
+2025-08-03:
+  Batrachophrenoboocosmomachia:
+  - code_imp: Added support for reagent/mental to return different feedback text strings
+      based on species.
+  - bugfix: Koko Reed Juice now only returns drug feedback messages to Unathi.
+  CourierBravo:
+  - bugfix: Added vehiclefiller for the cars in the warehouse submap, so you can't
+      walk through them anymore.
+  hazelmouse:
+  - rscadd: Botany mechanics have been substantially overhauled to hinge much more
+      substantially on light and temperature levels to determine the viability of
+      a crop. Mushrooms require slightly cooler temperatures, tropical fruit require
+      slightly higher temperatures, and so on. Moghresian and Adhomian crops in particular
+      will not grow at room temperature at all, and require a botanist to get them
+      to their ideal conditions.
+  - rscadd: Hydroponics and Xenobotany have been remapped with additional atmospheric
+      equipment to match the new mechanical changes.
+  - bugfix: Hydroponics trays no longer lack density.
+  - bugfix: You can now see the nutrient and water levels of a hydroponics tray when
+      there is no seed planted inside it.
+  - rscadd: More descriptive examine text has been added to a lot of hydroponics items
+      and equipment, particularly everything to do with beekeeping, to help elucidate
+      their mechanics a little.
+  - rscadd: Seed packets now show their ideal ranges of heat and light!
+  - rscadd: Heat tolerances for plants are now tighter, down from 20K to 12K of tolerance
+      from their ideal heat.
+  - rscadd: Growing a plant at a temperature or light outside of its tolerances now
+      stunts the harvest, reducing its yield by half for that harvest.
+  - rscadd: Due to the inaccessibility of certain crops to the public garden, the
+      chef now has a number of alien produce boxes in their kitchen. You should still
+      be able to prepare Skrellian, Unathi, or Tajaran meals without a hydroponicist.
+  - rscadd: The xenobotanist now spawns with three random seeds inside their laboratory,
+      so you don't invariably need to order these from operations at roundstart.
+2025-08-04:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Fixes Hardsuit Module Press duplication bug.
+  - balance: Added Xenobiology and Xenobotany to the job roles allowed to pilot shuttles.
+  - balance: Added Xenobiology and Xenobotany to the job roles allowed to access the
+      Pilot Room.
+  - refactor: Added defined ACCESS_* roles for the Spark, Quark, and Canary to make
+      them easier to manage in future (only need to update shuttle access rights from
+      job access lists).
+  - code_imp: Created new prefab APCs and Air Alarms for the different shuttles to
+      make it easier to build (no more manually overriding access_req on default objs).
+  - bugfix: Loadout laptop hard drives again initialize with default software.
+  - qol: Attempt to improve reliability of Atmos Control app gathering ALL air alarms.
+  - rscadd: Added 'refresh' button to Atmos Control app as an in-game fallback to
+      manually repopulate the list.
+  - code_imp: Updated several files related to modular computers and software to use
+      dmdocs.
+  Hellfirejag:
+  - soundadd: Added 'medium', 'heavy', and 'chonk' alternate sounds for hardsuits.
+      Many pre-existing hardsuits now use heavier sounds depending on type.
+  MattAtlas:
+  - rscadd: Ported wall leaning from CM. Click-drag your sprite to a wall to lean
+      on it.
+  hazelmouse:
+  - bugfix: Removes an erroenously mapped water tank in hydroponics.
+  kermit:
+  - rscadd: Adds a Europa music cartridge and tracks to go with it.
+  - bugfix: Fixes the 'Spacer Classics' music cartridge loadout selection not working.
+  - qol: Reduces volume of most recently added music tracks.
+2025-08-05:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Remove reagent feedback message spam by correcting delay time (debug value).
+  Hellfirejag:
+  - refactor: Gently refactored organ code in preparation for Galatean BioAugs.
+  - rscadd: Added Auxiliary Heart as a new loadout implant available to Galateans
+  - rscadd: Added Platelet Factories and Subdermal Carapace as new loadout implants
+      available only to Galatean Consulars.
+  - rscadd: Auxiliary Heart, Mind Blankers (both types), Platelet Factories, and Subdermal
+      Carapace are now available to antagonists via their uplink.
+  Wowzewow (Wezzy):
+  - rscadd: Readds microwaves. They've got most of their old recipes, give or take.
+      They've been remapped in where appropriate.
+  - imageadd: Resprites the small oven.
+2025-08-06:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Fixed obj path name for Spark APC.
+  - bugfix: Updated magazine area assignments to include turret controller obj.
+  ChangeMe:
+  - rscadd: Offworlder slowdown is now removed by all hardsuits instead of just the
+      exostellar skeleton.
+  CometBlaze:
+  - rscadd: Exo-stellar skeletons now come with a storage module by default.

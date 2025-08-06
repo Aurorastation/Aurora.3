@@ -206,7 +206,7 @@ GLOBAL_LIST_INIT(gear_datums, list())
 				if(thing in pref.gear)
 					style = "style='color: #FF8000;'"
 					break
-			. += " <a href='byond://?src=[REF(src)];select_category=[category]'><font [style]'>[category]</font></a> "
+			. += " <a href='byond://?src=[REF(src)];select_category=[category]'><font [style]>[category]</font></a> "
 	. += "</b></center></td></tr>"
 
 	var/datum/loadout_category/LC = GLOB.loadout_categories[current_tab]
@@ -573,6 +573,14 @@ GLOBAL_LIST_INIT(gear_datums, list())
 		var/obj/item/organ/external/replaced_limb = H.get_organ(initial(external_aug.limb_name))
 		replaced_limb.droplimb(TRUE, DROPLIMB_EDGE, FALSE)
 		qdel(replaced_limb)
+
+	// Handling for "Organ swapping" augments. Anything that shares an organ tag with a pre-existing organ.
+	if(ispath(spawn_path, /obj/item/organ/internal))
+		var/obj/item/organ/internal/internal_aug = spawn_path
+		var/obj/item/organ/internal/replaced_organ = H.get_organ(initial(internal_aug.organ_tag))
+		if(internal_aug.organ_tag == replaced_organ.organ_tag)
+			replaced_organ.removed(H, null)
+			qdel(replaced_organ)
 
 	var/item = new spawn_path(spawn_location)
 	for(var/datum/gear_tweak/gt in gear_tweaks)

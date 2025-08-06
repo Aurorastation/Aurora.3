@@ -772,7 +772,7 @@
 /mob/living/simple_animal/death(gibbed, deathmessage = "dies!")
 	GLOB.move_manager.stop_looping(src)
 	movement_target = null
-	density = FALSE
+	ADD_TRAIT(src, TRAIT_UNDENSE, TRAIT_SOURCE_MOB_DEATH)
 	if (isopenturf(loc))
 		ADD_FALLING_ATOM(src)
 	. = ..(gibbed, deathmessage)

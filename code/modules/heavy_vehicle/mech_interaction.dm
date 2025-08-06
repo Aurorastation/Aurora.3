@@ -556,6 +556,8 @@ GLOBAL_DATUM_INIT(mech_state, /datum/ui_state/default, new())
 		return
 	if(!isliving(H))
 		return
+	if(src == H)
+		return
 
 	if(legs?.trample_damage)
 		if(ishuman(H))

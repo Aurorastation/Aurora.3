@@ -150,7 +150,7 @@
 		return FALSE
 
 	set_current(C)
-	user.machine = ui_host()
+	user.set_machine(ui_host())
 	user.reset_view(current_camera)
 	check_eye(user)
 

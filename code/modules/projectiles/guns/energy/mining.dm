@@ -21,8 +21,8 @@
 	charge_cost = 666.66 // 15 shots on a high cap cell
 	needspin = FALSE
 
-/obj/item/gun/energy/plasmacutter/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/gun/energy/plasmacutter/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(is_adjacent)
 		if(power_supply)
 			. += FONT_SMALL(SPAN_NOTICE("It has a <b>[capitalize_first_letters(power_supply.name)]</b> installed as its power supply."))

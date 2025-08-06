@@ -107,6 +107,21 @@ var/global/list/default_interrogation_channels = list(
 	var/datum/radio_frequency/radio_connection
 	var/list/datum/radio_frequency/secure_radio_connections = list()
 
+/obj/item/device/radio/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(show_modify_on_examine && (distance <= 1))
+		if (b_stat)
+			. += SPAN_NOTICE("\The [src] can be attached and modified!")
+		else
+			. += SPAN_NOTICE("\The [src] can not be modified or attached!")
+
+	if(radio_desc)
+		. += radio_desc
+
+/obj/item/device/radio/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "The radio key .i will allow you to speak into a nearby intercom, .r will speak into a radio in your right hand, and .l will speak into your left. The microphone does not need to be enabled for this to work."
+
 /obj/item/device/radio/proc/set_frequency(new_frequency)
 	SSradio.remove_object(src, frequency)
 	if(new_frequency)
@@ -378,7 +393,7 @@ var/global/list/default_interrogation_channels = list(
 	if(channel && channels && channels.len > 0)
 		if(channel == "department")
 			for(var/freq in channels)
-				if(freq == "Common" || freq == "Entertainment")
+				if(freq == "Common" || freq == "Entertainment" || freq == "Expeditionary")
 					continue
 				channel = freq
 				break
@@ -411,7 +426,7 @@ var/global/list/default_interrogation_channels = list(
 	if(channels && channels.len > 0)
 		if(message_mode == "department") // Department radio shortcut
 			for(var/freq in channels)
-				if(freq == "Common" || freq == "Entertainment")
+				if(freq == "Common" || freq == "Entertainment" || freq == "Expeditionary")
 					continue
 				message_mode = freq
 				break
@@ -528,15 +543,6 @@ var/global/list/default_interrogation_channels = list(
 		return
 
 	return get_hearers_in_view(canhear_range, src)
-
-
-/obj/item/device/radio/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(show_modify_on_examine && (distance <= 1))
-		if (b_stat)
-			. += SPAN_NOTICE("\The [src] can be attached and modified!")
-		else
-			. += SPAN_NOTICE("\The [src] can not be modified or attached!")
 
 /obj/item/device/radio/attackby(obj/item/attacking_item, mob/user)
 	..()
