@@ -44,11 +44,7 @@
 #################################
 
 # Your name.
-<<<<<<<< HEAD:html/changelogs/meep109-himeoapcfixes.yml
 author: "meep109"
-========
-author: meep109
->>>>>>>> af1cdc8edf451df83ce97bc306ef65f5fec9d2ff:html/changelogs/meep109-himeoapcfix.yml
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -59,8 +55,4 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-<<<<<<<< HEAD:html/changelogs/meep109-himeoapcfixes.yml
   - bugfix: "Fixes Himean patrol ship APC accceses"
-========
-  - bugfix: "Fixes Himean patrol ship APC accesses."
->>>>>>>> af1cdc8edf451df83ce97bc306ef65f5fec9d2ff:html/changelogs/meep109-himeoapcfix.yml
