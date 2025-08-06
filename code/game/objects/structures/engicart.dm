@@ -14,6 +14,7 @@
 	var/list/my_glass = list()
 	var/list/my_metal = list()
 	var/list/my_plasteel = list()
+	/// Used for displaying and handling radial menu. Collective list of every single item this object contains.
 	var/list/storage_contents = list()
 	var/obj/item/device/lightreplacer/my_lightreplacer = null
 	var/obj/item/storage/toolbox/mechanical/my_blue_toolbox = null
@@ -51,28 +52,25 @@
 	if(distance <= 1)
 		if(locate(/obj/item/stack/material) in storage_contents)
 			var/metal_amount
-			var/obj/item/stack/material/steel/S
 			var/plasteel_amount
-			var/obj/item/stack/material/plasteel/P
 			var/glass_amount
+			var/obj/item/stack/material/steel/S
+			var/obj/item/stack/material/plasteel/P
 			var/obj/item/stack/material/glass/G
 			if(LAZYLEN(my_metal))
-				for(var/I in my_metal)
-					if(istype(I, /obj/item/stack/material/steel)) // without this, the loop won't notice `material/.../full` subtype
-						S = I
-						metal_amount += S.amount
+				for(var/I in my_metal) // we already handle the type-check in `atttackby()` so it's safe to assume the lists contain what they're intended to
+					S = I
+					metal_amount += S.amount
 				. += "[icon2html(S, user)] This cart contains <b>[metal_amount] sheet\s</b> of steel!"
 			if(LAZYLEN(my_plasteel))
 				for(var/I in my_plasteel)
-					if(istype(I, /obj/item/stack/material/plasteel))
-						P = I
-						plasteel_amount += P.amount
+					P = I
+					plasteel_amount += P.amount
 				. += "[icon2html(P, user)] This cart contains <b>[plasteel_amount] sheet\s</b> of plasteel!"
 			if(LAZYLEN(my_glass))
 				for(var/I in my_glass)
-					if(istype(I, /obj/item/stack/material/glass))
-						G = I
-						glass_amount += G.amount
+					G = I
+					glass_amount += G.amount
 				. += "[icon2html(G, user)] This cart contains <b>[glass_amount] sheet\s</b> of glass!"
 		else
 			. += "[icon2html(src, user)] There is no material in this cart!"
@@ -83,12 +81,12 @@
 		my_glass, my_metal, my_plasteel
 	)
 	for(var/list/list_to_check in lists_to_check)
-		if(list_to_check?.len)
+		if(list_to_check?.len) //null check
 			storage_contents += list_to_check
 
-	var/list/all_objects = list(my_lightreplacer, my_blue_toolbox, my_yellow_toolbox, my_red_toolbox)
+	var/list/non_sheet_objects = list(my_lightreplacer, my_blue_toolbox, my_yellow_toolbox, my_red_toolbox)
 
-	for(var/obj/O in all_objects)
+	for(var/obj/O in non_sheet_objects)
 		if(O)
 			storage_contents += O
 
@@ -337,7 +335,7 @@
 		has_items = TRUE
 
 
-/// For future reference, this kind of pulling functions are dependant on a type check in `mob_movement.dm` line:332
+/// For future reference, this kind of pulling functions are dependant on a type-check in `mob_movement.dm` line:332
 /obj/structure/engineeringcart/relaymove(mob/living/user, direction)
 	. = ..()
 
