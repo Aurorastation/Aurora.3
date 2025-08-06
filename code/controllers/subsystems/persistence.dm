@@ -205,7 +205,7 @@ SUBSYSTEM_DEF(persistence)
 		log_subsystem_persistence("SQL ERROR during persistence database_add_entry. Failed to connect.")
 	else
 		var/content = track_get_content(track)
-		if (content == null)
+		if (!content)
 			return
 
 		var/turf/T = get_turf(track)
@@ -239,7 +239,7 @@ SUBSYSTEM_DEF(persistence)
 		log_subsystem_persistence("SQL ERROR during persistence database_update_entry. Failed to connect.")
 	else
 		var/content = track_get_content(track)
-		if (content == null)
+		if (!content)
 			return
 
 		var/turf/T = get_turf(track)
