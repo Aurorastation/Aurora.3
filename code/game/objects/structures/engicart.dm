@@ -1,6 +1,6 @@
 /obj/structure/engineeringcart
 	name = "engineering cart"
-	desc = "A cart for your engineering related storage needs."
+	desc = "A cart for your engineering-related storage needs."
 	icon = 'icons/obj/engicart.dmi'
 	icon_state = "cart"
 	anchored = FALSE
@@ -36,7 +36,11 @@
 
 /obj/structure/engineeringcart/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "You can use steel, plasteel, glass sheets, toolboxes and lightreplacer on the cart to store them."
+	. += "You can use steel, plasteel, glass sheets, toolboxes and light replacers on the cart to store them."
+	. += "\
+		You can <b>CTRL-Click</b> to start dragging this cart. This object has a special dragging behaviour: when dragged, character's movement \
+		directs the cart and the character is subsequently pulled by it. \
+		"
 
 /obj/structure/engineeringcart/disassembly_hints(mob/user, distance, is_adjacent)
 	. += ..()

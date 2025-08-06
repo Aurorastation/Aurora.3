@@ -900,7 +900,7 @@
 	category = "engineering"
 	name = "engineering cart"
 	supplier = "hephaestus"
-	description = "A cart for your engineering related storage needs."
+	description = "A cart for your engineering-related storage needs."
 	price = 100
 	items = list(
 		/obj/structure/engineeringcart
