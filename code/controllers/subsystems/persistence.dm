@@ -65,29 +65,43 @@ SUBSYSTEM_DEF(persistence)
 		var/updated = 0
 		var/expired = 0
 
-		// Get already stored data before saving new tracks so we can compare what has been removed during the round.
+		// Get already stored data before saving new tracks so we can compare what has been updated or removed during the round.
 		var/list/existing_data = database_get_active_entries()
 
 		for (var/obj/track in GLOB.persistence_register)
 			CHECK_TICK
 			if (track.persistence_track_id == 0)
-				// Tracked object has no ID, create a new persistent record for it
+				// Tracked object has no ID meaning it is new, create a new persistent record for it
 				database_add_entry(track)
 				created += 1
-			else
-				// Tracked object has an ID, update it
-				database_update_entry(track)
-				updated += 1
 
 		// Find tracks that have been removed during the round by trying to find the track by database ID
+		// If we find the track, we need to check if it requires an update instead
 		for (var/record in existing_data)
 			var/found = FALSE
 			for (var/obj/track in GLOB.persistence_register)
 				CHECK_TICK
 				if (record["id"] == track.persistence_track_id)
-					found = TRUE // A track with the same ID has been found in the register, it still exists, break off
-					break
-			if (!found) // No track with the same ID has been found in the register, remove it from the database (expire)
+					// A track with the same ID has been found in the register, it still exists, check if we need to update it instead
+					found = TRUE // Prevent expiration of track
+					var/changed = FALSE
+					var/turf/T = get_turf(track)
+					if (track.persistence_author_ckey != record["author_ckey"])
+						changed = TRUE
+					else if (T.x != record["x"])
+						changed = TRUE
+					else if (T.y != record["y"])
+						changed = TRUE
+					else if (T.z != record["z"])
+						changed = TRUE
+					else if (track_get_content(track) != record["content"])
+						changed = TRUE
+					if (changed)
+						database_update_entry(track)
+						updated += 1
+					break // Track found (and perhaps updated), break off loop search as it won't need to be deleted anyways
+			if (!found)
+				// No track with the same ID has been found in the register, remove it from the database (expire)
 				database_expire_entry(record["id"])
 				expired += 1
 
