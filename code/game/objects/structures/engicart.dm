@@ -423,7 +423,6 @@
 
 /obj/structure/engineeringcart/half_filled/Initialize()
 	. = ..()
-	my_lightreplacer = new /obj/item/device/lightreplacer(src)
 	my_blue_toolbox = new /obj/item/storage/toolbox/mechanical(src)
 	my_yellow_toolbox = new /obj/item/storage/toolbox/electrical(src)
 	my_red_toolbox = new /obj/item/storage/toolbox/emergency(src)
