@@ -1114,7 +1114,7 @@ lighting determines lighting capturing (optional), suppress_errors suppreses err
 	var/list/name_and_ref = generate_and_hash_rsc_file(icon2collapse, icon_path)
 
 	// Weird object thats not even readable to the debugger, represents a reference to the icons rsc entry
-	var/rsc_ref = name_and_ref[1
+	var/rsc_ref = name_and_ref[1]
 	var/file_hash = name_and_ref[2]
 	key = "[name_and_ref[3]].png"
 
