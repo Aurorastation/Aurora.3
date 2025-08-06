@@ -99,3 +99,12 @@
   - rscadd: Readds microwaves. They've got most of their old recipes, give or take.
       They've been remapped in where appropriate.
   - imageadd: Resprites the small oven.
+2025-08-06:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Fixed obj path name for Spark APC.
+  - bugfix: Updated magazine area assignments to include turret controller obj.
+  ChangeMe:
+  - rscadd: Offworlder slowdown is now removed by all hardsuits instead of just the
+      exostellar skeleton.
+  CometBlaze:
+  - rscadd: Exo-stellar skeletons now come with a storage module by default.
