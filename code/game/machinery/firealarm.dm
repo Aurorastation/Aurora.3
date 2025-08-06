@@ -14,7 +14,6 @@
 	active_power_usage = 6
 	power_channel = AREA_USAGE_ENVIRON
 	var/last_process = 0
-	var/wiresexposed = 0
 	var/buildstage = 2 // 2 = complete, 1 = no wires,  0 = circuit gone
 	var/seclevel
 	///looping sound datum for our fire alarm siren.
@@ -27,7 +26,7 @@
 		if(dir)
 			src.set_dir(dir)
 		buildstage = 0
-		wiresexposed = 1
+		panel_open = 1
 
 		update_icon()
 		set_pixel_offsets()
@@ -59,7 +58,7 @@
 /obj/machinery/firealarm/update_icon()
 	ClearOverlays()
 
-	if(wiresexposed)
+	if(panel_open)
 		switch(buildstage)
 			if(2)
 				AddOverlays("fire_b2")
@@ -111,13 +110,13 @@
 		return TRUE
 
 	if (attacking_item.isscrewdriver() && buildstage == 2)
-		if(!wiresexposed)
+		if(!panel_open)
 			set_light(0)
-		wiresexposed = !wiresexposed
+		panel_open = !panel_open
 		update_icon()
 		return TRUE
 
-	if(wiresexposed)
+	if(panel_open)
 		set_light(0)
 		switch(buildstage)
 			if(2)

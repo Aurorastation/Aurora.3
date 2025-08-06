@@ -715,7 +715,7 @@ EMAG/ILLEGAL
 
 	sleep(delay)
 	var/obj/made_container
-	for(var/i = 1,i <= count; i++)
+	for(var/i = 1; i <= count; i++)
 		updateUsrDialog()
 		if(totake > points)
 			processing = FALSE

@@ -69,6 +69,5 @@
 // Psionics signals
 /// Raised on the target of a "mind-affecting" psionic power.
 #define COMSIG_PSI_MIND_POWER "psi_block_check"
-	#define COMSIG_PSI_MIND_POWER_CANCELLED (1<<0)
 
 /*******Component Specific Signals*******/

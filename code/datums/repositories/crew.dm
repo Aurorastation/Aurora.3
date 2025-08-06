@@ -19,6 +19,7 @@ GLOBAL_DATUM_INIT(crew_repository, /datum/repository/crew, new())
 
 /datum/repository/crew/proc/health_data(var/z_level)
 	var/list/crewmembers = list()
+	var/area_display_name
 	if(!z_level)
 		return crewmembers
 
@@ -86,7 +87,8 @@ GLOBAL_DATUM_INIT(crew_repository, /datum/repository/crew, new())
 
 				if(C.sensor_mode >= SUIT_SENSOR_TRACKING)
 					var/area/A = get_area(H)
-					crewmemberData["area"] = A.name
+					area_display_name = get_area_display_name(A)
+					crewmemberData["area"] = area_display_name
 					crewmemberData["x"] = pos.x
 					crewmemberData["y"] = pos.y
 					crewmemberData["z"] = pos.z

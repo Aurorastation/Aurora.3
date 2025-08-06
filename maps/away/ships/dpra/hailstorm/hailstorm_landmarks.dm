@@ -1,39 +1,41 @@
-// --------------------- base type
+// Space landmarks
+/obj/effect/shuttle_landmark/hailstorm_ship/nav1
+	name = "Fore"
+	landmark_tag = "hailstorm_ship_nav1"
 
-/obj/effect/shuttle_landmark/hailstorm_ship
-	base_area = /area/space
-	base_turf = /turf/space
+/obj/effect/shuttle_landmark/hailstorm_ship/nav2
+	name = "Aft"
+	landmark_tag = "hailstorm_ship_nav2"
 
-// --------------------- shuttle
+/obj/effect/shuttle_landmark/hailstorm_ship/nav3
+	name = "Port"
+	landmark_tag = "hailstorm_ship_nav3"
 
-/obj/effect/shuttle_landmark/hailstorm_shuttle/hangar
-	name = "Spacer Militia Shuttle Hangar"
-	landmark_tag = "nav_hailstorm_shuttle"
-	docking_controller = "hailstorm_shuttle_dock"
-	base_area = /area/space
-	base_turf = /turf/space
-	movable_flags = MOVABLE_FLAG_EFFECTMOVE
+/obj/effect/shuttle_landmark/hailstorm_ship/nav4
+	name = "Starboard"
+	landmark_tag = "hailstorm_ship_nav4"
+// --------
 
-/obj/effect/map_effect/marker/airlock/docking/hailstorm_shuttle/shuttle_hangar
-	name = "Spacer Militia Shuttle Hangar"
-	landmark_tag = "nav_hailstorm_shuttle"
-	master_tag = "hailstorm_shuttle_dock"
+// Docking ports
+// Port dock
+/obj/effect/map_effect/marker/airlock/docking/hailstorm_ship/port_dock
+	name = "Port Dock"
+	master_tag = "airlock_hailstorm_port_dock"
+	landmark_tag = "hailstorm_ship_port_dock"
 
-// ----
+/obj/effect/shuttle_landmark/hailstorm_ship/dock_port
+	name = "Port Dock"
+	docking_controller = "airlock_hailstorm_port_dock"
+	landmark_tag = "hailstorm_ship_port_dock"
 
-/obj/effect/shuttle_landmark/hailstorm_shuttle/transit
-	name = "In transit"
-	landmark_tag = "nav_transit_hailstorm_shuttle"
-	base_turf = /turf/space/transit/north
+// Starboard dock
+/obj/effect/map_effect/marker/airlock/docking/hailstorm_ship/starboard_dock
+	name = "Starboard Dock"
+	master_tag = "airlock_hailstorm_starboard_dock"
+	landmark_tag = "hailstorm_ship_starboard_dock"
 
-// --------------------- docks
-
-/obj/effect/shuttle_landmark/hailstorm_ship/dock/aft
-	name = "Dock, Aft"
-	landmark_tag = "nav_hailstorm_ship_starboard"
-	docking_controller = "airlock_hailstorm_ship_starboard"
-
-/obj/effect/map_effect/marker/airlock/docking/hailstorm_ship/dock/aft
-	name = "Dock, Aft"
-	landmark_tag = "nav_hailstorm_ship_dock_starboard"
-	master_tag = "airlock_hailstorm_ship_starboard"
+/obj/effect/shuttle_landmark/hailstorm_ship/dock_starboard
+	name = "Starboard Dock"
+	docking_controller = "airlock_hailstorm_starboard_dock"
+	landmark_tag = "hailstorm_ship_starboard_dock"
+// --------

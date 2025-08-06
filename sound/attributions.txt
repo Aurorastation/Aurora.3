@@ -156,12 +156,24 @@ sound/music/regional/xanu/xanu_rock_3.ogg - "Shimmer" by Swara Sutra, licensed u
 ATTRIBUTIONS SECTION END
 
 ATTRIBUTIONS SECTOR START
-sound/music/lobby/crescent_expanse/crescent_expanse_1.ogg - "Lüüü - Weedance" by Lüüü, licensed under CC BY-NC-SA 3.0. Obtained from https://myprivateunderground.bandcamp.com/track/lu-u-u-weedance
-sound/music/lobby/crescent_expanse/crescent_expanse_2.ogg - "Little Bradley - Sunset Drive" by Little Bradley, licensed under CC BY-NC 3.0. Obtained from https://myprivateunderground.bandcamp.com/track/little-bradley-sunset-drive
 sound/music/lobby/lights_edge/lights_edge_1.ogg - "Is Anyone Left?" by Karl Casey, licensed under CC BY 3.0. Obtained from https://karlcasey.bandcamp.com/track/is-anyone-left
 sound/music/lobby/lights_edge/lights_edge_2.ogg - "Running From The Wendigo" by Karl Casey, licensed under CC BY 3.0. Obtained from https://karlcasey.bandcamp.com/track/running-from-the-wendigo
 sound/music/lobby/dangerous_space/dangerous_space_1.ogg - "You Can't Kill The Boogeyman" by Karl Casey, licensed under CC BY 3.0. Obtained From https://karlcasey.bandcamp.com/track/you-can-t-kill-the-boogeyman
 sound/music/lobby/dangerous_space/dangerous_space_2.ogg - "Prison Planet" by Karl Casey, licensed under CC BY 3.0. Obtained from https://karlcasey.bandcamp.com/track/prison-planet
+
+ATTRIBUTIONS SECTOR START
+sound/music/regional/europa/weedance.ogg - "Lüüü - Weedance" by Lüüü, licensed under CC BY-NC-SA 3.0. Obtained from https://myprivateunderground.bandcamp.com/track/lu-u-u-weedance
+sound/music/regional/europa/casting_faint_shadows.ogg - "casting faint shadows" by Ikaiora (https://ikaiora.bandcamp.com/track/casting-faint-shadows-2) - CC BY-NC-ND 3.0
+sound/music/regional/europa/where_the_dusks_rays_leap.ogg - "where the dusk's rays leap" by Ikaiora (https://ikaiora.bandcamp.com/track/where-the-dusks-rays-leap) - CC BY-NC-ND 3.0
+sound/music/regional/europa/deep_beneath-.ogg - "Deep Beneath the Solemn Waves a Vast Underwater Landscape, Brimming With Bizarre, Eerily Gleaming Cyclopean Structures of, What Must Surely Be, Non​​​​-​​​​Human Origin, Stretched Out Across the Ocean Floor" by Unknown Oceanographer/Under Jorden (https://under-jorden.bandcamp.com/album/deep-beneath-the-solemn-waves-a-vast-underwater-landscape-brimming-with-bizarre-eerily-gleaming-cyclopean-structures-of-what-must-surely-be-non-human-origin-stretched-out-across-the-ocean-floor) -  CC BY-NC-ND 3.0
+sound/music/regional/europa/instrument_park.ogg - "Instrument Park" by Little Bradley (https://myprivateunderground.bandcamp.com/track/little-bradley-instrumental-park) - CC BY-NC 3.0
+sound/music/regional/europa/way_between_the_shadows.ogg -"Way Between The Shadows" by Mokusei No Maguro (https://mokuseinomaguro.bandcamp.com/track/way-between-the-shadows) - CC BY-SA 3.0
+ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTION START
+sound/machines/rig/rigstep_chonk.ogg - by majormoth(Discord), licensed under CC-BY-SA-3.0
+sound/machines/rig/rigstep_heavy.ogg - by majormoth(Discord), licensed under CC-BY-SA-3.0
+sound/machines/rig/rigstep_medium.ogg - by majormoth(Discord), licensed under CC-BY-SA-3.0
 ATTRIBUTIONS SECTION END
 
 ATTRIBUTIONS SECTOR START

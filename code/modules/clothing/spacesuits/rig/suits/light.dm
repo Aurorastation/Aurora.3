@@ -224,7 +224,8 @@
 
 	initial_modules = list(
 		/obj/item/rig_module/device/healthscanner/vitalscanner,
-		/obj/item/rig_module/chem_dispenser/offworlder
+		/obj/item/rig_module/chem_dispenser/offworlder,
+		/obj/item/rig_module/storage
 		)
 
 	species_restricted = list(BODYTYPE_HUMAN)
@@ -240,6 +241,9 @@
 	heat_protection = UPPER_TORSO
 	cold_protection = UPPER_TORSO
 	flags_inv = 0
+
+/obj/item/rig/light/offworlder/colorable
+	icon_state = "offworlder_rig_colorable"
 
 /obj/item/rig/light/offworlder/frontier
 	name = "advanced mobility hardsuit control module"
