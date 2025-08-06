@@ -423,6 +423,25 @@
 	item_state = "raskara_amulet"
 	overlay_state = "raskara_amulet"
 
+/obj/item/clothing/accessory/tajaran/charm/raskariim/doorandkey
+	name = "key amulet"
+	desc = "An key turned into a charm, held by a string."
+
+/obj/item/clothing/accessory/tajaran/charm/raskariim/kingofmaggots
+	name = "rusted amulet"
+	desc = "An amulet made of rusted metal."
+
+/obj/item/clothing/accessory/tajaran/charm/raskariim/blackmirror
+	name = "obsidian coin charm"
+	desc = "an obsidian coin turned into an amulet by attaching it to a string."
+
+/obj/item/clothing/accessory/tajaran/charm/raskariim/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended)
+    . = ..()
+    if(ishuman(user))
+        var/mob/living/carbon/human/U = user
+        if(U.religion == RELIGION_RASKARA || U.religion == RELIGION_RASKARA_ALT)
+            . += SPAN_CULT("\The [src] belongs to a raskariim.")
+
 /obj/item/clothing/accessory/tajaran/tanker_pin
 	name = "golden sun pin"
 	desc = "Given to all members of the Hro'rammad tank corps is this sun pin. It is considered a symbol of how the tanker corps is the wrath of the God S'rendarr. Its rays are sharp not \
