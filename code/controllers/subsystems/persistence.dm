@@ -73,7 +73,7 @@ SUBSYSTEM_DEF(persistence)
 			if (track.persistence_track_id == 0)
 				// Tracked object has no ID meaning it is new, create a new persistent record for it
 				database_add_entry(track)
-				created += 1
+				created++
 
 		// Find tracks that have been removed during the round by trying to find the track by database ID
 		// If we find the track, we need to check if it requires an update instead
@@ -98,12 +98,12 @@ SUBSYSTEM_DEF(persistence)
 						changed = TRUE
 					if (changed)
 						database_update_entry(track)
-						updated += 1
+						updated++
 					break // Track found (and perhaps updated), break off loop search as it won't need to be deleted anyways
 			if (!found)
 				// No track with the same ID has been found in the register, remove it from the database (expire)
 				database_expire_entry(record["id"])
-				expired += 1
+				expired++
 
 		log_subsystem_persistence("Shutdown: Tried to create [created], update [updated] and expire [expired] tracks.")
 	catch(var/exception/e)
