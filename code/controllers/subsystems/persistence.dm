@@ -86,9 +86,7 @@ SUBSYSTEM_DEF(persistence)
 					found = TRUE // Prevent expiration of track
 					var/changed = FALSE
 					var/turf/T = get_turf(track)
-					if (track.persistence_author_ckey != record["author_ckey"])
-						changed = TRUE
-					else if (T.x != record["x"])
+					if (T.x != record["x"])
 						changed = TRUE
 					else if (T.y != record["y"])
 						changed = TRUE
