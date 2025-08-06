@@ -3,7 +3,7 @@
 	desc = "It's a g-g-g-g-ghooooost!" //jinkies!
 	icon = 'icons/mob/mob.dmi'
 	icon_state = "ghost"
-	density = 0
+	density = FALSE
 	canmove = 0
 	blinded = 0
 	anchored = 1	//  don't get pushed around
