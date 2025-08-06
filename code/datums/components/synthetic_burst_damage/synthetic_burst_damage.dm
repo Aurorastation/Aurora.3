@@ -20,7 +20,7 @@
 
 /datum/component/synthetic_burst_damage/Initialize(...)
 	. = ..()
-	if(isipc(synthetic_owner))
+	if(isipc(parent))
 		synthetic_owner = parent
 	else
 		log_debug("Synthetic burst damage component spawned on non-IPC. Deleting.")
@@ -28,7 +28,7 @@
 
 	RegisterSignal(synthetic_owner, COMSIG_MACHINE_INTERNAL_DAMAGE, PROC_REF(receive_internal_damage))
 
-/datum/component/synthetic_burst_damage/proc/receive_internal_damage(amount)
+/datum/component/synthetic_burst_damage/proc/receive_internal_damage(mob/target, amount)
 	SIGNAL_HANDLER
 	if(!burst_damage_hit_time)
 		burst_damage_hit_time = world.time
