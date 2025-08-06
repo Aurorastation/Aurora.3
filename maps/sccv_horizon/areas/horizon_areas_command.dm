@@ -19,19 +19,19 @@
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/horizon/command/heads/captain
-	name = "Command - Captain's Office"
+	name = "Captain's Office"
 	icon_state = "captain"
 	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
 	area_blurb = "The most daunting office on the entire ship. Except for CCIA's. Theirs is still a little scarier."
 	horizon_deck = 3
 
 /area/horizon/command/heads/xo
-	name = "Command - Executive Officer's Office"
+	name = "Executive Officer's Office"
 	area_blurb = "No one really knows what goes on in here, but Ian usually seems pretty happy so it's got that going for it.."
 	horizon_deck = 3
 
 /area/horizon/command/heads/hos
-	name = "Security - Head of Security's Office"
+	name = "Head of Security's Office"
 	icon_state = "head_quarters"
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 	ambience = AMBIENCE_HIGHSEC
@@ -39,25 +39,25 @@
 	horizon_deck = 2
 
 /area/horizon/command/heads/rd
-	name = "Research - RD's Office"
+	name = "RD's Office"
 	icon_state = "head_quarters"
 	area_blurb = "There are nagging subtle scents of ink, chemicals, ozone, machine oil, alien blood, and a dozen more in the air here that the scrubbers seem simply incapable of finally purging."
 	horizon_deck = 2
 
 /area/horizon/command/heads/chief
-	name = "Engineering - CE's Office"
+	name = "CE's Office"
 	icon_state = "head_quarters"
 	area_blurb = "This office can't seem to decide if it smells like welding fumes or expensive cologne. Several bulkhead walls are covered in buttons and toggles that exude an air of dangerous importance."
 	horizon_deck = 2
 
 /area/horizon/command/heads/cmo
-	name = "Medical - CMO's Office"
+	name = "CMO's Office"
 	icon_state = "head_quarters"
 	area_blurb = "There's a peculiar serenity to this office completely at odds with the often frenetic atmosphere of the rest of Medical. Maybe it's the cat."
 	horizon_deck = 3
 
 /area/horizon/command/heads/om
-	name = "Operations - OM's Office"
+	name = "OM's Office"
 	icon_state = "head_quarters"
 	area_blurb = "Just stepping through the threshold imparts the nagging feeling that there's someone  out there that owes you money."
 	horizon_deck = 2

@@ -108,7 +108,8 @@
 
 /atom/proc/get_alarm_name()
 	var/area/A = get_area(src)
-	return A.name
+	var/display_name = get_area_display_name(A)
+	return display_name
 
 /area/get_alarm_name()
 	return name

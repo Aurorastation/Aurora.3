@@ -215,10 +215,7 @@
 	var/area/A = get_area(src)
 	var/area_name
 	if(holding_gps)
-		if(is_station_area(A))
-			area_name = get_area_display_name(A)
-		else
-			area_name = A.name
+		area_name = get_area_display_name(A)
 		. += "[area_name]"
 		. += ""
 	if(A.area_blurb)
@@ -1999,7 +1996,7 @@
 
 /mob/living/carbon/human/proc/pulse()
 	var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
-	return heart ? heart.pulse : PULSE_NONE
+	return heart ? heart.fake_pulse ? PULSE_NORM : heart.pulse : PULSE_NONE
 
 /mob/living/carbon/human/proc/move_to_stomach(atom/movable/victim)
 	var/obj/item/organ/internal/stomach/stomach = internal_organs_by_name[BP_STOMACH]

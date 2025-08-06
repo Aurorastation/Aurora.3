@@ -924,6 +924,20 @@
 	starts_with = list(/obj/random_produce/box = 15)
 	make_exact_fit = TRUE
 
+/obj/item/storage/box/produce/adhomai
+	name = "adhomian produce box"
+	desc = "A large box of produce originating from the frigid world of Adhomai."
+	starts_with = list(/obj/random_produce/box/adhomai = 15)
+
+/obj/item/storage/box/produce/nralakk
+	name = "nralakk produce box"
+	desc = "A large box of produce originating from the Nralakk Federation."
+	starts_with = list(/obj/random_produce/box/nralakk = 15)
+
+/obj/item/storage/box/produce/moghes
+	name = "moghresian produce box"
+	desc = "A large box of produce originating from Moghes, home of the Izweski Hegemony."
+	starts_with = list(/obj/random_produce/box/moghes = 15)
 
 /obj/item/storage/box/candy
 	name = "candy box"
@@ -1337,7 +1351,7 @@
 	illustration = null
 	icon_state = "sharpsbox"
 	use_sound = 'sound/items/storage/briefcase.ogg'
-	max_storage_space = DEFAULT_LARGEBOX_STORAGE
+	max_storage_space = DEFAULT_BOX_STORAGE
 	chewable = FALSE
 	foldable = null
 
