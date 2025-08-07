@@ -75,6 +75,19 @@ ABSTRACT_TYPE(/datum/gear/shirts)
 	shirt["tank top, feminine"] = /obj/item/clothing/under/dressshirt/tanktop/feminine
 	gear_tweaks += new /datum/gear_tweak/path(shirt)
 
+/datum/gear/shirts/stripes
+	display_name = "striped shirt selection"
+	path = /obj/item/clothing/under/dressshirt
+	description = "A selection of shirts."
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+
+/datum/gear/shirts/stripes/New()
+	..()
+	var/list/shirt = list()
+	shirt["long-sleeved shirt, black striped"] = /obj/item/clothing/under/dressshirt/longsleeve_s
+	gear_tweaks += new /datum/gear_tweak/path(shirt)
+
+
 /datum/gear/shirts/silversun
 	display_name = "silversun floral shirt selection"
 	path = /obj/item/clothing/under/dressshirt/silversun

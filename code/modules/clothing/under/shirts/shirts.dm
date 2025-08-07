@@ -112,10 +112,18 @@
 	item_state = "longshirt"
 
 /obj/item/clothing/under/dressshirt/longsleeve_s
-	name = "black striped long-sleeved shirt"
-	desc = "A long-sleeved shirt made of light fabric. This one is striped in black."
+	name = "striped long-sleeved shirt"
+	desc = "A long-sleeved shirt made of light fabric. This one has some stripes."
 	icon_state = "longshirt_s"
 	item_state = "longshirt_s"
+	has_accents = TRUE
+
+/obj/item/clothing/under/dressshirt/tshirt_s
+	name = "striped t-shirt"
+	desc = "A t-shirt made of light fabric. This one has some stripes."
+	icon_state = "tshirt_s"
+	item_state = "tshirt_s"
+	has_accents = TRUE
 
 /obj/item/clothing/under/dressshirt/longsleeve_sb
 	name = "blue striped long-sleeved shirt"
@@ -180,11 +188,13 @@
 	desc = "A stylish polo shirt."
 	icon_state = "polo"
 	item_state = "polo"
+	has_accents = TRUE
 
 /obj/item/clothing/under/dressshirt/polo/polo_fem
 	desc = "A stylish polo shirt with a waist fit."
 	icon_state = "polo_fem"
 	item_state = "polo_fem"
+	has_accents = TRUE
 
 /obj/item/clothing/under/dressshirt/polo/polo_blue
 	name = "blue polo shirt"
