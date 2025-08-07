@@ -63,8 +63,6 @@ ABSTRACT_TYPE(/datum/gear/shirts)
 	shirt["dress shirt, deep v-neck rolled up"] = /obj/item/clothing/under/dressshirt/deepv/rolled
 	shirt["dress shirt, asymmetric"] = /obj/item/clothing/under/dressshirt/asymmetric
 	shirt["long-sleeved shirt"] = /obj/item/clothing/under/dressshirt/longsleeve
-	shirt["long-sleeved shirt, black striped"] = /obj/item/clothing/under/dressshirt/longsleeve_s
-	shirt["long-sleeved shirt, blue striped"] = /obj/item/clothing/under/dressshirt/longsleeve_sb
 	shirt["t-shirt"] = /obj/item/clothing/under/dressshirt/tshirt
 	shirt["t-shirt, cropped"] = /obj/item/clothing/under/dressshirt/tshirt_crop
 	shirt["blouse"] = /obj/item/clothing/under/dressshirt/blouse
