@@ -125,12 +125,6 @@
 	item_state = "tshirt_s"
 	has_accents = TRUE
 
-/obj/item/clothing/under/dressshirt/longsleeve_sb
-	name = "blue striped long-sleeved shirt"
-	desc = "A long-sleeved shirt made of light fabric. This one is striped in blue."
-	icon_state = "longshirt_sb"
-	item_state = "longshirt_sb"
-
 // T-shirt
 
 /obj/item/clothing/under/dressshirt/tshirt

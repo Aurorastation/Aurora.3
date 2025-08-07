@@ -31,7 +31,7 @@ ABSTRACT_TYPE(/datum/gear/shirts)
 	display_name = "polo shirts selection (colorable)"
 	description = "A selection of colorable polo shirts."
 	path = /obj/item/clothing/under/dressshirt/polo
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 
 /datum/gear/shirts/polo_colorable/New()
 	..()
@@ -84,7 +84,8 @@ ABSTRACT_TYPE(/datum/gear/shirts)
 /datum/gear/shirts/stripes/New()
 	..()
 	var/list/shirt = list()
-	shirt["long-sleeved shirt, black striped"] = /obj/item/clothing/under/dressshirt/longsleeve_s
+	shirt["striped long-sleeved shirt"] = /obj/item/clothing/under/dressshirt/longsleeve_s
+	shirt["striped t-shirt"] = /obj/item/clothing/under/dressshirt/tshirt_s
 	gear_tweaks += new /datum/gear_tweak/path(shirt)
 
 
