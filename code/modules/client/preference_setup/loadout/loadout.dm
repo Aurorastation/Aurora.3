@@ -577,8 +577,8 @@ GLOBAL_LIST_INIT(gear_datums, list())
 	// Handling for "Organ swapping" augments. Anything that shares an organ tag with a pre-existing organ.
 	if(ispath(spawn_path, /obj/item/organ/internal))
 		var/obj/item/organ/internal/internal_aug = spawn_path
-		var/obj/item/organ/internal/replaced_organ = H.get_organ(initial(internal_aug.organ_tag))
-		if(internal_aug.organ_tag == replaced_organ.organ_tag)
+		var/obj/item/organ/internal/replaced_organ = H.internal_organs_by_name[internal_aug.organ_tag]
+		if(replaced_organ && internal_aug.organ_tag == replaced_organ.organ_tag)
 			replaced_organ.removed(H, null)
 			qdel(replaced_organ)
 
