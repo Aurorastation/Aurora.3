@@ -14,6 +14,7 @@
 		/obj/structure/railing,
 		/obj/structure/stairs_railing,
 		/obj/structure/platform,
+		/obj/structure/platform_deco,
 		/obj/structure/extinguisher_cabinet,
 		/obj/structure/sign
 		))
@@ -42,6 +43,8 @@
 
 
 	else if(istype(AM, /obj/item) || istype(AM, /obj/structure) || istype(AM, /obj/machinery))
+		if(locate(/obj/structure/lattice, src))	// Should be safe to be placed upon.
+			return TRUE
 		var/obj/O = AM
 		O.visible_message(SPAN_DANGER("\The [O] falls into \the [src]."))
 		qdel(O)

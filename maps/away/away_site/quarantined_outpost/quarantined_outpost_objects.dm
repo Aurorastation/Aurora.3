@@ -255,10 +255,10 @@ GLOBAL_LIST_EMPTY(light_group_3)
 /mob/living/simple_animal/hostile/revivable
 	name = "abomination"
 	desc = "Its ominous presence is enough to make even the calmest soul shudder. It seems agitated and you probably shouldn't get close to it."
-	icon = 'icons/mob/npc/the_thing.dmi'
-	icon_state = "the_thing"
-	icon_living = "the_thing"
-	icon_dead = "the_thing_dead"
+	icon = 'icons/mob/npc/animal.dmi'
+	icon_state = "abomination"
+	icon_living = "abomination"
+	icon_dead = "abomination_dead"
 	tameable = FALSE
 	blood_type = "#490d0d"
 	faction = "abominations"
@@ -344,10 +344,10 @@ GLOBAL_LIST_EMPTY(light_group_3)
 /mob/living/simple_animal/hostile/revivable/abomination
 	name = "abomination"
 	desc = "Its ominous presence is enough to make even the calmest soul shudder. It seems agitated and you probably shouldn't get close to it."
-	icon = 'icons/mob/npc/the_thing.dmi'
-	icon_state = "the_thing"
-	icon_living = "the_thing"
-	icon_dead = "the_thing_dead"
+	icon = 'icons/mob/npc/animal.dmi'
+	icon_state = "abomination"
+	icon_living = "abomination"
+	icon_dead = "abomination_dead"
 
 	mob_soundblock_yell = "/singleton/sound_category/bear_loud"
 	desc_after_death = "One might wonder if the evolution ever had a hand in its creation. Whatever it was, it's now dead, hopefully..."
@@ -450,8 +450,8 @@ GLOBAL_LIST_EMPTY(light_group_3)
 	break_stuff_probability = 10
 	destroy_surroundings = 1
 	speed = initial(speed)
-	icon = 'icons/mob/npc/the_thing.dmi'
-	icon_state = "the_thing"
+	icon = 'icons/mob/npc/animal.dmi'
+	icon_state = "abomination"
 	UpdateOverlays()
 	CutOverlays()
 	name = initial(name)

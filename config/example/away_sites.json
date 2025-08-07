@@ -1,5 +1,5 @@
 {
-  "enable_loading":false,
+  "enable_loading":true,
   "guaranteed_sites":null,
   "away_site_budget":null,
   "away_ship_budget":null
