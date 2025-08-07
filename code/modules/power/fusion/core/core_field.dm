@@ -236,12 +236,12 @@
 /**
  * Handles checks for instability, does bad things if unstable. Instability
  * ranges from 0 to 1.
- * 
+ *
  * Possible consequences:
  * * Field wobbles/ripples (visual only)
  * * Fuel loss (rad spikes)
  * * Flares (bigger rad spikes, bigger wobbles/ripples)
- * * Rupture (you're fucked, we done) 
+ * * Rupture (you're fucked, we done)
  *
  * If instability hits 1, boom. Otherwise, this code looks fucked up, best
  * document details later.
@@ -458,7 +458,7 @@
 
 /**
  * Called as part of our regular Process()
- * 
+ *
  * First, it checks if our current size is intersecting with any
  * offending objects. If it is... Well, it won't be for long, since it'll
  * probably blow up the entire reactor in about 5 seconds.
@@ -516,7 +516,7 @@
  * * Maximum of 10000 reactants present in the pool at a given time.
  * * A random number of reactants are chosen to react in a given cycle.
  * * Reactions follow a priority list- IE deut+trit before deut+deut.
- * * 
+ * *
  */
 /obj/effect/fusion_em_field/proc/React()
 	// Loop through the reactants in random order

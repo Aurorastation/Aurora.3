@@ -176,7 +176,7 @@
 
 /**
  * Removes any null entries from the list.
- * 
+ *
  * Returns TRUE if the list had nulls, FALSE otherwise.
  */
 /proc/listclearnulls(list/L)
@@ -904,7 +904,7 @@
 /datum/alarm/dd_SortValue()
 	return "[sanitize_old(last_name)]"
 
-/** 
+/**
  * Insertion into a sorted list, preserving sortedness using binary search.
  */
 /proc/dd_binaryInsertSorted(var/list/L, var/O)

@@ -376,7 +376,7 @@
  * A list of `/atom/movable` this visual was or will be added into the `vis_contents` of
  */
 /atom/movable/flick_visual
-	
+
 	VAR_PROTECTED/list/atom/movable/owners = null
 
 /atom/movable/flick_visual/New(loc, list/atom/movable/owners)

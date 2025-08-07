@@ -42,7 +42,7 @@
 	var/accessory = null
 	var/suit_accessory = null
 
-	/** 
+	/**
 	 * species specific item paths, in the form of
 	 * thing = list(SPECIES_NAME = /type/path/here)
 	 * if no path is found, the default fallback (var without the species_ prefix) will be used.
@@ -325,7 +325,7 @@
 /**
  * Used to equip an item to the mob. Mainly to prevent copypasta for collect_not_del.
  *
- * * 
+ * *
  */
 /obj/outfit/proc/equip_item(mob/living/carbon/human/H, path, slot, var/override_collect = FALSE, var/item_color, var/datum/callback/callback)
 	var/obj/item/I

@@ -181,7 +181,7 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
  *
  * Returns `TRUE`
  */
-/area/proc/set_lightswitch(var/state) 
+/area/proc/set_lightswitch(var/state)
 	if(isnull(state))
 		state = initial(lightswitch)
 

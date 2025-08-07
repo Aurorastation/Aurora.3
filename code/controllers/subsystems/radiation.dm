@@ -89,7 +89,7 @@ SUBSYSTEM_DEF(radiation)
 		// Okay, now ray trace to find resistence!
 		var/turf/origin = source.source_turf
 		var/working = source.rad_power
-		// Raytracing.
+		// Ray tracing.
 		while(origin != T)
 			origin = get_step_towards(origin, T)
 			// Only get the resistance if we don't already know it.
@@ -100,7 +100,7 @@ SUBSYSTEM_DEF(radiation)
 			// Already affected by a stronger source (or its zero...)
 			if((working <= .) || (working <= RADIATION_THRESHOLD_CUTOFF))
 				break
-		 //Butchered version of the inverse square law. Works for this purpose.
+		// Butchered version of the inverse square law. Works for this purpose.
 		. = max((working / (dist ** 2)), .)
 		if(. <= RADIATION_THRESHOLD_CUTOFF)
 			. = 0

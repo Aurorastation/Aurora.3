@@ -1227,7 +1227,7 @@ lighting determines lighting capturing (optional), suppress_errors suppreses err
 	var/initialpixelx = pixel_x
 	var/initialpixely = pixel_y
 	animate(src, pixel_x = initialpixelx + rand(-pixelshiftx,pixelshiftx), pixel_y = initialpixelx + rand(-pixelshifty,pixelshifty), time = shake_interval, flags = ANIMATION_PARALLEL)
-	 // Start at 3 because we already applied one, and need another to reset.
+	// Start at 3 because we already applied one, and need another to reset.
 	for (var/i in 3 to ((duration / shake_interval)))
 		animate(pixel_x = initialpixelx + rand(-pixelshiftx,pixelshiftx), pixel_y = initialpixely + rand(-pixelshifty,pixelshifty), time = shake_interval)
 	animate(pixel_x = initialpixelx, pixel_y = initialpixely, time = shake_interval)
