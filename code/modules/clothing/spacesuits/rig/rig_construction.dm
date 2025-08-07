@@ -166,7 +166,6 @@
 	rig_type = /obj/item/rig/light/falcata
 	board_type = /obj/item/circuitboard/rig_assembly/combat/falcata
 	target_board_type = /obj/item/circuitboard/rig_assembly/combat/targeting/falcata
-	origin_tech = list(TECH_COMBAT = 1)
 
 ////////////////////////
 ////ILLEGAL ASSEMBLY////
