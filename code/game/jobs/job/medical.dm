@@ -70,9 +70,9 @@
 	economic_modifier = 7
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 30,
-		SPECIES_SKRELL = 60,
-		SPECIES_SKRELL_AXIORI = 60
+		SPECIES_HUMAN = 28,
+		SPECIES_SKRELL = 58,
+		SPECIES_SKRELL_AXIORI = 58
 	)
 
 	access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_PHARMACY, ACCESS_VIROLOGY, ACCESS_GENETICS, ACCESS_EVA)
@@ -94,9 +94,9 @@
 	total_positions = 2
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 30,
-		SPECIES_SKRELL = 60,
-		SPECIES_SKRELL_AXIORI = 60
+		SPECIES_HUMAN = 28,
+		SPECIES_SKRELL = 58,
+		SPECIES_SKRELL_AXIORI = 58
 	)
 
 	access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_PHARMACY, ACCESS_VIROLOGY, ACCESS_GENETICS, ACCESS_EVA)
@@ -208,9 +208,9 @@
 	economic_modifier = 5
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 30,
-		SPECIES_SKRELL = 60,
-		SPECIES_SKRELL_AXIORI = 60
+		SPECIES_HUMAN = 28,
+		SPECIES_SKRELL = 58,
+		SPECIES_SKRELL_AXIORI = 58
 	)
 
 	supervisors = "the chief medical officer"
@@ -323,8 +323,8 @@
 	alt_outfits = list("Paramedic Trainee" = /obj/outfit/job/intern_med/medtech, "Pharmacy Intern" = /obj/outfit/job/intern_med/pharmacist, "Resident Surgeon" = /obj/outfit/job/intern_med/surgeon, "Resident Psychiatrist" = /obj/outfit/job/intern_med/psychiatrist)
 	alt_ages = list("Pharmacy Intern" = list(
 		SPECIES_HUMAN = 25,
-		SPECIES_SKRELL = 58,
-		SPECIES_SKRELL_AXIORI = 58
+		SPECIES_SKRELL = 60,
+		SPECIES_SKRELL_AXIORI = 60
 	),
 	"Resident Physician" = list(
 		SPECIES_HUMAN = 28,
@@ -340,6 +340,11 @@
 		SPECIES_HUMAN = 28,
 		SPECIES_SKRELL = 58,
 		SPECIES_SKRELL_AXIORI = 58
+	),
+	"Paramedic Trainee" = list(
+		SPECIES_HUMAN = 18,
+		SPECIES_SKRELL = 55,
+		SPECIES_SKRELL_AXIORI = 55
 	))
 	total_positions = 2
 	spawn_positions = 2
@@ -348,9 +353,9 @@
 	access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP)
 	minimal_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP)
 	minimum_character_age = list(
-		SPECIES_HUMAN = 18,
-		SPECIES_SKRELL = 50,
-		SPECIES_SKRELL_AXIORI = 50
+		SPECIES_HUMAN = 28,
+		SPECIES_SKRELL = 58,
+		SPECIES_SKRELL_AXIORI = 58
 	)
 	outfit = /obj/outfit/job/intern_med
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
