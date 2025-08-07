@@ -34,7 +34,7 @@
 	. += "When mounted on a mech, it gains the following mechanics:"
 	. += module_hints
 
-// For relaying module mechanics to the parent mech.
+/// Called from the parent mech when a player requests the mech's mechanics hints.
 /obj/item/mecha_equipment/proc/relayed_mechanics_hints(mob/user, distance, is_adjacent)
 	. += module_hints
 
