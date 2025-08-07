@@ -174,7 +174,7 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 /area/proc/is_no_crew_expected()
 	return area_flags & AREA_FLAG_NO_CREW_EXPECTED
 
- /**
+/**
  * Set lights in area.
  *
  * * state - TRUE for on, FALSE for off, NULL for initial state
