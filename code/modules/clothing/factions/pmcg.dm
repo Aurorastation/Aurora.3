@@ -139,3 +139,35 @@
 	desc_extended = "More rugged than traditional medical attire, Nexus's uniforms are designed to be comfortable in every environment, be it the sterile hallways of a Mendell clinic or the battered roads of Mictlan."
 	icon_state = "nexus_med"
 	item_state = "nexus_med"
+
+/obj/item/clothing/under/rank/security/pmc/kog/officer
+	name = "Kazarrhaldiye Operations Group officer uniform"
+	desc= "A uniform used by employees of Kazarrhaldiye Operations Group, a Tajaran mercenary company originating from Little Adhomai. The bronze trim identifies the wearer as a Security Officer."
+	desc_extended = "Kazarrhaldiye Operations Group uniforms were originally created through the repurposing of surplus First Revolution-era uniforms. These rugged and durable uniforms prove to be easily producable, and offer a formal presentation to an otherwise ruthlessly mercenary group."
+	icon_state = "kog_officer"
+	item_state = "kog_officer"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/security/pmc/kog/warden
+	name = "Kazarrhaldiye Operations Group warden uniform"
+	desc= "A uniform used by employees of Kazarrhaldiye Operations Group, a Tajaran mercenary company originating from Little Adhomai. The silver trim identifies the wearer as a Warden."
+	desc_extended = "Kazarrhaldiye Operations Group uniforms were originally created through the repurposing of surplus First Revolution-era uniforms. These rugged and durable uniforms prove to be easily producable, and offer a formal presentation to an otherwise ruthlessly mercenary group."
+	icon_state = "kog_warden"
+	item_state = "kog_warden"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/security/pmc/kog/commander
+	name = "Kazarrhaldiye Operations Group head of security uniform"
+	desc= "A uniform used by employees of Kazarrhaldiye Operations Group, a Tajaran mercenary company originating from Little Adhomai. The gold trim identifies the wearer as a Head of Security."
+	desc_extended = "Kazarrhaldiye Operations Group uniforms were originally created through the repurposing of surplus First Revolution-era uniforms. These rugged and durable uniforms prove to be easily producable, and offer a formal presentation to an otherwise ruthlessly mercenary group."
+	icon_state = "kog_commander"
+	item_state = "kog_commander"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/medical/pmc/kog/medical
+	name = "Kazarrhaldiye Operations Group medical uniform"
+	desc= "A uniform used by employees of Kazarrhaldiye Operations Group, a Tajaran mercenary company originating from Little Adhomai. The bronze trim identifies the wearer as a member of the KOG's medical corp, also known as Messa's Men."
+	desc_extended = "Kazarrhaldiye Operations Group uniforms were originally created through the repurposing of surplus First Revolution-era uniforms. These rugged and durable uniforms prove to be easily producable, and offer a formal presentation to an otherwise ruthlessly mercenary group."
+	icon_state = "kog_medical"
+	item_state = "kog_medical"
+	contained_sprite = TRUE

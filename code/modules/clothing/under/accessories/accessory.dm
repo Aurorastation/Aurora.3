@@ -995,6 +995,27 @@
 	icon_state = "idrissec_patch"
 	overlay_state = "idrissec_patch"
 
+/obj/item/clothing/accessory/sleevepatch/kog/pra
+	name = "\improper KOG Motorheads shoulder tabs"
+	desc = "A patch attached to the shoulders of a uniform or armor. This one denotes the wearer as a member of KOG's PRA division the Motorheads."
+	icon_state = "kog_tabs_pra"
+	overlay_state = "kog_tabs_pra"
+	flippable = 0
+
+/obj/item/clothing/accessory/sleevepatch/kog/ala
+	name = "\improper KOG Last Chancers shoulder tabs"
+	desc = "A patch attached to the shoulders of a uniform or armor. This one denotes the wearer as a member of KOG's DPRA/ALA division the Last Chancers."
+	icon_state = "kog_tabs_ala"
+	overlay_state = "kog_tabs_ala"
+	flippable = 0
+
+/obj/item/clothing/accessory/sleevepatch/kog/nka
+	name = "\improper KOG Starry Knights shoulder tabs"
+	desc = "A patch attached to the shoulders of a uniform or armor. This one denotes the wearer as a member of KOG's NKA division the Starry Knights."
+	icon_state = "kog_tabs_nka"
+	overlay_state = "kog_tabs_nka"
+	flippable = 0
+
 /obj/item/clothing/accessory/kneepads
 	name = "kneepads"
 	desc = "A pair of synthetic kneepads. Doesn't provide protection from more than arthritis."
