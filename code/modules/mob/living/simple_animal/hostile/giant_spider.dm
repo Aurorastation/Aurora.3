@@ -141,7 +141,7 @@
 	armor_penetration = 5
 	ranged = TRUE
 	ranged_attack_range = 4
-	poison_type = /singleton/reagent/acid/greimorian
+	poison_type = /singleton/reagent/acid/gremorian
 	poison_per_bite = 2
 	speed = 5
 	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Exocrinic acid and capsaicin synthesis detected")
