@@ -65,9 +65,9 @@
 	build_path = /obj/item/circuitboard/rig_assembly/illegal/targeting/hacker
 
 /datum/design/circuit/hardsuit/falcata
-	name = "Combat Hardsuit Central Circuit Board"
+	name = "Falcata Exoskeleton Central Circuit Board"
 	build_path = /obj/item/circuitboard/rig_assembly/combat/falcata
 
 /datum/design/circuit/hardsuit/falcata_target
-	name = "Combat Hardsuit Control And Targeting Board"
+	name = "Falcata Exoskeleton Control And Targeting Board"
 	build_path = /obj/item/circuitboard/rig_assembly/combat/targeting/falcata
