@@ -99,3 +99,36 @@
   - rscadd: Readds microwaves. They've got most of their old recipes, give or take.
       They've been remapped in where appropriate.
   - imageadd: Resprites the small oven.
+2025-08-06:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Fixed obj path name for Spark APC.
+  - bugfix: Updated magazine area assignments to include turret controller obj.
+  ChangeMe:
+  - rscadd: Offworlder slowdown is now removed by all hardsuits instead of just the
+      exostellar skeleton.
+  CometBlaze:
+  - rscadd: Exo-stellar skeletons now come with a storage module by default.
+2025-08-07:
+  Batrachophrenoboocosmomachia:
+  - rscadd: Grants Odyssey Storytellers access to 22 different moderator/admin/debug
+      commands to make their lives easier.
+  ElorgRHG:
+  - rscadd: Added colorable versions of some Tajara cloaks to the loadout.
+  - rscadd: Added colorable versions of Tajara fur scarf to the loadout.
+  Hellfirejag:
+  - rscadd: Added missing recipes for mounted Teargas and Smoke grenade launchers
+      to the mechatronic fabricator.
+  - rscadd: Added the falcata exoskeleton as a new low-tier 'combat hardsuit' for
+      machinists to make.
+  MattAtlas:
+  - bugfix: Wall leaning now properly updates mob density, meaning that you can walk
+      through tiles where there are people leaning on walls.
+  - bugfix: Medical items like bandages and ATKs can no longer be used on robotic
+      limbs.
+  - bugfix: Look Up will now follow the user around until they go under a solid tile.
+  - bugfix: TGUI Say Light Mode preference will now actually save.
+  - experiment: Increased the lobby roundstart time.
+  Wowzewow (Wezzy):
+  - bugfix: Hopefully fixes Schlorrgos from breaking unit tests.
+  hazelmouse:
+  - rscadd: Renames cyborg recharging stations to synthetic recharging stations.

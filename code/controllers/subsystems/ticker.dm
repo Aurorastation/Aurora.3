@@ -1,4 +1,4 @@
-#define LOBBY_TIME 180
+#define LOBBY_TIME 150
 
 #define SETUP_OK 0
 #define SETUP_REVOTE 1
@@ -450,7 +450,7 @@ var/datum/controller/subsystem/ticker/SSticker
 		LAZYINITLIST(ready_player_jobs)
 
 		if (dynamic_time <= GLOB.config.vote_autogamemode_timeleft)
-			pregame_timeleft = GLOB.config.vote_autogamemode_timeleft + 10
+			pregame_timeleft = GLOB.config.vote_autogamemode_timeleft + 60
 			LOG_DEBUG("SSticker: dynamic set pregame time [dynamic_time]s was less than or equal to configured autogamemode vote time [GLOB.config.vote_autogamemode_timeleft]s, clamping.")
 		else
 			pregame_timeleft = dynamic_time

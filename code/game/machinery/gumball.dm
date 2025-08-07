@@ -99,7 +99,7 @@
 	playsound(get_turf(src), /singleton/sound_category/glass_break_sound, 75, 1)
 	if(amountleft)
 		var/amountleftinside = amountleft
-		for(var/i = 1;i<=amountleftinside,i++)
+		for(var/i = 1; i<=amountleftinside; i++)
 			new vendingtype(src.loc)
 		src.visible_message("\The [src] shatters and [typeofcandy] fall out on the floor.", "You hear glass shatter!")
 	stat |= BROKEN

@@ -112,11 +112,11 @@
 	else
 		..()
 
-/mob/living/simple_animal/schlorrgo/turf_collision(var/turf/T, var/speed = THROWFORCE_SPEED_DIVISOR)
+/mob/living/simple_animal/schlorrgo/turf_collision(var/turf/T, speed = THROWFORCE_SPEED_DIVISOR, sound_to_play = 'sound/effects/bangtaper.ogg')
 	visible_message(SPAN_WARNING("[src] harmlessly bounces off \the [T]!"))
-	playsound(T, 'sound/effects/bangtaper.ogg', 50, 1, 1)
+	playsound(T, sound_to_play, 50, 1, 1)
 
-/mob/living/simple_animal/schlorrgo/fall_impact()
+/mob/living/simple_animal/schlorrgo/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)
 	visible_message(SPAN_NOTICE("\The [src] bounces after landing!"))
 	playsound(src, 'sound/effects/bangtaper.ogg', 50, 1, 1)
 	audible_emote("[pick(emote_hear)].",0)
