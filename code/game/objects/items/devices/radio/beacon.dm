@@ -42,7 +42,7 @@ GLOBAL_LIST_EMPTY(teleportbeacons)
 
 /obj/item/device/radio/beacon/verb/alter_signal(t as text)
 	set name = "Alter Beacon's Signal"
-	set category = "Object"
+	set category = "Object.Held"
 	set src in usr
 
 	if ((usr.canmove && !( usr.restrained() )))

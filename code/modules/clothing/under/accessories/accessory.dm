@@ -425,8 +425,8 @@
 	protects_against_weather = TRUE
 
 /obj/item/clothing/accessory/poncho/verb/toggle_hide_tail()
-	set name = "Toggle Tail Coverage"
-	set category = "Object"
+	set name = "Toggle Poncho Tail Coverage"
+	set category = "Object.Equipped"
 	set src in usr
 
 	if(allow_tail_hiding)

@@ -881,7 +881,7 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 // Pass lying down or getting up to our pet human, if we're in a rig.
 /mob/living/silicon/ai/lay_down()
 	set name = "Rest"
-	set category = "IC"
+	set category = "IC.Maneuver"
 
 	resting = 0
 	var/obj/item/rig/rig = src.get_rig()
