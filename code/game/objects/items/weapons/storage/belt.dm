@@ -348,6 +348,7 @@
 		/obj/item/device/laser_pointer,
 		/obj/item/device/camera,
 		/obj/item/clipboard,
+		/obj/item/journal/notepad
 		)
 	content_overlays = TRUE
 
