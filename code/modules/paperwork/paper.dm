@@ -131,6 +131,18 @@
 	if(new_text)
 		free_space -= length(strip_html_properly(new_text))
 
+/obj/item/paper/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if (old_name && (icon_state == "paper_plane" || icon_state == "paper_swan"))
+		. += SPAN_NOTICE("You're going to have to unfold it before you can read it.")
+		return
+	if(name != initial(name))
+		. += "It's titled '[name]'."
+	if(distance <= 1)
+		show_content(user)
+	else
+		. += SPAN_NOTICE("You have to go closer if you want to read it.")
+
 /obj/item/paper/proc/show_content(mob/user, forceshow)
 	simple_asset_ensure_is_sent(user, /datum/asset/simple/paper)
 	var/datum/browser/paper_win = new(user, name, null, 450, 500, null, TRUE)
@@ -815,16 +827,6 @@ ABSTRACT_TYPE(/obj/item/paper/fluff)
 			update_icon()
 
 	update_space(src.info)
-
-// Used in the deck 3 cafe on the SCCV Horizon.
-/obj/item/paper/fluff/microwave
-	name = "\improper RE: Where are our microwaves?"
-	desc = "A paper."
-	info = "<font face=\"Verdana\"><font size=\"1\"><i>2464-04-30 04:50 GST</i></font><BR><font size=\"1\"><i>E-Mail Title: RE: Where are our microwaves?</i></font>\
-		<BR>We are sorry for the lack of a microwave, but the transport got misdirected on the way.<BR>-<font face=\"Courier New\"><i>Orion Express Customer \
-		Service</i></font><BR><BR><font size=\"1\"><i>2464-04-30 07:50 GST</i></font><BR><font size=\"1\"><i>E-Mail Title: RE: Where are our microwaves?</i></font>\
-		<BR>We apologize for the lack of a microwave. As compensation, employees are given a donut box. Please enjoy.<BR>-<font face=\"Courier New\"><i>SCC Internal \
-		Affairs</i></font></font>"
 
 /// Used in the bunker on the SCCV Horizon.
 /obj/item/paper/fluff/bunker

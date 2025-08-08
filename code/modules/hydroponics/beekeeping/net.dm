@@ -8,6 +8,10 @@
 	var/caught_bees = 0
 	var/feralbees
 
+/obj/item/bee_net/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This can be used to contain rogue bees, although beware overcrowding the net! If you do, the contained bees may all break out at once."
+
 /obj/item/bee_net/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(caught_bees)

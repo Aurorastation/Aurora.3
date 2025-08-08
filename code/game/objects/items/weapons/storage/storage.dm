@@ -170,10 +170,10 @@
  * * detail_insertions - A boolean, if `TRUE`, `can_be_inserted()` will be told to give feedbacks
  */
 /obj/item/storage/proc/pickup_items_from_loc(mob/user, turf/location, detail_insertions = TRUE)
+	RETURN_TYPE(/list)
 
 	//In the format of list(SUCCESS, FAILURE)
 	var/list/return_status = list(FALSE, FALSE)
-	RETURN_TYPE(return_status)
 
 	var/list/rejections = list()
 
