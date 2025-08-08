@@ -234,6 +234,7 @@
 	src << browse(HTML_SKELETON(dat), "window=checklanguage")
 	return
 
+/// Prompts the silicon mob which HUD to choose from, changes `sensor_mode` depending on choice
 /mob/living/silicon/proc/toggle_sensor_mode()
 	var/sensor_type = tgui_input_list(src, "Please select sensor type.", "Sensor Integration", list("Security", "Medical", "Disable"))
 	switch(sensor_type)

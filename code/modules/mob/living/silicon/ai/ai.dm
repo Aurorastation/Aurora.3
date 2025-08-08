@@ -337,9 +337,9 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 		setup_icon() //this is because the ai custom name is related to the ai name, so, we just call the setup icon after someone named their ai
 	SSrecords.reset_manifest()
 
-/*
-	The AI Power supply is a dummy object used for powering the AI since only machinery should be using power.
-	The alternative was to rewrite a bunch of AI code instead here we are.
+/**
+* The AI Power supply is a dummy object used for powering the AI since only machinery should be using power.
+* The alternative was to rewrite a bunch of AI code instead here we are.
 */
 /obj/machinery/ai_powersupply
 	name = "power supply"
@@ -502,7 +502,7 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 /// Cooldown until `ai_emergency_message()` can be used again (Oh god we need to change this)
 /mob/living/silicon/ai/var/emergency_message_cooldown = 0
 
-/// AI emergency message to Centcom (admins), `emergency_message_cooldown` variable stops spamming of this
+/// AI emergency message to Centcom (admins), `ai_emergency_message()` variable stops spamming of this
 /mob/living/silicon/ai/proc/ai_emergency_message()
 	set category = "AI Commands"
 	set name = "Send Emergency Message"
@@ -629,9 +629,9 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 	src.view_core()
 
 /** Replaces `/mob/living/silicon/ai/verb/change_network()` in ai.dm & camera.dm
-/ Adds in `/mob/living/silicon/ai/proc/ai_network_change()` instead
-/ Addition by Mord_Sith to define AI's network change ability
-**/
+* Adds in `/mob/living/silicon/ai/proc/ai_network_change()` instead
+* Addition by Mord_Sith to define AI's network change ability
+*/
 /mob/living/silicon/ai/proc/get_camera_network_list()
 	if(check_unable())
 		return
@@ -749,8 +749,7 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 
 
 
-/// Handles camera lighting, when toggled.
-/// It will get the nearest camera from the `eyeobj`, lighting it.
+/// Handles camera lighting, when toggled, it will get the nearest camera from the `eyeobj`, lighting it.
 /mob/living/silicon/ai/proc/lightNearbyCamera()
 	if(camera_light_on && camera_light_on < world.timeofday)
 		if(src.camera)
@@ -828,6 +827,7 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 		to_chat(src, "Radio keys: [radio_keys]")
 		src.ai_radio.interact(src)
 
+/// Verb to call `toggle_sensor_mode()` from `silicon.dm`
 /mob/living/silicon/ai/proc/sensor_mode()
 	set name = "Set Sensor Augmentation"
 	set category = "AI Commands"
