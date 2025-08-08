@@ -57,3 +57,7 @@ delete-after: True
 changes:
   - bugfix: "Simple mobs no longer allowed to move at hyper-speed when chasing targets."
   - bugfix: "Objects thrown onto Open Space turfs should more reliably drop down remaining Z-level (if there is gravity)."
+  - bugfix: "Area adjustments to fix D3 bunker turret controls."
+  - bugfix: "Fixed naming convention for scuttling device compartment."
+  - bugfix: "Replaced parent stairwell area with correct child."
+  - bugfix: "Replaces misleading AI shell exosuit charger with synthetic recharger."
