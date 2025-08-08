@@ -1,5 +1,7 @@
 #define AI_CHECK_WIRELESS 1
 #define AI_CHECK_RADIO 2
+#define AI_ANNOUNCEMENT_COOLDOWN 1 MINUTE
+#define AI_EMERGENCY_MESSAGE_COOLDOWN 30 SECONDS
 
 GLOBAL_LIST_INIT_TYPED(ai_list, /mob/living/silicon/ai, list())
 
@@ -81,6 +83,10 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 
 	// Misc variables
 	var/last_announcement = ""
+	/// Uses `world.time` to track when the last announcement was made. Used in `ai_announcement()`
+	var/last_announcement_time
+	/// Uses `world.time` to track when the last emergency message was sent. Used in `ai_emergency_message()`
+	var/last_emergency_message_time
 	/// If TRUE, AI is on backup power (restricts most actions)
 	var/ai_restore_power_routine = FALSE
 	var/view_alerts = FALSE
@@ -89,7 +95,6 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 	var/datum/trackable/track
 	var/control_disabled = FALSE
 	var/multitool_mode = FALSE
-
 	// Malf variables
 	/// Master var that determines if AI is malfunctioning.
 	var/malfunctioning = FALSE
@@ -419,7 +424,7 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 
 	if (!custom_sprite)
 		var/new_sprite = tgui_input_list(src, "Select an icon!", "AI", GLOB.ai_icons, selected_sprite)
-		if(new_sprite) selected_sprite = new_sprite
+		if(new_sprite) selected_sprite = GLOB.ai_icons[new_sprite]
 	update_icon()
 
 /// This verb lets the ai see the stations manifest
@@ -440,31 +445,31 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 	face_atom(A)
 	A.examine(src)
 
-/// Cooldown until `ai_announcement()` can be used again (Oh god we need to change this)
-/mob/living/silicon/ai/var/message_cooldown = 0
-
-/// AI announcements, `message_cooldown` variable stops spamming of this
+/**
+ * AI verb to make announcements
+ *
+ * `last_announcement_time` is compared with `world.time` and `AI_ANNOUNCEMENT_COOLDOWN` to prevent announcement spam
+ */
 /mob/living/silicon/ai/proc/ai_announcement()
 	set category = "AI Commands"
 	set name = "Make Station Announcement"
 
 	if(check_unable(AI_CHECK_WIRELESS | AI_CHECK_RADIO))
-		return
+		return FALSE
 
-	if(message_cooldown)
-		to_chat(src, "Please allow one minute to pass between announcements.")
-		return
+	if((world.time - last_announcement_time) < AI_ANNOUNCEMENT_COOLDOWN)
+		to_chat(src, SPAN_WARNING("You need to wait <b>[DisplayTimeText(AI_ANNOUNCEMENT_COOLDOWN - (world.time - last_announcement_time))]</b> before you can make another announcement."))
+		return FALSE
 	var/input = tgui_input_text(usr, "Please write a message to announce to the [station_name(TRUE)] crew.", "A.I. Announcement", multiline = TRUE)
 	if(!input)
-		return
+		return FALSE
 
 	if(check_unable(AI_CHECK_WIRELESS | AI_CHECK_RADIO))
-		return
+		return FALSE
 
 	announcement.Announce(input)
-	message_cooldown = 1
-	spawn(600)//One minute cooldown
-		message_cooldown = 0
+	last_announcement_time = world.time
+	return TRUE
 
 /// Allows AI to call evacuation
 /mob/living/silicon/ai/proc/ai_call_shuttle()
@@ -499,31 +504,32 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 	if(confirm == "Yes")
 		cancel_call_proc(src)
 
-/// Cooldown until `ai_emergency_message()` can be used again (Oh god we need to change this)
-/mob/living/silicon/ai/var/emergency_message_cooldown = 0
-
-/// AI emergency message to Centcom (admins), `ai_emergency_message()` variable stops spamming of this
+/**
+ * AI verb to send emergency message to Centcom (admins)
+ *
+ * `last_emergency_message_time` is compared with `world.time` and `AI_EMERGENCY_MESSAGE_COOLDOWN` to reduce message spam
+ */
 /mob/living/silicon/ai/proc/ai_emergency_message()
 	set category = "AI Commands"
 	set name = "Send Emergency Message"
 
 	if(check_unable(AI_CHECK_WIRELESS))
-		return
+		return FALSE
 	if(!is_relay_online())
 		to_chat(usr, SPAN_WARNING("No Emergency Bluespace Relay detected. Unable to transmit message."))
-		return
-	if(emergency_message_cooldown)
-		to_chat(usr, SPAN_WARNING("Arrays recycling. Please stand by."))
-		return
+		return FALSE
+	if((world.time - last_emergency_message_time) < AI_EMERGENCY_MESSAGE_COOLDOWN)
+		to_chat(src, SPAN_WARNING("Arrays are recycling. You need to wait <b>[DisplayTimeText(AI_EMERGENCY_MESSAGE_COOLDOWN - (world.time - last_emergency_message_time))]</b> before you can send another message."))
+		return FALSE
 	var/input = sanitize(input(usr, "Please choose a message to transmit to [SSatlas.current_map.boss_short] via quantum entanglement.  Please be aware that this process is very expensive, and abuse will lead to... termination.  Transmission does not guarantee a response. There is a 30 second delay before you may send another message, be clear, full and concise.", "To abort, send an empty message.", ""))
 	if(!input)
-		return
+		return FALSE
+
 	Centcomm_announce(input, usr)
 	to_chat(usr, SPAN_NOTICE("Message transmitted."))
 	log_say("[key_name(usr)] has made an AI [SSatlas.current_map.boss_short] announcement: [input]")
-	emergency_message_cooldown = 1
-	spawn(300)
-		emergency_message_cooldown = 0
+	last_emergency_message_time = world.time
+	return TRUE
 
 
 /mob/living/silicon/ai/check_eye(var/mob/user as mob)
@@ -532,7 +538,7 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 	return 0
 
 /mob/living/silicon/ai/restrained()
-	return 0
+	return FALSE
 
 /mob/living/silicon/ai/emp_act(severity)
 	. = ..()
