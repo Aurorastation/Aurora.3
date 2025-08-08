@@ -6,6 +6,11 @@
 	icon_state = "mecha_taser"
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND, HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 	restricted_software = list(MECH_SOFTWARE_WEAPONS)
+	module_hints = list(
+		"<b>Left Click:</b> Fire a projectile in the target direction.",
+		"A mech can only fire within a 90 degree arc in the direction it is currently facing.",
+		"This weapon passively regenerates its ammunition using the mech's power supply.",
+	)
 
 /obj/item/mecha_equipment/mounted_system/combat/CtrlClick(mob/user)
 	if(owner && istype(holding, /obj/item/gun))
@@ -288,6 +293,12 @@
 	var/cooldown = 3.5 SECONDS // Time until we can recharge again after a blocked impact
 	restricted_hardpoints = list(HARDPOINT_BACK)
 	restricted_software = list(MECH_SOFTWARE_WEAPONS)
+	module_hints = list(
+		"<b>Alt Click(Icon):</b> Activates the shield drone.",
+		"When active, a large energy shield will appear in the mech's front facing arc.",
+		"The shield consumes a kilowatt of power each second while active.",
+		"It also consumes power to block incoming damage, and will shut down if it runs out.",
+	)
 
 /obj/item/mecha_equipment/shield/installed(mob/living/heavy_vehicle/_owner)
 	. = ..()
@@ -366,6 +377,10 @@
 
 /obj/item/mecha_equipment/shield/get_hardpoint_maptext()
 	return "[(aura && aura.active) ? "ONLINE" : "OFFLINE"]: [round((charge / max_charge) * 100)]%"
+
+/obj/item/mecha_equipment/shield/Destroy()
+	aura = null
+	return ..()
 
 /obj/aura/mechshield
 	icon = 'icons/mecha/shield.dmi'

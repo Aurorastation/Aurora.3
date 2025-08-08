@@ -182,6 +182,9 @@
 
 /**
  * Builds the text block variables for get_examine_text
+ * Builds the text block variables for get_examine_text.
+ * Objects themselves are responsible for handling their own logic to build these hints.
+ * See mecha.dm for an example of a system that relays hints from contained items to a parent.
  */
 /atom/proc/update_desc_blocks(mob/user, distance, is_adjacent)
 	var/list/mechanics_hints = mechanics_hints(user, distance, is_adjacent)
