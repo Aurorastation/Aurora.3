@@ -202,8 +202,9 @@ SUBSYSTEM_DEF(throwing)
 	if(!thrownthing)
 		return
 	thrownthing.throwing = null
+	var/turf/thrownthing_turf = get_turf(thrownthing)
 	if (!hit)
-		for (var/atom/movable/obstacle as anything in get_turf(thrownthing)) //looking for our target on the turf we land on.
+		for (var/atom/movable/obstacle as anything in thrownthing_turf) //looking for our target on the turf we land on.
 			if (obstacle == target)
 				hit = TRUE
 				thrownthing.throw_impact(obstacle, src)
@@ -211,7 +212,7 @@ SUBSYSTEM_DEF(throwing)
 					return //deletion should already be handled by on_thrownthing_qdel()
 				break
 		if (!hit)
-			thrownthing.throw_impact(get_turf(thrownthing), src)  // we haven't hit something yet and we still must, let's hit the ground.
+			thrownthing.throw_impact(thrownthing_turf, src)  // we haven't hit something yet and we still must, let's hit the ground.
 			if(QDELETED(thrownthing)) //throw_impact can delete things, such as glasses smashing
 				return //deletion should already be handled by on_thrownthing_qdel()
 			thrownthing.newtonian_move(init_dir)
@@ -227,7 +228,7 @@ SUBSYSTEM_DEF(throwing)
 		callback.Invoke()
 
 	// Stopped on an open turf? Finish the job, gravity!
-	if(is_open(get_turf(thrownthing)))
+	if(thrownthing_turf.is_open())
 		ADD_FALLING_ATOM(thrownthing)
 
 	if(thrownthing)

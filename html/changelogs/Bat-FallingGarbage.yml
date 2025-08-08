@@ -55,4 +55,5 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
+  - bugfix: "Simple mobs no longer allowed to move at hyper-speed when chasing targets."
   - bugfix: "Objects thrown onto Open Space turfs should more reliably drop down remaining Z-level (if there is gravity)."
