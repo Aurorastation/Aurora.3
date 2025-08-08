@@ -548,10 +548,10 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 	color = "#d8ff00"
 	value = 0
 
-/// Acid used by Gremorians. More toxic but significantly less acidic
-/singleton/reagent/acid/gremorian
-	name = "Gremorian Acid"
-	description = "Gremorian acid commonly used by bombardiers. Very toxic but hardly acidic."
+/// Acid used by Greimorians. More toxic but significantly less acidic
+/singleton/reagent/acid/greimorian
+	name = "Greimorian Acid"
+	description = "Greimorian acid commonly used by bombardiers. Very toxic but hardly acidic."
 	taste_description = "coppery foulness"
 	reagent_state = LIQUID
 	color = "#aecc04"
