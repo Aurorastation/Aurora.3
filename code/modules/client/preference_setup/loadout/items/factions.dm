@@ -452,26 +452,34 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	gear_tweaks += new /datum/gear_tweak/path(pmcg_sec_uniforms)
 	gear_tweaks += list(GLOB.gear_tweak_uniform_rolled_state)
 
-/datum/gear/faction/kog_uniform_officer
-	display_name = "Kazarrhaldiye Operations Group officer uniform"
-	path = /obj/item/clothing/under/rank/security/pmc/kog/officer
+/datum/gear/faction/kog_jacket_officer
+	display_name = "Kazarrhaldiye Operations Group security uniform"
+	path = /obj/item/clothing/under/rank/security/pmc/kog/uniform
 	slot = slot_w_uniform
+	faction = "Private Military Contracting Group"
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	allowed_roles = list("Security Officer", "Warden", "Head of Security", "Security Personnel")
+
+/datum/gear/faction/kog_jacket_officer
+	display_name = "Kazarrhaldiye Operations Group officer jacket"
+	path = /obj/item/clothing/accessory/rank/security/pmc/kog/officer
+	slot = slot_wear_suit
 	faction = "Private Military Contracting Group"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	allowed_roles = list("Security Officer", "Security Personnel")
 
-/datum/gear/faction/kog_uniform_warden
-	display_name = "Kazarrhaldiye Operations Group warden uniform"
-	path = /obj/item/clothing/under/rank/security/pmc/kog/warden
-	slot = slot_w_uniform
+/datum/gear/faction/kog_jacket_warden
+	display_name = "Kazarrhaldiye Operations Group warden jacket"
+	path = /obj/item/clothing/accessory/rank/security/pmc/kog/warden
+	slot = slot_wear_suit
 	faction = "Private Military Contracting Group"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	allowed_roles = list("Warden", "Security Personnel")
 
-/datum/gear/faction/kog_uniform_commander
-	display_name = "Kazarrhaldiye Operations Group head of security uniform"
-	path = /obj/item/clothing/under/rank/security/pmc/kog/commander
-	slot = slot_w_uniform
+/datum/gear/faction/kog_jacket_commander
+	display_name = "Kazarrhaldiye Operations Group head of security jacket"
+	path = /obj/item/clothing/accessory/rank/security/pmc/kog/commander
+	slot = slot_wear_suit
 	faction = "Private Military Contracting Group"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI)
 	allowed_roles = list("Head of Security", "Security Personnel")
@@ -563,6 +571,14 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	display_name = "Kazarrhaldiye Operations Group medical uniform"
 	path = /obj/item/clothing/under/rank/medical/pmc/kog/medical
 	slot = slot_w_uniform
+	faction = "Private Military Contracting Group"
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	allowed_roles = list("Medical Intern", "Paramedic","Physician","Surgeon", "Psychiatrist", "Medical Personnel")
+
+/datum/gear/faction/kog_jacket_med
+	display_name = "Kazarrhaldiye Operations Group medical jacket"
+	path = /obj/item/clothing/accessory/rank/medical/pmc/kog/medical
+	slot = slot_wear_suit
 	faction = "Private Military Contracting Group"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	allowed_roles = list("Medical Intern", "Paramedic","Physician","Surgeon", "Psychiatrist", "Medical Personnel")
