@@ -55,19 +55,23 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 	var/carded
 
 	// Holopad and holograms
-	var/mob/holo_icon // an abstract mob used to store icon info
-	var/hologram_follow = TRUE //This is used for the AI eye, to determine if a holopad's hologram should follow it or not
+	/// An abstract mob used to store icon info
+	var/mob/holo_icon
+	/// This is used for the AI eye, to determine if a holopad's hologram should follow it or not
+	var/hologram_follow = TRUE
 
 	// Equipment
+	/// What camera network the AI can view
 	var/list/network = list("Station")
 	var/obj/machinery/camera/camera
-	var/list/cameraRecords = list() //For storing what is shown to the cameras
+	/// For storing what is shown to the cameras
+	var/list/cameraRecords = list()
 	var/obj/item/device/multitool/ai_multi
 	var/obj/item/device/radio/headset/heads/ai_integrated/ai_radio
 	var/datum/announcement/priority/announcement
 	var/obj/machinery/ai_powersupply/psupply
 
-	// Borgs
+	/// Borgs linked to AI
 	var/list/connected_robots = list()
 
 	// Damage variables
@@ -77,35 +81,56 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 
 	// Misc variables
 	var/last_announcement = ""
+	/// If TRUE, AI is on backup power (restricts most actions)
 	var/ai_restore_power_routine = FALSE
 	var/view_alerts = FALSE
-	var/camera_light_on = FALSE //Defines if the AI toggled the light on the camera it's looking through.
+	/// Defines if the AI toggled the light on the camera it's looking through.
+	var/camera_light_on = FALSE
 	var/datum/trackable/track
 	var/control_disabled = FALSE
 	var/multitool_mode = FALSE
 
 	// Malf variables
-	var/malfunctioning = FALSE					// Master var that determines if AI is malfunctioning.
-	var/datum/malf_hardware/hardware			// Installed piece of hardware.
-	var/datum/malf_research/research			// Malfunction research datum.
-	var/obj/machinery/power/apc/hack			// APC that is currently being hacked.
-	var/list/hacked_apcs = list()				// List of all hacked APCs
-	var/APU_power = FALSE						// If set to 1 AI runs on APU power
-	var/hacking = FALSE							// Set to 1 if AI is hacking APC, cyborg, other AI, or running system override.
-	var/system_override = FALSE					// Set to 1 if system override is initiated, 2 if succeeded.
-	var/synthetic_takeover = FALSE				// 1 is started, 2 is complete.
-	var/hack_can_fail = TRUE					// If 0, all abilities have zero chance of failing.
-	var/hack_fails = 0							// This increments with each failed hack, and determines the warning message text.
-	var/errored = FALSE							// Set to 1 if runtime error occurs. Only way of this happening i can think of is admin fucking up with varedit.
-	var/bombing_core = FALSE					// Set to 1 if core auto-destruct is activated
-	var/bombing_station = FALSE					// Set to 1 if station nuke auto-destruct is activated
-	var/bombing_time = 1200						// How much time is remaining for the nuke
-	var/override_CPUStorage = 0					// Bonus/Penalty CPU Storage. For use by admins/testers.
-	var/override_CPURate = 0					// Bonus/Penalty CPU generation rate. For use by admins/testers.
+	/// Master var that determines if AI is malfunctioning.
+	var/malfunctioning = FALSE
+	/// Installed piece of Malfunction hardware.
+	var/datum/malf_hardware/hardware
+	/// Malfunction research datum.
+	var/datum/malf_research/research
+	/// APC that is currently being hacked.
+	var/obj/machinery/power/apc/hack
+	/// List of all hacked APCs
+	var/list/hacked_apcs = list()
+	/// If set to TRUE AI runs on APU power
+	var/APU_power = FALSE
+	/// Set to TRUE if AI is hacking APC, cyborg, other AI, or running system override.
+	var/hacking = FALSE
+	/// Set to 1 if system override is initiated, 2 if succeeded.
+	var/system_override = 0
+	/// Set to 1 if synthetic takeover has started, 2 if it is complete.
+	var/synthetic_takeover = FALSE
+	/// If FALSE, all abilities have zero chance of failing.
+	var/hack_can_fail = TRUE
+	/// This increments with each failed hack, and determines the warning message text.
+	var/hack_fails = 0
+	/// Set to TRUE if runtime error occurs. Only way of this happening i can think of is admin fucking up with varedit.
+	var/errored = FALSE
+	/// Set to TRUE if core auto-destruct is activated
+	var/bombing_core = FALSE
+	/// Set to TRUE if station nuke auto-destruct is activated
+	var/bombing_station = FALSE
+	/// How much time is remaining for the nuke
+	var/bombing_time = 1200
+	/// Bonus/Penalty CPU Storage. For use by admins/testers.
+	var/override_CPUStorage = 0
+	/// Bonus/Penalty CPU generation rate. For use by admins/testers.
+	var/override_CPURate = 0
 
 	// Sprites
-	var/datum/ai_icon/selected_sprite			// The selected icon set
-	var/custom_sprite = FALSE 				// Whether the selected icon is custom
+	/// The selected icon set
+	var/datum/ai_icon/selected_sprite
+	/// Whether the selected icon is custom
+	var/custom_sprite = FALSE
 
 /mob/living/silicon/ai/proc/add_ai_verbs()
 	add_verb(src, GLOB.ai_verbs_default)
@@ -293,6 +318,7 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 	set src = usr.contents
 	return FALSE
 
+/// proc override for AI SetName()
 /mob/living/silicon/ai/SetName(pickedName as text)
 	..()
 	announcement.announcer = pickedName
@@ -396,13 +422,13 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 		if(new_sprite) selected_sprite = new_sprite
 	update_icon()
 
-// this verb lets the ai see the stations manifest
+/// This verb lets the ai see the stations manifest
 /mob/living/silicon/ai/proc/ai_roster()
 	set category = "AI Commands"
 	set name = "Show Crew Manifest"
 	SSrecords.open_manifest_tgui(usr)
 
-//AI Examine code
+/// AI Examine code
 /mob/living/silicon/ai/proc/ai_examine(atom/A as mob|obj|turf in view(src.eyeobj))
 	set category = "AI Commands"
 	set name = "Examine"
@@ -414,7 +440,10 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 	face_atom(A)
 	A.examine(src)
 
+/// Cooldown until `ai_announcement()` can be used again (Oh god we need to change this)
 /mob/living/silicon/ai/var/message_cooldown = 0
+
+/// AI announcements, `message_cooldown` variable stops spamming of this
 /mob/living/silicon/ai/proc/ai_announcement()
 	set category = "AI Commands"
 	set name = "Make Station Announcement"
@@ -437,6 +466,7 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 	spawn(600)//One minute cooldown
 		message_cooldown = 0
 
+/// Allows AI to call evacuation
 /mob/living/silicon/ai/proc/ai_call_shuttle()
 	set category = "AI Commands"
 	set name = "Call Evacuation"
@@ -454,6 +484,7 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 
 	post_display_status("shuttle")
 
+/// Allows AI to cancel evacuation
 /mob/living/silicon/ai/proc/ai_recall_shuttle()
 	set category = "AI Commands"
 	set name = "Cancel Evacuation"
@@ -468,7 +499,10 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 	if(confirm == "Yes")
 		cancel_call_proc(src)
 
+/// Cooldown until `ai_emergency_message()` can be used again (Oh god we need to change this)
 /mob/living/silicon/ai/var/emergency_message_cooldown = 0
+
+/// AI emergency message to Centcom (admins), `emergency_message_cooldown` variable stops spamming of this
 /mob/living/silicon/ai/proc/ai_emergency_message()
 	set category = "AI Commands"
 	set name = "Send Emergency Message"
@@ -594,9 +628,10 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 	//src.cameraFollow = null
 	src.view_core()
 
-//Replaces /mob/living/silicon/ai/verb/change_network() in ai.dm & camera.dm
-//Adds in /mob/living/silicon/ai/proc/ai_network_change() instead
-//Addition by Mord_Sith to define AI's network change ability
+/** Replaces `/mob/living/silicon/ai/verb/change_network()` in ai.dm & camera.dm
+/ Adds in `/mob/living/silicon/ai/proc/ai_network_change()` instead
+/ Addition by Mord_Sith to define AI's network change ability
+**/
 /mob/living/silicon/ai/proc/get_camera_network_list()
 	if(check_unable())
 		return
@@ -633,7 +668,6 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 			eyeobj.setLoc(get_turf(C))
 			break
 	to_chat(src, SPAN_NOTICE("Switched to [network] camera network."))
-//End of code by Mord_Sith
 
 /mob/living/silicon/ai/proc/ai_statuschange()
 	set category = "AI Commands"
@@ -695,7 +729,7 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 	holo_icon.set_invisibility(0)
 	holo_icon.icon = I
 
-//Toggles the luminosity and applies it by re-entereing the camera.
+/// Toggles the luminosity and applies it by re-entereing the camera.
 /mob/living/silicon/ai/proc/toggle_camera_light()
 	set name = "Toggle Camera Light"
 	set desc = "Toggles the light on the camera the AI is looking through."
@@ -715,9 +749,8 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 
 
 
-// Handled camera lighting, when toggled.
-// It will get the nearest camera from the eyeobj, lighting it.
-
+/// Handles camera lighting, when toggled.
+/// It will get the nearest camera from the `eyeobj`, lighting it.
 /mob/living/silicon/ai/proc/lightNearbyCamera()
 	if(camera_light_on && camera_light_on < world.timeofday)
 		if(src.camera)
@@ -829,6 +862,7 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 	else
 		SSvirtualreality.mind_transfer(src, choice)
 
+/// AI verb to toggle `hologram_follow`
 /mob/living/silicon/ai/proc/toggle_hologram_movement()
 	set name = "Toggle Hologram Movement"
 	set category = "AI Commands"
@@ -837,6 +871,7 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 	hologram_follow = !hologram_follow
 	to_chat(usr, "<span class='info'>Your hologram will now [hologram_follow ? "follow" : "no longer follow"] you.</span>")
 
+/// Checks if AI is able to perform certain actions by checking if dead, depowered, disconnected, etc.
 /mob/living/silicon/ai/proc/check_unable(var/flags = 0, var/feedback = 1)
 	if(stat == DEAD)
 		if(feedback) to_chat(src, SPAN_WARNING("You are dead!"))
@@ -858,6 +893,7 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 /mob/living/silicon/ai/proc/is_in_chassis()
 	return istype(loc, /turf)
 
+/// AI verb to toggle `multitool_mode`
 /mob/living/silicon/ai/proc/multitool_mode()
 	set name = "Toggle Multitool Mode"
 	set category = "AI Commands"
@@ -878,7 +914,7 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 		icon_state = selected_sprite.alive_icon
 		set_light(1, 1, selected_sprite.alive_light)
 
-// Pass lying down or getting up to our pet human, if we're in a rig.
+/// Pass lying down or getting up to our pet human, if we're in a rig.
 /mob/living/silicon/ai/lay_down()
 	set name = "Rest"
 	set category = "IC"
@@ -904,8 +940,9 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 	cameraRecords += list(s)
 	return cameraRecords.len
 
+/// Checks if AI is on backup power by checking`ai_restore_power_routine`. Returns TRUE if `ai_restore_power_routine` is FALSE
 /mob/living/silicon/ai/proc/has_power()
-	return (ai_restore_power_routine == 0)
+	return (ai_restore_power_routine == FALSE)
 
 #undef AI_CHECK_WIRELESS
 #undef AI_CHECK_RADIO
