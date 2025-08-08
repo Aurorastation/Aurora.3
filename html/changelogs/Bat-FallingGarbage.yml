@@ -61,3 +61,4 @@ changes:
   - bugfix: "Fixed naming convention for scuttling device compartment."
   - bugfix: "Replaced parent stairwell area with correct child."
   - bugfix: "Replaces misleading AI shell exosuit charger with synthetic recharger."
+  - qol: "Replaces the Engi break room stripped-down soda dispenser with stripped-down coffee dispenser."
