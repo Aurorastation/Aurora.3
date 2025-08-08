@@ -193,8 +193,9 @@
  * [`COMSIG_ATOM_EXIT`].
  */
 /atom/movable/Uncross()
-	. = TRUE
 	SHOULD_NOT_OVERRIDE(TRUE)
+
+	. = TRUE
 	CRASH("Uncross() should not be being called, please read the doc-comment for it for why.")
 
 /**
