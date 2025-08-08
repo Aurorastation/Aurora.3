@@ -318,7 +318,7 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 	set src = usr.contents
 	return FALSE
 
-/// proc override for AI SetName()
+/// Proc override for AI SetName()
 /mob/living/silicon/ai/SetName(pickedName as text)
 	..()
 	announcement.announcer = pickedName
