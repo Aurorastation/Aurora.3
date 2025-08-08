@@ -452,7 +452,7 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
  */
 /mob/living/silicon/ai/proc/ai_announcement()
 	set category = "AI Commands"
-	set name = "Make Station Announcement"
+	set name = "Make Ship-wide Announcement"
 
 	if(check_unable(AI_CHECK_WIRELESS | AI_CHECK_RADIO))
 		return FALSE
@@ -527,7 +527,7 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 
 	Centcomm_announce(input, usr)
 	to_chat(usr, SPAN_NOTICE("Message transmitted."))
-	log_say("[key_name(usr)] has made an AI [SSatlas.current_map.boss_short] announcement: [input]")
+	log_say("[key_name(usr)] has sent a message to [SSatlas.current_map.boss_short]: [input]")
 	last_emergency_message_time = world.time
 	return TRUE
 
@@ -952,3 +952,5 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 
 #undef AI_CHECK_WIRELESS
 #undef AI_CHECK_RADIO
+#undef AI_ANNOUNCEMENT_COOLDOWN
+#undef AI_EMERGENCY_MESSAGE_COOLDOWN
