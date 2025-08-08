@@ -1,6 +1,0 @@
-author: Hellfirejag
-delete-after: True
-changes:
-  - rscadd: "Added mechanics examine text for mech modules. Uniquely, examining a mech lets you see the mechanics of its equipped modules."
-  - rscadd: "Mech ore summoners can now be linked to warp extraction ore boxes."
-  - refactor: "Removed all lag-inducing hard deletes from mech code."
