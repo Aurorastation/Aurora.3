@@ -33,9 +33,15 @@ BLIND     // can't see anything
 	var/activated_color = null
 	var/normal_layer = GLASSES_LAYER
 	var/shatter_material = /obj/item/material/shard
+	var/brand_name
 	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER)
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
+
+/obj/item/clothing/glasses/Initialize()
+	. = ..()
+	if(brand_name)
+		desc += " This pair has been made in [brand_name] colors."
 
 // Called in mob/RangedAttack() and mob/UnarmedAttack.
 /obj/item/clothing/glasses/proc/Look(var/atom/A, mob/user, var/proximity)
@@ -365,7 +371,6 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/safety/goggles/tactical
 	name = "tactical goggles"
 	desc = "A stylish pair of tactical goggles that protect the eyes from aerosolized chemicals, debris and bright flashes."
-	var/brand_name
 	icon_state = "military_goggles"
 	var/sprite_state = "military_goggles"
 	// Implementing this temporarily to use the generic goggle inhands until unique sprites are made.
@@ -381,8 +386,6 @@ BLIND     // can't see anything
 	item_state = sprite_state
 	off_state = sprite_state
 	. = ..()
-	if(brand_name)
-		desc += " This pair has been made in [brand_name] colors."
 
 /obj/item/clothing/glasses/safety/goggles/tactical/handle_additional_changes()
 	flash_protection = up ? FLASH_PROTECTION_NONE : FLASH_PROTECTION_MODERATE
@@ -395,7 +398,6 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/safety/goggles/goon
 	name = "tactical goggles"
 	desc = "A stylish pair of tactical goggles that protect the eyes from aerosolized chemicals, debris and bright flashes. Comes with a security HUD."
-	var/brand_name
 	icon_state = "security_goggles"
 	var/sprite_state = "security_goggles"
 	// Implementing this temporarily to use the generic goggle inhands until unique sprites are made.
@@ -411,8 +413,6 @@ BLIND     // can't see anything
 	item_state = sprite_state
 	off_state = sprite_state
 	. = ..()
-	if(brand_name)
-		desc += " This pair has been made in [brand_name] colors."
 
 /obj/item/clothing/glasses/safety/goggles/goon/process_hud(var/mob/M)
 	if(!up)
@@ -443,7 +443,6 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/safety/goggles/medical
 	name = "medical goggles"
 	desc = "A stylish pair of medical goggles that protect the eyes from aerosolized chemicals and debris. Comes with a medical HUD."
-	var/brand_name
 	icon_state = "security_goggles"
 	var/sprite_state = "security_goggles"
 	// Implementing this temporarily to use the generic goggle inhands until unique sprites are made.
@@ -458,8 +457,6 @@ BLIND     // can't see anything
 	item_state = sprite_state
 	off_state = sprite_state
 	. = ..()
-	if(brand_name)
-		desc += " This pair has been made in [brand_name] colors."
 
 /obj/item/clothing/glasses/safety/goggles/medical/process_hud(var/mob/M)
 	if(!up)
