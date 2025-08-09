@@ -1158,10 +1158,10 @@
 	icon_state = "sharkplushie"
 	phrase = "Gashunk!"
 
-/obj/item/toy/plushie/greimorian
-	name = "greimorian plushie"
-	desc = "A lovable plushie of a fierce greimorian! This one takes a few liberties."
-	icon_state = "greimorianplushie"
+/obj/item/toy/plushie/gremorian
+	name = "gremorian plushie"
+	desc = "A lovable plushie of a fierce gremorian! This one takes a few liberties."
+	icon_state = "gremorianplushie"
 	phrase = "Gort!"
 
 /obj/item/toy/plushie/axic
