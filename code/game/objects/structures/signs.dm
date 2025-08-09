@@ -12,7 +12,7 @@
 	layer = ABOVE_WINDOW_LAYER
 	w_class = WEIGHT_CLASS_NORMAL
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
-	/// Indicates whether the sign is made of heavy material or not. If set true, the sign will play metal sounds when picked up or dropped.
+	/// If set to 'True', it'll spawn a heavy sign item instead in `unfasten()` act.
 	var/heavy_sign = FALSE
 
 /obj/structure/sign/ex_act(severity)
@@ -27,19 +27,15 @@
 
 /obj/structure/sign/proc/unfasten(mob/user)
 	user.visible_message(SPAN_NOTICE("\The [user] unfastens \the [src]."), SPAN_NOTICE("You unfasten \the [src]."))
-	var/obj/item/sign/S = new(src.loc)
+	var/obj/item/sign/S
+	if(heavy_sign)
+		S = new /obj/item/sign/heavy(src.loc)
+	else
+		S = new /obj/item/sign(src.loc)
 	S.name = name
 	S.desc = desc
 	S.icon_state = icon_state
 	S.sign_state = icon_state
-	S.heavy_sign = heavy_sign
-	if(heavy_sign)
-		S.throw_speed = 3
-		S.throw_range = 3
-		S.force = 10
-		S.throwforce = 10
-		S.drop_sound = 'sound/items/drop/axe.ogg'
-		S.pickup_sound = 'sound/items/pickup/axe.ogg'
 	qdel(src)
 
 /obj/item/sign
@@ -48,8 +44,14 @@
 	icon = 'icons/obj/signs.dmi'
 	w_class = WEIGHT_CLASS_HUGE
 	var/sign_state = ""
-	/// Inherited in between item and structure instances.
-	var/heavy_sign = FALSE
+
+/obj/item/sign/heavy
+	throw_speed = 3
+	throw_range = 3
+	force = 10
+	throwforce = 10
+	drop_sound = 'sound/items/drop/axe.ogg'
+	pickup_sound = 'sound/items/pickup/axe.ogg'
 
 /obj/item/sign/attackby(obj/item/attacking_item, mob/user) // Construction.
 	if(attacking_item.isscrewdriver() && isturf(user.loc))
@@ -71,7 +73,8 @@
 		S.name = name
 		S.desc = desc
 		S.icon_state = sign_state
-		S.heavy_sign = heavy_sign
+		if(istype(src, /obj/item/sign/heavy))
+			S.heavy_sign = TRUE
 		to_chat(user, "You fasten \the [S] with your [attacking_item].")
 		qdel(src)
 	else ..()
