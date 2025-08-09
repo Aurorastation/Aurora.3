@@ -32,6 +32,10 @@
 	var/firewall = TRUE
 	/// If peer-to-peer communication (done through Neural Configuration) is allowed.
 	var/p2p_communication_allowed = TRUE
+	/// Burst damage counter. Starts at 0. See See code\datums\components\synthetic_burst_damage\synthetic_burst_damage.dm
+	var/burst_damage_counter = 0
+	/// Maximum burst damage points we can have. See See code\datums\components\synthetic_burst_damage\synthetic_burst_damage.dm
+	var/burst_damage_maximum = 3
 
 /obj/item/organ/internal/machine/posibrain/Initialize(mapload)
 	stored_mmi = new robotic_brain_type(src)
@@ -127,6 +131,21 @@
 		to_chat(owner, SPAN_DANGER("Your internal software throws exceptions at you: faulty systems detected! Warning! Warning!"))
 
 /**
+ * This proc clears the burst damage counter
+ * See code\datums\components\synthetic_burst_damage\synthetic_burst_damage.dm
+ */
+/obj/item/organ/internal/machine/posibrain/proc/clear_burst_damage_counter()
+	burst_damage_counter = 0
+
+/**
+ * This proc adds to the burst damage counter. The more burst damage we sustain, the greater debilitation we suffer, and the more time it takes to recover.
+ * See code\datums\components\synthetic_burst_damage\synthetic_burst_damage.dm
+ */
+/obj/item/organ/internal/machine/posibrain/proc/add_burst_damage_counter()
+	burst_damage_counter = min(burst_damage_counter + 1, burst_damage_maximum)
+	handle_burst_damage()
+
+/**
  * Generates a random hex number for cool hacking aesthetic.
  */
 /obj/item/organ/internal/machine/posibrain/proc/generate_hex()
@@ -174,6 +193,16 @@
 				add_fragmentation(damage_healed / 2)
 				last_patch_time = world.time
 
+	handle_fragmentation()
+
+	evaluate_damage()
+
+	..()
+
+/**
+ * Handles fragmentation effects.
+ */
+/obj/item/organ/internal/machine/posibrain/proc/handle_fragmentation()
 	if(fragmentation > 5)
 		if(prob(fragmentation / 10))
 			switch(fragmentation)
@@ -210,7 +239,59 @@
 						"That memory cannot be accessed."
 					)
 					to_chat(owner, SPAN_MACHINE_DANGER(pick(extreme_fragmentation_messages)))
-	..()
+
+/**
+ * Handles burst damage effects. See code\datums\components\synthetic_burst_damage\synthetic_burst_damage.dm
+ */
+/obj/item/organ/internal/machine/posibrain/proc/handle_burst_damage()
+	switch(burst_damage_counter)
+		if(1)
+			var/obj/item/organ/internal/machine/cooling_unit/cooling = owner.internal_organs_by_name[BP_COOLING_UNIT]
+			if(istype(cooling))
+				to_chat(owner, FONT_LARGE(SPAN_DANGER("The severed power wires cause a voltage spike in your cooling unit, messing up the settings! You'll need to fix it!")))
+				cooling.thermostat = cooling.thermostat_max
+		if(2)
+			to_chat(owner, FONT_LARGE(SPAN_DANGER("Your hydraulics creak and stagger against the impacts! Your frame can't take much more!")))
+			owner.Stun(5)
+		if(3)
+			to_chat(owner, FONT_LARGE(SPAN_MACHINE_WARNING("Your software errors out as your frame is ripped apart!")))
+			owner.Weaken(5)
+
+/**
+ * This is the proc in charge of showing the robot pain textures to the IPC.
+ * To do so, it tries to dynamically evaluate how fucked the IPC is to set the appropriate icon_state.
+ */
+/obj/item/organ/internal/machine/posibrain/proc/evaluate_damage()
+	if(!owner.robot_pain)
+		return //no pain texture, how did we even get here?
+
+	// We have 6 levels total.
+	var/base_icon_state = "ipcdamageoverlay"
+	var/damage_points = 0
+
+
+	var/integrity = get_integrity()
+	if(integrity <= 75)
+		damage_points++
+	if(integrity <= 50)
+		damage_points += 2
+	if(integrity <= 25)
+		damage_points += 2
+
+	if(burst_damage_counter)
+		switch(burst_damage_counter)
+			if(1)
+				damage_points++
+			if(2)
+				damage_points += 2
+			if(3)
+				damage_points += 3
+
+	if(damage_points)
+		damage_points = min(6, damage_points)
+		owner.robot_pain.icon_state = "[base_icon_state][damage_points]"
+	else
+		owner.robot_pain.icon_state = null
 
 /obj/item/organ/internal/machine/posibrain/low_integrity_damage(integrity)
 	var/damage_probability = get_integrity_damage_probability(integrity)
