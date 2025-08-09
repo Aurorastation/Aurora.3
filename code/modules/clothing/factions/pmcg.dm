@@ -157,50 +157,46 @@
 	item_state = "kog_medical"
 	contained_sprite = TRUE
 
-/obj/item/clothing/suit/storage/toggle/security/kog/
+/obj/item/clothing/suit/storage/toggle/armor/kog/
 	icon = 'icons/obj/item/clothing/department_uniforms/security.dmi'
+	contained_sprite = TRUE
+	opened = FALSE
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	armor = list(
-		MELEE = ARMOR_MELEE_SMALL,
-		BULLET = ARMOR_BALLISTIC_MINOR,
-		LASER = ARMOR_LASER_MINOR,
+		MELEE = ARMOR_MELEE_KNIVES,
+		BULLET = ARMOR_BALLISTIC_PISTOL,
+		LASER = ARMOR_LASER_SMALL,
 		ENERGY = ARMOR_ENERGY_MINOR,
-		BOMB = ARMOR_BOMB_MINOR
+		BOMB = ARMOR_BOMB_PADDED
 	)
 
-/obj/item/clothing/suit/storage/toggle/security/kog/officer
+/obj/item/clothing/suit/storage/toggle/armor/kog/officer
 	name = "Kazarrhaldiye Operations Group officer jacket"
 	desc= "A jacket used by employees of Kazarrhaldiye Operations Group, a Tajaran mercenary company originating from Little Adhomai. The bronze trim identifies the wearer as a Security Officer."
 	desc_extended = "Kazarrhaldiye Operations Group uniform jackets were originally based on First Revolution-era designs made with modern materials. These rugged and durable jackets were popular across the mercenary group for being a fashionable yet practical part of the uniform. Following the first SCC-based contracts by the KOG, many jackets were refitted to utilize special trims denoting role."
 	icon_state = "kog_officer"
 	item_state = "kog_officer"
-	contained_sprite = TRUE
 
-/obj/item/clothing/suit/storage/toggle/security/kog/warden
+
+/obj/item/clothing/suit/storage/toggle/armor/kog/warden
 	name = "Kazarrhaldiye Operations Group warden jacket"
 	desc= "A jacket used by employees of Kazarrhaldiye Operations Group, a Tajaran mercenary company originating from Little Adhomai. The silver trim identifies the wearer as a Warden."
 	desc_extended = "Kazarrhaldiye Operations Group uniform jackets were originally based on First Revolution-era designs made with modern materials. These rugged and durable jackets were popular across the mercenary group for being a fashionable yet practical part of the uniform. Following the first SCC-based contracts by the KOG, many jackets were refitted to utilize special trims denoting role."
 	icon_state = "kog_warden"
 	item_state = "kog_warden"
-	contained_sprite = TRUE
 
-/obj/item/clothing/suit/storage/toggle/security/kog/commander
+/obj/item/clothing/suit/storage/toggle/armor/kog/commander
 	name = "Kazarrhaldiye Operations Group head of security jacket"
 	desc= "A jacket used by employees of Kazarrhaldiye Operations Group, a Tajaran mercenary company originating from Little Adhomai. The gold trim identifies the wearer as a Head of Security."
 	desc_extended = "Kazarrhaldiye Operations Group uniform jackets were originally based on First Revolution-era designs made with modern materials. These rugged and durable jackets were popular across the mercenary group for being a fashionable yet practical part of the uniform. Following the first SCC-based contracts by the KOG, many jackets were refitted to utilize special trims denoting role."
 	icon_state = "kog_commander"
 	item_state = "kog_commander"
-	contained_sprite = TRUE
 
-/obj/item/clothing/suit/storage/toggle/medical/kog
+/obj/item/clothing/suit/storage/toggle/labcoat/kog
 	icon = 'icons/obj/item/clothing/department_uniforms/medical.dmi'
 	name = "Kazarrhaldiye Operations Group medical jacket"
 	desc= "A jacket used by employees of Kazarrhaldiye Operations Group, a Tajaran mercenary company originating from Little Adhomai. The bronze trim identifies the wearer as a member of the KOG's medical corp, also known as Messa's Men."
 	desc_extended = "Kazarrhaldiye Operations Group uniform jackets were originally based on First Revolution-era designs made with modern materials. These rugged and durable jackets were popular across the mercenary group for being a fashionable yet practical part of the uniform. Following the first SCC-based contracts by the KOG, many jackets were refitted to utilize special trims denoting role."
 	icon_state = "kog_medical_jacket"
 	item_state = "kog_medical_jacket"
-	contained_sprite = TRUE
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-	armor = list(
-		BIO = ARMOR_BIO_RESISTANT
-	)
+	opened = FALSE
