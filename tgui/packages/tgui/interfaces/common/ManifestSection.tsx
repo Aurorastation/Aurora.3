@@ -1,7 +1,7 @@
-import { BooleanLike } from '../../../common/react';
+import { BooleanLike } from '../tgui-core/react';
 import { useBackend } from '../../backend';
-import { Button, Icon, Section, Table, Tooltip } from '../../components';
-import { TableCell, TableRow } from '../../components/Table';
+import { Button, Icon, Section, Table, Tooltip } from 'tgui-core/components';
+import { TableCell, TableRow } from 'tgui-core/components';
 
 type ManifestData = {
   manifest: { department: Crew[] };

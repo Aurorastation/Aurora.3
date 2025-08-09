@@ -39,7 +39,7 @@ $scrollbar-color-multiplier: 0.5;
 
   // Components
   @include meta.load-css(
-    '../components/Button.scss',
+    'tgui-core/components/Button.scss',
     $with: (
       'color-default': pink,
       'color-transparent-text': rgba(227, 240, 255, 0.75),
@@ -49,15 +49,15 @@ $scrollbar-color-multiplier: 0.5;
     )
   );
   @include meta.load-css(
-    '../components/ProgressBar.scss',
+    'tgui-core/components/ProgressBar.scss',
     $with: ('color-default-fill': rgb(255, 132, 153, 0.75))
   );
   @include meta.load-css(
-    '../components/Section.scss',
+    'tgui-core/components/Section.scss',
     $with: ('background-color': rgba(124, 62, 34, 0.75))
   );
   @include meta.load-css(
-    '../components/Tooltip.scss',
+    'tgui-core/components/Tooltip.scss',
     $with: ('background-color': rgba(255, 153, 0, 0.75))
   );
 

@@ -1,5 +1,5 @@
-import { sortBy } from 'common/collections';
-import { Section, Button, Flex, Tabs, Grid } from '../../components';
+import { sortBy } from 'es-toolkit';
+import { Section, Button, Flex, Tabs, Grid } from 'tgui-core/components';
 import { useLocalState } from '../../backend';
 
 export const AccessConfig = (props, context) => {

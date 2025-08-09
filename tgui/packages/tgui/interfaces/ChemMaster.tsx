@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { Button, Section, Stack, Table, Flex, Box, Collapsible, LabeledList, Divider } from '../components';
+import { Button, Section, Stack, Table, Flex, Box, Collapsible, LabeledList, Divider } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type DispenserData = {

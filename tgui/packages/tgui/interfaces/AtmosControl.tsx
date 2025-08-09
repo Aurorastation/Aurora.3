@@ -1,6 +1,6 @@
 import { useBackend } from '../backend';
-import { Section, LabeledList, NoticeBox } from '../components';
-import { capitalize } from '../../common/string';
+import { Section, LabeledList, NoticeBox } from 'tgui-core/components';
+import { capitalize } from 'tgui-core/string';
 
 export type AtmosData = {
   sensors: Sensor[];

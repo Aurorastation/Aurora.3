@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, Box, LabeledList, Section, NumberInput } from '../components';
+import { Button, Box, LabeledList, Section, NumberInput } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type ShieldData = {

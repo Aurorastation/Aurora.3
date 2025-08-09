@@ -16,16 +16,16 @@ If you are completely new to frontend and prefer to **learn by doing**, start wi
 
 ### Guides
 
-This project uses **Inferno** - a very fast UI rendering engine with a similar API to React. Take your time to read these guides:
+This project uses React. Take your time to read the guide:
 
-- [React guide](https://reactjs.org/docs/hello-world.html)
-- [Inferno documentation](https://infernojs.org/docs/guides/components) - highlights differences with React.
+- [React guide](https://react.dev/learn)
 
 If you were already familiar with an older, Ractive-based tgui, and want to translate concepts between old and new tgui, read this [interface conversion guide](docs/converting-old-tgui-interfaces.md).
 
 ### Other Documentation
 
-- [Component Reference](docs/component-reference.md) - UI building blocks
+- [Component Reference](https://tgstation.github.io/tgui-core/?path=/docs/components-animatednumber--docs) - UI building blocks
+- [Tgui Core](https://github.com/tgstation/tgui-core) - The component library for tgui.
 - [Using TGUI and Byond API for custom HTML popups](docs/tgui-for-custom-html-popups.md)
 - [Chat Embedded Components](docs/chat-embedded-components.md)
 - [Writing Tests](docs/writing-tests.md)
@@ -36,43 +36,42 @@ If you are using the tooling provided in this repo, everything is included! Feel
 
 However, if you want finer control over the installation or build process, you will need these:
 
-- [Node v16.13+](https://nodejs.org/en/download/)
+- [Node v22.11+](https://nodejs.org/en/download/)
   - **LTS** release is recommended instead of latest
   - **DO NOT install Chocolatey if Node installer asks you to!**
-- [Yarn v1.22.4+](https://yarnpkg.com/getting-started/install)
-  - You can run `npm install -g yarn` to install it.
+- [Yarn v4.8.1+](https://yarnpkg.com/getting-started/install)
+  - Yarn is normally installed with corepack.
 
 ## Usage
 
 **Via provided cmd scripts (Windows)**:
 
-- `bin/tgui-build` - Build tgui in production mode and run a full suite of code checks.
+- `bin/tgui-build` - Build tgui in production mode and run a full suite of code
+  checks.
 - `bin/tgui-dev` - Launch a development server.
   - `bin/tgui-dev --reload` - Reload byond cache once.
   - `bin/tgui-dev --debug` - Run server with debug logging enabled.
-  - `bin/tgui-dev --no-hot` - Disable hot module replacement (helps when doing development on IE8).
-- `bin/tgui-sonar` - Analyze code with SonarQube.
-- `bin/tgui-bench` - Run benchmarks.
 
-> To open a CMD or PowerShell window in any open folder, right click **while holding Shift** on any free space in the folder, then click on either `Open command window here` or `Open PowerShell window here`.
+> To open a CMD or PowerShell window in any open folder, right click **while
+> holding Shift** on any free space in the folder, then click on either
+> `Open command window here` or `Open PowerShell window here`.
 
-**Via Juke Build (cross-platform)**:
+**Via Juke Build (cross-platform(No))**:
 
-- `tools/build/build tgui` - Build tgui in production mode.
-- `tools/build/build tgui-dev` - Build tgui in production mode.
-  - `tools/build/build tgui-dev --reload` - Reload byond cache once.
-  - `tools/build/build tgui-dev --debug` - Run server with debug logging enabled.
-  - `tools/build/build tgui-dev --no-hot` - Disable hot module replacement (helps when doing development on IE8).
-- `tools/build/build tgui-lint` - Show (and auto-fix) problems with the code.
-- `tools/build/build tgui-sonar` - Analyze code with SonarQube.
-- `tools/build/build tgui-test` - Run unit and integration tests.
-- `tools/build/build tgui-analyze` - Run a bundle analyzer.
-- `tools/build/build tgui-bench` - Run benchmarks.
-- `tools/build/build tgui-clean` - Clean up tgui folder.
+- `tools/build/build.sh tgui` - Build tgui in production mode.
+- `tools/build/build.sh tgui-dev` - Build tgui in production mode.
+  - `tools/build/build.sh tgui-dev --reload` - Reload byond cache once.
+  - `tools/build/build.sh tgui-dev --debug` - Run server with debug logging
+    enabled.
+- `tools/build/build.sh tgui-lint` - Show (and auto-fix) problems with the code.
+- `tools/build/build.sh tgui-test` - Run unit and integration tests.
+- `tools/build/build.sh tgui-analyze` - Run a bundle analyzer.
+- `tools/build/build.sh tgui-clean` - Clean up tgui folder.
 
 > With Juke Build, you can run multiple targets together, e.g.:
+>
 > ```
-> tools/build/build tgui tgui-lint tgui-tsc tgui-test
+> tools/build/build.sh tgui tgui-lint tgui-tsc tgui-test
 > ```
 
 **Via Bun (cross-platform)**:
@@ -89,25 +88,6 @@ Run `bun install` once to install tgui dependencies.
 - `bun tgui:test` - Run unit and integration tests.
 - `bun tgui:analyze` - Run a bundle analyzer.
 - `bun tgfont:build` - Build icon fonts.
-
-**Via Yarn (cross-platform)**:
-
-Run `yarn install` once to install tgui dependencies.
-
-- `yarn tgui:build` - Build tgui in production mode.
-  - `yarn tgui:build [options]` - Build tgui with custom webpack options.
-- `yarn tgui:dev` - Launch a development server.
-  - `yarn tgui:dev --reload` - Reload byond cache once.
-  - `yarn tgui:dev --debug` - Run server with debug logging enabled.
-  - `yarn tgui:dev --no-hot` - Disable hot module replacement (helps when doing development on IE8).
-- `yarn tgui:lint` - Show (and auto-fix) problems with the code.
-- `yarn tgui:sonar` - Analyze code with SonarQube.
-- `yarn tgui:tsc` - Check code with TypeScript compiler.
-- `yarn tgui:test` - Run unit and integration tests.
-- `yarn tgui:analyze` - Run a bundle analyzer.
-- `yarn tgui:bench` - Run benchmarks.
-- `yarn tgfont:build` - Build icon fonts.
-- `yarn tgui-polyfill:build` - Build polyfills. You need to run it when updating any of the static (numbered) polyfills.
 
 ## Important Memo
 
@@ -178,7 +158,7 @@ so you'll need to restart it if it disconnects from the window.
 - `/packages` - Each folder here represents a self-contained Node module.
 - `/packages/common` - Helper functions that are used throughout all packages.
 - `/packages/tgui/index.js` - Application entry point.
-- `/packages/tgui/components` - Basic UI building blocks.
+- `/packages/tgui-core/components` - Basic UI building blocks.
 - `/packages/tgui/interfaces` - Actual in-game interfaces.
 - `/packages/tgui/layouts` - Root level UI components, that affect the final look and feel of the browser window. These hold various window elements, like the titlebar and resize handlers, and control the UI theme.
 - `/packages/tgui/routes.js` - This is where tgui decides which interface to pull and render.

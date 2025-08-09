@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { BlockQuote, Box, Button, Input, Section } from '../components';
+import { BlockQuote, Box, Button, Input, Section } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type pAIData = {

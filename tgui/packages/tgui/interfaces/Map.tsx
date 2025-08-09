@@ -1,6 +1,6 @@
-import { paginate } from 'common/collections';
+import { chunk } from 'es-toolkit/compat';
 import { useBackend, useLocalState } from '../backend';
-import { Tabs, Slider, Section, NoticeBox, Table } from '../components';
+import { Tabs, Slider, Section, NoticeBox, Table } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 
 export type MapData = {
@@ -74,7 +74,7 @@ export const Map = (props, context) => {
           {showLegend ? (
             <NoticeBox color="grey">
               <Table>
-                {paginate(data.dept_colors_map, 2).map((a) => (
+                {chunk(data.dept_colors_map, 2).map((a) => (
                   <Table.Row key={a}>
                     <Table.Cell color={a[0].c}>{a[0].d}</Table.Cell>
                     <Table.Cell color={a[1].c}>{a[1].d}</Table.Cell>

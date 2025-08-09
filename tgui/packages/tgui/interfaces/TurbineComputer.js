@@ -1,7 +1,7 @@
 import { useBackend } from '../backend';
-import { Button, LabeledList, Section, ProgressBar } from '../components';
+import { Button, LabeledList, Section, ProgressBar } from 'tgui-core/components';
 import { Window } from '../layouts';
-import { toFixed } from 'common/math';
+import { toFixed } from 'tgui-core/math';
 
 export const TurbineComputer = (props, context) => {
   const { act, data } = useBackend(context);

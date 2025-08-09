@@ -1,8 +1,8 @@
 import { useBackend } from '../backend';
 import { useLocalState } from '../backend';
-import { Button, Section, LabeledList, ProgressBar, Slider } from '../components';
+import { Button, Section, LabeledList, ProgressBar, Slider } from 'tgui-core/components';
 import { Window } from '../layouts';
-import { BooleanLike } from '../../common/react';
+import { BooleanLike } from 'tgui-core/react';
 
 export type TankData = {
   tankPressure: number;

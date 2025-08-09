@@ -5,7 +5,7 @@
  */
 
 import { useLocalState } from '../backend';
-import { Box, Button, ByondUi, Section } from '../components';
+import { Box, Button, ByondUi, Section } from 'tgui-core/components';
 import { logger } from '../logging';
 
 export const meta = {

@@ -32,7 +32,7 @@ $purple: #463191;
 
   // Components
   @include meta.load-css(
-    '../components/Button.scss',
+    'tgui-core/components/Button.scss',
     $with: (
       'color-default': $cyan,
       'color-transparent-text': rgba(227, 240, 255, 0.75),
@@ -42,15 +42,15 @@ $purple: #463191;
     )
   );
   @include meta.load-css(
-    '../components/ProgressBar.scss',
+    'tgui-core/components/ProgressBar.scss',
     $with: ('color-default-fill': rgba(237, 18, 245, 0.75))
   );
   @include meta.load-css(
-    '../components/Section.scss',
+    'tgui-core/components/Section.scss',
     $with: ('background-color': rgba(0, 0, 0, 0.3))
   );
   @include meta.load-css(
-    '../components/Tooltip.scss',
+    'tgui-core/components/Tooltip.scss',
     $with: ('background-color': rgba(255, 153, 0, 0.75))
   );
 

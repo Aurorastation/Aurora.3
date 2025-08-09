@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { BlockQuote, Button, Knob, LabeledList, ProgressBar, Section, Table } from '../components';
+import { BlockQuote, Button, Knob, LabeledList, ProgressBar, Section, Table } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type SleeperData = {

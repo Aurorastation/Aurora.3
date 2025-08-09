@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { Box, Divider, Section } from '../components';
+import { Box, Divider, Section } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type FlavorTextData = {

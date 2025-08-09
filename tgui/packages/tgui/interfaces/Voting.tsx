@@ -1,7 +1,7 @@
 import { useBackend } from '../backend';
-import { capitalizeAll } from '../../common/string';
+import { capitalizeAll } from 'tgui-core/string';
 import { Window } from '../layouts';
-import { Section, Button, Box, Table } from '../components';
+import { Section, Button, Box, Table } from 'tgui-core/components';
 
 type VoteChoice = {
   choice: string;

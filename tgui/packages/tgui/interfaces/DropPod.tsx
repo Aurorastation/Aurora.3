@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { BlockQuote, Button, LabeledList, Section } from '../components';
+import { BlockQuote, Button, LabeledList, Section } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type PodData = {

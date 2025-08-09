@@ -5,8 +5,8 @@ import { LINE_LENGTHS, RADIO_PREFIXES, WINDOW_SIZES } from './constants';
 import { byondMessages } from './timers';
 import { dragStartHandler } from 'tgui/drag';
 import { windowOpen, windowClose, windowSet } from './helpers';
-import { BooleanLike } from 'common/react';
-import { isEscape, KEY } from 'common/keys';
+import { BooleanLike } from 'tgui-core/react';
+import { isEscape, KEY } from 'tgui-core/keys';
 
 type ByondOpen = {
   channel: Channel;

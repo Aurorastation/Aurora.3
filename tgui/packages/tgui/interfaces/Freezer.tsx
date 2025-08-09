@@ -1,6 +1,6 @@
-import { BooleanLike } from 'common/react';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Section, Button, Knob, Box, ProgressBar } from '../components';
+import { Section, Button, Knob, Box, ProgressBar } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type FreezerData = {

@@ -1,7 +1,7 @@
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
-import { BooleanLike } from '../../common/react';
-import { Button, LabeledList, NoticeBox, Section } from '../components';
+import { BooleanLike } from 'tgui-core/react';
+import { Button, LabeledList, NoticeBox, Section } from 'tgui-core/components';
 
 export type AccessTerminalData = {
   is_card_in: BooleanLike;

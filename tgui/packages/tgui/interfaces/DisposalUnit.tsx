@@ -1,5 +1,5 @@
-import { BooleanLike } from '../../common/react';
-import { Button, LabeledList, ProgressBar, Section } from '../components';
+import { BooleanLike } from 'tgui-core/react';
+import { Button, LabeledList, ProgressBar, Section } from 'tgui-core/components';
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
 

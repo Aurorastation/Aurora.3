@@ -1,4 +1,4 @@
-import { Box, Button, Flex } from '../../components';
+import { Box, Button, Flex } from 'tgui-core/components';
 
 import { useBackend } from '../../backend';
 

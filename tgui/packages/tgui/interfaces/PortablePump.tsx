@@ -1,6 +1,6 @@
-import { BooleanLike } from 'common/react';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Section, Box, ProgressBar, Button, Knob, LabeledList } from '../components';
+import { Section, Box, ProgressBar, Button, Knob, LabeledList } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type PumpData = {

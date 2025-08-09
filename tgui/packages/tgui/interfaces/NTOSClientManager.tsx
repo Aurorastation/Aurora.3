@@ -1,6 +1,6 @@
-import { BooleanLike } from 'common/react';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
-import { BlockQuote, Box, Button, Dropdown, LabeledList, NoticeBox, Section, Tabs } from '../components';
+import { BlockQuote, Box, Button, Dropdown, LabeledList, NoticeBox, Section, Tabs } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 
 type NTOSClientData = {

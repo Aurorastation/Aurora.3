@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { Button, LabeledList, NoticeBox, Section, Table } from '../components';
+import { Button, LabeledList, NoticeBox, Section, Table } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 
 export type WarrantData = {

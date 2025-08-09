@@ -1,5 +1,5 @@
 import { useBackend, useSharedState } from '../../backend';
-import { Flex, Input, Section, Button } from '../../components';
+import { Flex, Input, Section, Button } from 'tgui-core/components';
 
 type Data = {
   upperText: string;

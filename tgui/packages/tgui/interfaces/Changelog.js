@@ -1,11 +1,11 @@
-import { classes } from 'common/react';
+import { classes } from 'tgui-core/react';
 import dateformat from 'dateformat';
 import yaml from 'js-yaml';
 import { Component, Fragment } from 'inferno';
 
 import { resolveAsset } from '../assets';
 import { useBackend } from '../backend';
-import { Box, Button, Dropdown, Icon, Section, Stack, Table } from '../components';
+import { Box, Button, Dropdown, Icon, Section, Stack, Table } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 const icons = {

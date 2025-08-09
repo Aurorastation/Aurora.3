@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledList, NoticeBox, NumberInput, ProgressBar, Section } from '../components';
+import { Box, Button, LabeledList, NoticeBox, NumberInput, ProgressBar, Section } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type CapacitorData = {

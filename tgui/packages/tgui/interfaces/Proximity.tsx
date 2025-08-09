@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, NumberInput, Section, LabeledList } from '../components';
+import { Button, NumberInput, Section, LabeledList } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type ProximityData = {

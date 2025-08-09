@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledControls, LabeledList, ProgressBar, Section } from '../components';
+import { Box, Button, LabeledControls, LabeledList, ProgressBar, Section } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 
 export type ArcadeData = {

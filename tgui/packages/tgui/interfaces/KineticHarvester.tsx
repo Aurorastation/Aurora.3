@@ -1,7 +1,7 @@
-import { BooleanLike } from '../../common/react';
-import { capitalize } from '../../common/string';
+import { BooleanLike } from 'tgui-core/react';
+import { capitalize } from 'tgui-core/string';
 import { useBackend } from '../backend';
-import { Box, Button, NoticeBox, Section } from '../components';
+import { Box, Button, NoticeBox, Section } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type HarvesterData = {

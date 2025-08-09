@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState, useSharedState } from '../backend';
-import { Box, Button, Divider, Input, LabeledList, NoticeBox, NumberInput, Section, Stack, Table } from '../components';
+import { Box, Button, Divider, Input, LabeledList, NoticeBox, NumberInput, Section, Stack, Table } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type ATMData = {

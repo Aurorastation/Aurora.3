@@ -29,7 +29,7 @@ $scrollbar-color-multiplier: 1;
 
   // Components
   @include meta.load-css(
-    '../components/Button.scss',
+    'tgui-core/components/Button.scss',
     $with: (
       'color-default': #e8e4c9,
       'color-disabled': #363636,
@@ -39,16 +39,16 @@ $scrollbar-color-multiplier: 1;
     )
   );
   @include meta.load-css(
-    '../components/ProgressBar.scss',
+    'tgui-core/components/ProgressBar.scss',
     $with: ('background-color': rgba(0, 0, 0, 0.5))
   );
   @include meta.load-css(
-    '../components/Section.scss',
+    'tgui-core/components/Section.scss',
     $with: ('background-color': rgba(0, 0, 0, 0.4))
   );
 
   @include meta.load-css(
-    '../components/Tooltip.scss',
+    'tgui-core/components/Tooltip.scss',
     $with: ('background-color': #ecee9e)
   );
   // Layouts

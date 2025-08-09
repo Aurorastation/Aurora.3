@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, Input, LabeledControls, Section, Table } from '../components';
+import { Button, Input, LabeledControls, Section, Table } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type GPSData = {

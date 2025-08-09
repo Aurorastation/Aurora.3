@@ -4,7 +4,7 @@
  * @license MIT
  */
 
-import { Icon, Section, Stack } from './components';
+import { Icon, Section, Stack } from 'tgui-core/components';
 
 import { Store } from 'common/redux';
 import { Window } from './layouts';

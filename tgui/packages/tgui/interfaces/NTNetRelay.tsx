@@ -1,7 +1,7 @@
 import { useBackend } from '../backend';
-import { Button, Section, LabeledList, Box } from '../components';
+import { Button, Section, LabeledList, Box } from 'tgui-core/components';
 import { Window } from '../layouts';
-import { BooleanLike } from '../../common/react';
+import { BooleanLike } from 'tgui-core/react';
 
 export type NTNetData = {
   enabled: BooleanLike;

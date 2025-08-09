@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { Section, Table } from '../components';
+import { Section, Table } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type CargoPackData = {

@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Input, Section, LabeledList, Table } from '../components';
+import { Box, Button, Input, Section, LabeledList, Table } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type UplinkData = {

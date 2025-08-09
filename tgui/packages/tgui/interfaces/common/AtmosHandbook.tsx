@@ -1,6 +1,6 @@
 import { InfernoNode } from 'inferno';
 import { useBackend, useLocalState } from '../../backend';
-import { Box, Button, Flex, Input, LabeledList, Section, Stack, Tooltip } from '../../components';
+import { Box, Button, Flex, Input, LabeledList, Section, Stack, Tooltip } from 'tgui-core/components';
 
 /**
  * This describes something that influences a particular reaction

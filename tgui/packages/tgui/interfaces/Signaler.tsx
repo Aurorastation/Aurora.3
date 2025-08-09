@@ -1,6 +1,6 @@
-import { toFixed } from '../../common/math';
+import { toFixed } from 'tgui-core/math';
 import { useBackend } from '../backend';
-import { Button, NumberInput, Section, LabeledList } from '../components';
+import { Button, NumberInput, Section, LabeledList } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type SignalerData = {

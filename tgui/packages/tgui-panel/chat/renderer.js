@@ -5,13 +5,13 @@
  */
 
 import { EventEmitter } from 'common/events';
-import { classes } from 'common/react';
+import { classes } from 'tgui-core/react';
 import { createLogger } from 'tgui/logging';
 import { COMBINE_MAX_MESSAGES, COMBINE_MAX_TIME_WINDOW, IMAGE_RETRY_DELAY, IMAGE_RETRY_LIMIT, IMAGE_RETRY_MESSAGE_AGE, MESSAGE_TYPES, MESSAGE_TYPE_INTERNAL, MESSAGE_TYPE_UNKNOWN } from './constants';
 import { render } from 'inferno';
 import { canPageAcceptType, createMessage, isSameMessage } from './model';
 import { highlightNode, linkifyNode } from './replaceInTextNode';
-import { Tooltip } from '../../tgui/components';
+import { Tooltip } from 'tgui-core/components';
 
 const logger = createLogger('chatRenderer');
 

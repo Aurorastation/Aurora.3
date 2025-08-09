@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, LabeledList, NoticeBox, NumberInput, Section } from '../components';
+import { Button, LabeledList, NoticeBox, NumberInput, Section } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type FusionGyrotronData = {

@@ -1,8 +1,8 @@
-import { round } from '../../common/math';
-import { BooleanLike } from '../../common/react';
-import { capitalizeAll } from '../../common/string';
+import { round } from 'tgui-core/math';
+import { BooleanLike } from 'tgui-core/react';
+import { capitalizeAll } from 'tgui-core/string';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Input, LabeledList, NoticeBox, ProgressBar, Section, Stack, Table, Tabs } from '../components';
+import { Box, Button, Input, LabeledList, NoticeBox, ProgressBar, Section, Stack, Table, Tabs } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type AutolatheData = {

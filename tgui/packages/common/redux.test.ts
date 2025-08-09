@@ -1,4 +1,13 @@
-import { Action, Reducer, applyMiddleware, combineReducers, createAction, createStore } from './redux';
+import { describe, expect, it } from 'bun:test';
+
+import {
+  type Action,
+  applyMiddleware,
+  combineReducers,
+  createAction,
+  createStore,
+  type Reducer,
+} from './redux';
 
 // Dummy Reducer
 const counterReducer: Reducer<number, Action<string>> = (state = 0, action) => {
@@ -23,20 +32,20 @@ const increment = createAction('INCREMENT');
 const decrement = createAction('DECREMENT');
 
 describe('Redux implementation tests', () => {
-  test('createStore works', () => {
+  it('createStore works', () => {
     const store = createStore(counterReducer);
     expect(store.getState()).toBe(0);
   });
 
-  test('createStore with applyMiddleware works', () => {
+  it('createStore with applyMiddleware works', () => {
     const store = createStore(
       counterReducer,
-      applyMiddleware(loggingMiddleware)
+      applyMiddleware(loggingMiddleware),
     );
     expect(store.getState()).toBe(0);
   });
 
-  test('dispatch works', () => {
+  it('dispatch works', () => {
     const store = createStore(counterReducer);
     store.dispatch(increment());
     expect(store.getState()).toBe(1);
@@ -44,7 +53,7 @@ describe('Redux implementation tests', () => {
     expect(store.getState()).toBe(0);
   });
 
-  test('combineReducers works', () => {
+  it('combineReducers works', () => {
     const rootReducer = combineReducers({
       counter: counterReducer,
     });
@@ -52,7 +61,7 @@ describe('Redux implementation tests', () => {
     expect(store.getState()).toEqual({ counter: 0 });
   });
 
-  test('createAction works', () => {
+  it('createAction works', () => {
     const incrementAction = increment();
     expect(incrementAction).toEqual({ type: 'INCREMENT' });
     const decrementAction = decrement();

@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { Button, Section, Box, Table } from '../components';
+import { Button, Section, Box, Table } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type PrizeListData = {

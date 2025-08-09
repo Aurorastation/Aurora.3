@@ -1,5 +1,5 @@
 import { useBackend, useLocalState } from '../backend';
-import { Box, Input, Section, Table } from '../components';
+import { Box, Input, Section, Table } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 
 export type CodexData = {

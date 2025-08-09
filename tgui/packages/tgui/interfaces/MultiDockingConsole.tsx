@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { Box, LabeledList, Section } from '../components';
+import { Box, LabeledList, Section } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type AirlockData = {

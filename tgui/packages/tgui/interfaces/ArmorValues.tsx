@@ -1,6 +1,6 @@
 import { useBackend } from '../backend';
-import { Box, Divider, NoticeBox, ProgressBar, Section } from '../components';
-import { capitalize } from '../../common/string';
+import { Box, Divider, NoticeBox, ProgressBar, Section } from 'tgui-core/components';
+import { capitalize } from 'tgui-core/string';
 import { Window } from '../layouts';
 
 export type ArmorValuesData = {

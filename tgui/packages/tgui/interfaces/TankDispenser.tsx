@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { Button, Flex, LabeledList, Section } from '../components';
+import { Button, Flex, LabeledList, Section } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type TankDispenserData = {

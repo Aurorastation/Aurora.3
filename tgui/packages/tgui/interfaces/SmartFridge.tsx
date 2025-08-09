@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
-import { BlockQuote, Box, Button, LabeledList, Section, Input } from '../components';
+import { BlockQuote, Box, Button, LabeledList, Section, Input } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type FridgeData = {

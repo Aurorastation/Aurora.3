@@ -1,7 +1,7 @@
-import { toFixed } from 'common/math';
-import { BooleanLike } from 'common/react';
+import { toFixed } from 'tgui-core/math';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { BlockQuote, Box, Button, Divider, LabeledList, ProgressBar, Section, Slider, Stack } from '../components';
+import { BlockQuote, Box, Button, Divider, LabeledList, ProgressBar, Section, Slider, Stack } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 
 type BatteryData = {

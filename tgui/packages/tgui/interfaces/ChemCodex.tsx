@@ -1,5 +1,5 @@
 import { useBackend, useLocalState } from '../backend';
-import { Input, LabeledList, NoticeBox, Section } from '../components';
+import { Input, LabeledList, NoticeBox, Section } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 
 export type CodexData = {

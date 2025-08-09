@@ -1,7 +1,7 @@
-import { BooleanLike } from '../../common/react';
-import { capitalizeAll } from '../../common/string';
+import { BooleanLike } from 'tgui-core/react';
+import { capitalizeAll } from 'tgui-core/string';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledControls, LabeledList, NoticeBox, Section } from '../components';
+import { Box, Button, LabeledControls, LabeledList, NoticeBox, Section } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 
 export type MerchantData = {

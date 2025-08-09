@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { Button, Section, Stack, Collapsible } from '../components';
+import { Button, Section, Stack, Collapsible } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type CleanBotConfig = {

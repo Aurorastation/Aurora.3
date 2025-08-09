@@ -1,9 +1,9 @@
-import { capitalize } from '../../common/string';
-import { BooleanLike } from '../../common/react';
+import { capitalize } from 'tgui-core/string';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Collapsible, Input, LabeledList, NoticeBox, Section, Stack, Tabs, Tooltip } from '../components';
+import { Box, Button, Collapsible, Input, LabeledList, NoticeBox, Section, Stack, Tabs, Tooltip } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
-import { Dropdown } from '../components/Dropdown';
+import { Dropdown } from 'tgui-core/components/Dropdown';
 
 export type RecordsData = {
   activeview: string;

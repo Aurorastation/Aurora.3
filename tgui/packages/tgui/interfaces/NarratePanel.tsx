@@ -1,6 +1,6 @@
 import { useBackend, useLocalState } from '../backend';
-import { Button, Divider, Input, LabeledList, NumberInput, Section } from '../components';
-import { Dropdown } from '../components/Dropdown';
+import { Button, Divider, Input, LabeledList, NumberInput, Section } from 'tgui-core/components';
+import { Dropdown } from 'tgui-core/components/Dropdown';
 import { Window } from '../layouts';
 
 export type NarrateData = {

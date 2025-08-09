@@ -1,8 +1,8 @@
 import { Fragment } from 'inferno';
 import { Window } from '../layouts';
 import { useBackend } from '../backend';
-import { AnimatedNumber, Box, Button, Flex, Icon, LabeledList, ProgressBar, Section } from '../components';
-import { BooleanLike } from 'common/react';
+import { AnimatedNumber, Box, Button, Flex, Icon, LabeledList, ProgressBar, Section } from 'tgui-core/components';
+import { BooleanLike } from 'tgui-core/react';
 
 export type CryoData = {
   isOperating: BooleanLike;

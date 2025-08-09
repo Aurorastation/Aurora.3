@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledList, NoticeBox, Section, Table } from '../components';
+import { Box, Button, LabeledList, NoticeBox, Section, Table } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 
 export type PowerData = {

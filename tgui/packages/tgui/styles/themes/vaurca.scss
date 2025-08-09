@@ -21,7 +21,7 @@
 
   // Components
   @include meta.load-css(
-    '../components/Button.scss',
+    'tgui-core/components/Button.scss',
     $with: (
       'color-default': colors.$primary,
       'color-disabled': #6a4a4a,
@@ -29,7 +29,7 @@
     )
   );
   @include meta.load-css(
-    '../components/Tabs.scss',
+    'tgui-core/components/Tabs.scss',
     $with: (
       'color-default': colors.$primary,
       'tab-color-selected': #ff00003f,
@@ -37,11 +37,11 @@
     )
   );
   @include meta.load-css(
-    '../components/Input.scss',
+    'tgui-core/components/Input.scss',
     $with: ('border-color': colors.$primary)
   );
-  @include meta.load-css('../components/Modal.scss');
-  @include meta.load-css('../components/Section.scss');
+  @include meta.load-css('tgui-core/components/Modal.scss');
+  @include meta.load-css('tgui-core/components/Section.scss');
 
   // Layouts
   @include meta.load-css('../layouts/Layout.scss');

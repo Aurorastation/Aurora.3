@@ -41,15 +41,15 @@
 @include meta.load-css('~tgui/styles/components/Section.scss');
 @include meta.load-css('~tgui/styles/components/Slider.scss');
 @include meta.load-css('~tgui/styles/components/Stack.scss');
-@include meta.load-css('~tgui/styles/components/Table.scss');
+@include meta.load-css('~tgui/styles/components.scss');
 @include meta.load-css('~tgui/styles/components/Tabs.scss');
 @include meta.load-css('~tgui/styles/components/TextArea.scss');
 @include meta.load-css('~tgui/styles/components/Tooltip.scss');
 
 // Components specific to tgui-panel
-@include meta.load-css('./components/Chat.scss');
-@include meta.load-css('./components/Ping.scss');
-@include meta.load-css('./components/Notifications.scss');
+@include meta.load-css('tgui-core/components/Chat.scss');
+@include meta.load-css('tgui-core/components/Ping.scss');
+@include meta.load-css('tgui-core/components/Notifications.scss');
 
 // Layouts
 @include meta.load-css('~tgui/styles/layouts/Layout.scss');

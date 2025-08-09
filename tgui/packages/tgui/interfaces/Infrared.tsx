@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button } from '../components';
+import { Button } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type InfraredData = {

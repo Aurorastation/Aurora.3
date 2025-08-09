@@ -63,7 +63,7 @@
 
   // Components specific to tgui-panel
   @include meta.load-css(
-    '../components/Chat.scss',
+    'tgui-core/components/Chat.scss',
     $with: ('text-color': #000000)
   );
 

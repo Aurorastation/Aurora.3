@@ -79,7 +79,7 @@ const setupApp = () => {
     setupHotReloading();
     // prettier-ignore
     module.hot.accept([
-      './components',
+      'tgui-core/components',
       './debug',
       './layouts',
       './routes',

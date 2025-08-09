@@ -1,5 +1,5 @@
 import { useBackend, useLocalState } from '../backend';
-import { Section, Table, Tabs } from '../components';
+import { Section, Table, Tabs } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 
 export type JanitorData = {

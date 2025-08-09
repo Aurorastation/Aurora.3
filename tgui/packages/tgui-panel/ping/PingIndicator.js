@@ -4,10 +4,10 @@
  * @license MIT
  */
 
-import { Color } from 'common/color';
-import { toFixed } from 'common/math';
+import { Color } from 'tgui-core/color';
+import { toFixed } from 'tgui-core/math';
 import { useSelector } from 'common/redux';
-import { Box } from 'tgui/components';
+import { Box } from 'tgui-core/components';
 import { selectPing } from './selectors';
 
 export const PingIndicator = (props, context) => {

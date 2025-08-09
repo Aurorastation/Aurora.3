@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, LabeledList, NoticeBox, ProgressBar, Section, Table } from '../components';
+import { Button, LabeledList, NoticeBox, ProgressBar, Section, Table } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 
 export type AIData = {

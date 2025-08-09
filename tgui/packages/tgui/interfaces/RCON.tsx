@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Collapsible, Input, LabeledList, NoticeBox, NumberInput, ProgressBar, Section } from '../components';
+import { Box, Button, Collapsible, Input, LabeledList, NoticeBox, NumberInput, ProgressBar, Section } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 
 export type RCONData = {

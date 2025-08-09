@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
-import { Button, Input, NoticeBox, Section } from '../components';
+import { Button, Input, NoticeBox, Section } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 
 export type CameraData = {

@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
-import { Button, Input, Section } from '../components';
+import { Button, Input, Section } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type HolopadData = {

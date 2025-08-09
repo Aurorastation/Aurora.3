@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Section, ProgressBar, Button, Box } from '../components';
+import { Section, ProgressBar, Button, Box } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type DoorsData = {

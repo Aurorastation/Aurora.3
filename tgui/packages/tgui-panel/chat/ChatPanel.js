@@ -4,9 +4,9 @@
  * @license MIT
  */
 
-import { shallowDiffers } from 'common/react';
+import { shallowDiffers } from 'tgui-core/react';
 import { Component, createRef } from 'inferno';
-import { Button } from 'tgui/components';
+import { Button } from 'tgui-core/components';
 import { chatRenderer } from './renderer';
 
 export class ChatPanel extends Component {

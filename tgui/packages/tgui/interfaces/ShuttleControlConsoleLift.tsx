@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { Button, Section, LabeledList } from '../components';
+import { Button, Section, LabeledList } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type ShuttleControlConsoleLiftData = {

@@ -1,56 +1,31 @@
 {
-  "private": true,
-  "name": "tgui-workspace",
-  "version": "4.3.1",
-  "packageManager": "bun@1.2.16",
-  "workspaces": [
-    "packages/*"
-  ],
-  "scripts": {
-    "tgui:analyze": "webpack --analyze",
-    "tgui:build": "webpack",
-    "tgui:dev": "bun packages/tgui-dev-server/index.js",
-    "tgui:test": "bun test",
-    "tgui:tsc": "tsc"
-  },
-  "dependencies": {
-    "@babel/core": "^7.15.0",
-    "@babel/plugin-proposal-class-properties": "^7.14.5",
-    "@babel/plugin-transform-jscript": "^7.14.5",
-    "@babel/preset-env": "^7.15.0",
-    "@babel/preset-typescript": "^7.15.0",
-    "@types/jest": "^29.2.4",
-    "@types/jsdom": "^20.0.1",
-    "@types/node": "14.x",
-    "@types/webpack-env": "^1.18.0",
-    "babel-jest": "^27.0.6",
-    "babel-loader": "^8.2.2",
-    "babel-plugin-inferno": "^6.3.0",
-    "babel-plugin-transform-remove-console": "^6.9.4",
-    "common": "workspace:*",
-    "file-loader": "^6.2.0",
-    "inferno": "^7.4.8",
-    "jest": "^27.0.6",
-    "jest-circus": "^27.0.6",
-    "mini-css-extract-plugin": "^1.6.2",
-    "prettier": "npm:prettierx@0.19.0",
-    "style-loader": "^2.0.0",
-    "terser-webpack-plugin": "^5.1.4",
-    "url-loader": "^4.1.1",
-    "webpack": "^5.94.0",
-    "webpack-bundle-analyzer": "^4.4.2",
-    "webpack-cli": "^4.7.2"
-  },
-  "devDependencies": {
+	"private": true,
+	"name": "tgui-workspace",
+	"version": "6.0.0",
+	"packageManager": "bun@1.2.16",
+	"workspaces": [
+		"packages/*"
+	],
+  	"scripts": {
+		"tgui:analyze": "rspack --analyze",
+		"tgui:build": "rspack build",
+		"tgui:dev": "bun --smol packages/tgui-dev-server/index.ts",
+		"tgui:test": "bun test",
+		"tgui:tsc": "tsc"
+	},
+	"devDependencies": {
 		"@happy-dom/global-registrator": "^17.4.7",
+		"@rspack/cli": "^1.4.5",
+		"@rspack/core": "^1.4.5",
 		"@types/bun": "^1.2.14",
 		"@types/react": "^19.1.5",
 		"@types/react-dom": "^19.1.5",
+		"@types/webpack-env": "^1.18.8",
 		"@types/wicg-file-system-access": "^2023.10.6",
 		"css-loader": "^7.1.2",
-    "globals": "^16.3.0",
 		"sass-embedded": "^1.89.2",
 		"sass-loader": "^16.0.5",
 		"typescript": "^5.8.3"
-  }
+	}
+
 }

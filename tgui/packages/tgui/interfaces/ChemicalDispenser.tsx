@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { AnimatedNumber, Box, Button, Divider, LabeledControls, NumberInput, Section, Stack } from '../components';
+import { AnimatedNumber, Box, Button, Divider, LabeledControls, NumberInput, Section, Stack } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type DispenserData = {

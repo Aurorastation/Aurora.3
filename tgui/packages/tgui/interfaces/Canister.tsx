@@ -1,7 +1,7 @@
 import { useBackend } from '../backend';
-import { Section, Box, ProgressBar, Knob, Button, LabeledList } from '../components';
+import { Section, Box, ProgressBar, Knob, Button, LabeledList } from 'tgui-core/components';
 import { Window } from '../layouts';
-import { BooleanLike } from '../../common/react';
+import { BooleanLike } from 'tgui-core/react';
 
 export type CanisterData = {
   name: string;

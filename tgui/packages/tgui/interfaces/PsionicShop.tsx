@@ -1,5 +1,5 @@
 import { useBackend, useLocalState } from '../backend';
-import { BlockQuote, Box, Button, Input, NoticeBox, Section } from '../components';
+import { BlockQuote, Box, Button, Input, NoticeBox, Section } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type PsiData = {

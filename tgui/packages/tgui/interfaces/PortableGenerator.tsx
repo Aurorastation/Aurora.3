@@ -1,7 +1,7 @@
-import { BooleanLike } from '../../common/react';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, Box, LabeledList, Section, ProgressBar, Knob } from '../components';
-import { capitalizeAll } from '../../common/string';
+import { Button, Box, LabeledList, Section, ProgressBar, Knob } from 'tgui-core/components';
+import { capitalizeAll } from 'tgui-core/string';
 import { Window } from '../layouts';
 
 export type GeneratorData = {

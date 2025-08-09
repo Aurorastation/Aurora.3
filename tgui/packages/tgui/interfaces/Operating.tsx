@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { BlockQuote, LabeledList, Section, Table } from '../components';
+import { BlockQuote, LabeledList, Section, Table } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type OperatingData = {

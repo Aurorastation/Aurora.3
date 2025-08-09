@@ -1,5 +1,5 @@
 import { useBackend } from '../../backend';
-import { AnimatedNumber, Box, Button, LabeledList, Section } from '../../components';
+import { AnimatedNumber, Box, Button, LabeledList, Section } from 'tgui-core/components';
 
 export const PortableBasicInfo = (props, context) => {
   const { act, data } = useBackend(context);

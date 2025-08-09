@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { Button, LabeledList, NoticeBox, Section } from '../components';
+import { Button, LabeledList, NoticeBox, Section } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 
 export type DirectivesData = {

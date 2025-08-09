@@ -1,8 +1,8 @@
-import { BooleanLike } from '../../common/react';
-import { capitalizeAll } from '../../common/string';
+import { BooleanLike } from 'tgui-core/react';
+import { capitalizeAll } from 'tgui-core/string';
 import { useBackend } from '../backend';
-import { Button, Section, Box, LabeledList } from '../components';
-import { Dropdown } from '../components/Dropdown';
+import { Button, Section, Box, LabeledList } from 'tgui-core/components';
+import { Dropdown } from 'tgui-core/components/Dropdown';
 import { Window } from '../layouts';
 import { MinimapView } from './common/MinimapView';
 

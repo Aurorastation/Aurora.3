@@ -5,7 +5,7 @@
  */
 
 import { useLocalState } from '../backend';
-import { Box, Button, Input, LabeledList, ProgressBar, Section } from '../components';
+import { Box, Button, Input, LabeledList, ProgressBar, Section } from 'tgui-core/components';
 
 export const meta = {
   title: 'ProgressBar',

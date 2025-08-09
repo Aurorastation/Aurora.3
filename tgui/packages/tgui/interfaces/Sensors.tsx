@@ -1,10 +1,10 @@
-import { BooleanLike } from '../../common/react';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, Button, Section, Table, ProgressBar, Slider } from '../components';
+import { Box, Button, Section, Table, ProgressBar, Slider } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
-import { round, clamp } from 'common/math';
-import { Color } from 'common/color';
-import { capitalizeAll } from 'common/string';
+import { round, clamp } from 'tgui-core/math';
+import { Color } from 'tgui-core/color';
+import { capitalizeAll } from 'tgui-core/string';
 
 export type SensorsData = {
   viewing: BooleanLike;

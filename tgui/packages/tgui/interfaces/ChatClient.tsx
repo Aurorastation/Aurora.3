@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Input, Section, Stack, Table, Tabs } from '../components';
+import { Box, Button, Input, Section, Stack, Table, Tabs } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 
 export type ChatData = {

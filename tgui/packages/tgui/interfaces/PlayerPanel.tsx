@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
-import { Input, Box, Button, Section, Table } from '../components';
+import { Input, Box, Button, Section, Table } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type PanelData = {

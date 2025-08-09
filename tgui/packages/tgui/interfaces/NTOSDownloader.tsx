@@ -1,6 +1,6 @@
-import { toFixed } from 'common/math';
+import { toFixed } from 'tgui-core/math';
 import { useBackend } from '../backend';
-import { Box, BlockQuote, Button, Collapsible, Section, Stack, ProgressBar, Divider } from '../components';
+import { Box, BlockQuote, Button, Collapsible, Section, Stack, ProgressBar, Divider } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 
 type NTOSProgram = {

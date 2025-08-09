@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, BlockQuote, Button, LabeledList, Section, ProgressBar, NumberInput } from '../components';
+import { Box, BlockQuote, Button, LabeledList, Section, ProgressBar, NumberInput } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type SMESData = {

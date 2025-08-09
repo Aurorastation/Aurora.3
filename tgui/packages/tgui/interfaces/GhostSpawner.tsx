@@ -1,8 +1,8 @@
-import { paginate } from 'common/collections';
-import { BooleanLike } from '../../common/react';
+import { chunk } from 'es-toolkit';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Input, Section, Table, Tabs, Tooltip } from '../components';
-import { TableCell, TableRow } from '../components/Table';
+import { Box, Button, Input, Section, Table, Tabs, Tooltip } from 'tgui-core/components';
+import { TableCell, TableRow } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type SpawnerData = {
@@ -32,7 +32,7 @@ type Spawner = {
 const ManifestTable = function (act, spawner: Spawner) {
   return (
     <Table>
-      {paginate(spawner.manifest, 2).map((page) => {
+      {chunk(spawner.manifest, 2).map((page) => {
         const spawned_mob_name_1 = page[0];
         const spawned_mob_name_2 = page[1];
 

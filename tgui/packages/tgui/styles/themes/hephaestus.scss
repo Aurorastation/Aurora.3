@@ -18,24 +18,24 @@
 
   // Components
   @include meta.load-css(
-    '../components/Input.scss',
+    'tgui-core/components/Input.scss',
     $with: ('border-color': #db6700)
   );
   @include meta.load-css(
-    '../components/NoticeBox.scss',
+    'tgui-core/components/NoticeBox.scss',
     $with: ('background-color': #8c470d)
   );
   @include meta.load-css(
-    '../components/NumberInput.scss',
+    'tgui-core/components/NumberInput.scss',
     $with: ('border-color': #c09524)
   );
   @include meta.load-css(
-    '../components/ProgressBar.scss',
+    'tgui-core/components/ProgressBar.scss',
     $with: ('background-color': rgba(0, 0, 0, 0.5))
   );
-  @include meta.load-css('../components/Section.scss');
+  @include meta.load-css('tgui-core/components/Section.scss');
   @include meta.load-css(
-    '../components/Tooltip.scss',
+    'tgui-core/components/Tooltip.scss',
     $with: ('background-color': #c09524)
   );
 
