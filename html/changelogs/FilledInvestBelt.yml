@@ -1,0 +1,7 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "The security belt in the investigator locker now starts with some of their equipment already in it."
+  - rscadd: "The security belt can now hold notepads."

@@ -296,16 +296,12 @@
 	new /obj/item/clothing/under/det/zavod(src)
 	new /obj/item/clothing/accessory/badge/investigator(src)
 	new /obj/item/clothing/shoes/laceup(src)
-	new /obj/item/clothing/shoes/laceup(src)
 	//Tools
 	new /obj/item/device/radio/headset/headset_sec(src)
 	new /obj/item/device/radio/headset/headset_sec/alt(src)
 	new /obj/item/clothing/suit/armor/carrier/officer(src)
 	new /obj/item/gun/energy/disruptorpistol/miniature/security(src)
-	new /obj/item/taperoll/police(src)
-	new /obj/item/device/flash(src)
 	new /obj/item/device/laser_pointer/blue(src)
-	new /obj/item/device/camera/detective(src)
 	new /obj/item/device/camera_film(src)
 	new /obj/item/stamp/investigations(src)
 	new /obj/item/clothing/glasses/sunglasses/sechud/aviator(src)
@@ -313,7 +309,7 @@
 	//Belts
 	new /obj/item/clothing/accessory/holster/waist(src)
 	new /obj/item/clothing/accessory/storage/pouches/black(src)
-	new /obj/item/storage/belt/security(src)
+	new /obj/item/storage/belt/security/full/investigator(src)
 
 /obj/structure/closet/secure_closet/injection
 	name = "lethal injections locker"
