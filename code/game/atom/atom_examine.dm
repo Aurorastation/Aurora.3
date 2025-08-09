@@ -49,18 +49,18 @@
  */
 
 /**
- *	The structure of an object's examine box is as follows:
- *	[ Name ] [ Size ]
- *	[ Damage/Condition ]
- *	[ Description ]
- *	[ Extended Description*** ]
- *	[ Mechanics*** ]
- *	[ Assembly/Disassembly*** ]
- *	[ Upgrades*** ]
- *	[ Antagonist Interactions*** ]
- *	[ Status Feedback ]
+ * The structure of an object's examine box is as follows:
+ * [ Name ] [ Size ]
+ * [ Damage/Condition ]
+ * [ Description ]
+ * [ Extended Description*** ]
+ * [ Mechanics*** ]
+ * [ Assembly/Disassembly*** ]
+ * [ Upgrades*** ]
+ * [ Antagonist Interactions*** ]
+ * [ Status Feedback ]
  *
-*	Blocks marked with *** are collapsed by default.
+ * Blocks marked with *** are collapsed by default.
  */
 /atom/proc/get_examine_text(mob/user, distance, is_adjacent, infix = "", suffix = "", show_extended)
 	SHOULD_CALL_PARENT(TRUE)
@@ -83,8 +83,9 @@
 	// Object name. I.e. "This is an Object. It is a normal-sized item."
 	. += "[icon2html(src, user)] That's [f_name] [suffix]"
 
+	// Object description.
 	if(src.desc)
-		. += src.desc	// Object description.
+		. += src.desc
 
 	// Returns a SPAN_* based on health, if configured.
 	var/list/condition_hints = src.condition_hints()
@@ -144,7 +145,9 @@
 		if(H.glasses)
 			H.glasses.glasses_examine_atom(src, H)
 
-// Used to check if "examine_fluff" from the HTML link in examine() is true, i.e. if it was clicked.
+/**
+ * Used to check if "examine_fluff" from the HTML link in examine() is true, i.e. if it was clicked.
+ */
 /atom/Topic(href, href_list)
 	. = ..()
 	if (.)
@@ -178,6 +181,7 @@
 		return TRUE
 
 /**
+ * Builds the text block variables for get_examine_text
  * Builds the text block variables for get_examine_text.
  * Objects themselves are responsible for handling their own logic to build these hints.
  * See mecha.dm for an example of a system that relays hints from contained items to a parent.
@@ -247,44 +251,64 @@
 			first_line = FALSE
 			desc_feedback += "[feedback_hint]"
 
-/// Should return a list() of SPAN_* strings in whatever format you like.
-/// Existing style is SPAN_NOTICE for minor damage and SPAN_ALERT for anything worse. If the object's destruction
-/// could have major adverse consequences, you might use SPAN_DANGER for critical damage.
+/**
+ * Should return a list() of SPAN_* strings in whatever format you like.
+ * Accepted style is SPAN_NOTICE for minor damage and SPAN_ALERT for anything worse. If the object's destruction
+ * could have major adverse consequences, you might use SPAN_DANGER for critical damage.
+ */
 /atom/proc/condition_hints()
 	. = list()
 
-/// Should return a list() of regular strings.
+/**
+ * Should return a list() of regular strings.
+ */
 /atom/proc/mechanics_hints()
 	. = list()
 
 /*
- *	Children of assembly_hints() and disassembly_hints() should check the current state of the object, whether it
- *	has any eligible steps in its assembly or disassembly respectively, and if so, return hints to that end.
+ * Children of assembly_hints() and disassembly_hints() should check the current state of the object, whether it
+ * has any eligible steps in its assembly or disassembly respectively, and if so, return hints to that end.
  *
- *	It should be used to suggest steps toward or away from a completed 'form' of the object.
- *	For example, a table whose surface can be carpeted would have carpeting instructions in assembly_hints().
- *	However, an IV drip which can have a gas tank attached to it would not have that  described in assembly_hints(),
- *	as the IV drip itself is already 'completed,' and a gas tank is effectively just a swappable slot item for it.
+ * It should be used to suggest steps toward or away from a completed 'form' of the object.
+ * For example, a table whose surface can be carpeted would have carpeting instructions in assembly_hints().
+ * However, an IV drip which can have a gas tank attached to it would not have that  described in assembly_hints(),
+ * as the IV drip itself is already 'completed,' and a gas tank is effectively just a swappable slot item for it.
  *
- *	Look at existing objects' implementations and use your best judgement, or ask in Discord if need be!
+ * Look at existing objects' implementations and use your best judgement, or ask in Discord if need be!
  */
 
-/// Should return a list() of regular strings.
+/**
+ * Should return a list() of regular strings.
+ * See the large comment block right above this in 'code/game/atom/atom_examine.dm' for nuanced details.
+ */
 /atom/proc/assembly_hints(mob/user, distance, is_adjacent)
 	. = list()
 
-/// Should return a list() of regular strings.
+/**
+ * Should return a list() of regular strings.
+ * See the large comment block right above this in 'code/game/atom/atom_examine.dm' for nuanced details.
+ */
 /atom/proc/disassembly_hints(mob/user, distance, is_adjacent)
 	. = list()
 
+/**
+ * Should return a list() of regular strings.
+ */
 /atom/proc/upgrade_hints(mob/user, distance, is_adjacent)
 	. = list()
 
-/// Should return a list() of regular strings.
+/**
+ * Should return a list() of regular strings.
+ */
 /atom/proc/antagonist_hints(mob/user, distance, is_adjacent)
 	. = list()
 
-/// Should return a list() of regular strings. It will accept SPAN_* strings, though for consistency's sake please
-/// use SPAN_ALERT or SPAN_DANGER for negative/bad feedback.
+/**
+ * Should return a list() of regular strings. It will accept SPAN_* strings, though for consistency's sake please
+ * use SPAN_ALERT or SPAN_DANGER for negative/bad feedback.
+ *
+ * For feedback data returning variable number values or important bools, please bold important var values for easy readability.
+ * Reference 'code/game/machinery/iv_drip.dm' for how bolding is used.
+ */
 /atom/proc/feedback_hints(mob/user, distance, is_adjacent)
 	. = list()

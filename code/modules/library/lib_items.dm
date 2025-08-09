@@ -1,9 +1,9 @@
 /* Library Items
  *
  * Contains:
- *		Bookcase
- *		Book
- *		Barcode Scanner
+ * * Bookcase
+ * * Book
+ * * Barcode Scanner
  */
 
 

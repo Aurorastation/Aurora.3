@@ -1,11 +1,11 @@
 /* Parrots!
  * Contains
- * 		Defines
- *		Inventory (headset stuff)
- *		Attack responces
- *		AI
- *		Procs / Verbs (usable by players)
- *		Sub-types
+ * * Defines
+ * * Inventory (headset stuff)
+ * * Attack responces
+ * * AI
+ * * Procs / Verbs (usable by players)
+ * * Sub-types
  */
 
 /*

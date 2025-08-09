@@ -1,9 +1,9 @@
 /* Teleportation devices.
  * Contains:
- *		Locator
- *		Hand-tele
- *		Closet Teleporter
- *		Inhibitor handling proc for above
+ * * Locator
+ * * Hand-tele
+ * * Closet Teleporter
+ * * Inhibitor handling proc for above
  */
 
 /*

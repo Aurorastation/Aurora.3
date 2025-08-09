@@ -6,12 +6,12 @@
  *
  *
  * Contains:
- *		Donut Box
- *		Egg Carton
- *		Candle Box
- *		Crayon Box
- *		Cigarette Box
- *		Match Box
+ * * Donut Box
+ * * Egg Carton
+ * * Candle Box
+ * * Crayon Box
+ * * Cigarette Box
+ * * Match Box
  */
 
 /obj/item/storage/box/fancy

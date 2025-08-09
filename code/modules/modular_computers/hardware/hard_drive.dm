@@ -58,7 +58,7 @@
 
 
 /**
- *	Returns number of stored files and storage usage/capacity.
+ * Returns number of stored files and storage usage/capacity.
  */
 /obj/item/computer_hardware/hard_drive/diagnostics(var/mob/user)
 	..()
@@ -67,7 +67,7 @@
 	to_chat(user, SPAN_NOTICE("Storage capacity: [used_capacity]/[max_capacity]GQ"))
 
 /**
- *	Use this proc to add file to the drive. Returns 1 on success and 0 on failure. Contains necessary sanity checks.
+ * Use this proc to add file to the drive. Returns 1 on success and 0 on failure. Contains necessary sanity checks.
  */
 /obj/item/computer_hardware/hard_drive/proc/store_file(var/datum/computer_file/F)
 	if(!F || !istype(F))
@@ -89,7 +89,7 @@
 	return TRUE
 
 /**
- *	Use this proc to add all basic functionality software to the drive. Returns 1 on success and 0 on failure. Contains necessary sanity checks.
+ * Use this proc to add all basic functionality software to the drive. Returns 1 on success and 0 on failure. Contains necessary sanity checks.
  */
 /obj/item/computer_hardware/hard_drive/proc/install_default_programs()
 	if(parent_computer)
@@ -98,7 +98,7 @@
 		store_file(new /datum/computer_file/program/pai_access_lock(parent_computer))		// pAI access control, to stop pesky pAI from messing with computers
 
 /**
- *	Use this proc to remove files to the drive. Returns 1 on success and 0 on failure. Contains necessary sanity checks.
+ * Use this proc to remove files to the drive. Returns 1 on success and 0 on failure. Contains necessary sanity checks.
  */
 /obj/item/computer_hardware/hard_drive/proc/remove_file(var/datum/computer_file/F)
 	if(!F || !istype(F))
@@ -115,7 +115,7 @@
 		return FALSE
 
 /**
- *	Loops through all stored files and recalculates used_capacity of this drive
+ * Loops through all stored files and recalculates used_capacity of this drive
  */
 /obj/item/computer_hardware/hard_drive/proc/recalculate_size()
 	var/total_size = 0
@@ -124,7 +124,7 @@
 	used_capacity = total_size
 
 /**
- *	 Checks whether file can be stored on the hard drive.
+ *  Checks whether file can be stored on the hard drive.
  */
 /obj/item/computer_hardware/hard_drive/proc/can_store_file(var/size = TRUE)
 	// In the unlikely event someone manages to create that many files.
@@ -139,7 +139,7 @@
 		return TRUE
 
 /**
- *	 Checks whether we can store the file. We can only store unique files, so this checks whether we wouldn't get a duplicity by adding a file.
+ *  Checks whether we can store the file. We can only store unique files, so this checks whether we wouldn't get a duplicity by adding a file.
  */
 /obj/item/computer_hardware/hard_drive/proc/try_store_file(var/datum/computer_file/F)
 	if(!F || !istype(F))
@@ -151,7 +151,7 @@
 	return can_store_file(F.size)
 
 /**
- *	 Tries to find the file by filename. Returns null on failure.
+ *  Tries to find the file by filename. Returns null on failure.
  */
 /obj/item/computer_hardware/hard_drive/proc/find_file_by_name(var/filename)
 	if(!check_functionality())

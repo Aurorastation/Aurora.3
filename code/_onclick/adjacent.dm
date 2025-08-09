@@ -92,7 +92,9 @@ Quick adjacency (to turf):
 		return TRUE
 	return FALSE
 
-// This is necessary for storage items not on your person.
+/**
+ * This is necessary for storage items not on your person.
+ */
 /obj/item/Adjacent(atom/neighbor, atom/target, atom/movable/mover, recurse = 1)
 	if(neighbor == loc)
 		return TRUE
@@ -131,7 +133,8 @@ Quick adjacency (to turf):
 				return FALSE
 				/*** END AURORA SNOWFLAKE CODE ***/
 
-		else if(!border_only) // dense, not on border, cannot pass over
+		// Dense, not on border, cannot pass over
+		else if(!border_only)
 			return FALSE
 
 	return TRUE
