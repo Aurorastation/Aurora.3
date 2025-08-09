@@ -41,7 +41,7 @@ ABSTRACT_TYPE(/obj/item/clothing/pants)
 		M.update_inv_pants()
 
 /obj/item/clothing/pants/verb/change_layer()
-	set category = "Object"
+	set category = "Object.Equipped"
 	set name = "Change Pants Layer"
 	set src in usr
 

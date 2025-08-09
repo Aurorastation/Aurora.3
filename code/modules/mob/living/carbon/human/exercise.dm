@@ -5,7 +5,7 @@ Exercise Verbs
 /mob/living/carbon/human/verb/pushup()
 	set name = "Do Pushup"
 	set desc = "Makes you do a pushup."
-	set category = "IC"
+	set category = "IC.Maneuver"
 
 	do_pushups()
 

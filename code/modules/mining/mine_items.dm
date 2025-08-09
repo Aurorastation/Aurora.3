@@ -142,8 +142,8 @@
 
 /obj/item/pickaxe/verb/wield_pick()
 	if(can_wield)
-		set name = "Wield pick/drill"
-		set category = "Object"
+		set name = "Wield Pick/Drill"
+		set category = "Object.Held"
 		set src in usr
 
 		attack_self(usr)

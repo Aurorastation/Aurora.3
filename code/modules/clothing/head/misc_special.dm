@@ -47,8 +47,8 @@
 
 
 /obj/item/clothing/head/welding/verb/toggle()
-	set category = "Object"
-	set name = "Adjust welding mask"
+	set category = "Object.Equipped"
+	set name = "Adjust Welding Mask"
 	set src in usr
 
 	if(!base_state)

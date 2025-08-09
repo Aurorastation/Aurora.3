@@ -7,7 +7,7 @@
  */
 /mob/verb/up()
 	set name = "Move Upwards"
-	set category = "IC"
+	set category = "IC.Maneuver"
 
 	if(zMove(UP))
 		visible_message(SPAN_NOTICE("[src] has moved upwards."), SPAN_NOTICE("You move upwards."))
@@ -16,8 +16,8 @@
  * Verb for the mob to move down a z-level if possible.
  */
 /mob/verb/down()
-	set name = "Move Down"
-	set category = "IC"
+	set name = "Move Downwards"
+	set category = "IC.Maneuver"
 
 	if(zMove(DOWN))
 		visible_message(SPAN_NOTICE("[src] has moved downwards."), SPAN_NOTICE("You move downwards."))

@@ -46,7 +46,7 @@
 
 /obj/item/device/taperecorder/cciaa/record()
 	set name = "Start Recording"
-	set category = "Recorder"
+	set category = "Object.Tape Recorder"
 
 	if(!check_rights(R_CCIAA,FALSE))
 		to_chat(usr, SPAN_NOTICE("The device beeps and flashes \"Unauthorised user.\"."))
@@ -131,7 +131,7 @@
 
 /obj/item/device/taperecorder/cciaa/stop()
 	set name = "Stop Recording"
-	set category = "Recorder"
+	set category = "Object.Tape Recorder"
 
 	if(use_check_and_message(usr))
 		return
@@ -192,7 +192,7 @@
 
 /obj/item/device/taperecorder/cciaa/verb/reset_recorder()
 	set name = "Reset Recorder"
-	set category = "Recorder"
+	set category = "Object.Tape Recorder"
 
 	if(!check_rights(R_CCIAA,FALSE))
 		to_chat(usr, SPAN_NOTICE("The device beeps and flashes \"Unauthorised user.\"."))
@@ -232,7 +232,7 @@
 
 /obj/item/device/taperecorder/cciaa/print_transcript()
 	set name = "Print Transcript"
-	set category = "Recorder"
+	set category = "Object.Tape Recorder"
 
 	if(use_check_and_message(usr))
 		return
@@ -250,7 +250,7 @@
 
 /obj/item/device/taperecorder/cciaa/verb/pause_recording()
 	set name = "Pause Recording"
-	set category = "Recorder"
+	set category = "Object.Tape Recorder"
 
 	if(use_check_and_message(usr))
 		return

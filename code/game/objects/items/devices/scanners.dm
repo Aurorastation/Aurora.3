@@ -361,7 +361,7 @@ BREATH ANALYZER
 
 /obj/item/device/healthanalyzer/verb/toggle_mode()
 	set name = "Switch Verbosity"
-	set category = "Object"
+	set category = "Object.Held"
 	set src in usr
 
 	mode = !mode

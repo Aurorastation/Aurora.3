@@ -176,7 +176,7 @@
 /obj/item/clothing/suit/space/void/verb/toggle_helmet()
 
 	set name = "Toggle Helmet"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	if(!istype(src.loc,/mob/living)) return
@@ -209,7 +209,7 @@
 /obj/item/clothing/suit/space/void/verb/eject_tank()
 
 	set name = "Eject Voidsuit Tank"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in view(1)
 
 	var/mob/living/user = usr
@@ -233,7 +233,7 @@
 /obj/item/clothing/suit/space/void/verb/eject_cooler()
 
 	set name = "Eject Suit Cooler"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in view(1)
 
 	var/mob/living/user = usr

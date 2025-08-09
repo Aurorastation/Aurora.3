@@ -33,7 +33,7 @@
 	to_chat(usr, SPAN_NOTICE(reading))
 
 /obj/item/device/light_meter/verb/set_low_bound()
-	set category = "Object"
+	set category = "Object.Held"
 	set name = "Set Detector Low-Bound"
 	set src in usr
 
@@ -44,7 +44,7 @@
 	low = num
 
 /obj/item/device/light_meter/verb/set_high_bound()
-	set category = "Object"
+	set category = "Object.Held"
 	set name = "Set Detector High-Bound"
 	set src in usr
 

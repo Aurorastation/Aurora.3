@@ -334,8 +334,8 @@
 		M.update_inv_wear_id()
 
 /obj/item/card/id/verb/flip_side()
-	set name = "Flip ID card"
-	set category = "Object"
+	set name = "Flip ID Card"
+	set category = "Object.Equipped"
 	set src in usr
 	if(use_check_and_message(usr, use_flags = USE_DISALLOW_SILICONS))
 		return
@@ -350,7 +350,7 @@
 
 /obj/item/card/id/verb/toggle_icon_layer()
 	set name = "Switch ID Layer"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	if(use_check_and_message(usr, use_flags = USE_DISALLOW_SILICONS))

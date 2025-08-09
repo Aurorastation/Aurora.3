@@ -13,7 +13,7 @@
 
 /obj/item/device/hailer/verb/set_message()
 	set name = "Set Hailer Message"
-	set category = "Object"
+	set category = "Object.Held"
 	set desc = "Alter the message shouted by your hailer."
 	set src in usr
 

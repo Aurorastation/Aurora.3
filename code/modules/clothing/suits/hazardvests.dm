@@ -14,7 +14,7 @@
 
 /obj/item/clothing/suit/storage/hazardvest/verb/Toggle() //copied from storage toggle
 	set name = "Toggle Hazard Vest"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	if(use_check_and_message(usr))

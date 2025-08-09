@@ -100,7 +100,7 @@
 	is_wieldable = TRUE
 
 /obj/item/gun/energy/blaster/rifle/verb/scope()
-	set category = "Object"
+	set category = "Object.Held"
 	set name = "Use Scope"
 	set src in usr
 

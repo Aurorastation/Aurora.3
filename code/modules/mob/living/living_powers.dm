@@ -14,7 +14,7 @@
 		to_chat(src, SPAN_NOTICE("You have stopped hiding."))
 
 /mob/living/verb/set_walk_speed()
-	set category = "IC"
+	set category = "IC.Maneuver"
 	set name = "Adjust walk speed"
 	set desc = "Allows you to adjust your walking speed to a slower value than normal, or reset it. Does not make you faster."
 

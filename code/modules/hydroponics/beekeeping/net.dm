@@ -104,8 +104,8 @@
 
 /obj/item/bee_net/verb/empty_bees()
 	set src in usr
-	set name = "Empty bee net"
-	set category = "Object"
+	set name = "Empty Bee Net"
+	set category = "Object.Held"
 
 	var/mob/living/carbon/M
 	if(iscarbon(usr))

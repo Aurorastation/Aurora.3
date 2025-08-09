@@ -112,8 +112,8 @@
 				say("Glub!")
 
 /mob/living/simple_animal/carp/fluff/verb/friend(var/mob/user)
-	set name = "Become Friends"
-	set category = "IC"
+	set name = "Befriend Carp"
+	set category = "IC.Critters"
 	set src in view(1)
 
 	if(friend && usr == friend)

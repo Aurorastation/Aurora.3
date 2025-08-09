@@ -258,7 +258,7 @@
 
 /obj/item/holder/verb/change_animal_name()
 	set name = "Name Animal"
-	set category = "IC"
+	set category = "IC.Critters"
 	set src in usr
 
 	if(isanimal(contained))
@@ -375,7 +375,7 @@
 
 /obj/item/holder/carp/baby/verb/toggle_block_hair()
 	set name = "Toggle Hair Coverage"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	flags_inv ^= BLOCKHEADHAIR

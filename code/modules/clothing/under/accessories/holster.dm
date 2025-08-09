@@ -122,7 +122,7 @@
 
 /obj/item/clothing/accessory/holster/verb/holster_verb() //For the holster hotkey.
 	set name = "Holster"
-	set category = "Object"
+	set category = "Object.Held"
 	set src in usr
 
 	if(!istype(usr, /mob/living))

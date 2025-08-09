@@ -45,7 +45,7 @@
 	icon = 'icons/obj/guns/bolt_scope.dmi'
 
 /obj/item/gun/projectile/shotgun/pump/rifle/scope/verb/scope()
-	set category = "Object"
+	set category = "Object.Held"
 	set name = "Use Scope"
 	set src in usr
 
@@ -148,7 +148,7 @@
 	load_method = SPEEDLOADER
 
 /obj/item/gun/projectile/shotgun/pump/rifle/dominia/verb/scope()
-	set category = "Object"
+	set category = "Object.Held"
 	set name = "Use Scope"
 	set src in usr
 

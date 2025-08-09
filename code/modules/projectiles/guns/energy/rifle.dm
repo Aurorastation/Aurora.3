@@ -190,7 +190,7 @@
 	var/atom/movable/screen/overlay = null
 
 /obj/item/gun/energy/rifle/laser/tachyon/verb/scope()
-	set category = "Object"
+	set category = "Object.Held"
 	set name = "Use Scope"
 	set src in usr
 

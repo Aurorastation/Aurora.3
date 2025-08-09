@@ -348,7 +348,7 @@
 
 /obj/item/reagent_containers/food/snacks/ricetub/verb/remove_sticks()
 	set name = "Remove Chopsticks"
-	set category = "Object"
+	set category = "Object.Held"
 	set src in usr
 
 	var/obj/item/material/kitchen/utensil/fork/chopsticks/bamboo/S = new()

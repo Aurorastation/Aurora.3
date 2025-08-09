@@ -76,8 +76,8 @@
 	return
 
 /obj/item/material/kitchen/utensil/verb/bite_size()
-	set name = "Change bite size"
-	set category = "Object"
+	set name = "Change Bite Size"
+	set category = "Object.Held"
 	set src in usr
 
 	var/nsize = tgui_input_list(usr, "Select the amount of reagents to pick up.", "Bite Size", bite_sizes, transfer_amt)

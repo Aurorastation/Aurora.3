@@ -835,7 +835,7 @@
 /mob/living/simple_animal/verb/change_name()
 	set name = "Name Animal"
 	set desc = "Rename an animal."
-	set category = "IC"
+	set category = "IC.Critters"
 	set src in view(1)
 
 	var/mob/living/carbon/M = usr

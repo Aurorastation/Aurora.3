@@ -65,7 +65,7 @@
 
 /obj/item/clothing/head/helmet/pilot/verb/visor_toggled()
 	set name = "Toggle Visor"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	var/mob/living/carbon/human/user = usr

@@ -227,7 +227,7 @@
 	. += "This radio can be heard by people standing next to the one wearing it."
 
 /obj/item/device/radio/headset/wrist/verb/change_layer()
-	set category = "Object"
+	set category = "Object.Equipped"
 	set name = "Change Wrist Layer"
 	set src in usr
 
@@ -255,7 +255,7 @@
 	slot_flags = SLOT_WRISTS | SLOT_EARS
 
 /obj/item/device/radio/headset/wrist/clip/verb/flip_radio()
-	set category = "Object"
+	set category = "Object.Equipped"
 	set name = "Flip Radio"
 	set src in usr
 
