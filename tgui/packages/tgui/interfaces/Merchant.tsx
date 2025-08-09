@@ -17,11 +17,11 @@ export type MerchantData = {
   trades: string[];
 };
 
-export const Merchant = (props, context) => {
-  const { act, data } = useBackend<MerchantData>(context);
+export const Merchant = (props) => {
+  const { act, data } = useBackend<MerchantData>();
 
   return (
-    <NtosWindow resizable width={900} height={600}>
+    <NtosWindow width={900} height={600}>
       <NtosWindow.Content scrollable>
         {data.temp ? <TempWindow /> : data.mode ? <ModeWindow /> : <MainMenu />}
       </NtosWindow.Content>
@@ -29,8 +29,8 @@ export const Merchant = (props, context) => {
   );
 };
 
-export const ModeWindow = (props, context) => {
-  const { act, data } = useBackend<MerchantData>(context);
+export const ModeWindow = (props) => {
+  const { act, data } = useBackend<MerchantData>();
 
   return (
     <Section
@@ -58,8 +58,8 @@ export const ModeWindow = (props, context) => {
   );
 };
 
-export const Hailed = (props, context) => {
-  const { act, data } = useBackend<MerchantData>(context);
+export const Hailed = (props) => {
+  const { act, data } = useBackend<MerchantData>();
 
   return (
     <Section>
@@ -177,8 +177,8 @@ export const Hailed = (props, context) => {
   );
 };
 
-export const NotHailed = (props, context) => {
-  const { act, data } = useBackend<MerchantData>(context);
+export const NotHailed = (props) => {
+  const { act, data } = useBackend<MerchantData>();
 
   return (
     <Section title="Communications">
@@ -187,8 +187,8 @@ export const NotHailed = (props, context) => {
   );
 };
 
-export const MainMenu = (props, context) => {
-  const { act, data } = useBackend<MerchantData>(context);
+export const MainMenu = (props) => {
+  const { act, data } = useBackend<MerchantData>();
 
   return (
     <Section
@@ -237,8 +237,8 @@ export const MainMenu = (props, context) => {
   );
 };
 
-export const TempWindow = (props, context) => {
-  const { act, data } = useBackend<MerchantData>(context);
+export const TempWindow = (props) => {
+  const { act, data } = useBackend<MerchantData>();
 
   return (
     <Section

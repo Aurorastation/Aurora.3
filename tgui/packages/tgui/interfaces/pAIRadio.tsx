@@ -15,11 +15,11 @@ type Channel = {
   listening: BooleanLike;
 };
 
-export const pAIRadio = (props, context) => {
-  const { act, data } = useBackend<RadioData>(context);
+export const pAIRadio = (props) => {
+  const { act, data } = useBackend<RadioData>();
 
   return (
-    <NtosWindow resizable>
+    <NtosWindow>
       <NtosWindow.Content scrollable>
         <Section title="Radio Configuration">
           <LabeledList>

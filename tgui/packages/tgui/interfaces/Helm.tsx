@@ -414,11 +414,11 @@ const PosSection = function (act, data) {
   );
 };
 
-export const Helm = (props, context) => {
-  const { act, data } = useBackend<HelmData>(context);
+export const Helm = (props) => {
+  const { act, data } = useBackend<HelmData>();
 
   return (
-    <NtosWindow resizable>
+    <NtosWindow>
       <NtosWindow.Content scrollable>
         <Table>
           <Table.Row>

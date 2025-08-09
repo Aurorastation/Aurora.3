@@ -30,11 +30,11 @@ type PowerChannel = {
   status: number;
 };
 
-export const Apc = (props, context) => {
-  const { act, data } = useBackend<APCData>(context);
+export const Apc = (props) => {
+  const { act, data } = useBackend<APCData>();
 
   return (
-    <Window resizable theme="hephaestus">
+    <Window theme="hephaestus">
       <Window.Content scrollable>
         {data.fail_time > 0 ? <FailWindow /> : <APCWindow />}
       </Window.Content>
@@ -42,8 +42,8 @@ export const Apc = (props, context) => {
   );
 };
 
-export const FailWindow = (props, context) => {
-  const { act, data } = useBackend<APCData>(context);
+export const FailWindow = (props) => {
+  const { act, data } = useBackend<APCData>();
 
   return (
     <Section
@@ -64,8 +64,8 @@ export const FailWindow = (props, context) => {
   );
 };
 
-export const APCWindow = (props, context) => {
-  const { act, data } = useBackend<APCData>(context);
+export const APCWindow = (props) => {
+  const { act, data } = useBackend<APCData>();
   return (
     <Section>
       {data.silicon_user ? (
@@ -240,8 +240,8 @@ export const APCWindow = (props, context) => {
   );
 };
 
-export const SiliconWindow = (props, context) => {
-  const { act, data } = useBackend<APCData>(context);
+export const SiliconWindow = (props) => {
+  const { act, data } = useBackend<APCData>();
   return (
     <Section
       title="Interface Lock"

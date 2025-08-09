@@ -15,11 +15,11 @@ type Scrubber = {
   flowrate: number;
 };
 
-export const AreaAtmos = (props, context) => {
-  const { act, data } = useBackend<AreaAtmosScrubberData>(context);
+export const AreaAtmos = (props) => {
+  const { act, data } = useBackend<AreaAtmosScrubberData>();
 
   return (
-    <Window resizable width={500} height={300}>
+    <Window width={500} height={300}>
       <Window.Content scrollable>
         {' '}
         {data.scrubbers && data.scrubbers.length ? (
@@ -32,8 +32,8 @@ export const AreaAtmos = (props, context) => {
   );
 };
 
-export const AreaScan = (props, context) => {
-  const { act, data } = useBackend<AreaAtmosScrubberData>(context);
+export const AreaScan = (props) => {
+  const { act, data } = useBackend<AreaAtmosScrubberData>();
 
   return (
     <Section>
@@ -43,8 +43,8 @@ export const AreaScan = (props, context) => {
   );
 };
 
-export const AreaScrubbers = (props, context) => {
-  const { act, data } = useBackend<AreaAtmosScrubberData>(context);
+export const AreaScrubbers = (props) => {
+  const { act, data } = useBackend<AreaAtmosScrubberData>();
 
   return (
     <Section title="Area Air Control">

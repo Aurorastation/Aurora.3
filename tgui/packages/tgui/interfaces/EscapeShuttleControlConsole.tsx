@@ -20,11 +20,11 @@ export type EscapeShuttleControlConsoleData = {
   has_auth: boolean;
 };
 
-export const EscapeShuttleControlConsole = (props, context) => {
-  const { act, data } = useBackend<EscapeShuttleControlConsoleData>(context);
+export const EscapeShuttleControlConsole = (props) => {
+  const { act, data } = useBackend<EscapeShuttleControlConsoleData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section title="Shuttle Status">
           <Box>{data.shuttle_status}</Box>

@@ -16,11 +16,11 @@ type Field = {
   type: string;
 };
 
-export const SuspensionGenerator = (props, context) => {
-  const { act, data } = useBackend<SuspensionData>(context);
+export const SuspensionGenerator = (props) => {
+  const { act, data } = useBackend<SuspensionData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section title="Overview">
           <LabeledList>

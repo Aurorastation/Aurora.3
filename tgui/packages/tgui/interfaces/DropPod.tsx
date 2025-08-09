@@ -6,11 +6,11 @@ export type PodData = {
   status: number;
 };
 
-export const DropPod = (props, context) => {
-  const { act, data } = useBackend<PodData>(context);
+export const DropPod = (props) => {
+  const { act, data } = useBackend<PodData>();
 
   return (
-    <Window resizable theme="zavodskoi">
+    <Window theme="zavodskoi">
       <Window.Content scrollable>
         {data.status === 0 ? (
           <Section title="Select Launch Target">

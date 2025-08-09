@@ -20,7 +20,7 @@
 //Made for the roulette table, probably requires a bunch of manual hacks to work for anything else
 .theme-cardtable {
   // Atomic classes
-  @include meta.load-css('../atomic/color.scss');
+  @include meta.load-css('~tgui-core/styles/atomic/color.scss');
 
   // Components
   @include meta.load-css(

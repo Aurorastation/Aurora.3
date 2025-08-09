@@ -18,7 +18,7 @@
 
 .theme-hackerman {
   // Atomic classes
-  @include meta.load-css('../atomic/color.scss');
+  @include meta.load-css('~tgui-core/styles/atomic/color.scs');
 
   // Components
   @include meta.load-css(

@@ -1,4 +1,4 @@
-import { Fragment } from 'inferno';
+import { Fragment } from 'react';
 import { Window } from '../layouts';
 import { useBackend } from '../backend';
 import { AnimatedNumber, Box, Button, Flex, Icon, LabeledList, ProgressBar, Section } from 'tgui-core/components';
@@ -63,10 +63,10 @@ const progressClass = (value) => {
   }
 };
 
-export const CryoTube = (props, context) => {
-  const { act, data } = useBackend<CryoData>(context);
+export const CryoTube = (props) => {
+  const { act, data } = useBackend<CryoData>();
   return (
-    <Window resizable theme="zenghu">
+    <Window theme="zenghu">
       <Window.Content className="Layout__content--flexColumn">
         <CryoContent />
       </Window.Content>
@@ -74,8 +74,8 @@ export const CryoTube = (props, context) => {
   );
 };
 
-export const CryoContent = (props, context) => {
-  const { act, data } = useBackend<CryoData>(context);
+export const CryoContent = (props) => {
+  const { act, data } = useBackend<CryoData>();
   return (
     <Fragment>
       <Section
@@ -217,8 +217,8 @@ export const CryoContent = (props, context) => {
   );
 };
 
-const CryoBeaker = (props, context) => {
-  const { act, data } = useBackend<BeakerData>(context);
+const CryoBeaker = (props) => {
+  const { act, data } = useBackend<BeakerData>();
   if (data.isBeakerLoaded) {
     return (
       <Fragment>

@@ -15,11 +15,11 @@ export type ShuttleControlConsoleLiftData = {
   ship_name: string;
 };
 
-export const ShuttleControlConsoleLift = (props, context) => {
-  const { act, data } = useBackend<ShuttleControlConsoleLiftData>(context);
+export const ShuttleControlConsoleLift = (props) => {
+  const { act, data } = useBackend<ShuttleControlConsoleLiftData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section title="Lift Status">
           <LabeledList>

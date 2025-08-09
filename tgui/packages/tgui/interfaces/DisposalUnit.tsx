@@ -12,8 +12,8 @@ export type DisposalData = {
   pressure: Number;
 };
 
-export const DisposalUnit = (props, context) => {
-  const { act, data } = useBackend<DisposalData>(context);
+export const DisposalUnit = (props) => {
+  const { act, data } = useBackend<DisposalData>();
   let stateColor;
   let modeText;
   if (!data.is_on) {

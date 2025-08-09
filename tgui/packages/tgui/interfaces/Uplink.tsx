@@ -57,11 +57,11 @@ type ContractData = {
   reward_other: String;
 };
 
-export const Uplink = (props, context) => {
-  const { act, data } = useBackend<UplinkData>(context);
+export const Uplink = (props) => {
+  const { act, data } = useBackend<UplinkData>();
 
   return (
-    <Window resizable theme="syndicate">
+    <Window theme="syndicate">
       <Window.Content scrollable>
         <Section title="Functions">
           {data.welcome}
@@ -130,7 +130,7 @@ const ItemCategoriesSection = function (
   return (
     <Section
       title={'Gear ' + (!searchTerm ? 'categories' : 'search')}
-      buttons={ItemSearch(context)}>
+      buttons={ItemSearch()}>
       {!searchTerm
         ? CategoriesList(act, data)
         : ItemSection(context, act, data)}
@@ -218,7 +218,7 @@ const ItemSection = function (context: any, act: any, data: UplinkData) {
   return (
     <Section
       title="Request Gear"
-      buttons={data.menu === 1 ? ItemSearch(context) : ''}>
+      buttons={data.menu === 1 ? ItemSearch() : ''}>
       <span class="white">
         <i>
           Each item costs a number of telecrystals or bluecrystals as indicated

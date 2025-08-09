@@ -23,7 +23,7 @@ export const EditableText = (props: Props, context) => {
   const { color, field, target_ref, text } = props;
   if (!field) return <> </>;
 
-  const { act } = useBackend(context);
+  const { act } = useBackend();
   const [editing, setEditing] = useLocalState<boolean>(
     context,
     `editing_${field}`,

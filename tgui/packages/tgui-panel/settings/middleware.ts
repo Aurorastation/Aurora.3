@@ -5,11 +5,21 @@
  */
 
 import { storage } from 'common/storage';
+
 import { setClientTheme } from '../themes';
-import { addHighlightSetting, loadSettings, removeHighlightSetting, updateHighlightSetting, updateSettings } from './actions';
-import { selectSettings } from './selectors';
+import {
+  addHighlightSetting,
+  exportSettings,
+  importSettings,
+  loadSettings,
+  removeHighlightSetting,
+  updateHighlightSetting,
+  updateSettings,
+} from './actions';
 import { FONTS_DISABLED } from './constants';
 import { setDisplayScaling } from './scaling';
+import { selectSettings } from './selectors';
+import { exportChatSettings } from './settingsImExport';
 
 let statFontTimer: NodeJS.Timeout;
 let statTabsTimer: NodeJS.Timeout;
@@ -31,7 +41,7 @@ function updateGlobalOverrideRule() {
 
   if (overrideRule === undefined) {
     overrideRule = document.createElement('style');
-    document.querySelector('head')?.append(overrideRule);
+    document.querySelector('head')!.append(overrideRule);
   }
 
   // no other way to force a CSS refresh other than to update its innerText
@@ -43,22 +53,18 @@ function updateGlobalOverrideRule() {
 function setGlobalFontSize(
   fontSize: string,
   statFontSize: string,
-  statLinked: boolean
+  statLinked: boolean,
 ) {
   overrideFontSize = `${fontSize}px`;
 
   // Used solution from theme.ts
   clearInterval(statFontTimer);
   Byond.command(
-    `.output statbrowser:set_font_size ${
-      statLinked ? fontSize : statFontSize
-    }px`
+    `.output statbrowser:set_font_size ${statLinked ? fontSize : statFontSize}px`,
   );
   statFontTimer = setTimeout(() => {
     Byond.command(
-      `.output statbrowser:set_font_size ${
-        statLinked ? fontSize : statFontSize
-      }px`
+      `.output statbrowser:set_font_size ${statLinked ? fontSize : statFontSize}px`,
     );
   }, 1500);
 }
@@ -75,10 +81,12 @@ function setStatTabsStyle(style: string) {
   }, 1500);
 }
 
-export const settingsMiddleware = (store) => {
+export function settingsMiddleware(store) {
   let initialized = false;
+
   return (next) => (action) => {
     const { type, payload } = action;
+
     if (!initialized) {
       initialized = true;
 
@@ -88,37 +96,53 @@ export const settingsMiddleware = (store) => {
         store.dispatch(loadSettings(settings));
       });
     }
-    if (
-      type === updateSettings.type ||
-      type === loadSettings.type ||
-      type === addHighlightSetting.type ||
-      type === removeHighlightSetting.type ||
-      type === updateHighlightSetting.type
-    ) {
-      // Set client theme
-      const theme = payload?.theme;
-      if (theme) {
-        setClientTheme(theme);
-      }
-      // Pass action to get an updated state
-      next(action);
-
-      const settings = selectSettings(store.getState());
-
-      // Update stat panel settings
-      setStatTabsStyle(settings.statTabsStyle);
-      // Update global UI font size
-      setGlobalFontSize(
-        settings.fontSize,
-        settings.statFontSize,
-        settings.statLinked
-      );
-      setGlobalFontFamily(settings.fontFamily);
-      updateGlobalOverrideRule();
-      // Save settings to the web storage
-      storage.set('panel-settings', settings);
+    if (type === exportSettings.type) {
+      const state = store.getState();
+      const settings = selectSettings(state);
+      exportChatSettings(settings, state.chat.pageById);
       return;
     }
-    return next(action);
+    if (
+      type !== updateSettings.type &&
+      type !== loadSettings.type &&
+      type !== addHighlightSetting.type &&
+      type !== removeHighlightSetting.type &&
+      type !== updateHighlightSetting.type &&
+      type !== importSettings.type
+    ) {
+      return next(action);
+    }
+
+    // Set client theme
+    const theme = payload?.theme;
+    if (theme) {
+      setClientTheme(theme);
+    }
+
+    // Pass action to get an updated state
+    next(action);
+
+    const settings = selectSettings(store.getState());
+
+    if (importSettings.type) {
+      setClientTheme(settings.theme);
+    }
+
+    // Update stat panel settings
+    setStatTabsStyle(settings.statTabsStyle);
+
+    // Update global UI font size
+    setGlobalFontSize(
+      settings.fontSize,
+      settings.statFontSize,
+      settings.statLinked,
+    );
+    setGlobalFontFamily(settings.fontFamily);
+    updateGlobalOverrideRule();
+
+    // Save settings to the web storage
+    storage.set('panel-settings', settings);
+
+    return;
   };
-};
+}

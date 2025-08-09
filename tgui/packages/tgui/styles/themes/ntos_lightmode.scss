@@ -17,7 +17,7 @@ $nanotrasen: #ffffff;
  );
 
 .theme-ntos_lightmode {
-  @include meta.load-css('../atomic/color.scss', $with: ());
+  @include meta.load-css('~tgui-core/styles/atomic/color.scs', $with: ());
   // Components
   @include meta.load-css(
     'tgui-core/components/Button.scss',

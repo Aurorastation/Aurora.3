@@ -26,11 +26,11 @@ type SuitObject = {
   damage: number;
 };
 
-export const SuitCycler = (props, context) => {
-  const { act, data } = useBackend<SuitCyclerData>(context);
+export const SuitCycler = (props) => {
+  const { act, data } = useBackend<SuitCyclerData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section title="Locking Panel">
           {data.in_use ? (

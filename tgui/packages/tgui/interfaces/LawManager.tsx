@@ -52,11 +52,11 @@ type LawSetLaws = {
   supplied_laws: Law[];
 };
 
-export const LawManager = (props, context) => {
-  const { act, data } = useBackend<LawData>(context);
+export const LawManager = (props) => {
+  const { act, data } = useBackend<LawData>();
 
   return (
-    <NtosWindow resizable width={800}>
+    <NtosWindow width={800}>
       <NtosWindow.Content scrollable>
         <Tabs>
           <Tabs.Tab
@@ -76,8 +76,8 @@ export const LawManager = (props, context) => {
   );
 };
 
-export const LawManagement = (props, context) => {
-  const { act, data } = useBackend<LawData>(context);
+export const LawManagement = (props) => {
+  const { act, data } = useBackend<LawData>();
 
   return (
     <Section>
@@ -117,8 +117,8 @@ export const LawManagement = (props, context) => {
   );
 };
 
-export const AddLaws = (props, context) => {
-  const { act, data } = useBackend<LawData>(context);
+export const AddLaws = (props) => {
+  const { act, data } = useBackend<LawData>();
 
   return (
     <Section title="Add Laws">
@@ -179,8 +179,8 @@ export const AddLaws = (props, context) => {
   );
 };
 
-export const Ionlaws = (props, context) => {
-  const { act, data } = useBackend<LawData>(context);
+export const Ionlaws = (props) => {
+  const { act, data } = useBackend<LawData>();
 
   return (
     <Section title={data.ion_law_nr + ' Laws'}>
@@ -237,8 +237,8 @@ export const Ionlaws = (props, context) => {
   );
 };
 
-export const InherentLaws = (props, context) => {
-  const { act, data } = useBackend<LawData>(context);
+export const InherentLaws = (props) => {
+  const { act, data } = useBackend<LawData>();
 
   return (
     <Section title="Inherent Laws">
@@ -335,8 +335,8 @@ export const InherentLaws = (props, context) => {
   );
 };
 
-export const SuppliedLaws = (props, context) => {
-  const { act, data } = useBackend<LawData>(context);
+export const SuppliedLaws = (props) => {
+  const { act, data } = useBackend<LawData>();
 
   return (
     <Section title="Supplied Laws">
@@ -393,8 +393,8 @@ export const SuppliedLaws = (props, context) => {
   );
 };
 
-export const LawSets = (props, context) => {
-  const { act, data } = useBackend<LawData>(context);
+export const LawSets = (props) => {
+  const { act, data } = useBackend<LawData>();
 
   return (
     <Section

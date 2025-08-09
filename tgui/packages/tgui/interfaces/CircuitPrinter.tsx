@@ -21,11 +21,11 @@ type Circuit = {
   category: string;
 };
 
-export const CircuitPrinter = (props, context) => {
-  const { act, data } = useBackend<PrinterData>(context);
+export const CircuitPrinter = (props) => {
+  const { act, data } = useBackend<PrinterData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section title="Status">
           <LabeledList>

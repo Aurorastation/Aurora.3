@@ -12,7 +12,7 @@ export const meta = {
   render: () => <Story />,
 };
 
-const Story = (props, context) => {
+const Story = (props) => {
   const [progress, setProgress] = useLocalState(context, 'progress', 0.5);
   const [color, setColor] = useLocalState(context, 'color', '');
 

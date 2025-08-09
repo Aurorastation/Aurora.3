@@ -13,11 +13,11 @@ type Organ = {
   present: BooleanLike;
 };
 
-export const DamageMenu = (props, context) => {
-  const { act, data } = useBackend<DamageData>(context);
+export const DamageMenu = (props) => {
+  const { act, data } = useBackend<DamageData>();
 
   return (
-    <Window resizable theme="admin">
+    <Window theme="admin">
       <Window.Content scrollable>
         <Section title="Limbs">
           <Table>

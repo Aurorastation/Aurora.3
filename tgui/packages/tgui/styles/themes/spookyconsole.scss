@@ -22,7 +22,7 @@ $updated-bg-map: map.set($updated-bg-map, 'bad', colors.$bad);
 .theme-spookyconsole {
   // Atomic classes
   @include meta.load-css(
-    '../atomic/color.scss',
+    '~tgui-core/styles/atomic/color.scs',
     $with: ('bg-map': $updated-bg-map)
   );
 

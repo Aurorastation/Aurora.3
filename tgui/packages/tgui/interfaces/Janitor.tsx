@@ -20,11 +20,11 @@ type Supply = {
   supply_type: string;
 };
 
-export const Janitor = (props, context) => {
-  const { act, data } = useBackend<JanitorData>(context);
+export const Janitor = (props) => {
+  const { act, data } = useBackend<JanitorData>();
   const [tab, setTab] = useLocalState(context, 'tab', 'Mops');
   return (
-    <NtosWindow resizable>
+    <NtosWindow>
       <NtosWindow.Content scrollable>
         <Section title="Janitorial Equipment">
           <Tabs>

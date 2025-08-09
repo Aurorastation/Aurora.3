@@ -1,4 +1,4 @@
-import { InfernoNode } from 'inferno';
+import { ReactNode } from 'react';
 import { useBackend, useLocalState } from '../../backend';
 import { Box, Button, Flex, Input, LabeledList, Section, Stack, Tooltip } from 'tgui-core/components';
 
@@ -38,7 +38,7 @@ type Gas = {
 
 const GasSearchBar = (
   props: {
-    title: InfernoNode;
+    title: ReactNode;
     onChange: (inputValue: string) => void;
     activeInput: boolean;
     setActiveInput: (toggle: boolean) => void;
@@ -68,8 +68,8 @@ const GasSearchBar = (
   );
 };
 
-const GasHandbook = (props, context) => {
-  const { act, data } = useBackend<{ gasInfo: Gas[] }>(context);
+const GasHandbook = (props) => {
+  const { act, data } = useBackend<{ gasInfo: Gas[] }>();
   const { gasInfo } = data;
   const [activeGasId, setActiveGasId] = useLocalState(
     context,
@@ -126,8 +126,8 @@ const GasHandbook = (props, context) => {
   );
 };
 
-const ReactionHandbook = (props, context) => {
-  const { act, data } = useBackend<{ reactionInfo: Reaction[] }>(context);
+const ReactionHandbook = (props) => {
+  const { act, data } = useBackend<{ reactionInfo: Reaction[] }>();
   const { reactionInfo } = data;
   const [activeGasId, setActiveGasId] = useLocalState(
     context,
@@ -226,7 +226,7 @@ export const AtmosHandbookContent = (
   );
 };
 
-export const atmosHandbookHooks = (context) => {
+export const atmosHandbookHooks = () => {
   const [activeGasId, setActiveGasId] = useLocalState(
     context,
     'activeGasId',

@@ -39,11 +39,11 @@ const num2bearing = function (num) {
   return bearing;
 };
 
-export const AwayShuttleManifest = (props, context) => {
-  const { act, data } = useBackend<AwayShuttleData>(context);
+export const AwayShuttleManifest = (props) => {
+  const { act, data } = useBackend<AwayShuttleData>();
 
   return (
-    <NtosWindow resizable width={900} height={600}>
+    <NtosWindow width={900} height={600}>
       <NtosWindow.Content scrollable>
         {' '}
         {data.active_record ? <ManifestEntryEdit /> : <AllShuttles />}
@@ -52,8 +52,8 @@ export const AwayShuttleManifest = (props, context) => {
   );
 };
 
-export const ManifestEntryEdit = (props, context) => {
-  const { act, data } = useBackend<AwayShuttleData>(context);
+export const ManifestEntryEdit = (props) => {
+  const { act, data } = useBackend<AwayShuttleData>();
 
   return (
     <Section
@@ -100,8 +100,8 @@ export const ManifestEntryEdit = (props, context) => {
   );
 };
 
-export const AllShuttles = (props, context) => {
-  const { act, data } = useBackend<AwayShuttleData>(context);
+export const AllShuttles = (props) => {
+  const { act, data } = useBackend<AwayShuttleData>();
 
   return (
     <>

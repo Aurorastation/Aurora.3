@@ -29,8 +29,8 @@ type Reactant = {
   amount: number;
 };
 
-export const FusionCoreControl = (props, context) => {
-  const { act, data } = useBackend<FusionCoreData>(context);
+export const FusionCoreControl = (props) => {
+  const { act, data } = useBackend<FusionCoreData>();
   const [override, setOverride] = useSharedState<boolean>(
     context,
     'override',
@@ -38,7 +38,7 @@ export const FusionCoreControl = (props, context) => {
   );
 
   return (
-    <Window resizable theme={data.manufacturer}>
+    <Window theme={data.manufacturer}>
       <Window.Content scrollable>
         {data.cores && data.cores.length ? (
           data.cores.map((core) => (

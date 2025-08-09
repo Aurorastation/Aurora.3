@@ -30,11 +30,11 @@ type NukeDisk = {
   z: number;
 };
 
-export const RoundStatus = (props, context) => {
-  const { act, data } = useBackend<RoundData>(context);
+export const RoundStatus = (props) => {
+  const { act, data } = useBackend<RoundData>();
 
   return (
-    <Window resizable theme="admin">
+    <Window theme="admin">
       <Window.Content scrollable>
         <Section title="Round Status">
           <LabeledList>
@@ -70,8 +70,8 @@ export const RoundStatus = (props, context) => {
   );
 };
 
-export const Antagonists = (props, context) => {
-  const { act, data } = useBackend<RoundData>(context);
+export const Antagonists = (props) => {
+  const { act, data } = useBackend<RoundData>();
 
   return (
     <Section title="Antagonists">
@@ -124,8 +124,8 @@ export const Antagonists = (props, context) => {
   );
 };
 
-export const NukeDisks = (props, context) => {
-  const { act, data } = useBackend<RoundData>(context);
+export const NukeDisks = (props) => {
+  const { act, data } = useBackend<RoundData>();
 
   return (
     <Section title="Nuclear Disks">

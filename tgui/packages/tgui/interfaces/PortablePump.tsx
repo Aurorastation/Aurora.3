@@ -23,12 +23,12 @@ type Tank = {
   tankPressure: number;
 };
 
-export const PortablePump = (props, context) => {
-  const { act, data } = useBackend<PumpData>(context);
+export const PortablePump = (props) => {
+  const { act, data } = useBackend<PumpData>();
   // Extract `health` and `color` variables from the `data` object.
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section
           title="Pump Status"
@@ -118,8 +118,8 @@ export const PortablePump = (props, context) => {
   );
 };
 
-export const HoldingTankWindow = (props, context) => {
-  const { act, data } = useBackend<PumpData>(context);
+export const HoldingTankWindow = (props) => {
+  const { act, data } = useBackend<PumpData>();
   return (
     <Section>
       <LabeledList>

@@ -27,11 +27,11 @@ type Transaction = {
   source_terminal: string;
 };
 
-export const ATM = (props, context) => {
-  const { act, data } = useBackend<ATMData>(context);
+export const ATM = (props) => {
+  const { act, data } = useBackend<ATMData>();
 
   return (
-    <Window resizable theme="idris">
+    <Window theme="idris">
       <Window.Content scrollable>
         <Section
           title={
@@ -63,8 +63,8 @@ export const ATM = (props, context) => {
   );
 };
 
-export const LoginWindow = (props, context) => {
-  const { act, data } = useBackend<ATMData>(context);
+export const LoginWindow = (props) => {
+  const { act, data } = useBackend<ATMData>();
   const [acc, setAcc] = useSharedState<string>(context, 'acc', '');
   const [pin, setPin] = useLocalState<string>(context, 'pin', '');
 
@@ -110,8 +110,8 @@ export const LoginWindow = (props, context) => {
   );
 };
 
-export const AuthenticatedWindow = (props, context) => {
-  const { act, data } = useBackend<ATMData>(context);
+export const AuthenticatedWindow = (props) => {
+  const { act, data } = useBackend<ATMData>();
   const [withdraw, setWithdraw] = useLocalState<number>(context, 'withdraw', 0);
   const [security, setSecurity] = useLocalState<boolean>(
     context,

@@ -18,11 +18,11 @@ type Material = {
   harvest: BooleanLike;
 };
 
-export const KineticHarvester = (props, context) => {
-  const { act, data } = useBackend<HarvesterData>(context);
+export const KineticHarvester = (props) => {
+  const { act, data } = useBackend<HarvesterData>();
 
   return (
-    <Window resizable theme={data.manufacturer}>
+    <Window theme={data.manufacturer}>
       <Window.Content scrollable>
         {data.id ? (
           <HarvestWindow />
@@ -34,8 +34,8 @@ export const KineticHarvester = (props, context) => {
   );
 };
 
-export const HarvestWindow = (props, context) => {
-  const { act, data } = useBackend<HarvesterData>(context);
+export const HarvestWindow = (props) => {
+  const { act, data } = useBackend<HarvesterData>();
 
   return (
     <Section

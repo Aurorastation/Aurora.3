@@ -10,11 +10,11 @@ export type TransferValveData = {
   valveOpen: BooleanLike;
 };
 
-export const TransferValve = (props, context) => {
-  const { act, data } = useBackend<TransferValveData>(context);
+export const TransferValve = (props) => {
+  const { act, data } = useBackend<TransferValveData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content>
         <Flex direction="row" align="stretch">
           <Flex.Item grow={1}>

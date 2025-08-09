@@ -80,11 +80,11 @@ type Order = {
   reason: string;
 };
 
-export const CargoOrder = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+export const CargoOrder = (props) => {
+  const { act, data } = useBackend<CargoData>();
 
   return (
-    <NtosWindow resizable width={800} height={800}>
+    <NtosWindow width={800} height={800}>
       <NtosWindow.Content scrollable>
         <Tabs fluid>
           <Tabs.Tab
@@ -104,8 +104,8 @@ export const CargoOrder = (props, context) => {
   );
 };
 
-export const MainPage = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+export const MainPage = (props) => {
+  const { act, data } = useBackend<CargoData>();
   const [details, setDetails] = useLocalState<boolean>(
     context,
     'details',
@@ -245,8 +245,8 @@ export const MainPage = (props, context) => {
   );
 };
 
-export const ShowDetails = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+export const ShowDetails = (props) => {
+  const { act, data } = useBackend<CargoData>();
 
   return (
     <Section title="Details">
@@ -274,8 +274,8 @@ export const ShowDetails = (props, context) => {
   );
 };
 
-export const TrackingPage = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+export const TrackingPage = (props) => {
+  const { act, data } = useBackend<CargoData>();
 
   return (
     <Section title="Tracking">
@@ -305,8 +305,8 @@ export const TrackingPage = (props, context) => {
   );
 };
 
-export const ShowTrackingStatus = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+export const ShowTrackingStatus = (props) => {
+  const { act, data } = useBackend<CargoData>();
   const contentHtml = { __html: sanitizeText(data.tracked_order_report) };
 
   return (

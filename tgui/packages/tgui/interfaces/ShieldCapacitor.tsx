@@ -14,11 +14,11 @@ export type CapacitorData = {
   max_charge_rate: number;
 };
 
-export const ShieldCapacitor = (props, context) => {
-  const { act, data } = useBackend<CapacitorData>(context);
+export const ShieldCapacitor = (props) => {
+  const { act, data } = useBackend<CapacitorData>();
 
   return (
-    <Window resizable theme="hephaestus">
+    <Window theme="hephaestus">
       <Window.Content scrollable>
         <Section>
           {data.locked ? (
@@ -32,8 +32,8 @@ export const ShieldCapacitor = (props, context) => {
   );
 };
 
-export const CapacitorWindow = (props, context) => {
-  const { act, data } = useBackend<CapacitorData>(context);
+export const CapacitorWindow = (props) => {
+  const { act, data } = useBackend<CapacitorData>();
 
   return (
     <Section

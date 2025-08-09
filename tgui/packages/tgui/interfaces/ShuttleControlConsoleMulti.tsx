@@ -17,11 +17,11 @@ export type ShuttleControlConsoleMultiData = {
   destination_name: string;
 };
 
-export const ShuttleControlConsoleMulti = (props, context) => {
-  const { act, data } = useBackend<ShuttleControlConsoleMultiData>(context);
+export const ShuttleControlConsoleMulti = (props) => {
+  const { act, data } = useBackend<ShuttleControlConsoleMultiData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section title="Shuttle Status">
           <Box pb={2}>{data.shuttle_status}</Box>

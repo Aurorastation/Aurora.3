@@ -14,7 +14,7 @@
 
 .theme-vaurca {
   // Atomic classes
-  @include meta.load-css('../atomic/color.scss');
+  @include meta.load-css('~tgui-core/styles/atomic/color.scs');
 
   // Import Crew Manifest for color values
   @include meta.load-css('../interfaces/CrewManifest.scss');

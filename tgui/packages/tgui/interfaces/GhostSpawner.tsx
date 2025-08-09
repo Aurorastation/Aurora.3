@@ -78,8 +78,8 @@ const ManifestTable = function (act, spawner: Spawner) {
   );
 };
 
-export const GhostSpawner = (props, context) => {
-  const { act, data } = useBackend<SpawnerData>(context);
+export const GhostSpawner = (props) => {
+  const { act, data } = useBackend<SpawnerData>();
 
   const [tab, setTab] = useLocalState(context, 'tab', 'All');
   const [searchTerm, setSearchTerm] = useLocalState<string>(
@@ -122,7 +122,7 @@ export const GhostSpawner = (props, context) => {
   }
 
   return (
-    <Window resizable width={1000} height={700}>
+    <Window width={1000} height={700}>
       <Window.Content scrollable>
         <Section
           title="Spawners"

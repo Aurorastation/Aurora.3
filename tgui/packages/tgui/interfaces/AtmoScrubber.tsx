@@ -19,8 +19,8 @@ export type AtmoScrubberData = {
   holdingTankPressure: String[];
 };
 
-export const AtmoScrubber = (props, context) => {
-  const { act, data } = useBackend<AtmoScrubberData>(context);
+export const AtmoScrubber = (props) => {
+  const { act, data } = useBackend<AtmoScrubberData>();
 
   const [tank_color] = useLocalState(context, 'tank_color', '');
   const [cell_color] = useLocalState(context, 'tank_color', '');

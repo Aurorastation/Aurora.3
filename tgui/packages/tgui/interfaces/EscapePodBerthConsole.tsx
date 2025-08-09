@@ -8,11 +8,11 @@ export type EscapePodBerthConsoleData = {
   armed: boolean;
 };
 
-export const EscapePodBerthConsole = (props, context) => {
-  const { act, data } = useBackend<EscapePodBerthConsoleData>(context);
+export const EscapePodBerthConsole = (props) => {
+  const { act, data } = useBackend<EscapePodBerthConsoleData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section title="Status">
           <Box>

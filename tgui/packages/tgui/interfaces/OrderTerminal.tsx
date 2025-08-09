@@ -23,11 +23,11 @@ type ItemBuy = {
   amount: number;
 };
 
-export const OrderTerminal = (props, context) => {
-  const { act, data } = useBackend<TerminalData>(context);
+export const OrderTerminal = (props) => {
+  const { act, data } = useBackend<TerminalData>();
 
   return (
-    <Window resizable theme="idris">
+    <Window theme="idris">
       <Window.Content scrollable>
         <Section
           title="Ordering"
@@ -47,8 +47,8 @@ export const OrderTerminal = (props, context) => {
   );
 };
 
-export const ItemWindow = (props, context) => {
-  const { act, data } = useBackend<TerminalData>(context);
+export const ItemWindow = (props) => {
+  const { act, data } = useBackend<TerminalData>();
 
   return (
     <Section>
@@ -95,8 +95,8 @@ export const ItemWindow = (props, context) => {
   );
 };
 
-export const AddItems = (props, context) => {
-  const { act, data } = useBackend<TerminalData>(context);
+export const AddItems = (props) => {
+  const { act, data } = useBackend<TerminalData>();
   return (
     <Section>
       <Input
@@ -115,8 +115,8 @@ export const AddItems = (props, context) => {
   );
 };
 
-export const CartWindow = (props, context) => {
-  const { act, data } = useBackend<TerminalData>(context);
+export const CartWindow = (props) => {
+  const { act, data } = useBackend<TerminalData>();
   return (
     <Section>
       <LabeledList>

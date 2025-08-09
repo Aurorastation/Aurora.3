@@ -16,8 +16,8 @@ type Pad = {
   ref: string;
 };
 
-export const Holopad = (props, context) => {
-  const { act, data } = useBackend<HolopadData>(context);
+export const Holopad = (props) => {
+  const { act, data } = useBackend<HolopadData>();
 
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
@@ -26,7 +26,7 @@ export const Holopad = (props, context) => {
   );
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section
           title="Selection Disc"
@@ -72,8 +72,8 @@ export const Holopad = (props, context) => {
   );
 };
 
-export const HolopadList = (props, context) => {
-  const { act, data } = useBackend<HolopadData>(context);
+export const HolopadList = (props) => {
+  const { act, data } = useBackend<HolopadData>();
 
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,

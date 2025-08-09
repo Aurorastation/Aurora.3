@@ -35,7 +35,7 @@ $scrollbar-color-multiplier: 0.5;
 
 .theme-ntos_cat {
   // Atomic classes
-  @include meta.load-css('../atomic/color.scss', $with: ());
+  @include meta.load-css('~tgui-core/styles/atomic/color.scs', $with: ());
 
   // Components
   @include meta.load-css(

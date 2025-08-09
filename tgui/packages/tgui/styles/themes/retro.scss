@@ -21,7 +21,7 @@
 // It was made almost purely for the nuke ui, and requires a good amount of manual hacks to get it working as intended.
 .theme-retro {
   // Atomic classes
-  @include meta.load-css('../atomic/color.scss');
+  @include meta.load-css('~tgui-core/styles/atomic/color.scs');
 
   // Components
   @include meta.load-css(

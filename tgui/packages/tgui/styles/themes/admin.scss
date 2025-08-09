@@ -19,7 +19,7 @@
 
 .theme-admin {
   // Atomic classes
-  @include meta.load-css('../atomic/color.scss');
+  @include meta.load-css('~tgui-core/styles/atomic/color.scs');
 
   // Layouts
   @include meta.load-css('../layouts/Layout.scss');

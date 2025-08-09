@@ -17,11 +17,11 @@ type Gyrotron = {
   energy: number;
 };
 
-export const FusionGyrotronControl = (props, context) => {
-  const { act, data } = useBackend<FusionGyrotronData>(context);
+export const FusionGyrotronControl = (props) => {
+  const { act, data } = useBackend<FusionGyrotronData>();
 
   return (
-    <Window resizable theme={data.manufacturer}>
+    <Window theme={data.manufacturer}>
       <Window.Content scrollable>
         {data.gyrotrons && data.gyrotrons.length ? (
           data.gyrotrons.map((gyrotron) => (

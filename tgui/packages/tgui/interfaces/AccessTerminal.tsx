@@ -13,11 +13,11 @@ export type AccessTerminalData = {
   card_accesses: number[];
 };
 
-export const AccessTerminal = (props, context) => {
-  const { act, data } = useBackend<AccessTerminalData>(context);
+export const AccessTerminal = (props) => {
+  const { act, data } = useBackend<AccessTerminalData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section
           title="Inserted ID Card"

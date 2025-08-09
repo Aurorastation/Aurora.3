@@ -18,8 +18,8 @@ type Item = {
   quantity: number;
 };
 
-export const SmartFridge = (props, context) => {
-  const { act, data } = useBackend<FridgeData>(context);
+export const SmartFridge = (props) => {
+  const { act, data } = useBackend<FridgeData>();
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
     `searchTerm`,
@@ -27,7 +27,7 @@ export const SmartFridge = (props, context) => {
   );
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section
           title="Storage"
@@ -72,8 +72,8 @@ export const SmartFridge = (props, context) => {
   );
 };
 
-export const ContentsWindow = (props, context) => {
-  const { act, data } = useBackend<FridgeData>(context);
+export const ContentsWindow = (props) => {
+  const { act, data } = useBackend<FridgeData>();
   const [searchTerm] = useLocalState<string>(context, `searchTerm`, ``);
   const itemList = data.contents.filter(
     (item) =>

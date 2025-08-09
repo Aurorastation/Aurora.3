@@ -34,8 +34,8 @@ type User = {
   username: string;
 };
 
-export const ChatClient = (props, context) => {
-  const { act, data } = useBackend<ChatData>(context);
+export const ChatClient = (props) => {
+  const { act, data } = useBackend<ChatData>();
   const [editingRingtone, setEditingRingtone] = useLocalState(
     context,
     'editingRingtone',
@@ -48,7 +48,7 @@ export const ChatClient = (props, context) => {
   );
 
   return (
-    <NtosWindow resizable width={700}>
+    <NtosWindow width={700}>
       <NtosWindow.Content scrollable>
         <Section
           title="Users"
@@ -95,8 +95,8 @@ export const ChatClient = (props, context) => {
   );
 };
 
-export const Users = (props, context) => {
-  const { act, data } = useBackend<ChatData>(context);
+export const Users = (props) => {
+  const { act, data } = useBackend<ChatData>();
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
     `searchTerm`,
@@ -135,8 +135,8 @@ export const Users = (props, context) => {
   );
 };
 
-export const AllUsers = (props, context) => {
-  const { act, data } = useBackend<ChatData>(context);
+export const AllUsers = (props) => {
+  const { act, data } = useBackend<ChatData>();
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
     `searchTerm`,
@@ -176,8 +176,8 @@ export const AllUsers = (props, context) => {
   );
 };
 
-export const Chat = (props, context) => {
-  const { act, data } = useBackend<ChatData>(context);
+export const Chat = (props) => {
+  const { act, data } = useBackend<ChatData>();
   const [newMessage, setNewMessage] = useLocalState<string>(
     context,
     `newMessage`,
@@ -343,8 +343,8 @@ export const Chat = (props, context) => {
   );
 };
 
-export const ChannelsWindow = (props, context) => {
-  const { act, data } = useBackend<ChatData>(context);
+export const ChannelsWindow = (props) => {
+  const { act, data } = useBackend<ChatData>();
   const [channelSearchTerm, setChannelSearchTerm] = useLocalState<string>(
     context,
     `channelSearchTerm`,

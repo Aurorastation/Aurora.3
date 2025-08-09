@@ -9,8 +9,8 @@ type NTOSClientData = {
   ntnet_status: BooleanLike;
 };
 
-const DeviceEnrollment = (props, context) => {
-  const { act, data } = useBackend<NTOSClientData>(context);
+const DeviceEnrollment = (props) => {
+  const { act, data } = useBackend<NTOSClientData>();
   const { available_presets, ntnet_status } = data;
   const [deviceType, setDeviceType] = useLocalState(
     context,
@@ -82,8 +82,8 @@ const DeviceEnrollment = (props, context) => {
   }
 };
 
-export const NTOSClientManager = (props, context) => {
-  const { act, data } = useBackend<NTOSClientData>(context);
+export const NTOSClientManager = (props) => {
+  const { act, data } = useBackend<NTOSClientData>();
   const { enrollment } = data;
   return (
     <NtosWindow>

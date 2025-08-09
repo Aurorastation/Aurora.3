@@ -18,11 +18,11 @@ type Setting = {
   value: BooleanLike;
 };
 
-export const TurretControlPorta = (props, context) => {
-  const { act, data } = useBackend<TurretData>(context);
+export const TurretControlPorta = (props) => {
+  const { act, data } = useBackend<TurretData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section title="Control Panel">
           <NoticeBox>
@@ -37,8 +37,8 @@ export const TurretControlPorta = (props, context) => {
   );
 };
 
-export const ControlSection = (props, context) => {
-  const { act, data } = useBackend<TurretData>(context);
+export const ControlSection = (props) => {
+  const { act, data } = useBackend<TurretData>();
 
   return (
     <LabeledList>

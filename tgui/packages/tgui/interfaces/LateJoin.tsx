@@ -23,11 +23,11 @@ type Job = {
   current_positions: number;
 };
 
-export const LateJoin = (props, context) => {
-  const { act, data } = useBackend<LateJoinData>(context);
+export const LateJoin = (props) => {
+  const { act, data } = useBackend<LateJoinData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section>
           <Section textAlign="center">
@@ -79,8 +79,8 @@ export const LateJoin = (props, context) => {
   );
 };
 
-export const JobsList = (props, context) => {
-  const { act, data } = useBackend<LateJoinData>(context);
+export const JobsList = (props) => {
+  const { act, data } = useBackend<LateJoinData>();
 
   return (
     <Section textAlign="center">

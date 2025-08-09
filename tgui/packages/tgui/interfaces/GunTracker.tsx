@@ -13,11 +13,11 @@ type Pin = {
   lock_status: number; // 1 disabled, 2 auto, 3 stun, 4 lethal
 };
 
-export const GunTracker = (props, context) => {
-  const { act, data } = useBackend<TrackerData>(context);
+export const GunTracker = (props) => {
+  const { act, data } = useBackend<TrackerData>();
 
   return (
-    <NtosWindow resizable width={800}>
+    <NtosWindow width={800}>
       <NtosWindow.Content scrollable>
         <Section title="Detected Firearms">
           <Table>

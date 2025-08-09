@@ -31,12 +31,12 @@ type Transaction = {
   source_terminal: string;
 };
 
-export const AccountDatabase = (props, context) => {
-  const { act, data } = useBackend<DatabaseData>(context);
+export const AccountDatabase = (props) => {
+  const { act, data } = useBackend<DatabaseData>();
   const [active, setActive] = useLocalState(context, 'active', '');
 
   return (
-    <NtosWindow resizable width={900}>
+    <NtosWindow width={900}>
       <NtosWindow.Content scrollable>
         <Section title="Information">
           <LabeledList>
@@ -61,8 +61,8 @@ export const AccountDatabase = (props, context) => {
   );
 };
 
-export const AccountWindow = (props, context) => {
-  const { act, data } = useBackend<DatabaseData>(context);
+export const AccountWindow = (props) => {
+  const { act, data } = useBackend<DatabaseData>();
   const [active, setActive] = useLocalState(context, 'active', 'none');
   const [tab, setTab] = useLocalState(context, 'tab', 'All Accounts');
   const [make_new_acc, setMakeNewAcc] = useLocalState(
@@ -158,8 +158,8 @@ export const AccountWindow = (props, context) => {
   );
 };
 
-export const SpecificAccountData = (props, context) => {
-  const { act, data } = useBackend<DatabaseData>(context);
+export const SpecificAccountData = (props) => {
+  const { act, data } = useBackend<DatabaseData>();
   const [active, setActive] = useLocalState(context, 'active', 'none');
   const [tab, setTab] = useLocalState(context, 'tab', 'All Accounts');
   const [adding_funds, setAdding] = useLocalState(context, 'adding_funds', 0);

@@ -7,11 +7,11 @@ export type ArmorValuesData = {
   armor_values: string[];
 };
 
-export const ArmorValues = (props, context) => {
-  const { act, data } = useBackend<ArmorValuesData>(context);
+export const ArmorValues = (props) => {
+  const { act, data } = useBackend<ArmorValuesData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section>
           <NoticeBox>

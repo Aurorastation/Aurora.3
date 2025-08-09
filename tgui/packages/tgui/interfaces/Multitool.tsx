@@ -13,11 +13,11 @@ type SelectedIo = {
   type: string;
 };
 
-export const Multitool = (props, context) => {
-  const { act, data } = useBackend<MultitoolData>(context);
+export const Multitool = (props) => {
+  const { act, data } = useBackend<MultitoolData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section title="Smart Track">
           <Button
@@ -38,8 +38,8 @@ export const Multitool = (props, context) => {
   );
 };
 
-export const IoWindow = (props, context) => {
-  const { act, data } = useBackend<MultitoolData>(context);
+export const IoWindow = (props) => {
+  const { act, data } = useBackend<MultitoolData>();
   return (
     <Section title="Circuit I/O">
       <LabeledList>

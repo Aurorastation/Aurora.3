@@ -14,11 +14,11 @@ type Admin = {
   rights: string;
 };
 
-export const PermissionsPanel = (props, context) => {
-  const { act, data } = useBackend<PanelData>(context);
+export const PermissionsPanel = (props) => {
+  const { act, data } = useBackend<PanelData>();
 
   return (
-    <Window resizable theme="admin">
+    <Window theme="admin">
       <Window.Content scrollable>
         <Section title="Staff">
           {data.forumuserui_enabled ? (

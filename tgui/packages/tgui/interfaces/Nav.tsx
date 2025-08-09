@@ -87,11 +87,11 @@ const NavSection = function (act, data) {
     </Section>
   );
 };
-export const Nav = (props, context) => {
-  const { act, data } = useBackend<NavData>(context);
+export const Nav = (props) => {
+  const { act, data } = useBackend<NavData>();
 
   return (
-    <NtosWindow resizable>
+    <NtosWindow>
       <NtosWindow.Content scrollable>
         {FlightSection(act, data)}
         {NavSection(act, data)}

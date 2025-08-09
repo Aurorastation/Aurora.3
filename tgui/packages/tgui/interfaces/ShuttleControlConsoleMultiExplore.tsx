@@ -22,12 +22,12 @@ export type ShuttleControlConsoleMultiExploreData = {
   fuel_span: string;
 };
 
-export const ShuttleControlConsoleMultiExplore = (props, context) => {
+export const ShuttleControlConsoleMultiExplore = (props) => {
   const { act, data } =
-    useBackend<ShuttleControlConsoleMultiExploreData>(context);
+    useBackend<ShuttleControlConsoleMultiExploreData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section title="Shuttle Status">
           <Box pb={1}>{data.shuttle_status}</Box>

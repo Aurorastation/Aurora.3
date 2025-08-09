@@ -34,11 +34,11 @@ type SleeperReagent = {
   name: string;
 };
 
-export const Sleeper = (props, context) => {
-  const { act, data } = useBackend<SleeperData>(context);
+export const Sleeper = (props) => {
+  const { act, data } = useBackend<SleeperData>();
 
   return (
-    <Window resizable theme="zenghu">
+    <Window theme="zenghu">
       <Window.Content scrollable>
         {data.occupant ? (
           <OccupantStatus />
@@ -59,15 +59,14 @@ export const Sleeper = (props, context) => {
   );
 };
 
-export const OccupantStatus = (props, context) => {
-  const { act, data } = useBackend<SleeperData>(context);
+export const OccupantStatus = (props) => {
+  const { act, data } = useBackend<SleeperData>();
 
   return (
     <Table>
       <Table.Row header>
         <Table.Cell>
           <Section
-            fill:false
             title="Occupant Status"
             buttons={
               <Button
@@ -217,8 +216,8 @@ export const OccupantStatus = (props, context) => {
   );
 };
 
-export const BloodReagents = (props, context) => {
-  const { act, data } = useBackend<SleeperData>(context);
+export const BloodReagents = (props) => {
+  const { act, data } = useBackend<SleeperData>();
 
   return (
     <Table>
@@ -233,8 +232,8 @@ export const BloodReagents = (props, context) => {
 };
 
 // is this shit copypaste? yeah i dont care, you try converting 75 UIs over 2 months
-export const StomachReagents = (props, context) => {
-  const { act, data } = useBackend<SleeperData>(context);
+export const StomachReagents = (props) => {
+  const { act, data } = useBackend<SleeperData>();
 
   return (
     <Table>

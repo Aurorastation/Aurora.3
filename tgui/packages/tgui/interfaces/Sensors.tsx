@@ -568,8 +568,8 @@ const DistressSection = function (act, data: SensorsData) {
   );
 };
 
-export const Sensors = (props, context) => {
-  const { act, data } = useBackend<SensorsData>(context);
+export const Sensors = (props) => {
+  const { act, data } = useBackend<SensorsData>();
 
   {
     let color_i = 0;
@@ -600,7 +600,7 @@ export const Sensors = (props, context) => {
   }
 
   return (
-    <NtosWindow resizable>
+    <NtosWindow>
       <NtosWindow.Content scrollable>
         {data.status === 'MISSING' ? (
           <Button

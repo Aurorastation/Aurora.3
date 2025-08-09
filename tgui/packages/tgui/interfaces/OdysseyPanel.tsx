@@ -19,11 +19,11 @@ type Role = {
   type: string;
 };
 
-export const OdysseyPanel = (props, context) => {
-  const { act, data } = useBackend<OdysseyData>(context);
+export const OdysseyPanel = (props) => {
+  const { act, data } = useBackend<OdysseyData>();
 
   return (
-    <Window resizable theme="admin" width={500} height={600}>
+    <Window theme="admin" width={500} height={600}>
       <Window.Content scrollable>
         <Section
           title={
@@ -68,8 +68,8 @@ export const OdysseyPanel = (props, context) => {
   );
 };
 
-export const RoleDisplay = (props, context) => {
-  const { act, data } = useBackend<OdysseyData>(context);
+export const RoleDisplay = (props) => {
+  const { act, data } = useBackend<OdysseyData>();
 
   return (
     <Section title="Roles">

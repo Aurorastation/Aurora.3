@@ -47,11 +47,11 @@ type Job = {
   job: string;
 };
 
-export const IDCardModification = (props, context) => {
-  const { act, data } = useBackend<IDData>(context);
+export const IDCardModification = (props) => {
+  const { act, data } = useBackend<IDData>();
 
   return (
-    <NtosWindow resizable width={650} height={700}>
+    <NtosWindow width={650} height={700}>
       <NtosWindow.Content scrollable>
         <Section title="Identification Input">
           {!data.has_id ? (
@@ -75,8 +75,8 @@ export const IDCardModification = (props, context) => {
   );
 };
 
-export const AccessModification = (props, context) => {
-  const { act, data } = useBackend<IDData>(context);
+export const AccessModification = (props) => {
+  const { act, data } = useBackend<IDData>();
 
   return (
     <Section title="Access Modification">

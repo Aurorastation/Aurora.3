@@ -2,7 +2,7 @@ import { sortBy } from 'es-toolkit';
 import { Section, Button, Flex, Tabs, Grid } from 'tgui-core/components';
 import { useLocalState } from '../../backend';
 
-export const AccessConfig = (props, context) => {
+export const AccessConfig = (props) => {
   const {
     accesses = [],
     selectedList = [],

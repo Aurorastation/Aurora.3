@@ -6,11 +6,11 @@ export type JammerData = {
   active: number;
 };
 
-export const Jammer = (props, context) => {
-  const { act, data } = useBackend<JammerData>(context);
+export const Jammer = (props) => {
+  const { act, data } = useBackend<JammerData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section title="Jammer Level">
           <LabeledList>

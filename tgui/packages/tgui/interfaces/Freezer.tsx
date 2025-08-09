@@ -17,11 +17,11 @@ export type FreezerData = {
   gasTemperatureAvgBottom: number;
 };
 
-export const Freezer = (props, context) => {
-  const { act, data } = useBackend<FreezerData>(context);
+export const Freezer = (props) => {
+  const { act, data } = useBackend<FreezerData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section
           title="Power Level"

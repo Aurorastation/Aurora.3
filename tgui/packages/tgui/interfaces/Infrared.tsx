@@ -8,11 +8,11 @@ export type InfraredData = {
   visible: BooleanLike;
 };
 
-export const Infrared = (props, context) => {
-  const { act, data } = useBackend<InfraredData>(context);
+export const Infrared = (props) => {
+  const { act, data } = useBackend<InfraredData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Button
           content={data.active ? 'Active' : 'Inactive'}

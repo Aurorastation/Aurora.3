@@ -26,11 +26,11 @@ type Article = {
   archived: BooleanLike;
 };
 
-export const NTOSNewsBrowser = (props, context) => {
-  const { act, data } = useBackend<NewsData>(context);
+export const NTOSNewsBrowser = (props) => {
+  const { act, data } = useBackend<NewsData>();
 
   return (
-    <NtosWindow resizable>
+    <NtosWindow>
       <NtosWindow.Content scrollable>
         {data.message ? (
           <ErrorMessage />
@@ -44,8 +44,8 @@ export const NTOSNewsBrowser = (props, context) => {
   );
 };
 
-export const ErrorMessage = (props, context) => {
-  const { act, data } = useBackend<NewsData>(context);
+export const ErrorMessage = (props) => {
+  const { act, data } = useBackend<NewsData>();
 
   return (
     <Section
@@ -56,8 +56,8 @@ export const ErrorMessage = (props, context) => {
   );
 };
 
-export const ShowArticle = (props, context) => {
-  const { act, data } = useBackend<NewsData>(context);
+export const ShowArticle = (props) => {
+  const { act, data } = useBackend<NewsData>();
   const contentHtml = { __html: sanitizeText(data.article) };
 
   return (
@@ -74,8 +74,8 @@ export const ShowArticle = (props, context) => {
   );
 };
 
-export const ShowArticleList = (props, context) => {
-  const { act, data } = useBackend<NewsData>(context);
+export const ShowArticleList = (props) => {
+  const { act, data } = useBackend<NewsData>();
 
   return (
     <Section

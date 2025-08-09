@@ -9,8 +9,8 @@ export type ScannerData = {
   ore_names: string[];
 };
 
-export const OreDetector = (props, context) => {
-  const { act, data } = useBackend<ScannerData>(context);
+export const OreDetector = (props) => {
+  const { act, data } = useBackend<ScannerData>();
 
   const ore_enabled = (ore_name) => {
     if (!data.search_ores) {
@@ -31,7 +31,7 @@ export const OreDetector = (props, context) => {
   };
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section title="Ore Detector">
           <LabeledList>

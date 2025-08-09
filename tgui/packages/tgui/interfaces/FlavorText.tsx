@@ -25,11 +25,11 @@ const Linkify = ({ text }) => {
   return <Box key={text} dangerouslySetInnerHTML={{ __html: html }} />;
 };
 
-export const FlavorText = (props, context) => {
-  const { act, data } = useBackend<FlavorTextData>(context);
+export const FlavorText = (props) => {
+  const { act, data } = useBackend<FlavorTextData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section>
           {data.flavor_text.split('\n').map((line) =>

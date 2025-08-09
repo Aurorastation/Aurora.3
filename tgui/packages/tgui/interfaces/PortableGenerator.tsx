@@ -30,11 +30,11 @@ type Fuel = {
   fuel_type: string;
 };
 
-export const PortableGenerator = (props, context) => {
-  const { act, data } = useBackend<GeneratorData>(context);
+export const PortableGenerator = (props) => {
+  const { act, data } = useBackend<GeneratorData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section
           title="Generator Status"

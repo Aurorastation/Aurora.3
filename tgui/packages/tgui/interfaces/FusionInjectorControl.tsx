@@ -19,11 +19,11 @@ type Injector = {
   injection_rate: number;
 };
 
-export const FusionInjectorControl = (props, context) => {
-  const { act, data } = useBackend<FusionGyrotronControl>(context);
+export const FusionInjectorControl = (props) => {
+  const { act, data } = useBackend<FusionGyrotronControl>();
 
   return (
-    <Window resizable theme={data.manufacturer}>
+    <Window theme={data.manufacturer}>
       <Window.Content scrollable>
         {data.injectors && data.injectors.length ? (
           <>

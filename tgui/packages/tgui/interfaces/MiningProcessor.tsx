@@ -18,11 +18,11 @@ export type MiningProcessorData = {
   oreList: OreListData[];
 };
 
-export const MiningProcessor = (props, context) => {
-  const { act, data } = useBackend<MiningProcessorData>(context);
+export const MiningProcessor = (props) => {
+  const { act, data } = useBackend<MiningProcessorData>();
 
   return (
-    <Window resizable theme="hephaestus">
+    <Window theme="hephaestus">
       <Window.Content scrollable>
         <Section title="Mining Points">
           <Box pb={1}>Current unclaimed points: {data.points}</Box>

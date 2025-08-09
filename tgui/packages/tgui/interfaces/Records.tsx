@@ -3,7 +3,7 @@ import { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
 import { Box, Button, Collapsible, Input, LabeledList, NoticeBox, Section, Stack, Tabs, Tooltip } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
-import { Dropdown } from 'tgui-core/components/Dropdown';
+import { Dropdown } from 'tgui-core/components';
 
 export type RecordsData = {
   activeview: string;
@@ -79,8 +79,8 @@ type RecordLocked = {
   rank: string;
 };
 
-export const Records = (props, context) => {
-  const { act, data } = useBackend<RecordsData>(context);
+export const Records = (props) => {
+  const { act, data } = useBackend<RecordsData>();
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
     `searchTerm`,
@@ -88,7 +88,7 @@ export const Records = (props, context) => {
   );
 
   return (
-    <NtosWindow resizable width={900} height={900}>
+    <NtosWindow width={900} height={900}>
       <NtosWindow.Content scrollable>
         {!data.authenticated ? (
           <NoticeBox color="white">
@@ -107,8 +107,8 @@ export const Records = (props, context) => {
   );
 };
 
-export const RecordsView = (props, context) => {
-  const { act, data } = useBackend<RecordsData>(context);
+export const RecordsView = (props) => {
+  const { act, data } = useBackend<RecordsData>();
   const [recordTab, setRecordTab] = useLocalState(context, 'recordTab', 'All');
 
   return (
@@ -121,8 +121,8 @@ export const RecordsView = (props, context) => {
   );
 };
 
-export const ListAllRecords = (props, context) => {
-  const { act, data } = useBackend<RecordsData>(context);
+export const ListAllRecords = (props) => {
+  const { act, data } = useBackend<RecordsData>();
   const [recordTab, setRecordTab] = useLocalState(context, 'recordTab', 'All');
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
@@ -179,8 +179,8 @@ export const ListAllRecords = (props, context) => {
 };
 
 // Omega shitcode ahead but this is my like 56th UI and I don't give a fuck anymore.
-export const ListActive = (props, context) => {
-  const { act, data } = useBackend<RecordsData>(context);
+export const ListActive = (props) => {
+  const { act, data } = useBackend<RecordsData>();
   const [recordTab, setRecordTab] = useLocalState(context, 'recordTab', 'All');
   const [editingPhysStatus, setEditingPhysStatus] = useLocalState<boolean>(
     context,

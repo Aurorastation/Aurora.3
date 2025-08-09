@@ -22,8 +22,8 @@ type Player = {
   age: any; // string or number
 };
 
-export const PlayerPanel = (props, context) => {
-  const { act, data } = useBackend<PanelData>(context);
+export const PlayerPanel = (props) => {
+  const { act, data } = useBackend<PanelData>();
 
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
@@ -32,7 +32,7 @@ export const PlayerPanel = (props, context) => {
   );
 
   return (
-    <Window resizable theme="admin">
+    <Window theme="admin">
       <Window.Content scrollable>
         <Section
           title="Players"

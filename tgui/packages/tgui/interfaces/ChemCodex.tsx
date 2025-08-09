@@ -26,8 +26,8 @@ type Reagent = {
   amount: number;
 };
 
-export const ChemCodex = (props, context) => {
-  const { act, data } = useBackend<CodexData>(context);
+export const ChemCodex = (props) => {
+  const { act, data } = useBackend<CodexData>();
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
     `searchTerm`,
@@ -35,7 +35,7 @@ export const ChemCodex = (props, context) => {
   );
 
   return (
-    <NtosWindow resizable>
+    <NtosWindow>
       <NtosWindow.Content scrollable>
         <Section
           title="Codex Search"

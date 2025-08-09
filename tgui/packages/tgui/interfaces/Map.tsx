@@ -14,8 +14,8 @@ export type MapData = {
   pois: { name: string; desc: string; x: number; y: number; z: number }[];
 };
 
-export const Map = (props, context) => {
-  const { act, data } = useBackend<MapData>(context);
+export const Map = (props) => {
+  const { act, data } = useBackend<MapData>();
 
   const [minimapZoom, setMinimapZoom] = useLocalState<number>(
     context,
@@ -37,7 +37,7 @@ export const Map = (props, context) => {
   const zoom_mod = minimapZoom / 100.0;
 
   return (
-    <NtosWindow resizable>
+    <NtosWindow>
       <NtosWindow.Content scrollable>
         <Section title="Map Program">
           <Tabs>

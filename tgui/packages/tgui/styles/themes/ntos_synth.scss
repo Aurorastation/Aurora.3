@@ -28,7 +28,7 @@ $purple: #463191;
 
 .theme-ntos_synth {
   // Atomic classes
-  @include meta.load-css('../atomic/color.scss', $with: ());
+  @include meta.load-css('~tgui-core/styles/atomic/color.scs', $with: ());
 
   // Components
   @include meta.load-css(
