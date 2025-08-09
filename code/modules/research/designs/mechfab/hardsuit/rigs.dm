@@ -64,6 +64,7 @@
 /datum/design/rig/falcata
 	name = "Falcata Exoskeleton Control Module Assembly"
 	desc = "An assembly for a security exoskeleton. Though offering no vacuum protection, the Falcata serves as a lightweight platform for bearing security hardsuit modules."
+	build_path = /obj/item/rig_assembly/combat/falcata
 	materials = list(
 		DEFAULT_WALL_MATERIAL = 12500,
 		MATERIAL_ALUMINIUM = 12500,
