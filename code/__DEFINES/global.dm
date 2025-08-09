@@ -111,6 +111,10 @@ GLOBAL_VAR(custom_event_msg)
 GLOBAL_DATUM(dbcon, /DBConnection)
 GLOBAL_PROTECT(dbcon)
 
+// Persistence subsystem track register - List of all persistent data tracks managed by the subsystem.
+GLOBAL_LIST_EMPTY(persistence_register)
+GLOBAL_PROTECT(persistence_register)
+
 // Added for Xenoarchaeology, might be useful for other stuff.
 GLOBAL_LIST_INIT(alphabet_uppercase, list("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"))
 
