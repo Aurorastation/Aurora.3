@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - bugfix: "It is no longer possible to play a medical intern that is too young for the job they promote to."
