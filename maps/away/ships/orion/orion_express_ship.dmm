@@ -3053,6 +3053,11 @@
 "kog" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/pottedplant,
+/obj/item/device/gps/stationary{
+	gps_prefix = "ORION";
+	gpstag = "ORIONSHUTTLE";
+	pixel_x = -24
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/orion_shuttle/cockpit)
 "krv" = (
@@ -5659,8 +5664,14 @@
 /obj/item/clothing/suit/space/void/engineering,
 /obj/item/clothing/head/helmet/space/void/engineering,
 /obj/item/clothing/head/helmet/space/void/engineering,
-/obj/item/device/gps/engineering,
-/obj/item/device/gps/engineering,
+/obj/item/device/gps/engineering{
+	gps_prefix = "ORION";
+	gpstag = "ORION0"
+	},
+/obj/item/device/gps/engineering{
+	gps_prefix = "ORION";
+	gpstag = "ORION0"
+	},
 /obj/item/cargo_backpack,
 /obj/item/cargo_backpack,
 /turf/simulated/floor/tiled/dark,
@@ -6130,6 +6141,12 @@
 /obj/machinery/light{
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
+/obj/item/device/gps/stationary{
+	gps_prefix = "ORION";
+	gpstag = "ORIONBASE";
+	pixel_y = -24;
+	pixel_x = -24
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/bridge)
 "tWh" = (
@@ -6323,8 +6340,14 @@
 /obj/item/clothing/suit/space/void/engineering,
 /obj/item/clothing/head/helmet/space/void/engineering,
 /obj/item/clothing/head/helmet/space/void/engineering,
-/obj/item/device/gps/engineering,
-/obj/item/device/gps/engineering,
+/obj/item/device/gps/engineering{
+	gps_prefix = "ORION";
+	gpstag = "ORION0"
+	},
+/obj/item/device/gps/engineering{
+	gps_prefix = "ORION";
+	gpstag = "ORION0"
+	},
 /obj/item/cargo_backpack,
 /obj/item/cargo_backpack,
 /turf/simulated/floor/tiled/dark,
