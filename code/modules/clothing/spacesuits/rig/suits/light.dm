@@ -224,7 +224,8 @@
 
 	initial_modules = list(
 		/obj/item/rig_module/device/healthscanner/vitalscanner,
-		/obj/item/rig_module/chem_dispenser/offworlder
+		/obj/item/rig_module/chem_dispenser/offworlder,
+		/obj/item/rig_module/storage
 		)
 
 	species_restricted = list(BODYTYPE_HUMAN)
@@ -309,3 +310,70 @@
 		/obj/item/rig_module/device/door_hack,
 		/obj/item/rig_module/mounted/xray
 		)
+
+/obj/item/rig/light/falcata
+	name = "falcata exoskeleton control module"
+	desc = "An armored security exoskeleton, known as the Falcata. It serves as a lightweight platform for bearing security hardsuit modules."
+	icon = 'icons/obj/item/clothing/rig/falcata.dmi'
+	icon_state = "falcata_rig"
+	icon_supported_species_tags = list("skr", "taj", "una", "vau",)
+	suit_type = "falcata combat exoskeleton"
+	body_parts_covered = UPPER_TORSO | LOWER_TORSO | LEGS | ARMS
+	armor = list(
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_MAJOR,
+		LASER = ARMOR_LASER_RIFLE,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED,
+	)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_UNATHI, BODYTYPE_SKRELL, BODYTYPE_VAURCA, BODYTYPE_IPC, BODYTYPE_TAJARA)
+
+	seal_delay = 3 // Its only deploying the myomers and helmet.
+	offline_slowdown = 2
+	offline_vision_restriction = TINT_BLIND // Visorless helmet sprite, the helmet's face is just a camera.
+
+	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/melee/baton)
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT
+
+	chest_type = /obj/item/clothing/suit/space/rig/light/falcata
+	helm_type =  /obj/item/clothing/head/helmet/space/rig/light/falcata
+	glove_type = null
+	boot_type = null
+
+/obj/item/rig/light/falcata/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(slot == slot_back_str && !offline)
+		var/image/emissive_overlay = emissive_appearance(mob_icon, "falcata_rig_ba-emissive")
+		I.AddOverlays(emissive_overlay)
+	return I
+
+/obj/item/clothing/suit/space/rig/light/falcata
+	name = "myomer frame"
+	body_parts_covered = null
+	breach_threshold = 45 // We aren't a real hardsuit, rather a very thick torso plate.
+
+/obj/item/clothing/suit/space/rig/light/falcata/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(slot != slot_wear_suit_str)
+		return I
+
+	var/obj/item/rig/rigcontroller = H.get_equipped_item(slot_wear_suit)
+	if(!istype(rigcontroller, /obj/item/rig) || rigcontroller.offline)
+		return I
+
+	var/image/emissive_overlay = emissive_appearance(mob_icon, "falcata_rig_sealed_su-emissive")
+	I.AddOverlays(emissive_overlay)
+	return I
+
+/obj/item/clothing/head/helmet/space/rig/light/falcata
+	name = "helmet"
+	// The helmet's unusually thick, with the fun caveat that it fully blacks out your screen when unpowered.
+	flash_protection = FLASH_PROTECTION_MAJOR
+	armor = list(
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_RIFLE,
+		LASER = ARMOR_LASER_RIFLE,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_RESISTANT,
+		BIO = ARMOR_BIO_SHIELDED,
+	)
