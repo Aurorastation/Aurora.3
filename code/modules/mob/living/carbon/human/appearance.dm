@@ -16,7 +16,7 @@
 	set_species(new_species)
 	reset_hair()
 	if(isipc(src))
-		var/obj/item/organ/internal/ipc_tag/tag = internal_organs_by_name[BP_IPCTAG]
+		var/obj/item/organ/internal/machine/ipc_tag/tag = internal_organs_by_name[BP_IPCTAG]
 		if(istype(tag))
 			tag.modify_tag_data(TRUE)
 	return 1
