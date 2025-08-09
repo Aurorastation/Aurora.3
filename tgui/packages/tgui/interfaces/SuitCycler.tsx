@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledList, NoticeBox, Section } from '../components';
+import { Box, Button, LabeledList, NoticeBox, Section } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type SuitCyclerData = {
@@ -26,11 +26,11 @@ type SuitObject = {
   damage: number;
 };
 
-export const SuitCycler = (props, context) => {
-  const { act, data } = useBackend<SuitCyclerData>(context);
+export const SuitCycler = (props) => {
+  const { act, data } = useBackend<SuitCyclerData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section title="Locking Panel">
           {data.in_use ? (

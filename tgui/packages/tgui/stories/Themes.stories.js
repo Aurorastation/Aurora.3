@@ -5,15 +5,15 @@
  */
 
 import { useLocalState } from '../backend';
-import { Input, LabeledList, Section } from '../components';
+import { Input, LabeledList, Section } from 'tgui-core/components';
 
 export const meta = {
   title: 'Themes',
   render: () => <Story />,
 };
 
-const Story = (props, context) => {
-  const [theme, setTheme] = useLocalState(context, 'kitchenSinkTheme');
+const Story = (props) => {
+  const [theme, setTheme] = useLocalState('kitchenSinkTheme');
   return (
     <Section>
       <LabeledList>

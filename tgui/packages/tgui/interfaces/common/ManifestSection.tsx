@@ -1,7 +1,7 @@
-import { BooleanLike } from '../../../common/react';
+import { BooleanLike } from '../tgui-core/react';
 import { useBackend } from '../../backend';
-import { Button, Icon, Section, Table, Tooltip } from '../../components';
-import { TableCell, TableRow } from '../../components/Table';
+import { Button, Icon, Section, Table, Tooltip } from 'tgui-core/components';
+import { TableCell, TableRow } from 'tgui-core/components';
 
 type ManifestData = {
   manifest: { department: Crew[] };
@@ -15,8 +15,8 @@ type Crew = {
   head: BooleanLike;
 };
 
-export const ManifestSection = (props, context) => {
-  const { act, data } = useBackend<ManifestData>(context);
+export const ManifestSection = (props) => {
+  const { act, data } = useBackend<ManifestData>();
   const manifest = data.manifest || {};
   const allow_follow = data.allow_follow;
   return (

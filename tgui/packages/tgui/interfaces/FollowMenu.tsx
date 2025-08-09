@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
-import { Button, Collapsible, Input, Section } from '../components';
+import { Button, Collapsible, Input, Section } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type FollowData = {
@@ -16,16 +16,15 @@ type Ghost = {
   special_character: number; // 0 (non-antag), 1 (special role) or 2 (antag)
 };
 
-export const FollowMenu = (props, context) => {
-  const { act, data } = useBackend<FollowData>(context);
+export const FollowMenu = (props) => {
+  const { act, data } = useBackend<FollowData>();
   const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
     `searchTerm`,
     ``
   );
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section
           title="Follow Menu"

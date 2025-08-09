@@ -1,7 +1,7 @@
 import { useBackend } from '../backend';
-import { Button, Knob, LabeledControls } from '../components';
+import { Button, Knob, LabeledControls } from 'tgui-core/components';
 import { Window } from '../layouts';
-import { BooleanLike } from '../../common/react';
+import { BooleanLike } from 'tgui-core/react';
 
 export type BluespaceDriveData = {
   energized: BooleanLike;
@@ -10,8 +10,8 @@ export type BluespaceDriveData = {
   jumping: BooleanLike;
 };
 
-export const BluespaceDrive = (props, context) => {
-  const { act, data } = useBackend<BluespaceDriveData>(context);
+export const BluespaceDrive = (props) => {
+  const { act, data } = useBackend<BluespaceDriveData>();
   return (
     <Window>
       <Window.Content>

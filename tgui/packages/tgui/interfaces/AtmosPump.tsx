@@ -1,6 +1,6 @@
-import { BooleanLike } from 'common/react';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, LabeledList, ProgressBar, NumberInput, Section } from '../components';
+import { Button, LabeledList, ProgressBar, NumberInput, Section } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 type Data = {
@@ -14,8 +14,8 @@ type Data = {
   flow_rate: number;
 };
 
-export const AtmosPump = (props, context) => {
-  const { act, data } = useBackend<Data>(context);
+export const AtmosPump = (props) => {
+  const { act, data } = useBackend<Data>();
   const {
     on,
     max_rate,

@@ -5,16 +5,16 @@
  */
 
 import { useLocalState } from '../backend';
-import { Box, Button, Input, LabeledList, ProgressBar, Section } from '../components';
+import { Box, Button, Input, LabeledList, ProgressBar, Section } from 'tgui-core/components';
 
 export const meta = {
   title: 'ProgressBar',
   render: () => <Story />,
 };
 
-const Story = (props, context) => {
-  const [progress, setProgress] = useLocalState(context, 'progress', 0.5);
-  const [color, setColor] = useLocalState(context, 'color', '');
+const Story = (props) => {
+  const [progress, setProgress] = useLocalState('progress', 0.5);
+  const [color, setColor] = useLocalState('color', '');
 
   const color_data = color
     ? { color: color }

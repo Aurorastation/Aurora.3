@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Section, ProgressBar, Button, Box } from '../components';
+import { Section, ProgressBar, Button, Box } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type DoorsData = {
@@ -25,11 +25,11 @@ export type DoorsData = {
   wtime: number;
 };
 
-export const Doors = (props, context) => {
-  const { act, data } = useBackend<DoorsData>(context);
+export const Doors = (props) => {
+  const { act, data } = useBackend<DoorsData>();
   const door_title = data.doorArea + '(' + data.doorName + ')';
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section
           title={door_title}

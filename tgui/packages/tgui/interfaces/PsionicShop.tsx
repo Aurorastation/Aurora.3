@@ -1,5 +1,5 @@
 import { useBackend, useLocalState } from '../backend';
-import { BlockQuote, Box, Button, Input, NoticeBox, Section } from '../components';
+import { BlockQuote, Box, Button, Input, NoticeBox, Section } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type PsiData = {
@@ -17,17 +17,16 @@ type Psionic = {
   path: string;
 };
 
-export const PsionicShop = (props, context) => {
-  const { act, data } = useBackend<PsiData>(context);
+export const PsionicShop = (props) => {
+  const { act, data } = useBackend<PsiData>();
 
   const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
     `searchTerm`,
     ``
   );
 
   return (
-    <Window resizable theme="wizard">
+    <Window theme="wizard">
       <Window.Content scrollable>
         <Section
           title="Psionic Point Shop"
@@ -74,11 +73,10 @@ export const PsionicShop = (props, context) => {
   );
 };
 
-export const PsionicsList = (props, context) => {
-  const { act, data } = useBackend<PsiData>(context);
+export const PsionicsList = (props) => {
+  const { act, data } = useBackend<PsiData>();
 
   const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
     `searchTerm`,
     ``
   );
