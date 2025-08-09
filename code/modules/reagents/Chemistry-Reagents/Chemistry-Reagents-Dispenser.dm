@@ -548,6 +548,17 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 	color = "#d8ff00"
 	value = 0
 
+/// Acid used by Greimorians. More toxic but significantly less acidic
+/singleton/reagent/acid/greimorian
+	name = "Greimorian Acid"
+	description = "Greimorian acid commonly used by bombardiers. Very toxic but hardly acidic."
+	taste_description = "coppery foulness"
+	reagent_state = LIQUID
+	color = "#aecc04"
+	power = 2
+	meltdose = 100 // it fires 15u per shot, this needs to be very high
+	value = 2
+
 /singleton/reagent/silicon
 	name = "Silicon"
 	description = "A tetravalent metalloid, silicon is less reactive than its chemical analog carbon."
