@@ -13,12 +13,10 @@ const DeviceEnrollment = (props) => {
   const { act, data } = useBackend<NTOSClientData>();
   const { available_presets, ntnet_status } = data;
   const [deviceType, setDeviceType] = useLocalState(
-    context,
     'setDeviceType',
     1
   );
   const [devicePreset, setDevicePreset] = useLocalState(
-    context,
     'setDevicePreset',
     ''
   );

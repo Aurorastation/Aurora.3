@@ -53,7 +53,6 @@ export const Vending = (props) => {
 export const ShowAllItems = (props) => {
   const { act, data } = useBackend<VendingData>();
   const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
     `searchTerm`,
     ``
   );

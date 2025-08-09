@@ -13,8 +13,8 @@ export const meta = {
 };
 
 const Story = (props) => {
-  const [progress, setProgress] = useLocalState(context, 'progress', 0.5);
-  const [color, setColor] = useLocalState(context, 'color', '');
+  const [progress, setProgress] = useLocalState('progress', 0.5);
+  const [color, setColor] = useLocalState('color', '');
 
   const color_data = color
     ? { color: color }

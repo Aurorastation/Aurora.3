@@ -35,7 +35,6 @@ export const TextInputModal = (props) => {
     title,
   } = data;
   const [input, setInput] = useLocalState<string>(
-    context,
     'input',
     placeholder || ''
   );

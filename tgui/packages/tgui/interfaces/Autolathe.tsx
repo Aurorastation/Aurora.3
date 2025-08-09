@@ -46,7 +46,7 @@ type QueueItem = {
 
 export const Autolathe = (props) => {
   const { act, data } = useBackend<AutolatheData>();
-  const [tab, setTab] = useLocalState(context, 'tab', 'All');
+  const [tab, setTab] = useLocalState('tab', 'All');
 
   return (
     <Window theme="hephaestus" width="1000" height="700">
@@ -114,13 +114,12 @@ export const Autolathe = (props) => {
 
 export const CategoryData = (props) => {
   const { act, data } = useBackend<AutolatheData>();
-  const [tab, setTab] = useLocalState(context, 'tab', 'All');
+  const [tab, setTab] = useLocalState('tab', 'All');
   const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
     `searchTerm`,
     ``
   );
-  const [amount, setAmount] = useLocalState(context, 'amount', 1);
+  const [amount, setAmount] = useLocalState('amount', 1);
 
   return (
     <Section

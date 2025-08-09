@@ -27,7 +27,7 @@ export const AlertModal = (props) => {
     timeout,
     title,
   } = data;
-  const [selected, setSelected] = useLocalState<number>(context, 'selected', 0);
+  const [selected, setSelected] = useLocalState<number>('selected', 0);
   // Dynamically sets window dimensions
   const windowHeight =
     115 +

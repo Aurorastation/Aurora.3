@@ -19,7 +19,6 @@ type Ghost = {
 export const FollowMenu = (props) => {
   const { act, data } = useBackend<FollowData>();
   const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
     `searchTerm`,
     ``
   );

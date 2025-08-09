@@ -20,7 +20,6 @@ export const Holopad = (props) => {
   const { act, data } = useBackend<HolopadData>();
 
   const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
     `searchTerm`,
     ``
   );
@@ -76,7 +75,6 @@ export const HolopadList = (props) => {
   const { act, data } = useBackend<HolopadData>();
 
   const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
     `searchTerm`,
     ``
   );

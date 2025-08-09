@@ -17,7 +17,6 @@ export const AccessList = (props) => {
   } = props;
 
   const [wildcardTab, setWildcardTab] = useSharedState(
-    context,
     'wildcardSelected',
     showBasic ? 'None' : Object.keys(wildcardSlots)[0]
   );
@@ -134,7 +133,6 @@ export const FormatWildcards = (props) => {
   const { wildcardSlots = {}, showBasic, basicUsed = 0, basicMax = 0 } = props;
 
   const [wildcardTab, setWildcardTab] = useSharedState(
-    context,
     'wildcardSelected',
     showBasic ? 'None' : Object.keys(wildcardSlots)[0]
   );
@@ -188,7 +186,6 @@ const RegionTabList = (props) => {
   const { accesses = [] } = props;
 
   const [selectedAccessName, setSelectedAccessName] = useSharedState(
-    context,
     'accessName',
     accesses[0]?.name
   );
@@ -229,7 +226,6 @@ const RegionAccessList = (props) => {
   } = props;
 
   const [wildcardTab, setWildcardTab] = useSharedState(
-    context,
     'wildcardSelected',
     showBasic ? 'None' : Object.keys(wildcardSlots)[0]
   );
@@ -244,7 +240,6 @@ const RegionAccessList = (props) => {
   }
 
   const [selectedAccessName] = useSharedState(
-    context,
     'accessName',
     accesses[0]?.name
   );

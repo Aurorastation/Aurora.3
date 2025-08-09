@@ -19,7 +19,6 @@ type Alarm = {
 export const AtmosAlarmControl = (props) => {
   const { act, data } = useBackend<AlarmData>();
   const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
     `searchTerm`,
     ``
   );

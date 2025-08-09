@@ -37,12 +37,10 @@ type User = {
 export const ChatClient = (props) => {
   const { act, data } = useBackend<ChatData>();
   const [editingRingtone, setEditingRingtone] = useLocalState(
-    context,
     'editingRingtone',
     0
   );
   const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
     `searchTerm`,
     ``
   );
@@ -98,7 +96,6 @@ export const ChatClient = (props) => {
 export const Users = (props) => {
   const { act, data } = useBackend<ChatData>();
   const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
     `searchTerm`,
     ``
   );
@@ -138,7 +135,6 @@ export const Users = (props) => {
 export const AllUsers = (props) => {
   const { act, data } = useBackend<ChatData>();
   const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
     `searchTerm`,
     ``
   );
@@ -179,30 +175,26 @@ export const AllUsers = (props) => {
 export const Chat = (props) => {
   const { act, data } = useBackend<ChatData>();
   const [newMessage, setNewMessage] = useLocalState<string>(
-    context,
     `newMessage`,
     ``
   );
 
   const [creatingJoinPassword, setCreatingJoinPassword] = useLocalState(
-    context,
     'creatingJoinPassword',
     0
   );
 
   const [password, setPassword] = useLocalState<string>(
-    context,
     `password`,
     ``
   );
 
   const [creatingTitle, setCreatingTitle] = useLocalState(
-    context,
     'creatingTitle',
     0
   );
 
-  const [title, setTitle] = useLocalState<string>(context, `title`, ``);
+  const [title, setTitle] = useLocalState<string>(`title`, ``);
 
   return (
     <Section
@@ -346,31 +338,26 @@ export const Chat = (props) => {
 export const ChannelsWindow = (props) => {
   const { act, data } = useBackend<ChatData>();
   const [channelSearchTerm, setChannelSearchTerm] = useLocalState<string>(
-    context,
     `channelSearchTerm`,
     ``
   );
 
   const [creatingChannelName, setCreatingChannelName] = useLocalState(
-    context,
     'creatingChannelName',
     0
   );
 
   const [channelName, setChannelName] = useLocalState(
-    context,
     'channelName',
     ''
   );
 
   const [enteringJoinPassword, setEnteringJoinPassword] = useLocalState(
-    context,
     'enteringJoinPassword',
     0
   );
 
   const [joinPassword, setJoinPassword] = useLocalState(
-    context,
     'joinPassword',
     ''
   );

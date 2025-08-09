@@ -11,7 +11,7 @@ import { Window } from './layouts';
 import { selectBackend } from './backend';
 import { selectDebug } from './debug/selectors';
 
-const requireInterface = require.context('./interfaces');
+const requireInterface = require('./interfaces');
 
 const routingError =
   (type: 'notFound' | 'missingExport', name: string) => () => {

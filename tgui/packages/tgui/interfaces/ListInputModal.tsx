@@ -25,17 +25,14 @@ export const ListInputModal = (props) => {
     title,
   } = data;
   const [selected, setSelected] = useLocalState<number>(
-    context,
     'selected',
     items.indexOf(init_value)
   );
   const [searchBarVisible, setSearchBarVisible] = useLocalState<boolean>(
-    context,
     'searchBarVisible',
     items.length > 9
   );
   const [searchQuery, setSearchQuery] = useLocalState<string>(
-    context,
     'searchQuery',
     ''
   );

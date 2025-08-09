@@ -21,7 +21,6 @@ export const PsionicShop = (props) => {
   const { act, data } = useBackend<PsiData>();
 
   const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
     `searchTerm`,
     ``
   );
@@ -78,7 +77,6 @@ export const PsionicsList = (props) => {
   const { act, data } = useBackend<PsiData>();
 
   const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
     `searchTerm`,
     ``
   );

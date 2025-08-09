@@ -23,7 +23,6 @@ export function createStats(verbose: boolean): StatsOptions {
 const dirname = path.resolve();
 
 export default defineConfig({
-  context: dirname,
   devtool: false,
   entry: {
     tgui: './packages/tgui',

@@ -13,7 +13,7 @@ export const meta = {
 };
 
 const Story = (props) => {
-  const [theme, setTheme] = useLocalState(context, 'kitchenSinkTheme');
+  const [theme, setTheme] = useLocalState('kitchenSinkTheme');
   return (
     <Section>
       <LabeledList>

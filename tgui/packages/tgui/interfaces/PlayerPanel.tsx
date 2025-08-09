@@ -26,7 +26,6 @@ export const PlayerPanel = (props) => {
   const { act, data } = useBackend<PanelData>();
 
   const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
     `searchTerm`,
     ``
   );

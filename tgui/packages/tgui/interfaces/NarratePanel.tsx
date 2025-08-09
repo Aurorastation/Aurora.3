@@ -11,27 +11,22 @@ export type NarrateData = {
 export const NarratePanel = (props) => {
   const { act, data } = useBackend<NarrateData>();
   const [narrateText, setNarrateText] = useLocalState(
-    context,
     'narrateText',
     ''
   );
   const [narrateSize, setNarrateSize] = useLocalState(
-    context,
     'narrateSize',
     2
   );
   const [narrateRange, setNarrateRange] = useLocalState(
-    context,
     'narrateRange',
     7
   );
   const [narrateStyle, setNarrateStyle] = useLocalState(
-    context,
     'textStyle',
     'notice'
   );
   const [narrateLocation, setNarrateLocation] = useLocalState(
-    context,
     'narrateLocation',
     'View'
   );

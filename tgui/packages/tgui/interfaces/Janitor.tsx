@@ -22,7 +22,7 @@ type Supply = {
 
 export const Janitor = (props) => {
   const { act, data } = useBackend<JanitorData>();
-  const [tab, setTab] = useLocalState(context, 'tab', 'Mops');
+  const [tab, setTab] = useLocalState('tab', 'Mops');
   return (
     <NtosWindow>
       <NtosWindow.Content scrollable>

@@ -65,8 +65,8 @@ export const ATM = (props) => {
 
 export const LoginWindow = (props) => {
   const { act, data } = useBackend<ATMData>();
-  const [acc, setAcc] = useSharedState<string>(context, 'acc', '');
-  const [pin, setPin] = useLocalState<string>(context, 'pin', '');
+  const [acc, setAcc] = useSharedState<string>('acc', '');
+  const [pin, setPin] = useLocalState<string>('pin', '');
 
   return (
     <Section>
@@ -112,25 +112,22 @@ export const LoginWindow = (props) => {
 
 export const AuthenticatedWindow = (props) => {
   const { act, data } = useBackend<ATMData>();
-  const [withdraw, setWithdraw] = useLocalState<number>(context, 'withdraw', 0);
+  const [withdraw, setWithdraw] = useLocalState<number>('withdraw', 0);
   const [security, setSecurity] = useLocalState<boolean>(
-    context,
     'security',
     false
   );
   const [transfer, setTransfer] = useLocalState<boolean>(
-    context,
     'transfer',
     false
   );
-  const [target, setTarget] = useLocalState<string>(context, 'target', '');
-  const [funds, setFunds] = useLocalState<number>(context, 'funds', 0);
+  const [target, setTarget] = useLocalState<string>('target', '');
+  const [funds, setFunds] = useLocalState<number>('funds', 0);
   const [purpose, setPurpose] = useLocalState<string>(
-    context,
     'purpose',
     'Funds transfer'
   );
-  const [logs, setLogs] = useLocalState<boolean>(context, 'logs', false);
+  const [logs, setLogs] = useLocalState<boolean>('logs', false);
 
   return (
     <Section>

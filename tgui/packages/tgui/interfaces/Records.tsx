@@ -82,7 +82,6 @@ type RecordLocked = {
 export const Records = (props) => {
   const { act, data } = useBackend<RecordsData>();
   const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
     `searchTerm`,
     ``
   );
@@ -109,7 +108,7 @@ export const Records = (props) => {
 
 export const RecordsView = (props) => {
   const { act, data } = useBackend<RecordsData>();
-  const [recordTab, setRecordTab] = useLocalState(context, 'recordTab', 'All');
+  const [recordTab, setRecordTab] = useLocalState('recordTab', 'All');
 
   return (
     <Stack>
@@ -123,9 +122,8 @@ export const RecordsView = (props) => {
 
 export const ListAllRecords = (props) => {
   const { act, data } = useBackend<RecordsData>();
-  const [recordTab, setRecordTab] = useLocalState(context, 'recordTab', 'All');
+  const [recordTab, setRecordTab] = useLocalState('recordTab', 'All');
   const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
     `searchTerm`,
     ``
   );
@@ -181,62 +179,51 @@ export const ListAllRecords = (props) => {
 // Omega shitcode ahead but this is my like 56th UI and I don't give a fuck anymore.
 export const ListActive = (props) => {
   const { act, data } = useBackend<RecordsData>();
-  const [recordTab, setRecordTab] = useLocalState(context, 'recordTab', 'All');
+  const [recordTab, setRecordTab] = useLocalState('recordTab', 'All');
   const [editingPhysStatus, setEditingPhysStatus] = useLocalState<boolean>(
-    context,
     'editingPhysStatus',
     false
   );
   const [editingMentalStatus, setEditingMentalStatus] = useLocalState<boolean>(
-    context,
     'editingMentalStatus',
     false
   );
   const [editingFingerprint, setEditingFingerprint] = useLocalState<boolean>(
-    context,
     'editingFingerprint',
     false
   );
   const [editingCriminalStatus, setEditingCriminalStatus] =
-    useLocalState<boolean>(context, 'editingCriminalStatus', false);
+    useLocalState<boolean>('editingCriminalStatus', false);
   const [editingSpecies, setEditingSpecies] = useLocalState<boolean>(
-    context,
     'editingSpecies',
     false
   );
   const [editingCitizenship, setEditingCitizenship] = useLocalState<boolean>(
-    context,
     'editingCitizenship',
     false
   );
   const [editingReligion, setEditingReligion] = useLocalState<boolean>(
-    context,
     'editingReligion',
     false
   );
   const [editingEmployer, setEditingEmployer] = useLocalState<boolean>(
-    context,
     'editingEmployer',
     false
   );
   const [editingDNA, setEditingDNA] = useLocalState<boolean>(
-    context,
     'editingDNA',
     false
   );
 
   const [editingDisabilities, setEditingDisabilities] = useLocalState<boolean>(
-    context,
     'editingDisabilities',
     false
   );
   const [editingAllergies, setEditingAllergies] = useLocalState<boolean>(
-    context,
     'editingAllergies',
     false
   );
   const [editingDisease, setEditingDisease] = useLocalState<boolean>(
-    context,
     'editingDisease',
     false
   );

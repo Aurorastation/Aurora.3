@@ -107,12 +107,10 @@ export const CargoOrder = (props) => {
 export const MainPage = (props) => {
   const { act, data } = useBackend<CargoData>();
   const [details, setDetails] = useLocalState<boolean>(
-    context,
     'details',
     false
   );
   const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
     `searchTerm`,
     ``
   );

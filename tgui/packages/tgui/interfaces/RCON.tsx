@@ -50,7 +50,6 @@ export const RCON = (props) => {
 export const SMESInfo = (props) => {
   const { act, data } = useBackend<RCONData>();
   const [smesSearchTerm, setSmesSearchTerm] = useLocalState<string>(
-    context,
     `smesSearchTerm`,
     ``
   );
@@ -197,7 +196,6 @@ export const SMESInfo = (props) => {
 export const BreakerInfo = (props) => {
   const { act, data } = useBackend<RCONData>();
   const [breakerSearchTerm, setBreakerSearchTerm] = useLocalState<string>(
-    context,
     `breakerSearchTerm`,
     ``
   );

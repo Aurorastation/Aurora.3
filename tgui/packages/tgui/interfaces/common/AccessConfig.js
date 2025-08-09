@@ -13,7 +13,6 @@ export const AccessConfig = (props) => {
     denyDep,
   } = props;
   const [selectedAccessName, setSelectedAccessName] = useLocalState(
-    context,
     'accessName',
     accesses[0]?.name
   );

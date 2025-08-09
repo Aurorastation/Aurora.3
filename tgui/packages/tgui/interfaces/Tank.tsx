@@ -16,7 +16,7 @@ export type TankData = {
 export const Tank = (props) => {
   const { act, data } = useBackend<TankData>();
 
-  const [tank_color, setColor] = useLocalState(context, 'color', '');
+  const [tank_color, setColor] = useLocalState('color', '');
 
   const tank_presure_color = tank_color
     ? { color: tank_color }

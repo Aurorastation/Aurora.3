@@ -32,7 +32,6 @@ type Reactant = {
 export const FusionCoreControl = (props) => {
   const { act, data } = useBackend<FusionCoreData>();
   const [override, setOverride] = useSharedState<boolean>(
-    context,
     'override',
     false
   );

@@ -72,17 +72,14 @@ const GasHandbook = (props) => {
   const { act, data } = useBackend<{ gasInfo: Gas[] }>();
   const { gasInfo } = data;
   const [activeGasId, setActiveGasId] = useLocalState(
-    context,
     'activeGasId',
     ''
   );
   const [activeReactionId, setActiveReactionId] = useLocalState(
-    context,
     'activeReactionId',
     ''
   );
   const [gasActiveInput, setGasActiveInput] = useLocalState(
-    context,
     'gasActiveInput',
     false
   );
@@ -130,17 +127,14 @@ const ReactionHandbook = (props) => {
   const { act, data } = useBackend<{ reactionInfo: Reaction[] }>();
   const { reactionInfo } = data;
   const [activeGasId, setActiveGasId] = useLocalState(
-    context,
     'activeGasId',
     ''
   );
   const [activeReactionId, setActiveReactionId] = useLocalState(
-    context,
     'activeReactionId',
     ''
   );
   const [reactionActiveInput, setReactionActiveInput] = useLocalState(
-    context,
     'reactionActiveInput',
     false
   );
@@ -228,12 +222,10 @@ export const AtmosHandbookContent = (
 
 export const atmosHandbookHooks = () => {
   const [activeGasId, setActiveGasId] = useLocalState(
-    context,
     'activeGasId',
     ''
   );
   const [activeReactionId, setActiveReactionId] = useLocalState(
-    context,
     'activeReactionId',
     ''
   );

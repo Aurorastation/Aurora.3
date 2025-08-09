@@ -73,7 +73,6 @@ export const ShowNetworks = (props) => {
 export const ShowNetworkCameras = (props) => {
   const { act, data } = useBackend<CameraData>();
   const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
     `searchTerm`,
     ``
   );

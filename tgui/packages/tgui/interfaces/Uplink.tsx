@@ -122,7 +122,6 @@ const ItemCategoriesSection = function (
   data: UplinkData
 ) {
   const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
     `searchTerm`,
     ``
   );
@@ -140,7 +139,6 @@ const ItemCategoriesSection = function (
 
 const ItemSearch = function (context: any) {
   const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
     `searchTerm`,
     ``
   );
@@ -173,12 +171,11 @@ const CategoriesList = function (act: any, data: UplinkData) {
 
 const ItemSection = function (context: any, act: any, data: UplinkData) {
   const [sortDesc, setSortDesc] = useLocalState<boolean>(
-    context,
     `sortDesc`,
     true
   );
 
-  const [searchTerm] = useLocalState<string>(context, `searchTerm`, ``);
+  const [searchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   if (searchTerm) {
     if (data.menu === 0 && searchTerm.length <= 2) {

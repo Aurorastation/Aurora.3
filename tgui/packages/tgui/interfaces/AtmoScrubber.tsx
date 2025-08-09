@@ -22,8 +22,8 @@ export type AtmoScrubberData = {
 export const AtmoScrubber = (props) => {
   const { act, data } = useBackend<AtmoScrubberData>();
 
-  const [tank_color] = useLocalState(context, 'tank_color', '');
-  const [cell_color] = useLocalState(context, 'tank_color', '');
+  const [tank_color] = useLocalState('tank_color', '');
+  const [cell_color] = useLocalState('tank_color', '');
 
   const tank_presure_color = tank_color
     ? { color: tank_color }

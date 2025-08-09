@@ -51,18 +51,15 @@ type EvacOption = {
 export const CommandCommunications = (props) => {
   const { act, data } = useBackend<CommsData>();
   const [choosingAlert, setChoosingAlert] = useLocalState<boolean>(
-    context,
     `choosingAlert`,
     false
   );
 
   const [firstLine, setFirstLine] = useLocalState<string>(
-    context,
     `firstLine`,
     ''
   );
   const [secondLine, setSecondLine] = useLocalState<string>(
-    context,
     `secondLine`,
     ''
   );
@@ -277,7 +274,6 @@ export const CommandCommunications = (props) => {
 export const MessageList = (props) => {
   const { act, data } = useBackend<CommsData>();
   const [viewingMessage, setViewingMessage] = useLocalState<number | null>(
-    context,
     'viewingMessage',
     null
   );

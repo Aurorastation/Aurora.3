@@ -13,8 +13,8 @@ export const meta = {
 };
 
 const Story = (props) => {
-  const [number, setNumber] = useLocalState(context, 'number', 0);
-  const [text, setText] = useLocalState(context, 'text', 'Sample text');
+  const [number, setNumber] = useLocalState('number', 0);
+  const [text, setText] = useLocalState('text', 'Sample text');
   return (
     <Section>
       <LabeledList>

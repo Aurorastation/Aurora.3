@@ -16,7 +16,6 @@ type Recipe = {
 export const CookingCodex = (props) => {
   const { act, data } = useBackend<CodexData>();
   const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
     `searchTerm`,
     ``
   );

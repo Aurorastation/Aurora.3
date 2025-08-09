@@ -16,12 +16,10 @@ export const StatusDisplayControls = (props) => {
   } = data;
 
   const [upperText, setUpperText] = useSharedState(
-    context,
     'statusUpperText',
     initialUpper
   );
   const [lowerText, setLowerText] = useSharedState(
-    context,
     'statusLowerText',
     initialLower
   );

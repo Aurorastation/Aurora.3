@@ -18,13 +18,11 @@ export const Map = (props) => {
   const { act, data } = useBackend<MapData>();
 
   const [minimapZoom, setMinimapZoom] = useLocalState<number>(
-    context,
     `minimapZoom`,
     150
   );
 
   const [showLegend, setShowLegend] = useLocalState<boolean>(
-    context,
     `showLegend`,
     false
   );

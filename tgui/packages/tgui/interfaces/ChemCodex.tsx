@@ -29,7 +29,6 @@ type Reagent = {
 export const ChemCodex = (props) => {
   const { act, data } = useBackend<CodexData>();
   const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
     `searchTerm`,
     ``
   );
