@@ -119,7 +119,7 @@
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/horizon/command/bridge/selfdestruct
-	name = "Command - Station Authentication Terminal Safe"
+	name = "Authentication Terminal Safe"
 	icon_state = "bridge"
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 

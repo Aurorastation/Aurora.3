@@ -41,6 +41,7 @@
 	name = "Gravity Generator"
 	icon_state = "engine"
 	horizon_deck = 1
+	area_flags = AREA_FLAG_RAD_SHIELDED
 	area_blurb = "The air in here tastes like copper, sour sugar, and smoke; none of the angles seem right. That probably means everything is working."
 	area_blurb_category = "engi_breakroom"
 
