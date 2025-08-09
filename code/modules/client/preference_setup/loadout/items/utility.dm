@@ -179,3 +179,35 @@
 /datum/gear/utility/buddy_tag/New()
 	..()
 	gear_tweaks += new /datum/gear_tweak/buddy_tag_config()
+
+/datum/gear/utility/earphones
+	display_name = "earphones selection"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+	path = /obj/item/clothing/ears/earphones
+	cost = 1
+
+/datum/gear/utility/earphones/New()
+	..()
+	var/list/earphones = list()
+	earphones["headphones"] = /obj/item/clothing/ears/earphones/headphones
+	earphones["earphones"] = /obj/item/clothing/ears/earphones
+	earphones["earbuds"] = /obj/item/clothing/ears/earphones/earbuds
+	gear_tweaks += new /datum/gear_tweak/path(earphones)
+
+/datum/gear/utility/earphones_music_cartridge
+	display_name = "earphones music cartridge selection"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	path = /obj/item/music_cartridge/audioconsole
+	cost = 1
+
+/datum/gear/utility/earphones_music_cartridge/New()
+	..()
+	var/list/music_cartridges = list()
+	music_cartridges["Konyang Vibes 2463"] = /obj/item/music_cartridge/konyang_retrowave
+	music_cartridges["Top of the Charts 66 (Venusian Hits)"] = /obj/item/music_cartridge/venus_funkydisco
+	music_cartridges["SCC Welcome Package"] = /obj/item/music_cartridge/audioconsole
+	music_cartridges["Spacer Classics Vol. 1"] = /obj/item/music_cartridge/ss13
+	music_cartridges["Indulgence EP (X-Rock)"] = /obj/item/music_cartridge/xanu_rock
+	music_cartridges["Electro-Swing of Adhomai"] = /obj/item/music_cartridge/adhomai_swing
+	music_cartridges["Europa: Best of the 50s"] = /obj/item/music_cartridge/europa_various
+	gear_tweaks += new /datum/gear_tweak/path(music_cartridges)

@@ -193,19 +193,18 @@
 	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "Paramedic", "Psychiatrist", "Medical Intern", "Corporate Liaison", "Research Director","Scientist", "Xenobiologist", "Xenobotanist", "Xenoarchaeologist", "Research Intern", "Assistant", "Off-Duty Crew Member", "Corporate Reporter", "Captain", "Bridge Crew", "Medical Personnel", "Science Personnel")
 
 /datum/gear/augment/sightlights
-	display_name = "Zeng-Hu ocular sightlights"
-	description = "Designed to assist Zeng-Hu medical personnel in darker areas or places experiencing periodic power issues, Sightlights allow one to use their eyes as a flashlight. These are the original high-spec models available exclusively through Zeng-Hu."
-	path = /obj/item/organ/internal/augment/sightlights
-	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
-	faction = "Zeng-Hu Pharmaceuticals"
-	cost = 3
-	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "Paramedic", "Psychiatrist", "Medical Intern", "Corporate Liaison", "Research Director","Scientist", "Xenobiologist", "Xenobotanist", "Xenoarchaeologist", "Research Intern", "Assistant", "Off-Duty Crew Member", "Corporate Reporter", "Captain", "Bridge Crew", "Medical Personnel", "Science Personnel")
-
-/datum/gear/augment/sightlights/generic
 	display_name = "offbrand ocular sightlights"
 	description = "Designed to assist personnel in darker areas or places experiencing periodic power issues, sightlights allow one to use their eyes as a flashlight. Later SCC-mediated negotiation loosened the augment's patent restrictions, allowing offbrand manufacture and use of lesser models by other members of the Chainlink."
-	path = /obj/item/organ/internal/augment/sightlights/generic
+	path = /obj/item/organ/internal/augment/sightlights
 	cost = 3
+
+/datum/gear/augment/sightlights/zenghu
+	display_name = "Zeng-Hu ocular sightlights"
+	description = "Designed to assist Zeng-Hu medical personnel in darker areas or places experiencing periodic power issues, Sightlights allow one to use their eyes as a flashlight. These are the original high-spec models available exclusively through Zeng-Hu."
+	path = /obj/item/organ/internal/augment/sightlights/zenghu
+	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
+	faction = "Zeng-Hu Pharmaceuticals"
+	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "Paramedic", "Psychiatrist", "Medical Intern", "Corporate Liaison", "Research Director","Scientist", "Xenobiologist", "Xenobotanist", "Xenoarchaeologist", "Research Intern", "Assistant", "Off-Duty Crew Member", "Corporate Reporter", "Captain", "Bridge Crew", "Medical Personnel", "Science Personnel")
 
 /datum/gear/augment/zenghu_mask
 	display_name = "zeng-hu facial augment selection"
@@ -299,3 +298,76 @@
 	faction = "Private Military Contracting Group"
 	cost = 4
 	allowed_roles = list("Physician", "Surgeon", "Pharmacist", "Paramedic", "Psychiatrist", "Medical Intern", "Medical Personnel", "Security Officer", "Warden", "Security Cadet", "Investigator", "Security Personnel", "Corporate Liaison", "Assistant", "Off-Duty Crew Member", "Corporate Reporter", "Bridge Crew")
+
+/datum/gear/augment/auxiliary_heart
+	display_name = "Auxiliary Heart"
+	description = "Primarily intended for soldiers and the elderly, the auxiliary heart is a small secondary heart implanted below the original. Should the original heart shut down, the secondary heart will activate, keeping the user alive until the original can be restarted or replaced."
+	path = /obj/item/organ/internal/augment/bioaug/auxiliary_heart
+	origin_restriction = list(/singleton/origin_item/origin/galatea)
+	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
+	cost = 2
+
+/datum/gear/augment/boosted_heart
+	display_name = "Boosted Heart"
+	description = "Intended for athletes, some workers, and soldiers, this improved heart increases blood flow and circulation. It provides an improvement to blood oxygenation and stamina, at the cost of requiring more food and water. Outside of Galatea, this augment is popular among professional athletes."
+	path = /obj/item/organ/internal/heart/boosted_heart
+	origin_restriction = list(/singleton/origin_item/origin/galatea)
+	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
+	cost = 3
+
+/datum/gear/augment/boosted_liver
+	display_name = "Boosted Liver"
+	description = "Designed primarily for diplomats or Galateans abroad, the boosted liver improves toxin filtering, giving a resistance to toxin damage. As a consequence, it makes it impossible for the user to get drunk."
+	path = /obj/item/organ/internal/liver/boosted_liver
+	origin_restriction = list(/singleton/origin_item/origin/galatea)
+	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
+	cost = 2
+
+/datum/gear/augment/mind_blanker
+	display_name = "Galatean Mind Blanker"
+	description = "A small, discrete organ attached near the base of the brainstem. Any attempt to read the mind of an individual with this augment installed will fail, as will attempts at psychic brainwashing."
+	path = /obj/item/organ/internal/augment/bioaug/mind_blanker
+	origin_restriction = list(/singleton/origin_item/origin/galatea)
+	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
+	cost = 2
+
+/datum/gear/augment/mind_blanker_lethal
+	display_name = "Galatean Mind Blanker (Lethal)"
+	description = "Available only to higher-up MfAS agents and members of the Galatean government. This enhanced variant of a mind blanker introduces a psionic trap which inflicts severe neural damage on anyone attempting to read the user's mind."
+	path = /obj/item/organ/internal/augment/bioaug/mind_blanker_lethal
+	origin_restriction = list(/singleton/origin_item/origin/galatea)
+	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
+	cost = 4
+	allowed_roles = list("Consular Officer")
+
+/datum/gear/augment/bio_head_fluff
+	display_name = "custom head bioaug"
+	description = "A fluff based bioaug that can be renamed/redescribed to appear as something else for RP purposes."
+	path = /obj/item/organ/internal/augment/bioaug/head_fluff
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	origin_restriction = list(/singleton/origin_item/origin/galatea)
+	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
+
+/datum/gear/augment/bio_chest_fluff
+	display_name = "custom chest bioaug"
+	description = "A fluff based bioaug that can be renamed/redescribed to appear as something else for RP purposes."
+	path = /obj/item/organ/internal/augment/bioaug/head_fluff/chest_fluff
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	origin_restriction = list(/singleton/origin_item/origin/galatea)
+	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
+
+/datum/gear/augment/bio_rhand_fluff
+	display_name = "custom right hand bioaug"
+	description = "A fluff based bioaug that can be renamed/redescribed to appear as something else for RP purposes."
+	path = /obj/item/organ/internal/augment/bioaug/head_fluff/rhand_fluff
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	origin_restriction = list(/singleton/origin_item/origin/galatea)
+	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
+
+/datum/gear/augment/bio_lhand_fluff
+	display_name = "custom left hand bioaug"
+	description = "A fluff based bioaug that can be renamed/redescribed to appear as something else for RP purposes."
+	path = /obj/item/organ/internal/augment/bioaug/head_fluff/lhand_fluff
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	origin_restriction = list(/singleton/origin_item/origin/galatea)
+	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)

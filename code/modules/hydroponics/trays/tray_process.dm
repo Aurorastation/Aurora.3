@@ -81,43 +81,40 @@
 	if(!environment && istype(T)) environment = T.return_air()
 	if(!environment) return
 
-	// Seed datum handles gasses, light and pressure relevant to whether the plant should be damaged.
+	// This carries the product of the handle_enviroment proc, so we can use it for multiple things.
+	var/environmental_damage
+	// This determines the probability of growth, for use with the get_probability_of_growth proc.
+	var/probability_of_growth
+
+	// Seed datum handles gasses, light and pressure relevant to whether the plant should be damaged, and what the probability of growth should be.
 	if(mechanical && closed_system)
-		health -= seed.handle_environment(T,environment,tray_light)
+		environmental_damage = seed.handle_environment(T,environment,tray_light)
+		probability_of_growth = seed.get_probability_of_growth(T,environment,tray_light)
 	else
-		health -= seed.handle_environment(T,environment)
+		environmental_damage = seed.handle_environment(T,environment)
+		probability_of_growth = seed.get_probability_of_growth(T,environment)
+
+	// Reduce health by however much handle_environent returned.
+	health -= environmental_damage
 
 	// If we're attached to a pipenet, then we should let the pipenet know we might have modified some gasses
 	if (closed_system && connected_port)
 		update_connected_network()
 
-	// By standard, the probability of growth is only 15%. This rises if growing conditions are within their preferences.
-	// This is intended to motivate the use of atmospheric equipment to more viably grow plants with irregular preferences.
-	// You *can* grow plants outside of their preferences without them dying so long as it's within their tolerance, but it'll be pretty slow.
-	var/probability_of_growth = 15
-
-	// Are we within the preference zone for temperature? If so, add 15% to the chance of growth.
-	if(abs(environment.temperature - seed.get_trait(TRAIT_IDEAL_HEAT)) < seed.get_trait(TRAIT_HEAT_PREFERENCE))
-		probability_of_growth += 15
-
-	// The light value we'll be using here.
-	var/actual_light
-
-	// What kind of lighting are we under? If the lid isn't on and the turf isn't dynamically lit, default to 5 lumens.
-	if(closed_system && mechanical)
-		actual_light = tray_light
-	else if(TURF_IS_DYNAMICALLY_LIT(T))
-		actual_light = T.get_lumcount(0, 3) * 10
+	// Handle light requirements for upcoming logic.
+	var/light_supplied
+	if(!closed_system)
+		if (TURF_IS_DYNAMICALLY_LIT(T))
+			light_supplied = T.get_lumcount(0, 3) * 10
+		else
+			light_supplied = 5
 	else
-		actual_light = 5
+		light_supplied = tray_light
 
-	// If we're within the preference zone for light, add another 5% to the chance for growth.
-	if(abs(actual_light - seed.get_trait(TRAIT_IDEAL_LIGHT)) < seed.get_trait(TRAIT_LIGHT_PREFERENCE))
-		probability_of_growth += 5
-
-	// Roll the dice on advancing plant age, per a probability defined by the previous two checks. At minimum, 15% - at maximum, 35%.
-	// TODO: Move to seed datum?
-	if(prob(probability_of_growth)) age += 1 * HYDRO_SPEED_MULTIPLIER
+	// We only let the plant grow if they're within their light and heat tolerances.
+	if(!seed.check_light_tolerances(light_supplied) && !seed.check_heat_tolerances(environment))
+		// Roll the dice on advancing plant age.
+		if(prob(probability_of_growth)) age += 1 * HYDRO_SPEED_MULTIPLIER
 
 	// Toxin levels beyond the plant's tolerance cause damage, but
 	// toxins are sucked up each tick and slowly reduce over time.
@@ -150,7 +147,12 @@
 
 	// If enough time (in cycles, not ticks) has passed since the plant was harvested, we're ready to harvest again.
 	if((age > seed.get_trait(TRAIT_MATURATION)) && ((age - lastproduce) > seed.get_trait(TRAIT_PRODUCTION)) && (!harvest && !dead))
-		harvest = 1
+		// If the plant matures while not at either its light or heat preference, it becomes stunted, reducing its yield on harvest.
+		// Better grow your plants better next time.
+		if(!seed.check_light_preferences(light_supplied) || !seed.check_heat_preferences(environment))
+			stunted = TRUE
+
+		harvest = TRUE
 		lastproduce = age
 		if(seed.get_trait(TRAIT_SPOROUS) && !closed_system)
 			seed.create_spores(get_turf(src))

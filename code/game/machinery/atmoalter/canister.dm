@@ -1,11 +1,6 @@
 /obj/machinery/portable_atmospherics/canister
 	name = "canister"
 	desc = "Holds gas. Has a built-in valve to allow for filling portable tanks."
-	desc_info = "The canister can be connected to a connector port with a wrench.  Tanks of gas (the kind you can hold in your hand) \
-	can be filled by the canister, by using the tank on the canister, increasing the release pressure, then opening the valve until it is full, and then close it.  \
-	*DO NOT* remove the tank until the valve is closed.  A gas analyzer can be used to check the contents of the canister."
-
-	desc_antag = "Canisters can be damaged, spilling their contents into the air, or you can just leave the release valve open."
 	icon = 'icons/obj/atmos.dmi'
 	icon_state = "yellow"
 	density = 1
@@ -26,6 +21,18 @@
 	interact_offline = 1 // Allows this to be used when not in powered area.
 	var/release_log = ""
 	var/update_flag = 0
+
+/obj/machinery/portable_atmospherics/canister/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "The canister can be connected to a connector port with a wrench."
+	. += "Tanks of gas (the kind you can hold in your hand) can be filled by the canister by using the tank on the canister, increasing \
+	the release pressure, then opening the valve until it is full, and then closing it again. <b>DO NOT</b> remove the tank until the valve is closed."
+	. += "A gas analyzer can be used to check the contents of the canister."
+
+/obj/machinery/portable_atmospherics/canister/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Canisters can be damaged, spilling their contents into the air, or you can just leave the release valve open."
+	. += "You can attach a signaler to \the [src] to remotely toggle its valve opened or closed!"
 
 /obj/machinery/portable_atmospherics/canister/drain_power()
 	return -1
@@ -241,9 +248,6 @@
 	icon_state = "whitebrs"
 	canister_color = "whitebrs"
 
-
-
-
 /obj/machinery/portable_atmospherics/canister/proc/check_change()
 	var/old_flag = update_flag
 	update_flag = 0
@@ -382,7 +386,8 @@ update_flag
 	else
 		can_label = 0
 
-	air_contents.react() //cooking up air cans - add phoron and oxygen, then heat above PHORON_MINIMUM_BURN_TEMPERATURE
+	// Cooking up air cans - add phoron and oxygen, then heat above PHORON_MINIMUM_BURN_TEMPERATURE
+	air_contents.react()
 
 /obj/machinery/portable_atmospherics/canister/return_air()
 	return air_contents
@@ -450,7 +455,7 @@ update_flag
 		var/datum/gas_mixture/thejetpack = jetpack.air_contents
 		var/env_pressure = thejetpack.return_pressure()
 		var/pressure_delta = min(10*ONE_ATMOSPHERE - env_pressure, (air_contents.return_pressure() - env_pressure)/2)
-		//Can not have a pressure delta that would cause environment pressure > tank pressure
+		// Cannot have a pressure delta that would cause environment pressure > tank pressure
 		var/transfer_moles = 0
 		if((air_contents.temperature > 0) && (pressure_delta > 0))
 			transfer_moles = pressure_delta*thejetpack.volume/(air_contents.temperature * R_IDEAL_GAS_EQUATION)//Actually transfer the gas
@@ -566,7 +571,9 @@ update_flag
 	if(valve_open)
 		log_open_userless("a signaler")
 
-//Dirty way to fill room with gas. However it is a bit easier to do than creating some floor/engine/n2o -rastaf0
+/**
+ * Dirty way to fill room with gas. However it is a bit easier to do than creating some floor/engine/n2o -rastaf0
+ */
 /obj/machinery/portable_atmospherics/canister/sleeping_agent/roomfiller/Initialize()
 	. = ..()
 	air_contents.gas[GAS_N2O] = 9*4000
@@ -605,7 +612,8 @@ update_flag
 	. = ..()
 	src.air_contents.temperature = 303.15
 
-/obj/machinery/portable_atmospherics/canister/chlorine/antag // Keeping the chlorine canister with the skull on it seems fun for antags.
+/// Keeping the chlorine canister with the skull on it seems fun for antags.
+/obj/machinery/portable_atmospherics/canister/chlorine/antag
 	name = "Canister: \[Cl2\]"
 	icon_state = "poisonous"
 	canister_color = "poisonous"

@@ -36,6 +36,17 @@ GLOBAL_DATUM_INIT(sound_player, /singleton/sound_player, new)
 
 	return PlaySoundDatum(source, sound_id, S, range, prefer_mute, sound_type)
 
+/singleton/sound_player/proc/PlayNonloopingSound(atom/source, sound_id, sound, volume, range, falloff = 1, echo, frequency, prefer_mute, sound_type = ASFX_AMBIENCE)
+	var/sound/S = istype(sound, /sound) ? sound : new(sound)
+	S.environment = 0 // Ensures a 3D effect even if x/y offset happens to be 0 the first time it's played
+	S.volume  = volume
+	S.falloff = falloff
+	S.echo = echo
+	S.frequency = frequency
+	S.repeat = FALSE
+
+	return PlaySoundDatum(source, sound_id, S, range, prefer_mute, sound_type)
+
 /singleton/sound_player/proc/PrivStopSound(datum/sound_token/sound_token)
 	var/channel = sound_token.sound.channel
 	var/sound_id = sound_token.sound_id

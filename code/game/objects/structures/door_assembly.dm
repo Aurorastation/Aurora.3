@@ -5,7 +5,6 @@
 /obj/structure/door_assembly
 	name = "airlock assembly"
 	desc = "An airlock assembly."
-	desc_info = "To create a glass airlock, add two reinforced glass sheets."
 	icon = 'icons/obj/doors/basic/single/generic/door.dmi'
 	icon_state = "construction"
 	anchored = FALSE
@@ -27,13 +26,46 @@
 	var/created_name
 	var/width = 1
 
+/obj/structure/door_assembly/assembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use a pen on \the [src] to name it."
+	if(anchored && !glass)
+		. += "Windows could be installed with some <b>reinforced glass</b>."
+	switch(state)
+		if(STATE_UNWIRED)
+			if(!anchored)
+				. += "\the [src] should first be anchored to the floor with some <b>bolts</b>."
+			else
+				. += "\the [src] will need to be fitted with some <b>cables</b>."
+		if(STATE_WIRED)
+			. += "Compatible <b>electronics</b> still need to be installed. Remember to configure them first!"
+		if(STATE_ELECTRONICS_INSTALLED)
+			. += "The remaining panels can be <b>screwed</b> closed to complete the assembly."
+
+/obj/structure/door_assembly/disassembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	switch(state)
+		if(STATE_UNWIRED)
+			if(anchored && glass)
+				. += "The glass window could be removed with a <b>welder</b>."
+			else if(anchored)
+				. += "\the [src] is anchored to the floor with some <b>bolts</b>."
+			else
+				. += "\the [src] could be reduced to metal sheets with a <b>welder</b>."
+		if(STATE_WIRED)
+			. += "The cables in \the [src] could be <b>cut</b>."
+		if(STATE_ELECTRONICS_INSTALLED)
+			. += "The electronics could be <b>pried</b> out."
+	. += "A <b>chainsaw</b> or equivalent would probably get rid of this thing, but make a real mess."
+
+/obj/structure/door_assembly/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. = ..()
+	. += "It is currently facing [dir2text(dir)]."
+
 /obj/structure/door_assembly/Initialize(mapload)
 	. = ..()
 	update_state()
-
-/obj/structure/door_assembly/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += "It is currently facing [dir2text(dir)]."
 
 /obj/structure/door_assembly/door_assembly_generic
 	base_name = "airlock"

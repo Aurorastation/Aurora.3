@@ -44,9 +44,11 @@
 	///The timer id for the build callback, if we're building something
 	var/build_callback_timer
 
-	component_hint_bin = "Upgraded <b>matter bins</b> will increase material storage capacity."
-	component_hint_laser = "Upgraded <b>micro-lasers</b> will increase fabrication speed."
-	component_hint_servo = "Upgraded <b>manipulators</b> will improve material use efficiency."
+/obj/machinery/mecha_part_fabricator/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>matter bins</b> will increase material storage capacity."
+	. += "Upgraded <b>micro-lasers</b> will increase fabrication speed."
+	. += "Upgraded <b>manipulators</b> will improve material use efficiency."
 
 /obj/machinery/mecha_part_fabricator/Initialize()
 	. = ..()
@@ -185,7 +187,7 @@
 	var/obj/item/stack/material/M = attacking_item
 	if(!M.material)
 		return ..()
-	if(!(M.material.name in list(MATERIAL_STEEL, MATERIAL_GLASS, MATERIAL_GOLD, MATERIAL_SILVER, MATERIAL_DIAMOND, MATERIAL_PHORON, MATERIAL_URANIUM)))
+	if(!(M.material.name in list(MATERIAL_STEEL, MATERIAL_GLASS, MATERIAL_GOLD, MATERIAL_SILVER, MATERIAL_DIAMOND, MATERIAL_PHORON, MATERIAL_URANIUM, MATERIAL_PLASTEEL, MATERIAL_ALUMINIUM, MATERIAL_LEAD)))
 		to_chat(user, SPAN_WARNING("\The [src] cannot hold [M.material.name]."))
 		return TRUE
 

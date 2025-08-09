@@ -119,7 +119,7 @@
 	update_icon()
 	pass_flags = PASSTABLE | PASSMOB
 	layer = TURF_DETAIL_LAYER
-	density = FALSE
+	ADD_TRAIT(src, TRAIT_UNDENSE, TRAIT_SOURCE_WORM_BURROW)
 	visible_message(SPAN_DANGER("\The [src] burrows into the ground!"))
 
 /mob/living/simple_animal/hostile/phoron_worm/proc/unburrow()
@@ -131,7 +131,7 @@
 	update_icon()
 	pass_flags = initial(pass_flags)
 	layer = initial(layer)
-	density = TRUE
+	REMOVE_TRAIT(src, TRAIT_UNDENSE, TRAIT_SOURCE_WORM_BURROW)
 	visible_message(SPAN_DANGER("\The [src] emerges from the ground!"))
 	if(mob_size > 15)
 		for(var/mob/living/M in orange(1,src))

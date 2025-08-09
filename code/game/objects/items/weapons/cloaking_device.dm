@@ -1,10 +1,6 @@
 /obj/item/cloaking_device
 	name = "cloaking device"
 	desc = "Use this to become invisible to the human eye. Contains a removable power cell behind a screwed compartment"
-	desc_info = "The default power cell will last for five minutes of continuous usage. It can be removed and recharged or replaced with a better one using a screwdriver.\
-	</br>This will not make you inaudible, your footsteps can still be heard, and it will make a very distinctive sound when uncloaking.\
-	</br>Any items you're holding in your hands can still be seen."
-	desc_antag  = "Being cloaked makes you impossible to click on, which offers a major advantage in combat. People can only hit you by blind-firing in your direction."
 	icon = 'icons/obj/item/device/chameleon.dmi'
 	icon_state = "shield0"
 	item_state = "electronic"
@@ -24,6 +20,25 @@
 	var/obj/item/cell/cell = null
 	var/mob/living/owner = null
 	var/datum/modifier/cloaking_device/modifier = null
+
+/obj/item/cloaking_device/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "The default power cell will last for five minutes of continuous usage. It can be removed and recharged or replaced with a better one using a screwdriver."
+	. += "This will not make you inaudible; your footsteps can still be heard, and it will make a very distinctive sound when uncloaking."
+	. += "Any items you're holding in your hands can still be seen."
+
+/obj/item/cloaking_device/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Being cloaked makes you impossible to click on, which offers a major advantage in combat."
+	. += "People can only hit you by blind-firing in your direction."
+
+/obj/item/cloaking_device/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. = ..()
+	if (!cell)
+		. += SPAN_WARNING("It needs a power cell to function.")
+	else
+		. += SPAN_NOTICE("It has [cell.percent()]% power remaining.")
 
 /obj/item/cloaking_device/New()
 	..()
@@ -138,13 +153,6 @@
 			deactivate()
 			return
 	..()
-
-/obj/item/cloaking_device/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if (!cell)
-		. += SPAN_WARNING("It needs a power cell to function.")
-	else
-		. += SPAN_NOTICE("It has [cell.percent()]% power remaining.")
 
 /obj/item/cloaking_device/process()
 	if (!cell || !cell.checked_use(power_usage*CELLRATE))

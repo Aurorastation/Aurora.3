@@ -102,7 +102,6 @@
 /obj/item/syndie/teleporter
 	name = "pen"
 	desc = "An instrument for writing or drawing with ink. This one is in black, in a classic, grey casing. Stylish, classic and professional."
-	desc_antag = "While this may look like a bog-standard pen, in reality, this is a handheld teleportation device. Simply click on any turf within view to attempt to teleport there! The teleporter will recharge after a minute."
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "pen"
 	item_state = "pen"
@@ -120,10 +119,12 @@
 	var/recharge_time = 1 MINUTE
 	var/when_recharge = 0
 
-/obj/item/syndie/teleporter/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/syndie/teleporter/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "While this may look like a bog-standard pen, in reality, this is a handheld teleportation device."
+	. += "Simply click on any turf within view to attempt to teleport there! The teleporter will recharge after a minute."
 	if(!ready_to_use && GLOB.burglars.is_antagonist(user.mind))
-		. += SPAN_NOTICE("Charging: [num2loadingbar(world.time / when_recharge)]")
+		. += "<b>Charging: [num2loadingbar(world.time / when_recharge)]</b>"
 
 /obj/item/syndie/teleporter/set_initial_maptext()
 	held_maptext = SMALL_FONTS(7, "Ready")

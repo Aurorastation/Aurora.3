@@ -204,3 +204,15 @@
 #define TRAIT_DOUBLE_SEATS "double_seats"
 /// Apply this to make a mob passable by other mobs.
 #define TRAIT_UNDENSE "undense"
+
+/// Trait comes from leaning on a wall.
+#define TRAIT_SOURCE_WALL_LEANING "wall_leaning"
+
+/// Phoron worm burrow.
+#define TRAIT_SOURCE_WORM_BURROW "worm_burrow"
+
+/// Trait given on mob death.
+#define TRAIT_SOURCE_MOB_DEATH "mob_death"
+
+/// Trait given when the mob lies down.
+#define TRAIT_SOURCE_LYING_DOWN "lying_down"

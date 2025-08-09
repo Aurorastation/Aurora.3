@@ -12,12 +12,15 @@
 	light_color = COLOR_RED
 	mouse_opacity = MOUSE_OPACITY_ICON
 
-	var/size = 1
 	var/energy = 0
 	var/plasma_temperature = 0
 	var/radiation = 0
+	/// The currently configured Field Strength (0.01 = 1 Tesla).
 	var/field_strength = 0.01
+	/// Radius of the EM field. Scales with Field Strength.
+	var/size = 1
 	var/tick_instability = 0
+	/// Ranges from 0-1. At or over 1, boom.
 	var/percent_unstable = 0
 	var/percent_unstable_archive = 0
 
@@ -88,7 +91,7 @@
 
 	particles.spawning = 0 //Turn off particles until something calls for it
 
-	//create the gimmicky things to handle field collisions
+	// Create the gimmicky things to handle field collisions
 	var/obj/effect/fusion_particle_catcher/catcher
 
 	catcher = new (locate(src.x,src.y,src.z))
@@ -124,6 +127,9 @@
 	addtimer(CALLBACK(src, PROC_REF(update_light_colors)), 10 SECONDS, TIMER_LOOP)
 	radio = new /obj/item/device/radio{channels=list("Engineering")}(src)
 
+/**
+ * Not blackbody radiation- with these colors, is some sort of space magic?
+ */
 /obj/effect/fusion_em_field/proc/update_light_colors()
 	var/use_range
 	var/use_power = 0
@@ -164,6 +170,16 @@
 		UNLINT(var/dm_filter/bloom = filters[3])
 		UNLINT(bloom.alpha = alpha)
 
+/**
+ * What are we doing every tick? A lot.
+ * * Grab some gas from the env and convert it to reactants for the pool.
+ * * Run react(), which updates a ton of vars for us to respond to here.
+ * * Based on our updated heat values, dump power into the power net.
+ * * Calculate what sort of entropy tax we're going to pay.
+ * * Run check_instability() and decide how sad/angry we are.
+ * * If we're sad/angry, try to send a warning.
+ * * Run radiate(). This is us paying the entropy tax.
+ */
 /obj/effect/fusion_em_field/process()
 	//make sure the field generator is still intact
 	if(QDELETED(owned_core))
@@ -184,19 +200,19 @@
 		if(added_particles)
 			uptake_gas.update_values()
 
-	//let the particles inside the field react
+	// Let the particles inside the field react.
 	React()
 
 	// Dump power to our powernet.
 	owned_core.add_avail(FUSION_ENERGY_PER_K * plasma_temperature)
 
-	// Energy decay.
+	// Energy decay (entropy tax).
 	if(plasma_temperature >= 1)
 		var/lost = plasma_temperature*0.01
 		radiation += lost
 		plasma_temperature -= lost
 
-	//handle some reactants formatting
+	// Handle some reactants formatting.
 	for(var/reactant in reactants)
 		var/amount = reactants[reactant]
 		if(amount < 1)
@@ -217,6 +233,19 @@
 		SSradiation.radiate(src, round(radiation*0.001))
 	return 1
 
+/**
+ * Handles checks for instability, does bad things if unstable. Instability
+ * ranges from 0 to 1.
+ *
+ * Possible consequences:
+ * * Field wobbles/ripples (visual only)
+ * * Fuel loss (rad spikes)
+ * * Flares (bigger rad spikes, bigger wobbles/ripples)
+ * * Rupture (you're fucked, we done)
+ *
+ * If instability hits 1, boom. Otherwise, this code looks fucked up, best
+ * document details later.
+ */
 /obj/effect/fusion_em_field/proc/check_instability()
 	if(tick_instability > 0)
 		percent_unstable_archive = percent_unstable
@@ -245,6 +274,7 @@
 				var/flare
 				var/fuel_loss
 				var/rupture
+				// Why the fuck are these less thans???
 				if(percent_unstable < 0.7)
 					visible_message(SPAN_DANGER("\The [src] ripples uneasily, like a disturbed pond."))
 					fuel_loss = prob(5)
@@ -323,6 +353,9 @@
 			radio.autosay(alert_msg, "INDRA Reactor Monitor")
 			public_alert = FALSE
 
+/**
+ *	Handles visual animation.
+ */
 /obj/effect/fusion_em_field/proc/Ripple(_size, _radius)
 	if(!animating_ripple)
 		UNLINT(var/dm_filter/ripple = filters[1])
@@ -338,6 +371,9 @@
 /obj/effect/fusion_em_field/proc/is_shutdown_safe()
 	return plasma_temperature < 1000
 
+/**
+ * EMP, rads, and a big fuckoff explosion.
+ */
 /obj/effect/fusion_em_field/proc/Rupture()
 	visible_message(SPAN_DANGER("\The [src] shudders like a dying animal before flaring to eye-searing brightness and rupturing!"))
 	set_light(1, 0.1, 15, 2, "#ccccff")
@@ -347,6 +383,10 @@
 	explosion(get_turf(owned_core), 8, 8)
 	return
 
+/**
+ * Sets field strength in Tesla, and corresponding field size.
+ * This currently does nothing mechanically, and the UI locks us to 100 max strength anyway.
+ */
 /obj/effect/fusion_em_field/proc/ChangeFieldStrength(new_strength)
 	var/calc_size = 1
 	if(new_strength <= 50)
@@ -384,9 +424,10 @@
 		reactants[name] = quantity
 	UpdateVisuals()
 
+/**
+ * Create our plasma field and dump it into our environment.
+ */
 /obj/effect/fusion_em_field/proc/RadiateAll(ratio_lost = 1)
-
-	// Create our plasma field and dump it into our environment.
 	var/turf/T = get_turf(src)
 	if(istype(T))
 		var/datum/gas_mixture/plasma
@@ -395,7 +436,8 @@
 				continue
 			if(!plasma)
 				plasma = new
-			plasma.adjust_gas(reactant, max(1,round(reactants[reactant]*0.1)), 0) // *0.1 to compensate for *10 when uptaking gas.
+			// *0.1 to compensate for *10 when uptaking gas.
+			plasma.adjust_gas(reactant, max(1,round(reactants[reactant]*0.1)), 0)
 		if(!plasma)
 			return
 		plasma.temperature = (plasma_temperature/2)
@@ -414,6 +456,22 @@
 	SSradiation.radiate(src, round(radiation*0.001))
 	Radiate()
 
+/**
+ * Called as part of our regular Process()
+ *
+ * First, it checks if our current size is intersecting with any
+ * offending objects. If it is... Well, it won't be for long, since it'll
+ * probably blow up the entire reactor in about 5 seconds.
+ *
+ * After that, it'll return the air it stole this tick, just heated up.
+ * The max temperature is capped so it can't be used for TEGs or shit.
+ *
+ * I don't know why radiation is set to 0 after that, because it means
+ * that the INDRA is COMPLETELY radiation-free short of exploding it.
+ *
+ * Probably need to delete radiation = 0 after testing it doesn't generate
+ * unreasonable amounts of rads with current values.
+ */
 /obj/effect/fusion_em_field/proc/Radiate()
 	if(istype(loc, /turf))
 		for(var/atom/movable/AM in range(max(1,FLOOR(size/2, 1)), loc))
@@ -435,7 +493,8 @@
 
 	if(owned_core && owned_core.loc)
 		var/datum/gas_mixture/environment = owned_core.loc.return_air()
-		if(environment && environment.temperature < (T0C+1000)) // Putting an upper bound on it to stop it being used in a TEG.
+		// Putting an upper bound on it to stop it being used in a TEG.
+		if(environment && environment.temperature < (T0C+1000))
 			environment.add_thermal_energy(plasma_temperature*20000)
 	radiation = 0
 
@@ -450,13 +509,21 @@
 		catcher.UpdateSize()
 	return changed
 
-//the !!fun!! part
+/**
+ * The !!fun!! part.
+ *
+ * Read through the whole code for actual details please, but TLDR:
+ * * Maximum of 10000 reactants present in the pool at a given time.
+ * * A random number of reactants are chosen to react in a given cycle.
+ * * Reactions follow a priority list- IE deut+trit before deut+deut.
+ * *
+ */
 /obj/effect/fusion_em_field/proc/React()
-	//loop through the reactants in random order
+	// Loop through the reactants in random order
 	var/list/react_pool = reactants.Copy()
 	last_reactants = 0
 
-	//cant have any reactions if there aren't any reactants present
+	// Can't have any reactions if there aren't any reactants present
 	if(length(react_pool))
 		//determine a random amount to actually react this cycle, and remove it from the standard pool
 		//this is a hack, and quite nonrealistic :(

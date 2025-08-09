@@ -1,13 +1,18 @@
 ////////////////////////////////////////
-//CONTAINS: Air Alarms and Fire Alarms//
+//CONTAINS: Air Alarms//
 ////////////////////////////////////////
 
 #define AALARM_MODE_SCRUBBING	1
-#define AALARM_MODE_REPLACEMENT	2 //like scrubbing, but faster.
-#define AALARM_MODE_PANIC		3 //constantly sucks all air
-#define AALARM_MODE_CYCLE		4 //sucks off all air, then refill and switches to scrubbing
-#define AALARM_MODE_FILL		5 //emergency fill
-#define AALARM_MODE_OFF			6 //Shuts it all down.
+/// Like scrubbing, but faster.
+#define AALARM_MODE_REPLACEMENT	2
+/// Constantly sucks all air
+#define AALARM_MODE_PANIC		3
+/// Sucks out all air, then refill and switches to scrubbing
+#define AALARM_MODE_CYCLE		4
+/// Emergency fill
+#define AALARM_MODE_FILL		5
+/// Shuts it all down.
+#define AALARM_MODE_OFF			6
 
 #define AALARM_SCREEN_MAIN		1
 #define AALARM_SCREEN_VENT		2
@@ -90,7 +95,7 @@ pixel_x = -10;
 dir = EAST; \
 pixel_x = 10;
 
-//all air alarms in area are connected via magic
+/// All air alarms in area are connected via magic
 /area
 	var/list/air_vent_names = list()
 	var/list/air_scrub_names = list()
@@ -113,18 +118,19 @@ pixel_x = 10;
 	z_flags = ZMM_MANGLE_PLANES
 
 	var/alarm_id = null
-	var/breach_detection = 1 // Whether to use automatic breach detection or not
 	var/frequency = 1439
+	/// Whether to use automatic breach detection or not
+	var/breach_detection = 1
 	//var/skipprocess = 0 //Experimenting
 	var/alarm_frequency = 1437
 	var/remote_control = 0
 	var/rcon_setting = 2
 	var/rcon_time = 0
 	var/locked = 1
-	var/wiresexposed = 0 // If it's been screwdrivered open.
 	var/aidisabled = 0
 	var/shorted = 0
-	var/highpower = 0	// if true, power usage & temperature regulation power is increased
+	/// If true, power usage & temperature regulation power is increased
+	var/highpower = FALSE
 
 	var/datum/wires/alarm/wires
 
@@ -132,7 +138,12 @@ pixel_x = 10;
 	var/screen = AALARM_SCREEN_MAIN
 	var/area_uid
 	var/area/alarm_area
-	var/buildstage = 2 //2 is built, 1 is building, 0 is frame.
+	/// Display name
+	var/alarm_area_name
+	/// FULL area name- only used internally in the TGUI for searches, and cached here. Dumb I know but it works.
+	var/alarm_area_name_full
+	/// 2 is built, 1 is building, 0 is frame.
+	var/buildstage = 2
 
 	var/target_temperature = T0C+20
 	var/regulating_temperature = 0
@@ -140,7 +151,8 @@ pixel_x = 10;
 	var/datum/radio_frequency/radio_connection
 
 	var/list/TLV = list()
-	var/list/trace_gas = list(GAS_N2O) //list of other gases that this air alarm is able to detect
+	/// List of other gases that this air alarm is able to detect
+	var/list/trace_gas = list(GAS_N2O)
 
 	var/danger_level = 0
 	var/pressure_dangerlevel = 0
@@ -289,6 +301,72 @@ pixel_x = 10;
 /obj/machinery/alarm/warm/south
 	PRESET_SOUTH
 
+/// Air alarm parent objs for Horizon shuttles. Handles access control without needing to manually override anything in mapping.
+/obj/machinery/alarm/shuttle
+	desc = "A device that controls the local air regulation machinery. This one is designed for use in shuttles."
+	req_access = null
+	highpower = 1
+
+/obj/machinery/alarm/shuttle/intrepid
+	req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_ATMOSPHERICS, ACCESS_INTREPID)
+
+/obj/machinery/alarm/shuttle/intrepid/north
+	PRESET_NORTH
+
+/obj/machinery/alarm/shuttle/intrepid/east
+	PRESET_EAST
+
+/obj/machinery/alarm/shuttle/intrepid/west
+	PRESET_WEST
+
+/obj/machinery/alarm/shuttle/intrepid/south
+	PRESET_SOUTH
+
+/obj/machinery/alarm/shuttle/spark
+	req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_ATMOSPHERICS, ACCESS_SPARK)
+
+/obj/machinery/alarm/shuttle/spark/north
+	PRESET_NORTH
+
+/obj/machinery/alarm/shuttle/spark/east
+	PRESET_EAST
+
+/obj/machinery/alarm/shuttle/spark/west
+	PRESET_WEST
+
+/obj/machinery/alarm/shuttle/spark/south
+	PRESET_SOUTH
+
+/obj/machinery/alarm/shuttle/quark
+	req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_ATMOSPHERICS, ACCESS_QUARK)
+
+/obj/machinery/alarm/shuttle/quark/north
+	PRESET_NORTH
+
+/obj/machinery/alarm/shuttle/quark/east
+	PRESET_EAST
+
+/obj/machinery/alarm/shuttle/quark/west
+	PRESET_WEST
+
+/obj/machinery/alarm/shuttle/quark/south
+	PRESET_SOUTH
+
+/obj/machinery/alarm/shuttle/canary
+	req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_ATMOSPHERICS, ACCESS_CANARY)
+
+/obj/machinery/alarm/shuttle/canary/north
+	PRESET_NORTH
+
+/obj/machinery/alarm/shuttle/canary/east
+	PRESET_EAST
+
+/obj/machinery/alarm/shuttle/canary/west
+	PRESET_WEST
+
+/obj/machinery/alarm/shuttle/canary/south
+	PRESET_SOUTH
+
 /obj/machinery/alarm/server/Initialize()
 	. = ..()
 	TLV[GAS_OXYGEN] =			list(-1.0, -1.0,-1.0,-1.0) // Partial pressure, kpa
@@ -302,14 +380,18 @@ pixel_x = 10;
 //For colder alarms, allowing pressure to drop a bit below normal is necessary. Pressure fluctuates downwards
 //While temperature stabilises.
 
-//Kitchen freezer
+/**
+ * Kitchen freezer
+ */
 /obj/machinery/alarm/freezer/Initialize()
 	. = ..()
 	TLV[GAS_OXYGEN] = list(16, 17, 135, 140) // Partial pressure, kpa
 	TLV["pressure"] = list(ONE_ATMOSPHERE*0.50,ONE_ATMOSPHERE*0.70,ONE_ATMOSPHERE*1.10,ONE_ATMOSPHERE*1.20)
 	TLV["temperature"] = list(0, 0, 273, T0C+40) // No lower limits. Alarm above 0c. Major alarm at harmful heat
 
-//Refridgerated area, cold but above-freezing
+/**
+ * Refridgerated area, cold but above-freezing
+ */
 /obj/machinery/alarm/cold/Initialize()
 	. = ..()
 	TLV["pressure"] =		list(ONE_ATMOSPHERE*0.70,ONE_ATMOSPHERE*0.80,ONE_ATMOSPHERE*1.10,ONE_ATMOSPHERE*1.20) /* kpa */
@@ -331,7 +413,7 @@ pixel_x = 10;
 		if(dir)
 			src.set_dir(dir)
 		buildstage = 0
-		wiresexposed = 1
+		panel_open = 1
 
 		update_icon()
 		set_pixel_offsets()
@@ -354,12 +436,15 @@ pixel_x = 10;
 
 /obj/machinery/alarm/proc/first_run()
 	alarm_area = get_area(src)
+	// Just directional indicators, if any
+	alarm_area_name = get_area_display_name(alarm_area, FALSE, FALSE, FALSE, TRUE)
+	alarm_area_name_full = get_area_display_name(alarm_area)
 	area_uid = alarm_area.uid
 	if (name == "alarm")
 		if (highpower)
-			name = "[alarm_area.name] High-Power Air Alarm"
+			name = "[alarm_area_name] High-Power Air Alarm"
 		else
-			name = "[alarm_area.name] Air Alarm"
+			name = "[alarm_area_name] Air Alarm"
 
 	if(!wires)
 		wires = new(src)
@@ -489,8 +574,9 @@ pixel_x = 10;
 
 			environment.merge(gas)
 
-
-// Returns whether this air alarm thinks there is a breach, given the sensors that are available to it.
+/**
+ * Returns whether this air alarm thinks there is a breach, given the sensors that are available to it.
+ */
 /obj/machinery/alarm/proc/breach_detected()
 	var/turf/simulated/location = loc
 
@@ -514,7 +600,7 @@ pixel_x = 10;
 	ClearOverlays()
 	icon_state = "alarmp"
 
-	if(wiresexposed)
+	if(panel_open)
 		icon_state = "alarmx"
 
 	if((stat & (NOPOWER|BROKEN)) || shorted)
@@ -565,7 +651,10 @@ pixel_x = 10;
 	frequency = new_frequency
 	radio_connection = SSradio.add_object(src, frequency, RADIO_TO_AIRALARM)
 
-/obj/machinery/alarm/proc/send_signal(var/target, var/list/command)//sends signal 'command' to 'target'. Returns 0 if no radio connection, 1 otherwise
+/**
+ * Sends signal 'command' to 'target'. Returns 0 if no radio connection, 1 otherwise
+ */
+/obj/machinery/alarm/proc/send_signal(var/target, var/list/command)
 	if(!radio_connection)
 		return 0
 
@@ -632,7 +721,7 @@ pixel_x = 10;
 	var/datum/signal/alert_signal = new
 	alert_signal.source = src
 	alert_signal.transmission_method = TRANSMISSION_RADIO
-	alert_signal.data["zone"] = alarm_area.name
+	alert_signal.data["zone"] = alarm_area_name
 	alert_signal.data["type"] = "Atmospheric"
 
 	if(alert_level==2)
@@ -657,7 +746,7 @@ pixel_x = 10;
 
 /obj/machinery/alarm/interact(mob/user)
 	ui_interact(user)
-	if (wiresexposed)
+	if (panel_open)
 		wires.interact(user)
 
 /obj/machinery/alarm/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, var/master_ui = null, var/datum/ui_state/state = GLOB.default_state)
@@ -666,8 +755,10 @@ pixel_x = 10;
 	var/remote_access = 0
 	if(state)
 		var/list/href = state.href_list(user)
-		remote_connection = href["remote_connection"]	// Remote connection means we're non-adjacent/connecting from another computer
-		remote_access = href["remote_access"]			// Remote access means we also have the privilege to alter the air alarm.
+		/// Remote connection means we're non-adjacent/connecting from another computer
+		remote_connection = href["remote_connection"]
+		/// Remote access means we also have the privilege to alter the air alarm.
+		remote_access = href["remote_access"]
 
 	data["locked"] = locked && !issilicon(user)
 	data["remote_connection"] = remote_connection
@@ -706,7 +797,6 @@ pixel_x = 10;
 	data["total_danger"] = danger_level
 	data["environment"] = environment_data
 	data["atmos_alarm"] = alarm_area.atmosalm
-	data["fire_alarm"] = alarm_area.fire != null
 	data["target_temperature"] = "[target_temperature - T0C]C"
 
 /obj/machinery/alarm/proc/populate_controls(var/list/data)
@@ -960,12 +1050,12 @@ pixel_x = 10;
 	switch(buildstage)
 		if(2)
 			if(attacking_item.isscrewdriver())  // Opening that Air Alarm up.
-				wiresexposed = !wiresexposed
-				to_chat(user, SPAN_NOTICE("You [wiresexposed ? "open" : "close"] the maintenance panel."))
+				panel_open = !panel_open
+				to_chat(user, SPAN_NOTICE("You [panel_open ? "open" : "close"] the maintenance panel."))
 				update_icon()
 				return TRUE
 
-			if (wiresexposed && attacking_item.iswirecutter())
+			if (panel_open && attacking_item.iswirecutter())
 				user.visible_message(SPAN_WARNING("[user] has cut the wires inside \the [src]!"), "You cut the wires inside \the [src].")
 				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 				new/obj/item/stack/cable_coil(get_turf(src), 5)
@@ -1046,8 +1136,6 @@ Just a object used in constructing air alarms
 	desc = "Looks like a circuit. Probably is."
 	w_class = WEIGHT_CLASS_SMALL
 	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 50)
-
-// Fire Alarms moved to firealarm.dm
 
 #undef AALARM_MODE_SCRUBBING
 #undef AALARM_MODE_REPLACEMENT

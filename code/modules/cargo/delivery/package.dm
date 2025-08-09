@@ -7,12 +7,7 @@
 	desc_extended = "\
 		This package makes use of the small-scale shipping network of Orion Express. \
 		It is a common sight all over the Spur, where Orion Express services depend on ordinary people and ships picking up and delivering packages for each other, \
-		with Orion Express only delivering to automated stations and other distribution points.\
-	"
-	desc_info = "\
-		You can deliver this package to a cargo delivery point. \
-		An additional 2% is added to your account on delivery, or paid to you directly. Can be loaded into a cargo pack.\
-	"
+		with Orion Express only delivering to automated stations and other distribution points."
 	icon = 'icons/obj/orion_delivery.dmi'
 	icon_state = "express_package"
 	item_state = "express_package"
@@ -37,11 +32,28 @@
 	/// If true, pay_amount goes into Operations Account
 	var/pays_horizon_account = TRUE
 
+/obj/item/cargo_package/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can deliver this package to a cargo delivery point."
+	. += "An additional 2% is added to your account on delivery, or paid to you directly. Can be loaded into a cargo pack."
+
+/obj/item/cargo_package/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(delivery_point_id)
+		// if name not already set by cargo receptacle, acquire the sector name instead
+		if(delivery_site == "Unknown")
+			if(delivery_point_sector)
+				var/obj/effect/overmap/visitable/delivery_sector = delivery_point_sector.resolve()
+				if(delivery_sector)
+					delivery_site = delivery_sector.name
+		. += SPAN_NOTICE("The label on the package reads: SITE: <b>[delivery_site]</b> | COORD: <b>[delivery_point_coordinates]</b> | ID: <b>[delivery_point_id]</b>")
+		. += SPAN_NOTICE("The price tag on the package reads: <b>[pay_amount]电</b>.")
+
 /obj/item/cargo_package/Initialize(mapload, obj/structure/cargo_receptacle/delivery_point)
 	. = ..()
-	pay_amount = rand(4, 7) * 1000
+	pay_amount = rand(4, 7) * 100
 	if(prob(3))
-		pay_amount = rand(12, 17) * 1000
+		pay_amount = rand(12, 17) * 100
 	if(delivery_point)
 		setup_delivery_point(delivery_point)
 	accent_color = pick(COLOR_RED, COLOR_AMBER, COLOR_PINK, COLOR_YELLOW, COLOR_LIME)
@@ -54,18 +66,6 @@
 		delivery_site = delivery_point.override_name
 	delivery_point_coordinates = "[delivery_point.x]-[delivery_point.y]"
 	pay_amount = pay_amount * delivery_point.payment_modifier
-
-/obj/item/cargo_package/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(delivery_point_id)
-		// if name not already set by cargo receptacle, acquire the sector name instead
-		if(delivery_site == "Unknown")
-			if(delivery_point_sector)
-				var/obj/effect/overmap/visitable/delivery_sector = delivery_point_sector.resolve()
-				if(delivery_sector)
-					delivery_site = delivery_sector.name
-		. += SPAN_NOTICE("The label on the package reads: SITE: <b>[delivery_site]</b> | COORD: <b>[delivery_point_coordinates]</b> | ID: <b>[delivery_point_id]</b>")
-		. += SPAN_NOTICE("The price tag on the package reads: <b>[pay_amount]电</b>.")
 
 /obj/item/cargo_package/do_additional_pickup_checks(var/mob/living/carbon/human/user)
 	if(!ishuman(user))
@@ -126,6 +126,11 @@
 	/// Whether this package is guaranteed to deliver to the horizon or not
 	var/horizon_delivery = FALSE
 
+/obj/item/cargo_package/offship/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(!delivery_point_id)
+		. += SPAN_NOTICE("Delivery site still being calculated, please check back later!")
+
 /obj/item/cargo_package/offship/Initialize(mapload, obj/structure/cargo_receptacle/delivery_point)
 	. = ..()
 
@@ -139,11 +144,6 @@
 		qdel(src)
 		return
 	setup_delivery_point(selected_delivery_point)
-
-/obj/item/cargo_package/offship/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(!delivery_point_id)
-		. += SPAN_NOTICE("Delivery site still being calculated, please check back later!")
 
 /obj/item/cargo_package/offship/to_horizon
 	horizon_delivery = TRUE
