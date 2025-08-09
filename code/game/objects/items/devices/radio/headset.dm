@@ -989,6 +989,12 @@
 	icon_state = "com_headset_alt"
 	item_state = "headset_alt"
 
+/obj/item/device/radio/headset/ert/siib
+	name = "radio headset"
+	desc = "An updated, modular intercom that fits over the head. Takes encryption keys. This one looks slightly modified..."
+	icon_state = "headset"
+	item_state = "headset"
+
 /obj/item/device/radio/headset/legion
 	name = "Tau Ceti Foreign Legion radio headset"
 	desc = "The headset used by NanoTrasen sanctioned response forces."

@@ -95,6 +95,17 @@
 	..()
 	icon_state = (ammo_magazine)? "vityaz" : "vityaz-empty"
 
+/obj/item/gun/projectile/automatic/c20r/sol/siib
+	name = "solarian SIIB submachine gun"
+	desc = "Based off the standard solarian M470-L, this SMG is used by SIIB Operatives during raids and specialist operations. Officially, this variant of the SMG does not exist."
+	icon = 'icons/obj/guns/sol_smg.dmi'
+	icon_state = "vityaz-siib"
+	item_state = "vityaz-siib"
+
+/obj/item/gun/projectile/automatic/c20r/sol/siib/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "vityaz-siib" : "vityaz-siib-empty"
+
 /obj/item/gun/projectile/automatic/xanusmg
 	name = "\improper Xanan submachine gun"
 	desc = "A sleek metal-framed submachine gun, produced by d.N.A Defense for the All-Xanu Armed Forces."
