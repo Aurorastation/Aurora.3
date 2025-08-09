@@ -27,10 +27,7 @@
 	var/list/datum/matter_synth/synths = null
 	var/icon_has_variants = FALSE
 	icon = 'icons/obj/item/stacks/materials.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_materials.dmi',
-		slot_r_hand_str = 'icons/mob/items/stacks/righthand_materials.dmi',
-		)
+	contained_sprite = TRUE
 
 /obj/item/stack/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
