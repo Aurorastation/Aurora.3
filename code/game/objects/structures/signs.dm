@@ -12,6 +12,8 @@
 	layer = ABOVE_WINDOW_LAYER
 	w_class = WEIGHT_CLASS_NORMAL
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
+	/// Indicates whether the sign is made of heavy material or not. If set true, the sign will play metal sounds when picked up or dropped.
+	var/heavy_sign = FALSE
 
 /obj/structure/sign/ex_act(severity)
 	qdel(src)
@@ -30,6 +32,14 @@
 	S.desc = desc
 	S.icon_state = icon_state
 	S.sign_state = icon_state
+	S.heavy_sign = heavy_sign
+	if(heavy_sign)
+		S.throw_speed = 3
+		S.throw_range = 3
+		S.force = 10
+		S.throwforce = 10
+		S.drop_sound = 'sound/items/drop/axe.ogg'
+		S.pickup_sound = 'sound/items/pickup/axe.ogg'
 	qdel(src)
 
 /obj/item/sign
@@ -38,6 +48,8 @@
 	icon = 'icons/obj/signs.dmi'
 	w_class = WEIGHT_CLASS_HUGE
 	var/sign_state = ""
+	/// Inherited in between item and structure instances.
+	var/heavy_sign = FALSE
 
 /obj/item/sign/attackby(obj/item/attacking_item, mob/user) // Construction.
 	if(attacking_item.isscrewdriver() && isturf(user.loc))
@@ -59,6 +71,7 @@
 		S.name = name
 		S.desc = desc
 		S.icon_state = sign_state
+		S.heavy_sign = heavy_sign
 		to_chat(user, "You fasten \the [S] with your [attacking_item].")
 		qdel(src)
 	else ..()
@@ -635,3 +648,34 @@
 	door to the tent with her body as the insurgents attempted to shoot through it. While she ultimately perished to gunfire, her sacrifice allowed the medical tent to be evacuated and let \
 	the 23rd capture all insurgents involved in the attack. Formerly a frontierswoman with no nation to call her own, she was buried with military honors and became the first Holy Martyr of \
 	Sun Reach in 2426. She is commonly venerated on Sun Reach and by Ma’zals throughout the Empire."
+
+/obj/structure/sign/floor_plaque
+	name = "plaque"
+	desc = "An adorned and polished bronze plaque, gleaming with first-class elegance."
+	icon_state = "plaque"
+	layer = DECAL_LAYER
+	heavy_sign = TRUE
+
+/obj/structure/sign/floor_plaque/horizon/captain_office
+	name = "Commemorative SCC Plaque"
+	desc = "The Stellar Corporate Conglomerate's logo is engraved in its bronze surface."
+	desc_extended = "The unbreakable chainlink, the one thing holding the Orion Spur together..."
+
+/obj/structure/sign/floor_plaque/horizon/service
+	name = "SCCV Horizon plaque"
+	desc = "A plaque commemorating the SCCV Horizon's launch by the unbreakable chainlink, the SCC. The one thing holding the Orion Spur together. According to some, anyways."
+
+/obj/structure/sign/floor_plaque/raskara_okon
+	name = "Okon 001 Plaque"
+	desc = "Granted as a gift to honor the Hadiist-Skrell relationship. Okon 001 will be the Party's eyes upon Adhomai."
+
+/obj/structure/sign/floor_plaque/halloween_event/entrance
+	name = "Fancy Plaque"
+	desc = "Welcome to the Infinity Reach Towers!"
+	desc_extended = "Welcome to the Infinity Reach Towers, a jewel of Nouvelle-Rochelle. We have several attractions here setup just for you! A haunted house, the renowned Ethereal Nexus Lounge, \
+	and so much more! Have a wonderful stay, and remember.. Happy Halloween!"
+
+/obj/structure/sign/floor_plaque/halloween_event/bridge
+	name = "Fancy Plaque"
+	desc = "Infinity Bridge."
+	desc_extended = "You're currently standing on the Infinity Bridge. This bridge is over 150 floors high!"
