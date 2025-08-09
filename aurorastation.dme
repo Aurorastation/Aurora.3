@@ -1407,6 +1407,7 @@
 #include "code\game\objects\structures\displaycase.dm"
 #include "code\game\objects\structures\door_assembly.dm"
 #include "code\game\objects\structures\ECD.dm"
+#include "code\game\objects\structures\engicart.dm"
 #include "code\game\objects\structures\extinguisher.dm"
 #include "code\game\objects\structures\fireaxe_cabinet.dm"
 #include "code\game\objects\structures\flags_banners.dm"
