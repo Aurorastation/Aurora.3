@@ -15,6 +15,10 @@
 	/// If set to 'True', it'll spawn a heavy sign item instead in `unfasten()` act.
 	var/heavy_sign = FALSE
 
+/obj/structure/sign/disassembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can use a <b>screwdriver</b> to fasten/unfasten \the [src]."
+
 /obj/structure/sign/ex_act(severity)
 	qdel(src)
 
