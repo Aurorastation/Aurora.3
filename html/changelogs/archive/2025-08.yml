@@ -143,3 +143,6 @@
   - refactor: Removed all lag-inducing hard deletes from mech code.
   Wowzewow (Wezzy):
   - bugfix: Fixes icecream cart icon2html.
+2025-08-09:
+  Kano:
+  - bugfix: Fixed shuttles not being able to dock with Horizon's docking arms.
