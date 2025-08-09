@@ -76,3 +76,18 @@
 
 /obj/item/device/augment_implanter/hivenet_warfare
 	new_augment =	/obj/item/organ/internal/augment/hiveshield/warfare
+
+/obj/item/device/augment_implanter/auxiliary_heart
+	new_augment =	/obj/item/organ/internal/augment/bioaug/auxiliary_heart
+
+/obj/item/device/augment_implanter/mind_blanker
+	new_augment =	/obj/item/organ/internal/augment/bioaug/mind_blanker
+
+/obj/item/device/augment_implanter/mind_blanker_lethal
+	new_augment =	/obj/item/organ/internal/augment/bioaug/mind_blanker_lethal
+
+/obj/item/device/augment_implanter/platelet_factories
+	new_augment =	/obj/item/organ/internal/augment/bioaug/platelet_factories
+
+/obj/item/device/augment_implanter/subdermal_carapace
+	new_augment =	/obj/item/organ/internal/augment/bioaug/subdermal_carapace
