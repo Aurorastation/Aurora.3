@@ -12,8 +12,8 @@
 	layer = ABOVE_WINDOW_LAYER
 	w_class = WEIGHT_CLASS_NORMAL
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
-	/// If set to 'True', it'll spawn a heavy sign item instead in `unfasten()` act.
-	var/heavy_sign = FALSE
+	/// Sign type path that'll be spawned in `unfasten()` act.
+	var/sign_type = /obj/item/sign
 
 /obj/structure/sign/disassembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -31,11 +31,7 @@
 
 /obj/structure/sign/proc/unfasten(mob/user)
 	user.visible_message(SPAN_NOTICE("\The [user] unfastens \the [src]."), SPAN_NOTICE("You unfasten \the [src]."))
-	var/obj/item/sign/S
-	if(heavy_sign)
-		S = new /obj/item/sign/heavy(src.loc)
-	else
-		S = new /obj/item/sign(src.loc)
+	var/obj/item/sign/S = new sign_type(get_turf(src))
 	S.name = name
 	S.desc = desc
 	S.icon_state = icon_state
@@ -49,6 +45,9 @@
 	w_class = WEIGHT_CLASS_HUGE
 	var/sign_state = ""
 
+	/// Used in a check to determine what type of item sign we're fastening and store this data in the structure sign.
+	var/heavy_type = FALSE
+
 /obj/item/sign/heavy
 	throw_speed = 3
 	throw_range = 3
@@ -56,6 +55,7 @@
 	throwforce = 10
 	drop_sound = 'sound/items/drop/axe.ogg'
 	pickup_sound = 'sound/items/pickup/axe.ogg'
+	heavy_type = TRUE
 
 /obj/item/sign/attackby(obj/item/attacking_item, mob/user) // Construction.
 	if(attacking_item.isscrewdriver() && isturf(user.loc))
@@ -77,8 +77,8 @@
 		S.name = name
 		S.desc = desc
 		S.icon_state = sign_state
-		if(istype(src, /obj/item/sign/heavy))
-			S.heavy_sign = TRUE
+		if(heavy_type)
+			S.sign_type = /obj/item/sign/heavy
 		to_chat(user, "You fasten \the [S] with your [attacking_item].")
 		qdel(src)
 	else ..()
@@ -661,7 +661,7 @@
 	desc = "An adorned and polished bronze plaque, gleaming with first-class elegance."
 	icon_state = "plaque"
 	layer = DECAL_LAYER
-	heavy_sign = TRUE
+	sign_type = /obj/item/sign/heavy
 
 /obj/structure/sign/floor_plaque/horizon/captain_office
 	name = "Commemorative SCC Plaque"
