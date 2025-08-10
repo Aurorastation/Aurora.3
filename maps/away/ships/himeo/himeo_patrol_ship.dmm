@@ -389,6 +389,24 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/himeo_patrol_ship/deck_2_interstitial)
+"bR" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_tcaf_shuttle";
+	name = "airlock_tcaf_shuttle";
+	req_one_access = list(204);
+	shuttle_tag = "TCAF Gunship"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/airlock_sensor/airlock_exterior{
+	pixel_x = -23;
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/large/airless,
+/area/space)
 "bS" = (
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2939,6 +2957,23 @@
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /turf/simulated/floor/tiled/full,
 /area/himeo_patrol_ship/eva)
+"ms" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_tcaf_shuttle";
+	name = "airlock_tcaf_shuttle";
+	req_one_access = list(204);
+	shuttle_tag = "TCAF Gunship"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/reinforced/large/airless,
+/area/space)
 "mt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 10
@@ -3226,6 +3261,12 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/himeo_patrol_ship/deck_2_office)
+"nC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/coalition,
+/area/shuttle/himeo_patrol/central)
 "nF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -4498,6 +4539,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/himeo_patrol_ship/deck_2_interstitial)
+"tx" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/coalition,
+/area/shuttle/himeo_patrol/central)
 "tF" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 9
@@ -5777,12 +5824,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/distribution)
-"yD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9
-	},
-/turf/simulated/wall/shuttle/dark/cardinal/coalition,
-/area/shuttle/himeo_patrol/central)
 "yF" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -9002,24 +9043,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/deck_2_interstitial)
-"MH" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 5
-	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
-	master_tag = "airlock_tcaf_shuttle";
-	name = "airlock_tcaf_shuttle";
-	req_one_access = list(204);
-	shuttle_tag = "TCAF Gunship"
-	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/airlock_sensor/airlock_exterior{
-	pixel_x = -23;
-	dir = 4
-	},
-/turf/simulated/floor/reinforced/large/airless,
-/area/space)
 "MI" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -9027,12 +9050,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/reinforced,
 /area/himeo_patrol_ship/ammunition)
-"MJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
-	},
-/turf/simulated/wall/shuttle/dark/cardinal/coalition,
-/area/shuttle/himeo_patrol/central)
 "MQ" = (
 /turf/simulated/floor/tiled/dark,
 /area/himeo_patrol_ship/deck_2_interstitial)
@@ -10512,23 +10529,6 @@
 	},
 /turf/simulated/floor,
 /area/himeo_patrol_ship/generator)
-"Sn" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 9
-	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4
-	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
-	master_tag = "airlock_tcaf_shuttle";
-	name = "airlock_tcaf_shuttle";
-	req_one_access = list(204);
-	shuttle_tag = "TCAF Gunship"
-	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/reinforced/large/airless,
-/area/space)
 "So" = (
 /obj/machinery/computer/ship/engines/terminal{
 	dir = 4
@@ -11444,8 +11444,8 @@
 	req_one_access = list(253)
 	},
 /obj/machinery/door/airlock/external/himeo_patrol,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/himeo_patrol/central)
@@ -113816,7 +113816,7 @@ rs
 SP
 cF
 Xh
-Sn
+ms
 so
 UC
 GJ
@@ -114072,8 +114072,8 @@ GM
 zx
 Bk
 GM
-MJ
-yD
+nC
+tx
 so
 UC
 hn
@@ -115101,7 +115101,7 @@ Xh
 Xh
 Zk
 Xh
-MH
+bR
 so
 UC
 jf
